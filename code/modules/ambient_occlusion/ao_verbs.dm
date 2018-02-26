@@ -12,6 +12,7 @@
 
 	for (var/turf/T in world)	// Yes, in world.
 		T.ao_neighbors = null	// To force a recalc.
+		T.ao_neighbors_mimic = null
 		if (T.permit_ao)
 			T.queue_ao()
 

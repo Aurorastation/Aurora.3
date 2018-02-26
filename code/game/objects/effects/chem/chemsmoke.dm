@@ -228,11 +228,18 @@
 /datum/effect/effect/system/smoke_spread/chem/spores/start()
 	..()
 	if(seed.get_trait(TRAIT_SPREAD))
+		var/sporecount = 0
 		for(var/turf/T in targetTurfs)
-			if(locate(/obj/machinery/portable_atmospherics/hydroponics/soil/invisible in T))
+			var/bad_turf = 0
+			for(var/obj/O in T)
+				if(O.density || istype(O, /obj/machinery/portable_atmospherics/hydroponics))
+					bad_turf = 1
+					break
+			if(bad_turf)
 				continue
-			if(prob(seed.get_trait(round(TRAIT_POTENCY/5))))
+			if(prob(min(seed.get_trait(TRAIT_POTENCY),50)) && sporecount < max(1,round(seed.get_trait(TRAIT_POTENCY)/20),1))
 				new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(T,seed)
+				sporecount++
 
 
 //------------------------------------------

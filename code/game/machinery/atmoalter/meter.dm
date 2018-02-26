@@ -65,7 +65,7 @@
 /obj/machinery/meter/examine(mob/user)
 	var/t = "A gas flow meter. "
 	
-	if(get_dist(user, src) > 3 && !(istype(user, /mob/living/silicon/ai) || istype(user, /mob/dead)))
+	if(get_dist(user, src) > 3 && !(istype(user, /mob/living/silicon/ai) || istype(user, /mob/abstract)))
 		t += "<span class='warning'>You are too far away to read it.</span>"
 	
 	else if(stat & (NOPOWER|BROKEN))

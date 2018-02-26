@@ -1,0 +1,6 @@
+author: Alberyk
+delete-after: True
+
+changes:
+  - rscadd: "Added some new gloves; brass knuckles, power fists and clawed gauntlets. Each of them has different effects in unarmed combat when worn."
+  - rscadd: "You can now select what kind of unarmed attack you want to use via a verb in the ic tab."

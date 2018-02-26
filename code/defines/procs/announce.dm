@@ -52,7 +52,7 @@
 
 datum/announcement/proc/Message(message as text, message_title as text)
 	for(var/mob/M in player_list)
-		if(!istype(M,/mob/new_player) && !isdeaf(M))
+		if(!istype(M,/mob/abstract/new_player) && !isdeaf(M))
 			M << "<h2 class='alert'>[title]</h2>"
 			M << "<span class='alert'>[message]</span>"
 			if (announcer)
@@ -77,7 +77,7 @@ datum/announcement/priority/command/Message(message as text, message_title as te
 	command += "<br><span class='alert'>[message]</span><br>"
 	command += "<br>"
 	for(var/mob/M in player_list)
-		if(!istype(M,/mob/new_player) && !isdeaf(M))
+		if(!istype(M,/mob/abstract/new_player) && !isdeaf(M))
 			M << command
 
 datum/announcement/priority/security/Message(message as text, message_title as text)
@@ -100,7 +100,7 @@ datum/announcement/proc/PlaySound(var/message_sound)
 	if(!message_sound)
 		return
 	for(var/mob/M in player_list)
-		if(!istype(M,/mob/new_player) && !isdeaf(M))
+		if(!istype(M,/mob/abstract/new_player) && !isdeaf(M) && (M.client.prefs.asfx_togs & ASFX_VOX))
 			M << message_sound
 
 datum/announcement/proc/Sound(var/message_sound)
@@ -119,6 +119,8 @@ datum/announcement/proc/Log(message as text, message_title as text)
 		message_admins("[key_name_admin(usr)] has made \a [announcement_type].", 1)
 
 /proc/GetNameAndAssignmentFromId(var/obj/item/weapon/card/id/I)
+	if(!I)
+		return "Unknown"
 	// Format currently matches that of newscaster feeds: Registered Name (Assigned Rank)
 	return I.assignment ? "[I.registered_name] ([I.assignment])" : I.registered_name
 

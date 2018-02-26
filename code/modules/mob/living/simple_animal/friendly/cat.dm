@@ -34,21 +34,21 @@
 	pass_flags = PASSTABLE
 	possession_candidate = 1
 
-/mob/living/simple_animal/cat/Life()
+/mob/living/simple_animal/cat/think()
 	//MICE!
-
-
 	..()
-
 	if (!stat)
 		for(var/mob/living/simple_animal/mouse/snack in oview(src,7))
 			if(snack.stat != DEAD && prob(65))//The probability allows her to not get stuck target the first mouse, reducing exploits
 				mousetarget = snack
 				movement_target = snack
-				foodtarget = 0//chasing mice takes precedence over eating food
+				foodtarget = 0	//chasing mice takes precedence over eating food
 				if(prob(15))
 					audible_emote(pick("hisses and spits!","mrowls fiercely!","eyes [snack] hungrily."))
+
+				addtimer(CALLBACK(src, .proc/attack_mice), 2)
 				break
+
 
 		if(!buckled)
 			if (turns_since_move > 5 || (flee_target || mousetarget))
@@ -63,10 +63,8 @@
 		if (!movement_target)
 			walk_to(src,0)
 
-		addtimer(CALLBACK(src, .proc/attack_mice), 2)
-
 		if(prob(2)) //spooky
-			var/mob/dead/observer/spook = locate() in range(src,5)
+			var/mob/abstract/observer/spook = locate() in range(src,5)
 			if(spook)
 				var/turf/T = spook.loc
 				var/list/visible = list()
@@ -89,7 +87,7 @@
 
 	if(movement_target)
 		stop_automated_movement = 1
-		walk_to(src,movement_target,0,seek_move_delay)
+		walk_to(src, movement_target, 0, DS2TICKS(seek_move_delay))
 
 /mob/living/simple_animal/cat/proc/attack_mice()
 	if((src.loc) && isturf(src.loc))
@@ -183,7 +181,7 @@
 				//walk to friend
 				stop_automated_movement = 1
 				movement_target = friend
-				walk_to(src, movement_target, near_dist, seek_move_delay)
+				walk_to(src, movement_target, near_dist, DS2TICKS(seek_move_delay))
 
 		//already following and close enough, stop
 		else if (current_dist <= near_dist)
@@ -196,7 +194,7 @@
 	if (!friend || movement_target != friend)
 		..()
 
-/mob/living/simple_animal/cat/fluff/Life()
+/mob/living/simple_animal/cat/fluff/think()
 	..()
 	if (stat || QDELETED(friend))
 		return

@@ -77,6 +77,8 @@
 	release_force = 10
 	throw_distance = 10
 
+	needspin = FALSE
+
 	var/list/darts = list()
 	var/max_darts = 1
 	var/obj/item/weapon/syringe_cartridge/next

@@ -17,13 +17,13 @@ var/global/list/uplink_locations = list("PDA", "Headset", "None")
 		"ss13_characters_flavour" = list(
 			"vars" = list(
 				"records_exploit" = "exploit_record"
-			), 
+			),
 			"args" = list("char_id")
 		),
 		"ss13_characters" = list(
 			"vars" = list(
 				"uplink_location" = "uplinklocation"
-			), 
+			),
 			"args" = list("id")
 		)
 	)
@@ -37,7 +37,7 @@ var/global/list/uplink_locations = list("PDA", "Headset", "None")
 /datum/category_item/player_setup_item/antagonism/basic/gather_save_query()
 	return list(
 		"ss13_characters_flavour" = list(
-			"records_exploit", 
+			"records_exploit",
 			"char_id" = 1
 		),
 		"ss13_characters" = list(
@@ -48,7 +48,7 @@ var/global/list/uplink_locations = list("PDA", "Headset", "None")
 	)
 
 /datum/category_item/player_setup_item/antagonism/basic/gather_save_parameters()
-	return list("records_exploit" = pref.exploit_record, "char_id" = pref.current_character, "uplink_location" = pref.uplinklocation, "id" = pref.current_character, "ckey" = pref.client.ckey)
+	return list("records_exploit" = pref.exploit_record, "char_id" = pref.current_character, "uplink_location" = pref.uplinklocation, "id" = pref.current_character, "ckey" = PREF_CLIENT_CKEY)
 
 /datum/category_item/player_setup_item/antagonism/basic/sanitize_character()
 	pref.uplinklocation	= sanitize_inlist(pref.uplinklocation, uplink_locations, initial(pref.uplinklocation))

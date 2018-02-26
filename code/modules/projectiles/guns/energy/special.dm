@@ -111,8 +111,8 @@
 	w_class = 3.0
 	origin_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
 	projectile_type = /obj/item/projectile/energy/phoron
-	can_turret = 1		
-	turret_is_lethal = 0		
+	can_turret = 1
+	turret_is_lethal = 0
 	turret_sprite_set = "net"
 
 /obj/item/weapon/gun/energy/beegun
@@ -158,21 +158,7 @@
 /obj/item/weapon/gun/energy/mousegun/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
 	var/T = get_turf(user)
 	spark(T, 3, alldirs)
-	failcheck()
 	..()
-
-/obj/item/weapon/gun/energy/mousegun/proc/failcheck()
-	lightfail = 0
-	if (prob(5))
-		for (var/mob/living/M in range(rand(1,4),src)) //Big failure, TIME FOR RADIATION BITCHES
-			if (src in M.contents)
-				M << "<span class='danger'>[src]'s reactor overloads!</span>"
-			M << "<span class='warning'>You feel a wave of heat wash over you.</span>"
-			M.apply_effect(300, IRRADIATE)
-		//crit_fail = 1 //break the gun so it stops recharging
-		STOP_PROCESSING(SSprocessing, src)
-		update_icon()
-	return 0
 
 /obj/item/weapon/gun/energy/net
 	name = "net gun"
@@ -261,7 +247,6 @@
 	toggle_wield(usr)
 
 /obj/item/weapon/gun/energy/vaurca/gatlinglaser/special_check(var/mob/user)
-	..()
 	if(is_charging)
 		user << "<span class='danger'>\The [src] is already spinning!</span>"
 		return 0
@@ -275,12 +260,14 @@
 					"<span class='danger'>You hear the spin of a rotary gun!</span>"
 					)
 	is_charging = 1
-	sleep(30)
+	if(!do_after(user, 30))
+		return 0
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
 		return
 	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))
-	return 1
+
+	return ..()
 
 /obj/item/weapon/gun/energy/vaurca/blaster
 	name = "\improper Zo'ra Blaster"
@@ -300,7 +287,6 @@
 	fire_delay = 0
 	can_turret = 1
 	turret_sprite_set = "laser"
-
 	firemodes = list(
 		list(mode_name="single shot", burst=1, burst_delay = 1, fire_delay = 0),
 		list(mode_name="concentrated burst", burst=3, burst_delay = 1, fire_delay = 5)
@@ -336,6 +322,7 @@
 	can_embed = 0
 	self_recharge = 1
 	recharge_time = 2
+	needspin = FALSE
 
 	action_button_name = "Wield thermal lance"
 
@@ -357,7 +344,6 @@
 	return ..() //Pistolwhippin'
 
 /obj/item/weapon/gun/energy/vaurca/typec/special_check(var/mob/user)
-	..()
 	if(is_charging)
 		user << "<span class='danger'>\The [src] is already charging!</span>"
 		return 0
@@ -370,12 +356,14 @@
 					"<span class='danger'>You hear a low pulsing roar!</span>"
 					)
 	is_charging = 1
-	sleep(20)
+	if(!do_after(user, 20))
+		return 0
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
 		return
 	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))
-	return 1
+
+	return ..()
 
 /obj/item/weapon/gun/energy/vaurca/typec/attack_hand(mob/user as mob)
 	if(loc != user)
@@ -423,7 +411,8 @@
 	recharge_time = 1
 	charge_meter = 1
 	charge_cost = 50
-	can_turret = 1		 
+	dispersion = list(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)
+	can_turret = 1
 	turret_sprite_set = "thermaldrill"
 
 	firemodes = list(
@@ -449,7 +438,6 @@
 	toggle_wield(usr)
 
 /obj/item/weapon/gun/energy/vaurca/thermaldrill/special_check(var/mob/user)
-	..()
 	if(is_charging)
 		user << "<span class='danger'>\The [src] is already charging!</span>"
 		return 0
@@ -462,12 +450,14 @@
 					"<span class='danger'>You hear a low pulsing roar!</span>"
 					)
 	is_charging = 1
-	sleep(40)
+	if(!do_after(user, 40))
+		return 0
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
 		return
 	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
-	return 1
+
+	return ..()
 
 /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill
 	name = "mounted thermal drill"
@@ -495,7 +485,6 @@
 	dispersion = list(0.0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.0, 3.3, 3.6, 3.9, 4.2, 4.5, 4.8, 5.1, 5.4, 5.7, 6.0, 6.3, 6.6, 6.9, 7.2, 7.5, 7.8, 8.1, 8.4, 8.7)
 
 /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill/special_check(var/mob/user)
-	..()
 	if(is_charging)
 		user << "<span class='danger'>\The [src] is already charging!</span>"
 		return 0
@@ -505,10 +494,12 @@
 					"<span class='danger'>You hear a low pulsing roar!</span>"
 					)
 	is_charging = 1
-	sleep(20)
+	if(!do_after(user, 20))
+		return 0
 	is_charging = 0
 	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))
-	return 1
+
+	return ..()
 
 /*/obj/item/weapon/gun/energy/vaurca/flamer
 	name = "Vaurcae Incinerator"

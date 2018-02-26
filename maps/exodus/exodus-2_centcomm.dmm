@@ -9864,7 +9864,7 @@
 	},
 /area/centcom/control)
 "wN" = (
-/obj/structure/sign/redcross{
+/obj/structure/sign/greencross{
 	pixel_y = -32
 	},
 /turf/unsimulated/floor{
@@ -13206,7 +13206,7 @@
 	},
 /area/centcom/holding)
 "Dz" = (
-/obj/structure/sign/redcross,
+/obj/structure/sign/greencross,
 /turf/unsimulated/wall,
 /area/centcom/holding)
 "DA" = (

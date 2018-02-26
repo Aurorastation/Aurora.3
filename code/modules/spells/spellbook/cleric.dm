@@ -9,7 +9,7 @@
 	title = "Cleric's Tome of Healing"
 	title_desc = "Buy spells using your available spell slots. Artefacts may also be bought however their cost is permanent."
 	book_flags = CAN_MAKE_CONTRACTS
-	max_uses = 6
+	max_uses = 8
 
 	spells = list(/spell/targeted/heal_target = 						1,
 				/spell/targeted/heal_target/major = 				1,
@@ -19,6 +19,7 @@
 				/spell/targeted/mend = 							1,
 				/spell/targeted/genetic/blind = 				1,
 				/spell/targeted/shapeshift/baleful_polymorph = 			1,
+				/spell/targeted/flesh_to_stone =                        1,
 				/spell/targeted/projectile/dumbfire/stuncuff = 			1,
 				/spell/targeted/ethereal_jaunt = 				2,
 				/spell/aoe_turf/knock = 					1,

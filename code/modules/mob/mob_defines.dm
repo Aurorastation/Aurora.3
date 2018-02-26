@@ -31,6 +31,7 @@
 	var/obj/screen/gun/move/gun_move_icon = null
 	var/obj/screen/gun/run/gun_run_icon = null
 	var/obj/screen/gun/mode/gun_setting_icon = null
+	var/obj/screen/up_hint = null
 
 	//spells hud icons - this interacts with add_spell and remove_spell
 	var/list/obj/screen/movable/spell_master/spell_masters = null
@@ -64,6 +65,7 @@
 	var/stuttering = null
 	var/slurring = null
 	var/brokejaw = null
+	var/tarded = null
 	var/real_name = null
 	var/flavor_text = ""
 	var/med_record = ""
@@ -222,3 +224,5 @@
 
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/disconnect_time = null//Time of client loss, set by Logout(), for timekeeping
+
+	var/mob_thinks = TRUE

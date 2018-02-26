@@ -24,7 +24,7 @@
 		ME.host << "The captive mind of [src] whispers, \"[message]\""
 
 		for (var/mob/M in player_list)
-			if (istype(M, /mob/new_player))
+			if (istype(M, /mob/abstract/new_player))
 				continue
 			else if(M.stat == 2 &&  M.client.prefs.toggles & CHAT_GHOSTEARS)
 				M << "The captive mind of [src] whispers, \"[message]\""

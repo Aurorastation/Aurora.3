@@ -302,16 +302,12 @@
 	C.forceMove(src)
 
 	if(load_item_visible)
-		C.pixel_x += load_offset_x
-		C.pixel_y += load_offset_y
-		C.layer = layer
+		var/mutable_appearance/MA = new(C)
+		MA.pixel_x += load_offset_x
+		MA.pixel_y += load_offset_y
+		MA.layer = FLOAT_LAYER
 
-		overlays += C
-
-		//we can set these back now since we have already cloned the icon into the overlay
-		C.pixel_x = initial(C.pixel_x)
-		C.pixel_y = initial(C.pixel_y)
-		C.layer = initial(C.layer)
+		add_overlay(MA)
 
 /obj/vehicle/train/cargo/trolley/unload(var/mob/user, var/direction)
 	if(istype(load, /datum/vehicle_dummy_load))
@@ -319,7 +315,7 @@
 		load = dummy_load.actual_load
 		dummy_load.actual_load = null
 		qdel(dummy_load)
-		overlays.Cut()
+		cut_overlays()
 	..()
 
 //-------------------------------------------

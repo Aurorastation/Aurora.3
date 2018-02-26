@@ -170,7 +170,7 @@
 	set desc = "Return to your phylactery and rebuild your body."
 
 	var/mob/living/carbon/C = usr
-	if(!C.stat)
+	if(C.stat != DEAD)
 		C << "<span class='notice'>You're not dead yet!</span>"
 		return
 
@@ -197,12 +197,7 @@
 		return
 
 /mob/living/carbon/proc/post_dark_resurrection()
-	if(src.stat == DEAD)
-		dead_mob_list -= src
-		living_mob_list += src
-	src.stat = CONSCIOUS
 	src.revive()
-	src.reagents.clear_reagents()
 	src << "<span class='danger'>You have returned to life!</span>"
 	src.visible_message("<span class='cult'>[src] rises up from the dead!</span>")
 	playsound(src, 'sound/magic/pope_entry.ogg', 100, 1)

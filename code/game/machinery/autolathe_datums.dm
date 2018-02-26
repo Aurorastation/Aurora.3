@@ -451,3 +451,8 @@
 	path = /obj/item/weapon/handcuffs
 	hidden = 1
 	category = "General"
+
+/datum/autolathe/recipe/emergency_cell
+	name = "miniature cell"
+	path = /obj/item/weapon/cell/device/emergency_light/empty
+	category = "Engineering"

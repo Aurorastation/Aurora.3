@@ -36,9 +36,9 @@
 		"ss13_characters" = list(
 			"vars" = list(
 				"nt_relation" = "nanotrasen_relation",
-				"home_system", 
-				"citizenship", 
-				"faction", 
+				"home_system",
+				"citizenship",
+				"faction",
 				"religion"
 			),
 			"args" = list("id")
@@ -60,8 +60,8 @@
 			"char_id" = 1
 		),
 		"ss13_characters" = list(
-			"nt_relation", 
-			"home_system", 
+			"nt_relation",
+			"home_system",
 			"citizenship",
 			"faction",
 			"religion","id" = 1,
@@ -81,7 +81,7 @@
 		"faction" = pref.faction,
 		"religion" = pref.religion,
 		"id" = pref.current_character,
-		"ckey" = pref.client.ckey
+		"ckey" = PREF_CLIENT_CKEY
 	)
 
 /datum/category_item/player_setup_item/general/background/sanitize_character()

@@ -193,7 +193,7 @@
 		msg += "[T.He] [T.is] small halfling!\n"
 
 	var/distance = get_dist(user,src)
-	if(istype(user, /mob/dead/observer) || user.stat == 2) // ghosts can see anything
+	if(istype(user, /mob/abstract/observer) || user.stat == 2) // ghosts can see anything
 		distance = 1
 	if (src.stat && !(src.species.flags & NO_BLOOD))	// No point checking pulse of a species that doesn't have one.
 		msg += "<span class='warning'>[T.He] [T.is]n't responding to anything around [T.him] and seems to be asleep.</span>\n"
@@ -218,13 +218,11 @@
 	msg += "<span class='warning'>"
 
 
-	if(nutrition < 100)
-		msg += "[T.He] [T.is] severely malnourished.\n"
-	else if(nutrition >= 500)
-		/*if(usr.nutrition < 100)
-			msg += "[T.He] [T.is] plump and delicious looking - Like a fat little piggy. A tasty piggy.\n"
-		else*/
-		msg += "[T.He] [T.is] quite chubby.\n"
+	if (!(src.species.flags & NO_CHUBBY))
+		if(nutrition < 100)
+			msg += "[T.He] [T.is] severely malnourished.\n"
+		else if(nutrition >= 500)
+			msg += "[T.He] [T.is] quite chubby.\n"
 
 
 	msg += "</span>"
@@ -239,7 +237,7 @@
 			msg += "<span class='deadsay'>[T.He] [T.is] [species.show_ssd].</span>\n"
 		if(client && ((client.inactivity / 600) > 10)) // inactivity/10/60 > 10 MINUTES
 			msg += "<span class='deadsay'>\[Inactive for [round(client.inactivity / 600)] minutes.\]\n</span>"
-		else if((world.realtime - disconnect_time) >= 5 MINUTES)
+		else if((!client && (world.realtime - disconnect_time) >= 5 MINUTES))
 			msg += "<span class='deadsay'>\[Disconnected/ghosted [(world.realtime - disconnect_time)/600] minutes ago.\]\n</span>"
 
 	var/list/wound_flavor_text = list()

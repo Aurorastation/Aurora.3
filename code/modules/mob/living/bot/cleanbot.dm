@@ -90,9 +90,11 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		return 1
 	return
 
+/mob/living/bot/cleanbot/proc/remove_from_ignore(path)
+	ignorelist -= path
+
 /mob/living/bot/cleanbot/Life()
 	..()
-
 	if(!on)
 		ignorelist = list()
 		return
@@ -117,16 +119,21 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		visible_message("Something flies out of [src]. He seems to be acting oddly.")
 		var/obj/effect/decal/cleanable/blood/gibs/gib = new /obj/effect/decal/cleanable/blood/gibs(loc)
 		ignorelist += gib
-		spawn(600)
-			ignorelist -= gib
+		addtimer(CALLBACK(src, .proc/remove_from_ignore, gib), 600)
 
+/mob/living/bot/cleanbot/think()
+	..()
+	if (!on)
+		return
 
 	if(pulledby) // Don't wiggle if someone pulls you
-		patrol_path = list()
+		patrol_path.Cut()
 		return
 
 	var/found_spot
-	if(!should_patrol) return
+	if(!should_patrol)
+		return
+
 	// This loop will progressively search outwards for /cleanables in view(), gradually to prevent excessively large view() calls when none are needed.
 	search_for: // We use the label so we can break out of this loop from within the next loop.
 		// Not breaking out of these loops properly is where the infinite loop was coming from before.
@@ -152,7 +159,6 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 						else
 							target = null // Otherwise we want to try the next cleanable in view, if any.
 							D.clean_marked = null
-
 
 
 	if(!found_spot && !target) // No targets in range
@@ -187,8 +193,6 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 			var/moved = step_towards(src, patrol_path[1])
 			if(moved)
 				patrol_path -= patrol_path[1]
-
-
 
 /mob/living/bot/cleanbot/UnarmedAttack(var/obj/effect/decal/cleanable/D, var/proximity)
 	if(!..())
@@ -287,7 +291,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 			get_targets()
 		if("patrol")
 			should_patrol = !should_patrol
-			patrol_path = null
+			patrol_path = list()
 		if("freq")
 			var/freq = text2num(input("Select frequency for  navigation beacons", "Frequnecy", num2text(beacon_freq / 10))) * 10
 			if (freq > 0)

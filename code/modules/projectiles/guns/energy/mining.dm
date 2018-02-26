@@ -16,7 +16,6 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4, TECH_POWER = 4)
 	projectile_type = /obj/item/projectile/kinetic
 	fire_sound = 'sound/weapons/Kenetic_accel.ogg'
-
 	var/max_mod_capacity = 100
 	var/list/modkits = list()
 

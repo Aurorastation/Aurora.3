@@ -102,25 +102,33 @@ var/datum/controller/subsystem/overlays/SSoverlays
 		. = iconbro.appearance
 		icon_cache[icon] = .
 
-/atom/proc/build_appearance_list(new_overlays)
-	var/static/image/appearance_bro = new()
-	if (!islist(new_overlays))
-		new_overlays = list(new_overlays)
-	else
-		listclearnulls(new_overlays)
-	for (var/i in 1 to length(new_overlays))
-		var/image/cached_overlay = new_overlays[i]
-		if (istext(cached_overlay))
-			new_overlays[i] = iconstate2appearance(icon, cached_overlay)
-		else if(isicon(cached_overlay))
-			new_overlays[i] = icon2appearance(cached_overlay)
-		else	//image probable
-			appearance_bro.appearance = cached_overlay
-			if(!ispath(cached_overlay))
-				appearance_bro.dir = cached_overlay.dir
-			new_overlays[i] = appearance_bro.appearance
-	return new_overlays
+#define APPEARANCEIFY(origin, target) \
+	if (istext(origin)) { \
+		target = iconstate2appearance(icon, origin); \
+	} \
+	else if (isicon(origin)) { \
+		target = icon2appearance(origin); \
+	} \
+	else { \
+		appearance_bro.appearance = origin; \
+		if (!ispath(origin)) { \
+			appearance_bro.dir = origin.dir; \
+		} \
+		target = appearance_bro.appearance; \
+	}
 
+/atom/proc/build_appearance_list(atom/new_overlays)
+	var/static/image/appearance_bro = new
+	if (islist(new_overlays))
+		listclearnulls(new_overlays)
+		for (var/i in 1 to length(new_overlays))
+			var/image/cached_overlay = new_overlays[i]
+			APPEARANCEIFY(cached_overlay, new_overlays[i])
+		return new_overlays
+	else
+		APPEARANCEIFY(new_overlays, .)
+
+#undef APPEARANCEIFY
 #define NOT_QUEUED_ALREADY (!(overlay_queued))
 #define QUEUE_FOR_COMPILE overlay_queued = TRUE; SSoverlays.processing += src;
 
@@ -165,7 +173,7 @@ var/datum/controller/subsystem/overlays/SSoverlays
 
 	overlays = build_appearance_list(overlays)
 
-	if (!overlays.len)
+	if (!overlays || (islist(overlays) && !overlays.len))
 		// No point trying to compile if we don't have any overlays.
 		return
 
@@ -175,6 +183,24 @@ var/datum/controller/subsystem/overlays/SSoverlays
 		LAZYADD(our_overlays, overlays)
 
 	if(NOT_QUEUED_ALREADY)
+		QUEUE_FOR_COMPILE
+
+/atom/proc/set_overlays(list/overlays, priority = FALSE)	// Sets overlays to a list, equivalent to cut_overlays() + add_overlays().
+	if (!overlays)
+		return
+
+	overlays = build_appearance_list(overlays)
+
+	if (priority)
+		LAZYCLEARLIST(priority_overlays)
+		if (overlays)
+			LAZYADD(priority_overlays, overlays)
+	else
+		LAZYCLEARLIST(our_overlays)
+		if (overlays)
+			LAZYADD(our_overlays, overlays)
+
+	if (NOT_QUEUED_ALREADY)
 		QUEUE_FOR_COMPILE
 
 /atom/proc/copy_overlays(atom/other, cut_old = FALSE)	//copys our_overlays from another atom

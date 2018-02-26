@@ -96,7 +96,7 @@
 	name = "captains beret"
 	desc = "A white beret adorned with the shield - a silver kite shield with an engraved sword - of the NanoTrasen security forces."
 	icon_state = "centcomcaptain"
-  
+
 /obj/item/clothing/head/beret/centcom/commander
 	name = "commanders beret"
 	desc = "A white beret adorned with the crest of an ERT detachment. Worn by commanders of Nanotrasen response teams."
@@ -146,7 +146,7 @@
 
 /obj/item/clothing/head/det/technicolor
 	desc = "A 23rd-century fedora. It's fibres are hyper-absorbent."
-	icon = 'icons/obj/clothing/coloured_detective_coats.dmi'
+	icon = 'icons/obj/clothing/coloured_detective_hats.dmi'
 	icon_state = "hat_detective_black"
 	item_state = "hat_detective_black"
 	var/hat_color
@@ -164,6 +164,7 @@
 	if(istype(O, /obj/item/weapon/reagent_containers/glass/paint))
 		var/obj/item/weapon/reagent_containers/glass/paint/P = O
 		hat_color = P.paint_type
+		name = "[hat_color] fedora"
 		user.visible_message("<span class='warning'>[user] soaks \the [src] into [P]!</span>")
 		icon_state = "hat_detective_[hat_color]"
 		item_state = "hat_detective_[hat_color]"

@@ -59,10 +59,10 @@
 
 /obj/item/clothing/ring/seal/signet/attack_self(mob/user)
 	if(nameset)
-		to_chat(user, "<span class='notice'>The [src] has already been claimed!</span>")
+		to_chat(user, "<span class='notice'>\The [src] has already been claimed!</span>")
 		return
 
-	to_chat(user, "<span class='notice'>You claim the [src] as your own!</span>")
+	to_chat(user, "<span class='notice'>You claim \the [src] as your own!</span>")
 	change_name(user)
 	nameset = 1
 

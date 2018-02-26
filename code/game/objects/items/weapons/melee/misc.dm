@@ -47,11 +47,10 @@
 		slot_flags = initial(slot_flags)
 	user.regenerate_icons()
 
-/*
-/obj/item/weapon/melee/chainsword/suicide_act(mob/user)
-	viewers(user) << "<span class='danger'>[user] is slicing \himself apart with the [src.name]! It looks like \he's trying to commit suicide.</span>"
-	return (BRUTELOSS|OXYLOSS)
-*/
+/obj/item/weapon/melee/chainsword/pre_attack(var/mob/living/target, var/mob/living/user)
+	if(istype(target) && active)
+		cleave(user, target)
+	..()
 
 //This is essentially a crowbar and a baseball bat in one.
 /obj/item/weapon/melee/hammer

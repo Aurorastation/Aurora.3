@@ -10,6 +10,10 @@
 		if(!global_objectives.len && P.objectives && P.objectives.len)
 			var/failed
 			var/num = 1
+			if(P.ambitions)
+				text += "<br>Their goals for today were..."
+				text += "<br><b>[P.ambitions]</b>"
+	
 			for(var/datum/objective/O in P.objectives)
 				text += print_objective(O, num)
 				if(O.check_completion())

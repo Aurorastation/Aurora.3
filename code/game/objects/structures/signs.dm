@@ -145,6 +145,10 @@
 	desc = "Next to the extremely long list of names and job titles, there is a drawing of a little child. The child appears to be retarded. Beneath the image, someone has scratched the word \"PACKETS\""
 	icon_state = "kiddieplaque"
 
+/obj/structure/sign/kiddieplaque/janitor
+	desc = "A humble wooden plaque. In simple lettering begin the words: \"Primum non sordes\"."
+	name = "\improper Janitorial Oath"
+
 /obj/structure/sign/atmosplaque
 	name = "\improper FEA atmospherics division plaque"
 	desc = "This plaque commemorates the fall of the Atmos FEA division. For all the charred, dizzy, and brittle men who have died in its hands."
@@ -236,7 +240,7 @@
 	desc = "Flashy."
 	icon = 'icons/obj/christmas.dmi'
 	icon_state = "xmaslights"
-	layer = 5
+	layer = 4.9
 
 /obj/structure/sign/christmas/wreath
 	name = "wreath"
@@ -247,7 +251,7 @@
 
 /obj/structure/sign/flag/blank
 	name = "blank banner"
-	desc = "A blank blue flag"
+	desc = "A blank blue flag."
 	icon_state = "flag"
 
 /obj/structure/sign/flag/blank/left
@@ -257,7 +261,7 @@
 	icon_state = "flag_r"
 
 /obj/structure/sign/flag/sol
-	name = "Sol Alliance Flag"
+	name = "Sol Alliance flag"
 	desc = "The bright blue flag of the Alliance of Sovereign Solarian Nations."
 	icon_state = "solgov"
 
@@ -268,7 +272,7 @@
 	icon_state = "solgov_r"
 
 /obj/item/weapon/flag/sol
-	name = "Sol Alliance Flag"
+	name = "Sol Alliance flag"
 	desc = "The bright blue flag of the Alliance of Sovereign Solarian Nations."
 	flag_path = "solgov"
 
@@ -276,8 +280,8 @@
 	flag_size = 1
 
 /obj/structure/sign/flag/dominia
-	name = "Dominian Empire Flag"
-	desc = "The Imperial Standard of Emperor Boleslaw Keeser of Dominia"
+	name = "Dominian Empire flag"
+	desc = "The Imperial Standard of Emperor Boleslaw Keeser of Dominia."
 	icon_state = "dominia"
 
 /obj/structure/sign/flag/dominia/left
@@ -287,15 +291,15 @@
 	icon_state = "dominia_r"
 
 /obj/item/weapon/flag/dominia
-	name = "Dominian Empire Flag"
-	desc = "The Imperial Standard of Emperor Boleslaw Keeser of Dominia"
+	name = "Dominian Empire flag"
+	desc = "The Imperial Standard of Emperor Boleslaw Keeser of Dominia."
 	flag_path = "dominia"
 
 /obj/item/weapon/flag/dominia/l
 	flag_size = 1
 
 /obj/structure/sign/flag/elyra
-	name = "Elyran Flag"
+	name = "Elyran flag"
 	desc = "The hopeful colors of the Serene Republic of Elyra."
 	icon_state = "elyra"
 
@@ -306,7 +310,7 @@
 	icon_state = "elyra_r"
 
 /obj/item/weapon/flag/elyra
-	name = "Elyran Flag"
+	name = "Elyran flag"
 	desc = "The hopeful colors of the Serene Republic of Elyra."
 	flag_path = "elyra"
 
@@ -314,7 +318,7 @@
 	flag_size = 1
 
 /obj/structure/sign/flag/hegemony
-	name = "Hegemony Flag"
+	name = "Hegemony flag"
 	desc = "The feudal standard of the Izweski Hegemony."
 	icon_state = "izweski"
 
@@ -325,7 +329,7 @@
 	icon_state = "izweski_r"
 
 /obj/item/weapon/flag/hegemony
-	name = "Hegemony Flag"
+	name = "Hegemony flag"
 	desc = "The feudal standard of the Izweski Hegemony."
 	flag_path = "izweski"
 
@@ -333,8 +337,8 @@
 	flag_size = 1
 
 /obj/structure/sign/flag/jargon
-	name = "Jargon Federation Flag"
-	desc = "The insignia of the Jargon Federation"
+	name = "Jargon Federation flag"
+	desc = "The insignia of the Jargon Federation."
 	icon_state = "jargon"
 
 /obj/structure/sign/flag/jargon/left
@@ -344,7 +348,7 @@
 	icon_state = "jargon_r"
 
 /obj/item/weapon/flag/jargon
-	name = "Jargon Federation Flag"
+	name = "Jargon Federation flag"
 	desc = "The insignia of the Jargon Federation"
 	flag_path = "jargon"
 
@@ -352,7 +356,7 @@
 	flag_size = 1
 
 /obj/structure/sign/flag/nanotrasen
-	name = "NanoTrasen Corporation Flag"
+	name = "NanoTrasen Corporation flag"
 	desc = "The logo of NanoTrasen on a flag."
 	icon_state = "nanotrasen"
 
@@ -363,11 +367,30 @@
 	icon_state = "nanotrasen_r"
 
 /obj/item/weapon/flag/nanotrasen
-	name = "NanoTrasen Corporation Flag"
-	desc = "The logo of NanoTrasen on a flag"
+	name = "NanoTrasen Corporation flag"
+	desc = "The logo of NanoTrasen on a flag."
 	flag_path = "nanotrasen"
 
 /obj/item/weapon/flag/nanotrasen/l
+	flag_size = 1
+
+/obj/structure/sign/flag/eridani
+	name = "Eridani Corporate Federation flag"
+	desc = "The logo of the Eridani Corporate Federation on a flag."
+	icon_state = "eridani"
+
+/obj/structure/sign/flag/eridani/left
+	icon_state = "eridani_l"
+
+/obj/structure/sign/flag/eridani/right
+	icon_state = "eridani_r"
+
+/obj/item/weapon/flag/eridani
+	name = "Eridani Corporate Federation flag"
+	desc = "The logo of the Eridani Corporate Federation on a flag."
+	flag_path = "eridani"
+
+/obj/item/weapon/flag/eridani/l
 	flag_size = 1
 
 /obj/item/weapon/flag

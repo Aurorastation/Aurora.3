@@ -38,8 +38,11 @@
 	var/datum/browser/menu = new( null, "brig_timer", "Brig Timer", 400, 300 )
 
 /obj/machinery/door_timer/Initialize()
-	. = ..()
+	..()
 
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/door_timer/LateInitialize()
 	for(var/obj/machinery/door/window/brigdoor/M in SSmachinery.all_machines)
 		if (M.id == src.id)
 			targets += M
@@ -407,7 +410,7 @@
 		var/image/ID = image('icons/obj/status_display.dmi', icon_state=char)
 		ID.pixel_x = -(d-1)*5 + px
 		ID.pixel_y = py
-		I.overlays += ID
+		I.add_overlay(ID)
 	return I
 
 
