@@ -141,8 +141,8 @@ Protectiveness | Armor %
 	item_state = "material_kelly"
 
 /obj/item/clothing/suit/armor/material/makeshift/attackby(var/obj/O, mob/user)
-	if(istype(O, /obj/item/clothing/suit/storage/trench))
-		var/obj/item/clothing/suit/storage/trench/kelly = O
+	if(istype(O, /obj/item/clothing/suit/storage/toggle/trench))
+		var/obj/item/clothing/suit/storage/toggle/trench/kelly = O
 		user.drop_from_inventory(src)
 		user.drop_from_inventory(kelly)
 		var/obj/item/clothing/suit/armor/material/makeshift/trenchcoat/new_armor = new(null, src.material.name)
