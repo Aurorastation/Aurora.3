@@ -1601,6 +1601,9 @@ mob/living/carbon/human/can_centcom_reply()
 mob/living/silicon/ai/can_centcom_reply()
 	return common_radio != null && !check_unable(2)
 
+/client/proc/extra_admin_link()
+	return
+
 /atom/proc/extra_admin_link()
 	return
 
