@@ -3477,7 +3477,6 @@
 	glass_name = "glass of Bloodwine"
 	glass_desc = "A traditional unathi drink said to strengthen one before a battle."
 	glass_center_of_mass = list("x"=15, "y"=7)
-	glass_desc = "It tastes like flat grape soda. Is this supposed to be alcoholic?"
 
 /datum/reagent/nutriment/badfood //This is just a base. It shouldn't exist or be used anywhere but just in case, I added names.
 	name = "Experimental Preservative"
