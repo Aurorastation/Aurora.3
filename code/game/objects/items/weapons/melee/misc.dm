@@ -145,5 +145,5 @@
 			else if(target_zone == "r_hand" || target_zone == "r_arm")
 				if (target.r_hand && target.r_hand != src)
 					target.drop_r_hand()
-		user.visible_message("<span class='danger'>\The [user] disarms \the [target] with \the [src]!</span>", "<span class='userdanger'>\The [user] disarmed you with \the [src]!</span>")
+			user.visible_message("<span class='danger'>\The [user] disarms \the [target] with \the [src]!</span>")
 		return
