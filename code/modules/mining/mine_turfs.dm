@@ -43,6 +43,7 @@ var/list/mineral_can_smooth_with = list(
 	var/mined_ore = 0
 	var/last_act = 0
 	var/emitter_blasts_taken = 0 // EMITTER MINING! Muhehe.
+	var/spider_nest = 0
 
 	var/datum/geosample/geologic_data
 	var/excavation_level = 0
@@ -82,6 +83,8 @@ var/list/mineral_can_smooth_with = list(
 
 	if (!mapload)
 		queue_smooth_neighbors(src)
+	if(!spider_nest	&& prob(1))
+		spider_nest = 1
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -225,6 +228,14 @@ var/list/mineral_can_smooth_with = list(
 		playsound(user, P.drill_sound, 20, 1)
 		P.drilling = 1
 
+		//Handle spiders
+		if(spider_nest && prob(50))
+			new /obj/effect/spider/spiderling(src)
+			if(prob(50))
+				new /obj/effect/spider/spiderling(src)
+				if(prob(50))
+					new /obj/effect/spider/spiderling(src)
+
 		//handle any archaeological finds we might uncover
 		var/fail_message
 		if(finds && finds.len)
@@ -347,6 +358,12 @@ var/list/mineral_can_smooth_with = list(
 
 /turf/simulated/mineral/proc/GetDrilled(var/artifact_fail = 0)
 	//var/destroyed = 0 //used for breaking strange rocks
+	
+	if(spider_nest)
+		spider_nest = 0 // JUST IN CASE ANYTHING GOES WRONG AND IT DOESN'T SPAWN A SPIDER EVERY FRAME
+		new /mob/living/simple_animal/hostile/giant_spider/nurse(src)
+		visible_message("<span class='warning'>A very angry mother spider leaps from under the sand!</span>")
+
 	if (mineral && mineral.result_amount)
 
 		//if the turf has already been excavated, some of it's ore has been removed
@@ -377,7 +394,8 @@ var/list/mineral_can_smooth_with = list(
 
 	ChangeTurf(mined_turf)
 
-	if(rand(1,500) == 1)
+
+	if(rand(1,300) == 1)
 		visible_message("<span class='notice'>An old dusty crate was buried within!</span>")
 		new /obj/structure/closet/crate/secure/loot(src)
 
