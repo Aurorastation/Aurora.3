@@ -1515,6 +1515,19 @@
 	required_reagents = list("flour" = 5, "coco" = 5, "sugar" = 5)
 	result_amount = 15
 
+/datum/chemical_reaction/butter
+	name = "Butter"
+	id = "butter"
+	result = null
+	required_reagents = list("cream" = 20, "sodiumchloride" = 1)
+	result_amount = 1
+
+/datum/chemical_reaction/butter/on_reaction(var/datum/reagents/holder, var/created_volume)
+	var/location = get_turf(holder.my_atom)
+	for(var/i = 1, i <= created_volume, i++)
+		new /obj/item/weapon/reagent_containers/food/snacks/spreads/butter(location)
+	return
+
 /*
 	Todo in future:
 		Cornmeal batter for corndogs
@@ -2498,6 +2511,20 @@
 	result = "dr_daniels"
 	required_reagents = list("dr_gibb_diet" = 3, "whiskey" = 1, "honey" = 1)
 	result_amount = 5
+
+/datum/chemical_reaction/meatshake
+	name = "Meatshake"
+	id = "meatshake"
+	result = "meatshake"
+	required_reagents = list("cream" = 1, "protein" = 1,"water" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/crocodile_booze
+	name = "Crocodile Guwan"
+	id = "crocodile_booze"
+	result = "crocodile_booze"
+	required_reagents = list("sarezhiwine" = 5, "toxin" = 1)
+	result_amount = 6
 
 //Kaed's Unathi cocktails
 //========
