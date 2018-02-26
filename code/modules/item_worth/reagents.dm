@@ -716,3 +716,30 @@
 
 /datum/reagent/xenomicrobes
 	value = 5
+
+/datum/reagent/estus
+	value = 50
+
+/datum/reagent/liquid_fire
+	value = 50
+
+/datum/reagent/black_matter
+	value = 250
+
+/datum/reagent/bluespace_dust
+	value = 250
+
+/datum/reagent/philosopher_stone
+	value = 1000000000
+
+/datum/reagent/azoth
+	value = 2000
+
+/datum/reagent/elixir
+	value = 1000000000
+
+/datum/reagent/azoth
+	value = 5000
+
+/datum/reagent/toxin/undead
+	value = 3000
