@@ -515,6 +515,7 @@
 	default_material = "steel"
 	reach = 2
 	applies_material_colour = 0
+	can_embed = 0
 
 /obj/item/weapon/material/twohanded/pike/halberd
 	icon_state = "alberd0"
@@ -549,6 +550,7 @@
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	default_material = "steel"
 	parry_chance = 50
+	can_embed = 0
 	var/wielded_ap = 40
 	var/unwielded_ap = 0
 
