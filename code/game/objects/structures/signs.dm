@@ -175,6 +175,13 @@
 	desc = "A warning sign which reads 'HYDROPONICS'."
 	icon_state = "hydro1"
 
+
+/obj/structure/sign/patients_only
+	name = "\improper PATIENTS ONLY"
+	desc = "A big blue signs that reads 'PATIENTS ONLY'. Underneath you can read: 'Authorized personnel only. Tresspassers will be prosecuted by the ISD.'"
+	icon_state = "patients_only"
+
+//Location and direction signs
 /obj/structure/sign/directions
 	name = "direction sign"
 	desc = "A direction sign, claiming to know the way."
@@ -230,7 +237,23 @@
 	desc = "A multi-coloured direction sign, pointing out in which all main departments are located."
 	icon_state = "direction_all"
 
+/obj/structure/sign/meeting_point
+	name = "\improper EMERGENCY MEETING POINT"
+	desc = "A green sign which depicts a group of people in the middle of the sign, being pointed by arrows."
+	icon_state = "meeting_point"
 
+/obj/structure/sign/emerg_exit
+	name = "\improper EMERGENCY EXIT"
+	desc = "A green sign that depicts a person heading towards the arrow's direction, which points at the emergency exit."
+	icon_state = "emerg_exit"
+
+/obj/structure/sign/emerg_exitZ
+	name = "\improper EMERGENCY LADDER"
+	desc = "A green sign that depicts a person climbing the ladder in the arrow's direction, which points at the emergency exit."
+	icon_state = "emerg_exitZ"
+
+
+//Christmas
 /obj/structure/sign/christmas/lights
 	name = "Christmas lights"
 	desc = "Flashy."
@@ -430,7 +453,4 @@
 	P.name = name
 	P.desc = desc
 	qdel(src)
-
-
-
 

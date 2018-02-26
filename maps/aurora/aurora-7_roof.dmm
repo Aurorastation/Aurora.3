@@ -1,5 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-//Model dictionary trimmed on: 18-11-2017 20:57 (UTC)
 "aa" = (
 /turf/simulated/open,
 /area/mine/explored)
@@ -2899,6 +2898,12 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fL" = (
+/obj/structure/window/reinforced{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -30597,8 +30602,8 @@ ah
 ah
 ah
 ah
-ah
 eU
+ah
 al
 aa
 aa
@@ -30853,10 +30858,10 @@ eQ
 eQ
 eS
 eQ
-eQ
 eT
 eV
-eX
+fL
+al
 aa
 aa
 aa
@@ -31111,8 +31116,8 @@ am
 aa
 af
 ai
-ai
 eW
+ai
 am
 aa
 aa

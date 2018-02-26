@@ -1,5 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-//Model dictionary trimmed on: 18-11-2017 20:57 (UTC)
 "aa" = (
 /turf/unsimulated/chasm_mask,
 /area/mine/explored)
@@ -492,7 +491,7 @@
 "aU" = (
 /obj/machinery/light/small{
 	dir = 4;
-	pixel_y = 8
+	pixel_y = 0
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
@@ -3372,7 +3371,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
-	icon_state = "map";
+	icon_state = "map"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
@@ -3472,7 +3471,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
-	icon_state = "map";
+	icon_state = "map"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
@@ -4380,9 +4379,12 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
 /area/hallway/secondary/exit)
 "if" = (
 /obj/structure/cable/yellow{
@@ -7868,7 +7870,7 @@
 	},
 /obj/machinery/light/small{
 	dir = 4;
-	pixel_y = 8
+	pixel_y = 0
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
@@ -14679,13 +14681,13 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "AQ" = (
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/camera/network/civilian_east{
 	c_tag = "Surface - Corridor Camera 4";
 	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
@@ -15115,10 +15117,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "BV" = (
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 4
-	},
 /obj/machinery/camera/network/civilian_east{
 	c_tag = "Surface - Corridor Camera 3";
 	dir = 8
@@ -16309,7 +16307,6 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
 "Eb" = (
-/obj/machinery/light,
 /obj/machinery/camera/network/civilian_east{
 	c_tag = "Surface - Corridor Camera 1";
 	dir = 1
@@ -16877,7 +16874,7 @@
 	},
 /obj/machinery/light/small{
 	dir = 4;
-	pixel_y = 8
+	pixel_y = 0
 	},
 /obj/structure/cable/green{
 	d1 = 2;
@@ -16937,7 +16934,7 @@
 "Fk" = (
 /obj/machinery/door/airlock/mining{
 	id_tag = "qmdoor";
-	name = "Quartermaster";
+	name = "Quartermaster's Office";
 	req_access = list(41)
 	},
 /obj/machinery/door/firedoor,
@@ -17057,11 +17054,6 @@
 	},
 /area/quartermaster/loading)
 "Fw" = (
-/obj/machinery/door/airlock/mining{
-	id_tag = "qmdoor";
-	name = "Quartermaster";
-	req_access = list(41)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -17077,6 +17069,11 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/mining{
+	id_tag = "qmdoor";
+	name = "Quartermaster's Office";
+	req_access = list(41)
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/qm)
 "Fx" = (
@@ -17943,6 +17940,15 @@
 	},
 /obj/random/junk,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24
+	},
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "GR" = (
@@ -18012,11 +18018,6 @@
 	icon_state = "12-0"
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "GW" = (
@@ -18199,6 +18200,9 @@
 	pixel_x = -32;
 	pixel_y = 0
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "Hs" = (
@@ -18349,7 +18353,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
-	icon_state = "map";
+	icon_state = "map"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
@@ -18899,7 +18903,8 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/westleft{
-	dir = 1
+	dir = 1;
+	name = "Crate Recovery"
 	},
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -18940,6 +18945,61 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
+"IQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/sign/drop{
+	pixel_x = 32
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
+"IR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/sign/drop{
+	pixel_x = 32
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
+"IS" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/aft)
+"IT" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/aft)
 
 (1,1,1) = {"
 aa
@@ -47627,7 +47687,7 @@ Bw
 BF
 BI
 BN
-Hi
+IS
 BU
 BU
 BU
@@ -47640,7 +47700,7 @@ Hi
 BU
 BU
 Dq
-DI
+IT
 DI
 En
 EA
@@ -49377,7 +49437,7 @@ kC
 eB
 eB
 aa
-aa
+aw
 aa
 aa
 aa
@@ -49632,11 +49692,11 @@ jF
 jZ
 fM
 aa
-aa
-aa
-aa
-aa
-aa
+bT
+bT
+bT
+aw
+aw
 aa
 aa
 aa
@@ -49889,11 +49949,11 @@ fM
 ka
 fM
 aa
+bT
+bT
+bT
 aa
-aa
-aa
-aa
-aa
+aw
 aa
 aa
 aa
@@ -50130,8 +50190,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+aw
+aw
 aa
 aa
 aa
@@ -50140,18 +50200,18 @@ fN
 gx
 hs
 aa
-aa
+aw
 aa
 hs
 kb
 fN
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bT
+bT
+bT
+bT
+aw
+aw
+aw
 aa
 aa
 aa
@@ -50385,13 +50445,13 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
-aa
-aa
-aa
-aa
-aa
 bT
 bT
 bT
@@ -50408,7 +50468,7 @@ bT
 bT
 aa
 aa
-aa
+aw
 aa
 aa
 aa
@@ -50643,11 +50703,11 @@ aa
 aa
 aa
 aa
-bT
-bT
-bT
-bT
-bT
+aw
+aw
+aw
+aa
+aa
 bT
 bT
 bT
@@ -50899,28 +50959,28 @@ aa
 aa
 aa
 aa
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
 aa
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
 aa
 aa
 aa
@@ -51153,9 +51213,9 @@ aa
 aa
 aa
 aa
+aw
 aa
-aa
-bT
+aw
 bT
 bT
 bT
@@ -51411,7 +51471,7 @@ aa
 aa
 aa
 aa
-aa
+aw
 bT
 bT
 bT
@@ -51666,9 +51726,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+aw
+aw
+aw
 bT
 bT
 bT
@@ -51693,7 +51753,7 @@ bT
 bT
 bT
 bT
-aa
+aw
 aa
 mL
 mL
@@ -51924,8 +51984,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+aw
+aw
 bT
 bT
 bT
@@ -51950,7 +52010,7 @@ bT
 bT
 bT
 bT
-aa
+aw
 aa
 mL
 mL
@@ -52180,9 +52240,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+aw
+aw
+aw
 bT
 bT
 bT
@@ -52207,7 +52267,7 @@ bT
 bT
 bT
 bT
-aa
+aw
 aa
 mL
 mL
@@ -52437,33 +52497,33 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
 aa
-aa
-aa
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
-bT
 aa
 aa
 mL
@@ -52694,9 +52754,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+aw
+aw
+aw
 bT
 bT
 bT
@@ -52951,10 +53011,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
 bT
 bT
 bT
@@ -52976,8 +53035,9 @@ bT
 bT
 bT
 bT
-aa
-aa
+bT
+bT
+aw
 aa
 aa
 aa
@@ -53208,11 +53268,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
 bT
 bT
 bT
@@ -53233,8 +53291,10 @@ bT
 bT
 bT
 bT
-aa
-aa
+bT
+bT
+bT
+bT
 aa
 aa
 aa
@@ -53465,17 +53525,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
 bT
 bT
 bT
@@ -53490,8 +53542,16 @@ bT
 bT
 bT
 bT
-aa
-aa
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
 aa
 aa
 aa
@@ -53724,32 +53784,32 @@ aa
 aa
 aa
 aa
+aw
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+aw
 aa
 aa
 aa
@@ -53981,32 +54041,32 @@ aa
 aa
 aa
 aa
+aw
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+aw
 aa
 aa
 aa
@@ -54241,29 +54301,29 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+aw
+aw
 aa
 aa
 aa
@@ -54499,27 +54559,27 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+bT
+aw
 aa
 aa
 aa
@@ -54755,28 +54815,28 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
 aa
 aa
 aa
 aa
+aw
+aw
 aa
 aa
 aa
+aw
 aa
 aa
 aa
+bT
+bT
+bT
+bT
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
 aa
 aa
 aa
@@ -55019,21 +55079,21 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
+bT
+bT
+bT
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
 aa
 aa
 aa
@@ -55278,17 +55338,17 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
 aa
+aw
+aw
+aw
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bT
+bT
+bT
 aa
 aa
 aa
@@ -55534,6 +55594,8 @@ aa
 aa
 aa
 aa
+aw
+aw
 aa
 aa
 aa
@@ -55542,10 +55604,8 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+aw
+aw
 aa
 aa
 aa
@@ -55800,7 +55860,7 @@ aa
 aa
 aa
 aa
-aa
+aw
 aa
 aa
 aa
@@ -63289,7 +63349,7 @@ qP
 vy
 qP
 xm
-xU
+IQ
 yq
 qP
 qP
@@ -64324,7 +64384,7 @@ ys
 ys
 ys
 Aq
-xU
+IR
 xU
 xU
 xU
