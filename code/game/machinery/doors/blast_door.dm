@@ -153,7 +153,7 @@
 	for(var/turf/turf in locs)
 		for(var/atom/movable/AM in turf)
 			if(AM.airlock_crush(damage))
-				take_damage(damage)
+				take_damage(damage*0.2)
 
 
 // Proc: repair()
