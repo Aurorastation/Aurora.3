@@ -42,3 +42,6 @@
 
 /obj/item/weapon/material/twohanded/pike/pitchfork
 	worth_multiplier = 10
+
+/obj/item/weapon/material/twohanded/zweihander
+	worth_multiplier = 35

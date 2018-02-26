@@ -26,6 +26,7 @@
 	var/base_icon
 	var/base_name
 	var/unwielded_force_divisor = 0.25
+	var/parry_chance = 15
 	action_button_name = "Wield two-handed weapon"
 
 /obj/item/weapon/material/twohanded/proc/unwield()
@@ -74,7 +75,7 @@
 
 //Allow a small chance of parrying melee attacks when wielded - maybe generalize this to other weapons someday
 /obj/item/weapon/material/twohanded/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
-	if(wielded && default_parry_check(user, attacker, damage_source) && prob(15))
+	if(wielded && default_parry_check(user, attacker, damage_source) && prob(parry_chance))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 		playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, 1)
 		return 1
@@ -325,6 +326,7 @@
 	can_embed = 0
 	applies_material_colour = 0
 	default_material = "steel"
+	parry_chance = 5
 	var/opendelay = 30 // How long it takes to perform a door opening action with this chainsaw, in seconds.
 	var/max_fuel = 300 // The maximum amount of fuel the chainsaw stores.
 	var/fuel_cost = 1 // Multiplier for fuel cost.
@@ -530,3 +532,39 @@
 	base_icon = "pitchfork"
 	name = "pitchfork"
 	desc = "An old farming tool, not something you would find at hydroponics."
+
+/obj/item/weapon/material/twohanded/zweihander
+	icon_state = "zweihander"
+	base_icon = "zweihander"
+	name = "zweihander"
+	desc = "A German upgrade to the einhander models of ancient times."
+	force = 20
+	w_class = 4.0
+	slot_flags = SLOT_BACK
+	force_wielded = 1
+	unwielded_force_divisor = 1
+	thrown_force_divisor = 0.75
+	edge = 1
+	sharp = 1
+	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
+	default_material = "steel"
+	parry_chance = 50
+	var/wielded_ap = 40
+	var/unwielded_ap = 0
+
+/obj/item/weapon/material/twohanded/zweihander/pre_attack(var/mob/living/target, var/mob/living/user)
+	if(!reach && istype(target))
+		cleave(user, target)
+	..()
+
+/obj/item/weapon/material/twohanded/zweihander/unwield()
+	..()
+	reach = 0
+	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
+	armor_penetration = unwielded_ap
+
+/obj/item/weapon/material/twohanded/zweihander/wield()
+	..()
+	reach = 2
+	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
+	armor_penetration = wielded_ap
