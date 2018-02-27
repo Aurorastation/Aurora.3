@@ -60226,6 +60226,7 @@
 	dir = 8
 	},
 /obj/item/device/gps/mining,
+/obj/item/weapon/pickaxe/drill,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "caX" = (
@@ -60344,6 +60345,7 @@
 	dir = 9
 	},
 /obj/item/device/gps/mining,
+/obj/item/weapon/pickaxe/drill,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cbe" = (
@@ -60643,6 +60645,7 @@
 	dir = 9
 	},
 /obj/item/device/gps/mining,
+/obj/item/weapon/pickaxe/drill,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cbJ" = (
@@ -61436,8 +61439,8 @@
 	dir = 6
 	},
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/explorer,
-/obj/item/clothing/head/helmet/space/explorer,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/head/helmet/space/void/mining,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cdg" = (
@@ -61502,8 +61505,8 @@
 	dir = 6
 	},
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/explorer,
-/obj/item/clothing/head/helmet/space/explorer,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/head/helmet/space/void/mining,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cdm" = (
@@ -61574,8 +61577,8 @@
 	},
 /obj/item/stack/flag/purple,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/explorer,
-/obj/item/clothing/head/helmet/space/explorer,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/head/helmet/space/void/mining,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cdv" = (
@@ -61650,8 +61653,8 @@
 	pixel_y = 0
 	},
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/explorer,
-/obj/item/clothing/head/helmet/space/explorer,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/head/helmet/space/void/mining,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cdC" = (

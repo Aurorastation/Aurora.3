@@ -120,8 +120,8 @@
 	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL | AIRTIGHT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	allowed = list(/obj/item)
-	slowdown = 1
-	armor = list(melee = 20, bullet = 5, laser = 0, energy = 0, bomb = 10, bio = 100, rad = 0)
+	slowdown = 0
+	armor = list(melee = 40, bullet = 10, laser = 10, energy = 10, bomb = 10, bio = 100, rad = 50)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
@@ -140,7 +140,7 @@
 		slot_r_hand_str = "s_helmet"
 		)
 	permeability_coefficient = 0.01
-	armor = list(melee = 10, bullet = 5, laser = 0, energy = 0, bomb = 5, bio = 100, rad = 100)
+	armor = list(melee = 20, bullet = 5, laser = 5, energy = 5, bomb = 5, bio = 100, rad = 50)
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	cold_protection = HEAD
@@ -152,5 +152,5 @@
 	action_button_name = "Toggle Helmet Light"
 	light_overlay = "helmet_light"
 	brightness_on = 6
-	light_wedge = LIGHT_NARROW
+	light_wedge = LIGHT_WIDE
 	on = 0
