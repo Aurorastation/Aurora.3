@@ -114,7 +114,7 @@
 	name = "explorer suit"
 	desc = "A special mining suit that protects against low pressure environments, as well as the dangers of mining. This design is to provide flexibility as the cost of reduced armor."
 	icon_state = "explorer"
-	item_state = "s_suit"
+	item_state = "explorer"
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.02
 	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL | AIRTIGHT
@@ -131,6 +131,7 @@
 /obj/item/clothing/head/helmet/space/explorer
 	name = "explorer helmet"
 	icon_state = "explorer"
+	item_state = "explorer"
 	desc = "A special mining helmet and mask that protects against low pressure enviroments, as well as the dangers of mining. This design is to provide flexibility at the cost of reduced armor."
 	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL | AIRTIGHT
 	flags_inv = BLOCKHAIR

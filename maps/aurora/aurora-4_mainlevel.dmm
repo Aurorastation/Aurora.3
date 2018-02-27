@@ -61426,9 +61426,7 @@
 /area/outpost/mining_main/eva)
 "cdf" = (
 /obj/structure/table/rack,
-/obj/item/clothing/head/helmet/space/void/mining,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/suit/space/void/mining,
 /obj/item/stack/flag/yellow,
 /obj/structure/window/reinforced{
 	dir = 1
@@ -61438,6 +61436,8 @@
 	dir = 6
 	},
 /obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/explorer,
+/obj/item/clothing/head/helmet/space/explorer,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cdg" = (
@@ -61495,15 +61495,15 @@
 	dir = 8
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/head/helmet/space/void/mining,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/suit/space/void/mining,
 /obj/item/stack/flag/red,
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 6
 	},
 /obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/explorer,
+/obj/item/clothing/head/helmet/space/explorer,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cdm" = (
@@ -61567,15 +61567,15 @@
 /area/outpost/mining_main/eva)
 "cdu" = (
 /obj/structure/table/rack,
-/obj/item/clothing/head/helmet/space/void/mining,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/suit/space/void/mining,
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 6
 	},
 /obj/item/stack/flag/purple,
 /obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/explorer,
+/obj/item/clothing/head/helmet/space/explorer,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cdv" = (
@@ -61635,9 +61635,7 @@
 /area/outpost/mining_main/eva)
 "cdB" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/mining,
 /obj/item/stack/flag/green,
 /obj/machinery/light{
 	dir = 4;
@@ -61652,6 +61650,8 @@
 	pixel_y = 0
 	},
 /obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/explorer,
+/obj/item/clothing/head/helmet/space/explorer,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cdC" = (
