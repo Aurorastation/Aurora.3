@@ -730,16 +730,16 @@
 	value = 250
 
 /datum/reagent/philosopher_stone
-	value = 1000000000
+	value = 1000
 
 /datum/reagent/azoth
-	value = 2000
+	value = 200
 
 /datum/reagent/elixir
-	value = 1000000000
+	value = 1000
 
 /datum/reagent/azoth
-	value = 5000
+	value = 500
 
 /datum/reagent/toxin/undead
-	value = 3000
+	value = 300
