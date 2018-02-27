@@ -109,3 +109,47 @@
 		E.status &= ~ ORGAN_SPLINTED
 		user << "The suit stops supporting your [E.name]."
 	supporting_limbs = list()
+
+/obj/item/clothing/suit/space/explorer
+	name = "explorer suit"
+	desc = "A special mining suit that protects against low pressure environments, as well as the dangers of mining. This design is to provide flexibility as the cost of reduced armor."
+	icon_state = "explorer"
+	item_state = "s_suit"
+	gas_transfer_coefficient = 0.01
+	permeability_coefficient = 0.02
+	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL | AIRTIGHT
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
+	allowed = list(/obj/item)
+	slowdown = 1
+	armor = list(melee = 20, bullet = 5, laser = 0, energy = 0, bomb = 10, bio = 100, rad = 0)
+	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
+	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
+	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
+	siemens_coefficient = 0.9
+	species_restricted = list("exclude","Diona","Xenomorph","Vox","Golem")
+
+/obj/item/clothing/head/helmet/space/explorer
+	name = "explorer helmet"
+	icon_state = "explorer"
+	desc = "A special mining helmet and mask that protects against low pressure enviroments, as well as the dangers of mining. This design is to provide flexibility at the cost of reduced armor."
+	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL | AIRTIGHT
+	flags_inv = BLOCKHAIR
+	item_state_slots = list(
+		slot_l_hand_str = "s_helmet",
+		slot_r_hand_str = "s_helmet"
+		)
+	permeability_coefficient = 0.01
+	armor = list(melee = 10, bullet = 5, laser = 0, energy = 0, bomb = 5, bio = 100, rad = 100)
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
+	body_parts_covered = HEAD|FACE|EYES
+	cold_protection = HEAD
+	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
+	siemens_coefficient = 0.9
+	species_restricted = list("exclude","Diona","Xenomorph","Vox","Golem")
+	flash_protection = FLASH_PROTECTION_NONE //Lets not make it a meme where people try to antagonize in this thing.
+
+	action_button_name = "Toggle Helmet Light"
+	light_overlay = "helmet_light"
+	brightness_on = 6
+	light_wedge = LIGHT_NARROW
+	on = 0
