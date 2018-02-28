@@ -481,7 +481,7 @@ emp_act
 
 	return perm
 
-/mob/living/proc/grabbedby(mob/living/carbon/human/user,var/supress_message = 0)
+/mob/living/carbon/human/proc/grabbedby(mob/living/carbon/human/user,var/supress_message = 0)
 	if(user == src || anchored)
 		return 0
 	if(user.disabilities & PACIFIST)
@@ -496,8 +496,8 @@ emp_act
 	if (!attempt_grab(user))
 		return
 
-	if(w_uniform)
-		w_uniform.add_fingerprint(src)
+	if(src.w_uniform)
+		src.w_uniform.add_fingerprint(src)
 
 	var/obj/item/weapon/grab/G = new /obj/item/weapon/grab(user, src)
 	if(buckled)
@@ -505,7 +505,7 @@ emp_act
 	if(!G)	//the grab will delete itself in New if affecting is anchored
 		return
 	user.put_in_active_hand(src)
-	user.synch()
+	G.synch()
 	LAssailant = user
 
 	user.do_attack_animation(src)

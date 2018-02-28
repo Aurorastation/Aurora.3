@@ -22,31 +22,67 @@
 		return 1
 	return 0
 
+/datum/martial_art/plasma_fist/proc/TornadoAnimate(mob/living/carbon/human/A)
+	set waitfor = FALSE
+	for(var/i in list(NORTH,SOUTH,EAST,WEST,EAST,SOUTH,NORTH,SOUTH,EAST,WEST,EAST,SOUTH))
+		if(!A)
+			break
+		A.set_dir(i)
+		playsound(A.loc, 'sound/weapons/punch1.ogg', 15, 1, -1)
+		sleep(1)
+
 /datum/martial_art/plasma_fist/proc/Tornado(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.say("TORNADO SWEEP!")
-	var/T = get_turf(A)
-	D.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
-	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
-		H.apply_effect(2, WEAKEN)
+	TornadoAnimate(A)
+	var/list/thrownatoms = list()
+	var/atom/throwtarget
+	var/distfromcaster
+
+	for(var/turf/T in range(1,A))
+		for(var/atom/movable/AM in T)
+			thrownatoms += AM
+
+	for(var/am in thrownatoms)
+		var/atom/movable/AM = am
+		if(AM == user || AM.anchored)
+			continue
+
+		throwtarget = get_edge_target_turf(user, get_dir(user, get_step_away(AM, user)))
+		distfromcaster = get_dist(user, AM)
+		if(distfromcaster == 0)
+			if(istype(AM, /mob/living))
+				var/mob/living/M = AM
+				M.Weaken(5)
+				M.adjustBruteLoss(5)
+				to_chat(M, "<span class='userdanger'>You're slammed into the floor by a mystical force!</span>")
+		else
+			if(istype(AM, /mob/living))
+				var/mob/living/M = AM
+				M.Weaken(2)
+				to_chat(M, "<span class='userdanger'>You're thrown back by a mystical force!</span>")
+				AM.throw_at(throwtarget, ((Clamp((5 - (Clamp(distfromcaster - 2, 0, distfromcaster))), 3, 5))), 1)//So stuff gets tossed around at the same time.
+
+	add_logs(A, D, "tornado sweeped(Plasma Fist)")
 	return
 
 /datum/martial_art/plasma_fist/proc/Throwback(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
-	D.visible_message("<span class='danger'>[A] has hit [D] with Plasma Punch!</span>", \
-								"<span class='userdanger'>[A] has hit [D] with Plasma Punch!</span>")
+	D.visible_message("<span class='danger'>[A] has hit [D] with plasma Punch!</span>", \
+								"<span class='userdanger'>[A] has hit [D] with plasma punch!</span>")
 	playsound(D.loc, 'sound/weapons/punch1.ogg', 50, 1, -1)
 	var/atom/throw_target = get_edge_target_turf(D, get_dir(D, get_step_away(D, A)))
 	D.throw_at(throw_target, 200, 4,A)
-	A.say("HYAH!")
+	A.say("Plasma punch!")
+	add_logs(A, D, "threw back (Plasma Fist)")
 	return
 
 /datum/martial_art/plasma_fist/proc/Plasma(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.do_attack_animation(D)
 	playsound(D.loc, 'sound/weapons/punch1.ogg', 50, 1, -1)
 	A.say("PLASMA FIST!")
-	D.visible_message("<span class='danger'>[A] has hit [D] with THE PLASMA FIST TECHNIQUE!</span>", \
-								"<span class='userdanger'>[A] has hit [D] with THE PLASMA FIST TECHNIQUE!</span>")
+	D.visible_message("<span class='danger'>[A] has hit [D] with the plasma fist technique!</span>", \
+								"<span class='userdanger'>[A] has hit [D] with the plasma fist technique!</span>")
 	D.gib()
+	add_logs(A, D, "gibbed (Plasma Fist)")
 	return
 
 /datum/martial_art/plasma_fist/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
@@ -79,3 +115,23 @@
 	to_chat(usr, "<span class='notice'>Tornado Sweep</span>: Harm Harm Disarm. Repulses target and everyone back.")
 	to_chat(usr, "<span class='notice'>Throwback</span>: Disarm Harm Disarm. Throws the target and an item at them.")
 	to_chat(usr, "<span class='notice'>The Plasma Fist</span>: Harm Disarm Disarm Disarm Harm. Knocks the brain out of the opponent and gibs their body.")
+
+/obj/item/weapon/plasma_fist_scroll
+	name = "frayed scroll"
+	desc = "An aged and frayed scrap of paper written in shifting runes. There are hand-drawn illustrations of pugilism."
+	icon = 'icons/obj/wizard.dmi'
+	icon_state ="scroll2"
+	var/used = 0
+
+/obj/item/weapon/plasma_fist_scroll/attack_self(mob/user as mob)
+	if(!ishuman(user))
+		return
+	if(!used)
+		var/mob/living/carbon/human/H = user
+		var/datum/martial_art/plasma_fist/F = new/datum/martial_art/plasma_fist(null)
+		F.teach(H)
+		to_chat(H, "<span class='boldannounce'>You have learned the ancient martial art of Plasma Fist.</span>")
+		used = 1
+		desc = "It's completely blank."
+		name = "empty scroll"
+		icon_state = "blankscroll"
