@@ -55,7 +55,7 @@
 /obj/item/weapon/material/wirerod/attackby(var/obj/item/I, mob/user as mob)
 	..()
 	var/obj/item/finished
-	if(istype(I, /obj/item/weapon/material/shard) || istype(I, /obj/item/weapon/material/spearhead)
+	if(istype(I, /obj/item/weapon/material/shard) || istype(I, /obj/item/weapon/material/spearhead))
 		var/obj/item/weapon/material/tmp_shard = I
 		finished = new /obj/item/weapon/material/twohanded/spear(get_turf(user), tmp_shard.material.name)
 		user << "<span class='notice'>You fasten \the [I] to the top of the rod with the cable.</span>"
