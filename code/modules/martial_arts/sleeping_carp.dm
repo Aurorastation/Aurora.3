@@ -39,17 +39,10 @@
 	if(!D.stat && !D.stunned && !D.weakened)
 		A.do_attack_animation(D)
 		D.visible_message("<span class='warning'>[A] grabs [D]'s wrist and wrenches it sideways!</span>", \
-						  "<span class='danger'>[A] grabs your wrist and violently wrenches it to the side!</span>")
+						  "<span class='userdanger'>[A] grabs your wrist and violently wrenches it to the side!</span>")
 		playsound(get_turf(A), 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-
-		if(!(D.species.flags & NO_PAIN))
-			D.emote("scream")
-		if(A.target_zone == "l_hand" || A.target_zone == "l_arm")
-			D.drop_l_hand()
-			D.apply_damage(5, BRUTE, "l_arm")
-		if(A.target_zone == "r_hand" || A.target_zone == "r_arm")
-			D.drop_r_hand()
-			D.apply_damage(5, BRUTE, "r_arm")
+		D.drop_item()
+		D.apply_damage(5, BRUTE, pick("l_arm", "r_arm"))
 		D.Stun(3)
 		return 1
 	return basic_hit(A,D)
@@ -151,13 +144,13 @@
 	to_chat(usr, "<span class='notice'>Head Kick</span>: Disarm Harm Harm. Decent damage, forces opponent to drop item in hand.")
 	to_chat(usr, "<span class='notice'>Elbow Drop</span>: Harm Disarm Harm Disarm Harm. Opponent must be on the ground. Deals huge damage, instantly kills anyone in critical condition.")
 
-/obj/item/weapon/sleeping_carp_scroll
+/obj/item/sleeping_carp_scroll
 	name = "mysterious scroll"
 	desc = "A scroll filled with strange markings. It seems to be drawings of some sort of martial art."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "scroll2"
 
-/obj/item/weapon/sleeping_carp_scroll/attack_self(mob/living/carbon/human/user as mob)
+/obj/item/sleeping_carp_scroll/attack_self(mob/living/carbon/human/user as mob)
 	if(!istype(user) || !user)
 		return
 	to_chat(user, "<span class='sciradio'>You have learned the ancient martial art of the Sleeping Carp! \

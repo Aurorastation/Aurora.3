@@ -60,7 +60,7 @@
 				var/mob/living/M = AM
 				M.Weaken(2)
 				to_chat(M, "<span class='danger'>You're thrown back by a mystical force!</span>")
-				AM.throw_at(throwtarget, ((Clamp((5 - (Clamp(distfromcaster - 2, 0, distfromcaster))), 3, 5))), 1)//So stuff gets tossed around at the same time.
+				AM.throw_at(throwtarget, ((Clamp((5 - (Clamp(distfromcaster - 2, 0, distfromcaster))), 3, 5))), 1)
 
 	log_and_message_admins("used tornado sweep(Plasma Fist)", "[A]")
 	return
@@ -82,7 +82,7 @@
 	D.visible_message("<span class='danger'>[A] has hit [D] with the plasma fist technique!</span>", \
 								"<span class='danger'>[A] has hit [D] with the plasma fist technique!</span>")
 	D.gib()
-	log_and_message_admins("[A] gibbed [D] with the plasma fist (Plasma Fist) against [A]")
+	log_and_message_admins("[A] gibbed [D] with the plasma fist (Plasma Fist)")
 	return
 
 /datum/martial_art/plasma_fist/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
@@ -116,14 +116,14 @@
 	to_chat(usr, "<span class='notice'>Throwback</span>: Disarm Harm Disarm. Throws the target and an item at them.")
 	to_chat(usr, "<span class='notice'>The Plasma Fist</span>: Harm Disarm Disarm Disarm Harm. Knocks the brain out of the opponent and gibs their body.")
 
-/obj/item/weapon/plasma_fist_scroll
+/obj/item/plasma_fist_scroll
 	name = "frayed scroll"
 	desc = "An aged and frayed scrap of paper written in shifting runes. There are hand-drawn illustrations of pugilism."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state ="scroll2"
 	var/used = 0
 
-/obj/item/weapon/plasma_fist_scroll/attack_self(mob/user as mob)
+/obj/item/plasma_fist_scroll/attack_self(mob/user as mob)
 	if(!ishuman(user))
 		return
 	if(!used)

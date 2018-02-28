@@ -1449,6 +1449,7 @@
 #include "code\modules\martial_arts\martial.dm"
 #include "code\modules\martial_arts\plasma_fist.dm"
 #include "code\modules\martial_arts\sleeping_carp.dm"
+#include "code\modules\martial_arts\wrestling.dm"
 #include "code\modules\materials\material_recipes.dm"
 #include "code\modules\materials\material_sheets.dm"
 #include "code\modules\materials\material_synth.dm"
