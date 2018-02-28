@@ -11,7 +11,7 @@ emp_act
 /mob/living/carbon/human/bullet_act(var/obj/item/projectile/P, var/def_zone)
 	if(martial_art && martial_art.deflection_chance)
 		if(prob(martial_art.deflection_chance))
-			user.visible_message("<span class='danger'>\The [src] deflects \the [P]!</span>")
+			src.visible_message("<span class='danger'>\The [src] deflects \the [P]!</span>")
 			return 0
 
 	def_zone = check_zone(def_zone)
@@ -508,7 +508,7 @@ emp_act
 		user << "<span class='notice'>You cannot grab [src], \he is buckled in!</span>"
 	if(!G)	//the grab will delete itself in New if affecting is anchored
 		return
-	user.put_in_active_hand(src)
+	user.put_in_active_hand(G)
 	G.synch()
 	LAssailant = user
 

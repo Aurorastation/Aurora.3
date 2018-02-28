@@ -39,7 +39,7 @@
 	if(!D.stat && !D.stunned && !D.weakened)
 		A.do_attack_animation(D)
 		D.visible_message("<span class='warning'>[A] grabs [D]'s wrist and wrenches it sideways!</span>", \
-						  "<span class='userdanger'>[A] grabs your wrist and violently wrenches it to the side!</span>")
+						  "<span class='danger'>[A] grabs your wrist and violently wrenches it to the side!</span>")
 		playsound(get_turf(A), 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 		if(prob(60))
 			A.say(pick("WRISTY TWIRLY!", "WE FIGHT LIKE MEN!", "YOU DISHONOR YOURSELF!", "POHYAH!", "WHERE IS YOUR BATON NOW?", "SAY UNCLE!"))
@@ -54,7 +54,7 @@
 	if(A.dir == D.dir && !D.stat && !D.weakened)
 		A.do_attack_animation(D)
 		D.visible_message("<span class='warning'>[A] kicks [D] in the back!</span>", \
-						  "<span class='userdanger'>[A] kicks you in the back, making you stumble and fall!</span>")
+						  "<span class='danger'>[A] kicks you in the back, making you stumble and fall!</span>")
 		step_to(D,get_step(D,D.dir),1)
 		D.Weaken(4)
 		playsound(get_turf(D), 'sound/weapons/punch1.ogg', 50, 1, -1)
@@ -67,7 +67,7 @@
 	if(!D.stat && !D.weakened)
 		A.do_attack_animation(D)
 		D.visible_message("<span class='warning'>[A] knees [D] in the stomach!</span>", \
-						  "<span class='userdanger'>[A] winds you with a knee in the stomach!</span>")
+						  "<span class='danger'>[A] winds you with a knee in the stomach!</span>")
 		D.audible_message("<b>[D]</b> gags!")
 		D.losebreath += 3
 		D.Stun(2)
@@ -81,7 +81,7 @@
 	if(!D.stat && !D.weakened)
 		A.do_attack_animation(D)
 		D.visible_message("<span class='warning'>[A] kicks [D] in the head!</span>", \
-						  "<span class='userdanger'>[A] kicks you in the jaw!</span>")
+						  "<span class='danger'>[A] kicks you in the jaw!</span>")
 		D.apply_damage(20, BRUTE, "head")
 		D.drop_item()
 		playsound(get_turf(D), 'sound/weapons/punch1.ogg', 50, 1, -1)
@@ -95,7 +95,7 @@
 	if(D.weakened || D.resting || D.stat)
 		A.do_attack_animation(D)
 		D.visible_message("<span class='warning'>[A] elbow drops [D]!</span>", \
-						  "<span class='userdanger'>[A] piledrives you with their elbow!</span>")
+						  "<span class='danger'>[A] piledrives you with their elbow!</span>")
 		if(D.stat)
 			D.death() //FINISH HIM!
 		D.apply_damage(50, BRUTE, "chest")
@@ -121,7 +121,7 @@
 	A.do_attack_animation(D)
 	var/atk_verb = pick("punches", "kicks", "chops", "hits", "slams")
 	D.visible_message("<span class='danger'>[A] [atk_verb] [D]!</span>", \
-					  "<span class='userdanger'>[A] [atk_verb] you!</span>")
+					  "<span class='danger'>[A] [atk_verb] you!</span>")
 	D.apply_damage(rand(10,15), BRUTE)
 	playsound(get_turf(D), 'sound/weapons/punch1.ogg', 25, 1, -1)
 	if(prob(50))
@@ -150,6 +150,13 @@
 	to_chat(usr, "<span class='notice'>Stomach Knee</span>: Grab Harm. Knocks the wind out of opponent and stuns.")
 	to_chat(usr, "<span class='notice'>Head Kick</span>: Disarm Harm Harm. Decent damage, forces opponent to drop item in hand.")
 	to_chat(usr, "<span class='notice'>Elbow Drop</span>: Harm Disarm Harm Disarm Harm. Opponent must be on the ground. Deals huge damage, instantly kills anyone in critical condition.")
+
+/obj/item/weapon/sleeping_carp_scroll
+	name = "mysterious scroll"
+	desc = "A scroll filled with strange markings. It seems to be drawings of some sort of martial art."
+	icon = 'icons/obj/wizard.dmi'
+	icon_state = "scroll2"
+
 
 /obj/item/weapon/sleeping_carp_scroll/attack_self(mob/living/carbon/human/user as mob)
 	if(!istype(user) || !user)
