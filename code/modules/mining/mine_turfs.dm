@@ -43,7 +43,7 @@ var/list/mineral_can_smooth_with = list(
 	var/mined_ore = 0
 	var/last_act = 0
 	var/emitter_blasts_taken = 0 // EMITTER MINING! Muhehe.
-	var/spider_nest = 0
+	var/trap_type = SPACETRAP_NONE
 
 	var/datum/geosample/geologic_data
 	var/excavation_level = 0
@@ -83,8 +83,9 @@ var/list/mineral_can_smooth_with = list(
 
 	if (!mapload)
 		queue_smooth_neighbors(src)
-	if(!spider_nest	&& prob(1))
-		spider_nest = 1
+
+	if(trap_type == SPACETRAP_NONE && prob(1))
+		trap_type = pick(SPACETRAP_SPIDER,SPACETRAP_CARP,SPACETRAP_BEAR)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -229,7 +230,7 @@ var/list/mineral_can_smooth_with = list(
 		P.drilling = 1
 
 		//Handle spiders
-		if(spider_nest && prob(75))
+		if(trap_type == SPACETRAP_SPIDER && prob(75))
 			new /obj/effect/spider/spiderling(src)
 			if(prob(50))
 				new /obj/effect/spider/spiderling(src)
@@ -359,11 +360,12 @@ var/list/mineral_can_smooth_with = list(
 /turf/simulated/mineral/proc/GetDrilled(var/artifact_fail = 0)
 	//var/destroyed = 0 //used for breaking strange rocks
 
-	if(spider_nest)
-		spider_nest = 0 // JUST IN CASE ANYTHING GOES WRONG AND IT DOESN'T SPAWN A SPIDER EVERY FRAME
-		var/mob/living/simple_animal/hostile/giant_spider/nurse/M =  new(src)
-		var/turf/T = get_turf(src)
-		visible_message("<span class='warning'>A very angry [M.name] leaps up from under the [T.name]!</span>")
+	switch(trap_type)
+		if(SPACETRAP_SPIDER)
+			var/mob/living/simple_animal/hostile/giant_spider/nurse/M =  new(src)
+			var/turf/T = get_turf(src)
+			visible_message("<span class='warning'>A very angry [M.name] leaps up from under the [T.name]!</span>")
+
 
 	if (mineral && mineral.result_amount)
 
