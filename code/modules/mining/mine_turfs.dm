@@ -229,7 +229,7 @@ var/list/mineral_can_smooth_with = list(
 		P.drilling = 1
 
 		//Handle spiders
-		if(spider_nest && prob(50))
+		if(spider_nest && prob(75))
 			new /obj/effect/spider/spiderling(src)
 			if(prob(50))
 				new /obj/effect/spider/spiderling(src)
@@ -358,11 +358,12 @@ var/list/mineral_can_smooth_with = list(
 
 /turf/simulated/mineral/proc/GetDrilled(var/artifact_fail = 0)
 	//var/destroyed = 0 //used for breaking strange rocks
-	
+
 	if(spider_nest)
 		spider_nest = 0 // JUST IN CASE ANYTHING GOES WRONG AND IT DOESN'T SPAWN A SPIDER EVERY FRAME
-		new /mob/living/simple_animal/hostile/giant_spider/nurse(src)
-		visible_message("<span class='warning'>A very angry mother spider leaps from under the sand!</span>")
+		var/mob/living/simple_animal/hostile/giant_spider/nurse/M =  new(src)
+		var/turf/T = get_turf(src)
+		visible_message("<span class='warning'>A very angry [M.name] leaps up from under the [T.name]!</span>")
 
 	if (mineral && mineral.result_amount)
 
