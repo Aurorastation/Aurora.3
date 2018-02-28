@@ -3,12 +3,12 @@
 	var/streak = ""
 	var/max_streak_length = 6
 	var/current_target = null
-	var/temporary = 0
 	var/datum/martial_art/base = null // The permanent style
 	var/deflection_chance = 0 //Chance to deflect projectiles
 	var/help_verb = null
 	var/no_guns = FALSE	//set to TRUE to prevent users of this style from using guns
 	var/no_guns_message = ""	//message to tell the style user if they try and use a gun while no_guns = TRUE (DISHONORABRU!)
+	var/temporary = 0
 
 /datum/martial_art/proc/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	return 0
@@ -34,37 +34,28 @@
 /datum/martial_art/proc/basic_hit(var/mob/living/carbon/human/A,var/mob/living/carbon/human/D)
 
 	A.do_attack_animation(D)
+	var/datum/unarmed_attack/attack = A.get_unarmed_attack(A)
+	var/damage = attack.get_unarmed_damage(A)
+	var/hit_dam_type = attack.damage_type
 	var/hit_zone = A.zone_sel.selecting
-	var/datum/unarmed_attack/attack = A.get_unarmed_attack(src, hit_zone)
-	var/damage = attack.damage
+	var/obj/item/organ/external/affecting = D.get_organ(hit_zone)
 
 	var/atk_verb = "[pick(attack.attack_verb)]"
 	if(D.lying)
-		atk_verb = "kick"
+		atk_verb = "kicked"
 
-	if(!damage)
-		playsound(D.loc, attack.miss_sound, 25, 1, -1)
-		D.visible_message("<span class='warning'>[A] has attempted to [atk_verb] [D]!</span>")
-		return 0
+	if(!affecting || affecting.is_stump())
+		A << "<span class='danger'>They are missing that limb!</span>"
+		return 1
 
-	var/obj/item/organ/external/affecting = D.get_organ(ran_zone(A.zone_sel.selecting))
-	var/armor_block = D.run_armor_check(affecting, "melee")
+	var/armour = D.run_armor_check(hit_zone, "melee")
 
-	playsound(D.loc, attack.attack_sound, 25, 1, -1)
-	D.visible_message("<span class='danger'>[A] has [atk_verb] [D]!</span>", \
-								"<span class='userdanger'>[A] has [atk_verb] [D]!</span>")
+	playsound(A.loc, attack.attack_sound, 25, 1, -1)
+	A.visible_message("<span class='danger'>[A] has [atk_verb] [D]!</span>", \
+								"<span class='danger'>[A] has [atk_verb] [D]!</span>")
 
-	D.apply_damage(damage, BRUTE, affecting, armor_block)
+	D.apply_damage(damage, hit_dam_type, hit_zone, armour, sharp=attack.sharp, edge=attack.edge)
 
-	add_logs(A, D, "punched")
-
-	if(D.stat != DEAD)
-		D.visible_message("<span class='danger'>[A] has weakened [D]!</span>", \
-								"<span class='userdanger'>[A] has weakened [D]!</span>")
-		D.apply_effect(4, WEAKEN, armor_block)
-		D.forcesay(hit_appends)
-	else if(D.lying)
-		D.forcesay(hit_appends)
 	return 1
 
 /datum/martial_art/proc/teach(var/mob/living/carbon/human/H,var/make_temporary=0)

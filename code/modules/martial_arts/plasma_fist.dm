@@ -32,7 +32,7 @@
 		sleep(1)
 
 /datum/martial_art/plasma_fist/proc/Tornado(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
-	A.say("TORNADO SWEEP!")
+	A.say("Tornado sweep!")
 	TornadoAnimate(A)
 	var/list/thrownatoms = list()
 	var/atom/throwtarget
@@ -44,45 +44,45 @@
 
 	for(var/am in thrownatoms)
 		var/atom/movable/AM = am
-		if(AM == user || AM.anchored)
+		if(AM == A || AM.anchored)
 			continue
 
-		throwtarget = get_edge_target_turf(user, get_dir(user, get_step_away(AM, user)))
-		distfromcaster = get_dist(user, AM)
+		throwtarget = get_edge_target_turf(A, get_dir(A, get_step_away(AM, A)))
+		distfromcaster = get_dist(A, AM)
 		if(distfromcaster == 0)
 			if(istype(AM, /mob/living))
 				var/mob/living/M = AM
 				M.Weaken(5)
 				M.adjustBruteLoss(5)
-				to_chat(M, "<span class='userdanger'>You're slammed into the floor by a mystical force!</span>")
+				to_chat(M, "<span class='danger'>You're slammed into the floor by a mystical force!</span>")
 		else
 			if(istype(AM, /mob/living))
 				var/mob/living/M = AM
 				M.Weaken(2)
-				to_chat(M, "<span class='userdanger'>You're thrown back by a mystical force!</span>")
+				to_chat(M, "<span class='danger'>You're thrown back by a mystical force!</span>")
 				AM.throw_at(throwtarget, ((Clamp((5 - (Clamp(distfromcaster - 2, 0, distfromcaster))), 3, 5))), 1)//So stuff gets tossed around at the same time.
 
-	add_logs(A, D, "tornado sweeped(Plasma Fist)")
+	log_and_message_admins("used tornado sweep(Plasma Fist)", "[A]")
 	return
 
 /datum/martial_art/plasma_fist/proc/Throwback(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	D.visible_message("<span class='danger'>[A] has hit [D] with plasma Punch!</span>", \
-								"<span class='userdanger'>[A] has hit [D] with plasma punch!</span>")
+								"<span class='danger'>[A] has hit [D] with plasma punch!</span>")
 	playsound(D.loc, 'sound/weapons/punch1.ogg', 50, 1, -1)
 	var/atom/throw_target = get_edge_target_turf(D, get_dir(D, get_step_away(D, A)))
 	D.throw_at(throw_target, 200, 4,A)
 	A.say("Plasma punch!")
-	add_logs(A, D, "threw back (Plasma Fist)")
+	log_and_message_admins("[A] used threw back (Plasma Fist) against [D]")
 	return
 
 /datum/martial_art/plasma_fist/proc/Plasma(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.do_attack_animation(D)
-	playsound(D.loc, 'sound/weapons/punch1.ogg', 50, 1, -1)
+	playsound(D.loc, 'sound/magic/Disintegrate.ogg', 50, 1, -1)
 	A.say("PLASMA FIST!")
 	D.visible_message("<span class='danger'>[A] has hit [D] with the plasma fist technique!</span>", \
-								"<span class='userdanger'>[A] has hit [D] with the plasma fist technique!</span>")
+								"<span class='danger'>[A] has hit [D] with the plasma fist technique!</span>")
 	D.gib()
-	add_logs(A, D, "gibbed (Plasma Fist)")
+	log_and_message_admins("[A] gibbed [D] with the plasma fist (Plasma Fist) against [A]")
 	return
 
 /datum/martial_art/plasma_fist/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
