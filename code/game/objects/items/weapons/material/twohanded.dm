@@ -518,7 +518,7 @@
 	can_embed = 0
 
 /obj/item/weapon/material/twohanded/pike/halberd
-	icon_state = "alberd0"
+	icon_state = "halberd0"
 	base_icon = "halberd"
 	name = "halberd"
 	desc = "A sharp axe mounted on the top of a long spear."
