@@ -49,11 +49,11 @@
 	return 1
 
 /datum/martial_art/kis_khan/proc/tail_sweep(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
-	A.do_attack_animation(D)
 	if(D.stat || D.weakened)
 		return 0
 	if(!isunathi(A))
 		return 0
+	TornadoAnimate(A)
 	A.visible_message("<span class='warning'>[A] sweeps [D] with their tail!</span>")
 	playsound(get_turf(A), "swing_hit", 50, 1, -1)
 	D.apply_damage(5, BRUTE)
@@ -116,6 +116,6 @@
 
 	to_chat(usr, "<b><i>You hisses deeply and remembers the traditions...</i></b>")
 	to_chat(usr, "<span class='notice'>Tail Sweep</span>: Harm Harm Disarm. Trips the victim with your tail, rendering them prone and unable to move for a short time.")
-	to_chat(usr, "<span class='notice'>Swift Disarm</span>: Disarm Disarm Greab. Strikes your target's weapon, trying to disarm it from their hands.")
+	to_chat(usr, "<span class='notice'>Swift Disarm</span>: Disarm Disarm Grab. Strikes your target's weapon, trying to disarm it from their hands.")
 	to_chat(usr, "<span class='notice'>Hammering Strike</span>: Disarm Harm Disarm. Delivers a strikes that will push the target away from you.")
 

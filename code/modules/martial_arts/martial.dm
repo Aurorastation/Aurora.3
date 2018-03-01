@@ -76,3 +76,11 @@
 	H.martial_art = base
 	if(help_verb)
 		H.verbs -= help_verb
+
+/datum/martial_art/proc/TornadoAnimate(mob/living/carbon/human/A)
+	set waitfor = FALSE
+	for(var/i in list(NORTH,SOUTH,EAST,WEST,EAST,SOUTH,NORTH,SOUTH,EAST,WEST,EAST,SOUTH))
+		if(!A)
+			break
+		A.set_dir(i)
+		playsound(A.loc, 'sound/weapons/punch1.ogg', 15, 1, -1)

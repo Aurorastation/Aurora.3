@@ -22,14 +22,6 @@
 		return 1
 	return 0
 
-/datum/martial_art/plasma_fist/proc/TornadoAnimate(mob/living/carbon/human/A)
-	set waitfor = FALSE
-	for(var/i in list(NORTH,SOUTH,EAST,WEST,EAST,SOUTH,NORTH,SOUTH,EAST,WEST,EAST,SOUTH))
-		if(!A)
-			break
-		A.set_dir(i)
-		playsound(A.loc, 'sound/weapons/punch1.ogg', 15, 1, -1)
-
 /datum/martial_art/plasma_fist/proc/Tornado(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.say("Tornado sweep!")
 	TornadoAnimate(A)
