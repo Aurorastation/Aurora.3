@@ -95,6 +95,7 @@
 	desc = "A parched scroll.It seems to be drawings of some sort of martial art involving tails."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "scroll2"
+
 /obj/item/kis_khan_manual/attack_self(mob/user as mob)
 	if(!ishuman(user))
 		return
