@@ -92,22 +92,17 @@
 
 /obj/item/kis_khan_manual
 	name = "kis khan scroll"
-	desc = "A parched scroll, it seems to be written in Sinta'unathi."
-	icon = 'icons/obj/library.dmi'
-	icon_state ="cqcmanual"
-
+	desc = "A parched scroll.It seems to be drawings of some sort of martial art involving tails."
+	icon = 'icons/obj/wizard.dmi'
+	icon_state = "scroll2"
 /obj/item/kis_khan_manual/attack_self(mob/user as mob)
 	if(!ishuman(user))
 		return
-	if(all_languages[LANGUAGE_UNATHI] in user.languages)
-
-		var/mob/living/carbon/human/H = user
-		var/datum/martial_art/kis_khan/F = new/datum/martial_art/kis_khan(null)
-		F.teach(H)
-		to_chat(H, "<span class='notice'>You have learned the martial art of Kis Khan.</span>")
-		qdel(src)
-	else
-		to_chat(user, "<span class='notice'>You do not understand what is written on the scroll.</span>")
+	var/mob/living/carbon/human/H = user
+	var/datum/martial_art/kis_khan/F = new/datum/martial_art/kis_khan(null)
+	F.teach(H)
+	to_chat(H, "<span class='notice'>You have learned the martial art of Kis Khan.</span>")
+	qdel(src)
 
 /mob/living/carbon/human/proc/kis_khan_help()
 	set name = "Recall Teachings"

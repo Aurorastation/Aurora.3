@@ -82,22 +82,18 @@ datum/martial_art/karak_virul/grab_act(var/mob/living/carbon/human/A, var/mob/li
 
 /obj/item/karak_virul_manual
 	name = "karak virul manual"
-	desc = "A manual designated to teach the user about the skrellian martial art of Karak Virul. It seems to be written in Nral'Malic."
+	desc = "A manual designated to teach the user about the skrellian martial art of Karak Virul."
 	icon = 'icons/obj/library.dmi'
 	icon_state ="cqcmanual"
 
 /obj/item/karak_virul_manual/attack_self(mob/user as mob)
 	if(!ishuman(user))
 		return
-	if(all_languages[LANGUAGE_SKRELLIAN] in user.languages)
-
-		var/mob/living/carbon/human/H = user
-		var/datum/martial_art/karak_virul/F = new/datum/martial_art/karak_virul(null)
-		F.teach(H)
-		to_chat(H, "<span class='notice'>You have learned the martial art of Karak Virul.</span>")
-		qdel(src)
-	else
-		to_chat(user, "<span class='notice'>You do not understand what is written on the manual.</span>")
+	var/mob/living/carbon/human/H = user
+	var/datum/martial_art/karak_virul/F = new/datum/martial_art/karak_virul(null)
+	F.teach(H)
+	to_chat(H, "<span class='notice'>You have learned the martial art of Karak Virul.</span>")
+	qdel(src)
 
 /mob/living/carbon/human/proc/karak_virul_help()
 	set name = "Recall Teachings"
