@@ -25,7 +25,7 @@
 	A.do_attack_animation(D)
 	if(D.stat || D.weakened)
 		return 0
-	A.visible_message("<span class='warning'>[A] leg sweeps [D]!</span>", \
+	D.visible_message("<span class='warning'>[A] leg sweeps [D]!</span>", \
 					  	"<span class='userdanger'>[A] leg sweeps you!</span>")
 	playsound(get_turf(A), "swing_hit", 50, 1, -1)
 	D.apply_damage(5, BRUTE)
@@ -97,7 +97,7 @@ datum/martial_art/karak_virul/grab_act(var/mob/living/carbon/human/A, var/mob/li
 		to_chat(H, "<span class='notice'>You have learned the martial art of Karak Virul.</span>")
 		qdel(src)
 	else
-		to_chat(user, "<span class='notice'>You do not understand what is written in the manual.</span>")
+		to_chat(user, "<span class='notice'>You do not understand what is written on the manual.</span>")
 
 /mob/living/carbon/human/proc/karak_virul_help()
 	set name = "Recall Teachings"

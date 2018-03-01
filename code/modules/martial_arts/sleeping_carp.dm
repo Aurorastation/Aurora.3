@@ -88,14 +88,12 @@
 /datum/martial_art/the_sleeping_carp/proc/elbowDrop(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(D.weakened || D.resting || D.stat)
 		A.do_attack_animation(D)
-		D.visible_message("<span class='warning'>[A] elbow drops [D]!</span>", \
+		D.visible_message("<span class='danger'>[A] elbow drops [D]!</span>", \
 						  "<span class='danger'>[A] piledrives you with their elbow!</span>")
 		if(D.stat)
 			D.death() //FINISH HIM!
 		D.apply_damage(50, BRUTE, "chest")
 		playsound(get_turf(D), 'sound/weapons/punch1.ogg', 75, 1, -1)
-		if(prob(80))
-			A.say(pick("BANZAIII!", "KIYAAAA!", "OMAE WA MOU SHINDEIRU!", "YOU CAN'T SEE ME!", "MY TIME IS NOW!", "COWABUNGA"))
 		return 1
 	return basic_hit(A,D)
 

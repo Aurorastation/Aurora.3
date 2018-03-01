@@ -29,7 +29,6 @@
 			break
 		A.set_dir(i)
 		playsound(A.loc, 'sound/weapons/punch1.ogg', 15, 1, -1)
-		sleep(1)
 
 /datum/martial_art/plasma_fist/proc/Tornado(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.say("Tornado sweep!")
@@ -66,7 +65,7 @@
 	return
 
 /datum/martial_art/plasma_fist/proc/Throwback(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
-	D.visible_message("<span class='danger'>[A] has hit [D] with plasma Punch!</span>", \
+	D.visible_message("<span class='danger'>[A] has hit [D] with plasma punch!</span>", \
 								"<span class='danger'>[A] has hit [D] with plasma punch!</span>")
 	playsound(D.loc, 'sound/weapons/punch1.ogg', 50, 1, -1)
 	var/atom/throw_target = get_edge_target_turf(D, get_dir(D, get_step_away(D, A)))
