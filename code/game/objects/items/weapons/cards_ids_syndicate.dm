@@ -201,3 +201,16 @@
 	var/name
 	var/icon_state
 	var/item_state
+
+
+/obj/item/weapon/card/id/syndicate/combat_ninja
+	name = "tiger card"
+	assignment = "Tiger"
+
+/obj/item/weapon/card/id/syndicate/mobility_ninja
+	name = "spider card"
+	assignment = "Spider"
+
+/obj/item/weapon/card/id/syndicate/stealth_ninja
+	name = "snake card"
+	assignment = "Snake"

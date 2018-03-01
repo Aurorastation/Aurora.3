@@ -94,6 +94,82 @@
 	)
 	product_ads = "Only the finest!;Have some tools.;The most robust equipment.;The finest gear in space!"
 
+/obj/machinery/vending/assist/ninja
+	name = "Ninja Module Vendor"
+	vend_id = "tools"
+	can_move = 0
+	products = list()
+	contraband = list(
+		/obj/item/rig_module/actuators/combat = 1,
+		/obj/item/rig_module/device/healthscanner = 1,
+		/obj/item/rig_module/chem_dispenser/ninja = 1,
+		/obj/item/rig_module/actuators = 1,
+		/obj/item/rig_module/power_sink = 1,
+		/obj/item/rig_module/emergency_powergenerator = 1,
+		/obj/item/rig_module/emag_hand = 1,
+		/obj/item/rig_module/vision/multi = 1
+
+	)
+	prices = list()
+	categories = CAT_NORMAL | CAT_HIDDEN | CAT_COIN
+
+/obj/machinery/vending/assist/ninja/combat
+	name = "Tiger Module Vendor"
+	products = list(
+		/obj/item/rig_module/chem_dispenser/combat = 2,
+		/obj/item/rig_module/grenade_launcher = 2,
+		/obj/item/rig_module/mounted/energy_blade = 2,
+		/obj/item/rig_module/fabricator = 2,
+		/obj/item/rig_module/emp_shielding = 2
+	)
+	prices = list(
+		/obj/item/rig_module/chem_dispenser/combat = 1000,
+		/obj/item/rig_module/grenade_launcher = 2000,
+		/obj/item/rig_module/mounted/energy_blade = 3000,
+		/obj/item/rig_module/fabricator = 3000,
+		/obj/item/rig_module/emp_shielding = 2000
+	)
+
+/obj/machinery/vending/assist/ninja/stealth
+	name = "Snake Module Vendor"
+	products = list(
+		/obj/item/rig_module/voice = 2,
+		/obj/item/rig_module/ai_container = 2,
+		/obj/item/rig_module/datajack = 2,
+		/obj/item/rig_module/electrowarfare_suite = 2,
+		/obj/item/rig_module/stealth_field = 2
+	)
+	prices = list(
+		/obj/item/rig_module/voice = 1000,
+		/obj/item/rig_module/ai_container = 1000,
+		/obj/item/rig_module/datajack = 500,
+		/obj/item/rig_module/electrowarfare_suite = 1000,
+		/obj/item/rig_module/stealth_field = 3000
+	)
+
+/obj/machinery/vending/assist/ninja/mobility
+	name = "Spider Module Vendor"
+	products = list(
+		/obj/item/rig_module/maneuvering_jets = 2,
+		/obj/item/rig_module/actuators/combat = 2,
+		/obj/item/rig_module/device/flash = 2,
+		/obj/item/rig_module/mounted/taser = 2,
+		/obj/item/rig_module/ai_container = 2,
+		/obj/item/rig_module/datajack = 2,
+		/obj/item/rig_module/teleporter = 2,
+		/obj/item/rig_module/fabricator/energy_net = 3
+	)
+	prices = list(
+		/obj/item/rig_module/maneuvering_jets = 2000,
+		/obj/item/rig_module/actuators/combat = 2000,
+		/obj/item/rig_module/device/flash = 2000,
+		/obj/item/rig_module/mounted/taser = 1000,
+		/obj/item/rig_module/ai_container = 1000,
+		/obj/item/rig_module/datajack = 500,
+		/obj/item/rig_module/teleporter = 4000,
+		/obj/item/rig_module/fabricator/energy_net = 2000
+	)
+
 /obj/machinery/vending/coffee
 	name = "Hot Drinks machine"
 	desc = "A vending machine which dispenses hot drinks."
