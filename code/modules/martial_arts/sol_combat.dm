@@ -2,11 +2,11 @@
 #define LEG_SWEEP "DHD"
 #define QUICK_CHOKE "HDH"
 
-/datum/martial_art/krav_maga
-	name = "Krav Maga"
-	help_verb = /mob/living/carbon/human/proc/krav_maga_help
+/datum/martial_art/sol_combat
+	name = "Solarian Combat"
+	help_verb = /mob/living/carbon/human/proc/sol_combat_help
 
-/datum/martial_art/krav_maga/proc/check_streak(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/sol_combat/proc/check_streak(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(findtext(streak,NECK_CHOP))
 		streak = ""
 		neck_chop(A,D)
@@ -21,7 +21,7 @@
 		return 1
 	return 0
 
-/datum/martial_art/krav_maga/proc/leg_sweep(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/sol_combat/proc/leg_sweep(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.do_attack_animation(D)
 	if(D.stat || D.weakened)
 		return 0
@@ -32,7 +32,7 @@
 	D.Weaken(2)
 	return 1
 
-/datum/martial_art/krav_maga/proc/quick_choke(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)//is actually lung punch
+/datum/martial_art/sol_combat/proc/quick_choke(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)//is actually lung punch
 	A.do_attack_animation(D)
 	D.visible_message("<span class='warning'>[A] pounds [D] on the chest!</span>", \
 				  	"<span class='userdanger'>[A] slams your chest!</span>")
@@ -41,7 +41,7 @@
 	D.adjustOxyLoss(10)
 	return 1
 
-/datum/martial_art/krav_maga/proc/neck_chop(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/sol_combat/proc/neck_chop(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.do_attack_animation(D)
 	D.visible_message("<span class='warning'>[A] karate chops [D]'s neck!</span>", \
 				  	"<span class='userdanger'>[A] karate chops your neck, rendering you unable to speak for a short time!</span>")
@@ -50,12 +50,12 @@
 	D.silent += 10
 	return 1
 
-datum/martial_art/krav_maga/grab_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+datum/martial_art/sol_combat/grab_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(check_streak(A,D))
 		return 1
 	..()
 
-/datum/martial_art/krav_maga/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/sol_combat/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	add_to_streak("H",D)
 	if(check_streak(A,D))
 		return 1
@@ -75,7 +75,7 @@ datum/martial_art/krav_maga/grab_act(var/mob/living/carbon/human/A, var/mob/livi
 					  "<span class='userdanger'>[A] [picked_hit_type] you!</span>")
 	return 1
 
-/datum/martial_art/krav_maga/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/sol_combat/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	add_to_streak("D",D)
 	A.do_attack_animation(D)
 	if(check_streak(A,D))
@@ -100,26 +100,26 @@ datum/martial_art/krav_maga/grab_act(var/mob/living/carbon/human/A, var/mob/livi
 		playsound(D, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
 	return 1
 
-/obj/item/krav_maga_manual
-	name = "krav maga manual"
-	desc = "A manual designated to teach the user about the ancient war of Krav Maga."
+/obj/item/sol_combat_manual
+	name = "SolCom manual"
+	desc = "A manual designated to teach the user about the martial art of solarian combat, a style based on traditional human martial arts."
 	icon = 'icons/obj/library.dmi'
 	icon_state ="cqcmanual"
 
-/obj/item/krav_maga_manual/attack_self(mob/user as mob)
+/obj/item/sol_combat_manual/attack_self(mob/user as mob)
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
-	var/datum/martial_art/krav_maga/F = new/datum/martial_art/krav_maga(null)
+	var/datum/martial_art/sol_combat/F = new/datum/martial_art/sol_combat(null)
 	F.teach(H)
 	to_chat(H, "<span class='notice'>You have learned the martial art of Krav Maga.</span>")
 	qdel(src)
 
 
-/mob/living/carbon/human/proc/krav_maga_help()
+/mob/living/carbon/human/proc/sol_combat_help()
 	set name = "Recall Teachings"
-	set desc = "Remember the martial techniques of the Krava Maga."
-	set category = "Krava Maga"
+	set desc = "Remember the martial techniques of the Solarian Combat."
+	set category = "Solarian Combat"
 
 	to_chat(usr, "<b><i>You clench your fists and have a flashback of knowledge...</i></b>")
 	to_chat(usr, "<span class='notice'>Neck Chop</span>: Harm Harm Disarm. Injures the neck, stopping the victim from speaking for a while.")
