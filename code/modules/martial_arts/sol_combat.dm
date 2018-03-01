@@ -112,7 +112,7 @@ datum/martial_art/sol_combat/grab_act(var/mob/living/carbon/human/A, var/mob/liv
 	var/mob/living/carbon/human/H = user
 	var/datum/martial_art/sol_combat/F = new/datum/martial_art/sol_combat(null)
 	F.teach(H)
-	to_chat(H, "<span class='notice'>You have learned the martial art of Krav Maga.</span>")
+	to_chat(H, "<span class='notice'>You have learned the martial art of Solarian Combat.</span>")
 	qdel(src)
 
 
