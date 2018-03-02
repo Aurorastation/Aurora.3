@@ -1,6 +1,5 @@
 /datum/event/random_brain_trauma
 
-
 /datum/event/random_brain_trauma/start()
 
 	var/luckypeople = severity
@@ -10,7 +9,9 @@
 		/datum/brain_trauma/severe/split_personality
 	)
 
-	for(var/mob/living/carbon/human/H in shuffle(living_mob_list)) if(H.client && H.stat != DEAD)
+	for(var/mob/living/carbon/human/H in shuffle(living_mob_list))
+		if(!H.client || H.stat == DEAD)
+			continue
 
 		var/datum/brain_trauma/selected_trauma = pick(brain_traumas)
 
@@ -25,5 +26,3 @@
 
 /datum/event/random_brain_trauma/announce()
 	command_announcement.Announce("Space-time anomalies have been detected aboard the station. Report to the medical bay if any strange symptoms occur.", "Space-time alert", new_sound = 'sound/AI/spanomalies.ogg')
-
-
