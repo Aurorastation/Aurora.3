@@ -107,8 +107,39 @@
 		/obj/item/rig_module/power_sink = 1,
 		/obj/item/rig_module/emergency_powergenerator = 1,
 		/obj/item/rig_module/emag_hand = 1,
-		/obj/item/rig_module/vision/multi = 1
-
+		/obj/item/rig_module/vision/multi = 1,
+		/obj/item/weapon/material/sword = 1,
+		/obj/item/weapon/material/sword/katana = 1,
+		/obj/item/weapon/material/sword/rapier = 1,
+		/obj/item/weapon/material/sword/longsword = 1,
+		/obj/item/weapon/material/sword/trench = 1,
+		/obj/item/weapon/material/sword/sabre = 1,
+		/obj/item/weapon/material/sword/axe = 1,
+		/obj/item/weapon/material/sword/khopesh = 1,
+		/obj/item/weapon/material/sword/dao = 1,
+		/obj/item/weapon/material/sword/gladius = 1,
+		/obj/item/weapon/material/star = 4,
+		/obj/item/weapon/nullrod/nullstaff = 1
+	)
+	premium = list(
+		/obj/item/rig_module/chem_dispenser/combat = 1,
+		/obj/item/rig_module/grenade_launcher = 1,
+		/obj/item/rig_module/mounted/energy_blade = 1,
+		/obj/item/rig_module/fabricator = 1,
+		/obj/item/rig_module/emp_shielding = 1,
+		/obj/item/rig_module/voice = 1,
+		/obj/item/rig_module/ai_container = 1,
+		/obj/item/rig_module/datajack = 1,
+		/obj/item/rig_module/electrowarfare_suite = 1,
+		/obj/item/rig_module/stealth_field = 1,
+		/obj/item/rig_module/maneuvering_jets = 1,
+		/obj/item/rig_module/actuators/combat = 1,
+		/obj/item/rig_module/device/flash = 1,
+		/obj/item/rig_module/mounted/taser = 1,
+		/obj/item/rig_module/ai_container = 1,
+		/obj/item/rig_module/datajack = 1,
+		/obj/item/rig_module/teleporter = 1,
+		/obj/item/rig_module/fabricator/energy_net = 1
 	)
 	prices = list()
 	categories = CAT_NORMAL | CAT_HIDDEN | CAT_COIN
@@ -157,7 +188,7 @@
 		/obj/item/rig_module/ai_container = 2,
 		/obj/item/rig_module/datajack = 2,
 		/obj/item/rig_module/teleporter = 2,
-		/obj/item/rig_module/fabricator/energy_net = 3
+		/obj/item/rig_module/fabricator/energy_net = 2
 	)
 	prices = list(
 		/obj/item/rig_module/maneuvering_jets = 2000,

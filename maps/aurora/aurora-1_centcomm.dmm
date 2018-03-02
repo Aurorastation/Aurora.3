@@ -22154,46 +22154,88 @@
 	name = "\improper Ninja Base"
 	})
 "aWS" = (
-/turf/space,
-/area/template_noop)
+/turf/template_noop,
+/area/space)
 "aWT" = (
 /turf/space,
-/turf/simulated/shuttle/wall/dark{
-	dir = 8;
-	icon_state = "diagonalWall3"
-	},
-/area/template_noop)
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
 "aWU" = (
 /turf/space,
-/turf/simulated/shuttle/wall/dark{
-	dir = 6;
-	icon_state = "diagonalWall3"
-	},
-/area/template_noop)
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
 "aWV" = (
 /turf/space,
-/area/template_noop)
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
 "aWW" = (
 /turf/space,
-/turf/simulated/shuttle/wall/dark{
-	dir = 8;
-	icon_state = "diagonalWall3"
-	},
-/area/template_noop)
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
 "aWX" = (
 /turf/space,
-/turf/simulated/shuttle/wall/dark{
-	dir = 6;
-	icon_state = "diagonalWall3"
-	},
-/area/template_noop)
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
 "aWY" = (
-/turf/space,
-/area/template_noop)
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/shuttle/plating,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
 "aWZ" = (
-/turf/space,
-/area/template_noop)
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/plating,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
 "aXa" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/plating,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aXb" = (
+/turf/space,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aXc" = (
+/turf/space,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aXd" = (
+/turf/template_noop,
+/area/space)
+"aXe" = (
+/turf/space,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aXf" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -22206,36 +22248,6 @@
 	dir = 8
 	},
 /turf/simulated/shuttle/plating,
-/area/template_noop)
-"aXb" = (
-/turf/space,
-/area/template_noop)
-"aXc" = (
-/obj/structure/table/reinforced/steel,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor4"
-	},
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aXd" = (
-/obj/structure/table/reinforced/steel,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor4"
-	},
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aXe" = (
-/obj/structure/table/reinforced/steel,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor4"
-	},
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aXf" = (
-/turf/space,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
@@ -22249,6 +22261,9 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
@@ -22258,82 +22273,32 @@
 	name = "\improper Ninja Base"
 	})
 "aXi" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/machinery/vending/assist/ninja/combat,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
 	},
-/obj/structure/window/reinforced,
-/turf/simulated/shuttle/plating,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
 "aXj" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
+/obj/structure/bed/chair{
 	dir = 1
 	},
-/obj/structure/window/reinforced{
-	dir = 4
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
 	},
-/obj/structure/window/reinforced,
-/turf/simulated/shuttle/plating,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
 "aXk" = (
-/turf/space,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
 "aXl" = (
-/turf/space,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aXm" = (
-/obj/effect/step_trigger/teleporter/random{
-	affect_ghosts = 1;
-	name = "escapeshuttle_leave";
-	teleport_x = 25;
-	teleport_x_offset = 245;
-	teleport_y = 25;
-	teleport_y_offset = 245;
-	teleport_z = 6;
-	teleport_z_offset = 6
-	},
-/turf/space,
-/area/template_noop)
-"aXn" = (
-/obj/structure/table/reinforced/steel,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor4"
-	},
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aXo" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/weapon/spacecash/bundle/c10000,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor4"
-	},
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aXp" = (
-/obj/effect/step_trigger/teleporter/random{
-	affect_ghosts = 1;
-	name = "escapeshuttle_leave";
-	teleport_x = 25;
-	teleport_x_offset = 245;
-	teleport_y = 25;
-	teleport_y_offset = 245;
-	teleport_z = 6;
-	teleport_z_offset = 6
-	},
-/turf/space,
-/area/template_noop)
-"aXq" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 1
@@ -22349,8 +22314,53 @@
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
+"aXm" = (
+/turf/template_noop,
+/area/space)
+"aXn" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/weapon/storage/toolbox/syndicate,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aXo" = (
+/obj/structure/table/reinforced/steel,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aXp" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aXq" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/shuttle/plating,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
 "aXr" = (
-/obj/machinery/vending/assist/ninja/combat,
+/obj/effect/landmark{
+	name = "tigerstart"
+	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
@@ -22365,7 +22375,6 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -22374,6 +22383,9 @@
 	name = "\improper Ninja Base"
 	})
 "aXt" = (
+/turf/template_noop,
+/area/space)
+"aXu" = (
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
 	name = "escapeshuttle_leave";
@@ -22386,17 +22398,10 @@
 	},
 /turf/space,
 /area/template_noop)
-"aXu" = (
-/obj/machinery/vending/assist/ninja/stealth,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor4"
-	},
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
 "aXv" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/suit_cooling_unit/improved,
+/obj/item/weapon/spacecash/bundle/c10000,
+/obj/item/weapon/coin/silver/ninja,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
@@ -22404,6 +22409,15 @@
 	name = "\improper Ninja Base"
 	})
 "aXw" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/weapon/tank/oxygen,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aXx" = (
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
 	name = "escapeshuttle_leave";
@@ -22416,56 +22430,7 @@
 	},
 /turf/space,
 /area/template_noop)
-"aXx" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/shuttle/plating,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
 "aXy" = (
-/obj/effect/landmark{
-	name = "tigerstart"
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor4"
-	},
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aXz" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/shuttle/plating,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aXA" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/weapon/rig/light/ninja/stealth,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor4"
-	},
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aXB" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -22478,7 +22443,7 @@
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aXC" = (
+"aXz" = (
 /obj/machinery/computer/teleporter,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
@@ -22486,7 +22451,7 @@
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aXD" = (
+"aXA" = (
 /obj/machinery/teleport/station,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
@@ -22494,7 +22459,7 @@
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aXE" = (
+"aXB" = (
 /obj/machinery/teleport/hub,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
@@ -22502,7 +22467,7 @@
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aXF" = (
+"aXC" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/weapon/material/sword/katana,
 /turf/simulated/shuttle/floor{
@@ -22511,32 +22476,35 @@
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aXG" = (
+"aXD" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/weapon/spacecash/bundle/c10000,
+/obj/item/weapon/coin/silver/ninja,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aXH" = (
+"aXE" = (
 /obj/structure/table/reinforced/steel,
+/obj/item/weapon/storage/toolbox/syndicate,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aXI" = (
+"aXF" = (
 /obj/structure/table/reinforced/steel,
+/obj/item/weapon/tank/oxygen,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aXJ" = (
+"aXG" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/weapon/rig/light/ninja/combat,
 /turf/simulated/shuttle/floor{
@@ -22545,14 +22513,14 @@
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aXK" = (
+"aXH" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/device/suit_cooling_unit/improved,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
 /area/syndicate_mothership)
-"aXL" = (
+"aXI" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -22565,10 +22533,33 @@
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aXM" = (
-/obj/structure/bed/chair{
-	dir = 1
+"aXJ" = (
+/turf/template_noop,
+/area/space)
+"aXK" = (
+/obj/effect/step_trigger/teleporter/random{
+	affect_ghosts = 1;
+	name = "escapeshuttle_leave";
+	teleport_x = 25;
+	teleport_x_offset = 245;
+	teleport_y = 25;
+	teleport_y_offset = 245;
+	teleport_z = 6;
+	teleport_z_offset = 6
 	},
+/turf/space,
+/area/template_noop)
+"aXL" = (
+/obj/machinery/vending/assist/ninja/stealth,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aXM" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/device/suit_cooling_unit/improved,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
@@ -22576,29 +22567,24 @@
 	name = "\improper Ninja Base"
 	})
 "aXN" = (
+/obj/effect/step_trigger/teleporter/random{
+	affect_ghosts = 1;
+	name = "escapeshuttle_leave";
+	teleport_x = 25;
+	teleport_x_offset = 245;
+	teleport_y = 25;
+	teleport_y_offset = 245;
+	teleport_z = 6;
+	teleport_z_offset = 6
+	},
 /turf/space,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
+/area/template_noop)
 "aXO" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/shuttle/plating,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
+/turf/template_noop,
+/area/space)
 "aXP" = (
-/obj/effect/landmark{
-	name = "snakestart"
-	},
+/obj/structure/table/reinforced/steel,
+/obj/item/weapon/rig/light/ninja/stealth,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
@@ -22606,17 +22592,7 @@
 	name = "\improper Ninja Base"
 	})
 "aXQ" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/shuttle/plating,
+/turf/space,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
@@ -22626,16 +22602,6 @@
 	name = "\improper Ninja Base"
 	})
 "aXS" = (
-/turf/space,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aXT" = (
-/turf/space,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aXU" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_l"
 	},
@@ -22643,10 +22609,20 @@
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aXV" = (
+"aXT" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_r"
 	},
+/turf/space,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aXU" = (
+/turf/space,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aXV" = (
 /turf/space,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
@@ -22657,198 +22633,35 @@
 	name = "\improper Ninja Base"
 	})
 "aXX" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
 /turf/space,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
 "aXY" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
+	},
 /turf/space,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
 "aXZ" = (
-/obj/structure/shuttle/engine/propulsion{
-	icon_state = "propulsion_l"
-	},
 /turf/space,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
 "aYa" = (
-/obj/structure/shuttle/engine/propulsion{
-	icon_state = "propulsion_r"
-	},
 /turf/space,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
 "aYb" = (
-/turf/space,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
+/turf/template_noop,
+/area/space)
 "aYc" = (
-/turf/space,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYd" = (
-/turf/space,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYe" = (
-/obj/machinery/computer/teleporter,
-/turf/simulated/shuttle/plating,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYf" = (
-/obj/machinery/teleport/station,
-/turf/simulated/shuttle/plating,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYg" = (
-/obj/machinery/teleport/hub,
-/turf/simulated/shuttle/plating,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYh" = (
-/turf/space,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYi" = (
-/turf/space,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYj" = (
-/turf/space,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYk" = (
-/turf/space,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYl" = (
-/turf/space,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYm" = (
-/obj/structure/shuttle/engine/propulsion{
-	icon_state = "propulsion_l"
-	},
-/turf/space,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYn" = (
-/obj/structure/shuttle/engine/propulsion,
-/turf/space,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYo" = (
-/obj/structure/shuttle/engine/propulsion{
-	icon_state = "propulsion_r"
-	},
-/turf/space,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYp" = (
-/turf/space,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYq" = (
-/turf/space,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYr" = (
-/turf/space,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYs" = (
-/turf/space,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYt" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/shuttle/plating,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYu" = (
-/turf/space,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYv" = (
-/turf/space,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYw" = (
-/turf/space,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYx" = (
-/turf/simulated/shuttle/floor{
-	icon_state = "floor4"
-	},
-/turf/simulated/shuttle/wall/dark{
-	dir = 4;
-	icon_state = "diagonalWall3"
-	},
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYy" = (
-/turf/simulated/shuttle/floor{
-	icon_state = "floor4"
-	},
-/turf/simulated/shuttle/wall/dark{
-	dir = 5;
-	icon_state = "diagonalWall3"
-	},
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYz" = (
-/turf/space,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYA" = (
-/obj/structure/table/reinforced/steel,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor4"
-	},
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYB" = (
 /obj/structure/bed/chair{
 	dir = 1
 	},
@@ -22858,65 +22671,32 @@
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aYC" = (
+"aYd" = (
+/turf/template_noop,
+/area/space)
+"aYe" = (
+/turf/space,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aYf" = (
 /obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /turf/simulated/shuttle/plating,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aYD" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/weapon/storage/toolbox/syndicate,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor4"
-	},
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYE" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/weapon/rig/light/ninja/mobility,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor4"
-	},
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYF" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/shuttle/plating,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYG" = (
-/obj/machinery/vending/assist/ninja/mobility,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor4"
-	},
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYH" = (
+"aYg" = (
 /obj/effect/landmark{
-	name = "spiderstart"
+	name = "snakestart"
 	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
@@ -22924,73 +22704,138 @@
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aYI" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/device/suit_cooling_unit/improved,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor4"
-	},
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"aYJ" = (
+"aYh" = (
 /obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/window/reinforced,
 /turf/simulated/shuttle/plating,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aYK" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/weapon/spacecash/bundle/c10000,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor4"
-	},
+"aYi" = (
+/turf/space,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aYL" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/shuttle/plating,
+"aYj" = (
+/turf/template_noop,
+/area/space)
+"aYk" = (
+/turf/template_noop,
+/area/space)
+"aYl" = (
+/turf/template_noop,
+/area/space)
+"aYm" = (
+/turf/template_noop,
+/area/space)
+"aYn" = (
+/turf/template_noop,
+/area/space)
+"aYo" = (
+/turf/template_noop,
+/area/space)
+"aYp" = (
+/turf/template_noop,
+/area/space)
+"aYq" = (
+/turf/template_noop,
+/area/space)
+"aYr" = (
+/turf/template_noop,
+/area/space)
+"aYs" = (
+/turf/template_noop,
+/area/space)
+"aYt" = (
+/turf/template_noop,
+/area/space)
+"aYu" = (
+/turf/template_noop,
+/area/space)
+"aYv" = (
+/turf/template_noop,
+/area/space)
+"aYw" = (
+/turf/template_noop,
+/area/space)
+"aYx" = (
+/turf/space,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aYM" = (
+"aYy" = (
 /obj/machinery/computer/teleporter,
 /turf/simulated/shuttle/plating,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aYN" = (
+"aYz" = (
 /obj/machinery/teleport/station,
 /turf/simulated/shuttle/plating,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aYO" = (
+"aYA" = (
 /obj/machinery/teleport/hub,
 /turf/simulated/shuttle/plating,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aYP" = (
+"aYB" = (
 /turf/space,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
+"aYC" = (
+/turf/template_noop,
+/area/space)
+"aYD" = (
+/turf/template_noop,
+/area/space)
+"aYE" = (
+/turf/template_noop,
+/area/space)
+"aYF" = (
+/turf/template_noop,
+/area/space)
+"aYG" = (
+/turf/template_noop,
+/area/space)
+"aYH" = (
+/turf/template_noop,
+/area/space)
+"aYI" = (
+/turf/template_noop,
+/area/space)
+"aYJ" = (
+/turf/template_noop,
+/area/space)
+"aYK" = (
+/turf/template_noop,
+/area/space)
+"aYL" = (
+/turf/template_noop,
+/area/space)
+"aYM" = (
+/turf/template_noop,
+/area/space)
+"aYN" = (
+/turf/template_noop,
+/area/space)
+"aYO" = (
+/turf/template_noop,
+/area/space)
+"aYP" = (
+/turf/template_noop,
+/area/space)
 "aYQ" = (
 /turf/space,
 /area/syndicate_mothership{
@@ -23002,11 +22847,19 @@
 	name = "\improper Ninja Base"
 	})
 "aYS" = (
+/turf/template_noop,
+/area/space)
+"aYT" = (
 /turf/space,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aYT" = (
+"aYU" = (
+/turf/space,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aYV" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_l"
 	},
@@ -23014,13 +22867,13 @@
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aYU" = (
+"aYW" = (
 /obj/structure/shuttle/engine/propulsion,
 /turf/space,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aYV" = (
+"aYX" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_r"
 	},
@@ -23028,16 +22881,331 @@
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aYW" = (
+"aYY" = (
 /turf/space,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aYX" = (
+"aYZ" = (
 /turf/space,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
+"aZa" = (
+/turf/template_noop,
+/area/space)
+"aZb" = (
+/turf/template_noop,
+/area/space)
+"aZc" = (
+/turf/template_noop,
+/area/space)
+"aZd" = (
+/turf/template_noop,
+/area/space)
+"aZe" = (
+/turf/space,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZf" = (
+/turf/space,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZg" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/plating,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZh" = (
+/turf/space,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZi" = (
+/turf/space,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZj" = (
+/turf/template_noop,
+/area/space)
+"aZk" = (
+/turf/space,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZl" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZm" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZn" = (
+/turf/space,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZo" = (
+/turf/template_noop,
+/area/space)
+"aZp" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/weapon/storage/toolbox/syndicate,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZq" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZr" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZs" = (
+/turf/template_noop,
+/area/space)
+"aZt" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/shuttle/plating,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZu" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/weapon/spacecash/bundle/c10000,
+/obj/item/weapon/coin/silver/ninja,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZv" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/weapon/rig/light/ninja/mobility,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZw" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/shuttle/plating,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZx" = (
+/turf/template_noop,
+/area/space)
+"aZy" = (
+/obj/machinery/vending/assist/ninja/mobility,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZz" = (
+/obj/effect/landmark{
+	name = "spiderstart"
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZA" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/device/suit_cooling_unit/improved,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZB" = (
+/turf/template_noop,
+/area/space)
+"aZC" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/plating,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZD" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/weapon/tank/oxygen,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZE" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/plating,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZF" = (
+/turf/template_noop,
+/area/space)
+"aZG" = (
+/obj/machinery/computer/teleporter,
+/turf/simulated/shuttle/plating,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZH" = (
+/obj/machinery/teleport/station,
+/turf/simulated/shuttle/plating,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZI" = (
+/obj/machinery/teleport/hub,
+/turf/simulated/shuttle/plating,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZJ" = (
+/turf/template_noop,
+/area/space)
+"aZK" = (
+/turf/space,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZL" = (
+/turf/space,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZM" = (
+/turf/template_noop,
+/area/space)
+"aZN" = (
+/turf/space,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZO" = (
+/turf/space,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZP" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/turf/space,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZQ" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/space,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZR" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
+	},
+/turf/space,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZS" = (
+/turf/space,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZT" = (
+/turf/space,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aZU" = (
+/turf/template_noop,
+/area/space)
 
 (1,1,1) = {"
 aaa
@@ -62397,19 +62565,19 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahq
+ahq
+ahq
+ahq
+aXu
+aXK
+ahq
+ahq
+ahq
+ahq
+ahq
+ahq
+ahq
 aaM
 aaM
 ahq
@@ -62655,17 +62823,17 @@ aaM
 aaM
 aaM
 ahq
-ahq
-ahq
-ahq
-aXm
-aXt
-ahq
-ahq
-ahq
-ahq
-ahq
-ahq
+aWT
+aXe
+aWO
+akj
+akj
+akj
+aki
+aYe
+aYx
+aYQ
+aYT
 ahq
 aaM
 aaM
@@ -62912,17 +63080,17 @@ aaM
 aaM
 aaM
 ahq
-aWS
-aWZ
 aWO
 akj
 akj
+aXv
+aXL
+akx
 akj
+aYf
+akZ
 aki
-aXN
-aYd
-aYi
-aYk
+aYU
 ahq
 aaM
 aaM
@@ -63169,17 +63337,17 @@ aaM
 aaM
 aaM
 ahq
-aWT
-ajv
+aWP
 akj
 aXn
-aXu
-akx
-akj
-aXO
-akZ
-aki
-aYl
+aky
+aky
+aky
+aky
+aky
+aYy
+alk
+aYV
 ahq
 aaM
 aaM
@@ -63427,16 +63595,16 @@ aaM
 aaM
 ahq
 aWU
-ajv
-aXc
+aXf
+aXo
 aky
 aky
 aky
-aky
-aky
-aYe
+aYc
+aYg
+aYz
 alk
-aYm
+aYW
 ahq
 aaM
 aaM
@@ -63683,17 +63851,17 @@ aaM
 aaM
 aaM
 ahq
-aWV
-aXa
-aXd
+aWO
+akj
+aXp
 aky
 aky
 aky
-aXM
-aXP
-aYf
+aky
+aky
+aYA
 alk
-aYn
+aYX
 ahq
 aaM
 aaM
@@ -63940,17 +64108,17 @@ aaM
 aaM
 aaM
 ahq
-aWW
-ajv
-aXe
-aky
-aky
-aky
-aky
-aky
-aYg
-alk
-aYo
+aWP
+akj
+akj
+aXw
+aXM
+aXP
+akj
+aYh
+akZ
+aWR
+aYY
 ahq
 aaM
 aaM
@@ -64197,17 +64365,17 @@ aaM
 aaM
 aaM
 ahq
-aWX
-ajv
+aWV
+aXg
+aWP
 akj
-aXo
-aXv
-aXA
 akj
-aXQ
-akZ
+akj
 aWR
-aYp
+aYi
+aYB
+aYR
+aYZ
 ahq
 aaM
 aaM
@@ -64454,17 +64622,17 @@ aaM
 aaM
 aaM
 ahq
-aWY
-aXb
-aWP
-akj
-akj
-akj
-aWR
-aXR
-aYh
-aYj
-aYq
+ahq
+ahq
+ahq
+aXx
+aXN
+ahq
+ahq
+ahq
+ahq
+ahq
+ahq
 ahq
 aaM
 aaM
@@ -64710,19 +64878,19 @@ aaM
 aaM
 aaM
 aaM
-ahq
-ahq
-ahq
-ahq
-aXp
-aXw
-ahq
-ahq
-ahq
-ahq
-ahq
-ahq
-ahq
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
 aaM
 aaM
 aaM
@@ -65738,16 +65906,16 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahq
+ahq
+ahq
+ahq
+ahq
+ahq
+ahq
+ahq
+aYj
+aYC
 aaM
 aaM
 aaM
@@ -65995,16 +66163,16 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
 ahq
+aWW
+aWO
+aXq
+aXy
+aki
+aXQ
 ahq
-ahq
-ahq
-ahq
-ahq
-ahq
-ahq
+aYk
+aYD
 aaM
 aaM
 aaM
@@ -66252,16 +66420,16 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
 ahq
-aXf
-aWO
-aXx
-aXB
-aki
-aXS
+aWX
+aXh
+aky
+aXz
+akj
+aXR
 ahq
+aYl
+aYE
 aaM
 aaM
 aaM
@@ -66509,32 +66677,32 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
 ahq
-aXg
-aXq
-aky
-aXC
+aWO
 akj
-aXT
+aky
+aXA
+alk
+aXS
 ahq
+aYm
+aYF
 aaM
 aaM
 aaM
 aaM
 aaM
-ahq
-ahq
-ahq
-ahq
-ahq
-ahq
-ahq
-ahq
-ahq
-ahq
-ahq
+aZc
+aZd
+aZj
+aZo
+aZs
+aZx
+aZB
+aZF
+aZJ
+aZM
+aZU
 aaM
 aaM
 aaM
@@ -66766,31 +66934,31 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
 ahq
-aWO
 akj
+aXi
 aky
-aXD
+aXB
 alk
-aXU
+aXT
 ahq
+aYn
+aYG
 aaM
 aaM
 aaM
 aaM
 aaM
 ahq
-aYr
-aYw
-aWO
-aYC
-akK
-aYJ
-aki
-aYP
-aYR
+ahq
+ahq
+ahq
+ahq
+ahq
+ahq
+ahq
+ahq
+ahq
 ahq
 aaM
 aaM
@@ -67023,31 +67191,31 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
 ahq
-akj
-aXr
+aWY
 aky
-aXE
-alk
-aXV
+aky
+aXC
+akj
+aXU
 ahq
+aYo
+aYH
 aaM
 aaM
 aaM
 aaM
 aaM
 ahq
-aYs
+aZe
+aZk
 aWO
-akj
-aYD
-aYG
-akx
-akj
+aZt
+akK
+aZC
 aki
-aYS
+aZK
+aZN
 ahq
 aaM
 aaM
@@ -67280,31 +67448,31 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
 ahq
-aXh
-aky
-aky
-aXF
+aWZ
+aXj
+aXr
+aXD
 akj
-aXW
+aXV
 ahq
+aYp
+aYI
 aaM
 aaM
 aaM
 aaM
 aaM
 ahq
+aZf
 aWO
-aYx
-aYA
-aky
-aky
-aky
-aYM
-alk
-aYT
+akj
+aZu
+aZy
+akx
+akj
+aki
+aZO
 ahq
 aaM
 aaM
@@ -67537,31 +67705,31 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
 ahq
-aXi
+aXa
+aXk
 aky
-aXy
-aXG
+aXE
 akj
-aXX
+aXW
 ahq
+aYq
+aYJ
 aaM
 aaM
 aaM
 aaM
 aaM
 ahq
-aYt
+aWO
+aZl
+aZp
 aky
-aYB
 aky
-aYH
 aky
-aYN
+aZG
 alk
-aYU
+aZP
 ahq
 aaM
 aaM
@@ -67794,31 +67962,31 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
 ahq
-aXj
-aky
-aky
-aXH
 akj
-aXY
-ahq
-aaM
-aaM
-aaM
-aaM
-aaM
-ahq
-aWP
-aYy
+akx
 aky
-aky
-aky
-aky
-aYO
+aXF
 alk
-aYV
+aXX
+ahq
+aYr
+aYK
+aaM
+aaM
+aaM
+aaM
+aaM
+ahq
+aZg
+aky
+aZq
+aky
+aZz
+aky
+aZH
+alk
+aZQ
 ahq
 aaM
 aaM
@@ -68051,31 +68219,31 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
 ahq
-akj
-akx
-aky
-aXI
-alk
-aXZ
-ahq
-aaM
-aaM
-aaM
-aaM
-aaM
-ahq
-aYu
 aWP
 akj
-aYE
-aYI
-aYK
-akj
-aWR
-aYW
+aky
+aXG
+alk
+aXY
+ahq
+aYs
+aYL
+aaM
+aaM
+aaM
+aaM
+aaM
+ahq
+aWP
+aZm
+aZr
+aky
+aky
+aky
+aZI
+alk
+aZR
 ahq
 aaM
 aaM
@@ -68308,31 +68476,31 @@ aaM
 aaM
 aaM
 aaM
+ahq
+aXb
+aXl
+aky
+aXH
+akj
+aXZ
+ahq
+aYt
+aYM
+aaM
+aaM
+aaM
 aaM
 aaM
 ahq
+aZh
 aWP
 akj
-aky
-aXJ
-alk
-aYa
-ahq
-aaM
-aaM
-aaM
-aaM
-aaM
-ahq
-aYv
-aYz
-aWP
-aYF
-akK
-aYL
+aZv
+aZA
+aZD
+akj
 aWR
-aYQ
-aYX
+aZS
 ahq
 aaM
 aaM
@@ -68565,31 +68733,31 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
 ahq
-aXk
+aXc
+aWP
 aXs
-aky
-aXK
-akj
-aYb
+aXI
+aWR
+aYa
 ahq
+aYu
+aYN
 aaM
 aaM
 aaM
 aaM
 aaM
 ahq
-ahq
-ahq
-ahq
-ahq
-ahq
-ahq
-ahq
-ahq
-ahq
+aZi
+aZn
+aWP
+aZw
+akK
+aZE
+aWR
+aZL
+aZT
 ahq
 aaM
 aaM
@@ -68822,32 +68990,32 @@ aaM
 aaM
 aaM
 aaM
+ahq
+ahq
+ahq
+ahq
+ahq
+ahq
+ahq
+ahq
+aYv
+aYO
+aaM
+aaM
+aaM
 aaM
 aaM
 ahq
-aXl
-aWP
-aXz
-aXL
-aWR
-aYc
 ahq
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahq
+ahq
+ahq
+ahq
+ahq
+ahq
+ahq
+ahq
+ahq
 aaM
 aaM
 aaM
@@ -69079,19 +69247,19 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-ahq
-ahq
-ahq
-ahq
-ahq
-ahq
-ahq
-ahq
-aaM
-aaM
-aaM
+aWS
+aXd
+aXm
+aXt
+aXJ
+aXO
+aYb
+aYd
+aYw
+aYP
+aYS
+aZa
+aZb
 aaM
 aaM
 aaM

@@ -11,6 +11,7 @@
 	slot_flags = SLOT_EARS
 	var/string_attached
 	var/sides = 2
+	var/allow_string = TRUE
 
 /obj/item/weapon/coin/New()
 	pixel_x = rand(0,16)-8
@@ -23,6 +24,11 @@
 /obj/item/weapon/coin/silver
 	name = "silver coin"
 	icon_state = "coin_silver"
+
+/obj/item/weapon/coin/silver/ninja
+	name = "ninja coin"
+	icon_state = "coin_silver"
+	allow_string = FALSE
 
 /obj/item/weapon/coin/diamond
 	name = "diamond coin"
@@ -45,7 +51,7 @@
 	icon_state = "coin_adamantine"
 
 /obj/item/weapon/coin/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(iscoil(W))
+	if(allow_string && iscoil(W))
 		var/obj/item/stack/cable_coil/CC = W
 		if(string_attached)
 			user << "<span class='notice'>There already is a string attached to this coin.</span>"
