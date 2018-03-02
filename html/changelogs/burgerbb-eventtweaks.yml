@@ -1,0 +1,7 @@
+author: BurgerBB
+
+delete-after: True
+
+changes: 
+  - rscadd: "Adds a new event, "Space-time Anomalies", which gives 1-3 lucky people either split personality, imaginary friend, or bluespace prophet."
+  - tweak: "Tweaked the announcements of other events. Disallowed the gravity event not have a fake event. Tweaked the powernet failure event so all APCS regardless of time are reset after 300 seconds."
