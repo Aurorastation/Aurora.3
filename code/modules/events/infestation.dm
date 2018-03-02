@@ -185,7 +185,7 @@
 	if (severity == EVENT_LEVEL_MODERATE)
 		command_announcement.Announce("Bioscans indicate that large numbers of lifeforms have been breeding in [locstrings[1]] and [locstrings[2]]. Clear them out, before this starts to affect productivity.", "Vermin infestation", new_sound = 'sound/AI/vermin.ogg')
 	else
-		command_announcement.Announce("Bioscans indicate that [vermstring] have been breeding in [locstrings[1]]. Clear them out, before this starts to affect productivity.", "Vermin infestation", new_sound = 'sound/AI/vermin.ogg')
+		command_announcement.Announce("Bioscans indicate that [vermstring] have been breeding in [locstrings[1]]. Clear them out, before this affects productivity.", "Vermin infestation", new_sound = 'sound/AI/vermin.ogg')
 
 
 #undef LOC_KITCHEN
