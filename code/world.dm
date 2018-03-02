@@ -364,7 +364,7 @@ var/list/world_api_rate_limit = list()
 		features += "hosted by <b>[config.hostedby]</b>"
 
 	if (features)
-		s += ": [list2text(features, ", ")]"
+		s += ": [jointext(features, ", ")]"
 
 	s = s.Join()
 
