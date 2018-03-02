@@ -48,7 +48,7 @@
 		if(!organ || organ.is_dislocated() || organ.dislocated == -1)
 			return 0
 		organ.dislocate(1)
-		A.visible_message("<span class='warning'>[A] strikes [D] with their closed fist!</span>")
+		A.visible_message("<span class='warning'>[A] strikes [D]'s [organ.name] with their closed fist!</span>")
 		D.visible_message("<span class='danger'>[D]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!</span>")
 		admin_attack_log(A, D, "dislocated [organ.joint].", "had his [organ.joint] dislocated.", "dislocated [organ.joint] of")
 		playsound(get_turf(A), "punch", 50, 1, -1)

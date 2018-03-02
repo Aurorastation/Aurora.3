@@ -86,9 +86,9 @@
 	A.do_attack_animation(D)
 	A.visible_message("<span class='danger'>[A] slams [D] away!</span>")
 	playsound(D.loc, 'sound/weapons/punch1.ogg', 50, 1, -1)
+	D.apply_effect(2, WEAKEN)
 	var/atom/throw_target = get_edge_target_turf(D, get_dir(D, get_step_away(D, A)))
 	D.throw_at(throw_target, 200, 4,A)
-	D.apply_effect(2, WEAKEN)
 
 /obj/item/kis_khan_manual
 	name = "kis khan scroll"
