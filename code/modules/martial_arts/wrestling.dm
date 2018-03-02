@@ -5,7 +5,7 @@
 
 /datum/martial_art/wrestling
 	name = "Wrestling"
-	help_verb = /mob/living/carbon/human/proc/wrestling_help
+	help_verb = /datum/martial_art/wrestling/proc/wrestling_help
 
 /datum/martial_art/wrestling/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	D.grabbedby(A,1)
@@ -56,7 +56,7 @@
 	D.apply_damage(10, HALLOSS, affecting, armor_block)
 	return 1
 
-/mob/living/carbon/human/proc/wrestling_help()
+/datum/martial_art/wrestling/proc/wrestling_help()
 	set name = "Recall Teachings"
 	set desc = "Remember how to wrestle."
 	set category = "Wrestling"

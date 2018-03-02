@@ -4,7 +4,7 @@
 
 /datum/martial_art/baghrar
 	name = "Baghrar"
-	help_verb = /mob/living/carbon/human/proc/baghrar_help
+	help_verb = /datum/martial_art/baghrar/proc/baghrar_help
 
 /datum/martial_art/baghrar/proc/check_streak(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(findtext(streak,EYE_RAKE))
@@ -105,7 +105,7 @@
 	to_chat(H, "<span class='notice'>You have learned the martial art of Baqhrar.</span>")
 	qdel(src)
 
-/mob/living/carbon/human/proc/baghrar_help()
+/datum/martial_art/baghrar/proc/baghrar_help()
 	set name = "Recall Teachings"
 	set desc = "Remember the martial techniques of the Baghrar."
 	set category = "Baghrar"

@@ -4,7 +4,7 @@
 
 /datum/martial_art/kis_khan
 	name = "Kis-khan"
-	help_verb = /mob/living/carbon/human/proc/kis_khan_help
+	help_verb = /datum/martial_art/kis_khan/proc/kis_khan_help
 	no_guns = TRUE
 	no_guns_message = "Use of ranged weaponry would be dishonorable."
 
@@ -105,7 +105,7 @@
 	to_chat(H, "<span class='notice'>You have learned the martial art of Kis Khan.</span>")
 	qdel(src)
 
-/mob/living/carbon/human/proc/kis_khan_help()
+/datum/martial_art/kis_khan/proc/kis_khan_help()
 	set name = "Recall Teachings"
 	set desc = "Remember the martial techniques of the Kis-khan."
 	set category = "Kis-khan"

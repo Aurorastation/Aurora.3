@@ -4,7 +4,7 @@
 
 /datum/martial_art/sol_combat
 	name = "Solarian Combat"
-	help_verb = /mob/living/carbon/human/proc/sol_combat_help
+	help_verb = /datum/martial_art/sol_combat/proc/sol_combat_help
 
 /datum/martial_art/sol_combat/proc/check_streak(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(findtext(streak,NECK_CHOP))
@@ -116,7 +116,7 @@ datum/martial_art/sol_combat/grab_act(var/mob/living/carbon/human/A, var/mob/liv
 	qdel(src)
 
 
-/mob/living/carbon/human/proc/sol_combat_help()
+/datum/martial_art/sol_combat/proc/sol_combat_help()
 	set name = "Recall Teachings"
 	set desc = "Remember the martial techniques of the Solarian Combat."
 	set category = "Solarian Combat"

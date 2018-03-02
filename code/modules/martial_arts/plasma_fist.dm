@@ -4,7 +4,7 @@
 
 /datum/martial_art/plasma_fist
 	name = "Plasma Fist"
-	help_verb = /mob/living/carbon/human/proc/plasma_fist_help
+	help_verb = /datum/martial_art/plasma_fist/proc/plasma_fist_help
 
 
 /datum/martial_art/plasma_fist/proc/check_streak(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
@@ -97,7 +97,7 @@
 	basic_hit(A,D)
 	return 1
 
-/mob/living/carbon/human/proc/plasma_fist_help()
+/datum/martial_art/plasma_fist/proc/plasma_fist_help()
 	set name = "Recall Teachings"
 	set desc = "Remember the martial techniques of the Plasma Fist."
 	set category = "Plasma Fist"

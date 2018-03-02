@@ -4,7 +4,7 @@
 
 /datum/martial_art/karak_virul
 	name = "Karak Virul"
-	help_verb = /mob/living/carbon/human/proc/karak_virul_help
+	help_verb = /datum/martial_art/karak_virul/proc/karak_virul_help
 
 /datum/martial_art/karak_virul/proc/check_streak(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(findtext(streak,PAINFUL_PALM))
@@ -95,7 +95,7 @@ datum/martial_art/karak_virul/grab_act(var/mob/living/carbon/human/A, var/mob/li
 	to_chat(H, "<span class='notice'>You have learned the martial art of Karak Virul.</span>")
 	qdel(src)
 
-/mob/living/carbon/human/proc/karak_virul_help()
+/datum/martial_art/karak_virul/proc/karak_virul_help()
 	set name = "Recall Teachings"
 	set desc = "Remember the martial techniques of the Karak Virul."
 	set category = "Karak Virul"

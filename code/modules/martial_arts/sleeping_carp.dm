@@ -8,7 +8,7 @@
 /datum/martial_art/the_sleeping_carp
 	name = "The Sleeping Carp"
 	deflection_chance = 100
-	help_verb = /mob/living/carbon/human/proc/sleeping_carp_help
+	help_verb = /datum/martial_art/the_sleeping_carp/proc/sleeping_carp_help
 	no_guns = TRUE
 	no_guns_message = "Use of ranged weaponry would bring dishonor to the clan."
 
@@ -129,7 +129,7 @@
 		return 1
 	return ..()
 
-/mob/living/carbon/human/proc/sleeping_carp_help()
+/datum/martial_art/the_sleeping_carp/proc/sleeping_carp_help()
 	set name = "Recall Teachings"
 	set desc = "Remember the martial techniques of the Sleeping Carp clan."
 	set category = "Sleeping Carp"

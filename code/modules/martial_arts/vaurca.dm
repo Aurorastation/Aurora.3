@@ -4,7 +4,7 @@
 
 /datum/martial_art/vkutet
 	name = "Vk'utet"
-	help_verb = /mob/living/carbon/human/proc/vkutet_help
+	help_verb = /datum/martial_art/vkutet/proc/vkutet_help
 
 /datum/martial_art/vkutet/proc/check_streak(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(findtext(streak,PIERCING_STRIKE))
@@ -95,7 +95,7 @@
 	to_chat(H, "<span class='notice'>You have learned the martial art of Vk'utet.</span>")
 	qdel(src)
 
-/mob/living/carbon/human/proc/vkutet_help()
+/datum/martial_art/vkutet/proc/vkutet_help()
 	set name = "Recall Teachings"
 	set desc = "Remember the martial techniques of the Vk'utet."
 	set category = "Vk'utet"
