@@ -149,7 +149,7 @@
 	description = "A well-known alcohol with a variety of applications."
 	ingest_met = 0.5
 	flammability_divisor = 10
-	
+
 	taste_description = "pure alcohol"
 
 	glass_icon_state = "glass_clear"

@@ -946,7 +946,7 @@
 
 /obj/item/weapon/storage/box/snack/fill()
 	var/list/snacks = list(
-			/obj/item/weapon/reagent_containers/food/snacks/koisbar,
+			/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean,
 			/obj/item/weapon/reagent_containers/food/snacks/candy,
 			/obj/item/weapon/reagent_containers/food/snacks/candy_corn,
 			/obj/item/weapon/reagent_containers/food/snacks/chips,
