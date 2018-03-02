@@ -849,6 +849,14 @@
 		sleep(2)
 		C.jumptocoord(x,y,z)
 
+	else if(href_list["take_ticket"])
+		var/datum/ticket/ticket = locate(href_list["take_ticket"])
+
+		if(isnull(ticket))
+			return
+
+		ticket.take(usr.client)
+
 	else if(href_list["adminchecklaws"])
 		output_ai_laws()
 
@@ -1580,33 +1588,6 @@
 
 		paralyze_mob(M)
 
-	else if(href_list["admindibs"])
-		if (!check_rights(R_ADMIN|R_MOD))
-			return
-
-		var/client/C = locate(href_list["admindibs"])
-
-		if (!istype(C) || !C)
-			usr << "<span class='danger'>Player not found!</span>"
-			return
-
-		if (C.adminhelped >= 2)
-			log_and_message_admins("has called <font color='red'>dibs</font> on [key_name_admin(C)]'s adminhelp!")
-			usr << "<font color='blue'><b>You have taken over [key_name_admin(C)]'s adminhelp.</b></font>'"
-			usr << "[get_options_bar(C, 2, 1, 1)]"
-
-			C << "<font color='red'><b>Your adminhelp will be tended [usr.client.holder.fakekey ? "shortly" : "by [key_name(usr, 0, 0)]"]. Please allow the staff member a minute or two to write up a response.</b></font>"
-
-			if (C.adminhelped == 3)
-				post_webhook_event(WEBHOOK_ADMIN_PM, list("title"="Help is nolonger needed", "message"="Request for Help from **[key_name(C)]** is being tended to by **[key_name(usr)]**."))
-				discord_bot.send_to_admins("Request for Help from [key_name(C)] is being tended to by [key_name(usr)].")
-
-			C.adminhelped = 1
-		else
-			usr << "<font color='red'><b>The adminhelp has already been claimed!</b></font>"
-
-		return
-
 	else if(href_list["access_control"])
 		access_control_topic(href_list["access_control"])
 		return
@@ -1619,6 +1600,9 @@ mob/living/carbon/human/can_centcom_reply()
 
 mob/living/silicon/ai/can_centcom_reply()
 	return common_radio != null && !check_unable(2)
+
+/client/proc/extra_admin_link()
+	return
 
 /atom/proc/extra_admin_link()
 	return
