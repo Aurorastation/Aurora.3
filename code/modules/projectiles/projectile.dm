@@ -11,7 +11,6 @@
 	mouse_opacity = 0
 	animate_movement = 0	//Use SLIDE_STEPS in conjunction with legacy
 	var/projectile_type = /obj/item/projectile
-	var/colliding = FALSE
 
 	var/def_zone = ""	//Aiming at
 	var/mob/firer = null//Who shot it
@@ -220,22 +219,21 @@
 
 	return TRUE
 
-/obj/item/projectile/Bump(atom/A as mob|obj|turf|area, yes)
+/obj/item/projectile/Collide(atom/A)
+	. = ..()
 	world << "DEBUG: Bumping [A]"
 	if(A == src)
 		return FALSE	//no.
 
-	if((colliding && !yes) || (A in permutated))
+	if(A in permutated)
 		return FALSE
 
-	colliding = TRUE
 	world << "DEBUG: 2Bumping [A]"
 	if(firer && !ignore_source_check)
 		if(A == firer || (A == firer.loc && istype(A, /obj/mecha))) //cannot shoot yourself or your mech
 			trajectory_ignore_forcemove = TRUE
 			forceMove(get_turf(A))
 			trajectory_ignore_forcemove = FALSE
-			colliding = FALSE
 			return FALSE
 
 	var/distance = get_dist(get_turf(A), starting) // Get the distance between the turf shot from and the mob we hit and use that for the calculations.
@@ -247,8 +245,8 @@
 			var/obj/item/weapon/grab/G = locate() in M
 			if(G && G.state >= GRAB_NECK)
 				visible_message("<span class='danger'>\The [M] uses [G.affecting] as a shield!</span>")
-				if(Bump(G.affecting, TRUE))
-					return //If Bump() returns 0 (keep going) then we continue on to attack M.
+				if(Collide(G.affecting))
+					return //If Collide() returns 0 (keep going) then we continue on to attack M.
 
 			passthrough = !attack_mob(M, distance)
 		else
@@ -278,7 +276,6 @@
 				forceMove(get_turf(A))
 			trajectory_ignore_forcemove = FALSE
 			permutated.Add(A)
-		colliding = FALSE //reset colliding variable!
 		world << "DEBUG: Passing through"
 		return FALSE
 
@@ -288,7 +285,6 @@
 	world << "DEBUG: deleting"
 
 	qdel(src)
-	colliding = FALSE
 	return TRUE
 
 /obj/item/projectile/ex_act()
@@ -376,7 +372,7 @@
 	world << "DEBUG: Crossed [AM]"
 	//
 	if(isliving(AM) && (AM.density || AM == original) && !(pass_flags & PASSMOB))
-		Bump(AM)
+		Collide(AM)
 
 /obj/item/projectile/Initialize()
 	. = ..()
@@ -418,7 +414,7 @@
 	if(isturf(loc))
 		hitscan_last = loc
 	if(can_hit_target(original, permutated))
-		Bump(original, TRUE)
+		Collide(original, TRUE)
 	Range()
 
 //Returns true if the target atom is on our current turf and above the right layer

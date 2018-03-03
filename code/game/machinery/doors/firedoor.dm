@@ -132,7 +132,7 @@
 				users_to_open_string += ", [users_to_open[i]]"
 		user << "These people have opened \the [src] during an alert: [users_to_open_string]."
 
-/obj/machinery/door/firedoor/Bumped(atom/AM)
+/obj/machinery/door/firedoor/CollidedWith(atom/AM)
 	if(p_open || operating)
 		return
 	if(!density)

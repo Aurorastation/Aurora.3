@@ -75,10 +75,6 @@
 	var/base_spread = 90	//lower means the pellets spread more across body parts. If zero then this is considered a shrapnel explosion instead of a shrapnel cone
 	var/spread_step = 10	//higher means the pellets spread more across body parts with distance
 
-/obj/item/projectile/bullet/pellet/Bumped()
-	colliding = FALSE	//can hit all mobs in a tile. pellets is decremented inside attack_mob so this should be fine.
-	. = ..()
-
 /obj/item/projectile/bullet/pellet/proc/get_pellets(var/distance)
 	var/pellet_loss = round((distance - 1)/range_step) //pellets lost due to distance
 	return max(pellets - pellet_loss, 1)
@@ -122,7 +118,7 @@
 	if(. && !base_spread && isturf(loc))
 		for(var/mob/living/M in loc)
 			if(M.lying || !M.CanPass(src, loc)) //Bump if lying or if we would normally Bump.
-				if(Bump(M)) //Bump will make sure we don't hit a mob multiple times
+				if(Collide(M)) //Bump will make sure we don't hit a mob multiple times
 					return
 
 /* short-casing projectiles, like the kind used in pistols or SMGs */
