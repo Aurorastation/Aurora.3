@@ -8,9 +8,9 @@
 	color = "#00BFFF"
 	overdose = REAGENTS_OVERDOSE * 2
 	metabolism = REM * 0.5
+	metabolism_min = REM * 0.125
 	scannable = 1
 	taste_description = "bitterness"
-	metabolism_min = REM * 0.25
 	var/datum/modifier/modifier
 
 /datum/reagent/inaprovaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -191,7 +191,7 @@
 	scannable = 1
 	metabolism = 0.02
 	taste_description = "sickness"
-	metabolism_min = 0.01
+	metabolism_min = 0.005
 
 /datum/reagent/paracetamol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 50)
@@ -210,7 +210,7 @@
 	scannable = 1
 	metabolism = 0.02
 	taste_description = "sourness"
-	metabolism_min = 0.01
+	metabolism_min = 0.005
 
 /datum/reagent/tramadol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 80)
@@ -228,10 +228,14 @@
 	overdose = 20
 	metabolism = 0.02
 	taste_description = "bitterness"
-	metabolism_min = 0.01
+	metabolism_min = 0.005
+	conflicting_reagents = list(/datum/reagent/ethanol/ = 5)
 
 /datum/reagent/oxycodone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 200)
+
+/datum/reagent/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting)
+	M.hallucination = max(M.hallucination, 60)
 
 /datum/reagent/oxycodone/overdose(var/mob/living/carbon/M, var/alien)
 	..()
@@ -251,7 +255,7 @@
 	scannable = 1
 	var/datum/modifier/modifier
 	taste_description = "bitterness"
-	metabolism_min = REM * 0.025
+	metabolism_min = REM * 0.0125
 
 /datum/reagent/synaptizine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.drowsyness = max(M.drowsyness - 5, 0)
@@ -280,7 +284,7 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
-	metabolism_min = REM * 0.125
+	metabolism_min = REM * 0.075
 
 /datum/reagent/alkysine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustBrainLoss(-30 * removed)
@@ -334,7 +338,7 @@
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "acid"
 	metabolism = 1
-	metabolism_min = 0.5
+	metabolism_min = 0.25
 
 /datum/reagent/ryetalyn/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/needs_update = M.mutations.len > 0
@@ -358,7 +362,7 @@
 	overdose = REAGENTS_OVERDOSE * 0.5
 	var/datum/modifier = null
 	taste_description = "acid"
-	metabolism_min = REM * 0.075
+	metabolism_min = REM * 0.025
 
 /datum/reagent/hyperzine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(5))
@@ -536,6 +540,7 @@
 	var/maxdose = 0 // Internal value
 	var/totaldose = 0 //Internal value
 	var/messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY
+	conflicting_reagents = list(/datum/reagent/ethanol/ = 5)
 
 /datum/reagent/antidepressants/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 
@@ -581,6 +586,9 @@
 
 	data = world.time + messagedelay
 
+/datum/reagent/antidepressants/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting)
+	M.hallucination = max(M.hallucination, 10)
+
 /datum/reagent/antidepressants/nicotine
 	name = "Nicotine"
 	id = "nicotine"
@@ -598,10 +606,10 @@
 		/datum/brain_trauma/mild/phobia = 0.1,
 		/datum/brain_trauma/mild/muscle_weakness/ = 0.1
 	)
-
 	withdraw_effects = list(
 		/datum/brain_trauma/mild/muscle_weakness/ = 100
 	)
+	conflicting_reagents = list()
 	var/datum/modifier/modifier
 
 /datum/reagent/antidepressants/nicotine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
