@@ -1,7 +1,7 @@
 /obj/item/integrated_circuit/logic
 	name = "logic gate"
 	desc = "This tiny chip will decide for you!"
-	extended_desc = "Logic circuits will treat a null, 0, and a \"\" string value as FALSE and anything else as TRUE."
+	extended_desc = "Logic circuits will treat a null, 0, and a \"\" string value as FALSE and anything else as TRUE. If inputs are of mismatching type, expect undocumented behaviour."
 	complexity = 3
 	outputs = list("result" = IC_PINTYPE_BOOLEAN)
 	activators = list("compare" = IC_PINTYPE_PULSE_IN)
@@ -22,7 +22,11 @@
 /obj/item/integrated_circuit/logic/binary/do_work()
 	var/data1 = get_pin_data(IC_INPUT, 1)
 	var/data2 = get_pin_data(IC_INPUT, 2)
-	var/result = !!do_compare(data1, data2)
+
+	var/result = FALSE
+	if (comparable(data1, data2))
+		result = !!do_compare(data1, data2)
+
 	set_pin_data(IC_OUTPUT, 1, result)
 	push_data()
 
@@ -33,6 +37,18 @@
 
 /obj/item/integrated_circuit/logic/binary/proc/do_compare(A, B)
 	return FALSE
+
+/obj/item/integrated_circuit/logic/binary/proc/comparable(A, B)
+	if (isnum(A) && isnum(B))
+		. = TRUE
+	else if (istext(A) && istext(B))
+		. = TRUE
+	else if (islist(A) && islist(B))
+		. = TRUE
+	else if (isdatum(A) && isdatum(B))
+		. = TRUE
+	else
+		. = FALSE
 
 /obj/item/integrated_circuit/logic/unary
 	inputs = list(

@@ -43,9 +43,13 @@
 	organ_tag = "kois"
 
 	parent_organ = "chest"
+	stage_interval = 150
 
 /obj/item/organ/parasite/kois/process()
 	..()
+
+	if (!owner)
+		return
 
 	if(prob(10) && !(owner.species.flags & NO_PAIN))
 		owner << "<span class='warning'>You feel a stinging pain in your abdomen!</span>"
@@ -107,6 +111,7 @@
 
 	parent_organ = "head"
 	var/removed_langs = 0
+	stage_interval = 200
 
 /obj/item/organ/parasite/blackkois/process()
 	..()

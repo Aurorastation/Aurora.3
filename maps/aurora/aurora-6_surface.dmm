@@ -30,7 +30,7 @@
 /turf/simulated/floor/airless,
 /area/solar/fore)
 "ag" = (
-/turf/simulated/mineral,
+/turf/simulated/mineral/surface,
 /area/mine/unexplored)
 "ah" = (
 /obj/structure/cable/yellow,
@@ -5247,7 +5247,7 @@
 "jy" = (
 /obj/machinery/door/airlock/security{
 	name = "Security Checkpoint";
-	req_access = list(1)
+	req_access = list(63)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -6718,7 +6718,7 @@
 "lP" = (
 /obj/machinery/door/airlock/security{
 	name = "Security Checkpoint";
-	req_access = list(1)
+	req_access = list(63)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -7495,7 +7495,7 @@
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
 "nj" = (
-/turf/simulated/mineral,
+/turf/simulated/mineral/surface,
 /area/tcommsat/entrance)
 "nk" = (
 /obj/structure/extinguisher_cabinet{
@@ -15044,7 +15044,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/sleep/bedrooms)
 "BM" = (
-/turf/simulated/mineral,
+/turf/simulated/mineral/surface,
 /area/mine/explored)
 "BN" = (
 /obj/structure/disposalpipe/segment,
@@ -15180,7 +15180,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
 "BZ" = (
-/turf/simulated/mineral,
+/turf/simulated/mineral/surface,
 /area/bridge/levela)
 "Ca" = (
 /obj/structure/ladder/up{
@@ -32828,8 +32828,8 @@ bv
 bg
 bg
 mu
-IT
-IX
+IS
+IV
 mi
 ag
 ag
@@ -47033,7 +47033,7 @@ Em
 IY
 IZ
 Jb
-Jd
+IZ
 Gz
 GH
 FM
@@ -47290,7 +47290,7 @@ Em
 Gd
 Ja
 Jc
-Je
+Ja
 GA
 GI
 GI

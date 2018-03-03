@@ -26,7 +26,7 @@
 	var/area			= null
 	var/time_died_as_mouse = 0
 
-	var/adminhelped = 0
+	var/adminhelped = NOT_ADMINHELPED
 
 		///////////////
 		//SOUND STUFF//

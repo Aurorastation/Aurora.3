@@ -88,11 +88,9 @@
 
 /turf/simulated/floor/asteroid/ash
 	name = "ash"
-	icon = 'icons/turf/map_placeholders.dmi'
 	icon_state = "ash"
 	desc = "A fine grey ash. Looks pretty tightly packed."
 	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
-	gender = PLURAL
 	base_icon = 'icons/turf/smooth/ash.dmi'
 	base_icon_state = "ash"
 	footstep_sound = "sandstep"

@@ -19,9 +19,6 @@
 		//Mutations and radiation
 		handle_mutations_and_radiation()
 
-		//Chemicals in the body
-		handle_chemicals_in_body()
-
 		//Blood
 		handle_blood()
 
@@ -33,6 +30,9 @@
 	//Handle temperature/pressure differences between body and environment
 	if(environment)
 		handle_environment(environment)
+
+	//Chemicals in the body
+	handle_chemicals_in_body()
 
 	//Check if we're on fire
 	handle_fire()
@@ -56,6 +56,9 @@
 	update_canmove()
 
 	handle_regular_hud_updates()
+
+	if(languages.len == 1 && default_language != languages[1])
+		default_language = languages[1]
 
 /mob/living/proc/handle_breathing()
 	return

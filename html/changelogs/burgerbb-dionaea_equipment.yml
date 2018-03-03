@@ -1,0 +1,8 @@
+author: BurgerBB
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a mask and eyewear slot for dionaea."
+  - tweak: "Made Dionaea immune to the effects of blindfolds and muzzles."
+  - balance: "Dionaea recieve only 25% arousal per second from blindfolds and muzzles."

@@ -1,0 +1,4 @@
+author: BurgerBB
+delete-after: True
+changes: 
+  - rscadd: "Added chainsaws, a powerful two-handed weapon that requires welder fuel to operate. Chainsaws can open airlocks and lockers when powered."

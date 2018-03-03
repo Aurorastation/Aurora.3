@@ -903,9 +903,9 @@ I said no!
 
 // Chip update
 /datum/recipe/tortila
-	reagents = list("flour" = 5,"sodiumchloride" = 1,"water" = 5)
+	reagents = list("flour" = 5,"water" = 5)
 	result = /obj/item/weapon/reagent_containers/food/snacks/tortilla
-	reagent_mix = RECIPE_REAGENT_REPLACE //no flour
+	reagent_mix = RECIPE_REAGENT_REPLACE //no gross flour or water
 
 /datum/recipe/taconew
 	items = list(
@@ -1014,9 +1014,9 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/meatball,
 		/obj/item/weapon/reagent_containers/food/snacks/meatball
 	)
-	reagents = list("spacespice" = 1, "phoron" = 5)
+	reagents = list("spacespice" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/burrito_hell
-	reagent_mix = RECIPE_REAGENT_REPLACE //No phoron please.
+	reagent_mix = RECIPE_REAGENT_REPLACE //Already hot sauce
 
 /datum/recipe/burrito_mystery
 	items = list(
@@ -1027,3 +1027,117 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/mysterysoup
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/burrito_mystery
+
+//Ligger food, and also bacon.
+
+/datum/recipe/bacon
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/rawbacon
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/bacon
+
+/datum/recipe/chilied_eggs
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/hotchili,
+		/obj/item/weapon/reagent_containers/food/snacks/boiledegg,
+		/obj/item/weapon/reagent_containers/food/snacks/boiledegg,
+		/obj/item/weapon/reagent_containers/food/snacks/boiledegg
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/chilied_eggs
+
+/datum/recipe/red_sun_special
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sausage,
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
+
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/red_sun_special
+
+/datum/recipe/hatchling_suprise
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/poachedegg,
+		/obj/item/weapon/reagent_containers/food/snacks/bacon,
+		/obj/item/weapon/reagent_containers/food/snacks/bacon,
+		/obj/item/weapon/reagent_containers/food/snacks/bacon
+
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/hatchling_suprise
+
+/datum/recipe/riztizkzi_sea
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/egg,
+		/obj/item/weapon/reagent_containers/food/snacks/egg,
+		/obj/item/weapon/reagent_containers/food/snacks/egg
+	)
+	reagents = list("blood" = 15)
+	result = /obj/item/weapon/reagent_containers/food/snacks/riztizkzi_sea
+
+/datum/recipe/father_breakfast
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sausage,
+		/obj/item/weapon/reagent_containers/food/snacks/omelette,
+		/obj/item/weapon/reagent_containers/food/snacks/meatsteak
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/father_breakfast
+
+/datum/recipe/stuffed_meatball
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/meatball,
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
+
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/stuffed_meatball
+
+/datum/recipe/egg_pancake
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/meatball,
+		/obj/item/weapon/reagent_containers/food/snacks/meatball,
+		/obj/item/weapon/reagent_containers/food/snacks/meatball,
+		/obj/item/weapon/reagent_containers/food/snacks/omelette
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/egg_pancake
+
+/datum/recipe/grilled_carp
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/carpmeat,
+		/obj/item/weapon/reagent_containers/food/snacks/carpmeat,
+		/obj/item/weapon/reagent_containers/food/snacks/carpmeat,
+		/obj/item/weapon/reagent_containers/food/snacks/carpmeat,
+		/obj/item/weapon/reagent_containers/food/snacks/carpmeat,
+		/obj/item/weapon/reagent_containers/food/snacks/carpmeat
+	)
+	reagents = list("spacespice" = 1)
+	fruit = list("cabbage" = 1, "lime" = 1)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/grilled_carp
+
+/datum/recipe/sushi_roll
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/carpmeat,
+		/obj/item/weapon/reagent_containers/food/snacks/boiledrice
+	)
+	fruit = list("cabbage" = 1)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/sushi_roll
+
+/datum/recipe/bacon_stick
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/bacon,
+		/obj/item/weapon/reagent_containers/food/snacks/boiledegg
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/bacon_stick
+
+/datum/recipe/cheese_cracker
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/spreads/butter,
+		/obj/item/weapon/reagent_containers/food/snacks/breadslice,
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
+	)
+	reagents = list("spacespice" = 1)
+	result = /obj/item/weapon/reagent_containers/food/snacks/cheese_cracker
+
+/datum/recipe/bacon_and_eggs
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/bacon,
+		/obj/item/weapon/reagent_containers/food/snacks/friedegg,
+		/obj/item/weapon/reagent_containers/food/snacks/friedegg
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/bacon_and_eggs

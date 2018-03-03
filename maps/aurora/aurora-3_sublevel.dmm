@@ -6657,7 +6657,7 @@
 	pixel_y = -26
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = 0;
 	listening = 1;
 	name = "Common Channel";
 	pixel_x = 27;
@@ -23486,7 +23486,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start{
-	name = "Phychiatrist"
+	name = "Psychiatrist"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";

@@ -175,7 +175,7 @@ var/datum/controller/subsystem/cargo/SScargo
 			CHECK_TICK
 
 		//Load the items
-		var/DBQuery/item_query = dbcon.NewQuery("SELECT path, name, description, categories, suppliers, amount, access, container_type, groupable FROM ss13_cargo_items WHERE deleted_at is NULL ORDER BY order_by")
+		var/DBQuery/item_query = dbcon.NewQuery("SELECT path, name, description, categories, suppliers, amount, access, container_type, groupable FROM ss13_cargo_items WHERE deleted_at is NULL ORDER BY order_by ASC, name ASC")
 		item_query.Execute()
 		while(item_query.NextRow())
 			CHECK_TICK
@@ -318,6 +318,8 @@ var/datum/controller/subsystem/cargo/SScargo
 /*
 	Getting items, categories, suppliers and shipments
 */
+/datum/controller/subsystem/cargo/proc/get_order_count()
+	return all_orders.len
 //Increments the orderid and returns it
 /datum/controller/subsystem/cargo/proc/get_next_order_id()
 	. = ordernum

@@ -30,6 +30,8 @@
 
 //Called on life ticks
 /datum/brain_trauma/proc/on_life()
+	if(owner.getBrainLoss() < brain.traumas.len)
+		owner.setBrainLoss(brain.traumas.len)
 	return
 
 //Called when given to a mob

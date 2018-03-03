@@ -24,6 +24,7 @@
 	var/unbreakable = FALSE
 	var/default_material = null // Set this to something else if you want material attributes on init.
 	var/material_armor_modifer = 1 // Adjust if you want seperate types of armor made from the same material to have different protectiveness (e.g. makeshift vs real armor)
+	var/refittable = TRUE // If false doesn't let the clothing be refit in suit cyclers
 
 
 /obj/item/clothing/Initialize(var/mapload, var/material_key)
@@ -85,7 +86,7 @@
 	switch(target_species)
 		if("Human", "Skrell", "Machine", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")	//humanoid bodytypes
 			species_restricted = list(
-				"Human", 
+				"Human",
 				"Skrell",
 				"Machine",
 				"Zeng-Hu Mobility Frame",
@@ -360,6 +361,8 @@ BLIND     // can't see anything
 	var/fingerprint_chance = 0
 	var/obj/item/clothing/ring/ring = null		//Covered ring
 	var/mob/living/carbon/human/wearer = null	//Used for covered rings when dropping
+	var/punch_force = 0			//How much damage do these gloves add to a punch?
+	var/punch_damtype = BRUTE	//What type of damage does this make fists be?
 	body_parts_covered = HANDS
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")
@@ -385,18 +388,18 @@ BLIND     // can't see anything
 	..()
 
 // Called just before an attack_hand(), in mob/UnarmedAttack()
-/obj/item/clothing/gloves/proc/Touch(var/atom/A, var/proximity)
+/obj/item/clothing/gloves/proc/Touch(var/atom/A, mob/user, var/proximity)
 	return 0 // return 1 to cancel attack_hand()
 
 /obj/item/clothing/gloves/attackby(obj/item/weapon/W, mob/user)
 	if(iswirecutter(W) || istype(W, /obj/item/weapon/scalpel))
 		if (clipped)
-			user << "<span class='notice'>The [src] have already been clipped!</span>"
+			user << "<span class='notice'>\The [src] have already been clipped!</span>"
 			update_icon()
 			return
 
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
-		user.visible_message("<span class='warning'>[user] cuts the fingertips off of the [src].</span>","<span class='warning'>You cut the fingertips off of the [src].</span>")
+		user.visible_message("<span class='warning'>[user] cuts the fingertips off of \the [src].</span>","<span class='warning'>You cut the fingertips off of \the [src].</span>")
 
 		clipped = 1
 		name = "modified [name]"

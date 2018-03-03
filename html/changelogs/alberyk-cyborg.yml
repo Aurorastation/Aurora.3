@@ -1,0 +1,8 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "Opening or closing a cyborg's cover should take time now."
+  - rscadd: "Overclocked cyborgs can't be stunned with a flash anymore."
+  - tweak: "Cyborg's stun batons should drain less power from their cells."
