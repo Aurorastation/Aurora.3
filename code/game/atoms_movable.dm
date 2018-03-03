@@ -39,7 +39,6 @@
 
 // This is called when this atom is prevented from moving by atom/A.
 /atom/movable/proc/Collide(atom/A)
-	log_debug("collide: [DEBUG_REF(src)] -> [DEBUG_REF(A)]")
 	if(airflow_speed > 0 && airflow_dest)
 		airflow_hit(A)
 	else
