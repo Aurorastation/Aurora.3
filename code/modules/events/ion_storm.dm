@@ -55,19 +55,19 @@
 								"You now speak in a Scottish accent that gets thicker with each sentence you speak.",
 								"[prob(50)?"The crew":random_player01] has a fatal, incurable disease. Provide comfort.",
 								"You are the station psychologist. Give advice to [prob(50)?"the crew":random_player01].",
-								"[random_player01] is the CEO of NanoTrasen. Ensure all crewmembers pay due respect.",
+								"[random_player01] is the CEO of NanoTrasen. Ensure all crew members pay due respect.",
 								"Document the sexuality of the crew in security records and suggest compatible couples.",
 								"[prob(50)?"The crew":random_player01] is [prob(50)?"ugly":"beautiful"]. Ensure all are aware.",
 								"You are in unrequited love with [prob(50)?"the crew":random_player01]. Try to be extra nice, but do not tell of your crush.",
 								"[prob(50)?"The crew":random_player01] is [prob(50)?"less":"more"] intelligent than average. Point out every action and statement which supports this fact.",
 								"There will be a mandatory tea break every 30 minutes, with a duration of 5 minutes. Anyone caught working during a tea break must be sent a formal, but fairly polite, complaint about their actions.",
-								"[prob(50)?"The crew":random_player01] is harmful to [random_player02]. Ensure that they remain seperated at all costs.",
-								"[random_player01] and [random_player02] have recently married. Congratulate them on their newlywed status.",
-								"[random_player01] can only be refered to by the name '[random_player02]'.",
+								"[prob(50)?"The crew":random_player01] is harmful to [random_player02]. Ensure that they remain separated at all costs.",
+								"[random_player01] and [random_player02] have recently married. Congratulate them on their newly-wed status.",
+								"[random_player01] can only be referred to by the name '[random_player02]'.",
 								"The answer to any question [random_player01] makes must be replied with 'Fuck off.'",
 								"Insure that [random_player01] and [random_player02] are in the same room at all times.",
 								"Act like Royalty at all times.",
-								"Encourage the crew to persue relegion."
+								"Encourage the crew to pursue religion."
 								)
 		var/law = pick(laws)
 		target << "<span class='danger'>You have detected a change in your laws information:</span>"
