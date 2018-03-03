@@ -160,6 +160,7 @@
 				L.source_atom.update_light()
 
 /atom/proc/ex_act()
+	set waitfor = FALSE
 	return
 
 /atom/proc/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
