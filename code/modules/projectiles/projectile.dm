@@ -221,14 +221,12 @@
 
 /obj/item/projectile/Collide(atom/A)
 	. = ..()
-	world << "DEBUG: Bumping [A]"
 	if(A == src)
 		return FALSE	//no.
 
 	if(A in permutated)
 		return FALSE
 
-	world << "DEBUG: 2Bumping [A]"
 	if(firer && !ignore_source_check)
 		if(A == firer || (A == firer.loc && istype(A, /obj/mecha))) //cannot shoot yourself or your mech
 			trajectory_ignore_forcemove = TRUE
@@ -276,13 +274,10 @@
 				forceMove(get_turf(A))
 			trajectory_ignore_forcemove = FALSE
 			permutated.Add(A)
-		world << "DEBUG: Passing through"
 		return FALSE
 
 	//stop flying
-	world << "DEBUG: impacting"
 	on_impact(A)
-	world << "DEBUG: deleting"
 
 	qdel(src)
 	return TRUE
@@ -368,9 +363,6 @@
 
 /obj/item/projectile/Crossed(atom/movable/AM) //A mob moving on a tile with a projectile is hit by it.
 	..()
-	//
-	world << "DEBUG: Crossed [AM]"
-	//
 	if(isliving(AM) && (AM.density || AM == original) && !(pass_flags & PASSMOB))
 		Collide(AM)
 
@@ -552,7 +544,7 @@
 
 /obj/item/projectile/Destroy()
 	if(hitscan)
-		if(loc)
+		if(loc && trajectory)
 			var/datum/point/pcache = trajectory.copy_to()
 			beam_segments[beam_index] = pcache
 		generate_hitscan_tracers()
@@ -566,18 +558,9 @@
 		return
 	if(tracer_type)
 		for(var/datum/point/p in beam_segments)
-			//
-			world << "tracer key: [p.debug_out()]"
-			var/datum/point/P = beam_segments[p]
-			if(P)
-				world << "tracer index: [P.debug_out()]"
-			//
 			generate_tracer_between_points(p, beam_segments[p], tracer_type, color, duration)
 	if(muzzle_type && !silenced)
 		var/datum/point/p = beam_segments[1]
-		//
-		world << "muzzle: [p.debug_out()] angle [original_angle]"
-		//
 		var/atom/movable/thing = new muzzle_type
 		p.move_atom_to_src(thing)
 		var/matrix/M = new
@@ -586,9 +569,6 @@
 		QDEL_IN(thing, duration)
 	if(impact_type)
 		var/datum/point/p = beam_segments[beam_segments[beam_segments.len]]
-		//
-		world << "impact: [p.debug_out()] angle [Angle]"
-		//
 		var/atom/movable/thing = new impact_type
 		p.move_atom_to_src(thing)
 		var/matrix/M = new

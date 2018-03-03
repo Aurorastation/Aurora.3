@@ -58,7 +58,7 @@
 	icon_state = "solar"
 
 /obj/effect/projectile/tracer/eyelaser
-	icon_state = "eyelaser"
+	icon_state = "eye"
 
 /obj/effect/projectile/tracer/emitter
 	icon_state = "emitter"

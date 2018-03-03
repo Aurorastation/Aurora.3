@@ -37,7 +37,7 @@
 	icon_state = "muzzle_solar"
 
 /obj/effect/projectile/muzzle/eyelaser
-	icon_state = "muzzle_eyelaser"
+	icon_state = "muzzle_eye"
 
 /obj/effect/projectile/muzzle/emitter
 	icon_state = "muzzle_emitter"

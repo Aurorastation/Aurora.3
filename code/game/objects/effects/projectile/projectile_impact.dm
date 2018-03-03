@@ -46,7 +46,7 @@
 	icon_state = "impact_solar"
 
 /obj/effect/projectile/impact/eyelaser
-	icon_state = "impact_eyelaser"
+	icon_state = "impact_eye"
 
 /obj/effect/projectile/impact/emitter
 	icon_state = "impact_emitter"

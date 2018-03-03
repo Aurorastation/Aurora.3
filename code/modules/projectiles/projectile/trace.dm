@@ -29,10 +29,10 @@
 		qdel(src)
 	return hit
 
-/obj/item/projectile/test/Bump(atom/A as mob|obj|turf|area)
-	if(A != src && A != firer && !(A in permutated))
+/obj/item/projectile/test/Collide(atom/A)
+	if(A != src)
 		hit |= A
-	. = ..()
+	return ..()
 
 /obj/item/projectile/test/attack_mob()
 	return
