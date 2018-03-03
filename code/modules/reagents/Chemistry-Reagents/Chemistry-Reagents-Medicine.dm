@@ -229,7 +229,7 @@
 	metabolism = 0.02
 	taste_description = "bitterness"
 	metabolism_min = 0.005
-	conflicting_reagents = list(/datum/reagent/ethanol/ = 5)
+	conflicting_reagents = list(/datum/reagent/alcohol/ = 5)
 
 /datum/reagent/oxycodone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 200)
@@ -540,7 +540,7 @@
 	var/maxdose = 0 // Internal value
 	var/totaldose = 0 //Internal value
 	var/messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY
-	conflicting_reagents = list(/datum/reagent/ethanol/ = 5)
+	conflicting_reagents = list(/datum/reagent/alcohol/ = 5)
 
 /datum/reagent/antidepressants/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 
