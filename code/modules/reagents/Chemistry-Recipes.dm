@@ -538,6 +538,28 @@
 	required_reagents = list("mindbreaker" = 1, "acetone" = 1, "inaprovaline" = 1)
 	result_amount = 3
 
+/datum/chemical_reaction/cardox
+	name = "Cardox"
+	id = "cardox"
+	result = "cardox"
+	required_reagents = list("platinum" = 1, "carbon" = 1, "sterilzine" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/cardox_removal
+	name = "Cardox Removal"
+	id = "cardox_removal"
+	result = "carbon"
+	required_reagents = list("cardox" = 0.1, "phoron" = 1)
+	result_amount = 0
+
+/datum/chemical_reaction/koispasteclean
+	name = "Filtered K'ois"
+	id = "koispasteclean"
+	result = "koispasteclean"
+	required_reagents = list("koispaste" = 2,"cardox" = 0.1)
+	catalysts = list("cardox" = 5)
+	result_amount = 1
+
 /* Solidification */
 
 /datum/chemical_reaction/phoronsolidification
