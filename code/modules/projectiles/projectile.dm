@@ -254,7 +254,8 @@
 
 	return 1
 
-/obj/item/projectile/Bump(atom/A as mob|obj|turf|area, forced=0)
+/obj/item/projectile/Collide(atom/A, forced = 0)
+	. = ..()
 	if(A == src)
 		return 0 //no
 
@@ -276,8 +277,8 @@
 			var/obj/item/weapon/grab/G = locate() in M
 			if(G && G.state >= GRAB_NECK)
 				visible_message("<span class='danger'>\The [M] uses [G.affecting] as a shield!</span>")
-				if(Bump(G.affecting, forced=1))
-					return //If Bump() returns 0 (keep going) then we continue on to attack M.
+				if(Collide(G.affecting, forced = 1))
+					return //If Collide() returns 0 (keep going) then we continue on to attack M.
 
 			passthrough = !attack_mob(M, distance)
 		else
@@ -350,7 +351,7 @@
 		if(!bumped && !isturf(original))
 			if(loc == get_turf(original))
 				if(!(original in permutated))
-					if(Bump(original))
+					if(Collide(original))
 						return
 
 		if(first_step)
@@ -436,7 +437,7 @@
 	xo = null
 	var/result = 0 //To pass the message back to the gun.
 
-/obj/item/projectile/test/Bump(atom/A as mob|obj|turf|area)
+/obj/item/projectile/test/Collide(atom/A)
 	if(A == firer)
 		loc = A.loc
 		return //cannot shoot yourself

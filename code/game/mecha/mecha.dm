@@ -474,11 +474,11 @@
 		else if(!O.anchored)
 			step(obstacle,src.dir)
 		else //I have no idea why I disabled this
-			obstacle.Bumped(src)
+			obstacle.CollidedWith(src)
 	else if(istype(obstacle, /mob))
 		step(obstacle,src.dir)
 	else
-		obstacle.Bumped(src)
+		obstacle.CollidedWith(src)
 	return
 
 ///////////////////////////////////

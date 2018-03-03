@@ -152,7 +152,7 @@
 		if(!bumped && !isturf(original))
 			if(loc == get_turf(original))
 				if(!(original in permutated))
-					if(Bump(original))
+					if(Collide(original))
 						return
 
 		if(first_step)

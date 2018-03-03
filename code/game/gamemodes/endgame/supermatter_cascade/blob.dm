@@ -102,7 +102,7 @@
 	Consume(W)
 
 
-/turf/unsimulated/wall/supermatter/Bumped(atom/AM as mob|obj)
+/turf/unsimulated/wall/supermatter/CollidedWith(atom/AM)
 	if (!AM.simulated)
 		return ..()
 

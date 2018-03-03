@@ -148,9 +148,9 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/effect/spider/spiderling/Bump(atom/user)
+/obj/effect/spider/spiderling/Collide(atom/user)
 	if(istype(user, /obj/structure/table))
-		src.loc = user.loc
+		forceMove(user.loc)
 	else
 		..()
 

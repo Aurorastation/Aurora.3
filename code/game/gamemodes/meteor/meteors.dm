@@ -113,7 +113,7 @@
 	walk(src,0) //this cancels the walk_towards() proc
 	return ..()
 
-/obj/effect/meteor/Bump(atom/A)
+/obj/effect/meteor/Collide(atom/A)
 	if (!done)
 		spawn(0)
 
@@ -184,7 +184,7 @@
 	ex_act(severity)
 		return
 
-	Bump(atom/A)
+	Collide(atom/A)
 		if (!done)
 			spawn(0)
 				//Prevent meteors from blowing up the singularity's containment.

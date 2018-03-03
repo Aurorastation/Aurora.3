@@ -101,10 +101,14 @@
 
 	return tally + config.slime_delay
 
-/mob/living/carbon/slime/Bump(atom/movable/AM as mob|obj, yes)
-	if ((!(yes) || now_pushing))
+/mob/living/carbon/slime/proc/reset_atkcooldown()
+	Atkcool = FALSE
+
+/mob/living/carbon/slime/Collide(atom/movable/AM as mob|obj, yes)
+	if (now_pushing)
 		return
-	now_pushing = 1
+
+	now_pushing = TRUE
 
 	if(isobj(AM) && !client && powerlevel > 0)
 		var/probab = 10
@@ -120,9 +124,8 @@
 				if(nutrition <= get_hunger_nutrition() && !Atkcool)
 					if (is_adult || prob(5))
 						UnarmedAttack(AM)
-						Atkcool = 1
-						spawn(45)
-							Atkcool = 0
+						Atkcool = TRUE
+						addtimer(CALLBACK(src, .proc/reset_atkcooldown), 45)
 
 	if(ismob(AM))
 		var/mob/tmob = AM
@@ -130,16 +133,16 @@
 		if(is_adult)
 			if(istype(tmob, /mob/living/carbon/human))
 				if(prob(90))
-					now_pushing = 0
+					now_pushing = FALSE
 					return
 		else
 			if(istype(tmob, /mob/living/carbon/human))
-				now_pushing = 0
+				now_pushing = FALSE
 				return
 
-	now_pushing = 0
+	now_pushing = FALSE
 
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/Allow_Spacemove()
 	return 1
@@ -272,7 +275,7 @@
 
 			G.synch()
 
-			LAssailant = M
+			LAssailant = WEAKREF(M)
 
 			playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 			visible_message("<span class='warning'>[M] has grabbed [src] passively!</span>")

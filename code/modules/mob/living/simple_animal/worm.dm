@@ -110,7 +110,8 @@
 				previous.Move(attachementNextPosition)
 			update_icon()
 
-	Bump(atom/obstacle)
+	Collide(atom/obstacle)
+		. = ..()
 		if(currentlyEating != obstacle)
 			currentlyEating = obstacle
 			eatingDuration = 0
@@ -120,8 +121,6 @@
 		else
 			currentlyEating = null
 			eatingDuration = 0
-
-		return
 
 	update_icon() //only for the sake of consistency with the other update icon procs
 		if(stat == CONSCIOUS || stat == UNCONSCIOUS)
