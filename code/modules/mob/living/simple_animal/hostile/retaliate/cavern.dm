@@ -64,3 +64,31 @@
 		var/mob/living/carbon/human/M = target
 		var/shock_damage = rand(10,20)
 		M.electrocute_act(shock_damage)
+
+/mob/living/simple_animal/hostile/retaliate/female_petran
+	name = "female petran"
+	desc = "A crab-like creature commonly found scavaging for meat and vegetation on asteriods. This one is female, and often seen guarding nests."
+	icon = 'icons/mob/cavern.dmi'
+	icon_state = "gut_lunch"
+	icon_living = "gut_lunch"
+	icon_dead = "gut_lunch_dead"
+	ranged = 0
+	speak_emote = list("chitters")
+	emote_hear = list("chitters")
+	speak_chance = 5
+	turns_per_move = 3
+	response_help = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm = "hits"
+	a_intent = I_HURT
+	stop_automated_movement_when_pulled = 0
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/xenomeat
+	mob_size = 6
+	faction = "petran"
+	maxHealth = 75
+	health = 75
+	speed = -1
+	attacktext = "bit"
+	harm_intent_damage = 8
+	melee_damage_lower = 10
+	melee_damage_upper = 10

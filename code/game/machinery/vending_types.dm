@@ -517,8 +517,8 @@
 		/obj/item/weapon/staff = 2
 	)
 	contraband = list(
-		/obj/item/weapon/reagent_containers/glass/bottle/wizarditis = 1
-	)	//No one can get to the machine to hack it anyways; for the lulz - Microwave
+		/obj/item/weapon/gun/energy/wand/toy = 2
+	)
 
 /obj/machinery/vending/dinnerware
 	name = "Dinnerware"

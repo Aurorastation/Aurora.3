@@ -56551,6 +56551,9 @@
 	dir = 6
 	},
 /obj/item/modular_computer/console/preset/supply,
+/obj/machinery/status_display/supply_display{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "bUb" = (
@@ -57049,17 +57052,17 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bUX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
@@ -57257,6 +57260,8 @@
 	codes_txt = "patrol;next_patrol=CC2";
 	location = "Civ"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bVw" = (
@@ -57787,16 +57792,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "bWr" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
-	},
 /obj/effect/floor_decal/corner/brown,
-/obj/structure/table/standard{
-	name = "plastic table frame"
-	},
-/obj/item/weapon/folder/yellow,
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
@@ -57806,6 +57802,8 @@
 "bWt" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
 "bWu" = (
@@ -57920,7 +57918,7 @@
 "bWG" = (
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
-	dir = 6
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
@@ -57930,12 +57928,10 @@
 	freq = 1400;
 	location = "QM #1"
 	},
-/obj/machinery/bot/mulebot{
-	beacon_freq = 1400;
-	home_destination = "QM #1";
-	suffix = "#1"
+/obj/effect/floor_decal/corner/brown/full{
+	icon_state = "corner_white_full";
+	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "bWI" = (
@@ -58116,6 +58112,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/standard,
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "bXd" = (
@@ -58128,7 +58127,6 @@
 	icon_state = "corner_white_full";
 	dir = 8
 	},
-/obj/effect/large_stock_marker,
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
@@ -58143,13 +58141,11 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "bXg" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/brown/full{
 	icon_state = "corner_white_full";
 	dir = 1
 	},
+/obj/effect/large_stock_marker,
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "bXh" = (
@@ -58168,11 +58164,10 @@
 	freq = 1400;
 	location = "QM #2"
 	},
-/obj/machinery/bot/mulebot{
-	home_destination = "QM #2";
-	suffix = "#2"
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 6
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "bXj" = (
@@ -58444,7 +58439,10 @@
 	c_tag = "Cargo - MULE Storage";
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "bXD" = (
@@ -58501,6 +58499,10 @@
 /obj/machinery/computer/cryopod{
 	pixel_x = -32;
 	pixel_y = -32
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
@@ -58600,6 +58602,7 @@
 	dir = 1;
 	pixel_y = -25
 	},
+/obj/effect/large_stock_marker,
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "bXV" = (
@@ -58617,7 +58620,6 @@
 	icon_state = "corner_white_full";
 	dir = 4
 	},
-/obj/effect/large_stock_marker,
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "bXX" = (
@@ -58656,9 +58658,8 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "bYa" = (
-/obj/effect/floor_decal/corner/brown/full{
-	icon_state = "corner_white_full";
-	dir = 4
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
@@ -58668,7 +58669,10 @@
 	freq = 1400;
 	location = "QM #4"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/corner/brown/full{
+	icon_state = "corner_white_full";
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "bYc" = (
@@ -62596,19 +62600,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "cfx" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/machinery/door/airlock/glass,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
 "cfy" = (
 /obj/structure/grille,
@@ -62678,6 +62672,92 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "cfF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
+"cfG" = (
+/obj/item/device/radio/intercom{
+	name = "Station Intercom (General)";
+	pixel_y = -28
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/office)
+"cfH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
+"cfI" = (
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/office)
+"cfJ" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/white,
+/area/hallway/primary/aft)
+"cfK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/white,
+/area/hallway/primary/aft)
+"cfL" = (
+/obj/machinery/cryopod{
+	icon_state = "body_scanner_0";
+	dir = 4
+	},
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -25
+	},
+/turf/simulated/floor/tiled/white,
+/area/hallway/primary/aft)
+"cfM" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/hallway/primary/aft)
+"cfN" = (
+/obj/machinery/cryopod,
+/obj/item/device/radio/intercom{
+	pixel_y = -26
+	},
+/turf/simulated/floor/tiled/white,
+/area/hallway/primary/aft)
+"cfO" = (
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/storage)
+"cfP" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/mining_main/eva)
+"cfQ" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/mining_main/eva)
+"cfR" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/mining_main/eva)
+"cfS" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 8
@@ -62690,7 +62770,27 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/eva)
-"cfG" = (
+"cfT" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/mining_main/eva)
+"cfU" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/mining_main/eva)
+"cfV" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/mining_main/eva)
+"cfW" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/mining_main/eva)
+"cfX" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 8
@@ -62700,17 +62800,27 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/eva)
-"cfH" = (
+"cfY" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/mining_main/eva)
+"cfZ" = (
 /obj/structure/ladder/up,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
-/area/mine/unexplored)
-"cfI" = (
+/area/outpost/mining_main/eva)
+"cga" = (
 /obj/structure/ladder,
 /turf/simulated/open,
-/area/mine/unexplored)
-"cfJ" = (
+/area/outpost/mining_main/eva)
+"cgb" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/mining_main/eva)
+"cgc" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 8
@@ -85548,10 +85658,10 @@ ccq
 ccD
 caT
 ccZ
-auO
-auO
-auO
-aaR
+cfP
+cfT
+cfY
+caT
 aab
 aaa
 aaa
@@ -85780,7 +85890,7 @@ bTn
 bTn
 bTn
 bTn
-bOX
+bWC
 bWC
 bXa
 bXs
@@ -85805,10 +85915,10 @@ cbf
 ccE
 caT
 cda
-auO
-auO
-cfH
-aaR
+cfQ
+cfU
+cfZ
+caT
 aab
 aaa
 aaa
@@ -86062,10 +86172,10 @@ ccr
 ccF
 caT
 cdb
-auO
-auO
-cfI
-aaR
+cfR
+cfV
+cga
+caT
 aab
 aab
 aaa
@@ -86301,7 +86411,7 @@ bXu
 bXS
 bYj
 bYy
-bYy
+cfO
 bZp
 bZL
 bZL
@@ -86320,9 +86430,9 @@ cce
 caT
 caT
 cdj
-auO
-auO
-aaR
+cfW
+cgb
+caT
 aab
 aab
 aaa
@@ -86576,9 +86686,9 @@ cct
 ccG
 ccR
 caT
-cfF
-cfG
-cfJ
+cfS
+cfX
+cgc
 caT
 aab
 aab
@@ -87330,10 +87440,10 @@ bXV
 bWC
 bYA
 bOX
-bZq
-bZq
-bZq
-bZq
+aaa
+aaa
+aaa
+aaa
 bOX
 caL
 caT
@@ -88866,8 +88976,8 @@ bUU
 bVY
 bWr
 bWG
-bWG
-bWG
+bUp
+bUp
 bYa
 bYl
 bYF
@@ -89122,10 +89232,10 @@ bVr
 bVL
 bVZ
 bTn
-bUs
-bUs
-bUs
-bUs
+cfI
+bUp
+bUp
+bYa
 bYm
 bYF
 bYY
@@ -89891,11 +90001,11 @@ bUt
 bUT
 bVp
 bUp
-bUp
+cfG
 bTn
-aab
-aab
-aab
+bNd
+bNd
+bNd
 bJL
 bYo
 bOe
@@ -90148,11 +90258,11 @@ bUu
 bUU
 bUp
 bVN
-bWc
+bVN
 bTn
-bNd
-bNd
-bNd
+bWK
+bWK
+bWK
 bJL
 bYp
 bYG
@@ -90407,9 +90517,9 @@ bVt
 bUe
 bUv
 bTn
-bWK
-bWK
-bWK
+bWL
+bXl
+cfL
 bJL
 cdZ
 bYH
@@ -90662,11 +90772,11 @@ bUw
 bUW
 bVu
 bVO
-bWd
+bJx
 cfx
-bWL
-bXl
-bXl
+bWM
+bWM
+cfM
 bJL
 bNk
 bNh
@@ -90918,11 +91028,11 @@ bNx
 bNx
 bUX
 bVv
-bJx
-bJx
+cfF
+cfH
 bWt
-bWM
-bWM
+cfJ
+cfK
 bXH
 bYc
 bNk
@@ -91176,11 +91286,11 @@ bUx
 bUY
 bLs
 bVP
-bWe
-cfx
+bWd
+bNd
 bWN
 bXn
-bXn
+cfN
 bJL
 bTD
 bYI
@@ -91948,8 +92058,8 @@ bSc
 bSc
 bSc
 bWg
-bWv
-bWv
+bSc
+bSc
 bSc
 bXJ
 cfC

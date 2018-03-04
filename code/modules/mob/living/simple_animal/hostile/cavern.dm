@@ -1,0 +1,27 @@
+/mob/living/simple_animal/hostile/male_petran
+	name = "male petran"
+	desc = "A crab-like creature commonly found scavaging for meat and vegetation on asteriods. This one is female, and often seen hunting for food."
+	icon = 'icons/mob/cavern.dmi'
+	icon_state = "gut_shank"
+	icon_living = "gut_shank"
+	icon_dead = "gut_shank_dead"
+	speak_emote = list("chitters")
+	emote_hear = list("chitters")
+	speak_chance = 5
+	turns_per_move = 5
+	see_in_dark = 10
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/xenomeat
+	response_help  = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm   = "pokes"
+	attacktext = "bit"
+	stop_automated_movement_when_pulled = 0
+	maxHealth = 200
+	health = 200
+	melee_damage_lower = 15
+	melee_damage_upper = 20
+	faction = "petran"
+	pass_flags = PASSTABLE
+	move_to_delay = 6
+	speed = 3
+	mob_size = 6
