@@ -935,3 +935,14 @@
 		/obj/item/weapon/material/sword/gladius
 	)
 
+/obj/random/petran
+	name = "petran nest loot"
+	desc = "What you'd find in a petran nest."
+	icon = 'icons/obj/items.dmi'
+	icon_state = "gift3"
+	spawnlist = list(
+		/obj/random/coin = 1,
+		/obj/random/junk = 2,
+		/obj/random/glowstick = 2,
+		/obj/random/contraband = 0.5
+	)

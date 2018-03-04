@@ -1,6 +1,3 @@
 #define SPACETRAP_NONE			0
-#define SPACETRAP_SPIDER 		1
+#define SPACETRAP_SHANK 		1
 #define SPACETRAP_CARP			2
-#define SPACETRAP_BEAR			3
-#define SPACETRAP_BATS			4
-#define SPACETRAP_SHARK			5
