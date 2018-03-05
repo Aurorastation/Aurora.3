@@ -357,7 +357,6 @@ var/global/list/robot_modules = list(
 					"Android" = "droid",
 					"Classic" = "engineering",
 					"Sleek" = "sleekengineer",
-					"Wide" = "wide",
 					"Spider" = "spidereng",
 					"Plated" = "ceborg",
 					"Heavy" = "heavyeng"
@@ -387,6 +386,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/floor_painter(src)// to make america great again (c)
 	src.modules += new /obj/item/weapon/inflatable_dispenser(src) // to stop those pesky humans being entering the zone
 	src.modules += new /obj/item/weapon/pickaxe/borgdrill(src) // as station is being located at the rock terrain, which is presumed to be digged out to clear the area for new rooms
+	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
 	src.malfAImodule += new /obj/item/weapon/rtf(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(80000)
@@ -531,7 +531,6 @@ var/global/list/robot_modules = list(
 					"Bloodhound - Treaded" = "treadhound",
 					"Drone" = "drone-sec",
 					"Classic" = "secborg",
-					"Wide" = "wide",
 					"Spider" = "spidersec",
 					"Heavy" = "heavysec"
 
@@ -565,7 +564,8 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/janitor
 	name = "custodial robot module"
-	channels = list("Service" = 1)
+	channels = list("Engineering" = 1)
+	networks = list(NETWORK_ENGINEERING)
 	sprites = list(
 					"Basic" = "robotjani",
 					"Mopbot"  = "janitorrobot",
@@ -924,8 +924,8 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/gripper/miner(src)
 	src.modules += new /obj/item/weapon/mining_scanner(src)
 
-	src.emag = new /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill(src)
-	src.emag.name = "Mounted Thermal Drill"
+	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
+	src.emag.name = "Mounted Plasma Cutter"
 	..()
 
 /obj/item/weapon/robot_module/mining_drone/drill/New(var/mob/living/silicon/robot/robot)
@@ -937,33 +937,33 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/gripper/miner(src)
 	src.modules += new /obj/item/weapon/mining_scanner(src)
 
-	src.emag = new /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill(src)
-	src.emag.name = "Mounted Thermal Drill"
+	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
+	src.emag.name = "Mounted Plasma Cutter"
 	..()
 
-/obj/item/weapon/robot_module/mining_drone/plasmacutter/New(var/mob/living/silicon/robot/robot)
+/obj/item/weapon/robot_module/mining_drone/ka/New(var/mob/living/silicon/robot/robot)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/material(src)
 	src.modules += new /obj/item/weapon/storage/bag/ore/drone(src)
-	src.modules += new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
+	src.modules += new /obj/item/weapon/gun/energy/kinetic_accelerator/cyborg(src)
 	src.modules += new /obj/item/weapon/storage/bag/sheetsnatcher/borg(src)
 	src.modules += new /obj/item/weapon/gripper/miner(src)
 	src.modules += new /obj/item/weapon/mining_scanner(src)
 
-	src.emag = new /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill(src)
-	src.emag.name = "Mounted Thermal Drill"
+	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
+	src.emag.name = "Mounted Plasma Cutter"
 	..()
 
-/obj/item/weapon/robot_module/mining_drone/drillandplasmacutter/New(var/mob/living/silicon/robot/robot)
+/obj/item/weapon/robot_module/mining_drone/drillandka/New(var/mob/living/silicon/robot/robot)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/material(src)
 	src.modules += new /obj/item/weapon/storage/bag/ore/drone(src)
-	src.modules += new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
+	src.modules += new /obj/item/weapon/gun/energy/kinetic_accelerator/cyborg(src)
 	src.modules += new /obj/item/weapon/pickaxe/jackhammer(src)
 	src.modules += new /obj/item/weapon/storage/bag/sheetsnatcher/borg(src)
 	src.modules += new /obj/item/weapon/gripper/miner(src)
 	src.modules += new /obj/item/weapon/mining_scanner(src)
 
-	src.emag = new /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill(src)
-	src.emag.name = "Mounted Thermal Drill"
+	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
+	src.emag.name = "Mounted Plasma Cutter"
 	..()

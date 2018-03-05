@@ -55,6 +55,7 @@
 	cola		spawn_reagent = "cola"
 	smw			spawn_reagent = "spacemountainwind"
 	dr_gibb		spawn_reagent = "dr_gibb"
+	kois		spawn_reagent = "koispaste"
 	spaceup		spawn_reagent = "space_up"
 	brownstar	spawn_reagent = "brownstar"
 	tonic		spawn_reagent = "tonic"

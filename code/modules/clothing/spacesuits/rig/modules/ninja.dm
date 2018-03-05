@@ -4,6 +4,9 @@
  * /obj/item/rig_module/teleporter
  * /obj/item/rig_module/fabricator/energy_net
  * /obj/item/rig_module/self_destruct
+ * /obj/item/rig_module/emp_shielding
+ * /obj/item/rig_module/emergency_powergenerator
+ * /obj/item/rig_module/emag_hand
  */
 
 /obj/item/rig_module/stealth_field
@@ -152,7 +155,7 @@
 	engage_string = "Fabricate Net"
 
 	fabrication_type = /obj/item/weapon/energy_net
-	use_power_cost = 70
+	use_power_cost = 60
 
 /obj/item/rig_module/fabricator/energy_net/engage(atom/target)
 
@@ -175,10 +178,10 @@
 
 	interface_name = "dead man's switch"
 	interface_desc = "An integrated self-destruct module. When the wearer dies, so does the surrounding area. Do not press this button."
-	var/list/explosion_values = list(1,2,4,5)
+	var/list/explosion_values = list(3,4,5,6)
 
 /obj/item/rig_module/self_destruct/small
-	explosion_values = list(0,0,3,4)
+	explosion_values = list(1,2,3,4)
 
 /obj/item/rig_module/self_destruct/activate()
 	return
@@ -205,3 +208,111 @@
 		holder.wearer.drop_from_inventory(src)
 		qdel(holder)
 	qdel(src)
+
+/obj/item/rig_module/emp_shielding
+	name = "EMP dissipation module"
+	desc = "A bewilderingly complex bundle of fiber optics and chips. Seems like it uses a good deal of power."
+	active_power_cost = 10
+	toggleable = 1
+	usable = 0
+	use_power_cost = 70
+	module_cooldown = 30
+
+	activate_string = "Enable Active EMP Shielding"
+	deactivate_string = "Disable Active EMP Shielding"
+
+	interface_name = "active EMP shielding system"
+	interface_desc = "A highly experimental system that augments the hardsuit's existing EM shielding."
+	var/protection_amount = 30
+
+/obj/item/rig_module/emp_shielding/activate()
+	if(!..())
+		return
+
+	holder.emp_protection += protection_amount
+
+/obj/item/rig_module/emp_shielding/deactivate()
+	if(!..())
+		return
+
+	holder.emp_protection = max(0,(holder.emp_protection - protection_amount))
+
+/obj/item/rig_module/emergency_powergenerator
+	name = "emergency power generator"
+	desc = "A high yield power generating device that takes a long time to recharge."
+	active_power_cost = 0
+	toggleable = 0
+	usable = 1
+	confined_use = 1
+	var/cooldown = 0
+
+	engage_string = "Use Emergency Power"
+
+	interface_name = "emergency power generator"
+	interface_desc = "A high yield power generating device that takes a long time to recharge."
+	var/generation_ammount = 1500
+
+/obj/item/rig_module/emergency_powergenerator/engage()
+	if(!..())
+		return
+	var/mob/living/carbon/human/H = holder.wearer
+	if(cooldown)
+		H << "<span class='danger'>There isn't enough power stored up yet!</span>"
+		return 0
+	else
+		H << "<span class='danger'>Your suit emits a loud sound as power is rapidly injected into your suits battery!</span>"
+		playsound(H.loc, 'sound/effects/sparks2.ogg', 50, 1)
+		holder.cell.give(generation_ammount)
+		cooldown = 1
+		addtimer(CALLBACK(src, /obj/item/rig_module/emergency_powergenerator/proc/reset_cooldown), 240)
+
+/obj/item/rig_module/emergency_powergenerator/proc/reset_cooldown()
+	cooldown = 0
+
+/obj/item/rig_module/emag_hand
+	name = "EMAG integrated hand"
+	desc = "A complex uprade that allows the user to touch things with their hand and apply an EMAG effect. High power cost."
+	use_power_cost = 100
+	usable = 0
+	toggleable = 1
+	activates_on_touch = 1
+	disruptive = 0
+
+	activate_string = "Enable EMAG"
+	deactivate_string = "Disable EMAG"
+
+	interface_name = "enable EMAG"
+	interface_desc = "A complex uprade that allows the user to touch things with their hand and apply an EMAG effect. High power cost."
+	var/atom/interfaced_with
+	module_cooldown = 4800
+
+/obj/item/rig_module/emag_hand/activate()
+	if(!..())
+		return
+
+/obj/item/rig_module/emag_hand/deactivate()
+	if(!..())
+		return
+
+/obj/item/rig_module/emag_hand/engage(atom/target)
+
+	if(!..())
+		return 0
+
+	if(interfaced_with)
+		return 0
+
+	if(!target)
+		return 1
+
+	if(!target.Adjacent(holder.wearer))
+		return 0
+
+	holder.wearer << "<span class = 'danger'>You stick your hand on [target] shorting out some of its circuits!</span>"
+	interfaced_with = target
+	target.emag_act(user, src)
+	addtimer(CALLBACK(src, /obj/item/rig_module/emag_hand/proc/reset_interface, 2))
+	return 1
+
+/obj/item/rig_module/emag_hand/proc/reset_interface()
+	interfaced_with = null

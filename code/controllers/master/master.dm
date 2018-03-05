@@ -300,8 +300,10 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 			var/datum/controller/subsystem/SS
 			SS.can_fire = 0
 
+		// Check the failsafe's still alive.
 		if (!Failsafe || (Failsafe.processing_interval > 0 && (Failsafe.lasttick+(Failsafe.processing_interval*5)) < world.time))
 			new/datum/controller/failsafe() // (re)Start the failsafe.
+
 		if (!queue_head || !(iteration % 3))
 			if (round_started)
 				subsystems_to_check = normalsubsystems
@@ -309,6 +311,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 				subsystems_to_check = lobbysubsystems
 		else
 			subsystems_to_check = tickersubsystems
+
 		if (CheckQueue(subsystems_to_check) <= 0)
 			if (!SoftReset(tickersubsystems, normalsubsystems, lobbysubsystems))
 				log_mc("SoftReset() failed, crashing")
@@ -341,7 +344,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 		src.sleep_delta = MC_AVERAGE_FAST(src.sleep_delta, sleep_delta)
 		CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 		if (processing * sleep_delta <= world.tick_lag)
-			CURRENT_TICKLIMIT -= (TICK_LIMIT_RUNNING)
+			CURRENT_TICKLIMIT -= (TICK_LIMIT_RUNNING * 0.25) //reserve the tail 1/4 of the next tick for the mc if we plan on running next tick
 
 		sleep(world.tick_lag * (processing * sleep_delta))
 

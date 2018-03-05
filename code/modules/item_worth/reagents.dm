@@ -30,16 +30,16 @@
 /datum/reagent/copper
 	value = 0.02
 
-/datum/reagent/ethanol
+/datum/reagent/alcohol/ethanol
 	value = 0.01
 
-/datum/reagent/butanol
+/datum/reagent/alcohol/butanol
 	value = 0.02
 
-/datum/reagent/butanol/xuizijuice
+/datum/reagent/alcohol/butanol/xuizijuice
 	value = 0.2
 
-/datum/reagent/butanol/xuizijuice
+/datum/reagent/alcohol/butanol/xuizijuice
 	value = 0.2
 
 /datum/reagent/hydrazine
@@ -147,349 +147,349 @@
 /datum/reagent/drink/nothing
 	value = 0
 
-/datum/reagent/ethanol/absinthe
+/datum/reagent/alcohol/ethanol/absinthe
 	value = 0.13
 
-/datum/reagent/ethanol/ale
+/datum/reagent/alcohol/ethanol/ale
 	value = 0.13
 
-/datum/reagent/ethanol/beer
+/datum/reagent/alcohol/ethanol/beer
 	value = 0.12
 
-/datum/reagent/ethanol/bitters
+/datum/reagent/alcohol/ethanol/bitters
 	value = 0.15
 
-/datum/reagent/ethanol/bluecuracao
+/datum/reagent/alcohol/ethanol/bluecuracao
 	value = 0.16
 
-/datum/reagent/ethanol/champagne
+/datum/reagent/alcohol/ethanol/champagne
 	value = 0.2
 
-/datum/reagent/ethanol/cognac
+/datum/reagent/alcohol/ethanol/cognac
 	value = 0.2
 
-/datum/reagent/ethanol/deadrum
+/datum/reagent/alcohol/ethanol/deadrum
 	value = 0.15
 
-/datum/reagent/ethanol/gin
+/datum/reagent/alcohol/ethanol/gin
 	value = 0.1
 
-/datum/reagent/ethanol/coffee/kahlua
+/datum/reagent/alcohol/ethanol/coffee/kahlua
 	value = 0.14
 
-/datum/reagent/ethanol/melonliquor
+/datum/reagent/alcohol/ethanol/melonliquor
 	value = 0.13
 
-/datum/reagent/ethanol/rum
+/datum/reagent/alcohol/ethanol/rum
 	value = 0.1
 
-/datum/reagent/ethanol/sake
+/datum/reagent/alcohol/ethanol/sake
 	value = 0.11
 
-/datum/reagent/ethanol/tequilla
+/datum/reagent/alcohol/ethanol/tequilla
 	value = 0.1
 
-/datum/reagent/ethanol/thirteenloko
+/datum/reagent/alcohol/ethanol/thirteenloko
 	value = 0.15
 
-/datum/reagent/ethanol/vermouth
+/datum/reagent/alcohol/ethanol/vermouth
 	value = 0.1
 
-/datum/reagent/ethanol/vodka
+/datum/reagent/alcohol/ethanol/vodka
 	value = 0.1
 
-/datum/reagent/ethanol/whiskey
+/datum/reagent/alcohol/ethanol/whiskey
 	value = 0.1
 
-/datum/reagent/ethanol/wine
+/datum/reagent/alcohol/ethanol/wine
 	value = 0.1
 
-/datum/reagent/ethanol/acid_spit
+/datum/reagent/alcohol/ethanol/acid_spit
 	value = 0.15
 
-/datum/reagent/ethanol/alliescocktail
+/datum/reagent/alcohol/ethanol/alliescocktail
 	value = 0.16
 
-/datum/reagent/ethanol/aloe
+/datum/reagent/alcohol/ethanol/aloe
 	value = 0.17
 
-/datum/reagent/ethanol/amasec
+/datum/reagent/alcohol/ethanol/amasec
 	value = 0.16
 
-/datum/reagent/ethanol/andalusia
+/datum/reagent/alcohol/ethanol/andalusia
 	value = 0.15
 
-/datum/reagent/ethanol/antifreeze
+/datum/reagent/alcohol/ethanol/antifreeze
 	value = 0.16
 
-/datum/reagent/ethanol/atomicbomb
+/datum/reagent/alcohol/ethanol/atomicbomb
 	value = 0.21
 
-/datum/reagent/ethanol/coffee/b52
+/datum/reagent/alcohol/ethanol/coffee/b52
 	value = 0.17
 
-/datum/reagent/ethanol/bahama_mama
+/datum/reagent/alcohol/ethanol/bahama_mama
 	value = 0.15
 
-/datum/reagent/ethanol/bananahonk
+/datum/reagent/alcohol/ethanol/bananahonk
 	value = 0.15
 
-/datum/reagent/ethanol/barefoot
+/datum/reagent/alcohol/ethanol/barefoot
 	value = 0.14
 
-/datum/reagent/ethanol/beepsky_smash
+/datum/reagent/alcohol/ethanol/beepsky_smash
 	value = 0.2
 
-/datum/reagent/ethanol/bilk
+/datum/reagent/alcohol/ethanol/bilk
 	value = 0.12
 
-/datum/reagent/ethanol/black_russian
+/datum/reagent/alcohol/ethanol/black_russian
 	value = 0.14
 
-/datum/reagent/ethanol/bloody_mary
+/datum/reagent/alcohol/ethanol/bloody_mary
 	value = 0.14
 
-/datum/reagent/ethanol/booger
+/datum/reagent/alcohol/ethanol/booger
 	value = 0.13
 
-/datum/reagent/ethanol/coffee/brave_bull
+/datum/reagent/alcohol/ethanol/coffee/brave_bull
 	value = 0.16
 
-/datum/reagent/ethanol/cmojito
+/datum/reagent/alcohol/ethanol/cmojito
 	value = 0.14
 
-/datum/reagent/ethanol/changelingsting
+/datum/reagent/alcohol/ethanol/changelingsting
 	value = 0.19
 
-/datum/reagent/ethanol/classic
+/datum/reagent/alcohol/ethanol/classic
 	value = 0.14
 
-/datum/reagent/ethanol/martini
+/datum/reagent/alcohol/ethanol/martini
 	value = 0.16
 
-/datum/reagent/ethanol/corkpopper
+/datum/reagent/alcohol/ethanol/corkpopper
 	value = 0.13
 
-/datum/reagent/ethanol/cuba_libre
+/datum/reagent/alcohol/ethanol/cuba_libre
 	value = 0.15
 
-/datum/reagent/ethanol/demonsblood
+/datum/reagent/alcohol/ethanol/demonsblood
 	value = 0.15
 
-/datum/reagent/ethanol/devilskiss
+/datum/reagent/alcohol/ethanol/devilskiss
 	value = 0.14
 
-/datum/reagent/ethanol/driestmartini
+/datum/reagent/alcohol/ethanol/driestmartini
 	value = 0.16
 
-/datum/reagent/ethanol/ginfizz
+/datum/reagent/alcohol/ethanol/ginfizz
 	value = 0.13
 
-/datum/reagent/ethanol/french75
+/datum/reagent/alcohol/ethanol/french75
 	value = 0.17
 
-/datum/reagent/ethanol/grog
+/datum/reagent/alcohol/ethanol/grog
 	value = 0.11
 
-/datum/reagent/ethanol/erikasurprise
+/datum/reagent/alcohol/ethanol/erikasurprise
 	value = 0.16
 
-/datum/reagent/ethanol/gargle_blaster
+/datum/reagent/alcohol/ethanol/gargle_blaster
 	value = 0.21
 
-/datum/reagent/ethanol/gintonic
+/datum/reagent/alcohol/ethanol/gintonic
 	value = 0.15
 
-/datum/reagent/ethanol/goldschlager
+/datum/reagent/alcohol/ethanol/goldschlager
 	value = 0.2
 
-/datum/reagent/ethanol/hippies_delight
+/datum/reagent/alcohol/ethanol/hippies_delight
 	value = 0.12
 
-/datum/reagent/ethanol/hooch
+/datum/reagent/alcohol/ethanol/hooch
 	value = 0.11
 
-/datum/reagent/ethanol/iced_beer
+/datum/reagent/alcohol/ethanol/iced_beer
 	value = 0.13
 
-/datum/reagent/ethanol/irishcarbomb
+/datum/reagent/alcohol/ethanol/irishcarbomb
 	value = 0.14
 
-/datum/reagent/ethanol/coffee/irishcoffee
+/datum/reagent/alcohol/ethanol/coffee/irishcoffee
 	value = 0.12
 
-/datum/reagent/ethanol/irish_cream
+/datum/reagent/alcohol/ethanol/irish_cream
 	value = 0.13
 
-/datum/reagent/ethanol/longislandicedtea
+/datum/reagent/alcohol/ethanol/longislandicedtea
 	value = 0.13
 
-/datum/reagent/ethanol/manhattan
+/datum/reagent/alcohol/ethanol/manhattan
 	value = 0.14
 
-/datum/reagent/ethanol/manhattan_proj
+/datum/reagent/alcohol/ethanol/manhattan_proj
 	value = 0.2
 
-/datum/reagent/ethanol/manly_dorf
+/datum/reagent/alcohol/ethanol/manly_dorf
 	value = 0.13
 
-/datum/reagent/ethanol/margarita
+/datum/reagent/alcohol/ethanol/margarita
 	value = 0.15
 
-/datum/reagent/ethanol/mead
+/datum/reagent/alcohol/ethanol/mead
 	value = 0.13
 
-/datum/reagent/ethanol/moonshine
+/datum/reagent/alcohol/ethanol/moonshine
 	value = 0.11
 
-/datum/reagent/ethanol/muscmule
+/datum/reagent/alcohol/ethanol/muscmule
 	value = 0.14
 
-/datum/reagent/ethanol/neurotoxin
+/datum/reagent/alcohol/ethanol/neurotoxin
 	value = 0.2
 
-/datum/reagent/ethanol/omimosa
+/datum/reagent/alcohol/ethanol/omimosa
 	value = 0.18
 
-/datum/reagent/ethanol/patron
+/datum/reagent/alcohol/ethanol/patron
 	value = 0.16
 
-/datum/reagent/ethanol/pinkgin
+/datum/reagent/alcohol/ethanol/pinkgin
 	value = 0.11
 
-/datum/reagent/ethanol/pinkgintonic
+/datum/reagent/alcohol/ethanol/pinkgintonic
 	value = 0.13
 
-/datum/reagent/ethanol/piratepunch
+/datum/reagent/alcohol/ethanol/piratepunch
 	value = 0.14
 
-/datum/reagent/ethanol/planterpunch
+/datum/reagent/alcohol/ethanol/planterpunch
 	value = 0.13
 
-/datum/reagent/ethanol/pwine
+/datum/reagent/alcohol/ethanol/pwine
 	value = 0.19
 
-/datum/reagent/ethanol/red_mead
+/datum/reagent/alcohol/ethanol/red_mead
 	value = 0.14
 
-/datum/reagent/ethanol/sbiten
+/datum/reagent/alcohol/ethanol/sbiten
 	value = 0.13
 
-/datum/reagent/ethanol/screwdrivercocktail
+/datum/reagent/alcohol/ethanol/screwdrivercocktail
 	value = 0.13
 
-/datum/reagent/ethanol/silencer
+/datum/reagent/alcohol/ethanol/silencer
 	value = 0.135
 
-/datum/reagent/ethanol/singulo
+/datum/reagent/alcohol/ethanol/singulo
 	value = 0.2
 
-/datum/reagent/ethanol/snowwhite
+/datum/reagent/alcohol/ethanol/snowwhite
 	value = 0.125
 
-/datum/reagent/ethanol/ssroyale
+/datum/reagent/alcohol/ethanol/ssroyale
 	value = 0.14
 
-/datum/reagent/ethanol/suidream
+/datum/reagent/alcohol/ethanol/suidream
 	value = 0.12
 
-/datum/reagent/ethanol/syndicatebomb
+/datum/reagent/alcohol/ethanol/syndicatebomb
 	value = 0.21
 
-/datum/reagent/ethanol/tequilla_sunrise
+/datum/reagent/alcohol/ethanol/tequilla_sunrise
 	value = 0.13
 
-/datum/reagent/ethanol/threemileisland
+/datum/reagent/alcohol/ethanol/threemileisland
 	value = 0.2
 
-/datum/reagent/ethanol/toxins_special
+/datum/reagent/alcohol/ethanol/toxins_special
 	value = 0.2
 
-/datum/reagent/ethanol/vodkamartini
+/datum/reagent/alcohol/ethanol/vodkamartini
 	value = 0.135
 
-/datum/reagent/ethanol/vodkatonic
+/datum/reagent/alcohol/ethanol/vodkatonic
 	value = 0.145
 
-/datum/reagent/ethanol/white_russian
+/datum/reagent/alcohol/ethanol/white_russian
 	value = 0.125
 
-/datum/reagent/ethanol/whiskey_cola
+/datum/reagent/alcohol/ethanol/whiskey_cola
 	value = 0.15
 
-/datum/reagent/ethanol/whiskeysoda
+/datum/reagent/alcohol/ethanol/whiskeysoda
 	value = 0.15
 
-/datum/reagent/ethanol/specialwhiskey
+/datum/reagent/alcohol/ethanol/specialwhiskey
 	value = 0.3
 
-/datum/reagent/ethanol/daiquiri
+/datum/reagent/alcohol/ethanol/daiquiri
 	value = 0.15
 
-/datum/reagent/ethanol/icepick
+/datum/reagent/alcohol/ethanol/icepick
 	value = 0.15
 
-/datum/reagent/ethanol/poussecafe
+/datum/reagent/alcohol/ethanol/poussecafe
 	value = 0.17
 
-/datum/reagent/ethanol/mintjulep
+/datum/reagent/alcohol/ethanol/mintjulep
 	value = 0.15
 
-/datum/reagent/ethanol/johncollins
+/datum/reagent/alcohol/ethanol/johncollins
 	value = 0.17
 
-/datum/reagent/ethanol/gimlet
+/datum/reagent/alcohol/ethanol/gimlet
 	value = 0.13
 
-/datum/reagent/ethanol/starsandstripes
+/datum/reagent/alcohol/ethanol/starsandstripes
 	value = 0.15
 
-/datum/reagent/ethanol/metropolitan
+/datum/reagent/alcohol/ethanol/metropolitan
 	value = 0.13
 
-/datum/reagent/ethanol/caruso
+/datum/reagent/alcohol/ethanol/caruso
 	value = 0.18
 
-/datum/reagent/ethanol/aprilshower
+/datum/reagent/alcohol/ethanol/aprilshower
 	value = 0.15
 
-/datum/reagent/ethanol/carthusiansazerac
+/datum/reagent/alcohol/ethanol/carthusiansazerac
 	value = 0.17
 
-/datum/reagent/ethanol/deweycocktail
+/datum/reagent/alcohol/ethanol/deweycocktail
 	value = 0.15
 
-/datum/reagent/ethanol/chartreusegreen
+/datum/reagent/alcohol/ethanol/chartreusegreen
 	value = 0.18
 
-/datum/reagent/ethanol/chartreuseyellow
+/datum/reagent/alcohol/ethanol/chartreuseyellow
 	value = 0.18
 
-/datum/reagent/ethanol/cremewhite
+/datum/reagent/alcohol/ethanol/cremewhite
 	value = 0.14
 
-/datum/reagent/ethanol/cremeyvette
+/datum/reagent/alcohol/ethanol/cremeyvette
 	value = 0.17
 
-/datum/reagent/ethanol/brandy
+/datum/reagent/alcohol/ethanol/brandy
 	value = 0.2
 
-/datum/reagent/ethanol/guinnes
+/datum/reagent/alcohol/ethanol/guinnes
 	value = 0.1
 
-/datum/reagent/ethanol/drambuie
+/datum/reagent/alcohol/ethanol/drambuie
 	value = 0.18
 
-/datum/reagent/ethanol/oldfashioned
+/datum/reagent/alcohol/ethanol/oldfashioned
 	value = 0.15
 
-/datum/reagent/ethanol/blindrussian
+/datum/reagent/alcohol/ethanol/blindrussian
 	value = 0.16
 
-/datum/reagent/ethanol/rustynail
+/datum/reagent/alcohol/ethanol/rustynail
 	value = 0.13
 
-/datum/reagent/ethanol/tallrussian
+/datum/reagent/alcohol/ethanol/tallrussian
 	value = 0.15
 
 /datum/reagent/inaprovaline

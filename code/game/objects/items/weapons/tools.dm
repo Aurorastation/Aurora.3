@@ -436,6 +436,8 @@
 		if(!E)
 			return
 		var/safety = H.eyecheck()
+		if(H.status_flags & GODMODE)
+			return
 		switch(safety)
 			if(FLASH_PROTECTION_MODERATE)
 				usr << "<span class='warning'>Your eyes sting a little.</span>"

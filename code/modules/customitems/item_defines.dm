@@ -268,17 +268,17 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "zakiya_sketchpad"
 
 /obj/item/weapon/clipboard/fluff/zakiya_sketchpad/New()
-		..()
-		new /obj/item/weapon/paper(src)
-		new /obj/item/weapon/paper(src)
-		new /obj/item/weapon/paper(src)
-		new /obj/item/weapon/paper(src)
-		new /obj/item/weapon/paper(src)
-		new /obj/item/weapon/paper(src)
-		new /obj/item/weapon/paper(src)
-		new /obj/item/weapon/paper(src)
-		new /obj/item/weapon/paper(src)
-		new /obj/item/weapon/paper(src)
+	..()
+	new /obj/item/weapon/paper(src)
+	new /obj/item/weapon/paper(src)
+	new /obj/item/weapon/paper(src)
+	new /obj/item/weapon/paper(src)
+	new /obj/item/weapon/paper(src)
+	new /obj/item/weapon/paper(src)
+	new /obj/item/weapon/paper(src)
+	new /obj/item/weapon/paper(src)
+	new /obj/item/weapon/paper(src)
+	new /obj/item/weapon/paper(src)
 
 /obj/item/weapon/clipboard/fluff/zakiya_sketchpad/update_icon()
 	if(toppaper)
@@ -679,7 +679,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/weapon/coin/fluff/raymond_coin //Engraved Coin - Raymond Hawkins - aboshehab
 	name = "engraved coin"
 	desc = "A coin of light and bright with one side having an engraving of a greek Lamba sign, and on the back the initials of R.H. are engraved."
-	icon = 'icons/obj/custom_items/raymond_coin.dmi'
+	icon = 'icons/obj/custom_items/raymond_items.dmi'
 	icon_state = "raymond_coin"
 
 
@@ -1288,7 +1288,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		usr << "You close \the [src]."
 
 
-/obj/item/clothing/suit/storage/fluff/azala_coat //Azala's Gentleman's Coat - Azala Guwan - tomiixstarslasher
+/obj/item/clothing/suit/storage/fluff/azala_coat //Azala's Gentleman's Coat - Azala Huz'kai - tomiixstarslasher
 	name = "gentleman's coat"
 	desc = "A blue gentleman's coat. It is very stylish, and appears to be very warm."
 	icon = 'icons/obj/custom_items/azala_items.dmi'
@@ -1296,7 +1296,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "azala_coat"
 	contained_sprite = TRUE
 
-/obj/item/clothing/head/fluff/azala_hat //Azala's Gentleman's Cap - Azala Guwan - tomiixstarslasher
+/obj/item/clothing/head/fluff/azala_hat //Azala's Gentleman's Cap - Azala Huz'kai - tomiixstarslasher
 	name = "gentleman's cap"
 	desc = "A blue gentleman's cap. It is very stylish, and appears to be warped from being worn crooked."
 	icon = 'icons/obj/custom_items/azala_items.dmi'
@@ -1304,7 +1304,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "azala_hat"
 	contained_sprite = TRUE
 
-/obj/item/clothing/under/fluff/azala_jumpsuit //Azala's Roboticist Jumpsuit - Azala Guwan - tomiixstarslasher
+/obj/item/clothing/under/fluff/azala_jumpsuit //Azala's Roboticist Jumpsuit - Azala Huz'kai - tomiixstarslasher
 	name = "modified roboticist jumpsuit"
 	desc = "A variation of the roboticists jumpsuit, this one is in blue colors."
 	icon = 'icons/obj/custom_items/azala_items.dmi'
@@ -1421,7 +1421,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/gloves/watch/fluff/rex_watch //Engraved Wristwatch - Rex Winters - tailson
 	name = "engraved wristwatch"
-	desc = " A fine gold watch. On the inside is an engraving that reads \"Happy birthday dad, thinking of you always\"."
+	desc = "A fine gold watch. On the inside is an engraving that reads \"Happy birthday dad, thinking of you always\"."
 	icon = 'icons/obj/custom_items/rex_watch.dmi'
 	icon_state = "rex_watch"
 
@@ -1439,3 +1439,441 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "silver star of merit"
 	desc = "The Biesel Silver Star of Merit, rewarded for bravery and professionalism in the line of duty."
 	icon_state = "silver_sword"
+
+
+/obj/item/clothing/mask/gas/fluff/karihaakaki_mask //Wooden Mask - Keziah Green/Karihaakaki - dronzthewolf
+	name = "wooden mask"
+	desc = "A wooden mask for non-human proportions, it has craftsmanship of uncanny precision."
+	icon = 'icons/obj/custom_items/karihaakaki_mask.dmi'
+	icon_state = "karihaakaki_mask"
+	item_state = "karihaakaki_mask"
+	species_restricted = list("Vox")
+	contained_sprite = TRUE
+
+
+/obj/item/weapon/storage/wallet/fluff/muhawir_wallet //Pineapple Wallet - Muhawir Nawfal - menown
+	name = "pineapple wallet"
+	desc = "A rather small, cheaply made felt wallet with a zipper near the top. It looks like a pineapple."
+	icon = 'icons/obj/custom_items/muhawir_wallet.dmi'
+	icon_state = "muhawir_wallet"
+
+/obj/item/weapon/storage/wallet/fluff/muhawir_wallet/update_icon()
+	return
+
+
+/obj/item/weapon/folder/fluff/sukhoi_folder //Inventor's Notebook - Natascha Sukhoi - lancelynxx
+	name = "inventor's notebook"
+	desc = "A dark-green notebook, with crumpled Post-Its sticking out and binding tearing at the edges. It reeks of DromedaryCo cigarettes. The words \"SUKH SYSTEMS\" are scribbled on the cover with a black sharpie."
+	icon = 'icons/obj/custom_items/sukhoi_folder.dmi'
+	icon_state = "sukhoi_folder"
+
+
+/obj/item/clothing/suit/fluff/diamond_cloak //Ragged Purple Cloak - Diamond With Flaw - burgerbb
+	name = "ragged purple cloak"
+	desc = "An old, worn down cloak that smells of dirt and stories."
+	icon = 'icons/obj/custom_items/diamond_cloak.dmi'
+	icon_state = "diamond_cloak"
+	item_state = "diamond_cloak"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	contained_sprite = TRUE
+
+
+/obj/item/fluff/jennifer_wardrobe_kit //Portable Wardrobe Kit - Jennifer Beal - synnono
+	name = "portable wardrobe kit"
+	desc = "A kit containing a change of casual clothes, packaged for easy transport. This one advertises some sort of cartoon featuring slimes. It is labeled \"J. Beal.\""
+	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
+	icon_state = "jennifer_wardrobe_box"
+	item_state = "syringe_kit"
+
+/obj/item/fluff/jennifer_wardrobe_kit/attack_self(mob/user as mob)
+	if (use_check(user, USE_DISALLOW_SILICONS))
+		return
+
+	var/list/outfits = list(
+		"Pale turtleneck outfit" = list(
+			/obj/item/clothing/under/fluff/jennifer_turtleneck,
+			/obj/item/clothing/shoes/fluff/jennifer_aboots
+		),
+		"Black net mesh outfit" = list(
+			/obj/item/clothing/under/fluff/jennifer_nets,
+			/obj/item/clothing/shoes/fluff/jennifer_pboots
+		),
+		"Cartoon T-shirt outfit" = list(
+			/obj/item/clothing/under/fluff/jennifer_tee,
+			/obj/item/clothing/shoes/fluff/jennifer_shoes
+		)
+	)
+
+	var/selection = input("What do you find inside?", "Inside the kit...") as null|anything in outfits
+	if (!selection)
+		return
+	for (var/item in outfits[selection])
+		new item(get_turf(src))
+	to_chat(user, "<span class='notice'>You unpack the outfit from the kit.</span>")
+
+	qdel(src)
+
+/obj/item/clothing/under/fluff/jennifer_nets //Black Net Mesh Outfit - Jennifer Beal - synnono
+	name = "black net mesh outfit"
+	desc = "A clingy black top and matching skirt, belted with heavy leather around the waist. A soft fabric netting stretches over the exposed collar, midriff, arms and legs."
+	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
+	icon_state = "jennifer_nets"
+	item_state = "jennifer_nets"
+	has_sensor = 0
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/fluff/jennifer_turtleneck //Pale Turtleneck Outfit - Jennifer Beal - synnono
+	name = "pale turtleneck outfit"
+	desc = "A graphite-blue turtleneck sweater, paired with dark blue jeans."
+	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
+	icon_state = "jennifer_turtleneck"
+	item_state = "jennifer_turtleneck"
+	has_sensor = 0
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/fluff/jennifer_tee //Cartoon T-shirt Outfit - Jennifer Beal - synnono
+	name = "cartoon T-shirt outfit"
+	desc = "A promotional white T-shirt and cargo shorts. The shirt is printed with Slime Purple, the protagonist of the cartoon 'Great Slime Hero: Zettai Justice.'\nFor great slime justice!"
+	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
+	icon_state = "jennifer_tee"
+	item_state = "jennifer_tee"
+	has_sensor = 0
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/fluff/jennifer_jersey //Capital Sting FC Outfit - Jennifer Beal - synnono
+	name = "association football outfit"
+	desc = "A yellow and black jersey for the Mendell City women's club \"Capital Sting FC\" paired with black athletic shorts. This belongs on the pitch!"
+	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
+	icon_state = "jennifer_jersey"
+	item_state = "jennifer_jersey"
+	has_sensor = 0
+	contained_sprite = TRUE
+
+/obj/item/clothing/shoes/fluff/jennifer_pboots //Black Punk Boots - Jennifer Beal - synnono
+	name = "black punk boots"
+	desc = "A tall pair of thick-heeled black leather boots. They are fastened with several burnished steel buckles."
+	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
+	icon_state = "jennifer_pboots"
+	item_state = "jennifer_pboots"
+	contained_sprite = TRUE
+
+/obj/item/clothing/shoes/fluff/jennifer_aboots //Brown Ankle Boots - Jennifer Beal - synnono
+	name = "brown ankle boots"
+	desc = "A comfortable pair of short ankle boots."
+	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
+	icon_state = "jennifer_aboots"
+	item_state = "jennifer_aboots"
+	contained_sprite = TRUE
+
+/obj/item/clothing/shoes/fluff/jennifer_shoes //White Walking Sneakers - Jennifer Beal - synnono
+	name = "white walking sneakers"
+	desc = "A bright pair of white sneakers. They have purple rubber soles."
+	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
+	icon_state = "jennifer_shoes"
+	item_state = "jennifer_shoes"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/suit/storage/toggle/fluff/blessing_jacket //Armored Detective Jacket - Nelson Blessing - seniorscore
+	name = "armored detective jacket"
+	desc = "A white suit jacket, has a badge hanging out of a breast pocket. Touching it gives a feeling of working on a case for months."
+	icon = 'icons/obj/custom_items/blessing_jacket.dmi'
+	icon_state = "blessing_jacket"
+	item_state = "blessing_jacket"
+	icon_open = "blessing_jacket_open"
+	icon_closed = "blessing_jacket"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/under/dress/fluff/katya_dress //Tailored Tajara Dress - Katya Al-Tahara - coalf
+	name = "tailored tajaran dress"
+	desc = "A simple long, blue and flowing dress, it has a knitted overthrow that fits over the shoulder and arms."
+	icon = 'icons/obj/custom_items/katya_clothing.dmi'
+	icon_state = "katya_dress"
+	item_state = "katya_dress"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/fluff/katya_uniform //Messy Work Clothes - Katya Al-Tahara - coalf
+	name = "messy work clothes"
+	desc = "A simple pants and shirt combo. The white shirt has long since faded...and are those crumbs?"
+	icon = 'icons/obj/custom_items/katya_clothing.dmi'
+	icon_state = "katya_uniform"
+	item_state = "katya_uniform"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/accessory/badge/fluff/jamie_tags //Elyran Navy Holotags - Jamie Knight - superballs
+	name = "elyran navy holotags"
+	desc = "A pair of standard issue holotags issued to all Elyran servicemen. The tags read, \"KNIGHT JAMES 627810021-EN O-NEG CATHOLIC\". \
+	Contains both analog and digital information on the serviceman. The digital information seems to be deactivated and non-functional."
+	icon = 'icons/obj/custom_items/jamie_tags.dmi'
+	icon_state = "jamie_tags"
+	item_state = "jamie_tags"
+	stored_name = "Knight, James"
+	badge_string = "Elyran Navy"
+	contained_sprite = TRUE
+	slot_flags = SLOT_MASK | SLOT_TIE
+	var/separated = FALSE
+
+/obj/item/fluff/jamie_tag //Single Elyran Navy Holotag - Jamie Knight - superballs
+	name = "elyran navy holotag"
+	desc = "A single tag of a set of holotags issued to all Elyran servicemen. The tags read, \"KNIGHT JAMES 627810021-EN O-NEG CATHOLIC\". \
+	Contains both analog and digital information on the serviceman. The digital information seems to be deactivated and non-functional. It is missing it's other pair."
+	icon = 'icons/obj/custom_items/jamie_tags.dmi'
+	icon_state = "jamie_tag"
+	w_class = 1
+
+/obj/item/clothing/accessory/badge/fluff/jamie_tags/update_icon()
+	if(separated)
+		icon_state = "[icon_state]_single"
+		item_state = "[item_state]_single"
+	else
+		icon_state = initial(icon_state)
+		item_state = initial(item_state)
+
+/obj/item/clothing/accessory/badge/fluff/jamie_tags/verb/separate()
+	set name = "Retrieve the Fallen"
+	set category = "Object"
+	set src in usr
+
+	if(use_check(usr)) return
+
+	if(src.separated)
+		return
+
+	usr.visible_message("<span class='notice'>[usr] yanks apart \the [src]!</span>")
+	var/obj/item/fluff/jamie_tag/tag = new(get_turf(user))
+	usr.put_in_hands(tag)
+	src.separated = TRUE
+	src.update_icon()
+
+/obj/item/clothing/accessory/badge/fluff/jamie_tags/attackby(var/obj/item/fluff/jamie_tag/W, var/mob/user)
+	if(src.separated && istype(W))
+		qdel(W)
+		src.separated = FALSE
+		src.update_icon()
+	else
+		..()
+
+
+/obj/item/clothing/under/fluff/halstere_uniform //Martian Militia Dress Uniform - Kalren Halstere - brutishcrab51
+	name = "martian militia dress uniform"
+	desc = "A brick-red uniform with golden shoulder-scrubbers, a crisp tie, and golden buttons, complete with steel-grey slacks. An image of Olympus Mons is stamped on the left bicep."
+	icon = 'icons/obj/custom_items/halstere_clothing.dmi'
+	icon_state = "halstere_uniform"
+	item_state = "halstere_uniform"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/fluff/halstere_cap //Martian Militia Dress Cap - Kalren Halstere - brutishcrab51
+	name = "martian militia dress cap"
+	desc = "A red and black peak cap with a golden Officer Corps indicator on the brow."
+	icon = 'icons/obj/custom_items/halstere_clothing.dmi'
+	icon_state = "halstere_cap"
+	item_state = "halstere_cap"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/fluff/halstere_coat //Martian Militia Officer Coat - Kalren Halstere - brutishcrab51
+	name = "martian militia officer coat"
+	desc = "A decorated military coat with an aiguillette, arm-bars, and golden buttons. Made of a thick material."
+	icon = 'icons/obj/custom_items/halstere_clothing.dmi'
+	icon_state = "halstere_jacket"
+	item_state = "halstere_jacket"
+	icon_open = "halstere_jacket_open"
+	icon_closed = "halstere_jacket"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/head/beret/fluff/chunley_beret //Sol's Dog Handler Beret - Freya Chunley - thesmiley
+	name = "sol's dog handler beret"
+	desc = "A scarlet military beret worn by the Sol Alliance Military Police dog handling unit. The symbol on the cap is that of a grey wolf's head on white. It quivers menacingly. \
+	Upon flipping it you see a name tag with the word \"CHUNLEY\" written in on it with a very sloppy hand write."
+	icon = 'icons/obj/custom_items/chunley_beret.dmi'
+	icon_state = "chunley_beret"
+	item_state = "chunley_beret"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/suit/storage/fluff/keorat_mantle //Worn Maraziite Shroud - Iksaeors Keorat - dasfox
+	name = "worn maraziite shroud"
+	desc = "A brown, armored looking trenchcoat. There appears to be a fur cloak over the top of it, draping down to the sleeve. The cloak shows the obvious insignia of the Maraziite Order upon it. It looks worn."
+	icon = 'icons/obj/custom_items/keorat_clothing.dmi'
+	icon_state = "keorat_mantle"
+	item_state = "keorat_mantle"
+	contained_sprite = TRUE
+
+/obj/item/clothing/mask/fluff/keorat_mask //Charred Iron Mask - Iksaeors Keorat - dasfox
+	name = "charred iron mask"
+	desc = "This is an iron mask used by those of the Maraziite Order. It appears to be entirely charred, perhaps there's a story behind that."
+	icon = 'icons/obj/custom_items/keorat_clothing.dmi'
+	icon_state = "keorat_mask"
+	item_state = "keorat_mask"
+	contained_sprite = TRUE
+	flags_inv = HIDEEARS|HIDEFACE
+	body_parts_covered = FACE
+	w_class = 3
+
+
+/obj/item/weapon/crowbar/fluff/grajahn_crowbar //Crowbar of Divine Strength - Es'tana Grajahn - ezuo
+	name = "crowbar of divine strength"
+	desc = "An ordinary crowbar that has been painted red, and had some lights rigged to it. It pulsates a yellow light."
+	icon = 'icons/obj/custom_items/grajahn_crowbar.dmi'
+	icon_state = "grajahn_crowbar"
+	item_state = "grajahn_crowbar"
+	contained_sprite = TRUE
+
+
+/obj/item/weapon/storage/wallet/fluff/raymond_wallet //Black Leather Wallet - Raymond Hawkins - aboshehab
+	name = "black leather wallet"
+	desc = "A sleek black leather wallet, with the initials of \"J.H.\" visible at the front side. It's got an old yet maintained look to it."
+	icon = 'icons/obj/custom_items/raymond_items.dmi'
+	icon_state = "raymond_wallet"
+
+/obj/item/weapon/storage/wallet/fluff/raymond_wallet/update_icon()
+	return
+
+/obj/item/fluff/raymond_tablet //Holo Tablet - Raymond Hawkins - aboshehab
+	name = "holo tablet"
+	desc = "A thin electronic device that projects holographic images stored on it."
+	icon = 'icons/obj/custom_items/raymond_items.dmi'
+	icon_state = "raymond_tablet"
+	w_class = 2
+	var/picture = null
+
+/obj/item/fluff/raymond_tablet/attack_self(mob/user as mob)
+	if (use_check(user, USE_DISALLOW_SILICONS))
+		return
+
+	var/list/pictures = list("22-01-2460", "07-11-2459", "03-08-2459", "08-03-2452", "18-06-2437", "01-01-2434")
+
+	var/selection = input("Which picture do you want to see?", "Holo tablet picture selection.") as null|anything in pictures
+
+	if (!selection)
+		return
+
+	picture = selection
+
+/obj/item/fluff/raymond_tablet/examine(mob/user)
+	..()
+	if(!picture)
+		to_chat(user, "\The [src]'s screen is empty.")
+		return
+	if(in_range(user, src) || isobserver(user))
+		show_picture(user)
+	else
+		to_chat(user, "<span class='notice'>You have to go closer if you want to read it.</span>")
+
+/obj/item/fluff/raymond_tablet/proc/show_picture(mob/user)
+	var/desc
+
+	switch(picture)
+		if("22-01-2460")
+			desc = "This image shows a group of four outside with a scene looks to be a camp out in a forest. You see Raymond Hawkins sitting around a campfire with the three others, which you may know as Annabelle Hawkins, \
+			Lily Hawkins and Robert Hawkins, his children."
+
+		if("07-11-2459")
+			desc = "This image shows two people, Raymond Hawkins and Robert Hawkins, with the latter being a boy in his early teens. The setting is that of a gun range, with Robert operating a sidearm. \
+			Raymond is standing nearby guiding and instructing him on his posture."
+
+		if("03-08-2459")
+			desc = "This image shows two people, Raymond Hawkins and Lily Hawkins, with the latter being a girl in her early twenties. The setting is that of an arena, Raymond dressed casually and Lily in a Jiu Jitsu uniform, \
+			the belt being an alternation between black and red. She's got a winners medal around her neck, making a peace sign with her right hand while having a grin on her face, posing for a picture with Raymond."
+
+		if("08-03-2452")
+			desc = "This image shows two people, Raymond Hawkins and Annabelle Hawkins, the former visibly a decade younger yet thinner, and not in the healthy way. The later looks to be in their late teens. The setting is that of a restaurant, \
+			a more high end one, with the two of them seated opposite of each other, posing for a picture. Annabelle especially looks incredibly happy."
+
+		if("18-06-2437")
+			desc = "This image shows a group of five posing together for a picture, the surrounding indicates this as a place of military decorum, people dressed in Sol Navy dress uniforms and people in civilian clothing spread around in groups, indicating some form of graduation ceremony. \
+			Raymond is in his mid twenties, dressed in full dress uniform standing with four others. One you might know as Stephanie Hawkins, dressed in the same way, looking to be in her mid twenties as well. A boy in his early teens is also standing, \
+			which you may know as Robert Hawkins, his brother. The last two are Jack Hawkins and Martha Hawkins, both looking to be in their early fifties, his parents."
+
+		if("01-01-2434")
+			desc = "This image shows a large gathering, the scenery and attire indicative of a wedding. Two people stick out, Raymond Hawkins, looking to be in his early twenties dressed in a suit dancing with his bride, \
+			which you may know as Stephanie Hawkins. They look content and happy, the atmosphere ecstatic."
+
+	show_browser(user, "<center><b>You can see on the screen of the tablet:</b><br>[desc]</center>", "window=Holo Tablet")
+
+
+/obj/item/weapon/material/knife/fluff/yumi_knife //Cutting Metal - Yumi Yotin - trickingtrapster
+	name = "cutting metal"
+	desc = "Looks like a piece of sheet metal, sharpened on one end."
+	icon = 'icons/obj/custom_items/yotin_knife.dmi'
+	icon_state = "yotin_knife"
+
+
+/obj/item/clothing/suit/storage/toggle/fr_jacket/fluff/volvalaad_jacket //Paramedic's Jacket - Richard Volvalaad - t1gws
+	name = "paramedic's jacket"
+	desc = "A jacket worn by trained emergency medical personnel, this one has a gold trim and emblem."
+	icon = 'icons/obj/custom_items/volvalaad_items.dmi'
+	icon_state = "volvalaad_jacket"
+	item_state = "volvalaad_jacket"
+	icon_open = "volvalaad_jacket_open"
+	icon_closed = "volvalaad_jacket"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/fluff/volvalaad_coat //Dominian Noble Coat - Richard Volvalaad - t1gws
+	name = "dominian noble coat"
+	desc = "This is a coat often worn by the Dominian Nobility, this one is black and blue."
+	icon = 'icons/obj/custom_items/volvalaad_items.dmi'
+	icon_state = "volvalaad_coat"
+	item_state = "volvalaad_coat"
+	icon_open = "volvalaad_coat_open"
+	icon_closed = "volvalaad_coat"
+	contained_sprite = TRUE
+
+
+/obj/item/weapon/paper/fluff/jawdat_paper //Manifesto of the PRA - Rrazujun Rrhazkal-Jawdat - jackboot
+	name = "manifesto of the PRA"
+	desc = "This is the manifesto of the People's Republic of Adhomai, written by many different Tajara thinkers in the 2430's. Depending on who you ask it is either an enlightening document that showcases the great \
+	intellectual and cultural genius of Tajara civilization, or a dense collection of gibberish commie nonsense."
+	icon = 'icons/obj/custom_items/jawdat_paper.dmi'
+	icon_state = "jawdat_paper"
+	info = "<b><center>Manifesto of the Parizahra Zhahrazjujz'tajara Akzatauzjauna'azahrazakahuz Hadii</b><br>\
+			<br>\
+			Written: Late 2432;<br> \
+			First Published: February 2433<br> \
+			Translated by Comrade Aurauz'hurl Aizhunua</center><br>\
+			<small>A Rrak'narr is haunting the Njarir'Akhran. The Rrak'narr of classlessism. Where have not the Njarir'Akhran blasted classlessism? Where not have the nobility ruthlessly uprooted our supporters \
+			like they were tearing up weeds from their gardens? Despite their dismissal, the fact that the Njarir'Akhran are so desperate to exterminate us brings us two inevitable facts:<br>\
+			<br>\
+			1) Revolutionary ideology is already cemented amongst Tajara.<br>\
+			2) It is time for supporters of a classless society to throw off their cloaks and set aside their daggers and pick up the rifle to meet the reactionary bourgeois in the open field.<br>\
+			<br>\
+			To that end, Comrade Al'mari Hadii has coalesced the many supporters and thinkers of the Revolution to bring to life this manifesto of our people, our nation, and our Revolution.<br>\
+			This is a Revolution that will make the Old Order buckle before the strength of the working class until it collapses into ruin. Remember, dear comrade, all of the contents of this manifesto are to justify one simple fact.<br>\
+			This one fact has been unsuccessfully suppressed by the Njarir'Akhran, only to live on in the burning spirit of every man, woman, and kit. The simple fact that no Tajara is born inherently better than another.<br>\
+			<br>\
+			Chapter 1:The Ruling Class and the Working Class<br>\
+			Chapter 2: Revolutionaries and Classlessism<br>\
+			Chapter 3: The Modern Njarir'Akhran Bourgeois<br>\
+			Chapter 4: Classlessism: Bridging Egalitarianism and Collectivism<br>\
+			Chapter 5: The Human Question: Neo-Feudalistic Classism<br>\
+			Chapter 6: The Great Awakening: Classlessism With Tajara Characteristics In The Greater Galaxy<br>\
+			Chapter 7: Aiairu'kuul Dialectic Theory On Trans-Substational Class Elevation<br>\
+			Chapter 8: Breaking The Chains: Persuading Non-Tajara To Support Their Own Liberation<br>\
+			Chapter 9: The Obliteration Of Class: The Final Goal<br>\
+			Chapter 10: Closing Arguments: Al'Mari's Vision Of A People's Republic</small>"
+
+/obj/item/weapon/paper/fluff/jawdat_paper/update_icon()
+	return
+
+/obj/item/weapon/folder/red/manifesto/Initialize()
+	. = ..()
+	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
+	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
+	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
+	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
+	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
+	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
+	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
+	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
+	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
+	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
+	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
+
+
+/obj/item/clothing/accessory/holster/thigh/fluff/rifler_holster //Rifler's Holster - Sophie Rifler - shodan43893
+	name = "tan leather thigh holster"
+	desc = "A version of the security thigh holster done up in tan leather - this one appears to have the word \"Rifler\" engraved down the side. It appears to be rather well made and hard wearing; more of a worker's holster than a show piece."
+	icon = 'icons/obj/custom_items/rifler_holster.dmi'
+	icon_state = "rifler_holster"

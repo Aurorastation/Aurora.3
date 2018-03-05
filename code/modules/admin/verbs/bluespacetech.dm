@@ -169,7 +169,7 @@
 		if(client.holder && client.holder.original_mob)
 			client.holder.original_mob.key = key
 		else
-			var/mob/dead/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
+			var/mob/abstract/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
 			ghost.key = key
 			ghost.mind.name = "[ghost.key] BSTech"
 			ghost.name = "[ghost.key] BSTech"
@@ -445,6 +445,7 @@
 	vision_flags = (SEE_TURFS|SEE_OBJS|SEE_MOBS)
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	canremove = 0
+	flash_protection = FLASH_PROTECTION_MAJOR
 
 /obj/item/clothing/glasses/sunglasses/bst/verb/toggle_xray(mode in list("X-Ray without Lighting", "X-Ray with Lighting", "Normal"))
 	set name = "Change Vision Mode"

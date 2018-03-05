@@ -17,7 +17,10 @@ mob/var/obj/effect/decal/typing_indicator
 	if(client && !stat)
 		typing_indicator.invisibility  = invisibility
 		if(client.prefs.toggles & SHOW_TYPING)
-			overlays -= typing_indicator
+			if (ATOM_USING_SSOVERLAY(src))
+				cut_overlay(typing_indicator)
+			else
+				overlays -= typing_indicator
 		else
 			if(state)
 				if(!typing)

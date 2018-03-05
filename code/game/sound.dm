@@ -141,6 +141,12 @@ var/list/computerbeeps = list(
 	'sound/machines/compbeep4.ogg',
 	'sound/machines/compbeep5.ogg'
 )
+var/list/switchsounds = list(
+	'sound/machines/switch1.ogg',
+	'sound/machines/switch2.ogg',
+	'sound/machines/switch3.ogg',
+	'sound/machines/switch4.ogg'
+)
 
 var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","waterstep","sandstep", "gravelstep")
 
@@ -149,15 +155,14 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 /proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff, is_global, usepressure = 1, environment = -1, is_ambience = FALSE, is_footstep = FALSE)
 	if (istext(soundin))
 		soundin = get_sfx(soundin) // same sound for everyone
-
-	if(isarea(source))
+	else if (isarea(source))
 		error("[source] is an area and is trying to make the sound: [soundin]")
 		return
 
 	var/frequency = get_rand_frequency() // Same frequency for everybody
 	var/turf/turf_source = get_turf(source)
 	// cache this so we don't create a new one for everybody
-	var/sound/S = sound(get_sfx(soundin))
+	var/sound/S = sound(soundin)
  	// Looping through the player list has the added bonus of working for mobs inside containers
 	for (var/P in player_list)
 		var/mob/M = P
@@ -167,10 +172,19 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 		var/distance = get_dist(M, turf_source)
 		if(distance <= (world.view + extrarange) * 3)
 			var/turf/T = get_turf(M)
-			if(T && T.z == turf_source.z && (!is_ambience || M.client.prefs.toggles & SOUND_AMBIENCE) && (!is_footstep || M.client.prefs.asfx_togs & ASFX_FOOTSTEPS))
-				M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global, usepressure, environment, S)
 
-var/const/FALLOFF_SOUNDS = 0.5
+			// These checks are split into multiple ifs for readability reasons.
+
+			if (!T || T.z != turf_source.z)
+				continue
+
+			if (is_ambience && !(M.client.prefs.toggles & SOUND_AMBIENCE))
+				continue
+
+			if (is_footstep && !(M.client.prefs.asfx_togs & ASFX_FOOTSTEPS))
+				continue
+
+			M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global, usepressure, environment, S)
 
 /mob/proc/playsound_local(turf/turf_source, soundin, vol as num, vary, frequency, falloff, is_global, usepressure = 1, environment = -1, sound/S)
 	if(!client || ear_deaf > 0)
@@ -231,8 +245,8 @@ var/const/FALLOFF_SOUNDS = 0.5
 		S.x = dx
 		var/dz = turf_source.y - T.y // Hearing from infront/behind
 		S.z = dz
-		// The y value is for above your head, but there is no ceiling in 2d spessmens.
-		S.y = 1
+		// 3D sound, truly this is the future.
+		S.y = (turf_source.z - T.z) * SOUND_Z_FACTOR
 		S.falloff = (falloff ? falloff : FALLOFF_SOUNDS)
 
 	if(!is_global && environment != 0)
@@ -293,4 +307,5 @@ var/const/FALLOFF_SOUNDS = 0.5
 			if ("sandstep") soundin = pick(sandfootsteps)
 			if ("gravelstep") soundin = pick(gravelfootsteps)
 			if ("computerbeep") soundin = pick(computerbeeps)
+			if ("switch") soundin = pick(switchsounds)
 	return soundin

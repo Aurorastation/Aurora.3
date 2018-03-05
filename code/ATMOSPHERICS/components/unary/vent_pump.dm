@@ -72,24 +72,18 @@
 /obj/machinery/atmospherics/unary/vent_pump/Initialize()
 	. = ..()
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP
-	
 
-/obj/machinery/atmospherics/unary/vent_pump/Initialize()
-	. = ..()
-
-	initial_loc = get_area(loc)
+	initial_loc = loc.loc
 	area_uid = initial_loc.uid
 	if (!id_tag)
 		assign_uid()
 		id_tag = num2text(uid)
-		
+
 	//some vents work his own special way
-	radio_filter_in = frequency==1439?(RADIO_FROM_AIRALARM):null
-	radio_filter_out = frequency==1439?(RADIO_TO_AIRALARM):null
+	radio_filter_in = frequency == 1439 ? (RADIO_FROM_AIRALARM) : null
+	radio_filter_out = frequency == 1439 ? (RADIO_TO_AIRALARM) : null
 	if(frequency)
 		radio_connection = register_radio(src, frequency, frequency, radio_filter_in)
-
-	atmos_init()
 
 // Different from the above.
 /obj/machinery/atmospherics/unary/vent_pump/atmos_init()
@@ -140,6 +134,8 @@
 
 	icon_state = vent_icon
 
+	update_underlays()
+
 /obj/machinery/atmospherics/unary/vent_pump/update_underlays()
 	if(..())
 		underlays.Cut()
@@ -155,8 +151,7 @@
 				add_underlay(T,, dir)
 
 /obj/machinery/atmospherics/unary/vent_pump/hide()
-	update_icon()
-	update_underlays()
+	queue_icon_update()
 
 /obj/machinery/atmospherics/unary/vent_pump/proc/can_pump()
 	if(stat & (NOPOWER|BROKEN))

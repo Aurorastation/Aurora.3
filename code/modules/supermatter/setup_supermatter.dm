@@ -105,7 +105,7 @@
 	invisibility = 101
 	anchored = 1
 	density = 0
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "x2"
 
 /obj/effect/engine_setup/proc/activate(var/last = 0)

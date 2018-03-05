@@ -66,6 +66,7 @@
 
 	possible_trading_items = list(
 		/obj/item/weapon/computer_hardware/battery_module = TRADER_SUBTYPES_ONLY,
+		/obj/item/weapon/computer_hardware/battery_module/lambda = TRADER_BLACKLIST,
 		/obj/item/weapon/circuitboard                     = TRADER_SUBTYPES_ONLY,
 		/obj/item/weapon/circuitboard/telecomms           = TRADER_BLACKLIST,
 		/obj/item/weapon/circuitboard/unary_atmos         = TRADER_BLACKLIST,

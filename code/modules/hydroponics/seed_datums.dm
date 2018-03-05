@@ -383,29 +383,48 @@
 	seed_name = "kois"
 	seed_noun = "spores"
 	display_name = "k'ois spores"
-	mutants = null
 	chems = list(
-				"koispaste" = list(2),
-				"phoron" = list(4))
+				"koispaste" = list(4),
+				"phoron" = list(8))
 	splat_type = /obj/effect/plant
 	kitchen_tag = "koisspore"
+	mutants = list("blackkois")
 
 /datum/seed/koisspore/setup_traits()
 	..()
 	set_trait(TRAIT_SPREAD,1)
+	set_trait(TRAIT_SPOROUS,1)
 	set_trait(TRAIT_MATURATION,5)
 	set_trait(TRAIT_PRODUCTION,1)
 	set_trait(TRAIT_YIELD,3)
-	set_trait(TRAIT_POTENCY,60)
+	set_trait(TRAIT_POTENCY,40)
 	set_trait(TRAIT_BIOLUM,1)
 	set_trait(TRAIT_IDEAL_LIGHT,1)
 	set_trait(TRAIT_LIGHT_TOLERANCE,2)
+	set_trait(TRAIT_ENDURANCE,50)
 	set_trait(TRAIT_BIOLUM_COLOUR,"#E6E600")
 	set_trait(TRAIT_PRODUCT_ICON,"alien3")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#E6E600")
 	set_trait(TRAIT_PLANT_COLOUR,"#E6E600")
 	set_trait(TRAIT_PLANT_ICON,"mushroom6")
 
+/datum/seed/koisspore/black
+	name = "blackkois"
+	mutants = null
+	chems = list(
+				"blackkois" = list(4),
+				"phoron" = list(2))
+
+/datum/seed/koisspore/black/setup_traits()
+	..()
+	set_trait(TRAIT_BIOLUM_PWR,-1.5)
+	set_trait(TRAIT_POTENCY,60)
+	set_trait(TRAIT_ENDURANCE,75)
+	set_trait(TRAIT_IDEAL_LIGHT,0)
+	set_trait(TRAIT_LIGHT_TOLERANCE,8)
+	set_trait(TRAIT_BIOLUM_COLOUR,"#FFFFFF")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#31004A")
+	set_trait(TRAIT_PLANT_COLOUR,"#31004A")
 
 /datum/seed/mushroom/mold
 	name = "mold"

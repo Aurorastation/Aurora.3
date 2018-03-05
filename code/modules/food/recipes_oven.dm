@@ -388,7 +388,6 @@
 
 
 
-
 //Spicy
 //================
 /datum/recipe/enchiladas
@@ -396,8 +395,6 @@
 	fruit = list("chili" = 2, "corn" = 1)
 	items = list(/obj/item/weapon/reagent_containers/food/snacks/cutlet)
 	result = /obj/item/weapon/reagent_containers/food/snacks/enchiladas
-
-
 
 /datum/recipe/monkeysdelight
 	appliance = OVEN
@@ -500,3 +497,27 @@
 	)
 	reagents = list("honey" = 5)
 	result = /obj/item/weapon/reagent_containers/food/snacks/honeybun
+
+/datum/recipe/enchiladas_new
+	appliance = OVEN
+	fruit = list("chili" = 2)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/cutlet,
+		/obj/item/weapon/reagent_containers/food/snacks/tortilla
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/enchiladas
+
+//Bacon
+/datum/recipe/bacon_oven
+	appliance = OVEN
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/rawbacon,
+		/obj/item/weapon/reagent_containers/food/snacks/rawbacon,
+		/obj/item/weapon/reagent_containers/food/snacks/rawbacon,
+		/obj/item/weapon/reagent_containers/food/snacks/rawbacon,
+		/obj/item/weapon/reagent_containers/food/snacks/rawbacon,
+		/obj/item/weapon/reagent_containers/food/snacks/rawbacon,
+		/obj/item/weapon/reagent_containers/food/snacks/spreads
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/bacon/oven
+	result_quantity = 6

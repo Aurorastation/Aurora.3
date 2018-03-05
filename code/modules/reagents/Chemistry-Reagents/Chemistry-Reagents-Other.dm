@@ -75,14 +75,14 @@
 		var/obj/machinery/light/L = O
 		L.brightness_color = color
 		L.update()
-	else if(istype(O, /obj/item/clothing/suit/storage/det_trench/technicolor) || istype(O, /obj/item/clothing/head/det/technicolor))
+	else if(istype(O, /obj/item/clothing/suit/storage/toggle/det_trench/technicolor) || istype(O, /obj/item/clothing/head/det/technicolor))
 		return
 
 	else if(istype(O))
 		O.color = color
 
 /datum/reagent/paint/touch_mob(var/mob/M)
-	if(istype(M) && !istype(M, /mob/dead)) //painting ghosts: not allowed
+	if(istype(M) && !istype(M, /mob/abstract)) //painting ghosts: not allowed
 		M.color = color //maybe someday change this to paint only clothes and exposed body parts for human mobs.
 
 /datum/reagent/paint/get_data()
@@ -234,11 +234,19 @@
 			vampire.frenzy += removed * 5
 		else if(M.mind && cult.is_antagonist(M.mind) && prob(10))
 			cult.remove_antagonist(M.mind)
+	if(alien && alien == IS_UNDEAD)
+		M.adjust_fire_stacks(10)
+		M.IgniteMob()
 
 /datum/reagent/water/holywater/touch_turf(var/turf/T)
 	if(volume >= 5)
 		T.holy = 1
 	return
+
+/datum/reagent/water/holywater/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien && alien == IS_UNDEAD)
+		M.adjust_fire_stacks(5)
+		M.IgniteMob()
 
 /datum/reagent/diethylamine
 	name = "Diethylamine"
@@ -461,12 +469,12 @@
 
 /datum/reagent/liquid_fire/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(istype(M))
-		M.adjust_fire_stacks(25)
+		M.adjust_fire_stacks(10)
 		M.IgniteMob()
 
 /datum/reagent/liquid_fire/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))
-		L.adjust_fire_stacks(25)
+		L.adjust_fire_stacks(10)
 		L.IgniteMob()
 
 /datum/reagent/black_matter
@@ -477,7 +485,18 @@
 	taste_description = "emptyness"
 
 /datum/reagent/black_matter/touch_turf(var/turf/T)
-	new /obj/effect/portal/wormhole/jaunt_tunnel(T, volume)
+	var/obj/effect/portal/P = new /obj/effect/portal(T)
+	P.creator = null
+	P.icon = 'icons/obj/objects.dmi'
+	P.failchance = 0
+	P.icon_state = "anom"
+	P.name = "wormhole"
+	var/list/pick_turfs = list()
+	for(var/turf/simulated/floor/exit in turfs)
+		if(exit.z in current_map.station_levels)
+			pick_turfs += exit
+	P.target = pick(pick_turfs)
+	QDEL_IN(P, rand(150,300))
 	remove_self(volume)
 	return
 

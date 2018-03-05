@@ -92,7 +92,6 @@ proc/get_radio_key_from_channel(var/channel)
 /mob/living/proc/handle_speech_problems(var/message, var/verb)
 	var/list/returns[3]
 	var/speech_problem_flag = 0
-
 	if((HULK in mutations) && health >= 25 && length(message))
 		message = "[uppertext(message)]!!!"
 		verb = pick("yells","roars","hollers")
@@ -104,6 +103,10 @@ proc/get_radio_key_from_channel(var/channel)
 	if(stuttering)
 		message = stutter(message)
 		verb = pick("stammers","stutters")
+		speech_problem_flag = 1
+	if(tarded)
+		message = slur(message)
+		verb = pick("gibbers","gabbers")
 		speech_problem_flag = 1
 	if(brokejaw)
 		message = slur(message)
@@ -199,7 +202,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	if(!message || message == "")
 		return 0
-	
+
 	//handle nonverbal and sign languages here
 	if (speaking)
 		if (speaking.flags & NONVERBAL)

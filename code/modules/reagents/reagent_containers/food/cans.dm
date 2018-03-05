@@ -124,3 +124,14 @@
 /obj/item/weapon/reagent_containers/food/drinks/cans/sodawater/Initialize()
 	. = ..()
 	reagents.add_reagent("sodawater", 50)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/koispunch
+	name = "\improper Phoron Punch!"
+	desc = "A radical looking can of <span class='warning'>Phoron Punch!</span> Phoron poisoning has never been more extreme!"
+	icon_state = "phoron_punch"
+	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/koispunch/Initialize()
+	. = ..()
+	reagents.add_reagent("koispaste", 10)
+	reagents.add_reagent("phoron", 5)

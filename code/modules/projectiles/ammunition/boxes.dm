@@ -10,6 +10,15 @@
 	max_ammo = 7
 	multiple_sprites = 1
 
+/obj/item/ammo_magazine/a454
+	name = "speed loader (.454)"
+	icon_state = "T38"
+	caliber = "454"
+	ammo_type = /obj/item/ammo_casing/a454
+	matter = list(DEFAULT_WALL_MATERIAL = 1260)
+	max_ammo = 7
+	multiple_sprites = 1
+
 /obj/item/ammo_magazine/c38
 	name = "speed loader (.38)"
 	icon_state = "38"

@@ -142,16 +142,16 @@
 				return
 
 			log_ability_use(user, "advanced encryption hack")
-
-			if(prob(50) && user.hack_can_fail)
-				user << "Hack Failed."
-				if(prob(5))
-					user.hack_fails ++
-					announce_hack_failure(user, "quantum message relay")
-					log_ability_use(user, "advanced encryption hack (CRITFAIL - title: [reporttitle])")
-					return
-				log_ability_use(user, "advanced encryption hack (FAIL - title: [reporttitle])")
-				return
+			// Commented out while trialing the malf ai buff
+			//if(prob(50) && user.hack_can_fail)
+			//	user << "Hack Failed."
+			//	if(prob(5))
+			//		user.hack_fails ++
+			//		announce_hack_failure(user, "quantum message relay")
+			//		log_ability_use(user, "advanced encryption hack (CRITFAIL - title: [reporttitle])")
+			//		return
+			//	log_ability_use(user, "advanced encryption hack (FAIL - title: [reporttitle])")
+			//	return
 			log_ability_use(user, "advanced encryption hack (SUCCESS - title: [reporttitle])")
 			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1, do_newscast=1, do_print=1)
 
@@ -161,16 +161,16 @@
 				return
 
 			log_ability_use(user, "advanced encryption hack")
-
-			if(prob(50) && user.hack_can_fail)
-				user << "Hack Failed."
-				if(prob(5))
-					user.hack_fails ++
-					announce_hack_failure(user, "quantum message relay")
-					log_ability_use(user, "advanced encryption hack (CRITFAIL - title: [reporttitle])")
-					return
-				log_ability_use(user, "advanced encryption hack (FAIL - title: [reporttitle])")
-				return
+			// Commented out while trialing the malf ai buffs
+			//if(prob(50) && user.hack_can_fail)
+			//	user << "Hack Failed."
+			//	if(prob(5))
+			//		user.hack_fails ++
+			//		announce_hack_failure(user, "quantum message relay")
+			//		log_ability_use(user, "advanced encryption hack (CRITFAIL - title: [reporttitle])")
+			//		return
+			//	log_ability_use(user, "advanced encryption hack (FAIL - title: [reporttitle])")
+			//	return
 			log_ability_use(user, "advanced encryption hack (SUCCESS - title: [reporttitle])")
 			world << "<span class='alert'>New [current_map.company_name] Update available at all communication consoles.</span>"
 			world << sound('sound/AI/commandreport.ogg')
@@ -189,10 +189,10 @@
 	if(!alert_target || !ability_pay(user, price) || alert_target == "CANCEL")
 		user << "Hack Aborted"
 		return
-
-	if(prob(60) && user.hack_can_fail)
+	//Reduced from 60-10 to 20-5 while trialing the malf ai buffs
+	if(prob(20) && user.hack_can_fail)
 		user << "Hack Failed."
-		if(prob(10))
+		if(prob(5))
 			user.hack_fails ++
 			announce_hack_failure(user, "alert control system")
 			log_ability_use(user, "elite encryption hack (CRITFAIL - [alert_target])")
