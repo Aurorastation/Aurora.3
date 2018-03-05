@@ -51,7 +51,7 @@
 	if (config.log_game)
 		game_log("GAME", text)
 	send_gelf_log(
-		short_message = text, 
+		short_message = text,
 		long_message = "[time_stamp()]: [text]",
 		level = level,
 		category = "GAME",
@@ -92,8 +92,8 @@
 	if (config.log_attack)
 		game_log("ATTACK", text)
 	send_gelf_log(
-		short_message = text, 
-		long_message = "[time_stamp()]: [text]", 
+		short_message = text,
+		long_message = "[time_stamp()]: [text]",
 		level = level,
 		category="ATTACK",
 		additional_data = list("_ckey" = html_encode(ckey), "_ckey_target" = html_encode(ckey_target))
@@ -108,7 +108,7 @@
 	if (config.log_pda)
 		game_log("PDA", text)
 	send_gelf_log(
-		short_message = text, 
+		short_message = text,
 		long_message = "[time_stamp()]: [text]",
 		level = level,
 		category="PDA",
@@ -119,9 +119,9 @@
 	if (config.log_pda)
 		game_log("NTIRC", text)
 	send_gelf_log(
-		short_message = text, 
-		long_message="[time_stamp()]: [text]", 
-		level = level, 
+		short_message = text,
+		long_message="[time_stamp()]: [text]",
+		level = level,
 		category = "NTIRC",
 		additional_data = list("_ckey" = html_encode(ckey), "_ntirc_conversation" = html_encode(conversation))
 	)
@@ -187,7 +187,7 @@
 	return english_list(comps, nothing_text="0", and_text="|", comma_text="|")
 
 //more or less a logging utility
-/proc/key_name(var/whom, var/include_link = null, var/include_name = 1, var/highlight_special = 0)
+/proc/key_name(var/whom, var/include_link = null, var/include_name = 1, var/highlight_special = 0, var/datum/ticket/ticket = null)
 	var/mob/M
 	var/client/C
 	var/key
@@ -217,7 +217,7 @@
 
 	if(key)
 		if(include_link && C)
-			. += "<a href='?priv_msg=\ref[C]'>"
+			. += "<a href='?priv_msg=\ref[C];ticket=\ref[ticket]'>"
 
 		if(C && C.holder && C.holder.fakekey && !include_name)
 			. += "Administrator"

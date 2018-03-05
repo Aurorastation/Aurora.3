@@ -560,6 +560,7 @@
 		/obj/item/stack/material/iron = "iron",
 		/obj/item/stack/material/uranium = "uranium",
 		/obj/item/stack/material/phoron = "phoron",
+		/obj/item/stack/material/platinum = "platinum",
 		/obj/item/stack/material/gold = "gold",
 		/obj/item/stack/material/silver = "silver",
 		/obj/item/stack/material/mhydrogen = "hydrazine" //doesn't really make much sense but thank Bay

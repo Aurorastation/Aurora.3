@@ -102,7 +102,7 @@
 				if(findtext(temp_message[H], "*") || findtext(temp_message[H], ";") || findtext(temp_message[H], ":")) continue
 				temp_message[H] = ninjaspeak(temp_message[H])
 				pick_list -= H
-			message = list2text(temp_message, " ")
+			message = jointext(temp_message, " ")
 			message = replacetext(message, "o", "¤")
 			message = replacetext(message, "p", "ž")
 			message = replacetext(message, "l", "£")

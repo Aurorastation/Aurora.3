@@ -1131,7 +1131,7 @@ About the new airlock wires panel:
 	return 0
 
 /obj/structure/window/airlock_crush(var/crush_damage)
-	ex_act(2)//Smashin windows
+	return 0
 
 /obj/machinery/portable_atmospherics/canister/airlock_crush(var/crush_damage)
 	. = ..()

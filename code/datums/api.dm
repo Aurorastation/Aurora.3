@@ -944,9 +944,9 @@ proc/api_update_command_database()
 	//Announce that the fax has been sent
 	if(faxannounce == 1)
 		if(sendsuccess.len < 1)
-			command_announcement.Announce("A fax message from Central Command could not be delivered because all of the following fax machines are inoperational: <br>"+list2text(targetlist, ", "), "Fax Received", new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+			command_announcement.Announce("A fax message from Central Command could not be delivered because all of the following fax machines are inoperational: <br>"+jointext(targetlist, ", "), "Fax Received", new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 		else
-			command_announcement.Announce("A fax message from Central Command has been sent to the following fax machines: <br>"+list2text(sendsuccess, ", "), "Fax Received", new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+			command_announcement.Announce("A fax message from Central Command has been sent to the following fax machines: <br>"+jointext(sendsuccess, ", "), "Fax Received", new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 
 	log_admin("[senderkey] sent a fax via the API: : [faxbody]",admin_key=senderkey)
 	message_admins("[senderkey] sent a fax via the API", 1)
