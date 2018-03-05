@@ -4,7 +4,7 @@
 	scan_desc = "partial schizophrenia"
 	gain_text = "<span class='notice'>You feel in good company, for some reason.</span>"
 	lose_text = "<span class='warning'>You feel lonely again.</span>"
-	var/mob/living/mental/friend/friend
+	var/mob/abstract/mental/friend/friend
 
 /datum/brain_trauma/special/imaginary_friend/on_gain()
 	..()
@@ -36,12 +36,12 @@
 	else
 		qdel(src)
 
-/mob/living/mental
+/mob/abstract/mental
 	universal_understand = 1
 	incorporeal_move = 1
 	density = 0
 
-/mob/living/mental/friend
+/mob/abstract/mental/friend
 	name = "imaginary friend"
 	real_name = "imaginary friend"
 	desc = "A wonderful yet fake friend."
@@ -52,13 +52,13 @@
 	var/mob/living/carbon/owner
 	var/datum/brain_trauma/special/imaginary_friend/trauma
 
-/mob/living/mental/friend/Login()
+/mob/abstract/mental/friend/Login()
 	..()
 	to_chat(src, "<span class='notice'><b>You are the imaginary friend of [owner]!</b></span>")
 	to_chat(src, "<span class='notice'>You are absolutely loyal to your friend, no matter what.</span>")
 	to_chat(src, "<span class='notice'>You cannot directly influence the world around you, but you can see what [owner] cannot.</span>")
 
-/mob/living/mental/friend/Initialize(mapload, _trauma)
+/mob/abstract/mental/friend/Initialize(mapload, _trauma)
 	. = ..()
 	trauma = _trauma
 	owner = trauma.owner
@@ -66,13 +66,13 @@
 	real_name = owner.species.get_random_name(gender)
 	name = real_name
 	var/list/candidates = list()
-	for(var/mob/living/L in world)
+	for(var/mob/abstract/L in world)
 		candidates += L
-	var/mob/living/buddy = pick(candidates)
+	var/mob/abstract/buddy = pick(candidates)
 	human_image = getFlatIcon(buddy)
 	Show()
 
-/mob/living/mental/friend/proc/Show()
+/mob/abstract/mental/friend/proc/Show()
 	if(owner.client)
 		owner.client.images.Remove(current_image)
 	if(client)
@@ -85,19 +85,19 @@
 	if(client)
 		client.images |= current_image
 
-/mob/living/mental/friend/Destroy()
+/mob/abstract/mental/friend/Destroy()
 	if(owner.client)
 		owner.client.images.Remove(human_image)
 	if(client)
 		client.images.Remove(human_image)
 	return ..()
 
-/mob/living/mental/friend/proc/yank()
+/mob/abstract/mental/friend/proc/yank()
 	if(!client) //don't bother the user with a braindead ghost every few steps
 		return
 	forceMove(get_turf(owner))
 
-/mob/living/mental/friend/say(message)
+/mob/abstract/mental/friend/say(message)
 	if (!message)
 		return
 
@@ -110,7 +110,7 @@
 
 	friend_talk(message)
 
-/mob/living/mental/friend/proc/friend_talk(message)
+/mob/abstract/mental/friend/proc/friend_talk(message)
 	message = trim(copytext(sanitize(message), 1, MAX_MESSAGE_LEN))
 
 	if(!message)
@@ -121,10 +121,10 @@
 	to_chat(owner, "[rendered]")
 	to_chat(src, "[rendered]")
 
-/mob/living/mental/friend/emote(act,m_type=1,message = null)
+/mob/abstract/mental/friend/emote(act,m_type=1,message = null)
 	return
 
-/mob/living/mental/friend/Move(NewLoc, Dir = 0)
+/mob/abstract/mental/friend/Move(NewLoc, Dir = 0)
 	loc = NewLoc
 	dir = Dir
 	if(get_dist(src, owner) > 9)
@@ -132,5 +132,5 @@
 		return TRUE
 	return TRUE
 
-/mob/living/mental/friend/movement_delay()
+/mob/abstract/mental/friend/movement_delay()
 	return 2
