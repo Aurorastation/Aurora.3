@@ -66,7 +66,7 @@
 	real_name = owner.species.get_random_name(gender)
 	name = real_name
 	var/list/candidates = list()
-	for(var/mob/abstract/L in world)
+	for(var/mob/living/L in living_mob_list)
 		candidates += L
 	var/mob/abstract/buddy = pick(candidates)
 	human_image = getFlatIcon(buddy)
