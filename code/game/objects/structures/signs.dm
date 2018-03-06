@@ -182,7 +182,7 @@
 
 /obj/structure/sign/patients_only
 	name = "\improper PATIENTS ONLY"
-	desc = "A big blue signs that reads 'PATIENTS ONLY'. Underneath you can read: 'Authorized personnel only. Tresspassers will be prosecuted by the ISD.'"
+	desc = "A big blue sign that reads 'PATIENTS ONLY'. Underneath you can read: 'Authorized personnel only. Tresspassers will be prosecuted by the ISD.'"
 	icon_state = "patients_only"
 
 //Location and direction signs
@@ -243,17 +243,17 @@
 
 /obj/structure/sign/meeting_point
 	name = "\improper EMERGENCY MEETING POINT"
-	desc = "A green sign which depicts a group of people in the middle of the sign, being pointed by arrows."
+	desc = "A green sign which depicts a group of people in the middle of the sign, being pointed at by arrows."
 	icon_state = "meeting_point"
 
 /obj/structure/sign/emerg_exit
 	name = "\improper EMERGENCY EXIT"
-	desc = "A green sign that depicts a person heading towards the arrow's direction, which points at the emergency exit."
+	desc = "A green sign pointing towards an emergency exit."
 	icon_state = "emerg_exit"
 
 /obj/structure/sign/emerg_exitZ
 	name = "\improper EMERGENCY LADDER"
-	desc = "A green sign that depicts a person climbing the ladder in the arrow's direction, which points at the emergency exit."
+	desc = "A green sign that depicts a person climbing the ladder towards the arrow's direction, pointing at the emergency exit."
 	icon_state = "emerg_exitZ"
 
 
