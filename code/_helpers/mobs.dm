@@ -14,17 +14,17 @@
 /mob/get_mob()
 	return src
 
-/proc/spawn_delayed_atom(var/turf/spawn_turf, var/mob/spawning_mob, var/delay_seconds = 30, var/remove_delay_seconds = 0, var/safe_delete = FALSE)
+/proc/spawn_delayed_atom(var/turf/spawn_turf, var/mobtype, var/delay_seconds = 30, var/remove_delay_seconds = 0, var/safe_delete = FALSE)
 	addtimer(\
 		CALLBACK(\
 			GLOBAL_PROC,\
-			/proc/spawn_atom,spawn_turf,spawning_mob,remove_delay_seconds,safe_delete\
+			/proc/spawn_atom,spawn_turf,mobtype,remove_delay_seconds,safe_delete\
 		),\
 		delay_seconds SECONDS\
 	)
 
-/proc/spawn_atom(var/turf/spawn_turf, var/spawning_mob, var/remove_delay_seconds = 0, var/safe_delete = FALSE)
-	var/mob/spawned_mob = spawning_mob/new(spawn_turf)
+/proc/spawn_atom(var/turf/spawn_turf, var/mobtype, var/remove_delay_seconds = 0, var/safe_delete = FALSE)
+	var/mob/spawned_mob = new mobtype(spawn_turf)
 	if(remove_delay_seconds)
 		addtimer(\
 			CALLBACK(\

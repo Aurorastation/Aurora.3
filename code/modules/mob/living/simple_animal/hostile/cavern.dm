@@ -1,4 +1,4 @@
-/mob/living/simple_animal/hostile/male_petran
+/mob/living/simple_animal/hostile/petran_male
 	name = "male petran"
 	desc = "A crab-like creature commonly found scavaging for meat and vegetation on asteriods. This one is female, and often seen hunting for food."
 	icon = 'icons/mob/cavern.dmi'
@@ -16,12 +16,12 @@
 	response_harm   = "pokes"
 	attacktext = "bit"
 	stop_automated_movement_when_pulled = 0
-	maxHealth = 200
-	health = 200
-	melee_damage_lower = 15
-	melee_damage_upper = 20
+	speed = -3
+	maxHealth = 50
+	health = 50
+	melee_damage_lower = 5
+	melee_damage_upper = 10
 	faction = "petran"
 	pass_flags = PASSTABLE
 	move_to_delay = 6
-	speed = 3
 	mob_size = 6

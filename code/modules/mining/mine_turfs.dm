@@ -361,35 +361,31 @@ var/list/mineral_can_smooth_with = list(
 			new /obj/random/petran(src)
 			new /obj/random/petran(src)
 			//Spawn some mobs
-			var/mob/living/simple_animal/hostile/male_petran/male
 			if(prob(25)) //A male is out scavaging junk for a nest.
-				spawn_delayed_atom(T,male,rand(20,40),rand(60,120), TRUE)
+				spawn_delayed_atom(T,/mob/living/simple_animal/hostile/petran_male,rand(20,40),rand(60,120), TRUE)
 			else if(prob(50)) //A male is preparing a nest for a potential female.
-				var/mob/living/simple_animal/hostile/male_petran/M =  new(src)
+				var/mob/living/simple_animal/hostile/petran_male/M =  new(src)
 				visible_message("<span class='warning'>A very angry [M.name] leaps up from under the [T.name]!</span>")
 			else // A lone female is guarding the nest
-				var/mob/living/simple_animal/hostile/retaliate/female_petran/M =  new(src)
+				var/mob/living/simple_animal/hostile/retaliate/petran_female/M =  new(src)
 				visible_message("<span class='warning'>An annoyed [M.name] leaps up from under the [T.name].</span>")
 				if(prob(50)) //The female actually has a mate, and will return to the nest
-					spawn_delayed_atom(T,male,rand(20,40),rand(60,120), TRUE)
+					spawn_delayed_atom(T,/mob/living/simple_animal/hostile/petran_male,rand(20,40),rand(60,120), TRUE)
 		if(SPACETRAP_CARP)
 			//Spawn some loot
 			new /obj/random/petran(src)
 			new /obj/random/petran(src)
 			new /obj/random/petran(src)
-			//Spawn some mobs
-			var/mob/living/simple_animal/hostile/carp
-			var/mob/living/simple_animal/hostile/male_petran/male
-			var/mob/living/simple_animal/hostile/retaliate/female_petran/M =  new(src)
+			var/mob/living/simple_animal/hostile/retaliate/petran_female/M =  new(src)
 			M.adjustBruteLoss(1000) //Kill it
 			if(prob(50)) //Carp smell fresh meat.
-				spawn_delayed_atom(T,carp,rand(20,40),rand(60,120), TRUE)
+				spawn_delayed_atom(T,/mob/living/simple_animal/hostile/carp,rand(20,40),rand(60,120), TRUE)
 			if(prob(50)) //Carp smell fresh meat.
-				spawn_delayed_atom(T,carp,rand(20,40),rand(60,120), TRUE)
+				spawn_delayed_atom(T,/mob/living/simple_animal/hostile/carp,rand(20,40),rand(60,120), TRUE)
 			if(prob(50)) //Carp smell fresh meat.
-				spawn_delayed_atom(T,carp,rand(20,40),rand(60,120), TRUE)
+				spawn_delayed_atom(T,/mob/living/simple_animal/hostile/carp,rand(20,40),rand(60,120), TRUE)
 			if(prob(50)) //The female actually has a mate, and will return to the nest
-				spawn_delayed_atom(T,male,rand(20,40),rand(60,120), TRUE)
+				spawn_delayed_atom(T,/mob/living/simple_animal/hostile/petran_male,rand(20,40),rand(60,120), TRUE)
 
 	if (mineral && mineral.result_amount)
 
