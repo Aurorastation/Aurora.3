@@ -34,7 +34,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Added explorer's suit, helmet, and webbing. Added new mobs in the mines: petra and carp. They have a chance to spawn while mining."
+  - rscadd: "Added explorer's suit, helmet, and webbing. Added new mobs in the mines: petra and carp. They have a chance to spawn while mining. Weaker human-exclusive budget mining boots are given at default so mining is easier for new players."
   - maptweak: "Tweaked the cryo layout of the main level. Removed mulebots from cargo until they are fixed. Added a new small building outside that allows paramedics and miners to climb between z-levels easier."
   - tweak: "Tweaked cargo warehouse's loot tabled to contain less garbage, such as action figures, toys, and crayons. Abandoned crates have a higher chance to drop."
   

@@ -1,6 +1,6 @@
 /obj/item/clothing/shoes/magboots
-	desc = "Magnetic boots, often used during extravehicular activity to ensure the user remains safely attached to the vehicle. They're large enough to be worn over other footwear."
 	name = "magboots"
+	desc = "Magnetic boots, often used during extravehicular activity to ensure the user remains safely attached to the vehicle. They're large enough to be worn over other footwear."
 	icon_state = "magboots0"
 	species_restricted = null
 	force = 5
@@ -10,11 +10,12 @@
 	action_button_name = "Toggle Magboots"
 	var/obj/item/clothing/shoes/shoes = null	//Undershoes
 	var/mob/living/carbon/human/wearer = null	//For shoe procs
+	var/magslowdown = 3
 
 /obj/item/clothing/shoes/magboots/proc/set_slowdown()
 	slowdown = shoes? max(SHOES_SLOWDOWN, shoes.slowdown): SHOES_SLOWDOWN	//So you can't put on magboots to make you walk faster.
 	if (magpulse)
-		slowdown += 3
+		slowdown += magslowdown
 
 /obj/item/clothing/shoes/magboots/proc/update_wearer()
 	if(!wearer)
@@ -90,3 +91,12 @@
 	if(item_flags & NOSLIP)
 		state = "enabled"
 	user << "Its mag-pulse traction system appears to be [state]."
+	
+/obj/item/clothing/shoes/magboots/cheap
+	name = "budget magboots"
+	desc = "Cheap magnetic boots, often used during extravehicular activity to ensure the user remains safely attached to the vehicle. Unlike the high quality variant, these magboots are uncomfortably small, and are not designed to fit non-humanoid feet."
+	magslowdown = 6
+	overshoes = 0
+	species_restricted = list("exclude","Unathi","Tajara","Vox","Vaurca","Vaurca Breeder")
+	//These are specifically made for mining. The logic here is that generally anyone with a whitelist isn't a fucking idiot and won't fall to their death from walking off a cliff.
+	

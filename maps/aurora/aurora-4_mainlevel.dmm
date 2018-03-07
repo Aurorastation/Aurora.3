@@ -61442,9 +61442,9 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
+/obj/item/clothing/shoes/magboots/cheap,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cdg" = (
@@ -61508,9 +61508,9 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
+/obj/item/clothing/shoes/magboots/cheap,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cdm" = (
@@ -61580,9 +61580,9 @@
 	dir = 6
 	},
 /obj/item/stack/flag/purple,
-/obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
+/obj/item/clothing/shoes/magboots/cheap,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cdv" = (
@@ -61656,9 +61656,9 @@
 	pixel_x = 32;
 	pixel_y = 0
 	},
-/obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
+/obj/item/clothing/shoes/magboots/cheap,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cdC" = (
