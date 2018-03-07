@@ -44899,7 +44899,6 @@
 	dir = 9
 	},
 /obj/machinery/sleeper{
-	tag = "icon-sleeper_0 (EAST)";
 	icon_state = "sleeper_0";
 	dir = 4
 	},
