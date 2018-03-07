@@ -220,7 +220,7 @@ var/list/mineral_can_smooth_with = list(
 		if(P.drilling)
 			return
 
-		if(istype(P, obj/item/weapon/pickaxe/mole))
+		if(istype(P, /obj/item/weapon/pickaxe/mole))
 			if(P.wielded)
 				user.visible_message("<span class='notice'>[user] begins burrowing through [src].</span>","<span class='notice'>You begin to burrow through [src].</span>")
 				if(do_after(user,P.digspeed))

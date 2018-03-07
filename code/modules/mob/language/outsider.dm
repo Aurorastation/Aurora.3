@@ -145,7 +145,7 @@
 	var/new_name = "[pick(list("Az","Ash","Agh","Bag","Bub","Dug","Durb","Ghash","Gimb","Glob","Gul","Hai","Ishi","Krimp","Lug","Nazg","Og","Ol","Ronk","Skai","Shar","Sha","Sna","Ga","Thrak","Ur","Uk"))]"
 	var/max = rand(1,5)
 	for(var/i=0;i<= max;i++)
-		if(i != max && prob(50/max)
+		if(i != max && prob(50/max))
 			new_name += "[pick(list("-","-","-","'","'","'"))]"
 		new_name += "[pick(list("az","ash","agh","bag","bub","dug","durb","ghash","gimb","glob","gul","hai","ishi","krimp","lug","nazg","og","ol","ronk","skai","shar","sha","sna","ga","thrak","ur","uk"))]"
 	return new_name
