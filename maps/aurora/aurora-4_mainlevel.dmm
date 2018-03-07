@@ -12465,9 +12465,6 @@
 /obj/structure/cable/orange{
 	icon_state = "1-8"
 	},
-/obj/structure/cable/orange{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
@@ -12475,23 +12472,8 @@
 	icon_state = "intact-scrubbers";
 	dir = 5
 	},
-/obj/machinery/camera/network/engine{
-	c_tag = "Engineering - Engine Starboard";
-	dir = 8;
-	icon_state = "camera"
-	},
-/obj/structure/cable/orange{
-	icon_state = "1-8"
-	},
 /obj/structure/cable/orange{
 	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 5
 	},
 /obj/machinery/camera/network/engine{
 	c_tag = "Engineering - Engine Starboard";
@@ -29341,7 +29323,7 @@
 "aXS" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
-	id_tag = "captaindoor";
+	id_tag = null;
 	name = "Conference Room";
 	req_access = list(19)
 	},
@@ -30261,7 +30243,6 @@
 /obj/machinery/vending/cigarette,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/light{
-	
 	icon_state = "tube1";
 	dir = 2
 	},
@@ -31177,7 +31158,6 @@
 "bbl" = (
 /obj/structure/window/reinforced,
 /obj/structure/disposaloutlet{
-	
 	icon_state = "outlet";
 	dir = 4
 	},
@@ -33918,7 +33898,7 @@
 	id = "bunker1";
 	name = "Bunker Safety Bolts";
 	pixel_x = 26;
-	req_access = list(20);
+	req_access = list(19);
 	specialfunctions = 4
 	},
 /turf/simulated/floor/plating,
@@ -33928,7 +33908,7 @@
 	id = "bunker1";
 	name = "Bunker Safety Bolts";
 	pixel_x = -26;
-	req_access = list(20);
+	req_access = list(19);
 	specialfunctions = 4
 	},
 /obj/structure/sign/securearea{
@@ -34417,7 +34397,6 @@
 "bgX" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/white{
-	
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -34425,7 +34404,6 @@
 /area/medical/reception)
 "bgY" = (
 /obj/effect/floor_decal/corner/white{
-	
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -34436,7 +34414,6 @@
 /area/medical/reception)
 "bgZ" = (
 /obj/effect/floor_decal/corner/white{
-	
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -34447,7 +34424,6 @@
 /area/medical/reception)
 "bha" = (
 /obj/effect/floor_decal/corner/white{
-	
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -34459,7 +34435,6 @@
 /area/medical/reception)
 "bhb" = (
 /obj/effect/floor_decal/corner/white{
-	
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -34474,7 +34449,6 @@
 /area/medical/reception)
 "bhc" = (
 /obj/effect/floor_decal/corner/white{
-	
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -34488,7 +34462,6 @@
 /area/medical/reception)
 "bhd" = (
 /obj/effect/floor_decal/corner/white{
-	
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -34502,7 +34475,6 @@
 /area/medical/reception)
 "bhe" = (
 /obj/effect/floor_decal/corner/white{
-	
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -34534,7 +34506,6 @@
 	req_access = list(33)
 	},
 /obj/effect/floor_decal/corner/white{
-	
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -37390,7 +37361,6 @@
 /area/hallway/primary/central_one)
 "blV" = (
 /obj/structure/disposaloutlet{
-	
 	icon_state = "outlet";
 	dir = 4
 	},
@@ -39426,7 +39396,6 @@
 /area/medical/main_storage)
 "boZ" = (
 /obj/structure/disposaloutlet{
-	
 	icon_state = "outlet";
 	dir = 4
 	},
@@ -40868,7 +40837,6 @@
 /area/medical/triage)
 "brt" = (
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -40901,7 +40869,6 @@
 "brw" = (
 /obj/machinery/atmospherics/unary/cryo_cell,
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -40910,7 +40877,6 @@
 "brx" = (
 /obj/machinery/atmospherics/unary/cryo_cell,
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -40921,7 +40887,6 @@
 /area/medical/gen_treatment)
 "brz" = (
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -41739,7 +41704,6 @@
 /area/medical/triage)
 "bsM" = (
 /obj/effect/floor_decal/corner/pink{
-	
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -41750,7 +41714,6 @@
 /area/medical/triage)
 "bsN" = (
 /obj/effect/floor_decal/corner/pink{
-	
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -41772,12 +41735,10 @@
 /area/medical/triage)
 "bsO" = (
 /obj/effect/floor_decal/corner/pink{
-	
 	icon_state = "corner_white";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -41833,7 +41794,6 @@
 /area/medical/gen_treatment)
 "bsS" = (
 /obj/effect/floor_decal/corner/beige/full{
-	
 	icon_state = "corner_white_full";
 	dir = 4
 	},
@@ -41859,7 +41819,6 @@
 /area/medical/gen_treatment)
 "bsU" = (
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -42664,7 +42623,6 @@
 /area/medical/gen_treatment)
 "btZ" = (
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -43603,7 +43561,6 @@
 	},
 /obj/item/weapon/storage/box/gloves,
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -43614,7 +43571,6 @@
 /obj/structure/table/standard,
 /obj/item/device/mass_spectrometer,
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -43639,7 +43595,6 @@
 /area/medical/gen_treatment)
 "bvq" = (
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -44035,7 +43990,6 @@
 /area/medical/emt)
 "bvY" = (
 /obj/structure/bed/chair/wheelchair{
-	
 	icon_state = "wheelchair";
 	dir = 4
 	},
@@ -44141,7 +44095,6 @@
 /area/medical/icu)
 "bwj" = (
 /obj/effect/floor_decal/corner/pink{
-	
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -44157,7 +44110,6 @@
 /area/medical/icu)
 "bwk" = (
 /obj/effect/floor_decal/corner/pink{
-	
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -44203,7 +44155,6 @@
 /area/medical/gen_treatment)
 "bwp" = (
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -44211,7 +44162,6 @@
 /area/medical/gen_treatment)
 "bwq" = (
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -44221,7 +44171,6 @@
 	icon_state = "camera"
 	},
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -44247,7 +44196,6 @@
 /area/medical/gen_treatment)
 "bws" = (
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -44946,16 +44894,15 @@
 /turf/simulated/wall,
 /area/medical/emt)
 "bxt" = (
-/obj/structure/bed/chair/wheelchair{
-	
-	icon_state = "wheelchair";
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/pink{
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/sleeper{
+	tag = "icon-sleeper_0 (EAST)";
+	icon_state = "sleeper_0";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/em_preop)
 "bxu" = (
@@ -45047,7 +44994,6 @@
 "bxE" = (
 /obj/machinery/iv_drip,
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -45061,7 +45007,6 @@
 /area/medical/gen_treatment)
 "bxF" = (
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -45745,7 +45690,6 @@
 /area/medical/gen_treatment)
 "byP" = (
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -45759,7 +45703,6 @@
 /area/medical/gen_treatment)
 "byQ" = (
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -46454,7 +46397,6 @@
 /area/medical/icu)
 "bzW" = (
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -46465,7 +46407,6 @@
 /area/medical/gen_treatment)
 "bzX" = (
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -46477,12 +46418,10 @@
 /area/medical/gen_treatment)
 "bzY" = (
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -46493,7 +46432,6 @@
 /area/medical/gen_treatment)
 "bzZ" = (
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -46916,7 +46854,6 @@
 /area/medical/cryo)
 "bAN" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
-	
 	icon_state = "map";
 	dir = 4
 	},
@@ -47053,7 +46990,6 @@
 /area/medical/gen_treatment)
 "bAX" = (
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -47442,7 +47378,6 @@
 /area/medical/cryo)
 "bBG" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
-	
 	icon_state = "map";
 	dir = 4
 	},
@@ -47556,12 +47491,10 @@
 /area/medical/icu)
 "bBN" = (
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/pink{
-	
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -47572,7 +47505,6 @@
 /area/medical/medbay)
 "bBO" = (
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -47589,7 +47521,6 @@
 /area/medical/medbay)
 "bBP" = (
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -47602,7 +47533,6 @@
 /area/medical/medbay)
 "bBQ" = (
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -47635,7 +47565,6 @@
 /area/medical/medbay)
 "bBR" = (
 /obj/effect/floor_decal/corner/beige{
-	
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -48093,7 +48022,6 @@
 /area/medical/em_preop)
 "bCF" = (
 /obj/structure/toilet{
-	
 	icon_state = "toilet00";
 	dir = 1
 	},
@@ -60251,7 +60179,6 @@
 	name = "Crate Recovery"
 	},
 /obj/machinery/disposal/deliveryChute{
-	
 	icon_state = "intake";
 	dir = 1
 	},
