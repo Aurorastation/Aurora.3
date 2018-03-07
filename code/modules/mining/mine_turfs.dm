@@ -377,7 +377,7 @@ var/list/mineral_can_smooth_with = list(
 			new /obj/random/petran(src)
 			new /obj/random/petran(src)
 			var/mob/living/simple_animal/hostile/retaliate/petran_female/M =  new(src)
-			M.adjustBruteLoss(1000) //Kill it
+			M.death()
 			if(prob(50)) //Carp smell fresh meat.
 				spawn_delayed_atom(T,/mob/living/simple_animal/hostile/carp,rand(20,40),rand(60,120), TRUE)
 			if(prob(50)) //Carp smell fresh meat.

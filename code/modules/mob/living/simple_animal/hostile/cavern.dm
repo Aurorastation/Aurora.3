@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/petran_male
 	name = "male petran"
-	desc = "A crab-like creature commonly found scavaging for meat and vegetation on asteriods. This one is female, and often seen hunting for food."
+	desc = "A crab-like creature commonly found scavaging for edible junk on asteriods."
 	icon = 'icons/mob/cavern.dmi'
 	icon_state = "gut_shank"
 	icon_living = "gut_shank"

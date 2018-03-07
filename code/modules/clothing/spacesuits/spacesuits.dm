@@ -111,8 +111,8 @@
 	supporting_limbs = list()
 
 /obj/item/clothing/suit/space/explorer
-	name = "explorer suit"
-	desc = "A special mining suit that protects against low pressure environments, as well as the dangers of mining. This design is to provide flexibility as the cost of reduced armor."
+	name = "old explorer suit"
+	desc = "An old-era special mining suit that protects against hazardous enviroments. This design is to provide flexibility as the cost of reduced armor."
 	icon_state = "explorer"
 	item_state = "explorer"
 	gas_transfer_coefficient = 0.01
@@ -120,19 +120,21 @@
 	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL | AIRTIGHT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	allowed = list(/obj/item)
-	slowdown = 0
-	armor = list(melee = 40, bullet = 10, laser = 10, energy = 10, bomb = 10, bio = 100, rad = 50)
+	slowdown = -1
+	armor = list(melee = 40, bullet = 10, laser = 0,energy = 0, bomb = 25, bio = 100, rad = 100)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.9
 	species_restricted = list("exclude","Diona","Xenomorph","Vox","Golem")
+	breach_threshold = 10
+	can_breach = 1
 
 /obj/item/clothing/head/helmet/space/explorer
-	name = "explorer helmet"
+	name = "old explorer helmet"
 	icon_state = "explorer"
 	item_state = "explorer"
-	desc = "A special mining helmet and mask that protects against low pressure enviroments, as well as the dangers of mining. This design is to provide flexibility at the cost of reduced armor."
+	desc = "An old-era special mining suit that protects against hazardous enviroments. This design is to provide flexibility as the cost of reduced armor."
 	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL | AIRTIGHT
 	flags_inv = BLOCKHAIR
 	item_state_slots = list(
@@ -140,7 +142,7 @@
 		slot_r_hand_str = "s_helmet"
 		)
 	permeability_coefficient = 0.01
-	armor = list(melee = 20, bullet = 5, laser = 5, energy = 5, bomb = 5, bio = 100, rad = 50)
+	armor = list(melee = 40, bullet = 10, laser = 0,energy = 0, bomb = 25, bio = 100, rad = 100)
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	cold_protection = HEAD
