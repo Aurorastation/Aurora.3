@@ -564,7 +564,7 @@
 	seed_name = "glowshroom"
 	display_name = "glowshrooms"
 	mutants = null
-	chems = list("radium" = list(1,20))
+	chems = list("nutriment" = list(1,20), "radium" = list(1,20))
 
 /datum/seed/mushroom/glowshroom/setup_traits()
 	..()

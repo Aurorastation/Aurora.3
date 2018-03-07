@@ -126,7 +126,7 @@
 	if(Allow_Spacemove())
 		return TRUE
 
-	if(Check_Shoegrip())	//scaling hull with magboots
+	if(Check_Shoegrip(FALSE))	//scaling hull with magboots
 		for(var/turf/simulated/T in RANGE_TURFS(1,src))
 			if(T.density)
 				return TRUE

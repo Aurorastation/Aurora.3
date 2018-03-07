@@ -58,6 +58,7 @@
 #define LANGUAGE_CULT "Cult"		// NOT CULTISTS!
 #define LANGUAGE_OCCULT "Occult"
 #define LANGUAGE_TERMINATOR "Hephaestus Darkcomms"	// HKs.
+#define LANGUAGE_MOLE "Talpii"
 
 // Lesser-form Languages
 #define LANGUAGE_GIBBERING "Gibbering"			// alberyk

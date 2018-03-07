@@ -220,6 +220,14 @@ var/list/mineral_can_smooth_with = list(
 		if(P.drilling)
 			return
 
+		if(istype(P, obj/item/weapon/pickaxe/mole))
+			if(P.wielded)
+				user.visible_message("<span class='notice'>[user] begins burrowing through [src].</span>","<span class='notice'>You begin to burrow through [src].</span>")
+				if(do_after(user,P.digspeed))
+					user.visible_message("<span class='notice'>[user] burrows through [src].</span>","<span class='notice'>You burrow through [src].</span>")
+					user.forceMove(src.loc)
+				return
+
 		last_act = world.time
 
 		playsound(user, P.drill_sound, 20, 1)
@@ -629,6 +637,7 @@ var/list/asteroid_floor_smooth = list(
 		/obj/item/weapon/shovel,
 		/obj/item/weapon/pickaxe/diamonddrill,
 		/obj/item/weapon/pickaxe/drill,
+		/obj/item/weapon/pickaxe/mole,
 		/obj/item/weapon/pickaxe/borgdrill
 	))
 

@@ -131,3 +131,21 @@
 
 /datum/language/terminator/get_random_name()
 	return "HK [pick(list("Hera","Zeus","Artemis","Athena","Ares","Hades","Poseidon","Demeter","Apollo","Aphrodite","Hermes","Hestia","Dionysus","Persephone","Kronos","Odysseus","Ajax","Agamemnon","Chiron","Charon"))]-[rand(100, 999)]"
+
+/datum/language/sign
+	name = LANGUAGE_MOLE
+	desc = "The enigmatic gestures of the primitive Talpi people. A necessity in the void of space, it becomes a burden to civilized society."
+	speech_verb = "signs"
+	signlang_verb = list("crudely pounds ", "savagely pantomimes", "ferociously signs")
+	colour = "vox"
+	key = "m"
+	flags = NO_STUTTER|SIGNLANG|WHITELISTED
+
+/datum/language/mole/get_random_name()
+	var/new_name = "[pick(list("Az","Ash","Agh","Bag","Bub","Dug","Durb","Ghash","Gimb","Glob","Gul","Hai","Ishi","Krimp","Lug","Nazg","Og","Ol","Ronk","Skai","Shar","Sha","Sna","Ga","Thrak","Ur","Uk"))]"
+	var/max = rand(1,5)
+	for(var/i=0;i<= max;i++)
+		if(i != max && prob(50/max)
+			new_name += "[pick(list("-","-","-","'","'","'"))]"
+		new_name += "[pick(list("az","ash","agh","bag","bub","dug","durb","ghash","gimb","glob","gul","hai","ishi","krimp","lug","nazg","og","ol","ronk","skai","shar","sha","sna","ga","thrak","ur","uk"))]"
+	return new_name

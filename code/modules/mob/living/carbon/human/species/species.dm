@@ -71,6 +71,7 @@
 	var/flash_mod =     1                    // Stun from blindness modifier.
 	var/fall_mod =      1                    // Fall damage modifier, further modified by brute damage modifier
 	var/vision_flags = DEFAULT_SIGHT              // Same flags as glasses.
+	var/see_invisible = SEE_INVISIBLE_LIVING
 	var/inherent_eye_protection              // If set, this species has this level of inherent eye protection.
 	var/eyes_are_impermeable = FALSE         // If TRUE, this species' eyes are not damaged by phoron.
 	var/list/breakcuffs = list()                      //used in resist.dm to check if they can break hand/leg cuffs
@@ -153,6 +154,8 @@
 	var/allowed_eat_types = TYPE_ORGANIC
 	var/max_nutrition_factor = 1	//Multiplier on maximum nutrition
 	var/nutrition_loss_factor = 1	//Multiplier on passive nutrition losses
+
+	var/magclaws = 0	            //Check_Shoegrip() returns 1
 
 	                              // Determines the organs that the species spawns with and
 	var/list/has_organ = list(    // which required-organ checks are conducted.
@@ -406,7 +409,7 @@
 			if(R && R.word1 == cultwords["see"] && R.word2 == cultwords["hell"] && R.word3 == cultwords["join"])
 				H.see_invisible = SEE_INVISIBLE_CULT
 		if(H.see_invisible != SEE_INVISIBLE_CULT && H.equipment_see_invis)
-			H.see_invisible = min(H.see_invisible, H.equipment_see_invis)
+			H.see_invisible = min(H.see_invisible, see_invisible, H.equipment_see_invis)
 
 	if(H.equipment_tint_total >= TINT_BLIND)
 		H.eye_blind = max(H.eye_blind, 1)

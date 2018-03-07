@@ -66,7 +66,7 @@
 // Sign language
 /datum/language/sign
 	name = LANGUAGE_SIGN
-	desc = "A signed version of Standard, though its intent is primarily to help out people who are deaf and mute, "
+	desc = "A signed version of Standard, though its intent is primarily to help out people who are deaf and mute."
 	speech_verb = "signs"
 	signlang_verb = list("signs", "gestures")
 	colour = "i"
