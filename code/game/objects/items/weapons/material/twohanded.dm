@@ -538,7 +538,7 @@
 	icon_state = "zweihander"
 	base_icon = "zweihander"
 	name = "zweihander"
-	desc = "A German upgrade to the einhander models of ancient times."
+	desc = "A german upgrade to the einhander models of ancient times."
 	force = 20
 	w_class = 4.0
 	slot_flags = SLOT_BACK
@@ -549,7 +549,7 @@
 	sharp = 1
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	default_material = "steel"
-	parry_chance = 50
+	parry_chance = 60
 	can_embed = 0
 	var/wielded_ap = 40
 	var/unwielded_ap = 0
