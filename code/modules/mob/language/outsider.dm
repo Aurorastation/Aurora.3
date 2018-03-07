@@ -132,7 +132,7 @@
 /datum/language/terminator/get_random_name()
 	return "HK [pick(list("Hera","Zeus","Artemis","Athena","Ares","Hades","Poseidon","Demeter","Apollo","Aphrodite","Hermes","Hestia","Dionysus","Persephone","Kronos","Odysseus","Ajax","Agamemnon","Chiron","Charon"))]-[rand(100, 999)]"
 
-/datum/language/sign
+/datum/language/mole
 	name = LANGUAGE_MOLE
 	desc = "The enigmatic gestures of the primitive Talpi people. A necessity in the void of space, it becomes a burden to civilized society."
 	speech_verb = "signs"
