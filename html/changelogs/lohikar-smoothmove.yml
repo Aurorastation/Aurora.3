@@ -1,0 +1,4 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - experiment: "Movement should be generally smoother now, with less rubber banding on faster mobs."
