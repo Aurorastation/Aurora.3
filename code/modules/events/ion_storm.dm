@@ -1,16 +1,18 @@
 //This file was auto-corrected by findeclaration.exe on 29/05/2012 15:03:04
 
 /datum/event/ionstorm
-	var/emp_base_chance = 0.5
+	var/emp_base_chance = 0.05
 	var/list/players = list()
 	no_fake = 1
 	var/list/emp_blacklist = list(
 		/obj/machinery/clonepod/,
-		/obj/machinery/telecomms/
+		/obj/machinery/telecomms/,
+		/obj/machinery/power/,
+		/obj/machinery/firealarm
 	)
 
 /datum/event/ionstorm/announce()
-	endWhen = rand(100*severity, 750*severity)
+	endWhen = rand(30*severity, 120*severity)
 
 	for (var/mob/living/carbon/human/player in player_list)
 		if(	!player.mind || player_is_antag(player.mind, only_offstation_roles = 1) || player.client.inactivity > MinutesToTicks(10))
