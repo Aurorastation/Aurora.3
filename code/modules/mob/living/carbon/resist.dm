@@ -21,15 +21,14 @@
 
 	..()
 
-	if(handcuffed)
-		spawn() escape_handcuffs()
-	else if(legcuffed)
-		spawn() escape_legcuffs()
+	if (handcuffed)
+		INVOKE_ASYNC(src, .proc/escape_handcuffs)
+	else if (legcuffed)
+		INVOKE_ASYNC(src, .proc/escape_legcuffs)
 
 /mob/living/carbon/human/process_resist()
 	if (istype(wear_suit, /obj/item/clothing/suit/straight_jacket))
-		spawn
-			escape_jacket()
+		INVOKE_ASYNC(src, .proc/escape_jacket)
 		return
 	..()
 
@@ -200,12 +199,13 @@
 	return ..()
 
 /mob/living/carbon/escape_buckle()
-	setClickCooldown(100)
+	
 	if(!buckled) return
 
 	if(!restrained())
 		..()
 	else
+		setClickCooldown(100)
 		visible_message(
 			"<span class='danger'>[usr] attempts to unbuckle themself!</span>",
 			"<span class='warning'>You attempt to unbuckle yourself. (This will take around 2 minutes and you need to stand still)</span>"
