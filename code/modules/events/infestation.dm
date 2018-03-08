@@ -71,8 +71,8 @@
 			spawn_area_type = /area/maintenance/disposal
 			locstrings[numlocs] = "waste disposal"
 		if(LOC_CHAPEL)
-			spawn_area_type = /area/chapel/main
-			locstrings[numlocs] = "the chapel"
+			spawn_area_type = /area/chapel/office
+			locstrings[numlocs] = "the chapel's office"
 		if(LOC_LIBRARY)
 			spawn_area_type = /area/library
 			locstrings[numlocs] = "the library"
@@ -101,8 +101,8 @@
 			spawn_area_type = /area/holodeck/alphadeck
 			locstrings[numlocs] = "the holodeck"
 		if(LOC_DISPOSAL)
-			spawn_area_type = /area/quartermaster/office
-			locstrings[numlocs] = "the cargo disposals office"
+			spawn_area_type = /area/quartermaster/storage
+			locstrings[numlocs] = "the cargo warehouse"
 		if(LOC_CARGO)
 			spawn_area_type = /area/quartermaster/loading
 			locstrings[numlocs] = "the cargo bay"
