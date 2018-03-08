@@ -35,15 +35,7 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - maptweak: "Complete remap of the Medical main level. Expect bugs and missing equipment."
-  - rscadd: "Added a new isolation wing to Medical."
-  - rscadd: "Changed the nuke's position, to a much safer, new location."
-  - rscadd: "Added an alternative exit to the Bunker."
-  - rscadd: "Added a new store that only the HoP can grant access into."
-  - maptweak: "Detective and CSI's offices have been moved to a level above Security."
-  - rscadd: "New Security training area, for cadets and other uses you may find to it."
+  - maptweak: "New nuke chamber, added an alternative exit for the bunker, new location for CSI's and Detective's offices, new Security Training Wing, remapped Kitchen, new shop, remapped Vault's entrance.
   - experiment: "New transfer/escape shuttle. Not the final version, probably. Consider it an experiment to test your acceptance to the new design type."
   - rscadd: "New Research-coloured folders (Sprite recolouring by Fire and Glory)."
-  - maptweak: "Slightly remapped Kitchen. Tighter on space, big on table surface area."
-  - rscadd: "New Research Office by Xenobiology, after a lot of requests."
-  - maptweak: "Vault entrance has been redesigned to fit a bit more with its purpose."
   - bugfix: "A lot of bugfixes, missing stuff, and minor suggestions requested by you in this: https://forums.aurorastation.org/viewtopic.php?f=18&t=9863. You should visit and leave your suggestions there."
