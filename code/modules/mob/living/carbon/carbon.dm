@@ -410,3 +410,42 @@
 	if(!species)
 		return null
 	return species.default_language ? all_languages[species.default_language] : null
+
+/mob/living/carbon/proc/get_clothing_coverage()
+
+	var/total_covereage = 0
+	var/covered_parts = 0x0 // WHATS THIS?
+
+	var/list/equippeditems = get_equipped_items(0)
+	for(var/obj/item/clothing/item in equippeditems)
+		if(!item.ignore_light_penalty && item.body_parts_covered)
+			covered_parts |= item.body_parts_covered
+
+	if(covered_parts & HEAD)
+		total_covereage += 0.05
+	if(covered_parts & FACE)
+		total_covereage += 0.125
+	if(covered_parts & EYES)
+		total_covereage += 0.025
+	if(covered_parts & UPPER_TORSO)
+		total_covereage += 0.20
+	if(covered_parts & LOWER_TORSO)
+		total_covereage += 0.10
+	if(covered_parts & LEG_LEFT)
+		total_covereage += 0.1
+	if(covered_parts & LEG_RIGHT)
+		total_covereage += 0.1
+	if(covered_parts & ARM_LEFT)
+		total_covereage += 0.1
+	if(covered_parts & ARM_RIGHT)
+		total_covereage += 0.1
+	if(covered_parts & FOOT_LEFT)
+		total_covereage += 0.025
+	if(covered_parts & FOOT_RIGHT)
+		total_covereage += 0.025
+	if(covered_parts & HAND_LEFT)
+		total_covereage += 0.025
+	if(covered_parts & HAND_RIGHT)
+		total_covereage += 0.025
+
+	return total_covereage

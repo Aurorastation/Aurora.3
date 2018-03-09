@@ -122,19 +122,23 @@
 	if (!DS.light_organ || DS.light_organ.is_broken() || DS.light_organ.is_bruised())
 		usr << span("danger", "Our response node is damaged or missing, without it we can't tell light from darkness. We can only hope this area is bright enough to let us regenerate it!")
 		return
-	var/light = get_lightlevel_diona(DS)
-	if (light <= -0.75)
-		usr << span("danger", "It is pitch black here! This is extremely dangerous, we must find light, or death will soon follow!")
-	else if (light <= 0)
-		usr << span("danger", "This area is too dim to sustain us for long, we should move closer to the light, or we will shortly be in danger!")
-	else if (light > 0 && light < 1.5)
-		usr << span("warning", "The light here can sustain us, barely. It feels cold and distant.")
-	else if (light <= 3)
-		usr << span("notice", "This light is comfortable and warm, Quite adequate for our needs.")
+
+	var/light_percent = get_lightlevel_diona(DS)
+	var/light_gain = light_percent*5.5 - 1.5
+	var/nice_light_percent = round(light_percent*100)
+
+	if(light_gain <= -0.5)
+		usr << span("danger", "We are loosing light energy very quickly! This is extremely dangerous, we must find light, or death will soon follow!")
+	else if(light_gain <= 0)
+		usr << span("danger", "We are slowly loosing light energy! This area is too dim to sustain us for long, we should move closer to the light, or we will shortly be in danger!")
+	else if(light_gain <= 1)
+		usr << span("warning", "The light here can sustain us, barely. It feels cold and distant...")
+	else if(light_gain <= 2)
+		usr << span("notice", "We are gaining light at [nice_light_percent]% efficiency. This light is quite adequate for our needs.")
+	else if(light_gain <= 3)
+		usr << span("notice", "We are gaining light at [nice_light_percent]% efficiency. This light is comfortable, warm, and more than adequate for our needs.")
 	else
-		usr << span("notice", "This warm radiance is bliss. Here we are safe and energised! Stay a while..")
-
-
+		usr << span("notice", "We are gaining light at [nice_light_percent]% efficiency. This warm radiance is bliss!")
 
 //1.5 is the maximum energy that can be lost per proc
 //2.1 is the approximate delay between procs
@@ -143,8 +147,6 @@
 	var/energy_duration = 120//How long this diona can exist in total darkness before its energy runs out
 	var/dark_consciousness = 120//How long this diona can stay on its feet and keep moving in darkness after energy is gone.
 	var/dark_survival = 180//How long this diona can survive in darkness after energy is gone, before it dies
-
-
 
 	var/MLS = (1.5 / 2.1)//Maximum (energy) lost per second, in total darkness
 	DS = new/datum/dionastats()

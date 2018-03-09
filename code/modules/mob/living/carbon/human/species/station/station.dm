@@ -258,7 +258,7 @@
 		/datum/unarmed_attack/diona
 	)
 	//primitive_form = "Nymph"
-	slowdown = 7
+	slowdown = 6
 	rarity_value = 4
 	hud_type = /datum/hud_data/diona
 	siemens_coefficient = 0.3
@@ -422,7 +422,7 @@
 
 
 	brute_mod = 1.0
-	burn_mod = 1.2 
+	burn_mod = 1.2
 	show_ssd = "flashing a 'system offline' glyph on their monitor"
 	death_message = "gives one shrill beep before falling lifeless."
 	knockout_message = "encounters a hardware fault and suddenly reboots!"
