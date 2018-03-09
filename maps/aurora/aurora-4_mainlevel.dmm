@@ -24007,6 +24007,11 @@
 "aPD" = (
 /obj/structure/table/standard,
 /obj/machinery/cell_charger,
+/obj/item/weapon/paper_bin{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/obj/item/weapon/pen,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aPE" = (
@@ -62682,6 +62687,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
+"cfF" = (
+/obj/structure/noticeboard,
+/turf/simulated/wall/r_wall,
+/area/security/forensics_office)
 
 (1,1,1) = {"
 aaa
@@ -97730,7 +97739,7 @@ agY
 afK
 afK
 ajh
-afg
+cfF
 akS
 alP
 ahD
