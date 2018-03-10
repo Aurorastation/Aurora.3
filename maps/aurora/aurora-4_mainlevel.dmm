@@ -4543,6 +4543,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
@@ -4620,6 +4625,10 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/security/investigations)
 "aji" = (
@@ -6829,6 +6838,11 @@
 	icon_state = "4-8"
 	},
 /obj/item/weapon/folder/sec,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/security/main)
 "anx" = (
@@ -6952,6 +6966,10 @@
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 6
+	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
@@ -24583,10 +24601,10 @@
 /turf/simulated/floor/plating,
 /area/store)
 "aQk" = (
-/obj/structure/table/wood,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark,
 /area/store)
 "aQl" = (
@@ -24600,7 +24618,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/store)
 "aQm" = (
-/obj/structure/table/wood,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/store)
 "aQn" = (
@@ -25724,7 +25742,7 @@
 /turf/simulated/floor/plating,
 /area/store)
 "aRP" = (
-/obj/structure/table/wood,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark,
 /area/store)
 "aRQ" = (
@@ -26691,12 +26709,12 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "aTw" = (
-/obj/structure/table/wood,
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/store)
 "aTx" = (
@@ -27208,7 +27226,7 @@
 "aUn" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
-	name = "Engineering Hallway";
+	name = "Engineering Foyer";
 	req_one_access = list(10)
 	},
 /obj/structure/cable{
@@ -27223,11 +27241,11 @@
 /area/engineering/foyer)
 "aUo" = (
 /obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/glass_engineering{
-	name = "Engineering Hallway";
+	name = "Engineering Foyer";
 	req_one_access = list(10)
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aUp" = (
@@ -27796,11 +27814,11 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aVv" = (
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
-	req_one_access = newlist()
+	req_one_access = null
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aVw" = (
@@ -28147,8 +28165,8 @@
 /turf/simulated/floor/plating,
 /area/store)
 "aWi" = (
-/obj/structure/table/wood,
 /obj/machinery/light,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark,
 /area/store)
 "aWj" = (
@@ -28195,7 +28213,6 @@
 /turf/simulated/floor/tiled,
 /area/store)
 "aWn" = (
-/obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
 /obj/machinery/button/remote/blast_door{
@@ -28215,6 +28232,7 @@
 /obj/item/device/radio/intercom{
 	pixel_y = -27
 	},
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/store)
 "aWo" = (
@@ -29612,7 +29630,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
-	req_one_access = newlist()
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
@@ -52384,6 +52402,14 @@
 	},
 /obj/structure/table/glass,
 /obj/item/weapon/clipboard,
+/obj/machinery/requests_console{
+	announcementConsole = 1;
+	department = "Chief Medical Officer's Desk";
+	departmentType = 5;
+	name = "Chief Medical Officer RC";
+	pixel_x = 0;
+	pixel_y = -30
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "bJI" = (
@@ -64167,6 +64193,44 @@
 "cgE" = (
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/skipjack_station/cavern)
+"cgF" = (
+/obj/structure/closet{
+	name = "Evidence Closet"
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/security/investigations)
+"cgG" = (
+/obj/structure/closet{
+	name = "Evidence Closet"
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/security/investigations)
+"cgH" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/security/brig)
 
 (1,1,1) = {"
 aaa
@@ -98439,7 +98503,7 @@ aeF
 afe
 afC
 afC
-afC
+cgF
 afC
 ahx
 ail
@@ -98449,7 +98513,7 @@ akN
 afe
 amF
 abC
-abR
+cgH
 apY
 arl
 asC
@@ -98488,7 +98552,7 @@ boY
 bqm
 brn
 bqo
-btQ
+btS
 bvc
 bwf
 bxy
@@ -99725,7 +99789,7 @@ afg
 afe
 afC
 afD
-afC
+cgG
 afe
 aip
 ajg
