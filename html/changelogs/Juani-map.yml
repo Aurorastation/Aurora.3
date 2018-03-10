@@ -1,0 +1,41 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes: 
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#################################
+
+# Your name.  
+author: Juani2400
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes: 
+  - maptweak: "Complete remap of the Medical main level. Expect bugs and missing equipment."
+  - maptweak: "New nuke chamber, added an alternative exit for the bunker, new location for CSI's and Detective's offices, new Security Training Wing, remapped Kitchen, new shop, remapped Vault's entrance."
+  - experiment: "New transfer/escape shuttle. Not the final version, probably. Consider it an experiment to test your acceptance to the new design type."
+  - rscadd: "New Research-coloured folders (Sprite recolouring by Fire and Glory)."
+  - bugfix: "A lot of bugfixes, missing stuff, and minor suggestions requested by you in this: https://forums.aurorastation.org/viewtopic.php?f=18&t=9863. You should visit and leave your suggestions there."
