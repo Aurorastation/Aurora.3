@@ -26,7 +26,7 @@
 
 /obj/item/weapon/cloaking_device/weak
 	name = "prototype cloaking device"
-	power_usage = 350000
+	power_usage = 70000
 
 
 

@@ -108,25 +108,16 @@
 		/obj/item/rig_module/actuators/combat = 1,
 		/obj/item/rig_module/device/healthscanner = 1,
 		/obj/item/rig_module/chem_dispenser/ninja = 1,
-		/obj/item/rig_module/actuators = 1,
 		/obj/item/rig_module/power_sink = 1,
 		/obj/item/rig_module/emergency_powergenerator = 1,
 		/obj/item/rig_module/emag_hand = 1,
 		/obj/item/rig_module/vision/multi = 1,
-		/obj/item/weapon/material/sword = 1,
-		/obj/item/weapon/material/sword/katana = 1,
-		/obj/item/weapon/material/sword/rapier = 1,
-		/obj/item/weapon/material/sword/longsword = 1,
-		/obj/item/weapon/material/sword/trench = 1,
-		/obj/item/weapon/material/sword/sabre = 1,
-		/obj/item/weapon/material/sword/axe = 1,
-		/obj/item/weapon/material/sword/khopesh = 1,
-		/obj/item/weapon/material/sword/dao = 1,
-		/obj/item/weapon/material/sword/gladius = 1,
+		/obj/item/weapon/material/sword/katana = 2,
+		/obj/item/weapon/material/sword/dao = 2,
 		/obj/item/weapon/material/star = 4,
 		/obj/item/weapon/material/twohanded/spear/steel = 1,
 		/obj/item/weapon/nullrod/nullstaff = 1,
-		/obj/item/weapon/cloaking_device = 1,
+		/obj/item/weapon/cloaking_device/weak = 1,
 		/obj/item/weapon/grenade/smokebomb/instant = 4,
 		/obj/item/weapon/handcuffs/ziptie = 4
 	)
@@ -145,12 +136,11 @@
 		/obj/item/weapon/shield/energy = 2,
 		/obj/item/weapon/storage/firstaid/combat = 2,
 		/obj/item/weapon/grenade/flashbang = 4,
-		/obj/item/weapon/landmine/n2o = 4,
 		/obj/item/weapon/melee/energy/glaive = 2
 	)
 	prices = list(
 		/obj/item/rig_module/chem_dispenser/combat = 1000,
-		/obj/item/rig_module/grenade_launcher = 2000,
+		/obj/item/rig_module/grenade_launcher = 3000,
 		/obj/item/rig_module/mounted/energy_blade = 3000,
 		/obj/item/rig_module/fabricator = 3000,
 		/obj/item/rig_module/emp_shielding = 2000,
@@ -158,7 +148,6 @@
 		/obj/item/weapon/shield/energy = 2000,
 		/obj/item/weapon/storage/firstaid/combat = 1000,
 		/obj/item/weapon/grenade/flashbang = 100,
-		/obj/item/weapon/landmine/n2o = 250,
 		/obj/item/weapon/melee/energy/glaive = 3000,
 		/obj/item/weapon/melee/energy/sword/red = 2000
 	)
@@ -172,7 +161,6 @@
 		/obj/item/rig_module/electrowarfare_suite = 2,
 		/obj/item/rig_module/stealth_field = 2,
 		/obj/item/device/radiojammer = 2,
-		/obj/item/device/binoculars = 2,
 		/obj/item/device/chameleon = 2,
 		/obj/item/weapon/cane/concealed = 2,
 		/obj/item/weapon/storage/box/syndie_kit/chameleon = 2,
@@ -180,16 +168,15 @@
 	)
 	prices = list(
 		/obj/item/rig_module/voice = 1000,
-		/obj/item/rig_module/ai_container = 1000,
+		/obj/item/rig_module/ai_container = 500,
 		/obj/item/rig_module/datajack = 500,
 		/obj/item/rig_module/electrowarfare_suite = 1000,
 		/obj/item/rig_module/stealth_field = 3000,
 		/obj/item/device/radiojammer = 1000,
-		/obj/item/device/announcer = 2000,
-		/obj/item/device/binoculars = 500,
+		/obj/item/device/announcer = 3000,
 		/obj/item/device/chameleon = 2000,
-		/obj/item/weapon/cane/concealed = 250,
-		/obj/item/weapon/storage/box/syndie_kit/chameleon = 1000,
+		/obj/item/weapon/cane/concealed = 1000,
+		/obj/item/weapon/storage/box/syndie_kit/chameleon = 2000,
 		/obj/item/weapon/storage/box/syndie_kit/spy = 500
 	)
 
@@ -197,7 +184,6 @@
 	name = "Spider Module Vendor"
 	products = list(
 		/obj/item/rig_module/maneuvering_jets = 2,
-		/obj/item/rig_module/actuators/combat = 2,
 		/obj/item/rig_module/device/flash = 2,
 		/obj/item/rig_module/mounted/taser = 2,
 		/obj/item/rig_module/ai_container = 2,
@@ -210,16 +196,15 @@
 	)
 	prices = list(
 		/obj/item/rig_module/maneuvering_jets = 2000,
-		/obj/item/rig_module/actuators/combat = 2000,
 		/obj/item/rig_module/device/flash = 2000,
-		/obj/item/rig_module/mounted/taser = 1000,
+		/obj/item/rig_module/mounted/taser = 2000,
 		/obj/item/rig_module/ai_container = 1000,
 		/obj/item/rig_module/datajack = 500,
 		/obj/item/rig_module/teleporter = 4000,
 		/obj/item/rig_module/fabricator/energy_net = 2000,
-		/obj/item/device/batterer = 1000,
+		/obj/item/device/batterer = 2000,
 		/obj/item/device/gps = 500,
-		/obj/item/weapon/pinpointer/advpinpointer = 2
+		/obj/item/weapon/pinpointer/advpinpointer = 5000
 	)
 
 /obj/machinery/vending/coffee
