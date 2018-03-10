@@ -305,3 +305,14 @@
 		/obj/item/weapon/rrf,
 		/obj/item/weapon/gun/energy/kinetic_accelerator
 		)
+
+/obj/item/weapon/storage/belt/ninja
+	name = "stealth belt"
+	desc = "Can hold a robust array of specialized gear."
+	icon_state = "securitybelt"
+	max_w_class = 4
+	storage_slots = 6
+	can_hold = list(
+		/obj/item/weapon,
+		/obj/item/device
+	)

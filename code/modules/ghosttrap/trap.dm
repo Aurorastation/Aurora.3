@@ -433,3 +433,41 @@ datum/ghosttrap/pai/transfer_personality(var/mob/candidate, var/mob/living/silic
 
 /datum/ghosttrap/friend/welcome_candidate(var/mob/target)
 	return 0
+
+/datum/ghosttrap/ninja_combat
+	object = "Combat Ninja"
+	pref_check = MODE_NINJA_COMBAT
+	ghost_trap_message = "They are occupying a combat ninja, from the House of Tiger."
+	ghost_trap_role = "Combat Ninja"
+	ban_checks = list(MODE_NINJA,MODE_NINJA_COMBAT)
+	can_set_own_name = FALSE
+	list_as_special_role = FALSE
+
+/datum/ghosttrap/ninja_combat/welcome_candidate(var/mob/target)
+	return 0
+	
+/datum/ghosttrap/ninja_stealth
+	object = "Stealth Ninja"
+	pref_check = MODE_NINJA_STEALTH
+	ghost_trap_message = "They are occupying a stealth ninja, from the House of Snake."
+	ghost_trap_role = "Stealth Ninja"
+	ban_checks = list(MODE_NINJA,MODE_NINJA_STEALTH)
+	can_set_own_name = FALSE
+	list_as_special_role = FALSE
+
+/datum/ghosttrap/ninja_stealth/welcome_candidate(var/mob/target)
+	return 0
+	
+/datum/ghosttrap/ninja_mobility
+	object = "Mobility Ninja"
+	pref_check = MODE_NINJA_MOBILITY
+	ghost_trap_message = "They are occupying a mobility ninja, from the House of Spider."
+	ghost_trap_role = "Mobility Ninja"
+	ban_checks = list(MODE_NINJA,MODE_NINJA_MOBILITY)
+	can_set_own_name = FALSE
+	list_as_special_role = FALSE
+
+/datum/ghosttrap/ninja_mobility/welcome_candidate(var/mob/target)
+	return 0
+
+	

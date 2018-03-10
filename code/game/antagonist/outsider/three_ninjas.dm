@@ -6,9 +6,9 @@ var/datum/antagonist/stealth_ninjas
 
 /datum/antagonist/ninja/tri/combat
 	id = MODE_NINJA_COMBAT
-	role_text = "Tiger"
+	role_text = "Combat Ninja"
 	role_text_plural = "Tiger Ninja"
-	landmark_id = "tigetstart"
+	landmark_id = "tigerstart"
 	welcome_text = "<span class='info'>You are an elite warrior representing the interests of the powerful Tiger Clan, specializing in offensive and defensive techiques.\
 	Through intense interrogation, we have determined that there are potentially two other rival clans visiting this station.\
 	You may choose to work with them if you wish, such as trading and selling equipment, but be warned: betrayal is more than likely.\
@@ -24,7 +24,7 @@ var/datum/antagonist/stealth_ninjas
 
 /datum/antagonist/ninja/tri/mobility
 	id = MODE_NINJA_MOBILITY
-	role_text = "Spider"
+	role_text = "Mobility Ninja"
 	role_text_plural = "Spider Ninja"
 	landmark_id = "spiderstart"
 	welcome_text = "<span class='info'>You are an elite thief representing the interests of the cunning Spider Clan, specializing in mobility and capture techniques.\
@@ -42,7 +42,7 @@ var/datum/antagonist/stealth_ninjas
 
 /datum/antagonist/ninja/tri/stealth
 	id = MODE_NINJA_STEALTH
-	role_text = "Snake"
+	role_text = "Stealth Ninja"
 	role_text_plural = "Snake Ninja"
 	landmark_id = "snakestart"
 	welcome_text = "<span class='info'>You are an elite spy representing the interests of the secretive Snake Clan, specializing in stealth and hacking techniques.\
@@ -70,11 +70,9 @@ var/datum/antagonist/stealth_ninjas
 	..()
 	stealth_ninjas = src
 
-
 /datum/antagonist/ninja/tri/equip(var/mob/living/carbon/human/player)
-
-	var/obj/item/device/radio/R = new /obj/item/device/radio/headset(player)
-	player.equip_to_slot_or_del(R, slot_l_ear)
-	player.equip_to_slot_or_del(new /obj/item/clothing/under/color/black(player), slot_w_uniform)
-	player.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/security/tactical(player), slot_belt)
-	create_id(role_text, player)
+	player.equip_to_slot_or_del(new /obj/item/device/radio/headset(player), slot_l_ear)
+	player.equip_to_slot_or_del(new /obj/item/clothing/mask/balaclava/tactical(player), slot_wear_mask)
+	player.equip_to_slot_or_del(new /obj/item/clothing/under/syndicate(player), slot_w_uniform)
+	player.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/ninja(player), slot_belt)
+	create_id("Unknown", player)

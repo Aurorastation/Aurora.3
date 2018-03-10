@@ -14,7 +14,6 @@
 	end_on_antag_death = 1
 	antag_tags = list(MODE_NINJA)
 
-
 /datum/game_mode/three_ninjas
 	name = "three ninjas"
 	round_description = "Three strange men are onboard the station!"
@@ -25,8 +24,9 @@
 		through the defenses of the station with technological capabilities eons ahead of your time. They can avoid \
 		the omniscience of the AI and rival the most hardened weapons your station is capable of. Tread lightly and \
 		only hope this unknown assassin isn't here for you."
-	config_tag = "ninja"
-	required_players = 1
-	required_enemies = 1
+	config_tag = "three_ninjas"
+	required_players = 0
+	required_enemies = 0
 	end_on_antag_death = 1
 	antag_tags = list(MODE_NINJA_COMBAT,MODE_NINJA_MOBILITY,MODE_NINJA_STEALTH)
+	require_all_templates = 1

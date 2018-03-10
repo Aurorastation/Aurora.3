@@ -37,3 +37,8 @@
 	sleep(80)
 	qdel(src)
 	return
+
+/obj/item/weapon/grenade/smokebomb/instant
+	name = "instant smoke bomb"
+	desc = "It is set to detonate upon activation."
+	det_time = 0
