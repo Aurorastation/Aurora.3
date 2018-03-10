@@ -5025,6 +5025,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
 /turf/simulated/floor/tiled,
 /area/security/investigations)
 "ajV" = (
@@ -6486,6 +6491,10 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "amJ" = (
@@ -7759,6 +7768,11 @@
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
@@ -27798,7 +27812,7 @@
 "aVv" = (
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
-	req_one_access = newlist()
+	req_one_access = newlist(/obj/item/weapon/nullrod/fluff)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -29612,7 +29626,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
-	req_one_access = newlist()
+	req_one_access = newlist(/obj/item/weapon/nullrod/fluff)
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
@@ -54823,7 +54837,7 @@
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/medical,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "bON" = (
 /obj/effect/decal/cleanable/dirt,
@@ -54856,7 +54870,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "bOR" = (
 /obj/machinery/access_button{
@@ -58671,6 +58685,11 @@
 	},
 /obj/machinery/light_switch{
 	pixel_x = 4;
+	pixel_y = 26
+	},
+/obj/machinery/button/windowtint{
+	id = "finedining";
+	pixel_x = -4;
 	pixel_y = 26
 	},
 /turf/simulated/floor/lino,
@@ -100309,7 +100328,7 @@ biL
 bJL
 bNv
 bNX
-bON
+bNX
 biL
 aab
 aaa
@@ -100823,7 +100842,7 @@ biL
 bJL
 bNx
 bNZ
-bOP
+bNZ
 biL
 aaa
 aaa
