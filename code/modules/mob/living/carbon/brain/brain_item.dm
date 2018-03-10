@@ -188,8 +188,11 @@
 	if(trauma && (cure_permanent || !trauma.permanent))
 		qdel(trauma)
 
-/obj/item/organ/brain/proc/cure_all_traumas(cure_permanent = FALSE)
+/obj/item/organ/brain/proc/cure_all_traumas(cure_permanent = FALSE, cure_type = "")
 	for(var/X in traumas)
 		var/datum/brain_trauma/trauma = X
-		if(cure_permanent || !trauma.permanent)
-			qdel(trauma)
+		if(trauma.cure_type == cure_type || cure_type == "all")
+			if(cure_permanent || !trauma.permanent)
+				qdel(trauma)
+				if(cure_type != "all")
+					break

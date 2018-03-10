@@ -3058,7 +3058,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/security/training)
+/area/mine/unexplored)
 "go" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -7407,6 +7407,2286 @@
 "rs" = (
 /turf/simulated/wall,
 /area/maintenance/library)
+"rt" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/structure/weightlifter,
+/turf/simulated/floor/holofloor/tiled,
+/area/mine/unexplored)
+"ru" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"rv" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"rw" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"rx" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"ry" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"rz" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"rA" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"rB" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"rC" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"rD" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"rE" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"rF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"rG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"rH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"rI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"rJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"rK" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"rL" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"rM" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"rN" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"rO" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"rP" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"rQ" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"rR" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"rS" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"rT" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"rU" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"rV" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"rW" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"rX" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"rY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"rZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"sa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"sb" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"sc" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"sd" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"se" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"sf" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"sg" = (
+/obj/structure/bed/chair/wheelchair,
+/turf/simulated/floor/tiled/dark,
+/area/medical/psych)
+"sh" = (
+/obj/structure/table/wood,
+/obj/item/weapon/mesmetron,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/dark,
+/area/medical/psych)
+"si" = (
+/obj/structure/closet/secure_closet{
+	name = "Psychiatrist's Locker";
+	req_access = list(64)
+	},
+/obj/item/clothing/suit/straight_jacket{
+	layer = 3
+	},
+/obj/item/weapon/reagent_containers/pill/methylphenidate,
+/obj/item/weapon/reagent_containers/pill/citalopram,
+/obj/item/weapon/reagent_containers/pill/citalopram,
+/obj/item/weapon/reagent_containers/syringe,
+/obj/item/weapon/soap,
+/turf/simulated/floor/tiled/dark,
+/area/medical/psych)
+"sj" = (
+/turf/simulated/wall/r_wall,
+/area/medical/psych)
+"sk" = (
+/turf/simulated/wall/r_wall,
+/area/medical/psych)
+"sl" = (
+/turf/simulated/wall/r_wall,
+/area/medical/psych)
+"sm" = (
+/turf/simulated/wall/r_wall,
+/area/medical/psych)
+"sn" = (
+/turf/simulated/wall/r_wall,
+/area/medical/psych)
+"so" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"sp" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"sq" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"sr" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"ss" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 4;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
+/obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
+	req_access = list(5)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/medical/psych)
+"st" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/medical/psych)
+"su" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/medical/psych)
+"sv" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/medical/psych)
+"sw" = (
+/turf/simulated/wall/r_wall,
+/area/medical/psych)
+"sx" = (
+/turf/simulated/floor/reinforced,
+/area/medical/psych)
+"sy" = (
+/obj/structure/table/steel,
+/obj/structure/metronome,
+/turf/simulated/floor/reinforced,
+/area/medical/psych)
+"sz" = (
+/turf/simulated/floor/reinforced,
+/area/medical/psych)
+"sA" = (
+/turf/simulated/wall/r_wall,
+/area/medical/psych)
+"sB" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"sC" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"sD" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"sE" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"sF" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"sG" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"sH" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"sI" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"sJ" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"sK" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"sL" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"sM" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"sN" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"sO" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"sP" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"sQ" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"sR" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"sS" = (
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"sT" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"sU" = (
+/obj/structure/table/rack,
+/obj/item/toy/plushie{
+	pixel_x = 4;
+	pixel_y = -4
+	},
+/obj/item/toy/plushie,
+/obj/item/toy/plushie{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/medical/psych)
+"sV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/medical/psych)
+"sW" = (
+/obj/structure/sink{
+	dir = 4;
+	icon_state = "sink";
+	pixel_x = 11;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/medical/psych)
+"sX" = (
+/turf/simulated/wall/r_wall,
+/area/medical/psych)
+"sY" = (
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Isolation Room";
+	dir = 4;
+	icon_state = "camera";
+	network = list("Medical","Isolation Room")
+	},
+/turf/simulated/floor/reinforced,
+/area/medical/psych)
+"sZ" = (
+/turf/simulated/floor/reinforced,
+/area/medical/psych)
+"ta" = (
+/obj/item/device/radio/intercom{
+	broadcasting = 1;
+	frequency = 1481;
+	listening = 0;
+	name = "station intercom (Isolation Room)";
+	pixel_x = 27;
+	pixel_y = 0
+	},
+/turf/simulated/floor/reinforced,
+/area/medical/psych)
+"tb" = (
+/turf/simulated/wall/r_wall,
+/area/medical/psych)
+"tc" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"td" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"te" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"tf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"tg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"th" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"ti" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"tj" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"tk" = (
+/obj/structure/lattice/catwalk,
+/turf/simulated/open,
+/area/medical/reception)
+"tl" = (
+/turf/simulated/open,
+/area/medical/reception)
+"tm" = (
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/medical/reception)
+"tn" = (
+/turf/simulated/open,
+/area/medical/reception)
+"to" = (
+/turf/simulated/open,
+/area/medical/reception)
+"tp" = (
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/medical/reception)
+"tq" = (
+/turf/simulated/open,
+/area/medical/reception)
+"tr" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"ts" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"tt" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"tu" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"tv" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"tw" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"tx" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"ty" = (
+/obj/machinery/door/airlock/medical{
+	name = "Psychiatry Closet";
+	req_access = list(64)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/dark,
+/area/medical/psych)
+"tz" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"tA" = (
+/turf/simulated/wall/r_wall,
+/area/medical/psych)
+"tB" = (
+/turf/simulated/floor/reinforced,
+/area/medical/psych)
+"tC" = (
+/turf/simulated/floor/reinforced,
+/area/medical/psych)
+"tD" = (
+/turf/simulated/floor/reinforced,
+/area/medical/psych)
+"tE" = (
+/turf/simulated/wall/r_wall,
+/area/medical/psych)
+"tF" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"tG" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"tH" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"tI" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"tJ" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"tK" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"tL" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"tM" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"tN" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 8
+	},
+/turf/simulated/open,
+/area/medical/reception)
+"tO" = (
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/medical/reception)
+"tP" = (
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/medical/reception)
+"tQ" = (
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/medical/reception)
+"tR" = (
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/medical/reception)
+"tS" = (
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/medical/reception)
+"tT" = (
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/medical/reception)
+"tU" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/medical/reception)
+"tV" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "Psy"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "Psy"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "Psy"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/medical/psych)
+"tW" = (
+/obj/structure/table/wood,
+/obj/item/weapon/paper_bin{
+	pixel_x = -1;
+	pixel_y = 7
+	},
+/obj/machinery/requests_console{
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/carpet,
+/area/medical/psych)
+"tX" = (
+/obj/structure/table/wood,
+/obj/item/weapon/folder/white,
+/obj/item/weapon/pen,
+/obj/machinery/light_switch{
+	pixel_x = -14;
+	pixel_y = 24
+	},
+/obj/machinery/newscaster{
+	pixel_y = 32
+	},
+/turf/simulated/floor/carpet,
+/area/medical/psych)
+"tY" = (
+/obj/structure/filingcabinet,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
+/obj/machinery/alarm{
+	pixel_y = 32
+	},
+/turf/simulated/floor/carpet,
+/area/medical/psych)
+"tZ" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "Psy"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "Psy"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "Psy"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/medical/psych)
+"ua" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/green/full{
+	icon_state = "corner_white_full";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"ub" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"uc" = (
+/obj/effect/floor_decal/corner/green/full{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"ud" = (
+/turf/simulated/wall/r_wall,
+/area/medical/psych)
+"ue" = (
+/turf/simulated/wall/r_wall,
+/area/medical/psych)
+"uf" = (
+/obj/machinery/door/airlock/medical{
+	id_tag = "psiso";
+	name = "Isolation Room";
+	req_access = list(64)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/reinforced,
+/area/medical/psych)
+"ug" = (
+/turf/simulated/wall/r_wall,
+/area/medical/psych)
+"uh" = (
+/turf/simulated/wall/r_wall,
+/area/medical/psych)
+"ui" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"uj" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"uk" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"ul" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"um" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"un" = (
+/obj/structure/lattice/catwalk,
+/turf/simulated/open,
+/area/medical/reception)
+"uo" = (
+/turf/simulated/open,
+/area/medical/reception)
+"up" = (
+/turf/simulated/open,
+/area/medical/reception)
+"uq" = (
+/turf/simulated/open,
+/area/medical/reception)
+"ur" = (
+/turf/simulated/open,
+/area/medical/reception)
+"us" = (
+/turf/simulated/open,
+/area/medical/reception)
+"ut" = (
+/turf/simulated/open,
+/area/medical/reception)
+"uu" = (
+/turf/simulated/floor/plating,
+/area/medical/reception)
+"uv" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "Psy"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "Psy"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/medical/psych)
+"uw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/carpet,
+/area/medical/psych)
+"ux" = (
+/obj/structure/bed/chair/office/light{
+	dir = 1
+	},
+/obj/machinery/button/remote/airlock{
+	id = "waiting_door";
+	name = "Waiting Room Door Control";
+	pixel_x = -16;
+	pixel_y = 36;
+	req_access = list(5)
+	},
+/obj/machinery/button/windowtint{
+	id = "Psy";
+	pixel_x = -16;
+	pixel_y = 26;
+	req_access = list(5)
+	},
+/turf/simulated/floor/carpet,
+/area/medical/psych)
+"uy" = (
+/turf/simulated/floor/carpet,
+/area/medical/psych)
+"uz" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	id = "Psy"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "Psy"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "Psy"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/medical/psych)
+"uA" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"uB" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"uC" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"uD" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"uE" = (
+/obj/effect/floor_decal/corner/green/full{
+	icon_state = "corner_white_full";
+	dir = 8
+	},
+/obj/machinery/button/remote/airlock{
+	id = "psiso";
+	pixel_x = 8;
+	pixel_y = 32;
+	specialfunctions = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"uF" = (
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"uG" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"uH" = (
+/obj/effect/floor_decal/corner/green/full{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"uI" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/medical/psych)
+"uJ" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"uK" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"uL" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"uM" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"uN" = (
+/obj/structure/lattice/catwalk,
+/turf/simulated/open,
+/area/medical/reception)
+"uO" = (
+/turf/simulated/open,
+/area/medical/reception)
+"uP" = (
+/turf/simulated/open,
+/area/medical/reception)
+"uQ" = (
+/turf/simulated/open,
+/area/medical/reception)
+"uR" = (
+/turf/simulated/open,
+/area/medical/reception)
+"uS" = (
+/turf/simulated/open,
+/area/medical/reception)
+"uT" = (
+/turf/simulated/open,
+/area/medical/reception)
+"uU" = (
+/turf/simulated/floor/plating,
+/area/medical/reception)
+"uV" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "Psy"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "Psy"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/medical/psych)
+"uW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/medical/psych)
+"uX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/medical/psych)
+"uY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/medical/psych)
+"uZ" = (
+/obj/machinery/door/airlock/medical{
+	name = "Psychiatrist Office";
+	req_access = list(64)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/medical/psych)
+"va" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"vb" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"vc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"vd" = (
+/obj/machinery/door/airlock/medical{
+	name = "Therapy Ward";
+	req_access = list(64)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"ve" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"vf" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"vg" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"vh" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/bed/chair/e_chair/electroshock{
+	tag = "icon-echair0 (WEST)";
+	icon_state = "echair0";
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/medical/psych)
+"vi" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/medical/psych)
+"vj" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"vk" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"vl" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"vm" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"vn" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 8
+	},
+/turf/simulated/open,
+/area/medical/reception)
+"vo" = (
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/medical/reception)
+"vp" = (
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/medical/reception)
+"vq" = (
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/medical/reception)
+"vr" = (
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/medical/reception)
+"vs" = (
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/medical/reception)
+"vt" = (
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/medical/reception)
+"vu" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/medical/reception)
+"vv" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	id = "Psy"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "Psy"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "Psy"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/medical/psych)
+"vw" = (
+/obj/structure/bed/chair/comfy/brown{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/medical/psych)
+"vx" = (
+/turf/simulated/floor/wood,
+/area/medical/psych)
+"vy" = (
+/obj/structure/bed/psych,
+/obj/item/weapon/bedsheet/brown,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/medical/psych)
+"vz" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	id = "Psy"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "Psy"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "Psy"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "Psy"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/medical/psych)
+"vA" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"vB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"vC" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24
+	},
+/obj/structure/cable/green,
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"vD" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"vE" = (
+/obj/effect/floor_decal/corner/green/full,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"vF" = (
+/obj/structure/bed/chair/office/light,
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"vG" = (
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"vH" = (
+/obj/effect/floor_decal/corner/green/full{
+	icon_state = "corner_white_full";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"vI" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/medical/psych)
+"vJ" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"vK" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"vL" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"vM" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"vN" = (
+/obj/structure/lattice/catwalk,
+/turf/simulated/open,
+/area/medical/reception)
+"vO" = (
+/turf/simulated/open,
+/area/medical/reception)
+"vP" = (
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/medical/reception)
+"vQ" = (
+/turf/simulated/open,
+/area/medical/reception)
+"vR" = (
+/turf/simulated/open,
+/area/medical/reception)
+"vS" = (
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/medical/reception)
+"vT" = (
+/turf/simulated/open,
+/area/medical/reception)
+"vU" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"vV" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"vW" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	id = "Psy"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "Psy"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "Psy"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/medical/psych)
+"vX" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	id = "Psy"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "Psy"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/medical/psych)
+"vY" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "Psy"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "Psy"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "Psy"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/medical/psych)
+"vZ" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"wa" = (
+/obj/structure/flora/pottedplant,
+/obj/effect/floor_decal/corner/green/full,
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"wb" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"wc" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"wd" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"we" = (
+/obj/structure/filingcabinet,
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 2
+	},
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -22
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"wf" = (
+/obj/structure/table/wood,
+/obj/item/weapon/folder/white,
+/obj/item/weapon/pen,
+/obj/item/device/radio/intercom{
+	frequency = 1481;
+	name = "station intercom (Isolation Room)";
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"wg" = (
+/obj/structure/table/wood,
+/obj/item/weapon/paper_bin{
+	pixel_x = -1;
+	pixel_y = 7
+	},
+/obj/machinery/computer/security/telescreen{
+	layer = 4;
+	name = "Observation Screen";
+	network = list("Isolation Room");
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/requests_console{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"wh" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"wi" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"wj" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"wk" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"wl" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"wm" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"wn" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"wo" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"wp" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"wq" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"wr" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"ws" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"wt" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"wu" = (
+/turf/simulated/wall,
+/area/medical/reception)
+"wv" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"ww" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"wx" = (
+/obj/effect/floor_decal/corner/green/full,
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"wy" = (
+/obj/effect/floor_decal/corner/green/full{
+	icon_state = "corner_white_full";
+	dir = 4
+	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"wz" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"wA" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"wB" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"wC" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"wD" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"wE" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"wF" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"wG" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"wH" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"wI" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"wJ" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"wK" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"wL" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"wM" = (
+/turf/simulated/open,
+/area/medical/psych)
+"wN" = (
+/turf/simulated/open,
+/area/medical/psych)
+"wO" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"wP" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"wQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"wR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"wS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"wT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"wU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"wV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"wW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"wX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"wY" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"wZ" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xa" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"xb" = (
+/turf/simulated/open,
+/area/medical/psych)
+"xc" = (
+/turf/simulated/open,
+/area/medical/psych)
+"xd" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"xe" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"xf" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xg" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xh" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xi" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xj" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xk" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xl" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xm" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xn" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xo" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xp" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"xq" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"xr" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"xs" = (
+/turf/simulated/wall,
+/area/medical/psych)
+"xt" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"xu" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xv" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xw" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"xx" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xy" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xz" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"xA" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xB" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xC" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"xD" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xE" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xF" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"xG" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xH" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xI" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"xJ" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xK" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xL" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"xM" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xN" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xO" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"xP" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xQ" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xR" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"xS" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xT" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xU" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"xV" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xW" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xX" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"xY" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"xZ" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"ya" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"yb" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"yc" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"yd" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"ye" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"yf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"yg" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"yh" = (
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
+	icon_state = "down-scrubbers";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/supply{
+	icon_state = "down-supply";
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "11-8"
+	},
+/obj/structure/disposalpipe/down{
+	icon_state = "pipe-d";
+	dir = 8
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/sign/drop{
+	pixel_y = 32
+	},
+/turf/simulated/open,
+/area/maintenance/medbay)
+"yi" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"yj" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"yk" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"yl" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"ym" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
+"yn" = (
+/turf/simulated/wall,
+/area/maintenance/medbay)
 
 (1,1,1) = {"
 aa
@@ -35032,22 +37312,22 @@ aa
 ad
 ar
 ar
-oH
-oU
-ph
-pt
-pG
+or
+or
+or
+or
+or
 ar
-qb
-qe
-qi
-ql
-qp
+or
+or
+or
+or
+or
 ar
 aN
 aw
 aw
-qU
+or
 bi
 br
 bE
@@ -35294,17 +37574,17 @@ ay
 ay
 ay
 ay
-pR
+or
 aG
 aG
 aG
 aG
 aG
-qv
+or
 aM
 aw
 aW
-qV
+or
 bj
 bs
 bF
@@ -35545,23 +37825,23 @@ aa
 aa
 aa
 ar
-os
+or
 ay
 ay
 ay
 ay
 ay
-pS
+or
 aG
 aG
 aG
 aG
 aG
-qw
+or
 aw
 aw
 aw
-qW
+or
 aw
 bt
 aw
@@ -35802,7 +38082,7 @@ aa
 aa
 ad
 ar
-ot
+or
 ay
 ay
 ay
@@ -35814,7 +38094,7 @@ aG
 aG
 aG
 aG
-qx
+or
 aM
 aw
 aW
@@ -36059,23 +38339,23 @@ aa
 aa
 aa
 ar
-ou
+or
 ay
 ay
 ay
 ay
 ay
-pT
+or
 aG
 aG
 aG
 aG
 aG
-qy
+or
 aw
 aw
 aw
-qX
+or
 aw
 aw
 aw
@@ -36316,23 +38596,23 @@ aa
 aa
 aa
 ar
-ov
+or
 ay
 ay
 ay
 ay
 ay
-pU
+or
 aG
 aG
 aG
 aG
 aG
-qz
+or
 aM
 aw
 aW
-qY
+or
 bk
 aw
 bH
@@ -36574,22 +38854,22 @@ aa
 ad
 ar
 ar
-oI
-oV
+or
+or
 ar
-pu
-pH
+or
+or
 ar
-qc
-qf
+or
+or
 ar
-qm
-qq
+or
+or
 ar
 aN
 aw
 aw
-qZ
+or
 aO
 bv
 aX
@@ -39099,11 +41379,11 @@ db
 dn
 dz
 dR
-ej
-eB
-eT
-fl
-fD
+db
+dn
+dz
+dR
+db
 aa
 aa
 aa
@@ -39352,15 +41632,15 @@ aa
 aa
 aa
 aa
-dc
+db
 do
 dA
-dS
+dA
 ek
-eC
-eU
+dA
+dA
 fm
-fE
+db
 aa
 aa
 aa
@@ -39609,28 +41889,28 @@ aa
 aa
 aa
 aa
-dd
+db
 dp
 dB
 dT
-el
-eD
+db
+en
 eV
-fn
-fF
-fV
-gl
-gB
-gR
-hh
+en
+db
+dk
+dk
+dk
+dk
+dk
 hI
 ij
-iK
+dk
 jl
-jM
-kn
-kN
-ln
+dk
+hI
+ij
+dk
 aa
 aa
 aa
@@ -39866,20 +42146,20 @@ aa
 aa
 aa
 aa
-de
+db
 dq
 dC
 dU
 em
 eE
-eW
+eF
 fo
-fG
+db
 fW
 gm
 gC
 gS
-hi
+dk
 hJ
 ik
 iL
@@ -39887,7 +42167,7 @@ jm
 jN
 ko
 kO
-lo
+dk
 aa
 aa
 aa
@@ -40123,20 +42403,20 @@ aa
 aa
 aa
 aa
-df
+db
 dr
-dD
-dV
+dC
+dU
 en
 eF
-eX
+eF
 fp
-fH
-fX
+db
+rt
 gn
 gD
 gT
-hj
+dk
 hK
 il
 iM
@@ -40144,7 +42424,7 @@ jn
 jO
 kp
 kP
-lp
+dk
 aa
 aa
 aa
@@ -40380,28 +42660,28 @@ aa
 aa
 aa
 aa
-dg
+db
 ds
-dE
-dW
-eo
-eG
-eY
-fq
-fI
+dC
+dU
+em
+eE
+eF
+fo
+db
 fY
 go
 gE
 gU
-hk
+dk
 hL
 im
-iN
+iM
 jo
 jP
 kq
 kQ
-lq
+dk
 aa
 aa
 aa
@@ -40637,28 +42917,28 @@ aa
 aa
 aa
 aa
-dh
+db
 dt
 dF
-dX
-ep
-eH
-eZ
+dU
+en
+eF
+eF
 fr
-fJ
+db
 fZ
 gp
 gF
 gV
-hl
+dk
 hM
 in
 iO
-jp
-jQ
+jn
+jO
 kr
 kR
-lr
+dk
 aa
 aa
 aa
@@ -40894,28 +43174,28 @@ aa
 aa
 aa
 aa
-di
+db
 du
 dG
-dY
-eq
-eI
+dU
+em
+eE
 fa
-fs
-fK
+fo
+db
 ga
 gq
 gG
 gW
-hm
-hN
-io
+dk
+hJ
+in
 iP
 jq
 jR
 ks
 kS
-ls
+dk
 aa
 aa
 aa
@@ -41151,28 +43431,28 @@ aa
 aa
 aa
 aa
-dj
+db
 dv
 dH
 dZ
-er
-eJ
-fb
-ft
-fL
+db
+db
+db
+db
+db
 gb
 gr
 gH
-gX
-hn
+gb
+dk
 hO
 ip
-iQ
-jr
-jS
+ip
+eu
+dk
 kt
 kT
-lt
+dk
 aa
 aa
 aa
@@ -41416,23 +43696,23 @@ es
 eK
 fc
 fu
-fM
+eK
 gc
 gs
-gI
-gY
+eK
+eK
 ho
-hP
-iq
-iR
+eK
+eK
+eK
 js
 jT
-ku
+gs
 kU
-lu
-lN
-mb
-mk
+dk
+dk
+dk
+dk
 aa
 aa
 aa
@@ -41665,22 +43945,22 @@ aa
 aa
 aa
 aa
-dl
+dk
 dx
 dJ
 eb
-et
+eb
 eL
 fd
-fv
+eb
 fN
-gd
+eb
 gt
-gJ
-gZ
+eb
+eb
 hp
-hQ
-ir
+eb
+eb
 iS
 jt
 jU
@@ -41688,8 +43968,8 @@ kv
 kV
 lv
 lO
-mc
-ml
+lO
+dk
 aa
 aa
 aa
@@ -41922,31 +44202,31 @@ aa
 aa
 aa
 aa
-dm
-dy
-dK
+dk
+dk
+dk
 ec
 eu
 eM
 fe
-fw
+eu
 fO
 ge
 gu
 gK
-ha
-hq
-hR
-is
-iT
+fO
+ge
+gu
+gK
+dk
 ju
 jV
 kw
 kW
 lw
-lP
-md
-mm
+lO
+lO
+dk
 aa
 aa
 aa
@@ -42181,7 +44461,7 @@ aa
 aa
 aa
 aa
-dL
+dk
 ed
 ev
 eN
@@ -42195,15 +44475,15 @@ hb
 hr
 hS
 it
-iU
-jv
-jW
-kx
-kX
+dk
+dk
+dk
+dk
+dk
 lx
-lQ
-me
-mn
+dk
+dk
+dk
 aa
 aa
 aa
@@ -42438,7 +44718,7 @@ aa
 aa
 aa
 aa
-dM
+dk
 ee
 ew
 eO
@@ -42452,13 +44732,13 @@ hc
 hs
 hT
 iu
-iV
+dk
 jw
 jX
 ky
 kY
 ly
-lR
+dk
 aa
 aa
 aa
@@ -42695,27 +44975,27 @@ aa
 aa
 aa
 aa
-dN
+dk
 ef
 ex
 eP
-fh
+fg
 fz
-fR
+fO
 gh
 gx
 gN
 hd
-ht
+hf
 hU
 iv
-iW
-jx
+dk
+dk
 jY
-kz
-kZ
-lz
-lS
+dk
+dk
+dk
+dk
 aa
 aa
 aa
@@ -42741,14 +45021,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+sI
+tj
+tM
+um
+uM
+vm
+vM
+wm
 aa
 aa
 aa
@@ -42952,24 +45232,24 @@ aa
 aa
 aa
 aa
-dO
+dk
 eg
 ey
 eQ
 fi
 fA
-fS
+fP
 gi
 gy
 gO
 he
-hu
+hf
 hV
 iw
 iX
 jy
 jZ
-kA
+iX
 la
 lA
 aa
@@ -42998,14 +45278,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+sJ
+tk
+tN
+un
+uN
+vn
+vN
+wn
 aa
 aa
 aa
@@ -43209,13 +45489,13 @@ aa
 aa
 aa
 aa
-dP
+dk
 eh
-ez
+eh
 eR
 fj
 fB
-fT
+fQ
 gj
 gz
 gP
@@ -43223,11 +45503,11 @@ hf
 hv
 hW
 ix
-iY
+iX
 jz
 ka
-kB
-lb
+iX
+la
 lB
 aa
 aa
@@ -43255,14 +45535,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+sK
+tl
+tO
+uo
+uO
+vo
+vO
+wo
 aa
 aa
 aa
@@ -43466,26 +45746,26 @@ aa
 aa
 aa
 aa
-dQ
-ei
-eA
-eS
-fk
-fC
-fU
-gk
-gA
-gQ
-hg
-hw
+dk
+dk
+dk
+dk
+dk
+dk
+fO
+ge
+gu
+gu
+gK
+fO
 hX
 iy
-iZ
-jA
+iX
+iX
 kb
-kC
+iX
 lc
-lC
+iX
 aa
 aa
 aa
@@ -43512,14 +45792,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+sL
+tm
+tP
+up
+uP
+vp
+vP
+wp
 aa
 aa
 aa
@@ -43741,8 +46021,8 @@ ja
 jB
 kc
 kD
-ld
-lD
+lc
+lA
 aa
 aa
 aa
@@ -43769,14 +46049,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+sM
+tn
+tQ
+uq
+uQ
+vq
+vQ
+wq
 aa
 aa
 aa
@@ -43997,9 +46277,9 @@ iA
 jb
 jC
 kd
-kE
+iA
 le
-lE
+lB
 aa
 aa
 aa
@@ -44026,14 +46306,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+sN
+to
+tR
+ur
+uR
+vr
+vR
+wr
 aa
 aa
 aa
@@ -44252,13 +46532,13 @@ hz
 ia
 iB
 jc
-jD
-ke
-kF
-lf
-lF
+hz
+hz
+hz
+hz
+hz
 lT
-mf
+hz
 aa
 aa
 aa
@@ -44283,14 +46563,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+sO
+tp
+tS
+us
+uS
+vs
+vS
+ws
 aa
 aa
 aa
@@ -44515,7 +46795,7 @@ kG
 lg
 lG
 lU
-mg
+hA
 aa
 aa
 aa
@@ -44540,14 +46820,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+sP
+tq
+tT
+ut
+uT
+vt
+vT
+wt
 aa
 aa
 aa
@@ -44770,7 +47050,7 @@ jF
 kg
 kH
 lh
-lH
+kH
 lV
 mh
 aa
@@ -44797,14 +47077,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+sQ
+tr
+tU
+uu
+uU
+vu
+vU
+wu
 aa
 aa
 aa
@@ -45019,9 +47299,9 @@ aa
 aa
 aa
 aa
-hC
+hz
 id
-iE
+iC
 jf
 jG
 kh
@@ -45029,7 +47309,7 @@ kI
 li
 lI
 lW
-mi
+hB
 aa
 aa
 aa
@@ -45055,14 +47335,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ts
+tV
+uv
+uV
+vv
+vV
+ab
+ab
 aa
 aa
 aa
@@ -45276,17 +47556,17 @@ aa
 aa
 aa
 aa
-hD
+hz
 ie
-iF
+iC
 jg
 jH
 ki
 kJ
 lj
 lJ
-lX
-mj
+hz
+hz
 aa
 aa
 aa
@@ -45312,15 +47592,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+tt
+tW
+uw
+uW
+vw
+vW
+ab
+ab
+ab
 aa
 aa
 aa
@@ -45533,16 +47813,16 @@ aa
 aa
 aa
 aa
-hE
+hz
 if
-iG
-jh
+iC
+jg
 jI
-kj
+hz
 kK
-lk
-lK
-lY
+lj
+lj
+hA
 aa
 aa
 aa
@@ -45563,22 +47843,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ru
+rD
+rQ
+sd
+sq
+sR
+tu
+tX
+ux
+uX
+vx
+vX
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -45790,16 +48070,16 @@ aa
 aa
 aa
 aa
-hF
+hA
 ig
 iH
 ji
 jJ
-kk
+hz
 kL
 ll
 lL
-lZ
+hB
 aa
 aa
 aa
@@ -45820,21 +48100,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+rv
+rE
+rR
+se
+sr
+sS
+tv
+tY
+uy
+uY
+vy
+vY
+ab
+ab
+ab
 aa
 aa
 aa
@@ -46047,16 +48327,16 @@ aa
 aa
 aa
 aa
-hG
+hB
 ih
 iI
 jj
 jK
-kl
-kM
-lm
-lM
-ma
+hz
+ia
+iJ
+iB
+hz
 aa
 aa
 aa
@@ -46077,21 +48357,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+rw
+rF
+rS
+sf
+ss
+sT
+tw
+tZ
+uz
+uZ
+vz
+vZ
+wv
+ab
+ab
 aa
 aa
 aa
@@ -46304,12 +48584,12 @@ aa
 aa
 aa
 aa
-hH
-ii
+hz
+ia
 iJ
-jk
-jL
-km
+iJ
+iB
+hz
 aa
 aa
 aa
@@ -46334,22 +48614,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+rx
+rG
+rT
+sg
+st
+sU
+tx
+ua
+uA
+va
+vA
+wa
+ww
+wL
+xa
+xp
 aa
 aa
 aa
@@ -46591,22 +48871,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ry
+rH
+rU
+sh
+su
+sV
+ty
+ub
+uB
+vb
+vB
+wb
+wx
+wM
+xb
+xq
 aa
 aa
 aa
@@ -46848,22 +49128,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+rz
+rI
+rV
+si
+sv
+sW
+tz
+uc
+uC
+vc
+vC
+wc
+wy
+wN
+xc
+xr
 aa
 aa
 aa
@@ -47105,35 +49385,35 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+rA
+rJ
+rW
+sj
+sw
+sX
+tA
+ud
+uD
+vd
+vD
+wd
+wz
+wO
+xd
+xs
+xv
+xy
+xB
+xE
+xH
+xK
+xN
+xQ
+xT
+xW
+xZ
+ye
+yj
 aa
 aa
 aa
@@ -47362,35 +49642,35 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+rB
+rK
+rX
+sk
+sx
+sY
+tB
+ue
+uE
+ve
+vE
+we
+wA
+wP
+xe
+xt
+xw
+xz
+xC
+xF
+xI
+xL
+xO
+xR
+xU
+xX
+ya
+yf
+yk
 aa
 aa
 aa
@@ -47619,35 +49899,35 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+rC
+rL
+rY
+sl
+sy
+sZ
+tC
+uf
+uF
+vf
+vF
+wf
+wB
+wQ
+xf
+xu
+xx
+xA
+xD
+xG
+xJ
+xM
+xP
+xS
+xV
+xY
+yb
+yg
+yl
 aa
 aa
 aa
@@ -47877,6 +50157,20 @@ aa
 aa
 aa
 aa
+rM
+rZ
+sm
+sz
+ta
+tD
+ug
+uG
+vg
+vG
+wg
+wC
+wR
+xg
 aa
 aa
 aa
@@ -47888,23 +50182,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+yc
+yh
+ym
 aa
 aa
 aa
@@ -48134,6 +50414,20 @@ aa
 aa
 aa
 aa
+rN
+sa
+sn
+sA
+tb
+tE
+uh
+uH
+vh
+vH
+wh
+wD
+wS
+xh
 aa
 aa
 aa
@@ -48145,23 +50439,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+yd
+yi
+yn
 aa
 aa
 aa
@@ -48391,20 +50671,20 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+rO
+sb
+so
+sB
+tc
+tF
+ui
+uI
+vi
+vI
+wi
+wE
+wT
+xi
 aa
 aa
 aa
@@ -48648,20 +50928,20 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+rP
+sc
+sp
+sC
+td
+tG
+ab
+ab
+ab
+ab
+ab
+wF
+wU
+xj
 aa
 aa
 aa
@@ -48908,17 +51188,17 @@ aa
 aa
 aa
 aa
+sD
+te
+tH
 aa
+ab
+ab
+ab
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+wG
+wV
+xk
 aa
 aa
 aa
@@ -49165,17 +51445,17 @@ aa
 aa
 aa
 aa
+sE
+tf
+tI
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+wH
+wW
+xl
 aa
 aa
 aa
@@ -49422,17 +51702,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+sF
+tg
+tJ
+uj
+uJ
+vj
+vJ
+wj
+wI
+wX
+xm
 aa
 aa
 aa
@@ -49679,17 +51959,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+sG
+th
+tK
+uk
+uK
+vk
+vK
+wk
+wJ
+wY
+xn
 aa
 aa
 aa
@@ -49936,17 +52216,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+sH
+ti
+tL
+ul
+uL
+vl
+vL
+wl
+wK
+wZ
+xo
 aa
 aa
 aa
@@ -54049,11 +56329,11 @@ aa
 aa
 aa
 aa
-ow
-oJ
-oW
-pi
-pv
+mo
+mo
+mo
+mo
+mo
 aa
 aa
 aa
@@ -54305,24 +56585,24 @@ aa
 aa
 aa
 aa
-oi
-ox
-oK
-oX
+mo
+mo
+mo
+mo
 pj
 pw
-pI
+pw
 pV
-qd
-qg
-qj
-qn
-qr
-qA
-qG
-qM
-qS
-ra
+pV
+pV
+pV
+pV
+pV
+pV
+pV
+pV
+pV
+pV
 rc
 bD
 rf
@@ -54548,27 +56828,27 @@ aa
 aa
 aa
 aa
-mw
-mD
-mK
-mR
+mo
+mo
+mo
+mo
 aa
 aa
-ni
-np
-nw
-nD
-nK
+mo
+mo
+mo
+mo
+mo
 aa
 aa
-ob
-oj
-oy
+mo
+mo
+mo
 oL
 oY
 pk
-px
-pJ
+mo
+mo
 aa
 aa
 aa
@@ -54804,29 +57084,29 @@ aa
 aa
 aa
 aa
-mr
-mx
-mE
-mL
-mS
-mY
-nd
-nj
-nq
-nx
-nE
-nL
-nR
-nW
-oc
-ok
-oz
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
 oM
-oZ
+oM
 pl
-py
-pK
-pW
+mo
+mo
+mo
 aa
 aa
 aa
@@ -55061,29 +57341,29 @@ aa
 aa
 aa
 mo
-ms
-my
+mo
+mo
 mF
 mM
-mT
-mZ
-ne
-nk
-nr
-ny
+mo
+mo
+mo
+mo
+nl
+na
 nF
-nM
-nS
-nX
-od
-ol
+mo
+mo
+mo
+mo
+mo
 oA
-oN
-pa
-pm
+mG
+mG
+mG
 pz
-pL
-pX
+mo
+mo
 aa
 aa
 aa
@@ -55317,30 +57597,30 @@ aa
 aa
 aa
 aa
-mp
-mt
+mo
+mo
 mz
 mG
-mN
+mG
 mU
 na
 nf
 nl
-ns
+nl
 nz
-nG
-nN
-nT
-nY
+nl
+nl
+nf
+na
 oe
 om
-oB
+mG
 oO
-pb
+mG
 pn
 pA
-pM
-pY
+mo
+mo
 aa
 aa
 aa
@@ -55574,30 +57854,30 @@ aa
 aa
 aa
 aa
-mq
-mu
-mA
-mH
+mo
+mo
+mo
+mG
 mO
-mV
-nb
-ng
-nm
-nt
+mo
+mo
+mo
+mo
+nl
 nA
-nH
-nO
-nU
-nZ
-of
-on
+nF
+mo
+mo
+mo
+mo
+mo
 oC
-oP
-pc
-po
-pB
-pN
-pZ
+mG
+mG
+mG
+pz
+mo
+mo
 aa
 aa
 aa
@@ -55832,29 +58112,29 @@ aa
 aa
 aa
 aa
-mv
-mB
-mI
-mP
-mW
-nc
-nh
-nn
-nu
-nB
-nI
-nP
-nV
-oa
-og
-oo
-oD
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
 oQ
-pd
+oQ
 pp
-pC
-pO
-qa
+mo
+mo
+mo
 aa
 aa
 aa
@@ -56090,27 +58370,27 @@ aa
 aa
 aa
 aa
-mC
-mJ
-mQ
-mX
+mo
+mo
+mo
+mo
 aa
 aa
-no
-nv
-nC
-nJ
-nQ
+mo
+mo
+mo
+mo
+mo
 aa
 aa
-oh
-op
-oE
+mo
+mo
+mo
 oR
 pe
-pq
-pD
-pP
+oR
+mo
+mo
 aa
 aa
 aa
@@ -56361,13 +58641,13 @@ aa
 aa
 aa
 aa
-oq
-oF
-oS
-pf
-pr
-pE
-pQ
+mo
+mo
+mo
+mo
+mo
+mo
+mo
 aa
 aa
 aa
@@ -56619,11 +58899,11 @@ aa
 aa
 aa
 aa
-oG
-oT
-pg
-ps
-pF
+mo
+mo
+mo
+mo
+mo
 aa
 aa
 aa
@@ -58180,7 +60460,7 @@ bc
 aa
 aa
 bc
-rm
+qs
 bc
 aa
 aa
@@ -58437,7 +60717,7 @@ bc
 bc
 aa
 bc
-rn
+qs
 bc
 aa
 aa
@@ -58694,7 +60974,7 @@ bc
 bc
 bc
 bc
-ro
+qs
 bc
 aa
 aa
@@ -58944,14 +61224,14 @@ bc
 bc
 bc
 qs
-qC
-qI
+qs
+qs
 qO
 bc
 bc
 bc
 bc
-rp
+qs
 bc
 aa
 aa
@@ -59199,15 +61479,15 @@ bc
 bc
 qh
 qk
-qo
-qt
+qk
+qs
 qD
-qJ
-qP
+qs
+qk
 qT
-rb
+qD
 rd
-re
+qs
 rq
 bc
 aa
@@ -59457,9 +61737,9 @@ bc
 bc
 bc
 bc
-qu
-qE
-qK
+qs
+qs
+qs
 qQ
 bc
 bc
