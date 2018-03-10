@@ -16,7 +16,7 @@
 
 /datum/game_mode/three_ninjas
 	name = "three ninjas"
-	round_description = "Three strange men are onboard the station!"
+	round_description = "Three strange men are onboard the station. Are they friend? Foe? Are they enemies?"
 	extended_round_description = "What was that?! Was that a person or did your eyes just play tricks on you? \
 		You have no idea. That slim-suited, cryptic individual is an enigma to you and all of your knowledge. \
 		Their purpose is unknown. Their mission is unknown. How they arrived to this secure and isolated \
@@ -25,8 +25,8 @@
 		the omniscience of the AI and rival the most hardened weapons your station is capable of. Tread lightly and \
 		only hope this unknown assassin isn't here for you."
 	config_tag = "three_ninjas"
-	required_players = 0
-	required_enemies = 0
+	required_players = 10
+	required_enemies = 3
 	end_on_antag_death = 1
-	antag_tags = list(MODE_NINJA_COMBAT,MODE_NINJA_MOBILITY,MODE_NINJA_STEALTH)
 	require_all_templates = 1
+	antag_tags = list(MODE_NINJA_COMBAT,MODE_NINJA_MOBILITY,MODE_NINJA_STEALTH)
