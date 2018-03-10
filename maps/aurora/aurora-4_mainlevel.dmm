@@ -27810,11 +27810,10 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aVv" = (
-/obj/machinery/door/airlock/glass_engineering{
-	name = "Engineering Hallway";
-	req_one_access = newlist(/obj/item/weapon/nullrod/fluff)
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass_engineering{
+	name = "Engineering Hallway"
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aVw" = (
@@ -29625,8 +29624,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
-	name = "Engineering Hallway";
-	req_one_access = newlist(/obj/item/weapon/nullrod/fluff)
+	name = "Engineering Hallway"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
@@ -64186,6 +64184,49 @@
 "cgE" = (
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/skipjack_station/cavern)
+"cgF" = (
+/obj/structure/closet{
+	name = "Evidence Closet"
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/security/investigations)
+"cgG" = (
+/obj/structure/closet{
+	name = "Evidence Closet"
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/security/investigations)
+"cgH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/security/investigations)
 
 (1,1,1) = {"
 aaa
@@ -98458,7 +98499,7 @@ aeF
 afe
 afC
 afC
-afC
+cgG
 afC
 ahx
 ail
@@ -98977,7 +99018,7 @@ agT
 ahz
 agv
 aje
-ajR
+cgH
 ajR
 alI
 amH
@@ -99742,7 +99783,7 @@ acl
 aeI
 afg
 afe
-afC
+cgF
 afD
 afC
 afe
