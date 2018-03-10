@@ -190,7 +190,7 @@
 		/obj/item/device/chameleon = 2000,
 		/obj/item/weapon/cane/concealed = 250,
 		/obj/item/weapon/storage/box/syndie_kit/chameleon = 1000,
-		/obj/item/weapon/storage/box/syndie_kit/spy = 500,
+		/obj/item/weapon/storage/box/syndie_kit/spy = 500
 	)
 
 /obj/machinery/vending/assist/ninja/mobility
@@ -206,7 +206,7 @@
 		/obj/item/rig_module/fabricator/energy_net = 2,
 		/obj/item/device/batterer = 2,
 		/obj/item/device/gps = 2,
-		/obj/item/weapon/pinpointer/advpinpointer = 2,
+		/obj/item/weapon/pinpointer/advpinpointer = 2
 	)
 	prices = list(
 		/obj/item/rig_module/maneuvering_jets = 2000,
