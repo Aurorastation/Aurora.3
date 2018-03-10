@@ -10,7 +10,7 @@
 	shrapnel_type = /obj/item/weapon/material/shard/shrapnel
 	var/mob_passthrough_check = 0
 
-	muzzle_type = /obj/effect/projectile/bullet/muzzle
+	muzzle_type = /obj/effect/projectile/muzzle/bullet
 
 /obj/item/projectile/bullet/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
 	if (..(target, blocked, def_zone))
@@ -74,10 +74,6 @@
 	var/range_step = 2		//projectile will lose a fragment each time it travels this distance. Can be a non-integer.
 	var/base_spread = 90	//lower means the pellets spread more across body parts. If zero then this is considered a shrapnel explosion instead of a shrapnel cone
 	var/spread_step = 10	//higher means the pellets spread more across body parts with distance
-
-/obj/item/projectile/bullet/pellet/CollidedWith()
-	. = ..()
-	bumped = 0 //can hit all mobs in a tile. pellets is decremented inside attack_mob so this should be fine.
 
 /obj/item/projectile/bullet/pellet/proc/get_pellets(var/distance)
 	var/pellet_loss = round((distance - 1)/range_step) //pellets lost due to distance
@@ -217,7 +213,7 @@
 	drowsy = 0
 	eyeblur = 0
 	damage_type = TOX
-	step_delay = 0.25
+	speed = 0.3
 
 /obj/item/projectile/bullet/rifle/tranq/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
 	var/mob/living/L = target
@@ -313,7 +309,7 @@
 	sharp = 1
 	penetrating = 1
 
-	muzzle_type = /obj/effect/projectile/pulse_bullet/muzzle
+	muzzle_type = /obj/effect/projectile/muzzle/pulse
 
 /obj/item/projectile/bullet/flechette/explosive
 	shrapnel_type = /obj/item/weapon/material/shard/shrapnel/flechette

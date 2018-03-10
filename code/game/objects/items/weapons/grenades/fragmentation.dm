@@ -15,7 +15,7 @@ proc/fragem(var/source,var/fragx,var/fragy,var/light_dam,var/flash_dam,var/p_dam
 		P.shot_from = source
 		P.name = "[source]'s shrapnel"
 
-		P.launch(T)
+		P.launch_projectile(T)
 
 		if(can_cover)
 			for(var/mob/living/M in O)
