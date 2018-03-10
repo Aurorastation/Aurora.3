@@ -31,6 +31,9 @@
 /proc/Ceiling(x, y=1)
 	return -round(-x / y) * y
 
+/proc/Modulus(x, y)
+	return ( (x) - (y) * round((x) / (y)) )
+
 // Greatest Common Divisor: Euclid's algorithm.
 /proc/Gcd(a, b)
 	while (1)

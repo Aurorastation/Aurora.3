@@ -119,6 +119,10 @@
 			flashfail = 1
 
 	else if(issilicon(M))
+		if(isrobot(M))
+			var/mob/living/silicon/robot/R = M
+			if(R.overclocked)
+				return
 		M.Weaken(rand(5,10))
 	else
 		flashfail = 1

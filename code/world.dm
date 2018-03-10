@@ -22,9 +22,6 @@ var/global/datum/global_init/init = new ()
 	makeDatumRefLists()
 	load_configuration()
 
-	initialize_chemical_reagents()
-	initialize_chemical_reactions()
-
 	qdel(src) //we're done
 	init = null
 
@@ -368,7 +365,7 @@ var/list/world_api_rate_limit = list()
 		features += "hosted by <b>[config.hostedby]</b>"
 
 	if (features)
-		s += ": [list2text(features, ", ")]"
+		s += ": [jointext(features, ", ")]"
 
 	s = s.Join()
 

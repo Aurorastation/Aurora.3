@@ -133,7 +133,7 @@
 	if(silent || (sdisabilities & MUTE))
 		message = ""
 		speech_problem_flag = 1
-	else if(istype(wear_mask, /obj/item/clothing/mask))
+	else if(!src.is_diona() && istype(wear_mask, /obj/item/clothing/mask))
 		var/obj/item/clothing/mask/M = wear_mask
 		if(M.voicechange)
 			message = pick(M.say_messages)

@@ -75,7 +75,7 @@
 		var/obj/machinery/light/L = O
 		L.brightness_color = color
 		L.update()
-	else if(istype(O, /obj/item/clothing/suit/storage/det_trench/technicolor) || istype(O, /obj/item/clothing/head/det/technicolor))
+	else if(istype(O, /obj/item/clothing/suit/storage/toggle/det_trench/technicolor) || istype(O, /obj/item/clothing/head/det/technicolor))
 		return
 
 	else if(istype(O))
@@ -202,6 +202,14 @@
 			if(!glow)
 				new /obj/effect/decal/cleanable/greenglow(T)
 			return
+
+/datum/reagent/platinum
+	name ="Platinum"
+	id = "platinum"
+	description = "Platinum is a naturally occuring silvery metalic element."
+	reagent_state = SOLID
+	color = "#E0E0E0"
+	taste_description = "salty metalic miner tears"
 
 /datum/reagent/adrenaline
 	name = "Adrenaline"
@@ -359,6 +367,30 @@
 		return
 	if(volume >= 1)
 		T.wet_floor(2)
+
+/datum/reagent/cardox
+	name = "Cardox"
+	id = "cardox"
+	description = "Cardox is an expensive, NanoTrasen designed cleaner intended to eliminate liquid phoron stains from suits."
+	reagent_state = LIQUID
+	color = "#EEEEEE"
+	taste_description = "cherry"
+
+/datum/reagent/toxin/cardox/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+	.. ()
+	if(alien == IS_VAURCA)
+		affect_blood(M, alien, removed * 0.25)
+
+/datum/reagent/cardox/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_VAURCA)
+		M.adjustToxLoss(removed * 5)
+	else
+		M.adjustToxLoss(removed * 2)
+
+/datum/reagent/cardox/touch_turf(var/turf/T)
+	if(volume >= 1)
+		for(var/mob/living/carbon/slime/M in T)
+			M.adjustToxLoss(rand(10, 20))
 
 /datum/reagent/silicate
 	name = "Silicate"

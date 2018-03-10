@@ -35,4 +35,7 @@
 		,/area/bridge/aibunker
 		,/area/engineering/cooling
 		,/area/outpost/research/emergency_storage
+		,/area/bridge/selfdestruct
+		,/area/medical/cryo
+		,/area/medical/patient_c
 	)

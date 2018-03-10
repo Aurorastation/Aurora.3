@@ -1,22 +1,3 @@
-
-//Chemical Reactions - Initialises all /datum/chemical_reaction into a list
-// It is filtered into multiple lists within a list.
-// For example:
-// chemical_reaction_list["phoron"] is a list of all reactions relating to phoron
-// Note that entries in the list are NOT duplicated. So if a reaction pertains to
-// more than one chemical it will still only appear in only one of the sublists.
-/proc/initialize_chemical_reactions()
-	var/paths = typesof(/datum/chemical_reaction) - /datum/chemical_reaction
-	chemical_reactions_list = list()
-
-	for(var/path in paths)
-		var/datum/chemical_reaction/D = new path()
-		if(D.required_reagents && D.required_reagents.len)
-			var/reagent_id = D.required_reagents[1]
-			if(!chemical_reactions_list[reagent_id])
-				chemical_reactions_list[reagent_id] = list()
-			chemical_reactions_list[reagent_id] += D
-
 //helper that ensures the reaction rate holds after iterating
 //Ex. REACTION_RATE(0.3) means that 30% of the reagents will react each chemistry tick (~2 seconds by default).
 #define REACTION_RATE(rate) (1.0 - (1.0-rate)**(1.0/PROCESS_REACTION_ITER))
@@ -399,6 +380,13 @@
 	required_reagents = list("hydrazine" = 1, "anti_toxin" = 1, "ethanol" = 1)
 	result_amount = 3
 
+/datum/chemical_reaction/adipemcina
+	name = "Adipemcina"
+	id = "adipemcina"
+	result = "adipemcina"
+	required_reagents = list("lithium" = 1, "anti_toxin" = 1, "potassium" = 1)
+	result_amount = 3
+
 /datum/chemical_reaction/soporific
 	name = "Soporific"
 	id = "stoxin"
@@ -549,6 +537,28 @@
 	result = "paroxetine"
 	required_reagents = list("mindbreaker" = 1, "acetone" = 1, "inaprovaline" = 1)
 	result_amount = 3
+
+/datum/chemical_reaction/cardox
+	name = "Cardox"
+	id = "cardox"
+	result = "cardox"
+	required_reagents = list("platinum" = 1, "carbon" = 1, "sterilzine" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/cardox_removal
+	name = "Cardox Removal"
+	id = "cardox_removal"
+	result = "carbon"
+	required_reagents = list("cardox" = 0.1, "phoron" = 1)
+	result_amount = 0
+
+/datum/chemical_reaction/koispasteclean
+	name = "Filtered K'ois"
+	id = "koispasteclean"
+	result = "koispasteclean"
+	required_reagents = list("koispaste" = 2,"cardox" = 0.1)
+	catalysts = list("cardox" = 5)
+	result_amount = 1
 
 /* Solidification */
 
@@ -1526,6 +1536,19 @@
 	result = "browniemix"
 	required_reagents = list("flour" = 5, "coco" = 5, "sugar" = 5)
 	result_amount = 15
+
+/datum/chemical_reaction/butter
+	name = "Butter"
+	id = "butter"
+	result = null
+	required_reagents = list("cream" = 20, "sodiumchloride" = 1)
+	result_amount = 1
+
+/datum/chemical_reaction/butter/on_reaction(var/datum/reagents/holder, var/created_volume)
+	var/location = get_turf(holder.my_atom)
+	for(var/i = 1, i <= created_volume, i++)
+		new /obj/item/weapon/reagent_containers/food/snacks/spreads/butter(location)
+	return
 
 /*
 	Todo in future:
@@ -2509,6 +2532,114 @@
 	id = "dr_daniels"
 	result = "dr_daniels"
 	required_reagents = list("dr_gibb_diet" = 3, "whiskey" = 1, "honey" = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/meatshake
+	name = "Meatshake"
+	id = "meatshake"
+	result = "meatshake"
+	required_reagents = list("cream" = 1, "protein" = 1,"water" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/crocodile_booze
+	name = "Crocodile Guwan"
+	id = "crocodile_booze"
+	result = "crocodile_booze"
+	required_reagents = list("sarezhiwine" = 5, "toxin" = 1)
+	result_amount = 6
+
+//Kaed's Unathi cocktails
+//========
+
+/datum/chemical_reaction/moghesmargarita
+	name = "Moghes Margarita"
+	id = "moghesmargarita"
+	result = "moghesmargarita"
+	required_reagents = list("xuizijuice" = 2, "limejuice" = 3)
+	result_amount = 5
+
+/datum/chemical_reaction/bahamalizard
+	name = "Bahama Lizard"
+	id = "bahamalizard"
+	result = "bahamalizard"
+	required_reagents = list("xuizijuice" = 2, "orangejuice" = 2, "limejuice" = 1, "ice" = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/cactuscreme
+	name = "Cactus Creme"
+	id = "cactuscreme"
+	result = "cactuscreme"
+	required_reagents = list("berryjuice" = 2, "cream" = 1, "xuizijuice" = 2)
+	result_amount = 5
+
+/datum/chemical_reaction/lizardplegm
+	name = "Lizard Phlegm"
+	id = "lizardphlegm"
+	result = "lizardphlegm"
+	required_reagents = list("cream" = 2, "banana" = 1, "xuizijuice" = 1, "watermelonjuice" = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/cactustea
+	name = "Cactus Tea"
+	id = "cactustea"
+	result = "cactustea"
+	required_reagents = list("icetea" = 1, "xuizijuice" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/moghespolitan
+	name = "Moghespolitan"
+	id = "moghespolitan"
+	result = "moghespolitan"
+	required_reagents = list("sarezhiwine" = 2, "xuizijuice" = 1, "grenadine" = 5)
+	result_amount = 5
+
+/datum/chemical_reaction/wastelandheat
+	name = "Wasteland Heat"
+	id = "wastelandheat"
+	result = "wastelandheat"
+	required_reagents = list("xuizi" = 10, "capsaicin" = 3)
+	result_amount = 10
+
+/datum/chemical_reaction/sandgria
+	name = "Sandgria"
+	id = "sandgria"
+	result = "sandgria"
+	required_reagents = list("sarezhiwine" = 3, "orangejuice" = 1, "lemonjuice" = 1, "xuizijuice" = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/contactwine
+	name = "Contact Wine"
+	id = "contactwine"
+	result = "contactwine"
+	required_reagents = list("xuizijuice" = 5, "radium" = 1, "sarezhiwine" = 5)
+	result_amount = 10
+
+/datum/chemical_reaction/hereticblood
+	name = "Heretics' Blood"
+	id = "hereticblood"
+	result = "hereticblood"
+	required_reagents = list("xuizijuice" = 3, "spacemountainwind" = 1, "blood" = 1, "dr_gibb" = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/sandpit
+	name = "Sandpit"
+	id = "sandpit"
+	result = "sandpit"
+	required_reagents = list("xuizijuice" = 2, "orangejuice" = 2)
+	result_amount = 4
+
+/datum/chemical_reaction/cactuscola
+	name = "Cactus Cola"
+	id = "cactuscola"
+	result = "cactuscola"
+	required_reagents = list("xuizijuice" = 2, "cola" = 2, "ice" = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/bloodwine
+	name = "Bloodwine"
+	id = "bloodwine"
+	result = "bloodwine"
+	required_reagents = list("blood" = 2, "sarezhiwine" = 3)
 	result_amount = 5
 
 //transmutation

@@ -2325,20 +2325,6 @@
 	},
 /turf/space/transit/north/shuttlespace_ns15,
 /area/template_noop)
-"afN" = (
-/obj/effect/landmark{
-	name = "Penguin Spawn Random"
-	},
-/obj/structure/flora/tree/dead,
-/turf/simulated/floor/holofloor/snow,
-/area/holodeck/source_snowfield)
-"afO" = (
-/obj/effect/landmark{
-	name = "Penguin Spawn Emperor"
-	},
-/obj/structure/flora/tree/pine,
-/turf/simulated/floor/holofloor/snow,
-/area/holodeck/source_snowfield)
 "afP" = (
 /turf/simulated/floor/holofloor/lino,
 /area/holodeck/source_meetinghall)
@@ -3508,9 +3494,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/plating,
 /area/template_noop)
-"ajn" = (
-/turf/simulated/mineral,
-/area/shuttle/escape_pod2/centcom)
 "ajo" = (
 /obj/effect/step_trigger/thrower{
 	affect_ghosts = 1;
@@ -3589,13 +3572,6 @@
 "ajC" = (
 /turf/space/transit/north/shuttlespace_ns4,
 /area/shuttle/escape_pod3/transit)
-"ajD" = (
-/turf/space,
-/turf/simulated/shuttle/wall/dark{
-	dir = 5;
-	icon_state = "diagonalWall3"
-	},
-/area/space)
 "ajE" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -3640,19 +3616,6 @@
 	},
 /turf/simulated/shuttle/wall/dark,
 /area/template_noop)
-"ajM" = (
-/turf/space,
-/turf/simulated/shuttle/wall/dark{
-	dir = 4;
-	icon_state = "diagonalWall3"
-	},
-/area/space)
-"ajN" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
-/turf/template_noop,
-/area/template_noop)
 "ajO" = (
 /turf/space/transit/north/shuttlespace_ns7,
 /area/shuttle/escape_pod1/transit)
@@ -3690,13 +3653,6 @@
 	dir = 8
 	},
 /area/template_noop)
-"ajY" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall/dark{
-	dir = 6;
-	icon_state = "diagonalWall3"
-	},
-/area/template_noop)
 "ajZ" = (
 /turf/space/transit/north/shuttlespace_ns12,
 /area/shuttle/escape_pod1/transit)
@@ -3715,13 +3671,6 @@
 	},
 /turf/space/transit/north/shuttlespace_ns12,
 /area/template_noop)
-"akd" = (
-/turf/space,
-/turf/simulated/shuttle/wall/dark{
-	dir = 8;
-	icon_state = "diagonalWall3"
-	},
-/area/shuttle/syndicate_elite/mothership)
 "ake" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_r";
@@ -3743,22 +3692,6 @@
 	},
 /turf/template_noop,
 /area/shuttle/syndicate_elite/mothership)
-"akh" = (
-/turf/space,
-/turf/simulated/shuttle/wall/dark{
-	dir = 6;
-	icon_state = "diagonalWall3"
-	},
-/area/shuttle/syndicate_elite/mothership)
-"aki" = (
-/turf/space,
-/turf/simulated/shuttle/wall/dark{
-	dir = 5;
-	icon_state = "diagonalWall3"
-	},
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
 "akj" = (
 /turf/simulated/shuttle/wall/dark,
 /area/syndicate_mothership{
@@ -3777,15 +3710,6 @@
 	dir = 1
 	},
 /turf/simulated/shuttle/plating,
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
-"akl" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall/dark{
-	dir = 6;
-	icon_state = "diagonalWall3"
-	},
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
@@ -4153,13 +4077,6 @@
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"ala" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall/dark{
-	dir = 5;
-	icon_state = "diagonalWall3"
-	},
-/area/template_noop)
 "alb" = (
 /obj/machinery/door/airlock/external{
 	name = "Shuttle Airlock";
@@ -4260,14 +4177,6 @@
 	icon_state = "floor4"
 	},
 /area/shuttle/syndicate_elite/mothership)
-"aln" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall/dark{
-	icon_state = "diagonalWall3"
-	},
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
 "alo" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_l"
@@ -4290,15 +4199,6 @@
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"alr" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall/dark{
-	dir = 4;
-	icon_state = "diagonalWall3"
-	},
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
 "als" = (
 /obj/effect/step_trigger/thrower{
 	affect_ghosts = 1;
@@ -4308,13 +4208,6 @@
 	},
 /turf/space/transit/north/shuttlespace_ns8,
 /area/template_noop)
-"alt" = (
-/turf/space,
-/turf/simulated/shuttle/wall/dark{
-	dir = 5;
-	icon_state = "diagonalWall3"
-	},
-/area/shuttle/syndicate_elite/mothership)
 "alu" = (
 /obj/machinery/door/airlock/external{
 	name = "Shuttle Airlock";
@@ -4328,13 +4221,6 @@
 	opacity = 1
 	},
 /turf/simulated/shuttle/plating,
-/area/shuttle/syndicate_elite/mothership)
-"alv" = (
-/turf/space,
-/turf/simulated/shuttle/wall/dark{
-	dir = 4;
-	icon_state = "diagonalWall3"
-	},
 /area/shuttle/syndicate_elite/mothership)
 "alw" = (
 /turf/template_noop,
@@ -4510,13 +4396,6 @@
 	icon_state = "grimy"
 	},
 /area/syndicate_mothership)
-"alR" = (
-/turf/space,
-/turf/simulated/shuttle/wall/dark{
-	dir = 8;
-	icon_state = "diagonalWall3"
-	},
-/area/syndicate_station/start)
 "alS" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -4567,13 +4446,6 @@
 	opacity = 0
 	},
 /turf/simulated/shuttle/plating,
-/area/syndicate_station/start)
-"alV" = (
-/turf/space,
-/turf/simulated/shuttle/wall/dark{
-	dir = 6;
-	icon_state = "diagonalWall3"
-	},
 /area/syndicate_station/start)
 "alW" = (
 /obj/structure/window/reinforced{
@@ -5012,13 +4884,6 @@
 	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor6"
-	},
-/area/syndicate_station/start)
-"amS" = (
-/turf/space,
-/turf/simulated/shuttle/wall/dark{
-	dir = 4;
-	icon_state = "diagonalWall3"
 	},
 /area/syndicate_station/start)
 "amT" = (
@@ -6860,16 +6725,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
-"aqk" = (
-/turf/simulated/floor/asteroid/ash,
-/area/template_noop)
-"aql" = (
-/turf/space,
-/turf/simulated/shuttle/wall/dark{
-	dir = 5;
-	icon_state = "diagonalWall3"
-	},
-/area/syndicate_station/start)
 "aqm" = (
 /obj/effect/floor_decal/industrial/loading,
 /obj/machinery/door/airlock/hatch{
@@ -6929,12 +6784,6 @@
 "aqu" = (
 /obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/tiled,
-/area/merchant_station)
-"aqv" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/asteroid/ash,
 /area/merchant_station)
 "aqw" = (
 /turf/unsimulated/wall/riveted,
@@ -7920,22 +7769,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/merchant_ship/start)
-"asN" = (
-/obj/effect/floor_decal/carpet,
-/obj/effect/floor_decal/carpet{
-	icon_state = "carpet_edges";
-	dir = 4
-	},
-/obj/effect/floor_decal/carpet{
-	icon_state = "carpet_edges";
-	dir = 6
-	},
-/obj/structure/table/reinforced,
-/obj/machinery/light,
-/obj/item/weapon/storage/secure/briefcase,
-/obj/item/device/price_scanner,
-/turf/simulated/floor/carpet,
-/area/merchant_ship/start)
 "asO" = (
 /obj/structure/table/rack,
 /obj/item/weapon/gun/energy/sniperrifle,
@@ -8512,10 +8345,6 @@
 	dir = 4
 	},
 /area/centcom/suppy)
-"auh" = (
-/obj/machinery/light/small,
-/turf/simulated/floor/asteroid/ash,
-/area/merchant_station)
 "aui" = (
 /turf/simulated/shuttle/floor{
 	icon_state = "floor6"
@@ -13345,20 +13174,8 @@
 	icon_state = "floor3"
 	},
 /area/shuttle/escape/centcom)
-"aDK" = (
-/obj/machinery/computer/station_alert,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
 "aDL" = (
 /obj/machinery/computer/shuttle_control/emergency,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
-"aDM" = (
-/obj/item/modular_computer/console/preset/command,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
@@ -13444,33 +13261,7 @@
 	fixed_underlay = list("icon" = 'icons/turf/shuttle.dmi', "icon_state" = "floor")
 	},
 /area/shuttle/escape/centcom)
-"aDY" = (
-/obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/fire,
-/obj/item/weapon/extinguisher,
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle Bridge West"
-	},
-/turf/simulated/shuttle/floor,
-/area/shuttle/escape/centcom)
-"aDZ" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
-/turf/simulated/shuttle/floor,
-/area/shuttle/escape/centcom)
 "aEa" = (
-/turf/simulated/shuttle/floor,
-/area/shuttle/escape/centcom)
-"aEb" = (
-/obj/machinery/status_display{
-	pixel_y = 30
-	},
-/obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/toxin,
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle Bridge East"
-	},
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
 "aEc" = (
@@ -13530,27 +13321,8 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding)
-"aEj" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
-	id_tag = "escape_shuttle";
-	pixel_x = 0;
-	pixel_y = -25;
-	req_one_access = list(13);
-	tag_door = "escape_shuttle_hatch"
-	},
-/turf/simulated/shuttle/floor,
-/area/shuttle/escape/centcom)
 "aEk" = (
 /obj/machinery/hologram/holopad,
-/turf/simulated/shuttle/floor,
-/area/shuttle/escape/centcom)
-"aEl" = (
-/obj/machinery/light,
-/obj/structure/closet/walllocker/emerglocker{
-	pixel_x = 0;
-	pixel_y = -32
-	},
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
 "aEm" = (
@@ -13627,14 +13399,6 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding)
-"aEu" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
-/turf/simulated/shuttle/floor,
-/area/shuttle/escape/centcom)
 "aEv" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -13649,16 +13413,6 @@
 	icon_state = "floor3"
 	},
 /area/shuttle/escape/centcom)
-"aEx" = (
-/obj/structure/AIcore/deactivated,
-/turf/simulated/shuttle/floor,
-/area/shuttle/escape/centcom)
-"aEy" = (
-/obj/machinery/computer/crew,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
 "aEz" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -13666,12 +13420,6 @@
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
-/area/shuttle/escape/centcom)
-"aEA" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
 "aEB" = (
 /turf/unsimulated/wall/riveted,
@@ -13698,13 +13446,6 @@
 	dir = 4
 	},
 /area/centcom/holding)
-"aEF" = (
-/obj/machinery/door/airlock/glass_command{
-	name = "Escape Shuttle Cockpit";
-	req_access = list(19)
-	},
-/turf/simulated/shuttle/floor,
-/area/shuttle/escape/centcom)
 "aEG" = (
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
@@ -13833,38 +13574,6 @@
 	icon_state = "bot"
 	},
 /area/centcom/holding)
-"aES" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/shuttle/floor4,
-/area/shuttle/escape/centcom)
-"aET" = (
-/obj/machinery/status_display{
-	pixel_y = 30
-	},
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle Cell"
-	},
-/turf/simulated/shuttle/floor4,
-/area/shuttle/escape/centcom)
-"aEU" = (
-/obj/item/device/radio/intercom{
-	dir = 4;
-	name = "Station Intercom (General)";
-	pixel_x = 30
-	},
-/obj/structure/bed/chair{
-	dir = 8
-	},
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/shuttle/floor4,
-/area/shuttle/escape/centcom)
 "aEV" = (
 /obj/structure/bed/chair,
 /obj/effect/landmark{
@@ -13905,22 +13614,6 @@
 /obj/structure/grille,
 /obj/structure/window/shuttle,
 /turf/simulated/shuttle/plating,
-/area/shuttle/escape/centcom)
-"aFb" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
-/turf/simulated/shuttle/floor4,
-/area/shuttle/escape/centcom)
-"aFc" = (
-/obj/machinery/hologram/holopad,
-/turf/simulated/shuttle/floor4,
-/area/shuttle/escape/centcom)
-"aFd" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
-/turf/simulated/shuttle/floor4,
 /area/shuttle/escape/centcom)
 "aFe" = (
 /obj/item/clothing/head/collectable/paper,
@@ -13995,14 +13688,6 @@
 	name = "grass"
 	},
 /area/centcom/holding)
-"aFo" = (
-/turf/simulated/shuttle/wall{
-	fixed_underlay = list("icon" = 'icons/turf/shuttle.dmi', "icon_state" = "floor3")
-	},
-/area/shuttle/escape/centcom)
-"aFp" = (
-/turf/simulated/shuttle/floor4,
-/area/shuttle/escape/centcom)
 "aFq" = (
 /turf/unsimulated/floor{
 	icon_state = "sandwater"
@@ -14093,26 +13778,6 @@
 	dir = 4
 	},
 /area/centcom/holding)
-"aFC" = (
-/obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/fire,
-/obj/item/weapon/storage/firstaid/regular{
-	pixel_x = 2;
-	pixel_y = 3
-	},
-/obj/item/weapon/extinguisher,
-/obj/item/weapon/crowbar,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
-"aFD" = (
-/obj/machinery/door/airlock/glass_security{
-	name = "Escape Shuttle Cell";
-	req_access = list(2)
-	},
-/turf/simulated/shuttle/floor4,
-/area/shuttle/escape/centcom)
 "aFE" = (
 /turf/unsimulated/beach/coastline{
 	density = 1;
@@ -14257,12 +13922,6 @@
 	},
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
-"aFX" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle Center"
-	},
-/turf/simulated/shuttle/floor,
-/area/shuttle/escape/centcom)
 "aFY" = (
 /turf/unsimulated/beach/water{
 	density = 1;
@@ -14322,56 +13981,6 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding)
-"aGh" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	name = "Station Intercom (General)";
-	pixel_x = -28
-	},
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle West";
-	dir = 4
-	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
-"aGi" = (
-/obj/structure/window/shuttle,
-/obj/machinery/status_display{
-	layer = 4;
-	pixel_x = 0;
-	pixel_y = 0
-	},
-/obj/structure/grille,
-/turf/simulated/shuttle/plating,
-/area/shuttle/escape/centcom)
-"aGj" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
-/obj/structure/closet/walllocker/emerglocker{
-	pixel_x = 28
-	},
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle East";
-	dir = 8
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
 "aGk" = (
 /obj/machinery/light/spot,
 /turf/unsimulated/floor{
@@ -14693,38 +14302,6 @@
 	dir = 8
 	},
 /area/centcom/holding)
-"aGT" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
-/obj/structure/closet/walllocker/emerglocker{
-	pixel_x = -28
-	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
-"aGU" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
-/obj/item/device/radio/intercom{
-	dir = 4;
-	name = "Station Intercom (General)";
-	pixel_x = 30
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
 "aGV" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -14854,13 +14431,6 @@
 	id_tag = "shuttle_dock_south_mech";
 	pixel_y = 19
 	},
-/turf/simulated/shuttle/floor,
-/area/shuttle/escape/centcom)
-"aHj" = (
-/obj/machinery/status_display{
-	pixel_y = -30
-	},
-/obj/machinery/light,
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
 "aHk" = (
@@ -15002,27 +14572,6 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding)
-"aHA" = (
-/obj/machinery/door/airlock/glass_mining{
-	name = "Shuttle Cargo"
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor2"
-	},
-/area/shuttle/escape/centcom)
-"aHB" = (
-/obj/structure/window/shuttle,
-/turf/simulated/shuttle/plating,
-/area/shuttle/escape/centcom)
-"aHC" = (
-/obj/machinery/door/airlock/glass_medical{
-	name = "Escape Shuttle Infirmary";
-	req_access = list(5)
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
 "aHD" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -15203,91 +14752,9 @@
 	icon_state = "floor3"
 	},
 /area/shuttle/escape/centcom)
-"aIa" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/oxygen/prechilled,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
 "aIb" = (
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
-"aIc" = (
-/obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{
-	pixel_x = -4;
-	pixel_y = 0
-	},
-/obj/item/weapon/wrench,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
-"aId" = (
-/obj/structure/closet/crate/medical,
-/obj/item/weapon/storage/firstaid/regular{
-	pixel_x = -2;
-	pixel_y = 4
-	},
-/obj/item/weapon/storage/firstaid/regular{
-	pixel_x = -2;
-	pixel_y = 4
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = 5
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = 5
-	},
-/obj/item/weapon/storage/firstaid/o2{
-	layer = 2.8;
-	pixel_x = 4;
-	pixel_y = 6
-	},
-/obj/item/weapon/storage/box/masks{
-	pixel_x = 0;
-	pixel_y = 0
-	},
-/obj/item/weapon/storage/box/gloves{
-	pixel_x = 3;
-	pixel_y = 4
-	},
-/obj/item/weapon/storage/firstaid/toxin,
-/obj/item/weapon/storage/firstaid/fire{
-	layer = 2.9;
-	pixel_x = 2;
-	pixel_y = 3
-	},
-/obj/item/weapon/storage/firstaid/adv{
-	pixel_x = -2
-	},
-/obj/item/weapon/reagent_containers/blood/empty,
-/obj/item/weapon/reagent_containers/blood/empty,
-/obj/item/weapon/reagent_containers/blood/empty,
-/obj/item/weapon/reagent_containers/blood/empty,
-/obj/item/weapon/reagent_containers/blood/empty,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
-"aIe" = (
-/obj/structure/closet/hydrant{
-	pixel_x = -30;
-	pixel_y = 0
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor2"
-	},
-/area/shuttle/escape/centcom)
-"aIf" = (
-/obj/structure/closet/walllocker/emerglocker{
-	pixel_x = 28
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor2"
 	},
 /area/shuttle/escape/centcom)
 "aIg" = (
@@ -15427,82 +14894,6 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding)
-"aIx" = (
-/obj/structure/closet/crate/freezer/rations,
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle West Storage";
-	dir = 4
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor2"
-	},
-/area/shuttle/escape/centcom)
-"aIy" = (
-/obj/structure/closet/crate/freezer/rations,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor2"
-	},
-/area/shuttle/escape/centcom)
-"aIz" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
-	dir = 5
-	},
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle Medical";
-	dir = 4
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
-"aIA" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
-	dir = 9
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
-"aIB" = (
-/obj/machinery/vending/wallmed1{
-	layer = 3.3;
-	name = "Emergency NanoMed";
-	pixel_x = 28;
-	pixel_y = 0
-	},
-/obj/structure/bed/chair{
-	dir = 8
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
-"aIC" = (
-/obj/machinery/recharge_station,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor2"
-	},
-/area/shuttle/escape/centcom)
-"aID" = (
-/obj/machinery/recharge_station,
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle East Storage";
-	dir = 8
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor2"
-	},
-/area/shuttle/escape/centcom)
 "aIE" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -15794,17 +15185,6 @@
 	},
 /turf/simulated/shuttle/plating,
 /area/shuttle/escape/centcom)
-"aJi" = (
-/obj/machinery/iv_drip,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
 "aJj" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/shuttle/floor{
@@ -15813,20 +15193,6 @@
 /area/shuttle/escape/centcom)
 "aJk" = (
 /obj/structure/bed/roller,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
-"aJl" = (
-/obj/structure/bed/roller,
-/obj/item/device/radio/intercom{
-	dir = 4;
-	name = "Station Intercom (General)";
-	pixel_x = 30
-	},
-/obj/machinery/light{
-	dir = 4
-	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
@@ -15988,15 +15354,6 @@
 "aJE" = (
 /obj/machinery/sleeper{
 	dir = 4
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
-"aJF" = (
-/obj/machinery/sleeper{
-	icon_state = "sleeper_0";
-	dir = 8
 	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
@@ -16179,13 +15536,6 @@
 	},
 /turf/simulated/shuttle/plating,
 /area/shuttle/escape/centcom)
-"aKc" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/shuttle/engine/heater,
-/turf/simulated/shuttle/plating,
-/area/shuttle/escape/centcom)
 "aKd" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -16360,12 +15710,6 @@
 	dir = 4
 	},
 /area/centcom/spawning)
-"aKv" = (
-/obj/machinery/light/spot,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
-/area/centcom/holding)
 "aKw" = (
 /obj/structure/table/rack,
 /obj/item/clothing/under/vox/vox_casual,
@@ -18223,20 +17567,6 @@
 	name = "plating"
 	},
 /area/centcom/spawning)
-"aOp" = (
-/turf/space,
-/turf/simulated/shuttle/wall/dark{
-	dir = 8;
-	icon_state = "diagonalWall3"
-	},
-/area/skipjack_station/start)
-"aOq" = (
-/turf/space,
-/turf/simulated/shuttle/wall/dark{
-	dir = 6;
-	icon_state = "diagonalWall3"
-	},
-/area/skipjack_station/start)
 "aOr" = (
 /obj/structure/window/reinforced/holowindow{
 	dir = 4
@@ -19916,13 +19246,6 @@
 	dir = 5
 	},
 /area/wizard_station)
-"aRU" = (
-/turf/space,
-/turf/simulated/shuttle/wall/dark{
-	dir = 5;
-	icon_state = "diagonalWall3"
-	},
-/area/skipjack_station/start)
 "aRV" = (
 /obj/structure/shuttle/engine/heater,
 /obj/structure/window/reinforced{
@@ -19940,13 +19263,6 @@
 	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
-	},
-/area/skipjack_station/start)
-"aRX" = (
-/turf/space,
-/turf/simulated/shuttle/wall/dark{
-	dir = 4;
-	icon_state = "diagonalWall3"
 	},
 /area/skipjack_station/start)
 "aRY" = (
@@ -20671,13 +19987,6 @@
 	icon_state = "cult"
 	},
 /area/wizard_station)
-"aTx" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall/dark{
-	dir = 5;
-	icon_state = "diagonalWall3"
-	},
-/area/skipjack_station/start)
 "aTy" = (
 /obj/machinery/cryopod/robot,
 /turf/unsimulated/floor{
@@ -22097,27 +21406,69 @@
 	},
 /area/tdome/tdomeadmin)
 "aWL" = (
-/turf/space,
-/turf/simulated/shuttle/wall/dark{
-	dir = 5;
-	icon_state = "diagonalWall3"
+/obj/effect/landmark{
+	name = "Penguin Spawn Random"
 	},
-/area/syndicate_station/start)
+/obj/structure/flora/tree/dead,
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_snowfield)
 "aWM" = (
+/obj/effect/landmark{
+	name = "Penguin Spawn Emperor"
+	},
+/obj/structure/flora/tree/pine,
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_snowfield)
+"aWN" = (
+/obj/effect/landmark{
+	name = "Penguin Spawn Random"
+	},
+/obj/structure/flora/tree/dead,
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_snowfield)
+"aWO" = (
+/obj/effect/landmark{
+	name = "Penguin Spawn Random"
+	},
+/obj/structure/flora/tree/dead,
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_snowfield)
+"aWP" = (
 /turf/space,
 /turf/simulated/shuttle/wall/dark{
 	dir = 5;
 	icon_state = "diagonalWall3"
 	},
-/area/syndicate_station/start)
-"aWN" = (
+/area/space)
+"aWQ" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/space)
+"aWR" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/space)
+"aWS" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 8;
+	icon_state = "diagonalWall3"
+	},
+/area/shuttle/syndicate_elite/mothership)
+"aWT" = (
 /turf/space,
 /turf/simulated/shuttle/wall/dark{
 	dir = 6;
 	icon_state = "diagonalWall3"
 	},
-/area/space)
-"aWO" = (
+/area/shuttle/syndicate_elite/mothership)
+"aWU" = (
 /turf/space,
 /turf/simulated/shuttle/wall/dark{
 	dir = 8;
@@ -22126,7 +21477,7 @@
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aWP" = (
+"aWV" = (
 /turf/space,
 /turf/simulated/shuttle/wall/dark{
 	dir = 6;
@@ -22135,7 +21486,14 @@
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aWQ" = (
+"aWW" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 6;
+	icon_state = "diagonalWall3"
+	},
+/area/space)
+"aWX" = (
 /obj/structure/table/rack,
 /obj/item/weapon/storage/toolbox/syndicate,
 /turf/simulated/shuttle/floor{
@@ -22144,7 +21502,51 @@
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"aWR" = (
+"aWY" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/space)
+"aWZ" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/space)
+"aXa" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/space)
+"aXb" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/space)
+"aXc" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/space)
+"aXd" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aXe" = (
 /turf/space,
 /turf/simulated/shuttle/wall/dark{
 	dir = 4;
@@ -22153,6 +21555,6744 @@
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
+"aXf" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/shuttle/syndicate_elite/mothership)
+"aXg" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/shuttle/syndicate_elite/mothership)
+"aXh" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/shuttle/syndicate_elite/mothership)
+"aXi" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/shuttle/syndicate_elite/mothership)
+"aXj" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 8;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_station/start)
+"aXk" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 6;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_station/start)
+"aXl" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 8;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_station/start)
+"aXm" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 6;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_station/start)
+"aXn" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_station/start)
+"aXo" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 8;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_station/start)
+"aXp" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 6;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_station/start)
+"aXq" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 8;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_station/start)
+"aXr" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 6;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_station/start)
+"aXs" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 8;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_station/start)
+"aXt" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 6;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_station/start)
+"aXu" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_station/start)
+"aXv" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_station/start)
+"aXw" = (
+/turf/simulated/floor/asteroid/ash,
+/area/template_noop)
+"aXx" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_station/start)
+"aXy" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_station/start)
+"aXz" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_station/start)
+"aXA" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_station/start)
+"aXB" = (
+/turf/simulated/floor/asteroid/ash,
+/area/template_noop)
+"aXC" = (
+/turf/simulated/floor/asteroid/ash,
+/area/template_noop)
+"aXD" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/asteroid/ash,
+/area/merchant_station)
+"aXE" = (
+/turf/simulated/floor/asteroid/ash,
+/area/template_noop)
+"aXF" = (
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 6
+	},
+/obj/structure/table/reinforced,
+/obj/machinery/light,
+/obj/item/weapon/storage/secure/briefcase,
+/obj/item/device/price_scanner,
+/turf/simulated/floor/carpet,
+/area/merchant_ship/start)
+"aXG" = (
+/turf/simulated/floor/asteroid/ash,
+/area/template_noop)
+"aXH" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/asteroid/ash,
+/area/merchant_station)
+"aXI" = (
+/turf/simulated/floor/asteroid/ash,
+/area/template_noop)
+"aXJ" = (
+/turf/simulated/floor/asteroid/ash,
+/area/template_noop)
+"aXK" = (
+/turf/simulated/floor/asteroid/ash,
+/area/template_noop)
+"aXL" = (
+/turf/simulated/floor/asteroid/ash,
+/area/template_noop)
+"aXM" = (
+/turf/simulated/floor/asteroid/ash,
+/area/template_noop)
+"aXN" = (
+/turf/simulated/floor/asteroid/ash,
+/area/template_noop)
+"aXO" = (
+/turf/simulated/floor/asteroid/ash,
+/area/template_noop)
+"aXP" = (
+/turf/simulated/floor/asteroid/ash,
+/area/template_noop)
+"aXQ" = (
+/turf/simulated/floor/asteroid/ash,
+/area/template_noop)
+"aXR" = (
+/turf/simulated/floor/asteroid/ash,
+/area/template_noop)
+"aXS" = (
+/turf/simulated/floor/asteroid/ash,
+/area/template_noop)
+"aXT" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/shuttle/escape/centcom)
+"aXU" = (
+/obj/item/modular_computer/console/preset/medical,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aXV" = (
+/obj/structure/table/standard,
+/obj/item/weapon/storage/firstaid/regular{
+	pixel_x = 2;
+	pixel_y = 3
+	},
+/obj/item/weapon/storage/firstaid/fire,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aXW" = (
+/obj/structure/table/standard,
+/obj/item/weapon/crowbar,
+/obj/item/weapon/extinguisher,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aXX" = (
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aXY" = (
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aXZ" = (
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYa" = (
+/obj/item/modular_computer/console/preset/research,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYb" = (
+/obj/item/modular_computer/console/preset/engineering,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYc" = (
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYd" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/banner,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/shuttle/escape/centcom)
+"aYe" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/item/modular_computer/console/preset/captain,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/shuttle/escape/centcom)
+"aYf" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/computer/station_alert/all,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/shuttle/escape/centcom)
+"aYg" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/item/modular_computer/console/preset/captain,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/shuttle/escape/centcom)
+"aYh" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/banner,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/shuttle/escape/centcom)
+"aYi" = (
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
+	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "escape_shuttle";
+	pixel_x = 25;
+	pixel_y = 0;
+	req_one_access = list(13);
+	tag_door = "escape_shuttle_hatch"
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYj" = (
+/obj/structure/closet/walllocker/emerglocker/west,
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
+"aYk" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled/ramp/bottom{
+	icon_state = "rampbot";
+	dir = 8
+	},
+/area/shuttle/escape/centcom)
+"aYl" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/shuttle/escape/centcom)
+"aYm" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/shuttle/escape/centcom)
+"aYn" = (
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/shuttle/escape/centcom)
+"aYo" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/shuttle/escape/centcom)
+"aYp" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/shuttle/escape/centcom)
+"aYq" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled/ramp/bottom{
+	icon_state = "rampbot";
+	dir = 4
+	},
+/area/shuttle/escape/centcom)
+"aYr" = (
+/obj/structure/closet/walllocker/emerglocker/east,
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
+"aYs" = (
+/obj/machinery/door/airlock/glass_command{
+	name = "Cockpit";
+	req_access = list(19)
+	},
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
+"aYt" = (
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/wall,
+/area/shuttle/escape/centcom)
+"aYu" = (
+/obj/machinery/door/airlock/glass_command{
+	name = "Cockpit";
+	req_access = list(19)
+	},
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
+"aYv" = (
+/obj/structure/bed/chair,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYw" = (
+/obj/structure/bed/chair,
+/obj/structure/closet/walllocker/emerglocker/north,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYx" = (
+/obj/structure/bed/chair,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYy" = (
+/obj/structure/bed/chair,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYz" = (
+/obj/structure/table/standard,
+/obj/item/weapon/storage/firstaid/regular{
+	pixel_x = 2;
+	pixel_y = 3
+	},
+/obj/item/weapon/storage/firstaid/fire,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYA" = (
+/obj/structure/bed/chair,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYB" = (
+/obj/structure/bed/chair,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYC" = (
+/obj/structure/bed/chair,
+/obj/structure/closet/walllocker/emerglocker/north,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYD" = (
+/obj/structure/bed/chair,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYE" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYF" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYG" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYH" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYI" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYJ" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYK" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYL" = (
+/obj/structure/closet/walllocker/emerglocker/west,
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYM" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYN" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYO" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYP" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYQ" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYR" = (
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/wall,
+/area/shuttle/escape/centcom)
+"aYS" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYT" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYU" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYV" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYW" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYX" = (
+/obj/structure/closet/walllocker/emerglocker/east,
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYY" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aYZ" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZa" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZb" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZc" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZd" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZe" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZf" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZg" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZh" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZi" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZj" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZk" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZl" = (
+/obj/structure/window/reinforced,
+/obj/structure/closet/walllocker/emerglocker/west,
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZm" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZn" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZo" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZp" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZq" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZr" = (
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/wall,
+/area/shuttle/escape/centcom)
+"aZs" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZt" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZu" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZv" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZw" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZx" = (
+/obj/structure/window/reinforced,
+/obj/structure/closet/walllocker/emerglocker/east,
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZy" = (
+/obj/machinery/light,
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
+"aZz" = (
+/obj/machinery/hologram/holopad,
+/obj/machinery/light,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZA" = (
+/obj/machinery/light,
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
+"aZB" = (
+/obj/machinery/door/airlock/glass_medical{
+	name = "Infirmary";
+	req_access = list(5)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZC" = (
+/obj/machinery/door/airlock/glass_mining{
+	name = "Cargo"
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/shuttle/escape/centcom)
+"aZD" = (
+/obj/machinery/door/airlock/glass_security{
+	name = "Holding Cell";
+	req_access = list(2)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/escape/centcom)
+"aZE" = (
+/obj/machinery/iv_drip,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZF" = (
+/obj/machinery/recharge_station,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/shuttle/escape/centcom)
+"aZG" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/shuttle/escape/centcom)
+"aZH" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/shuttle/escape/centcom)
+"aZI" = (
+/obj/structure/bed/chair,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/escape/centcom)
+"aZJ" = (
+/obj/structure/bed/chair,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/escape/centcom)
+"aZK" = (
+/obj/structure/bed/chair,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/escape/centcom)
+"aZL" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/escape/centcom)
+"aZM" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/escape/centcom)
+"aZN" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZO" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/shuttle/escape/centcom)
+"aZP" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/escape/centcom)
+"aZQ" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/escape/centcom)
+"aZR" = (
+/obj/machinery/door/window/brigdoor{
+	name = "Holding Cell";
+	req_access = list(2)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/escape/centcom)
+"aZS" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/escape/centcom)
+"aZT" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/escape/centcom)
+"aZU" = (
+/obj/structure/table/standard,
+/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{
+	pixel_x = -4;
+	pixel_y = 0
+	},
+/obj/structure/closet/walllocker/emerglocker/south,
+/obj/machinery/vending/wallmed1{
+	layer = 3.3;
+	name = "Emergency NanoMed";
+	pixel_x = -28;
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZV" = (
+/obj/structure/closet/crate/medical,
+/obj/item/weapon/storage/firstaid/regular{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/obj/item/weapon/storage/firstaid/regular{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = 5
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = 5
+	},
+/obj/item/weapon/storage/firstaid/o2{
+	layer = 2.8;
+	pixel_x = 4;
+	pixel_y = 6
+	},
+/obj/item/weapon/storage/box/masks{
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/obj/item/weapon/storage/box/gloves{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/item/weapon/storage/firstaid/toxin,
+/obj/item/weapon/storage/firstaid/fire{
+	layer = 2.9;
+	pixel_x = 2;
+	pixel_y = 3
+	},
+/obj/item/weapon/storage/firstaid/adv{
+	pixel_x = -2
+	},
+/obj/item/weapon/reagent_containers/blood/empty,
+/obj/item/weapon/reagent_containers/blood/empty,
+/obj/item/weapon/reagent_containers/blood/empty,
+/obj/item/weapon/reagent_containers/blood/empty,
+/obj/item/weapon/reagent_containers/blood/empty,
+/obj/machinery/light,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZW" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZX" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen/prechilled,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"aZY" = (
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/shuttle/escape/centcom)
+"aZZ" = (
+/obj/structure/closet/crate/freezer/rations,
+/obj/machinery/light,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/shuttle/escape/centcom)
+"baa" = (
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/shuttle/escape/centcom)
+"bab" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/escape/centcom)
+"bac" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/escape/centcom)
+"bad" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/light,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/escape/centcom)
+"bae" = (
+/obj/structure/closet/walllocker/emerglocker/south,
+/obj/machinery/hologram/holopad,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/escape/centcom)
+"baf" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/shuttle/wall,
+/area/shuttle/escape/centcom)
+"bag" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/shuttle/plating,
+/area/shuttle/escape/centcom)
+"bah" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/shuttle/plating,
+/area/shuttle/escape/centcom)
+"bai" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/shuttle/wall,
+/area/shuttle/escape/centcom)
+"baj" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 8;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"bak" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 6;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"bal" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 8;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"bam" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 6;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"ban" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 8;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"bao" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 6;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"bap" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 8;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"baq" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 6;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"bar" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 8;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"bas" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 6;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"bat" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"bau" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"bav" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"baw" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"bax" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"bay" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"baz" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"baA" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"baB" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"baC" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"baD" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"baE" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"baF" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"baG" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"baH" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"baI" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"baJ" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"baK" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"baL" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"baM" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"baN" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"baO" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"baP" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"baQ" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"baR" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"baS" = (
+/turf/space,
+/area/template_noop)
+"baT" = (
+/turf/space,
+/area/template_noop)
+"baU" = (
+/turf/space,
+/area/template_noop)
+"baV" = (
+/turf/space,
+/area/template_noop)
+"baW" = (
+/turf/space,
+/area/template_noop)
+"baX" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"baY" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"baZ" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bba" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bbb" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bbc" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bbd" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bbe" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bbf" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bbg" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bbh" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bbi" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bbj" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bbk" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bbl" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bbm" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bbn" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bbo" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bbp" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bbq" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bbr" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bbs" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bbt" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bbu" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bbv" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bbw" = (
+/turf/space,
+/area/template_noop)
+"bbx" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bby" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bbz" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bbA" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bbB" = (
+/obj/machinery/computer/secure_data,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bbC" = (
+/obj/machinery/computer/station_alert,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bbD" = (
+/obj/machinery/computer/shuttle_control/emergency,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bbE" = (
+/obj/item/modular_computer/console/preset/command,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bbF" = (
+/obj/machinery/computer/med_data,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bbG" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bbH" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bbI" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bbJ" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bbK" = (
+/turf/space,
+/area/template_noop)
+"bbL" = (
+/turf/space,
+/area/template_noop)
+"bbM" = (
+/turf/space,
+/area/template_noop)
+"bbN" = (
+/turf/space,
+/area/template_noop)
+"bbO" = (
+/turf/space,
+/area/template_noop)
+"bbP" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bbQ" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bbR" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bbS" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bbT" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bbU" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bbV" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bbW" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bbX" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bbY" = (
+/obj/item/modular_computer/console/preset/medical,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bbZ" = (
+/obj/machinery/computer/med_data,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bca" = (
+/obj/structure/table/standard,
+/obj/item/weapon/storage/firstaid/regular{
+	pixel_x = 2;
+	pixel_y = 3
+	},
+/obj/item/weapon/storage/firstaid/fire,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bcb" = (
+/obj/machinery/computer/shuttle_control/emergency,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bcc" = (
+/obj/structure/table/standard,
+/obj/item/weapon/crowbar,
+/obj/item/weapon/extinguisher,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bcd" = (
+/obj/machinery/computer/secure_data,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bce" = (
+/obj/item/modular_computer/console/preset/security,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bcf" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bcg" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bch" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bci" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bcj" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bck" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bcl" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bcm" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bcn" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bco" = (
+/turf/space,
+/area/template_noop)
+"bcp" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bcq" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bcr" = (
+/turf/simulated/shuttle/wall{
+	fixed_underlay = list("icon" = 'icons/turf/shuttle.dmi', "icon_state" = "floor")
+	},
+/area/template_noop)
+"bcs" = (
+/obj/structure/table/standard,
+/obj/item/weapon/storage/firstaid/fire,
+/obj/item/weapon/extinguisher,
+/obj/machinery/camera/network/crescent{
+	c_tag = "Shuttle Bridge West"
+	},
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bct" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bcu" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bcv" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bcw" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bcx" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bcy" = (
+/obj/machinery/status_display{
+	pixel_y = 30
+	},
+/obj/structure/table/standard,
+/obj/item/weapon/storage/firstaid/toxin,
+/obj/machinery/camera/network/crescent{
+	c_tag = "Shuttle Bridge East"
+	},
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bcz" = (
+/turf/simulated/shuttle/wall{
+	fixed_underlay = list("icon" = 'icons/turf/shuttle.dmi', "icon_state" = "floor")
+	},
+/area/template_noop)
+"bcA" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bcB" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bcC" = (
+/turf/space,
+/area/template_noop)
+"bcD" = (
+/turf/space,
+/area/template_noop)
+"bcE" = (
+/turf/space,
+/area/template_noop)
+"bcF" = (
+/turf/space,
+/area/template_noop)
+"bcG" = (
+/turf/space,
+/area/template_noop)
+"bcH" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bcI" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bcJ" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bcK" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bcL" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bcM" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bcN" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bcO" = (
+/turf/simulated/shuttle/wall{
+	fixed_underlay = list("icon" = 'icons/turf/shuttle.dmi', "icon_state" = "floor")
+	},
+/area/template_noop)
+"bcP" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bcQ" = (
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bcR" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bcS" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bcT" = (
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bcU" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bcV" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bcW" = (
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bcX" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bcY" = (
+/turf/simulated/shuttle/wall{
+	fixed_underlay = list("icon" = 'icons/turf/shuttle.dmi', "icon_state" = "floor")
+	},
+/area/template_noop)
+"bcZ" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bda" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bdb" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bdc" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bdd" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bde" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bdf" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bdg" = (
+/turf/space,
+/area/template_noop)
+"bdh" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bdi" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bdj" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bdk" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bdl" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bdm" = (
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "escape_shuttle";
+	pixel_x = 0;
+	pixel_y = -25;
+	req_one_access = list(13);
+	tag_door = "escape_shuttle_hatch"
+	},
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bdn" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bdo" = (
+/obj/machinery/light,
+/obj/structure/closet/walllocker/emerglocker{
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bdp" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bdq" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bdr" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bds" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bdt" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bdu" = (
+/turf/space,
+/area/template_noop)
+"bdv" = (
+/turf/space,
+/area/template_noop)
+"bdw" = (
+/turf/space,
+/area/template_noop)
+"bdx" = (
+/turf/space,
+/area/template_noop)
+"bdy" = (
+/turf/space,
+/area/template_noop)
+"bdz" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bdA" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bdB" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bdC" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bdD" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bdE" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bdF" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bdG" = (
+/obj/item/modular_computer/console/preset/research,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bdH" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bdI" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bdJ" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bdK" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bdL" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bdM" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bdN" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bdO" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bdP" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bdQ" = (
+/obj/item/modular_computer/console/preset/engineering,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bdR" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bdS" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bdT" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bdU" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bdV" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bdW" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bdX" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bdY" = (
+/turf/space,
+/area/template_noop)
+"bdZ" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bea" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"beb" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bec" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bed" = (
+/obj/item/modular_computer/console/preset/security,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bee" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bef" = (
+/obj/structure/AIcore/deactivated,
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"beg" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"beh" = (
+/obj/machinery/computer/crew,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bei" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bej" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bek" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bel" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bem" = (
+/turf/space,
+/area/template_noop)
+"ben" = (
+/turf/space,
+/area/template_noop)
+"beo" = (
+/turf/space,
+/area/template_noop)
+"bep" = (
+/turf/space,
+/area/template_noop)
+"beq" = (
+/turf/space,
+/area/template_noop)
+"ber" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bes" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bet" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"beu" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bev" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bew" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bex" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bey" = (
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bez" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"beA" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"beB" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/banner,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/template_noop)
+"beC" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/item/modular_computer/console/preset/captain,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/template_noop)
+"beD" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/computer/station_alert/all,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/template_noop)
+"beE" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/item/modular_computer/console/preset/captain,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/template_noop)
+"beF" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/banner,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/template_noop)
+"beG" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"beH" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"beI" = (
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
+	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "escape_shuttle";
+	pixel_x = 25;
+	pixel_y = 0;
+	req_one_access = list(13);
+	tag_door = "escape_shuttle_hatch"
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"beJ" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"beK" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"beL" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"beM" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"beN" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"beO" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"beP" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"beQ" = (
+/turf/space,
+/area/template_noop)
+"beR" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"beS" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"beT" = (
+/obj/machinery/door/airlock/glass_command{
+	name = "Escape Shuttle Cockpit";
+	req_access = list(19)
+	},
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"beU" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"beV" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"beW" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"beX" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"beY" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"beZ" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bfa" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bfb" = (
+/obj/machinery/door/airlock/glass_command{
+	name = "Escape Shuttle Cockpit";
+	req_access = list(19)
+	},
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bfc" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bfd" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bfe" = (
+/turf/space,
+/area/template_noop)
+"bff" = (
+/turf/space,
+/area/template_noop)
+"bfg" = (
+/turf/space,
+/area/template_noop)
+"bfh" = (
+/turf/space,
+/area/template_noop)
+"bfi" = (
+/turf/space,
+/area/template_noop)
+"bfj" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bfk" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bfl" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bfm" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bfn" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bfo" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bfp" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bfq" = (
+/obj/structure/closet/walllocker/emerglocker/west,
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bfr" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bfs" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled/ramp/bottom{
+	icon_state = "rampbot";
+	dir = 8
+	},
+/area/template_noop)
+"bft" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/template_noop)
+"bfu" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/template_noop)
+"bfv" = (
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/template_noop)
+"bfw" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/template_noop)
+"bfx" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/template_noop)
+"bfy" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled/ramp/bottom{
+	icon_state = "rampbot";
+	dir = 4
+	},
+/area/template_noop)
+"bfz" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bfA" = (
+/obj/structure/closet/walllocker/emerglocker/east,
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bfB" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bfC" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bfD" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bfE" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bfF" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bfG" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bfH" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bfI" = (
+/turf/space,
+/area/template_noop)
+"bfJ" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bfK" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bfL" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bfM" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bfN" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bfO" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor4,
+/area/template_noop)
+"bfP" = (
+/obj/machinery/status_display{
+	pixel_y = 30
+	},
+/obj/machinery/camera/network/crescent{
+	c_tag = "Shuttle Cell"
+	},
+/turf/simulated/shuttle/floor4,
+/area/template_noop)
+"bfQ" = (
+/obj/item/device/radio/intercom{
+	dir = 4;
+	name = "Station Intercom (General)";
+	pixel_x = 30
+	},
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor4,
+/area/template_noop)
+"bfR" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bfS" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bfT" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bfU" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bfV" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bfW" = (
+/turf/space,
+/area/template_noop)
+"bfX" = (
+/turf/space,
+/area/template_noop)
+"bfY" = (
+/turf/space,
+/area/template_noop)
+"bfZ" = (
+/turf/space,
+/area/template_noop)
+"bga" = (
+/turf/space,
+/area/template_noop)
+"bgb" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bgc" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bgd" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bge" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bgf" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bgg" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bgh" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bgi" = (
+/obj/machinery/door/airlock/glass_command{
+	name = "Cockpit";
+	req_access = list(19)
+	},
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bgj" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bgk" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bgl" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bgm" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bgn" = (
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bgo" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bgp" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bgq" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bgr" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bgs" = (
+/obj/machinery/door/airlock/glass_command{
+	name = "Cockpit";
+	req_access = list(19)
+	},
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bgt" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bgu" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bgv" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bgw" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bgx" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bgy" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bgz" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bgA" = (
+/turf/space,
+/area/template_noop)
+"bgB" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bgC" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bgD" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bgE" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bgF" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bgG" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor4,
+/area/template_noop)
+"bgH" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/shuttle/floor4,
+/area/template_noop)
+"bgI" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor4,
+/area/template_noop)
+"bgJ" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bgK" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bgL" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bgM" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bgN" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bgO" = (
+/turf/space,
+/area/template_noop)
+"bgP" = (
+/turf/space,
+/area/template_noop)
+"bgQ" = (
+/turf/space,
+/area/template_noop)
+"bgR" = (
+/turf/space,
+/area/template_noop)
+"bgS" = (
+/turf/space,
+/area/template_noop)
+"bgT" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bgU" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bgV" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bgW" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bgX" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bgY" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bgZ" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bha" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bhb" = (
+/obj/structure/bed/chair,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bhc" = (
+/obj/structure/bed/chair,
+/obj/structure/closet/walllocker/emerglocker/north,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bhd" = (
+/obj/structure/bed/chair,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bhe" = (
+/obj/structure/bed/chair,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bhf" = (
+/obj/structure/table/standard,
+/obj/item/weapon/storage/firstaid/regular{
+	pixel_x = 2;
+	pixel_y = 3
+	},
+/obj/item/weapon/storage/firstaid/fire,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bhg" = (
+/obj/structure/bed/chair,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bhh" = (
+/obj/structure/bed/chair,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bhi" = (
+/obj/structure/bed/chair,
+/obj/structure/closet/walllocker/emerglocker/north,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bhj" = (
+/obj/structure/bed/chair,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bhk" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bhl" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bhm" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bhn" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bho" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bhp" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bhq" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bhr" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bhs" = (
+/turf/space,
+/area/template_noop)
+"bht" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bhu" = (
+/turf/simulated/shuttle/wall{
+	fixed_underlay = list("icon" = 'icons/turf/shuttle.dmi', "icon_state" = "floor3")
+	},
+/area/template_noop)
+"bhv" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bhw" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bhx" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bhy" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor4,
+/area/template_noop)
+"bhz" = (
+/turf/simulated/shuttle/floor4,
+/area/template_noop)
+"bhA" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor4,
+/area/template_noop)
+"bhB" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bhC" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bhD" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bhE" = (
+/turf/simulated/shuttle/wall{
+	fixed_underlay = list("icon" = 'icons/turf/shuttle.dmi', "icon_state" = "floor3")
+	},
+/area/template_noop)
+"bhF" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bhG" = (
+/turf/space,
+/area/template_noop)
+"bhH" = (
+/turf/space,
+/area/template_noop)
+"bhI" = (
+/turf/space,
+/area/template_noop)
+"bhJ" = (
+/turf/space,
+/area/template_noop)
+"bhK" = (
+/turf/space,
+/area/template_noop)
+"bhL" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bhM" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bhN" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bhO" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bhP" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bhQ" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bhR" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bhS" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bhT" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bhU" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bhV" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bhW" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bhX" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bhY" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bhZ" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bia" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bib" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bic" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bid" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bie" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bif" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"big" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bih" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bii" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bij" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bik" = (
+/turf/space,
+/area/template_noop)
+"bil" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bim" = (
+/obj/structure/table/standard,
+/obj/item/weapon/storage/firstaid/fire,
+/obj/item/weapon/storage/firstaid/regular{
+	pixel_x = 2;
+	pixel_y = 3
+	},
+/obj/item/weapon/extinguisher,
+/obj/item/weapon/crowbar,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bin" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bio" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bip" = (
+/turf/simulated/shuttle/wall{
+	fixed_underlay = list("icon" = 'icons/turf/shuttle.dmi', "icon_state" = "floor3")
+	},
+/area/template_noop)
+"biq" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bir" = (
+/obj/machinery/door/airlock/glass_security{
+	name = "Escape Shuttle Cell";
+	req_access = list(2)
+	},
+/turf/simulated/shuttle/floor4,
+/area/template_noop)
+"bis" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bit" = (
+/turf/simulated/shuttle/wall{
+	fixed_underlay = list("icon" = 'icons/turf/shuttle.dmi', "icon_state" = "floor3")
+	},
+/area/template_noop)
+"biu" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"biv" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"biw" = (
+/obj/structure/table/standard,
+/obj/item/weapon/storage/firstaid/fire,
+/obj/item/weapon/storage/firstaid/regular{
+	pixel_x = 2;
+	pixel_y = 3
+	},
+/obj/item/weapon/extinguisher,
+/obj/item/weapon/crowbar,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bix" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"biy" = (
+/turf/space,
+/area/template_noop)
+"biz" = (
+/turf/space,
+/area/template_noop)
+"biA" = (
+/turf/space,
+/area/template_noop)
+"biB" = (
+/turf/space,
+/area/template_noop)
+"biC" = (
+/turf/space,
+/area/template_noop)
+"biD" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"biE" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"biF" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"biG" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"biH" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"biI" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"biJ" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"biK" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"biL" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"biM" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"biN" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"biO" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"biP" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"biQ" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"biR" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"biS" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"biT" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"biU" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"biV" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"biW" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"biX" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"biY" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"biZ" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bja" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bjb" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bjc" = (
+/turf/space,
+/area/template_noop)
+"bjd" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "escape_shuttle_hatch";
+	locked = 1;
+	name = "Shuttle Hatch";
+	req_access = list(13)
+	},
+/obj/machinery/mech_sensor{
+	dir = 8;
+	frequency = 1380;
+	id_tag = "shuttle_dock_north_mech";
+	pixel_y = -19
+	},
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bje" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjf" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjg" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjh" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bji" = (
+/obj/machinery/camera/network/crescent{
+	c_tag = "Shuttle Center"
+	},
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjj" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjk" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjl" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjm" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjn" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjo" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bjp" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bjq" = (
+/turf/space,
+/area/template_noop)
+"bjr" = (
+/turf/space,
+/area/template_noop)
+"bjs" = (
+/turf/space,
+/area/template_noop)
+"bjt" = (
+/turf/space,
+/area/template_noop)
+"bju" = (
+/turf/space,
+/area/template_noop)
+"bjv" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bjw" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bjx" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bjy" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bjz" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "escape_shuttle_hatch";
+	locked = 1;
+	name = "Shuttle Hatch";
+	req_access = list(13)
+	},
+/obj/machinery/mech_sensor{
+	dir = 8;
+	frequency = 1380;
+	id_tag = "shuttle_dock_north_mech";
+	pixel_y = -19
+	},
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjA" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjB" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjC" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjD" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjE" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjF" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjG" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjH" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjI" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjJ" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjK" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjL" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjM" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjN" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjO" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjP" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bjQ" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bjR" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bjS" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bjT" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bjU" = (
+/turf/space,
+/area/template_noop)
+"bjV" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bjW" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/item/device/radio/intercom{
+	dir = 8;
+	name = "Station Intercom (General)";
+	pixel_x = -28
+	},
+/obj/machinery/camera/network/crescent{
+	c_tag = "Shuttle West";
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bjX" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bjY" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bjZ" = (
+/obj/structure/window/shuttle,
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bka" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bkb" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bkc" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bkd" = (
+/obj/structure/window/shuttle,
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bke" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bkf" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bkg" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/closet/walllocker/emerglocker{
+	pixel_x = 28
+	},
+/obj/machinery/camera/network/crescent{
+	c_tag = "Shuttle East";
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bkh" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bki" = (
+/turf/space,
+/area/template_noop)
+"bkj" = (
+/turf/space,
+/area/template_noop)
+"bkk" = (
+/turf/space,
+/area/template_noop)
+"bkl" = (
+/turf/space,
+/area/template_noop)
+"bkm" = (
+/turf/space,
+/area/template_noop)
+"bkn" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bko" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bkp" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bkq" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bkr" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bks" = (
+/obj/structure/closet/walllocker/emerglocker/west,
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bkt" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bku" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bkv" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bkw" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bkx" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bky" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bkz" = (
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bkA" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bkB" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bkC" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bkD" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bkE" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bkF" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bkG" = (
+/obj/structure/closet/walllocker/emerglocker/east,
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bkH" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bkI" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bkJ" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bkK" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bkL" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bkM" = (
+/turf/space,
+/area/template_noop)
+"bkN" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bkO" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bkP" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bkQ" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bkR" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bkS" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bkT" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bkU" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bkV" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bkW" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bkX" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bkY" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bkZ" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bla" = (
+/turf/space,
+/area/template_noop)
+"blb" = (
+/turf/space,
+/area/template_noop)
+"blc" = (
+/turf/space,
+/area/template_noop)
+"bld" = (
+/turf/space,
+/area/template_noop)
+"ble" = (
+/turf/space,
+/area/template_noop)
+"blf" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"blg" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"blh" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bli" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"blj" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"blk" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bll" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"blm" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bln" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"blo" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"blp" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"blq" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"blr" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bls" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"blt" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"blu" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"blv" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"blw" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"blx" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bly" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"blz" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"blA" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"blB" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"blC" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"blD" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"blE" = (
+/turf/space,
+/area/template_noop)
+"blF" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"blG" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"blH" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"blI" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"blJ" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"blK" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"blL" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"blM" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"blN" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"blO" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"blP" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"blQ" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"blR" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"blS" = (
+/turf/space,
+/area/template_noop)
+"blT" = (
+/turf/space,
+/area/template_noop)
+"blU" = (
+/turf/space,
+/area/template_noop)
+"blV" = (
+/turf/space,
+/area/template_noop)
+"blW" = (
+/turf/space,
+/area/template_noop)
+"blX" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"blY" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"blZ" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bma" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bmb" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bmc" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bmd" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bme" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bmf" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bmg" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bmh" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bmi" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bmj" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bmk" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bml" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bmm" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bmn" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bmo" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bmp" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bmq" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bmr" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bms" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bmt" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bmu" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bmv" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bmw" = (
+/turf/space,
+/area/template_noop)
+"bmx" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bmy" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bmz" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bmA" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bmB" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bmC" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bmD" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bmE" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bmF" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bmG" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bmH" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bmI" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bmJ" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bmK" = (
+/turf/space,
+/area/template_noop)
+"bmL" = (
+/turf/space,
+/area/template_noop)
+"bmM" = (
+/turf/space,
+/area/template_noop)
+"bmN" = (
+/turf/space,
+/area/template_noop)
+"bmO" = (
+/turf/space,
+/area/template_noop)
+"bmP" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bmQ" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bmR" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bmS" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bmT" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bmU" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bmV" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bmW" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bmX" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bmY" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bmZ" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bna" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bnb" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bnc" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bnd" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bne" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bnf" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bng" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bnh" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bni" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bnj" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bnk" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bnl" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bnm" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bnn" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bno" = (
+/turf/space,
+/area/template_noop)
+"bnp" = (
+/turf/space,
+/area/template_noop)
+"bnq" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bnr" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/closet/walllocker/emerglocker{
+	pixel_x = -28
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bns" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bnt" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bnu" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bnv" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bnw" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bnx" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bny" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bnz" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bnA" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bnB" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/item/device/radio/intercom{
+	dir = 4;
+	name = "Station Intercom (General)";
+	pixel_x = 30
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bnC" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bnD" = (
+/turf/space,
+/area/template_noop)
+"bnE" = (
+/turf/space,
+/area/template_noop)
+"bnF" = (
+/turf/space,
+/area/template_noop)
+"bnG" = (
+/turf/space,
+/area/template_noop)
+"bnH" = (
+/turf/space,
+/area/template_noop)
+"bnI" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bnJ" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bnK" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bnL" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bnM" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bnN" = (
+/obj/structure/window/reinforced,
+/obj/structure/closet/walllocker/emerglocker/west,
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bnO" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bnP" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bnQ" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bnR" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bnS" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bnT" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bnU" = (
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bnV" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bnW" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bnX" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bnY" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bnZ" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"boa" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bob" = (
+/obj/structure/window/reinforced,
+/obj/structure/closet/walllocker/emerglocker/east,
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"boc" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bod" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"boe" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bof" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bog" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"boh" = (
+/turf/space,
+/area/template_noop)
+"boi" = (
+/turf/space,
+/area/template_noop)
+"boj" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "escape_shuttle_hatch";
+	locked = 1;
+	name = "Shuttle Hatch";
+	req_access = list(13)
+	},
+/obj/machinery/mech_sensor{
+	dir = 8;
+	frequency = 1380;
+	id_tag = "shuttle_dock_south_mech";
+	pixel_y = 19
+	},
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bok" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bol" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bom" = (
+/obj/machinery/status_display{
+	pixel_y = -30
+	},
+/obj/machinery/light,
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bon" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"boo" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bop" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"boq" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bor" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bos" = (
+/obj/machinery/status_display{
+	pixel_y = -30
+	},
+/obj/machinery/light,
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bot" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bou" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bov" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bow" = (
+/turf/space,
+/area/template_noop)
+"box" = (
+/turf/space,
+/area/template_noop)
+"boy" = (
+/turf/space,
+/area/template_noop)
+"boz" = (
+/turf/space,
+/area/template_noop)
+"boA" = (
+/turf/space,
+/area/template_noop)
+"boB" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"boC" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"boD" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"boE" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"boF" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "escape_shuttle_hatch";
+	locked = 1;
+	name = "Shuttle Hatch";
+	req_access = list(13)
+	},
+/obj/machinery/mech_sensor{
+	dir = 8;
+	frequency = 1380;
+	id_tag = "shuttle_dock_south_mech";
+	pixel_y = 19
+	},
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"boG" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"boH" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"boI" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"boJ" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"boK" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"boL" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"boM" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"boN" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"boO" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"boP" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"boQ" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"boR" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"boS" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"boT" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"boU" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"boV" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"boW" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"boX" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"boY" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"boZ" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bpa" = (
+/turf/space,
+/area/template_noop)
+"bpb" = (
+/turf/space,
+/area/template_noop)
+"bpc" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bpd" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bpe" = (
+/obj/machinery/door/airlock/glass_mining{
+	name = "Shuttle Cargo"
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/template_noop)
+"bpf" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bpg" = (
+/obj/structure/window/shuttle,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bph" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bpi" = (
+/obj/machinery/door/airlock/glass_medical{
+	name = "Escape Shuttle Infirmary";
+	req_access = list(5)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bpj" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bpk" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bpl" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bpm" = (
+/obj/machinery/door/airlock/glass_mining{
+	name = "Shuttle Cargo"
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/template_noop)
+"bpn" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bpo" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bpp" = (
+/turf/space,
+/area/template_noop)
+"bpq" = (
+/turf/space,
+/area/template_noop)
+"bpr" = (
+/turf/space,
+/area/template_noop)
+"bps" = (
+/turf/space,
+/area/template_noop)
+"bpt" = (
+/turf/space,
+/area/template_noop)
+"bpu" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bpv" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bpw" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bpx" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bpy" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bpz" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bpA" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bpB" = (
+/obj/machinery/light,
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bpC" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bpD" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bpE" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bpF" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bpG" = (
+/obj/machinery/hologram/holopad,
+/obj/machinery/light,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bpH" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bpI" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bpJ" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bpK" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bpL" = (
+/obj/machinery/light,
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bpM" = (
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"bpN" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bpO" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bpP" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bpQ" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bpR" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bpS" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bpT" = (
+/turf/space,
+/area/template_noop)
+"bpU" = (
+/turf/space,
+/area/template_noop)
+"bpV" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bpW" = (
+/obj/structure/closet/walllocker/emerglocker{
+	pixel_x = -28
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/template_noop)
+"bpX" = (
+/obj/structure/closet/hydrant{
+	pixel_x = 30;
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/template_noop)
+"bpY" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bpZ" = (
+/obj/machinery/atmospherics/unary/cryo_cell{
+	layer = 3.3
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bqa" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/oxygen/prechilled,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bqb" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bqc" = (
+/obj/structure/table/standard,
+/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{
+	pixel_x = -4;
+	pixel_y = 0
+	},
+/obj/item/weapon/wrench,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bqd" = (
+/obj/structure/closet/crate/medical,
+/obj/item/weapon/storage/firstaid/regular{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/obj/item/weapon/storage/firstaid/regular{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = 5
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = 5
+	},
+/obj/item/weapon/storage/firstaid/o2{
+	layer = 2.8;
+	pixel_x = 4;
+	pixel_y = 6
+	},
+/obj/item/weapon/storage/box/masks{
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/obj/item/weapon/storage/box/gloves{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/item/weapon/storage/firstaid/toxin,
+/obj/item/weapon/storage/firstaid/fire{
+	layer = 2.9;
+	pixel_x = 2;
+	pixel_y = 3
+	},
+/obj/item/weapon/storage/firstaid/adv{
+	pixel_x = -2
+	},
+/obj/item/weapon/reagent_containers/blood/empty,
+/obj/item/weapon/reagent_containers/blood/empty,
+/obj/item/weapon/reagent_containers/blood/empty,
+/obj/item/weapon/reagent_containers/blood/empty,
+/obj/item/weapon/reagent_containers/blood/empty,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bqe" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bqf" = (
+/obj/structure/closet/hydrant{
+	pixel_x = -30;
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/template_noop)
+"bqg" = (
+/obj/structure/closet/walllocker/emerglocker{
+	pixel_x = 28
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/template_noop)
+"bqh" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bqi" = (
+/turf/space,
+/area/template_noop)
+"bqj" = (
+/turf/space,
+/area/template_noop)
+"bqk" = (
+/turf/space,
+/area/template_noop)
+"bql" = (
+/turf/space,
+/area/template_noop)
+"bqm" = (
+/turf/space,
+/area/template_noop)
+"bqn" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bqo" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bqp" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bqq" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bqr" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bqs" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bqt" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bqu" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bqv" = (
+/obj/machinery/door/airlock/glass_medical{
+	name = "Infirmary";
+	req_access = list(5)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bqw" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bqx" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bqy" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bqz" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bqA" = (
+/obj/machinery/door/airlock/glass_mining{
+	name = "Cargo"
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/template_noop)
+"bqB" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bqC" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bqD" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bqE" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bqF" = (
+/obj/machinery/door/airlock/glass_security{
+	name = "Holding Cell";
+	req_access = list(2)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/template_noop)
+"bqG" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bqH" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bqI" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bqJ" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bqK" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bqL" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bqM" = (
+/turf/space,
+/area/template_noop)
+"bqN" = (
+/turf/space,
+/area/template_noop)
+"bqO" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bqP" = (
+/obj/structure/closet/crate/freezer/rations,
+/obj/machinery/camera/network/crescent{
+	c_tag = "Shuttle West Storage";
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/template_noop)
+"bqQ" = (
+/obj/structure/closet/crate/freezer/rations,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/template_noop)
+"bqR" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bqS" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	icon_state = "intact";
+	dir = 5
+	},
+/obj/machinery/camera/network/crescent{
+	c_tag = "Shuttle Medical";
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bqT" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	icon_state = "intact";
+	dir = 9
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bqU" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bqV" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bqW" = (
+/obj/machinery/vending/wallmed1{
+	layer = 3.3;
+	name = "Emergency NanoMed";
+	pixel_x = 28;
+	pixel_y = 0
+	},
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bqX" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bqY" = (
+/obj/machinery/recharge_station,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/template_noop)
+"bqZ" = (
+/obj/machinery/recharge_station,
+/obj/machinery/camera/network/crescent{
+	c_tag = "Shuttle East Storage";
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/template_noop)
+"bra" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"brb" = (
+/turf/space,
+/area/template_noop)
+"brc" = (
+/turf/space,
+/area/template_noop)
+"brd" = (
+/turf/space,
+/area/template_noop)
+"bre" = (
+/turf/space,
+/area/template_noop)
+"brf" = (
+/turf/space,
+/area/template_noop)
+"brg" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"brh" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bri" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"brj" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"brk" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"brl" = (
+/obj/machinery/iv_drip,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"brm" = (
+/obj/structure/bed/roller,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"brn" = (
+/obj/structure/bed/roller,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bro" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"brp" = (
+/obj/machinery/atmospherics/unary/cryo_cell{
+	layer = 3.3
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"brq" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"brr" = (
+/obj/machinery/recharge_station,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/template_noop)
+"brs" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/template_noop)
+"brt" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/template_noop)
+"bru" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"brv" = (
+/obj/structure/bed/chair,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/template_noop)
+"brw" = (
+/obj/structure/bed/chair,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/template_noop)
+"brx" = (
+/obj/structure/bed/chair,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/template_noop)
+"bry" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/template_noop)
+"brz" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/template_noop)
+"brA" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"brB" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"brC" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"brD" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"brE" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"brF" = (
+/turf/space,
+/area/template_noop)
+"brG" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"brH" = (
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"brI" = (
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"brJ" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"brK" = (
+/obj/machinery/iv_drip,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"brL" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"brM" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"brN" = (
+/obj/structure/bed/roller,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"brO" = (
+/obj/structure/bed/roller,
+/obj/item/device/radio/intercom{
+	dir = 4;
+	name = "Station Intercom (General)";
+	pixel_x = 30
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"brP" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"brQ" = (
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"brR" = (
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"brS" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"brT" = (
+/turf/space,
+/area/template_noop)
+"brU" = (
+/turf/space,
+/area/template_noop)
+"brV" = (
+/turf/space,
+/area/template_noop)
+"brW" = (
+/turf/space,
+/area/template_noop)
+"brX" = (
+/turf/space,
+/area/template_noop)
+"brY" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"brZ" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bsa" = (
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bsb" = (
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bsc" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bsd" = (
+/obj/machinery/sleeper{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bse" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bsf" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bsg" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bsh" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bsi" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bsj" = (
+/obj/structure/closet/walllocker/emerglocker{
+	pixel_x = -28
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/template_noop)
+"bsk" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/template_noop)
+"bsl" = (
+/obj/structure/closet/hydrant{
+	pixel_x = 30;
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/template_noop)
+"bsm" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bsn" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/template_noop)
+"bso" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/template_noop)
+"bsp" = (
+/obj/machinery/door/window/brigdoor{
+	name = "Holding Cell";
+	req_access = list(2)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/template_noop)
+"bsq" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/template_noop)
+"bsr" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/template_noop)
+"bss" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bst" = (
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bsu" = (
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bsv" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bsw" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bsx" = (
+/turf/space,
+/area/template_noop)
+"bsy" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bsz" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/template_noop,
+/area/template_noop)
+"bsA" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/template_noop,
+/area/template_noop)
+"bsB" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bsC" = (
+/obj/machinery/sleeper{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bsD" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bsE" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bsF" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bsG" = (
+/obj/machinery/sleeper{
+	icon_state = "sleeper_0";
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bsH" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bsI" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/template_noop,
+/area/template_noop)
+"bsJ" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/template_noop,
+/area/template_noop)
+"bsK" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bsL" = (
+/turf/space,
+/area/template_noop)
+"bsM" = (
+/turf/space,
+/area/template_noop)
+"bsN" = (
+/turf/space,
+/area/template_noop)
+"bsO" = (
+/turf/space,
+/area/template_noop)
+"bsP" = (
+/turf/space,
+/area/template_noop)
+"bsQ" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bsR" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bsS" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/template_noop,
+/area/template_noop)
+"bsT" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/template_noop,
+/area/template_noop)
+"bsU" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bsV" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bsW" = (
+/obj/structure/table/standard,
+/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{
+	pixel_x = -4;
+	pixel_y = 0
+	},
+/obj/structure/closet/walllocker/emerglocker/south,
+/obj/machinery/vending/wallmed1{
+	layer = 3.3;
+	name = "Emergency NanoMed";
+	pixel_x = -28;
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bsX" = (
+/obj/structure/closet/crate/medical,
+/obj/item/weapon/storage/firstaid/regular{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/obj/item/weapon/storage/firstaid/regular{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = 5
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = 5
+	},
+/obj/item/weapon/storage/firstaid/o2{
+	layer = 2.8;
+	pixel_x = 4;
+	pixel_y = 6
+	},
+/obj/item/weapon/storage/box/masks{
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/obj/item/weapon/storage/box/gloves{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/item/weapon/storage/firstaid/toxin,
+/obj/item/weapon/storage/firstaid/fire{
+	layer = 2.9;
+	pixel_x = 2;
+	pixel_y = 3
+	},
+/obj/item/weapon/storage/firstaid/adv{
+	pixel_x = -2
+	},
+/obj/item/weapon/reagent_containers/blood/empty,
+/obj/item/weapon/reagent_containers/blood/empty,
+/obj/item/weapon/reagent_containers/blood/empty,
+/obj/item/weapon/reagent_containers/blood/empty,
+/obj/item/weapon/reagent_containers/blood/empty,
+/obj/machinery/light,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bsY" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bsZ" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen/prechilled,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/template_noop)
+"bta" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"btb" = (
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/template_noop)
+"btc" = (
+/obj/structure/closet/crate/freezer/rations,
+/obj/machinery/light,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/template_noop)
+"btd" = (
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/template_noop)
+"bte" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"btf" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/template_noop)
+"btg" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/template_noop)
+"bth" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/light,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/template_noop)
+"bti" = (
+/obj/structure/closet/walllocker/emerglocker/south,
+/obj/machinery/hologram/holopad,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/template_noop)
+"btj" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"btk" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"btl" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/template_noop,
+/area/template_noop)
+"btm" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/template_noop,
+/area/template_noop)
+"btn" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bto" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"btp" = (
+/turf/space,
+/area/template_noop)
+"btq" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"btr" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bts" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"btt" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"btu" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"btv" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"btw" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/shuttle/engine/heater,
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"btx" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"bty" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"btz" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"btA" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"btB" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"btC" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"btD" = (
+/turf/space,
+/area/template_noop)
+"btE" = (
+/turf/space,
+/area/template_noop)
+"btF" = (
+/turf/space,
+/area/template_noop)
+"btG" = (
+/turf/space,
+/area/template_noop)
+"btH" = (
+/turf/space,
+/area/template_noop)
+"btI" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"btJ" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"btK" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"btL" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"btM" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"btN" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"btO" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"btP" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"btQ" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"btR" = (
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"btS" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"btT" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"btU" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"btV" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"btW" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"btX" = (
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"btY" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/shuttle/plating,
+/area/template_noop)
+"btZ" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bua" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bub" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"buc" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bud" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bue" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"buf" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bug" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"buh" = (
+/turf/space,
+/area/template_noop)
+"bui" = (
+/turf/space,
+/area/template_noop)
+"buj" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"buk" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bul" = (
+/obj/machinery/light/spot,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bum" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bun" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/template_noop,
+/area/template_noop)
+"buo" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/template_noop,
+/area/template_noop)
+"bup" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/template_noop,
+/area/template_noop)
+"buq" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"bur" = (
+/obj/machinery/light/spot,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"bus" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"but" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"buu" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"buv" = (
+/turf/space,
+/area/template_noop)
+"buw" = (
+/turf/space,
+/area/template_noop)
+"bux" = (
+/turf/space,
+/area/template_noop)
+"buy" = (
+/turf/space,
+/area/template_noop)
+"buz" = (
+/turf/space,
+/area/template_noop)
+"buA" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"buB" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"buC" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"buD" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"buE" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"buF" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"buG" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"buH" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"buI" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/template_noop,
+/area/template_noop)
+"buJ" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/template_noop,
+/area/template_noop)
+"buK" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/template_noop,
+/area/template_noop)
+"buL" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"buM" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"buN" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"buO" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/template_noop,
+/area/template_noop)
+"buP" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/template_noop,
+/area/template_noop)
+"buQ" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/template_noop,
+/area/template_noop)
+"buR" = (
+/turf/simulated/shuttle/wall,
+/area/template_noop)
+"buS" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"buT" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"buU" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"buV" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"buW" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"buX" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"buY" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/template_noop)
+"buZ" = (
+/turf/space,
+/area/template_noop)
 
 (1,1,1) = {"
 aaa
@@ -26227,8 +32367,8 @@ aaM
 aaM
 aaM
 aaM
-aOp
-aRU
+bar
+bat
 aaM
 aaM
 aaM
@@ -26474,7 +32614,7 @@ aGZ
 aNl
 aNL
 aNL
-aOp
+baj
 aOG
 aOG
 aOG
@@ -26486,7 +32626,7 @@ aQN
 aRf
 aOG
 aOG
-aRU
+bav
 aaM
 aaM
 aaM
@@ -27245,7 +33385,7 @@ aGZ
 aNn
 aNO
 aNO
-aOq
+bak
 aOG
 aOG
 aOG
@@ -27257,7 +33397,7 @@ aQP
 aQi
 aRx
 aOG
-aRX
+baw
 aaM
 aaM
 aaM
@@ -27518,7 +33658,7 @@ aOG
 aOG
 aOG
 aOG
-aRU
+baz
 aaM
 aaM
 aaM
@@ -27693,8 +33833,8 @@ aaM
 aaM
 aaM
 aaM
-aqk
-aqk
+aXG
+aXL
 aid
 aid
 aid
@@ -27950,7 +34090,7 @@ atj
 aaM
 aaM
 aaM
-auh
+aXH
 aid
 aid
 aid
@@ -28018,7 +34158,7 @@ aaM
 aaM
 aaM
 aaM
-aOp
+bap
 aOG
 aOG
 aOG
@@ -28033,7 +34173,7 @@ aRy
 aRy
 aTi
 aOG
-aRU
+baB
 aaM
 aaM
 aaM
@@ -28207,8 +34347,8 @@ art
 aaM
 aaM
 aaM
-aqk
-aqk
+aXI
+aXM
 aid
 aid
 aid
@@ -28273,7 +34413,7 @@ aGZ
 aiB
 aaM
 aaM
-aOp
+bal
 aOG
 aOG
 aOG
@@ -28291,7 +34431,7 @@ aTb
 aRy
 aOG
 aOG
-aRU
+baD
 aaM
 aaM
 aaM
@@ -28464,9 +34604,9 @@ art
 aaM
 aaM
 aaM
-aqk
-aqk
-aqk
+aXJ
+aXN
+aXP
 aid
 aid
 aaP
@@ -28721,10 +34861,10 @@ aaM
 aaM
 aaM
 aaM
-aqk
-aqk
-aqk
-aqk
+aXK
+aXO
+aXQ
+aXS
 aid
 aaP
 ahU
@@ -28980,7 +35120,7 @@ aaM
 aaM
 aid
 aid
-aqk
+aXR
 aid
 aid
 aaP
@@ -29815,7 +35955,7 @@ aGZ
 aiB
 aaM
 aaM
-aOq
+bam
 aOG
 aOG
 aOG
@@ -29833,7 +35973,7 @@ aRF
 aTj
 aOG
 aOG
-aRX
+baE
 aaM
 aaM
 aaM
@@ -30074,7 +36214,7 @@ aaM
 aaM
 aaM
 aaM
-aOq
+baq
 aOG
 aOG
 aOG
@@ -30089,7 +36229,7 @@ aRF
 aRF
 aTk
 aOG
-aRX
+baC
 aaM
 aaM
 aaM
@@ -30602,7 +36742,7 @@ aOG
 aOG
 aOG
 aOG
-aRX
+baA
 aaM
 aaM
 aaM
@@ -30843,7 +36983,7 @@ aGZ
 aNl
 aNL
 aNL
-aOp
+ban
 aOG
 aOG
 aOG
@@ -30855,7 +36995,7 @@ aQi
 aRk
 aRG
 aOG
-aRU
+bax
 aaM
 aaM
 aaM
@@ -31017,7 +37157,7 @@ aid
 aaP
 aid
 aid
-aqv
+aXD
 aaM
 aaM
 aaM
@@ -31027,7 +37167,7 @@ aaM
 art
 ash
 asy
-asN
+aXF
 art
 aaM
 aaM
@@ -31273,8 +37413,8 @@ ahU
 aid
 aid
 aid
-aqk
-aqk
+aXB
+aXE
 aaM
 aaM
 aaM
@@ -31529,8 +37669,8 @@ aaM
 ahU
 ahU
 aid
-aqk
-aqk
+aXw
+aXC
 aaM
 aaM
 aaM
@@ -31614,7 +37754,7 @@ aGZ
 aNn
 aNO
 aNO
-aOq
+bao
 aOG
 aOG
 aOG
@@ -31626,7 +37766,7 @@ aQN
 aRf
 aOG
 aOG
-aRX
+bay
 aaM
 aaM
 aaM
@@ -31881,8 +38021,8 @@ aaM
 aaM
 aaM
 aaM
-aOq
-aRX
+bas
+bau
 aaM
 aaM
 aaM
@@ -55103,7 +61243,7 @@ aaM
 aaM
 aaM
 ajT
-akd
+aWS
 akv
 akv
 akv
@@ -55112,7 +61252,7 @@ akv
 akv
 akv
 akv
-alt
+aXf
 alw
 ajT
 aaM
@@ -55370,7 +61510,7 @@ akI
 akI
 all
 akv
-alt
+aXh
 ajT
 aaM
 aaM
@@ -55884,7 +62024,7 @@ akI
 akI
 alm
 akv
-alv
+aXi
 ajT
 aaM
 aaM
@@ -56131,7 +62271,7 @@ aaM
 aaM
 aaM
 ajU
-akh
+aWT
 akv
 akv
 akv
@@ -56140,7 +62280,7 @@ akv
 alb
 alb
 akv
-alv
+aXg
 alw
 ajT
 aaM
@@ -61785,7 +67925,7 @@ aaM
 aaM
 aaM
 ahq
-aWO
+aWU
 akj
 akF
 akK
@@ -61793,7 +67933,7 @@ akK
 akZ
 akj
 akj
-aki
+aXd
 ahq
 aaM
 aaM
@@ -62300,7 +68440,7 @@ aaM
 aaM
 ahq
 akk
-aWQ
+aWX
 aky
 aky
 akW
@@ -62687,18 +68827,18 @@ aDs
 aDs
 aDs
 aDF
-aFU
+aFV
 aDF
 aDs
 aDs
 aDs
 aDF
-aFU
+aFV
 aDF
 aDs
-aDs
-aDs
-aDs
+aDt
+aDt
+aDt
 aDs
 aDs
 aCU
@@ -62813,7 +68953,7 @@ aaM
 aaM
 aaM
 ahq
-aWP
+aWV
 akj
 akF
 akK
@@ -62821,7 +68961,7 @@ akK
 akZ
 akj
 akj
-aWR
+aXe
 ahq
 aaM
 aaM
@@ -62942,20 +69082,20 @@ aDs
 aDs
 aDs
 aDs
+aDs
+aDF
+aFV
+aDF
+aDs
+aDs
+aDs
+aDF
+aFV
+aDF
+aDs
 aDt
-aDt
-aFW
-aDt
-aDu
-aDu
-aDu
-aDt
-aHi
-aDt
-aDt
-aDt
-aDt
-aDt
+aJh
+aJD
 aDs
 aDs
 aCU
@@ -63193,24 +69333,24 @@ aCU
 aDk
 aDs
 aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDF
+aFU
+aDF
+aDs
+aDs
+aDs
+aDF
+aFU
+aDF
 aDt
-aDu
 aDt
-aDt
-aDt
-aDu
-aFo
-aFC
-aEa
-aGh
-aEv
-aEv
-aEv
-aGT
-aEa
-aDu
-aHX
-aIx
 aJh
 aJD
 aDs
@@ -63449,27 +69589,27 @@ avx
 aCU
 aDk
 aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
 aDt
-aDX
-aEa
-aEu
-aEF
-aEa
-aEa
-aEa
-aEa
-aEa
-aEa
-aEa
-aEa
-aEa
-aEa
-aEa
-aHA
-aHY
-aIy
-aJh
-aJD
+aDu
+aFW
+aDt
+aDu
+aDu
+aDu
+aDt
+aHi
+aDu
+aDt
+aDt
+aDt
+aDt
 aDs
 aDs
 aCU
@@ -63705,30 +69845,30 @@ awM
 avx
 aCU
 aDk
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
 aDt
 aDt
-aDY
+aEv
+aEa
+aYL
+aEa
+aYY
+aEa
+aZl
 aEa
 aEv
-aDu
-aEz
-aEz
-aEz
-aEz
-aEa
-aEz
-aEz
-aEz
-aEz
-aEz
-aHj
+aFa
+aZE
+aJE
 aDt
-aDt
-aDt
-aDt
-aDt
-aDt
-aKv
+aDs
+aDs
 aCU
 aLh
 aLi
@@ -63962,30 +70102,30 @@ aCu
 avx
 aCU
 aDk
+aDs
+aDs
+aDt
 aDu
-aDJ
-aDZ
+aDt
+aDt
+aDu
+aDt
 aEa
-aEw
-aDt
-aDt
+aEa
+aEa
+aYM
+aEa
+aYZ
+aEa
+aZm
+aEa
+aEa
 aFa
-aFa
-aFo
-aEa
-aGi
-aDu
-aDu
-aDu
-aDu
-aEa
-aHB
-aHZ
-aIz
-aJi
-aJE
+aJk
+aIb
+aZU
 aDt
-aDt
+aDs
 aCU
 aLi
 aLO
@@ -64219,30 +70359,30 @@ aCv
 avx
 aCU
 aDk
-aDu
-aDK
-aEa
-aEj
+aDs
 aDt
-aDt
-aES
-aFb
-aFb
-aDu
-aFX
-aEv
-aEv
-aEv
-aEv
-aEv
+aDX
+aYa
+aYc
+aYj
+aYs
 aEa
-aDu
-aIa
-aIA
-aIb
-aIb
-aKb
-aJD
+aEa
+aEa
+aEa
+aYN
+aEa
+aZa
+aEa
+aZn
+aEa
+aZy
+aFa
+aJk
+aJj
+aZV
+aDt
+aDs
 aCU
 aLi
 aLO
@@ -64476,30 +70616,30 @@ aCw
 avx
 aCU
 aDk
-aDu
-aDL
-aDZ
-aEk
-aEx
 aDt
-aET
-aFc
-aFp
-aFD
+aDt
 aEa
 aEa
 aEa
-aEk
+aEa
+aDu
+aYv
 aEa
 aEa
 aEa
-aHC
+aEa
+aEa
+aEa
+aEa
+aEa
+aEa
+aEa
+aZB
 aIb
 aIb
-aJj
-aIb
-aKc
-aJD
+aZW
+baf
+aDt
 aCU
 aLi
 aLO
@@ -64734,28 +70874,28 @@ avx
 aCU
 aDk
 aDu
-aDM
+aXU
+aXX
 aEa
-aEl
+aEa
+aYk
 aDt
+aYw
+aEa
+aYE
+aEa
+aYO
+aEa
+aZb
+aEa
+aZo
+aEa
+aEa
 aDt
-aEU
-aFd
-aFd
-aDu
-aEa
-aEz
-aEz
-aEz
-aEz
-aEz
-aEa
-aDu
-aIc
-aIb
-aJk
-aIb
-aKd
+aHZ
+aZN
+aZX
+aKb
 aJD
 aCU
 aLi
@@ -64992,28 +71132,28 @@ aCU
 aDk
 aDu
 aDN
-aDZ
+aIb
 aEa
-aEy
+aYd
+aYl
 aDt
-aDt
-aFa
-aFa
-aFo
+aYx
 aEa
-aGi
-aDu
-aDu
-aDu
-aDu
+aYF
 aEa
-aDu
-aId
-aIB
-aJl
-aJF
+aYP
+aEa
+aZc
+aEa
+aZp
+aEa
+aEa
 aDt
 aDt
+aDt
+aDt
+aJh
+aJD
 aCU
 aLi
 aLO
@@ -65247,30 +71387,30 @@ aCx
 avx
 aCU
 aDk
-aDt
-aDt
-aEb
-aEa
-aEz
 aDu
-aEv
-aEv
-aEv
-aEv
+aXV
+aIb
 aEa
-aEv
-aEv
-aEv
-aEv
-aEv
-aHj
+aYe
+aYm
 aDt
-aDt
-aDt
-aDt
-aDt
-aDt
-aKv
+aYy
+aEa
+aYG
+aEa
+aYQ
+aEa
+aZd
+aEa
+aZq
+aEa
+aEa
+aFa
+aZF
+aHX
+aZY
+bag
+aJD
 aCU
 aLi
 aLP
@@ -65504,29 +71644,29 @@ aCx
 avx
 aCU
 aDk
-aDs
+aDu
+aDL
+aXY
+aEk
+aYf
+aYn
+aYt
+aYz
+aEa
+aYH
+aEa
+aYR
+aEa
+aZe
+aEa
+aZr
+aEa
+aZz
+aFa
+aZG
+aZO
+aZZ
 aDt
-aDX
-aEa
-aEA
-aEF
-aEa
-aEa
-aEa
-aEa
-aEa
-aEa
-aEa
-aEa
-aEa
-aEa
-aEa
-aHA
-aIe
-aIC
-aJh
-aJD
-aDs
 aDs
 aCU
 aLi
@@ -65761,29 +71901,29 @@ aCx
 avx
 aCU
 aDk
-aDs
-aDs
-aDt
 aDu
+aXW
+aIb
+aEa
+aYg
+aYo
 aDt
+aYA
+aEa
+aYI
+aEa
+aYS
+aEa
+aZf
+aEa
+aZs
+aEa
+aEa
+aZC
+aZH
+aHY
+baa
 aDt
-aDt
-aDu
-aFo
-aFC
-aEz
-aGj
-aEz
-aEz
-aEz
-aGU
-aEz
-aDu
-aIf
-aID
-aJh
-aJD
-aDs
 aDs
 aCU
 aLi
@@ -66018,29 +72158,29 @@ aBU
 avx
 aCU
 aDk
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDt
-aDt
 aDu
+aDJ
+aIb
+aEa
+aYh
+aYp
 aDt
-aDu
-aDu
-aDu
+aYB
+aEa
+aYJ
+aEa
+aYT
+aEa
+aZg
+aEa
+aZt
+aEa
+aEa
 aDt
-aDu
 aDt
 aDt
 aDt
 aDt
-aDt
-aDs
 aDs
 aCU
 aLi
@@ -66089,11 +72229,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bnp
+boi
+bpb
+bpU
+bqN
 aaM
 aaM
 aaM
@@ -66274,31 +72414,31 @@ aBY
 aCx
 avx
 aCU
-aDk
 aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
+aXT
+aEw
+aXZ
+aEa
+aEa
+aYq
+aDt
+aYC
+aEa
+aYK
+aEa
+aYU
+aEa
+aZh
+aEa
+aZu
+aEa
+aEa
+aDt
+aZI
+aZP
+bab
+bah
+aJD
 aCU
 aLi
 aLO
@@ -66331,30 +72471,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+baF
+bbx
+bcp
+bdh
+bdZ
+beR
+bfJ
+bgB
+bht
+bil
+bjd
+bjV
+bkN
+blF
+bmx
+bnq
+boj
+bpc
+bpV
+bqO
+brG
+bsy
+btq
+bui
 aaM
 aaM
 "}
@@ -66531,31 +72671,31 @@ aBY
 aCx
 avx
 aCU
-aDk
 aDs
-aDO
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDO
-aDs
-aDs
-aDs
-aDs
-aDO
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDs
-aDO
-aDs
+aDt
+aDt
+aEa
+aEa
+aEa
+aEa
+aDu
+aYD
+aEa
+aEa
+aEa
+aEa
+aEa
+aEa
+aEa
+aEa
+aEa
+aEa
+aDt
+aZJ
+aZQ
+bac
+aJh
+aJD
 aCU
 aLi
 aLO
@@ -66588,30 +72728,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+baG
+bby
+bcq
+bdi
+bea
+beS
+bfK
+bgC
+bhu
+bim
+bje
+bjW
+bkO
+blG
+bmy
+bnr
+bok
+bpd
+bpW
+bqP
+brH
+bsz
+btr
+buj
 aaM
 aaM
 "}
@@ -66788,31 +72928,31 @@ aBY
 aCx
 avx
 aCU
-aCU
-aDv
-aDv
-aDv
-aDv
-aDv
-aDv
-aDv
-aDv
-aDv
-aDv
-aDv
-aDv
-aDv
-aDv
-aDv
-aDv
-aDv
-aDv
-aDv
-aDv
-aDv
-aDv
-aDv
-aDv
+aDs
+aDs
+aDt
+aDX
+aYb
+aYi
+aYr
+aYu
+aEa
+aEa
+aEa
+aEa
+aYV
+aEa
+aZi
+aEa
+aZv
+aEa
+aZA
+aDt
+aZK
+aZR
+bad
+aKd
+aJD
 aCU
 aLi
 aLO
@@ -66845,30 +72985,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+baH
+bbz
+bcr
+bdj
+beb
+beT
+bfL
+bgD
+bhv
+bin
+bjf
+bjX
+bkP
+blH
+bmz
+bns
+bol
+bpe
+bpX
+bqQ
+brI
+bsA
+bts
+buk
 aaM
 aaM
 "}
@@ -67044,33 +73184,33 @@ ayo
 aBY
 aCy
 avx
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aJg
+aCU
+aDs
+aDs
+aDs
+aDt
+aDu
+aDt
+aDt
+aDt
+aDt
+aEa
+aEa
+aEa
+aYW
+aEa
+aZj
+aEa
+aZw
+aEa
+aEa
+aZD
+aZL
+aZS
+bae
+bai
+aDt
+aCU
 aLi
 aLi
 aLO
@@ -67102,30 +73242,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+baI
+bbA
+bcs
+bdk
+bec
+beU
+bfM
+bgE
+bhw
+bio
+bjg
+bjY
+bkQ
+blI
+bmA
+bnt
+bom
+bpf
+bpY
+bqR
+brJ
+bsB
+btt
+bul
 aaM
 aaM
 "}
@@ -67301,33 +73441,33 @@ ayp
 aBZ
 aBU
 avx
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aJg
+aCU
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDt
+aDt
+aEz
+aEa
+aYX
+aEa
+aZk
+aEa
+aZx
+aEa
+aEz
+aDt
+aZM
+aZT
+aDt
+aDt
+aDs
+aCU
 aLi
 aLi
 aLO
@@ -67359,30 +73499,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+baJ
+bbB
+bct
+bdl
+bed
+beV
+bfN
+bgF
+bhx
+bip
+bjh
+bjZ
+bkR
+blJ
+bmB
+bnu
+bon
+bpg
+bpZ
+bqS
+brK
+bsC
+btu
+bum
 aaM
 aaM
 "}
@@ -67558,33 +73698,33 @@ aBl
 ayR
 ayR
 avx
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aJg
+aCU
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDt
+aDu
+aDu
+aDt
+aDu
+aDu
+aDu
+aDt
+aDu
+aDu
+aDt
+aDt
+aDt
+aDt
+aDt
+aDs
+aCU
 aLj
 aLi
 aLi
@@ -67616,30 +73756,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+baK
+bbC
+bcu
+bdm
+bee
+beW
+bfO
+bgG
+bhy
+biq
+bji
+bka
+bkS
+blK
+bmC
+bnv
+boo
+bph
+bqa
+bqT
+brL
+bsD
+btv
+bun
 aaM
 aaM
 "}
@@ -67815,33 +73955,33 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aJg
+aCU
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDt
+aDt
+aJh
+aJD
+aDs
+aDs
+aCU
 aJg
 aLQ
 aLQ
@@ -67873,30 +74013,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+baL
+bbD
+bcv
+bdn
+bef
+beX
+bfP
+bgH
+bhz
+bir
+bjj
+bkb
+bkT
+blL
+bmD
+bnw
+bop
+bpi
+bqb
+bqU
+brM
+bsE
+btw
+buo
 aaM
 aaM
 "}
@@ -68072,6 +74212,33 @@ aaM
 aaM
 aaM
 aaM
+aCU
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDt
+aJh
+aJD
+aDs
+aDs
+aCU
 aaM
 aaM
 aaM
@@ -68103,57 +74270,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+baM
+bbE
+bcw
+bdo
+beg
+beY
+bfQ
+bgI
+bhA
+bis
+bjk
+bkc
+bkU
+blM
+bmE
+bnx
+boq
+bpj
+bqc
+bqV
+brN
+bsF
+btx
+bup
 aaM
 aaM
 "}
@@ -68329,6 +74469,33 @@ aaM
 aaM
 aaM
 aaM
+aCU
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDt
+aDt
+aDt
+aDs
+aDs
+aCU
 aaM
 aaM
 aaM
@@ -68360,57 +74527,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+baN
+bbF
+bcx
+bdp
+beh
+beZ
+bfR
+bgJ
+bhB
+bit
+bjl
+bkd
+bkV
+blN
+bmF
+bny
+bor
+bpk
+bqd
+bqW
+brO
+bsG
+bty
+buq
 aaM
 aaM
 "}
@@ -68586,6 +74726,33 @@ aaM
 aaM
 aaM
 aaM
+aCU
+aDk
+aDs
+aDO
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDO
+aDs
+aDs
+aDs
+aDs
+aDO
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDs
+aDO
+aDs
+aCU
 aaM
 aaM
 aaM
@@ -68617,57 +74784,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+baO
+bbG
+bcy
+bdq
+bei
+bfa
+bfS
+bgK
+bhC
+biu
+bjm
+bke
+bkW
+blO
+bmG
+bnz
+bos
+bpl
+bqe
+bqX
+brP
+bsH
+btz
+bur
 aaM
 aaM
 "}
@@ -68843,6 +74983,33 @@ aaM
 aaM
 aaM
 aaM
+aCU
+aCU
+aDv
+aDv
+aDv
+aDv
+aDv
+aDv
+aDv
+aDv
+aDv
+aDv
+aDv
+aDv
+aDv
+aDv
+aDv
+aDv
+aDv
+aDv
+aDv
+aDv
+aDv
+aDv
+aDv
+aDv
+aCU
 aaM
 aaM
 aaM
@@ -68874,57 +75041,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+baP
+bbH
+bcz
+bdr
+bej
+bfb
+bfT
+bgL
+bhD
+biv
+bjn
+bkf
+bkX
+blP
+bmH
+bnA
+bot
+bpm
+bqf
+bqY
+brQ
+bsI
+btA
+bus
 aaM
 aaM
 "}
@@ -69158,30 +75298,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+baQ
+bbI
+bcA
+bds
+bek
+bfc
+bfU
+bgM
+bhE
+biw
+bjo
+bkg
+bkY
+blQ
+bmI
+bnB
+bou
+bpn
+bqg
+bqZ
+brR
+bsJ
+btB
+but
 aaM
 aaM
 "}
@@ -69415,30 +75555,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+baR
+bbJ
+bcB
+bdt
+bel
+bfd
+bfV
+bgN
+bhF
+bix
+bjp
+bkh
+bkZ
+blR
+bmJ
+bnC
+bov
+bpo
+bqh
+bra
+brS
+bsK
+btC
+buu
 aaM
 aaM
 "}
@@ -70700,30 +76840,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+baS
+bbK
+bcC
+bdu
+bem
+bfe
+bfW
+bgO
+bhG
+biy
+bjq
+bki
+bla
+blS
+bmK
+bnD
+bow
+bpp
+bqi
+brb
+brT
+bsL
+btD
+buv
 aaM
 aaM
 "}
@@ -70957,30 +77097,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+baT
+bbL
+bcD
+bdv
+ben
+bff
+bfX
+bgP
+bhH
+biz
+bjr
+bkj
+blb
+blT
+bmL
+bnE
+box
+bpq
+bqj
+brc
+brU
+bsM
+btE
+buw
 aaM
 aaM
 "}
@@ -71214,30 +77354,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+baU
+bbM
+bcE
+bdw
+beo
+bfg
+bfY
+bgQ
+bhI
+biA
+bjs
+bkk
+blc
+blU
+bmM
+bnF
+boy
+bpr
+bqk
+brd
+brV
+bsN
+btF
+bux
 aaM
 aaM
 "}
@@ -71471,30 +77611,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+baV
+bbN
+bcF
+bdx
+bep
+bfh
+bfZ
+bgR
+bhJ
+biB
+bjt
+bkl
+bld
+blV
+bmN
+bnG
+boz
+bps
+bql
+bre
+brW
+bsO
+btG
+buy
 aaM
 aaM
 "}
@@ -71728,30 +77868,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+baW
+bbO
+bcG
+bdy
+beq
+bfi
+bga
+bgS
+bhK
+biC
+bju
+bkm
+ble
+blW
+bmO
+bnH
+boA
+bpt
+bqm
+brf
+brX
+bsP
+btH
+buz
 aaM
 aaM
 "}
@@ -71985,30 +78125,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+baX
+bbP
+bcH
+bdz
+ber
+bfj
+bgb
+bgT
+bhL
+biD
+bjv
+bkn
+blf
+blX
+bmP
+bnI
+boB
+bpu
+bqn
+brg
+brY
+bsQ
+btI
+buA
 aaM
 aaM
 "}
@@ -72242,30 +78382,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+baY
+bbQ
+bcI
+bdA
+bes
+bfk
+bgc
+bgU
+bhM
+biE
+bjw
+bko
+blg
+blY
+bmQ
+bnJ
+boC
+bpv
+bqo
+brh
+brZ
+bsR
+btJ
+buB
 aaM
 aaM
 "}
@@ -72499,30 +78639,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+baZ
+bbR
+bcJ
+bdB
+bet
+bfl
+bgd
+bgV
+bhN
+biF
+bjx
+bkp
+blh
+blZ
+bmR
+bnK
+boD
+bpw
+bqp
+bri
+bsa
+bsS
+btK
+buC
 aaM
 aaM
 "}
@@ -72756,30 +78896,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bba
+bbS
+bcK
+bdC
+beu
+bfm
+bge
+bgW
+bhO
+biG
+bjy
+bkq
+bli
+bma
+bmS
+bnL
+boE
+bpx
+bqq
+brj
+bsb
+bsT
+btL
+buD
 aaM
 aaM
 "}
@@ -73013,30 +79153,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bbb
+bbT
+bcL
+bdD
+bev
+bfn
+bgf
+bgX
+bhP
+biH
+bjz
+bkr
+blj
+bmb
+bmT
+bnM
+boF
+bpy
+bqr
+brk
+bsc
+bsU
+btM
+buE
 aaM
 aaM
 "}
@@ -73270,30 +79410,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bbc
+bbU
+bcM
+bdE
+bew
+bfo
+bgg
+bgY
+bhQ
+biI
+bjA
+bks
+blk
+bmc
+bmU
+bnN
+boG
+bpz
+bqs
+brl
+bsd
+bsV
+btN
+buF
 aaM
 aaM
 "}
@@ -73527,30 +79667,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bbd
+bbV
+bcN
+bdF
+bex
+bfp
+bgh
+bgZ
+bhR
+biJ
+bjB
+bkt
+bll
+bmd
+bmV
+bnO
+boH
+bpA
+bqt
+brm
+bse
+bsW
+btO
+buG
 aaM
 aaM
 "}
@@ -73784,30 +79924,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bbe
+bbW
+bcO
+bdG
+bey
+bfq
+bgi
+bha
+bhS
+biK
+bjC
+bku
+blm
+bme
+bmW
+bnP
+boI
+bpB
+bqu
+brn
+bsf
+bsX
+btP
+buH
 aaM
 aaM
 "}
@@ -74041,30 +80181,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bbf
+bbX
+bcP
+bdH
+bez
+bfr
+bgj
+bhb
+bhT
+biL
+bjD
+bkv
+bln
+bmf
+bmX
+bnQ
+boJ
+bpC
+bqv
+bro
+bsg
+bsY
+btQ
+buI
 aaM
 aaM
 "}
@@ -74298,30 +80438,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bbg
+bbY
+bcQ
+bdI
+beA
+bfs
+bgk
+bhc
+bhU
+biM
+bjE
+bkw
+blo
+bmg
+bmY
+bnR
+boK
+bpD
+bqw
+brp
+bsh
+bsZ
+btR
+buJ
 aaM
 aaM
 "}
@@ -74555,30 +80695,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bbh
+bbZ
+bcR
+bdJ
+beB
+bft
+bgl
+bhd
+bhV
+biN
+bjF
+bkx
+blp
+bmh
+bmZ
+bnS
+boL
+bpE
+bqx
+brq
+bsi
+bta
+btS
+buK
 aaM
 aaM
 "}
@@ -74632,7 +80772,7 @@ aiE
 ajj
 ajq
 ajv
-ajD
+aWP
 aaM
 aaM
 aaM
@@ -74812,30 +80952,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bbi
+bca
+bcS
+bdK
+beC
+bfu
+bgm
+bhe
+bhW
+biO
+bjG
+bky
+blq
+bmi
+bna
+bnT
+boM
+bpF
+bqy
+brr
+bsj
+btb
+btT
+buL
 aaM
 aaM
 "}
@@ -75069,30 +81209,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bbj
+bcb
+bcT
+bdL
+beD
+bfv
+bgn
+bhf
+bhX
+biP
+bjH
+bkz
+blr
+bmj
+bnb
+bnU
+boN
+bpG
+bqz
+brs
+bsk
+btc
+btU
+buM
 aaM
 aaM
 "}
@@ -75326,30 +81466,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bbk
+bcc
+bcU
+bdM
+beE
+bfw
+bgo
+bhg
+bhY
+biQ
+bjI
+bkA
+bls
+bmk
+bnc
+bnV
+boO
+bpH
+bqA
+brt
+bsl
+btd
+btV
+buN
 aaM
 aaM
 "}
@@ -75583,30 +81723,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bbl
+bcd
+bcV
+bdN
+beF
+bfx
+bgp
+bhh
+bhZ
+biR
+bjJ
+bkB
+blt
+bml
+bnd
+bnW
+boP
+bpI
+bqB
+bru
+bsm
+bte
+btW
+buO
 aaM
 aaM
 "}
@@ -75626,7 +81766,7 @@ aeQ
 aeW
 aeW
 aeW
-afN
+aWL
 aeW
 aeW
 aeW
@@ -75840,30 +81980,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bbm
+bce
+bcW
+bdO
+beG
+bfy
+bgq
+bhi
+bia
+biS
+bjK
+bkC
+blu
+bmm
+bne
+bnX
+boQ
+bpJ
+bqC
+brv
+bsn
+btf
+btX
+buP
 aaM
 aaM
 "}
@@ -75888,7 +82028,7 @@ afW
 aeW
 aeW
 aeW
-afN
+aWO
 aeW
 agZ
 aaM
@@ -75924,7 +82064,7 @@ ajW
 ajW
 ajW
 ajv
-ajD
+aWZ
 aaM
 alh
 ajl
@@ -76097,30 +82237,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bbn
+bcf
+bcX
+bdP
+beH
+bfz
+bgr
+bhj
+bib
+biT
+bjL
+bkD
+blv
+bmn
+bnf
+bnY
+boR
+bpK
+bqD
+brw
+bso
+btg
+btY
+buQ
 aaM
 aaM
 "}
@@ -76140,7 +82280,7 @@ aeQ
 aeW
 aeW
 aeW
-afO
+aWM
 aeW
 aeW
 aft
@@ -76354,30 +82494,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bbo
+bcg
+bcY
+bdQ
+beI
+bfA
+bgs
+bhk
+bic
+biU
+bjM
+bkE
+blw
+bmo
+bng
+bnZ
+boS
+bpL
+bqE
+brx
+bsp
+bth
+btZ
+buR
 aaM
 aaM
 "}
@@ -76438,7 +82578,7 @@ ajW
 ajW
 ajW
 ajv
-ajM
+aXa
 aaM
 aaM
 aaM
@@ -76611,30 +82751,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bbp
+bch
+bcZ
+bdR
+beJ
+bfB
+bgt
+bhl
+bid
+biV
+bjN
+bkF
+blx
+bmp
+bnh
+boa
+boT
+bpM
+bqF
+bry
+bsq
+bti
+bua
+buS
 aaM
 aaM
 "}
@@ -76657,7 +82797,7 @@ aeW
 aeW
 aeW
 aeW
-afN
+aWN
 aeW
 afW
 aeW
@@ -76751,7 +82891,7 @@ aaM
 aaM
 aaM
 aaM
-alR
+aXs
 amf
 aoP
 aoU
@@ -76761,7 +82901,7 @@ amf
 amf
 amf
 amf
-aWL
+aXx
 aaM
 aaM
 aaM
@@ -76868,30 +83008,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bbq
+bci
+bda
+bdS
+beK
+bfC
+bgu
+bhm
+bie
+biW
+bjO
+bkG
+bly
+bmq
+bni
+bob
+boU
+bpN
+bqG
+brz
+bsr
+btj
+bub
+buT
 aaM
 aaM
 "}
@@ -77001,7 +83141,7 @@ aaM
 aaM
 aaM
 aaM
-alR
+aXq
 amf
 anR
 amf
@@ -77125,30 +83265,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bbr
+bcj
+bdb
+bdT
+beL
+bfD
+bgv
+bhn
+bif
+biX
+bjP
+bkH
+blz
+bmr
+bnj
+boc
+boV
+bpO
+bqH
+brA
+bss
+btk
+buc
+buU
 aaM
 aaM
 "}
@@ -77382,30 +83522,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bbs
+bck
+bdc
+bdU
+beM
+bfE
+bgw
+bho
+big
+biY
+bjQ
+bkI
+blA
+bms
+bnk
+bod
+boW
+bpP
+bqI
+brB
+bst
+btl
+bud
+buV
 aaM
 aaM
 "}
@@ -77639,30 +83779,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bbt
+bcl
+bdd
+bdV
+beN
+bfF
+bgx
+bhp
+bih
+biZ
+bjR
+bkJ
+blB
+bmt
+bnl
+boe
+boX
+bpQ
+bqJ
+brC
+bsu
+btm
+bue
+buW
 aaM
 aaM
 "}
@@ -77764,14 +83904,14 @@ aaM
 aaM
 aaM
 aaM
-alR
+aXl
 amf
 amf
 amf
 amQ
 aaM
 aaM
-alR
+aXo
 amf
 anG
 anS
@@ -77789,7 +83929,7 @@ apr
 amf
 amf
 amf
-amS
+aXy
 aaM
 aaM
 aaM
@@ -77896,30 +84036,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bbu
+bcm
+bde
+bdW
+beO
+bfG
+bgy
+bhq
+bii
+bja
+bjS
+bkK
+blC
+bmu
+bnm
+bof
+boY
+bpR
+bqK
+brD
+bsv
+btn
+buf
+buX
 aaM
 aaM
 "}
@@ -78020,7 +84160,7 @@ aaM
 aaM
 aaM
 aaM
-alR
+aXj
 amf
 amp
 amA
@@ -78153,30 +84293,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bbv
+bcn
+bdf
+bdX
+beP
+bfH
+bgz
+bhr
+bij
+bjb
+bjT
+bkL
+blD
+bmv
+bnn
+bog
+boZ
+bpS
+bqL
+brE
+bsw
+bto
+bug
+buY
 aaM
 aaM
 "}
@@ -78302,7 +84442,7 @@ amf
 amf
 amf
 amf
-aWL
+aXu
 aaM
 aaM
 aaM
@@ -78410,30 +84550,30 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bbw
+bco
+bdg
+bdY
+beQ
+bfI
+bgA
+bhs
+bik
+bjc
+bjU
+bkM
+blE
+bmw
+bno
+boh
+bpa
+bpT
+bqM
+brF
+bsx
+btp
+buh
+buZ
 aaM
 aaM
 "}
@@ -79009,7 +85149,7 @@ ako
 ako
 ako
 ajv
-ajD
+aXb
 aid
 aaM
 aaM
@@ -79330,7 +85470,7 @@ amf
 amf
 amf
 amf
-amS
+aXv
 aaM
 aaM
 aaM
@@ -79523,7 +85663,7 @@ ako
 ako
 ako
 ajv
-ajM
+aXc
 aaM
 aaM
 aaM
@@ -79562,7 +85702,7 @@ aaM
 aaM
 aaM
 aaM
-alV
+aXk
 amf
 amj
 amC
@@ -79773,7 +85913,7 @@ ajg
 ajg
 ajg
 ajv
-ajD
+aWQ
 aaM
 aaM
 aaM
@@ -79820,14 +85960,14 @@ aaM
 aaM
 aaM
 aaM
-alV
+aXm
 amf
 amf
 amf
-amS
+aXn
 aaM
 aaM
-alV
+aXp
 amf
 anJ
 anJ
@@ -79845,7 +85985,7 @@ amf
 amf
 amf
 amf
-aWL
+aXz
 aaM
 aaM
 aaM
@@ -80287,7 +86427,7 @@ ajg
 ajg
 ajg
 ajv
-ajM
+aWR
 aaM
 aiE
 akq
@@ -80599,7 +86739,7 @@ alO
 aaM
 aaM
 alB
-alV
+aXr
 anM
 anM
 amf
@@ -80863,7 +87003,7 @@ aoi
 aiB
 alA
 aaM
-alV
+aXt
 amf
 aoS
 apb
@@ -80873,7 +87013,7 @@ amf
 amf
 amf
 amf
-amS
+aXA
 aaM
 aaM
 aaM
@@ -81317,9 +87457,9 @@ aaM
 aaM
 aaM
 aaM
-aWN
+aWW
 ajL
-ajM
+aWY
 aid
 aid
 aid

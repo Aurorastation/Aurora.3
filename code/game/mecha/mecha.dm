@@ -81,7 +81,7 @@
 
 	var/list/equipment = new
 	var/obj/item/mecha_parts/mecha_equipment/selected
-	var/max_equip = 3
+	var/max_equip = 4
 	var/datum/mecha_events/events
 	var/lastcrash
 	var/crash_cooldown = 30
@@ -298,7 +298,7 @@
 ////////////////////////////
 ///// Action processing ////
 ////////////////////////////
-/obj/mecha/proc/click_action(atom/target,mob/user)
+/obj/mecha/proc/click_action(atom/target,mob/user, params)
 	if(!src.occupant || src.occupant != user ) return
 	if(user.stat) return
 	if(state)
@@ -318,9 +318,9 @@
 			return
 	if(!target.Adjacent(src))
 		if(selected && selected.is_ranged())
-			selected.action(target)
+			selected.action(target, user, params)
 	else if(selected && selected.is_melee())
-		selected.action(target)
+		selected.action(target, user, params)
 	else
 		src.melee_action(target)
 	return
@@ -462,7 +462,8 @@
 		playsound(src,'sound/mecha/mechstep.ogg',40,1)
 	return result
 
-/obj/mecha/Bump(var/atom/obstacle)
+/obj/mecha/Collide(var/atom/obstacle)
+	. = ..()
 //	src.inertia_dir = null
 	if(istype(obstacle, /obj))
 		var/obj/O = obstacle
@@ -474,11 +475,11 @@
 		else if(!O.anchored)
 			step(obstacle,src.dir)
 		else //I have no idea why I disabled this
-			obstacle.Bumped(src)
+			obstacle.CollidedWith(src)
 	else if(istype(obstacle, /mob))
 		step(obstacle,src.dir)
 	else
-		obstacle.Bumped(src)
+		obstacle.CollidedWith(src)
 	return
 
 ///////////////////////////////////

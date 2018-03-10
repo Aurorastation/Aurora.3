@@ -390,7 +390,7 @@
 
 	if(M.ingested)
 		for(var/datum/reagent/R in M.ingested.reagent_list)
-			if(istype(R, /datum/reagent/ethanol))
+			if(istype(R, /datum/reagent/alcohol/ethanol))
 				var/amount = min(P, R.volume)
 				M.ingested.remove_reagent(R.id, amount)
 				P -= amount
@@ -401,7 +401,7 @@
 	//as a treatment option if someone was dumb enough to do this
 	if(M.bloodstr)
 		for(var/datum/reagent/R in M.bloodstr.reagent_list)
-			if(istype(R, /datum/reagent/ethanol))
+			if(istype(R, /datum/reagent/alcohol/ethanol))
 				var/amount = min(P, R.volume)
 				M.bloodstr.remove_reagent(R.id, amount)
 				P -= amount
@@ -685,6 +685,31 @@
 
 /datum/reagent/azoth/overdose(var/mob/living/carbon/M, var/alien)
 	M.adjustBruteLoss(5)
+
+/datum/reagent/adipemcina //Based on quinapril
+	name = "Adipemcina"
+	id = "adipemcina"
+	description = "Adipemcina is a heart medication used for treating high blood pressure, heart failure, and diabetes. Works at it's best when the stomach is empty. Causes vomiting and liver damage when overdosed."
+	reagent_state = LIQUID
+	color = "#008000"
+	metabolism = REM * 0.5
+	overdose = REAGENTS_OVERDOSE
+	scannable = 1
+	taste_description = "bitterness"
+
+/datum/reagent/adipemcina/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+	if(istype(M))
+		var/obj/item/organ/F = M.internal_organs_by_name["heart"]
+		if(istype(F))
+			var/nutritionmod = max(0.25, (1 - M.nutrition) / M.max_nutrition * 0.5) //Less effective when your stomach is "full".
+			F.take_damage(-removed*nutritionmod)
+	..()
+
+/datum/reagent/adipemcina/overdose(var/mob/living/carbon/human/M, var/alien)
+	if(istype(M))
+		if(prob(25))
+			M.add_chemical_effect(CE_ALCOHOL_TOXIC, 1)
+			M.vomit()
 
 /datum/reagent/elixir
 	name = "Elixir of Life"

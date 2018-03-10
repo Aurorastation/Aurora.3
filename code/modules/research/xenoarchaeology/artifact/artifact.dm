@@ -105,9 +105,8 @@
 				"<span class='notice'>[src] has been whittled away under your careful excavation, but there was nothing of interest inside.</span>")
 			qdel(src)
 
-/obj/structure/boulder/Bumped(AM)
+/obj/structure/boulder/CollidedWith(AM)
 	. = ..()
-
 	if(istype(AM,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = AM
 		if((istype(H.l_hand,/obj/item/weapon/pickaxe)) && (!H.hand))

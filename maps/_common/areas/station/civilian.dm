@@ -174,3 +174,8 @@
 /area/hydroponics/garden
 	name = "\improper Garden"
 	icon_state = "garden"
+
+/area/store
+	name = "\improper Station Store"
+	icon_state = "quartstorage"
+	station_area = 1

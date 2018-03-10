@@ -58,11 +58,21 @@
 	//Admin PM
 	if(href_list["priv_msg"])
 		var/client/C = locate(href_list["priv_msg"])
+		var/datum/ticket/ticket = locate(href_list["ticket"])
+
 		if(ismob(C)) 		//Old stuff can feed-in mobs instead of clients
 			var/mob/M = C
 			C = M.client
-		cmd_admin_pm(C,null)
+		cmd_admin_pm(C, null, ticket)
 		return
+
+	if(href_list["close_ticket"])
+		var/datum/ticket/ticket = locate(href_list["close_ticket"])
+
+		if(isnull(ticket))
+			return
+
+		ticket.close(src)
 
 	if(href_list["discord_msg"])
 		if(!holder && received_discord_pm < world.time - 6000) //Worse they can do is spam IRC for 10 minutes
@@ -225,6 +235,9 @@
 
 	..()	//redirect to hsrc.()
 
+/proc/client_by_ckey(ckey)
+	return directory[ckey]
+
 /client/proc/handle_spam_prevention(var/message, var/mute_type)
 	if (config.automute_on && !holder && length(message))
 		if (last_message_time)
@@ -383,6 +396,7 @@
 	//DISCONNECT//
 	//////////////
 /client/Del()
+	ticket_panels -= src
 	if(holder)
 		holder.owner = null
 		admins -= src
@@ -466,14 +480,21 @@
 	var/sql_ip = sql_sanitize_text(src.address)
 	var/sql_computerid = sql_sanitize_text(src.computer_id)
 	var/sql_admin_rank = sql_sanitize_text(admin_rank)
+	var/sql_byond_version = text2num(byond_version)
+	#if DM_VERSION >= 512
+	var/sql_byond_build = text2num(byond_build)
+	#else
+	var/sql_byond_build = 0
+	#endif
+
 
 	if(found)
-		//Player already identified previously, we need to just update the 'lastseen', 'ip' and 'computer_id' variables
-		var/DBQuery/query_update = dbcon.NewQuery("UPDATE ss13_player SET lastseen = Now(), ip = '[sql_ip]', computerid = '[sql_computerid]', lastadminrank = '[sql_admin_rank]', account_join_date = [account_join_date ? "'[account_join_date]'" : "NULL"] WHERE ckey = '[sql_ckey]'")
+		//Player already identified previously, we need to just update the 'lastseen', 'ip', 'computer_id', 'byond_version' and 'byond_build' variables
+		var/DBQuery/query_update = dbcon.NewQuery("UPDATE ss13_player SET lastseen = Now(), ip = '[sql_ip]', computerid = '[sql_computerid]', lastadminrank = '[sql_admin_rank]', account_join_date = [account_join_date ? "'[account_join_date]'" : "NULL"], byond_version = [sql_byond_version], byond_build = [sql_byond_build] WHERE ckey = '[sql_ckey]'")
 		query_update.Execute()
 	else if (!config.access_deny_new_players)
 		//New player!! Need to insert all the stuff
-		var/DBQuery/query_insert = dbcon.NewQuery("INSERT INTO ss13_player (ckey, firstseen, lastseen, ip, computerid, lastadminrank, account_join_date) VALUES ('[sql_ckey]', Now(), Now(), '[sql_ip]', '[sql_computerid]', '[sql_admin_rank]', [account_join_date ? "'[account_join_date]'" : "NULL"])")
+		var/DBQuery/query_insert = dbcon.NewQuery("INSERT INTO ss13_player (ckey, firstseen, lastseen, ip, computerid, lastadminrank, account_join_date, byond_version, byond_build) VALUES ('[sql_ckey]', Now(), Now(), '[sql_ip]', '[sql_computerid]', '[sql_admin_rank]', [account_join_date ? "'[account_join_date]'" : "NULL"], [sql_byond_version], [sql_byond_build])")
 		query_insert.Execute()
 	else
 		// Flag as -1 to know we have to kiiick them.
@@ -484,7 +505,7 @@
 
 	//Logging player access
 	var/serverip = "[world.internet_address]:[world.port]"
-	var/DBQuery/query_accesslog = dbcon.NewQuery("INSERT INTO `ss13_connection_log`(`id`,`datetime`,`serverip`,`ckey`,`ip`,`computerid`) VALUES(null,Now(),'[serverip]','[sql_ckey]','[sql_ip]','[sql_computerid]');")
+	var/DBQuery/query_accesslog = dbcon.NewQuery("INSERT INTO `ss13_connection_log`(`id`,`datetime`,`serverip`,`ckey`,`ip`,`computerid`,`byond_version`,`byond_build`) VALUES(null,Now(),'[serverip]','[sql_ckey]','[sql_ip]','[sql_computerid]','[sql_byond_version]','[sql_byond_build]');")
 	query_accesslog.Execute()
 
 
