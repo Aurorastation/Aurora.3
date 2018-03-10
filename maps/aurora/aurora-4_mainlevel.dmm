@@ -3245,10 +3245,10 @@
 /turf/simulated/floor/plating,
 /area/security/brig)
 "agw" = (
+/obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet{
 	name = "Evidence Closet"
 	},
-/obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1";
@@ -5053,17 +5053,17 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/structure/closet{
-	name = "Evidence Closet"
-	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1";
 	pixel_x = 0
+	},
+/obj/structure/closet{
+	name = "Evidence Closet"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/security/investigations)
@@ -6527,12 +6527,12 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "amL" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
 /obj/structure/noticeboard{
 	pixel_x = 0;
 	pixel_y = 32
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
 	},
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -54860,9 +54860,9 @@
 /turf/simulated/floor/wood,
 /area/library)
 "bON" = (
+/obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/medical,
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "bOO" = (
@@ -54880,9 +54880,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "bOP" = (
+/obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/medical,
-/obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
 /turf/simulated/floor/tiled,
@@ -58690,6 +58690,10 @@
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bWx" = (
+/obj/machinery/light_switch{
+	pixel_x = 4;
+	pixel_y = 26
+	},
 /obj/machinery/button/remote/blast_door{
 	id = "bar";
 	name = "Bar Shutters";
@@ -58697,10 +58701,6 @@
 	},
 /obj/machinery/camera/network/civilian_west{
 	c_tag = "Bar - Counter"
-	},
-/obj/machinery/light_switch{
-	pixel_x = 4;
-	pixel_y = 26
 	},
 /obj/machinery/button/windowtint{
 	id = "finedining";
