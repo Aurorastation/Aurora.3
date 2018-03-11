@@ -115,12 +115,12 @@
 
 	if(timer > stage1)
 		radio.autosay("Critical: Brute force attempt on primary firewall detected.", "Station Authentication Control")
-		radio.autosay("Notice: Local Override recommended.", "Station Authentication Control")
+		radio.autosay("Notice: Local override recommended.", "Station Authentication Control")
 	else if(timer > stage2)
 		radio.autosay("Alert: Brute force attempt on backup firewall detected.", "Station Authentication Control")
-		radio.autosay("Notice: Local Override with authentication disk recommended.", "Station Authentication Control")
+		radio.autosay("Notice: Local override with authentication disk recommended.", "Station Authentication Control")
 	else
-		radio.autosay("Emergency: Self destruct sequence has been activated. Self-destructing in [timer] seconds.", "Station Authentication Control")
+		radio.autosay("Emergency: Self-destruct sequence has been activated. Self-destructing in [timer] seconds.", "Station Authentication Control")
 		radio.autosay("Notice: Deactivate using authentication disk in SAT-Chamber", "Station Authentication Control")
 
 	
@@ -129,15 +129,15 @@
 		var/obj/machinery/nuclearbomb/station/N = nuke.resolve()
 		if(!user || !user.bombing_station || user.stat == DEAD || !N)
 			if(timer < stage2)
-				radio.autosay("Self destruct sequence has been cancelled.", "Station Authentication Control")
+				radio.autosay("Self-destruct sequence has been cancelled.", "Station Authentication Control")
 			else
 				radio.autosay("Brute force attempt has ceased.", "Station Authentication Control")
 			return
 		if(N.auth)
 			if(timer < stage2)
-				radio.autosay("Local Override Engaged - Self-Destruct canceled.", "Station Authentication Control")
+				radio.autosay("Local Override Engaged - Self-Destruct cancelled.", "Station Authentication Control")
 			else
-				radio.autosay("Local Override Engaged - Network Connection Disabled.", "Station Authentication Control")
+				radio.autosay("Local Override Engaged - Network connection disabled.", "Station Authentication Control")
 			user.bombing_station = 0
 			return
 		if(timer == stage1+1)
@@ -147,13 +147,13 @@
 			user.bombing_time = stage1 //Further attempts will only take 900 seconds
 		if(timer == stage2+1)
 			radio.autosay("Emergency: Backup firewall failed.")
-			radio.autosay("Self destruct sequence has been activated. Self-destructing in [timer] seconds.", "Station Authentication Control")
+			radio.autosay("Self-destruct sequence has been activated. Self-destructing in [timer] seconds.", "Station Authentication Control")
 			radio.autosay("Notice: Deactivate using authentication disk in SAT-Chamber", "Station Authentication Control")
 			user.bombing_time = stage2 //Further attempts will only take 600 seconds
 		if(timer in list(2, 3, 4, 5, 10, 30, 60, 90, 120, 240, 300)) // Announcement times. "1" is not intentionally included!
-			radio.autosay("Self destruct in [timer] seconds.", "Station Authentication Control")
+			radio.autosay("Self-destruct in [timer] seconds.", "Station Authentication Control")
 		if(timer == 1)
-			radio.autosay("Self destructing now. Have a nice day.", "Station Authentication Control")
+			radio.autosay("Self-destruct sequence initiated. Have a nice day", "Station Authentication Control")
 		timer--
 
 	SSticker.station_explosion_cinematic(0,null)
