@@ -102,6 +102,7 @@
 			return
 		else
 			digest(M,removed)
+			return
 
 	..()
 
