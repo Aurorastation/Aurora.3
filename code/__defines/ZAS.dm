@@ -7,6 +7,7 @@
 #define BLOCKED 3
 
 #define ZONE_MIN_SIZE 14 //zones with less than this many turfs will always merge, even if the connection is not direct
+#define EDGE_KNOCKDOWN_MAX_DISTANCE 16	// Maximum distance between an airflow origin and a movable before knockdown no longer applies.
 
 #define CANPASS_ALWAYS 1
 #define CANPASS_DENSITY 2
