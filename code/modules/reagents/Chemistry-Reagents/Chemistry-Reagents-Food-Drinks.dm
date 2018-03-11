@@ -104,8 +104,6 @@
 			digest(M,removed)
 			return
 
-	..()
-
 /datum/reagent/nutriment/proc/digest(var/mob/living/carbon/M, var/removed)
 	M.heal_organ_damage(regen_factor * removed, 0)
 	M.nutrition += nutriment_factor * removed // For hunger and fatness
