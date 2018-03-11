@@ -9,6 +9,8 @@
 
 	secured = 1
 
+	trigger_on_slotmove = TRUE
+
 	var/code = 30
 	var/frequency = 1457
 	var/delay = 0
