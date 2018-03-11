@@ -79,6 +79,7 @@
 
 	var/cleaving = FALSE
 	var/reach = 1 // Length of tiles it can reach, 1 is adjacent.
+	var/trigger_on_slotmove = FALSE //used at mob/inventory.dm
 
 /obj/item/Destroy()
 	if(ismob(loc))

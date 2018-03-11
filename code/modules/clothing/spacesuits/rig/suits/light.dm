@@ -83,7 +83,7 @@
 	chest_type = /obj/item/clothing/suit/space/rig/light/ninja
 	glove_type = /obj/item/clothing/gloves/rig/light/ninja
 	helm_type =  /obj/item/clothing/head/helmet/space/rig/light/ninja
-	boot_type = /obj/item/clothing/shoes/rig/light/ninja
+	boot_type = /obj/item/clothing/shoes/magboots/rig/light/ninja
 
 	req_access = list(access_syndicate)
 	initial_modules = list(
@@ -116,7 +116,7 @@
 	name = "insulated gloves"
 	siemens_coefficient = 0
 
-/obj/item/clothing/shoes/rig/light/ninja
+/obj/item/clothing/shoes/magboots/rig/light/ninja
 	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
 	silent = 1
 

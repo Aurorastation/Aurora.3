@@ -108,7 +108,6 @@
 /*
 	Coatings are used in cooking. Dipping food items in a reagent container with a coating in it
 	allows it to be covered in that, which will add a masked overlay to the sprite.
-
 	Coatings have both a raw and a cooked image. Raw coating is generally unhealthy
 	Generally coatings are intended for deep frying foods
 */
@@ -291,7 +290,6 @@
 
 	/*
 	//Why should oil put out fires? Pondering removing this
-
 	var/hotspot = (locate(/obj/fire) in T)
 	if(hotspot && !istype(T, /turf/space))
 		var/datum/gas_mixture/lowertemp = T.remove_air(T:air:total_moles)
@@ -3477,7 +3475,7 @@
 	glass_icon_state = "crocodile_glass"
 	glass_name = "glass of Crocodile Guwan"
 	glass_desc = "The smell says no, but the pretty colors say yes."
-  
+
 //Preservatives
 
 /datum/reagent/nutriment/badfood //This is just a base. It shouldn't exist or be used anywhere but just in case, I added names.
