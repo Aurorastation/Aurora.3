@@ -93,17 +93,11 @@
 	affect_ingest(M, alien, removed)
 
 /datum/reagent/nutriment/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-
 	switch(alien)
 		if(IS_VAURCA)
 			M.adjustToxLoss(1.5 * removed)
-			return
-		if(IS_UNATHI)
-			return
-		else
+		if(!IS_UNATHI)
 			digest(M,removed)
-
-	..()
 
 /datum/reagent/nutriment/proc/digest(var/mob/living/carbon/M, var/removed)
 	M.heal_organ_damage(regen_factor * removed, 0)
