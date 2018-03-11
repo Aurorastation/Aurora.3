@@ -116,7 +116,7 @@
 	name = "insulated gloves"
 	siemens_coefficient = 0
 
-/obj/item/clothing/shoes/rig/light/ninja
+/obj/item/clothing/shoes/magboots/rig/light/ninja
 	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
 	silent = 1
 
@@ -124,7 +124,7 @@
 	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
 	breach_threshold = 38 //comparable to regular hardsuits
 
-/obj/item/clothing/shoes/magboots/rig/light/ninja
+/obj/item/clothing/head/helmet/space/rig/light/ninja
 	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
 
 /obj/item/weapon/rig/light/stealth
