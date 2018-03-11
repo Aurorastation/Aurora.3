@@ -230,21 +230,21 @@
 			sleep(duration/5)
 			if(!user || user.stat == DEAD)
 				return
-			command_announcement.Announce("Caution, [current_map.station_name]. We have detected abnormal behaviour in your network. It seems someone is trying to hack your electronic systems. We will update you when we have more information.", "Network Monitoring")
+			command_announcement.Announce("Info: Abnormal network activity detected. Ongoing hacking attempts detcted. Automatic countermeasures activated. Trace activated.", "Network Monitoring")
 			sleep(duration/5)
 			if(!user || user.stat == DEAD)
 				return
-			command_announcement.Announce("We started tracing the intruder. Whoever is doing this, they seem to be on the station itself. We suggest checking all network control terminals. We will keep you updated on the situation.", "Network Monitoring")
+			command_announcement.Announce("Notice: Trace Update. Abnormal network activity originating from: Network terminal aboard [current_map.station_name]. External network connections disabled. Trace canceled.", "Network Monitoring")
 			sleep(duration/5)
 			if(!user || user.stat == DEAD)
 				return
-			command_announcement.Announce("This is highly abnormal and somewhat concerning. The intruder is too fast, he is evading our traces. No man could be this fast...", "Network Monitoring")
+			command_announcement.Announce("Warning: Automatic Countermeasures ineffective. Breach of primary network firewall imminent.", "Network Monitoring")
 			sleep(duration/5)
 			if(!user || user.stat == DEAD)
 				return
-			command_announcement.Announce("We have traced the intrude#, it seem& t( e yo3r AI s7stem, it &# *#ck@ng th$ sel$ destru$t mechani&m, stop i# bef*@!)$#&&@@  <CONNECTION LOST>", "Network Monitoring")
+			command_announcement.Announce("Error: Network firewall breached. Network Integrity compromised.", "Network Monitoring")
 	else
-		command_announcement.Announce("We have detected a strong brute-force attack on your firewall which seems to be originating from your AI system. It already controls almost the whole network, and the only thing that's preventing it from accessing the self-destruct is this firewall. You don't have much time before it succeeds.", "Network Monitoring")
+		command_announcement.Announce("Error: Ongoing hacking attempt. Automatic countermeasures ineffective. Network firewall breached. Network Integrity compromised. External network connections disabled.", "Network Monitoring")
 	user << "## BEGINNING SYSTEM OVERRIDE."
 	user << "## ESTIMATED DURATION: [round((duration+300)/600)] MINUTES"
 	user.hacking = 1
