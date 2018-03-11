@@ -102,6 +102,7 @@
 			return
 		else
 			digest(M,removed)
+			return
 
 	..()
 
@@ -3484,7 +3485,7 @@
 	glass_icon_state = "crocodile_glass"
 	glass_name = "glass of Crocodile Guwan"
 	glass_desc = "The smell says no, but the pretty colors say yes."
-  
+
 //Preservatives
 
 /datum/reagent/nutriment/badfood //This is just a base. It shouldn't exist or be used anywhere but just in case, I added names.
