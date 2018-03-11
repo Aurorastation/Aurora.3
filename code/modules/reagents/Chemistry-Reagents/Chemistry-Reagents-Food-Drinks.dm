@@ -102,7 +102,8 @@
 			return
 		else
 			digest(M,removed)
-			return
+
+	..()
 
 /datum/reagent/nutriment/proc/digest(var/mob/living/carbon/M, var/removed)
 	M.heal_organ_damage(regen_factor * removed, 0)
@@ -114,7 +115,6 @@
 /*
 	Coatings are used in cooking. Dipping food items in a reagent container with a coating in it
 	allows it to be covered in that, which will add a masked overlay to the sprite.
-
 	Coatings have both a raw and a cooked image. Raw coating is generally unhealthy
 	Generally coatings are intended for deep frying foods
 */
@@ -297,7 +297,6 @@
 
 	/*
 	//Why should oil put out fires? Pondering removing this
-
 	var/hotspot = (locate(/obj/fire) in T)
 	if(hotspot && !istype(T, /turf/space))
 		var/datum/gas_mixture/lowertemp = T.remove_air(T:air:total_moles)
@@ -1322,17 +1321,6 @@
 	glass_icon_state = "nothing"
 	glass_name = "glass of nothing"
 	glass_desc = "Absolutely nothing."
-
-/datum/reagent/drink/meatshake
-	name = "Meatshake"
-	id = "meatshake"
-	color = "#874c20"
-	description = "Blended meat and cream for those who want crippling heart failure down the road."
-	taste_description = "liquified meat"
-
-	glass_icon_state = "meatshake"
-	glass_name = "Meatshake"
-	glass_desc = "Blended meat and cream for those who want crippling health issues down the road. Has two straws for sharing! Perfect for dates!"
 
 /* Alcohol */
 
@@ -3296,195 +3284,11 @@
 	description = "An alcoholic beverage made from lightly fermented Sareszhi berries, considered an upper class delicacy on Moghes. Significant butanol content indicates intoxicating effects on Unathi."
 	color = "#bf8fbc"
 	strength = 20
-	taste_description = "berry juice"
+	taste_description = "grape soda"
 
 	glass_icon_state = "sarezhiglass"
 	glass_name = "glass of Sarezhi Wine"
-	glass_desc = "It tastes like plain berry juice. Is this supposed to be alcoholic?"
-
-//Kaed's Unathi Cocktails
-//=======
-//What an exciting time we live in, that lizards may drink fruity girl drinks.
-/datum/reagent/alcohol/butanol/moghesmargarita
-	name = "Moghes Margarita"
-	id = "moghesmargarita"
-	description = "A classic human cocktail, now ruined with cactus juice instead of tequila."
-	color = "#8CFF8C"
-	strength = 30
-	taste_description = "lime juice"
-
-	glass_icon_state = "cactusmargarita"
-	glass_name = "glass of Moghes Margarita"
-	glass_desc = "A classic human cocktail, now ruined with cactus juice instead of tequila."
-	glass_center_of_mass = list("x"=16, "y"=8)
-
-/datum/reagent/alcohol/butanol/cactuscreme
-	name = "Cactus Creme"
-	id = "cactuscreme"
-	description = "A tasty mix of berries and cream with xuizi juice, for the discerning unathi."
-	color = "#664300"
-	strength = 15
-	taste_description = "creamy berries"
-
-	glass_icon_state = "cactuscreme"
-	glass_name = "glass of Cactus Creme"
-	glass_desc = "A tasty mix of berries and cream with xuizi juice, for the discerning unathi."
-	glass_center_of_mass = list("x"=17, "y"=8)
-
-/datum/reagent/alcohol/butanol/bahamalizard
-	name = "Bahama Lizard"
-	id = "bahamalizard"
-	description = "A tropical cocktail containing cactus juice from Moghes, but no actual alcohol."
-	color = "#FF7F3B"
-	strength = 15
-	taste_description = "lime and orange"
-
-	glass_icon_state = "bahamalizard"
-	glass_name = "glass of Bahama Lizard"
-	glass_desc = "A tropical cocktail containing cactus juice from Moghes, but no actual alcohol."
-	glass_center_of_mass = list("x"=16, "y"=5)
-
-/datum/reagent/alcohol/butanol/lizardphlegm
-	name = "Lizard Phlegm"
-	id = "lizardphlegm"
-	description = "Looks gross, but smells fruity."
-	color = "#8CFF8C"
-	strength = 20
-	taste_description = "creamy fruit"
-
-	glass_icon_state = "lizardphlegm"
-	glass_name = "glass of Lizard Phlegm"
-	glass_desc = "Looks gross, but smells fruity."
-
-/datum/reagent/alcohol/butanol/cactustea
-	name = "Cactus Tea"
-	id = "cactustea"
-	description = "Tea flavored with xuizi juice."
-	color = "#664300"
-	strength = 10
-	taste_description = "tea"
-
-	glass_icon_state = "icepick"
-	glass_name = "glass of Cactus Tea"
-	glass_desc = "Tea flavored with xuizi juice."
-
-/datum/reagent/alcohol/butanol/moghespolitan
-	name = "Moghespolitan"
-	id = "moghespolitan"
-	description = "Pomegranate syrup and cactus juice, with a splash of Sarezhi Wine. Delicious!"
-	color = "#664300"
-	strength = 27
-	taste_description = "fruity sweetness"
-
-	glass_icon_state = "moghespolitan"
-	glass_name = "glass of Moghespolitan"
-	glass_desc = "Pomegranate syrup and cactus juice, with a splash of Sarezhi Wine. Delicious!"
-
-/datum/reagent/alcohol/butanol/wastelandheat
-	name = "Wasteland Heat"
-	id = "wastelandheat"
-	description = "A mix of spicy cactus juice to warm you up."
-	color = "#664300"
-	strength = 40
-	adj_temp = 60
-	targ_temp = 390
-	taste_description = "burning heat"
-
-	glass_icon_state = "moghesheat"
-	glass_name = "glass of Wasteland Heat"
-	glass_desc = "A mix of spicy cactus juice to warm you up. Maybe a little too warm for non-unathi, though."
-	glass_center_of_mass = list("x"=17, "y"=8)
-
-/datum/reagent/alcohol/butanol/Sandgria
-	name = "Sandgria"
-	id = "sandgria"
-	description = "Sarezhi wine, blended with citrus and a splash of cactus juice."
-	color = "#960707"
-	strength = 30
-	taste_description = "tart berries"
-
-	glass_icon_state = "sangria"
-	glass_name = "glass of Sandgria"
-	glass_desc = "Sarezhi wine, blended with citrus and a splash of cactus juice."
-
-/datum/reagent/alcohol/butanol/contactwine
-	name = "Contact Wine"
-	id = "contactwine"
-	description = "A perfectly good glass of Sarezhi wine, ruined by adding radioactive material. It reminds you of something..."
-	color = "#2E6671"
-	strength = 50
-	taste_description = "berries and regret"
-
-	glass_icon_state = "contactwine"
-	glass_name = "glass of Contact Wine"
-	glass_desc = "A perfectly good glass of Sarezhi wine, ruined by adding radioactive material. It reminds you of something..."
-	glass_center_of_mass = list("x"=17, "y"=4)
-
-/datum/reagent/alcohol/butanol/hereticblood
-	name = "Heretics Blood"
-	id = "hereticblood"
-	description = "A fizzy cocktail made with cactus juice and heresy."
-	color = "#820000"
-	strength = 15
-	taste_description = "heretically sweet iron"
-
-	glass_icon_state = "demonsblood"
-	glass_name = "glass of Heretics' Blood"
-	glass_desc = "A fizzy cocktail made with cactus juice and heresy."
-	glass_center_of_mass = list("x"=16, "y"=2)
-
-/datum/reagent/alcohol/butanol/sandpit
-	name = "Sandpit"
-	id = "sandpit"
-	description = "An unusual mix of cactus and orange juice, mostly favored by unathi."
-	color = "#A68310"
-	strength = 15
-	taste_description = "oranges"
-
-	glass_icon_state = "screwdriverglass"
-	glass_name = "glass of Sandpit"
-	glass_desc = "An unusual mix of cactus and orange juice, mostly favored by unathi."
-	glass_center_of_mass = list("x"=15, "y"=10)
-
-/datum/reagent/alcohol/butanol/cactuscola
-	name = "Cactus Cola"
-	id = "cactuscola"
-	description = "Cactus juice splashed with cola, on ice. Simple and delicious."
-	color = "#3E1B00"
-	strength = 15
-	taste_description = "cola"
-
-	glass_icon_state = "whiskeycolaglass"
-	glass_name = "glass of Cactus Cola"
-	glass_desc = "Cactus juice splashed with cola, on ice. Simple and delicious."
-	glass_center_of_mass = list("x"=16, "y"=9)
-
-/datum/reagent/alcohol/butanol/bloodwine
-	name = "Bloodwine"
-	id = "bloodwine"
-	description = "A traditional unathi drink said to strengthen one before a battle."
-	color = "#C73C00"
-	strength = 21
-	taste_description = "strong berries"
-
-	glass_icon_state = "bloodwine"
-	glass_name = "glass of Bloodwine"
-	glass_desc = "A traditional unathi drink said to strengthen one before a battle."
-	glass_center_of_mass = list("x"=15, "y"=7)
-
-/datum/reagent/alcohol/butanol/crocodile_booze
-	name = "Crocodile Guwan"
-	id = "crocodile_booze"
-	description = "A highly alcoholic butanol based beverage typically fermented using the venom of a zerl'ock and cheaply made Sarezhi Wine. A popular drink among Unathi troublemakers, conviently housed in a 2L plastic bottle."
-	color = "#b0f442"
-	strength = 50
-	taste_description = "sour body sweat"
-
-	glass_icon_state = "crocodile_glass"
-	glass_name = "glass of Crocodile Guwan"
-	glass_desc = "The smell says no, but the pretty colors say yes."
-
-//Preservatives
+	glass_desc = "It tastes like flat grape soda. Is this supposed to be alcoholic?"
 
 /datum/reagent/nutriment/badfood //This is just a base. It shouldn't exist or be used anywhere but just in case, I added names.
 	name = "Experimental Preservative"
