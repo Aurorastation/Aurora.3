@@ -4,7 +4,10 @@
 	icon_state = "echair0"
 	var/on = 0
 	var/obj/item/assembly/shock_kit/part = null
-	var/last_time = 1.0
+	var/last_time = 0
+
+/obj/structure/bed/chair/e_chair/update_icon()
+	return
 
 /obj/structure/bed/chair/e_chair/Initialize()
 	. = ..()
@@ -32,6 +35,9 @@
 	set category = "Object"
 	set src in oview(1)
 
+	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened || usr.lying || usr.restrained() || usr.buckled)
+		return
+
 	if(on)
 		on = 0
 		icon_state = "echair0"
@@ -39,27 +45,23 @@
 		on = 1
 		shock()
 		icon_state = "echair1"
-	usr << "<span class='notice'>You switch [on ? "on" : "off"] [src].</span>"
+	user << "<span class='notice'>You switch [on ? "on" : "off"] [src].</span>"
 
 /obj/structure/bed/chair/e_chair/proc/shock()
 	if(!on)
 		return
-	if(last_time + 50 > world.time)
-		return
-	last_time = world.time
 
 	var/obj/structure/cable/C = locate(/obj/structure/cable, get_turf(src))
 	flick("echair1", src)
 	spark(src, 12, alldirs)
 	if(buckled_mob && istype(C))
-		if(electrocute_mob(user, C, src, contact_zone = "head"))
+		if(electrocute_mob(buckled_mob, C, src, contact_zone = "head"))
 			buckled_mob << "<span class='danger'>You feel a deep shock course through your body!</span>"
 			sleep(1)
-			if(electrocute_mob(user, C, src, contact_zone = "head"))
+			if(electrocute_mob(buckled_mob, C, src, contact_zone = "head"))
 				buckled_mob.Stun(600)
 	visible_message("<span class='danger'>The electric chair goes off!</span>", "<span class='danger'>You hear an electrical discharge!</span>")
 
-	toggle()
 	return
 
 /obj/structure/bed/chair/e_chair/electroshock
@@ -69,9 +71,6 @@
 /obj/structure/bed/chair/e_chair/electroshock/shock()
 	if(!on)
 		return
-	if(last_time + 50 > world.time)
-		return
-	last_time = world.time
 
 	var/obj/structure/cable/C = locate(/obj/structure/cable, get_turf(src))
 	var/datum/powernet/PN = C.powernet
@@ -80,21 +79,20 @@
 
 	if(buckled_mob && istype(C))
 		if(prob(15))
-			if(electrocute_mob(user, C, src, 0.2, "head"))
+			if(electrocute_mob(buckled_mob, C, src, 0.1, "head"))
 				buckled_mob << "<span class='danger'>You feel a heavy shock course through your body!</span>"
 				sleep(1)
-				if(electrocute_mob(user, C, src, 0.2, "head"))
+				if(electrocute_mob(buckled_mob, C, src, 0.1, "head"))
 					buckled_mob.Stun(600)
 		else if(prob(15) && ishuman(buckled_mob))
 			var/mob/living/carbon/human/H = buckled_mob
-			H.cure_all_traumas(cure_type = "electroshock")
+			H.cure_all_traumas(cure_type = CURE_ELECTROSHOCK)
 		else
 			buckled_mob << "<span class='danger'>You feel a painful shock course through your body!</span>"
 			buckled_mob.stun_effect_act(PN.get_electrocute_damage(), PN.get_electrocute_damage(), "head")
 
 	visible_message("<span class='danger'>The electroshock chair goes off!</span>", "<span class='danger'>You hear an electrical discharge!</span>")
 
-	toggle()
 	return
 
 /obj/item/weapon/mesmetron
@@ -105,13 +103,16 @@
 	matter = list("glass" = 150, "gold" = 50)
 	w_class = 1
 	var/mob/living/carbon/human/thrall
-	var/last_time = 0
+	var/time_counter = 0
+
 
 /obj/item/weapon/mesmetron/process()
-	if (thrall && last_time + 300 > world.time)
-		last_time = world.time
+	if (thrall && time_counter > 20)
+		time_counter += 0.5
 		var/thrall_response = alert(thrall, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
 		if(thrall_response == "No")
+			thrall.sleeping = max(thrall.sleeping - 40, 0)
+			thrall.drowsyness = max(thrall.drowsyness - 60, 0)
 			thrall = null
 			STOP_PROCESSING(SSfast_process, src)
 		else
@@ -141,7 +142,7 @@
 			var/thrall_response = alert(thrall, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
 			if(thrall_response == "Yes")
 				thrall << "<span class='notice'><i>... [text] ...</i></span>"
-				thrall.cure_all_traumas(cure_type = "hypnosis")
+				thrall.cure_all_traumas(cure_type = CURE_HYPNOSIS)
 			else
 				thrall = null
 
@@ -156,7 +157,7 @@
 
 	user.visible_message("<span class='warning'>[user] begins to mesmerizingly wave [src] like a pendulum before [L]'s very eyes!</span>")
 
-	if(!do_mob(user, L, 30 SECONDS))
+	if(!do_mob(user, L, 10 SECONDS))
 		return
 
 
@@ -181,40 +182,40 @@
 	anchored = 1
 	density = 0
 	var/ticktock = "Tick"
-	var/last_time = 0
 
 /obj/structure/metronome/Initialize()
 	. = ..()
-	START_PROCESSING(SSfast_process, src)
+	START_PROCESSING(SSslow_process, src)
 
 /obj/structure/metronome/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(iswrench(W))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		if(anchored)
 			user << "<span class='notice'>You unanchor \the [src] and it destabilizes.</span>"
-			STOP_PROCESSING(SSfast_process, src)
+			STOP_PROCESSING(SSslow_process, src)
 			icon_state = "metronome0"
+			anchored = 0
 		else
 			user << "<span class='notice'>You anchor \the [src] and it restabilizes.</span>"
-			START_PROCESSING(SSfast_process, src)
+			START_PROCESSING(SSslow_process, src)
 			icon_state = "metronome1"
+			anchored = 1
 	else
 		..()
 
 /obj/structure/metronome/process()
-	if(last_time + (5 SECONDS) > world.time)
-		last_time = world.time
-		var/counter = 0
-		var/mob/living/carbon/human/H
-		for(var/mob/living/L in view(3,src))
-			counter++
-			if(ishuman(L))
-				H = L
-		if(counter == 1 && H)
-			if(ticktock == "Tick")
-				ticktock = "Tock"
-			else
-				ticktock = "Tick"
-			H << "<span class='notice'><i>[ticktock]. . .</i></span>"
-			if(prob(10))
-				H.cure_all_traumas(cure_type = "solitude")
+	var/counter = 0
+	var/mob/living/carbon/human/H
+	for(var/mob/living/L in view(3,src.loc))
+		counter++
+		if(ishuman(L))
+			H = L
+	if(counter == 1 && H)
+		if(ticktock == "Tick")
+			ticktock = "Tock"
+		else
+			ticktock = "Tick"
+		H << "<span class='notice'><i>[ticktock]. . .</i></span>"
+		H << 'sound/effects/singlebeat.ogg'
+		if(prob(1))
+			H.cure_all_traumas(cure_type = CURE_SOLITUDE)

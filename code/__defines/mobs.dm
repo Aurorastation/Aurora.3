@@ -214,3 +214,8 @@
 #define BRAIN_TRAUMA_SPECIAL /datum/brain_trauma/special
 
 #define BRAIN_DAMAGE_INTEGRITY_MULTIPLIER 0.5
+
+#define CURE_ELECTROSHOCK "electroshock"
+#define CURE_SOLITUDE "solitude"
+#define CURE_HYPNOSIS "hypnosis"
+#define CURE_SURGERY "surgery"

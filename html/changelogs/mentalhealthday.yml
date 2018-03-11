@@ -36,4 +36,4 @@ delete-after: True
 changes: 
   - rscadd: "Added electroshock, hypnotic, and isolation therapy. Each cures a specific set of traumas."
   - tweak: "Brain surgery now only cures certain traumas."
-  - maptweak: "Expanded the psychiatry office into a mental health ward.
+  - maptweak: "Expanded the psychiatry office into a mental health ward."
