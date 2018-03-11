@@ -33,3 +33,15 @@
 
 /obj/item/weapon/material/star
 	worth_multiplier = 25
+
+/obj/item/weapon/material/twohanded/pike
+	worth_multiplier = 20
+
+/obj/item/weapon/material/twohanded/pike/halberd
+	worth_multiplier = 30
+
+/obj/item/weapon/material/twohanded/pike/pitchfork
+	worth_multiplier = 10
+
+/obj/item/weapon/material/twohanded/zweihander
+	worth_multiplier = 35

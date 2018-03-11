@@ -1,5 +1,6 @@
 #define WORLD_ICON_SIZE 32
 #define PIXEL_MULTIPLIER WORLD_ICON_SIZE/32
+#define WORLD_MIN_SIZE 32
 
 /*
 	The initialization of the game happens roughly like this:
@@ -53,8 +54,8 @@ var/global/datum/global_init/init = new ()
 	area = /area/space
 	view = "15x15"
 	cache_lifespan = 0	//stops player uploaded stuff from being kept in the rsc past the current session
-	maxx = 32	// So that we don't get map-window-popin at boot. DMMS will expand this.
-	maxy = 32
+	maxx = WORLD_MIN_SIZE	// So that we don't get map-window-popin at boot. DMMS will expand this.
+	maxy = WORLD_MIN_SIZE
 
 
 #define RECOMMENDED_VERSION 510
@@ -364,7 +365,7 @@ var/list/world_api_rate_limit = list()
 		features += "hosted by <b>[config.hostedby]</b>"
 
 	if (features)
-		s += ": [list2text(features, ", ")]"
+		s += ": [jointext(features, ", ")]"
 
 	s = s.Join()
 

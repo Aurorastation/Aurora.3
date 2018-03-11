@@ -86,14 +86,6 @@ obj/item/check_airflow_movable(n)
 
 */
 
-/atom/movable/Bump(atom/A)
-	if(airflow_speed > 0 && airflow_dest)
-		airflow_hit(A)
-	else
-		airflow_speed = 0
-		airflow_time = 0
-		. = ..()
-
 atom/movable/proc/airflow_hit(atom/A)
 	airflow_speed = 0
 	airflow_dest = null

@@ -62,6 +62,14 @@
 			amount = list(1,2,3,4,5),
 			emag = 0
 		),
+		"nutri-spread" = list(
+			name = "Nutri-spread",
+			class = "Food",
+			object = /obj/item/weapon/reagent_containers/food/snacks/spreads,
+			cost = 80,
+			amount = list(1,2,3,4,5),
+			emag = 0
+		),
 		"enzyme" = list(
 			name = "Universal Enzyme (50u)",
 			class = "Food",

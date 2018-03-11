@@ -230,3 +230,15 @@
 		new /datum/computer_file/program/merchant()
 	)
 	return _prg_list
+
+/datum/modular_computer_app_presets/ai
+	name = "ai"
+	display_name = "AI"
+	description = "A preset for the AI consoles."
+	available = 0
+
+/datum/modular_computer_app_presets/ai/return_install_programs()
+	return list(
+		new /datum/computer_file/program/filemanager,
+		new /datum/computer_file/program/ntnetdownload
+	)

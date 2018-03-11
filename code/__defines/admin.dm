@@ -41,3 +41,13 @@
 #define R_CCIAA         0x8000 //higher than this will overflow
 
 #define R_MAXPERMISSION 0x8000 // This holds the maximum value for a permission. It is used in iteration, so keep it updated.
+
+// ticket statuses
+#define TICKET_CLOSED   0
+#define TICKET_OPEN     1
+#define TICKET_ASSIGNED 2
+
+// adminhelp status
+#define NOT_ADMINHELPED     0
+#define ADMINHELPED         1
+#define ADMINHELPED_DISCORD 2

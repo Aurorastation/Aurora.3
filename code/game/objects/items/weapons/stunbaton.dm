@@ -5,7 +5,7 @@
 	icon_state = "stunbaton"
 	item_state = "baton"
 	slot_flags = SLOT_BELT
-	force = 15
+	force = 5
 	sharp = 0
 	edge = 0
 	throwforce = 7
@@ -18,6 +18,7 @@
 	var/obj/item/weapon/cell/bcell
 	var/hitcost = 1000	//oh god why do power cells carry so much charge? We probably need to make a distinction between "industrial" sized power cells for APCs and power cells for everything else.
 	var/baton_color = "#FF6A00"
+	var/sheathed = 1 //electrocutes only on harm intent
 
 /obj/item/weapon/melee/baton/Initialize()
 	. = ..()
@@ -125,6 +126,10 @@
 		stun *= 0.5
 		if(status)		//Checks to see if the stunbaton is on.
 			agony *= 0.5	//whacking someone causes a much poorer contact than prodding them.
+			if(sheathed) //however breaking the skin results in a more potent electric shock or some bullshit. im a coder, not a doctor
+				L.electrocute_act(force * 2, src, def_zone = target_zone)
+			else
+				L.electrocute_act(force * 2, src, ground_zero = target_zone)
 		else
 			agony = 0
 		//we can't really extract the actual hit zone from ..(), unfortunately. Just act like they attacked the area they intended to.
@@ -151,6 +156,7 @@
 					return 1
 				else
 					H.visible_message("<span class='danger'>[L] has been prodded in the [affecting.name] with [src] by [user]!</span>")
+					H.electrocute_act(force * 2, src, ground_zero = target_zone)
 		else
 			if(!status)
 				L.visible_message("<span class='warning'>[L] has been prodded with [src] by [user]. Luckily it was off.</span>")
@@ -221,6 +227,7 @@
 	attack_verb = list("poked")
 	slot_flags = null
 	baton_color = "#FFDF00"
+	sheathed = 0
 
 /obj/item/weapon/melee/baton/stunrod
 	name = "stunrod"
@@ -228,10 +235,11 @@
 	icon = 'icons/obj/stunrod.dmi'
 	icon_state = "stunrod"
 	item_state = "stunrod"
-	force = 20
+	force = 7
 	baton_color = "#75ACFF"
 	origin_tech = list(TECH_COMBAT = 4, TECH_ILLEGAL = 2)
 	contained_sprite = 1
+	sheathed = 0
 
 /obj/item/weapon/melee/baton/stunrod/Initialize()
 	bcell = new/obj/item/weapon/cell/high(src)
@@ -262,6 +270,7 @@
 	stunforce = 1
 	origin_tech = list(TECH_COMBAT = 1)
 	contained_sprite = 1
+	sheathed = 0
 
 /obj/item/weapon/melee/baton/slime/Initialize()
 	bcell = new/obj/item/weapon/cell/high(src)

@@ -599,6 +599,9 @@
 
 /datum/reagent/uranium
 	value = 9
+	
+/datum/reagent/platinum
+	value = 3
 
 /datum/reagent/adrenaline
 	value = 2
@@ -716,3 +719,30 @@
 
 /datum/reagent/xenomicrobes
 	value = 5
+
+/datum/reagent/estus
+	value = 50
+
+/datum/reagent/liquid_fire
+	value = 50
+
+/datum/reagent/black_matter
+	value = 250
+
+/datum/reagent/bluespace_dust
+	value = 250
+
+/datum/reagent/philosopher_stone
+	value = 1000
+
+/datum/reagent/azoth
+	value = 200
+
+/datum/reagent/elixir
+	value = 1000
+
+/datum/reagent/azoth
+	value = 500
+
+/datum/reagent/toxin/undead
+	value = 300
