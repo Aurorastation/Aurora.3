@@ -26,6 +26,7 @@
 	var/base_icon
 	var/base_name
 	var/unwielded_force_divisor = 0.25
+	var/parry_chance = 15
 	action_button_name = "Wield two-handed weapon"
 
 /obj/item/weapon/material/twohanded/proc/unwield()
@@ -74,7 +75,7 @@
 
 //Allow a small chance of parrying melee attacks when wielded - maybe generalize this to other weapons someday
 /obj/item/weapon/material/twohanded/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
-	if(wielded && default_parry_check(user, attacker, damage_source) && prob(15))
+	if(wielded && default_parry_check(user, attacker, damage_source) && prob(parry_chance))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 		playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, 1)
 		return 1
@@ -220,23 +221,17 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
 	default_material = "glass"
+	var/obj/item/weapon/grenade/explosive = null
 
-//Putting heads on spears
-/*bj/item/organ/external/head/attackby(var/obj/item/weapon/W, var/mob/living/user, params)
-	if(istype(W, /obj/item/weapon/material/twohanded/spear))
-		user << "<span class='notice'>You stick the head onto the spear and stand it upright on the ground.</span>"
-		var/obj/structure/headspear/HS = new /obj/structure/headspear(user.loc)
-		var/matrix/M = matrix()
-		src.transform = M
-		user.drop_item()
-		src.loc = HS
-		var/image/IM = image(src.icon,src.icon_state)
-		IM.overlays = src.overlays.Copy()
-		HS.overlays += IM
-		qdel(W)
-		qdel(src)
-		return
-	return ..()*/
+/obj/item/weapon/material/twohanded/spear/Destroy()
+	if(explosive)
+		QDEL_NULL(explosive)
+	return ..()
+
+/obj/item/weapon/material/twohanded/spear/examine(mob/user)
+	..(user)
+	if(explosive)
+		user << "It has \the [explosive] strapped to it."
 
 /obj/item/weapon/material/twohanded/spear/attackby(var/obj/item/I, var/mob/living/user)
 	if(istype(I, /obj/item/organ/external/head))
@@ -252,7 +247,41 @@
 		HS.name = "[I.name] on a spear"
 		qdel(src)
 		return
+
+	if(istype(I, /obj/item/weapon/grenade))
+		user << "<span class='notice'>You strap \the [I] to \the [src].</span>"
+		user.unEquip(I)
+		I.forceMove(src)
+		explosive = I
+		update_icon()
+		return
 	return ..()
+
+/obj/item/weapon/material/twohanded/spear/update_icon()
+	if(explosive)
+		icon_state = "spearbomb[wielded]"
+		item_state = "spearbomb[wielded]"
+	else
+		icon_state = "spearglass[wielded]"
+		item_state = "spearglass[wielded]"
+
+/obj/item/weapon/material/twohanded/spear/attack(mob/living/target, mob/living/user, var/target_zone)
+	..()
+
+	if(wielded && explosive)
+		explosive.prime()
+		explosive = null
+		update_icon()
+		src.shatter()
+
+/obj/item/weapon/material/twohanded/spear/throw_impact(atom/target)
+	. = ..()
+	if(!.) //not caught
+		if(explosive)
+			explosive.prime()
+			explosive = null
+			update_icon()
+			src.shatter()
 
 //predefined materials for spears
 /obj/item/weapon/material/twohanded/spear/steel/New(var/newloc)
@@ -297,6 +326,7 @@
 	can_embed = 0
 	applies_material_colour = 0
 	default_material = "steel"
+	parry_chance = 5
 	var/opendelay = 30 // How long it takes to perform a door opening action with this chainsaw, in seconds.
 	var/max_fuel = 300 // The maximum amount of fuel the chainsaw stores.
 	var/fuel_cost = 1 // Multiplier for fuel cost.
@@ -468,3 +498,75 @@
 	set src in usr
 
 	AltClick(usr)
+
+
+/obj/item/weapon/material/twohanded/pike
+	icon_state = "pike0"
+	base_icon = "pike"
+	name = "pike"
+	desc = "A long spear used by the infantry in ancient times."
+	force = 5
+	unwielded_force_divisor = 0.2
+	force_divisor = 0.3
+	edge = 1
+	w_class = 4.0
+	slot_flags = SLOT_BACK
+	attack_verb = list("attacked", "poked", "jabbed", "gored", "stabbed")
+	default_material = "steel"
+	reach = 2
+	applies_material_colour = 0
+	can_embed = 0
+
+/obj/item/weapon/material/twohanded/pike/halberd
+	icon_state = "halberd0"
+	base_icon = "halberd"
+	name = "halberd"
+	desc = "A sharp axe mounted on the top of a long spear."
+	force = 10
+	unwielded_force_divisor = 0.4
+	force_divisor = 0.6
+	sharp = 1
+	attack_verb = list("attacked", "poked", "jabbed","gored", "chopped", "cleaved", "torn", "cut", "stabbed")
+
+/obj/item/weapon/material/twohanded/pike/pitchfork
+	icon_state = "pitchfork0"
+	base_icon = "pitchfork"
+	name = "pitchfork"
+	desc = "An old farming tool, not something you would find at hydroponics."
+
+/obj/item/weapon/material/twohanded/zweihander
+	icon_state = "zweihander"
+	base_icon = "zweihander"
+	name = "zweihander"
+	desc = "A german upgrade to the einhander models of ancient times."
+	force = 20
+	w_class = 4.0
+	slot_flags = SLOT_BACK
+	force_wielded = 30
+	unwielded_force_divisor = 1
+	thrown_force_divisor = 0.75
+	edge = 1
+	sharp = 1
+	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
+	default_material = "steel"
+	parry_chance = 60
+	can_embed = 0
+	var/wielded_ap = 40
+	var/unwielded_ap = 0
+
+/obj/item/weapon/material/twohanded/zweihander/pre_attack(var/mob/living/target, var/mob/living/user)
+	if(!reach && istype(target))
+		cleave(user, target)
+	..()
+
+/obj/item/weapon/material/twohanded/zweihander/unwield()
+	..()
+	reach = 0
+	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
+	armor_penetration = unwielded_ap
+
+/obj/item/weapon/material/twohanded/zweihander/wield()
+	..()
+	reach = 2
+	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
+	armor_penetration = wielded_ap

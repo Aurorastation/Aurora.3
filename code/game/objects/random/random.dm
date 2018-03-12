@@ -561,12 +561,15 @@
 		/obj/item/weapon/melee/chainsword,
 		/obj/item/weapon/melee/baton/stunrod,
 		/obj/item/weapon/material/harpoon,
-		/obj/item/weapon/material/twohanded/spear/plasteel,
 		/obj/random/sword,
 		/obj/item/weapon/melee/hammer,
 		/obj/item/weapon/melee/hammer/powered,
 		/obj/item/weapon/material/twohanded/fireaxe,
-		/obj/item/weapon/melee/classic_baton
+		/obj/item/weapon/melee/classic_baton,
+		/obj/item/weapon/material/twohanded/pike,
+		/obj/item/weapon/material/twohanded/pike/halberd,
+		/obj/item/weapon/material/twohanded/pike/pitchfork,
+		/obj/item/weapon/melee/whip
 	)
 
 /obj/random/coin

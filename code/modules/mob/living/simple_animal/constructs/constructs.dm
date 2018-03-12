@@ -146,10 +146,10 @@
 			if(P.starting)
 				var/new_x = P.starting.x + pick(0, 0, -1, 1, -2, 2, -2, 2, -2, 2, -3, 3, -3, 3)
 				var/new_y = P.starting.y + pick(0, 0, -1, 1, -2, 2, -2, 2, -2, 2, -3, 3, -3, 3)
-				var/turf/curloc = get_turf(src)
 
 				// redirect the projectile
-				P.redirect(new_x, new_y, curloc, src)
+				P.firer = user
+				P.old_style_target(locate(new_x, new_y, P.z))
 
 			return -1 // complete projectile permutation
 

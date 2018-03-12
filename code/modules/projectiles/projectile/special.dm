@@ -69,7 +69,7 @@
 	nodamage = 1
 	check_armour = "bullet"
 
-/obj/item/projectile/meteor/Bump(atom/A as mob|obj|turf|area)
+/obj/item/projectile/meteor/Collide(atom/A)
 	if(A == firer)
 		loc = A.loc
 		return
@@ -177,7 +177,7 @@
 	embed = 0 // nope
 	nodamage = 1
 	damage_type = HALLOSS
-	muzzle_type = /obj/effect/projectile/bullet/muzzle
+	muzzle_type = /obj/effect/projectile/muzzle/bullet
 
 /obj/item/projectile/bullet/cannon
 	name ="armor-piercing shell"

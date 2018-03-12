@@ -133,5 +133,5 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/koispunch/Initialize()
 	. = ..()
-	reagents.add_reagent("koispaste", 10)
+	reagents.add_reagent("koispasteclean", 10)
 	reagents.add_reagent("phoron", 5)

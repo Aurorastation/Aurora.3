@@ -23,6 +23,11 @@ var/datum/controller/subsystem/atlas/SSatlas
 	NEW_SS_GLOBAL(SSatlas)
 
 /datum/controller/subsystem/atlas/Initialize(timeofday)
+	// Quick sanity check.
+	if (world.maxx != WORLD_MIN_SIZE || world.maxy != WORLD_MIN_SIZE || world.maxz != 1)
+		world << "<span class='warning'>WARNING: Suspected pre-compiled map: things may break horribly!</span>"
+		log_ss("atlas", "-- WARNING: Suspected pre-compiled map! --")
+
 	maploader = new
 
 	var/datum/map/M

@@ -157,7 +157,7 @@ obj/item/weapon/gun/energy/retro
 	burst_delay = 0
 	move_delay = 0
 	fire_delay = 2
-	dispersion = list(1.0, -1.0, 2.0, -2.0)
+	dispersion = list(10)
 	can_turret = 1
 	turret_sprite_set = "laser"
 

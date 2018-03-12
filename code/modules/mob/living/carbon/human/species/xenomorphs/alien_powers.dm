@@ -175,7 +175,7 @@
 	visible_message("<span class='warning'>[src] spits neurotoxin at [target]!</span>", "<span class='alium'>You spit neurotoxin at [target].</span>")
 
 	var/obj/item/projectile/energy/neurotoxin/A = new /obj/item/projectile/energy/neurotoxin(usr.loc)
-	A.launch(target,get_organ_target())
+	A.launch_projectile(target,get_organ_target())
 
 /mob/living/carbon/human/proc/resin() // -- TLE
 	set name = "Secrete Resin (75)"
