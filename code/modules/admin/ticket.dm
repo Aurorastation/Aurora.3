@@ -106,7 +106,7 @@ proc/get_open_ticket_by_ckey(var/owner)
 
 	var/list/dat = list()
 
-	var/valid_holder = check_rights(R_MOD|R_ADMIN, FALSE)
+	var/valid_holder = check_rights(R_MOD|R_ADMIN, FALSE, ticket_panel_window.user)
 
 	var/list/ticket_dat = list()
 	for(var/id = tickets.len, id >= 1, id--)
