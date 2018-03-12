@@ -11,10 +11,6 @@
 	mouse_opacity = 0
 	appearance_flags = 0
 
-/obj/effect/projectile/Initialize()
-	. = ..()
-	set_light(light_range, light_power, light_color)
-
 /obj/effect/projectile/singularity_pull()
 	return
 
