@@ -395,12 +395,13 @@
 	return ..()
 
 /obj/item/weapon/material/twohanded/chainsaw/proc/RemoveFuel(var/amount = 1)
-	if(istype(reagents))
-		amount = amount * fuel_cost
+	if(reagents && istype(reagents))
+		amount *= fuel_cost
 		reagents.remove_reagent(fuel_type, Clamp(amount,0,reagents.get_reagent_amount(fuel_type)))
 		if(reagents.get_reagent_amount(fuel_type) <= 0)
-			powered = 0
 			PowerDown()
+	else
+		PowerDown()
 
 /obj/item/weapon/material/twohanded/chainsaw/process()
 	//TickRate is 0.1
