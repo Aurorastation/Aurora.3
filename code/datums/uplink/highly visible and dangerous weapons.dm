@@ -78,3 +78,8 @@
 	name = "Anti-materiel Rifle"
 	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
 	path = /obj/item/weapon/gun/projectile/heavysniper
+
+/datum/uplink_item/item/visible_weapons/chainsaw
+	name = "Chainsaw"
+	item_cost = 10
+	path = /obj/item/weapon/material/twohanded/chainsaw/fueled
