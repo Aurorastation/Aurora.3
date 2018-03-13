@@ -26,7 +26,7 @@
 	scan_desc = "reduced mouth coordination"
 	gain_text = "<span class='warning'>Speaking clearly is getting harder.</span>"
 	lose_text = "<span class='notice'>You feel in control of your speech.</span>"
-	cure_type = CURE_ELECTROSHOCK
+	cure_type = CURE_CRYSTAL
 
 /datum/brain_trauma/mild/stuttering/on_life()
 	owner.stuttering = min(owner.stuttering + 5, 25)
@@ -42,7 +42,7 @@
 	scan_desc = "reduced brain activity"
 	gain_text = "<span class='warning'>You feel dumber.</span>"
 	lose_text = "<span class='notice'>You feel smart again.</span>"
-	cure_type = CURE_ELECTROSHOCK
+	cure_type = CURE_CRYSTAL
 
 /datum/brain_trauma/mild/dumbness/on_gain()
 	owner.disabilities |= DUMB
@@ -65,7 +65,7 @@
 	scan_desc = "communication disorder"
 	gain_text = "You feel lost for words!"
 	lose_text = "You regain your bearing!"
-	cure_type = CURE_ELECTROSHOCK
+	cure_type = CURE_CRYSTAL
 
 /datum/brain_trauma/mild/speech_impediment/on_gain()
 	owner.disabilities |= UNINTELLIGIBLE
@@ -81,7 +81,7 @@
 	scan_desc = "vulgarity problem"
 	gain_text = "Your mind fills with foul language!"
 	lose_text = "Your mind returns to decency."
-	cure_type = CURE_ELECTROSHOCK
+	cure_type = CURE_CRYSTAL
 
 /datum/brain_trauma/mild/tourettes/on_gain()
 	owner.disabilities |= TOURETTES
@@ -146,7 +146,7 @@
 	scan_desc = "weak motor nerve signal"
 	gain_text = "<span class='warning'>Your muscles feel oddly faint.</span>"
 	lose_text = "<span class='notice'>You feel in control of your muscles again.</span>"
-	cure_type = CURE_ELECTROSHOCK
+	cure_type = CURE_CRYSTAL
 
 /datum/brain_trauma/mild/muscle_weakness/on_life()
 	var/fall_chance = 5
@@ -174,7 +174,7 @@
 	scan_desc = "nervous fits"
 	gain_text = "<span class='warning'>Your muscles feel oddly faint.</span>"
 	lose_text = "<span class='notice'>You feel in control of your muscles again.</span>"
-	cure_type = CURE_ELECTROSHOCK
+	cure_type = CURE_CRYSTAL
 
 /datum/brain_trauma/mild/muscle_spasms/on_life()
 	if(prob(25))

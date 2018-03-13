@@ -10,7 +10,7 @@
 	scan_desc = "extensive damage to the brain's language center"
 	gain_text = "<span class='warning'>You forget how to speak!</span>"
 	lose_text = "<span class='notice'>You suddenly remember how to speak.</span>"
-	cure_type = CURE_ELECTROSHOCK
+	cure_type = CURE_CRYSTAL
 
 /datum/brain_trauma/severe/mute/on_gain()
 	owner.sdisabilities |= MUTE
@@ -178,7 +178,7 @@
 	scan_desc = "extreme discoordination"
 	gain_text = "<span class='warning'>You can barely control your hands!</span>"
 	lose_text = "<span class='notice'>You feel in control of your hands again.</span>"
-	cure_type = CURE_ELECTROSHOCK
+	cure_type = CURE_CRYSTAL
 
 /datum/brain_trauma/severe/discoordination/on_gain()
 	owner.disabilities |= MONKEYLIKE

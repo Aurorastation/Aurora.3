@@ -1306,7 +1306,7 @@
 				<ol>
 					<li><a href="#Traumas">Traumas 101</a></li>
 					<li><a href="#Hypnosis">Hypnosis and You</a></li>
-					<li><a href="#Electroshock">The Therapy of Tesla</a></li>
+					<li><a href="#Chakras">The Chakra In You</a></li>
 					<li><a href="#Isolation">Putting a Patient in Time-out</a></li>
 					<li><a href="#Surgery">When You Alone Aren't Good Enough: Surgery and Drugs</a></li>
 				</ol>
@@ -1334,14 +1334,14 @@
 					<b>Note</b>: It falls upon you to carefully word your suggestion to best handle the patient's psychosis. You may wish to pair multiple suggestions.
 				</ul><br><br>
 
-				<a name="Electroshock"><h2>The Therapy of Tesla</h2><br></a>
+				<a name="Chakras"><h2>The Chakra In You</h2><br></a>
 				<ul>
-					<li>1: Strap the patient into your custom-built electroshock therapy chair.</li><br>
+					<li>1: Strap the patient into your therapy pod, equipped with phoron-enhanced quartz healing crystals.</li><br>
 					<li>2: Ensure the patient is comfortable. Warn them of possible surges and difficulties..</li><br>
-					<li>3: Activate the chair, comforting the patient at all times.</li><br>
-					<li>4: Evaluate the patient's condition, and ensure they have not undergone permanent harm. Treat them if they have.<br></li>
-					<li>5: Query the patient, and attempt to discern if the operation was successful. If not, repeat the process.</a><br></li>
-					<b>Note</b>: Electroshock therapy is a highly controversial process only recently made legal in Biesel. Do not engage in it unless you believe it to be absolutely necessary, and always be aware of potential harm!
+					<li>3: Initiate a neural scan, taking careful notice of the number of brain anomalies. Compare them to notes from your counseling.</li><br>
+					<li>4: Evaluate the patient's condition, determine the optimal number of cycles.<br></li>
+					<li>5: Query the patient, and attempt to discern if the operation was successful. If not, repeat the process. Tend to any patient contamination</a><br></li>
+					<b>Note</b>: The therapy pod is equipped only to deal with brain abnormalities that produce tangible physical behavioural alterations, such as seizures. Mis-timed cycles may contaminate the patient.
 				</ul><br><br>
 
 				<a name="Isolation"><h2>Putting a Patient in Time-out</h2><br></a>
