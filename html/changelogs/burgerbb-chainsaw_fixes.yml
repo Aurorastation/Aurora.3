@@ -1,0 +1,7 @@
+author: BurgerBB
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed various chainsaw bugs."
+  - rscadd: "Added Chainsaws to traitor uplink."
