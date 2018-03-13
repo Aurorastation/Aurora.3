@@ -1731,12 +1731,6 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/requests_console{
-	department = "Forensic Technician";
-	departmentType = 5;
-	pixel_x = 0;
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled,
 /area/security/range)
 "dp" = (
@@ -2739,12 +2733,6 @@
 "fz" = (
 /obj/structure/table/wood,
 /obj/item/weapon/reagent_containers/spray/luminol,
-/obj/machinery/requests_console{
-	department = "Forensic Technician";
-	departmentType = 5;
-	pixel_x = 0;
-	pixel_y = -32
-	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/security/training)
