@@ -36859,7 +36859,7 @@
 	name = "Main Exit Door Control";
 	pixel_x = 0;
 	pixel_y = 26;
-	req_access = list(5)
+	req_access = null
 	},
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
