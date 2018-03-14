@@ -448,7 +448,7 @@
 /obj/machinery/chakraconsole/proc/button_prompt(user as mob)
 	var/mob/living/carbon/human/H = connected.occupant
 	if(!H)
-		user << "<span class='notice>The pod is currently unoccupied</span>."
+		user << "<span class='notice'>The pod is currently unoccupied.</span>"
 	else
 		var/list/choices1 = list("Input operation.", "Therapy Pod", "Toggle Locking Mechanism", "Initiate Neural Scan", "Initiate Crystal Therapy", "Eject Crystal", "Cancel")
 		if(emagged)
