@@ -204,7 +204,7 @@
 
 	var/mob/living/carbon/occupant
 	var/locked
-	var/obj/machinery/body_scanconsole/connected
+	var/obj/machinery/chakraconsole/connected
 
 /obj/machinery/chakrapod/Destroy()
 	if (connected)
@@ -261,8 +261,9 @@
 		return
 
 	if(locked)
-		visible_message("<span class='notice'>Emergency release trigger activated. Releasing subject. ETA: 2 minutes.</span>")
-		sleep(1200)
+		occupant << "<span class='notice'>You push against the pod door and attempt to escape. This process will take roughly two minutes.</span>"
+		if(!do_after(occupant, 1200))
+			return
 
 	for(var/obj/O in src)
 		O.forceMove(get_turf(src))
@@ -389,7 +390,7 @@
 	icon_state = "syndipod_scannerconsole"
 	density = 0
 	anchored = 1
-	var/obj/machinery/bodyscanner/connected
+	var/obj/machinery/chakrapod/connected
 	var/crystal = 0
 	var/working = 0
 
@@ -450,10 +451,10 @@
 	if(!H)
 		user << "<span class='notice'>The pod is currently unoccupied.</span>"
 	else
-		var/list/choices1 = list("Input operation.", "Therapy Pod", "Toggle Locking Mechanism", "Initiate Neural Scan", "Initiate Crystal Therapy", "Eject Crystal", "Cancel")
+		var/list/choices1 = list("Therapy Pod", "Toggle Locking Mechanism", "Initiate Neural Scan", "Initiate Crystal Therapy", "Recycle Crystal", "Cancel")
 		if(emagged)
 			choices1.Add("%eRr:# C:\\NT>quaid.exe")
-		var/response1 = input(user,"Input New Memory","quaid.exe") as null|anything in choices1
+		var/response1 = input(user,"Input Operation","Therapy Pod OS") as null|anything in choices1
 
 		switch(response1)
 			if("Toggle Locking Mechanism")
@@ -507,7 +508,8 @@
 	var/alert = text2num(sanitize(response))
 	if(alert)
 
-		for(var/i=0;i<=alert;i++)
+		for(var/i=0;i<alert;i++)
+			sleep(100)
 			var/electroshock_trauma = 0
 			if(H && H == connected.occupant)
 				var/obj/item/organ/brain/sponge = H.internal_organs_by_name["brain"]
@@ -528,7 +530,7 @@
 							user << "<span class='danger'>Error: Brain abnormality not recognized. Subject contamination detected.</span>"
 						playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
 						visible_message("<span class='warning'>[connected] buzzes harshly.</span>", "<span class='warning'>You hear a sharp buzz.</span>")
-						H.apply_radiation(max(10,i*10))
+						H.apply_radiation(max(1,i))
 				else
 					if(get_dist(user,src) <= 1)
 						user << "<span class='danger'>Error: Subject not recognized. Terminating operation.</span>"
@@ -542,19 +544,18 @@
 				visible_message("<span class='warning'>[connected] buzzes harshly.</span>", "<span class='warning'>You hear a sharp buzz.</span>")
 				break
 			crystal = 1
-			sleep(100)
 	else
 		user << "<span class='warning'>Error. Invalid input.</span>"
 
 /obj/machinery/chakraconsole/proc/total_recall(var/mob/user, var/mob/living/carbon/human/H)
 	if(H && H == connected.occupant)
-		var/list/choices1 = list("Input operation.", "quaid.exe", "Wipe Memory", "Implant Memory", "Cancel")
-		var/response1 = input(user,"Input New Memory","quaid.exe") as null|anything in choices1
+		var/list/choices1 = list("Wipe Memory", "Implant Memory", "Cancel")
+		var/response1 = input(user,"Input operation.","quaid.exe") as null|anything in choices1
 		if(response1 == "Cancel")
 			return
 		if(response1 == "Wipe Memory")
-			var/list/choices2 = list("Input timeframe.", "Memory Wipe", "5 minutes", "15 minutes", "30 minutes", "2 hours", "6 months", "Cancel")
-			var/response2 = input(user,"Input New Memory","quaid.exe") as null|anything in choices2
+			var/list/choices2 = list("5 minutes", "15 minutes", "30 minutes", "2 hours", "6 months", "Cancel")
+			var/response2 = input(user,"Input timeframe.","Memory Wipe") as null|anything in choices2
 			if(response2 != "Cancel")
 				user << "<span class='notice'>Initiating memory wipe. Process will take approximately two minutes.</span>"
 				H << "<span class='danger'>You feel a sharp pain in your brain as the therapy pod begins to hum menacingly!!</span>"
@@ -562,7 +563,8 @@
 				if(H && H == connected.occupant)
 					var/timespan = response2
 					H << "<span class='danger'>You feel a part of your past self, a portion of your memories, a piece of your very being slip away...</span>"
-					H << "<b>Your memory of the past [timespan] has been wiped. Your ability to recall these past [timespan] has been removed from your brain, you remember nothing that ever ocurred within those [timespan].</b>"
+					H << "<b>Your memory of the past [timespan] has been wiped. Your ability to recall these past [timespan] has been removed from your brain, and you remember nothing that ever ocurred within those [timespan].</b>"
+					crystal = 1
 					return
 			else
 				return
@@ -576,6 +578,7 @@
 				if(H && H == connected.occupant)
 					H << "<span class='danger'>You blink, and somehow between the timespan of your eyes closing and your eyes opening your perception of the world has changed in some imperceptible way...</span>"
 					H << "<b>A new memory has been implanted in your mind as follows: [memory_implant] - you have no reason to suspect the memory to be fabricated, as your memory of the past two minutes has also been altered.</b>"
+					crystal = 1
 					return
 	if(get_dist(user,src) <= 1)
 		user << "<span class='danger'>Error: Operation failed. Terminating operation.</span>"

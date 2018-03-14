@@ -5664,10 +5664,6 @@
 /obj/structure/table/wood,
 /obj/item/weapon/folder/white,
 /obj/item/weapon/pen,
-/obj/machinery/light_switch{
-	pixel_x = -14;
-	pixel_y = 24
-	},
 /obj/machinery/newscaster{
 	pixel_y = 32
 	},
@@ -6172,6 +6168,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/item/device/radio/intercom{
+	dir = 8;
+	name = "Station Intercom (General)";
+	pixel_x = 24
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lg" = (
@@ -6457,6 +6458,12 @@
 	},
 /obj/structure/flora/pottedplant,
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lC" = (
@@ -6568,6 +6575,11 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lQ" = (
@@ -6578,6 +6590,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lR" = (
@@ -6786,6 +6799,11 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
+/obj/item/device/radio/intercom{
+	dir = 4;
+	name = "Station Intercom (General)";
+	pixel_x = -25
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "mi" = (
@@ -6826,6 +6844,11 @@
 	dir = 4;
 	icon_state = "tube1";
 	pixel_x = 0
+	},
+/obj/item/device/radio/intercom{
+	dir = 8;
+	name = "Station Intercom (General)";
+	pixel_x = 24
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
@@ -7058,6 +7081,18 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/reception)
+"mI" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/item/device/radio/intercom{
+	dir = 8;
+	name = "Station Intercom (General)";
+	pixel_x = 24
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
 
 (1,1,1) = {"
 aa
@@ -43159,8 +43194,8 @@ ab
 ab
 ab
 lr
-lD
-lS
+lC
+lR
 mi
 mo
 mx
@@ -43415,11 +43450,11 @@ aa
 ab
 ab
 ab
-ls
-lE
-lT
+lr
+lC
+lR
 mj
-mp
+mj
 jT
 kb
 kc
@@ -43672,11 +43707,11 @@ aa
 ab
 ab
 ab
-lt
-lF
-lU
+lr
+lC
+lR
 mk
-mq
+mn
 my
 kb
 kc
@@ -43930,11 +43965,11 @@ ab
 ab
 ab
 lu
-lG
-lV
+lC
+lR
 ky
 ky
-mz
+mx
 kc
 kc
 kb
@@ -44190,13 +44225,13 @@ jH
 lH
 lW
 ml
-mr
+mo
 jT
 kb
 mC
 kb
 kb
-mG
+mC
 kb
 jT
 aa
@@ -44957,8 +44992,8 @@ aa
 ab
 ab
 ab
-lv
-lJ
+lq
+lC
 lZ
 jH
 mt
@@ -45214,9 +45249,9 @@ aa
 ab
 ab
 ab
-lw
-lK
-ma
+lr
+lC
+lZ
 jH
 mu
 jK
@@ -45471,11 +45506,11 @@ aa
 ab
 ab
 ab
-lx
-lL
-mb
+lr
+lC
+lZ
 jH
-mv
+mt
 jJ
 jH
 kg
@@ -45728,9 +45763,9 @@ aa
 ab
 ab
 ab
-ly
-lM
-mc
+lr
+lC
+lZ
 jH
 jN
 mB
@@ -45985,14 +46020,14 @@ aa
 aa
 ab
 ab
-lz
-lN
-md
+lr
+lC
+lZ
 jH
 jO
 jH
 jH
-mE
+lC
 mF
 kG
 ky
@@ -46242,8 +46277,8 @@ aa
 aa
 ab
 ab
-lA
-lO
+lu
+lC
 me
 mm
 jP
@@ -46503,7 +46538,7 @@ jH
 lP
 mf
 jL
-jL
+mI
 jX
 jH
 km
@@ -47279,7 +47314,7 @@ jR
 jR
 kn
 ky
-kL
+lR
 kX
 lh
 jH
