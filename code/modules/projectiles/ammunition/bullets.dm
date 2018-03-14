@@ -3,6 +3,11 @@
 	caliber = "357"
 	projectile_type = /obj/item/projectile/bullet/pistol/strong
 
+/obj/item/ammo_casing/a454
+	desc = "A .454 bullet casing."
+	caliber = "454"
+	projectile_type = /obj/item/projectile/bullet/pistol/strong
+
 /obj/item/ammo_casing/a50
 	desc = "A .50AE bullet casing."
 	caliber = ".50"
@@ -249,3 +254,10 @@
 
 /obj/item/ammo_casing/flechette/explosive
 	projectile_type = /obj/item/projectile/bullet/flechette/explosive
+
+/obj/item/ammo_casing/vintage
+	projectile_type = /obj/item/projectile/bullet/rifle/vintage
+	desc = "Some vintage shell casing. It looks old, and you can't understand the writing stamped on it."
+	caliber = "vintage"
+	icon_state = "lcasing"
+	spent_icon = "lcasing-spent"

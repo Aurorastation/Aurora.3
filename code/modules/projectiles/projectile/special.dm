@@ -7,13 +7,17 @@
 	check_armour = "energy"
 	var/pulse_range = 1
 
-/obj/item/projectile/ion/on_hit(var/atom/target, var/blocked = 0)
-	empulse(target, pulse_range, pulse_range)
+/obj/item/projectile/ion/on_impact(var/atom/A)
+	empulse(A, pulse_range, pulse_range)
 	return 1
 
 /obj/item/projectile/ion/small
 	name = "ion pulse"
 	pulse_range = 0
+
+/obj/item/projectile/ion/heavy
+	name = "heavy ion pulse"
+	pulse_range = 5
 
 /obj/item/projectile/bullet/gyro
 	name ="explosive bolt"
@@ -65,7 +69,7 @@
 	nodamage = 1
 	check_armour = "bullet"
 
-/obj/item/projectile/meteor/Bump(atom/A as mob|obj|turf|area)
+/obj/item/projectile/meteor/Collide(atom/A)
 	if(A == firer)
 		loc = A.loc
 		return
@@ -173,7 +177,19 @@
 	embed = 0 // nope
 	nodamage = 1
 	damage_type = HALLOSS
-	muzzle_type = /obj/effect/projectile/bullet/muzzle
+	muzzle_type = /obj/effect/projectile/muzzle/bullet
+
+/obj/item/projectile/bullet/cannon
+	name ="armor-piercing shell"
+	icon = 'icons/obj/grenade.dmi'
+	icon_state = "shell"
+	damage = 90
+	armor_penetration = 80
+	penetrating = 1
+
+/obj/item/projectile/bullet/cannon/on_impact(var/atom/A)
+	explosion(A, 2, 3, 4, 4)
+	..()
 
 //magic
 

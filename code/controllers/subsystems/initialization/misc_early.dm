@@ -1,6 +1,5 @@
-// This is the first subsystem initialized by the MC.
+// This is one of the first subsystems initialized by the MC.
 // Stuff that should be loaded before everything else that isn't significant enough to get its own SS goes here.
-// The area list is put together here, because some things need it early on. Turrets controls, for example.
 
 /datum/controller/subsystem/misc_early
 	name = "Early Miscellaneous Init"
@@ -8,9 +7,6 @@
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
 
 /datum/controller/subsystem/misc_early/Initialize(timeofday)
-	// Generate the area list.
-	resort_all_areas()
-
 	// Create the data core, whatever that is.
 	data_core = new /datum/datacore()
 
@@ -38,23 +34,19 @@
 	populate_robolimb_list()
 
 	// Set up antags.
+	// Spawn locations are set after map init!
 	populate_antag_type_list()
-
-	// Populate spawnpoints for char creation.
-	populate_spawn_points()
 
 	// Get BOREALIS to warn staff about a lazy admin forgetting visibility to 0
 	// before anyone has a chance to change it!
 	if (discord_bot)
 		discord_bot.alert_server_visibility()
 
-	lobby_image = new/obj/effect/lobby_image()
+	global_initialize_webhooks()
+
+	// Setup ore.
+	for(var/oretype in subtypesof(/ore))
+		var/ore/OD = new oretype()
+		ore_data[OD.name] = OD
 
 	..()
-
-/proc/resort_all_areas()
-	all_areas = list()
-	for (var/area/A in world)
-		all_areas += A
-
-	sortTim(all_areas, /proc/cmp_name_asc)

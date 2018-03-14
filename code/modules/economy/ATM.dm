@@ -369,7 +369,7 @@ log transactions
 					if(!R.stamped)
 						R.stamped = new
 					R.stamped += /obj/item/weapon/stamp
-					R.overlays += stampoverlay
+					R.add_overlay(stampoverlay)
 					R.stamps += "<HR><i>This paper has been stamped by the Automatic Teller Machine.</i>"
 					print(R)
 
@@ -416,7 +416,7 @@ log transactions
 					if(!R.stamped)
 						R.stamped = new
 					R.stamped += /obj/item/weapon/stamp
-					R.overlays += stampoverlay
+					R.add_overlay(stampoverlay)
 					R.stamps += "<HR><i>This paper has been stamped by the Automatic Teller Machine.</i>"
 					print(R)
 

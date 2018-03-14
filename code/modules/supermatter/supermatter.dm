@@ -166,8 +166,8 @@
 /obj/machinery/power/supermatter/get_transit_zlevel()
 	//don't send it back to the station -- most of the time
 	if(prob(99))
-		var/list/candidates = accessible_z_levels.Copy()
-		for(var/zlevel in config.station_levels)
+		var/list/candidates = current_map.accessible_z_levels.Copy()
+		for(var/zlevel in current_map.station_levels)
 			candidates.Remove("[zlevel]")
 		candidates.Remove("[src.z]")
 
@@ -359,10 +359,12 @@
 	user.apply_effect(150, IRRADIATE, blocked = user.getarmor(null, "rad"))
 
 
-/obj/machinery/power/supermatter/Bumped(atom/AM as mob|obj)
+/obj/machinery/power/supermatter/CollidedWith(atom/AM as mob|obj)
 	if(!AM.simulated)
 		return
 	if(istype(AM, /obj/effect))
+		return
+	if(isprojectile(AM))
 		return
 	if(istype(AM, /mob/living))
 		AM.visible_message("<span class=\"warning\">\The [AM] slams into \the [src] inducing a resonance... \his body starts to glow and catch flame before flashing into ash.</span>",\

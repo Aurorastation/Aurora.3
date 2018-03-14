@@ -4,8 +4,6 @@ var/list/gamemode_cache = list()
 	var/server_name = null				// server name (for world name / status)
 	var/server_suffix = 0				// generate numeric suffix based on server port
 
-	var/list/lobby_screens = list("title") // Which lobby screens are available
-
 	var/log_ooc = 0						// log OOC channel
 	var/log_access = 0					// log login/logout
 	var/log_say = 0						// log client say
@@ -48,7 +46,6 @@ var/list/gamemode_cache = list()
 	var/popup_admin_pm = 0				//adminPMs to non-admins show in a pop-up 'reply' window when set to 1.
 	var/Ticklag = 0.4
 	var/Tickcomp = 0
-	var/list/resource_urls = null
 	var/antag_hud_allowed = 0			// Ghosts can turn on Antagovision to see a HUD of who is the bad guys this round.
 	var/antag_hud_restricted = 0                    // Ghosts that turn on Antagovision cannot rejoin the round.
 	var/list/mode_names = list()
@@ -75,6 +72,7 @@ var/list/gamemode_cache = list()
 	var/automute_on = 0					//enables automuting/spam prevention
 	var/macro_trigger = 5				// The grace period between messages before it's counted as abusing a macro.
 	var/jobs_have_minimal_access = 0	//determines whether jobs use minimal access or expanded access.
+	var/override_map
 
 	var/cult_ghostwriter = 1               //Allows ghosts to write in blood in cult rounds...
 	var/cult_ghostwriter_req_cultists = 10 //...so long as this many cultists are active.
@@ -168,7 +166,7 @@ var/list/gamemode_cache = list()
 
 	var/simultaneous_pm_warning_timeout = 100
 
-	var/use_recursive_explosions = 0 //Defines whether the server uses recursive or circular explosions.
+	var/use_spreading_explosions = 0 //Defines whether the server uses iterative or circular explosions.
 
 	var/assistant_maint = 0 //Do assistants get maint access?
 	var/gateway_delay = 18000 //How long the gateway takes before it activates. Default is half an hour.
@@ -183,12 +181,6 @@ var/list/gamemode_cache = list()
 	var/use_discord_pins = 0
 	var/python_path = "python" //Path to the python executable.  Defaults to "python" on windows and "/usr/bin/env python2" on unix
 	var/use_overmap = 0
-
-	var/list/station_levels = list(3, 4, 5, 6, 7)				// Defines which Z-levels the station exists on.
-	var/list/admin_levels= list(1)					// Defines which Z-levels which are for admin functionality, for example including such areas as Central Command and the Syndicate Shuttle
-	var/list/contact_levels = list(3, 4, 5, 6)			// Defines which Z-levels which, for example, a Code Red announcement may affect
-	var/list/player_levels = list(2, 3, 4, 5, 6, 7, 8)	// Defines all Z-levels a character can typically reach
-	var/list/sealed_levels = list() 				// Defines levels that do not allow random transit at the edges.
 
 	// Event settings
 	var/expected_round_length = 3 * 60 * 60 * 10 // 3 hours
@@ -228,6 +220,9 @@ var/list/gamemode_cache = list()
 	var/client_error_message = ""
 	var/client_warn_version = 0
 	var/client_warn_message = ""
+#if DM_VERSION > 511
+	var/list/client_blacklist_version = list()
+#endif
 
 	//Mark-up enabling
 	var/allow_chat_markup = 0
@@ -279,6 +274,9 @@ var/list/gamemode_cache = list()
 
 	var/openturf_starlight_permitted = FALSE
 
+	var/iterative_explosives_z_threshold = 10
+	var/iterative_explosives_z_multiplier = 0.75
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -324,9 +322,6 @@ var/list/gamemode_cache = list()
 
 		if(type == "config")
 			switch (name)
-				if ("resource_urls")
-					config.resource_urls = text2list(value, " ")
-
 				if ("admin_legacy_system")
 					config.admin_legacy_system = 1
 
@@ -345,8 +340,8 @@ var/list/gamemode_cache = list()
 				if ("jobs_have_minimal_access")
 					config.jobs_have_minimal_access = 1
 
-				if ("use_recursive_explosions")
-					use_recursive_explosions = 1
+				if ("use_spreading_explosions")
+					use_spreading_explosions = 1
 
 				if ("log_ooc")
 					config.log_ooc = 1
@@ -696,21 +691,6 @@ var/list/gamemode_cache = list()
 				if("use_overmap")
 					config.use_overmap = 1
 
-				if("station_levels")
-					config.station_levels = text2numlist(value, ";")
-
-				if("admin_levels")
-					config.admin_levels = text2numlist(value, ";")
-
-				if("contact_levels")
-					config.contact_levels = text2numlist(value, ";")
-
-				if("player_levels")
-					config.player_levels = text2numlist(value, ";")
-
-				if("sealed_levels")
-					config.sealed_levels = text2numlist(value, ";")
-
 				if("expected_round_length")
 					config.expected_round_length = MinutesToTicks(text2num(value))
 
@@ -787,6 +767,11 @@ var/list/gamemode_cache = list()
 				if("client_warn_message")
 					config.client_warn_message = value
 
+#if DM_VERSION > 511
+				if("client_blacklist_version")
+					config.client_blacklist_version = splittext(value, ";")
+#endif
+
 				if("allow_chat_markup")
 					config.allow_chat_markup = 1
 
@@ -797,9 +782,6 @@ var/list/gamemode_cache = list()
 					var/list/values = text2list(value, " ")
 					if(values.len > 0)
 						language_prefixes = values
-
-				if ("lobby_screens")
-					config.lobby_screens = text2list(value, ";")
 
 				if("delist_when_no_admins")
 					config.delist_when_no_admins = 1
@@ -856,6 +838,15 @@ var/list/gamemode_cache = list()
 
 				if("merchant_chance")
 					config.merchant_chance = text2num(value)
+
+				if("force_map")
+					override_map = value
+
+				if ("explosion_z_threshold")
+					iterative_explosives_z_threshold = text2num(value)
+
+				if ("explosion_z_mult")
+					iterative_explosives_z_multiplier = text2num(value)
 
 				if("show_game_type_odd")
 					config.show_game_type_odd = 1

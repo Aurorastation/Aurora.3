@@ -79,14 +79,13 @@
 
 		handle_heartbeat()
 
+		handle_brain_damage()
+
 		//Handles regenerating stamina if we have sufficient air and no oxyloss
 		handle_stamina()
 
 		if (is_diona())
 			diona_handle_light(DS)
-
-		if(!client)
-			species.handle_npc(src)
 
 	handle_stasis_bag()
 
@@ -101,6 +100,10 @@
 	if(mind && mind.vampire)
 		handle_vampire()
 
+/mob/living/carbon/human/think()
+	..()
+	species.handle_npc(src)
+
 /mob/living/carbon/human/proc/handle_some_updates()
 	if(life_tick > 5 && timeofdeath && (timeofdeath < 5 || world.time - timeofdeath > 6000))	//We are long dead, or we're junk mobs spawned like the clowns on the clown shuttle
 		return 0
@@ -114,9 +117,6 @@
 // Returns 0 (equals 0 %) if sealed in an undamaged suit, 1 if unprotected (equals 100%).
 // Suitdamage can modifiy this in 10% steps.
 /mob/living/carbon/human/proc/get_pressure_weakness()
-	if (global.mechanical_species[get_species()] == MECHANICAL_SPECIES_INDUSTRIAL)
-		return 0	 // woo, back-mounted cooling!
-
 	var/pressure_adjustment_coefficient = 1 // Assume no protection at first.
 
 	if(wear_suit && (wear_suit.item_flags & STOPPRESSUREDAMAGE) && head && (head.item_flags & STOPPRESSUREDAMAGE)) // Complete set of pressure-proof suit worn, assume fully sealed.
@@ -182,7 +182,7 @@
 	else
 		//blindness
 		if(!(sdisabilities & BLIND))
-			if(equipment_tint_total >= TINT_BLIND)	// Covered eyes, heal faster
+			if(!src.is_diona() && equipment_tint_total >= TINT_BLIND)	// Covered eyes, heal faster
 				eye_blurry = max(eye_blurry-2, 0)
 			else
 				eye_blurry = max(eye_blurry-1, 0)
@@ -263,7 +263,7 @@
 	// Handle side effects from stasis bag
 	if(in_stasis)
 		// First off, there's no oxygen supply, so the mob will slowly take brain damage
-		adjustBrainLoss(0.1)
+		adjustOxyLoss(0.1)
 
 		// Next, the method to induce stasis has some adverse side-effects, manifesting
 		// as cloneloss
@@ -911,7 +911,7 @@
 
 		var/total_phoronloss = 0
 		for(var/obj/item/I in src)
-			if(I.contaminated)
+			if(I.contaminated && !(isvaurca(src) && src.species.has_organ["filtration bit"]))
 				total_phoronloss += vsc.plc.CONTAMINATION_LOSS
 		if(!(status_flags & GODMODE)) adjustToxLoss(total_phoronloss)
 
@@ -1080,6 +1080,11 @@
 	return 1
 
 
+/mob/living/carbon/human
+	var/tmp/last_brute_overlay
+	var/tmp/last_frenzy_state
+	var/tmp/last_oxy_overlay
+
 /mob/living/carbon/human/handle_regular_hud_updates()
 	if(hud_updateflag) // update our mob's hud overlays, AKA what others see flaoting above our head
 		handle_hud_list()
@@ -1088,32 +1093,36 @@
 	if(!..())
 		return
 
-	damageoverlay.cut_overlays()
-
 	if(stat == UNCONSCIOUS)
 		//Critical damage passage overlay
 		if(health <= 0)
+			var/ovr = "passage0"
 			switch(health)
 				if(-20 to -10)
-					damageoverlay.add_overlay("passage1")
+					ovr = "passage1"
 				if(-30 to -20)
-					damageoverlay.add_overlay("passage2")
+					ovr = "passage2"
 				if(-40 to -30)
-					damageoverlay.add_overlay("passage3")
+					ovr = "passage3"
 				if(-50 to -40)
-					damageoverlay.add_overlay("passage4")
+					ovr = "passage4"
 				if(-60 to -50)
-					damageoverlay.add_overlay("passage5")
+					ovr = "passage5"
 				if(-70 to -60)
-					damageoverlay.add_overlay("passage6")
+					ovr = "passage6"
 				if(-80 to -70)
-					damageoverlay.add_overlay("passage7")
+					ovr = "passage7"
 				if(-90 to -80)
-					damageoverlay.add_overlay("passage8")
+					ovr = "passage8"
 				if(-95 to -90)
-					damageoverlay.add_overlay("passage9")
+					ovr = "passage9"
 				if(-INFINITY to -95)
-					damageoverlay.add_overlay("passage10")
+					ovr = "passage10"
+
+			if (ovr != last_brute_overlay)
+				damageoverlay.cut_overlay(last_brute_overlay)
+				damageoverlay.add_overlay(ovr)
+				last_brute_overlay = ovr
 	else
 		//Oxygen damage overlay
 		update_oxy_overlay()
@@ -1121,63 +1130,107 @@
 		// Vampire frenzy overlay.
 		if (mind.vampire)
 			if (mind.vampire.status & VAMP_FRENZIED)
-				damageoverlay.add_overlay("frenzyoverlay")
+				if (!last_frenzy_state)
+					damageoverlay.add_overlay("frenzyoverlay")
+					last_frenzy_state = TRUE
+			else if (last_frenzy_state)
+				damageoverlay.cut_overlay("frenzyoverlay")
+				last_frenzy_state = FALSE
+		else if (last_frenzy_state)
+			damageoverlay.cut_overlay("frenzyoverlay")
+			last_frenzy_state = FALSE
 
 		//Fire and Brute damage overlay (BSSR)
 		var/hurtdamage = src.getBruteLoss() + src.getFireLoss() + damageoverlaytemp
 		damageoverlaytemp = 0 // We do this so we can detect if someone hits us or not.
 		if(hurtdamage)
+			var/ovr
 			switch(hurtdamage)
 				if(10 to 25)
-					damageoverlay.add_overlay("brutedamageoverlay1")
+					ovr = "brutedamageoverlay1"
 				if(25 to 40)
-					damageoverlay.add_overlay("brutedamageoverlay2")
+					ovr = "brutedamageoverlay2"
 				if(40 to 55)
-					damageoverlay.add_overlay("brutedamageoverlay3")
+					ovr = "brutedamageoverlay3"
 				if(55 to 70)
-					damageoverlay.add_overlay("brutedamageoverlay4")
+					ovr = "brutedamageoverlay4"
 				if(70 to 85)
-					damageoverlay.add_overlay("brutedamageoverlay5")
+					ovr = "brutedamageoverlay5"
 				if(85 to INFINITY)
-					damageoverlay.add_overlay("brutedamageoverlay6")
+					ovr = "brutedamageoverlay6"
+
+			if (last_brute_overlay != ovr)
+				damageoverlay.cut_overlay(last_brute_overlay)
+				damageoverlay.add_overlay(ovr)
+				last_brute_overlay = ovr
+		else if (last_brute_overlay)
+			damageoverlay.cut_overlay(last_brute_overlay)
+			last_brute_overlay = null
 
 		update_health_display()
 
 		//Update hunger UI less often, its not important
 		if((life_tick % 3 == 0) && nutrition_icon)
 			var/nut_factor = max(1,nutrition) / max_nutrition
+			var/new_val = ""
 			switch(nut_factor)
-				if(1 to INFINITY)				nutrition_icon.icon_state = "nutrition0"
-				if(0.75 to 1)					nutrition_icon.icon_state = "nutrition1"
-				if(0.5 to 0.75)					nutrition_icon.icon_state = "nutrition2"
-				if(0.25 to 0.5)					nutrition_icon.icon_state = "nutrition3"
-				else							nutrition_icon.icon_state = "nutrition4"
+				if(1 to INFINITY)
+					new_val = "nutrition0"
+				if(0.75 to 1)
+					new_val = "nutrition1"
+				if(0.5 to 0.75)
+					new_val = "nutrition2"
+				if(0.25 to 0.5)
+					new_val = "nutrition3"
+				else
+					new_val = "nutrition4"
+
+			if (nutrition_icon.icon_state != new_val)
+				nutrition_icon.icon_state = new_val
 
 		if(pressure)
-			pressure.icon_state = "pressure[pressure_alert]"
+			var/new_pressure = "pressure[pressure_alert]"
+			if (pressure.icon_state != new_pressure)
+				pressure.icon_state = new_pressure
 
 		if(toxin)
-			if(hal_screwyhud == 4 || phoron_alert)	toxin.icon_state = "tox1"
-			else									toxin.icon_state = "tox0"
+			var/new_tox = (hal_screwyhud == 4 || phoron_alert) ? "tox1" : "tox0"
+			if (toxin.icon_state != new_tox)
+				toxin.icon_state = new_tox
+
 		if(oxygen)
-			if(hal_screwyhud == 3 || oxygen_alert)	oxygen.icon_state = "oxy1"
-			else									oxygen.icon_state = "oxy0"
+			var/new_oxy = (hal_screwyhud == 3 || oxygen_alert) ? "oxy1" : "oxy0"
+			if (oxygen.icon_state != new_oxy)
+				oxygen.icon_state = new_oxy
+
 		if(fire)
-			if(fire_alert)							fire.icon_state = "fire[fire_alert]" //fire_alert is either 0 if no alert, 1 for cold and 2 for heat.
-			else									fire.icon_state = "fire0"
+			//fire_alert is either 0 if no alert, 1 for cold and 2 for heat.
+			var/new_fire = fire_alert ? "fire[fire_alert]" : "fire0"
+			if (fire.icon_state != new_fire)
+				fire.icon_state = new_fire
 
 		if(bodytemp)
+			var/new_temp
 			if (!species)
 				switch(bodytemperature) //310.055 optimal body temp
-					if(370 to INFINITY)		bodytemp.icon_state = "temp4"
-					if(350 to 370)			bodytemp.icon_state = "temp3"
-					if(335 to 350)			bodytemp.icon_state = "temp2"
-					if(320 to 335)			bodytemp.icon_state = "temp1"
-					if(300 to 320)			bodytemp.icon_state = "temp0"
-					if(295 to 300)			bodytemp.icon_state = "temp-1"
-					if(280 to 295)			bodytemp.icon_state = "temp-2"
-					if(260 to 280)			bodytemp.icon_state = "temp-3"
-					else					bodytemp.icon_state = "temp-4"
+					if(370 to INFINITY)
+						new_temp = "temp4"
+					if(350 to 370)
+						new_temp = "temp3"
+					if(335 to 350)
+						new_temp = "temp2"
+					if(320 to 335)
+						new_temp = "temp1"
+					if(300 to 320)
+						new_temp = "temp0"
+					if(295 to 300)
+						new_temp = "temp-1"
+					if(280 to 295)
+						new_temp = "temp-2"
+					if(260 to 280)
+						new_temp = "temp-3"
+					else
+						new_temp = "temp-4"
 			else
 				//TODO: precalculate all of this stuff when the species datum is created
 				var/base_temperature = species.body_temperature
@@ -1189,29 +1242,33 @@
 					temp_step = (species.heat_level_1 - base_temperature)/4
 
 					if (bodytemperature >= species.heat_level_1)
-						bodytemp.icon_state = "temp4"
+						new_temp = "temp4"
 					else if (bodytemperature >= base_temperature + temp_step*3)
-						bodytemp.icon_state = "temp3"
+						new_temp = "temp3"
 					else if (bodytemperature >= base_temperature + temp_step*2)
-						bodytemp.icon_state = "temp2"
+						new_temp = "temp2"
 					else if (bodytemperature >= base_temperature + temp_step*1)
-						bodytemp.icon_state = "temp1"
+						new_temp = "temp1"
 					else
-						bodytemp.icon_state = "temp0"
+						new_temp = "temp0"
 
 				else if (bodytemperature < base_temperature)
 					temp_step = (base_temperature - species.cold_level_1)/4
 
 					if (bodytemperature <= species.cold_level_1)
-						bodytemp.icon_state = "temp-4"
+						new_temp = "temp-4"
 					else if (bodytemperature <= base_temperature - temp_step*3)
-						bodytemp.icon_state = "temp-3"
+						new_temp = "temp-3"
 					else if (bodytemperature <= base_temperature - temp_step*2)
-						bodytemp.icon_state = "temp-2"
+						new_temp = "temp-2"
 					else if (bodytemperature <= base_temperature - temp_step*1)
-						bodytemp.icon_state = "temp-1"
+						new_temp = "temp-1"
 					else
-						bodytemp.icon_state = "temp0"
+						new_temp = "temp0"
+
+			if (bodytemp.icon_state != new_temp)
+				bodytemp.icon_state = new_temp
+
 	return 1
 
 /mob/living/carbon/human/handle_random_events()
@@ -1510,6 +1567,11 @@
 		speech_problem_flag = 1
 	return stuttering
 
+/mob/living/carbon/human/handle_tarded()
+	if(..())
+		speech_problem_flag = 1
+	return tarded
+
 /mob/living/carbon/human/handle_fire()
 	if(..())
 		return
@@ -1584,40 +1646,74 @@
 	if(!healths)
 		return
 
-	if (analgesic > 100)
-		healths.icon_state = "health_numb"
+	var/new_state
+	if (stat == DEAD)
+		new_state = "health7"
+	else if (analgesic > 100)
+		new_state = "health_numb"
 	else
 		switch(hal_screwyhud)
-			if(1)	healths.icon_state = "health6"
-			if(2)	healths.icon_state = "health7"
+			if(1)
+				new_state = "health6"
+			if(2)
+				new_state = "health7"
 			else
 				//switch(health - halloss)
 				switch(health - traumatic_shock)
-					if(100 to INFINITY)		healths.icon_state = "health0"
-					if(80 to 100)			healths.icon_state = "health1"
-					if(60 to 80)			healths.icon_state = "health2"
-					if(40 to 60)			healths.icon_state = "health3"
-					if(20 to 40)			healths.icon_state = "health4"
-					if(0 to 20)				healths.icon_state = "health5"
-					else					healths.icon_state = "health6"
+					if(100 to INFINITY)
+						new_state = "health0"
+					if(80 to 100)
+						new_state = "health1"
+					if(60 to 80)
+						new_state = "health2"
+					if(40 to 60)
+						new_state = "health3"
+					if(20 to 40)
+						new_state = "health4"
+					if(0 to 20)
+						new_state = "health5"
+					else
+						new_state = "health6"
+
+	if (healths.icon_state != new_state)
+		healths.icon_state = new_state
 
 /mob/living/carbon/human/proc/update_oxy_overlay()
+	var/new_oxy
 	if(oxyloss)
 		switch(oxyloss)
 			if(10 to 20)
-				damageoverlay.add_overlay("oxydamageoverlay1")
+				new_oxy = "oxydamageoverlay1"
 			if(20 to 25)
-				damageoverlay.add_overlay("oxydamageoverlay2")
+				new_oxy = "oxydamageoverlay2"
 			if(25 to 30)
-				damageoverlay.add_overlay("oxydamageoverlay3")
+				new_oxy = "oxydamageoverlay3"
 			if(30 to 35)
-				damageoverlay.add_overlay("oxydamageoverlay4")
+				new_oxy = "oxydamageoverlay4"
 			if(35 to 40)
-				damageoverlay.add_overlay("oxydamageoverlay5")
+				new_oxy = "oxydamageoverlay5"
 			if(40 to 45)
-				damageoverlay.add_overlay("oxydamageoverlay6")
+				new_oxy = "oxydamageoverlay6"
 			if(45 to INFINITY)
-				damageoverlay.add_overlay("oxydamageoverlay7")
+				new_oxy = "oxydamageoverlay7"
+
+		if (new_oxy != last_oxy_overlay)
+			damageoverlay.cut_overlay(last_oxy_overlay)
+			damageoverlay.add_overlay(new_oxy)
+			last_oxy_overlay = new_oxy
+	else if (last_oxy_overlay)
+		damageoverlay.cut_overlay(last_oxy_overlay)
+		last_oxy_overlay = null
+
+////////////////
+//BRAIN DAMAGE//
+////////////////
+
+/mob/living/carbon/human/proc/handle_brain_damage()
+	for(var/T in get_traumas())
+		var/datum/brain_trauma/BT = T
+		if(!BT.suppressed)
+			BT.on_life()
 
 #undef HUMAN_MAX_OXYLOSS
 #undef HUMAN_CRIT_MAX_OXYLOSS

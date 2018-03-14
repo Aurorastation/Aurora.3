@@ -3,11 +3,11 @@
 /turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
 "ab" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "ac" = (
 /obj/random/junk,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "ad" = (
 /turf/simulated/wall/r_wall,
@@ -373,7 +373,7 @@
 	pixel_x = -32;
 	pixel_y = -26
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "aR" = (
 /obj/structure/grille,
@@ -785,6 +785,16 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/structure/sign/securearea{
+	name = "\improper NO ENTRY";
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "bE" = (
@@ -870,11 +880,6 @@
 /obj/effect/floor_decal/corner/yellow/full{
 	icon_state = "corner_white_full";
 	dir = 4
-	},
-/obj/machinery/power/apc{
-	dir = 2;
-	name = "south bump";
-	pixel_y = -24
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled,
@@ -1042,7 +1047,7 @@
 	pixel_x = -32;
 	pixel_y = 26
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "cb" = (
 /obj/structure/cable/green{
@@ -1079,6 +1084,12 @@
 /obj/effect/decal/warning_stripes,
 /obj/structure/ladder/up{
 	pixel_y = 16
+	},
+/obj/structure/sign/emerg_exitZ{
+	dir = 1;
+	icon_state = "emerg_exitZ";
+	pixel_x = 32;
+	tag = "icon-emerg_exitZ (NORTH)"
 	},
 /turf/simulated/floor/plating{
 	roof_type = null
@@ -1376,7 +1387,7 @@
 	pixel_x = -32;
 	pixel_y = 26
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "cD" = (
 /obj/structure/grille,
@@ -1661,6 +1672,5758 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
+"db" = (
+/turf/simulated/wall,
+/area/security/range)
+"dc" = (
+/turf/simulated/wall,
+/area/security/range)
+"dd" = (
+/turf/simulated/wall,
+/area/security/range)
+"de" = (
+/turf/simulated/wall,
+/area/security/range)
+"df" = (
+/turf/simulated/wall,
+/area/security/range)
+"dg" = (
+/turf/simulated/wall,
+/area/security/range)
+"dh" = (
+/turf/simulated/wall,
+/area/security/range)
+"di" = (
+/turf/simulated/wall,
+/area/security/range)
+"dj" = (
+/turf/simulated/wall,
+/area/security/range)
+"dk" = (
+/turf/simulated/wall,
+/area/security/training)
+"dl" = (
+/turf/simulated/wall,
+/area/security/training)
+"dm" = (
+/turf/simulated/wall,
+/area/security/training)
+"dn" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/security/range)
+"do" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"dp" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_x = 0;
+	pixel_y = 24
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"dq" = (
+/obj/structure/table/standard,
+/obj/item/clothing/glasses/sunglasses{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/clothing/glasses/sunglasses{
+	pixel_x = 1;
+	pixel_y = 1;
+	pixel_z = 0
+	},
+/obj/item/clothing/glasses/sunglasses{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"dr" = (
+/obj/structure/table/standard,
+/obj/item/weapon/storage/box/practiceshells{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/weapon/storage/box/practiceshells{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/weapon/storage/box/practiceshells{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/weapon/storage/box/practiceshells{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/weapon/storage/box/practiceshells,
+/obj/item/weapon/storage/box/practiceshells,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/item/device/radio/intercom{
+	pixel_y = 27
+	},
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Firing Range Fore";
+	dir = 2
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"ds" = (
+/obj/structure/table/standard,
+/obj/item/clothing/ears/earmuffs{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/clothing/ears/earmuffs{
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/item/clothing/ears/earmuffs{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"dt" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled,
+/area/security/range)
+"du" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/machinery/light_switch{
+	pixel_x = 0;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"dv" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/security/range)
+"dw" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/vending/cola,
+/turf/simulated/floor/tiled,
+/area/security/training)
+"dx" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/firealarm/north,
+/obj/structure/table/wood,
+/obj/item/weapon/storage/box/donut,
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Training Division 3";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"dy" = (
+/turf/simulated/wall,
+/area/security/training)
+"dz" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/security/range)
+"dA" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"dB" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"dC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"dD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"dE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"dF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"dG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"dH" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass_security{
+	name = "Firing Range";
+	req_access = list(1)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"dI" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"dJ" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"dK" = (
+/turf/simulated/wall,
+/area/security/training)
+"dL" = (
+/turf/simulated/wall,
+/area/security/training)
+"dM" = (
+/turf/simulated/wall,
+/area/security/training)
+"dN" = (
+/turf/simulated/wall,
+/area/security/training)
+"dO" = (
+/turf/simulated/wall,
+/area/security/training)
+"dP" = (
+/turf/simulated/wall,
+/area/security/training)
+"dQ" = (
+/turf/simulated/wall,
+/area/security/training)
+"dR" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/security/range)
+"dS" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"dT" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/sign/nosmoking_2{
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"dU" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled,
+/area/security/range)
+"dV" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled,
+/area/security/range)
+"dW" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled,
+/area/security/range)
+"dX" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled,
+/area/security/range)
+"dY" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled,
+/area/security/range)
+"dZ" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/security/range)
+"ea" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"eb" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"ec" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/security/training)
+"ed" = (
+/obj/item/device/radio/intercom{
+	pixel_y = 27
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"ee" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled,
+/area/security/training)
+"ef" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/training)
+"eg" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/structure/sign/nosmoking_2{
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/training)
+"eh" = (
+/turf/simulated/floor/tiled/white,
+/area/security/training)
+"ei" = (
+/turf/simulated/wall,
+/area/security/training)
+"ej" = (
+/turf/simulated/wall,
+/area/security/range)
+"ek" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"el" = (
+/turf/simulated/wall,
+/area/security/range)
+"em" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/recharger,
+/obj/item/weapon/gun/energy/laser/practice,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/security/range)
+"en" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/security/range)
+"eo" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/recharger,
+/obj/item/weapon/gun/energy/laser/practice,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/security/range)
+"ep" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/security/range)
+"eq" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/recharger,
+/obj/item/weapon/gun/energy/laser/practice,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/security/range)
+"er" = (
+/turf/simulated/wall,
+/area/security/range)
+"es" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/ringer{
+	department = "Security";
+	id = "brig_ringer";
+	pixel_x = -30;
+	pixel_y = 0;
+	req_access = list(1)
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"et" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"eu" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/security/training)
+"ev" = (
+/turf/simulated/floor/tiled,
+/area/security/training)
+"ew" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/security/training)
+"ex" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/white,
+/area/security/training)
+"ey" = (
+/obj/structure/closet/body_bag,
+/turf/simulated/floor/tiled/white,
+/area/security/training)
+"ez" = (
+/turf/simulated/floor/tiled/white,
+/area/security/training)
+"eA" = (
+/turf/simulated/wall,
+/area/security/training)
+"eB" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/security/range)
+"eC" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"eD" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/security/range)
+"eE" = (
+/obj/effect/floor_decal/industrial/loading,
+/turf/simulated/floor/tiled,
+/area/security/range)
+"eF" = (
+/turf/simulated/floor/tiled,
+/area/security/range)
+"eG" = (
+/obj/effect/floor_decal/industrial/loading,
+/turf/simulated/floor/tiled,
+/area/security/range)
+"eH" = (
+/turf/simulated/floor/tiled,
+/area/security/range)
+"eI" = (
+/obj/effect/floor_decal/industrial/loading,
+/turf/simulated/floor/tiled,
+/area/security/range)
+"eJ" = (
+/turf/simulated/wall,
+/area/security/range)
+"eK" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"eL" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"eM" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass_security{
+	name = "Crime Scene Training";
+	req_access = list(1)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"eN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"eO" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"eP" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled/white,
+/area/security/training)
+"eQ" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/white,
+/area/security/training)
+"eR" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Forensics Training";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/training)
+"eS" = (
+/turf/simulated/wall,
+/area/security/training)
+"eT" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/security/range)
+"eU" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"eV" = (
+/obj/machinery/door/window/westleft{
+	name = "Firing Range Access";
+	req_access = list(1)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/security/range)
+"eW" = (
+/turf/simulated/floor/tiled,
+/area/security/range)
+"eX" = (
+/turf/simulated/floor/tiled,
+/area/security/range)
+"eY" = (
+/turf/simulated/floor/tiled,
+/area/security/range)
+"eZ" = (
+/turf/simulated/floor/tiled,
+/area/security/range)
+"fa" = (
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"fb" = (
+/turf/simulated/wall,
+/area/security/range)
+"fc" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"fd" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"fe" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/security/training)
+"ff" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"fg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"fh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"fi" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"fj" = (
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"fk" = (
+/turf/simulated/wall,
+/area/security/training)
+"fl" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/security/range)
+"fm" = (
+/obj/structure/closet/crate,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"fn" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/security/range)
+"fo" = (
+/obj/structure/target_stake,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
+/area/security/range)
+"fp" = (
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Firing Range Aft";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"fq" = (
+/obj/structure/target_stake,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
+/area/security/range)
+"fr" = (
+/obj/structure/sign/nosmoking_2{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"fs" = (
+/obj/structure/target_stake,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
+/area/security/range)
+"ft" = (
+/turf/simulated/wall,
+/area/security/range)
+"fu" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/status_display{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"fv" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"fw" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/security/training)
+"fx" = (
+/obj/structure/table/wood,
+/obj/item/weapon/gun/projectile/revolver/capgun,
+/turf/simulated/floor/tiled,
+/area/security/training)
+"fy" = (
+/obj/structure/table/wood,
+/obj/item/clothing/gloves/black,
+/turf/simulated/floor/tiled,
+/area/security/training)
+"fz" = (
+/obj/structure/table/wood,
+/obj/item/weapon/reagent_containers/spray/luminol,
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/security/training)
+"fA" = (
+/obj/structure/table/wood,
+/obj/item/weapon/storage/box/evidence{
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/obj/item/taperoll/police,
+/turf/simulated/floor/tiled,
+/area/security/training)
+"fB" = (
+/obj/structure/table/wood,
+/obj/item/weapon/reagent_containers/spray/cleaner,
+/turf/simulated/floor/tiled,
+/area/security/training)
+"fC" = (
+/turf/simulated/wall,
+/area/security/training)
+"fD" = (
+/turf/simulated/wall,
+/area/security/range)
+"fE" = (
+/turf/simulated/wall,
+/area/security/range)
+"fF" = (
+/turf/simulated/wall,
+/area/security/range)
+"fG" = (
+/turf/simulated/wall,
+/area/security/range)
+"fH" = (
+/turf/simulated/wall,
+/area/security/range)
+"fI" = (
+/turf/simulated/wall,
+/area/security/range)
+"fJ" = (
+/turf/simulated/wall,
+/area/security/range)
+"fK" = (
+/turf/simulated/wall,
+/area/security/range)
+"fL" = (
+/turf/simulated/wall,
+/area/security/range)
+"fM" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"fN" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/item/device/radio/intercom{
+	dir = 8;
+	name = "Station Intercom (General)";
+	pixel_x = 24
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"fO" = (
+/turf/simulated/wall,
+/area/security/detectives_office)
+"fP" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "Detective"
+	},
+/turf/simulated/floor/plating,
+/area/security/detectives_office)
+"fQ" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "Detective"
+	},
+/turf/simulated/floor/plating,
+/area/security/detectives_office)
+"fR" = (
+/turf/simulated/wall,
+/area/security/detectives_office)
+"fS" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "Detective"
+	},
+/turf/simulated/floor/plating,
+/area/security/detectives_office)
+"fT" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "Detective"
+	},
+/turf/simulated/floor/plating,
+/area/security/detectives_office)
+"fU" = (
+/turf/simulated/wall,
+/area/security/detectives_office)
+"fV" = (
+/turf/simulated/wall,
+/area/security/training)
+"fW" = (
+/obj/effect/floor_decal/corner/red/full{
+	icon_state = "corner_white_full";
+	dir = 8
+	},
+/obj/structure/punching_bag,
+/turf/simulated/floor/holofloor/tiled,
+/area/security/training)
+"fX" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/structure/weightlifter,
+/turf/simulated/floor/holofloor/tiled,
+/area/security/training)
+"fY" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/structure/weightlifter,
+/turf/simulated/floor/holofloor/tiled,
+/area/security/training)
+"fZ" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/structure/table/standard,
+/obj/item/clothing/gloves/boxing/green,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/holofloor/tiled,
+/area/security/training)
+"ga" = (
+/obj/structure/table/standard,
+/obj/item/clothing/gloves/boxing,
+/obj/item/device/radio/intercom{
+	pixel_y = 27
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"gb" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/security/training)
+"gc" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Training Division 2";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"gd" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"ge" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "Detective"
+	},
+/turf/simulated/floor/plating,
+/area/security/detectives_office)
+"gf" = (
+/obj/machinery/computer/med_data,
+/turf/simulated/floor/lino,
+/area/security/detectives_office)
+"gg" = (
+/obj/machinery/computer/secure_data,
+/turf/simulated/floor/lino,
+/area/security/detectives_office)
+"gh" = (
+/obj/structure/bed/chair/comfy/beige,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/carpet,
+/area/security/detectives_office)
+"gi" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp/green,
+/turf/simulated/floor/carpet,
+/area/security/detectives_office)
+"gj" = (
+/obj/machinery/computer/security/wooden_tv,
+/turf/simulated/floor/carpet,
+/area/security/detectives_office)
+"gk" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "Detective"
+	},
+/turf/simulated/floor/plating,
+/area/security/detectives_office)
+"gl" = (
+/turf/simulated/wall,
+/area/security/training)
+"gm" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Gymnasium";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/security/training)
+"gn" = (
+/obj/effect/floor_decal/corner/blue/full{
+	icon_state = "corner_white_full";
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/security/training)
+"go" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/security/training)
+"gp" = (
+/obj/effect/floor_decal/corner/blue/full{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/security/training)
+"gq" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/security/training)
+"gr" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"gs" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"gt" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"gu" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "Detective"
+	},
+/turf/simulated/floor/plating,
+/area/security/detectives_office)
+"gv" = (
+/obj/item/weapon/stool/padded,
+/turf/simulated/floor/lino,
+/area/security/detectives_office)
+"gw" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/lino,
+/area/security/detectives_office)
+"gx" = (
+/turf/simulated/floor/carpet,
+/area/security/detectives_office)
+"gy" = (
+/obj/structure/table/wood,
+/obj/item/weapon/folder/sec,
+/obj/item/weapon/pen,
+/turf/simulated/floor/carpet,
+/area/security/detectives_office)
+"gz" = (
+/obj/structure/bed/chair/comfy/brown{
+	dir = 8
+	},
+/obj/machinery/button/windowtint{
+	id = "Detective";
+	pixel_x = -28;
+	pixel_y = 12
+	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 4
+	},
+/turf/simulated/floor/carpet,
+/area/security/detectives_office)
+"gA" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "Detective"
+	},
+/turf/simulated/floor/plating,
+/area/security/detectives_office)
+"gB" = (
+/turf/simulated/wall,
+/area/security/training)
+"gC" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/firealarm/west,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/security/training)
+"gD" = (
+/obj/effect/floor_decal/corner/blue/full,
+/turf/simulated/floor/holofloor/tiled,
+/area/security/training)
+"gE" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/holofloor/tiled,
+/area/security/training)
+"gF" = (
+/obj/effect/floor_decal/corner/blue/full{
+	icon_state = "corner_white_full";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/security/training)
+"gG" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/security/training)
+"gH" = (
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/security/training)
+"gI" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"gJ" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"gK" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "Detective"
+	},
+/turf/simulated/floor/plating,
+/area/security/detectives_office)
+"gL" = (
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/turf/simulated/floor/lino,
+/area/security/detectives_office)
+"gM" = (
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/lino,
+/area/security/detectives_office)
+"gN" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/carpet,
+/area/security/detectives_office)
+"gO" = (
+/obj/structure/table/wood,
+/obj/item/weapon/paper_bin,
+/obj/item/device/taperecorder,
+/turf/simulated/floor/carpet,
+/area/security/detectives_office)
+"gP" = (
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Detective's Office";
+	dir = 8
+	},
+/turf/simulated/floor/carpet,
+/area/security/detectives_office)
+"gQ" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "Detective"
+	},
+/turf/simulated/floor/plating,
+/area/security/detectives_office)
+"gR" = (
+/turf/simulated/wall,
+/area/security/training)
+"gS" = (
+/turf/simulated/floor/holofloor/tiled,
+/area/security/training)
+"gT" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/requests_console{
+	department = "Forensic Technician";
+	departmentType = 5;
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/security/training)
+"gU" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/security/training)
+"gV" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/security/training)
+"gW" = (
+/obj/effect/floor_decal/corner/green/full{
+	icon_state = "corner_white_full";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/security/training)
+"gX" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/security/training)
+"gY" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"gZ" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"ha" = (
+/turf/simulated/wall,
+/area/security/detectives_office)
+"hb" = (
+/obj/structure/flora/pottedplant/random,
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
+/turf/simulated/floor/lino,
+/area/security/detectives_office)
+"hc" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/lino,
+/area/security/detectives_office)
+"hd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/lino,
+/area/security/detectives_office)
+"he" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/lino,
+/area/security/detectives_office)
+"hf" = (
+/turf/simulated/floor/lino,
+/area/security/detectives_office)
+"hg" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "Detective"
+	},
+/turf/simulated/floor/plating,
+/area/security/detectives_office)
+"hh" = (
+/turf/simulated/wall,
+/area/security/training)
+"hi" = (
+/turf/simulated/wall,
+/area/security/training)
+"hj" = (
+/turf/simulated/wall,
+/area/security/training)
+"hk" = (
+/turf/simulated/wall,
+/area/security/training)
+"hl" = (
+/turf/simulated/wall,
+/area/security/training)
+"hm" = (
+/turf/simulated/wall,
+/area/security/training)
+"hn" = (
+/turf/simulated/wall,
+/area/security/training)
+"ho" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/security/training)
+"hp" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"hq" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "Detective"
+	},
+/turf/simulated/floor/plating,
+/area/security/detectives_office)
+"hr" = (
+/obj/machinery/photocopier,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/lino,
+/area/security/detectives_office)
+"hs" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/lino,
+/area/security/detectives_office)
+"ht" = (
+/turf/simulated/floor/lino,
+/area/security/detectives_office)
+"hu" = (
+/turf/simulated/floor/lino,
+/area/security/detectives_office)
+"hv" = (
+/obj/machinery/requests_console{
+	department = "Detective's Desk";
+	departmentType = 5;
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/simulated/floor/lino,
+/area/security/detectives_office)
+"hw" = (
+/turf/simulated/wall,
+/area/security/detectives_office)
+"hx" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/security/investigations)
+"hy" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/security/investigations)
+"hz" = (
+/turf/simulated/wall,
+/area/security/forensics_office)
+"hA" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"hB" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"hC" = (
+/turf/simulated/wall,
+/area/security/forensics_office)
+"hD" = (
+/turf/simulated/wall,
+/area/security/forensics_office)
+"hE" = (
+/turf/simulated/wall,
+/area/security/forensics_office)
+"hF" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"hG" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"hH" = (
+/turf/simulated/wall,
+/area/security/forensics_office)
+"hI" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/security/training)
+"hJ" = (
+/obj/structure/banner,
+/turf/simulated/floor/wood,
+/area/security/training)
+"hK" = (
+/obj/structure/bed/chair/comfy/brown,
+/turf/simulated/floor/wood,
+/area/security/training)
+"hL" = (
+/obj/structure/sign/double/map/left{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood,
+/area/security/training)
+"hM" = (
+/obj/structure/sign/double/map/right{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood,
+/area/security/training)
+"hN" = (
+/obj/structure/banner,
+/turf/simulated/floor/wood,
+/area/security/training)
+"hO" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/security/training)
+"hP" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"hQ" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"hR" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "Detective"
+	},
+/turf/simulated/floor/plating,
+/area/security/detectives_office)
+"hS" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/wood,
+/area/security/detectives_office)
+"hT" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/table/wood,
+/obj/item/weapon/packageWrap,
+/obj/item/weapon/hand_labeler,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/wood,
+/area/security/detectives_office)
+"hU" = (
+/turf/simulated/floor/tiled/ramp/bottom{
+	tag = "icon-rampbot (NORTH)";
+	icon_state = "rampbot";
+	dir = 1
+	},
+/area/security/detectives_office)
+"hV" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/table/wood,
+/obj/item/device/camera_film,
+/obj/item/device/camera{
+	name = "detectives camera";
+	desc = "A one use - polaroid camera. 30 photos left.";
+	pixel_x = 0;
+	pixel_y = 0;
+	pictures_left = 30
+	},
+/turf/simulated/floor/lino,
+/area/security/detectives_office)
+"hW" = (
+/obj/structure/window/reinforced,
+/obj/structure/closet/secure_closet/detective,
+/obj/item/weapon/reagent_containers/food/drinks/flask/detflask,
+/obj/item/weapon/book/manual/security_space_law,
+/turf/simulated/floor/lino,
+/area/security/detectives_office)
+"hX" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "Detective"
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/polarized{
+	id = "Detective"
+	},
+/turf/simulated/floor/plating,
+/area/security/detectives_office)
+"hY" = (
+/obj/machinery/papershredder,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/security/investigations)
+"hZ" = (
+/obj/structure/table/standard,
+/obj/item/weapon/folder/sec,
+/obj/item/weapon/folder/sec,
+/obj/item/weapon/folder/sec,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/security/investigations)
+"ia" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"ib" = (
+/obj/structure/table/standard,
+/obj/item/weapon/packageWrap,
+/obj/item/weapon/hand_labeler,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"ic" = (
+/obj/structure/table/standard,
+/obj/item/weapon/storage/briefcase/crimekit,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"id" = (
+/obj/structure/table/standard,
+/obj/item/device/camera_film,
+/obj/item/device/camera,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/alarm{
+	pixel_y = 23
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"ie" = (
+/obj/structure/table/standard,
+/obj/item/weapon/storage/box/evidence{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/weapon/storage/box/bodybags,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/requests_console{
+	department = "Forensic Technician";
+	departmentType = 5;
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"if" = (
+/obj/machinery/computer/secure_data,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"ig" = (
+/obj/machinery/computer/med_data,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"ih" = (
+/obj/structure/table/standard,
+/obj/item/weapon/folder/sec,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"ii" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"ij" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/security/training)
+"ik" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp/green,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/wood,
+/area/security/training)
+"il" = (
+/obj/structure/table/wood,
+/obj/item/weapon/folder/sec,
+/turf/simulated/floor/wood,
+/area/security/training)
+"im" = (
+/obj/structure/table/wood,
+/obj/item/weapon/paper_bin,
+/obj/item/weapon/pen,
+/turf/simulated/floor/wood,
+/area/security/training)
+"in" = (
+/turf/simulated/floor/wood,
+/area/security/training)
+"io" = (
+/turf/simulated/floor/wood,
+/area/security/training)
+"ip" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/security/training)
+"iq" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"ir" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"is" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "Detective"
+	},
+/turf/simulated/floor/plating,
+/area/security/detectives_office)
+"it" = (
+/obj/structure/coatrack,
+/turf/simulated/floor/wood,
+/area/security/detectives_office)
+"iu" = (
+/obj/machinery/firealarm/south,
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/security/detectives_office)
+"iv" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/security/detectives_office)
+"iw" = (
+/obj/machinery/power/apc{
+	dir = 2;
+	name = "south bump";
+	pixel_y = -24
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/security/detectives_office)
+"ix" = (
+/obj/machinery/light_switch{
+	pixel_x = 0;
+	pixel_y = -24
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/security/detectives_office)
+"iy" = (
+/obj/machinery/door/airlock/security{
+	id_tag = "detdoor";
+	name = "Detective";
+	req_access = list(68)
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/security/detectives_office)
+"iz" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/security/investigations)
+"iA" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/security/investigations)
+"iB" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"iC" = (
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"iD" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"iE" = (
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"iF" = (
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"iG" = (
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"iH" = (
+/obj/structure/bed/chair/office/light{
+	dir = 4
+	},
+/obj/machinery/button/windowtint{
+	id = "FT Op";
+	pixel_x = 28;
+	pixel_y = 12
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"iI" = (
+/obj/structure/table/standard,
+/obj/item/weapon/pen/red,
+/obj/item/weapon/pen{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"iJ" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"iK" = (
+/turf/simulated/wall,
+/area/security/training)
+"iL" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/structure/sign/nosmoking_2{
+	pixel_x = -32
+	},
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Classroom";
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/security/training)
+"iM" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/security/training)
+"iN" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/security/training)
+"iO" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/security/training)
+"iP" = (
+/turf/simulated/floor/tiled/ramp/bottom,
+/area/security/training)
+"iQ" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/security/training)
+"iR" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"iS" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"iT" = (
+/turf/simulated/wall,
+/area/security/training)
+"iU" = (
+/turf/simulated/wall,
+/area/security/training)
+"iV" = (
+/turf/simulated/wall,
+/area/security/training)
+"iW" = (
+/turf/simulated/wall,
+/area/security/training)
+"iX" = (
+/turf/simulated/wall,
+/area/security/investigations)
+"iY" = (
+/turf/simulated/wall,
+/area/security/investigations)
+"iZ" = (
+/turf/simulated/wall,
+/area/security/investigations)
+"ja" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/structure/disposalpipe/junction{
+	icon_state = "pipe-j2";
+	dir = 2
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/structure/noticeboard{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled,
+/area/security/investigations)
+"jb" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/investigations)
+"jc" = (
+/obj/machinery/door/airlock/security{
+	name = "Forensic Technician";
+	req_access = list(4)
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"jd" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"je" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"jf" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"jg" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"jh" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"ji" = (
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"jj" = (
+/obj/structure/table/standard,
+/obj/item/weapon/paper_bin{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"jk" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"jl" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/security/training)
+"jm" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/training)
+"jn" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/training)
+"jo" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/dark,
+/area/security/training)
+"jp" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/training)
+"jq" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/training)
+"jr" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/security/training)
+"js" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"jt" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"ju" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/status_display{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"jv" = (
+/turf/simulated/wall,
+/area/security/training)
+"jw" = (
+/turf/simulated/floor/plating,
+/area/security/training)
+"jx" = (
+/turf/simulated/wall,
+/area/security/training)
+"jy" = (
+/obj/structure/disposalpipe/segment{
+	icon_state = "conpipe-c";
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/security/investigations)
+"jz" = (
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
+	icon_state = "down-scrubbers";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/supply{
+	icon_state = "down-supply";
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "11-8"
+	},
+/obj/structure/disposalpipe/down{
+	icon_state = "pipe-d";
+	dir = 8
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/sign/drop{
+	pixel_y = 32
+	},
+/turf/simulated/open,
+/area/security/investigations)
+"jA" = (
+/turf/simulated/wall,
+/area/security/investigations)
+"jB" = (
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/security/investigations)
+"jC" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/investigations)
+"jD" = (
+/turf/simulated/wall,
+/area/security/forensics_office)
+"jE" = (
+/obj/structure/coatrack,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/light_switch{
+	pixel_x = -24;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"jF" = (
+/obj/structure/closet/secure_closet/csi,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"jG" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"jH" = (
+/obj/machinery/photocopier,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Forensics Office";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"jI" = (
+/obj/structure/filingcabinet/chestdrawer,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"jJ" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/power/apc{
+	dir = 2;
+	name = "south bump";
+	pixel_y = -24
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable/green,
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"jK" = (
+/obj/machinery/disposal,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"jL" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"jM" = (
+/turf/simulated/wall,
+/area/security/training)
+"jN" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/training)
+"jO" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/training)
+"jP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/security/training)
+"jQ" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/training)
+"jR" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/item/device/radio/intercom{
+	dir = 8;
+	name = "Station Intercom (General)";
+	pixel_x = 24
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/training)
+"jS" = (
+/turf/simulated/wall,
+/area/security/training)
+"jT" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Training Division 1";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"jU" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"jV" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/ringer{
+	department = "Security";
+	id = "brig_ringer";
+	pixel_x = 30;
+	pixel_y = 0;
+	req_access = list(1)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"jW" = (
+/turf/simulated/wall,
+/area/security/training)
+"jX" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/security/training)
+"jY" = (
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12);
+	req_one_access = null
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/security/training)
+"jZ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/plating,
+/area/security/investigations)
+"ka" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/security/investigations)
+"kb" = (
+/obj/machinery/door/airlock/maintenance{
+	req_one_access = list(4,68)
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/security/investigations)
+"kc" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/security/investigations)
+"kd" = (
+/obj/machinery/ringer{
+	department = "Security";
+	id = "brig_ringer";
+	pixel_x = 30;
+	pixel_y = 0;
+	req_access = list(1)
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Investigations Division 2";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/security/investigations)
+"ke" = (
+/turf/simulated/wall,
+/area/security/forensics_office)
+"kf" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"kg" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"kh" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass_security{
+	name = "Forensic Laboratory";
+	req_access = list(4)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"ki" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"kj" = (
+/turf/simulated/wall,
+/area/security/forensics_office)
+"kk" = (
+/turf/simulated/wall,
+/area/security/forensics_office)
+"kl" = (
+/turf/simulated/wall,
+/area/security/forensics_office)
+"km" = (
+/turf/simulated/wall,
+/area/security/forensics_office)
+"kn" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/security/training)
+"ko" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/training)
+"kp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/training)
+"kq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/training)
+"kr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/training)
+"ks" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/training)
+"kt" = (
+/obj/machinery/door/airlock/glass_security{
+	name = "Theorethical Training";
+	req_access = list(1)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"ku" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"kv" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"kw" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/item/device/radio/intercom{
+	dir = 8;
+	name = "Station Intercom (General)";
+	pixel_x = 24
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"kx" = (
+/turf/simulated/wall,
+/area/security/training)
+"ky" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/security/training)
+"kz" = (
+/turf/simulated/wall,
+/area/security/training)
+"kA" = (
+/turf/simulated/wall,
+/area/security/investigations)
+"kB" = (
+/turf/simulated/wall,
+/area/security/investigations)
+"kC" = (
+/turf/simulated/wall,
+/area/security/investigations)
+"kD" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/status_display{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled,
+/area/security/investigations)
+"kE" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/security/investigations)
+"kF" = (
+/turf/simulated/wall,
+/area/security/forensics_office)
+"kG" = (
+/obj/structure/table/glass,
+/obj/item/weapon/storage/box/swabs{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/weapon/storage/box/syringes,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"kH" = (
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"kI" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"kJ" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/structure/morgue,
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"kK" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/machinery/button/windowtint{
+	id = "FT Op";
+	pixel_x = 0;
+	pixel_y = 26
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"kL" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/structure/table/glass,
+/obj/item/weapon/autopsy_scanner,
+/obj/item/weapon/scalpel{
+	desc = "Cut, cut, and once more cut. This one is extra shiny!";
+	name = "shiny scalpel"
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"kM" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"kN" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/security/training)
+"kO" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/training)
+"kP" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/tiled/dark,
+/area/security/training)
+"kQ" = (
+/obj/structure/table/standard,
+/obj/item/weapon/folder/sec,
+/turf/simulated/floor/tiled/dark,
+/area/security/training)
+"kR" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/machinery/requests_console{
+	department = "Forensic Technician";
+	departmentType = 5;
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/training)
+"kS" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/training)
+"kT" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/security/training)
+"kU" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/tiled,
+/area/security/training)
+"kV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"kW" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/structure/noticeboard{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"kX" = (
+/turf/simulated/wall,
+/area/security/training)
+"kY" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/security/training)
+"kZ" = (
+/turf/simulated/wall,
+/area/security/training)
+"la" = (
+/turf/simulated/open,
+/area/security/investigations)
+"lb" = (
+/turf/simulated/open,
+/area/security/investigations)
+"lc" = (
+/turf/simulated/floor/tiled,
+/area/security/investigations)
+"ld" = (
+/turf/simulated/floor/tiled,
+/area/security/investigations)
+"le" = (
+/obj/machinery/firealarm/east,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/security/investigations)
+"lf" = (
+/turf/simulated/wall,
+/area/security/forensics_office)
+"lg" = (
+/obj/structure/table/glass,
+/obj/item/weapon/storage/box/slides{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/weapon/storage/fancy/vials,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"lh" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"li" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"lj" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"lk" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"ll" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/machinery/optable,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"lm" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"ln" = (
+/turf/simulated/wall,
+/area/security/training)
+"lo" = (
+/turf/simulated/wall,
+/area/security/training)
+"lp" = (
+/turf/simulated/wall,
+/area/security/training)
+"lq" = (
+/turf/simulated/wall,
+/area/security/training)
+"lr" = (
+/turf/simulated/wall,
+/area/security/training)
+"ls" = (
+/turf/simulated/wall,
+/area/security/training)
+"lt" = (
+/turf/simulated/wall,
+/area/security/training)
+"lu" = (
+/turf/simulated/wall,
+/area/security/training)
+"lv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"lw" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"lx" = (
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(1);
+	req_one_access = null
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/security/training)
+"ly" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/security/training)
+"lz" = (
+/turf/simulated/wall,
+/area/security/training)
+"lA" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/security/investigations)
+"lB" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/security/investigations)
+"lC" = (
+/turf/simulated/wall,
+/area/security/investigations)
+"lD" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/security/investigations)
+"lE" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/security/investigations)
+"lF" = (
+/turf/simulated/wall,
+/area/security/forensics_office)
+"lG" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"lH" = (
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"lI" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"lJ" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/structure/table/glass,
+/obj/item/weapon/storage/box/masks{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/weapon/storage/box/gloves,
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Forensics Laboratory";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"lK" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"lL" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/structure/table/glass,
+/obj/item/device/mass_spectrometer,
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"lM" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"lN" = (
+/turf/simulated/wall,
+/area/security/training)
+"lO" = (
+/turf/simulated/open,
+/area/security/training)
+"lP" = (
+/turf/simulated/open,
+/area/security/training)
+"lQ" = (
+/turf/simulated/wall,
+/area/security/training)
+"lR" = (
+/turf/simulated/wall,
+/area/security/training)
+"lS" = (
+/turf/simulated/wall,
+/area/security/training)
+"lT" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"lU" = (
+/obj/structure/table/glass,
+/obj/machinery/microscope,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"lV" = (
+/obj/machinery/dnaforensics,
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"lW" = (
+/obj/structure/closet{
+	name = "Evidence Closet"
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"lX" = (
+/turf/simulated/wall,
+/area/security/forensics_office)
+"lY" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"lZ" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"ma" = (
+/turf/simulated/wall,
+/area/security/forensics_office)
+"mb" = (
+/turf/simulated/wall,
+/area/security/training)
+"mc" = (
+/turf/simulated/open,
+/area/security/training)
+"md" = (
+/turf/simulated/open,
+/area/security/training)
+"me" = (
+/turf/simulated/wall,
+/area/security/training)
+"mf" = (
+/turf/simulated/wall,
+/area/security/forensics_office)
+"mg" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"mh" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"mi" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"mj" = (
+/turf/simulated/wall,
+/area/security/forensics_office)
+"mk" = (
+/turf/simulated/wall,
+/area/security/training)
+"ml" = (
+/turf/simulated/wall,
+/area/security/training)
+"mm" = (
+/turf/simulated/wall,
+/area/security/training)
+"mn" = (
+/turf/simulated/wall,
+/area/security/training)
+"mo" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mp" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mq" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mr" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"ms" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mt" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mu" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mv" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mw" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mx" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"my" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mz" = (
+/obj/structure/ladder{
+	icon_state = "ladder01";
+	pixel_y = 16
+	},
+/turf/simulated/open,
+/area/bridge/selfdestruct)
+"mA" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mB" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mC" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mD" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mE" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mF" = (
+/obj/item/device/radio/intercom{
+	dir = 4;
+	name = "Station Intercom (General)";
+	pixel_x = -25
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/cobweb2{
+	icon_state = "cobweb1"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"mG" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"mH" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"mI" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mJ" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mK" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mL" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mM" = (
+/obj/machinery/button/remote/airlock{
+	id = "sat1";
+	name = "SAT Access Bolts";
+	pixel_x = -28;
+	pixel_y = -6;
+	req_access = list(20);
+	specialfunctions = 4
+	},
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'LETHAL TURRETS'. Enter at your own risk!";
+	name = "LETHAL TURRETS";
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/button/remote/blast_door{
+	desc = "A remote control-switch for engine core.";
+	id = "sat_blast";
+	name = "SAT Blast Doors Control";
+	pixel_x = -28;
+	pixel_y = 6;
+	req_access = list(20)
+	},
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"mN" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"mO" = (
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
+/obj/machinery/turretid/lethal{
+	ailock = 1;
+	check_synth = 1;
+	control_area = "\improper Command - Station Authentication Terminal Safe";
+	desc = "A firewall prevents AIs from interacting with this device.";
+	name = "SAT turrets control";
+	pixel_x = 0;
+	pixel_y = -27;
+	req_access = list(20)
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"mP" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mQ" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mR" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mS" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mT" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mU" = (
+/obj/machinery/door/airlock/highsecurity{
+	icon_state = "door_locked";
+	id_tag = "sat1";
+	locked = 1;
+	name = "SAT Access";
+	req_access = list(20)
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/bridge/selfdestruct)
+"mV" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mW" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mX" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mY" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"mZ" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"na" = (
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/bridge/selfdestruct)
+"nb" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nc" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nd" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"ne" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nf" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/blast/regular{
+	dir = 1;
+	id = "sat_blast";
+	name = "Blast Door"
+	},
+/turf/simulated/floor/plating,
+/area/bridge/selfdestruct)
+"ng" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nh" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"ni" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nj" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nk" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nl" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/bridge/selfdestruct)
+"nm" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nn" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"no" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"np" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nq" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nr" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/bridge/selfdestruct)
+"ns" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/bridge/selfdestruct)
+"nt" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/bridge/selfdestruct)
+"nu" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nv" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nw" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nx" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"ny" = (
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/bridge/selfdestruct)
+"nz" = (
+/obj/machinery/porta_turret/stationary,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/bridge/selfdestruct)
+"nA" = (
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/camera/motion{
+	c_tag = "Command - SAT Access - Motion";
+	dir = 8;
+	icon_state = "camera";
+	network = list("Command");
+	tag = "icon-camera (WEST)"
+	},
+/turf/simulated/floor/plating,
+/area/bridge/selfdestruct)
+"nB" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nC" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nD" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nE" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/securearea{
+	pixel_y = -32
+	},
+/turf/simulated/floor/plating,
+/area/bridge/selfdestruct)
+"nG" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/bridge/selfdestruct)
+"nH" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/securearea{
+	pixel_y = -32
+	},
+/turf/simulated/floor/plating,
+/area/bridge/selfdestruct)
+"nI" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nJ" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nK" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nL" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nM" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nN" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/bridge/selfdestruct)
+"nO" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nP" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nQ" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nR" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nS" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nT" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/blast/regular{
+	dir = 1;
+	id = "sat_blast";
+	name = "Blast Door"
+	},
+/turf/simulated/floor/plating,
+/area/bridge/selfdestruct)
+"nU" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nV" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nW" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nX" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"nY" = (
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/bridge/selfdestruct)
+"nZ" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"oa" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"ob" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"oc" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"od" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"oe" = (
+/obj/machinery/button/remote/airlock{
+	id = "sat2";
+	name = "SAT Chamber Bolts";
+	pixel_x = -28;
+	pixel_y = 0;
+	req_access = list(20);
+	specialfunctions = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/bridge/selfdestruct)
+"of" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"og" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"oh" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"oi" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"oj" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"ok" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"ol" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"om" = (
+/obj/machinery/door/airlock/highsecurity{
+	icon_state = "door_locked";
+	id_tag = "sat2";
+	locked = 1;
+	name = "SAT Chamber";
+	req_access = list(20)
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"on" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"oo" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"op" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"oq" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"or" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"os" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"ot" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"ou" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"ov" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"ow" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"ox" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"oy" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"oz" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"oA" = (
+/obj/machinery/firealarm/north,
+/obj/item/device/radio/intercom{
+	dir = 4;
+	name = "Station Intercom (General)";
+	pixel_x = -25
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"oB" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"oC" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/cobweb2,
+/obj/effect/decal/cleanable/cobweb2{
+	icon_state = "spiderling";
+	name = "dead spider"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"oD" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"oE" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"oF" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"oG" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"oH" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"oI" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"oJ" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"oK" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"oL" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/bridge/selfdestruct)
+"oM" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"oN" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"oO" = (
+/obj/machinery/hologram/holopad,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"oP" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"oQ" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"oR" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/bridge/selfdestruct)
+"oS" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"oT" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"oU" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"oV" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"oW" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"oX" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"oY" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/porta_turret/stationary,
+/obj/machinery/light/colored/blue{
+	tag = "icon-tube_empty (WEST)";
+	icon_state = "tube_empty";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/bridge/selfdestruct)
+"oZ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"pa" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"pb" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"pc" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"pd" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"pe" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/machinery/porta_turret/stationary,
+/obj/machinery/light/colored/blue{
+	tag = "icon-tube_empty (EAST)";
+	icon_state = "tube_empty";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/bridge/selfdestruct)
+"pf" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"pg" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"ph" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"pi" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"pj" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"pk" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/bridge/selfdestruct)
+"pl" = (
+/obj/machinery/power/apc/high{
+	name = "south bump";
+	pixel_y = -24
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"pm" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"pn" = (
+/obj/machinery/nuclearbomb/station,
+/obj/effect/decal/warning_stripes,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
+"po" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"pp" = (
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -22
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"pq" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/bridge/selfdestruct)
+"pr" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"ps" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"pt" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"pu" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"pv" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"pw" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"px" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"py" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"pz" = (
+/obj/structure/banner,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"pA" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/camera/motion{
+	c_tag = "SAT Chamber - Motion";
+	dir = 1;
+	icon_state = "camera";
+	network = list("Secure");
+	tag = "icon-camera (NORTH)"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"pB" = (
+/obj/structure/banner,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
+"pC" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"pD" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"pE" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"pF" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"pG" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"pH" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"pI" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"pJ" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"pK" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"pL" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"pM" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"pN" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"pO" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"pP" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"pQ" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"pR" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"pS" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"pT" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"pU" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"pV" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
+	},
+/area/mine/unexplored)
+"pW" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"pX" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"pY" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"pZ" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"qa" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
+"qb" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"qc" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"qd" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
+	},
+/area/mine/unexplored)
+"qe" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"qf" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"qg" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
+	},
+/area/mine/unexplored)
+"qh" = (
+/obj/structure/ladder{
+	icon_state = "ladder01";
+	pixel_y = 16
+	},
+/turf/simulated/open,
+/area/maintenance/maintcentral)
+"qi" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"qj" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
+	},
+/area/mine/unexplored)
+"qk" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"ql" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"qm" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"qn" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
+	},
+/area/mine/unexplored)
+"qo" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"qp" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"qq" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"qr" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
+	},
+/area/mine/unexplored)
+"qs" = (
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"qt" = (
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"qu" = (
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"qv" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"qw" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"qx" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"qy" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"qz" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"qA" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
+	},
+/area/mine/unexplored)
+"qB" = (
+/obj/structure/table/rack,
+/obj/item/clothing/gloves/yellow,
+/obj/item/weapon/wirecutters,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"qC" = (
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"qD" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"qE" = (
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"qF" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/toolbox/emergency,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"qG" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
+	},
+/area/mine/unexplored)
+"qH" = (
+/obj/structure/table/steel,
+/obj/item/device/radio,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"qI" = (
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"qJ" = (
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"qK" = (
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"qL" = (
+/obj/machinery/camera/motion{
+	c_tag = "Bunker - Emergency Exit Motion";
+	dir = 8;
+	icon_state = "camera";
+	network = list("Command");
+	tag = "icon-camera (WEST)"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"qM" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
+	},
+/area/mine/unexplored)
+"qN" = (
+/obj/structure/table/steel,
+/obj/item/device/flashlight/heavy,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"qO" = (
+/obj/machinery/button/remote/airlock{
+	id = "bunker5";
+	name = "Emergency Exit Outer Bolts";
+	pixel_x = 0;
+	pixel_y = -38;
+	req_access = list(20);
+	specialfunctions = 4
+	},
+/obj/machinery/button/remote/airlock{
+	id = "bunker4";
+	name = "Emergency Exit Inner Bolts";
+	pixel_x = 0;
+	pixel_y = -26;
+	req_access = list(19);
+	specialfunctions = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"qP" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"qQ" = (
+/obj/structure/sign/securearea{
+	name = "\improper EMERGENCY EXIT";
+	pixel_y = -32
+	},
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"qR" = (
+/obj/machinery/button/remote/blast_door{
+	id = "escape_blast";
+	name = "Hatch Blast Doors";
+	pixel_x = 0;
+	pixel_y = -26;
+	req_access = list(19)
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"qS" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
+	},
+/area/mine/unexplored)
+"qT" = (
+/obj/machinery/door/blast/regular{
+	id = "escape_blast";
+	name = "Bunker Blast Door"
+	},
+/obj/machinery/door/airlock/hatch{
+	desc = "It opens and closes. It has a small sign engraved: NO ENTRY - ONE-WAY ONLY";
+	icon_state = "door_locked";
+	id_tag = "bunker4";
+	locked = 1;
+	name = "Emergency Hatch";
+	req_access = list(19);
+	secured_wires = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"qU" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"qV" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"qW" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"qX" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"qY" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"qZ" = (
+/turf/simulated/wall,
+/area/maintenance/arrivals)
+"ra" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
+	},
+/area/mine/unexplored)
+"rb" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"rc" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/wall/r_wall,
+/area/maintenance/maintcentral)
+"rd" = (
+/obj/machinery/door/blast/regular{
+	id = "escape_blast";
+	name = "Bunker Blast Door"
+	},
+/obj/machinery/door/airlock/hatch{
+	desc = "It opens and closes. It has a small sign engraved: NO ENTRY - ONE-WAY ONLY";
+	icon_state = "door_locked";
+	id_tag = "bunker5";
+	locked = 1;
+	name = "Emergency Hatch";
+	req_access = list(19);
+	secured_wires = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"re" = (
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"rf" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/sign/emerg_exit{
+	pixel_x = -32
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"rg" = (
+/obj/machinery/door/airlock/maintenance{
+	id_tag = "bunker6";
+	req_access = list(20)
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"rh" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/button/remote/airlock{
+	id = "bunker6";
+	name = "Non-Captain Door Opening";
+	pixel_x = 0;
+	pixel_y = -26;
+	req_access = list(19);
+	specialfunctions = 1
+	},
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"ri" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"rj" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/light/small/emergency,
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"rk" = (
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"rl" = (
+/obj/machinery/light/small/emergency,
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"rm" = (
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"rn" = (
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"ro" = (
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"rp" = (
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"rq" = (
+/obj/structure/sign/electricshock{
+	pixel_y = -32
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"rr" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/sign/securearea{
+	name = "\improper NO ENTRY";
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"rs" = (
+/turf/simulated/wall,
+/area/maintenance/library)
+"rt" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"ru" = (
+/obj/effect/floor_decal/industrial/loading,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/range)
+"rv" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/security/investigations)
+"rw" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/open,
+/area/security/training)
 
 (1,1,1) = {"
 aa
@@ -29095,7 +34858,7 @@ aa
 aa
 bU
 cQ
-bU
+rs
 cS
 cU
 cX
@@ -29286,22 +35049,22 @@ aa
 ad
 ar
 ar
+or
+or
+or
+or
+or
 ar
-ar
-ar
-ar
-ar
-ar
-ar
-ar
-ar
-ar
-ar
+or
+or
+or
+or
+or
 ar
 aN
 aw
 aw
-ar
+or
 bi
 br
 bE
@@ -29542,23 +35305,23 @@ aa
 aa
 aa
 ar
-ar
+or
 ay
 ay
 ay
 ay
 ay
-ar
+or
 aG
 aG
 aG
 aG
 aG
-ar
+or
 aM
 aw
 aW
-ar
+or
 bj
 bs
 bF
@@ -29799,23 +35562,23 @@ aa
 aa
 aa
 ar
-ar
+or
 ay
 ay
 ay
 ay
 ay
-ar
+or
 aG
 aG
 aG
 aG
 aG
-ar
+or
 aw
 aw
 aw
-ar
+or
 aw
 bt
 aw
@@ -30056,7 +35819,7 @@ aa
 aa
 ad
 ar
-ar
+or
 ay
 ay
 ay
@@ -30068,7 +35831,7 @@ aG
 aG
 aG
 aG
-ar
+or
 aM
 aw
 aW
@@ -30313,23 +36076,23 @@ aa
 aa
 aa
 ar
-ar
+or
 ay
 ay
 ay
 ay
 ay
-ar
+or
 aG
 aG
 aG
 aG
 aG
-ar
+or
 aw
 aw
 aw
-ar
+or
 aw
 aw
 aw
@@ -30570,23 +36333,23 @@ aa
 aa
 aa
 ar
-ar
+or
 ay
 ay
 ay
 ay
 ay
-ar
+or
 aG
 aG
 aG
 aG
 aG
-ar
+or
 aM
 aw
 aW
-ar
+or
 bk
 aw
 bH
@@ -30828,22 +36591,22 @@ aa
 ad
 ar
 ar
+or
+or
 ar
+or
+or
 ar
+or
+or
 ar
-ar
-ar
-ar
-ar
-ar
-ar
-ar
-ar
+or
+or
 ar
 aN
 aw
 aw
-ar
+or
 aO
 bv
 aX
@@ -31555,7 +37318,7 @@ aa
 aa
 aa
 aa
-aa
+ab
 aa
 aa
 aa
@@ -31811,7 +37574,7 @@ aa
 aa
 aa
 aa
-aa
+ab
 aa
 aa
 aa
@@ -32066,11 +37829,11 @@ aa
 aa
 aa
 aa
+ab
 aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
 aa
 aa
 aa
@@ -32322,12 +38085,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -32579,13 +38342,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -32835,23 +38598,23 @@ aa
 aa
 aa
 aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aa
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
 aa
 aa
 aa
@@ -33092,27 +38855,27 @@ aa
 aa
 aa
 aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aa
 aa
 aa
+ab
+ab
+ab
+ab
+ab
+ab
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
 aa
 aa
 aa
@@ -33349,28 +39112,28 @@ aa
 aa
 aa
 aa
+db
+dn
+dz
+dR
+db
+dn
+dz
+dR
+db
 aa
 aa
 aa
 aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
 aa
 aa
 aa
@@ -33606,27 +39369,27 @@ aa
 aa
 aa
 aa
+db
+do
+dA
+dA
+ek
+rt
+dA
+fm
+db
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -33863,28 +39626,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+db
+dp
+dB
+dT
+db
+en
+eV
+en
+db
+dk
+dk
+dk
+dk
+dk
+hI
+ij
+dk
+jl
+dk
+hI
+ij
+dk
 aa
 aa
 aa
@@ -34120,28 +39883,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+db
+dq
+dC
+dU
+em
+eE
+eF
+fo
+db
+fW
+gm
+gC
+gS
+dk
+hJ
+ik
+iL
+jm
+jN
+ko
+kO
+dk
 aa
 aa
 aa
@@ -34377,28 +40140,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+db
+dr
+dC
+dU
+en
+eF
+eF
+fp
+db
+fX
+gn
+gD
+gT
+dk
+hK
+il
+iM
+jn
+jO
+kp
+kP
+dk
 aa
 aa
 aa
@@ -34634,28 +40397,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+db
+ds
+dC
+dU
+em
+eE
+eF
+fo
+db
+fX
+go
+gE
+gU
+dk
+hL
+im
+iM
+jo
+jP
+kq
+kQ
+dk
 aa
 aa
 aa
@@ -34891,28 +40654,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+db
+dt
+dF
+dU
+en
+eF
+eF
+fr
+db
+fZ
+gp
+gF
+gV
+dk
+hM
+in
+iO
+jn
+jO
+kr
+kR
+dk
 aa
 aa
 aa
@@ -35148,28 +40911,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+db
+du
+dG
+dU
+em
+ru
+fa
+fo
+db
+ga
+gq
+gG
+gW
+dk
+hJ
+in
+iP
+jq
+jR
+ks
+kS
+dk
 aa
 aa
 aa
@@ -35405,28 +41168,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+db
+dv
+dH
+dZ
+db
+db
+db
+db
+db
+gb
+gr
+gH
+gb
+dk
+hO
+ip
+ip
+eu
+dk
+kt
+kT
+dk
 aa
 aa
 aa
@@ -35662,31 +41425,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+dk
+dw
+dI
+ea
+es
+eK
+fc
+fu
+eK
+gc
+gs
+eK
+eK
+ho
+eK
+eK
+eK
+js
+jT
+gs
+kU
+dk
+dk
+dk
+dk
 aa
 aa
 aa
@@ -35919,31 +41682,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+dk
+dx
+dJ
+eb
+eb
+eL
+fd
+eb
+fN
+eb
+gt
+eb
+eb
+hp
+eb
+eb
+iS
+jt
+jU
+kv
+kV
+lv
+rw
+lP
+dk
 aa
 aa
 aa
@@ -36176,31 +41939,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+dk
+dk
+dk
+ec
+eu
+eM
+fe
+eu
+fO
+ge
+gu
+gK
+fO
+ge
+gu
+gK
+dk
+ju
+jV
+kw
+kW
+lw
+lP
+lP
+dk
 aa
 aa
 aa
@@ -36435,29 +42198,29 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+dk
+ed
+ev
+eN
+ff
+fx
+fP
+gf
+gv
+gL
+hb
+hr
+hS
+it
+dk
+dk
+dk
+dk
+dk
+lx
+dk
+dk
+dk
 aa
 aa
 aa
@@ -36692,27 +42455,27 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+dk
+ee
+ew
+eO
+fg
+fy
+fQ
+gg
+gw
+gM
+hc
+hs
+hT
+iu
+dk
+jw
+jX
+ky
+kY
+ly
+dk
 aa
 aa
 aa
@@ -36949,27 +42712,27 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+dk
+ef
+ex
+eP
+fg
+fz
+fO
+gh
+gx
+gN
+hd
+hf
+hU
+iv
+dk
+dk
+jY
+dk
+dk
+dk
+dk
 aa
 aa
 aa
@@ -37206,28 +42969,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+dk
+eg
+ey
+eQ
+fi
+fA
+fP
+gi
+gy
+gO
+he
+hf
+hV
+iw
+iX
+jy
+jZ
+iX
+la
+lA
+ab
+ab
 aa
 aa
 aa
@@ -37463,29 +43226,29 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+dk
+eh
+eh
+eR
+fj
+fB
+fQ
+gj
+gz
+gP
+hf
+hv
+hW
+ix
+iX
+jz
+ka
+iX
+la
+lB
+ab
+ab
+ab
 aa
 aa
 aa
@@ -37720,30 +43483,30 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+dk
+dk
+dk
+dk
+dk
+dk
+fO
+ge
+gu
+gu
+gK
+fO
+hX
+iy
+iX
+iX
+kb
+iX
+rv
+iX
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -37982,24 +43745,24 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
+ab
+ab
+hx
+hY
+iz
+ja
+jB
+kc
+kD
+ld
+lA
+ab
+ab
+ab
 aa
 aa
 aa
@@ -38240,23 +44003,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
+ab
+hy
+hZ
+iA
+jb
+jC
+kd
+iA
+le
+lB
+ab
+ab
+ab
 aa
 aa
 aa
@@ -38496,25 +44259,25 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
+ab
+ab
+hz
+ia
+iB
+jc
+hz
+hz
+hz
+hz
+hz
+lT
+hz
+ab
+ab
 aa
 aa
 aa
@@ -38756,22 +44519,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+hA
+ib
+iC
+jd
+jE
+kf
+kG
+lg
+lG
+lU
+hA
+ab
+ab
 aa
 aa
 aa
@@ -39014,21 +44777,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+hB
+ic
+iD
+je
+jF
+kg
+kH
+lh
+kH
+lV
+mh
+ab
+ab
 aa
 aa
 aa
@@ -39270,22 +45033,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+hz
+id
+iC
+jf
+jG
+kh
+kI
+li
+lI
+lW
+hB
+ab
+ab
 aa
 aa
 aa
@@ -39528,21 +45291,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+hz
+ie
+iC
+jg
+jH
+ki
+kJ
+lj
+lJ
+hz
+hz
+ab
+ab
 aa
 aa
 aa
@@ -39785,21 +45548,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+hz
+if
+iC
+jg
+jI
+hz
+kK
+lj
+lj
+hA
+ab
+ab
+ab
 aa
 aa
 aa
@@ -40041,23 +45804,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+hA
+ig
+iH
+ji
+jJ
+hz
+kL
+ll
+lL
+hB
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -40299,22 +46062,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+hB
+ih
+iI
+jj
+jK
+hz
+ia
+iJ
+iB
+hz
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -40556,21 +46319,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+hz
+ia
+iJ
+iJ
+iB
+hz
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -40813,20 +46576,20 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -41070,15 +46833,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -41327,14 +47090,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -41585,14 +47348,14 @@ aa
 aa
 aa
 aa
+ab
+ab
+ab
+ab
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
 aa
 aa
 aa
@@ -48303,11 +54066,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+mo
 aa
 aa
 aa
@@ -48559,28 +54322,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bc
+mo
+mo
+mo
+mo
+pj
+pw
+pw
+pV
+pV
+pV
+pV
+pV
+pV
+pV
+pV
+pV
+pV
+pV
+rc
 bD
-bM
-bM
+rf
+rr
 bM
 bM
 bM
@@ -48802,27 +54565,27 @@ aa
 aa
 aa
 aa
+mo
+mo
+mo
+mo
 aa
 aa
+mo
+mo
+mo
+mo
+mo
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+oL
+oY
+pk
+mo
+mo
 aa
 aa
 aa
@@ -48836,7 +54599,7 @@ aa
 aa
 bc
 bc
-bc
+rg
 bc
 bc
 bc
@@ -49058,6 +54821,29 @@ aa
 aa
 aa
 aa
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+oM
+oM
+pl
+mo
+mo
+mo
 aa
 aa
 aa
@@ -49069,32 +54855,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bc
+rh
+bc
 aa
 aa
 aa
@@ -49314,6 +55077,30 @@ aa
 aa
 aa
 aa
+mo
+mo
+mo
+mF
+mM
+mo
+mo
+mo
+mo
+nl
+na
+nF
+mo
+mo
+mo
+mo
+mo
+oA
+mG
+mG
+mG
+pz
+mo
+mo
 aa
 aa
 aa
@@ -49325,33 +55112,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bc
+bC
+bc
 aa
 aa
 aa
@@ -49571,6 +55334,30 @@ aa
 aa
 aa
 aa
+mo
+mo
+mz
+mG
+mG
+mU
+na
+nf
+nl
+nl
+nz
+nl
+nl
+nf
+na
+oe
+om
+mG
+oO
+mG
+pn
+pA
+mo
+mo
 aa
 aa
 aa
@@ -49582,33 +55369,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bc
+bC
+bc
 aa
 aa
 aa
@@ -49828,6 +55591,30 @@ aa
 aa
 aa
 aa
+mo
+mo
+mo
+mG
+mO
+mo
+mo
+mo
+mo
+nl
+nA
+nF
+mo
+mo
+mo
+mo
+mo
+oC
+mG
+mG
+mG
+pz
+mo
+mo
 aa
 aa
 aa
@@ -49839,33 +55626,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bc
+bC
+bc
 aa
 aa
 aa
@@ -50086,6 +55849,29 @@ aa
 aa
 aa
 aa
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+oQ
+oQ
+pp
+mo
+mo
+mo
 aa
 aa
 aa
@@ -50097,32 +55883,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bc
+bC
+bc
 aa
 aa
 aa
@@ -50344,6 +56107,27 @@ aa
 aa
 aa
 aa
+mo
+mo
+mo
+mo
+aa
+aa
+mo
+mo
+mo
+mo
+mo
+aa
+aa
+mo
+mo
+mo
+oR
+pe
+oR
+mo
+mo
 aa
 aa
 aa
@@ -50356,30 +56140,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bc
+ri
+bc
 aa
 aa
 aa
@@ -50615,6 +56378,13 @@ aa
 aa
 aa
 aa
+mo
+mo
+mo
+mo
+mo
+mo
+mo
 aa
 aa
 aa
@@ -50627,16 +56397,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bc
+rj
+bc
 aa
 aa
 aa
@@ -50873,6 +56636,11 @@ aa
 aa
 aa
 aa
+mo
+mo
+mo
+mo
+mo
 aa
 aa
 aa
@@ -50886,14 +56654,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bc
+bC
+bc
 aa
 aa
 aa
@@ -51148,9 +56911,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+bc
+bC
+bc
 aa
 aa
 aa
@@ -51405,9 +57168,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+bc
+bC
+bc
 aa
 aa
 aa
@@ -51662,9 +57425,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+bc
+bC
+bc
 aa
 aa
 aa
@@ -51919,9 +57682,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+bc
+rk
+bc
 aa
 aa
 aa
@@ -52176,9 +57939,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+bc
+rl
+bc
 aa
 aa
 aa
@@ -52426,16 +58189,16 @@ aa
 aa
 aa
 aa
+bc
+bc
+bc
+bc
+bc
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bc
+qs
+bc
 aa
 aa
 aa
@@ -52682,17 +58445,17 @@ aa
 aa
 aa
 aa
+bc
+bc
+bc
+bc
+bc
+bc
+bc
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bc
+qs
+bc
 aa
 aa
 aa
@@ -52936,20 +58699,20 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bc
+bc
+bc
+bc
+bc
+qB
+qH
+qN
+bc
+bc
+bc
+bc
+qs
+bc
 aa
 aa
 aa
@@ -53192,21 +58955,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bc
+bc
+bc
+bc
+bc
+qs
+qs
+qs
+qO
+bc
+bc
+bc
+bc
+qs
+bc
 aa
 aa
 aa
@@ -53449,21 +59212,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bc
+bc
+qh
+qk
+qk
+qs
+qD
+qs
+qk
+qT
+qD
+rd
+qs
+rq
+bc
 aa
 aa
 aa
@@ -53706,21 +59469,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bc
+bc
+bc
+bc
+bc
+qs
+qs
+qs
+qQ
+bc
+bc
+bc
+bc
+bc
+bc
 aa
 aa
 aa
@@ -53964,17 +59727,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bc
+bc
+bc
+bc
+bc
+qF
+qL
+qR
+bc
+bc
+bc
 aa
 aa
 aa
@@ -54224,13 +59987,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bc
+bc
+bc
+bc
+bc
+bc
+bc
 aa
 aa
 aa
@@ -54482,11 +60245,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+bc
+bc
+bc
+bc
+bc
 aa
 aa
 aa

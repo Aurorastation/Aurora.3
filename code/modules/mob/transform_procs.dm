@@ -80,7 +80,7 @@
 
 
 
-/mob/new_player/AIize()
+/mob/abstract/new_player/AIize()
 	spawning = 1
 	return ..()
 

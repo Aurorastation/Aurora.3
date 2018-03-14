@@ -10,31 +10,16 @@
 
 	temperature = T20C
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
-
-	var/static/list/dust_cache
-	
 //	heat_capacity = 700000 No.
 	is_hole = TRUE
 
 	permit_ao = FALSE
 
-/turf/space/proc/build_dust_cache()
-	LAZYINITLIST(dust_cache)
-	for (var/i in 0 to 25)
-		var/image/im = image('icons/turf/space_parallax1.dmi',"[i]")
-		im.plane = PLANE_SPACE_DUST
-		im.alpha = 80
-		im.blend_mode = BLEND_ADD
-		dust_cache["[i]"] = im
-
 // Copypaste of parent for performance.
 /turf/space/Initialize()
-	icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
-	if (!dust_cache)
-		build_dust_cache()
-
-	add_overlay(dust_cache[icon_state])
-	update_starlight()
+	appearance = SSicon_cache.space_cache["[((x + y) ^ ~(x * y) + z) % 25]"]
+	if (config.starlight)
+		update_starlight()
 
 	if (initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
@@ -43,14 +28,14 @@
 
 	for(var/atom/movable/AM as mob|obj in src)
 		src.Entered(AM)
-		
+
 	turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
 	else
 		luminosity = 1
-	
+
 	return INITIALIZE_HINT_NORMAL
 
 /turf/space/is_space()
@@ -76,7 +61,8 @@
 			set_light(config.starlight)
 			return
 
-		set_light(0)
+		if (light_range)
+			set_light(0)
 
 /turf/space/attackby(obj/item/C as obj, mob/user as mob)
 
@@ -104,7 +90,7 @@
 			return
 		else
 			user << "<span class='warning'>The plating is going to need some support.</span>"
-	
+
 	..(C, user)
 
 // Ported from unstable r355

@@ -145,8 +145,13 @@
 		var/is_wanted = 0
 		if(is_type_in_list(offer,wanted_items))
 			is_wanted = 1
-		if(blacklisted_trade_items && blacklisted_trade_items.len && is_type_in_list(offer,blacklisted_trade_items))
-			return 0
+		if(blacklisted_trade_items && blacklisted_trade_items.len)
+			if(ishuman(offer))
+				var/mob/living/carbon/human/A = offer
+				if(is_type_in_list(A.species, blacklisted_trade_items))
+					return 0
+			else if(is_type_in_list(offer,blacklisted_trade_items))
+				return 0
 
 		if(istype(offer,/obj/item/weapon/spacecash))
 			if(!(trade_flags & TRADER_MONEY))

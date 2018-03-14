@@ -5,26 +5,40 @@
 	icon_state = "rock-dark"
 	blocks_air = 1
 	density = 1
+	gender = PLURAL
+
+// This is a global list so we can share the same list with all mineral turfs; it's the same for all of them anyways.
+var/list/mineral_can_smooth_with = list(
+	/turf/simulated/mineral,
+	/turf/simulated/wall,
+	/turf/unsimulated/wall,
+	/turf/simulated/shuttle
+)
+
+// Some extra types for the surface to keep things pretty.
+/turf/simulated/mineral/surface
+	mined_turf = /turf/simulated/floor/asteroid/ash
 
 /turf/simulated/mineral //wall piece
 	name = "rock"
-	icon = 'icons/turf/smooth/rock_wall.dmi'	// Until we get sprites.
+	icon = 'icons/turf/map_placeholders.dmi'
 	icon_state = "rock"
+	desc = "It's a greyish rock. Exciting."
+	gender = PLURAL
+	var/icon/actual_icon = 'icons/turf/smooth/rock_wall.dmi'
 	layer = 2.01
-	smooth = SMOOTH_MORE | SMOOTH_BORDER
-	canSmoothWith = list(
-		/turf/simulated/mineral,
-		/turf/simulated/wall,
-		/turf/unsimulated/wall,
-		/turf/simulated/shuttle
-	)
+
+	// canSmoothWith is set in Initialize().
+	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
+
 	oxygen = 0
 	nitrogen = 0
 	opacity = 1
 	density = 1
 	blocks_air = 1
 	temperature = T0C
-	var/mined_turf = /turf/simulated/floor/asteroid
+	var/mined_turf = /turf/simulated/floor/asteroid/ash/rocky
 	var/ore/mineral
 	var/mined_ore = 0
 	var/last_act = 0
@@ -37,12 +51,17 @@
 	var/obj/item/weapon/last_find
 	var/datum/artifact_find/artifact_find
 
+	var/obj/effect/mineral/my_mineral
+
 	has_resources = 1
 
 // Copypaste parent call for performance.
 /turf/simulated/mineral/Initialize(mapload)
 	if (initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
+
+	if (icon != actual_icon)
+		icon = actual_icon
 
 	initialized = TRUE
 
@@ -56,9 +75,13 @@
 	has_opaque_atom = TRUE
 
 	if (smooth)
+		canSmoothWith = mineral_can_smooth_with
 		pixel_x = -4
 		pixel_y = -4
 		queue_smooth(src)
+
+	if (!mapload)
+		queue_smooth_neighbors(src)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -105,7 +128,7 @@
 	if(emitter_blasts_taken > 2) // 3 blasts per tile
 		GetDrilled()
 
-/turf/simulated/mineral/Bumped(AM)
+/turf/simulated/mineral/CollidedWith(AM)
 	. = ..()
 	if(istype(AM,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = AM
@@ -308,8 +331,8 @@
 		return attack_hand(user)
 
 /turf/simulated/mineral/proc/clear_ore_effects()
-	for(var/obj/effect/mineral/M in contents)
-		qdel(M)
+	if (my_mineral)
+		qdel(my_mineral)
 
 /turf/simulated/mineral/proc/DropMineral()
 	if(!mineral)
@@ -352,20 +375,11 @@
 
 	//Add some rubble,  you did just clear out a big chunk of rock.
 
-	var/turf/simulated/floor/asteroid/N = ChangeTurf(mined_turf)
-
-	// Kill and update the space overlays around us.
-	for(var/direction in cardinal)
-		var/turf/simulated/open/O = get_step(src, direction)
-		if(istype(O))
-			O.update()
+	ChangeTurf(mined_turf)
 
 	if(rand(1,500) == 1)
 		visible_message("<span class='notice'>An old dusty crate was buried within!</span>")
 		new /obj/structure/closet/crate/secure/loot(src)
-
-	if(istype(N))
-		N.overlay_detail = rand(0,9)
 
 /turf/simulated/mineral/proc/excavate_find(var/prob_clean = 0, var/datum/find/F)
 	//with skill and luck, players can cleanly extract finds
@@ -491,19 +505,14 @@
 // Setting icon/icon_state initially will use these values when the turf is built on/replaced.
 // This means you can put grass on the asteroid etc.
 /turf/simulated/floor/asteroid
-	name = "sand"
-	icon = 'icons/turf/smooth/ash.dmi'
-	icon_state = "ash"
-	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
-	canSmoothWith = list(
-		/turf/simulated/floor/asteroid,
-		/turf/simulated/mineral,
-		/turf/simulated/wall,
-		/turf/simulated/shuttle
-	)
-	base_name = "sand"
-	base_desc = "Gritty and unpleasant."
-	base_icon = 'icons/turf/smooth/ash.dmi'
+	name = "coder's blight"
+	icon = 'icons/turf/map_placeholders.dmi'
+	icon_state = ""
+	desc = "An exposed developer texture. Someone wasn't paying attention."
+	smooth = SMOOTH_FALSE
+	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
+	gender = PLURAL
+	base_icon = 'icons/turf/map_placeholders.dmi'
 	base_icon_state = "ash"
 
 	initial_flooring = null
@@ -511,18 +520,32 @@
 	nitrogen = 0
 	temperature = TCMB
 	var/dug = 0 //Increments by 1 everytime it's dug. 11 is the last integer that should ever be here.
-	var/overlay_detail
 	var/digging
 	has_resources = 1
 	footstep_sound = "gravelstep"
 
 	roof_type = null
 
+// Same as the other, this is a global so we don't have a lot of pointless lists floating around.
+// Basalt is explicitly omitted so ash will spill onto basalt turfs.
+var/list/asteroid_floor_smooth = list(
+	/turf/simulated/floor/asteroid/ash,
+	/turf/simulated/mineral,
+	/turf/simulated/wall,
+	/turf/simulated/shuttle
+)
+
 // Copypaste parent for performance.
 /turf/simulated/floor/asteroid/Initialize(mapload)
 	if(initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 	initialized = TRUE
+
+	if (icon != base_icon)	// Setting icon is an appearance change, so avoid it if we can.
+		icon = base_icon
+
+	base_desc = desc
+	base_name = name
 
 	turfs += src
 
@@ -531,23 +554,22 @@
 	else
 		luminosity = 1
 
-	if(prob(20))
-		overlay_detail = rand(0,9)
-
 	if (mapload && permit_ao)
 		queue_ao()
 
 	if (smooth)
+		canSmoothWith = asteroid_floor_smooth
 		pixel_x = -4
 		pixel_y = -4
 		queue_smooth(src)
 
-	return INITIALIZE_HINT_NORMAL
+	if (!mapload)
+		queue_smooth_neighbors(src)
 
-/turf/simulated/floor/asteroid/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
-	. = ..()
-	underlay_appearance.pixel_x = pixel_x
-	underlay_appearance.pixel_y = pixel_y
+	if (light_range && light_power)
+		update_light()
+
+	return INITIALIZE_HINT_NORMAL
 
 /turf/simulated/floor/asteroid/ex_act(severity)
 	switch(severity)
@@ -603,20 +625,14 @@
 			user << "<span class='warning'>The plating is going to need some support.</span>"
 			return
 
-	var/list/usable_tools = list(
+	var/static/list/usable_tools = typecacheof(list(
 		/obj/item/weapon/shovel,
 		/obj/item/weapon/pickaxe/diamonddrill,
 		/obj/item/weapon/pickaxe/drill,
 		/obj/item/weapon/pickaxe/borgdrill
-		)
+	))
 
-	var/valid_tool
-	for(var/valid_type in usable_tools)
-		if(istype(W,valid_type))
-			valid_tool = 1
-			break
-
-	if(valid_tool)
+	if(is_type_in_typecache(W, usable_tools))
 		var/turf/T = user.loc
 		if (!(istype(T)))
 			return

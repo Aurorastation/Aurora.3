@@ -2,6 +2,9 @@
 	real_name = "Test Dummy"
 	status_flags = GODMODE|CANPUSH
 
+/mob/living/carbon/human/dummy/mannequin
+	mob_thinks = FALSE
+
 INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
 /mob/living/carbon/human/dummy/mannequin/Initialize()
@@ -75,11 +78,31 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/type_c
 	layer = 5
 
+/mob/living/carbon/human/msai_tajara/Initialize(mapload)
+	h_style = "Tajaran Ears"
+	. = ..(mapload, "M'sai Tajara")
+
+/mob/living/carbon/human/zhankhazan_tajara/Initialize(mapload)
+	h_style = "Tajaran Ears"
+	. = ..(mapload, "Zhan-Khazan Tajara")
+
 /mob/living/carbon/human/industrial/Initialize(mapload)
-	..(mapload, "Industrial Frame")
+	. = ..(mapload, "Hephaestus G1 Industrial Frame")
 
 /mob/living/carbon/human/shell/Initialize(mapload)
-	..(mapload, "Shell Frame")
+	. = ..(mapload, "Shell Frame")
+
+/mob/living/carbon/human/industrial_hephaestus/Initialize(mapload)
+	. = ..(mapload, "Hephaestus G2 Industrial Frame")
+
+/mob/living/carbon/human/industrial_xion/Initialize(mapload)
+	. = ..(mapload, "Xion Industrial Frame")
+
+/mob/living/carbon/human/industrial_zenghu/Initialize(mapload)
+	. = ..(mapload, "Zeng-Hu Mobility Frame")
+
+/mob/living/carbon/human/industrial_bishop/Initialize(mapload)
+	. = ..(mapload, "Bishop Accessory Frame")
 
 /mob/living/carbon/human/terminator/Initialize(mapload)
 	. = ..(mapload, "Hunter-Killer")

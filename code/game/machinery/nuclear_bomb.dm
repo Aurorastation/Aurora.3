@@ -351,7 +351,7 @@ var/bomb_set
 
 	var/off_station = 0
 	var/turf/bomb_location = get_turf(src)
-	if(bomb_location && (bomb_location.z in config.station_levels))
+	if(bomb_location && (bomb_location.z in current_map.station_levels))
 		if( (bomb_location.x < (128-NUKERANGE)) || (bomb_location.x > (128+NUKERANGE)) || (bomb_location.y < (128-NUKERANGE)) || (bomb_location.y > (128+NUKERANGE)) )
 			off_station = 1
 	else
@@ -360,7 +360,7 @@ var/bomb_set
 	if(SSticker.mode && SSticker.mode.name == "Mercenary")
 		var/obj/machinery/computer/shuttle_control/multi/syndicate/syndie_location = locate(/obj/machinery/computer/shuttle_control/multi/syndicate)
 		if(syndie_location)
-			SSticker.mode:syndies_didnt_escape = !(syndie_location.z in config.admin_levels)
+			SSticker.mode:syndies_didnt_escape = !(syndie_location.z in current_map.admin_levels)
 		SSticker.mode:nuke_off_station = off_station
 
 	SSticker.station_explosion_cinematic(off_station, null, GetConnectedZlevels(z))

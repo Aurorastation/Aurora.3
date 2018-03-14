@@ -72,11 +72,15 @@
 /obj/singularity/bullet_act(obj/item/projectile/P)
 	return 0 //Will there be an impact? Who knows. Will we see it? No.
 
-/obj/singularity/Bump(atom/A)
-	consume(A)
+/obj/singularity/Collide(atom/A)
+	. = ..()
+	if (A)
+		consume(A)
 
-/obj/singularity/Bumped(atom/A)
-	consume(A)
+/obj/singularity/CollidedWith(atom/movable/AM)
+	. = ..()
+	if (AM)
+		consume(AM)
 
 /obj/singularity/process()
 	eat()
@@ -488,15 +492,15 @@
 	move_self = 0
 	switch (current_size)
 		if(1)
-			overlays += image('icons/obj/singularity.dmi',"chain_s1")
+			add_overlay(image('icons/obj/singularity.dmi',"chain_s1"))
 		if(3)
-			overlays += image('icons/effects/96x96.dmi',"chain_s3")
+			add_overlay(image('icons/effects/96x96.dmi',"chain_s3"))
 		if(5)
-			overlays += image('icons/effects/160x160.dmi',"chain_s5")
+			add_overlay(image('icons/effects/160x160.dmi',"chain_s5"))
 		if(7)
-			overlays += image('icons/effects/224x224.dmi',"chain_s7")
+			add_overlay(image('icons/effects/224x224.dmi',"chain_s7"))
 		if(9)
-			overlays += image('icons/effects/288x288.dmi',"chain_s9")
+			add_overlay(image('icons/effects/288x288.dmi',"chain_s9"))
 
 /obj/singularity/proc/on_release()
 	chained = 0

@@ -163,18 +163,11 @@
 
 	tameable = FALSE
 
+	flying = TRUE
+
 /mob/living/simple_animal/hostile/viscerator/death()
 	..(null,"is smashed into pieces!")
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
 	spark(T, 3, alldirs)
 	qdel(src)
-
-/mob/living/simple_animal/hostile/viscerator/can_fall()
-	return FALSE
-
-/mob/living/simple_animal/hostile/viscerator/can_ztravel()
-	return TRUE
-
-/mob/living/simple_animal/hostile/viscerator/CanAvoidGravity()
-	return TRUE

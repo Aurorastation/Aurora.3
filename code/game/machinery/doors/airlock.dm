@@ -761,22 +761,38 @@ About the new airlock wires panel:
 		if(src.isElectrified())
 			if(src.shock(user, 100))
 				return
-
-	if(ishuman(user) && prob(40) && src.density)
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.getBrainLoss() >= 50)
-			playsound(src.loc, 'sound/effects/bang.ogg', 25, 1)
-			if(!istype(H.head, /obj/item/clothing/head/helmet))
-				user.visible_message("<span class='warning'>[user] headbutts the airlock.</span>")
-				var/obj/item/organ/external/affecting = H.get_organ("head")
-				H.Stun(8)
-				H.Weaken(5)
-				if(affecting.take_damage(10, 0))
-					H.UpdateDamageIcon()
-			else
-				user.visible_message("<span class='warning'>[user] headbutts the airlock. Good thing they're wearing a helmet.</span>")
-			return
 
+		if(H.getBrainLoss() >= 50)
+			if(prob(40) && src.density)
+				playsound(src.loc, 'sound/effects/bang.ogg', 25, 1)
+				if(!istype(H.head, /obj/item/clothing/head/helmet))
+					user.visible_message("<span class='warning'>[user] headbutts the airlock.</span>")
+					var/obj/item/organ/external/affecting = H.get_organ("head")
+					H.Stun(8)
+					H.Weaken(5)
+					if(affecting.take_damage(10, 0))
+						H.UpdateDamageIcon()
+				else
+					user.visible_message("<span class='warning'>[user] headbutts the airlock. Good thing they're wearing a helmet.</span>")
+				return
+
+		if(H.species.can_shred(H))
+
+			if(!src.density)
+				return
+
+			H.visible_message("\The [H] begins to pry open \the [src]!", "You begin to pry open \the [src]!", "You hear the sound of an airlock being forced open.")
+
+			if(!do_after(H, 120, 1, act_target = src))
+				return
+
+			src.do_animate("spark")
+			src.stat |= BROKEN
+			var/check = src.open(1)
+			src.visible_message("\The [H] slices \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You slice \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You hear something sparking.")
+			return
 	if(src.p_open)
 		user.set_machine(src)
 		wires.Interact(user)
@@ -860,8 +876,34 @@ About the new airlock wires panel:
 	return 1
 
 
+
+/obj/machinery/door/airlock/proc/CreateAssembly()
+	var/obj/structure/door_assembly/da = new assembly_type(src.loc)
+	if (istype(da, /obj/structure/door_assembly/multi_tile))
+		da.set_dir(src.dir)
+
+	da.anchored = 1
+	if(mineral)
+		da.glass = mineral
+	else if(glass && !da.glass)
+		da.glass = 1
+	da.state = 1
+	da.created_name = src.name
+	da.update_state()
+	if(operating == -1 || (stat & BROKEN))
+		new /obj/item/weapon/circuitboard/broken(src.loc)
+		operating = 0
+	else
+		if (!electronics) create_electronics()
+		electronics.forceMove(src.loc)
+		electronics = null
+	qdel(src)
+
+
+/obj/machinery/door/airlock/proc/CanChainsaw(var/obj/item/weapon/material/twohanded/chainsaw/ChainSawVar)
+	return (ChainSawVar.powered && density && hashatch)
+
 /obj/machinery/door/airlock/attackby(C as obj, mob/user as mob)
-	//world << text("airlock attackby src [] obj [] mob []", src, C, user)
 	if(!istype(usr, /mob/living/silicon))
 		if(src.isElectrified())
 			if(src.shock(user, 75))
@@ -912,28 +954,7 @@ About the new airlock wires panel:
 			user.visible_message("[user] removes the electronics from the airlock assembly.", "You start to remove electronics from the airlock assembly.")
 			if(do_after(user,40))
 				user << "<span class='notice'>You removed the airlock electronics!</span>"
-
-				var/obj/structure/door_assembly/da = new assembly_type(src.loc)
-				if (istype(da, /obj/structure/door_assembly/multi_tile))
-					da.set_dir(src.dir)
-
- 				da.anchored = 1
-				if(mineral)
-					da.glass = mineral
-				//else if(glass)
-				else if(glass && !da.glass)
-					da.glass = 1
-				da.state = 1
-				da.created_name = src.name
-				da.update_state()
-				if(operating == -1 || (stat & BROKEN))
-					new /obj/item/weapon/circuitboard/broken(src.loc)
-					operating = 0
-				else
-					if (!electronics) create_electronics()
-					electronics.loc = src.loc
-					electronics = null
-				qdel(src)
+				CreateAssembly()
 				return
 		else if(arePowerSystemsOn())
 			user << "<span class='notice'>The airlock's motors resist your efforts to force it.</span>"
@@ -944,7 +965,6 @@ About the new airlock wires panel:
 				open(1)
 			else
 				close(1)
-
 	else if(istype(C, /obj/item/weapon/material/twohanded/fireaxe) && !arePowerSystemsOn())
 		if(locked)
 			user << "<span class='notice'>The airlock's bolts prevent it from being forced.</span>"
@@ -972,10 +992,69 @@ About the new airlock wires panel:
 				open(1)
 			else
 				close(1)
+	else if(density && istype(C, /obj/item/weapon/material/twohanded/chainsaw))
+		var/obj/item/weapon/material/twohanded/chainsaw/ChainSawVar = C
+		if(!ChainSawVar.wielded)
+			user << "<span class='notice'>Cutting the airlock requires the strength of two hands.</span>"
+		else if(ChainSawVar.cutting)
+			user << "<span class='notice'>You are already cutting an airlock open.</span>"
+		else if(!ChainSawVar.powered)
+			user << "<span class='notice'>The [C] needs to be on in order to open this door.</span>"
+		else if(bracer) //Has a magnetic lock
+			user << "<span class='notice'>The bracer needs to be removed in order to cut through this door.</span>"
+		else if(!arePowerSystemsOn())
+			ChainSawVar.cutting = 1
+			user.visible_message(\
+				"<span class='danger'>[user.name] starts cutting the control pannel of the airlock with the [C]!</span>",\
+				"<span class='warning'>You start cutting the airlock control panel...</span>",\
+				"<span class='notice'>You hear a loud buzzing sound and metal grinding on metal...</span>"\
+			)
+			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, C)))
+				user.visible_message(\
+					"<span class='warning'>[user.name] finishes cutting the control pannel of the airlock with the [C].</span>",\
+					"<span class='warning'>You finish cutting the airlock control panel.</span>",\
+					"<span class='notice'>You hear a metal clank and some sparks.</span>"\
+				)
+				set_broken()
+				sleep(1 SECONDS)
+				CreateAssembly()
+			ChainSawVar.cutting = 0
+			take_damage(50)
+		else if(locked)
+			ChainSawVar.cutting = 1
+			user.visible_message(\
+				"<span class='danger'>[user.name] starts cutting below the airlock with the [C]!</span>",\
+				"<span class='warning'>You start cutting below the airlock...</span>",\
+				"<span class='notice'>You hear a loud buzzing sound and metal grinding on metal...</span>"\
+			)
+			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, C)))
+				user.visible_message(\
+					"<span class='warning'>[user.name] finishes cutting below the airlock with the [C].</span>",\
+					"<span class='notice'>You finish cutting below the airlock.</span>",\
+					"<span class='notice'>You hear a metal clank and some sparks.</span>"\
+				)
+				unlock(1)
+			ChainSawVar.cutting = 0
+			take_damage(50)
+		else
+			ChainSawVar.cutting = 1
+			user.visible_message(\
+				"<span class='danger'>[user.name] starts cutting between the airlock with the [C]!</span>",\
+				"<span class='warning'>You start cutting between the airlock...</span>",\
+				"<span class='notice'>You hear a loud buzzing sound and metal grinding on metal...</span>"\
+			)
+			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, C)))
+				user.visible_message(\
+					"<span class='warning'>[user.name] finishes cutting between the airlock.</span>",\
+					"<span class='warning'>You finish cutting between the airlock.</span>",\
+					"<span class='notice'>You hear a metal clank and some sparks.</span>"\
+				)
+				open(1)
+				take_damage(50)
+			ChainSawVar.cutting = 0
 	else
 		..()
 	return
-
 
 /obj/machinery/door/airlock/phoron/attackby(C as obj, mob/user as mob)
 	if(C)
@@ -1052,7 +1131,7 @@ About the new airlock wires panel:
 	return 0
 
 /obj/structure/window/airlock_crush(var/crush_damage)
-	ex_act(2)//Smashin windows
+	return 0
 
 /obj/machinery/portable_atmospherics/canister/airlock_crush(var/crush_damage)
 	. = ..()
@@ -1107,10 +1186,6 @@ About the new airlock wires panel:
 		for(var/turf/turf in locs)
 			for(var/atom/movable/AM in turf)
 				if(AM.blocks_airlock())
-//					if(world.time > next_beep_at)
-
-//						playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, 0)
-//						next_beep_at = world.time + SecondsToTicks(10)
 					close_door_in(6)
 					return
 	for(var/turf/turf in locs)
@@ -1152,7 +1227,7 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/Initialize(mapload, obj/structure/door_assembly/assembly = null)
 	var/on_admin_z = FALSE
 	//wires & hatch - this needs to be done up here so the hatch isn't generated by the parent Initialize().
-	if(loc && (z in config.admin_levels))
+	if(loc && (z in current_map.admin_levels))
 		on_admin_z = TRUE
 		hashatch = FALSE
 

@@ -114,9 +114,9 @@
 	icon_state = "blob"
 
 /obj/effect/meatgrinder/HasEntered(AM as mob|obj)
-	Bumped(AM)
+	CollidedWith(AM)
 
-/obj/effect/meatgrinder/Bumped(mob/M as mob|obj)
+/obj/effect/meatgrinder/CollidedWith(mob/M as mob|obj)
 
 	if(triggered) return
 

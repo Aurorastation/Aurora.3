@@ -121,7 +121,8 @@
 
 	if(check_alien_ability(50,1,"resin spinner"))
 		visible_message("<span class='alium'><B>[src] has planted some alien weeds!</B></span>")
-		new /obj/structure/alien/node(loc)
+		var/obj/structure/alien/weeds/node/new_node = new(get_turf(src))
+		new_node.linked_node = new_node
 	return
 
 /mob/living/carbon/human/proc/corrosive_acid(O as obj|turf in oview(1)) //If they right click to corrode, an error will flash if its an invalid target./N
@@ -174,7 +175,7 @@
 	visible_message("<span class='warning'>[src] spits neurotoxin at [target]!</span>", "<span class='alium'>You spit neurotoxin at [target].</span>")
 
 	var/obj/item/projectile/energy/neurotoxin/A = new /obj/item/projectile/energy/neurotoxin(usr.loc)
-	A.launch(target,get_organ_target())
+	A.launch_projectile(target,get_organ_target())
 
 /mob/living/carbon/human/proc/resin() // -- TLE
 	set name = "Secrete Resin (75)"

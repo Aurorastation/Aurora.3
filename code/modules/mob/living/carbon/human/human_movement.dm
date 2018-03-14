@@ -6,7 +6,7 @@
 
 	if (istype(loc, /turf/space)) return -1 // It's hard to be slowed down in space by... anything
 
-	if (isopenturf(loc) && !has_gravity(src, loc)) //open space checks
+	if (isopenturf(loc)) //open space checks
 		if(!(locate(/obj/structure/lattice, loc) || locate(/obj/structure/stairs, loc) || locate(/obj/structure/ladder, loc)))
 			return -1
 
@@ -58,10 +58,11 @@
 
 	if (drowsyness) tally += 6
 
-	if(FAT in src.mutations)
-		tally += 1.5
-	if (bodytemperature < 283.222)
-		tally += (283.222 - bodytemperature) / 10 * 1.75
+	if (!(species.flags & IS_MECHANICAL))	// Machines don't move slower when cold.
+		if(FAT in src.mutations)
+			tally += 1.5
+		if (bodytemperature < 283.222)
+			tally += (283.222 - bodytemperature) / 10 * 1.75
 
 	tally += max(2 * stance_damage, 0) //damaged/missing feet or legs is slow
 	if(mRun in mutations)
@@ -116,18 +117,26 @@
 
 /mob/living/carbon/human/Move()
 	. = ..()
+
+	var/turf/T = loc
+	if (!isturf(T))
+		return
+
+	if (client)
+		var/turf/B = GetAbove(T)
+		up_hint.icon_state = "uphint[(B ? !!B.is_hole : 0)]"
+
 	if (is_noisy && !stat && !lying)
-		var/turf/T = loc
 		if ((x == last_x && y == last_y) || !T.footstep_sound)
 			return
 		last_x = x
 		last_y = y
 		if (m_intent == "run")
-			playsound(src, T.footstep_sound, 70, 1)
+			playsound(src, T.footstep_sound, 70, 1, is_footstep = TRUE)
 		else
 			footstep++
 			if (footstep % 2)
-				playsound(src, T.footstep_sound, 40, 1)
+				playsound(src, T.footstep_sound, 40, 1, is_footstep = TRUE)
 
 /mob/living/carbon/human/mob_has_gravity()
 	. = ..()

@@ -178,14 +178,32 @@ var/datum/controller/subsystem/ticker/SSticker
 				if(!delay_end)
 					world << "<span class='notice'><b>Restarting in [restart_timeout/10] seconds</b></span>"
 
+			var/wait_for_tickets
+			var/delay_notified = 0
+			do
+				wait_for_tickets = 0
+				for(var/datum/ticket/ticket in tickets)
+					if(ticket.is_active())
+						wait_for_tickets = 1
+						break
+				if(wait_for_tickets)
+					if(!delay_notified)
+						delay_notified = 1
+						message_admins("<span class='warning'><b>Automatically delaying restart due to active tickets.</b></span>")
+						to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
+					sleep(15 SECONDS)
+				else if(delay_notified)
+					message_admins("<span class='warning'><b>No active tickets remaining, restarting in [restart_timeout/10] seconds if an admin has not delayed the round end.</b></span>")
+			while(wait_for_tickets)
+
 			if(!delay_end)
 				sleep(restart_timeout)
 				if(!delay_end)
 					world.Reboot()
-				else
-					world << "<span class='notice'><b>An admin has delayed the round end</b></span>"
-			else
-				world << "<span class='notice'><b>An admin has delayed the round end</b></span>"
+				else if(!delay_notified)
+					to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
+			else if(!delay_notified)
+				to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
 
 	else if (mode_finished)
 		post_game = 1
@@ -221,8 +239,8 @@ var/datum/controller/subsystem/ticker/SSticker
 				else
 					Player << "<font color='blue'><b>You missed the crew transfer after the events on [station_name()] as [Player.real_name].</b></font>"
 			else
-				if(istype(Player,/mob/dead/observer))
-					var/mob/dead/observer/O = Player
+				if(istype(Player,/mob/abstract/observer))
+					var/mob/abstract/observer/O = Player
 					if(!O.started_as_observer)
 						Player << "<font color='red'><b>You did not survive the events on [station_name()]...</b></font>"
 				else
@@ -434,7 +452,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 		CHECK_TICK
 
-/datum/controller/subsystem/ticker/proc/station_explosion_cinematic(station_missed = 0, override = null, list/affected_levels = config.station_levels)
+/datum/controller/subsystem/ticker/proc/station_explosion_cinematic(station_missed = 0, override = null, list/affected_levels = current_map.station_levels)
 	if (cinematic)
 		return	//already a cinematic in progress!
 
@@ -463,7 +481,7 @@ var/datum/controller/subsystem/ticker/SSticker
 			var/turf/Mloc = M.loc
 			if (!Mloc)
 				continue
-			
+
 			if (!istype(Mloc))
 				Mloc = get_turf(M)
 
@@ -536,7 +554,7 @@ var/datum/controller/subsystem/ticker/SSticker
 // Round setup stuff.
 
 /datum/controller/subsystem/ticker/proc/create_characters()
-	for(var/mob/new_player/player in player_list)
+	for(var/mob/abstract/new_player/player in player_list)
 		if(player && player.ready && player.mind)
 			if(player.mind.assigned_role=="AI")
 				player.close_spawn_windows()
@@ -567,7 +585,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		CHECK_TICK
 	if(captainless)
 		for(var/mob/M in player_list)
-			if(!istype(M,/mob/new_player))
+			if(!istype(M,/mob/abstract/new_player))
 				M << "Captainship not forced on anyone."
 
 // Registers a callback to run on round-start.

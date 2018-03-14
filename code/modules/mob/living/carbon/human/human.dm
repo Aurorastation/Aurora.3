@@ -404,8 +404,9 @@
 	if(wear_id)
 		return wear_id.GetID()
 
-/mob/living/carbon/human/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0)
+/mob/living/carbon/human/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	var/hairvar = 0
+	var/list/damage_areas = list()
 	if(status_flags & GODMODE)	return 0	//godmode
 
 	if (!tesla_shock)
@@ -414,7 +415,7 @@
 		return 0
 
 	if(!def_zone)
-		var/list/damage_areas = list() //The way this works is by damaging multiple areas in an "Arc" if no def_zone is provided. should be pretty easy to add more arcs if it's needed. though I can't imangine a situation that can apply.
+		//The way this works is by damaging multiple areas in an "Arc" if no def_zone is provided. should be pretty easy to add more arcs if it's needed. though I can't imangine a situation that can apply.
 		if(istype(user, /mob/living/carbon/human))
 			if(h_style == "Floorlength Braid" || h_style == "Very Long Hair")
 				hairvar = 1
@@ -423,7 +424,7 @@
 			if(1)
 				damage_areas = list("l_hand", "l_arm", "chest", "r_arm", "r_hand")
 			if(2)
-				damage_areas = list("r_hand", "r_arm", "chest", "l_arm", "L_hand")
+				damage_areas = list("r_hand", "r_arm", "chest", "l_arm", "l_hand")
 			if(3)
 				damage_areas = list("l_hand", "l_arm", "chest", "groin", "l_leg", "l_foot")
 			if(4)
@@ -437,31 +438,65 @@
 				h_style = "skinhead"
 				visible_message("<span class='warning'>[src]'s hair gets a burst of electricty through it, burning and turning to dust!</span>", "<span class='danger'>your hair burns as the current flows through it, turning to dust!</span>", "<span class='notice'>You hear a crackling sound, and smell burned hair!.</span>")
 				update_hair()
-		if(gloves)
-			shock_damage *= gloves.siemens_coefficient
+	else
+		damage_areas = list(def_zone)
 
-		for (var/area in damage_areas)
-			apply_damage(shock_damage, BURN, area, used_weapon="Electrocution")
-			shock_damage *= 0.4
-			playsound(loc, "sparks", 50, 1, -1)
+	if(!ground_zero)
+		ground_zero = pick(damage_areas)
 
-		if (shock_damage > 15 || tesla_shock)
-			visible_message(
-			"<span class='warning'>[src] was shocked by the [source]!</span>",
-			"<span class='danger'>You feel a powerful shock course through your body!</span>",
-			"<span class='warning'>You hear a heavy electrical crack.</span>"
-			)
-			Stun(10)//This should work for now, more is really silly and makes you lay there forever
-			Weaken(10)
+	if(!(ground_zero in damage_areas))
+		damage_areas.Add(ground_zero) //sucks to suck, get more zappy time bitch
 
-		else
-			visible_message(
-			"<span class='warning'>[src] was mildly shocked by the [source].</span>",
-			"<span class='warning'>You feel a mild shock course through your body.</span>",
-			"<span class='warning'>You hear a light zapping.</span>"
-			)
+	var/obj/item/organ/external/contact = get_organ(check_zone(ground_zero))
+	shock_damage *= get_siemens_coefficient_organ(contact)
 
-		spark(loc, 5, alldirs)
+	var/obj/item/organ/external/affecting
+	for (var/area in damage_areas)
+
+		affecting = get_organ(check_zone(area))
+		var/emp_damage
+		switch(shock_damage)
+			if(-INFINITY to 5)
+				emp_damage = 0
+			if(6 to 19)
+				emp_damage = 3
+			if(20 to 49)
+				emp_damage = 2
+			else
+				emp_damage = 1
+
+		if(emp_damage)
+			for(var/obj/item/organ/O in affecting.internal_organs)
+				O.emp_act(emp_damage)
+				emp_damage *= 0.4
+			for(var/obj/item/I in affecting.implants)
+				I.emp_act(emp_damage)
+				emp_damage *= 0.4
+			for(var/obj/item/I in affecting)
+				I.emp_act(emp_damage)
+				emp_damage *= 0.4
+
+		apply_damage(shock_damage, BURN, area, used_weapon="Electrocution")
+		shock_damage *= 0.4
+		playsound(loc, "sparks", 50, 1, -1)
+
+	if (shock_damage > 15 || tesla_shock)
+		visible_message(
+		"<span class='warning'>[src] was shocked by the [source]!</span>",
+		"<span class='danger'>You feel a powerful shock course through your body!</span>",
+		"<span class='warning'>You hear a heavy electrical crack.</span>"
+		)
+		Stun(10)//This should work for now, more is really silly and makes you lay there forever
+		Weaken(10)
+
+	else
+		visible_message(
+		"<span class='warning'>[src] was mildly shocked by the [source].</span>",
+		"<span class='warning'>You feel a mild shock course through your body.</span>",
+		"<span class='warning'>You hear a light zapping.</span>"
+		)
+
+	spark(loc, 5, alldirs)
 
 	return shock_damage
 
@@ -762,13 +797,16 @@
 
 ///eyecheck()
 ///Returns a number between -1 to 2
-/mob/living/carbon/human/eyecheck()
+/mob/living/carbon/human/eyecheck(ignore_inherent = FALSE)
 	if(!species.vision_organ || !species.has_organ[species.vision_organ]) //No eyes, can't hurt them.
 		return FLASH_PROTECTION_MAJOR
 
 	var/obj/item/organ/I = get_eyes()	// Eyes are fucked, not a 'weak point'.
 	if (I && I.status & ORGAN_CUT_AWAY)
 		return FLASH_PROTECTION_MAJOR
+
+	if (ignore_inherent)
+		return flash_protection
 
 	return species.inherent_eye_protection ? max(species.inherent_eye_protection, flash_protection) : flash_protection
 
@@ -795,11 +833,15 @@
 	return 1
 
 /mob/living/carbon/human/IsAdvancedToolUser(var/silent)
-	if(species.has_fine_manipulation)
-		return 1
-	if(!silent)
-		src << "<span class='warning'>You don't have the dexterity to use that!</span>"
-	return 0
+	if(!species.has_fine_manipulation)
+		if(!silent)
+			src << "<span class='warning'>You don't have the dexterity to use that!</span>"
+		return 0
+	if(disabilities & MONKEYLIKE)
+		if(!silent)
+			src << "<span class='warning'>You don't have the dexterity to use that!</span>"
+		return 0
+	return 1
 
 /mob/living/carbon/human/abiotic(var/full_body = 0)
 	if(full_body && ((src.l_hand && !( src.l_hand.abstract )) || (src.r_hand && !( src.r_hand.abstract )) || (src.back || src.wear_mask || src.head || src.shoes || src.w_uniform || src.wear_suit || src.glasses || src.l_ear || src.r_ear || src.gloves)))
@@ -951,7 +993,7 @@
 		target.show_message("<span class='notice'>You hear a voice that seems to echo around the room: [say]</span>")
 	usr.show_message("<span class='notice'>You project your mind into [target.real_name]: [say]</span>")
 	log_say("[key_name(usr)] sent a telepathic message to [key_name(target)]: [say]",ckey=key_name(usr))
-	for(var/mob/dead/observer/G in dead_mob_list)
+	for(var/mob/abstract/observer/G in dead_mob_list)
 		G.show_message("<i>Telepathic message from <b>[src]</b> to <b>[target]</b>: [say]</i>")
 
 /mob/living/carbon/human/proc/remoteobserve()
@@ -1533,3 +1575,34 @@
 	pulling_punches = !pulling_punches
 	src << "<span class='notice'>You are now [pulling_punches ? "pulling your punches" : "not pulling your punches"].</span>"
 	return
+
+/mob/living/carbon/human/proc/get_traumas()
+	. = list()
+	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
+	if(B && species && species.has_organ["brain"] && !isipc(src))
+		. = B.traumas
+
+/mob/living/carbon/human/proc/has_trauma_type(brain_trauma_type, consider_permanent = FALSE)
+	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
+	if(B && species && species.has_organ["brain"] && !isipc(src))
+		. = B.has_trauma_type(brain_trauma_type, consider_permanent)
+
+/mob/living/carbon/human/proc/gain_trauma(datum/brain_trauma/trauma, permanent = FALSE, list/arguments)
+	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
+	if(B && species && species.has_organ["brain"] && !isipc(src))
+		. = B.gain_trauma(trauma, permanent, arguments)
+
+/mob/living/carbon/human/proc/gain_trauma_type(brain_trauma_type = /datum/brain_trauma, permanent = FALSE)
+	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
+	if(B && species && species.has_organ["brain"] && !isipc(src))
+		. = B.gain_trauma_type(brain_trauma_type, permanent)
+
+/mob/living/carbon/human/proc/cure_trauma_type(brain_trauma_type, cure_permanent = FALSE)
+	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
+	if(B && species && species.has_organ["brain"] && !isipc(src))
+		. = B.cure_trauma_type(brain_trauma_type, cure_permanent)
+
+/mob/living/carbon/human/proc/cure_all_traumas(cure_permanent = FALSE)
+	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
+	if(B && species && species.has_organ["brain"] && !isipc(src))
+		. = B.cure_all_traumas(cure_permanent)

@@ -90,10 +90,12 @@
 	if(M && invalidFeedTarget(M)) // This means that the slime drained the victim
 		if(!client)
 			if(Victim && !rabid && !attacked && Victim.LAssailant && Victim.LAssailant != Victim && prob(50))
-				if(!(Victim.LAssailant in Friends))
-					Friends[Victim.LAssailant] = 1
-				else
-					++Friends[Victim.LAssailant]
+				var/real_assailant = Victim.LAssailant.resolve()
+				if (real_assailant)
+					if(!(real_assailant in Friends))
+						Friends[real_assailant] = TRUE
+					else
+						++Friends[real_assailant]
 
 		else
 			src << "<span class='notice'>This subject does not have a strong enough life energy anymore...</span>"

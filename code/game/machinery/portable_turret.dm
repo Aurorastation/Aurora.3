@@ -466,7 +466,7 @@
 	if(get_dist(src, L) > 7)	//if it's too far away, why bother?
 		return TURRET_NOT_TARGET
 
-	if(!check_trajectory(L, src))	//check if we have true line of sight
+	if(!(L in check_trajectory(L, src)))	//check if we have true line of sight
 		return TURRET_NOT_TARGET
 
 	if(emagged)		// If emagged not even the dead get a rest
@@ -611,7 +611,7 @@
 	//If the target is grabbing someone then the turret smartly aims for extremities
 	var/def_zone = get_exposed_defense_zone(target)
 	//Shooting Code:
-	A.launch(target, def_zone)
+	A.launch_projectile(target, def_zone)
 
 /datum/turret_checks
 	var/enabled
@@ -895,6 +895,109 @@
 /atom/movable/porta_turret_cover
 	icon = 'icons/obj/turrets.dmi'
 
+
+//preset turrets
+
+/obj/machinery/porta_turret/xray
+	installation = /obj/item/weapon/gun/energy/xray
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "xray"
+
+	eprojectile = /obj/item/projectile/beam/xray
+	eshot_sound	= 'sound/weapons/laser3.ogg'
+
+/obj/machinery/porta_turret/ion
+	installation = /obj/item/weapon/gun/energy/ionrifle
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "ion"
+
+	eprojectile = /obj/item/projectile/ion
+	eshot_sound	= 'sound/weapons/Laser.ogg'
+
+/obj/machinery/porta_turret/crossbow
+	installation = /obj/item/weapon/gun/energy/crossbow
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "crossbow"
+
+	eprojectile = /obj/item/projectile/energy/bolt/large
+	eshot_sound	= 'sound/weapons/Genhit.ogg'
+
+/obj/machinery/porta_turret/cannon
+	installation = /obj/item/weapon/gun/energy/rifle/laser/heavy
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "cannon"
+
+	eprojectile = /obj/item/projectile/beam/heavylaser
+	eshot_sound	= 'sound/weapons/lasercannonfire.ogg'
+
+/obj/machinery/porta_turret/pulse
+	installation = /obj/item/weapon/gun/energy/pulse
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "pulse"
+
+	eprojectile = /obj/item/projectile/beam/pulse
+	eshot_sound	= 'sound/weapons/pulse.ogg'
+
+/obj/machinery/porta_turret/sniper
+	installation = /obj/item/weapon/gun/energy/sniperrifle
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "sniper"
+
+	eprojectile = /obj/item/projectile/beam/sniper
+	eshot_sound	= 'sound/weapons/marauder.ogg'
+
+/obj/machinery/porta_turret/net
+	installation = /obj/item/weapon/gun/energy/net
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "net"
+
+	eprojectile = /obj/item/projectile/beam/energy_net
+	eshot_sound	= 'sound/weapons/plasma_cutter.ogg'
+
+/obj/machinery/porta_turret/thermal
+	installation = /obj/item/weapon/gun/energy/vaurca/thermaldrill
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "thermaldrill"
+
+	eprojectile = /obj/item/projectile/beam/thermaldrill
+	eshot_sound	= 'sound/magic/lightningbolt.ogg'
+
+/obj/machinery/porta_turret/meteor
+	installation = /obj/item/weapon/gun/energy/meteorgun
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "meteor"
+
+	eprojectile = /obj/item/projectile/meteor
+	eshot_sound	= 'sound/weapons/lasercannonfire.ogg'
+
+/obj/machinery/porta_turret/ballistic
+	installation = /obj/item/weapon/gun/energy/mountedsmg
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "ballistic"
+	no_salvage = TRUE
+
+	eprojectile = /obj/item/projectile/bullet/rifle/a762
+	eshot_sound	= 'sound/weapons/gunshot_saw.ogg'
 
 #undef TURRET_PRIORITY_TARGET
 #undef TURRET_SECONDARY_TARGET

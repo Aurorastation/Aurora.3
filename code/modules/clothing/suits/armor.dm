@@ -93,12 +93,24 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	pocket_slots = 4//More slots because coat
-	
-/obj/item/clothing/suit/armor/hos/jensen
+
+/obj/item/clothing/suit/storage/toggle/armor/hos/jensen
 	name = "armored trenchcoat"
 	desc = "A trenchcoat augmented with a special alloy for some protection and style."
 	icon_state = "jensencoat"
 	item_state = "jensencoat"
+	icon_open = "jensencoat_open"
+	icon_closed = "jensencoat"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	allowed = list(/obj/item/weapon/gun/energy,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/device/flashlight)
+
+/obj/item/clothing/suit/storage/toggle/armor/hos/jensen/Initialize()
+	. = ..()
+	pockets = new/obj/item/weapon/storage/internal(src)
+	pockets.storage_slots = 4
+	pockets.max_w_class = 2
+	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/armor/riot
 	name = "riot suit"
@@ -143,10 +155,10 @@
 			// Find a turf near or on the original location to bounce to
 			var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
 			var/new_y = P.starting.y + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
-			var/turf/curloc = get_turf(user)
 
 			// redirect the projectile
-			P.redirect(new_x, new_y, curloc, user)
+			P.firer = user
+			P.old_style_target(locate(new_x, new_y, P.z))
 
 			return PROJECTILE_CONTINUE // complete projectile permutation
 
@@ -255,6 +267,7 @@
 /obj/item/clothing/suit/armor/tactical/Initialize()
 	. = ..()
 	holster = new()
+	holster.icon_state = null
 	holster.on_attached(src)	//its inside a suit, we set  this so it can be drawn from
 	QDEL_NULL(pockets)	//Tactical armour has internal holster instead of pockets, so we null this out
 	cut_overlays()	// Remove the holster's overlay.

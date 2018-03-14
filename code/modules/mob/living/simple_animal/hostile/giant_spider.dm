@@ -89,7 +89,7 @@
 				O.implants += eggs
 				H << "<span class='warning'>The [src] injects something into your [O.name]!</span>"
 
-/mob/living/simple_animal/hostile/giant_spider/Life()
+/mob/living/simple_animal/hostile/giant_spider/think()
 	..()
 	if(!stat)
 		if(stance == HOSTILE_STANCE_IDLE)
@@ -106,15 +106,14 @@
 	stop_automated_movement = 0
 	walk(src, 0)
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/Life()
+/mob/living/simple_animal/hostile/giant_spider/nurse/think()
 	..()
 	if(!stat)
 		if(stance == HOSTILE_STANCE_IDLE)
-			var/list/can_see = view(src, 10)
 			//30% chance to stop wandering and do something
 			if(!busy && prob(30))
 				//first, check for potential food nearby to cocoon
-				for(var/mob/living/C in can_see)
+				for(var/mob/living/C in view(src, world.view))
 					if(C.stat)
 						cocoon_target = C
 						busy = MOVING_TO_TARGET
@@ -140,8 +139,7 @@
 						addtimer(CALLBACK(src, .proc/finalize_eggs), 50, TIMER_UNIQUE)
 					else
 						//fourthly, cocoon any nearby items so those pesky pinkskins can't use them
-						for(var/obj/O in can_see)
-
+						for(var/obj/O in view(src, world.view))
 							if(O.anchored)
 								continue
 

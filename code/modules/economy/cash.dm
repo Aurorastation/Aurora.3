@@ -175,29 +175,36 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 
 /obj/item/weapon/spacecash/ewallet/lotto/attack_self(mob/user)
 	if(!scratched)
-		user << "<span class='notice'>You initiate the simulated scratch action process on the charge card. . .</span>"
+		user << "<span class='notice'>You initiate the simulated scratch action process on the charge card...</span>"
 		if(do_after(user,5))
-			switch(rand(1,100))
-				if(1 to 29)
-					worth = rand(0,200)
-					user << "<span class='notice'>The card reads [worth]. Not your lucky day!</span>"
-				if(30 to 59)
-					worth = 200
-					user << "<span class='notice'>The card reads [worth]. At least you broke even.</span>"
-				if(60 to 79)
-					worth = pick(200,300,400,500)
-					user << "<span class='notice'>The card reads [worth]. That's a pretty penny!</span>"
-				if(80 to 95)
-					worth = pick(500,600,700,800,900,1000)
-					user << "<span class='notice'>The card reads [worth]. Your luck is running high!</span>"
-				if(95 to 99)
-					worth = pick(1000,2000,3000,4000,5000,6000,7000,8000,9000)
-					user << "<span class='notice'>The card reads [worth]. You're rich!</span>"
-				if(100)
-					worth = pick(10000,20000,30000,40000,50000)
-					user << "<span class='notice'>The card reads [worth]. You're blessed!</span>"
-				else
-					worth = 0
-					user << "<span class='notice'>The card reads [worth]. Not your lucky day!</span>"
+			var/result = rand(1,10000)
+			if(result <= 5000) // 50% chance to not earn anything at all.
+				worth = 0
+				user << "<span class='notice'>The card reads [worth]. Not your lucky day!</span>"
+			else if (result <= 8000) // 30% chance to break even.
+				worth = 200
+				user << "<span class='notice'>The card reads [worth]. At least you broke even...</span>"
+			else if (result <= 9000) // 10% chance to earn 500 credits
+				worth = 500
+				user << "<span class='notice'>The card reads [worth]. You doubled your money!</span>"
+			else if (result <= 9500) // 5% chance to earn 1000 credits.
+				worth = 1000
+				user << "<span class='notice'>The card reads [worth]. Wow, you're lucky!</span>"
+			else if (result <= 9750) // 2.5% chance to earn 2500 credits.
+				worth = 2500
+				user << "<span class='notice'>The card reads [worth]. Wow, your luck is running high!</span>"
+			else if (result <= 9900) // 1.5% chance to earn 5000 credits.
+				worth = 5000
+				user << "<span class='notice'>The card reads [worth]. Wow, you're rich!</span>"
+			else if (result <= 9950) // 0.5% chance to earn 10000 credits
+				worth = 10000
+				user << "<span class='notice'>The card reads [worth]. Wow, your're super rich!</span>"
+			else if (result <= 9975) // 0.25% chance to earn 50000 credits.
+				worth = 25000
+				user << "<span class='notice'>The card reads [worth]. Wow, your're super rich!</span>"
+			else // 0.25% chance to earn 100000 credits.
+				user << "<span class='notice'>The card reads [worth]. YOU HIT THE JACKPOT!</span>"
+				worth = 50000
+
 			scratched = 1
 			owner_name = user.name

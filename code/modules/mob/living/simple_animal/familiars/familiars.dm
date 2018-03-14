@@ -71,17 +71,10 @@
 
 	wizardy_spells = list(/spell/aoe_turf/conjure/forcewall)
 
+	flying = TRUE
+
 /mob/living/simple_animal/familiar/pike/Allow_Spacemove(var/check_drift = 0)
 	return 1
-
-/mob/living/simple_animal/familiar/pike/can_fall()
-	return FALSE
-
-/mob/living/simple_animal/familiar/pike/can_ztravel()
-	return TRUE
-
-/mob/living/simple_animal/familiar/pike/CanAvoidGravity()
-	return TRUE
 
 /mob/living/simple_animal/familiar/horror
 	name = "horror"
@@ -142,8 +135,6 @@
 	wizardy_spells = list(/spell/aoe_turf/smoke)
 
 
-
-
 /mob/living/simple_animal/familiar/pet //basically variants of normal animals with spells.
 	icon = 'icons/mob/animal.dmi'
 
@@ -156,9 +147,6 @@
 		return
 	else
 		return ..()
-
-
-
 
 /mob/living/simple_animal/familiar/pet/cat
 	name = "black cat"

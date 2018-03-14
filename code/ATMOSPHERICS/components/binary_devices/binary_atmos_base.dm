@@ -9,8 +9,7 @@ obj/machinery/atmospherics/binary
 	var/datum/pipe_network/network1
 	var/datum/pipe_network/network2
 
-	New()
-		..()
+	Initialize()
 		switch(dir)
 			if(NORTH)
 				initialize_directions = NORTH|SOUTH
@@ -25,6 +24,7 @@ obj/machinery/atmospherics/binary
 
 		air1.volume = 200
 		air2.volume = 200
+		. = ..()
 
 // Housekeeping and pipe network stuff below
 	network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)

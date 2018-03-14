@@ -72,9 +72,9 @@
 
 /proc/isipc(A)
 	. = 0
-	if(istype(A, /mob/living/carbon/human))
+	if(ishuman(A))
 		var/mob/living/carbon/human/H = A
-		. = !!global.mechanical_species[H.get_species()]
+		. = H.species && (H.species.flags & IS_MECHANICAL)
 
 /proc/isvox(A)
 	if(istype(A, /mob/living/carbon/human))
@@ -392,7 +392,7 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 			return
 		var/atom/oldeye=M.client.eye
 		var/aiEyeFlag = 0
-		if(istype(oldeye, /mob/eye/aiEye))
+		if(istype(oldeye, /mob/abstract/eye/aiEye))
 			aiEyeFlag = 1
 
 		var/x
@@ -531,7 +531,7 @@ proc/is_blind(A)
 				name = realname
 
 	for(var/mob/M in player_list)
-		if(M.client && ((!istype(M, /mob/new_player) && M.stat == DEAD) || (M.client.holder && check_rights(R_DEV|R_MOD|R_ADMIN, 0, M))) && (M.client.prefs.toggles & CHAT_DEAD))
+		if(M.client && ((!istype(M, /mob/abstract/new_player) && M.stat == DEAD) || (M.client.holder && check_rights(R_DEV|R_MOD|R_ADMIN, 0, M))) && (M.client.prefs.toggles & CHAT_DEAD))
 			var/follow
 			var/lname
 			if(subject)
@@ -539,8 +539,8 @@ proc/is_blind(A)
 					follow = "[ghost_follow_link(subject, M)] "
 				if(M.stat != DEAD && M.client.holder)
 					follow = "([admin_jump_link(subject, M.client.holder)]) "
-				var/mob/dead/observer/DM
-				if(istype(subject, /mob/dead/observer))
+				var/mob/abstract/observer/DM
+				if(istype(subject, /mob/abstract/observer))
 					DM = subject
 				if(M.client.holder) 							// What admins see
 					lname = "[keyname][(DM && DM.anonsay) ? "*" : (DM ? "" : "^")] ([name])"
@@ -670,12 +670,13 @@ proc/is_blind(A)
 
 /mob/living/simple_animal/hostile/assess_perp(var/obj/access_obj, var/check_access, var/auth_weapons, var/check_records, var/check_arrest)
 	var/threatcount = ..()
-	if(. == SAFE_PERP)
+	if(threatcount == SAFE_PERP)
 		return SAFE_PERP
 
-	if(!istype(src, /mob/living/simple_animal/hostile/retaliate/goat))
-		threatcount += 4
-	return threatcount
+	if(istype(src, /mob/living/simple_animal/hostile/retaliate/goat) || istype(src, /mob/living/simple_animal/hostile/commanded))
+		return threatcount
+
+	return threatcount + 4
 
 
 /mob/living/proc/bucklecheck(var/mob/living/user)
@@ -1033,6 +1034,10 @@ proc/is_blind(A)
 	. = ..()
 	. |= TYPE_SYNTHETIC
 
+/mob/living/silicon/find_type()
+	. = ..()
+	. |= TYPE_SYNTHETIC
+
 // Yeah, I'm just going to cheat and do istype(src) checks here.
 // It's not worth adding a proc for every single one of these types.
 /mob/living/simple_animal/find_type()
@@ -1141,7 +1146,7 @@ proc/is_blind(A)
 	if(istype(P))
 		return P
 
-mob/dead/observer/get_multitool()
+/mob/abstract/observer/get_multitool()
 	return can_admin_interact() && ..(ghost_multitool)
 
 /mob/living/carbon/human/get_multitool()

@@ -1,5 +1,6 @@
 #define WORLD_ICON_SIZE 32
 #define PIXEL_MULTIPLIER WORLD_ICON_SIZE/32
+#define WORLD_MIN_SIZE 32
 
 /*
 	The initialization of the game happens roughly like this:
@@ -20,9 +21,6 @@ var/global/datum/global_init/init = new ()
 
 	makeDatumRefLists()
 	load_configuration()
-
-	initialize_chemical_reagents()
-	initialize_chemical_reactions()
 
 	qdel(src) //we're done
 	init = null
@@ -51,11 +49,13 @@ var/global/datum/global_init/init = new ()
 		t = round(t / l)
 
 /world
-	mob = /mob/new_player
+	mob = /mob/abstract/new_player
 	turf = /turf/space
 	area = /area/space
 	view = "15x15"
 	cache_lifespan = 0	//stops player uploaded stuff from being kept in the rsc past the current session
+	maxx = WORLD_MIN_SIZE	// So that we don't get map-window-popin at boot. DMMS will expand this.
+	maxy = WORLD_MIN_SIZE
 
 
 #define RECOMMENDED_VERSION 510
@@ -83,8 +83,6 @@ var/global/datum/global_init/init = new ()
 	//Emergency Fix
 	load_mods()
 	//end-emergency fix
-
-	src.update_status()
 
 	. = ..()
 
@@ -321,7 +319,7 @@ var/list/world_api_rate_limit = list()
 				D.associate(directory[ckey])
 
 /world/proc/update_status()
-	var/s = ""
+	var/list/s = list()
 
 	if (config && config.server_name)
 		s += "<b>[config.server_name]</b> &#8212; "
@@ -363,12 +361,13 @@ var/list/world_api_rate_limit = list()
 	else if (n > 0)
 		features += "~[n] player"
 
-
 	if (config && config.hostedby)
 		features += "hosted by <b>[config.hostedby]</b>"
 
 	if (features)
-		s += ": [list2text(features, ", ")]"
+		s += ": [jointext(features, ", ")]"
+
+	s = s.Join()
 
 	/* does this help? I do not know */
 	if (src.status != s)
@@ -440,7 +439,14 @@ var/list/world_api_rate_limit = list()
 		con.failed_connections = 0	//If this connection succeeded, reset the failed connections counter.
 	else
 		con.failed_connections++		//If it failed, increase the failed connections counter.
+
+#ifdef UNIT_TEST
+		// UTs are presumed public. Change this to hide your shit.
+		error("Database connection failed with message:")
+		error(con.ErrorMsg())
+#else
 		world.log << con.ErrorMsg()
+#endif
 
 	return .
 
@@ -451,6 +457,7 @@ var/list/world_api_rate_limit = list()
 		return 0
 
 	if (con.failed_connections > FAILED_DB_CONNECTION_CUTOFF)
+		error("DB connection cutoff exceeded for a database object in establish_db_connection().")
 		return 0
 
 	if (!con.IsConnected())

@@ -36,9 +36,9 @@
 
 /datum/uplink_item/item/visible_weapons/hammer
 	name = "Kneebreaker Hammer"
-	item_cost = 10
+	item_cost = 7
 	path = /obj/item/weapon/melee/hammer
-	
+
 /datum/uplink_item/item/visible_weapons/revolver
 	name = "Revolver"
 	item_cost = 12
@@ -49,7 +49,37 @@
 	item_cost = 14
 	path = /obj/item/weapon/gun/projectile/automatic/tommygun
 
+/datum/uplink_item/item/visible_weapons/landmine
+	name = "Land Mine"
+	item_cost = 5
+	path = /obj/item/weapon/landmine
+
+/datum/uplink_item/item/visible_weapons/emplandmine
+	name = "EMP Land Mine"
+	item_cost = 4
+	path = /obj/item/weapon/landmine/emp
+
+/datum/uplink_item/item/visible_weapons/sleepylandmine
+	name = "N2O Land Mine"
+	item_cost = 7
+	path = /obj/item/weapon/landmine/n2o
+
+/datum/uplink_item/item/visible_weapons/powerfist
+	name = "Power Fist"
+	item_cost = 4
+	path = /obj/item/clothing/gloves/powerfist
+
+/datum/uplink_item/item/visible_weapons/clawedgloves
+	name = "Clawed Gauntlets"
+	item_cost = 5
+	path = /obj/item/clothing/gloves/claws
+
 /datum/uplink_item/item/visible_weapons/heavysniper
 	name = "Anti-materiel Rifle"
 	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
 	path = /obj/item/weapon/gun/projectile/heavysniper
+
+/datum/uplink_item/item/visible_weapons/chainsaw
+	name = "Chainsaw"
+	item_cost = 10
+	path = /obj/item/weapon/material/twohanded/chainsaw/fueled

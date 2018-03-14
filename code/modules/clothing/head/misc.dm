@@ -18,6 +18,15 @@
 	slot_flags = SLOT_HEAD | SLOT_EARS
 	body_parts_covered = 0
 
+/obj/item/clothing/head/hairflower/blue
+	icon_state = "hairflower_blue"
+
+/obj/item/clothing/head/hairflower/yellow
+	icon_state = "hairflower_yellow"
+
+/obj/item/clothing/head/hairflower/pink
+	icon_state = "hairflower_pink"
+
 /obj/item/clothing/head/powdered_wig
 	name = "powdered wig"
 	desc = "A powdered wig."
@@ -300,7 +309,7 @@
 /obj/item/clothing/head/cowboy/wide
 	name = "wide-brimmed cowboy hat"
 	icon_state = "cowboy_wide"
-	
+
 /obj/item/clothing/head/sombrero
 	name = "sombrero"
 	desc = "You can practically taste the fiesta."
@@ -316,39 +325,39 @@
 	flags_inv = BLOCKHEADHAIR
 	body_parts_covered = 0
 	contained_sprite = 1
-	
+
 /obj/item/clothing/head/turban/blue
 	icon_state = "turban_blue"
 	item_state = "turban_blue"
-	
+
 /obj/item/clothing/head/turban/brown
 	icon_state = "turban_brown"
 	item_state = "turban_brown"
-	
+
 /obj/item/clothing/head/turban/green
 	icon_state = "turban_green"
 	item_state = "turban_green"
-	
+
 /obj/item/clothing/head/turban/grey
 	icon_state = "turban_grey"
 	item_state = "turban_grey"
-	
+
 /obj/item/clothing/head/turban/orange
 	icon_state = "turban_orange"
 	item_state = "turban_orange"
-	
+
 /obj/item/clothing/head/turban/purple
 	icon_state = "turban_purple"
 	item_state = "turban_purple"
-	
+
 /obj/item/clothing/head/turban/red
 	icon_state = "turban_red"
 	item_state = "turban_red"
-	
+
 /obj/item/clothing/head/turban/white
 	icon_state = "turban_white"
 	item_state = "turban_white"
-	
+
 /obj/item/clothing/head/turban/yellow
 	icon_state = "turban_yellow"
 	item_state = "turban_yellow"

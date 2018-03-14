@@ -175,7 +175,6 @@ var/const/tk_maxrange = 15
 	QDEL_IN(O, 5)
 
 /obj/item/tk_grab/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	if(focus && focus.icon && focus.icon_state)
-		overlays += icon(focus.icon,focus.icon_state)
-	return
+		add_overlay(image(focus.icon, focus.icon_state))

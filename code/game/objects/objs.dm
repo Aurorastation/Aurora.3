@@ -216,3 +216,9 @@
 //This is useful for setting special behaviour for built items that shouldn't apply to those spawned at roundstart
 /obj/proc/Created()
 	return
+
+/obj/proc/animate_shake()
+	var/init_px = pixel_x
+	var/shake_dir = pick(-1, 1)
+	animate(src, transform = turn(matrix(), 8*shake_dir), pixel_x = init_px + 2*shake_dir, time = 1)
+	animate(transform = null, pixel_x = init_px, time = 6, easing = ELASTIC_EASING)

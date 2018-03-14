@@ -30,7 +30,7 @@
 			bad_data &= ~BAD_CID
 
 		if (bad_data)
-			var/DBQuery/mirrored_bans = dbcon.NewQuery("SELECT ckey, ip, computerid FROM ss13_ban_mirrors WHERE ban_id = :ban_id:")
+			var/DBQuery/mirrored_bans = dbcon.NewQuery("SELECT ckey, ip, computerid FROM ss13_ban_mirrors WHERE isnull(deleted_at) AND ban_id = :ban_id:")
 			mirrored_bans.Execute(list("ban_id" = ban_id))
 
 			while (mirrored_bans.NextRow())
@@ -66,7 +66,7 @@
 		log_misc("Ban database connection failure while attempting to check mirrors. Key passed for mirror checking: [ckey].")
 		return null
 
-	var/DBQuery/initial_query = dbcon.NewQuery("SELECT DISTINCT ban_id FROM ss13_ban_mirrors WHERE ckey = :ckey: OR ip = :address: OR computerid = :computerid:")
+	var/DBQuery/initial_query = dbcon.NewQuery("SELECT DISTINCT ban_id FROM ss13_ban_mirrors WHERE isnull(deleted_at) AND (ckey = :ckey: OR ip = :address: OR computerid = :computerid:)")
 	initial_query.Execute(list("ckey" = ckey, "address" = address, "computerid" = computer_id))
 
 	var/list/ban_ids = list()
@@ -78,7 +78,7 @@
 	if (!ban_ids.len)
 		return null
 
-	var/DBQuery/search_query = dbcon.NewQuery("SELECT id FROM ss13_ban WHERE id IN :vars: AND (bantype = 'PERMABAN' OR (bantype = 'TEMPBAN' AND expiration_time > Now())) AND isnull(unbanned)")
+	var/DBQuery/search_query = dbcon.NewQuery("SELECT id FROM ss13_ban WHERE id IN :vars: AND isnull(unbanned) AND (bantype = 'PERMABAN' OR (bantype = 'TEMPBAN' AND expiration_time > Now()))")
 	search_query.Execute(list("vars" = ban_ids))
 
 	var/list/active_bans = list()
@@ -116,7 +116,7 @@
 	if (!dbcon.IsConnected())
 		return null
 
-	var/DBQuery/query = dbcon.NewQuery("SELECT id, ckey, ip, computerid, date(datetime) as datetime, source, extra_info FROM ss13_ban_mirrors WHERE ban_id = :ban_id:")
+	var/DBQuery/query = dbcon.NewQuery("SELECT id, ckey, ip, computerid, date(datetime) as datetime, source, extra_info, deleted_at FROM ss13_ban_mirrors WHERE ban_id = :ban_id:")
 	query.Execute(list("ban_id" = ban_id))
 
 	var/list/mirrors = list()
@@ -136,6 +136,11 @@
 				if (temp.len)
 					items["extra"] = TRUE
 			catch()
+
+		if (query.item[8])
+			items["inactive"] = TRUE
+		else
+			items["inactive"] = FALSE
 
 		mirrors += list(items)
 
@@ -169,18 +174,17 @@
 	var/static/list/bg_colors = list("#ffeeee", "#ffdddd")
 	var/i = 0
 	for (var/mirror in mirrors)
-		var/bg = bg_colors[i + 1]
 		var/list/details = mirror
+		var/bg = details["inactive"] ? "#aaaaaa" : bg_colors[i + 1]
 
 		output += "<tr bgcolor='[bg]'>"
 		output += "<td align='center'>[details["source"]]</td>"
 		output += "<td align='center'>[details["ckey"]]</td>"
 		output += "<td align='center'>[details["date"]]</td>"
+		output += "<td align='center'><a href='?_src_=holder;dbbanmirroract=[details["id"]];mirrorstatus=[details["inactive"]]'>[details["inactive"] ? "Reactivate" : "Deactivate"]</a>"
 		if (details["extra"])
-			output += "<td align='center'><a href='?_src_=holder;dbbanmirrorckeys=[details["id"]]'>View Ckeys</a></td>"
-		else
-			output += "<td></td>"
-		output += "</tr>"
+			output += " | <a href='?_src_=holder;dbbanmirroract=[details["id"]];mirrorckeys=1'>View Ckeys</a>"
+		output += "</td></tr>"
 
 		output += "<tr bgcolor='[bg]'>"
 		output += "<td align='center' colspan='2'>IP: [details["ip"]]</td>"
@@ -226,6 +230,22 @@
 
 	output += "<br><br><a href='?_src_=holder;dbbanmirrors=[query.item[2]];'>Back</a>"
 	user << browse(output, "window=banmirrors")
+
+/proc/toggle_mirror_status(mob/user, mirror_id, inactive = FALSE)
+	if (!user || !check_rights(R_MOD|R_ADMIN) || !mirror_id)
+		return
+
+	if (!establish_db_connection(dbcon))
+		to_chat(user, "<span class='warning'>Database connection failed!</span>")
+		return
+
+	var/DBQuery/query = dbcon.NewQuery("UPDATE ss13_ban_mirrors SET deleted_at = :new_state: WHERE id = :id:")
+	query.Execute(list("new_state" = inactive ? null : "NOW()", "id" = mirror_id))
+
+	if (query.ErrorMsg())
+		to_chat(user, "<span class='warning'>An error occured while toggling mirror status!</span>")
+	else
+		to_chat(user, "<span class='notice'>Mirror set to [inactive ? "ACTIVE" : "INACTIVE"].</span>")
 
 /proc/handle_connection_info(var/client/C, var/data)
 	if (!C)

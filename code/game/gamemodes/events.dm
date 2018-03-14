@@ -32,7 +32,7 @@
 		if(1)
 			command_alert("Meteors have been detected on collision course with the station.", "Meteor Alert")
 			for(var/mob/M in player_list)
-				if(!istype(M,/mob/new_player))
+				if(!istype(M,/mob/abstract/new_player))
 					M << sound('sound/AI/meteors.ogg')
 			spawn(100)
 				meteor_wave()
@@ -44,7 +44,7 @@
 		if(2)
 			command_alert("Gravitational anomalies detected on the station. There is no additional data.", "Anomaly Alert")
 			for(var/mob/M in player_list)
-				if(!istype(M,/mob/new_player))
+				if(!istype(M,/mob/abstract/new_player))
 					M << sound('sound/AI/granomalies.ogg')
 			var/turf/T = pick(blobstart)
 			var/obj/effect/bhole/bh = new /obj/effect/bhole( T.loc, 30 )
@@ -187,7 +187,7 @@ var/hadevent    = 0
 	//world << sound('sound/AI/aliens.ogg')
 	var/list/vents = list()
 	for(var/obj/machinery/atmospherics/unary/vent_pump/temp_vent in SSmachinery.processing_machines)
-		if(!temp_vent.welded && temp_vent.network && temp_vent.loc.z in config.station_levels)
+		if(!temp_vent.welded && temp_vent.network && temp_vent.loc.z in current_map.station_levels)
 			if(temp_vent.network.normal_members.len > 50) // Stops Aliens getting stuck in small networks. See: Security, Virology
 				vents += temp_vent
 

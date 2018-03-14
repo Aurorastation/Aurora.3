@@ -75,14 +75,14 @@
 		var/obj/machinery/light/L = O
 		L.brightness_color = color
 		L.update()
-	else if(istype(O, /obj/item/clothing/suit/storage/det_trench/technicolor) || istype(O, /obj/item/clothing/head/det/technicolor))
+	else if(istype(O, /obj/item/clothing/suit/storage/toggle/det_trench/technicolor) || istype(O, /obj/item/clothing/head/det/technicolor))
 		return
 
 	else if(istype(O))
 		O.color = color
 
 /datum/reagent/paint/touch_mob(var/mob/M)
-	if(istype(M) && !istype(M, /mob/dead)) //painting ghosts: not allowed
+	if(istype(M) && !istype(M, /mob/abstract)) //painting ghosts: not allowed
 		M.color = color //maybe someday change this to paint only clothes and exposed body parts for human mobs.
 
 /datum/reagent/paint/get_data()
@@ -203,6 +203,14 @@
 				new /obj/effect/decal/cleanable/greenglow(T)
 			return
 
+/datum/reagent/platinum
+	name ="Platinum"
+	id = "platinum"
+	description = "Platinum is a naturally occuring silvery metalic element."
+	reagent_state = SOLID
+	color = "#E0E0E0"
+	taste_description = "salty metalic miner tears"
+
 /datum/reagent/adrenaline
 	name = "Adrenaline"
 	id = "adrenaline"
@@ -234,11 +242,19 @@
 			vampire.frenzy += removed * 5
 		else if(M.mind && cult.is_antagonist(M.mind) && prob(10))
 			cult.remove_antagonist(M.mind)
+	if(alien && alien == IS_UNDEAD)
+		M.adjust_fire_stacks(10)
+		M.IgniteMob()
 
 /datum/reagent/water/holywater/touch_turf(var/turf/T)
 	if(volume >= 5)
 		T.holy = 1
 	return
+
+/datum/reagent/water/holywater/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien && alien == IS_UNDEAD)
+		M.adjust_fire_stacks(5)
+		M.IgniteMob()
 
 /datum/reagent/diethylamine
 	name = "Diethylamine"
@@ -352,6 +368,30 @@
 	if(volume >= 1)
 		T.wet_floor(2)
 
+/datum/reagent/cardox
+	name = "Cardox"
+	id = "cardox"
+	description = "Cardox is an expensive, NanoTrasen designed cleaner intended to eliminate liquid phoron stains from suits."
+	reagent_state = LIQUID
+	color = "#EEEEEE"
+	taste_description = "cherry"
+
+/datum/reagent/toxin/cardox/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+	.. ()
+	if(alien == IS_VAURCA)
+		affect_blood(M, alien, removed * 0.25)
+
+/datum/reagent/cardox/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_VAURCA)
+		M.adjustToxLoss(removed * 5)
+	else
+		M.adjustToxLoss(removed * 2)
+
+/datum/reagent/cardox/touch_turf(var/turf/T)
+	if(volume >= 1)
+		for(var/mob/living/carbon/slime/M in T)
+			M.adjustToxLoss(rand(10, 20))
+
 /datum/reagent/silicate
 	name = "Silicate"
 	id = "silicate"
@@ -449,3 +489,70 @@
 		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
 	if(isskeleton(M))
 		M.heal_organ_damage(10 * removed, 15 * removed)
+
+/datum/reagent/liquid_fire
+	name = "Liquid Fire"
+	id = "liquid_fire"
+	description = "A dangerous flammable chemical, capable of causing fires when in contact with organic matter."
+	reagent_state = LIQUID
+	color = "#E25822"
+	touch_met = 5
+	taste_description = "metal"
+
+/datum/reagent/liquid_fire/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(istype(M))
+		M.adjust_fire_stacks(10)
+		M.IgniteMob()
+
+/datum/reagent/liquid_fire/touch_mob(var/mob/living/L, var/amount)
+	if(istype(L))
+		L.adjust_fire_stacks(10)
+		L.IgniteMob()
+
+/datum/reagent/black_matter
+	name = "Unstable Black Matter"
+	id = "black_matter"
+	description = "A pitch black blend of cosmic origins, handle with care."
+	color = "#000000"
+	taste_description = "emptyness"
+
+/datum/reagent/black_matter/touch_turf(var/turf/T)
+	var/obj/effect/portal/P = new /obj/effect/portal(T)
+	P.creator = null
+	P.icon = 'icons/obj/objects.dmi'
+	P.failchance = 0
+	P.icon_state = "anom"
+	P.name = "wormhole"
+	var/list/pick_turfs = list()
+	for(var/turf/simulated/floor/exit in turfs)
+		if(exit.z in current_map.station_levels)
+			pick_turfs += exit
+	P.target = pick(pick_turfs)
+	QDEL_IN(P, rand(150,300))
+	remove_self(volume)
+	return
+
+/datum/reagent/bluespace_dust
+	name = "Bluespace Dust"
+	id = "bluespace_dust"
+	description = "A dust composed of microscopic bluespace crystals."
+	color = "#1f8999"
+	taste_description = "fizzling blue"
+
+/datum/reagent/bluespace_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(prob(25))
+		M.make_jittery(5)
+		M << "<span class='warning'>You feel unstable...</span>"
+
+	if(prob(10))
+		do_teleport(M, get_turf(M), 5, asoundin = 'sound/effects/phasein.ogg')
+
+/datum/reagent/bluespace_dust/touch_mob(var/mob/living/L, var/amount)
+	do_teleport(L, get_turf(L), amount, asoundin = 'sound/effects/phasein.ogg')
+
+/datum/reagent/philosopher_stone
+	name = "Philosopher's Stone"
+	id = "philosopher_stone"
+	description = "A mythical compound, rumored to be the catalyst of fantastic reactions."
+	color = "#f4c430"
+	taste_description = "heavenly knowledge"

@@ -20,6 +20,7 @@
 	setup_dionastats()
 	verbs += /mob/living/carbon/human/proc/check_light
 	verbs += /mob/living/carbon/human/proc/diona_split_nymph
+	verbs += /mob/living/proc/devour
 
 
 	spawn(10)
@@ -40,7 +41,6 @@
 			src << "<span class=notice>We are named [real_name] for now, but we can choose a new name for our gestalt. (Check the Abilities Tab)</span>"
 			//This allows a gestalt to rename itself -once- upon reforming
 
-		verbs.Remove(/mob/living/proc/devour)//Gestalts cant devour
 		verbs.Add(/mob/living/carbon/proc/absorb_nymph)
 
 		topup_nymphs()
@@ -217,18 +217,36 @@
 	var/mob/living/carbon/alien/diona/bestNymph = null
 	var/bestHealth = 0
 
+
+	var/nymphs_to_kill_off = 0
+
+
+
 	//We iterate through all the nymphs and find which one is healthiest and not controlled
 	//The gestalt's player will control that nymph
 
 	//Start the splitting sound
 	playsound(src.loc, 'sound/species/diona/gestalt_split.ogg', 100, 1)
 	sleep(20)
+	var/list/nymphos = list()
+
+	var/list/organ_removal_priorities = list("l_arm","r_arm","l_leg","r_leg")
+	for(var/organ_name in organ_removal_priorities)
+		var/obj/item/organ/external/O = organs_by_name[organ_name]
+		if(!O || O.is_stump())
+			nymphs_to_kill_off += 1
+
 	for(var/mob/living/carbon/alien/diona/D in src)
+		if(nymphs_to_kill_off > 0)
+			D.stat = DEAD
+			nymphs_to_kill_off -= 1
+			qdel(D)
+			continue
 		if ((!D.key) && bestNymph == null)
 			//As a safety, we choose the first unkeyed one to begin with, even if its dead.
 			//We'll replace this choice when/if we find a better one
 			bestNymph = D
-
+		nymphos += D
 		D.forceMove(T)
 		D.split_languages(src)
 		D.set_dir(pick(NORTH, SOUTH, EAST, WEST))
@@ -244,12 +262,16 @@
 		else //If a nymph is too heavily damaged, it cannot survive and will be born dead
 			D.visible_message("[D] is too damaged to survive outside a gestalt, and expires with a pitiful chirrup", "You are too damaged to survive outside of your gestalt!", "You hear a pitiful chirrup!")
 			D.stat = DEAD
-		//D.tumble(2)//So they're not all dumped on one tile
 
 	for(var/obj/item/W in src)
 		drop_from_inventory(W)
 
 	if (bestNymph)
+		for(var/mob/living/carbon/alien/diona/D in nymphos)
+			D.master_nymph = bestNymph
+			D.birds_of_feather += nymphos
+			D.pixel_y += rand(-10,10)
+			D.pixel_x += rand(-10,10)
 		bestNymph.set_dir(dir)
 		transfer_languages(src, bestNymph)
 		if(mind)

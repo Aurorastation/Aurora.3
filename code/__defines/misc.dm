@@ -16,7 +16,11 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 
 
 // Turf-only flags.
-#define NOJAUNT 1 // This is used in literally one place, turf.dm, to block ethereal jaunt.
+#define NOJAUNT 1          // This is used in literally one place, turf.dm, to block ethereal jaunt.
+#define MIMIC_BELOW 2      // If this turf should mimic the turf on the Z below.
+#define MIMIC_OVERWRITE 4  // If this turf is Z-mimicing, overwrite the turf's appearance instead of using a movable. This is faster, but means the turf cannot have an icon.
+#define MIMIC_QUEUED 8     // If the turf is currently queued for Z-mimic update.
+#define MIMIC_NO_AO 16     // If the turf shouldn't apply regular turf AO and only do Z-mimic AO.
 
 #define TRANSITIONEDGE 7 // Distance from edge to move to another z-level.
 
@@ -36,6 +40,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 
 #define SEE_INVISIBLE_MINIMUM 5
 #define INVISIBILITY_MAXIMUM 100
+#define INVISIBILITY_ABSTRACT 101	// Special invis value that can never be seen by see_invisible.
 
 // Some arbitrary defines to be used by self-pruning global lists. (see master_controller)
 #define PROCESS_KILL 26 // Used to trigger removal from a processing list.
@@ -44,7 +49,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define AGE_MIN 17
 #define AGE_MAX 85
 
-#define MAX_GEAR_COST 5 // Used in chargen for accessory loadout limit.
+#define MAX_GEAR_COST 10 // Used in chargen for accessory loadout limit.
 
 // Preference toggles.
 #define SOUND_ADMINHELP 0x1
@@ -68,6 +73,8 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define PARALLAX_DUST  0x2
 #define PROGRESS_BARS  0x4
 #define PARALLAX_IS_STATIC 0x8
+//Gun safety check.
+#define SAFETY_CHECK 0x10
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_LOOC)
 
@@ -75,8 +82,9 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define ASFX_AMBIENCE	1
 #define ASFX_FOOTSTEPS	2
 #define ASFX_VOTE		4
+#define ASFX_VOX		8
 
-#define ASFX_DEFAULT (ASFX_AMBIENCE|ASFX_FOOTSTEPS|ASFX_VOTE)
+#define ASFX_DEFAULT (ASFX_AMBIENCE|ASFX_FOOTSTEPS|ASFX_VOTE|ASFX_VOX)
 
 // For secHUDs and medHUDs and variants. The number is the location of the image on the list hud_list of humans.
 #define      HEALTH_HUD 1 // A simple line rounding the mob's number health.
@@ -166,15 +174,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define RAD_SHIELDED 1 //shielded from radiation, clearly
 #define SPAWN_ROOF   2 // if we should attempt to spawn a roof above us.
 #define HIDE_FROM_HOLOMAP 4 // if we shouldn't be drawn on station holomaps
-
-// Custom layer definitions, supplementing the default TURF_LAYER, MOB_LAYER, etc.
-#define DOOR_OPEN_LAYER 2.7		//Under all objects if opened. 2.7 due to tables being at 2.6
-#define DOOR_CLOSED_LAYER 3.1	//Above most items if closed
-#define LIGHTING_LAYER 11
-#define HUD_LAYER 20			//Above lighting, but below obfuscation. For in-game HUD effects (whereas SCREEN_LAYER is for abstract/OOC things like inventory slots)
-#define OBFUSCATION_LAYER 21	//Where images covering the view for eyes are put
-#define SCREEN_LAYER 22			//Mob HUD/effects layer
-#define UNDERDOOR 3.09		//Just barely under a closed door.
+#define FIRING_RANGE	8
 
 // Convoluted setup so defines can be supplied by Bay12 main server compile script.
 // Should still work fine for people jamming the icons into their repo.
@@ -286,8 +286,8 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define LAYER_ABOVE_TABLE	2.81
 
 // Stoplag.
-#define TICK_CHECK ( world.tick_usage > CURRENT_TICKLIMIT ? stoplag() : 0 )
-#define CHECK_TICK if (world.tick_usage > CURRENT_TICKLIMIT)  stoplag()
+#define TICK_CHECK (world.tick_usage > CURRENT_TICKLIMIT)
+#define CHECK_TICK if (TICK_CHECK) stoplag()
 
 // Performance bullshit.
 
@@ -368,14 +368,9 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define USE_FAIL_NOT_IN_USER 6
 #define USE_FAIL_IS_SILICON 7
 
-// 510 doesn't have this flag, so this shim will turn it into a no-op if it doesn't exist.
-#ifndef SEE_BLACKNESS
-#define SEE_BLACKNESS 0
-#endif
+#define DEFAULT_SIGHT (SEE_SELF)
 
-#define DEFAULT_SIGHT (SEE_SELF|SEE_BLACKNESS)
-
-#define isStationLevel(Z) ((Z) in config.station_levels)
+#define isStationLevel(Z) ((Z) in current_map.station_levels)
 #define isNotStationLevel(Z) !isStationLevel(Z)
 
 //Affects the chance that armour will block an attack. Should be between 0 and 1.
@@ -406,3 +401,58 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 // Defines for translating a dir into pixelshifts for wall items
 #define DIR2PIXEL_X(dir) ((dir & (NORTH|SOUTH)) ? 0 : (dir == EAST ? DEFAULT_WALL_OFFSET : -(DEFAULT_WALL_OFFSET)))
 #define DIR2PIXEL_Y(dir) ((dir & (NORTH|SOUTH)) ? (dir == NORTH ? DEFAULT_WALL_OFFSET : -(DEFAULT_WALL_OFFSET)) : 0)
+
+/*
+Define for getting a bitfield of adjacent turfs that meet a condition.
+ ORIGIN is the object to step from, VAR is the var to write the bitfield to
+ TVAR is the temporary turf variable to use, FUNC is the condition to check.
+ FUNC generally should reference TVAR.
+ example:
+	var/turf/T
+	var/result = 0
+	CALCULATE_NEIGHBORS(src, result, T, isopenturf(T))
+*/
+#define CALCULATE_NEIGHBORS(ORIGIN, VAR, TVAR, FUNC) \
+	for (var/_tdir in cardinal) {                    \
+		TVAR = get_step(ORIGIN, _tdir);              \
+		if ((TVAR) && (FUNC)) {                      \
+			VAR |= 1 << _tdir;                       \
+		}                                            \
+	}                                                \
+	if (VAR & N_NORTH) {                             \
+		if (VAR & N_WEST) {                          \
+			TVAR = get_step(ORIGIN, NORTHWEST);      \
+			if (FUNC) {                              \
+				VAR |= N_NORTHWEST;                  \
+			}                                        \
+		}                                            \
+		if (VAR & N_EAST) {                          \
+			TVAR = get_step(ORIGIN, NORTHEAST);      \
+			if (FUNC) {                              \
+				VAR |= N_NORTHEAST;                  \
+			}                                        \
+		}                                            \
+	}                                                \
+	if (VAR & N_SOUTH) {                             \
+		if (VAR & N_WEST) {                          \
+			TVAR = get_step(ORIGIN, SOUTHWEST);      \
+			if (FUNC) {                              \
+				VAR |= N_SOUTHWEST;                  \
+			}                                        \
+		}                                            \
+		if (VAR & N_EAST) {                          \
+			TVAR = get_step(ORIGIN, SOUTHEAST);      \
+			if (FUNC) {                              \
+				VAR |= N_SOUTHEAST;                  \
+			}                                        \
+		}                                            \
+	}
+
+#define DEVICE_NO_CELL "no_cell"
+
+#define FALLOFF_SOUNDS 0.5
+#define SOUND_Z_FACTOR 100
+// Maximum number of Zs away you can be from a sound before it stops being audible.
+#define MAX_SOUND_Z_TRAVERSAL 2
+
+#define Z_ALL_TURFS(Z) block(locate(1, 1, Z), locate(world.maxx, world.maxy, Z))

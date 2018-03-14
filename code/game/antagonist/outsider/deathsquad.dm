@@ -49,10 +49,10 @@ var/datum/antagonist/deathsquad/deathsquad
 		player.equip_to_slot_or_del(new /obj/item/weapon/plastique(player), slot_l_store)
 		player.equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword(player), slot_r_store)
 	player.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/rifle/pulse(player), slot_l_hand)
-	
+
 	var/obj/item/weapon/storage/belt/security/tactical/commando_belt = new(player)
-	commando_belt.contents += new /obj/item/ammo_magazine/a357
-	commando_belt.contents += new /obj/item/ammo_magazine/a357
+	commando_belt.contents += new /obj/item/ammo_magazine/a454
+	commando_belt.contents += new /obj/item/ammo_magazine/a454
 	commando_belt.contents += new /obj/item/weapon/melee/baton/loaded
 	commando_belt.contents += new /obj/item/weapon/shield/energy
 	commando_belt.contents += new /obj/item/weapon/grenade/flashbang
@@ -61,7 +61,7 @@ var/datum/antagonist/deathsquad/deathsquad
 	commando_belt.contents += new /obj/item/weapon/handcuffs
 	commando_belt.contents += new /obj/item/weapon/grenade/frag
 	player.equip_to_slot_or_del(commando_belt, slot_belt)
-	
+
 	var/obj/item/weapon/rig/ert/assetprotection/mercrig = new(get_turf(player))
 	mercrig.seal_delay = 0
 	player.put_in_hands(mercrig)
@@ -79,8 +79,8 @@ var/datum/antagonist/deathsquad/deathsquad
 		if(player.internal)
 			player.internals.icon_state = "internal1"
 		else
-			player << "<span class='danger'>You forgot to turn on your internals! Quickly, toggle the valve!</span>"	
-	
+			player << "<span class='danger'>You forgot to turn on your internals! Quickly, toggle the valve!</span>"
+
 	var/obj/item/weapon/card/id/id = create_id("Asset Protection", player)
 	if(id)
 		id.access |= get_all_station_access()

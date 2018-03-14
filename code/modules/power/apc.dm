@@ -118,6 +118,8 @@
 	var/global/list/status_overlays_lighting
 	var/global/list/status_overlays_environ
 
+	var/emergency_lights = FALSE
+
 /obj/machinery/power/apc/updateDialog()
 	if (stat & (BROKEN|MAINT))
 		return
@@ -847,6 +849,7 @@
 		"coverLocked" = coverlocked,
 		"failTime" = failure_timer * 2,
 		"siliconUser" = istype(user, /mob/living/silicon),
+		"emergencyMode" = !emergency_lights,
 
 		"powerChannels" = list(
 			list(
@@ -972,10 +975,20 @@
 	if (href_list["lmode"])
 		src.toggle_nightlight(href_list["lmode"])
 		update_icon()
+		return 1
 
 	else if(!istype(usr, /mob/living/silicon) && (locked && !emagged))
 		// Shouldn't happen, this is here to prevent href exploits
 		usr << "You must unlock the panel to use this!"
+		return 1
+
+	else if (href_list["emergency_lights"])
+		emergency_lights = href_list["emergency_lights"] != "off"
+		for (var/obj/machinery/light/L in area)
+			if (!initial(L.no_emergency))
+				L.no_emergency = emergency_lights	//If there was an override set on creation, keep that override
+				INVOKE_ASYNC(L, /obj/machinery/light/.proc/update, FALSE)
+			CHECK_TICK
 		return 1
 
 	if (href_list["lock"])
@@ -1298,29 +1311,31 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 
 /obj/machinery/power/apc/proc/set_broken()
 	// Aesthetically much better!
-	src.visible_message("<span class='notice'>[src]'s screen flickers with warnings briefly!</span>")
-	spawn(rand(2,5))
-		src.visible_message("<span class='notice'>[src]'s screen suddenly explodes in rain of sparks and small debris!</span>")
-		stat |= BROKEN
-		operating = 0
-		update_icon()
-		update()
+	visible_message("<span class='notice'>[src]'s screen flickers with warnings briefly!</span>")
+	addtimer(CALLBACK(src, .proc/break_timer), rand(2, 5))
+
+/obj/machinery/power/apc/proc/break_timer()
+	src.visible_message("<span class='notice'>[src]'s screen suddenly explodes in rain of sparks and small debris!</span>")
+	stat |= BROKEN
+	operating = 0
+	queue_icon_update()
+	update()
 
 // overload the lights in this APC area
 
 /obj/machinery/power/apc/proc/overload_lighting(var/chance = 100, var/force = FALSE)
+	set waitfor = 0
 	if((!operating || shorted) && !force)
 		return
 
 	if(force || (cell && cell.charge >= 20))
 		cell.use(20)	// Draining an empty cell is fine.
 
-		spawn(0)
-			for (var/obj/machinery/light/L in area)
-				if (prob(chance))
-					L.on = 1
-					L.broken()
-					sleep(1)
+		for (var/obj/machinery/light/L in area)
+			if (prob(chance))
+				L.stat &= ~POWEROFF
+				L.broken()
+				stoplag(1)
 
 /obj/machinery/power/apc/proc/flicker_all()
 	var/offset = 0

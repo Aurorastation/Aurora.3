@@ -81,6 +81,7 @@ var/list/ai_verbs_default = list(
 	var/errored = 0								// Set to 1 if runtime error occurs. Only way of this happening i can think of is admin fucking up with varedit.
 	var/bombing_core = 0						// Set to 1 if core auto-destruct is activated
 	var/bombing_station = 0						// Set to 1 if station nuke auto-destruct is activated
+	var/bombing_time = 1200							// How much time is remaining for the nuke
 	var/override_CPUStorage = 0					// Bonus/Penalty CPU Storage. For use by admins/testers.
 	var/override_CPURate = 0					// Bonus/Penalty CPU generation rate. For use by admins/testers.
 	var/list/cameraRecords = list()				//For storing what is shown to the cameras
@@ -279,6 +280,12 @@ var/list/ai_verbs_default = list(
 		aiPDA.owner = pickedName
 		aiPDA.name = pickedName + " (" + aiPDA.ownjob + ")"
 
+	//Set the ID Name
+	if(idcard)
+		idcard.registered_name = pickedName
+		idcard.assignment = "AI"
+		idcard.update_name()
+
 	setup_icon() //this is because the ai custom name is related to the ai name, so, we just call the setup icon after someone named their ai
 
 /*
@@ -422,12 +429,12 @@ var/list/ai_verbs_default = list(
 	if(emergency_message_cooldown)
 		usr << "<span class='warning'>Arrays recycling. Please stand by.</span>"
 		return
-	var/input = sanitize(input(usr, "Please choose a message to transmit to [boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", ""))
+	var/input = sanitize(input(usr, "Please choose a message to transmit to [current_map.boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", ""))
 	if(!input)
 		return
 	Centcomm_announce(input, usr)
 	usr << "<span class='notice'>Message transmitted.</span>"
-	log_say("[key_name(usr)] has made an IA [boss_short] announcement: [input]",ckey=key_name(usr))
+	log_say("[key_name(usr)] has made an AI [current_map.boss_short] announcement: [input]",ckey=key_name(usr))
 	emergency_message_cooldown = 1
 	spawn(300)
 		emergency_message_cooldown = 0

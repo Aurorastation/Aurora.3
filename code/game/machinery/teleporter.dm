@@ -84,16 +84,16 @@
 	if(..()) return
 
 	/* Ghosts can't use this one because it's a direct selection */
-	if(istype(user, /mob/dead/observer)) return
+	if(istype(user, /mob/abstract/observer)) return
 
 	var/list/L = list()
 	var/list/areaindex = list()
 
-	for(var/obj/item/device/radio/beacon/R in world)
+	for(var/obj/item/device/radio/beacon/R in teleportbeacons)
 		var/turf/T = get_turf(R)
 		if (!T)
 			continue
-		if(!(T.z in config.player_levels))
+		if(!(T.z in current_map.player_levels))
 			continue
 		var/tmpname = T.loc.name
 		if(areaindex[tmpname])
@@ -102,7 +102,7 @@
 			areaindex[tmpname] = 1
 		L[tmpname] = R
 
-	for (var/obj/item/weapon/implant/tracking/I in world)
+	for (var/obj/item/weapon/implant/tracking/I in implants)
 		if (!I.implanted || !ismob(I.loc))
 			continue
 		else
@@ -184,12 +184,10 @@
 	com = null
 	return ..()
 
-/obj/machinery/teleport/hub/Bumped(M as mob|obj)
-	spawn()
-		if (src.icon_state == "tele1")
-			teleport(M)
-			use_power(5000)
-	return
+/obj/machinery/teleport/hub/CollidedWith(M as mob|obj)
+	if (src.icon_state == "tele1")
+		teleport(M)
+		use_power(5000)
 
 /obj/machinery/teleport/hub/proc/teleport(atom/movable/M as mob|obj)
 	if (!com)
@@ -318,8 +316,7 @@
 
 /obj/machinery/teleport/station/New()
 	..()
-	overlays.Cut()
-	overlays += image('icons/obj/stationobjs.dmi', icon_state = "controller-wires")
+	set_overlays("controller-wires")
 
 /obj/machinery/teleport/station/attackby(var/obj/item/weapon/W)
 	src.attack_hand()
@@ -395,9 +392,9 @@
 		icon_state = "controller"
 
 
-/obj/effect/laser/Bump()
+/obj/effect/laser/Collide()
+	. = ..()
 	src.range--
-	return
 
 /obj/effect/laser/Move()
 	src.range--

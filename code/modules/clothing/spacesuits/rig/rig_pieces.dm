@@ -26,6 +26,7 @@
 	cold_protection =    HANDS
 	species_restricted = null
 	gender = PLURAL
+	punch_force = 5
 
 /obj/item/clothing/shoes/magboots/rig
 	name = "boots"

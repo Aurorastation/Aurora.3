@@ -75,6 +75,11 @@
 
 	var/icon_override  //Used to override hardcoded clothing dmis in human clothing pr
 
+	var/charge_failure_message = " cannot be recharged."
+
+	var/cleaving = FALSE
+	var/reach = 1 // Length of tiles it can reach, 1 is adjacent.
+
 /obj/item/Destroy()
 	if(ismob(loc))
 		var/mob/m = loc
@@ -84,8 +89,12 @@
 		src.loc = null
 	return ..()
 
+
 /obj/item/device
 	icon = 'icons/obj/device.dmi'
+
+/obj/item/proc/get_cell()
+	return DEVICE_NO_CELL
 
 //Checks if the item is being held by a mob, and if so, updates the held icons
 /obj/item/proc/update_held_icon()
@@ -725,3 +734,34 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			M.update_inv_pockets()
 		if (slot_s_store)
 			M.update_inv_s_store()
+
+// Attacks mobs that are adjacent to the target and user.
+/obj/item/proc/cleave(var/mob/living/user, var/mob/living/target)
+	if(cleaving)
+		return // We're busy.
+	cleaving = TRUE
+	var/hit_mobs = 0
+	for(var/mob/living/SA in orange(get_turf(target), 1))
+		if(SA.stat == DEAD) // Don't beat a dead horse.
+			continue
+		if(SA == user) // Don't hit ourselves.  Simple mobs shouldn't be able to do this but that might change later to be able to hit all mob/living-s.
+			continue
+		if(SA == target) // We (presumably) already hit the target before cleave() was called.  orange() should prevent this but just to be safe...
+			continue
+		if(!SA.Adjacent(user) || !SA.Adjacent(target)) // Cleaving only hits mobs near the target mob and user.
+			continue
+		if(resolve_attackby(SA, user)) // Hit them with the weapon.  This won't cause recursive cleaving due to the cleaving variable being set to true.
+			hit_mobs++
+
+	if(hit_mobs)
+		to_chat(user, "<span class='danger'>You used \the [src] to attack [hit_mobs] other target\s!</span>")
+	cleaving = FALSE
+
+// Used for non-adjacent melee attacks with specific weapons capable of reaching more than one tile.
+// This uses changeling range string A* but for this purpose its also applicable.
+/obj/item/proc/attack_can_reach(var/atom/us, var/atom/them, var/range)
+	if(us.Adjacent(them))
+		return TRUE // Already adjacent.
+	if(AStar(get_turf(us), get_turf(them), /turf/proc/AdjacentTurfsRanged, /turf/proc/Distance, max_nodes=25, max_node_depth=range))
+		return TRUE
+	return FALSE

@@ -18,6 +18,7 @@
  *		Kitchen utensil box
  * 		Random preserved snack box
  *		For syndicate call-ins see uplink_kits.dm
+ *		Firing pin boxes - Testing and Normal. one for sec, one for science.
  */
 
 /obj/item/weapon/storage/box
@@ -337,6 +338,46 @@
 	new /obj/item/weapon/grenade/flashbang(src)
 	new /obj/item/weapon/grenade/flashbang(src)
 	new /obj/item/weapon/grenade/flashbang(src)
+
+/obj/item/weapon/storage/box/firingpins
+	name = "box of firing pins"
+	desc = "A box of NT brand Firearm authentication pins; Needed to operate most weapons."
+
+/obj/item/weapon/storage/box/firingpins/fill()
+	..()
+	new /obj/item/device/firing_pin(src)
+	new /obj/item/device/firing_pin(src)
+	new /obj/item/device/firing_pin(src)
+	new /obj/item/device/firing_pin(src)
+	new /obj/item/device/firing_pin(src)
+	new /obj/item/device/firing_pin(src)
+	new /obj/item/device/firing_pin(src)
+
+/obj/item/weapon/storage/box/testpins
+	name = "box of firing pins"
+	desc = "A box of NT brand Testing Authentication pins; allows guns to fire in designated firing ranges."
+
+/obj/item/weapon/storage/box/testpins/fill()
+	..()
+	new /obj/item/device/firing_pin/test_range(src)
+	new /obj/item/device/firing_pin/test_range(src)
+	new /obj/item/device/firing_pin/test_range(src)
+	new /obj/item/device/firing_pin/test_range(src)
+	new /obj/item/device/firing_pin/test_range(src)
+	new /obj/item/device/firing_pin/test_range(src)
+	new /obj/item/device/firing_pin/test_range(src)
+	new /obj/item/device/firing_pin/test_range(src)
+
+/obj/item/weapon/storage/box/loyaltypins
+	name = "box of firing pins"
+	desc = "A box of specialised \"loyalty\" authentication pins produced by Nanotrasen; these check to see if the user of the gun it's installed in has been implanted with a loyalty implant. Often used in ERTs."
+
+/obj/item/weapon/storage/box/loyaltypins/fill()
+	..()
+	new /obj/item/device/firing_pin/implant/loyalty(src)
+	new /obj/item/device/firing_pin/implant/loyalty(src)
+	new /obj/item/device/firing_pin/implant/loyalty(src)
+	new /obj/item/device/firing_pin/implant/loyalty(src)
 
 /obj/item/weapon/storage/box/teargas
 	name = "box of pepperspray grenades"
@@ -905,7 +946,7 @@
 
 /obj/item/weapon/storage/box/snack/fill()
 	var/list/snacks = list(
-			/obj/item/weapon/reagent_containers/food/snacks/koisbar,
+			/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean,
 			/obj/item/weapon/reagent_containers/food/snacks/candy,
 			/obj/item/weapon/reagent_containers/food/snacks/candy_corn,
 			/obj/item/weapon/reagent_containers/food/snacks/chips,

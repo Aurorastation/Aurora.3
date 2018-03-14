@@ -3,6 +3,7 @@
 {{:helper.link('Submitted', 'cart', {'page' : 'overview_submitted'}, null)}}
 {{:helper.link('Approved', 'cart', {'page' : 'overview_approved'}, null)}}
 {{:helper.link('Shipped', 'cart', {'page' : 'overview_shipped'}, null)}}
+{{:helper.link('Delivered', 'cart', {'page' : 'overview_delivered'}, null)}}
 {{:helper.link('Shipments', 'cart', {'page' : 'overview_shipments'}, null)}}
 {{:helper.link('Settings', 'cart', {'page' : 'settings'}, null)}}
 </div>
@@ -163,6 +164,45 @@
                     <tr>
                         <td><b>Shipped Order Value:</b></td>
                         <td>{{:data.order_shipped_value}} Credits</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+	<table>
+    <tr>
+        <th>Order ID</th>
+        <th>Customer</th>
+        <th>Price</th>
+        <th>Actions</th>
+    </tr>
+    {{props data.order_list}}
+		<tr>
+			<td>{{:value.order_id}}</td>
+            <td>{{:value.customer}}</td>
+            <td>{{:value.price}}</td>
+            <td>
+                {{:helper.link('Details', 'close', {'order_details' : value.order_id, 'page': 'order_details'}, null)}}
+            </td>
+		</tr>
+    {{/props}}
+	</table>
+    </div>
+{{else data.page == "overview_delivered"}}
+    <div class="statusDisplay" style="min-height: 100px;">
+        <div class="item">
+            <div class="itemContent" style="width: 100%;">
+                <table>
+                    <tr>
+                        <td colspan="2"><h3>Delivered Orders</h3></td>
+                    </tr>
+                    <tr>
+                        <td><b>Delivered Order Number:</b></td>
+                        <td>{{:data.order_delivered_number}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Delivered Order Value:</b></td>
+                        <td>{{:data.order_delivered_value}} Credits</td>
                     </tr>
                 </table>
             </div>

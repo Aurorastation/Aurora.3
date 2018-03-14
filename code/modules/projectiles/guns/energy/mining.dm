@@ -16,7 +16,6 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4, TECH_POWER = 4)
 	projectile_type = /obj/item/projectile/kinetic
 	fire_sound = 'sound/weapons/Kenetic_accel.ogg'
-
 	var/max_mod_capacity = 100
 	var/list/modkits = list()
 
@@ -74,14 +73,14 @@
 	damage = 15
 	damage_type = BRUTE
 	check_armour = "bomb"
-	kill_count = 5
+	range = 5
 
 	var/pressure_decrease = 0.25
 	var/turf_aoe = FALSE
 	var/mob_aoe = 0
 	var/list/hit_overlays = list()
 
-/obj/item/projectile/kinetic/launch_from_gun(atom/target, mob/user, obj/item/weapon/gun/launcher, var/target_zone, var/x_offset=0, var/y_offset=0)
+/obj/item/projectile/kinetic/launch_from_gun(atom/target, target_zone, mob/user, params, angle_override, forced_spread, obj/item/weapon/gun/launcher)
 	if(istype(launcher, /obj/item/weapon/gun/energy/kinetic_accelerator))
 		var/obj/item/weapon/gun/energy/kinetic_accelerator/KA = launcher
 		for(var/A in KA.get_modkits())
@@ -190,7 +189,7 @@
 	cost = 24 //so you can fit four plus a tracer cosmetic
 
 /obj/item/borg/upgrade/modkit/range/modify_projectile(obj/item/projectile/kinetic/K)
-	K.kill_count += modifier
+	K.range += modifier
 
 
 //Damage
@@ -314,18 +313,16 @@
 	damage = 15
 	damage_type = BURN
 	check_armour = "laser"
-	kill_count = 5
+	range = 5
 	pass_flags = PASSTABLE
 
-	muzzle_type = /obj/effect/projectile/trilaser/muzzle
-	tracer_type = /obj/effect/projectile/trilaser/tracer
-	impact_type = /obj/effect/projectile/trilaser/impact
+	muzzle_type = /obj/effect/projectile/muzzle/plasma_cutter
+	tracer_type = /obj/effect/projectile/tracer/plasma_cutter
+	impact_type = /obj/effect/projectile/impact/plasma_cutter
+	maiming = 1
+	maim_rate = 3
 
 /obj/item/projectile/beam/plasmacutter/on_impact(var/atom/A)
-	strike_thing(A)
-	. = ..()
-
-/obj/item/projectile/beam/plasmacutter/proc/strike_thing(var/atom/A)
 	if(istype(A, /turf/simulated/mineral))
 		var/turf/simulated/mineral/M = A
 		if(prob(33))
@@ -334,14 +331,4 @@
 		else if(prob(88))
 			M.emitter_blasts_taken += 2
 		M.emitter_blasts_taken += 1
-
-	else if(istype(A, /mob/living))
-		var/mob/living/L = A
-		L.apply_damage(damage, BRUTE, def_zone)
-		if(istype(A, /mob/living/carbon/human))
-			var/mob/living/carbon/human/H = L
-			var/ultimate_def_zone = check_zone(def_zone)
-			if(H.has_organ(ultimate_def_zone))
-				var/obj/item/organ/external/E = H.get_organ(ultimate_def_zone)
-				if(E.damage > 15 && prob((3*E.damage)))
-					E.droplimb(0,DROPLIMB_EDGE)
+	. = ..()

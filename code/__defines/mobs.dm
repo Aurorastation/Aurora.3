@@ -137,8 +137,6 @@
 #define FLASH_PROTECTION_NONE 0
 #define FLASH_PROTECTION_MODERATE 1
 #define FLASH_PROTECTION_MAJOR 2
-#define ANIMAL_SPAWN_DELAY round(config.respawn_delay / 6)
-#define DRONE_SPAWN_DELAY  round(config.respawn_delay / 3)
 
 #define ANIMAL_SPAWN_DELAY round(config.respawn_delay / 6)
 #define DRONE_SPAWN_DELAY  round(config.respawn_delay / 3)
@@ -205,7 +203,12 @@
 #define PROSTHETIC_HI "Hephaestus Industries"
 #define PROSTHETIC_XMG "Xion Manufacturing Group"
 
-// Defines for mechanical_species list.
-#define MECHANICAL_SPECIES_NORMAL 1	// Baselines, shells
-#define MECHANICAL_SPECIES_INDUSTRIAL 2	// Industrials, incl. branded.
-#define MECHANICAL_SPECIES_SPECIAL 3	// HKs
+//Brain Damage defines
+#define BRAIN_DAMAGE_MILD 10
+#define BRAIN_DAMAGE_SEVERE 40
+
+#define BRAIN_TRAUMA_MILD /datum/brain_trauma/mild
+#define BRAIN_TRAUMA_SEVERE /datum/brain_trauma/severe
+#define BRAIN_TRAUMA_SPECIAL /datum/brain_trauma/special
+
+#define BRAIN_DAMAGE_INTEGRITY_MULTIPLIER 0.5

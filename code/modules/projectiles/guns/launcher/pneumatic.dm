@@ -9,6 +9,7 @@
 	fire_sound_text = "a loud whoosh of moving air"
 	fire_delay = 50
 	fire_sound = 'sound/weapons/tablehit1.ogg'
+	needspin = FALSE
 
 	var/fire_pressure                                   // Used in fire checks/pressure checks.
 	var/max_w_class = 3                                 // Hopper intake size.

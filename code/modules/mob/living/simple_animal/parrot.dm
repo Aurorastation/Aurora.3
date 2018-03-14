@@ -50,6 +50,8 @@
 	stop_automated_movement = 1
 	universal_speak = 1
 
+	flying = TRUE
+
 	var/parrot_state = PARROT_WANDER //Hunt for a perch when created
 	var/parrot_sleep_max = 25 //The time the parrot sits while perched before looking around. Mosly a way to avoid the parrot's AI in life() being run every single tick.
 	var/parrot_sleep_dur = 25 //Same as above, this is the var that physically counts down
@@ -266,9 +268,8 @@
 /*
  * AI - Not really intelligent, but I'm calling it AI anyway.
  */
-/mob/living/simple_animal/parrot/Life()
+/mob/living/simple_animal/parrot/think()
 	..()
-
 	//Sprite and AI update for when a parrot gets pulled
 	if(pulledby && stat == CONSCIOUS)
 		icon_state = "parrot_fly"
@@ -758,11 +759,3 @@
 	icon_state = "parrot_fly"
 	return success
 
-/mob/living/simple_animal/parrot/can_fall()
-	return FALSE
-	
-/mob/living/simple_animal/parrot/can_ztravel()
-	return TRUE
-	
-/mob/living/simple_animal/parrot/CanAvoidGravity()
-	return TRUE

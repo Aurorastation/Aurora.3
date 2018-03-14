@@ -77,7 +77,7 @@
 		if(!locate(/turf) in list(A, A.loc)) // Prevents inventory from being drilled
 			return
 		var/obj/mecha/M = loc
-		return M.click_action(A, src)
+		return M.click_action(A, src, params)
 
 	if(restrained())
 		setClickCooldown(10)
@@ -125,8 +125,7 @@
 	// A is a turf or is on a turf, or in something on a turf (pen in a box); but not something in something on a turf (pen in a box in a backpack)
 	sdepth = A.storage_depth_turf()
 	if(isturf(A) || isturf(A.loc) || (sdepth != -1 && sdepth <= 1))
-		if(A.Adjacent(src)) // see adjacent.dm
-			setMoveCooldown(5)
+		if(A.Adjacent(src) || (W && W.attack_can_reach(src, A, W.reach)) ) // see adjacent.dm
 
 			if(W)
 				// Return 1 in attackby() to prevent afterattack() effects (when safely moving items for example)
@@ -191,7 +190,7 @@
 /mob/proc/RangedAttack(var/atom/A, var/params)
 	if(!mutations.len) return
 	if((LASER in mutations) && a_intent == I_HURT)
-		LaserEyes(A) // moved into a proc below
+		LaserEyes(A, params) // moved into a proc below
 	else if(TK in mutations)
 		switch(get_dist(src,A))
 			if(1 to 5) // not adjacent may mean blocked by window
@@ -293,21 +292,21 @@
 	Laser Eyes: as the name implies, handles this since nothing else does currently
 	face_atom: turns the mob towards what you clicked on
 */
-/mob/proc/LaserEyes(atom/A)
+/mob/proc/LaserEyes(atom/A, params)
 	return
 
-/mob/living/LaserEyes(atom/A)
+/mob/living/LaserEyes(atom/A, params)
 	setClickCooldown(4)
 	var/turf/T = get_turf(src)
 	src.visible_message("<span class='danger'>\The [src]'s eyes flare with ruby light!</span>")
 	var/obj/item/projectile/beam/LE = new (T)
-	LE.muzzle_type = /obj/effect/projectile/eyelaser/muzzle
-	LE.tracer_type = /obj/effect/projectile/eyelaser/tracer
-	LE.impact_type = /obj/effect/projectile/eyelaser/impact
+	LE.muzzle_type = /obj/effect/projectile/muzzle/eyelaser
+	LE.tracer_type = /obj/effect/projectile/tracer/eyelaser
+	LE.impact_type = /obj/effect/projectile/impact/eyelaser
 	playsound(usr.loc, 'sound/weapons/wave.ogg', 75, 1)
-	LE.launch(A)
+	LE.launch_projectile(A, zone_sel? zone_sel.selecting : null, src, params)
 
-/mob/living/carbon/human/LaserEyes()
+/mob/living/carbon/human/LaserEyes(atom/A, params)
 	if(nutrition>0)
 		..()
 		nutrition = max(nutrition - rand(1,5),0)

@@ -4,7 +4,7 @@
 //Added by Jack Rost
 /obj/item/trash
 	icon = 'icons/obj/trash.dmi'
-	w_class = 2.0
+	w_class = 1.0
 	desc = "This is rubbish."
 
 /obj/item/trash/koisbar
@@ -95,6 +95,19 @@
 /obj/item/trash/snacktray
 	name = "snacktray"
 	icon_state = "snacktray"
+
+/obj/item/trash/dipbowl
+	name = "dip bowl"
+	icon_state = "dipbowl"
+
+/obj/item/trash/chipbasket
+	name = "empty basket"
+	icon_state = "chipbasket_empty"
+
+/obj/item/trash/uselessplastic
+	name = "useless plastic"
+	icon_state = "useless_plastic"
+
 
 /obj/item/trash/attack(mob/M as mob, mob/living/user as mob)
 	return

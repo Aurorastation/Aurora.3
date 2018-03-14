@@ -82,7 +82,7 @@
 		var/flash_time = strength
 		if (istype(O, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = O
-			if(!H.eyecheck() <= 0)
+			if(!H.eyecheck(TRUE) <= 0)
 				continue
 			flash_time *= H.species.flash_mod
 			var/obj/item/organ/eyes/E = H.get_eyes()

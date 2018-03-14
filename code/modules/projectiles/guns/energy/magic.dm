@@ -16,6 +16,8 @@
 	origin_tech = list(TECH_COMBAT = 7, TECH_MAGNET = 5, TECH_BLUESPACE = 7)
 	self_recharge = 1
 	charge_meter = 0
+	pin = /obj/item/device/firing_pin/magic
+
 
 obj/item/weapon/gun/energy/staff/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
@@ -153,7 +155,7 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 										/obj/item/weapon/gun/energy/staff/animate, /obj/item/projectile/magic/fireball, /obj/item/projectile/magic/teleport,
 										/obj/item/projectile/temp, /obj/item/projectile/ion, /obj/item/projectile/energy/declone, /obj/item/projectile/meteor,
 										/obj/item/projectile/beam/thermaldrill, /obj/item/projectile/beam/energy_net, /obj/item/projectile/energy/bee)
-										
+
 /obj/item/weapon/gun/energy/staff/chaos/special_check(var/mob/living/user)
 	projectile_type = pick(possible_projectiles)
 	if(HULK in user.mutations)
@@ -187,6 +189,11 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	projectile_type = /obj/item/projectile/magic
 	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 5, TECH_BLUESPACE = 6)
 	charge_meter = 0
+	pin = /obj/item/device/firing_pin/magic
+	charge_failure_message = null
+
+/obj/item/weapon/gun/energy/wand/get_cell()
+	return DEVICE_NO_CELL
 
 /obj/item/weapon/gun/energy/wand/handle_click_empty(mob/user = null)
 	if (user)
@@ -194,13 +201,13 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	else
 		src.visible_message("*fizzle*")
 	playsound(src.loc, 'sound/effects/sparks1.ogg', 100, 1)
-	
+
 /obj/item/weapon/gun/energy/wand/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
 		return 0
 	return 1
-	
+
 /obj/item/weapon/gun/energy/wand/toy
 	origin_tech = null
 
@@ -215,7 +222,7 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	max_shots = 5
 	projectile_type = /obj/item/projectile/magic/fireball
 
-/obj/item/weapon/gun/energy/wand/fire/special_check(var/mob/living/user)	
+/obj/item/weapon/gun/energy/wand/fire/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
 		return 0
@@ -241,8 +248,8 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	fire_sound = 'sound/magic/Staff_Change.ogg'
 	max_shots = 10
 	projectile_type = /obj/item/projectile/change
-	
-/obj/item/weapon/gun/energy/wand/polymorph/special_check(var/mob/living/user)	
+
+/obj/item/weapon/gun/energy/wand/polymorph/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
 		return 0
@@ -267,8 +274,8 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	fire_sound = 'sound/magic/Wand_Teleport.ogg'
 	max_shots = 10
 	projectile_type = /obj/item/projectile/magic/teleport
-	
-/obj/item/weapon/gun/energy/wand/teleport/special_check(var/mob/living/user) //todo: think of something else for this	
+
+/obj/item/weapon/gun/energy/wand/teleport/special_check(var/mob/living/user) //todo: think of something else for this
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
 		return 0
@@ -304,7 +311,7 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	max_shots = 10
 	projectile_type = /obj/item/projectile/forcebolt
 
-/obj/item/weapon/gun/energy/wand/force/special_check(var/mob/living/user)	
+/obj/item/weapon/gun/energy/wand/force/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
 		return 0
@@ -313,7 +320,7 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 			var/mob/living/carbon/human/H = user
 			H.visible_message("<span class='danger'>\The [src] escapes from [H]'s hand, hitting their face and shattering into pieces!</span>")
 			H.apply_damage(35, BRUTE, "head", 0, sharp=0, edge=0)
-			H.adjustBrainLoss(50)
+			H.adjustBrainLoss(50, 55)
 			H.sdisabilities += CLUMSY
 			H.drop_item()
 			qdel(src)
@@ -329,8 +336,8 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	item_state = "revivewand"
 	max_shots = 10
 	projectile_type = /obj/item/projectile/animate
-	
-/obj/item/weapon/gun/energy/wand/animation/special_check(var/mob/living/user)	
+
+/obj/item/weapon/gun/energy/wand/animation/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
 		return 0

@@ -37,18 +37,23 @@
 			pulledby.pulling = null
 		pulledby = null
 
-/atom/movable/Bump(var/atom/A, yes)
-	if(src.throwing)
-		src.throw_impact(A)
-		src.throwing = 0
+// This is called when this atom is prevented from moving by atom/A.
+/atom/movable/proc/Collide(atom/A)
+	if(airflow_speed > 0 && airflow_dest)
+		airflow_hit(A)
+	else
+		airflow_speed = 0
+		airflow_time = 0
 
-	spawn(0)
-		if ((A && yes))
-			A.last_bumped = world.time
-			A.Bumped(src)
-		return
-	..()
-	return
+	if (throwing)
+		throwing = FALSE
+		. = TRUE
+		if (!QDELETED(A))
+			throw_impact(A)
+			A.CollidedWith(src)
+
+	else if (!QDELETED(A))
+		A.CollidedWith(src)
 
 //called when src is thrown into hit_atom
 /atom/movable/proc/throw_impact(atom/hit_atom, var/speed)
@@ -207,7 +212,7 @@
 	return
 
 /atom/movable/proc/touch_map_edge()
-	if(z in config.sealed_levels)
+	if(z in current_map.sealed_levels)
 		return
 
 	if(config.use_overmap)
@@ -241,17 +246,9 @@
 		spawn(0)
 			if(loc) loc.Entered(src)
 
-//This list contains the z-level numbers which can be accessed via space travel and the percentile chances to get there.
-var/list/accessible_z_levels = list("8" = 5, "9" = 10, "7" = 15, "2" = 60)
-
 //by default, transition randomly to another zlevel
 /atom/movable/proc/get_transit_zlevel()
-	var/list/candidates = accessible_z_levels.Copy()
-	candidates.Remove("[src.z]")
-
-	if(!candidates.len)
-		return null
-	return text2num(pickweight(candidates))
+	return current_map.get_transit_zlevel()
 
 // Parallax stuff.
 

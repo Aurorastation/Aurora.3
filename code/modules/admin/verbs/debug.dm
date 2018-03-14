@@ -65,7 +65,7 @@
 		alert("That mob doesn't seem to exist, close the panel and try again.")
 		return
 
-	if(istype(M, /mob/new_player))
+	if(istype(M, /mob/abstract/new_player))
 		alert("The mob must not be a new_player.")
 		return
 
@@ -203,7 +203,7 @@
 	set name = "Del-All"
 
 	// to prevent REALLY stupid deletions
-	var/blocked = list(/obj, /mob, /mob/living, /mob/living/carbon, /mob/living/carbon/human, /mob/dead, /mob/dead/observer, /mob/living/silicon, /mob/living/silicon/robot, /mob/living/silicon/ai)
+	var/blocked = list(/obj, /mob, /mob/living, /mob/living/carbon, /mob/living/carbon/human, /mob/abstract, /mob/abstract/observer, /mob/living/silicon, /mob/living/silicon/robot, /mob/living/silicon/ai)
 	var/hsbitem = input(usr, "Choose an object to delete.", "Delete:") as null|anything in typesof(/obj) + typesof(/mob) - blocked
 	if(hsbitem)
 		for(var/atom/O in world)
@@ -271,7 +271,7 @@
 		if(alert("This mob is being controlled by [M.ckey]. Are you sure you wish to assume control of it? [M.ckey] will be made a ghost.",,"Yes","No") != "Yes")
 			return
 		else
-			var/mob/dead/observer/ghost = new/mob/dead/observer(M,1)
+			var/mob/abstract/observer/ghost = new/mob/abstract/observer(M,1)
 			ghost.ckey = M.ckey
 	message_admins("<span class='notice'>[key_name_admin(usr)] assumed direct control of [M].</span>", 1)
 	log_admin("[key_name(usr)] assumed direct control of [M].",admin_key=key_name(usr))
@@ -468,7 +468,7 @@
 			M.equip_to_slot_or_del(new /obj/item/clothing/under/det(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(M), slot_shoes)
 
-			M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/det_trench(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/det_trench(M), slot_wear_suit)
 			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/thermal/plain/monocle(M), slot_glasses)
 			M.equip_to_slot_or_del(new /obj/item/clothing/head/det(M), slot_head)
 
@@ -781,7 +781,7 @@
 			W.icon_state = "centcom"
 			W.access = get_all_accesses()
 			W.access += get_all_centcom_access()
-			W.assignment = "NTCC Odin Security Specialist"
+			W.assignment = "[current_map.dock_name] Security Specialist"
 			W.registered_name = M.real_name
 			M.equip_to_slot_or_del(W, slot_wear_id)
 
@@ -926,17 +926,17 @@
 
 	switch(input("Which list?") in list("Players","Admins","Mobs","Living Mobs","Dead Mobs", "Clients"))
 		if("Players")
-			usr << list2text(player_list,",")
+			usr << jointext(player_list,",")
 		if("Admins")
-			usr << list2text(admins,",")
+			usr << jointext(admins,",")
 		if("Mobs")
-			usr << list2text(mob_list,",")
+			usr << jointext(mob_list,",")
 		if("Living Mobs")
-			usr << list2text(living_mob_list,",")
+			usr << jointext(living_mob_list,",")
 		if("Dead Mobs")
-			usr << list2text(dead_mob_list,",")
+			usr << jointext(dead_mob_list,",")
 		if("Clients")
-			usr << list2text(clients,",")
+			usr << jointext(clients,",")
 
 // DNA2 - Admin Hax
 /client/proc/cmd_admin_toggle_block(var/mob/M,var/block)

@@ -19,7 +19,7 @@
 
 	attack(mob/M as mob, mob/user as mob, def_zone)
 		//TODO: replace with standard_feed_mob() call.
-		
+
 		if(M == user)
 			if(!M.can_eat(src))
 				return
@@ -246,3 +246,13 @@
 	Initialize()
 		. = ..()
 		reagents.add_reagent("spaceacillin", 15)
+
+/obj/item/weapon/reagent_containers/pill/bio_vitamin
+	name = "Vitamin pill"
+	desc = "Contains a meal's worth of nutrients."
+	icon_state = "pill11"
+	Initialize()
+		. = ..()
+		reagents.add_reagent("nutriment", 20)
+		reagents.add_reagent(pick("banana","berryjuice","grapejuice","lemonjuice","limejuice","orangejuice","watermelonjuice"),1)
+		//Would be absolutely retarded to grind the biogenerator for juices.

@@ -60,7 +60,7 @@
 /datum/reagent/toxin/phoron/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if(H.species.has_organ["filtration bit"] && isvaurca(H))
+		if(H.species.has_organ["filtration bit"] && alien == IS_VAURCA)
 			metabolism = REM * 20 //vaurcae metabolise phoron faster than other species - good for them if their filter isn't broken.
 			var/obj/item/organ/vaurca/filtrationbit/F = H.internal_organs_by_name["filtration bit"]
 			if(isnull(F))
@@ -85,7 +85,7 @@
 		L.adjust_fire_stacks(amount / 5)
 
 /datum/reagent/toxin/phoron/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	if(isvaurca(M))
+	if(alien == IS_VAURCA)
 		return
 	M.take_organ_damage(0, removed * 0.1) //being splashed directly with phoron causes minor chemical burns
 	if(prob(50))
@@ -234,7 +234,11 @@
 			W.visible_message("<span class='notice'>The fungi are completely dissolved by the solution!</span>")
 
 /datum/reagent/toxin/plantbgone/touch_obj(var/obj/O, var/volume)
-	if(istype(O, /obj/effect/plant))
+	if(istype(O, /obj/structure/alien/weeds))
+		var/obj/structure/alien/weeds/alien_weeds = O
+		alien_weeds.health -= rand(15, 35)
+		alien_weeds.healthcheck()
+	else if(istype(O, /obj/effect/plant))
 		qdel(O)
 
 /datum/reagent/toxin/plantbgone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -559,7 +563,7 @@
 	M.transforming = 1
 	M.canmove = 0
 	M.icon = null
-	M.overlays.Cut()
+	M.cut_overlays()
 	M.invisibility = 101
 	for(var/obj/item/W in M)
 		if(istype(W, /obj/item/weapon/implant)) //TODO: Carn. give implants a dropped() or something
@@ -606,3 +610,18 @@
 
 /datum/reagent/xenomicrobes/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.contract_disease(new /datum/disease/xeno_transformation(0), 1)
+
+/datum/reagent/toxin/undead
+	name = "Undead Ichor"
+	id = "undead_ichor"
+	description = "A wicked liquid with unknown origins and uses."
+	color = "#b2beb5"
+	strength = 25
+	taste_description = "ashes"
+
+/datum/reagent/toxin/undead/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien && alien == IS_UNDEAD)
+		M.heal_organ_damage(10 * removed, 15 * removed)
+		return
+	..()
+

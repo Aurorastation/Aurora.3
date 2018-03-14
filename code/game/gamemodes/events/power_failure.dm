@@ -17,7 +17,7 @@
 	if(announce)
 		command_announcement.Announce("Power has been restored to [station_name()]. We apologize for the inconvenience.", "Power Systems Nominal", new_sound = 'sound/AI/poweron.ogg')
 	for(var/obj/machinery/power/apc/C in SSmachinery.processing_machines)
-		if(C.cell && (C.z in config.station_levels))
+		if(C.cell && (C.z in current_map.station_levels))
 			C.cell.charge = C.cell.maxcharge
 	for(var/obj/machinery/power/smes/S in SSpower.smes_units)
 		var/area/current_area = get_area(S)

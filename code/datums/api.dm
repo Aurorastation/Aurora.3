@@ -147,7 +147,7 @@ proc/api_update_command_database()
 	var/versionstring = null
 	//The Version Number follows SemVer http://semver.org/
 	version["major"] = 2 //Major Version Number --> Increment when implementing breaking changes
-	version["minor"] = 0 //Minor Version Number --> Increment when adding features
+	version["minor"] = 1 //Minor Version Number --> Increment when adding features
 	version["patch"] = 0 //Patchlevel --> Increment when fixing bugs
 
 	versionstring = "[version["major"]].[version["minor"]].[version["patch"]]"
@@ -714,7 +714,7 @@ proc/api_update_command_database()
 	var/allow_antaghud = queryparams["allow_antaghud"]
 	var/senderkey = queryparams["senderkey"] //Identifier of the sender (Ckey / Userid / ...)
 
-	var/mob/dead/observer/G = ghosts[target]
+	var/mob/abstract/observer/G = ghosts[target]
 
 	if(!G in ghosts)
 		statuscode = 404
@@ -861,7 +861,7 @@ proc/api_update_command_database()
 		"title" = list("name"="title","desc"="The message title that should be sent, Defaults to NanoTrasen Update if not specified","req"=0,"type"="str"),
 		"body" = list("name"="body","desc"="The message body that should be sent","req"=1,"type"="str"),
 		"type" = list("name"="type","desc"="The type of the message that should be sent, Defaults to freeform","req"=0,"type"="slct","options"=list("freeform","ccia")),
-		"sendername" = list("name"="sendername","desc"="IC Name of the sender for the CCIA Report, Defaults to CCIAAMS, \[Command-StationName\]","req"=0,"type"="string"),
+		"sendername" = list("name"="sendername","desc"="IC Name of the sender for the CCIA Report, Defaults to CCIAAMS, \[Command-StationName\]","req"=0,"type"="str"),
 		"announce" = list("name"="announce","desc"="If the report should be announce 1 -> Yes, 0 -> No, Defaults to 1","req"=0,"type"="int")
 		)
 /datum/topic_command/send_commandreport/run_command(queryparams)
@@ -944,9 +944,9 @@ proc/api_update_command_database()
 	//Announce that the fax has been sent
 	if(faxannounce == 1)
 		if(sendsuccess.len < 1)
-			command_announcement.Announce("A fax message from Central Command could not be delivered because all of the following fax machines are inoperational: <br>"+list2text(targetlist, ", "), "Fax Received", new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+			command_announcement.Announce("A fax message from Central Command could not be delivered because all of the following fax machines are inoperational: <br>"+jointext(targetlist, ", "), "Fax Received", new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 		else
-			command_announcement.Announce("A fax message from Central Command has been sent to the following fax machines: <br>"+list2text(sendsuccess, ", "), "Fax Received", new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+			command_announcement.Announce("A fax message from Central Command has been sent to the following fax machines: <br>"+jointext(sendsuccess, ", "), "Fax Received", new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 
 	log_admin("[senderkey] sent a fax via the API: : [faxbody]",admin_key=senderkey)
 	message_admins("[senderkey] sent a fax via the API", 1)
@@ -959,7 +959,7 @@ proc/api_update_command_database()
 /datum/topic_command/send_fax/proc/send_fax(var/obj/machinery/photocopier/faxmachine/F, title, body, senderkey)
 	// Create the reply message
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( null ) //hopefully the null loc won't cause trouble for us
-	P.name = "[command_name()] - [title]"
+	P.name = "[current_map.boss_name] - [title]"
 	P.info = body
 	P.update_icon()
 
@@ -969,7 +969,7 @@ proc/api_update_command_database()
 	if(!P.stamped)
 		P.stamped = new
 	P.stamped += /obj/item/weapon/stamp
-	P.overlays += stampoverlay
+	P.add_overlay(stampoverlay)
 	P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
 
 	if(F.recievefax(P))
@@ -1004,4 +1004,45 @@ proc/api_update_command_database()
 			statuscode = 200
 			response = "Ingame Discord bot's channels were successfully updated."
 
+	return 1
+
+// Gets the currently configured access levels
+/datum/topic_command/get_access_levels
+	name = "get_access_levels"
+	description = "Gets the currently configured access levels."
+
+/datum/topic_command/get_access_levels/run_command()
+	var/list/access_levels = list()
+	for(var/datum/access/acc in get_all_access_datums())
+		access_levels.Add(list(acc.get_info_list()))
+
+	data = access_levels
+	statuscode = 200
+	response = "Levels Sent"
+	return 1
+
+// Reloads the current cargo configuration
+/datum/topic_command/cargo_reload
+	name = "cargo_reload"
+	description = "Reloads the current cargo configuration."
+	params = list(
+		"force" = list("name"="force","desc"="Force the reload even if orders have already been placed","type"="int","req"=0)
+	)
+
+/datum/topic_command/cargo_reload/run_command(queryparams)
+	var/force = sanitize(queryparams["force"])
+	if(!SScargo.get_order_count())
+		SScargo.load_from_sql()
+		message_admins("Cargo has been reloaded via the API.")
+		statuscode = 200
+		response = "Cargo Reloaded from SQL."
+	else
+		if(force)
+			SScargo.load_from_sql()
+			message_admins("Cargo has been force-reloaded via the API. All current orders have been purged.")
+			statuscode = 200
+			response = "Cargo Force-Reloaded from SQL."
+		else
+			statuscode = 500
+			response = "Orders have been placed. Use force parameter to overwrite."
 	return 1
