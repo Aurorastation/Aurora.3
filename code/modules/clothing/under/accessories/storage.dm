@@ -61,10 +61,6 @@
 	icon_state = "vest_brown"
 	slots = 5
 
-/obj/item/clothing/accessory/storage/brown_vest/explorer
-	name = "explorer's webbing"
-	slots = 6
-
 /obj/item/clothing/accessory/storage/white_vest
 	name = "white webbing vest"
 	desc = "Durable white synthcotton vest with lots of pockets to carry essentials."
