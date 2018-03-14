@@ -286,3 +286,29 @@
 /mob/living/simple_animal/cat/kitten/Initialize()
 	. = ..()
 	gender = pick(MALE, FEMALE)
+
+
+/mob/living/simple_animal/cat/kitten
+	name = "kitten"
+	desc = "D'aaawwww"
+	icon_state = "kitten"
+	item_state = "kitten"
+	icon_living = "kitten"
+	icon_dead = "kitten_dead"
+	can_nap = 0 //No resting sprite
+	gender = NEUTER
+	holder_type = /obj/item/weapon/holder/cat/kitten
+
+/mob/living/simple_animal/cat/kitten/death()
+	.=..()
+	desc = "It's a dead kitten! What kind of monster would do this?"
+
+
+/mob/living/simple_animal/cat/penny
+	name = "\improper Penny"
+	desc = "An important cat, straight from Central Command."
+	icon_state = "penny"
+	item_state = "penny"
+	icon_living = "penny"
+	icon_dead = "penny_dead"
+	holder_type = /obj/item/weapon/holder/cat/penny
