@@ -112,12 +112,11 @@
 		/obj/item/rig_module/emergency_powergenerator = 1,
 		/obj/item/rig_module/emag_hand = 1,
 		/obj/item/rig_module/vision/multi = 1,
-		/obj/item/weapon/material/sword/katana = 2,
-		/obj/item/weapon/material/sword/dao = 2,
+		/obj/item/weapon/material/sword/katana = 1,
+		/obj/item/weapon/material/sword/dao = 1,
 		/obj/item/weapon/material/star = 4,
 		/obj/item/weapon/material/twohanded/spear/steel = 1,
 		/obj/item/weapon/nullrod/nullstaff = 1,
-		/obj/item/weapon/cloaking_device/weak = 1,
 		/obj/item/weapon/grenade/smokebomb/instant = 4,
 		/obj/item/weapon/handcuffs/ziptie = 4
 	)
