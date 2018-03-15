@@ -608,6 +608,7 @@
 	icon_state = "offhand"
 	item_state = "nothing"
 	name = "offhand"
+	needspin = FALSE
 
 	unwield()
 		if (ismob(loc))
