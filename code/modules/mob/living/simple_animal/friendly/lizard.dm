@@ -40,7 +40,7 @@
 		..()
 
 /mob/living/simple_animal/lizard/death()
-	.=..()
+	. = ..()
 	desc = "It doesn't hiss anymore."
 
 /mob/living/simple_animal/lizard/dust()

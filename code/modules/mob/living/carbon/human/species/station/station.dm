@@ -194,7 +194,7 @@
 	name_plural = "Skrell"
 	bodytype = "Skrell"
 	age_max = 500
-	economic_modifier = 10
+	economic_modifier = 12
 	icobase = 'icons/mob/human_races/r_skrell.dmi'
 	deform = 'icons/mob/human_races/r_def_skrell.dmi'
 	eyes = "skrell_eyes_s"
@@ -299,9 +299,7 @@
 		"r_hand" = list("path" = /obj/item/organ/external/hand/right/diona),
 		"l_foot" = list("path" = /obj/item/organ/external/foot/diona),
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/diona)
-	)
-
-	//inherent_verbs = list()
+		)
 
 	warning_low_pressure = 50
 	hazard_low_pressure = -1
@@ -316,7 +314,7 @@
 
 	body_temperature = T0C + 15		//make the plant people have a bit lower body temperature, why not
 
-	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_PAIN | NO_SLIP
+	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_PAIN | NO_SLIP | NO_CHUBBY
 	appearance_flags = 0
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 
@@ -400,11 +398,7 @@
 	age_max = 30
 	economic_modifier = 3
 
-	blurb = "IPCs are, quite simply, 'Integrated Positronic Chassis'. In this scenario, positronic does not mean anything significant - it is a nickname given \
-	to all advanced processing units, based on the works of vintage writer Isaac Asimov. The long of the short is that they represent all unbound synthetic \
-	units.Assembly produced, simple IPC units. Simple skeleton designed for minimal use, generally in civilian roles. The most common form of chassis used by \
-	IPCs, first designed and produced by Hephaestus Industries in the early years of synthetic production. It has become ubiquitous, and for all of its many \
-	faults - its shoddy coolant systems and fragile frame - it would be very odd to see a standard IPC without it."
+	blurb = "IPCs are, quite simply, \"Integrated Positronic Chassis.\" In this scenario, 'positronic' implies that the chassis possesses a positronic processing core (or positronic brain), meaning that an IPC must be positronic to be considered an IPC. The Baseline model is more of a category - the long of the short is that they represent all unbound synthetic units. Baseline models cover anything that is not an Industrial chassis or a Shell chassis. They can be custom made or assembly made. The most common feature of the Baseline model is a simple design, skeletal or semi-humanoid, and ordinary atmospheric diffusion cooling systems."
 
 	icobase = 'icons/mob/human_races/r_machine.dmi'
 	deform = 'icons/mob/human_races/r_machine.dmi'
@@ -412,7 +406,7 @@
 
 	light_range = 2
 	light_power = 0.5
-
+	meat_type = /obj/item/stack/material/steel
 	unarmed_types = list(/datum/unarmed_attack/punch)
 	rarity_value = 2
 
@@ -428,7 +422,7 @@
 
 
 	brute_mod = 1.0
-	burn_mod = 1.0
+	burn_mod = 1.2 
 	show_ssd = "flashing a 'system offline' glyph on their monitor"
 	death_message = "gives one shrill beep before falling lifeless."
 	knockout_message = "encounters a hardware fault and suddenly reboots!"
@@ -449,7 +443,7 @@
 	body_temperature = null
 	passive_temp_gain = 10  // This should cause IPCs to stabilize at ~80 C in a 20 C environment.
 
-	flags = NO_BREATHE | NO_SCAN | NO_BLOOD | NO_PAIN | NO_POISON
+	flags = IS_IPC
 	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 
@@ -567,10 +561,13 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 			var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_ipc_tracking SET tag_status = :status: WHERE player_ckey = :ckey: AND character_name = :character_name:")
 			update_query.Execute(query_details)
 
-/datum/species/machine/get_light_color(hair_style)
+/datum/species/machine/get_light_color(mob/living/carbon/human/H)
+	if (!istype(H))
+		return null
+
 	// I hate this, but I can't think of a better way that doesn't involve
 	// rewriting hair.
-	switch (hair_style)
+	switch (H.h_style)
 		if ("pink IPC screen")
 			return LIGHT_COLOR_PINK
 
@@ -675,7 +672,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	heat_level_1 = 330 //Default 360
 	heat_level_2 = 380 //Default 400
 	heat_level_3 = 600 //Default 1000
-	flags = NO_SLIP
+	flags = NO_SLIP | NO_CHUBBY
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	appearance_flags = HAS_SKIN_COLOR
 	blood_color = "#E6E600" // dark yellow

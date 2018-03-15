@@ -592,7 +592,7 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_courtroom)
 "bB" = (
-/obj/structure/table/woodentable/holotable,
+/turf/simulated/wall/wood,
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "bC" = (
@@ -735,14 +735,14 @@
 /obj/structure/window/reinforced/holowindow{
 	dir = 8
 	},
-/obj/structure/table/woodentable/holotable,
+/turf/simulated/wall/wood,
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "cd" = (
 /obj/structure/window/reinforced/holowindow{
 	dir = 1
 	},
-/obj/structure/table/woodentable/holotable,
+/turf/simulated/wall/wood,
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "ce" = (
@@ -845,7 +845,7 @@
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "cp" = (
-/obj/structure/table/woodentable/holotable,
+/turf/simulated/wall/wood,
 /obj/structure/window/reinforced/holowindow,
 /obj/structure/window/reinforced/holowindow{
 	dir = 8
@@ -853,12 +853,12 @@
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "cq" = (
-/obj/structure/table/woodentable/holotable,
+/turf/simulated/wall/wood,
 /obj/structure/window/reinforced/holowindow,
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "cr" = (
-/obj/structure/table/woodentable/holotable,
+/turf/simulated/wall/wood,
 /obj/structure/window/reinforced/holowindow,
 /obj/structure/window/reinforced/holowindow{
 	dir = 4
@@ -880,7 +880,7 @@
 /obj/structure/window/reinforced/holowindow{
 	dir = 8
 	},
-/obj/structure/table/woodentable/holotable,
+/turf/simulated/wall/wood,
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "cu" = (
@@ -1014,7 +1014,7 @@
 /turf/unsimulated/wall,
 /area/prison/solitary)
 "cG" = (
-/obj/structure/table/woodentable/holotable,
+/turf/simulated/wall/wood,
 /turf/simulated/floor/holofloor/desert,
 /area/holodeck/source_picnicarea)
 "cH" = (
@@ -1168,7 +1168,7 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_theatre)
 "cX" = (
-/obj/structure/table/woodentable/holotable,
+/turf/simulated/wall/wood,
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
 	dir = 8
@@ -1176,14 +1176,14 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
 "cY" = (
-/obj/structure/table/woodentable/holotable,
+/turf/simulated/wall/wood,
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
 "cZ" = (
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
 "da" = (
-/obj/structure/table/woodentable/holotable,
+/turf/simulated/wall/wood,
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
 	dir = 4
@@ -1949,7 +1949,7 @@
 /turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_snowfield)
 "fa" = (
-/obj/structure/table/woodentable/holotable,
+/turf/simulated/wall/wood,
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_meetinghall)
 "fb" = (
@@ -5407,7 +5407,6 @@
 /obj/structure/sign/poster{
 	icon_state = "bsposter50";
 	pixel_x = -32;
-	tag = "icon-bsposter50"
 	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor6"
@@ -8118,7 +8117,7 @@
 	},
 /area/centcom/creed)
 "tC" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 10
 	},
 /obj/machinery/button/remote/blast_door{
@@ -8248,7 +8247,7 @@
 	},
 /area/centcom/creed)
 "tQ" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /turf/unsimulated/floor{
@@ -8387,7 +8386,7 @@
 /area/centcom/specops)
 "ui" = (
 /obj/item/weapon/card/id/centcom,
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /turf/unsimulated/floor{
@@ -8399,7 +8398,7 @@
 	name = "Spec. Ops. Monitor";
 	network = list("ERT")
 	},
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /turf/unsimulated/floor{
@@ -8497,7 +8496,7 @@
 	},
 /area/centcom/control)
 "uw" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -8509,7 +8508,7 @@
 	},
 /area/centcom/control)
 "uy" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -8528,7 +8527,7 @@
 	},
 /area/centcom/control)
 "uz" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -8555,7 +8554,7 @@
 	},
 /area/centcom/specops)
 "uC" = (
-/obj/structure/table/steel_reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/weapon/circuitboard/smes,
 /obj/item/weapon/circuitboard/smes,
 /turf/unsimulated/floor{
@@ -8625,7 +8624,7 @@
 	},
 /area/centcom/control)
 "uM" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -8637,7 +8636,7 @@
 	},
 /area/centcom/control)
 "uN" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -8649,7 +8648,7 @@
 	},
 /area/centcom/control)
 "uO" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -8680,7 +8679,7 @@
 /obj/item/mecha_parts/mecha_equipment/tool/sleeper,
 /obj/item/mecha_parts/mecha_equipment/tool/sleeper,
 /obj/item/mecha_parts/mecha_equipment/tool/syringe_gun,
-/obj/structure/table/steel_reinforced,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -8881,7 +8880,7 @@
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/structure/table/steel_reinforced,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -9029,7 +9028,7 @@
 /obj/item/mecha_parts/mecha_tracking,
 /obj/item/mecha_parts/mecha_tracking,
 /obj/item/mecha_parts/mecha_tracking,
-/obj/structure/table/steel_reinforced,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -9098,7 +9097,7 @@
 /obj/item/weapon/rcd_ammo,
 /obj/item/weapon/rcd_ammo,
 /obj/item/weapon/rcd_ammo,
-/obj/structure/table/steel_reinforced,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -9164,7 +9163,7 @@
 	},
 /area/centcom/control)
 "vA" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/unsimulated/floor{
 	icon_state = "carpet";
 	dir = 2
@@ -9205,7 +9204,7 @@
 /obj/item/mecha_parts/mecha_equipment/tool/extinguisher,
 /obj/item/mecha_parts/mecha_equipment/tool/rcd,
 /obj/item/weapon/pickaxe/diamonddrill,
-/obj/structure/table/steel_reinforced,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -9284,7 +9283,7 @@
 /obj/item/clothing/glasses/welding/superior,
 /obj/item/clothing/glasses/welding/superior,
 /obj/item/clothing/glasses/welding/superior,
-/obj/structure/table/steel_reinforced,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -9374,7 +9373,7 @@
 "vT" = (
 /obj/item/mecha_parts/mecha_equipment/tool/drill/diamonddrill,
 /obj/item/mecha_parts/mecha_equipment/tool/cable_layer,
-/obj/structure/table/steel_reinforced,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -9562,7 +9561,7 @@
 /obj/item/mecha_parts/mecha_equipment/repair_droid,
 /obj/item/mecha_parts/mecha_equipment/repair_droid,
 /obj/item/mecha_parts/mecha_equipment/repair_droid,
-/obj/structure/table/steel_reinforced,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -9865,7 +9864,7 @@
 	},
 /area/centcom/control)
 "wN" = (
-/obj/structure/sign/redcross{
+/obj/structure/sign/greencross{
 	pixel_y = -32
 	},
 /turf/unsimulated/floor{
@@ -10351,7 +10350,7 @@
 	},
 /area/centcom/specops)
 "xM" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -11347,7 +11346,7 @@
 	name = "\improper Raider Base"
 	})
 "zF" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/chemical_dispenser/bar_alc/full,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -11357,7 +11356,7 @@
 	name = "\improper Raider Base"
 	})
 "zG" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/chemical_dispenser/bar_soft/full,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -11574,7 +11573,7 @@
 	name = "\improper Raider Base"
 	})
 "Ab" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -11739,7 +11738,7 @@
 	name = "\improper Raider Base"
 	})
 "Av" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/reagent_containers/glass/rag,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -11749,7 +11748,7 @@
 	name = "\improper Raider Base"
 	})
 "Aw" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/storage/box/drinkingglasses,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -11828,7 +11827,7 @@
 	},
 /area/shuttle/escape/centcom)
 "AH" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
 /turf/unsimulated/floor{
@@ -12118,7 +12117,7 @@
 	name = "\improper Raider Base"
 	})
 "Bn" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/material/ashtray,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -12128,7 +12127,7 @@
 	name = "\improper Raider Base"
 	})
 "Bo" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/reagent_containers/food/drinks/bottle/rum,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -12260,7 +12259,7 @@
 	name = "\improper Raider Base"
 	})
 "BF" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/deck/cards,
 /turf/unsimulated/floor{
@@ -12271,7 +12270,7 @@
 	name = "\improper Raider Base"
 	})
 "BG" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/reagent_containers/food/condiment/peppermill{
 	pixel_x = 2;
@@ -12406,7 +12405,7 @@
 	name = "\improper Raider Base"
 	})
 "BU" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/pizzabox/meat,
 /turf/unsimulated/floor{
@@ -12417,7 +12416,7 @@
 	name = "\improper Raider Base"
 	})
 "BV" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/dice,
 /turf/unsimulated/floor{
@@ -12792,7 +12791,7 @@
 	name = "\improper Raider Base"
 	})
 "CJ" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /obj/item/weapon/flame/lighter/zippo,
@@ -12810,7 +12809,7 @@
 	},
 /area/centcom/holding)
 "CK" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /obj/item/weapon/flame/lighter/zippo,
@@ -13004,7 +13003,7 @@
 	},
 /area/centcom/holding)
 "Dd" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /obj/item/weapon/reagent_containers/food/snacks/amanita_pie,
@@ -13013,7 +13012,7 @@
 	},
 /area/centcom/holding)
 "De" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /obj/item/weapon/reagent_containers/food/snacks/bigbiteburger,
@@ -13031,7 +13030,7 @@
 	},
 /area/centcom/holding)
 "Dg" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /obj/item/weapon/reagent_containers/food/snacks/carrotcakeslice,
@@ -13040,7 +13039,7 @@
 	},
 /area/centcom/holding)
 "Dh" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /obj/item/weapon/reagent_containers/food/snacks/stew,
@@ -13092,7 +13091,7 @@
 	},
 /area/centcom/holding)
 "Dm" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /obj/item/weapon/reagent_containers/food/snacks/boiledrice,
@@ -13101,7 +13100,7 @@
 	},
 /area/centcom/holding)
 "Dn" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /obj/item/weapon/reagent_containers/food/snacks/beetsoup,
@@ -13110,7 +13109,7 @@
 	},
 /area/centcom/holding)
 "Do" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /obj/item/weapon/reagent_containers/food/snacks/stuffing,
@@ -13119,7 +13118,7 @@
 	},
 /area/centcom/holding)
 "Dp" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /obj/item/weapon/reagent_containers/food/snacks/soylenviridians,
@@ -13198,7 +13197,7 @@
 	},
 /area/centcom/holding)
 "Dy" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
@@ -13207,7 +13206,7 @@
 	},
 /area/centcom/holding)
 "Dz" = (
-/obj/structure/sign/redcross,
+/obj/structure/sign/greencross,
 /turf/unsimulated/wall,
 /area/centcom/holding)
 "DA" = (
@@ -13282,7 +13281,7 @@
 	},
 /area/centcom/holding)
 "DJ" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /obj/item/weapon/reagent_containers/food/snacks/bloodsoup,
@@ -13291,7 +13290,7 @@
 	},
 /area/centcom/holding)
 "DK" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /obj/item/weapon/reagent_containers/food/snacks/tofukabob,
@@ -13300,7 +13299,7 @@
 	},
 /area/centcom/holding)
 "DL" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /obj/item/weapon/reagent_containers/food/snacks/poppypretzel,
@@ -13309,7 +13308,7 @@
 	},
 /area/centcom/holding)
 "DM" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /obj/item/weapon/reagent_containers/food/snacks/orangecakeslice,
@@ -13318,7 +13317,7 @@
 	},
 /area/centcom/holding)
 "DN" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /obj/item/clothing/under/suit_jacket,
@@ -13496,7 +13495,7 @@
 	},
 /area/centcom/holding)
 "Ef" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /obj/item/weapon/reagent_containers/food/snacks/spesslaw,
@@ -13505,7 +13504,7 @@
 	},
 /area/centcom/holding)
 "Eg" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /obj/item/weapon/reagent_containers/food/snacks/candiedapple,
@@ -13514,7 +13513,7 @@
 	},
 /area/centcom/holding)
 "Eh" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /obj/item/weapon/reagent_containers/food/snacks/mushroomsoup,
@@ -13523,7 +13522,7 @@
 	},
 /area/centcom/holding)
 "Ei" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /obj/item/weapon/reagent_containers/food/snacks/meatsteak,
@@ -13663,7 +13662,7 @@
 	},
 /area/centcom/holding)
 "Ex" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /obj/item/weapon/book/manual/barman_recipes,
@@ -13673,7 +13672,7 @@
 	},
 /area/centcom/holding)
 "Ey" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /obj/machinery/chemical_dispenser/bar_alc/full,
@@ -13682,7 +13681,7 @@
 	},
 /area/centcom/holding)
 "Ez" = (
-/obj/structure/table/woodentable{
+/obj/structure/table/wood{
 	dir = 5
 	},
 /obj/machinery/chemical_dispenser/bar_soft/full,
@@ -15889,14 +15888,14 @@
 /area/wizard_station)
 "JH" = (
 /obj/machinery/librarycomp,
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
 	},
 /area/wizard_station)
 "JI" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/book/manual/security_space_law,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -15904,7 +15903,7 @@
 	},
 /area/wizard_station)
 "JJ" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/book/manual/nuclear,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -15912,7 +15911,7 @@
 	},
 /area/wizard_station)
 "JK" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/effect/landmark{
 	name = "Teleport-Scroll"
 	},
@@ -15922,7 +15921,7 @@
 	},
 /area/wizard_station)
 "JL" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/paper{
 	info = "\[center]\[b]LIST OF SPELLS AVAILABLE\[/b]\[/center]\[br]\[br]Magic Missile:\[br]This spell fires several, slow moving, magic projectiles at nearby targets. If they hit a target, it is paralyzed and takes minor damage.\[br]\[br]Fireball:\[br]This spell fires a fireball at a target and does not require wizard garb. Be careful not to fire it at people that are standing next to you.\[br]\[br]Disintegrate:\[br]This spell instantly kills somebody adjacent to you with the vilest of magick. It has a long cooldown.\[br]\[br]Disable Technology:\[br]This spell disables all weapons, cameras and most other technology in range.\[br]\[br]Smoke:\[br]This spell spawns a cloud of choking smoke at your location and does not require wizard garb.\[br]\[br]Blind:\[br]This spell temporarly blinds a single person and does not require wizard garb.\[br]Forcewall:\[br]This spell creates an unbreakable wall that lasts for 30 seconds and does not require wizard garb.\[br]\[br]Blink:\[br]This spell randomly teleports you a short distance. Useful for evasion or getting into areas if you have patience.\[br]\[br]Teleport:\[br]This spell teleports you to a type of area of your selection. Very useful if you are in danger, but has a decent cooldown, and is unpredictable.\[br]\[br]Mutate:\[br]This spell causes you to turn into a hulk, and gain telekinesis for a short while.\[br]\[br]Ethereal Jaunt:\[br]This spell creates your ethereal form, temporarily making you invisible and able to pass through walls.\[br]\[br]Knock:\[br]This spell opens nearby doors and does not require wizard garb.\[br]";
 	name = "List of Available Spells (READ)"
@@ -15933,7 +15932,7 @@
 	},
 /area/wizard_station)
 "JM" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/storage/backpack/satchel/withwallet,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -16032,7 +16031,7 @@
 	subspace_transmission = 1;
 	syndie = 1
 	},
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green{
 	on = 0;
 	pixel_x = -3;
@@ -16045,7 +16044,7 @@
 	},
 /area/wizard_station)
 "JX" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/storage/bag/cash,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -16147,7 +16146,7 @@
 	},
 /area/wizard_station)
 "Ki" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/chemical_dispenser/bar_soft/full,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -16155,21 +16154,21 @@
 	},
 /area/wizard_station)
 "Kj" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/storage/backpack/cultpack,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
 /area/wizard_station)
 "Kk" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/clothing/glasses/monocle,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
 /area/wizard_station)
 "Kl" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/storage/backpack,
 /turf/unsimulated/floor{
 	icon_state = "lino"
@@ -16230,7 +16229,7 @@
 	},
 /area/wizard_station)
 "Kq" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/dice/d20,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -16238,7 +16237,7 @@
 	},
 /area/wizard_station)
 "Kr" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/storage/box/cups,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -16291,14 +16290,14 @@
 /area/wizard_station)
 "Ky" = (
 /obj/structure/kitchenspike,
-/obj/structure/table/marble,
+/obj/structure/table/stone/marble,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
 /area/wizard_station)
 "Kz" = (
-/obj/structure/table/woodentable,
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
+/obj/structure/table/wood,
 /obj/item/weapon/reagent_containers/food/snacks/milosoup,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -16306,7 +16305,7 @@
 	},
 /area/wizard_station)
 "KA" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/dice,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -16328,7 +16327,7 @@
 	},
 /area/wizard_station)
 "KE" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/device/megaphone,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -16336,7 +16335,7 @@
 	},
 /area/wizard_station)
 "KF" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/storage/box/donut,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -16344,7 +16343,7 @@
 	},
 /area/wizard_station)
 "KG" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/reagent_containers/food/snacks/chawanmushi,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -16352,7 +16351,7 @@
 	},
 /area/wizard_station)
 "KH" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/spacecash/c1,
 /turf/unsimulated/floor{
 	dir = 8;

@@ -19,7 +19,6 @@ var/warrant_uid = 0
 	available_on_ntnet = 1
 	required_access_download = access_hos
 	required_access_run = access_security
-	usage_flags = PROGRAM_ALL
 	nanomodule_path = /datum/nano_module/program/digitalwarrant/
 
 /datum/nano_module/program/digitalwarrant/

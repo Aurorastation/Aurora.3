@@ -36,7 +36,7 @@
 			burst = 3,
 			move_delay = 4,
 			accuracy = list(0,-1,-1,-2,-2),
-			dispersion = list(0.0, 0.6, 1.0),
+			dispersion = list(0, 10, 10),
 			projectile_type = /obj/item/projectile/bullet/pistol,
 			fire_sound = 'sound/weapons/Gunshot_smg.ogg'
 		),
@@ -122,7 +122,7 @@
 	message_enabled = 0
 	message_disable = 0
 
-/obj/item/weapon/gun/energy/lawgiver/attack_self(mob/living/carbon/user as mob)
+/obj/item/weapon/gun/energy/lawgiver/attack_self(mob/living/carbon/user as mob) //can probably remove this in favor of the DNA locked firing pins. not touching that now though. edit: lol nevermind snowflake code of the year
 	if(dna != null)
 		return
 	else
@@ -144,7 +144,7 @@
 			user << "<span class='danger'>You hear a soft beep from the gun and 'ID FAIL' flashes across the screen.</span>"
 			user << "<span class='danger'>You feel a tiny prick in your hand!</span>"
 			user.drop_item()
-			//Blow up Unauthorized Users Hand
+			//Blow up Unauthorized Users Hand//todo, delet this, as it's duplicate behaviour from Firing pins.
 			sleep(60)
 			if(active_hand)
 				LA.droplimb(0,DROPLIMB_BLUNT)

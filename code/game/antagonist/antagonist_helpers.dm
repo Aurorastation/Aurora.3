@@ -8,7 +8,7 @@
 			return 0
 		if(config.protect_roles_from_antagonist && (player.assigned_role in protected_jobs))
 			return 0
-		if(player.current.client.prefs.species in restricted_species)
+		if(player.current.client.prefs && player.current.client.prefs.species in restricted_species)
 			return 0
 	return 1
 

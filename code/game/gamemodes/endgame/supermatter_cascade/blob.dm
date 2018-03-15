@@ -102,7 +102,7 @@
 	Consume(W)
 
 
-/turf/unsimulated/wall/supermatter/Bumped(atom/AM as mob|obj)
+/turf/unsimulated/wall/supermatter/CollidedWith(atom/AM)
 	if (!AM.simulated)
 		return ..()
 
@@ -120,7 +120,7 @@
 
 
 /turf/unsimulated/wall/supermatter/proc/Consume(var/mob/living/user)
-	if(istype(user,/mob/dead/observer))
+	if(istype(user,/mob/abstract/observer))
 		return
 
 	qdel(user)

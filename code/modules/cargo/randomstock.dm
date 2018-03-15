@@ -165,6 +165,7 @@ var/list/global/random_stock_uncommon = list(
 	"sord" = 1,
 	"policebaton" = 1.5,
 	"stunbaton" = 0.75,//batons spawn with no powercell
+	"firingpin" = 3,
 	"watches" = 3,
 	"MMI" = 1.5,
 	"voidsuit" = 2,
@@ -455,7 +456,7 @@ var/list/global/random_stock_large = list(
 /obj/effect/large_stock_marker
 	name = "Large Stock Marker"
 	desc = "This marks a place where a large object could spawn in cargo"
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "x3"
 
 //This function actually handles the spawning.
@@ -546,9 +547,9 @@ var/list/global/random_stock_large = list(
 				new /obj/item/weapon/storage/box/lights/coloredmixed(L)
 			if (prob(15))
 				var/type = pick(list(
-					/obj/item/weapon/storage/box/lights/colored/red, 
-					/obj/item/weapon/storage/box/lights/colored/green, 
-					/obj/item/weapon/storage/box/lights/colored/blue, 
+					/obj/item/weapon/storage/box/lights/colored/red,
+					/obj/item/weapon/storage/box/lights/colored/green,
+					/obj/item/weapon/storage/box/lights/colored/blue,
 					/obj/item/weapon/storage/box/lights/colored/cyan,
 					/obj/item/weapon/storage/box/lights/colored/yellow,
 					/obj/item/weapon/storage/box/lights/colored/magenta
@@ -688,9 +689,12 @@ var/list/global/random_stock_large = list(
 			/obj/item/clothing/gloves/swat/bst,
 			/obj/item/clothing/gloves/swat/fluff/hawk_gloves,
 			/obj/item/clothing/gloves/fluff/stone_ring,
-			/obj/item/clothing/gloves/black/fluff/kathleen_glove)
+			/obj/item/clothing/gloves/black/fluff/kathleen_glove,
+			/obj/item/clothing/gloves/powerfist,
+			/obj/item/clothing/gloves/claws)
 			exclusion += typesof(/obj/item/clothing/gloves/rig)
 			exclusion += typesof(/obj/item/clothing/gloves/lightrig)
+			exclusion += typesof(/obj/item/clothing/gloves/watch)
 			allgloves -= exclusion
 			var/number = rand(1,5)
 			while (number > 0)
@@ -1061,6 +1065,8 @@ var/list/global/random_stock_large = list(
 			new /obj/random/action_figure(L)
 		if("plushie")
 			new /obj/random/plushie(L)
+		if("firingpin")
+			new /obj/item/weapon/storage/box/firingpins(L)
 		if("mediumcell")
 			var/number = rand(1,2)
 			while (number > 0)
@@ -1072,19 +1078,19 @@ var/list/global/random_stock_large = list(
 		//Can be slotted into any dispenser
 		if("chempack")
 			var/total = rand(2,6)
-			var/list/chems = chemical_reagents_list.Copy()
-			var/list/exclusion = list("drink", "reagent", "adminordrazine", "beer2")
+			var/list/chems = SSchemistry.chemical_reagents.Copy()
+			var/list/exclusion = list("drink", "reagent", "adminordrazine", "beer2", "azoth", "elixir_life", "liquid_fire", "philosopher_stone", "undead_ichor")
 			chems -= exclusion
 			for (var/i=0,i<total,i++)
 				var/obj/item/weapon/reagent_containers/chem_disp_cartridge/C = new /obj/item/weapon/reagent_containers/chem_disp_cartridge(L)
 				var/rname = pick(chems)
-				var/datum/reagent/R = chemical_reagents_list[rname]
+				var/datum/reagent/R = SSchemistry.chemical_reagents[rname]
 
 				//If we get a drink, reroll it once.
 				//Should result in a higher chance of getting medicines and chemicals
-				if (istype(R, /datum/reagent/drink) || istype(R, /datum/reagent/ethanol))
+				if (istype(R, /datum/reagent/drink) || istype(R, /datum/reagent/alcohol/ethanol))
 					rname = pick(chems)
-					R = chemical_reagents_list[rname]
+					R = SSchemistry.chemical_reagents[rname]
 				C.reagents.add_reagent(rname, C.volume)
 				C.setLabel(R.name)
 
@@ -1156,6 +1162,9 @@ var/list/global/random_stock_large = list(
 			allsigns -= typesof(/obj/structure/sign/double)
 			allsigns -= typesof(/obj/structure/sign/poster)
 			allsigns -= /obj/structure/sign/directions
+			allsigns -= typesof(/obj/structure/sign/christmas)
+			allsigns -= typesof(/obj/structure/sign/flag)
+
 			var/number = rand(1,5)
 
 			while (number > 0)

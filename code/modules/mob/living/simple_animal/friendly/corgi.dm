@@ -45,7 +45,7 @@
 	response_disarm = "bops"
 	response_harm   = "kicks"
 
-/mob/living/simple_animal/corgi/Ian/Life()
+/mob/living/simple_animal/corgi/Ian/think()
 	..()
 
 	if(!stat && !resting && !buckled)
@@ -68,14 +68,16 @@
 /mob/living/simple_animal/corgi/attackby(var/obj/item/O as obj, var/mob/user as mob)  //Marker -Agouri
 	if(istype(O, /obj/item/weapon/newspaper))
 		if(!stat)
-			for(var/mob/M in viewers(user, null))
-				if ((M.client && !( M.blinded )))
-					M.show_message("<span class='notice'>[user] baps [name] on the nose with the rolled up [O]</span>")
-					scan_interval = max_scan_interval//discipline your dog to make it stop stealing food for a while
-					movement_target = null
-					foodtarget = 0
-					stop_automated_movement = 0
-					turns_since_scan = 0
+			visible_message(
+				"<span class='notice'>[user] baps [src] on the nose with the rolled up [O.name].</span>",
+				"<span class='alert'>[user] baps you on the nose with the rolled up [O.name]!</span>"
+			)
+			scan_interval = max_scan_interval
+			movement_target = null
+			foodtarget = 0
+			stop_automated_movement = 0
+			turns_since_scan = 0
+
 			INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2))
 	else
 		..()
@@ -138,9 +140,8 @@
 		return
 	..()
 
-/mob/living/simple_animal/corgi/Lisa/Life()
+/mob/living/simple_animal/corgi/Lisa/think()
 	..()
-
 	if(!stat && !resting && !buckled)
 		turns_since_scan++
 		if(turns_since_scan > 15)
@@ -161,8 +162,8 @@
 				if(near_camera(src) || near_camera(ian))
 					return
 				new /mob/living/simple_animal/corgi/puppy(loc)
+				puppies++
 
-
-		if(prob(1))
-			visible_emote(pick("dances around","chases her tail"),0)
-			INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
+	if (!stat && !resting && !buckled && prob(1))
+		visible_emote(pick("dances around","chases her tail"),0)
+		INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))

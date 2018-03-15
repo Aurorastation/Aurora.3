@@ -99,7 +99,7 @@
 		see_in_dark = 8
 		see_invisible = SEE_INVISIBLE_LEVEL_TWO
 	else if (stat != 2 && is_ventcrawling == 0)
-		if (species.vision_flags)
+		if (species && species.vision_flags)
 			sight = species.vision_flags
 		else
 			sight &= ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)

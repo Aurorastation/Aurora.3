@@ -4,15 +4,13 @@
 	icon_state = "arcade"
 
 	icon_screen = "invaders"
-	var/list/prizes = list(	/obj/item/weapon/storage/box/snappops			= 2,
-							/obj/item/toy/blink								= 2,
-							/obj/item/clothing/under/syndicate/tacticool	= 2,
-							/obj/item/toy/sword								= 2,
-							/obj/item/weapon/gun/projectile/revolver/capgun	= 2,
-							/obj/item/toy/crossbow							= 2,
-							/obj/item/clothing/suit/syndicatefake			= 2,
-							/obj/item/weapon/storage/fancy/crayons			= 2,
-							/obj/item/toy/spinningtoy						= 2,
+	var/list/prizes = list(	/obj/item/weapon/storage/box/snappops			= 11,
+							/obj/item/clothing/under/syndicate/tacticool	= 5,
+							/obj/item/toy/sword								= 22,
+							/obj/item/weapon/gun/projectile/revolver/capgun	= 11,
+							/obj/item/toy/crossbow							= 11,
+							/obj/item/weapon/storage/fancy/crayons			= 11,
+							/obj/item/toy/spinningtoy						= 11,
 							/obj/item/toy/prize/ripley						= 1,
 							/obj/item/toy/prize/fireripley					= 1,
 							/obj/item/toy/prize/deathripley					= 1,
@@ -24,11 +22,25 @@
 							/obj/item/toy/prize/mauler						= 1,
 							/obj/item/toy/prize/odysseus					= 1,
 							/obj/item/toy/prize/phazon						= 1,
-							/obj/item/toy/waterflower						= 1,
-							/obj/random/action_figure						= 1,
-							/obj/random/plushie								= 1,
-							/obj/item/toy/cultsword							= 1
-							)
+							/obj/item/toy/waterflower						= 5,
+							/obj/random/action_figure						= 11,
+							/obj/random/plushie								= 44,
+							/obj/item/toy/cultsword							= 5,
+							/obj/item/toy/syndicateballoon					= 5,
+							/obj/item/toy/nanotrasenballoon					= 5,
+							/obj/item/toy/katana							= 11,
+							/obj/item/toy/bosunwhistle						= 5,
+							/obj/item/weapon/storage/belt/champion			= 11,
+							/obj/item/weapon/pen/invisible					= 5,
+							/obj/item/weapon/grenade/fake					= 1,
+							/obj/item/weapon/bikehorn						= 11,
+							/obj/item/clothing/mask/fakemoustache			= 11,
+							/obj/item/clothing/mask/gas/clown_hat			= 11,
+							/obj/item/clothing/mask/gas/mime				= 11,
+							/obj/item/weapon/gun/energy/wand/toy			= 5,
+							/obj/item/device/binoculars						= 11,
+							/obj/item/device/megaphone						= 11
+						)
 
 /obj/machinery/computer/arcade/Initialize()
 	. = ..()
@@ -39,16 +51,12 @@
 		var/obj/item/weapon/circuitboard/CB = new choice()
 		new CB.build_path(loc, CB)
 
-		return INITIALIZE_HINT_QDEL 
+		return INITIALIZE_HINT_QDEL
 
 /obj/machinery/computer/arcade/proc/prizevend()
 	if(!contents.len)
 		var/prizeselect = pickweight(prizes)
 		new prizeselect(src.loc)
-
-		if(istype(prizeselect, /obj/item/clothing/suit/syndicatefake)) //Helmet is part of the suit
-			new	/obj/item/clothing/head/syndicatefake(src.loc)
-
 	else
 		var/atom/movable/prize = pick(contents)
 		prize.loc = src.loc

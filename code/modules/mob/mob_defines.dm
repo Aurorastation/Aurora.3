@@ -13,7 +13,7 @@
 	var/obj/screen/hands = null
 	var/obj/screen/pullin = null
 	var/obj/screen/purged = null
-	var/obj/screen/internals = null
+	var/obj/screen/internals/internals = null
 	var/obj/screen/oxygen = null
 	var/obj/screen/i_select = null
 	var/obj/screen/m_select = null
@@ -31,6 +31,7 @@
 	var/obj/screen/gun/move/gun_move_icon = null
 	var/obj/screen/gun/run/gun_run_icon = null
 	var/obj/screen/gun/mode/gun_setting_icon = null
+	var/obj/screen/up_hint = null
 
 	//spells hud icons - this interacts with add_spell and remove_spell
 	var/list/obj/screen/movable/spell_master/spell_masters = null
@@ -64,6 +65,7 @@
 	var/stuttering = null
 	var/slurring = null
 	var/brokejaw = null
+	var/tarded = null
 	var/real_name = null
 	var/flavor_text = ""
 	var/med_record = ""
@@ -95,7 +97,7 @@
 	var/list/speak_emote = list("says") // Verbs used when speaking. Defaults to 'say' if speak_emote is null.
 	var/emote_type = 1		// Define emote default type, 1 for seen emotes, 2 for heard emotes
 	var/facing_dir = null   // Used for the ancient art of moonwalking.
-	
+
 	var/obj/machinery/hologram/holopad/holo = null
 
 	var/name_archive //For admin things like possession
@@ -120,7 +122,6 @@
 	var/intent = null//Living
 	var/shakecamera = 0
 	var/a_intent = I_HELP//Living
-	var/m_int = null//Living
 	var/m_intent = "walk"//Living
 	var/lastKnownIP = null
 	var/obj/buckled = null//Living
@@ -178,7 +179,8 @@
 	*/
 
 //The last mob/living/carbon to push/drag/grab this mob (mostly used by slimes friend recognition)
-	var/mob/living/carbon/LAssailant = null
+// This is stored as a weakref because BYOND's harddeleter sucks ass.
+	var/datum/weakref/LAssailant
 
 //Wizard mode, but can be used in other modes thanks to the brand new "Give Spell" badmin button
 	var/spell/list/spell_list
@@ -222,3 +224,6 @@
 	var/frozen = FALSE //related to wizard statues, if set to true, life won't process
 
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
+	var/disconnect_time = null//Time of client loss, set by Logout(), for timekeeping
+
+	var/mob_thinks = TRUE

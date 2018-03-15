@@ -18,7 +18,7 @@
 			"vars" = list(
 				"skills",
 				"skill_specialization"
-			), 
+			),
 			"args" = list("id")
 		)
 	)
@@ -41,7 +41,7 @@
 		"skills" = list2params(pref.skills),
 		"skill_specialization" = pref.skill_specialization,
 		"id" = pref.current_character,
-		"ckey" = pref.client.ckey
+		"ckey" = PREF_CLIENT_CKEY
 	)
 
 /datum/category_item/player_setup_item/skills/sanitize_character(var/sql_load = 0)

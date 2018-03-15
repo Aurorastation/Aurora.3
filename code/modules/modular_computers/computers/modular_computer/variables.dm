@@ -59,3 +59,5 @@
 	var/obj/item/weapon/computer_hardware/tesla_link/tesla_link						// Tesla Link, Allows remote charging from nearest APC.
 
 	var/listener/listener	//Listener needed for things
+
+	charge_failure_message = " does not have a battery installed."

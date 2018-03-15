@@ -169,7 +169,7 @@ There are several things that need to be remembered:
 	var/damage_appearance = ""
 
 	for(var/obj/item/organ/external/O in organs)
-		if(O.is_stump())
+		if(isnull(O) || O.is_stump())
 			continue
 		//if(O.status & ORGAN_DESTROYED) damage_appearance += "d" //what is this?
 		//else
@@ -187,7 +187,7 @@ There are several things that need to be remembered:
 
 	// blend the individual damage states with our icons
 	for(var/obj/item/organ/external/O in organs)
-		if(O.is_stump())
+		if(isnull(O) || O.is_stump())
 			continue
 
 		O.update_icon()
@@ -254,6 +254,8 @@ There are several things that need to be remembered:
 		base_icon = chest.get_icon()
 
 		for(var/obj/item/organ/external/part in organs)
+			if(isnull(part) || part.is_stump())
+				continue
 			var/icon/temp = part.get_icon(skeleton)//The color comes from this function
 			//That part makes left and right legs drawn topmost and lowermost when human looks WEST or EAST
 			//And no change in rendering for other parts (they icon_position is 0, so goes to 'else' part)
@@ -332,14 +334,14 @@ There are several things that need to be remembered:
 
 	var/icon/face_standing = SSicon_cache.human_hair_cache[cache_key]
 	if (!face_standing)	// Not cached, generate it from scratch.
-		face_standing = new /icon('icons/mob/human_face.dmi',"bald_s")
+		face_standing = new /icon('icons/mob/human_face/hair.dmi',"bald")
 		// Beard.
 		if(f_style)
 			var/datum/sprite_accessory/facial_hair_style = facial_hair_styles_list[f_style]
 			if(facial_hair_style && facial_hair_style.species_allowed && (GET_BODY_TYPE in facial_hair_style.species_allowed))
-				var/icon/facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
+				var/icon/facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = facial_hair_style.icon_state)
 				if(facial_hair_style.do_colouration)
-					facial_s.Blend(rgb(r_facial, g_facial, b_facial), ICON_ADD)
+					facial_s.Blend(rgb(r_facial, g_facial, b_facial), facial_hair_style.icon_blend_mode)
 
 				face_standing.Blend(facial_s, ICON_OVERLAY)
 
@@ -347,9 +349,9 @@ There are several things that need to be remembered:
 		if(hair_is_visible)
 			var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
 			if(hair_style && (GET_BODY_TYPE in hair_style.species_allowed))
-				var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_s")
+				var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = hair_style.icon_state)
 				if(hair_style.do_colouration)
-					hair_s.Blend(rgb(r_hair, g_hair, b_hair), ICON_ADD)
+					hair_s.Blend(rgb(r_hair, g_hair, b_hair), hair_style.icon_blend_mode)
 
 				face_standing.Blend(hair_s, ICON_OVERLAY)
 
@@ -385,7 +387,7 @@ There are several things that need to be remembered:
 		if (has_visible_hair)
 			var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
 			if (hair_style)
-				var/col = species.get_light_color(h_style) || "#FFFFFF"
+				var/col = species.get_light_color(src) || "#FFFFFF"
 				set_light(species.light_range, species.light_power, col, uv = 0, angle = LIGHT_WIDE)
 		else
 			set_light(0)
@@ -731,7 +733,7 @@ There are several things that need to be remembered:
 	if(update_icons)   update_icons()
 
 
-/mob/living/carbon/human/update_inv_head(var/update_icons=1)
+/mob/living/carbon/human/update_inv_head(update_icons = TRUE, recurse = TRUE)
 	if (QDELING(src))
 		return
 
@@ -778,6 +780,10 @@ There are several things that need to be remembered:
 				ovr += SSicon_cache.light_overlay_cache["[cache_key]"]
 
 		overlays_raw[HEAD_LAYER] = ovr || standing
+
+	if (recurse)
+		update_hair(FALSE)
+		update_inv_wear_mask(FALSE, FALSE)
 
 	if(update_icons)
 		update_icons()
@@ -903,7 +909,7 @@ There are several things that need to be remembered:
 		update_icons()
 
 
-/mob/living/carbon/human/update_inv_wear_mask(var/update_icons=1)
+/mob/living/carbon/human/update_inv_wear_mask(update_icons = TRUE, recurse = TRUE)
 	if (QDELING(src))
 		return
 
@@ -936,6 +942,10 @@ There are several things that need to be remembered:
 			ovr = list(standing, bloodsies)
 
 		overlays_raw[FACEMASK_LAYER] = ovr || standing
+
+	if (recurse)
+		update_inv_head(FALSE, FALSE)
+		update_hair(FALSE)
 
 	if(update_icons)
 		update_icons()

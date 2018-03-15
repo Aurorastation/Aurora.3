@@ -1,6 +1,6 @@
 // explosion logic is in code/controllers/Processes/explosives.dm now
 
-/proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, adminlog = 1, z_transfer = UP|DOWN, is_rec = config.use_recursive_explosions)
+/proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, adminlog = 1, z_transfer = UP|DOWN, spreading = config.use_spreading_explosions)
 	src = null	//so we don't abort once src is deleted
 	var/datum/explosiondata/data = new
 	data.epicenter = epicenter
@@ -10,7 +10,7 @@
 	data.flash_range = flash_range
 	data.adminlog = adminlog
 	data.z_transfer = z_transfer
-	data.is_rec = is_rec
+	data.spreading = spreading
 	data.rec_pow = max(0,devastation_range) * 2 + max(0,heavy_impact_range) + max(0,light_impact_range)
 
 	// queue work
@@ -22,18 +22,18 @@
 	var/power = input(src, "power?", "power?") as num
 	var/turf/T = get_turf(src.mob)
 	var/datum/explosiondata/d = new
-	d.is_rec = 1
+	d.spreading = TRUE
 	d.epicenter = T
 	d.rec_pow = power
 	SSexplosives.queue(d)
 
-/obj
-	var/explosion_resistance
-
-/turf
-	var/explosion_resistance
+/atom
+	var/explosion_resistance 
 
 /turf/space
+	explosion_resistance = 3
+
+/turf/simulated/open
 	explosion_resistance = 3
 
 /turf/simulated/floor

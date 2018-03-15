@@ -450,3 +450,36 @@
 /mob/living/simple_animal/hostile/carp/holodeck/proc/derez()
 	visible_message("<span class='notice'>\The [src] fades away!</span>")
 	qdel(src)
+
+//Holo-penguin
+
+/mob/living/simple_animal/penguin/holodeck
+	icon = 'icons/mob/penguins.dmi'
+	icon_state = "penguin"
+	icon_living = "penguin"
+	icon_dead = "penguin_dead"
+	icon_gib = null
+	meat_amount = 0
+	meat_type = null
+	light_range = 2
+	hunger_enabled = FALSE
+
+/mob/living/simple_animal/penguin/holodeck/baby
+	icon_state = "penguin_baby"
+	icon_living = "penguin_baby"
+	icon_dead = "penguin_baby_dead"
+
+/mob/living/simple_animal/penguin/holodeck/emperor
+	name = "emperor penguin"
+	desc = "Emperor of all he surveys."
+
+/mob/living/simple_animal/penguin/holodeck/gib()
+	derez() //holograms can't gib
+
+/mob/living/simple_animal/penguin/holodeck/death()
+	..()
+	derez()
+
+/mob/living/simple_animal/penguin/holodeck/proc/derez()
+	visible_message("<span class='notice'>\The [src] fades away!</span>")
+	qdel(src)

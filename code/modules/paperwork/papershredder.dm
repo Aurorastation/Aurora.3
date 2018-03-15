@@ -8,13 +8,13 @@
 	var/max_paper = 10
 	var/paperamount = 0
 	var/list/shred_amounts = list(
-		/obj/item/weapon/photo = 1,
+		/obj/item/weapon/photo = -1,
 		/obj/item/weapon/shreddedp = 1,
 		/obj/item/weapon/paper = 1,
 		/obj/item/weapon/newspaper = 3,
-		/obj/item/weapon/card/id = 3,
+		/obj/item/weapon/card/id = -1,
 		/obj/item/weapon/paper_bundle = 3
-		)
+		)// use -1 if it doesn't generate paper
 
 /obj/machinery/papershredder/attackby(var/obj/item/W, var/mob/user)
 	if (istype(W, /obj/item/weapon/storage))
@@ -43,7 +43,8 @@
 			if(paperamount == max_paper)
 				user << "<span class='warning'>\The [src] is full; please empty it before you continue.</span>"
 				return
-			paperamount += paper_result
+			if (paper_result > 0)
+				paperamount += paper_result
 			user.drop_from_inventory(W)
 			qdel(W)
 			playsound(src.loc, 'sound/items/pshred.ogg', 75, 1)

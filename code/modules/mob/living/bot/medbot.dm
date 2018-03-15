@@ -34,47 +34,44 @@
 	QDEL_NULL(reagent_glass)
 	return ..()
 
-/mob/living/bot/medbot/Life()
+/mob/living/bot/medbot/think()
 	..()
-
 	if(!on)
 		return
 
-	if(!client)
+	if(vocal && prob(1))
+		var/message = pick("Radar, put a mask on!", "There's always a catch, and it's the best there is.", "I knew it, I should've been a plastic surgeon.", "What kind of medbay is this? Everyone's dropping like dead flies.", "Delicious!")
+		say(message)
 
-		if(vocal && prob(1))
-			var/message = pick("Radar, put a mask on!", "There's always a catch, and it's the best there is.", "I knew it, I should've been a plastic surgeon.", "What kind of medbay is this? Everyone's dropping like dead flies.", "Delicious!")
-			say(message)
-
-		if(patient)
-			if(Adjacent(patient))
-				if(!currently_healing)
-					INVOKE_ASYNC(src, .proc/UnarmedAttack, patient)
-			else
-				if(path.len && (get_dist(patient, path[path.len]) > 2)) // We have a path, but it's off
-					path = list()
-				if(!path.len && (get_dist(src, patient) > 1))
-					spawn(0)
-						path = AStar(loc, get_turf(patient), /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
-						if(!path)
-							path = list()
-				if(path.len)
-					step_to(src, path[1])
-					path -= path[1]
-					++frustration
-				if(get_dist(src, patient) > 7 || frustration > 8)
-					patient = null
+	if(patient)
+		if(Adjacent(patient))
+			if(!currently_healing)
+				INVOKE_ASYNC(src, .proc/UnarmedAttack, patient)
 		else
-			for(var/mob/living/carbon/human/H in view(7, src)) // Time to find a patient!
-				if(valid_healing_target(H))
-					patient = H
-					frustration = 0
-					if(last_newpatient_speak + 300 < world.time)
-						var/message = pick("Hey, [H.name]! Hold on, I'm coming.", "Wait [H.name]! I want to help!", "[H.name], you appear to be injured!")
-						say(message)
-						custom_emote(1, "points at [H.name].")
-						last_newpatient_speak = world.time
-					break
+			if(path.len && (get_dist(patient, path[path.len]) > 2)) // We have a path, but it's off
+				path = list()
+			if(!path.len && (get_dist(src, patient) > 1))
+				spawn(0)
+					path = AStar(loc, get_turf(patient), /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
+					if(!path)
+						path = list()
+			if(path.len)
+				step_to(src, path[1])
+				path -= path[1]
+				++frustration
+			if(get_dist(src, patient) > 7 || frustration > 8)
+				patient = null
+	else
+		for(var/mob/living/carbon/human/H in view(7, src)) // Time to find a patient!
+			if(valid_healing_target(H))
+				patient = H
+				frustration = 0
+				if(last_newpatient_speak + 300 < world.time)
+					var/message = pick("Hey, [H.name]! Hold on, I'm coming.", "Wait [H.name]! I want to help!", "[H.name], you appear to be injured!")
+					say(message)
+					custom_emote(1, "points at [H.name].")
+					last_newpatient_speak = world.time
+				break
 
 /mob/living/bot/medbot/UnarmedAttack(var/mob/living/carbon/human/H, var/proximity)
 	if(!..())
@@ -278,6 +275,9 @@
 	if(H.stat == DEAD) // He's dead, Jim
 		return null
 
+	if(isipc(H))
+		return null
+
 	if(H in ignored)
 		return null
 
@@ -303,7 +303,7 @@
 	if((H.getToxLoss() >= heal_threshold) && (!H.reagents.has_reagent(treatment_tox)))
 		return treatment_tox
 
-	for(var/datum/disease/D in H.viruses)
+	for(var/datum/disease2/disease/D in H.virus2)
 		if (!H.reagents.has_reagent(treatment_virus))
 			return treatment_virus // STOP DISEASE FOREVER
 
@@ -353,7 +353,7 @@
 		var/t = sanitizeSafe(input(user, "Enter new robot name", name, created_name), MAX_NAME_LEN)
 		if(!t)
 			return
-		if(!in_range(src, usr) && loc != usr)
+		if(!in_range(src, user) && loc != user)
 			return
 		created_name = t
 	else

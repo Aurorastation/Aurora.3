@@ -13,7 +13,7 @@
 	required_access_download = access_heads
 	requires_ntnet = 1
 	size = 12
-	usage_flags = PROGRAM_CONSOLE
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	network_destination = "station long-range communication array"
 	var/datum/comm_message_listener/message_core = new
 	var/intercept = 0

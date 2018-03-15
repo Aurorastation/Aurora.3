@@ -28,8 +28,8 @@
 	)
 
 /obj/machinery/atmospherics/unary/heater/Initialize()
-	. = ..()
 	initialize_directions = dir
+	. = ..()
 
 /obj/machinery/atmospherics/unary/heater/atmos_init()
 	if(node)

@@ -390,7 +390,7 @@
 
 	if(M.ingested)
 		for(var/datum/reagent/R in M.ingested.reagent_list)
-			if(istype(R, /datum/reagent/ethanol))
+			if(istype(R, /datum/reagent/alcohol/ethanol))
 				var/amount = min(P, R.volume)
 				M.ingested.remove_reagent(R.id, amount)
 				P -= amount
@@ -401,7 +401,7 @@
 	//as a treatment option if someone was dumb enough to do this
 	if(M.bloodstr)
 		for(var/datum/reagent/R in M.bloodstr.reagent_list)
-			if(istype(R, /datum/reagent/ethanol))
+			if(istype(R, /datum/reagent/alcohol/ethanol))
 				var/amount = min(P, R.volume)
 				M.bloodstr.remove_reagent(R.id, amount)
 				P -= amount
@@ -540,10 +540,30 @@
 	if(volume <= 0.1 && data != -1)
 		data = -1
 		M << "<span class='warning'>Your mind feels a little less stable...</span>"
+		if (ishuman(M))
+			var/mob/living/carbon/human/H = M
+			var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
+			if(B)
+				for(var/x in B.traumas)
+					var/datum/brain_trauma/BT = x
+					if((istype(BT, BRAIN_TRAUMA_MILD) || istype(BT, BRAIN_TRAUMA_SPECIAL)) && BT.suppressed)
+						BT.on_gain()
+						BT.suppressed = 0
+
 	else
-		if(world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
+		if((world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY) || !data)
 			data = world.time
 			M << "<span class='notice'>Your mind feels stable... a little stable.</span>"
+
+			if (ishuman(M))
+				var/mob/living/carbon/human/H = M
+				var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
+				if(B)
+					for(var/x in B.traumas)
+						var/datum/brain_trauma/BT = x
+						if((istype(BT, BRAIN_TRAUMA_MILD) || istype(BT, BRAIN_TRAUMA_SPECIAL)) && !BT.permanent)
+							BT.on_lose()
+							BT.suppressed = 1
 
 /datum/reagent/paroxetine
 	name = "Paroxetine"
@@ -556,17 +576,45 @@
 	taste_description = "bitterness"
 
 /datum/reagent/paroxetine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(volume <= 0.1 && data != -1)
+	if((volume <= 0.1 || data == -2) && data != -1)
 		data = -1
 		M << "<span class='warning'>Your mind feels much less stable...</span>"
+		if (ishuman(M))
+			var/mob/living/carbon/human/H = M
+			var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
+			if(B)
+				for(var/x in B.traumas)
+					var/datum/brain_trauma/BT = x
+					if((istype(BT, BRAIN_TRAUMA_MILD) || istype(BT, BRAIN_TRAUMA_SEVERE) || istype(BT, BRAIN_TRAUMA_SPECIAL)) && BT.suppressed)
+						BT.on_gain()
+						BT.suppressed = 0
 	else
-		if(world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
-			data = world.time
-			if(prob(96))
-				M << "<span class='notice'>Your mind feels much more stable.</span>"
-			else
-				M << "<span class='warning'>Your mind breaks apart...</span>"
-				M.hallucination += 200
+		if(data >= 0)
+			if((world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY) || !data)
+				data = world.time
+				if(prob(75))
+					M << "<span class='notice'>Your mind feels much more stable.</span>"
+					if (ishuman(M))
+						var/mob/living/carbon/human/H = M
+						var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
+						if(B)
+							for(var/x in B.traumas)
+								var/datum/brain_trauma/BT = x
+								if((istype(BT, BRAIN_TRAUMA_MILD) || istype(BT, BRAIN_TRAUMA_SEVERE) || istype(BT, BRAIN_TRAUMA_SPECIAL)) && !BT.permanent)
+									BT.on_lose(1)
+									BT.suppressed = 1
+				else
+					data = -2
+					M << "<span class='warning'>Your mind breaks apart...</span>"
+					if(ishuman(M))
+						var/mob/living/carbon/human/H = M
+						if(prob(66))
+							if(prob(70))
+								H.gain_trauma_type(BRAIN_TRAUMA_MILD)
+							else
+								H.gain_trauma_type(BRAIN_TRAUMA_SEVERE)
+					else
+						M.hallucination += 200
 
 /datum/reagent/rezadone
 	name = "Rezadone"
@@ -608,3 +656,72 @@
 
 /datum/reagent/ipecac/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(2 * removed) //If you inject it you're doing it wrong
+
+/datum/reagent/azoth
+	name = "Azoth"
+	id = "azoth"
+	description = "Azoth is a miraculous medicine, capable of healing internal injuries."
+	reagent_state = LIQUID
+	color = "#BF0000"
+	taste_description = "bitter metal"
+	overdose = 5
+
+/datum/reagent/azoth/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		for (var/A in H.organs)
+			var/obj/item/organ/external/E = A
+			for (var/X in E.wounds)
+				var/datum/wound/W = X
+				if (W && W.internal)
+					E.wounds -= W
+					return 1
+
+			if(E.status & ORGAN_BROKEN)
+				E.status &= ~ORGAN_BROKEN
+				E.stage = 0
+				return 1
+
+/datum/reagent/azoth/overdose(var/mob/living/carbon/M, var/alien)
+	M.adjustBruteLoss(5)
+
+/datum/reagent/adipemcina //Based on quinapril
+	name = "Adipemcina"
+	id = "adipemcina"
+	description = "Adipemcina is a heart medication used for treating high blood pressure, heart failure, and diabetes. Works at it's best when the stomach is empty. Causes vomiting and liver damage when overdosed."
+	reagent_state = LIQUID
+	color = "#008000"
+	metabolism = REM * 0.5
+	overdose = REAGENTS_OVERDOSE
+	scannable = 1
+	taste_description = "bitterness"
+
+/datum/reagent/adipemcina/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+	if(istype(M))
+		var/obj/item/organ/F = M.internal_organs_by_name["heart"]
+		if(istype(F))
+			var/nutritionmod = max(0.25, (1 - M.nutrition) / M.max_nutrition * 0.5) //Less effective when your stomach is "full".
+			F.take_damage(-removed*nutritionmod)
+	..()
+
+/datum/reagent/adipemcina/overdose(var/mob/living/carbon/human/M, var/alien)
+	if(istype(M))
+		if(prob(25))
+			M.add_chemical_effect(CE_ALCOHOL_TOXIC, 1)
+			M.vomit()
+
+/datum/reagent/elixir
+	name = "Elixir of Life"
+	id = "elixir_life"
+	description = "A mythical substance, the cure for the ultimate illness."
+	color = "#ffd700"
+	affects_dead = 1
+	taste_description = "eternal blissfulness"
+
+/datum/reagent/elixir/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(ishuman(M))
+		if(M && M.stat == DEAD)
+			M.adjustOxyLoss(-rand(15,20))
+			M.visible_message("<span class='danger'>\The [M] shudders violently!</span>")
+			M.stat = 0

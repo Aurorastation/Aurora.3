@@ -54,7 +54,9 @@
 /atom/proc/on_reagent_change()
 	return
 
-/atom/proc/Bumped(AM as mob|obj)
+// This is called when AM collides with us.
+/atom/proc/CollidedWith(atom/movable/AM)
+	set waitfor = FALSE
 	return
 
 // Convenience proc to see if a container is open for chemistry handling
@@ -150,8 +152,17 @@
 /atom/proc/set_dir(new_dir)
 	. = new_dir != dir
 	dir = new_dir
+	
+	// Lighting
+	if (.)
+		var/datum/light_source/L
+		for (var/thing in light_sources)
+			L = thing
+			if (L.light_angle)
+				L.source_atom.update_light()
 
 /atom/proc/ex_act()
+	set waitfor = FALSE
 	return
 
 /atom/proc/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
@@ -228,7 +239,7 @@
 
 		//Deal with gloves the pass finger/palm prints.
 		if(!ignoregloves)
-			if(H.gloves && H.gloves != src)
+			if(istype(H.gloves, /obj/item/clothing/gloves) && H.gloves != src)
 				var/obj/item/clothing/gloves/G = H.gloves
 				if(!prob(G.fingerprint_chance))
 					return 0

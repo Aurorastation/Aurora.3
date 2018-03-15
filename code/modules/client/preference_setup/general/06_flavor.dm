@@ -56,11 +56,11 @@
 	)
 
 	for (var/module in robot_module_types)
-		var_list["robot_[module]"] = "flavour_texts_robot/[module]"
+		var_list["robot_[lowertext(module)]"] = "flavour_texts_robot/[module]"
 
 	return list(
 		"ss13_characters_flavour" = list(
-			"vars" = var_list, 
+			"vars" = var_list,
 			"args" = list("char_id")
 		)
 	)
@@ -86,7 +86,7 @@
 	)
 
 	for (var/module in robot_module_types)
-		var_list += "robot_[module]"
+		var_list += "robot_[lowertext(module)]"
 
 	return list("ss13_characters_flavour" = var_list)
 
@@ -108,7 +108,7 @@
 	)
 
 	for (var/module in robot_module_types)
-		var_list["robot_[module]"] += pref.flavour_texts_robot[module]
+		var_list["robot_[lowertext(module)]"] += pref.flavour_texts_robot[module]
 
 	return var_list
 

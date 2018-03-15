@@ -247,19 +247,19 @@
 	if(occupant.client)
 		occupant.client.eye = occupant.client.mob
 		occupant.client.perspective = MOB_PERSPECTIVE
-	occupant.loc = loc
+	occupant.forceMove(loc)
 	occupant = null
-	for(var/atom/movable/A in src) // In case an object was dropped inside or something
+	for(var/atom/movable/A in (contents - component_parts)) // In case an object was dropped inside or something
 		if(A == beaker)
 			continue
-		A.loc = loc
+		A.forceMove(loc)
 	update_use_power(1)
 	update_icon()
 	toggle_filter()
 
 /obj/machinery/sleeper/proc/remove_beaker()
 	if(beaker)
-		beaker.loc = loc
+		beaker.forceMove(loc)
 		beaker = null
 		toggle_filter()
 

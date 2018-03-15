@@ -21,6 +21,7 @@
 /mob/living/silicon/robot/proc/uneq_active()
 	if(isnull(module_active))
 		return
+
 	if(module_state_1 == module_active)
 		if(istype(module_state_1,/obj/item/borg/sight))
 			sight_mode &= ~module_state_1:sight_mode
@@ -253,11 +254,11 @@
 		G = module_state_1
 		if (!G.wrapped && G.grip_item(W, src, 1))
 			return 1
-	if (istype(module_state_2, /obj/item/weapon/gripper))
+	else if (istype(module_state_2, /obj/item/weapon/gripper))
 		G = module_state_2
 		if (!G.wrapped && G.grip_item(W, src, 0))
 			return 1
-	if (istype(module_state_2, /obj/item/weapon/gripper))
+	else if (istype(module_state_3, /obj/item/weapon/gripper))
 		G = module_state_3
 		if (!G.wrapped && G.grip_item(W, src, 0))
 			return 1
@@ -293,3 +294,20 @@
 	if (I.loc != src)
 		return 1//Allows objects inside grippers
 	return 0//don't allow dropping our modules
+
+
+/mob/living/silicon/robot/proc/describe_module(var/slot)
+	var/list/index_module = list(module_state_1,module_state_2,module_state_3)
+	var/result = "   Hardpoint [slot] holds "
+	result += (index_module[slot]) ? "\icon[index_module[slot]] [index_module[slot]]." : "nothing."
+	result += "\n"
+	return result
+
+/mob/living/silicon/robot/proc/describe_all_modules()
+	var/result="It has three tool hardpoints.\n"
+	for (var/x = 1; x <=3; x++)
+		result += describe_module(x)
+	var/selected = get_selected_module()
+	if (selected)
+		result += "\nThe activity light on hardpoint [selected] is on.\n"
+	return result

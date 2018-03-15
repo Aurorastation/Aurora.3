@@ -35,8 +35,13 @@
 
 /obj/item/weapon/gun/projectile/revolver/mateba
 	name = "mateba"
+	desc = "The Mateba .454 Autorevolver, a very rare weapon typical of special ops teams and mercenary teams. It packs quite the punch."
 	icon_state = "mateba"
+	max_shells = 7
+	caliber = "454"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	fire_sound = 'sound/weapons/mateba_fire.ogg'
+	ammo_type = /obj/item/ammo_casing/a454
 
 /obj/item/weapon/gun/projectile/revolver/detective
 	name = "revolver"
@@ -113,6 +118,7 @@
 	handle_casings = CYCLE_CASINGS
 	max_shells = 7
 	ammo_type = /obj/item/ammo_casing/cap
+	needspin = FALSE
 
 /obj/item/weapon/gun/projectile/revolver/capgun/attackby(obj/item/W, mob/user)
 	if(!iswirecutter(W) || icon_state == "revolver")

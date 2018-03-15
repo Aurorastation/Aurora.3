@@ -99,8 +99,8 @@
 		CHECK_TICK
 
 		// Sunlight only checks downwards as it has no need to shine upwards, really.
-		if (isopenturf(T) && T:below)
-			T = T:below
+		if (T && (T.flags & MIMIC_BELOW) && T.below)
+			T = T.below
 			goto check_t
 
 	LAZYINITLIST(affecting_turfs)

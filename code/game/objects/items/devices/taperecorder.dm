@@ -235,6 +235,7 @@
 		t1 += "[printedmessage]<BR>"
 	P.info = t1
 	P.name = "Transcript"
+	usr.put_in_hands(P)
 	canprint = 0
 	sleep(300)
 	canprint = 1

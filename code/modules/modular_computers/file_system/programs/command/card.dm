@@ -6,7 +6,7 @@
 	extended_desc = "Program for programming employee ID cards to access parts of the station."
 	required_access_run = access_change_ids
 	required_access_download = access_change_ids
-	usage_flags = PROGRAM_CONSOLE
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	requires_ntnet = 0
 	size = 8
 	color = LIGHT_COLOR_BLUE
@@ -163,11 +163,11 @@
 				if(id_card)
 					data_core.manifest_modify(id_card.registered_name, id_card.assignment)
 				computer.proc_eject_id(user)
-		if("terminate")
+		if("suspend")
 			if(computer && can_run(user, 1))
-				id_card.assignment = "Terminated"
+				id_card.assignment = "Suspended"
 				remove_nt_access(id_card)
-				callHook("terminate_employee", list(id_card))
+				callHook("suspend_employee", list(id_card))
 		if("edit")
 			if(computer && can_run(user, 1))
 				if(href_list["name"])

@@ -119,7 +119,8 @@
 		/obj/item/weapon/gun/launcher/pneumatic/small           = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/gas/monkeymask                  = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/monkeysuit                      = TRADER_THIS_TYPE,
-		/obj/item/clothing/mask/luchador                        = TRADER_ALL
+		/obj/item/clothing/mask/luchador                        = TRADER_ALL,
+		/obj/item/weapon/gun/bang                               = TRADER_SUBTYPES_ONLY
 	)
 
 /datum/trader/ship/replica_shop
@@ -168,7 +169,9 @@
 		/obj/item/weapon/material/sword                 = TRADER_ALL,
 		/obj/item/weapon/material/scythe                = TRADER_THIS_TYPE,
 		/obj/item/weapon/material/star                  = TRADER_THIS_TYPE,
-		/obj/item/weapon/material/twohanded/baseballbat = TRADER_THIS_TYPE
+		/obj/item/weapon/material/twohanded/baseballbat = TRADER_THIS_TYPE,
+		/obj/item/weapon/material/twohanded/pike        = TRADER_ALL,
+		/obj/item/weapon/melee/whip                     = TRADER_THIS_TYPE
 	)
 
 

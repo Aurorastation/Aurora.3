@@ -23,7 +23,7 @@ REAGENT SCANNER
 
 
 /obj/item/device/healthanalyzer/attack(mob/living/M as mob, mob/living/user as mob)
-	if (( (CLUMSY in user.mutations) || user.getBrainLoss() >= 60) && prob(50))
+	if ( ((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(50))
 		user << text("<span class='warning'>You try to analyze the floor's vitals!</span>")
 		for(var/mob/O in viewers(M, null))
 			O.show_message("<span class='warning'>\The [user] has analyzed the floor's vitals!</span>", 1)
@@ -128,14 +128,19 @@ REAGENT SCANNER
 //	Remove brain worm scans. Bad.
 //	if (M.has_brain_worms())
 //		user.show_message("<span class='warning'>Subject suffering from aberrant brain activity. Recommend further scanning.</span>")
-	if (M.getBrainLoss() >= 100 || !M.has_brain())
-		user.show_message("<span class='warning'>Subject is brain dead.</span>")
-	else if (M.getBrainLoss() >= 60)
-		user.show_message("<span class='warning'>Severe brain damage detected. Subject likely to have mental retardation.</span>")
-	else if (M.getBrainLoss() >= 10)
-		user.show_message("<span class='warning'>Significant brain damage detected. Subject may have had a concussion.</span>")
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
+		if (H.getBrainLoss() >= config.default_brain_health || !H.has_brain())
+			user.show_message("<span class='warning'>Subject is brain dead.</span>")
+		else if (H.getBrainLoss() >= 120)
+			to_chat(user, "\t<span class='alert'>Severe brain damage detected. Subject likely to have mental traumas.</span>")
+		else if (H.getBrainLoss() >= 45)
+			to_chat(user, "\t<span class='alert'>Brain damage detected.</span>")
+		if(LAZYLEN(H.get_traumas()))
+			var/list/trauma_text = list()
+			for(var/datum/brain_trauma/B in H.get_traumas())
+				trauma_text += B.scan_desc
+			to_chat(user, "\t<span class='alert'>Cerebral traumas detected: subjects appears to be suffering from [english_list(trauma_text)].</span>")
 		for(var/name in H.organs_by_name)
 			var/obj/item/organ/external/e = H.organs_by_name[name]
 			if(!e)

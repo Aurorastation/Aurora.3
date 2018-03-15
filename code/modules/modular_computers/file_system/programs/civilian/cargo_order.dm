@@ -5,6 +5,7 @@
 	size = 10
 	requires_ntnet = 1
 	available_on_ntnet = 1
+	usage_flags = PROGRAM_LAPTOP | PROGRAM_TELESCREEN | PROGRAM_CONSOLE
 	nanomodule_path = /datum/nano_module/program/civilian/cargoorder/
 
 /datum/nano_module/program/civilian/cargoorder/
@@ -141,9 +142,9 @@
 			log_debug("Cargo Order: Warning - Attempted to order item [coi.ci.name] from non existant supplier [href_list["supplier"]]")
 			qdel(coi)
 
-		//Reset page to main page - TODO: Maybe add a way to disable jumping back to the main page
-		page = "main"
-		selected_item = ""
+		//Reset page to main page - TODO: Maybe add a way to disable jumping back to the main page - Commented out for now
+		//page = "main"
+		//selected_item = ""
 		return 1
 	
 	//Remove item from the order list

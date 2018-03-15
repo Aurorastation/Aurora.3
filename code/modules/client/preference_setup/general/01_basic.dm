@@ -60,7 +60,7 @@
 		"spawnpoint" = pref.spawnpoint,
 		"species" = pref.species,
 		"id" = pref.current_character,
-		"ckey" = pref.client.ckey
+		"ckey" = PREF_CLIENT_CKEY
 	)
 
 /datum/category_item/player_setup_item/general/basic/load_special()

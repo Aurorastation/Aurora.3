@@ -55,6 +55,7 @@
 	name = "fire alarm frame"
 	desc = "Used for building fire alarms."
 	build_machine_type = /obj/machinery/firealarm
+	reverse = 1
 
 /obj/item/frame/air_alarm
 	name = "air alarm frame"

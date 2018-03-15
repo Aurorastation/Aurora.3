@@ -366,7 +366,7 @@ var/list/diona_banned_languages = list(
 	updatehealth()
 
 /mob/living/carbon/human/proc/diona_regen_callback(organ_path, /datum/dionastats/DS)
-	if (!organ_path || !DS || DS.regening_organ)
+	if (!organ_path || !DS)
 		return
 
 	var/obj/item/organ/O = new organ_path(src)

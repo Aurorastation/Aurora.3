@@ -29,6 +29,7 @@
 	var/icon_y_offset = 0
 	var/eyes = "eyes_s"                                  // Icon for eyes.
 	var/has_floating_eyes                                // Eyes will overlay over darkness (glow)
+	var/eyes_icon_blend = ICON_ADD                       // The icon blending mode to use for eyes.
 	var/blood_color = "#A10808"                          // Red.
 	var/flesh_color = "#FFC896"                          // Pink.
 	var/examine_color                                    // The color of the species' name in the examine text. Defaults to flesh_color if unset.
@@ -462,7 +463,7 @@
 	H.hud_used.move_intent.update_move_icon(H)
 	return 1
 
-/datum/species/proc/get_light_color(hair_style)
+/datum/species/proc/get_light_color(mob/living/carbon/human/H)
 	return
 
 /datum/species/proc/can_breathe_water()

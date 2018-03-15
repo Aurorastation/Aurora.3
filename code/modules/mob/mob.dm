@@ -33,6 +33,8 @@
 		var/atom/movable/AM = src.loc
 		LAZYREMOVE(AM.contained_mobs, src)
 
+	MOB_STOP_THINKING(src)
+
 	return ..()
 
 
@@ -61,13 +63,16 @@
 	spell_masters = null
 	zone_sel = null
 
-/mob/New()
+/mob/Initialize()
+	. = ..()
 	mob_list += src
 	if(stat == DEAD)
 		dead_mob_list += src
 	else
 		living_mob_list += src
-	..()
+
+	if (!ckey && mob_thinks)
+		MOB_START_THINKING(src)
 
 /mob/proc/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 
@@ -113,7 +118,7 @@
 			warning("Null or QDELETED object [DEBUG_REF(M)] found in player list! Removing.")
 			player_list -= M
 			continue
-		if (!M.client || istype(M, /mob/new_player))
+		if (!M.client || istype(M, /mob/abstract/new_player))
 			continue
 		if(get_turf(M) in messageturfs)
 			messagemobs += M
@@ -479,7 +484,12 @@
 
 	announce_ghost_joinleave(client, 0)
 
-	var/mob/new_player/M = new /mob/new_player()
+	// Run this here to null out death timers for the next go.
+
+	var/mob/abstract/new_player/M = new /mob/abstract/new_player()
+
+	M.reset_death_timers()
+
 	if(!client)
 		log_game("[usr.key] AM failed due to disconnect.",ckey=key_name(usr))
 		qdel(M)
@@ -508,7 +518,7 @@
 
 	if(client.holder && (client.holder.rights & R_ADMIN))
 		is_admin = 1
-	else if(stat != DEAD || istype(src, /mob/new_player))
+	else if(stat != DEAD || istype(src, /mob/abstract/new_player))
 		usr << "<span class='notice'>You must be observing to use this!</span>"
 		return
 
@@ -715,7 +725,7 @@
 	return TRUE
 
 /mob/living/carbon/human/is_mechanical()
-	return !!global.mechanical_species[get_species()]
+	return species && (species.flags & IS_MECHANICAL)
 
 /mob/proc/is_ready()
 	return client && !!mind
@@ -981,6 +991,9 @@
 /mob/proc/flash_weak_pain()
 	flick("weak_pain",pain)
 
+/mob/proc/Jitter(amount)
+	jitteriness = max(jitteriness,amount,0)
+
 /mob/proc/get_visible_implants(var/class = 0)
 	var/list/visible_implants = list()
 	for(var/obj/item/O in embedded)
@@ -1091,6 +1104,7 @@ mob/proc/yank_out_object()
 	handle_silent()
 	handle_drugged()
 	handle_slurring()
+	handle_tarded()
 
 /mob/living/proc/handle_stunned()
 	if(stunned)
@@ -1121,6 +1135,11 @@ mob/proc/yank_out_object()
 	if(slurring)
 		slurring = max(slurring-1, 0)
 	return slurring
+
+/mob/living/proc/handle_tarded()
+	if(tarded)
+		tarded = max(tarded-1, 0)
+	return tarded
 
 /mob/living/proc/handle_paralysed() // Currently only used by simple_animal.dm, treated as a special case in other mobs
 	if(paralysis)
@@ -1168,14 +1187,14 @@ mob/proc/yank_out_object()
 		set_dir(dir)
 		facing_dir = dir
 
-/mob/set_dir()
+/mob/set_dir(ndir)
 	if(facing_dir)
 		if(!canface() || lying || buckled || restrained())
 			facing_dir = null
 		else if(dir != facing_dir)
 			return ..(facing_dir)
 	else
-		return ..()
+		return ..(ndir)
 
 /mob/forceMove(atom/dest)
 	var/atom/movable/AM
@@ -1279,7 +1298,7 @@ mob/proc/yank_out_object()
 
 /client/proc/check_has_body_select()
 	return mob && mob.hud_used && istype(mob.zone_sel, /obj/screen/zone_sel)
- 
+
 /client/verb/body_toggle_head()
 	set name = "body-toggle-head"
 	set hidden = 1
@@ -1294,22 +1313,22 @@ mob/proc/yank_out_object()
  	set name = "body-l-arm"
  	set hidden = 1
  	toggle_zone_sel(list("l_arm","l_hand"))
- 
+
 /client/verb/body_chest()
  	set name = "body-chest"
  	set hidden = 1
  	toggle_zone_sel(list("chest"))
- 
+
 /client/verb/body_groin()
  	set name = "body-groin"
  	set hidden = 1
  	toggle_zone_sel(list("groin"))
- 
+
 /client/verb/body_r_leg()
  	set name = "body-r-leg"
  	set hidden = 1
  	toggle_zone_sel(list("r_leg","r_foot"))
- 
+
 /client/verb/body_l_leg()
  	set name = "body-l-leg"
  	set hidden = 1

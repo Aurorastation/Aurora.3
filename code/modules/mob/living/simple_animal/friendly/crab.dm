@@ -23,7 +23,7 @@
 	var/obj/item/inventory_mask
 	possession_candidate = 1
 
-/mob/living/simple_animal/crab/Life()
+/mob/living/simple_animal/crab/think()
 	..()
 	//CRAB movement
 	if(!ckey && !stat)

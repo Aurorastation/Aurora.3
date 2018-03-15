@@ -3,6 +3,7 @@
 		This code is slightly more documented than normal, as requested by XSI on IRC.
 */
 
+
 #define TURRET_PRIORITY_TARGET 2
 #define TURRET_SECONDARY_TARGET 1
 #define TURRET_NOT_TARGET 0
@@ -94,7 +95,7 @@
 	installation = /obj/item/weapon/gun/energy/laser
 	sprite_set = "laser"
 
-/obj/machinery/porta_turret/Initialize()
+/obj/machinery/porta_turret/Initialize(mapload)
 	. = ..()
 	LAZYCLEARLIST(req_access)
 	req_one_access = list(access_security, access_heads)
@@ -102,15 +103,34 @@
 	//Sets up a spark system
 	spark_system = bind_spark(src, 5)
 
+	var/area/control_area = get_area(src)
+	if(istype(control_area))
+		LAZYADD(control_area.turrets, src)
+		if(!mapload)
+			for(var/obj/machinery/turretid/aTurretID in control_area.turret_controls)
+				aTurretID.turretModes()
+		if(LAZYLEN(control_area.turret_controls))
+			var/obj/machinery/turretid/SOME_TURRET_ID = control_area.turret_controls[1]
+			var/datum/turret_checks/SOME_TC = SOME_TURRET_ID.getState() // this helper should honestly fucking exist why doesn't it :ree:
+			if(SOME_TC.lethal != lethal && !egun)
+				SOME_TC.enabled = 0
+			src.setState(SOME_TC)
+
 /obj/machinery/porta_turret/crescent/Initialize()
 	. = ..()
 	LAZYCLEARLIST(req_one_access)
 	req_access = list(access_cent_specops)
 
 /obj/machinery/porta_turret/Destroy()
+	var/area/control_area = get_area(src)
+	if(istype(control_area))
+		LAZYREMOVE(control_area.turrets, src)
+		for(var/obj/machinery/turretid/aTurretID in control_area.turret_controls)
+			aTurretID.turretModes()
 	qdel(spark_system)
 	spark_system = null
 	. = ..()
+
 
 /obj/machinery/porta_turret/update_icon()
 	cut_overlays()
@@ -446,7 +466,7 @@
 	if(get_dist(src, L) > 7)	//if it's too far away, why bother?
 		return TURRET_NOT_TARGET
 
-	if(!check_trajectory(L, src))	//check if we have true line of sight
+	if(!(L in check_trajectory(L, src)))	//check if we have true line of sight
 		return TURRET_NOT_TARGET
 
 	if(emagged)		// If emagged not even the dead get a rest
@@ -591,7 +611,7 @@
 	//If the target is grabbing someone then the turret smartly aims for extremities
 	var/def_zone = get_exposed_defense_zone(target)
 	//Shooting Code:
-	A.launch(target, def_zone)
+	A.launch_projectile(target, def_zone)
 
 /datum/turret_checks
 	var/enabled
@@ -608,8 +628,9 @@
 	if(controllock)
 		return
 	src.enabled = TC.enabled
-	src.lethal = TC.lethal
-	src.lethal_icon = TC.lethal
+	if(egun) //If turret can switch modes.
+		src.lethal = TC.lethal
+		src.lethal_icon = TC.lethal
 
 	check_synth = TC.check_synth
 	check_access = TC.check_access
@@ -816,6 +837,11 @@
 					Turret.egun = E.can_switch_modes
 					Turret.sprite_set = E.turret_sprite_set
 					Turret.lethal_icon = E.turret_is_lethal
+					// Check if gun has wielded delay, turret will have same fire rate as the gun.
+					if(E.fire_delay_wielded > 0)
+						Turret.shot_delay = E.fire_delay_wielded
+					else
+						Turret.shot_delay = E.fire_delay
 
 					Turret.cover_set = case_sprite_set
 					Turret.icon_state = "cover_[case_sprite_set]"
@@ -869,6 +895,109 @@
 /atom/movable/porta_turret_cover
 	icon = 'icons/obj/turrets.dmi'
 
+
+//preset turrets
+
+/obj/machinery/porta_turret/xray
+	installation = /obj/item/weapon/gun/energy/xray
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "xray"
+
+	eprojectile = /obj/item/projectile/beam/xray
+	eshot_sound	= 'sound/weapons/laser3.ogg'
+
+/obj/machinery/porta_turret/ion
+	installation = /obj/item/weapon/gun/energy/ionrifle
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "ion"
+
+	eprojectile = /obj/item/projectile/ion
+	eshot_sound	= 'sound/weapons/Laser.ogg'
+
+/obj/machinery/porta_turret/crossbow
+	installation = /obj/item/weapon/gun/energy/crossbow
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "crossbow"
+
+	eprojectile = /obj/item/projectile/energy/bolt/large
+	eshot_sound	= 'sound/weapons/Genhit.ogg'
+
+/obj/machinery/porta_turret/cannon
+	installation = /obj/item/weapon/gun/energy/rifle/laser/heavy
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "cannon"
+
+	eprojectile = /obj/item/projectile/beam/heavylaser
+	eshot_sound	= 'sound/weapons/lasercannonfire.ogg'
+
+/obj/machinery/porta_turret/pulse
+	installation = /obj/item/weapon/gun/energy/pulse
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "pulse"
+
+	eprojectile = /obj/item/projectile/beam/pulse
+	eshot_sound	= 'sound/weapons/pulse.ogg'
+
+/obj/machinery/porta_turret/sniper
+	installation = /obj/item/weapon/gun/energy/sniperrifle
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "sniper"
+
+	eprojectile = /obj/item/projectile/beam/sniper
+	eshot_sound	= 'sound/weapons/marauder.ogg'
+
+/obj/machinery/porta_turret/net
+	installation = /obj/item/weapon/gun/energy/net
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "net"
+
+	eprojectile = /obj/item/projectile/beam/energy_net
+	eshot_sound	= 'sound/weapons/plasma_cutter.ogg'
+
+/obj/machinery/porta_turret/thermal
+	installation = /obj/item/weapon/gun/energy/vaurca/thermaldrill
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "thermaldrill"
+
+	eprojectile = /obj/item/projectile/beam/thermaldrill
+	eshot_sound	= 'sound/magic/lightningbolt.ogg'
+
+/obj/machinery/porta_turret/meteor
+	installation = /obj/item/weapon/gun/energy/meteorgun
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "meteor"
+
+	eprojectile = /obj/item/projectile/meteor
+	eshot_sound	= 'sound/weapons/lasercannonfire.ogg'
+
+/obj/machinery/porta_turret/ballistic
+	installation = /obj/item/weapon/gun/energy/mountedsmg
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "ballistic"
+	no_salvage = TRUE
+
+	eprojectile = /obj/item/projectile/bullet/rifle/a762
+	eshot_sound	= 'sound/weapons/gunshot_saw.ogg'
 
 #undef TURRET_PRIORITY_TARGET
 #undef TURRET_SECONDARY_TARGET

@@ -84,14 +84,15 @@ var/global/list/narsie_list = list()
 				M.apply_effect(3, STUN)
 
 
-/obj/singularity/narsie/large/Bump(atom/A)
+/obj/singularity/narsie/large/Collide(atom/A)
+	. = ..()
 	if(!cause_hell) return
 	if(isturf(A))
 		narsiewall(A)
 	else if(istype(A, /obj/structure/cult))
 		qdel(A)
 
-/obj/singularity/narsie/large/Bumped(atom/A)
+/obj/singularity/narsie/large/CollidedWith(atom/A)
 	if(!cause_hell) return
 	if(isturf(A))
 		narsiewall(A)
@@ -323,7 +324,7 @@ var/global/list/narsie_list = list()
 		acquire(pick(cultists))
 		return
 		//no living cultists, pick a living human instead.
-	for(var/mob/dead/observer/ghost in player_list)
+	for(var/mob/abstract/observer/ghost in player_list)
 		if(!ghost.client)
 			continue
 		var/turf/pos = get_turf(ghost)

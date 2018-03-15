@@ -72,9 +72,9 @@
 
 /proc/isipc(A)
 	. = 0
-	if(istype(A, /mob/living/carbon/human))
+	if(ishuman(A))
 		var/mob/living/carbon/human/H = A
-		. = !!global.mechanical_species[H.get_species()]
+		. = H.species && (H.species.flags & IS_MECHANICAL)
 
 /proc/isvox(A)
 	if(istype(A, /mob/living/carbon/human))
@@ -392,7 +392,7 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 			return
 		var/atom/oldeye=M.client.eye
 		var/aiEyeFlag = 0
-		if(istype(oldeye, /mob/eye/aiEye))
+		if(istype(oldeye, /mob/abstract/eye/aiEye))
 			aiEyeFlag = 1
 
 		var/x
@@ -531,7 +531,7 @@ proc/is_blind(A)
 				name = realname
 
 	for(var/mob/M in player_list)
-		if(M.client && ((!istype(M, /mob/new_player) && M.stat == DEAD) || (M.client.holder && check_rights(R_DEV|R_MOD|R_ADMIN, 0, M))) && (M.client.prefs.toggles & CHAT_DEAD))
+		if(M.client && ((!istype(M, /mob/abstract/new_player) && M.stat == DEAD) || (M.client.holder && check_rights(R_DEV|R_MOD|R_ADMIN, 0, M))) && (M.client.prefs.toggles & CHAT_DEAD))
 			var/follow
 			var/lname
 			if(subject)
@@ -539,8 +539,8 @@ proc/is_blind(A)
 					follow = "[ghost_follow_link(subject, M)] "
 				if(M.stat != DEAD && M.client.holder)
 					follow = "([admin_jump_link(subject, M.client.holder)]) "
-				var/mob/dead/observer/DM
-				if(istype(subject, /mob/dead/observer))
+				var/mob/abstract/observer/DM
+				if(istype(subject, /mob/abstract/observer))
 					DM = subject
 				if(M.client.holder) 							// What admins see
 					lname = "[keyname][(DM && DM.anonsay) ? "*" : (DM ? "" : "^")] ([name])"
@@ -670,12 +670,13 @@ proc/is_blind(A)
 
 /mob/living/simple_animal/hostile/assess_perp(var/obj/access_obj, var/check_access, var/auth_weapons, var/check_records, var/check_arrest)
 	var/threatcount = ..()
-	if(. == SAFE_PERP)
+	if(threatcount == SAFE_PERP)
 		return SAFE_PERP
 
-	if(!istype(src, /mob/living/simple_animal/hostile/retaliate/goat))
-		threatcount += 4
-	return threatcount
+	if(istype(src, /mob/living/simple_animal/hostile/retaliate/goat) || istype(src, /mob/living/simple_animal/hostile/commanded))
+		return threatcount
+
+	return threatcount + 4
 
 
 /mob/living/proc/bucklecheck(var/mob/living/user)
@@ -991,6 +992,26 @@ proc/is_blind(A)
 	P.time_of_death[which] = value
 	return 1
 
+/**
+ * Resets death timers for a mob. Should only be called during new player creation.
+ */
+/mob/proc/reset_death_timers()
+	var/datum/preferences/P
+	if (client)
+		P = client.prefs
+	else if (ckey)
+		// To avoid runtimes during adminghost.
+		if (copytext(ckey, 1, 2) == "@")
+			P = preferences_datums[copytext(ckey, 2)]
+		else
+			P = preferences_datums[ckey]
+	else
+		return
+
+	if (!P)
+		return
+
+	P.time_of_death.Cut()
 
 //Below here is stuff related to devouring, but which is generally helpful and thus placed here
 //See Devour.dm for more info in how these are used
@@ -1010,6 +1031,10 @@ proc/is_blind(A)
 	. |= TYPE_WEIRD
 
 /mob/living/bot/find_type()
+	. = ..()
+	. |= TYPE_SYNTHETIC
+
+/mob/living/silicon/find_type()
 	. = ..()
 	. |= TYPE_SYNTHETIC
 
@@ -1045,7 +1070,7 @@ proc/is_blind(A)
 				"donor" = WEAKREF(src),
 				"viruses" = null,
 				"species" = name,
-				"blood_DNA" = md5("\ref[src]"), 
+				"blood_DNA" = md5("\ref[src]"),
 				"blood_colour" = "#a10808",
 				"blood_type" = null,
 				"resistances" = null,
@@ -1121,7 +1146,7 @@ proc/is_blind(A)
 	if(istype(P))
 		return P
 
-mob/dead/observer/get_multitool()
+/mob/abstract/observer/get_multitool()
 	return can_admin_interact() && ..(ghost_multitool)
 
 /mob/living/carbon/human/get_multitool()

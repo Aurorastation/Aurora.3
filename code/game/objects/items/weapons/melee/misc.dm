@@ -47,11 +47,10 @@
 		slot_flags = initial(slot_flags)
 	user.regenerate_icons()
 
-/*
-/obj/item/weapon/melee/chainsword/suicide_act(mob/user)
-	viewers(user) << "<span class='danger'>[user] is slicing \himself apart with the [src.name]! It looks like \he's trying to commit suicide.</span>"
-	return (BRUTELOSS|OXYLOSS)
-*/
+/obj/item/weapon/melee/chainsword/pre_attack(var/mob/living/target, var/mob/living/user)
+	if(istype(target) && active)
+		cleave(user, target)
+	..()
 
 //This is essentially a crowbar and a baseball bat in one.
 /obj/item/weapon/melee/hammer
@@ -122,3 +121,29 @@
 	src.visible_message("<span class='notice'>\The [src] hisses lowly.</span>")
 	on = TRUE
 	update_icon()
+
+
+/obj/item/weapon/melee/whip
+	name = "whip"
+	desc = "A whip made of fine leather, perfect for a space archaeologist."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "whip"
+	item_state = "chain"
+	slot_flags = SLOT_BELT
+	force = 10
+	w_class = 3
+	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
+	hitsound = 'sound/weapons/whip.ogg'
+
+/obj/item/weapon/melee/whip/attack(mob/target as mob, mob/living/user as mob, var/target_zone)
+	..()
+	if(ishuman(target))
+		if(prob(25))
+			if(target_zone == "l_hand" || target_zone == "l_arm")
+				if (target.l_hand && target.l_hand != src)
+					target.drop_l_hand()
+			else if(target_zone == "r_hand" || target_zone == "r_arm")
+				if (target.r_hand && target.r_hand != src)
+					target.drop_r_hand()
+			user.visible_message("<span class='danger'>\The [user] disarms \the [target] with \the [src]!</span>")
+		return

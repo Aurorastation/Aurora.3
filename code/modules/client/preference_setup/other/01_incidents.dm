@@ -4,6 +4,7 @@
 
 /datum/category_item/player_setup_item/other/incidents/load_special(var/savefile/S)
 	pref.incidents = list()
+	pref.ccia_actions = list()
 
 	//Special Aurora Snowflake to load in the ccia actions and persistant incidents
 	if (config.sql_saves) // Doesnt work without db

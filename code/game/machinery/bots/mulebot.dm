@@ -415,7 +415,7 @@
 	C.pixel_y += 9
 	if(C.layer < layer)
 		C.layer = layer + 0.1
-	overlays += C
+	add_overlay(C)
 
 	if(ismob(C))
 		var/mob/M = C
@@ -434,7 +434,7 @@
 		return
 
 	mode = 1
-	overlays.Cut()
+	cut_overlays()
 
 	load.loc = src.loc
 	load.pixel_y -= 9
@@ -694,7 +694,7 @@
 	return
 
 // called when bot bumps into anything
-/obj/machinery/bot/mulebot/Bump(var/atom/obs)
+/obj/machinery/bot/mulebot/Collide(var/atom/obs)
 	if(!wires.MobAvoid())		//usually just bumps, but if avoidance disabled knock over mobs
 		var/mob/M = obs
 		if(ismob(M))
@@ -706,7 +706,7 @@
 				M.Stun(8)
 				M.Weaken(5)
 				M.lying = 1
-	..()
+	. = ..()
 
 // called from mob/living/carbon/human/Crossed()
 // when mulebot is in the same loc

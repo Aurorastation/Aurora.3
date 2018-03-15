@@ -145,7 +145,7 @@
 						if (EQUIP)
 							A.used_equip += M.use_power == 2 ? M.active_power_usage : M.idle_power_usage
 						if (LIGHT)
-							A.used_equip += M.use_power == 2 ? M.active_power_usage : M.idle_power_usage
+							A.used_light += M.use_power == 2 ? M.active_power_usage : M.idle_power_usage
 						if (ENVIRON)
 							A.used_environ += M.use_power == 2 ? M.active_power_usage : M.idle_power_usage
 						else // ?!

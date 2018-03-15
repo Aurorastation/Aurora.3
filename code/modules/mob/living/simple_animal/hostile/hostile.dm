@@ -149,28 +149,20 @@
 	..()
 	walk(src, 0)
 
-/mob/living/simple_animal/hostile/Life()
+/mob/living/simple_animal/hostile/think()
+	..()
+	switch(stance)
+		if(HOSTILE_STANCE_IDLE)
+			target_mob = FindTarget()
 
-	. = ..()
-	if(!.)
-		walk(src, 0)
-		return 0
-	if(client)
-		return 0
+		if(HOSTILE_STANCE_ATTACK)
+			if(destroy_surroundings)
+				DestroySurroundings()
+			MoveToTarget()
 
-	if(!stat)
-		switch(stance)
-			if(HOSTILE_STANCE_IDLE)
-				target_mob = FindTarget()
-
-			if(HOSTILE_STANCE_ATTACK)
-				if(destroy_surroundings)
-					DestroySurroundings()
-				MoveToTarget()
-
-			if(HOSTILE_STANCE_ATTACKING)
-				if(!AttackTarget() && destroy_surroundings)//hit a window OR a mob, not both at once
-					DestroySurroundings()
+		if(HOSTILE_STANCE_ATTACKING)
+			if(!AttackTarget() && destroy_surroundings)	//hit a window OR a mob, not both at once
+				DestroySurroundings()
 
 
 /mob/living/simple_animal/hostile/proc/OpenFire(target_mob)
@@ -186,7 +178,7 @@
 	else
 		Shoot(target, src.loc, src)
 		if(casingtype)
-			new casingtype
+			new casingtype(loc)
 
 	stance = HOSTILE_STANCE_IDLE
 	target_mob = null
@@ -205,7 +197,7 @@
 	playsound(user, projectilesound, 100, 1)
 	if(!A)	return
 	var/def_zone = get_exposed_defense_zone(target)
-	A.launch(target, def_zone)
+	A.launch_projectile(target, def_zone)
 
 /mob/living/simple_animal/hostile/proc/DestroySurroundings()
 	if(prob(break_stuff_probability))

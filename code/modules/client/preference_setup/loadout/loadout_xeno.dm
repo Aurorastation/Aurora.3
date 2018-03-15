@@ -76,7 +76,7 @@
 	m_chains["blue-jeweled bands"] = /obj/item/clothing/ears/skrell/bluejeweled_band
 	m_chains["silver bands"] = /obj/item/clothing/ears/skrell/silver_band
 	m_chains["blue cloth"] = /obj/item/clothing/ears/skrell/blue_skrell_cloth_band_male
-	m_chains["blue cloth"] = /obj/item/clothing/ears/skrell/purple_skrell_cloth_male
+	m_chains["purple cloth"] = /obj/item/clothing/ears/skrell/purple_skrell_cloth_male
 	gear_tweaks += new/datum/gear_tweak/path(m_chains)
 
 //vaurca items
@@ -142,7 +142,7 @@
 	display_name = "gear harness"
 	path = /obj/item/clothing/under/gearharness
 	sort_category = "Xenowear"
-	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Diona", "Baseline Frame", "Industrial Frame")
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Diona", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")
 
 /datum/gear/shoes/footwraps
 	display_name = "cloth footwraps"
@@ -154,7 +154,7 @@
 	display_name = "toe-less jackboots"
 	path = /obj/item/clothing/shoes/jackboots/unathi
 	sort_category = "Xenowear"
-	whitelisted = list("Vaurca Worker", "Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 /datum/gear/shoes/workboots_toeless
 	display_name = "toeless workboots"

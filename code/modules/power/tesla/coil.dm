@@ -23,7 +23,8 @@
 /obj/machinery/power/tesla_coil/attackby(obj/item/W, mob/user)
 	if(default_deconstruction_screwdriver(user, W))
 		return
-
+	if(default_deconstruction_crowbar(user, W))
+		return
 	if(default_part_replacement(user, W))
 		return
 
@@ -36,8 +37,6 @@
 		else
 			connect_to_network()
 		return
-
-	default_deconstruction_crowbar(user, W)
 
 /obj/machinery/power/tesla_coil/tesla_act(var/power)
 	if(anchored)
@@ -62,14 +61,16 @@
 	density = 1
 
 	component_types = list(
-		///obj/item/weapon/circuitboard/grounding_rod,
+		/obj/item/weapon/circuitboard/grounding_rod,
 		/obj/item/weapon/stock_parts/capacitor
 	)
+
 
 /obj/machinery/power/grounding_rod/attackby(obj/item/W, mob/user)
 	if(default_deconstruction_screwdriver(user, W))
 		return
-
+	if(default_deconstruction_crowbar(user, W))
+		return
 	if(default_part_replacement(user, W))
 		return
 
@@ -79,7 +80,6 @@
 		anchored = !anchored
 		return
 
-	default_deconstruction_crowbar(user, W)
 
 /obj/machinery/power/grounding_rod/tesla_act(var/power)
 	flick("coil_shock_1", src)
@@ -87,5 +87,15 @@
 /obj/item/weapon/circuitboard/tesla_coil
 	name = "tesla coil circuitry"
 	desc = "The circuitboard for a tesla coil."
+	build_path = "/obj/machinery/power/tesla_coil"
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	req_components = list("/obj/item/weapon/stock_parts/capacitor" = 1)
+	board_type = "machine"
+
+/obj/item/weapon/circuitboard/grounding_rod
+	name = "grounding rod circuitry"
+	desc = "The circuitboard for a grounding rod."
+	build_path = "/obj/machinery/power/grounding_rod"
+	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	req_components = list("/obj/item/weapon/stock_parts/capacitor" = 1)
+	board_type = "machine"

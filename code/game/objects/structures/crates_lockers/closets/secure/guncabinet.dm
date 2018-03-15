@@ -10,7 +10,7 @@
 	icon_opened = "base"
 	anchored = 1
 	canbemoved = 1
-	
+
 
 /obj/structure/closet/secure_closet/guncabinet/Initialize()
 	..()
@@ -44,8 +44,10 @@
 				else if (shottas > 0)
 					shottas--
 					add_overlay("projectile[i]")
-			
+
 		add_overlay("door")
+		if(welded)
+			add_overlay(welded_overlay_state)
 
 		if(broken)
 			add_overlay("broken")

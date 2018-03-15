@@ -73,7 +73,7 @@
 
 /obj/item/weapon/reagent_containers/spray/proc/Spray_at(atom/A as mob|obj, mob/user as mob, proximity)
 	if (A.density && proximity)
-		A.visible_message("[usr] sprays [A] with [src].")
+		A.visible_message("[user] sprays [A] with [src].")
 		reagents.splash(A, amount_per_transfer_from_this)
 	else
 		spawn(0)
@@ -157,12 +157,12 @@
 
 /obj/item/weapon/reagent_containers/spray/pepper/attack_self(var/mob/user)
 	safety = !safety
-	usr << "<span class = 'notice'>You switch the safety [safety ? "on" : "off"].</span>"
+	user << "<span class = 'notice'>You switch the safety [safety ? "on" : "off"].</span>"
 	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
 
-/obj/item/weapon/reagent_containers/spray/pepper/Spray_at(atom/A as mob|obj)
+/obj/item/weapon/reagent_containers/spray/pepper/Spray_at(atom/A as mob|obj, mob/user)
 	if(safety)
-		usr << "<span class = 'warning'>The safety is on!</span>"
+		user << "<span class = 'warning'>The safety is on!</span>"
 		return
 	..()
 

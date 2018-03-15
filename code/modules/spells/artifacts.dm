@@ -32,7 +32,7 @@
 			new /obj/effect/decal/cleanable/ash(get_turf(user))
 			E.removed(user)
 			qdel(E)
-			H.adjustBrainLoss(50)
+			H.adjustBrainLoss(50, 55)
 			H.hallucination += 20
 			return
 	else
@@ -136,26 +136,28 @@
 	light_color = "#6633CC"
 	light_power = 3
 	light_range = 4
-	
+
 	var/lich = null
 
-/obj/item/phylactery/New()
-	..()
+/obj/item/phylactery/Initialize()
+	. = ..()
 	world_phylactery += src
+	create_reagents(30)
+	reagents.add_reagent("undead_ichor", 30)
 
 /obj/item/phylactery/Destroy()
 	lich << "<span class='danger'>Your phylactery was destroyed, your soul is cast into the abyss as your immortality vanishes away!</span>"
 	world_phylactery -= src
 	lich = null
 	return ..()
-	
+
 /obj/item/phylactery/examine(mob/user)
 	..(user)
 	if(!lich)
 		user << "The heart is inert."
 	else
 		user << "The heart is pulsing slowly."
-	
+
 /obj/item/phylactery/attackby(var/obj/item/I, var/mob/user)
 	..()
 	if(istype(I, /obj/item/weapon/nullrod))
@@ -163,3 +165,9 @@
 		gibs(src.loc)
 		qdel(src)
 		return
+
+/obj/item/phylactery/pickup(mob/living/user as mob)
+	if(!user.is_wizard() && src.lich)
+		user << "<span class='warning'>As you pick up \the [src], you feel a wave of dread wash over you.</span>"
+		for(var/obj/machinery/light/P in view(7, user))
+			P.flicker(1)

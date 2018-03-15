@@ -78,7 +78,7 @@
 
 /obj/item/glass_jar/update_icon() // Also updates name and desc
 	underlays.Cut()
-	overlays.Cut()
+	cut_overlays()
 	switch(contains)
 		if(0)
 			name = initial(name)
@@ -96,7 +96,11 @@
 					underlays += A
 		if(2)
 			for(var/mob/M in src)
-				var/image/victim = image(M.icon, M.icon_state)
+				var/image/victim = new()
+				victim.appearance = M
+				victim.layer = FLOAT_LAYER
+				victim.plane = FLOAT_PLANE
+				victim.pixel_x = 0
 				victim.pixel_y = 6
 				underlays += victim
 				name = "glass jar with [M]"

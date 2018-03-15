@@ -17,8 +17,9 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	handle_casings = CYCLE_CASINGS
 	load_method = SINGLE_CASING
-	var/fail_chance = 35
+	needspin = FALSE
 	fire_sound = 'sound/weapons/shotgun.ogg'
+	var/fail_chance = 35
 
 /obj/item/weapon/gun/projectile/shotgun/improvised/special_check(var/mob/living/carbon/human/M)
 	if(prob(fail_chance))
@@ -28,7 +29,8 @@
 		new /obj/item/weapon/material/shard/shrapnel(get_turf(src))
 		qdel(src)
 		return 0
-	return 1
+
+	return ..()
 
 
 /obj/item/weapon/gun/projectile/shotgun/improvised/attackby(var/obj/item/A as obj, mob/user as mob)
@@ -153,6 +155,7 @@
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
 	jam_chance = 20
+	needspin = FALSE
 
 /obj/item/weapon/gun/projectile/improvised_handgun/examine(mob/user)
 	..(user)
@@ -222,10 +225,12 @@
 	accuracy = -5
 	fire_delay = 5
 	burst = 3
-	burst_delay = 0
-	move_delay = 0
+	burst_delay = 3
+	move_delay = 3
 	fire_delay = 2
-	dispersion = list(1.0, -1.0, 2.0, -2.0)
+	dispersion = list(5, 10, 15, 20)
 	jam_chance = 20
+
+	needspin = FALSE
 
 	firemodes = null

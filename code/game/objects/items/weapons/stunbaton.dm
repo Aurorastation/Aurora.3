@@ -5,7 +5,7 @@
 	icon_state = "stunbaton"
 	item_state = "baton"
 	slot_flags = SLOT_BELT
-	force = 15
+	force = 5
 	sharp = 0
 	edge = 0
 	throwforce = 7
@@ -15,20 +15,21 @@
 	var/stunforce = 0
 	var/agonyforce = 120
 	var/status = 0		//whether the thing is on or not
-	var/obj/item/weapon/cell/bcell = null
+	var/obj/item/weapon/cell/bcell
 	var/hitcost = 1000	//oh god why do power cells carry so much charge? We probably need to make a distinction between "industrial" sized power cells for APCs and power cells for everything else.
 	var/baton_color = "#FF6A00"
+	var/sheathed = 1 //electrocutes only on harm intent
 
-/obj/item/weapon/melee/baton/New()
-	..()
+/obj/item/weapon/melee/baton/Initialize()
+	. = ..()
 	update_icon()
-	return
 
-/obj/item/weapon/melee/baton/loaded/New() //this one starts with a cell pre-installed.
-	..()
+/obj/item/weapon/melee/baton/loaded/Initialize() //this one starts with a cell pre-installed.
 	bcell = new/obj/item/weapon/cell/high(src)
-	update_icon()
-	return
+	. = ..()
+
+/obj/item/weapon/melee/baton/get_cell()
+	return bcell
 
 /obj/item/weapon/melee/baton/proc/deductcharge(var/chrgdeductamt)
 	if(bcell)
@@ -59,14 +60,14 @@
 
 	if(bcell)
 		user <<"<span class='notice'>The baton is [round(bcell.percent())]% charged.</span>"
-	if(!bcell)
+	else
 		user <<"<span class='warning'>The baton does not have a power source installed.</span>"
 
 /obj/item/weapon/melee/baton/attackby(obj/item/weapon/W, mob/user)
 	if(istype(W, /obj/item/weapon/cell))
 		if(!bcell)
 			user.drop_item()
-			W.loc = src
+			W.forceMove(src)
 			bcell = W
 			user << "<span class='notice'>You install a cell in [src].</span>"
 			update_icon()
@@ -76,7 +77,7 @@
 	else if(isscrewdriver(W))
 		if(bcell)
 			bcell.update_icon()
-			bcell.loc = get_turf(src.loc)
+			bcell.forceMove(get_turf(src))
 			bcell = null
 			user << "<span class='notice'>You remove the cell from the [src].</span>"
 			status = 0
@@ -114,6 +115,10 @@
 	var/stun = stunforce
 	var/mob/living/L = M
 
+	if(user.disabilities & PACIFIST)
+		to_chat(user, "<span class='notice'>You don't want to risk hurting [M]!</span>")
+		return 0
+
 	var/target_zone = check_zone(hit_zone)
 	if(user.a_intent == I_HURT)
 		if (!..())	//item/attack() does it's own messaging and logs
@@ -121,6 +126,10 @@
 		stun *= 0.5
 		if(status)		//Checks to see if the stunbaton is on.
 			agony *= 0.5	//whacking someone causes a much poorer contact than prodding them.
+			if(sheathed) //however breaking the skin results in a more potent electric shock or some bullshit. im a coder, not a doctor
+				L.electrocute_act(force * 2, src, def_zone = target_zone)
+			else
+				L.electrocute_act(force * 2, src, ground_zero = target_zone)
 		else
 			agony = 0
 		//we can't really extract the actual hit zone from ..(), unfortunately. Just act like they attacked the area they intended to.
@@ -147,6 +156,7 @@
 					return 1
 				else
 					H.visible_message("<span class='danger'>[L] has been prodded in the [affecting.name] with [src] by [user]!</span>")
+					H.electrocute_act(force * 2, src, ground_zero = target_zone)
 		else
 			if(!status)
 				L.visible_message("<span class='warning'>[L] has been prodded with [src] by [user]. Luckily it was off.</span>")
@@ -175,6 +185,10 @@
 	..()
 
 //secborg stun baton module
+
+/obj/item/weapon/melee/baton/robot
+	hitcost = 600
+
 /obj/item/weapon/melee/baton/robot/attack_self(mob/user)
 	//try to find our power cell
 	var/mob/living/silicon/robot/R = loc
@@ -213,6 +227,7 @@
 	attack_verb = list("poked")
 	slot_flags = null
 	baton_color = "#FFDF00"
+	sheathed = 0
 
 /obj/item/weapon/melee/baton/stunrod
 	name = "stunrod"
@@ -220,16 +235,15 @@
 	icon = 'icons/obj/stunrod.dmi'
 	icon_state = "stunrod"
 	item_state = "stunrod"
-	force = 20
+	force = 7
 	baton_color = "#75ACFF"
 	origin_tech = list(TECH_COMBAT = 4, TECH_ILLEGAL = 2)
 	contained_sprite = 1
+	sheathed = 0
 
-/obj/item/weapon/melee/baton/stunrod/New()
-	..()
+/obj/item/weapon/melee/baton/stunrod/Initialize()
 	bcell = new/obj/item/weapon/cell/high(src)
-	update_icon()
-	return
+	. = ..()
 
 /obj/item/weapon/melee/baton/stunrod/update_icon() //this is needed due to how contained sprites work
 	if(status)
@@ -256,11 +270,11 @@
 	stunforce = 1
 	origin_tech = list(TECH_COMBAT = 1)
 	contained_sprite = 1
+	sheathed = 0
 
 /obj/item/weapon/melee/baton/slime/Initialize()
-	. = ..()
 	bcell = new/obj/item/weapon/cell/high(src)
-	return
+	. = ..()
 
 /obj/item/weapon/melee/baton/slime/attack(mob/M, mob/user, var/hit_zone)
 	if(isrobot(M) || ishuman(M))

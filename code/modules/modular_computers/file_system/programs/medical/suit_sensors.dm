@@ -9,5 +9,5 @@
 	requires_ntnet = 1
 	network_destination = "crew lifesigns monitoring system"
 	size = 11
-	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
+	usage_flags = PROGRAM_LAPTOP | PROGRAM_TELESCREEN | PROGRAM_CONSOLE
 	color = LIGHT_COLOR_CYAN

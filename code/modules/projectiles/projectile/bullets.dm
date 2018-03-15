@@ -10,7 +10,7 @@
 	shrapnel_type = /obj/item/weapon/material/shard/shrapnel
 	var/mob_passthrough_check = 0
 
-	muzzle_type = /obj/effect/projectile/bullet/muzzle
+	muzzle_type = /obj/effect/projectile/muzzle/bullet
 
 /obj/item/projectile/bullet/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
 	if (..(target, blocked, def_zone))
@@ -75,10 +75,6 @@
 	var/base_spread = 90	//lower means the pellets spread more across body parts. If zero then this is considered a shrapnel explosion instead of a shrapnel cone
 	var/spread_step = 10	//higher means the pellets spread more across body parts with distance
 
-/obj/item/projectile/bullet/pellet/Bumped()
-	. = ..()
-	bumped = 0 //can hit all mobs in a tile. pellets is decremented inside attack_mob so this should be fine.
-
 /obj/item/projectile/bullet/pellet/proc/get_pellets(var/distance)
 	var/pellet_loss = round((distance - 1)/range_step) //pellets lost due to distance
 	return max(pellets - pellet_loss, 1)
@@ -122,7 +118,7 @@
 	if(. && !base_spread && isturf(loc))
 		for(var/mob/living/M in loc)
 			if(M.lying || !M.CanPass(src, loc)) //Bump if lying or if we would normally Bump.
-				if(Bump(M)) //Bump will make sure we don't hit a mob multiple times
+				if(Collide(M)) //Bump will make sure we don't hit a mob multiple times
 					return
 
 /* short-casing projectiles, like the kind used in pistols or SMGs */
@@ -199,6 +195,14 @@
 	penetrating = 5
 	armor_penetration = 80
 	hitscan = 1 //so the PTR isn't useless as a sniper weapon
+	maiming = 1
+	maim_rate = 60
+	maim_type = DROPLIMB_BLUNT
+
+/obj/item/projectile/bullet/rifle/vintage
+	name = "vintage bullet"
+	damage = 50
+	weaken = 1
 
 /obj/item/projectile/bullet/rifle/tranq
 	name = "dart"
@@ -209,7 +213,7 @@
 	drowsy = 0
 	eyeblur = 0
 	damage_type = TOX
-	step_delay = 0.25
+	speed = 0.3
 
 /obj/item/projectile/bullet/rifle/tranq/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
 	var/mob/living/L = target
@@ -221,14 +225,14 @@
 					if(blocked < 100 && !(blocked < 20))
 						L.emote("yawns")
 					if(blocked < 20)
-						addtimer(CALLBACK(src, .proc/apply_sedative, target, 10), 120)
+						if(L.reagents)	L.reagents.add_reagent("stoxin", 10)
 				if(def_zone == "head" && blocked < 100)
-					addtimer(CALLBACK(src, .proc/apply_sedative, target, 20), 35)
+					if(L.reagents)	L.reagents.add_reagent("stoxin", 15)
 				if(def_zone != "torso" && def_zone != "head")
 					if(blocked < 100 && !(blocked < 20))
 						L.emote("yawns")
 					if(blocked < 20)
-						addtimer(CALLBACK(src, .proc/apply_sedative, target, 15), 45)
+						if(L.reagents)	L.reagents.add_reagent("stoxin", 5)
 
 	if(isanimal(target))
 		target.visible_message("<b>[target]</b> twitches, foaming at the mouth.")
@@ -239,9 +243,6 @@
 			M.Sleeping(1200)*/ //commented out until simple_mob paralysis actually works.
 	..()
 
-/obj/item/projectile/bullet/rifle/tranq/proc/apply_sedative(var/mob/living/L, var/severity)
-	L.apply_effect(severity, PARALYZE, 0)
-	L.emote("moans")
 /* Miscellaneous */
 
 /obj/item/projectile/bullet/suffocationbullet//How does this even work?
@@ -308,9 +309,11 @@
 	sharp = 1
 	penetrating = 1
 
-	muzzle_type = /obj/effect/projectile/pulse_bullet/muzzle
+	muzzle_type = /obj/effect/projectile/muzzle/pulse
 
 /obj/item/projectile/bullet/flechette/explosive
 	shrapnel_type = /obj/item/weapon/material/shard/shrapnel/flechette
 	penetrating = 0
 	damage = 10
+
+
