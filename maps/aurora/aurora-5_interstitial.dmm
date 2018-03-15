@@ -5434,7 +5434,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "jJ" = (
-/obj/structure/bed/chair/wheelchair,
+/obj/structure/filingcabinet,
 /turf/simulated/floor/tiled/dark,
 /area/medical/psych)
 "jK" = (
@@ -5670,7 +5670,6 @@
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "kj" = (
-/obj/structure/filingcabinet,
 /obj/machinery/light{
 	icon_state = "tube1";
 	dir = 1
@@ -5678,6 +5677,8 @@
 /obj/machinery/alarm{
 	pixel_y = 32
 	},
+/obj/structure/table/wood,
+/obj/machinery/computer/med_data/laptop,
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "kk" = (
@@ -6176,7 +6177,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lg" = (
-/obj/structure/filingcabinet,
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
@@ -6192,6 +6192,8 @@
 	dir = 1;
 	pixel_y = -22
 	},
+/obj/structure/table/standard,
+/obj/machinery/computer/med_data/laptop,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lh" = (
