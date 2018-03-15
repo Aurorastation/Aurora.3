@@ -448,9 +448,10 @@ BLIND     // can't see anything
 	..()
 	update_wearer()
 
-/obj/item/clothing/gloves/on_slotmove()
-	..()
-	update_wearer()
+/obj/item/clothing/gloves/mob_can_unequip()
+	. = ..()
+	if (.)
+		update_wearer()
 
 ///////////////////////////////////////////////////////////////////////
 //Head
