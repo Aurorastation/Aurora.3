@@ -84,7 +84,7 @@
 	if(..()) return
 
 	/* Ghosts can't use this one because it's a direct selection */
-	if(istype(user, /mob/dead/observer)) return
+	if(istype(user, /mob/abstract/observer)) return
 
 	var/list/L = list()
 	var/list/areaindex = list()
@@ -184,12 +184,10 @@
 	com = null
 	return ..()
 
-/obj/machinery/teleport/hub/Bumped(M as mob|obj)
-	spawn()
-		if (src.icon_state == "tele1")
-			teleport(M)
-			use_power(5000)
-	return
+/obj/machinery/teleport/hub/CollidedWith(M as mob|obj)
+	if (src.icon_state == "tele1")
+		teleport(M)
+		use_power(5000)
 
 /obj/machinery/teleport/hub/proc/teleport(atom/movable/M as mob|obj)
 	if (!com)
@@ -394,9 +392,9 @@
 		icon_state = "controller"
 
 
-/obj/effect/laser/Bump()
+/obj/effect/laser/Collide()
+	. = ..()
 	src.range--
-	return
 
 /obj/effect/laser/Move()
 	src.range--

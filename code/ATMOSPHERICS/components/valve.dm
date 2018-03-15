@@ -242,7 +242,7 @@
 
 	log_and_message_admins("has [open ? "<font color='red'>OPENED</font>" : "closed"] [name].", user)
 
-/obj/machinery/atmospherics/valve/digital/AltClick(var/mob/dead/observer/admin)
+/obj/machinery/atmospherics/valve/digital/AltClick(var/mob/abstract/observer/admin)
 	if (istype(admin))
 		if (admin.client && admin.client.holder && ((R_MOD|R_ADMIN) & admin.client.holder.rights))
 			if (open)

@@ -13,6 +13,7 @@
 	zoomdevicename = null
 	max_shots = 0
 	burst_delay = 0
+	pin = null
 	var/origin_chassis
 	var/gun_type
 	var/list/gun_mods = list()
@@ -34,6 +35,8 @@
 		user << "You can see \the [capacitor] attached."
 	if(focusing_lens)
 		user << "You can see \the [focusing_lens] attached."
+	if(modulator)
+		user << "You can see \the [modulator] attached."
 
 /obj/item/weapon/gun/energy/laser/prototype/attackby(var/obj/item/weapon/D, var/mob/user)
 	if(!isscrewdriver(D))
@@ -49,6 +52,8 @@
 	chargetime = initial(chargetime)
 	accuracy = initial(accuracy)
 	criticality = initial(criticality)
+	fire_sound = initial(fire_sound)
+	force = initial(force)
 
 /obj/item/weapon/gun/energy/laser/prototype/proc/updatetype(var/mob/user)
 	reset_vars()
@@ -97,6 +102,7 @@
 	dispersion = focusing_lens.dispersion
 	accuracy = focusing_lens.accuracy
 	burst += focusing_lens.burst
+	fire_sound = modulator.firing_sound
 
 	if(gun_mods.len)
 		handle_mod()
@@ -121,7 +127,7 @@
 		burst += modifier.burst
 		burst_delay += modifier.burst_delay
 		max_shots *= modifier.shots
-		force += modifier.gun_force
+		force = min(force + modifier.gun_force, 40)
 		chargetime += modifier.chargetime*10
 		accuracy += modifier.accuracy
 		criticality *= modifier.criticality
@@ -182,6 +188,10 @@
 	if(modulator)
 		modulator.forceMove(A)
 		modulator = null
+	if(pin)
+		pin.forceMove(A)
+		pin.gun = null
+		pin = null
 	switch(origin_chassis)
 		if(CHASSIS_SMALL)
 			new /obj/item/device/laser_assembly(A)
@@ -240,7 +250,6 @@
 		usr << "<span class='warning'>This device does not have a scope installed!</span>"
 
 /obj/item/weapon/gun/energy/laser/prototype/special_check(var/mob/user)
-	..()
 	if(is_charging && chargetime)
 		user << "<span class='danger'>\The [src] is already charging!</span>"
 		return 0
@@ -264,7 +273,7 @@
 	if(!istype(user.get_active_hand(), src))
 		return 0
 
-	return 1
+	return ..()
 
 /obj/item/weapon/gun/energy/laser/prototype/verb/rename_gun()
 	set name = "Name Prototype"

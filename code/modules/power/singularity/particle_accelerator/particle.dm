@@ -37,7 +37,8 @@
 	return
 
 
-/obj/effect/accelerated_particle/Bump(atom/A)
+/obj/effect/accelerated_particle/Collide(atom/A)
+	. = ..()
 	if (A)
 		if(ismob(A))
 			toxmob(A)
@@ -45,11 +46,10 @@
 			A:energy += energy
 	return
 
-
-/obj/effect/accelerated_particle/Bumped(atom/A)
+/obj/effect/accelerated_particle/CollidedWith(atom/A)
+	. = ..()
 	if(ismob(A))
-		Bump(A)
-	return
+		toxmob(A)
 
 
 /obj/effect/accelerated_particle/ex_act(severity)

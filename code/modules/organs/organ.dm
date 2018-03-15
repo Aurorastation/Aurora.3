@@ -48,8 +48,8 @@
 				owner.organs -= src
 			if(owner.organs_by_name)
 				owner.organs_by_name -= src
-				
-	owner = null 
+
+	owner = null
 	QDEL_NULL(dna)
 
 	return ..()
@@ -214,7 +214,7 @@
 	damage = 0
 
 /obj/item/organ/proc/is_damaged()
-	return damage > 0
+	return damage >= 1 // Not zero because honestly who gives a shit about 0.01 organ damage
 
 /obj/item/organ/proc/is_bruised()
 	return damage >= min_bruised_damage
@@ -283,13 +283,12 @@
 /obj/item/organ/emp_act(severity)
 	if(!(status & ORGAN_ROBOT))
 		return
+
 	switch (severity)
 		if (1.0)
 			take_damage(rand(7,20) * emp_coeff)
-			return
 		if (2.0)
 			take_damage(rand(3,7) * emp_coeff)
-			return
 		if(3.0)
 			take_damage(rand(3) * emp_coeff)
 

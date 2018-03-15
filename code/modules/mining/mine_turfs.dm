@@ -15,6 +15,10 @@ var/list/mineral_can_smooth_with = list(
 	/turf/simulated/shuttle
 )
 
+// Some extra types for the surface to keep things pretty.
+/turf/simulated/mineral/surface
+	mined_turf = /turf/simulated/floor/asteroid/ash
+
 /turf/simulated/mineral //wall piece
 	name = "rock"
 	icon = 'icons/turf/map_placeholders.dmi'
@@ -34,7 +38,7 @@ var/list/mineral_can_smooth_with = list(
 	density = 1
 	blocks_air = 1
 	temperature = T0C
-	var/mined_turf = /turf/simulated/floor/asteroid
+	var/mined_turf = /turf/simulated/floor/asteroid/ash/rocky
 	var/ore/mineral
 	var/mined_ore = 0
 	var/last_act = 0
@@ -124,7 +128,7 @@ var/list/mineral_can_smooth_with = list(
 	if(emitter_blasts_taken > 2) // 3 blasts per tile
 		GetDrilled()
 
-/turf/simulated/mineral/Bumped(AM)
+/turf/simulated/mineral/CollidedWith(AM)
 	. = ..()
 	if(istype(AM,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = AM
@@ -501,14 +505,14 @@ var/list/mineral_can_smooth_with = list(
 // Setting icon/icon_state initially will use these values when the turf is built on/replaced.
 // This means you can put grass on the asteroid etc.
 /turf/simulated/floor/asteroid
-	name = "ash"
+	name = "coder's blight"
 	icon = 'icons/turf/map_placeholders.dmi'
-	icon_state = "ash"
-	desc = "A fine grey ash. Looks pretty tightly packed."
-	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	icon_state = ""
+	desc = "An exposed developer texture. Someone wasn't paying attention."
+	smooth = SMOOTH_FALSE
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 	gender = PLURAL
-	base_icon = 'icons/turf/smooth/ash.dmi'
+	base_icon = 'icons/turf/map_placeholders.dmi'
 	base_icon_state = "ash"
 
 	initial_flooring = null

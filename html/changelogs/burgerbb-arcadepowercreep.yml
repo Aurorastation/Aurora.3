@@ -1,9 +1,0 @@
-author: BurgerBB
-
-delete-after: True
-
-changes: 
-  - tweak: "Added syndicate balloons, nanotrasen balloons, replica katanas, bosun whistles, champion belts, invisible pens, bikehorns, lipstick, fake moustashes, clown masks, mime masks, fake wands, binoculars, megaphones, random booze, and the banhammer to the arcade loot tables."
-  - tweak: "Toy mechs are significatnly rarer."
-  - tweak: "Toy swords now spawn with random colors (red,blue,purple,green) as opposed to just the static blue."
-  - rscdel: "Removed duplicate katana code that seemingly exists for no real reason."

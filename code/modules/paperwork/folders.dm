@@ -25,6 +25,10 @@
 	desc = "A white folder."
 	icon_state = "folder_white"
 
+/obj/item/weapon/folder/purple
+	desc = "A purple folder, specifically designed for the Research Division facilities of the company."
+	icon_state = "folder_purple"
+
 /obj/item/weapon/folder/update_icon()
 	cut_overlays()
 	if(contents.len)
@@ -73,7 +77,7 @@
 		else if(href_list["read"])
 			var/obj/item/weapon/paper/P = locate(href_list["read"])
 			if(P && (P.loc == src) && istype(P))
-				if(!(istype(usr, /mob/living/carbon/human) || istype(usr, /mob/dead/observer) || istype(usr, /mob/living/silicon)))
+				if(!(istype(usr, /mob/living/carbon/human) || istype(usr, /mob/abstract/observer) || istype(usr, /mob/living/silicon)))
 					usr << browse("<HTML><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY>[stars(P.info)][P.stamps]</BODY></HTML>", "window=[P.name]")
 					onclose(usr, "[P.name]")
 				else

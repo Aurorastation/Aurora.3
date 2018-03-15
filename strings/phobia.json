@@ -1,0 +1,190 @@
+{
+	"spiders": [
+		"spider",
+		"web",
+		"arachnid",
+		"spiderling"
+	],
+
+	"space": [
+		"space",
+		"star",
+		"universe",
+		"void",
+		"galaxy",
+		"spess",
+		"hole",
+		"deep",
+		"high"
+	],
+
+	"security": [
+		" sec ",
+		"security",
+		"shitcurity",
+		"baton",
+		"taser",
+		"beepsky",
+		"hos",
+		"brig",
+		"gulag",
+		"communal",
+		"officer",
+		"regulation"
+	],
+
+	"doctors": [
+		" med ",
+		" sci ",
+		"medbay",
+		"medical",
+		"science",
+		"rnd",
+		"r&d",
+		"cmo",
+		"doctor",
+		"scientist",
+		"dr",
+		"doc",
+		"surgery",
+		"clone",
+		"cloning",
+		"chemistry",
+		"lesbay"
+	],
+
+	"clowns": [
+		"clown",
+		"honk",
+		"banana",
+		"slip"
+	],
+
+	"unathi": [
+		"hiss",
+		"unathi",
+		"lizard",
+		"hegemony",
+		"honor",
+		"spear",
+		"izweski",
+		"sinta",
+		"sss"
+	],
+
+	"cats": [
+		"tajara",
+		"adhomai",
+		"meow",
+		"runtime",
+		"bones",
+		"communism",
+		"rrr"
+	],
+
+	"humans": [
+		"man",
+		"sol",
+		"opposable thumbs",
+		"ape",
+		"monkey",
+		"earth"
+	],
+
+	"skrell": [
+		"frog",
+		"warble",
+		"tentacle",
+		"headtail",
+		"jargon",
+		"glorsh",
+		"tup"
+	],
+
+	"robots": [
+		"AI",
+		"borg",
+		"IPC",
+		"posi",
+		"bot",
+		"glorsh",
+		"mech",
+		"synth",
+		"drone"
+	],
+
+	"pests": [
+		"vaurca",
+		"bug",
+		"diona",
+		"nymph",
+		"roach",
+		"mouse",
+		"mice",
+		"blob",
+		"carp",
+		"vines"
+	],
+
+	"nanotrasen": [
+		"NT",
+		"trasen",
+		"phoron",
+		"CCIA",
+		"IAA",
+		"internal affairs",
+		"duty officer",
+		"odin",
+		"aurora",
+		"NSS",
+		"CC",
+		"central command",
+		"centcom",
+		"loyalty implant",
+		"LI",
+		"captain"
+	],
+
+	"filth": [
+		"blood",
+		"dirty",
+		"vomit",
+		"filth",
+		"disgusting",
+		"unclean",
+		"unsanitary"
+	],
+
+	"paranormals": [
+		"wizard",
+		"cult",
+		"nar'sie",
+		"magic",
+		"skeleton",
+		"undead",
+		"paranormal",
+		"ghost"
+	],
+
+	"death": [
+		"death",
+		"dying",
+		"dead",
+		" die",
+		"heaven",
+		"hell",
+		"afterlife",
+		"ghost",
+		"spirit"
+	],
+
+	"darkness": [
+		"dark",
+		"black",
+		"night",
+		"void",
+		"sightless",
+		"blind",
+		"can't see"
+	]
+}

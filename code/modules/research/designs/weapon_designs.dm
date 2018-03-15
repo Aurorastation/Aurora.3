@@ -13,6 +13,14 @@
 			desc = initial(I.desc)
 		..()
 
+/datum/design/item/weapon/gun/Fabricate()
+	var/obj/item/weapon/gun/C = ..()
+	if (SSATOMS_IS_PROBABLY_DONE)
+		qdel(C.pin)
+	else
+		C.pin = null
+	return C
+
 /datum/design/item/weapon/flora_gun
 	id = "flora_gun"
 	req_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3, TECH_POWER = 3)
@@ -20,14 +28,14 @@
 	build_path = /obj/item/weapon/gun/energy/floragun
 	sort_string = "TBAAA"
 
-/datum/design/item/weapon/phoronpistol
+/datum/design/item/weapon/gun/phoronpistol
 	id = "ppistol"
 	req_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 1000, "phoron" = 3000)
 	build_path = /obj/item/weapon/gun/energy/toxgun
 	sort_string = "TAAAD"
 
-/datum/design/item/weapon/smg
+/datum/design/item/weapon/gun/smg
 	id = "smg"
 	req_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 8000, "silver" = 2000, "diamond" = 1000)
@@ -88,7 +96,7 @@
 	build_path = /obj/item/weapon/melee/energy/glaive
 	sort_string = "TVAAA"
 
-/datum/design/item/weapon/railgun
+/datum/design/item/weapon/gun/railgun
 	id = "railgun"
 	name = "railgun"
 	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."
@@ -97,7 +105,7 @@
 	build_path = /obj/item/weapon/gun/projectile/automatic/railgun
 	sort_string = "TVCAA"
 
-/datum/design/item/weapon/lawgiver
+/datum/design/item/weapon/gun/lawgiver
 	name = "Lawgiver"
 	desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."
 	id = "lawgiver"
@@ -129,7 +137,7 @@
  	category = "Weapons"
  	sort_string = "TVHAA"
 
-/datum/design/item/weapon/beegun
+/datum/design/item/weapon/gun/beegun
 	id = "beegun"
 	req_tech = list(TECH_MATERIAL = 6, TECH_BIO = 4, TECH_POWER = 4, TECH_COMBAT = 6, TECH_MAGNET = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 2000, "silver" = 500, "diamond" = 3000)
@@ -176,7 +184,7 @@
 	id = "stock_starch"
 	req_tech = list(TECH_ENGINEERING = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 1000)
-	build_path = /obj/item/laser_components/capacitor
+	build_path = /obj/item/laser_components/capacitor/potato
 	sort_string = "TZZBB"
 
 /datum/design/item/weapon/modular_reinforced
@@ -201,17 +209,17 @@
 	sort_string = "TZZBD"
 
 /datum/design/item/weapon/modular_phoron
-	id = "stock_teranium"
-	req_tech = list(TECH_POWER = 8, TECH_ENGINEERING = 5, TECH_PHORON = 6)
+	id = "stock_phoron"
+	req_tech = list(TECH_POWER = 7, TECH_ENGINEERING = 5, TECH_PHORON = 6)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000, "phoron" = 3000, "uranium" = 500)
 	build_path = /obj/item/laser_components/capacitor/phoron
 	sort_string = "TZZBE"
 
 /datum/design/item/weapon/modular_bs
 	id = "stock_bs"
-	req_tech = list(TECH_POWER = 8, TECH_ENGINEERING = 8, TECH_PHORON = 7, TECH_BLUESPACE = 7)
+	req_tech = list(TECH_POWER = 7, TECH_ENGINEERING = 7, TECH_PHORON = 7, TECH_BLUESPACE = 7)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000, "phoron" = 3000, "uranium" = 500, "diamond" = 1000)
-	build_path = /obj/item/laser_components/capacitor/teranium
+	build_path = /obj/item/laser_components/capacitor/bluespace
 	sort_string = "TZZBF"
 
 /datum/design/item/weapon/modular_lens
@@ -407,14 +415,14 @@
 	id = "stock_declone"
 	req_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 1000, "phoron" = 3000)
-	build_path = /obj/item/laser_components/modulator/mindflayer
+	build_path = /obj/item/laser_components/modulator/decloner
 	sort_string = "TZZEK"
 
 /datum/design/item/weapon/modular_ebow
 	id = "stock_ebow"
-	req_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
+	req_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4, TECH_ILLEGAL = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 1000, "phoron" = 3000)
-	build_path = /obj/item/laser_components/modulator/mindflayer
+	build_path = /obj/item/laser_components/modulator/ebow
 	sort_string = "TZZEL"
 
 /datum/design/item/weapon/modular_blaster

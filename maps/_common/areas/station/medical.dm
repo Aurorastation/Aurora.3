@@ -148,5 +148,22 @@
 	no_light_control = 1
 
 /area/medical/icu
-	name = "\improper Medical -  Intensive Care Unit"
+	name = "\improper Medical - Intensive Care Unit"
 	icon_state = "cryo"
+
+/area/medical/triage
+	name = "\improper Medical - Triage Room"
+	icon_state = "medbay4"
+
+/area/medical/em_preop
+	name = "\improper Medical - Emergency Pre-Op"
+	icon_state = "medbay4"
+
+/area/medical/med_office
+	name = "\improper Medical - Medical Office"
+	icon_state = "exam_room"
+
+/area/medical/main_storage
+	name = "\improper Medical - Main Storage"
+	icon_state = "exam_room"
+

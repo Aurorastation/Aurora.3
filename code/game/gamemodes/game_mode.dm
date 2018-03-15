@@ -147,7 +147,7 @@ var/global/list/additional_antag_types = list()
 ///Checks to see if the game can be setup and ran with the current number of players or whatnot.
 /datum/game_mode/proc/can_start(var/do_not_spawn)
 	var/playerC = 0
-	for(var/mob/new_player/player in player_list)
+	for(var/mob/abstract/new_player/player in player_list)
 		if((player.client)&&(player.ready))
 			playerC++
 
@@ -397,8 +397,7 @@ var/global/list/additional_antag_types = list()
 
 /datum/game_mode/proc/send_intercept()
 
-	var/intercepttext = "<center><img src = ntlogo.png></center><BR><FONT size = 3><BR><B>Cent. Com. Update</B><BR>FOR YOUR EYES ONLY:</FONT><HR>"
-	intercepttext += "<B><font face='Courier New'>The personnel listed below have been marked at-risk elements that Cent. Com. has deemed priority handling for the current shift:</B><br>"
+	var/intercepttext = "<center><img src = ntlogo.png></center><BR><FONT size = 3><BR><B>Cent. Com. Update</B><BR>FOR YOUR EYES ONLY:</FONT><HR><font face='Courier New'>"
 
 	var/list/disregard_roles = list()
 	for(var/antag_type in all_antag_types)
@@ -503,28 +502,33 @@ var/global/list/additional_antag_types = list()
 	var/business_jargon = list("Collated incident reports","Assembled peer-reviews","Persistently negative staff reviews","Collected shift logs","Accumulated negative reports","Analyzed shift data")
 	var/mean_words = list("has expressed consistent disapproval with the network", "is no longer working efficiently","has gone on record against NanoTrasen practices","is spreading minor dissent in response to recent NanoTrasen behavior","has expressed subversive intent","is unhappy with their employment package")
 
-	for(var/mob/living/carbon/human/M in suspects)
-		if(player_is_antag(M.mind, only_offstation_roles = 1))
-			continue
-			intercepttext += "     + [pick(business_jargon)] indicate that [M.mind.assigned_role] [M.name] [pick(mean_words)].<br>"
-	intercepttext += "Cent. Com recommends coordinating with human resources to resolve any issues with employment.<br>"
+	if(suspects)
+		intercepttext += "<B>The personnel listed below have been marked at-risk elements that Cent. Com. has deemed priority handling for the current shift:</B><br>"
+		for(var/mob/living/carbon/human/M in suspects)
+			if(player_is_antag(M.mind, only_offstation_roles = 1))
+				continue
+			intercepttext += "<br>     + [pick(business_jargon)] indicate that [M.mind.assigned_role] [M.name] [pick(mean_words)]."
+		intercepttext += "Cent. Com recommends coordinating with human resources to resolve any issues with employment.<br>"
 
-	intercepttext += "<br><B>The personnel listed below possess three or more offenses listed on record:</B>"
-	for(var/mob/living/carbon/human/M in repeat_offenders)
-		intercepttext += "     + [M.mind.assigned_role] [M.name], [M.incidents.len] offenses.<br>"
-	intercepttext += "Cent. Com recommends coordinating with internal security to monitor and rehabilitate these personnel.<br>"
+	if(repeat_offenders)
+		intercepttext += "<br><B>The personnel listed below possess three or more offenses listed on record:</B>"
+		for(var/mob/living/carbon/human/M in repeat_offenders)
+			intercepttext += "<br>     + [M.mind.assigned_role] [M.name], [M.incidents.len] offenses."
+		intercepttext += "Cent. Com recommends coordinating with internal security to monitor and rehabilitate these personnel.<br>"
 
-	intercepttext += "<br><B>The personnel listed below have been indicated as particularly loyal to NanoTrasen:</B>"
-	for(var/mob/living/carbon/human/M in loyalists)
-		intercepttext += "     + [M.mind.assigned_role] [M.name].<br>"
-	intercepttext += "Cent. Com recommends coordinating with human resources to reward and further motivate these personnel for their loyalty.<br>"
+	if(loyalists)
+		intercepttext += "<br><B>The personnel listed below have been indicated as particularly loyal to NanoTrasen:</B>"
+		for(var/mob/living/carbon/human/M in loyalists)
+			intercepttext += "<br>     + [M.mind.assigned_role] [M.name]."
+		intercepttext += "Cent. Com recommends coordinating with human resources to reward and further motivate these personnel for their loyalty.<br>"
 
 	if(evil_department)
 		intercepttext += "<br>[pick(business_jargon)] indicate that a majority of the [evil_department] department [pick(mean_words)]. This department has been marked at-risk and Cent. Com. recommends immediate action before the situation worsens.<br>"
 	if(total_crew)
 		intercepttext += "<br>Data collected and analyzed by A.L.I.C.E. indicate that [round((loyal_crew/total_crew)*100)]% of the current crew detail are supportive of NanoTrasen actions. Cent. Com. implores the current Head of Staff detail to increase this percentage.<br>"
 
-	intercepttext += "<hr> </font>Respectfully,<br><i>Quix Repi'Weish</i>, Chief Personnel Director"
+	intercepttext += "<hr> </font>Respectfully,<br><i>Quix Repi'Weish</i>, Chief Personnel Director<br>"
+	intercepttext += "<center><img src = barcode[rand(0, 3)].png></center>"
 
 	//New message handling
 	post_comm_message("Cent. Com. Status Summary", intercepttext)
@@ -544,19 +548,19 @@ var/global/list/additional_antag_types = list()
 		for(var/mob/player in player_list)
 			if(!player.client)
 				continue
-			if(istype(player, /mob/new_player))
+			if(istype(player, /mob/abstract/new_player))
 				continue
 			if(!role || (role in player.client.prefs.be_special_role))
 				log_debug("[player.key] had [antag_id] enabled, so we are drafting them.")
 				candidates |= player.mind
 	else
 		// Assemble a list of active players without jobbans.
-		for(var/mob/new_player/player in player_list)
+		for(var/mob/abstract/new_player/player in player_list)
 			if( player.client && player.ready )
 				players += player
 
 		// Get a list of all the people who want to be the antagonist for this round
-		for(var/mob/new_player/player in players)
+		for(var/mob/abstract/new_player/player in players)
 			if(!role || (role in player.client.prefs.be_special_role))
 				log_debug("[player.key] had [antag_id] enabled, so we are drafting them.")
 				candidates += player.mind
@@ -564,7 +568,7 @@ var/global/list/additional_antag_types = list()
 
 		// If we don't have enough antags, draft people who voted for the round.
 		if(candidates.len < required_enemies)
-			for(var/mob/new_player/player in players)
+			for(var/mob/abstract/new_player/player in players)
 				if(player.ckey in SSvote.round_voters)
 					log_debug("[player.key] voted for this round, so we are drafting them.")
 					candidates += player.mind
@@ -577,7 +581,7 @@ var/global/list/additional_antag_types = list()
 
 /datum/game_mode/proc/num_players()
 	. = 0
-	for(var/mob/new_player/P in player_list)
+	for(var/mob/abstract/new_player/P in player_list)
 		if(P.client && P.ready)
 			. ++
 
@@ -639,7 +643,7 @@ proc/display_roundstart_logout_report()
 					continue //Dead
 
 			continue //Happy connected client
-		for(var/mob/dead/observer/D in mob_list)
+		for(var/mob/abstract/observer/D in mob_list)
 			if(D.mind && (D.mind.original == L || D.mind.current == L))
 				if(L.stat == DEAD)
 					msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), the [L.job] (Dead)\n"

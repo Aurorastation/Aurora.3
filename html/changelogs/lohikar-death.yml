@@ -1,4 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - bugfix: "Your HUD no longer lies to you about your health if you're actually dead."

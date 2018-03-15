@@ -12,7 +12,7 @@
 		src << "<span class='warning'>The game hasn't started yet!</span>"
 		return
 
-	if(istype(mob, /mob/new_player))
+	if(istype(mob, /mob/abstract/new_player))
 		src << "<span class='warning'>You can't be in the lobby to join as a duty officer.</span>"
 		return
 

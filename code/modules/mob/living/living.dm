@@ -17,7 +17,7 @@
 	if(!..())
 		return 0
 
-	usr.visible_message("<b>[src]</b> points to [A]")
+	src.visible_message("<b>[src]</b> points to [A]")
 	return 1
 
 /*one proc, four uses
@@ -44,96 +44,109 @@ default behaviour is:
 			return 1
 		return 0
 
-/mob/living/Bump(atom/movable/AM, yes)
-	spawn(0)
-		if ((!( yes ) || now_pushing) || !loc)
+/mob/living
+	var/tmp/last_push_notif
+
+/mob/living/Collide(atom/movable/AM)
+	spawn
+		if (now_pushing || !loc)
 			return
-		now_pushing = 1
+
+		now_pushing = TRUE
 		if (istype(AM, /mob/living))
 			var/mob/living/tmob = AM
 
 			for(var/mob/living/M in range(tmob, 1))
-				if(tmob.pinned.len ||  ((M.pulling == tmob && ( tmob.restrained() && !( M.restrained() ) && M.stat == 0)) || locate(/obj/item/weapon/grab, tmob.grabbed_by.len)) )
-					if ( !(world.time % 5) )
+				if(tmob.pinned.len || ((M.pulling == tmob && ( tmob.restrained() && !( M.restrained() ) && M.stat == 0)) || locate(/obj/item/weapon/grab, tmob.grabbed_by.len)) )
+					if (last_push_notif + 0.5 SECONDS <= world.time)
 						src << "<span class='warning'>[tmob] is restrained, you cannot push past</span>"
-					now_pushing = 0
+						last_push_notif = world.time
+
+					now_pushing = FALSE
 					return
 				if( tmob.pulling == M && ( M.restrained() && !( tmob.restrained() ) && tmob.stat == 0) )
-					if ( !(world.time % 5) )
+					if (last_push_notif + 0.5 SECONDS <= world.time)
 						src << "<span class='warning'>[tmob] is restraining [M], you cannot push past</span>"
-					now_pushing = 0
+						last_push_notif = world.time
+
+					now_pushing = FALSE
 					return
 
 			//Leaping mobs just land on the tile, no pushing, no anything.
 			if(status_flags & LEAPING)
-				loc = tmob.loc
+				forceMove(tmob.loc)
 				status_flags &= ~LEAPING
-				now_pushing = 0
+				now_pushing = FALSE
 				return
 
 			if(can_swap_with(tmob)) // mutual brohugs all around!
 				var/turf/oldloc = loc
 				forceMove(tmob.loc)
 				tmob.forceMove(oldloc)
-				now_pushing = 0
+				now_pushing = FALSE
 				for(var/mob/living/carbon/slime/slime in view(1,tmob))
 					if(slime.Victim == tmob)
 						slime.UpdateFeed()
 				return
 
 			if(!can_move_mob(tmob, 0, 0))
-				now_pushing = 0
+				now_pushing = FALSE
 				return
+
 			if(a_intent == I_HELP || src.restrained())
-				now_pushing = 0
+				now_pushing = FALSE
 				return
+
 			if(istype(tmob, /mob/living/carbon/human) && (FAT in tmob.mutations))
 				if(prob(40) && !(FAT in src.mutations))
 					src << "<span class='danger'>You fail to push [tmob]'s fat ass out of the way.</span>"
-					now_pushing = 0
+					now_pushing = FALSE
 					return
-			if(tmob.r_hand && istype(tmob.r_hand, /obj/item/weapon/shield/riot))
+
+			if(istype(tmob.r_hand, /obj/item/weapon/shield/riot))
 				if(prob(99))
-					now_pushing = 0
+					now_pushing = FALSE
 					return
-			if(tmob.l_hand && istype(tmob.l_hand, /obj/item/weapon/shield/riot))
+
+			if(istype(tmob.l_hand, /obj/item/weapon/shield/riot))
 				if(prob(99))
-					now_pushing = 0
+					now_pushing = FALSE
 					return
+
 			if(!(tmob.status_flags & CANPUSH))
-				now_pushing = 0
+				now_pushing = FALSE
 				return
 
-			tmob.LAssailant = src
+			tmob.LAssailant = WEAKREF(src)
 
-		now_pushing = 0
+		now_pushing = FALSE
 		spawn(0)
-			..()
+			. = ..()
 			if (!istype(AM, /atom/movable))
 				return
 			if (!now_pushing)
-				now_pushing = 1
+				now_pushing = TRUE
 
 				if (!AM.anchored)
 					if(isobj(AM))
 						var/obj/O = AM
 						if ((can_pull_size == 0) || (can_pull_size < O.w_class))
-							now_pushing = 0
+							now_pushing = FALSE
 							return
 
 					var/t = get_dir(src, AM)
 					if (istype(AM, /obj/structure/window))
 						for(var/obj/structure/window/win in get_step(AM,t))
-							now_pushing = 0
+							now_pushing = FALSE
 							return
+
 					step(AM, t)
 					if(ishuman(AM) && AM:grabbed_by)
 						for(var/obj/item/weapon/grab/G in AM:grabbed_by)
 							step(G:assailant, get_dir(G:assailant, AM))
 							G.adjust_position()
-				now_pushing = 0
-			return
-	return
+
+				now_pushing = FALSE
 
 /proc/swap_density_check(var/mob/swapper, var/mob/swapee)
 	var/turf/T = get_turf(swapper)
@@ -280,15 +293,13 @@ default behaviour is:
 	cloneloss = amount
 
 /mob/living/proc/getBrainLoss()
-	return brainloss
+	. = 0
 
-/mob/living/proc/adjustBrainLoss(var/amount)
-	if(status_flags & GODMODE)	return 0	//godmode
-	brainloss = min(max(brainloss + amount, 0),(maxHealth*2))
+/mob/living/proc/adjustBrainLoss(var/amount, var/maximum)
+	return
 
 /mob/living/proc/setBrainLoss(var/amount)
-	if(status_flags & GODMODE)	return 0	//godmode
-	brainloss = amount
+	return
 
 /mob/living/proc/getHalLoss()
 	return halloss
@@ -752,10 +763,10 @@ default behaviour is:
 	if(deaf >= 0)
 		ear_deaf = deaf
 
-/mob/proc/can_be_possessed_by(var/mob/dead/observer/possessor)
+/mob/proc/can_be_possessed_by(var/mob/abstract/observer/possessor)
 	return istype(possessor) && possessor.client
 
-/mob/living/can_be_possessed_by(var/mob/dead/observer/possessor)
+/mob/living/can_be_possessed_by(var/mob/abstract/observer/possessor)
 	if(!..())
 		return 0
 	if(!possession_candidate)
@@ -768,7 +779,7 @@ default behaviour is:
 		return 0
 	return 1
 
-/mob/living/proc/do_possession(var/mob/dead/observer/possessor)
+/mob/living/proc/do_possession(var/mob/abstract/observer/possessor)
 
 	if(!(istype(possessor) && possessor.ckey))
 		return 0

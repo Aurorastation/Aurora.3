@@ -64,7 +64,7 @@
 			walk_to(src,0)
 
 		if(prob(2)) //spooky
-			var/mob/dead/observer/spook = locate() in range(src,5)
+			var/mob/abstract/observer/spook = locate() in range(src,5)
 			if(spook)
 				var/turf/T = spook.loc
 				var/list/visible = list()

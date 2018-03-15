@@ -24,6 +24,7 @@
 	var/unbreakable = FALSE
 	var/default_material = null // Set this to something else if you want material attributes on init.
 	var/material_armor_modifer = 1 // Adjust if you want seperate types of armor made from the same material to have different protectiveness (e.g. makeshift vs real armor)
+	var/refittable = TRUE // If false doesn't let the clothing be refit in suit cyclers
 
 
 /obj/item/clothing/Initialize(var/mapload, var/material_key)
@@ -85,7 +86,7 @@
 	switch(target_species)
 		if("Human", "Skrell", "Machine", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")	//humanoid bodytypes
 			species_restricted = list(
-				"Human", 
+				"Human",
 				"Skrell",
 				"Machine",
 				"Zeng-Hu Mobility Frame",
@@ -202,10 +203,10 @@
 				// Find a turf near or on the original location to bounce to
 				var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
 				var/new_y = P.starting.y + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
-				var/turf/curloc = get_turf(user)
 
 				// redirect the projectile
-				P.redirect(new_x, new_y, curloc, user)
+				P.firer = user
+				P.old_style_target(locate(new_x, new_y, P.z))
 
 				return PROJECTILE_CONTINUE // complete projectile permutation
 
@@ -297,8 +298,8 @@
 /obj/item/clothing/ears/offear
 	name = "Other ear"
 	w_class = 5.0
-	icon = 'icons/mob/screen1_Midnight.dmi'
-	icon_state = "block"
+	icon = 'icons/mob/screen/midnight.dmi'
+	icon_state = "blocked"
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
 
 	New(var/obj/O)
@@ -360,6 +361,8 @@ BLIND     // can't see anything
 	var/fingerprint_chance = 0
 	var/obj/item/clothing/ring/ring = null		//Covered ring
 	var/mob/living/carbon/human/wearer = null	//Used for covered rings when dropping
+	var/punch_force = 0			//How much damage do these gloves add to a punch?
+	var/punch_damtype = BRUTE	//What type of damage does this make fists be?
 	body_parts_covered = HANDS
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")
@@ -385,18 +388,18 @@ BLIND     // can't see anything
 	..()
 
 // Called just before an attack_hand(), in mob/UnarmedAttack()
-/obj/item/clothing/gloves/proc/Touch(var/atom/A, var/proximity)
+/obj/item/clothing/gloves/proc/Touch(var/atom/A, mob/user, var/proximity)
 	return 0 // return 1 to cancel attack_hand()
 
 /obj/item/clothing/gloves/attackby(obj/item/weapon/W, mob/user)
 	if(iswirecutter(W) || istype(W, /obj/item/weapon/scalpel))
 		if (clipped)
-			user << "<span class='notice'>The [src] have already been clipped!</span>"
+			user << "<span class='notice'>\The [src] have already been clipped!</span>"
 			update_icon()
 			return
 
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
-		user.visible_message("<span class='warning'>[user] cuts the fingertips off of the [src].</span>","<span class='warning'>You cut the fingertips off of the [src].</span>")
+		user.visible_message("<span class='warning'>[user] cuts the fingertips off of \the [src].</span>","<span class='warning'>You cut the fingertips off of \the [src].</span>")
 
 		clipped = 1
 		name = "modified [name]"
@@ -445,9 +448,10 @@ BLIND     // can't see anything
 	..()
 	update_wearer()
 
-/obj/item/clothing/gloves/on_slotmove()
-	..()
-	update_wearer()
+/obj/item/clothing/gloves/mob_can_unequip()
+	. = ..()
+	if (.)
+		update_wearer()
 
 ///////////////////////////////////////////////////////////////////////
 //Head

@@ -136,3 +136,20 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/weapon/reagent_containers/food/snacks/pisanggoreng
 	coating = /datum/reagent/nutriment/coating/batter
+
+/datum/recipe/corn_dog
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sausage
+	)
+	fruit = list("corn" = 1)
+	coating = /datum/reagent/nutriment/coating/batter
+	result = /obj/item/weapon/reagent_containers/food/snacks/corn_dog
+
+/datum/recipe/sweet_and_sour
+	appliance = FRYER
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/bacon,
+		/obj/item/weapon/reagent_containers/food/snacks/cutlet
+	)
+	reagents = list("soysauce" = 5, "batter" = 10)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sweet_and_sour

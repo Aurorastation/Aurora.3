@@ -65,10 +65,22 @@
 	organ_tag = "cell"
 	parent_organ = "chest"
 	vital = 1
+	var/emp_counter = 0
 
 /obj/item/organ/cell/Initialize()
 	robotize()
 	. = ..()
+
+/obj/item/organ/cell/process()
+	..()
+	if(emp_counter)
+		emp_counter--
+
+/obj/item/organ/cell/emp_act(severity)
+	emp_counter += 30/severity
+	if(emp_counter >= 30)
+		owner.Paralyse(emp_counter/6)
+		owner << "<span class='danger'>%#/ERR: Power leak detected!$%^/</span>"
 
 /obj/item/organ/cell/replaced()
 	. = ..()

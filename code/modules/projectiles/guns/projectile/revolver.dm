@@ -118,6 +118,7 @@
 	handle_casings = CYCLE_CASINGS
 	max_shells = 7
 	ammo_type = /obj/item/ammo_casing/cap
+	needspin = FALSE
 
 /obj/item/weapon/gun/projectile/revolver/capgun/attackby(obj/item/W, mob/user)
 	if(!iswirecutter(W) || icon_state == "revolver")

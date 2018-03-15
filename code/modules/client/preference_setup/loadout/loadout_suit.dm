@@ -99,11 +99,11 @@
 
 /datum/gear/suit/trenchcoat
 	display_name = "trenchcoat, brown"
-	path = /obj/item/clothing/suit/storage/trench
+	path = /obj/item/clothing/suit/storage/toggle/trench
 
 /datum/gear/suit/trenchcoatgrey
 	display_name = "trenchcoat, grey"
-	path = /obj/item/clothing/suit/storage/trench/grey
+	path = /obj/item/clothing/suit/storage/toggle/trench/grey
 
 /datum/gear/suit/ian
 	display_name = "worn shirt"
