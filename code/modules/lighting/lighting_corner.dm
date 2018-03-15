@@ -131,11 +131,11 @@ var/list/REVERSE_LIGHTING_CORNER_DIAGONAL = list(0, 0, 0, 0, 3, 4, 0, 0, 2, 1)
 
 #define AVERAGE_BELOW_CORNER(Tt, Ti) \
 	if (TURF_IS_MIMICING(Tt)) { \
-		divisor += 1; \
 		T = get_step(Tt, DOWN); \
 		if (T.corners && T.dynamic_lighting) { \
 			C = T.corners[Ti]; \
 			if (C) { \
+				divisor += 1; \
 				lr += C.lum_r; \
 				lg += C.lum_g; \
 				lb += C.lum_b; \
