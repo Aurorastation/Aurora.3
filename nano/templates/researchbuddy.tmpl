@@ -1,0 +1,198 @@
+<h3>Research Buddy</h3>
+{{if !data.power}}
+	<div class="item">
+		No Power.
+	</div>
+{{else}}
+	{{if data.processing}}
+		<div class="item">
+			Processing research on {{:data.field}} using {{:data.support1}} and {{:data.support2}}.
+		</div>
+		<div class="item">a
+		{{:helper.displayBar(data.processing, 0, 100, 'good')}}
+		</div>
+	{{else !data.field}}
+		<div class="item">
+			Please select a main topic.
+		</div>
+		<div class="item">
+			{{:helper.link('Astronomy', 'arrowthickstop-1-e', {'field' : '1'}, (data.field = 1) ? null : 'disabled' , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Medicine', 'arrowthickstop-1-e', {'field' : '2'}, (data.field = 2) ? null : 'disabled' , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Engineering', 'arrowthickstop-1-e', {'field' : '3'}, (data.field = 3 ) ? null : 'disabled' , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Mathematics', 'arrowthickstop-1-e', {'field' : '4'}, (data.field = 4) ? null : 'disabled' , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Data Theory', 'arrowthickstop-1-e', {'field' : '5'}, (data.field = 5) ? null : 'disabled' , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Philosophy', 'arrowthickstop-1-e', {'field' : '6'}, (data.field = 6) ? null : 'disabled' , null)}}
+		</div>
+	{{else !data.support1}}
+		<div class="item">
+			Please select a supporting topic.
+		</div>
+		<div class="item">
+			{{:helper.link('Cancel', 'arrowthickstop-1-e', {'confirm' : '2'})}}
+		</div>
+		--Astronomy
+		<div class="item">
+			{{:helper.link('Bluespace', 'arrowthickstop-1-e', {'supportone' : '1'}, (data.field == 1) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Xenoarch', 'arrowthickstop-1-e', {'supportone' : '2'}, (data.field == 1) ? 'disabled' : null , null)}}
+		</div>
+		--Medicine
+		<div class="item">
+			{{:helper.link('Combat', 'arrowthickstop-1-e', {'supportone' : '3'}, (data.field == 2) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Anatomy', 'arrowthickstop-1-e', {'supportone' : '4'}, (data.field == 2) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Chemistry', 'arrowthickstop-1-e', {'supportone' : '5'}, (data.field == 2) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Phoron', 'arrowthickstop-1-e', {'supportone' : '6'}, (data.field == 2) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Biological', 'arrowthickstop-1-e', {'supportone' : '7'}, (data.field == 2) ? 'disabled' : null , null)}}
+		</div>
+		--Engineering
+		<div class="item">
+			{{:helper.link('Combat', 'arrowthickstop-1-e', {'supportone' : '8'}, (data.field == 3 ) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Power', 'arrowthickstop-1-e', {'supportone' : '9'}, (data.field == 3 ) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Phoron', 'arrowthickstop-1-e', {'supportone' : '10'}, (data.field == 3 ) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Materials', 'arrowthickstop-1-e', {'supportone' : '11'}, (data.field == 3 ) ? 'disabled' : null , null)}}
+		</div>
+		--Mathematics
+		<div class="item">
+			{{:helper.link('Equations', 'arrowthickstop-1-e', {'supportone' : '12'}, (data.field == 4) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Bluespace', 'arrowthickstop-1-e', {'supportone' : '13'}, (data.field == 4) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Telescience', 'arrowthickstop-1-e', {'supportone' : '14'}, (data.field == 4) ? 'disabled' : null , null)}}
+		</div>
+		--Data Theory
+		<div class="item">
+			{{:helper.link('Artificial Intelligence', 'arrowthickstop-1-e', {'supportone' : '15'}, (data.field == 5) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Electro-Magnetic', 'arrowthickstop-1-e', {'supportone' : '16'}, (data.field == 5) ? 'disabled' : null , null)}}
+		</div>
+		--Philosophy
+		<div class="item">
+			{{:helper.link('Law', 'arrowthickstop-1-e', {'supportone' : '17'}, (data.field == 6) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Diplomacy', 'arrowthickstop-1-e', {'supportone' : '18'}, (data.field == 6) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Economic Policy', 'arrowthickstop-1-e', {'supportone' : '19'}, (data.field == 6) ? 'disabled' : null , null)}}
+		</div>
+	{{else !data.support2}}
+		<div class="item">
+			Please select a second supporting topic.
+		</div>
+		<div class="item">
+			{{:helper.link('Cancel', 'arrowthickstop-1-e', {'confirm' : '2'})}}
+		</div>
+		--Astronomy
+		<div class="item">
+			{{:helper.link('Bluespace', 'arrowthickstop-1-e', {'supportone' : '1'}, (data.field == 1 || data.support1 == 1) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Xenoarch', 'arrowthickstop-1-e', {'supportone' : '2'}, (data.field == 1 || data.support1 == 2) ? 'disabled' : null , null)}}
+		</div>
+		--Medicine
+		<div class="item">
+			{{:helper.link('Combat', 'arrowthickstop-1-e', {'supportone' : '3'}, (data.field == 2 || data.support1 == 3) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Anatomy', 'arrowthickstop-1-e', {'supportone' : '4'}, (data.field == 2 || data.support1 == 4) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Chemistry', 'arrowthickstop-1-e', {'supportone' : '5'}, (data.field == 2 || data.support1 == 5) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Phoron', 'arrowthickstop-1-e', {'supportone' : '6'}, (data.field == 2 || data.support1 == 6) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Biological', 'arrowthickstop-1-e', {'supportone' : '7'}, (data.field == 2 || data.support1 == 7) ? 'disabled' : null , null)}}
+		</div>
+		--Engineering
+		<div class="item">
+			{{:helper.link('Combat', 'arrowthickstop-1-e', {'supportone' : '8'}, (data.field == 3 || data.support1 == 8) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Power', 'arrowthickstop-1-e', {'supportone' : '9'}, (data.field == 3 || data.support1 == 9) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Phoron', 'arrowthickstop-1-e', {'supportone' : '10'}, (data.field == 3 || data.support1 == 10) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Materials', 'arrowthickstop-1-e', {'supportone' : '11'}, (data.field == 3 || data.support1 == 11) ? 'disabled' : null , null)}}
+		</div>
+		--Mathematics
+		<div class="item">
+			{{:helper.link('Equations', 'arrowthickstop-1-e', {'supportone' : '12'}, (data.field == 4 || data.support1 == 12) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Bluespace', 'arrowthickstop-1-e', {'supportone' : '13'}, (data.field == 4 || data.support1 == 13) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Telescience', 'arrowthickstop-1-e', {'supportone' : '14'}, (data.field == 4 || data.support1 == 14) ? 'disabled' : null , null)}}
+		</div>
+		--Data Theory
+		<div class="item">
+			{{:helper.link('Artificial Intelligence', 'arrowthickstop-1-e', {'supportone' : '15'}, (data.field == 5 || data.support1 == 15) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Electro-Magnetic', 'arrowthickstop-1-e', {'supportone' : '16'}, (data.field == 5 || data.support1 == 16) ? 'disabled' : null , null)}}
+		</div>
+		--Philosophy
+		<div class="item">
+			{{:helper.link('Law', 'arrowthickstop-1-e', {'supportone' : '17'}, (data.field == 6 || data.support1 == 17) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Diplomacy', 'arrowthickstop-1-e', {'supportone' : '18'}, (data.field == 6 || data.support1 == 18) ? 'disabled' : null , null)}}
+		</div>
+		<div class="item">
+			{{:helper.link('Economic Policy', 'arrowthickstop-1-e', {'supportone' : '19'}, (data.field == 6 || data.support1 == 19) ? 'disabled' : null , null)}}
+		</div>
+	{{else !data.paper}}
+		<div class="item">
+			Add additional information?
+		</div>
+		<div class="item">
+			{{:helper.link('Yes', 'arrowthickstop-1-e', {'paper' : '1'})}}
+		</div>
+		<div class="item">
+			{{:helper.link('No', 'arrowthickstop-1-e', {'paper' : '2'})}}
+		</div>
+	{{else}}
+		<div class="item">
+			Start research on {{:data.field}} using {{:data.support1}} and {{:data.support2}}?
+		</div>
+		<div class="item">
+			{{:helper.link('Yes', 'arrowthickstop-1-e', {'confirm' : '1'})}}
+		</div>
+		<div class="item">
+			{{:helper.link('No', 'arrowthickstop-1-e', {'confirm' : '2'})}}
+		</div>
+	
+	{{/if}}
+{{/if}}

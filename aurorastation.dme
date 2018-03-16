@@ -522,6 +522,7 @@
 #include "code\game\machinery\portable_turret.dm"
 #include "code\game\machinery\recharger.dm"
 #include "code\game\machinery\rechargestation.dm"
+#include "code\game\machinery\researchbuddy.dm"
 #include "code\game\machinery\requests_console.dm"
 #include "code\game\machinery\ringer.dm"
 #include "code\game\machinery\robot_fabricator.dm"
