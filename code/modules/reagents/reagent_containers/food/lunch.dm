@@ -71,10 +71,7 @@ var/list/lunchables_drink_reagents_ = list(
 	/datum/reagent/drink/dry_ramen,
 	/datum/reagent/drink/hell_ramen,
 	/datum/reagent/drink/hot_ramen,
-	/datum/reagent/drink/nuka_cola,
-	/datum/reagent/drink/black_coffee,
-	/datum/reagent/drink/white_coffee,
-	/datum/reagent/drink/cafe_melange
+	/datum/reagent/drink/nuka_cola
 )
 
 // This default list is a bit different, it contains items we don't want

@@ -2028,6 +2028,62 @@
 	required_reagents = list("coffee" = 1, "milk" = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/freddo_espresso
+	name = "Freddo Espresso"
+	id = "freddo_espresso"
+	result = "freddo_espresso"
+	required_reagents = list("espresso" = 1, "ice" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/caffe_americano
+	name = "Caffe Americano"
+	id = "caffe_americano"
+	result = "caffe_americano"
+	required_reagents = list("espresso" = 1, "water" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/flat_white
+	name = "Flat White"
+	id = "flat_white"
+	result = "flat_white"
+	required_reagents = list("espresso" = 1, "milk" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/latte
+	name = "Latte"
+	id = "latte"
+	result = "latte"
+	required_reagents = list("flat_white" = 1, "milk" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/cappuccino
+	name = "Cappuccino"
+	id = "cappuccino"
+	result = "cappuccino"
+	required_reagents = list("espresso" = 1, "cream" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/freddo_cappuccino
+	name = "Freddo cappuccino"
+	id = "freddo_cappuccino"
+	result = "freddo_cappuccino"
+	required_reagents = list("cappuccino" = 1, "ice" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/macchiato
+	name = "Macchiato"
+	id = "macchiato"
+	result = "macchiato"
+	required_reagents = list("cappuccino" = 1, "espresso" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/mocacchino
+	name = "Mocacchino"
+	id = "mocacchino"
+	result = "mocacchino"
+	required_reagents = list("flat_white" = 1, "coco" = 1)
+	result_amount = 2
+
 /datum/chemical_reaction/acidspit
 	name = "Acid Spit"
 	id = "acidspit"
@@ -2258,22 +2314,6 @@
 	result = "luminol"
 	required_reagents = list("hydrazine" = 2, "carbon" = 2, "ammonia" = 2)
 	result_amount = 6
-
-/////////////////////////////////////////Brightdawns super cool coffee drinks//////////////////////////////////////////////
-
-/datum/chemical_reaction/white_coffee
-	name = "Cafe Au Lait"
-	id = "white_coffee"
-	result = "white_coffee"
-	required_reagents = list("milk" = 1, "black_coffee" = 2)
-	result_amount = 3
-
-/datum/chemical_reaction/cafe_melange
-	name = "Cafe Melange"
-	id = "cafe_melange"
-	result = "cafe_melange"
-	required_reagents = list("cream" = 1, "black_coffee" = 2)
-	result_amount = 3
 
 //aurora's drinks
 
