@@ -58710,7 +58710,8 @@
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bWy" = (
-/obj/machinery/smartfridge/drinks,
+/obj/structure/table/reinforced,
+/obj/machinery/chemical_dispenser/coffeemaster/full,
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bWz" = (
@@ -59706,6 +59707,12 @@
 "bYy" = (
 /obj/structure/table/wood,
 /obj/item/weapon/flame/lighter/zippo,
+/obj/item/weapon/screwdriver,
+/obj/item/clothing/head/that{
+	pixel_x = 4;
+	pixel_y = 6
+	},
+/obj/item/weapon/book/manual/barman_recipes,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bYz" = (
@@ -59930,22 +59937,15 @@
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bYS" = (
-/obj/structure/table/reinforced,
-/obj/item/weapon/book/manual/barman_recipes,
-/obj/item/clothing/head/that{
-	pixel_x = 4;
-	pixel_y = 6
-	},
-/obj/item/weapon/screwdriver,
 /obj/structure/window/reinforced/polarized{
 	id = "finedining"
 	},
-/obj/item/weapon/flame/lighter/zippo,
 /obj/item/device/radio/intercom{
 	dir = 4;
 	name = "Station Intercom (General)";
 	pixel_x = 27
 	},
+/obj/machinery/smartfridge/drinks,
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bYT" = (
