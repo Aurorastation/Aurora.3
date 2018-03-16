@@ -1056,7 +1056,7 @@
 /datum/reagent/drink/coffee/latte
 	name = "Latte"
 	id = "latte"
-	description = "A nice, strong and tasty beverage while you are reading."
+	description = "A nice, strong and refreshing beverage while you are reading."
 	color = "#664300" // rgb: 102, 67, 0
 	adj_temp = 5
 	taste_description = "bitter cream"
