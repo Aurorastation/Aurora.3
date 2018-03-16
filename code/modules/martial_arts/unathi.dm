@@ -110,7 +110,7 @@
 	set desc = "Remember the martial techniques of the Kis-khan."
 	set category = "Kis-khan"
 
-	to_chat(usr, "<b><i>You hisses deeply and remembers the traditions...</i></b>")
+	to_chat(usr, "<b><i>You hiss deeply and remember the traditions...</i></b>")
 	to_chat(usr, "<span class='notice'>Tail Sweep</span>: Harm Harm Disarm. Trips the victim with your tail, rendering them prone and unable to move for a short time.")
 	to_chat(usr, "<span class='notice'>Swift Disarm</span>: Disarm Disarm Grab. Strikes your target's weapon, trying to disarm it from their hands.")
 	to_chat(usr, "<span class='notice'>Hammering Strike</span>: Disarm Harm Disarm. Delivers a strikes that will push the target away from you.")

@@ -100,7 +100,7 @@
 	set desc = "Remember the martial techniques of the Vk'utet."
 	set category = "Vk'utet"
 
-	to_chat(usr, "<b><i>You chitters deeply and remembers the indoctrination...</i></b>")
+	to_chat(usr, "<b><i>You chitter deeply and remember the indoctrination...</i></b>")
 	to_chat(usr, "<span class='notice'>Piercing Strike</span>: Disarm Harm Harm. Slashes your victim, bypassing their armor and causing bleeding.")
 	to_chat(usr, "<span class='notice'>Swift Bite</span>: Disarm Disarm Grab. Quickly grabs your victim and bites them with your mandibles.")
 	to_chat(usr, "<span class='notice'>Crushing Jaws</span>: Harm Harm Disarm Grab. Grabs your victim and violently crushes them with your mandibles, inflicting heavy damage.")

@@ -110,7 +110,7 @@
 	set desc = "Remember the martial techniques of the Baghrar."
 	set category = "Baghrar"
 
-	to_chat(usr, "<b><i>You twitches your ears and remembers the techniques...</i></b>")
+	to_chat(usr, "<b><i>You twitch your ears and remember the techniques...</i></b>")
 	to_chat(usr, "<span class='notice'>Eye Rake</span>: Harm Disarm Harm. Strikes your target's face, damaging their eyes.")
 	to_chat(usr, "<span class='notice'>Claw Punch</span>: Disarm Harm Harm. Hits your target with your claws, dealing damage and causing bleeding.")
 	to_chat(usr, "<span class='notice'>Rrak'narrr Stab</span>: Harm Harm Disarm Disarm. Stabs your target with your claws, dealing more damage based on how hurt they are.")
