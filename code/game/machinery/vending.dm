@@ -100,6 +100,8 @@
 	var/can_move = 1	//if you can wrench the machine out of place
 	var/vend_id = "generic"
 
+	var/mob/living/simple_animal/hostile/vending_machine/hostile_path = null //The evil varient of this vending machine.
+
 /obj/machinery/vending/Initialize()
 	. = ..()
 	wires = new(src)
@@ -117,6 +119,13 @@
 	src.build_inventory()
 	power_change()
 
+/obj/machinery/vending/proc/make_hostile()
+	if(hostile_path != null)
+		visible_message(span("warning","\The [src] malfunctions!"))
+		spark(src, 3, alldirs)
+		explosion(src.loc,-1,-1,0)
+		hostile_path = new(src.loc)
+		qdel(src)
 
 /**
  *  Build src.produdct_records from the products lists
@@ -594,6 +603,7 @@
 		src.status_message = ""
 		src.status_error = 0
 		src.vend_ready = 1
+		src.shoot_inventory = 0
 		currently_vending = null
 		SSnanoui.update_uis(src)
 

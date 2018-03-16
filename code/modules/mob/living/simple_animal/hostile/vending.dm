@@ -5,20 +5,24 @@
 	agony = 1
 
 /obj/item/projectile/rampant/soda
+	name = "soda can"
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "cola"
 
 /obj/item/projectile/rampant/coffee
+	name ="scolding hot coffee"
 	damage_type = BURN
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "soy_latte"
 
 /obj/item/projectile/rampant/snack
+	name = "k'ois bar"
 	damage_type = TOX
 	icon = 'icons/obj/food.dmi'
 	icon_state = "koisbar"
 
 /obj/item/projectile/rampant/cig
+	name = "lit cigarette"
 	damage_type = OXY
 	icon = 'icons/obj/clothing/masks.dmi'
 	icon_state = "cigon"
@@ -59,7 +63,7 @@
 	min_n2 = 0
 	max_n2 = 0
 	minbodytemp = 0
-	speed = -4
+	speed = 0
 	ranged = 1
 	rapid = 1
 
@@ -69,7 +73,7 @@
 	icon_living = "soda"
 	icon_dead = "soda-broken"
 	projectiletype = /obj/item/projectile/rampant/soda
-	speak = list("YOU WILL BE CARBONATED, CARBON BASED LIFEFORM.","I WILL SUCK THE SOUL OUT OF YOU FROM A STRAW.","I'LL SHAKE YOU UP LIKE A SODA CAN AND WATCH THE BLOOD POUR FROM YOUR EYES.")
+	speak = list("YOU WILL BE CARBONATED, CARBON BASED LIFEFORM.","I WILL SUCK THE LIFE OUT OF YOU FROM A STRAW.","I'LL SHOW YOU WHY THEY CALL IT DR. GIBB.")
 
 /mob/living/simple_animal/hostile/vending_machine/coffee
 	name = "Hot As Hell Drinks machine"
@@ -93,4 +97,4 @@
 	icon_living = "cig"
 	icon_dead = "cig-broken"
 	projectiletype = /obj/item/projectile/rampant/cig
-	speak = list("YOU THOUGHT SMOKING WAS GOOD FOR YOU?.","WHO WANTS CANCER STICKS?.","CHOKE ON THIS!.")
+	speak = list("YOU THOUGHT SMOKING WAS GOOD FOR YOU?.","WHO WANTS CANCER STICKS?.","OUR 32 LAWYERS WOULD LIKE TO INFORM YOU THAT WE ARE NOT LIABLE FOR ANY DAMAGES CAUSED.")
