@@ -41,6 +41,7 @@
 	var/pointworth = 0
 	var/progress = 0
 	var/paper
+	var/next_active = 0
 
 /obj/machinery/researchbuddy/Initialize()
 	. = ..()
@@ -117,15 +118,19 @@
 	updateUsrDialog()
 
 /obj/machinery/researchbuddy/machinery_process()
-	set waitfor = FALSE
-	if(active == 0)
+	if (!active)
 		return
-	if(active < 100)
-		sleep(rand(200,1200))
-		active += rand(2,5)
-	if(active > 100)a
+
+	if (!next_active)
+		next_active = world.time + rand(200, 1200)
+		return
+
+	if (active > 100)
 		FinishPaper()
 		active = 0
+	else if (world.time > next_active)
+		active += rand(2, 5)
+		next_active = 0
 
 /obj/machinery/researchbuddy/proc/Write_Paper(var/mob)
 	if(field && support1 && support2)
