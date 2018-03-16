@@ -1,4 +1,4 @@
-/obj/machinery/appliance/kettle
+/obj/machinery/kettle
 	name = "Kettle"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "kettle"
@@ -9,12 +9,10 @@
 	idle_power_usage = 5
 	active_power_usage = 500
 	flags = OPENCONTAINER | NOREACT
-	var/operating = 0 // Is it on?
-	var/dirty = 0 // = {0..100} Does it need cleaning?
-	var/broken = 0 // ={0,1,2} How broken is it???
-	var/global/list/acceptable_items // List of the items you can put in
-	var/global/list/acceptable_reagents // List of the reagents you can put in
-	var/global/max_n_of_items = 15
+	var/operating = 0 
+	var/static/list/acceptable_items 
+	var/static/list/acceptable_reagents 
+	var/static/max_n_of_items = 15
 	var/appliancetype = KETTLE
 
 
