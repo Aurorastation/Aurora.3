@@ -599,7 +599,7 @@
 	name = "Cardox"
 	id = "cardox"
 	result = "cardox"
-	required_reagents = list("platinum" = 1, "carbon" = 1, "sterilzine" = 1)
+	required_reagents = list("platinum" = 1, "carbon" = 1, "sterilizine" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/cardox_removal

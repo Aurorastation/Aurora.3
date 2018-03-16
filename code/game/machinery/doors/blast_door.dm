@@ -47,12 +47,11 @@
 // Proc: Bumped()
 // Parameters: 1 (AM - Atom that tried to walk through this object)
 // Description: If we are open returns zero, otherwise returns result of parent function.
-/obj/machinery/door/blast/Bumped(atom/AM)
+/obj/machinery/door/blast/CollidedWith(atom/AM)
 	if(!density)
 		return ..()
 	else
 		return 0
-
 // Proc: update_icon()
 // Parameters: None
 // Description: Updates icon of this object. Uses icon state variables.

@@ -8,34 +8,38 @@
 	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 
 /area/bridge/minibar
-    name = "\improper Command Break Room"
-    icon_state = "bridge"
+	name = "\improper Command Break Room"
+	icon_state = "bridge"
 
 /area/bridge/ailobby
-    name = "\improper AI Elevator Access"
-    icon_state = "ai_foyer"
+	name = "\improper AI Elevator Access"
+	icon_state = "ai_foyer"
 
 /area/bridge/aibunker
-    name = "\improper Command - Bunker"
-    icon_state = "ai_foyer"
+	name = "\improper Command - Bunker"
+	icon_state = "ai_foyer"
 
 /area/bridge/centcom_meetingroom
-    name = "\improper Level A Meeting Room"
-    icon_state = "bridge"
+	name = "\improper Level A Meeting Room"
+	icon_state = "bridge"
 
 /area/bridge/levela
-    name = "\improper Surface - Bridge"
-    icon_state = "bridge"
+	name = "\improper Surface - Bridge"
+	icon_state = "bridge"
 
 /area/crew_quarters/heads/cryo
-    name = "\improper Command - Dormitory"
-    icon_state = "head_quarters"
+	name = "\improper Command - Dormitory"
+	icon_state = "head_quarters"
 
 /area/bridge/meeting_room
 	name = "\improper Command - Conference Room"
 	icon_state = "bridge"
 	ambience = list()
 	sound_env = MEDIUM_SOFTFLOOR
+
+/area/bridge/selfdestruct
+	name = "\improper Command - Station Authentication Terminal Safe"
+	icon_state = "bridge"
 
 /area/crew_quarters/captain
 	name = "\improper Command - Captain's Office"

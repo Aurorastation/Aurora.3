@@ -26,6 +26,7 @@
 	var/base_icon
 	var/base_name
 	var/unwielded_force_divisor = 0.25
+	var/parry_chance = 15
 	action_button_name = "Wield two-handed weapon"
 
 /obj/item/weapon/material/twohanded/proc/unwield()
@@ -74,7 +75,7 @@
 
 //Allow a small chance of parrying melee attacks when wielded - maybe generalize this to other weapons someday
 /obj/item/weapon/material/twohanded/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
-	if(wielded && default_parry_check(user, attacker, damage_source) && prob(15))
+	if(wielded && default_parry_check(user, attacker, damage_source) && prob(parry_chance))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 		playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, 1)
 		return 1
@@ -220,23 +221,17 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
 	default_material = "glass"
+	var/obj/item/weapon/grenade/explosive = null
 
-//Putting heads on spears
-/*bj/item/organ/external/head/attackby(var/obj/item/weapon/W, var/mob/living/user, params)
-	if(istype(W, /obj/item/weapon/material/twohanded/spear))
-		user << "<span class='notice'>You stick the head onto the spear and stand it upright on the ground.</span>"
-		var/obj/structure/headspear/HS = new /obj/structure/headspear(user.loc)
-		var/matrix/M = matrix()
-		src.transform = M
-		user.drop_item()
-		src.loc = HS
-		var/image/IM = image(src.icon,src.icon_state)
-		IM.overlays = src.overlays.Copy()
-		HS.overlays += IM
-		qdel(W)
-		qdel(src)
-		return
-	return ..()*/
+/obj/item/weapon/material/twohanded/spear/Destroy()
+	if(explosive)
+		QDEL_NULL(explosive)
+	return ..()
+
+/obj/item/weapon/material/twohanded/spear/examine(mob/user)
+	..(user)
+	if(explosive)
+		user << "It has \the [explosive] strapped to it."
 
 /obj/item/weapon/material/twohanded/spear/attackby(var/obj/item/I, var/mob/living/user)
 	if(istype(I, /obj/item/organ/external/head))
@@ -252,7 +247,41 @@
 		HS.name = "[I.name] on a spear"
 		qdel(src)
 		return
+
+	if(istype(I, /obj/item/weapon/grenade))
+		user << "<span class='notice'>You strap \the [I] to \the [src].</span>"
+		user.unEquip(I)
+		I.forceMove(src)
+		explosive = I
+		update_icon()
+		return
 	return ..()
+
+/obj/item/weapon/material/twohanded/spear/update_icon()
+	if(explosive)
+		icon_state = "spearbomb[wielded]"
+		item_state = "spearbomb[wielded]"
+	else
+		icon_state = "spearglass[wielded]"
+		item_state = "spearglass[wielded]"
+
+/obj/item/weapon/material/twohanded/spear/attack(mob/living/target, mob/living/user, var/target_zone)
+	..()
+
+	if(wielded && explosive)
+		explosive.prime()
+		explosive = null
+		update_icon()
+		src.shatter()
+
+/obj/item/weapon/material/twohanded/spear/throw_impact(atom/target)
+	. = ..()
+	if(!.) //not caught
+		if(explosive)
+			explosive.prime()
+			explosive = null
+			update_icon()
+			src.shatter()
 
 //predefined materials for spears
 /obj/item/weapon/material/twohanded/spear/steel/New(var/newloc)
@@ -279,16 +308,16 @@
 	qdel(src)
 
 // Chainsaws!
-
 /obj/item/weapon/material/twohanded/chainsaw
 	name = "chainsaw"
+	desc = "A robust tree-cutting chainsaw intended to cut down various types of invasive spaceplants that grow on the station."
 	icon_state = "chainsaw_off"
 	base_icon = "chainsaw_off"
 	flags = CONDUCT
 	force = 10
 	force_wielded = 20
-	throwforce = 7
-	w_class = 4
+	throwforce = 5
+	w_class = ITEMSIZE_LARGE
 	sharp = 1
 	edge = 1
 	origin_tech = list(TECH_COMBAT = 5)
@@ -297,6 +326,8 @@
 	can_embed = 0
 	applies_material_colour = 0
 	default_material = "steel"
+	parry_chance = 5
+	var/fuel_type = "fuel"
 	var/opendelay = 30 // How long it takes to perform a door opening action with this chainsaw, in seconds.
 	var/max_fuel = 300 // The maximum amount of fuel the chainsaw stores.
 	var/fuel_cost = 1 // Multiplier for fuel cost.
@@ -304,15 +335,25 @@
 	var/cutting = 0 //Ignore
 	var/powered = 0 //Ignore
 
-/obj/item/weapon/material/twohanded/chainsaw/op //For events or whatever
-	name = "bloody chainsaw"
-	opendelay = 5
-	max_fuel = 1000
-	fuel_cost = 0.5
-
 /obj/item/weapon/material/twohanded/chainsaw/Initialize()
 	. = ..()
 	create_reagents(max_fuel)
+
+/obj/item/weapon/material/twohanded/chainsaw/fueled/Initialize()
+	. = ..()
+	reagents.add_reagent(fuel_type, max_fuel)
+
+/obj/item/weapon/material/twohanded/chainsaw/op //For events or whatever
+	opendelay = 5
+	max_fuel = 1000
+	fuel_cost = 0.5
+	unbreakable = TRUE
+	parry_chance = 100 //Gotta punish those validhunters
+	default_material = "plasteel"
+
+/obj/item/weapon/material/twohanded/chainsaw/op/Initialize()
+	. = ..()
+	reagents.add_reagent(fuel_type, max_fuel)
 
 /obj/item/weapon/material/twohanded/chainsaw/proc/PowerUp()
 	var/turf/T = get_turf(src)
@@ -342,26 +383,36 @@
 	powered = 0
 	update_held_icon()
 
+/obj/item/weapon/material/twohanded/chainsaw/shatter(var/consumed)
+	var/turf/T = get_turf(src)
+	new /obj/effect/decal/cleanable/blood/oil(T)
+	new /obj/effect/decal/cleanable/liquid_fuel(T)
+	new /obj/item/trash/uselessplastic(T)
+	. = ..()
+
 /obj/item/weapon/material/twohanded/chainsaw/Destroy()
 	STOP_PROCESSING(SSfast_process, src)
 	return ..()
 
 /obj/item/weapon/material/twohanded/chainsaw/proc/RemoveFuel(var/amount = 1)
-	amount = amount * fuel_cost
-	reagents.remove_reagent("fuel", Clamp(amount,0,reagents.get_reagent_amount("fuel")))
-	if(reagents.get_reagent_amount("fuel") <= 0)
-		powered = 0
+	if(reagents && istype(reagents))
+		amount *= fuel_cost
+		reagents.remove_reagent(fuel_type, Clamp(amount,0,reagents.get_reagent_amount(fuel_type)))
+		if(reagents.get_reagent_amount(fuel_type) <= 0)
+			PowerDown()
+	else
 		PowerDown()
 
 /obj/item/weapon/material/twohanded/chainsaw/process()
 	//TickRate is 0.1
 	var/FuelToRemove = 0.1 //0.1 Every 0.1 seconds
-
 	if(cutting)
 		FuelToRemove = 1
 		playsound(loc, 'sound/weapons/chainsawloop2.ogg', 25, 0, 30)
-		spark(src, 3, alldirs)
-		eyecheck(loc)
+		if(prob(75))
+			spark(src, 3, alldirs)
+			if(prob(25))
+				eyecheck(2,loc)
 	else
 		playsound(loc, 'sound/weapons/chainsawloop.ogg', 25, 0, 30)
 
@@ -369,7 +420,13 @@
 
 /obj/item/weapon/material/twohanded/chainsaw/examine(mob/user)
 	if(..(user, 1))
-		user << "A heavy-duty chainsaw meant for cutting wood. Contains [round(reagents.total_volume)] unit\s of fuel."
+		user << "A heavy-duty chainsaw meant for cutting wood. Contains [round(reagents.get_reagent_amount(fuel_type))] unit\s of fuel."
+
+/obj/item/weapon/material/twohanded/chainsaw/attack(mob/M as mob, mob/living/user as mob)
+	. = ..()
+	if(powered)
+		playsound(loc, "sound/weapons/chainsword.ogg", 25, 0, 30)
+		RemoveFuel(3)
 
 /obj/item/weapon/material/twohanded/chainsaw/afterattack(obj/O as obj, mob/user as mob, proximity)
 	if(!proximity) return
@@ -379,51 +436,32 @@
 		playsound(loc, 'sound/effects/refill.ogg', 50, 1, -6)
 		return
 	else if(powered)
-		playsound(loc, "sound/weapons/chainsword.ogg", 25, 0, 30)
-		RemoveFuel(3)
-		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //No sound spam
+		if(!istype(O))
+			user.visible_message(\
+				"<span class='warning'>[user] revs the chainsaw!.</span>",\
+				"<span class='warning'>You rev the chainsaw!.</span>",\
+				"<span class='warning'>You hear a machine rev.</span>"\
+			)
+
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+			playsound(loc, "sound/weapons/chainsword.ogg", 25, 0, 30)
+			RemoveFuel(3)
 
 	. = ..()
 
-/obj/item/weapon/material/twohanded/chainsaw/proc/eyecheck(mob/living/carbon/human/H as mob) //Shamefully copied from the welder. Damage values multiplied by 0.1
+/obj/item/weapon/material/twohanded/chainsaw/proc/eyecheck(var/multiplier, mob/living/carbon/human/H as mob) //Shamefully copied from the welder. Damage values multiplied by 0.1
 
-	if (!istype(H))
-		return 1
+	if (!istype(H) || H.status_flags & GODMODE)
+		return
 
 	var/obj/item/organ/eyes/E = H.get_eyes()
-	if(!E)
+	if(!istype(E))
 		return
-	var/safety = H.eyecheck()
-	if(H.status_flags & GODMODE)
-		return
-	switch(safety)
-		if(FLASH_PROTECTION_MODERATE)
-			H << "<span class='warning'>Your eyes sting a little.</span>"
-			E.damage += rand(1, 2)*0.1
-			if(E.damage > 12)
-				H.eye_blurry += rand(3,6)*0.1
-		if(FLASH_PROTECTION_NONE)
-			H << "<span class='warning'>Your eyes burn.</span>"
-			E.damage += rand(2, 4)*0.1
-			if(E.damage > 10)
-				E.damage += rand(4,10)*0.1
-		if(FLASH_PROTECTION_REDUCED)
-			H << "<span class='danger'>Your equipment intensify the welder's glow. Your eyes itch and burn severely.</span>"
-			H.eye_blurry += rand(12,20)*0.1
-			E.damage += rand(12, 16)*0.1
-	if(safety<FLASH_PROTECTION_MAJOR)
-		if(E.damage > 10)
-			H << "<span class='warning'>Your eyes are really starting to hurt. This can't be good for you!</span>"
 
-		if (E.damage >= E.min_broken_damage)
-			H << "<span class='danger'>You go blind!</span>"
-			H.sdisabilities |= BLIND
-		else if (E.damage >= E.min_bruised_damage)
-			H << "<span class='danger'>You go blind!</span>"
-			H.eye_blind = 5
-			H.eye_blurry = 5
-			H.disabilities |= NEARSIGHTED
-			addtimer(CALLBACK(H, /mob/.proc/reset_nearsighted), 100)
+	var/eye_damage = max(0, (2 - H.eyecheck())*multiplier )
+	E.damage += eye_damage
+	if(eye_damage > 0)
+		H << "<span class='danger'>Some stray sparks fly in your eyes!</span>"
 
 /obj/item/weapon/material/twohanded/chainsaw/AltClick(mob/user as mob)
 
@@ -468,3 +506,75 @@
 	set src in usr
 
 	AltClick(usr)
+
+
+/obj/item/weapon/material/twohanded/pike
+	icon_state = "pike0"
+	base_icon = "pike"
+	name = "pike"
+	desc = "A long spear used by the infantry in ancient times."
+	force = 5
+	unwielded_force_divisor = 0.2
+	force_divisor = 0.3
+	edge = 1
+	w_class = 4.0
+	slot_flags = SLOT_BACK
+	attack_verb = list("attacked", "poked", "jabbed", "gored", "stabbed")
+	default_material = "steel"
+	reach = 2
+	applies_material_colour = 0
+	can_embed = 0
+
+/obj/item/weapon/material/twohanded/pike/halberd
+	icon_state = "halberd0"
+	base_icon = "halberd"
+	name = "halberd"
+	desc = "A sharp axe mounted on the top of a long spear."
+	force = 10
+	unwielded_force_divisor = 0.4
+	force_divisor = 0.6
+	sharp = 1
+	attack_verb = list("attacked", "poked", "jabbed","gored", "chopped", "cleaved", "torn", "cut", "stabbed")
+
+/obj/item/weapon/material/twohanded/pike/pitchfork
+	icon_state = "pitchfork0"
+	base_icon = "pitchfork"
+	name = "pitchfork"
+	desc = "An old farming tool, not something you would find at hydroponics."
+
+/obj/item/weapon/material/twohanded/zweihander
+	icon_state = "zweihander"
+	base_icon = "zweihander"
+	name = "zweihander"
+	desc = "A german upgrade to the einhander models of ancient times."
+	force = 20
+	w_class = 4.0
+	slot_flags = SLOT_BACK
+	force_wielded = 30
+	unwielded_force_divisor = 1
+	thrown_force_divisor = 0.75
+	edge = 1
+	sharp = 1
+	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
+	default_material = "steel"
+	parry_chance = 60
+	can_embed = 0
+	var/wielded_ap = 40
+	var/unwielded_ap = 0
+
+/obj/item/weapon/material/twohanded/zweihander/pre_attack(var/mob/living/target, var/mob/living/user)
+	if(!reach && istype(target))
+		cleave(user, target)
+	..()
+
+/obj/item/weapon/material/twohanded/zweihander/unwield()
+	..()
+	reach = 0
+	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
+	armor_penetration = unwielded_ap
+
+/obj/item/weapon/material/twohanded/zweihander/wield()
+	..()
+	reach = 2
+	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
+	armor_penetration = wielded_ap
