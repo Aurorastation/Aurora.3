@@ -29,6 +29,10 @@ var/global/list/ticket_panels = list()
 	if(status == TICKET_ASSIGNED && !closed_by.holder) // non-admins can only close a ticket if no admin has taken it
 		return
 
+	if(owner_client && owner_client.adminhelped == ADMINHELPED_DISCORD)
+		discord_bot.send_to_admins("[key_name(owner_client)]'s request for help has been closed/deemed unnecessary by [key_name(assigned_admin)].")
+		owner_client.adminhelped = ADMINHELPED
+
 	src.status = TICKET_CLOSED
 	src.closed_by = closed_by.ckey
 
@@ -177,7 +181,7 @@ proc/get_open_ticket_by_ckey(var/owner)
 			ticket_panel_window.update()
 
 	var/datum/ticket/ticket = locate(href_list["ticket"])
-	if(!ticket)
+	if(!istype(ticket))
 		return
 
 	switch(href_list["action"])

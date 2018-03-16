@@ -852,7 +852,7 @@
 	else if(href_list["take_ticket"])
 		var/datum/ticket/ticket = locate(href_list["take_ticket"])
 
-		if(isnull(ticket))
+		if(!istype(ticket))
 			return
 
 		ticket.take(usr.client)
