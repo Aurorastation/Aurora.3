@@ -1,0 +1,13 @@
+author: soryy708
+
+delete-after: True
+
+changes: 
+  - maptweak: "Move items from bar front table to back room table"
+  - maptweak: "Swap bar front table with drink showcase"
+  - rscadd: "Create espresso mixing system"
+  - rscadd: "Create CoffeeMaster 3000 dispenser"
+  - maptweak: "Add CoffeeMaster 3000 to the bar"
+  - rscdel: "Remove old & unfinished coffee (beans) system"
+  - imageadd: "Create a sprite for the CoffeeMaster 3000"
+  - rscadd: "Create a 'Barista' alt-title for the bartender"
