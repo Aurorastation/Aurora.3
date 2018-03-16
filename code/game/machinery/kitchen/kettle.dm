@@ -1,4 +1,4 @@
-/obj/machinery/kettle
+/obj/machinery/appliance/kettle
 	name = "Kettle"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "kettle"
@@ -38,6 +38,3 @@
 
 			for (var/reagent in recipe.reagents)
 				acceptable_reagents[reagent] = TRUE
-
-		acceptable_items[/obj/item/weapon/holder] = TRUE
-		acceptable_items[/obj/item/weapon/reagent_containers/food/snacks/grown] = TRUE
