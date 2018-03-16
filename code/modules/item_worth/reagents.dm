@@ -567,40 +567,43 @@
 /datum/reagent/leporazine
 	value = 2
 
-/datum/reagent/antidepressants/methylphenidate
+/datum/reagent/mental/methylphenidate
 	value = 6
 
-/datum/reagent/antidepressants/sertraline
+/datum/reagent/mental/sertraline
 	value = 6
 	
-/datum/reagent/antidepressants/fluvoxamine
+/datum/reagent/mental/fluvoxamine
 	value = 6
 	
-/datum/reagent/antidepressants/escitalopram
+/datum/reagent/mental/escitalopram
 	value = 6
 
-/datum/reagent/antidepressants/paroxetine
+/datum/reagent/mental/paroxetine
 	value = 3.5
 	
-/datum/reagent/antidepressants/duloxetine
+/datum/reagent/mental/duloxetine
 	value = 6
 	
-/datum/reagent/antidepressants/venlafaxine
+/datum/reagent/mental/venlafaxine
 	value = 6
 	
-/datum/reagent/antidepressants/risperidone
+/datum/reagent/mental/risperidone
 	value = 6
 	
-/datum/reagent/antidepressants/olanzapine
+/datum/reagent/mental/olanzapine
 	value = 6
 	
-/datum/reagent/antidepressants/hextrasenil
+/datum/reagent/mental/truthserum
+	value = 8
+
+/datum/reagent/mental/hextrasenil
 	value = 12
 	
-/datum/reagent/antidepressants/trisyndicotin
+/datum/reagent/mental/trisyndicotin
 	value = 16
 
-/datum/reagent/nicotine
+/datum/reagent/mental/nicotine
 	value = 2
 
 /datum/reagent/rezadone

@@ -515,22 +515,22 @@
 	result = "lexorin"
 	required_reagents = list("phoron" = 1, "hydrazine" = 1, "ammonia" = 1)
 	result_amount = 3
-	
-//Antidepressants
+
+//Mental Medication
 
 /datum/chemical_reaction/methylphenidate
 	name = "Methylphenidate"
 	id = "methylphenidate"
 	result = "methylphenidate"
 	required_reagents = list("mindbreaker" = 1, "hydrazine" = 1)
-	result_amount = 3
+	result_amount = 2
 
 /datum/chemical_reaction/escitalopram
 	name = "Escitalopram"
 	id = "escitalopram"
 	result = "escitalopram"
 	required_reagents = list("mindbreaker" = 1, "carbon" = 1)
-	result_amount = 3
+	result_amount = 2
 
 /datum/chemical_reaction/paroxetine
 	name = "Paroxetine"
@@ -538,62 +538,76 @@
 	result = "paroxetine"
 	required_reagents = list("mindbreaker" = 1, "acetone" = 1, "inaprovaline" = 1)
 	result_amount = 3
-	
+
 /datum/chemical_reaction/fluvoxamine
 	name = "Fluvoxamine"
 	id = "fluvoxamine"
 	result = "fluvoxamine"
 	required_reagents = list("mindbreaker" = 1, "iron" = 1, "potassium" = 1)
 	result_amount = 3
-	
+
 /datum/chemical_reaction/sertraline
 	name = "Sertraline"
 	id = "sertraline"
 	result = "sertraline"
 	required_reagents = list("mindbreaker" = 1, "aluminum" = 1, "potassium" = 1)
 	result_amount = 3
-	
+
 /datum/chemical_reaction/paroxetine
 	name = "Paroxetine"
 	id = "paroxetine"
 	result = "paroxetine"
 	required_reagents = list("mindbreaker" = 1, "ammonia" = 1, "copper" = 1)
 	result_amount = 3
-	
+
 /datum/chemical_reaction/duloxetine
 	name = "Duloxetine"
 	id = "duloxetine"
 	result = "duloxetine"
 	required_reagents = list("mindbreaker" = 1, "silicon" = 1, "ethanol" = 1)
 	result_amount = 3
-	
+
 /datum/chemical_reaction/venlafaxine
 	name = "Venlafaxine"
 	id = "venlafaxine"
 	result = "venlafaxine"
 	required_reagents = list("mindbreaker" = 1, "sodium" = 1, "tungsten" = 1)
 	result_amount = 3
-	
+
 /datum/chemical_reaction/risperidone
 	name = "Risperidone"
 	id = "risperidone"
 	result = "risperidone"
 	required_reagents = list("mindbreaker" = 1, "space_drugs" = 1, "ethanol" = 1)
 	result_amount = 3
-	
+
 /datum/chemical_reaction/olanzapine
 	name = "Olanzapine"
 	id = "olanzapine"
 	result = "olanzapine"
 	required_reagents = list("mindbreaker" = 1, "space_drugs" = 1, "silicon" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/hextrasenil
+	name = "Hextrasenil"
+	id = "hextrasenil"
+	result = "hextrasenil"
+	required_reagents = list("mindbreaker" = 1, "space_drugs" = 1, "phoron" = 0.1)
 	result_amount = 2
-	
+
 /datum/chemical_reaction/trisyndicotin
 	name = "Trisyndicotin"
 	id = "trisyndicotin"
 	result = "trisyndicotin"
-	required_reagents = list("hextrasenil" = 1, "space_drugs" = 1, "radium" = 1)
-	result_amount = 3
+	required_reagents = list("hextrasenil" = 1, "cardox" = 1)
+	result_amount = 1
+
+/datum/chemical_reaction/truthserum
+	name = "Truthserum"
+	id = "truthserum"
+	result = "truthserum"
+	required_reagents = list("mindbreaker" = 1, "synaptizine" = 1, "phoron" = 0.1)
+	result_amount = 2
 
 /datum/chemical_reaction/cardox
 	name = "Cardox"

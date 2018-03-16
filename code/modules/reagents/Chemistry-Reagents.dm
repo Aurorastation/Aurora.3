@@ -24,7 +24,7 @@
 	var/color = "#000000"
 	var/color_weight = 1
 	var/unaffected_species = IS_DIONA | IS_MACHINE	// Species that aren't affected by this reagent. Does not prevent affect_touch.
-	var/metabolism_min = 0 //How much for the medicine to be present in the system to actually have an effect.
+	var/metabolism_min = 0.01 //How much for the medicine to be present in the system to actually have an effect.
 	var/list/conflicting_reagents //Reagents that conflict with this medicine, and cause adverse effects when in the blood.
 
 /datum/reagent/proc/remove_self(var/amount) // Shortcut
@@ -94,7 +94,7 @@
 /datum/reagent/proc/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	return
 
-/datum/reagent/proc/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/proc/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting_reagent)
 	M.adjustToxLoss(removed)
 
 /datum/reagent/proc/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)

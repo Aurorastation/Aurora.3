@@ -381,15 +381,15 @@
 		perm = L.reagent_permeability()
 	multiplier *= perm
 
-	var/splashreturn = trans_to_mob(target, amount*0.75, CHEM_TOUCH, multiplier, copy)
-	var/touchreturn = trans_to_mob(target, amount*0.25, CHEM_BREATHE, multiplier, copy)
+	var/touchreturn = trans_to_mob(target, amount*0.75, CHEM_TOUCH, multiplier, copy)
+	var/breathereturn = trans_to_mob(target, amount*0.25, CHEM_BREATHE, multiplier, copy)
 
-	if(splashreturn && touchreturn)
-		return (splashreturn + touchreturn)
+	if(breathereturn && touchreturn)
+		return (breathereturn + touchreturn)
 	else if (touchreturn)
 		return touchreturn
 	else
-		return splashreturn
+		return breathereturn
 
 /datum/reagents/proc/trans_to_mob(var/mob/target, var/amount = 1, var/type = CHEM_BLOOD, var/multiplier = 1, var/copy = 0) // Transfer after checking into which holder...
 	if(!target || !istype(target) || !target.simulated)

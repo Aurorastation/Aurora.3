@@ -625,7 +625,7 @@
 	color = "#333300"
 	data = 0
 	taste_description = "low-grade tobacco"
-	strength = 0.05
+	strength = 0.004
 	taste_mult = 10
 
 /datum/reagent/toxin/tobacco/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -633,13 +633,13 @@
 	if(istype(NewM))
 		var/obj/item/organ/H = NewM.internal_organs_by_name["heart"]
 		if(istype(H))
-			H.take_damage(removed * strength,1)
+			H.take_damage(removed * strength * 0.5,1)
 		var/obj/item/organ/L = NewM.internal_organs_by_name["lungs"]
 		if(istype(L))
 			L.take_damage(removed * strength,1)
 		var/obj/item/organ/A = NewM.internal_organs_by_name["liver"]
 		if(istype(A))
-			A.take_damage(removed * strength,1)
+			A.take_damage(removed * strength * 0.25,1)
 
 /datum/reagent/toxin/tobacco/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed)
 	affect_blood(M,alien,removed)
@@ -651,4 +651,4 @@
 	reagent_state = LIQUID
 	data = 0
 	taste_description = "quality tobacco"
-	strength = 0.01
+	strength = 0.002
