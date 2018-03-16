@@ -10,11 +10,16 @@ var/global/list/ticket_panels = list()
 	var/id
 	var/opened_time
 
+	var/reminder_timer
+
 /datum/ticket/New(var/owner)
 	src.owner = owner
 	tickets |= src
 	id = tickets.len
 	opened_time = world.time
+
+	if (config.ticket_reminder_period)
+		reminder_timer = addtimer(CALLBACK(src, .proc/remind), config.ticket_reminder_period SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
 
 /datum/ticket/proc/close(var/client/closed_by)
 	if(!closed_by)
@@ -29,8 +34,9 @@ var/global/list/ticket_panels = list()
 	if(status == TICKET_ASSIGNED && !closed_by.holder) // non-admins can only close a ticket if no admin has taken it
 		return
 
+	var/client/owner_client = client_by_ckey(owner)
 	if(owner_client && owner_client.adminhelped == ADMINHELPED_DISCORD)
-		discord_bot.send_to_admins("[key_name(owner_client)]'s request for help has been closed/deemed unnecessary by [key_name(assigned_admin)].")
+		discord_bot.send_to_admins("[key_name(owner_client)]'s request for help has been closed/deemed unnecessary by [key_name(closed_by)].")
 		owner_client.adminhelped = ADMINHELPED
 
 	src.status = TICKET_CLOSED
@@ -40,6 +46,9 @@ var/global/list/ticket_panels = list()
 	message_admins("<span class='notice'><b>[src.owner]</b>'s ticket has been closed by <b>[key_name(closed_by)]</b>.</span>")
 
 	update_ticket_panels()
+
+	if (reminder_timer)
+		deltimer(reminder_timer)
 
 	return 1
 
@@ -70,6 +79,28 @@ var/global/list/ticket_panels = list()
 	update_ticket_panels()
 
 	return 1
+
+/datum/ticket/proc/remind()
+	if (status == TICKET_CLOSED)
+		reminder_timer = null
+		return
+
+	var/admin_found = FALSE
+
+	for (var/ckey in assigned_admins)
+		var/client/C = client_by_ckey(ckey)
+		if (C)
+			admin_found = TRUE
+			to_chat(C, "<span class='danger'><b>You have yet to close [owner]'s ticket!</b></span>")
+			sound_to(C, 'sound/effects/adminhelp.ogg')
+
+	if (!admin_found)
+		message_admins("<span class='danger'><b>[owner]'s ticket has yet to be closed!</b></span>")
+		for(var/client/C in admins)
+			if(((R_ADMIN|R_MOD) & C.holder.rights) && (C.prefs.toggles & SOUND_ADMINHELP))
+				sound_to(C, 'sound/effects/adminhelp.ogg')
+
+	reminder_timer = addtimer(CALLBACK(src, .proc/remind), config.ticket_reminder_period SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
 
 proc/get_open_ticket_by_ckey(var/owner)
 	for(var/datum/ticket/ticket in tickets)
