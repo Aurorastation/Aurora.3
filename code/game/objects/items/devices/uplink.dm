@@ -385,6 +385,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		return
 
 	command_announcement.Announce("[message]", title, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+	discord_bot.send_to_cciaa("Announcer - Fake announcement:`[title]` - `[message]`, sent by [user]!")
 	qdel(src)
 
 //ninja

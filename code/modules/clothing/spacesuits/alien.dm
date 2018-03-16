@@ -1,19 +1,20 @@
 //Skrell space gear. Sleek like a wetsuit.
-/obj/item/clothing/head/helmet/space/skrell
+/obj/item/clothing/head/helmet/space/void/skrell
 	name = "skrellian helmet"
 	desc = "Smoothly contoured and polished to a shine. Still looks like a fishbowl."
 	armor = list(melee = 20, bullet = 20, laser = 50,energy = 50, bomb = 50, bio = 100, rad = 100)
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	species_restricted = list("Skrell","Human")
 	siemens_coefficient = 0.4
+	refittable = FALSE
 
-/obj/item/clothing/head/helmet/space/skrell/white
+/obj/item/clothing/head/helmet/space/void/skrell/white
 	icon_state = "skrell_helmet_white"
 
-/obj/item/clothing/head/helmet/space/skrell/black
+/obj/item/clothing/head/helmet/space/void/skrell/black
 	icon_state = "skrell_helmet_black"
 
-/obj/item/clothing/suit/space/skrell
+/obj/item/clothing/suit/space/void/skrell
 	name = "skrellian voidsuit"
 	desc = "Seems like a wetsuit with reinforced plating seamlessly attached to it. Very chic."
 	armor = list(melee = 20, bullet = 20, laser = 50,energy = 50, bomb = 50, bio = 100, rad = 100)
@@ -22,12 +23,13 @@
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	species_restricted = list("Skrell","Human")
 	siemens_coefficient = 0.4
+	refittable = FALSE
 
-/obj/item/clothing/suit/space/skrell/white
+/obj/item/clothing/suit/space/void/skrell/white
 	icon_state = "skrell_suit_white"
 	item_state = "skrell_suit_white"
 
-/obj/item/clothing/suit/space/skrell/black
+/obj/item/clothing/suit/space/void/skrell/black
 	icon_state = "skrell_suit_black"
 	item_state = "skrell_suit_black"
 

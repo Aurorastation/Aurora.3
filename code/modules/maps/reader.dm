@@ -405,7 +405,8 @@ var/global/dmm_suite/preloader/_preloader = new
 
 	// Associative keys are fed in without quotation marks.
 	// So if none of the other cases apply, return simply the string that was given.
-	else if(is_key)
+	// This case is also triggered for item values. So I guess we're also looking for text.
+	else if(is_key || istext(text))
 		. = text
 
 //build a list from variables in text form (e.g {var1="derp"; var2; var3=7} => list(var1="derp", var2, var3=7))

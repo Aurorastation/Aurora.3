@@ -34,6 +34,7 @@
 #define SS_PRIORITY_SMOOTHING      35	// Smooth turf generation.
 #define SS_PRIORITY_ORBIT          30	// Orbit datum updates.
 #define SS_PRIORITY_ICON_UPDATE    20	// Queued icon updates. Mostly used by APCs and tables.
+#define SS_PRIORITY_PROJECTILES    10	// Projectile processing!
 
 // Normal
 #define SS_PRIORITY_TICKER        200	// Gameticker.
@@ -44,7 +45,7 @@
 #define SS_PRIORITY_MACHINERY      95	// Machinery + powernet ticks.
 #define SS_PRIORITY_CHEMISTRY      90	// Multi-tick chemical reactions.
 #define SS_PRIORITY_SHUTTLE        85	// Shuttle movement.
-#define SS_PRIORITY_CALAMITY       75	// Singularity, Tesla, Nar'sie, blob, etc. 
+#define SS_PRIORITY_CALAMITY       75	// Singularity, Tesla, Nar'sie, blob, etc.
 #define SS_PRIORITY_EVENT          70
 #define SS_PRIORITY_LIGHTING       65	// Queued lighting engine updates.
 #define SS_PRIORITY_DISEASE        60	// Disease ticks.

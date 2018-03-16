@@ -9,10 +9,11 @@
 #define NO_EMBED            128    // Can not have shrapnel or any object embedded into its body
 #define IS_MECHANICAL       256    // Is a robot.
 #define ACCEPTS_COOLER      512    // Can wear suit coolers and have them work without a suit.
+#define NO_CHUBBY           1024   // Cannot be visibly fat from nutrition type.
 // unused: 0x8000(32768) - higher than this will overflow
 
 // Base flags for IPCs.
-#define IS_IPC (NO_BREATHE|NO_SCAN|NO_BLOOD|NO_PAIN|NO_POISON|IS_MECHANICAL)
+#define IS_IPC (NO_BREATHE|NO_SCAN|NO_BLOOD|NO_PAIN|NO_POISON|IS_MECHANICAL|NO_CHUBBY)
 
 // Species spawn flags
 #define IS_WHITELISTED    0x1    // Must be whitelisted to play.

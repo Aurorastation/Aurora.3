@@ -128,7 +128,7 @@ var/list/mineral_can_smooth_with = list(
 	if(emitter_blasts_taken > 2) // 3 blasts per tile
 		GetDrilled()
 
-/turf/simulated/mineral/Bumped(AM)
+/turf/simulated/mineral/CollidedWith(AM)
 	. = ..()
 	if(istype(AM,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = AM

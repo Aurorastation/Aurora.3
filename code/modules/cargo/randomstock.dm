@@ -689,7 +689,9 @@ var/list/global/random_stock_large = list(
 			/obj/item/clothing/gloves/swat/bst,
 			/obj/item/clothing/gloves/swat/fluff/hawk_gloves,
 			/obj/item/clothing/gloves/fluff/stone_ring,
-			/obj/item/clothing/gloves/black/fluff/kathleen_glove)
+			/obj/item/clothing/gloves/black/fluff/kathleen_glove,
+			/obj/item/clothing/gloves/powerfist,
+			/obj/item/clothing/gloves/claws)
 			exclusion += typesof(/obj/item/clothing/gloves/rig)
 			exclusion += typesof(/obj/item/clothing/gloves/lightrig)
 			exclusion += typesof(/obj/item/clothing/gloves/watch)
@@ -1076,19 +1078,19 @@ var/list/global/random_stock_large = list(
 		//Can be slotted into any dispenser
 		if("chempack")
 			var/total = rand(2,6)
-			var/list/chems = chemical_reagents_list.Copy()
+			var/list/chems = SSchemistry.chemical_reagents.Copy()
 			var/list/exclusion = list("drink", "reagent", "adminordrazine", "beer2", "azoth", "elixir_life", "liquid_fire", "philosopher_stone", "undead_ichor")
 			chems -= exclusion
 			for (var/i=0,i<total,i++)
 				var/obj/item/weapon/reagent_containers/chem_disp_cartridge/C = new /obj/item/weapon/reagent_containers/chem_disp_cartridge(L)
 				var/rname = pick(chems)
-				var/datum/reagent/R = chemical_reagents_list[rname]
+				var/datum/reagent/R = SSchemistry.chemical_reagents[rname]
 
 				//If we get a drink, reroll it once.
 				//Should result in a higher chance of getting medicines and chemicals
-				if (istype(R, /datum/reagent/drink) || istype(R, /datum/reagent/ethanol))
+				if (istype(R, /datum/reagent/drink) || istype(R, /datum/reagent/alcohol/ethanol))
 					rname = pick(chems)
-					R = chemical_reagents_list[rname]
+					R = SSchemistry.chemical_reagents[rname]
 				C.reagents.add_reagent(rname, C.volume)
 				C.setLabel(R.name)
 

@@ -132,7 +132,7 @@
 	burst_delay = 1
 	move_delay = 3
 	fire_delay = 0
-	dispersion = list(0.0, 0.2, -0.2)
+	dispersion = list(0, 8)
 
 /obj/item/weapon/gun/energy/mousegun
 	name = "\improper NT \"Arodentia\" Exterminator ray"
@@ -151,7 +151,7 @@
 	burst_delay = 1
 	move_delay = 0
 	fire_delay = 3
-	dispersion = list(0.0, 6,0, -6.0)
+	dispersion = list(0, 15, 15)
 
 	var/lightfail = 0
 
@@ -205,6 +205,9 @@
 	accuracy = 20
 	muzzle_flash = 10
 
+#define GATLINGLASER_DISPERSION_CONCENTRATED list(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+#define GATLINGLASER_DISPERSION_SPRAY list(0, 5, 5, 10, 10, 15, 15, 20, 20, 25, 25, 30, 30, 35, 40, 45)
+
 /obj/item/weapon/gun/energy/vaurca/gatlinglaser
 	name = "gatling laser"
 	desc = "A highly sophisticated rapid fire laser weapon."
@@ -222,11 +225,11 @@
 	burst = 10
 	burst_delay = 1
 	fire_delay = 10
-	dispersion = list(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)
+	dispersion = GATLINGLASER_DISPERSION_CONCENTRATED
 
 	firemodes = list(
-		list(mode_name="concentrated burst", burst=10, burst_delay = 1, fire_delay = 10, dispersion = list(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)),
-		list(mode_name="spray", burst=20, burst_delay = 1, move_delay = 5, fire_delay = 30, dispersion = list(0.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5, 2.75, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 3.0, 3.25))
+		list(mode_name="concentrated burst", burst=10, burst_delay = 1, fire_delay = 10, dispersion = GATLINGLASER_DISPERSION_CONCENTRATED),
+		list(mode_name="spray", burst=20, burst_delay = 1, move_delay = 5, fire_delay = 30, dispersion = GATLINGLASER_DISPERSION_SPRAY)
 		)
 
 	action_button_name = "Wield gatling laser"
@@ -411,14 +414,13 @@
 	recharge_time = 1
 	charge_meter = 1
 	charge_cost = 50
-	dispersion = list(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)
 	can_turret = 1
 	turret_sprite_set = "thermaldrill"
 
 	firemodes = list(
 		list(mode_name="2 second burst", burst=10, burst_delay = 1, fire_delay = 20),
-		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40, dispersion = list(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)),
-		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60, dispersion = list(0.0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 0.2, 2.4, 2.6, 2.8, 3.0, 3.2, 3.4, 3.6, 3.8))
+		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40, dispersion = list(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)),
+		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60, dispersion = list(0, 1.5, 3, 4.5, 6, 7.5, 9, 10.5, 12, 13.5, 15, 16.5, 18, 19.5, 21))
 		)
 
 	action_button_name = "Wield thermal drill"
@@ -482,7 +484,7 @@
 	charge_meter = 1
 	use_external_power = 1
 	charge_cost = 25
-	dispersion = list(0.0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.0, 3.3, 3.6, 3.9, 4.2, 4.5, 4.8, 5.1, 5.4, 5.7, 6.0, 6.3, 6.6, 6.9, 7.2, 7.5, 7.8, 8.1, 8.4, 8.7)
+	dispersion = list(0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30)
 
 /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill/special_check(var/mob/user)
 	if(is_charging)

@@ -177,12 +177,9 @@
 		for(var/alloytype in typesof(/datum/alloy)-/datum/alloy)
 			alloy_data += new alloytype()
 
-	if(!ore_data || !ore_data.len)
-		for(var/oretype in typesof(/ore)-/ore)
-			var/ore/OD = new oretype()
-			ore_data[OD.name] = OD
-			ores_processing[OD.name] = 0
-			ores_stored[OD.name] = 0
+	for (var/O in ore_data)
+		ores_processing[O] = 0
+		ores_stored[O] = 0
 
 //Locate our output and input machinery.
 	for (var/dir in cardinal)

@@ -57,6 +57,14 @@
 	name = "\improper Security - Detective's Office"
 	icon_state = "detective"
 
+/area/security/investigations
+	name = "\improper Security - Investigations Division"
+	icon_state = "detective"
+
+/area/security/training
+	name = "\improper Security - Training Wing"
+	icon_state = "firingrange"
+
 /area/security/range
 	name = "\improper Security - Firing Range"
 	icon_state = "firingrange"

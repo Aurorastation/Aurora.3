@@ -98,7 +98,7 @@ obj/structure/ex_act(severity)
 
 
 
-/obj/structure/transit_tube/Bumped(mob/AM as mob|obj)
+/obj/structure/transit_tube/CollidedWith(mob/AM as mob|obj)
 	var/obj/structure/transit_tube/T = locate() in AM.loc
 	if(T)
 		AM << "<span class='warning'>The tube's support pylons block your way.</span>"
@@ -113,7 +113,7 @@ obj/structure/ex_act(severity)
 
 
 
-/obj/structure/transit_tube/station/Bumped(mob/AM as mob|obj)
+/obj/structure/transit_tube/station/CollidedWith(mob/AM as mob|obj)
 	if(!pod_moving && icon_state == "open" && istype(AM, /mob))
 		for(var/obj/structure/transit_tube_pod/pod in loc)
 			if(pod.contents.len)

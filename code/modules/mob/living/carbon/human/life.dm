@@ -182,7 +182,7 @@
 	else
 		//blindness
 		if(!(sdisabilities & BLIND))
-			if(equipment_tint_total >= TINT_BLIND)	// Covered eyes, heal faster
+			if(!src.is_diona() && equipment_tint_total >= TINT_BLIND)	// Covered eyes, heal faster
 				eye_blurry = max(eye_blurry-2, 0)
 			else
 				eye_blurry = max(eye_blurry-1, 0)
