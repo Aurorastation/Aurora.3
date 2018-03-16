@@ -4,7 +4,7 @@
 	icon_state = "kettle"
 	layer = 2.9
 	density = 1
-	anchored = 1
+	anchored = 0
 	use_power = 1
 	idle_power_usage = 5
 	active_power_usage = 500
