@@ -428,7 +428,7 @@
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "ripleytoy"
 	var/cooldown = 0
-	w_class = ITEMSIZE_TINY
+	w_class = ITEMSIZE_SMALL
 
 //all credit to skasi for toy mech fun ideas
 /obj/item/toy/prize/attack_self(mob/user as mob)
@@ -707,6 +707,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "therapyred"
 	item_state = "egg4" // It's the red egg in items_left/righthand
+	w_class = ITEMSIZE_TINY
 
 /obj/item/toy/therapy_purple
 	name = "purple therapy doll"
@@ -714,6 +715,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "therapypurple"
 	item_state = "egg1" // It's the magenta egg in items_left/righthand
+	w_class = ITEMSIZE_TINY
 
 /obj/item/toy/therapy_blue
 	name = "blue therapy doll"
@@ -721,6 +723,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "therapyblue"
 	item_state = "egg2" // It's the blue egg in items_left/righthand
+	w_class = ITEMSIZE_TINY
 
 /obj/item/toy/therapy_yellow
 	name = "yellow therapy doll"
@@ -728,6 +731,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "therapyyellow"
 	item_state = "egg5" // It's the yellow egg in items_left/righthand
+	w_class = ITEMSIZE_TINY
 
 /obj/item/toy/therapy_orange
 	name = "orange therapy doll"
@@ -735,6 +739,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "therapyorange"
 	item_state = "egg4" // It's the red one again, lacking an orange item_state and making a new one is pointless
+	w_class = ITEMSIZE_TINY
 
 /obj/item/toy/therapy_green
 	name = "green therapy doll"
