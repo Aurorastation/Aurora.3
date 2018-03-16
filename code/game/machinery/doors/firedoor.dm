@@ -159,14 +159,23 @@
 	for(var/area/A in areas_added)		//Checks if there are fire alarms in any areas associated with that firedoor
 		if(A.fire || A.air_doors_activated)
 			alarmed = 1
-/*
-	var/answer = alert(user, "Would you like to [density ? "open" : "close"] this [src.name]?[ alarmed && density ? "\nNote that by doing so, you acknowledge any damages from opening this\n[src.name] as being your own fault, and you will be held accountable under the law." : ""]",\
-	"\The [src]", "Yes, [density ? "open" : "close"]", "No")
-	if(answer == "No")
-		return*/
 	if(user.incapacitated() || (get_dist(src, user) > 1  && !issilicon(user)))
 		user << "Sorry, you must remain able bodied and close to \the [src] in order to use it."
 		return
+
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+
+		if(H.species.can_shred(H))
+
+			if(src.density)
+				visible_message("<span class='danger'>\The [H] forces \the [src] open!</span>")
+				open(1)
+			else
+				visible_message("<span class='danger'>\The [H] forces \the [src] closed!</span>")
+				close(1)
+			return
+
 	if(density && (stat & (BROKEN|NOPOWER))) //can still close without power
 		user << "\The [src] is not functioning, you'll have to force it open manually."
 		return
