@@ -72,7 +72,7 @@
 	display_name = "surgical apron"
 	path = /obj/item/clothing/suit/apron/surgery
 	cost = 1
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Medical Doctor", "Chemist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist","Xenoarcheologist", "Chief Medical Officer", "Medical Doctor", "Chemist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/suit/poncho
 	display_name = "poncho selection"
@@ -127,7 +127,7 @@
 /datum/gear/suit/winter/science
 	display_name = "winter coat, science"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/science
-	allowed_roles = list("Research Director", "Scientist", "Xenobiologist", "Roboticist", "Lab Assistant", "Geneticist")
+	allowed_roles = list("Research Director", "Xenoarcheologist", "Scientist", "Xenobiologist", "Roboticist", "Lab Assistant", "Geneticist")
 
 /datum/gear/suit/winter/medical
 	display_name = "winter coat, medical"
