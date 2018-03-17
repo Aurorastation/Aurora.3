@@ -1,8 +1,7 @@
 /datum/research_concepts
 	var/name = "Breathing"
 	var/id = "breath"
-	var/short_desc = "The fundamentals of breathing, how it works, and why it matters."
-	var/long_desc = "Research into this topic cover the intricacies of one of the core components of human life: Breathing. From exploring the composition of the air around us to the cell respiration that occurs in the lungs. Researching this concept can be a difficult task, but can prove quite rewarding to further devloping safe EVA techniques."
+	var/desc = "The fundamentals of breathing, how it works, and why it matters."
 	var/level = 1
 	var/maxlevel = 1
 	var/progress = 1
@@ -27,6 +26,6 @@
 		//rdconsole.updatetechs()
 	return 1
 
-/datum/research_concepts/proc/get_tech_desc(var/long = 0, var/level = 1)
+/datum/research_concepts/proc/get_tech_desc(var/level = 1)
 	if(level > maxlevel)
 		return 0
