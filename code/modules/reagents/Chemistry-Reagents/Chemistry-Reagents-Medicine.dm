@@ -533,10 +533,10 @@
 	metabolism_min = 0
 	data = 0
 	taste_description = "bugs"
-	var/goodmessage = list("Your mind feels healthy.","You feel calm and relaxed.","The world seems like a better place now.") //Messages when all your brain trauma is cured.
-	var/badmessage = list("Your mind seems lost...","You feel agitated...","It feels like the world is out to get you...") //Messages when you still have brain trauma
-	var/worstmessage = list("Your mind starts to break down...","Things aren't what they seem...","You hate yourself...") //Messages when the user is at the risk for more trauma
-	var/list/suppress_traumas  //List of brain traumas that the medication temporarily suppresses, with the key being the brain trauma and the value being the maximum dosage required to cure.
+	var/goodmessage = list("Your mind feels healthy.","You feel calm and relaxed.","The world seems like a better place now.") //Messages when all your brain traumas are cured.
+	var/badmessage = list("Your mind seems lost...","You feel agitated...","It feels like the world is out to get you...") //Messages when you still have at least one brain trauma it's suppose to cure.
+	var/worstmessage = list("Your mind starts to break down...","Things aren't what they seem...","You hate yourself...") //Messages when the user is at possible risk for more trauma
+	var/list/suppress_traumas  //List of brain traumas that the medication temporarily suppresses, with the key being the brain trauma and the value being the minimum dosage required to cure.
 	var/list/dosage_traumas //List of brain traumas that the medication permanently adds at these dosages, with the key being the brain trauma and the value being base percent chance to add.
 	var/list/withdrawal_traumas //List of withdrawl effects that the medication permanently adds during withdrawl, with the key being the brain trauma, and the value being the base percent chance to add.
 	var/messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY
@@ -580,7 +580,7 @@
 				H << "<span class='danger'>[pick(worstmessage)]</span>"
 				for(var/k in withdrawal_traumas)
 					var/datum/brain_trauma/BT = k
-					var/percentchance = max(withdrawal_traumas[k] * (dose/20)) //The highest the dosage, the more likely it is do get withdrawl traumas.
+					var/percentchance = max(withdrawal_traumas[k] * (dose/20)) //The higher the dosage, the more likely it is do get withdrawal traumas.
 					if(!H.has_trauma_type(BT) && prob(percentchance))
 						B.gain_trauma(BT,FALSE)
 		else if(hastrauma || volume < max_dose*0.5) //If your current dose is not high enough, then alert the player.
@@ -619,9 +619,6 @@
 	M.add_chemical_effect(CE_PAINKILLER, 5)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 0.125, override = MODIFIER_OVERRIDE_STRENGTHEN)
-
-/datum/reagent/mental/nicotine/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed)
-	affect_blood(M,alien,removed) //100% ratio
 
 /datum/reagent/mental/methylphenidate
 	name = "methylphenidate"
@@ -696,6 +693,7 @@
 		/datum/brain_trauma/mild/phobia/ = 10,
 		/datum/brain_trauma/mild/hallucinations = 5
 	)
+	suppressing_reagents = list(/datum/reagent/mental/fluvoxamine = 5)
 
 /datum/reagent/mental/escitalopram
 	name = "escitalopram"
@@ -719,6 +717,10 @@
 	withdrawal_traumas = list(
 		/datum/brain_trauma/mild/phobia/ = 10,
 		/datum/brain_trauma/mild/hallucinations = 10
+	)
+	suppressing_reagents = list(
+		/datum/reagent/mental/fluvoxamine = 5,
+		/datum/reagent/mental/sertraline = 5
 	)
 
 /datum/reagent/mental/escitalopram/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -746,6 +748,11 @@
 	withdrawal_traumas = list(
 		/datum/brain_trauma/mild/phobia/ = 25,
 		/datum/brain_trauma/mild/hallucinations = 50
+	)
+	suppressing_reagents = list(
+		/datum/reagent/mental/escitalopram = 5,
+		/datum/reagent/mental/fluvoxamine = 10,
+		/datum/reagent/mental/sertraline = 10
 	)
 
 /datum/reagent/mental/paroxetine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -777,6 +784,12 @@
 		/datum/brain_trauma/mild/hallucinations = 25,
 		/datum/brain_trauma/mild/concussion = 10
 	)
+	suppressing_reagents = list(
+		/datum/reagent/mental/paroxetine = 5,
+		/datum/reagent/mental/escitalopram = 5,
+		/datum/reagent/mental/fluvoxamine = 10,
+		/datum/reagent/mental/sertraline = 10
+	)
 
 /datum/reagent/mental/venlafaxine
 	name = "venlafaxine"
@@ -802,6 +815,13 @@
 		/datum/brain_trauma/mild/phobia/ = 25,
 		/datum/brain_trauma/mild/hallucinations = 25
 	)
+	suppressing_reagents = list(
+		/datum/reagent/mental/duloxetine = 5,
+		/datum/reagent/mental/paroxetine = 5,
+		/datum/reagent/mental/escitalopram = 5,
+		/datum/reagent/mental/fluvoxamine = 10,
+		/datum/reagent/mental/sertraline = 10
+	)	
 
 /datum/reagent/mental/risperidone
 	name = "risperidone"
@@ -835,6 +855,12 @@
 		/datum/brain_trauma/mild/tourettes = 50,
 		/datum/brain_trauma/severe/monophobia = 50
 	)
+	suppressing_reagents = list(
+		/datum/reagent/mental/venlafaxine = 20
+		/datum/reagent/mental/duloxetine = 20,
+		/datum/reagent/mental/paroxetine = 20,
+		/datum/reagent/mental/escitalopram = 20,
+	)	
 
 /datum/reagent/mental/olanzapine
 	name = "olanzapine"
@@ -864,6 +890,12 @@
 		/datum/brain_trauma/mild/hallucinations = 200,
 		/datum/brain_trauma/severe/split_personality = 50,
 		/datum/brain_trauma/special/imaginary_friend = 50
+	)
+	suppressing_reagents = list(
+		/datum/reagent/mental/venlafaxine = 20
+		/datum/reagent/mental/duloxetine = 20,
+		/datum/reagent/mental/paroxetine = 20,
+		/datum/reagent/mental/escitalopram = 20,
 	)
 
 /datum/reagent/mental/hextrasenil
@@ -919,7 +951,8 @@
 	dosage_traumas = list(
 		/datum/brain_trauma/severe/pacifism = 25
 	)
-
+	messagedelay = 30
+	
 //Things that are not cured by medication:
 //Dumbness
 //Gerstmann Syndrome
@@ -930,7 +963,6 @@
 //Narcolepsy
 //Discoordination
 //Aphasia
-//Pacifism
 
 /datum/reagent/rezadone
 	name = "Rezadone"
