@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - bugfix: "The Automatic Robotic Factory 5000 should now work properly."
