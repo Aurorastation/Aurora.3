@@ -9,10 +9,10 @@
 
 	if(!(species.flags & IS_PLANT)) //Plants don't breath like humans
 		if(species && (species.flags & NO_BREATHE)) //Check for species
-			return
+			return 0
 
 		if (contents.Find(internal) && wear_mask && (wear_mask.item_flags & AIRTIGHT)) //Check for internals
-			return
+			return 0
 	/* if someone could get this working, I would be grateful.
 	if(last_smell_time + (5 SECONDS) < world.time)
 		var/datum/reagents/temp = new(amount) //temporary holder used to analyse what gets transfered.
