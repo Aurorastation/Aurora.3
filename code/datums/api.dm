@@ -1100,9 +1100,44 @@ proc/api_update_command_database()
 	if(!dbcon.IsConnected())
 		statuscode = 500
 		response = "DB-Connection unavailable"
-		return
+		return 1
+
+	//Get general data about the poll
+	var/DBQuery/select_query = dbcon.NewQuery("SELECT id, polltype, starttime, endtime, question, multiplechoiceoptions, adminonly FROM ss13_poll_question WHERE id = :poll_id")
+	select_query.Execute(list("poll_id"=poll_id))
+
+	//Check if the poll exists
+	var/poll_data = 0
+	while(select_query.NextRow())
+		poll_data = list(
+			"id"=select_query.item[1],
+			"polltype"=select_query.item[2],
+			"starttime"=select_query.item[3],
+			"endtime"=select_query.item[4],
+			"question"=select_query.item[5],
+			"multiplechoiceoptions"=select_query.item[6],
+			"adminonly"=select_query.item[7]
+			)
+
+	if(!poll_data)
+		statuscode = 404
+		response = "The requested poll does not exist"
+		return 1
+
+	var/list/resultdata = list()
+
+	//Return different data based on the poll type:
+
+	//If we have a option or a multiple choice poll, return the number of options
+
+	//If we have a numval poll, return the options with the min, max, and average
+
+	//If we have a textpoll, return the number of answers
+	
+
+	polldata["results"] = resultdata
 
 	statuscode = 200
 	response = ""
-	data = list()
+	data = poll_data
 	return 1
