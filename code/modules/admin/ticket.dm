@@ -60,7 +60,7 @@ var/global/list/ticket_panels = list()
 		discord_bot.send_to_admins("[key_name(owner_client)]'s request for help has been taken by [key_name(assigned_admin)].")
 		owner_client.adminhelped = ADMINHELPED
 
-	message_admins("<span class='notice'><b>[key_name(assigned_admin)]</b> has assigned themself to <b>[src.owner]'s</b> ticket.</span>")
+	message_admins("<span class='danger'><b>[key_name(assigned_admin)]</b> has assigned themself to <b>[src.owner]'s</b> ticket.</span>")
 	to_chat(client_by_ckey(src.owner), "<span class='notice'><b>[assigned_admin] has added themself to your ticket and should respond shortly. Thanks for your patience!</b></span>")
 
 	update_ticket_panels()
@@ -106,10 +106,12 @@ proc/get_open_ticket_by_ckey(var/owner)
 
 	var/list/dat = list()
 
+	var/valid_holder = check_rights(R_MOD|R_ADMIN, FALSE, ticket_panel_window.user)
+
 	var/list/ticket_dat = list()
 	for(var/id = tickets.len, id >= 1, id--)
 		var/datum/ticket/ticket = tickets[id]
-		if(C.holder || ticket.owner == C.ckey)
+		if(valid_holder || ticket.owner == C.ckey)
 			var/client/owner_client = client_by_ckey(ticket.owner)
 			var/status = "Unknown status"
 			var/color = "#6aa84f"
@@ -128,11 +130,11 @@ proc/get_open_ticket_by_ckey(var/owner)
 			ticket_dat += "Ticket #[id] - [ticket.owner] [owner_client ? "" : "(DC)"] - [status]<br /><a href='byond://?src=\ref[src];action=view;ticket=\ref[ticket]'>VIEW</a>"
 			if(ticket.status)
 				ticket_dat += " - <a href='byond://?src=\ref[src];action=pm;ticket=\ref[ticket]'>PM</a>"
-				if(C.holder)
+				if(valid_holder)
 					ticket_dat += " - <a href='byond://?src=\ref[src];action=take;ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>"
-				if(ticket.status != TICKET_CLOSED && (C.holder || ticket.status == TICKET_OPEN))
+				if(ticket.status != TICKET_CLOSED && (valid_holder || ticket.status == TICKET_OPEN))
 					ticket_dat += " - <a href='byond://?src=\ref[src];action=close;ticket=\ref[ticket]'>CLOSE</a>"
-			if(C.holder)
+			if(valid_holder)
 				var/ref_mob = ""
 				if(owner_client)
 					ref_mob = "\ref[owner_client.mob]"
@@ -188,7 +190,7 @@ proc/get_open_ticket_by_ckey(var/owner)
 		if("close")
 			ticket.close(usr.client)
 		if("pm")
-			if(usr.client.holder && ticket.owner != usr.ckey)
+			if(check_rights(R_MOD|R_ADMIN) && ticket.owner != usr.ckey)
 				usr.client.cmd_admin_pm(client_by_ckey(ticket.owner), ticket = ticket)
 			else if(ticket.status == TICKET_ASSIGNED)
 				// manually check that the target client exists here as to not spam the usr for each logged out admin on the ticket

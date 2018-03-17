@@ -80,9 +80,10 @@
 	..()
 	update_wearer()
 
-/obj/item/clothing/shoes/magboots/on_slotmove()
-	..()
-	update_wearer()
+/obj/item/clothing/shoes/magboots/mob_can_unequip()
+	. = ..()
+	if (.)
+		update_wearer()
 
 /obj/item/clothing/shoes/magboots/examine(mob/user)
 	..(user)
