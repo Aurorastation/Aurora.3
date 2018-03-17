@@ -76,6 +76,10 @@
 	name = "\improper Research - Miscellaneous Research"
 	icon_state = "toxmisc"
 
+/area/rnd/test_range
+	name = "\improper Research - Weapons Testing Range"
+	flags = FIRING_RANGE
+
 /area/toxins
 	station_area = 1
 

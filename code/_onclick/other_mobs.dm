@@ -17,7 +17,7 @@
 	// If the gloves do anything, have them return 1 to stop
 	// normal attack_hand() here.
 	var/obj/item/clothing/gloves/G = gloves // not typecast specifically enough in defines
-	if(istype(G) && G.Touch(A,1))
+	if(istype(G) && G.Touch(A,src,1))
 		return
 
 	A.attack_hand(src)
@@ -34,7 +34,7 @@
 	if((LASER in mutations) && a_intent == I_HURT)
 		LaserEyes(A) // moved into a proc below
 
-	else if(istype(G) && G.Touch(A,0)) // for magic gloves
+	else if(istype(G) && G.Touch(A,src,0)) // for magic gloves
 		return
 
 	else if(TK in mutations)
@@ -54,7 +54,7 @@
 
 	if(!..())
 		return 0
-		
+
 	setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	A.attack_generic(src,rand(5,6),"bitten")
 
@@ -76,9 +76,9 @@
 		if (Victim == A)
 			Feedstop()
 		return
-	
+
 	setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	
+
 	var/mob/living/M = A
 	if (istype(M))
 
@@ -130,7 +130,7 @@
 	New Players:
 	Have no reason to click on anything at all.
 */
-/mob/new_player/ClickOn()
+/mob/abstract/new_player/ClickOn()
 	return
 
 /*

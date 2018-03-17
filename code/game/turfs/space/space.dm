@@ -10,7 +10,6 @@
 
 	temperature = T20C
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
-	
 //	heat_capacity = 700000 No.
 	is_hole = TRUE
 
@@ -19,7 +18,8 @@
 // Copypaste of parent for performance.
 /turf/space/Initialize()
 	appearance = SSicon_cache.space_cache["[((x + y) ^ ~(x * y) + z) % 25]"]
-	update_starlight()
+	if (config.starlight)
+		update_starlight()
 
 	if (initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
@@ -28,14 +28,14 @@
 
 	for(var/atom/movable/AM as mob|obj in src)
 		src.Entered(AM)
-		
+
 	turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
 	else
 		luminosity = 1
-	
+
 	return INITIALIZE_HINT_NORMAL
 
 /turf/space/is_space()
@@ -90,7 +90,7 @@
 			return
 		else
 			user << "<span class='warning'>The plating is going to need some support.</span>"
-	
+
 	..(C, user)
 
 // Ported from unstable r355

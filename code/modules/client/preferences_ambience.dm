@@ -1,7 +1,8 @@
 /var/global/asfx_togs = list(
 //	/client/proc/Toggle_asfx,
 //	/client/proc/Toggle_footsteps,
-	/client/proc/Toggle_asfx_vote
+	/client/proc/Toggle_asfx_vote,
+	/client/proc/toggle_vox_voice
 )
 
 /client/verb/asf_toggle()
@@ -51,3 +52,12 @@
 	else
 		src << "<font color='red'>You will no longer hear the vote alarm.</font>"
 	feedback_add_details("admin_verb","TSFXFV") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/proc/toggle_vox_voice()
+	set name = "Toggle VOX Voice"
+	set category = "SoundFx Prefs"
+	set desc = "Toggles the announcement voice."
+
+	prefs.asfx_togs ^= ASFX_VOX
+	prefs.save_preferences()
+	src << "You will [(prefs.asfx_togs & ASFX_VOX) ? "now" : "no longer"] hear the VOX voice."

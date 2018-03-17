@@ -16,7 +16,9 @@
 		new /obj/screen/ai/pda_log,
 		new /obj/screen/ai/take_image,
 		new /obj/screen/ai/view_image,
-		new /obj/screen/ai/sensor_aug
+		new /obj/screen/ai/sensor_aug,
+		new /obj/screen/ai/move_up,
+		new /obj/screen/ai/move_down
 	)
 
 	mymob.client.screen += adding + other

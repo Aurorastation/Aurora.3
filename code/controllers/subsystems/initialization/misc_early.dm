@@ -34,6 +34,7 @@
 	populate_robolimb_list()
 
 	// Set up antags.
+	// Spawn locations are set after map init!
 	populate_antag_type_list()
 
 	// Get BOREALIS to warn staff about a lazy admin forgetting visibility to 0
@@ -42,5 +43,10 @@
 		discord_bot.alert_server_visibility()
 
 	global_initialize_webhooks()
+
+	// Setup ore.
+	for(var/oretype in subtypesof(/ore))
+		var/ore/OD = new oretype()
+		ore_data[OD.name] = OD
 
 	..()

@@ -169,7 +169,7 @@ There are several things that need to be remembered:
 	var/damage_appearance = ""
 
 	for(var/obj/item/organ/external/O in organs)
-		if(O.is_stump())
+		if(isnull(O) || O.is_stump())
 			continue
 		//if(O.status & ORGAN_DESTROYED) damage_appearance += "d" //what is this?
 		//else
@@ -187,7 +187,7 @@ There are several things that need to be remembered:
 
 	// blend the individual damage states with our icons
 	for(var/obj/item/organ/external/O in organs)
-		if(O.is_stump())
+		if(isnull(O) || O.is_stump())
 			continue
 
 		O.update_icon()
@@ -387,7 +387,7 @@ There are several things that need to be remembered:
 		if (has_visible_hair)
 			var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
 			if (hair_style)
-				var/col = species.get_light_color(h_style) || "#FFFFFF"
+				var/col = species.get_light_color(src) || "#FFFFFF"
 				set_light(species.light_range, species.light_power, col, uv = 0, angle = LIGHT_WIDE)
 		else
 			set_light(0)
@@ -733,7 +733,7 @@ There are several things that need to be remembered:
 	if(update_icons)   update_icons()
 
 
-/mob/living/carbon/human/update_inv_head(var/update_icons=1)
+/mob/living/carbon/human/update_inv_head(update_icons = TRUE, recurse = TRUE)
 	if (QDELING(src))
 		return
 
@@ -780,6 +780,10 @@ There are several things that need to be remembered:
 				ovr += SSicon_cache.light_overlay_cache["[cache_key]"]
 
 		overlays_raw[HEAD_LAYER] = ovr || standing
+
+	if (recurse)
+		update_hair(FALSE)
+		update_inv_wear_mask(FALSE, FALSE)
 
 	if(update_icons)
 		update_icons()
@@ -905,7 +909,7 @@ There are several things that need to be remembered:
 		update_icons()
 
 
-/mob/living/carbon/human/update_inv_wear_mask(var/update_icons=1)
+/mob/living/carbon/human/update_inv_wear_mask(update_icons = TRUE, recurse = TRUE)
 	if (QDELING(src))
 		return
 
@@ -938,6 +942,10 @@ There are several things that need to be remembered:
 			ovr = list(standing, bloodsies)
 
 		overlays_raw[FACEMASK_LAYER] = ovr || standing
+
+	if (recurse)
+		update_inv_head(FALSE, FALSE)
+		update_hair(FALSE)
 
 	if(update_icons)
 		update_icons()

@@ -142,16 +142,16 @@
 				return
 
 			log_ability_use(user, "advanced encryption hack")
-
-			if(prob(50) && user.hack_can_fail)
-				user << "Hack Failed."
-				if(prob(5))
-					user.hack_fails ++
-					announce_hack_failure(user, "quantum message relay")
-					log_ability_use(user, "advanced encryption hack (CRITFAIL - title: [reporttitle])")
-					return
-				log_ability_use(user, "advanced encryption hack (FAIL - title: [reporttitle])")
-				return
+			// Commented out while trialing the malf ai buff
+			//if(prob(50) && user.hack_can_fail)
+			//	user << "Hack Failed."
+			//	if(prob(5))
+			//		user.hack_fails ++
+			//		announce_hack_failure(user, "quantum message relay")
+			//		log_ability_use(user, "advanced encryption hack (CRITFAIL - title: [reporttitle])")
+			//		return
+			//	log_ability_use(user, "advanced encryption hack (FAIL - title: [reporttitle])")
+			//	return
 			log_ability_use(user, "advanced encryption hack (SUCCESS - title: [reporttitle])")
 			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1, do_newscast=1, do_print=1)
 
@@ -161,16 +161,16 @@
 				return
 
 			log_ability_use(user, "advanced encryption hack")
-
-			if(prob(50) && user.hack_can_fail)
-				user << "Hack Failed."
-				if(prob(5))
-					user.hack_fails ++
-					announce_hack_failure(user, "quantum message relay")
-					log_ability_use(user, "advanced encryption hack (CRITFAIL - title: [reporttitle])")
-					return
-				log_ability_use(user, "advanced encryption hack (FAIL - title: [reporttitle])")
-				return
+			// Commented out while trialing the malf ai buffs
+			//if(prob(50) && user.hack_can_fail)
+			//	user << "Hack Failed."
+			//	if(prob(5))
+			//		user.hack_fails ++
+			//		announce_hack_failure(user, "quantum message relay")
+			//		log_ability_use(user, "advanced encryption hack (CRITFAIL - title: [reporttitle])")
+			//		return
+			//	log_ability_use(user, "advanced encryption hack (FAIL - title: [reporttitle])")
+			//	return
 			log_ability_use(user, "advanced encryption hack (SUCCESS - title: [reporttitle])")
 			world << "<span class='alert'>New [current_map.company_name] Update available at all communication consoles.</span>"
 			world << sound('sound/AI/commandreport.ogg')
@@ -189,10 +189,10 @@
 	if(!alert_target || !ability_pay(user, price) || alert_target == "CANCEL")
 		user << "Hack Aborted"
 		return
-
-	if(prob(60) && user.hack_can_fail)
+	//Reduced from 60-10 to 20-5 while trialing the malf ai buffs
+	if(prob(20) && user.hack_can_fail)
 		user << "Hack Failed."
-		if(prob(10))
+		if(prob(5))
 			user.hack_fails ++
 			announce_hack_failure(user, "alert control system")
 			log_ability_use(user, "elite encryption hack (CRITFAIL - [alert_target])")
@@ -230,21 +230,21 @@
 			sleep(duration/5)
 			if(!user || user.stat == DEAD)
 				return
-			command_announcement.Announce("Caution, [current_map.station_name]. We have detected abnormal behaviour in your network. It seems someone is trying to hack your electronic systems. We will update you when we have more information.", "Network Monitoring")
+			command_announcement.Announce("Info: Abnormal network activity detected. Ongoing hacking attempts detcted. Automatic countermeasures activated. Trace activated.", "Network Monitoring")
 			sleep(duration/5)
 			if(!user || user.stat == DEAD)
 				return
-			command_announcement.Announce("We started tracing the intruder. Whoever is doing this, they seem to be on the station itself. We suggest checking all network control terminals. We will keep you updated on the situation.", "Network Monitoring")
+			command_announcement.Announce("Notice: Trace Update. Abnormal network activity originating from: Network terminal aboard [current_map.station_name]. External network connections disabled. Trace cancelled.", "Network Monitoring")
 			sleep(duration/5)
 			if(!user || user.stat == DEAD)
 				return
-			command_announcement.Announce("This is highly abnormal and somewhat concerning. The intruder is too fast, he is evading our traces. No man could be this fast...", "Network Monitoring")
+			command_announcement.Announce("Warning: Automatic countermeasures ineffective. Breach of primary network firewall imminent.", "Network Monitoring")
 			sleep(duration/5)
 			if(!user || user.stat == DEAD)
 				return
-			command_announcement.Announce("We have traced the intrude#, it seem& t( e yo3r AI s7stem, it &# *#ck@ng th$ sel$ destru$t mechani&m, stop i# bef*@!)$#&&@@  <CONNECTION LOST>", "Network Monitoring")
+			command_announcement.Announce("Error: Network firewall breached. Network integrity compromised.", "Network Monitoring")
 	else
-		command_announcement.Announce("We have detected a strong brute-force attack on your firewall which seems to be originating from your AI system. It already controls almost the whole network, and the only thing that's preventing it from accessing the self-destruct is this firewall. You don't have much time before it succeeds.", "Network Monitoring")
+		command_announcement.Announce("Error: Ongoing hacking attempt. Automatic countermeasures ineffective. Network firewall breached. Network integrity compromised. External network connections disabled.", "Network Monitoring")
 	user << "## BEGINNING SYSTEM OVERRIDE."
 	user << "## ESTIMATED DURATION: [round((duration+300)/600)] MINUTES"
 	user.hacking = 1

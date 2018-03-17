@@ -32,7 +32,7 @@
 				"asfx_togs",
 				"lastmotd" = "motd_hash",
 				"lastmemo" = "memo_hash",
-				"toggles_secondary" = "toggles_secondary",
+				"toggles_secondary",
 				"parallax_speed"
 			),
 			"args" = list("ckey")
@@ -40,7 +40,7 @@
 	)
 
 /datum/category_item/player_setup_item/player_global/settings/gather_load_parameters()
-	return list("ckey" = pref.client.ckey)
+	return list("ckey" = PREF_CLIENT_CKEY)
 
 /datum/category_item/player_setup_item/player_global/settings/gather_save_query()
 	return list(
@@ -52,14 +52,14 @@
 			"lastmotd",
 			"lastmemo",
 			"ckey" = 1,
-			"parallax_toggles",
+			"toggles_secondary",
 			"parallax_speed"
 		)
 	)
 
 /datum/category_item/player_setup_item/player_global/settings/gather_save_parameters()
 	return list(
-		"ckey" = pref.client.ckey,
+		"ckey" = PREF_CLIENT_CKEY,
 		"lastchangelog" = pref.lastchangelog,
 		"current_character" = pref.current_character,
 		"toggles" = pref.toggles,

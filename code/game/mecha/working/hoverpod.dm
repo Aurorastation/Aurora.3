@@ -12,7 +12,6 @@
 	infra_luminosity = 6
 	wreckage = /obj/effect/decal/mecha_wreckage/hoverpod
 	cargo_capacity = 5
-	max_equip = 3
 	var/datum/effect_system/ion_trail/ion_trail
 	var/stabilization_enabled = 1
 

@@ -1,10 +1,9 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-//Model dictionary trimmed on: 18-11-2017 20:57 (UTC)
 "aa" = (
 /turf/simulated/open,
 /area/mine/explored)
 "ab" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "ac" = (
 /turf/simulated/mineral,
@@ -1607,14 +1606,14 @@
 /area/security/checkpoint2)
 "dk" = (
 /obj/random/junk,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "dl" = (
 /turf/simulated/wall,
 /area/mine/explored)
 "dm" = (
 /obj/structure/boulder,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "dn" = (
 /obj/structure/ladder{
@@ -1627,7 +1626,7 @@
 /obj/structure/boulder{
 	icon_state = "boulder3"
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "dp" = (
 /obj/structure/lattice/catwalk,
@@ -2899,6 +2898,12 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fL" = (
+/obj/structure/window/reinforced{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -30597,8 +30602,8 @@ ah
 ah
 ah
 ah
-ah
 eU
+ah
 al
 aa
 aa
@@ -30853,10 +30858,10 @@ eQ
 eQ
 eS
 eQ
-eQ
 eT
 eV
-eX
+fL
+al
 aa
 aa
 aa
@@ -31111,8 +31116,8 @@ am
 aa
 af
 ai
-ai
 eW
+ai
 am
 aa
 aa

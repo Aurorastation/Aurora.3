@@ -195,7 +195,7 @@
 /area/derelict/hallway/northwest)
 "aI" = (
 /obj/machinery/artifact,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/template_noop)
 "aJ" = (
 /obj/item/weapon/gun/energy/stunrevolver,
@@ -476,7 +476,7 @@
 /turf/template_noop,
 /area/template_noop)
 "bG" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/template_noop)
 "bH" = (
 /obj/item/tape/engineering{

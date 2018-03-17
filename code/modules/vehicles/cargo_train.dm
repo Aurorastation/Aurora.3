@@ -104,18 +104,18 @@
 	..()
 	update_stats()
 
-/obj/vehicle/train/cargo/engine/Bump(atom/Obstacle)
+/obj/vehicle/train/cargo/engine/Collide(atom/Obstacle)
 	var/obj/machinery/door/D = Obstacle
 	var/mob/living/carbon/human/H = load
 	if(istype(D) && istype(H))
-		D.Bumped(H)		//a little hacky, but hey, it works, and respects access rights
+		D.Collide(H)		//a little hacky, but hey, it works, and respects access rights
 
-	..()
+	. = ..()
 
-/obj/vehicle/train/cargo/trolley/Bump(atom/Obstacle)
+/obj/vehicle/train/cargo/trolley/Collide(atom/Obstacle)
 	if(!lead)
 		return //so people can't knock others over by pushing a trolley around
-	..()
+	. = ..()
 
 //-------------------------------------------
 // Train procs
@@ -302,16 +302,12 @@
 	C.forceMove(src)
 
 	if(load_item_visible)
-		C.pixel_x += load_offset_x
-		C.pixel_y += load_offset_y
-		C.layer = layer
+		var/mutable_appearance/MA = new(C)
+		MA.pixel_x += load_offset_x
+		MA.pixel_y += load_offset_y
+		MA.layer = FLOAT_LAYER
 
-		overlays += C
-
-		//we can set these back now since we have already cloned the icon into the overlay
-		C.pixel_x = initial(C.pixel_x)
-		C.pixel_y = initial(C.pixel_y)
-		C.layer = initial(C.layer)
+		add_overlay(MA)
 
 /obj/vehicle/train/cargo/trolley/unload(var/mob/user, var/direction)
 	if(istype(load, /datum/vehicle_dummy_load))
@@ -319,7 +315,7 @@
 		load = dummy_load.actual_load
 		dummy_load.actual_load = null
 		qdel(dummy_load)
-		overlays.Cut()
+		cut_overlays()
 	..()
 
 //-------------------------------------------

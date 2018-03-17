@@ -19,9 +19,9 @@
 #define SS_INIT_AO          5	// Wall AO neighbour build.
 #define SS_INIT_OVERLAY     4	// Overlay flush.
 #define SS_INIT_MISC        3	// Subsystems without an explicitly set initialization order start here.
-#define SS_INIT_SUNLIGHT    2	// Sunlight setup. Creates lots of lighting & SSopenturf updates.
-#define SS_INIT_LIGHTING    1	// Generation of lighting overlays and pre-bake. May cause openturf updates, should initialize before SSopenturf.
-#define SS_INIT_OPENTURF    0	// Openturf flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites.
+#define SS_INIT_SUNLIGHT    2	// Sunlight setup. Creates lots of lighting & SSzcopy updates.
+#define SS_INIT_LIGHTING    1	// Generation of lighting overlays and pre-bake. May cause openturf updates, should initialize before SSzcopy.
+#define SS_INIT_ZCOPY       0	// Z-mimic flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites.
 #define SS_INIT_LOBBY      -1	// Lobby timer starts here. The lobby timer won't actually start going down until the MC starts ticking, so you probably want this last.
 
 // Something to remember when setting priorities: SS_TICKER runs before Normal, which runs before SS_BACKGROUND.
@@ -35,6 +35,7 @@
 #define SS_PRIORITY_SMOOTHING      35	// Smooth turf generation.
 #define SS_PRIORITY_ORBIT          30	// Orbit datum updates.
 #define SS_PRIORITY_ICON_UPDATE    20	// Queued icon updates. Mostly used by APCs and tables.
+#define SS_PRIORITY_PROJECTILES    10	// Projectile processing!
 
 // Normal
 #define SS_PRIORITY_TICKER        200	// Gameticker.
@@ -45,7 +46,7 @@
 #define SS_PRIORITY_MACHINERY      95	// Machinery + powernet ticks.
 #define SS_PRIORITY_CHEMISTRY      90	// Multi-tick chemical reactions.
 #define SS_PRIORITY_SHUTTLE        85	// Shuttle movement.
-#define SS_PRIORITY_CALAMITY       75	// Singularity, Tesla, Nar'sie, blob, etc. 
+#define SS_PRIORITY_CALAMITY       75	// Singularity, Tesla, Nar'sie, blob, etc.
 #define SS_PRIORITY_EVENT          70
 #define SS_PRIORITY_LIGHTING       65	// Queued lighting engine updates.
 #define SS_PRIORITY_DISEASE        60	// Disease ticks.
@@ -55,7 +56,7 @@
 #define SS_PRIORITY_PLANTS         40	// Spreading plant effects.
 #define SS_PRIORITY_EFFECTS        35	// New-style effects manager. Timing of effects may be off if this gets too far behind.
 #define SS_PRIORITY_AIRFLOW        15	// Handles object movement due to ZAS airflow.
-#define SS_PRIORITY_OPENTURF       10	// Open turf icon generation/updates.
+#define SS_PRIORITY_ZCOPY          10	// Z-mimic icon generation/updates.
 
 // SS_BACKGROUND
 //#define SS_PRIORITY_DEFAULT     50	// This is defined somewhere else.

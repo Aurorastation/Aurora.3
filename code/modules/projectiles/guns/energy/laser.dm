@@ -157,7 +157,7 @@ obj/item/weapon/gun/energy/retro
 	burst_delay = 0
 	move_delay = 0
 	fire_delay = 2
-	dispersion = list(1.0, -1.0, 2.0, -2.0)
+	dispersion = list(10)
 	can_turret = 1
 	turret_sprite_set = "laser"
 
@@ -186,6 +186,7 @@ obj/item/weapon/gun/energy/retro
 	item_state = "bluetag"
 	projectile_type = /obj/item/projectile/beam/lastertag/blue
 	required_vest = /obj/item/clothing/suit/bluetag
+	pin = /obj/item/device/firing_pin/tag/blue
 	can_turret = 1
 	turret_is_lethal = 0
 	turret_sprite_set = "blue"
@@ -195,6 +196,7 @@ obj/item/weapon/gun/energy/retro
 	item_state = "redtag"
 	projectile_type = /obj/item/projectile/beam/lastertag/red
 	required_vest = /obj/item/clothing/suit/redtag
+	pin = /obj/item/device/firing_pin/tag/red
 	can_turret = 1
 	turret_is_lethal = 0
 	turret_sprite_set = "red"

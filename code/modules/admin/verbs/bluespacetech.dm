@@ -169,7 +169,7 @@
 		if(client.holder && client.holder.original_mob)
 			client.holder.original_mob.key = key
 		else
-			var/mob/dead/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
+			var/mob/abstract/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
 			ghost.key = key
 			ghost.mind.name = "[ghost.key] BSTech"
 			ghost.name = "[ghost.key] BSTech"

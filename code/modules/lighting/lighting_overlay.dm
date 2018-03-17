@@ -122,9 +122,12 @@
 			)
 
 	// If we're on an openturf, update the shadower object too.
-	var/turf/simulated/open/OT = loc:above
-	if (OT)
-		OT.update_icon()
+	if (T.above)
+		var/turf/simulated/open/OT = T.above
+		if (OT.shadower)
+			OT.shadower.copy_lighting(src)
+		else
+			OT.update_icon()
 
 #undef ALL_EQUAL
 

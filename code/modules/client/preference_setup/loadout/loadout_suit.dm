@@ -30,9 +30,9 @@
 /datum/gear/suit/hazard_vest
 	display_name = "hazard vest selection"
 	path = /obj/item/clothing/suit/storage/hazardvest
-	
+
 /datum/gear/suit/hazard_vest/New()
-	..()	
+	..()
 	var/hazard = list()
 	hazard["hazard vest, orange"] = /obj/item/clothing/suit/storage/hazardvest
 	hazard["hazard vest, blue"] = /obj/item/clothing/suit/storage/hazardvest/blue
@@ -67,7 +67,7 @@
 	display_name = "overalls"
 	path = /obj/item/clothing/suit/apron/overalls
 	cost = 1
-	
+
 /datum/gear/suit/surgeryapron
 	display_name = "surgical apron"
 	path = /obj/item/clothing/suit/apron/surgery
@@ -96,14 +96,14 @@
 /datum/gear/suit/purple_lawyer_jacket
 	display_name = "suit jacket, purple"
 	path = /obj/item/clothing/suit/storage/lawyer/purpjacket
-	
+
 /datum/gear/suit/trenchcoat
 	display_name = "trenchcoat, brown"
-	path = /obj/item/clothing/suit/storage/trench
-	
+	path = /obj/item/clothing/suit/storage/toggle/trench
+
 /datum/gear/suit/trenchcoatgrey
 	display_name = "trenchcoat, grey"
-	path = /obj/item/clothing/suit/storage/trench/grey
+	path = /obj/item/clothing/suit/storage/toggle/trench/grey
 
 /datum/gear/suit/ian
 	display_name = "worn shirt"
@@ -158,3 +158,18 @@
 	display_name = "winter coat, mining"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
 	allowed_roles = list("Quartermaster", "Head of Personnel", "Shaft Miner")
+
+/datum/gear/suit/secjacket
+	display_name = "navy security jacket (Security Officer)"
+	path = /obj/item/clothing/suit/security/navyofficer
+	allowed_roles = list("Security Officer", "Head of Security", "Warden")
+
+/datum/gear/suit/secjacketwarden
+	display_name = "navy security jacket (Warden)"
+	path = /obj/item/clothing/suit/security/navyofficer
+	allowed_roles = list("Head of Security", "Warden")
+
+/datum/gear/suit/secjackethos
+	display_name = "navy security jacket (Head of Security)"
+	path = /obj/item/clothing/suit/security/navyhos
+	allowed_roles = list("Head of Security")

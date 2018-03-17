@@ -117,6 +117,7 @@
 	siemens_coefficient = 0
 
 /obj/item/clothing/shoes/rig/light/ninja
+	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
 	silent = 1
 
 /obj/item/clothing/suit/space/rig/light/ninja

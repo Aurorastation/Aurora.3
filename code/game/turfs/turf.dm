@@ -73,6 +73,9 @@
 	if (A.flags & SPAWN_ROOF)
 		spawn_roof()
 
+	if (flags & MIMIC_BELOW)
+		setup_zmimic(mapload)
+
 	return INITIALIZE_HINT_NORMAL
 
 /turf/Destroy()
@@ -87,6 +90,12 @@
 	if (ao_queued)
 		SSocclusion.queue -= src
 		ao_queued = 0
+
+	if (flags & MIMIC_BELOW)
+		cleanup_zmimic()
+
+	if (bound_overlay)
+		QDEL_NULL(bound_overlay)
 
 	..()
 	return QDEL_HINT_IWILLGC
@@ -136,33 +145,33 @@
 	for(var/obj/obstacle in mover.loc)
 		if(!(obstacle.flags & ON_BORDER) && (mover != obstacle) && (forget != obstacle))
 			if(!obstacle.CheckExit(mover, src))
-				mover.Bump(obstacle, 1)
+				mover.Collide(obstacle)
 				return 0
 
 	//Now, check objects to block exit that are on the border
 	for(var/obj/border_obstacle in mover.loc)
 		if((border_obstacle.flags & ON_BORDER) && (mover != border_obstacle) && (forget != border_obstacle))
 			if(!border_obstacle.CheckExit(mover, src))
-				mover.Bump(border_obstacle, 1)
+				mover.Collide(border_obstacle)
 				return 0
 
 	//Next, check objects to block entry that are on the border
 	for(var/obj/border_obstacle in src)
 		if(border_obstacle.flags & ON_BORDER)
 			if(!border_obstacle.CanPass(mover, mover.loc, 1, 0) && (forget != border_obstacle))
-				mover.Bump(border_obstacle, 1)
+				mover.Collide(border_obstacle)
 				return 0
 
 	//Then, check the turf itself
 	if (!src.CanPass(mover, src))
-		mover.Bump(src, 1)
+		mover.Collide(src)
 		return 0
 
 	//Finally, check objects/mobs to block entry that are not on the border
 	for(var/atom/movable/obstacle in src)
 		if(!(obstacle.flags & ON_BORDER))
 			if(!obstacle.CanPass(mover, mover.loc, 1, 0) && (forget != obstacle))
-				mover.Bump(obstacle, 1)
+				mover.Collide(obstacle)
 				return 0
 	return 1 //Nothing found to block so return success!
 
@@ -341,7 +350,7 @@ var/const/enterloopsanity = 100
 		if (!above || isopenturf(above))
 			return
 
-		above.ChangeTurf(/turf/simulated/open)
+		above.ChangeToOpenturf()
 
 /turf/proc/AdjacentTurfsRanged()
 	var/static/list/allowed = typecacheof(list(
@@ -380,3 +389,32 @@ var/const/enterloopsanity = 100
 		if(add)
 			L.Add(t)
 	return L
+
+
+/turf/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
+	var/turf/T = get_turf(user)
+	var/area/A = T.loc
+	if((istype(A) && !(A.has_gravity)) || (istype(T,/turf/space)))
+		return
+	if(istype(O, /obj/screen))
+		return
+	if(user.restrained() || user.stat || user.stunned || user.paralysis || !user.lying)
+		return
+	if((!(istype(O, /atom/movable)) || O.anchored || !Adjacent(user) || !Adjacent(O) || !user.Adjacent(O)))
+		return
+	if(!isturf(O.loc) || !isturf(user.loc))
+		return
+	if(isanimal(user) && O != user)
+		return
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/has_right_hand = TRUE
+		var/obj/item/organ/external/rhand = H.organs_by_name["r_hand"]
+		if(!rhand || rhand.is_stump())
+			has_right_hand = FALSE
+		var/obj/item/organ/external/lhand = H.organs_by_name["l_hand"]
+		if(!lhand || lhand.is_stump())
+			if(!has_right_hand)
+				return
+	if (do_after(user, 25 + (5 * user.weakened)) && !(user.stat))
+		step_towards(O, src)

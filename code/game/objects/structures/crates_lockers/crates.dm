@@ -31,9 +31,14 @@
 	if(rigged && locate(/obj/item/device/radio/electropack) in src)
 		if(isliving(usr))
 			var/mob/living/L = usr
-			if(L.electrocute_act(17, src))
+			var/touchy_hand
+			if(L.hand)
+				touchy_hand = "r_hand"
+			else
+				touchy_hand = "l_hand"
+			if(L.electrocute_act(17, src, ground_zero = touchy_hand))
 				spark(src, 5, alldirs)
-				if(usr.stunned)
+				if(L.stunned)
 					return 2
 
 	playsound(loc, 'sound/machines/click.ogg', 15, 1, -3)

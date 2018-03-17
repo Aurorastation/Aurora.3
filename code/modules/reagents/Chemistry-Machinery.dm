@@ -175,7 +175,7 @@
 
 			if(reagents.total_volume/count < 1) //Sanity checking.
 				return
-			while (count--)
+			while (count-- && count >= 0)
 				var/obj/item/weapon/reagent_containers/pill/P = new/obj/item/weapon/reagent_containers/pill(src.loc)
 				if(!name) name = reagents.get_master_reagent_name()
 				P.name = "[name] pill"
@@ -560,6 +560,7 @@
 		/obj/item/stack/material/iron = "iron",
 		/obj/item/stack/material/uranium = "uranium",
 		/obj/item/stack/material/phoron = "phoron",
+		/obj/item/stack/material/platinum = "platinum",
 		/obj/item/stack/material/gold = "gold",
 		/obj/item/stack/material/silver = "silver",
 		/obj/item/stack/material/mhydrogen = "hydrazine" //doesn't really make much sense but thank Bay

@@ -62,7 +62,7 @@
 /obj/machinery/compressor/machinery_process()
 	if(!starter)
 		return
-	overlays.Cut()
+	cut_overlays()
 	if(stat & BROKEN)
 		return
 	if(!turbine)
@@ -89,13 +89,13 @@
 
 
 	if(rpm>50000)
-		overlays += image('icons/obj/pipes.dmi', "comp-o4", FLY_LAYER)
+		add_overlay(image('icons/obj/pipes.dmi', "comp-o4", FLY_LAYER))
 	else if(rpm>10000)
-		overlays += image('icons/obj/pipes.dmi', "comp-o3", FLY_LAYER)
+		add_overlay(image('icons/obj/pipes.dmi', "comp-o3", FLY_LAYER))
 	else if(rpm>2000)
-		overlays += image('icons/obj/pipes.dmi', "comp-o2", FLY_LAYER)
+		add_overlay(image('icons/obj/pipes.dmi', "comp-o2", FLY_LAYER))
 	else if(rpm>500)
-		overlays += image('icons/obj/pipes.dmi', "comp-o1", FLY_LAYER)
+		add_overlay(image('icons/obj/pipes.dmi', "comp-o1", FLY_LAYER))
 	 //TODO: DEFERRED
 
 /obj/machinery/power/turbine/New()
@@ -120,7 +120,7 @@
 /obj/machinery/power/turbine/machinery_process()
 	if(!compressor.starter)
 		return
-	overlays.Cut()
+	cut_overlays()
 	if(stat & BROKEN)
 		return
 	if(!compressor)
@@ -141,8 +141,7 @@
 		outturf.assume_air(removed)
 
 	if(lastgen > 100)
-		overlays += image('icons/obj/pipes.dmi', "turb-o", FLY_LAYER)
-
+		add_overlay(image('icons/obj/pipes.dmi', "turb-o", FLY_LAYER))
 
 	for(var/mob/M in viewers(1, src))
 		if ((M.client && M.machine == src))

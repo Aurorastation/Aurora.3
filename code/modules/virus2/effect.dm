@@ -282,7 +282,7 @@
 			data = pick("bicaridine", "kelotane", "anti_toxin", "inaprovaline", "space_drugs", "sugar",
 						"tramadol", "dexalin", "cryptobiolin", "impedrezene", "hyperzine", "ethylredoxrazine",
 						"mindbreaker", "glucose")
-		var/datum/reagent/R = chemical_reagents_list[data]
+		var/datum/reagent/R = SSchemistry.chemical_reagents[data]
 		name = "[initial(name)] ([initial(R.name)])"
 
 	activate(var/mob/living/carbon/mob,var/multiplier)

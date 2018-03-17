@@ -376,13 +376,15 @@ var/global/dmm_suite/preloader/_preloader = new
 
 	return next_delimiter
 
-/dmm_suite/proc/readlistitem(text as text)
+/dmm_suite/proc/readlistitem(text as text, is_key = FALSE)
 	//Check for string
 	if(findtext(text,"\"",1,2))
 		. = copytext(text,2,findtext(text,"\"",3,0))
 
 	//Check for number
-	else if(isnum(text2num(text)))
+	// Keys cannot safely be numbers. This implementation will return null if
+	// an assoc key is a number.
+	else if(!is_key && isnum(text2num(text)))
 		. = text2num(text)
 
 	//Check for null
@@ -390,7 +392,7 @@ var/global/dmm_suite/preloader/_preloader = new
 		. = null
 
 	//Check for list
-	else if(copytext(text,1,5) == "list")
+	else if(copytext(text,1,6) == "list(")
 		. = readlist(copytext(text,6,length(text)))
 
 	//Check for file
@@ -400,6 +402,12 @@ var/global/dmm_suite/preloader/_preloader = new
 	//Check for path
 	else if(ispath(text2path(text)))
 		. = text2path(text)
+
+	// Associative keys are fed in without quotation marks.
+	// So if none of the other cases apply, return simply the string that was given.
+	// This case is also triggered for item values. So I guess we're also looking for text.
+	else if(is_key || istext(text))
+		. = text
 
 //build a list from variables in text form (e.g {var1="derp"; var2; var3=7} => list(var1="derp", var2, var3=7))
 //return the filled list
@@ -420,8 +428,9 @@ var/global/dmm_suite/preloader/_preloader = new
 		var/trim_left = trim_text(copytext(text,old_position,(equal_position ? equal_position : position)),1)//the name of the variable, must trim quotes to build a BYOND compliant associatives list
 		old_position = position + 1
 
-		if(equal_position)//associative var, so do the association
+		if(equal_position) //associative var, so do the association
 			var/trim_right = trim_text(copytext(text,equal_position+1,position))//the content of the variable
+			trim_left = readlistitem(trim_left, TRUE) // Assoc vars can be anything that isn't a num!
 			to_return[trim_left] = readlistitem(trim_right)
 			list_index++
 		else if (length(trim_left))	//simple var

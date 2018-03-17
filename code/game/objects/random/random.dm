@@ -195,7 +195,8 @@
 		/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiadeus = 1,
 		/obj/item/seeds/ambrosiavulgarisseed = 2,
 		/obj/item/seeds/ambrosiadeusseed = 1,
-		/obj/item/clothing/mask/gas/voice = 1
+		/obj/item/clothing/mask/gas/voice = 1,
+		/obj/item/clothing/gloves/brassknuckles = 2
 	)
 
 /obj/random/energy
@@ -407,7 +408,7 @@
 		/obj/item/clothing/suit/space/void/security = /obj/item/clothing/head/helmet/space/void/security,
 		/obj/item/clothing/suit/space/void/atmos = /obj/item/clothing/head/helmet/space/void/atmos,
 		/obj/item/clothing/suit/space/void/merc = /obj/item/clothing/head/helmet/space/void/merc,
-		/obj/item/clothing/suit/space/void/captain = /obj/item/clothing/head/helmet/space/void/merc
+		/obj/item/clothing/suit/space/void/captain = /obj/item/clothing/head/helmet/space/void/captain
 	)
 	problist = list(
 		/obj/item/clothing/suit/space/void = 2,
@@ -560,12 +561,15 @@
 		/obj/item/weapon/melee/chainsword,
 		/obj/item/weapon/melee/baton/stunrod,
 		/obj/item/weapon/material/harpoon,
-		/obj/item/weapon/material/twohanded/spear/plasteel,
 		/obj/random/sword,
 		/obj/item/weapon/melee/hammer,
 		/obj/item/weapon/melee/hammer/powered,
 		/obj/item/weapon/material/twohanded/fireaxe,
-		/obj/item/weapon/melee/classic_baton
+		/obj/item/weapon/melee/classic_baton,
+		/obj/item/weapon/material/twohanded/pike,
+		/obj/item/weapon/material/twohanded/pike/halberd,
+		/obj/item/weapon/material/twohanded/pike/pitchfork,
+		/obj/item/weapon/melee/whip
 	)
 
 /obj/random/coin
@@ -676,8 +680,6 @@
 		/obj/item/clothing/under/syndicate/tracksuit = 0.2,
 		/obj/item/clothing/under/rank/clown = 0.1,
 		/obj/item/clothing/under/mime = 0.1,
-		/obj/item/clothing/accessory/badge = 0.2,
-		/obj/item/clothing/accessory/badge/old = 0.2,
 		/obj/item/clothing/accessory/storage/webbing = 0.6,
 		/obj/item/clothing/accessory/storage/knifeharness = 0.3,
 		/obj/item/clothing/head/collectable/petehat = 0.1,
@@ -811,7 +813,8 @@
 		/obj/random/hoodie = 0.5,
 		/obj/random/junk = 0.9,
 		/obj/item/weapon/spacecash/ewallet/lotto = 0.3,
-		/obj/random/spacecash = 0.3
+		/obj/random/spacecash = 0.3,
+		/obj/item/device/firing_pin = 0.3
 	)
 
 /obj/random/hoodie

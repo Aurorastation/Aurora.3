@@ -58,6 +58,9 @@
 		power = 0
 		return 0
 	var/turf/T = src.loc
+	if (!istype(T))
+		power = 0
+		return 0
 
 	var/obj/structure/cable/C = T.get_cable_node()
 	var/datum/powernet/PN
@@ -106,7 +109,7 @@
 				"You hear heavy droning fade out")
 			icon_state = "Shield_Gen"
 			src.active = 0
-			for(var/dir in list(1,2,4,8)) 
+			for(var/dir in list(1,2,4,8))
 				cleanup(dir)
 
 /obj/machinery/shieldwallgen/proc/setup_field(var/NSEW = 0)

@@ -169,7 +169,9 @@
 		/obj/item/weapon/material/sword                 = TRADER_ALL,
 		/obj/item/weapon/material/scythe                = TRADER_THIS_TYPE,
 		/obj/item/weapon/material/star                  = TRADER_THIS_TYPE,
-		/obj/item/weapon/material/twohanded/baseballbat = TRADER_THIS_TYPE
+		/obj/item/weapon/material/twohanded/baseballbat = TRADER_THIS_TYPE,
+		/obj/item/weapon/material/twohanded/pike        = TRADER_ALL,
+		/obj/item/weapon/melee/whip                     = TRADER_THIS_TYPE
 	)
 
 

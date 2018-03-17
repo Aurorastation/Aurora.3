@@ -106,7 +106,7 @@
 
 /obj/item/organ/external/examine()
 	..()
-	if(in_range(usr, src) || istype(usr, /mob/dead/observer))
+	if(in_range(usr, src) || istype(usr, /mob/abstract/observer))
 		for(var/obj/item/I in contents)
 			if(istype(I, /obj/item/organ))
 				continue
@@ -735,6 +735,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 			   DISMEMBERMENT
 ****************************************************/
 
+/obj/item/organ/external/proc/post_droplimb(mob/living/carbon/human/victim)
+	victim.updatehealth()
+	victim.UpdateDamageIcon()
+	victim.regenerate_icons()
+	dir = 2
+
 //Handles dismemberment
 /obj/item/organ/external/proc/droplimb(var/clean, var/disintegrate = DROPLIMB_EDGE, var/ignore_children = null)
 
@@ -781,11 +787,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			victim.organs |= stump
 			stump.update_damages()
 
-	spawn(1)
-		victim.updatehealth()
-		victim.UpdateDamageIcon()
-		victim.regenerate_icons()
-		dir = 2
+	addtimer(CALLBACK(src, .proc/post_droplimb, victim), 0)
 
 	switch(disintegrate)
 		if(DROPLIMB_EDGE)
@@ -797,7 +799,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			if(!clean)
 				 //Throw limb around.
 				if(src && istype(loc,/turf))
-					throw_at(get_edge_target_turf(src,pick(alldirs)),rand(1,3),30)
+					INVOKE_ASYNC(src, /atom/movable/.proc/throw_at, get_edge_target_turf(src,pick(alldirs)), rand(1,3), 30)
 				dir = 2
 		if(DROPLIMB_BURN)
 			new /obj/effect/decal/cleanable/ash(get_turf(victim))
@@ -812,19 +814,20 @@ Note that amputating the affected organ does in fact remove the infection from t
 			if(victim.species.blood_color)
 				gore.basecolor = victim.species.blood_color
 			gore.update_icon()
-			gore.throw_at(get_edge_target_turf(src,pick(alldirs)),rand(1,3),30)
+			INVOKE_ASYNC(gore, /atom/movable/.proc/throw_at, get_edge_target_turf(src, pick(alldirs)), rand(1,3), 30)
 
 			for(var/obj/item/organ/I in internal_organs)
 				I.removed()
 				if(istype(loc,/turf))
-					I.throw_at(get_edge_target_turf(src,pick(alldirs)),rand(1,3),30)
+					INVOKE_ASYNC(I, /atom/movable/.proc/throw_at, get_edge_target_turf(src, pick(alldirs)), rand(1,3), 30)
 
+			var/turf/Tloc = get_turf(src)
 			for(var/obj/item/I in src)
 				if(I.w_class <= 2)
 					qdel(I)
 					continue
-				I.loc = get_turf(src)
-				I.throw_at(get_edge_target_turf(src,pick(alldirs)),rand(1,3),30)
+				I.forceMove(Tloc)
+				INVOKE_ASYNC(I, /atom/movable/.proc/throw_at, get_edge_target_turf(src, pick(alldirs)), rand(1,3), 30)
 
 			qdel(src)
 

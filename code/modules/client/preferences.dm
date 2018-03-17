@@ -40,6 +40,7 @@ datum/preferences
 	var/undershirt						//undershirt type
 	var/socks						//socks type
 	var/backbag = 2						//backpack type
+	var/backbag_style = 1
 	var/h_style = "Bald"				//Hair type
 	var/hair_colour = "#000000"			//Hair colour hex value, for SQL loading
 	var/r_hair = 0						//Hair color
@@ -245,7 +246,7 @@ datum/preferences
 /datum/preferences/proc/process_link(mob/user, list/href_list)
 	if(!user)	return
 
-	if(!istype(user, /mob/new_player))	return
+	if(!istype(user, /mob/abstract/new_player))	return
 
 	if(href_list["preference"] == "open_whitelist_forum")
 		if(config.forumurl)
@@ -377,6 +378,7 @@ datum/preferences
 	if(backbag > 6 || backbag < 1)
 		backbag = 1 //Same as above
 	character.backbag = backbag
+	character.backbag_style = backbag_style
 
 	if(icon_updates)
 		character.force_update_limbs()

@@ -142,7 +142,8 @@
 
 	var/msg = "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message(message, get_spoken_verb(message))]</span></i>"
 
-	speaker.custom_emote(1, "[pick("twitches their antennae", "twitches their antennae rythmically")].")
+	if(isvaurca(speaker))
+		speaker.custom_emote(1, "[pick("twitches their antennae", "twitches their antennae rythmically")].")
 
 	if (within_jamming_range(speaker))
 		// The user thinks that the message got through.
@@ -150,7 +151,7 @@
 		return
 
 	for(var/mob/player in player_list)
-		if(istype(player,/mob/dead) || ((src in player.languages && !within_jamming_range(player)) || check_special_condition(player)))
+		if(istype(player,/mob/abstract/observer) || ((src in player.languages && !within_jamming_range(player)) || check_special_condition(player)))
 			player << msg
 
 /datum/language/bug/check_special_condition(var/mob/other)
@@ -160,11 +161,13 @@
 	var/mob/living/carbon/human/M = other
 	if(!istype(M))
 		return 0
-	if(istype(M, /mob/new_player))
+	if(istype(M, /mob/abstract/new_player))
 		return 0
 	if(within_jamming_range(other))
 		return 0
-	if(locate(/obj/item/organ/vaurca/neuralsocket) in M.internal_organs)
+	if(M.internal_organs_by_name["neural socket"])
+		return 1
+	if(M.internal_organs_by_name["blackkois"])
 		return 1
 
 	if (M.l_ear || M.r_ear)
@@ -183,7 +186,7 @@
 
 /datum/language/human
 	name = LANGUAGE_SOL_COMMON
-	desc = "A bastardized hybrid of informal English and elements of Mandarin Chinese; the common language of the Sol system."
+	desc = "With its roots in Mandarin Chinese, Common evolved as the official language of the Sol Alliance, with officials working to tie it together with a common tongue. It's spoken by state officials, taught in schools, and spoken by those who either feel a sense of national pride in the Alliance or otherwise fell sway to the culture."
 	speech_verb = "says"
 	whisper_verb = "whispers"
 	colour = "solcom"

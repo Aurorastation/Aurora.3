@@ -169,11 +169,11 @@ Class Procs:
 		var/list/attracted
 		var/list/repelled
 		if(differential > 0)
-			attracted = A.movables()
-			repelled = B.movables()
+			attracted = A.movables(connecting_turfs)
+			repelled = B.movables(connecting_turfs)
 		else
-			attracted = B.movables()
-			repelled = A.movables()
+			attracted = B.movables(connecting_turfs)
+			repelled = A.movables(connecting_turfs)
 
 		// These are async, with waitfor = FALSE
 		flow(attracted, abs(differential), 0)
@@ -239,7 +239,7 @@ Class Procs:
 
 	var/differential = A.air.return_pressure() - air.return_pressure()
 	if(abs(differential) >= vsc.airflow_lightest_pressure)
-		var/list/attracted = A.movables()
+		var/list/attracted = A.movables(connecting_turfs)
 		// This call is async, with waitfor = FALSE
 		flow(attracted, abs(differential), differential < 0)
 

@@ -25,19 +25,35 @@
 	UpdateDamageIcon() // to fix that darn overlay bug
 	return
 
-/mob/living/carbon/human/adjustBrainLoss(var/amount)
+//Some sources of brain damage shouldn't be deadly
+/mob/living/carbon/human/adjustBrainLoss(var/amount, maximum = 60)
 
 	if(status_flags & GODMODE)	return 0	//godmode
 
 	if(species && species.has_organ["brain"])
 		var/obj/item/organ/brain/sponge = internal_organs_by_name["brain"]
 		if(sponge)
+			if(amount + sponge.damage > maximum)
+				if(sponge.damage < maximum)
+					amount = maximum - sponge.damage
+				else
+					return
 			sponge.take_damage(amount)
 			brainloss = sponge.damage
 		else
 			brainloss = 200
 	else
 		brainloss = 0
+
+	if(brainloss > BRAIN_DAMAGE_MILD && !has_trauma_type(BRAIN_TRAUMA_MILD))
+		if(prob((amount * 2) + ((brainloss - BRAIN_DAMAGE_MILD) / 5))) //1 damage|50 brain damage = 4% chance
+			gain_trauma_type(BRAIN_TRAUMA_MILD)
+	if(brainloss > BRAIN_DAMAGE_SEVERE && !has_trauma_type(BRAIN_TRAUMA_SEVERE) && !has_trauma_type(BRAIN_TRAUMA_SPECIAL))
+		if(prob(amount + ((brainloss - BRAIN_DAMAGE_SEVERE) / 15))) //1 damage|150 brain damage = 3% chance
+			if(prob(20))
+				gain_trauma_type(BRAIN_TRAUMA_SPECIAL)
+			else
+				gain_trauma_type(BRAIN_TRAUMA_SEVERE)
 
 /mob/living/carbon/human/setBrainLoss(var/amount)
 
@@ -199,6 +215,8 @@
 		oxyloss = 0
 	else
 		amount = amount*species.oxy_mod
+		if(getOxyLoss() + amount >=  abs(config.health_threshold_crit)) //start taking brain damage if they go into crit from oxyloss
+			adjustBrainLoss(amount,55) //this brain damage won't be lethal)
 		..(amount)
 
 /mob/living/carbon/human/setOxyLoss(var/amount)

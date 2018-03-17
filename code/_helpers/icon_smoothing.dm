@@ -31,17 +31,17 @@
 #define N_SOUTHEAST	64
 #define N_SOUTHWEST	1024
 
-#define SMOOTH_FALSE	0	//not smooth
-#define SMOOTH_TRUE		1	//smooths with exact specified types or just itself
-#define SMOOTH_MORE		2	//smooths with all subtypes of specified types or just itself (this value can replace SMOOTH_TRUE)
-#define SMOOTH_DIAGONAL	4	//if atom should smooth diagonally, this should be present in 'smooth' var
-#define SMOOTH_BORDER	8	//atom will smooth with the borders of the map
-#define SMOOTH_QUEUED	16	//atom is currently queued to smooth.
-#define SMOOTH_NO_CLEAR_ICON 32	// don't clear the atom's icon_state on smooth.
+#define SMOOTH_FALSE          0 // not smooth
+#define SMOOTH_TRUE           1 // smooths with exact specified types or just itself
+#define SMOOTH_MORE           2 // smooths with all subtypes of specified types or just itself (this value can replace SMOOTH_TRUE)
+#define SMOOTH_DIAGONAL       4 // if atom should smooth diagonally, this should be present in 'smooth' var
+#define SMOOTH_BORDER         8 // atom will smooth with the borders of the map
+#define SMOOTH_QUEUED        16 // atom is currently queued to smooth.
+#define SMOOTH_NO_CLEAR_ICON 32 // don't clear the atom's icon_state on smooth.
 
-#define SMOOTHHINT_CUT_ON_ALL_F 1		// Don't apply overlays if they're all the 'f' state.
-#define SMOOTHHINT_ONLY_MATCH_TURF 2	// Only try to match turfs (this is faster than matching all atoms)
-#define SMOOTHHINT_TARGETS_NOT_UNIQUE 4	// The smoother can assume that all atoms of this type will have the same canSmoothWith value.
+#define SMOOTHHINT_CUT_F              1 // Don't draw the 'F' state. Useful with SMOOTH_NO_CLEAR_ICON.
+#define SMOOTHHINT_ONLY_MATCH_TURF    2 // Only try to match turfs (this is faster than matching all atoms)
+#define SMOOTHHINT_TARGETS_NOT_UNIQUE 4 // The smoother can assume that all atoms of this type will have the same canSmoothWith value.
 
 #define NULLTURF_BORDER 123456789
 
@@ -228,13 +228,11 @@
 		underlays = U
 
 /proc/cardinal_smooth(atom/A, adjacencies)
-	var/num_of_f = 0
 	//NW CORNER
 	var/nw = "1-i"
 	if((adjacencies & N_NORTH) && (adjacencies & N_WEST))
 		if(adjacencies & N_NORTHWEST)
 			nw = "1-f"
-			num_of_f++
 		else
 			nw = "1-nw"
 	else
@@ -248,7 +246,6 @@
 	if((adjacencies & N_NORTH) && (adjacencies & N_EAST))
 		if(adjacencies & N_NORTHEAST)
 			ne = "2-f"
-			num_of_f++
 		else
 			ne = "2-ne"
 	else
@@ -262,7 +259,6 @@
 	if((adjacencies & N_SOUTH) && (adjacencies & N_WEST))
 		if(adjacencies & N_SOUTHWEST)
 			sw = "3-f"
-			num_of_f++
 		else
 			sw = "3-sw"
 	else
@@ -276,7 +272,6 @@
 	if((adjacencies & N_SOUTH) && (adjacencies & N_EAST))
 		if(adjacencies & N_SOUTHEAST)
 			se = "4-f"
-			num_of_f++
 		else
 			se = "4-se"
 	else
@@ -287,35 +282,40 @@
 
 	var/list/New
 	var/list/Old
+	var/cut_f = A.smoothing_hints & SMOOTHHINT_CUT_F
 
 	if(A.top_left_corner != nw)
 		if (A.top_left_corner)
 			LAZYADD(Old, A.top_left_corner)
 		A.top_left_corner = nw
-		LAZYADD(New, nw)
+		if (!cut_f || nw != "1-f")
+			LAZYADD(New, nw)
 
 	if(A.top_right_corner != ne)
 		if (A.top_right_corner)
 			LAZYADD(Old, A.top_right_corner)
 		A.top_right_corner = ne
-		LAZYADD(New, ne)
+		if (!cut_f || ne != "2-f")
+			LAZYADD(New, ne)
 
 	if(A.bottom_right_corner != sw)
 		if (A.bottom_right_corner)
 			LAZYADD(Old, A.bottom_right_corner)
 		A.bottom_right_corner = sw
-		LAZYADD(New, sw)
+		if (!cut_f || sw != "3-f")
+			LAZYADD(New, sw)
 
 	if(A.bottom_left_corner != se)
 		if (A.bottom_left_corner)
 			LAZYADD(Old, A.bottom_left_corner)
 		A.bottom_left_corner = se
-		LAZYADD(New, se)
+		if (!cut_f || se != "4-f")
+			LAZYADD(New, se)
 
 	if(Old)
 		A.cut_overlay(Old)
 
-	if(New && (num_of_f != 4 || !(A.smoothing_hints & SMOOTHHINT_CUT_ON_ALL_F)))
+	if(New)
 		A.add_overlay(New)
 
 	if (A.icon_state && !(A.smooth & SMOOTH_NO_CLEAR_ICON))
@@ -428,8 +428,7 @@
 
 //Icon smoothing helpers
 /proc/smooth_zlevel(var/zlevel, now = FALSE)
-	var/list/away_turfs = block(locate(1, 1, zlevel), locate(world.maxx, world.maxy, zlevel))
-	for(var/V in away_turfs)
+	for(var/V in Z_ALL_TURFS(zlevel))
 		var/turf/T = V
 		if(T.smooth)
 			if(now)

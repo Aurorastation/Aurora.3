@@ -14,8 +14,6 @@ emp_act
 	if(!has_organ(def_zone))
 		return PROJECTILE_FORCE_MISS //if they don't have the organ in question then the projectile just passes by.
 
-	var/obj/item/organ/external/organ = get_organ()
-
 	//Shields
 	var/shield_check = check_shields(P.damage, P, null, def_zone, "the [P.name]")
 	if(shield_check)
@@ -24,6 +22,8 @@ emp_act
 		else
 			P.on_hit(src, 100, def_zone)
 			return 100
+
+	var/obj/item/organ/external/organ = get_organ(def_zone)
 
 	// Tell clothing we're wearing that it got hit by a bullet/laser/etc
 	var/list/clothing = get_clothing_list_organ(organ)
