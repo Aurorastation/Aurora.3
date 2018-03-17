@@ -10,6 +10,10 @@ var/global/list/ticket_panels = list()
 	var/id
 	var/opened_time
 
+	// Real time references for SQL based logging.
+	var/opened_rt
+	var/closed_rt
+
 	var/reminder_timer
 
 /datum/ticket/New(var/owner)
@@ -17,6 +21,7 @@ var/global/list/ticket_panels = list()
 	tickets |= src
 	id = tickets.len
 	opened_time = world.time
+	opened_rt = world.realtime
 
 	if (config.ticket_reminder_period)
 		reminder_timer = addtimer(CALLBACK(src, .proc/remind), config.ticket_reminder_period SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
@@ -41,6 +46,7 @@ var/global/list/ticket_panels = list()
 
 	src.status = TICKET_CLOSED
 	src.closed_by = closed_by.ckey
+	src.closed_rt = world.realtime
 
 	to_chat(client_by_ckey(src.owner), "<span class='notice'><b>Your ticket has been closed by [closed_by].</b></span>")
 	message_admins("<span class='notice'><b>[src.owner]</b>'s ticket has been closed by <b>[key_name(closed_by)]</b>.</span>")
@@ -102,7 +108,7 @@ var/global/list/ticket_panels = list()
 
 	reminder_timer = addtimer(CALLBACK(src, .proc/remind), config.ticket_reminder_period SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
 
-proc/get_open_ticket_by_ckey(var/owner)
+/proc/get_open_ticket_by_ckey(var/owner)
 	for(var/datum/ticket/ticket in tickets)
 		if(ticket.owner == owner && (ticket.status == TICKET_OPEN || ticket.status == TICKET_ASSIGNED))
 			return ticket // there should only be one open ticket by a client at a time, so no need to keep looking
@@ -117,6 +123,22 @@ proc/get_open_ticket_by_ckey(var/owner)
 			return 1
 
 	return 0
+
+/datum/ticket/proc/log_to_db()
+	if (status != TICKET_CLOSED)
+		return
+
+	if (!establish_db_connection(dbcon))
+		return
+
+	var/DBQuery/Q = dbcon.NewQuery("INSERT INTO ss13_tickets (game_id, message_count, admin_count, opened_by, closed_by, opened_at, closed_at) VALUES (:g_id:, :m_count:, :a_count:, :opened_by:, :closed_by:, :opened_at:, :closed_at:)")
+	Q.Execute(list("g_id" = game_id, "m_count" = length(msgs), "a_count" = length(assigned_admins), "opened_by" = owner, "closed_by" = closed_by, "opened_at" = SQLtime(opened_rt), "closed_at" = SQLtime(closed_rt)))
+
+// Referenced in the statistics controller.
+/proc/log_all_tickets()
+	for (var/t in tickets)
+		var/datum/ticket/T = t
+		T.log_to_db()
 
 /datum/ticket_msg
 	var/msg_from
