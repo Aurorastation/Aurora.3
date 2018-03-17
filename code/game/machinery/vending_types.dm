@@ -117,6 +117,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/tea = 20,
 		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 22
 	)
+	hostile_path = /mob/living/simple_animal/hostile/vending_machine/coffee
 
 
 /obj/machinery/vending/snack
@@ -159,6 +160,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 24,
 		/obj/item/weapon/reagent_containers/food/snacks/koisbar = 60
 	)
+	hostile_path = /mob/living/simple_animal/hostile/vending_machine/snack
 
 
 /obj/machinery/vending/cola
@@ -195,6 +197,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/koispunch = 50
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	hostile_path = /mob/living/simple_animal/hostile/vending_machine/soda
 
 //This one's from bay12
 /obj/machinery/vending/cart
@@ -244,6 +247,7 @@
 		/obj/item/weapon/flame/lighter/random = 12,
 		/obj/item/weapon/spacecash/ewallet/lotto = 200
 	)
+	hostile_path = /mob/living/simple_animal/hostile/vending_machine/cig
 
 
 /obj/machinery/vending/medical

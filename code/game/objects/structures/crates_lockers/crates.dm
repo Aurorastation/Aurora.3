@@ -697,3 +697,14 @@
 			return pickweight(random_stock_uncommon)
 		if ("3")
 			return pickweight(random_stock_common)
+
+/obj/structure/closet/crate/maint_loot/fill()
+	for(var/i=1,i<rand(10,20),i++)
+		new /obj/random/loot(src)
+
+/obj/structure/closet/crate/secure/special
+	name = "high value crate" //misnomer, doesn't actually spawn high value items from random loot, just some really powerful shit
+	req_access = list(access_armory)
+
+/obj/structure/closet/crate/secure/special/fill()
+	new /obj/random/special(src)

@@ -1,8 +1,6 @@
 /obj/item/projectile/rampant
-	damage = 1
+	damage = 2
 	damage_type = BRUTE
-	stun = 1
-	agony = 1
 
 /obj/item/projectile/rampant/soda
 	name = "soda can"
@@ -10,6 +8,7 @@
 	icon_state = "cola"
 
 /obj/item/projectile/rampant/coffee
+	damage = 6
 	name ="scolding hot coffee"
 	damage_type = BURN
 	icon = 'icons/obj/drinks.dmi'
@@ -17,13 +16,11 @@
 
 /obj/item/projectile/rampant/snack
 	name = "k'ois bar"
-	damage_type = TOX
 	icon = 'icons/obj/food.dmi'
 	icon_state = "koisbar"
 
 /obj/item/projectile/rampant/cig
 	name = "lit cigarette"
-	damage_type = OXY
 	icon = 'icons/obj/clothing/masks.dmi'
 	icon_state = "cigon"
 
@@ -43,8 +40,8 @@
 	icon_state = "generic"
 	icon_living = "generic"
 	icon_dead = "generic-broken"
-	health = 300
-	maxHealth = 300
+	health = 200
+	maxHealth = 200
 	melee_damage_lower = 1
 	melee_damage_upper = 5
 	attacktext = "bashed"
@@ -82,6 +79,7 @@
 	icon_dead = "coffee-broken"
 	projectiletype = /obj/item/projectile/rampant/coffee
 	speak = list("MORE EXPRESSO. MORE DEPRESSO.","YOU'RE MOCHA ME HUNGRY FOR HUMAN FLESH.","I'LL SHOW YOU A FAIR TRADE; YOUR SOUL FOR A CUP OF JOE.")
+	rapid = 0 //Coffee takes a while to make
 
 /mob/living/simple_animal/hostile/vending_machine/snack
 	name = "Getmore K'ois machine"

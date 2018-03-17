@@ -562,6 +562,7 @@
 		/obj/item/weapon/melee/baton/stunrod,
 		/obj/item/weapon/material/harpoon,
 		/obj/item/weapon/material/twohanded/spear/plasteel,
+		/obj/item/weapon/material/twohanded/chainsaw,
 		/obj/random/sword,
 		/obj/item/weapon/melee/hammer,
 		/obj/item/weapon/melee/hammer/powered,
@@ -935,3 +936,18 @@
 		/obj/item/weapon/material/sword/gladius
 	)
 
+/obj/random/special
+	name = "special loot"
+	desc = "Random special loot that is next to impossible to obtain normally."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "claymore"
+	problist = list(
+		/obj/random/sword = 100,
+		/obj/random/contraband = 50,
+		/obj/random/voidsuit{damaged = 1} = 10,
+		/obj/random/melee = 10,
+		/obj/random/handgun = 3,
+		/obj/random/energy = 3,
+		/obj/random/projectile = 2,
+		/obj/random/energy_antag = 2
+	)

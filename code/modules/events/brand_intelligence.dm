@@ -1,6 +1,6 @@
 /datum/event/brand_intelligence
 
-	announceWhen	= 21
+	announceWhen	= 30
 	endWhen			= 10000
 	var/announced_source = FALSE
 
@@ -27,6 +27,7 @@
 
 /datum/event/brand_intelligence/tick()
 	if(IsMultiple(activeFor, 100))
+		world << "BOOP."
 		if(!source_vendor || source_vendor == null || source_vendor.shoot_inventory == 0)
 			end()
 			kill()
@@ -37,25 +38,25 @@
 		list_of_vendors.Remove(machine_to_infect)
 		machine_to_infect.shut_up = 0
 		machine_to_infect.shoot_inventory = 1
+		if(activeFor > 60)
+			source_vendor.speak(pick(	"Try our aggressive new marketing strategies!", \
+										"You should buy products to feed your lifestyle obsession!", \
+										"Consume!", \
+										"Your money can buy happiness!", \
+										"Engage direct marketing!", \
+										"Advertising is legalized lying! But don't let that put you off our great deals!", \
+										"You don't want to buy anything? Yeah, well I didn't want to buy your mom either."))
 
-		source_vendor.speak(pick(	"Try our aggressive new marketing strategies!", \
-									"You should buy products to feed your lifestyle obsession!", \
-									"Consume!", \
-									"Your money can buy happiness!", \
-									"Engage direct marketing!", \
-									"Advertising is legalized lying! But don't let that put you off our great deals!", \
-									"You don't want to buy anything? Yeah, well I didn't want to buy your mom either."))
-
-		if(!announced_source && prob(50))
-			command_announcement.Announce("[station_name()]'s antivirus software indicates that the Rampant Brand Intelligence is originating from a [source_vendor]. Purchasing goods from this machine may eliminate the virus.", "Rampant Brand Intelligence Origin")
-			announced_source = TRUE
-		else if(prob(5))
-			var/obj/machinery/vending/new_source_vendor = pick(list_of_infected_vendors)
-			command_announcement.Announce("The Rampant Brand Intelligence virus fully corrupted a [source_vendor] and jumped to a new target.", "Rampant Brand Intelligence Corruption")
-			list_of_infected_vendors.Remove(source_vendor)
-			source_vendor.make_hostile()
-			source_vendor = new_source_vendor
-			announced_source = FALSE
+			if(!announced_source && prob(50))
+				command_announcement.Announce("[station_name()]'s antivirus software indicates that the Rampant Brand Intelligence is originating from a [source_vendor]. Purchasing goods from this machine may eliminate the virus.", "Rampant Brand Intelligence Origin")
+				announced_source = TRUE
+			else if(prob(5))
+				var/obj/machinery/vending/new_source_vendor = pick(list_of_infected_vendors)
+				command_announcement.Announce("The Rampant Brand Intelligence virus fully corrupted a [source_vendor] and jumped to a new target.", "Rampant Brand Intelligence Corruption")
+				list_of_infected_vendors.Remove(source_vendor)
+				source_vendor.make_hostile()
+				source_vendor = new_source_vendor
+				announced_source = FALSE
 
 /datum/event/brand_intelligence/end()
 	for(var/obj/machinery/vending/infectedMachine in list_of_infected_vendors)
