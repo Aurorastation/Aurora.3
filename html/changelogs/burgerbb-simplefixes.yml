@@ -1,0 +1,9 @@
+author: BurgerBB
+
+delete-after: True
+
+changes: 
+  - bugfix: "Resisting from a chair unrestrained no longer adds a cooldown to activating objects."
+  - bugfix: "Action figures are no longer massive, and only take up 1 slot in your inventory."
+  - bugfix: "Boxing gloves can now be worn by any race."
+  - tweak: "The ore summoner can only move up to 10 ore at a time."
