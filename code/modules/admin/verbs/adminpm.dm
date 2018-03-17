@@ -46,9 +46,6 @@
 		else		src << "<font color='red'>Error: Private-Message: Client not found. They may have lost connection, so try using an adminhelp!</font>"
 		return
 
-	if (src.handle_spam_prevention(msg,MUTE_ADMINHELP))
-		return
-
 	var/recieve_pm_type = "Player"
 	//mod PMs are maroon
 	//PMs sent from admins and mods display their rank
@@ -62,20 +59,24 @@
 		src << "<span class='warning'>Error: Admin-PM: Non-admin to non-admin PM communication is forbidden.</span>"
 		return
 
-	if(!check_rights(R_SERVER|R_DEBUG|R_DEV, 0))
-		msg = sanitize(msg)
-
 	//get message text, limit it's length.and clean/escape html
 	if(!msg)
 		msg = input(src,"Message:", "Private message to [key_name(C, 0, holder ? 1 : 0)]") as text|null
 
-		if(!msg)	return
+		if(!msg)
+			return
 		if(!C)
-			if(holder)	src << "<font color='red'>Error: Admin-PM: Client not found.</font>"
-			else		src << "<font color='red'>Error: Private-Message: Client not found. They may have lost connection, so try using an adminhelp!</font>"
+			if(holder)
+				src << "<font color='red'>Error: Admin-PM: Client not found.</font>"
+			else
+				src << "<font color='red'>Error: Private-Message: Client not found. They may have lost connection, so try using an adminhelp!</font>"
 			return
 
+	if(!check_rights(R_SERVER|R_DEBUG|R_DEV, 0))
 		msg = sanitize(msg)
+
+	if (handle_spam_prevention(msg, MUTE_ADMINHELP))
+		return
 
 	// searches for an open ticket, in case an outdated link was clicked
 	// I'm paranoid about the problems that could be caused by accidentally finding the wrong ticket, which is why this is strict
