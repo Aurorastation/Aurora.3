@@ -864,7 +864,7 @@
 		/datum/reagent/mental/venlafaxine = 20,
 		/datum/reagent/mental/duloxetine = 20,
 		/datum/reagent/mental/paroxetine = 20,
-		/datum/reagent/mental/escitalopram = 20,
+		/datum/reagent/mental/escitalopram = 20
 	)
 
 /datum/reagent/mental/olanzapine
@@ -900,7 +900,7 @@
 		/datum/reagent/mental/venlafaxine = 20,
 		/datum/reagent/mental/duloxetine = 20,
 		/datum/reagent/mental/paroxetine = 20,
-		/datum/reagent/mental/escitalopram = 20,
+		/datum/reagent/mental/escitalopram = 20
 	)
 
 /datum/reagent/mental/hextrasenil
