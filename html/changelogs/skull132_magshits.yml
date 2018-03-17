@@ -1,0 +1,5 @@
+author: Skull132
+delete-after: True
+
+changes:
+  - bugfix: "Magboots and hardsuit gloves now give you your stuff back properly."
