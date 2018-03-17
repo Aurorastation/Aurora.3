@@ -8,3 +8,9 @@
 	var/required_concepts = list(
 					  "breath"  = 2
 					)
+
+/datum/research_items/science_items/proc/unlock()
+	return
+
+/datum/research_items/science_items/proc/giveunlocked()
+	return

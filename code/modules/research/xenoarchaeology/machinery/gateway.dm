@@ -116,7 +116,7 @@ obj/machinery/xenogateway/centerstation/process()
 
 
 //okay, here's the good teleporting stuff
-/obj/machinery/xenogateway/centerstation/Bumped(atom/movable/M as mob|obj)
+/obj/machinery/xenogateway/centerstation/CollidedWith(atom/movable/M as mob|obj)
 	if(!ready)		return
 	if(!active)		return
 	if(!awaygate)	return
@@ -216,7 +216,7 @@ obj/machinery/xenogateway/centerstation/process()
 	toggleoff()
 
 
-/obj/machinery/xenogateway/centeraway/Bumped(atom/movable/M as mob|obj)
+/obj/machinery/xenogateway/centeraway/CollidedWith(atom/movable/M as mob|obj)
 	if(!ready)	return
 	if(!active)	return
 	if(istype(M, /mob/living/carbon))

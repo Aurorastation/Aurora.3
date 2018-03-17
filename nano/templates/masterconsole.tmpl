@@ -1,0 +1,39 @@
+{{if !data.power}}
+	<div class="item">
+		NO POWER
+	</div>
+{{else}}
+	{{if data.nanomenu == 1}}
+		<div class="item">
+			<h3><center><b>Current RMP:</b></center></h3>
+		</div>
+		<div class="item">
+			<b>Select Option:</b>
+		</div>
+		<div class="item">
+			{{:helper.link('View Technology Overview', 'arrowthickstop-1-e', {'menuswap' : '2'})}}
+		</div>
+	{{else data.nanomenu == 2}}
+		<div class="item">
+			<h3><center><b>Technology Overview:</b></center></h3>
+		</div>
+		<div class="item">
+			{{:helper.link('Back', 'arrowthickstop-1-e', {'menuswap' : '1'})}}
+		</div>
+		{{for data.concepts}}
+			<div class="item">
+				<B>{{:value.name}}</B>
+			</div>
+			<div class="item">
+				{{:value.desc}}
+			</div>
+			<div class="item">
+				{{:helper.displayBar(value.progress, 0, value.maxprogress, 'good')}}
+			</div>
+			<div class="item">
+				{{:helper.link('Outsource research for 500 RMP', 'arrowthickstop-1-e', {'outsource' : 'value.id'})}}
+			</div>
+    	{{/for}}
+
+	{{/if}}
+{{/if}}
