@@ -1877,3 +1877,23 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A version of the security thigh holster done up in tan leather - this one appears to have the word \"Rifler\" engraved down the side. It appears to be rather well made and hard wearing; more of a worker's holster than a show piece."
 	icon = 'icons/obj/custom_items/rifler_holster.dmi'
 	icon_state = "rifler_holster"
+
+
+/obj/item/weapon/storage/backpack/satchel/fluff/xerius_bag //Tote Bag - Shiur'izzi Xerius - nursiekitty
+	name = "tote bag"
+	desc = "A sackcloth bag with an image of Moghes printed onto it. Floating above the planet are the words \"Save Moghes!\"."
+	icon = 'icons/obj/custom_items/xerius_bag.dmi'
+	icon_state = "xerius_bag"
+	item_state = "xerius_bag"
+	contained_sprite = TRUE
+
+
+/obj/item/weapon/flame/lighter/zippo/fluff/moretti_zippo //Fire Extinguisher Zippo - Jacob Locke - completegarbage
+	name = "fire extinguisher lighter"
+	desc = "A dark zippo with a cool blue flame. Nice."
+	icon = 'icons/obj/custom_items/moretti_zippo.dmi'
+	icon_state = "moretti_zippo"
+	item_state = "moretti_zippo"
+	contained_sprite = TRUE
+
+
