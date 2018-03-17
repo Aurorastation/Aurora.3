@@ -74,7 +74,8 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 			if(!heart)
 				blood_volume = 0
 			else if (heart.is_damaged())
-				blood_volume = BLOOD_VOLUME_SURVIVE + (BLOOD_VOLUME_NORMAL-BLOOD_VOLUME_SURVIVE) * max(1 - heart.damage/heart.min_broken_damage,0)
+				blood_volume = min(BLOOD_VOLUME_SAFE - 1,blood_volume)
+				blood_volume = (BLOOD_VOLUME_SURVIVE + (BLOOD_VOLUME_NORMAL-BLOOD_VOLUME_SURVIVE) * max(1 - heart.damage/heart.min_broken_damage,0)) * (blood_volume/BLOOD_VOLUME_NORMAL)
 
 		//Effects of bloodloss
 		if(blood_volume < BLOOD_VOLUME_SAFE && oxyloss < 100 * (1 - blood_volume/BLOOD_VOLUME_NORMAL))
