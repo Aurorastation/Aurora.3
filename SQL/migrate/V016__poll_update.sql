@@ -1,5 +1,5 @@
 --
--- Implemented in PR FILLMEOUT
+-- Implemented in PR #4429
 --
 
 ALTER TABLE `ss13_poll_question`

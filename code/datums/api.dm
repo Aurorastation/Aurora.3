@@ -147,7 +147,7 @@ proc/api_update_command_database()
 	var/versionstring = null
 	//The Version Number follows SemVer http://semver.org/
 	version["major"] = 2 //Major Version Number --> Increment when implementing breaking changes
-	version["minor"] = 1 //Minor Version Number --> Increment when adding features
+	version["minor"] = 2 //Minor Version Number --> Increment when adding features
 	version["patch"] = 0 //Patchlevel --> Increment when fixing bugs
 
 	versionstring = "[version["major"]].[version["minor"]].[version["patch"]]"
@@ -1030,7 +1030,7 @@ proc/api_update_command_database()
 	)
 
 /datum/topic_command/cargo_reload/run_command(queryparams)
-	var/force = sanitize(queryparams["force"])
+	var/force = text2num(queryparams["force"])
 	if(!SScargo.get_order_count())
 		SScargo.load_from_sql()
 		message_admins("Cargo has been reloaded via the API.")
@@ -1045,4 +1045,64 @@ proc/api_update_command_database()
 		else
 			statuscode = 500
 			response = "Orders have been placed. Use force parameter to overwrite."
+	return 1
+
+//Gets a overview of all polls (title, id, type)
+/datum/topic_command/get_polls
+	name = "get_polls"
+	description = "Gets a overview of all polls."
+	params = list(
+		"current_only" = list("name"="current_only","desc"="Only get information about the current polls","type"="int","req"=0),
+		"admin_only" = list("name"="admin_only","desc"="Only get information about the admin_only polls","type"="int","req"=0)
+	)
+
+/datum/topic_command/get_polls/run_command(queryparams)
+	var/current_only = text2num(queryparams["current_only"])
+	var/admin_only = text2num(queryparams["admin_only"])
+	
+	if(!dbcon.IsConnected())
+		statuscode = 500
+		response = "DB-Connection unavailable"
+		return 1
+
+	var/list/polldata = list()
+
+	var/DBQuery/select_query = dbcon.NewQuery("SELECT id, polltype, starttime, endtime, question, multiplechoiceoptions, adminonly FROM ss13_poll_question [(current_only || admin_only) ? "WHERE" : ""] [(admin_only ? "adminonly = true " : "")][(current_only && admin_only ? "AND " : "")][(current_only ? "Now() BETWEEN starttime AND endtime" : "")]")
+	select_query.Execute()
+	while(select_query.NextRow())
+		polldata["[select_query.item[1]]"] = list(
+			"id"=select_query.item[1],
+			"polltype"=select_query.item[2],
+			"starttime"=select_query.item[3],
+			"endtime"=select_query.item[4],
+			"question"=select_query.item[5],
+			"multiplechoiceoptions"=select_query.item[6],
+			"adminonly"=select_query.item[7]
+			)
+
+	statuscode = 200
+	response = "Polldata sent"
+	data = polldata
+	return 1
+
+
+// Gets infos about a poll
+/datum/topic_command/get_poll_info
+	name = "get_poll_info"
+	description = "Gets Information about a poll."
+	params = list(
+		"poll_id" = list("name"="poll_id","desc"="The poll id that should be queried","type"="int","req"=1)
+	)
+
+/datum/topic_command/get_poll_info/run_command(queryparams)
+	var/poll_id = text2num(queryparams["poll_id"])
+
+	if(!dbcon.IsConnected())
+		statuscode = 500
+		response = "DB-Connection unavailable"
+		return
+
+	statuscode = 200
+	response = ""
+	data = list()
 	return 1
