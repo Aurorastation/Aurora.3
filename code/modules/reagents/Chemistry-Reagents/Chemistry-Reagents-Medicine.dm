@@ -620,6 +620,11 @@
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 0.125, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
+/datum/reagent/mental/nicotine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
+	. = ..()
+	M.adjustOxyLoss(10 * removed * scale)
+	M.Weaken(10 * removed * scale)
+
 /datum/reagent/mental/methylphenidate
 	name = "methylphenidate"
 	id = "methylphenidate"
@@ -821,7 +826,7 @@
 		/datum/reagent/mental/escitalopram = 5,
 		/datum/reagent/mental/fluvoxamine = 10,
 		/datum/reagent/mental/sertraline = 10
-	)	
+	)
 
 /datum/reagent/mental/risperidone
 	name = "risperidone"
@@ -856,11 +861,11 @@
 		/datum/brain_trauma/severe/monophobia = 50
 	)
 	suppressing_reagents = list(
-		/datum/reagent/mental/venlafaxine = 20
+		/datum/reagent/mental/venlafaxine = 20,
 		/datum/reagent/mental/duloxetine = 20,
 		/datum/reagent/mental/paroxetine = 20,
 		/datum/reagent/mental/escitalopram = 20,
-	)	
+	)
 
 /datum/reagent/mental/olanzapine
 	name = "olanzapine"
@@ -892,7 +897,7 @@
 		/datum/brain_trauma/special/imaginary_friend = 50
 	)
 	suppressing_reagents = list(
-		/datum/reagent/mental/venlafaxine = 20
+		/datum/reagent/mental/venlafaxine = 20,
 		/datum/reagent/mental/duloxetine = 20,
 		/datum/reagent/mental/paroxetine = 20,
 		/datum/reagent/mental/escitalopram = 20,
@@ -952,7 +957,7 @@
 		/datum/brain_trauma/severe/pacifism = 25
 	)
 	messagedelay = 30
-	
+
 //Things that are not cured by medication:
 //Dumbness
 //Gerstmann Syndrome

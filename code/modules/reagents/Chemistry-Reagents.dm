@@ -67,7 +67,7 @@
 	max_dose = max(volume, max_dose)
 
 	if(overdose && (dose > overdose) && (location != CHEM_TOUCH))
-		overdose(M, alien,removed)
+		overdose(M, alien, removed, dose/overdose)
 
 	dose = min(dose + removed, max_dose)
 
@@ -106,7 +106,7 @@
 /datum/reagent/proc/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed)
 	affect_blood(M, alien, removed * 0.75)
 
-/datum/reagent/proc/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0) // Overdose effect. Doesn't happen instantly.
+/datum/reagent/proc/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1) // Overdose effect. Doesn't happen instantly.
 	M.adjustToxLoss(REM)
 
 /datum/reagent/proc/initialize_data(var/newdata) // Called when the reagent is created.
