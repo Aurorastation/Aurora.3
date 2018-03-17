@@ -33,7 +33,7 @@
     {{props data.order_shipped_list}}
 		<tr>
 			<td>{{:value.order_id}}</td>
-            <td>{{:value.customer}}</td>
+            <td>{{:value.ordered_by}}</td>
             <td>{{:value.price}}</td>
             <td>
                 {{:helper.link('Details', 'close', {'order_overview' : value.order_id, 'page': 'order_overview'}, null)}}
@@ -83,7 +83,7 @@
                     </tr>
                     <tr>
                         <td><b>Customer:</b></td>
-                        <td>{{:data.order_details.customer}}</td>
+                        <td>{{:data.order_details.ordered_by}}</td>
                     </tr>
                     {{if data.order_details.authorized_by}}
                     <tr>
@@ -142,7 +142,7 @@
                     </tr>
                     <tr>
                         <td><b>Customer:</b></td>
-                        <td>{{:data.order_details.customer}}</td>
+                        <td>{{:data.order_details.ordered_by}}</td>
                     </tr>
                     <tr>
                         <td><b>Cardholer:</b></td>

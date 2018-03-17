@@ -79,6 +79,41 @@ var/datum/controller/subsystem/cargo/SScargo
 
 
 /*
+	Data Migrations
+*/
+/datum/controller/subsystem/cargo/proc/run_migration_1()
+	if(!establish_db_connection(dbcon))
+		log_debug("SScargo: SQL ERROR - Failed to connect. - Migration not executed")
+		return
+	//Gets those that havnt been migrated
+	var/DBQuery/item_query = dbcon.NewQuery("SELECT id, path, suppliers FROM ss13_cargo_items WHERE deleted_at is NULL AND supplier is NULL")
+	item_query.Execute()
+	while(item_query.NextRow())
+		CHECK_TICK
+
+		//Gets the vars of the row
+		var/id = item_query.item[1]
+		var/path = item_query.item[2]
+		var/list/suppliers = json_decode(item_query.item[3])
+
+		// Calculate the following items
+		//Supplier - The first supplier in the suppliers list
+		var/supplier
+		//Price - The price of the supplier
+		var/price
+		//Items - A list containing the items (only one for legacy items) and the attributes of the supplier
+		var/list/items = list()
+		for(var/sup in suppliers)
+			supplier = sup
+			price = suppliers[sup]["base_purchase_price"]
+			items[path] = suppliers[sup]["vars"]
+			break
+
+		log_debug("Data Conversion for id: [id] - Supplier: [supplier] - Price: [price] - items: [json_encode(items)]")
+		var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_cargo_items SET supplier = :supplier:, price = :price:, items = :items: WHERE id = :id:")
+		update_query.Execute(list("id"=id,"price"=price,"supplier"=supplier,"items"=json_encode(items)))
+
+/*
 	Loading Data
 */
 //Reset cargo to prep for loading in new items
@@ -98,47 +133,6 @@ var/datum/controller/subsystem/cargo/SScargo
 	else
 		//Reset the currently loaded data
 		reset_cargo()
-
-		//Populate the items missing a name or a description with the missing name / description
-		var/DBQuery/item_null_query = dbcon.NewQuery("SELECT path, name, description, suppliers, id FROM ss13_cargo_items WHERE (name IS NULL OR description IS NULL OR suppliers IS NULL) AND deleted_at IS NULL" )
-		item_null_query.Execute()
-		while(item_null_query.NextRow())
-			CHECK_TICK
-
-			//Spawn the item with the path
-			var/oldpath = item_null_query.item[1]
-			var/oldname = item_null_query.item[2]
-			var/olddsec = item_null_query.item[3]
-			var/oldsuppliers = item_null_query.item[4]
-			var/item_id = item_null_query.item[5]
-			var/path = text2path(oldpath)
-
-			log_debug("SScargo: Got path without name or description - updating: [oldpath]")
-			if(path)
-				var/obj/cargoitem = new path
-				//The following sql queries arnt overly optimized. Its just not worht it, because they are only run once if a item is added without the complete data
-				if(cargoitem)
-					//Update the name of the item if its null
-					if(!oldname)
-						log_debug("SScargo: Updating name to [cargoitem.name]")
-						var/DBQuery/item_update_name_query = dbcon.NewQuery("UPDATE ss13_cargo_items SET name = :name: WHERE id = :item_id:")
-						item_update_name_query.Execute(list("name" = cargoitem.name, "item_id" = item_id ))
-					//Update the name of the item if its null
-					if(!olddsec)
-						log_debug("SScargo: Updating desc to [cargoitem.desc]")
-						var/DBQuery/item_update_desc_query = dbcon.NewQuery("UPDATE ss13_cargo_items SET description = :desc: WHERE id = :item_id:")
-						item_update_desc_query.Execute(list("desc" = cargoitem.desc, "item_id" = item_id ))
-					//Set NT as default supplier with a price 1.5 times of the item value
-					if(!oldsuppliers)
-						var/price = get_value(cargoitem) * 1.5
-						var/list/sups = list()
-						sups["nt"] = list()
-						sups["nt"]["base_purchase_price"] = price
-						sups["nt"]["vars"] = list()
-						log_debug("SScargo: Updating suppliers string to [json_encode(sups)]")
-						var/DBQuery/item_update_supl_query = dbcon.NewQuery("UPDATE ss13_cargo_items SET suppliers = '[json_encode(sups)]' WHERE id = [item_id]")
-						item_update_supl_query.Execute()
-				qdel(cargoitem)
 
 		//Load the categories
 		var/DBQuery/category_query = dbcon.NewQuery("SELECT name, display_name, description, icon, price_modifier FROM ss13_cargo_categories WHERE deleted_at IS NULL ORDER BY order_by ASC")
@@ -175,7 +169,7 @@ var/datum/controller/subsystem/cargo/SScargo
 			CHECK_TICK
 
 		//Load the items
-		var/DBQuery/item_query = dbcon.NewQuery("SELECT path, name, description, categories, suppliers, amount, access, container_type, groupable FROM ss13_cargo_items WHERE deleted_at is NULL ORDER BY order_by ASC, name ASC")
+		var/DBQuery/item_query = dbcon.NewQuery("SELECT id, name, supplier, description, categories, price, items, access, container_type, groupable FROM ss13_cargo_items WHERE deleted_at is NULL AND supplier IS NOT NULL ORDER BY order_by ASC, name ASC, supplier ASC")
 		item_query.Execute()
 		while(item_query.NextRow())
 			CHECK_TICK
@@ -186,15 +180,17 @@ var/datum/controller/subsystem/cargo/SScargo
 				continue
 			var/datum/cargo_item/ci = new()
 			try
-				ci.path = item_query.item[1]
+				ci.id = item_query.item[1]
 				ci.name = item_query.item[2]
-				ci.description = item_query.item[3]
-				ci.categories = json_decode(item_query.item[4])
-				ci.suppliers = json_decode(item_query.item[5])
-				ci.amount = text2num(item_query.item[6])
-				ci.access = text2num(item_query.item[7]) //TODO: Maybe add the option to specify access as string instead of number
-				ci.container_type = item_query.item[8]
-				ci.groupable = text2num(item_query.item[9])
+				ci.supplier = item_query.item[3]
+				ci.description = item_query.item[4]
+				ci.categories = json_decode(item_query.item[5])
+				ci.price = text2num(item_query.item[6])
+				ci.items = json_decode(item_query.item[7])
+				ci.access = text2num(item_query.item[8]) //TODO: Maybe add the option to specify access as string instead of number
+				ci.container_type = item_query.item[9]
+				ci.groupable = text2num(item_query.item[10])
+				ci.amount = length(ci.items)
 			catch(var/exception/e)
 				log_debug("SScargo: Error when loading item: [e]")
 				qdel(ci)
@@ -207,16 +203,19 @@ var/datum/controller/subsystem/cargo/SScargo
 				continue
 
 			//Verify the suppliers exist
-			for(var/sup in ci.suppliers)
-				var/datum/cargo_supplier/cs = get_supplier_by_name(sup)
-				if(!cs)
-					log_debug("SScargo: [sup] is not a valid supplier for item [ci.name].")
-
-				//Setting the supplier
-				ci.suppliers[sup]["supplier_datum"] = cs
+			var/datum/cargo_supplier/cs = get_supplier_by_name(ci.supplier)
+			if(!cs)
+				log_debug("SScargo: [ci.supplier] is not a valid supplier for item [ci.name].")
+				QDEL_NULL(ci)
+				continue
+			//Setting the supplier
+			ci.supplier_datum = cs
 
 			//Add the item to the cargo_items list
-			cargo_items[ci.path] = ci
+			cargo_items.Add(ci)
+
+			//Add the item to the suppliers items list
+			ci.supplier_datum.items.Add(ci)
 
 			//Log a message if no categories are specified
 			if(ci.categories.len == 0)
@@ -274,36 +273,37 @@ var/datum/controller/subsystem/cargo/SScargo
 
 		CHECK_TICK
 
+	var/item_id = 0
 	//Load the cargoitems
 	for (var/item in cargoconfig["items"])
 		CHECK_TICK
 
+		item_id++
 		var/itempath = text2path(item)
 		if(!ispath(itempath))
 			log_debug("SScargo: Warning - Attempted to add item with invalid path: [item]")
 			continue
 		var/datum/cargo_item/ci = new()
-		ci.path = item
+		ci.id = item_id
 		ci.name = cargoconfig["items"][item]["name"]
+		ci.supplier = cargoconfig["items"][item]["supplier"]
 		ci.description = cargoconfig["items"][item]["description"]
 		ci.categories = cargoconfig["items"][item]["categories"]
-		ci.suppliers = cargoconfig["items"][item]["suppliers"]
-		ci.amount = cargoconfig["items"][item]["amount"]
+		ci.items = cargoconfig["items"][item]["items"]
 		ci.access = cargoconfig["items"][item]["access"]
 		ci.container_type = cargoconfig["items"][item]["container_type"]
 		ci.groupable = cargoconfig["items"][item]["groupable"]
 
 		//Verify the suppliers exist
-		for(var/sup in ci.suppliers)
-			var/datum/cargo_supplier/cs = get_supplier_by_name(sup)
-			if(!cs)
-				log_debug("SScargo: [sup] is not a valid supplier for item [ci.name].")
+		var/datum/cargo_supplier/cs = get_supplier_by_name(ci.supplier)
+		if(!cs)
+			log_debug("SScargo: [ci.supplier] is not a valid supplier for item [ci.name].")
 
-			//Setting the supplier
-			ci.suppliers[sup]["supplier_datum"] = cs
+		//Setting the supplier
+		ci.supplier_datum = cs
 
 		//Add the item to the cargo_items list
-		cargo_items[ci.path] = ci
+		cargo_items[ci.id] = ci
 
 		//Add the item to the categories
 		for(var/category in ci.categories)
@@ -664,16 +664,6 @@ var/datum/controller/subsystem/cargo/SScargo
 			log_debug("SScargo: Order [co.order_id] could not be placed on the shuttle because the shuttle is full")
 			break
 
-		//Check if the supplier is still active
-		for(var/datum/cargo_order_item/coi in co.items)
-			var/datum/cargo_supplier/csu = get_supplier_by_name(coi.supplier)
-			if(!csu)
-				log_debug("SScargo: Order [co.order_id] could not be placed on the shuttle because supplier [coi.supplier] for item [coi.ci.name] is invalid")
-				break
-			if(!csu.available)
-				log_debug("SScargo: Order [co.order_id] could not be placed on the shuttle because supplier [coi.supplier] for item [coi.ci.name] is unavailable")
-				break
-
 		//Check if there is enough money to ship the order
 		if(!ship_order(co))
 			break
@@ -688,7 +678,7 @@ var/datum/controller/subsystem/cargo/SScargo
 
 		//Label the crate
 		//TODO: Look into wrapping it in a NT paper
-		A.name = "[co.order_id] - [co.customer]"
+		A.name = "[co.order_id] - [co.ordered_by]"
 
 		//Set the access requirement
 		if(co.required_access.len > 0)
@@ -699,17 +689,14 @@ var/datum/controller/subsystem/cargo/SScargo
 			if(!coi)
 				continue
 
-			//Spawn the specified amount
-			for(i=0, i < coi.ci.amount, i++)
-				var/atom/item = new coi.ci.path(A)
-
-				//Customize items with supplier data
-				var/list/suppliers = coi.ci.suppliers
-				for(var/var_name in suppliers[coi.supplier]["vars"])
+			for(var/item_path in coi.ci.items)
+				var/atom/item = new item_path(A)
+				//Customize the items
+				for(var/var_name in coi.ci.items[item_path])
 					try
-						item.vars[var_name] = suppliers[coi.supplier]["vars"][var_name]
+						item.vars[var_name] = coi.ci.items[item_path][var_name]
 					catch(var/exception/e)
-						log_debug("SScargo: Bad variable name [var_name] for item [coi.ci.path] - [e]")
+						log_debug("SScargo: Bad variable name [var_name] for item name: [coi.ci.name] id: [coi.ci.id] - [e]")
 
 	//Shuttle is loaded now - Charge cargo for it
 	charge_cargo("Shipment #[current_shipment.shipment_num] - Expense",current_shipment.shipment_cost_purchase)

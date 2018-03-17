@@ -2,11 +2,14 @@
 	A item orderable via cargo
 */
 /datum/cargo_item
-	var/path = null //Path of the item
+	var/id = 0 //ID of the item
 	var/name = "Cargo Item" //Name of the item
+	var/supplier = "rand" //ID of the supplier
+	var/datum/cargo_supplier/supplier_datum = null //Datum of the supplier
 	var/description = "You should not see this" //Description of the item
 	var/list/categories = list() //List of categories this item appears in
-	var/list/suppliers = list() //List of supliers and their prices
+	var/price = 0 //The price of the item
+	var/list/items = list()
 	var/amount = 1 //Amount of items in the crate
 	var/access = null //What access requirement should be added to the container
 	var/container_type = "crate" //crate or box
@@ -15,33 +18,28 @@
 //Gets a list of the cargo item - To be json encoded
 /datum/cargo_item/proc/get_list()
 	var/list/data = list()
+	data["id"] = id
 	data["name"] = name
-	data["path"] = path
 	data["description"] = description
 	data["categories"] = categories
+	data["price"] = price
 	data["amount"] = amount
-	var/suppliers_list = list()
-	for(var/supplier in suppliers)
-		var/list/sd = list()
-		var/datum/cargo_supplier/cs = suppliers[supplier]["supplier_datum"]
-		if(!cs)
-			log_debug("Cargo - Invalid supplier [supplier] encountered when loading item [name] with path [path]")
-			continue
-		sd["short_name"] = cs.short_name
-		sd["name"] = cs.name
-		sd["available"] = cs.available
-		sd["price_modifier"] = cs.price_modifier
-		sd["base_purchase_price"] = suppliers[supplier]["base_purchase_price"]
-		sd["vars"] = suppliers[supplier]["vars"]
-		sd["adjusted_price"] = sd["base_purchase_price"] * sd["price_modifier"]
-		//Add category adjustments
-		for(var/category in categories)
-			var/datum/cargo_category/cc = SScargo.get_category_by_name(category)
-			if(cc)
-				sd["adjusted_price"] *= cc.price_modifier
-		suppliers_list[supplier] = sd
-	data["suppliers"] = suppliers_list
+	data["items"] = items
+	data["supplier"] = supplier
+	data["supplier_data"] = supplier_datum.get_list()
+
+	//Adjust the price based on the supplier adjusetment and the categories
+	data["price_adjusted"] = get_adjusted_price()
 	return data
+
+/datum/cargo_item/proc/get_adjusted_price()
+	var/adjusted_price = price
+	price *= supplier_datum.price_modifier
+	for(var/category in categories)
+		var/datum/cargo_category/cc = SScargo.get_category_by_name(category)
+		if(cc)
+			adjusted_price *= cc.price_modifier
+	return adjusted_price
 
 
 /*
@@ -56,6 +54,8 @@
 	var/shuttle_price = 0 //Price to call the shuttle
 	var/available = 1 //If the supplier is available
 	var/price_modifier = 1 //Price modifier for the supplier
+	var/list/items = list() //List of items of tha supplier
+
 //Gets a list of supplier - to be json encoded
 /datum/cargo_supplier/proc/get_list()
 	var/list/data = list()
@@ -103,7 +103,7 @@
 	Contains multiple order items
 */
 /datum/cargo_order
-	var/list/items = list() //List of cargo_order_items in the order
+	var/list/items = list() //List of cargo_items in the order
 	var/order_id = 0 //ID of the order
 	var/price = 0 //Total price of the order
 	var/payment_status = 0 //0-Not paid //1-Paid
@@ -113,7 +113,7 @@
 	var/container_type = "" //Type of the container for the order - cate, box
 	var/list/required_access = list() //Access required to unlock the crate
 	var/can_add_items = 1 //If new items can be added to the order 
-	var/customer = null //Person that ordered the items
+	var/ordered_by = null //Person that ordered the items
 	var/authorized_by = null //Person that authorized the order
 	var/received_by = null //Person the order has been delivered to by cargo / paid for the order
 	var/time_submitted = null //Time the order has been sent to cargo
@@ -148,7 +148,7 @@
 	data["payment_status"] = payment_status
 	data["status"] = get_order_status(0)
 	data["status_pretty"] = get_order_status(1)
-	data["customer"] = customer
+	data["ordered_by"] = ordered_by
 	data["authorized_by"] = authorized_by
 	data["received_by"] = received_by
 	data["time_submitted"] = time_submitted
@@ -275,7 +275,7 @@
 /datum/cargo_order/proc/get_supplier_list()
 	var/list/supplier_list = list()
 	for(var/datum/cargo_order_item/coi in items)
-		supplier_list[coi.supplier] = coi.supplier
+		supplier_list[coi.ci.supplier] = coi.ci.supplier
 	return supplier_list
 
 // Gets the maximal shipment cost for the item
@@ -314,7 +314,7 @@
 	order_data += "<h4>Order [order_id]</h4>"
 	order_data += "<hr>"
 	//List the personell involved in the order
-	order_data += "<u>Ordered by:</u> [customer]<br>"
+	order_data += "<u>Ordered by:</u> [ordered_by]<br>"
 	order_data += "<u>Submitted at:</u> [time_submitted]<br>"
 	if(authorized_by)
 		order_data += "<u>Authorized by: </u> [authorized_by]<br>"
@@ -357,36 +357,26 @@
 */
 /datum/cargo_order_item
 	var/datum/cargo_item/ci //Item that has been ordered
-	var/datum/cargo_supplier/cs //Supplier the item has been ordered from
-	var/supplier //Supplier the item has been ordered from
 	var/price //Price of the item with the given supplier
 	var/item_id //Item id in the order
-	//TODO: Maybe add the option to set a fake item for traitors here -> So that cargo cant see what they are really ordering
+	//TODO-CARGO: Maybe add the option to set a fake item for traitors here -> So that cargo cant see what they are really ordering
 
 //Calculate Price
 /datum/cargo_order_item/proc/calculate_price()
-	price = ci.suppliers[supplier]["base_purchase_price"]
-	//Add suppler modifier
-	price *= cs.price_modifier
-	for(var/category in ci.categories)
-		var/datum/cargo_category/cc = SScargo.get_category_by_name(category)
-		if(cc)
-			price *= cc.price_modifier
+	price = ci.get_adjusted_price()
 	return price
 
 // Gets a list of the cargo order item - to be json encoded
 /datum/cargo_order_item/proc/get_list()
 	var/list/data = list()
 	data["name"] = ci.name
-	data["supplier"] = supplier
-	data["supplier_name"] = cs.name
+	data["supplier_name"] = ci.supplier_datum.name
 	data["price"] = price
 	data["item_id"] = item_id
 	return data
 
 /datum/cargo_order_item/Destroy()
 	ci = null
-	cs = null
 	return ..()
 
 
