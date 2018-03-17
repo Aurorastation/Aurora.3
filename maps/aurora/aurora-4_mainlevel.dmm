@@ -1359,9 +1359,6 @@
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice2)
 "acK" = (
-/obj/structure/bed/chair/office/dark{
-	dir = 1
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -1369,9 +1366,6 @@
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
-	},
-/obj/effect/landmark/start{
-	name = "Internal Affairs Agent"
 	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice2)
@@ -12223,6 +12217,9 @@
 	id = "iaa";
 	pixel_x = -24;
 	pixel_y = 0
+	},
+/obj/effect/landmark/start{
+	name = "Internal Affairs Agent"
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
@@ -58710,7 +58707,8 @@
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bWy" = (
-/obj/machinery/smartfridge/drinks,
+/obj/structure/table/reinforced,
+/obj/machinery/chemical_dispenser/coffeemaster/full,
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bWz" = (
@@ -59706,6 +59704,12 @@
 "bYy" = (
 /obj/structure/table/wood,
 /obj/item/weapon/flame/lighter/zippo,
+/obj/item/weapon/screwdriver,
+/obj/item/clothing/head/that{
+	pixel_x = 4;
+	pixel_y = 6
+	},
+/obj/item/weapon/book/manual/barman_recipes,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bYz" = (
@@ -59930,22 +59934,15 @@
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bYS" = (
-/obj/structure/table/reinforced,
-/obj/item/weapon/book/manual/barman_recipes,
-/obj/item/clothing/head/that{
-	pixel_x = 4;
-	pixel_y = 6
-	},
-/obj/item/weapon/screwdriver,
 /obj/structure/window/reinforced/polarized{
 	id = "finedining"
 	},
-/obj/item/weapon/flame/lighter/zippo,
 /obj/item/device/radio/intercom{
 	dir = 4;
 	name = "Station Intercom (General)";
 	pixel_x = 27
 	},
+/obj/machinery/smartfridge/drinks,
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bYT" = (
@@ -93835,7 +93832,7 @@ aad
 aaI
 aaU
 aba
-abw
+acY
 abP
 ace
 abP
