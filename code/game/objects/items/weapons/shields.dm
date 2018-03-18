@@ -171,10 +171,10 @@
 					// Find a turf near or on the original location to bounce to
 					var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
 					var/new_y = P.starting.y + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
-					var/turf/curloc = get_turf(user)
 
 					// redirect the projectile
-					P.redirect(new_x, new_y, curloc, user)
+					P.firer = user
+					P.old_style_target(locate(new_x, new_y, P.z))
 
 					return PROJECTILE_CONTINUE // complete projectile permutation
 				else

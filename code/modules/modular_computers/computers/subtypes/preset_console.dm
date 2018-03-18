@@ -121,3 +121,9 @@
 	ai_slot = new/obj/item/weapon/computer_hardware/ai_slot(src)
 	nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(src)
 	card_slot = new/obj/item/weapon/computer_hardware/card_slot(src)
+
+
+// AI
+/obj/item/modular_computer/console/preset/ai
+	_app_preset_name = "ai"
+	enrolled = 2

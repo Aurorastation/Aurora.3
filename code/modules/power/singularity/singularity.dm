@@ -72,11 +72,15 @@
 /obj/singularity/bullet_act(obj/item/projectile/P)
 	return 0 //Will there be an impact? Who knows. Will we see it? No.
 
-/obj/singularity/Bump(atom/A)
-	consume(A)
+/obj/singularity/Collide(atom/A)
+	. = ..()
+	if (A)
+		consume(A)
 
-/obj/singularity/Bumped(atom/A)
-	consume(A)
+/obj/singularity/CollidedWith(atom/movable/AM)
+	. = ..()
+	if (AM)
+		consume(AM)
 
 /obj/singularity/process()
 	eat()

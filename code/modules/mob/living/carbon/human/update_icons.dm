@@ -733,7 +733,7 @@ There are several things that need to be remembered:
 	if(update_icons)   update_icons()
 
 
-/mob/living/carbon/human/update_inv_head(var/update_icons=1)
+/mob/living/carbon/human/update_inv_head(update_icons = TRUE, recurse = TRUE)
 	if (QDELING(src))
 		return
 
@@ -780,6 +780,10 @@ There are several things that need to be remembered:
 				ovr += SSicon_cache.light_overlay_cache["[cache_key]"]
 
 		overlays_raw[HEAD_LAYER] = ovr || standing
+
+	if (recurse)
+		update_hair(FALSE)
+		update_inv_wear_mask(FALSE, FALSE)
 
 	if(update_icons)
 		update_icons()
@@ -905,7 +909,7 @@ There are several things that need to be remembered:
 		update_icons()
 
 
-/mob/living/carbon/human/update_inv_wear_mask(var/update_icons=1)
+/mob/living/carbon/human/update_inv_wear_mask(update_icons = TRUE, recurse = TRUE)
 	if (QDELING(src))
 		return
 
@@ -938,6 +942,10 @@ There are several things that need to be remembered:
 			ovr = list(standing, bloodsies)
 
 		overlays_raw[FACEMASK_LAYER] = ovr || standing
+
+	if (recurse)
+		update_inv_head(FALSE, FALSE)
+		update_hair(FALSE)
 
 	if(update_icons)
 		update_icons()

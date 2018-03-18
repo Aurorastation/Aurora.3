@@ -9,67 +9,48 @@
 	color = "#dcd9cd"
 	taste_description = "boiled cabbage"
 	unaffected_species = IS_MACHINE
+	var/kois_type = 1
 
 /datum/reagent/kois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(isvaurca(M))
+	if(alien == IS_VAURCA)
 		M.heal_organ_damage(1.2 * removed, 1.2 * removed)
 		M.adjustToxLoss(-1.2 * removed)
 		M.nutrition += nutriment_factor * removed // For hunger and fatness
 		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
 	else
+		M.adjustToxLoss(1 * removed)
 		if(istype(M,/mob/living/carbon/human))
-
 			var/mob/living/carbon/human/H = M
-			if(!H.internal_organs_by_name["kois"])
-
-				if(prob(10*removed))
-					var/obj/item/organ/external/affected = H.get_organ("chest")
-					var/obj/item/organ/parasite/kois/infest = new()
-					infest.replaced(H, affected)
-
-				else
-					H.adjustToxLoss(1 * removed)
-		else
-			M.adjustToxLoss(1 * removed)
-		return
+			switch(kois_type)
+				if(1) //Normal
+					if(!H.internal_organs_by_name["kois"] && prob(5*removed))
+						var/obj/item/organ/external/affected = H.get_organ("chest")
+						var/obj/item/organ/parasite/kois/infest = new()
+						infest.replaced(H, affected)
+				if(2) //Modified
+					if(!H.internal_organs_by_name["blackkois"] && prob(10*removed))
+						var/obj/item/organ/external/affected = H.get_organ("head")
+						var/obj/item/organ/parasite/blackkois/infest = new()
+						infest.replaced(H, affected)
 	..()
 
-/datum/reagent/blackkois
+/datum/reagent/kois/clean
+	name = "Filtered K'ois"
+	id = "koispasteclean"
+	description = "A strange, ketchup-like substance, filled with K'ois nutrients."
+	color = "#ece9dd"
+	taste_description = "cabbage soup"
+	kois_type = 0
+
+/datum/reagent/kois/black
 	name = "Modified K'ois"
 	id = "blackkois"
 	description = "A thick goopy substance, rich in K'ois nutrients. This sample appears to be modified."
-	metabolism = REM * 4
-	var/nutriment_factor = 10
-	var/injectable = 0
 	color = "#31004A"
 	taste_description = "tar"
-	unaffected_species = IS_MACHINE
+	kois_type = 2
 
-/datum/reagent/blackkois/affect_ingest(var/mob/living/carbon/human/H, var/alien, var/removed)
-
-	if(istype(H))
-		if(isvaurca(H) || H.internal_organs_by_name["blackkois"])
-			H.heal_organ_damage(1.2 * removed, 1.2 * removed)
-			H.adjustToxLoss(-1.2 * removed)
-			H.nutrition += nutriment_factor * removed // For hunger and fatness
-			H.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
-		else
-			if(!H.internal_organs_by_name["blackkois"])
-
-				if(prob(20*removed))
-
-					var/obj/item/organ/external/affected = H.get_organ("head")
-					var/obj/item/organ/parasite/blackkois/infest = new()
-					infest.replaced(H, affected)
-
-				else
-
-					H.adjustToxLoss(0.8 * removed)
-			else
-				H.adjustToxLoss(0.8 * removed)
-		return
-	..()
-
+/* Food */
 /datum/reagent/nutriment
 	name = "Nutriment"
 	id = "nutriment"
@@ -112,14 +93,10 @@
 	affect_ingest(M, alien, removed)
 
 /datum/reagent/nutriment/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(isvaurca(M))
+	if(alien == IS_VAURCA)
 		M.adjustToxLoss(1.5 * removed)
-	if(alien && alien == IS_UNATHI)
-		return
-	else
+	else if(alien != IS_UNATHI)
 		digest(M,removed)
-		return
-	..()
 
 /datum/reagent/nutriment/proc/digest(var/mob/living/carbon/M, var/removed)
 	M.heal_organ_damage(regen_factor * removed, 0)
@@ -980,14 +957,14 @@
 	M.make_jittery(5)
 
 /datum/reagent/drink/coffee/icecoffee
-	name = "Iced Coffee"
+	name = "Frappe Coffee"
 	id = "icecoffee"
 	description = "Coffee and ice, refreshing and cool."
 	color = "#102838"
 	adj_temp = -5
 
 	glass_icon_state = "icedcoffeeglass"
-	glass_name = "glass of iced coffee"
+	glass_name = "glass of frappe coffee"
 	glass_desc = "A drink to perk you up and refresh you!"
 
 /datum/reagent/drink/coffee/soy_latte
@@ -1023,6 +1000,123 @@
 /datum/reagent/drink/coffee/cafe_latte/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	M.heal_organ_damage(0.5 * removed, 0)
+
+/datum/reagent/drink/coffee/espresso
+	name = "Espresso"
+	id = "espresso"
+	description = "A strong coffee made by passing nearly boiling water through coffee seeds at high pressure."
+	color = "#664300" // rgb: 102, 67, 0
+	adj_temp = 5
+	taste_description = "bitter coffee"
+
+	glass_icon_state = "hot_coffee"
+	glass_name = "shot of espresso"
+	glass_desc = "A strong coffee made by passing nearly boiling water through coffee seeds at high pressure."
+	glass_center_of_mass = list("x"=15, "y"=9)
+
+/datum/reagent/drink/coffee/freddo_espresso
+	name = "Freddo espresso"
+	id = "freddo_espresso"
+	description = "Espresso with ice cubes poured over ice."
+	color = "#664300" // rgb: 102, 67, 0
+	adj_temp = 5
+	taste_description = "cold and bitter coffee"
+
+	glass_icon_state = "hot_coffee"
+	glass_name = "glass of freddo espresso"
+	glass_desc = "Espresso with ice cubes poured over ice."
+	glass_center_of_mass = list("x"=15, "y"=9)
+
+/datum/reagent/drink/coffee/caffe_americano
+	name = "Caffe Americano"
+	id = "caffe_americano"
+	description = "Espresso diluted with hot water."
+	color = "#664300" // rgb: 102, 67, 0
+	adj_temp = 5
+	taste_description = "delicious coffee"
+
+	glass_icon_state = "hot_coffee"
+	glass_name = "glass of caffe Americano"
+	glass_desc = "delicious coffee"
+	glass_center_of_mass = list("x"=15, "y"=9)
+
+/datum/reagent/drink/coffee/flat_white
+	name = "Flat White Espresso"
+	id = "flat_white"
+	description = "Espresso with a bit of steamy hot milk."
+	color = "#664300" // rgb: 102, 67, 0
+	adj_temp = 5
+	taste_description = "bitter coffee and milk"
+
+	glass_icon_state = "cafe_latte"
+	glass_name = "glass of flat white"
+	glass_desc = "Espresso with a bit of steamy hot milk."
+	glass_center_of_mass = list("x"=15, "y"=9)
+
+/datum/reagent/drink/coffee/latte
+	name = "Latte"
+	id = "latte"
+	description = "A nice, strong and refreshing beverage while you are reading."
+	color = "#664300" // rgb: 102, 67, 0
+	adj_temp = 5
+	taste_description = "bitter cream"
+
+	glass_icon_state = "cafe_latte"
+	glass_name = "glass of cafe latte"
+	glass_desc = "A nice, strong and refreshing beverage while you are reading."
+	glass_center_of_mass = list("x"=15, "y"=9)
+
+/datum/reagent/drink/coffee/cappuccino
+	name = "Cappuccino"
+	id = "cappuccino"
+	description = "Espresso with steamed milk foam."
+	color = "#664300" // rgb: 102, 67, 0
+	adj_temp = 5
+	taste_description = "bitter milk foam"
+
+	glass_icon_state = "hot_coffee"
+	glass_name = "glass of cappuccino"
+	glass_desc = "Espresso with steamed milk foam."
+	glass_center_of_mass = list("x"=15, "y"=9)
+
+/datum/reagent/drink/coffee/freddo_cappuccino
+	name = "Freddo Cappuccino"
+	id = "freddo_cappuccino"
+	description = "Espresso with steamed milk foam, on ice."
+	color = "#664300" // rgb: 102, 67, 0
+	adj_temp = 5
+	taste_description = "cold and bitter milk foam"
+
+	glass_icon_state = "hot_coffee"
+	glass_name = "glass of freddo cappuccino"
+	glass_desc = "Espresso with steamed milk foam, on ice."
+	glass_center_of_mass = list("x"=15, "y"=9)
+
+/datum/reagent/drink/coffee/macchiato
+	name = "Macchiato"
+	id = "macchiato"
+	description = "Espresso with milk foam."
+	color = "#664300" // rgb: 102, 67, 0
+	adj_temp = 5
+	taste_description = "bitter milk foam"
+
+	glass_icon_state = "hot_coffee"
+	glass_name = "glass of macchiato"
+	glass_desc = "Espresso with milk foam."
+	glass_center_of_mass = list("x"=15, "y"=9)
+
+/datum/reagent/drink/coffee/mocacchino
+	name = "Mocacchino"
+	id = "mocacchino"
+	description = "Espresso with hot milk and chocolate."
+	color = "#664300" // rgb: 102, 67, 0
+	adj_temp = 5
+	taste_description = "sweet milk and bitter coffee"
+
+	glass_icon_state = "cafe_latte"
+	glass_name = "glass of mocacchino"
+	glass_desc = "Espresso with hot milk and chocolate."
+	glass_center_of_mass = list("x"=15, "y"=9)
 
 /datum/reagent/drink/hot_coco
 	name = "Hot Chocolate"
@@ -2672,68 +2766,6 @@
 	glass_icon_state = "drdaniels"
 	glass_name = "glass of Dr. Daniels"
 	glass_desc = "A tall glass of honey, whiskey, and diet Dr. Gibb. The perfect blend of throat-soothing liquid."
-
-/////////////////////////////////////////////////////////////////Brightdawns super cool coffee area//////////////////////////////////////////////
-
-
-/datum/reagent/drink/black_coffee
-	name = "Black Coffee"
-	id = "black_coffee"
-	description = "A rich strong roast, you think it could be a lot better if someone added something extra."
-	color = "#482000"
-	adj_dizzy = -6
-	adj_drowsy = -4
-	adj_sleepy = -3
-	adj_temp = 30
-	overdose = 40
-	caffeine = 0.4
-	taste_description = "coffee"
-
-	glass_icon_state = "blackcoffee"
-	glass_name = "A mug of rich Black Coffee"
-	glass_desc = "A mug of a rich strong roast, you think it could be a lot better if someone added something extra to it."
-
-/datum/reagent/drink/white_coffee
-	name = "Cafe Au Lait"
-	id = "white_coffee"
-	description = "A fancy name for something thats just coffee and milk."
-	color = "#A64D07"
-	adj_dizzy = -6
-	adj_drowsy = -4
-	adj_sleepy = -3
-	adj_temp = 30
-	overdose = 40
-	caffeine = 0.3
-	taste_description = "creamy coffee"
-
-	glass_icon_state = "whitecoffee"
-	glass_name = "A mug of Cafe Au Lait"
-	glass_desc = "A fancy name for something thats just coffee and milk."
-
-/datum/reagent/drink/white_coffee/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	..()
-	M.heal_organ_damage(0.5 * removed, 0)
-
-/datum/reagent/drink/cafe_melange
-	name = "Cafe Melange"
-	id = "cafe_melange"
-	description = "A delicious mug of creamy coffee."
-	color = "#A64D07"
-	adj_dizzy = -6
-	adj_drowsy = -4
-	adj_sleepy = -3
-	adj_temp = 30
-	overdose = 40
-	caffeine = 0.3
-	taste_description = "creamy coffee"
-
-	glass_icon_state = "whitecoffee"
-	glass_name = "A mug of Cafe Melange"
-	glass_desc = "A delicious mug of creamy coffee, keeps you cool headed in the most heated of situations."
-
-/datum/reagent/drink/cafe_melange/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	..()
-	M.reagents.add_reagent("kelotane", removed * 0.2)
 
 //aurora unique drinks
 

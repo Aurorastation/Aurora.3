@@ -48,14 +48,12 @@
 
 	// Bar, soft
 	ice			spawn_reagent = "ice"
-	coffee		spawn_reagent = "coffee"
-	cream		spawn_reagent = "cream"
 	tea			spawn_reagent = "tea"
 	icetea		spawn_reagent = "icetea"
 	cola		spawn_reagent = "cola"
 	smw			spawn_reagent = "spacemountainwind"
 	dr_gibb		spawn_reagent = "dr_gibb"
-	kois		spawn_reagent = "koispaste"
+	clean_kois	spawn_reagent = "koispasteclean"
 	spaceup		spawn_reagent = "space_up"
 	brownstar	spawn_reagent = "brownstar"
 	tonic		spawn_reagent = "tonic"
@@ -64,7 +62,13 @@
 	orange		spawn_reagent = "orangejuice"
 	lime		spawn_reagent = "limejuice"
 	watermelon	spawn_reagent = "watermelonjuice"
-	coffee_beans  	spawn_reagent = "black_coffee"
+
+	// Bar, coffee
+	coffee		spawn_reagent = "coffee"
+	espresso	spawn_reagent = "espresso"
+	cream		spawn_reagent = "cream"
+	milk		spawn_reagent = "milk"
+	soymilk		spawn_reagent = "soymilk"
 
 	// ERT
 	inaprov		spawn_reagent = "inaprovaline"

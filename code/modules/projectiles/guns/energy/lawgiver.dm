@@ -36,7 +36,7 @@
 			burst = 3,
 			move_delay = 4,
 			accuracy = list(0,-1,-1,-2,-2),
-			dispersion = list(0.0, 0.6, 1.0),
+			dispersion = list(0, 10, 10),
 			projectile_type = /obj/item/projectile/bullet/pistol,
 			fire_sound = 'sound/weapons/Gunshot_smg.ogg'
 		),

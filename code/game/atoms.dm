@@ -54,7 +54,9 @@
 /atom/proc/on_reagent_change()
 	return
 
-/atom/proc/Bumped(AM as mob|obj)
+// This is called when AM collides with us.
+/atom/proc/CollidedWith(atom/movable/AM)
+	set waitfor = FALSE
 	return
 
 // Convenience proc to see if a container is open for chemistry handling
@@ -160,6 +162,7 @@
 				L.source_atom.update_light()
 
 /atom/proc/ex_act()
+	set waitfor = FALSE
 	return
 
 /atom/proc/emag_act(var/remaining_charges, var/mob/user, var/emag_source)

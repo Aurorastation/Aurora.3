@@ -70,6 +70,9 @@
 	brightness_power = 1
 	brightness_color = LIGHT_COLOR_RED
 
+/obj/machinery/light/colored/blue
+	brightness_color = LIGHT_COLOR_BLUE
+
 /obj/machinery/light/spot
 	name = "spotlight"
 	fitting = "large tube"

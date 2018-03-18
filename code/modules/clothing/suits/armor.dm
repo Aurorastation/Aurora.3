@@ -103,6 +103,7 @@
 	icon_closed = "jensencoat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	allowed = list(/obj/item/weapon/gun/energy,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/device/flashlight)
 
 /obj/item/clothing/suit/storage/toggle/armor/hos/jensen/Initialize()
 	. = ..()
@@ -154,10 +155,10 @@
 			// Find a turf near or on the original location to bounce to
 			var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
 			var/new_y = P.starting.y + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
-			var/turf/curloc = get_turf(user)
 
 			// redirect the projectile
-			P.redirect(new_x, new_y, curloc, user)
+			P.firer = user
+			P.old_style_target(locate(new_x, new_y, P.z))
 
 			return PROJECTILE_CONTINUE // complete projectile permutation
 
