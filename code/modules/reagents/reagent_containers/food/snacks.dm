@@ -1561,7 +1561,7 @@
 	. = ..()
 	reagents.add_reagent("protein", 4)
 	reagents.add_reagent("msg", 2)
-	reagents.add_reagent("palmoil", 1)
+	reagents.add_reagent("sodiumchloride", 4)
 	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/no_raisin
@@ -1578,7 +1578,6 @@
 	. = ..()
 	reagents.add_reagent("msg", 1)
 	reagents.add_reagent("hfcs", 1)
-	reagents.add_reagent("palmoil", 1)
 	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/spacetwinkie
@@ -1611,7 +1610,7 @@
 	. = ..()
 	reagents.add_reagent("cheese", 3)
 	reagents.add_reagent("palmoil", 1)
-	reagents.add_reagent("msg", 2)
+	reagents.add_reagent("msg", 1)
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/syndicake
@@ -4398,21 +4397,18 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/tastybread
 	name = "bread tube"
-	desc = "Bread in a tube. Chewy...and questionably tasty."
+	desc = "Bread in a tube. Chewy."
 	icon_state = "tastybread"
 	trash = /obj/item/trash/tastybread
 	filling_color = "#A66829"
 	center_of_mass = list("x"=17, "y"=16)
-	nutriment_desc = list("tasty bread" = 4)
+	nutriment_desc = list("stale bread" = 4) //NO LONGER TASTY BECAUSE OF REMOVED FLAVORINGS. ENJOY EATING STALE BREAD FUCKERS. HAHAHAHAHA.
 	nutriment_amt = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/tastybread/Initialize()
 	. = ..()
 	reagents.add_reagent("shortening", 1)
-	reagents.add_reagent("palmoil", 1)
-	reagents.add_reagent("sugar", 1)
-	reagents.add_reagent("msg", 4)
-	reagents.add_reagent("sodiumchloride", 2)
+	reagents.add_reagent("sodiumchloride", 4)
 	bitesize = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/skrellsnacks
@@ -4426,7 +4422,6 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/skrellsnacks/Initialize()
 	. = ..()
-	reagents.add_reagent("shortening", 2)
 	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/friedkois
@@ -4559,7 +4554,7 @@
 	. = ..()
 	reagents.add_reagent("protein", 10)
 	reagents.add_reagent("shortening", 1)
-	reagents.add_reagent("msg", 4)
+	reagents.add_reagent("msg", 3)
 	reagents.add_reagent("sodiumchloride", 3)
 	bitesize = 5
 
@@ -4589,7 +4584,7 @@
 	. = ..()
 	reagents.add_reagent("protein", 10)
 	reagents.add_reagent("iron", 3)
-	reagents.add_reagent("msg", 4)
+	reagents.add_reagent("msg", 5)
 	reagents.add_reagent("sodiumchloride", 5)
 	bitesize = 4
 
