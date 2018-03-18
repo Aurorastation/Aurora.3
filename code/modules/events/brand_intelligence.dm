@@ -28,7 +28,7 @@
 /datum/event/brand_intelligence/tick()
 	if(IsMultiple(activeFor, 100))
 		world << "BOOP."
-		if(!source_vendor || source_vendor == null || source_vendor.shoot_inventory == 0)
+		if(!source_vendor || source_vendor == null || source_vendor.shoot_inventory == 0 || !list_of_vendors.len)
 			end()
 			kill()
 			return
