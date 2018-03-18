@@ -29,3 +29,6 @@
 /datum/research_concepts/proc/get_tech_desc(var/level = 1)
 	if(level > maxlevel)
 		return 0
+	
+/datum/research_concepts/proc/outsourceprogress()
+	return

@@ -3,7 +3,7 @@
 /datum/controller/subsystem/research
 	name = "Research"
 	wait = 10 MINUTES // auto saves every 10 minutes
-	init_order = SS_INIT_MISC
+	init_order = SS_INIT_MISC_FIRST
 	var/list/concepts
 	var/points = 1
 	var/daysuntilreset = 30
@@ -15,6 +15,7 @@
 
 /datum/controller/subsystem/research/New()
 	NEW_SS_GLOBAL(SSresearch)
+	rdconsoles = list()
 
 /datum/controller/subsystem/research/Initialize()
 	. = ..()
@@ -61,10 +62,12 @@
 		update_items.Execute(list("p" = A.unlocked, "g" = A.id))
 
 /datum/controller/subsystem/research/proc/sortitems()
+	unlockeditems = list()
+	lockeditems = list()
 	for(var/datum/research_items/A in techitems)
 		if(A.unlocked == 1)
 			unlockeditems += A
-			//call unlock proc here
+			A.giveunlocked()
 		else
 			lockeditems += A
 

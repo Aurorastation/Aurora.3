@@ -246,3 +246,22 @@
 	new /obj/item/clothing/mask/gas/sexymime(src.loc)
 	new /obj/item/clothing/under/sexymime(src.loc)
 	delete_me = 1
+
+//metaresearch spawns
+
+
+/obj/effect/landmark/metaresearch/
+	var/itempath = null
+
+/obj/effect/landmark/metaresearch/New()
+	for(var/datum/research_items/A in SSresearch.unlockeditems)
+		if(A == itempath)
+			new itempath(src.loc)
+	delete_me = 1
+
+/obj/effect/landmark/metaresearch/xenogateway
+	itempath = /obj/machinery/xenogateway
+
+/obj/effect/landmark/metaresearch/hazardsuit
+	itempath = /obj/item/weapon/rig/hazardsuit
+

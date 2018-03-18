@@ -13,6 +13,9 @@
 		<div class="item">
 			{{:helper.link('View Technology Overview', 'arrowthickstop-1-e', {'menuswap' : '2'})}}
 		</div>
+		<div class="item">
+			{{:helper.link('View Item Overview', 'arrowthickstop-1-e', {'menuswap' : '3'})}}
+		</div>
 	{{else data.nanomenu == 2}}
 		<div class="item">
 			<h3><center><b>Technology Overview:</b></center></h3>
@@ -34,6 +37,43 @@
 				{{:helper.link('Outsource research for 500 RMP', 'arrowthickstop-1-e', {'outsource' : 'value.id'})}}
 			</div>
     	{{/for}}
-
+	{{else data.nanomenu == 3}}
+		<div class="item">
+			<h3><center><b>Item Overview:</b></center></h3>
+		</div>
+		<div class="item">
+			{{:helper.link('Back', 'arrowthickstop-1-e', {'menuswap' : '1'})}}
+		</div>		
+		{{if data.itemmode == 1}}
+			<div class="item">
+				{{:helper.link('Show Only Available Items', 'arrowthickstop-1-e', {'itemmode' : '2'})}}
+			</div>
+		{{else data.itemmode == 2}}
+			<div class="item">
+				{{:helper.link('Show Only Purchased Items', 'arrowthickstop-1-e', {'itemmode' : '3'})}}
+			</div>
+		{{else data.itemmode == 3}}
+			<div class="item">
+				{{:helper.link('Show All items', 'arrowthickstop-1-e', {'itemmode' : '1'})}}
+			</div>
+		{{/if}}
+		{{for data.items}}
+			{{if data.itemmode == 2 && !value.canbuy}}
+			{{else data.itemmode == 3 && !value.unlocked}}
+			{{else}}
+				<div class="item">
+					<B>{{:value.name}}</B>
+				</div>
+				<div class="item">
+					{{:value.desc}}
+				</div>
+				<div class="item">
+					Available: {{:value.canbuy}}
+				</div>
+				<div class="item">
+					{{:helper.link(value.cost, 'arrowthickstop-1-e', {'buy' : 'value.id'}, value.can_buy ? null : 'disabled')}}
+				</div>
+			{{/if}}
+    	{{/for}}
 	{{/if}}
 {{/if}}
