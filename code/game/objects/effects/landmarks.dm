@@ -255,7 +255,7 @@
 
 /obj/effect/landmark/metaresearch/New()
 	for(var/datum/research_items/A in SSresearch.unlockeditems)
-		if(A == itempath)
+		if(A.path == itempath)
 			new itempath(src.loc)
 	delete_me = 1
 
