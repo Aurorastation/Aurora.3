@@ -16,7 +16,7 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 	if(vessel)
 		return
 
-	vessel = new/datum/reagents(BLOOD_VOLUME_NORMAL + 50)
+	vessel = new/datum/reagents(BLOOD_VOLUME_NORMAL + 40)
 	vessel.my_atom = src
 
 	if(species && species.flags & NO_BLOOD) //We want the var for safety but we can do without the actual blood.

@@ -628,21 +628,17 @@
 	strength = 0.004
 	taste_mult = 10
 
-/datum/reagent/toxin/tobacco/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	var/mob/living/carbon/human/NewM = M
-	if(istype(NewM))
-		var/obj/item/organ/H = NewM.internal_organs_by_name["heart"]
+/datum/reagent/toxin/tobacco/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+	if(istype(M))
+		var/obj/item/organ/H = M.internal_organs_by_name["heart"]
 		if(istype(H))
 			H.take_damage(removed * strength * 0.5,1)
-		var/obj/item/organ/L = NewM.internal_organs_by_name["lungs"]
+		var/obj/item/organ/L = M.internal_organs_by_name["lungs"]
 		if(istype(L))
 			L.take_damage(removed * strength,1)
-		var/obj/item/organ/A = NewM.internal_organs_by_name["liver"]
+		var/obj/item/organ/A = M.internal_organs_by_name["liver"]
 		if(istype(A))
 			A.take_damage(removed * strength * 0.25,1)
-
-/datum/reagent/toxin/tobacco/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed)
-	affect_blood(M,alien,removed)
 
 /datum/reagent/toxin/tobacco/rich
 	name = "Earth Tobacco"

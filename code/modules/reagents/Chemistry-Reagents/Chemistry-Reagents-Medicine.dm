@@ -543,12 +543,11 @@
 	conflicting_reagents = list(/datum/reagent/alcohol/ = 5)
 	var/suppressing_reagents = list(/datum/reagent/synaptizine = 5) // List of reagents that suppress the withdrawal effects, with the key being the reagent and the vlue being the minimum dosage required to suppress.
 
-/datum/reagent/mental/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/mental/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
 
-	if(!ishuman(M) || world.time < data)
+	if(!istype(H) || world.time < data)
 		return
 	var/hastrauma = 0 //whether or not the brain has trauma
-	var/mob/living/carbon/human/H = M
 	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
 
 	if(B) //You won't feel anything if you don't have a brain.
@@ -573,7 +572,7 @@
 			var/suppress_withdrawl = FALSE
 			for(var/k in suppressing_reagents)
 				var/datum/reagent/v = suppressing_reagents[k]
-				if(M.reagents.has_reagent(v,k))
+				if(H.reagents.has_reagent(v,k))
 					suppress_withdrawl = TRUE
 					break
 			if(!suppress_withdrawl)
