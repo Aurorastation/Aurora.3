@@ -89,7 +89,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		log_debug("SScargo: SQL ERROR - Failed to connect. - Migration not executed")
 		return
 	//Gets those that havnt been migrated
-	var/DBQuery/item_query = dbcon.NewQuery("SELECT id, path_old, suppliers_old FROM ss13_cargo_items WHERE deleted_at is NULL AND supplier is NULL")
+	var/DBQuery/item_query = dbcon.NewQuery("SELECT id, path_old, suppliers_old FROM ss13_cargo_items WHERE deleted_at is NULL AND items is NULL")
 	item_query.Execute()
 	while(item_query.NextRow())
 		CHECK_TICK
@@ -97,7 +97,12 @@ var/datum/controller/subsystem/cargo/SScargo
 		//Gets the vars of the row
 		var/id = item_query.item[1]
 		var/path = item_query.item[2]
-		var/list/suppliers = json_decode(item_query.item[3])
+		var/list/suppliers = list()
+		try
+			suppliers = json_decode(item_query.item[3])
+		catch(var/exception/e)
+			log_debug("Error Decoding supplier data for item: [id] - [e]")
+			continue
 
 		// Calculate the following items
 		//Supplier - The first supplier in the suppliers list
@@ -144,46 +149,59 @@ var/datum/controller/subsystem/cargo/SScargo
 		var/DBQuery/category_query = dbcon.NewQuery("SELECT name, display_name, description, icon, price_modifier FROM ss13_cargo_categories WHERE deleted_at IS NULL ORDER BY order_by ASC")
 		category_query.Execute()
 		while(category_query.NextRow())
-			add_category(
-				category_query.item[1],
-				category_query.item[2],
-				category_query.item[3],
-				category_query.item[4],
-				text2num(category_query.item[5]))
 			CHECK_TICK
+			try
+				add_category(
+					category_query.item[1],
+					category_query.item[2],
+					category_query.item[3],
+					category_query.item[4],
+					text2num(category_query.item[5]))
+			catch(var/exception/ec)
+				log_debug("SScargo: Error when loading category: [ec]")
+				break
+			
 
 		//Load the suppliers
 		var/DBQuery/supplier_query = dbcon.NewQuery("SELECT short_name, name, description, tag_line, shuttle_time, shuttle_price, available, price_modifier FROM ss13_cargo_suppliers WHERE deleted_at is NULL")
 		supplier_query.Execute()
 		while(supplier_query.NextRow())
-			add_supplier(
-				supplier_query.item[1],
-				supplier_query.item[2],
-				supplier_query.item[3],
-				supplier_query.item[4],
-				supplier_query.item[5],
-				supplier_query.item[6],
-				supplier_query.item[7],
-				supplier_query.item[8])
 			CHECK_TICK
+			try
+				add_supplier(
+					supplier_query.item[1],
+					supplier_query.item[2],
+					supplier_query.item[3],
+					supplier_query.item[4],
+					supplier_query.item[5],
+					supplier_query.item[6],
+					supplier_query.item[7],
+					supplier_query.item[8])
+			catch(var/exception/es)
+				log_debug("SScargo: Error when loading supplier: [es]")
+				break
 
 		//Load the items
 		var/DBQuery/item_query = dbcon.NewQuery("SELECT id, name, supplier, description, categories, price, items, access, container_type, groupable, item_mul FROM ss13_cargo_items WHERE deleted_at is NULL AND supplier IS NOT NULL ORDER BY order_by ASC, name ASC, supplier ASC")
 		item_query.Execute()
 		while(item_query.NextRow())
 			CHECK_TICK
-			add_item(
-				item_query.item[1],
-				item_query.item[2],
-				item_query.item[3],
-				item_query.item[4],
-				json_decode(item_query.item[5]),
-				item_query.item[6],
-				json_decode(item_query.item[7]),
-				item_query.item[8],
-				item_query.item[9],
-				item_query.item[10],
-				item_query.item[11])
+			try
+				add_item(
+					item_query.item[1],
+					item_query.item[2],
+					item_query.item[3],
+					item_query.item[4],
+					json_decode(item_query.item[5]),
+					item_query.item[6],
+					json_decode(item_query.item[7]),
+					item_query.item[8],
+					item_query.item[9],
+					item_query.item[10],
+					item_query.item[11])
+			catch(var/exception/ei)
+				log_debug("SScargo: Error when loading item: [ei]")
+				break
 		return 1
 
 //Loads the cargo data from JSON
@@ -191,8 +209,8 @@ var/datum/controller/subsystem/cargo/SScargo
 	var/list/cargoconfig = list()
 	try
 		cargoconfig = json_decode(return_file_text("config/cargo.json"))
-	catch(var/exception/e)
-		log_debug("SScargo: Warning: Could not load config, as cargo.json is missing - [e]")
+	catch(var/exception/ej)
+		log_debug("SScargo: Warning: Could not load config, as cargo.json is missing - [ej]")
 		return
 
 	//Reset the currently loaded data
@@ -200,42 +218,55 @@ var/datum/controller/subsystem/cargo/SScargo
 
 	//Load the cargo categories
 	for (var/category in cargoconfig["categories"])
-		add_category(
-			cargoconfig["categories"][category]["name"],
-			cargoconfig["categories"][category]["display_name"],
-			cargoconfig["categories"][category]["description"],
-			cargoconfig["categories"][category]["icon"],
-			cargoconfig["categories"][category]["price_modifier"])
 		CHECK_TICK
+		try
+			add_category(
+				cargoconfig["categories"][category]["name"],
+				cargoconfig["categories"][category]["display_name"],
+				cargoconfig["categories"][category]["description"],
+				cargoconfig["categories"][category]["icon"],
+				cargoconfig["categories"][category]["price_modifier"])
+		catch(var/exception/ec)
+			log_debug("SScargo: Error when loading category: [ec]")
+			break
+		
 
 	//Load the suppliers
 	for (var/supplier in cargoconfig["suppliers"])
-		add_supplier(
-			supplier,
-			cargoconfig["suppliers"][supplier]["name"],
-			cargoconfig["suppliers"][supplier]["description"],
-			cargoconfig["suppliers"][supplier]["tag_line"],
-			cargoconfig["suppliers"][supplier]["shuttle_time"],
-			cargoconfig["suppliers"][supplier]["shuttle_price"],
-			cargoconfig["suppliers"][supplier]["available"],
-			cargoconfig["suppliers"][supplier]["price_modifier"])
 		CHECK_TICK
+		try
+			add_supplier(
+				supplier,
+				cargoconfig["suppliers"][supplier]["name"],
+				cargoconfig["suppliers"][supplier]["description"],
+				cargoconfig["suppliers"][supplier]["tag_line"],
+				cargoconfig["suppliers"][supplier]["shuttle_time"],
+				cargoconfig["suppliers"][supplier]["shuttle_price"],
+				cargoconfig["suppliers"][supplier]["available"],
+				cargoconfig["suppliers"][supplier]["price_modifier"])
+		catch(var/exception/es)
+			log_debug("SScargo: Error when loading supplier: [es]")
+			break
 
 	//Load the cargoitems
 	for (var/item in cargoconfig["items"])
 		CHECK_TICK
-		add_item(
-			null,
-			cargoconfig["items"][item]["name"],
-			cargoconfig["items"][item]["supplier"],
-			cargoconfig["items"][item]["description"],
-			cargoconfig["items"][item]["categories"],
-			cargoconfig["items"][item]["price"],
-			cargoconfig["items"][item]["items"],
-			cargoconfig["items"][item]["access"],
-			cargoconfig["items"][item]["container_type"],
-			cargoconfig["items"][item]["groupable"],
-			cargoconfig["items"][item]["item_mul"])	
+		try
+			add_item(
+				null,
+				cargoconfig["items"][item]["name"],
+				cargoconfig["items"][item]["supplier"],
+				cargoconfig["items"][item]["description"],
+				cargoconfig["items"][item]["categories"],
+				cargoconfig["items"][item]["price"],
+				cargoconfig["items"][item]["items"],
+				cargoconfig["items"][item]["access"],
+				cargoconfig["items"][item]["container_type"],
+				cargoconfig["items"][item]["groupable"],
+				cargoconfig["items"][item]["item_mul"])	
+		catch(var/exception/ei)
+			log_debug("SScargo: Error when loading supplier: [ei]")
+			break
 	return 1
 
 //Add a new Category to the Cargo Subsystem
