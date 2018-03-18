@@ -72,7 +72,7 @@
 				if(co.tracking_code == user_tracking_code)
 					data["tracking_status"] = "Success"
 					data["tracked_order"] = co.get_list()
-					data["tracked_order_report"] = co.get_report()
+					data["tracked_order_report"] = co.get_report_invoice()
 				else
 					data["tracking_status"] = "Invalid Tracking Code"
 			else

@@ -41,6 +41,9 @@ var/datum/controller/subsystem/cargo/SScargo
 	var/movetime = 1200
 	var/datum/shuttle/ferry/supply/shuttle
 
+	//Item vars
+	var/last_item_id = 0 //The ID of the last item that has been added
+
 /datum/controller/subsystem/cargo/Recover()
 	src.shuttle = SScargo.shuttle
 	src.cargo_items = SScargo.cargo_items
@@ -141,98 +144,46 @@ var/datum/controller/subsystem/cargo/SScargo
 		var/DBQuery/category_query = dbcon.NewQuery("SELECT name, display_name, description, icon, price_modifier FROM ss13_cargo_categories WHERE deleted_at IS NULL ORDER BY order_by ASC")
 		category_query.Execute()
 		while(category_query.NextRow())
-			var/datum/cargo_category/cc = new()
-			cc.name = category_query.item[1]
-			cc.display_name = category_query.item[2]
-			cc.description = category_query.item[3]
-			cc.icon = category_query.item[4]
-			cc.price_modifier = text2num(category_query.item[5])
-
-			//Add the category to the cargo_categories list
-			cargo_categories[cc.name] = cc
-
+			add_category(
+				category_query.item[1],
+				category_query.item[2],
+				category_query.item[3],
+				category_query.item[4],
+				text2num(category_query.item[5]))
 			CHECK_TICK
 
 		//Load the suppliers
 		var/DBQuery/supplier_query = dbcon.NewQuery("SELECT short_name, name, description, tag_line, shuttle_time, shuttle_price, available, price_modifier FROM ss13_cargo_suppliers WHERE deleted_at is NULL")
 		supplier_query.Execute()
 		while(supplier_query.NextRow())
-			var/datum/cargo_supplier/cs = new()
-			cs.short_name = supplier_query.item[1]
-			cs.name = supplier_query.item[2]
-			cs.description = supplier_query.item[3]
-			cs.tag_line = supplier_query.item[4]
-			cs.shuttle_time = text2num(supplier_query.item[5])
-			cs.shuttle_price = text2num(supplier_query.item[6])
-			cs.available = text2num(supplier_query.item[7])
-			cs.price_modifier = text2num(supplier_query.item[8])
-
-			cargo_suppliers[cs.short_name] = cs
-
+			add_supplier(
+				supplier_query.item[1],
+				supplier_query.item[2],
+				supplier_query.item[3],
+				supplier_query.item[4],
+				supplier_query.item[5],
+				supplier_query.item[6],
+				supplier_query.item[7],
+				supplier_query.item[8])
 			CHECK_TICK
 
 		//Load the items
-		var/DBQuery/item_query = dbcon.NewQuery("SELECT id, name, supplier, description, categories, price, items, access, container_type, groupable FROM ss13_cargo_items WHERE deleted_at is NULL AND supplier IS NOT NULL ORDER BY order_by ASC, name ASC, supplier ASC")
+		var/DBQuery/item_query = dbcon.NewQuery("SELECT id, name, supplier, description, categories, price, items, access, container_type, groupable, item_mul FROM ss13_cargo_items WHERE deleted_at is NULL AND supplier IS NOT NULL ORDER BY order_by ASC, name ASC, supplier ASC")
 		item_query.Execute()
 		while(item_query.NextRow())
 			CHECK_TICK
-			var/datum/cargo_item/ci = new()
-			try
-				ci.id = item_query.item[1]
-				ci.name = item_query.item[2]
-				ci.supplier = item_query.item[3]
-				ci.description = item_query.item[4]
-				ci.categories = json_decode(item_query.item[5])
-				ci.price = text2num(item_query.item[6])
-				ci.items = json_decode(item_query.item[7])
-				ci.access = text2num(item_query.item[8]) //TODO-CARGO: Maybe add the option to specify access as string instead of number
-				ci.container_type = item_query.item[9]
-				ci.groupable = text2num(item_query.item[10])
-				ci.amount = length(ci.items)
-			catch(var/exception/e)
-				log_debug("SScargo: Error when loading item: [e]")
-				qdel(ci)
-				continue
-			
-			for(var/item in ci.items)
-				var/itempath = text2path(item)
-				if(!ispath(itempath))
-					log_debug("SScargo: Warning - Attempted to add item with invalid path - [ci.id] - [ci.name] - [item]")
-					continue
-
-			//Check if a valid container is specified
-			if(!(ci.container_type == CARGO_CONTAINER_CRATE || ci.container_type == CARGO_CONTAINER_FREEZER || ci.container_type == CARGO_CONTAINER_BOX))
-				log_debug("SScargo: Invalid container type specified for item - Aborting")
-				qdel(ci)
-				continue
-
-			//Verify the suppliers exist
-			var/datum/cargo_supplier/cs = get_supplier_by_name(ci.supplier)
-			if(!cs)
-				log_debug("SScargo: [ci.supplier] is not a valid supplier for item [ci.name].")
-				QDEL_NULL(ci)
-				continue
-			//Setting the supplier
-			ci.supplier_datum = cs
-
-			//Add the item to the cargo_items list
-			cargo_items["[ci.id]"] = ci
-
-			//Add the item to the suppliers items list
-			ci.supplier_datum.items.Add(ci)
-
-			//Log a message if no categories are specified
-			if(ci.categories.len == 0)
-				log_debug("SScargo: No categories specified for item [ci.name].")
-
-			//Add the item to the categories
-			for(var/category in ci.categories)
-				var/datum/cargo_category/cc = cargo_categories[category]
-				if(cc) //Check if the category exists
-					cc.items.Add(ci)
-				else
-					log_debug("SScargo: Warning - Attempted to add [ci.name] item to category [category] that does not exist.")
-
+			add_item(
+				item_query.item[1],
+				item_query.item[2],
+				item_query.item[3],
+				item_query.item[4],
+				json_decode(item_query.item[5]),
+				item_query.item[6],
+				json_decode(item_query.item[7]),
+				item_query.item[8],
+				item_query.item[9],
+				item_query.item[10],
+				item_query.item[11])
 		return 1
 
 //Loads the cargo data from JSON
@@ -249,87 +200,161 @@ var/datum/controller/subsystem/cargo/SScargo
 
 	//Load the cargo categories
 	for (var/category in cargoconfig["categories"])
-		var/datum/cargo_category/cc = new()
-		cc.name = cargoconfig["categories"][category]["name"]
-		cc.display_name = cargoconfig["categories"][category]["display_name"]
-		cc.description = cargoconfig["categories"][category]["description"]
-		cc.icon = cargoconfig["categories"][category]["icon"]
-		cc.price_modifier = cargoconfig["categories"][category]["price_modifier"]
-
-		//Add the category to the cargo_categories list
-		cargo_categories[cc.name] = cc
-
+		add_category(
+			cargoconfig["categories"][category]["name"],
+			cargoconfig["categories"][category]["display_name"],
+			cargoconfig["categories"][category]["description"],
+			cargoconfig["categories"][category]["icon"],
+			cargoconfig["categories"][category]["price_modifier"])
 		CHECK_TICK
 
 	//Load the suppliers
 	for (var/supplier in cargoconfig["suppliers"])
-		var/datum/cargo_supplier/cs = new()
-		cs.short_name = supplier
-		cs.name = cargoconfig["suppliers"][supplier]["name"]
-		cs.description = cargoconfig["suppliers"][supplier]["description"]
-		cs.tag_line = cargoconfig["suppliers"][supplier]["tag_line"]
-		cs.shuttle_time = cargoconfig["suppliers"][supplier]["shuttle_time"]
-		cs.shuttle_price = cargoconfig["suppliers"][supplier]["shuttle_price"]
-		cs.available = cargoconfig["suppliers"][supplier]["available"]
-		cs.price_modifier = cargoconfig["suppliers"][supplier]["price_modifier"]
-
-		cargo_suppliers[cs.short_name] = cs
-
+		add_supplier(
+			supplier,
+			cargoconfig["suppliers"][supplier]["name"],
+			cargoconfig["suppliers"][supplier]["description"],
+			cargoconfig["suppliers"][supplier]["tag_line"],
+			cargoconfig["suppliers"][supplier]["shuttle_time"],
+			cargoconfig["suppliers"][supplier]["shuttle_price"],
+			cargoconfig["suppliers"][supplier]["available"],
+			cargoconfig["suppliers"][supplier]["price_modifier"])
 		CHECK_TICK
 
 	var/item_id = 0
 	//Load the cargoitems
 	for (var/item in cargoconfig["items"])
 		CHECK_TICK
-
-		item_id++
-		var/itempath = text2path(item)
-		if(!ispath(itempath))
-			log_debug("SScargo: Warning - Attempted to add item with invalid path: [item]")
-			continue
-		var/datum/cargo_item/ci = new()
-		ci.id = item_id
-		ci.name = cargoconfig["items"][item]["name"]
-		ci.supplier = cargoconfig["items"][item]["supplier"]
-		ci.description = cargoconfig["items"][item]["description"]
-		ci.categories = cargoconfig["items"][item]["categories"]
-		ci.items = cargoconfig["items"][item]["items"]
-		ci.access = cargoconfig["items"][item]["access"]
-		ci.container_type = cargoconfig["items"][item]["container_type"]
-		ci.groupable = cargoconfig["items"][item]["groupable"]
-
-		//Verify the suppliers exist
-		var/datum/cargo_supplier/cs = get_supplier_by_name(ci.supplier)
-		if(!cs)
-			log_debug("SScargo: [ci.supplier] is not a valid supplier for item [ci.name].")
-
-		//Setting the supplier
-		ci.supplier_datum = cs
-
-		//Add the item to the cargo_items list
-		cargo_items["ci.id"] = ci
-
-		//Add the item to the categories
-		for(var/category in ci.categories)
-			var/datum/cargo_category/cc = cargo_categories[category]
-			if(cc) //Check if the category exists
-				cc.items.Add(ci)
-			else
-				log_debug("SScargo: Warning - Attempted to add item [ci.name] to category that does not exist.")
+		add_item(
+			null,
+			cargoconfig["items"][item]["name"],
+			cargoconfig["items"][item]["supplier"],
+			cargoconfig["items"][item]["description"],
+			cargoconfig["items"][item]["categories"],
+			cargoconfig["items"][item]["price"],
+			cargoconfig["items"][item]["items"],
+			cargoconfig["items"][item]["access"],
+			cargoconfig["items"][item]["container_type"],
+			cargoconfig["items"][item]["groupable"],
+			cargoconfig["items"][item]["item_mul"])	
 	return 1
 
+//Add a new Category to the Cargo Subsystem
+/datum/controller/subsystem/cargo/proc/add_category(var/name,var/display_name,var/description,var/icon,var/price_modifier)
+	var/datum/cargo_category/cc = new()
+	cc.name = name
+	cc.display_name = display_name
+	cc.description = description
+	cc.icon = icon
+	cc.price_modifier = text2num(price_modifier)
 
+	//Add the category to the cargo_categories list
+	cargo_categories[cc.name] = cc
+	return cc
+
+//Add a new Supplier to the Cargo Subsystem
+/datum/controller/subsystem/cargo/proc/add_supplier(var/short_name,var/name,var/description,var/tag_line,var/shuttle_time,var/shuttle_price,var/available,var/price_modifier)
+	var/datum/cargo_supplier/cs = new()
+	cs.short_name = short_name
+	cs.name = name
+	cs.description = description
+	cs.tag_line = tag_line
+	cs.shuttle_time = text2num(shuttle_time)
+	cs.shuttle_price = text2num(shuttle_price)
+	cs.available = text2num(available)
+	cs.price_modifier = text2num(price_modifier)
+
+	cargo_suppliers[cs.short_name] = cs
+	return cs
+
+//Add a new item to the cargo subsystem, the categories and the items need to be a list and CAN NOT be passed as a json string.
+//Decoding of the string MUST take place before
+/datum/controller/subsystem/cargo/proc/add_item(var/id=null,var/name,var/supplier="nt",var/description,var/list/categories,var/price,var/list/items,var/access=0,var/container_type=CARGO_CONTAINER_CRATE,var/groupable=1,var/item_mul=1)	
+	//TODO-CARGO: Maybe add the option to specify access as string instead of number
+	
+	//If no item ID is supplied generate one ourselfs (use the next free id)
+	//If one is supplied, update the item id if the one supplied is higher
+	if(!id)
+		id=get_next_item_id()
+	else
+		if(id > last_item_id)
+			last_item_id = id
+	
+	var/datum/cargo_item/ci = new()
+	try
+		ci.id = id
+		ci.name = name
+		ci.supplier = supplier
+		ci.description = description
+		ci.categories = categories
+		ci.price = text2num(price)
+		ci.items = items
+		ci.access = text2num(access)
+		ci.container_type = container_type
+		ci.groupable = text2num(groupable)
+		ci.item_mul = text2num(item_mul)
+		ci.amount = length(ci.items)*ci.item_mul
+	catch(var/exception/e)
+		log_debug("SScargo: Error when loading item: [e]")
+		qdel(ci)
+		return
+	
+	for(var/item in ci.items)
+		var/itempath = text2path(item)
+		if(!ispath(itempath))
+			log_debug("SScargo: Warning - Attempted to add item with invalid path - [ci.id] - [ci.name] - [item]")
+			return
+
+	//Check if a valid container is specified
+	if(!(ci.container_type == CARGO_CONTAINER_CRATE || ci.container_type == CARGO_CONTAINER_FREEZER || ci.container_type == CARGO_CONTAINER_BOX))
+		log_debug("SScargo: Invalid container type specified for item - Aborting")
+		qdel(ci)
+		return
+
+	//Verify the suppliers exist
+	var/datum/cargo_supplier/cs = get_supplier_by_name(ci.supplier)
+	if(!cs)
+		log_debug("SScargo: [ci.supplier] is not a valid supplier for item [ci.name].")
+		QDEL_NULL(ci)
+		return
+	
+	//Setting the supplier
+	ci.supplier_datum = cs
+
+	//Add the item to the cargo_items list
+	cargo_items["[ci.id]"] = ci
+
+	//Add the item to the suppliers items list
+	ci.supplier_datum.items.Add(ci)
+
+	//Log a message if no categories are specified
+	if(ci.categories.len == 0)
+		log_debug("SScargo: No categories specified for item [ci.name].")
+
+	//Add the item to the categories
+	for(var/category in ci.categories)
+		var/datum/cargo_category/cc = cargo_categories[category]
+		if(cc) //Check if the category exists
+			cc.items.Add(ci)
+		else
+			log_debug("SScargo: Warning - Attempted to add [ci.name] item to category [category] that does not exist.")
+	
+	return ci
+	
 /*
 	Getting items, categories, suppliers and shipments
 */
 /datum/controller/subsystem/cargo/proc/get_order_count()
 	return all_orders.len
-//Increments the orderid and returns it
+//Returns the order id and increments it
 /datum/controller/subsystem/cargo/proc/get_next_order_id()
 	. = ordernum
 	ordernum++
 	return .
-
+//Increments the itemid and returns it
+/datum/controller/subsystem/cargo/proc/get_next_item_id()
+	last_item_id++
+	return last_item_id
 //Gets the items from a category
 /datum/controller/subsystem/cargo/proc/get_items_for_category(var/category)
 	var/datum/cargo_category/cc = cargo_categories[category]

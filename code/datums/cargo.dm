@@ -10,7 +10,8 @@
 	var/list/categories = list() //List of categories this item appears in
 	var/price = 0 //The price of the item
 	var/list/items = list()
-	var/amount = 1 //Amount of items in the crate
+	var/amount = 1 //Total Amount of items in the crate (including multiplier)
+	var/item_mul = 1 //Multiplier of the items
 	var/access = null //What access requirement should be added to the container
 	var/container_type = "crate" //crate or box
 	var/groupable = 1 //If the item can be thrown into the same container as other items
@@ -309,10 +310,10 @@
 	else
 		return status
 
-// Returns a HTML to be printed for the order
-/datum/cargo_order/proc/get_report()
+// Returns a Invoice for the Order
+/datum/cargo_order/proc/get_report_invoice()
 	var/list/order_data = list()
-	order_data += "<h4>Order [order_id]</h4>"
+	order_data += "<h4>Invoice #[order_id]</h4>"
 	order_data += "<hr>"
 	//List the personell involved in the order
 	order_data += "<u>Ordered by:</u> [ordered_by]<br>"
@@ -350,6 +351,19 @@
 	order_data += "</ul>"
 
 	return order_data.Join("")
+
+// Returns a Delivery Order for the Crate
+/datum/cargo_order/proc/get_report_delivery_order()
+	var/list/order_data = list()
+	order_data += "<h4>Delivery Order #[order_id]</h4>"
+	order_data += "<hr>"
+	order_data += "<u>Submitted at:</u> [time_submitted]<br>"
+	order_data += "<u>Shipped at:</u> [time_shipped]<br>"
+	order_data += "<u>Contents:</u><br>"
+	order_data += "<ul>"
+	for(var/item in get_item_list())
+		order_data += "<li>[item["name"]] (Set of [item["amount"]])</li>"
+	order_data += "</ul>"
 
 
 /*

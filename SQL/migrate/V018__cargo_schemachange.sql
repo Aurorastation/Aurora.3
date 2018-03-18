@@ -10,9 +10,9 @@ ALTER TABLE `ss13_cargo_items`
 	ADD COLUMN `supplier` VARCHAR(50) NOT NULL DEFAULT 'nt' AFTER `name`,
 	ADD COLUMN `price` INT(11) NOT NULL AFTER `categories`,
 	ADD COLUMN `items` TEXT NULL COMMENT 'JSON list of all the items and their attributes' AFTER `price`,
+	CHANGE COLUMN `amount` `item_mul` INT(10) UNSIGNED NOT NULL DEFAULT '1' AFTER `items`,
 	CHANGE COLUMN `suppliers` `suppliers_old` TEXT NULL COMMENT 'JSON list of suppliers' COLLATE 'utf8_bin' AFTER `deleted_at`,
-	CHANGE COLUMN `amount` `amount_old` INT(10) UNSIGNED NOT NULL DEFAULT '1' AFTER `suppliers_old`,
-	CHANGE COLUMN `path` `path_old` VARCHAR(150) NOT NULL COLLATE 'utf8_bin' AFTER `amount_old`;
+	CHANGE COLUMN `path` `path_old` VARCHAR(150) NOT NULL COLLATE 'utf8_bin' AFTER `suppliers_old`;
 
 ALTER TABLE `ss13_cargo_items`
 	ADD UNIQUE INDEX `name_supplier_path_old` (`name`, `supplier`);
