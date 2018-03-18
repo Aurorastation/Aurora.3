@@ -4,7 +4,7 @@
 
 	if(!check_rights(R_ADMIN|R_DEBUG|R_DEV))
 		return
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		src << "<span class='danger'>Failed to establish database connection.</span>"
 		return
 	var/polltype = input("Choose poll type.","Poll Type") in list("Single Option","Text Reply","Rating","Multiple Choice")

@@ -1060,7 +1060,7 @@ proc/api_update_command_database()
 	var/current_only = text2num(queryparams["current_only"])
 	var/admin_only = text2num(queryparams["admin_only"])
 	
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		statuscode = 500
 		response = "DB-Connection unavailable"
 		return 1
@@ -1097,7 +1097,7 @@ proc/api_update_command_database()
 /datum/topic_command/get_poll_info/run_command(queryparams)
 	var/poll_id = text2num(queryparams["poll_id"])
 
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		statuscode = 500
 		response = "DB-Connection unavailable"
 		return 1
