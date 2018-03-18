@@ -56,7 +56,7 @@ var/datum/controller/subsystem/cargo/SScargo
 	ordernum = rand(1,8000)
 	shipmentnum = rand(500,700)
 
-	//Fetch the cargo account once the round is started - TODO: Repalce that once economy gets its own subsystem
+	//Fetch the cargo account once the round is started - TODO-CARGO: Repalce that once economy gets its own subsystem
 	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, .proc/fetch_supply_account))
 
 	//Load in the cargo items config
@@ -86,7 +86,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		log_debug("SScargo: SQL ERROR - Failed to connect. - Migration not executed")
 		return
 	//Gets those that havnt been migrated
-	var/DBQuery/item_query = dbcon.NewQuery("SELECT id, path, suppliers FROM ss13_cargo_items WHERE deleted_at is NULL AND supplier is NULL")
+	var/DBQuery/item_query = dbcon.NewQuery("SELECT id, path_old, suppliers_old FROM ss13_cargo_items WHERE deleted_at is NULL AND supplier is NULL")
 	item_query.Execute()
 	while(item_query.NextRow())
 		CHECK_TICK
@@ -134,6 +134,9 @@ var/datum/controller/subsystem/cargo/SScargo
 		//Reset the currently loaded data
 		reset_cargo()
 
+		//Run the data migration
+		run_migration_1()
+
 		//Load the categories
 		var/DBQuery/category_query = dbcon.NewQuery("SELECT name, display_name, description, icon, price_modifier FROM ss13_cargo_categories WHERE deleted_at IS NULL ORDER BY order_by ASC")
 		category_query.Execute()
@@ -173,11 +176,6 @@ var/datum/controller/subsystem/cargo/SScargo
 		item_query.Execute()
 		while(item_query.NextRow())
 			CHECK_TICK
-
-			var/itempath = text2path(item_query.item[1])
-			if(!ispath(itempath))
-				log_debug("SScargo: Warning - Attempted to add item with invalid path: [item_query.item[2]] - [item_query.item[1]]")
-				continue
 			var/datum/cargo_item/ci = new()
 			try
 				ci.id = item_query.item[1]
@@ -187,7 +185,7 @@ var/datum/controller/subsystem/cargo/SScargo
 				ci.categories = json_decode(item_query.item[5])
 				ci.price = text2num(item_query.item[6])
 				ci.items = json_decode(item_query.item[7])
-				ci.access = text2num(item_query.item[8]) //TODO: Maybe add the option to specify access as string instead of number
+				ci.access = text2num(item_query.item[8]) //TODO-CARGO: Maybe add the option to specify access as string instead of number
 				ci.container_type = item_query.item[9]
 				ci.groupable = text2num(item_query.item[10])
 				ci.amount = length(ci.items)
@@ -195,6 +193,12 @@ var/datum/controller/subsystem/cargo/SScargo
 				log_debug("SScargo: Error when loading item: [e]")
 				qdel(ci)
 				continue
+			
+			for(var/item in ci.items)
+				var/itempath = text2path(item)
+				if(!ispath(itempath))
+					log_debug("SScargo: Warning - Attempted to add item with invalid path - [ci.id] - [ci.name] - [item]")
+					continue
 
 			//Check if a valid container is specified
 			if(!(ci.container_type == CARGO_CONTAINER_CRATE || ci.container_type == CARGO_CONTAINER_FREEZER || ci.container_type == CARGO_CONTAINER_BOX))
@@ -212,7 +216,7 @@ var/datum/controller/subsystem/cargo/SScargo
 			ci.supplier_datum = cs
 
 			//Add the item to the cargo_items list
-			cargo_items.Add(ci)
+			cargo_items["[ci.id]"] = ci
 
 			//Add the item to the suppliers items list
 			ci.supplier_datum.items.Add(ci)
@@ -303,7 +307,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		ci.supplier_datum = cs
 
 		//Add the item to the cargo_items list
-		cargo_items[ci.id] = ci
+		cargo_items["ci.id"] = ci
 
 		//Add the item to the categories
 		for(var/category in ci.categories)
@@ -594,7 +598,7 @@ var/datum/controller/subsystem/cargo/SScargo
 
 //Sells stuff on the shuttle to centcom
 /datum/controller/subsystem/cargo/proc/sell()
-	//TODO: Only pay for specific stuff on the shuttle and not for everything else - Charge a cleanup fee for the rest
+	//TODO-CARGO: Only pay for specific stuff on the shuttle and not for everything else - Charge a cleanup fee for the rest
 	var/area/area_shuttle = shuttle.get_location_area()
 	if(!area_shuttle)	return
 
@@ -664,6 +668,12 @@ var/datum/controller/subsystem/cargo/SScargo
 			log_debug("SScargo: Order [co.order_id] could not be placed on the shuttle because the shuttle is full")
 			break
 
+		//Check if the supplier is still available
+		for(var/datum/cargo_order_item/coi in co.items)
+			if(!coi.ci.supplier_datum.available)
+				log_debug("SScargo: Order [co.order_id] could not be placed on the shuttle because supplier [coi.ci.supplier_datum.name] for item [coi.ci.name] is unavailable")
+				break
+
 		//Check if there is enough money to ship the order
 		if(!ship_order(co))
 			break
@@ -677,7 +687,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		var/obj/A = new containertype(pickedloc)
 
 		//Label the crate
-		//TODO: Look into wrapping it in a NT paper
+		//TODO-CARGO: Look into wrapping it in a the suppliers paper
 		A.name = "[co.order_id] - [co.ordered_by]"
 
 		//Set the access requirement

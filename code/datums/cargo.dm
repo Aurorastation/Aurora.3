@@ -158,6 +158,7 @@
 	data["items"] = get_item_list()
 	data["shipment_cost"] = partial_shipment_fee
 	data["shipment_cost_max"] = get_max_shipment_cost()
+	data["reason"] = reason
 	return data
 
 //Adds a item to a order. Returns a status message
