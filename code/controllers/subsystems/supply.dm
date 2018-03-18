@@ -221,7 +221,6 @@ var/datum/controller/subsystem/cargo/SScargo
 			cargoconfig["suppliers"][supplier]["price_modifier"])
 		CHECK_TICK
 
-	var/item_id = 0
 	//Load the cargoitems
 	for (var/item in cargoconfig["items"])
 		CHECK_TICK
@@ -340,7 +339,7 @@ var/datum/controller/subsystem/cargo/SScargo
 			log_debug("SScargo: Warning - Attempted to add [ci.name] item to category [category] that does not exist.")
 	
 	return ci
-	
+
 /*
 	Getting items, categories, suppliers and shipments
 */
@@ -723,15 +722,15 @@ var/datum/controller/subsystem/cargo/SScargo
 		for(var/datum/cargo_order_item/coi in co.items)
 			if(!coi)
 				continue
-
-			for(var/item_path in coi.ci.items)
-				var/atom/item = new item_path(A)
-				//Customize the items
-				for(var/var_name in coi.ci.items[item_path])
-					try
-						item.vars[var_name] = coi.ci.items[item_path][var_name]
-					catch(var/exception/e)
-						log_debug("SScargo: Bad variable name [var_name] for item name: [coi.ci.name] id: [coi.ci.id] - [e]")
+			for(var/j=1;j<=coi.ci.item_mul;j++)
+				for(var/item_path in coi.ci.items)
+					var/atom/item = new item_path(A)
+					//Customize the items
+					for(var/var_name in coi.ci.items[item_path])
+						try
+							item.vars[var_name] = coi.ci.items[item_path][var_name]
+						catch(var/exception/e)
+							log_debug("SScargo: Bad variable name [var_name] for item name: [coi.ci.name] id: [coi.ci.id] - [e]")
 
 	//Shuttle is loaded now - Charge cargo for it
 	charge_cargo("Shipment #[current_shipment.shipment_num] - Expense",current_shipment.shipment_cost_purchase)
