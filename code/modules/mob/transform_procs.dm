@@ -1,4 +1,4 @@
-/mob/living/carbon/human/proc/monkeyize(var/kpg=0)
+/mob/living/carbon/human/monkeyize(var/kpg=0)
 	if (transforming)
 		return
 	for(var/obj/item/W in src)

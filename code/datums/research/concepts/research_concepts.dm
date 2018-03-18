@@ -21,9 +21,6 @@
 	if(level == maxlevel)
 		return 0
 	level++
-	//for(var/A in SSresearch.rdconsoles)
-	//	var/obj/machinery/computer/rdconsole = A
-		//rdconsole.updatetechs()
 	return 1
 
 /datum/research_concepts/proc/get_tech_desc(var/level = 1)
