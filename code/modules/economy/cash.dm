@@ -184,7 +184,6 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 	if(scratches_remaining <= 0)
 		user << "<span class='warning'>The card flashes: \"No scratches remaining!\"</span>"
 		return
-		return
 
 	user << "<span class='notice'>You initiate the simulated scratch action process on the [src]...</span>"
 	playsound(src.loc, 'sound/items/drumroll.ogg', 50, 0, 0)
