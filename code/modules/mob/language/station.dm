@@ -78,31 +78,25 @@
 /datum/language/siik_tajr
 	name = LANGUAGE_SIIK_TAJR
 	desc = "A language native to the tajaran, it employes both verbal and non-verbal elements."
-	speech_verb = "mrowls"
-	ask_verb = "mrowls"
-	exclaim_verb = "yowls"
+	speech_verb = "purrs"
+	ask_verb = "begs"
+	exclaim_verb = "hisses"
 	signlang_verb = list("signs", "flicks their ears", "gestures")
 	colour = "tajaran_signlang"
 	key = "w"
 	flags = WHITELISTED | NONVERBAL
-	syllables = list("mrr","rr","tajr","kir","raj","kii","mir","kra","ahk","nal","vah","khaz","jri","ran","darr",
-	"mi","jri","dynh","manq","rhe","zar","rrhaz","kal","chur","eech","thaa","dra","jurl","mah","sanu","dra","ii'r",
-	"ka","aasi","far","wa","baq","ara","qara","zir","sam","mak","hrar","nja","rir","khan","jun","dar","rik","kah",
-	"hal","ket","jurl","mah","tul","cresh","azu","ragh","mro","mra","mrro","mrra")
+	syllables = list("meow")
 
 /datum/language/yassa
 	name = LANGUAGE_YA_SSA
 	desc = "The traditional language of the tajaran nobility."
-	speech_verb = "mrowls"
-	ask_verb = "mrowls"
-	exclaim_verb = "yowls"
+	speech_verb = "purrs"
+	ask_verb = "begs"
+	exclaim_verb = "hisses"
 	colour = "yassa"
 	key = "r"
 	flags = WHITELISTED
-	syllables = list("hrr","rhr","tarj","khir","rajh","kir","mier","kre","ahek","nlhal","veh","khaz","dri","rhan","darrer",
-	"mi","jhri","dynher","manqi","rhas","shar","drhaz","kalh","shur","echi","tha","draer","jurl","maher","sanii","dra","ii'r",
-	"kan","aesi","fare","we","bash","arha","quara","zhir","sem","make","hrer","nja","rir","can","jhun","dar","rik","kah",
-	"hal","kete","juril","mah","tul","cresh","azu","ragh","miro","mara","mrero","mrara")
+	syllables = list("meow")
 
 /datum/language/skrell
 	name = LANGUAGE_SKRELLIAN
