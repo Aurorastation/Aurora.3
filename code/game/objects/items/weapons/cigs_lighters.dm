@@ -462,7 +462,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 						user.apply_damage(2,BURN,"r_hand")
 					user.visible_message("<span class='notice'>After a few attempts, [user] manages to light the [src], they however burn their finger in the process.</span>")
 
-			set_light(2, flame_light)
+			set_light(2, 1, flame_light)
 			START_PROCESSING(SSprocessing, src)
 		else
 			lit = 0
