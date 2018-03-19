@@ -102,19 +102,20 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	create_reagents(chem_volume) // making the cigarrete a chemical holder with a maximum volume of 15
 
 /obj/item/clothing/mask/smokable/process()
-	var/turf/location = get_turf(src)
+
 	if(reagents && reagents.total_volume)
 		if(!initial_volume)
 			initial_volume = reagents.total_volume
-		if(ishuman(loc))
-			var/mob/living/carbon/human/C = loc
-			if (src == C.wear_mask && C.check_has_mouth())
-				reagents.trans_to_mob(C, burn_rate*initial_volume, CHEM_BREATHE, 0.75)
+		var/mob/living/carbon/human/C = loc
+		if(istype(C) && src == C.wear_mask)
+			reagents.trans_to_mob(C, burn_rate*initial_volume, CHEM_BREATHE, 0.75)
 		else
 			reagents.remove_any(burn_rate*initial_volume)
 	else
 		die()
 		return
+
+	var/turf/location = get_turf(src)
 	if(location)
 		location.hotspot_expose(700, 5)
 

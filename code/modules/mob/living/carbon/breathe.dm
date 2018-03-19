@@ -7,12 +7,11 @@
 
 /mob/living/carbon/proc/inhale(var/datum/reagents/from, var/datum/reagents/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
 
-	if(!(species.flags & IS_PLANT)) //Plants don't breath like humans
-		if(species && (species.flags & NO_BREATHE)) //Check for species
-			return 0
+	if(species && (species.flags & NO_BREATHE)) //Check for species
+		return 0
 
-		if (contents.Find(internal) && wear_mask && (wear_mask.item_flags & AIRTIGHT)) //Check for internals
-			return 0
+	if (contents.Find(internal) && wear_mask && (wear_mask.item_flags & AIRTIGHT)) //Check for internals
+		return 0
 
 	return from.trans_to_holder(target,amount,multiplier,copy) //complete transfer
 

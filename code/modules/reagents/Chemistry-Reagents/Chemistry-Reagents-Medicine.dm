@@ -598,7 +598,7 @@
 	description = "Nicotine is a stimulant and relaxant commonly found in tobacco products. It is very poisonous, unless at very low doses."
 	reagent_state = LIQUID
 	color = "#333333"
-	metabolism = 0.002
+	metabolism = 0.0005
 	overdose = 3
 	data = 0
 	taste_description = "bitterness"
@@ -606,18 +606,15 @@
 	badmessage = list("You start to crave nicotine...")
 	worstmessage = list("You need your nicotine fix!")
 	suppress_traumas  = list(
-		/datum/brain_trauma/mild/phobia = 0.1,
-		/datum/brain_trauma/mild/muscle_weakness/ = 0.1
+		/datum/brain_trauma/mild/phobia = 0.01,
+		/datum/brain_trauma/mild/muscle_weakness/ = 0.01
 	)
 	conflicting_reagents = list()
 	var/datum/modifier/modifier
 
 /datum/reagent/mental/nicotine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	. = ..()
-	M.make_jittery(5)
 	M.add_chemical_effect(CE_PAINKILLER, 5)
-	if (!modifier)
-		modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 0.125, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
 /datum/reagent/mental/nicotine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
 	. = ..()
