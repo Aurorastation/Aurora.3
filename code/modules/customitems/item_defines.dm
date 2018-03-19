@@ -1895,6 +1895,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "moretti_zippo"
 	item_state = "moretti_zippo"
 	contained_sprite = TRUE
+	flame_light = LIGHT_COLOR_BLUE
 
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/fluff/make_poncho //Raincoat Poncho - M.A.K.E - toasterstrudes
@@ -1904,7 +1905,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "make_poncho"
 	item_state = "make_poncho"
 	contained_sprite = TRUE
+	hoodtype = /obj/item/clothing/head/winterhood/fluff/make_hood
 
+/obj/item/clothing/head/winterhood/fluff/make_hood
+	/obj/item/clothing/head/winterhood/fluff/make_hood
+	flags_inv = HIDEEARS
 
 /obj/item/clothing/under/fluff/aegis_uniform //Hephaestus Experimental Projector - Sovereign Aegis - itanimulli
 	name = "Hephaestus experimental projector"
@@ -1913,7 +1918,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "aegis_uniform"
 	item_state = "aegis_uniform"
 	contained_sprite = TRUE
-	species_restricted = list("Machine")
+	species_restricted = list("Heavy Machine")
 
 
 /obj/item/clothing/suit/chef/fluff/fakhr_coat //Royal Cooking Coat - Fakhr Al-Kandari - lordraven001
