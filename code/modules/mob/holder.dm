@@ -424,6 +424,16 @@ var/list/holder_mob_icon_cache = list()
 	w_class = 1
 	item_state = "cat"
 
+/obj/item/weapon/holder/cat/penny
+	name = "Penny"
+	desc = "An important cat, straight from Central Command."
+	icon_state = "penny"
+	icon_state_dead = "penny_dead"
+	slot_flags = SLOT_HEAD
+	w_class = 1
+	item_state = "penny"
+	contained_sprite = 1
+
 
 /obj/item/weapon/holder/borer
 	name = "cortical borer"
