@@ -1910,6 +1910,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/head/winterhood/fluff/make_hood
 	flags_inv = HIDEEARS
 
+
 /obj/item/clothing/under/fluff/aegis_uniform //Hephaestus Experimental Projector - Sovereign Aegis - itanimulli
 	name = "Hephaestus experimental projector"
 	desc = "An odd device connected to a security uniform, apparently still in the prototype stage."
