@@ -1,0 +1,7 @@
+author: XanderDox
+
+delete-after: True
+
+changes: 
+  - bugfix: "Stopped unused human subspecies from appearing in virology reports."
+
