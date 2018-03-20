@@ -424,7 +424,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/base_state
 	var/activation_sound = 'sound/items/lighter_on.ogg'
 	var/desactivation_sound = 'sound/items/lighter_off.ogg'
-	var/flame_light = "#E38F46"
 
 /obj/item/weapon/flame/lighter/zippo
 	name = "\improper Zippo lighter"
@@ -462,7 +461,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 						user.apply_damage(2,BURN,"r_hand")
 					user.visible_message("<span class='notice'>After a few attempts, [user] manages to light the [src], they however burn their finger in the process.</span>")
 
-			set_light(2, 1, flame_light)
+			set_light(2)
 			START_PROCESSING(SSprocessing, src)
 		else
 			lit = 0

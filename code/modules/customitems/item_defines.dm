@@ -1895,7 +1895,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "moretti_zippo"
 	item_state = "moretti_zippo"
 	contained_sprite = TRUE
-	flame_light = LIGHT_COLOR_BLUE
+	light_color = LIGHT_COLOR_BLUE
 
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/fluff/make_poncho //Raincoat Poncho - M.A.K.E - toasterstrudes
