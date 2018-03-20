@@ -58604,6 +58604,7 @@
 	dir = 4
 	},
 /obj/machinery/firealarm/south,
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bWo" = (
@@ -91107,7 +91108,7 @@ bUS
 bVr
 bVM
 bWa
-bWo
+bTs
 bWl
 bXa
 bXo
