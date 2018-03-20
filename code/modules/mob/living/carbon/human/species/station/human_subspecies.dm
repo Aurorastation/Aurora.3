@@ -13,7 +13,8 @@
 	radiation_mod = 0.5
 	brute_mod =     0.85
 	slowdown =      1
-	
+
+	virus_immune = TRUE
 	spawn_flags = IS_RESTRICTED
 
 /datum/species/human/spacer
@@ -29,7 +30,8 @@
 	flash_mod = 1.2
 	brute_mod = 1.1
 	burn_mod =  1.1
-	
+
+	virus_immune = TRUE
 	spawn_flags = IS_RESTRICTED
 
 /datum/species/human/vatgrown
@@ -49,7 +51,7 @@
 		"brain" =    /obj/item/organ/brain,
 		"eyes" =     /obj/item/organ/eyes
 		)
-		
+	virus_immune = TRUE
 	spawn_flags = IS_RESTRICTED
 
 /*
