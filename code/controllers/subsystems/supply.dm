@@ -101,7 +101,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		try
 			suppliers = json_decode(item_query.item[3])
 		catch(var/exception/e)
-			log_debug("Error Decoding supplier data for item: [id] - [e]")
+			log_debug("SSCargo: Error Decoding supplier data for item: [id] - [e]")
 			continue
 
 		// Calculate the following items
@@ -159,9 +159,6 @@ var/datum/controller/subsystem/cargo/SScargo
 					text2num(category_query.item[5]))
 			catch(var/exception/ec)
 				log_debug("SScargo: Error when loading category: [ec]")
-				break
-			
-
 		//Load the suppliers
 		var/DBQuery/supplier_query = dbcon.NewQuery("SELECT short_name, name, description, tag_line, shuttle_time, shuttle_price, available, price_modifier FROM ss13_cargo_suppliers WHERE deleted_at is NULL")
 		supplier_query.Execute()
@@ -179,8 +176,6 @@ var/datum/controller/subsystem/cargo/SScargo
 					supplier_query.item[8])
 			catch(var/exception/es)
 				log_debug("SScargo: Error when loading supplier: [es]")
-				break
-
 		//Load the items
 		var/DBQuery/item_query = dbcon.NewQuery("SELECT id, name, supplier, description, categories, price, items, access, container_type, groupable, item_mul FROM ss13_cargo_items WHERE deleted_at is NULL AND supplier IS NOT NULL ORDER BY order_by ASC, name ASC, supplier ASC")
 		item_query.Execute()
@@ -201,7 +196,6 @@ var/datum/controller/subsystem/cargo/SScargo
 					item_query.item[11])
 			catch(var/exception/ei)
 				log_debug("SScargo: Error when loading item: [ei]")
-				break
 		return 1
 
 //Loads the cargo data from JSON
@@ -228,9 +222,6 @@ var/datum/controller/subsystem/cargo/SScargo
 				cargoconfig["categories"][category]["price_modifier"])
 		catch(var/exception/ec)
 			log_debug("SScargo: Error when loading category: [ec]")
-			break
-		
-
 	//Load the suppliers
 	for (var/supplier in cargoconfig["suppliers"])
 		CHECK_TICK
@@ -246,8 +237,6 @@ var/datum/controller/subsystem/cargo/SScargo
 				cargoconfig["suppliers"][supplier]["price_modifier"])
 		catch(var/exception/es)
 			log_debug("SScargo: Error when loading supplier: [es]")
-			break
-
 	//Load the cargoitems
 	for (var/item in cargoconfig["items"])
 		CHECK_TICK
@@ -266,7 +255,6 @@ var/datum/controller/subsystem/cargo/SScargo
 				cargoconfig["items"][item]["item_mul"])	
 		catch(var/exception/ei)
 			log_debug("SScargo: Error when loading supplier: [ei]")
-			break
 	return 1
 
 //Add a new Category to the Cargo Subsystem
@@ -301,12 +289,13 @@ var/datum/controller/subsystem/cargo/SScargo
 //Decoding of the string MUST take place before
 /datum/controller/subsystem/cargo/proc/add_item(var/id=null,var/name,var/supplier="nt",var/description,var/list/categories,var/price,var/list/items,var/access=0,var/container_type=CARGO_CONTAINER_CRATE,var/groupable=1,var/item_mul=1)	
 	//TODO-CARGO: Maybe add the option to specify access as string instead of number
-	
+
 	//If no item ID is supplied generate one ourselfs (use the next free id)
 	//If one is supplied, update the item id if the one supplied is higher
 	if(!id)
 		id=get_next_item_id()
 	else
+		id = text2num(id)
 		if(id > last_item_id)
 			last_item_id = id
 	
@@ -517,11 +506,11 @@ var/datum/controller/subsystem/cargo/SScargo
 	var/item_price = co.get_value(1)
 
 	//Get the maximum shipment costs for the order
-	var/max_shipment_cost = co.get_max_shipment_cost()
+	var/shipment_cost = co.get_shipment_cost()
 
 	//Check if cargo has enough money to pay for the shipment of the item and the maximum shipment cost
-	if(item_price + max_shipment_cost > get_cargo_money())
-		log_debug("SScargo: Order could not be shipped. Insufficient money. [item_price] + [max_shipment_cost] > [get_cargo_money()].")
+	if(item_price + shipment_cost > get_cargo_money())
+		log_debug("SScargo: Order could not be shipped. Insufficient money. [item_price] + [shipment_cost] > [get_cargo_money()].")
 		return 0
 
 	co.status = "shipped"
@@ -763,13 +752,11 @@ var/datum/controller/subsystem/cargo/SScargo
 						catch(var/exception/e)
 							log_debug("SScargo: Bad variable name [var_name] for item name: [coi.ci.name] id: [coi.ci.id] - [e]")
 
+		//Spawn the Paper Inside
+		var/obj/item/weapon/paper/P = new(A)
+		P.set_content_unsafe("[co.order_id] - [co.ordered_by]", co.get_report_delivery_order())
+
 	//Shuttle is loaded now - Charge cargo for it
 	charge_cargo("Shipment #[current_shipment.shipment_num] - Expense",current_shipment.shipment_cost_purchase)
-
-	if(current_shipment.orders.len)
-		//Now calculate the aliquot shipment cost for the orders and add it to each order
-		var/aliquot_shipment_cost = current_shipment.shuttle_fee / current_shipment.orders.len
-		for(var/datum/cargo_order/co in current_shipment.orders)
-			co.partial_shipment_fee = aliquot_shipment_cost
 
 	return 1

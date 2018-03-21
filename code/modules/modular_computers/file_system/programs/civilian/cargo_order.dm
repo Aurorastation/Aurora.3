@@ -41,7 +41,6 @@
 	data["order_items"] = co.get_item_list()
 	data["order_value"] = co.get_value(0)
 	data["order_item_count"] = co.get_item_count()
-	data["order_shuttle_fee"] = co.get_max_shipment_cost()
 
 	//Pass Data for Main page
 	if(page == "main")

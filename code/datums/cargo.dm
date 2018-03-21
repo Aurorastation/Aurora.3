@@ -116,13 +116,13 @@
 	var/can_add_items = 1 //If new items can be added to the order 
 	var/ordered_by = null //Person that ordered the items
 	var/authorized_by = null //Person that authorized the order
-	var/received_by = null //Person the order has been delivered to by cargo / paid for the order
+	var/received_by = null //Person the order has been delivered to by cargo
+	var/paid_by = null //Person that has paid for the order
 	var/time_submitted = null //Time the order has been sent to cargo
 	var/time_approved = null //Time the order has been approved by cargo
 	var/time_shipped = null //Time the order has been shipped to the station
 	var/time_delivered = null //Time the order has been delivered
 	var/tracking_code = null //Use this code with the order ID to get details about the order
-	var/partial_shipment_fee = 0 //Partial Shipment Fee for the order
 	var/reason = null //Reason for the order
 
 //Gets the tracking code for the order. Generates one if it does not exist already
@@ -149,16 +149,17 @@
 	data["payment_status"] = payment_status
 	data["status"] = get_order_status(0)
 	data["status_pretty"] = get_order_status(1)
+	data["status_payment"] = get_payment_status(1)
 	data["ordered_by"] = ordered_by
 	data["authorized_by"] = authorized_by
 	data["received_by"] = received_by
+	data["paid_by"] = paid_by
 	data["time_submitted"] = time_submitted
 	data["time_approved"] = time_approved
 	data["time_shipped"] = time_shipped
 	data["time_delivered"] = time_delivered
 	data["items"] = get_item_list()
-	data["shipment_cost"] = partial_shipment_fee
-	data["shipment_cost_max"] = get_max_shipment_cost()
+	data["shipment_cost"] = get_shipment_cost()
 	data["reason"] = reason
 	return data
 
@@ -226,7 +227,7 @@
 	switch(type)
 		if(0)
 			//The price of the contents of the crate + the price for the crate + the handling fee + the partial shipment fee
-			return price + SScargo.get_cratefee() + SScargo.get_handlingfee() + partial_shipment_fee
+			return price + SScargo.get_cratefee() + SScargo.get_handlingfee() + get_shipment_cost()
 		if(1)
 			//The price of the contents of the crate + the price of the crate
 			return price + SScargo.get_cratefee()
@@ -280,8 +281,8 @@
 		supplier_list[coi.ci.supplier] = coi.ci.supplier
 	return supplier_list
 
-// Gets the maximal shipment cost for the item
-/datum/cargo_order/proc/get_max_shipment_cost()
+// Gets the shipment cost for the order
+/datum/cargo_order/proc/get_shipment_cost()
 	var/list/supplier_list = get_supplier_list()
 	var/cost = 0
 	for(var/supplier in supplier_list)
@@ -306,9 +307,20 @@
 				return "Delivered"
 			else
 				return "Unknown Status"
-			
 	else
 		return status
+//Returns the payment status
+/datum/cargo_order/proc/get_payment_status(var/pretty=1)
+	if(pretty)
+		if(paid_by != null)
+			return "Paid by [paid_by]"
+		else
+			return "Unpaid"
+	else
+		if(paid_by != null)
+			return 1
+		else
+			return 0
 
 // Returns a Invoice for the Order
 /datum/cargo_order/proc/get_report_invoice()
@@ -330,6 +342,7 @@
 	order_data += "<u>Order ID:</u> [order_id]<br>"
 	order_data += "<u>Tracking Code:</u> [get_tracking_code()]<br>"
 	order_data += "<u>Order Status:</u> [get_order_status(1)]<br>"
+	order_data += "<u>Payment Status:</u> [get_payment_status(1)]<br>"
 	order_data += "<hr>"
 	if(required_access.len)
 		order_data += "<u>Required Access:</u><br>"
@@ -344,10 +357,7 @@
 		order_data += "<li>[item["name"]]: [item["price"]]</li>"
 	order_data += "<li>Crate Fee: [SScargo.get_cratefee()]</li>"
 	order_data += "<li>Handling Fee: [SScargo.get_handlingfee()]</li>"
-	if(partial_shipment_fee == 0) //If the partial shipment fee has been calculated, then display it. Otherwise just display a placeholder
-		order_data += "<li>Additional Shuttle Fees may apply</li>"
-	else
-		order_data += "<li>Shuttle Fee: [partial_shipment_fee]</li>"
+	order_data += "<li>Shuttle Fee: [get_shipment_cost()]</li>"
 	order_data += "</ul>"
 
 	return order_data.Join("")

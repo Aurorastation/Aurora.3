@@ -30,10 +30,6 @@
 						<td>{{:data.order_value}} Credits</td>
 					</tr>
 					<tr>
-						<td><b>Shuttle Fee:</b></td>
-						<td>{{:data.order_shuttle_fee}}</td>
-					</tr>
-					<tr>
 						<td>{{:helper.link('Details', 'cart', {'page' : 'order'}, null)}}</td>
 						<td>{{:helper.link('Clear', 'cancel', {'clear_order' : 'clear_order'}, null)}} {{:helper.link("Submit Order", 'play', {'submit_order' : 'submit_order'}, null)}}</td>
 					</tr>
@@ -66,7 +62,7 @@
 			<tr>
 				<td>
 					{{if value.supplier_data.available && value.price_adjusted > 0}}				
-						{{:helper.link(value.name + " " + value.price_adjusted, 'gear', {'add_item' : value.id}, null)}}
+						{{:helper.link(value.price_adjusted, 'gear', {'add_item' : value.id}, null)}}
 					{{else}}
 						{{:helper.link(value.name + " /Unavailable/", 'gear', null, "disabled")}}
 					{{/if}}	

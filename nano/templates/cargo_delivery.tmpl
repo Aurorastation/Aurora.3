@@ -66,19 +66,12 @@
                         <td><b>Item Value:</b></td>
                         <td>{{:data.order_details.price}}</td>
                     </tr>
-                    {{if data.order_details.shipment_cost != 0}}
-						<tr>
-							<td><b>Shipment Cost: (aliquot)</b></td>
-							<td>{{:data.order_details.shipment_cost}}</td>
-						</tr>
-					{{else}}
-						<tr>
-							<td><b>Shipment Cost: (max)</b></td>
-							<td>{{:data.order_details.shipment_cost_max}}</td>
-						</tr>
-                    {{/if}}
                     <tr>
-                        <td><b>Status:</b></td>
+                        <td><b>Shipment Cost:</b></td>
+                        <td>{{:data.order_details.shipment_cost}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Shipment Status:</b></td>
                         <td>{{:data.order_details.status_pretty}}</td>
                     </tr>
                     <tr>
