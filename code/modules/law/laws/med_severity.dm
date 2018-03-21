@@ -164,3 +164,11 @@
 
 	min_brig_time = 15
 	max_brig_time = 20
+
+/datum/law/med_severity/gross_negligence
+	name = "i221 - Gross Negligence"
+	desc = "To display a severe lack of diligence or disregard for safe conduct, which causes or will cause serious harm to people or property."
+	id = "i221"
+
+	min_brig_time = 15
+	max_brig_time = 20
