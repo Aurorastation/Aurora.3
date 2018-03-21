@@ -1,5 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-//Model dictionary trimmed on: 18-11-2017 20:57 (UTC)
 "aa" = (
 /turf/template_noop,
 /area/template_noop)
@@ -310,9 +309,7 @@
 /turf/simulated/floor/wood,
 /area/derelict/hallway/northwest)
 "aZ" = (
-/obj/structure/filingcabinet{
-	icon_state = "chestdrawer"
-	},
+/obj/structure/filingcabinet/chestdrawer,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/derelict/hallway/northwest)
@@ -2905,9 +2902,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "jo" = (
-/obj/structure/filingcabinet{
-	icon_state = "chestdrawer"
-	},
+/obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/hallway/southeast)
 "jp" = (
@@ -2956,9 +2951,7 @@
 /turf/template_noop,
 /area/derelict/hallway/southeast)
 "jv" = (
-/obj/structure/filingcabinet{
-	icon_state = "chestdrawer"
-	},
+/obj/structure/filingcabinet/chestdrawer,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
@@ -4893,9 +4886,7 @@
 /turf/template_noop,
 /area/template_noop)
 "oO" = (
-/obj/structure/filingcabinet{
-	icon_state = "chestdrawer"
-	},
+/obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "oP" = (
