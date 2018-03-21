@@ -192,9 +192,9 @@
 				items_measures[display_name] = "slab of meat"
 				items_measures_p[display_name] = "slabs of meat"
 			if (istype(O,/obj/item/weapon/reagent_containers/food/snacks/donkpocket))
-				display_name = "Turnovers"
-				items_measures[display_name] = "turnover"
-				items_measures_p[display_name] = "turnovers"
+				display_name = "Donk Pocket"
+				items_measures[display_name] = "donk pocket"
+				items_measures_p[display_name] = "donk pocket"
 			if (istype(O,/obj/item/weapon/reagent_containers/food/snacks/carpmeat))
 				items_measures[display_name] = "fillet of meat"
 				items_measures_p[display_name] = "fillets of meat"
