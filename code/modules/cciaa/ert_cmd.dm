@@ -31,7 +31,7 @@
 		wasLiving = 1
 
 	for (var/obj/effect/landmark/L in landmarks_list)
-		if(L.name == "CCIAAgent")
+		if(L.name == "ERTCommander")
 			var/new_name = input(usr, "Pick a name","Name") as text
 			var/mob/living/carbon/human/M = new(null)
 
