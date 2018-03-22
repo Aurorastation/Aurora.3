@@ -462,44 +462,6 @@ var/datum/controller/subsystem/cargo/SScargo
 					suppliers[supplier] = supplier
 	return suppliers
 
-//Submits an order to cargo
-/datum/controller/subsystem/cargo/proc/submit_order(var/datum/cargo_order/co)
-	co.status = "submitted"
-	co.time_submitted = worldtime2text()
-	co.order_id = get_next_order_id()
-	all_orders.Add(co)
-	return 1
-
-//Approve a order  - Returns a status message
-/datum/controller/subsystem/cargo/proc/approve_order(var/datum/cargo_order/co, var/approved_by)
-	if(co.status == "submitted")
-		co.status = "approved"
-		co.time_approved = worldtime2text()
-		co.authorized_by = approved_by
-		return "The order has been approved"
-	else
-		return "The order could not be approved - Invalid Status"
-
-//Reject a order - Returns a status message
-/datum/controller/subsystem/cargo/proc/reject_order(var/datum/cargo_order/co)
-	if(co.status == "submitted")
-		co.status = "rejected"
-		co.time_approved = worldtime2text()
-		return "The order has been rejected"
-	else
-		return "The order could not be rejected - Invalid Status"
-
-//Deliver a order
-/datum/controller/subsystem/cargo/proc/deliver_order(var/datum/cargo_order/co, var/received_by, var/payment_status = 1)
-	if(co.status == "shipped")
-		co.status = "delivered"
-		co.time_delivered = worldtime2text()
-		co.received_by = received_by
-		co.payment_status = payment_status
-		return "The order has been delivered"
-	else
-		return "The order could not be delivered - Invalid Status"
-
 //Checks if theorder can be shipped and marks it as shipped if possible
 /datum/controller/subsystem/cargo/proc/ship_order(var/datum/cargo_order/co)
 	//Get the price cargo has to pay for the order
@@ -513,11 +475,11 @@ var/datum/controller/subsystem/cargo/SScargo
 		log_debug("SScargo: Order could not be shipped. Insufficient money. [item_price] + [shipment_cost] > [get_cargo_money()].")
 		return 0
 
-	co.status = "shipped"
-	co.time_shipped = worldtime2text()
+	co.set_shipped()
 	current_shipment.shipment_cost_purchase += item_price //Increase the price of the shipment
 	current_shipment.orders.Add(co) //Add the order to the order list
 	return 1
+
 //Generate a new cargo shipment
 /datum/controller/subsystem/cargo/proc/new_shipment()
 	current_shipment = new()

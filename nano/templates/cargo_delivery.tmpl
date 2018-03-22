@@ -102,6 +102,12 @@
                         <td>{{:data.order_details.time_shipped}}</td>
                     </tr>
                     {{/if}}
+                    {{if data.order_details.time_paid}}
+                    <tr>
+                        <td><b>Paid at:</b></td>
+                        <td>{{:data.order_details.time_paid}}</td>
+                    </tr>
+                    {{/if}}
                 </table>
             </div>
         </div>
@@ -153,9 +159,13 @@
     </div>
 
     {{if data.order_details.payment_status == 0}}
-        <div>{{:helper.link('Confirm Delivery and Pay', 'cart', {'pay' : 'true'}, null)}}</div>
+        <div>{{:helper.link('Confirm Delivery and Pay', 'cart', {'deliver' : 'true'}, null)}}</div>
     {{else}}
-        <div><b>The order has already been paid</b></div>
+        {{if data.order_details.}}
+            <div>{{:helper.link('Confirm Delivery', 'play', {'deliver' : 'true'}, null)}}</div>
+        {{else}}
+            <div><b>The order has already been paid</b></div>
+        {{/if}}
     {{/if}}
 
 	<table width="100%">

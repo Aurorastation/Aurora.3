@@ -107,7 +107,6 @@
 	var/list/items = list() //List of cargo_items in the order
 	var/order_id = 0 //ID of the order
 	var/price = 0 //Total price of the order
-	var/payment_status = 0 //0-Not paid //1-Paid
 	var/item_id = 1 //Current id of the item in the order
 	var/item_num = 0 //Numer of items in the container - Used to limit the items in the crate
 	var/status = "basket" //Status of the order: basket - Adding items, submitted - Submitted to cargo, approved - Order sent to suppliers, rejected - Order has been denied, shipped - Has been shipped to the station, delivered - Order has been delivered
@@ -122,6 +121,7 @@
 	var/time_approved = null //Time the order has been approved by cargo
 	var/time_shipped = null //Time the order has been shipped to the station
 	var/time_delivered = null //Time the order has been delivered
+	var/time_paid = null //The the order has been paid
 	var/tracking_code = null //Use this code with the order ID to get details about the order
 	var/reason = null //Reason for the order
 
@@ -146,7 +146,6 @@
 	data["price"] = get_value(2)
 	data["price_customer"] = get_value(0)
 	data["price_cargo"] = get_value(1)
-	data["payment_status"] = payment_status
 	data["status"] = get_order_status(0)
 	data["status_pretty"] = get_order_status(1)
 	data["status_payment"] = get_payment_status(1)
@@ -158,6 +157,7 @@
 	data["time_approved"] = time_approved
 	data["time_shipped"] = time_shipped
 	data["time_delivered"] = time_delivered
+	data["time_paid"] = time_paid
 	data["items"] = get_item_list()
 	data["shipment_cost"] = get_shipment_cost()
 	data["reason"] = reason
@@ -343,6 +343,8 @@
 	order_data += "<u>Tracking Code:</u> [get_tracking_code()]<br>"
 	order_data += "<u>Order Status:</u> [get_order_status(1)]<br>"
 	order_data += "<u>Payment Status:</u> [get_payment_status(1)]<br>"
+	if(paid_by)
+		order_data += "<u>Paid at:</u> [time_paid]<br>"
 	order_data += "<hr>"
 	if(required_access.len)
 		order_data += "<u>Required Access:</u><br>"
@@ -375,6 +377,50 @@
 		order_data += "<li>[item["name"]] (Set of [item["amount"]])</li>"
 	order_data += "</ul>"
 
+//Marks a order as submitted
+/datum/cargo_order/proc/set_submitted(var/oid)
+	status = "submitted"
+	time_submitted = worldtime2text()
+	order_id = SScargo.get_next_order_id()
+	SScargo.all_orders.Add(src)
+	return 1
+
+//Marks a order as approved - Returns a status message
+/datum/cargo_order/proc/set_approved(var/approved_by)
+	if(status == "submitted")
+		status = "approved"
+		time_approved = worldtime2text()
+		authorized_by = approved_by
+		return "The order has been approved"
+	else
+		return "The order could not be approved - Invalid Status"
+
+//Marks a order as rejected - Returns a status message
+/datum/cargo_order/proc/set_rejected()
+	if(status == "submitted")
+		status = "rejected"
+		time_approved = worldtime2text()
+		return "The order has been rejected"
+	else
+		return "The order could not be rejected - Invalid Status"
+
+//Marks a order as shipped
+/datum/cargo_order/proc/set_shipped()
+	status = "shipped"
+	time_shipped = worldtime2text()
+
+//Marks a order as delivered - Returns a status message
+/datum/cargo_order/proc/set_delivered(var/received_by, var/paid=0)
+	if(status == "shipped")
+		status = "delivered"
+		time_delivered = worldtime2text()
+		received_by = received_by
+		if(paid)
+			time_paid = worldtime2text()
+			paid_by = received_by
+		return "The order has been delivered"
+	else
+		return "The order could not be delivered - Invalid Status"
 
 /*
 	A cargo order item. Part of a category.

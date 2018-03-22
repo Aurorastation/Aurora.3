@@ -328,6 +328,12 @@
                         <td>{{:data.order_details.time_shipped}}</td>
                     </tr>
                     {{/if}}
+                    {{if data.order_details.time_paid}}
+                    <tr>
+                        <td><b>Paid at:</b></td>
+                        <td>{{:data.order_details.time_paid}}</td>
+                    </tr>
+                    {{/if}}
                 </table>
             </div>
         </div>
