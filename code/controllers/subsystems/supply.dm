@@ -667,7 +667,7 @@ var/datum/controller/subsystem/cargo/SScargo
 
 	for(var/datum/cargo_order/co in approved_orders)
 		if(!co)
-			break
+			continue
 
 		//Check if theres space to place the order
 		if(!clear_turfs.len)
@@ -678,11 +678,11 @@ var/datum/controller/subsystem/cargo/SScargo
 		for(var/datum/cargo_order_item/coi in co.items)
 			if(!coi.ci.supplier_datum.available)
 				log_debug("SScargo: Order [co.order_id] could not be placed on the shuttle because supplier [coi.ci.supplier_datum.name] for item [coi.ci.name] is unavailable")
-				break
+				continue
 
 		//Check if there is enough money to ship the order
 		if(!ship_order(co))
-			break
+			continue
 
 		var/i = rand(1,clear_turfs.len)
 		var/turf/pickedloc = clear_turfs[i]

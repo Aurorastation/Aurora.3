@@ -4,25 +4,6 @@
 <br>
 <br>
 {{if data.page == "overview_main"}}
-    <div class="statusDisplay" style="min-height: 100px;">
-        <div class="item">
-            <div class="itemContent" style="width: 100%;">
-                <table>
-                    <tr>
-                        <td colspan="2"><h3>Shipped Orders</h3></td>
-                    </tr>
-                    <tr>
-                        <td><b>Shipped Order Number:</b></td>
-                        <td>{{:data.order_shipped_number}}</td>
-                    </tr>
-                    <tr>
-                        <td><b>Shipped Order Value:</b></td>
-                        <td>{{:data.order_shipped_value}} Credits</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div>
 	<table>
     <tr>
         <th>Order ID</th>
@@ -30,7 +11,7 @@
         <th>Price</th>
         <th>Actions</th>
     </tr>
-    {{props data.order_shipped_list}}
+    {{props data.order_list}}
 		<tr>
 			<td>{{:value.order_id}}</td>
             <td>{{:value.ordered_by}}</td>
@@ -158,11 +139,11 @@
         </div>
     </div>
 
-    {{if data.order_details.payment_status == 0}}
+    {{if data.order_details.status == "shipped"}}
         <div>{{:helper.link('Confirm Delivery and Pay', 'cart', {'deliver' : 'true'}, null)}}</div>
     {{else}}
-        {{if data.order_details.}}
-            <div>{{:helper.link('Confirm Delivery', 'play', {'deliver' : 'true'}, null)}}</div>
+        {{if !data.order_details.paid_by}}
+            <div>{{:helper.link('Pay', 'play', {'pay' : 'true'}, null)}}</div>
         {{else}}
             <div><b>The order has already been paid</b></div>
         {{/if}}

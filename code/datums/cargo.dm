@@ -410,17 +410,21 @@
 	time_shipped = worldtime2text()
 
 //Marks a order as delivered - Returns a status message
-/datum/cargo_order/proc/set_delivered(var/received_by, var/paid=0)
+/datum/cargo_order/proc/set_delivered(var/customer_name, var/paid=0)
 	if(status == "shipped")
 		status = "delivered"
 		time_delivered = worldtime2text()
-		received_by = received_by
+		received_by = customer_name
 		if(paid)
-			time_paid = worldtime2text()
-			paid_by = received_by
+			set_paid(customer_name)
 		return "The order has been delivered"
 	else
 		return "The order could not be delivered - Invalid Status"
+
+/datum/cargo_order/proc/set_paid(var/customer_name)
+	time_paid = worldtime2text()
+	paid_by = customer_name
+	return "The order has been paid for"
 
 /*
 	A cargo order item. Part of a category.
@@ -457,10 +461,10 @@
 /datum/cargo_shipment
 	var/list/orders = list() //List of orders in that shipment
 	var/shipment_num //Number of the shipment
-	var/shipment_cost_sell = 0//The amount of money cargo got for the shipment
-	var/shipment_cost_purchase = 0//The amount of money cargo paid for the shipment
+	var/shipment_cost_sell = 0 //The amount of money cargo got for the shipment
+	var/shipment_cost_purchase = 0 //The amount of money cargo paid for the shipment
 	var/shipment_invoice = null//The invoice for the shipment (detailing the expenses ,credits received and charges)
-	var/shuttle_fee//The shuttle fee at the time of calling it
+	var/shuttle_fee //The shuttle fee at the time of calling it
 	var/shuttle_time //The time the shuttle took to get to the station
 	var/shuttle_called_by //The person that called the shuttle
 	var/shuttle_recalled_by //The person that recalled the shuttle

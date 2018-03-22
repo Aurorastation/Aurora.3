@@ -38,10 +38,7 @@
 		last_user_name = data["id_owner"]
 
 	//Pass the shipped orders
-	var/list/shipped_orders = SScargo.get_orders_by_status("shipped",1)
-	data["order_shipped_list"] = shipped_orders
-	data["order_shipped_number"] = shipped_orders.len
-	data["order_shipped_value"] = SScargo.get_orders_value_by_status("shipped",1)
+	data["order_list"] = SScargo.get_orders_by_status("shipped",1) + SScargo.get_orders_by_status("approved",1)
 
 	//Pass along the order details
 	data["order_details"] = order_details
@@ -65,11 +62,19 @@
 	if(..())
 		return 1
 
+
+	//Check if we want to deliver or pay
+	//If we are at the status shipped, then only the confirm delivery and pay button should be shown (deliver)
+	//If the status is not shipped, then only show the pay button as we can not confirm that it has been paid so far
 	//Everyone can pay / confirm delivery
-	if(href_list["deliver"])
+	if(href_list["deliver"] || href_list["pay"])
 		//Check if its delivered already
 		if(order_details["status"] == "delivered")
 			status_message = "Unable to Deliver - Order has already been delivered."
+			return 1
+
+		if(href_list["deliver"] && order_details["status"] != "shipped")
+			status_message = "You can not confirm the delivery at this time - The order has not been shipped."
 			return 1
 
 		if(program && program.computer && program.computer.card_slot && program.computer.network_card)
@@ -78,11 +83,13 @@
 				status_message = "Card Error: Invalid ID Card in Card Reader"
 				return 1
 
-			var/needs_payment = !!(order_details["paid_by"]) //Get a 
+			var/needs_payment = !!(order_details["paid_by"])
 
 			//Get the cargo order and update its status to delivered and paid
-			status_message = co.set_delivered(id_card.registered_name,needs_payment)
-			order_details = co.get_list()
+			//Only if we use the deliver button
+			if(href_list["deliver"] || order_details["status"] == "shipped")
+				status_message = co.set_delivered(id_card.registered_name,needs_payment)
+				order_details = co.get_list()
 
 			//Check if a payment is required
 			if(needs_payment)
@@ -137,7 +144,7 @@
 					status_message = "Unable to access account. Check security settings and try again."
 					return 1
 		else
-			status_message = "Unable to pay - Network Card or Cardreader Missing"
+			status_message = "Unable to process - Network Card or Cardreader Missing"
 			return 1
 
 
