@@ -153,6 +153,7 @@
 	data["authorized_by"] = authorized_by
 	data["received_by"] = received_by
 	data["paid_by"] = paid_by
+	data["needs_payment"] = paid_by != null ? 0:1
 	data["time_submitted"] = time_submitted
 	data["time_approved"] = time_approved
 	data["time_shipped"] = time_shipped
@@ -226,11 +227,11 @@
 	// 2 - Just the value of the items in the crate
 	switch(type)
 		if(0)
-			//The price of the contents of the crate + the price for the crate + the handling fee + the partial shipment fee
+			//The price of the contents of the crate + the price for the crate + the handling fee + the shipment fee
 			return price + SScargo.get_cratefee() + SScargo.get_handlingfee() + get_shipment_cost()
 		if(1)
-			//The price of the contents of the crate + the price of the crate
-			return price + SScargo.get_cratefee()
+			//The price of the contents of the crate + the price of the crate + the shipment fee
+			return price + SScargo.get_cratefee() + get_shipment_cost()
 		if(2)
 			//Just the value of the items in the crate
 			return price
@@ -376,6 +377,8 @@
 	for(var/item in get_item_list())
 		order_data += "<li>[item["name"]] (Set of [item["amount"]])</li>"
 	order_data += "</ul>"
+	
+	return order_data.Join("")
 
 //Marks a order as submitted
 /datum/cargo_order/proc/set_submitted(var/oid)
@@ -421,6 +424,7 @@
 	else
 		return "The order could not be delivered - Invalid Status"
 
+//Mark a order as paid
 /datum/cargo_order/proc/set_paid(var/customer_name)
 	time_paid = worldtime2text()
 	paid_by = customer_name
@@ -446,6 +450,7 @@
 	var/list/data = list()
 	data["name"] = ci.name
 	data["supplier_name"] = ci.supplier_datum.name
+	data["amount"] = ci.amount
 	data["price"] = price
 	data["item_id"] = item_id
 	return data

@@ -141,11 +141,13 @@
 
     {{if data.order_details.status == "shipped"}}
         <div>{{:helper.link('Confirm Delivery and Pay', 'cart', {'deliver' : 'true'}, null)}}</div>
+    {{else data.order_details.status == "delivered"}}
+        <div><b>The order has already been delivered</b></div>
     {{else}}
-        {{if !data.order_details.paid_by}}
+        {{if data.order_details.needs_payment}}
             <div>{{:helper.link('Pay', 'play', {'pay' : 'true'}, null)}}</div>
         {{else}}
-            <div><b>The order has already been paid</b></div>
+            <div><b>The order has already been paid, but not shipped</b></div>
         {{/if}}
     {{/if}}
 

@@ -68,6 +68,7 @@
 	//If the status is not shipped, then only show the pay button as we can not confirm that it has been paid so far
 	//Everyone can pay / confirm delivery
 	if(href_list["deliver"] || href_list["pay"])
+		order_details = co.get_list()
 		//Check if its delivered already
 		if(order_details["status"] == "delivered")
 			status_message = "Unable to Deliver - Order has already been delivered."
@@ -83,20 +84,21 @@
 				status_message = "Card Error: Invalid ID Card in Card Reader"
 				return 1
 
-			var/needs_payment = !!(order_details["paid_by"])
-
 			//Get the cargo order and update its status to delivered and paid
 			//Only if we use the deliver button
 			if(href_list["deliver"] || order_details["status"] == "shipped")
-				status_message = co.set_delivered(id_card.registered_name,needs_payment)
+				status_message = co.set_delivered(id_card.registered_name,order_details["needs_payment"])
 				order_details = co.get_list()
 
 			//Check if a payment is required
-			if(needs_payment)
+			if(order_details["needs_payment"])
 				var/transaction_amount = order_details["price_customer"];
 				var/transaction_purpose = "Cargo Order #[order_details["order_id"]]";
 				
 				var/datum/money_account/D = get_account(id_card.associated_account_number)
+				if(!D)
+					status_message = "Unable to access account. Check security settings and try again."
+					return 1
 				var/attempt_pin
 				if(D.security_level)
 					attempt_pin = input("Enter pin code", "EFTPOS transaction") as num
@@ -132,6 +134,8 @@
 							T.date = current_date_string
 							T.time = worldtime2text()
 							SScargo.supply_account.transaction_log.Add(T)
+
+							co.set_paid(id_card.registered_name)
 
 							return 1
 						else
