@@ -13,7 +13,7 @@
 
 /datum/event/brand_intelligence/start()
 	for(var/obj/machinery/vending/V in SSmachinery.processing_machines)
-		if(!isNotStationLevel(V.z) && V.hostile_path != null)
+		if(!isNotStationLevel(V.z) && V.can_be_hostile)
 			list_of_vendors.Add(V)
 
 	if(!list_of_vendors.len)

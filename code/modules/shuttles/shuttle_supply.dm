@@ -29,7 +29,6 @@
 		if (!at_station())	//at centcom
 			if(!SScargo.buy()) //Check if the shuttle can be sent
 				moving_status = SHUTTLE_IDLE //Dont move the shuttle
-				SScargo.add_junk()
 
 		//We pretend it's a long_jump by making the shuttle stay at centcom for the "in-transit" period.
 		var/area/away_area = get_location_area(away_location)

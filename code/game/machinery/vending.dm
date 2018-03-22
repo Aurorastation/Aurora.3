@@ -99,8 +99,7 @@
 
 	var/can_move = 1	//if you can wrench the machine out of place
 	var/vend_id = "generic"
-
-	var/mob/living/simple_animal/hostile/vending_machine/hostile_path = null //The evil varient of this vending machine.
+	var/can_be_hostile = FALSE
 
 /obj/machinery/vending/Initialize()
 	. = ..()
@@ -120,12 +119,10 @@
 	power_change()
 
 /obj/machinery/vending/proc/make_hostile()
-	if(hostile_path != null)
-		visible_message(span("warning","\The [src] malfunctions!"))
-		spark(src, 3, alldirs)
-		explosion(src.loc,-1,-1,0)
-		hostile_path = new(src.loc)
-		qdel(src)
+	visible_message(span("warning","\The [src] malfunctions!"))
+	spark(src, 3, alldirs)
+	explosion(src.loc,-1,-1,0)
+	qdel(src)
 
 /**
  *  Build src.produdct_records from the products lists
