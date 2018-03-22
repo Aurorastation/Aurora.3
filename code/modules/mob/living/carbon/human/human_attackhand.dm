@@ -103,6 +103,8 @@
 	if(istype(M,/mob/living/carbon))
 		M.spread_disease_to(src, "Contact")
 
+	var/datum/martial_art/attacker_style = H.martial_art
+
 	switch(M.a_intent)
 		if(I_HELP)
 			if(istype(H) && health < config.health_threshold_crit && health > config.health_threshold_dead)
@@ -147,6 +149,10 @@
 			if(M.disabilities & PACIFIST)
 				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
 				return 0
+
+			if(attacker_style && attacker_style.grab_act(H, src))
+				return 1
+
 			for(var/obj/item/weapon/grab/G in src.grabbed_by)
 				if(G.assailant == M)
 					M << "<span class='notice'>You already grabbed [src].</span>"
@@ -154,7 +160,6 @@
 
 			if (!attempt_grab(M))
 				return
-
 
 			if(w_uniform)
 				w_uniform.add_fingerprint(M)
@@ -182,6 +187,10 @@
 			if(M.disabilities & PACIFIST)
 				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
 				return 0
+
+			if(attacker_style && attacker_style.harm_act(H, src))
+				return 1
+
 			if(!istype(H))
 				attack_generic(H,rand(1,3),"punched")
 				return
@@ -325,6 +334,10 @@
 			if(M.disabilities & PACIFIST)
 				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
 				return 0
+
+			if(attacker_style && attacker_style.disarm_act(H, src))
+				return 1
+
 			M.attack_log += text("\[[time_stamp()]\] <font color='red'>Disarmed [src.name] ([src.ckey])</font>")
 			src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been disarmed by [M.name] ([M.ckey])</font>")
 
