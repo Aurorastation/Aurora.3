@@ -136,7 +136,7 @@
 							SScargo.supply_account.transaction_log.Add(T)
 
 							co.set_paid(id_card.registered_name)
-
+							order_details = co.get_list()
 							return 1
 						else
 							status_message = "You don't have that much money!"

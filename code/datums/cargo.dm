@@ -138,6 +138,14 @@
 		item_list.Add(list(coi.get_list()))
 	return item_list
 
+// Returns a list of all the objects in the order - Formated as a list to be json_encoded
+/datum/cargo_order/proc/get_object_list()
+	var/list/object_list = list()
+	for (var/datum/cargo_order_item/coi in items)
+		for(var/object in coi.ci.items)
+			object_list.Add(object)
+	return object_list
+
 // Gets a list of the order data - Formated as list to be json_encoded
 /datum/cargo_order/proc/get_list()
 	var/list/data = list()
@@ -374,8 +382,8 @@
 	order_data += "<u>Shipped at:</u> [time_shipped]<br>"
 	order_data += "<u>Contents:</u><br>"
 	order_data += "<ul>"
-	for(var/item in get_item_list())
-		order_data += "<li>[item["name"]] (Set of [item["amount"]])</li>"
+	for(var/object in get_object_list())
+		order_data += "<li>[object]</li>"
 	order_data += "</ul>"
 	
 	return order_data.Join("")

@@ -89,17 +89,18 @@ var/datum/controller/subsystem/cargo/SScargo
 		log_debug("SScargo: SQL ERROR - Failed to connect. - Migration not executed")
 		return
 	//Gets those that havnt been migrated
-	var/DBQuery/item_query = dbcon.NewQuery("SELECT id, path_old, suppliers_old FROM ss13_cargo_items WHERE deleted_at is NULL AND items is NULL")
+	var/DBQuery/item_query = dbcon.NewQuery("SELECT id, name, path_old, suppliers_old FROM ss13_cargo_items WHERE deleted_at is NULL AND items is NULL")
 	item_query.Execute()
 	while(item_query.NextRow())
 		CHECK_TICK
 
 		//Gets the vars of the row
 		var/id = item_query.item[1]
-		var/path = item_query.item[2]
+		var/name = item_query.item[2]
+		var/path = item_query.item[3]
 		var/list/suppliers = list()
 		try
-			suppliers = json_decode(item_query.item[3])
+			suppliers = json_decode(item_query.item[4])
 		catch(var/exception/e)
 			log_debug("SSCargo: Error Decoding supplier data for item: [id] - [e]")
 			continue
@@ -114,7 +115,9 @@ var/datum/controller/subsystem/cargo/SScargo
 		for(var/sup in suppliers)
 			supplier = sup
 			price = suppliers[sup]["base_purchase_price"]
-			items[path] = suppliers[sup]["vars"]
+			items[name] = list()
+			items[name]["path"] = path
+			items[name]["vars"] = suppliers[sup]["vars"]
 			break
 
 		log_debug("Data Conversion for id: [id] - Supplier: [supplier] - Price: [price] - items: [json_encode(items)]")
@@ -195,7 +198,7 @@ var/datum/controller/subsystem/cargo/SScargo
 					item_query.item[10],
 					item_query.item[11])
 			catch(var/exception/ei)
-				log_debug("SScargo: Error when loading item: [ei]")
+				log_debug("SScargo: Error when loading item from sql: [ei]")
 		return 1
 
 //Loads the cargo data from JSON
@@ -319,9 +322,9 @@ var/datum/controller/subsystem/cargo/SScargo
 		return
 	
 	for(var/item in ci.items)
-		var/itempath = text2path(item)
+		var/itempath = text2path(ci.items[item]["path"])
 		if(!ispath(itempath))
-			log_debug("SScargo: Warning - Attempted to add item with invalid path - [ci.id] - [ci.name] - [item]")
+			log_debug("SScargo: Warning - Attempted to add item with invalid path - [ci.id] - [ci.name] - [ci.items[item]["path"]]")
 			return
 
 	//Check if a valid container is specified
@@ -705,12 +708,13 @@ var/datum/controller/subsystem/cargo/SScargo
 			if(!coi)
 				continue
 			for(var/j=1;j<=coi.ci.item_mul;j++)
-				for(var/item_path in coi.ci.items)
-					var/atom/item = new item_path(A)
+				for(var/name in coi.ci.items)
+					var/path = coi.ci.items[name]["path"]
+					var/atom/item = new path(A)
 					//Customize the items
-					for(var/var_name in coi.ci.items[item_path])
+					for(var/var_name in coi.ci.items[name]["vars"])
 						try
-							item.vars[var_name] = coi.ci.items[item_path][var_name]
+							item.vars[var_name] = coi.ci.items[name]["vars"][var_name]
 						catch(var/exception/e)
 							log_debug("SScargo: Bad variable name [var_name] for item name: [coi.ci.name] id: [coi.ci.id] - [e]")
 

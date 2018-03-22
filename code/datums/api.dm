@@ -1030,7 +1030,7 @@ proc/api_update_command_database()
 	)
 
 /datum/topic_command/cargo_reload/run_command(queryparams)
-	var/force = sanitize(queryparams["force"])
+	var/force = text2num(queryparams["force"])
 	if(!SScargo.get_order_count())
 		SScargo.load_from_sql()
 		message_admins("Cargo has been reloaded via the API.")
