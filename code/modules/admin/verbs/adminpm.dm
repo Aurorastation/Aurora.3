@@ -151,8 +151,7 @@
 
 	log_admin("PM: [key_name(src)]->[key_name(C)]: [msg]", admin_key = key_name(src), ckey_target = key_name(C))
 
-	ticket.msgs += new /datum/ticket_msg(src.ckey, C.ckey, msg)
-	update_ticket_panels()
+	ticket.append_message(src.ckey, C.ckey, msg)
 
 	//we don't use message_admins here because the sender/receiver might get it too
 	for(var/client/X in admins)

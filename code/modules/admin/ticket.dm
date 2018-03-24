@@ -13,6 +13,7 @@ var/global/list/ticket_panels = list()
 	// Real time references for SQL based logging.
 	var/opened_rt
 	var/closed_rt
+	var/response_time
 
 	var/reminder_timer
 
@@ -132,8 +133,16 @@ var/global/list/ticket_panels = list()
 	if (!establish_db_connection(dbcon))
 		return
 
-	var/DBQuery/Q = dbcon.NewQuery("INSERT INTO ss13_tickets (game_id, message_count, admin_count, opened_by, closed_by, opened_at, closed_at) VALUES (:g_id:, :m_count:, :a_count:, :opened_by:, :closed_by:, :opened_at:, :closed_at:)")
-	Q.Execute(list("g_id" = game_id, "m_count" = length(msgs), "a_count" = length(assigned_admins), "opened_by" = owner, "closed_by" = closed_by, "opened_at" = SQLtime(opened_rt), "closed_at" = SQLtime(closed_rt)))
+	var/DBQuery/Q = dbcon.NewQuery("INSERT INTO ss13_tickets (game_id, message_count, admin_count, admin_list, opened_by, taken_by, closed_by, response_delay, opened_at, closed_at) VALUES (:g_id:, :m_count:, :a_count:, :a_list:, :opened_by:, :taken_by, :closed_by:, :delay:, :opened_at:, :closed_at:)")
+	Q.Execute(list("g_id" = game_id, "m_count" = length(msgs), "a_count" = length(assigned_admins), "a_list" = json_encode(assigned_admins), "opened_by" = owner, "taken_by" = assigned_admins[0], "closed_by" = closed_by, "delay" = response_time, "opened_at" = SQLtime(opened_rt), "closed_at" = SQLtime(closed_rt)))
+
+/datum/ticket/proc/append_message(m_from, m_to, msg)
+	msgs += new /datum/ticket_msg(m_from, m_to, msg)
+
+	if (!response_time)
+		response_time = round((world.time - opened_time) SECONDS)
+
+	update_ticket_panels()
 
 // Referenced in the statistics controller.
 /proc/log_all_tickets()
