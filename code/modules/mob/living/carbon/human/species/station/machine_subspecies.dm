@@ -267,7 +267,7 @@
 
 	icobase = 'icons/mob/human_races/r_ind_xion.dmi'
 	deform = 'icons/mob/human_races/r_ind_xion.dmi'
-	
+
 	eyes = "xion_eyes"
 	flags = IS_IPC
 	passive_temp_gain = 5
@@ -367,3 +367,41 @@
 /datum/species/machine/bishop/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))
 		return rgb(H.r_eyes, H.g_eyes, H.b_eyes)
+
+/datum/species/machine/unbranded
+	name = "Unbranded Frame"
+	short_name = "unbran"
+	name_plural = "Unbranded Frames"
+
+	blurb = "."
+
+	icobase = 'icons/mob/human_races/robotic.dmi'
+	deform = 'icons/mob/human_races/robotic.dmi'
+	eyes = "eyes_s"
+
+	brute_mod = 1.2
+
+	appearance_flags = HAS_EYE_COLOR
+	spawn_flags = IS_RESTRICTED
+
+
+	has_organ = list(
+		"brain"   = /obj/item/organ/mmi_holder/posibrain,
+		"cell"    = /obj/item/organ/cell,
+		"optics"  = /obj/item/organ/eyes/optical_sensor
+	)
+
+	has_limbs = list(
+		"chest" =  list("path" = /obj/item/organ/external/chest/ipc),
+		"groin" =  list("path" = /obj/item/organ/external/groin/ipc),
+		"head" =   list("path" = /obj/item/organ/external/head/ipc),
+		"l_arm" =  list("path" = /obj/item/organ/external/arm/ipc),
+		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/ipc),
+		"l_leg" =  list("path" = /obj/item/organ/external/leg/ipc),
+		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/ipc),
+		"l_hand" = list("path" = /obj/item/organ/external/hand/ipc),
+		"r_hand" = list("path" = /obj/item/organ/external/hand/right/ipc),
+		"l_foot" = list("path" = /obj/item/organ/external/foot/ipc),
+		"r_foot" = list("path" = /obj/item/organ/external/foot/right/ipc)
+	)
+
