@@ -273,6 +273,10 @@
 
 /obj/item/weapon/gun/projectile/automatic/rifle/l6_saw/update_icon()
 	icon_state = "l6[cover_open ? "open" : "closed"][ammo_magazine ? round(ammo_magazine.stored_ammo.len, 25) : "-empty"]"
+	if(wielded)
+		item_state = "l6closedmag-wielded"
+	else
+		item_state = initial(item_state)
 
 /obj/item/weapon/gun/projectile/automatic/rifle/l6_saw/load_ammo(var/obj/item/A, mob/user)
 	if(!cover_open)
