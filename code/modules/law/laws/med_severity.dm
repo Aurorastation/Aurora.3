@@ -142,7 +142,7 @@
 	max_brig_time = 25
 
 /datum/law/med_severity/excessive_force
-	name = "i218 - Severe Use of Excessive Force"
+	name = "i218 - Use of Excessive Force"
 	desc = "To put a victim in critical state in defense of yourself or others, or seriously injuring a suspect while attempting to detain them. This includes pulling them when they have open wounds."
 	id = "i218"
 
