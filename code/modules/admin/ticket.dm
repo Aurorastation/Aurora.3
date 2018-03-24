@@ -139,7 +139,7 @@ var/global/list/ticket_panels = list()
 /datum/ticket/proc/append_message(m_from, m_to, msg)
 	msgs += new /datum/ticket_msg(m_from, m_to, msg)
 
-	if (!response_time)
+	if (!response_time && m_from != owner)
 		response_time = round((world.time - opened_time) SECONDS)
 
 	update_ticket_panels()
