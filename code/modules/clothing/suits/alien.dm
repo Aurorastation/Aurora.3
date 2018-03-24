@@ -70,8 +70,8 @@
 
 /obj/item/clothing/suit/vaurca/brown
 	desc = "A fashionable robe tailored for nonhuman proportions, this one is brown and silver."
-	icon_state = "robesilver"
-	item_state = "robesilver"
+	icon_state = "robebrown"
+	item_state = "robebrown"
 
 /obj/item/clothing/suit/vaurca/blue
 	desc = "A fashionable robe tailored for nonhuman proportions, this one is blue and golden."
