@@ -69,7 +69,7 @@
 	item_state = "robesilver"
 
 /obj/item/clothing/suit/vaurca/brown
-	desc = "A fashionable robe tailored for nonhuman proportions, this one is brown and golden."
+	desc = "A fashionable robe tailored for nonhuman proportions, this one is brown and silver."
 	icon_state = "robesilver"
 	item_state = "robesilver"
 
