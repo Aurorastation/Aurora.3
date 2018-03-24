@@ -297,7 +297,7 @@
 				if(length(cword))
 					rearranged += cword
 			message ="[prefix][jointext(rearranged," ")]"
-		if(losebreath) //Gasping is a mutation, right?
+		if(losebreath>=5) //Gasping is a mutation, right?
 			var/prefix=copytext(message,1,2)
 			if(prefix == ";")
 				message = copytext(message,2)
