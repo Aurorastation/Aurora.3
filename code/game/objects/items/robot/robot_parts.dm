@@ -69,6 +69,7 @@
 	part = list("head")
 	var/obj/item/device/flash/flash1 = null
 	var/obj/item/device/flash/flash2 = null
+	var/law_manager = TRUE
 
 /obj/item/robot_parts/robot_suit
 	name = "endoskeleton"
@@ -201,38 +202,57 @@
 				user << "<span class='warning'>This [W] does not seem to fit.</span>"
 				return
 
-			var/mob/living/silicon/robot/O = new /mob/living/silicon/robot(get_turf(loc), TRUE)
-			if(!O)	return
+			if(!src.head.law_manager)
 
-			user.drop_item()
+				if(!is_alien_whitelisted(M.brainmob, "Machine") && config.usealienwhitelist)
+					user << "<span class='warning'>This [W] does not seem to fit.</span>"
+					return
 
-			O.mmi = W
-			O.invisibility = 0
-			O.custom_name = created_name
-			O.updatename("Default")
+				var/mob/living/carbon/human/unbranded_frame/shell = new(get_turf(user))
+				M.brainmob.mind.transfer_to(shell)
+				var/newname = sanitizeSafe(input(shell,"Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
+				if(!newname || newname == "")
+					var/datum/language/L = all_languages[shell.species.default_language]
+					newname = L.get_random_name()
+				shell.real_name = newname
+				shell.name = shell.real_name
+				qdel(M)
+				qdel(src)
+				return
 
-			M.brainmob.mind.transfer_to(O)
+			else
+				var/mob/living/silicon/robot/O = new /mob/living/silicon/robot(get_turf(loc), TRUE)
+				if(!O)	return
 
-			if(O.mind && O.mind.special_role)
-				O.mind.store_memory("In case you look at this after being borged, the objectives are only here until I find a way to make them not show up for you, as I can't simply delete them without screwing up round-end reporting. --NeoFite")
+				user.drop_item()
 
-			O.job = "Cyborg"
+				O.mmi = W
+				O.invisibility = 0
+				O.custom_name = created_name
+				O.updatename("Default")
 
-			O.cell = chest.cell
-			O.cell.loc = O
-			W.loc = O//Should fix cybros run time erroring when blown up. It got deleted before, along with the frame.
+				M.brainmob.mind.transfer_to(O)
 
-			// Since we "magically" installed a cell, we also have to update the correct component.
-			if(O.cell)
-				var/datum/robot_component/cell_component = O.components["power cell"]
-				cell_component.wrapped = O.cell
-				cell_component.installed = 1
+				if(O.mind && O.mind.special_role)
+					O.mind.store_memory("In case you look at this after being borged, the objectives are only here until I find a way to make them not show up for you, as I can't simply delete them without screwing up round-end reporting. --NeoFite")
 
-			feedback_inc("cyborg_birth",1)
-			callHook("borgify", list(O))
-			O.Namepick()
+				O.job = "Cyborg"
 
-			qdel(src)
+				O.cell = chest.cell
+				O.cell.loc = O
+				W.loc = O//Should fix cybros run time erroring when blown up. It got deleted before, along with the frame.
+
+				// Since we "magically" installed a cell, we also have to update the correct component.
+				if(O.cell)
+					var/datum/robot_component/cell_component = O.components["power cell"]
+					cell_component.wrapped = O.cell
+					cell_component.installed = 1
+
+				feedback_inc("cyborg_birth",1)
+				callHook("borgify", list(O))
+				O.Namepick()
+
+				qdel(src)
 		else
 			user << "<span class='warning'>The MMI must go in after everything else!</span>"
 
@@ -271,6 +291,14 @@
 
 /obj/item/robot_parts/head/attackby(obj/item/W as obj, mob/user as mob)
 	..()
+	if(ismultitool(W))
+		if(law_manager)
+			user << "<span class='notice'>You disable the lawing circuits on \the [src].</span>"
+			law_manager = FALSE
+		else
+			user << "<span class='notice'>You enable the lawing circuits on \the [src].</span>"
+			law_manager = TRUE
+
 	if(istype(W, /obj/item/device/flash))
 		if(istype(user,/mob/living/silicon/robot))
 			var/current_module = user.get_active_hand()
