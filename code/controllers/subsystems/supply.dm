@@ -18,7 +18,7 @@ var/datum/controller/subsystem/cargo/SScargo
 	//Shipment stuff
 	var/shipmentnum
 	var/list/cargo_shipments = list() //List of the shipments to the station
-	var/datum/cargo_shipment/current_shipment = null // The current cargo shipment
+	var/datum/cargo_shipment/current_shipment = null //The current cargo shipment
 
 	//order stuff
 	var/ordernum
@@ -32,9 +32,9 @@ var/datum/controller/subsystem/cargo/SScargo
 	var/credits_per_platinum = 140 //Per sheet
 	var/credits_per_phoron = 100 //Per sheet
 	var/cargo_handlingfee = 50 //The handling fee cargo takes per crate
-	var/cargo_handlingfee_min = 0 // The minimum handling fee
-	var/cargo_handlingfee_max = 500 // The maximum handling fee
-	var/cargo_handlingfee_change = 1 // If the handlingfee can be changed -> For a random event
+	var/cargo_handlingfee_min = 0 //The minimum handling fee
+	var/cargo_handlingfee_max = 500 //The maximum handling fee
+	var/cargo_handlingfee_change = 1 //If the handlingfee can be changed -> For a random event
 	var/datum/money_account/supply_account
 
 	//shuttle movement
@@ -53,6 +53,7 @@ var/datum/controller/subsystem/cargo/SScargo
 	src.cargo_handlingfee = SScargo.cargo_handlingfee
 	src.cargo_handlingfee_change = SScargo.cargo_handlingfee_change
 	src.supply_account = SScargo.supply_account
+	src.last_item_id = SScargo.last_item_id
 
 /datum/controller/subsystem/cargo/Initialize(timeofday)
 	//Generate the ordernumber and shipmentnumber to start with
@@ -70,7 +71,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		log_debug("SScargo: Attempting to Load from JSON")
 		load_from_json()
 	else
-		log_game("SSCargo: invalid load option specified in config")
+		log_game("SScargo: invalid load option specified in config")
 
 	var/datum/cargospawner/spawner = new
 	spawner.start()
@@ -102,7 +103,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		try
 			suppliers = json_decode(item_query.item[4])
 		catch(var/exception/e)
-			log_debug("SSCargo: Error Decoding supplier data for item: [id] - [e]")
+			log_debug("SScargo: Error Decoding supplier data for item: [id] - [e]")
 			continue
 
 		// Calculate the following items
@@ -130,11 +131,12 @@ var/datum/controller/subsystem/cargo/SScargo
 //Reset cargo to prep for loading in new items
 /datum/controller/subsystem/cargo/proc/reset_cargo()
 	cargo_shipments = list() //List of the shipments to the station
-	current_shipment = null // The current cargo shipment
+	current_shipment = null //The current cargo shipment
 	cargo_items = list() //The list of items
 	cargo_categories = list() //The list of categories
 	cargo_suppliers = list() //The list of suppliers
 	all_orders = list() //All orders
+	last_item_id = 0
 
 //Load the cargo data from SQL
 /datum/controller/subsystem/cargo/proc/load_from_sql()
