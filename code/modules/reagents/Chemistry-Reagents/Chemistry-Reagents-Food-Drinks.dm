@@ -62,7 +62,7 @@
 	var/blood_factor = 6
 	var/regen_factor = 0.8
 	var/injectable = 0
-	var/attrition_factor = 1
+	var/attrition_factor = -0.1 // Decreases attrition rate.
 	color = "#664330"
 	unaffected_species = IS_MACHINE
 
@@ -70,7 +70,7 @@
 	name = "Synthetic Nutriment"
 	id = "synnutriment"
 	description = "A cheaper alternative to actual nutriment."
-	attrition_factor = 0
+	attrition_factor = 0.1 // Increases attrition rate.
 
 /datum/reagent/nutriment/mix_data(var/list/newdata, var/newamount)
 	if(!islist(newdata) || !newdata.len)
@@ -108,6 +108,7 @@
 /datum/reagent/nutriment/proc/digest(var/mob/living/carbon/M, var/removed)
 	M.heal_organ_damage(regen_factor * removed, 0)
 	M.nutrition += nutriment_factor * removed // For hunger and fatness
+	M.nutrition_attrition_rate = Clamp(M.nutrition_attrition_rate + attrition_factor, 1, 2)
 	M.add_chemical_effect(CE_BLOODRESTORE, blood_factor * removed)
 
 
