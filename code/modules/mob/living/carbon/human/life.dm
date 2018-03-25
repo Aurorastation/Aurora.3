@@ -1498,6 +1498,9 @@
 					if((R.fields["id"] == E.fields["id"]) && (R.fields["criminal"] == "*Arrest*"))
 						holder.icon_state = "hudwanted"
 						break
+					else if((R.fields["id"] == E.fields["id"]) && (R.fields["criminal"] == "Search"))
+						holder.icon_state = "hudsearch"
+						break
 					else if((R.fields["id"] == E.fields["id"]) && (R.fields["criminal"] == "Incarcerated"))
 						holder.icon_state = "hudprisoner"
 						break
@@ -1506,7 +1509,6 @@
 						break
 					else if((R.fields["id"] == E.fields["id"]) && (R.fields["criminal"] == "Released"))
 						holder.icon_state = "hudreleased"
-						break
 		hud_list[WANTED_HUD] = holder
 
 	if (  BITTEST(hud_updateflag, IMPLOYAL_HUD) \
