@@ -18,6 +18,23 @@
 	if(src.stat == 2.0 && (act != "deathgasp"))
 		return
 	switch(act)
+		if("spit")
+			if(muzzled)
+				message = "tries to spit."
+				m_type = 2
+			else
+				var/obj/item/weapon/chewing_gum/found_gum = null
+				for(var/obj/item/weapon/chewing_gum/gum in src.contents)
+					if(istype(gum) && gum.is_chewing)
+						found_gum = gum
+						break
+				if(found_gum != null)
+					found_gum.is_chewing = 0
+					src.drop_from_inventory(found_gum,src.loc)
+					message = "spits out their gum."
+				else
+					message = "spits."
+				m_type = 1
 		if ("airguitar")
 			if (!src.restrained())
 				message = "is strumming the air and headbanging like a safari chimp."
@@ -649,7 +666,7 @@
 					message = "buzzes."
 				playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
 				m_type = 1
-		
+
 		if("vomit")
 			if (!check_has_mouth(src))
 				src << "<span class='warning'>You are unable to vomit.</span>"
