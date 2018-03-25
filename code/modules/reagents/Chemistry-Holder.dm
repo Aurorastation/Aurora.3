@@ -10,6 +10,7 @@
 	..()
 	maximum_volume = max
 	my_atom = A
+	fix_exploit_reagents()
 
 /datum/reagents/Destroy()
 	. = ..()
@@ -68,6 +69,7 @@
 	return the_id
 
 /datum/reagents/proc/update_total() // Updates volume.
+	fix_exploit_reagents()
 	total_volume = 0
 	for(var/datum/reagent/R in reagent_list)
 		if(R.volume < MINIMUM_CHEMICAL_VOLUME)
@@ -232,6 +234,25 @@
 	for(var/datum/reagent/current in reagent_list)
 		. += "[current.id] ([current.volume])"
 	return english_list(., "EMPTY", "", ", ", ", ")
+
+/datum/reagents/proc/fix_exploit_reagents()
+	for(var/datum/reagent/current in reagent_list)
+		var/cancel_loop = 0
+		if(current.container_whitelist.len)
+			for(var/datum/reagent/whitelist in current.container_whitelist)
+				if(istype(whitelist,my_atom))
+					break
+				del_reagent(current.id)
+				cancel_loop = 1
+
+		if(cancel_loop)
+			break
+
+		if(current.container_blacklist.len)
+			for(var/datum/reagent/blacklist in current.container_blacklist)
+				if(!istype(blacklist,my_atom))
+					continue
+				del_reagent(current.id)
 
 /* Holder-to-holder and similar procs */
 

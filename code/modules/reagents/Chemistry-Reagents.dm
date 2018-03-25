@@ -24,6 +24,9 @@
 	var/color_weight = 1
 	var/unaffected_species = IS_DIONA | IS_MACHINE	// Species that aren't affected by this reagent. Does not prevent affect_touch.
 
+	var/list/container_whitelist = list() //If
+	var/list/container_blacklist = list()
+
 /datum/reagent/proc/remove_self(var/amount) // Shortcut
 	if (!holder)
 		//PROCLOG_WEIRD("Null holder found. Name: [name], id: [id]")
