@@ -516,6 +516,7 @@
 	filling_color = "#E8C31E"
 	center_of_mass = list("x"=15, "y"=15)
 	nutriment_amt = 3
+	nutriment_type = NUTRIMENT_BAD
 	nutriment_desc = list("chips" = 3)
 	bitesize = 1
 
@@ -1505,6 +1506,7 @@
 	trash = /obj/item/trash/sosjerky
 	filling_color = "#631212"
 	center_of_mass = list("x"=15, "y"=9)
+	nutriment_type = NUTRIMENT_BAD
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/sosjerky/Initialize()
@@ -1519,6 +1521,7 @@
 	filling_color = "#343834"
 	center_of_mass = list("x"=15, "y"=4)
 	nutriment_desc = list("dried raisins" = 6)
+	nutriment_type = NUTRIMENT_BAD
 	nutriment_amt = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/spacetwinkie
@@ -1528,6 +1531,7 @@
 	filling_color = "#FFE591"
 	center_of_mass = list("x"=15, "y"=11)
 	nutriment_desc = list("cake" = 3, "cream filling" = 1)
+	nutriment_type = NUTRIMENT_BAD
 	nutriment_amt = 4
 	bitesize = 2
 
@@ -1543,6 +1547,7 @@
 	filling_color = "#FFA305"
 	center_of_mass = list("x"=15, "y"=9)
 	nutriment_desc = list("chips" = 2)
+	nutriment_type = NUTRIMENT_BAD
 	nutriment_amt = 4
 	bitesize = 2
 
@@ -4203,6 +4208,7 @@
 	filling_color = "#A66829"
 	center_of_mass = list("x"=17, "y"=16)
 	nutriment_desc = list("tasty bread" = 4)
+	nutriment_type = NUTRIMENT_BAD
 	nutriment_amt = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/skrellsnacks
@@ -4212,6 +4218,7 @@
 	filling_color = "#A66829"
 	center_of_mass = list("x"=15, "y"=12)
 	nutriment_desc = list("alien fungus" = 10)
+	nutriment_type = NUTRIMENT_BAD
 	nutriment_amt = 10
 	bitesize = 3
 
@@ -4339,6 +4346,7 @@
 	trash = /obj/item/trash/meatsnack
 	filling_color = "#631212"
 	nutriment_desc = list("pie crust" = 2)
+	nutriment_type = NUTRIMENT_BAD
 	nutriment_amt = 2
 	bitesize = 5
 
@@ -4352,6 +4360,7 @@
 	desc = "Various processed meat from Moghes with 600% the amount of recommended daily sodium per can."
 	trash = /obj/item/trash/maps
 	filling_color = "#631212"
+	nutriment_type = NUTRIMENT_BAD
 	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/maps/Initialize()
@@ -4364,6 +4373,7 @@
 	icon_state = "cbeef"
 	desc = "Delicious corned beef and preservatives. Imported from Earth, canned on Ourea."
 	trash = /obj/item/trash/nathisnack
+	nutriment_type = NUTRIMENT_BAD
 	filling_color = "#631212"
 	bitesize = 4
 
@@ -4947,3 +4957,6 @@
 /obj/item/weapon/reagent_containers/food/snacks/corn_dog/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 3)
+
+#undef NUTRIMENT_GOOD
+#undef NUTRIMENT_BAD
