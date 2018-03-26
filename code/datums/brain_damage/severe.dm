@@ -219,3 +219,22 @@
 /datum/brain_trauma/severe/pacifism/on_lose()
 	owner.disabilities &= ~PACIFIST
 	..()
+
+/datum/brain_trauma/severe/total_colorblind
+	name = "Total Colorblindedness"
+	desc = "Patient's brain is loosely connected to ocular cones."
+	scan_desc = "minor damage to the brain's occipital lobe"
+	gain_text = "<span class='warning'>Your perception of color vanishes!</span>"
+	lose_text = "<span class='notice'>Your vision returns.</span>"
+
+/datum/brain_trauma/severe/total_colorblind/on_gain()
+	owner.add_client_color(/datum/client_color/monochrome)
+	..()
+
+/datum/brain_trauma/severe/total_colorblind/on_life()
+	if(owner.client && !owner.client.color)
+		on_gain()
+
+/datum/brain_trauma/severe/total_colorblind/on_lose()
+	owner.remove_client_color(/datum/client_color/monochrome)
+	..()

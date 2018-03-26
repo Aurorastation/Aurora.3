@@ -226,16 +226,49 @@
 	lose_text = "<span class='notice'>Your vision returns.</span>"
 
 /datum/brain_trauma/mild/nearsightedness/on_gain()
-	owner.disabilities |= BLIND
+	owner.disabilities |= NEARSIGHTED
 	..()
 
 //no fiddling with genetics to get out of this one
 /datum/brain_trauma/mild/nearsightedness/on_life()
-	if(!(owner.disabilities & BLIND))
+	if(!(owner.disabilities & NEARSIGHTED))
 		on_gain()
 	..()
 
 /datum/brain_trauma/mild/nearsightedness/on_lose()
-	if(owner.disabilities & BLIND)
-		owner.disabilities &= ~BLIND
+	if(owner.disabilities & NEARSIGHTED)
+		owner.disabilities &= ~NEARSIGHTED
+	..()
+
+/datum/brain_trauma/mild/colorblind
+	name = "Partial Colorblindedness"
+	desc = "Patient's brain is loosely connected to ocular cones."
+	scan_desc = "minor damage to the brain's occipital lobe"
+	gain_text = "<span class='warning'>Your perception of color distorts!</span>"
+	lose_text = "<span class='notice'>Your vision returns.</span>"
+	var/colorblindedness
+
+/datum/brain_trauma/mild/colorblind/on_gain()
+	colorblindedness = pick("deuteranopia", "protanopia", "tritanopia")
+	switch(colorblindedness)
+		if("deuteranopia")
+			owner.add_client_color(/datum/client_color/deuteranopia)
+		if("protanopia")
+			owner.add_client_color(/datum/client_color/protanopia)
+		if("tritanopia")
+			owner.add_client_color(/datum/client_color/tritanopia)
+	..()
+
+/datum/brain_trauma/mild/colorblind/on_life()
+	if(owner.client && !owner.client.color)
+		on_gain()
+
+/datum/brain_trauma/mild/colorblind/on_lose()
+	switch(colorblindedness)
+		if("deuteranopia")
+			owner.remove_client_color(/datum/client_color/deuteranopia)
+		if("protanopia")
+			owner.remove_client_color(/datum/client_color/protanopia)
+		if("tritanopia")
+			owner.remove_client_color(/datum/client_color/tritanopia)
 	..()
