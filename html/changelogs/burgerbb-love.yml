@@ -1,0 +1,7 @@
+author: BurgerBB
+
+delete-after: True
+
+changes: 
+  - rscdel: "Removed junkfood causing heart damage."
+  - rscadd: "Grown food, as well as cooked food in the kitchen, provides slight stamina and stamina regen buffs to crewmembers when consumed. The more complex the meal, the longer the buff is. Junkfood is the opposite where it reduces stamina and stamina regen when consumed."
