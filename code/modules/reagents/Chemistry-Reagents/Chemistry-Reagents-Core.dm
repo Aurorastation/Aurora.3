@@ -204,7 +204,7 @@
 
 		var/mob/living/carbon/H = M
 		if(istype(H) && istajara(H))
-			H.adjustHalLoss(25)
+			H.adjustHalLoss(5)
 			H.custom_emote(2,"hisses!")
 			playsound(H.loc, 'sound/voice/cat_scream.ogg', 100, 1, 0)
 			shake_camera(H,1)

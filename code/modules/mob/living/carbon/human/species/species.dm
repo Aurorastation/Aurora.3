@@ -324,7 +324,8 @@
 		else
 			H.visible_message("<span class='notice'>[H] belly rubs [target]!</span>")
 			target.custom_emote(2,"purrs and kneads at the air!")
-		target.paralysis = 4
+		playsound(target.loc, 'sound/voice/cat_purr.ogg', 100, 1, 0)
+		target.stun = 4
 
 	else
 		H.visible_message("<span class='notice'>[H] hugs [target] to make [t_him] feel better!</span>", \
