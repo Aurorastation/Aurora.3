@@ -97,6 +97,7 @@
 	damage = 12
 	attack_sound = 'sound/weapons/beartrap_shut.ogg'
 	attack_name = "power fist"
+	shredding = 1
 
 /datum/unarmed_attack/terminator/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armour,var/attack_damage,var/zone)
 	..()

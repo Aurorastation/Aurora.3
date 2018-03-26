@@ -1,0 +1,9 @@
+author: BurgerBB
+
+delete-after: True
+
+changes: 
+  - rscadd: "Completely reworked anti-depressants so they only cure certain types of traumas at various strengths. Added additional anti-depressants and special medication. Antidepressants and some painkillers now have adverse effects when with alchohol."
+  - rscadd: "Added a new reagant breathing system. Inhaled smoke no longer counts as eating it. Inhaleing reagents is 25% weaker than injecting it directly."
+  - tweak: "Reworked cigarrettes so they actually have effects, including very gradual organ damage and a minor performance enhancer. Custom cigarettes can also be made in the biogenerator, or found elsewhere."
+  - tweak: "Reworked heart damage so that negative effects are more linear. Tweaked oxy loss from blood loss to also be more linear."

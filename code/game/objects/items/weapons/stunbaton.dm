@@ -156,7 +156,8 @@
 					return 1
 				else
 					H.visible_message("<span class='danger'>[L] has been prodded in the [affecting.name] with [src] by [user]!</span>")
-					H.electrocute_act(force * 2, src, ground_zero = target_zone)
+					if(!sheathed)
+						H.electrocute_act(force * 2, src, ground_zero = target_zone)
 		else
 			if(!status)
 				L.visible_message("<span class='warning'>[L] has been prodded with [src] by [user]. Luckily it was off.</span>")

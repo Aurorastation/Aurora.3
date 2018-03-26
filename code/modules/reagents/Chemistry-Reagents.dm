@@ -11,6 +11,7 @@
 	var/metabolism = REM // This would be 0.2 normally
 	var/ingest_met = 0
 	var/touch_met = 0
+	var/breathe_met = 0
 	var/dose = 0
 	var/max_dose = 0
 	var/overdose = 0
@@ -23,6 +24,8 @@
 	var/color = "#000000"
 	var/color_weight = 1
 	var/unaffected_species = IS_DIONA | IS_MACHINE	// Species that aren't affected by this reagent. Does not prevent affect_touch.
+	var/metabolism_min = 0.01 //How much for the medicine to be present in the system to actually have an effect.
+	var/list/conflicting_reagents //Reagents that conflict with this medicine, and cause adverse effects when in the blood.
 
 /datum/reagent/proc/remove_self(var/amount) // Shortcut
 	if (!holder)
@@ -52,18 +55,27 @@
 	if(!dose && volume)//If dose is currently zero, we do the first effect
 		initial_effect(M, alien)
 
-	if(overdose && (dose > overdose) && (location != CHEM_TOUCH))
-		overdose(M, alien)
 	var/removed = metabolism
 	if(ingest_met && (location == CHEM_INGEST))
 		removed = ingest_met
 	if(touch_met && (location == CHEM_TOUCH))
 		removed = touch_met
+	if(breathe_met && (location == CHEM_BREATHE))
+		removed = breathe_met
+
 	removed = min(removed, volume)
 	max_dose = max(volume, max_dose)
+
+	if(overdose && (dose > overdose) && (location != CHEM_TOUCH))
+		overdose(M, alien, removed, dose/overdose)
+
 	dose = min(dose + removed, max_dose)
-	//Relaxed this small amount restriction a bit. it gets in the way of gradually digesting creatures
-	if(removed >= (metabolism * 0.01) || removed >= 0.01) // If there's too little chemical, don't affect the mob, just remove it
+
+	for(var/conflicting_reagent in conflicting_reagents)
+		var/amount_min = conflicting_reagents[conflicting_reagent]
+		if(M.reagents.has_reagent(conflicting_reagent,amount_min))
+			affect_conflicting(M,alien,removed,conflicting_reagent)
+	if(removed >= metabolism_min)
 		switch(location)
 			if(CHEM_BLOOD)
 				affect_blood(M, alien, removed)
@@ -71,6 +83,8 @@
 				affect_ingest(M, alien, removed)
 			if(CHEM_TOUCH)
 				affect_touch(M, alien, removed)
+			if(CHEM_BREATHE)
+				affect_breathe(M, alien, removed)
 	remove_self(removed)
 
 //Initial effect is called once when the reagent first starts affecting a mob.
@@ -80,13 +94,19 @@
 /datum/reagent/proc/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	return
 
+/datum/reagent/proc/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting_reagent)
+	M.adjustToxLoss(removed)
+
 /datum/reagent/proc/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	affect_blood(M, alien, removed * 0.5)
 
 /datum/reagent/proc/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	return
 
-/datum/reagent/proc/overdose(var/mob/living/carbon/M, var/alien) // Overdose effect. Doesn't happen instantly.
+/datum/reagent/proc/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed)
+	affect_blood(M, alien, removed * 0.75)
+
+/datum/reagent/proc/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1) // Overdose effect. Doesn't happen instantly.
 	M.adjustToxLoss(REM)
 
 /datum/reagent/proc/initialize_data(var/newdata) // Called when the reagent is created.

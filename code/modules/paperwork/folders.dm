@@ -26,7 +26,7 @@
 	icon_state = "folder_white"
 
 /obj/item/weapon/folder/purple
-	desc = "A gold and blue folder, specifically designed for the Research Division facilities of the company."
+	desc = "A purple folder, specifically designed for the Research Division facilities of the company."
 	icon_state = "folder_purple"
 
 /obj/item/weapon/folder/update_icon()

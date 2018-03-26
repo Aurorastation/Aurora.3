@@ -112,6 +112,15 @@ REAGENT SCANNER
 					++unknown
 			if(unknown)
 				user << "<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's stomach.</span>"
+		if(C.breathing && C.breathing.total_volume)
+			var/unknown = 0
+			for(var/datum/reagent/R in C.breathing.reagent_list)
+				if(R.scannable)
+					user << "<span class='notice'>[R.name] found in subject's respitory system.</span>"
+				else
+					++unknown
+			if(unknown)
+				user << "<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's respitory system.</span>"
 		if(C.virus2.len)
 			for (var/ID in C.virus2)
 				if (ID in virusDB)
