@@ -708,6 +708,7 @@
 				product = new has_mob_product(get_turf(user),name)
 			else
 				product = new /obj/item/weapon/reagent_containers/food/snacks/grown(get_turf(user),name)
+				product.reagents.add_reagent("love",1)
 			if(get_trait(TRAIT_PRODUCT_COLOUR))
 				if(!istype(product, /mob))
 					product.color = get_trait(TRAIT_PRODUCT_COLOUR)

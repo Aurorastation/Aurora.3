@@ -27,7 +27,7 @@
 	var/metabolism_min = 0.01 //How much for the medicine to be present in the system to actually have an effect.
 	var/list/conflicting_reagents //Reagents that conflict with this medicine, and cause adverse effects when in the blood.
 
-	var/list/container_whitelist = list() //If
+	var/list/container_whitelist = list()
 	var/list/container_blacklist = list()
 
 /datum/reagent/proc/remove_self(var/amount) // Shortcut

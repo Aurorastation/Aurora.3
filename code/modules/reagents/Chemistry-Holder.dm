@@ -10,7 +10,6 @@
 	..()
 	maximum_volume = max
 	my_atom = A
-	fix_exploit_reagents()
 
 /datum/reagents/Destroy()
 	. = ..()
@@ -69,7 +68,6 @@
 	return the_id
 
 /datum/reagents/proc/update_total() // Updates volume.
-	fix_exploit_reagents()
 	total_volume = 0
 	for(var/datum/reagent/R in reagent_list)
 		if(R.volume < MINIMUM_CHEMICAL_VOLUME)
@@ -90,6 +88,7 @@
 
 //returns 1 if the holder should continue reactiong, 0 otherwise.
 /datum/reagents/proc/process_reactions()
+
 	if(!my_atom) // No reactions in temporary holders
 		return 0
 	if(!my_atom.loc) //No reactions inside GC'd containers
@@ -146,6 +145,13 @@
 			return 1
 	var/datum/reagent/D = SSchemistry.chemical_reagents[id]
 	if(D)
+
+		if(D.container_whitelist.len > 0 && !instances_of_type_in_list(my_atom,D.container_whitelist))
+			return 0
+
+		if(D.container_blacklist.len > 0 && instances_of_type_in_list(my_atom,D.container_blacklist))
+			return 0
+
 		var/datum/reagent/R = new D.type()
 		reagent_list += R
 		R.holder = src
@@ -235,25 +241,6 @@
 		. += "[current.id] ([current.volume])"
 	return english_list(., "EMPTY", "", ", ", ", ")
 
-/datum/reagents/proc/fix_exploit_reagents()
-	for(var/datum/reagent/current in reagent_list)
-		var/cancel_loop = 0
-		if(current.container_whitelist.len)
-			for(var/datum/reagent/whitelist in current.container_whitelist)
-				if(istype(whitelist,my_atom))
-					break
-				del_reagent(current.id)
-				cancel_loop = 1
-
-		if(cancel_loop)
-			break
-
-		if(current.container_blacklist.len)
-			for(var/datum/reagent/blacklist in current.container_blacklist)
-				if(!istype(blacklist,my_atom))
-					continue
-				del_reagent(current.id)
-
 /* Holder-to-holder and similar procs */
 
 /datum/reagents/proc/remove_any(var/amount = 1) // Removes up to [amount] of reagents from [src]. Returns actual amount removed.
@@ -273,7 +260,7 @@
 	return amount
 
 /datum/reagents/proc/trans_to_holder(var/datum/reagents/target, var/amount = 1, var/multiplier = 1, var/copy = 0) // Transfers [amount] reagents from [src] to [target], multiplying them by [multiplier]. Returns actual amount removed from [src] (not amount transferred to [target]).
-	
+
 	if(!target || !istype(target))
 		return 0
 
@@ -297,7 +284,7 @@
 		handle_reactions()
 
 	target.handle_reactions()
-	
+
 	return amount
 
 /* Holder-to-atom and similar procs */
@@ -410,7 +397,7 @@
 
 	if(!target || !istype(target) || !target.simulated)
 		return 0
-		
+
 	var/mob/living/carbon/C = target
 	if(istype(C))
 		if(type == CHEM_BREATHE)

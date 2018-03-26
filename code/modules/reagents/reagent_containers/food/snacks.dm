@@ -19,7 +19,7 @@
 	var/icon/flat_icon = null //Used to cache a flat icon generated from dipping in batter. This is used again to make the cooked-batter-overlay
 	var/do_coating_prefix = 1
 	//If 0, we wont do "battered thing" or similar prefixes. Mainly for recipes that include batter but have a special name
-
+	var/food_buff = 0 //Amount of Stamina and other effects to add when this is eaten.
 	var/cooked_icon = null
 	//Used for foods that are "cooked" without being made into a specific recipe or combination.
 	//Generally applied during modification cooking with oven/fryer
@@ -58,7 +58,6 @@
 
 	if(istype(M, /mob/living/carbon))
 		//TODO: replace with standard_feed_mob() call.
-
 		var/fullness = M.nutrition + (M.reagents.get_reagent_amount("nutriment") * 25)
 		if(M == user)								//If you're eating it yourself
 			if(istype(M,/mob/living/carbon/human))
@@ -349,6 +348,8 @@
 			var/datum/reagent/nutriment/coating/C = R
 			C.data["cooked"] = 1
 			C.name = C.cooked_name
+
+	src.reagents.add_reagent("love",1)
 
 ////////////////////////////////////////////////////////////////////////////////
 /// FOOD END
