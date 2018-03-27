@@ -523,14 +523,6 @@
 		if(prob(15))
 			M.emote(pick("twitch", "giggle"))
 
-/datum/reagent/nicotine
-	name = "Nicotine"
-	id = "nicotine"
-	description = "A highly addictive stimulant extracted from the tobacco plant."
-	reagent_state = LIQUID
-	color = "#181818"
-	taste_description = "bitterness"
-
 /* Transformations */
 
 /datum/reagent/slimetoxin
@@ -625,3 +617,34 @@
 		return
 	..()
 
+/datum/reagent/toxin/tobacco
+	name = "Space Tobacco"
+	id = "tobacco"
+	description = "Low-grade space tobacco."
+	reagent_state = LIQUID
+	color = "#333300"
+	data = 0
+	taste_description = "low-grade tobacco"
+	strength = 0.004
+	taste_mult = 10
+
+/datum/reagent/toxin/tobacco/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+	if(istype(M))
+		var/obj/item/organ/H = M.internal_organs_by_name["heart"]
+		if(istype(H))
+			H.take_damage(removed * strength * 0.5,1)
+		var/obj/item/organ/L = M.internal_organs_by_name["lungs"]
+		if(istype(L))
+			L.take_damage(removed * strength,1)
+		var/obj/item/organ/A = M.internal_organs_by_name["liver"]
+		if(istype(A))
+			A.take_damage(removed * strength * 0.25,1)
+
+/datum/reagent/toxin/tobacco/rich
+	name = "Earth Tobacco"
+	id = "tobaccorich"
+	description = "Nicknamed 'Earth Tobacco', this plant is much higher quality than it's space fairing counterpart."
+	reagent_state = LIQUID
+	data = 0
+	taste_description = "quality tobacco"
+	strength = 0.002

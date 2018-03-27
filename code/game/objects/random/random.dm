@@ -745,6 +745,7 @@
 		/obj/item/weapon/storage/fancy/cigarettes = 1.2,
 		/obj/item/weapon/storage/fancy/cigarettes/dromedaryco = 0.8,
 		/obj/item/weapon/storage/fancy/cigarettes/killthroat = 0.3,
+		/obj/item/weapon/storage/fancy/cigarettes/custom = 1,
 		/obj/item/weapon/storage/bag/plasticbag = 1,
 		/obj/item/weapon/extinguisher = 1.3,
 		/obj/item/weapon/extinguisher/mini = 0.9,

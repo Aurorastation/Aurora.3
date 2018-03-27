@@ -46,7 +46,7 @@ var/datum/antagonist/deathsquad/mercenary/commandos
 	syndie_belt.contents += new /obj/item/weapon/grenade/frag
 	syndie_belt.contents += new /obj/item/weapon/plastique
 	player.equip_to_slot_or_del(syndie_belt, slot_belt)
-	
+
 	var/obj/item/weapon/rig/merc/mercrig = new(get_turf(player))
 	mercrig.seal_delay = 0
 	player.put_in_hands(mercrig)
@@ -71,5 +71,10 @@ var/datum/antagonist/deathsquad/mercenary/commandos
 	id.icon_state = "centcom"
 	create_radio(SYND_FREQ, player)
 	player.faction = "syndicate"
+
+	//gives them a martial art as well
+
+	var/datum/martial_art/sol_combat/F = new/datum/martial_art/sol_combat(null)
+	F.teach(player)
 
 	return 1

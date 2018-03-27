@@ -60,16 +60,20 @@
 		var/client/C = locate(href_list["priv_msg"])
 		var/datum/ticket/ticket = locate(href_list["ticket"])
 
+		if (!istype(ticket))
+			return
+
 		if(ismob(C)) 		//Old stuff can feed-in mobs instead of clients
 			var/mob/M = C
 			C = M.client
+
 		cmd_admin_pm(C, null, ticket)
 		return
 
 	if(href_list["close_ticket"])
 		var/datum/ticket/ticket = locate(href_list["close_ticket"])
 
-		if(isnull(ticket))
+		if(!istype(ticket))
 			return
 
 		ticket.close(src)

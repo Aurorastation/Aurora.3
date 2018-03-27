@@ -130,6 +130,7 @@
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	storage_slots = 6
+	var/cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/weapon/flame/lighter)
 	icon_type = "cigarette"
 
@@ -140,7 +141,7 @@
 
 /obj/item/weapon/storage/fancy/cigarettes/fill()
 	for(var/i = 1 to storage_slots)
-		new /obj/item/clothing/mask/smokable/cigarette(src)
+		new cigarette_to_spawn(src)
 
 /obj/item/weapon/storage/fancy/cigarettes/update_icon()
 	icon_state = "[initial(icon_state)][contents.len]"
@@ -156,7 +157,7 @@
 		return
 
 	if(M == user && target_zone == "mouth" && contents.len > 0 && !user.wear_mask)
-		var/obj/item/clothing/mask/smokable/cigarette/W = new /obj/item/clothing/mask/smokable/cigarette(user)
+		var/obj/item/clothing/mask/smokable/cigarette/W = new cigarette_to_spawn(user)
 		if(!istype(W))
 			user <<"<span class ='notice'>The [W] is blocking the cigarettes.</span>"
 			return
@@ -174,16 +175,21 @@
 	desc = "A packet of six imported DromedaryCo cancer sticks. A label on the packaging reads, \"Wouldn't a slow death make a change?\""
 	icon_state = "Dpacket"
 	item_state = "Dpacket"
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/dromedaryco
 
 /obj/item/weapon/storage/fancy/cigarettes/killthroat
 	name = "\improper AcmeCo packet"
 	desc = "A packet of six AcmeCo cigarettes. For those who somehow want to obtain the record for the most amount of cancerous tumors."
 	icon_state = "Bpacket"
 	item_state = "Bpacket" //Doesn't have an inhand state, but neither does dromedary, so, ya know..
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/killthroat
 
-	fill()
-		..()
-		fill_cigarre_package(src,list("fuel" = 15))
+/obj/item/weapon/storage/fancy/cigarettes/custom
+	name = "\improper blank packet"
+	desc = "A packet of six blank cigarettes. The healthiest cigarettes on the market!"
+	icon_state = "Epacket"
+	item_state = "Epacket" //Doesn't have an inhand state, but neither does dromedary, so, ya know..
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/custom
 
 /obj/item/weapon/storage/fancy/cigar
 	name = "cigar case"
