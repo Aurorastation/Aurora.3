@@ -131,7 +131,7 @@
 	slowdown = 0
 	offline_slowdown = 0
 	offline_vision_restriction = 0
-	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
+	max_heat_protection_temperature = 7500
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ce
 	glove_type = /obj/item/clothing/gloves/rig/ce
