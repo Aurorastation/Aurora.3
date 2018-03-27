@@ -221,6 +221,10 @@
 					newname = L.get_random_name()
 				new_shell.real_name = newname
 				new_shell.name = new_shell.real_name
+				var/datum/nano_module/appearance_changer/AC = new(src, new_shell)
+				AC.name = "Synthetic Customization Workshop"
+				AC.flags = APPEARANCE_ALL_HAIR | APPEARANCE_SKIN | APPEARANCE_EYE_COLOR
+				AC.ui_interact(new_shell)
 				qdel(M)
 				qdel(src)
 				return
