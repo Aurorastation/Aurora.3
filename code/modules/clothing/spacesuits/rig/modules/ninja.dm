@@ -271,11 +271,11 @@
 
 /obj/item/rig_module/device/emag_hand
 	name = "integrated cryptographic sequencer"
-	desc = "A complex uprade that allows the user apply an EMAG effect to certain objects. High power cost."
+	desc = "A complex uprade that allows the user to apply an EMAG effect to certain objects. High power cost."
 	use_power_cost = 100
 	module_cooldown = 4800
 
 	interface_name = "integrated cryptographic sequencer"
-	interface_desc = "A complex uprade that allows the user apply an EMAG effect to certain objects. High power cost."
+	interface_desc = "A complex uprade that allows the user to apply an EMAG effect to certain objects. High power cost."
 
 	device_type = /obj/item/weapon/robot_emag
