@@ -1,45 +1,4 @@
 /* Food */
-
-/datum/reagent/love
-	name = "love"
-	id = "love"
-	description = "Love is invisible! How do you see this?!"
-	metabolism = 0.0034 //1 unit lasts 300 seconds, or 5 minutes.
-	color = "#FF8888"
-	taste_description = "love"
-	taste_mult = 0
-	unaffected_species = IS_DIONA | IS_MACHINE
-	container_whitelist = list(
-		/obj/item/weapon/reagent_containers/food,
-		/mob/living/carbon/
-	)
-	var/datum/modifier/modifier
-
-/datum/reagent/love/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if (!modifier)
-		modifier = M.add_modifier(/datum/modifier/food, MODIFIER_REAGENT, src, _strength = 20, override = MODIFIER_OVERRIDE_CUSTOM)
-	. = ..()
-
-/datum/reagent/hate
-	name = "hate"
-	id = "hate"
-	description = "Hate is invisible! How do you see this?!"
-	metabolism = 0.0034 //1 unit lasts 300 seconds, or 5 minutes.
-	color = "#000000"
-	taste_description = "hate"
-	taste_mult = 0
-	unaffected_species = IS_DIONA | IS_MACHINE
-	container_whitelist = list(
-		/obj/item/weapon/reagent_containers/food,
-		/mob/living/carbon/
-	)
-	var/datum/modifier/modifier
-
-/datum/reagent/love/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if (!modifier)
-		modifier = M.add_modifier(/datum/modifier/food, MODIFIER_REAGENT, src, _strength = -10, override = MODIFIER_OVERRIDE_CUSTOM)
-	. = ..()
-
 /datum/reagent/kois
 	name = "K'ois"
 	id = "koispaste"
@@ -92,6 +51,37 @@
 	kois_type = 2
 
 /* Food */
+/datum/reagent/flavoring
+	name = "Artificial Flavoring"
+	id = "flavoring"
+	description = "Put this in food that you want to taste better."
+	taste_mult = 40 //1 unit of flavoring is equal to 10
+	reagent_state = SOLID
+	metabolism = REM
+	color = "#FFFFFF"
+	unaffected_species = IS_MACHINE
+
+/datum/reagent/flavoring/mix_data(var/list/newdata, var/newamount) //According to a comment, mix_data is really weird when it comes to subtypes. That's why it's not in a subtype.
+	if(!islist(newdata) || !newdata.len)
+		return
+	for(var/i in 1 to newdata.len)
+		if(!(newdata[i] in data))
+			data.Add(newdata[i])
+			data[newdata[i]] = 0
+		data[newdata[i]] += newdata[newdata[i]]
+	var/totalFlavor = 0
+	for(var/i in 1 to data.len)
+		totalFlavor += data[data[i]]
+
+	if (!totalFlavor)
+		return
+
+	for(var/i in 1 to data.len) //cull the tasteless
+		if(data[data[i]]/totalFlavor * 100 < 10)
+			data[data[i]] = null
+			data -= data[i]
+			data -= null
+
 /datum/reagent/nutriment
 	name = "Nutriment"
 	id = "nutriment"
@@ -103,6 +93,8 @@
 	var/blood_factor = 6
 	var/regen_factor = 0.8
 	var/injectable = 0
+	var/datum/modifier/modifier
+	var/mod_strength = 1
 	color = "#664330"
 	unaffected_species = IS_MACHINE
 
@@ -143,9 +135,8 @@
 	M.heal_organ_damage(regen_factor * removed, 0)
 	M.nutrition += nutriment_factor * removed // For hunger and fatness
 	M.add_chemical_effect(CE_BLOODRESTORE, blood_factor * removed)
-
-
-
+	if (!modifier)
+		modifier = M.add_modifier(/datum/modifier/food, MODIFIER_REAGENT, src, _strength = (1 + blood_factor*2 + nutriment_factor*2)*mod_strength, _duration = max_dose*20, override = MODIFIER_OVERRIDE_CUSTOM)
 /*
 	Coatings are used in cooking. Dipping food items in a reagent container with a coating in it
 	allows it to be covered in that, which will add a masked overlay to the sprite.
@@ -153,6 +144,7 @@
 	Coatings have both a raw and a cooked image. Raw coating is generally unhealthy
 	Generally coatings are intended for deep frying foods
 */
+
 /datum/reagent/nutriment/coating
 	nutriment_factor = 6 //Less dense than the food itself, but coatings still add extra calories
 	var/messaged = 0
@@ -294,6 +286,21 @@
 	id = "cheese"
 	color = "#EDB91F"
 	taste_description = "cheese"
+
+/datum/reagent/nutriment/protein/muck //Blended meat
+	name = "muck"
+	id = "muck"
+	blood_factor = 6
+	taste_description = "meat, I think"
+	mod_strength = -0.5
+
+/datum/reagent/nutriment/slop //Blended plants
+	name = "Slop"
+	id = "slop"
+	description = "A blended mess of cheap food. Serve this to prisoners."
+	nutriment_factor = 6
+	taste_description = "slop"
+	mod_strength = -0.5
 
 //Fats
 //=========================

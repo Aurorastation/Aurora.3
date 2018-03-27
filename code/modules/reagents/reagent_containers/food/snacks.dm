@@ -12,7 +12,9 @@
 	var/dried_type = null
 	var/dry = 0
 	var/nutriment_amt = 0
+	var/flavoring_amt = 0
 	var/list/nutriment_desc = list("food" = 1)
+	var/list/flavoring_desc = list("food" = 1)
 	center_of_mass = list("x"=16, "y"=16)
 	w_class = 2
 	var/datum/reagent/nutriment/coating/coating = null
@@ -30,6 +32,8 @@
 	. = ..()
 	if(nutriment_amt)
 		reagents.add_reagent("nutriment",nutriment_amt,nutriment_desc)
+	if(flavoring_amt)
+		reagents.add_reagent("flavoring",flavoring_amt,flavoring_desc)
 
 /obj/item/weapon/reagent_containers/food/snacks/proc/On_Consume(var/mob/M)
 	if(!reagents.total_volume)
@@ -348,8 +352,6 @@
 			C.data["cooked"] = 1
 			C.name = C.cooked_name
 
-	src.reagents.add_reagent("love",1)
-
 ////////////////////////////////////////////////////////////////////////////////
 /// FOOD END
 ////////////////////////////////////////////////////////////////////////////////
@@ -444,7 +446,6 @@
 	. = ..()
 	reagents.add_reagent("koispaste", 10)
 	reagents.add_reagent("phoron", 15)
-	reagents.add_reagent("hfcs", 2)
 	bitesize = 5
 
 /obj/item/weapon/reagent_containers/food/snacks/aesirsalad
@@ -503,23 +504,6 @@
 	. = ..()
 	reagents.add_reagent("sugar", 2)
 	bitesize = 2
-
-/obj/item/weapon/reagent_containers/food/snacks/chips
-	name = "chips"
-	desc = "Commander Riker's What-The-Crisps."
-	icon_state = "chips"
-	trash = /obj/item/trash/chips
-	filling_color = "#E8C31E"
-	center_of_mass = list("x"=15, "y"=15)
-	nutriment_amt = 3
-	nutriment_desc = list("chips" = 3)
-
-/obj/item/weapon/reagent_containers/food/snacks/chips/Initialize()
-	. = ..()
-	reagents.add_reagent("msg", 1)
-	reagents.add_reagent("palmoil", 1)
-	reagents.add_reagent("sodiumchloride", 3)
-	bitesize = 1
 
 /obj/item/weapon/reagent_containers/food/snacks/cookie
 	name = "cookie"
@@ -1556,12 +1540,12 @@
 	trash = /obj/item/trash/sosjerky
 	filling_color = "#631212"
 	center_of_mass = list("x"=15, "y"=9)
+	flavoring_desc = list("smoke" = 8)
+	flavoring_amt = 8
 
 /obj/item/weapon/reagent_containers/food/snacks/sosjerky/Initialize()
 	. = ..()
-	reagents.add_reagent("protein", 4)
-	reagents.add_reagent("msg", 2)
-	reagents.add_reagent("palmoil", 1)
+	reagents.add_reagent("muck", 4)
 	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/no_raisin
@@ -1571,14 +1555,14 @@
 	trash = /obj/item/trash/raisins
 	filling_color = "#343834"
 	center_of_mass = list("x"=15, "y"=4)
-	nutriment_desc = list("dried raisins" = 6)
-	nutriment_amt = 6
+	nutriment_desc = list("rasins" = 4)
+	nutriment_amt = 2
+	flavoring_desc = list("sweetness" = 6)
+	flavoring_amt = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/no_raisin/Initialize()
 	. = ..()
-	reagents.add_reagent("msg", 1)
-	reagents.add_reagent("hfcs", 1)
-	reagents.add_reagent("palmoil", 1)
+	reagents.add_reagent("slop", 4)
 	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/spacetwinkie
@@ -1587,31 +1571,49 @@
 	desc = "Guaranteed to survive longer then you will."
 	filling_color = "#FFE591"
 	center_of_mass = list("x"=15, "y"=11)
-	nutriment_desc = list("cake" = 3, "cream filling" = 1)
+	nutriment_desc = list("cake" = 4)
 	nutriment_amt = 4
+	flavoring_desc = list("pastry" = 6,"cream" = 2)
+	flavoring_amt = 8
 
 /obj/item/weapon/reagent_containers/food/snacks/spacetwinkie/Initialize()
 	. = ..()
-	reagents.add_reagent("shortening", 2)
-	reagents.add_reagent("hfcs", 2)
-	reagents.add_reagent("palmoil", 1)
+	reagents.add_reagent("sugar", 15)
 	bitesize = 4
+
+/obj/item/weapon/reagent_containers/food/snacks/chips
+	name = "chips"
+	desc = "Commander Riker's What-The-Crisps."
+	icon_state = "chips"
+	trash = /obj/item/trash/chips
+	filling_color = "#E8C31E"
+	center_of_mass = list("x"=15, "y"=15)
+	nutriment_amt = 4
+	nutriment_desc = list("chips" = 4)
+	flavoring_desc = list("grease" = 1)
+	flavoring_amt = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/chips/Initialize()
+	. = ..()
+	reagents.add_reagent("sodiumchloride", 2)
+	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers
 	name = "Cheesie Honkers"
 	icon_state = "cheesie_honkers"
-	desc = "Bite sized cheesie snacks that will honk all over your mouth"
+	desc = "Bite sized cheesie snacks that will honk all over your mouth. Contains 20% real cheese!"
 	trash = /obj/item/trash/cheesie
 	filling_color = "#FFA305"
 	center_of_mass = list("x"=15, "y"=9)
 	nutriment_desc = list("chips" = 2)
-	nutriment_amt = 4
+	nutriment_amt = 2
+	flavoring_desc = list("cheese dust" = 4)
+	flavoring_amt = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers/Initialize()
 	. = ..()
-	reagents.add_reagent("cheese", 3)
-	reagents.add_reagent("palmoil", 1)
-	reagents.add_reagent("msg", 2)
+	reagents.add_reagent("slop", 4)
+	reagents.add_reagent("cheese", 4)
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/syndicake
@@ -4289,7 +4291,7 @@
 	icon_state = "taco"
 	bitesize = 3
 	center_of_mass = list("x"=21, "y"=12)
-	nutriment_desc = list("taco shell with cheese")
+	nutriment_desc = list("taco")
 	nutriment_amt = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/taco/Initialize()
@@ -4397,22 +4399,21 @@
 	bitesize = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/tastybread
-	name = "bread tube"
+	name = "tasty bread"
 	desc = "Bread in a tube. Chewy...and questionably tasty."
 	icon_state = "tastybread"
 	trash = /obj/item/trash/tastybread
 	filling_color = "#A66829"
 	center_of_mass = list("x"=17, "y"=16)
-	nutriment_desc = list("tasty bread" = 4)
+	nutriment_desc = list("bread" = 4)
 	nutriment_amt = 4
+	flavoring_desc = list("taste" = 1)
+	flavoring_amt = 1
 
 /obj/item/weapon/reagent_containers/food/snacks/tastybread/Initialize()
 	. = ..()
-	reagents.add_reagent("shortening", 1)
-	reagents.add_reagent("palmoil", 1)
-	reagents.add_reagent("sugar", 1)
-	reagents.add_reagent("msg", 4)
-	reagents.add_reagent("sodiumchloride", 2)
+	reagents.add_reagent("slop", 6)
+	reagents.add_reagent("sodiumchloride", 5)
 	bitesize = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/skrellsnacks
@@ -4421,12 +4422,11 @@
 	icon_state = "skrellsnacks"
 	filling_color = "#A66829"
 	center_of_mass = list("x"=15, "y"=12)
-	nutriment_desc = list("alien fungus" = 10)
+	nutriment_desc = list("fungus" = 10)
 	nutriment_amt = 10
 
 /obj/item/weapon/reagent_containers/food/snacks/skrellsnacks/Initialize()
 	. = ..()
-	reagents.add_reagent("shortening", 2)
 	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/friedkois
@@ -4557,10 +4557,8 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/meatsnack/Initialize()
 	. = ..()
-	reagents.add_reagent("protein", 10)
-	reagents.add_reagent("shortening", 1)
-	reagents.add_reagent("msg", 4)
-	reagents.add_reagent("sodiumchloride", 3)
+	reagents.add_reagent("muck", 10)
+	reagents.add_reagent("sodiumchloride", 5)
 	bitesize = 5
 
 /obj/item/weapon/reagent_containers/food/snacks/maps
@@ -4569,13 +4567,14 @@
 	desc = "Various processed meat from Moghes with 600% the amount of recommended daily sodium per can."
 	trash = /obj/item/trash/maps
 	filling_color = "#631212"
+	flavoring_desc = list("ham" = 6)
+	flavoring_amt = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/maps/Initialize()
 	. = ..()
 	reagents.add_reagent("water", 1)
-	reagents.add_reagent("protein", 8)
-	reagents.add_reagent("sodiumchloride", 10)
-	reagents.add_reagent("msg", 6)
+	reagents.add_reagent("muck", 8)
+	reagents.add_reagent("sodiumchloride", 5)
 	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/nathisnack
@@ -4584,13 +4583,14 @@
 	desc = "Delicious corned beef and preservatives. Imported from Earth, canned on Ourea."
 	trash = /obj/item/trash/nathisnack
 	filling_color = "#631212"
+	flavoring_desc = list("space beef" = 6)
+	flavoring_amt = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/nathisnack/Initialize()
 	. = ..()
-	reagents.add_reagent("protein", 10)
+	reagents.add_reagent("muck", 8)
 	reagents.add_reagent("iron", 3)
-	reagents.add_reagent("msg", 4)
-	reagents.add_reagent("sodiumchloride", 5)
+	reagents.add_reagent("sodiumchloride", 10)
 	bitesize = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/pancakes

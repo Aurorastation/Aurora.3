@@ -94,8 +94,6 @@
 		dat += "<h2>Reagent Data</h2>"
 		dat += "<br>This sample contains: "
 		for(var/datum/reagent/R in grown_reagents.reagent_list)
-			if(R.id == "love")
-				continue
 			dat += "<br>- [R.id], [grown_reagents.get_reagent_amount(R.id)] unit(s)"
 
 	dat += "<h2>Other Data</h2>"
