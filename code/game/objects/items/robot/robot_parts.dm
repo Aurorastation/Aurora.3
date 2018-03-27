@@ -215,18 +215,15 @@
 				var/mob/living/carbon/human/unbranded_frame/new_shell = new(get_turf(loc), TRUE, "Unbranded Frame")
 				new_shell.set_species(src.chest.linked_frame)
 				M.brainmob.mind.transfer_to(new_shell)
+				qdel(M)
 				var/newname = sanitizeSafe(input(new_shell,"Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
 				if(!newname || newname == "")
 					var/datum/language/L = all_languages[new_shell.species.default_language]
 					newname = L.get_random_name()
 				new_shell.real_name = newname
 				new_shell.name = new_shell.real_name
-				var/datum/nano_module/appearance_changer/AC = new(src, new_shell)
-				AC.name = "Synthetic Customization Workshop"
-				AC.flags = APPEARANCE_ALL_HAIR | APPEARANCE_SKIN | APPEARANCE_EYE_COLOR
-				AC.ui_interact(new_shell)
-				qdel(M)
-				qdel(src)
+				new_shell.change_appearance(APPEARANCE_ALL_HAIR | APPEARANCE_SKIN | APPEARANCE_EYE_COLOR, new_shell.loc, new_shell)
+					qdel(src)
 				return
 
 			else
