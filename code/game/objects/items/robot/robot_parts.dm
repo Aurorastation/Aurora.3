@@ -8,6 +8,7 @@
 	var/list/part = null // Order of args is important for installing robolimbs.
 	var/sabotaged = 0 //Emagging limbs can have repercussions when installed as prosthetics.
 	var/model_info
+	var/linked_frame = "Unbranded Frame"
 	dir = SOUTH
 
 /obj/item/robot_parts/set_dir()
@@ -21,6 +22,7 @@
 		if(R)
 			name = "[R.company] [initial(name)]"
 			desc = "[R.desc]"
+			linked_frame = R.linked_frame
 			if(icon_state in icon_states(R.icon))
 				icon = R.icon
 	else
@@ -59,6 +61,7 @@
 	desc = "A heavily reinforced case containing cyborg logic boards, with space for a standard power cell."
 	icon_state = "chest"
 	part = list("groin","chest")
+	model_info = 1
 	var/wires = 0.0
 	var/obj/item/weapon/cell/cell = null
 
@@ -67,6 +70,7 @@
 	desc = "A standard reinforced braincase, with spine-plugged neural socket and sensor gimbals."
 	icon_state = "head"
 	part = list("head")
+	model_info = 1
 	var/obj/item/device/flash/flash1 = null
 	var/obj/item/device/flash/flash2 = null
 	var/law_manager = TRUE
@@ -208,14 +212,15 @@
 					user << "<span class='warning'>This [W] does not seem to fit.</span>"
 					return
 
-				var/mob/living/carbon/human/unbranded_frame/shell = new(get_turf(user))
-				M.brainmob.mind.transfer_to(shell)
-				var/newname = sanitizeSafe(input(shell,"Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
+				var/mob/living/carbon/human/unbranded_frame/new_shell = new(get_turf(loc), TRUE, "Unbranded Frame")
+				new_shell.set_species(src.chest.linked_frame)
+				M.brainmob.mind.transfer_to(new_shell)
+				var/newname = sanitizeSafe(input(new_shell,"Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
 				if(!newname || newname == "")
-					var/datum/language/L = all_languages[shell.species.default_language]
+					var/datum/language/L = all_languages[new_shell.species.default_language]
 					newname = L.get_random_name()
-				shell.real_name = newname
-				shell.name = shell.real_name
+				new_shell.real_name = newname
+				new_shell.name = new_shell.real_name
 				qdel(M)
 				qdel(src)
 				return

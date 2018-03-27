@@ -379,18 +379,10 @@
 	deform = 'icons/mob/human_races/robotic.dmi'
 	eyes = "eyes_s"
 
-	brute_mod = 1.2
 	bald = 1
 
 	appearance_flags = HAS_EYE_COLOR
 	spawn_flags = IS_RESTRICTED
-
-
-	has_organ = list(
-		"brain"   = /obj/item/organ/mmi_holder/posibrain,
-		"cell"    = /obj/item/organ/cell,
-		"optics"  = /obj/item/organ/eyes/optical_sensor
-	)
 
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/unbranded),
