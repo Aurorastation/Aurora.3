@@ -223,7 +223,7 @@
 				new_shell.real_name = newname
 				new_shell.name = new_shell.real_name
 				new_shell.change_appearance(APPEARANCE_ALL_HAIR | APPEARANCE_SKIN | APPEARANCE_EYE_COLOR, new_shell.loc, new_shell)
-					qdel(src)
+				qdel(src)
 				return
 
 			else
