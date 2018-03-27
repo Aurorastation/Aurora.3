@@ -128,6 +128,8 @@ Class Procs:
 	var/printing = 0 // Is this machine currently printing anything?
 	var/tmp/machinery_processing = FALSE	// Are we process()ing in SSmachinery?
 	var/has_special_power_checks = FALSE	// If true, call auto_use_power instead of doing it all in SSmachinery.
+	
+	var/special_unlock_upgrade = null // If yes, calls a proc searching for it and upgrades if needed.
 
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE)
 	. = ..()
@@ -146,6 +148,11 @@ Class Procs:
 
 		if(component_parts.len)
 			RefreshParts()
+
+	if(special_unlock_upgrade)
+		for(var/datum/research_items/item in SSresearch.unlockeditems)
+			if(item.id == special_unlock_upgrade)
+				upgrade_me()
 
 	add_machine(src)
 
@@ -199,6 +206,9 @@ Class Procs:
 //sets the use_power var and then forces an area power update
 /obj/machinery/proc/update_use_power(var/new_use_power)
 	use_power = new_use_power
+
+/obj/machinery/proc/upgrade_me()
+	return
 
 /obj/machinery/proc/auto_use_power()
 	if(!powered(power_channel))

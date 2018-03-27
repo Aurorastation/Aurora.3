@@ -165,6 +165,22 @@
 		new /obj/item/stack/medical/advanced/bruise_pack(src)
 		new /obj/item/stack/medical/advanced/bruise_pack(src)
 		return
+	
+/obj/item/weapon/storage/firstaid/alskit // update
+	name = "als kit"
+	desc = "A specially designed kit for trained emergency repsonders."
+	icon_state = "ALSkit"
+
+/obj/item/weapon/storage/firstaid/alskit/fill()
+		..()
+		if (empty) return
+		new /obj/item/stack/medical/bruise_pack(src)
+		new /obj/item/stack/medical/bruise_pack(src)
+		new /obj/item/stack/medical/bruise_pack(src)
+		new /obj/item/stack/medical/bruise_pack(src)
+		new /obj/item/stack/medical/advanced/bruise_pack(src)
+		new /obj/item/stack/medical/advanced/bruise_pack(src)
+		return
 
 /*
  * Pill Bottles

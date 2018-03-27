@@ -2,7 +2,7 @@
 
 /datum/controller/subsystem/research
 	name = "Research"
-	wait = 10 MINUTES // auto saves every 10 minutes
+	wait = 15 MINUTES // auto saves every 15 minutes
 	init_order = SS_INIT_MISC_FIRST
 	var/list/concepts
 	var/points = 1

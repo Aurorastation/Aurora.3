@@ -708,6 +708,7 @@
 	req_tech = list(TECH_BIO = 3, TECH_MATERIAL = 2, TECH_MAGNET = 3)
 	materials = list("glass"= 5000, DEFAULT_WALL_MATERIAL =1500)
 	build_path = /obj/item/rig_module/vision/medhud
+	required_unlock = "medicalhardusitkitone"
 
 /datum/design/hardsuitmodules/nvg_module
 	name = "hardsuit night vision interface"
@@ -724,14 +725,16 @@
 	req_tech = list(TECH_BIO = 3, TECH_MATERIAL = 3, TECH_MAGNET = 2)
 	materials = list("glass" = 5250, DEFAULT_WALL_MATERIAL = 2500)
 	build_path = /obj/item/rig_module/device/healthscanner
+	required_unlock = "medicalhardusitkitone"
 
 /datum/design/hardsuitmodules/chem_module
 	name = "mounted chemical injector"
 	desc = "A complex web of tubing and a large needle suitable for hardsuit use."
 	id = "chem_module"
 	req_tech = list(TECH_BIO = 5, TECH_MATERIAL = 4, TECH_DATA = 3, TECH_PHORON = 2)
-	materials = list("glass" = 9250, DEFAULT_WALL_MATERIAL = 10000, "gold" = 2500, "silver" = 4250, "phoron" = 5500)
+	materials = list("glass" = 9250, DEFAULT_WALL_MATERIAL = 10000, "gold" = 2500, "silver" = 4250, "phoron" = 5500) // reduce
 	build_path = /obj/item/rig_module/chem_dispenser/injector
+	required_unlock = "medicalhardusitkitone"
 
 /datum/design/hardsuitmodules/plasmacutter_module
 	name = "hardsuit plasma cutter"

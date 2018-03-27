@@ -7,7 +7,7 @@ Contains:
 //HANDHELD SUIT SENSOR
 /obj/item/device/handheld_medical
 	name = "hand-held suit sensor monitor"
-	desc = "A miniature machine that tracks suit sensors across the station."
+	desc = "A miniature machine that tracks suit sensors across the station. However, it lacks the ability to relay location data."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "scanner"
 	w_class = 2

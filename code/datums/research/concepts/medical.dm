@@ -1,8 +1,8 @@
 //explains cloning and the RED. Improves cloning, the RED, and animal cubes.
-/datum/research_concepts/crispr
-	name = "CRISPR"
-	id = "crispr"
-	desc = "Research into the field of DNA editing."
+/datum/research_concepts/medicine
+	name = "Medicine"
+	id = "medicine"
+	desc = "Research into the field of repairing organics ."
 	level = 1
 	maxlevel = 4
 	progress = 0
@@ -11,11 +11,11 @@
 					  TECH_BIO  = 2
 						)
 
-/datum/research_concepts/crispr/get_tech_desc(var/level = 1)
+/datum/research_concepts/medicine/get_tech_desc(var/level = 1)
 	..()
 	switch(level)
 		if(1)
-			return "CRISPR-Cpf1 uses a single RNA to cut DNA for persise and flexiable editing."
+			return ""
 		if(2)
 			return ""
 		if(3)

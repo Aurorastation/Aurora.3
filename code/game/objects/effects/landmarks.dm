@@ -252,16 +252,39 @@
 
 /obj/effect/landmark/metaresearch/
 	var/itempath = null
+	var/id = null
+	var/list/spawnitems = list() // special variable for groups of items
 
 /obj/effect/landmark/metaresearch/New()
 	for(var/datum/research_items/A in SSresearch.unlockeditems)
 		if(A.path == itempath)
 			new itempath(src.loc)
+		else if(A.id == id)
+			for(var/B in spawnitems)
+				new B(src.loc) 
 	delete_me = 1
 
+//SCIENCE ITEMS
 /obj/effect/landmark/metaresearch/xenogateway
 	itempath = /obj/machinery/xenogateway
 
 /obj/effect/landmark/metaresearch/hazardsuit
 	itempath = /obj/item/weapon/rig/hazardsuit
+
+//MEDICAL ITEMS
+/obj/effect/landmark/metaresearch/deathalarm_kit
+	itempath = /obj/item/weapon/storage/box/cdeathalarm_kit
+
+/obj/effect/landmark/metaresearch/handheldsuitsensor
+	itempath = /obj/item/device/handheld_medical
+
+/obj/effect/landmark/metaresearch/medicalhardsuit
+	itempath = /obj/item/weapon/rig/medical
+
+/obj/effect/landmark/metaresearch/incisionman
+	itempath = /obj/item/weapon/scalpel/manager
+
+//ENGINEERING ITEMS
+/obj/effect/landmark/metaresearch/firefighterupgrade
+	spawnitems = list()
 

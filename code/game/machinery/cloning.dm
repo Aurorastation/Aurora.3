@@ -42,6 +42,7 @@
 	var/attempting = 0 //One clone attempt at a time thanks
 	var/eject_wait = 0 //Don't eject them as soon as they are created fuckkk
 	var/biomass = CLONE_BIOMASS * 3
+	special_unlock_upgrade = "cloneupgrade"
 
 	component_types = list(
 		/obj/item/weapon/circuitboard/clonepod,
@@ -72,6 +73,16 @@
 	user << "Current clone cycle is [round(GetCloneReadiness())]% complete."
 
 //Clonepod
+/obj/machinery/clonepod/upgrade_me()
+	component_types = list(
+		/obj/item/weapon/circuitboard/clonepod,
+		/obj/item/weapon/stock_parts/manipulator/nano = 2,
+		/obj/item/weapon/stock_parts/scanning_module/adv = 2,
+		/obj/item/weapon/stock_parts/console_screen,
+		/obj/item/stack/cable_coil{amount = 2}
+	)
+	RefreshParts()
+	return
 
 //Start growing a human clone in the pod!
 /obj/machinery/clonepod/proc/growclone(var/datum/dna2/record/R)
