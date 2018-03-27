@@ -60540,6 +60540,10 @@
 	dir = 1;
 	sort_tag = "Sorting Office"
 	},
+/obj/machinery/camera/network/civilian_west{
+	c_tag = "Cargo - Main Warehouse North";
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/quartermaster/storage)
 "cag" = (
@@ -62169,7 +62173,7 @@
 "cdj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/camera/network/civilian_west{
-	c_tag = "Cargo - Main Warehouse";
+	c_tag = "Cargo - Main Warehouse South";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,

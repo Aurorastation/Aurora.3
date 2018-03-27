@@ -34,7 +34,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Added explorer's suit, helmet, and webbing. Added new mobs in the mines: petra and carp. They have a chance to spawn while mining. Weaker human-exclusive budget mining boots are given at default so mining is easier for new players."
-  - maptweak: "Tweaked the cryo layout of the main level. Removed mulebots from cargo until they are fixed. Added a new small building outside that allows paramedics and miners to climb between z-levels easier."
-  - tweak: "Tweaked cargo warehouse's loot tabled to contain less garbage, such as action figures, toys, and crayons. Abandoned crates have a higher chance to drop."
-  
+  - rscadd: "Mining now spawns with drills, and budget magboots. Budget magboots can only be worn by humans. Added autoinjectors, mobile ladders, and hoist kits to the mining vendor."
+  - rscadd: "Added Petran, a usually hostile beetle-like scavanger species to the asteroid. Petran hide inside rocks, and have a 1% chance per rock destroyed to spawn. Dead Petran sometimes attract carp."
+  - maptweak: "Tweaked the Cargo and Mining layout. Fixed some parts of medical not having a tagger destination."
+  - tweak: "Removed toys and other junk from spawning in the cargo warehouse. Increase the amount of cargo loot spawns from 80 to 100."
