@@ -27058,9 +27058,11 @@
 /turf/simulated/floor/tiled/airless,
 /area/rnd/test_area)
 "VG" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 4
 	},
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "VH" = (
 /turf/simulated/floor/airless{
@@ -27068,67 +27070,7 @@
 	},
 /area/mine/unexplored)
 "VI" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
-"VJ" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
-"VK" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
-"VL" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
-"VM" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
-"VN" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
-"VO" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
-"VP" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
-"VQ" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
-"VR" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
-"VS" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
-"VT" = (
 /obj/structure/ladder/up,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
-"VU" = (
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -49701,12 +49643,12 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
+VG
+VG
+VG
+VG
+VG
+VG
 ac
 aa
 aa
@@ -49959,10 +49901,10 @@ ac
 ac
 ac
 sk
-VG
-VJ
-VN
-VR
+VH
+VH
+VH
+VH
 sk
 ac
 ac
@@ -50217,9 +50159,9 @@ ac
 ac
 sk
 VH
-VK
-VO
-VS
+VH
+VH
+VH
 sk
 ac
 ac
@@ -50473,10 +50415,10 @@ aa
 ac
 ac
 sk
+VH
+VH
+VH
 VI
-VL
-VP
-VT
 sk
 ac
 ac
@@ -50731,9 +50673,9 @@ aa
 ac
 sk
 sk
-VM
-VQ
-VU
+VH
+VH
+VH
 sk
 ac
 ac

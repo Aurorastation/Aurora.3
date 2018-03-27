@@ -120,7 +120,6 @@ var/list/global/random_stock_common = list(
 	"target" = 2,
 	"snacks" = 4,
 	"oxytank" = 2.5,
-	"signs" = 4,
 	"posters" = 3,
 	"parts" = 6,
 	"cane" = 2,
@@ -189,7 +188,6 @@ var/list/global/random_stock_uncommon = list(
 	"exoquip" = 2,
 	"laserscalpel" = 1.3,
 	"electropack" = 1,
-	"beesmoker" = 1.5,
 	"monkeyhide" = 0.5,
 	"cathide" = 0.5,
 	"corgihide" = 0.5,
@@ -1136,22 +1134,6 @@ var/list/global/random_stock_large = list(
 		if ("voidsuit")
 			new /obj/random/voidsuit(L,1)
 
-		if ("signs")
-			var/list/allsigns = subtypesof(/obj/structure/sign)
-			allsigns -= typesof(/obj/structure/sign/double)
-			allsigns -= typesof(/obj/structure/sign/poster)
-			allsigns -= /obj/structure/sign/directions
-			allsigns -= typesof(/obj/structure/sign/christmas)
-			allsigns -= typesof(/obj/structure/sign/flag)
-
-			var/number = rand(1,5)
-
-			while (number > 0)
-				var/newsign = pick(allsigns)
-				if (newsign != /obj/structure/sign)//Dont want to spawn the generic parent class
-					var/obj/structure/sign/S = new newsign(L)
-					S.unfasten()
-					number--
 		if ("posters")
 			new /obj/item/weapon/contraband/poster(L)
 			if (prob(50))
@@ -1348,9 +1330,6 @@ var/list/global/random_stock_large = list(
 				var/obj/structure/closet/crate/cr = L
 				cr.rigged = 1//Boobytrapped crate, will electrocute when you attempt to open it
 				//Can be disarmed with wirecutters or ignored with insulated gloves
-
-		if ("beesmoker")
-			new /obj/item/weapon/bee_smoker(L)
 
 		if("monkeyhide")
 			new /obj/item/stack/material/animalhide/monkey(L, 50)

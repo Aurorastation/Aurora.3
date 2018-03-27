@@ -4,7 +4,7 @@
 	name = "stacking machine console"
 	icon = 'icons/obj/machines/mining_machines.dmi'
 	icon_state = "console"
-	density = 1
+	density = 0
 	anchored = 1
 	var/obj/machinery/mineral/stacking_machine/machine = null
 	var/machinedir = NORTHEAST
@@ -14,7 +14,7 @@
 
 /obj/machinery/mineral/stacking_unit_console/Initialize()
 	. = ..()
-	src.machine = locate(/obj/machinery/mineral/stacking_machine, get_step(src, machinedir))
+	src.machine = locate(/obj/machinery/mineral/stacking_machine) in get_area(src)
 	if (machine)
 		machine.console = src
 	else

@@ -36,10 +36,12 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment("Autochisel",					/obj/item/weapon/autochisel,								10,					400),
 	new /datum/data/mining_equipment("Jetpack",						/obj/item/weapon/tank/jetpack,								10,					400),
 	new /datum/data/mining_equipment("Drone Drill Upgrade",			/obj/item/device/mine_bot_ugprade,							10,					400),
-	new /datum/data/mining_equipment("Explorer's Belt",				/obj/item/weapon/storage/belt/mining,						6,					400),
+	new /datum/data/mining_equipment("Explorer's Belt",				/obj/item/weapon/storage/belt/mining,						5,					400),
 	new /datum/data/mining_equipment("Industrial Drill Brace",		/obj/machinery/mining/brace,								-1,					500,	1),
 	new /datum/data/mining_equipment("Point Transfer Card",			/obj/item/weapon/card/mining_point_card,					-1,					500),
 	new /datum/data/mining_equipment("Item-Warp Beacon",			/obj/item/warp_core,										25,					500),
+	new /datum/data/mining_equipment("Mobile Ladder",				/obj/item/weapon/ladder_mobile,								5,					600),
+	new /datum/data/mining_equipment("Hoist Kit",					/obj/item/hoist_kit,										5,					600),
 	new /datum/data/mining_equipment("Item-Warp Pack",				/obj/item/weapon/extraction_pack,							25,					600),
 	new /datum/data/mining_equipment("Drone Health Upgrade",		/obj/item/device/mine_bot_ugprade/health,					20,					600),
 	new /datum/data/mining_equipment("Ore Magnet",					/obj/item/weapon/oremagnet,									10,					600),
@@ -62,7 +64,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment("KA AoE Damage",				/obj/item/borg/upgrade/modkit/aoe/turfs,					15,					1500),
 	new /datum/data/mining_equipment("Diamond Pickaxe",				/obj/item/weapon/pickaxe/diamond,							10,					1500),
 	new /datum/data/mining_equipment("Thermal Drill",				/obj/item/weapon/gun/energy/vaurca/thermaldrill,			5,					3750)
-	)
+)
 
 /obj/machinery/mineral/equipment_vendor
 	name = "mining equipment vendor"

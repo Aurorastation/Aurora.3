@@ -258,7 +258,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 //Cargo random stock vars
 //These are used in randomstock.dm
 //And also for generating random loot crates in crates.dm
-#define TOTAL_STOCK 	80//The total number of items we'll spawn in cargo stock
+#define TOTAL_STOCK 	100//The total number of items we'll spawn in cargo stock
 
 
 #define STOCK_UNCOMMON_PROB	23
