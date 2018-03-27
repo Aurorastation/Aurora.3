@@ -31,7 +31,7 @@
 
 // Main mining
 /area/outpost/mining_main
-	icon_state = "outpost_mine_main"
+	icon_state = "mining"
 	station_area = 1
 	holomap_color = HOLOMAP_AREACOLOR_CARGO
 
@@ -52,9 +52,11 @@
 
 /area/outpost/mining_main/eva
 	name = "Mining EVA storage"
+	icon_state = "mining_eva"
 
-/area/outpost/mining_main/refinery
+/area/outpost/mining_main/production
 	name = "Mining Refinery"
+	icon_state = "mining_production"
 
 
 
