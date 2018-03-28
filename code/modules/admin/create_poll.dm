@@ -52,12 +52,19 @@
 			adminonly = 0
 		else
 			return
+	var/publicresult = 0
+	var/viewtoken = null
+	viewtoken = input("Should the poll be visible for everyone or only with a key?","Viewtoken") as text
+	if(viewtoken)
+		publicresult = 1
+		viewtoken = sanitizeSQL(viewtoken)
+	
 	var/sql_ckey = sanitizeSQL(ckey)
 	var/question = input("Write your question","Question") as message
 	if(!question)
 		return
 	question = sanitizeSQL(question)
-	var/DBQuery/query_polladd_question = dbcon.NewQuery("INSERT INTO ss13_poll_question (polltype, starttime, endtime, question, adminonly, multiplechoiceoptions, createdby_ckey, createdby_ip) VALUES ('[polltype]', '[starttime]', '[endtime]', '[question]', '[adminonly]', '[choice_amount]', '[sql_ckey]', '[address]')")
+	var/DBQuery/query_polladd_question = dbcon.NewQuery("INSERT INTO ss13_poll_question (polltype, starttime, endtime, question, adminonly, multiplechoiceoptions, createdby_ckey, createdby_ip, publicresult, viewtoken) VALUES ('[polltype]', '[starttime]', '[endtime]', '[question]', '[adminonly]', '[choice_amount]', '[sql_ckey]', '[address]', '[publicresult]', '[viewtoken]')")
 	if(!query_polladd_question.Execute())
 		var/err = query_polladd_question.ErrorMsg()
 		to_chat(src,"SQL ERROR adding new poll question to table. Error : \[[err]\]\n")
