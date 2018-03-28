@@ -49,7 +49,7 @@
 		if(src.mob)
 			var/mob/A = src.mob
 			var/turf/T = get_turf(M)
-			if(T && isturf(T))
+			if(isturf(T))
 				feedback_add_details("admin_verb","JM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 				A.on_mob_jump()
 				A.loc = T

@@ -1,5 +1,5 @@
 //Mild traumas are the most common; they are generally minor annoyances.
-//They can be suppressed with citalopram, but not chemically cured, although brain surgery still works.
+//They can be suppressed with escitalopram, but not chemically cured, although brain surgery still works.
 //Most of the old brain damage effects have been transferred to the dumbness trauma.
 
 /datum/brain_trauma/mild
