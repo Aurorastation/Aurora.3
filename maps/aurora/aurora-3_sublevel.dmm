@@ -20036,6 +20036,10 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/machinery/camera/network/research_outpost{
+	c_tag = "Research Sublevel - Firing Range";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "IX" = (
@@ -23128,6 +23132,10 @@
 	},
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
+/obj/machinery/camera/network/research_outpost{
+	c_tag = "Research Sublevel - Data Office";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "Oz" = (
