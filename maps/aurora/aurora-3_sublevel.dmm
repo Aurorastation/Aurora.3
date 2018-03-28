@@ -10564,6 +10564,9 @@
 "ta" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/anomaly_analysis)
 "tb" = (
@@ -14500,6 +14503,9 @@
 	icon_state = "warning_dust";
 	dir = 1
 	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/airless{
 	icon_state = "asteroidfloor"
 	},
@@ -15181,6 +15187,9 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)

@@ -339,3 +339,25 @@
 /obj/item/projectile/beam/energy_net/proc/do_net(var/mob/M)
 	var/obj/item/weapon/energy_net/net = new (get_turf(M))
 	net.throw_impact(M)
+
+/obj/item/projectile/beam/pocketpistol
+	name = "pocket pistol beam"
+	icon_state = "bluelaser"
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+	damage = 20
+	damage_type = BURN
+	check_armour = "laser"
+
+	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
+	tracer_type = /obj/effect/projectile/tracer/laser/blue
+	impact_type = /obj/effect/projectile/impact/laser/blue
+
+/obj/item/projectile/beam/pocketpistol/on_hit(var/mob/living/target, var/blocked = 0)
+	if(istype(target) && !blocked)
+		var/datum/gas_mixture/environment = target.loc.return_air()
+		var/pressure = environment.return_pressure()
+		if(armor > 0)
+			damage *= 0.5
+		if(pressure > 50)
+			damage *= 0.5
+		target.apply_damage(damage, damage_type, def_zone, armor)

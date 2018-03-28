@@ -79,6 +79,8 @@
 		new /obj/item/device/radio/headset/headset_sci(src)
 		new /obj/item/weapon/storage/belt/archaeology(src)
 		new /obj/item/weapon/storage/box/excavation(src)
+		new /obj/item/device/dociler/light(src)
+		new /obj/item/weapon/gun/energy/tiny_gun(src)
 		return
 
 /obj/structure/closet/excavation
@@ -103,6 +105,7 @@
 		new /obj/item/weapon/pickaxe(src)
 		new /obj/item/device/measuring_tape(src)
 		new /obj/item/weapon/pickaxe/hand(src)
+		new /obj/item/weapon/pickaxe/drill(src)
 		new /obj/item/weapon/storage/bag/fossils(src)
 		new /obj/item/weapon/hand_labeler(src)
 		return

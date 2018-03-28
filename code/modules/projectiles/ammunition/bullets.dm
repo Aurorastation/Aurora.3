@@ -174,6 +174,16 @@
 	projectile_type  = /obj/item/projectile/ion
 	matter = list(DEFAULT_WALL_MATERIAL = 260, "uranium" = 200)
 
+//Xenoblaster
+/obj/item/ammo_casing/xenoblaster/
+	name = "xenoblaster shell"
+	desc = "A strange, elogated shell for some weapon."
+	icon_state = "rod"
+	spent_icon = "rod_spent"
+	caliber = "rod"
+	projectile_type = /obj/item/projectile/xenoblaster
+	matter = list(DEFAULT_WALL_MATERIAL = 200, "glass" = 200)
+
 /obj/item/ammo_casing/tranq
 	name = "PPS shell"
 	desc = "A .50 cal PPS bullet casing."

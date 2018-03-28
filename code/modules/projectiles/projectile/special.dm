@@ -228,3 +228,18 @@
 
 /obj/item/projectile/magic/teleport/proc/blink_mob(mob/living/L)
 	do_teleport(L, get_turf(L), blink_range, asoundin = 'sound/effects/phasein.ogg')
+
+
+//Xenoblaster
+/obj/item/projectile/xenoblaster
+	name = "xenoblaster bolt"
+	icon = 'icons/obj/projectiles.dmi'
+	icon_state = "xenoblaster"
+	check_armour = "melee"
+	damage = 20
+	agony = 20
+	embed = 0
+	sharp = 0
+	speed = 0.4
+	range = 20
+	muzzle_type = /obj/effect/projectile/muzzle/bullet

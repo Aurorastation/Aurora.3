@@ -556,3 +556,27 @@
 	fire_delay = 20
 	accuracy = 40
 	muzzle_flash = 10
+
+//Pocket Protector
+/obj/item/weapon/gun/energy/tiny_gun
+	name = "PocketProtector228"
+	desc = "An incredibly weak, cheap, and low-capacity pistol designed for self-defense in EVA. Perfect for killing moles in space."
+	icon_state = "ep3"
+	item_state = "pulse_pistol"
+	icon = 'icons/obj/gun.dmi'
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	charge_meter = 0
+	fire_delay = 4
+	projectile_type = /obj/item/projectile/beam/pocketpistol
+	origin_tech = list(TECH_COMBAT = 1, TECH_MAGNET = 1)
+	pin = /obj/item/device/firing_pin/eva
+	w_class = 2
+	max_shots = 3
+	charge_cost = 200
+	power_supply = /obj/item/weapon/cell/crap //Yes, this gun uses an AA battery.
+	use_external_power = 1
+	recharge_time = 10
+
+/obj/item/weapon/gun/energy/tiny_gun/update_icon()
+	var/shots_remaining = Floor(power_supply.charge/charge_cost)
+	icon_state = "ep[min(3,max(0,shots_remaining))]"

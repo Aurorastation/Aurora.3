@@ -34,7 +34,11 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Mining now spawns with drills, and budget magboots. Budget magboots can only be worn by humans. Added autoinjectors, mobile ladders, and hoist kits to the mining vendor."
-  - rscadd: "Added Petran, a usually hostile beetle-like scavanger species to the asteroid. Petran hide inside rocks, and have a 1% chance per rock destroyed to spawn. Dead Petran sometimes attract carp."
-  - maptweak: "Tweaked the Cargo and Mining layout. Fixed some parts of medical not having a tagger destination."
+  - tweak: "Mining now spawns with drills, and budget magboots. Budget magboots can only be worn by humans. Added auto-injectors, mobile ladders, and hoist kits to the mining vendor."
+  - rscadd: "Added Petran, a usually hostile beetle-like scavenger species to the asteroid. Petran hide inside rocks, and have a 1% chance per rock destroyed to spawn. Dead Petran sometimes attract carp."
+  - maptweak: "Tweaked the Cargo and Mining layout. Fixed some parts of medical not having a tagger destination. Added some chargers to xenoarchaeology."
   - tweak: "Removed toys and other junk from spawning in the cargo warehouse. Increase the amount of cargo loot spawns from 80 to 100."
+  - rscadd: "Added the PocketProtector228, a very weak laser pistol that spawns in anomaly lockers. Only works in EVA with it's current firing pin. Deals reduced damage outside EVA, and even less damage against armoured targets."
+  - rscadd: "Added the XenoBlaster, a pump-action magnetic railgun prototype that spawns in abandoned crates. Only works in EVA with it's current firing pin."
+  - balance: "Reduced the cooldown on the dociler from 5 minutes to 3 minutes. Added a prototype varient of the dociler that has the previous dociler's cooldown, which spawns in xenoarch lockers."
+  

@@ -146,3 +146,24 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 	w_class = 3
 	force = 5
+
+/obj/item/weapon/gun/projectile/shotgun/pump/xenoblaster
+	name = "xenoblaster"
+	desc = "A top-loaded gun that uses the power of magnets to shoot large wads of materials at moderate velocities."
+	icon_state = "xenoblaster7"
+	item_state = "shotgun"
+	max_shells = 7
+	w_class = 4.0
+	force = 10
+	flags =  CONDUCT
+	slot_flags = SLOT_BACK
+	caliber = "rod"
+	origin_tech = list(TECH_MATERIAL = 1)
+	load_method = SINGLE_CASING
+	ammo_type = /obj/item/ammo_casing/xenoblaster/
+	handle_casings = HOLD_CASINGS
+	fire_sound = 'sound/weapons/Egloves.ogg'
+	pin = /obj/item/device/firing_pin/eva
+
+/obj/item/weapon/gun/projectile/shotgun/pump/xenoblaster/update_icon()
+	icon_state = "xenoblaster[min(7,max(1,loaded.len))]"

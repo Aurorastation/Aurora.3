@@ -104,6 +104,22 @@ Pins Below.
 	else
 		return 0
 
+// EVA pin, works only outside in EVA
+/obj/item/device/firing_pin/eva
+	name = "eva firing pin"
+	desc = "This safety firing pin allows weapons to be fired in an enviroment less than 50 kPa."
+	fail_message = "<span class='warning'>AIR PRESSURE CHECK FAILED.</span>"
+	pin_replaceable = 1
+	durable = TRUE
+	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
+
+/obj/item/device/firing_pin/eva/pin_auth(mob/living/user)
+	var/datum/gas_mixture/current_air = user.loc.return_air()
+	if(istype(current_air) && current_air.return_pressure() <= 50)
+		return 1
+	else
+		return 0
+
 // Implant pin, checks for implant
 /obj/item/device/firing_pin/implant
 	name = "implant-keyed firing pin"
@@ -122,7 +138,7 @@ Pins Below.
 	desc = "This implant-locked firing pin authorizes the weapon for only loyalty-implanted users."
 	icon_state = "firing_pin_loyalty"
 	req_implant = /obj/item/weapon/implant/loyalty
-	
+
 // Honk pin, clown joke item.
 // Can replace other pins. Replace a pin in cap's laser for extra fun! This is generally adminbus only unless someone thinks of a use for it.
 /obj/item/device/firing_pin/clown

@@ -17,11 +17,11 @@
 	attacktext = "bit"
 	stop_automated_movement_when_pulled = 0
 	speed = -3
-	maxHealth = 50
-	health = 50
+	maxHealth = 40
+	health = 40
 	melee_damage_lower = 5
 	melee_damage_upper = 10
 	faction = "petran"
 	pass_flags = PASSTABLE
-	move_to_delay = 6
+	move_to_delay = 12
 	mob_size = 6

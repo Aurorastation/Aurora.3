@@ -11,7 +11,9 @@
 	item_state = "gun"
 	force = 0
 	var/loaded = 1
+	var.cooldown = 3 MINUTES
 	var/mode = "completely"
+	var/can_rename = 1
 
 /obj/item/device/dociler/examine(var/mob/user)
 	. = ..(user)
@@ -53,17 +55,36 @@
 			H.friends += user
 
 	L.desc += "<br><span class='notice'>It looks especially docile.</span>"
-	var/name = input(user, "Would you like to rename \the [L]?", "Dociler", L.name) as text
-	if(length(name))
-		L.real_name = name
-		L.name = name
+
+	if(can_rename)
+		var/name = input(user, "Would you like to rename \the [L]?", "Dociler", L.name) as text
+		if(length(name))
+			L.real_name = name
+			L.name = name
 
 	loaded = 0
 	icon_state = "animal_tagger0"
-	addtimer(CALLBACK(src, .proc/do_recharge), 5 MINUTES)
-
+	addtimer(CALLBACK(src, .proc/do_recharge), cooldown)
 
 /obj/item/device/dociler/proc/do_recharge()
 	loaded = 1
 	icon_state = "animal_tagger1"
 	src.visible_message("\The [src] beeps, refilling itself.")
+
+/obj/item/device/dociler/light
+	name = "prototype dociler"
+	desc = "A complex single use recharging injector that spreads a complex neurological serum that makes animals docile and friendly. Somewhat."
+	w_class = 2
+	origin_tech = list(TECH_BIO = 2, TECH_MATERIAL = 1)
+	icon_state = "animal_tagger1"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_guns.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_guns.dmi'
+		)
+	item_state = "gun"
+	force = 0
+	cooldown = 5 MINUTES
+	can_rename = 0
+
+/obj/item/device/dociler/light/attack_self(var/mob/user)
+	return
