@@ -145,13 +145,6 @@
 			return 1
 	var/datum/reagent/D = SSchemistry.chemical_reagents[id]
 	if(D)
-
-		if(D.container_whitelist.len > 0 && !instances_of_type_in_list(my_atom,D.container_whitelist))
-			return 0
-
-		if(D.container_blacklist.len > 0 && instances_of_type_in_list(my_atom,D.container_blacklist))
-			return 0
-
 		var/datum/reagent/R = new D.type()
 		reagent_list += R
 		R.holder = src

@@ -567,6 +567,7 @@
 		)
 	var/list/convert_reagents = list(
 		"nutriment" = "slop",
+		"seafood" = "muck",
 		"protein" = "muck"
 	)
 
@@ -770,19 +771,20 @@
 					continue
 
 		if(O.reagents)
-			for(var/datum/reagent/R in O.reagents)
-				var/value = convert_reagents[R.id]
-				if(!value)
-					continue
-				var/vol = R.volume
-				O.reagents.remove_reagent(R.id,vol)
-				O.reagents.add_reagent(value,vol)
 			O.reagents.trans_to(beaker, min(O.reagents.total_volume, remaining_volume))
 			if(O.reagents.total_volume == 0)
 				holdingitems -= O
 				qdel(O)
 			if (beaker.reagents.total_volume >= beaker.reagents.maximum_volume)
 				break
+
+	for(var/datum/reagent/R in beaker.reagents.reagent_list)
+		var/value = convert_reagents[R.id]
+		if(!value)
+			continue
+		var/vol = R.volume
+		beaker.reagents.remove_reagent(R.id,vol)
+		beaker.reagents.add_reagent(value,vol)
 
 #undef REAGENTS_PER_SHEET
 

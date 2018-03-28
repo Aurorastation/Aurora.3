@@ -4,4 +4,6 @@ delete-after: True
 
 changes: 
   - rscdel: "Removed junkfood causing heart damage."
-  - rscadd: "Grown food, as well as cooked food in the kitchen, provides slight stamina and stamina regen buffs to crewmembers when consumed. The more complex the meal, the longer the buff is. Junkfood is the opposite where it reduces stamina and stamina regen when consumed."
+  - rscadd: "Grown food, as well as cooked food in the kitchen, provides slight stamina and stamina regen buffs to crewmembers when consumed. Junkfood is the opposite where it reduces stamina and stamina regen when consumed."
+  - balance: "Meat and nutrients processed in the blender turn to muck or slop, respectively. This only affects: Animal protein, seafood, and nutrient. Meatloaf can be made with muck, greenloaf can be made with slop."
+  - balance: "Syringes can no longer extract reagents from food."

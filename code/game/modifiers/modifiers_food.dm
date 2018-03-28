@@ -26,7 +26,8 @@
 		L.nutrition -= nutrition_added
 
 /datum/modifier/food/custom_override(var/datum/modifier/existing)
-	if((strength > 0 && existing.strength) > 0 || (strength < 0 && existing.strength < 0))
+
+	if((strength > 0 && existing.strength > 0) || (strength < 0 && existing.strength < 0))
 		existing.duration += duration
 		existing.strength += strength
 		qdel(src)

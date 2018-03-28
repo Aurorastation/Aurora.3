@@ -136,7 +136,7 @@
 	M.nutrition += nutriment_factor * removed // For hunger and fatness
 	M.add_chemical_effect(CE_BLOODRESTORE, blood_factor * removed)
 	if (!modifier)
-		modifier = M.add_modifier(/datum/modifier/food, MODIFIER_REAGENT, src, _strength = (1 + blood_factor*2 + nutriment_factor*2)*mod_strength, _duration = max_dose*20, override = MODIFIER_OVERRIDE_CUSTOM)
+		modifier = M.add_modifier(/datum/modifier/food, MODIFIER_REAGENT, src, _strength = (1 + blood_factor*2 + nutriment_factor*2)*mod_strength, _duration = max_dose*20 SECONDS, override = MODIFIER_OVERRIDE_CUSTOM)
 /*
 	Coatings are used in cooking. Dipping food items in a reagent container with a coating in it
 	allows it to be covered in that, which will add a masked overlay to the sprite.
