@@ -108,7 +108,7 @@
 	var/obj/machinery/door/D = Obstacle
 	var/mob/living/carbon/human/H = load
 	if(istype(D) && istype(H))
-		D.Collide(H)		//a little hacky, but hey, it works, and respects access rights
+		H.Collide(D)		//a little hacky, but hey, it works, and respects access rights
 
 	. = ..()
 

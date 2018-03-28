@@ -1,0 +1,8 @@
+author: soryy708
+
+delete-after: True
+
+changes: 
+  - rscadd: "Created a deeper, espresso centric, coffee mixing system"
+  - maptweak: "Added 'CoffeeMaster 3000' to the bar"
+  - rscadd: "Created a 'Barista' alt-title for the bartender"

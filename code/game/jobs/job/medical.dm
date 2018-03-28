@@ -13,11 +13,11 @@
 	req_admin_notify = 1
 	economic_modifier = 10
 	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
-			access_chemistry, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction, 
+			access_chemistry, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research,
 			access_paramedic, access_maint_tunnels)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
-			access_chemistry, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction, 
+			access_chemistry, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research,
 			access_paramedic, access_maint_tunnels)
 
@@ -86,14 +86,17 @@
 	if(has_alt_title(H, alt_title,"Emergency Physician"))
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/fr_jacket(H), slot_wear_suit)
+		H.equip_to_slot_or_del(new /obj/item/device/pda/medical(H), slot_belt)
 	else if(has_alt_title(H, alt_title,"Surgeon"))
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical/blue(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat(H), slot_wear_suit)
 		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery/blue(H), slot_head)
+		H.equip_to_slot_or_del(new /obj/item/device/pda/medical(H), slot_belt)
 	else if(has_alt_title(H, alt_title,"Virologist"))
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/virologist(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat/virologist(H), slot_wear_suit)
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/surgical(H), slot_wear_mask)
+		H.equip_to_slot_or_del(new /obj/item/device/pda/viro(H), slot_belt)
 	else if(has_alt_title(H, alt_title,"Nurse"))
 		if(H.gender == FEMALE)
 			if(prob(50))
@@ -103,9 +106,11 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/head/nursehat(H), slot_head)
 		else
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical/purple(H), slot_w_uniform)
+		H.equip_to_slot_or_del(new /obj/item/device/pda/medical(H), slot_belt)
 	else if(has_alt_title(H, alt_title,"Medical Doctor"))
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat(H), slot_wear_suit)
+		H.equip_to_slot_or_del(new /obj/item/device/pda/medical(H), slot_belt)
 	else
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat(H), slot_wear_suit)

@@ -74,6 +74,16 @@
 	item_cost = 5
 	path = /obj/item/clothing/gloves/claws
 
+/datum/uplink_item/item/visible_weapons/wrestling
+	name = "Wrestling Manual"
+	item_cost = 6
+	path = /obj/item/wrestling_manual
+
+/datum/uplink_item/item/visible_weapons/solcom
+	name = "SolCom Manual"
+	item_cost = 6
+	path = /obj/item/sol_combat_manual
+
 /datum/uplink_item/item/visible_weapons/heavysniper
 	name = "Anti-materiel Rifle"
 	item_cost = DEFAULT_TELECRYSTAL_AMOUNT

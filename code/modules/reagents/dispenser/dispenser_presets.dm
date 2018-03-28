@@ -118,6 +118,24 @@
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/mead
 		)
 
+/obj/machinery/chemical_dispenser/coffeemaster
+	name = "Coffee Master 3000"
+	desc = "The only thing that can get some workers though the day, a coffee maker on steroids!"
+	icon_state = "coffee_master"
+	ui_title = "Coffee Master 3000"
+	accept_drinking = 1
+	density = 0
+
+/obj/machinery/chemical_dispenser/coffeemaster/full
+	spawn_cartridges = list(
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/coffee,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/espresso,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/cream,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/sugar,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/milk,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/soymilk
+		)
+
 /obj/machinery/chemical_dispenser/coffee
 	name = "Coffee Machine"
 	desc = "The only thing that can get some workers though the day, the coffee maker is the stations most valuable resource."
@@ -127,5 +145,5 @@
 
 /obj/machinery/chemical_dispenser/coffee/full
 	spawn_cartridges = list(
-			/obj/item/weapon/reagent_containers/chem_disp_cartridge/coffee_beans
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/espresso
 		)

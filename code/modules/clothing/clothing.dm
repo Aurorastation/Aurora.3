@@ -446,12 +446,12 @@ BLIND     // can't see anything
 
 /obj/item/clothing/gloves/dropped()
 	..()
-	update_wearer()
+	addtimer(CALLBACK(src, .proc/update_wearer), 0)
 
 /obj/item/clothing/gloves/mob_can_unequip()
 	. = ..()
 	if (.)
-		update_wearer()
+		addtimer(CALLBACK(src, .proc/update_wearer), 0)
 
 ///////////////////////////////////////////////////////////////////////
 //Head
