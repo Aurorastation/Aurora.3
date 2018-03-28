@@ -47,3 +47,18 @@
 					  "weaponstech"  = 3
 					)
 //T4
+
+//ROBOTICS UNLOCKS
+//T1
+/datum/research_items/science_items/mech_module_point
+	name = "Mecha Module Attachment Point"
+	id = "mechpoint"
+	desc = "An attachment point for an additional module on a mecha."
+	rmpcost = 450
+	required_concepts = list(
+					  "robotics"  = 1
+					)
+//T2
+//T3
+//T4
+

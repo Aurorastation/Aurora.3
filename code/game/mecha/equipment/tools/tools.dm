@@ -589,6 +589,21 @@
 		chassis.r_damage_coeff /= damage_coeff
 		chassis.rhit_power_use -= energy_drain
 
+/obj/item/mecha_parts/mecha_equipment/attachment_point
+	name = "module attachment point"
+	desc = "Allows for the attachment of an additional module. Only one can be mounted on a mecha."
+	icon_state = "mecha_abooster_proj" // maybe sprite...
+	origin_tech = list(TECH_MATERIAL = 4)
+
+/obj/item/mecha_parts/mecha_equipment/attachment_point/attach(obj/mecha/M as obj)
+	..()
+	chassis.max_equip = chassis.max_equip + 2
+	return
+
+/obj/item/mecha_parts/mecha_equipment/attachment_point/detach() // check
+	chassis.max_equip = chassis.max_equip - 2
+	..()
+	return
 
 /obj/item/mecha_parts/mecha_equipment/repair_droid
 	name = "repair droid"

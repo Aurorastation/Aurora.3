@@ -1,4 +1,3 @@
-//explains cloning and the RED. Improves cloning, the RED, and animal cubes.
 /datum/research_concepts/medicine
 	name = "Medicine"
 	id = "medicine"

@@ -431,6 +431,13 @@
 	id = "mech_cable_layer"
 	build_path = /obj/item/mecha_parts/mecha_equipment/tool/cable_layer
 
+/datum/design/item/mecha/attachment_point
+	name = "Attachment Point"
+	id = "mech_attach_point"
+	build_path = /obj/item/mecha_parts/mecha_equipment/attachment_point
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 10000)
+	required_unlock = "mechpoint"
+
 /datum/design/item/mecha/sleeper
 	name = "Sleeper"
 	id = "mech_sleeper"
@@ -443,14 +450,6 @@
 	build_path = /obj/item/mecha_parts/mecha_equipment/tool/syringe_gun
 	time = 20
 	materials = list(DEFAULT_WALL_MATERIAL = 3000, "glass" = 2000)
-
-/*
-/datum/design/item/mecha/syringe_gun
-	desc = "Exosuit-mounted syringe gun and chemical synthesizer."
-	id = "mech_syringe_gun"
-	req_tech = list(TECH_MATERIAL = 3, TECH_BIO = 4, TECH_MAGNET = 4, TECH_DATA = 3)
-	build_path = /obj/item/mecha_parts/mecha_equipment/tool/syringe_gun
-	*/
 
 /datum/design/item/mecha/passenger
 	name = "Passenger compartment"

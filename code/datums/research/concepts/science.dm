@@ -65,10 +65,10 @@
 	..()
 	switch(level)
 		if(1)
-			return "A standardization effort has allowed for different parts to be attached to the same frame and still work together."
+			return ""
 		if(2)
 			return ""
 		if(3)
-			return "Due to new fabrication practices, it is now much easier to produce more advanced ready-to-operate weaponery."
+			return ""
 		if(4)
 			return ""
