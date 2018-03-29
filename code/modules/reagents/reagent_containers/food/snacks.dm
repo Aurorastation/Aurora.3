@@ -465,31 +465,20 @@
 	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/candy
-	name = "candy"
-	desc = "Nougat, love it or hate it. Made with real sugar, and no artificial preservatives!"
+	name = "getmore chocolate bar"
+	desc = "Uses an ancient, sol-american recipe!"
 	icon_state = "candy"
 	trash = /obj/item/trash/candy
 	filling_color = "#7D5F46"
 	center_of_mass = list("x"=15, "y"=15)
-	nutriment_amt = 3
-	nutriment_desc = list("chocolate" = 2, "nougat" = 1)
+	flavoring_amt = 6
+	flavoring_desc = list("chocolate" = 5, "vomit" = 1) //Thumbs up if you get the real-world reference.
 
 /obj/item/weapon/reagent_containers/food/snacks/candy/Initialize()
 	. = ..()
-	reagents.add_reagent("sugar", 3)
+	reagents.add_reagent("slop", 2)
+	reagents.add_reagent("sugar", 6)
 	bitesize = 2
-
-/obj/item/weapon/reagent_containers/food/snacks/candy/donor
-	name = "donor candy"
-	desc = "A little treat for blood donors. Made with real sugar!"
-	trash = /obj/item/trash/candy
-	nutriment_desc = list("candy" = 10)
-
-/obj/item/weapon/reagent_containers/food/snacks/candy/donor/Initialize()
-	. = ..()
-	reagents.add_reagent("nutriment", 10)
-	reagents.add_reagent("sugar", 3)
-	bitesize = 5
 
 /obj/item/weapon/reagent_containers/food/snacks/candy_corn
 	name = "candy corn"
@@ -1540,8 +1529,8 @@
 	trash = /obj/item/trash/sosjerky
 	filling_color = "#631212"
 	center_of_mass = list("x"=15, "y"=9)
-	flavoring_desc = list("smoke" = 8)
-	flavoring_amt = 8
+	flavoring_desc = list("smoke" = 4)
+	flavoring_amt = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/sosjerky/Initialize()
 	. = ..()
@@ -1555,14 +1544,13 @@
 	trash = /obj/item/trash/raisins
 	filling_color = "#343834"
 	center_of_mass = list("x"=15, "y"=4)
-	nutriment_desc = list("rasins" = 4)
-	nutriment_amt = 2
-	flavoring_desc = list("sweetness" = 6)
+	flavoring_desc = list("rasins" = 6)
 	flavoring_amt = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/no_raisin/Initialize()
 	. = ..()
 	reagents.add_reagent("slop", 4)
+	reagents.add_reagent("sugar", 4)
 	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/spacetwinkie
@@ -1571,13 +1559,12 @@
 	desc = "Guaranteed to survive longer then you will."
 	filling_color = "#FFE591"
 	center_of_mass = list("x"=15, "y"=11)
-	nutriment_desc = list("cake" = 4)
-	nutriment_amt = 4
 	flavoring_desc = list("pastry" = 6,"cream" = 2)
 	flavoring_amt = 8
 
 /obj/item/weapon/reagent_containers/food/snacks/spacetwinkie/Initialize()
 	. = ..()
+	reagents.add_reagent("slop", 5)
 	reagents.add_reagent("sugar", 15)
 	bitesize = 4
 
@@ -1588,14 +1575,13 @@
 	trash = /obj/item/trash/chips
 	filling_color = "#E8C31E"
 	center_of_mass = list("x"=15, "y"=15)
-	nutriment_amt = 4
-	nutriment_desc = list("chips" = 4)
-	flavoring_desc = list("grease" = 1)
-	flavoring_amt = 1
+	flavoring_desc = list("chips"=4,"grease" = 1)
+	flavoring_amt = 5
 
 /obj/item/weapon/reagent_containers/food/snacks/chips/Initialize()
 	. = ..()
 	reagents.add_reagent("sodiumchloride", 2)
+	reagents.add_reagent("slop", 5)
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers
@@ -1605,15 +1591,12 @@
 	trash = /obj/item/trash/cheesie
 	filling_color = "#FFA305"
 	center_of_mass = list("x"=15, "y"=9)
-	nutriment_desc = list("chips" = 2)
-	nutriment_amt = 2
-	flavoring_desc = list("cheese dust" = 4)
-	flavoring_amt = 4
+	flavoring_desc = list("chips" = 3, "cheese dust" = 3)
+	flavoring_amt = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers/Initialize()
 	. = ..()
-	reagents.add_reagent("slop", 4)
-	reagents.add_reagent("cheese", 4)
+	reagents.add_reagent("slop", 6)
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/syndicake
@@ -4405,16 +4388,14 @@
 	trash = /obj/item/trash/tastybread
 	filling_color = "#A66829"
 	center_of_mass = list("x"=17, "y"=16)
-	nutriment_desc = list("bread" = 4)
-	nutriment_amt = 4
-	flavoring_desc = list("taste" = 1)
-	flavoring_amt = 1
+	flavoring_desc = list("bread" = 4)
+	flavoring_amt = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/tastybread/Initialize()
 	. = ..()
-	reagents.add_reagent("slop", 6)
-	reagents.add_reagent("sodiumchloride", 5)
-	bitesize = 4
+	reagents.add_reagent("slop", 10)
+	reagents.add_reagent("sodiumchloride", 6)
+	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/skrellsnacks
 	name = "\improper SkrellSnax"
@@ -4427,7 +4408,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/skrellsnacks/Initialize()
 	. = ..()
-	bitesize = 3
+	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/friedkois
 	name = "fried k'ois"
@@ -4552,11 +4533,12 @@
 	desc = "Made from stok meat, packed into a crispy crust."
 	trash = /obj/item/trash/meatsnack
 	filling_color = "#631212"
-	nutriment_desc = list("pie crust" = 2)
-	nutriment_amt = 2
+	flavoring_desc = list("pastry" = 4)
+	flavoring_amt = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/meatsnack/Initialize()
 	. = ..()
+	reagents.add_reagent("slop", 2)
 	reagents.add_reagent("muck", 10)
 	reagents.add_reagent("sodiumchloride", 5)
 	bitesize = 5
@@ -4567,14 +4549,14 @@
 	desc = "Various processed meat from Moghes with 600% the amount of recommended daily sodium per can."
 	trash = /obj/item/trash/maps
 	filling_color = "#631212"
-	flavoring_desc = list("ham" = 6)
+	flavoring_desc = list("spaced ham" = 6)
 	flavoring_amt = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/maps/Initialize()
 	. = ..()
 	reagents.add_reagent("water", 1)
-	reagents.add_reagent("muck", 8)
-	reagents.add_reagent("sodiumchloride", 5)
+	reagents.add_reagent("muck", 10)
+	reagents.add_reagent("sodiumchloride", 10)
 	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/nathisnack
@@ -4583,12 +4565,12 @@
 	desc = "Delicious corned beef and preservatives. Imported from Earth, canned on Ourea."
 	trash = /obj/item/trash/nathisnack
 	filling_color = "#631212"
-	flavoring_desc = list("space beef" = 6)
+	flavoring_desc = list("spaced beef" = 6)
 	flavoring_amt = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/nathisnack/Initialize()
 	. = ..()
-	reagents.add_reagent("muck", 8)
+	reagents.add_reagent("muck", 10)
 	reagents.add_reagent("iron", 3)
 	reagents.add_reagent("sodiumchloride", 10)
 	bitesize = 4
@@ -5115,7 +5097,6 @@
 	bitesize = 2
 	center_of_mass = list("x"=16, "y"=16)
 	nutriment_desc = list("butter" = 1)
-	nutriment_amt = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/spreads/Initialize()
 	. = ..()

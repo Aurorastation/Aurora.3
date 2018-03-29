@@ -94,9 +94,9 @@
 	var/regen_factor = 0.8
 	var/injectable = 0
 	var/datum/modifier/modifier
-	var/mod_strength = 1
 	color = "#664330"
 	unaffected_species = IS_MACHINE
+	var/is_positive_buff = 1
 
 /datum/reagent/nutriment/mix_data(var/list/newdata, var/newamount)
 	if(!islist(newdata) || !newdata.len)
@@ -135,8 +135,13 @@
 	M.heal_organ_damage(regen_factor * removed, 0)
 	M.nutrition += nutriment_factor * removed // For hunger and fatness
 	M.add_chemical_effect(CE_BLOODRESTORE, blood_factor * removed)
-	if (!modifier)
-		modifier = M.add_modifier(/datum/modifier/food, MODIFIER_REAGENT, src, _strength = (1 + blood_factor*2 + nutriment_factor*2)*mod_strength, _duration = max_dose*20 SECONDS, override = MODIFIER_OVERRIDE_CUSTOM)
+	var/added_duration = removed*30 SECONDS
+	if(modifier)
+		modifier.duration += added_duration
+	else if(is_positive_buff)
+		modifier = M.add_modifier(/datum/modifier/food/positive, MODIFIER_TIMED, src, _strength = 25, _duration = added_duration, override = MODIFIER_OVERRIDE_CUSTOM)
+	else
+		modifier = M.add_modifier(/datum/modifier/food/negative, MODIFIER_TIMED, src, _strength = -25, _duration = added_duration, override = MODIFIER_OVERRIDE_CUSTOM)
 /*
 	Coatings are used in cooking. Dipping food items in a reagent container with a coating in it
 	allows it to be covered in that, which will add a masked overlay to the sprite.
@@ -292,7 +297,7 @@
 	id = "muck"
 	blood_factor = 6
 	taste_description = "meat, I think"
-	mod_strength = -0.5
+	is_positive_buff = 0
 
 /datum/reagent/nutriment/slop //Blended plants
 	name = "Slop"
@@ -300,7 +305,7 @@
 	description = "A blended mess of cheap food. Serve this to prisoners."
 	nutriment_factor = 6
 	taste_description = "slop"
-	mod_strength = -0.5
+	is_positive_buff = 0
 
 //Fats
 //=========================
@@ -517,6 +522,25 @@
 	color = "#FFFFFF"
 	injectable = 1
 	taste_description = "sweetness"
+
+/datum/reagent/nutriment/sugar
+	name = "Sugar"
+	id = "sugar"
+	description = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
+	reagent_state = SOLID
+	color = "#FFFFFF"
+	injectable = 1
+	taste_description = "sugar"
+	taste_mult = 1.8
+	metabolism = 0.034 // 10 units lasts 5 minutes.
+
+	glass_icon_state = "iceglass"
+	glass_name = "glass of sugar"
+	glass_desc = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
+
+/datum/reagent/nutriment/sugar/final_effect(var/mob/living/carbon/M, var/alien)
+	if(dose > 10)
+		M.add_modifier(/datum/modifier/food/sugarcrash, MODIFIER_TIMED, src, _strength = -20, _duration = dose*20, override = MODIFIER_OVERRIDE_CUSTOM)
 
 /datum/reagent/lipozine // The anti-nutriment.
 	name = "Lipozine"

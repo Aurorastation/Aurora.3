@@ -86,9 +86,14 @@
 			if(CHEM_BREATHE)
 				affect_breathe(M, alien, removed)
 	remove_self(removed)
+	if(volume <= 0)
+		final_effect(M, alien)
 
 //Initial effect is called once when the reagent first starts affecting a mob.
 /datum/reagent/proc/initial_effect(var/mob/living/carbon/M, var/alien)
+	return
+
+/datum/reagent/proc/final_effect(var/mob/living/carbon/M, var/alien)
 	return
 
 /datum/reagent/proc/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)

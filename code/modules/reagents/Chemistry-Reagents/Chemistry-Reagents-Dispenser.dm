@@ -440,22 +440,6 @@
 	color = "#808080"
 	taste_description = "salty metal"
 
-/datum/reagent/sugar
-	name = "Sugar"
-	id = "sugar"
-	description = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
-	reagent_state = SOLID
-	color = "#FFFFFF"
-	taste_description = "sugar"
-	taste_mult = 1.8
-
-	glass_icon_state = "iceglass"
-	glass_name = "glass of sugar"
-	glass_desc = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
-
-/datum/reagent/sugar/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.nutrition += removed * 3
-
 /datum/reagent/sulfur
 	name = "Sulfur"
 	id = "sulfur"
