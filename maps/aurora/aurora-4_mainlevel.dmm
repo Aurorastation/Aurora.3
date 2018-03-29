@@ -51453,7 +51453,7 @@
 /obj/machinery/door/airlock/maintenance{
 	name = "Research Division Maintenance";
 	req_access = list(47);
-	req_one_access = newlist()
+	req_one_access = null
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
