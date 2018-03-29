@@ -13,7 +13,6 @@
 		var/obj/structure/closet/air_bubble/R = new /obj/structure/closet/air_bubble(user.loc)
 		if(!used)
 			internal_tank = new /obj/item/weapon/tank/emergency_oxygen/double(src)
-		R.used = 1
 		R.internal_tank = internal_tank
 		R.add_fingerprint(user)
 		qdel(src)
@@ -110,7 +109,7 @@
 			"<span class='warning'>[user] set [src] internals.</span>",
 			"<span class='notice'>You set [src] internals.</span>"
 		)
-		if (!do_after(user, 1 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
+		if (!do_after(user, 1 SECONDS, act_target = src))
 			return
 		if(use_internal_tank)
 			STOP_PROCESSING(SSfast_process, src)
@@ -129,7 +128,7 @@
 		"<span class='warning'>[user] removed [internal_tank] from [src].</span>",
 		"<span class='notice'>You remove [internal_tank] from [src].</span>"
 		)
-		if (!do_after(user, 1 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
+		if (!do_after(user, 1 SECONDS, act_target = src))
 			return
 		for(var/obj/I in src)
 			I.forceMove(user.loc)
@@ -138,7 +137,7 @@
 		update_icon()
 	else
 		visible_message(
-		"<span class='warning'>[src] already has a no tank.</span>")
+		"<span class='warning'>[src] already has no tank.</span>")
 
 /obj/structure/closet/air_bubble/attackby(W as obj, mob/user as mob)
 	if(opened)
@@ -187,7 +186,7 @@
 				"<span class='warning'>[user] attached [W] to [src].</span>",
 				"<span class='notice'>You attach [W] to [src].</span>"
 			)
-			if (!do_after(user, 1 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
+			if (!do_after(user, 1 SECONDS, act_target = src))
 				return
 			var/obj/item/weapon/tank/T = W
 			internal_tank = T
