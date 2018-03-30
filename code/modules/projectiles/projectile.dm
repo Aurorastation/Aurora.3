@@ -158,7 +158,7 @@
 
 /obj/item/projectile/proc/launch_projectile(atom/target, target_zone, mob/user, params, angle_override, forced_spread = 0)
 	original = target
-	def_zone = target_zone
+	def_zone = check_zone(target_zone)
 	firer = user
 	var/direct_target
 	if(get_turf(target) == get_turf(src))
