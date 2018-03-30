@@ -95,3 +95,27 @@
 
 	attacktext = "bit"
 	harm_intent_damage = 8
+
+/mob/living/simple_animal/hostile/retaliate/petran_female/on_timed_spawn()
+	var/turf/simulated/floor/asteroid/T = get_turf(src.loc)
+	if(istype(T))
+		if(T.dug < 5)
+			T.dug = 5
+		T.gets_dug()
+		playsound(src,'sound/species/petran/dig.ogg', 50, 1)
+		visible_message("<span class='warning'>A very annoyed [name] digs up from under the [T.name]!</span>")
+	else
+		qdel(src)
+	return ..()
+
+/mob/living/simple_animal/hostile/retaliate/petran_female/on_timed_despawn()
+	var/turf/simulated/floor/asteroid/T = get_turf(src.loc)
+	if(istype(T))
+		if(T.dug < 5)
+			T.dug = 5
+		T.gets_dug()
+		playsound(src,'sound/species/petran/dig.ogg', 50, 1)
+		visible_message("<span class='warning'>The [name] digs into the [T.name] and tunnels away!</span>")
+		return ..()
+	else
+		return 0

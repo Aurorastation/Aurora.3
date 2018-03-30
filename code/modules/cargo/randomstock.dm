@@ -130,6 +130,7 @@ var/list/global/random_stock_common = list(
 	"paicard" = 2,
 	"phoronsheets" = 2,
 	"hide" = 1,
+	"arcade" = 2,
 	"nothing" = 0)
 
 var/list/global/random_stock_uncommon = list(
@@ -456,6 +457,11 @@ var/list/global/random_stock_large = list(
 /proc/spawn_stock(var/stock, var/atom/L, var/datum/cargospawner/CS = null)
 	//L is the location we spawn in. Using a single letter as shorthand because its written so often
 	switch(stock)
+		if("arcade")
+			new /obj/random/arcade(L)
+			new /obj/random/arcade(L)
+			new /obj/random/arcade(L)
+
 		if ("toolbox")
 			if (prob(5))
 				new /obj/item/weapon/storage/toolbox/syndicate(L)

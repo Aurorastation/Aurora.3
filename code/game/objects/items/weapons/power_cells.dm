@@ -132,13 +132,24 @@
 	maxcharge = 10000
 	matter = null
 
-
 /obj/item/weapon/cell/device/emergency_light
 	name = "miniature power cell"
 	desc = "A small power cell intended for use with emergency lighting."
 	maxcharge = 120	//Emergency lights use 0.2 W per tick, meaning ~10 minutes of emergency power from a cell
 	w_class = ITEMSIZE_TINY
 	matter = list("glass" = 20)
+
+/obj/item/weapon/cell/device/emergency_light/empty/Initialize()
+	. = ..()
+	charge = 0
+
+/obj/item/weapon/cell/device/ecell
+	name = "weapon power cell"
+	desc = "A small power cell intended for use with energy based weapons."
+	maxcharge = 300
+	icon_state = "ecell"
+	w_class = ITEMSIZE_TINY
+	matter = list(DEFAULT_WALL_MATERIAL = 300, "glass" = 80)
 
 /obj/item/weapon/cell/device/emergency_light/empty/Initialize()
 	. = ..()

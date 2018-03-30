@@ -79,8 +79,52 @@
 		new /obj/item/device/radio/headset/headset_sci(src)
 		new /obj/item/weapon/storage/belt/archaeology(src)
 		new /obj/item/weapon/storage/box/excavation(src)
-		new /obj/item/device/dociler/light(src)
-		new /obj/item/weapon/gun/energy/tiny_gun(src)
+		new /obj/item/weapon/gun/energy/pocket_pistol(src)
+		new /obj/item/weapon/cell/device/ecell(src)
+		new /obj/item/weapon/cell/device/ecell(src)
+		new /obj/item/weapon/cell/device/ecell(src)
+		return
+
+/obj/structure/closet/secure_closet/eva_weapons
+	name = "EVA Weapons Secure Locker"
+	req_access = list(access_tox_storage)
+	icon_state = "rdsecure1"
+	icon_closed = "rdsecure"
+	icon_locked = "rdsecure1"
+	icon_opened = "rdsecureopen"
+	icon_broken = "rdsecurebroken"
+	icon_off = "rdsecureoff"
+	New()
+		..()
+		sleep(2)
+		new /obj/item/weapon/gun/energy/pocket_pistol(src)
+		new /obj/item/weapon/gun/energy/pocket_pistol(src)
+		new /obj/item/weapon/cell/device/ecell(src)
+		new /obj/item/weapon/cell/device/ecell(src)
+		new /obj/item/weapon/cell/device/ecell(src)
+		new /obj/item/weapon/cell/device/ecell(src)
+		return
+
+/obj/structure/closet/secure_closet/eva_weapons_heavy
+	name = "Heavy EVA Weapons Secure Locker"
+	req_access = list(access_rd)
+	icon_state = "secureres1"
+	icon_closed = "secureres"
+	icon_locked = "secureres1"
+	icon_opened = "secureresopen"
+	icon_broken = "secureresbroken"
+	icon_off = "secureresoff"
+	New()
+		..()
+		sleep(2)
+		new /obj/item/weapon/gun/projectile/shotgun/pump/xenoblaster(src)
+		new/obj/item/ammo_casing/xenoblaster(src)
+		new/obj/item/ammo_casing/xenoblaster(src)
+		new/obj/item/ammo_casing/xenoblaster(src)
+		new/obj/item/ammo_casing/xenoblaster(src)
+		new/obj/item/ammo_casing/xenoblaster(src)
+		new/obj/item/ammo_casing/xenoblaster(src)
+		new/obj/item/ammo_casing/xenoblaster(src)
 		return
 
 /obj/structure/closet/excavation

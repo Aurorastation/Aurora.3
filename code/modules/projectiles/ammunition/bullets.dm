@@ -175,9 +175,9 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 260, "uranium" = 200)
 
 //Xenoblaster
-/obj/item/ammo_casing/xenoblaster/
+/obj/item/ammo_casing/xenoblaster
 	name = "xenoblaster shell"
-	desc = "A strange, elogated shell for some weapon."
+	desc = "A strange, elongated shell for some weapon."
 	icon_state = "rod"
 	spent_icon = "rod_spent"
 	caliber = "rod"

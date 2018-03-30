@@ -160,7 +160,7 @@
 	caliber = "rod"
 	origin_tech = list(TECH_MATERIAL = 1)
 	load_method = SINGLE_CASING
-	ammo_type = /obj/item/ammo_casing/xenoblaster/
+	ammo_type = /obj/item/ammo_casing/xenoblaster
 	handle_casings = HOLD_CASINGS
 	fire_sound = 'sound/weapons/Egloves.ogg'
 	pin = /obj/item/device/firing_pin/eva

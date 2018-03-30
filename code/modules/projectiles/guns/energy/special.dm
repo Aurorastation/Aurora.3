@@ -558,25 +558,65 @@
 	muzzle_flash = 10
 
 //Pocket Protector
-/obj/item/weapon/gun/energy/tiny_gun
-	name = "PocketProtector228"
-	desc = "An incredibly weak, cheap, and low-capacity pistol designed for self-defense in EVA. Perfect for killing moles in space."
+/obj/item/weapon/gun/energy/pocket_pistol
+	name = "pocket gun"
+	desc = "An incredibly weak, cheap, and low-capacity pistol designed for self-defense in EVA. Takes AA batteries."
 	icon_state = "ep3"
-	item_state = "pulse_pistol"
+	item_state = "gun"
 	icon = 'icons/obj/gun.dmi'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	charge_meter = 0
 	fire_delay = 4
-	projectile_type = /obj/item/projectile/beam/pocketpistol
+	projectile_type = /obj/item/projectile/beam/pocket_pistol
 	origin_tech = list(TECH_COMBAT = 1, TECH_MAGNET = 1)
 	pin = /obj/item/device/firing_pin/eva
 	w_class = 2
 	max_shots = 3
-	charge_cost = 200
-	power_supply = /obj/item/weapon/cell/crap //Yes, this gun uses an AA battery.
+	charge_cost = 100
+	cell_type = /obj/item/weapon/cell/device/ecell
+	power_supply = /obj/item/weapon/cell/device/ecell
 	use_external_power = 1
 	recharge_time = 10
 
-/obj/item/weapon/gun/energy/tiny_gun/update_icon()
-	var/shots_remaining = Floor(power_supply.charge/charge_cost)
-	icon_state = "ep[min(3,max(0,shots_remaining))]"
+/obj/item/weapon/gun/energy/pocket_pistol/update_icon()
+	if(power_supply == null)
+		icon_state = "epe"
+	else
+		var/shots_remaining = Floor(power_supply.charge/charge_cost)
+		icon_state = "ep[min(3,max(0,shots_remaining))]"
+
+/obj/item/weapon/gun/energy/pocket_pistol/proc/remove_battery(mob/user as mob)
+	if(power_supply)
+		user.put_in_hands(power_supply)
+		user.visible_message("[user] removes [power_supply] from [src].", "<span class='notice'>You remove [power_supply] from [src].</span>")
+		playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
+		power_supply.update_icon()
+		power_supply = null
+		update_icon()
+
+/obj/item/weapon/gun/energy/pocket_pistol/proc/add_battery(var/obj/item/A as obj, mob/user as mob)
+	var/obj/item/weapon/cell/inserted_cell = A
+	if(istype(inserted_cell))
+		if(!istype(inserted_cell,cell_type))
+			user << "<span class='warning'>[A] won't load into [src]!</span>"
+			return
+		user.remove_from_mob(inserted_cell)
+		inserted_cell.loc = src
+		power_supply = inserted_cell
+		user.visible_message("[user] inserts [inserted_cell] into [src].", "<span class='notice'>You insert [inserted_cell] into [src].</span>")
+		playsound(src.loc, 'sound/weapons/flipblade.ogg', 50, 1)
+		update_icon()
+
+/obj/item/weapon/gun/energy/pocket_pistol/attack_hand(mob/user as mob)
+	if(user.get_inactive_hand() == src)
+		remove_battery(user)
+	else
+		return ..()
+
+/obj/item/weapon/gun/energy/pocket_pistol/attack_self(mob/user as mob)
+	remove_battery(user)
+
+/obj/item/weapon/gun/energy/pocket_pistol/attackby(var/obj/item/A as obj, mob/user as mob)
+	add_battery(A, user)
+
+

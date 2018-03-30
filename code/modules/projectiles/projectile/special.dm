@@ -237,7 +237,6 @@
 	icon_state = "xenoblaster"
 	check_armour = "melee"
 	damage = 20
-	agony = 20
 	embed = 0
 	sharp = 0
 	speed = 0.4

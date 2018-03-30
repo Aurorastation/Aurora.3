@@ -13,7 +13,13 @@
 	var/chargelevel = -1
 
 /obj/machinery/cell_charger/update_icon()
-	icon_state = "ccharger[charging ? 1 : 0]"
+
+	if(!charging)
+		icon_state = "ccharger0"
+	else if(istype(charging,/obj/item/weapon/cell/device/ecell))
+		icon_state = "ccharger2"
+	else
+		icon_state = "ccharger1"
 
 	if(charging && !(stat & (BROKEN|NOPOWER)) )
 

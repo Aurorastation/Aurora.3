@@ -85,7 +85,7 @@ var/list/mineral_can_smooth_with = list(
 		queue_smooth_neighbors(src)
 
 	if(trap_type == SPACETRAP_NONE && prob(1))
-		trap_type = pick(SPACETRAP_SHANK,SPACETRAP_CARP)
+		trap_type = SPACETRAP_SHANK
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -351,43 +351,24 @@ var/list/mineral_can_smooth_with = list(
 
 /turf/simulated/mineral/proc/GetDrilled(var/artifact_fail = 0)
 	//var/destroyed = 0 //used for breaking strange rocks
-
 	var/turf/T = get_turf(src)
+	if (mineral && mineral.result_amount)
+		if(!artifact_find && trap_type == SPACETRAP_SHANK)
+			new /obj/random/petran(src)
+			new /obj/random/petran(src)
+			new /obj/random/petran(src)
 
-	switch(trap_type)
-		if(SPACETRAP_SHANK)
-			//Spawn some loot
-			new /obj/random/petran(src)
-			new /obj/random/petran(src)
-			new /obj/random/petran(src)
 			//Spawn some mobs
-			if(prob(25)) //A male is out scavaging junk for a nest.
-				spawn_delayed_atom(T,/mob/living/simple_animal/hostile/petran_male,rand(20,40),rand(60,120), TRUE)
-			else if(prob(50)) //A male is preparing a nest for a potential female.
+			if(prob(50)) //A male is preparing a nest for a potential female.
 				var/mob/living/simple_animal/hostile/petran_male/M =  new(src)
-				visible_message("<span class='warning'>A very angry [M.name] leaps up from under the [T.name]!</span>")
+				M.on_timed_spawn()
+			else if(prob(10)) //A male is out scavaging junk for a nest.
+				spawn_delayed_atom(T,/mob/living/simple_animal/hostile/petran_male,rand(20,40),rand(60,120), FALSE)
 			else // A lone female is guarding the nest
 				var/mob/living/simple_animal/hostile/retaliate/petran_female/M =  new(src)
-				visible_message("<span class='warning'>An annoyed [M.name] leaps up from under the [T.name].</span>")
+				M.on_timed_spawn()
 				if(prob(50)) //The female actually has a mate, and will return to the nest
-					spawn_delayed_atom(T,/mob/living/simple_animal/hostile/petran_male,rand(20,40),rand(60,120), TRUE)
-		if(SPACETRAP_CARP)
-			//Spawn some loot
-			new /obj/random/petran(src)
-			new /obj/random/petran(src)
-			new /obj/random/petran(src)
-			var/mob/living/simple_animal/hostile/retaliate/petran_female/M =  new(src)
-			M.death()
-			if(prob(50)) //Carp smell fresh meat.
-				spawn_delayed_atom(T,/mob/living/simple_animal/hostile/carp,rand(20,40),rand(60,120), TRUE)
-			if(prob(50)) //Carp smell fresh meat.
-				spawn_delayed_atom(T,/mob/living/simple_animal/hostile/carp,rand(20,40),rand(60,120), TRUE)
-			if(prob(50)) //Carp smell fresh meat.
-				spawn_delayed_atom(T,/mob/living/simple_animal/hostile/carp,rand(20,40),rand(60,120), TRUE)
-			if(prob(50)) //The female actually has a mate, and will return to the nest
-				spawn_delayed_atom(T,/mob/living/simple_animal/hostile/petran_male,rand(20,40),rand(60,120), TRUE)
-
-	if (mineral && mineral.result_amount)
+					spawn_delayed_atom(T,/mob/living/simple_animal/hostile/petran_male,rand(20,40),rand(60,120), FALSE)
 
 		//if the turf has already been excavated, some of it's ore has been removed
 		for (var/i = 1 to mineral.result_amount - mined_ore)
@@ -416,7 +397,6 @@ var/list/mineral_can_smooth_with = list(
 	//Add some rubble,  you did just clear out a big chunk of rock.
 
 	ChangeTurf(mined_turf)
-
 
 	if(rand(1,300) == 1)
 		visible_message("<span class='notice'>An old dusty crate was buried within!</span>")

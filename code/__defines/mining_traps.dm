@@ -1,3 +1,2 @@
 #define SPACETRAP_NONE			0
 #define SPACETRAP_SHANK 		1
-#define SPACETRAP_CARP			2

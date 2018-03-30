@@ -23,9 +23,9 @@
 		delay_seconds SECONDS\
 	)
 
-/proc/spawn_atom(var/turf/spawn_turf, var/mobtype, var/remove_delay_seconds = 0, var/safe_delete = FALSE)
+/proc/spawn_atom(var/turf/spawn_turf, var/mobtype, var/remove_delay_seconds, var/safe_delete)
 	var/mob/spawned_mob = new mobtype(spawn_turf)
-	if(remove_delay_seconds)
+	if(spawned_mob.on_timed_spawn() && remove_delay_seconds)
 		addtimer(\
 			CALLBACK(\
 				GLOBAL_PROC,\
@@ -33,9 +33,16 @@
 			), remove_delay_seconds SECONDS\
 		)
 
-/proc/remove_delayed_atom(var/spawned_mob,var/remove_delay_seconds,var/safe_delete = FALSE)
-	if(!safe_delete || !visible_to_clients(spawned_mob))
-		qdel(spawned_mob)
+/proc/remove_delayed_atom(var/mob/spawned_mob,var/remove_delay_seconds,var/safe_delete)
+	if(spawned_mob.stat != DEAD && (!safe_delete || !visible_to_clients(spawned_mob)))
+		spawned_mob.on_timed_despawn()
+
+/mob/proc/on_timed_spawn()
+	return 1
+
+/mob/proc/on_timed_despawn()
+	qdel(src)
+	return
 
 /proc/visible_to_clients(atom/A) //Lohikar's proc
     for (var/m in viewers(A))
