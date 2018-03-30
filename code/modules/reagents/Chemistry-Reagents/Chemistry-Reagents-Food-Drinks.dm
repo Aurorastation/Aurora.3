@@ -674,9 +674,9 @@
 	name = "Bubblegum Flavoring"
 	id = "bubblegum"
 	description = "A rich blend of artificial colors and flavoring."
-	color = "#C3AF00"
+	color = "#FFC0CB"
 	taste_description = "bubblegum"
-	taste_mult = 20
+	taste_mult = 10
 
 /* Drinks */
 

@@ -236,6 +236,7 @@
 	vend_id = "smokes"
 	products = list(
 		/obj/item/weapon/storage/fancy/cigarettes = 10,
+		/obj/item/weapon/storage/gum_box/nicotine = 4,
 		/obj/item/weapon/storage/box/matches = 10,
 		/obj/item/weapon/flame/lighter/random = 4,
 		/obj/item/weapon/spacecash/ewallet/lotto = 30
@@ -249,6 +250,7 @@
 	)
 	prices = list(
 		/obj/item/weapon/storage/fancy/cigarettes = 200,
+		/obj/item/weapon/storage/gum_box/nicotine = 300,
 		/obj/item/weapon/storage/box/matches = 12,
 		/obj/item/weapon/flame/lighter/random = 12,
 		/obj/item/weapon/spacecash/ewallet/lotto = 200
