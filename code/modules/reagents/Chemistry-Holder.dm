@@ -239,7 +239,7 @@
 	amount = min(amount, total_volume)
 
 	if(!amount)
-		return
+		return 0
 
 	var/part = amount / total_volume
 
@@ -252,29 +252,31 @@
 	return amount
 
 /datum/reagents/proc/trans_to_holder(var/datum/reagents/target, var/amount = 1, var/multiplier = 1, var/copy = 0) // Transfers [amount] reagents from [src] to [target], multiplying them by [multiplier]. Returns actual amount removed from [src] (not amount transferred to [target]).
+	
 	if(!target || !istype(target))
-		return
+		return 0
 
 	if (amount <= 0 || multiplier <= 0)
-		return
+		return 0
 
 	amount = max(0, min(amount, total_volume, target.get_free_space() / multiplier))
 
 	if(!amount)
-		return
+		return 0
 
 	var/part = amount / total_volume
 
 	for(var/datum/reagent/current in reagent_list)
 		var/amount_to_transfer = current.volume * part
-
 		target.add_reagent(current.id, amount_to_transfer * multiplier, current.get_data(), 1) // We don't react until everything is in place
 		if(!copy)
 			remove_reagent(current.id, amount_to_transfer, 1)
 
 	if(!copy)
 		handle_reactions()
+
 	target.handle_reactions()
+	
 	return amount
 
 /* Holder-to-atom and similar procs */
@@ -373,26 +375,32 @@
 
 // Attempts to place a reagent on the mob's skin.
 // Reagents are not guaranteed to transfer to the target.
-// Do not call this directly, call trans_to() instead.
+// DO NOT CALL THIS DIRECTLY, call trans_to() instead.
 /datum/reagents/proc/splash_mob(var/mob/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
 	var/perm = 1
 	if(isliving(target)) //will we ever even need to tranfer reagents to non-living mobs?
 		var/mob/living/L = target
 		perm = L.reagent_permeability()
 	multiplier *= perm
-	return trans_to_mob(target, amount, CHEM_TOUCH, multiplier, copy)
+
+	return trans_to_mob(target, amount*0.75, CHEM_TOUCH, multiplier, copy) + trans_to_mob(target, amount*0.25, CHEM_BREATHE, multiplier, copy)
 
 /datum/reagents/proc/trans_to_mob(var/mob/target, var/amount = 1, var/type = CHEM_BLOOD, var/multiplier = 1, var/copy = 0) // Transfer after checking into which holder...
+
 	if(!target || !istype(target) || !target.simulated)
-		return
-	if(iscarbon(target))
-		var/mob/living/carbon/C = target
+		return 0
+		
+	var/mob/living/carbon/C = target
+	if(istype(C))
+		if(type == CHEM_BREATHE)
+			var/datum/reagents/R = C.breathing
+			return C.inhale(src, R, amount, multiplier, copy)
 		if(type == CHEM_BLOOD)
 			var/datum/reagents/R = C.reagents
 			return trans_to_holder(R, amount, multiplier, copy)
 		if(type == CHEM_INGEST)
 			var/datum/reagents/R = C.ingested
-			return C.ingest(src,R, amount, multiplier, copy)
+			return C.ingest(src, R, amount, multiplier, copy)
 		if(type == CHEM_TOUCH)
 			var/datum/reagents/R = C.touching
 			return trans_to_holder(R, amount, multiplier, copy)
@@ -407,22 +415,22 @@
 
 /datum/reagents/proc/trans_to_turf(var/turf/target, var/amount = 1, var/multiplier = 1, var/copy = 0) // Turfs don't have any reagents (at least, for now). Just touch it.
 	if(!target || !target.simulated)
-		return
+		return 0
 
 	var/datum/reagents/R = new /datum/reagents(amount * multiplier)
 	. = trans_to_holder(R, amount, multiplier, copy)
 	R.touch_turf(target)
-	return
+	return 0
 
 /datum/reagents/proc/trans_to_obj(var/turf/target, var/amount = 1, var/multiplier = 1, var/copy = 0) // Objects may or may not; if they do, it's probably a beaker or something and we need to transfer properly; otherwise, just touch.
 	if(!target || !target.simulated)
-		return
+		return 0
 
 	if(!target.reagents)
 		var/datum/reagents/R = new /datum/reagents(amount * multiplier)
 		. = trans_to_holder(R, amount, multiplier, copy)
 		R.touch_obj(target)
-		return
+		return 0
 
 	return trans_to_holder(target.reagents, amount, multiplier, copy)
 

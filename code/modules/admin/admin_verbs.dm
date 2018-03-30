@@ -99,7 +99,8 @@ var/list/admin_verbs_admin = list(
 	/client/proc/clear_toxins,
 	/client/proc/wipe_ai,	// allow admins to force-wipe AIs
 	/client/proc/fix_player_list,
-	/client/proc/reset_openturf
+	/client/proc/reset_openturf,
+	/client/proc/create_poll //Allows to create polls
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
