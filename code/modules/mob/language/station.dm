@@ -70,7 +70,7 @@
 	name = LANGUAGE_SIGN_TAJARA
 	desc = "A sign language developed by Adhomai hunters"
 	speech_verb = "signs"
-	signlang_verb = list("signs", "flicks their ears", "gestures")
+	signlang_verb = list("licks their paw", "lewdly gestures", "gives big kitty eyes")
 	colour = "i"
 	key = "i"
 	flags = NO_STUTTER | SIGNLANG | WHITELISTED
