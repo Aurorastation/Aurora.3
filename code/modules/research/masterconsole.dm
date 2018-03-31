@@ -1,8 +1,7 @@
 /obj/machinery/computer/masterconsole
 	name = "Master reseach control console"
-
-	icon_screen = "rdcomp"
-	light_color = "#a97faa"
+	icon = 'icons/obj/machines/research.dmi'
+	icon_state = "masterconsole"
 	//circuit = /obj/item/weapon/circuitboard/rdconsole
 	var/nanoui_menu = 1
 	var/itemviewmode = 1

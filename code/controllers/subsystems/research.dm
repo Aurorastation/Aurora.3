@@ -18,8 +18,8 @@
 	rdconsoles = list()
 
 /datum/controller/subsystem/research/Initialize()
-	. = ..()
 	load_from_sql()
+	. = ..()
 
 /datum/controller/subsystem/research/proc/load_from_sql()
 	if(!establish_db_connection(dbcon))
