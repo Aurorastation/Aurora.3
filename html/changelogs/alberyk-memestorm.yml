@@ -1,0 +1,6 @@
+author: Alberyk
+delete-after: True
+
+changes:
+  - rscadd: "Added a concealed carry option to the loadout, to align the game's atmosphere to the gun laws of Tau Ceti."
+  - rscadd: "You can now crawl under tables."
