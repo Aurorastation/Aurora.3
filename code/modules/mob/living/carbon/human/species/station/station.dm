@@ -422,7 +422,7 @@
 
 
 	brute_mod = 1.0
-	burn_mod = 1.2 
+	burn_mod = 1.2
 	show_ssd = "flashing a 'system offline' glyph on their monitor"
 	death_message = "gives one shrill beep before falling lifeless."
 	knockout_message = "encounters a hardware fault and suddenly reboots!"
@@ -508,7 +508,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 
 /datum/species/machine/handle_death(var/mob/living/carbon/human/H)
 	..()
-	H.h_style = ""
+	H.f_style = ""
 	addtimer(CALLBACK(H, /mob/living/carbon/human/.proc/update_hair), 100)
 
 /datum/species/machine/sanitize_name(var/new_name)
@@ -567,7 +567,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 
 	// I hate this, but I can't think of a better way that doesn't involve
 	// rewriting hair.
-	switch (H.h_style)
+	switch (H.f_style)
 		if ("pink IPC screen")
 			return LIGHT_COLOR_PINK
 
