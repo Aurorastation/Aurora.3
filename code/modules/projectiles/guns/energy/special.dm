@@ -503,23 +503,18 @@
 
 	return ..()
 
-/*/obj/item/weapon/gun/energy/vaurca/flamer
-	name = "Vaurcae Incinerator"
-	desc = "A devious flamethrower device that procedurally converts atmosphere to fuel for a virtually unlimited tank."
-	icon_state = "incinerator"
-	item_state = "incinerator"
-	fire_sound = 'sound/effects/extinguish.ogg'
-	charge_meter = 0
-	slot_flags = SLOT_BACK
-	w_class = 3
-	force = 10
-	projectile_type = /obj/item/projectile/energy/flamer
-	self_recharge = 1
-	recharge_time = 2
-	max_shots = 80
-	firemodes = list(
-		list(mode_name="spray", burst = 20, burst_delay = -1, fire_delay = 10, dispersion = list(0.5, 0.5, 1.0, 1.0, 1.5, 1.5, 2.0, 2.0, 2.5, 2.5, 3.0, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.0, 6.0)),
-		)*/
+/obj/item/weapon/gun/energy/vaurca/tachyon
+	name = "tachyon carbine"
+	desc = "A Vaurcan carbine that fires a beam of concentrated faster than light particles, capable of passing through most forms of matter."
+	contained_sprite = 1
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "tachyoncarbine"
+	item_state = "tachyoncarbine"
+	fire_sound = 'sound/weapons/laser3.ogg'
+	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
+	max_shots = 10
+	fire_delay = 1
+	can_turret = 0
 
 /obj/item/weapon/gun/energy/tesla
 	name = "tesla gun"

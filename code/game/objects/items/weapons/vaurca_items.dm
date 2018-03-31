@@ -187,3 +187,57 @@
 
 	action_button_name = "Toggle the magclaws"
 
+/obj/item/clothing/suit/space/void/scout
+	name = "voidsuit"
+	contained_sprite = 1
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "scout"
+	item_state = "scout"
+	desc = "Armor designed for K'laxan scouts, made of lightweight sturdy material that does not restrict movement."
+	slowdown = -1
+
+	species_restricted = list("Vaurca")
+	armor = list(melee = 50, bullet = 20, laser = 50, energy = 30, bomb = 45, bio = 100, rad = 10)
+
+	boots = /obj/item/clothing/shoes/magboots/vox/vaurca
+	helmet = /obj/item/clothing/head/helmet/space/void/scout
+
+/obj/item/clothing/head/helmet/space/void/scout
+	name = "void helmet"
+	desc = "A helmet designed for K'laxan scouts, made of lightweight sturdy material that does not restrict movement."
+	contained_sprite = 1
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "helm_scout"
+	item_state = "helm_scout"
+
+	species_restricted = list("Vaurca")
+	armor = list(melee = 40, bullet = 20, laser = 40, energy = 30, bomb = 45, bio = 100, rad = 10)
+
+	light_overlay = "helmet_light"
+
+/obj/item/clothing/suit/space/void/commando
+	name = "voidsuit"
+	contained_sprite = 1
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "commando"
+	item_state = "commando"
+	desc = "A design perfected by the Zo'ra, this helmet is commonly used  by frontline warriors of a hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
+
+	species_restricted = list("Vaurca")
+	armor = list(melee = 40, bullet = 40, laser = 60, energy = 50, bomb = 45, bio = 100, rad = 10)
+
+	boots = /obj/item/clothing/shoes/magboots/vox/vaurca
+	helmet = /obj/item/clothing/head/helmet/space/void/commando
+
+/obj/item/clothing/head/helmet/space/void/commando
+	name = "void helmet"
+	desc = "A design perfected by the Zo'ra, this helmet is commonly used  by frontline warriors of a hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
+	contained_sprite = 1
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "helm_commando"
+	item_state = "helm_commando"
+
+	species_restricted = list("Vaurca")
+	armor = list(melee = 30, bullet = 30, laser = 60, energy = 50, bomb = 45, bio = 100, rad = 10)
+
+	light_overlay = "helmet_light"
