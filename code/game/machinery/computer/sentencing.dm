@@ -106,8 +106,8 @@
 	. += "<tr>"
 	. += "<th>Convict:</th>"
 	. += "<td><a href='?src=\ref[src];button=change_criminal;'>"
-	if( incident.criminal )
-		. += "[incident.criminal]"
+	if( incident.card )
+		. += "[incident.card]"
 	else
 		. += "None"
 	. += "</a></td>"
@@ -191,8 +191,8 @@
 
 	. += "<tr><th colspan='2'>Convict</th></tr>"
 	. += "<tr><td colspan='2'><center>"
-	if( incident.criminal )
-		. += "[incident.criminal]"
+	if( incident.card )
+		. += "[incident.card]"
 	else
 		. += "None"
 	. += "</center></td></tr>"
@@ -435,7 +435,7 @@
 	return .
 
 /obj/machinery/computer/sentencing/proc/render_innocent( var/mob/user )
-	ping( "\The [src] pings, \"[incident.criminal] has been found innocent of the accused crimes!\"" )
+	ping( "\The [src] pings, \"[incident.card] has been found innocent of the accused crimes!\"" )
 
 	qdel( incident )
 	incident = null
@@ -458,9 +458,9 @@
 	incident.renderGuilty( user )
 
 	if( incident.brig_sentence < PERMABRIG_SENTENCE)
-		ping( "\The [src] pings, \"[incident.criminal] has been found guilty of their crimes!\"" )
+		ping( "\The [src] pings, \"[incident.card] has been found guilty of their crimes!\"" )
 	else
-		pingx3( "\The [src] pings, \"[incident.criminal] has been found guilty of their crimes and earned a HuT Sentence\"" )
+		pingx3( "\The [src] pings, \"[incident.card] has been found guilty of their crimes and earned a HuT Sentence\"" )
 
 	incident = null
 	menu_screen = "main_menu"
@@ -483,7 +483,7 @@
 //
 // 	incident.renderGuilty( user )
 //
-// 	ping( "\The [src] pings, \"[incident.criminal] has been fined for their crimes!\"" )
+// 	ping( "\The [src] pings, \"[incident.card] has been fined for their crimes!\"" )
 //
 // 	incident = null
 // 	menu_screen = "main_menu"
@@ -528,10 +528,12 @@
 			if( istype( C ))
 				if( incident && C.mob )
 					incident.criminal = C.mob
-					ping( "\The [src] pings, \"Convict [C.mob] verified.\"" )
+					incident.card = C
+					ping( "\The [src] pings, \"Convict [C] verified.\"" )
 			else if( incident.criminal )
 				ping( "\The [src] pings, \"Convict cleared.\"" )
 				incident.criminal = null
+				incident.card = null
 		if( "change_brig" )
 			if( !incident )
 				return

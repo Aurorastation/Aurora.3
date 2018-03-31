@@ -215,7 +215,7 @@
 		. += "Insert a Securty Incident Report to load a criminal sentence<br>"
 	else
 		// Time Left display (uses releasetime)
-		. += "<b>Criminal</b>: [incident.criminal]\t"
+		. += "<b>Criminal</b>: [incident.card]\t"
 		. += "<a href='?src=\ref[src];button=menu_mode;menu_choice=menu_charges'>Charges</a><br>"
 		. += "<b>Sentence</b>: [add_zero( "[minute]", 2 )]:[add_zero( "[second]", 2 )]\t"
 		// Start/Stop timer
