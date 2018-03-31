@@ -207,7 +207,7 @@
 	// Used for the 'time left' display
 	var/second = round(timeleft() % 60)
 	var/minute = round((timeleft() - second) / 60)
-
+	var/obj/item/weapon/card/id/card = incident.card.resolve()
 	. = "<h2>Timer System:</h2>"
 	. += "<b>Controls [src.id]</b><hr>"
 
@@ -215,7 +215,7 @@
 		. += "Insert a Securty Incident Report to load a criminal sentence<br>"
 	else
 		// Time Left display (uses releasetime)
-		. += "<b>Criminal</b>: [incident.card]\t"
+		. += "<b>Criminal</b>: [card]\t"
 		. += "<a href='?src=\ref[src];button=menu_mode;menu_choice=menu_charges'>Charges</a><br>"
 		. += "<b>Sentence</b>: [add_zero( "[minute]", 2 )]:[add_zero( "[second]", 2 )]\t"
 		// Start/Stop timer
