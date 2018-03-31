@@ -59,6 +59,14 @@
 					  "robotics"  = 1
 					)
 //T2
+/datum/research_items/science_items/mech_jet_pack
+	name = "Mech jetpack"
+	id = "mechjetpack"
+	desc = "A very heavy duty jetpack allowing for limited traversal in low-pressure zones."
+	rmpcost = 1000
+	required_concepts = list(
+					  "robotics"  = 2
+					)
 //T3
 //T4
 
