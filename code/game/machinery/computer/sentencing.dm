@@ -96,7 +96,6 @@
 
 /obj/machinery/computer/sentencing/proc/incident_report()
 	. = ""
-
 	if( !istype( incident ))
 		. += "There was an error loading the incident, please <a href='?src=\ref[src];button=change_menu;choice=main_menu'>Try Again</a>"
 		return .
@@ -106,8 +105,8 @@
 	. += "<tr>"
 	. += "<th>Convict:</th>"
 	. += "<td><a href='?src=\ref[src];button=change_criminal;'>"
-	var/obj/item/weapon/card/id/card = incident.card.resolve()
-	if( card )
+	if( istype(incident.card) )
+		var/obj/item/weapon/card/id/card = incident.card.resolve()
 		. += "[card]"
 	else
 		. += "None"
@@ -192,8 +191,8 @@
 
 	. += "<tr><th colspan='2'>Convict</th></tr>"
 	. += "<tr><td colspan='2'><center>"
-	var/obj/item/weapon/card/id/card = incident.card.resolve()
-	if( card )
+	if( istype(incident.card) )
+		var/obj/item/weapon/card/id/card = incident.card.resolve()
 		. += "[card]"
 	else
 		. += "None"
