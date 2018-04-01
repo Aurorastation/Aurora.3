@@ -16,7 +16,8 @@ var/list/SKILL_ENGINEER = list("field" = "Engineering", "EVA" = SKILL_BASIC, "co
 var/list/SKILL_ORGAN_ROBOTICIST = list("field" = "Science", "devices" = SKILL_ADEPT, "electrical" = SKILL_BASIC, "computer" = SKILL_ADEPT, "anatomy" = SKILL_BASIC)
 var/list/SKILL_SECURITY_OFFICER = list("field" = "Security", "combat" = SKILL_BASIC, "weapons" = SKILL_ADEPT, "law" = SKILL_ADEPT, "forensics" = SKILL_BASIC)
 var/list/SKILL_CHEMIST = list("field" = "Science", "chemistry" = SKILL_ADEPT, "science" = SKILL_ADEPT, "medical" = SKILL_BASIC, "devices" = SKILL_BASIC)
-var/global/list/SKILL_PRE = list("Engineer" = SKILL_ENGINEER, "Roboticist" = SKILL_ORGAN_ROBOTICIST, "Security Officer" = SKILL_SECURITY_OFFICER, "Chemist" = SKILL_CHEMIST)
+var/list/SKILL_JANITOR = list("field" = "Engineering", "electrical" = SKILL_BASIC, "devices" = SKILL_BASIC, "construction" = SKILL_BASIC)
+var/global/list/SKILL_PRE = list("Janitor" = SKILL_JANITOR, "Engineer" = SKILL_ENGINEER, "Roboticist" = SKILL_ORGAN_ROBOTICIST, "Security Officer" = SKILL_SECURITY_OFFICER, "Chemist" = SKILL_CHEMIST)
 
 datum/skill/management
     ID = "management"
@@ -143,6 +144,21 @@ datum/skill/science
 	name = "Science"
 	desc = "Your experience and knowledge with scientific methods and processes."
 	field = "Science"
+
+datum/skill/theology
+	ID = "theology"
+	name = "Theology"
+	desc = "Your knowledge with various religious beliefs. A lower skill reflects a less experienced chaplain who is still comptent enough to preach while a higher skill reflects an experienced chaplain who knows almost everything about their religion and its history and development."
+
+datum/skill/mining
+	ID = "mining"
+	name = "Mining Operations"
+	desc = "Your experience and knowledge with operating mining related tools. A high skill in this is required to operate hardsuit mining equipment while a lower skill is required to understand what settings the ore processer should be at and basic mining saftey."
+
+datum/skill/logistics
+	ID = "logistics"
+	name = "Corporate Logistics"
+	desc = "Your knowledge of how the corporation operates its supply chain."
 
 datum/attribute/var
 	ID = "none"
