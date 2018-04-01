@@ -204,17 +204,13 @@
 
 		var/mob/living/carbon/H = M
 		if(istype(H) && istajara(H))
-			H.adjustHalLoss(5)
 			H.custom_emote(2,"hisses!")
 			playsound(H.loc, 'sound/voice/cat_scream.ogg', 100, 1, 0)
-			shake_camera(H,1)
 			H.visible_message("<span class='warning'>[H] jumps at the water's touch!</span>")
-			H.make_dizzy(120)
 			if(isturf(H.loc) && !istype(M.loc, /turf/space) && H.canmove && !H.restrained())
 				step(H, pick(cardinal))
 				step(H, pick(cardinal))
 				step(H, pick(cardinal))
-
 		var/mob/living/L = M
 		var/needed = L.fire_stacks * 10
 		if(amount > needed)
