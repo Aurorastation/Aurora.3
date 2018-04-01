@@ -90,6 +90,7 @@
 #define slot_r_ear       20
 #define slot_legs        21
 #define slot_tie         22
+#define max_slot         22 //keep this as the biggest define before it.
 
 // Inventory slot strings.
 // since numbers cannot be used as associative list keys.
