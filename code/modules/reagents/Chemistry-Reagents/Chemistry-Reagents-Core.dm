@@ -224,6 +224,15 @@
 		if(dose == removed)
 			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the water touches it!</span>", "<span class='danger'>Your flesh burns in the water!</span>")
 
+	else if(alien == IS_SLIME)
+		M.adjustToxLoss(8 * removed)
+		if(dose == removed)
+			M.visible_message("<span class='warning'>[M]'s flesh sizzles where the water touches it!</span>", "<span class='danger'>Your flesh burns in the water!</span>")
+
+/datum/reagent/water/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_SLIME)
+		M.adjustToxLoss(1.5 * removed)
+
 /datum/reagent/fuel
 	name = "Welding fuel"
 	id = "fuel"

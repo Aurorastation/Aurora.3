@@ -1633,6 +1633,8 @@
 #include "code\modules\mob\living\carbon\human\species\station\station.dm"
 #include "code\modules\mob\living\carbon\human\species\station\tajaran_subspecies.dm"
 #include "code\modules\mob\living\carbon\human\species\station\vaurca_subspecies.dm"
+#include "code\modules\mob\living\carbon\human\species\station\meme\slime.dm"
+#include "code\modules\mob\living\carbon\human\species\station\meme\slime_language.dm"
 #include "code\modules\mob\living\carbon\human\species\xenomorphs\alien_embryo.dm"
 #include "code\modules\mob\living\carbon\human\species\xenomorphs\alien_facehugger.dm"
 #include "code\modules\mob\living\carbon\human\species\xenomorphs\alien_powers.dm"

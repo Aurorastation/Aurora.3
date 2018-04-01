@@ -476,7 +476,12 @@
 				I.emp_act(emp_damage)
 				emp_damage *= 0.4
 
-		apply_damage(shock_damage, BURN, area, used_weapon="Electrocution")
+		if(get_species() == "Neo-Kocasslani")
+			heal_organ_damage(shock_damage, shock_damage)
+		else
+			apply_damage(shock_damage, BURN, area, used_weapon="Electrocution")
+			Stun(10)//This should work for now, more is really silly and makes you lay there forever
+			Weaken(10)
 		shock_damage *= 0.4
 		playsound(loc, "sparks", 50, 1, -1)
 
@@ -486,8 +491,6 @@
 		"<span class='danger'>You feel a powerful shock course through your body!</span>",
 		"<span class='warning'>You hear a heavy electrical crack.</span>"
 		)
-		Stun(10)//This should work for now, more is really silly and makes you lay there forever
-		Weaken(10)
 
 	else
 		visible_message(
