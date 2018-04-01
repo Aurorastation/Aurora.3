@@ -75,8 +75,9 @@
 	damage = 2
 	attack_name = "glomp"
 
-/datum/unarmed_attack/slime_glomp/apply_effects()
-	//Todo, maybe have a chance of causing an electrical shock?
+/datum/unarmed_attack/slime_glomp/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armour,var/attack_damage,var/zone)
+	target.electrocute_act(rand(2,5), def_zone = zone)
+	user.electrocute_act(rand(2,5)/2, ground_zero = zone)
 	return
 
 /datum/unarmed_attack/stomp/weak
