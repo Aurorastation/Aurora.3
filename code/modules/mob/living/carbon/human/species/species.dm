@@ -317,19 +317,8 @@
 		if(FEMALE)
 			t_him = "her"
 
-	if(istajara(target) && target.health >= 90)
-		if(!target.lying)
-			H.visible_message("<span class='notice'>[target] drops to the floor and purrs from [H]'s vigorous petting!</span>")
-			target.custom_emote(2,"purrs!")
-		else
-			H.visible_message("<span class='notice'>[H] belly rubs [target]!</span>")
-			target.custom_emote(2,"purrs and kneads at the air!")
-		playsound(target.loc, 'sound/voice/cat_purr.ogg', 100, 1, 0)
-		target.Stun(3)
-
-	else
-		H.visible_message("<span class='notice'>[H] hugs [target] to make [t_him] feel better!</span>", \
-						"<span class='notice'>You hug [target] to make [t_him] feel better!</span>")
+	H.visible_message("<span class='notice'>[H] hugs [target] to make [t_him] feel better!</span>", \
+					"<span class='notice'>You hug [target] to make [t_him] feel better!</span>")
 
 /datum/species/proc/remove_inherent_verbs(var/mob/living/carbon/human/H)
 	if(inherent_verbs)

@@ -104,21 +104,3 @@
 /datum/gear/towel/New()
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
-
-/datum/gear/guns
-	display_name = "gun selection"
-	path = /obj/item/weapon/gun/bang/revolver
-
-/datum/gear/guns/New()
-	..()
-	var/dakka = list()
-	dakka[".357 revolver"] = /obj/item/weapon/gun/bang/revolver
-	dakka[".45 pistol"] = /obj/item/weapon/gun/bang/colt
-	dakka["automatic .45 pistol"] = /obj/item/weapon/gun/bang/x9
-	dakka["10mm pistol"] = /obj/item/weapon/gun/bang/tanto
-	dakka["silenced pistol"] = /obj/item/weapon/gun/bang/silenced
-	dakka[".50 magnum pistol"] = /obj/item/weapon/gun/bang/deagle
-	dakka["golden.50 magnum pistol"] = /obj/item/weapon/gun/bang/deagle/gold
-	dakka["9mm pistol"] = /obj/item/weapon/gun/bang/pistol
-	dakka["zip gun"] = /obj/item/weapon/gun/bang/pirate
-	gear_tweaks += new/datum/gear_tweak/path(dakka)

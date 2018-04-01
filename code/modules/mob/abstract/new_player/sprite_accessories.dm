@@ -391,7 +391,7 @@
 	braid
 		name = "Floorlength Braid"
 		icon_state = "hair_braid"
-		species_allowed = list("Human", "Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Skrell", "Vox")
+		gender = FEMALE
 
 	mbraid
 		name = "Medium Braid"
