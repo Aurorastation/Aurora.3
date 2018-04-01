@@ -2,11 +2,10 @@
 	name = "Master reseach control console"
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "masterconsole"
-	//circuit = /obj/item/weapon/circuitboard/rdconsole
 	var/nanoui_menu = 1
 	var/itemviewmode = 1
 	var/list/nanoui_data = new
-	req_access = list(access_rd)	//Data and setting manipulation requires scientist access.
+	req_access = list(access_rd)	//RD only.
 
 /obj/machinery/computer/masterconsole/Initialize()
 	. = ..()
