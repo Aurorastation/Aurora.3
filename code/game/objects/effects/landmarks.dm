@@ -265,8 +265,6 @@
 	delete_me = 1
 
 //SCIENCE ITEMS
-/obj/effect/landmark/metaresearch/xenogateway
-	itempath = /obj/machinery/xenogateway
 
 /obj/effect/landmark/metaresearch/hazardsuit
 	itempath = /obj/item/weapon/rig/hazardsuit
@@ -283,6 +281,9 @@
 
 /obj/effect/landmark/metaresearch/incisionman
 	itempath = /obj/item/weapon/scalpel/manager
+
+/obj/effect/landmark/metaresearch/spaceklot
+	itempath = /obj/item/stack/medical/advanced/bruise_pack/spaceklot
 
 //ENGINEERING ITEMS
 /obj/effect/landmark/metaresearch/firefighterupgrade

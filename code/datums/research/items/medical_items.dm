@@ -40,6 +40,17 @@
 	required_concepts = list(
 					  "medicine"  = 2
 					)
+
+/datum/research_items/medical_items/spaceklot
+	name = "Space Klot"
+	id = "spaceklot"
+	desc = "A powder that, when poured on an open wound, quickly stops the bleeding. Combine with bandages for the best effect."
+	rmpcost = 500
+	path = /obj/item/stack/medical/advanced/bruise_pack/spaceklot
+	required_concepts = list(
+					  "medicine"  = 2
+					)
+
 //T3
 /datum/research_items/medical_items/cloner_upgrade
 	name = "Cloner Upgrade"

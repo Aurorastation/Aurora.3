@@ -9,5 +9,13 @@
 					  "engineering"  = 1
 					)
 //T3
+/datum/research_items/engineering_items/reliable_relay
+	name = "Reliable Emergency Relay"
+	id = "ermaigodrelay"
+	desc = "Extends the capability of the emergency relay allowing it to contact Odin much more reliably."
+	rmpcost = 500
+	required_concepts = list(
+					  "engineering"  = 1
+					)
 //T2
 //T4
