@@ -298,7 +298,7 @@
 
 		else if(istype(O, /mob/living/carbon/slime)) // Makes slimes to take damage from shower
 			var/mob/living/carbon/slime/S = O
-			S.adjustToxLoss(30)
+			S.adjustToxLoss(rand(15, 40)) // Slimes die when they reach 200 toxins, so killing them with shower will take few seconds
 		else
 			if(M.wear_mask)						//if the mob is not human, it cleans the mask without asking for bitflags
 				if(M.wear_mask.clean_blood())
@@ -330,6 +330,7 @@
 	wash_floor()
 	if(!mobpresent)	return
 	for(var/mob/living/L in loc)
+		wash(L) // Why was it not here before?
 		process_heat(L)
 
 /obj/machinery/shower/proc/wash_floor()
