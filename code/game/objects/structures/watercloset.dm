@@ -295,6 +295,10 @@
 				if(H.belt.clean_blood())
 					H.update_inv_belt(0)
 			H.clean_blood(washshoes)
+
+		else if(istype(O, /mob/living/carbon/slime)) // Makes slimes to take damage from shower
+			var/mob/living/carbon/slime/S = O
+			S.adjustToxLoss(30)
 		else
 			if(M.wear_mask)						//if the mob is not human, it cleans the mask without asking for bitflags
 				if(M.wear_mask.clean_blood())
