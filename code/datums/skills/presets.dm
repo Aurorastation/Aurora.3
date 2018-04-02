@@ -1,18 +1,64 @@
-var/list/SKILL_ENGINEER = list("field" = "Engineering", "EVA" = SKILL_BASIC, "construction" = SKILL_ADEPT, "electrical" = SKILL_BASIC, "engines" = SKILL_ADEPT)
-var/list/SKILL_ORGAN_ROBOTICIST = list("field" = "Science", "devices" = SKILL_ADEPT, "electrical" = SKILL_BASIC, "computer" = SKILL_ADEPT, "anatomy" = SKILL_BASIC)
-var/list/SKILL_SECURITY_OFFICER = list("field" = "Security", "combat" = SKILL_BASIC, "weapons" = SKILL_ADEPT, "law" = SKILL_ADEPT, "forensics" = SKILL_BASIC)
-var/list/SKILL_CHEMIST = list("field" = "Science", "chemistry" = SKILL_ADEPT, "science" = SKILL_ADEPT, "medical" = SKILL_BASIC, "devices" = SKILL_BASIC)
-var/list/SKILL_JANITOR = list("field" = "Engineering", "electrical" = SKILL_BASIC, "devices" = SKILL_BASIC, "construction" = SKILL_BASIC)
 var/list/SKILL_PRE = list()
 
 /datum/skillsystem/preset
 	var/name
-	var/id
 	var/field
 	var/list/skills
 
 /datum/skillsystem/preset/proc/populate()
-	var/setup[0]
-	for(var/datum/skillsystem/preset/preset in subtypesof(/datum/skillsystem/preset))
-		setup[++setup.len] = list("name" = preset.name, "id" = preset.id,  "field" = preset.field, "skills" = preset.skills)
+	var/list/setup = list()
+	var/list/T = list()
+	init_subtypes(/datum/skillsystem/preset, T)
+	for(var/A in T)
+		var/datum/skillsystem/preset/preset = A
+		setup[preset.name] = list("name" = preset.name, "field" = preset.field, "skills" = preset.skills)
 	SKILL_PRE = setup
+
+/datum/skillsystem/preset/engineer
+	name = "Engineer"
+	field = "Engineering"
+	skills = list(
+	"EVA" = SKILL_BASIC,
+	"construction" = SKILL_ADEPT,
+	"electrical" = SKILL_ADEPT,
+	"engines" = SKILL_ADEPT
+	)
+
+/datum/skillsystem/preset/robot
+	name = "Roboticist"
+	field = "Science"
+	skills = list(
+	"devices" = SKILL_ADEPT,
+	"computer" = SKILL_ADEPT,
+	"electrical" = SKILL_BASIC,
+	"anatomy" = SKILL_BASIC
+	)
+
+/datum/skillsystem/preset/janitor
+	name = "Janitor"
+	field = "Engineering"
+	skills = list(
+	"electrical" = SKILL_BASIC,
+	"devices" = SKILL_BASIC,
+	"construction" = SKILL_BASIC
+	)
+
+/datum/skillsystem/preset/securityofficer
+	name = "Security Officer"
+	field = "Security"
+	skills = list(
+	"combat" = SKILL_BASIC,
+	"weapons" = SKILL_ADEPT,
+	"law" = SKILL_ADEPT,
+	"forensics" = SKILL_BASIC
+	)
+
+/datum/skillsystem/preset/medchemist
+	name = "Medical Chemist"
+	field = "Medical"
+	skills = list(
+	"chemistry" = SKILL_ADEPT,
+	"science" = SKILL_BASIC,
+	"medical" = SKILL_ADEPT,
+	"devices" = SKILL_BASIC
+	)

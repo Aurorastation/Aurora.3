@@ -109,13 +109,14 @@
 		if(!selected && !CanUseTopic(user)) return
 
 		pref.ZeroSkills(1)
-		for(var/V in SKILL_PRE[selected])
-			if(V == "field")
-				pref.skill_specialization = SKILL_PRE[selected]["field"]
-				continue
-			pref.skills[V] = SKILL_PRE[selected]["skills"][V]
-		pref.CalculateSkillPoints()
+	
+		var/skill_sel = SKILL_PRE[selected]
+	
+		pref.skill_specialization = skill_sel["field"]
+		var/list/skills = skill_sel["skills"]
+		pref.skills = skills.Copy()
 
+		pref.CalculateSkillPoints()
 		return TOPIC_REFRESH
 
 	else if(href_list["setspecialization"])

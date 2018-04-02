@@ -42,9 +42,8 @@ var/global/list/SKILLS = null
 					SKILLS[S.field] = list()
 				var/list/L = SKILLS[S.field]
 				L += S
-	if(!presetfriend)
-		presetfriend = new presetfriend
-		presetfriend.populate()
+	presetfriend = new presetfriend
+	presetfriend.populate()
 
 /mob/living/carbon/human/proc/GetSkillClass(points)
 	return gskillsystem.CalculateSkillClass(points, age)
