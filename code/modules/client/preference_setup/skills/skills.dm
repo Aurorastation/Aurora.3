@@ -113,7 +113,7 @@
 			if(V == "field")
 				pref.skill_specialization = SKILL_PRE[selected]["field"]
 				continue
-			pref.skills[V] = SKILL_PRE[selected][V]
+			pref.skills[V] = SKILL_PRE[selected]["skills"][V]
 		pref.CalculateSkillPoints()
 
 		return TOPIC_REFRESH

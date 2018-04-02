@@ -214,6 +214,7 @@
 #include "code\datums\skills\civilian.dm"
 #include "code\datums\skills\command.dm"
 #include "code\datums\skills\engineering.dm"
+#include "code\datums\skills\presets.dm"
 #include "code\datums\skills\security.dm"
 #include "code\datums\skills\science.dm"
 #include "code\datums\skills\medical.dm"
