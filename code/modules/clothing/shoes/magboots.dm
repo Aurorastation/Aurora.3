@@ -96,7 +96,7 @@
 /obj/item/clothing/shoes/magboots/cheap
 	name = "budget magboots"
 	desc = "Cheap magnetic boots, often used during extravehicular activity to ensure the user remains safely attached to the vehicle. Unlike the high quality variant, these magboots are uncomfortably small, and are not designed to fit non-humanoid feet."
-	magslowdown = 6
+	magslowdown = 4
 	overshoes = 0
 	species_restricted = list("exclude","Unathi","Tajara","Vox","Vaurca","Vaurca Breeder")
 	//These are specifically made for mining. The logic here is that generally anyone with a whitelist isn't a fucking idiot and won't fall to their death from walking off a cliff.
