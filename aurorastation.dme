@@ -10,6 +10,7 @@
 #define DEBUG
 // END_PREFERENCES
 // BEGIN_INCLUDE
+#include "_maps\runtime.dm"
 #include "code\global.dm"
 #include "code\hub.dm"
 #include "code\names.dm"
@@ -209,6 +210,13 @@
 #include "code\controllers\subsystems\processing\shuttle.dm"
 #include "code\datums\ai_law_sets.dm"
 #include "code\datums\ai_laws.dm"
+#include "code\datums\skills\_skill.dm"
+#include "code\datums\skills\civilian.dm"
+#include "code\datums\skills\command.dm"
+#include "code\datums\skills\engineering.dm"
+#include "code\datums\skills\security.dm"
+#include "code\datums\skills\science.dm"
+#include "code\datums\skills\medical.dm"
 #include "code\datums\api.dm"
 #include "code\datums\beam.dm"
 #include "code\datums\browser.dm"
@@ -1532,7 +1540,6 @@
 #include "code\modules\mob\abstract\new_player\new_player.dm"
 #include "code\modules\mob\abstract\new_player\poll.dm"
 #include "code\modules\mob\abstract\new_player\preferences_setup.dm"
-#include "code\modules\mob\abstract\new_player\skill.dm"
 #include "code\modules\mob\abstract\new_player\sprite_accessories.dm"
 #include "code\modules\mob\abstract\observer\login.dm"
 #include "code\modules\mob\abstract\observer\logout.dm"
