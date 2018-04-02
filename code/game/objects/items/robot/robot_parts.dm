@@ -70,7 +70,6 @@
 	desc = "A standard reinforced braincase, with spine-plugged neural socket and sensor gimbals."
 	icon_state = "head"
 	part = list("head")
-	model_info = 1
 	var/obj/item/device/flash/flash1 = null
 	var/obj/item/device/flash/flash2 = null
 	var/law_manager = TRUE
@@ -216,6 +215,8 @@
 				new_shell.set_species(src.chest.linked_frame)
 				M.brainmob.mind.transfer_to(new_shell)
 				qdel(M)
+				src.mouse_opacity = FALSE //so people won't mess around with the chassis until it is deleted
+				src.alpha = 0 //same reason as above
 				var/newname = sanitizeSafe(input(new_shell,"Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
 				if(!newname || newname == "")
 					var/datum/language/L = all_languages[new_shell.species.default_language]
