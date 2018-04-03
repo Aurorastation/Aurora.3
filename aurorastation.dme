@@ -1137,6 +1137,7 @@
 #include "code\modules\cargo\randomstock.dm"
 #include "code\modules\cciaa\cciaa.dm"
 #include "code\modules\cciaa\cciaa_items.dm"
+#include "code\modules\cciaa\ert_cmd.dm"
 #include "code\modules\client\asset_cache.dm"
 #include "code\modules\client\client defines.dm"
 #include "code\modules\client\client procs.dm"

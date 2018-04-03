@@ -383,7 +383,8 @@ var/list/admin_verbs_cciaa = list(
 	/datum/admins/proc/create_admin_fax,
 	/client/proc/check_fax_history,
 	/client/proc/aooc,
-	/client/proc/check_antagonists
+	/client/proc/check_antagonists,
+	/client/proc/spawn_ert_commander
 )
 
 /client/proc/add_admin_verbs()

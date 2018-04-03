@@ -1103,7 +1103,7 @@ proc/api_update_command_database()
 		return 1
 
 	//Get general data about the poll
-	var/DBQuery/select_query = dbcon.NewQuery("SELECT id, polltype, starttime, endtime, question, multiplechoiceoptions, adminonly FROM ss13_poll_question WHERE id = :poll_id:")
+	var/DBQuery/select_query = dbcon.NewQuery("SELECT id, polltype, starttime, endtime, question, multiplechoiceoptions, adminonly, publicresult, viewtoken FROM ss13_poll_question WHERE id = :poll_id:")
 	select_query.Execute(list("poll_id"=poll_id))
 
 	//Check if the poll exists
@@ -1119,8 +1119,13 @@ proc/api_update_command_database()
 		"endtime"=select_query.item[4],
 		"question"=select_query.item[5],
 		"multiplechoiceoptions"=select_query.item[6],
-		"adminonly"=select_query.item[7]
+		"adminonly"=select_query.item[7],
+		"publicresult"=select_query.item[8]
 		)
+
+	//Lets add a WI link to the poll, if we have the WI configured
+	if(config.webint_url)
+		poll_data["link"]="[config.webint_url]server/poll/[select_query.item[1]]/[select_query.item[9]]"
 
 	var/list/result_data = list()
 

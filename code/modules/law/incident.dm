@@ -8,6 +8,7 @@
 
 	var/list/arbiters = list( "Witness" = list() ) // The person or list of people who were involved in the conviction of the criminal
 	var/mob/living/carbon/human/criminal // The person who committed the crimes
+	var/datum/weakref/card // The ID of the criminal
 
 	var/datetime = "" //When the crime has been commited
 

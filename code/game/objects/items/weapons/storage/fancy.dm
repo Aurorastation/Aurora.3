@@ -161,10 +161,18 @@
 		if(!istype(W))
 			user <<"<span class ='notice'>The [W] is blocking the cigarettes.</span>"
 			return
+		//Checking contents of packet so lighters won't be cigarettes.
+		for (var/i = contents.len; i > 0; i--)
+			W = contents[i]
+			if (istype(W))
+				break
+			else
+				W = null
+		if (!W)
+			return
 		reagents.trans_to_obj(W, (reagents.total_volume/contents.len))
 		user.equip_to_slot_if_possible(W, slot_wear_mask)
 		reagents.maximum_volume = 15 * contents.len
-		contents.len--
 		user << "<span class='notice'>You take a cigarette out of the pack.</span>"
 		update_icon()
 	else
