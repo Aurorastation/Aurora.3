@@ -57,8 +57,8 @@
 			new /obj/item/weapon/storage/backpack/medic(src)
 		else
 			new /obj/item/weapon/storage/backpack/satchel_med(src)
-		new /obj/item/clothing/under/rank/nursesuit (src)
-		new /obj/item/clothing/head/nursehat (src)
+		//new /obj/item/clothing/under/rank/nursesuit (src) // Was requested to be unmapped
+		//new /obj/item/clothing/head/nursehat (src) // Was requested to be unmapped, why keep hat if entire suit is gone?
 		switch(pick("blue", "green", "purple"))
 			if ("blue")
 				new /obj/item/clothing/under/rank/medical/blue(src)
@@ -80,7 +80,7 @@
 				new /obj/item/clothing/under/rank/medical/purple(src)
 				new /obj/item/clothing/head/surgery/purple(src)
 		new /obj/item/clothing/under/rank/medical(src)
-		new /obj/item/clothing/under/rank/nurse(src)
+		//new /obj/item/clothing/under/rank/nurse(src) // Was requested to be unmapped
 		new /obj/item/clothing/under/rank/orderly(src)
 		new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 		new /obj/item/clothing/suit/storage/toggle/fr_jacket(src)
