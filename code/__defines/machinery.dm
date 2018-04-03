@@ -54,6 +54,7 @@
 #define NETWORK_ALARM_POWER "Power Alarms"
 #define NETWORK_ALARM_FIRE "Fire Alarms"
 #define NETWORK_SUPPLY "Supply"
+#define NETWORK_SERVICE "Service"
 #define NETWORK_EXPEDITION "Expedition"
 #define NETWORK_CALYPSO "Calypso"
 #define NETWORK_POD "General Utility Pod"

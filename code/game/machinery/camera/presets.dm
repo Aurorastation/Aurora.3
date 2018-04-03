@@ -23,6 +23,12 @@ var/global/list/engineering_networks = list(
 /obj/machinery/camera/network/civilian_surface
 	network = list(NETWORK_CIVILIAN_SURFACE)
 
+/obj/machinery/camera/network/supply
+	network = list(NETWORK_SUPPLY)
+
+/obj/machinery/camera/network/service
+	network = list(NETWORK_SERVICE)
+
 /obj/machinery/camera/network/command
 	network = list(NETWORK_COMMAND)
 
