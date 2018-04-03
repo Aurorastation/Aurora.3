@@ -134,6 +134,7 @@
 	density = 0
 	anchored = 1
 	use_power = 0
+	var/spray_amount = 20
 	var/on = 0
 	var/obj/effect/mist/mymist = null
 	var/ismist = 0				//needs a var so we can make it linger~
@@ -220,6 +221,10 @@
 //Yes, showers are super powerful as far as washing goes.
 /obj/machinery/shower/proc/wash(atom/movable/O as obj|mob)
 	if(!on) return
+
+	var/obj/effect/effect/water/W = new(get_turf(src))
+	W.create_reagents(spray_amount)
+	reagents.trans_to_obj(W, spray_amount)
 
 	if(isliving(O))
 		var/mob/living/L = O
