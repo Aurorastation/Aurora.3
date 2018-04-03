@@ -1330,6 +1330,19 @@
 	glass_name = "glass of Dr. Gibb"
 	glass_desc = "Dr. Gibb. Not as dangerous as the name might imply."
 
+/datum/reagent/drink/root_beer
+	name = "R&D Root Beer"
+	id = "root_beer"
+	description = "A classic Earth drink from the United Americas province."
+	color = "#211100"
+	adj_drowsy = -6
+	adj_temp = -5
+	taste_description = "sassafras and anise soda"
+
+	glass_icon_state = "root_beer_glass"
+	glass_name = "glass of R&D Root Beer"
+	glass_desc = "A glass of bubbly R&D Root Beer."
+
 /datum/reagent/drink/space_up
 	name = "Space-Up"
 	id = "space_up"
