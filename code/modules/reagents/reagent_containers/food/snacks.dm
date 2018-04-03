@@ -5158,7 +5158,23 @@
 	desc = "A hefty slice of meatloaf. Made from the finest leftovers!"
 	icon_state = "meatloaf"
 
+/obj/item/weapon/reagent_containers/food/snacks/meatloaf/Initialize()
+	. = ..()
+	reagents.add_reagent("muck", 10)
+
+/obj/item/weapon/reagent_containers/food/snacks/meatloaf/cook() //hacky way to deal with a problem but whatever
+	. = ..()
+	reagents.remove_reagent("muck", 10)
+
 /obj/item/weapon/reagent_containers/food/snacks/greenloaf
 	name = "greenloaf"
 	desc = "Meatloaf that is so cheap it doesn't contain any meat."
 	icon_state = "greenloaf"
+
+/obj/item/weapon/reagent_containers/food/snacks/greenloaf/Initialize()
+	. = ..()
+	reagents.add_reagent("slop", 10)
+
+/obj/item/weapon/reagent_containers/food/snacks/greenloaf/cook()
+	. = ..()
+	reagents.remove_reagent("slop", 10)
