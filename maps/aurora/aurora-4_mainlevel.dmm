@@ -51486,7 +51486,7 @@
 /obj/item/device/eftpos{
 	eftpos_name = "Library EFTPOS scanner"
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/service{
 	c_tag = "Library - Backroom";
 	dir = 8
 	},
@@ -51878,7 +51878,7 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/service{
 	c_tag = "Library - Fore Camera";
 	dir = 8
 	},
@@ -54801,7 +54801,7 @@
 	pixel_y = -27
 	},
 /obj/machinery/light,
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/service{
 	c_tag = "Library - Port Camera";
 	dir = 1
 	},
@@ -54843,7 +54843,7 @@
 /obj/structure/bed/chair/comfy/black{
 	dir = 1
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/service{
 	c_tag = "Library - Starboard Camera";
 	dir = 1
 	},
@@ -56453,7 +56453,7 @@
 	pixel_x = 30
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/service{
 	c_tag = "Kitchen - Food Preparation";
 	dir = 8
 	},
@@ -56464,7 +56464,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/service{
 	c_tag = "Kitchen - Cold Storage";
 	dir = 4
 	},
@@ -57180,7 +57180,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/service{
 	c_tag = "Hydroponics - Produce Storage";
 	dir = 4
 	},
@@ -57495,7 +57495,7 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/service{
 	c_tag = "Hydroponics - Greenhouse";
 	dir = 8
 	},
@@ -58170,7 +58170,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/service{
 	c_tag = "Bar - Kitchen Counter";
 	dir = 4
 	},
@@ -58205,7 +58205,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bVB" = (
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/service{
 	c_tag = "Bar - Dance Floor";
 	dir = 8
 	},
@@ -58394,7 +58394,7 @@
 /turf/simulated/floor/grass,
 /area/hydroponics)
 "bVX" = (
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/service{
 	c_tag = "Hydroponics - Animal Pen";
 	dir = 1
 	},
@@ -58696,7 +58696,7 @@
 	name = "Bar Shutters";
 	pixel_y = 36
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/service{
 	c_tag = "Bar - Counter"
 	},
 /obj/machinery/button/windowtint{
@@ -58973,7 +58973,7 @@
 /obj/machinery/alarm{
 	pixel_y = 23
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/supply{
 	c_tag = "Cargo - Main Lobby"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -59320,7 +59320,7 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/service{
 	c_tag = "Bar - Backroom";
 	dir = 8
 	},
@@ -59800,7 +59800,7 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/supply{
 	c_tag = "Cargo - Main Desk";
 	dir = 4
 	},
@@ -60096,7 +60096,7 @@
 /area/crew_quarters/bar)
 "bZi" = (
 /obj/machinery/vending/cigarette,
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/service{
 	c_tag = "Bar - Smoking Lounge"
 	},
 /turf/simulated/floor/wood,
@@ -60609,7 +60609,7 @@
 "caj" = (
 /obj/structure/table/wood,
 /obj/machinery/light/small,
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/service{
 	c_tag = "Bar - Diner Seating";
 	dir = 1
 	},
@@ -60830,7 +60830,7 @@
 	suffix = "#2"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/supply{
 	c_tag = "Cargo - MULE Storage";
 	dir = 8
 	},
@@ -60935,7 +60935,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "caL" = (
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/supply{
 	c_tag = "Cargo - Camera 1";
 	dir = 1
 	},
@@ -61704,7 +61704,7 @@
 "ccq" = (
 /obj/structure/table/standard,
 /obj/item/trash/tray,
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/supply{
 	c_tag = "Cargo - Break Room";
 	dir = 8
 	},
@@ -62122,7 +62122,7 @@
 /area/quartermaster/storage)
 "cdb" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/supply{
 	c_tag = "Cargo - Main Warehouse";
 	dir = 1
 	},

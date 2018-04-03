@@ -16394,7 +16394,7 @@
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
 "Ez" = (
-/obj/machinery/camera/network/civilian_surface{
+/obj/machinery/camera/network/supply{
 	c_tag = "Cargo - Loading Bay 2";
 	dir = 4
 	},
@@ -16593,7 +16593,7 @@
 /area/quartermaster/loading)
 "EY" = (
 /obj/machinery/vending/snack,
-/obj/machinery/camera/network/civilian_surface{
+/obj/machinery/camera/network/supply{
 	c_tag = "Cargo - Auxilliary Entrance";
 	dir = 4
 	},
@@ -17365,7 +17365,7 @@
 	pixel_x = 25;
 	pixel_y = 0
 	},
-/obj/machinery/camera/network/civilian_surface{
+/obj/machinery/camera/network/supply{
 	c_tag = "Cargo - Equipment Storage";
 	dir = 8
 	},
@@ -17725,7 +17725,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "GS" = (
-/obj/machinery/camera/network/civilian_surface{
+/obj/machinery/camera/network/supply{
 	c_tag = "Cargo - Loading Bay 1";
 	dir = 8
 	},
@@ -17809,7 +17809,7 @@
 /area/quartermaster/qm)
 "GZ" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/camera/network/civilian_surface{
+/obj/machinery/camera/network/supply{
 	c_tag = "Cargo - Quartermaster's Office";
 	dir = 8
 	},
@@ -18623,7 +18623,7 @@
 /turf/simulated/wall,
 /area/quartermaster/loading)
 "Ip" = (
-/obj/machinery/camera/network/civilian_surface{
+/obj/machinery/camera/network/supply{
 	c_tag = "Cargo - Mail Room";
 	dir = 4
 	},

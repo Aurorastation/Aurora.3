@@ -49,7 +49,9 @@
 		NETWORK_RESEARCH_OUTPOST,
 		NETWORK_ROBOTS,
 		NETWORK_PRISON,
-		NETWORK_SECURITY
+		NETWORK_SECURITY,
+		NETWORK_SERVICE,
+		NETWORK_SUPPLY
 	)
 
 	shuttle_docked_message = "The scheduled Crew Transfer Shuttle to %dock% has docked with the station. It will depart in approximately %ETA% minutes."
