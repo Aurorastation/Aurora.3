@@ -23,7 +23,7 @@
 			G.affecting = src
 			G.synch()
 
-			LAssailant = M
+			LAssailant = WEAKREF(M)
 
 			playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 			for(var/mob/O in viewers(src, null))

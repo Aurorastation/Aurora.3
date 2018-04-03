@@ -383,7 +383,12 @@
 	else
 		power_source = cell
 		shock_damage = cell_damage
-	var/drained_hp = M.electrocute_act(shock_damage, source, siemens_coeff) //zzzzzzap!
+	var/touchy_hand
+	if(M.hand)
+		touchy_hand = "r_hand"
+	else
+		touchy_hand = "l_hand"
+	var/drained_hp = M.electrocute_act(shock_damage, source, siemens_coeff, ground_zero = touchy_hand) //zzzzzzap!
 	var/drained_energy = drained_hp*20
 
 	if (source_area)

@@ -50,7 +50,7 @@
 	spark(src, 3, alldirs)
 	if(ishuman(L))
 		L.Weaken(2)
-	explosion(loc, 0, 1, 2, 3)
+	explosion(loc, 0, 2, 2, 3)
 	qdel(src)
 
 /obj/item/weapon/landmine/Crossed(AM as mob|obj)

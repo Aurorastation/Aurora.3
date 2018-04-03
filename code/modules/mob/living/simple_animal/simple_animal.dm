@@ -381,7 +381,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 			G.synch()
 			G.affecting = src
-			LAssailant = M
+			LAssailant = WEAKREF(M)
 
 			M.visible_message("<span class='warning'>[M] has grabbed [src] passively!</span>")
 			M.do_attack_animation(src)

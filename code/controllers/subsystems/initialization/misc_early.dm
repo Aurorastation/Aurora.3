@@ -44,4 +44,9 @@
 
 	global_initialize_webhooks()
 
+	// Setup ore.
+	for(var/oretype in subtypesof(/ore))
+		var/ore/OD = new oretype()
+		ore_data[OD.name] = OD
+
 	..()

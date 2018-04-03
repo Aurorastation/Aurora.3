@@ -168,36 +168,71 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 	user << "<span class='notice'>Charge card's owner: [src.owner_name]. Credit chips remaining: [src.worth].</span>"
 
 /obj/item/weapon/spacecash/ewallet/lotto
-	name = "lottery card"
-	desc = "A scratch-action charge card that contains a variable amount of money."
+	name = "space lottery card"
+	desc = "A virtual scratch-action charge card that contains a variable amount of money."
 	worth = 0
-	var/scratched = 0
+	var/scratches_remaining = 3
+	var/next_scratch = 0
 
 /obj/item/weapon/spacecash/ewallet/lotto/attack_self(mob/user)
-	if(!scratched)
-		user << "<span class='notice'>You initiate the simulated scratch action process on the charge card. . .</span>"
-		if(do_after(user,5))
-			switch(rand(1,100))
-				if(1 to 29)
-					worth = rand(0,200)
-					user << "<span class='notice'>The card reads [worth]. Not your lucky day!</span>"
-				if(30 to 59)
-					worth = 200
-					user << "<span class='notice'>The card reads [worth]. At least you broke even.</span>"
-				if(60 to 79)
-					worth = pick(200,300,400,500)
-					user << "<span class='notice'>The card reads [worth]. That's a pretty penny!</span>"
-				if(80 to 95)
-					worth = pick(500,600,700,800,900,1000)
-					user << "<span class='notice'>The card reads [worth]. Your luck is running high!</span>"
-				if(95 to 99)
-					worth = pick(1000,2000,3000,4000,5000,6000,7000,8000,9000)
-					user << "<span class='notice'>The card reads [worth]. You're rich!</span>"
-				if(100)
-					worth = pick(10000,20000,30000,40000,50000)
-					user << "<span class='notice'>The card reads [worth]. You're blessed!</span>"
-				else
-					worth = 0
-					user << "<span class='notice'>The card reads [worth]. Not your lucky day!</span>"
-			scratched = 1
-			owner_name = user.name
+
+	if(scratches_remaining <= 0)
+		user << "<span class='warning'>The card flashes: \"No scratches remaining!\"</span>"
+		return
+
+	if(next_scratch > world.time)
+		user << "<span class='warning'>The card flashes: \"Please wait!\"</span>"
+		return
+		
+	next_scratch = world.time + 6 SECONDS
+
+	user << "<span class='notice'>You initiate the simulated scratch action process on the [src]...</span>"
+	playsound(src.loc, 'sound/items/drumroll.ogg', 50, 0, 0)
+	if(do_after(user,4.5 SECONDS))
+		var/won = 0
+		var/result = rand(1,10000)
+		if(result <= 4000) // 40% chance to not earn anything at all.
+			won = 0
+			speak("You've won: [won] CREDITS. Better luck next time!")
+		else if (result <= 8000) // 40% chance
+			won = 50
+			speak("You've won: [won] CREDITS. Partial winner!")
+		else if (result <= 9000) // 10% chance
+			won = 100
+			speak("You've won: [won] CREDITS. Winner!")
+		else if (result <= 9500) // 5% chance
+			won = 200
+			speak("You've won: [won] CREDITS. SUPER WINNER! You're lucky!")
+		else if (result <= 9750) // 2.5% chance
+			won = 500
+			speak("You've won: [won] CREDITS. MEGA WINNER! You're super lucky!")
+		else if (result <= 9900) // 1.5% chance
+			won = 1000
+			speak("You've won: [won] CREDITS. ULTRA WINNER! You're mega lucky!")
+		else if (result <= 9950) // 0.5% chance
+			won = 2500
+			speak("You've won: [won] CREDITS. ULTIMATE WINNER! You're ultra lucky!")
+		else if (result <= 9975) // 0.25% chance
+			won = 5000
+			speak("You've won: [won] CREDITS. ULTIMATE WINNER! You're ultra lucky!")
+		else if (result <= 9999) // 0.24% chance
+			won = 10000
+			speak("You've won: [won] CREDITS. ULTIMATE WINNER! You're ultra lucky!")
+		else ///0.01% chance
+			won = 25000
+			speak("You've won: [won] CREDITS. JACKPOT WINNER! You're JACKPOT lucky!")
+
+		scratches_remaining -= 1
+		worth += won
+		sleep(1 SECONDS)
+		if(scratches_remaining > 0)
+			user << "<span class='notice'>The card flashes: You have: [scratches_remaining] SCRATCHES remaining! Scratch again!</span>"
+		else
+			user << "<span class='notice'>The card flashes: You have: [scratches_remaining] SCRATCHES remaining! You won a total of: [worth] CREDITS. Thanks for playing the space lottery!</span>"
+
+		owner_name = user.name
+
+/obj/item/weapon/spacecash/ewallet/lotto/proc/speak(var/message = "Hello!")
+	for(var/mob/O in hearers(src.loc, null))
+		O.show_message("<span class='game say'><span class='name'>\The [src]</span> pings, \"[message]\"</span>",2)
+	playsound(src.loc, 'sound/machines/ping.ogg', 50, 1, -4)

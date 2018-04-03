@@ -30,7 +30,8 @@
 		/obj/item/weapon/reagent_containers/hypospray/autoinjector,
 		/obj/item/weapon/screwdriver,
 		/obj/item/weapon/stamp,
-		/obj/item/device/paicard)
+		/obj/item/device/paicard,
+		/obj/item/fluff)
 	slot_flags = SLOT_ID
 
 	var/obj/item/weapon/card/id/front_id = null

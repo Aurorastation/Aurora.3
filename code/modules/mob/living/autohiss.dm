@@ -92,15 +92,15 @@
 	autohiss_extender = "..."
 
 	autohiss_basic_map = list(
-			"s" = list("ss","sss"),
-			"z" = list("zz","zzz"),
-			"e" = list("ee", "eee")
+			"s" = list("s","ss","sss"),
+			"z" = list("z","zz","zzz"),
+			"ee" = list("ee","eee")
 		)
 	autohiss_extra_map = list(
-			"a" = list("aa", "aaa"),
-			"i" = list("ii", "iii"),
-			"o" = list("oo", "ooo"),
-			"u" = list("uu", "uuu")
+			"a" = list("a","aa", "aaa"),
+			"i" = list("i","ii", "iii"),
+			"o" = list("o","oo", "ooo"),
+			"u" = list("u","uu", "uuu")
 		)
 	autohiss_exempt = list(
 			LANGUAGE_ROOTSONG
@@ -158,7 +158,7 @@
 				. += pick(map[min_char])
 			message = copytext(message, min_index + 1)
 
-	return list2text(.)
+	return jointext(., "")
 
 #undef AUTOHISS_OFF
 #undef AUTOHISS_BASIC

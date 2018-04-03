@@ -55,7 +55,7 @@
 /obj/item/weapon/material/wirerod/attackby(var/obj/item/I, mob/user as mob)
 	..()
 	var/obj/item/finished
-	if(istype(I, /obj/item/weapon/material/shard))
+	if(istype(I, /obj/item/weapon/material/shard) || istype(I, /obj/item/weapon/material/spearhead))
 		var/obj/item/weapon/material/tmp_shard = I
 		finished = new /obj/item/weapon/material/twohanded/spear(get_turf(user), tmp_shard.material.name)
 		user << "<span class='notice'>You fasten \the [I] to the top of the rod with the cable.</span>"
@@ -69,3 +69,43 @@
 		qdel(src)
 		user.put_in_hands(finished)
 	update_icon(user)
+
+/obj/item/weapon/material/shaft
+	name = "shaft"
+	desc = "A large stick, you could probably attach something to it."
+	icon_state = "shaft"
+	item_state = "rods"
+	force = 5
+	throwforce = 3
+	w_class = 4
+	attack_verb = list("hit", "bludgeoned", "whacked", "bonked")
+	force_divisor = 0.1
+	thrown_force_divisor = 0.1
+	default_material = "wood"
+
+/obj/item/weapon/material/shaft/attackby(var/obj/item/I, mob/user as mob)
+	..()
+	var/obj/item/finished
+	if(istype(I, /obj/item/weapon/material/spearhead))
+		var/obj/item/weapon/material/spearhead/tip = I
+		finished = new /obj/item/weapon/material/twohanded/pike(get_turf(user), tip.material.name)
+		user << "<span class='notice'>You attach \the [I] to the top of \the [src].</span>"
+	if(finished)
+		user.drop_from_inventory(src)
+		user.drop_from_inventory(I)
+		qdel(I)
+		qdel(src)
+		user.put_in_hands(finished)
+	update_icon(user)
+
+/obj/item/weapon/material/spearhead
+	name = "spearhead"
+	desc = "A pointy spearhead, not really useful without a shaft."
+	icon_state = "spearhead"
+	force = 5
+	throwforce = 5
+	w_class = 2
+	attack_verb = list("attacked", "poked")
+	force_divisor = 0.1
+	thrown_force_divisor = 0.1
+	default_material = "steel"

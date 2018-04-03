@@ -104,5 +104,10 @@
 	name = "empty basket"
 	icon_state = "chipbasket_empty"
 
+/obj/item/trash/uselessplastic
+	name = "useless plastic"
+	icon_state = "useless_plastic"
+
+
 /obj/item/trash/attack(mob/M as mob, mob/living/user as mob)
 	return

@@ -178,14 +178,32 @@ var/datum/controller/subsystem/ticker/SSticker
 				if(!delay_end)
 					world << "<span class='notice'><b>Restarting in [restart_timeout/10] seconds</b></span>"
 
+			var/wait_for_tickets
+			var/delay_notified = 0
+			do
+				wait_for_tickets = 0
+				for(var/datum/ticket/ticket in tickets)
+					if(ticket.is_active())
+						wait_for_tickets = 1
+						break
+				if(wait_for_tickets)
+					if(!delay_notified)
+						delay_notified = 1
+						message_admins("<span class='warning'><b>Automatically delaying restart due to active tickets.</b></span>")
+						to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
+					sleep(15 SECONDS)
+				else if(delay_notified)
+					message_admins("<span class='warning'><b>No active tickets remaining, restarting in [restart_timeout/10] seconds if an admin has not delayed the round end.</b></span>")
+			while(wait_for_tickets)
+
 			if(!delay_end)
 				sleep(restart_timeout)
 				if(!delay_end)
 					world.Reboot()
-				else
-					world << "<span class='notice'><b>An admin has delayed the round end</b></span>"
-			else
-				world << "<span class='notice'><b>An admin has delayed the round end</b></span>"
+				else if(!delay_notified)
+					to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
+			else if(!delay_notified)
+				to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
 
 	else if (mode_finished)
 		post_game = 1
@@ -463,7 +481,7 @@ var/datum/controller/subsystem/ticker/SSticker
 			var/turf/Mloc = M.loc
 			if (!Mloc)
 				continue
-			
+
 			if (!istype(Mloc))
 				Mloc = get_turf(M)
 

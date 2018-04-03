@@ -96,7 +96,6 @@
 
 /obj/machinery/computer/sentencing/proc/incident_report()
 	. = ""
-
 	if( !istype( incident ))
 		. += "There was an error loading the incident, please <a href='?src=\ref[src];button=change_menu;choice=main_menu'>Try Again</a>"
 		return .
@@ -106,8 +105,9 @@
 	. += "<tr>"
 	. += "<th>Convict:</th>"
 	. += "<td><a href='?src=\ref[src];button=change_criminal;'>"
-	if( incident.criminal )
-		. += "[incident.criminal]"
+	if( istype(incident.card) )
+		var/obj/item/weapon/card/id/card = incident.card.resolve()
+		. += "[card]"
 	else
 		. += "None"
 	. += "</a></td>"
@@ -191,8 +191,9 @@
 
 	. += "<tr><th colspan='2'>Convict</th></tr>"
 	. += "<tr><td colspan='2'><center>"
-	if( incident.criminal )
-		. += "[incident.criminal]"
+	if( istype(incident.card) )
+		var/obj/item/weapon/card/id/card = incident.card.resolve()
+		. += "[card]"
 	else
 		. += "None"
 	. += "</center></td></tr>"
@@ -435,7 +436,8 @@
 	return .
 
 /obj/machinery/computer/sentencing/proc/render_innocent( var/mob/user )
-	ping( "\The [src] pings, \"[incident.criminal] has been found innocent of the accused crimes!\"" )
+	var/obj/item/weapon/card/id/card = incident.card.resolve()
+	ping( "\The [src] pings, \"[card] has been found innocent of the accused crimes!\"" )
 
 	qdel( incident )
 	incident = null
@@ -456,11 +458,11 @@
 		return
 
 	incident.renderGuilty( user )
-
+	var/obj/item/weapon/card/id/card = incident.card.resolve()
 	if( incident.brig_sentence < PERMABRIG_SENTENCE)
-		ping( "\The [src] pings, \"[incident.criminal] has been found guilty of their crimes!\"" )
+		ping( "\The [src] pings, \"[card] has been found guilty of their crimes!\"" )
 	else
-		pingx3( "\The [src] pings, \"[incident.criminal] has been found guilty of their crimes and earned a HuT Sentence\"" )
+		pingx3( "\The [src] pings, \"[card] has been found guilty of their crimes and earned a HuT Sentence\"" )
 
 	incident = null
 	menu_screen = "main_menu"
@@ -483,7 +485,7 @@
 //
 // 	incident.renderGuilty( user )
 //
-// 	ping( "\The [src] pings, \"[incident.criminal] has been fined for their crimes!\"" )
+// 	ping( "\The [src] pings, \"[incident.card] has been fined for their crimes!\"" )
 //
 // 	incident = null
 // 	menu_screen = "main_menu"
@@ -528,10 +530,12 @@
 			if( istype( C ))
 				if( incident && C.mob )
 					incident.criminal = C.mob
-					ping( "\The [src] pings, \"Convict [C.mob] verified.\"" )
+					incident.card = WEAKREF(C)
+					ping( "\The [src] pings, \"Convict [C] verified.\"" )
 			else if( incident.criminal )
 				ping( "\The [src] pings, \"Convict cleared.\"" )
 				incident.criminal = null
+				incident.card = null
 		if( "change_brig" )
 			if( !incident )
 				return

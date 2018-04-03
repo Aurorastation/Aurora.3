@@ -139,10 +139,11 @@
 		/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 2,
-		/obj/item/weapon/reagent_containers/food/snacks/koisbar = 4
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 4
 	)
 	contraband = list(
-		/obj/item/weapon/reagent_containers/food/snacks/syndicake = 6
+		/obj/item/weapon/reagent_containers/food/snacks/syndicake = 6,
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar = 4
 	)
 	prices = list(
 		/obj/item/weapon/reagent_containers/food/snacks/candy = 15,
@@ -157,7 +158,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 22,
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 23,
 		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 24,
-		/obj/item/weapon/reagent_containers/food/snacks/koisbar = 60
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 60
 	)
 
 
@@ -228,7 +229,8 @@
 	products = list(
 		/obj/item/weapon/storage/fancy/cigarettes = 10,
 		/obj/item/weapon/storage/box/matches = 10,
-		/obj/item/weapon/flame/lighter/random = 4
+		/obj/item/weapon/flame/lighter/random = 4,
+		/obj/item/weapon/spacecash/ewallet/lotto = 30
 	)
 	contraband = list(
 		/obj/item/weapon/flame/lighter/zippo = 4
@@ -240,7 +242,8 @@
 	prices = list(
 		/obj/item/weapon/storage/fancy/cigarettes = 200,
 		/obj/item/weapon/storage/box/matches = 12,
-		/obj/item/weapon/flame/lighter/random = 12
+		/obj/item/weapon/flame/lighter/random = 12,
+		/obj/item/weapon/spacecash/ewallet/lotto = 200
 	)
 
 
@@ -420,8 +423,7 @@
 		/obj/item/seeds/pumpkinseed = 3,
 		/obj/item/seeds/cherryseed = 3,
 		/obj/item/seeds/plastiseed = 3,
-		/obj/item/seeds/riceseed = 3,
-		/obj/item/seeds/koisspore = 3
+		/obj/item/seeds/riceseed = 3
 	)
 	contraband = list(
 		/obj/item/seeds/amanitamycelium = 2,
@@ -469,8 +471,7 @@
 		/obj/item/seeds/pumpkinseed = 25,
 		/obj/item/seeds/cherryseed = 25,
 		/obj/item/seeds/plastiseed = 25,
-		/obj/item/seeds/riceseed = 25,
-		/obj/item/seeds/koisspore = 30
+		/obj/item/seeds/riceseed = 25
 	)
 
 /**

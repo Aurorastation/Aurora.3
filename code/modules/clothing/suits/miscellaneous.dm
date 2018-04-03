@@ -171,8 +171,8 @@
 	desc = "A suit that completely restrains the wearer."
 	icon_state = "straight_jacket"
 	item_state = "straight_jacket"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS
+	flags_inv = HIDEGLOVES|HIDEJUMPSUIT
 
 /obj/item/clothing/suit/straight_jacket/equipped(var/mob/user, var/slot)
 	if (slot == slot_wear_suit)
@@ -305,7 +305,7 @@
 	item_state = "black_hoodie"
 	icon_open = "black_hoodie_open"
 	icon_closed = "black_hoodie"
-	
+
 /obj/item/clothing/suit/storage/toggle/tracksuit
 	name = "track jacket"
 	desc = "An athletic black and white track jacket."
@@ -345,14 +345,14 @@
 	item_state = "flannel_gray"
 	icon_open = "flannel_gray_open"
 	icon_closed = "flannel_gray"
-	
+
 /obj/item/clothing/suit/storage/toggle/flannel/purple
 	name = "purple flannel shirt"
 	icon_state = "flannel_purple"
 	item_state = "flannel_purple"
 	icon_open = "flannel_purple_open"
 	icon_closed = "flannel_purple"
-	
+
 /obj/item/clothing/suit/storage/toggle/flannel/yellow
 	name = "yellow flannel shirt"
 	icon_state = "flannel_yellow"
@@ -360,15 +360,20 @@
 	icon_open = "flannel_yellow_open"
 	icon_closed = "flannel_yellow"
 
-/obj/item/clothing/suit/storage/trench
+/obj/item/clothing/suit/storage/toggle/trench
 	name = "brown trenchcoat"
 	desc = "A rugged canvas trenchcoat."
 	icon_state = "trench"
 	item_state = "trench"
+	icon_open = "trench_open"
+	icon_closed = "trench"
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
-	
-/obj/item/clothing/suit/storage/trench/grey
+
+/obj/item/clothing/suit/storage/toggle/trench/grey
 	name = "grey trenchcoat"
 	icon_state = "trench2"
 	item_state = "trench2"
+	icon_open = "trench2_open"
+	icon_closed = "trench2"
+	blood_overlay_type = "coat"

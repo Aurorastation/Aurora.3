@@ -78,11 +78,12 @@
 
 /obj/item/clothing/shoes/magboots/dropped()
 	..()
-	update_wearer()
+	addtimer(CALLBACK(src, .proc/update_wearer), 0)
 
-/obj/item/clothing/shoes/magboots/on_slotmove()
-	..()
-	update_wearer()
+/obj/item/clothing/shoes/magboots/mob_can_unequip()
+	. = ..()
+	if (.)
+		addtimer(CALLBACK(src, .proc/update_wearer), 0)
 
 /obj/item/clothing/shoes/magboots/examine(mob/user)
 	..(user)

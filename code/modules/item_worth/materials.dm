@@ -13,6 +13,9 @@
 /material/silver
 	value = 35
 
+/material/bronze
+	value = 25
+
 /material/phoron
 	value = 150
 

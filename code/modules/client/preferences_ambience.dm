@@ -60,4 +60,4 @@
 
 	prefs.asfx_togs ^= ASFX_VOX
 	prefs.save_preferences()
-	src << "You will [(prefs.toggles_secondary & ASFX_VOX) ? "now" : "no longer"] hear the VOX voice."
+	src << "You will [(prefs.asfx_togs & ASFX_VOX) ? "now" : "no longer"] hear the VOX voice."

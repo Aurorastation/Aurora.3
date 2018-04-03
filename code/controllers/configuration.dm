@@ -220,6 +220,9 @@ var/list/gamemode_cache = list()
 	var/client_error_message = ""
 	var/client_warn_version = 0
 	var/client_warn_message = ""
+#if DM_VERSION > 511
+	var/list/client_blacklist_version = list()
+#endif
 
 	//Mark-up enabling
 	var/allow_chat_markup = 0
@@ -764,6 +767,11 @@ var/list/gamemode_cache = list()
 				if("client_warn_message")
 					config.client_warn_message = value
 
+#if DM_VERSION > 511
+				if("client_blacklist_version")
+					config.client_blacklist_version = splittext(value, ";")
+#endif
+
 				if("allow_chat_markup")
 					config.allow_chat_markup = 1
 
@@ -836,7 +844,7 @@ var/list/gamemode_cache = list()
 
 				if ("explosion_z_threshold")
 					iterative_explosives_z_threshold = text2num(value)
-				
+
 				if ("explosion_z_mult")
 					iterative_explosives_z_multiplier = text2num(value)
 

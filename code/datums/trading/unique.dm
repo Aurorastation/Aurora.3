@@ -158,6 +158,7 @@
 
 	possible_wanted_items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/koisbar          = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean    = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/food/snacks/grown/kois       = TRADER_THIS_TYPE,
 		/obj/item/stack/material/phoron                                  = TRADER_THIS_TYPE
 	)
