@@ -4382,8 +4382,8 @@
 	bitesize = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/tastybread
-	name = "tasty bread"
-	desc = "Bread in a tube. Chewy...and questionably tasty."
+	name = "bread tube"
+	desc = "Bread in a tube. Chewy."
 	icon_state = "tastybread"
 	trash = /obj/item/trash/tastybread
 	filling_color = "#A66829"

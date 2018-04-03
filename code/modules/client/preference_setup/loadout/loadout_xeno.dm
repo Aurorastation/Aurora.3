@@ -102,6 +102,22 @@
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior",)
 	sort_category = "Xenowear"
 
+/datum/gear/vaurca_robe
+	display_name = "hive cloak (Vaurca)"
+	path = /obj/item/clothing/suit/vaurca
+	cost = 1
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior",)
+	sort_category = "Xenowear"
+
+/datum/gear/vaurca_robe/New()
+	..()
+	var/cloaks = list()
+	cloaks["hive cloak, red and golden"] = /obj/item/clothing/suit/vaurca
+	cloaks["hive cloak, red and silver"] = /obj/item/clothing/suit/vaurca/silver
+	cloaks["hive cloak, brown and silver"] = /obj/item/clothing/suit/vaurca/brown
+	cloaks["hive cloak, blue and golden"] = /obj/item/clothing/suit/vaurca/blue
+	gear_tweaks += new/datum/gear_tweak/path(cloaks)
+
 //tajara items
 
 /datum/gear/gloves/tajara
