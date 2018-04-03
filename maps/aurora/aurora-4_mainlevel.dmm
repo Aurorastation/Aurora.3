@@ -21756,7 +21756,7 @@
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Starboard Corridor - Camera 4";
 	dir = 8;
-	network = list("Civilian West","Capt_Office")
+	network = list("Civilian Main","Capt_Office")
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
