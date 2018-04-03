@@ -17,6 +17,12 @@ var/global/list/engineering_networks = list(
 /obj/machinery/camera/network/civilian_west
 	network = list(NETWORK_CIVILIAN_WEST)
 
+/obj/machinery/camera/network/civilian_main
+	network = list(NETWORK_CIVILIAN_MAIN)
+
+/obj/machinery/camera/network/civilian_surface
+	network = list(NETWORK_CIVILIAN_SURFACE)
+
 /obj/machinery/camera/network/command
 	network = list(NETWORK_COMMAND)
 

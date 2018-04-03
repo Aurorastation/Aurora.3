@@ -32,6 +32,8 @@
 #define NETWORK_CRESCENT "Crescent"
 #define NETWORK_CIVILIAN_EAST "Civilian East"
 #define NETWORK_CIVILIAN_WEST "Civilian West"
+#define NETWORK_CIVILIAN_MAIN "Civilian Main"
+#define NETWORK_CIVILIAN_SURFACE "Civilian Surface"
 #define NETWORK_COMMAND "Command"
 #define NETWORK_ENGINE "Engine"
 #define NETWORK_ENGINEERING "Engineering"
