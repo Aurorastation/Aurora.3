@@ -112,7 +112,7 @@
 
 /obj/item/clothing/suit/space/explorer
 	name = "old explorer suit"
-	desc = "An old-era special mining suit that protects against hazardous enviroments. This design is to provide flexibility as the cost of reduced armor."
+	desc = "An old-era special mining suit that protects against hazardous environments. This design is to provide flexibility as the cost of reduced armor."
 	icon_state = "explorer"
 	item_state = "explorer"
 	gas_transfer_coefficient = 0.01
@@ -133,7 +133,7 @@
 	name = "old explorer helmet"
 	icon_state = "explorer"
 	item_state = "explorer"
-	desc = "An old-era special mining suit that protects against hazardous enviroments. This design is to provide flexibility as the cost of reduced armor."
+	desc = "An old-era special mining helment that protects against hazardous environments. This design is to provide flexibility as the cost of reduced armor."
 	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL | AIRTIGHT
 	flags_inv = BLOCKHAIR
 	item_state_slots = list(
