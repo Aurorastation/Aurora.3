@@ -17,6 +17,12 @@
 
 /obj/item/weapon/material/star/throw_impact(atom/hit_atom)
 	..()
-	if(material.radioactivity > 0 && istype(hit_atom,/mob/living))
+	if (istype(hit_atom,/mob/living))
+
 		var/mob/living/M = hit_atom
-		M.adjustToxLoss(rand(25,50))
+
+		if(material.radioactivity > 0)
+			M.adjustToxLoss(material.radioactivity*2)
+
+		if(prob(30))
+			M.Weaken(4)
