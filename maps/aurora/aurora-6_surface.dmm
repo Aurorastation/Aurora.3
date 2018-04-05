@@ -6116,7 +6116,7 @@
 	dir = 9
 	},
 /obj/machinery/camera/network/civilian_surface{
-	c_tag = "Surface - Arrivals Terminal Flight Tower";
+	c_tag = "Surface - Arrivals Terminal Checkpoint";
 	dir = 4;
 	pixel_y = 0
 	},
