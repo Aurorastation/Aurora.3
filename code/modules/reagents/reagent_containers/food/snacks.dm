@@ -1523,7 +1523,7 @@
 	nutriment_desc = list("dried raisins" = 6)
 	nutriment_type = NUTRIMENT_BAD
 	nutriment_amt = 6
-	bitsize = 3
+	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/spacetwinkie
 	name = "space twinkie"
