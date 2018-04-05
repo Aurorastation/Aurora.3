@@ -220,3 +220,11 @@
 		to_chat(user, "\The [src] has a secondary barrel loaded with \a [to_print]")
 	else
 		to_chat(user, "\The [src] has a secondary barrel that is empty.")
+
+
+/obj/item/weapon/gun/projectile/revolver/fast
+	name = "classic .357"
+	desc = "An early prototype of a Necropolis Industries .357 revolver. This one can shoot really fast!"
+	icon_state = "revolver"
+	item_state = "revolver_fast"
+	fire_delay = 1

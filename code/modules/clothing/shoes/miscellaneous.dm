@@ -73,6 +73,13 @@
 	else
 		playsound(src, "clownstep", 20, 1)
 
+/obj/item/clothing/shoes/clown_shoes/traitor
+	desc = "The elite prankster's standard-issue clowning shoes. Damn they're huge, tough, and slip resistant!"
+	armor = list(melee = 40, bullet = 30, laser = 25,energy = 10, bomb = 25, bio = 5, rad = 0)
+	item_flags = NOSLIP
+	siemens_coefficient = 0.5
+	can_hold_knife = 1
+
 /obj/item/clothing/shoes/cult
 	name = "ragged boots"
 	desc = "A ragged, dusty pair of boots."

@@ -61,6 +61,9 @@
 /datum/uplink_category/specialty //snowflake antag items - a brave new frontier!
 	name = "Specialised Items"
 
+/datum/uplink_category/value //Gimmick in a kit!
+	name = "Value Packs"
+
 /datum/uplink_category/ninja_modules
 	name = "Infiltration Items"
 	antag_roles = list(MODE_NINJA)

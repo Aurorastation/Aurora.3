@@ -186,6 +186,11 @@
 	item_state = "power_glove"
 	amplification = 1 //just do it
 
+/obj/item/clothing/gloves/force/basic/clown
+	name = "clown gloves"
+	icon_state = "evening_gloves"
+
+
 /obj/item/clothing/gloves/force/syndicate  //for syndies.  pda, *maybe* nuke team or ert.  up to you.  maybe just use the amp 2 variant.
 	name = "enhanced force gloves"
 	amplification = 2.5 //because *2.5 is kind of scary okay.  sometimes you want the scary effect.  sometimes not.

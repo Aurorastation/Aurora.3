@@ -322,6 +322,7 @@
 #include "code\datums\uplink\telecrystals.dm"
 #include "code\datums\uplink\uplink_categories.dm"
 #include "code\datums\uplink\uplink_items.dm"
+#include "code\datums\uplink\value_packs.dm"
 #include "code\datums\wires\airlock.dm"
 #include "code\datums\wires\alarm.dm"
 #include "code\datums\wires\apc.dm"

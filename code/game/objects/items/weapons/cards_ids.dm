@@ -315,6 +315,13 @@ var/const/NO_EMAG_ACT = -50
 	access = get_all_station_access()
 	..()
 
+/obj/item/weapon/card/id/maint
+	name = "maintenance pass"
+	icon_state = "id-robot"
+	item_state = "tdgreen"
+	desc = "Some odd mess of illegal circuits and wires topped off with a blood-red label that reads 'Illegal Maintenance access.'"
+	access = list(access_maint_tunnels)
+
 /obj/item/weapon/card/id/merchant
 	name = "merchant pass"
 	icon_state = "centcom"

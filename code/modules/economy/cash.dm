@@ -94,6 +94,13 @@
 	if(!worth)
 		qdel(src)
 
+/obj/item/weapon/spacecash/bundle/cowboy
+	worth = 5000
+
+/obj/item/weapon/spacecash/bundle/cowboy/Initialize()
+	. = ..()
+	update_icon()
+
 /obj/item/weapon/spacecash/c1
 	name = "1 credit chip"
 	icon_state = "spacecash1"
@@ -183,7 +190,7 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 	if(next_scratch > world.time)
 		user << "<span class='warning'>The card flashes: \"Please wait!\"</span>"
 		return
-		
+
 	next_scratch = world.time + 6 SECONDS
 
 	user << "<span class='notice'>You initiate the simulated scratch action process on the [src]...</span>"

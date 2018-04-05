@@ -258,3 +258,94 @@
 	new /obj/item/weapon/spacecash/c1000(src)
 	new /obj/item/weapon/spacecash/c1000(src)
 	new /obj/item/weapon/spacecash/c1000(src)
+
+//Value Packs
+/obj/item/weapon/storage/backpack/clown/tratior/fill()
+	..()
+	new /obj/item/clothing/mask/gas/clown_hat/traitor(src)
+	new /obj/item/clothing/under/rank/clown/traitor(src)
+	new /obj/item/clothing/shoes/clown_shoes/traitor(src)
+	new /obj/item/clothing/gloves/force/basic/clown(src)
+	new /obj/item/device/firing_pin/clown(src)
+	new /obj/item/weapon/material/twohanded/chainsaw(src)
+	new /obj/item/weapon/card/id/maint(src)
+
+/obj/item/weapon/storage/secure/briefcase/beginner
+	name = "insecure briefcase"
+	desc = "A strange briefcase that oddly smells of crayons and training wheel rubber."
+
+/obj/item/weapon/storage/secure/briefcase/beginner/fill()
+	..()
+	new /obj/item/weapon/storage/belt/utility/full(src) //About 1
+	new /obj/item/clothing/gloves/yellow(src) //About 1
+	new /obj/item/clothing/mask/gas(src) //About 1
+	new /obj/item/clothing/glasses/sunglasses/prescription(src) //About 1
+	new /obj/item/clothing/suit/storage/vest/merc(src) //2
+	new /obj/item/clothing/head/helmet/merc(src) //2
+	new /obj/item/weapon/card/emag(src) //6
+	new /obj/item/weapon/melee/energy/sword(src) //8
+	new /obj/item/weapon/gun/energy/crossbow //6
+	new /obj/item/weapon/storage/box/sinpockets //2
+	//Total: 30
+
+/obj/item/weapon/storage/backpack/cowboy
+	name = "cowboy hat"
+	desc = "A wide-brimmed hat, in the prevalent style of the frontier. The inside seems to house some crazy bluespace technology."
+	icon_state = "cowboyhat"
+	icon = 'icons/obj/clothing/hats.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_hats.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_hats.dmi'
+		)
+	body_parts_covered = HEAD
+	slot_flags = SLOT_HEAD
+
+/obj/item/weapon/storage/backpack/cowboy/fill()
+	..()
+	new /obj/item/weapon/gun/projectile/revolver/fast(src) //I'd say 16
+	new /obj/item/clothing/suit/storage/vest/merc(src) //2
+	new /obj/item/ammo_magazine/a357(src) //2
+	new /obj/item/ammo_magazine/a357(src) //2
+	new /obj/item/ammo_magazine/a357(src) //2
+	new /obj/item/weapon/spacecash/bundle/cowboy(src) //About 1
+	new /obj/item/clothing/accessory/holster/hip(src) //About 1
+	new /obj/item/weapon/material/kitchen/utensil/knife/boot(src) //About 1
+	new /obj/item/clothing/ears/bandanna(src)
+	new /obj/item/clothing/under/pants/classic
+	//Total: 27, but the hat backpack is probably worth a lot.
+
+/obj/item/weapon/storage/secure/briefcase/mafia/fill()
+	new /obj/item/weapon/bundle/cowboy(src) //About 1
+	new /obj/item/clothing/under/gentlesuit/traitor(src) //About 4
+	new /obj/item/clothing/head/fedora(src)
+	new /obj/item/clothing/shoes/leather(src)
+	new /obj/item/weapon/gun/projectile/automatic/tommygun/drum(src) //Probably 16
+	new /obj/item/ammo_magazine/tommydrum(src) //Probably 4
+	new /obj/item/ammo_magazine/tommydrum(src) //Probably 4
+	new /obj/item/weapon/gun/bang/colt //Probably 5
+	//Total: 29
+
+/obj/item/weapon/storage/secure/briefcase/stealth/fill()
+	new /obj/item/weapon/storage/box/syndie_kit/chameleon(src) //5
+	new /obj/item/weapon/storage/box/syndie_kit/spy(src) //2
+	new /obj/item/weapon/storage/box/syndie_kit/g9mm(src) // 8
+	new /obj/item/ammo_magazine/mc9mm(src) //1
+	new /obj/item/ammo_magazine/mc9mm(src) //1
+	new /obj/item/weapon/card/id/syndicate(src) //3
+	new /obj/item/clothing/mask/gas/voice(src) //5
+	new /obj/item/weapon/pen/reagent/paralysis(src) //6
+	new /obj/item/weapon/bundle/cowboy(src) //About 1
+	//Total: 32
+
+/obj/item/weapon/storage/secure/briefcase/ninja/fill()
+	new /obj/item/weapon/storage/box/syndie_kit/chameleon(src) //5
+	new /datum/uplink_item/item/stealth_items/chameleon_projector(src) //5
+	new /obj/item/weapon/card/id/syndicate(src) //3
+	new /obj/item/weapon/material/sword/katana(src) //Probably 4
+	new /obj/item/weapon/material/star(src) // Probably 2
+	new /obj/item/weapon/material/star(src) // Probably 2
+	new /obj/item/weapon/material/star(src) // Probably 2
+	new /obj/item/clothing/accessory/storage/black_pouches(src) //Probably 1
+	new /obj/item/clothing/gloves/claws(src) // 5
+	new /obj/item/weapon/spacecash/bundle/cowboy(src) //About 1
+	// Total: 30
