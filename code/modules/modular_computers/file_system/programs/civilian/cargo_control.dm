@@ -140,7 +140,7 @@
 	if(href_list["order_approve"])
 		var/datum/cargo_order/co = SScargo.get_order_by_id(text2num(href_list["order_approve"]))
 		if(co)
-			var/message = SScargo.approve_order(co,last_user_name)
+			var/message = co.set_approved(last_user_name)
 			if(message)
 				status_message = message
 		return 1
@@ -149,7 +149,7 @@
 	if(href_list["order_reject"])
 		var/datum/cargo_order/co = SScargo.get_order_by_id(text2num(href_list["order_reject"]))
 		if(co)
-			var/message = SScargo.reject_order(co)
+			var/message = co.set_rejected()
 			if(message)
 				status_message = message
 		return 1

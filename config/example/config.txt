@@ -508,3 +508,6 @@ CARGO_LOAD_ITEMS_FROM json
 
 # Forces the maploader to load the specified map path. Valid options: aurora, runtime
 FORCE_MAP aurora
+
+# Reminds ticket handlers/all admin staff of not-closed tickets after this many SECONDS.
+#TICKET_REMINDER_PERIOD 600

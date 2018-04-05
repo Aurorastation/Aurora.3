@@ -64,7 +64,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	output += "</div>"
 
-	src << browse(output,"window=playersetup;size=210x280;can_close=0")
+	src << browse(output,"window=playersetup;size=210x310;can_close=0")
 
 /mob/abstract/new_player/Stat()
 	..()

@@ -11,6 +11,7 @@
 	if(touching) touching.metabolize()
 	if(ingested) ingested.metabolize()
 	if(bloodstr) bloodstr.metabolize()
+	if(breathing) breathing.metabolize()
 
 	// nutrition decrease
 	if (nutrition > 0 && stat != 2)

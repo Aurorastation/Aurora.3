@@ -1507,7 +1507,7 @@
 	filling_color = "#631212"
 	center_of_mass = list("x"=15, "y"=9)
 	nutriment_type = NUTRIMENT_BAD
-	bitesize = 2
+	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/sosjerky/Initialize()
 	. = ..()
@@ -1523,6 +1523,7 @@
 	nutriment_desc = list("dried raisins" = 6)
 	nutriment_type = NUTRIMENT_BAD
 	nutriment_amt = 6
+	bitsize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/spacetwinkie
 	name = "space twinkie"
@@ -4202,12 +4203,12 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/tastybread
 	name = "bread tube"
-	desc = "Bread in a tube. Chewy...and questionably tasty."
+	desc = "Bread in a tube. Chewy."
 	icon_state = "tastybread"
 	trash = /obj/item/trash/tastybread
 	filling_color = "#A66829"
 	center_of_mass = list("x"=17, "y"=16)
-	nutriment_desc = list("tasty bread" = 4)
+	nutriment_desc = list("stale bread" = 4)
 	nutriment_type = NUTRIMENT_BAD
 	nutriment_amt = 4
 
