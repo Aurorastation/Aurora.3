@@ -985,7 +985,7 @@
 		return 0
 
 	if(state)
-		occupant_message("<font color='red'>Maintenance protocols in effect.</font>")
+		occupant_message("<span class='warning'>Maintenance protocols in effect.</span>")
 		return
 
 	lastcrash = world.time
