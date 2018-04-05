@@ -32,6 +32,21 @@ var/global/list/SKILLS = null
 		if(24 to 1000)
 			return "Unreasonable"
 
+/datum/skillsystem/proc/SkillCheck(var/mob/living/carbon/human/M, var/skill, var/level)
+	if(!skill || !level || !istype(M))
+		return 0
+	if(SKILLS == null)
+		gskillsystem.setup_skills()
+	if(!M.skills || M.skills.len == 0)
+		return 0
+	for(var/V in SKILLS)
+		for(var/datum/skillsystem/skill/S in SKILLS[V])
+			if(!(S.name == skill))
+				continue
+			if(M.skills[S.ID] >= level)
+				return 1
+	return 0
+
 /datum/skillsystem/proc/setup_skills()
 	if(SKILLS == null)
 		SKILLS = list()
