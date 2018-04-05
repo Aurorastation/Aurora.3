@@ -711,10 +711,10 @@
 // Gives a lethal disease to the target.
 /mob/living/carbon/human/proc/vampire_diseasedtouch()
 	set category = "Vampire"
-	set name = "Diseased Touch (200)"
+	set name = "Diseased Touch (100)"
 	set desc = "Infects the victim with corruption from the Veil, causing their organs to fail."
 
-	var/datum/vampire/vampire = vampire_power(200, 0)
+	var/datum/vampire/vampire = vampire_power(100, 0)
 	if (!vampire)
 		return
 
@@ -747,7 +747,7 @@
 
 	admin_attack_log(src, T, "used diseased touch on [key_name(T)]", "was given a lethal disease by [key_name(src)]", "used diseased touch (<a href='?src=\ref[lethal];info=1'>virus info</a>) on")
 
-	vampire.use_blood(200)
+	vampire.use_blood(100)
 	verbs -= /mob/living/carbon/human/proc/vampire_diseasedtouch
 	ADD_VERB_IN_IF(src, 1800, /mob/living/carbon/human/proc/vampire_diseasedtouch, CALLBACK(src, .proc/finish_vamp_timeout))
 
