@@ -371,6 +371,7 @@ Class Procs:
 						B.loc = src
 						user << "<span class='notice'>[A.name] replaced with [B.name].</span>"
 						break
+		RefreshParts()  
 		update_icon()
 	else
 		user << "<span class='notice'>Following parts detected in the machine:</span>"
