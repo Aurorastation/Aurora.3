@@ -36,8 +36,8 @@
 
 /datum/uplink_item/item/ninja_modules/matter_fab
 	name = "Matter Fabricator"
-	desc = "A hardsuit matter fabricator that can produce sharp ninja stars used for throwing."
-	item_cost = 5
+	desc = "A hardsuit matter fabricator that can produce sharp steel ninja stars used for throwing."
+	item_cost = 4
 	path = /obj/item/rig_module/fabricator
 
 /datum/uplink_item/item/ninja_modules/sink

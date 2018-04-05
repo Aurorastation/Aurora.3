@@ -8,6 +8,7 @@
 	throw_range = 15
 	sharp = 1
 	edge =  1
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/weapon/material/star/New()
 	..()
@@ -16,15 +17,6 @@
 
 /obj/item/weapon/material/star/throw_impact(atom/hit_atom)
 	..()
-	if(material.radioactivity>0 && istype(hit_atom,/mob/living))
+	if(material.radioactivity > 0 && istype(hit_atom,/mob/living))
 		var/mob/living/M = hit_atom
 		M.adjustToxLoss(rand(25,50))
-
-/obj/item/weapon/material/star/ninja
-	default_material = "uranium"
-
-/obj/item/weapon/material/star/ninja/throw_impact(atom/hit_atom)
-	..()
-	if(prob(30) && istype(hit_atom,/mob/living))
-		var/mob/living/M = hit_atom
-		M.Weaken(7)
