@@ -60936,7 +60936,7 @@
 /area/quartermaster/storage)
 "caL" = (
 /obj/machinery/camera/network/supply{
-	c_tag = "Cargo - Camera 1";
+	c_tag = "Cargo - Warehouse Entrence";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/brown{
