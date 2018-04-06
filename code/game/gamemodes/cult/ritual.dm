@@ -389,9 +389,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 				english += list(words[entry] = entry)
 
 		for (var/entry in dictionary)
-			var/list/required = dictionary[entry]
-			if (length(english&required) == required.len)
-				scribewords += entry
+			scribewords += entry
 
 		var/chosen_rune = null
 
