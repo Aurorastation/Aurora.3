@@ -39,10 +39,12 @@
 	name = "arcane flash"
 	icon_state = "muzzle_cult"
 	light_color = LIGHT_COLOR_VIOLET
+	appearance_flags = NO_CLIENT_COLOR
 
 /obj/effect/projectile/muzzle/cult/heavy
 	icon_state = "muzzle_hcult"
 	light_power = 3
+	appearance_flags = NO_CLIENT_COLOR
 
 /obj/effect/projectile/muzzle/solar
 	icon_state = "muzzle_solar"

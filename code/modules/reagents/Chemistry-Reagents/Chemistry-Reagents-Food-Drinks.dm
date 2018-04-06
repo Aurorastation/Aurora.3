@@ -89,14 +89,21 @@
 	taste_mult = 4
 	reagent_state = SOLID
 	metabolism = REM * 4
-	var/nutriment_factor = 12 // Per unit
+	var/nutriment_factor = -(REM * 4)/BASE_MAX_NUTRITION // Per removed in digest.
 	var/blood_factor = 6
 	var/regen_factor = 0.8
 	var/injectable = 0
 	var/datum/modifier/modifier
+	var/attrition_factor = -0.1 // Decreases attrition rate.
 	color = "#664330"
 	unaffected_species = IS_MACHINE
 	var/is_positive_buff = 1
+
+/datum/reagent/nutriment/synthetic
+	name = "Synthetic Nutriment"
+	id = "synnutriment"
+	description = "A cheaper alternative to actual nutriment."
+	attrition_factor = (REM * 4)/BASE_MAX_NUTRITION // Increases attrition rate.
 
 /datum/reagent/nutriment/mix_data(var/list/newdata, var/newamount)
 	if(!islist(newdata) || !newdata.len)
@@ -134,6 +141,7 @@
 /datum/reagent/nutriment/proc/digest(var/mob/living/carbon/M, var/removed)
 	M.heal_organ_damage(regen_factor * removed, 0)
 	M.nutrition += nutriment_factor * removed // For hunger and fatness
+	M.nutrition_attrition_rate = Clamp(M.nutrition_attrition_rate + attrition_factor, 1, 2)
 	M.add_chemical_effect(CE_BLOODRESTORE, blood_factor * removed)
 	var/added_duration = removed*30 SECONDS
 	if(modifier)
@@ -1401,6 +1409,19 @@
 	glass_icon_state = "dr_gibb_glass"
 	glass_name = "glass of Dr. Gibb"
 	glass_desc = "Dr. Gibb. Not as dangerous as the name might imply."
+
+/datum/reagent/drink/root_beer
+	name = "R&D Root Beer"
+	id = "root_beer"
+	description = "A classic Earth drink from the United Americas province."
+	color = "#211100"
+	adj_drowsy = -6
+	adj_temp = -5
+	taste_description = "sassafras and anise soda"
+
+	glass_icon_state = "root_beer_glass"
+	glass_name = "glass of R&D Root Beer"
+	glass_desc = "A glass of bubbly R&D Root Beer."
 
 /datum/reagent/drink/space_up
 	name = "Space-Up"
