@@ -984,6 +984,10 @@
 		occupant  << "<span class='warning'>The [src] has no traction! There is nothing solid in reach to launch off.</span>"
 		return 0
 
+	if(state)
+		occupant_message("<span class='warning'>Maintenance protocols in effect.</span>")
+		return
+
 	lastcrash = world.time
 
 	occupant << "<span class='warning'>You take a step back, and then...</span>"
