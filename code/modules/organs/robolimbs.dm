@@ -59,7 +59,7 @@ var/global/datum/robolimb/basic_robolimb
 	icon = 'icons/mob/human_races/r_machine.dmi'
 	unavailable_at_chargen = 1
 	paintable = 1
-	linked_frame = "Baseline Frame"
+	linked_frame = "Hephaestus G1 Industrial Frame"
 
 /datum/robolimb/industrial
 	company = PROSTHETIC_IND
