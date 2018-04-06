@@ -218,7 +218,7 @@
 				src.mouse_opacity = FALSE //so people won't mess around with the chassis until it is deleted
 				src.alpha = 0 //same reason as above
 				var/newname = sanitizeSafe(input(new_shell,"Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
-				if(!newname || newname == "")
+				if(!newname)
 					var/datum/language/L = all_languages[new_shell.species.default_language]
 					newname = L.get_random_name()
 				new_shell.real_name = newname
