@@ -70,7 +70,8 @@
 /obj/item/weapon/reagent_containers/food/snacks/meat/biogenerated/Initialize()
 	. = ..()
 	reagents.clear_reagents()
-	reagents.add_reagent("nutriment",6)
+	reagents.add_reagent("synprotein",6)
+	reagents.add_reagent("triglyceride", 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/chicken/Initialize()
 	. = ..()
