@@ -27045,7 +27045,7 @@
 	pixel_x = 0;
 	pixel_y = -32
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Maintenance - Trash Compactor Crushers";
 	dir = 4
 	},
