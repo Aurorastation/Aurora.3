@@ -90,6 +90,11 @@
 		var/mob/living/L = AM
 		if(!istype(oldloc, /turf/simulated/floor/beach/water))
 			to_chat(L, "<span class='warning'>You get drenched in water from entering \the [src]!</span>")
+		var/obj/effect/effect/water/W = new(L)
+		W.create_reagents(700)
+		W.reagents.add_reagent("water", 700)
+		W.reagents.trans_to_obj(L)
+		W.set_up(L)
 	AM.water_act(5)
 	..()
 
