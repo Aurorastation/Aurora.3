@@ -1,0 +1,6 @@
+author: Skull132
+delete-after: True
+
+changes:
+  - rscdel: "Junk food no longer causes heart/organ damage. That PR has been reverted effectively."
+  - rscadd: "Junk food now causes nutrition to last less. You'll go hungry roughly twice as fast when eating only junk food."
