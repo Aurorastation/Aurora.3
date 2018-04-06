@@ -64,3 +64,58 @@
 		var/mob/living/carbon/human/M = target
 		var/shock_damage = rand(10,20)
 		M.electrocute_act(shock_damage)
+
+/mob/living/simple_animal/hostile/retaliate/petran_female
+	name = "female petran"
+	desc = "A crab-like creature commonly found scavaging for edible junk on asteriods."
+	icon = 'icons/mob/cavern.dmi'
+	icon_state = "gut_lunch"
+	icon_living = "gut_lunch"
+	icon_dead = "gut_lunch_dead"
+	ranged = 0
+	speak_emote = list("chitters")
+	emote_hear = list("chitters")
+	speak_chance = 5
+	turns_per_move = 3
+	response_help = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm = "hits"
+	a_intent = I_HURT
+	stop_automated_movement_when_pulled = 0
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/xenomeat
+	mob_size = 6
+	faction = "petran"
+
+	pass_flags = PASSTABLE
+	speed = -1
+	maxHealth = 25
+	health = 25
+	melee_damage_lower = 3
+	melee_damage_upper = 6
+
+	attacktext = "bit"
+	harm_intent_damage = 8
+
+/mob/living/simple_animal/hostile/retaliate/petran_female/on_timed_spawn()
+	var/turf/simulated/floor/asteroid/T = get_turf(src.loc)
+	if(istype(T))
+		if(T.dug < 5)
+			T.dug = 5
+		T.gets_dug()
+		playsound(src,'sound/species/petran/dig.ogg', 50, 1)
+		visible_message("<span class='warning'>A very annoyed [name] digs up from under the [T.name]!</span>")
+	else
+		qdel(src)
+	return ..()
+
+/mob/living/simple_animal/hostile/retaliate/petran_female/on_timed_despawn()
+	var/turf/simulated/floor/asteroid/T = get_turf(src.loc)
+	if(istype(T))
+		if(T.dug < 5)
+			T.dug = 5
+		T.gets_dug()
+		playsound(src,'sound/species/petran/dig.ogg', 50, 1)
+		visible_message("<span class='warning'>The [name] digs into the [T.name] and tunnels away!</span>")
+		return ..()
+	else
+		return 0

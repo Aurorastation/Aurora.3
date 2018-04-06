@@ -74,8 +74,6 @@ var/list/global/random_stock_common = list(
 	"light" = 1.8,
 	"aid" = 4,
 	"flame" = 2,
-	"crayons" = 1.5,
-	"figure" = 1,
 	"bombsupply" = 4.5,
 	"tech" = 5,
 	"smokes" = 2,
@@ -85,7 +83,6 @@ var/list/global/random_stock_common = list(
 	"circuitboard" = 2,
 	"smalloxy" = 3.2,
 	"belts" = 2,
-	"backpack" = 4.5,
 	"weldgear" = 2,
 	"inflatable" = 3,
 	"wheelchair" = 1,
@@ -122,8 +119,7 @@ var/list/global/random_stock_common = list(
 	"hailer" = 1.1,
 	"target" = 2,
 	"snacks" = 4,
-	"oxytank" = 2.5,//
-	"signs" = 4,
+	"oxytank" = 2.5,
 	"posters" = 3,
 	"parts" = 6,
 	"cane" = 2,
@@ -134,6 +130,7 @@ var/list/global/random_stock_common = list(
 	"paicard" = 2,
 	"phoronsheets" = 2,
 	"hide" = 1,
+	"arcade" = 2,
 	"nothing" = 0)
 
 var/list/global/random_stock_uncommon = list(
@@ -152,19 +149,16 @@ var/list/global/random_stock_uncommon = list(
 	"monkey" = 2,
 	"specialcrayon" = 1.5,
 	"contraband" = 2,
-	"figure" = 4,
-	"plushie" = 4,
 	"mediumcell" = 3,
 	"chempack" = 5,
 	"robolimbs" = 3,
 	"circuitboards" = 3,
 	"jetpack" = 3,
 	"xenocostume" = 1,
-	"bible" = 1,
 	"advwelder" = 2,
 	"sord" = 1,
 	"policebaton" = 1.5,
-	"stunbaton" = 0.75,//batons spawn with no powercell
+	"stunbaton" = 0.75, //batons spawn with no powercell
 	"firingpin" = 3,
 	"watches" = 3,
 	"MMI" = 1.5,
@@ -183,7 +177,6 @@ var/list/global/random_stock_uncommon = list(
 	"fireaxe" = 1,
 	"service" = 2,
 	"robot" = 2,
-	"latexb" = 0.5,
 	"taperoll" = 1,
 	"headset" = 2,
 	"bat" = 1.2,
@@ -196,7 +189,6 @@ var/list/global/random_stock_uncommon = list(
 	"exoquip" = 2,
 	"laserscalpel" = 1.3,
 	"electropack" = 1,
-	"beesmoker" = 1.5,
 	"monkeyhide" = 0.5,
 	"cathide" = 0.5,
 	"corgihide" = 0.5,
@@ -465,6 +457,11 @@ var/list/global/random_stock_large = list(
 /proc/spawn_stock(var/stock, var/atom/L, var/datum/cargospawner/CS = null)
 	//L is the location we spawn in. Using a single letter as shorthand because its written so often
 	switch(stock)
+		if("arcade")
+			new /obj/random/arcade(L)
+			new /obj/random/arcade(L)
+			new /obj/random/arcade(L)
+
 		if ("toolbox")
 			if (prob(5))
 				new /obj/item/weapon/storage/toolbox/syndicate(L)
@@ -562,8 +559,6 @@ var/list/global/random_stock_large = list(
 			new /obj/item/weapon/flame/lighter/random(L)
 			new /obj/item/weapon/storage/fancy/candle_box(L)
 			new /obj/item/weapon/storage/fancy/candle_box(L)
-		if ("crayons")
-			new /obj/item/weapon/storage/fancy/crayons(L)
 
 		if("bombsupply")
 			new /obj/random/bomb_supply(L)
@@ -640,9 +635,6 @@ var/list/global/random_stock_large = list(
 		if("belts")
 			new /obj/random/belt(L)
 			new /obj/random/belt(L)
-		if("backpack")
-			new /obj/random/backpack(L)
-			new /obj/random/backpack(L)
 		if("weldgear")
 			if (prob(50))
 				new /obj/item/clothing/glasses/welding(L)
@@ -1061,12 +1053,6 @@ var/list/global/random_stock_large = list(
 			while (number > 0)
 				new /obj/random/contraband(L)
 				number--
-		if("figure")
-			new /obj/random/action_figure(L)
-			new /obj/random/action_figure(L)
-			new /obj/random/action_figure(L)
-		if("plushie")
-			new /obj/random/plushie(L)
 		if("firingpin")
 			new /obj/item/weapon/storage/box/firingpins(L)
 		if("mediumcell")
@@ -1132,11 +1118,6 @@ var/list/global/random_stock_large = list(
 		if ("xenocostume")
 			new /obj/item/clothing/suit/xenos(L)
 			new /obj/item/clothing/head/xenos(L)
-		if ("bible")
-			if (prob(25))
-				new /obj/item/weapon/storage/bible/booze(L)
-			else
-				new /obj/item/weapon/storage/bible(L)
 		if ("advwelder")
 			new /obj/item/weapon/weldingtool/hugetank(L)
 
@@ -1159,22 +1140,6 @@ var/list/global/random_stock_large = list(
 		if ("voidsuit")
 			new /obj/random/voidsuit(L,1)
 
-		if ("signs")
-			var/list/allsigns = subtypesof(/obj/structure/sign)
-			allsigns -= typesof(/obj/structure/sign/double)
-			allsigns -= typesof(/obj/structure/sign/poster)
-			allsigns -= /obj/structure/sign/directions
-			allsigns -= typesof(/obj/structure/sign/christmas)
-			allsigns -= typesof(/obj/structure/sign/flag)
-
-			var/number = rand(1,5)
-
-			while (number > 0)
-				var/newsign = pick(allsigns)
-				if (newsign != /obj/structure/sign)//Dont want to spawn the generic parent class
-					var/obj/structure/sign/S = new newsign(L)
-					S.unfasten()
-					number--
 		if ("posters")
 			new /obj/item/weapon/contraband/poster(L)
 			if (prob(50))
@@ -1246,8 +1211,6 @@ var/list/global/random_stock_large = list(
 			newbot.on = 0//Deactivated
 			if (prob(10))
 				newbot.emag_act(9999,null)
-		if ("latexb")
-			new /obj/item/latexballon(L)
 
 	//Random headsets for low-security department
 	//No command or sec
@@ -1373,9 +1336,6 @@ var/list/global/random_stock_large = list(
 				var/obj/structure/closet/crate/cr = L
 				cr.rigged = 1//Boobytrapped crate, will electrocute when you attempt to open it
 				//Can be disarmed with wirecutters or ignored with insulated gloves
-
-		if ("beesmoker")
-			new /obj/item/weapon/bee_smoker(L)
 
 		if("monkeyhide")
 			new /obj/item/stack/material/animalhide/monkey(L, 50)

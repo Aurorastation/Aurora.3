@@ -43,6 +43,7 @@ var/list/mineral_can_smooth_with = list(
 	var/mined_ore = 0
 	var/last_act = 0
 	var/emitter_blasts_taken = 0 // EMITTER MINING! Muhehe.
+	var/trap_type = SPACETRAP_NONE
 
 	var/datum/geosample/geologic_data
 	var/excavation_level = 0
@@ -82,6 +83,9 @@ var/list/mineral_can_smooth_with = list(
 
 	if (!mapload)
 		queue_smooth_neighbors(src)
+
+	if(trap_type == SPACETRAP_NONE && prob(1))
+		trap_type = SPACETRAP_SHANK
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -347,7 +351,24 @@ var/list/mineral_can_smooth_with = list(
 
 /turf/simulated/mineral/proc/GetDrilled(var/artifact_fail = 0)
 	//var/destroyed = 0 //used for breaking strange rocks
+	var/turf/T = get_turf(src)
 	if (mineral && mineral.result_amount)
+		if(!artifact_find && trap_type == SPACETRAP_SHANK)
+			new /obj/random/petran(src)
+			new /obj/random/petran(src)
+			new /obj/random/petran(src)
+
+			//Spawn some mobs
+			if(prob(50)) //A male is preparing a nest for a potential female.
+				var/mob/living/simple_animal/hostile/petran_male/M =  new(src)
+				M.on_timed_spawn()
+			else if(prob(10)) //A male is out scavaging junk for a nest.
+				spawn_delayed_atom(T,/mob/living/simple_animal/hostile/petran_male,rand(20,40),rand(60,120), FALSE)
+			else // A lone female is guarding the nest
+				var/mob/living/simple_animal/hostile/retaliate/petran_female/M =  new(src)
+				M.on_timed_spawn()
+				if(prob(50)) //The female actually has a mate, and will return to the nest
+					spawn_delayed_atom(T,/mob/living/simple_animal/hostile/petran_male,rand(20,40),rand(60,120), FALSE)
 
 		//if the turf has already been excavated, some of it's ore has been removed
 		for (var/i = 1 to mineral.result_amount - mined_ore)
@@ -377,7 +398,7 @@ var/list/mineral_can_smooth_with = list(
 
 	ChangeTurf(mined_turf)
 
-	if(rand(1,500) == 1)
+	if(rand(1,300) == 1)
 		visible_message("<span class='notice'>An old dusty crate was buried within!</span>")
 		new /obj/structure/closet/crate/secure/loot(src)
 

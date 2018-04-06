@@ -18,6 +18,7 @@
 	hunger_enabled = 0//Until automated eating mechanics are enabled, disable hunger for hostile mobs
 	var/shuttletarget = null
 	var/enroute = 0
+	var/isfleeing = 0
 
 /mob/living/simple_animal/hostile/Destroy()
 	friends = null
@@ -89,10 +90,16 @@
 			if(get_dist(src, target_mob) <= 6)
 				OpenFire(target_mob)
 			else
-				walk_to(src, target_mob, 1, move_to_delay)
+				if(isfleeing)
+					walk_away(src, target_mob, 1, move_to_delay)
+				else
+					walk_to(src, target_mob, 1, move_to_delay)
 		else
 			stance = HOSTILE_STANCE_ATTACKING
-			walk_to(src, target_mob, 1, move_to_delay)
+			if(isfleeing)
+				walk_away(src, target_mob, 1, move_to_delay)
+			else
+				walk_to(src, target_mob, 1, move_to_delay)
 
 /mob/living/simple_animal/hostile/proc/AttackTarget()
 

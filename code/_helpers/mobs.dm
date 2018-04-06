@@ -14,6 +14,43 @@
 /mob/get_mob()
 	return src
 
+/proc/spawn_delayed_atom(var/turf/spawn_turf, var/mobtype, var/delay_seconds = 30, var/remove_delay_seconds = 0, var/safe_delete = FALSE)
+	addtimer(\
+		CALLBACK(\
+			GLOBAL_PROC,\
+			/proc/spawn_atom,spawn_turf,mobtype,remove_delay_seconds,safe_delete\
+		),\
+		delay_seconds SECONDS\
+	)
+
+/proc/spawn_atom(var/turf/spawn_turf, var/mobtype, var/remove_delay_seconds, var/safe_delete)
+	var/mob/spawned_mob = new mobtype(spawn_turf)
+	if(spawned_mob.on_timed_spawn() && remove_delay_seconds)
+		addtimer(\
+			CALLBACK(\
+				GLOBAL_PROC,\
+				/proc/remove_delayed_atom, spawned_mob, remove_delay_seconds, safe_delete\
+			), remove_delay_seconds SECONDS\
+		)
+
+/proc/remove_delayed_atom(var/mob/spawned_mob,var/remove_delay_seconds,var/safe_delete)
+	if(spawned_mob.stat != DEAD && (!safe_delete || !visible_to_clients(spawned_mob)))
+		spawned_mob.on_timed_despawn()
+
+/mob/proc/on_timed_spawn()
+	return 1
+
+/mob/proc/on_timed_despawn()
+	qdel(src)
+	return
+
+/proc/visible_to_clients(atom/A) //Lohikar's proc
+    for (var/m in viewers(A))
+        var/mob/M = m
+        if (M.client)
+            return TRUE
+    return FALSE
+
 /proc/mobs_in_view(var/range, var/source)
 	. = list()
 	for(var/atom/movable/AM in view(range, source))

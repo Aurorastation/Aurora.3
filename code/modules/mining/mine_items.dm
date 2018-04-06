@@ -25,6 +25,8 @@
 	new /obj/item/weapon/shovel(src)
 	new /obj/item/weapon/pickaxe(src)
 	new /obj/item/weapon/ore_radar(src)
+	new /obj/item/weapon/pickaxe/drill(src)
+	new /obj/item/weapon/key/minecarts(src)
 
 /******************************Lantern*******************************/
 
