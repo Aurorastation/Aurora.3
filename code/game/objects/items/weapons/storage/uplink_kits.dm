@@ -174,6 +174,17 @@
 	new /obj/item/weapon/gun/projectile/pistol(src)
 	new /obj/item/weapon/silencer(src)
 
+/obj/item/weapon/storage/box/syndie_kit/g9mm/plus
+	name = "smooth operator+"
+	desc = "9mm with silencer kit, and extra ammo."
+
+/obj/item/weapon/storage/box/syndie_kit/g9mm/plus/fill()
+	..()
+	new /obj/item/weapon/gun/projectile/pistol(src)
+	new /obj/item/weapon/silencer(src)
+	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/ammo_magazine/mc9mm(src)
+
 /obj/item/weapon/storage/box/syndie_kit/toxin
 	name = "toxin kit"
 	desc = "An apple will not be enough to keep the doctor away after this."
@@ -241,6 +252,16 @@
 	new /obj/item/clothing/suit/storage/vest/merc(src)
 	new /obj/item/clothing/head/helmet/merc(src)
 
+/obj/item/weapon/storage/box/syndie_kit/mafia
+	name = "mafia kit"
+	desc = "Put heads in this box and ship it off to their loved ones after you're done taking the contents out."
+
+/obj/item/weapon/storage/box/syndie_kit/mafia/fill()
+	..()
+	new /obj/item/clothing/under/gentlesuit/traitor(src)
+	new /obj/item/clothing/head/fedora(src)
+	new /obj/item/clothing/shoes/leather(src)
+
 /obj/item/weapon/storage/secure/briefcase/money
 	name = "suspicious briefcase"
 	desc = "An ominous briefcase that has the unmistakeable smell of old, stale, cigarette smoke, and gives those who look at it a bad feeling."
@@ -276,12 +297,11 @@
 
 /obj/item/weapon/storage/secure/briefcase/beginner/fill()
 	..()
+	new /obj/item/weapon/storage/box/syndie_kit/armor(src)
 	new /obj/item/weapon/storage/belt/utility/full(src) //About 1
 	new /obj/item/clothing/gloves/yellow(src) //About 1
 	new /obj/item/clothing/mask/gas(src) //About 1
 	new /obj/item/clothing/glasses/sunglasses/prescription(src) //About 1
-	new /obj/item/clothing/suit/storage/vest/merc(src) //2
-	new /obj/item/clothing/head/helmet/merc(src) //2
 	new /obj/item/weapon/card/emag(src) //6
 	new /obj/item/weapon/melee/energy/sword(src) //8
 	new /obj/item/weapon/gun/energy/crossbow //6
@@ -315,10 +335,9 @@
 	//Total: 27, but the hat backpack is probably worth a lot.
 
 /obj/item/weapon/storage/secure/briefcase/mafia/fill()
-	new /obj/item/weapon/bundle/cowboy(src) //About 1
-	new /obj/item/clothing/under/gentlesuit/traitor(src) //About 4
-	new /obj/item/clothing/head/fedora(src)
-	new /obj/item/clothing/shoes/leather(src)
+	 //About 4
+	new /obj/item/weapon/storage/box/syndie_kit/mafia(src)
+	new /obj/item/weapon/spacecash/bundle/cowboy(src) //About 1
 	new /obj/item/weapon/gun/projectile/automatic/tommygun/drum(src) //Probably 16
 	new /obj/item/ammo_magazine/tommydrum(src) //Probably 4
 	new /obj/item/ammo_magazine/tommydrum(src) //Probably 4
@@ -328,13 +347,11 @@
 /obj/item/weapon/storage/secure/briefcase/stealth/fill()
 	new /obj/item/weapon/storage/box/syndie_kit/chameleon(src) //5
 	new /obj/item/weapon/storage/box/syndie_kit/spy(src) //2
-	new /obj/item/weapon/storage/box/syndie_kit/g9mm(src) // 8
-	new /obj/item/ammo_magazine/mc9mm(src) //1
-	new /obj/item/ammo_magazine/mc9mm(src) //1
+	new /obj/item/weapon/storage/box/syndie_kit/g9mm/plus // 10
 	new /obj/item/weapon/card/id/syndicate(src) //3
 	new /obj/item/clothing/mask/gas/voice(src) //5
 	new /obj/item/weapon/pen/reagent/paralysis(src) //6
-	new /obj/item/weapon/bundle/cowboy(src) //About 1
+	new /obj/item/weapon/spacecash/bundle/cowboy(src) //About 1
 	//Total: 32
 
 /obj/item/weapon/storage/secure/briefcase/ninja/fill()

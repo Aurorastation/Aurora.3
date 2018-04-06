@@ -37,6 +37,15 @@
 	ammo_type = /obj/item/ammo_casing/c38/emp
 	matter = list(DEFAULT_WALL_MATERIAL = 360, "uranium" = 600)
 
+/obj/item/ammo_magazine/c44
+	name = "speed loader (.44)"
+	icon_state = "38"
+	caliber = "44"
+	matter = list(DEFAULT_WALL_MATERIAL = 400)
+	ammo_type = /obj/item/ammo_casing/c44
+	max_ammo = 6
+	multiple_sprites = 1
+
 /obj/item/ammo_magazine/c45
 	name = "ammunition Box (.45)"
 	icon_state = "9mm"

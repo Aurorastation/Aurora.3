@@ -77,8 +77,8 @@
 	desc = "A custom-built revolver, based off the semi-popular Detective Special model."
 	max_shells = 6
 	icon_state = "deckard-empty"
-	caliber = "38"
-	ammo_type = /obj/item/ammo_casing/c38
+	caliber = "44"
+	ammo_type = /obj/item/ammo_casing/c44
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 
 /obj/item/weapon/gun/projectile/revolver/deckard/update_icon()
@@ -225,6 +225,6 @@
 /obj/item/weapon/gun/projectile/revolver/fast
 	name = "classic .357"
 	desc = "An early prototype of a Necropolis Industries .357 revolver. This one can shoot really fast!"
-	icon_state = "revolver"
-	item_state = "revolver_fast"
+	icon_state = "revolver_fast"
+	item_state = "revolver"
 	fire_delay = 1
