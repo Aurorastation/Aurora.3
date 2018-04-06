@@ -4,8 +4,12 @@
 ALTER TABLE `ss13_player`
 	ADD COLUMN `rank` VARCHAR(32) NULL DEFAULT NULL AFTER `migration_status`,
 	ADD COLUMN `level` INT(2) NULL DEFAULT 0 AFTER `rank`,
-	ADD COLUMN `flags` INT(16) NULL DEFAULT NULL AFTER `level`,
+	ADD COLUMN `flags` INT(16) DEFAULT 0 AFTER `level`,
 	ADD COLUMN `discord_id` VARCHAR(45) NULL DEFAULT NULL AFTER `flags`;
+
+UPDATE `ss13_admin`
+SET `flags` = 0
+WHERE `rank` = "Removed";
 
 UPDATE `ss13_player`
 INNER JOIN `ss13_admin` ON ss13_admin.ckey = ss13_player.ckey
