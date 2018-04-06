@@ -104,6 +104,7 @@
 	id = "synnutriment"
 	description = "A cheaper alternative to actual nutriment."
 	attrition_factor = (REM * 4)/BASE_MAX_NUTRITION // Increases attrition rate.
+	is_positive_buff = 0
 
 /datum/reagent/nutriment/mix_data(var/list/newdata, var/newamount)
 	if(!islist(newdata) || !newdata.len)
@@ -306,6 +307,7 @@
 	blood_factor = 6
 	taste_description = "meat, I think"
 	is_positive_buff = 0
+	attrition_factor = (REM * 4)/BASE_MAX_NUTRITION // Increases attrition rate.
 
 /datum/reagent/nutriment/slop //Blended plants
 	name = "Slop"
@@ -314,6 +316,7 @@
 	nutriment_factor = 6
 	taste_description = "slop"
 	is_positive_buff = 0
+	attrition_factor = (REM * 4)/BASE_MAX_NUTRITION // Increases attrition rate.
 
 //Fats
 //=========================

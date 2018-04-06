@@ -1487,13 +1487,13 @@
 	trash = /obj/item/trash/sosjerky
 	filling_color = "#631212"
 	center_of_mass = list("x"=15, "y"=9)
-  nutriment_type = NUTRIMENT_BAD
+	nutriment_type = NUTRIMENT_BAD
 	flavoring_desc = list("smoke" = 4)
 	flavoring_amt = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/sosjerky/Initialize()
 	. = ..()
-  reagents.add_reagent("protein", 2)
+	reagents.add_reagent("protein", 2)
 	reagents.add_reagent("muck", 4)
 	bitesize = 3
 
@@ -1504,7 +1504,7 @@
 	trash = /obj/item/trash/raisins
 	filling_color = "#343834"
 	center_of_mass = list("x"=15, "y"=4)
-  nutriment_type = NUTRIMENT_BAD
+	nutriment_type = NUTRIMENT_BAD
 	flavoring_desc = list("rasins" = 6)
 	flavoring_amt = 6
 
@@ -1520,7 +1520,7 @@
 	desc = "Guaranteed to survive longer then you will."
 	filling_color = "#FFE591"
 	center_of_mass = list("x"=15, "y"=11)
-  nutriment_type = NUTRIMENT_BAD
+	nutriment_type = NUTRIMENT_BAD
 	flavoring_desc = list("pastry" = 6,"cream" = 2)
 	flavoring_amt = 8
 
@@ -1554,7 +1554,7 @@
 	trash = /obj/item/trash/cheesie
 	filling_color = "#FFA305"
 	center_of_mass = list("x"=15, "y"=9)
-  nutriment_type = NUTRIMENT_BAD
+	nutriment_type = NUTRIMENT_BAD
 	flavoring_desc = list("chips" = 3, "cheese dust" = 3)
 	flavoring_amt = 6
 
@@ -4215,7 +4215,7 @@
 	trash = /obj/item/trash/tastybread
 	filling_color = "#A66829"
 	center_of_mass = list("x"=17, "y"=16)
-  nutriment_type = NUTRIMENT_BAD
+	nutriment_type = NUTRIMENT_BAD
 	flavoring_desc = list("bread" = 4)
 	flavoring_amt = 4
 
@@ -4231,7 +4231,7 @@
 	icon_state = "skrellsnacks"
 	filling_color = "#A66829"
 	center_of_mass = list("x"=15, "y"=12)
-  nutriment_type = NUTRIMENT_BAD
+	nutriment_type = NUTRIMENT_BAD
 	nutriment_desc = list("fungus" = 10)
 	nutriment_amt = 10
 
@@ -4363,7 +4363,7 @@
 	desc = "Made from stok meat, packed into a crispy crust."
 	trash = /obj/item/trash/meatsnack
 	filling_color = "#631212"
-  nutriment_type = NUTRIMENT_BAD
+	nutriment_type = NUTRIMENT_BAD
 	flavoring_desc = list("pastry" = 4)
 	flavoring_amt = 4
 
@@ -4380,10 +4380,10 @@
 	desc = "Various processed meat from Moghes with 600% the amount of recommended daily sodium per can."
 	trash = /obj/item/trash/maps
 	filling_color = "#631212"
-  nutriment_type = NUTRIMENT_BAD
+	nutriment_type = NUTRIMENT_BAD
 	flavoring_desc = list("spaced ham" = 6)
 	flavoring_amt = 6
-  bitesize = 3
+	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/maps/Initialize()
 	. = ..()
@@ -4400,14 +4400,14 @@
 	filling_color = "#631212"
 	flavoring_desc = list("spaced beef" = 6)
 	flavoring_amt = 6
-  bitesize = 4
+	bitesize = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/nathisnack/Initialize()
 	. = ..()
 	reagents.add_reagent("muck", 10)
 	reagents.add_reagent("iron", 3)
 	reagents.add_reagent("sodiumchloride", 10)
-	
+
 /obj/item/weapon/reagent_containers/food/snacks/pancakes
 	name = "pancakes"
 	desc = "Pancakes with blueberries, delicious."
