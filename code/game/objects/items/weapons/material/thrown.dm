@@ -25,4 +25,4 @@
 			M.adjustToxLoss(material.radioactivity*2)
 
 		if(prob(30))
-			M.Weaken(4)
+			M.Weaken(7)
