@@ -59,14 +59,14 @@ var/global/datum/robolimb/basic_robolimb
 	icon = 'icons/mob/human_races/r_machine.dmi'
 	unavailable_at_chargen = 1
 	paintable = 1
-	linked_frame = "Hephaestus G1 Industrial Frame"
+	linked_frame = "Baseline Frame"
 
 /datum/robolimb/industrial
 	company = PROSTHETIC_IND
 	desc = "This limb is more robust than the standard Hephaestus Integrated Limb, and is better suited for industrial machinery."
 	icon = 'icons/mob/human_races/r_industrial.dmi'
 	unavailable_at_chargen = 1
-	linked_frame = "Shell Frame"
+	linked_frame = "Hephaestus G1 Industrial Frame"
 
 /datum/robolimb/terminator
 	company = PROSTHETIC_HK

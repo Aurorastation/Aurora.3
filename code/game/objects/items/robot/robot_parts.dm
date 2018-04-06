@@ -208,7 +208,7 @@
 			if(!src.head.law_manager)
 
 				if(!is_alien_whitelisted(M.brainmob, "Machine") && config.usealienwhitelist)
-					user << "<span class='warning'>This [W] does not seem to fit.</span>"
+					user << "<span class='warning'>\The [W] does not seem to fit.</span>"
 					return
 
 				var/mob/living/carbon/human/new_shell = new(get_turf(loc), TRUE, src.chest.linked_frame)
