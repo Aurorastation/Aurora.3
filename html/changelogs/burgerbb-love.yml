@@ -3,8 +3,7 @@ author: BurgerBB
 delete-after: True
 
 changes: 
-  - rscdel: "Removed junkfood causing heart damage."
   - rscadd: "Grown food, as well as cooked food in the kitchen, provides slight stamina and stamina regen buffs to crewmembers when consumed. Junkfood is the opposite where it reduces stamina and stamina regen when consumed."
   - rscadd: "Consuming too much sugar can lead to sugar crashes. Sugar is now considered a nutrient, and therefor deals damage to Vaurca when consumed."
-  - balance: "Meat and nutrients processed in the blender turn to muck or slop, respectively. This only affects: Animal protein, seafood, and nutrient. Meatloaf can be made with muck, greenloaf can be made with slop."
+  - balance: "Meat and nutrients processed in the blender turn to muck or slop, respectively. This only affects: Animal protein, seafood, and nutrient. Meatloaf can be made with muck, greenloaf can be made with slop. Slop and muck still give beneifts, but they're not as powerful as their fresh counterparts."
   - balance: "Syringes can no longer extract reagents from food."

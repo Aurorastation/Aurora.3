@@ -97,14 +97,39 @@
 	var/attrition_factor = -0.1 // Decreases attrition rate.
 	color = "#664330"
 	unaffected_species = IS_MACHINE
-	var/is_positive_buff = 1
+	var/is_positive_buff = 1 //1 Gives buff, 0 does nothing, -1 gives nerf.
 
 /datum/reagent/nutriment/synthetic
 	name = "Synthetic Nutriment"
 	id = "synnutriment"
 	description = "A cheaper alternative to actual nutriment."
 	attrition_factor = (REM * 4)/BASE_MAX_NUTRITION // Increases attrition rate.
+	is_positive_buff = -1
+
+/datum/reagent/nutriment/protein/synthetic
+	name = "Synthetic Protein"
+	id = "synprotein"
+	description = "A cheaper alternative to actual nutriment."
+	attrition_factor = (REM * 4)/BASE_MAX_NUTRITION // Increases attrition rate.
+	is_positive_buff = -1
+
+/datum/reagent/nutriment/protein/muck //Blended meat
+	name = "muck"
+	id = "muck"
+	description = "A blended mess of cheap meat. Serve this to prisoners."
+	blood_factor = 6
+	taste_description = "meat, I think"
 	is_positive_buff = 0
+	attrition_factor = -(REM * 2)/BASE_MAX_NUTRITION
+
+/datum/reagent/nutriment/slop //Blended plants
+	name = "Slop"
+	id = "slop"
+	description = "A blended mess of cheap food. Serve this to prisoners."
+	nutriment_factor = 6
+	taste_description = "slop"
+	is_positive_buff = 0
+	attrition_factor = -(REM * 2)/BASE_MAX_NUTRITION
 
 /datum/reagent/nutriment/mix_data(var/list/newdata, var/newamount)
 	if(!islist(newdata) || !newdata.len)
@@ -147,9 +172,9 @@
 	var/added_duration = removed*30 SECONDS
 	if(modifier)
 		modifier.duration += added_duration
-	else if(is_positive_buff)
+	else if(is_positive_buff == 1)
 		modifier = M.add_modifier(/datum/modifier/food/positive, MODIFIER_TIMED, src, _strength = 25, _duration = added_duration, override = MODIFIER_OVERRIDE_CUSTOM)
-	else
+	else if(is_positive_buff == -1)
 		modifier = M.add_modifier(/datum/modifier/food/negative, MODIFIER_TIMED, src, _strength = -25, _duration = added_duration, override = MODIFIER_OVERRIDE_CUSTOM)
 /*
 	Coatings are used in cooking. Dipping food items in a reagent container with a coating in it
@@ -300,23 +325,6 @@
 	id = "cheese"
 	color = "#EDB91F"
 	taste_description = "cheese"
-
-/datum/reagent/nutriment/protein/muck //Blended meat
-	name = "muck"
-	id = "muck"
-	blood_factor = 6
-	taste_description = "meat, I think"
-	is_positive_buff = 0
-	attrition_factor = (REM * 4)/BASE_MAX_NUTRITION // Increases attrition rate.
-
-/datum/reagent/nutriment/slop //Blended plants
-	name = "Slop"
-	id = "slop"
-	description = "A blended mess of cheap food. Serve this to prisoners."
-	nutriment_factor = 6
-	taste_description = "slop"
-	is_positive_buff = 0
-	attrition_factor = (REM * 4)/BASE_MAX_NUTRITION // Increases attrition rate.
 
 //Fats
 //=========================
