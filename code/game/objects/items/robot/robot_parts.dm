@@ -211,7 +211,8 @@
 					user << "<span class='warning'>\The [W] does not seem to fit.</span>"
 					return
 
-				var/mob/living/carbon/human/new_shell = new(get_turf(loc), TRUE, src.chest.linked_frame)
+				var/mob/living/carbon/human/new_shell = new(get_turf(loc), TRUE, "Unbranded Frame")
+				new_shell.set_species(src.chest.linked_frame)
 				M.brainmob.mind.transfer_to(new_shell)
 				qdel(M)
 				src.forceMove(null) //so people won't mess around with the chassis until it is deleted
