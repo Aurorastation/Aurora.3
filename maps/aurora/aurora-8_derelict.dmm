@@ -6343,9 +6343,9 @@
 /area/derelict/hallway/southeast)
 "sR" = (
 /obj/machinery/light/small{
-	icon_state = "bulb-broken";
+	base_state = "bulb_broken";
 	dir = 8;
-	base_state = "bulb-broken"
+	icon_state = "bulb_broken"
 	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
@@ -7739,9 +7739,9 @@
 /area/derelict/hallway/southeast)
 "wp" = (
 /obj/machinery/light/small{
-	base_state = "bulb-broken";
+	base_state = "bulb_broken";
 	dir = 4;
-	icon_state = "bulb-broken"
+	icon_state = "bulb_broken"
 	},
 /obj/structure/closet/walllocker/emerglocker/north,
 /turf/simulated/floor/airless,
