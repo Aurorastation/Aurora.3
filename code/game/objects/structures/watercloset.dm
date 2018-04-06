@@ -222,14 +222,11 @@
 /obj/machinery/shower/proc/wash(atom/movable/O as obj|mob)
 	if(!on) return
 
-	var/obj/effect/effect/water/W = new(get_turf(src))
+	var/obj/effect/effect/water/W = new(O)
 	W.create_reagents(spray_amount)
-	reagents.trans_to_obj(W, spray_amount)
-
-	if(isliving(O))
-		var/mob/living/L = O
-		L.ExtinguishMob()
-		L.fire_stacks = -20 //Douse ourselves with water to avoid fire more easily
+	W.reagents.add_reagent("water", spray_amount)
+	W.reagents.trans_to_obj(O)
+	W.set_up(O)
 
 	if(iscarbon(O))
 		var/mob/living/carbon/M = O
@@ -300,10 +297,6 @@
 				if(H.belt.clean_blood())
 					H.update_inv_belt(0)
 			H.clean_blood(washshoes)
-
-		else if(istype(O, /mob/living/carbon/slime)) // Makes slimes to take damage from shower
-			var/mob/living/carbon/slime/S = O
-			S.adjustToxLoss(rand(15, 40)) // Slimes die when they reach 200 toxins, so killing them with shower will take few seconds
 		else
 			if(M.wear_mask)						//if the mob is not human, it cleans the mask without asking for bitflags
 				if(M.wear_mask.clean_blood())
