@@ -1,0 +1,6 @@
+author: BurgerBB
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added chewing gum. Gum can be purchased from the Getmore vending machines. Gum can be chewed and spit out using the *spit emote."

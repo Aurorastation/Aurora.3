@@ -460,7 +460,7 @@
 	id = "mint"
 	description = "Also known as Mentha."
 	reagent_state = LIQUID
-	color = "#CF3600"
+	color = "#363600"
 	taste_description = "mint"
 
 /datum/reagent/nutriment/glucose
@@ -669,6 +669,14 @@
 	reagent_state = SOLID
 	color = "#441a03"
 	taste_description = "chocolate"
+
+/datum/reagent/drink/bubblegum
+	name = "Bubblegum Flavoring"
+	id = "bubblegum"
+	description = "A rich blend of artificial colors and flavoring."
+	color = "#FFC0CB"
+	taste_description = "bubblegum"
+	taste_mult = 10
 
 /* Drinks */
 
@@ -3545,7 +3553,7 @@
 	glass_icon_state = "crocodile_glass"
 	glass_name = "glass of Crocodile Guwan"
 	glass_desc = "The smell says no, but the pretty colors say yes."
-  
+
 //Preservatives
 
 /datum/reagent/nutriment/badfood //This is just a base. It shouldn't exist or be used anywhere but just in case, I added names.

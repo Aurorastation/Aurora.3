@@ -14,6 +14,11 @@
 	item_cost = 2
 	path = /obj/item/weapon/storage/box/syndie_kit/cigarette
 
+/datum/uplink_item/item/stealthy_weapons/gum_kit
+	name = "Zombie Powder Gum"
+	item_cost = 5
+	path = /obj/item/weapon/storage/box/syndie_kit/gum
+
 /datum/uplink_item/item/stealthy_weapons/random_toxin
 	name = "Random Toxin - Beaker"
 	item_cost = 2

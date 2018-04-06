@@ -139,7 +139,11 @@
 		/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 2,
-		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 4
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 4,
+		/obj/item/weapon/storage/gum_box/bubblegum = 4,
+		/obj/item/weapon/storage/gum_box/mint = 2,
+		/obj/item/weapon/storage/gum_box/tropical = 2,
+		/obj/item/weapon/storage/gum_box/phoron = 2
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/snacks/syndicake = 6,
@@ -158,7 +162,11 @@
 		/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 22,
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 23,
 		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 24,
-		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 60
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 60,
+		/obj/item/weapon/storage/gum_box/bubblegum = 10,
+		/obj/item/weapon/storage/gum_box/mint = 10,
+		/obj/item/weapon/storage/gum_box/tropical = 10,
+		/obj/item/weapon/storage/gum_box/phoron = 120
 	)
 
 
@@ -230,6 +238,7 @@
 	vend_id = "smokes"
 	products = list(
 		/obj/item/weapon/storage/fancy/cigarettes = 10,
+		/obj/item/weapon/storage/gum_box/nicotine = 4,
 		/obj/item/weapon/storage/box/matches = 10,
 		/obj/item/weapon/flame/lighter/random = 4,
 		/obj/item/weapon/spacecash/ewallet/lotto = 30
@@ -243,6 +252,7 @@
 	)
 	prices = list(
 		/obj/item/weapon/storage/fancy/cigarettes = 200,
+		/obj/item/weapon/storage/gum_box/nicotine = 300,
 		/obj/item/weapon/storage/box/matches = 12,
 		/obj/item/weapon/flame/lighter/random = 12,
 		/obj/item/weapon/spacecash/ewallet/lotto = 200

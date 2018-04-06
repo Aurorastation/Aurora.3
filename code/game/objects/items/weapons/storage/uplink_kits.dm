@@ -258,3 +258,14 @@
 	new /obj/item/weapon/spacecash/c1000(src)
 	new /obj/item/weapon/spacecash/c1000(src)
 	new /obj/item/weapon/spacecash/c1000(src)
+
+/obj/item/weapon/storage/box/syndie_kit/gum
+	name = "prank gum"
+	desc = "Contains 4 packages of prank gum containing zombie powder."
+
+/obj/item/weapon/storage/box/syndie_kit/gum/fill()
+	..()
+	new /obj/item/weapon/storage/gum_box/death(src)
+	new /obj/item/weapon/storage/gum_box/death(src)
+	new /obj/item/weapon/storage/gum_box/death(src)
+	new /obj/item/weapon/storage/gum_box/death(src)
