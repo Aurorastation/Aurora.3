@@ -54,27 +54,12 @@
 	economic_modifier = 7
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_virology, access_eva)
-	alt_titles = list("Surgeon","Emergency Physician","Nurse","Virologist")
+	alt_titles = list("Surgeon","Emergency Physician","Nurse")
 
 	bag_type = /obj/item/weapon/storage/backpack/medic
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_med
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/med
 	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/med
-
-
-/datum/job/doctor/equip_backpack(var/mob/living/carbon/human/H, var/alt_title)
-	if(has_alt_title(H, alt_title,"Virologist"))
-		bag_type = /obj/item/weapon/storage/backpack/virology
-		satchel_type = /obj/item/weapon/storage/backpack/satchel_vir
-		duffel_type = /obj/item/weapon/storage/backpack/duffel/med
-		messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/viro
-		..()
-		bag_type = initial(bag_type)
-		satchel_type = initial(satchel_type)
-		duffel_type = initial(duffel_type)
-		messenger_bag_type = initial(messenger_bag_type)
-	else
-		..()
 
 /datum/job/doctor/equip(var/mob/living/carbon/human/H, var/alt_title)
 	if(!H)
@@ -92,11 +77,6 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat(H), slot_wear_suit)
 		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery/blue(H), slot_head)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/medical(H), slot_belt)
-	else if(has_alt_title(H, alt_title,"Virologist"))
-		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/virologist(H), slot_w_uniform)
-		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat/virologist(H), slot_wear_suit)
-		H.equip_to_slot_or_del(new /obj/item/clothing/mask/surgical(H), slot_wear_mask)
-		H.equip_to_slot_or_del(new /obj/item/device/pda/viro(H), slot_belt)
 	else if(has_alt_title(H, alt_title,"Nurse"))
 		if(H.gender == FEMALE)
 			if(prob(50))
@@ -121,9 +101,9 @@
 
 
 //Chemist is a medical job damnit	//YEAH FUCK YOU SCIENCE	-Pete	//Guys, behave -Erro
-/datum/job/chemist
-	title = "Chemist"
-	flag = CHEMIST
+/datum/job/Biochemist
+	title = "Biohemist"
+	flag = BIOCHEMIST
 	department = "Medical"
 	department_flag = MEDSCI
 	faction = "Station"
@@ -133,7 +113,7 @@
 	selection_color = "#ffeef0"
 	economic_modifier = 5
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics)
-	minimal_access = list(access_medical, access_medical_equip, access_chemistry)
+	minimal_access = list(access_virology, access_medical, access_medical_equip, access_chemistry)
 	alt_titles = list("Pharmacist")
 
 	bag_type = /obj/item/weapon/storage/backpack/chemistry
