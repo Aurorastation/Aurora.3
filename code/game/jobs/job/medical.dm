@@ -98,6 +98,7 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/surgical(H), slot_wear_mask)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/viro(H), slot_belt)
 	else if(has_alt_title(H, alt_title,"Nurse"))
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/nursehat(H), slot_head)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical/purple(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/medical(H), slot_belt)
 	else if(has_alt_title(H, alt_title,"Medical Doctor"))
