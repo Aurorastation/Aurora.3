@@ -30,8 +30,7 @@
 		"fuel",
 		"blood",
 		"sterilizine",
-		"ipecac",
-		"soporific"
+		"ipecac"
 	)
 
 
