@@ -11,19 +11,29 @@
 	idle_power_usage = 15
 	active_power_usage = 50
 
-/obj/machinery/mineral/stacking_unit_console/Initialize()
-	. = ..()
-	src.machine = locate(/obj/machinery/mineral/stacking_machine) in get_area(src)
-	if (machine)
-		machine.console = src
-	else
-		return INITIALIZE_HINT_QDEL
+/obj/machinery/mineral/stacking_unit_console/proc/setup_machine(mob/user)
+	if(!machine)
+		var/area/A = get_area(src)
+		for(var/obj/machinery/mineral/stacking_machine/checked_machine in SSmachinery.all_machines)
+			if(A == get_area(checked_machine))
+				machine = checked_machine
+				break
+		if (machine)
+			machine.console = src
+		else
+			user << "<span class='warning'>ERROR: Linked machine not found!</span>"
+
+	return machine
 
 /obj/machinery/mineral/stacking_unit_console/attack_hand(mob/user)
 	add_fingerprint(user)
 	ui_interact(user)
 
 /obj/machinery/mineral/stacking_unit_console/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/topic_state/state = default_state)
+
+	if(!setup_machine(user))
+		return
+
 	var/list/data = list(
 		"stack_amt" = machine.stack_amt,
 		"contents" = list()
@@ -107,8 +117,6 @@
 /obj/machinery/mineral/stacking_machine/machinery_process()
 	..()
 	if(!console)
-		log_debug("Stacking machine tried to process, but no console has linked itself to it.")
-		qdel(src)
 		return
 
 	if (output && input)

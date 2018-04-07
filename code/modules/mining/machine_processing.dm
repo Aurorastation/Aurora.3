@@ -15,13 +15,19 @@
 	var/points = 0
 	var/obj/item/weapon/card/id/inserted_id
 
-/obj/machinery/mineral/processing_unit_console/Initialize()
-	. = ..()
-	src.machine = locate(/obj/machinery/mineral/processing_unit) in get_area(src)
-	if (machine)
-		machine.console = src
-	else
-		return INITIALIZE_HINT_QDEL
+/obj/machinery/mineral/processing_unit_console/proc/setup_machine(mob/user)
+	if(!machine)
+		var/area/A = get_area(src)
+		for(var/obj/machinery/mineral/processing_unit/checked_machine in SSmachinery.all_machines)
+			if(A == get_area(checked_machine))
+				machine = checked_machine
+				break
+		if (machine)
+			machine.console = src
+		else
+			user << "<span class='warning'>ERROR: Linked machine not found!</span>"
+
+	return machine
 
 /obj/machinery/mineral/processing_unit_console/attack_hand(mob/user)
 	add_fingerprint(user)
@@ -30,6 +36,9 @@
 /obj/machinery/mineral/processing_unit_console/interact(mob/user)
 
 	if(..())
+		return
+
+	if(!setup_machine(user))
 		return
 
 	if(!allowed(user))
@@ -180,7 +189,7 @@
 		ores_processing[O] = 0
 		ores_stored[O] = 0
 
-//Locate our output and input machinery.
+	//Locate our output and input machinery.
 	for (var/dir in cardinal)
 		src.input = locate(/obj/machinery/mineral/input, get_step(src, dir))
 		if(src.input) break
