@@ -120,6 +120,7 @@
 		src.icon_state = initial(icon_state)
 	to_chat(usr, "You change \the [src] to cover the [src.flipped ? "left" : "right"] eye.")
 	update_clothing_icon()
+	update_icon()
 
 /obj/item/clothing/glasses/monocle
 	name = "monocle"
@@ -414,11 +415,17 @@
 	hud = /obj/item/clothing/glasses/hud/security
 	eye_color = COLOR_BLUE
 
+/obj/item/clothing/glasses/eyepatch/hud/security/process_hud(var/mob/M)
+	process_sec_hud(M, 1)
+
 /obj/item/clothing/glasses/eyepatch/hud/medical
 	name = "MEDpatch"
 	desc = "A Medical-type heads-up display that connects directly to the optic nerve of the user, giving you information about a patient your department will likely ignore."
 	hud = /obj/item/clothing/glasses/hud/health
 	eye_color = COLOR_CYAN
+
+/obj/item/clothing/glasses/eyepatch/hud/medical/process_hud(var/mob/M)
+	process_med_hud(M, 1)
 
 /obj/item/clothing/glasses/eyepatch/hud/meson
 	name = "MESpatch"
@@ -453,7 +460,7 @@
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	eye_color = COLOR_ORANGE
 
-/obj/item/clothing/glasses/eyepatch/hud/thermal/New()
+/obj/item/clothing/glasses/eyepatch/hud/thermal/Initialize()
 	..()
 	overlay = global_hud.thermal
 
@@ -471,7 +478,7 @@
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	eye_color = COLOR_GREEN
 
-/obj/item/clothing/glasses/eyepatch/hud/night/New()
+/obj/item/clothing/glasses/eyepatch/hud/night/Initialize()
 	..()
 	overlay = global_hud.nvg
 
