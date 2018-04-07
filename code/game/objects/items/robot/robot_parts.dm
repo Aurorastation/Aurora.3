@@ -213,9 +213,9 @@
 
 				var/mob/living/carbon/human/unbranded_frame/new_shell = new(get_turf(loc), TRUE, "Unbranded Frame")
 				new_shell.set_species(src.chest.linked_frame)
+				src.forceMove(null) //so people won't mess around with the chassis until it is deleted
 				M.brainmob.mind.transfer_to(new_shell)
 				qdel(M)
-				src.forceMove(null) //so people won't mess around with the chassis until it is deleted
 				var/newname = sanitizeSafe(input(new_shell,"Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
 				if(!newname)
 					var/datum/language/L = all_languages[new_shell.species.default_language]
