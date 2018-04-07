@@ -102,7 +102,7 @@
 
 //Chemist is a medical job damnit	//YEAH FUCK YOU SCIENCE	-Pete	//Guys, behave -Erro
 /datum/job/Biochemist
-	title = "Biohemist"
+	title = "Biochemist"
 	flag = BIOCHEMIST
 	department = "Medical"
 	department_flag = MEDSCI
