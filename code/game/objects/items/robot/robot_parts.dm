@@ -9,6 +9,7 @@
 	var/sabotaged = 0 //Emagging limbs can have repercussions when installed as prosthetics.
 	var/model_info
 	var/linked_frame = "Unbranded Frame"
+	var/model
 	dir = SOUTH
 
 /obj/item/robot_parts/set_dir()
@@ -61,7 +62,6 @@
 	desc = "A heavily reinforced case containing cyborg logic boards, with space for a standard power cell."
 	icon_state = "chest"
 	part = list("groin","chest")
-	model_info = 1
 	var/wires = 0.0
 	var/obj/item/weapon/cell/cell = null
 
@@ -211,8 +211,7 @@
 					user << "<span class='warning'>\The [W] does not seem to fit.</span>"
 					return
 
-				var/mob/living/carbon/human/unbranded_frame/new_shell = new(get_turf(loc), TRUE, "Unbranded Frame")
-				new_shell.set_species(src.chest.linked_frame)
+				var/mob/living/carbon/human/new_shell = new(get_turf(loc), src.chest.linked_frame)
 				src.forceMove(null) //so people won't mess around with the chassis until it is deleted
 				M.brainmob.mind.transfer_to(new_shell)
 				qdel(M)
@@ -347,3 +346,40 @@
 		user << "<span class='warning'>You short out the safeties.</span>"
 		sabotaged = 1
 		return 1
+
+//branded chest, to be used in ipc ressurection
+
+/obj/item/robot_parts/chest/bishop
+	name = "Bishop cybernetics torso"
+	model_info = 1
+	model = PROSTHETIC_BC
+
+/obj/item/robot_parts/chest/hephaestus
+	name = "Hephaestus industries torso"
+	model_info = 1
+	model = PROSTHETIC_HI
+
+/obj/item/robot_parts/chest/zenghu
+	name = "Zeng-Hu pharmaceuticals torso"
+	model_info = 1
+	model = PROSTHETIC_ZH
+
+/obj/item/robot_parts/chest/synthskin
+	name = "Human synthskin torso"
+	model_info = 1
+	model = PROSTHETIC_SYNTHSKIN
+
+/obj/item/robot_parts/chest/xion
+	name = "Xion manufacturing group torso"
+	model_info = 1
+	model = PROSTHETIC_XMG
+
+/obj/item/robot_parts/chest/ipc
+	name = "Hephaestus integrated torso"
+	model_info = 1
+	model = PROSTHETIC_IPC
+
+/obj/item/robot_parts/chest/industrial
+	name = "Hephaestus industrial torso"
+	model_info = 1
+	model = PROSTHETIC_IND
