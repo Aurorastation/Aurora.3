@@ -60554,20 +60554,16 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "cah" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/disposalpipe/tagger/partial{
-	name = "Sorting Office";
-	icon_state = "pipe-tagger-partial";
+/obj/machinery/camera/network/supply{
+	c_tag = "Warehouse - North"
+	},
+/obj/effect/floor_decal/industrial/warning/cee,
+/obj/structure/disposalpipe/tagger{
 	dir = 1;
+	name = "Sorting Office";
 	sort_tag = "Sorting Office"
 	},
-/obj/machinery/camera/network/civilian_west{
-	c_tag = "Cargo - Main Warehouse North";
-	dir = 2
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/large_stock_marker,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/quartermaster/storage)
 "cai" = (
 /obj/effect/decal/cleanable/dirt,
