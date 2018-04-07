@@ -30,10 +30,6 @@
 						<td>{{:data.order_value}} Credits</td>
 					</tr>
 					<tr>
-						<td><b>Shuttle Fee:</b></td>
-						<td>{{:data.order_shuttle_fee}}</td>
-					</tr>
-					<tr>
 						<td>{{:helper.link('Details', 'cart', {'page' : 'order'}, null)}}</td>
 						<td>{{:helper.link('Clear', 'cancel', {'clear_order' : 'clear_order'}, null)}} {{:helper.link("Submit Order", 'play', {'submit_order' : 'submit_order'}, null)}}</td>
 					</tr>
@@ -61,42 +57,21 @@
 				<td><i>{{:value.description}}</i></td>
 			</tr>
 			<tr>
-				<td>{{:helper.link('Item Details', 'gear', {'item_details' : value.path}, null)}}</td>
+				<td>Shipped by: {{:value.supplier_data.name}}</td>
+			</tr>
+			<tr>
+				<td>
+					{{if value.supplier_data.available && value.price_adjusted > 0}}				
+						{{:helper.link(value.price_adjusted, 'gear', {'add_item' : value.id}, null)}}
+					{{else}}
+						{{:helper.link(value.name + " /Unavailable/", 'gear', null, "disabled")}}
+					{{/if}}	
+				</td>
 			</tr>
 			<tr><td><hr></td></tr>
 		{{/for}}
 		</table>
     </div>
-{{else data.page == "item_details"}}
-	<div>
-		<table>
-			<tr>
-				<td colspan="2">{{:helper.link('Return', 'gear', {'page' : 'main'}, null)}}</td>
-			</tr>
-			<tr>
-				<td><b>Name:</b></td>
-				<td>{{:data.item_details.name}}</td>
-			</tr>
-			<tr>
-				<td><b>Description:</b></td>
-				<td>{{:data.item_details.description}}</td>
-			</tr>
-			<tr>
-				<td><b>Items per Order:</b></td>
-				<td>{{:data.item_details.amount}}</td>
-			</tr>
-		</table>
-		<br>
-		<b>Suppliers:</b>
-		<br>
-		{{props data.item_details.suppliers}}
-			{{if value.available && value.adjusted_price > 0}}
-				{{:helper.link(value.name + " " + value.adjusted_price, 'gear', {'add_item' : data.item_details.path, 'supplier': key}, null)}}
-			{{else}}
-				{{:helper.link(value.name + " /Unavailable/", 'gear', null, "disabled")}}
-			{{/if}}
-		{{/for}}
-	</div>
 {{else data.page == "order"}}
     <br>
 	<table width="100%">

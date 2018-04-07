@@ -41,7 +41,6 @@
 	data["order_items"] = co.get_item_list()
 	data["order_value"] = co.get_value(0)
 	data["order_item_count"] = co.get_item_count()
-	data["order_shuttle_fee"] = co.get_max_shipment_cost()
 
 	//Pass Data for Main page
 	if(page == "main")
@@ -53,10 +52,10 @@
 		data["category_items"] = SScargo.get_items_for_category(selected_category)
 
 	//Pass Data for Item Details Page
-	else if(page == "item_details")
-		var/datum/cargo_item/ci = SScargo.cargo_items[selected_item]
-		if(ci)
-			data["item_details"] = ci.get_list()
+	//else if(page == "item_details")
+	//	var/datum/cargo_item/ci = SScargo.cargo_items[selected_item]
+	//	if(ci)
+	//		data["item_details"] = ci.get_list()
 
 	else if (page == "tracking")
 		data["tracking_id"] = user_tracking_id
@@ -72,7 +71,7 @@
 				if(co.tracking_code == user_tracking_code)
 					data["tracking_status"] = "Success"
 					data["tracked_order"] = co.get_list()
-					data["tracked_order_report"] = co.get_report()
+					data["tracked_order_report"] = co.get_report_invoice()
 				else
 					data["tracking_status"] = "Invalid Tracking Code"
 			else
@@ -113,9 +112,9 @@
 			status_message = "Unable to submit order. No reason supplied."
 			return 1
 
-		co.customer = last_user_name
+		co.ordered_by = last_user_name
 		co.reason = reason
-		SScargo.submit_order(co)
+		co.set_submitted()
 		status_message = "Order submitted successfully. Order ID: [co.order_id] Tracking code: [co.get_tracking_code()]" 
 		//TODO: Print a list with the order data
 		co = null
@@ -124,22 +123,19 @@
 	//Add item to the order list
 	if(href_list["add_item"])
 		var/datum/cargo_order_item/coi = new
-		coi.ci = SScargo.cargo_items[href_list["add_item"]]
-		coi.supplier = href_list["supplier"]
-		//Check if the selected supplier exists for the item and get the price for the supplier
-		var/supplier_details = coi.ci.suppliers[coi.supplier]
-		if(supplier_details)
-			coi.cs = SScargo.get_supplier_by_name(coi.supplier)
+		var/datum/cargo_item/ci = SScargo.cargo_items[href_list["add_item"]]
+		if(ci)
+			coi.ci = ci
 			coi.calculate_price()
 			if(coi.price > 0)
 				status_message = co.add_item(coi)
 			else
-				status_message = "Unable to add item [coi.ci.name] - Internal Error 602."
-				log_debug("Cargo Order: Warning - Attempted to order item [coi.ci.name] from supplier [href_list["supplier"]] with invalid purchase price")
+				status_message = "Unable to add item [text2num(href_list["add_item"])] - Internal Error 601."
+				log_debug("Cargo Order: Warning - Attempted to order item [coi.ci.name] with invalid purchase price")
 				qdel(coi)
 		else
-			status_message = "Unable to add item [coi.ci.name] - Internal Error 605."
-			log_debug("Cargo Order: Warning - Attempted to order item [coi.ci.name] from non existant supplier [href_list["supplier"]]")
+			status_message = "Unable to locate item in sales database - Internal Error 602."
+			log_debug("Cargo Order: Warning - Attempted to order item with non-existant id: [href_list["add_item"]]")
 			qdel(coi)
 
 		//Reset page to main page - TODO: Maybe add a way to disable jumping back to the main page - Commented out for now

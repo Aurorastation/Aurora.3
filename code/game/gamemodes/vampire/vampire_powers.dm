@@ -747,7 +747,7 @@
 
 	admin_attack_log(src, T, "used diseased touch on [key_name(T)]", "was given a lethal disease by [key_name(src)]", "used diseased touch (<a href='?src=\ref[lethal];info=1'>virus info</a>) on")
 
-	vampire.use_blood(200)
+	vampire.use_blood(100)
 	verbs -= /mob/living/carbon/human/proc/vampire_diseasedtouch
 	ADD_VERB_IN_IF(src, 1800, /mob/living/carbon/human/proc/vampire_diseasedtouch, CALLBACK(src, .proc/finish_vamp_timeout))
 

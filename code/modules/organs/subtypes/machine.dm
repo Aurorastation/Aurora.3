@@ -82,13 +82,6 @@
 		owner.Paralyse(emp_counter/6)
 		owner << "<span class='danger'>%#/ERR: Power leak detected!$%^/</span>"
 
-/obj/item/organ/cell/replaced()
-	. = ..()
-	// This is very ghetto way of rebooting an IPC. TODO better way.
-	if(owner && owner.stat == DEAD)
-		owner.stat = 0
-		owner.visible_message("<span class='danger'>\The [owner] twitches visibly!</span>")
-
 /obj/item/organ/eyes/optical_sensor
 	name = "optical sensor"
 	singular_name = "optical sensor"
@@ -141,17 +134,6 @@
 	if(istype(holder_mob))
 		holder_mob.drop_from_inventory(src)
 	qdel(src)
-
-/obj/item/organ/mmi_holder/Initialize(mapload)
-	. = ..()
-	// This is very ghetto way of rebooting an IPC. TODO better way.
-	if (!mapload)
-		addtimer(CALLBACK(src, .proc/attempt_revive), 1)
-
-/obj/item/organ/mmi_holder/proc/attempt_revive()
-	if (owner && owner.stat == DEAD)
-		owner.stat = 0
-		owner.visible_message("<span class='danger'>\The [owner] twitches visibly!</span>")
 
 /obj/item/organ/mmi_holder/posibrain/Initialize()
 	robotize()
@@ -408,3 +390,61 @@
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
+
+//unbranded
+
+/obj/item/organ/external/head/unbranded
+	dislocated = -1
+	can_intake_reagents = 0
+	encased = "support frame"
+	robotize_type = "Unbranded"
+
+/obj/item/organ/external/chest/unbranded
+	dislocated = -1
+	encased = "support frame"
+	robotize_type = "Unbranded"
+
+/obj/item/organ/external/groin/unbranded
+	dislocated = -1
+	encased = "support frame"
+	robotize_type = "Unbranded"
+
+/obj/item/organ/external/arm/unbranded
+	dislocated = -1
+	encased = "support frame"
+	robotize_type = "Unbranded"
+
+/obj/item/organ/external/arm/right/unbranded
+	dislocated = -1
+	encased = "support frame"
+	robotize_type = "Unbranded"
+
+/obj/item/organ/external/leg/unbranded
+	dislocated = -1
+	encased = "support frame"
+	robotize_type = "Unbranded"
+
+/obj/item/organ/external/leg/right/unbranded
+	dislocated = -1
+	encased = "support frame"
+	robotize_type = "Unbranded"
+
+/obj/item/organ/external/foot/unbranded
+	dislocated = -1
+	encased = "support frame"
+	robotize_type = "Unbranded"
+
+/obj/item/organ/external/foot/right/unbranded
+	dislocated = -1
+	encased = "support frame"
+	robotize_type = "Unbranded"
+
+/obj/item/organ/external/hand/unbranded
+	dislocated = -1
+	encased = "support frame"
+	robotize_type = "Unbranded"
+
+/obj/item/organ/external/hand/right/unbranded
+	dislocated = -1
+	encased = "support frame"
+	robotize_type = "Unbranded"

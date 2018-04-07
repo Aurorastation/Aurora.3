@@ -2,6 +2,7 @@
 	density = 1
 	anchored = 1
 	icon = 'icons/obj/cult.dmi'
+	appearance_flags = NO_CLIENT_COLOR
 
 /obj/structure/cult/cultify()
 	return
@@ -623,6 +624,7 @@
 		/mob/living/simple_animal/hostile/creature/cult,
 		/mob/living/simple_animal/hostile/faithless/cult
 	)
+	appearance_flags = NO_CLIENT_COLOR
 
 /obj/effect/gateway/active/cult/cultify()
 	return

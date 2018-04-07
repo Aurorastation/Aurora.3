@@ -33,6 +33,9 @@
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "chitin"
 
+/obj/item/organ/brain/xeno/gain_trauma()
+	return
+	
 /obj/item/organ/brain/Initialize(mapload)
 	. = ..()
 	health = config.default_brain_health
