@@ -3,8 +3,7 @@
 --
 ALTER TABLE `ss13_player`
 	ADD COLUMN `rank` VARCHAR(32) NULL DEFAULT NULL AFTER `migration_status`,
-	ADD COLUMN `level` INT(2) NULL DEFAULT -1 AFTER `rank`,
-	ADD COLUMN `flags` INT(16) DEFAULT 0 AFTER `level`,
+	ADD COLUMN `flags` INT(16) DEFAULT 0 AFTER `rank`,
 	ADD COLUMN `discord_id` VARCHAR(45) NULL DEFAULT NULL AFTER `flags`;
 
 UPDATE `ss13_admin`
@@ -15,7 +14,6 @@ UPDATE `ss13_player`
 INNER JOIN `ss13_admin` ON ss13_admin.ckey = ss13_player.ckey
 SET
 	ss13_player.rank = ss13_admin.rank,
-	ss13_player.`level` = ss13_admin.`level`,
 	ss13_player.flags = ss13_admin.flags,
 	ss13_player.discord_id = ss13_admin.discord_id;
 

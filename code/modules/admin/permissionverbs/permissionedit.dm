@@ -81,7 +81,7 @@
 		admin_id = text2num(select_query.item[1])
 
 	if(new_admin)
-		var/DBQuery/update_query = dbcon.NewQuery("UPDATE `ss13_player` SET `rank` = '[new_rank]', `level` = -1, flags = 0 WHERE ckey = '[adm_ckey]'")
+		var/DBQuery/update_query = dbcon.NewQuery("UPDATE `ss13_player` SET `rank` = '[new_rank]', flags = 0 WHERE ckey = '[adm_ckey]'")
 		update_query.Execute()
 		var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO `ss13_admin_log` (`id` ,`datetime` ,`adminckey` ,`adminip` ,`log` ) VALUES (NULL , NOW( ) , '[usr.ckey]', '[usr.client.address]', 'Added new admin [adm_ckey] to rank [new_rank]');")
 		log_query.Execute()
@@ -93,7 +93,7 @@
 		log_query.Execute()
 		usr << "<span class='notice'>Admin rank changed.</span>"
 	else if(!isnull(admin_id) && isnum(admin_id) && new_rank == "Removed")
-		var/DBQuery/insert_query = dbcon.NewQuery("UPDATE `ss13_player` SET rank = NULL, flags = NULL WHERE id = [admin_id]")
+		var/DBQuery/insert_query = dbcon.NewQuery("UPDATE `ss13_player` SET rank = NULL, flags = 0 WHERE id = [admin_id]")
 		insert_query.Execute()
 		var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO `ss13_admin_log` (`id` ,`datetime` ,`adminckey` ,`adminip` ,`log` ) VALUES (NULL , NOW( ) , '[usr.ckey]', '[usr.client.address]', 'Removed the rank of [adm_ckey]');")
 		log_query.Execute()
