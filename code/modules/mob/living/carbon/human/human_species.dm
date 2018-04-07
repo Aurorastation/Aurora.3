@@ -104,6 +104,9 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/industrial_bishop/Initialize(mapload)
 	. = ..(mapload, "Bishop Accessory Frame")
 
+/mob/living/carbon/human/unbranded_frame/Initialize(mapload)
+	. = ..(mapload, "Unbranded Frame")
+
 /mob/living/carbon/human/terminator/Initialize(mapload)
 	. = ..(mapload, "Hunter-Killer")
 	add_language(LANGUAGE_SOL_COMMON, 1)

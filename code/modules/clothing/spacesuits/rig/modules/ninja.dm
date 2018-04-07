@@ -269,50 +269,13 @@
 /obj/item/rig_module/emergency_powergenerator/proc/reset_cooldown()
 	cooldown = 0
 
-/obj/item/rig_module/emag_hand
-	name = "EMAG integrated hand"
-	desc = "A complex uprade that allows the user to touch things with their hand and apply an EMAG effect. High power cost."
+/obj/item/rig_module/device/emag_hand
+	name = "integrated cryptographic sequencer"
+	desc = "A complex uprade that allows the user to apply an EMAG effect to certain objects. High power cost."
 	use_power_cost = 100
-	usable = 0
-	toggleable = 1
-	activates_on_touch = 1
-	disruptive = 0
-
-	activate_string = "Enable EMAG"
-	deactivate_string = "Disable EMAG"
-
-	interface_name = "enable EMAG"
-	interface_desc = "A complex uprade that allows the user to touch things with their hand and apply an EMAG effect. High power cost."
-	var/atom/interfaced_with
 	module_cooldown = 4800
 
-/obj/item/rig_module/emag_hand/activate()
-	if(!..())
-		return
+	interface_name = "integrated cryptographic sequencer"
+	interface_desc = "A complex uprade that allows the user to apply an EMAG effect to certain objects. High power cost."
 
-/obj/item/rig_module/emag_hand/deactivate()
-	if(!..())
-		return
-
-/obj/item/rig_module/emag_hand/engage(atom/target)
-
-	if(!..())
-		return 0
-
-	if(interfaced_with)
-		return 0
-
-	if(!target)
-		return 1
-
-	if(!target.Adjacent(holder.wearer))
-		return 0
-
-	holder.wearer << "<span class = 'danger'>You stick your hand on [target] shorting out some of its circuits!</span>"
-	interfaced_with = target
-	target.emag_act(user, src)
-	addtimer(CALLBACK(src, /obj/item/rig_module/emag_hand/proc/reset_interface, 2))
-	return 1
-
-/obj/item/rig_module/emag_hand/proc/reset_interface()
-	interfaced_with = null
+	device_type = /obj/item/weapon/robot_emag

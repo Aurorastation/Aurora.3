@@ -1,5 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-//Model dictionary trimmed on: 10-03-2018 20:24 (UTC)
 "aaa" = (
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
@@ -22147,6 +22146,14 @@
 "aWP" = (
 /turf/template_noop,
 /area/space)
+"aWQ" = (
+/obj/effect/landmark{
+	name = "ERTCommander"
+	},
+/turf/unsimulated/floor{
+	icon_state = "grimy"
+	},
+/area/centcom/creed)
 
 (1,1,1) = {"
 aaa
@@ -55199,7 +55206,7 @@ aqt
 aqt
 avf
 avz
-avz
+aWQ
 awb
 awP
 avf
