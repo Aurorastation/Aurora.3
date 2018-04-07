@@ -217,3 +217,4 @@
 #define CURE_SOLITUDE "solitude"
 #define CURE_HYPNOSIS "hypnosis"
 #define CURE_SURGERY "surgery"
+#define CURE_ADMIN "all"

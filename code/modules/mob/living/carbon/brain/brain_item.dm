@@ -191,8 +191,8 @@
 /obj/item/organ/brain/proc/cure_all_traumas(cure_permanent = FALSE, cure_type = "")
 	for(var/X in traumas)
 		var/datum/brain_trauma/trauma = X
-		if(trauma.cure_type == cure_type || cure_type == "all")
+		if(trauma.cure_type == cure_type || cure_type == CURE_ADMIN)
 			if(cure_permanent || !trauma.permanent)
 				qdel(trauma)
-				if(cure_type != "all")
+				if(cure_type != CURE_ADMIN)
 					break

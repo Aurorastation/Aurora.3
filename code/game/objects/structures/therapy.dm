@@ -72,27 +72,31 @@
 	icon_state = "pocketwatch"
 	matter = list("glass" = 150, "gold" = 50)
 	w_class = 1
-	var/mob/living/carbon/human/thrall
+	var/thrall
 	var/time_counter = 0
 
 
 /obj/item/weapon/mesmetron/process()
-	if (thrall && time_counter > 20)
-		time_counter += 0.5
-		var/thrall_response = alert(thrall, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
-		if(thrall_response == "No")
-			thrall.sleeping = max(thrall.sleeping - 40, 0)
-			thrall.drowsyness = max(thrall.drowsyness - 60, 0)
-			thrall = null
-			STOP_PROCESSING(SSfast_process, src)
-		else
-			thrall.sleeping = max(thrall.sleeping, 40)
-			thrall.drowsyness = max(thrall.drowsyness, 60)
-	else
+	if(!ishuman(thrall))
 		STOP_PROCESSING(SSfast_process, src)
+	else
+		var/mob/living/carbon/human/H = thrall
+		if (H && time_counter > 20)
+			time_counter += 0.5
+			var/thrall_response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
+			if(thrall_response == "No")
+				H.sleeping = max(H.sleeping - 40, 0)
+				H.drowsyness = max(H.drowsyness - 60, 0)
+				thrall = null
+				STOP_PROCESSING(SSfast_process, src)
+			else
+				H.sleeping = max(H.sleeping, 40)
+				H.drowsyness = max(H.drowsyness, 60)
+		else
+			STOP_PROCESSING(SSfast_process, src)
 
 /obj/item/weapon/mesmetron/attack_self(mob/user as mob)
-	if(!thrall)
+	if(!thrall || !ishuman(thrall))
 		user << "You decipher the watch's mesmerizing face, discerning the time to be: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'."
 	else
 		var/response = alert(user, "Would you like to make a suggestion to [thrall], or release them?", "Mesmetron", "Suggestion", "Release")
@@ -112,7 +116,8 @@
 			var/thrall_response = alert(thrall, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
 			if(thrall_response == "Yes")
 				thrall << "<span class='notice'><i>... [text] ...</i></span>"
-				thrall.cure_all_traumas(cure_type = CURE_HYPNOSIS)
+				var/mob/living/carbon/human/H = thrall
+				H.cure_all_traumas(cure_type = CURE_HYPNOSIS)
 			else
 				thrall = null
 
@@ -151,29 +156,34 @@
 	icon_state = "metronome1"
 	anchored = 1
 	density = 0
+	var/time_last_ran = 0
 	var/ticktock = "Tick"
 
 /obj/structure/metronome/Initialize()
 	. = ..()
-	START_PROCESSING(SSslow_process, src)
+	START_PROCESSING(SSfast_process, src)
 
 /obj/structure/metronome/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(iswrench(W))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		if(anchored)
 			user << "<span class='notice'>You unanchor \the [src] and it destabilizes.</span>"
-			STOP_PROCESSING(SSslow_process, src)
+			STOP_PROCESSING(SSfast_process, src)
 			icon_state = "metronome0"
 			anchored = 0
 		else
 			user << "<span class='notice'>You anchor \the [src] and it restabilizes.</span>"
-			START_PROCESSING(SSslow_process, src)
+			START_PROCESSING(SSfast_process, src)
 			icon_state = "metronome1"
 			anchored = 1
 	else
 		..()
 
 /obj/structure/metronome/process()
+	if (world.time - time_last_ran < 60)
+		return
+
+	time_last_ran = world.time
 	var/counter = 0
 	var/mob/living/carbon/human/H
 	for(var/mob/living/L in view(3,src.loc))
@@ -202,7 +212,7 @@
 	idle_power_usage = 60
 	active_power_usage = 10000
 
-	var/mob/living/carbon/occupant
+	var/occupant
 	var/locked
 	var/obj/machinery/chakraconsole/connected
 
@@ -244,6 +254,9 @@
 	if(locked)
 		user << "<span class='warning'>The pod is currently locked!</span>"
 		return
+	if(!ishuman(occupant))
+		user << "<span class='warning'>The subject does not fit!</span>"
+		return
 	usr.pulling = null
 	usr.client.perspective = EYE_PERSPECTIVE
 	usr.client.eye = src
@@ -257,7 +270,7 @@
 	return
 
 /obj/machinery/chakrapod/proc/go_out()
-	if (!src.occupant)
+	if (!src.occupant || !ishuman(occupant))
 		return
 
 	if(locked)
@@ -265,19 +278,21 @@
 		if(!do_after(occupant, 1200))
 			return
 
+	var/mob/living/carbon/human/H = occupant
+
 	for(var/obj/O in src)
 		O.forceMove(get_turf(src))
-	if (src.occupant.client)
-		src.occupant.client.eye = src.occupant.client.mob
-		src.occupant.client.perspective = MOB_PERSPECTIVE
-	src.occupant.forceMove(get_turf(src))
-	src.occupant = null
+	if (H.client)
+		H.client.eye = H.client.mob
+		H.client.perspective = MOB_PERSPECTIVE
+	H.forceMove(get_turf(src))
+	occupant = null
 	update_use_power(1)
 	src.icon_state = "syndipod_0"
 	return
 
 /obj/machinery/chakrapod/attackby(obj/item/weapon/grab/G as obj, user as mob)
-	if ((!( istype(G, /obj/item/weapon/grab) ) || !( ismob(G.affecting) )))
+	if ((!( istype(G, /obj/item/weapon/grab) ) || !(ishuman(G.affecting))))
 		return
 	if (src.occupant)
 		user << "<span class='warning'>The pod is already occupied!</span>"
@@ -289,28 +304,27 @@
 		user << "<span class='warning'>The pod is locked.</span>"
 		return
 
-	if(istype(G, /obj/item/weapon/grab))
 
-		var/mob/living/L = G:affecting
-		visible_message("[user] starts putting [G:affecting] into the pod bed.", 3)
+	var/mob/living/L = G.affecting
+	visible_message("[user] starts putting [G.affecting] into the pod bed.", 3)
 
-		if (do_mob(user, G:affecting, 30, needhand = 0))
-			var/bucklestatus = L.bucklecheck(user)
-			if (!bucklestatus)//incase the patient got buckled during the delay
-				return
-			if (bucklestatus == 2)
-				var/obj/structure/LB = L.buckled
-				LB.user_unbuckle_mob(user)
-			var/mob/M = G.affecting
-			if (istype(M) && M.client)
-				M.client.perspective = EYE_PERSPECTIVE
-				M.client.eye = src
-			M.forceMove(src)
-			src.occupant = M
-			update_use_power(2)
-			src.icon_state = "syndipod_1"
-			for(var/obj/O in src)
-				O.forceMove(get_turf(src))
+	if (do_mob(user, G.affecting, 30, needhand = 0))
+		var/bucklestatus = L.bucklecheck(user)
+		if (!bucklestatus)//incase the patient got buckled during the delay
+			return
+		if (bucklestatus == 2)
+			var/obj/structure/LB = L.buckled
+			LB.user_unbuckle_mob(user)
+		var/mob/M = G.affecting
+		if (istype(M) && M.client)
+			M.client.perspective = EYE_PERSPECTIVE
+			M.client.eye = src
+		M.forceMove(src)
+		src.occupant = M
+		update_use_power(2)
+		src.icon_state = "syndipod_1"
+		for(var/obj/O in src)
+			O.forceMove(get_turf(src))
 	src.add_fingerprint(user)
 	qdel(G)
 	return
@@ -318,20 +332,19 @@
 /obj/machinery/chakrapod/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
 	if(!istype(user))
 		return
-	if(!ismob(O))
+	if(!ishuman(O))
 		return
-	var/mob/living/M = O
+	var/mob/living/L = O
 	if (src.occupant)
 		user << "<span class='notice'><B>The pod is already occupied!</B></span>"
 		return
-	if (M.abiotic())
+	if (L.abiotic())
 		user << "<span class='notice'><B>Subject cannot have abiotic items on.</B></span>"
 		return
 	if(locked)
 		user << "<span class='warning'>The pod is locked.</span>"
 		return
 
-	var/mob/living/L = O
 	var/bucklestatus = L.bucklecheck(user)
 
 	if (!bucklestatus)//We must make sure the person is unbuckled before they go in
@@ -346,41 +359,16 @@
 		if (bucklestatus == 2)
 			var/obj/structure/LB = L.buckled
 			LB.user_unbuckle_mob(user)
-		if (M.client)
-			M.client.perspective = EYE_PERSPECTIVE
-			M.client.eye = src
-		M.forceMove(src)
-		src.occupant = M
+		if (L.client)
+			L.client.perspective = EYE_PERSPECTIVE
+			L.client.eye = src
+		L.forceMove(src)
+		src.occupant = L
 		update_use_power(2)
 		src.icon_state = "syndipod_1"
 		for(var/obj/Obj in src)
 			Obj.forceMove(get_turf(src))
 	src.add_fingerprint(user)
-	return
-
-/obj/machinery/chakrapod/ex_act(severity)
-	switch(severity)
-		if(1.0)
-			for(var/atom/movable/A as mob|obj in src)
-				A.forceMove(get_turf(src))
-				ex_act(severity)
-			qdel(src)
-			return
-		if(2.0)
-			if (prob(50))
-				for(var/atom/movable/A as mob|obj in src)
-					A.forceMove(get_turf(src))
-					ex_act(severity)
-				qdel(src)
-				return
-		if(3.0)
-			if (prob(25))
-				for(var/atom/movable/A as mob|obj in src)
-					A.forceMove(get_turf(src))
-					ex_act(severity)
-				qdel(src)
-				return
-		else
 	return
 
 /obj/machinery/chakraconsole
@@ -414,21 +402,18 @@
 
 /obj/machinery/chakraconsole/power_change()
 	..()
-	if(stat & BROKEN)
+	if((stat & BROKEN) || (stat & NOPOWER))
 		icon_state = "syndipod_scannerconsole-p"
 	else
-		if (stat & NOPOWER)
-			spawn(rand(0, 15))
-				src.icon_state = "syndipod_scannerconsole-p"
-		else
-			icon_state = initial(icon_state)
+		icon_state = initial(icon_state)
 
 /obj/machinery/chakraconsole/Initialize()
 	. = ..()
 	for(var/obj/machinery/chakrapod/C in orange(1,src))
 		connected = C
 		break
-	connected.connected = src
+	if(connected)
+		connected.connected = src
 
 /obj/machinery/chakraconsole/attack_ai(user as mob)
 	return src.attack_hand(user)
@@ -506,46 +491,46 @@
 /obj/machinery/chakraconsole/proc/neural_check(var/mob/user, var/mob/living/carbon/human/H)
 	var/response = input(user,"Input number of rotations","Therapy Pod","0")
 	var/alert = text2num(sanitize(response))
-	if(alert)
-
-		for(var/i=0;i<alert;i++)
-			sleep(100)
-			var/electroshock_trauma = 0
-			if(H && H == connected.occupant)
-				var/obj/item/organ/brain/sponge = H.internal_organs_by_name["brain"]
-				if(sponge && istype(sponge))
-					if(sponge.traumas.len)
-						for(var/X in sponge.traumas)
-							var/datum/brain_trauma/trauma = X
-							if(trauma.cure_type == CURE_CRYSTAL)
-								if(!trauma.permanent)
-									qdel(trauma)
-									electroshock_trauma = 1
-									break
-					if(electroshock_trauma)
-						visible_message("<span class='notice'>[connected] pings cheerfully.</span>", "<span class='notice'>You hear a ping.</span>")
-						playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
-					else
-						if(get_dist(user,src) <= 1)
-							user << "<span class='danger'>Error: Brain abnormality not recognized. Subject contamination detected.</span>"
-						playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
-						visible_message("<span class='warning'>[connected] buzzes harshly.</span>", "<span class='warning'>You hear a sharp buzz.</span>")
-						H.apply_radiation(max(1,i))
-				else
-					if(get_dist(user,src) <= 1)
-						user << "<span class='danger'>Error: Subject not recognized. Terminating operation.</span>"
-					playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
-					visible_message("<span class='warning'>[connected] buzzes harshly.</span>", "<span class='warning'>You hear a sharp buzz.</span>")
-					break
-			else
-				if(get_dist(user,src) <= 1)
-					user << "<span class='danger'>Error: Subject not recognized. Terminating operation.</span>"
-				playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
-				visible_message("<span class='warning'>[connected] buzzes harshly.</span>", "<span class='warning'>You hear a sharp buzz.</span>")
-				break
-			crystal = 1
-	else
+	if(!alert)
 		user << "<span class='warning'>Error. Invalid input.</span>"
+		return
+
+	for(var/i=0;i<alert;i++)
+		sleep(100)
+		var/electroshock_trauma = 0
+		if(!H || H != connected.occupant)
+			if(get_dist(user,src) <= 1)
+				user << "<span class='danger'>Error: Subject not recognized. Terminating operation.</span>"
+			playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
+			visible_message("<span class='warning'>[connected] buzzes harshly.</span>", "<span class='warning'>You hear a sharp buzz.</span>")
+			break
+
+		var/obj/item/organ/brain/sponge = H.internal_organs_by_name["brain"]
+		if (!istype(sponge) || !sponge.traumas.len)
+			if(get_dist(user,src) <= 1)
+				user << "<span class='danger'>Error: Subject not recognized. Terminating operation.</span>"
+			playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
+			visible_message("<span class='warning'>[connected] buzzes harshly.</span>", "<span class='warning'>You hear a sharp buzz.</span>")
+			break
+
+		for(var/X in sponge.traumas)
+			var/datum/brain_trauma/trauma = X
+			if(trauma.cure_type == CURE_CRYSTAL)
+				if(!trauma.permanent)
+					qdel(trauma)
+					electroshock_trauma = 1
+					break
+
+		if(electroshock_trauma)
+			visible_message("<span class='notice'>[connected] pings cheerfully.</span>", "<span class='notice'>You hear a ping.</span>")
+			playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
+
+		else
+			if(get_dist(user,src) <= 1)
+				user << "<span class='danger'>Error: Brain abnormality not recognized. Subject contamination detected.</span>"
+			playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
+			visible_message("<span class='warning'>[connected] buzzes harshly.</span>", "<span class='warning'>You hear a sharp buzz.</span>")
+			H.apply_radiation(max(1,i))
 
 /obj/machinery/chakraconsole/proc/total_recall(var/mob/user, var/mob/living/carbon/human/H)
 	if(H && H == connected.occupant)
