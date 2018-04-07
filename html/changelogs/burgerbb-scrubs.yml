@@ -1,0 +1,7 @@
+author: BurgerBB
+
+delete-after: True
+
+changes: 
+  - balance: "Reduced the amount of reagents in a scrubber blast from 50 to 35."
+  - tweak: "Added paint, luminol, fuel, blood, sterilizine, ipecac, and soporific to scrubber event RNG."
