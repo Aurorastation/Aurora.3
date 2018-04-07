@@ -3,4 +3,4 @@ delete-after: True
 
 changes:
   - rscdel: "Replacing a dead ipc's powercell or posibrain should not revive them anymore."
-  - rscadd: "Robotics can now create ipcs using a cyborg chassis that had its law system disabled, the new ipc's chassis will be based on the torso's brand."
+  - rscadd: "Robotics can now create ipcs using a cyborg chassis that had its law system disabled, the new ipc's chassis will be based on the torso's brand. While robotics is unable to print torsos with their own brand, they should be available at cargo."
