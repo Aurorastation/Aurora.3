@@ -264,8 +264,8 @@
 /obj/item/clothing/accessory/sweater
 	name = "sweater"
 	desc = "A warm knit sweater."
-	icon_state = "suspenders"
-	item_state = "suspenders"
+	icon_state = "sweater"
+	item_state = "sweater"
 
 /obj/item/clothing/accessory/scarf
 	name = "white scarf"
