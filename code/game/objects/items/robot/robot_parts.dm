@@ -9,7 +9,6 @@
 	var/sabotaged = 0 //Emagging limbs can have repercussions when installed as prosthetics.
 	var/model_info
 	var/linked_frame = "Unbranded Frame"
-	var/model
 	dir = SOUTH
 
 /obj/item/robot_parts/set_dir()
@@ -352,34 +351,28 @@
 /obj/item/robot_parts/chest/bishop
 	name = "Bishop cybernetics torso"
 	model_info = 1
-	model = PROSTHETIC_BC
+	linked_frame = "Bishop Accessory Frame"
 
 /obj/item/robot_parts/chest/hephaestus
 	name = "Hephaestus industries torso"
-	model_info = 1
-	model = PROSTHETIC_HI
+	linked_frame = "Hephaestus G2 Industrial Frame"
 
 /obj/item/robot_parts/chest/zenghu
 	name = "Zeng-Hu pharmaceuticals torso"
-	model_info = 1
-	model = PROSTHETIC_ZH
+	linked_frame = "Zeng-Hu Mobility Frame"
 
 /obj/item/robot_parts/chest/synthskin
 	name = "Human synthskin torso"
-	model_info = 1
-	model = PROSTHETIC_SYNTHSKIN
+	linked_frame = "Hephaestus G1 Industrial Frame"
 
 /obj/item/robot_parts/chest/xion
 	name = "Xion manufacturing group torso"
-	model_info = 1
-	model = PROSTHETIC_XMG
+	linked_frame = "Xion Industrial Frame"
 
 /obj/item/robot_parts/chest/ipc
 	name = "Hephaestus integrated torso"
-	model_info = 1
-	model = PROSTHETIC_IPC
+	linked_frame = "Baseline Frame"
 
 /obj/item/robot_parts/chest/industrial
 	name = "Hephaestus industrial torso"
-	model_info = 1
-	model = PROSTHETIC_IND
+	linked_frame = "Bishop Accessory Frame"
