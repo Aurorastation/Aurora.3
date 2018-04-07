@@ -64071,16 +64071,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
-"cgv" = (
-/obj/effect/floor_decal/corner/brown{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/outpost/mining_main/refinery)
 "cgw" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
@@ -90073,7 +90063,7 @@ cfo
 cfA
 cfR
 cgh
-cgv
+cfA
 cfA
 cgK
 cgT
