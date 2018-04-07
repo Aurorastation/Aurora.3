@@ -50,7 +50,7 @@
 	name = "EMAG Hand Module"
 	desc = "A module that allows the user to apply an EMAG effect to the targeted item."
 	item_cost = 5
-	path = /obj/item/rig_module/emag_hand
+	path = /obj/item/rig_module/device/emag_hand
 
 /datum/uplink_item/item/ninja_modules/chem_injector
 	name = "Chemical Injector"
