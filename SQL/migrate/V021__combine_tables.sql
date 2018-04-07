@@ -3,7 +3,7 @@
 --
 ALTER TABLE `ss13_player`
 	ADD COLUMN `rank` VARCHAR(32) NULL DEFAULT NULL AFTER `migration_status`,
-	ADD COLUMN `flags` INT(32) DEFAULT 0 AFTER `rank`,
+	ADD COLUMN `flags` INT(32) UNSIGNED NOT NULL DEFAULT '0',
 	ADD COLUMN `discord_id` VARCHAR(45) NULL DEFAULT NULL AFTER `flags`;
 
 UPDATE `ss13_admin`
