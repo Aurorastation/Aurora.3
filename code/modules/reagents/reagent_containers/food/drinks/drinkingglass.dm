@@ -50,11 +50,11 @@
 /obj/item/weapon/reagent_containers/food/drinks/drinkingglass/soda
 	Initialize()
 		. = ..()
-		reagents.add_reagent("sodawater", 50)
+		reagents.add_reagent(REAGENT_SODAWATER, 50)
 		on_reagent_change()
 
 /obj/item/weapon/reagent_containers/food/drinks/drinkingglass/cola
 	Initialize()
 		. = ..()
-		reagents.add_reagent("cola", 50)
+		reagents.add_reagent(REAGENT_COLA, 50)
 		on_reagent_change()

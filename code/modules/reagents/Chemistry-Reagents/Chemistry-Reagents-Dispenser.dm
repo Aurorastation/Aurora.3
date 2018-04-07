@@ -1,6 +1,6 @@
 /datum/reagent/acetone
 	name = "Acetone"
-	id = "acetone"
+	id = REAGENT_ACETONE
 	description = "A colorless liquid solvent used in chemical synthesis."
 	reagent_state = LIQUID
 	color = "#808080"
@@ -29,7 +29,7 @@
 
 /datum/reagent/aluminum
 	name = "Aluminum"
-	id = "aluminum"
+	id = REAGENT_ALUMINUM
 	description = "A silvery white and ductile member of the boron group of chemical elements."
 	reagent_state = SOLID
 	color = "#A8A8A8"
@@ -38,7 +38,7 @@
 
 /datum/reagent/ammonia
 	name = "Ammonia"
-	id = "ammonia"
+	id = REAGENT_AMMONIA
 	description = "A caustic substance commonly used in fertilizer or household cleaners."
 	reagent_state = LIQUID
 	color = "#404030"
@@ -54,7 +54,7 @@
 
 /datum/reagent/carbon
 	name = "Carbon"
-	id = "carbon"
+	id = REAGENT_CARBON
 	description = "A chemical element, the builing block of life."
 	reagent_state = SOLID
 	color = "#1C1300"
@@ -81,14 +81,14 @@
 
 /datum/reagent/copper
 	name = "Copper"
-	id = "copper"
+	id = REAGENT_COPPER
 	description = "A highly ductile metal."
 	color = "#6E3B08"
 	taste_description = "copper"
 
 /datum/reagent/alcohol //Parent class for all alcoholic reagents, though this one shouldn't be used anywhere.
 	name = null	// This null name should prevent alcohol from being added to global lists.
-	id = "alcohol"
+	id = REAGENT_ALCOHOL
 	description = "An abstract type you shouldn't be able to see."
 	reagent_state = LIQUID
 	color = "#404030"
@@ -145,7 +145,7 @@
 
 /datum/reagent/alcohol/ethanol
 	name = "Ethanol"
-	id = "ethanol"
+	id = REAGENT_ETHANOL
 	description = "A well-known alcohol with a variety of applications."
 	ingest_met = 0.5
 	flammability_divisor = 10
@@ -192,7 +192,7 @@
 // Most behavior is inherited from alcohol.
 /datum/reagent/alcohol/butanol
 	name = "Butanol"
-	id = "butanol"
+	id = REAGENT_BUTANOL
 	description = "A fairly harmless alcohol that has intoxicating effects on certain species."
 	reagent_state = LIQUID
 	color = "#404030"
@@ -218,7 +218,7 @@
 
 /datum/reagent/hydrazine
 	name = "Hydrazine"
-	id = "hydrazine"
+	id = REAGENT_HYDRAZINE
 	description = "A toxic, colorless, flammable liquid with a strong ammonia-like odor, in hydrate form."
 	reagent_state = LIQUID
 	color = "#808080"
@@ -240,7 +240,7 @@
 
 /datum/reagent/iron
 	name = "Iron"
-	id = "iron"
+	id = REAGENT_IRON
 	description = "Pure iron is a metal."
 	reagent_state = SOLID
 	color = "#353535"
@@ -251,7 +251,7 @@
 
 /datum/reagent/lithium
 	name = "Lithium"
-	id = "lithium"
+	id = REAGENT_LITHIUM
 	description = "A chemical element, used as antidepressant."
 	reagent_state = SOLID
 	color = "#808080"
@@ -265,7 +265,7 @@
 
 /datum/reagent/mercury
 	name = "Mercury"
-	id = "mercury"
+	id = REAGENT_MERCURY
 	description = "A chemical element."
 	reagent_state = LIQUID
 	color = "#484848"
@@ -282,7 +282,7 @@
 
 /datum/reagent/phosphorus
 	name = "Phosphorus"
-	id = "phosphorus"
+	id = REAGENT_PHOSPHORUS
 	description = "A chemical element, the backbone of biological energy carriers."
 	reagent_state = SOLID
 	color = "#832828"
@@ -290,7 +290,7 @@
 
 /datum/reagent/potassium
 	name = "Potassium"
-	id = "potassium"
+	id = REAGENT_POTASSIUM
 	description = "A soft, low-melting solid that can easily be cut with a knife. Reacts violently with water."
 	reagent_state = SOLID
 	color = "#A0A0A0"
@@ -298,7 +298,7 @@
 
 /datum/reagent/radium
 	name = "Radium"
-	id = "radium"
+	id = REAGENT_RADIUM
 	description = "Radium is an alkaline earth metal. It is extremely radioactive."
 	reagent_state = SOLID
 	color = "#C7C7C7"
@@ -330,7 +330,7 @@
 
 /datum/reagent/acid
 	name = "Sulphuric acid"
-	id = "sacid"
+	id = REAGENT_SACID
 	description = "A very corrosive mineral acid with the molecular formula H2SO4."
 	reagent_state = LIQUID
 	color = "#DB5008"
@@ -416,7 +416,7 @@
 
 /datum/reagent/acid/hydrochloric //Like sulfuric, but less toxic and more acidic.
 	name = "Hydrochloric Acid"
-	id = "hclacid"
+	id = REAGENT_HCLACID
 	description = "A very corrosive mineral acid with the molecular formula HCl."
 	reagent_state = LIQUID
 	color = "#808080"
@@ -426,7 +426,7 @@
 
 /datum/reagent/silicon
 	name = "Silicon"
-	id = "silicon"
+	id = REAGENT_SILICON
 	description = "A tetravalent metalloid, silicon is less reactive than its chemical analog carbon."
 	reagent_state = SOLID
 	color = "#A8A8A8"
@@ -434,7 +434,7 @@
 
 /datum/reagent/sodium
 	name = "Sodium"
-	id = "sodium"
+	id = REAGENT_SODIUM
 	description = "A chemical element, readily reacts with water."
 	reagent_state = SOLID
 	color = "#808080"
@@ -442,7 +442,7 @@
 
 /datum/reagent/sugar
 	name = "Sugar"
-	id = "sugar"
+	id = REAGENT_SUGAR
 	description = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
 	reagent_state = SOLID
 	color = "#FFFFFF"
@@ -458,7 +458,7 @@
 
 /datum/reagent/sulfur
 	name = "Sulfur"
-	id = "sulfur"
+	id = REAGENT_SULFUR
 	description = "A chemical element with a pungent smell."
 	reagent_state = SOLID
 	color = "#BF8C00"
@@ -466,7 +466,7 @@
 
 /datum/reagent/tungsten
 	name = "Tungsten"
-	id = "tungsten"
+	id = REAGENT_TUNGSTEN
 	description = "A chemical element, and a strong oxidising agent."
 	reagent_state = SOLID
 	color = "#DCDCDC"

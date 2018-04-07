@@ -28,7 +28,7 @@
 	. = ..()
 	if(blood_type != null)
 		name = "blood pack [blood_type]"
-		reagents.add_reagent("blood", 200, list("donor"=null,"viruses"=null,"blood_DNA"=null,"blood_type"=blood_type,"resistances"=null,"trace_chem"=null))
+		reagents.add_reagent(REAGENT_BLOOD, 200, list("donor"=null,"viruses"=null,"blood_DNA"=null,"blood_type"=blood_type,"resistances"=null,"trace_chem"=null))
 		update_icon()
 
 /obj/item/weapon/reagent_containers/blood/on_reagent_change()
@@ -58,7 +58,7 @@
 				var/blood_taken = 0
 				blood_taken = min(5, reagents.get_reagent_amount("blood")/4)
 
-				reagents.remove_reagent("blood", blood_taken*4)
+				reagents.remove_reagent(REAGENT_BLOOD, blood_taken*4)
 				user.mind.vampire.blood_usable += blood_taken
 
 				if (blood_taken)

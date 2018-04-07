@@ -60,13 +60,13 @@
 
 
 
-	if(reagents.has_reagent("sacid"))
+	if(reagents.has_reagent(REAGENT_SACID))
 		message_admins("[key_name_admin(user)] fired sulphuric acid from \a [src].")
 		log_game("[key_name(user)] fired sulphuric acid from \a [src].",ckey=key_name(user))
-	if(reagents.has_reagent("pacid"))
+	if(reagents.has_reagent(REAGENT_PACID))
 		message_admins("[key_name_admin(user)] fired Polyacid from \a [src].")
 		log_game("[key_name(user)] fired Polyacid from \a [src].",ckey=key_name(user))
-	if(reagents.has_reagent("lube"))
+	if(reagents.has_reagent(REAGENT_LUBE))
 		message_admins("[key_name_admin(user)] fired Space lube from \a [src].")
 		log_game("[key_name(user)] fired Space lube from \a [src].",ckey=key_name(user))
 	return
@@ -123,7 +123,7 @@
 
 /obj/item/weapon/reagent_containers/spray/cleaner/Initialize()
 	. = ..()
-	reagents.add_reagent("cleaner", volume)
+	reagents.add_reagent(REAGENT_CLEANER, volume)
 
 /obj/item/weapon/reagent_containers/spray/sterilizine
 	name = "sterilizine"
@@ -131,7 +131,7 @@
 
 /obj/item/weapon/reagent_containers/spray/sterilizine/Initialize()
 	. = ..()
-	reagents.add_reagent("sterilizine", volume)
+	reagents.add_reagent(REAGENT_STERILIZINE, volume)
 
 /obj/item/weapon/reagent_containers/spray/pepper
 	name = "pepperspray"
@@ -146,7 +146,7 @@
 
 /obj/item/weapon/reagent_containers/spray/pepper/Initialize()
 	. = ..()
-	reagents.add_reagent("condensedcapsaicin", 40)
+	reagents.add_reagent(REAGENT_CONDENSEDCAPSAICIN, 40)
 
 /obj/item/weapon/reagent_containers/spray/pepper/examine(mob/user)
 	if(..(user, 1))
@@ -178,7 +178,7 @@
 
 /obj/item/weapon/reagent_containers/spray/waterflower/Initialize()
 	. = ..()
-	reagents.add_reagent("water", 10)
+	reagents.add_reagent(REAGENT_WATER, 10)
 
 /obj/item/weapon/reagent_containers/spray/chemsprayer
 	name = "chem sprayer"
@@ -222,7 +222,7 @@
 
 /obj/item/weapon/reagent_containers/spray/plantbgone/Initialize()
 	. = ..()
-	reagents.add_reagent("plantbgone", 100)
+	reagents.add_reagent(REAGENT_PLANTBGONE, 100)
 
 /obj/item/weapon/reagent_containers/spray/plantbgone/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
 	if(!proximity) return

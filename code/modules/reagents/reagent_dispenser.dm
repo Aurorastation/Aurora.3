@@ -73,7 +73,7 @@
 	amount_per_transfer_from_this = 10
 	New()
 		..()
-		reagents.add_reagent("water",capacity)
+		reagents.add_reagent(REAGENT_WATER,capacity)
 
 /obj/structure/reagent_dispensers/fueltank
 	name = "fuel tank"
@@ -87,7 +87,7 @@
 	var/obj/item/device/assembly_holder/rig = null
 	New()
 		..()
-		reagents.add_reagent("fuel",capacity)
+		reagents.add_reagent(REAGENT_FUEL,capacity)
 
 /obj/structure/reagent_dispensers/fueltank/examine(mob/user)
 	if(!..(user, 2))
@@ -198,7 +198,7 @@
 		return
 
 	amount = min(amount, reagents.total_volume)
-	reagents.remove_reagent("fuel",amount)
+	reagents.remove_reagent(REAGENT_FUEL,amount)
 	new /obj/effect/decal/cleanable/liquid_fuel(src.loc, amount,1)
 
 /obj/structure/reagent_dispensers/peppertank
@@ -211,7 +211,7 @@
 	amount_per_transfer_from_this = 45
 	New()
 		..()
-		reagents.add_reagent("condensedcapsaicin",capacity)
+		reagents.add_reagent(REAGENT_CONDENSEDCAPSAICIN,capacity)
 
 
 /obj/structure/reagent_dispensers/water_cooler
@@ -224,7 +224,7 @@
 	anchored = 1
 	New()
 		..()
-		reagents.add_reagent("water",500)
+		reagents.add_reagent(REAGENT_WATER,500)
 
 /obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (iswrench(W))
@@ -250,7 +250,7 @@
 	amount_per_transfer_from_this = 10
 	New()
 		..()
-		reagents.add_reagent("beer",capacity)
+		reagents.add_reagent(REAGENT_BEER,capacity)
 
 /obj/structure/reagent_dispensers/xuizikeg
 	name = "xuizi juice keg"
@@ -260,7 +260,7 @@
 	amount_per_transfer_from_this = 10
 	New()
 		..()
-		reagents.add_reagent("xuizijuice",capacity)
+		reagents.add_reagent(REAGENT_XUIZIJUICE,capacity)
 
 /obj/structure/reagent_dispensers/virusfood
 	name = "Virus Food Dispenser"
@@ -273,7 +273,7 @@
 
 	New()
 		..()
-		reagents.add_reagent("virusfood", capacity)
+		reagents.add_reagent(REAGENT_VIRUSFOOD, capacity)
 
 /obj/structure/reagent_dispensers/acid
 	name = "Sulphuric Acid Dispenser"
@@ -286,7 +286,7 @@
 
 	New()
 		..()
-		reagents.add_reagent("sacid", capacity)
+		reagents.add_reagent(REAGENT_SACID, capacity)
 
 
 //Cooking oil refill tank
@@ -300,7 +300,7 @@
 
 /obj/structure/reagent_dispensers/cookingoil/Initialize()
 	. = ..()
-	reagents.add_reagent("cornoil",capacity)
+	reagents.add_reagent(REAGENT_CORNOIL,capacity)
 
 /obj/structure/reagent_dispensers/cookingoil/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.get_structure_damage())

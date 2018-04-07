@@ -13,15 +13,15 @@
 	var/charge_tick = 0
 	var/recharge_time = 5 //Time it takes for shots to recharge (in seconds)
 
-	var/list/reagent_ids = list("tricordrazine", "inaprovaline", "spaceacillin")
+	var/list/reagent_ids = list("tricordrazine", "inaprovaline", REAGENT_SPACEACILLIN)
 	var/list/reagent_volumes = list()
 	var/list/reagent_names = list()
 
 /obj/item/weapon/reagent_containers/borghypo/medical
-	reagent_ids = list("bicaridine", "inaprovaline", "dexalin", "tramadol", "spaceacillin", "anti_toxin")
+	reagent_ids = list("bicaridine", "inaprovaline", "dexalin", "tramadol", "spaceacillin", REAGENT_ANTI_TOXIN)
 
 /obj/item/weapon/reagent_containers/borghypo/rescue
-	reagent_ids = list("tricordrazine", "inaprovaline", "tramadol")
+	reagent_ids = list("tricordrazine", "inaprovaline", REAGENT_TRAMADOL)
 
 /obj/item/weapon/reagent_containers/borghypo/Initialize()
 	. = ..()
@@ -121,7 +121,7 @@
 	recharge_time = 3
 	volume = 60
 	possible_transfer_amounts = list(5, 10, 20, 30)
-	reagent_ids = list("beer", "kahlua", "whiskey", "wine", "vodka", "gin", "rum", "tequilla", "vermouth", "cognac", "ale", "mead", "water", "sugar", "ice", "tea", "icetea", "cola", "spacemountainwind", "dr_gibb", "space_up", "tonic", "sodawater", "lemon_lime", "orangejuice", "limejuice", "watermelonjuice")
+	reagent_ids = list("beer", "kahlua", "whiskey", "wine", "vodka", "gin", "rum", "tequilla", "vermouth", "cognac", "ale", "mead", "water", "sugar", "ice", "tea", "icetea", "cola", "spacemountainwind", "dr_gibb", "space_up", "tonic", "sodawater", "lemon_lime", "orangejuice", "limejuice", REAGENT_WATERMELONJUICE)
 
 /obj/item/weapon/reagent_containers/borghypo/service/attack(var/mob/M, var/mob/user)
 	return

@@ -347,7 +347,7 @@
 
 				if(D)
 					B.name = "[D.name] vaccine bottle"
-					B.reagents.add_reagent("vaccine",15,vaccine_type)
+					B.reagents.add_reagent(REAGENT_VACCINE,15,vaccine_type)
 					wait = 1
 					var/datum/reagents/R = beaker.reagents
 					var/datum/reagent/blood/Blood = null
@@ -380,7 +380,7 @@
 			if(!name || name == " ") name = D.name
 			B.name = "[name] culture bottle"
 			B.desc = "A small bottle. Contains [D.agent] culture in synthblood medium."
-			B.reagents.add_reagent("blood",20,data)
+			B.reagents.add_reagent(REAGENT_BLOOD,20,data)
 			B.update_icon()
 			src.updateUsrDialog()
 			wait = 1

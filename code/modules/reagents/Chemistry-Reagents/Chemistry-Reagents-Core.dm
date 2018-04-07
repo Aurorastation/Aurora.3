@@ -11,7 +11,7 @@
 		"antibodies" = list()
 	)
 	name = "Blood"
-	id = "blood"
+	id = REAGENT_BLOOD
 	reagent_state = LIQUID
 	metabolism = REM * 5
 	color = "#C80000"
@@ -110,7 +110,7 @@
 
 /datum/reagent/vaccine
 	name = "Vaccine"
-	id = "vaccine"
+	id = REAGENT_VACCINE
 	reagent_state = LIQUID
 	color = "#C81040"
 	taste_description = "slime"
@@ -131,9 +131,9 @@
 
 // pure concentrated antibodies
 /datum/reagent/antibodies
-	data = list("antibodies"=list())
+	data = list(REAGENT_ANTIBODIES=list())
 	name = "Antibodies"
-	id = "antibodies"
+	id = REAGENT_ANTIBODIES
 	reagent_state = LIQUID
 	color = "#0050F0"
 	taste_description = "slime"
@@ -146,7 +146,7 @@
 #define WATER_LATENT_HEAT 19000 // How much heat is removed when applied to a hot turf, in J/unit (19000 makes 120 u of water roughly equivalent to 4L)
 /datum/reagent/water
 	name = "Water"
-	id = "water"
+	id = REAGENT_WATER
 	description = "A ubiquitous chemical substance that is composed of hydrogen and oxygen."
 	reagent_state = LIQUID
 	color = "#0064C877"
@@ -226,7 +226,7 @@
 
 /datum/reagent/fuel
 	name = "Welding fuel"
-	id = "fuel"
+	id = REAGENT_FUEL
 	description = "Required for welders. Flamable."
 	reagent_state = LIQUID
 	color = "#660000"

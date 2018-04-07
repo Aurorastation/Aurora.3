@@ -2,7 +2,7 @@
 
 /datum/reagent/crayon_dust
 	name = "Crayon dust"
-	id = "crayon_dust"
+	id = REAGENT_CRAYON_DUST
 	description = "Intensely coloured powder obtained by grinding crayons."
 	reagent_state = LIQUID
 	color = "#888888"
@@ -11,47 +11,47 @@
 
 /datum/reagent/crayon_dust/red
 	name = "Red crayon dust"
-	id = "crayon_dust_red"
+	id = REAGENT_CRAYON_DUST_RED
 	color = "#FE191A"
 
 /datum/reagent/crayon_dust/orange
 	name = "Orange crayon dust"
-	id = "crayon_dust_orange"
+	id = REAGENT_CRAYON_DUST_ORANGE
 	color = "#FFBE4F"
 
 /datum/reagent/crayon_dust/yellow
 	name = "Yellow crayon dust"
-	id = "crayon_dust_yellow"
+	id = REAGENT_CRAYON_DUST_YELLOW
 	color = "#FDFE7D"
 
 /datum/reagent/crayon_dust/green
 	name = "Green crayon dust"
-	id = "crayon_dust_green"
+	id = REAGENT_CRAYON_DUST_GREEN
 	color = "#18A31A"
 
 /datum/reagent/crayon_dust/blue
 	name = "Blue crayon dust"
-	id = "crayon_dust_blue"
+	id = REAGENT_CRAYON_DUST_BLUE
 	color = "#247CFF"
 
 /datum/reagent/crayon_dust/purple
 	name = "Purple crayon dust"
-	id = "crayon_dust_purple"
+	id = REAGENT_CRAYON_DUST_PURPLE
 	color = "#CC0099"
 
 /datum/reagent/crayon_dust/grey //Mime
 	name = "Grey crayon dust"
-	id = "crayon_dust_grey"
+	id = REAGENT_CRAYON_DUST_GREY
 	color = "#808080"
 
 /datum/reagent/crayon_dust/brown //Rainbow
 	name = "Brown crayon dust"
-	id = "crayon_dust_brown"
+	id = REAGENT_CRAYON_DUST_BROWN
 	color = "#846F35"
 
 /datum/reagent/paint
 	name = "Paint"
-	id = "paint"
+	id = REAGENT_PAINT
 	description = "This paint will stick to almost any object."
 	reagent_state = LIQUID
 	color = "#808080"
@@ -122,7 +122,7 @@
 
 /datum/reagent/adminordrazine //An OP chemical for admins
 	name = "Adminordrazine"
-	id = "adminordrazine"
+	id = REAGENT_ADMINORDRAZINE
 	description = "It's magic. We don't have to explain it."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
@@ -167,7 +167,7 @@
 
 /datum/reagent/gold
 	name = "Gold"
-	id = "gold"
+	id = REAGENT_GOLD
 	description = "Gold is a dense, soft, shiny metal and the most malleable and ductile metal known."
 	reagent_state = SOLID
 	color = "#F7C430"
@@ -175,7 +175,7 @@
 
 /datum/reagent/silver
 	name = "Silver"
-	id = "silver"
+	id = REAGENT_SILVER
 	description = "A soft, white, lustrous transition metal, it has the highest electrical conductivity of any element and the highest thermal conductivity of any metal."
 	reagent_state = SOLID
 	color = "#D0D0D0"
@@ -183,7 +183,7 @@
 
 /datum/reagent/uranium
 	name ="Uranium"
-	id = "uranium"
+	id = REAGENT_URANIUM
 	description = "A silvery-white metallic chemical element in the actinide series, weakly radioactive."
 	reagent_state = SOLID
 	color = "#B8B8C0"
@@ -205,7 +205,7 @@
 
 /datum/reagent/platinum
 	name ="Platinum"
-	id = "platinum"
+	id = REAGENT_PLATINUM
 	description = "Platinum is a naturally occuring silvery metalic element."
 	reagent_state = SOLID
 	color = "#E0E0E0"
@@ -213,7 +213,7 @@
 
 /datum/reagent/adrenaline
 	name = "Adrenaline"
-	id = "adrenaline"
+	id = REAGENT_ADRENALINE
 	description = "Adrenaline is a hormone used as a drug to treat cardiac arrest and other cardiac dysrhythmias resulting in diminished or absent cardiac output."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
@@ -226,7 +226,7 @@
 
 /datum/reagent/water/holywater
 	name = "Holy Water"
-	id = "holywater"
+	id = REAGENT_HOLYWATER
 	description = "An ashen-obsidian-water mix, this solution will alter certain sections of the brain's rationality."
 	color = "#E0E8EF"
 
@@ -258,7 +258,7 @@
 
 /datum/reagent/diethylamine
 	name = "Diethylamine"
-	id = "diethylamine"
+	id = REAGENT_DIETHYLAMINE
 	description = "A secondary amine, mildly corrosive."
 	reagent_state = LIQUID
 	color = "#604030"
@@ -266,7 +266,7 @@
 
 /datum/reagent/surfactant // Foam precursor
 	name = "Azosurfactant"
-	id = "surfactant"
+	id = REAGENT_SURFACTANT
 	description = "A isocyanate liquid that forms a foam when mixed with water."
 	reagent_state = LIQUID
 	color = "#9E6B38"
@@ -274,7 +274,7 @@
 
 /datum/reagent/foaming_agent // Metal foaming agent. This is lithium hydride. Add other recipes (e.g. LiH + H2O -> LiOH + H2) eventually.
 	name = "Foaming agent"
-	id = "foaming_agent"
+	id = REAGENT_FOAMING_AGENT
 	description = "A agent that yields metallic foam when mixed with light metal and a strong acid."
 	reagent_state = SOLID
 	color = "#664B63"
@@ -282,7 +282,7 @@
 
 /datum/reagent/thermite
 	name = "Thermite"
-	id = "thermite"
+	id = REAGENT_THERMITE
 	description = "Thermite produces an aluminothermic reaction known as a thermite reaction. Can be used to melt walls."
 	reagent_state = SOLID
 	color = "#673910"
@@ -307,7 +307,7 @@
 
 /datum/reagent/space_cleaner
 	name = "Space cleaner"
-	id = "cleaner"
+	id = REAGENT_CLEANER
 	description = "A compound used to clean things. Now with 50% more sodium hypochlorite!"
 	reagent_state = LIQUID
 	color = "#A5F0EE"
@@ -356,7 +356,7 @@
 
 /datum/reagent/lube // TODO: spraying on borgs speeds them up
 	name = "Space Lube"
-	id = "lube"
+	id = REAGENT_LUBE
 	description = "Lubricant is a substance introduced between two moving surfaces to reduce the friction and wear between them. giggity."
 	reagent_state = LIQUID
 	color = "#009CA8"
@@ -370,7 +370,7 @@
 
 /datum/reagent/cardox
 	name = "Cardox"
-	id = "cardox"
+	id = REAGENT_CARDOX
 	description = "Cardox is an expensive, NanoTrasen designed cleaner intended to eliminate liquid phoron stains from suits."
 	reagent_state = LIQUID
 	color = "#EEEEEE"
@@ -394,7 +394,7 @@
 
 /datum/reagent/silicate
 	name = "Silicate"
-	id = "silicate"
+	id = REAGENT_SILICATE
 	description = "A compound that can be used to reinforce glass."
 	reagent_state = LIQUID
 	color = "#C7FFFF"
@@ -409,7 +409,7 @@
 
 /datum/reagent/glycerol
 	name = "Glycerol"
-	id = "glycerol"
+	id = REAGENT_GLYCEROL
 	description = "Glycerol is a simple polyol compound. Glycerol is sweet-tasting and of low toxicity."
 	reagent_state = LIQUID
 	color = "#808080"
@@ -417,7 +417,7 @@
 
 /datum/reagent/nitroglycerin
 	name = "Nitroglycerin"
-	id = "nitroglycerin"
+	id = REAGENT_NITROGLYCERIN
 	description = "Nitroglycerin is a heavy, colorless, oily, explosive liquid obtained by nitrating glycerol."
 	reagent_state = LIQUID
 	color = "#808080"
@@ -425,7 +425,7 @@
 
 /datum/reagent/coolant
 	name = "Coolant"
-	id = "coolant"
+	id = REAGENT_COOLANT
 	description = "Industrial cooling substance."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
@@ -434,14 +434,14 @@
 
 /datum/reagent/ultraglue
 	name = "Ultra Glue"
-	id = "glue"
+	id = REAGENT_GLUE
 	description = "An extremely powerful bonding agent."
 	color = "#FFFFCC"
 	taste_description = "a special education class"
 
 /datum/reagent/woodpulp
 	name = "Wood Pulp"
-	id = "woodpulp"
+	id = REAGENT_WOODPULP
 	description = "A mass of wood fibers."
 	reagent_state = LIQUID
 	color = "#B97A57"
@@ -449,7 +449,7 @@
 
 /datum/reagent/luminol
 	name = "Luminol"
-	id = "luminol"
+	id = REAGENT_LUMINOL
 	description = "A compound that interacts with blood on the molecular level."
 	reagent_state = LIQUID
 	color = "#F2F3F4"
@@ -463,7 +463,7 @@
 
 /datum/reagent/estus
 	name = "liquid light"
-	id = "estus"
+	id = REAGENT_ESTUS
 	description = "This impossible substance slowly converts from a liquid into actual light."
 	reagent_state = LIQUID
 	color = "#ffff40"
@@ -492,7 +492,7 @@
 
 /datum/reagent/liquid_fire
 	name = "Liquid Fire"
-	id = "liquid_fire"
+	id = REAGENT_LIQUID_FIRE
 	description = "A dangerous flammable chemical, capable of causing fires when in contact with organic matter."
 	reagent_state = LIQUID
 	color = "#E25822"
@@ -511,7 +511,7 @@
 
 /datum/reagent/black_matter
 	name = "Unstable Black Matter"
-	id = "black_matter"
+	id = REAGENT_BLACK_MATTER
 	description = "A pitch black blend of cosmic origins, handle with care."
 	color = "#000000"
 	taste_description = "emptyness"
@@ -534,7 +534,7 @@
 
 /datum/reagent/bluespace_dust
 	name = "Bluespace Dust"
-	id = "bluespace_dust"
+	id = REAGENT_BLUESPACE_DUST
 	description = "A dust composed of microscopic bluespace crystals."
 	color = "#1f8999"
 	taste_description = "fizzling blue"
@@ -552,7 +552,7 @@
 
 /datum/reagent/philosopher_stone
 	name = "Philosopher's Stone"
-	id = "philosopher_stone"
+	id = REAGENT_PHILOSOPHER_STONE
 	description = "A mythical compound, rumored to be the catalyst of fantastic reactions."
 	color = "#f4c430"
 	taste_description = "heavenly knowledge"

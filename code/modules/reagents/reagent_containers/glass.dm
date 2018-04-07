@@ -208,13 +208,13 @@
 /obj/item/weapon/reagent_containers/glass/beaker/cryoxadone
 /obj/item/weapon/reagent_containers/glass/beaker/cryoxadone/Initialize()
 	. = ..()
-	reagents.add_reagent("cryoxadone", 30)
+	reagents.add_reagent(REAGENT_CRYOXADONE, 30)
 	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/sulphuric
 /obj/item/weapon/reagent_containers/glass/beaker/sulphuric/Initialize()
 	. = ..()
-	reagents.add_reagent("sacid", 60)
+	reagents.add_reagent(REAGENT_SACID, 60)
 	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bucket

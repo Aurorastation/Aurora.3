@@ -62,7 +62,7 @@
 
 	Initialize()
 		. = ..()
-		reagents.add_reagent("inaprovaline", 60)
+		reagents.add_reagent(REAGENT_INAPROVALINE, 60)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bottle/toxin
@@ -73,7 +73,7 @@
 
 	Initialize()
 		. = ..()
-		reagents.add_reagent("toxin", 60)
+		reagents.add_reagent(REAGENT_TOXIN, 60)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bottle/cyanide
@@ -84,7 +84,7 @@
 
 	Initialize()
 		. = ..()
-		reagents.add_reagent("cyanide", 30) //volume changed to match chloral
+		reagents.add_reagent(REAGENT_CYANIDE, 30) //volume changed to match chloral
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bottle/stoxin
@@ -95,7 +95,7 @@
 
 	Initialize()
 		. = ..()
-		reagents.add_reagent("stoxin", 60)
+		reagents.add_reagent(REAGENT_STOXIN, 60)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bottle/chloralhydrate
@@ -106,7 +106,7 @@
 
 	Initialize()
 		. = ..()
-		reagents.add_reagent("chloralhydrate", 30)		//Intentionally low since it is so strong. Still enough to knock someone out.
+		reagents.add_reagent(REAGENT_CHLORALHYDRATE, 30)		//Intentionally low since it is so strong. Still enough to knock someone out.
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bottle/antitoxin
@@ -117,7 +117,7 @@
 
 	Initialize()
 		. = ..()
-		reagents.add_reagent("anti_toxin", 60)
+		reagents.add_reagent(REAGENT_ANTI_TOXIN, 60)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bottle/mutagen
@@ -128,7 +128,7 @@
 
 	Initialize()
 		. = ..()
-		reagents.add_reagent("mutagen", 60)
+		reagents.add_reagent(REAGENT_MUTAGEN, 60)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bottle/ammonia
@@ -139,7 +139,7 @@
 
 	Initialize()
 		. = ..()
-		reagents.add_reagent("ammonia", 60)
+		reagents.add_reagent(REAGENT_AMMONIA, 60)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bottle/diethylamine
@@ -150,7 +150,7 @@
 
 	Initialize()
 		. = ..()
-		reagents.add_reagent("diethylamine", 60)
+		reagents.add_reagent(REAGENT_DIETHYLAMINE, 60)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bottle/flu_virion
@@ -162,7 +162,7 @@
 		. = ..()
 		var/datum/disease/F = new /datum/disease/advance/flu(0)
 		var/list/data = list("viruses"= list(F))
-		reagents.add_reagent("blood", 20, data)
+		reagents.add_reagent(REAGENT_BLOOD, 20, data)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bottle/epiglottis_virion
@@ -174,7 +174,7 @@
 		. = ..()
 		var/datum/disease/F = new /datum/disease/advance/voice_change(0)
 		var/list/data = list("viruses"= list(F))
-		reagents.add_reagent("blood", 20, data)
+		reagents.add_reagent(REAGENT_BLOOD, 20, data)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bottle/liver_enhance_virion
@@ -186,7 +186,7 @@
 		. = ..()
 		var/datum/disease/F = new /datum/disease/advance/heal(0)
 		var/list/data = list("viruses"= list(F))
-		reagents.add_reagent("blood", 20, data)
+		reagents.add_reagent(REAGENT_BLOOD, 20, data)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bottle/hullucigen_virion
@@ -198,7 +198,7 @@
 		. = ..()
 		var/datum/disease/F = new /datum/disease/advance/hullucigen(0)
 		var/list/data = list("viruses"= list(F))
-		reagents.add_reagent("blood", 20, data)
+		reagents.add_reagent(REAGENT_BLOOD, 20, data)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bottle/pierrot_throat
@@ -210,7 +210,7 @@
 		. = ..()
 		var/datum/disease/F = new /datum/disease/pierrot_throat(0)
 		var/list/data = list("viruses"= list(F))
-		reagents.add_reagent("blood", 20, data)
+		reagents.add_reagent(REAGENT_BLOOD, 20, data)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bottle/cold
@@ -222,7 +222,7 @@
 		. = ..()
 		var/datum/disease/advance/F = new /datum/disease/advance/cold(0)
 		var/list/data = list("viruses"= list(F))
-		reagents.add_reagent("blood", 20, data)
+		reagents.add_reagent(REAGENT_BLOOD, 20, data)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bottle/random
@@ -234,7 +234,7 @@
 		. = ..()
 		var/datum/disease/advance/F = new(0)
 		var/list/data = list("viruses"= list(F))
-		reagents.add_reagent("blood", 20, data)
+		reagents.add_reagent(REAGENT_BLOOD, 20, data)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bottle/retrovirus
@@ -246,7 +246,7 @@
 		. = ..()
 		var/datum/disease/F = new /datum/disease/dna_retrovirus(0)
 		var/list/data = list("viruses"= list(F))
-		reagents.add_reagent("blood", 20, data)
+		reagents.add_reagent(REAGENT_BLOOD, 20, data)
 		update_icon()
 
 
@@ -264,7 +264,7 @@
 		R.my_atom = src
 		var/datum/disease/F = new /datum/disease/gbs
 		var/list/data = list("virus"= F)
-		R.add_reagent("blood", 20, data)
+		R.add_reagent(REAGENT_BLOOD, 20, data)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bottle/fake_gbs
@@ -276,7 +276,7 @@
 		. = ..()
 		var/datum/disease/F = new /datum/disease/fake_gbs(0)
 		var/list/data = list("viruses"= list(F))
-		reagents.add_reagent("blood", 20, data)
+		reagents.add_reagent(REAGENT_BLOOD, 20, data)
 		update_icon()
 /*
 /obj/item/weapon/reagent_containers/glass/bottle/rhumba_beat
@@ -293,7 +293,7 @@
 		R.my_atom = src
 		var/datum/disease/F = new /datum/disease/rhumba_beat
 		var/list/data = list("virus"= F)
-		R.add_reagent("blood", 20, data)
+		R.add_reagent(REAGENT_BLOOD, 20, data)
 */
 
 /obj/item/weapon/reagent_containers/glass/bottle/brainrot
@@ -305,7 +305,7 @@
 		. = ..()
 		var/datum/disease/F = new /datum/disease/brainrot(0)
 		var/list/data = list("viruses"= list(F))
-		reagents.add_reagent("blood", 20, data)
+		reagents.add_reagent(REAGENT_BLOOD, 20, data)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bottle/magnitis
@@ -317,7 +317,7 @@
 		. = ..()
 		var/datum/disease/F = new /datum/disease/magnitis(0)
 		var/list/data = list("viruses"= list(F))
-		reagents.add_reagent("blood", 20, data)
+		reagents.add_reagent(REAGENT_BLOOD, 20, data)
 		update_icon()
 
 
@@ -330,7 +330,7 @@
 		. = ..()
 		var/datum/disease/F = new /datum/disease/wizarditis(0)
 		var/list/data = list("viruses"= list(F))
-		reagents.add_reagent("blood", 20, data)
+		reagents.add_reagent(REAGENT_BLOOD, 20, data)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bottle/pacid
@@ -340,7 +340,7 @@
 	icon_state = "bottle-4"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("pacid", 60)
+		reagents.add_reagent(REAGENT_PACID, 60)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bottle/adminordrazine
@@ -350,7 +350,7 @@
 	icon_state = "holyflask"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("adminordrazine", 60)
+		reagents.add_reagent(REAGENT_ADMINORDRAZINE, 60)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bottle/capsaicin
@@ -360,7 +360,7 @@
 	icon_state = "bottle-4"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("capsaicin", 60)
+		reagents.add_reagent(REAGENT_CAPSAICIN, 60)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bottle/frostoil
@@ -370,5 +370,5 @@
 	icon_state = "bottle-4"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("frostoil", 60)
+		reagents.add_reagent(REAGENT_FROSTOIL, 60)
 		update_icon()

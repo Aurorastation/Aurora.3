@@ -2,7 +2,7 @@
 
 /datum/reagent/toxin
 	name = "Toxin"
-	id = "toxin"
+	id = REAGENT_TOXIN
 	description = "A toxic chemical."
 	reagent_state = LIQUID
 	color = "#CF3600"
@@ -17,7 +17,7 @@
 
 /datum/reagent/toxin/plasticide
 	name = "Plasticide"
-	id = "plasticide"
+	id = REAGENT_PLASTICIDE
 	description = "Liquid plastic, do not eat."
 	reagent_state = LIQUID
 	color = "#CF3600"
@@ -26,7 +26,7 @@
 
 /datum/reagent/toxin/amatoxin
 	name = "Amatoxin"
-	id = "amatoxin"
+	id = REAGENT_AMATOXIN
 	description = "A powerful poison derived from certain species of mushroom."
 	reagent_state = LIQUID
 	color = "#792300"
@@ -35,7 +35,7 @@
 
 /datum/reagent/toxin/carpotoxin
 	name = "Carpotoxin"
-	id = "carpotoxin"
+	id = REAGENT_CARPOTOXIN
 	description = "A deadly neurotoxin produced by the dreaded space carp."
 	reagent_state = LIQUID
 	color = "#003333"
@@ -49,7 +49,7 @@
 
 /datum/reagent/toxin/phoron
 	name = "Phoron"
-	id = "phoron"
+	id = REAGENT_PHORON
 	description = "Phoron in its liquid form."
 	reagent_state = LIQUID
 	color = "#9D14DB"
@@ -99,7 +99,7 @@
 
 /datum/reagent/toxin/cyanide //Fast and Lethal
 	name = "Cyanide"
-	id = "cyanide"
+	id = REAGENT_CYANIDE
 	description = "A highly toxic chemical."
 	reagent_state = LIQUID
 	color = "#CF3600"
@@ -117,7 +117,7 @@
 
 /datum/reagent/toxin/potassium_chloride
 	name = "Potassium Chloride"
-	id = "potassium_chloride"
+	id = REAGENT_POTASSIUM_CHLORIDE
 	description = "A delicious salt that stops the heart when injected into cardiac muscle."
 	reagent_state = SOLID
 	color = "#FFFFFF"
@@ -138,7 +138,7 @@
 
 /datum/reagent/toxin/potassium_chlorophoride
 	name = "Potassium Chlorophoride"
-	id = "potassium_chlorophoride"
+	id = REAGENT_POTASSIUM_CHLOROPHORIDE
 	description = "A specific chemical based on Potassium Chloride to stop the heart for surgery. Not safe to eat!"
 	reagent_state = SOLID
 	color = "#FFFFFF"
@@ -159,7 +159,7 @@
 
 /datum/reagent/toxin/zombiepowder
 	name = "Zombie Powder"
-	id = "zombiepowder"
+	id = REAGENT_ZOMBIEPOWDER
 	description = "A strong neurotoxin that puts the subject into a death-like state."
 	reagent_state = SOLID
 	color = "#669900"
@@ -186,7 +186,7 @@
 
 /datum/reagent/toxin/fertilizer //Reagents used for plant fertilizers.
 	name = "fertilizer"
-	id = "fertilizer"
+	id = REAGENT_FERTILIZER
 	description = "A chemical mix good for growing plants with."
 	reagent_state = LIQUID
 	strength = 0.5 // It's not THAT poisonous.
@@ -204,7 +204,7 @@
 
 /datum/reagent/toxin/fertilizer/eznutrient
 	name = "EZ Nutrient"
-	id = "eznutrient"
+	id = REAGENT_EZNUTRIENT
 
 /datum/reagent/toxin/fertilizer/left4zed
 	name = "Left-4-Zed"
@@ -212,11 +212,11 @@
 
 /datum/reagent/toxin/fertilizer/robustharvest
 	name = "Robust Harvest"
-	id = "robustharvest"
+	id = REAGENT_ROBUSTHARVEST
 
 /datum/reagent/toxin/plantbgone
 	name = "Plant-B-Gone"
-	id = "plantbgone"
+	id = REAGENT_PLANTBGONE
 	description = "A harmful toxic mixture to kill plantlife. Do not ingest!"
 	reagent_state = LIQUID
 	color = "#49002E"
@@ -253,7 +253,7 @@
 
 /datum/reagent/acid/polyacid
 	name = "Polytrinic acid"
-	id = "pacid"
+	id = REAGENT_PACID
 	description = "Polytrinic acid is a an extremely corrosive chemical substance."
 	reagent_state = LIQUID
 	color = "#8E18A9"
@@ -263,7 +263,7 @@
 
 /datum/reagent/lexorin
 	name = "Lexorin"
-	id = "lexorin"
+	id = REAGENT_LEXORIN
 	description = "Lexorin temporarily stops respiration. Causes tissue damage."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
@@ -280,7 +280,7 @@
 
 /datum/reagent/mutagen
 	name = "Unstable mutagen"
-	id = "mutagen"
+	id = REAGENT_MUTAGEN
 	description = "Might cause unpredictable mutations. Keep away from children."
 	reagent_state = LIQUID
 	color = "#13BC5E"
@@ -313,7 +313,7 @@
 
 /datum/reagent/slimejelly
 	name = "Slime Jelly"
-	id = "slimejelly"
+	id = REAGENT_SLIMEJELLY
 	description = "A gooey semi-liquid produced from one of the deadliest lifeforms in existence. SO REAL."
 	reagent_state = LIQUID
 	color = "#801E28"
@@ -332,7 +332,7 @@
 
 /datum/reagent/soporific
 	name = "Soporific"
-	id = "stoxin"
+	id = REAGENT_STOXIN
 	description = "An effective hypnotic used to treat insomnia."
 	reagent_state = LIQUID
 	color = "#009CA8"
@@ -359,7 +359,7 @@
 
 /datum/reagent/chloralhydrate
 	name = "Chloral Hydrate"
-	id = "chloralhydrate"
+	id = REAGENT_CHLORALHYDRATE
 	description = "A powerful sedative."
 	reagent_state = SOLID
 	color = "#000067"
@@ -400,7 +400,7 @@
 
 /datum/reagent/space_drugs
 	name = "Space drugs"
-	id = "space_drugs"
+	id = REAGENT_SPACE_DRUGS
 	description = "An illegal chemical compound used as drug."
 	reagent_state = LIQUID
 	color = "#60A584"
@@ -421,7 +421,7 @@
 
 /datum/reagent/serotrotium
 	name = "Serotrotium"
-	id = "serotrotium"
+	id = REAGENT_SEROTROTIUM
 	description = "A chemical compound that promotes concentrated production of the serotonin neurotransmitter in humans."
 	reagent_state = LIQUID
 	color = "#202040"
@@ -439,7 +439,7 @@
 
 /datum/reagent/cryptobiolin
 	name = "Cryptobiolin"
-	id = "cryptobiolin"
+	id = REAGENT_CRYPTOBIOLIN
 	description = "Cryptobiolin causes confusion and dizzyness."
 	reagent_state = LIQUID
 	color = "#000055"
@@ -458,7 +458,7 @@
 
 /datum/reagent/impedrezene
 	name = "Impedrezene"
-	id = "impedrezene"
+	id = REAGENT_IMPEDREZENE
 	description = "Impedrezene is a narcotic that impedes one's ability by slowing down the higher brain cell functions."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
@@ -476,7 +476,7 @@
 
 /datum/reagent/mindbreaker
 	name = "Mindbreaker Toxin"
-	id = "mindbreaker"
+	id = REAGENT_MINDBREAKER
 	description = "A powerful hallucinogen, it can cause fatal effects in users."
 	reagent_state = LIQUID
 	color = "#B31008"
@@ -489,7 +489,7 @@
 
 /datum/reagent/psilocybin
 	name = "Psilocybin"
-	id = "psilocybin"
+	id = REAGENT_PSILOCYBIN
 	description = "A strong psycotropic derived from certain species of mushroom."
 	color = "#E700E7"
 	overdose = REAGENTS_OVERDOSE
@@ -527,7 +527,7 @@
 
 /datum/reagent/slimetoxin
 	name = "Mutation Toxin"
-	id = "mutationtoxin"
+	id = REAGENT_MUTATIONTOXIN
 	description = "A corruptive toxin produced by slimes."
 	reagent_state = LIQUID
 	color = "#13BC5E"
@@ -542,7 +542,7 @@
 
 /datum/reagent/aslimetoxin
 	name = "Advanced Mutation Toxin"
-	id = "amutationtoxin"
+	id = REAGENT_AMUTATIONTOXIN
 	description = "An advanced corruptive toxin produced by slimes."
 	reagent_state = LIQUID
 	color = "#13BC5E"
@@ -575,7 +575,7 @@
 
 /datum/reagent/nanites
 	name = "Nanomachines"
-	id = "nanites"
+	id = REAGENT_NANITES
 	description = "Microscopic construction robots."
 	reagent_state = LIQUID
 	color = "#535E66"
@@ -590,7 +590,7 @@
 
 /datum/reagent/xenomicrobes
 	name = "Xenomicrobes"
-	id = "xenomicrobes"
+	id = REAGENT_XENOMICROBES
 	description = "Microbes with an entirely alien cellular structure."
 	reagent_state = LIQUID
 	color = "#535E66"
@@ -605,7 +605,7 @@
 
 /datum/reagent/toxin/undead
 	name = "Undead Ichor"
-	id = "undead_ichor"
+	id = REAGENT_UNDEAD_ICHOR
 	description = "A wicked liquid with unknown origins and uses."
 	color = "#b2beb5"
 	strength = 25
@@ -619,7 +619,7 @@
 
 /datum/reagent/toxin/tobacco
 	name = "Space Tobacco"
-	id = "tobacco"
+	id = REAGENT_TOBACCO
 	description = "Low-grade space tobacco."
 	reagent_state = LIQUID
 	color = "#333300"
@@ -642,7 +642,7 @@
 
 /datum/reagent/toxin/tobacco/rich
 	name = "Earth Tobacco"
-	id = "tobaccorich"
+	id = REAGENT_TOBACCORICH
 	description = "Nicknamed 'Earth Tobacco', this plant is much higher quality than it's space fairing counterpart."
 	reagent_state = LIQUID
 	data = 0

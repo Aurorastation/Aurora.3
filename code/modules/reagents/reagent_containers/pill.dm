@@ -88,7 +88,7 @@
 	icon_state = "pill17"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("anti_toxin", 25)
+		reagents.add_reagent(REAGENT_ANTI_TOXIN, 25)
 
 /obj/item/weapon/reagent_containers/pill/tox
 	name = "Toxins pill"
@@ -96,7 +96,7 @@
 	icon_state = "pill5"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("toxin", 50)
+		reagents.add_reagent(REAGENT_TOXIN, 50)
 
 /obj/item/weapon/reagent_containers/pill/cyanide
 	name = "Cyanide pill"
@@ -104,7 +104,7 @@
 	icon_state = "pill5"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("cyanide", 50)
+		reagents.add_reagent(REAGENT_CYANIDE, 50)
 
 /obj/item/weapon/reagent_containers/pill/adminordrazine
 	name = "Adminordrazine pill"
@@ -112,7 +112,7 @@
 	icon_state = "pill16"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("adminordrazine", 50)
+		reagents.add_reagent(REAGENT_ADMINORDRAZINE, 50)
 
 /obj/item/weapon/reagent_containers/pill/stox
 	name = "Sleeping pill"
@@ -120,7 +120,7 @@
 	icon_state = "pill8"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("stoxin", 15)
+		reagents.add_reagent(REAGENT_STOXIN, 15)
 
 /obj/item/weapon/reagent_containers/pill/kelotane
 	name = "Kelotane pill"
@@ -128,7 +128,7 @@
 	icon_state = "pill11"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("kelotane", 15)
+		reagents.add_reagent(REAGENT_KELOTANE, 15)
 
 /obj/item/weapon/reagent_containers/pill/paracetamol
 	name = "Paracetamol pill"
@@ -136,7 +136,7 @@
 	icon_state = "pill8"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("paracetamol", 15)
+		reagents.add_reagent(REAGENT_PARACETAMOL, 15)
 
 /obj/item/weapon/reagent_containers/pill/tramadol
 	name = "Tramadol pill"
@@ -144,7 +144,7 @@
 	icon_state = "pill8"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("tramadol", 15)
+		reagents.add_reagent(REAGENT_TRAMADOL, 15)
 
 
 /obj/item/weapon/reagent_containers/pill/methylphenidate
@@ -153,7 +153,7 @@
 	icon_state = "pill8"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("methylphenidate", 15)
+		reagents.add_reagent(REAGENT_METHYLPHENIDATE, 15)
 
 /obj/item/weapon/reagent_containers/pill/escitalopram
 	name = "Escitalopram pill"
@@ -161,7 +161,7 @@
 	icon_state = "pill8"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("escitalopram", 15)
+		reagents.add_reagent(REAGENT_ESCITALOPRAM, 15)
 	
 /obj/item/weapon/reagent_containers/pill/escitalopram
 	name = "Escitalopram pill"
@@ -169,7 +169,7 @@
 	icon_state = "pill8"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("escitalopram", 15)
+		reagents.add_reagent(REAGENT_ESCITALOPRAM, 15)
 		
 /obj/item/weapon/reagent_containers/pill/hextrasenil
 	name = "Hextrasenil pill"
@@ -177,7 +177,7 @@
 	icon_state = "pill6"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("hextrasenil", 30)
+		reagents.add_reagent(REAGENT_HEXTRASENIL, 30)
 		
 /obj/item/weapon/reagent_containers/pill/trisyndicotin
 	name = "Trisyndicotin pill"
@@ -185,7 +185,7 @@
 	icon_state = "pill4"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("trisyndicotin", 30)
+		reagents.add_reagent(REAGENT_TRISYNDICOTIN, 30)
 
 /obj/item/weapon/reagent_containers/pill/inaprovaline
 	name = "Inaprovaline pill"
@@ -193,7 +193,7 @@
 	icon_state = "pill20"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("inaprovaline", 30)
+		reagents.add_reagent(REAGENT_INAPROVALINE, 30)
 
 /obj/item/weapon/reagent_containers/pill/dexalin
 	name = "Dexalin pill"
@@ -201,7 +201,7 @@
 	icon_state = "pill16"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("dexalin", 15)
+		reagents.add_reagent(REAGENT_DEXALIN, 15)
 
 /obj/item/weapon/reagent_containers/pill/dexalin_plus
 	name = "Dexalin Plus pill"
@@ -209,7 +209,7 @@
 	icon_state = "pill8"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("dexalinp", 15)
+		reagents.add_reagent(REAGENT_DEXALINP, 15)
 
 /obj/item/weapon/reagent_containers/pill/dermaline
 	name = "Dermaline pill"
@@ -217,7 +217,7 @@
 	icon_state = "pill12"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("dermaline", 15)
+		reagents.add_reagent(REAGENT_DERMALINE, 15)
 
 /obj/item/weapon/reagent_containers/pill/dylovene
 	name = "Dylovene pill"
@@ -225,7 +225,7 @@
 	icon_state = "pill13"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("anti_toxin", 15)
+		reagents.add_reagent(REAGENT_ANTI_TOXIN, 15)
 
 /obj/item/weapon/reagent_containers/pill/inaprovaline
 	name = "Inaprovaline pill"
@@ -233,7 +233,7 @@
 	icon_state = "pill20"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("inaprovaline", 30)
+		reagents.add_reagent(REAGENT_INAPROVALINE, 30)
 
 /obj/item/weapon/reagent_containers/pill/bicaridine
 	name = "Bicaridine pill"
@@ -241,7 +241,7 @@
 	icon_state = "pill18"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("bicaridine", 20)
+		reagents.add_reagent(REAGENT_BICARIDINE, 20)
 
 /obj/item/weapon/reagent_containers/pill/happy
 	name = "Happy pill"
@@ -249,8 +249,8 @@
 	icon_state = "pill18"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("space_drugs", 15)
-		reagents.add_reagent("sugar", 15)
+		reagents.add_reagent(REAGENT_SPACE_DRUGS, 15)
+		reagents.add_reagent(REAGENT_SUGAR, 15)
 
 /obj/item/weapon/reagent_containers/pill/zoom
 	name = "Zoom pill"
@@ -258,9 +258,9 @@
 	icon_state = "pill18"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("impedrezene", 10)
-		reagents.add_reagent("synaptizine", 5)
-		reagents.add_reagent("hyperzine", 5)
+		reagents.add_reagent(REAGENT_IMPEDREZENE, 10)
+		reagents.add_reagent(REAGENT_SYNAPTIZINE, 5)
+		reagents.add_reagent(REAGENT_HYPERZINE, 5)
 
 /obj/item/weapon/reagent_containers/pill/spaceacillin
 	name = "Spaceacillin pill"
@@ -268,7 +268,7 @@
 	icon_state = "pill19"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("spaceacillin", 15)
+		reagents.add_reagent(REAGENT_SPACEACILLIN, 15)
 
 /obj/item/weapon/reagent_containers/pill/bio_vitamin
 	name = "Vitamin pill"
@@ -276,6 +276,6 @@
 	icon_state = "pill11"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("nutriment", 20)
+		reagents.add_reagent(REAGENT_NUTRIMENT, 20)
 		reagents.add_reagent(pick("banana","berryjuice","grapejuice","lemonjuice","limejuice","orangejuice","watermelonjuice"),1)
 		//Would be absolutely retarded to grind the biogenerator for juices.

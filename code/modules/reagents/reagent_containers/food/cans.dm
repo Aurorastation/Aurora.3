@@ -13,7 +13,7 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/cola/Initialize()
 	. = ..()
-	reagents.add_reagent("cola", 30)
+	reagents.add_reagent(REAGENT_COLA, 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle
 	name = "bottled water"
@@ -23,7 +23,7 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle/Initialize()
 	. = ..()
-	reagents.add_reagent("water", 30)
+	reagents.add_reagent(REAGENT_WATER, 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/space_mountain_wind
 	name = "\improper Space Mountain Wind"
@@ -33,7 +33,7 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/space_mountain_wind/Initialize()
 	. = ..()
-	reagents.add_reagent("spacemountainwind", 30)
+	reagents.add_reagent(REAGENT_SPACEMOUNTAINWIND, 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/thirteenloko
 	name = "thirteen loko"
@@ -43,7 +43,7 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/thirteenloko/Initialize()
 	. = ..()
-	reagents.add_reagent("thirteenloko", 30)
+	reagents.add_reagent(REAGENT_THIRTEENLOKO, 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/dr_gibb
 	name = "\improper Dr. Gibb"
@@ -53,7 +53,7 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/dr_gibb/Initialize()
 	. = ..()
-	reagents.add_reagent("dr_gibb", 30)
+	reagents.add_reagent(REAGENT_DR_GIBB, 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/starkist
 	name = "\improper Star-kist"
@@ -63,7 +63,7 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/starkist/Initialize()
 	. = ..()
-	reagents.add_reagent("brownstar", 30)
+	reagents.add_reagent(REAGENT_BROWNSTAR, 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/space_up
 	name = "\improper Space-Up"
@@ -73,7 +73,7 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/space_up/Initialize()
 	. = ..()
-	reagents.add_reagent("space_up", 30)
+	reagents.add_reagent(REAGENT_SPACE_UP, 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/lemon_lime
 	name = "\improper Lemon-Lime"
@@ -83,7 +83,7 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/lemon_lime/Initialize()
 	. = ..()
-	reagents.add_reagent("lemon_lime", 30)
+	reagents.add_reagent(REAGENT_LEMON_LIME, 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea
 	name = "\improper Vrisk Serket iced tea"
@@ -93,7 +93,7 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea/Initialize()
 	. = ..()
-	reagents.add_reagent("icetea", 30)
+	reagents.add_reagent(REAGENT_ICETEA, 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice
 	name = "\improper Grapel juice"
@@ -103,7 +103,7 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice/Initialize()
 	. = ..()
-	reagents.add_reagent("grapejuice", 30)
+	reagents.add_reagent(REAGENT_GRAPEJUICE, 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/tonic
 	name = "\improper T-Borg's tonic water"
@@ -113,7 +113,7 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/toni/Initialize()
 	. = ..()
-	reagents.add_reagent("tonic", 50)
+	reagents.add_reagent(REAGENT_TONIC, 50)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/sodawater
 	name = "soda water"
@@ -123,7 +123,7 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/sodawater/Initialize()
 	. = ..()
-	reagents.add_reagent("sodawater", 50)
+	reagents.add_reagent(REAGENT_SODAWATER, 50)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/koispunch
 	name = "\improper Phoron Punch!"
@@ -133,8 +133,8 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/koispunch/Initialize()
 	. = ..()
-	reagents.add_reagent("koispasteclean", 10)
-	reagents.add_reagent("phoron", 5)
+	reagents.add_reagent(REAGENT_KOISPASTECLEAN, 10)
+	reagents.add_reagent(REAGENT_PHORON, 5)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/root_beer
 	name = "\improper R&D Root Beer"
@@ -144,4 +144,4 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/root_beer/Initialize()
 	. = ..()
-	reagents.add_reagent("root_beer", 30)
+	reagents.add_reagent(REAGENT_ROOT_BEER, 30)

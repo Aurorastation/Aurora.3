@@ -77,7 +77,7 @@
 					return
 
 				if(ismob(target))//Blood!
-					if(reagents.has_reagent("blood"))
+					if(reagents.has_reagent(REAGENT_BLOOD))
 						user << "<span class='notice'>There is already a blood sample in this syringe.</span>"
 						return
 					if(istype(target, /mob/living/carbon))
@@ -312,7 +312,7 @@
 	desc = "Contains inaprovaline - used to stabilize patients."
 	Initialize()
 		. = ..()
-		reagents.add_reagent("inaprovaline", 15)
+		reagents.add_reagent(REAGENT_INAPROVALINE, 15)
 		mode = SYRINGE_INJECT
 		update_icon()
 
@@ -321,7 +321,7 @@
 	desc = "Contains anti-toxins."
 	Initialize()
 		. = ..()
-		reagents.add_reagent("anti_toxin", 15)
+		reagents.add_reagent(REAGENT_ANTI_TOXIN, 15)
 		mode = SYRINGE_INJECT
 		update_icon()
 
@@ -330,7 +330,7 @@
 	desc = "Contains antiviral agents."
 	Initialize()
 		. = ..()
-		reagents.add_reagent("spaceacillin", 15)
+		reagents.add_reagent(REAGENT_SPACEACILLIN, 15)
 		mode = SYRINGE_INJECT
 		update_icon()
 
@@ -339,15 +339,15 @@
 	desc = "Contains aggressive drugs meant for torture."
 	Initialize()
 		. = ..()
-		reagents.add_reagent("space_drugs",  5)
-		reagents.add_reagent("mindbreaker",  5)
-		reagents.add_reagent("cryptobiolin", 5)
+		reagents.add_reagent(REAGENT_SPACE_DRUGS,  5)
+		reagents.add_reagent(REAGENT_MINDBREAKER,  5)
+		reagents.add_reagent(REAGENT_CRYPTOBIOLIN, 5)
 		mode = SYRINGE_INJECT
 		update_icon()
 
 /obj/item/weapon/reagent_containers/syringe/ld50_syringe/choral
 	Initialize()
 		. = ..()
-		reagents.add_reagent("chloralhydrate", 60)
+		reagents.add_reagent(REAGENT_CHLORALHYDRATE, 60)
 		mode = SYRINGE_INJECT
 		update_icon()

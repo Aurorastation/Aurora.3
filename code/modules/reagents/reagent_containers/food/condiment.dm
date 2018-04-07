@@ -127,12 +127,12 @@
 	icon_state = "enzyme"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("enzyme", 50)
+		reagents.add_reagent(REAGENT_ENZYME, 50)
 
 /obj/item/weapon/reagent_containers/food/condiment/sugar
 	Initialize()
 		. = ..()
-		reagents.add_reagent("sugar", 50)
+		reagents.add_reagent(REAGENT_SUGAR, 50)
 
 /obj/item/weapon/reagent_containers/food/condiment/saltshaker		//Seperate from above since it's a small shaker rather then
 	name = "salt shaker"											//	a large one.
@@ -143,7 +143,7 @@
 	volume = 20
 	Initialize()
 		. = ..()
-		reagents.add_reagent("sodiumchloride", 20)
+		reagents.add_reagent(REAGENT_SODIUMCHLORIDE, 20)
 
 /obj/item/weapon/reagent_containers/food/condiment/peppermill
 	name = "pepper mill"
@@ -154,7 +154,7 @@
 	volume = 20
 	Initialize()
 		. = ..()
-		reagents.add_reagent("blackpepper", 20)
+		reagents.add_reagent(REAGENT_BLACKPEPPER, 20)
 
 /obj/item/weapon/reagent_containers/food/condiment/flour
 	name = "flour sack"
@@ -165,7 +165,7 @@
 	volume = 220
 	Initialize()
 		. = ..()
-		reagents.add_reagent("flour", 200)
+		reagents.add_reagent(REAGENT_FLOUR, 200)
 		src.pixel_x = rand(-10.0, 10)
 		src.pixel_y = rand(-10.0, 10)
 
@@ -178,4 +178,4 @@
 	volume = 40
 	Initialize()
 		. = ..()
-		reagents.add_reagent("spacespice", 40)
+		reagents.add_reagent(REAGENT_SPACESPICE, 40)

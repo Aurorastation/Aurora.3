@@ -16,7 +16,7 @@
 
 	New()
 		..()
-		reagents.add_reagent("inaprovaline", 60)
+		reagents.add_reagent(REAGENT_INAPROVALINE, 60)
 		update_icon()
 
 
@@ -29,6 +29,6 @@
 
 	New()
 		..()
-		reagents.add_reagent("anti_toxin", 60)
+		reagents.add_reagent(REAGENT_ANTI_TOXIN, 60)
 		update_icon()
 

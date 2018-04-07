@@ -125,7 +125,7 @@
 	center_of_mass = list("x"=16, "y"=9)
 	Initialize()
 		. = ..()
-		reagents.add_reagent("milk", 50)
+		reagents.add_reagent(REAGENT_MILK, 50)
 
 /obj/item/weapon/reagent_containers/food/drinks/soymilk
 	name = "soymilk"
@@ -135,7 +135,7 @@
 	center_of_mass = list("x"=16, "y"=9)
 	Initialize()
 		. = ..()
-		reagents.add_reagent("soymilk", 50)
+		reagents.add_reagent(REAGENT_SOYMILK, 50)
 
 /obj/item/weapon/reagent_containers/food/drinks/coffee
 	name = "Robust coffee"
@@ -144,7 +144,7 @@
 	center_of_mass = list("x"=15, "y"=10)
 	Initialize()
 		. = ..()
-		reagents.add_reagent("coffee", 30)
+		reagents.add_reagent(REAGENT_COFFEE, 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/tea
 	name = "Duke purple tea"
@@ -154,7 +154,7 @@
 	center_of_mass = list("x"=16, "y"=14)
 	Initialize()
 		. = ..()
-		reagents.add_reagent("tea", 30)
+		reagents.add_reagent(REAGENT_TEA, 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/ice
 	name = "ice cup"
@@ -163,7 +163,7 @@
 	center_of_mass = list("x"=15, "y"=10)
 	Initialize()
 		. = ..()
-		reagents.add_reagent("ice", 30)
+		reagents.add_reagent(REAGENT_ICE, 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/h_chocolate
 	name = "dutch hot coco"
@@ -173,7 +173,7 @@
 	center_of_mass = list("x"=15, "y"=13)
 	Initialize()
 		. = ..()
-		reagents.add_reagent("hot_coco", 30)
+		reagents.add_reagent(REAGENT_HOT_COCO, 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/dry_ramen
 	name = "cup ramen"
@@ -182,7 +182,7 @@
 	center_of_mass = list("x"=16, "y"=11)
 	Initialize()
 		. = ..()
-		reagents.add_reagent("dry_ramen", 30)
+		reagents.add_reagent(REAGENT_DRY_RAMEN, 30)
 
 
 /obj/item/weapon/reagent_containers/food/drinks/sillycup

@@ -9,8 +9,8 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/Initialize()
 	. = ..()
-	reagents.add_reagent("protein", 6)
-	reagents.add_reagent("triglyceride", 2)
+	reagents.add_reagent(REAGENT_PROTEIN, 6)
+	reagents.add_reagent(REAGENT_TRIGLYCERIDE, 2)
 	src.bitesize = 1.5
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -44,8 +44,8 @@
 	filling_color = "#E6E600"
 /obj/item/weapon/reagent_containers/food/snacks/meat/bug/Initialize()
 	. = ..()
-	reagents.add_reagent("protein", 6)
-	reagents.add_reagent("phoron", 27)
+	reagents.add_reagent(REAGENT_PROTEIN, 6)
+	reagents.add_reagent(REAGENT_PHORON, 27)
 	src.bitesize = 1.5
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/monkey
@@ -70,11 +70,11 @@
 /obj/item/weapon/reagent_containers/food/snacks/meat/biogenerated/Initialize()
 	. = ..()
 	reagents.clear_reagents()
-	reagents.add_reagent("nutriment",6)
+	reagents.add_reagent(REAGENT_NUTRIMENT,6)
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/chicken/Initialize()
 	. = ..()
-	reagents.remove_reagent("triglyceride", INFINITY)
+	reagents.remove_reagent(REAGENT_TRIGLYCERIDE, INFINITY)
 	//Chicken is low fat. Less total calories than other meats
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/undead
@@ -86,7 +86,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/undead/Initialize()
 	. = ..()
-	reagents.add_reagent("protein", 6)
-	reagents.add_reagent("undead_ichor", 5)
+	reagents.add_reagent(REAGENT_PROTEIN, 6)
+	reagents.add_reagent(REAGENT_UNDEAD_ICHOR, 5)
 
 

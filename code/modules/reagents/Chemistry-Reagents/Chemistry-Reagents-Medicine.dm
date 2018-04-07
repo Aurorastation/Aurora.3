@@ -2,7 +2,7 @@
 
 /datum/reagent/inaprovaline
 	name = "Inaprovaline"
-	id = "inaprovaline"
+	id = REAGENT_INAPROVALINE
 	description = "Inaprovaline is a synaptic stimulant and cardiostimulant. Commonly used to stabilize patients."
 	reagent_state = LIQUID
 	color = "#00BFFF"
@@ -25,7 +25,7 @@
 
 /datum/reagent/bicaridine
 	name = "Bicaridine"
-	id = "bicaridine"
+	id = REAGENT_BICARIDINE
 	description = "Bicaridine is an analgesic medication and can be used to treat blunt trauma."
 	reagent_state = LIQUID
 	color = "#BF0000"
@@ -54,7 +54,7 @@
 
 /datum/reagent/kelotane
 	name = "Kelotane"
-	id = "kelotane"
+	id = REAGENT_KELOTANE
 	description = "Kelotane is a drug used to treat burns."
 	reagent_state = LIQUID
 	color = "#FFA800"
@@ -67,7 +67,7 @@
 
 /datum/reagent/dermaline
 	name = "Dermaline"
-	id = "dermaline"
+	id = REAGENT_DERMALINE
 	description = "Dermaline is the next step in burn medication. Works twice as good as kelotane and enables the body to restore even the direst heat-damaged tissue."
 	reagent_state = LIQUID
 	color = "#FF8000"
@@ -81,7 +81,7 @@
 
 /datum/reagent/dylovene
 	name = "Dylovene"
-	id = "anti_toxin"
+	id = REAGENT_ANTI_TOXIN
 	description = "Dylovene is a broad-spectrum antitoxin."
 	reagent_state = LIQUID
 	color = "#00A000"
@@ -96,7 +96,7 @@
 
 /datum/reagent/dexalin
 	name = "Dexalin"
-	id = "dexalin"
+	id = REAGENT_DEXALIN
 	description = "Dexalin is used in the treatment of oxygen deprivation."
 	reagent_state = LIQUID
 	color = "#0080FF"
@@ -110,11 +110,11 @@
 	else
 		M.adjustOxyLoss(-15 * removed)
 
-	holder.remove_reagent("lexorin", 2 * removed)
+	holder.remove_reagent(REAGENT_LEXORIN, 2 * removed)
 
 /datum/reagent/dexalinp
 	name = "Dexalin Plus"
-	id = "dexalinp"
+	id = REAGENT_DEXALINP
 	description = "Dexalin Plus is used in the treatment of oxygen deprivation. It is highly effective."
 	reagent_state = LIQUID
 	color = "#0040FF"
@@ -128,11 +128,11 @@
 	else
 		M.adjustOxyLoss(-300 * removed)
 
-	holder.remove_reagent("lexorin", 3 * removed)
+	holder.remove_reagent(REAGENT_LEXORIN, 3 * removed)
 
 /datum/reagent/tricordrazine
 	name = "Tricordrazine"
-	id = "tricordrazine"
+	id = REAGENT_TRICORDRAZINE
 	description = "Tricordrazine is a highly potent stimulant, originally derived from cordrazine. Can be used to treat a wide range of injuries."
 	reagent_state = LIQUID
 	color = "#8040FF"
@@ -147,7 +147,7 @@
 
 /datum/reagent/cryoxadone
 	name = "Cryoxadone"
-	id = "cryoxadone"
+	id = REAGENT_CRYOXADONE
 	description = "A chemical mixture with almost magical healing powers. Its main limitation is that the targets body temperature must be under 170K for it to metabolise correctly."
 	reagent_state = LIQUID
 	color = "#8080FF"
@@ -164,7 +164,7 @@
 
 /datum/reagent/clonexadone
 	name = "Clonexadone"
-	id = "clonexadone"
+	id = REAGENT_CLONEXADONE
 	description = "A liquid compound similar to that used in the cloning process. Can be used to 'finish' the cloning process when used in conjunction with a cryo tube."
 	reagent_state = LIQUID
 	color = "#80BFFF"
@@ -183,7 +183,7 @@
 
 /datum/reagent/paracetamol
 	name = "Paracetamol"
-	id = "paracetamol"
+	id = REAGENT_PARACETAMOL
 	description = "Most probably know this as Tylenol, but this chemical is a mild, simple painkiller."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
@@ -202,7 +202,7 @@
 
 /datum/reagent/tramadol
 	name = "Tramadol"
-	id = "tramadol"
+	id = REAGENT_TRAMADOL
 	description = "A simple, yet effective painkiller."
 	reagent_state = LIQUID
 	color = "#CB68FC"
@@ -221,7 +221,7 @@
 
 /datum/reagent/oxycodone
 	name = "Oxycodone"
-	id = "oxycodone"
+	id = REAGENT_OXYCODONE
 	description = "An effective and very addictive painkiller."
 	reagent_state = LIQUID
 	color = "#800080"
@@ -248,7 +248,7 @@
 
 /datum/reagent/synaptizine
 	name = "Synaptizine"
-	id = "synaptizine"
+	id = REAGENT_SYNAPTIZINE
 	description = "Synaptizine is used to treat various diseases."
 	reagent_state = LIQUID
 	color = "#99CCFF"
@@ -264,7 +264,7 @@
 	M.AdjustParalysis(-1)
 	M.AdjustStunned(-1)
 	M.AdjustWeakened(-1)
-	holder.remove_reagent("mindbreaker", 5)
+	holder.remove_reagent(REAGENT_MINDBREAKER, 5)
 	M.hallucination = max(0, M.hallucination - 10)
 	M.adjustToxLoss(5 * removed) // It used to be incredibly deadly due to an oversight. Not anymore!
 	M.add_chemical_effect(CE_PAINKILLER, 40)
@@ -278,7 +278,7 @@
 
 /datum/reagent/alkysine
 	name = "Alkysine"
-	id = "alkysine"
+	id = REAGENT_ALKYSINE
 	description = "Alkysine is a drug used to lessen the damage to neurological tissue after a catastrophic injury. Can heal brain tissue."
 	reagent_state = LIQUID
 	color = "#FFFF66"
@@ -294,7 +294,7 @@
 
 /datum/reagent/imidazoline
 	name = "Imidazoline"
-	id = "imidazoline"
+	id = REAGENT_IMIDAZOLINE
 	description = "Heals eye damage"
 	reagent_state = LIQUID
 	color = "#C8A5DC"
@@ -315,7 +315,7 @@
 
 /datum/reagent/peridaxon
 	name = "Peridaxon"
-	id = "peridaxon"
+	id = REAGENT_PERIDAXON
 	description = "Used to encourage recovery of internal organs and nervous systems. Medicate cautiously."
 	reagent_state = LIQUID
 	color = "#561EC3"
@@ -333,7 +333,7 @@
 
 /datum/reagent/ryetalyn
 	name = "Ryetalyn"
-	id = "ryetalyn"
+	id = REAGENT_RYETALYN
 	description = "Ryetalyn can cure all genetic abnomalities via a catalytic process."
 	reagent_state = SOLID
 	color = "#004000"
@@ -356,7 +356,7 @@
 
 /datum/reagent/hyperzine
 	name = "Hyperzine"
-	id = "hyperzine"
+	id = REAGENT_HYPERZINE
 	description = "Hyperzine is a highly effective, long lasting, muscle stimulant."
 	reagent_state = LIQUID
 	color = "#FF3300"
@@ -384,7 +384,7 @@
 //Once all alcohol in the body is neutralised, it will then cure intoxication and sober the patient up
 /datum/reagent/ethylredoxrazine
 	name = "Ethylredoxrazine"
-	id = "ethylredoxrazine"
+	id = REAGENT_ETHYLREDOXRAZINE
 	description = "A powerful oxidizer that reacts with ethanol."
 	reagent_state = SOLID
 	color = "#605048"
@@ -430,7 +430,7 @@
 
 /datum/reagent/hyronalin
 	name = "Hyronalin"
-	id = "hyronalin"
+	id = REAGENT_HYRONALIN
 	description = "Hyronalin is a medicinal drug used to counter the effect of radiation poisoning."
 	reagent_state = LIQUID
 	color = "#408000"
@@ -444,7 +444,7 @@
 
 /datum/reagent/arithrazine
 	name = "Arithrazine"
-	id = "arithrazine"
+	id = REAGENT_ARITHRAZINE
 	description = "Arithrazine is an unstable medication used for the most extreme cases of radiation poisoning."
 	reagent_state = LIQUID
 	color = "#008000"
@@ -461,7 +461,7 @@
 
 /datum/reagent/spaceacillin
 	name = "Spaceacillin"
-	id = "spaceacillin"
+	id = REAGENT_SPACEACILLIN
 	description = "An all-purpose antiviral agent."
 	reagent_state = LIQUID
 	color = "#C1C1C1"
@@ -472,7 +472,7 @@
 
 /datum/reagent/sterilizine
 	name = "Sterilizine"
-	id = "sterilizine"
+	id = REAGENT_STERILIZINE
 	description = "Sterilizes wounds in preparation for surgery and thoroughly removes blood."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
@@ -505,7 +505,7 @@
 
 /datum/reagent/leporazine
 	name = "Leporazine"
-	id = "leporazine"
+	id = REAGENT_LEPORAZINE
 	description = "Leporazine can be use to stabilize an individuals body temperature."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
@@ -525,7 +525,7 @@
 
 /datum/reagent/mental
 	name = "Experimental Antidepressant"
-	id = "mental"
+	id = REAGENT_MENTAL
 	description = "Some nameless, experimental antidepressant that you should obviously not have your hands on."
 	reagent_state = LIQUID
 	color = "#FFFFFF"
@@ -594,7 +594,7 @@
 
 /datum/reagent/mental/nicotine
 	name = "Nicotine"
-	id = "nicotine"
+	id = REAGENT_NICOTINE
 	description = "Nicotine is a stimulant and relaxant commonly found in tobacco products. It is very poisonous, unless at very low doses."
 	reagent_state = LIQUID
 	color = "#333333"
@@ -623,7 +623,7 @@
 
 /datum/reagent/mental/methylphenidate
 	name = "methylphenidate"
-	id = "methylphenidate"
+	id = REAGENT_METHYLPHENIDATE
 	description = "Methylphenidate is an AHDH treatment drug that treats basic distractions such as phobias and hallucinations at moderate doses. Withdrawl effects are rare. Side effects are rare, and include hallucinations."
 	reagent_state = LIQUID
 	color = "#888888"
@@ -648,7 +648,7 @@
 
 /datum/reagent/mental/fluvoxamine
 	name = "fluvoxamine"
-	id = "fluvoxamine"
+	id = REAGENT_FLUVOXAMINE
 	description = "Fluvoxamine is safe and effective at treating basic phobias, as well as schizophrenia and muscle weakness at higher doses. Withdrawl effects are rare. Side effects are rare, and include hallucinations."
 	reagent_state = LIQUID
 	color = "#888888"
@@ -674,7 +674,7 @@
 
 /datum/reagent/mental/sertraline
 	name = "sertraline"
-	id = "sertraline"
+	id = REAGENT_SERTRALINE
 	description = "Sertraline is cheap, safe, and effective at treating basic phobias, however it does not last as long as other drugs of it's class. Withdrawl effects are uncommon. Side effects are rare."
 	reagent_state = LIQUID
 	color = "#888888"
@@ -698,7 +698,7 @@
 
 /datum/reagent/mental/escitalopram
 	name = "escitalopram"
-	id = "escitalopram"
+	id = REAGENT_ESCITALOPRAM
 	description = "Escitalopram is expensive, safe and very effective at treating basic phobias as well as advanced phobias like monophobia. A common side effect is drowsiness, and a rare side effect is hallucinations. Withdrawl effects are uncommon."
 	reagent_state = LIQUID
 	color = "#888888"
@@ -730,7 +730,7 @@
 
 /datum/reagent/mental/paroxetine
 	name = "paroxetine"
-	id = "paroxetine"
+	id = REAGENT_PAROXETINE
 	description = "Paroxetine is effective at treating basic phobias while also preventing the body from overheating. Side effects are rare, and include hallucinations. Withdrawl effects are frequent and unsafe."
 	reagent_state = LIQUID
 	color = "#888888"
@@ -763,7 +763,7 @@
 
 /datum/reagent/mental/duloxetine
 	name = "duloxetine"
-	id = "duloxetine"
+	id = REAGENT_DULOXETINE
 	description = "Duloxetine is effective at treating basic phobias and concussions. A rare side effect is hallucinations. Withdrawl effects are common."
 	reagent_state = LIQUID
 	color = "#888888"
@@ -794,7 +794,7 @@
 
 /datum/reagent/mental/venlafaxine
 	name = "venlafaxine"
-	id = "venlafaxine"
+	id = REAGENT_VENLAFAXINE
 	description = "Venlafaxine is effective at treating basic phobias, monophobia, and stuttering. Side effects are uncommon and include hallucinations. Withdrawl effects are common."
 	reagent_state = LIQUID
 	color = "#888888"
@@ -826,7 +826,7 @@
 
 /datum/reagent/mental/risperidone
 	name = "risperidone"
-	id = "risperidone"
+	id = REAGENT_RISPERIDONE
 	description = "Risperidone is a potent antipsychotic medication used to treat schizophrenia, stuttering, speech impediment, monophobia, hallucinations, tourettes, and muscle spasms. Side effects are common and include pacifism. Withdrawl symptoms are dangerous and almost always occur."
 	reagent_state = LIQUID
 	color = "#888888"
@@ -865,7 +865,7 @@
 
 /datum/reagent/mental/olanzapine
 	name = "olanzapine"
-	id = "olanzapine"
+	id = REAGENT_OLANZAPINE
 	description = "Olanzapine is a high-strength, expensive antipsychotic medication used to treat schizophrenia, stuttering, speech impediment, monophobia, hallucinations, tourettes, and muscle spasms. Side effects are common and include pacifism. The medication metabolizes quickly, and withdrawl is dangerous."
 	reagent_state = LIQUID
 	color = "#888888"
@@ -901,7 +901,7 @@
 
 /datum/reagent/mental/hextrasenil
 	name = "Hextrasenil"
-	id = "hextrasenil"
+	id = REAGENT_HEXTRASENIL
 	description = "Hextrasenil is a super-strength, fast-metabolizing, expensive antipsychotic medication intended for the use in criminal rehabilitation that treats tourettes, schizophrenia, hallucinations, and loyalty issues. Side effects include undying loyalty to NanoTrasen and respect for authority. Withdrawl effects include undying hatred towards NanoTrasen."
 	reagent_state = LIQUID
 	color = "#888888"
@@ -920,7 +920,7 @@
 
 /datum/reagent/mental/trisyndicotin
 	name = "Trisyndicotin"
-	id = "trisyndicotin"
+	id = REAGENT_TRISYNDICOTIN
 	description = "Trisyndicotin is a super-strength, expensive antipsychotic medication intended for the use in interigation. Side effects include undying hatred to NanoTrasen and disrespect for authority."
 	reagent_state = LIQUID
 	color = "#888888"
@@ -936,7 +936,7 @@
 
 /datum/reagent/mental/truthserum
 	name = "truth serum"
-	id = "truthserum"
+	id = REAGENT_TRUTHSERUM
 	description = "This highly illegal, expensive, military strength truth serum is a must have for secret corporate interrogations. One 50u pill is good for almost 10 minutes of interrogation."
 	reagent_state = LIQUID
 	color = "#888888"
@@ -967,7 +967,7 @@
 
 /datum/reagent/rezadone
 	name = "Rezadone"
-	id = "rezadone"
+	id = REAGENT_REZADONE
 	description = "A powder with almost magical properties, this substance can effectively treat genetic damage in humanoids, though excessive consumption has side effects."
 	reagent_state = SOLID
 	color = "#669900"
@@ -988,7 +988,7 @@
 
 /datum/reagent/ipecac
 	name = "Ipecac"
-	id = "ipecac"
+	id = REAGENT_IPECAC
 	description = "A simple emetic, Induces vomiting in the patient, emptying stomach contents"
 	reagent_state = LIQUID
 	color = "#280f0b"
@@ -1008,7 +1008,7 @@
 
 /datum/reagent/azoth
 	name = "Azoth"
-	id = "azoth"
+	id = REAGENT_AZOTH
 	description = "Azoth is a miraculous medicine, capable of healing internal injuries."
 	reagent_state = LIQUID
 	color = "#BF0000"
@@ -1037,7 +1037,7 @@
 
 /datum/reagent/adipemcina //Based on quinapril
 	name = "Adipemcina"
-	id = "adipemcina"
+	id = REAGENT_ADIPEMCINA
 	description = "Adipemcina is a heart medication used for treating high blood pressure, heart failure, and diabetes. Works at it's best when the stomach is empty. Causes vomiting and liver damage when overdosed."
 	reagent_state = LIQUID
 	color = "#008000"
@@ -1062,7 +1062,7 @@
 
 /datum/reagent/elixir
 	name = "Elixir of Life"
-	id = "elixir_life"
+	id = REAGENT_ELIXIR_LIFE
 	description = "A mythical substance, the cure for the ultimate illness."
 	color = "#ffd700"
 	affects_dead = 1
