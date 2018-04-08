@@ -1898,7 +1898,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	light_color = LIGHT_COLOR_BLUE
 
 
-/obj/item/clothing/suit/storage/hooded/wintercoat/fluff/make_poncho //Raincoat Poncho - M.A.K.E - toasterstrudes
+obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.K.E - toasterstrudes
 	name = "raincoat poncho"
 	desc = "A tough brown hooded poncho that looks to be good at protecting someone from the rain."
 	icon = 'icons/obj/custom_items/make_items.dmi'
@@ -1906,6 +1906,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "make_poncho"
 	contained_sprite = TRUE
 	hoodtype = /obj/item/clothing/head/winterhood/fluff/make_hood
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/head/winterhood/fluff/make_hood
 	flags_inv = HIDEEARS

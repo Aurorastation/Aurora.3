@@ -47,10 +47,12 @@
 	name = "arcane blast"
 	icon_state = "impact_cult"
 	light_color = LIGHT_COLOR_VIOLET
+	appearance_flags = NO_CLIENT_COLOR
 
 /obj/effect/projectile/impact/cult/heavy
 	icon_state = "impact_hcult"
 	light_power = 3
+	appearance_flags = NO_CLIENT_COLOR
 
 /obj/effect/projectile/impact/solar
 	name = "solar eruption"

@@ -91,6 +91,7 @@
 	icon = 'icons/turf/flooring/cult.dmi'
 	icon_state = "cult"
 	initial_flooring = /decl/flooring/reinforced/cult
+	appearance_flags = NO_CLIENT_COLOR
 
 /turf/simulated/floor/cult/cultify()
 	return

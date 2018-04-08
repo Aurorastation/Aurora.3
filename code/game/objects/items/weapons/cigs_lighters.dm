@@ -230,7 +230,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(istype(W, /obj/item/weapon/melee/energy/sword))
 		var/obj/item/weapon/melee/energy/sword/S = W
 		if(S.active)
-			light("<span class='warning'>[user] swings their [W], barely missing their nose. They light their [name] in the process.</span>")
+			light("<span class='warning'>[user] swings their [W], barely missing themselves. They light their [name] in the process.</span>")
 
 	return
 

@@ -99,13 +99,8 @@
 		H.equip_to_slot_or_del(new /obj/item/device/pda/viro(H), slot_belt)
 	else if(has_alt_title(H, alt_title,"Nurse"))
 		if(H.gender == FEMALE)
-			if(prob(50))
-				H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/nursesuit(H), slot_w_uniform)
-			else
-				H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/nurse(H), slot_w_uniform)
 			H.equip_to_slot_or_del(new /obj/item/clothing/head/nursehat(H), slot_head)
-		else
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical/purple(H), slot_w_uniform)
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical/purple(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/medical(H), slot_belt)
 	else if(has_alt_title(H, alt_title,"Medical Doctor"))
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical(H), slot_w_uniform)

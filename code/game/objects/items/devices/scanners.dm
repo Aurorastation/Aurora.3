@@ -145,11 +145,8 @@ REAGENT SCANNER
 			to_chat(user, "\t<span class='alert'>Severe brain damage detected. Subject likely to have mental traumas.</span>")
 		else if (H.getBrainLoss() >= 45)
 			to_chat(user, "\t<span class='alert'>Brain damage detected.</span>")
-		if(LAZYLEN(H.get_traumas()))
-			var/list/trauma_text = list()
-			for(var/datum/brain_trauma/B in H.get_traumas())
-				trauma_text += B.scan_desc
-			to_chat(user, "\t<span class='alert'>Cerebral traumas detected: subjects appears to be suffering from [english_list(trauma_text)].</span>")
+		else if(LAZYLEN(H.get_traumas()))
+			to_chat(user, "\t<span class='alert'>Severe brain damage detected. Subject likely to have mental traumas.</span>")
 		for(var/name in H.organs_by_name)
 			var/obj/item/organ/external/e = H.organs_by_name[name]
 			if(!e)

@@ -93,3 +93,8 @@
 	name = "Chainsaw"
 	item_cost = 10
 	path = /obj/item/weapon/material/twohanded/chainsaw/fueled
+
+/datum/uplink_item/item/visible_weapons/throwing_star
+	name = "Steel Throwing Star"
+	item_cost = 2
+	path = /obj/item/weapon/material/star

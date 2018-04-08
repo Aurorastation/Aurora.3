@@ -1425,7 +1425,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Arrivals Terminal Flight Tower";
 	dir = 4;
 	pixel_y = 0
