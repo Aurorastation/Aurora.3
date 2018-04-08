@@ -72,81 +72,90 @@
 	icon_state = "pocketwatch"
 	matter = list("glass" = 150, "gold" = 50)
 	w_class = 1
-	var/thrall
+	var/datum/weakref/thrall = null
 	var/time_counter = 0
 
+/obj/item/weapon/mesmetron/Destroy()
+	STOP_PROCESSING(SSfast_process, src)
+	thrall = null
+	. = ..()
 
 /obj/item/weapon/mesmetron/process()
-	if(!ishuman(thrall))
+	if (!thrall)
 		STOP_PROCESSING(SSfast_process, src)
-	else
-		var/mob/living/carbon/human/H = thrall
-		if (H && time_counter > 20)
-			time_counter += 0.5
-			var/thrall_response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
-			if(thrall_response == "No")
-				H.sleeping = max(H.sleeping - 40, 0)
-				H.drowsyness = max(H.drowsyness - 60, 0)
-				thrall = null
-				STOP_PROCESSING(SSfast_process, src)
-			else
-				H.sleeping = max(H.sleeping, 40)
-				H.drowsyness = max(H.drowsyness, 60)
-		else
-			STOP_PROCESSING(SSfast_process, src)
+		return
 
-/obj/item/weapon/mesmetron/attack_self(mob/user as mob)
-	if(!thrall || !ishuman(thrall))
-		user << "You decipher the watch's mesmerizing face, discerning the time to be: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'."
-	else
-		var/response = alert(user, "Would you like to make a suggestion to [thrall], or release them?", "Mesmetron", "Suggestion", "Release")
-		if (response == "Release")
+	var/mob/living/carbon/human/H = thrall.resolve()
+	if(!H)
+		STOP_PROCESSING(SSfast_process, src)
+		return
+
+	if (time_counter > 20)
+		time_counter += 0.5
+		var/thrall_response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
+		if(thrall_response == "No")
+			H.sleeping = max(H.sleeping - 40, 0)
+			H.drowsyness = max(H.drowsyness - 60, 0)
 			thrall = null
 			STOP_PROCESSING(SSfast_process, src)
 		else
-			if(get_dist(user, thrall) > 1)
-				user << "You must stand in whisper range of [thrall]."
-				return
+			H.sleeping = max(H.sleeping, 40)
+			H.drowsyness = max(H.drowsyness, 60)
+	else
+		STOP_PROCESSING(SSfast_process, src)
 
-			text = input("What would you like to suggest?", "Hypnotic suggestion", null, null)
-			text = sanitize(text)
-			if(!text)
-				return
+/obj/item/weapon/mesmetron/attack_self(mob/user as mob)
+	if(!thrall || !thrall.resolve())
+		user << "You decipher the watch's mesmerizing face, discerning the time to be: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'."
+		return
 
-			var/thrall_response = alert(thrall, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
-			if(thrall_response == "Yes")
-				thrall << "<span class='notice'><i>... [text] ...</i></span>"
-				var/mob/living/carbon/human/H = thrall
-				H.cure_all_traumas(cure_type = CURE_HYPNOSIS)
-			else
-				thrall = null
+	var/mob/living/carbon/human/H = thrall.resolve()
 
-/obj/item/weapon/mesmetron/afterattack(obj/target, mob/user, proximity)
+	var/response = alert(user, "Would you like to make a suggestion to [thrall], or release them?", "Mesmetron", "Suggestion", "Release")
+
+	if (response == "Release")
+		thrall = null
+		STOP_PROCESSING(SSfast_process, src)
+	else
+		if(get_dist(user, H) > 1)
+			user << "You must stand in whisper range of [H]."
+			return
+
+		text = input("What would you like to suggest?", "Hypnotic suggestion", null, null)
+		text = sanitize(text)
+		if(!text)
+			return
+
+		var/thrall_response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
+		if(thrall_response == "Yes")
+			H << "<span class='notice'><i>... [text] ...</i></span>"
+			H.cure_all_traumas(cure_type = CURE_HYPNOSIS)
+		else
+			thrall = null
+
+/obj/item/weapon/mesmetron/afterattack(mob/living/carbon/human/H, mob/user, proximity)
 	if(!proximity)
 		return
 
-	if(!ishuman(target))
+	if(!istype(H))
 		return
 
-	var/mob/living/carbon/human/L = target
+	user.visible_message("<span class='warning'>[user] begins to mesmerizingly wave [src] like a pendulum before [H]'s very eyes!</span>")
 
-	user.visible_message("<span class='warning'>[user] begins to mesmerizingly wave [src] like a pendulum before [L]'s very eyes!</span>")
-
-	if(!do_mob(user, L, 10 SECONDS))
+	if(!do_mob(user, H, 10 SECONDS))
 		return
-
 
 	if((!user in view(1,target)))
 		return
 
-	var/response = alert(L, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
+	var/response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
 
 	if(response == "Yes")
-		L.visible_message("<span class='warning'>[L] falls into a deep slumber!</span>", "<span class ='danger'>You fall into a deep slumber!</span>")
+		H.visible_message("<span class='warning'>[H] falls into a deep slumber!</span>", "<span class ='danger'>You fall into a deep slumber!</span>")
 
-		L.sleeping = max(L.sleeping, 40)
-		L.drowsyness = max(L.drowsyness, 60)
-		thrall = L
+		H.sleeping = max(H.sleeping, 40)
+		H.drowsyness = max(H.drowsyness, 60)
+		thrall = WEAKREF(H)
 		START_PROCESSING(SSfast_process, src)
 
 /obj/structure/metronome
@@ -158,6 +167,10 @@
 	density = 0
 	var/time_last_ran = 0
 	var/ticktock = "Tick"
+
+/obj/structure/metronome/Destroy()
+	STOP_PROCESSING(SSfast_process, src)
+	. = ..()
 
 /obj/structure/metronome/Initialize()
 	. = ..()
@@ -190,6 +203,7 @@
 		counter++
 		if(ishuman(L))
 			H = L
+
 	if(counter == 1 && H)
 		if(ticktock == "Tick")
 			ticktock = "Tock"
@@ -212,13 +226,17 @@
 	idle_power_usage = 60
 	active_power_usage = 10000
 
-	var/occupant
+	var/datum/weakref/occupant = null
 	var/locked
 	var/obj/machinery/chakraconsole/connected
 
 /obj/machinery/chakrapod/Destroy()
 	if (connected)
 		connected.connected = null
+		connected = null
+
+	occupant = null
+
 	return ..()
 
 /obj/machinery/chakrapod/relaymove(mob/user as mob)
@@ -261,7 +279,7 @@
 	usr.client.perspective = EYE_PERSPECTIVE
 	usr.client.eye = src
 	usr.forceMove(src)
-	src.occupant = usr
+	src.occupant = WEAKREF(usr)
 	update_use_power(2)
 	src.icon_state = "syndipod_1"
 	for(var/obj/O in src)
@@ -270,15 +288,16 @@
 	return
 
 /obj/machinery/chakrapod/proc/go_out()
-	if (!src.occupant || !ishuman(occupant))
+	if (!src.occupant || !occupant.resolve())
+		occupant = null
 		return
 
-	if(locked)
-		occupant << "<span class='notice'>You push against the pod door and attempt to escape. This process will take roughly two minutes.</span>"
-		if(!do_after(occupant, 1200))
-			return
+	var/mob/living/carbon/human/H = occupant.resolve()
 
-	var/mob/living/carbon/human/H = occupant
+	if(locked)
+		H << "<span class='notice'>You push against the pod door and attempt to escape. This process will take roughly two minutes.</span>"
+		if(!do_after(H, 1200))
+			return
 
 	for(var/obj/O in src)
 		O.forceMove(get_turf(src))
@@ -291,10 +310,10 @@
 	src.icon_state = "syndipod_0"
 	return
 
-/obj/machinery/chakrapod/attackby(obj/item/weapon/grab/G as obj, user as mob)
-	if ((!( istype(G, /obj/item/weapon/grab) ) || !(ishuman(G.affecting))))
+/obj/machinery/chakrapod/attackby(obj/item/weapon/grab/G, mob/user)
+	if (!istype(G) || !ishuman(G.affecting))
 		return
-	if (src.occupant)
+	if (occupant)
 		user << "<span class='warning'>The pod is already occupied!</span>"
 		return
 	if (G.affecting.abiotic())
@@ -306,64 +325,63 @@
 
 
 	var/mob/living/L = G.affecting
-	visible_message("[user] starts putting [G.affecting] into the pod bed.", 3)
+	visible_message("[user] starts putting [L] into the pod bed.", 3)
 
-	if (do_mob(user, G.affecting, 30, needhand = 0))
+	if (do_mob(user, L, 30, needhand = 0))
 		var/bucklestatus = L.bucklecheck(user)
 		if (!bucklestatus)//incase the patient got buckled during the delay
 			return
 		if (bucklestatus == 2)
 			var/obj/structure/LB = L.buckled
 			LB.user_unbuckle_mob(user)
-		var/mob/M = G.affecting
-		if (istype(M) && M.client)
-			M.client.perspective = EYE_PERSPECTIVE
-			M.client.eye = src
-		M.forceMove(src)
-		src.occupant = M
+
+		if (L.client)
+			L.client.perspective = EYE_PERSPECTIVE
+			L.client.eye = src
+		L.forceMove(src)
+		occupant = WEAKREF(L)
+
 		update_use_power(2)
-		src.icon_state = "syndipod_1"
+		icon_state = "syndipod_1"
 		for(var/obj/O in src)
 			O.forceMove(get_turf(src))
+
 	src.add_fingerprint(user)
 	qdel(G)
 	return
 
-/obj/machinery/chakrapod/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
-	if(!istype(user))
+/obj/machinery/chakrapod/MouseDrop_T(mob/living/carbon/human/H, mob/living/user)
+	if(!istype(user) || !istype(H))
 		return
-	if(!ishuman(O))
-		return
-	var/mob/living/L = O
-	if (src.occupant)
+	if (occupant)
 		user << "<span class='notice'><B>The pod is already occupied!</B></span>"
 		return
-	if (L.abiotic())
+	if (H.abiotic())
 		user << "<span class='notice'><B>Subject cannot have abiotic items on.</B></span>"
 		return
 	if(locked)
 		user << "<span class='warning'>The pod is locked.</span>"
 		return
 
-	var/bucklestatus = L.bucklecheck(user)
+	var/bucklestatus = H.bucklecheck(user)
 
 	if (!bucklestatus)//We must make sure the person is unbuckled before they go in
 		return
 
-	if(L == user)
+	if(H == user)
 		visible_message("[user] starts climbing into the pod bed.", 3)
 	else
-		visible_message("[user] starts putting [L.name] into the pod bed.", 3)
+		visible_message("[user] starts putting [H.name] into the pod bed.", 3)
 
-	if (do_mob(user, L, 30, needhand = 0))
+	if (do_mob(user, H, 30, needhand = 0))
 		if (bucklestatus == 2)
-			var/obj/structure/LB = L.buckled
+			var/obj/structure/LB = H.buckled
 			LB.user_unbuckle_mob(user)
-		if (L.client)
-			L.client.perspective = EYE_PERSPECTIVE
-			L.client.eye = src
-		L.forceMove(src)
-		src.occupant = L
+		if (H.client)
+			H.client.perspective = EYE_PERSPECTIVE
+			H.client.eye = src
+		H.forceMove(src)
+		occupant = WEAKREF(H)
 		update_use_power(2)
 		src.icon_state = "syndipod_1"
 		for(var/obj/Obj in src)
@@ -398,6 +416,8 @@
 /obj/machinery/chakraconsole/Destroy()
 	if (connected)
 		connected.connected = null
+		connected = null
+
 	return ..()
 
 /obj/machinery/chakraconsole/power_change()
@@ -414,6 +434,13 @@
 		break
 	if(connected)
 		connected.connected = src
+
+/obj/machinery/chakraconsole/Destroy()
+	if (connected)
+		connected.connected = null
+		connected = null
+
+	. = ..()
 
 /obj/machinery/chakraconsole/attack_ai(user as mob)
 	return src.attack_hand(user)
@@ -432,7 +459,7 @@
 		return 1
 
 /obj/machinery/chakraconsole/proc/button_prompt(user as mob)
-	var/mob/living/carbon/human/H = connected.occupant
+	var/mob/living/carbon/human/H = connected.occupant ? connected.occupant.resolve() : null
 	if(!H)
 		user << "<span class='notice'>The pod is currently unoccupied.</span>"
 	else
@@ -498,7 +525,7 @@
 	for(var/i=0;i<alert;i++)
 		sleep(100)
 		var/electroshock_trauma = 0
-		if(!H || H != connected.occupant)
+		if(!H || H != connected.occupant.resolve())
 			if(get_dist(user,src) <= 1)
 				user << "<span class='danger'>Error: Subject not recognized. Terminating operation.</span>"
 			playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
@@ -533,7 +560,7 @@
 			H.apply_radiation(max(1,i))
 
 /obj/machinery/chakraconsole/proc/total_recall(var/mob/user, var/mob/living/carbon/human/H)
-	if(H && H == connected.occupant)
+	if(H && H == connected.occupant.resolve())
 		var/list/choices1 = list("Wipe Memory", "Implant Memory", "Cancel")
 		var/response1 = input(user,"Input operation.","quaid.exe") as null|anything in choices1
 		if(response1 == "Cancel")
@@ -545,7 +572,7 @@
 				user << "<span class='notice'>Initiating memory wipe. Process will take approximately two minutes.</span>"
 				H << "<span class='danger'>You feel a sharp pain in your brain as the therapy pod begins to hum menacingly!!</span>"
 				sleep(1200-rand(0,150))
-				if(H && H == connected.occupant)
+				if(H && H == connected.occupant.resolve())
 					var/timespan = response2
 					H << "<span class='danger'>You feel a part of your past self, a portion of your memories, a piece of your very being slip away...</span>"
 					H << "<b>Your memory of the past [timespan] has been wiped. Your ability to recall these past [timespan] has been removed from your brain, and you remember nothing that ever ocurred within those [timespan].</b>"
@@ -560,7 +587,7 @@
 				user << "<span class='notice'>Initiating memory implantation. Process will take approximately two minutes. Subject's memory of this process will also be wiped.</span>"
 				H << "<span class='danger'>You feel a sharp pain in your brain as the therapy pod begins to hum menacingly!</span>"
 				sleep(1200-rand(0,150))
-				if(H && H == connected.occupant)
+				if(H && H == connected.occupant.resolve())
 					H << "<span class='danger'>You blink, and somehow between the timespan of your eyes closing and your eyes opening your perception of the world has changed in some imperceptible way...</span>"
 					H << "<b>A new memory has been implanted in your mind as follows: [memory_implant] - you have no reason to suspect the memory to be fabricated, as your memory of the past two minutes has also been altered.</b>"
 					crystal = 1
