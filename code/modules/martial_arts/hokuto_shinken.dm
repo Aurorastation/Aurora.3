@@ -54,7 +54,7 @@
 	return 1
 
 /datum/martial_art/hokuto_shinken/proc/Gekitsui_Shi(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
-	log_and_message_admins("[A] gibbed [D] with Hokuto Shinken.")
+	log_and_message_admins("gibbed [key_name(D)] with Hokuto Shinken.", A)
 
 	A.do_attack_animation(D)
 	A.visible_message("<span class='warning'>[A] strikes [D]\'s forehead with four extended fingers!</span>")
