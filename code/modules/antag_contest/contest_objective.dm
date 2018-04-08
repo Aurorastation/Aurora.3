@@ -138,7 +138,7 @@
 			if (count >= 2)
 				break
 
-		for (var/obj/machinery/r_n_d/circuit_imprinter/B in machines)
+		for (var/obj/machinery/rnd/circuit_imprinter/B in machines)
 			if (!istype(get_area(B), /area/assembly/robotics))
 				continue
 			if (B.stat & (BROKEN|NOPOWER))
@@ -250,7 +250,7 @@
 			if (count >= 2)
 				break
 
-		for (var/obj/machinery/r_n_d/circuit_imprinter/B in machines)
+		for (var/obj/machinery/rnd/circuit_imprinter/B in machines)
 			if (!istype(get_area(B), /area/assembly/robotics))
 				continue
 			if (B.stat & (BROKEN|NOPOWER))

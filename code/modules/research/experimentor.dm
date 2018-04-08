@@ -13,7 +13,8 @@
 #define EFFECT_PROB_VERYHIGH 95
 
 #define FAIL 8
-/obj/machinery/r_n_d/experimentor
+
+/obj/machinery/rnd/experimentor
 	name = "\improper E.X.P.E.R.I-MENTOR"
 	desc = "A \"replacement\" for the deconstructive analyzer with a slight tendency to catastrophically fail."
 	icon = 'icons/obj/machines/heavy_lathe.dmi'
@@ -31,15 +32,15 @@
 	var/list/valid_items = list() //valid items for special reactions like transforming
 	var/list/critical_items = list() //items that can cause critical reactions
 
-/obj/machinery/r_n_d/experimentor/proc/ConvertReqString2List(list/source_list)
+/obj/machinery/rnd/experimentor/proc/ConvertReqString2List(list/source_list)
 	var/list/temp_list = params2list(source_list)
 	for(var/O in temp_list)
 		temp_list[O] = text2num(temp_list[O])
 	return temp_list
 
 
-/obj/machinery/r_n_d/experimentor/proc/SetTypeReactions()
-	var/probWeight = 0
+/obj/machinery/rnd/experimentor/proc/SetTypeReactions()
+	//var/probWeight = 0
 	for(var/I in typesof(/obj/item))
 		if(istype(I, /obj/item/relic))
 			item_reactions["[I]"] = SCANTYPE_DISCOVER
@@ -50,7 +51,7 @@
 			if(initial(tempCheck.icon_state) != null) //check it's an actual usable item, in a hacky way
 				valid_items += 15
 				valid_items += I
-				probWeight++
+				//probWeight++
 
 		/*if(ispath(I, /obj/item/reagent_containers/food))
 			var/obj/item/tempCheck = I
@@ -63,12 +64,11 @@
 			if(initial(tempCheck.icon_state) != null)
 				critical_items += I
 
-
-/obj/machinery/r_n_d/experimentor/Initialize()
+/obj/machinery/rnd/experimentor/Initialize()
 	. = ..()
 	SetTypeReactions()
 
-/obj/machinery/r_n_d/experimentor/RefreshParts()
+/obj/machinery/rnd/experimentor/RefreshParts()
 	for(var/obj/item/weapon/stock_parts/manipulator/M in component_parts)
 		if(resetTime > 0 && (resetTime - M.rating) >= 1)
 			resetTime -= M.rating
@@ -77,7 +77,7 @@
 	for(var/obj/item/weapon/stock_parts/micro_laser/M in component_parts)
 		badThingCoeff += M.rating
 
-/obj/machinery/r_n_d/experimentor/proc/checkCircumstances(obj/item/O)
+/obj/machinery/rnd/experimentor/proc/checkCircumstances(obj/item/O)
 	//snowflake check to only take "made" bombs
 	if(istype(O, /obj/item/device/transfer_valve))
 		var/obj/item/device/transfer_valve/T = O
@@ -85,7 +85,7 @@
 			return FALSE
 	return TRUE
 
-/obj/machinery/r_n_d/experimentor/Insert_Item(obj/item/O, mob/user)
+/obj/machinery/rnd/experimentor/Insert_Item(obj/item/O, mob/user)
 	if(user.a_intent != I_HURT)
 		. = 1
 		if(!is_insertion_ready(user))
@@ -96,11 +96,11 @@
 		to_chat(user, "<span class='notice'>You add [O] to the machine.</span>")
 		flick("h_lathe_load", src)
 
-/obj/machinery/r_n_d/experimentor/default_deconstruction_crowbar(obj/item/O)
+/obj/machinery/rnd/experimentor/default_deconstruction_crowbar(obj/item/O)
 	ejectItem()
 	. = ..(O)
 
-/obj/machinery/r_n_d/experimentor/attack_hand(mob/user) //nanoui
+/obj/machinery/rnd/experimentor/attack_hand(mob/user) //nanoui
 	user.set_machine(src)
 	var/list/dat = list("<center>")
 	//if(!linked_console)
@@ -144,7 +144,7 @@
 	popup.open()
 	onclose(user, "experimentor")
 
-/obj/machinery/r_n_d/experimentor/Topic(href, href_list)
+/obj/machinery/rnd/experimentor/Topic(href, href_list)
 	if(..())
 		return
 	usr.set_machine(src)
@@ -185,7 +185,7 @@
 					linked_console.stored_research.boost_with_path(picked, process.type)*/
 	updateUsrDialog()
 
-/obj/machinery/r_n_d/experimentor/proc/matchReaction(matching,reaction)
+/obj/machinery/rnd/experimentor/proc/matchReaction(matching,reaction)
 	var/obj/item/D = matching
 	if(D)
 		if(item_reactions.Find("[D.type]"))
@@ -199,7 +199,7 @@
 	else
 		return FAIL
 
-/obj/machinery/r_n_d/experimentor/proc/ejectItem(delete=FALSE)
+/obj/machinery/rnd/experimentor/proc/ejectItem(delete=FALSE)
 	if(loaded_item)
 		if(cloneMode && cloneCount > 0)
 			visible_message("<span class='notice'>A duplicate [loaded_item] pops out!</span>")
@@ -217,12 +217,12 @@
 			qdel(loaded_item)
 		loaded_item = null
 
-/obj/machinery/r_n_d/experimentor/proc/throwSmoke(turf/where)
+/obj/machinery/rnd/experimentor/proc/throwSmoke(turf/where)
 	var/datum/effect/effect/system/smoke_spread/smoke = new
 	smoke.set_up(0, where)
 	smoke.start()
 
-/obj/machinery/r_n_d/experimentor/proc/pickWeighted(list/from)
+/obj/machinery/rnd/experimentor/proc/pickWeighted(list/from)
 	var/result = FALSE
 	var/counter = 1
 	while(!result)
@@ -235,7 +235,7 @@
 		else
 			counter = 1
 
-/obj/machinery/r_n_d/experimentor/proc/experiment(exp,obj/item/exp_on)
+/obj/machinery/rnd/experimentor/proc/experiment(exp,obj/item/exp_on)
 	recentlyExperimented = 1
 	icon_state = "h_lathe_wloop"
 	var/chosenchem
@@ -350,7 +350,7 @@
 			//C.desc = "It has a large hazard symbol printed on the side in fading ink."
 			investigate_log("Experimentor has made a cup of [chosenchem] coffee.", "experimentor")
 		else if(prob(EFFECT_PROB_VERYLOW-badThingCoeff))
-			var/turf/start = get_turf(src)
+			//var/turf/start = get_turf(src)
 			var/mob/M = locate(/mob/living) in view(src, 3)
 			var/turf/MT = get_turf(M)
 			if(MT)
@@ -375,7 +375,7 @@
 					heat_capacity = 1
 				removed.temperature = min((removed.temperature*heat_capacity + 100000)/heat_capacity, 1000)
 			env.merge(removed)
-			air_update_turf()
+			//air_update_turf()
 			investigate_log("Experimentor has released hot air.", "experimentor")
 			ejectItem(TRUE)
 		else if(prob(EFFECT_PROB_MEDIUM-badThingCoeff))
@@ -421,7 +421,7 @@
 					heat_capacity = 1
 				removed.temperature = (removed.temperature*heat_capacity - 75000)/heat_capacity
 			env.merge(removed)
-			air_update_turf()
+			//air_update_turf()
 			investigate_log("Experimentor has released cold air.", "experimentor")
 			ejectItem(TRUE)
 		else if(prob(EFFECT_PROB_MEDIUM-badThingCoeff))
@@ -503,14 +503,14 @@
 
 	addtimer(CALLBACK(src, .proc/reset_exp), resetTime)
 
-/obj/machinery/r_n_d/experimentor/proc/reset_exp()
+/obj/machinery/rnd/experimentor/proc/reset_exp()
 	update_icon()
 	recentlyExperimented = FALSE
 
-/obj/machinery/r_n_d/experimentor/update_icon()
+/obj/machinery/rnd/experimentor/update_icon()
 	icon_state = "h_lathe"
 
-/obj/machinery/r_n_d/experimentor/proc/warn_admins(user, ReactionName)
+/obj/machinery/rnd/experimentor/proc/warn_admins(user, ReactionName)
 	var/turf/T = get_turf(user)
 	//message_admins("Experimentor reaction: [ReactionName] generated by [ADMIN_LOOKUPFLW(user)] at [ADMIN_COORDJMP(T)]",0,1)
 	log_game("Experimentor reaction: [ReactionName] generated by [key_name(user)] in ([T.x],[T.y],[T.z])")

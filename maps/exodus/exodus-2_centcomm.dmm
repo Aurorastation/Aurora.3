@@ -8450,7 +8450,7 @@
 	},
 /area/centcom/control)
 "up" = (
-/obj/machinery/r_n_d/server/centcom,
+/obj/machinery/rnd/server/centcom,
 /turf/unsimulated/floor{
 	icon_state = "steel"
 	},

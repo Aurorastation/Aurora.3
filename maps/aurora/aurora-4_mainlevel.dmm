@@ -38830,7 +38830,7 @@
 /area/assembly/robotics)
 "boB" = (
 /obj/item/toy/figure/roboticist,
-/obj/machinery/r_n_d/circuit_imprinter,
+/obj/machinery/rnd/circuit_imprinter,
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics)
 "boC" = (
@@ -40816,7 +40816,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "brX" = (
-/obj/machinery/r_n_d/server/robotics,
+/obj/machinery/rnd/server/robotics,
 /turf/simulated/floor/bluegrid{
 	name = "Server Base";
 	nitrogen = 500;
@@ -42332,7 +42332,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "bup" = (
-/obj/machinery/r_n_d/server/core,
+/obj/machinery/rnd/server/core,
 /turf/simulated/floor/bluegrid{
 	name = "Server Base";
 	nitrogen = 500;
@@ -47337,7 +47337,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/r_n_d/destructive_analyzer,
+/obj/machinery/rnd/destructive_analyzer,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/lab)
 "bCu" = (
@@ -47355,7 +47355,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/lab)
 "bCv" = (
-/obj/machinery/r_n_d/protolathe,
+/obj/machinery/rnd/protolathe,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
@@ -47873,7 +47873,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/r_n_d/circuit_imprinter,
+/obj/machinery/rnd/circuit_imprinter,
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 4

@@ -3369,7 +3369,7 @@
 /turf/template_noop,
 /area/template_noop)
 "kJ" = (
-/obj/machinery/r_n_d/circuit_imprinter,
+/obj/machinery/rnd/circuit_imprinter,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "kK" = (
@@ -3393,7 +3393,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "kN" = (
-/obj/machinery/r_n_d/destructive_analyzer,
+/obj/machinery/rnd/destructive_analyzer,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)

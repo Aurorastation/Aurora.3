@@ -6,7 +6,7 @@ It is used to destroy hand-held objects and advance technological research. Cont
 Note: Must be placed within 3 tiles of the R&D Console
 */
 
-/obj/machinery/r_n_d/destructive_analyzer
+/obj/machinery/rnd/destructive_analyzer
 	name = "destructive analyzer"
 	icon_state = "d_analyzer"
 	var/decon_mod = 0
@@ -22,14 +22,14 @@ Note: Must be placed within 3 tiles of the R&D Console
 		/obj/item/weapon/stock_parts/micro_laser
 	)
 
-/obj/machinery/r_n_d/destructive_analyzer/RefreshParts()
+/obj/machinery/rnd/destructive_analyzer/RefreshParts()
 	var/T = 0
 
 	for(var/obj/item/weapon/stock_parts/S in component_parts)
 		T += S.rating
 	decon_mod = T * 0.1
 
-/obj/machinery/r_n_d/destructive_analyzer/update_icon()
+/obj/machinery/rnd/destructive_analyzer/update_icon()
 	if(panel_open)
 		icon_state = "d_analyzer_t"
 	else if(loaded_item)
@@ -37,7 +37,7 @@ Note: Must be placed within 3 tiles of the R&D Console
 	else
 		icon_state = "d_analyzer"
 
-/obj/machinery/r_n_d/destructive_analyzer/attackby(var/obj/O as obj, var/mob/user as mob)
+/obj/machinery/rnd/destructive_analyzer/attackby(var/obj/O as obj, var/mob/user as mob)
 	if(default_deconstruction_screwdriver(user, O))
 		if(linked_console)
 			linked_console.linked_destroy = null
