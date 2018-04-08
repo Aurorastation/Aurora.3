@@ -20,6 +20,13 @@
 		part.part1.master = part
 		part.part2.master = part
 
+/obj/structure/bed/chair/e_chair/Destroy()
+	if (part)
+		part.master = null
+		part = null
+
+	. = ..()
+
 /obj/structure/bed/chair/e_chair/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(iswrench(W))
 		var/obj/structure/bed/chair/C = new /obj/structure/bed/chair(loc)
@@ -87,6 +94,7 @@
 
 	var/mob/living/carbon/human/H = thrall.resolve()
 	if(!H)
+		thrall = null
 		STOP_PROCESSING(SSfast_process, src)
 		return
 
@@ -106,6 +114,7 @@
 
 /obj/item/weapon/mesmetron/attack_self(mob/user as mob)
 	if(!thrall || !thrall.resolve())
+		thrall = null
 		user << "You decipher the watch's mesmerizing face, discerning the time to be: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'."
 		return
 
@@ -263,7 +272,7 @@
 
 	if (usr.stat != 0 || locked)
 		return
-	if (src.occupant)
+	if (occupant.resolve())
 		usr << "<span class='warning'>The pod is already occupied!</span>"
 		return
 	if (usr.abiotic())
@@ -272,7 +281,7 @@
 	if(locked)
 		user << "<span class='warning'>The pod is currently locked!</span>"
 		return
-	if(!ishuman(occupant))
+	if(!ishuman(usr))
 		user << "<span class='warning'>The subject does not fit!</span>"
 		return
 	usr.pulling = null
@@ -459,7 +468,7 @@
 		return 1
 
 /obj/machinery/chakraconsole/proc/button_prompt(user as mob)
-	var/mob/living/carbon/human/H = connected.occupant ? connected.occupant.resolve() : null
+	var/mob/living/carbon/human/H = connected && connected.occupant ? connected.occupant.resolve() : null
 	if(!H)
 		user << "<span class='notice'>The pod is currently unoccupied.</span>"
 	else
@@ -475,7 +484,7 @@
 				return
 			if("Initiate Neural Scan")
 				visible_message("<span class='warning'>[connected] begins humming with an electrical tone.</span>", "<span class='warning'>You hear an electrical humming.</span>")
-				if(H && connected.occupant == H)
+				if(H && connected.occupant.resolve() == H)
 					var/obj/item/organ/brain/sponge = H.internal_organs_by_name["brain"]
 					var/retardation = H.getBrainLoss()
 					if(sponge && istype(sponge))
