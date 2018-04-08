@@ -76,13 +76,13 @@
 /datum/gear/eyes/mespatch
 	display_name = "HUDpatch, Mesons"
 	path = /obj/item/clothing/glasses/eyepatch/hud/meson
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice", "Research Director","Scientist")
+	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice", "Research Director","Scientist", "Shaft Miner")
 	cost = 2
 
 /datum/gear/eyes/matpatch
 	display_name = "HUDpatch, Material"
 	path = /obj/item/clothing/glasses/eyepatch/hud/material
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
+	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice", "Shaft Miner")
 	cost = 2
 
 /datum/gear/eyes/scipatch
