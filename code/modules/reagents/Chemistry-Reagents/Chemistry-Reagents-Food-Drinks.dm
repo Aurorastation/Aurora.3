@@ -70,7 +70,7 @@
 	name = "Synthetic Nutriment"
 	id = "synnutriment"
 	description = "A cheaper alternative to actual nutriment."
-	nutrition_factor = 10
+	nutriment_factor = 10
 	attrition_factor = (REM * 4)/BASE_MAX_NUTRITION // Increases attrition rate.
 
 /datum/reagent/nutriment/mix_data(var/list/newdata, var/newamount)
