@@ -58,12 +58,22 @@
 	taste_mult = 4
 	reagent_state = SOLID
 	metabolism = REM * 4
-	var/nutriment_factor = 12 // Per unit
+	var/nutriment_factor = 12 // Per removed in digest.
 	var/blood_factor = 6
 	var/regen_factor = 0.8
 	var/injectable = 0
+	var/attrition_factor = -(REM * 4)/BASE_MAX_NUTRITION // Decreases attrition rate.
 	color = "#664330"
 	unaffected_species = IS_MACHINE
+	taste_description = "food"
+
+/datum/reagent/nutriment/synthetic
+	name = "Synthetic Nutriment"
+	id = "synnutriment"
+	description = "A cheaper alternative to actual nutriment."
+	taste_description = "cheap food"
+	nutriment_factor = 10
+	attrition_factor = (REM * 4)/BASE_MAX_NUTRITION // Increases attrition rate.
 
 /datum/reagent/nutriment/mix_data(var/list/newdata, var/newamount)
 	if(!islist(newdata) || !newdata.len)
@@ -101,6 +111,7 @@
 /datum/reagent/nutriment/proc/digest(var/mob/living/carbon/M, var/removed)
 	M.heal_organ_damage(regen_factor * removed, 0)
 	M.nutrition += nutriment_factor * removed // For hunger and fatness
+	M.nutrition_attrition_rate = Clamp(M.nutrition_attrition_rate + attrition_factor, 1, 2)
 	M.add_chemical_effect(CE_BLOODRESTORE, blood_factor * removed)
 
 
@@ -957,14 +968,14 @@
 	M.make_jittery(5)
 
 /datum/reagent/drink/coffee/icecoffee
-	name = "Iced Coffee"
+	name = "Frappe Coffee"
 	id = "icecoffee"
 	description = "Coffee and ice, refreshing and cool."
 	color = "#102838"
 	adj_temp = -5
 
 	glass_icon_state = "icedcoffeeglass"
-	glass_name = "glass of iced coffee"
+	glass_name = "glass of frappe coffee"
 	glass_desc = "A drink to perk you up and refresh you!"
 
 /datum/reagent/drink/coffee/soy_latte
@@ -1000,6 +1011,123 @@
 /datum/reagent/drink/coffee/cafe_latte/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	M.heal_organ_damage(0.5 * removed, 0)
+
+/datum/reagent/drink/coffee/espresso
+	name = "Espresso"
+	id = "espresso"
+	description = "A strong coffee made by passing nearly boiling water through coffee seeds at high pressure."
+	color = "#664300" // rgb: 102, 67, 0
+	adj_temp = 5
+	taste_description = "bitter coffee"
+
+	glass_icon_state = "hot_coffee"
+	glass_name = "shot of espresso"
+	glass_desc = "A strong coffee made by passing nearly boiling water through coffee seeds at high pressure."
+	glass_center_of_mass = list("x"=15, "y"=9)
+
+/datum/reagent/drink/coffee/freddo_espresso
+	name = "Freddo espresso"
+	id = "freddo_espresso"
+	description = "Espresso with ice cubes poured over ice."
+	color = "#664300" // rgb: 102, 67, 0
+	adj_temp = 5
+	taste_description = "cold and bitter coffee"
+
+	glass_icon_state = "hot_coffee"
+	glass_name = "glass of freddo espresso"
+	glass_desc = "Espresso with ice cubes poured over ice."
+	glass_center_of_mass = list("x"=15, "y"=9)
+
+/datum/reagent/drink/coffee/caffe_americano
+	name = "Caffe Americano"
+	id = "caffe_americano"
+	description = "Espresso diluted with hot water."
+	color = "#664300" // rgb: 102, 67, 0
+	adj_temp = 5
+	taste_description = "delicious coffee"
+
+	glass_icon_state = "hot_coffee"
+	glass_name = "glass of caffe Americano"
+	glass_desc = "delicious coffee"
+	glass_center_of_mass = list("x"=15, "y"=9)
+
+/datum/reagent/drink/coffee/flat_white
+	name = "Flat White Espresso"
+	id = "flat_white"
+	description = "Espresso with a bit of steamy hot milk."
+	color = "#664300" // rgb: 102, 67, 0
+	adj_temp = 5
+	taste_description = "bitter coffee and milk"
+
+	glass_icon_state = "cafe_latte"
+	glass_name = "glass of flat white"
+	glass_desc = "Espresso with a bit of steamy hot milk."
+	glass_center_of_mass = list("x"=15, "y"=9)
+
+/datum/reagent/drink/coffee/latte
+	name = "Latte"
+	id = "latte"
+	description = "A nice, strong and refreshing beverage while you are reading."
+	color = "#664300" // rgb: 102, 67, 0
+	adj_temp = 5
+	taste_description = "bitter cream"
+
+	glass_icon_state = "cafe_latte"
+	glass_name = "glass of cafe latte"
+	glass_desc = "A nice, strong and refreshing beverage while you are reading."
+	glass_center_of_mass = list("x"=15, "y"=9)
+
+/datum/reagent/drink/coffee/cappuccino
+	name = "Cappuccino"
+	id = "cappuccino"
+	description = "Espresso with steamed milk foam."
+	color = "#664300" // rgb: 102, 67, 0
+	adj_temp = 5
+	taste_description = "bitter milk foam"
+
+	glass_icon_state = "hot_coffee"
+	glass_name = "glass of cappuccino"
+	glass_desc = "Espresso with steamed milk foam."
+	glass_center_of_mass = list("x"=15, "y"=9)
+
+/datum/reagent/drink/coffee/freddo_cappuccino
+	name = "Freddo Cappuccino"
+	id = "freddo_cappuccino"
+	description = "Espresso with steamed milk foam, on ice."
+	color = "#664300" // rgb: 102, 67, 0
+	adj_temp = 5
+	taste_description = "cold and bitter milk foam"
+
+	glass_icon_state = "hot_coffee"
+	glass_name = "glass of freddo cappuccino"
+	glass_desc = "Espresso with steamed milk foam, on ice."
+	glass_center_of_mass = list("x"=15, "y"=9)
+
+/datum/reagent/drink/coffee/macchiato
+	name = "Macchiato"
+	id = "macchiato"
+	description = "Espresso with milk foam."
+	color = "#664300" // rgb: 102, 67, 0
+	adj_temp = 5
+	taste_description = "bitter milk foam"
+
+	glass_icon_state = "hot_coffee"
+	glass_name = "glass of macchiato"
+	glass_desc = "Espresso with milk foam."
+	glass_center_of_mass = list("x"=15, "y"=9)
+
+/datum/reagent/drink/coffee/mocacchino
+	name = "Mocacchino"
+	id = "mocacchino"
+	description = "Espresso with hot milk and chocolate."
+	color = "#664300" // rgb: 102, 67, 0
+	adj_temp = 5
+	taste_description = "sweet milk and bitter coffee"
+
+	glass_icon_state = "cafe_latte"
+	glass_name = "glass of mocacchino"
+	glass_desc = "Espresso with hot milk and chocolate."
+	glass_center_of_mass = list("x"=15, "y"=9)
 
 /datum/reagent/drink/hot_coco
 	name = "Hot Chocolate"
@@ -1212,6 +1340,19 @@
 	glass_icon_state = "dr_gibb_glass"
 	glass_name = "glass of Dr. Gibb"
 	glass_desc = "Dr. Gibb. Not as dangerous as the name might imply."
+
+/datum/reagent/drink/root_beer
+	name = "R&D Root Beer"
+	id = "root_beer"
+	description = "A classic Earth drink from the United Americas province."
+	color = "#211100"
+	adj_drowsy = -6
+	adj_temp = -5
+	taste_description = "sassafras and anise soda"
+
+	glass_icon_state = "root_beer_glass"
+	glass_name = "glass of R&D Root Beer"
+	glass_desc = "A glass of bubbly R&D Root Beer."
 
 /datum/reagent/drink/space_up
 	name = "Space-Up"
@@ -2650,68 +2791,6 @@
 	glass_name = "glass of Dr. Daniels"
 	glass_desc = "A tall glass of honey, whiskey, and diet Dr. Gibb. The perfect blend of throat-soothing liquid."
 
-/////////////////////////////////////////////////////////////////Brightdawns super cool coffee area//////////////////////////////////////////////
-
-
-/datum/reagent/drink/black_coffee
-	name = "Black Coffee"
-	id = "black_coffee"
-	description = "A rich strong roast, you think it could be a lot better if someone added something extra."
-	color = "#482000"
-	adj_dizzy = -6
-	adj_drowsy = -4
-	adj_sleepy = -3
-	adj_temp = 30
-	overdose = 40
-	caffeine = 0.4
-	taste_description = "coffee"
-
-	glass_icon_state = "blackcoffee"
-	glass_name = "A mug of rich Black Coffee"
-	glass_desc = "A mug of a rich strong roast, you think it could be a lot better if someone added something extra to it."
-
-/datum/reagent/drink/white_coffee
-	name = "Cafe Au Lait"
-	id = "white_coffee"
-	description = "A fancy name for something thats just coffee and milk."
-	color = "#A64D07"
-	adj_dizzy = -6
-	adj_drowsy = -4
-	adj_sleepy = -3
-	adj_temp = 30
-	overdose = 40
-	caffeine = 0.3
-	taste_description = "creamy coffee"
-
-	glass_icon_state = "whitecoffee"
-	glass_name = "A mug of Cafe Au Lait"
-	glass_desc = "A fancy name for something thats just coffee and milk."
-
-/datum/reagent/drink/white_coffee/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	..()
-	M.heal_organ_damage(0.5 * removed, 0)
-
-/datum/reagent/drink/cafe_melange
-	name = "Cafe Melange"
-	id = "cafe_melange"
-	description = "A delicious mug of creamy coffee."
-	color = "#A64D07"
-	adj_dizzy = -6
-	adj_drowsy = -4
-	adj_sleepy = -3
-	adj_temp = 30
-	overdose = 40
-	caffeine = 0.3
-	taste_description = "creamy coffee"
-
-	glass_icon_state = "whitecoffee"
-	glass_name = "A mug of Cafe Melange"
-	glass_desc = "A delicious mug of creamy coffee, keeps you cool headed in the most heated of situations."
-
-/datum/reagent/drink/cafe_melange/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	..()
-	M.reagents.add_reagent("kelotane", removed * 0.2)
-
 //aurora unique drinks
 
 /datum/reagent/alcohol/ethanol/daiquiri
@@ -3477,58 +3556,3 @@
 	glass_icon_state = "crocodile_glass"
 	glass_name = "glass of Crocodile Guwan"
 	glass_desc = "The smell says no, but the pretty colors say yes."
-  
-//Preservatives
-
-/datum/reagent/nutriment/badfood //This is just a base. It shouldn't exist or be used anywhere but just in case, I added names.
-	name = "Experimental Preservative"
-	id = "badfood"
-	description = "Some... strange chemical. You can swear it's moving."
-	nutriment_factor = 50
-	color = "#000000"
-	taste_description = "liquid heart attack"
-	metabolism = REM * 1 //Metabolises slower
-	var/damagemul = 0.5 //How much damage to deal to the heart per unit digested
-
-/datum/reagent/nutriment/badfood/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
-	if(istype(M))
-		var/obj/item/organ/F = M.internal_organs_by_name["heart"]
-		if(istype(F))
-			F.take_damage(removed * damagemul,1)
-	..()
-
-/datum/reagent/nutriment/badfood/palmoil
-	name = "Palm Oil"
-	id = "palmoil"
-	description = "Palm oil is a common preservative used in packaged food, and is seriously unhealthy for you much like everything on this station."
-	nutriment_factor = 30
-	color = "#f4ce42"
-	taste_description = "oily fat"
-	damagemul = 0.15
-
-/datum/reagent/nutriment/badfood/shortening
-	name = "Shortening"
-	id = "shortening"
-	description = "Shortening, also known as hydrogenated vegetable oil, is a preservative commonly used in packaged food. Usually made from vegetables."
-	nutriment_factor = 20
-	color = "#e2d4c9"
-	taste_description = "greasy fat"
-	damagemul = 0.05
-
-/datum/reagent/nutriment/badfood/hfcs
-	name = "High Fructose Corn Syrup"
-	id = "hfcs"
-	description = "A cheap, easy to produce, unhealthy alternative to real sugar."
-	nutriment_factor = 20
-	color = "#c66119"
-	taste_description = "sweetness"
-	damagemul = 0.1
-
-/datum/reagent/nutriment/badfood/msg
-	name = "Monosodium Glutamate"
-	id = "msg"
-	description = "Monosodium glutamate, also known as MSG, is a cheap flavor enhancer similiar to sodium. Causes chinese restaurant syndrome."
-	nutriment_factor = 5
-	color = "#eaf1fc"
-	taste_description = "flavoring"
-	damagemul = 0.05

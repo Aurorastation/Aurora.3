@@ -582,6 +582,8 @@ var/list/global/random_stock_large = list(
 				new /obj/item/weapon/storage/fancy/cigar(L)
 				new /obj/item/weapon/storage/fancy/cigar(L)
 			else
+				new /obj/item/weapon/storage/fancy/cigarettes/custom(L)
+				new /obj/item/weapon/storage/fancy/cigarettes/custom(L)
 				if (prob(50))
 					new /obj/item/weapon/storage/fancy/cigarettes/dromedaryco(L)
 					new /obj/item/weapon/storage/fancy/cigarettes/dromedaryco(L)

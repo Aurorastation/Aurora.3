@@ -51,3 +51,29 @@
 	item_state = "taj_jacket"
 	icon_open = "taj_jacket_open"
 	icon_closed = "taj_jacket"
+
+//Vaurca clothing
+
+/obj/item/clothing/suit/vaurca
+	name = "hive cloak"
+	desc = "A fashionable robe tailored for nonhuman proportions, this one is red and golden."
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "robegold"
+	item_state = "robegold"
+	contained_sprite = TRUE
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+
+/obj/item/clothing/suit/vaurca/silver
+	desc = "A fashionable robe tailored for nonhuman proportions, this one is red and silver."
+	icon_state = "robesilver"
+	item_state = "robesilver"
+
+/obj/item/clothing/suit/vaurca/brown
+	desc = "A fashionable robe tailored for nonhuman proportions, this one is brown and silver."
+	icon_state = "robebrown"
+	item_state = "robebrown"
+
+/obj/item/clothing/suit/vaurca/blue
+	desc = "A fashionable robe tailored for nonhuman proportions, this one is blue and golden."
+	icon_state = "robeblue"
+	item_state = "robeblue"

@@ -104,7 +104,7 @@
 	longfringe
 		name = "Long Fringe"
 		icon_state = "hair_longfringe"
-		
+
 	longeralt
 		name = "Longer Fringe"
 		icon_state = "hair_vlongfringe"
@@ -754,7 +754,7 @@
 		name = "Shaved"
 		icon_state = "bald"
 		gender = NEUTER
-		species_allowed = list("Human","Unathi","Tajara","Skrell","Vox","Machine")
+		species_allowed = list("Human","Unathi","Tajara","Skrell","Vox")
 
 	watson
 		name = "Watson Mustache"
@@ -1035,6 +1035,53 @@
 			name = "Quill Mohawk"
 			icon_state = "vox_mohawk"
 
+/datum/sprite_accessory/facial_hair
+	taj_sideburns
+		icon = 'icons/mob/human_face/tajara_facial_hair.dmi'
+		name = "Tajara Sideburns"
+		icon_state = "facial_sideburns"
+		species_allowed = list("Tajara")
+
+		taj_mutton
+			name = "Tajara Mutton"
+			icon_state = "facial_mutton"
+
+		taj_pencilstache
+			name = "Tajara Pencilstache"
+			icon_state = "facial_pencilstache"
+
+		taj_moustache
+			name = "Tajara Moustache"
+			icon_state = "facial_moustache"
+
+		taj_goatee
+			name = "Tajara Goatee"
+			icon_state = "facial_goatee"
+
+		taj_smallstache
+			name = "Tajara Smallsatche"
+			icon_state = "facial_smallstache"
+
+//unathi horn beards and the like
+
+	una_chinhorn
+		icon = 'icons/mob/human_face/unathi_facial_hair.dmi'
+		name = "Unathi Chin Horn"
+		icon_state = "facial_chinhorns"
+		species_allowed = list("Unathi")
+
+		una_hornadorns
+			name = "Unathi Horn Adorns"
+			icon_state = "facial_hornadorns"
+
+		una_spinespikes
+			name = "Unathi Spine Spikes"
+			icon_state = "facial_spikes"
+
+		una_dorsalfrill
+			name = "Unathi Dorsal Frill"
+			icon_state = "facial_dorsalfrill"
+
 //ipc screens
 
 	ipc_screen_pink
@@ -1042,6 +1089,7 @@
 		name = "pink IPC screen"
 		icon_state = "ipc_pink"
 		species_allowed = list("Machine")
+		gender = NEUTER
 
 		ipc_screen_red
 			name = "red IPC screen"
@@ -1098,53 +1146,6 @@
 		ipc_screen_yellow
 			name = "yellow IPC screen"
 			icon_state = "ipc_yellow"
-
-/datum/sprite_accessory/facial_hair
-	taj_sideburns
-		icon = 'icons/mob/human_face/tajara_facial_hair.dmi'
-		name = "Tajara Sideburns"
-		icon_state = "facial_sideburns"
-		species_allowed = list("Tajara")
-
-		taj_mutton
-			name = "Tajara Mutton"
-			icon_state = "facial_mutton"
-
-		taj_pencilstache
-			name = "Tajara Pencilstache"
-			icon_state = "facial_pencilstache"
-
-		taj_moustache
-			name = "Tajara Moustache"
-			icon_state = "facial_moustache"
-
-		taj_goatee
-			name = "Tajara Goatee"
-			icon_state = "facial_goatee"
-
-		taj_smallstache
-			name = "Tajara Smallsatche"
-			icon_state = "facial_smallstache"
-
-//unathi horn beards and the like
-
-	una_chinhorn
-		icon = 'icons/mob/human_face/unathi_facial_hair.dmi'
-		name = "Unathi Chin Horn"
-		icon_state = "facial_chinhorns"
-		species_allowed = list("Unathi")
-
-		una_hornadorns
-			name = "Unathi Horn Adorns"
-			icon_state = "facial_hornadorns"
-
-		una_spinespikes
-			name = "Unathi Spine Spikes"
-			icon_state = "facial_spikes"
-
-		una_dorsalfrill
-			name = "Unathi Dorsal Frill"
-			icon_state = "facial_dorsalfrill"
 
 /*
 ////////////////////////////

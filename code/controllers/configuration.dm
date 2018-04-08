@@ -277,6 +277,8 @@ var/list/gamemode_cache = list()
 	var/iterative_explosives_z_threshold = 10
 	var/iterative_explosives_z_multiplier = 0.75
 
+	var/ticket_reminder_period = 0
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -850,6 +852,12 @@ var/list/gamemode_cache = list()
 
 				if("show_game_type_odd")
 					config.show_game_type_odd = 1
+
+				if ("ticket_reminder_period")
+					ticket_reminder_period = text2num(value)
+					if (ticket_reminder_period < 1)
+						ticket_reminder_period = 0
+
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
 

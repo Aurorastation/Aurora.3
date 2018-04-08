@@ -122,6 +122,13 @@
 	if(HULK in M.mutations)
 		M << "<span class='danger'>Your fingers are much too large for the trigger guard!</span>"
 		return 0
+
+	if(ishuman(M))
+		var/mob/living/carbon/human/A = M
+		if(A.martial_art && A.martial_art.no_guns)
+			to_chat(A, "<span class='warning'>[A.martial_art.no_guns_message]</span>")
+			return 0
+
 	if((CLUMSY in M.mutations) && prob(40)) //Clumsy handling
 		var/obj/P = consume_next_projectile()
 		if(P)

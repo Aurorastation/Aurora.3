@@ -905,6 +905,7 @@
 		if(touching) touching.metabolize()
 		if(ingested) ingested.metabolize()
 		if(bloodstr) bloodstr.metabolize()
+		if(breathing) breathing.metabolize()
 
 		if(CE_PAINKILLER in chem_effects)
 			analgesic = chem_effects[CE_PAINKILLER]
@@ -932,7 +933,7 @@
 
 	// nutrition decrease
 	if (nutrition > 0 && stat != 2)
-		nutrition = max (0, nutrition - nutrition_loss)
+		nutrition = max(0, nutrition - (nutrition_loss * nutrition_attrition_rate))
 
 	if (nutrition > max_nutrition)
 		if(overeatduration < 600) //capped so people don't take forever to unfat
@@ -1498,6 +1499,9 @@
 					if((R.fields["id"] == E.fields["id"]) && (R.fields["criminal"] == "*Arrest*"))
 						holder.icon_state = "hudwanted"
 						break
+					else if((R.fields["id"] == E.fields["id"]) && (R.fields["criminal"] == "Search"))
+						holder.icon_state = "hudsearch"
+						break
 					else if((R.fields["id"] == E.fields["id"]) && (R.fields["criminal"] == "Incarcerated"))
 						holder.icon_state = "hudprisoner"
 						break
@@ -1506,7 +1510,6 @@
 						break
 					else if((R.fields["id"] == E.fields["id"]) && (R.fields["criminal"] == "Released"))
 						holder.icon_state = "hudreleased"
-						break
 		hud_list[WANTED_HUD] = holder
 
 	if (  BITTEST(hud_updateflag, IMPLOYAL_HUD) \

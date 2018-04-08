@@ -315,15 +315,15 @@
 	desc = "A self-contained microfactory system for hardsuit integration."
 	selectable = 1
 	usable = 1
-	use_power_cost = 15
+	use_power_cost = 10
 	icon_state = "enet"
 
 	engage_string = "Fabricate Star"
 
 	interface_name = "death blossom launcher"
-	interface_desc = "An integrated microfactory that produces poisoned throwing stars from thin air and electricity."
+	interface_desc = "An integrated microfactory that produces steel throwing stars from thin air and electricity."
 
-	var/fabrication_type = /obj/item/weapon/material/star/ninja
+	var/fabrication_type = /obj/item/weapon/material/star
 	var/fire_force = 30
 	var/fire_distance = 10
 
