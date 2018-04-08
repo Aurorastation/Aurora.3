@@ -57,6 +57,7 @@
 	var/obj/effect/water_effect/W = new /obj/effect/water_effect(src)
 	W.icon_state = watertype
 	water_overlay = W
+	create_reagents(2)
 
 /turf/simulated/floor/beach/water/Destroy()
 	if(water_overlay)
@@ -87,9 +88,12 @@
 	return return_air() // Otherwise their head is above the water, so get the air from the atmosphere instead.
 
 /turf/simulated/floor/beach/water/Entered(atom/movable/AM, atom/oldloc)
-	clean()
+	reagents.add_reagent("water", 2)
+	clean(src)
 	START_PROCESSING(SSprocessing, src)
-	if(istype(AM, /mob/living))
+	if(istype(AM, /obj))
+		numobjects += 1
+	else if(istype(AM, /mob/living))
 		numobjects += 1
 		var/mob/living/L = AM
 		if(!istype(oldloc, /turf/simulated/floor/beach/water))
@@ -98,18 +102,25 @@
 	..()
 
 /turf/simulated/floor/beach/water/Exited(atom/movable/AM, atom/newloc)
-	clean()
-	if(!numobjects)
-		STOP_PROCESSING(SSprocessing, src)
-	if(istype(AM, /mob/living))
+	reagents.add_reagent("water", 2)
+	clean(src)
+	if(istype(AM, /obj) && numobjects)
 		numobjects -= 1
+	else if(istype(AM, /mob/living))
+		if(numobjects)
+			numobjects -= 1
 		var/mob/living/L = AM
 		if(!istype(newloc, /turf/simulated/floor/beach/water))
 			to_chat(L, "<span class='warning'>You climb out of \the [src].</span>")
 	..()
 
 /turf/simulated/floor/beach/water/process()
-	clean()
+	reagents.add_reagent("water", 2)
+	clean(src)
+	for(var/mob/living/L in src)
+		wash(L)
+	if(!numobjects)
+		STOP_PROCESSING(SSprocessing, src)
 
 /mob/living/proc/can_breathe_water()
 	return FALSE
@@ -123,9 +134,9 @@
 /turf/simulated/floor/beach/water/proc/wash(atom/movable/O as obj|mob)
 
 	var/obj/effect/effect/water/W = new(O)
-	W.create_reagents(60)
-	W.reagents.add_reagent("water", 60)
-	W.reagents.splash(O, 60)
+	W.create_reagents(100)
+	W.reagents.add_reagent("water", 100)
+	W.set_up(O, 100)
 
 	if(iscarbon(O))
 		var/mob/living/carbon/M = O
