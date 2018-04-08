@@ -1,0 +1,6 @@
+author: BurgerBB
+
+delete-after: True
+
+changes: 
+  - balance: "Ninja matter fabricators now produce steel throwing stars instead of uranium throwing stars. Adjusted the power cost and price of the ninja matter fabricator. Adjusted the weight class of throwing stars to make them smaller. Added steel throwing stars to the traitor uplink."
