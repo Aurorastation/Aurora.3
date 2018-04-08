@@ -58,11 +58,11 @@
 	taste_mult = 4
 	reagent_state = SOLID
 	metabolism = REM * 4
-	var/nutriment_factor = -(REM * 4)/BASE_MAX_NUTRITION // Per removed in digest.
+	var/nutriment_factor = 12 // Per removed in digest.
 	var/blood_factor = 6
 	var/regen_factor = 0.8
 	var/injectable = 0
-	var/attrition_factor = -0.1 // Decreases attrition rate.
+	var/attrition_factor = -(REM * 4)/BASE_MAX_NUTRITION // Decreases attrition rate.
 	color = "#664330"
 	unaffected_species = IS_MACHINE
 
@@ -70,6 +70,7 @@
 	name = "Synthetic Nutriment"
 	id = "synnutriment"
 	description = "A cheaper alternative to actual nutriment."
+	nutrition_factor = 10
 	attrition_factor = (REM * 4)/BASE_MAX_NUTRITION // Increases attrition rate.
 
 /datum/reagent/nutriment/mix_data(var/list/newdata, var/newamount)
