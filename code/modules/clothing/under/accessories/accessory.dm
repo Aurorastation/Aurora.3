@@ -118,7 +118,7 @@
 					sound = "anything"
 				else
 					switch(body_part)
-						if(TARGET_CHEST)
+						if(BP_CHEST)
 							sound_strength = "hear"
 							sound = "no heartbeat"
 							if(heartbeat)
@@ -135,7 +135,7 @@
 								sound += " and [pick("wheezing","gurgling")] sounds"
 							else
 								sound += " and healthy respiration"
-						if(TARGET_EYES,TARGET_MOUTH)
+						if(BP_EYES,BP_MOUTH)
 							sound_strength = "cannot hear"
 							sound = "anything"
 						else

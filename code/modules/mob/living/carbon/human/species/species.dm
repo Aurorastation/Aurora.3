@@ -162,23 +162,23 @@
 		"kidneys" =  /obj/item/organ/kidneys,
 		"brain" =    /obj/item/organ/brain,
 		"appendix" = /obj/item/organ/appendix,
-		TARGET_EYES =     /obj/item/organ/eyes
+		BP_EYES =     /obj/item/organ/eyes
 		)
-	var/vision_organ              // If set, this organ is required for vision. Defaults to TARGET_EYES if the species has them.
+	var/vision_organ              // If set, this organ is required for vision. Defaults to BP_EYES if the species has them.
 	var/breathing_organ           // If set, this organ is required to breathe. Defaults to "lungs" if the species has them.
 
 	var/list/has_limbs = list(
-		TARGET_CHEST =  list("path" = /obj/item/organ/external/chest),
-		TARGET_GROIN =  list("path" = /obj/item/organ/external/groin),
-		TARGET_HEAD =   list("path" = /obj/item/organ/external/head),
-		TARGET_L_ARM =  list("path" = /obj/item/organ/external/arm),
-		TARGET_R_ARM =  list("path" = /obj/item/organ/external/arm/right),
-		TARGET_L_LEG =  list("path" = /obj/item/organ/external/leg),
-		TARGET_R_LEG =  list("path" = /obj/item/organ/external/leg/right),
-		TARGET_L_HAND = list("path" = /obj/item/organ/external/hand),
-		TARGET_R_HAND = list("path" = /obj/item/organ/external/hand/right),
-		TARGET_L_FOOT = list("path" = /obj/item/organ/external/foot),
-		TARGET_R_FOOT = list("path" = /obj/item/organ/external/foot/right)
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right),
+		BP_L_LEG=  list("path" = /obj/item/organ/external/leg),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right)
 		)
 
 	// Bump vars
@@ -198,8 +198,8 @@
 		hud = new()
 
 	//If the species has eyes, they are the default vision organ
-	if(!vision_organ && has_organ[TARGET_EYES])
-		vision_organ = TARGET_EYES
+	if(!vision_organ && has_organ[BP_EYES])
+		vision_organ = BP_EYES
 
 	// Same, but for lungs.
 	if (!breathing_organ && has_organ["lungs"])

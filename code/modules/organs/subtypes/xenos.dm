@@ -6,13 +6,13 @@
 
 /obj/item/organ/xenos/eggsac
 	name = "egg sac"
-	parent_organ = TARGET_GROIN
+	parent_organ = BP_GROIN
 	icon_state = "xgibmid1"
 	organ_tag = "egg sac"
 
 /obj/item/organ/xenos/plasmavessel
 	name = "plasma vessel"
-	parent_organ = TARGET_CHEST
+	parent_organ = BP_CHEST
 	icon_state = "xgibdown1"
 	organ_tag = "plasma vessel"
 	var/stored_plasma = 0
@@ -34,19 +34,19 @@
 
 /obj/item/organ/xenos/acidgland
 	name = "acid gland"
-	parent_organ = TARGET_HEAD
+	parent_organ = BP_HEAD
 	icon_state = "xgibtorso"
 	organ_tag = "acid gland"
 
 /obj/item/organ/xenos/resinspinner
 	name = "resin spinner"
-	parent_organ = TARGET_HEAD
+	parent_organ = BP_HEAD
 	icon_state = "xgibmid2"
 	organ_tag = "resin spinner"
 
 /obj/item/organ/xenos/hivenode
 	name = "hive node"
-	parent_organ = TARGET_CHEST
+	parent_organ = BP_CHEST
 	icon_state = "xgibmid2"
 	organ_tag = "hive node"
 
@@ -119,9 +119,9 @@
 	name = "filtration bladder"
 	icon_state = "lungs"
 	color = "#99ccff"
-	parent_organ = TARGET_CHEST
+	parent_organ = BP_CHEST
 
 /obj/item/organ/liver/vox
 	name = "waste tract"
-	parent_organ = TARGET_CHEST
+	parent_organ = BP_CHEST
 	color = "#0033cc"

@@ -85,7 +85,7 @@
 	if(user.is_wizard())
 		return ..()
 
-	var/zone = (user.hand ? TARGET_L_ARM:TARGET_R_ARM)
+	var/zone = (user.hand ? BP_L_ARM:BP_R_ARM)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/external/affecting = H.get_organ(zone)

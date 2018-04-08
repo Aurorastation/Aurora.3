@@ -224,7 +224,7 @@
 		"kidneys" =  /obj/item/organ/kidneys/skrell,
 		"brain" =    /obj/item/organ/brain/skrell,
 		"appendix" = /obj/item/organ/appendix,
-		TARGET_EYES =     /obj/item/organ/eyes/skrell
+		BP_EYES =     /obj/item/organ/eyes/skrell
 		)
 
 	flesh_color = "#8CD7A3"
@@ -288,17 +288,17 @@
 	)
 
 	has_limbs = list(
-		TARGET_CHEST =  list("path" = /obj/item/organ/external/chest/diona),
-		TARGET_GROIN =  list("path" = /obj/item/organ/external/groin/diona),
-		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/diona),
-		TARGET_L_ARM =  list("path" = /obj/item/organ/external/arm/diona),
-		TARGET_R_ARM =  list("path" = /obj/item/organ/external/arm/right/diona),
-		TARGET_L_LEG =  list("path" = /obj/item/organ/external/leg/diona),
-		TARGET_R_LEG =  list("path" = /obj/item/organ/external/leg/right/diona),
-		TARGET_L_HAND = list("path" = /obj/item/organ/external/hand/diona),
-		TARGET_R_HAND = list("path" = /obj/item/organ/external/hand/right/diona),
-		TARGET_L_FOOT = list("path" = /obj/item/organ/external/foot/diona),
-		TARGET_R_FOOT = list("path" = /obj/item/organ/external/foot/right/diona)
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/diona),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/diona),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/diona),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/diona),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/diona),
+		BP_L_LEG=  list("path" = /obj/item/organ/external/leg/diona),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/diona),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/diona),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/diona),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/diona),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/diona)
 		)
 
 	warning_low_pressure = 50
@@ -462,17 +462,17 @@
 	vision_organ = "optics"
 
 	has_limbs = list(
-		TARGET_CHEST =  list("path" = /obj/item/organ/external/chest/ipc),
-		TARGET_GROIN =  list("path" = /obj/item/organ/external/groin/ipc),
-		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/ipc),
-		TARGET_L_ARM =  list("path" = /obj/item/organ/external/arm/ipc),
-		TARGET_R_ARM =  list("path" = /obj/item/organ/external/arm/right/ipc),
-		TARGET_L_LEG =  list("path" = /obj/item/organ/external/leg/ipc),
-		TARGET_R_LEG =  list("path" = /obj/item/organ/external/leg/right/ipc),
-		TARGET_L_HAND = list("path" = /obj/item/organ/external/hand/ipc),
-		TARGET_R_HAND = list("path" = /obj/item/organ/external/hand/right/ipc),
-		TARGET_L_FOOT = list("path" = /obj/item/organ/external/foot/ipc),
-		TARGET_R_FOOT = list("path" = /obj/item/organ/external/foot/right/ipc)
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/ipc),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/ipc),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/ipc),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/ipc),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/ipc),
+		BP_L_LEG=  list("path" = /obj/item/organ/external/leg/ipc),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/ipc),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/ipc),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/ipc),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/ipc),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/ipc)
 	)
 
 
@@ -709,7 +709,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		"liver"               = /obj/item/organ/liver,
 		"kidneys"             = /obj/item/organ/kidneys,
 		"brain"               = /obj/item/organ/brain,
-		TARGET_EYES                = /obj/item/organ/eyes
+		BP_EYES                = /obj/item/organ/eyes
 	)
 
 /datum/species/bug/equip_survival_gear(var/mob/living/carbon/human/H)

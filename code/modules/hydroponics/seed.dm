@@ -116,7 +116,7 @@
 		return
 
 
-	if(!target_limb) target_limb = pick(TARGET_L_FOOT,TARGET_R_FOOT,TARGET_L_LEG,TARGET_R_LEG,TARGET_L_HAND,TARGET_R_HAND,TARGET_L_ARM, TARGET_R_ARM,TARGET_HEAD,TARGET_CHEST,TARGET_GROIN)
+	if(!target_limb) target_limb = pick(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM, BP_R_ARM,BP_HEAD,BP_CHEST,BP_GROIN)
 	var/obj/item/organ/external/affecting = target.get_organ(target_limb)
 	var/damage = 0
 

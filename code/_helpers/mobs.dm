@@ -173,9 +173,9 @@ Proc for attack log creation, because really why not
 /proc/get_exposed_defense_zone(var/atom/movable/target)
 	var/obj/item/weapon/grab/G = locate() in target
 	if(G && G.state >= GRAB_NECK) //works because mobs are currently not allowed to upgrade to NECK if they are grabbing two people.
-		return pick(TARGET_HEAD, TARGET_L_HAND, TARGET_R_HAND, TARGET_L_FOOT, TARGET_R_FOOT, TARGET_L_ARM, TARGET_R_ARM, TARGET_L_LEG, TARGET_R_LEG)
+		return pick(BP_HEAD, BP_L_HAND, BP_R_HAND, BP_L_FOOT, BP_R_FOOT, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG)
 	else
-		return pick(TARGET_CHEST, TARGET_GROIN)
+		return pick(BP_CHEST, BP_GROIN)
 
 
 // Returns true if M was not already in the dead mob list

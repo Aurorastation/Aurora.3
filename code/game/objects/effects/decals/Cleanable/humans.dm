@@ -69,8 +69,8 @@
 
 	LAZYINITLIST(blood_DNA)
 
-	var/obj/item/organ/external/l_foot = perp.get_organ(TARGET_L_FOOT)
-	var/obj/item/organ/external/r_foot = perp.get_organ(TARGET_R_FOOT)
+	var/obj/item/organ/external/l_foot = perp.get_organ(BP_L_FOOT)
+	var/obj/item/organ/external/r_foot = perp.get_organ(BP_R_FOOT)
 	var/hasfeet = 1
 	if((!l_foot || l_foot.is_stump()) && (!r_foot || r_foot.is_stump()))
 		hasfeet = 0

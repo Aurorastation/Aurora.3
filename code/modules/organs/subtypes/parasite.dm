@@ -42,7 +42,7 @@
 
 	organ_tag = "kois"
 
-	parent_organ = TARGET_CHEST
+	parent_organ = BP_CHEST
 	stage_interval = 150
 
 /obj/item/organ/parasite/kois/process()
@@ -109,7 +109,7 @@
 
 	organ_tag = "blackkois"
 
-	parent_organ = TARGET_HEAD
+	parent_organ = BP_HEAD
 	var/removed_langs = 0
 	stage_interval = 200
 

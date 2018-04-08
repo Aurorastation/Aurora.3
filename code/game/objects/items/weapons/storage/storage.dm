@@ -78,10 +78,10 @@
 			return
 
 		switch(over_object.name)
-			if(TARGET_R_HAND)
+			if(BP_R_HAND)
 				usr.u_equip(src)
 				usr.put_in_r_hand(src)
-			if(TARGET_L_HAND)
+			if(BP_L_HAND)
 				usr.u_equip(src)
 				usr.put_in_l_hand(src)
 		src.add_fingerprint(usr)

@@ -62,7 +62,7 @@
 		"liver" =    /obj/item/organ/liver/vox,
 		"kidneys" =  /obj/item/organ/kidneys/vox,
 		"brain" =    /obj/item/organ/brain,
-		TARGET_EYES =     /obj/item/organ/eyes,
+		BP_EYES =     /obj/item/organ/eyes,
 		"stack" =    /obj/item/organ/stack/vox
 		)
 
@@ -110,7 +110,7 @@
 		"liver" =    /obj/item/organ/liver/vox,
 		"kidneys" =  /obj/item/organ/kidneys/vox,
 		"brain" =    /obj/item/organ/pariah_brain,
-		TARGET_EYES =     /obj/item/organ/eyes
+		BP_EYES =     /obj/item/organ/eyes
 		)
 	spawn_flags = IS_RESTRICTED
 

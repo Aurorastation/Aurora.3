@@ -385,9 +385,9 @@
 	var/touchy_hand
 	if(contact_zone == "hand")
 		if(M.hand)
-			touchy_hand = TARGET_R_HAND
+			touchy_hand = BP_R_HAND
 		else
-			touchy_hand = TARGET_L_HAND
+			touchy_hand = BP_L_HAND
 	if(!touchy_hand)
 		drained_hp = M.electrocute_act(shock_damage, source, siemens_coeff, ground_zero = contact_zone) //zzzzzzap!
 	else

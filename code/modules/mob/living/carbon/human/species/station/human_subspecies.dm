@@ -47,7 +47,7 @@
 		"liver" =    /obj/item/organ/liver,
 		"kidneys" =  /obj/item/organ/kidneys,
 		"brain" =    /obj/item/organ/brain,
-		TARGET_EYES =     /obj/item/organ/eyes
+		BP_EYES =     /obj/item/organ/eyes
 		)
 		
 	spawn_flags = IS_RESTRICTED

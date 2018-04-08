@@ -176,7 +176,7 @@ var/const/MAX_ACTIVE_TIME = 400
 
 	if(!sterile)
 		//target.contract_disease(new /datum/disease/alien_embryo(0)) //so infection chance is same as virus infection chance
-		var/obj/item/organ/affecting = target.get_organ(TARGET_CHEST)
+		var/obj/item/organ/affecting = target.get_organ(BP_CHEST)
 		var/obj/item/organ/xenos/alien_embryo/kid = new(affecting)
 		kid.replaced(target,affecting)
 		target.status_flags |= XENO_HOST

@@ -170,42 +170,42 @@ proc/getsensorlevel(A)
 
 //The base miss chance for the different defence zones
 var/list/global/base_miss_chance = list(
-	TARGET_HEAD = 40,
-	TARGET_CHEST = 10,
-	TARGET_GROIN = 20,
-	TARGET_L_LEG = 20,
-	TARGET_R_LEG = 20,
-	TARGET_L_ARM = 20,
-	TARGET_R_ARM = 20,
-	TARGET_L_HAND = 50,
-	TARGET_R_HAND = 50,
-	TARGET_L_FOOT = 50,
-	TARGET_R_FOOT = 50
+	BP_HEAD = 40,
+	BP_CHEST = 10,
+	BP_GROIN = 20,
+	BP_L_LEG= 20,
+	BP_R_LEG = 20,
+	BP_L_ARM = 20,
+	BP_R_ARM = 20,
+	BP_L_HAND = 50,
+	BP_R_HAND = 50,
+	BP_L_FOOT = 50,
+	BP_R_FOOT = 50
 )
 
 //Used to weight organs when an organ is hit randomly (i.e. not a directed, aimed attack).
 //Also used to weight the protection value that armour provides for covering that body part when calculating protection from full-body effects.
 var/list/global/organ_rel_size = list(
-	TARGET_HEAD = 25,
-	TARGET_CHEST = 70,
-	TARGET_GROIN = 30,
-	TARGET_L_LEG = 25,
-	TARGET_R_LEG = 25,
-	TARGET_L_ARM = 25,
-	TARGET_R_ARM = 25,
-	TARGET_L_HAND = 10,
-	TARGET_R_HAND = 10,
-	TARGET_L_FOOT = 10,
-	TARGET_R_FOOT = 10
+	BP_HEAD = 25,
+	BP_CHEST = 70,
+	BP_GROIN = 30,
+	BP_L_LEG= 25,
+	BP_R_LEG = 25,
+	BP_L_ARM = 25,
+	BP_R_ARM = 25,
+	BP_L_HAND = 10,
+	BP_R_HAND = 10,
+	BP_L_FOOT = 10,
+	BP_R_FOOT = 10
 )
 
 /proc/check_zone(zone)
-	if(!zone)	return TARGET_CHEST
+	if(!zone)	return BP_CHEST
 	switch(zone)
-		if(TARGET_EYES)
-			zone = TARGET_HEAD
-		if(TARGET_MOUTH)
-			zone = TARGET_HEAD
+		if(BP_EYES)
+			zone = BP_HEAD
+		if(BP_MOUTH)
+			zone = BP_HEAD
 	return zone
 
 // Returns zone with a certain probability. If the probability fails, or no zone is specified, then a random body part is chosen.
@@ -220,17 +220,17 @@ var/list/global/organ_rel_size = list(
 	var/ran_zone = zone
 	while (ran_zone == zone)
 		ran_zone = pick (
-			organ_rel_size[TARGET_HEAD]; TARGET_HEAD,
-			organ_rel_size[TARGET_CHEST]; TARGET_CHEST,
-			organ_rel_size[TARGET_GROIN]; TARGET_GROIN,
-			organ_rel_size[TARGET_L_ARM]; TARGET_L_ARM,
-			organ_rel_size[TARGET_R_ARM]; TARGET_R_ARM,
-			organ_rel_size[TARGET_L_LEG]; TARGET_L_LEG,
-			organ_rel_size[TARGET_R_LEG]; TARGET_R_LEG,
-			organ_rel_size[TARGET_L_HAND]; TARGET_L_HAND,
-			organ_rel_size[TARGET_R_HAND]; TARGET_R_HAND,
-			organ_rel_size[TARGET_L_FOOT]; TARGET_L_FOOT,
-			organ_rel_size[TARGET_R_FOOT]; TARGET_R_FOOT
+			organ_rel_size[BP_HEAD]; BP_HEAD,
+			organ_rel_size[BP_CHEST]; BP_CHEST,
+			organ_rel_size[BP_GROIN]; BP_GROIN,
+			organ_rel_size[BP_L_ARM]; BP_L_ARM,
+			organ_rel_size[BP_R_ARM]; BP_R_ARM,
+			organ_rel_size[BP_L_LEG]; BP_L_LEG,
+			organ_rel_size[BP_R_LEG]; BP_R_LEG,
+			organ_rel_size[BP_L_HAND]; BP_L_HAND,
+			organ_rel_size[BP_R_HAND]; BP_R_HAND,
+			organ_rel_size[BP_L_FOOT]; BP_L_FOOT,
+			organ_rel_size[BP_R_FOOT]; BP_R_FOOT
 		)
 
 	return ran_zone

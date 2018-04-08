@@ -10,7 +10,7 @@
 	name = "heart"
 	icon_state = "heart-on"
 	organ_tag = "heart"
-	parent_organ = TARGET_CHEST
+	parent_organ = BP_CHEST
 	dead_icon = "heart-off"
 
 /obj/item/organ/lungs
@@ -18,7 +18,7 @@
 	icon_state = "lungs"
 	gender = PLURAL
 	organ_tag = "lungs"
-	parent_organ = TARGET_CHEST
+	parent_organ = BP_CHEST
 
 /obj/item/organ/lungs/process()
 	..()
@@ -43,7 +43,7 @@
 	icon_state = "kidneys"
 	gender = PLURAL
 	organ_tag = "kidneys"
-	parent_organ = TARGET_GROIN
+	parent_organ = BP_GROIN
 
 /obj/item/organ/kidneys/process()
 
@@ -64,10 +64,10 @@
 
 /obj/item/organ/eyes
 	name = "eyeballs"
-	icon_state = TARGET_EYES
+	icon_state = BP_EYES
 	gender = PLURAL
-	organ_tag = TARGET_EYES
-	parent_organ = TARGET_HEAD
+	organ_tag = BP_EYES
+	parent_organ = BP_HEAD
 	var/list/eye_colour = list(0,0,0)
 	var/singular_name = "eye"
 
@@ -99,7 +99,7 @@
 	name = "liver"
 	icon_state = "liver"
 	organ_tag = "liver"
-	parent_organ = TARGET_GROIN
+	parent_organ = BP_GROIN
 
 /obj/item/organ/liver/process()
 
@@ -160,7 +160,7 @@
 /obj/item/organ/appendix
 	name = "appendix"
 	icon_state = "appendix"
-	parent_organ = TARGET_GROIN
+	parent_organ = BP_GROIN
 	organ_tag = "appendix"
 
 /obj/item/organ/appendix/removed()

@@ -10,14 +10,14 @@
 	if(!istype(M, /mob/living/carbon/human))
 		return ..()
 
-	if((user.zone_sel.selecting == TARGET_L_ARM) && (istype(src, /obj/item/robot_parts/l_arm)))
-		limbloc = TARGET_L_HAND
-	else if((user.zone_sel.selecting == TARGET_R_ARM) && (istype(src, /obj/item/robot_parts/r_arm)))
-		limbloc = TARGET_R_HAND
-	else if((user.zone_sel.selecting == TARGET_R_LEG) && (istype(src, /obj/item/robot_parts/r_leg)))
-		limbloc = TARGET_R_FOOT
-	else if((user.zone_sel.selecting == TARGET_L_LEG) && (istype(src, /obj/item/robot_parts/l_leg)))
-		limbloc = TARGET_L_FOOT
+	if((user.zone_sel.selecting == BP_L_ARM) && (istype(src, /obj/item/robot_parts/l_arm)))
+		limbloc = BP_L_HAND
+	else if((user.zone_sel.selecting == BP_R_ARM) && (istype(src, /obj/item/robot_parts/r_arm)))
+		limbloc = BP_R_HAND
+	else if((user.zone_sel.selecting == BP_R_LEG) && (istype(src, /obj/item/robot_parts/r_leg)))
+		limbloc = BP_R_FOOT
+	else if((user.zone_sel.selecting == BP_L_LEG) && (istype(src, /obj/item/robot_parts/l_leg)))
+		limbloc = BP_L_FOOT
 	else
 		user << "<span class='warning'>That doesn't fit there!</span>"
 		return ..()

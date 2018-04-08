@@ -195,7 +195,7 @@
 			var/obj/item/projectile/P = damage_source
 
 			var/reflectchance = 40 - round(damage/3)
-			if(!(def_zone in list(TARGET_CHEST, TARGET_GROIN)))
+			if(!(def_zone in list(BP_CHEST, BP_GROIN)))
 				reflectchance /= 2
 			if(P.starting && prob(reflectchance))
 				visible_message("<span class='danger'>\The [user]'s [src.name] reflects [attack_text]!</span>")
@@ -456,7 +456,7 @@ BLIND     // can't see anything
 ///////////////////////////////////////////////////////////////////////
 //Head
 /obj/item/clothing/head
-	name = TARGET_HEAD
+	name = BP_HEAD
 	icon = 'icons/obj/clothing/hats.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_hats.dmi',

@@ -360,7 +360,7 @@
 	for(var/obj/item/weapon/holder/H in CI.container.contents)
 		var/mob/living/M = H.contained
 		if (M)
-			M.apply_damage(rand(1,3), mobdamagetype, TARGET_CHEST)
+			M.apply_damage(rand(1,3), mobdamagetype, BP_CHEST)
 
 	return 1
 

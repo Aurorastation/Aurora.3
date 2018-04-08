@@ -280,8 +280,8 @@
 				var/min_move_delay = 0
 				if(ishuman(mob.buckled))
 					var/mob/living/carbon/human/driver = mob.buckled
-					var/obj/item/organ/external/l_hand = driver.get_organ(TARGET_L_HAND)
-					var/obj/item/organ/external/r_hand = driver.get_organ(TARGET_R_HAND)
+					var/obj/item/organ/external/l_hand = driver.get_organ(BP_L_HAND)
+					var/obj/item/organ/external/r_hand = driver.get_organ(BP_R_HAND)
 					if((!l_hand || l_hand.is_stump()) && (!r_hand || r_hand.is_stump()))
 						return // No hands to drive your chair? Tough luck!
 					min_move_delay = driver.min_walk_delay

@@ -8,7 +8,7 @@
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		if (isslime(target))
 			return 0
-		if (target_zone == TARGET_EYES)	//there are specific steps for eye surgery
+		if (target_zone == BP_EYES)	//there are specific steps for eye surgery
 			return 0
 		if (!hasorgans(target))
 			return 0
@@ -34,7 +34,7 @@
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		if(..())
 			var/obj/item/organ/external/affected = target.get_organ(target_zone)
-			return affected && affected.open == 0 && target_zone != TARGET_MOUTH
+			return affected && affected.open == 0 && target_zone != BP_MOUTH
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -98,7 +98,7 @@
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		if(..())
 			var/obj/item/organ/external/affected = target.get_organ(target_zone)
-			return affected && affected.open && target_zone != TARGET_MOUTH
+			return affected && affected.open && target_zone != BP_MOUTH
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -134,7 +134,7 @@
 				var/obj/item/weapon/weldingtool/welder = tool
 				if(!welder.isOn() || !welder.remove_fuel(1,user))
 					return 0
-			return affected && affected.open == 3 && affected.brute_dam > 0 && target_zone != TARGET_MOUTH
+			return affected && affected.open == 3 && affected.brute_dam > 0 && target_zone != BP_MOUTH
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -166,7 +166,7 @@
 		if(..())
 			var/obj/item/stack/cable_coil/C = tool
 			var/obj/item/organ/external/affected = target.get_organ(target_zone)
-			var/limb_can_operate = (affected && affected.open == 3 && affected.burn_dam > 0 && target_zone != TARGET_MOUTH)
+			var/limb_can_operate = (affected && affected.open == 3 && affected.burn_dam > 0 && target_zone != BP_MOUTH)
 			if(limb_can_operate)
 				if(istype(C))
 					if(!C.get_amount() >= 3)
@@ -373,7 +373,7 @@
 
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 
-		if(target_zone != TARGET_HEAD)
+		if(target_zone != BP_HEAD)
 			return
 
 		var/obj/item/device/mmi/M = tool

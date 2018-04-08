@@ -29,5 +29,5 @@ BONUS
 	..()
 	if(prob(SYMPTOM_ACTIVATION_PROB))
 		var/mob/living/M = A.affected_mob
-		M << "<span class='notice'>Your [pick("back", "arm", "leg", "elbow", TARGET_HEAD)] itches.</span>"
+		M << "<span class='notice'>Your [pick("back", "arm", "leg", "elbow", BP_HEAD)] itches.</span>"
 	return

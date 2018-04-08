@@ -31,44 +31,44 @@
 /obj/item/robot_parts/l_arm
 	name = "left arm"
 	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case."
-	icon_state = TARGET_L_ARM
-	part = list(TARGET_L_ARM,TARGET_L_HAND)
+	icon_state = BP_L_ARM
+	part = list(BP_L_ARM,BP_L_HAND)
 	model_info = 1
 
 /obj/item/robot_parts/r_arm
 	name = "right arm"
 	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case."
-	icon_state = TARGET_R_ARM
-	part = list(TARGET_R_ARM,TARGET_R_HAND)
+	icon_state = BP_R_ARM
+	part = list(BP_R_ARM,BP_R_HAND)
 	model_info = 1
 
 /obj/item/robot_parts/l_leg
 	name = "left leg"
 	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case."
-	icon_state = TARGET_L_LEG
-	part = list(TARGET_L_LEG,TARGET_L_FOOT)
+	icon_state = BP_L_LEG
+	part = list(BP_L_LEG,BP_L_FOOT)
 	model_info = 1
 
 /obj/item/robot_parts/r_leg
 	name = "right leg"
 	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case."
-	icon_state = TARGET_R_LEG
-	part = list(TARGET_R_LEG,TARGET_R_FOOT)
+	icon_state = BP_R_LEG
+	part = list(BP_R_LEG,BP_R_FOOT)
 	model_info = 1
 
 /obj/item/robot_parts/chest
 	name = "torso"
 	desc = "A heavily reinforced case containing cyborg logic boards, with space for a standard power cell."
-	icon_state = TARGET_CHEST
-	part = list(TARGET_GROIN,TARGET_CHEST)
+	icon_state = BP_CHEST
+	part = list(BP_GROIN,BP_CHEST)
 	var/wires = 0.0
 	var/obj/item/weapon/cell/cell = null
 
 /obj/item/robot_parts/head
-	name = TARGET_HEAD
+	name = BP_HEAD
 	desc = "A standard reinforced braincase, with spine-plugged neural socket and sensor gimbals."
-	icon_state = TARGET_HEAD
-	part = list(TARGET_HEAD)
+	icon_state = BP_HEAD
+	part = list(BP_HEAD)
 	var/obj/item/device/flash/flash1 = null
 	var/obj/item/device/flash/flash2 = null
 	var/law_manager = TRUE

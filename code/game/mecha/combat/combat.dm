@@ -41,7 +41,7 @@
 				var/mob/living/carbon/human/H = target
 	//			if (M.health <= 0) return
 
-				var/obj/item/organ/external/temp = H.get_organ(pick(TARGET_CHEST, TARGET_CHEST, TARGET_CHEST, TARGET_HEAD))
+				var/obj/item/organ/external/temp = H.get_organ(pick(BP_CHEST, BP_CHEST, BP_CHEST, BP_HEAD))
 				if(temp)
 					var/update = 0
 					switch(damtype)

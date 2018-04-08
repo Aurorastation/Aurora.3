@@ -60,7 +60,7 @@
 	if(!istype(attacker))
 		return
 
-	var/datum/unarmed_attack/attack = attacker.get_unarmed_attack(target, TARGET_EYES)
+	var/datum/unarmed_attack/attack = attacker.get_unarmed_attack(target, BP_EYES)
 
 	if(!attack)
 		return
@@ -94,11 +94,11 @@
 	if(istype(hat))
 		damage += hat.force * 3
 
-	var/armor = target.run_armor_check(TARGET_HEAD, "melee")
-	target.apply_damage(damage, BRUTE, TARGET_HEAD, armor)
-	attacker.apply_damage(10, BRUTE, TARGET_HEAD, attacker.run_armor_check(TARGET_HEAD, "melee"))
+	var/armor = target.run_armor_check(BP_HEAD, "melee")
+	target.apply_damage(damage, BRUTE, BP_HEAD, armor)
+	attacker.apply_damage(10, BRUTE, BP_HEAD, attacker.run_armor_check(BP_HEAD, "melee"))
 
-	if(armor < 25 && target.headcheck(TARGET_HEAD) && prob(damage))
+	if(armor < 25 && target.headcheck(BP_HEAD) && prob(damage))
 		target.apply_effect(20, PARALYZE)
 		target.visible_message("<span class='danger'>[target] [target.species.knockout_message]</span>")
 

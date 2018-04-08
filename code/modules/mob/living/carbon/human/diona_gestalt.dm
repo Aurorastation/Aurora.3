@@ -230,7 +230,7 @@
 	sleep(20)
 	var/list/nymphos = list()
 
-	var/list/organ_removal_priorities = list(TARGET_L_ARM,TARGET_R_ARM,TARGET_L_LEG,TARGET_R_LEG)
+	var/list/organ_removal_priorities = list(BP_L_ARM,BP_R_ARM,BP_L_LEG,BP_R_LEG)
 	for(var/organ_name in organ_removal_priorities)
 		var/obj/item/organ/external/O = organs_by_name[organ_name]
 		if(!O || O.is_stump())

@@ -53,17 +53,17 @@
 	cold_discomfort_level = 180
 
 	has_limbs = list(
-		TARGET_CHEST =  list("path" = /obj/item/organ/external/chest),
-		TARGET_GROIN =  list("path" = /obj/item/organ/external/groin),
-		TARGET_HEAD =   list("path" = /obj/item/organ/external/head),
-		TARGET_L_ARM =  list("path" = /obj/item/organ/external/arm),
-		TARGET_R_ARM =  list("path" = /obj/item/organ/external/arm/right),
-		TARGET_L_LEG =  list("path" = /obj/item/organ/external/leg),
-		TARGET_R_LEG =  list("path" = /obj/item/organ/external/leg/right),
-		TARGET_L_HAND = list("path" = /obj/item/organ/external/hand/resomi),
-		TARGET_R_HAND = list("path" = /obj/item/organ/external/hand/right/resomi),
-		TARGET_L_FOOT = list("path" = /obj/item/organ/external/foot/resomi),
-		TARGET_R_FOOT = list("path" = /obj/item/organ/external/foot/right/resomi)
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right),
+		BP_L_LEG=  list("path" = /obj/item/organ/external/leg),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/resomi),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/resomi),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/resomi),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/resomi)
 		)
 
 	has_organ = list(
@@ -72,7 +72,7 @@
 		"liver" =    /obj/item/organ/liver,
 		"kidneys" =  /obj/item/organ/kidneys,
 		"brain" =    /obj/item/organ/brain,
-		TARGET_EYES =     /obj/item/organ/eyes
+		BP_EYES =     /obj/item/organ/eyes
 		)
 
 	unarmed_types = list(

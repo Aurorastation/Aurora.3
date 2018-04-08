@@ -82,7 +82,7 @@
 	if(L.lying)
 		target_zone = ran_zone()
 	else
-		target_zone = pick(TARGET_L_FOOT, TARGET_R_FOOT, TARGET_L_LEG, TARGET_R_LEG)
+		target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)
 
 	//armour
 	var/blocked = L.run_armor_check(target_zone, "melee")

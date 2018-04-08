@@ -35,7 +35,7 @@
 			if(S.get_damage())
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
-				if(S.limb_name == TARGET_HEAD)
+				if(S.limb_name == BP_HEAD)
 					if(H.head && istype(H.head,/obj/item/clothing/head/helmet/space))
 						user << "<span class='warning'>You can't apply [src] through [H.head]!</span>"
 						return

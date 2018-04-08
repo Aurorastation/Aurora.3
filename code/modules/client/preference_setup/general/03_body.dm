@@ -210,32 +210,32 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			var/status = pref.organ_data[name]
 			var/organ_name = null
 			switch(name)
-				if(TARGET_L_ARM)
+				if(BP_L_ARM)
 					organ_name = "left arm"
-				if(TARGET_R_ARM)
+				if(BP_R_ARM)
 					organ_name = "right arm"
-				if(TARGET_L_LEG)
+				if(BP_L_LEG)
 					organ_name = "left leg"
-				if(TARGET_R_LEG)
+				if(BP_R_LEG)
 					organ_name = "right leg"
-				if(TARGET_L_FOOT)
+				if(BP_L_FOOT)
 					organ_name = "left foot"
-				if(TARGET_R_FOOT)
+				if(BP_R_FOOT)
 					organ_name = "right foot"
-				if(TARGET_L_HAND)
+				if(BP_L_HAND)
 					organ_name = "left hand"
-				if(TARGET_R_HAND)
+				if(BP_R_HAND)
 					organ_name = "right hand"
-				if(TARGET_GROIN)
+				if(BP_GROIN)
 					organ_name = "lower body"
-				if(TARGET_CHEST)
+				if(BP_CHEST)
 					organ_name = "upper body"
-				if(TARGET_HEAD)
-					organ_name = TARGET_HEAD
+				if(BP_HEAD)
+					organ_name = BP_HEAD
 				if("heart")
 					organ_name = "heart"
-				if(TARGET_EYES)
-					organ_name = TARGET_EYES
+				if(BP_EYES)
+					organ_name = BP_EYES
 
 			if(status == "cyborg")
 				++ind
@@ -266,7 +266,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 						out += "\tPacemaker-assisted [organ_name]"
 					if("voicebox") //on adding voiceboxes for speaking skrell/similar replacements
 						out += "\tSurgically altered [organ_name]"
-					if(TARGET_EYES)
+					if(BP_EYES)
 						out += "\tRetinal overlayed [organ_name]"
 					else
 						out += "\tMechanically assisted [organ_name]"
@@ -523,37 +523,37 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/third_limb = null  // if you try to unchange the hand, the arm should also change
 		switch(limb_name)
 			if("Left Leg")
-				limb = TARGET_L_LEG
-				second_limb = TARGET_L_FOOT
+				limb = BP_L_LEG
+				second_limb = BP_L_FOOT
 			if("Right Leg")
-				limb = TARGET_R_LEG
-				second_limb = TARGET_R_FOOT
+				limb = BP_R_LEG
+				second_limb = BP_R_FOOT
 			if("Left Arm")
-				limb = TARGET_L_ARM
-				second_limb = TARGET_L_HAND
+				limb = BP_L_ARM
+				second_limb = BP_L_HAND
 			if("Right Arm")
-				limb = TARGET_R_ARM
-				second_limb = TARGET_R_HAND
+				limb = BP_R_ARM
+				second_limb = BP_R_HAND
 			if("Left Foot")
-				limb = TARGET_L_FOOT
-				third_limb = TARGET_L_LEG
+				limb = BP_L_FOOT
+				third_limb = BP_L_LEG
 			if("Right Foot")
-				limb = TARGET_R_FOOT
-				third_limb = TARGET_R_LEG
+				limb = BP_R_FOOT
+				third_limb = BP_R_LEG
 			if("Left Hand")
-				limb = TARGET_L_HAND
-				third_limb = TARGET_L_ARM
+				limb = BP_L_HAND
+				third_limb = BP_L_ARM
 			if("Right Hand")
-				limb = TARGET_R_HAND
-				third_limb = TARGET_R_ARM
+				limb = BP_R_HAND
+				third_limb = BP_R_ARM
 			if("Lower Body")
-				limb = TARGET_GROIN
+				limb = BP_GROIN
 				carries_organs = 1
 			if("Upper Body")
-				limb = TARGET_CHEST
+				limb = BP_CHEST
 				carries_organs = 1
 			if("Head")
-				limb = TARGET_HEAD
+				limb = BP_HEAD
 				carries_organs = 1
 			else
 				to_chat(user, "<span class='notice'>Cancelled.</span>")
@@ -610,7 +610,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			if("Heart")
 				organ = "heart"
 			if("Eyes")
-				organ = TARGET_EYES
+				organ = BP_EYES
 
 		var/new_state = input(user, "What state do you wish the organ to be in?") as null|anything in list("Normal","Assisted","Mechanical")
 		if(!new_state) return

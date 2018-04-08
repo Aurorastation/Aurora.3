@@ -102,7 +102,7 @@
 	name = "damage zone"
 	icon_state = "zone_sel"
 	screen_loc = ui_zonesel
-	var/selecting = TARGET_CHEST
+	var/selecting = BP_CHEST
 
 /obj/screen/zone_sel/Click(location, control,params)
 	var/list/PL = params2list(params)
@@ -114,52 +114,52 @@
 		if(1 to 3) //Feet
 			switch(icon_x)
 				if(10 to 15)
-					selecting = TARGET_R_FOOT
+					selecting = BP_R_FOOT
 				if(17 to 22)
-					selecting = TARGET_L_FOOT
+					selecting = BP_L_FOOT
 				else
 					return 1
 		if(4 to 9) //Legs
 			switch(icon_x)
 				if(10 to 15)
-					selecting = TARGET_R_LEG
+					selecting = BP_R_LEG
 				if(17 to 22)
-					selecting = TARGET_L_LEG
+					selecting = BP_L_LEG
 				else
 					return 1
 		if(10 to 13) //Hands and groin
 			switch(icon_x)
 				if(8 to 11)
-					selecting = TARGET_R_HAND
+					selecting = BP_R_HAND
 				if(12 to 20)
-					selecting = TARGET_GROIN
+					selecting = BP_GROIN
 				if(21 to 24)
-					selecting = TARGET_L_HAND
+					selecting = BP_L_HAND
 				else
 					return 1
 		if(14 to 22) //Chest and arms to shoulders
 			switch(icon_x)
 				if(8 to 11)
-					selecting = TARGET_R_ARM
+					selecting = BP_R_ARM
 				if(12 to 20)
-					selecting = TARGET_CHEST
+					selecting = BP_CHEST
 				if(21 to 24)
-					selecting = TARGET_L_ARM
+					selecting = BP_L_ARM
 				else
 					return 1
 		if(23 to 30) //Head, but we need to check for eye or mouth
 			if(icon_x in 12 to 20)
-				selecting = TARGET_HEAD
+				selecting = BP_HEAD
 				switch(icon_y)
 					if(23 to 24)
 						if(icon_x in 15 to 17)
-							selecting = TARGET_MOUTH
+							selecting = BP_MOUTH
 					if(26) //Eyeline, eyes are on 15 and 17
 						if(icon_x in 14 to 18)
-							selecting = TARGET_EYES
+							selecting = BP_EYES
 					if(25 to 27)
 						if(icon_x in 15 to 17)
-							selecting = TARGET_EYES
+							selecting = BP_EYES
 
 	if(old_selecting != selecting)
 		update_icon()
@@ -280,11 +280,11 @@
 	if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
 		return 1
 	switch(name)
-		if(TARGET_R_HAND)
+		if(BP_R_HAND)
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
 				C.activate_hand("r")
-		if(TARGET_L_HAND)
+		if(BP_L_HAND)
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
 				C.activate_hand("l")

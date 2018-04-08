@@ -42,7 +42,7 @@
 						  "<span class='userdanger'>[A] grabs your wrist and violently wrenches it to the side!</span>")
 		playsound(get_turf(A), 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 		D.drop_item()
-		D.apply_damage(5, BRUTE, pick(TARGET_L_ARM, TARGET_R_ARM))
+		D.apply_damage(5, BRUTE, pick(BP_L_ARM, BP_R_ARM))
 		D.Stun(3)
 		return 1
 	return basic_hit(A,D)
@@ -77,7 +77,7 @@
 		A.do_attack_animation(D)
 		D.visible_message("<span class='warning'>[A] kicks [D] in the head!</span>", \
 						  "<span class='danger'>[A] kicks you in the jaw!</span>")
-		D.apply_damage(20, BRUTE, TARGET_HEAD)
+		D.apply_damage(20, BRUTE, BP_HEAD)
 		D.drop_item()
 		playsound(get_turf(D), 'sound/weapons/punch1.ogg', 50, 1, -1)
 
@@ -92,7 +92,7 @@
 						  "<span class='danger'>[A] piledrives you with their elbow!</span>")
 		if(D.stat)
 			D.death() //FINISH HIM!
-		D.apply_damage(50, BRUTE, TARGET_CHEST)
+		D.apply_damage(50, BRUTE, BP_CHEST)
 		playsound(get_turf(D), 'sound/weapons/punch1.ogg', 75, 1, -1)
 		return 1
 	return basic_hit(A,D)

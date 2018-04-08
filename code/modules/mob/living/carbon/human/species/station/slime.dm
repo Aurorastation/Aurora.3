@@ -34,17 +34,17 @@
 	push_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 
 	has_limbs = list(
-		TARGET_CHEST =  list("path" = /obj/item/organ/external/chest/unbreakable),
-		TARGET_GROIN =  list("path" = /obj/item/organ/external/groin/unbreakable),
-		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/unbreakable),
-		TARGET_L_ARM =  list("path" = /obj/item/organ/external/arm/unbreakable),
-		TARGET_R_ARM =  list("path" = /obj/item/organ/external/arm/right/unbreakable),
-		TARGET_L_LEG =  list("path" = /obj/item/organ/external/leg/unbreakable),
-		TARGET_R_LEG =  list("path" = /obj/item/organ/external/leg/right/unbreakable),
-		TARGET_L_HAND = list("path" = /obj/item/organ/external/hand/unbreakable),
-		TARGET_R_HAND = list("path" = /obj/item/organ/external/hand/right/unbreakable),
-		TARGET_L_FOOT = list("path" = /obj/item/organ/external/foot/unbreakable),
-		TARGET_R_FOOT = list("path" = /obj/item/organ/external/foot/right/unbreakable)
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/unbreakable),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/unbreakable),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/unbreakable),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/unbreakable),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/unbreakable),
+		BP_L_LEG=  list("path" = /obj/item/organ/external/leg/unbreakable),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/unbreakable),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/unbreakable),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/unbreakable),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/unbreakable),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/unbreakable)
 		)
 
 /datum/species/slime/handle_death(var/mob/living/carbon/human/H)

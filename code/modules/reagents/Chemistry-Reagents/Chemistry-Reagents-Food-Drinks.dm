@@ -24,12 +24,12 @@
 			switch(kois_type)
 				if(1) //Normal
 					if(!H.internal_organs_by_name["kois"] && prob(5*removed))
-						var/obj/item/organ/external/affected = H.get_organ(TARGET_CHEST)
+						var/obj/item/organ/external/affected = H.get_organ(BP_CHEST)
 						var/obj/item/organ/parasite/kois/infest = new()
 						infest.replaced(H, affected)
 				if(2) //Modified
 					if(!H.internal_organs_by_name["blackkois"] && prob(10*removed))
-						var/obj/item/organ/external/affected = H.get_organ(TARGET_HEAD)
+						var/obj/item/organ/external/affected = H.get_organ(BP_HEAD)
 						var/obj/item/organ/parasite/blackkois/infest = new()
 						infest.replaced(H, affected)
 	..()

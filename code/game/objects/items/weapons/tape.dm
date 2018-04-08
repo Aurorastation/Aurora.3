@@ -7,9 +7,9 @@
 
 /obj/item/weapon/tape_roll/attack(var/mob/living/carbon/human/H, var/mob/user, var/target_zone)
 	if(istype(H))
-		if(target_zone == TARGET_EYES)
+		if(target_zone == BP_EYES)
 
-			if(!H.organs_by_name[TARGET_HEAD])
+			if(!H.organs_by_name[BP_HEAD])
 				user << "<span class='warning'>\The [H] doesn't have a head.</span>"
 				return
 			if(!H.has_eyes())
@@ -27,15 +27,15 @@
 				return
 
 			// Repeat failure checks.
-			if(!H || !src || !H.organs_by_name[TARGET_HEAD] || !H.has_eyes() || H.glasses || (H.head && (H.head.body_parts_covered & FACE)))
+			if(!H || !src || !H.organs_by_name[BP_HEAD] || !H.has_eyes() || H.glasses || (H.head && (H.head.body_parts_covered & FACE)))
 				return
 
 			user.visible_message("<span class='danger'>\The [user] has taped up \the [H]'s eyes!</span>")
 			H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/blindfold/tape(H), slot_glasses)
 			H.update_inv_glasses()
 
-		else if(target_zone == TARGET_MOUTH || target_zone == TARGET_HEAD)
-			if(!H.organs_by_name[TARGET_HEAD])
+		else if(target_zone == BP_MOUTH || target_zone == BP_HEAD)
+			if(!H.organs_by_name[BP_HEAD])
 				user << "<span class='warning'>\The [H] doesn't have a head.</span>"
 				return
 			if(!H.check_has_mouth())
@@ -53,14 +53,14 @@
 				return
 
 			// Repeat failure checks.
-			if(!H || !src || !H.organs_by_name[TARGET_HEAD] || !H.check_has_mouth() || H.wear_mask || (H.head && (H.head.body_parts_covered & FACE)))
+			if(!H || !src || !H.organs_by_name[BP_HEAD] || !H.check_has_mouth() || H.wear_mask || (H.head && (H.head.body_parts_covered & FACE)))
 				return
 
 			user.visible_message("<span class='danger'>\The [user] has taped up \the [H]'s mouth!</span>")
 			H.equip_to_slot_or_del(new /obj/item/clothing/mask/muzzle/tape(H), slot_wear_mask)
 			H.update_inv_wear_mask()
 
-		else if(target_zone == TARGET_R_HAND || target_zone == TARGET_L_HAND)
+		else if(target_zone == BP_R_HAND || target_zone == BP_L_HAND)
 			var/obj/item/weapon/handcuffs/cable/tape/T = new(user)
 			if(!T.place_handcuffs(H, user))
 				user.unEquip(T)

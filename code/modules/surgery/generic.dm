@@ -8,7 +8,7 @@
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		if (isslime(target))
 			return 0
-		if (target_zone == TARGET_EYES)	//there are specific steps for eye surgery
+		if (target_zone == BP_EYES)	//there are specific steps for eye surgery
 			return 0
 		if (!hasorgans(target))
 			return 0
@@ -36,7 +36,7 @@
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		if(..())
 			var/obj/item/organ/external/affected = target.get_organ(target_zone)
-			return affected && affected.open == 0 && target_zone != TARGET_MOUTH
+			return affected && affected.open == 0 && target_zone != BP_MOUTH
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -78,7 +78,7 @@
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		if(..())
 			var/obj/item/organ/external/affected = target.get_organ(target_zone)
-			return affected && affected.open == 0 && target_zone != TARGET_MOUTH
+			return affected && affected.open == 0 && target_zone != BP_MOUTH
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -123,7 +123,7 @@
 		else
 			if(..())
 				var/obj/item/organ/external/affected = target.get_organ(target_zone)
-				return affected && affected.open == 0 && target_zone != TARGET_MOUTH
+				return affected && affected.open == 0 && target_zone != BP_MOUTH
 
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -165,7 +165,7 @@
 		else
 			if(..())
 				var/obj/item/organ/external/affected = target.get_organ(target_zone)
-				return affected && affected.open == 0 && target_zone != TARGET_MOUTH
+				return affected && affected.open == 0 && target_zone != BP_MOUTH
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -245,10 +245,10 @@
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
 		var/msg = "[user] starts to pry open the incision on [target]'s [affected.name] with \the [tool]."
 		var/self_msg = "You start to pry open the incision on [target]'s [affected.name] with \the [tool]."
-		if (target_zone == TARGET_CHEST)
+		if (target_zone == BP_CHEST)
 			msg = "[user] starts to separate the ribcage and rearrange the organs in [target]'s torso with \the [tool]."
 			self_msg = "You start to separate the ribcage and rearrange the organs in [target]'s torso with \the [tool]."
-		if (target_zone == TARGET_GROIN)
+		if (target_zone == BP_GROIN)
 			msg = "[user] starts to pry open the incision and rearrange the organs in [target]'s lower abdomen with \the [tool]."
 			self_msg = "You start to pry open the incision and rearrange the organs in [target]'s lower abdomen with \the [tool]."
 		user.visible_message(msg, self_msg)
@@ -259,10 +259,10 @@
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
 		var/msg = "<span class='notice'>[user] keeps the incision open on [target]'s [affected.name] with \the [tool].</span>"
 		var/self_msg = "<span class='notice'>You keep the incision open on [target]'s [affected.name] with \the [tool].</span>"
-		if (target_zone == TARGET_CHEST)
+		if (target_zone == BP_CHEST)
 			msg = "<span class='notice'>[user] keeps the ribcage open on [target]'s torso with \the [tool].</span>"
 			self_msg = "<span class='notice'>You keep the ribcage open on [target]'s torso with \the [tool].</span>"
-		if (target_zone == TARGET_GROIN)
+		if (target_zone == BP_GROIN)
 			msg = "<span class='notice'>[user] keeps the incision open on [target]'s lower abdomen with \the [tool].</span>"
 			self_msg = "<span class='notice'>You keep the incision open on [target]'s lower abdomen with \the [tool].</span>"
 		user.visible_message(msg, self_msg)
@@ -272,10 +272,10 @@
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
 		var/msg = "<span class='warning'>[user]'s hand slips, tearing the edges of the incision on [target]'s [affected.name] with \the [tool]!</span>"
 		var/self_msg = "<span class='warning'>Your hand slips, tearing the edges of the incision on [target]'s [affected.name] with \the [tool]!</span>"
-		if (target_zone == TARGET_CHEST)
+		if (target_zone == BP_CHEST)
 			msg = "<span class='warning'>[user]'s hand slips, damaging several organs in [target]'s torso with \the [tool]!</span>"
 			self_msg = "<span class='warning'>Your hand slips, damaging several organs in [target]'s torso with \the [tool]!</span>"
-		if (target_zone == TARGET_GROIN)
+		if (target_zone == BP_GROIN)
 			msg = "<span class='warning'>[user]'s hand slips, damaging several organs in [target]'s lower abdomen with \the [tool]</span>"
 			self_msg = "<span class='warning'>Your hand slips, damaging several organs in [target]'s lower abdomen with \the [tool]!</span>"
 		user.visible_message(msg, self_msg)
@@ -296,7 +296,7 @@
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		if(..())
 			var/obj/item/organ/external/affected = target.get_organ(target_zone)
-			return affected && affected.open && target_zone != TARGET_MOUTH
+			return affected && affected.open && target_zone != BP_MOUTH
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -331,7 +331,7 @@
 	max_duration = 160
 
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		if (target_zone == TARGET_EYES)	//there are specific steps for eye surgery
+		if (target_zone == BP_EYES)	//there are specific steps for eye surgery
 			return 0
 		if (!hasorgans(target))
 			return 0

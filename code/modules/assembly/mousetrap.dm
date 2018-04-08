@@ -30,16 +30,16 @@
 		visible_message("<span class='danger'>SPLAT!</span>")
 		M.splat()
 	else
-		var/zone = TARGET_CHEST
+		var/zone = BP_CHEST
 		if(ishuman(target) && target.mob_size)
 			var/mob/living/carbon/human/H = target
 			switch(type)
 				if("feet")
-					zone = pick(TARGET_L_FOOT, TARGET_R_FOOT)
+					zone = pick(BP_L_FOOT, BP_R_FOOT)
 					if(!H.shoes)
 						H.apply_effect(400/(target.mob_size*(target.mob_size*0.25)), AGONY)//Halloss instead of instant knockdown
 						//Mainly for the benefit of giant monsters like vaurca breeders
-				if(TARGET_L_HAND, TARGET_R_HAND)
+				if(BP_L_HAND, BP_R_HAND)
 					zone = type
 					if(!H.gloves)
 						H.apply_effect(250/(target.mob_size*(target.mob_size*0.25)), AGONY)
@@ -59,9 +59,9 @@
 		user << "<span class='notice'>You arm [src].</span>"
 	else
 		if(((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(50))
-			var/which_hand = TARGET_L_HAND
+			var/which_hand = BP_L_HAND
 			if(!user.hand)
-				which_hand = TARGET_R_HAND
+				which_hand = BP_R_HAND
 			triggered(user, which_hand)
 			user.visible_message("<span class='warning'>[user] accidentally sets off [src], breaking their fingers.</span>", \
 								 "<span class='warning'>You accidentally trigger [src]!</span>")
@@ -75,9 +75,9 @@
 /obj/item/device/assembly/mousetrap/attack_hand(mob/living/user as mob)
 	if(armed)
 		if(((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(50))
-			var/which_hand = TARGET_L_HAND
+			var/which_hand = BP_L_HAND
 			if(!user.hand)
-				which_hand = TARGET_R_HAND
+				which_hand = BP_R_HAND
 			triggered(user, which_hand)
 			user.visible_message("<span class='warning'>[user] accidentally sets off [src], breaking their fingers.</span>", \
 								 "<span class='warning'>You accidentally trigger [src]!</span>")
@@ -102,7 +102,7 @@
 	if(armed)
 		finder.visible_message("<span class='warning'>[finder] accidentally sets off [src], breaking their fingers.</span>", \
 							   "<span class='warning'>You accidentally trigger [src]!</span>")
-		triggered(finder, finder.hand ? TARGET_L_HAND : TARGET_R_HAND)
+		triggered(finder, finder.hand ? BP_L_HAND : BP_R_HAND)
 		return 1	//end the search!
 	return 0
 

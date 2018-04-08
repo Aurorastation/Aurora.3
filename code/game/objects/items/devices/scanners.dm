@@ -153,7 +153,7 @@ REAGENT SCANNER
 				continue
 			var/limb = e.name
 			if(e.status & ORGAN_BROKEN)
-				if(((e.name == TARGET_L_ARM) || (e.name == TARGET_R_ARM) || (e.name == TARGET_L_LEG) || (e.name == TARGET_R_LEG)) && (!(e.status & ORGAN_SPLINTED)))
+				if(((e.name == BP_L_ARM) || (e.name == BP_R_ARM) || (e.name == BP_L_LEG) || (e.name == BP_R_LEG)) && (!(e.status & ORGAN_SPLINTED)))
 					user << "<span class='warning'>Unsecured fracture in subject [limb]. Splinting recommended for transport.</span>"
 			if(e.has_infected_wound())
 				user << "<span class='warning'>Infected wound detected in subject [limb]. Disinfection recommended.</span>"

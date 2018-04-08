@@ -87,12 +87,12 @@
 	if (H.last_chew + 26 > world.time) return
 	if (!H.handcuffed) return
 	if (H.a_intent != I_HURT) return
-	if (H.zone_sel.selecting != TARGET_MOUTH) return
+	if (H.zone_sel.selecting != BP_MOUTH) return
 	if (!H.check_has_mouth()) return
 	if (H.wear_mask) return
 	if (istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket)) return
 
-	var/obj/item/organ/external/O = H.organs_by_name[H.hand?TARGET_L_HAND:TARGET_R_HAND]
+	var/obj/item/organ/external/O = H.organs_by_name[H.hand?BP_L_HAND:BP_R_HAND]
 	if (!O) return
 
 	var/s = "<span class='warning'>[H.name] chews on \his [O.name]!</span>"

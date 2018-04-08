@@ -250,7 +250,7 @@ There are several things that need to be remembered:
 	var/icon/base_icon = SSicon_cache.human_icon_cache[icon_key]
 	if (!base_icon)	// Icon ain't in the cache, so generate it.
 		//BEGIN CACHED ICON GENERATION.
-		var/obj/item/organ/external/chest = get_organ(TARGET_CHEST)
+		var/obj/item/organ/external/chest = get_organ(BP_CHEST)
 		base_icon = chest.get_icon()
 
 		for(var/obj/item/organ/external/part in organs)
@@ -368,7 +368,7 @@ There are several things that need to be remembered:
 	//Reset our hair
 	overlays_raw[HAIR_LAYER] = null
 
-	var/obj/item/organ/external/head/head_organ = get_organ(TARGET_HEAD)
+	var/obj/item/organ/external/head/head_organ = get_organ(BP_HEAD)
 	if(!head_organ || head_organ.is_stump() )
 		if(update_icons)   update_icons()
 		return

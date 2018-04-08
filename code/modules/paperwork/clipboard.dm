@@ -23,10 +23,10 @@
 
 		if(!M.restrained() && !M.stat)
 			switch(over_object.name)
-				if(TARGET_R_HAND)
+				if(BP_R_HAND)
 					M.u_equip(src)
 					M.put_in_r_hand(src)
-				if(TARGET_L_HAND)
+				if(BP_L_HAND)
 					M.u_equip(src)
 					M.put_in_l_hand(src)
 

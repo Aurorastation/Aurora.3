@@ -18,17 +18,17 @@
 	fall_mod = 0
 
 	has_limbs = list(
-		TARGET_CHEST =  list("path" = /obj/item/organ/external/chest/unbreakable),
-		TARGET_GROIN =  list("path" = /obj/item/organ/external/groin/unbreakable),
-		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/unbreakable),
-		TARGET_L_ARM =  list("path" = /obj/item/organ/external/arm/unbreakable),
-		TARGET_R_ARM =  list("path" = /obj/item/organ/external/arm/right/unbreakable),
-		TARGET_L_LEG =  list("path" = /obj/item/organ/external/leg/unbreakable),
-		TARGET_R_LEG =  list("path" = /obj/item/organ/external/leg/right/unbreakable),
-		TARGET_L_HAND = list("path" = /obj/item/organ/external/hand/unbreakable),
-		TARGET_R_HAND = list("path" = /obj/item/organ/external/hand/right/unbreakable),
-		TARGET_L_FOOT = list("path" = /obj/item/organ/external/foot/unbreakable),
-		TARGET_R_FOOT = list("path" = /obj/item/organ/external/foot/right/unbreakable)
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/unbreakable),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/unbreakable),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/unbreakable),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/unbreakable),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/unbreakable),
+		BP_L_LEG=  list("path" = /obj/item/organ/external/leg/unbreakable),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/unbreakable),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/unbreakable),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/unbreakable),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/unbreakable),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/unbreakable)
 		)
 
 	eyes = "blank_eyes"
@@ -341,7 +341,7 @@
 
 	gear = list(
 		"o_clothing" =   list("loc" = ui_belt,      "name" = "Suit",         "slot" = slot_wear_suit, "state" = "equip",  "dir" = SOUTH),
-		TARGET_HEAD =         list("loc" = ui_id,        "name" = "Hat",          "slot" = slot_head,      "state" = "hair"),
+		BP_HEAD =         list("loc" = ui_id,        "name" = "Hat",          "slot" = slot_head,      "state" = "hair"),
 		"storage1" =     list("loc" = ui_storage1,  "name" = "Left Pocket",  "slot" = slot_l_store,   "state" = "pocket"),
 		"storage2" =     list("loc" = ui_storage2,  "name" = "Right Pocket", "slot" = slot_r_store,   "state" = "pocket")
 		)

@@ -650,7 +650,7 @@
 		var/mob/living/carbon/human/M = user
 		if(M.h_style == "Floorlength Braid" || M.h_style == "Very Long Hair")
 			if(prob(10))
-				M.apply_damage(30, BRUTE, TARGET_HEAD)
+				M.apply_damage(30, BRUTE, BP_HEAD)
 				M.apply_damage(45, HALLOSS)
 				M.visible_message("<span class='warning'>[user]'s hair catches in the [src]!</span>", "<span class='danger'>Your hair gets caught in the [src]!</span>")
 				M.say("*scream")
@@ -793,7 +793,7 @@
 			return
 		if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
 			user.visible_message("<span class='warning'>[user] feeds the [target]'s hair into the [src] and flicks it on!</span>", "<span class='warning'>You turn the [src] on!</span>")
-			target.apply_damage(30, BRUTE, TARGET_HEAD)
+			target.apply_damage(30, BRUTE, BP_HEAD)
 			target.apply_damage(25, HALLOSS)
 			target.say("*scream")
 
@@ -808,7 +808,7 @@
 			return
 		if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
 			user.visible_message("<span class='warning'>[user] starts tugging on [target]'s head as the [src] keeps running!</span>", "<span class='warning'>You start tugging on [target]'s head!</span>")
-			target.apply_damage(25, BRUTE, TARGET_HEAD)
+			target.apply_damage(25, BRUTE, BP_HEAD)
 			target.apply_damage(10, HALLOSS)
 			target.say("*scream")
 			spawn(10)

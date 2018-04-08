@@ -218,7 +218,7 @@ mob/living/carbon/human/proc/xeno_infest(mob/living/carbon/human/M as mob in ovi
 		src << "<span class='warning'>They are already part of the hive.</span>"
 		return
 
-	var/obj/item/organ/affecting = M.get_organ(TARGET_CHEST)
+	var/obj/item/organ/affecting = M.get_organ(BP_CHEST)
 	if(!affecting || (affecting.status & ORGAN_ROBOT))
 		src << "<span class='warning'>This form is not compatible with our physiology.</span>"
 		return

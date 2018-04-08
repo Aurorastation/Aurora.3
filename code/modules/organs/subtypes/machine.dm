@@ -63,7 +63,7 @@
 	icon = 'icons/obj/power.dmi'
 	icon_state = "scell"
 	organ_tag = "cell"
-	parent_organ = TARGET_CHEST
+	parent_organ = BP_CHEST
 	vital = 1
 	var/emp_counter = 0
 
@@ -97,7 +97,7 @@
 /obj/item/organ/ipc_tag
 	name = "identification tag"
 	organ_tag = "ipc tag"
-	parent_organ = TARGET_HEAD
+	parent_organ = BP_HEAD
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "gps-c"
 	dead_icon = "gps-c"
@@ -110,7 +110,7 @@
 /obj/item/organ/mmi_holder
 	name = "brain"
 	organ_tag = "brain"
-	parent_organ = TARGET_HEAD
+	parent_organ = BP_HEAD
 	vital = 1
 	var/obj/item/device/mmi/stored_mmi
 
@@ -159,14 +159,14 @@
 /obj/item/organ/mmi_holder/posibrain/terminator
 	name = "brain"
 	organ_tag = "brain"
-	parent_organ = TARGET_CHEST
+	parent_organ = BP_CHEST
 	vital = 1
 	emp_coeff = 0.1
 
 /obj/item/organ/data
 	name = "data core"
 	organ_tag = "data core"
-	parent_organ = TARGET_GROIN
+	parent_organ = BP_GROIN
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "harddisk"
 	vital = 0
@@ -182,7 +182,7 @@
 	icon = 'icons/obj/power.dmi'
 	icon_state = "scell"
 	organ_tag = "shielded cell"
-	parent_organ = TARGET_CHEST
+	parent_organ = BP_CHEST
 	vital = 1
 	emp_coeff = 0.1
 

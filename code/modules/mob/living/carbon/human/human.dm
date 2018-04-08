@@ -205,25 +205,25 @@
 
 	for(var/obj/item/organ/external/temp in organs)
 		switch(temp.name)
-			if(TARGET_HEAD)
+			if(BP_HEAD)
 				update |= temp.take_damage(b_loss * 0.2, f_loss * 0.2, used_weapon = weapon_message)
-			if(TARGET_CHEST)
+			if(BP_CHEST)
 				update |= temp.take_damage(b_loss * 0.4, f_loss * 0.4, used_weapon = weapon_message)
-			if(TARGET_L_ARM)
+			if(BP_L_ARM)
 				update |= temp.take_damage(b_loss * 0.05, f_loss * 0.05, used_weapon = weapon_message)
-			if(TARGET_R_ARM)
+			if(BP_R_ARM)
 				update |= temp.take_damage(b_loss * 0.05, f_loss * 0.05, used_weapon = weapon_message)
-			if(TARGET_L_LEG)
+			if(BP_L_LEG)
 				update |= temp.take_damage(b_loss * 0.05, f_loss * 0.05, used_weapon = weapon_message)
-			if(TARGET_R_LEG)
+			if(BP_R_LEG)
 				update |= temp.take_damage(b_loss * 0.05, f_loss * 0.05, used_weapon = weapon_message)
-			if(TARGET_R_FOOT)
+			if(BP_R_FOOT)
 				update |= temp.take_damage(b_loss * 0.05, f_loss * 0.05, used_weapon = weapon_message)
-			if(TARGET_L_FOOT)
+			if(BP_L_FOOT)
 				update |= temp.take_damage(b_loss * 0.05, f_loss * 0.05, used_weapon = weapon_message)
-			if(TARGET_R_ARM)
+			if(BP_R_ARM)
 				update |= temp.take_damage(b_loss * 0.05, f_loss * 0.05, used_weapon = weapon_message)
-			if(TARGET_L_ARM)
+			if(BP_L_ARM)
 				update |= temp.take_damage(b_loss * 0.05, f_loss * 0.05, used_weapon = weapon_message)
 	if(update)	UpdateDamageIcon()
 
@@ -237,7 +237,7 @@
 		L = new/obj/item/weapon/implant/loyalty(M)
 	L.imp_in = M
 	L.implanted = 1
-	var/obj/item/organ/external/affected = M.organs_by_name[TARGET_HEAD]
+	var/obj/item/organ/external/affected = M.organs_by_name[BP_HEAD]
 	affected.implants += L
 	L.part = affected
 	L.implanted(src)
@@ -381,7 +381,7 @@
 
 //Returns "Unknown" if facially disfigured and real_name if not. Useful for setting name when polyacided or when updating a human's name variable
 /mob/living/carbon/human/proc/get_face_name()
-	var/obj/item/organ/external/head = get_organ(TARGET_HEAD)
+	var/obj/item/organ/external/head = get_organ(BP_HEAD)
 	if(!head || head.disfigured || head.is_stump() || !real_name || (HUSK in mutations) )	//disfigured. use id-name if possible
 		return "Unknown"
 	return real_name
@@ -422,19 +422,19 @@
 		var/count = hairvar == 1 ? rand(1, 7) : rand(1, 6)
 		switch (count)
 			if(1)
-				damage_areas = list(TARGET_L_HAND, TARGET_L_ARM, TARGET_CHEST, TARGET_R_ARM, TARGET_R_HAND)
+				damage_areas = list(BP_L_HAND, BP_L_ARM, BP_CHEST, BP_R_ARM, BP_R_HAND)
 			if(2)
-				damage_areas = list(TARGET_R_HAND, TARGET_R_ARM, TARGET_CHEST, TARGET_L_ARM, TARGET_L_HAND)
+				damage_areas = list(BP_R_HAND, BP_R_ARM, BP_CHEST, BP_L_ARM, BP_L_HAND)
 			if(3)
-				damage_areas = list(TARGET_L_HAND, TARGET_L_ARM, TARGET_CHEST, TARGET_GROIN, TARGET_L_LEG, TARGET_L_FOOT)
+				damage_areas = list(BP_L_HAND, BP_L_ARM, BP_CHEST, BP_GROIN, BP_L_LEG, BP_L_FOOT)
 			if(4)
-				damage_areas = list(TARGET_L_HAND, TARGET_L_ARM, TARGET_CHEST, TARGET_GROIN, TARGET_R_LEG, TARGET_R_FOOT)
+				damage_areas = list(BP_L_HAND, BP_L_ARM, BP_CHEST, BP_GROIN, BP_R_LEG, BP_R_FOOT)
 			if(5)
-				damage_areas = list(TARGET_R_HAND, TARGET_R_ARM, TARGET_CHEST, TARGET_GROIN, TARGET_R_LEG, TARGET_R_FOOT)
+				damage_areas = list(BP_R_HAND, BP_R_ARM, BP_CHEST, BP_GROIN, BP_R_LEG, BP_R_FOOT)
 			if(6)
-				damage_areas = list(TARGET_R_HAND, TARGET_R_ARM, TARGET_CHEST, TARGET_GROIN, TARGET_L_LEG, TARGET_L_FOOT)
+				damage_areas = list(BP_R_HAND, BP_R_ARM, BP_CHEST, BP_GROIN, BP_L_LEG, BP_L_FOOT)
 			if(7)//snowflake arc - only happens when they have long hair.
-				damage_areas = list(TARGET_R_HAND, TARGET_R_ARM, TARGET_CHEST, TARGET_HEAD)
+				damage_areas = list(BP_R_HAND, BP_R_ARM, BP_CHEST, BP_HEAD)
 				h_style = "skinhead"
 				visible_message("<span class='warning'>[src]'s hair gets a burst of electricty through it, burning and turning to dust!</span>", "<span class='danger'>your hair burns as the current flows through it, turning to dust!</span>", "<span class='notice'>You hear a crackling sound, and smell burned hair!.</span>")
 				update_hair()
@@ -453,7 +453,7 @@
 	var/obj/item/organ/external/affecting
 	for (var/area in damage_areas)
 
-		if(area == TARGET_HEAD && shock_damage >= 5 && prob(15))
+		if(area == BP_HEAD && shock_damage >= 5 && prob(15))
 			cure_all_traumas(cure_type = CURE_CRYSTAL)
 		affecting = get_organ(check_zone(area))
 		var/emp_damage
@@ -813,7 +813,7 @@
 	return species.inherent_eye_protection ? max(species.inherent_eye_protection, flash_protection) : flash_protection
 
 //Used by various things that knock people out by applying blunt trauma to the head.
-//Checks that the species has a TARGET_HEAD (brain containing organ) and that hit_zone refers to it.
+//Checks that the species has a BP_HEAD (brain containing organ) and that hit_zone refers to it.
 /mob/living/carbon/human/proc/headcheck(var/target_zone, var/brain_tag = "brain")
 	if(!species.has_organ[brain_tag])
 		return 0
@@ -879,7 +879,7 @@
 
 /mob/living/carbon/human/proc/check_has_mouth()
 	// Todo, check stomach organ when implemented.
-	var/obj/item/organ/external/head/H = get_organ(TARGET_HEAD)
+	var/obj/item/organ/external/head/H = get_organ(BP_HEAD)
 	if(!H || !H.can_intake_reagents)
 		return 0
 	return 1
@@ -1379,7 +1379,7 @@
 
 	if(!target_zone)
 		if(!user)
-			target_zone = pick(TARGET_CHEST,TARGET_CHEST,TARGET_CHEST,"left leg","right leg","left arm", "right arm", TARGET_HEAD)
+			target_zone = pick(BP_CHEST,BP_CHEST,BP_CHEST,"left leg","right leg","left arm", "right arm", BP_HEAD)
 		else
 			target_zone = user.zone_sel.selecting
 
@@ -1393,7 +1393,7 @@
 		fail_msg = "That limb is robotic."
 	else
 		switch(target_zone)
-			if(TARGET_HEAD)
+			if(BP_HEAD)
 				if(head && head.item_flags & THICKMATERIAL)
 					. = 0
 			else
@@ -1401,7 +1401,7 @@
 					. = 0
 	if(!. && error_msg && user)
 		if(!fail_msg)
-			fail_msg = "There is no exposed flesh or thin material [target_zone == TARGET_HEAD ? "on their head" : "on their body"] to inject into."
+			fail_msg = "There is no exposed flesh or thin material [target_zone == BP_HEAD ? "on their head" : "on their body"] to inject into."
 		user << "<span class='alert'>[fail_msg]</span>"
 
 /mob/living/carbon/human/print_flavor_text(var/shrink = 1)
@@ -1436,7 +1436,7 @@
 	flavor_text = ""
 	for (var/T in flavor_texts)
 		if(flavor_texts[T] && flavor_texts[T] != "")
-			if((T == "general") || (T == TARGET_HEAD && head_exposed) || (T == "face" && face_exposed) || (T == TARGET_EYES && eyes_exposed) || (T == "torso" && torso_exposed) || (T == "arms" && arms_exposed) || (T == "hands" && hands_exposed) || (T == "legs" && legs_exposed) || (T == "feet" && feet_exposed))
+			if((T == "general") || (T == BP_HEAD && head_exposed) || (T == "face" && face_exposed) || (T == BP_EYES && eyes_exposed) || (T == "torso" && torso_exposed) || (T == "arms" && arms_exposed) || (T == "hands" && hands_exposed) || (T == "legs" && legs_exposed) || (T == "feet" && feet_exposed))
 				flavor_text += flavor_texts[T]
 				flavor_text += "\n\n"
 	if(!shrink)
@@ -1543,7 +1543,7 @@
 /mob/living/carbon/human/can_stand_overridden()
 	if(wearing_rig && wearing_rig.ai_can_move_suit(check_for_ai = 1))
 		// Actually missing a leg will screw you up. Everything else can be compensated for.
-		for(var/limbcheck in list(TARGET_L_LEG,TARGET_R_LEG))
+		for(var/limbcheck in list(BP_L_LEG,BP_R_LEG))
 			var/obj/item/organ/affecting = get_organ(limbcheck)
 			if(!affecting)
 				return 0

@@ -30,11 +30,11 @@ var/global/list/sparring_attack_cache = list()
 		return 0
 
 	// Check if they have a functioning hand.
-	var/obj/item/organ/external/E = user.organs_by_name[TARGET_L_HAND]
+	var/obj/item/organ/external/E = user.organs_by_name[BP_L_HAND]
 	if(E && !E.is_stump())
 		return 1
 
-	E = user.organs_by_name[TARGET_R_HAND]
+	E = user.organs_by_name[BP_R_HAND]
 	if(E && !E.is_stump())
 		return 1
 
@@ -52,22 +52,22 @@ var/global/list/sparring_attack_cache = list()
 
 	if(attack_damage >= 5 && armour < 100 && !(target == user) && stun_chance <= attack_damage * 5) // 25% standard chance
 		switch(zone) // strong punches can have effects depending on where they hit
-			if(TARGET_HEAD, TARGET_MOUTH, TARGET_EYES)
+			if(BP_HEAD, BP_MOUTH, BP_EYES)
 				// Induce blurriness
 				target.visible_message("<span class='danger'>[target] looks momentarily disoriented.</span>", "<span class='danger'>You see stars.</span>")
 				target.apply_effect(attack_damage*2, EYE_BLUR, armour)
-			if(TARGET_L_ARM, TARGET_L_HAND)
+			if(BP_L_ARM, BP_L_HAND)
 				if (target.l_hand)
 					// Disarm left hand
 					//Urist McAssistant dropped the macguffin with a scream just sounds odd. Plus it doesn't work with NO_PAIN
 					target.visible_message("<span class='danger'>\The [target.l_hand] was knocked right out of [target]'s grasp!</span>")
 					target.drop_l_hand()
-			if(TARGET_R_ARM, TARGET_R_HAND)
+			if(BP_R_ARM, BP_R_HAND)
 				if (target.r_hand)
 					// Disarm right hand
 					target.visible_message("<span class='danger'>\The [target.r_hand] was knocked right out of [target]'s grasp!</span>")
 					target.drop_r_hand()
-			if(TARGET_CHEST)
+			if(BP_CHEST)
 				if(!target.lying)
 					var/turf/T = get_step(get_turf(target), get_dir(get_turf(user), get_turf(target)))
 					if(!T.density)
@@ -78,10 +78,10 @@ var/global/list/sparring_attack_cache = list()
 					if(prob(50))
 						target.set_dir(reverse_dir[target.dir])
 					target.apply_effect(attack_damage * 0.4, WEAKEN, armour)
-			if(TARGET_GROIN)
+			if(BP_GROIN)
 				target.visible_message("<span class='warning'>[target] looks like \he is in pain!</span>", "<span class='warning'>[(target.gender=="female") ? "Oh god that hurt!" : "Oh no, not your[pick("testicles", "crown jewels", "clockweights", "family jewels", "marbles", "bean bags", "teabags", "sweetmeats", "goolies")]!"]</span>")
 				target.apply_effects(stutter = attack_damage * 2, agony = attack_damage* 3, blocked = armour)
-			if(TARGET_L_LEG, TARGET_L_FOOT, TARGET_R_LEG, TARGET_R_FOOT)
+			if(BP_L_LEG, BP_L_FOOT, BP_R_LEG, BP_R_FOOT)
 				if(!target.lying)
 					target.visible_message("<span class='warning'>[target] gives way slightly.</span>")
 					target.apply_effect(attack_damage*3, AGONY, armour)
@@ -117,7 +117,7 @@ var/global/list/sparring_attack_cache = list()
 
 	if (user.wear_mask && istype(user.wear_mask, /obj/item/clothing/mask/muzzle))
 		return 0
-	if (user == target && (zone == TARGET_HEAD || zone == TARGET_EYES || zone == TARGET_MOUTH))
+	if (user == target && (zone == BP_HEAD || zone == BP_EYES || zone == BP_MOUTH))
 		return 0
 	return 1
 
@@ -141,7 +141,7 @@ var/global/list/sparring_attack_cache = list()
 
 	if(!target.lying)
 		switch(zone)
-			if(TARGET_HEAD, TARGET_MOUTH, TARGET_EYES)
+			if(BP_HEAD, BP_MOUTH, BP_EYES)
 				// ----- HEAD ----- //
 				switch(attack_damage)
 					if(1 to 2)
@@ -182,14 +182,14 @@ var/global/list/sparring_attack_cache = list()
 	if (user.legcuffed)
 		return 0
 
-	if(!(zone in list(TARGET_L_LEG, TARGET_R_LEG, TARGET_L_FOOT, TARGET_R_FOOT, TARGET_GROIN)))
+	if(!(zone in list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT, BP_GROIN)))
 		return 0
 
-	var/obj/item/organ/external/E = user.organs_by_name[TARGET_L_FOOT]
+	var/obj/item/organ/external/E = user.organs_by_name[BP_L_FOOT]
 	if(E && !E.is_stump())
 		return 1
 
-	E = user.organs_by_name[TARGET_R_FOOT]
+	E = user.organs_by_name[BP_R_FOOT]
 	if(E && !E.is_stump())
 		return 1
 
@@ -227,14 +227,14 @@ var/global/list/sparring_attack_cache = list()
 	if(!istype(target))
 		return 0
 
-	if (!user.lying && (target.lying || (zone in list(TARGET_L_FOOT, TARGET_R_FOOT))))
+	if (!user.lying && (target.lying || (zone in list(BP_L_FOOT, BP_R_FOOT))))
 		if(target.grabbed_by == user && target.lying)
 			return 0
-		var/obj/item/organ/external/E = user.organs_by_name[TARGET_L_FOOT]
+		var/obj/item/organ/external/E = user.organs_by_name[BP_L_FOOT]
 		if(E && !E.is_stump())
 			return 1
 
-		E = user.organs_by_name[TARGET_R_FOOT]
+		E = user.organs_by_name[BP_R_FOOT]
 		if(E && !E.is_stump())
 			return 1
 
