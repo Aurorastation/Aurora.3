@@ -17160,7 +17160,7 @@
 /obj/machinery/atm{
 	pixel_x = -32
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Starboard Corridor - Internal Affairs Entrance";
 	dir = 4
 	},
@@ -21617,10 +21617,10 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Starboard Corridor - Camera 4";
 	dir = 8;
-	network = list("Civilian West","Capt_Office")
+	network = list("Civilian Main","Capt_Office")
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
@@ -25606,7 +25606,7 @@
 	name = "west bump";
 	pixel_x = -24
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Starboard Corridor - Camera 3";
 	dir = 4
 	},
@@ -27650,7 +27650,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Port Corridor - Engineering Entrance"
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -27978,7 +27978,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aWc" = (
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Starboard Corridor - Camera 2"
 	},
 /turf/simulated/floor/tiled,
@@ -28069,7 +28069,7 @@
 /obj/machinery/newscaster{
 	pixel_y = -32
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Starboard Corridor - Store";
 	dir = 1
 	},
@@ -28131,7 +28131,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Bridge - Head of Personnel Processing";
 	dir = 1
 	},
@@ -28701,7 +28701,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Port Corridor - Camera 2";
 	dir = 4
 	},
@@ -29518,7 +29518,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
 "aYw" = (
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Port Corridor - Camera 1";
 	dir = 1
 	},
@@ -29559,7 +29559,7 @@
 	pixel_y = -32
 	},
 /obj/machinery/light,
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Central Corridor - Security Entrance";
 	dir = 1
 	},
@@ -33197,7 +33197,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -32
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Central Corridor - Camera 7";
 	dir = 4
 	},
@@ -34787,7 +34787,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Central Corridor - Camera 6";
 	dir = 8
 	},
@@ -39641,7 +39641,7 @@
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bpY" = (
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Central Corridor - Camera 5";
 	dir = 1
 	},
@@ -41039,7 +41039,7 @@
 	dir = 10
 	},
 /obj/machinery/light,
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Central Corridor";
 	dir = 1
 	},
@@ -42530,7 +42530,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "buI" = (
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Central Corridor - Research Entrance";
 	dir = 4
 	},
@@ -42562,7 +42562,7 @@
 /turf/simulated/floor/holofloor/reinforced,
 /area/holodeck/alphadeck)
 "buL" = (
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Central Corridor - Medical Entrance";
 	dir = 8
 	},
@@ -44311,7 +44311,7 @@
 /turf/simulated/floor/tiled,
 /area/rnd/lab)
 "bxk" = (
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Central Corridor - Camera 4"
 	},
 /obj/effect/floor_decal/corner/mauve/full{
@@ -48546,7 +48546,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bEx" = (
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Central Corridor - Camera 3";
 	dir = 8
 	},
@@ -49715,7 +49715,7 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/chemistry)
 "bGo" = (
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Central Corridor - Camera 1";
 	dir = 4
 	},
@@ -49785,7 +49785,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bGt" = (
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Central Corridor - Camera 2";
 	dir = 8
 	},
@@ -50723,7 +50723,7 @@
 /obj/item/device/eftpos{
 	eftpos_name = "Library EFTPOS scanner"
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Library - Backroom";
 	dir = 8
 	},
@@ -51104,7 +51104,7 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Library - Fore Camera";
 	dir = 8
 	},
@@ -52331,7 +52331,7 @@
 	name = "Station Intercom (General)";
 	pixel_x = -28
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Dormitories - Main Level";
 	dir = 4
 	},
@@ -53099,7 +53099,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/locker/locker_toilet)
 "bMH" = (
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Main Level - Restrooms";
 	dir = 8
 	},
@@ -53338,7 +53338,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Aft Corridor - Camera 3";
 	dir = 4
 	},
@@ -53896,7 +53896,7 @@
 	icon_state = "spline_fancy";
 	dir = 1
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Chapel - Office";
 	dir = 8
 	},
@@ -53987,7 +53987,7 @@
 	pixel_y = -27
 	},
 /obj/machinery/light,
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/service{
 	c_tag = "Library - Port Camera";
 	dir = 1
 	},
@@ -54029,7 +54029,7 @@
 /obj/structure/bed/chair/comfy/black{
 	dir = 1
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/service{
 	c_tag = "Library - Starboard Camera";
 	dir = 1
 	},
@@ -55625,7 +55625,7 @@
 	pixel_x = 30
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/service{
 	c_tag = "Kitchen - Food Preparation";
 	dir = 8
 	},
@@ -55636,7 +55636,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/service{
 	c_tag = "Kitchen - Cold Storage";
 	dir = 4
 	},
@@ -56352,7 +56352,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/service{
 	c_tag = "Hydroponics - Produce Storage";
 	dir = 4
 	},
@@ -56434,7 +56434,7 @@
 /area/hallway/primary/aft)
 "bTz" = (
 /obj/machinery/light,
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/service{
 	c_tag = "Aft Corridor - Camera 2";
 	dir = 1
 	},
@@ -56667,7 +56667,7 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/service{
 	c_tag = "Hydroponics - Greenhouse";
 	dir = 8
 	},
@@ -57342,7 +57342,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/service{
 	c_tag = "Bar - Kitchen Counter";
 	dir = 4
 	},
@@ -57377,7 +57377,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bVC" = (
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/service{
 	c_tag = "Bar - Dance Floor";
 	dir = 8
 	},
@@ -57566,7 +57566,7 @@
 /turf/simulated/floor/grass,
 /area/hydroponics)
 "bVY" = (
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/service{
 	c_tag = "Hydroponics - Animal Pen";
 	dir = 1
 	},
@@ -57804,7 +57804,7 @@
 /turf/simulated/floor/plating,
 /area/hydroponics)
 "bWs" = (
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Aft Corridor - Camera 1";
 	dir = 4
 	},
@@ -58123,7 +58123,7 @@
 /obj/machinery/alarm{
 	pixel_y = 23
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/supply{
 	c_tag = "Cargo - Main Lobby"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -58470,7 +58470,7 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/service{
 	c_tag = "Bar - Backroom";
 	dir = 8
 	},
@@ -58893,7 +58893,7 @@
 /area/maintenance/cargo)
 "bYE" = (
 /obj/machinery/door/airlock/engineering{
-	name = "Civilian West Substation";
+	name = "Civilian (Main Level) Substation";
 	req_one_access = list(11,24)
 	},
 /obj/structure/cable{
@@ -58940,7 +58940,7 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/supply{
 	c_tag = "Cargo - Main Desk";
 	dir = 4
 	},
@@ -59082,7 +59082,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Civilian - Civilian Substation";
 	dir = 4
 	},
@@ -59226,7 +59226,7 @@
 /area/crew_quarters/bar)
 "bZj" = (
 /obj/machinery/vending/cigarette,
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/service{
 	c_tag = "Bar - Smoking Lounge"
 	},
 /turf/simulated/floor/wood,
@@ -59413,7 +59413,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
-	name = "Civilian West Substation";
+	name = "Civilian (Main Level) Substation";
 	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/plating,
@@ -59508,7 +59508,7 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
 "bZK" = (
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Cryo - Main Level";
 	dir = 2
 	},
@@ -59737,7 +59737,7 @@
 "cak" = (
 /obj/structure/table/wood,
 /obj/machinery/light/small,
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/service{
 	c_tag = "Bar - Diner Seating";
 	dir = 1
 	},
@@ -60907,7 +60907,7 @@
 	name = "west bump";
 	pixel_x = -24
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Maintenance - Trash Compactor Control";
 	dir = 4
 	},
@@ -64223,7 +64223,7 @@
 	name = "Bar Shutters";
 	pixel_y = 36
 	},
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/service{
 	c_tag = "Bar - Counter"
 	},
 /obj/machinery/button/windowtint{
@@ -64262,7 +64262,7 @@
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "chV" = (
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_main{
 	c_tag = "Starboard Corridor - Camera 1"
 	},
 /turf/simulated/floor/tiled,
