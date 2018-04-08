@@ -60562,8 +60562,9 @@
 	c_tag = "Warehouse - North"
 	},
 /obj/structure/disposalpipe/tagger{
-	dir = 1;
+	dir = 2;
 	name = "Sorting Office";
+	no_override = 1;
 	sort_tag = "Sorting Office"
 	},
 /turf/simulated/floor/plating,
