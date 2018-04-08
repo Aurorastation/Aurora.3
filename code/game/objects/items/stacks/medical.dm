@@ -24,7 +24,7 @@
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
-		if(affecting.name == "head")
+		if(affecting.name == TARGET_HEAD)
 			if(H.head && istype(H.head,/obj/item/clothing/head/helmet/space))
 				user << "<span class='warning'>You can't apply [src] through [H.head]!</span>"
 				return 1

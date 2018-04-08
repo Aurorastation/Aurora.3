@@ -77,7 +77,7 @@
 		A.do_attack_animation(D)
 		D.visible_message("<span class='warning'>[A] kicks [D] in the head!</span>", \
 						  "<span class='danger'>[A] kicks you in the jaw!</span>")
-		D.apply_damage(20, BRUTE, "head")
+		D.apply_damage(20, BRUTE, TARGET_HEAD)
 		D.drop_item()
 		playsound(get_turf(D), 'sound/weapons/punch1.ogg', 50, 1, -1)
 

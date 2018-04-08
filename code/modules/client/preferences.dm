@@ -313,7 +313,7 @@ datum/preferences
 		character.dna.real_name = character.real_name
 
 	character.flavor_texts["general"] = flavor_texts["general"]
-	character.flavor_texts["head"] = flavor_texts["head"]
+	character.flavor_texts[TARGET_HEAD] = flavor_texts[TARGET_HEAD]
 	character.flavor_texts["face"] = flavor_texts["face"]
 	character.flavor_texts["eyes"] = flavor_texts["eyes"]
 	character.flavor_texts["torso"] = flavor_texts["torso"]

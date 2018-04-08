@@ -97,7 +97,7 @@
 /obj/item/organ/ipc_tag
 	name = "identification tag"
 	organ_tag = "ipc tag"
-	parent_organ = "head"
+	parent_organ = TARGET_HEAD
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "gps-c"
 	dead_icon = "gps-c"
@@ -110,7 +110,7 @@
 /obj/item/organ/mmi_holder
 	name = "brain"
 	organ_tag = "brain"
-	parent_organ = "head"
+	parent_organ = TARGET_HEAD
 	vital = 1
 	var/obj/item/device/mmi/stored_mmi
 

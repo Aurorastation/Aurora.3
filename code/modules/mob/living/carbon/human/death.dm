@@ -36,7 +36,7 @@
 	animate_tail_stop()
 
 	//Handle brain slugs.
-	var/obj/item/organ/external/head = get_organ("head")
+	var/obj/item/organ/external/head = get_organ(TARGET_HEAD)
 	var/mob/living/simple_animal/borer/B
 
 	if (head)

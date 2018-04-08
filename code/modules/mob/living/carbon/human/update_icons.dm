@@ -368,7 +368,7 @@ There are several things that need to be remembered:
 	//Reset our hair
 	overlays_raw[HAIR_LAYER] = null
 
-	var/obj/item/organ/external/head/head_organ = get_organ("head")
+	var/obj/item/organ/external/head/head_organ = get_organ(TARGET_HEAD)
 	if(!head_organ || head_organ.is_stump() )
 		if(update_icons)   update_icons()
 		return

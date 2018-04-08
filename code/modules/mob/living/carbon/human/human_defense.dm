@@ -53,7 +53,7 @@ emp_act
 	agony_amount *= siemens_coeff
 
 	switch (def_zone)
-		if("head")
+		if(TARGET_HEAD)
 			agony_amount *= 1.50
 		if("l_hand", "r_hand")
 			var/c_hand
@@ -266,7 +266,7 @@ emp_act
 					H.bloody_hands(src)
 
 			switch(hit_zone)
-				if("head")
+				if(TARGET_HEAD)
 					if(wear_mask)
 						wear_mask.add_blood(src)
 						update_inv_wear_mask(0)
@@ -453,7 +453,7 @@ emp_act
 	var/perm = 0
 
 	var/list/perm_by_part = list(
-		"head" = THERMAL_PROTECTION_HEAD,
+		TARGET_HEAD = THERMAL_PROTECTION_HEAD,
 		"upper_torso" = THERMAL_PROTECTION_UPPER_TORSO,
 		"lower_torso" = THERMAL_PROTECTION_LOWER_TORSO,
 		"legs" = THERMAL_PROTECTION_LEG_LEFT + THERMAL_PROTECTION_LEG_RIGHT,
@@ -466,7 +466,7 @@ emp_act
 		if(C.permeability_coefficient == 1 || !C.body_parts_covered)
 			continue
 		if(C.body_parts_covered & HEAD)
-			perm_by_part["head"] *= C.permeability_coefficient
+			perm_by_part[TARGET_HEAD] *= C.permeability_coefficient
 		if(C.body_parts_covered & UPPER_TORSO)
 			perm_by_part["upper_torso"] *= C.permeability_coefficient
 		if(C.body_parts_covered & LOWER_TORSO)

@@ -57,7 +57,7 @@
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/skeleton),
 		"groin" =  list("path" = /obj/item/organ/external/groin/skeleton),
-		"head" =   list("path" = /obj/item/organ/external/head/skeleton),
+		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/skeleton),
 		"l_arm" =  list("path" = /obj/item/organ/external/arm/skeleton),
 		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/skeleton),
 		"l_leg" =  list("path" = /obj/item/organ/external/leg/skeleton),

@@ -17,7 +17,7 @@
 	organ_tag = "neural socket"
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "neural_socket"
-	parent_organ = "head"
+	parent_organ = TARGET_HEAD
 	robotic = 2
 
 obj/item/organ/vaurca/neuralsocket/process()
@@ -46,7 +46,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 /obj/item/organ/vaurca/filtrationbit
 	name = "filtration bit"
 	organ_tag = "filtration bit"
-	parent_organ = "head"
+	parent_organ = TARGET_HEAD
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "filter"
 	robotic = 2

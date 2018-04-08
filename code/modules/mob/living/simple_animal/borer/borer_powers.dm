@@ -73,7 +73,7 @@
 	if(istype(M,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 
-		var/obj/item/organ/external/E = H.organs_by_name["head"]
+		var/obj/item/organ/external/E = H.organs_by_name[TARGET_HEAD]
 		if(!E || E.is_stump())
 			src << "\The [H] does not have a head!"
 
@@ -122,7 +122,7 @@
 				replace_brain()
 			else
 				// If they're in normally, implant removal can get them out.
-				var/obj/item/organ/external/head = H.get_organ("head")
+				var/obj/item/organ/external/head = H.get_organ(TARGET_HEAD)
 				head.implants += src
 
 		return
@@ -189,7 +189,7 @@
 	H.internal_organs_by_name["brain"] = B
 	H.internal_organs |= B
 
-	var/obj/item/organ/external/affecting = H.get_organ("head")
+	var/obj/item/organ/external/affecting = H.get_organ(TARGET_HEAD)
 	affecting.implants -= src
 
 	var/s2h_id = src.computer_id

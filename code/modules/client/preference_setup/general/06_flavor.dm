@@ -4,7 +4,7 @@
 
 /datum/category_item/player_setup_item/general/flavor/load_character(var/savefile/S)
 	S["flavor_texts_general"] >> pref.flavor_texts["general"]
-	S["flavor_texts_head"]    >> pref.flavor_texts["head"]
+	S["flavor_texts_head"]    >> pref.flavor_texts[TARGET_HEAD]
 	S["flavor_texts_face"]    >> pref.flavor_texts["face"]
 	S["flavor_texts_eyes"]    >> pref.flavor_texts["eyes"]
 	S["flavor_texts_torso"]   >> pref.flavor_texts["torso"]
@@ -23,7 +23,7 @@
 
 /datum/category_item/player_setup_item/general/flavor/save_character(var/savefile/S)
 	S["flavor_texts_general"] << pref.flavor_texts["general"]
-	S["flavor_texts_head"]    << pref.flavor_texts["head"]
+	S["flavor_texts_head"]    << pref.flavor_texts[TARGET_HEAD]
 	S["flavor_texts_face"]    << pref.flavor_texts["face"]
 	S["flavor_texts_eyes"]    << pref.flavor_texts["eyes"]
 	S["flavor_texts_torso"]   << pref.flavor_texts["torso"]
@@ -94,7 +94,7 @@
 	var/list/var_list = list(
 		"char_id" = pref.current_character,
 		"flavour_general" = pref.flavor_texts["general"],
-		"flavour_head" = pref.flavor_texts["head"],
+		"flavour_head" = pref.flavor_texts[TARGET_HEAD],
 		"flavour_face" = pref.flavor_texts["face"],
 		"flavour_eyes" = pref.flavor_texts["eyes"],
 		"flavour_torso" = pref.flavor_texts["torso"],
@@ -219,7 +219,7 @@
 	HTML += TextPreview(pref.flavor_texts["general"])
 	HTML += "<br>"
 	HTML += "<a href='?src=\ref[src];flavor_text=head'>Head:</a> "
-	HTML += TextPreview(pref.flavor_texts["head"])
+	HTML += TextPreview(pref.flavor_texts[TARGET_HEAD])
 	HTML += "<br>"
 	HTML += "<a href='?src=\ref[src];flavor_text=face'>Face:</a> "
 	HTML += TextPreview(pref.flavor_texts["face"])

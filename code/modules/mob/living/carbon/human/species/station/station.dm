@@ -290,7 +290,7 @@
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/diona),
 		"groin" =  list("path" = /obj/item/organ/external/groin/diona),
-		"head" =   list("path" = /obj/item/organ/external/head/diona),
+		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/diona),
 		"l_arm" =  list("path" = /obj/item/organ/external/arm/diona),
 		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/diona),
 		"l_leg" =  list("path" = /obj/item/organ/external/leg/diona),
@@ -464,7 +464,7 @@
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/ipc),
 		"groin" =  list("path" = /obj/item/organ/external/groin/ipc),
-		"head" =   list("path" = /obj/item/organ/external/head/ipc),
+		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/ipc),
 		"l_arm" =  list("path" = /obj/item/organ/external/arm/ipc),
 		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/ipc),
 		"l_leg" =  list("path" = /obj/item/organ/external/leg/ipc),

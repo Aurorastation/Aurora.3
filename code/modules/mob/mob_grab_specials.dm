@@ -94,11 +94,11 @@
 	if(istype(hat))
 		damage += hat.force * 3
 
-	var/armor = target.run_armor_check("head", "melee")
-	target.apply_damage(damage, BRUTE, "head", armor)
-	attacker.apply_damage(10, BRUTE, "head", attacker.run_armor_check("head", "melee"))
+	var/armor = target.run_armor_check(TARGET_HEAD, "melee")
+	target.apply_damage(damage, BRUTE, TARGET_HEAD, armor)
+	attacker.apply_damage(10, BRUTE, TARGET_HEAD, attacker.run_armor_check(TARGET_HEAD, "melee"))
 
-	if(armor < 25 && target.headcheck("head") && prob(damage))
+	if(armor < 25 && target.headcheck(TARGET_HEAD) && prob(damage))
 		target.apply_effect(20, PARALYZE)
 		target.visible_message("<span class='danger'>[target] [target.species.knockout_message]</span>")
 

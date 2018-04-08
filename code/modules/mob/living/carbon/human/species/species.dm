@@ -170,7 +170,7 @@
 	var/list/has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest),
 		"groin" =  list("path" = /obj/item/organ/external/groin),
-		"head" =   list("path" = /obj/item/organ/external/head),
+		TARGET_HEAD =   list("path" = /obj/item/organ/external/head),
 		"l_arm" =  list("path" = /obj/item/organ/external/arm),
 		"r_arm" =  list("path" = /obj/item/organ/external/arm/right),
 		"l_leg" =  list("path" = /obj/item/organ/external/leg),

@@ -109,7 +109,7 @@
 
 	organ_tag = "blackkois"
 
-	parent_organ = "head"
+	parent_organ = TARGET_HEAD
 	var/removed_langs = 0
 	stage_interval = 200
 

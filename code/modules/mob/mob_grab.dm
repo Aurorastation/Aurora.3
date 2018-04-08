@@ -326,7 +326,7 @@
 				if(I_HURT)
 					if(hit_zone == "eyes")
 						attack_eye(affecting, assailant)
-					else if(hit_zone == "head")
+					else if(hit_zone == TARGET_HEAD)
 						headbut(affecting, assailant)
 					else
 						dislocate(affecting, assailant, hit_zone)

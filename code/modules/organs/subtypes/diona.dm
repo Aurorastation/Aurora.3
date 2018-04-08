@@ -166,9 +166,9 @@
 	amputation_point = "branch"
 
 /obj/item/organ/external/head/diona
-	limb_name = "head"
-	icon_name = "head"
-	name = "head"
+	limb_name = TARGET_HEAD
+	icon_name = TARGET_HEAD
+	name = TARGET_HEAD
 	max_damage = 50
 	min_broken_damage = 25
 	w_class = 3
@@ -192,7 +192,7 @@
 
 /obj/item/organ/diona/bladder
 	name = "gas bladder"
-	parent_organ = "head"
+	parent_organ = TARGET_HEAD
 	organ_tag = "gas bladder"
 
 /obj/item/organ/diona/polyp
@@ -233,7 +233,7 @@
 
 /obj/item/organ/diona/node
 	name = "response node"
-	parent_organ = "head"
+	parent_organ = TARGET_HEAD
 	organ_tag = "response node"
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "claw"

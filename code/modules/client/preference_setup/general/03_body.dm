@@ -230,8 +230,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					organ_name = "lower body"
 				if("chest")
 					organ_name = "upper body"
-				if("head")
-					organ_name = "head"
+				if(TARGET_HEAD)
+					organ_name = TARGET_HEAD
 				if("heart")
 					organ_name = "heart"
 				if("eyes")
@@ -553,7 +553,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				limb = "chest"
 				carries_organs = 1
 			if("Head")
-				limb = "head"
+				limb = TARGET_HEAD
 				carries_organs = 1
 			else
 				to_chat(user, "<span class='notice'>Cancelled.</span>")

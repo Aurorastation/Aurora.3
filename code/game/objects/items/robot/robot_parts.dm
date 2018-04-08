@@ -65,10 +65,10 @@
 	var/obj/item/weapon/cell/cell = null
 
 /obj/item/robot_parts/head
-	name = "head"
+	name = TARGET_HEAD
 	desc = "A standard reinforced braincase, with spine-plugged neural socket and sensor gimbals."
-	icon_state = "head"
-	part = list("head")
+	icon_state = TARGET_HEAD
+	part = list(TARGET_HEAD)
 	var/obj/item/device/flash/flash1 = null
 	var/obj/item/device/flash/flash2 = null
 	var/law_manager = TRUE

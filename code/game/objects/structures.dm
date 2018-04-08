@@ -143,7 +143,7 @@
 
 			var/obj/item/organ/external/affecting
 
-			switch(pick(list("ankle","wrist","head","knee","elbow")))
+			switch(pick(list("ankle","wrist",TARGET_HEAD,"knee","elbow")))
 				if("ankle")
 					affecting = H.get_organ(pick("l_foot", "r_foot"))
 				if("knee")
@@ -152,8 +152,8 @@
 					affecting = H.get_organ(pick("l_hand", "r_hand"))
 				if("elbow")
 					affecting = H.get_organ(pick("l_arm", "r_arm"))
-				if("head")
-					affecting = H.get_organ("head")
+				if(TARGET_HEAD)
+					affecting = H.get_organ(TARGET_HEAD)
 
 			if(affecting)
 				M << "<span class='danger'>You land heavily on your [affecting.name]!</span>"

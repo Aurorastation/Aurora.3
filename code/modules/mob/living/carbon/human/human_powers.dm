@@ -363,11 +363,11 @@
 	if(istype(G.affecting,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = G.affecting
 
-		if(!H.species.has_limbs["head"])
+		if(!H.species.has_limbs[TARGET_HEAD])
 			src << "<span class='warning'>\The [H] does not have a head!</span>"
 			return
 
-		var/obj/item/organ/external/affecting = H.get_organ("head")
+		var/obj/item/organ/external/affecting = H.get_organ(TARGET_HEAD)
 		if(!istype(affecting) || affecting.is_stump())
 			src << "<span class='warning'>\The [H] does not have a head!</span>"
 			return

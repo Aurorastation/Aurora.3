@@ -141,9 +141,9 @@
 	amputation_point = "right wrist"
 
 /obj/item/organ/external/head
-	limb_name = "head"
-	icon_name = "head"
-	name = "head"
+	limb_name = TARGET_HEAD
+	icon_name = TARGET_HEAD
+	name = TARGET_HEAD
 	max_damage = 75
 	min_broken_damage = 35
 	w_class = 3

@@ -41,7 +41,7 @@
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/shell),
 		"groin" =  list("path" = /obj/item/organ/external/groin/shell),
-		"head" =   list("path" = /obj/item/organ/external/head/shell),
+		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/shell),
 		"l_arm" =  list("path" = /obj/item/organ/external/arm/shell),
 		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/shell),
 		"l_leg" =  list("path" = /obj/item/organ/external/leg/shell),
@@ -90,7 +90,7 @@
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/industrial),
 		"groin" =  list("path" = /obj/item/organ/external/groin/industrial),
-		"head" =   list("path" = /obj/item/organ/external/head/industrial),
+		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/industrial),
 		"l_arm" =  list("path" = /obj/item/organ/external/arm/industrial),
 		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/industrial),
 		"l_leg" =  list("path" = /obj/item/organ/external/leg/industrial),
@@ -191,7 +191,7 @@
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/terminator),
 		"groin" =  list("path" = /obj/item/organ/external/groin/terminator),
-		"head" =   list("path" = /obj/item/organ/external/head/terminator),
+		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/terminator),
 		"l_arm" =  list("path" = /obj/item/organ/external/arm/terminator),
 		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/terminator),
 		"l_leg" =  list("path" = /obj/item/organ/external/leg/terminator),
@@ -245,7 +245,7 @@
 	has_limbs = list(
 		"chest"  = list("path" = /obj/item/organ/external/chest/industrial/hephaestus),
 		"groin"  = list("path" = /obj/item/organ/external/groin/industrial/hephaestus),
-		"head"   = list("path" = /obj/item/organ/external/head/industrial/hephaestus),
+		TARGET_HEAD   = list("path" = /obj/item/organ/external/head/industrial/hephaestus),
 		"l_arm"  = list("path" = /obj/item/organ/external/arm/industrial/hephaestus),
 		"r_arm"  = list("path" = /obj/item/organ/external/arm/right/industrial/hephaestus),
 		"l_leg"  = list("path" = /obj/item/organ/external/leg/industrial/hephaestus),
@@ -279,7 +279,7 @@
 	has_limbs = list(
 		"chest"  = list("path" = /obj/item/organ/external/chest/industrial/xion),
 		"groin"  = list("path" = /obj/item/organ/external/groin/industrial/xion),
-		"head"   = list("path" = /obj/item/organ/external/head/industrial/xion),
+		TARGET_HEAD   = list("path" = /obj/item/organ/external/head/industrial/xion),
 		"l_arm"  = list("path" = /obj/item/organ/external/arm/industrial/xion),
 		"r_arm"  = list("path" = /obj/item/organ/external/arm/right/industrial/xion),
 		"l_leg"  = list("path" = /obj/item/organ/external/leg/industrial/xion),
@@ -315,7 +315,7 @@
 	has_limbs = list(
 		"chest"  = list("path" = /obj/item/organ/external/chest/industrial/zenghu),
 		"groin"  = list("path" = /obj/item/organ/external/groin/industrial/zenghu),
-		"head"   = list("path" = /obj/item/organ/external/head/industrial/zenghu),
+		TARGET_HEAD   = list("path" = /obj/item/organ/external/head/industrial/zenghu),
 		"l_arm"  = list("path" = /obj/item/organ/external/arm/industrial/zenghu),
 		"r_arm"  = list("path" = /obj/item/organ/external/arm/right/industrial/zenghu),
 		"l_leg"  = list("path" = /obj/item/organ/external/leg/industrial/zenghu),
@@ -353,7 +353,7 @@
 	has_limbs = list(
 		"chest"  = list("path" = /obj/item/organ/external/chest/industrial/bishop),
 		"groin"  = list("path" = /obj/item/organ/external/groin/industrial/bishop),
-		"head"   = list("path" = /obj/item/organ/external/head/industrial/bishop),
+		TARGET_HEAD   = list("path" = /obj/item/organ/external/head/industrial/bishop),
 		"l_arm"  = list("path" = /obj/item/organ/external/arm/industrial/bishop),
 		"r_arm"  = list("path" = /obj/item/organ/external/arm/right/industrial/bishop),
 		"l_leg"  = list("path" = /obj/item/organ/external/leg/industrial/bishop),
@@ -387,7 +387,7 @@
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/unbranded),
 		"groin" =  list("path" = /obj/item/organ/external/groin/unbranded),
-		"head" =   list("path" = /obj/item/organ/external/head/unbranded),
+		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/unbranded),
 		"l_arm" =  list("path" = /obj/item/organ/external/arm/unbranded),
 		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/unbranded),
 		"l_leg" =  list("path" = /obj/item/organ/external/leg/unbranded),

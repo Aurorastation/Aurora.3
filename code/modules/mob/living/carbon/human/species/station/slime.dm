@@ -36,7 +36,7 @@
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/unbreakable),
 		"groin" =  list("path" = /obj/item/organ/external/groin/unbreakable),
-		"head" =   list("path" = /obj/item/organ/external/head/unbreakable),
+		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/unbreakable),
 		"l_arm" =  list("path" = /obj/item/organ/external/arm/unbreakable),
 		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/unbreakable),
 		"l_leg" =  list("path" = /obj/item/organ/external/leg/unbreakable),

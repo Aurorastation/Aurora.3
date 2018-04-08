@@ -34,13 +34,13 @@
 
 /obj/item/organ/xenos/acidgland
 	name = "acid gland"
-	parent_organ = "head"
+	parent_organ = TARGET_HEAD
 	icon_state = "xgibtorso"
 	organ_tag = "acid gland"
 
 /obj/item/organ/xenos/resinspinner
 	name = "resin spinner"
-	parent_organ = "head"
+	parent_organ = TARGET_HEAD
 	icon_state = "xgibmid2"
 	organ_tag = "resin spinner"
 

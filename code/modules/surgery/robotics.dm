@@ -373,7 +373,7 @@
 
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 
-		if(target_zone != "head")
+		if(target_zone != TARGET_HEAD)
 			return
 
 		var/obj/item/device/mmi/M = tool

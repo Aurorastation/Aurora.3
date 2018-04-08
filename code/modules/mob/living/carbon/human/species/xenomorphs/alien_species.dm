@@ -20,7 +20,7 @@
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/unbreakable),
 		"groin" =  list("path" = /obj/item/organ/external/groin/unbreakable),
-		"head" =   list("path" = /obj/item/organ/external/head/unbreakable),
+		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/unbreakable),
 		"l_arm" =  list("path" = /obj/item/organ/external/arm/unbreakable),
 		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/unbreakable),
 		"l_leg" =  list("path" = /obj/item/organ/external/leg/unbreakable),
@@ -341,7 +341,7 @@
 
 	gear = list(
 		"o_clothing" =   list("loc" = ui_belt,      "name" = "Suit",         "slot" = slot_wear_suit, "state" = "equip",  "dir" = SOUTH),
-		"head" =         list("loc" = ui_id,        "name" = "Hat",          "slot" = slot_head,      "state" = "hair"),
+		TARGET_HEAD =         list("loc" = ui_id,        "name" = "Hat",          "slot" = slot_head,      "state" = "hair"),
 		"storage1" =     list("loc" = ui_storage1,  "name" = "Left Pocket",  "slot" = slot_l_store,   "state" = "pocket"),
 		"storage2" =     list("loc" = ui_storage2,  "name" = "Right Pocket", "slot" = slot_r_store,   "state" = "pocket")
 		)

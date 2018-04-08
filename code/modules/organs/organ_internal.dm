@@ -67,7 +67,7 @@
 	icon_state = "eyes"
 	gender = PLURAL
 	organ_tag = "eyes"
-	parent_organ = "head"
+	parent_organ = TARGET_HEAD
 	var/list/eye_colour = list(0,0,0)
 	var/singular_name = "eye"
 

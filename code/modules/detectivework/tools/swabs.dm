@@ -33,7 +33,7 @@
 		return
 
 	if(target_zone == "mouth")
-		if(!H.organs_by_name["head"])
+		if(!H.organs_by_name[TARGET_HEAD])
 			user << "<span class='warning'>They don't have a head.</span>"
 			return
 		if(!H.check_has_mouth())

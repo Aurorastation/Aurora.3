@@ -697,7 +697,7 @@ wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz, sla
 	HTML += TextPreview(flavor_texts["general"])
 	HTML += "<br>"
 	HTML += "<a href='byond://?src=\ref[src];flavor_change=head'>Head:</a> "
-	HTML += TextPreview(flavor_texts["head"])
+	HTML += TextPreview(flavor_texts[TARGET_HEAD])
 	HTML += "<br>"
 	HTML += "<a href='byond://?src=\ref[src];flavor_change=face'>Face:</a> "
 	HTML += TextPreview(flavor_texts["face"])

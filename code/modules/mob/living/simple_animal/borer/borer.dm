@@ -109,7 +109,7 @@
 
 	if(istype(host,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = host
-		var/obj/item/organ/external/head = H.get_organ("head")
+		var/obj/item/organ/external/head = H.get_organ(TARGET_HEAD)
 		head.implants -= src
 
 	controlling = 0

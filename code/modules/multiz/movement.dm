@@ -378,7 +378,7 @@
 	var/limb_damage = rand(0,damage/2)
 
 	if(prob(30) && combat_roll >= 1) //landed on their head
-		apply_damage(limb_damage, BRUTE, "head")
+		apply_damage(limb_damage, BRUTE, TARGET_HEAD)
 		visible_message("<span class='warning'>\The [src] falls and lands on their face!</span>",
 			"<span class='danger'>With a loud thud, you land on your head. Hard.</span>", "You hear a thud!")
 
@@ -543,7 +543,7 @@
 	if (ishuman(L))
 		var/mob/living/carbon/human/H = L
 		var/cranial_damage = rand(0,damage/2)
-		H.apply_damage(cranial_damage, BRUTE, "head")
+		H.apply_damage(cranial_damage, BRUTE, TARGET_HEAD)
 		H.apply_damage((damage - cranial_damage), BRUTE, "chest")
 
 		if (damage >= THROWNOBJ_KNOCKBACK_DIVISOR)

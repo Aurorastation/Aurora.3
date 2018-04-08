@@ -1197,7 +1197,7 @@
 	patchesface
 		name = "Color Patches (Face)"
 		icon_state = "patchesface"
-		body_parts = list("head")
+		body_parts = list(TARGET_HEAD)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	bands
@@ -1209,19 +1209,19 @@
 	bandsface
 		name = "Color Bands (Face)"
 		icon_state = "bandsface"
-		body_parts = list("head")
+		body_parts = list(TARGET_HEAD)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tigerhead
 		name = "Tiger Stripes (Head, Minor)"
 		icon_state = "tigerhead"
-		body_parts = list("head")
+		body_parts = list(TARGET_HEAD)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	tigerface
 		name = "Tiger Stripes (Head, Major)"
 		icon_state = "tigerface"
-		body_parts = list("head")
+		body_parts = list(TARGET_HEAD)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	backstripe
@@ -1233,37 +1233,37 @@
 	taj_nose
 		name = "Nose Color"
 		icon_state = "taj_nose"
-		body_parts = list("head")
+		body_parts = list(TARGET_HEAD)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	taj_muzzle
 		name = "Muzzle Color"
 		icon_state = "taj_muzzle"
-		body_parts = list("head")
+		body_parts = list(TARGET_HEAD)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	taj_face
 		name = "Cheeks Color"
 		icon_state = "taj_face"
-		body_parts = list("head")
+		body_parts = list(TARGET_HEAD)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	taj_all
 		name = "All Tajara Head"
 		icon_state = "taj_all"
-		body_parts = list("head")
+		body_parts = list(TARGET_HEAD)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	una_face
 		name = "Face Color"
 		icon_state = "una_face"
-		body_parts = list("head")
+		body_parts = list(TARGET_HEAD)
 		species_allowed = list("Unathi")
 
 	una_facelow
 		name = "Face Color Low"
 		icon_state = "una_facelow"
-		body_parts = list("head")
+		body_parts = list(TARGET_HEAD)
 		species_allowed = list("Unathi")
 
 	una_scutes
@@ -1280,7 +1280,7 @@
 		icon_state = "face_lights"
 		icon_blend_mode = ICON_MULTIPLY
 		name = "Face Color"
-		body_parts = list("head")
+		body_parts = list(TARGET_HEAD)
 		species_allowed = list("Bishop Accessory Frame")
 		is_painted = TRUE
 
@@ -1318,7 +1318,7 @@
 		icon_state = "outer"
 		icon_blend_mode = ICON_MULTIPLY
 		name = "Outer Finish"
-		body_parts = list("head")
+		body_parts = list(TARGET_HEAD)
 		species_allowed = list("Zeng-Hu Mobility Frame")
 		is_painted = TRUE
 

@@ -49,7 +49,7 @@
 	var/obj/item/weapon/implant/loyalty/sol/L = new/obj/item/weapon/implant/loyalty/sol(M)
 	L.imp_in = M
 	L.implanted = 1
-	var/obj/item/organ/external/affected = M.organs_by_name["head"]
+	var/obj/item/organ/external/affected = M.organs_by_name[TARGET_HEAD]
 	affected.implants += L
 	L.part = affected
 	L.implanted(src)
