@@ -19,7 +19,7 @@
 		"heart" =   list(/obj/item/organ/heart,  50),
 		"lungs" =   list(/obj/item/organ/lungs,  40),
 		"kidneys" = list(/obj/item/organ/kidneys,20),
-		"eyes" =    list(/obj/item/organ/eyes,   30),
+		TARGET_EYES =    list(/obj/item/organ/eyes,   30),
 		"liver" =   list(/obj/item/organ/liver,  50)
 		)
 

@@ -315,7 +315,7 @@ datum/preferences
 	character.flavor_texts["general"] = flavor_texts["general"]
 	character.flavor_texts[TARGET_HEAD] = flavor_texts[TARGET_HEAD]
 	character.flavor_texts["face"] = flavor_texts["face"]
-	character.flavor_texts["eyes"] = flavor_texts["eyes"]
+	character.flavor_texts[TARGET_EYES] = flavor_texts[TARGET_EYES]
 	character.flavor_texts["torso"] = flavor_texts["torso"]
 	character.flavor_texts["arms"] = flavor_texts["arms"]
 	character.flavor_texts["hands"] = flavor_texts["hands"]

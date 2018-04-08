@@ -64,9 +64,9 @@
 
 /obj/item/organ/eyes
 	name = "eyeballs"
-	icon_state = "eyes"
+	icon_state = TARGET_EYES
 	gender = PLURAL
-	organ_tag = "eyes"
+	organ_tag = TARGET_EYES
 	parent_organ = TARGET_HEAD
 	var/list/eye_colour = list(0,0,0)
 	var/singular_name = "eye"

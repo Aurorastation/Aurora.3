@@ -70,7 +70,7 @@
 		if(!hasorgans(target))
 			return 0
 
-		if (target_zone == TARGET_MOUTH || target_zone == "eyes")
+		if (target_zone == TARGET_MOUTH || target_zone == TARGET_EYES)
 			return 0
 
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -123,7 +123,7 @@
 		if(!hasorgans(target))
 			return 0
 
-		if (target_zone == TARGET_MOUTH || target_zone == "eyes")
+		if (target_zone == TARGET_MOUTH || target_zone == TARGET_EYES)
 			return 0
 
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)

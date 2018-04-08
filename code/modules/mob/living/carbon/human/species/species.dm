@@ -162,9 +162,9 @@
 		"kidneys" =  /obj/item/organ/kidneys,
 		"brain" =    /obj/item/organ/brain,
 		"appendix" = /obj/item/organ/appendix,
-		"eyes" =     /obj/item/organ/eyes
+		TARGET_EYES =     /obj/item/organ/eyes
 		)
-	var/vision_organ              // If set, this organ is required for vision. Defaults to "eyes" if the species has them.
+	var/vision_organ              // If set, this organ is required for vision. Defaults to TARGET_EYES if the species has them.
 	var/breathing_organ           // If set, this organ is required to breathe. Defaults to "lungs" if the species has them.
 
 	var/list/has_limbs = list(
@@ -198,8 +198,8 @@
 		hud = new()
 
 	//If the species has eyes, they are the default vision organ
-	if(!vision_organ && has_organ["eyes"])
-		vision_organ = "eyes"
+	if(!vision_organ && has_organ[TARGET_EYES])
+		vision_organ = TARGET_EYES
 
 	// Same, but for lungs.
 	if (!breathing_organ && has_organ["lungs"])

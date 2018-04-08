@@ -1305,7 +1305,7 @@ mob/proc/yank_out_object()
 /client/verb/body_toggle_head()
 	set name = "body-toggle-head"
 	set hidden = 1
-	toggle_zone_sel(list(TARGET_HEAD,"eyes",TARGET_MOUTH))
+	toggle_zone_sel(list(TARGET_HEAD,TARGET_EYES,TARGET_MOUTH))
 
 /client/verb/body_r_arm()
 	set name = "body-r-arm"

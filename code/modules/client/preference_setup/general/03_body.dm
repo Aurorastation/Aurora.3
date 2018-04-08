@@ -234,8 +234,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					organ_name = TARGET_HEAD
 				if("heart")
 					organ_name = "heart"
-				if("eyes")
-					organ_name = "eyes"
+				if(TARGET_EYES)
+					organ_name = TARGET_EYES
 
 			if(status == "cyborg")
 				++ind
@@ -266,7 +266,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 						out += "\tPacemaker-assisted [organ_name]"
 					if("voicebox") //on adding voiceboxes for speaking skrell/similar replacements
 						out += "\tSurgically altered [organ_name]"
-					if("eyes")
+					if(TARGET_EYES)
 						out += "\tRetinal overlayed [organ_name]"
 					else
 						out += "\tMechanically assisted [organ_name]"
@@ -610,7 +610,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			if("Heart")
 				organ = "heart"
 			if("Eyes")
-				organ = "eyes"
+				organ = TARGET_EYES
 
 		var/new_state = input(user, "What state do you wish the organ to be in?") as null|anything in list("Normal","Assisted","Mechanical")
 		if(!new_state) return

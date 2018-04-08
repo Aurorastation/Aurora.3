@@ -72,7 +72,7 @@
 		"liver" =    /obj/item/organ/liver,
 		"kidneys" =  /obj/item/organ/kidneys,
 		"brain" =    /obj/item/organ/brain,
-		"eyes" =     /obj/item/organ/eyes
+		TARGET_EYES =     /obj/item/organ/eyes
 		)
 
 	unarmed_types = list(

@@ -22,7 +22,7 @@
 		"o_clothing" =   list("loc" = ui_oclothing, "name" = "Suit",         "slot" = slot_wear_suit, "state" = "suit",   "toggle" = 1),
 		"mask" =         list("loc" = ui_mask,      "name" = "Mask",         "slot" = slot_wear_mask, "state" = "mask",   "toggle" = 1),
 		"gloves" =       list("loc" = ui_gloves,    "name" = "Gloves",       "slot" = slot_gloves,    "state" = "gloves", "toggle" = 1),
-		"eyes" =         list("loc" = ui_glasses,   "name" = "Glasses",      "slot" = slot_glasses,   "state" = "glasses","toggle" = 1),
+		TARGET_EYES =         list("loc" = ui_glasses,   "name" = "Glasses",      "slot" = slot_glasses,   "state" = "glasses","toggle" = 1),
 		"l_ear" =        list("loc" = ui_l_ear,     "name" = "Left Ear",     "slot" = slot_l_ear,     "state" = "ears",   "toggle" = 1),
 		"r_ear" =        list("loc" = ui_r_ear,     "name" = "Right Ear",    "slot" = slot_r_ear,     "state" = "ears",   "toggle" = 1),
 		TARGET_HEAD =         list("loc" = ui_head,      "name" = "Hat",          "slot" = slot_head,      "state" = "hair",   "toggle" = 1),
@@ -68,7 +68,7 @@
 		"storage2" =     list("loc" = ui_storage2,  "name" = "Right Pocket", "slot" = slot_r_store,   "state" = "pocket"),
 		"belt" =         list("loc" = ui_belt,      "name" = "Belt",         "slot" = slot_belt,      "state" = "belt"),
 		"mask" =         list("loc" = ui_oclothing,	"name" = "Mask",         "slot" = slot_wear_mask, "state" = "mask",   "toggle" = 1),
-		"eyes" =         list("loc" = ui_gloves,   	"name" = "Glasses",      "slot" = slot_glasses,   "state" = "glasses","toggle" = 1)
+		TARGET_EYES =         list("loc" = ui_gloves,   	"name" = "Glasses",      "slot" = slot_glasses,   "state" = "glasses","toggle" = 1)
 		)
 
 /datum/hud_data/monkey

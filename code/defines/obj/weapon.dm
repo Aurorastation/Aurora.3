@@ -127,7 +127,7 @@
 			class = "notice"
 			punct = "."
 			soundname = 0
-			if (target_zone == TARGET_HEAD || target_zone == "eyes" || target_zone == TARGET_MOUTH)
+			if (target_zone == TARGET_HEAD || target_zone == TARGET_EYES || target_zone == TARGET_MOUTH)
 				verbtouse = pick("tapped")
 			else
 				verbtouse = pick("tapped","poked","prodded","touched")

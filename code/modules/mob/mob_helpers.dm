@@ -202,7 +202,7 @@ var/list/global/organ_rel_size = list(
 /proc/check_zone(zone)
 	if(!zone)	return "chest"
 	switch(zone)
-		if("eyes")
+		if(TARGET_EYES)
 			zone = TARGET_HEAD
 		if(TARGET_MOUTH)
 			zone = TARGET_HEAD

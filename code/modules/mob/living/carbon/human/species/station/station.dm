@@ -224,7 +224,7 @@
 		"kidneys" =  /obj/item/organ/kidneys/skrell,
 		"brain" =    /obj/item/organ/brain/skrell,
 		"appendix" = /obj/item/organ/appendix,
-		"eyes" =     /obj/item/organ/eyes/skrell
+		TARGET_EYES =     /obj/item/organ/eyes/skrell
 		)
 
 	flesh_color = "#8CD7A3"
@@ -709,7 +709,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		"liver"               = /obj/item/organ/liver,
 		"kidneys"             = /obj/item/organ/kidneys,
 		"brain"               = /obj/item/organ/brain,
-		"eyes"                = /obj/item/organ/eyes
+		TARGET_EYES                = /obj/item/organ/eyes
 	)
 
 /datum/species/bug/equip_survival_gear(var/mob/living/carbon/human/H)

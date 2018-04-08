@@ -172,7 +172,7 @@
 				user.visible_message("<span class='warning'>\The [user] covers [target]'s mouth!</span>")
 			if(target.silent < 3)
 				target.silent = 3
-		if("eyes")
+		if(TARGET_EYES)
 			if(announce)
 				assailant.visible_message("<span class='warning'>[assailant] covers [affecting]'s eyes!</span>")
 			if(affecting.eye_blind < 3)
@@ -324,7 +324,7 @@
 					jointlock(affecting, assailant, hit_zone)
 
 				if(I_HURT)
-					if(hit_zone == "eyes")
+					if(hit_zone == TARGET_EYES)
 						attack_eye(affecting, assailant)
 					else if(hit_zone == TARGET_HEAD)
 						headbut(affecting, assailant)

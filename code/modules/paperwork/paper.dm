@@ -165,7 +165,7 @@
 	show_content(user)
 
 /obj/item/weapon/paper/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
-	if(target_zone == "eyes")
+	if(target_zone == TARGET_EYES)
 		user.visible_message("<span class='notice'>You show the paper to [M]. </span>", \
 			"<span class='notice'> [user] holds up a paper and shows it to [M]. </span>")
 		M.examinate(src)
