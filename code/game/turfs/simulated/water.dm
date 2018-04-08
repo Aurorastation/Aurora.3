@@ -87,7 +87,6 @@
 	return return_air() // Otherwise their head is above the water, so get the air from the atmosphere instead.
 
 /turf/simulated/floor/beach/water/Entered(atom/movable/AM, atom/oldloc)
-	numobjects += 1
 	clean()
 	START_PROCESSING(SSprocessing, src)
 	if(istype(AM, /mob/living))
