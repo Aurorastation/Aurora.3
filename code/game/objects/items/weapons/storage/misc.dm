@@ -49,3 +49,11 @@
 
 /obj/item/weapon/storage/box/donut/empty
 	startswith = 0
+
+/obj/item/weapon/storage/box/pineapple
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "pineapple_rings"
+	name = "can of pineapple rings"
+	var/startswith = 6
+	can_hold = list(/obj/item/weapon/reagent_containers/food/snacks/pineapple_ring)
+

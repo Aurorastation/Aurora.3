@@ -4724,6 +4724,15 @@
 	nutriment_desc = list("hellfire" = 6)
 	nutriment_amt = 24// 10 Chilis is a lot.
 
+/obj/item/weapon/reagent_containers/food/snacks/breakfast_wrap
+	name = "breakfast wrap"
+	desc = "Bacon, eggs, cheese, and tortilla grilled to perfection."
+	icon_state = "breakfast_wrap"
+	bitesize = 4
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_desc = list("tortilla" = 6)
+	nutriment_amt = 6
+
 /obj/item/weapon/reagent_containers/food/snacks/burrito_hell/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 9)
@@ -4958,6 +4967,118 @@
 /obj/item/weapon/reagent_containers/food/snacks/corn_dog/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 3)
+
+/obj/item/weapon/reagent_containers/food/snacks/truffle
+	name = "chocolate truffle"
+	desc = "Rich bite-sized chocolate."
+	icon_state = "truffle"
+	nutriment_amt = 2
+	nutriment_desc = list("chocolate" = 2)
+	bitesize = 4
+
+/obj/item/weapon/reagent_containers/food/snacks/truffle/random
+	name = "mystery chocolate truffle"
+	desc = "Rich bite-sized chocolate with a mystery filling!"
+
+/obj/item/weapon/reagent_containers/food/snacks/random/Initialize()
+	. = ..()
+	var/reagent_string = pick(list("cream","coco","cherryjelly","mint","frostoil","capsaicin","cream","coffee","milkshake"))
+	reagents.add_reagent(reagent_string, 2)
+
+/obj/item/weapon/reagent_containers/food/snacks/last_meal
+	name = "last meal"
+	desc = "Meatloaf stuffed with butter, and some bacon on top to go with it."
+	icon_state = "stupid_bread"
+	nutriment_desc = list("cholesterol" = 10)
+	nutriment_amt = 10
+
+/obj/item/weapon/reagent_containers/food/snacks/last_meal/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 10)
+
+/obj/item/weapon/reagent_containers/food/snacks/bacon_flatbread
+	name = "bacon cheese flatbread"
+	desc = "Not a pizza."
+	icon_state = "bacon_pizza"
+	nutriment_desc = list("flatbread" = 5)
+	nutriment_amt = 5
+
+/obj/item/weapon/reagent_containers/food/snacks/bacon_flatbread/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 5)
+
+/obj/item/weapon/reagent_containers/food/snacks/meat_pocket
+	name = "meat pocket"
+	desc = "Meat and cheese stuffed in a flatbread pocket, grilled to perfection."
+	icon_state = "meat_pocket"
+	nutriment_desc = list("flatbread" = 3)
+	nutriment_amt = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/meat_pocket/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 3)
+
+/obj/item/weapon/reagent_containers/food/snacks/fish_taco
+	name = "carp taco"
+	desc = "A questionably cooked fish taco decorated with herbs, spices, and special sauce."
+	icon_state = "fish_taco"
+	nutriment_desc = list("flatbread" = 3)
+	nutriment_amt = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/fish_taco/Initialize()
+	. = ..()
+	reagents.add_reagent("seafood",3)
+
+/obj/item/weapon/reagent_containers/food/snacks/nt_muffin
+	name = "\improper NtMuffin"
+	desc = "A NanoTrasen sponsered biscuit with egg, cheese, and sausage."
+	icon_state = "nt_muffin"
+	nutriment_desc = list("biscuit" = 3)
+	nutriment_amt = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/nt_muffin/Initialize()
+	. = ..()
+	reagents.add_reagent("protein",5)
+
+/obj/item/weapon/reagent_containers/food/snacks/pineapple_ring
+	name = "pineapple ring"
+	desc = "What the hell is this?"
+	icon_state = "pineapple_ring"
+	nutriment_desc = list("sweetness" = 1)
+	nutriment_amt = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/pineapple_ring/Initialize()
+	. = ..()
+	reagents.add_reagent("pineapplejuice",3)
+
+/obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/pineapple
+	name = "ham & pineapple pizza"
+	desc = "This is contraband."
+	icon_state = "pineapple_pizza"
+	slice_path = /obj/item/weapon/reagent_containers/food/snacks/pineappleslice
+	slices_num = 6
+	center_of_mass = list("x"=16, "y"=11)
+	nutriment_desc = list("pizza crust" = 10, "tomato" = 10, "ham" = 10)
+	nutriment_amt = 30
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/pineapple/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 4)
+	reagents.add_reagent("cheese", 5)
+	reagents.add_reagent("tomatojuice", 6)
+
+/obj/item/weapon/reagent_containers/food/snacks/pineappleslice
+	name = "ham & pineapple pizza slice"
+	desc = "A slice of contraband."
+	icon_state = "pineapple_pizza_slice"
+	filling_color = "#BAA14C"
+	bitesize = 2
+	center_of_mass = list("x"=18, "y"=13)
+
+/obj/item/weapon/reagent_containers/food/snacks/pineappleslice/filled
+	nutriment_desc = list("pizza crust" = 5, "tomato" = 5)
+	nutriment_amt = 5
 
 #undef NUTRIMENT_GOOD
 #undef NUTRIMENT_BAD
