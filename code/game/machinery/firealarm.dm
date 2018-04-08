@@ -225,8 +225,8 @@
 	var/area/area = get_area(src)
 	for(var/obj/machinery/firealarm/FA in area)
 		fire_alarm.triggerAlarm(loc, FA, duration)
+		playsound(FA.loc, 'sound/ambience/firealarm.ogg', 75, 0)
 	update_icon()
-	//playsound(src.loc, 'sound/ambience/signal.ogg', 75, 0)
 	return
 
 /obj/machinery/firealarm/proc/set_security_level(var/newlevel)

@@ -453,7 +453,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 						if(P.icon_state == "pda-hos"||P.icon_state == "pda-warden"||P.icon_state == "pda-det"||P.icon_state == "pda-sec"||P.icon_state == "pda-s")
 							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
 					if(4)	//eng
-						if(P.icon_state == "pda-ce"||P.icon_state == "pda-e"||P.icon_state == "pda-atmo")
+						if(P.icon_state == "pda-ce"||P.icon_state == "pda-e"||P.icon_state == "pda-atmo"||P.icon_state == "pda-j")
 							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
 					if(5)	//sci
 						if(P.icon_state == "pda-rd"||P.icon_state == "pda-tox"||P.icon_state == "pda-v"||P.icon_state == "pda-robot")
@@ -462,7 +462,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 						if(P.icon_state == "pda-hop"||P.icon_state == "pda-cargo"||P.icon_state == "pda-q"||P.icon_state == "pda-miner")
 							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
 					if(7)	//service
-						if(P.icon_state == "pda-hop"||P.icon_state == "pda-j"||P.icon_state == "pda-bar"||P.icon_state == "pda-holy"||P.icon_state == "pda-lawyer"||P.icon_state == "pda-libb"||P.icon_state == "pda-hydro"||P.icon_state == "pda-chef")
+						if(P.icon_state == "pda-hop"||P.icon_state == "pda-bar"||P.icon_state == "pda-holy"||P.icon_state == "pda-lawyer"||P.icon_state == "pda-libb"||P.icon_state == "pda-hydro"||P.icon_state == "pda-chef")
 							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
 					if(8)	//medical
 						if(P.icon_state == "pda-cmo"||P.icon_state == "pda-v"||P.icon_state == "pda-m"||P.icon_state == "pda-chem")

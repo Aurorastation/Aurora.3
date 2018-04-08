@@ -111,8 +111,7 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","
 			to_chat(src, "<span class='warning'>Error: Private-Message: Client not found. They may have lost connection, so please be patient!</span>")
 		return
 
-	ticket.msgs += new /datum/ticket_msg(src.ckey, null, original_msg)
-	update_ticket_panels()
+	ticket.append_message(src.ckey, null, original_msg)
 
 	//Options bar:  mob, details ( admin = 2, undibbsed admin = 3, mentor = 4, character name (0 = just ckey, 1 = ckey and character name), link? (0 no don't make it a link, 1 do so),
 	//		highlight special roles (0 = everyone has same looking name, 1 = antags / special roles get a golden name)

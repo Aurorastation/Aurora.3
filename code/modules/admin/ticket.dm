@@ -10,11 +10,22 @@ var/global/list/ticket_panels = list()
 	var/id
 	var/opened_time
 
+	// Real time references for SQL based logging.
+	var/opened_rt
+	var/closed_rt
+	var/response_time
+
+	var/reminder_timer
+
 /datum/ticket/New(var/owner)
 	src.owner = owner
 	tickets |= src
 	id = tickets.len
 	opened_time = world.time
+	opened_rt = world.realtime
+
+	if (config.ticket_reminder_period)
+		reminder_timer = addtimer(CALLBACK(src, .proc/remind), config.ticket_reminder_period SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
 
 /datum/ticket/proc/close(var/client/closed_by)
 	if(!closed_by)
@@ -29,13 +40,22 @@ var/global/list/ticket_panels = list()
 	if(status == TICKET_ASSIGNED && !closed_by.holder) // non-admins can only close a ticket if no admin has taken it
 		return
 
+	var/client/owner_client = client_by_ckey(owner)
+	if(owner_client && owner_client.adminhelped == ADMINHELPED_DISCORD)
+		discord_bot.send_to_admins("[key_name(owner_client)]'s request for help has been closed/deemed unnecessary by [key_name(closed_by)].")
+		owner_client.adminhelped = ADMINHELPED
+
 	src.status = TICKET_CLOSED
 	src.closed_by = closed_by.ckey
+	src.closed_rt = world.realtime
 
 	to_chat(client_by_ckey(src.owner), "<span class='notice'><b>Your ticket has been closed by [closed_by].</b></span>")
 	message_admins("<span class='notice'><b>[src.owner]</b>'s ticket has been closed by <b>[key_name(closed_by)]</b>.</span>")
 
 	update_ticket_panels()
+
+	if (reminder_timer)
+		deltimer(reminder_timer)
 
 	return 1
 
@@ -61,13 +81,36 @@ var/global/list/ticket_panels = list()
 		owner_client.adminhelped = ADMINHELPED
 
 	message_admins("<span class='danger'><b>[key_name(assigned_admin)]</b> has assigned themself to <b>[src.owner]'s</b> ticket.</span>")
-	to_chat(client_by_ckey(src.owner), "<span class='notice'><b>[assigned_admin] has added themself to your ticket and should respond shortly. Thanks for your patience!</b></span>")
+	to_chat(owner_client, "<span class='notice'><b>[assigned_admin] has added themself to your ticket and should respond shortly. Thanks for your patience!</b></span>")
+	to_chat(assigned_admin, get_options_bar(owner_client, 2, 1, 1))
 
 	update_ticket_panels()
 
 	return 1
 
-proc/get_open_ticket_by_ckey(var/owner)
+/datum/ticket/proc/remind()
+	if (status == TICKET_CLOSED)
+		reminder_timer = null
+		return
+
+	var/admin_found = FALSE
+
+	for (var/ckey in assigned_admins)
+		var/client/C = client_by_ckey(ckey)
+		if (C)
+			admin_found = TRUE
+			to_chat(C, "<span class='danger'><b>You have yet to close [owner]'s ticket!</b></span>")
+			sound_to(C, 'sound/effects/adminhelp.ogg')
+
+	if (!admin_found)
+		message_admins("<span class='danger'><b>[owner]'s ticket has yet to be closed!</b></span>")
+		for(var/client/C in admins)
+			if((C.holder.rights & (R_ADMIN|R_MOD)) && (C.prefs.toggles & SOUND_ADMINHELP))
+				sound_to(C, 'sound/effects/adminhelp.ogg')
+
+	reminder_timer = addtimer(CALLBACK(src, .proc/remind), config.ticket_reminder_period SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
+
+/proc/get_open_ticket_by_ckey(var/owner)
 	for(var/datum/ticket/ticket in tickets)
 		if(ticket.owner == owner && (ticket.status == TICKET_OPEN || ticket.status == TICKET_ASSIGNED))
 			return ticket // there should only be one open ticket by a client at a time, so no need to keep looking
@@ -82,6 +125,30 @@ proc/get_open_ticket_by_ckey(var/owner)
 			return 1
 
 	return 0
+
+/datum/ticket/proc/log_to_db()
+	if (status != TICKET_CLOSED)
+		return
+
+	if (!establish_db_connection(dbcon))
+		return
+
+	var/DBQuery/Q = dbcon.NewQuery("INSERT INTO ss13_tickets (game_id, message_count, admin_count, admin_list, opened_by, taken_by, closed_by, response_delay, opened_at, closed_at) VALUES (:g_id:, :m_count:, :a_count:, :a_list:, :opened_by:, :taken_by, :closed_by:, :delay:, :opened_at:, :closed_at:)")
+	Q.Execute(list("g_id" = game_id, "m_count" = length(msgs), "a_count" = length(assigned_admins), "a_list" = json_encode(assigned_admins), "opened_by" = owner, "taken_by" = assigned_admins[0], "closed_by" = closed_by, "delay" = response_time, "opened_at" = SQLtime(opened_rt), "closed_at" = SQLtime(closed_rt)))
+
+/datum/ticket/proc/append_message(m_from, m_to, msg)
+	msgs += new /datum/ticket_msg(m_from, m_to, msg)
+
+	if (!response_time && m_from != owner)
+		response_time = round((world.time - opened_time) SECONDS)
+
+	update_ticket_panels()
+
+// Referenced in the statistics controller.
+/proc/log_all_tickets()
+	for (var/t in tickets)
+		var/datum/ticket/T = t
+		T.log_to_db()
 
 /datum/ticket_msg
 	var/msg_from
@@ -177,7 +244,7 @@ proc/get_open_ticket_by_ckey(var/owner)
 			ticket_panel_window.update()
 
 	var/datum/ticket/ticket = locate(href_list["ticket"])
-	if(!ticket)
+	if(!istype(ticket))
 		return
 
 	switch(href_list["action"])

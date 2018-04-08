@@ -135,3 +135,13 @@
 	. = ..()
 	reagents.add_reagent("koispasteclean", 10)
 	reagents.add_reagent("phoron", 5)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/root_beer
+	name = "\improper R&D Root Beer"
+	desc = "A classic Earth drink from the United Americas province."
+	icon_state = "root_beer"
+	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/root_beer/Initialize()
+	. = ..()
+	reagents.add_reagent("root_beer", 30)

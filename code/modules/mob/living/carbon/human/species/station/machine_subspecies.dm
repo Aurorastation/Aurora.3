@@ -267,7 +267,7 @@
 
 	icobase = 'icons/mob/human_races/r_ind_xion.dmi'
 	deform = 'icons/mob/human_races/r_ind_xion.dmi'
-	
+
 	eyes = "xion_eyes"
 	flags = IS_IPC
 	passive_temp_gain = 5
@@ -365,5 +365,39 @@
 	)
 
 /datum/species/machine/bishop/get_light_color(mob/living/carbon/human/H)
+	if (istype(H))
+		return rgb(H.r_eyes, H.g_eyes, H.b_eyes)
+
+/datum/species/machine/unbranded
+	name = "Unbranded Frame"
+	short_name = "unbran"
+	name_plural = "Unbranded Frames"
+
+	blurb = "A simple and archaic robotic frame, used mostly as a temporary body before posibrains are transferred to any specialized chassis."
+
+	icobase = 'icons/mob/human_races/robotic.dmi'
+	deform = 'icons/mob/human_races/robotic.dmi'
+	eyes = "eyes_s"
+
+	bald = 1
+
+	appearance_flags = HAS_EYE_COLOR
+	spawn_flags = IS_RESTRICTED
+
+	has_limbs = list(
+		"chest" =  list("path" = /obj/item/organ/external/chest/unbranded),
+		"groin" =  list("path" = /obj/item/organ/external/groin/unbranded),
+		"head" =   list("path" = /obj/item/organ/external/head/unbranded),
+		"l_arm" =  list("path" = /obj/item/organ/external/arm/unbranded),
+		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/unbranded),
+		"l_leg" =  list("path" = /obj/item/organ/external/leg/unbranded),
+		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/unbranded),
+		"l_hand" = list("path" = /obj/item/organ/external/hand/unbranded),
+		"r_hand" = list("path" = /obj/item/organ/external/hand/right/unbranded),
+		"l_foot" = list("path" = /obj/item/organ/external/foot/unbranded),
+		"r_foot" = list("path" = /obj/item/organ/external/foot/right/unbranded)
+	)
+
+/datum/species/machine/unbranded/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))
 		return rgb(H.r_eyes, H.g_eyes, H.b_eyes)

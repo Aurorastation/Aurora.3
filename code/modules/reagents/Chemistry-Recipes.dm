@@ -516,20 +516,21 @@
 	required_reagents = list("phoron" = 1, "hydrazine" = 1, "ammonia" = 1)
 	result_amount = 3
 
+//Mental Medication
+
 /datum/chemical_reaction/methylphenidate
 	name = "Methylphenidate"
 	id = "methylphenidate"
 	result = "methylphenidate"
 	required_reagents = list("mindbreaker" = 1, "hydrazine" = 1)
-	result_amount = 3
+	result_amount = 2
 
-/datum/chemical_reaction/citalopram
-	name = "Citalopram"
-	id = "citalopram"
-	result = "citalopram"
+/datum/chemical_reaction/escitalopram
+	name = "Escitalopram"
+	id = "escitalopram"
+	result = "escitalopram"
 	required_reagents = list("mindbreaker" = 1, "carbon" = 1)
-	result_amount = 3
-
+	result_amount = 2
 
 /datum/chemical_reaction/paroxetine
 	name = "Paroxetine"
@@ -537,6 +538,76 @@
 	result = "paroxetine"
 	required_reagents = list("mindbreaker" = 1, "acetone" = 1, "inaprovaline" = 1)
 	result_amount = 3
+
+/datum/chemical_reaction/fluvoxamine
+	name = "Fluvoxamine"
+	id = "fluvoxamine"
+	result = "fluvoxamine"
+	required_reagents = list("mindbreaker" = 1, "iron" = 1, "potassium" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/sertraline
+	name = "Sertraline"
+	id = "sertraline"
+	result = "sertraline"
+	required_reagents = list("mindbreaker" = 1, "aluminum" = 1, "potassium" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/paroxetine
+	name = "Paroxetine"
+	id = "paroxetine"
+	result = "paroxetine"
+	required_reagents = list("mindbreaker" = 1, "ammonia" = 1, "copper" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/duloxetine
+	name = "Duloxetine"
+	id = "duloxetine"
+	result = "duloxetine"
+	required_reagents = list("mindbreaker" = 1, "silicon" = 1, "ethanol" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/venlafaxine
+	name = "Venlafaxine"
+	id = "venlafaxine"
+	result = "venlafaxine"
+	required_reagents = list("mindbreaker" = 1, "sodium" = 1, "tungsten" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/risperidone
+	name = "Risperidone"
+	id = "risperidone"
+	result = "risperidone"
+	required_reagents = list("mindbreaker" = 1, "space_drugs" = 1, "ethanol" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/olanzapine
+	name = "Olanzapine"
+	id = "olanzapine"
+	result = "olanzapine"
+	required_reagents = list("mindbreaker" = 1, "space_drugs" = 1, "silicon" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/hextrasenil
+	name = "Hextrasenil"
+	id = "hextrasenil"
+	result = "hextrasenil"
+	required_reagents = list("truthserum" = 1, "risperidone" = 1, "mindbreaker" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/trisyndicotin
+	name = "Trisyndicotin"
+	id = "trisyndicotin"
+	result = "trisyndicotin"
+	required_reagents = list("truthserum" = 1, "risperidone" = 1, "space_drugs" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/truthserum
+	name = "Truthserum"
+	id = "truthserum"
+	result = "truthserum"
+	required_reagents = list("mindbreaker" = 1, "synaptizine" = 1, "phoron" = 0.1)
+	result_amount = 2
 
 /datum/chemical_reaction/cardox
 	name = "Cardox"
@@ -2028,6 +2099,62 @@
 	required_reagents = list("coffee" = 1, "milk" = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/freddo_espresso
+	name = "Freddo Espresso"
+	id = "freddo_espresso"
+	result = "freddo_espresso"
+	required_reagents = list("espresso" = 1, "ice" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/caffe_americano
+	name = "Caffe Americano"
+	id = "caffe_americano"
+	result = "caffe_americano"
+	required_reagents = list("espresso" = 1, "water" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/flat_white
+	name = "Flat White"
+	id = "flat_white"
+	result = "flat_white"
+	required_reagents = list("espresso" = 1, "milk" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/latte
+	name = "Latte"
+	id = "latte"
+	result = "latte"
+	required_reagents = list("flat_white" = 1, "milk" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/cappuccino
+	name = "Cappuccino"
+	id = "cappuccino"
+	result = "cappuccino"
+	required_reagents = list("espresso" = 1, "cream" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/freddo_cappuccino
+	name = "Freddo cappuccino"
+	id = "freddo_cappuccino"
+	result = "freddo_cappuccino"
+	required_reagents = list("cappuccino" = 1, "ice" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/macchiato
+	name = "Macchiato"
+	id = "macchiato"
+	result = "macchiato"
+	required_reagents = list("cappuccino" = 1, "espresso" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/mocacchino
+	name = "Mocacchino"
+	id = "mocacchino"
+	result = "mocacchino"
+	required_reagents = list("flat_white" = 1, "coco" = 1)
+	result_amount = 2
+
 /datum/chemical_reaction/acidspit
 	name = "Acid Spit"
 	id = "acidspit"
@@ -2258,22 +2385,6 @@
 	result = "luminol"
 	required_reagents = list("hydrazine" = 2, "carbon" = 2, "ammonia" = 2)
 	result_amount = 6
-
-/////////////////////////////////////////Brightdawns super cool coffee drinks//////////////////////////////////////////////
-
-/datum/chemical_reaction/white_coffee
-	name = "Cafe Au Lait"
-	id = "white_coffee"
-	result = "white_coffee"
-	required_reagents = list("milk" = 1, "black_coffee" = 2)
-	result_amount = 3
-
-/datum/chemical_reaction/cafe_melange
-	name = "Cafe Melange"
-	id = "cafe_melange"
-	result = "cafe_melange"
-	required_reagents = list("cream" = 1, "black_coffee" = 2)
-	result_amount = 3
 
 //aurora's drinks
 
