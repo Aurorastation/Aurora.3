@@ -60244,8 +60244,8 @@
 /area/quartermaster/office)
 "bZv" = (
 /obj/machinery/conveyor{
-	backwards = 1;
-	dir = 1;
+	backwards = 0;
+	dir = 2;
 	id = "cargo_crates"
 	},
 /turf/simulated/floor/tiled,
@@ -60394,8 +60394,8 @@
 /area/quartermaster/office)
 "bZN" = (
 /obj/machinery/conveyor{
-	backwards = 1;
-	dir = 1;
+	backwards = 0;
+	dir = 2;
 	id = "cargo_crates"
 	},
 /obj/structure/plasticflaps,
