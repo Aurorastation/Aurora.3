@@ -637,7 +637,7 @@ var/list/admin_verbs_cciaa = list(
 
 	var/mob/living/carbon/human/C = T
 
-	C.cure_all_traumas(TRUE, TRUE)
+	C.cure_all_traumas(TRUE, CURE_ADMIN)
 	log_and_message_admins("<span class='notice'>cured [key_name(C)]'s traumas.</span>")
 	feedback_add_details("admin_verb","TB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!\
 
