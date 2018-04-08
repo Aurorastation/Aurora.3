@@ -10,6 +10,9 @@
 	use_power = 1
 	var/busy = 0
 	var/obj/machinery/computer/rdconsole/linked_console
+	var/obj/item/loaded_item = null
+	var/requires_console = 1
+	var/disabled = 0
 
 /obj/machinery/r_n_d/attack_hand(mob/user as mob)
 	return
@@ -48,3 +51,33 @@
 			return "uranium"
 		if(/obj/item/stack/material/diamond)
 			return "diamond"
+
+/obj/machinery/r_n_d/proc/pulse_radiation(var/amount = 20)
+	for(var/mob/living/L in view(7, src))
+		L.apply_effect(amount, IRRADIATE, blocked = L.getarmor(null, "rad"))
+
+/obj/machinery/r_n_d/proc/Insert_Item(obj/item/I, mob/user)
+	return
+
+/obj/machinery/r_n_d/proc/is_insertion_ready(mob/user)
+	if(panel_open)
+		to_chat(user, "<span class='warning'>You can't load [src] while it's opened!</span>")
+		return FALSE
+	if(disabled)
+		return FALSE
+	if(requires_console && !linked_console)
+		to_chat(user, "<span class='warning'>[src] must be linked to an R&D console first!</span>")
+		return FALSE
+	if(busy)
+		to_chat(user, "<span class='warning'>[src] is busy right now.</span>")
+		return FALSE
+	if(stat & BROKEN)
+		to_chat(user, "<span class='warning'>[src] is broken.</span>")
+		return FALSE
+	if(stat & NOPOWER)
+		to_chat(user, "<span class='warning'>[src] has no power.</span>")
+		return FALSE
+	if(loaded_item)
+		to_chat(user, "<span class='warning'>[src] is already loaded.</span>")
+		return FALSE
+	return TRUE

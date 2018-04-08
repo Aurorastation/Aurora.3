@@ -9,7 +9,6 @@ Note: Must be placed within 3 tiles of the R&D Console
 /obj/machinery/r_n_d/destructive_analyzer
 	name = "destructive analyzer"
 	icon_state = "d_analyzer"
-	var/obj/item/weapon/loaded_item = null
 	var/decon_mod = 0
 
 	use_power = 1
@@ -39,12 +38,6 @@ Note: Must be placed within 3 tiles of the R&D Console
 		icon_state = "d_analyzer"
 
 /obj/machinery/r_n_d/destructive_analyzer/attackby(var/obj/O as obj, var/mob/user as mob)
-	if(busy)
-		user << "<span class='notice'>\The [src] is busy right now.</span>"
-		return
-	if(loaded_item)
-		user << "<span class='notice'>There is something already loaded into \the [src].</span>"
-		return 1
 	if(default_deconstruction_screwdriver(user, O))
 		if(linked_console)
 			linked_console.linked_destroy = null
@@ -54,11 +47,7 @@ Note: Must be placed within 3 tiles of the R&D Console
 		return
 	if(default_part_replacement(user, O))
 		return
-	if(panel_open)
-		user << "<span class='notice'>You can't load \the [src] while it's opened.</span>"
-		return 1
-	if(!linked_console)
-		user << "<span class='notice'>\The [src] must be linked to an R&D console first.</span>"
+	if(!is_insertion_ready(user))
 		return
 	if(istype(O, /obj/item) && !loaded_item)
 		if(!dropsafety(O)) //Don't put your module items in there!

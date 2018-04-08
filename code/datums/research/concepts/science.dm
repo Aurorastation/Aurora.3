@@ -1,8 +1,8 @@
 //Progress into Xenoarch and their items
-/datum/research_concepts/xenoarch
-	name = "Xenoarcheology"
-	id = "xenoarch"
-	desc = "Research into the field of xenoarcheology."
+/datum/research_concepts/generalscience
+	name = "Science"
+	id = "genscience"
+	desc = "Research into the field of general science."
 	level = 1
 	maxlevel = 4
 	progress = 0
@@ -11,7 +11,7 @@
 					  TECH_BIO  = 2
 						)
 
-/datum/research_concepts/xenoarch/get_tech_desc(var/level = 1)
+/datum/research_concepts/generalscience/get_tech_desc(var/level = 1)
 	..()
 	switch(level)
 		if(1)
@@ -21,7 +21,7 @@
 		if(3)
 			return ""
 		if(4)
-			return "Thanks to new advanced scanning technologies, modifications can be made to an existing gateway design that allows it to seek out areas in distant lands that have a high level of anomalous materials detected."
+			return ""
 
 //Progress into weapons
 /datum/research_concepts/weaponstech

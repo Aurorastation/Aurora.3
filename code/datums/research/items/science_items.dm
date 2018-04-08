@@ -1,6 +1,15 @@
-//XENOARCH UNLOCKS
+//GENERAL SCIENCE UNLOCKS
 //T1
 //T2
+/datum/research_items/science_items/xenohardsuit
+	name = "Hazardous Enviroment Suit"
+	id = "hes"
+	desc = "An anomalous materials suit modified to be almost completely immune to anomalous effects at the cost of being very vulrenable to physical damage."
+	rmpcost = 1250
+	path = /obj/item/weapon/rig/hazardsuit
+	required_concepts = list(
+					  "xenoarch"  = 3
+					)
 //T3
 /datum/research_items/science_items/xenohardsuit
 	name = "Hazardous Enviroment Suit"
@@ -12,10 +21,6 @@
 					  "xenoarch"  = 3
 					)
 //T4
-
-/datum/research_items/science_items/xenogateway/giveunlocked()
-	//map stuff
-	return
 
 //WEAPONS TECH UNLOCKS
 //T1
@@ -49,15 +54,16 @@
 	required_concepts = list(
 					  "robotics"  = 1
 					)
-//T2
+
 /datum/research_items/science_items/mech_jet_pack
 	name = "Mech jetpack"
 	id = "mechjetpack"
 	desc = "A very heavy duty jetpack allowing for limited traversal in low-pressure zones."
-	rmpcost = 1000
+	rmpcost = 500
 	required_concepts = list(
 					  "robotics"  = 2
 					)
+//T2
 //T3
 //T4
 
