@@ -59335,8 +59335,8 @@
 /area/quartermaster/office)
 "bZr" = (
 /obj/machinery/conveyor{
-	backwards = 1;
-	dir = 1;
+	backwards = 0;
+	dir = 2;
 	id = "cargo_crates"
 	},
 /turf/simulated/floor/tiled,
@@ -59476,8 +59476,8 @@
 /area/quartermaster/office)
 "bZG" = (
 /obj/machinery/conveyor{
-	backwards = 1;
-	dir = 1;
+	backwards = 0;
+	dir = 2;
 	id = "cargo_crates"
 	},
 /obj/structure/plasticflaps,
@@ -59637,8 +59637,9 @@
 	c_tag = "Warehouse - North"
 	},
 /obj/structure/disposalpipe/tagger{
-	dir = 1;
+	dir = 2;
 	name = "Sorting Office";
+	no_override = 1;
 	sort_tag = "Sorting Office"
 	},
 /turf/simulated/floor/plating,
