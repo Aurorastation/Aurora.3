@@ -63031,9 +63031,7 @@
 /obj/structure/ladder{
 	pixel_y = 16
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/open/airless,
 /area/outpost/mining_main/eva)
 "cfY" = (
 /obj/structure/window/reinforced{
@@ -88879,7 +88877,7 @@ cfA
 cdP
 clt
 clu
-cen
+clu
 cku
 cdP
 aab
@@ -94766,8 +94764,8 @@ bYP
 bZe
 bUz
 clm
-cln
-clq
+clm
+clm
 bMj
 bPO
 cbB
