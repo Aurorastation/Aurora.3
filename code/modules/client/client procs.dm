@@ -60,7 +60,7 @@
 		var/client/C = locate(href_list["priv_msg"])
 		var/datum/ticket/ticket = locate(href_list["ticket"])
 
-		if (!istype(ticket))
+		if (!isnull(ticket) && !istype(ticket))
 			return
 
 		if(ismob(C)) 		//Old stuff can feed-in mobs instead of clients

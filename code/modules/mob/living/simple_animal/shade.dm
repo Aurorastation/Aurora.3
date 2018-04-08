@@ -28,6 +28,7 @@
 	faction = "cult"
 	status_flags = CANPUSH
 	hunger_enabled = 0
+	appearance_flags = NO_CLIENT_COLOR
 
 /mob/living/simple_animal/shade/cultify()
 	return
