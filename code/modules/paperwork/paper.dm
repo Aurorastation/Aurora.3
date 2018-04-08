@@ -170,7 +170,7 @@
 			"<span class='notice'> [user] holds up a paper and shows it to [M]. </span>")
 		M.examinate(src)
 
-	else if(target_zone == "mouth") // lipstick wiping
+	else if(target_zone == TARGET_MOUTH) // lipstick wiping
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(H == user)

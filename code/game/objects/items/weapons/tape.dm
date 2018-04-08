@@ -34,7 +34,7 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/blindfold/tape(H), slot_glasses)
 			H.update_inv_glasses()
 
-		else if(target_zone == "mouth" || target_zone == TARGET_HEAD)
+		else if(target_zone == TARGET_MOUTH || target_zone == TARGET_HEAD)
 			if(!H.organs_by_name[TARGET_HEAD])
 				user << "<span class='warning'>\The [H] doesn't have a head.</span>"
 				return
