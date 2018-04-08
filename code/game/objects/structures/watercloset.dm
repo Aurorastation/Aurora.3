@@ -225,8 +225,7 @@
 	var/obj/effect/effect/water/W = new(O)
 	W.create_reagents(spray_amount)
 	W.reagents.add_reagent("water", spray_amount)
-	W.reagents.trans_to_obj(O)
-	W.set_up(O)
+	W.reagents.splash(O, spray_amount)
 
 	if(iscarbon(O))
 		var/mob/living/carbon/M = O

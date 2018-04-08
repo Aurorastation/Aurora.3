@@ -23,6 +23,7 @@
 	movement_cost = 2
 	var/watertype = "water5"
 	var/obj/effect/water_effect/water_overlay
+	var/numobjects = 0
 
 /turf/simulated/floor/beach/water/pool
 	name = "pool"
@@ -86,9 +87,11 @@
 	return return_air() // Otherwise their head is above the water, so get the air from the atmosphere instead.
 
 /turf/simulated/floor/beach/water/Entered(atom/movable/AM, atom/oldloc)
-	wash_floor(get_turf(src))
+	numobjects += 1
+	clean()
 	START_PROCESSING(SSprocessing, src)
 	if(istype(AM, /mob/living))
+		numobjects += 1
 		var/mob/living/L = AM
 		if(!istype(oldloc, /turf/simulated/floor/beach/water))
 			to_chat(L, "<span class='warning'>You get drenched in water from entering \the [src]!</span>")
@@ -96,16 +99,18 @@
 	..()
 
 /turf/simulated/floor/beach/water/Exited(atom/movable/AM, atom/newloc)
-	wash_floor(get_turf(src))
-	STOP_PROCESSING(SSprocessing, src)
+	clean()
+	if(!numobjects)
+		STOP_PROCESSING(SSprocessing, src)
 	if(istype(AM, /mob/living))
+		numobjects -= 1
 		var/mob/living/L = AM
 		if(!istype(newloc, /turf/simulated/floor/beach/water))
 			to_chat(L, "<span class='warning'>You climb out of \the [src].</span>")
 	..()
 
 /turf/simulated/floor/beach/water/process()
-	wash_floor(get_turf(src))
+	clean()
 
 /mob/living/proc/can_breathe_water()
 	return FALSE
@@ -115,17 +120,13 @@
 		return species.can_breathe_water()
 	return ..()
 
-/turf/simulated/floor/beach/water/proc/wash_floor(var/turf/T)
-	T.clean(src)
-
 // Taken from shower
 /turf/simulated/floor/beach/water/proc/wash(atom/movable/O as obj|mob)
 
 	var/obj/effect/effect/water/W = new(O)
-	W.create_reagents(700)
-	W.reagents.add_reagent("water", 700)
-	W.reagents.trans_to_obj(O)
-	W.set_up(O)
+	W.create_reagents(60)
+	W.reagents.add_reagent("water", 60)
+	W.reagents.splash(O, 60)
 
 	if(iscarbon(O))
 		var/mob/living/carbon/M = O
