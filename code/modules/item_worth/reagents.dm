@@ -69,7 +69,7 @@
 /datum/reagent/sodium
 	value = 0.1
 
-/datum/reagent/sugar
+/datum/reagent/nutriment/sugar
 	value = 0.1
 
 /datum/reagent/sulfur

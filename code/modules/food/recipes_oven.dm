@@ -521,3 +521,15 @@
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/bacon/oven
 	result_quantity = 6
+
+/datum/recipe/meatloaf_oven
+	appliance = OVEN
+	reagents = list("muck" = 10)
+	result = /obj/item/weapon/reagent_containers/food/snacks/meatloaf
+	reagent_mix = RECIPE_REAGENT_SUM
+
+/datum/recipe/greenloaf_oven
+	appliance = OVEN
+	reagents = list("slop" = 10)
+	result = /obj/item/weapon/reagent_containers/food/snacks/greenloaf
+	reagent_mix = RECIPE_REAGENT_SUM

@@ -51,6 +51,37 @@
 	kois_type = 2
 
 /* Food */
+/datum/reagent/flavoring
+	name = "Artificial Flavoring"
+	id = "flavoring"
+	description = "Put this in food that you want to taste better."
+	taste_mult = 40 //1 unit of flavoring is equal to 10
+	reagent_state = SOLID
+	metabolism = REM
+	color = "#FFFFFF"
+	unaffected_species = IS_MACHINE
+
+/datum/reagent/flavoring/mix_data(var/list/newdata, var/newamount) //According to a comment, mix_data is really weird when it comes to subtypes. That's why it's not in a subtype.
+	if(!islist(newdata) || !newdata.len)
+		return
+	for(var/i in 1 to newdata.len)
+		if(!(newdata[i] in data))
+			data.Add(newdata[i])
+			data[newdata[i]] = 0
+		data[newdata[i]] += newdata[newdata[i]]
+	var/totalFlavor = 0
+	for(var/i in 1 to data.len)
+		totalFlavor += data[data[i]]
+
+	if (!totalFlavor)
+		return
+
+	for(var/i in 1 to data.len) //cull the tasteless
+		if(data[data[i]]/totalFlavor * 100 < 10)
+			data[data[i]] = null
+			data -= data[i]
+			data -= null
+
 /datum/reagent/nutriment
 	name = "Nutriment"
 	id = "nutriment"
@@ -62,15 +93,43 @@
 	var/blood_factor = 6
 	var/regen_factor = 0.8
 	var/injectable = 0
+	var/datum/modifier/modifier
 	var/attrition_factor = -0.1 // Decreases attrition rate.
 	color = "#664330"
 	unaffected_species = IS_MACHINE
+	var/is_positive_buff = 1 //1 Gives buff, 0 does nothing, -1 gives nerf.
 
 /datum/reagent/nutriment/synthetic
 	name = "Synthetic Nutriment"
 	id = "synnutriment"
 	description = "A cheaper alternative to actual nutriment."
 	attrition_factor = (REM * 4)/BASE_MAX_NUTRITION // Increases attrition rate.
+	is_positive_buff = -1
+
+/datum/reagent/nutriment/protein/synthetic
+	name = "Synthetic Protein"
+	id = "synprotein"
+	description = "A cheaper alternative to actual nutriment."
+	attrition_factor = (REM * 4)/BASE_MAX_NUTRITION // Increases attrition rate.
+	is_positive_buff = -1
+
+/datum/reagent/nutriment/protein/muck //Blended meat
+	name = "muck"
+	id = "muck"
+	description = "A blended mess of cheap meat. Serve this to prisoners."
+	blood_factor = 6
+	taste_description = "meat, I think"
+	is_positive_buff = 0
+	attrition_factor = -(REM * 2)/BASE_MAX_NUTRITION
+
+/datum/reagent/nutriment/slop //Blended plants
+	name = "Slop"
+	id = "slop"
+	description = "A blended mess of cheap food. Serve this to prisoners."
+	nutriment_factor = 6
+	taste_description = "slop"
+	is_positive_buff = 0
+	attrition_factor = -(REM * 2)/BASE_MAX_NUTRITION
 
 /datum/reagent/nutriment/mix_data(var/list/newdata, var/newamount)
 	if(!islist(newdata) || !newdata.len)
@@ -110,9 +169,13 @@
 	M.nutrition += nutriment_factor * removed // For hunger and fatness
 	M.nutrition_attrition_rate = Clamp(M.nutrition_attrition_rate + attrition_factor, 1, 2)
 	M.add_chemical_effect(CE_BLOODRESTORE, blood_factor * removed)
-
-
-
+	var/added_duration = removed*30 SECONDS
+	if(modifier)
+		modifier.duration += added_duration
+	else if(is_positive_buff == 1)
+		modifier = M.add_modifier(/datum/modifier/food/positive, MODIFIER_TIMED, src, _strength = 25, _duration = added_duration, override = MODIFIER_OVERRIDE_CUSTOM)
+	else if(is_positive_buff == -1)
+		modifier = M.add_modifier(/datum/modifier/food/negative, MODIFIER_TIMED, src, _strength = -25, _duration = added_duration, override = MODIFIER_OVERRIDE_CUSTOM)
 /*
 	Coatings are used in cooking. Dipping food items in a reagent container with a coating in it
 	allows it to be covered in that, which will add a masked overlay to the sprite.
@@ -120,6 +183,7 @@
 	Coatings have both a raw and a cooked image. Raw coating is generally unhealthy
 	Generally coatings are intended for deep frying foods
 */
+
 /datum/reagent/nutriment/coating
 	nutriment_factor = 6 //Less dense than the food itself, but coatings still add extra calories
 	var/messaged = 0
@@ -477,6 +541,25 @@
 	color = "#FFFFFF"
 	injectable = 1
 	taste_description = "sweetness"
+
+/datum/reagent/nutriment/sugar
+	name = "Sugar"
+	id = "sugar"
+	description = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
+	reagent_state = SOLID
+	color = "#FFFFFF"
+	injectable = 1
+	taste_description = "sugar"
+	taste_mult = 1.8
+	metabolism = 0.034 // 10 units lasts 5 minutes.
+
+	glass_icon_state = "iceglass"
+	glass_name = "glass of sugar"
+	glass_desc = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
+
+/datum/reagent/nutriment/sugar/final_effect(var/mob/living/carbon/M, var/alien)
+	if(dose > 10)
+		M.add_modifier(/datum/modifier/food/sugarcrash, MODIFIER_TIMED, src, _strength = -20, _duration = dose*20, override = MODIFIER_OVERRIDE_CUSTOM)
 
 /datum/reagent/lipozine // The anti-nutriment.
 	name = "Lipozine"

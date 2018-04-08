@@ -1141,3 +1141,13 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/friedegg
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/bacon_and_eggs
+
+/datum/recipe/meatloaf_microwave
+	reagents = list("muck" = 10)
+	result = /obj/item/weapon/reagent_containers/food/snacks/meatloaf
+	reagent_mix = RECIPE_REAGENT_SUM
+
+/datum/recipe/greenloaf_microwave
+	reagents = list("slop" = 10)
+	result = /obj/item/weapon/reagent_containers/food/snacks/greenloaf
+	reagent_mix = RECIPE_REAGENT_SUM

@@ -229,7 +229,7 @@
 	if(inoperable())
 		return
 	user.set_machine(src)
-	
+
 	var/datum/asset/pill_icons = get_asset_datum(/datum/asset/chem_master)
 	pill_icons.send(user.client)
 
@@ -565,6 +565,11 @@
 		/obj/item/stack/material/silver = "silver",
 		/obj/item/stack/material/mhydrogen = "hydrazine" //doesn't really make much sense but thank Bay
 		)
+	var/list/convert_reagents = list(
+		"nutriment" = "slop",
+		"seafood" = "muck",
+		"protein" = "muck"
+	)
 
 /obj/machinery/reagentgrinder/Initialize()
 	. = ..()
@@ -772,6 +777,14 @@
 				qdel(O)
 			if (beaker.reagents.total_volume >= beaker.reagents.maximum_volume)
 				break
+
+	for(var/datum/reagent/R in beaker.reagents.reagent_list)
+		var/value = convert_reagents[R.id]
+		if(!value)
+			continue
+		var/vol = R.volume
+		beaker.reagents.remove_reagent(R.id,vol)
+		beaker.reagents.add_reagent(value,vol)
 
 #undef REAGENTS_PER_SHEET
 

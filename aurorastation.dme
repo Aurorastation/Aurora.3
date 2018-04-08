@@ -672,6 +672,7 @@
 #include "code\game\mecha\working\working.dm"
 #include "code\game\modifiers\modifiers.dm"
 #include "code\game\modifiers\modifiers_chem.dm"
+#include "code\game\modifiers\modifiers_food.dm"
 #include "code\game\objects\buckling.dm"
 #include "code\game\objects\empulse.dm"
 #include "code\game\objects\explosion.dm"

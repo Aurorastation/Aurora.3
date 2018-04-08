@@ -88,6 +88,7 @@
 
 //returns 1 if the holder should continue reactiong, 0 otherwise.
 /datum/reagents/proc/process_reactions()
+
 	if(!my_atom) // No reactions in temporary holders
 		return 0
 	if(!my_atom.loc) //No reactions inside GC'd containers
@@ -252,7 +253,7 @@
 	return amount
 
 /datum/reagents/proc/trans_to_holder(var/datum/reagents/target, var/amount = 1, var/multiplier = 1, var/copy = 0) // Transfers [amount] reagents from [src] to [target], multiplying them by [multiplier]. Returns actual amount removed from [src] (not amount transferred to [target]).
-	
+
 	if(!target || !istype(target))
 		return 0
 
@@ -276,7 +277,7 @@
 		handle_reactions()
 
 	target.handle_reactions()
-	
+
 	return amount
 
 /* Holder-to-atom and similar procs */
@@ -389,7 +390,7 @@
 
 	if(!target || !istype(target) || !target.simulated)
 		return 0
-		
+
 	var/mob/living/carbon/C = target
 	if(istype(C))
 		if(type == CHEM_BREATHE)
