@@ -65,11 +65,13 @@
 	var/attrition_factor = -(REM * 4)/BASE_MAX_NUTRITION // Decreases attrition rate.
 	color = "#664330"
 	unaffected_species = IS_MACHINE
+	taste_description = "food"
 
 /datum/reagent/nutriment/synthetic
 	name = "Synthetic Nutriment"
 	id = "synnutriment"
 	description = "A cheaper alternative to actual nutriment."
+	taste_description = "cheap food"
 	nutriment_factor = 10
 	attrition_factor = (REM * 4)/BASE_MAX_NUTRITION // Increases attrition rate.
 
