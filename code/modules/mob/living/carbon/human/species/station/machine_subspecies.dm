@@ -40,16 +40,16 @@
 
 	has_limbs = list(
 		TARGET_CHEST =  list("path" = /obj/item/organ/external/chest/shell),
-		"groin" =  list("path" = /obj/item/organ/external/groin/shell),
+		TARGET_GROIN =  list("path" = /obj/item/organ/external/groin/shell),
 		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/shell),
-		"l_arm" =  list("path" = /obj/item/organ/external/arm/shell),
-		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/shell),
-		"l_leg" =  list("path" = /obj/item/organ/external/leg/shell),
-		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/shell),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/shell),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/shell),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/shell),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/shell)
+		TARGET_L_ARM =  list("path" = /obj/item/organ/external/arm/shell),
+		TARGET_R_ARM =  list("path" = /obj/item/organ/external/arm/right/shell),
+		TARGET_L_LEG =  list("path" = /obj/item/organ/external/leg/shell),
+		TARGET_R_LEG =  list("path" = /obj/item/organ/external/leg/right/shell),
+		TARGET_L_HAND = list("path" = /obj/item/organ/external/hand/shell),
+		TARGET_R_HAND = list("path" = /obj/item/organ/external/hand/right/shell),
+		TARGET_L_FOOT = list("path" = /obj/item/organ/external/foot/shell),
+		TARGET_R_FOOT = list("path" = /obj/item/organ/external/foot/right/shell)
 		)
 
 	sprint_temperature_factor = 1.3
@@ -89,16 +89,16 @@
 
 	has_limbs = list(
 		TARGET_CHEST =  list("path" = /obj/item/organ/external/chest/industrial),
-		"groin" =  list("path" = /obj/item/organ/external/groin/industrial),
+		TARGET_GROIN =  list("path" = /obj/item/organ/external/groin/industrial),
 		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/industrial),
-		"l_arm" =  list("path" = /obj/item/organ/external/arm/industrial),
-		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/industrial),
-		"l_leg" =  list("path" = /obj/item/organ/external/leg/industrial),
-		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/industrial),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/industrial),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/industrial),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/industrial),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/industrial)
+		TARGET_L_ARM =  list("path" = /obj/item/organ/external/arm/industrial),
+		TARGET_R_ARM =  list("path" = /obj/item/organ/external/arm/right/industrial),
+		TARGET_L_LEG =  list("path" = /obj/item/organ/external/leg/industrial),
+		TARGET_R_LEG =  list("path" = /obj/item/organ/external/leg/right/industrial),
+		TARGET_L_HAND = list("path" = /obj/item/organ/external/hand/industrial),
+		TARGET_R_HAND = list("path" = /obj/item/organ/external/hand/right/industrial),
+		TARGET_L_FOOT = list("path" = /obj/item/organ/external/foot/industrial),
+		TARGET_R_FOOT = list("path" = /obj/item/organ/external/foot/right/industrial)
 		)
 
 	flags = IS_IPC | ACCEPTS_COOLER
@@ -190,16 +190,16 @@
 
 	has_limbs = list(
 		TARGET_CHEST =  list("path" = /obj/item/organ/external/chest/terminator),
-		"groin" =  list("path" = /obj/item/organ/external/groin/terminator),
+		TARGET_GROIN =  list("path" = /obj/item/organ/external/groin/terminator),
 		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/terminator),
-		"l_arm" =  list("path" = /obj/item/organ/external/arm/terminator),
-		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/terminator),
-		"l_leg" =  list("path" = /obj/item/organ/external/leg/terminator),
-		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/terminator),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/terminator),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/terminator),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/terminator),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/terminator)
+		TARGET_L_ARM =  list("path" = /obj/item/organ/external/arm/terminator),
+		TARGET_R_ARM =  list("path" = /obj/item/organ/external/arm/right/terminator),
+		TARGET_L_LEG =  list("path" = /obj/item/organ/external/leg/terminator),
+		TARGET_R_LEG =  list("path" = /obj/item/organ/external/leg/right/terminator),
+		TARGET_L_HAND = list("path" = /obj/item/organ/external/hand/terminator),
+		TARGET_R_HAND = list("path" = /obj/item/organ/external/hand/right/terminator),
+		TARGET_L_FOOT = list("path" = /obj/item/organ/external/foot/terminator),
+		TARGET_R_FOOT = list("path" = /obj/item/organ/external/foot/right/terminator)
 		)
 
 
@@ -244,16 +244,16 @@
 
 	has_limbs = list(
 		TARGET_CHEST  = list("path" = /obj/item/organ/external/chest/industrial/hephaestus),
-		"groin"  = list("path" = /obj/item/organ/external/groin/industrial/hephaestus),
+		TARGET_GROIN  = list("path" = /obj/item/organ/external/groin/industrial/hephaestus),
 		TARGET_HEAD   = list("path" = /obj/item/organ/external/head/industrial/hephaestus),
-		"l_arm"  = list("path" = /obj/item/organ/external/arm/industrial/hephaestus),
-		"r_arm"  = list("path" = /obj/item/organ/external/arm/right/industrial/hephaestus),
-		"l_leg"  = list("path" = /obj/item/organ/external/leg/industrial/hephaestus),
-		"r_leg"  = list("path" = /obj/item/organ/external/leg/right/industrial/hephaestus),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/industrial/hephaestus),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/industrial/hephaestus),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/industrial/hephaestus),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/industrial/hephaestus)
+		TARGET_L_ARM  = list("path" = /obj/item/organ/external/arm/industrial/hephaestus),
+		TARGET_R_ARM  = list("path" = /obj/item/organ/external/arm/right/industrial/hephaestus),
+		TARGET_L_LEG  = list("path" = /obj/item/organ/external/leg/industrial/hephaestus),
+		TARGET_R_LEG  = list("path" = /obj/item/organ/external/leg/right/industrial/hephaestus),
+		TARGET_L_HAND = list("path" = /obj/item/organ/external/hand/industrial/hephaestus),
+		TARGET_R_HAND = list("path" = /obj/item/organ/external/hand/right/industrial/hephaestus),
+		TARGET_L_FOOT = list("path" = /obj/item/organ/external/foot/industrial/hephaestus),
+		TARGET_R_FOOT = list("path" = /obj/item/organ/external/foot/right/industrial/hephaestus)
 	)
 
 /datum/species/machine/industrial/hephaestus/get_light_color(mob/living/carbon/human/H)
@@ -278,16 +278,16 @@
 
 	has_limbs = list(
 		TARGET_CHEST  = list("path" = /obj/item/organ/external/chest/industrial/xion),
-		"groin"  = list("path" = /obj/item/organ/external/groin/industrial/xion),
+		TARGET_GROIN  = list("path" = /obj/item/organ/external/groin/industrial/xion),
 		TARGET_HEAD   = list("path" = /obj/item/organ/external/head/industrial/xion),
-		"l_arm"  = list("path" = /obj/item/organ/external/arm/industrial/xion),
-		"r_arm"  = list("path" = /obj/item/organ/external/arm/right/industrial/xion),
-		"l_leg"  = list("path" = /obj/item/organ/external/leg/industrial/xion),
-		"r_leg"  = list("path" = /obj/item/organ/external/leg/right/industrial/xion),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/industrial/xion),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/industrial/xion),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/industrial/xion),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/industrial/xion)
+		TARGET_L_ARM  = list("path" = /obj/item/organ/external/arm/industrial/xion),
+		TARGET_R_ARM  = list("path" = /obj/item/organ/external/arm/right/industrial/xion),
+		TARGET_L_LEG  = list("path" = /obj/item/organ/external/leg/industrial/xion),
+		TARGET_R_LEG  = list("path" = /obj/item/organ/external/leg/right/industrial/xion),
+		TARGET_L_HAND = list("path" = /obj/item/organ/external/hand/industrial/xion),
+		TARGET_R_HAND = list("path" = /obj/item/organ/external/hand/right/industrial/xion),
+		TARGET_L_FOOT = list("path" = /obj/item/organ/external/foot/industrial/xion),
+		TARGET_R_FOOT = list("path" = /obj/item/organ/external/foot/right/industrial/xion)
 	)
 
 /datum/species/machine/industrial/xion/get_light_color(mob/living/carbon/human/H)
@@ -314,16 +314,16 @@
 
 	has_limbs = list(
 		TARGET_CHEST  = list("path" = /obj/item/organ/external/chest/industrial/zenghu),
-		"groin"  = list("path" = /obj/item/organ/external/groin/industrial/zenghu),
+		TARGET_GROIN  = list("path" = /obj/item/organ/external/groin/industrial/zenghu),
 		TARGET_HEAD   = list("path" = /obj/item/organ/external/head/industrial/zenghu),
-		"l_arm"  = list("path" = /obj/item/organ/external/arm/industrial/zenghu),
-		"r_arm"  = list("path" = /obj/item/organ/external/arm/right/industrial/zenghu),
-		"l_leg"  = list("path" = /obj/item/organ/external/leg/industrial/zenghu),
-		"r_leg"  = list("path" = /obj/item/organ/external/leg/right/industrial/zenghu),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/industrial/zenghu),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/industrial/zenghu),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/industrial/zenghu),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/industrial/zenghu)
+		TARGET_L_ARM  = list("path" = /obj/item/organ/external/arm/industrial/zenghu),
+		TARGET_R_ARM  = list("path" = /obj/item/organ/external/arm/right/industrial/zenghu),
+		TARGET_L_LEG  = list("path" = /obj/item/organ/external/leg/industrial/zenghu),
+		TARGET_R_LEG  = list("path" = /obj/item/organ/external/leg/right/industrial/zenghu),
+		TARGET_L_HAND = list("path" = /obj/item/organ/external/hand/industrial/zenghu),
+		TARGET_R_HAND = list("path" = /obj/item/organ/external/hand/right/industrial/zenghu),
+		TARGET_L_FOOT = list("path" = /obj/item/organ/external/foot/industrial/zenghu),
+		TARGET_R_FOOT = list("path" = /obj/item/organ/external/foot/right/industrial/zenghu)
 	)
 
 /datum/species/machine/zenghu/get_light_color(mob/living/carbon/human/H)
@@ -352,16 +352,16 @@
 
 	has_limbs = list(
 		TARGET_CHEST  = list("path" = /obj/item/organ/external/chest/industrial/bishop),
-		"groin"  = list("path" = /obj/item/organ/external/groin/industrial/bishop),
+		TARGET_GROIN  = list("path" = /obj/item/organ/external/groin/industrial/bishop),
 		TARGET_HEAD   = list("path" = /obj/item/organ/external/head/industrial/bishop),
-		"l_arm"  = list("path" = /obj/item/organ/external/arm/industrial/bishop),
-		"r_arm"  = list("path" = /obj/item/organ/external/arm/right/industrial/bishop),
-		"l_leg"  = list("path" = /obj/item/organ/external/leg/industrial/bishop),
-		"r_leg"  = list("path" = /obj/item/organ/external/leg/right/industrial/bishop),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/industrial/bishop),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/industrial/bishop),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/industrial/bishop),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/industrial/bishop)
+		TARGET_L_ARM  = list("path" = /obj/item/organ/external/arm/industrial/bishop),
+		TARGET_R_ARM  = list("path" = /obj/item/organ/external/arm/right/industrial/bishop),
+		TARGET_L_LEG  = list("path" = /obj/item/organ/external/leg/industrial/bishop),
+		TARGET_R_LEG  = list("path" = /obj/item/organ/external/leg/right/industrial/bishop),
+		TARGET_L_HAND = list("path" = /obj/item/organ/external/hand/industrial/bishop),
+		TARGET_R_HAND = list("path" = /obj/item/organ/external/hand/right/industrial/bishop),
+		TARGET_L_FOOT = list("path" = /obj/item/organ/external/foot/industrial/bishop),
+		TARGET_R_FOOT = list("path" = /obj/item/organ/external/foot/right/industrial/bishop)
 	)
 
 /datum/species/machine/bishop/get_light_color(mob/living/carbon/human/H)
@@ -386,16 +386,16 @@
 
 	has_limbs = list(
 		TARGET_CHEST =  list("path" = /obj/item/organ/external/chest/unbranded),
-		"groin" =  list("path" = /obj/item/organ/external/groin/unbranded),
+		TARGET_GROIN =  list("path" = /obj/item/organ/external/groin/unbranded),
 		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/unbranded),
-		"l_arm" =  list("path" = /obj/item/organ/external/arm/unbranded),
-		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/unbranded),
-		"l_leg" =  list("path" = /obj/item/organ/external/leg/unbranded),
-		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/unbranded),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/unbranded),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/unbranded),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/unbranded),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/unbranded)
+		TARGET_L_ARM =  list("path" = /obj/item/organ/external/arm/unbranded),
+		TARGET_R_ARM =  list("path" = /obj/item/organ/external/arm/right/unbranded),
+		TARGET_L_LEG =  list("path" = /obj/item/organ/external/leg/unbranded),
+		TARGET_R_LEG =  list("path" = /obj/item/organ/external/leg/right/unbranded),
+		TARGET_L_HAND = list("path" = /obj/item/organ/external/hand/unbranded),
+		TARGET_R_HAND = list("path" = /obj/item/organ/external/hand/right/unbranded),
+		TARGET_L_FOOT = list("path" = /obj/item/organ/external/foot/unbranded),
+		TARGET_R_FOOT = list("path" = /obj/item/organ/external/foot/right/unbranded)
 	)
 
 /datum/species/machine/unbranded/get_light_color(mob/living/carbon/human/H)

@@ -92,7 +92,7 @@
 	if (H.wear_mask) return
 	if (istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket)) return
 
-	var/obj/item/organ/external/O = H.organs_by_name[H.hand?"l_hand":"r_hand"]
+	var/obj/item/organ/external/O = H.organs_by_name[H.hand?TARGET_L_HAND:TARGET_R_HAND]
 	if (!O) return
 
 	var/s = "<span class='warning'>[H.name] chews on \his [O.name]!</span>"

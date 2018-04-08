@@ -210,23 +210,23 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			var/status = pref.organ_data[name]
 			var/organ_name = null
 			switch(name)
-				if("l_arm")
+				if(TARGET_L_ARM)
 					organ_name = "left arm"
-				if("r_arm")
+				if(TARGET_R_ARM)
 					organ_name = "right arm"
-				if("l_leg")
+				if(TARGET_L_LEG)
 					organ_name = "left leg"
-				if("r_leg")
+				if(TARGET_R_LEG)
 					organ_name = "right leg"
-				if("l_foot")
+				if(TARGET_L_FOOT)
 					organ_name = "left foot"
-				if("r_foot")
+				if(TARGET_R_FOOT)
 					organ_name = "right foot"
-				if("l_hand")
+				if(TARGET_L_HAND)
 					organ_name = "left hand"
-				if("r_hand")
+				if(TARGET_R_HAND)
 					organ_name = "right hand"
-				if("groin")
+				if(TARGET_GROIN)
 					organ_name = "lower body"
 				if(TARGET_CHEST)
 					organ_name = "upper body"
@@ -523,31 +523,31 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/third_limb = null  // if you try to unchange the hand, the arm should also change
 		switch(limb_name)
 			if("Left Leg")
-				limb = "l_leg"
-				second_limb = "l_foot"
+				limb = TARGET_L_LEG
+				second_limb = TARGET_L_FOOT
 			if("Right Leg")
-				limb = "r_leg"
-				second_limb = "r_foot"
+				limb = TARGET_R_LEG
+				second_limb = TARGET_R_FOOT
 			if("Left Arm")
-				limb = "l_arm"
-				second_limb = "l_hand"
+				limb = TARGET_L_ARM
+				second_limb = TARGET_L_HAND
 			if("Right Arm")
-				limb = "r_arm"
-				second_limb = "r_hand"
+				limb = TARGET_R_ARM
+				second_limb = TARGET_R_HAND
 			if("Left Foot")
-				limb = "l_foot"
-				third_limb = "l_leg"
+				limb = TARGET_L_FOOT
+				third_limb = TARGET_L_LEG
 			if("Right Foot")
-				limb = "r_foot"
-				third_limb = "r_leg"
+				limb = TARGET_R_FOOT
+				third_limb = TARGET_R_LEG
 			if("Left Hand")
-				limb = "l_hand"
-				third_limb = "l_arm"
+				limb = TARGET_L_HAND
+				third_limb = TARGET_L_ARM
 			if("Right Hand")
-				limb = "r_hand"
-				third_limb = "r_arm"
+				limb = TARGET_R_HAND
+				third_limb = TARGET_R_ARM
 			if("Lower Body")
-				limb = "groin"
+				limb = TARGET_GROIN
 				carries_organs = 1
 			if("Upper Body")
 				limb = TARGET_CHEST

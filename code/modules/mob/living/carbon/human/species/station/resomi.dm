@@ -54,16 +54,16 @@
 
 	has_limbs = list(
 		TARGET_CHEST =  list("path" = /obj/item/organ/external/chest),
-		"groin" =  list("path" = /obj/item/organ/external/groin),
+		TARGET_GROIN =  list("path" = /obj/item/organ/external/groin),
 		TARGET_HEAD =   list("path" = /obj/item/organ/external/head),
-		"l_arm" =  list("path" = /obj/item/organ/external/arm),
-		"r_arm" =  list("path" = /obj/item/organ/external/arm/right),
-		"l_leg" =  list("path" = /obj/item/organ/external/leg),
-		"r_leg" =  list("path" = /obj/item/organ/external/leg/right),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/resomi),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/resomi),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/resomi),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/resomi)
+		TARGET_L_ARM =  list("path" = /obj/item/organ/external/arm),
+		TARGET_R_ARM =  list("path" = /obj/item/organ/external/arm/right),
+		TARGET_L_LEG =  list("path" = /obj/item/organ/external/leg),
+		TARGET_R_LEG =  list("path" = /obj/item/organ/external/leg/right),
+		TARGET_L_HAND = list("path" = /obj/item/organ/external/hand/resomi),
+		TARGET_R_HAND = list("path" = /obj/item/organ/external/hand/right/resomi),
+		TARGET_L_FOOT = list("path" = /obj/item/organ/external/foot/resomi),
+		TARGET_R_FOOT = list("path" = /obj/item/organ/external/foot/right/resomi)
 		)
 
 	has_organ = list(

@@ -728,7 +728,7 @@
 	take_hit((100/severity_class), "electrical pulse", 1)
 
 /obj/item/weapon/rig/proc/shock(mob/user)
-	var/touchy = pick(TARGET_CHEST,TARGET_HEAD,"groin")
+	var/touchy = pick(TARGET_CHEST,TARGET_HEAD,TARGET_GROIN)
 	if (electrocute_mob(user, cell, src, contact_zone = touchy)) //electrocute_mob() handles removing charge from the cell, no need to do that here.
 		spark_system.queue()
 		if(user.stunned)
@@ -902,8 +902,8 @@
 			return wearer.pulledby.relaymove(wearer, direction)
 		else if(istype(wearer.buckled, /obj/structure/bed/chair/wheelchair))
 			if(ishuman(wearer.buckled))
-				var/obj/item/organ/external/l_hand = wearer.get_organ("l_hand")
-				var/obj/item/organ/external/r_hand = wearer.get_organ("r_hand")
+				var/obj/item/organ/external/l_hand = wearer.get_organ(TARGET_L_HAND)
+				var/obj/item/organ/external/r_hand = wearer.get_organ(TARGET_R_HAND)
 				if((!l_hand || (l_hand.status & ORGAN_DESTROYED)) && (!r_hand || (r_hand.status & ORGAN_DESTROYED)))
 					return // No hands to drive your chair? Tough luck!
 			wearer_move_delay += 2

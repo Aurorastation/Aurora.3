@@ -36,10 +36,10 @@ obj/item/weapon/gun/energy/staff/special_check(var/mob/living/user)
 					continue
 				H.drop_from_inventory(W)
 			playsound(user, 'sound/weapons/emitter.ogg', 40, 1)
-			var/obj/item/organ/external/LA = H.get_organ("l_arm")
-			var/obj/item/organ/external/RA = H.get_organ("r_arm")
-			var/obj/item/organ/external/LL = H.get_organ("l_leg")
-			var/obj/item/organ/external/RL = H.get_organ("r_leg")
+			var/obj/item/organ/external/LA = H.get_organ(TARGET_L_ARM)
+			var/obj/item/organ/external/RA = H.get_organ(TARGET_R_ARM)
+			var/obj/item/organ/external/LL = H.get_organ(TARGET_L_LEG)
+			var/obj/item/organ/external/RL = H.get_organ(TARGET_R_LEG)
 			LA.droplimb(0,DROPLIMB_BLUNT)
 			RA.droplimb(0,DROPLIMB_BLUNT)
 			LL.droplimb(0,DROPLIMB_BLUNT)
@@ -79,8 +79,8 @@ obj/item/weapon/gun/energy/staff/animate/special_check(var/mob/living/user)
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user
-			var/obj/item/organ/external/LA = H.get_organ("l_hand")
-			var/obj/item/organ/external/RA = H.get_organ("r_hand")
+			var/obj/item/organ/external/LA = H.get_organ(TARGET_L_HAND)
+			var/obj/item/organ/external/RA = H.get_organ(TARGET_R_HAND)
 			var/active_hand = H.hand
 			playsound(user, 'sound/effects/blobattack.ogg', 40, 1)
 			user.visible_message("<span class = 'danger'> With a sickening crunch, [user]'s hand rips itself off, and begins crawling away!</span>")
@@ -115,8 +115,8 @@ obj/item/weapon/gun/energy/staff/focus/special_check(var/mob/living/user)
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user
-			var/obj/item/organ/external/LA = H.get_organ("l_arm")
-			var/obj/item/organ/external/RA = H.get_organ("r_arm")
+			var/obj/item/organ/external/LA = H.get_organ(TARGET_L_ARM)
+			var/obj/item/organ/external/RA = H.get_organ(TARGET_R_ARM)
 			var/active_hand = H.hand
 			playsound(user, 'sound/magic/lightningbolt.ogg', 40, 1)
 			user << "<span class='warning'>Coruscating waves of energy wreathe around your arm...hot...so <b>hot</b>!</span>"

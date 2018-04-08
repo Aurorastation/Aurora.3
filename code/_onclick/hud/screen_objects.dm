@@ -114,37 +114,37 @@
 		if(1 to 3) //Feet
 			switch(icon_x)
 				if(10 to 15)
-					selecting = "r_foot"
+					selecting = TARGET_R_FOOT
 				if(17 to 22)
-					selecting = "l_foot"
+					selecting = TARGET_L_FOOT
 				else
 					return 1
 		if(4 to 9) //Legs
 			switch(icon_x)
 				if(10 to 15)
-					selecting = "r_leg"
+					selecting = TARGET_R_LEG
 				if(17 to 22)
-					selecting = "l_leg"
+					selecting = TARGET_L_LEG
 				else
 					return 1
 		if(10 to 13) //Hands and groin
 			switch(icon_x)
 				if(8 to 11)
-					selecting = "r_hand"
+					selecting = TARGET_R_HAND
 				if(12 to 20)
-					selecting = "groin"
+					selecting = TARGET_GROIN
 				if(21 to 24)
-					selecting = "l_hand"
+					selecting = TARGET_L_HAND
 				else
 					return 1
 		if(14 to 22) //Chest and arms to shoulders
 			switch(icon_x)
 				if(8 to 11)
-					selecting = "r_arm"
+					selecting = TARGET_R_ARM
 				if(12 to 20)
 					selecting = TARGET_CHEST
 				if(21 to 24)
-					selecting = "l_arm"
+					selecting = TARGET_L_ARM
 				else
 					return 1
 		if(23 to 30) //Head, but we need to check for eye or mouth
@@ -280,11 +280,11 @@
 	if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
 		return 1
 	switch(name)
-		if("r_hand")
+		if(TARGET_R_HAND)
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
 				C.activate_hand("r")
-		if("l_hand")
+		if(TARGET_L_HAND)
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
 				C.activate_hand("l")

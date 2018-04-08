@@ -123,8 +123,8 @@ mob/living/carbon/human/airflow_hit(atom/A)
 	blocked = run_armor_check(TARGET_CHEST,"melee")
 	apply_damage(b_loss/3, BRUTE, TARGET_CHEST, blocked, 0, "Airflow")
 
-	blocked = run_armor_check("groin","melee")
-	apply_damage(b_loss/3, BRUTE, "groin", blocked, 0, "Airflow")
+	blocked = run_armor_check(TARGET_GROIN,"melee")
+	apply_damage(b_loss/3, BRUTE, TARGET_GROIN, blocked, 0, "Airflow")
 
 	if(airflow_speed > 10)
 		Paralyse(round(airflow_speed * vsc.airflow_stun))

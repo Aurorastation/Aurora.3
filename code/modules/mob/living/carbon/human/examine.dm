@@ -184,7 +184,7 @@
 			msg += "<span class='warning'>[T.He] [T.is] twitching ever so slightly.</span>\n"
 
 	//splints
-	for(var/organ in list("l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","r_foot","l_foot"))
+	for(var/organ in list(TARGET_L_LEG,TARGET_R_LEG,TARGET_L_ARM,TARGET_R_ARM,TARGET_L_HAND,TARGET_R_HAND,TARGET_R_FOOT,TARGET_L_FOOT))
 		var/obj/item/organ/external/o = get_organ(organ)
 		if(o && o.status & ORGAN_SPLINTED)
 			msg += "<span class='warning'>[T.He] [T.has] a splint on [T.his] [o.name]!</span>\n"

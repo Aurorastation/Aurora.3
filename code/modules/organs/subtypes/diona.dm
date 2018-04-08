@@ -45,8 +45,8 @@
 //------
 /obj/item/organ/external/groin/diona
 	name = "fork"
-	limb_name = "groin"
-	icon_name = "groin"
+	limb_name = TARGET_GROIN
+	icon_name = TARGET_GROIN
 	max_damage = 100
 	min_broken_damage = 50
 	w_class = 4
@@ -59,8 +59,8 @@
 
 /obj/item/organ/external/arm/diona
 	name = "left upper tendril"
-	limb_name = "l_arm"
-	icon_name = "l_arm"
+	limb_name = TARGET_L_ARM
+	icon_name = TARGET_L_ARM
 	max_damage = 35
 	min_broken_damage = 20
 	w_class = 3
@@ -74,8 +74,8 @@
 
 /obj/item/organ/external/arm/right/diona
 	name = "right upper tendril"
-	limb_name = "r_arm"
-	icon_name = "r_arm"
+	limb_name = TARGET_R_ARM
+	icon_name = TARGET_R_ARM
 	body_part = ARM_RIGHT
 	cannot_break = 1
 	dislocated = -1
@@ -84,14 +84,14 @@
 
 /obj/item/organ/external/leg/diona
 	name = "left lower tendril"
-	limb_name = "l_leg"
-	icon_name = "l_leg"
+	limb_name = TARGET_L_LEG
+	icon_name = TARGET_L_LEG
 	max_damage = 35
 	min_broken_damage = 20
 	w_class = 3
 	body_part = LEG_LEFT
 	icon_position = LEFT
-	parent_organ = "groin"
+	parent_organ = TARGET_GROIN
 	can_stand = 1
 	cannot_break = 1
 	dislocated = -1
@@ -100,8 +100,8 @@
 
 /obj/item/organ/external/leg/right/diona
 	name = "right lower tendril"
-	limb_name = "r_leg"
-	icon_name = "r_leg"
+	limb_name = TARGET_R_LEG
+	icon_name = TARGET_R_LEG
 	body_part = LEG_RIGHT
 	icon_position = RIGHT
 	cannot_break = 1
@@ -111,14 +111,14 @@
 
 /obj/item/organ/external/foot/diona
 	name = "left foot"
-	limb_name = "l_foot"
-	icon_name = "l_foot"
+	limb_name = TARGET_L_FOOT
+	icon_name = TARGET_L_FOOT
 	max_damage = 20
 	min_broken_damage = 10
 	w_class = 2
 	body_part = FOOT_LEFT
 	icon_position = LEFT
-	parent_organ = "l_leg"
+	parent_organ = TARGET_L_LEG
 	can_stand = 1
 	cannot_break = 1
 	dislocated = -1
@@ -127,11 +127,11 @@
 
 /obj/item/organ/external/foot/right/diona
 	name = "right foot"
-	limb_name = "r_foot"
-	icon_name = "r_foot"
+	limb_name = TARGET_R_FOOT
+	icon_name = TARGET_R_FOOT
 	body_part = FOOT_RIGHT
 	icon_position = RIGHT
-	parent_organ = "r_leg"
+	parent_organ = TARGET_R_LEG
 	joint = "right ankle"
 	amputation_point = "right ankle"
 	cannot_break = 1
@@ -141,13 +141,13 @@
 
 /obj/item/organ/external/hand/diona
 	name = "left grasper"
-	limb_name = "l_hand"
-	icon_name = "l_hand"
+	limb_name = TARGET_L_HAND
+	icon_name = TARGET_L_HAND
 	max_damage = 30
 	min_broken_damage = 15
 	w_class = 2
 	body_part = HAND_LEFT
-	parent_organ = "l_arm"
+	parent_organ = TARGET_L_ARM
 	can_grasp = 1
 	cannot_break = 1
 	dislocated = -1
@@ -156,10 +156,10 @@
 
 /obj/item/organ/external/hand/right/diona
 	name = "right grasper"
-	limb_name = "r_hand"
-	icon_name = "r_hand"
+	limb_name = TARGET_R_HAND
+	icon_name = TARGET_R_HAND
 	body_part = HAND_RIGHT
-	parent_organ = "r_arm"
+	parent_organ = TARGET_R_ARM
 	cannot_break = 1
 	dislocated = -1
 	joint = "structural ligament"
@@ -197,12 +197,12 @@
 
 /obj/item/organ/diona/polyp
 	name = "polyp segment"
-	parent_organ = "groin"
+	parent_organ = TARGET_GROIN
 	organ_tag = "polyp segment"
 
 /obj/item/organ/diona/ligament
 	name = "anchoring ligament"
-	parent_organ = "groin"
+	parent_organ = TARGET_GROIN
 	organ_tag = "anchoring ligament"
 
 /obj/item/organ/diona

@@ -140,10 +140,10 @@
 				if (do_mob(user,target,chargedelay,display_progress=0))
 					if(!wasblocked && damageamount)
 						var/chancemod = (100 - armorpercent)*0.05*damageamount // Lower chance if lower damage + high armor. Base chance is 50% at 10 damage.
-						if(target_zone == "l_hand" || target_zone == "l_arm")
+						if(target_zone == TARGET_L_HAND || target_zone == TARGET_L_ARM)
 							if (prob(chancemod) && target.l_hand && target.l_hand != src)
 								shoulddisarm = 1
-						else if(target_zone == "r_hand" || target_zone == "r_arm")
+						else if(target_zone == TARGET_R_HAND || target_zone == TARGET_R_ARM)
 							if (prob(chancemod) && target.r_hand && target.r_hand != src)
 								shoulddisarm = 2
 						else

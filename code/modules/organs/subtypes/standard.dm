@@ -22,8 +22,8 @@
 
 /obj/item/organ/external/groin
 	name = "lower body"
-	limb_name = "groin"
-	icon_name = "groin"
+	limb_name = TARGET_GROIN
+	icon_name = TARGET_GROIN
 	max_damage = 100
 	min_broken_damage = 35
 	w_class = 4
@@ -37,9 +37,9 @@
 	maim_bonus = 0.25
 
 /obj/item/organ/external/arm
-	limb_name = "l_arm"
+	limb_name = TARGET_L_ARM
 	name = "left arm"
-	icon_name = "l_arm"
+	icon_name = TARGET_L_ARM
 	max_damage = 50
 	min_broken_damage = 30
 	w_class = 3
@@ -50,46 +50,46 @@
 	can_grasp = 1
 
 /obj/item/organ/external/arm/right
-	limb_name = "r_arm"
+	limb_name = TARGET_R_ARM
 	name = "right arm"
-	icon_name = "r_arm"
+	icon_name = TARGET_R_ARM
 	body_part = ARM_RIGHT
 	joint = "right elbow"
 	amputation_point = "right shoulder"
 
 /obj/item/organ/external/leg
-	limb_name = "l_leg"
+	limb_name = TARGET_L_LEG
 	name = "left leg"
-	icon_name = "l_leg"
+	icon_name = TARGET_L_LEG
 	max_damage = 50
 	min_broken_damage = 30
 	w_class = 3
 	body_part = LEG_LEFT
 	icon_position = LEFT
-	parent_organ = "groin"
+	parent_organ = TARGET_GROIN
 	joint = "left knee"
 	amputation_point = "left hip"
 	can_stand = 1
 
 /obj/item/organ/external/leg/right
-	limb_name = "r_leg"
+	limb_name = TARGET_R_LEG
 	name = "right leg"
-	icon_name = "r_leg"
+	icon_name = TARGET_R_LEG
 	body_part = LEG_RIGHT
 	icon_position = RIGHT
 	joint = "right knee"
 	amputation_point = "right hip"
 
 /obj/item/organ/external/foot
-	limb_name = "l_foot"
+	limb_name = TARGET_L_FOOT
 	name = "left foot"
-	icon_name = "l_foot"
+	icon_name = TARGET_L_FOOT
 	max_damage = 30
 	min_broken_damage = 15
 	w_class = 2
 	body_part = FOOT_LEFT
 	icon_position = LEFT
-	parent_organ = "l_leg"
+	parent_organ = TARGET_L_LEG
 	joint = "left ankle"
 	amputation_point = "left ankle"
 	can_stand = 1
@@ -100,24 +100,24 @@
 	..()
 
 /obj/item/organ/external/foot/right
-	limb_name = "r_foot"
+	limb_name = TARGET_R_FOOT
 	name = "right foot"
-	icon_name = "r_foot"
+	icon_name = TARGET_R_FOOT
 	body_part = FOOT_RIGHT
 	icon_position = RIGHT
-	parent_organ = "r_leg"
+	parent_organ = TARGET_R_LEG
 	joint = "right ankle"
 	amputation_point = "right ankle"
 
 /obj/item/organ/external/hand
-	limb_name = "l_hand"
+	limb_name = TARGET_L_HAND
 	name = "left hand"
-	icon_name = "l_hand"
+	icon_name = TARGET_L_HAND
 	max_damage = 30
 	min_broken_damage = 15
 	w_class = 2
 	body_part = HAND_LEFT
-	parent_organ = "l_arm"
+	parent_organ = TARGET_L_ARM
 	joint = "left wrist"
 	amputation_point = "left wrist"
 	can_grasp = 1
@@ -132,11 +132,11 @@
 	..()
 
 /obj/item/organ/external/hand/right
-	limb_name = "r_hand"
+	limb_name = TARGET_R_HAND
 	name = "right hand"
-	icon_name = "r_hand"
+	icon_name = TARGET_R_HAND
 	body_part = HAND_RIGHT
-	parent_organ = "r_arm"
+	parent_organ = TARGET_R_ARM
 	joint = "right wrist"
 	amputation_point = "right wrist"
 

@@ -31,36 +31,36 @@
 /obj/item/robot_parts/l_arm
 	name = "left arm"
 	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case."
-	icon_state = "l_arm"
-	part = list("l_arm","l_hand")
+	icon_state = TARGET_L_ARM
+	part = list(TARGET_L_ARM,TARGET_L_HAND)
 	model_info = 1
 
 /obj/item/robot_parts/r_arm
 	name = "right arm"
 	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case."
-	icon_state = "r_arm"
-	part = list("r_arm","r_hand")
+	icon_state = TARGET_R_ARM
+	part = list(TARGET_R_ARM,TARGET_R_HAND)
 	model_info = 1
 
 /obj/item/robot_parts/l_leg
 	name = "left leg"
 	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case."
-	icon_state = "l_leg"
-	part = list("l_leg","l_foot")
+	icon_state = TARGET_L_LEG
+	part = list(TARGET_L_LEG,TARGET_L_FOOT)
 	model_info = 1
 
 /obj/item/robot_parts/r_leg
 	name = "right leg"
 	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case."
-	icon_state = "r_leg"
-	part = list("r_leg","r_foot")
+	icon_state = TARGET_R_LEG
+	part = list(TARGET_R_LEG,TARGET_R_FOOT)
 	model_info = 1
 
 /obj/item/robot_parts/chest
 	name = "torso"
 	desc = "A heavily reinforced case containing cyborg logic boards, with space for a standard power cell."
 	icon_state = TARGET_CHEST
-	part = list("groin",TARGET_CHEST)
+	part = list(TARGET_GROIN,TARGET_CHEST)
 	var/wires = 0.0
 	var/obj/item/weapon/cell/cell = null
 

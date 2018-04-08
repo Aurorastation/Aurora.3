@@ -289,16 +289,16 @@
 
 	has_limbs = list(
 		TARGET_CHEST =  list("path" = /obj/item/organ/external/chest/diona),
-		"groin" =  list("path" = /obj/item/organ/external/groin/diona),
+		TARGET_GROIN =  list("path" = /obj/item/organ/external/groin/diona),
 		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/diona),
-		"l_arm" =  list("path" = /obj/item/organ/external/arm/diona),
-		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/diona),
-		"l_leg" =  list("path" = /obj/item/organ/external/leg/diona),
-		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/diona),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/diona),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/diona),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/diona),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/diona)
+		TARGET_L_ARM =  list("path" = /obj/item/organ/external/arm/diona),
+		TARGET_R_ARM =  list("path" = /obj/item/organ/external/arm/right/diona),
+		TARGET_L_LEG =  list("path" = /obj/item/organ/external/leg/diona),
+		TARGET_R_LEG =  list("path" = /obj/item/organ/external/leg/right/diona),
+		TARGET_L_HAND = list("path" = /obj/item/organ/external/hand/diona),
+		TARGET_R_HAND = list("path" = /obj/item/organ/external/hand/right/diona),
+		TARGET_L_FOOT = list("path" = /obj/item/organ/external/foot/diona),
+		TARGET_R_FOOT = list("path" = /obj/item/organ/external/foot/right/diona)
 		)
 
 	warning_low_pressure = 50
@@ -463,16 +463,16 @@
 
 	has_limbs = list(
 		TARGET_CHEST =  list("path" = /obj/item/organ/external/chest/ipc),
-		"groin" =  list("path" = /obj/item/organ/external/groin/ipc),
+		TARGET_GROIN =  list("path" = /obj/item/organ/external/groin/ipc),
 		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/ipc),
-		"l_arm" =  list("path" = /obj/item/organ/external/arm/ipc),
-		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/ipc),
-		"l_leg" =  list("path" = /obj/item/organ/external/leg/ipc),
-		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/ipc),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/ipc),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/ipc),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/ipc),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/ipc)
+		TARGET_L_ARM =  list("path" = /obj/item/organ/external/arm/ipc),
+		TARGET_R_ARM =  list("path" = /obj/item/organ/external/arm/right/ipc),
+		TARGET_L_LEG =  list("path" = /obj/item/organ/external/leg/ipc),
+		TARGET_R_LEG =  list("path" = /obj/item/organ/external/leg/right/ipc),
+		TARGET_L_HAND = list("path" = /obj/item/organ/external/hand/ipc),
+		TARGET_R_HAND = list("path" = /obj/item/organ/external/hand/right/ipc),
+		TARGET_L_FOOT = list("path" = /obj/item/organ/external/foot/ipc),
+		TARGET_R_FOOT = list("path" = /obj/item/organ/external/foot/right/ipc)
 	)
 
 

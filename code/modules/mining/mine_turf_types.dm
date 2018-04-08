@@ -107,8 +107,8 @@
 
 	if(ishuman(A))
 		var/mob/living/carbon/human/H = A
-		var/obj/item/organ/external/l_foot = H.get_organ("l_foot")
-		var/obj/item/organ/external/r_foot = H.get_organ("r_foot")
+		var/obj/item/organ/external/l_foot = H.get_organ(TARGET_L_FOOT)
+		var/obj/item/organ/external/r_foot = H.get_organ(TARGET_R_FOOT)
 		var/hasfeet = 1
 		if((!l_foot || l_foot.is_stump()) && (!r_foot || r_foot.is_stump()))
 			hasfeet = 0

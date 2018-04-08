@@ -717,10 +717,10 @@
 	var/damage = rand(5,15)
 	H.apply_damage(2*damage, BRUTE, TARGET_HEAD)
 	H.apply_damage(2*damage, BRUTE, TARGET_CHEST)
-	H.apply_damage(0.5*damage, BRUTE, "l_leg")
-	H.apply_damage(0.5*damage, BRUTE, "r_leg")
-	H.apply_damage(0.5*damage, BRUTE, "l_arm")
-	H.apply_damage(0.5*damage, BRUTE, "r_arm")
+	H.apply_damage(0.5*damage, BRUTE, TARGET_L_LEG)
+	H.apply_damage(0.5*damage, BRUTE, TARGET_R_LEG)
+	H.apply_damage(0.5*damage, BRUTE, TARGET_L_ARM)
+	H.apply_damage(0.5*damage, BRUTE, TARGET_R_ARM)
 
 	blood_splatter(src,H,1)
 	bloodiness += 4

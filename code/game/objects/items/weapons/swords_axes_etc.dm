@@ -96,7 +96,7 @@
 			return
 		if(..() == 1)
 			playsound(src.loc, "swing_hit", 50, 1, -1)
-			if (target_zone == "r_leg" || target_zone == "l_leg")
+			if (target_zone == TARGET_R_LEG || target_zone == TARGET_L_LEG)
 				var/stun_chance = 100
 				if(ishuman(target))
 					var/mob/living/carbon/human/T = target

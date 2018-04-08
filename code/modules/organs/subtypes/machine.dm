@@ -166,7 +166,7 @@
 /obj/item/organ/data
 	name = "data core"
 	organ_tag = "data core"
-	parent_organ = "groin"
+	parent_organ = TARGET_GROIN
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "harddisk"
 	vital = 0

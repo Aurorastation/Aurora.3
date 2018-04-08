@@ -73,7 +73,7 @@
 	if (istype(buckled, /obj/structure/bed))
 		return
 
-	for(var/limb_tag in list("l_leg","r_leg","l_foot","r_foot"))
+	for(var/limb_tag in list(TARGET_L_LEG,TARGET_R_LEG,TARGET_L_FOOT,TARGET_R_FOOT))
 		var/obj/item/organ/external/E = organs_by_name[limb_tag]
 		if(!E || (E.status & (ORGAN_MUTATED|ORGAN_DEAD)) || E.is_stump()) //should just be !E.is_usable() here but dislocation screws that up.
 			stance_damage += 2 // let it fail even if just foot&leg
@@ -110,7 +110,7 @@
 
 	// You should not be able to pick anything up, but stranger things have happened.
 	if(l_hand)
-		for(var/limb_tag in list("l_hand","l_arm"))
+		for(var/limb_tag in list(TARGET_L_HAND,TARGET_L_ARM))
 			var/obj/item/organ/external/E = get_organ(limb_tag)
 			if(!E)
 				visible_message("<span class='danger'>Lacking a functioning left hand, \the [src] drops \the [l_hand].</span>")
@@ -118,7 +118,7 @@
 				break
 
 	if(r_hand)
-		for(var/limb_tag in list("r_hand","r_arm"))
+		for(var/limb_tag in list(TARGET_R_HAND,TARGET_R_ARM))
 			var/obj/item/organ/external/E = get_organ(limb_tag)
 			if(!E)
 				visible_message("<span class='danger'>Lacking a functioning right hand, \the [src] drops \the [r_hand].</span>")

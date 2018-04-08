@@ -145,13 +145,13 @@
 
 			switch(pick(list("ankle","wrist",TARGET_HEAD,"knee","elbow")))
 				if("ankle")
-					affecting = H.get_organ(pick("l_foot", "r_foot"))
+					affecting = H.get_organ(pick(TARGET_L_FOOT, TARGET_R_FOOT))
 				if("knee")
-					affecting = H.get_organ(pick("l_leg", "r_leg"))
+					affecting = H.get_organ(pick(TARGET_L_LEG, TARGET_R_LEG))
 				if("wrist")
-					affecting = H.get_organ(pick("l_hand", "r_hand"))
+					affecting = H.get_organ(pick(TARGET_L_HAND, TARGET_R_HAND))
 				if("elbow")
-					affecting = H.get_organ(pick("l_arm", "r_arm"))
+					affecting = H.get_organ(pick(TARGET_L_ARM, TARGET_R_ARM))
 				if(TARGET_HEAD)
 					affecting = H.get_organ(TARGET_HEAD)
 

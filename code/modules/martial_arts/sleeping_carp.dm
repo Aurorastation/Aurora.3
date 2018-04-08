@@ -42,7 +42,7 @@
 						  "<span class='userdanger'>[A] grabs your wrist and violently wrenches it to the side!</span>")
 		playsound(get_turf(A), 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 		D.drop_item()
-		D.apply_damage(5, BRUTE, pick("l_arm", "r_arm"))
+		D.apply_damage(5, BRUTE, pick(TARGET_L_ARM, TARGET_R_ARM))
 		D.Stun(3)
 		return 1
 	return basic_hit(A,D)

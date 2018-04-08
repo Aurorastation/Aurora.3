@@ -60,7 +60,7 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/mask/muzzle/tape(H), slot_wear_mask)
 			H.update_inv_wear_mask()
 
-		else if(target_zone == "r_hand" || target_zone == "l_hand")
+		else if(target_zone == TARGET_R_HAND || target_zone == TARGET_L_HAND)
 			var/obj/item/weapon/handcuffs/cable/tape/T = new(user)
 			if(!T.place_handcuffs(H, user))
 				user.unEquip(T)

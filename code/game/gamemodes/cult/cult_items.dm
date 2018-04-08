@@ -20,7 +20,7 @@
 	if(iscultist(user))
 		return ..()
 
-	var/zone = (user.hand ? "l_arm":"r_arm")
+	var/zone = (user.hand ? TARGET_L_ARM:TARGET_R_ARM)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/external/affecting = H.get_organ(zone)

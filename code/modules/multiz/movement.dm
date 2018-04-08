@@ -388,13 +388,13 @@
 		var/lefth_damage = rand(0,damage/4)
 		var/righth_damage = rand(0,damage/4)
 
-		apply_damage(left_damage, BRUTE, "l_arm")
-		apply_damage(right_damage, BRUTE, "r_arm")
+		apply_damage(left_damage, BRUTE, TARGET_L_ARM)
+		apply_damage(right_damage, BRUTE, TARGET_R_ARM)
 
 		if(prob(50))
-			apply_damage(lefth_damage, BRUTE, "r_hand")
+			apply_damage(lefth_damage, BRUTE, TARGET_R_HAND)
 		if(prob(50))
-			apply_damage(righth_damage, BRUTE, "l_hand")
+			apply_damage(righth_damage, BRUTE, TARGET_L_HAND)
 
 		limb_damage = left_damage + right_damage + lefth_damage + righth_damage
 
@@ -409,15 +409,15 @@
 		var/groin_damage = rand(0,damage/4)
 
 
-		apply_damage(left_damage, BRUTE, "l_leg")
-		apply_damage(right_damage, BRUTE, "r_leg")
+		apply_damage(left_damage, BRUTE, TARGET_L_LEG)
+		apply_damage(right_damage, BRUTE, TARGET_R_LEG)
 
 		if(prob(50))
-			apply_damage(leftf_damage, BRUTE, "r_foot")
+			apply_damage(leftf_damage, BRUTE, TARGET_R_FOOT)
 		if(prob(50))
-			apply_damage(leftf_damage, BRUTE, "l_foot")
+			apply_damage(leftf_damage, BRUTE, TARGET_L_FOOT)
 		if(prob(50))
-			apply_damage(groin_damage, BRUTE, "groin")
+			apply_damage(groin_damage, BRUTE, TARGET_GROIN)
 
 		visible_message("<span class='warning'>\The [src] falls and lands directly on their legs!</span>",
 			"<span class='danger'>You land on your feet, and the impact brings you to your knees.</span>")

@@ -6,7 +6,7 @@
 
 /obj/item/organ/xenos/eggsac
 	name = "egg sac"
-	parent_organ = "groin"
+	parent_organ = TARGET_GROIN
 	icon_state = "xgibmid1"
 	organ_tag = "egg sac"
 

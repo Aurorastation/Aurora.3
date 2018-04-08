@@ -30,7 +30,7 @@
 		tally += wear_suit.slowdown
 
 	if(istype(buckled, /obj/structure/bed/chair/wheelchair))
-		for(var/organ_name in list("l_hand","r_hand","l_arm","r_arm"))
+		for(var/organ_name in list(TARGET_L_HAND,TARGET_R_HAND,TARGET_L_ARM,TARGET_R_ARM))
 			var/obj/item/organ/external/E = get_organ(organ_name)
 			if(!E || E.is_stump())
 				tally += 4
@@ -42,7 +42,7 @@
 		if(shoes)
 			tally += shoes.slowdown
 
-		for(var/organ_name in list("l_foot","r_foot","l_leg","r_leg"))
+		for(var/organ_name in list(TARGET_L_FOOT,TARGET_R_FOOT,TARGET_L_LEG,TARGET_R_LEG))
 			var/obj/item/organ/external/E = get_organ(organ_name)
 			if(!E || E.is_stump())
 				tally += 4

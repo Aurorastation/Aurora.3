@@ -132,7 +132,7 @@
 	if((CLUMSY in M.mutations) && prob(40)) //Clumsy handling
 		var/obj/P = consume_next_projectile()
 		if(P)
-			if(process_projectile(P, user, user, pick("l_foot", "r_foot")))
+			if(process_projectile(P, user, user, pick(TARGET_L_FOOT, TARGET_R_FOOT)))
 				handle_post_fire(user, user)
 				user.visible_message(
 					"<span class='danger'>\The [user] shoots \himself in the foot with \the [src]!</span>",

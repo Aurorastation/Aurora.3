@@ -409,10 +409,10 @@ var/const/enterloopsanity = 100
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		var/has_right_hand = TRUE
-		var/obj/item/organ/external/rhand = H.organs_by_name["r_hand"]
+		var/obj/item/organ/external/rhand = H.organs_by_name[TARGET_R_HAND]
 		if(!rhand || rhand.is_stump())
 			has_right_hand = FALSE
-		var/obj/item/organ/external/lhand = H.organs_by_name["l_hand"]
+		var/obj/item/organ/external/lhand = H.organs_by_name[TARGET_L_HAND]
 		if(!lhand || lhand.is_stump())
 			if(!has_right_hand)
 				return

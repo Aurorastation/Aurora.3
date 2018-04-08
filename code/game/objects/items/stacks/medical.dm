@@ -277,7 +277,7 @@
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 		var/limb = affecting.name
-		if(!(affecting.limb_name in list("l_arm","r_arm","l_leg","r_leg", "l_hand", "r_hand", "r_foot", "l_foot")))
+		if(!(affecting.limb_name in list(TARGET_L_ARM,TARGET_R_ARM,TARGET_L_LEG,TARGET_R_LEG, TARGET_L_HAND, TARGET_R_HAND, TARGET_R_FOOT, TARGET_L_FOOT)))
 			user << "<span class='danger'>You can't apply a splint there!</span>"
 			return
 		if(affecting.status & ORGAN_SPLINTED)
@@ -286,7 +286,7 @@
 		if (M != user)
 			user.visible_message("<span class='danger'>[user] starts to apply \the [src] to [M]'s [limb].</span>", "<span class='danger'>You start to apply \the [src] to [M]'s [limb].</span>", "<span class='danger'>You hear something being wrapped.</span>")
 		else
-			if((!user.hand && affecting.limb_name == "r_arm") || (user.hand && affecting.limb_name == "l_arm"))
+			if((!user.hand && affecting.limb_name == TARGET_R_ARM) || (user.hand && affecting.limb_name == TARGET_L_ARM))
 				user << "<span class='danger'>You can't apply a splint to the arm you're using!</span>"
 				return
 			user.visible_message("<span class='danger'>[user] starts to apply \the [src] to their [limb].</span>", "<span class='danger'>You start to apply \the [src] to your [limb].</span>", "<span class='danger'>You hear something being wrapped.</span>")

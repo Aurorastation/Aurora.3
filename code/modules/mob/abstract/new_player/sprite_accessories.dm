@@ -1167,31 +1167,31 @@
 	tiger_stripes
 		name = "Tiger Stripes (Tajara)"
 		icon_state = "tiger"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm",TARGET_CHEST,"groin")
+		body_parts = list(TARGET_L_FOOT,TARGET_R_FOOT,TARGET_L_LEG,TARGET_R_LEG,TARGET_L_ARM,TARGET_R_ARM,TARGET_CHEST,TARGET_GROIN)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	taj_paw_socks
 		name = "Socks Coloration (Tajara)"
 		icon_state = "taj_pawsocks"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand")
+		body_parts = list(TARGET_L_FOOT,TARGET_R_FOOT,TARGET_L_LEG,TARGET_R_LEG,TARGET_L_ARM,TARGET_R_ARM,TARGET_L_HAND,TARGET_R_HAND)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	una_paw_socks
 		name = "Socks Coloration (Unathi)"
 		icon_state = "una_pawsocks"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand")
+		body_parts = list(TARGET_L_FOOT,TARGET_R_FOOT,TARGET_L_LEG,TARGET_R_LEG,TARGET_L_ARM,TARGET_R_ARM,TARGET_L_HAND,TARGET_R_HAND)
 		species_allowed = list("Unathi")
 
 	belly_hands_feet
 		name = "Hands,Feet,Belly Color (Minor)"
 		icon_state = "bellyhandsfeetsmall"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","groin",TARGET_CHEST)
+		body_parts = list(TARGET_L_FOOT,TARGET_R_FOOT,TARGET_L_LEG,TARGET_R_LEG,TARGET_L_ARM,TARGET_R_ARM,TARGET_L_HAND,TARGET_R_HAND,TARGET_GROIN,TARGET_CHEST)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	patches
 		name = "Color Patches"
 		icon_state = "patches"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand",TARGET_CHEST,"groin")
+		body_parts = list(TARGET_L_FOOT,TARGET_R_FOOT,TARGET_L_LEG,TARGET_R_LEG,TARGET_L_ARM,TARGET_R_ARM,TARGET_L_HAND,TARGET_R_HAND,TARGET_CHEST,TARGET_GROIN)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	patchesface
@@ -1203,7 +1203,7 @@
 	bands
 		name = "Color Bands"
 		icon_state = "bands"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand",TARGET_CHEST,"groin")
+		body_parts = list(TARGET_L_FOOT,TARGET_R_FOOT,TARGET_L_LEG,TARGET_R_LEG,TARGET_L_ARM,TARGET_R_ARM,TARGET_L_HAND,TARGET_R_HAND,TARGET_CHEST,TARGET_GROIN)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	bandsface
@@ -1291,23 +1291,23 @@
 		plating
 			name = "Plating (Full)"
 			icon_state = "plating"
-			body_parts = list(TARGET_CHEST, "l_arm", "r_arm", "l_leg", "r_leg")
+			body_parts = list(TARGET_CHEST, TARGET_L_ARM, TARGET_R_ARM, TARGET_L_LEG, TARGET_R_LEG)
 
 			l_arm
 				name = "Plating (Left arm)"
-				body_parts = list("l_arm")
+				body_parts = list(TARGET_L_ARM)
 
 			r_arm
 				name = "Plating (Right arm)"
-				body_parts = list("r_arm")
+				body_parts = list(TARGET_R_ARM)
 
 			l_leg
 				name = "Plating (Left leg)"
-				body_parts = list("l_leg")
+				body_parts = list(TARGET_L_LEG)
 
 			r_leg
 				name = "Plating (Right leg)"
-				body_parts = list("r_leg")
+				body_parts = list(TARGET_R_LEG)
 
 			chest
 				name = "Plating (Chest)"
@@ -1325,23 +1325,23 @@
 		inner
 			name = "Inner Finish"
 			icon_state = "inner"
-			body_parts = list("l_foot", "r_foot", "l_hand", "r_hand", "l_leg", "r_leg")
+			body_parts = list(TARGET_L_FOOT, TARGET_R_FOOT, TARGET_L_HAND, TARGET_R_HAND, TARGET_L_LEG, TARGET_R_LEG)
 
 			l_foot
 				name = "Inner Finish (Left Leg)"
-				body_parts = list("l_foot", "l_leg")
+				body_parts = list(TARGET_L_FOOT, TARGET_L_LEG)
 
 			r_foot
 				name = "Inner Finish (Right Leg)"
-				body_parts = list("r_foot", "r_leg")
+				body_parts = list(TARGET_R_FOOT, TARGET_R_LEG)
 
 			l_hand
 				name = "Inner Finish (Left Arm)"
-				body_parts = list("l_hand", "l_arm")
+				body_parts = list(TARGET_L_HAND, TARGET_L_ARM)
 
 			r_hand
 				name = "Inner Finish (Right Arm)"
-				body_parts = list("r_hand", "r_arm")
+				body_parts = list(TARGET_R_HAND, TARGET_R_ARM)
 
 		crest_leser
 			name = "Head Coloration (Lesser)"

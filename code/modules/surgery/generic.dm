@@ -248,7 +248,7 @@
 		if (target_zone == TARGET_CHEST)
 			msg = "[user] starts to separate the ribcage and rearrange the organs in [target]'s torso with \the [tool]."
 			self_msg = "You start to separate the ribcage and rearrange the organs in [target]'s torso with \the [tool]."
-		if (target_zone == "groin")
+		if (target_zone == TARGET_GROIN)
 			msg = "[user] starts to pry open the incision and rearrange the organs in [target]'s lower abdomen with \the [tool]."
 			self_msg = "You start to pry open the incision and rearrange the organs in [target]'s lower abdomen with \the [tool]."
 		user.visible_message(msg, self_msg)
@@ -262,7 +262,7 @@
 		if (target_zone == TARGET_CHEST)
 			msg = "<span class='notice'>[user] keeps the ribcage open on [target]'s torso with \the [tool].</span>"
 			self_msg = "<span class='notice'>You keep the ribcage open on [target]'s torso with \the [tool].</span>"
-		if (target_zone == "groin")
+		if (target_zone == TARGET_GROIN)
 			msg = "<span class='notice'>[user] keeps the incision open on [target]'s lower abdomen with \the [tool].</span>"
 			self_msg = "<span class='notice'>You keep the incision open on [target]'s lower abdomen with \the [tool].</span>"
 		user.visible_message(msg, self_msg)
@@ -275,7 +275,7 @@
 		if (target_zone == TARGET_CHEST)
 			msg = "<span class='warning'>[user]'s hand slips, damaging several organs in [target]'s torso with \the [tool]!</span>"
 			self_msg = "<span class='warning'>Your hand slips, damaging several organs in [target]'s torso with \the [tool]!</span>"
-		if (target_zone == "groin")
+		if (target_zone == TARGET_GROIN)
 			msg = "<span class='warning'>[user]'s hand slips, damaging several organs in [target]'s lower abdomen with \the [tool]</span>"
 			self_msg = "<span class='warning'>Your hand slips, damaging several organs in [target]'s lower abdomen with \the [tool]!</span>"
 		user.visible_message(msg, self_msg)

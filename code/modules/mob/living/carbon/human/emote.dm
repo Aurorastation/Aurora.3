@@ -314,8 +314,8 @@
 		if("snap", "snaps")
 			m_type = 2
 			var/mob/living/carbon/human/H = src
-			var/obj/item/organ/external/L = H.get_organ("l_hand")
-			var/obj/item/organ/external/R = H.get_organ("r_hand")
+			var/obj/item/organ/external/L = H.get_organ(TARGET_L_HAND)
+			var/obj/item/organ/external/R = H.get_organ(TARGET_R_HAND)
 			var/left_hand_good = 0
 			var/right_hand_good = 0
 			if(L && (!(L.status & ORGAN_DESTROYED)) && (!(L.status & ORGAN_BROKEN)))

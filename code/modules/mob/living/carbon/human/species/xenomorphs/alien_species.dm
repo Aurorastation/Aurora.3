@@ -19,16 +19,16 @@
 
 	has_limbs = list(
 		TARGET_CHEST =  list("path" = /obj/item/organ/external/chest/unbreakable),
-		"groin" =  list("path" = /obj/item/organ/external/groin/unbreakable),
+		TARGET_GROIN =  list("path" = /obj/item/organ/external/groin/unbreakable),
 		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/unbreakable),
-		"l_arm" =  list("path" = /obj/item/organ/external/arm/unbreakable),
-		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/unbreakable),
-		"l_leg" =  list("path" = /obj/item/organ/external/leg/unbreakable),
-		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/unbreakable),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/unbreakable),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/unbreakable),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/unbreakable),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/unbreakable)
+		TARGET_L_ARM =  list("path" = /obj/item/organ/external/arm/unbreakable),
+		TARGET_R_ARM =  list("path" = /obj/item/organ/external/arm/right/unbreakable),
+		TARGET_L_LEG =  list("path" = /obj/item/organ/external/leg/unbreakable),
+		TARGET_R_LEG =  list("path" = /obj/item/organ/external/leg/right/unbreakable),
+		TARGET_L_HAND = list("path" = /obj/item/organ/external/hand/unbreakable),
+		TARGET_R_HAND = list("path" = /obj/item/organ/external/hand/right/unbreakable),
+		TARGET_L_FOOT = list("path" = /obj/item/organ/external/foot/unbreakable),
+		TARGET_R_FOOT = list("path" = /obj/item/organ/external/foot/right/unbreakable)
 		)
 
 	eyes = "blank_eyes"

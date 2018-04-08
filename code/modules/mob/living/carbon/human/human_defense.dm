@@ -55,9 +55,9 @@ emp_act
 	switch (def_zone)
 		if(TARGET_HEAD)
 			agony_amount *= 1.50
-		if("l_hand", "r_hand")
+		if(TARGET_L_HAND, TARGET_R_HAND)
 			var/c_hand
-			if (def_zone == "l_hand")
+			if (def_zone == TARGET_L_HAND)
 				c_hand = l_hand
 			else
 				c_hand = r_hand

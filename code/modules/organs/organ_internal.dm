@@ -43,7 +43,7 @@
 	icon_state = "kidneys"
 	gender = PLURAL
 	organ_tag = "kidneys"
-	parent_organ = "groin"
+	parent_organ = TARGET_GROIN
 
 /obj/item/organ/kidneys/process()
 
@@ -99,7 +99,7 @@
 	name = "liver"
 	icon_state = "liver"
 	organ_tag = "liver"
-	parent_organ = "groin"
+	parent_organ = TARGET_GROIN
 
 /obj/item/organ/liver/process()
 
@@ -160,7 +160,7 @@
 /obj/item/organ/appendix
 	name = "appendix"
 	icon_state = "appendix"
-	parent_organ = "groin"
+	parent_organ = TARGET_GROIN
 	organ_tag = "appendix"
 
 /obj/item/organ/appendix/removed()

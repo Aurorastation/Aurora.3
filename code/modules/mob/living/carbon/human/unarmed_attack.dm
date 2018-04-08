@@ -30,11 +30,11 @@ var/global/list/sparring_attack_cache = list()
 		return 0
 
 	// Check if they have a functioning hand.
-	var/obj/item/organ/external/E = user.organs_by_name["l_hand"]
+	var/obj/item/organ/external/E = user.organs_by_name[TARGET_L_HAND]
 	if(E && !E.is_stump())
 		return 1
 
-	E = user.organs_by_name["r_hand"]
+	E = user.organs_by_name[TARGET_R_HAND]
 	if(E && !E.is_stump())
 		return 1
 
@@ -56,13 +56,13 @@ var/global/list/sparring_attack_cache = list()
 				// Induce blurriness
 				target.visible_message("<span class='danger'>[target] looks momentarily disoriented.</span>", "<span class='danger'>You see stars.</span>")
 				target.apply_effect(attack_damage*2, EYE_BLUR, armour)
-			if("l_arm", "l_hand")
+			if(TARGET_L_ARM, TARGET_L_HAND)
 				if (target.l_hand)
 					// Disarm left hand
 					//Urist McAssistant dropped the macguffin with a scream just sounds odd. Plus it doesn't work with NO_PAIN
 					target.visible_message("<span class='danger'>\The [target.l_hand] was knocked right out of [target]'s grasp!</span>")
 					target.drop_l_hand()
-			if("r_arm", "r_hand")
+			if(TARGET_R_ARM, TARGET_R_HAND)
 				if (target.r_hand)
 					// Disarm right hand
 					target.visible_message("<span class='danger'>\The [target.r_hand] was knocked right out of [target]'s grasp!</span>")
@@ -78,10 +78,10 @@ var/global/list/sparring_attack_cache = list()
 					if(prob(50))
 						target.set_dir(reverse_dir[target.dir])
 					target.apply_effect(attack_damage * 0.4, WEAKEN, armour)
-			if("groin")
+			if(TARGET_GROIN)
 				target.visible_message("<span class='warning'>[target] looks like \he is in pain!</span>", "<span class='warning'>[(target.gender=="female") ? "Oh god that hurt!" : "Oh no, not your[pick("testicles", "crown jewels", "clockweights", "family jewels", "marbles", "bean bags", "teabags", "sweetmeats", "goolies")]!"]</span>")
 				target.apply_effects(stutter = attack_damage * 2, agony = attack_damage* 3, blocked = armour)
-			if("l_leg", "l_foot", "r_leg", "r_foot")
+			if(TARGET_L_LEG, TARGET_L_FOOT, TARGET_R_LEG, TARGET_R_FOOT)
 				if(!target.lying)
 					target.visible_message("<span class='warning'>[target] gives way slightly.</span>")
 					target.apply_effect(attack_damage*3, AGONY, armour)
@@ -182,14 +182,14 @@ var/global/list/sparring_attack_cache = list()
 	if (user.legcuffed)
 		return 0
 
-	if(!(zone in list("l_leg", "r_leg", "l_foot", "r_foot", "groin")))
+	if(!(zone in list(TARGET_L_LEG, TARGET_R_LEG, TARGET_L_FOOT, TARGET_R_FOOT, TARGET_GROIN)))
 		return 0
 
-	var/obj/item/organ/external/E = user.organs_by_name["l_foot"]
+	var/obj/item/organ/external/E = user.organs_by_name[TARGET_L_FOOT]
 	if(E && !E.is_stump())
 		return 1
 
-	E = user.organs_by_name["r_foot"]
+	E = user.organs_by_name[TARGET_R_FOOT]
 	if(E && !E.is_stump())
 		return 1
 
@@ -227,14 +227,14 @@ var/global/list/sparring_attack_cache = list()
 	if(!istype(target))
 		return 0
 
-	if (!user.lying && (target.lying || (zone in list("l_foot", "r_foot"))))
+	if (!user.lying && (target.lying || (zone in list(TARGET_L_FOOT, TARGET_R_FOOT))))
 		if(target.grabbed_by == user && target.lying)
 			return 0
-		var/obj/item/organ/external/E = user.organs_by_name["l_foot"]
+		var/obj/item/organ/external/E = user.organs_by_name[TARGET_L_FOOT]
 		if(E && !E.is_stump())
 			return 1
 
-		E = user.organs_by_name["r_foot"]
+		E = user.organs_by_name[TARGET_R_FOOT]
 		if(E && !E.is_stump())
 			return 1
 

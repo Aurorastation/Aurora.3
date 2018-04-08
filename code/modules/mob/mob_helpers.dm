@@ -172,15 +172,15 @@ proc/getsensorlevel(A)
 var/list/global/base_miss_chance = list(
 	TARGET_HEAD = 40,
 	TARGET_CHEST = 10,
-	"groin" = 20,
-	"l_leg" = 20,
-	"r_leg" = 20,
-	"l_arm" = 20,
-	"r_arm" = 20,
-	"l_hand" = 50,
-	"r_hand" = 50,
-	"l_foot" = 50,
-	"r_foot" = 50
+	TARGET_GROIN = 20,
+	TARGET_L_LEG = 20,
+	TARGET_R_LEG = 20,
+	TARGET_L_ARM = 20,
+	TARGET_R_ARM = 20,
+	TARGET_L_HAND = 50,
+	TARGET_R_HAND = 50,
+	TARGET_L_FOOT = 50,
+	TARGET_R_FOOT = 50
 )
 
 //Used to weight organs when an organ is hit randomly (i.e. not a directed, aimed attack).
@@ -188,15 +188,15 @@ var/list/global/base_miss_chance = list(
 var/list/global/organ_rel_size = list(
 	TARGET_HEAD = 25,
 	TARGET_CHEST = 70,
-	"groin" = 30,
-	"l_leg" = 25,
-	"r_leg" = 25,
-	"l_arm" = 25,
-	"r_arm" = 25,
-	"l_hand" = 10,
-	"r_hand" = 10,
-	"l_foot" = 10,
-	"r_foot" = 10
+	TARGET_GROIN = 30,
+	TARGET_L_LEG = 25,
+	TARGET_R_LEG = 25,
+	TARGET_L_ARM = 25,
+	TARGET_R_ARM = 25,
+	TARGET_L_HAND = 10,
+	TARGET_R_HAND = 10,
+	TARGET_L_FOOT = 10,
+	TARGET_R_FOOT = 10
 )
 
 /proc/check_zone(zone)
@@ -222,15 +222,15 @@ var/list/global/organ_rel_size = list(
 		ran_zone = pick (
 			organ_rel_size[TARGET_HEAD]; TARGET_HEAD,
 			organ_rel_size[TARGET_CHEST]; TARGET_CHEST,
-			organ_rel_size["groin"]; "groin",
-			organ_rel_size["l_arm"]; "l_arm",
-			organ_rel_size["r_arm"]; "r_arm",
-			organ_rel_size["l_leg"]; "l_leg",
-			organ_rel_size["r_leg"]; "r_leg",
-			organ_rel_size["l_hand"]; "l_hand",
-			organ_rel_size["r_hand"]; "r_hand",
-			organ_rel_size["l_foot"]; "l_foot",
-			organ_rel_size["r_foot"]; "r_foot"
+			organ_rel_size[TARGET_GROIN]; TARGET_GROIN,
+			organ_rel_size[TARGET_L_ARM]; TARGET_L_ARM,
+			organ_rel_size[TARGET_R_ARM]; TARGET_R_ARM,
+			organ_rel_size[TARGET_L_LEG]; TARGET_L_LEG,
+			organ_rel_size[TARGET_R_LEG]; TARGET_R_LEG,
+			organ_rel_size[TARGET_L_HAND]; TARGET_L_HAND,
+			organ_rel_size[TARGET_R_HAND]; TARGET_R_HAND,
+			organ_rel_size[TARGET_L_FOOT]; TARGET_L_FOOT,
+			organ_rel_size[TARGET_R_FOOT]; TARGET_R_FOOT
 		)
 
 	return ran_zone
