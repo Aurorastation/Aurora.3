@@ -5899,10 +5899,6 @@
 /area/security/armoury)
 "alx" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/armor/riot,
-/obj/item/clothing/head/helmet/riot,
-/obj/item/weapon/shield/riot,
-/obj/item/weapon/melee/baton/loaded,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 8
@@ -5916,6 +5912,10 @@
 	name = "Riot Gear Storage";
 	req_access = list(3)
 	},
+/obj/item/clothing/shoes/leg_guard/riot,
+/obj/item/clothing/gloves/arm_guard/riot,
+/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/head/helmet/riot,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "aly" = (
@@ -6406,10 +6406,6 @@
 /area/security/armoury)
 "amy" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/armor/riot,
-/obj/item/clothing/head/helmet/riot,
-/obj/item/weapon/shield/riot,
-/obj/item/weapon/melee/baton/loaded,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 8
@@ -6422,6 +6418,10 @@
 	name = "Riot Gear Storage";
 	req_access = list(3)
 	},
+/obj/item/clothing/shoes/leg_guard/riot,
+/obj/item/clothing/gloves/arm_guard/riot,
+/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/head/helmet/riot,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "amz" = (
@@ -6785,10 +6785,6 @@
 /area/security/armoury)
 "anu" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/armor/riot,
-/obj/item/clothing/head/helmet/riot,
-/obj/item/weapon/shield/riot,
-/obj/item/weapon/melee/baton/loaded,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 8
@@ -6804,6 +6800,10 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/item/clothing/shoes/leg_guard/riot,
+/obj/item/clothing/gloves/arm_guard/riot,
+/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/head/helmet/riot,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "anv" = (
@@ -13078,14 +13078,6 @@
 /area/security/armoury)
 "axl" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/armor/laserproof{
-	pixel_x = -2;
-	pixel_y = 2
-	},
-/obj/item/clothing/suit/armor/laserproof{
-	pixel_x = 2;
-	pixel_y = -2
-	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -13100,6 +13092,12 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/item/clothing/shoes/leg_guard/laserproof,
+/obj/item/clothing/shoes/leg_guard/laserproof,
+/obj/item/clothing/gloves/arm_guard/laserproof,
+/obj/item/clothing/gloves/arm_guard/laserproof,
+/obj/item/clothing/suit/armor/laserproof,
+/obj/item/clothing/suit/armor/laserproof,
 /obj/item/clothing/head/helmet/ablative,
 /obj/item/clothing/head/helmet/ablative,
 /turf/simulated/floor/tiled/dark,
@@ -13999,14 +13997,6 @@
 /area/security/armoury)
 "ayO" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/armor/bulletproof{
-	pixel_x = -2;
-	pixel_y = 2
-	},
-/obj/item/clothing/suit/armor/bulletproof{
-	pixel_x = 2;
-	pixel_y = -2
-	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -14018,6 +14008,12 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/item/clothing/shoes/leg_guard/bulletproof,
+/obj/item/clothing/shoes/leg_guard/bulletproof,
+/obj/item/clothing/gloves/arm_guard/bulletproof,
+/obj/item/clothing/gloves/arm_guard/bulletproof,
+/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/bulletproof,
 /obj/item/clothing/head/helmet/ballistic,
 /obj/item/clothing/head/helmet/ballistic,
 /turf/simulated/floor/tiled/dark,
