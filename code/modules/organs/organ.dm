@@ -12,7 +12,7 @@
 	var/max_damage
 	var/organ_tag = "organ"
 
-	var/parent_organ = "chest"
+	var/parent_organ = TARGET_CHEST
 	var/robotic = 0 //For being a robot
 	var/rejecting   // Is this organ already being rejected?
 

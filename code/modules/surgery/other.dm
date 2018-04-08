@@ -189,7 +189,7 @@
 			var/obj/item/weapon/weldingtool/welder = tool
 			if(!welder.isOn() || !welder.remove_fuel(1,user))
 				return 0
-		return (target_zone == "chest") && istype(target.back, /obj/item/weapon/rig) && !(target.back.canremove)
+		return (target_zone == TARGET_CHEST) && istype(target.back, /obj/item/weapon/rig) && !(target.back.canremove)
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		user.visible_message("[user] starts cutting through the support systems of [target]'s [target.back] with \the [tool]." , \

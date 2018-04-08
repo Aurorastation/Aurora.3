@@ -430,7 +430,7 @@
 			visible_message("\The [src] falls and lands on \the [loc]!",
 				"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
-	apply_damage(damage - limb_damage, BRUTE, "chest")
+	apply_damage(damage - limb_damage, BRUTE, TARGET_CHEST)
 
 	Weaken(rand(damage/4, damage/2))
 
@@ -544,7 +544,7 @@
 		var/mob/living/carbon/human/H = L
 		var/cranial_damage = rand(0,damage/2)
 		H.apply_damage(cranial_damage, BRUTE, TARGET_HEAD)
-		H.apply_damage((damage - cranial_damage), BRUTE, "chest")
+		H.apply_damage((damage - cranial_damage), BRUTE, TARGET_CHEST)
 
 		if (damage >= THROWNOBJ_KNOCKBACK_DIVISOR)
 			H.Weaken(rand(damage / 4, damage / 2))

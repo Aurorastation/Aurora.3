@@ -250,7 +250,7 @@ There are several things that need to be remembered:
 	var/icon/base_icon = SSicon_cache.human_icon_cache[icon_key]
 	if (!base_icon)	// Icon ain't in the cache, so generate it.
 		//BEGIN CACHED ICON GENERATION.
-		var/obj/item/organ/external/chest = get_organ("chest")
+		var/obj/item/organ/external/chest = get_organ(TARGET_CHEST)
 		base_icon = chest.get_icon()
 
 		for(var/obj/item/organ/external/part in organs)

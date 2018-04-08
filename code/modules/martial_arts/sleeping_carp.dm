@@ -92,7 +92,7 @@
 						  "<span class='danger'>[A] piledrives you with their elbow!</span>")
 		if(D.stat)
 			D.death() //FINISH HIM!
-		D.apply_damage(50, BRUTE, "chest")
+		D.apply_damage(50, BRUTE, TARGET_CHEST)
 		playsound(get_turf(D), 'sound/weapons/punch1.ogg', 75, 1, -1)
 		return 1
 	return basic_hit(A,D)

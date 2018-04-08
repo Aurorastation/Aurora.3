@@ -62,7 +62,7 @@
 	vision_flags = DEFAULT_SIGHT | SEE_MOBS
 
 	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest/unbreakable),
+		TARGET_CHEST =  list("path" = /obj/item/organ/external/chest/unbreakable),
 		"groin" =  list("path" = /obj/item/organ/external/groin/unbreakable),
 		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/unbreakable),
 		"l_arm" =  list("path" = /obj/item/organ/external/arm/unbreakable),

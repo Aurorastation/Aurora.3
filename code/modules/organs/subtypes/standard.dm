@@ -4,7 +4,7 @@
 
 /obj/item/organ/external/chest
 	name = "upper body"
-	limb_name = "chest"
+	limb_name = TARGET_CHEST
 	icon_name = "torso"
 	max_damage = 100
 	min_broken_damage = 35
@@ -29,7 +29,7 @@
 	w_class = 4
 	body_part = LOWER_TORSO
 	vital = 1
-	parent_organ = "chest"
+	parent_organ = TARGET_CHEST
 	amputation_point = "lumbar"
 	joint = "hip"
 	dislocated = -1
@@ -44,7 +44,7 @@
 	min_broken_damage = 30
 	w_class = 3
 	body_part = ARM_LEFT
-	parent_organ = "chest"
+	parent_organ = TARGET_CHEST
 	joint = "left elbow"
 	amputation_point = "left shoulder"
 	can_grasp = 1
@@ -149,7 +149,7 @@
 	w_class = 3
 	body_part = HEAD
 	vital = 1
-	parent_organ = "chest"
+	parent_organ = TARGET_CHEST
 	joint = "jaw"
 	amputation_point = "neck"
 	gendered_icon = 1

@@ -67,7 +67,7 @@ var/global/list/sparring_attack_cache = list()
 					// Disarm right hand
 					target.visible_message("<span class='danger'>\The [target.r_hand] was knocked right out of [target]'s grasp!</span>")
 					target.drop_r_hand()
-			if("chest")
+			if(TARGET_CHEST)
 				if(!target.lying)
 					var/turf/T = get_step(get_turf(target), get_dir(get_turf(user), get_turf(target)))
 					if(!T.density)

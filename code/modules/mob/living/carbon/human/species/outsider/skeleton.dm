@@ -55,7 +55,7 @@
 	spawn_flags = IS_RESTRICTED
 
 	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest/skeleton),
+		TARGET_CHEST =  list("path" = /obj/item/organ/external/chest/skeleton),
 		"groin" =  list("path" = /obj/item/organ/external/groin/skeleton),
 		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/skeleton),
 		"l_arm" =  list("path" = /obj/item/organ/external/arm/skeleton),

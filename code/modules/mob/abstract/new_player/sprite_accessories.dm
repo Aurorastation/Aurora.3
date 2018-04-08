@@ -1167,7 +1167,7 @@
 	tiger_stripes
 		name = "Tiger Stripes (Tajara)"
 		icon_state = "tiger"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","chest","groin")
+		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm",TARGET_CHEST,"groin")
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	taj_paw_socks
@@ -1185,13 +1185,13 @@
 	belly_hands_feet
 		name = "Hands,Feet,Belly Color (Minor)"
 		icon_state = "bellyhandsfeetsmall"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","groin","chest")
+		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","groin",TARGET_CHEST)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	patches
 		name = "Color Patches"
 		icon_state = "patches"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","chest","groin")
+		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand",TARGET_CHEST,"groin")
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	patchesface
@@ -1203,7 +1203,7 @@
 	bands
 		name = "Color Bands"
 		icon_state = "bands"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","chest","groin")
+		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand",TARGET_CHEST,"groin")
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	bandsface
@@ -1227,7 +1227,7 @@
 	backstripe
 		name = "Back Stripe"
 		icon_state = "backstripe"
-		body_parts = list("chest")
+		body_parts = list(TARGET_CHEST)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	taj_nose
@@ -1269,7 +1269,7 @@
 	una_scutes
 		name = "Scutes"
 		icon_state = "una_scutes"
-		body_parts = list("chest")
+		body_parts = list(TARGET_CHEST)
 		species_allowed = list("Unathi")
 
 
@@ -1291,7 +1291,7 @@
 		plating
 			name = "Plating (Full)"
 			icon_state = "plating"
-			body_parts = list("chest", "l_arm", "r_arm", "l_leg", "r_leg")
+			body_parts = list(TARGET_CHEST, "l_arm", "r_arm", "l_leg", "r_leg")
 
 			l_arm
 				name = "Plating (Left arm)"
@@ -1311,7 +1311,7 @@
 
 			chest
 				name = "Plating (Chest)"
-				body_parts = list("chest")
+				body_parts = list(TARGET_CHEST)
 
 	zenghu
 		icon = 'icons/mob/human_races/markings_zenghu.dmi'

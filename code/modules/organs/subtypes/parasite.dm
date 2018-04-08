@@ -42,7 +42,7 @@
 
 	organ_tag = "kois"
 
-	parent_organ = "chest"
+	parent_organ = TARGET_CHEST
 	stage_interval = 150
 
 /obj/item/organ/parasite/kois/process()

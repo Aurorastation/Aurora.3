@@ -118,7 +118,7 @@
 					sound = "anything"
 				else
 					switch(body_part)
-						if("chest")
+						if(TARGET_CHEST)
 							sound_strength = "hear"
 							sound = "no heartbeat"
 							if(heartbeat)

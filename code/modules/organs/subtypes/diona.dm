@@ -29,7 +29,7 @@
 
 /obj/item/organ/external/chest/diona
 	name = "core trunk"
-	limb_name = "chest"
+	limb_name = TARGET_CHEST
 	icon_name = "torso"
 	max_damage = 200
 	min_broken_damage = 50
@@ -51,7 +51,7 @@
 	min_broken_damage = 50
 	w_class = 4
 	body_part = LOWER_TORSO
-	parent_organ = "chest"
+	parent_organ = TARGET_CHEST
 	cannot_break = 1
 	dislocated = -1
 	joint = "structural ligament"
@@ -65,7 +65,7 @@
 	min_broken_damage = 20
 	w_class = 3
 	body_part = ARM_LEFT
-	parent_organ = "chest"
+	parent_organ = TARGET_CHEST
 	can_grasp = 1
 	cannot_break = 1
 	dislocated = -1
@@ -173,7 +173,7 @@
 	min_broken_damage = 25
 	w_class = 3
 	body_part = HEAD
-	parent_organ = "chest"
+	parent_organ = TARGET_CHEST
 	cannot_break = 1
 	dislocated = -1
 	joint = "structural ligament"
@@ -186,7 +186,7 @@
 
 /obj/item/organ/diona/strata
 	name = "neural strata"
-	parent_organ = "chest"
+	parent_organ = TARGET_CHEST
 	organ_tag = "neural strata"
 
 
@@ -223,7 +223,7 @@
 // species (absorbing radiation and light respectively)
 /obj/item/organ/diona/nutrients
 	name = "nutrient channel"
-	parent_organ = "chest"
+	parent_organ = TARGET_CHEST
 	organ_tag = "nutrient channel"
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "claw"

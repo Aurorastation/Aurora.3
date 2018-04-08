@@ -1320,7 +1320,7 @@ mob/proc/yank_out_object()
 /client/verb/body_chest()
  	set name = "body-chest"
  	set hidden = 1
- 	toggle_zone_sel(list("chest"))
+ 	toggle_zone_sel(list(TARGET_CHEST))
 
 /client/verb/body_groin()
  	set name = "body-groin"

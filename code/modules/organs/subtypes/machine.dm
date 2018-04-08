@@ -63,7 +63,7 @@
 	icon = 'icons/obj/power.dmi'
 	icon_state = "scell"
 	organ_tag = "cell"
-	parent_organ = "chest"
+	parent_organ = TARGET_CHEST
 	vital = 1
 	var/emp_counter = 0
 
@@ -159,7 +159,7 @@
 /obj/item/organ/mmi_holder/posibrain/terminator
 	name = "brain"
 	organ_tag = "brain"
-	parent_organ = "chest"
+	parent_organ = TARGET_CHEST
 	vital = 1
 	emp_coeff = 0.1
 
@@ -182,7 +182,7 @@
 	icon = 'icons/obj/power.dmi'
 	icon_state = "scell"
 	organ_tag = "shielded cell"
-	parent_organ = "chest"
+	parent_organ = TARGET_CHEST
 	vital = 1
 	emp_coeff = 0.1
 

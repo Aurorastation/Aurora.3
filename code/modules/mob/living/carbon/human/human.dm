@@ -207,7 +207,7 @@
 		switch(temp.name)
 			if(TARGET_HEAD)
 				update |= temp.take_damage(b_loss * 0.2, f_loss * 0.2, used_weapon = weapon_message)
-			if("chest")
+			if(TARGET_CHEST)
 				update |= temp.take_damage(b_loss * 0.4, f_loss * 0.4, used_weapon = weapon_message)
 			if("l_arm")
 				update |= temp.take_damage(b_loss * 0.05, f_loss * 0.05, used_weapon = weapon_message)
@@ -422,19 +422,19 @@
 		var/count = hairvar == 1 ? rand(1, 7) : rand(1, 6)
 		switch (count)
 			if(1)
-				damage_areas = list("l_hand", "l_arm", "chest", "r_arm", "r_hand")
+				damage_areas = list("l_hand", "l_arm", TARGET_CHEST, "r_arm", "r_hand")
 			if(2)
-				damage_areas = list("r_hand", "r_arm", "chest", "l_arm", "l_hand")
+				damage_areas = list("r_hand", "r_arm", TARGET_CHEST, "l_arm", "l_hand")
 			if(3)
-				damage_areas = list("l_hand", "l_arm", "chest", "groin", "l_leg", "l_foot")
+				damage_areas = list("l_hand", "l_arm", TARGET_CHEST, "groin", "l_leg", "l_foot")
 			if(4)
-				damage_areas = list("l_hand", "l_arm", "chest", "groin", "r_leg", "r_foot")
+				damage_areas = list("l_hand", "l_arm", TARGET_CHEST, "groin", "r_leg", "r_foot")
 			if(5)
-				damage_areas = list("r_hand", "r_arm", "chest", "groin", "r_leg", "r_foot")
+				damage_areas = list("r_hand", "r_arm", TARGET_CHEST, "groin", "r_leg", "r_foot")
 			if(6)
-				damage_areas = list("r_hand", "r_arm", "chest", "groin", "l_leg", "l_foot")
+				damage_areas = list("r_hand", "r_arm", TARGET_CHEST, "groin", "l_leg", "l_foot")
 			if(7)//snowflake arc - only happens when they have long hair.
-				damage_areas = list("r_hand", "r_arm", "chest", TARGET_HEAD)
+				damage_areas = list("r_hand", "r_arm", TARGET_CHEST, TARGET_HEAD)
 				h_style = "skinhead"
 				visible_message("<span class='warning'>[src]'s hair gets a burst of electricty through it, burning and turning to dust!</span>", "<span class='danger'>your hair burns as the current flows through it, turning to dust!</span>", "<span class='notice'>You hear a crackling sound, and smell burned hair!.</span>")
 				update_hair()
@@ -1379,7 +1379,7 @@
 
 	if(!target_zone)
 		if(!user)
-			target_zone = pick("chest","chest","chest","left leg","right leg","left arm", "right arm", TARGET_HEAD)
+			target_zone = pick(TARGET_CHEST,TARGET_CHEST,TARGET_CHEST,"left leg","right leg","left arm", "right arm", TARGET_HEAD)
 		else
 			target_zone = user.zone_sel.selecting
 

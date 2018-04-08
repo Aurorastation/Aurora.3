@@ -39,7 +39,7 @@
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_EYE_COLOR | HAS_FBP | HAS_UNDERWEAR | HAS_SOCKS
 
 	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest/shell),
+		TARGET_CHEST =  list("path" = /obj/item/organ/external/chest/shell),
 		"groin" =  list("path" = /obj/item/organ/external/groin/shell),
 		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/shell),
 		"l_arm" =  list("path" = /obj/item/organ/external/arm/shell),
@@ -88,7 +88,7 @@
 	show_ssd = "completely quiescent"
 
 	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest/industrial),
+		TARGET_CHEST =  list("path" = /obj/item/organ/external/chest/industrial),
 		"groin" =  list("path" = /obj/item/organ/external/groin/industrial),
 		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/industrial),
 		"l_arm" =  list("path" = /obj/item/organ/external/arm/industrial),
@@ -189,7 +189,7 @@
 	)
 
 	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest/terminator),
+		TARGET_CHEST =  list("path" = /obj/item/organ/external/chest/terminator),
 		"groin" =  list("path" = /obj/item/organ/external/groin/terminator),
 		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/terminator),
 		"l_arm" =  list("path" = /obj/item/organ/external/arm/terminator),
@@ -243,7 +243,7 @@
 	blurb = "An extremely durable and heavy Industrial model branded by Hephaestus Industries. It is their improved Industrial model, with thicker plating and improved power cell. Its actuators struggle to carry the immense weight, however, making the unit quite slow. This chassis would be seen in roles where it would be dangerous or inefficient to use a less durable unit, such as engineering, security, and mining. While this unit still possesses built-in cooling conduits, the increased plating and thickness of said plating proved a difficult challenge for the engineers to develop good cooling, so the unit suffers somewhat from increased heat loads. Overtaxing its hardware will quickly lead to overheating."
 
 	has_limbs = list(
-		"chest"  = list("path" = /obj/item/organ/external/chest/industrial/hephaestus),
+		TARGET_CHEST  = list("path" = /obj/item/organ/external/chest/industrial/hephaestus),
 		"groin"  = list("path" = /obj/item/organ/external/groin/industrial/hephaestus),
 		TARGET_HEAD   = list("path" = /obj/item/organ/external/head/industrial/hephaestus),
 		"l_arm"  = list("path" = /obj/item/organ/external/arm/industrial/hephaestus),
@@ -277,7 +277,7 @@
 	blurb = "The Xion Manufacturing Group, being a subsidiary of Hephaestus Industries, saw the original Industrial models and wanted to develop their own chassis based off of the original design. The result is the Xion Industrial model. Sturdy and strong, this chassis is quite powerful and equally durable, with an ample power cell and improved actuators for carrying the increased weight of the body. The Xion model also retains sturdiness without covering the chassis in plating, allowing for the cooling systems to vent heat much easier than the Hephaestus-brand model. The Group did not wish to leave exposed cooling conduits, however, so this chassis will require a suit to perform EVA."
 
 	has_limbs = list(
-		"chest"  = list("path" = /obj/item/organ/external/chest/industrial/xion),
+		TARGET_CHEST  = list("path" = /obj/item/organ/external/chest/industrial/xion),
 		"groin"  = list("path" = /obj/item/organ/external/groin/industrial/xion),
 		TARGET_HEAD   = list("path" = /obj/item/organ/external/head/industrial/xion),
 		"l_arm"  = list("path" = /obj/item/organ/external/arm/industrial/xion),
@@ -313,7 +313,7 @@
 	blurb = "Being a corporation focused primarily on medical sciences and treatments, Zeng-Hu Pharmaceuticals had little interest in the market of synthetics in the beginning (especially considering a good portion of Zeng-Hu employees are Skrellian). However, after seeing the advances in almost all fields of the galactic market after the advent of synthetics, Zeng-Hu set aside some funds for their own robotics department, focused mainly on medical service and even science related operations. Having taken some inspiration from biological life, the chassis has an interesting leg design: digitigrade legs provide the chassis with enhanced speed. A downside to this development was the reduction of metals on the chassis. Most plates covering the sensitive interior electronics are polymer casts to reduce the weight of the unit, resulting in a not-so-durable android."
 
 	has_limbs = list(
-		"chest"  = list("path" = /obj/item/organ/external/chest/industrial/zenghu),
+		TARGET_CHEST  = list("path" = /obj/item/organ/external/chest/industrial/zenghu),
 		"groin"  = list("path" = /obj/item/organ/external/groin/industrial/zenghu),
 		TARGET_HEAD   = list("path" = /obj/item/organ/external/head/industrial/zenghu),
 		"l_arm"  = list("path" = /obj/item/organ/external/arm/industrial/zenghu),
@@ -351,7 +351,7 @@
 	blurb = "Bishop Cybernetics frames are among the sleeker, flashier frames widely produced for IPCs. This brand-new, high end design has a focus on pioneering energy efficiency without sacrifice, fitting to Bishop's company vision. Cutting-edge technology in power management means this frame can operate longer while running more demanding processing algorithms than most. This extreme push to minimize power draw means this frame can be equipped with all sorts of extra equipment: a hologram for a face, flashing status displays and embedded lights solely meant for show. The one thing holding this frame back from perfection is the same common criticism leveled against almost all Bishop products: the shiny chrome and glass meant to put all of this tech on display means it's exposed and fragile. It's because of Bishop's unrelenting pursuit of vanity in their designs that these frames often suffer from issues with reliability and struggle to safely perform the same work as cheaper, more rugged frames."
 
 	has_limbs = list(
-		"chest"  = list("path" = /obj/item/organ/external/chest/industrial/bishop),
+		TARGET_CHEST  = list("path" = /obj/item/organ/external/chest/industrial/bishop),
 		"groin"  = list("path" = /obj/item/organ/external/groin/industrial/bishop),
 		TARGET_HEAD   = list("path" = /obj/item/organ/external/head/industrial/bishop),
 		"l_arm"  = list("path" = /obj/item/organ/external/arm/industrial/bishop),
@@ -385,7 +385,7 @@
 	spawn_flags = IS_RESTRICTED
 
 	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest/unbranded),
+		TARGET_CHEST =  list("path" = /obj/item/organ/external/chest/unbranded),
 		"groin" =  list("path" = /obj/item/organ/external/groin/unbranded),
 		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/unbranded),
 		"l_arm" =  list("path" = /obj/item/organ/external/arm/unbranded),

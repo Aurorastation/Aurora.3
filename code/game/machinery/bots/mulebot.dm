@@ -716,7 +716,7 @@
 
 	var/damage = rand(5,15)
 	H.apply_damage(2*damage, BRUTE, TARGET_HEAD)
-	H.apply_damage(2*damage, BRUTE, "chest")
+	H.apply_damage(2*damage, BRUTE, TARGET_CHEST)
 	H.apply_damage(0.5*damage, BRUTE, "l_leg")
 	H.apply_damage(0.5*damage, BRUTE, "r_leg")
 	H.apply_damage(0.5*damage, BRUTE, "l_arm")

@@ -2,14 +2,14 @@
 	name = "heart"
 	icon_state = "heart-on"
 	organ_tag = "left heart"
-	parent_organ = "chest"
+	parent_organ = TARGET_CHEST
 	dead_icon = "heart-off"
 
 /obj/item/organ/heart/right
 	name = "heart"
 	icon_state = "heart-on"
 	organ_tag = "right heart"
-	parent_organ = "chest"
+	parent_organ = TARGET_CHEST
 	dead_icon = "heart-off"
 
 /obj/item/organ/vaurca/neuralsocket
@@ -54,7 +54,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 /obj/item/organ/vaurca/preserve
 	name = "phoron reserve tank"
 	organ_tag = "phoron reserve tank"
-	parent_organ = "chest"
+	parent_organ = TARGET_CHEST
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "breathing_app"
 	robotic = 1

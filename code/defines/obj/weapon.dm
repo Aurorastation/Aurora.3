@@ -90,7 +90,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("bludgeoned", "whacked", "disciplined", "thrashed")
 
-/obj/item/weapon/cane/attack(mob/living/target, mob/living/carbon/human/user, target_zone = "chest")
+/obj/item/weapon/cane/attack(mob/living/target, mob/living/carbon/human/user, target_zone = TARGET_CHEST)
 
 	if(!(istype(target) && istype(user)))
 		return ..()

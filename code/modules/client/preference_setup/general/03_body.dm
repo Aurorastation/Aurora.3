@@ -228,7 +228,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					organ_name = "right hand"
 				if("groin")
 					organ_name = "lower body"
-				if("chest")
+				if(TARGET_CHEST)
 					organ_name = "upper body"
 				if(TARGET_HEAD)
 					organ_name = TARGET_HEAD
@@ -550,7 +550,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				limb = "groin"
 				carries_organs = 1
 			if("Upper Body")
-				limb = "chest"
+				limb = TARGET_CHEST
 				carries_organs = 1
 			if("Head")
 				limb = TARGET_HEAD

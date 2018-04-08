@@ -168,7 +168,7 @@
 	var/breathing_organ           // If set, this organ is required to breathe. Defaults to "lungs" if the species has them.
 
 	var/list/has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest),
+		TARGET_CHEST =  list("path" = /obj/item/organ/external/chest),
 		"groin" =  list("path" = /obj/item/organ/external/groin),
 		TARGET_HEAD =   list("path" = /obj/item/organ/external/head),
 		"l_arm" =  list("path" = /obj/item/organ/external/arm),

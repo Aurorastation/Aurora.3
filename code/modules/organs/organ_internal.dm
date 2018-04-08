@@ -10,7 +10,7 @@
 	name = "heart"
 	icon_state = "heart-on"
 	organ_tag = "heart"
-	parent_organ = "chest"
+	parent_organ = TARGET_CHEST
 	dead_icon = "heart-off"
 
 /obj/item/organ/lungs
@@ -18,7 +18,7 @@
 	icon_state = "lungs"
 	gender = PLURAL
 	organ_tag = "lungs"
-	parent_organ = "chest"
+	parent_organ = TARGET_CHEST
 
 /obj/item/organ/lungs/process()
 	..()

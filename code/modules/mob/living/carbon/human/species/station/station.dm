@@ -288,7 +288,7 @@
 	)
 
 	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest/diona),
+		TARGET_CHEST =  list("path" = /obj/item/organ/external/chest/diona),
 		"groin" =  list("path" = /obj/item/organ/external/groin/diona),
 		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/diona),
 		"l_arm" =  list("path" = /obj/item/organ/external/arm/diona),
@@ -462,7 +462,7 @@
 	vision_organ = "optics"
 
 	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest/ipc),
+		TARGET_CHEST =  list("path" = /obj/item/organ/external/chest/ipc),
 		"groin" =  list("path" = /obj/item/organ/external/groin/ipc),
 		TARGET_HEAD =   list("path" = /obj/item/organ/external/head/ipc),
 		"l_arm" =  list("path" = /obj/item/organ/external/arm/ipc),

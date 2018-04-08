@@ -128,7 +128,7 @@ datum/unit_test/mob_damage
 	var/mob_type = /mob/living/carbon/human
 	var/expected_vulnerability = STANDARD
 	var/check_health = 0
-	var/damage_location = "chest"
+	var/damage_location = TARGET_CHEST
 
 datum/unit_test/mob_damage/start_test()
 	var/list/test = create_test_mob_with_mind(null, mob_type)

@@ -175,7 +175,7 @@ Proc for attack log creation, because really why not
 	if(G && G.state >= GRAB_NECK) //works because mobs are currently not allowed to upgrade to NECK if they are grabbing two people.
 		return pick(TARGET_HEAD, "l_hand", "r_hand", "l_foot", "r_foot", "l_arm", "r_arm", "l_leg", "r_leg")
 	else
-		return pick("chest", "groin")
+		return pick(TARGET_CHEST, "groin")
 
 
 // Returns true if M was not already in the dead mob list

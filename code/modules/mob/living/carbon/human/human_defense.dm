@@ -276,7 +276,7 @@ emp_act
 					if(glasses && prob(33))
 						glasses.add_blood(src)
 						update_inv_glasses(0)
-				if("chest")
+				if(TARGET_CHEST)
 					bloody_body(src)
 
 	return 1
@@ -323,7 +323,7 @@ emp_act
 			var/mob/living/L = O.thrower
 			zone = check_zone(L.zone_sel.selecting)
 		else
-			zone = ran_zone("chest",75)	//Hits a random part of the body, geared towards the chest
+			zone = ran_zone(TARGET_CHEST,75)	//Hits a random part of the body, geared towards the chest
 
 		//check if we hit
 		var/miss_chance = 15
