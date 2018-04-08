@@ -102,6 +102,12 @@
 		else
 			user << "<span class='danger'>The rod appears to do nothing.</span>"
 			M.visible_message("<span class='danger'>\The [user] waves \the [src] over \the [M]'s head.</span>")
+			if(ishuman(M))
+				var/mob/living/carbon/human/H = M
+				if(prob(15))
+					H.cure_all_traumas(cure_type = CURE_SOLITUDE)
+				else if(prob(10))
+					H.cure_all_traumas(cure_type = CURE_CRYSTAL)
 			return
 		M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Is being deconverted with the [src.name] by [user.name] ([user.ckey])</font>")
 		user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to attempt to deconvert [M.name] ([M.ckey])</font>")

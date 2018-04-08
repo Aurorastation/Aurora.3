@@ -111,7 +111,8 @@
 	var/drowsyness = 0.0//Carbon
 	var/charges = 0.0
 	var/nutrition = 400.0//Carbon
-	var/nutrition_loss = HUNGER_FACTOR//How much hunger is lost per tick. This is modified by species
+	var/nutrition_loss = HUNGER_FACTOR //How much hunger is lost per tick. This is modified by species
+	var/nutrition_attrition_rate = 1   // A multiplier for how much this specific mob loses per tick.
 	var/max_nutrition = 400
 
 	var/overeatduration = 0		// How long this guy is overeating //Carbon
