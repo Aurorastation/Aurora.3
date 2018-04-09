@@ -4985,17 +4985,6 @@
 	var/reagent_string = pick(list("cream","coco","cherryjelly","mint","frostoil","capsaicin","cream","coffee","milkshake"))
 	reagents.add_reagent(reagent_string, 2)
 
-/obj/item/weapon/reagent_containers/food/snacks/last_meal
-	name = "last meal"
-	desc = "Meatloaf stuffed with butter, and some bacon on top to go with it."
-	icon_state = "stupid_bread"
-	nutriment_desc = list("cholesterol" = 10)
-	nutriment_amt = 10
-
-/obj/item/weapon/reagent_containers/food/snacks/last_meal/Initialize()
-	. = ..()
-	reagents.add_reagent("protein", 10)
-
 /obj/item/weapon/reagent_containers/food/snacks/bacon_flatbread
 	name = "bacon cheese flatbread"
 	desc = "Not a pizza."
