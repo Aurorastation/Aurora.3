@@ -1,5 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-//Model dictionary trimmed on: 08-04-2018 16:07 (UTC)
 "aa" = (
 /turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
@@ -2445,7 +2444,7 @@
 	dir = 8
 	},
 /obj/structure/punching_bag,
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/tiled,
 /area/security/training)
 "ex" = (
 /obj/effect/floor_decal/corner/red{
@@ -2453,7 +2452,7 @@
 	dir = 5
 	},
 /obj/structure/weightlifter,
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/tiled,
 /area/security/training)
 "ey" = (
 /obj/effect/floor_decal/corner/red{
@@ -2463,7 +2462,7 @@
 /obj/structure/table/standard,
 /obj/item/clothing/gloves/boxing/green,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/tiled,
 /area/security/training)
 "ez" = (
 /obj/structure/table/standard,
@@ -2556,7 +2555,7 @@
 	c_tag = "Security - Gymnasium";
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/tiled,
 /area/security/training)
 "eJ" = (
 /obj/effect/floor_decal/corner/blue{
@@ -2567,7 +2566,7 @@
 	icon_state = "intact-supply";
 	dir = 6
 	},
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/tiled,
 /area/security/training)
 "eK" = (
 /obj/effect/floor_decal/corner/blue/full{
@@ -2581,7 +2580,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/tiled,
 /area/security/training)
 "eL" = (
 /obj/effect/floor_decal/corner/green{
@@ -2594,7 +2593,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/tiled,
 /area/security/training)
 "eM" = (
 /obj/effect/floor_decal/corner/blue{
@@ -2688,11 +2687,11 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/tiled,
 /area/security/training)
 "eV" = (
 /obj/effect/floor_decal/corner/blue/full,
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/tiled,
 /area/security/training)
 "eW" = (
 /obj/effect/floor_decal/corner/blue{
@@ -2700,21 +2699,21 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/tiled,
 /area/security/training)
 "eX" = (
 /obj/effect/floor_decal/corner/blue/full{
 	icon_state = "corner_white_full";
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/tiled,
 /area/security/training)
 "eY" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
 	dir = 6
 	},
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/tiled,
 /area/security/training)
 "eZ" = (
 /obj/machinery/door/firedoor,
@@ -2781,7 +2780,7 @@
 	pixel_x = 0;
 	pixel_y = -32
 	},
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/tiled,
 /area/security/training)
 "fh" = (
 /obj/effect/floor_decal/corner/green{
@@ -2792,21 +2791,21 @@
 	dir = 9;
 	pixel_y = 0
 	},
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/tiled,
 /area/security/training)
 "fi" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
 	dir = 10
 	},
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/tiled,
 /area/security/training)
 "fj" = (
 /obj/effect/floor_decal/corner/green/full{
 	icon_state = "corner_white_full";
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/tiled,
 /area/security/training)
 "fk" = (
 /obj/structure/flora/pottedplant/random,
@@ -5345,14 +5344,14 @@
 	dir = 5
 	},
 /obj/structure/weightlifter,
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/tiled,
 /area/mine/unexplored)
 "jB" = (
 /obj/effect/floor_decal/corner/blue/full{
 	icon_state = "corner_white_full";
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/tiled,
 /area/mine/unexplored)
 "jC" = (
 /obj/machinery/door/firedoor,
@@ -6673,6 +6672,7 @@
 	dir = 5
 	},
 /obj/machinery/requests_console{
+	department = "Psychiatry";
 	pixel_x = 32;
 	pixel_y = 0
 	},
@@ -39267,7 +39267,7 @@ db
 ew
 eI
 eU
-ff
+dM
 dc
 fA
 fW
