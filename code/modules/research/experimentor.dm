@@ -89,8 +89,7 @@
 		. = 1
 		if(!is_insertion_ready(user))
 			return
-		/*if(!user.transferItemToLoc(O, src))
-			return*/
+		O.forceMove(src)
 		loaded_item = O
 		to_chat(user, "<span class='notice'>You add [O] to the machine.</span>")
 		flick("h_lathe_load", src)
@@ -104,6 +103,10 @@
 
 	data["power"] = stat & (NOPOWER|BROKEN) ? 0 : 1
 	data["loadeditem"] = loaded_item
+	data["linked_console"] = linked_console
+	data["relic"] = 0
+	if(istype(loaded_item,/obj/item/relic))
+		data["relic"] = 1
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
@@ -117,49 +120,7 @@
 		return
 
 	ui_interact(user)
-	
-	/*var/list/dat = list("<center>")
-	//if(!linked_console)
-		//dat += "<b><a href='byond://?src=[REF(src)];function=search'>Scan for R&D Console</A></b>"
-	if(loaded_item)
-		dat += "<b>Loaded Item:</b> [loaded_item]"
 
-		/* dat += "<div>Available tests:"
-		dat += "<b><a href='byond://?src=[REF(src)];item=[REF(loaded_item)];function=[SCANTYPE_POKE]'>Poke</A></b>"
-		dat += "<b><a href='byond://?src=[REF(src)];item=[REF(loaded_item)];function=[SCANTYPE_IRRADIATE];'>Irradiate</A></b>"
-		dat += "<b><a href='byond://?src=[REF(src)];item=[REF(loaded_item)];function=[SCANTYPE_GAS]'>Gas</A></b>"
-		dat += "<b><a href='byond://?src=[REF(src)];item=[REF(loaded_item)];function=[SCANTYPE_HEAT]'>Burn</A></b>"
-		dat += "<b><a href='byond://?src=[REF(src)];item=[REF(loaded_item)];function=[SCANTYPE_COLD]'>Freeze</A></b>"
-		dat += "<b><a href='byond://?src=[REF(src)];item=[REF(loaded_item)];function=[SCANTYPE_OBLITERATE]'>Destroy</A></b></div>"
-		*/
-		//if(istype(loaded_item,/obj/item/relic))
-			//dat += "<b><a href='byond://?src=[REF(src)];item=[REF(loaded_item)];function=[SCANTYPE_DISCOVER]'>Discover</A></b>"
-		//dat += "<b><a href='byond://?src=[REF(src)];function=eject'>Eject</A>"
-		/*var/list/listin = techweb_item_boost_check(src)
-		if(listin)
-			var/list/output = list("<b><font color='purple'>Research Boost Data:</font></b>")
-			var/list/res = list("<b><font color='blue'>Already researched:</font></b>")
-			var/list/boosted = list("<b><font color='red'>Already boosted:</font></b>")
-			for(var/node_id in listin)
-				var/datum/techweb_node/N = get_techweb_node_by_id(node_id)
-				var/str = "<b>[N.display_name]</b>: [listin[N]] points.</b>"
-				if(SSresearch.science_tech.researched_nodes[N])
-					res += str
-				else if(SSresearch.science_tech.boosted_nodes[N])
-					boosted += str
-				if(SSresearch.science_tech.visible_nodes[N])	//JOY OF DISCOVERY!
-					output += str
-			output += boosted + res
-			dat += output*/
-	else
-		dat += "<b>Nothing loaded.</b>"
-	//dat += "<a href='byond://?src=[REF(src)];function=refresh'>Refresh</A>"
-	//dat += "<a href='byond://?src=[REF(src)];close=1'>Close</A></center>"
-	var/datum/browser/popup = new(user, "experimentor","Experimentor", 700, 400, src)
-	popup.set_content(dat.Join("<br>"))
-	popup.open()
-	onclose(user, "experimentor")
-*/
 /obj/machinery/rnd/experimentor/Topic(href, href_list)
 	if(..())
 		return
@@ -168,9 +129,6 @@
 	var/scantype = href_list["function"]
 	var/obj/item/process = locate(href_list["item"]) in src
 
-	if(href_list["close"])
-		usr << browse(null, "window=experimentor")
-		return
 	if(scantype == "search")
 		var/obj/machinery/computer/rdconsole/D = locate(/obj/machinery/computer/rdconsole) in oview(3,src)
 		if(D)
@@ -194,11 +152,24 @@
 				dotype = matchReaction(process,scantype)
 			experiment(dotype,process)
 			use_power(750)
-			/*if(dotype != FAIL)
-				var/list/datum/techweb_node/nodes = techweb_item_boost_check(process)
-				var/picked = pickweight(nodes)		//This should work.
-				if(linked_console)
-					linked_console.stored_research.boost_with_path(picked, process.type)*/
+			if(dotype != FAIL)
+				//for(var/T in loaded_item.origin_tech)
+				//	files.UpdateTech(T, loaded_item.origin_tech[T])
+				loaded_item = null
+				for(var/obj/I in contents)
+					for(var/mob/M in I.contents)
+						M.death()
+						qdel(M)
+					if(istype(I,/obj/item/stack/material))//Only deconsturcts one sheet at a time instead of the entire stack
+						var/obj/item/stack/material/S = I
+						if(S.get_amount() > 1)
+							S.use(1)
+							loaded_item = S
+						else
+							qdel(S)
+					else
+						if(!(I in component_parts))
+							qdel(I)
 	updateUsrDialog()
 
 /obj/machinery/rnd/experimentor/proc/matchReaction(matching,reaction)

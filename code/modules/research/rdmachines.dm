@@ -81,3 +81,20 @@
 		to_chat(user, "<span class='warning'>[src] is already loaded.</span>")
 		return FALSE
 	return TRUE
+
+/obj/machinery/rnd/attackby(obj/item/O, mob/user, params)
+/*	if (default_deconstruction_screwdriver(user, "[initial(icon_state)]_t", initial(icon_state), O))
+		if(linked_console)
+			disconnect_console()
+		return
+	if(exchange_parts(user, O))
+		return
+	if(default_deconstruction_crowbar(O))
+		return
+	if(is_refillable() && O.is_drainable())
+		return FALSE //inserting reagents into the machine 
+*/
+	if(Insert_Item(O, user))
+		return TRUE
+	else
+		return ..()
