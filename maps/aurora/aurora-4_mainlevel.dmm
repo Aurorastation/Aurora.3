@@ -2797,13 +2797,13 @@
 /obj/machinery/recharger/wallcharger{
 	pixel_y = 22
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber,
 /obj/machinery/recharger/wallcharger{
 	pixel_y = 32
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/security/main)
 "afA" = (
@@ -3210,11 +3210,11 @@
 "agr" = (
 /obj/structure/table/standard,
 /obj/item/weapon/hand_labeler,
-/obj/machinery/atmospherics/pipe/vent,
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/security/main)
 "ags" = (
@@ -3245,7 +3245,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/freezer,
 /area/security/main)
 "agv" = (
@@ -5505,7 +5505,7 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/vent,
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/security/main)
 "akH" = (
@@ -65978,11 +65978,11 @@
 	icon_state = "alarm0";
 	pixel_x = -22
 	},
-/obj/machinery/atmospherics/pipe/vent,
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Bathroom";
 	dir = 4
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/freezer,
 /area/security/main)
 "clQ" = (
