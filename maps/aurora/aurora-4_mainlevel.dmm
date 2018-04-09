@@ -6466,13 +6466,12 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "amI" = (
-/obj/machinery/light/spot{
-	icon_state = "tube1";
-	dir = 4
+/obj/structure/track{
+	icon_state = "track12"
 	},
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 8
+/obj/machinery/light/spot/weak{
+	icon_state = "tube_empty";
+	dir = 1
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -36781,6 +36780,19 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/triage)
+"bkR" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 8
+	},
+/obj/machinery/light/spot/weak{
+	icon_state = "tube_empty";
+	dir = 4
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/mining_main/eva)
 "bkS" = (
 /turf/simulated/floor/tiled/white,
 /area/medical/triage)
@@ -36832,6 +36844,14 @@
 "bkZ" = (
 /obj/structure/ore_box{
 	icon_state = "orebox1"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/mining_main/eva)
+"bla" = (
+/obj/structure/track{
+	icon_state = "track3"
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -64198,18 +64218,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/outpost/mining_main/eva)
-"cje" = (
-/obj/structure/track{
-	icon_state = "track3"
-	},
-/obj/machinery/light/spot{
-	icon_state = "tube1";
-	dir = 4
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/outpost/mining_main/eva)
 "cjf" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -87195,16 +87203,16 @@ ckP
 cju
 bkY
 clu
-amI
+bkR
 aoT
 clu
 clu
-amI
+bkR
 clu
 clu
 clu
 clu
-amI
+bkR
 aVv
 aab
 aab
@@ -87447,7 +87455,7 @@ cdb
 bZA
 bVT
 bRJ
-ciT
+amI
 ckP
 cju
 bkZ
@@ -88219,7 +88227,7 @@ bZA
 bVT
 bRJ
 ciV
-cje
+bla
 acK
 ckP
 cdP
