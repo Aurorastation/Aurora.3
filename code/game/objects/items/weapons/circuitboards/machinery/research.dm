@@ -4,7 +4,7 @@
 
 obj/item/weapon/circuitboard/rdserver
 	name = T_BOARD("R&D server")
-	build_path = "/obj/machinery/r_n_d/server"
+	build_path = "/obj/machinery/rnd/server"
 	board_type = "machine"
 	origin_tech = list(TECH_DATA = 3)
 	req_components = list(
@@ -13,7 +13,7 @@ obj/item/weapon/circuitboard/rdserver
 
 /obj/item/weapon/circuitboard/destructive_analyzer
 	name = T_BOARD("destructive analyzer")
-	build_path = "/obj/machinery/r_n_d/destructive_analyzer"
+	build_path = "/obj/machinery/rnd/destructive_analyzer"
 	board_type = "machine"
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2, TECH_DATA = 2)
 	req_components = list(
@@ -33,7 +33,7 @@ obj/item/weapon/circuitboard/rdserver
 
 /obj/item/weapon/circuitboard/protolathe
 	name = T_BOARD("protolathe")
-	build_path = "/obj/machinery/r_n_d/protolathe"
+	build_path = "/obj/machinery/rnd/protolathe"
 	board_type = "machine"
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2)
 	req_components = list(
@@ -44,7 +44,7 @@ obj/item/weapon/circuitboard/rdserver
 
 /obj/item/weapon/circuitboard/circuit_imprinter
 	name = T_BOARD("circuit imprinter")
-	build_path = "/obj/machinery/r_n_d/circuit_imprinter"
+	build_path = "/obj/machinery/rnd/circuit_imprinter"
 	board_type = "machine"
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2)
 	req_components = list(

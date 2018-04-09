@@ -36246,7 +36246,7 @@
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics)
 "bnE" = (
-/obj/machinery/r_n_d/circuit_imprinter,
+/obj/machinery/rnd/circuit_imprinter,
 /obj/item/weapon/reagent_containers/glass/beaker/sulphuric,
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics)
@@ -39297,7 +39297,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "bsZ" = (
-/obj/machinery/r_n_d/destructive_analyzer,
+/obj/machinery/rnd/destructive_analyzer,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
@@ -39310,7 +39310,7 @@
 /turf/simulated/floor/tiled,
 /area/rnd/lab)
 "btb" = (
-/obj/machinery/r_n_d/protolathe,
+/obj/machinery/rnd/protolathe,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
@@ -40366,7 +40366,7 @@
 /turf/simulated/floor/tiled,
 /area/rnd/lab)
 "buS" = (
-/obj/machinery/r_n_d/circuit_imprinter,
+/obj/machinery/rnd/circuit_imprinter,
 /obj/item/weapon/reagent_containers/glass/beaker/sulphuric,
 /turf/simulated/floor/tiled,
 /area/rnd/lab)
@@ -48493,7 +48493,7 @@
 /turf/simulated/wall/r_wall,
 /area/server)
 "bIN" = (
-/obj/machinery/r_n_d/server/robotics,
+/obj/machinery/rnd/server/robotics,
 /turf/simulated/floor/bluegrid{
 	name = "Server Base";
 	nitrogen = 500;
@@ -50343,7 +50343,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bLR" = (
-/obj/machinery/r_n_d/server/core,
+/obj/machinery/rnd/server/core,
 /turf/simulated/floor/bluegrid{
 	name = "Server Base";
 	nitrogen = 500;

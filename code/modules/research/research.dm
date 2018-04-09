@@ -66,7 +66,7 @@ research holder datum.
 //Checks to see if design has all the required pre-reqs.
 //Input: datum/design; Output: 0/1 (false/true)
 /datum/research/proc/DesignHasReqs(var/datum/design/D)
-	if(D.req_tech.len == 0)
+	if(D.req_tech.len == 0 && !D.required_unlock)
 		return 1
 
 	var/list/k_tech = list()
@@ -76,6 +76,14 @@ research holder datum.
 
 	for(var/req in D.req_tech)
 		if(isnull(k_tech[req]) || k_tech[req] < D.req_tech[req])
+			return 0
+
+	if(D.required_unlock)
+		var/hit = 0
+		for(var/datum/research_items/T in SSresearch.unlockeditems)
+			if(D.required_unlock == T.id)
+				hit = 1
+		if(!hit)
 			return 0
 
 	return 1

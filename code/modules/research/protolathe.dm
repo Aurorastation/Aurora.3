@@ -1,4 +1,4 @@
-/obj/machinery/r_n_d/protolathe
+/obj/machinery/rnd/protolathe
 	name = "Protolathe"
 	icon_state = "protolathe"
 	flags = OPENCONTAINER
@@ -23,7 +23,7 @@
 		/obj/item/weapon/reagent_containers/glass/beaker = 2
 	)
 
-/obj/machinery/r_n_d/protolathe/machinery_process()
+/obj/machinery/rnd/protolathe/machinery_process()
 	..()
 	if(stat)
 		update_icon()
@@ -49,13 +49,13 @@
 			busy = 0
 			update_icon()
 
-/obj/machinery/r_n_d/protolathe/proc/TotalMaterials() //returns the total of all the stored materials. Makes code neater.
+/obj/machinery/rnd/protolathe/proc/TotalMaterials() //returns the total of all the stored materials. Makes code neater.
 	var/t = 0
 	for(var/f in materials)
 		t += materials[f]
 	return t
 
-/obj/machinery/r_n_d/protolathe/RefreshParts()
+/obj/machinery/rnd/protolathe/RefreshParts()
 	// Adjust reagent container volume to match combined volume of the inserted beakers
 	var/T = 0
 	for(var/obj/item/weapon/reagent_containers/glass/G in component_parts)
@@ -77,7 +77,7 @@
 	mat_efficiency = 1 - (T - 2) / 8
 	speed = T / 2
 
-/obj/machinery/r_n_d/protolathe/dismantle()
+/obj/machinery/rnd/protolathe/dismantle()
 	for(var/obj/I in component_parts)
 		if(istype(I, /obj/item/weapon/reagent_containers/glass/beaker))
 			reagents.trans_to_obj(I, reagents.total_volume)
@@ -89,7 +89,7 @@
 				S.amount = round(materials[f] / SHEET_MATERIAL_AMOUNT)
 	..()
 
-/obj/machinery/r_n_d/protolathe/update_icon()
+/obj/machinery/rnd/protolathe/update_icon()
 	if(panel_open)
 		icon_state = "protolathe_t"
 	else if(busy)
@@ -97,7 +97,7 @@
 	else
 		icon_state = "protolathe"
 
-/obj/machinery/r_n_d/protolathe/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/rnd/protolathe/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(busy)
 		user << "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>"
 		return 1
@@ -155,15 +155,15 @@
 	updateUsrDialog()
 	return
 
-/obj/machinery/r_n_d/protolathe/proc/addToQueue(var/datum/design/D)
+/obj/machinery/rnd/protolathe/proc/addToQueue(var/datum/design/D)
 	queue += D
 	return
 
-/obj/machinery/r_n_d/protolathe/proc/removeFromQueue(var/index)
+/obj/machinery/rnd/protolathe/proc/removeFromQueue(var/index)
 	queue.Cut(index, index + 1)
 	return
 
-/obj/machinery/r_n_d/protolathe/proc/canBuild(var/datum/design/D)
+/obj/machinery/rnd/protolathe/proc/canBuild(var/datum/design/D)
 	for(var/M in D.materials)
 		if(materials[M] < D.materials[M])
 			return 0
@@ -172,7 +172,7 @@
 			return 0
 	return 1
 
-/obj/machinery/r_n_d/protolathe/proc/getLackingMaterials(var/datum/design/D)
+/obj/machinery/rnd/protolathe/proc/getLackingMaterials(var/datum/design/D)
 	var/ret = ""
 	for(var/M in D.materials)
 		if(materials[M] < D.materials[M])
@@ -186,7 +186,7 @@
 			ret += C
 	return ret
 
-/obj/machinery/r_n_d/protolathe/proc/build(var/datum/design/D)
+/obj/machinery/rnd/protolathe/proc/build(var/datum/design/D)
 	var/power = active_power_usage
 	for(var/M in D.materials)
 		power += round(D.materials[M] / 5)

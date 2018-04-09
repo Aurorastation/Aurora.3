@@ -19,6 +19,10 @@
 	light_overlay = "helmet_light_dual"
 	camera_networks = list(NETWORK_SECURITY)
 
+/obj/item/clothing/head/helmet/space/rig/hes
+	light_overlay = "helmet_light_dual"
+	camera_networks = list(NETWORK_RESEARCH)
+
 /obj/item/weapon/rig/internalaffairs
 	name = "augmented tie"
 	suit_type = "augmented suit"
@@ -270,3 +274,30 @@
 
 /obj/item/clothing/shoes/magboots/rig/diving
 	species_restricted = list("Human")
+
+/obj/item/weapon/rig/hazardsuit
+	name = "HES control module"
+	suit_type = "hazmat hardsuit"
+	desc = "An anomalous materials suit modified to be almost completely immune to anomalous effects at the cost of being very vulrenable to physical damage"
+	icon_state = "science_rig"
+	armor = list(melee = 25, bullet = 5, laser = 15, energy = 15, bomb = 60, bio = 100, rad = 100)
+	slowdown = 1
+	offline_vision_restriction = TINT_HEAVY
+	emp_protection = 95
+
+	helm_type = /obj/item/clothing/head/helmet/space/rig/hazmat
+
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/stack/flag,/obj/item/weapon/storage/box/excavation,/obj/item/weapon/pickaxe,/obj/item/device/healthanalyzer,/obj/item/device/measuring_tape,/obj/item/device/ano_scanner,/obj/item/device/depth_scanner,/obj/item/device/core_sampler,/obj/item/device/gps,/obj/item/device/beacon_locator,/obj/item/device/radio/beacon,/obj/item/weapon/pickaxe/hand,/obj/item/weapon/storage/bag/fossils)
+
+	req_access = list()
+	req_one_access = list()
+
+/obj/item/weapon/rig/hazardsuit/equipped
+
+	req_access = list(access_xenoarch)
+
+	initial_modules = list(
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/device/anomaly_scanner
+		)

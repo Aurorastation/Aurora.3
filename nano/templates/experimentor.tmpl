@@ -1,0 +1,18 @@
+{{if !data.power}}
+	<div class="item">
+		NO POWER
+	</div>
+{{else}}
+    <h3><center><b>Select an Option:</b></center></h3>
+    {{:helper.link('Poke', 'arrowthickstop-1-e', {'function' : '1'})}}<br><br>
+    {{:helper.link('Irradiate', 'arrowthickstop-1-e', {'function' : '2'})}}<br><br>
+    {{:helper.link('Gas', 'arrowthickstop-1-e', {'function' : '3'})}}<br><br>
+    {{:helper.link('Burn', 'arrowthickstop-1-e', {'function' : '4'})}}<br><br>
+    {{:helper.link('Freeze', 'arrowthickstop-1-e', {'function' : '5'})}}<br><br>
+    {{:helper.link('Destroy', 'arrowthickstop-1-e', {'function' : '6'})}}<br><br>
+	{{:helper.link('Link RD console', 'arrowthickstop-1-e', {'function' : 'search'})}}<br><br>
+    {{if data.relic}}
+        {{:helper.link('Discover', 'arrowthickstop-1-e', {'function' : '7'})}}
+    {{/if}}
+    {{:helper.link('Eject', 'arrowthickstop-1-e', {'function' : 'eject'})}}
+{{/if}} 

@@ -2,7 +2,7 @@
 
 //All devices that link into the R&D console fall into thise type for easy identification and some shared procs.
 
-/obj/machinery/r_n_d
+/obj/machinery/rnd
 	name = "R&D Device"
 	icon = 'icons/obj/machines/research.dmi'
 	density = 1
@@ -10,11 +10,14 @@
 	use_power = 1
 	var/busy = 0
 	var/obj/machinery/computer/rdconsole/linked_console
+	var/obj/item/loaded_item = null
+	var/requires_console = 1
+	var/disabled = 0
 
-/obj/machinery/r_n_d/attack_hand(mob/user as mob)
+/obj/machinery/rnd/attack_hand(mob/user as mob)
 	return
 
-/obj/machinery/r_n_d/proc/getMaterialType(var/name)
+/obj/machinery/rnd/proc/getMaterialType(var/name)
 	switch(name)
 		if(DEFAULT_WALL_MATERIAL)
 			return /obj/item/stack/material/steel
@@ -32,7 +35,7 @@
 			return /obj/item/stack/material/diamond
 	return null
 
-/obj/machinery/r_n_d/proc/getMaterialName(var/type)
+/obj/machinery/rnd/proc/getMaterialName(var/type)
 	switch(type)
 		if(/obj/item/stack/material/steel)
 			return DEFAULT_WALL_MATERIAL
@@ -48,3 +51,50 @@
 			return "uranium"
 		if(/obj/item/stack/material/diamond)
 			return "diamond"
+
+/obj/machinery/rnd/proc/pulse_radiation(var/amount = 20)
+	for(var/mob/living/L in view(7, src))
+		L.apply_effect(amount, IRRADIATE, blocked = L.getarmor(null, "rad"))
+
+/obj/machinery/rnd/proc/Insert_Item(obj/item/I, mob/user)
+	return
+
+/obj/machinery/rnd/proc/is_insertion_ready(mob/user)
+	if(panel_open)
+		to_chat(user, "<span class='warning'>You can't load [src] while it's opened!</span>")
+		return FALSE
+	if(disabled)
+		return FALSE
+	if(requires_console && !linked_console)
+		to_chat(user, "<span class='warning'>[src] must be linked to an R&D console first!</span>")
+		return FALSE
+	if(busy)
+		to_chat(user, "<span class='warning'>[src] is busy right now.</span>")
+		return FALSE
+	if(stat & BROKEN)
+		to_chat(user, "<span class='warning'>[src] is broken.</span>")
+		return FALSE
+	if(stat & NOPOWER)
+		to_chat(user, "<span class='warning'>[src] has no power.</span>")
+		return FALSE
+	if(loaded_item)
+		to_chat(user, "<span class='warning'>[src] is already loaded.</span>")
+		return FALSE
+	return TRUE
+
+/obj/machinery/rnd/attackby(obj/item/O, mob/user, params)
+/*	if (default_deconstruction_screwdriver(user, "[initial(icon_state)]_t", initial(icon_state), O))
+		if(linked_console)
+			disconnect_console()
+		return
+	if(exchange_parts(user, O))
+		return
+	if(default_deconstruction_crowbar(O))
+		return
+	if(is_refillable() && O.is_drainable())
+		return FALSE //inserting reagents into the machine 
+*/
+	if(Insert_Item(O, user))
+		return TRUE
+	else
+		return ..()

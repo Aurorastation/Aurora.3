@@ -1,4 +1,4 @@
-/obj/machinery/r_n_d/server
+/obj/machinery/rnd/server
 	name = "R&D Server"
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "server"
@@ -20,22 +20,22 @@
 		/obj/item/stack/cable_coil = 2
 	)
 
-/obj/machinery/r_n_d/server/Destroy()
+/obj/machinery/rnd/server/Destroy()
 	griefProtection()
 	return ..()
 
-/obj/machinery/r_n_d/server/RefreshParts()
+/obj/machinery/rnd/server/RefreshParts()
 	var/tot_rating = 0
 
 	for(var/obj/item/weapon/stock_parts/SP in component_parts)
 		tot_rating += SP.rating
 	idle_power_usage /= max(1, tot_rating)
 
-/obj/machinery/r_n_d/server/Initialize()
+/obj/machinery/rnd/server/Initialize()
 	. = ..()
 	setup()
 
-/obj/machinery/r_n_d/server/proc/setup()
+/obj/machinery/rnd/server/proc/setup()
 	if(!files)
 		files = new /datum/research(src)
 	var/list/temp_list
@@ -50,7 +50,7 @@
 		for(var/N in temp_list)
 			id_with_download += text2num(N)
 
-/obj/machinery/r_n_d/server/machinery_process()
+/obj/machinery/rnd/server/machinery_process()
 	var/datum/gas_mixture/environment = loc.return_air()
 	switch(environment.temperature)
 		if(0 to T0C)
@@ -72,24 +72,24 @@
 		produce_heat()
 		delay = initial(delay)
 
-/obj/machinery/r_n_d/server/emp_act(severity)
+/obj/machinery/rnd/server/emp_act(severity)
 	griefProtection()
 	..()
 
-/obj/machinery/r_n_d/server/ex_act(severity)
+/obj/machinery/rnd/server/ex_act(severity)
 	griefProtection()
 	..()
 
 //Backup files to centcomm to help admins recover data after greifer attacks
-/obj/machinery/r_n_d/server/proc/griefProtection()
-	for(var/obj/machinery/r_n_d/server/centcom/C in SSmachinery.all_machines)
+/obj/machinery/rnd/server/proc/griefProtection()
+	for(var/obj/machinery/rnd/server/centcom/C in SSmachinery.all_machines)
 		for(var/datum/tech/T in files.known_tech)
 			C.files.AddTech2Known(T)
 		for(var/datum/design/D in files.known_designs)
 			C.files.AddDesign2Known(D)
 		C.files.RefreshResearch()
 
-/obj/machinery/r_n_d/server/proc/produce_heat()
+/obj/machinery/rnd/server/proc/produce_heat()
 	if(!produces_heat)
 		return
 
@@ -112,7 +112,7 @@
 
 			env.merge(removed)
 
-/obj/machinery/r_n_d/server/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/rnd/server/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(default_deconstruction_screwdriver(user, O))
 		return
 	if(default_deconstruction_crowbar(user, O))
@@ -120,15 +120,15 @@
 	if(default_part_replacement(user, O))
 		return
 
-/obj/machinery/r_n_d/server/centcom
+/obj/machinery/rnd/server/centcom
 	name = "Central R&D Database"
 	server_id = -1
 
-/obj/machinery/r_n_d/server/centcom/setup()
+/obj/machinery/rnd/server/centcom/setup()
 	..()
 	var/list/no_id_servers = list()
 	var/list/server_ids = list()
-	for(var/obj/machinery/r_n_d/server/S in SSmachinery.all_machines)
+	for(var/obj/machinery/rnd/server/S in SSmachinery.all_machines)
 		switch(S.server_id)
 			if(-1)
 				continue
@@ -137,7 +137,7 @@
 			else
 				server_ids += S.server_id
 
-	for(var/obj/machinery/r_n_d/server/S in no_id_servers)
+	for(var/obj/machinery/rnd/server/S in no_id_servers)
 		var/num = 1
 		while(!S.server_id)
 			if(num in server_ids)
@@ -147,7 +147,7 @@
 				server_ids += num
 		no_id_servers -= S
 
-/obj/machinery/r_n_d/server/centcom/machinery_process()
+/obj/machinery/rnd/server/centcom/machinery_process()
 	return PROCESS_KILL //don't need process()
 
 /obj/machinery/computer/rdservercontrol
@@ -157,7 +157,7 @@
 	light_color = "#a97faa"
 	circuit = /obj/item/weapon/circuitboard/rdservercontrol
 	var/screen = 0
-	var/obj/machinery/r_n_d/server/temp_server
+	var/obj/machinery/rnd/server/temp_server
 	var/list/servers = list()
 	var/list/consoles = list()
 	var/badmin = 0
@@ -179,7 +179,7 @@
 		temp_server = null
 		consoles = list()
 		servers = list()
-		for(var/obj/machinery/r_n_d/server/S in SSmachinery.all_machines)
+		for(var/obj/machinery/rnd/server/S in SSmachinery.all_machines)
 			if(S.server_id == text2num(href_list["access"]) || S.server_id == text2num(href_list["data"]) || S.server_id == text2num(href_list["transfer"]))
 				temp_server = S
 				break
@@ -192,7 +192,7 @@
 			screen = 2
 		else if(href_list["transfer"])
 			screen = 3
-			for(var/obj/machinery/r_n_d/server/S in SSmachinery.all_machines)
+			for(var/obj/machinery/rnd/server/S in SSmachinery.all_machines)
 				if(S == src)
 					continue
 				servers += S
@@ -242,8 +242,8 @@
 		if(0) //Main Menu
 			dat += "Connected Servers:<BR><BR>"
 
-			for(var/obj/machinery/r_n_d/server/S in SSmachinery.all_machines)
-				if(istype(S, /obj/machinery/r_n_d/server/centcom) && !badmin)
+			for(var/obj/machinery/rnd/server/S in SSmachinery.all_machines)
+				if(istype(S, /obj/machinery/rnd/server/centcom) && !badmin)
 					continue
 				dat += "[S.name] || "
 				dat += "<A href='?src=\ref[src];access=[S.server_id]'> Access Rights</A> | "
@@ -286,7 +286,7 @@
 		if(3) //Server Data Transfer
 			dat += "[temp_server.name] Server to Server Transfer<BR><BR>"
 			dat += "Send Data to what server?<BR>"
-			for(var/obj/machinery/r_n_d/server/S in servers)
+			for(var/obj/machinery/rnd/server/S in servers)
 				dat += "[S.name] <A href='?src=\ref[src];send_to=[S.server_id]'> (Transfer)</A><BR>"
 			dat += "<HR><A href='?src=\ref[src];main=1'>Main Menu</A>"
 	user << browse("<TITLE>R&D Server Control</TITLE><HR>[dat]", "window=server_control;size=575x400")
@@ -301,13 +301,13 @@
 		src.updateUsrDialog()
 		return 1
 
-/obj/machinery/r_n_d/server/robotics
+/obj/machinery/rnd/server/robotics
 	name = "Robotics R&D Server"
 	id_with_upload_string = "1;2"
 	id_with_download_string = "1;2"
 	server_id = 2
 
-/obj/machinery/r_n_d/server/core
+/obj/machinery/rnd/server/core
 	name = "Core R&D Server"
 	id_with_upload_string = "1"
 	id_with_download_string = "1"
