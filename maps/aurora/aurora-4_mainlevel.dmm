@@ -2624,7 +2624,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor,
 /area/security/main)
 "afe" = (
 /turf/simulated/wall/r_wall,
@@ -3205,7 +3205,7 @@
 	},
 /obj/structure/cable/green,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor,
 /area/security/main)
 "agr" = (
 /obj/structure/table/standard,
@@ -4933,7 +4933,7 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor,
 /area/security/main)
 "ajK" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -4994,7 +4994,7 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor,
 /area/security/main)
 "ajN" = (
 /obj/structure/closet/secure_closet/security,
@@ -5497,7 +5497,7 @@
 	dir = 8
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/fixed,
+/turf/simulated/floor,
 /area/security/main)
 "akG" = (
 /obj/structure/flora/pottedplant/random,
@@ -7678,7 +7678,7 @@
 	dir = 8
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/fixed,
+/turf/simulated/floor,
 /area/security/main)
 "aoQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8307,7 +8307,7 @@
 	dir = 8
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/fixed,
+/turf/simulated/floor,
 /area/security/main)
 "apY" = (
 /obj/effect/floor_decal/corner/blue{
