@@ -7666,8 +7666,10 @@
 /turf/simulated/floor/tiled,
 /area/security/main)
 "aoP" = (
-/obj/machinery/door/firedoor,
 /obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -7675,20 +7677,8 @@
 	icon_state = "rwindow";
 	dir = 8
 	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/plating,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/fixed,
 /area/security/main)
 "aoQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8307,7 +8297,6 @@
 /turf/simulated/floor/tiled,
 /area/security/main)
 "apX" = (
-/obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -8317,8 +8306,8 @@
 	icon_state = "rwindow";
 	dir = 8
 	},
-/obj/structure/cable/green,
-/turf/simulated/floor/plating,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/fixed,
 /area/security/main)
 "apY" = (
 /obj/effect/floor_decal/corner/blue{
@@ -100192,8 +100181,8 @@ afe
 afe
 aja
 aja
-akF
-akF
+aoP
+apX
 aja
 asF
 aun
