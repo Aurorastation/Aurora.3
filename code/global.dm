@@ -87,6 +87,8 @@ var/list/adminlog  = list()
 var/Debug2 = 0
 var/datum/debug/debugobj
 
+var/datum/skillsystem/gskillsystem = /datum/skillsystem
+
 var/datum/moduletypes/mods = new()
 
 var/gravity_is_on = 1

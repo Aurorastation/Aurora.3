@@ -146,6 +146,9 @@ var/global/list/cloaking_devices = list()
 	sortTim(hair_styles_male_list, /proc/cmp_text_asc)
 	sortTim(hair_styles_female_list, /proc/cmp_text_asc)
 
+	//Skills - Initalise all /datum/skill/stuff
+	gskillsystem = new gskillsystem
+
 	//Facial Hair - Initialise all /datum/sprite_accessory/facial_hair into an list indexed by facialhair-style name
 	paths = subtypesof(/datum/sprite_accessory/facial_hair)
 	for(var/path in paths)

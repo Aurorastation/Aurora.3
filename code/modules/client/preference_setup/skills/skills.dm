@@ -46,7 +46,7 @@
 
 /datum/category_item/player_setup_item/skills/sanitize_character(var/sql_load = 0)
 	if (SKILLS == null)
-		setup_skills()
+		gskillsystem.setup_skills()
 	if (!pref.skills)
 		pref.skills = list()
 	if (sql_load)
@@ -74,7 +74,7 @@
 	for(var/V in SKILLS)
 		dat += "<tr><th colspan = 5><b>[V]</b>"
 		dat += "</th></tr>"
-		for(var/datum/skill/S in SKILLS[V])
+		for(var/datum/skillsystem/skill/S in SKILLS[V])
 			var/level = pref.skills[S.ID]
 			dat += "<tr style='text-align:left;'>"
 			dat += "<th><a href='?src=\ref[src];skillinfo=\ref[S]'>[S.name]</a></th>"
@@ -92,13 +92,13 @@
 
 /datum/category_item/player_setup_item/skills/OnTopic(href, href_list, user)
 	if(href_list["skillinfo"])
-		var/datum/skill/S = locate(href_list["skillinfo"])
+		var/datum/skillsystem/skill/S = locate(href_list["skillinfo"])
 		var/HTML = "<b>[S.name]</b><br>[S.desc]"
 		user << browse(HTML, "window=\ref[user]skillinfo")
 		return TOPIC_HANDLED
 
 	else if(href_list["setskill"])
-		var/datum/skill/S = locate(href_list["setskill"])
+		var/datum/skillsystem/skill/S = locate(href_list["setskill"])
 		var/value = text2num(href_list["newvalue"])
 		pref.skills[S.ID] = value
 		pref.CalculateSkillPoints()
@@ -109,13 +109,14 @@
 		if(!selected && !CanUseTopic(user)) return
 
 		pref.ZeroSkills(1)
-		for(var/V in SKILL_PRE[selected])
-			if(V == "field")
-				pref.skill_specialization = SKILL_PRE[selected]["field"]
-				continue
-			pref.skills[V] = SKILL_PRE[selected][V]
-		pref.CalculateSkillPoints()
+	
+		var/skill_sel = SKILL_PRE[selected]
+	
+		pref.skill_specialization = skill_sel["field"]
+		var/list/skills = skill_sel["skills"]
+		pref.skills = skills.Copy()
 
+		pref.CalculateSkillPoints()
 		return TOPIC_REFRESH
 
 	else if(href_list["setspecialization"])
