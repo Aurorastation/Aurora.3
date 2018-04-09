@@ -367,14 +367,15 @@
 		add_fingerprint(user)
 
 		if(!prevent_warning)
-			for(var/mob/M in viewers(user, null))
-				if (M == usr)
-					usr << "<span class='notice'>You put \the [W] into [src].</span>"
-				else if (M in range(1)) //If someone is standing close enough, they can tell what it is...
-					M.show_message("<span class='notice'>\The [user] puts [W] into [src].</span>")
-				else if (W && W.w_class >= 3) //Otherwise they can only see large or normal items from a distance...
-					M.show_message("<span class='notice'>\The [user] puts [W] into [src].</span>")
-
+			user.visible_message(\
+				"<span class='notice'>[user] places \the [W] in \the [src].</span>",\
+				"<span class='notice'>You put \the [W] in \the [src].</span>",\
+				"<span class='notice'>You hear shuffling (DIR).</span>",\
+				"<span class='notice'>You see [user] put something in \the [src].</span>",\
+				max(1,W.w_class*0.5),\
+				max(2,W.w_class),
+				1\
+			)
 		orient2hud(user)
 		if(user.s_active)
 			user.s_active.show_to(user)
