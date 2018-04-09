@@ -6073,6 +6073,7 @@
 	pixel_y = 7
 	},
 /obj/machinery/requests_console{
+	department = "Psychiatry";
 	pixel_x = 0;
 	pixel_y = 32
 	},
