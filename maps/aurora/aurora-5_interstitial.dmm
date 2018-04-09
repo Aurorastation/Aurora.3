@@ -1,5 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-//Model dictionary trimmed on: 08-04-2018 16:07 (UTC)
 "aa" = (
 /turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
@@ -6795,6 +6794,67 @@
 	pixel_y = 16
 	},
 /turf/simulated/open/airless,
+/area/mine/unexplored)
+"md" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 9
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"me" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 5
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"mf" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 8
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"mg" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 4
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"mh" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	tag = "icon-warning_dust (SOUTHWEST)";
+	icon_state = "warning_dust";
+	dir = 10
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"mi" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"mj" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 6
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
 /area/mine/unexplored)
 
 (1,1,1) = {"
@@ -29107,11 +29167,11 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -29363,14 +29423,14 @@ aa
 aa
 aa
 aa
+aa
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -29619,16 +29679,16 @@ aa
 aa
 aa
 aa
+aa
 ab
 ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -29878,14 +29938,14 @@ aa
 aa
 ab
 ab
-ad
-mc
+md
+mf
+mh
 ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -30135,14 +30195,14 @@ aa
 aa
 ab
 ab
+ad
+mc
+mi
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -30392,14 +30452,14 @@ aa
 aa
 ab
 ab
+me
+mg
+mj
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -30654,9 +30714,9 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
+aa
+aa
+aa
 aa
 aa
 aa
@@ -30907,12 +30967,12 @@ aa
 aa
 ab
 ab
+aa
+aa
 ab
 ab
-ab
-ab
-ab
-ab
+aa
+aa
 aa
 aa
 aa
@@ -31164,11 +31224,11 @@ aa
 aa
 ab
 ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
