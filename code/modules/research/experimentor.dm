@@ -16,8 +16,8 @@
 
 /obj/machinery/rnd/experimentor
 	name = "\improper E.X.P.E.R.I-MENTOR"
-	desc = "A \"replacement\" for the deconstructive analyzer with a slight tendency to catastrophically fail."
-	icon = 'icons/obj/machines/heavy_lathe.dmi'
+	desc = "A much more effecient version of the deconstructive analyzer with a slight tendency to catastrophically fail."
+	icon = 'icons/obj/machines/heavy_lathe.dmi'//sprite
 	icon_state = "h_lathe"
 	density = TRUE
 	anchored = TRUE
@@ -37,7 +37,6 @@
 	for(var/O in temp_list)
 		temp_list[O] = text2num(temp_list[O])
 	return temp_list
-
 
 /obj/machinery/rnd/experimentor/proc/SetTypeReactions()
 	//var/probWeight = 0
@@ -100,9 +99,26 @@
 	ejectItem()
 	. = ..(O)
 
+/obj/machinery/rnd/experimentor/ui_interact(var/mob/user, var/ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = outside_state)
+	var/data[0]
+
+	data["power"] = stat & (NOPOWER|BROKEN) ? 0 : 1
+	data["loadeditem"] = loaded_item
+
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	if(!ui)
+		ui = new(user, src, ui_key, "experimentor.tmpl", "NT Experimentor", 600, 600, state = state)
+		ui.set_initial_data(data)
+		ui.open()
+		ui.set_auto_update(1)
+
 /obj/machinery/rnd/experimentor/attack_hand(mob/user) //nanoui
-	user.set_machine(src)
-	var/list/dat = list("<center>")
+	if(..())
+		return
+
+	ui_interact(user)
+	
+	/*var/list/dat = list("<center>")
 	//if(!linked_console)
 		//dat += "<b><a href='byond://?src=[REF(src)];function=search'>Scan for R&D Console</A></b>"
 	if(loaded_item)
@@ -143,7 +159,7 @@
 	popup.set_content(dat.Join("<br>"))
 	popup.open()
 	onclose(user, "experimentor")
-
+*/
 /obj/machinery/rnd/experimentor/Topic(href, href_list)
 	if(..())
 		return

@@ -1,0 +1,31 @@
+{{if !data.power}}
+	<div class="item">
+		NO POWER
+	</div>
+{{else}}
+    <h3><center><b>Select an Option:</b></center></h3>
+    {{:helper.link('Poke', 'arrowthickstop-1-e', {'menuswap' : '3'})}}
+    {{:helper.link('Irradiate', 'arrowthickstop-1-e', {'menuswap' : '3'})}}
+    {{:helper.link('Gas', 'arrowthickstop-1-e', {'menuswap' : '3'})}}
+    {{:helper.link('Burn', 'arrowthickstop-1-e', {'menuswap' : '3'})}}
+    {{:helper.link('Freeze', 'arrowthickstop-1-e', {'menuswap' : '3'})}}
+    {{:helper.link('Destroy', 'arrowthickstop-1-e', {'menuswap' : '3'})}}
+    {{if data.relic}}
+        {{:helper.link('Discover', 'arrowthickstop-1-e', {'menuswap' : '3'})}}
+    {{/if}}
+    {{:helper.link('Eject', 'arrowthickstop-1-e', {'menuswap' : '3'})}}
+{{/if}}
+
+	{{if data.nanomenu == 1}}
+		<div class="item">
+			<h3><center><b>Current RMP:</b></center></h3>
+		</div>
+		<div class="item">
+			<b>Select Option:</b>
+		</div>
+		<div class="item">
+			{{:helper.link('View Technology Overview', 'arrowthickstop-1-e', {'menuswap' : '2'})}}
+		</div>
+		<div class="item">
+			{{:helper.link('View Item Overview', 'arrowthickstop-1-e', {'menuswap' : '3'})}}
+		</div>
