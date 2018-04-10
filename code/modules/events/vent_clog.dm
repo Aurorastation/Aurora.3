@@ -24,7 +24,6 @@
 		"hot_coco",
 		"sacid",
 		"hyperzine",
-		"ethanol",
 		"paint",
 		"luminol",
 		"fuel",

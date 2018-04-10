@@ -628,7 +628,6 @@ default behaviour is:
 	set category = "IC"
 
 	if(!incapacitated(INCAPACITATION_KNOCKOUT) && canClick())
-		setClickCooldown(20)
 		resist_grab()
 		if(!weakened)
 			process_resist()
@@ -700,6 +699,7 @@ default behaviour is:
 					qdel(G)
 	if(resisting)
 		visible_message("<span class='danger'>[src] resists!</span>")
+		setClickCooldown(20)
 
 /mob/living/verb/lay_down()
 	set name = "Rest"
