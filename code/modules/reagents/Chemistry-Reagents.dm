@@ -26,6 +26,7 @@
 	var/unaffected_species = IS_DIONA | IS_MACHINE	// Species that aren't affected by this reagent. Does not prevent affect_touch.
 	var/metabolism_min = 0.01 //How much for the medicine to be present in the system to actually have an effect.
 	var/list/conflicting_reagents //Reagents that conflict with this medicine, and cause adverse effects when in the blood.
+	var/nospawn = 0 // if the chemical should not be spawned in the cargo warehouse or anywhere else by default.
 
 /datum/reagent/proc/remove_self(var/amount) // Shortcut
 	if (!holder)
