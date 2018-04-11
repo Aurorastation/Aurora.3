@@ -1316,7 +1316,7 @@
 				In your tenure as a psychiatrist aboard your assigned station you will likely encounter those affected by brain damage. Science in this regard has progressed, and in your disposal are several tools to cure these addled men and women. Keep in mind these bulletins:
 				<ul>
 					<li>1: Always talk to your patient first. Doctor-patient counseling is often necessary to get a good diagnosis of the patient's psychoma, and not to mention it can go a long way to comforting them. Never start treatment without counseling!</li>
-					<li>2: Some of the most common traumas you find will be those that affect the patient's physical actions, such as seizures or tourettes. These are typically remedied with 'chakra' therapy.</li>
+					<li>2: Some of the most common traumas you find will be those that affect the patient's physical actions, such as seizures or tourettes. These are typically remedied with electroshock therapy.</li>
 					<li>3: The next most common traumas are those that affect the patient's behavior, such as phobias. These can be solved with hypnosis therapy.</li>
 					<li>4: Beyond those two, some traumas may cause the patient to hallucinate. These are best solved with isolation therapy.</li>
 					<li>5: Finally, some traumas escape easy categorization. In a few cases they can be solved with invasive brain surgery, but some traumas may only be suppressable with drug therapy.<br></li>

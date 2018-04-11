@@ -6518,6 +6518,7 @@
 /area/maintenance/civ)
 "amR" = (
 /obj/machinery/light/spot,
+/obj/machinery/light/spot,
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/bridge)
 "amS" = (
@@ -11225,6 +11226,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/bridge)
 "auB" = (
@@ -11321,6 +11325,11 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "auH" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1";
@@ -17160,7 +17169,7 @@
 /obj/machinery/atm{
 	pixel_x = -32
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Starboard Corridor - Internal Affairs Entrance";
 	dir = 4
 	},
@@ -21617,10 +21626,10 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Starboard Corridor - Camera 4";
 	dir = 8;
-	network = list("Civilian Main","Capt_Office")
+	network = list("Civilian West","Capt_Office")
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
@@ -25380,8 +25389,23 @@
 	dir = 8;
 	layer = 2.9
 	},
+/obj/item/clothing/head/helmet/space/void/skrell/black,
 /obj/item/clothing/mask/breath,
+/obj/item/clothing/suit/space/void/skrell/black,
+/obj/item/clothing/head/helmet/space/void/skrell/white,
 /obj/item/clothing/mask/breath,
+/obj/item/clothing/suit/space/void/skrell/white,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -25591,7 +25615,7 @@
 	name = "west bump";
 	pixel_x = -24
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Starboard Corridor - Camera 3";
 	dir = 4
 	},
@@ -27635,7 +27659,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Port Corridor - Engineering Entrance"
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -27963,7 +27987,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aWc" = (
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Starboard Corridor - Camera 2"
 	},
 /turf/simulated/floor/tiled,
@@ -28054,7 +28078,7 @@
 /obj/machinery/newscaster{
 	pixel_y = -32
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Starboard Corridor - Store";
 	dir = 1
 	},
@@ -28116,7 +28140,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Bridge - Head of Personnel Processing";
 	dir = 1
 	},
@@ -28686,7 +28710,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Port Corridor - Camera 2";
 	dir = 4
 	},
@@ -29503,7 +29527,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
 "aYw" = (
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Port Corridor - Camera 1";
 	dir = 1
 	},
@@ -29544,7 +29568,7 @@
 	pixel_y = -32
 	},
 /obj/machinery/light,
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Central Corridor - Security Entrance";
 	dir = 1
 	},
@@ -33182,7 +33206,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -32
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Central Corridor - Camera 7";
 	dir = 4
 	},
@@ -34772,7 +34796,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Central Corridor - Camera 6";
 	dir = 8
 	},
@@ -39626,7 +39650,7 @@
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bpY" = (
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Central Corridor - Camera 5";
 	dir = 1
 	},
@@ -41024,7 +41048,7 @@
 	dir = 10
 	},
 /obj/machinery/light,
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Central Corridor";
 	dir = 1
 	},
@@ -42515,7 +42539,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "buI" = (
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Central Corridor - Research Entrance";
 	dir = 4
 	},
@@ -42547,7 +42571,7 @@
 /turf/simulated/floor/holofloor/reinforced,
 /area/holodeck/alphadeck)
 "buL" = (
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Central Corridor - Medical Entrance";
 	dir = 8
 	},
@@ -44296,7 +44320,7 @@
 /turf/simulated/floor/tiled,
 /area/rnd/lab)
 "bxk" = (
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Central Corridor - Camera 4"
 	},
 /obj/effect/floor_decal/corner/mauve/full{
@@ -48531,7 +48555,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bEx" = (
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Central Corridor - Camera 3";
 	dir = 8
 	},
@@ -49700,7 +49724,7 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/chemistry)
 "bGo" = (
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Central Corridor - Camera 1";
 	dir = 4
 	},
@@ -49770,7 +49794,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bGt" = (
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Central Corridor - Camera 2";
 	dir = 8
 	},
@@ -50708,7 +50732,7 @@
 /obj/item/device/eftpos{
 	eftpos_name = "Library EFTPOS scanner"
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Library - Backroom";
 	dir = 8
 	},
@@ -51089,7 +51113,7 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Library - Fore Camera";
 	dir = 8
 	},
@@ -52316,7 +52340,7 @@
 	name = "Station Intercom (General)";
 	pixel_x = -28
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Dormitories - Main Level";
 	dir = 4
 	},
@@ -53084,7 +53108,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/locker/locker_toilet)
 "bMH" = (
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Main Level - Restrooms";
 	dir = 8
 	},
@@ -53323,7 +53347,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Aft Corridor - Camera 3";
 	dir = 4
 	},
@@ -53881,7 +53905,7 @@
 	icon_state = "spline_fancy";
 	dir = 1
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Chapel - Office";
 	dir = 8
 	},
@@ -53972,7 +53996,7 @@
 	pixel_y = -27
 	},
 /obj/machinery/light,
-/obj/machinery/camera/network/service{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Library - Port Camera";
 	dir = 1
 	},
@@ -54014,7 +54038,7 @@
 /obj/structure/bed/chair/comfy/black{
 	dir = 1
 	},
-/obj/machinery/camera/network/service{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Library - Starboard Camera";
 	dir = 1
 	},
@@ -55610,7 +55634,7 @@
 	pixel_x = 30
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/camera/network/service{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Kitchen - Food Preparation";
 	dir = 8
 	},
@@ -55621,7 +55645,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/camera/network/service{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Kitchen - Cold Storage";
 	dir = 4
 	},
@@ -56337,7 +56361,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/obj/machinery/camera/network/service{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Hydroponics - Produce Storage";
 	dir = 4
 	},
@@ -56419,7 +56443,7 @@
 /area/hallway/primary/aft)
 "bTz" = (
 /obj/machinery/light,
-/obj/machinery/camera/network/service{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Aft Corridor - Camera 2";
 	dir = 1
 	},
@@ -56652,7 +56676,7 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/camera/network/service{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Hydroponics - Greenhouse";
 	dir = 8
 	},
@@ -57327,7 +57351,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/obj/machinery/camera/network/service{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Bar - Kitchen Counter";
 	dir = 4
 	},
@@ -57362,7 +57386,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bVC" = (
-/obj/machinery/camera/network/service{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Bar - Dance Floor";
 	dir = 8
 	},
@@ -57551,7 +57575,7 @@
 /turf/simulated/floor/grass,
 /area/hydroponics)
 "bVY" = (
-/obj/machinery/camera/network/service{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Hydroponics - Animal Pen";
 	dir = 1
 	},
@@ -57789,7 +57813,7 @@
 /turf/simulated/floor/plating,
 /area/hydroponics)
 "bWs" = (
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Aft Corridor - Camera 1";
 	dir = 4
 	},
@@ -58108,7 +58132,7 @@
 /obj/machinery/alarm{
 	pixel_y = 23
 	},
-/obj/machinery/camera/network/supply{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Cargo - Main Lobby"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -58455,7 +58479,7 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
-/obj/machinery/camera/network/service{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Bar - Backroom";
 	dir = 8
 	},
@@ -58878,7 +58902,7 @@
 /area/maintenance/cargo)
 "bYE" = (
 /obj/machinery/door/airlock/engineering{
-	name = "Civilian (Main Level) Substation";
+	name = "Civilian West Substation";
 	req_one_access = list(11,24)
 	},
 /obj/structure/cable{
@@ -58925,7 +58949,7 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/machinery/camera/network/supply{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Cargo - Main Desk";
 	dir = 4
 	},
@@ -59067,7 +59091,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Civilian - Civilian Substation";
 	dir = 4
 	},
@@ -59211,7 +59235,7 @@
 /area/crew_quarters/bar)
 "bZj" = (
 /obj/machinery/vending/cigarette,
-/obj/machinery/camera/network/service{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Bar - Smoking Lounge"
 	},
 /turf/simulated/floor/wood,
@@ -59318,19 +59342,9 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "bZs" = (
+/obj/machinery/door/airlock/glass,
 /obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
 "bZt" = (
 /obj/machinery/door/firedoor,
@@ -59398,7 +59412,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
-	name = "Civilian (Main Level) Substation";
+	name = "Civilian West Substation";
 	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/plating,
@@ -59493,19 +59507,20 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
 "bZK" = (
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Cryo - Main Level";
-	dir = 2
-	},
-/turf/simulated/floor/tiled/white,
-/area/hallway/primary/aft)
-"bZL" = (
 /obj/machinery/cryopod,
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1";
 	pixel_y = 0
 	},
+/obj/machinery/camera/network/civilian_west{
+	c_tag = "Cryo - Main Level";
+	dir = 2
+	},
+/turf/simulated/floor/tiled/white,
+/area/hallway/primary/aft)
+"bZL" = (
+/obj/structure/cryofeed,
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
 "bZM" = (
@@ -59722,7 +59737,7 @@
 "cak" = (
 /obj/structure/table/wood,
 /obj/machinery/light/small,
-/obj/machinery/camera/network/service{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Bar - Diner Seating";
 	dir = 1
 	},
@@ -59954,9 +59969,13 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "caz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 5
+/obj/machinery/computer/cryopod{
+	pixel_x = -32;
+	pixel_y = -32
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
@@ -60892,7 +60911,7 @@
 	name = "west bump";
 	pixel_x = -24
 	},
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Maintenance - Trash Compactor Control";
 	dir = 4
 	},
@@ -62024,12 +62043,8 @@
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "cen" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 8
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
 	},
 /area/outpost/mining_main/eva)
 "ceo" = (
@@ -62212,12 +62227,8 @@
 /obj/item/stack/rods{
 	amount = 50
 	},
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 9
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
 	},
 /area/outpost/mining_main/eva)
 "ceD" = (
@@ -62424,7 +62435,9 @@
 	pixel_x = 25;
 	pixel_y = 0
 	},
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
+	},
 /area/outpost/mining_main/eva)
 "ceX" = (
 /obj/structure/grille,
@@ -63013,10 +63026,11 @@
 	},
 /area/outpost/mining_main/eva)
 "cfX" = (
-/obj/structure/ladder{
-	pixel_y = 16
+/obj/machinery/cell_charger,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
 	},
-/turf/simulated/open/airless,
 /area/outpost/mining_main/eva)
 "cfY" = (
 /obj/structure/window/reinforced{
@@ -63649,10 +63663,10 @@
 	},
 /obj/machinery/firealarm/west,
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Chemistry";
+	c_tag = "Medical - Isolation Room";
 	dir = 4;
 	icon_state = "camera";
-	network = list("Medical")
+	network = list("Medical","Isolation Room")
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
@@ -64208,7 +64222,7 @@
 	name = "Bar Shutters";
 	pixel_y = 36
 	},
-/obj/machinery/camera/network/service{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Bar - Counter"
 	},
 /obj/machinery/button/windowtint{
@@ -64247,7 +64261,7 @@
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "chV" = (
-/obj/machinery/camera/network/civilian_main{
+/obj/machinery/camera/network/civilian_west{
 	c_tag = "Starboard Corridor - Camera 1"
 	},
 /turf/simulated/floor/tiled,
@@ -64400,11 +64414,10 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "cio" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
 "cip" = (
@@ -64432,7 +64445,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "cis" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
 "cit" = (
@@ -64633,9 +64646,8 @@
 /obj/structure/track{
 	icon_state = "track6"
 	},
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 8
+/obj/machinery/light/small{
+	dir = 1
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -64711,10 +64723,6 @@
 /obj/structure/track{
 	icon_state = "track3"
 	},
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 8
-	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -64747,10 +64755,6 @@
 "cje" = (
 /obj/structure/track{
 	icon_state = "track3"
-	},
-/obj/machinery/light/spot{
-	icon_state = "tube1";
-	dir = 4
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -64845,11 +64849,6 @@
 /obj/structure/track{
 	icon_state = "track13"
 	},
-/obj/effect/floor_decal/industrial/warning/dust{
-	tag = "icon-warning_dust (SOUTHWEST)";
-	icon_state = "warning_dust";
-	dir = 10
-	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -64862,7 +64861,6 @@
 /obj/structure/track{
 	icon_state = "track12"
 	},
-/obj/effect/floor_decal/industrial/warning/dust,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -64872,7 +64870,6 @@
 /obj/structure/track{
 	icon_state = "track12"
 	},
-/obj/effect/floor_decal/industrial/warning/dust,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -64908,7 +64905,6 @@
 /obj/structure/track{
 	icon_state = "track9"
 	},
-/obj/effect/floor_decal/industrial/warning/dust,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -64978,7 +64974,9 @@
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "cjD" = (
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
+	},
 /area/outpost/mining_main/eva)
 "cjE" = (
 /obj/structure/closet/secure_closet/miner,
@@ -65038,11 +65036,14 @@
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "cjJ" = (
-/obj/machinery/light/spot{
+/obj/machinery/light{
+	dir = 4;
 	icon_state = "tube1";
-	dir = 4
+	pixel_x = 0
 	},
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
+	},
 /area/outpost/mining_main/eva)
 "cjK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -65320,16 +65321,9 @@
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "cku" = (
-/obj/item/weapon/wrench,
-/obj/item/weapon/screwdriver,
-/obj/item/weapon/crowbar,
-/obj/structure/table/reinforced/steel,
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 8
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
+/obj/structure/ladder/up,
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
 	},
 /area/outpost/mining_main/eva)
 "ckv" = (
@@ -65672,111 +65666,6 @@
 	},
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
-"clm" = (
-/obj/structure/cryofeed,
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/bar)
-"cln" = (
-/obj/structure/cryofeed,
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/bar)
-"clo" = (
-/obj/machinery/computer/cryopod{
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled/white,
-/area/hallway/primary/aft)
-"clp" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 2
-	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -25
-	},
-/turf/simulated/floor/tiled/white,
-/area/hallway/primary/aft)
-"clq" = (
-/obj/structure/cryofeed,
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/bar)
-"clr" = (
-/obj/structure/table/rack{
-	dir = 1
-	},
-/obj/item/stack/rods{
-	amount = 50
-	},
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/outpost/mining_main/eva)
-"cls" = (
-/obj/structure/table/rack{
-	dir = 1
-	},
-/obj/item/stack/rods{
-	amount = 50
-	},
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 5
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/outpost/mining_main/eva)
-"clt" = (
-/obj/structure/ladder/up{
-	pixel_y = 16
-	},
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 8
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/outpost/mining_main/eva)
-"clu" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 8
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/outpost/mining_main/eva)
-"clv" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/eva)
-"clw" = (
-/obj/machinery/cell_charger,
-/obj/structure/table/reinforced/steel,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/outpost/mining_main/eva)
 
 (1,1,1) = {"
 aaa
@@ -85008,7 +84897,7 @@ aaa
 aaa
 aaa
 aaa
-aab
+cbn
 aaa
 aaa
 aaa
@@ -85508,7 +85397,7 @@ aaa
 aaa
 aaa
 aaa
-aab
+cbn
 aaa
 aaa
 aaa
@@ -85758,14 +85647,14 @@ aaa
 aaa
 aaa
 aaa
-aab
-aab
+cbn
+cbI
 aaa
 aaa
 aab
 aab
 aab
-aab
+cbo
 aaa
 aab
 aab
@@ -86015,7 +85904,7 @@ aaa
 aaa
 aaa
 aaa
-aab
+cbo
 aab
 aab
 aab
@@ -86276,7 +86165,7 @@ aaa
 aaa
 aab
 aab
-aab
+cbo
 aab
 aaa
 aaa
@@ -86790,10 +86679,10 @@ baJ
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
+anR
+anR
+anR
+anR
 aab
 aab
 cjl
@@ -87047,11 +86936,11 @@ baJ
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+anR
+anR
+anR
+anR
+anR
 aab
 cjm
 aab
@@ -87308,9 +87197,9 @@ bRJ
 bRJ
 bRJ
 bRJ
-aaa
+anR
 aab
-cjm
+cjn
 aab
 aab
 aab
@@ -87565,10 +87454,10 @@ cda
 cdj
 cdw
 bRJ
-aab
-aab
-cjm
-aab
+ciO
+ciX
+cjo
+cjB
 aab
 aab
 aab
@@ -87825,7 +87714,7 @@ bRJ
 ciP
 ciY
 cjp
-aab
+cjC
 aab
 aab
 aab
@@ -88080,22 +87969,22 @@ bZA
 bVT
 bRJ
 ciQ
-cjj
+ciZ
 cjq
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+cem
+ceB
+ceB
+ceB
+ceB
+ceB
+ceB
+ceB
+ceB
+ceB
+ceB
+ceB
+ceB
+ckS
 aab
 aaa
 aaa
@@ -88336,23 +88225,23 @@ cbq
 bZA
 cdy
 bRJ
-ciQ
-cjj
+ciR
+cja
 cjr
 cjD
-cjD
+cen
 cjJ
 ceW
-cjD
-cjD
-cjD
-cjD
-cjD
-cjD
-cjD
-cjD
-aab
-aab
+cen
+cen
+cka
+cen
+ckh
+cen
+cen
+ckG
+cen
+ckT
 aab
 aaa
 aaa
@@ -88593,23 +88482,23 @@ cdb
 bZA
 bVT
 bRJ
-ciQ
-cjj
-cjr
-cjD
+ciS
+cjb
+cjs
+cen
 ceC
 cdP
 ceX
 cfm
 cfz
 cdP
-cjD
-cjD
-cjD
-cjD
-cjJ
-aab
-aab
+cfV
+cen
+ckm
+cen
+cdP
+cen
+ckU
 aab
 aaa
 aaa
@@ -88850,23 +88739,23 @@ caI
 cdk
 cdz
 bRJ
-ciQ
-cjj
-cjr
-cjD
-clr
+ciT
+cjc
+cjt
+cen
+ceC
 cdP
 ceY
 cjT
 cfA
 cdP
-clt
-clu
-clu
+cfW
+cki
+cen
 cku
 cdP
-aab
-aab
+ckK
+ckV
 aab
 aab
 aaa
@@ -89107,23 +88996,23 @@ cdc
 bZA
 bVT
 bRJ
-ciQ
-cjj
-cjr
-cjD
-cls
+ciU
+cjd
+cju
+cen
+ceC
 cdP
 ceZ
 cfn
 cfB
 cdP
 cfX
-cjj
-cjj
-cfW
+cen
+cen
+ckv
 cdP
-aab
-aab
+cen
+ckW
 aab
 aaa
 aaa
@@ -89367,7 +89256,7 @@ bRJ
 ciV
 cje
 cjv
-cjD
+cen
 cdP
 cdP
 cfa
@@ -89376,11 +89265,11 @@ cfa
 cdP
 cdP
 cgf
-cjj
-clw
+cen
+cen
 cdP
-aab
-aab
+cen
+ckX
 aab
 aaa
 aaa
@@ -89607,7 +89496,7 @@ bWF
 bWF
 bWF
 bWm
-cid
+cie
 bZA
 ccG
 car
@@ -89632,12 +89521,12 @@ cfp
 cfC
 cfN
 cdP
+cdP
 ckn
-clv
 ckw
 cdP
-aab
-aab
+ckL
+ckY
 aab
 aaa
 aaa
@@ -89893,8 +89782,8 @@ cgg
 cgp
 cgv
 cgB
-aab
-aab
+ckM
+ckZ
 aab
 aab
 aaa
@@ -90124,7 +90013,7 @@ bWm
 cig
 bWm
 cac
-chY
+cat
 caL
 bWm
 bZA
@@ -90150,8 +90039,8 @@ cfP
 cfP
 cgw
 cgC
-aab
-aab
+ckN
+cla
 aab
 aab
 aaa
@@ -90378,7 +90267,7 @@ bWF
 bWF
 bWF
 bWm
-cig
+cih
 cim
 cad
 bXT
@@ -90404,11 +90293,11 @@ cfF
 cfQ
 cga
 ckj
-ckj
+cko
 ckx
 cgC
-aab
-aab
+cen
+clb
 aab
 aaa
 aaa
@@ -90638,7 +90527,7 @@ bWm
 bWm
 bWm
 cae
-chX
+cau
 caN
 bWm
 cbt
@@ -90664,8 +90553,8 @@ cgh
 cgq
 cgx
 cgD
-aab
-aab
+cen
+clc
 aab
 aaa
 aaa
@@ -90921,8 +90810,8 @@ cdP
 ced
 ceP
 cdP
-aab
-aab
+ckO
+cld
 aab
 aaa
 aaa
@@ -91178,8 +91067,8 @@ cgi
 cgr
 cky
 cgy
-aab
-aab
+cen
+cle
 aab
 aaa
 aaa
@@ -91435,8 +91324,8 @@ cgj
 cgs
 cgz
 ckH
-aab
-aab
+cen
+clf
 aab
 aab
 aaa
@@ -91692,8 +91581,8 @@ cgk
 ceS
 ckz
 cdQ
-aab
-aab
+ckP
+clg
 aab
 aab
 aaa
@@ -91949,8 +91838,8 @@ ceS
 cgu
 cgA
 cgy
-aab
-aab
+cen
+clh
 aab
 aab
 aab
@@ -92180,9 +92069,9 @@ bXP
 cij
 bWm
 cir
-ciu
+civ
 cbe
-ciD
+ciE
 cby
 cbR
 ccq
@@ -92206,8 +92095,8 @@ cgm
 ckp
 ckA
 ckI
-aab
-aab
+cen
+cli
 aab
 aab
 aab
@@ -92437,7 +92326,7 @@ cia
 bZr
 bZG
 cah
-ciu
+cay
 cbf
 ciF
 ciG
@@ -92463,8 +92352,8 @@ cdQ
 ckq
 ckB
 cdQ
-aab
-aab
+ckQ
+clj
 aab
 aab
 aaa
@@ -92713,15 +92602,15 @@ cey
 cgn
 cjP
 cjU
-cjU
-cjU
-cjU
+cjX
+ckb
+cke
 cdQ
-aab
-aab
-aab
-aab
-aab
+ckr
+ckC
+cen
+cen
+clk
 aab
 aaa
 aaa
@@ -92968,17 +92857,17 @@ cel
 cez
 cfl
 cdQ
-cji
+cjQ
 cel
 cel
 cel
 ckf
 cdQ
-aab
-aab
-aab
-aab
-aab
+cks
+ckD
+ckJ
+ckR
+cll
 aab
 aaa
 aaa
@@ -93220,19 +93109,19 @@ bMj
 bMj
 bMj
 bMj
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+cjj
+cjz
+cen
+cen
+cjL
+cjR
+cjV
+cjY
+ckc
+cen
+ckk
+cen
+ckE
 aab
 aab
 aab
@@ -93463,7 +93352,7 @@ bYs
 bXe
 bXv
 bWm
-cai
+bZI
 cai
 ciw
 bPH
@@ -93473,23 +93362,23 @@ cbV
 ccu
 ccP
 bMj
-aaa
-aaa
-aaa
-aaa
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+anR
+anR
+anR
+anR
+cjk
+cjA
+cjF
+cjI
+cjM
+cjS
+cjW
+cjZ
+ckd
+ckg
+ckl
+ckt
+ckF
 aab
 aab
 aaa
@@ -93720,9 +93609,9 @@ bYt
 bYN
 bLU
 bZs
-cix
 bZJ
-clo
+bZJ
+cix
 bPH
 bPO
 bPL
@@ -93730,9 +93619,9 @@ cbW
 bRz
 ccQ
 bMj
-aaa
-aaa
-aaa
+anR
+anR
+anR
 aaa
 aab
 aab
@@ -93975,7 +93864,7 @@ bQd
 bXW
 bYu
 chZ
-chZ
+cib
 bZt
 cio
 cis
@@ -93987,8 +93876,8 @@ cbX
 cbX
 cbX
 cbX
-aaa
-aaa
+anR
+anR
 aaa
 aab
 aab
@@ -94233,10 +94122,10 @@ bXX
 bNO
 bYO
 bZc
-bZs
+bPH
 bZK
-bZJ
-clp
+caj
+ciy
 bPH
 cbj
 cbB
@@ -94244,8 +94133,8 @@ cbY
 ccv
 ccR
 cdg
-aaa
-aaa
+anR
+anR
 aaa
 aab
 aab
@@ -94492,8 +94381,8 @@ bUz
 bUz
 bUz
 bZL
-caj
-ciy
+bZL
+bZL
 bPH
 cbk
 cbC
@@ -94501,7 +94390,7 @@ cbZ
 ccw
 ccS
 cbB
-aaa
+anR
 aaa
 aaa
 aab
@@ -94748,9 +94637,9 @@ bYv
 bYP
 bZe
 bUz
-clm
-clm
-clm
+bUz
+bUz
+bUz
 bMj
 bPO
 cbB
@@ -95004,12 +94893,12 @@ bVa
 bVa
 bVa
 bZf
-bUz
-bUz
-bUz
-bUz
-bMj
-bPO
+bVa
+bVa
+bVa
+caA
+caU
+bPQ
 cbB
 ccb
 ccy
@@ -95265,9 +95154,9 @@ bVa
 bZM
 bZM
 bUz
-caU
-bPQ
-cbB
+caV
+bPK
+cbD
 ccc
 ccz
 ccV
@@ -95523,8 +95412,8 @@ bZN
 cak
 bUz
 bPO
-bPK
-cbD
+bPL
+cbE
 ccd
 ccf
 ccd

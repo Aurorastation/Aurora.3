@@ -200,6 +200,10 @@
 				user << "<span class='warning'>Sticking a dead [W] into the frame would sort of defeat the purpose.</span>"
 				return
 
+			if(jobban_isbanned(M.brainmob, "Cyborg"))
+				user << "<span class='warning'>\The [W] does not seem to fit.</span>"
+				return
+
 			if(!src.head.law_manager)
 
 				if(!is_alien_whitelisted(M.brainmob, "Machine") && config.usealienwhitelist)
@@ -221,11 +225,6 @@
 				return
 
 			else
-
-				if(jobban_isbanned(M.brainmob, "Cyborg"))
-					user << "<span class='warning'>\The [W] does not seem to fit.</span>"
-					return
-
 				var/mob/living/silicon/robot/O = new /mob/living/silicon/robot(get_turf(loc), TRUE)
 				if(!O)	return
 

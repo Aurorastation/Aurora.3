@@ -452,6 +452,9 @@
 
 	var/obj/item/organ/external/affecting
 	for (var/area in damage_areas)
+
+		if(area == "head" && shock_damage >= 5 && prob(15))
+			cure_all_traumas(cure_type = CURE_CRYSTAL)
 		affecting = get_organ(check_zone(area))
 		var/emp_damage
 		switch(shock_damage)
