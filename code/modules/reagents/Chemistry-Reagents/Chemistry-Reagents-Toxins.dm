@@ -395,6 +395,7 @@
 	glass_name = "glass of beer"
 	glass_desc = "A freezing pint of beer"
 	glass_center_of_mass = list("x"=16, "y"=8)
+	nospawn = 1
 
 /* Drugs */
 
