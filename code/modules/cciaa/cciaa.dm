@@ -129,7 +129,7 @@
 
 	if(!check_rights(0))		return
 
-	if(!mob.mind || mob.mind.special_role != "CCIA Agent")
+	if (!mob.mind || !(mob.mind.special_role in list("CCIA Agent", "ERT Commander")))
 		verbs -= /client/proc/returntobody
 		return
 
