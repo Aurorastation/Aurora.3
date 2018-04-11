@@ -611,6 +611,7 @@
 	color = "#b2beb5"
 	strength = 25
 	taste_description = "ashes"
+	nospawn = 1
 
 /datum/reagent/toxin/undead/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien && alien == IS_UNDEAD)
