@@ -327,7 +327,7 @@ var/list/slot_equipment_priority = list( \
 
 		if(!src.lastarea)
 			src.lastarea = get_area(src.loc)
-		if((istype(src.loc, /turf/space)) || (src.lastarea.has_gravity == 0))
+		if((istype(src.loc, /turf/space)) || (src.lastarea.has_gravity() == 0))
 			src.inertia_dir = get_dir(target, src)
 			step(src, inertia_dir)
 

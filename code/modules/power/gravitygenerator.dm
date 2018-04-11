@@ -341,13 +341,13 @@
 	var/alert = 0
 	var/area/area = get_area(src)
 	if(new_state) // If we turned on
-		if(gravity_in_level() == 0)
+		if(!area.has_gravity())
 			alert = 1
 			gravity_is_on = 1
 			investigate_log("was brought online and is now producing gravity for this level.", "gravity")
 			message_admins("The gravity generator was brought online. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[area.name]</a>)")
 	else
-		if(gravity_in_level() == 1)
+		if(area.has_gravity())
 			alert = 1
 			gravity_is_on = 0
 			investigate_log("was brought offline and there is now no gravity for this level.", "gravity")
@@ -423,14 +423,6 @@
 				shake_camera(M, 5, 1)
 				M.playsound_local(our_turf, 'sound/effects/alert.ogg', 100, 1, 0.5)
 
-/obj/machinery/gravity_generator/main/proc/gravity_in_level()
-	var/turf/T = get_turf(src)
-	if(!T)
-		return 0
-	if(SSmachinery.gravity_generators)
-		return length(SSmachinery.gravity_generators)
-	return 0
-
 /obj/machinery/gravity_generator/main/proc/update_list()
 	var/turf/T = get_turf(src.loc)
 	if(T)
@@ -439,18 +431,11 @@
 
 		if(on)
 			for(var/area/A in localareas)
-				A.has_gravity = 1
-				if(round_start)
-					A.gravitychange(A.has_gravity,A,1)
-				else
-					A.gravitychange(A.has_gravity,A)
-			if(round_start == 1)
-				round_start = 0
+				A.gravitychange(TRUE)
 			SSmachinery.gravity_generators += src
 		else
 			for(var/area/A in localareas)
-				A.has_gravity = 0
-				A.gravitychange(A.has_gravity,A)
+				A.gravitychange(FALSE)
 			SSmachinery.gravity_generators -= src
 
 /obj/machinery/gravity_generator/main/Initialize()
