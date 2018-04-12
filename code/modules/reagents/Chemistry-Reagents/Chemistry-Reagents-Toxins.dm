@@ -630,13 +630,13 @@
 
 /datum/reagent/toxin/tobacco/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(istype(M))
-		var/obj/item/organ/H = M.internal_organs_by_name["heart"]
+		var/obj/item/organ/H = M.internal_organs_by_name[BP_HEART]
 		if(istype(H))
 			H.take_damage(removed * strength * 0.5,1)
-		var/obj/item/organ/L = M.internal_organs_by_name["lungs"]
+		var/obj/item/organ/L = M.internal_organs_by_name[BP_LUNGS]
 		if(istype(L))
 			L.take_damage(removed * strength,1)
-		var/obj/item/organ/A = M.internal_organs_by_name["liver"]
+		var/obj/item/organ/A = M.internal_organs_by_name[BP_LIVER]
 		if(istype(A))
 			A.take_damage(removed * strength * 0.25,1)
 

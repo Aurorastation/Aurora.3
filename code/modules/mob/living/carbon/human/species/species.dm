@@ -156,16 +156,16 @@
 
 	                              // Determines the organs that the species spawns with and
 	var/list/has_organ = list(    // which required-organ checks are conducted.
-		"heart" =    /obj/item/organ/heart,
-		"lungs" =    /obj/item/organ/lungs,
-		"liver" =    /obj/item/organ/liver,
-		"kidneys" =  /obj/item/organ/kidneys,
+		BP_HEART =    /obj/item/organ/heart,
+		BP_LUNGS =    /obj/item/organ/lungs,
+		BP_LIVER =    /obj/item/organ/liver,
+		BP_KIDNEYS =  /obj/item/organ/kidneys,
 		"brain" =    /obj/item/organ/brain,
-		"appendix" = /obj/item/organ/appendix,
+		BP_APPENDIX = /obj/item/organ/appendix,
 		BP_EYES =     /obj/item/organ/eyes
 		)
 	var/vision_organ              // If set, this organ is required for vision. Defaults to BP_EYES if the species has them.
-	var/breathing_organ           // If set, this organ is required to breathe. Defaults to "lungs" if the species has them.
+	var/breathing_organ           // If set, this organ is required to breathe. Defaults to BP_LUNGS if the species has them.
 
 	var/list/has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
@@ -202,8 +202,8 @@
 		vision_organ = BP_EYES
 
 	// Same, but for lungs.
-	if (!breathing_organ && has_organ["lungs"])
-		breathing_organ = "lungs"
+	if (!breathing_organ && has_organ[BP_LUNGS])
+		breathing_organ = BP_LUNGS
 
 	unarmed_attacks = list()
 	for(var/u_type in unarmed_types)

@@ -19,7 +19,7 @@
 
 	if(istype(affected_mob,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = affected_mob
-		if(!H.internal_organs_by_name["appendix"])
+		if(!H.internal_organs_by_name[BP_APPENDIX])
 			src.cure()
 
 	if(stage == 1)

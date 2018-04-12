@@ -218,12 +218,12 @@
 	flags = NO_SLIP
 
 	has_organ = list(
-		"heart" =    /obj/item/organ/heart/skrell,
-		"lungs" =    /obj/item/organ/lungs/skrell,
-		"liver" =    /obj/item/organ/liver/skrell,
-		"kidneys" =  /obj/item/organ/kidneys/skrell,
+		BP_HEART =    /obj/item/organ/heart/skrell,
+		BP_LUNGS =    /obj/item/organ/lungs/skrell,
+		BP_LIVER =    /obj/item/organ/liver/skrell,
+		BP_KIDNEYS =  /obj/item/organ/kidneys/skrell,
 		"brain" =    /obj/item/organ/brain/skrell,
-		"appendix" = /obj/item/organ/appendix,
+		BP_APPENDIX = /obj/item/organ/appendix,
 		BP_EYES =     /obj/item/organ/eyes/skrell
 		)
 
@@ -701,13 +701,13 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 
 	has_organ = list(
 		"neural socket"       = /obj/item/organ/vaurca/neuralsocket,
-		"lungs"               = /obj/item/organ/lungs,
+		BP_LUNGS               = /obj/item/organ/lungs,
 		"filtration bit"      = /obj/item/organ/vaurca/filtrationbit,
 		"right heart"         = /obj/item/organ/heart/right,
 		"left heart"          = /obj/item/organ/heart/left,
 		"phoron reserve tank" = /obj/item/organ/vaurca/preserve,
-		"liver"               = /obj/item/organ/liver,
-		"kidneys"             = /obj/item/organ/kidneys,
+		BP_LIVER               = /obj/item/organ/liver,
+		BP_KIDNEYS             = /obj/item/organ/kidneys,
 		"brain"               = /obj/item/organ/brain,
 		BP_EYES                = /obj/item/organ/eyes
 	)

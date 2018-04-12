@@ -117,7 +117,7 @@
 
 /obj/item/organ/kidneys/vox
 	name = "filtration bladder"
-	icon_state = "lungs"
+	icon_state = BP_LUNGS
 	color = "#99ccff"
 	parent_organ = BP_CHEST
 

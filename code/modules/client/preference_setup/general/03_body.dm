@@ -232,8 +232,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					organ_name = "upper body"
 				if(BP_HEAD)
 					organ_name = BP_HEAD
-				if("heart")
-					organ_name = "heart"
+				if(BP_HEART)
+					organ_name = BP_HEART
 				if(BP_EYES)
 					organ_name = BP_EYES
 
@@ -262,7 +262,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				if(ind > 1)
 					out += ", "
 				switch(organ_name)
-					if("heart")
+					if(BP_HEART)
 						out += "\tPacemaker-assisted [organ_name]"
 					if("voicebox") //on adding voiceboxes for speaking skrell/similar replacements
 						out += "\tSurgically altered [organ_name]"
@@ -608,7 +608,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/organ = null
 		switch(organ_name)
 			if("Heart")
-				organ = "heart"
+				organ = BP_HEART
 			if("Eyes")
 				organ = BP_EYES
 

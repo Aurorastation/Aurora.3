@@ -69,8 +69,8 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 					B.volume += chem_effects[CE_BLOODRESTORE]
 
 		//The heartfix to end all heartfixes
-		if(species && species.has_organ["heart"])
-			var/obj/item/organ/heart/heart = internal_organs_by_name["heart"]
+		if(species && species.has_organ[BP_HEART])
+			var/obj/item/organ/heart/heart = internal_organs_by_name[BP_HEART]
 			if(!heart)
 				blood_volume = 0
 			else if (heart.is_damaged())

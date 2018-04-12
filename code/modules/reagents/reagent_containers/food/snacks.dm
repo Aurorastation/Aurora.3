@@ -800,7 +800,7 @@
 	name = "organ"
 	desc = "It's good for you."
 	icon = 'icons/obj/surgery.dmi'
-	icon_state = "appendix"
+	icon_state = BP_APPENDIX
 	filling_color = "#E00D34"
 	center_of_mass = list("x"=16, "y"=16)
 	bitesize = 3

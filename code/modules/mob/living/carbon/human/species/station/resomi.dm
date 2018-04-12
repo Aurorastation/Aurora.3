@@ -67,10 +67,10 @@
 		)
 
 	has_organ = list(
-		"heart" =    /obj/item/organ/heart,
-		"lungs" =    /obj/item/organ/lungs,
-		"liver" =    /obj/item/organ/liver,
-		"kidneys" =  /obj/item/organ/kidneys,
+		BP_HEART =    /obj/item/organ/heart,
+		BP_LUNGS =    /obj/item/organ/lungs,
+		BP_LIVER =    /obj/item/organ/liver,
+		BP_KIDNEYS =  /obj/item/organ/kidneys,
 		"brain" =    /obj/item/organ/brain,
 		BP_EYES =     /obj/item/organ/eyes
 		)

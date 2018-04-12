@@ -1,12 +1,12 @@
 /obj/item/organ/heart/left
-	name = "heart"
+	name = BP_HEART
 	icon_state = "heart-on"
 	organ_tag = "left heart"
 	parent_organ = BP_CHEST
 	dead_icon = "heart-off"
 
 /obj/item/organ/heart/right
-	name = "heart"
+	name = BP_HEART
 	icon_state = "heart-on"
 	organ_tag = "right heart"
 	parent_organ = BP_CHEST

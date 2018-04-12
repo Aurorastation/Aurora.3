@@ -1,0 +1,21 @@
+//external
+#define BP_HEAD "head"
+#define BP_MOUTH "mouth"
+#define BP_EYES "eyes"
+#define BP_CHEST "chest"
+#define BP_GROIN "groin"
+#define BP_R_ARM "r_arm"
+#define BP_L_ARM "l_arm"
+#define BP_R_LEG "r_leg"
+#define BP_L_LEG "l_leg"
+#define BP_R_HAND "r_hand"
+#define BP_L_HAND "l_hand"
+#define BP_R_FOOT "r_foot"
+#define BP_L_FOOT "l_foot"
+
+//internal
+#define BP_HEART "heart"
+#define BP_KIDNEYS "kidneys"
+#define BP_LIVER "liver"
+#define BP_APPENDIX "appendix"
+#define BP_LUNGS "lungs"

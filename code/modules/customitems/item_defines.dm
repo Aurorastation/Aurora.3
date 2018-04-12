@@ -571,7 +571,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	last_special = world.time + 500
 
-	var/obj/item/organ/F = src.internal_organs_by_name["heart"]
+	var/obj/item/organ/F = src.internal_organs_by_name[BP_HEART]
 
 	if(isnull(F))
 		return
