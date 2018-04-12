@@ -649,7 +649,7 @@
 					message = "buzzes."
 				playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
 				m_type = 1
-		
+
 		if("vomit")
 			if (!check_has_mouth(src))
 				src << "<span class='warning'>You are unable to vomit.</span>"
@@ -683,6 +683,13 @@ wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz, sla
 	set category = "IC"
 
 	pose =  sanitize(input(usr, "This is [src]. [get_visible_gender() == MALE ? "He" : get_visible_gender() == FEMALE ? "She" : "They"]...", "Pose", null)  as text)
+
+/mob/living/carbon/human/verb/feel()
+	set name = "Set Thoughts"
+	set desc = "Sets a description of your feelings, which can be perused by certain species."
+	set category = "IC"
+
+	feel =  sanitize(input(usr, "This is [src]. [get_visible_gender() == MALE ? "His" : get_visible_gender() == FEMALE ? "Her" : "Their"] thoughts reflect ...", "Feel", null) as text)
 
 /mob/living/carbon/human/verb/set_flavor()
 	set name = "Set Flavour Text"

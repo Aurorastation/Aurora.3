@@ -10,6 +10,7 @@
 #define IS_MECHANICAL       256    // Is a robot.
 #define ACCEPTS_COOLER      512    // Can wear suit coolers and have them work without a suit.
 #define NO_CHUBBY           1024   // Cannot be visibly fat from nutrition type.
+#define IS_EMPATH           2048   // Can read emotion, can detect mindreading.
 // unused: 0x8000(32768) - higher than this will overflow
 
 // Base flags for IPCs.
@@ -48,6 +49,7 @@
 #define LANGUAGE_VAURCA "Hivenet"
 #define LANGUAGE_AZAZIBA "Sinta'azaziba"
 #define LANGUAGE_SIGN "Sign Language"
+#define LANGUAGE_PSIONIC "Shortwave Telepathy"
 
 // Antag Languages
 #define LANGUAGE_XENOMORPH "Xenomorph"

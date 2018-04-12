@@ -209,13 +209,19 @@
 	such an ancient and venerable species, they often hold patronizing attitudes towards the younger races."
 
 	num_alternate_languages = 2
-	secondary_langs = list(LANGUAGE_SKRELLIAN)
+	secondary_langs = list(LANGUAGE_SKRELLIAN, LANGUAGE_PSIONIC)
 	name_language = null
 	rarity_value = 3
 
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
+
+	inherent_verbs = list(
+	/mob/living/carbon/human/proc/commune,
+	/mob/living/carbon/human/proc/empath
+	)
+
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_SOCKS
-	flags = NO_SLIP
+	flags = NO_SLIP | IS_EMPATH
 
 	has_organ = list(
 		"heart" =    /obj/item/organ/heart/skrell,

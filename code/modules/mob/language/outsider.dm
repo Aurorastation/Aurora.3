@@ -131,3 +131,11 @@
 
 /datum/language/terminator/get_random_name()
 	return "HK [pick(list("Hera","Zeus","Artemis","Athena","Ares","Hades","Poseidon","Demeter","Apollo","Aphrodite","Hermes","Hestia","Dionysus","Persephone","Kronos","Odysseus","Ajax","Agamemnon","Chiron","Charon"))]-[rand(100, 999)]"
+
+/datum/language/psionic
+	name = LANGUAGE_PSIONIC
+	desc = "A telepathic way of speaking, using a short range psionic ability, a similar origin as the abilities of Vox Armalis."
+	signlang_verb = list("seems to focus on something", "stares intensely ahead")
+	flags = SIGNLANG | WHITELISTED
+	colour = "psychic"
+	key = "t"

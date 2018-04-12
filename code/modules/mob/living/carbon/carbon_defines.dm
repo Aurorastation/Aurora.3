@@ -15,6 +15,7 @@
 	var/datum/surgery_status/op_stage = new/datum/surgery_status
 	//Active emote/pose
 	var/pose = null
+	var/feel = null
 	var/list/chem_effects = list()
 	var/intoxication = 0//Units of alcohol in their system
 	var/datum/reagents/metabolism/bloodstr = null
@@ -27,7 +28,7 @@
 	//the second is the message in question.
 	var/last_taste_time = 0
 	var/last_taste_text = ""
-	
+
 	var/last_smell_time = 0
 	var/last_smell_text = ""
 

@@ -177,32 +177,53 @@
 	set name = "Commune with creature"
 	set desc = "Send a telepathic message to an unlucky recipient."
 
+	var/obj/item/organ/external/rhand = src.get_organ("r_hand")
+	var/obj/item/organ/external/lhand = src.get_organ("l_hand")
+	if((!rhand || !rhand.is_usable()) && (!lhand || !lhand.is_usable()))
+		src <<"<span class='warning'>You can't communicate without the ability to use your hands!</span>"
+		return FALSE
+	if(stat || paralysis || stunned || weakened ||  restrained())
+		src <<"<span class='warning'>You can't communicate while unable to move your hands to your head!</span>"
+		return FALSE
+	if(last_special > world.time)
+		src << "<span class='notice'>Your mind requires rest!</span>"
+		return FALSE
+
+	last_special = world.time + 40
+
+	visible_message("<span class='notice'>[src] touches their fingers to their temple.</span>")
+
 	var/list/targets = list()
-	var/target = null
+	for(var/mob/living/M in view(client.view, client.eye))
+		targets += M
+	var/mob/living/target = null
 	var/text = null
 
-	targets += getmobs() //Fill list, prompt user with list
 	target = input("Select a creature!", "Speak to creature", null, null) as null|anything in targets
 
-	if(!target) return
+	if(!target)
+		return
 
 	text = input("What would you like to say?", "Speak to creature", null, null)
 
 	text = sanitize(text)
 
-	if(!text) return
-
-	var/mob/M = targets[target]
-
-	if(istype(M, /mob/abstract/observer) || M.stat == DEAD)
-		src << "Not even a [src.species.name] can speak to the dead."
+	if(!text)
 		return
 
-	log_say("[key_name(src)] communed to [key_name(M)]: [text]",ckey=key_name(src))
+	if(istype(target, /mob/abstract/observer) || target.stat == DEAD)
+		to_chat(src, "<span class='warning'>Not even a [src.species.name] can speak to the dead.</span>")
+		return
 
-	M << "<span class='notice'>Like lead slabs crashing into the ocean, alien thoughts drop into your mind: [text]</span>"
-	if(istype(M,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
+	if(!(target in view(client.view, client.eye)))
+		to_chat(src, "<span class='warning'>[target] is too far for your mind to grasp!</span>")
+		return
+
+	log_say("[key_name(src)] communed to [key_name(target)]: [text]",ckey=key_name(src))
+
+	target << "<span class='notice'>Like lead slabs crashing into the ocean, alien thoughts drop into your mind: [text]</span>"
+	if(istype(target,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = target
 		if(H.species.name == src.species.name)
 			return
 		H << "<span class='warning'>Your nose begins to bleed...</span>"
@@ -566,3 +587,94 @@
 			G.affecting.forceMove(locate(T.x + rand(-1,1), T.y + rand(-1,1), T.z))
 		else
 			qdel(G)
+
+/mob/living/carbon/human/proc/empath()
+	set category = "Abilities"
+	set name = "Empath Reading"
+	set desc = "Glean from the minds of others."
+
+
+	var/obj/item/organ/external/rhand = src.get_organ("r_hand")
+	var/obj/item/organ/external/lhand = src.get_organ("l_hand")
+	if((!rhand || !rhand.is_usable()) && (!lhand || !lhand.is_usable()))
+		src << "<span class='warning'>You can't use your power without the ability to use your hands!</span>"
+		return FALSE
+	if(stat || paralysis || stunned || weakened ||  restrained())
+		src << "<span class='warning'>You can't use your power while unable to move your hands to your head!</span>"
+		return FALSE
+	if(last_special > world.time)
+		src << "<span class='notice'>Your mind requires rest!</span>"
+		return FALSE
+
+	last_special = world.time + 70
+
+	visible_message("<span class='notice'>[src] touches their fingers to their temple.</span>")
+
+	var/list/targets = list()
+	for(var/mob/living/carbon/human/M in view(7, src))
+		targets += M
+	var/mob/living/carbon/human/target = null
+
+	target = input("Select a creature!", "Read a creature", null, null) as null|anything in targets
+
+
+	if(!target)
+		return
+
+	if (!target || !target.loc) //Either chose not to, or the mob was caught by qdel
+		return 1
+
+	if (isSynthetic(target))
+		to_chat(src, "<span class='warning'>This can only be used on carbon beings.</span>")
+		return 1
+
+	if (istype(target, /mob/abstract/observer || target.stat == DEAD))
+		to_chat(src, "Not even a [src.species.name] can read the minds of the dead.")
+		return 1
+
+	if (target.stat == UNCONSCIOUS)
+		to_chat(src, "<span class='warning'>[target.name] is unconscious, and their thoughts blank.</span>")
+		return 1
+
+	if(get_dist(get_turf(target), get_turf(src)) > 7)
+		to_chat(src, "<span class='warning'>[target] is too far for your mind to grasp!</span>")
+		return FALSE
+
+	to_chat(src, "<span class='notice'><b>The inner mind of [target.name] conveys</b></span>")
+	var/list/randomthoughts = list("what to have for lunch","the future","the past","money", "incredible rage", "world domination",
+	"their hair","what to do next","their job","space","amusing things","sad things","a lover",
+	"annoying things","happy little trees","something incoherent","something they did wrong",
+	"the chef", "engineering", "medical", "cargo", "command", "the bar","science","something spooky","something lewd","odd things",
+	"tajara", "skrell", "unathi", "humans", "vaurca", "monkeys", "security officers", "robots",
+	"dumb things","lighting things on fire","lighting themselves on fire","blowing things up",
+	"blowing themeselves up", "you", "shoujo", "karate lessons", "when the shuttle will arrive", "mischief", "boredom", "vodka")
+	var/thoughts = "thinking about [target.feel ? target.feel : pick(randomthoughts)]"
+	if (fire_stacks > 0 && on_fire)
+		thoughts = "preoccupied with the fire"
+
+	switch(target.a_intent)
+		if (I_HELP)
+			to_chat(src, "<span class='notice'> <b>Their mood conveys:</b> A sense of the <b>intent</b> to <b>help</b>.</span>")
+		if (I_DISARM)
+			to_chat(src, "<span class='notice'> <b>Their mood conveys:</b> A sense of <b>defensive</b> <b>intents</b>.</span>")
+		if (I_GRAB)
+			to_chat(src, "<span class='notice'> <b>Their mood conveys:</b> A sense of the <b>intent</b> to <b>grab</b>.</span>")
+		if (I_HURT)
+			to_chat(src, "<span class='notice'> <b>Their mood conveys:</b> A sense the <b>intent</b> to <b>harm</b>.</span>")
+		else
+			to_chat(src, "<span class='notice'> <b>Their mood conveys:</b> Strange thoughts from [target.name].</span>")
+
+	to_chat(src, "<span class='notice'> <b>Thoughts</b>: [target.name] is currently [thoughts].</span>")
+
+	var/mob/living/carbon/human/H = target
+	if (H.species.flags & IS_EMPATH)
+		target << "<span class='notice'>You sense [src] reading your mind.</span>"
+	else if (prob(5) || (target.mind && target.mind.assigned_role=="Chaplain"))
+		target<< "<span class='changeling'>You sense something intruding upon your thoughts...</span>"
+	else
+		target << "<span class='alium'>Like a probing tendril, an alien force combs your mind..</span>"
+		if(istype(target,/mob/living/carbon/human))
+			if(H.species.name == src.species.name)
+				return
+			H << "<span class='warning'>Your nose begins to bleed...</span>"
+			H.drip(4)
