@@ -11397,7 +11397,7 @@
 	c_tag = "Hydroponics - Entrance"
 	},
 /turf/simulated/floor/tiled,
-/area/hydroponics)
+/area/hallway/primary/aft)
 "auI" = (
 /turf/simulated/open,
 /area/engineering/engine_waste)
@@ -24579,7 +24579,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
-/area/hydroponics)
+/area/hallway/primary/aft)
 "aQl" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -29566,6 +29566,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
+"aYp" = (
+/obj/item/modular_computer/console/preset/supply,
+/turf/simulated/floor/tiled,
+/area/quartermaster/office)
 "aYq" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -29622,6 +29626,24 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
+"aYw" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "aYx" = (
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
@@ -29651,6 +29673,12 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"aYB" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "aYC" = (
 /obj/machinery/alarm{
 	dir = 1;
@@ -90470,7 +90498,7 @@ aEc
 bWm
 aWc
 bXp
-bXp
+aWt
 bXp
 bYo
 bXT
@@ -90727,7 +90755,7 @@ aQm
 bWm
 aVv
 bXq
-aWt
+aYp
 bWY
 bYp
 chX
@@ -91742,9 +91770,9 @@ bPB
 bQa
 bQD
 bRf
-bRL
+bPH
 auH
-bSQ
+aYB
 cmE
 cmS
 bVt
@@ -91999,9 +92027,9 @@ bPC
 bQb
 bQb
 bRg
-bRL
+bPH
 aQk
-bSQ
+aYB
 cmF
 cnW
 cnW
@@ -92256,9 +92284,9 @@ bPD
 bQc
 bMD
 bMD
-bRL
-cml
-bSQ
+bPH
+aYw
+aYB
 cmG
 cnM
 cnM
