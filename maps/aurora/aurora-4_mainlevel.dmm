@@ -12163,10 +12163,7 @@
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/obj/machinery/camera/network/service{
-	c_tag = "Hydroponics - Garden";
-	dir = 4
-	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/grass,
 /area/hydroponics)
 "avU" = (
@@ -21676,6 +21673,9 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aLn" = (
+/obj/machinery/atm{
+	pixel_x = -32
+	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/camera/network/supply{
 	c_tag = "Cargo - Entrance";
@@ -25662,11 +25662,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "aRN" = (
-/obj/structure/flora/pottedplant/random,
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 2
-	},
+/obj/machinery/portable_atmospherics/hydroponics,
 /obj/machinery/camera/network/service{
 	c_tag = "Hydroponics - Main";
 	dir = 8
@@ -27734,6 +27730,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
+"aVr" = (
+/obj/item/modular_computer/console/preset/supply,
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/office)
 "aVs" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -27764,6 +27772,22 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
+"aVv" = (
+/obj/structure/table/standard,
+/obj/item/weapon/paper_bin{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/obj/item/weapon/pen/red{
+	pixel_x = 2;
+	pixel_y = 6
+	},
+/obj/machinery/light_switch{
+	pixel_x = 0;
+	pixel_y = 27
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/office)
 "aVw" = (
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
@@ -28052,6 +28076,14 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
+"aWc" = (
+/obj/item/device/radio/intercom{
+	pixel_x = 0;
+	pixel_y = 27
+	},
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled,
+/area/quartermaster/office)
 "aWd" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 4
@@ -28101,6 +28133,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/store)
+"aWi" = (
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Aft Corridor - Camera 1";
+	dir = 4
+	},
+/obj/machinery/newscaster{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "aWj" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -28132,6 +28174,36 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/store)
+"aWm" = (
+/obj/machinery/autolathe,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/office)
+"aWn" = (
+/obj/item/weapon/folder/yellow,
+/obj/item/device/eftpos{
+	eftpos_name = "Cargo Bay EFTPOS scanner"
+	},
+/obj/structure/table/standard{
+	name = "plastic table frame"
+	},
+/obj/machinery/camera/network/supply{
+	c_tag = "Cargo - Main Desk";
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/item/device/multitool,
+/obj/structure/sign/drop{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/office)
 "aWo" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
@@ -28179,6 +28251,18 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
+"aWt" = (
+/obj/structure/table/standard,
+/obj/item/weapon/stamp/denied{
+	pixel_x = 4;
+	pixel_y = -2
+	},
+/obj/item/weapon/stamp{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/office)
 "aWu" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -28724,6 +28808,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/foyer)
+"aXh" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/machinery/camera/network/service{
+	c_tag = "Hydroponics - Garden";
+	dir = 4
+	},
+/turf/simulated/floor/grass,
+/area/hydroponics)
 "aXi" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -56740,14 +56832,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turbolift/cargo_station)
-"bWH" = (
-/obj/machinery/autolathe,
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/office)
 "bWI" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk,
@@ -56756,15 +56840,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
-"bWJ" = (
-/obj/machinery/newscaster{
-	pixel_x = -32
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/aft)
 "bWK" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
@@ -56871,23 +56946,6 @@
 /area/quartermaster/office)
 "bWY" = (
 /obj/machinery/photocopier,
-/turf/simulated/floor/tiled,
-/area/quartermaster/office)
-"bWZ" = (
-/obj/item/weapon/paper_bin{
-	pixel_x = -3;
-	pixel_y = 7
-	},
-/obj/item/weapon/clipboard,
-/obj/item/weapon/pen/red{
-	pixel_x = 2;
-	pixel_y = 6
-	},
-/obj/structure/table/standard,
-/obj/machinery/light_switch{
-	pixel_x = 0;
-	pixel_y = 27
-	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "bXa" = (
@@ -57225,22 +57283,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"bXN" = (
-/obj/item/weapon/stamp{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/weapon/stamp/denied{
-	pixel_x = 4;
-	pixel_y = -2
-	},
-/obj/structure/table/standard,
-/turf/simulated/floor/tiled,
-/area/quartermaster/office)
-"bXO" = (
-/obj/item/modular_computer/console/preset/supply,
-/turf/simulated/floor/tiled,
-/area/quartermaster/office)
 "bXP" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -63893,11 +63935,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
-"cng" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/obj/machinery/firealarm/west,
-/turf/simulated/floor/grass,
-/area/hydroponics)
 "cni" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -64086,13 +64123,6 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/hydroponics)
-"cnZ" = (
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Aft Corridor - Camera 1";
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/aft)
 "coa" = (
 /obj/machinery/light_switch{
 	pixel_x = 4;
@@ -64113,10 +64143,6 @@
 	},
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
-"cob" = (
-/obj/structure/table/standard,
-/turf/simulated/floor/tiled,
-/area/quartermaster/office)
 "coc" = (
 /obj/machinery/door/firedoor{
 	dir = 4;
@@ -64149,13 +64175,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/quartermaster/office)
-"cof" = (
-/obj/machinery/atm{
-	pixel_x = -32
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/quartermaster/office)
 "cog" = (
 /obj/structure/table/wood,
 /obj/machinery/reagentgrinder,
@@ -64186,28 +64205,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/substation/civilian_west)
-"coi" = (
-/obj/item/weapon/folder/yellow,
-/obj/item/device/eftpos{
-	eftpos_name = "Cargo Bay EFTPOS scanner"
-	},
-/obj/structure/table/standard{
-	name = "plastic table frame"
-	},
-/obj/machinery/camera/network/supply{
-	c_tag = "Cargo - Main Desk";
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/brown{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/item/device/multitool,
-/obj/structure/sign/drop{
-	pixel_x = -32
-	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/office)
 "coj" = (
 /obj/machinery/power/terminal{
 	dir = 4
@@ -89181,7 +89178,7 @@ cmm
 amR
 cmI
 avT
-cng
+aXh
 cnp
 cnC
 bVl
@@ -89700,12 +89697,12 @@ cnP
 cnP
 auA
 bWm
-bWH
+aWm
 bWV
 bXn
 bXn
 bXn
-coi
+aWn
 bYW
 bZp
 bWm
@@ -90471,9 +90468,9 @@ cnW
 cnW
 aEc
 bWm
+aWc
 bXp
 bXp
-bXN
 bXp
 bYo
 bXT
@@ -90728,9 +90725,9 @@ bSO
 cnI
 aQm
 bWm
-cob
+aVv
 bXq
-bWZ
+aWt
 bWY
 bYp
 chX
@@ -91244,8 +91241,8 @@ cnU
 bWm
 bXa
 bXs
-cof
 aLn
+bXQ
 bXQ
 chY
 cia
@@ -91499,8 +91496,8 @@ cnx
 bSQ
 cnV
 bWm
-bXO
-bXp
+aVr
+bXs
 bXp
 bXR
 bYr
@@ -92009,12 +92006,12 @@ cmF
 cnW
 cnW
 cnW
-cnW
-cnW
 aRN
+cnW
+aEc
 bWm
 acK
-bXp
+bYM
 bXu
 bXT
 bXp
@@ -92526,8 +92523,8 @@ bLU
 bVv
 bLU
 bLU
-cnZ
-bWJ
+aWi
+bRh
 bLU
 bXw
 bXV
