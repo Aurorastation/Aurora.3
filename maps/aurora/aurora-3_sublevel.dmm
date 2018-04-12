@@ -27138,29 +27138,21 @@
 /turf/simulated/floor/tiled/airless,
 /area/rnd/test_area)
 "VO" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 8
-	},
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
-	},
-/area/mine/unexplored)
-"VP" = (
 /obj/structure/ladder/up{
 	pixel_y = 16
 	},
-/turf/simulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
-"VQ" = (
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
-"VR" = (
-/obj/structure/ladder/up,
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
+"VP" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	tag = "icon-warning_dust (SOUTHWEST)";
+	icon_state = "warning_dust";
+	dir = 10
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
 
@@ -49470,12 +49462,12 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
 aa
 aa
 aa
+aa
+ac
+ac
 aa
 aa
 aa
@@ -49729,12 +49721,12 @@ ac
 ac
 ac
 ac
+aa
 ac
-aa
-aa
-aa
-aa
-aa
+ac
+ac
+ac
+ac
 aa
 aa
 aa
@@ -49988,10 +49980,10 @@ ac
 ac
 ac
 ac
-aa
-aa
-aa
-aa
+pD
+tP
+VP
+ac
 aa
 aa
 aa
@@ -50245,10 +50237,10 @@ aa
 ac
 ac
 ac
+jL
+VO
+xo
 ac
-ac
-ac
-aa
 aa
 aa
 aa
@@ -50502,10 +50494,10 @@ aa
 aa
 ac
 ac
-jL
-VP
+pE
+qm
+qL
 ac
-aa
 aa
 aa
 aa
@@ -50762,8 +50754,8 @@ ac
 ac
 ac
 ac
-aa
-aa
+ac
+ac
 aa
 aa
 aa
@@ -51019,8 +51011,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+ac
+ac
 aa
 aa
 aa
