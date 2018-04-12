@@ -88,6 +88,8 @@
 	return return_air() // Otherwise their head is above the water, so get the air from the atmosphere instead.
 
 /turf/simulated/floor/beach/water/Entered(atom/movable/AM, atom/oldloc)
+	if(!SSATOMS_IS_PROBABLY_DONE)
+		return
 	reagents.add_reagent("water", 2)
 	clean(src)
 	START_PROCESSING(SSprocessing, src)
@@ -102,6 +104,8 @@
 	..()
 
 /turf/simulated/floor/beach/water/Exited(atom/movable/AM, atom/newloc)
+	if(!SSATOMS_IS_PROBABLY_DONE)
+		return
 	reagents.add_reagent("water", 2)
 	clean(src)
 	if(istype(AM, /obj) && numobjects)
