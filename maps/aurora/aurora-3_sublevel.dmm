@@ -18777,6 +18777,7 @@
 	},
 /obj/structure/table/reinforced,
 /obj/item/weapon/folder/purple,
+/obj/item/weapon/storage/box/testpins,
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "Hi" = (

@@ -38707,7 +38707,6 @@
 /turf/simulated/wall/r_wall,
 /area/medical/chemistry)
 "bof" = (
-/obj/machinery/disposal,
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 9
