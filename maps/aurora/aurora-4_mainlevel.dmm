@@ -33303,6 +33303,21 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
 /area/turbolift/main_station)
+"bfh" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/table/standard,
+/obj/machinery/reagentgrinder{
+	pixel_y = 16
+	},
+/obj/item/weapon/storage/fancy/vials,
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white_full";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
 "bfi" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -63849,21 +63864,6 @@
 /obj/machinery/chem_master,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
-"cmM" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/table/standard,
-/obj/machinery/reagentgrinder{
-	pixel_y = 16
-	},
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white_full";
-	dir = 4
-	},
-/obj/item/weapon/storage/fancy/vials,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
 "cmN" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/structure/window/reinforced{
@@ -90232,7 +90232,7 @@ bRL
 cmd
 cmq
 cmA
-cmM
+bfh
 cmZ
 cnk
 cnt
