@@ -576,7 +576,7 @@ default behaviour is:
 
 						if(!istype(M.loc, /turf/space))
 							var/area/A = get_area(M)
-							if(A.has_gravity)
+							if(A.has_gravity())
 								//this is the gay blood on floor shit -- Added back -- Skie
 								if (M.lying && (prob(M.getBruteLoss() / 6)))
 									var/turf/location = M.loc

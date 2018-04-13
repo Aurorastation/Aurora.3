@@ -175,9 +175,8 @@
 /obj/item/projectile/energy/gravitydisabler/on_impact(atom/target)
 	. = ..()
 	var/area/A = get_area(target)
-	if(A && A.has_gravity == 1)
-		A.has_gravity = 0
-		A.gravitychange(A.has_gravity,A)
+	if(A && A.has_gravity())
+		A.gravitychange(FALSE)
 		addtimer(CALLBACK(src, .proc/turnongravity), 150)
 
 	if(istype(target, /obj/machinery/gravity_generator/main))
@@ -185,8 +184,7 @@
 		T.eshutoff()
 
 /obj/item/projectile/energy/gravitydisabler/proc/turnongravity(var/area/A)
-	A.has_gravity = 1
-	A.gravitychange(A.has_gravity,A)
+	A.gravitychange(TRUE)
 
 /obj/item/projectile/energy/bee
 	name = "bees"

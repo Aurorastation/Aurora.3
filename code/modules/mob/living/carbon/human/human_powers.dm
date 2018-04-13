@@ -49,7 +49,7 @@
 		if ((O.client && !( O.blinded )))
 			O.show_message(text("<span class='danger'>[] [failed ? "tried to tackle" : "has tackled"] down []!</span>", src, T), 1)
 
-/mob/living/carbon/human/proc/leap(mob/living/T as mob in view(4))
+/mob/living/carbon/human/proc/leap(mob/living/T as mob in oview(4))
 	set category = "Abilities"
 	set name = "Leap"
 	set desc = "Leap at a target and grab them aggressively."
