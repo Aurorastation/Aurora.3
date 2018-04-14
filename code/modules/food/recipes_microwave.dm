@@ -34,10 +34,6 @@ I said no!
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/boiledegg
 
-
-
-
-
 /datum/recipe/humanburger
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/meat/human,
@@ -621,8 +617,6 @@ I said no!
 	reagents = list("water" = 10)
 	result = /obj/item/weapon/reagent_containers/food/snacks/beetsoup
 
-
-
 /datum/recipe/tossedsalad
 	fruit = list("cabbage" = 2, "tomato" = 1, "carrot" = 1, "apple" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/tossedsalad
@@ -1137,7 +1131,34 @@ I said no!
 /datum/recipe/bacon_and_eggs
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/bacon,
-		/obj/item/weapon/reagent_containers/food/snacks/friedegg,
 		/obj/item/weapon/reagent_containers/food/snacks/friedegg
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/bacon_and_eggs
+
+/datum/recipe/baconburger
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/bun,
+		/obj/item/weapon/reagent_containers/food/snacks/meat,
+		/obj/item/weapon/reagent_containers/food/snacks/bacon,
+		/obj/item/weapon/reagent_containers/food/snacks/bacon,
+		/obj/item/weapon/reagent_containers/food/snacks/bacon
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/baconburger
+
+/datum/recipe/ntmuffin
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/plumphelmetbiscuit,
+		/obj/item/weapon/reagent_containers/food/snacks/cutlet,
+		/obj/item/weapon/reagent_containers/food/snacks/friedegg,
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/weapon/reagent_containers/food/snacks/spreads/butter
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/nt_muffin
+
+/datum/recipe/fish_taco
+	fruit = list("chili" = 1, "lemon" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/carpmeat,
+		/obj/item/weapon/reagent_containers/food/snacks/tortilla
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/fish_taco

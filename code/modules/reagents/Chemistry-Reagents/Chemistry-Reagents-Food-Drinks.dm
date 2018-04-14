@@ -871,7 +871,7 @@
 
 /datum/reagent/drink/tomatojuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	M.adjustToxLoss(1 * removed)
+	M.adjustFireLoss(1 * removed)
 
 // Everything else
 

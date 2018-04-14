@@ -4972,9 +4972,12 @@
 	name = "chocolate truffle"
 	desc = "Rich bite-sized chocolate."
 	icon_state = "truffle"
-	nutriment_amt = 2
-	nutriment_desc = list("chocolate" = 2)
+	nutriment_amt = 0
 	bitesize = 4
+
+/obj/item/weapon/reagent_containers/food/snacks/Initialize()
+	. = ..()
+	reagents.add_reagent("coco", 4)
 
 /obj/item/weapon/reagent_containers/food/snacks/truffle/random
 	name = "mystery chocolate truffle"
@@ -4982,8 +4985,8 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/random/Initialize()
 	. = ..()
-	var/reagent_string = pick(list("cream","coco","cherryjelly","mint","frostoil","capsaicin","cream","coffee","milkshake"))
-	reagents.add_reagent(reagent_string, 2)
+	var/reagent_string = pick(list("cream","cherryjelly","mint","frostoil","capsaicin","cream","coffee","milkshake"))
+	reagents.add_reagent(reagent_string, 4)
 
 /obj/item/weapon/reagent_containers/food/snacks/bacon_flatbread
 	name = "bacon cheese flatbread"
@@ -5068,6 +5071,19 @@
 /obj/item/weapon/reagent_containers/food/snacks/pineappleslice/filled
 	nutriment_desc = list("pizza crust" = 5, "tomato" = 5)
 	nutriment_amt = 5
+
+/obj/item/weapon/reagent_containers/food/snacks/baconburger
+	name = "bacon burger"
+	desc = "The cornerstone of every nutritious breakfast, now with bacon!"
+	icon_state = "hburger"
+	filling_color = "#D63C3C"
+	center_of_mass = list("x"=16, "y"=11)
+	nutriment_desc = list("bun" = 2)
+	nutriment_amt = 3
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/baconburger/Initialize()
+	reagents.add_reagent("protein", 4)
 
 #undef NUTRIMENT_GOOD
 #undef NUTRIMENT_BAD
