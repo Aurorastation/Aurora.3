@@ -7,6 +7,7 @@
 	scan_desc = "conflicting neuroimaging reports"
 	gain_text = "<span class='warning'>You feel like your mind was split in two.</span>"
 	lose_text = "<span class='notice'>You feel alone again.</span>"
+	cure_type = CURE_SOLITUDE
 	var/current_controller = OWNER
 	var/initialized = FALSE //to prevent personalities deleting themselves while we wait for ghosts
 	var/mob/living/mental/split_personality/stranger_backseat //there's two so they can swap without overwriting

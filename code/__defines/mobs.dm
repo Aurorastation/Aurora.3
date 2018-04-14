@@ -210,3 +210,9 @@
 #define BRAIN_TRAUMA_MILD /datum/brain_trauma/mild
 #define BRAIN_TRAUMA_SEVERE /datum/brain_trauma/severe
 #define BRAIN_TRAUMA_SPECIAL /datum/brain_trauma/special
+
+#define CURE_CRYSTAL "crystal"
+#define CURE_SOLITUDE "solitude"
+#define CURE_HYPNOSIS "hypnosis"
+#define CURE_SURGERY "surgery"
+#define CURE_ADMIN "all"

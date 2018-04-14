@@ -1,7 +1,0 @@
-author: Alberyk
-delete-after: True
-
-changes:
-  - rscadd: "You can now repair emp affected hardsuits with Nanopaste."
-  - rscadd: "Added a hardsuit mounted cooling module, printable from robotics."
-  - bugfix: "The mounted emag module should work properly now."

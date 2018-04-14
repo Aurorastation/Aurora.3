@@ -452,7 +452,6 @@
 
 	var/obj/item/organ/external/affecting
 	for (var/area in damage_areas)
-
 		affecting = get_organ(check_zone(area))
 		var/emp_damage
 		switch(shock_damage)
@@ -1602,7 +1601,7 @@
 	if(B && species && species.has_organ["brain"] && !isipc(src))
 		. = B.cure_trauma_type(brain_trauma_type, cure_permanent)
 
-/mob/living/carbon/human/proc/cure_all_traumas(cure_permanent = FALSE)
+/mob/living/carbon/human/proc/cure_all_traumas(cure_permanent = FALSE, cure_type = "")
 	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
 	if(B && species && species.has_organ["brain"] && !isipc(src))
-		. = B.cure_all_traumas(cure_permanent)
+		. = B.cure_all_traumas(cure_permanent, cure_type)

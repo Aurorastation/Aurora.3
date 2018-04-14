@@ -192,7 +192,7 @@ var/const/enterloopsanity = 100
 		var/mob/M = A
 		if(!M.lastarea)
 			M.lastarea = get_area(M.loc)
-		if(M.lastarea.has_gravity == 0)
+		if(M.lastarea.has_gravity() == 0)
 			inertial_drift(M)
 
 		// Footstep SFX logic moved to human_movement.dm - Move().
@@ -394,7 +394,7 @@ var/const/enterloopsanity = 100
 /turf/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
 	var/turf/T = get_turf(user)
 	var/area/A = T.loc
-	if((istype(A) && !(A.has_gravity)) || (istype(T,/turf/space)))
+	if((istype(A) && !(A.has_gravity())) || (istype(T,/turf/space)))
 		return
 	if(istype(O, /obj/screen))
 		return
