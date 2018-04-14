@@ -2764,8 +2764,24 @@
 /turf/simulated/floor/carpet,
 /area/security/detectives_office)
 "ff" = (
-/turf/simulated/floor/holofloor/tiled,
-/area/security/training)
+/obj/effect/floor_decal/corner/green/full{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
+/obj/structure/flora/pottedplant,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
+/obj/machinery/camera/network/medbay,
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
 "fg" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -5344,13 +5360,22 @@
 /turf/simulated/floor/tiled,
 /area/security/training)
 "jA" = (
-/obj/effect/floor_decal/corner/red{
+/obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/structure/weightlifter,
-/turf/simulated/floor/tiled,
-/area/mine/unexplored)
+/obj/machinery/firealarm/west,
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Isolation Room";
+	dir = 4;
+	icon_state = "camera";
+	network = list("Medical","Isolation Room")
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
 "jB" = (
 /obj/effect/floor_decal/corner/blue/full{
 	icon_state = "corner_white_full";
@@ -5471,32 +5496,18 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "jP" = (
-/obj/effect/floor_decal/corner/green/full{
-	icon_state = "corner_white_full";
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/obj/structure/flora/pottedplant,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
-	},
-/obj/machinery/alarm{
-	dir = 8;
-	icon_state = "alarm0";
-	pixel_x = 24
-	},
-/turf/simulated/floor/tiled/white,
+/obj/machinery/camera/network/medbay,
+/turf/simulated/floor/tiled/dark,
 /area/medical/psych)
 "jQ" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/firealarm/west,
+/obj/machinery/camera/network/medbay,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "jR" = (
@@ -6516,6 +6527,12 @@
 /obj/effect/floor_decal/corner/green/full,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Isolation Room";
+	dir = 4;
+	icon_state = "camera";
+	network = list("Medical","Isolation Room")
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
@@ -42451,7 +42468,7 @@ ab
 ab
 jG
 jL
-jQ
+jA
 kb
 kl
 kw
@@ -44766,7 +44783,7 @@ jH
 jM
 jV
 jG
-ko
+jP
 kB
 jG
 kS
@@ -45797,7 +45814,7 @@ jG
 kr
 jG
 jG
-jM
+jQ
 lf
 lq
 kc
@@ -46305,7 +46322,7 @@ aa
 ab
 ab
 jG
-jP
+ff
 jX
 ki
 kt
