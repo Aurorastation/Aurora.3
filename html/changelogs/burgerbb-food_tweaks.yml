@@ -3,6 +3,6 @@ author: BurgerBB
 delete-after: True
 
 changes: 
-  - tweak: "Added cake batter, tweaked recipies to include cake batter."
+  - tweak: "Added cake batter, tweaked cake recipes to include cake batter. Tweaked some small recipes to have have high quantities and use less ingredients."
   - rscdel: "Removed custom food scaling."
-  - rscadd: "Added variable microwave times for recipies."
+  - rscadd: "Added variable microwave times for recipes."
