@@ -1,0 +1,6 @@
+author: BurgerBB
+
+delete-after: True
+
+changes: 
+  - tweak: "Tweaked the recipes for Burritos to prevent bugs."
