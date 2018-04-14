@@ -113,7 +113,7 @@
 
 /obj/item/weapon/stool/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(iswrench(W))
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(src.loc, W.usesound, 50, 1)
 		dismantle()
 		qdel(src)
 	else if(istype(W,/obj/item/stack))
@@ -147,7 +147,7 @@
 			user << "\The [src] has no padding to remove."
 			return
 		user << "You remove the padding from \the [src]."
-		playsound(src, 'sound/items/Wirecutter.ogg', 100, 1)
+		playsound(src, W.usesound, 100, 1)
 		remove_padding()
 	else
 		..()

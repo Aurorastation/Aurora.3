@@ -779,11 +779,11 @@
 		if(state==1)
 			state = 2
 			user << "You undo the securing bolts."
-			playsound(get_turf(src), 'sound/items/Ratchet.ogg', 50, 1)
+			playsound(get_turf(src), W.usesound, 50, 1)
 		else if(state==2)
 			state = 1
 			user << "You tighten the securing bolts."
-			playsound(get_turf(src), 'sound/items/Ratchet.ogg', 50, 1)
+			playsound(get_turf(src), W.usesound, 50, 1)
 		return
 	else if(iscrowbar(W))
 		if(state==2)
@@ -793,7 +793,7 @@
 		else if(state==3)
 			state=2
 			user << "You close the hatch to the power unit"
-			playsound(get_turf(src), 'sound/items/Crowbar.ogg', 50, 1)
+			playsound(get_turf(src), W.usesound, 50, 1)
 		return
 	else if(iscoil(W))
 		if(state == 3 && hasInternalDamage(MECHA_INT_SHORT_CIRCUIT))

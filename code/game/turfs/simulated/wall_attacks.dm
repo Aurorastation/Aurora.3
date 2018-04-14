@@ -236,7 +236,7 @@
 		switch(construction_stage)
 			if(6)
 				if (iswirecutter(W))
-					playsound(src, 'sound/items/Wirecutter.ogg', 100, 1)
+					playsound(src, W.usesound, 100, 1)
 					construction_stage = 5
 					new /obj/item/stack/rods( src )
 					user << "<span class='notice'>You cut the outer grille.</span>"
@@ -245,8 +245,8 @@
 			if(5)
 				if (isscrewdriver(W))
 					user << "<span class='notice'>You begin removing the support lines.</span>"
-					playsound(src, 'sound/items/Screwdriver.ogg', 100, 1)
-					if(!do_after(user,40) || !istype(src, /turf/simulated/wall) || construction_stage != 5)
+					playsound(src, W.usesound, 100, 1)
+					if(!do_after(user,40*W.toolspeed) || !istype(src, /turf/simulated/wall) || construction_stage != 5)
 						return
 					construction_stage = 4
 					update_icon()
@@ -285,8 +285,8 @@
 			if(3)
 				if (iscrowbar(W))
 					user << "<span class='notice'>You struggle to pry off the cover.</span>"
-					playsound(src, 'sound/items/Crowbar.ogg', 100, 1)
-					if(!do_after(user,100) || !istype(src, /turf/simulated/wall) || construction_stage != 3)
+					playsound(src, W.usesound, 100, 1)
+					if(!do_after(user,100*W.toolspeed) || !istype(src, /turf/simulated/wall) || construction_stage != 3)
 						return
 					construction_stage = 2
 					update_icon()
@@ -295,8 +295,8 @@
 			if(2)
 				if (iswrench(W))
 					user << "<span class='notice'>You start loosening the anchoring bolts which secure the support rods to their frame.</span>"
-					playsound(src, 'sound/items/Ratchet.ogg', 100, 1)
-					if(!do_after(user,40) || !istype(src, /turf/simulated/wall) || construction_stage != 2)
+					playsound(src, W.usesound, 100, 1)
+					if(!do_after(user,40*W.toolspeed) || !istype(src, /turf/simulated/wall) || construction_stage != 2)
 						return
 					construction_stage = 1
 					update_icon()
@@ -326,8 +326,8 @@
 			if(0)
 				if(iscrowbar(W))
 					user << "<span class='notice'>You struggle to pry off the outer sheath.</span>"
-					playsound(src, 'sound/items/Crowbar.ogg', 100, 1)
-					sleep(100)
+					playsound(src, W.usesound, 100, 1)
+					sleep(100*W.toolspeed)
 					if(!istype(src, /turf/simulated/wall) || !user || !W || !T )	return
 					if(user.loc == T && user.get_active_hand() == W )
 						user << "<span class='notice'>You pry off the outer sheath.</span>"

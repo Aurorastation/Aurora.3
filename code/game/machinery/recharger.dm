@@ -14,7 +14,7 @@
 	var/obj/item/charging
 
 	var/list/allowed_devices = list(
-		/obj/item/weapon/gun/energy, 
+		/obj/item/weapon/gun/energy,
 		/obj/item/weapon/melee/baton,
 		/obj/item/weapon/cell,
 		/obj/item/modular_computer,
@@ -49,7 +49,7 @@
 			return
 		anchored = !anchored
 		user << "You have [anchored ? "attached" : "detached"] the recharger."
-		playsound(loc, 'sound/items/Ratchet.ogg', 75, 1)
+		playsound(loc, G.usesound, 75, 1)
 		return
 
 	if (istype(G, /obj/item/weapon/gripper))//Code for allowing cyborgs to use rechargers

@@ -51,12 +51,12 @@ var/bomb_set
 				panel_open = 1
 				add_overlay("panel_open")
 				user << "You unscrew the control panel of [src]."
-				playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src, O.usesound, 50, 1)
 			else
 				panel_open = 0
 				cut_overlay("panel_open")
 				user << "You screw the control panel of [src] back on."
-				playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src, O.usesound, 50, 1)
 		else
 			if (panel_open == 0)
 				user << "\The [src] emits a buzzing noise, the panel staying locked in."
@@ -64,7 +64,7 @@ var/bomb_set
 				panel_open = 0
 				cut_overlay("panel_open")
 				user << "You screw the control panel of \the [src] back on."
-				playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src, O.usesound, 50, 1)
 			flick("lock", src)
 		return
 

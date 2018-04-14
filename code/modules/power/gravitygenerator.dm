@@ -200,7 +200,7 @@
 		if(GRAV_NEEDS_SCREWDRIVER)
 			if(isscrewdriver(I))
 				user << "<span class='notice'>You secure the screws of the framework.</span>"
-				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src.loc, I.usesound, 50, 1)
 				broken_state++
 		if(GRAV_NEEDS_WELDING)
 			if(iswelder(I))
@@ -222,17 +222,17 @@
 		if(GRAV_NEEDS_WRENCH)
 			if(iswrench(I))
 				user << "<span class='notice'>You secure the plating to the framework.</span>"
-				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+				playsound(src.loc, I.usesound, 75, 1)
 				set_fix()
 		else
 			..()
 	if(iscrowbar(I))
 		if(backpanelopen)
-			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+			playsound(src.loc, I.usesound, 50, 1)
 			user << "<span class='notice'>You replace the back panel.</span>"
 			backpanelopen = 0
 		else
-			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+			playsound(src.loc, I.usesound, 50, 1)
 			user << "<span class='notice'>You open the back panel.</span>"
 			backpanelopen = 1
 

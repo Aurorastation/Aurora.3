@@ -110,33 +110,33 @@
 	else if(isscrewdriver(W) && canbemoved)
 		if(screwed)
 			user << "<span class='notice'>You start to unscrew the locker from the floor...</span>"
-			playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
-			if (do_after(user, 10 SECONDS, act_target = src))
+			playsound(loc, W.usesound, 50, 1)
+			if (do_after(user, 10*W.toolspeed SECONDS, act_target = src))
 				user << "<span class='notice'>You unscrew the locker!</span>"
-				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(loc, W.usesound, 50, 1)
 				screwed = 0
 		else if(!screwed && wrenched)
 			user << "<span class='notice'>You start to screw the locker to the floor...</span>"
 			playsound(src, 'sound/items/Welder.ogg', 80, 1)
-			if (do_after(user, 15, act_target = src))
+			if (do_after(user, 15*W.toolspeed, act_target = src))
 				user << "<span class='notice'>You screw the locker!</span>"
-				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(loc, W.usesound, 50, 1)
 				screwed = 1
 	else if(iswrench(W) && canbemoved)
 		if(wrenched && !screwed)
 			user << "<span class='notice'>You start to unfasten the bolts holding the locker in place...</span>"
-			playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
-			if (do_after(user, 15 SECONDS, act_target = src))
+			playsound(loc, W.usesound, 50, 1)
+			if (do_after(user, 15*W.toolspeed SECONDS, act_target = src))
 				user << "<span class='notice'>You unfasten the locker's bolts!</span>"
-				playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
+				playsound(loc, W.usesound, 50, 1)
 				wrenched = 0
 				anchored = 0
 		else if(!wrenched)
 			user << "<span class='notice'>You start to fasten the bolts holding the locker in place...</span>"
-			playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
-			if (do_after(user, 15, act_target = src))
+			playsound(loc, W.usesound, 50, 1)
+			if (do_after(user, 15*W.toolspeed, act_target = src))
 				user << "<span class='notice'>You fasten the locker's bolts!</span>"
-				playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
+				playsound(loc, W.usesound, 50, 1)
 				wrenched = 1
 				anchored = 1
 	else if(!opened)

@@ -171,7 +171,7 @@
 		if (2)
 			if (isscrewdriver(I))
 				user << span("notice", "You unscrew and remove the wiring cover from \the [src].")
-				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(loc, I.usesound, 50, 1)
 				setconstructionstate(3)
 				return
 
@@ -192,13 +192,13 @@
 		if (3)
 			if (iswirecutter(I))
 				user << span("notice", "You cut the wires connecting the [src]'s magnets to their internal powersupply, [target ? "making the device fall off [target] and rendering it unusable." : "rendering the device unusable."]")
-				playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
+				playsound(loc, I.usesound, 50, 1)
 				setconstructionstate(4)
 				return
 
 			if (isscrewdriver(I))
 				user << span("notice", "You replace and screw tight the wiring cover from \the [src].")
-				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(loc, I.usesound, 50, 1)
 				setconstructionstate(2)
 				return
 

@@ -86,7 +86,7 @@
 				SSmachinery.powernet_update_queued = TRUE
 			else if(isscrewdriver(O))
 				open = !open
-				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src.loc, O.usesound, 50, 1)
 				if(open)
 					user << "<span class='notice'>You open the access panel.</span>"
 				else
@@ -164,7 +164,7 @@
 				usr << browse(null, "window=port_gen")
 				usr.machine = null
 
-/obj/machinery/power/port_gen/pacman2/emag_act(var/remaining_uses, var/mob/user)				
+/obj/machinery/power/port_gen/pacman2/emag_act(var/remaining_uses, var/mob/user)
 	emagged = 1
 	emp_act(1)
 	return 1

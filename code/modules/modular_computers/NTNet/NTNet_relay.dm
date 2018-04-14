@@ -47,7 +47,7 @@
 
 	else if (dos_failure)
 		add_overlay("ntnet_o_problem")
-	
+
 	else if (!enabled)
 		add_overlay("ntnet_o_error")
 
@@ -129,7 +129,7 @@
 
 /obj/machinery/ntnet_relay/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	if(isscrewdriver(W))
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		playsound(src.loc, W.usesound, 50, 1)
 		panel_open = !panel_open
 		user << "You [panel_open ? "open" : "close"] the maintenance hatch"
 		return
@@ -137,7 +137,7 @@
 		if(!panel_open)
 			user << "Open the maintenance panel first."
 			return
-		playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+		playsound(src.loc, W.usesound, 50, 1)
 		user << "You disassemble \the [src]!"
 
 		for(var/atom/movable/A in component_parts)

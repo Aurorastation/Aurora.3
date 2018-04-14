@@ -44,7 +44,7 @@
 							icon_state = "box_1"
 				else
 					if(iswrench(P))
-						playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+						playsound(src.loc, P.usesound, 75, 1)
 						user << "<span class='notice'>You dismantle the frame</span>"
 						new /obj/item/stack/material/steel(src.loc, 5)
 						qdel(src)
@@ -74,7 +74,7 @@
 						user << "<span class='warning'>This frame does not accept circuit boards of this type!</span>"
 				else
 					if(iswirecutter(P))
-						playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+						playsound(src.loc, P.usesound, 50, 1)
 						user << "<span class='notice'>You remove the cables.</span>"
 						state = 1
 						icon_state = "box_0"
@@ -83,7 +83,7 @@
 
 			if(3)
 				if(iscrowbar(P))
-					playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+					playsound(src.loc, P.usesound, 50, 1)
 					state = 2
 					circuit.loc = src.loc
 					circuit = null
@@ -105,7 +105,7 @@
 								component_check = 0
 								break
 						if(component_check)
-							playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+							playsound(src.loc, P.usesound, 50, 1)
 							var/obj/machinery/new_machine = new src.circuit.build_path(loc, dir, FALSE)
 
 							if(new_machine.component_parts)

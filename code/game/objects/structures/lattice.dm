@@ -85,7 +85,7 @@
 	if (isscrewdriver(C))
 		anchored = !anchored
 		user << "<span class='notice'>You [anchored ? "" : "un"]anchor [src].</span>"
-		playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
+		playsound(src, C.usesound, 50, 1)
 		queue_smooth(src)
 		queue_smooth_neighbors(src)
 	else

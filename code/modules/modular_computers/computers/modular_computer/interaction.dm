@@ -154,10 +154,10 @@
 			to_chat(user, "Remove all components from \the [src] before disassembling it.")
 			return
 		to_chat(user, span("notice", "You begin to disassemble \the [src]."))
-		playsound(user, 'sound/items/Ratchet.ogg', 100, 1)
-		if (do_after(user, 20))
+		playsound(user, W.usesound, 100, 1)
+		if (do_after(user, 20*W.toolspeed))
 			new /obj/item/stack/material/steel(get_turf(src.loc), steel_sheet_cost)
-			src.visible_message("\The [user] disassembles \the [src].", 
+			src.visible_message("\The [user] disassembles \the [src].",
 				"You disassemble \the [src].",
 				"You hear a ratchet.")
 			qdel(src)

@@ -181,9 +181,9 @@
 
 	//If it's emagged, crowbar can pry electronics out.
 	if (src.operating == -1 && iscrowbar(I))
-		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+		playsound(src.loc, I.usesound, 100, 1)
 		user.visible_message("[user] removes the electronics from the windoor.", "You start to remove electronics from the windoor.")
-		if (do_after(user,40))
+		if (do_after(user,40*I.toolspeed))
 			user << "<span class='notice'>You removed the windoor electronics!</span>"
 
 			var/obj/structure/windoor_assembly/wa = new/obj/structure/windoor_assembly(src.loc)

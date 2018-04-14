@@ -113,7 +113,7 @@
 		"filter_n2o" = ("sleeping_agent" in scrubbing_gas),
 		"sigtype" = "status"
 	)
-	
+
 	var/area/A = get_area(src)
 	if(!A.air_scrub_names[id_tag])
 		var/new_name = "[A.name] Air Scrubber #[A.air_scrub_names.len+1]"
@@ -267,9 +267,9 @@
 			user << "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>"
 			add_fingerprint(user)
 			return 1
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(src.loc, W.usesound, 50, 1)
 		user << "<span class='notice'>You begin to unfasten \the [src]...</span>"
-		if (do_after(user, 40, act_target = src))
+		if (do_after(user, 40*W.toolspeed, act_target = src))
 			user.visible_message( \
 				"<span class='notice'>\The [user] unfastens \the [src].</span>", \
 				"<span class='notice'>You have unfastened \the [src].</span>", \
@@ -314,5 +314,5 @@
 	if(initial_loc)
 		initial_loc.air_scrub_info -= id_tag
 		initial_loc.air_scrub_names -= id_tag
-	
+
 	return ..()

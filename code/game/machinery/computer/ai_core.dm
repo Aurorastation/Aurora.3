@@ -15,8 +15,8 @@
 	switch(state)
 		if(0)
 			if(iswrench(P))
-				playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
-				if(do_after(user, 20))
+				playsound(loc, P.usesound, 50, 1)
+				if(do_after(user, 20*P.toolspeed))
 					user << "<span class='notice'>You wrench the frame into place.</span>"
 					anchored = 1
 					state = 1
@@ -33,8 +33,8 @@
 					qdel(src)
 		if(1)
 			if(iswrench(P))
-				playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
-				if(do_after(user, 20))
+				playsound(loc, P.usesound, 50, 1)
+				if(do_after(user, 20*P.toolspeed))
 					user << "<span class='notice'>You unfasten the frame.</span>"
 					anchored = 0
 					state = 0
@@ -46,12 +46,12 @@
 				user.drop_item()
 				P.loc = src
 			if(isscrewdriver(P) && circuit)
-				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(loc, P.usesound, 50, 1)
 				user << "<span class='notice'>You screw the circuit board into place.</span>"
 				state = 2
 				icon_state = "2"
 			if(iscrowbar(P) && circuit)
-				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+				playsound(loc, P.usesound, 50, 1)
 				user << "<span class='notice'>You remove the circuit board.</span>"
 				state = 1
 				icon_state = "0"
@@ -59,7 +59,7 @@
 				circuit = null
 		if(2)
 			if(isscrewdriver(P) && circuit)
-				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(loc, P.usesound, 50, 1)
 				user << "<span class='notice'>You unfasten the circuit board.</span>"
 				state = 1
 				icon_state = "1"
@@ -81,7 +81,7 @@
 				if (brain)
 					user << "Get that brain out of there first"
 				else
-					playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
+					playsound(loc, P.usesound, 50, 1)
 					user << "<span class='notice'>You remove the cables.</span>"
 					state = 2
 					icon_state = "2"
@@ -146,7 +146,7 @@
 				icon_state = "3b"
 
 			if(iscrowbar(P) && brain)
-				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+				playsound(loc, P.usesound, 50, 1)
 				user << "<span class='notice'>You remove the brain.</span>"
 				brain.loc = loc
 				brain = null
@@ -154,7 +154,7 @@
 
 		if(4)
 			if(iscrowbar(P))
-				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+				playsound(loc, P.usesound, 50, 1)
 				user << "<span class='notice'>You remove the glass panel.</span>"
 				state = 3
 				if (brain)
@@ -165,7 +165,7 @@
 				return
 
 			if(isscrewdriver(P))
-				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(loc, P.usesound, 50, 1)
 				user << "<span class='notice'>You connect the monitor.</span>"
 				if(!brain)
 					var/open_for_latejoin = alert(user, "Would you like this core to be open for latejoining AIs?", "Latejoin", "Yes", "Yes", "No") == "Yes"

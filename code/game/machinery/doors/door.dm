@@ -314,7 +314,7 @@
 
 	if(repairing && iscrowbar(I))
 		user << "<span class='notice'>You remove \the [repairing].</span>"
-		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+		playsound(src.loc, I.usesound, 100, 1)
 		repairing.loc = user.loc
 		repairing = null
 		return

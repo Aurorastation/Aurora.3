@@ -111,7 +111,7 @@
 	else if(iswirecutter(W))
 		if(rigged)
 			user  << "<span class='notice'>You cut away the wiring.</span>"
-			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
+			playsound(loc, W.usesound, 100, 1)
 			rigged = 0
 			return
 	else return attack_hand(user)

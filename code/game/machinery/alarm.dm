@@ -759,7 +759,7 @@
 
 			if (wiresexposed && iswirecutter(W))
 				user.visible_message("<span class='warning'>[user] has cut the wires inside \the [src]!</span>", "You cut the wires inside \the [src].")
-				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+				playsound(src.loc, W.usesound, 50, 1)
 				new/obj/item/stack/cable_coil(get_turf(src), 5)
 				buildstage = 1
 				update_icon()
@@ -792,8 +792,8 @@
 
 			else if(iscrowbar(W))
 				user << "You start prying out the circuit."
-				playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
-				if(do_after(user,20))
+				playsound(src.loc, W.usesound, 50, 1)
+				if(do_after(user,20*W.toolspeed))
 					user << "You pry out the circuit!"
 					var/obj/item/weapon/airalarm_electronics/circuit = new /obj/item/weapon/airalarm_electronics()
 					circuit.loc = user.loc
@@ -811,7 +811,7 @@
 			else if(iswrench(W))
 				user << "You remove the air alarm assembly from the wall!"
 				new /obj/item/frame/air_alarm(get_turf(user))
-				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+				playsound(src.loc, W.usesound, 50, 1)
 				qdel(src)
 
 	return ..()
