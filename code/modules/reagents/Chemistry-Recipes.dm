@@ -1605,8 +1605,15 @@
 	name = "Brownie Mix"
 	id = "browniemix"
 	result = "browniemix"
-	required_reagents = list("flour" = 5, "coco" = 5, "sugar" = 5)
-	result_amount = 15
+	required_reagents = list("flour" = 1, "coco" = 1, "sugar" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/cakemix
+	name = "Cake Batter"
+	id = "cakemix"
+	result = "cakemix"
+	required_reagents = list("flour" = 4, "milk" = 3, "egg" = 1, "sugar" = 2)
+	result_amount = 10
 
 /datum/chemical_reaction/butter
 	name = "Butter"

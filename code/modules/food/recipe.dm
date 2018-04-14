@@ -43,7 +43,7 @@
 
 	var/result        // example: = /obj/item/weapon/reagent_containers/food/snacks/donut/normal
 	var/result_quantity = 1 //number of instances of result that are created.
-	var/time = 100    // 1/10 part of second
+	var/time = 30    // Time, in seconds, it takes for the recipe to cook. Only really applies to microwaves.
 
 
 	#define RECIPE_REAGENT_REPLACE		0 //Reagents in the ingredients are discarded.

@@ -681,6 +681,14 @@
 	color = "#441a03"
 	taste_description = "chocolate"
 
+/datum/reagent/cakemix
+	name = "Cake Batter"
+	id = "cakemix"
+	description = "A wet mix for making cakes with."
+	reagent_state = SOLID
+	color = "#EDEDC0"
+	taste_description = "cake batter"
+
 /* Drinks */
 
 /datum/reagent/drink
