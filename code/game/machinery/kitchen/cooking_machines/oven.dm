@@ -35,7 +35,6 @@
 		"Donut" = /obj/item/weapon/reagent_containers/food/snacks/variable/donut
 	)
 
-
 /obj/machinery/appliance/cooker/oven/update_icon()
 	if (!open)
 		if (!stat)

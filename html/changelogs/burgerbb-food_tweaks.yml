@@ -1,0 +1,9 @@
+author: BurgerBB
+
+delete-after: True
+
+changes: 
+  - tweak: "Added cake batter, tweaked cake recipes to include cake batter. Tweaked some small recipes to have have high quantities and use less ingredients."
+  - rscdel: "Removed custom food scaling."
+  - rscadd: "Added variable microwave times for recipes."
+  - tweak: "Meatballs are raw when made with protein and flour, instead of fully cooked."

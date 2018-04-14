@@ -21,38 +21,6 @@
 	else
 		create_reagents(size*8 + 10)
 
-/obj/item/weapon/reagent_containers/food/snacks/variable/update_icon()
-	if (reagents && reagents.total_volume)
-		var/ratio = reagents.total_volume / size
-
-		scale = cubert(ratio) //Scaling factor is square root of desired area
-		scale = Clamp(scale, min_scale, max_scale)
-	else
-		scale = min_scale
-
-	var/matrix/M = matrix()
-	M.Scale(scale)
-	src.transform = M
-
-	w_class *= scale
-	if (!prefix)
-		if (scale == min_scale)
-			prefix = "tiny"
-		else if (scale <= 0.8)
-			prefix = "small"
-
-		else
-			if (scale >= 1.2)
-				prefix = "large"
-			if (scale >= 1.4)
-				prefix = "extra large"
-			if (scale >= 1.6)
-				prefix = "huge"
-			if (scale >= max_scale)
-				prefix = "massive"
-
-		name = "[prefix] [name]"
-
 /obj/item/weapon/reagent_containers/food/snacks/variable/pizza
 	name = "personal pizza"
 	desc = "A personalized pan pizza meant for only one person."

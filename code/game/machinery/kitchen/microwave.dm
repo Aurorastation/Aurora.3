@@ -278,16 +278,17 @@
 			cooked.loc = src.loc
 			return
 	else
-		var/halftime = round((recipe.time*4)/10/2)
+		var/halftime = round(recipe.time/2)
+
 		if (!wzhzhzh(halftime))
 			abort()
 			return
+
 		if (!wzhzhzh(halftime))
 			abort()
 			cooked = fail()
 			cooked.loc = src.loc
 			return
-
 
 		//Making multiple copies of a recipe
 		var/result = recipe.result
@@ -333,7 +334,7 @@
 		if (stat & (NOPOWER|BROKEN))
 			return 0
 		use_power(active_power_usage)
-		sleep(10)
+		sleep(1 SECONDS)
 	return 1
 
 /obj/machinery/microwave/proc/has_extra_item()

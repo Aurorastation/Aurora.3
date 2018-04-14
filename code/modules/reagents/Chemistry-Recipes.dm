@@ -1543,7 +1543,7 @@
 /datum/chemical_reaction/meatball/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
 	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/meatball(location)
+		new /obj/item/weapon/reagent_containers/food/snacks/rawmeatball(location)
 	return
 
 /datum/chemical_reaction/dough
@@ -1605,8 +1605,15 @@
 	name = "Brownie Mix"
 	id = "browniemix"
 	result = "browniemix"
-	required_reagents = list("flour" = 5, "coco" = 5, "sugar" = 5)
-	result_amount = 15
+	required_reagents = list("flour" = 1, "coco" = 1, "sugar" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/cakemix
+	name = "Cake Batter"
+	id = "cakemix"
+	result = "cakemix"
+	required_reagents = list("flour" = 10, "milk" = 5, "egg" = 3, "sugar" = 5)
+	result_amount = 23
 
 /datum/chemical_reaction/butter
 	name = "Butter"
