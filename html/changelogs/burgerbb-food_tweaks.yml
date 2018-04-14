@@ -1,0 +1,8 @@
+author: BurgerBB
+
+delete-after: True
+
+changes: 
+  - tweak: "Added cake batter, tweaked recipies to include cake batter."
+  - rscdel: "Removed custom food scaling."
+  - rscadd: "Added variable microwave times for recipies."
