@@ -2,7 +2,7 @@
 -- Adds a new table to load the regulations ("laws") from
 --
 CREATE TABLE `ss13_law` (
-	`id` INT(11) NOT NULL,
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
 	`law_id` VARCHAR(4) NOT NULL,
 	`name` VARCHAR(50) NOT NULL,
 	`description` VARCHAR(500) NOT NULL,

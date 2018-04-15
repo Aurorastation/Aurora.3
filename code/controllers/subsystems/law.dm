@@ -72,6 +72,7 @@
 
 /datum/controller/subsystem/law/proc/migrate_to_sql()
 	for(var/datum/law/L in laws)
+		log_debug("SSlaw: Migrating law [L.id] to SQL")
 		var/DBQuery/law_update_query = dbcon.NewQuery({"
 		INSERT IGNORE INTO ss13_law
 			(law_id, name, description, min_fine, max_fine, min_brig_time, max_brig_time, severity, felony)
