@@ -130,7 +130,7 @@ proc/check_for_newscaster_updates(type)
 
 proc/announce_newscaster_news(datum/news_announcement/news)
 	var/datum/feed_channel/sendto
-	for(var/datum/feed_channel/FC in news_network.network_channels)
+	for(var/datum/feed_channel/FC in SSnews.network_channels)
 		if(FC.channel_name == news.channel_name)
 			sendto = FC
 			break
@@ -141,7 +141,7 @@ proc/announce_newscaster_news(datum/news_announcement/news)
 		sendto.author = news.author
 		sendto.locked = 1
 		sendto.is_admin_channel = 1
-		news_network.network_channels += sendto
+		SSnews.network_channels += sendto
 
 	var/author = news.author ? news.author : sendto.author
-	news_network.SubmitArticle(news.message, author, news.channel_name, null, !news.can_be_redacted, news.message_type)
+	SSnews.SubmitArticle(news.message, author, news.channel_name, null, !news.can_be_redacted, news.message_type)

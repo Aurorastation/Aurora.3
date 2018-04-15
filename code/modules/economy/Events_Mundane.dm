@@ -122,7 +122,7 @@
 				"a huge new ARG by a popular entertainment company","a secret tour by popular artiste [random_name(pick(MALE,FEMALE))]")]. \
 				Tau Ceti Daily is offering discount tickets for two to see [random_name(pick(MALE,FEMALE))] live in return for eyewitness reports and up to the minute coverage."
 
-	news_network.SubmitArticle(body, author, channel, null, 1)
+	SSnews.SubmitArticle(body, author, channel, null, 1)
 
 /datum/event/trivial_news
 	endWhen = 10
@@ -217,4 +217,4 @@
 	"Broccoli discovered to be colonies of tiny aliens with murder on their minds"\
 	)
 
-	news_network.SubmitArticle(body, author, channel, null, 1)
+	SSnews.SubmitArticle(body, author, channel, null, 1)

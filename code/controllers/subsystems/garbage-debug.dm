@@ -603,7 +603,7 @@
 	SearchVar(floor_light_cache)
 	SearchVar(HOLOPAD_MODE)
 	SearchVar(navbeacons)
-	SearchVar(news_network)
+	SearchVar(SSnews)
 	SearchVar(allCasters)
 	SearchVar(bomb_set)
 	SearchVar(req_console_assistance)
