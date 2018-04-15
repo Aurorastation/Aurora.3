@@ -1,0 +1,7 @@
+author: BurgerBB
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed mental medication being all lowercase. Fixed escitalopram causing crippling drowsiness."
+  - bugfix: "Significantly reduced the volume and range of lottery tickets."
