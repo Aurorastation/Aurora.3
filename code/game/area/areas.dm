@@ -386,6 +386,10 @@ var/list/mob/living/forced_ambiance_list = new
 		temp_windoor.open()
 
 /area/proc/has_gravity()
+	if(alwaysgravity)
+		return TRUE
+	if(nevergravity)
+		return FALSE
 	return has_gravity
 
 /area/space/has_gravity()
