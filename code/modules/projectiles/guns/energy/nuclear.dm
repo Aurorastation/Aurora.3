@@ -141,7 +141,7 @@
 		)
 /obj/item/weapon/gun/energy/colt
 	name = "colt disabler pistol"
-	desc = "An enhanced disabler pistol that excels in less-than-lethal takedowns."
+	desc = "An enhanced disabler pistol that excels in ranged non-lethal takedowns."
 	icon_state = "m1911-p"
 	item_state = "pistol"
 	fire_sound = 'sound/weapons/Taser.ogg'
