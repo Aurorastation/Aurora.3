@@ -44,6 +44,7 @@
 	attack_verb = list("drilled", "screwed", "jabbed")
 	toolspeed = 0.25
 
+
 /obj/item/weapon/wrench/power/attack_self(mob/user)
 	playsound(get_turf(user),'sound/items/change_drill.ogg', 50, 1)
 	var/obj/item/weapon/wrench/power/s_drill = new /obj/item/weapon/screwdriver/power
