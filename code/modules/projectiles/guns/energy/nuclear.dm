@@ -139,3 +139,14 @@
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="epistolstun", fire_sound='sound/weapons/Taser.ogg'),
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pistol, modifystate="epistolkill", fire_sound='sound/weapons/Laser.ogg')
 		)
+/obj/item/weapon/gun/energy/colt
+	name = "colt energy pistol"
+	desc = "An enhanced laser pistol that only has one setting: stun. Perfect for non-lethal self-defense. Design based on a vintage colt pistol."
+	icon_state = "m1911-p100"
+	item_state = "pistol"
+	fire_sound = 'sound/weapons/Taser.ogg'
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	max_shots = 7
+	fire_delay = 2
+	projectile_type = /obj/item/projectile/beam/stun
+	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
