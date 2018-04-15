@@ -61,12 +61,6 @@
 	icon_state = "clown"
 	item_state = "clown_hat"
 
-/obj/item/clothing/mask/gas/clown_hat/traitor
-	desc = "A true prankster's facial attire. A clown is incomplete without their wig and mask. This one seems to be durable."
-	armor = list(melee = 10, bullet = 5, laser = 10, energy = 10, bomb = 0, bio = 50, rad = 15)
-	w_class = 2.0
-	siemens_coefficient = 0.7
-
 /obj/item/clothing/mask/gas/sexyclown
 	name = "sexy-clown wig and mask"
 	desc = "A feminine clown mask for the dabbling crossdressers or female entertainers."

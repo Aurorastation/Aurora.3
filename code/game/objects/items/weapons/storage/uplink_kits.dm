@@ -283,14 +283,14 @@
 //Value Packs
 /obj/item/weapon/storage/backpack/clown/tratior/fill()
 	..()
-	new /obj/item/clothing/mask/gas/clown_hat/traitor(src) //About 1
+	new /obj/item/clothing/mask/gas/voice/clown(src)
 	new /obj/item/clothing/under/rank/clown/traitor(src) //About 2
 	new /obj/item/clothing/shoes/clown_shoes/traitor(src) //About 2
 	new /obj/item/clothing/gloves/force/clown(src) //About 6
 	new /obj/item/device/firing_pin/clown(src) //Free because why
 	new /obj/item/weapon/material/twohanded/chainsaw/fueled(src) //About 10
-	new /obj/item/weapon/card/id/maint(src) //About 10
-	//Total: 31
+	new /obj/item/weapon/card/id/syndicate(src) //About 3
+	//Total: 24
 
 /obj/item/weapon/storage/secure/briefcase/beginner
 	name = "insecure briefcase"
@@ -302,7 +302,7 @@
 	new /obj/item/weapon/storage/belt/utility/full(src) //About 1
 	new /obj/item/clothing/gloves/yellow(src) //About 1
 	new /obj/item/clothing/mask/gas(src) //About 1
-	new /obj/item/clothing/glasses/sunglasses/prescription(src) //About 1
+	new /obj/item/weapon/card/id/syndicate(src)
 	new /obj/item/weapon/card/emag(src) //6
 	new /obj/item/weapon/melee/energy/sword(src) //8
 	new /obj/item/weapon/gun/energy/crossbow //6

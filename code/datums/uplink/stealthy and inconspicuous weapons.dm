@@ -38,8 +38,3 @@
 	name = "Sleepy Ring"
 	item_cost = 7
 	path = /obj/item/clothing/ring/reagent/sleepy
-
-/datum/uplink_item/item/stealthy_weapons/pussy_pass
-	name = "Maintenance Pass"
-	item_cost = 10
-	path = /obj/item/weapon/card/id/maint

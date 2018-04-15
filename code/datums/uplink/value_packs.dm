@@ -3,14 +3,14 @@
 
 /datum/uplink_item/item/value/clown
 	name = "Clown Kit"
-	desc = "Contains: Armored clown mask, suit, and no-slip armored clown shoes. Hidden basic force gloves, joke firing pin, maintenance pass, and chainsaw also included."
+	desc = "Contains: Armored clown mask with voice changer, suit, and no-slip armored clown shoes. Hidden basic force gloves, joke firing pin, agent ID card, and chainsaw also included."
 	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
 	path = /obj/item/weapon/storage/backpack/clown/tratior/
 	//Savings: ???
 
 /datum/uplink_item/item/value/beginner
 	name = "Beginner's Kit"
-	desc = "Contains: Utility belt full of tools, insulated gloves, gas mask, prescription sunglasses, armor vest, armored helmet, emag, energy sword, energy crossbow, and sinpockets."
+	desc = "Contains: Utility belt full of tools, insulated gloves, gas mask, agent ID card, armor vest, armored helmet, emag, energy sword, energy crossbow, and sinpockets."
 	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
 	path = /obj/item/weapon/storage/secure/briefcase/beginner
 	//Savings: 5 credits.
