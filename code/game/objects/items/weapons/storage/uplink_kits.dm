@@ -337,14 +337,15 @@
 
 /obj/item/weapon/storage/secure/briefcase/mafia/fill()
 	new /obj/item/weapon/storage/box/syndie_kit/mafia(src) //About 4
-	new /obj/item/weapon/spacecash/bundle/cowboy(src) //About 1
 	new /obj/item/weapon/gun/projectile/automatic/tommygun/drum(src) //Probably 16
 	new /obj/item/ammo_magazine/tommydrum(src) //Probably 4
 	new /obj/item/ammo_magazine/tommydrum(src) //Probably 4
 	new /obj/item/weapon/gun/bang/colt //Probably 5
+	new /obj/item/weapon/spacecash/bundle/cowboy(src) //About 1
 	//Total: 29
 
 /obj/item/weapon/storage/secure/briefcase/stealth/fill()
+	new /obj/item/clothing/glasses/eyepatch/hud/thermal //Probably 3
 	new /obj/item/weapon/storage/box/syndie_kit/chameleon(src) //5
 	new /obj/item/weapon/storage/box/syndie_kit/spy(src) //2
 	new /obj/item/weapon/storage/box/syndie_kit/g9mm/plus // 10

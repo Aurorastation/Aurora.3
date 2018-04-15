@@ -31,7 +31,7 @@
 
 /datum/uplink_item/item/value/stealth
 	name = "Stealth Kit"
-	desc = "Contains: 5000 credits, chameleon kit, camera bug kit, 9mm silenced pistol kit, x2 9mm ammo, agent ID card, voice changer, and paralysis pen."
+	desc = "Contains: 5000 credits, thermal eye-patch, chameleon kit, camera bug kit, 9mm silenced pistol kit, x2 9mm ammo, agent ID card, voice changer, and paralysis pen."
 	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
 	path = /obj/item/weapon/storage/secure/briefcase/stealth
 	//Savings: Probably around 7 credits
