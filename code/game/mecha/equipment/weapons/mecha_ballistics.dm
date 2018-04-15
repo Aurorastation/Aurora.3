@@ -74,7 +74,7 @@
 	icon_state = "mecha_grenadelnchr"
 	equip_cooldown = 10
 	projectile = /obj/item/projectile/bullet/gyro/law
-	fire_sound = 'sound/effects/heavy-fire.ogg'
+	fire_sound = 'sound/weapons/heavy-fire.ogg'
 	projectiles = 10
 	projectile_energy_cost = 750
 

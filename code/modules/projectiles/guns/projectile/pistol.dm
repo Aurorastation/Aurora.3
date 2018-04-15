@@ -162,7 +162,7 @@
 	icon_state = "gyropistol"
 	max_shells = 8
 	caliber = "75"
-	fire_sound = 'sound/effects/heavy-fire.ogg'
+	fire_sound = 'sound/weapons/heavy-fire.ogg'
 	origin_tech = list(TECH_COMBAT = 3)
 	ammo_type = "/obj/item/ammo_casing/a75"
 	load_method = MAGAZINE
