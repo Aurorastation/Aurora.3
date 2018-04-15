@@ -1,0 +1,4 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - bugfix: "Openspaces will now properly show mobs/objects that became visible after roundstart."
