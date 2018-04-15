@@ -37,11 +37,11 @@
 		catch(var/exception/ec)
 			log_debug("SSnews: Error when loading channel: [ec]")
 		CHECK_TICK
-		var/DBQuery/news_query = dbcon.NewQuery("SELECT body, author, is_admin_message, message_type FROM ss13_news_stories WHERE deleted_at IS NULL AND channel_id = :channel_id: ORDER BY created_at DESC")
+		var/DBQuery/news_query = dbcon.NewQuery("SELECT body, author, is_admin_message, message_type, time_stamp FROM ss13_news_stories WHERE deleted_at IS NULL AND channel_id = :channel_id: ORDER BY created_at DESC")
 		news_query.Execute(list("channel_id" = channel_query.item[1]))
 		while(news_query.NextRow())
 			try
-				SubmitArticle(news_query.item[1], news_query.item[2], channel_query.item[2], null, text2num(news_query.item[3]), news_query.item[4])
+				SubmitArticle(news_query.item[1], news_query.item[2], channel_query.item[2], null, text2num(news_query.item[3]), news_query.item[4], news_query.item[5])
 			catch(var/exception/en)
 				log_debug("SSnews: Error when loading news: [en]")
 
@@ -59,11 +59,14 @@
 		newChannel.announcement = "Breaking news from [channel_name]!"
 	network_channels += newChannel
 
-/datum/controller/subsystem/news/proc/SubmitArticle(var/msg, var/author, var/channel_name, var/obj/item/weapon/photo/photo, var/adminMessage = 0, var/message_type = "")
+/datum/controller/subsystem/news/proc/SubmitArticle(var/msg, var/author, var/channel_name, var/obj/item/weapon/photo/photo, var/adminMessage = 0, var/message_type = "", var/time_stamp)
 	var/datum/feed_message/newMsg = new /datum/feed_message
 	newMsg.author = author
 	newMsg.body = msg
-	newMsg.time_stamp = "[worldtime2text()]"
+	if(time_stamp)
+		newMsg.time_stamp = time_stamp
+	else
+		newMsg.time_stamp = "[worldtime2text()]"
 	newMsg.is_admin_message = adminMessage
 	if(message_type)
 		newMsg.message_type = message_type
