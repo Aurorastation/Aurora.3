@@ -41,7 +41,7 @@ var/datum/antagonist/raider/raiders
 
 	var/list/raider_glasses = list(
 		/obj/item/clothing/glasses/thermal,
-		/obj/item/clothing/glasses/thermal/plain/eyepatch,
+		/obj/item/clothing/glasses/eyepatch/hud/thermal,
 		/obj/item/clothing/glasses/thermal/plain/monocle
 		)
 

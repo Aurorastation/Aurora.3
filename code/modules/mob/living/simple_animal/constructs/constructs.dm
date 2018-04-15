@@ -41,6 +41,7 @@
 	var/can_repair = 0
 
 	var/health_prefix = ""
+	appearance_flags = NO_CLIENT_COLOR
 
 
 /mob/living/simple_animal/construct/cultify()

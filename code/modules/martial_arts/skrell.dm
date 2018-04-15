@@ -102,6 +102,6 @@ datum/martial_art/karak_virul/grab_act(var/mob/living/carbon/human/A, var/mob/li
 
 	to_chat(usr, "<b><i>You warble deeply and recall the teachings...</i></b>")
 	to_chat(usr, "<span class='notice'>Painful Palm</span>: Disarm Harm Harm. Strikes your target with a painful hit, causing some pain.")
-	to_chat(usr, "<span class='notice'>Leg Sweep</span>: Disarm Disarm Harm. Trips the victim, rendering them prone and unable to move for a short time.")
+	to_chat(usr, "<span class='notice'>Leg Sweep</span>: Disarm Harm Disarm.. Trips the victim, rendering them prone and unable to move for a short time.")
 	to_chat(usr, "<span class='notice'>Dislocating Strike</span>: Harm Disarm Disarm Disarm. Delivers a strong punch that can dislocate your target's limb.")
 

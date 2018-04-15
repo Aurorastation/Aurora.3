@@ -933,7 +933,7 @@
 
 	// nutrition decrease
 	if (nutrition > 0 && stat != 2)
-		nutrition = max (0, nutrition - nutrition_loss)
+		nutrition = max(0, nutrition - (nutrition_loss * nutrition_attrition_rate))
 
 	if (nutrition > max_nutrition)
 		if(overeatduration < 600) //capped so people don't take forever to unfat

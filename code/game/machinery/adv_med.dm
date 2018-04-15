@@ -269,7 +269,9 @@
 
 /obj/machinery/body_scanconsole/Initialize()
 	. = ..()
-	src.connected = locate(/obj/machinery/bodyscanner, get_step(src, WEST))
+	for(var/obj/machinery/bodyscanner/C in orange(1,src))
+		connected = C
+		break
 	src.connected.connected = src
 
 /obj/machinery/body_scanconsole/attack_ai(user as mob)

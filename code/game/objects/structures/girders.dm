@@ -265,6 +265,7 @@
 	icon_state= "cultgirder"
 	health = 250
 	cover = 70
+	appearance_flags = NO_CLIENT_COLOR
 
 /obj/structure/girder/cult/dismantle()
 	new /obj/effect/decal/remains/human(get_turf(src))
