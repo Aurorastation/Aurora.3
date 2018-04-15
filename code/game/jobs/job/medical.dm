@@ -159,7 +159,7 @@
 	selection_color = "#ffeef0"
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_psychiatrist)
 	minimal_access = list(access_medical, access_medical_equip, access_psychiatrist)
-	alt_titles = list("Psychologist")
+	alt_titles = list("Psychologist","Neurologist")
 
 	equip(var/mob/living/carbon/human/H, var/alt_title)
 		if(!H)
