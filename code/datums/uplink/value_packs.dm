@@ -42,3 +42,10 @@
 	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
 	path = /obj/item/weapon/storage/secure/briefcase/ninja
 	//Savings: Probably around 7 credits
+
+/datum/uplink_item/item/value/luchador
+	name = "Luchador Kit"
+	desc = "Contains: Wrestling Manual, Bottle of Steroids, Armored Voice-Changing Luchador Mask, Armored Luchador Shorts, Luchador Force Cuffs, Agent ID Card. Includes: Champion Belt, Jackboots"
+	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
+	path = /obj/item/weapon/storage/backpack/luchador/traitor
+	//Savings: Probably around 8 credits

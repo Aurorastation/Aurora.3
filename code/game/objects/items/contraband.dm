@@ -29,6 +29,20 @@
 	new /obj/item/weapon/reagent_containers/pill/zoom( src )
 	new /obj/item/weapon/reagent_containers/pill/zoom( src )
 
+/obj/item/weapon/storage/pill_bottle/steroids
+	name = "bottle of Vaurca Pheromone pills"
+	desc = "Highly illegal substance. Commonly used as a performance enhancer in underground fighting rings."
+
+/obj/item/weapon/storage/pill_bottle/steroids/fill()
+	..()
+	new /obj/item/weapon/reagent_containers/pill/steroids( src )
+	new /obj/item/weapon/reagent_containers/pill/steroids( src )
+	new /obj/item/weapon/reagent_containers/pill/steroids( src )
+	new /obj/item/weapon/reagent_containers/pill/steroids( src )
+	new /obj/item/weapon/reagent_containers/pill/steroids( src )
+	new /obj/item/weapon/reagent_containers/pill/steroids( src )
+	new /obj/item/weapon/reagent_containers/pill/steroids( src )
+
 /obj/item/weapon/reagent_containers/glass/beaker/vial/random
 	flags = 0
 	var/list/random_reagent_list = list(list("water" = 15) = 1, list("cleaner" = 15) = 1)

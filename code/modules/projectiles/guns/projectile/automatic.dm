@@ -308,8 +308,6 @@
 /obj/item/weapon/gun/projectile/automatic/tommygun/drum
 	magazine_type = /obj/item/ammo_magazine/tommydrum
 
-
-
 /obj/item/weapon/gun/projectile/automatic/tommygun/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "tommygun" : "tommygun-empty"

@@ -29,3 +29,11 @@
 /obj/item/clothing/mask/gas/voice/Initialize()
 	. = ..()
 	changer = new(src)
+
+/obj/item/clothing/mask/gas/voice/luchador
+	name = "robust luchador mask"
+	desc = "Worn by robust fighters, flying high to defeat their foes! This one seems to have a voice changer of some sort."
+	icon_state = "luchag"
+	item_state = "luchag"
+	armor = list(melee = 10, bullet = 10, laser = 5,energy = 0, bomb = 0, bio = 0, rad = 0)
+	item_flags = AIRTIGHT|FLEXIBLEMATERIAL|BLOCK_GAS_SMOKE_EFFECT

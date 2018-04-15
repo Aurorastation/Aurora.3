@@ -259,7 +259,7 @@
 /obj/item/weapon/storage/box/syndie_kit/mafia/fill()
 	..()
 	new /obj/item/clothing/under/gentlesuit/traitor(src)
-	new /obj/item/clothing/head/fedora(src)
+	new /obj/item/clothing/head/fedora/sharp(src)
 	new /obj/item/clothing/shoes/leather(src)
 
 /obj/item/weapon/storage/secure/briefcase/money
@@ -286,7 +286,7 @@
 	new /obj/item/clothing/mask/gas/clown_hat/traitor(src) //About 1
 	new /obj/item/clothing/under/rank/clown/traitor(src) //About 2
 	new /obj/item/clothing/shoes/clown_shoes/traitor(src) //About 2
-	new /obj/item/clothing/gloves/force/basic/clown(src) //About 6
+	new /obj/item/clothing/gloves/force/clown(src) //About 6
 	new /obj/item/device/firing_pin/clown(src) //Free because why
 	new /obj/item/weapon/material/twohanded/chainsaw/fueled(src) //About 10
 	new /obj/item/weapon/card/id/maint(src) //About 10
@@ -340,12 +340,11 @@
 	new /obj/item/weapon/gun/projectile/automatic/tommygun/drum(src) //Probably 16
 	new /obj/item/ammo_magazine/tommydrum(src) //Probably 4
 	new /obj/item/ammo_magazine/tommydrum(src) //Probably 4
-	new /obj/item/weapon/gun/bang/colt //Probably 5
-	new /obj/item/weapon/spacecash/bundle/cowboy(src) //About 1
-	//Total: 29
+	new /obj/item/weapon/spacecash/bundle/mafia(src) //About 2
+	//Total: 30
 
 /obj/item/weapon/storage/secure/briefcase/stealth/fill()
-	new /obj/item/clothing/glasses/eyepatch/hud/thermal //Probably 3
+	new /obj/item/clothing/glasses/eyepatch/hud/thermal //6
 	new /obj/item/weapon/storage/box/syndie_kit/chameleon(src) //5
 	new /obj/item/weapon/storage/box/syndie_kit/spy(src) //2
 	new /obj/item/weapon/storage/box/syndie_kit/g9mm/plus // 10
@@ -353,7 +352,7 @@
 	new /obj/item/clothing/mask/gas/voice(src) //5
 	new /obj/item/weapon/pen/reagent/paralysis(src) //6
 	new /obj/item/weapon/spacecash/bundle/cowboy(src) //About 1
-	//Total: 32
+	//Total: 35
 
 /obj/item/weapon/storage/secure/briefcase/ninja/fill()
 	new /obj/item/weapon/storage/box/syndie_kit/chameleon(src) //5
@@ -364,6 +363,18 @@
 	new /obj/item/weapon/material/star(src) // Probably 2
 	new /obj/item/weapon/material/star(src) // Probably 2
 	new /obj/item/clothing/accessory/storage/black_pouches(src) //Probably 1
-	new /obj/item/clothing/gloves/claws(src) // 5
+	new /obj/item/clothing/gloves/force/syndicate(src) // 8
 	new /obj/item/weapon/spacecash/bundle/cowboy(src) //About 1
-	// Total: 30
+	// Total: 33
+
+/obj/item/weapon/storage/backpack/luchador/traitor/fill()
+	new /obj/item/wrestling_manual(src) //6
+	new /obj/item/weapon/storage/pill_bottle/steroids(src) //Probably like 10 honestly
+	new /obj/item/clothing/under/shorts/green/luchador/(src) //2
+	new /obj/item/clothing/gloves/force/luchador(src) //About 8
+	new /obj/item/clothing/mask/gas/voice/luchador(src) //Probably 6
+	new /obj/item/weapon/card/id/syndicate(src) //3
+	new /obj/item/weapon/storage/belt/champion(src) //Free
+	new /obj/item/clothing/shoes/jackboots(src) //Free
+	new /obj/item/clothing/shoes/jackboots/unathi(src) //Free
+	//Total 33

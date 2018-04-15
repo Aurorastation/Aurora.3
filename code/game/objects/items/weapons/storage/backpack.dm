@@ -190,6 +190,11 @@
 
 	return 1
 
+/obj/item/weapon/storage/backpack/luchador
+	name = "luchador cloak"
+	desc = "It's a green luchador cloak, with superior storage options."
+	icon_state = "luchadorcape"
+
 /obj/item/weapon/storage/backpack/syndie
 	name = "syndicate rucksack"
 	desc = "The latest in carbon fiber and red satin combat rucksack technology. Comfortable and tough!"

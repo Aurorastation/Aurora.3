@@ -162,7 +162,7 @@
 	Initialize()
 		. = ..()
 		reagents.add_reagent("escitalopram", 15)
-	
+
 /obj/item/weapon/reagent_containers/pill/escitalopram
 	name = "Escitalopram pill"
 	desc = "Mild anti-depressant."
@@ -170,7 +170,7 @@
 	Initialize()
 		. = ..()
 		reagents.add_reagent("escitalopram", 15)
-		
+
 /obj/item/weapon/reagent_containers/pill/hextrasenil
 	name = "Hextrasenil pill"
 	desc = "Don't forget to take your pills."
@@ -178,7 +178,7 @@
 	Initialize()
 		. = ..()
 		reagents.add_reagent("hextrasenil", 30)
-		
+
 /obj/item/weapon/reagent_containers/pill/trisyndicotin
 	name = "Trisyndicotin pill"
 	desc = "For when you need a little convincing."
@@ -279,3 +279,11 @@
 		reagents.add_reagent("nutriment", 20)
 		reagents.add_reagent(pick("banana","berryjuice","grapejuice","lemonjuice","limejuice","orangejuice","watermelonjuice"),1)
 		//Would be absolutely retarded to grind the biogenerator for juices.
+
+/obj/item/weapon/reagent_containers/pill/steroids
+	name = "Vaurca Pheromone pill"
+	desc = "So this is what they were advertising."
+	icon_state = "pill8"
+	Initialize()
+		. = ..()
+		reagents.add_reagent("steroids", 20)

@@ -186,15 +186,21 @@
 	item_state = "power_glove"
 	amplification = 1 //just do it
 
-/obj/item/clothing/gloves/force/basic/clown
-	name = "clown gloves"
-	icon_state = "evening_gloves"
-
-
 /obj/item/clothing/gloves/force/syndicate  //for syndies.  pda, *maybe* nuke team or ert.  up to you.  maybe just use the amp 2 variant.
 	name = "enhanced force gloves"
 	amplification = 2.5 //because *2.5 is kind of scary okay.  sometimes you want the scary effect.  sometimes not.
 
+/obj/item/clothing/gloves/force/luchador
+	name = "robust luchador cuffs"
+	icon_state = "luchador_cuffs"
+	fingerprint_chance = 100
+	clipped = 1
+	species_restricted = list("exclude","Golem","Vaurca Breeder")
+	armor = list(melee = 10, bullet = 10, laser = 5,energy = 0, bomb = 0, bio = 0, rad = 0)
+
+/obj/item/clothing/gloves/force/clown
+	name = "clown gloves"
+	icon_state = "evening_gloves"
 
 /obj/item/clothing/gloves/brassknuckles
 	name = "brass knuckles"

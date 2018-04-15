@@ -97,6 +97,9 @@
 /obj/item/weapon/spacecash/bundle/cowboy
 	worth = 5000
 
+/obj/item/weapon/spacecash/bundle/mafia
+	worth = 10000
+
 /obj/item/weapon/spacecash/bundle/cowboy/Initialize()
 	. = ..()
 	update_icon()

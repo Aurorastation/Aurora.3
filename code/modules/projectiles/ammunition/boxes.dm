@@ -325,7 +325,7 @@
 /obj/item/ammo_magazine/tommydrum
 	name = "tommygun drum magazine (.45)"
 	icon_state = "tommy-drum"
-	w_class = 3 // Bulky ammo doesn't fit in your pockets!
+	slot_flags = SLOT_BELT | SLOT_DENYPOCKET
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c45
 	matter = list(DEFAULT_WALL_MATERIAL = 3750)
