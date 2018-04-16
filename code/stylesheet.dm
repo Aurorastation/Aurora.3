@@ -98,7 +98,7 @@ h1.alert, h2.alert		{color: #000000;}
 .rough					{font-family: "Trebuchet MS", cursive, sans-serif;}
 .say_quote				{font-family: Georgia, Verdana, sans-serif;}
 .yassa					{color: #400987;}
-.delvahhi				{color: #960018;}
+.delvahhi				{color: #483C32;}
 
 .interface				{color: #330033;}
 

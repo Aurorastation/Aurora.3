@@ -39,6 +39,7 @@
 		"ra", "ar", "re", "er", "ri", "ir", "ro", "or", "ru", "ur", "rs", "sr",
 		"a",  "a",  "e",  "e",  "i",  "i",  "o",  "o",  "u",  "u",  "s",  "s"
 	)
+	partial_understanding = list(LANGUAGE_AZAZIBA = 50)
 
 // tajaran languages
 /datum/language/tajaran
@@ -278,6 +279,7 @@
 	key = "p"
 	flags = WHITELISTED | NONVERBAL
 	syllables = list("azs","zis","zau","azua","skiu","zuakz","izo","aei","ki","kut","zo")
+	partial_understanding = list(LANGUAGE_UNATHI = 50)
 
 //Syllable Lists
 /*
