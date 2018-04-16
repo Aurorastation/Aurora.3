@@ -183,12 +183,12 @@
 /datum/gear/uniform/tajara_dress/New()
 	..()
 	var/dress = list()
-	dress["white fancy Adhomai dress"] = /obj/item/clothing/under/dress/tajaran
-	dress["blue fancy Adhomai dress"] = /obj/item/clothing/under/dress/tajaran/blue
-	dress["green fancy Adhomai dress"] = /obj/item/clothing/under/dress/tajaran/green
-	dress["red fancy Adhomai dress"] = /obj/item/clothing/under/dress/tajaran/red
-	dress["red noble Adhomai dress"] = /obj/item/clothing/under/dress/tajaran/fancy
-	dress["black noble Adhomai dress"] = /obj/item/clothing/under/dress/tajaran/fancy/black
+	dress["white fancy adhomian dress"] = /obj/item/clothing/under/dress/tajaran
+	dress["blue fancy adhomian dress"] = /obj/item/clothing/under/dress/tajaran/blue
+	dress["green fancy adhomian dress"] = /obj/item/clothing/under/dress/tajaran/green
+	dress["red fancy adhomian dress"] = /obj/item/clothing/under/dress/tajaran/red
+	dress["red noble adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy
+	dress["black noble adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy/black
 	gear_tweaks += new/datum/gear_tweak/path(dress)
 
 /datum/gear/accessory/tajara

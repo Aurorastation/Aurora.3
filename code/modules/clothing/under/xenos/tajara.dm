@@ -19,7 +19,7 @@
 	item_state = "ntoveralls"
 
 /obj/item/clothing/under/dress/tajaran
-	name = "fancy Adhomai dress"
+	name = "fancy adhomian dress"
 	desc = "Created for the rich and party-loving circles of Adhomai, this dress is fashioned from smooth silk and is see through at parts. This one is white."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "taj_dress_white"
@@ -45,7 +45,7 @@
 	item_state = "taj_dress_red"
 
 /obj/item/clothing/under/dress/tajaran/fancy
-	name = "noble Adhomai dress"
+	name = "noble adhomian dress"
 	desc = "The classical dress of the Adhomai royalty, only to be worn during the special occassions. This one is crimson red."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "taj_dress_fancy"
