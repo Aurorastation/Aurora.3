@@ -5,7 +5,7 @@
 	name = "Clown Kit"
 	desc = "Contains: Armored clown mask with voice changer, suit, and no-slip armored clown shoes. Hidden basic force gloves, joke firing pin, agent ID card, and chainsaw also included."
 	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
-	path = /obj/item/weapon/storage/backpack/clown/tratior/
+	path = /obj/item/weapon/storage/backpack/clown/traitor/
 	//Savings: ???
 
 /datum/uplink_item/item/value/beginner
