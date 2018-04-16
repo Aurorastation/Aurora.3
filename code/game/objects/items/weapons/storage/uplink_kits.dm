@@ -180,8 +180,6 @@
 
 /obj/item/weapon/storage/box/syndie_kit/g9mm/plus/fill()
 	..()
-	new /obj/item/weapon/gun/projectile/pistol(src)
-	new /obj/item/weapon/silencer(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
 
@@ -262,11 +260,6 @@
 	new /obj/item/clothing/head/fedora/sharp(src)
 	new /obj/item/clothing/shoes/leather(src)
 
-/obj/item/weapon/storage/secure/briefcase/money
-	name = "suspicious briefcase"
-	desc = "An ominous briefcase that has the unmistakeable smell of old, stale, cigarette smoke, and gives those who look at it a bad feeling."
-
-
 /obj/item/weapon/storage/secure/briefcase/money/fill()
 	..()
 	new /obj/item/weapon/spacecash/c1000(src)
@@ -281,7 +274,7 @@
 	new /obj/item/weapon/spacecash/c1000(src)
 
 //Value Packs
-/obj/item/weapon/storage/backpack/clown/tratior/fill()
+/obj/item/weapon/storage/backpack/clown/traitor/fill()
 	..()
 	new /obj/item/clothing/mask/gas/voice/clown(src)
 	new /obj/item/clothing/under/rank/clown/traitor(src) //About 2

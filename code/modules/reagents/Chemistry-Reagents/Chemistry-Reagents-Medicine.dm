@@ -46,6 +46,11 @@
 	if (!modifier02)
 		modifier02 = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
+/datum/reagent/steroids/Destroy()
+	QDEL_NULL(modifier01)
+	QDEL_NULL(modifier02)
+	return ..()
+
 /datum/reagent/bicaridine
 	name = "Bicaridine"
 	id = "bicaridine"
@@ -297,7 +302,6 @@
 /datum/reagent/synaptizine/Destroy()
 	QDEL_NULL(modifier)
 	return ..()
-
 
 /datum/reagent/alkysine
 	name = "Alkysine"
