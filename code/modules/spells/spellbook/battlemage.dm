@@ -25,7 +25,7 @@
 				/spell/targeted/flesh_to_stone =                        1,
 				/spell/noclothes = 					            		1,
 				/obj/structure/closet/wizard/armor = 					1,
-				/spell/aoe_turf/blink = 								1
+				/spell/aoe_turf/blink = 								1,
 				/obj/item/weapon/gun/energy/staff/focus = 				1,
 				/obj/item/weapon/gun/energy/staff/chaos = 				1,
 				/obj/item/weapon/storage/belt/wands/full = 				2,
