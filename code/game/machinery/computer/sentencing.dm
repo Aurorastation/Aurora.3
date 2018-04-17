@@ -482,7 +482,7 @@
 	//Lets check if there is a felony amongst the crimes
 	for(var/datum/law/L in incident.charges)
 		if(L.felony)
-			buzz("\The [src] buzzes, \"The crimes are to severe to apply a fine!\"")
+			buzz("\The [src] buzzes, \"The crimes are too severe to apply a fine!\"")
 			return
 
 	//Try to resole the security account first
