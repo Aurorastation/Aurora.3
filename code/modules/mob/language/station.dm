@@ -39,12 +39,12 @@
 		"ra", "ar", "re", "er", "ri", "ir", "ro", "or", "ru", "ur", "rs", "sr",
 		"a",  "a",  "e",  "e",  "i",  "i",  "o",  "o",  "u",  "u",  "s",  "s"
 	)
-	partial_understanding = list(LANGUAGE_AZAZIBA = 50)
+	partial_understanding = list(LANGUAGE_AZAZIBA = 25)
 
 // tajaran languages
 /datum/language/tajaran
 	name = LANGUAGE_SIIK_MAAS
-	desc = "The traditionally employed tongue of Adhomai, composed of expressive yowls and chirps. Native to the Tajaran."
+	desc = "The traditionally employed tongue of Adhomai, composed of expressive yowls and chirps. Native to the Tajara."
 	speech_verb = "mrowls"
 	ask_verb = "mrowls"
 	exclaim_verb = "yowls"
