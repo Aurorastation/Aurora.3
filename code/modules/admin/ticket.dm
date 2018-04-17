@@ -57,6 +57,8 @@ var/global/list/ticket_panels = list()
 	if (reminder_timer)
 		deltimer(reminder_timer)
 
+	log_to_db()
+
 	return 1
 
 /datum/ticket/proc/take(var/client/assigned_admin)
@@ -143,12 +145,6 @@ var/global/list/ticket_panels = list()
 		response_time = round((world.time - opened_time) SECONDS)
 
 	update_ticket_panels()
-
-// Referenced in the statistics controller.
-/proc/log_all_tickets()
-	for (var/t in tickets)
-		var/datum/ticket/T = t
-		T.log_to_db()
 
 /datum/ticket_msg
 	var/msg_from
