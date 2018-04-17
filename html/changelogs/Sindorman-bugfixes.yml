@@ -4,7 +4,7 @@ delete-after: True
 
 changes:
   - maptweak: "Access to Research Division Maint door is fixed"
-  - maptweak: "Added missing firelocks to interstitial level of security"
+  - maptweak: "Added missing firelocks to construction level of security"
   - bugfix: "Fixed broken small light icon to appear properly"
   - tweak: "Shower now reacts with mobs as water supposed to, damaging slimes."
   - tweak: "Pool, Ocean or generic water turfs now cleans anything that enters it, cleans it's own turf and damages slimes."
@@ -13,3 +13,4 @@ changes:
   - tweak: "Closets now spawn one sheet of metal upon being destroyed"
   - tweak: "Turbolifts now properly destroy atoms, and gib any mobs that are in closets"
   - bugfix: "Crusher no longer kills AI eye"
+  - maptweak: "Medical construction level now has full camera coverage"
