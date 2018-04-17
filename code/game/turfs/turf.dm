@@ -207,9 +207,11 @@ var/const/enterloopsanity = 100
 			objects++
 
 			if (oAM.simulated)
-				addtimer(CALLBACK(AM, /atom/movable/.proc/proximity_callback, oAM), 0)
+				AM.proximity_callback(oAM)
 
 /atom/movable/proc/proximity_callback(atom/movable/AM)
+	set waitfor = FALSE
+	sleep(0)
 	HasProximity(AM, TRUE)
 	if (!QDELETED(AM) && !QDELETED(src) && (AM.flags & PROXMOVE))
 		AM.HasProximity(src, TRUE)
