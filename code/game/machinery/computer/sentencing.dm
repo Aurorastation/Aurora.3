@@ -457,7 +457,7 @@
 		user << "<span class='alert'>[error]</span>"
 		return
 
-	print_incident_overview(incident.renderGuilty( user ))
+	print_incident_overview(incident.renderGuilty(user, 0))
 	var/obj/item/weapon/card/id/card = incident.card.resolve()
 	if( incident.brig_sentence < PERMABRIG_SENTENCE)
 		ping( "\The [src] pings, \"[card.registered_name] has been found guilty of their crimes!\"" )
@@ -473,6 +473,10 @@
 		return
 
 	if(!istype(user))
+		return
+
+	if(incident.fine <= 0)
+		buzz("\The [src] buzzes, \"No fine has been entered!\"")
 		return
 
 	//Try to resole the security account first
@@ -494,7 +498,7 @@
 
 	charge_to_account(suspect_account.account_number,security_account.owner_name,"Incident: [incident.UID]","Sentencing Console",-incident.fine)
 	charge_to_account(security_account.account_number,suspect_account.owner_name,"Incident: [incident.UID]Fine","Sentencing Console",incident.fine)
-	print_incident_overview(incident.renderGuilty(user))
+	print_incident_overview(incident.renderGuilty(user,1))
 
 	ping("\The [src] pings, \"[card.registered_name] has been fined for their crimes!\"")
 
@@ -503,10 +507,8 @@
 
 /obj/machinery/computer/sentencing/proc/print_incident_overview(var/text)
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper
-	P.name = "Incident Overview"
-	P.text = text
-
-	print( P )
+	P.set_content_unsafe("Incident Summary",text)
+	print(P)
 
 /obj/machinery/computer/sentencing/proc/print_incident_report( var/sentence = 1 )
 	var/error = incident.missingSentenceReq()

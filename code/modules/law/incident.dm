@@ -134,13 +134,24 @@
 
 	return max
 
-/datum/crime_incident/proc/renderGuilty( var/mob/living/user, var/fine=0 )
+//type: 0 - brig sentence, 1 - fine, 2 - prison sentence
+/datum/crime_incident/proc/renderGuilty( var/mob/living/user, var/type=0 )
 	if( !criminal )
 		return
 
 	created_by = "[user.ckey] - [user.real_name]"
 
-	saveCharInfraction(fine)
+	if(type == 0)
+		prison_sentence = 0
+		fine = 0
+	else if(type == 1)
+		brig_sentence = 0
+		prison_sentence = 0
+	else if(type == 2)
+		brig_sentence = 0
+		fine = 0
+
+	saveCharInfraction()
 	return generateReport()
 
 /datum/crime_incident/proc/generateReport()
@@ -149,19 +160,18 @@
 	. += "<br>"
 	. += "<b>CRIMINAL</b>: <i>[criminal]</i><br><br>"
 
-	. += "[criminal] was found guilty of the following crimes on [time2text(world.realtime, "DD/MMM")]/[game_year]. "
+	. += "[criminal] was found guilty of the following crimes on [game_year]-[time2text(world.realtime, "MMM-DD")].<br>"
 
-	if( brig_sentence || prison_sentence )
+	if( brig_sentence != 0 )
 		. += "As decided by the arbiter(s), they will serve the following sentence:<br>"
-		if( brig_sentence )
-			if( brig_sentence >= PERMABRIG_SENTENCE )
-				. += "\t<b>BRIG</b>: <i>Holding until transfer</i><br>"
-			else
-				. += "\t<b>BRIG</b>: <i>[brig_sentence] minutes</i><br>"
-	else if ( fine )
-		. += "As decided by the arbiter(s), they will have been fined."
+		if( brig_sentence >= PERMABRIG_SENTENCE )
+			. += "\t<b>BRIG</b>: <i>Holding until transfer</i><br>"
+		else
+			. += "\t<b>BRIG</b>: <i>[brig_sentence] minutes</i><br>"
+	else if ( fine != 0 )
+		. += "As decided by the arbiter(s), they have been fined [fine] credits.<br>"
 	else
-		. += "As decided by the arbiter(s), they will serve no time for their crimes."
+		. += "As decided by the arbiter(s), they will serve no time for their crimes.<br>"
 	. += "<br><table>"
 	. += "<tr><th colspan='2'>CHARGES</th></tr>"
 	for( var/datum/law/L in charges )
