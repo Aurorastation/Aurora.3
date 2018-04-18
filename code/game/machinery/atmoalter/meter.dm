@@ -93,6 +93,8 @@
 /obj/machinery/meter/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	if (!iswrench(W))
 		return ..()
+	if (!W.tool_is_usable())
+		return
 	playsound(src.loc, W.usesound, 50, 1)
 	user << "<span class='notice'>You begin to unfasten \the [src]...</span>"
 	if (do_after(user, 40*W.toolspeed))

@@ -112,6 +112,8 @@
 
 		updateDialog()
 	else if (iswrench(I))
+		if (!I.tool_is_usable())
+			return
 		if (src.health < maxhealth)
 			src.health = min(maxhealth, src.health+25)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

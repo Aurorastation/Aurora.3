@@ -372,7 +372,8 @@
 		return
 
 	if(iswrench(W))
-
+		if (!W.tool_is_usable())
+			return
 		if(istype(get_turf(src), /turf/space))
 			user << "<span class='notice'>You send the [src] careening into space. Idiot.</span>"
 			var/inertia = rand(10,30)

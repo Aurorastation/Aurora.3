@@ -566,7 +566,8 @@
 		check_health()
 
 	else if(mechanical && iswrench(O))
-
+		if (!O.tool_is_usable())
+			return
 		//If there's a connector here, the portable_atmospherics setup can handle it.
 		if(locate(/obj/machinery/atmospherics/portables_connector/) in loc)
 			return ..()

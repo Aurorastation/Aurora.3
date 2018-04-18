@@ -144,6 +144,8 @@
 		//This prevents dumb stuff like splashing the cart with the contents of a container, after putting said container into trash
 
 	else if (!has_items && (iswrench(I) || iswelder(I) || istype(I, /obj/item/weapon/gun/energy/plasmacutter)))
+		if (!I.tool_is_usable())
+			return
 		dismantle(user)
 		return
 	..()

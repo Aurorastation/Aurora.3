@@ -14,6 +14,8 @@
 	switch(state)
 		if(0)
 			if(iswrench(P))
+				if (!P.tool_is_usable())
+					return
 				playsound(src.loc, P.usesound, 50, 1)
 				if(do_after(user, 20*P.toolspeed))
 					user << "<span class='notice'>You wrench the frame into place.</span>"
@@ -32,6 +34,8 @@
 					qdel(src)
 		if(1)
 			if(iswrench(P))
+				if (!P.tool_is_usable())
+					return
 				playsound(src.loc, P.usesound, 50, 1)
 				if(do_after(user, 20*P.toolspeed))
 					user << "<span class='notice'>You unfasten the frame.</span>"

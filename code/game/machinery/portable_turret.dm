@@ -279,6 +279,8 @@
 				qdel(src) // qdel
 
 	else if((iswrench(I)))
+		if (!I.tool_is_usable())
+			return
 		if (immobile)
 			user << "<span class='notice'>[src] is firmly attached to the ground with some form of epoxy.</span>"
 			return
@@ -669,6 +671,8 @@
 	switch(build_step)
 		if(0)	//first step
 			if(iswrench(I) && !anchored)
+				if (I.tool_is_usable())
+					return
 				playsound(loc, I.usesound, 100, 1)
 				user << "<span class='notice'>You secure the external bolts.</span>"
 				anchored = 1
@@ -695,6 +699,8 @@
 				return
 
 			else if(iswrench(I))
+				if (!I.tool_is_usable())
+					return
 				playsound(loc, I.usesound, 75, 1)
 				user << "<span class='notice'>You unfasten the external bolts.</span>"
 				anchored = 0
@@ -705,6 +711,8 @@
 
 		if(2)
 			if(iswrench(I))
+				if (!I.tool_is_usable())
+					return
 				playsound(loc, I.usesound, 100, 1)
 				user << "<span class='notice'>You bolt the metal armor into place.</span>"
 				build_step = 3
@@ -749,6 +757,8 @@
 					return
 
 			else if(iswrench(I))
+				if (!I.tool_is_usable())
+					return
 				playsound(loc, I.usesound, 100, 1)
 				user << "<span class='notice'>You remove the turret's metal armor bolts.</span>"
 				build_step = 2

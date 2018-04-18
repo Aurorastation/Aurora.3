@@ -170,6 +170,8 @@
 	if(I.type == /obj/item/device/analyzer)
 		user << "<span class='notice'>The water temperature seems to be [watertemp].</span>"
 	if(iswrench(I))
+		if (!I.tool_is_usable())
+			return
 		var/newtemp = input(user, "What setting would you like to set the temperature valve to?", "Water Temperature Valve") in temperature_settings
 		user << "<span class='notice'>You begin to adjust the temperature valve with \the [I].</span>"
 		playsound(src.loc, I.usesound, 50, 1)

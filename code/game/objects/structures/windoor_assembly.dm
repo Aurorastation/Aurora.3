@@ -88,6 +88,8 @@ obj/structure/windoor_assembly/Destroy()
 
 			//Wrenching an unsecure assembly anchors it in place. Step 4 complete
 			if(iswrench(W) && !anchored)
+				if (!W.tool_is_usable())
+					return
 				playsound(src.loc, W.usesound, 100, 1)
 				user.visible_message("[user] secures the windoor assembly to the floor.", "You start to secure the windoor assembly to the floor.")
 
@@ -102,6 +104,8 @@ obj/structure/windoor_assembly/Destroy()
 
 			//Unwrenching an unsecure assembly un-anchors it. Step 4 undone
 			else if(iswrench(W) && anchored)
+				if (!W.tool_is_usable())
+					return
 				playsound(src.loc, W.usesound, 100, 1)
 				user.visible_message("[user] unsecures the windoor assembly to the floor.", "You start to unsecure the windoor assembly to the floor.")
 

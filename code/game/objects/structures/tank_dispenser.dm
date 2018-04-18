@@ -24,14 +24,14 @@
 /obj/structure/dispenser/update_icon()
 	cut_overlays()
 	switch(oxygentanks)
-		if(1 to 3)	
+		if(1 to 3)
 			add_overlay("oxygen-[oxygentanks]")
-		if(4 to INFINITY) 
+		if(4 to INFINITY)
 			add_overlay("oxygen-4")
 	switch(phorontanks)
 		if(1 to 4)
 			add_overlay("phoron-[phorontanks]")
-		if(5 to INFINITY) 
+		if(5 to INFINITY)
 			add_overlay("phoron-5")
 
 /obj/structure/dispenser/attack_ai(mob/user as mob)
@@ -77,6 +77,8 @@
 		updateUsrDialog()
 		return
 	if(iswrench(I))
+		if (!I.tool_is_usable())
+			return
 		if(anchored)
 			user << "<span class='notice'>You lean down and unwrench [src].</span>"
 			anchored = 0

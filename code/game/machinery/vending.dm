@@ -236,6 +236,8 @@
 		SSnanoui.update_uis(src)
 		return
 	else if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		if(!can_move)
 			return
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

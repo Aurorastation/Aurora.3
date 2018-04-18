@@ -147,6 +147,8 @@
 	if(!istype(W) || !user)
 		return
 	if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		if(!anchored)
 			playsound(get_turf(src), W.usesound, 75, 1)
 			user.visible_message("[user.name] secures the [src.name] to the floor.", \

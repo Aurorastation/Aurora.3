@@ -16,6 +16,8 @@
 
 /obj/item/assembly/shock_kit/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(iswrench(W) && !status)
+		if (!W.tool_is_usable())
+			return
 		var/turf/T = loc
 		if(ismob(T))
 			T = T.loc

@@ -605,15 +605,13 @@
 		if(bcell.checked_use(chrgdeductamt))
 			return 1
 		else
-			update_icon()
 			return 0
 	return null
 
-/obj/item/weapon/wrench/power/afterattack(atom/target, mob/living/user, proximity)
-
-	if (!deductcharge(1250))
-		to_chat(user, "<span class='danger'>The [src].is out of charge.</span>")
-
+/obj/item/weapon/wrench/power/tool_is_usable()
+	if (deductcharge(1250))
+		return 1
+	return 0
 
 /obj/item/weapon/wrench/power/attack_self(mob/user)
 	playsound(get_turf(user),'sound/items/change_drill.ogg', 50, 1)
@@ -689,6 +687,19 @@
 			return
 		..()
 	return
+
+/obj/item/weapon/screwdriver/power/proc/deductcharge(var/chrgdeductamt)
+	if(bcell)
+		if(bcell.checked_use(chrgdeductamt))
+			return 1
+		else
+			return 0
+	return null
+
+/obj/item/weapon/screwdriver/power/tool_is_usable()
+	if (deductcharge(1250))
+		return 1
+	return 0
 /*
  * Jaws cutter
  */
@@ -741,6 +752,19 @@
 			return
 		..()
 	return
+
+/obj/item/weapon/wirecutters/power/proc/deductcharge(var/chrgdeductamt)
+	if(bcell)
+		if(bcell.checked_use(chrgdeductamt))
+			return 1
+		else
+			return 0
+	return null
+
+/obj/item/weapon/wirecutters/power/tool_is_usable()
+	if (deductcharge(1250))
+		return 1
+	return 0
 /*
  * Jaws Pry
  */
@@ -793,3 +817,16 @@
 			return
 		..()
 	return
+
+/obj/item/weapon/crowbar/power/proc/deductcharge(var/chrgdeductamt)
+	if(bcell)
+		if(bcell.checked_use(chrgdeductamt))
+			return 1
+		else
+			return 0
+	return null
+
+/obj/item/weapon/crowbar/power/tool_is_usable()
+	if (deductcharge(1250))
+		return 1
+	return 0

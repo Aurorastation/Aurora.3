@@ -771,5 +771,4 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 //Called when a tool is used for construction/deconstruction
 //Intended to be overridden by individual tools
 /obj/item/proc/tool_is_usable()
-	world.log << "[src]"
 	return 1

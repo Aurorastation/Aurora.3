@@ -254,6 +254,8 @@
 
 /obj/machinery/atmospherics/unary/vent_scrubber/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	if (iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		if (!(stat & NOPOWER) && use_power)
 			user << "<span class='warning'>You cannot unwrench \the [src], turn it off first.</span>"
 			return 1

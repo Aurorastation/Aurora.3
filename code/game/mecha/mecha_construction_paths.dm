@@ -10,7 +10,10 @@
 		else
 			return 0
 	else if(iswrench(used_atom))
-		playsound(holder, 'sound/items/Ratchet.ogg', 50, 1)
+		var/obj/item/weapon/wrench/W = used_atom
+		if (!W.tool_is_usable())
+			return
+		playsound(holder, W.usesound, 50, 1)
 
 	else if(isscrewdriver(used_atom))
 		var/obj/item/weapon/screwdriver/W = used_atom
@@ -45,7 +48,10 @@
 		else
 			return 0
 	else if(iswrench(used_atom))
-		playsound(holder, 'sound/items/Ratchet.ogg', 50, 1)
+		var/obj/item/weapon/wrench/W = used_atom
+		if (!W.tool_is_usable())
+			return
+		playsound(holder, W.usesound, 50, 1)
 
 	else if(isscrewdriver(used_atom))
 		var/obj/item/weapon/screwdriver/W = used_atom

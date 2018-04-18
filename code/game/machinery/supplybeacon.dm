@@ -46,6 +46,8 @@
 
 /obj/machinery/power/supply_beacon/attackby(var/obj/item/weapon/W, var/mob/user)
 	if(!use_power && iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		if(!anchored && !connect_to_network())
 			user << "<span class='warning'>This device must be placed over an exposed cable.</span>"
 			return

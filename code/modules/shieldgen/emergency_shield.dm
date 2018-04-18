@@ -293,6 +293,8 @@
 				update_icon()
 
 	else if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		if(locked)
 			user << "The bolts are covered, unlocking this would retract the covers."
 			return

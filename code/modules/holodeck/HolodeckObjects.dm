@@ -169,6 +169,8 @@
 	else if(iscrowbar(W) && reinf && state <= 1)
 		user << ("<span class='notice'>It's a holowindow, you can't pry it!</span>")
 	else if(iswrench(W) && !anchored && (!state || !reinf))
+		if (!W.tool_is_usable())
+			return
 		user << ("<span class='notice'>It's a holowindow, you can't dismantle it!</span>")
 	else
 		if(W.damtype == BRUTE || W.damtype == BURN)

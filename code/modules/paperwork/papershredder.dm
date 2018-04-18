@@ -22,6 +22,8 @@
 		return
 
 	else if (iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		playsound(loc, W.usesound, 50, 1)
 		anchored = !anchored
 		user.visible_message(

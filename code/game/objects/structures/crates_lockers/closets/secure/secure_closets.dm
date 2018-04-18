@@ -125,6 +125,8 @@
 				playsound(loc, W.usesound, 50, 1)
 				screwed = 1
 	else if(iswrench(W) && canbemoved)
+		if (!W.tool_is_usable())
+			return
 		if(wrenched && !screwed)
 			user << "<span class='notice'>You start to unfasten the bolts holding the locker in place...</span>"
 			playsound(loc, W.usesound, 50, 1)

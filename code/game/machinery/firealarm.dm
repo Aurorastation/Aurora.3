@@ -136,6 +136,8 @@
 					update_icon()
 
 				else if(iswrench(W))
+					if (!W.tool_is_usable())
+						return
 					user << "You remove the fire alarm assembly from the wall!"
 					new /obj/item/frame/fire_alarm(get_turf(user))
 					playsound(src.loc, W.usesound, 50, 1)

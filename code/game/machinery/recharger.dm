@@ -44,6 +44,8 @@
 
 /obj/machinery/recharger/attackby(obj/item/weapon/G as obj, mob/user as mob)
 	if(portable && iswrench(G))
+		if (!G.tool_is_usable())
+			return
 		if(charging)
 			user << "<span class='alert'>Remove [charging] first!</span>"
 			return

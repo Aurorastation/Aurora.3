@@ -123,6 +123,8 @@
 		else
 			user << "<span class='notice'>This cartridge is not yet ready for replacement! Use up the rest of the toner.</span>"
 	else if(iswrench(O))
+		if (!O.tool_is_usable())
+			return
 		playsound(loc, O.usesound, 50, 1)
 		anchored = !anchored
 		user << "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>"

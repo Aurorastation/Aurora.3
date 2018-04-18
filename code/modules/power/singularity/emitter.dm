@@ -152,6 +152,8 @@
 /obj/machinery/power/emitter/attackby(obj/item/W, mob/user)
 
 	if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		if(active)
 			user << "Turn off [src] first."
 			return

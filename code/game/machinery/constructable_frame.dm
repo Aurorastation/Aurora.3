@@ -44,6 +44,8 @@
 							icon_state = "box_1"
 				else
 					if(iswrench(P))
+						if (!P.tool_is_usable())
+							return
 						playsound(src.loc, P.usesound, 75, 1)
 						user << "<span class='notice'>You dismantle the frame</span>"
 						new /obj/item/stack/material/steel(src.loc, 5)

@@ -15,6 +15,8 @@
 	switch(state)
 		if(0)
 			if(iswrench(P))
+				if (!P.tool_is_usable())
+					return
 				playsound(loc, P.usesound, 50, 1)
 				if(do_after(user, 20*P.toolspeed))
 					user << "<span class='notice'>You wrench the frame into place.</span>"
@@ -33,6 +35,8 @@
 					qdel(src)
 		if(1)
 			if(iswrench(P))
+				if (!P.tool_is_usable())
+					return
 				playsound(loc, P.usesound, 50, 1)
 				if(do_after(user, 20*P.toolspeed))
 					user << "<span class='notice'>You unfasten the frame.</span>"
@@ -234,6 +238,8 @@
 			user << "<span class='danger'>ERROR:</span> Unable to locate artificial intelligence."
 		return
 	else if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		if(anchored)
 			user.visible_message("<span class='notice'>\The [user] starts to unbolt \the [src] from the plating...</span>")
 			if(!do_after(user,40))

@@ -113,6 +113,8 @@
 
 /obj/item/weapon/stool/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		playsound(src.loc, W.usesound, 50, 1)
 		dismantle()
 		qdel(src)

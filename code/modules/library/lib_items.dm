@@ -38,7 +38,10 @@
 		else
 			name = ("bookcase ([newname])")
 	else if(iswrench(O))
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+		var/obj/item/weapon/wrench/W = O
+		if (!W.tool_is_usable())
+			return
+		playsound(src.loc, W.usesound, 100, 1)
 		user << (anchored ? "<span class='notice'>You unfasten \the [src] from the floor.</span>" : "<span class='notice'>You secure \the [src] to the floor.</span>")
 		anchored = !anchored
 	else if(isscrewdriver(O))

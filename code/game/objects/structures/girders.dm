@@ -55,6 +55,8 @@
 
 /obj/structure/girder/attackby(obj/item/W as obj, mob/user as mob)
 	if(iswrench(W) && state == 0)
+		if (!W.tool_is_usable())
+			return
 		if(anchored && !reinf_material)
 			playsound(src.loc, W.usesound, 100, 1)
 			user << "<span class='notice'>Now disassembling the girder...</span>"
@@ -274,6 +276,8 @@
 
 /obj/structure/girder/cult/attackby(obj/item/W as obj, mob/user as mob)
 	if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		playsound(src.loc, W.usesound, 100, 1)
 		user << "<span class='notice'>Now disassembling the girder...</span>"
 		if(do_after(user,40*W.toolspeed))

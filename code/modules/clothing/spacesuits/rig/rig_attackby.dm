@@ -101,7 +101,8 @@
 			return
 
 		else if(iswrench(W))
-
+			if (!W.tool_is_usable())
+				return
 			if(!air_supply)
 				user << "There is not tank to remove."
 				return

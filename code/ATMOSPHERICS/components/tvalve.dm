@@ -344,6 +344,8 @@
 /obj/machinery/atmospherics/tvalve/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	if (!iswrench(W))
 		return ..()
+	if (!W.tool_is_usable())
+		return
 	if (istype(src, /obj/machinery/atmospherics/tvalve/digital))
 		user << "<span class='warning'>You cannot unwrench \the [src], it's too complicated.</span>"
 		return 1

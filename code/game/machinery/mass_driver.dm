@@ -55,6 +55,8 @@
 /obj/machinery/mass_driver/attackby(obj/item/W, mob/user)
 
 	if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		if(!anchored)
 			playsound(src.loc, W.usesound, 75, 1)
 			user.visible_message("[user.name] secures [src] to the floor.", \

@@ -45,6 +45,8 @@
 /obj/machinery/light_construct/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	add_fingerprint(user)
 	if (iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		if (src.stage == 1)
 			playsound(src.loc, W.usesound, 75, 1)
 			usr << "You begin deconstructing [src]."

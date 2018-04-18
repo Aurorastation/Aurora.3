@@ -939,8 +939,10 @@ About the new airlock wires panel:
 				usr << "<span class='warning'>The panel is broken and cannot be closed.</span>"
 			else
 				src.p_open = 0
+				playsound(src, W.usesound, 100, 1)
 		else
 			src.p_open = 1
+			playsound(src, W.usesound, 100, 1)
 		src.update_icon()
 	else if(iswirecutter(C))
 		return src.attack_hand(user)

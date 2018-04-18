@@ -192,6 +192,8 @@
 		else
 			user << "<span class='warning'>[src]'s security locks are engaged.</span>"
 	else if (iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		if(!suspension_field)
 			if(anchored)
 				anchored = 0

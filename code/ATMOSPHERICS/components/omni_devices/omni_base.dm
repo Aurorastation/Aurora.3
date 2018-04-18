@@ -85,7 +85,8 @@
 /obj/machinery/atmospherics/omni/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	if(!iswrench(W))
 		return ..()
-
+	if (!W.tool_is_usable())
+		return
 	var/int_pressure = 0
 	for(var/datum/omni_port/P in ports)
 		int_pressure += P.air.return_pressure()

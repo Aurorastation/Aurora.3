@@ -30,6 +30,8 @@
 		if(0)
 			// State 0
 			if(iswrench(W) && isturf(src.loc))
+				if (!W.tool_is_usable())
+					return
 				playsound(src.loc, W.usesound, 50, 1)
 				user << "You wrench the assembly into place."
 				anchored = 1
@@ -48,6 +50,8 @@
 				return
 
 			else if(iswrench(W))
+				if (!W.tool_is_usable())
+					return
 				playsound(src.loc, W.usesound, 50, 1)
 				user << "You unattach the assembly from its place."
 				anchored = 0

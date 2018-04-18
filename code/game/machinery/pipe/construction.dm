@@ -434,6 +434,8 @@ Buildable meters
 	//*
 	if (!iswrench(W) && !istype(W, /obj/item/weapon/pipewrench))
 		return ..()
+	if (!W.tool_is_usable())
+		return
 	if(istype(W, /obj/item/weapon/pipewrench))
 		var/action = alert(user, "Change pipe?", "Change pipe", "Yes", "No")
 		if(action == "Yes")
@@ -1209,6 +1211,8 @@ Buildable meters
 
 	if (!iswrench(W))
 		return ..()
+	if (!W.tool_is_usable())
+		return
 	if(!locate(/obj/machinery/atmospherics/pipe, src.loc))
 		user << "<span class='warning'>You need to fasten it to a pipe</span>"
 		return 1

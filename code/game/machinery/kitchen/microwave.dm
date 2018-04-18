@@ -70,6 +70,8 @@
 				)
 				src.broken = 1 // Fix it a bit
 		else if(src.broken == 1 && iswrench(O)) // If it's broken and they're doing the wrench
+			if (!O.tool_is_usable())
+				return
 			user.visible_message( \
 				"<span class='notice'>\The [user] starts to fix part of the microwave.</span>", \
 				"<span class='notice'>You start to fix part of the microwave.</span>" \

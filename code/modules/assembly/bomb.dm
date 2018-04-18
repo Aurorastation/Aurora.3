@@ -27,7 +27,8 @@
 		bombtank.attackby(W, user)
 		return
 	if(iswrench(W) && !status)	//This is basically bomb assembly code inverted. apparently it works.
-
+		if (!W.tool_is_usable())
+			return
 		user << "<span class='notice'>You disassemble [src].</span>"
 
 		bombassembly.loc = user.loc

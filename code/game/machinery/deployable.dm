@@ -182,6 +182,8 @@ for reference:
 					return
 			return
 		else if (iswrench(W))
+			if (!W.tool_is_usable())
+				return
 			if (src.health < src.maxhealth)
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				src.health = src.maxhealth

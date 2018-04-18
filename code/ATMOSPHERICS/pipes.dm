@@ -81,6 +81,8 @@
 		return 0
 
 	if (!iswrench(W) && !istype(W, /obj/item/weapon/pipewrench))
+		if (!W.tool_is_usable())
+			return
 		return ..()
 	var/turf/T = src.loc
 	if (level==1 && isturf(T) && !T.is_plating())

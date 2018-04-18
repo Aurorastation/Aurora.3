@@ -128,10 +128,12 @@ var/bomb_set
 
 			if(3)
 				if(iswrench(O))
+					if (!O.tool_is_usable())
+						return
 
 					user.visible_message("[user] begins unwrenching the anchoring bolts on [src].", "You begin unwrenching the anchoring bolts...")
 
-					if(do_after(user,50))
+					if(do_after(user,50*O.toolspeed))
 						if(!src || !user) return
 						user.visible_message("[user] unwrenches the anchoring bolts on [src].", "You unwrench the anchoring bolts.")
 						removal_stage = 4

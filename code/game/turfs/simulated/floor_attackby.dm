@@ -28,6 +28,8 @@
 			playsound(src, C.usesound, 80, 1)
 			return
 		else if(iswrench(C) && (flooring.flags & TURF_REMOVE_WRENCH))
+			if (!C.tool_is_usable())
+				return
 			user << "<span class='notice'>You unwrench and remove the [flooring.descriptor].</span>"
 			make_plating(1)
 			playsound(src, C.usesound, 80, 1)

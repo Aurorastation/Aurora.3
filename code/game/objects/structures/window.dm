@@ -244,6 +244,8 @@
 		playsound(loc, W.usesound, 75, 1)
 		user << (state ? "<span class='notice'>You have pried the window into the frame.</span>" : "<span class='notice'>You have pried the window out of the frame.</span>")
 	else if(iswrench(W) && !anchored && (!state || !reinf))
+		if (!W.tool_is_usable())
+			return
 		if(!glasstype)
 			user << "<span class='notice'>You're not sure how to dismantle \the [src] properly.</span>"
 		else

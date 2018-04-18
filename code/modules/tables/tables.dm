@@ -133,6 +133,8 @@
 			user << "<span class='warning'>You don't have enough carpet!</span>"
 
 	if(!reinforced && !carpeted && material && iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		remove_material(W, user)
 		if(!material)
 			update_connections(1)
@@ -144,6 +146,8 @@
 		return 1
 
 	if(!carpeted && !reinforced && !material && iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		dismantle(W, user)
 		return 1
 

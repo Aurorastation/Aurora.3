@@ -44,6 +44,8 @@
 		update_icon()
 		return
 	else if(iswrench(I))
+		if (!I.tool_is_usable())
+			return
 		anchored = !anchored
 		user.visible_message("<span class='notice'>[user] [anchored ? "wrenches" : "unwrenches"] \the [src].</span>", "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>")
 		if (!smoked && !anchored && (bee_count > 10))

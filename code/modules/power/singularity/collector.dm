@@ -72,6 +72,8 @@ var/global/list/rad_collectors = list()
 			eject()
 			return 1
 	else if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		if(P)
 			user << "<span class='notice'>Remove the phoron tank first.</span>"
 			return 1

@@ -47,11 +47,15 @@
 				playsound(src.loc, P.usesound, 50, 1)
 				construct_op --
 			if(iswrench(P))
+				if (!P.tool_is_usable())
+					return
 				user << "You dislodge the external plating."
 				playsound(src.loc, P.usesound, 75, 1)
 				construct_op ++
 		if(2)
 			if(iswrench(P))
+				if (!P.tool_is_usable())
+					return
 				user << "You secure the external plating."
 				playsound(src.loc, P.usesound, 75, 1)
 				construct_op --

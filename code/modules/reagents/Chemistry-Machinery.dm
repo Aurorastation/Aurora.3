@@ -71,6 +71,8 @@
 		user << "You add the pill bottle into the dispenser slot!"
 		src.updateUsrDialog()
 	else if(iswrench(B))
+		if (!B.tool_is_usable())
+			return
 		anchored = !anchored
 		user << "You [anchored ? "attach" : "detach"] the [src] [anchored ? "to" : "from"] the ground"
 		playsound(src.loc, B.usesound, 75, 1)

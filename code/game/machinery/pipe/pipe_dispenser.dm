@@ -106,6 +106,8 @@
 		qdel(W)
 		return
 	else if (iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		if (unwrenched==0)
 			playsound(src.loc, W.usesound, 50, 1)
 			user << "<span class='notice'>You begin to unfasten \the [src] from the floor...</span>"

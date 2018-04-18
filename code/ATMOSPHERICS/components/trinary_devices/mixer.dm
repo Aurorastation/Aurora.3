@@ -106,6 +106,8 @@
 /obj/machinery/atmospherics/trinary/mixer/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	if (!iswrench(W))
 		return ..()
+	if (!W.tool_is_usable())
+		return
 	var/datum/gas_mixture/int_air = return_air()
 	var/datum/gas_mixture/env_air = loc.return_air()
 	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)

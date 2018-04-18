@@ -286,6 +286,8 @@
 					return
 			if(3)
 				if (iscrowbar(W))
+					if (!W.tool_is_usable())
+						return
 					user << "<span class='notice'>You struggle to pry off the cover.</span>"
 					playsound(src, W.usesound, 100, 1)
 					if(!do_after(user,100*W.toolspeed) || !istype(src, /turf/simulated/wall) || construction_stage != 3)
@@ -296,6 +298,8 @@
 					return
 			if(2)
 				if (iswrench(W))
+					if (!W.tool_is_usable())
+						return
 					user << "<span class='notice'>You start loosening the anchoring bolts which secure the support rods to their frame.</span>"
 					playsound(src, W.usesound, 100, 1)
 					if(!do_after(user,40*W.toolspeed) || !istype(src, /turf/simulated/wall) || construction_stage != 2)

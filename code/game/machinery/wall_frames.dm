@@ -11,6 +11,8 @@
 
 /obj/item/frame/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		new refund_type( get_turf(src.loc), refund_amt)
 		qdel(src)
 		return

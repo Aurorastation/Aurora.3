@@ -223,6 +223,8 @@
 					user << "<span class='notice'>You need 10 sheets of plasteel.</span>"
 		if(GRAV_NEEDS_WRENCH)
 			if(iswrench(I))
+				if (!I.tool_is_usable())
+					return
 				user << "<span class='notice'>You secure the plating to the framework.</span>"
 				playsound(src.loc, I.usesound, 75, 1)
 				set_fix()

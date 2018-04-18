@@ -60,6 +60,8 @@
 
 /obj/machinery/telepad_cargo/attackby(obj/item/weapon/W, mob/user, params)
 	if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		anchored = 0
 		playsound(src, W.usesound, 50, 1)
 		if(anchored)

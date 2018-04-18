@@ -237,6 +237,8 @@
 /obj/machinery/atmospherics/binary/passive_gate/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	if (!iswrench(W))
 		return ..()
+	if (!W.tool_is_usable())
+		return
 	if (unlocked)
 		user << "<span class='warning'>You cannot unwrench \the [src], turn it off first.</span>"
 		return 1

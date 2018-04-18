@@ -29,6 +29,8 @@
 		return
 
 	if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		playsound(src.loc, W.usesound, 50, 1)
 		user << "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>"
 		anchored = !anchored
@@ -75,6 +77,8 @@
 		return
 
 	if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		playsound(src.loc, W.usesound, 50, 1)
 		user << "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>"
 		anchored = !anchored

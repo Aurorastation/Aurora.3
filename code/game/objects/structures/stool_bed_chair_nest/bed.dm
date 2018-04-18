@@ -91,6 +91,8 @@
 
 /obj/structure/bed/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		if(can_dismantle)
 			playsound(src.loc, W.usesound, 50, 1)
 			dismantle()

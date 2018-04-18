@@ -68,6 +68,8 @@
 	attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 		if (!iswrench(W))
 			return ..()
+		if (!W.tool_is_usable())
+			return
 		var/turf/T = src.loc
 		if (level==1 && isturf(T) && !T.is_plating())
 			user << "<span class='warning'>You must remove the plating first.</span>"

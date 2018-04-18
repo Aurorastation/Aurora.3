@@ -60,6 +60,8 @@
 			chargelevel = -1
 		update_icon()
 	else if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		if(charging)
 			user << "<span class='warning'>Remove the cell first!</span>"
 			return

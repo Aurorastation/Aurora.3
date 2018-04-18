@@ -228,6 +228,8 @@
 		var/obj/structure/disposalpipe/CP = locate() in T
 
 		if(iswrench(I))
+			if (!I.tool_is_usable())
+				return
 			if(anchored)
 				anchored = 0
 				if(ispipe)

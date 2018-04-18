@@ -18,6 +18,8 @@
 
 /obj/machinery/the_singularitygen/attackby(obj/item/W, mob/user)
 	if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		anchored = !anchored
 		playsound(src.loc, W.usesound, 75, 1)
 		if(anchored)

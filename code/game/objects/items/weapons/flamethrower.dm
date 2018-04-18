@@ -72,6 +72,8 @@
 /obj/item/weapon/flamethrower/attackby(obj/item/W as obj, mob/user as mob)
 	if(user.stat || user.restrained() || user.lying)	return
 	if(iswrench(W) && !status)//Taking this apart
+		if (!W.tool_is_usable())
+			return
 		var/turf/T = get_turf(src)
 		if(weldtool)
 			weldtool.loc = T

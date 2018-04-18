@@ -94,6 +94,8 @@ field_generator power level display
 		user << "The [src] needs to be off."
 		return
 	else if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		switch(state)
 			if(0)
 				state = 1

@@ -225,12 +225,16 @@
 
 	if(!anchored && isturf(loc))
 		if(iswrench(W))
+			if (!W.tool_is_usable())
+				return
 			anchored = 1
 			user.visible_message("<span class='notice'>[user] wrenches the solar assembly into place.</span>")
 			playsound(src.loc, W.usesound, 75, 1)
 			return 1
 	else
 		if(iswrench(W))
+			if (!W.tool_is_usable())
+				return
 			anchored = 0
 			user.visible_message("<span class='notice'>[user] unwrenches the solar assembly from it's place.</span>")
 			playsound(src.loc, W.usesound, 75, 1)

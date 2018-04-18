@@ -776,6 +776,8 @@
 		else
 			user << "<span class='warning'>Maintenance protocols disabled by operator.</span>"
 	else if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		if(state==1)
 			state = 2
 			user << "You undo the securing bolts."

@@ -268,7 +268,8 @@
 		return
 	else if(!active)
 		if(iswrench(O))
-
+			if (!O.tool_is_usable())
+				return
 			if(!anchored)
 				connect_to_network()
 				user << "<span class='notice'>You secure the generator to the floor.</span>"

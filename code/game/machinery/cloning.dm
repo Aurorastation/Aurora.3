@@ -239,6 +239,8 @@
 		qdel(W)
 		return
 	else if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		if(locked && (anchored || occupant))
 			user << "<span class='warning'>Can not do that while [src] is in use.</span>"
 		else

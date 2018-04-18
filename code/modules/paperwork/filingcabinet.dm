@@ -44,6 +44,8 @@
 		icon_state = initial(icon_state)
 		updateUsrDialog()
 	else if(iswrench(P))
+		if (!P.tool_is_usable())
+			return
 		playsound(loc, P.usesound, 50, 1)
 		anchored = !anchored
 		user << "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>"

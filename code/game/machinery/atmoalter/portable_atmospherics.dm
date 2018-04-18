@@ -110,6 +110,8 @@
 		return
 
 	else if (iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		if(connected_port)
 			disconnect()
 			user << "<span class='notice'>You disconnect \the [src] from the port.</span>"
