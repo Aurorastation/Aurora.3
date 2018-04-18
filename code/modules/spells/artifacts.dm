@@ -180,20 +180,20 @@
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "poppet"
 	w_class = 2
-	var/mob/living/carbon/human/target = null
+	var/datum/weakref/target = null
 	var/countenance = null //what species does it looks like?
 	var/cooldown_time = 120
 	var/cooldown = 0
 
 /obj/item/poppet/Destroy()
-	target << "<span class='notice'>The strange presence vanishes away...</span>"
-	target = null
+	if(target)
+		to_chat(target, "<span class='notice'>The strange presence vanishes away...</span>")
 	return ..()
 
 /obj/item/poppet/examine(mob/user)
 	..(user)
 	if(countenance)
-		user << "It modeled after a [countenance]."
+		to_chat(user, "<span class='notice'>It is modeled after a [countenance].</span>")
 
 /obj/item/poppet/afterattack(var/atom/A, var/mob/user, var/proximity)
 
@@ -205,122 +205,132 @@
 
 		for(var/mob/living/carbon/human/H in mob_list)
 			if(H.dna.unique_enzymes == marked)
-				target = H
+				target = WEAKREF(H)
 				countenance = H.dna.species
 				to_chat(H, "<span class='cult'>You feel a strange presence looming over you.</span>")
 
 
 /obj/item/poppet/attack_self(mob/user as mob)
-	if(target && cooldown < world.time)
+	var/mob/living/carbon/human/H = target.resolve()
+	if(H && cooldown < world.time)
 		var/target_zone = user.zone_sel.selecting
 
 		if(target_zone == "mouth")
 			var/voice =  sanitize(input(user, "What would you like the victim to say", "Poppet", null)  as text)
-			target.say(voice)
-			log_and_message_admins("forced [target] to say [voice] with a poppet", user)
+			H.say(voice)
+			log_and_message_admins("forced [H] to say [voice] with a poppet", user)
 
 		if(target_zone == "eyes")
 			to_chat(user, "<span class='notice'>You cover \the [src]'s eyes.</span>")
-			to_chat(target, "<span class='warning'>Your vision is covered by a shadow!</span>")
-			target.eye_blind = 3
-			target.eye_blurry = 5
+			to_chat(H, "<span class='warning'>Your vision is covered by a shadow!</span>")
+			H.eye_blind = 3
+			H.eye_blurry = 5
 
 		if(target_zone == "r_leg" || target_zone == "l_leg")
 			to_chat(user, "<span class='notice'>You move \the [src]'s legs around.</span>")
-			if(target.canmove && !target.restrained() && !(istype(target.loc, /turf/space)))
-				step(target, pick(cardinal))
+			if(H.canmove && !H.restrained() && !(istype(H.loc, /turf/space)))
+				step(H, pick(cardinal))
 
 		if(target_zone == "l_hand" || target_zone == "l_arm")
 			to_chat(user, "<span class='notice'>You twist \the [src]'s left arm.</span>")
-			target.drop_l_hand()
+			H.drop_l_hand()
 
 		if(target_zone == "r_hand" || target_zone == "r_arm")
 			to_chat(user, "<span class='notice'>You twist \the [src]'s right arm..</span>")
-			target.drop_r_hand()
+			H.drop_r_hand()
 
 		if(target_zone == "head")
 			to_chat(user, "<span class='notice'>You smack \the [src]'s head with your hand.</span>")
-			target.confused += 10
-			target.stuttering += 5
-			to_chat(target, "<span class='danger'>You suddenly feel as if your head was hit by something!</span>")
-			playsound(get_turf(target), "punch", 50, 1, -1)
+			H.confused += 10
+			H.stuttering += 5
+			to_chat(H, "<span class='danger'>You suddenly feel as if your head was hit by something!</span>")
+			playsound(get_turf(H), "punch", 50, 1, -1)
 
 		cooldown = world.time + cooldown_time
 
 /obj/item/poppet/attackby(obj/item/W as obj, mob/user as mob)
-	if(target && cooldown < world.time)
+	var/mob/living/carbon/human/H = target.resolve()
+	if(H && cooldown < world.time)
 		var/target_zone = user.zone_sel.selecting
 
 		if(isflamesource(W))
 			fire_act()
 
 		if(istype(W, /obj/item/weapon/melee/baton))
-			target.electrocute_act(W.force * 2, W, def_zone = target_zone)
-			playsound(get_turf(target), 'sound/weapons/Egloves.ogg', 50, 1, -1)
+			H.electrocute_act(W.force * 2, W, def_zone = target_zone)
+			playsound(get_turf(H), 'sound/weapons/Egloves.ogg', 50, 1, -1)
 
 		if(istype(W, /obj/item/device/flashlight))
-			to_chat(target, "<span class='warning'>You direct \the [W] towards \the [src]'s eyes!</span>")
-			playsound(get_turf(target), 'sound/items/flashlight.ogg', 50, 1, -1)
-			flick("flash", target.flash)
-			target.eye_blurry = 5
+			to_chat(H, "<span class='warning'>You direct \the [W] towards \the [src]'s eyes!</span>")
+			playsound(get_turf(H), 'sound/items/flashlight.ogg', 50, 1, -1)
+			flick("flash", H.flash)
+			H.eye_blurry = 5
 
 		if(iscoil(W))
-			to_chat(target, "<span class='warning'>You strangle \the [src] with \the [W]!</span>")
-			target.silent += 10
-			playsound(get_turf(target), 'sound/effects/noosed.ogg', 50, 1, -1)
-			if(!(target.species.flags & NO_BREATHE))
-				target.emote("me", 1, "gasps for air!")
-				target.losebreath += 5
+			to_chat(H, "<span class='warning'>You strangle \the [src] with \the [W]!</span>")
+			H.silent += 10
+			playsound(get_turf(H), 'sound/effects/noosed.ogg', 50, 1, -1)
+			if(!(H.species.flags & NO_BREATHE))
+				H.emote("me", 1, "gasps for air!")
+				H.losebreath += 5
 
 		if(istype(W, /obj/item/weapon/bikehorn))
-			playsound(get_turf(target), 'sound/items/bikehorn.ogg', 50, 1, -1)
+			playsound(get_turf(H), 'sound/items/bikehorn.ogg', 50, 1, -1)
 
 		if(W.edge)
-			to_chat(target, "<span class='warning'>You stab \the [src] with \the [W]!</span>")
-			target.apply_damage(2, BRUTE, target_zone, edge = TRUE)
-			playsound(get_turf(target), 'sound/weapons/bladeslice.ogg', 50, 1, -1)
-			if(!(target.species.flags & NO_PAIN))
-				var/obj/item/organ/external/organ = target.get_organ(target_zone)
-				to_chat(target, "<span class='danger'>You feel a stabbing pain in your [organ.name]!</span>")
+			to_chat(H, "<span class='warning'>You stab \the [src] with \the [W]!</span>")
+			H.apply_damage(2, BRUTE, target_zone, edge = TRUE)
+			playsound(get_turf(H), 'sound/weapons/bladeslice.ogg', 50, 1, -1)
+			if(!(H.species.flags & NO_PAIN))
+				var/obj/item/organ/external/organ = H.get_organ(target_zone)
+				to_chat(H, "<span class='danger'>You feel a stabbing pain in your [organ.name]!</span>")
 
 
 		cooldown = world.time + cooldown_time
 
 /obj/item/poppet/throw_impact(atom/hit_atom)
 	..()
-	if(target)
-		target.throw_at(get_edge_target_turf(target,pick(alldirs)), 5, 1)
+	var/mob/living/carbon/human/H = target.resolve()
+	if(H)
+		H.throw_at(get_edge_target_turf(H,pick(alldirs)), 5, 1)
 
 /obj/item/poppet/emp_act(severity)
-	if(target)
-		target.emp_act(severity)
-		playsound(get_turf(target), 'sound/effects/EMPulse.ogg', 50, 1, -1)
+	var/mob/living/carbon/human/H = target.resolve()
+	if(H)
+		H.emp_act(severity)
+		playsound(get_turf(H), 'sound/effects/EMPulse.ogg', 50, 1, -1)
 
 /obj/item/poppet/water_act(amount)
-	if(target)
-		target.water_act(amount)
+	var/mob/living/carbon/human/H = target.resolve()
+	if(H)
+		H.water_act(amount)
 
 /obj/item/poppet/ex_act(severity)
-	if(target)
-		target.ex_act(severity)
+	var/mob/living/carbon/human/H = target.resolve()
+	if(H)
+		H.ex_act(severity)
 
 /obj/item/poppet/tesla_act(var/power)
-	if(target)
-		target.electrocute_act(power, src)
+	var/mob/living/carbon/human/H = target.resolve()
+	if(H)
+		H.electrocute_act(power, src)
 
 /obj/item/poppet/bullet_act(var/obj/item/projectile/Proj)
-	if(target)
-		target.apply_damage(Proj.damage, HALLOSS)
+	var/mob/living/carbon/human/H = target.resolve()
+	if(H)
+		H.apply_damage(Proj.damage, HALLOSS)
 
 /obj/item/poppet/fire_act()
-	if(target)
-		target.adjust_fire_stacks(2)
-		target.IgniteMob()
-		to_chat(target, "<span class='danger'>You suddenly burst into flames!!</span>")
+	var/mob/living/carbon/human/H = target.resolve()
+	if(H)
+		H.adjust_fire_stacks(2)
+		H.IgniteMob()
+		to_chat(H, "<span class='danger'>You suddenly burst into flames!!</span>")
 
 /obj/item/poppet/crush_act()
-	if(target)
-		to_chat(target, "<span class='danger'>You feel an outworldly force crushing you!</span>")
-		target.adjustBruteLoss(35)
-		target.apply_effect(6, WEAKEN)
+	var/mob/living/carbon/human/H = target.resolve()
+	if(H)
+		to_chat(H, "<span class='danger'>You feel an outworldly force crushing you!</span>")
+		H.adjustBruteLoss(35)
+		H.apply_effect(6, WEAKEN)
 	qdel(src)
