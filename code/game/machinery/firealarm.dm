@@ -86,6 +86,8 @@
 	src.add_fingerprint(user)
 
 	if (isscrewdriver(W) && buildstage == 2)
+		if (!W.tool_is_usable())
+			return
 		if(!wiresexposed)
 			set_light(0)
 		wiresexposed = !wiresexposed

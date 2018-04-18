@@ -131,12 +131,15 @@
 	update_coverage()
 	// DECONSTRUCTION
 	if(isscrewdriver(W))
+		var/obj/item/weapon/screwdriver/I = W
+		if (!I.tool_is_usable())
+			return
 		//user << "<span class='notice'>You start to [panel_open ? "close" : "open"] the camera's panel.</span>"
 		//if(toggle_panel(user)) // No delay because no one likes screwdrivers trying to be hip and have a duration cooldown
 		panel_open = !panel_open
 		user.visible_message("<span class='warning'>[user] screws the camera's panel [panel_open ? "open" : "closed"]!</span>",
 		"<span class='notice'>You screw the camera's panel [panel_open ? "open" : "closed"].</span>")
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		playsound(src.loc, I.usesound, 50, 1)
 
 	else if((iswirecutter(W) || ismultitool(W)) && panel_open)
 		interact(user)

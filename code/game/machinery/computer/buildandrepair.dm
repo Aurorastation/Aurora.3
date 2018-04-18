@@ -49,6 +49,8 @@
 				else
 					user << "<span class='warning'>This frame does not accept circuit boards of this type!</span>"
 			if(isscrewdriver(P) && circuit)
+				if (!P.tool_is_usable())
+					return
 				playsound(src.loc, P.usesound, 50, 1)
 				user << "<span class='notice'>You screw the circuit board into place and screw the drawer shut.</span>"
 				src.state = 2
@@ -62,6 +64,8 @@
 				src.circuit = null
 		if(2)
 			if(isscrewdriver(P) && circuit)
+				if (!P.tool_is_usable())
+					return
 				playsound(src.loc, P.usesound, 50, 1)
 				user << "<span class='notice'>You unfasten the circuit board.</span>"
 				src.state = 1
@@ -107,6 +111,8 @@
 				src.icon_state = "3"
 				new /obj/item/stack/material/glass( src.loc, 2 )
 			if(isscrewdriver(P))
+				if (!P.tool_is_usable())
+					return
 				playsound(src.loc, P.usesound, 50, 1)
 				user << "<span class='notice'>You connect the glass keyboard.</span>"
 				var/B = new src.circuit.build_path ( src.loc )

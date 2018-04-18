@@ -123,11 +123,14 @@
 
 /obj/item/clothing/gloves/watch/attackby(obj/item/weapon/W, mob/user)
 	if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		if (clipped) //Using clipped because adding a new var for something is dumb
 			user.visible_message("<span class='notice'>[user] screws the cover of the [src] closed.</span>","<span class='notice'>You screw the cover of the [src] closed..</span>")
 			clipped = 0
+			playsound(src.loc, W.usesound, 100, 1)
 			return
-//		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+		playsound(src.loc, W.usesound, 100, 1)
 		user.visible_message("<span class='notice'>[user] unscrew the cover of the [src].</span>","<span class='notice'>You unscrew the cover of the [src].</span>")
 		clipped = 1
 		return

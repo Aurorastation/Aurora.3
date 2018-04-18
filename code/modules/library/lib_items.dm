@@ -42,7 +42,10 @@
 		user << (anchored ? "<span class='notice'>You unfasten \the [src] from the floor.</span>" : "<span class='notice'>You secure \the [src] to the floor.</span>")
 		anchored = !anchored
 	else if(isscrewdriver(O))
-		playsound(loc, 'sound/items/Screwdriver.ogg', 75, 1)
+		var/obj/item/weapon/screwdriver/W = O
+		if (!W.tool_is_usable())
+			return
+		playsound(loc, W.usesound, 75, 1)
 		user << "<span class='notice'>You begin dismantling \the [src].</span>"
 		if(do_after(user,25))
 			user << "<span class='notice'>You dismantle \the [src].</span>"

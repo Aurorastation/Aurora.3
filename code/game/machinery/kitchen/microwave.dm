@@ -57,11 +57,13 @@
 /obj/machinery/microwave/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(src.broken > 0)
 		if(src.broken == 2 && isscrewdriver(O)) // If it's broken and they're using a screwdriver
+			if (!O.tool_is_usable())
+				return
 			user.visible_message( \
 				"<span class='notice'>\The [user] starts to fix part of the microwave.</span>", \
 				"<span class='notice'>You start to fix part of the microwave.</span>" \
 			)
-			if (do_after(user,20))
+			if (do_after(user,20*O.toolspeed))
 				user.visible_message( \
 					"<span class='notice'>\The [user] fixes part of the microwave.</span>", \
 					"<span class='notice'>You have fixed part of the microwave.</span>" \

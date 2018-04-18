@@ -185,6 +185,8 @@ obj/structure/windoor_assembly/Destroy()
 
 			//Screwdriver to remove airlock electronics. Step 6 undone.
 			else if(isscrewdriver(W) && src.electronics)
+				if (!W.tool_is_usable())
+					return
 				playsound(src.loc, W.usesound, 100, 1)
 				user.visible_message("[user] removes the electronics from the airlock assembly.", "You start to uninstall electronics from the airlock assembly.")
 

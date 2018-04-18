@@ -40,7 +40,9 @@
 				return
 
 			if (isscrewdriver(W))
-				if (do_after(user, 20))
+				if (!W.tool_is_usable())
+					return
+				if (do_after(user, 20*W.toolspeed))
 					src.open =! src.open
 					user.show_message(text("<span class='notice'>You [] the service panel.</span>", (src.open ? "open" : "close")))
 				return

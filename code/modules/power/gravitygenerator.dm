@@ -199,6 +199,8 @@
 	switch(broken_state)
 		if(GRAV_NEEDS_SCREWDRIVER)
 			if(isscrewdriver(I))
+				if (!I.tool_is_usable())
+					return
 				user << "<span class='notice'>You secure the screws of the framework.</span>"
 				playsound(src.loc, I.usesound, 50, 1)
 				broken_state++

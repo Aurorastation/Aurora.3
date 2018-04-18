@@ -28,6 +28,8 @@
 
 /obj/structure/banner/attackby(obj/item/W, mob/user)
 	if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		switch(anchored)
 			if(0)
 				anchored = 1

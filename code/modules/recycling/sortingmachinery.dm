@@ -430,6 +430,8 @@
 		return
 
 	if(isscrewdriver(I))
+		if (!I.tool_is_usable())
+			return
 		if(c_mode==0)
 			c_mode=1
 			playsound(src.loc, I.usesound, 50, 1)

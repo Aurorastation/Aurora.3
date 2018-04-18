@@ -19,6 +19,8 @@
 			playsound(src, C.usesound, 80, 1)
 			return
 		else if(isscrewdriver(C) && (flooring.flags & TURF_REMOVE_SCREWDRIVER))
+			if (!C.tool_is_usable())
+				return
 			if(broken || burnt)
 				return
 			user << "<span class='notice'>You unscrew and remove the [flooring.descriptor].</span>"

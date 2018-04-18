@@ -240,6 +240,8 @@
 		return
 
 	if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		if(keyslot1 || keyslot2)
 
 

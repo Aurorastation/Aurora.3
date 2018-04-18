@@ -56,6 +56,8 @@
 
 /obj/machinery/bot/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		if(!locked)
 			open = !open
 			user << "<span class='notice'>Maintenance panel is now [src.open ? "opened" : "closed"].</span>"
@@ -118,7 +120,7 @@
 	pulse2.set_dir(pick(cardinal))
 
 	QDEL_IN(pulse2, 10)
-	
+
 	if (on)
 		turn_off()
 	addtimer(CALLBACK(src, .proc/post_emp, was_on), severity * 300)

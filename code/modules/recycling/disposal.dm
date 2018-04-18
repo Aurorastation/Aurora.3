@@ -55,6 +55,8 @@
 	src.add_fingerprint(user)
 	if(mode<=0) // It's off
 		if(isscrewdriver(I))
+			if (!I.tool_is_usable())
+				return
 			if(contents.len > 0)
 				user << "Eject the items first!"
 				return
@@ -1480,6 +1482,8 @@
 		return
 	src.add_fingerprint(user)
 	if(isscrewdriver(I))
+		if (!I.tool_is_usable())
+			return
 		if(mode==0)
 			mode=1
 			playsound(src.loc, I.usesound, 50, 1)

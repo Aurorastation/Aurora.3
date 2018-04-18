@@ -129,6 +129,8 @@
 
 /obj/machinery/ntnet_relay/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		playsound(src.loc, W.usesound, 50, 1)
 		panel_open = !panel_open
 		user << "You [panel_open ? "open" : "close"] the maintenance hatch"

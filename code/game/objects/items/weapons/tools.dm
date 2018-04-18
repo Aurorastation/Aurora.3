@@ -5,13 +5,14 @@
  *
  * Contains:
  * 		Wrench
- * 		Hand Drill
  * 		Screwdriver
  * 		Wirecutters
  * 		Jaws of Life
  * 		Welding Tool
  * 		Crowbar
-*		Pipe Wrench
+ *		Pipe Wrench
+ * 		Hand Drill
+ *		Jaws of Life
  */
 
 /*
@@ -32,25 +33,6 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 
-/obj/item/weapon/wrench/power
-	name = "hand drill"
-	desc = "A simple powered drill with a bolt bit."
-	icon_state = "drill_bolt"
-	item_state = "drill"
-	usesound = 'sound/items/drill_use.ogg'
-	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 4) //done for balance reasons, making them high value for research, but harder to get
-	force = 8 //might or might not be too high, subject to change
-	throwforce = 8
-	attack_verb = list("drilled", "screwed", "jabbed")
-	toolspeed = 0.25
-
-
-/obj/item/weapon/wrench/power/attack_self(mob/user)
-	playsound(get_turf(user),'sound/items/change_drill.ogg', 50, 1)
-	var/obj/item/weapon/wrench/power/s_drill = new /obj/item/weapon/screwdriver/power
-	to_chat(user, "<span class='notice'>You attach the screwdriver bit to [src].</span>")
-	qdel(src)
-	user.put_in_active_hand(s_drill)
 /*
  * Screwdriver
  */
@@ -108,29 +90,6 @@
 	if((CLUMSY in user.mutations) && prob(50))
 		M = user
 	return eyestab(M,user)
-/obj/item/weapon/screwdriver/power
-	name = "hand drill"
-	desc = "A simple hand drill with a screwdriver bit attached."
-	icon_state = "drill_screw"
-	item_state = "drill"
-	//materials = list(MAT_METAL=150,MAT_SILVER=50,MAT_TITANIUM=25)
-	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 4)
-	force = 8 //might or might not be too high, subject to change
-	throwforce = 8
-	throw_speed = 2
-	throw_range = 3//it's heavier than a screw driver/wrench, so it does more damage, but can't be thrown as far
-	attack_verb = list("drilled", "screwed", "jabbed","whacked")
-	hitsound = 'sound/items/drill_hit.ogg'
-	usesound = 'sound/items/drill_use.ogg'
-	toolspeed = 0.25
-
-/obj/item/weapon/screwdriver/power/attack_self(mob/user)
-	playsound(get_turf(user), 'sound/items/change_drill.ogg', 50, 1)
-	var/obj/item/weapon/wrench/power/b_drill = new /obj/item/weapon/wrench/power
-	to_chat(user, "<span class='notice'>You attach the bolt driver bit to [src].</span>")
-	qdel(src)
-	user.put_in_active_hand(b_drill)
-
 /*
  * Wirecutters
  */
@@ -172,23 +131,6 @@
 		return
 	else
 		..()
-
-/obj/item/weapon/wirecutters/power
-	name = "jaws of life"
-	desc = "A set of jaws of life, the magic of science has managed to fit it down into a device small enough to fit in a tool belt. It's fitted with a cutting head."
-	icon_state = "jaws_cutter"
-	item_state = "jawsoflife"
-	matter = list(DEFAULT_WALL_MATERIAL=150,MAT_SILVER=50)
-	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 4)
-	usesound = 'sound/items/jaws_cut.ogg'
-	toolspeed = 0.25
-
-/obj/item/weapon/wirecutters/power/attack_self(mob/user)
-	playsound(get_turf(user), 'sound/items/change_jaws.ogg', 50, 1)
-	var/obj/item/weapon/crowbar/power/pryjaws = new /obj/item/weapon/crowbar/power
-	to_chat(user, "<span class='notice'>You attach the pry jaws to [src].</span>")
-	qdel(src)
-	user.put_in_active_hand(pryjaws)
 /*
  * Welding Tool
  */
@@ -197,6 +139,7 @@
 	desc = "A welding tool with a built-in fuel tank, designed for welding and cutting metal."
 	icon = 'icons/obj/tools/welding.dmi'
 	icon_state = "welder_off"
+	usesound = "sound/items/Welder.ogg"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	var/base_iconstate = "welder"//These are given an _on/_off suffix before being used
@@ -229,6 +172,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 60)
 	base_iconstate = "ind_welder"
 	origin_tech = list(TECH_ENGINEERING = 2)
+	toolspeed = 0.75
 
 
 /obj/item/weapon/weldingtool/hugetank
@@ -239,6 +183,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 200, "glass" = 120)
 	base_iconstate = "adv_welder"
 	origin_tech = list(TECH_ENGINEERING = 3)
+	toolspeed = 0.5
 
 //The Experimental Welding Tool!
 /obj/item/weapon/weldingtool/experimental
@@ -250,6 +195,7 @@
 	base_iconstate = "exp_welder"
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_BIO = 4)
 	base_itemstate = "exp_welder"
+	toolspeed = 0.25
 
 	var/last_gen = 0
 	var/fuelgen_delay = 800//The time, in deciseconds, required to regenerate one unit of fuel
@@ -286,6 +232,8 @@
 
 /obj/item/weapon/weldingtool/attackby(obj/item/W as obj, mob/user as mob)
 	if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		if (isrobot(loc))
 			user << span("alert", "You cannot modify your own welder!")
 			return
@@ -394,7 +342,7 @@
 		tank.armed = 1
 		user.visible_message("[user] begins heating the [O].", "You start to heat the [O].")
 		message_admins("[key_name_admin(user)] is attempting a welder bomb at ([loc.x],[loc.y],[loc.z]) - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[O.x];Y=[O.y];Z=[O.z]'>JMP</a>")
-		if(do_after(user,100))
+		if(do_after(user,100*toolspeed))
 			if(tank.defuse)
 				user.visible_message("[user] melts some of the framework on the [O].", "You melt some of the framework.")
 				tank.defuse = 0
@@ -608,6 +556,194 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 
+/*
+ * Drill bolt
+ */
+
+/obj/item/weapon/wrench/power
+	name = "hand drill"
+	desc = "A simple powered drill with a bolt bit."
+	icon_state = "drill_bolt"
+	item_state = "drill"
+	usesound = 'sound/items/drill_use.ogg'
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 4, TECH_POWER = 3)
+	force = 8
+	throwforce = 8
+	attack_verb = list("drilled", "screwed", "jabbed")
+	toolspeed = 0.25
+	var/obj/item/weapon/cell/bcell
+
+/obj/item/weapon/wrench/power/Initialize()
+	bcell = new/obj/item/weapon/cell/high(src)
+	. = ..()
+/obj/item/weapon/wrench/power/attackby(obj/item/weapon/W, mob/user)
+	if(istype(W, /obj/item/weapon/cell))
+		if(!bcell)
+			user.drop_item()
+			W.forceMove(src)
+			bcell = W
+			user << "<span class='notice'>You install a cell in [src].</span>"
+			update_icon()
+		else
+			user << "<span class='notice'>[src] already has a cell.</span>"
+
+	else if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
+		if(bcell)
+			playsound(loc, W.usesound, 75, 1)
+			bcell.update_icon()
+			bcell.forceMove(get_turf(src))
+			bcell = null
+			user << "<span class='notice'>You remove the cell from the [src].</span>"
+			update_icon()
+			return
+		..()
+	return
+/obj/item/weapon/wrench/power/proc/deductcharge(var/chrgdeductamt)
+	if(bcell)
+		if(bcell.checked_use(chrgdeductamt))
+			return 1
+		else
+			update_icon()
+			return 0
+	return null
+
+/obj/item/weapon/wrench/power/afterattack(atom/target, mob/living/user, proximity)
+
+	if (!deductcharge(1250))
+		to_chat(user, "<span class='danger'>The [src].is out of charge.</span>")
+
+
+/obj/item/weapon/wrench/power/attack_self(mob/user)
+	playsound(get_turf(user),'sound/items/change_drill.ogg', 50, 1)
+	var/obj/item/weapon/wrench/power/s_drill = new /obj/item/weapon/screwdriver/power
+	to_chat(user, "<span class='notice'>You attach the screwdriver bit to [src].</span>")
+	s_drill.bcell = bcell
+	bcell = null
+	qdel(src)
+	user.put_in_active_hand(s_drill)
+/obj/item/weapon/wrench/power/examine(mob/user)
+	..(user)
+
+	if (!bcell)
+		user << "<span class='notice'>It requires a battery</span>"
+	return
+
+
+/*
+ * Drill Screw
+ */
+
+/obj/item/weapon/screwdriver/power
+	name = "hand drill"
+	desc = "A simple hand drill with a screwdriver bit attached."
+	icon_state = "drill_screw"
+	item_state = "drill"
+	matter = list(DEFAULT_WALL_MATERIAL = 2000, "silver" = 500)
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 4, TECH_POWER = 3)
+	force = 8 //might or might not be too high, subject to change
+	throwforce = 8
+	throw_speed = 2
+	throw_range = 3//it's heavier than a screw driver/wrench, so it does more damage, but can't be thrown as far
+	attack_verb = list("drilled", "screwed", "jabbed","whacked")
+	hitsound = 'sound/items/drill_hit.ogg'
+	usesound = 'sound/items/drill_use.ogg'
+	toolspeed = 0.25
+	var/obj/item/weapon/cell/bcell
+
+/obj/item/weapon/screwdriver/power/Initialize()
+	bcell = new/obj/item/weapon/cell/high(src)
+	. = ..()
+
+/obj/item/weapon/screwdriver/power/attack_self(mob/user)
+	playsound(get_turf(user), 'sound/items/change_drill.ogg', 50, 1)
+	var/obj/item/weapon/wrench/power/b_drill = new /obj/item/weapon/wrench/power
+	to_chat(user, "<span class='notice'>You attach the bolt driver bit to [src].</span>")
+	b_drill.bcell = bcell
+	bcell = null
+	qdel(src)
+	user.put_in_active_hand(b_drill)
+
+/obj/item/weapon/screwdriver/power/attackby(obj/item/weapon/W, mob/user)
+	if(istype(W, /obj/item/weapon/cell))
+		if(!bcell)
+			user.drop_item()
+			W.forceMove(src)
+			bcell = W
+			user << "<span class='notice'>You install a cell in [src].</span>"
+			update_icon()
+		else
+			user << "<span class='notice'>[src] already has a cell.</span>"
+
+	else if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
+		if(bcell)
+			playsound(loc, W.usesound, 75, 1)
+			bcell.update_icon()
+			bcell.forceMove(get_turf(src))
+			bcell = null
+			user << "<span class='notice'>You remove the cell from the [src].</span>"
+			update_icon()
+			return
+		..()
+	return
+/*
+ * Jaws cutter
+ */
+
+/obj/item/weapon/wirecutters/power
+	name = "jaws of life"
+	desc = "A set of jaws of life, the magic of science has managed to fit it down into a device small enough to fit in a tool belt. It's fitted with a cutting head."
+	icon_state = "jaws_cutter"
+	item_state = "jawsoflife"
+	matter = list(DEFAULT_WALL_MATERIAL=150,MAT_SILVER=50)
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 4, TECH_POWER = 3)
+	usesound = 'sound/items/jaws_cut.ogg'
+	toolspeed = 0.25
+	var/obj/item/weapon/cell/bcell
+
+/obj/item/weapon/wirecutters/power/Initialize()
+	bcell = new/obj/item/weapon/cell/high(src)
+	. = ..()
+
+/obj/item/weapon/wirecutters/power/attack_self(mob/user)
+	playsound(get_turf(user), 'sound/items/change_jaws.ogg', 50, 1)
+	var/obj/item/weapon/crowbar/power/pryjaws = new /obj/item/weapon/crowbar/power
+	to_chat(user, "<span class='notice'>You attach the pry jaws to [src].</span>")
+	pryjaws.bcell = bcell
+	bcell = null
+	qdel(src)
+	user.put_in_active_hand(pryjaws)
+
+/obj/item/weapon/wirecutters/power/attackby(obj/item/weapon/W, mob/user)
+	if(istype(W, /obj/item/weapon/cell))
+		if(!bcell)
+			user.drop_item()
+			W.forceMove(src)
+			bcell = W
+			user << "<span class='notice'>You install a cell in [src].</span>"
+			update_icon()
+		else
+			user << "<span class='notice'>[src] already has a cell.</span>"
+
+	else if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
+		if(bcell)
+			playsound(loc, W.usesound, 75, 1)
+			bcell.update_icon()
+			bcell.forceMove(get_turf(src))
+			bcell = null
+			user << "<span class='notice'>You remove the cell from the [src].</span>"
+			update_icon()
+			return
+		..()
+	return
+/*
+ * Jaws Pry
+ */
 /obj/item/weapon/crowbar/power
 	name = "jaws of life"
 	desc = "A set of jaws of life, the magic of science has managed to fit it down into a device small enough to fit in a tool belt. It's fitted with a prying head."
@@ -619,10 +755,41 @@
 	force = 15
 	toolspeed = 0.25
 	var/airlock_open_time = 100 // Time required to open powered airlocks
+	var/obj/item/weapon/cell/bcell
 
+/obj/item/weapon/crowbar/power/Initialize()
+	bcell = new/obj/item/weapon/cell/high(src)
+	. = ..()
 /obj/item/weapon/crowbar/power/attack_self(mob/user)
 	playsound(get_turf(user), 'sound/items/change_jaws.ogg', 50, 1)
 	var/obj/item/weapon/wirecutters/power/cutjaws = new /obj/item/weapon/wirecutters/power
 	to_chat(user, "<span class='notice'>You attach the cutting jaws to [src].</span>")
+	cutjaws.bcell = bcell
+	bcell = null
 	qdel(src)
 	user.put_in_active_hand(cutjaws)
+
+/obj/item/weapon/crowbar/power/attackby(obj/item/weapon/W, mob/user)
+	if(istype(W, /obj/item/weapon/cell))
+		if(!bcell)
+			user.drop_item()
+			W.forceMove(src)
+			bcell = W
+			user << "<span class='notice'>You install a cell in [src].</span>"
+			update_icon()
+		else
+			user << "<span class='notice'>[src] already has a cell.</span>"
+
+	else if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
+		if(bcell)
+			playsound(loc, W.usesound, 75, 1)
+			bcell.update_icon()
+			bcell.forceMove(get_turf(src))
+			bcell = null
+			user << "<span class='notice'>You remove the cell from the [src].</span>"
+			update_icon()
+			return
+		..()
+	return

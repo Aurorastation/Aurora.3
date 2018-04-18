@@ -769,6 +769,8 @@
 
 		if(5)
 			if(isscrewdriver(I))
+				if (!I.tool_is_usable())
+					return
 				playsound(loc, I.usesound, 100, 1)
 				build_step = 6
 				user << "<span class='notice'>You close the access hatch.</span>"
@@ -794,6 +796,8 @@
 				return
 
 			else if(isscrewdriver(I))
+				if (!I.tool_is_usable())
+					return
 				playsound(loc, I.usesound, 100, 1)
 				build_step = 5
 				user << "<span class='notice'>You open the access hatch.</span>"

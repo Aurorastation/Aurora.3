@@ -491,6 +491,8 @@
 		chargecount = 0
 		update_icon()
 	else if	(isscrewdriver(W))	// haxing
+		if (!W.tool_is_usable())
+			return
 		if(opened)
 			if (cell)
 				user << "<span class='warning'>Close the APC first.</span>" //Less hints more mystery!

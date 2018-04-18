@@ -222,6 +222,8 @@
 	if(W.flags & NOBLUDGEON) return
 
 	if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		if(reinf && state >= 1)
 			state = 3 - state
 			update_nearby_icons()

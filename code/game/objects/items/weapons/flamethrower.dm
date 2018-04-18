@@ -29,7 +29,7 @@
 		qdel(igniter)
 	if(ptank)
 		qdel(ptank)
-	
+
 	return ..()
 
 
@@ -87,6 +87,8 @@
 		return
 
 	if(isscrewdriver(W) && igniter && !lit)
+		if (!W.tool_is_usable())
+			return
 		status = !status
 		user << "<span class='notice'>[igniter] is now [status ? "secured" : "unsecured"]!</span>"
 		update_icon()

@@ -102,6 +102,8 @@
 		return
 
 	if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		if (stage == 2)
 			switch(fixture_type)
 				if("tube")

@@ -29,6 +29,8 @@
 		W.forceMove(src)
 		update_power_usage()
 	if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		user << "You manually remove \the [stored_card] from \the [src]."
 		stored_card.forceMove(get_turf(src))
 		stored_card = null

@@ -104,6 +104,8 @@
 			user << "The hive is smoked."
 		return 1
 	else if(isscrewdriver(I))
+		if (!I.tool_is_usable())
+			return
 		if(bee_count)
 			visible_message("<span class='danger'>The bees are furious you're trying to destroy their home!</span>")
 			release_bees(1, 30)

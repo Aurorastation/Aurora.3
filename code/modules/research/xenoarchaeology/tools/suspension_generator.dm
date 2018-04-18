@@ -167,6 +167,8 @@
 
 /obj/machinery/suspension_gen/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		if(!open)
 			if(screwed)
 				screwed = 0

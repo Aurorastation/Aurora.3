@@ -108,6 +108,8 @@
 		if(W)
 			W.forceMove(loc)
 	else if(isscrewdriver(W) && canbemoved)
+		if (!W.tool_is_usable())
+			return
 		if(screwed)
 			user << "<span class='notice'>You start to unscrew the locker from the floor...</span>"
 			playsound(loc, W.usesound, 50, 1)

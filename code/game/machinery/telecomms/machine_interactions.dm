@@ -34,11 +34,15 @@
 	switch(construct_op)
 		if(0)
 			if(isscrewdriver(P))
+				if (!P.tool_is_usable())
+					return
 				user << "You unfasten the bolts."
 				playsound(src.loc, P.usesound, 50, 1)
 				construct_op ++
 		if(1)
 			if(isscrewdriver(P))
+				if (!P.tool_is_usable())
+					return
 				user << "You fasten the bolts."
 				playsound(src.loc, P.usesound, 50, 1)
 				construct_op --

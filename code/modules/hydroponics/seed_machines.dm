@@ -95,6 +95,8 @@
 		return
 
 	if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		open = !open
 		user << "<span class='notice'>You [open ? "open" : "close"] the maintenance panel.</span>"
 		return

@@ -169,6 +169,8 @@
 
 		if(8)
 			if(isscrewdriver(W))
+				if (!W.tool_is_usable())
+					return
 				playsound(src.loc, W.usesound, 100, 1)
 				var/turf/T = get_turf(user)
 				user << "<span class='notice'>Now attaching the gun to the frame...</span>"

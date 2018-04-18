@@ -99,6 +99,8 @@
 					icon_state = "box_1"
 				else
 					if(isscrewdriver(P))
+						if (!P.tool_is_usable())
+							return
 						var/component_check = 1
 						for(var/R in req_components)
 							if(req_components[R] > 0)

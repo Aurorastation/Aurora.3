@@ -271,6 +271,8 @@
 
 /obj/machinery/shieldgen/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		playsound(src.loc, W.usesound, 100, 1)
 		if(is_open)
 			user << "<span class='notice'>You close the panel.</span>"

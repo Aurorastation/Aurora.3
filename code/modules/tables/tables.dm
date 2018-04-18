@@ -104,6 +104,8 @@
 /obj/structure/table/attackby(obj/item/weapon/W, mob/user)
 
 	if(reinforced && isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		remove_reinforced(W, user)
 		if(!reinforced)
 			update_desc()

@@ -721,11 +721,15 @@
 			user << "You can't reach the wiring."
 
 	else if(isscrewdriver(W) && opened && !cell)	// haxing
+		if (!W.tool_is_usable())
+			return
 		wiresexposed = !wiresexposed
 		user << "The wires have been [wiresexposed ? "exposed" : "unexposed"]."
 		updateicon()
 
 	else if(isscrewdriver(W) && opened && cell)	// radio
+		if (!W.tool_is_usable())
+			return
 		if(radio)
 			radio.attackby(W,user)//Push it to the radio to let it handle everything
 		else

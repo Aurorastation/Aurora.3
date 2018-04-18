@@ -280,6 +280,8 @@
 			anchored = !anchored
 
 		else if(isscrewdriver(O))
+			if (!O.tool_is_usable())
+				return
 			open = !open
 			playsound(src.loc, O.usesound, 50, 1)
 			if(open)

@@ -63,6 +63,8 @@
 		return
 
 	if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		if(metal)
 			var/m = round(input(usr,"Please specify the amount of metal to remove","Remove metal",min(round(metal),50)) as num, 1)
 			m = min(m, 50)

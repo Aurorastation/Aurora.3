@@ -74,6 +74,8 @@
 			name = "unsecured grenade with [beakers.len] containers[detonator?" and detonator":""]"
 			stage = 1
 		else if(isscrewdriver(W) && path != 2)
+			if (!W.tool_is_usable())
+				return
 			if(stage == 1)
 				path = 1
 				if(beakers.len)

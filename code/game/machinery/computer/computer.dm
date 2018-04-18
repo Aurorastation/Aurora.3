@@ -94,8 +94,11 @@
 
 /obj/machinery/computer/attackby(I as obj, user as mob)
 	if(isscrewdriver(I) && circuit)
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-		if(do_after(user, 20))
+		var/obj/item/weapon/W = I
+		if (!W.tool_is_usable())
+			return
+		playsound(src.loc, W.usesound, 50, 1)
+		if(do_after(user, 20*W.toolspeed))
 			var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
 			var/obj/item/weapon/circuitboard/M = new circuit( A )
 			A.circuit = M

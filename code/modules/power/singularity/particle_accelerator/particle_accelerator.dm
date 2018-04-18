@@ -225,11 +225,17 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 					"You remove some wires.")
 				temp_state--
 			else if(isscrewdriver(O))
+				var/obj/item/weapon/screwdriver/W = O
+				if (!W.tool_is_usable())
+					return
 				user.visible_message("[user.name] closes the [src.name]'s access panel.", \
 					"You close the access panel.")
 				temp_state++
 		if(3)
 			if(isscrewdriver(O))
+				var/obj/item/weapon/screwdriver/W = O
+				if (!W.tool_is_usable())
+					return
 				user.visible_message("[user.name] opens the [src.name]'s access panel.", \
 					"You open the access panel.")
 				temp_state--
@@ -364,11 +370,17 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 					"You remove some wires.")
 				temp_state--
 			else if(isscrewdriver(O))
+				var/obj/item/weapon/screwdriver/W = O
+				if (!W.tool_is_usable())
+					return
 				user.visible_message("[user.name] closes the [src.name]'s access panel.", \
 					"You close the access panel.")
 				temp_state++
 		if(3)
 			if(isscrewdriver(O))
+				var/obj/item/weapon/W = O
+				if (!W.tool_is_usable())
+					return
 				user.visible_message("[user.name] opens the [src.name]'s access panel.", \
 					"You open the access panel.")
 				temp_state--

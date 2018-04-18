@@ -182,6 +182,8 @@
 			qdel(G)
 			return
 	else if(isscrewdriver(I))
+		if (!I.tool_is_usable())
+			return
 		user << "You [panel_open ? "open" : "close"] the maintenance panel."
 		panel_open = !panel_open
 

@@ -170,6 +170,8 @@
 
 		if (2)
 			if (isscrewdriver(I))
+				if (!I.tool_is_usable())
+					return
 				user << span("notice", "You unscrew and remove the wiring cover from \the [src].")
 				playsound(loc, I.usesound, 50, 1)
 				setconstructionstate(3)
@@ -197,6 +199,8 @@
 				return
 
 			if (isscrewdriver(I))
+				if (!I.tool_is_usable())
+					return
 				user << span("notice", "You replace and screw tight the wiring cover from \the [src].")
 				playsound(loc, I.usesound, 50, 1)
 				setconstructionstate(2)

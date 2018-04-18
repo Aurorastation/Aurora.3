@@ -83,6 +83,8 @@
 
 /obj/structure/lattice/catwalk/indoor/attackby(obj/item/C, mob/user)
 	if (isscrewdriver(C))
+		if (!C.tool_is_usable())
+			return
 		anchored = !anchored
 		user << "<span class='notice'>You [anchored ? "" : "un"]anchor [src].</span>"
 		playsound(src, C.usesound, 50, 1)

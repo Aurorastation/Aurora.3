@@ -46,6 +46,8 @@
 	if(!istype(user))
 		return
 	if(isscrewdriver(O) && emag)
+		if (!O.tool_is_usable())
+			return
 		//Stops people from just unscrewing the monitor and putting it back to get the console working again.
 		user << "<span class='warning'>It is too hot to mess with!</span>"
 		return

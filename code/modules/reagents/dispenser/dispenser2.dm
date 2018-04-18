@@ -81,6 +81,8 @@
 		add_cartridge(W, user)
 
 	else if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		var/label = input(user, "Which cartridge would you like to remove?", "Chemical Dispenser") as null|anything in cartridges
 		if(!label) return
 		var/obj/item/weapon/reagent_containers/chem_disp_cartridge/C = remove_cartridge(label)

@@ -46,6 +46,8 @@
 				user.drop_item()
 				P.loc = src
 			if(isscrewdriver(P) && circuit)
+				if (!P.tool_is_usable())
+					return
 				playsound(loc, P.usesound, 50, 1)
 				user << "<span class='notice'>You screw the circuit board into place.</span>"
 				state = 2
@@ -59,6 +61,8 @@
 				circuit = null
 		if(2)
 			if(isscrewdriver(P) && circuit)
+				if (!P.tool_is_usable())
+					return
 				playsound(loc, P.usesound, 50, 1)
 				user << "<span class='notice'>You unfasten the circuit board.</span>"
 				state = 1
@@ -165,6 +169,8 @@
 				return
 
 			if(isscrewdriver(P))
+				if (!P.tool_is_usable())
+					return
 				playsound(loc, P.usesound, 50, 1)
 				user << "<span class='notice'>You connect the monitor.</span>"
 				if(!brain)

@@ -69,6 +69,8 @@
 			anchored = 1
 			user << "<span class='caution'>\The [src] is now secured.</span>"
 	if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		if(stage == 0)
 			playsound(src, W.usesound, 50, 1)
 			user << "<span class='caution'>You unscrew the telepad's tracking beacon.</span>"

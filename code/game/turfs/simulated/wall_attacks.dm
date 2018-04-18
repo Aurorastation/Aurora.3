@@ -244,6 +244,8 @@
 					return
 			if(5)
 				if (isscrewdriver(W))
+					if (!W.tool_is_usable())
+						return
 					user << "<span class='notice'>You begin removing the support lines.</span>"
 					playsound(src, W.usesound, 100, 1)
 					if(!do_after(user,40*W.toolspeed) || !istype(src, /turf/simulated/wall) || construction_stage != 5)

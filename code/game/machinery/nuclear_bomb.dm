@@ -46,6 +46,8 @@ var/bomb_set
 /obj/machinery/nuclearbomb/attackby(obj/item/weapon/O as obj, mob/user as mob, params)
 	if (isscrewdriver(O))
 		src.add_fingerprint(user)
+		if (!O.tool_is_usable())
+			return
 		if (src.auth)
 			if (panel_open == 0)
 				panel_open = 1

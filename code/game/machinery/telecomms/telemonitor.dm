@@ -125,6 +125,8 @@
 
 	attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
 		if(isscrewdriver(D))
+			if (!D.tool_is_usable())
+				return
 			playsound(src.loc, D.usesound, 50, 1)
 			if(do_after(user, 20*D.toolspeed))
 				if (src.stat & BROKEN)

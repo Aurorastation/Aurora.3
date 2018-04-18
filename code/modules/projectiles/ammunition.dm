@@ -30,6 +30,8 @@
 
 /obj/item/ammo_casing/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		if(!BB)
 			user << "<span class='notice'>There is no bullet in the casing to inscribe anything into.</span>"
 			return

@@ -180,6 +180,8 @@
 		return
 
 	if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		var/list/all_components = get_all_components()
 		if(!all_components.len)
 			to_chat(user, "This device doesn't have any components installed.")

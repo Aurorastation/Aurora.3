@@ -230,6 +230,8 @@
 			return
 
 	if(density && isscrewdriver(C))
+		if (!C.tool_is_usable())
+			return
 		hatch_open = !hatch_open
 		user.visible_message("<span class='danger'>[user] has [hatch_open ? "opened" : "closed"] \the [src] maintenance panel.</span>",
 									"You have [hatch_open ? "opened" : "closed"] the [src] maintenance panel.")

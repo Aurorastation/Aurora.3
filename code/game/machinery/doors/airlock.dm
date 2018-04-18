@@ -931,6 +931,9 @@ About the new airlock wires panel:
 		else
 			return
 	else if(isscrewdriver(C))
+		var/obj/item/weapon/W = C
+		if (!W.tool_is_usable())
+			return
 		if (src.p_open)
 			if (stat & BROKEN)
 				usr << "<span class='warning'>The panel is broken and cannot be closed.</span>"

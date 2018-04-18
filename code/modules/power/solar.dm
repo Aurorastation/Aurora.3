@@ -399,7 +399,10 @@
 
 /obj/machinery/power/solar_control/attackby(I as obj, user as mob)
 	if(isscrewdriver(I))
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		var/obj/item/weapon/screwdriver/W = I
+		if (!W.tool_is_usable())
+			return
+		playsound(src.loc, W.usesound, 50, 1)
 		if(do_after(user, 20))
 			if (src.stat & BROKEN)
 				user << "<span class='notice'>The broken glass falls out.</span>"

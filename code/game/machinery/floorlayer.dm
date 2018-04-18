@@ -61,6 +61,8 @@
 		return
 
 	if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		T = input("Choose tile type.", "Tiles") as null|anything in contents
 		return
 	..()

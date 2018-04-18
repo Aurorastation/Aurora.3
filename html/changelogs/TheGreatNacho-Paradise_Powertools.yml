@@ -28,3 +28,4 @@ delete-after: True
 
 changes: 
   - rscadd: "Ported the Hand Drill and the Jaws of Life from Paradise Station."
+  - tweak: "Added toolspeed to tools."

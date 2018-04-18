@@ -191,6 +191,8 @@
 			return
 
 	else if(iswrench(W) && state == 0)
+		if (!W.tool_is_usable())
+			return
 		playsound(src.loc, W.usesound, 100, 1)
 		if(anchored)
 			user.visible_message("[user] begins unsecuring the airlock assembly from the floor.", "You starts unsecuring the airlock assembly from the floor.")
@@ -285,6 +287,8 @@
 								glass = material_name
 
 	else if(isscrewdriver(W) && state == 2 )
+		if (!W.tool_is_usable())
+			return
 		playsound(src.loc, W.usesound, 100, 1)
 		user << "<span class='notice'>Now finishing the airlock.</span>"
 

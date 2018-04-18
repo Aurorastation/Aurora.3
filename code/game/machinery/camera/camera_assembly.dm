@@ -78,6 +78,8 @@
 		if(3)
 			// State 3
 			if(isscrewdriver(W))
+				if (!W.tool_is_usable())
+					return
 				playsound(src.loc, W.usesound, 50, 1)
 
 				var/input = sanitize(input(usr, "Which networks would you like to connect this camera to? Separate networks with a comma. No Spaces!\nFor example: Station,Security,Secret", "Set Network", camera_network ? camera_network : NETWORK_STATION))

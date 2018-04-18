@@ -213,6 +213,8 @@
 		attack_hand(user)
 		return
 	else if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		src.panel_open = !src.panel_open
 		user << "You [src.panel_open ? "open" : "close"] the maintenance panel."
 		cut_overlays()

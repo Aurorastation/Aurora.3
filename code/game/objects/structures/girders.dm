@@ -112,6 +112,8 @@
 		dismantle()
 
 	else if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		if(state == 2)
 			playsound(src.loc, W.usesound, 100, 1)
 			user << "<span class='notice'>Now unsecuring support struts...</span>"

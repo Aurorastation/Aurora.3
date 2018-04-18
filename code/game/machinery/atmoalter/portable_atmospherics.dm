@@ -22,7 +22,7 @@
 
 	air_contents.volume = volume
 	air_contents.temperature = T20C
-	
+
 	var/obj/machinery/atmospherics/portables_connector/port = locate() in loc
 	if(port)
 		connect(port)
@@ -169,6 +169,8 @@
 		return
 
 	if(isscrewdriver(I))
+		if (!I.tool_is_usable())
+			return
 		if(!cell)
 			user << "<span class='warning'>There is no power cell installed.</span>"
 			return

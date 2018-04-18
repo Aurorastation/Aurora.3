@@ -11,7 +11,7 @@
 /obj/item/assembly/shock_kit/Destroy()
 	qdel(part1)
 	qdel(part2)
-	
+
 	return ..()
 
 /obj/item/assembly/shock_kit/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -28,6 +28,8 @@
 		qdel(src)
 		return
 	if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		status = !status
 		user << "<span class='notice'>[src] is now [status ? "secured" : "unsecured"]!</span>"
 	add_fingerprint(user)

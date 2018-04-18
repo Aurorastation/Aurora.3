@@ -336,6 +336,8 @@
 	// attempt to stick weapon into light socket
 	else if(status == LIGHT_EMPTY)
 		if(isscrewdriver(W)) //If it's a screwdriver open it.
+			if (!W.tool_is_usable())
+				return
 			playsound(src.loc, W.usesound, 75, 1)
 			user.visible_message("[user.name] opens [src]'s casing.", \
 				"You open [src]'s casing.", "You hear a noise.")

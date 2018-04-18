@@ -115,7 +115,8 @@
 			return
 
 		else if(isscrewdriver(W))
-
+			if (!W.tool_is_usable())
+				return
 			var/list/current_mounts = list()
 			if(cell) current_mounts   += "cell"
 			if(installed_modules && installed_modules.len) current_mounts += "system module"

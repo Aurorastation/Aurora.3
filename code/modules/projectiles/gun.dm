@@ -679,6 +679,8 @@ obj/item/weapon/gun/Destroy()
 		return ..()
 
 	if(isscrewdriver(I))
+		if (!I.tool_is_usable())
+			return
 		visible_message("<span class = 'warning'>[user] begins to try and pry out [src]'s firing pin!</span>")
 		if(do_after(user,45 SECONDS,act_target = src))
 			if(pin.durable)

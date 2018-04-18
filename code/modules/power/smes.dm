@@ -123,7 +123,7 @@
 
 /obj/machinery/power/smes/update_icon()
 	cut_overlays()
-	if(stat & BROKEN)	
+	if(stat & BROKEN)
 		return
 
 	if(inputting == 2)
@@ -269,6 +269,8 @@
 
 /obj/machinery/power/smes/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		if(!open_hatch)
 			open_hatch = 1
 			user << "<span class='notice'>You open the maintenance hatch of [src].</span>"

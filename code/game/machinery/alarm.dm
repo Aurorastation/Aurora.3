@@ -752,6 +752,8 @@
 	switch(buildstage)
 		if(2)
 			if(isscrewdriver(W))  // Opening that Air Alarm up.
+				if (!W.tool_is_usable())
+					return
 				wiresexposed = !wiresexposed
 				user << "<span class='notice'>You [wiresexposed ? "open" : "close"] the maintenance panel.</span>"
 				update_icon()

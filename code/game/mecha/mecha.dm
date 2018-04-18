@@ -805,6 +805,8 @@
 				user << "There's not enough wire to finish the task."
 		return
 	else if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		if(hasInternalDamage(MECHA_INT_TEMP_CONTROL))
 			clearInternalDamage(MECHA_INT_TEMP_CONTROL)
 			user << "You repair the damaged temperature controller."

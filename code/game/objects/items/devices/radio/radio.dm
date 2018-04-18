@@ -548,6 +548,8 @@ var/global/list/default_medbay_channels = list(
 	user.set_machine(src)
 	if (!( isscrewdriver(W) ))
 		return
+	if (!W.tool_is_usable())
+		return
 	b_stat = !( b_stat )
 	if(!istype(src, /obj/item/device/radio/beacon))
 		if (b_stat)
@@ -603,6 +605,8 @@ var/global/list/default_medbay_channels = list(
 		return
 
 	if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		if(keyslot)
 
 
