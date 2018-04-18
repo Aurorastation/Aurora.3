@@ -56021,6 +56021,10 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bSh" = (
@@ -57144,7 +57148,8 @@
 "bUv" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/machinery/light{
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hydroponics)
@@ -64623,6 +64628,18 @@
 	icon_state = "asteroidplating"
 	},
 /area/outpost/mining_main/eva)
+"clx" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
 
 (1,1,1) = {"
 aaa
@@ -90500,7 +90517,7 @@ bUu
 bSO
 bSO
 bSO
-bSO
+clx
 bWn
 bWm
 bWY
@@ -91529,7 +91546,7 @@ bUT
 bVs
 bVN
 bWb
-bWp
+bTt
 bWm
 bXb
 bXp
