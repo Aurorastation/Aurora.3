@@ -94,17 +94,7 @@
 	if (!moving_upwards || next_floor == floors[floors.len])	// If moving down or moving to the top floor, squish.
 		for(var/turf/T in destination)
 			for(var/atom/movable/AM in T)
-				if(istype(AM, /obj/structure/closet))
-					var/obj/structure/closet/C = AM
-					for (var/atom/movable/A as mob|obj in C)
-						if(istype(A, /mob/living))
-							var/mob/living/M = A
-							M.gib()
-						else
-							A.ex_act(2)
-					AM.crush_act()
-				else
-					AM.crush_act()
+				AM.crush_act()
 
 	origin.move_contents_to(destination)
 

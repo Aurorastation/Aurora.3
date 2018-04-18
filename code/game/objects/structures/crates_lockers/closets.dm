@@ -452,3 +452,12 @@
 
 /obj/structure/closet/onDropInto(var/atom/movable/AM)
 	return
+
+/obj/structure/closet/crush_act()
+	for (var/atom/movable/A as mob|obj in src)
+		if(istype(A, /mob/living))
+			var/mob/living/M = A
+			M.gib()
+		else
+			qdel(A)
+	qdel(src)
