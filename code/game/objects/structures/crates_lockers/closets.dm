@@ -454,10 +454,12 @@
 	return
 
 /obj/structure/closet/crush_act()
-	for (var/atom/movable/A as mob|obj in src)
+	for (var/atom/movable/A in src)
 		if(istype(A, /mob/living))
 			var/mob/living/M = A
 			M.gib()
-		else
-			qdel(A)
+		else if(A.simulated)
+			A.ex_act(1)
+	dump_contents()
+	new /obj/item/stack/material/steel(get_turf(src))
 	qdel(src)
