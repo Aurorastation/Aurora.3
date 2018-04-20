@@ -963,61 +963,41 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/tortilla,
 		/obj/item/weapon/reagent_containers/food/snacks/tofu
 	)
-	reagents = list("spacespice" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/burrito_vegan
 
 /datum/recipe/burrito_spicy
 	fruit = list("chili" = 2)
 	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/tortilla,
-		/obj/item/weapon/reagent_containers/food/snacks/meatball,
-		/obj/item/weapon/reagent_containers/food/snacks/meatball,
-		/obj/item/weapon/reagent_containers/food/snacks/meatball
+		/obj/item/weapon/reagent_containers/food/snacks/burrito
 	)
-	reagents = list("spacespice" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/burrito_spicy
 
 /datum/recipe/burrito_cheese
 	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/tortilla,
-		/obj/item/weapon/reagent_containers/food/snacks/meatball,
-		/obj/item/weapon/reagent_containers/food/snacks/meatball,
-		/obj/item/weapon/reagent_containers/food/snacks/meatball,
+		/obj/item/weapon/reagent_containers/food/snacks/burrito,
 		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
 	)
-	reagents = list("spacespice" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/burrito_cheese
 
 /datum/recipe/burrito_cheese_spicy
 	fruit = list("chili" = 2)
 	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/tortilla,
-		/obj/item/weapon/reagent_containers/food/snacks/meatball,
-		/obj/item/weapon/reagent_containers/food/snacks/meatball,
-		/obj/item/weapon/reagent_containers/food/snacks/meatball,
+		/obj/item/weapon/reagent_containers/food/snacks/burrito,
 		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
 	)
-	reagents = list("spacespice" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/burrito_cheese_spicy
 
 /datum/recipe/burrito_hell
 	fruit = list("chili" = 10)
 	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/tortilla,
-		/obj/item/weapon/reagent_containers/food/snacks/meatball,
-		/obj/item/weapon/reagent_containers/food/snacks/meatball,
-		/obj/item/weapon/reagent_containers/food/snacks/meatball
+		/obj/item/weapon/reagent_containers/food/snacks/burrito_spicy
 	)
-	reagents = list("spacespice" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/burrito_hell
 	reagent_mix = RECIPE_REAGENT_REPLACE //Already hot sauce
 
 /datum/recipe/burrito_mystery
 	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/tortilla,
-		/obj/item/weapon/reagent_containers/food/snacks/meatball,
-		/obj/item/weapon/reagent_containers/food/snacks/meatball,
-		/obj/item/weapon/reagent_containers/food/snacks/meatball,
+		/obj/item/weapon/reagent_containers/food/snacks/burrito,
 		/obj/item/weapon/reagent_containers/food/snacks/mysterysoup
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/burrito_mystery
@@ -1078,8 +1058,8 @@ I said no!
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/meatball,
 		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
-
 	)
+	fruit = list("cabbage" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/stuffed_meatball
 
 /datum/recipe/egg_pancake
@@ -1127,6 +1107,7 @@ I said no!
 	)
 	reagents = list("spacespice" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/cheese_cracker
+	result_quantity = 4
 
 /datum/recipe/bacon_and_eggs
 	items = list(
