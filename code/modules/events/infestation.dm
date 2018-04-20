@@ -71,8 +71,8 @@
 			spawn_area_type = /area/maintenance/disposal
 			locstrings[numlocs] = "waste disposal"
 		if(LOC_CHAPEL)
-			spawn_area_type = /area/chapel/main
-			locstrings[numlocs] = "the chapel"
+			spawn_area_type = /area/chapel/office
+			locstrings[numlocs] = "the chapel's office"
 		if(LOC_LIBRARY)
 			spawn_area_type = /area/library
 			locstrings[numlocs] = "the library"
@@ -101,8 +101,8 @@
 			spawn_area_type = /area/holodeck/alphadeck
 			locstrings[numlocs] = "the holodeck"
 		if(LOC_DISPOSAL)
-			spawn_area_type = /area/quartermaster/office
-			locstrings[numlocs] = "the cargo disposals office"
+			spawn_area_type = /area/quartermaster/storage
+			locstrings[numlocs] = "the cargo warehouse"
 		if(LOC_CARGO)
 			spawn_area_type = /area/quartermaster/loading
 			locstrings[numlocs] = "the cargo bay"
@@ -185,7 +185,7 @@
 	if (severity == EVENT_LEVEL_MODERATE)
 		command_announcement.Announce("Bioscans indicate that large numbers of lifeforms have been breeding in [locstrings[1]] and [locstrings[2]]. Clear them out, before this starts to affect productivity.", "Vermin infestation", new_sound = 'sound/AI/vermin.ogg')
 	else
-		command_announcement.Announce("Bioscans indicate that [vermstring] have been breeding in [locstrings[1]]. Clear them out, before this starts to affect productivity.", "Vermin infestation", new_sound = 'sound/AI/vermin.ogg')
+		command_announcement.Announce("Bioscans indicate that [vermstring] have been breeding in [locstrings[1]]. Clear them out, before this affects productivity.", "Vermin infestation", new_sound = 'sound/AI/vermin.ogg')
 
 
 #undef LOC_KITCHEN

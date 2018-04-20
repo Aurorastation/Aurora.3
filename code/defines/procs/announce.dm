@@ -127,9 +127,6 @@ datum/announcement/proc/Log(message as text, message_title as text)
 /proc/level_seven_announcement()
 	command_announcement.Announce("Confirmed outbreak of level 7 biohazard aboard [station_name()]. All personnel must contain the outbreak.", "Biohazard Alert", new_sound = 'sound/AI/outbreak7.ogg')
 
-/proc/ion_storm_announcement()
-	command_announcement.Announce("It has come to our attention that the station passed through an ion storm.  Please monitor all electronic equipment for malfunctions.", "Anomaly Alert")
-
 /proc/AnnounceArrival(var/mob/living/carbon/human/character, var/rank, var/join_message)
 	if (SSticker.current_state == GAME_STATE_PLAYING)
 		if(character.mind.role_alt_title)

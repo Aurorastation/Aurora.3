@@ -402,6 +402,9 @@
 
 /obj/machinery/power/smes/proc/energy_fail(var/duration)
 	failure_timer = max(failure_timer, duration)
+	
+/obj/machinery/power/smes/proc/energy_restore()
+	failure_timer = 0
 
 /obj/machinery/power/smes/proc/ion_act()
 	if(src.z in current_map.station_levels)

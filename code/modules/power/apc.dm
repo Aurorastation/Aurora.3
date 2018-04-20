@@ -197,6 +197,9 @@
 
 /obj/machinery/power/apc/proc/energy_fail(var/duration)
 	failure_timer = max(failure_timer, duration)
+	
+/obj/machinery/power/apc/proc/energy_restore()
+	failure_timer = 0
 
 /obj/machinery/power/apc/proc/make_terminal()
 	// create a terminal object at the same position as original turf loc

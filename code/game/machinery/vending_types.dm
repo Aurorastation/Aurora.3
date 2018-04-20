@@ -117,7 +117,11 @@
 		/obj/item/weapon/reagent_containers/food/drinks/tea = 20,
 		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 22
 	)
+	can_be_hostile = TRUE
 
+/obj/machinery/vending/coffee/make_hostile()
+	new /mob/living/simple_animal/hostile/vending_machine/coffee(src.loc)
+	. = ..()
 
 /obj/machinery/vending/snack
 	name = "Getmore Chocolate Corp"
@@ -160,7 +164,11 @@
 		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 24,
 		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 60
 	)
+	can_be_hostile = TRUE
 
+/obj/machinery/vending/snack/make_hostile()
+	new /mob/living/simple_animal/hostile/vending_machine/snack(src.loc)
+	. = ..()
 
 /obj/machinery/vending/cola
 	name = "Robust Softdrinks"
@@ -198,6 +206,11 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/koispunch = 50
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	can_be_hostile = TRUE
+
+/obj/machinery/vending/cola/make_hostile()
+	new /mob/living/simple_animal/hostile/vending_machine/soda(src.loc)
+	. = ..()
 
 //This one's from bay12
 /obj/machinery/vending/cart
@@ -218,7 +231,6 @@
 		/obj/item/weapon/cartridge/captain = 3,
 		/obj/item/weapon/cartridge/quartermaster = 10
 	)
-
 
 /obj/machinery/vending/cigarette
 	name = "Cigarette machine" //OCD had to be uppercase to look nice with the new formating
@@ -247,7 +259,11 @@
 		/obj/item/weapon/flame/lighter/random = 12,
 		/obj/item/weapon/spacecash/ewallet/lotto = 200
 	)
+	can_be_hostile = TRUE
 
+/obj/machinery/vending/cigarette/make_hostile()
+	new /mob/living/simple_animal/hostile/vending_machine/cig(src.loc)
+	. = ..()
 
 /obj/machinery/vending/medical
 	name = "NanoMed Plus"

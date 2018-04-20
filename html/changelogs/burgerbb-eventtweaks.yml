@@ -1,0 +1,7 @@
+author: BurgerBB
+
+delete-after: True
+
+changes: 
+  - rscadd: "Adds a new rare event, \"Space-time Anomailes\", which gives a few lucky people split personality, imaginary friend, or bluespace prophet."
+  - tweak: "Disallowed the gravity event not have a fake event. Tweaked the powernet failure event so all APCS reset at the same time. Viral outbreaks are rarer and would only occur with plentiful medical staff. Ion Storm events now have a chance to EMP a random machine."

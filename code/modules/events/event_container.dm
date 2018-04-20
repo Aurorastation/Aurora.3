@@ -163,7 +163,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Random Antagonist",		/datum/event/random_antag,		 		0,	list(ASSIGNMENT_ANY = 1, ASSIGNMENT_SECURITY = 1),0,10,125, list("Extended")),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Rogue Drones",				/datum/event/rogue_drone, 				50,		list(ASSIGNMENT_SECURITY = 25)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Moderate Spider Infestation",/datum/event/spider_infestation/moderate,50,	list(ASSIGNMENT_SECURITY = 25)),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Viral Infection",			/datum/event/viral_infection, 			0,		list(ASSIGNMENT_MEDICAL = 12), 1),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Viral Infection",			/datum/event/viral_infection, 			0,		list(ASSIGNMENT_MEDICAL = 10), 1),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Major Vermin Infestation",	/datum/event/infestation, 				60,	list(ASSIGNMENT_JANITOR = 15, ASSIGNMENT_SECURITY = 15))
 	)
 
@@ -175,8 +175,9 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Carp Migration",	/datum/event/carp_migration,	50,	list(ASSIGNMENT_SECURITY =  10), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Meteor Wave",		/datum/event/meteor_wave,		40,	list(ASSIGNMENT_ENGINEER =  10),1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Space Vines",		/datum/event/spacevine, 		75,	list(ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_GARDENER = 20), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Viral Infection",	/datum/event/viral_infection,	20,	list(ASSIGNMENT_MEDICAL =  15), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Spider Infestation",/datum/event/spider_infestation, 25, list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_MEDICAL = 5), 1)
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Viral Infection",	/datum/event/viral_infection,	0,	list(ASSIGNMENT_MEDICAL =  10), 1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Spider Infestation",/datum/event/spider_infestation, 25, list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_MEDICAL = 5), 1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Space-Time Anomalies",/datum/event/random_brain_trauma, 0, list(ASSIGNMENT_MEDICAL = 5, ASSIGNMENT_SECURITY = 5), 1)
 	)
 
 #undef ASSIGNMENT_ANY
