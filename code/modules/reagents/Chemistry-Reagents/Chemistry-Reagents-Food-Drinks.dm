@@ -864,17 +864,13 @@
 /datum/reagent/drink/pineapplejuice
 	name = "Pineapple Juice"
 	id = "pineapplejuice"
-	description = "Contains flesh-eating enzymes."
+	description = "From freshly canned pineapples."
 	color = "#FFFF00"
 	taste_description = "pineapple"
 
 	glass_icon_state = "lemonjuice"
 	glass_name = "glass of pineapple juice"
 	glass_desc = "What the hell is this?"
-
-/datum/reagent/drink/tomatojuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	..()
-	M.adjustFireLoss(1 * removed)
 
 // Everything else
 

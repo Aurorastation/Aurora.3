@@ -5036,8 +5036,8 @@
 	name = "pineapple ring"
 	desc = "What the hell is this?"
 	icon_state = "pineapple_ring"
-	nutriment_desc = list("sweetness" = 1)
-	nutriment_amt = 1
+	nutriment_desc = list("sweetness" = 2)
+	nutriment_amt = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/pineapple_ring/Initialize()
 	. = ..()
@@ -5045,7 +5045,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/pineapple
 	name = "ham & pineapple pizza"
-	desc = "This is contraband."
+	desc = "One of the most debated pizzas in existence."
 	icon_state = "pineapple_pizza"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/pineappleslice
 	slices_num = 6
@@ -5084,6 +5084,20 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/baconburger/Initialize()
 	reagents.add_reagent("protein", 4)
+
+/obj/item/weapon/reagent_containers/food/snacks/blt
+	name = "BLT"
+	desc = "Bacon, lettuce, tomatoes. The perfect lunch."
+	icon_state = "blt"
+	filling_color = "#D63C3C"
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_desc = list("bread" = 4)
+	nutriment_amt = 4
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/blt/Initialize()
+	reagents.add_reagent("protein", 4)
+
 
 #undef NUTRIMENT_GOOD
 #undef NUTRIMENT_BAD

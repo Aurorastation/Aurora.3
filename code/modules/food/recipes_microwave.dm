@@ -1162,3 +1162,14 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/tortilla
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/fish_taco
+
+/datum/recipe/blt
+	fruit = list("tomato" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sliceable/bread,
+		/obj/item/weapon/reagent_containers/food/snacks/sliceable/bread,
+		/obj/item/weapon/reagent_containers/food/snacks/bacon,
+		/obj/item/weapon/reagent_containers/food/snacks/bacon,
+		/obj/item/weapon/reagent_containers/food/snacks/bacon
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/blt
