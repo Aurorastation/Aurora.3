@@ -303,7 +303,7 @@
 	name = "chocolate box"
 	storage_slots = 8
 	can_hold = list(
-		/obj/item/weapon/reagent_containers/food/snacks,
+		/obj/item/weapon/reagent_containers/food/snacks
 	)
 
 /obj/item/weapon/storage/fancy/chocolate_box/fill()
