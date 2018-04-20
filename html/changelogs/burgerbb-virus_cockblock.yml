@@ -1,0 +1,6 @@
+author: BurgerBB
+
+delete-after: True
+
+changes: 
+  - rscadd: "Adds Nelocacillin, a special medicine that prevents non-wound based infections from occurring on the person. Has a slow metabolism rate, and is good for cheap immunizations."
