@@ -105,4 +105,6 @@ var/datum/antagonist/cultist/cult
 	for(var/obj/item/weapon/implant/loyalty/L in player.current)
 		if(L && (L.imp_in == player.current))
 			return 0
+	if(istype(player.current.reagents) && player.current.reagents.has_reagent("hextrasenil"))
+		return 0
 	return 1

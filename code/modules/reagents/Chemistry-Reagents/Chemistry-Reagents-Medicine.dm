@@ -529,7 +529,7 @@
 	description = "Some nameless, experimental antidepressant that you should obviously not have your hands on."
 	reagent_state = LIQUID
 	color = "#FFFFFF"
-	metabolism = 0.001
+	metabolism = 0.001 * REM
 	metabolism_min = 0
 	data = 0
 	taste_description = "bugs"
@@ -598,7 +598,7 @@
 	description = "Nicotine is a stimulant and relaxant commonly found in tobacco products. It is very poisonous, unless at very low doses."
 	reagent_state = LIQUID
 	color = "#333333"
-	metabolism = 0.0005
+	metabolism = 0.0016 * REM
 	overdose = 3
 	data = 0
 	taste_description = "bitterness"
@@ -606,8 +606,8 @@
 	badmessage = list("You start to crave nicotine...")
 	worstmessage = list("You need your nicotine fix!")
 	suppress_traumas  = list(
-		/datum/brain_trauma/mild/phobia = 0.01,
-		/datum/brain_trauma/mild/muscle_weakness/ = 0.01
+		/datum/brain_trauma/mild/phobia = 0.1,
+		/datum/brain_trauma/mild/muscle_weakness/ = 0.05
 	)
 	conflicting_reagents = list()
 	var/datum/modifier/modifier
@@ -627,16 +627,16 @@
 	description = "Methylphenidate is an AHDH treatment drug that treats basic distractions such as phobias and hallucinations at moderate doses. Withdrawl effects are rare. Side effects are rare, and include hallucinations."
 	reagent_state = LIQUID
 	color = "#888888"
-	metabolism = 0.01
+	metabolism = 0.01 * REM
 	data = 0
 	taste_description = "paper"
 	goodmessage = list("You feel focused.","You feel like you have no distractions.","You feel willing to work.")
 	badmessage = list("You feel a little distracted...","You feel slight agitation...","You feel a dislike towards work...")
 	worstmessage = list("You feel completely distrtacted...","You feel like you don't want to work...","You think you see things...")
 	suppress_traumas  = list(
-		/datum/brain_trauma/special/imaginary_friend = 40,
-		/datum/brain_trauma/mild/hallucinations = 20,
-		/datum/brain_trauma/mild/phobia/ = 20
+		/datum/brain_trauma/special/imaginary_friend = 20,
+		/datum/brain_trauma/mild/hallucinations = 10,
+		/datum/brain_trauma/mild/phobia/ = 10
 	)
 	dosage_traumas = list(
 		/datum/brain_trauma/mild/hallucinations = 5
@@ -652,17 +652,17 @@
 	description = "Fluvoxamine is safe and effective at treating basic phobias, as well as schizophrenia and muscle weakness at higher doses. Withdrawl effects are rare. Side effects are rare, and include hallucinations."
 	reagent_state = LIQUID
 	color = "#888888"
-	metabolism = 0.01
+	metabolism = 0.01 * REM
 	data = 0
 	taste_description = "paper"
 	goodmessage = list("You do not feel the need to worry about simple things.","You feel calm and level-headed.","You feel fine.")
 	badmessage = list("You feel a little blue.","You feel slight agitation...","You feel a little nervous...")
 	worstmessage = list("You worry about the littlest thing...","You feel like you are at risk...","You think you see things...")
 	suppress_traumas  = list(
-		/datum/brain_trauma/mild/phobia/ = 5,
-		/datum/brain_trauma/severe/split_personality = 20,
-		/datum/brain_trauma/special/imaginary_friend = 40,
-		/datum/brain_trauma/mild/muscle_weakness = 20
+		/datum/brain_trauma/mild/phobia/ = 2,
+		/datum/brain_trauma/severe/split_personality = 10,
+		/datum/brain_trauma/special/imaginary_friend = 20,
+		/datum/brain_trauma/mild/muscle_weakness = 10
 	)
 	dosage_traumas = list(
 		/datum/brain_trauma/mild/hallucinations = 5
@@ -678,14 +678,14 @@
 	description = "Sertraline is cheap, safe, and effective at treating basic phobias, however it does not last as long as other drugs of it's class. Withdrawl effects are uncommon. Side effects are rare."
 	reagent_state = LIQUID
 	color = "#888888"
-	metabolism = 0.02
+	metabolism = 0.02 * REM
 	data = 0
 	taste_description = "paper"
 	goodmessage = list("You feel fine.","You feel rational.","You feel decent.")
 	badmessage = list("You feel a little blue.","You feel slight agitation...","You feel a little nervous...")
 	worstmessage = list("You worry about the littlest thing...","You feel like you are at risk...","You think you see things...")
 	suppress_traumas  = list(
-		/datum/brain_trauma/mild/phobia/ = 5
+		/datum/brain_trauma/mild/phobia/ = 2
 	)
 	dosage_traumas = list(
 		/datum/brain_trauma/mild/hallucinations = 5
@@ -702,7 +702,7 @@
 	description = "Escitalopram is expensive, safe and very effective at treating basic phobias as well as advanced phobias like monophobia. A common side effect is drowsiness, and a rare side effect is hallucinations. Withdrawl effects are uncommon."
 	reagent_state = LIQUID
 	color = "#888888"
-	metabolism = 0.01
+	metabolism = 0.01 * REM
 	data = 0
 	taste_description = "paper"
 	goodmessage = list("You feel relaxed.","You feel at ease.","You feel care free.")
@@ -710,7 +710,7 @@
 	worstmessage = list("You worry about the littlest thing...","You feel like you are at risk...","You think you see things...")
 	suppress_traumas  = list(
 		/datum/brain_trauma/mild/phobia/ = 1,
-		/datum/brain_trauma/severe/monophobia = 10
+		/datum/brain_trauma/severe/monophobia = 5
 	)
 	dosage_traumas = list(
 		/datum/brain_trauma/mild/hallucinations = 5
@@ -730,14 +730,14 @@
 	description = "Paroxetine is effective at treating basic phobias while also preventing the body from overheating. Side effects are rare, and include hallucinations. Withdrawl effects are frequent and unsafe."
 	reagent_state = LIQUID
 	color = "#888888"
-	metabolism = 0.01
+	metabolism = 0.01 * REM
 	data = 0
 	taste_description = "paper"
 	goodmessage = list("You do not feel the need to worry about simple things.","You feel calm and level-headed.","You feel decent.")
 	badmessage = list("You worry about the littlest thing.","You feel like you are at risk.","You think you see things.")
 	worstmessage = list("You start to overreact to sounds and movement...","Your hear dangerous thoughts in your head...","You are really starting to see things...")
 	suppress_traumas  = list(
-		/datum/brain_trauma/mild/phobia/ = 10
+		/datum/brain_trauma/mild/phobia/ = 5
 	)
 	dosage_traumas = list(
 		/datum/brain_trauma/mild/hallucinations = 5
@@ -763,15 +763,15 @@
 	description = "Duloxetine is effective at treating basic phobias and concussions. A rare side effect is hallucinations. Withdrawl effects are common."
 	reagent_state = LIQUID
 	color = "#888888"
-	metabolism = 0.01
+	metabolism = 0.01 * REM
 	data = 0
 	taste_description = "paper"
 	goodmessage = list("You feel at ease.","Your mind feels healthy..")
 	badmessage = list("You worry about the littlest thing.","Your head starts to feel weird...","You think you see things.")
 	worstmessage = list("You start to overreact to sounds and movement...","Your head feels really weird.","You are really starting to see things...")
 	suppress_traumas  = list(
-		/datum/brain_trauma/mild/concussion = 10,
-		/datum/brain_trauma/mild/phobia/ = 10
+		/datum/brain_trauma/mild/concussion = 5,
+		/datum/brain_trauma/mild/phobia/ = 5
 	)
 	dosage_traumas = list(
 		/datum/brain_trauma/mild/hallucinations = 5
@@ -794,16 +794,16 @@
 	description = "Venlafaxine is effective at treating basic phobias, monophobia, and stuttering. Side effects are uncommon and include hallucinations. Withdrawl effects are common."
 	reagent_state = LIQUID
 	color = "#888888"
-	metabolism = 0.01
+	metabolism = 0.01 * REM
 	data = 0
 	taste_description = "paper"
 	goodmessage = list("You feel at ease.","Your mind feels healthy..","You feel unafraid to speak...")
 	badmessage = list("You worry about the littlest thing.","You think you see things.")
 	worstmessage = list("You start to overreact to sounds and movement...","You are really starting to see things...")
 	suppress_traumas  = list(
-		/datum/brain_trauma/mild/phobia = 10,
-		/datum/brain_trauma/mild/stuttering = 5,
-		/datum/brain_trauma/severe/monophobia = 10
+		/datum/brain_trauma/mild/phobia = 5,
+		/datum/brain_trauma/mild/stuttering = 2,
+		/datum/brain_trauma/severe/monophobia = 5
 	)
 	dosage_traumas = list(
 		/datum/brain_trauma/mild/hallucinations = 10
@@ -826,21 +826,21 @@
 	description = "Risperidone is a potent antipsychotic medication used to treat schizophrenia, stuttering, speech impediment, monophobia, hallucinations, tourettes, and muscle spasms. Side effects are common and include pacifism. Withdrawl symptoms are dangerous and almost always occur."
 	reagent_state = LIQUID
 	color = "#888888"
-	metabolism = 0.02
+	metabolism = 0.02 * REM
 	data = 0
 	taste_description = "paper"
 	goodmessage = list("Your mind feels as one.","You feel comfortable speaking.","Your body feels good.","Your thoughts are pure.")
 	badmessage = list("You start hearing voices...","You think you see things...","You feel really upset...","You want attention...")
 	worstmessage = list("You think you start seeing things...","You swear someone inside you spoke to you...","You hate feeling alone...","You feel really upset.")
 	suppress_traumas  = list(
-		/datum/brain_trauma/severe/split_personality = 10,
-		/datum/brain_trauma/special/imaginary_friend = 20,
-		/datum/brain_trauma/mild/stuttering = 5,
-		/datum/brain_trauma/mild/speech_impediment = 10,
-		/datum/brain_trauma/severe/monophobia = 10,
-		/datum/brain_trauma/mild/hallucinations = 10,
-		/datum/brain_trauma/mild/muscle_spasms = 20,
-		/datum/brain_trauma/mild/tourettes = 20
+		/datum/brain_trauma/severe/split_personality = 5,
+		/datum/brain_trauma/special/imaginary_friend = 10,
+		/datum/brain_trauma/mild/stuttering = 2,
+		/datum/brain_trauma/mild/speech_impediment = 5,
+		/datum/brain_trauma/severe/monophobia = 5,
+		/datum/brain_trauma/mild/hallucinations = 5,
+		/datum/brain_trauma/mild/muscle_spasms = 10,
+		/datum/brain_trauma/mild/tourettes = 10
 	)
 	dosage_traumas = list(
 		/datum/brain_trauma/severe/pacifism = 25
@@ -865,7 +865,7 @@
 	description = "Olanzapine is a high-strength, expensive antipsychotic medication used to treat schizophrenia, stuttering, speech impediment, monophobia, hallucinations, tourettes, and muscle spasms. Side effects are common and include pacifism. The medication metabolizes quickly, and withdrawl is dangerous."
 	reagent_state = LIQUID
 	color = "#888888"
-	metabolism = 0.02
+	metabolism = 0.02 * REM
 	data = 0
 	taste_description = "paper"
 	goodmessage = list("Your mind feels as one.","You feel comfortable speaking.","Your body feels good.","Your thoughts are pure.","Your body feels responsive.","You can handle being alone.")
@@ -874,11 +874,11 @@
 	suppress_traumas  = list(
 		/datum/brain_trauma/severe/split_personality = 5,
 		/datum/brain_trauma/special/imaginary_friend = 10,
-		/datum/brain_trauma/mild/stuttering = 2,
-		/datum/brain_trauma/mild/speech_impediment = 5,
-		/datum/brain_trauma/severe/monophobia = 5,
-		/datum/brain_trauma/mild/muscle_spasms = 10,
-		/datum/brain_trauma/mild/tourettes = 20
+		/datum/brain_trauma/mild/stuttering = 1,
+		/datum/brain_trauma/mild/speech_impediment = 2,
+		/datum/brain_trauma/severe/monophobia = 2,
+		/datum/brain_trauma/mild/muscle_spasms = 5,
+		/datum/brain_trauma/mild/tourettes = 10
 	)
 	dosage_traumas = list(
 		/datum/brain_trauma/severe/pacifism = 25
@@ -901,21 +901,24 @@
 	description = "Hextrasenil is a super-strength, fast-metabolizing, expensive antipsychotic medication intended for the use in criminal rehabilitation that treats tourettes, schizophrenia, hallucinations, and loyalty issues. Side effects include undying loyalty to NanoTrasen and respect for authority. Withdrawl effects include undying hatred towards NanoTrasen."
 	reagent_state = LIQUID
 	color = "#888888"
-	metabolism = 0.04 //Not meant to last a long time.
+	metabolism = 0.04 * REM //Not meant to last a long time.
 	data = 0
 	taste_description = "paper"
 	goodmessage = list("You feel loyal to NanoTrasen. Please take your pills.","You feel the need to contribute to cause of NanoTrasen. Please take your pills.","You wouldn't think about hurting NanoTrasen at all. Please take your pills.","You do not feel the need to express emotion. Please take your pills.","You feel that NanoTrasen has your best interests at heart. Please take your pills.","You respect the Chain of Command. Please take your pills.")
 	badmessage = list("You start to think if you need these pills...","Do I need these pills?","Should I be taking pills anymore?")
 	worstmessage = list("You start to realise that the system is corrupt...","NanoTrasen is corrupt...")
 	suppress_traumas  = list(
-		/datum/brain_trauma/severe/split_personality = 5, //Gotta remove those enemies to nanotrasen.
-		/datum/brain_trauma/special/imaginary_friend = 5,
-		/datum/brain_trauma/mild/tourettes = 5
+		/datum/brain_trauma/severe/split_personality = 2, //Gotta remove those enemies to nanotrasen.
+		/datum/brain_trauma/special/imaginary_friend = 2,
+		/datum/brain_trauma/mild/tourettes = 2
 	)
 	dosage_traumas = list(
 		/datum/brain_trauma/severe/pacifism = 25
 	)
-	withdrawal_traumas = list()
+	withdrawal_traumas = list(
+		/datum/brain_trauma/mild/tourettes = 20
+	)
+	messagedelay = 30
 
 /datum/reagent/mental/trisyndicotin
 	name = "Trisyndicotin"
@@ -923,15 +926,16 @@
 	description = "Trisyndicotin is a super-strength, expensive antipsychotic medication intended for the use in interigation. Side effects include undying hatred to NanoTrasen and disrespect for authority."
 	reagent_state = LIQUID
 	color = "#888888"
-	metabolism = 0.03
+	metabolism = 0.02 * REM
 	data = 0
 	taste_description = "freedom"
 	goodmessage = list("You distrust Nanotrasen and their people.","You feel woke.","You have urges to speak out against NanoTrasen.","You feel the need to complain about NanoTrasen on the web.","You feel like things should be better.")
 	badmessage = list() //Actual Freedom.
 	worstmessage = list() //Actual Freedom.
 	suppress_traumas  = list(
-		/datum/brain_trauma/severe/pacifism = 10
+		/datum/brain_trauma/severe/pacifism = 5
 	)
+	messagedelay = 30
 
 /datum/reagent/mental/truthserum
 	name = "Truth serum"
@@ -939,7 +943,7 @@
 	description = "This highly illegal, expensive, military strength truth serum is a must have for secret corporate interrogations. One 50u pill is good for almost 10 minutes of interrogation."
 	reagent_state = LIQUID
 	color = "#888888"
-	metabolism = 0.1
+	metabolism = 0.05 * REM
 	data = 0
 	taste_description = "something"
 	goodmessage = list("You feel like you have nothing to hide.","You feel compelled to spill your secrets.","You feel like you can trust those around you.")
