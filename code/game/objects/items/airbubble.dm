@@ -1,5 +1,3 @@
-#define BUBBLE_PROC_INT_TEMP 1 << 2
-
 /obj/item/air_bubble
 	name = "air bubble"
 	desc = "Special air bubble designed to protect people inside of it from decompressed enviroments."
@@ -9,15 +7,15 @@
 	var/used = 0
 	var/obj/item/weapon/tank/emergency_oxygen/double/internal_tank
 
-	attack_self(mob/user)
-		var/obj/structure/closet/air_bubble/R = new /obj/structure/closet/air_bubble(user.loc)
-		if(!used)
-			internal_tank = new /obj/item/weapon/tank/emergency_oxygen/double(src)
-		R.internal_tank = internal_tank
-		internal_tank.forceMove(R)
-		internal_tank = null
-		R.add_fingerprint(user)
-		qdel(src)
+/obj/item/air_bubble/attack_self(mob/user)
+	var/obj/structure/closet/air_bubble/R = new /obj/structure/closet/air_bubble(user.loc)
+	if(!used)
+		internal_tank = new /obj/item/weapon/tank/emergency_oxygen/double(src)
+	R.internal_tank = internal_tank
+	internal_tank.forceMove(R)
+	internal_tank = null
+	R.add_fingerprint(user)
+	qdel(src)
 
 /obj/structure/closet/air_bubble
 	name = "air bubble"
@@ -36,7 +34,6 @@
 	var/used = 1
 
 	var/use_internal_tank = 1
-	var/current_processes = BUBBLE_PROC_INT_TEMP
 	var/datum/gas_mixture/inside_air
 	var/internal_tank_valve = 45 // arbitrary for now
 	var/obj/item/weapon/tank/emergency_oxygen/double/internal_tank
@@ -268,16 +265,6 @@
 		var/delta = inside_air.temperature - T20C
 		inside_air.temperature -= max(-10, min(10, round(delta/4,0.1)))
 
-/////////////////////////////////////////
-//////// airbubble process() helpers ////
-/////////////////////////////////////////
-
-/obj/structure/closet/air_bubble/proc/stop_process(process)
-	current_processes &= ~process
-
-/obj/structure/closet/air_bubble/proc/start_process(process)
-	current_processes |= process
-
 /obj/structure/closet/air_bubble/remove_air(amount)
 	if(use_internal_tank)
 		return inside_air.remove(amount)
@@ -320,8 +307,7 @@
 	return
 
 /obj/structure/closet/air_bubble/process()
-	var/static/max_ticks = 16
-	if ((current_processes & BUBBLE_PROC_INT_TEMP) && !(process_ticks % 4))
+	if (!(process_ticks % 4))
 		process_preserve_temp()
 
 	if (!(process_ticks % 3))
