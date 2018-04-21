@@ -9,16 +9,16 @@
 	var/volume = 600
 	var/on = 0
 
-	attack_self(mob/user)
-		on = 1
-		icon_state = "candle1_lit"
-		update_icon()
-		air_contents = new /datum/gas_mixture()
-		air_contents.volume = volume //liters
-		air_contents.temperature = T20C
-		var/list/air_mix = StandardAirMix()
-		src.air_contents.adjust_multi("oxygen", air_mix["oxygen"], "nitrogen", air_mix["nitrogen"])
-		START_PROCESSING(SSprocessing, src)
+/obj/item/oxycandle/attack_self(mob/user)
+	on = 1
+	icon_state = "candle1_lit"
+	update_icon()
+	air_contents = new /datum/gas_mixture()
+	air_contents.volume = volume //liters
+	air_contents.temperature = T20C
+	var/list/air_mix = StandardAirMix()
+	src.air_contents.adjust_multi("oxygen", air_mix["oxygen"], "nitrogen", air_mix["nitrogen"])
+	START_PROCESSING(SSprocessing, src)
 
 /obj/item/oxycandle/proc/StandardAirMix()
 	return list(
