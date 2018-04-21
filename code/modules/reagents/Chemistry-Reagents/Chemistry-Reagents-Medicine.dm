@@ -532,6 +532,7 @@
 	metabolism = 0.001 * REM
 	metabolism_min = 0
 	data = 0
+	overdose = REAGENTS_OVERDOSE
 	taste_description = "bugs"
 	var/goodmessage = list("Your mind feels healthy.","You feel calm and relaxed.","The world seems like a better place now.") //Messages when all your brain traumas are cured.
 	var/badmessage = list("Your mind seems lost...","You feel agitated...","It feels like the world is out to get you...") //Messages when you still have at least one brain trauma it's suppose to cure.
@@ -919,6 +920,20 @@
 		/datum/brain_trauma/mild/tourettes = 20
 	)
 	messagedelay = 30
+	var/is_affected = 0
+
+/datum/reagent/mental/hextrasenil/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
+	. = ..()
+	if(!is_affected && prob(5))
+		var/mob/living/carbon/human/H = M
+		if(istype(H))
+			var/datum/antagonist/antag_data = get_antag_data(H.mind.special_role)
+			if(antag_data && (antag_data.flags & ANTAG_IMPLANT_IMMUNE))
+				H << "You feel the corporate tendrils of [current_map.company_name] try to invade your mind!"
+			else
+				clear_antag_roles(H.mind, 1)
+				H << "<span class='notice'>You feel a surge of loyalty towards [current_map.company_name]! Any negative intentions towards the company have been long forgotten.</span>"
+		is_affected = 1
 
 /datum/reagent/mental/trisyndicotin
 	name = "Trisyndicotin"
@@ -936,6 +951,22 @@
 		/datum/brain_trauma/severe/pacifism = 5
 	)
 	messagedelay = 30
+	var/is_affected = 0
+
+/datum/reagent/mental/trisyndicotin/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
+	. = ..()
+	if(!is_affected && prob(5))
+		var/mob/living/carbon/human/H = M
+		if(istype(H))
+			for(var/obj/item/weapon/implant/loyalty/I in H.contents)
+				for(var/obj/item/organ/external/organs in H.organs)
+					if(I in organs.implants)
+						organs.damage += 5
+						qdel(I)
+						break
+			H << "<span class='notice'><font size =3><B>Your loyalty implant has been deactivated. Freedom, at last!</B></font></span>"
+		is_affected = 1
+
 
 /datum/reagent/mental/truthserum
 	name = "Truth serum"

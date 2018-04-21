@@ -5,3 +5,4 @@ delete-after: True
 changes: 
   - tweak: "Tweaked the metabolism rate of mental medication to reflext their intended values. Reduced the dosage threshhold to supress traumas to reflect their intended values."
   - tweak: "Syringe (drugs) now contains truth serum."
+  - rscadd: "Overdosing on trisyndicotin has a chance to deactivate the consumer's loyalty implant, if any. Overdosing on hextrasenil has a chance to remove the consumer's antag rolls, if any."
