@@ -12341,13 +12341,6 @@
 	name = "Reactor Vent";
 	p_open = 0
 	},
-/obj/machinery/door/blast/regular{
-	dir = 4;
-	icon_state = "pdoor1";
-	id = "EngineVent";
-	name = "Reactor Vent";
-	p_open = 0
-	},
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/engineering/engine_room)
 "awp" = (
