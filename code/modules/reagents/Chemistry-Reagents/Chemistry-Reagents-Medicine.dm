@@ -476,7 +476,7 @@
 	description = "Prevents viruses from being introduced to the body. Does not cure viral infections, only prevents them. Does not prevent infections from wounds."
 	reagent_state = LIQUID
 	color = "#CCCCCC"
-	metabolism = REM * 0.004
+	metabolism = REM * 0.008 //15u lasts 30 minutes
 	overdose = 20
 	scannable = 1
 	taste_description = "bitterness"
