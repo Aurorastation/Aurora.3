@@ -5,7 +5,7 @@
 	icon_state = "bodybag_folded"
 	w_class = ITEMSIZE_SMALL
 	var/used = 0
-	var/obj/item/weapon/tank/emergency_oxygen/double/internal_tank
+	var/obj/item/weapon/tank/internal_tank
 
 /obj/item/air_bubble/attack_self(mob/user)
 	var/obj/structure/closet/air_bubble/R = new /obj/structure/closet/air_bubble(user.loc)
@@ -29,15 +29,14 @@
 	var/item_path = /obj/item/air_bubble
 	var/zipped = 0
 	density = 0
-	storage_capacity = 30
+	storage_capacity = 20
 	var/contains_body = 0
 	var/used = 1
 
 	var/use_internal_tank = 1
 	var/datum/gas_mixture/inside_air
 	var/internal_tank_valve = 45 // arbitrary for now
-	var/obj/item/weapon/tank/emergency_oxygen/double/internal_tank
-
+	var/obj/item/weapon/tank/internal_tank
 	var/process_ticks = 0
 
 /obj/structure/closet/air_bubble/can_open()
@@ -49,12 +48,18 @@
 	for(var/obj/structure/closet/closet in get_turf(src))
 		if(closet != src)
 			return 0
+	var/mob_num = 0
+	for(var/mob/living/M in loc)
+		mob_num += 1
+		if(mob_num > 1)
+			visible_message("<span class='warning'>[src] can only fit one person.</span>")
+			return 0
 	return 1
 
 /obj/structure/closet/air_bubble/dump_contents()
 
 	for(var/obj/I in src)
-		if(!istype(I, /obj/item/weapon/tank/emergency_oxygen/double))
+		if(!istype(I, /obj/item/weapon/tank))
 			I.forceMove(loc)
 
 	for(var/mob/M in src)
@@ -108,7 +113,7 @@
 			"<span class='warning'>[user] set [src] internals.</span>",
 			"<span class='notice'>You set [src] internals.</span>"
 		)
-		if (!do_after(user, 1 SECONDS, act_target = src))
+		if (!do_after(user, 2 SECONDS, act_target = src))
 			return
 		if(use_internal_tank)
 			STOP_PROCESSING(SSfast_process, src)
@@ -127,7 +132,7 @@
 		"<span class='warning'>[user] removed [internal_tank] from [src].</span>",
 		"<span class='notice'>You remove [internal_tank] from [src].</span>"
 		)
-		if (!do_after(user, 1 SECONDS, act_target = src))
+		if (!do_after(user, 2 SECONDS, act_target = src))
 			return
 		for(var/obj/I in src)
 			I.forceMove(user.loc)
@@ -140,6 +145,23 @@
 		"<span class='warning'>[src] already has no tank.</span>")
 
 /obj/structure/closet/air_bubble/attackby(W as obj, mob/user as mob)
+	if(istype(W, /obj/item/weapon/tank))
+		if(!use_internal_tank)
+			user.visible_message(
+				"<span class='warning'>[user] attached [W] to [src].</span>",
+				"<span class='notice'>You attach [W] to [src].</span>"
+			)
+			if (!do_after(user, 2 SECONDS, act_target = src))
+				return
+			var/obj/item/weapon/tank/T = W
+			internal_tank = T
+			user.drop_from_inventory(T)
+			T.forceMove(src)
+			use_internal_tank = 1
+			START_PROCESSING(SSfast_process, src)
+		else
+			user.visible_message("<span class='warning'>[src] already has a tank attached.</span>")
+			update_icon()
 	if(opened)
 		if(istype(W, /obj/item/weapon/grab))
 			var/obj/item/weapon/grab/G = W
@@ -180,23 +202,6 @@
 			"<span class='notice'>You cut cable restrains on [src]'s zipper.</span>"
 		)
 		new/obj/item/weapon/handcuffs/cable(src.loc)
-	else if(istype(W, /obj/item/weapon/tank))
-		if(!use_internal_tank)
-			user.visible_message(
-				"<span class='warning'>[user] attached [W] to [src].</span>",
-				"<span class='notice'>You attach [W] to [src].</span>"
-			)
-			if (!do_after(user, 1 SECONDS, act_target = src))
-				return
-			var/obj/item/weapon/tank/T = W
-			internal_tank = T
-			user.drop_from_inventory(T)
-			T.forceMove(src)
-			use_internal_tank = 1
-			START_PROCESSING(SSfast_process, src)
-		else
-			user.visible_message("<span class='warning'>[src] already has a tank attached.</span>")
-			update_icon()
 	else
 		attack_hand(user)
 	return
@@ -277,7 +282,7 @@
 /obj/structure/closet/air_bubble/return_air()
 	if(use_internal_tank)
 		return inside_air
-	return get_turf_air()
+	return ..()
 
 /obj/structure/closet/air_bubble/proc/get_turf_air()
 	var/turf/T = get_turf(src)
