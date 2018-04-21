@@ -14,6 +14,8 @@
 		if(!used)
 			internal_tank = new /obj/item/weapon/tank/emergency_oxygen/double(src)
 		R.internal_tank = internal_tank
+		internal_tank.forceMove(R)
+		internal_tank = null
 		R.add_fingerprint(user)
 		qdel(src)
 
@@ -135,6 +137,7 @@
 		use_internal_tank = 0
 		internal_tank = null
 		update_icon()
+		STOP_PROCESSING(SSfast_process, src)
 	else
 		visible_message(
 		"<span class='warning'>[src] already has no tank.</span>")
@@ -193,6 +196,7 @@
 			user.drop_from_inventory(T)
 			T.forceMove(src)
 			use_internal_tank = 1
+			START_PROCESSING(SSfast_process, src)
 		else
 			user.visible_message("<span class='warning'>[src] already has a tank attached.</span>")
 			update_icon()
@@ -214,6 +218,8 @@
 			visible_message("[usr] folds up the [src.name]")
 			var/obj/item/air_bubble/bag = new /obj/item/air_bubble(get_turf(src))
 			bag.internal_tank = internal_tank
+			internal_tank.forceMove(bag)
+			internal_tank = null
 			bag.w_class = ITEMSIZE_NORMAL
 			qdel(src)
 			return
