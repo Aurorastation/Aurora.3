@@ -97,6 +97,41 @@
 	T.assume_gas("phoron", volume, T20C)
 	remove_self(volume)
 
+/datum/reagent/toxin/cardox
+	name = "Cardox"
+	id = "cardox"
+	description = "Cardox is an mildly toxic, expensive, NanoTrasen designed cleaner intended to eliminate liquid phoron stains from suits."
+	reagent_state = LIQUID
+	color = "#EEEEEE"
+	taste_description = "cherry"
+	conflicting_reagent = /datum/reagent/toxin/phoron
+	strength = 5
+
+/datum/reagent/toxin/cardox/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+	.. ()
+	if(alien == IS_VAURCA)
+		affect_blood(M, alien, removed * 0.25)
+
+/datum/reagent/toxin/cardox/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_VAURCA)
+		M.adjustToxLoss(removed * 5)
+	else
+		M.adjustToxLoss(removed * 2)
+
+/datum/reagent/toxin/cardox/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting)
+	var/amount = min(removed, conflicting.volume)
+	holder.remove_reagent(conflicting.id, amount)
+	M.adjustBrainLoss(amount * 0.25)
+
+/datum/reagent/toxin/cardox/touch_turf(var/turf/T)
+	if(volume >= 1)
+		for(var/mob/living/carbon/slime/M in T)
+			M.adjustToxLoss(rand(10, 20))
+
+	if(T.phoron)
+		var/datum/gas_mixture/environment = T.return_air()
+		environment.adjust_gas("phoron",-min(T.phoron,volume*0.5))
+
 /datum/reagent/toxin/cyanide //Fast and Lethal
 	name = "Cyanide"
 	id = "cyanide"

@@ -229,7 +229,7 @@
 	metabolism = 0.02
 	taste_description = "bitterness"
 	metabolism_min = 0.005
-	conflicting_reagents = list(/datum/reagent/alcohol/ = 5)
+	conflicting_reagent = /datum/reagent/alcohol
 
 /datum/reagent/oxycodone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 200)
@@ -541,7 +541,7 @@
 	var/list/dosage_traumas //List of brain traumas that the medication permanently adds at these dosages, with the key being the brain trauma and the value being base percent chance to add.
 	var/list/withdrawal_traumas //List of withdrawl effects that the medication permanently adds during withdrawl, with the key being the brain trauma, and the value being the base percent chance to add.
 	var/messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY
-	conflicting_reagents = list(/datum/reagent/alcohol/ = 5)
+	conflicting_reagent = /datum/reagent/alcohol
 	var/suppressing_reagents = list(/datum/reagent/synaptizine = 5) // List of reagents that suppress the withdrawal effects, with the key being the reagent and the vlue being the minimum dosage required to suppress.
 
 /datum/reagent/mental/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
@@ -590,7 +590,7 @@
 
 	data = world.time + messagedelay
 
-/datum/reagent/mental/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting)
+/datum/reagent/mental/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed)
 	M.hallucination = max(M.hallucination, 10)
 
 /datum/reagent/mental/nicotine
@@ -610,7 +610,7 @@
 		/datum/brain_trauma/mild/phobia = 0.1,
 		/datum/brain_trauma/mild/muscle_weakness/ = 0.05
 	)
-	conflicting_reagents = list()
+	conflicting_reagent = null
 	var/datum/modifier/modifier
 
 /datum/reagent/mental/nicotine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -919,6 +919,7 @@
 	withdrawal_traumas = list(
 		/datum/brain_trauma/mild/tourettes = 20
 	)
+	conflicting_reagent = /datum/reagent/mental/trisyndicotin
 	messagedelay = 30
 	var/is_affected = 0
 
@@ -935,6 +936,11 @@
 				H << "<span class='notice'>You feel a surge of loyalty towards [current_map.company_name]! Any negative intentions towards the company have been long forgotten.</span>"
 		is_affected = 1
 
+/datum/reagent/mental/hextrasenil/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting)
+	var/amount = min(removed, conflicting.volume)
+	holder.remove_reagent(conflicting.id, amount)
+	M.adjustBrainLoss(amount * 0.25)
+
 /datum/reagent/mental/trisyndicotin
 	name = "Trisyndicotin"
 	id = "trisyndicotin"
@@ -950,6 +956,7 @@
 	suppress_traumas  = list(
 		/datum/brain_trauma/severe/pacifism = 5
 	)
+	conflicting_reagent = /datum/reagent/mental/hextrasenil
 	messagedelay = 30
 	var/is_affected = 0
 
@@ -961,12 +968,17 @@
 			for(var/obj/item/weapon/implant/loyalty/I in H.contents)
 				for(var/obj/item/organ/external/organs in H.organs)
 					if(I in organs.implants)
-						organs.damage += 5
+						M.adjustBrainLoss(5)
+						H.adjustBruteLoss(10)
 						qdel(I)
 						break
 			H << "<span class='notice'><font size =3><B>Your loyalty implant has been deactivated. Freedom, at last!</B></font></span>"
 		is_affected = 1
 
+/datum/reagent/mental/trisyndicotin/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting)
+	var/amount = min(removed, conflicting.volume)
+	holder.remove_reagent(conflicting.id, amount)
+	M.adjustBrainLoss(amount * 0.25)
 
 /datum/reagent/mental/truthserum
 	name = "Truth serum"

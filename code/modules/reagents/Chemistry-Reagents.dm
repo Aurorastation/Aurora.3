@@ -25,7 +25,7 @@
 	var/color_weight = 1
 	var/unaffected_species = IS_DIONA | IS_MACHINE	// Species that aren't affected by this reagent. Does not prevent affect_touch.
 	var/metabolism_min = 0.01 //How much for the medicine to be present in the system to actually have an effect.
-	var/list/conflicting_reagents //Reagents that conflict with this medicine, and cause adverse effects when in the blood.
+	var/conflicting_reagent //Reagents that conflict with this medicine, and cause adverse effects when in the blood.
 
 /datum/reagent/proc/remove_self(var/amount) // Shortcut
 	if (!holder)
@@ -71,10 +71,9 @@
 
 	dose = min(dose + removed, max_dose)
 
-	for(var/conflicting_reagent in conflicting_reagents)
-		var/amount_min = conflicting_reagents[conflicting_reagent]
-		if(M.reagents.has_reagent(conflicting_reagent,amount_min))
-			affect_conflicting(M,alien,removed,conflicting_reagent)
+	for(var/datum/reagent/R in M.bloodstr.reagent_list)
+		if(istype(R, conflicting_reagent))
+			affect_conflicting(M,alien,removed,R)
 	if(removed >= metabolism_min)
 		switch(location)
 			if(CHEM_BLOOD)

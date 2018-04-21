@@ -81,7 +81,6 @@
 		new /obj/item/weapon/implantcase/loyalty(src)
 		new /obj/item/weapon/implanter/loyalty(src)
 
-
 /obj/item/weapon/storage/lockbox/clusterbang
 	name = "lockbox of clusterbangs"
 	desc = "You have a bad feeling about opening this."
@@ -126,3 +125,15 @@
 	new /obj/item/clothing/accessory/medal/silver/valor(src)
 	new /obj/item/clothing/accessory/medal/silver/security(src)
 	new /obj/item/clothing/accessory/medal/silver/security(src)
+
+/obj/item/weapon/storage/lockbox/hextrasenil
+	name = "Hextrasenil lockbox"
+	desc = "A high security lockbox containing special mind-altering medication."
+	req_access = list(access_heads)
+
+	New()
+		..()
+		new /obj/item/weapon/storage/pill_bottle/hextrasenil(src)
+		new /obj/item/weapon/storage/pill_bottle/hextrasenil(src)
+		new /obj/item/weapon/storage/pill_bottle/hextrasenil(src)
+		new /obj/item/weapon/storage/pill_bottle/hextrasenil(src)

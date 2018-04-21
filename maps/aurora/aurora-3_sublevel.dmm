@@ -9454,6 +9454,16 @@
 	},
 /area/mine/unexplored)
 "qO" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/lockbox/hextrasenil,
+/obj/machinery/door/window{
+	base_state = "left";
+	dir = 4;
+	icon_state = "left";
+	name = "Emergency Supplies";
+	req_access = list(16)
+	},
+/obj/item/weapon/storage/lockbox/loyalty,
 /turf/simulated/floor/reinforced,
 /area/security/nuke_storage)
 "qP" = (
@@ -27067,15 +27077,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/outpost/research/eva)
-"VU" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/outpost/research/eva)
 "VV" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -27113,15 +27114,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/outpost/research/eva)
-"VY" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 8
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/outpost/research/eva)
 "VZ" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -27137,16 +27129,6 @@
 	dir = 9
 	},
 /obj/machinery/mech_recharger,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/outpost/research/eva)
-"Wb" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/structure/table/steel,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -45598,7 +45580,7 @@ aa
 ac
 ac
 ac
-Wb
+Wc
 ym
 AF
 Bc
@@ -46110,7 +46092,7 @@ ac
 ac
 ac
 VS
-VY
+VZ
 VZ
 Wd
 ym
@@ -46623,7 +46605,7 @@ ac
 ac
 ac
 ac
-VU
+VW
 yn
 yJ
 zv
