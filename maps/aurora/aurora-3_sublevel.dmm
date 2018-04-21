@@ -9461,9 +9461,13 @@
 	dir = 4;
 	icon_state = "left";
 	name = "Emergency Supplies";
-	req_access = list(16)
+	req_access = list(19)
 	},
 /obj/item/weapon/storage/lockbox/loyalty,
+/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner,
+/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner,
+/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner,
+/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner,
 /turf/simulated/floor/reinforced,
 /area/security/nuke_storage)
 "qP" = (

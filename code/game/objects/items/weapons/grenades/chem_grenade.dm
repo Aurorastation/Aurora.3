@@ -184,7 +184,7 @@
 		invisibility = INVISIBILITY_MAXIMUM //Why am i doing this?
 		//To make sure all reagents can work
 		//correctly before deleting the grenade.
-		QDEL_IN(src, 50)  
+		QDEL_IN(src, 50)
 
 /obj/item/weapon/grenade/chem_grenade/large
 	name = "large chem grenade"
@@ -283,6 +283,7 @@
 		beakers += B1
 		beakers += B2
 		icon_state = initial(icon_state) +"_locked"
+
 /obj/item/weapon/grenade/chem_grenade/cleaner
 	name = "cleaner grenade"
 	desc = "BLAM!-brand foaming space cleaner. In a special applicator for rapid cleaning of wide areas."
@@ -297,6 +298,29 @@
 		B1.reagents.add_reagent("surfactant", 40)
 		B2.reagents.add_reagent("water", 40)
 		B2.reagents.add_reagent("cleaner", 10)
+
+		detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
+
+		beakers += B1
+		beakers += B2
+		icon_state = initial(icon_state) +"_locked"
+
+/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner
+	name = "cardox grenade"
+	desc = "A very expensive large grenade filled with cardox. Removes phoron from the air. WARNING: HAZARDOUS TO VAURCA."
+	stage = 2
+	path = 1
+
+	Initialize()
+		. = ..()
+		var/obj/item/weapon/reagent_containers/glass/beaker/large/B1 = new(src)
+		var/obj/item/weapon/reagent_containers/glass/beaker/large/B2 = new(src)
+
+		B1.reagents.add_reagent("phosphorus", 40)
+		B1.reagents.add_reagent("potassium", 40)
+		B1.reagents.add_reagent("cardox", 40)
+		B2.reagents.add_reagent("sugar", 40)
+		B2.reagents.add_reagent("cardox", 80)
 
 		detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 

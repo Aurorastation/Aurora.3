@@ -127,7 +127,7 @@
 	new /obj/item/clothing/accessory/medal/silver/security(src)
 
 /obj/item/weapon/storage/lockbox/hextrasenil
-	name = "Hextrasenil lockbox"
+	name = "hextrasenil lockbox"
 	desc = "A high security lockbox containing special mind-altering medication."
 	req_access = list(access_heads)
 
