@@ -104,28 +104,28 @@
 	if(!priv_all_access)
 		priv_all_access = get_access_ids()
 
-	return priv_all_access
+	return priv_all_access.Copy()
 
 /var/list/priv_station_access
 /proc/get_all_station_access()
 	if(!priv_station_access)
 		priv_station_access = get_access_ids(ACCESS_TYPE_STATION)
 
-	return priv_station_access
+	return priv_station_access.Copy()
 
 /var/list/priv_centcom_access
 /proc/get_all_centcom_access()
 	if(!priv_centcom_access)
 		priv_centcom_access = get_access_ids(ACCESS_TYPE_CENTCOM)
 
-	return priv_centcom_access
+	return priv_centcom_access.Copy()
 
 /var/list/priv_syndicate_access
 /proc/get_all_syndicate_access()
 	if(!priv_syndicate_access)
 		priv_syndicate_access = get_access_ids(ACCESS_TYPE_SYNDICATE)
 
-	return priv_syndicate_access
+	return priv_syndicate_access.Copy()
 
 /var/list/priv_region_access
 /proc/get_region_accesses(var/code)

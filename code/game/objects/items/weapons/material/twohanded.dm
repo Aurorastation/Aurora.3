@@ -245,6 +245,7 @@
 		MA.layer = FLOAT_LAYER
 		HS.add_overlay(MA)
 		HS.name = "[I.name] on a spear"
+		HS.material = material.name
 		qdel(src)
 		return
 
@@ -299,10 +300,11 @@
 	icon_state = "headspear"
 	density = 0
 	anchored = 1
+	var/material = "glass"
 
 /obj/structure/headspear/attack_hand(mob/living/user)
 	user.visible_message("<span class='warning'>[user] kicks over \the [src]!</span>", "<span class='danger'>You kick down \the [src]!</span>")
-	new /obj/item/weapon/material/twohanded/spear(user.loc)
+	new /obj/item/weapon/material/twohanded/spear(user.loc, material)
 	for(var/obj/item/organ/external/head/H in src)
 		H.loc = user.loc
 	qdel(src)

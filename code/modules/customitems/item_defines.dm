@@ -486,6 +486,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	body_parts_covered = null
 	fingerprint_chance = 100
 
+
 /obj/item/clothing/under/dress/fluff/sayyidah_dress //Traditional Jumper Dress - Sayyidah Al-Kateb - alberyk
 	name = "traditional jumper dress"
 	desc = "A light summer-time dress, decorated neatly with black and silver colors, it seems to be rather old."
@@ -1574,7 +1575,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/suit/storage/toggle/fluff/blessing_jacket //Armored Detective Jacket - Nelson Blessing - seniorscore
+/obj/item/clothing/suit/storage/toggle/det_trench/fluff/blessing_jacket //Armored Detective Jacket - Nelson Blessing - seniorscore
 	name = "armored detective jacket"
 	desc = "A white suit jacket, has a badge hanging out of a breast pocket. Touching it gives a feeling of working on a case for months."
 	icon = 'icons/obj/custom_items/blessing_jacket.dmi'
@@ -1877,3 +1878,62 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A version of the security thigh holster done up in tan leather - this one appears to have the word \"Rifler\" engraved down the side. It appears to be rather well made and hard wearing; more of a worker's holster than a show piece."
 	icon = 'icons/obj/custom_items/rifler_holster.dmi'
 	icon_state = "rifler_holster"
+
+
+/obj/item/weapon/storage/backpack/satchel/fluff/xerius_bag //Tote Bag - Shiur'izzi Xerius - nursiekitty
+	name = "tote bag"
+	desc = "A sackcloth bag with an image of Moghes printed onto it. Floating above the planet are the words \"Save Moghes!\"."
+	icon = 'icons/obj/custom_items/xerius_bag.dmi'
+	icon_state = "xerius_bag"
+	item_state = "xerius_bag"
+	contained_sprite = TRUE
+
+
+/obj/item/weapon/flame/lighter/zippo/fluff/moretti_zippo //Moretti's Zippo - Billy Moretti - lordbalkara
+	desc = "A dark zippo with a cool blue flame. Nice."
+	icon = 'icons/obj/custom_items/moretti_zippo.dmi'
+	icon_state = "moretti_zippo"
+	item_state = "moretti_zippo"
+	contained_sprite = TRUE
+	light_color = LIGHT_COLOR_BLUE
+
+
+obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.K.E - toasterstrudes
+	name = "raincoat poncho"
+	desc = "A tough brown hooded poncho that looks to be good at protecting someone from the rain."
+	icon = 'icons/obj/custom_items/make_items.dmi'
+	icon_state = "make_poncho"
+	item_state = "make_poncho"
+	contained_sprite = TRUE
+	hoodtype = /obj/item/clothing/head/winterhood/fluff/make_hood
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+
+/obj/item/clothing/head/winterhood/fluff/make_hood
+	flags_inv = HIDEEARS
+
+
+/obj/item/clothing/under/fluff/aegis_uniform //Hephaestus Experimental Projector - Sovereign Aegis - itanimulli
+	name = "Hephaestus experimental projector"
+	desc = "An odd device connected to a security uniform, apparently still in the prototype stage."
+	icon = 'icons/obj/custom_items/aegis_uniform.dmi'
+	icon_state = "aegis_uniform"
+	item_state = "aegis_uniform"
+	contained_sprite = TRUE
+	species_restricted = list("Heavy Machine")
+
+
+/obj/item/clothing/suit/chef/fluff/fakhr_coat //Royal Cooking Coat - Fakhr Al-Kandari - lordraven001
+	name = "royal cooking coat"
+	desc = "A royal cooking niform, it has gilded buttons on its cuffs and officer ranking epaulets don its shoulders."
+	icon = 'icons/obj/custom_items/fakhr_items.dmi'
+	icon_state = "fakhr_coat"
+	item_state = "fakhr_coat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/chefhat/fluff/fakhr_hat //Royal Toque Blanche - Fakhr Al-Kandari - lordraven001
+	name = "royal toque blanche"
+	desc = "A white toque blanche, There are gilded fabrics sewn into the top of it and a name in traditional Tajaran dialect \"Fakhr\"."
+	icon = 'icons/obj/custom_items/fakhr_items.dmi'
+	icon_state = "fakhr_hat"
+	item_state = "fakhr_hat"
+	contained_sprite = TRUE

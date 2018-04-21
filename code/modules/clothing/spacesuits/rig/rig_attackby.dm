@@ -169,6 +169,16 @@
 					installed_modules -= removed
 					update_icon()
 
+		else if(istype(W,/obj/item/stack/nanopaste)) //EMP repair
+			var/obj/item/stack/S = W
+			if(malfunctioning || malfunction_delay)
+				if(S.use(1))
+					to_chat(user, "You pour some of \the [S] over \the [src]'s control circuitry.")
+					malfunctioning = 0
+					malfunction_delay = 0
+				else
+					to_chat(user, "\The [S] is empty!")
+
 		return
 
 	// If we've gotten this far, all we have left to do before we pass off to root procs

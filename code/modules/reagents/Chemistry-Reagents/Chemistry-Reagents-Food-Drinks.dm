@@ -58,12 +58,22 @@
 	taste_mult = 4
 	reagent_state = SOLID
 	metabolism = REM * 4
-	var/nutriment_factor = 12 // Per unit
+	var/nutriment_factor = 12 // Per removed in digest.
 	var/blood_factor = 6
 	var/regen_factor = 0.8
 	var/injectable = 0
+	var/attrition_factor = -(REM * 4)/BASE_MAX_NUTRITION // Decreases attrition rate.
 	color = "#664330"
 	unaffected_species = IS_MACHINE
+	taste_description = "food"
+
+/datum/reagent/nutriment/synthetic
+	name = "Synthetic Nutriment"
+	id = "synnutriment"
+	description = "A cheaper alternative to actual nutriment."
+	taste_description = "cheap food"
+	nutriment_factor = 10
+	attrition_factor = (REM * 4)/BASE_MAX_NUTRITION // Increases attrition rate.
 
 /datum/reagent/nutriment/mix_data(var/list/newdata, var/newamount)
 	if(!islist(newdata) || !newdata.len)
@@ -101,6 +111,7 @@
 /datum/reagent/nutriment/proc/digest(var/mob/living/carbon/M, var/removed)
 	M.heal_organ_damage(regen_factor * removed, 0)
 	M.nutrition += nutriment_factor * removed // For hunger and fatness
+	M.nutrition_attrition_rate = Clamp(M.nutrition_attrition_rate + attrition_factor, 1, 2)
 	M.add_chemical_effect(CE_BLOODRESTORE, blood_factor * removed)
 
 
@@ -1329,6 +1340,19 @@
 	glass_icon_state = "dr_gibb_glass"
 	glass_name = "glass of Dr. Gibb"
 	glass_desc = "Dr. Gibb. Not as dangerous as the name might imply."
+
+/datum/reagent/drink/root_beer
+	name = "R&D Root Beer"
+	id = "root_beer"
+	description = "A classic Earth drink from the United Americas province."
+	color = "#211100"
+	adj_drowsy = -6
+	adj_temp = -5
+	taste_description = "sassafras and anise soda"
+
+	glass_icon_state = "root_beer_glass"
+	glass_name = "glass of R&D Root Beer"
+	glass_desc = "A glass of bubbly R&D Root Beer."
 
 /datum/reagent/drink/space_up
 	name = "Space-Up"
@@ -3532,58 +3556,3 @@
 	glass_icon_state = "crocodile_glass"
 	glass_name = "glass of Crocodile Guwan"
 	glass_desc = "The smell says no, but the pretty colors say yes."
-  
-//Preservatives
-
-/datum/reagent/nutriment/badfood //This is just a base. It shouldn't exist or be used anywhere but just in case, I added names.
-	name = "Experimental Preservative"
-	id = "badfood"
-	description = "Some... strange chemical. You can swear it's moving."
-	nutriment_factor = 50
-	color = "#000000"
-	taste_description = "liquid heart attack"
-	metabolism = REM * 1 //Metabolises slower
-	var/damagemul = 0.5 //How much damage to deal to the heart per unit digested
-
-/datum/reagent/nutriment/badfood/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
-	if(istype(M))
-		var/obj/item/organ/F = M.internal_organs_by_name["heart"]
-		if(istype(F))
-			F.take_damage(removed * damagemul,1)
-	..()
-
-/datum/reagent/nutriment/badfood/palmoil
-	name = "Palm Oil"
-	id = "palmoil"
-	description = "Palm oil is a common preservative used in packaged food, and is seriously unhealthy for you much like everything on this station."
-	nutriment_factor = 30
-	color = "#f4ce42"
-	taste_description = "oily fat"
-	damagemul = 0.15
-
-/datum/reagent/nutriment/badfood/shortening
-	name = "Shortening"
-	id = "shortening"
-	description = "Shortening, also known as hydrogenated vegetable oil, is a preservative commonly used in packaged food. Usually made from vegetables."
-	nutriment_factor = 20
-	color = "#e2d4c9"
-	taste_description = "greasy fat"
-	damagemul = 0.05
-
-/datum/reagent/nutriment/badfood/hfcs
-	name = "High Fructose Corn Syrup"
-	id = "hfcs"
-	description = "A cheap, easy to produce, unhealthy alternative to real sugar."
-	nutriment_factor = 20
-	color = "#c66119"
-	taste_description = "sweetness"
-	damagemul = 0.1
-
-/datum/reagent/nutriment/badfood/msg
-	name = "Monosodium Glutamate"
-	id = "msg"
-	description = "Monosodium glutamate, also known as MSG, is a cheap flavor enhancer similiar to sodium. Causes chinese restaurant syndrome."
-	nutriment_factor = 5
-	color = "#eaf1fc"
-	taste_description = "flavoring"
-	damagemul = 0.05

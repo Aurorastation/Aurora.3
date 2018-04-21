@@ -55,6 +55,7 @@
 
 /mob/living/simple_animal/hostile/faithless/cult
 	faction = "cult"
+	appearance_flags = NO_CLIENT_COLOR
 
 /mob/living/simple_animal/hostile/faithless/cult/cultify()
 	return

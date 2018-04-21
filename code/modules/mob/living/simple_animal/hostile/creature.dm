@@ -32,6 +32,7 @@
 	minbodytemp = 0
 
 	supernatural = 1
+	appearance_flags = NO_CLIENT_COLOR
 
 /mob/living/simple_animal/hostile/creature/cult/cultify()
 	return

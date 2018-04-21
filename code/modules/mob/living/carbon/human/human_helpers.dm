@@ -135,6 +135,12 @@
 						LAZYINITLIST(O.temporary_markings)
 						O.temporary_markings[M] = attr
 
+/mob/living/carbon/human/proc/sync_trait_prefs_to_mob(datum/preferences/prefs)
+	var/list/traits = prefs.disabilities
+	for(var/M in traits)
+		var/datum/character_disabilities/trait = chargen_disabilities_list[M]
+		trait.apply_self(src)
+
 // Helper proc that grabs whatever organ this humantype uses to see.
 // Usually eyes, but can be something else.
 // If `no_synthetic` is TRUE, returns null for mobs that are mechanical, or for mechanical eyes.

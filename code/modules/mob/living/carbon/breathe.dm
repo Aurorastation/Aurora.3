@@ -5,6 +5,16 @@
 	if(SSair.times_fired%4==2 || failed_last_breath || (health < config.health_threshold_crit)) 	//First, resolve location and get a breath
 		breathe()
 
+/mob/living/carbon/proc/inhale(var/datum/reagents/from, var/datum/reagents/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
+
+	if(species && (species.flags & NO_BREATHE)) //Check for species
+		return 0
+
+	if (contents.Find(internal) && wear_mask && (wear_mask.item_flags & AIRTIGHT)) //Check for internals
+		return 0
+
+	return from.trans_to_holder(target,amount,multiplier,copy) //complete transfer
+
 /mob/living/carbon/proc/breathe()
 	//if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell)) return
 	if(species && (species.flags & NO_BREATHE)) return
@@ -73,9 +83,11 @@
 	for(var/obj/effect/effect/smoke/chem/smoke in view(1, src))
 		if(smoke.reagents.total_volume)
 			smoke.reagents.trans_to_mob(src, 5, CHEM_INGEST, copy = 1)
-			smoke.reagents.trans_to_mob(src, 5, CHEM_BLOOD, copy = 1)
+			smoke.reagents.trans_to_mob(src, 5, CHEM_TOUCH, copy = 1)
+			smoke.reagents.trans_to_mob(src, 5, CHEM_BREATHE, copy = 1)
 			// I dunno, maybe the reagents enter the blood stream through the lungs?
-			break // If they breathe in the nasty stuff once, no need to continue checking
+			// ^ HA HA HA HA
+			break
 
 /mob/living/carbon/proc/handle_breath(datum/gas_mixture/breath)
 	return
