@@ -104,12 +104,16 @@ var/list/REVERSE_LIGHTING_CORNER_DIAGONAL = list(0, 0, 0, 0, 3, 4, 0, 0, 2, 1)
 
 // God that was a mess, now to do the rest of the corner code! Hooray!
 /datum/lighting_corner/proc/update_lumcount(delta_r, delta_g, delta_b, delta_u, now = FALSE)
+	if (!(delta_r + delta_g + delta_b))	// Don't check u since the overlay doesn't care about it.
+		return
+
 	lum_r += delta_r
 	lum_g += delta_g
 	lum_b += delta_b
 	lum_u += delta_u
 
-	if (needs_update || !(delta_r + delta_g + delta_b))	// Don't check u since the overlay doesn't care about it.
+	// This needs to be down here instead of the above if so the lum values are properly updated.
+	if (needs_update)
 		return
 
 	if (!now)
