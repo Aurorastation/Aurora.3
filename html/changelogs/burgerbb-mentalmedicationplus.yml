@@ -1,0 +1,7 @@
+author: BurgerBB
+
+delete-after: True
+
+changes: 
+  - tweak: "Tweaked the metabolism rate of mental medication to reflext their intended values. Reduced the dosage threshhold to supress traumas to reflect their intended values."
+  - tweak: "Syringe (drugs) now contains truth serum."
