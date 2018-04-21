@@ -16,6 +16,10 @@
 // If defined, instant updates will be used whenever server load permits. Otherwise queued updates are always used.
 #define USE_INTELLIGENT_LIGHTING_UPDATES
 
+#define TURF_IS_DYNAMICALLY_LIT(T) (isturf(T) && T:dynamic_lighting && T:loc:dynamic_lighting)
+// mostly identical to above, but doesn't make sure T is valid first. Should only be used by lighting code.
+#define TURF_IS_DYNAMICALLY_LIT_UNSAFE(T) (T:dynamic_lighting && T:loc:dynamic_lighting)
+
 // If I were you I'd leave this alone.
 #define LIGHTING_BASE_MATRIX \
 	list            \

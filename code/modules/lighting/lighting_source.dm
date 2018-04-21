@@ -366,7 +366,7 @@
 			if ((PSEUDO_WEDGE(limit_a_x, limit_a_y, test_x, test_y) > 0) || (PSEUDO_WEDGE(test_x, test_y, limit_b_x, limit_b_y) > 0))
 				continue
 
-		if (T.dynamic_lighting || T.light_sources)
+		if (TURF_IS_DYNAMICALLY_LIT_UNSAFE(T) || T.light_sources)
 			Tcorners = T.corners
 			if (!T.lighting_corners_initialised)
 				T.lighting_corners_initialised = TRUE
