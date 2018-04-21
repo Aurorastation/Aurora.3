@@ -129,10 +129,11 @@ var/list/REVERSE_LIGHTING_CORNER_DIAGONAL = list(0, 0, 0, 0, 3, 4, 0, 0, 2, 1)
 		} \
 	}
 
+
 #define AVERAGE_BELOW_CORNER(Tt, Ti) \
 	if (TURF_IS_MIMICING(Tt)) { \
-		T = get_step(Tt, DOWN); \
-		if (T.corners && TURF_IS_DYNAMICALLY_LIT(T)) { \
+		T = GET_BELOW(Tt); \
+		if (T && T.corners && TURF_IS_DYNAMICALLY_LIT_UNSAFE(T)) { \
 			C = T.corners[Ti]; \
 			if (C) { \
 				divisor += 1; \
@@ -143,10 +144,26 @@ var/list/REVERSE_LIGHTING_CORNER_DIAGONAL = list(0, 0, 0, 0, 3, 4, 0, 0, 2, 1)
 		} \
 	}
 
+#define UPDATE_ABOVE_CORNER(Tt, Ti) \
+	if (Tt) { \
+		T = GET_ABOVE(Tt); \
+		if (TURF_IS_MIMICING(T) && TURF_IS_DYNAMICALLY_LIT_UNSAFE(T)) { \
+			if (!T.corners) { \
+				T.generate_missing_corners(); \
+			} \
+			C = T.corners[Ti]; \
+			if (C && !C.needs_update) { \
+				C.update_overlays(FALSE); \
+			} \
+		} \
+	}
+
 /datum/lighting_corner/proc/update_overlays(now = FALSE)
 	var/lr = lum_r
 	var/lg = lum_g
 	var/lb = lum_b
+
+#ifdef USE_CORNER_ZBLEED
 
 	var/divisor = 1
 	var/datum/lighting_corner/C
@@ -162,6 +179,8 @@ var/list/REVERSE_LIGHTING_CORNER_DIAGONAL = list(0, 0, 0, 0, 3, 4, 0, 0, 2, 1)
 		lg /= divisor
 		lb /= divisor
 
+#endif
+
 	// Cache these values a head of time so 4 individual lighting overlays don't all calculate them individually.
 	var/mx = max(lr, lg, lb) // Scale it so 1 is the strongest lum, if it is above 1.
 	. = 1 // factor
@@ -171,9 +190,13 @@ var/list/REVERSE_LIGHTING_CORNER_DIAGONAL = list(0, 0, 0, 0, 3, 4, 0, 0, 2, 1)
 	else if (mx < LIGHTING_SOFT_THRESHOLD)
 		. = 0 // 0 means soft lighting.
 
-	cache_r  = round(lr * ., LIGHTING_ROUND_VALUE) || LIGHTING_SOFT_THRESHOLD
-	cache_g  = round(lg * ., LIGHTING_ROUND_VALUE) || LIGHTING_SOFT_THRESHOLD
-	cache_b  = round(lb * ., LIGHTING_ROUND_VALUE) || LIGHTING_SOFT_THRESHOLD
+	if (.)
+		cache_r = round(lr * ., LIGHTING_ROUND_VALUE) || LIGHTING_SOFT_THRESHOLD
+		cache_g = round(lg * ., LIGHTING_ROUND_VALUE) || LIGHTING_SOFT_THRESHOLD
+		cache_b = round(lb * ., LIGHTING_ROUND_VALUE) || LIGHTING_SOFT_THRESHOLD
+	else
+		cache_r = cache_g = cache_b = LIGHTING_SOFT_THRESHOLD
+
 	cache_mx = round(mx, LIGHTING_ROUND_VALUE)
 
 	UPDATE_MASTER(t1)
@@ -181,8 +204,18 @@ var/list/REVERSE_LIGHTING_CORNER_DIAGONAL = list(0, 0, 0, 0, 3, 4, 0, 0, 2, 1)
 	UPDATE_MASTER(t3)
 	UPDATE_MASTER(t4)
 
+#ifdef USE_CORNER_ZBLEED
+
+	UPDATE_ABOVE_CORNER(t1, t1i)
+	UPDATE_ABOVE_CORNER(t2, t2i)
+	UPDATE_ABOVE_CORNER(t3, t3i)
+	UPDATE_ABOVE_CORNER(t4, t4i)
+
+#endif
+
 #undef UPDATE_MASTER
 #undef AVERAGE_BELOW_CORNER
+#undef UPDATE_ABOVE_CORNER
 
 /datum/lighting_corner/Destroy(force = FALSE)
 	crash_with("Some fuck [force ? "force-" : ""]deleted a lighting corner.")
