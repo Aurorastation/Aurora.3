@@ -260,10 +260,10 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 //And also for generating random loot crates in crates.dm
 #define TOTAL_STOCK 	100//The total number of items we'll spawn in cargo stock
 
-#define STOCK_UNCOMMON_PROB	25
+#define STOCK_UNCOMMON_PROB	23
 //The probability, as a percentage for each item, that we'll choose from the uncommon spawns list
 
-#define STOCK_RARE_PROB	5
+#define STOCK_RARE_PROB	2.8
 //The probability, as a percentage for each item, that we'll choose from the rare spawns list
 
 //If an item is not rare or uncommon, it will be chosen from the common spawns list.

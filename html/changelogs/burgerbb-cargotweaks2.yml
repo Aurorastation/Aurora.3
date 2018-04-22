@@ -3,5 +3,5 @@ author: BurgerBB
 delete-after: True
 
 changes: 
-  - balance: "Removed some useless items in cargo's warehouse. Reduced the chance of getting arcade loot in the warehouse."
-  - balance: "Increased the amount of loot in the warehouse from 80 to 100. Increased the uncommon loot chance from 23% to 25%. Increased the rare loot chance from 2.8% to 5%."
+  - balance: "Removed some useless item spawns in cargo's warehouse. Reduced the chance of getting arcade loot in the warehouse."
+  - balance: "Increased the amount of loot in the warehouse from 80 to 100."
