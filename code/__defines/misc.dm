@@ -258,18 +258,16 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 //Cargo random stock vars
 //These are used in randomstock.dm
 //And also for generating random loot crates in crates.dm
-#define TOTAL_STOCK 	80//The total number of items we'll spawn in cargo stock
+#define TOTAL_STOCK 	100//The total number of items we'll spawn in cargo stock
 
-
-#define STOCK_UNCOMMON_PROB	23
+#define STOCK_UNCOMMON_PROB	25
 //The probability, as a percentage for each item, that we'll choose from the uncommon spawns list
 
-#define STOCK_RARE_PROB	2.8
+#define STOCK_RARE_PROB	5
 //The probability, as a percentage for each item, that we'll choose from the rare spawns list
 
 //If an item is not rare or uncommon, it will be chosen from the common spawns list.
 //So the probability of a common item is 100 - (uncommon + rare)
-
 
 #define STOCK_LARGE_PROB	75
 //Large items are spawned on predetermined locations.
