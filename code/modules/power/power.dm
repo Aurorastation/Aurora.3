@@ -357,6 +357,8 @@
 	if(H)
 		if(H.species.siemens_coefficient == 0)
 			return
+		if(isvaurca(H))
+			return
 		if(H.gloves && contact_zone == "hand")
 			var/obj/item/clothing/gloves/G = H.gloves
 			if(G.siemens_coefficient == 0)	return 0		//to avoid spamming with insulated glvoes on
