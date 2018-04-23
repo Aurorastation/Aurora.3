@@ -895,10 +895,10 @@
 		/datum/reagent/mental/escitalopram = 20
 	)
 
-/datum/reagent/mental/hextrasenil
-	name = "Hextrasenil"
-	id = "hextrasenil"
-	description = "Hextrasenil is a super-strength, fast-metabolizing, expensive antipsychotic medication intended for the use in criminal rehabilitation that treats tourettes, schizophrenia, hallucinations, and loyalty issues. Side effects include distractedness and listlessness. Withdrawl effects include increased aggression and paranoia."
+/datum/reagent/mental/Rocriodide
+	name = "Rocriodide"
+	id = "rocriodide"
+	description = "Rocriodide is a super-strength, fast-metabolizing, expensive antipsychotic medication intended for the use in criminal rehabilitation that treats tourettes, schizophrenia, hallucinations, and loyalty issues. Side effects include distractedness and listlessness. Withdrawl effects include increased aggression and paranoia."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.04 //Not meant to last a long time.
@@ -917,10 +917,10 @@
 	)
 	withdrawal_traumas = list()
 
-/datum/reagent/mental/trisyndicotin
-	name = "Trisyndicotin"
-	id = "trisyndicotin"
-	description = "Trisyndicotin is a super-strength, expensive antipsychotic medication intended for the use in interrogation. Side effects include hostility and disrespect for authority."
+/datum/reagent/mental/Qospivanadate
+	name = "Qospivanadate"
+	id = "qospivanadate"
+	description = "Qospivanadate is a super-strength, expensive antipsychotic medication intended for the use in interrogation. Side effects include hostility and disrespect for authority."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.03

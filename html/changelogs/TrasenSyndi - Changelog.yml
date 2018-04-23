@@ -34,4 +34,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Hextrasenil and Trisyndicotin no longer have effects tied to Nanotrasen loyalty, and have become more general purpose."
+  - tweak: "Hextrasenil and Trisyndicotin no longer have effects tied to Nanotrasen loyalty, and have become more general purpose aggression medications with different, non-memey names that you will never be able to pronounce."

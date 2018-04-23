@@ -171,21 +171,21 @@
 		. = ..()
 		reagents.add_reagent("escitalopram", 15)
 		
-/obj/item/weapon/reagent_containers/pill/hextrasenil
-	name = "Hextrasenil pill"
+/obj/item/weapon/reagent_containers/pill/Rocriodide
+	name = "Rocriodide pill"
 	desc = "Don't forget to take your pills."
 	icon_state = "pill6"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("hextrasenil", 30)
+		reagents.add_reagent("Rocriodide", 30)
 		
-/obj/item/weapon/reagent_containers/pill/trisyndicotin
-	name = "Trisyndicotin pill"
+/obj/item/weapon/reagent_containers/pill/Qospivanadate
+	name = "Qospivanadate pill"
 	desc = "For when you need a little convincing."
 	icon_state = "pill4"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("trisyndicotin", 30)
+		reagents.add_reagent("Qospivanadate", 30)
 
 /obj/item/weapon/reagent_containers/pill/inaprovaline
 	name = "Inaprovaline pill"
