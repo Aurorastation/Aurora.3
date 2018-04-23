@@ -67,7 +67,7 @@
 /*
  * Detective
  */
- 
+
 /obj/item/clothing/under/det
 	name = "hard-worn suit"
 	desc = "Someone who wears this means business."
@@ -85,7 +85,7 @@
 /obj/item/clothing/under/det/slob
 	icon_state = "polsuit"
 	worn_state = "polsuit"
-	
+
 /obj/item/clothing/under/det/forensics
 	name = "forensics technician's uniform"
 	desc = "A tan service uniform worn by a forensics officer."

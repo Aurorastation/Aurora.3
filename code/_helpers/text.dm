@@ -445,6 +445,7 @@ proc/TextPreview(var/string,var/len=40)
 	t = replacetext(t, "\[row\]", "</td><tr>")
 	t = replacetext(t, "\[cell\]", "<td>")
 	t = replacetext(t, "\[logo\]", "<img src = ntlogo.png>")
+	t = replacetext(t, "\[logo_eridani\]", "<img src = eridanilogo.png>")
 	t = replacetext(t, "\[barcode\]", "<img src = barcode[rand(0, 3)].png>")
 	t = replacetext(t, "\[time\]", "[worldtime2text()]")
 	t = replacetext(t, "\[date\]", "[worlddate2text()]")
@@ -470,7 +471,7 @@ proc/TextPreview(var/string,var/len=40)
 	var/next_backslash = findtext(string, "\\")
 	if(!next_backslash)
 		return string
-	
+
 	var/leng = length(string)
 
 	var/next_space = findtext(string, " ", next_backslash + 1)

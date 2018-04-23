@@ -15,6 +15,7 @@ var/const/INTERN_SEC		=(1<<10)
 var/const/INTERN_ENG		=(1<<11)
 var/const/FORENSICS			=(1<<12)
 var/const/JANITOR			=(1<<13)
+var/const/ERIDANI_SEC		=(1<<14)
 
 
 var/const/MEDSCI			=(1<<1)
@@ -60,7 +61,8 @@ var/list/command_positions = list(
 	"Head of Security",
 	"Chief Engineer",
 	"Research Director",
-	"Chief Medical Officer"
+	"Chief Medical Officer",
+	"Head Security Chief"
 )
 
 
@@ -117,7 +119,9 @@ var/list/security_positions = list(
 	"Detective",
 	"Forensic Technician",
 	"Security Officer",
-	"Security Cadet"
+	"Security Cadet",
+	"Head Security Chief",
+	"Eridani Private Security"
 )
 
 var/list/nonhuman_positions = list(
