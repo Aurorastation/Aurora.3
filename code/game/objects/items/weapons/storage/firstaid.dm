@@ -322,30 +322,30 @@
 		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
 		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
 		
-/obj/item/weapon/storage/pill_bottle/Qospivanadate
+/obj/item/weapon/storage/pill_bottle/qospivanadate
 	name = "bottle of Qospivanadate pills"
 	desc = "Used to loosen one's mind."
 
 	fill()
 		..()
-		new /obj/item/weapon/reagent_containers/pill/Qospivanadate( src )
-		new /obj/item/weapon/reagent_containers/pill/Qospivanadate( src )
-		new /obj/item/weapon/reagent_containers/pill/Qospivanadate( src )
-		new /obj/item/weapon/reagent_containers/pill/Qospivanadate( src )
-		new /obj/item/weapon/reagent_containers/pill/Qospivanadate( src )
-		new /obj/item/weapon/reagent_containers/pill/Qospivanadate( src )
-		new /obj/item/weapon/reagent_containers/pill/Qospivanadate( src )
+		new /obj/item/weapon/reagent_containers/pill/qospivanadate( src )
+		new /obj/item/weapon/reagent_containers/pill/qospivanadate( src )
+		new /obj/item/weapon/reagent_containers/pill/qospivanadate( src )
+		new /obj/item/weapon/reagent_containers/pill/qospivanadate( src )
+		new /obj/item/weapon/reagent_containers/pill/qospivanadate( src )
+		new /obj/item/weapon/reagent_containers/pill/qospivanadate( src )
+		new /obj/item/weapon/reagent_containers/pill/qospivanadate( src )
 		
-/obj/item/weapon/storage/pill_bottle/Rocriodide
+/obj/item/weapon/storage/pill_bottle/rocriodide
 	name = "bottle of Rocriodide pills"
 	desc = "Pacification through medication."
 
 	fill()
 		..()
-		new /obj/item/weapon/reagent_containers/pill/Rocriodide( src )
-		new /obj/item/weapon/reagent_containers/pill/Rocriodide( src )
-		new /obj/item/weapon/reagent_containers/pill/Rocriodide( src )
-		new /obj/item/weapon/reagent_containers/pill/Rocriodide( src )
-		new /obj/item/weapon/reagent_containers/pill/Rocriodide( src )
-		new /obj/item/weapon/reagent_containers/pill/Rocriodide( src )
-		new /obj/item/weapon/reagent_containers/pill/Rocriodide( src )
+		new /obj/item/weapon/reagent_containers/pill/rocriodide( src )
+		new /obj/item/weapon/reagent_containers/pill/rocriodide( src )
+		new /obj/item/weapon/reagent_containers/pill/rocriodide( src )
+		new /obj/item/weapon/reagent_containers/pill/rocriodide( src )
+		new /obj/item/weapon/reagent_containers/pill/rocriodide( src )
+		new /obj/item/weapon/reagent_containers/pill/rocriodide( src )
+		new /obj/item/weapon/reagent_containers/pill/rocriodide( src )

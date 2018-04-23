@@ -895,7 +895,7 @@
 		/datum/reagent/mental/escitalopram = 20
 	)
 
-/datum/reagent/mental/Rocriodide
+/datum/reagent/mental/rocriodide
 	name = "Rocriodide"
 	id = "rocriodide"
 	description = "Rocriodide is a super-strength, fast-metabolizing, expensive antipsychotic medication intended for the use in criminal rehabilitation that treats tourettes, schizophrenia, hallucinations, and loyalty issues. Side effects include distractedness and listlessness. Withdrawl effects include increased aggression and paranoia."
@@ -917,7 +917,7 @@
 	)
 	withdrawal_traumas = list()
 
-/datum/reagent/mental/Qospivanadate
+/datum/reagent/mental/qospivanadate
 	name = "Qospivanadate"
 	id = "qospivanadate"
 	description = "Qospivanadate is a super-strength, expensive antipsychotic medication intended for the use in interrogation. Side effects include hostility and disrespect for authority."

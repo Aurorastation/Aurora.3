@@ -588,14 +588,14 @@
 	required_reagents = list("mindbreaker" = 1, "space_drugs" = 1, "silicon" = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/Rocriodide
+/datum/chemical_reaction/rocriodide
 	name = "Rocriodide"
 	id = "rocriodide"
 	result = "Rocriodide"
 	required_reagents = list("truthserum" = 1, "risperidone" = 1, "mindbreaker" = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/Qospivanadate
+/datum/chemical_reaction/qospivanadate
 	name = "Qospivanadate"
 	id = "qospivanadate"
 	result = "Qospivanadate"

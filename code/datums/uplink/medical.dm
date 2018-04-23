@@ -24,7 +24,7 @@
 	item_cost = 12
 	path = /obj/item/weapon/storage/firstaid/combat
 
-/datum/uplink_item/item/medical/Qospivanadate
+/datum/uplink_item/item/medical/qospivanadate
 	name = "Mind-freeing pills"
 	item_cost = 3
-	path = /obj/item/weapon/storage/pill_bottle/Qospivanadate 
+	path = /obj/item/weapon/storage/pill_bottle/qospivanadate 

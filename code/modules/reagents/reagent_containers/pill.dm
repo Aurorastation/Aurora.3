@@ -171,21 +171,21 @@
 		. = ..()
 		reagents.add_reagent("escitalopram", 15)
 		
-/obj/item/weapon/reagent_containers/pill/Rocriodide
+/obj/item/weapon/reagent_containers/pill/rocriodide
 	name = "Rocriodide pill"
 	desc = "Don't forget to take your pills."
 	icon_state = "pill6"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("Rocriodide", 30)
+		reagents.add_reagent("rocriodide", 30)
 		
-/obj/item/weapon/reagent_containers/pill/Qospivanadate
+/obj/item/weapon/reagent_containers/pill/qospivanadate
 	name = "Qospivanadate pill"
 	desc = "For when you need a little convincing."
 	icon_state = "pill4"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("Qospivanadate", 30)
+		reagents.add_reagent("qospivanadate", 30)
 
 /obj/item/weapon/reagent_containers/pill/inaprovaline
 	name = "Inaprovaline pill"

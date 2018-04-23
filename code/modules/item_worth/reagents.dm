@@ -597,10 +597,10 @@
 /datum/reagent/mental/truthserum
 	value = 8
 
-/datum/reagent/mental/Rocriodide
+/datum/reagent/mental/rocriodide
 	value = 12
 	
-/datum/reagent/mental/Qospivanadate
+/datum/reagent/mental/qospivanadate
 	value = 16
 
 /datum/reagent/mental/nicotine
