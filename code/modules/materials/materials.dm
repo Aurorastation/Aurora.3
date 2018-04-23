@@ -697,6 +697,7 @@ var/list/name_to_material
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
 	flags = MATERIAL_PADDING
+	hardness = 1
 
 /material/cult
 	name = "cult"

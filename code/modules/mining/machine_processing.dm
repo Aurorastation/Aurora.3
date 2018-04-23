@@ -4,25 +4,30 @@
 	name = "ore redemption console"
 	icon = 'icons/obj/machines/mining_machines.dmi'
 	icon_state = "console"
-	density = 1
+	density = 0
 	anchored = 1
 	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
 
 	var/obj/machinery/mineral/processing_unit/machine = null
-	var/machinedir = NORTHEAST
 	var/show_all_ores = 0
 	var/points = 0
 	var/obj/item/weapon/card/id/inserted_id
 
-/obj/machinery/mineral/processing_unit_console/Initialize()
-	. = ..()
-	src.machine = locate(/obj/machinery/mineral/processing_unit, get_step(src, machinedir))
-	if (machine)
-		machine.console = src
-	else
-		return INITIALIZE_HINT_QDEL
+/obj/machinery/mineral/processing_unit_console/proc/setup_machine(mob/user)
+	if(!machine)
+		var/area/A = get_area(src)
+		for(var/obj/machinery/mineral/processing_unit/checked_machine in SSmachinery.all_machines)
+			if(A == get_area(checked_machine))
+				machine = checked_machine
+				break
+		if (machine)
+			machine.console = src
+		else
+			user << "<span class='warning'>ERROR: Linked machine not found!</span>"
+
+	return machine
 
 /obj/machinery/mineral/processing_unit_console/attack_hand(mob/user)
 	add_fingerprint(user)
@@ -31,6 +36,9 @@
 /obj/machinery/mineral/processing_unit_console/interact(mob/user)
 
 	if(..())
+		return
+
+	if(!setup_machine(user))
 		return
 
 	if(!allowed(user))
@@ -142,7 +150,7 @@
 
 
 /obj/machinery/mineral/processing_unit
-	name = "industrial smelter" //This isn't actually a goddamn furnace, we're in space and it's processing platinum and flammable phoron... //lol fuk u bay it is
+	name = "industrial smelter" //This isn't actually a goddamn furnace, we're in space and it's processing platinum and flammable phoron... //lol fuk u bay it is //i'm gay
 	icon = 'icons/obj/machines/mining_machines.dmi'
 	icon_state = "furnace-off"
 	density = 1
@@ -151,14 +159,14 @@
 	var/obj/machinery/mineral/input = null
 	var/obj/machinery/mineral/output = null
 	var/obj/machinery/mineral/processing_unit_console/console = null
-	var/sheets_per_tick = 10
+	var/sheets_per_tick = 20
 	var/list/ores_processing[0]
 	var/list/ores_stored[0]
 	var/static/list/alloy_data
 	var/active = 0
 	use_power = 1
 	idle_power_usage = 15
-	active_power_usage = 50
+	active_power_usage = 150
 
 	component_types = list(
 			/obj/item/weapon/circuitboard/refiner,
@@ -181,7 +189,7 @@
 		ores_processing[O] = 0
 		ores_stored[O] = 0
 
-//Locate our output and input machinery.
+	//Locate our output and input machinery.
 	for (var/dir in cardinal)
 		src.input = locate(/obj/machinery/mineral/input, get_step(src, dir))
 		if(src.input) break
@@ -309,7 +317,7 @@
 		return
 	else if(default_part_replacement(user, W))
 		return
-	
+
 /obj/machinery/mineral/processing_unit/RefreshParts()
 	..()
 	var/scan_rating = 0

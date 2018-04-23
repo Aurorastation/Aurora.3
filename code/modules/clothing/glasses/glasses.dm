@@ -105,17 +105,22 @@
 	body_parts_covered = 0
 	var/flipped = 0
 
-/obj/item/clothing/glasses/eyepatch/attack_self(mob/user)
+/obj/item/clothing/glasses/eyepatch/verb/flip_patch()
+	set name = "Flip Patch"
+	set category = "Object"
+	set src in usr
+
+	if (usr.stat || usr.restrained())
+		return
+
 	src.flipped = !src.flipped
 	if(src.flipped)
-		src.icon_state = "[icon_state]_1"
-		src.item_state = "[icon_state]_1"
-		to_chat(user, "You change \the [src] to cover the left eye.")
+		src.icon_state = "[icon_state]_r"
 	else
 		src.icon_state = initial(icon_state)
-		src.icon_state = initial(icon_state)
-		to_chat(user, "You change \the [src] to cover the right eye.")
-	user.update_inv_glasses()
+	to_chat(usr, "You change \the [src] to cover the [src.flipped ? "left" : "right"] eye.")
+	update_clothing_icon()
+	update_icon()
 
 /obj/item/clothing/glasses/monocle
 	name = "monocle"
@@ -341,16 +346,7 @@
 	icon_state = "thermoncle"
 	flags = null //doesn't protect eyes because it's a monocle, duh
 	item_flags = null
-
 	body_parts_covered = 0
-
-/obj/item/clothing/glasses/thermal/plain/eyepatch
-	name = "optical thermal eyepatch"
-	desc = "An eyepatch with built-in thermal optics"
-	icon_state = "eyepatch"
-	item_state = "eyepatch"
-	body_parts_covered = 0
-	item_flags = null
 
 /obj/item/clothing/glasses/thermal/plain/jensen
 	name = "optical thermal implants"
@@ -358,3 +354,131 @@
 	icon_state = "thermalimplants"
 	item_state = "syringe_kit"
 	item_flags = null
+
+/obj/item/clothing/glasses/eyepatch/hud
+	name = "iPatch"
+	desc = "For the technologically inclined pirate. It connects directly to the optical nerve of the user, replacing the need for that useless eyeball."
+	icon_state = "hudpatch"
+	item_state = "hudpatch"
+	off_state = "hudpatch"
+	action_button_name = "Toggle iPatch"
+	prescription = 1 //To emulate not having one eyeball
+	toggleable = 1
+	var/eye_color = COLOR_WHITE
+	var/image/mob_overlay
+
+/obj/item/clothing/glasses/eyepatch/hud/Initialize()
+	.  = ..()
+	mob_overlay = image('icons/obj/clothing/glasses.dmi', "[icon_state]_eye")
+	mob_overlay.appearance_flags = RESET_COLOR
+	mob_overlay.color = eye_color
+	mob_overlay.layer = LIGHTING_LAYER+1
+	update_icon()
+
+/obj/item/clothing/glasses/eyepatch/hud/equipped(mob/user, slot)
+	if (slot == slot_glasses)
+		user.add_overlay(mob_overlay, TRUE)
+	else
+		user.cut_overlay(mob_overlay, TRUE)
+	. =..()
+
+/obj/item/clothing/glasses/eyepatch/hud/Destroy()
+	if (ishuman(loc))
+		loc.cut_overlay(mob_overlay, TRUE)
+	QDEL_NULL(mob_overlay)
+	return ..()
+
+/obj/item/clothing/glasses/eyepatch/hud/attack_self()
+	..()
+	update_icon()
+
+/obj/item/clothing/glasses/eyepatch/hud/update_icon()
+	cut_overlays()
+	if(active)
+		var/image/eye = image('icons/obj/clothing/glasses.dmi', "[icon_state]_ovr")
+		eye.appearance_flags = RESET_COLOR
+		eye.color = eye_color
+		add_overlay (eye)
+
+/obj/item/clothing/glasses/eyepatch/hud/forceMove(atom/newloc)
+	if (!ishuman(loc))
+		return ..()
+
+	var/mob/M = loc
+	. = ..()
+	if (loc !=M)
+		M.cut_overlay(mob_overlay, TRUE)
+
+/obj/item/clothing/glasses/eyepatch/hud/security
+	name = "HUDpatch"
+	desc = "A Security-type heads-up display that connects directly to the optic nerve of the user, replacing what you lost in Space 'Nam."
+	hud = /obj/item/clothing/glasses/hud/security
+	eye_color = COLOR_BLUE
+
+/obj/item/clothing/glasses/eyepatch/hud/security/process_hud(var/mob/M)
+	process_sec_hud(M, 1)
+
+/obj/item/clothing/glasses/eyepatch/hud/medical
+	name = "MEDpatch"
+	desc = "A Medical-type heads-up display that connects directly to the optic nerve of the user, giving you information about a patient your department will likely ignore."
+	hud = /obj/item/clothing/glasses/hud/health
+	eye_color = COLOR_CYAN
+
+/obj/item/clothing/glasses/eyepatch/hud/medical/process_hud(var/mob/M)
+	process_med_hud(M, 1)
+
+/obj/item/clothing/glasses/eyepatch/hud/meson
+	name = "MESpatch"
+	desc = "An optical meson scanner display that connects directly to the optic nerve of the user, giving you cool green vision at the low cost of your only other eye."
+	vision_flags = SEE_TURFS
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	eye_color = COLOR_LIME
+
+/obj/item/clothing/glasses/eyepatch/hud/meson/Initialize()
+	..()
+	overlay = global_hud.meson
+
+/obj/item/clothing/glasses/eyepatch/hud/material
+	name = "MATpatch"
+	desc = "An optical material scanner display that connects directly to the optic nerve of the user, making you a professional at I Spy."
+	vision_flags = SEE_OBJS
+	eye_color = COLOR_LUMINOL
+
+/obj/item/clothing/glasses/eyepatch/hud/science
+	name = "SCIpatch"
+	desc = "A science-type heads-up display that connects directly to the optic nerve of the user. Does nothing, but at least you won't get acid in your eye socket."
+	eye_color = COLOR_PURPLE
+
+/obj/item/clothing/glasses/eyepatch/hud/science/Initialize()
+	..()
+	overlay = global_hud.science
+
+/obj/item/clothing/glasses/eyepatch/hud/thermal
+	name = "HEATpatch"
+	desc = "A thermal-type heads-up display that connects directly to the optic nerve of the user. Double the tacticool, half the eyes."
+	vision_flags = SEE_MOBS
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	eye_color = COLOR_ORANGE
+
+/obj/item/clothing/glasses/eyepatch/hud/thermal/Initialize()
+	..()
+	overlay = global_hud.thermal
+
+/obj/item/clothing/glasses/eyepatch/hud/welder
+	name = "WELDpatch"
+	desc = "A light-filtering display that connects directly to the optic nerve of the user, blocking light for exactly one eye. Choose wisely."
+	flash_protection = FLASH_PROTECTION_MODERATE
+	tint = TINT_MODERATE
+	eye_color = COLOR_BLACK
+
+/obj/item/clothing/glasses/eyepatch/hud/night
+	name = "NITEpatch"
+	desc = "A light-amplifying display that connects directly to the optic nerve of the user. Helps you avoid a battery charge from bumping an officer in the dark."
+	darkness_view = 7
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	eye_color = COLOR_GREEN
+
+/obj/item/clothing/glasses/eyepatch/hud/night/Initialize()
+	..()
+	overlay = global_hud.nvg
+

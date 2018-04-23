@@ -11,6 +11,7 @@
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_BLUESPACE = 4, TECH_MATERIAL = 4)
 	var/imprinted = "empty"
+	appearance_flags = NO_CLIENT_COLOR
 
 //////////////////////////////Capturing////////////////////////////////////////////////////////
 
@@ -88,6 +89,7 @@
 	return
 
 /obj/structure/constructshell/cult
+	appearance_flags = NO_CLIENT_COLOR
 	icon_state = "construct-cult"
 	desc = "This eerie contraption looks like it would come alive if supplied with a missing ingredient."
 

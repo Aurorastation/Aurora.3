@@ -137,8 +137,6 @@
 #define FLASH_PROTECTION_NONE 0
 #define FLASH_PROTECTION_MODERATE 1
 #define FLASH_PROTECTION_MAJOR 2
-#define ANIMAL_SPAWN_DELAY round(config.respawn_delay / 6)
-#define DRONE_SPAWN_DELAY  round(config.respawn_delay / 3)
 
 #define ANIMAL_SPAWN_DELAY round(config.respawn_delay / 6)
 #define DRONE_SPAWN_DELAY  round(config.respawn_delay / 3)
@@ -213,4 +211,8 @@
 #define BRAIN_TRAUMA_SEVERE /datum/brain_trauma/severe
 #define BRAIN_TRAUMA_SPECIAL /datum/brain_trauma/special
 
-#define BRAIN_DAMAGE_INTEGRITY_MULTIPLIER 0.5
+#define CURE_CRYSTAL "crystal"
+#define CURE_SOLITUDE "solitude"
+#define CURE_HYPNOSIS "hypnosis"
+#define CURE_SURGERY "surgery"
+#define CURE_ADMIN "all"

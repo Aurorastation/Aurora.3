@@ -807,7 +807,7 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
                         <span class="average"> No current approved orders </span><br><br>
                     {{else}}
                         {{props data.records.supply.approved}}
-                            <span class="average">#{{:value.order_id}} - {{:value.customer}} - {{:value.price_cargo}} Credits </span>
+                            <span class="average">#{{:value.order_id}} - {{:value.ordered_by}} - {{:value.price_cargo}} Credits </span>
                         {{/props}}
                     {{/if}}
                     <br><br>
@@ -816,7 +816,7 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
                             <span class="average">No current requested orders</span><br><br>
                     {{else}}
                         {{props data.records.supply.requests}}
-                            <span class="average">#{{:value.order_id}} - {{:value.customer}} - {{:value.price_cargo}} Credits </span>
+                            <span class="average">#{{:value.order_id}} - {{:value.ordered_by}} - {{:value.price_cargo}} Credits </span>
                         {{/props}}
                     {{/if}}
 				</div>

@@ -18,6 +18,8 @@
 	charge_meter = 0
 	pin = /obj/item/device/firing_pin/magic
 
+/obj/item/weapon/gun/energy/staff/emp_act(severity) // to prevent it from breaking.
+	return
 
 obj/item/weapon/gun/energy/staff/special_check(var/mob/living/user)
 	if(HULK in user.mutations)

@@ -15,7 +15,7 @@
 	path = /obj/item/weapon/storage/secure/briefcase/money
 	desc = "A briefcase with 10,000 untraceable credits for funding your sneaky activities."
 
-/datum/uplink_item/item/tools/firingpin //todo, make this a special syndicate one instead of just a normal one? 
+/datum/uplink_item/item/tools/firingpin //todo, make this a special syndicate one instead of just a normal one?
 	name = "Firing Pin"
 	item_cost = 2
 	path = /obj/item/device/firing_pin
@@ -104,3 +104,13 @@
 	name = "Syndicate Cyborg Teleporter"
 	item_cost = 35
 	path = /obj/item/weapon/antag_spawner/borg_tele
+
+/datum/uplink_item/item/tools/heatpatch
+	name = "HUDPatch, Thermal"
+	item_cost = 6
+	path = /obj/item/clothing/glasses/eyepatch/hud/thermal
+
+/datum/uplink_item/item/tools/nightpatch
+	name = "HUDPatch, Night-Vision"
+	item_cost = 4
+	path = /obj/item/clothing/glasses/eyepatch/hud/night

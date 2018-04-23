@@ -89,3 +89,6 @@ var/cmp_field = "name"
 
 /proc/cmp_planelayer(atom/A, atom/B)
 	return (B.plane - A.plane) || (B.layer - A.layer)
+
+/proc/cmp_clientcolor_priority(datum/client_color/A, datum/client_color/B)
+	return B.priority - A.priority
