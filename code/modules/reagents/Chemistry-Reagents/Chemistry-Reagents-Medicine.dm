@@ -898,17 +898,17 @@
 /datum/reagent/mental/hextrasenil
 	name = "Hextrasenil"
 	id = "hextrasenil"
-	description = "Hextrasenil is a super-strength, fast-metabolizing, expensive antipsychotic medication intended for the use in criminal rehabilitation that treats tourettes, schizophrenia, hallucinations, and loyalty issues. Side effects include undying loyalty to NanoTrasen and respect for authority. Withdrawl effects include undying hatred towards NanoTrasen."
+	description = "Hextrasenil is a super-strength, fast-metabolizing, expensive antipsychotic medication intended for the use in criminal rehabilitation that treats tourettes, schizophrenia, hallucinations, and loyalty issues. Side effects include distractedness and heavy listlessness. Withdrawl effects include increased aggression and paranoia."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.04 //Not meant to last a long time.
 	data = 0
-	taste_description = "paper"
-	goodmessage = list("You feel loyal to NanoTrasen. Please take your pills.","You feel the need to contribute to cause of NanoTrasen. Please take your pills.","You wouldn't think about hurting NanoTrasen at all. Please take your pills.","You do not feel the need to express emotion. Please take your pills.","You feel that NanoTrasen has your best interests at heart. Please take your pills.","You respect the Chain of Command. Please take your pills.")
+	taste_description = "warm milk"
+	goodmessage = list("You feel lazy and detatched...","You start to tune out, and the world around you quiets to a pleasing hum..","You wouldn't think about hurting anyone...","You feel calm and emotionless...","You feel that everyone around you has your best interest at heart...","You feel increased respect for authority..")
 	badmessage = list("You start to think if you need these pills...","Do I need these pills?","Should I be taking pills anymore?")
-	worstmessage = list("You start to realise that the system is corrupt...","NanoTrasen is corrupt...")
+	worstmessage = list("You start to realise that they're out to get you...","They're call corrupt, and you can trust no one...")
 	suppress_traumas  = list(
-		/datum/brain_trauma/severe/split_personality = 5, //Gotta remove those enemies to nanotrasen.
+		/datum/brain_trauma/severe/split_personality = 5, 
 		/datum/brain_trauma/special/imaginary_friend = 5,
 		/datum/brain_trauma/mild/tourettes = 5
 	)
@@ -920,15 +920,15 @@
 /datum/reagent/mental/trisyndicotin
 	name = "Trisyndicotin"
 	id = "trisyndicotin"
-	description = "Trisyndicotin is a super-strength, expensive antipsychotic medication intended for the use in interigation. Side effects include undying hatred to NanoTrasen and disrespect for authority."
+	description = "Trisyndicotin is a super-strength, expensive antipsychotic medication intended for the use in interrogation. Side effects include hostility and disrespect for authority."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.03
 	data = 0
-	taste_description = "freedom"
-	goodmessage = list("You distrust Nanotrasen and their people.","You feel woke.","You have urges to speak out against NanoTrasen.","You feel the need to complain about NanoTrasen on the web.","You feel like things should be better.")
-	badmessage = list() //Actual Freedom.
-	worstmessage = list() //Actual Freedom.
+	taste_description = "bitterness"
+	goodmessage = list("You feel the desire to speak your mind...","You feel awakened to the truth - your coworkers are your enemies...","You have urges to speak out against your decietful coworkers...","You feel the need to complain about how much you dislike your superiors...","You feel like things should be better...")
+	badmessage = list("What did they put in you...?","Your mind feels hazy, and the faces around you waver.") 
+	worstmessage = list("Why should you have to listen to what anyone tells you..?","You have to get your coworkers before they get you...",'KILL THEM ALL BEFORE THEY KILL YOU.') 
 	suppress_traumas  = list(
 		/datum/brain_trauma/severe/pacifism = 10
 	)

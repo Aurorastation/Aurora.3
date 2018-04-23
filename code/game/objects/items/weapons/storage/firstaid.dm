@@ -324,7 +324,7 @@
 		
 /obj/item/weapon/storage/pill_bottle/trisyndicotin
 	name = "bottle of Trisyndicotin pills"
-	desc = "Used to free one's mind from the oppression of NanoTrasen."
+	desc = "Used to loosen one's mind."
 
 	fill()
 		..()
