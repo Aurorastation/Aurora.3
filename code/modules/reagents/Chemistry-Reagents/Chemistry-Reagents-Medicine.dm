@@ -926,7 +926,7 @@
 	metabolism = 0.03
 	data = 0
 	taste_description = "bitterness"
-	goodmessage = list("You feel the desire to speak your mind...","You feel awakened to the truth - your coworkers are your enemies...","You have urges to speak out against your decietful coworkers...","You feel the need to complain about how much you dislike your superiors...","You feel like things should be better...")
+	goodmessage = list("You feel the desire to speak your mind...","You feel awakened to the truth - your coworkers are your enemies...","You have urges to speak out against your deceitful coworkers...","You feel the need to complain about how much you dislike your superiors...","You feel like things should be better...")
 	badmessage = list("What did they put in you...?","Your mind feels hazy, and the faces around you waver.") 
 	worstmessage = list("Why should you have to listen to what anyone tells you..?","You have to get your coworkers before they get you...",'KILL THEM ALL BEFORE THEY KILL YOU.') 
 	suppress_traumas  = list(
