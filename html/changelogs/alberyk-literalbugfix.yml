@@ -1,0 +1,5 @@
+author: Alberyk
+delete-after: True
+
+changes:
+  - bugfix: "Vaurca should have proper natural insulation once more."
