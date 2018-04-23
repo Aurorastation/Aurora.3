@@ -1005,7 +1005,7 @@
 	dir = 6
 	},
 /obj/effect/landmark/start{
-	name = "Head of Security"
+	name = "Head Security Chief"
 	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice2)
@@ -1378,7 +1378,7 @@
 	dir = 5
 	},
 /obj/effect/landmark/start{
-	name = "Security Officer"
+	name = "Eridani Private Security"
 	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice2)
