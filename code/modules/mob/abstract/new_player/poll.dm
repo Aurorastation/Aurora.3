@@ -93,7 +93,7 @@
 				output += "<b>Question: [pollquestion]</b><br>"
 				output += "<font size='2'>Poll runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font>"
 				if(link)
-					output += "<font size='2'>Additional information <a href='[link]' target'_blank'>is available here</a></font>"
+					output += "<br><font size='2'>Additional informationis available here: <br> [link]</font>"
 				output += "<p>"
 
 				if(!voted)	//Only make this a form if we have not voted yet
@@ -140,7 +140,7 @@
 				output += "<b>Question: [pollquestion]</b><br>"
 				output += "<font size='2'>Feedback gathering runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font>"
 				if(link)
-					output += "<font size='2'>Additional information <a href='[link]' target'_blank'>is available here</a></font>"
+					output += "<br><font size='2'>Additional informationis available here: <br> [link]</font>"
 				output += "<p>"
 
 				if(!voted)	//Only make this a form if we have not voted yet
@@ -177,7 +177,7 @@
 				output += "<b>Question: [pollquestion]</b><br>"
 				output += "<font size='2'>Poll runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font>"
 				if(link)
-					output += "<font size='2'>Additional information <a href='[link]' target'_blank'>is available here</a></font>"
+					output += "<br><font size='2'>Additional informationis available here: <br> [link]</font>"
 				output += "<p>"
 
 				var/voted = 0
@@ -275,7 +275,7 @@
 				output += "<b>Question: [pollquestion]</b><br>You can select up to [multiplechoiceoptions] options. If you select more, the first [multiplechoiceoptions] will be saved.<br>"
 				output += "<font size='2'>Poll runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font>"
 				if(link)
-					output += "<font size='2'>Additional information <a href='[link]' target'_blank'>is available here</a></font>"
+					output += "<br><font size='2'>Additional informationis available here: <br> [link]</font>"
 				output += "<p>"
 
 				if(!voted)	//Only make this a form if we have not voted yet
