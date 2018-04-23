@@ -898,13 +898,13 @@
 /datum/reagent/mental/hextrasenil
 	name = "Hextrasenil"
 	id = "hextrasenil"
-	description = "Hextrasenil is a super-strength, fast-metabolizing, expensive antipsychotic medication intended for the use in criminal rehabilitation that treats tourettes, schizophrenia, hallucinations, and loyalty issues. Side effects include distractedness and heavy listlessness. Withdrawl effects include increased aggression and paranoia."
+	description = "Hextrasenil is a super-strength, fast-metabolizing, expensive antipsychotic medication intended for the use in criminal rehabilitation that treats tourettes, schizophrenia, hallucinations, and loyalty issues. Side effects include distractedness and listlessness. Withdrawl effects include increased aggression and paranoia."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.04 //Not meant to last a long time.
 	data = 0
 	taste_description = "warm milk"
-	goodmessage = list("You feel lazy and detatched...","You start to tune out, and the world around you quiets to a pleasing hum..","You wouldn't think about hurting anyone...","You feel calm and emotionless...","You feel that everyone around you has your best interest at heart...","You feel increased respect for authority..")
+	goodmessage = list("You feel lazy and detached...","You start to tune out, and the world around you quiets to a pleasing hum..","You wouldn't think about hurting anyone...","You feel calm and emotionless...","You feel that everyone around you has your best interests at heart...","You feel increased respect for authority..")
 	badmessage = list("You start to think if you need these pills...","Do I need these pills?","Should I be taking pills anymore?")
 	worstmessage = list("You start to realise that they're out to get you...","They're all corrupt, and you can trust no one...")
 	suppress_traumas  = list(
