@@ -320,6 +320,7 @@
 #include "code\datums\uplink\stealth and camouflage items.dm"
 #include "code\datums\uplink\stealthy and inconspicuous weapons.dm"
 #include "code\datums\uplink\telecrystals.dm"
+#include "code\datums\uplink\three_ninjas.dm"
 #include "code\datums\uplink\uplink_categories.dm"
 #include "code\datums\uplink\uplink_items.dm"
 #include "code\datums\wires\airlock.dm"
