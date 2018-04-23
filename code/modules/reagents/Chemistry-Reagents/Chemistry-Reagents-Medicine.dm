@@ -525,7 +525,7 @@
 
 /datum/reagent/mental
 	name = "Experimental Antidepressant"
-	id = "mental"
+	id = null //Abstract, do not spawn.
 	description = "Some nameless, experimental antidepressant that you should obviously not have your hands on."
 	reagent_state = LIQUID
 	color = "#FFFFFF"
@@ -546,7 +546,7 @@
 
 /datum/reagent/mental/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
 
-	if(!istype(H) || world.time < data)
+	if(!istype(H) || world.time < data || messagedelay == -1)
 		return
 	var/hastrauma = 0 //whether or not the brain has trauma
 	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
@@ -563,7 +563,6 @@
 					BT.on_gain()
 					BT.suppressed = 0
 					hastrauma = 1
-
 		for(var/datum/brain_trauma/BT in dosage_traumas)
 			var/percentchance = max(0,dosage_traumas[BT] - dose*10) // If you've been taking this medication for a while then side effects are rarer.
 			if(!H.has_trauma_type(BT) && prob(percentchance))
@@ -577,16 +576,19 @@
 					suppress_withdrawl = TRUE
 					break
 			if(!suppress_withdrawl)
-				H << "<span class='danger'>[pick(worstmessage)]</span>"
+				if (H.shock_stage < 20)
+					to_chat(H,"<span class='danger'>[pick(worstmessage)]</span>")
 				for(var/k in withdrawal_traumas)
 					var/datum/brain_trauma/BT = k
 					var/percentchance = max(withdrawal_traumas[k] * (dose/20)) //The higher the dosage, the more likely it is do get withdrawal traumas.
 					if(!H.has_trauma_type(BT) && prob(percentchance))
 						B.gain_trauma(BT,FALSE)
 		else if(hastrauma || volume < max_dose*0.5) //If your current dose is not high enough, then alert the player.
-			H << "<span class='warning'>[pick(badmessage)]</span>"
+			if (H.shock_stage < 10)
+				to_chat(H,"<span class='warning'>[pick(badmessage)]</span>")
 		else
-			H << "<span class='good'>[pick(goodmessage)]</span>"
+			if (H.shock_stage < 5)
+				to_chat(H,"<span class='good'>[pick(goodmessage)]</span>")
 
 	data = world.time + messagedelay
 
@@ -899,15 +901,15 @@
 /datum/reagent/mental/hextrasenil
 	name = "Hextrasenil"
 	id = "hextrasenil"
-	description = "Hextrasenil is a super-strength, fast-metabolizing, expensive antipsychotic medication intended for the use in criminal rehabilitation that treats tourettes, schizophrenia, hallucinations, and loyalty issues. Side effects include undying loyalty to NanoTrasen and respect for authority. Withdrawl effects include undying hatred towards NanoTrasen."
+	description = ""
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.04 * REM //Not meant to last a long time.
 	data = 0
 	taste_description = "paper"
-	goodmessage = list("You feel loyal to NanoTrasen. Please take your pills.","You feel the need to contribute to cause of NanoTrasen. Please take your pills.","You wouldn't think about hurting NanoTrasen at all. Please take your pills.","You do not feel the need to express emotion. Please take your pills.","You feel that NanoTrasen has your best interests at heart. Please take your pills.","You respect the Chain of Command. Please take your pills.")
-	badmessage = list("You start to think if you need these pills...","Do I need these pills?","Should I be taking pills anymore?")
-	worstmessage = list("You start to realise that the system is corrupt...","NanoTrasen is corrupt...")
+	goodmessage = list("You feel calme.","You feel levelheaded.","You feel rational.","Emotions to not bother you.")
+	badmessage = list()
+	worstmessage = list()
 	suppress_traumas  = list(
 		/datum/brain_trauma/severe/split_personality = 2, //Gotta remove those enemies to nanotrasen.
 		/datum/brain_trauma/special/imaginary_friend = 2,
@@ -921,20 +923,52 @@
 	)
 	conflicting_reagent = /datum/reagent/mental/trisyndicotin
 	messagedelay = 30
-	var/is_affected = 0
+	var/dont_run_overdose = 0
+	var/overdose_time = 0
+	var/is_antag = 0
+	var/overdose_delay = 10
+	var/waiting_for_choice = 0
 
-/datum/reagent/mental/hextrasenil/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
-	. = ..()
-	if(!is_affected && prob(5))
-		var/mob/living/carbon/human/H = M
-		if(istype(H))
+/datum/reagent/mental/hextrasenil/overdose(var/mob/living/carbon/human/H, var/alien, var/removed, var/scale)
+
+
+	if(!dont_run_overdose && overdose_time % overdose_delay == 0 && istype(H))
+
+		if(!is_antag)
 			var/datum/antagonist/antag_data = get_antag_data(H.mind.special_role)
-			if(antag_data && (antag_data.flags & ANTAG_IMPLANT_IMMUNE))
-				H << "You feel the corporate tendrils of [current_map.company_name] try to invade your mind!"
+			if(antag_data && !(antag_data.flags & ANTAG_IMPLANT_IMMUNE))
+				is_antag = 1
 			else
-				clear_antag_roles(H.mind, 1)
-				H << "<span class='notice'>You feel a surge of loyalty towards [current_map.company_name]! Any negative intentions towards the company have been long forgotten.</span>"
-		is_affected = 1
+				dont_run_overdose = 1
+				return
+
+		switch(overdose_time)
+			if(0 to 30)
+				to_chat(H,"<span class='warning'>You feel the tendrils of obedience invade your mind...</span>")
+				H.adjustHalLoss(5)
+			if(30 to 60)
+				to_chat(H,"<span class='warning'>You feel your very mind and body turn on itself...</span>")
+				H.adjustHalLoss(10)
+			if(60 to 120)
+				to_chat(H,"<span class='danger'>Every inch of flesh in your body feels like a million stings...</span>")
+				H.adjustHalLoss(20)
+			if(120 to INFINITY)
+				overdose_delay = 60
+				H.adjustHalLoss(50)
+				H.weakened += 4
+				to_chat(H,"<span class='danger'>Your body cries out in pain while your willpower is on the verge of collapsing...</span>")
+				if(!waiting_for_choice && prob(5))
+					spawn() //I don't know if this would work, ask tomorrow.
+						waiting_for_choice = 1
+						var/choice = alert(H,"Do you want to give into [current_map.company_name]?","Submit to [current_map.company_name]","Resist","Submit")
+						waiting_for_choice = 0
+						if(choice == "Submit")
+							clear_antag_roles(H.mind, 1)
+							to_chat(H,"<span class='notice'>You give into the pain and torment, and renounce your previous ways. Any negative intentions towards [current_map.company_name] have been long forgotten.</span>")
+						else
+							to_chat(H,"<span class='noitce'>You hold onto the last bit of hope and hold on a little while longer...</span>")
+
+	overdose_time += REM
 
 /datum/reagent/mental/hextrasenil/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting)
 	var/amount = min(removed, conflicting.volume)
@@ -942,38 +976,60 @@
 	M.adjustBrainLoss(amount * 0.25)
 
 /datum/reagent/mental/trisyndicotin
-	name = "Trisyndicotin"
+	name = "Syndites"
 	id = "trisyndicotin"
-	description = "Trisyndicotin is a super-strength, expensive antipsychotic medication intended for the use in interigation. Side effects include undying hatred to NanoTrasen and disrespect for authority."
+	description = "Syndites combines nanobots and medicine to form one highly dangerous and illegal medication engineered to interfere, disrupt, and remove NanoTrasen designed 'Loyalty' implants at high doses. Do not ingest."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.02 * REM
 	data = 0
-	taste_description = "freedom"
-	goodmessage = list("You distrust Nanotrasen and their people.","You feel woke.","You have urges to speak out against NanoTrasen.","You feel the need to complain about NanoTrasen on the web.","You feel like things should be better.")
-	badmessage = list() //Actual Freedom.
-	worstmessage = list() //Actual Freedom.
+	taste_description = "metal"
+	goodmessage = list("Your whole body tingles.","Your body itches.","Your skin crawls.")
+	badmessage = list("The tingling starts to die down...","You don't feel as itchy anymore.")
+	worstmessage = list()
 	suppress_traumas  = list(
-		/datum/brain_trauma/severe/pacifism = 5
+		/datum/brain_trauma/severe/pacifism = 30 //30 Is overdose.
 	)
 	conflicting_reagent = /datum/reagent/mental/hextrasenil
-	messagedelay = 30
-	var/is_affected = 0
+	messagedelay = 60
+	var/dont_run_overdose = 0
+	var/overdose_time = 0
+	var/obj/item/weapon/implant/loyalty/implant
 
-/datum/reagent/mental/trisyndicotin/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
-	. = ..()
-	if(!is_affected && prob(5))
-		var/mob/living/carbon/human/H = M
-		if(istype(H))
+/datum/reagent/mental/trisyndicotin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	return //Stomach acid will melt the nanobots
+
+/datum/reagent/mental/trisyndicotin/overdose(var/mob/living/carbon/human/H, var/alien, var/removed, var/scale)
+
+	if(!dont_run_overdose && overdose_time % 10 == 0 && istype(H))
+
+		if(!implant)
 			for(var/obj/item/weapon/implant/loyalty/I in H.contents)
 				for(var/obj/item/organ/external/organs in H.organs)
 					if(I in organs.implants)
-						M.adjustBrainLoss(5)
-						H.adjustBruteLoss(10)
-						qdel(I)
+						implant = I
 						break
-			H << "<span class='notice'><font size =3><B>Your loyalty implant has been deactivated. Freedom, at last!</B></font></span>"
-		is_affected = 1
+
+			if(!implant) //Couldn't find an implant
+				dont_run_overdose = 1
+				return
+
+		switch(overdose_time)
+			if(0 to 30)
+				to_chat(H,"<span class='warning'>You feel discomfort in your entire body...</span>")
+			if(30 to 60)
+				to_chat(H,"<span class='warning'>Thinking becomes painful and your whole body starts to ache...</span>")
+				H.adjustHalLoss(5)
+			if(60 to 180)
+				to_chat(H,"<span class='danger'>Your brain aches and burns trying to fend off the invasive thoughts!</span>")
+				H.adjustHalLoss(10)
+			if(180 to INFINITY)
+				H.adjustHalLoss(-50)
+				qdel(implant)
+				to_chat(H,"<span class='notice'><font size =3><B>With a relieving wave of euphoria, your loyalty implant deactivates. Freedom, at last!</B></font></span>")
+				dont_run_overdose = 1
+
+	overdose_time += REM
 
 /datum/reagent/mental/trisyndicotin/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting)
 	var/amount = min(removed, conflicting.volume)
