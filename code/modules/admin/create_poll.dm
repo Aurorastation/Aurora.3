@@ -2,7 +2,7 @@
 	set category = "Special Verbs"
 	set name = "Create Poll"
 
-	if(!check_rights(R_ADMIN|R_DEV))
+	if(!check_rights(R_DEV))
 		return
 	if(!establish_db_connection(dbcon))
 		to_chat(src,"<span class='danger'>Failed to establish database connection.</span>")
