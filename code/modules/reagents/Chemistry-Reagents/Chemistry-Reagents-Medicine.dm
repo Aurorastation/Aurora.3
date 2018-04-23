@@ -906,7 +906,7 @@
 	taste_description = "warm milk"
 	goodmessage = list("You feel lazy and detatched...","You start to tune out, and the world around you quiets to a pleasing hum..","You wouldn't think about hurting anyone...","You feel calm and emotionless...","You feel that everyone around you has your best interest at heart...","You feel increased respect for authority..")
 	badmessage = list("You start to think if you need these pills...","Do I need these pills?","Should I be taking pills anymore?")
-	worstmessage = list("You start to realise that they're out to get you...","They're call corrupt, and you can trust no one...")
+	worstmessage = list("You start to realise that they're out to get you...","They're all corrupt, and you can trust no one...")
 	suppress_traumas  = list(
 		/datum/brain_trauma/severe/split_personality = 5, 
 		/datum/brain_trauma/special/imaginary_friend = 5,
