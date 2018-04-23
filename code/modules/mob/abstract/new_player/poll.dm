@@ -41,13 +41,14 @@
 	establish_db_connection(dbcon)
 	if(dbcon.IsConnected())
 
-		var/DBQuery/select_query = dbcon.NewQuery("SELECT starttime, endtime, question, polltype, multiplechoiceoptions FROM ss13_poll_question WHERE id = [pollid]")
+		var/DBQuery/select_query = dbcon.NewQuery("SELECT starttime, endtime, question, polltype, multiplechoiceoptions, link FROM ss13_poll_question WHERE id = [pollid]")
 		select_query.Execute()
 
 		var/pollstarttime = ""
 		var/pollendtime = ""
 		var/pollquestion = ""
 		var/polltype = ""
+		var/link = null
 		var/found = 0
 		var/multiplechoiceoptions = 0
 
@@ -56,6 +57,7 @@
 			pollendtime = select_query.item[2]
 			pollquestion = select_query.item[3]
 			polltype = select_query.item[4]
+			link = select_query.item[5]
 			found = 1
 			break
 
@@ -89,7 +91,10 @@
 				var/output = "<div align='center'><B>Player poll</B>"
 				output +="<hr>"
 				output += "<b>Question: [pollquestion]</b><br>"
-				output += "<font size='2'>Poll runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font><p>"
+				output += "<font size='2'>Poll runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font>"
+				if(link)
+					output += "<font size='2'>Additional information <a href='[link]' target'_blank'>is available here</a></font>"
+				output += "<p>"
 
 				if(!voted)	//Only make this a form if we have not voted yet
 					output += "<form name='cardcomp' action='?src=\ref[src]' method='get'>"
@@ -133,7 +138,10 @@
 				var/output = "<div align='center'><B>Player poll</B>"
 				output +="<hr>"
 				output += "<b>Question: [pollquestion]</b><br>"
-				output += "<font size='2'>Feedback gathering runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font><p>"
+				output += "<font size='2'>Feedback gathering runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font>"
+				if(link)
+					output += "<font size='2'>Additional information <a href='[link]' target'_blank'>is available here</a></font>"
+				output += "<p>"
 
 				if(!voted)	//Only make this a form if we have not voted yet
 					output += "<form name='cardcomp' action='?src=\ref[src]' method='get'>"
@@ -167,7 +175,10 @@
 				var/output = "<div align='center'><B>Player poll</B>"
 				output +="<hr>"
 				output += "<b>Question: [pollquestion]</b><br>"
-				output += "<font size='2'>Poll runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font><p>"
+				output += "<font size='2'>Poll runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font>"
+				if(link)
+					output += "<font size='2'>Additional information <a href='[link]' target'_blank'>is available here</a></font>"
+				output += "<p>"
 
 				var/voted = 0
 				while(voted_query.NextRow())
@@ -262,7 +273,10 @@
 				var/output = "<div align='center'><B>Player poll</B>"
 				output +="<hr>"
 				output += "<b>Question: [pollquestion]</b><br>You can select up to [multiplechoiceoptions] options. If you select more, the first [multiplechoiceoptions] will be saved.<br>"
-				output += "<font size='2'>Poll runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font><p>"
+				output += "<font size='2'>Poll runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font>"
+				if(link)
+					output += "<font size='2'>Additional information <a href='[link]' target'_blank'>is available here</a></font>"
+				output += "<p>"
 
 				if(!voted)	//Only make this a form if we have not voted yet
 					output += "<form name='cardcomp' action='?src=\ref[src]' method='get'>"
