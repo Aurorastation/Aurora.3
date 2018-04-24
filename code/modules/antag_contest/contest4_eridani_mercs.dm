@@ -18,7 +18,7 @@
 		"A general alert exercise is to be carried out. Ensure the crew successfully carry out the correct procedure for each alert level for the shift." = 1,
 		"We believe [pick(station_departments - "Command")] department contains known regulation breakers. Investigate using any means available." = 1,
 		"A simulated [pick("hostile nation", "hostile corporation", "unknown life-form")] attack is to be carried out. Ensure the crew obey proper procedure and regulations." = 1,
-		"The [pick(station_departments - "Command")] department has been over funded. Aquire [rand(1000, 10000)] credits from their departmental account. Ensure this is done legally through security fines of the department's staff." = 1,
+		"The [pick(station_departments - "Command")] department has been over funded. Aquire [rand(500, 5000)] credits from their departmental account. Ensure this is done legally through security fines of the department's staff." = 1,
 		"Ensure the station is secure. There are no special objectives at this time." = 6
 	)
 	var/objective = pickweight(objectives)
