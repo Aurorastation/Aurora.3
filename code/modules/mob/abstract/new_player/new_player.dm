@@ -216,6 +216,10 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		handle_player_polling()
 		return
 
+	if(href_list["showpolllink"])
+		show_poll_link(href_list["showpolllink"])
+		return
+
 	if(href_list["pollid"])
 
 		var/pollid = href_list["pollid"]

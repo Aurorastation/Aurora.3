@@ -34,21 +34,35 @@
 
 		src << browse(output,"window=playerpolllist;size=500x300")
 
+/mob/abstract/new_player/proc/show_poll_link(var/pollid = -1)
+	if(pollid == -1) return
+	establish_db_connection(dbcon)
+	if(dbcon.IsConnected())
+		var/DBQuery/select_query = dbcon.NewQuery("SELECT link FROM ss13_poll_question WHERE id = :pollid:")
+		select_query.Execute(list("pollid"=pollid))
+		
+		var/link = null
+		while(select_query.NextRow())
+			link = select_query.item[1]
 
+		if(link && link != "")
+			usr << link(link)
+		else
+			log_debug("Polling: [usr.ckey] tried to open poll [pollid] with a invalid link: [link]")
 
 /mob/abstract/new_player/proc/poll_player(var/pollid = -1)
 	if(pollid == -1) return
 	establish_db_connection(dbcon)
 	if(dbcon.IsConnected())
 
-		var/DBQuery/select_query = dbcon.NewQuery("SELECT starttime, endtime, question, polltype, multiplechoiceoptions, link FROM ss13_poll_question WHERE id = [pollid]")
-		select_query.Execute()
+		var/DBQuery/select_query = dbcon.NewQuery("SELECT starttime, endtime, question, polltype, multiplechoiceoptions, link FROM ss13_poll_question WHERE id = :pollid:")
+		select_query.Execute(list("pollid"=pollid))
 
 		var/pollstarttime = ""
 		var/pollendtime = ""
 		var/pollquestion = ""
 		var/polltype = ""
-		var/link = null
+		var/haslink = 0
 		var/found = 0
 		var/multiplechoiceoptions = 0
 
@@ -57,7 +71,8 @@
 			pollendtime = select_query.item[2]
 			pollquestion = select_query.item[3]
 			polltype = select_query.item[4]
-			link = select_query.item[5]
+			if(select_query.item[6] && select_query.item[6] != "")
+				haslink = 1
 			found = 1
 			break
 
@@ -92,8 +107,8 @@
 				output +="<hr>"
 				output += "<b>Question: [pollquestion]</b><br>"
 				output += "<font size='2'>Poll runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font>"
-				if(link)
-					output += "<br><font size='2'>Additional informationis available here: <br> [link]</font>"
+				if(haslink)
+					output += "<br><font size='2'>Additional information <a href='?src=\ref[src];showpolllink=[pollid]'>is available here</a></font>"
 				output += "<p>"
 
 				if(!voted)	//Only make this a form if we have not voted yet
@@ -139,8 +154,8 @@
 				output +="<hr>"
 				output += "<b>Question: [pollquestion]</b><br>"
 				output += "<font size='2'>Feedback gathering runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font>"
-				if(link)
-					output += "<br><font size='2'>Additional informationis available here: <br> [link]</font>"
+				if(haslink)
+					output += "<br><font size='2'>Additional information <a href='?src=\ref[src];showpolllink=[pollid]'>is available here</a></font>"
 				output += "<p>"
 
 				if(!voted)	//Only make this a form if we have not voted yet
@@ -176,8 +191,8 @@
 				output +="<hr>"
 				output += "<b>Question: [pollquestion]</b><br>"
 				output += "<font size='2'>Poll runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font>"
-				if(link)
-					output += "<br><font size='2'>Additional informationis available here: <br> [link]</font>"
+				if(haslink)
+					output += "<br><font size='2'>Additional information <a href='?src=\ref[src];showpolllink=[pollid]'>is available here</a></font>"
 				output += "<p>"
 
 				var/voted = 0
@@ -274,8 +289,8 @@
 				output +="<hr>"
 				output += "<b>Question: [pollquestion]</b><br>You can select up to [multiplechoiceoptions] options. If you select more, the first [multiplechoiceoptions] will be saved.<br>"
 				output += "<font size='2'>Poll runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font>"
-				if(link)
-					output += "<br><font size='2'>Additional informationis available here: <br> [link]</font>"
+				if(haslink)
+					output += "<br><font size='2'>Additional information <a href='?src=\ref[src];showpolllink=[pollid]'>is available here</a></font>"
 				output += "<p>"
 
 				if(!voted)	//Only make this a form if we have not voted yet
