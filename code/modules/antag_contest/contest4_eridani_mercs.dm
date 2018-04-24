@@ -18,7 +18,7 @@
 		"A general alert exercise is to be carried out. Ensure the crew successfully carry out the correct procedure for each alert level for the shift." = 1,
 		"We believe [pick(station_departments - "Command")] department contains known regulation breakers. Investigate using any means available." = 1,
 		"A simulated [pick("hostile nation", "hostile corporation", "unknown life-form")] attack is to be carried out. Ensure the crew obey proper procedure and regulations." = 1,
-		"The [pick(station_departments - "Command")] department has been over funded. Aquire [rand(1000, 10000)] credits from their departmental account." = 1,
+		"The [pick(station_departments - "Command")] department has been over funded. Aquire [rand(1000, 10000)] credits from their departmental account. Ensure this is done legally through security fines of the department's staff." = 1,
 		"Ensure the station is secure. There are no special objectives at this time." = 6
 	)
 	var/objective = pickweight(objectives)
@@ -27,11 +27,11 @@
 \[center\]\[b\]ERIDANI CORPORATE BOARD ENCODED TRANSMISSION\[/b\]\[/center\]
 \[center\]\[u\]\[small\]FOR USE BY ERIDANI CORPORATE ENFORCEMENT TROOPS ONLY\[/small\]\[/u\]\[/center\]
 
-The Corporate Board has decided to issue You the following objective for today's shift:
+The Corporate Board has decided to issue you the following objective for today's shift:
 
 [objective]
 
-Ensure that You present Yourself professionally."}
+Ensure that you present yourself professionally."}
 
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(null)
 	P.name = "Revised Corporate Board Orders"
