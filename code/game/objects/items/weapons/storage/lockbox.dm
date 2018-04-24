@@ -131,9 +131,9 @@
 	desc = "A high security lockbox containing special mind-altering medication."
 	req_access = list(access_heads)
 
-	New()
-		..()
-		new /obj/item/weapon/storage/pill_bottle/hextrasenil(src)
-		new /obj/item/weapon/storage/pill_bottle/hextrasenil(src)
-		new /obj/item/weapon/storage/pill_bottle/hextrasenil(src)
-		new /obj/item/weapon/storage/pill_bottle/hextrasenil(src)
+/obj/item/weapon/storage/lockbox/hextrasenil/fill()
+	..()
+	new /obj/item/weapon/storage/pill_bottle/hextrasenil(src)
+	new /obj/item/weapon/storage/pill_bottle/hextrasenil(src)
+	new /obj/item/weapon/storage/pill_bottle/hextrasenil(src)
+	new /obj/item/weapon/storage/pill_bottle/hextrasenil(src)

@@ -3,7 +3,8 @@ author: BurgerBB
 delete-after: True
 
 changes: 
-  - tweak: "Tweaked the metabolism rate of mental medication to reflext their intended values. Reduced the dosage threshhold to supress traumas to reflect their intended values. Syringe (drugs) now contains truth serum."
-  - rscadd: "Overdosing on trisyndicotin has a chance to deactivate the consumer's loyalty implant at the cost of brain damage, if any. Overdosing on hextrasenil has a chance to remove the consumer's antag rolls, if any. Consuming trisyndicotin and hextrasenil at the same time causes brain damage, and both medications to remove eachother at an accelerated rate."
+  - bugfix: "Fixed the metabolism rate of mental medication to reflext their intended values. Reduced the dosage threshhold to supress traumas to reflect their intended values. Syringe (drugs) now contains truth serum."
+  - tweak: "Hextrasenil can now remove antagonist status on prompt, similiar to cult conversion. Changed the recipe of Hextrasenil to include rarer materials."
+  - tweak: "Trisyndicotin can now remove antagonist status on prompt, similiar to cult conversion. Removed the recipe for Trisyndicotin. Trisyndicotin is now renamed to Syndites. Syndites only work when injected or breathed in."
   - rscadd: "Cardox is now slightly poisonous, and can directly remove phoron from blood when consumed. Cardox can now remove phoron in the air when applied to turfs."
-  - maptweak: "A secure box of loyalty implants, hextrasenil pills, and cardox grenades are now located in the vault."
+  - maptweak: "A secure box of hextrasenil pills and cardox grenades are now located in the vault. Added a book reminding non-medical staff not to give mental medication to prisoners."

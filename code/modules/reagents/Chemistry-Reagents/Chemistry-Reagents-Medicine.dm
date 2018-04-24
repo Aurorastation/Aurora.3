@@ -521,7 +521,7 @@
 
 /* mental */
 
-#define ANTIDEPRESSANT_MESSAGE_DELAY 1800 //3 minutes
+#define ANTIDEPRESSANT_MESSAGE_DELAY 1200 //2 minutes
 
 /datum/reagent/mental
 	name = "Experimental Antidepressant"
@@ -534,19 +534,20 @@
 	data = 0
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "bugs"
-	var/goodmessage = list("Your mind feels healthy.","You feel calm and relaxed.","The world seems like a better place now.") //Messages when all your brain traumas are cured.
-	var/badmessage = list("Your mind seems lost...","You feel agitated...","It feels like the world is out to get you...") //Messages when you still have at least one brain trauma it's suppose to cure.
-	var/worstmessage = list("Your mind starts to break down...","Things aren't what they seem...","You hate yourself...") //Messages when the user is at possible risk for more trauma
+	conflicting_reagent = /datum/reagent/alcohol
+	var/min_dose = 2
+	var/messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY
+	var/list/goodmessage = list() //Messages when all your brain traumas are cured.
+	var/list/badmessage = list() //Messages when you still have at least one brain trauma it's suppose to cure.
+	var/list/worstmessage = list() //Messages when the user is at possible risk for more trauma
 	var/list/suppress_traumas  //List of brain traumas that the medication temporarily suppresses, with the key being the brain trauma and the value being the minimum dosage required to cure.
 	var/list/dosage_traumas //List of brain traumas that the medication permanently adds at these dosages, with the key being the brain trauma and the value being base percent chance to add.
 	var/list/withdrawal_traumas //List of withdrawl effects that the medication permanently adds during withdrawl, with the key being the brain trauma, and the value being the base percent chance to add.
-	var/messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY
-	conflicting_reagent = /datum/reagent/alcohol
-	var/suppressing_reagents = list(/datum/reagent/synaptizine = 5) // List of reagents that suppress the withdrawal effects, with the key being the reagent and the vlue being the minimum dosage required to suppress.
+	var/list/suppressing_reagents = list() // List of reagents that suppress the withdrawal effects, with the key being the reagent and the vlue being the minimum dosage required to suppress.
 
 /datum/reagent/mental/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
 
-	if(!istype(H) || world.time < data || messagedelay == -1)
+	if(max_dose < min_dose || !istype(H) || (world.time < data && volume > removed) || messagedelay == -1)
 		return
 	var/hastrauma = 0 //whether or not the brain has trauma
 	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
@@ -576,19 +577,22 @@
 					suppress_withdrawl = TRUE
 					break
 			if(!suppress_withdrawl)
-				if (H.shock_stage < 20)
+				if (H.shock_stage < 20 && worstmessage.len)
 					to_chat(H,"<span class='danger'>[pick(worstmessage)]</span>")
+				messagedelay = initial(messagedelay) * 0.25
 				for(var/k in withdrawal_traumas)
 					var/datum/brain_trauma/BT = k
 					var/percentchance = max(withdrawal_traumas[k] * (dose/20)) //The higher the dosage, the more likely it is do get withdrawal traumas.
 					if(!H.has_trauma_type(BT) && prob(percentchance))
 						B.gain_trauma(BT,FALSE)
 		else if(hastrauma || volume < max_dose*0.5) //If your current dose is not high enough, then alert the player.
-			if (H.shock_stage < 10)
+			if (H.shock_stage < 10 && badmessage.len)
 				to_chat(H,"<span class='warning'>[pick(badmessage)]</span>")
+			messagedelay = initial(messagedelay) * 0.5
 		else
-			if (H.shock_stage < 5)
+			if (H.shock_stage < 5 && goodmessage.len)
 				to_chat(H,"<span class='good'>[pick(goodmessage)]</span>")
+			messagedelay = initial(messagedelay)
 
 	data = world.time + messagedelay
 
@@ -613,6 +617,7 @@
 		/datum/brain_trauma/mild/muscle_weakness/ = 0.05
 	)
 	conflicting_reagent = null
+	min_dose = 0.25
 	var/datum/modifier/modifier
 
 /datum/reagent/mental/nicotine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -739,6 +744,7 @@
 	goodmessage = list("You do not feel the need to worry about simple things.","You feel calm and level-headed.","You feel decent.")
 	badmessage = list("You worry about the littlest thing.","You feel like you are at risk.","You think you see things.")
 	worstmessage = list("You start to overreact to sounds and movement...","Your hear dangerous thoughts in your head...","You are really starting to see things...")
+	messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY * 0.75
 	suppress_traumas  = list(
 		/datum/brain_trauma/mild/phobia/ = 5
 	)
@@ -772,6 +778,7 @@
 	goodmessage = list("You feel at ease.","Your mind feels healthy..")
 	badmessage = list("You worry about the littlest thing.","Your head starts to feel weird...","You think you see things.")
 	worstmessage = list("You start to overreact to sounds and movement...","Your head feels really weird.","You are really starting to see things...")
+	messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY * 0.75
 	suppress_traumas  = list(
 		/datum/brain_trauma/mild/concussion = 5,
 		/datum/brain_trauma/mild/phobia/ = 5
@@ -803,6 +810,7 @@
 	goodmessage = list("You feel at ease.","Your mind feels healthy..","You feel unafraid to speak...")
 	badmessage = list("You worry about the littlest thing.","You think you see things.")
 	worstmessage = list("You start to overreact to sounds and movement...","You are really starting to see things...")
+	messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY * 0.75
 	suppress_traumas  = list(
 		/datum/brain_trauma/mild/phobia = 5,
 		/datum/brain_trauma/mild/stuttering = 2,
@@ -834,7 +842,8 @@
 	taste_description = "paper"
 	goodmessage = list("Your mind feels as one.","You feel comfortable speaking.","Your body feels good.","Your thoughts are pure.")
 	badmessage = list("You start hearing voices...","You think you see things...","You feel really upset...","You want attention...")
-	worstmessage = list("You think you start seeing things...","You swear someone inside you spoke to you...","You hate feeling alone...","You feel really upset.")
+	worstmessage = list("You think you start seeing things...","You swear someone inside you spoke to you...","You hate feeling alone...","You feel really upset...")
+	messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY * 0.5
 	suppress_traumas  = list(
 		/datum/brain_trauma/severe/split_personality = 5,
 		/datum/brain_trauma/special/imaginary_friend = 10,
@@ -874,6 +883,7 @@
 	goodmessage = list("Your mind feels as one.","You feel comfortable speaking.","Your body feels good.","Your thoughts are pure.","Your body feels responsive.","You can handle being alone.")
 	badmessage = list("You start hearing voices...","You think you see things...","You want a friend...")
 	worstmessage = list("You think you start seeing things...","You swear someone inside you spoke to you...")
+	messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY * 0.5
 	suppress_traumas  = list(
 		/datum/brain_trauma/severe/split_personality = 5,
 		/datum/brain_trauma/special/imaginary_friend = 10,
@@ -907,7 +917,7 @@
 	metabolism = 0.04 * REM //Not meant to last a long time.
 	data = 0
 	taste_description = "paper"
-	goodmessage = list("You feel calme.","You feel levelheaded.","You feel rational.","Emotions to not bother you.")
+	goodmessage = list("You feel calm.","You feel levelheaded.","You feel rational.","Emotions do not bother you.")
 	badmessage = list()
 	worstmessage = list()
 	suppress_traumas  = list(
@@ -923,6 +933,8 @@
 	)
 	conflicting_reagent = /datum/reagent/mental/trisyndicotin
 	messagedelay = 30
+
+	//Internal Vars
 	var/dont_run_overdose = 0
 	var/overdose_time = 0
 	var/is_antag = 0
@@ -957,14 +969,14 @@
 				H.adjustHalLoss(50)
 				H.weakened += 4
 				to_chat(H,"<span class='danger'>Your body cries out in pain while your willpower is on the verge of collapsing...</span>")
-				if(!waiting_for_choice && prob(5))
+				if(!waiting_for_choice && prob(25))
 					spawn() //I don't know if this would work, ask tomorrow.
 						waiting_for_choice = 1
 						var/choice = alert(H,"Do you want to give into [current_map.company_name]?","Submit to [current_map.company_name]","Resist","Submit")
 						waiting_for_choice = 0
 						if(choice == "Submit")
 							clear_antag_roles(H.mind, 1)
-							to_chat(H,"<span class='notice'>You give into the pain and torment, and renounce your previous ways. Any negative intentions towards [current_map.company_name] have been long forgotten.</span>")
+							to_chat(H,"<span class='notice'>You give into the pain and torment, and renounce your previous ways. Any harmful intentions towards [current_map.company_name] have been long forgotten.</span>")
 						else
 							to_chat(H,"<span class='noitce'>You hold onto the last bit of hope and hold on a little while longer...</span>")
 
@@ -973,7 +985,6 @@
 /datum/reagent/mental/hextrasenil/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting)
 	var/amount = min(removed, conflicting.volume)
 	holder.remove_reagent(conflicting.id, amount)
-	M.adjustBrainLoss(amount * 0.25)
 
 /datum/reagent/mental/trisyndicotin
 	name = "Syndites"
@@ -982,13 +993,14 @@
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.02 * REM
+	overdose = 20
 	data = 0
 	taste_description = "metal"
 	goodmessage = list("Your whole body tingles.","Your body itches.","Your skin crawls.")
 	badmessage = list("The tingling starts to die down...","You don't feel as itchy anymore.")
 	worstmessage = list()
 	suppress_traumas  = list(
-		/datum/brain_trauma/severe/pacifism = 30 //30 Is overdose.
+		/datum/brain_trauma/severe/pacifism = 5 //30 Is overdose.
 	)
 	conflicting_reagent = /datum/reagent/mental/hextrasenil
 	messagedelay = 60

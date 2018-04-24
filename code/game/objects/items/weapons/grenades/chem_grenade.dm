@@ -306,8 +306,8 @@
 		icon_state = initial(icon_state) +"_locked"
 
 /obj/item/weapon/grenade/chem_grenade/large/phoroncleaner
-	name = "cardox grenade"
-	desc = "A very expensive large grenade filled with cardox. Removes phoron from the air. WARNING: HAZARDOUS TO VAURCA."
+	name = "large cardox grenade"
+	desc = "A large smoke grenade containing a heavy amount of cardox. Use in case of phoron leaks. Warning: Harmful to Vaurca health."
 	stage = 2
 	path = 1
 

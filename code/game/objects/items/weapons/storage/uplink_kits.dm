@@ -258,3 +258,17 @@
 	new /obj/item/weapon/spacecash/c1000(src)
 	new /obj/item/weapon/spacecash/c1000(src)
 	new /obj/item/weapon/spacecash/c1000(src)
+
+/obj/item/weapon/storage/box/syndie_kit/syndites
+	name = "box of syringes (syndites)"
+	desc = "A box full of 7 syringes, each filled with 15u of syndites. About 30u is required to work."
+
+/obj/item/weapon/storage/box/syringes/syndites/fill()
+	..()
+	new /obj/item/weapon/reagent_containers/syringe/syndites( src )
+	new /obj/item/weapon/reagent_containers/syringe/syndites( src )
+	new /obj/item/weapon/reagent_containers/syringe/syndites( src )
+	new /obj/item/weapon/reagent_containers/syringe/syndites( src )
+	new /obj/item/weapon/reagent_containers/syringe/syndites( src )
+	new /obj/item/weapon/reagent_containers/syringe/syndites( src )
+	new /obj/item/weapon/reagent_containers/syringe/syndites( src )

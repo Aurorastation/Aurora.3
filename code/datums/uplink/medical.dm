@@ -25,6 +25,6 @@
 	path = /obj/item/weapon/storage/firstaid/combat
 
 /datum/uplink_item/item/medical/trisyndicotin
-	name = "Mind-freeing pills"
-	item_cost = 3
-	path = /obj/item/weapon/storage/pill_bottle/trisyndicotin
+	name = "Box of Loyalty Implant Removing Syringes"
+	item_cost = 6
+	path = /obj/item/weapon/storage/box/syndie_kit/syndites
