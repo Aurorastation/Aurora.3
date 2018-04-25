@@ -374,11 +374,12 @@ proc/admin_notice(var/message, var/rights)
 			if( isemptylist(SSnews.network_channels) )
 				dat+="<I>No active channels found...</I>"
 			else
-				for(var/datum/feed_channel/CHANNEL in SSnews.network_channels)
-					if(CHANNEL.is_admin_channel)
-						dat+="<B><FONT style='BACKGROUND-COLOR: LightGreen'><A href='?src=\ref[src];ac_show_channel=\ref[CHANNEL]'>[CHANNEL.channel_name]</A></FONT></B><BR>"
+				for(var/channel in SSnews.network_channels)
+					var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
+					if(FC.is_admin_channel)
+						dat+="<B><FONT style='BACKGROUND-COLOR: LightGreen'><A href='?src=\ref[src];ac_show_channel=\ref[FC]'>[FC.channel_name]</A></FONT></B><BR>"
 					else
-						dat+="<B><A href='?src=\ref[src];ac_show_channel=\ref[CHANNEL]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR></B>"
+						dat+="<B><A href='?src=\ref[src];ac_show_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR></B>"
 			dat+={"<BR><HR><A href='?src=\ref[src];ac_refresh=1'>Refresh</A>
 				<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Back</A>
 			"}
@@ -421,7 +422,8 @@ proc/admin_notice(var/message, var/rights)
 			if(src.admincaster_feed_channel.channel_name =="" || src.admincaster_feed_channel.channel_name == "\[REDACTED\]")
 				dat+="<FONT COLOR='maroon'>Invalid channel name.</FONT><BR>"
 			var/check = 0
-			for(var/datum/feed_channel/FC in SSnews.network_channels)
+			for(var/channel in SSnews.network_channels)
+				var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
 				if(FC.channel_name == src.admincaster_feed_channel.channel_name)
 					check = 1
 					break
@@ -461,8 +463,9 @@ proc/admin_notice(var/message, var/rights)
 			if(isemptylist(SSnews.network_channels))
 				dat+="<I>No feed channels found active...</I><BR>"
 			else
-				for(var/datum/feed_channel/CHANNEL in SSnews.network_channels)
-					dat+="<A href='?src=\ref[src];ac_pick_censor_channel=\ref[CHANNEL]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR>"
+				for(var/channel in SSnews.network_channels)
+					var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
+					dat+="<A href='?src=\ref[src];ac_pick_censor_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR>"
 			dat+="<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Cancel</A>"
 		if(11)
 			dat+={"
@@ -474,8 +477,9 @@ proc/admin_notice(var/message, var/rights)
 			if(isemptylist(SSnews.network_channels))
 				dat+="<I>No feed channels found active...</I><BR>"
 			else
-				for(var/datum/feed_channel/CHANNEL in SSnews.network_channels)
-					dat+="<A href='?src=\ref[src];ac_pick_d_notice=\ref[CHANNEL]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR>"
+				for(var/channel in SSnews.network_channels)
+					var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
+					dat+="<A href='?src=\ref[src];ac_pick_d_notice=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR>"
 
 			dat+="<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Back</A>"
 		if(12)

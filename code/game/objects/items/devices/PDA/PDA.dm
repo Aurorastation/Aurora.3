@@ -515,14 +515,12 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			data["aircontents"] = list("reading" = 0)
 	if(mode==6)
 		feeds.Cut()
-		for(var/datum/feed_channel/channel in SSnews.network_channels)
-			feeds[++feeds.len] = list("name" = channel.channel_name, "censored" = channel.censored)
+		for(var/channel in SSnews.network_channels)
+			var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
+			feeds[++feeds.len] = list("name" = FC.channel_name, "censored" = FC.censored)
 		data["feedChannels"] = feeds
 	if(mode==61)
-		var/datum/feed_channel/FC
-		for(FC in SSnews.network_channels)
-			if(FC.channel_name == active_feed["name"])
-				break
+		var/datum/feed_channel/FC = SSnews.GetFeedChannel(active_feed["name"])
 
 		var/list/feed = feed_info[active_feed]
 		if(!feed)

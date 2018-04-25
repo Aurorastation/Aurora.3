@@ -27,8 +27,9 @@
 	channel_query.Execute()
 	while(channel_query.NextRow())
 		CHECK_TICK
+		var/datum/feed_channel/channel = null
 		try
-			CreateFeedChannel(
+			channel = CreateFeedChannel(
 				channel_query.item[2],
 				channel_query.item[3],
 				text2num(channel_query.item[4]),
@@ -36,16 +37,24 @@
 				channel_query.item[6])
 		catch(var/exception/ec)
 			log_debug("SSnews: Error when loading channel: [ec]")
+			continue
 		var/DBQuery/news_query = dbcon.NewQuery("SELECT body, author, is_admin_message, message_type, time_stamp FROM ss13_news_stories WHERE deleted_at IS NULL AND channel_id = :channel_id: ORDER BY created_at DESC")
 		news_query.Execute(list("channel_id" = channel_query.item[1]))
 		while(news_query.NextRow())
 			CHECK_TICK
 			try
-				SubmitArticle(news_query.item[1], news_query.item[2], channel_query.item[2], null, text2num(news_query.item[3]), news_query.item[4], news_query.item[5])
+				SubmitArticle(news_query.item[1], news_query.item[2], channel, null, text2num(news_query.item[3]), news_query.item[4], news_query.item[5])
 			catch(var/exception/en)
 				log_debug("SSnews: Error when loading news: [en]")
 
-
+/datum/controller/subsystem/news/proc/GetFeedChannel(var/channel_name)
+//	for(var/datum/feed_channel/FC in network_channels)
+//		if(FC.channel_name == channel_name)
+//			return FC
+//	return null
+	if(network_channels[channel_name])
+		return network_channels[channel_name]
+	return null
 
 /datum/controller/subsystem/news/proc/CreateFeedChannel(var/channel_name, var/author, var/locked, var/adminChannel = 0, var/announcement_message)
 	var/datum/feed_channel/newChannel = new /datum/feed_channel
@@ -57,9 +66,16 @@
 		newChannel.announcement = announcement_message
 	else
 		newChannel.announcement = "Breaking news from [channel_name]!"
-	network_channels += newChannel
+	network_channels[channel_name] = newChannel
+	return newChannel
 
-/datum/controller/subsystem/news/proc/SubmitArticle(var/msg, var/author, var/channel_name, var/obj/item/weapon/photo/photo, var/adminMessage = 0, var/message_type = "", var/time_stamp)
+/datum/controller/subsystem/news/proc/SubmitArticle(var/msg, var/author, var/channel, var/obj/item/weapon/photo/photo, var/adminMessage = 0, var/message_type = "", var/time_stamp)
+	if(!istype(channel,/datum/feed_channel))
+		channel = GetFeedChannel(channel)
+	if(!channel)
+		log_debug("SSnews: Attempted to insert news from author [author] into channel [channel] but channel does not exist.",SEVERITY_ERROR)
+		return
+	
 	var/datum/feed_message/newMsg = new /datum/feed_message
 	newMsg.author = author
 	newMsg.body = msg
@@ -73,10 +89,7 @@
 	if(photo)
 		newMsg.img = photo.img
 		newMsg.caption = photo.scribble
-	for(var/datum/feed_channel/FC in network_channels)
-		if(FC.channel_name == channel_name)
-			insert_message_in_channel(FC, newMsg) //Adding message to the network's appropriate feed_channel
-			break
+	insert_message_in_channel(channel, newMsg) //Adding message to the network's appropriate feed_channel
 
 /datum/controller/subsystem/news/proc/insert_message_in_channel(var/datum/feed_channel/FC, var/datum/feed_message/newMsg)
 	FC.messages += newMsg

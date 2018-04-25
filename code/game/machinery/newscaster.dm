@@ -167,11 +167,12 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				if( isemptylist(SSnews.network_channels) )
 					dat+="<I>No active channels found...</I>"
 				else
-					for(var/datum/feed_channel/CHANNEL in SSnews.network_channels)
-						if(CHANNEL.is_admin_channel)
-							dat+="<B><FONT style='BACKGROUND-COLOR: LightGreen '><A href='?src=\ref[src];show_channel=\ref[CHANNEL]'>[CHANNEL.channel_name]</A></FONT></B><BR>"
+					for(var/channel in SSnews.network_channels)
+						var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
+						if(FC.is_admin_channel)
+							dat+="<B><FONT style='BACKGROUND-COLOR: LightGreen '><A href='?src=\ref[src];show_channel=\ref[FC]'>[FC.channel_name]</A></FONT></B><BR>"
 						else
-							dat+="<B><A href='?src=\ref[src];show_channel=\ref[CHANNEL]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR></B>"
+							dat+="<B><A href='?src=\ref[src];show_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR></B>"
 				dat+="<BR><HR><A href='?src=\ref[src];refresh=1'>Refresh</A>"
 				dat+="<BR><A href='?src=\ref[src];setScreen=[0]'>Back</A>"
 			if(2)
@@ -206,7 +207,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			if(7)
 				dat+="<B><FONT COLOR='maroon'>ERROR: Could not submit Feed Channel to Network.</B></FONT><HR><BR>"
 				var/list/existing_authors = list()
-				for(var/datum/feed_channel/FC in SSnews.network_channels)
+				for(var/channel in SSnews.network_channels)
+					var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
 					if(FC.author == "\[REDACTED\]")
 						existing_authors += FC.backup_author
 					else
@@ -216,7 +218,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				if(src.channel_name=="" || src.channel_name == "\[REDACTED\]")
 					dat+="<FONT COLOR='maroon'>�Invalid channel name.</FONT><BR>"
 				var/check = 0
-				for(var/datum/feed_channel/FC in SSnews.network_channels)
+				for(var/channel in SSnews.network_channels)
+					var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
 					if(FC.channel_name == src.channel_name)
 						check = 1
 						break
@@ -229,7 +232,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				var/total_num=length(SSnews.network_channels)
 				var/active_num=total_num
 				var/message_num=0
-				for(var/datum/feed_channel/FC in SSnews.network_channels)
+				for(var/channel in SSnews.network_channels)
+					var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
 					if(!FC.censored)
 						message_num += length(FC.messages)    //Dont forget, datum/feed_channel's var messages is a list of datum/feed_message
 					else
@@ -268,8 +272,9 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				if(isemptylist(SSnews.network_channels))
 					dat+="<I>No feed channels found active...</I><BR>"
 				else
-					for(var/datum/feed_channel/CHANNEL in SSnews.network_channels)
-						dat+="<A href='?src=\ref[src];pick_censor_channel=\ref[CHANNEL]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR>"
+					for(var/channel in SSnews.network_channels)
+						var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
+						dat+="<A href='?src=\ref[src];pick_censor_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR>"
 				dat+="<BR><A href='?src=\ref[src];setScreen=[0]'>Cancel</A>"
 			if(11)
 				dat+="<B>[current_map.company_name] D-Notice Handler</B><HR>"
@@ -279,8 +284,9 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				if(isemptylist(SSnews.network_channels))
 					dat+="<I>No feed channels found active...</I><BR>"
 				else
-					for(var/datum/feed_channel/CHANNEL in SSnews.network_channels)
-						dat+="<A href='?src=\ref[src];pick_d_notice=\ref[CHANNEL]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR>"
+					for(var/channel in SSnews.network_channels)
+						var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
+						dat+="<A href='?src=\ref[src];pick_d_notice=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR>"
 
 				dat+="<BR><A href='?src=\ref[src];setScreen=[0]'>Back</A>"
 			if(12)
@@ -391,14 +397,16 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		else if(href_list["submit_new_channel"])
 			//var/list/existing_channels = list() //OBSOLETE
 			var/list/existing_authors = list()
-			for(var/datum/feed_channel/FC in SSnews.network_channels)
+			for(var/channel in SSnews.network_channels)
+				var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
 				//existing_channels += FC.channel_name
 				if(FC.author == "\[REDACTED\]")
 					existing_authors += FC.backup_author
 				else
 					existing_authors  +=FC.author
 			var/check = 0
-			for(var/datum/feed_channel/FC in SSnews.network_channels)
+			for(var/channel in SSnews.network_channels)
+				var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
 				if(FC.channel_name == src.channel_name)
 					check = 1
 					break
@@ -415,9 +423,10 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		else if(href_list["set_channel_receiving"])
 			//var/list/datum/feed_channel/available_channels = list()
 			var/list/available_channels = list()
-			for(var/datum/feed_channel/F in SSnews.network_channels)
-				if( (!F.locked || F.author == scanned_user) && !F.censored)
-					available_channels += F.channel_name
+			for(var/channel in SSnews.network_channels)
+				var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
+				if( (!FC.locked || FC.author == scanned_user) && !FC.censored)
+					available_channels += FC.channel_name
 			src.channel_name = input(usr, "Choose receiving Feed Channel", "Network Channel Handler") in available_channels
 			src.updateUsrDialog()
 
@@ -435,7 +444,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			else
 				var/image = photo_data ? photo_data.photo : null
 				feedback_inc("newscaster_stories",1)
-				SSnews.SubmitArticle(src.msg, src.scanned_user, src.channel_name, image, 0)
+				var/datum/feed_channel/ch =  SSnews.GetFeedChannel(src.channel_name)
+				SSnews.SubmitArticle(src.msg, src.scanned_user, ch, image, 0)
 				src.screen=4
 
 			src.updateUsrDialog()
@@ -860,7 +870,8 @@ obj/item/weapon/newspaper/attackby(obj/item/weapon/W as obj, mob/user as mob)
 /obj/machinery/newscaster/proc/print_paper()
 	feedback_inc("newscaster_newspapers_printed",1)
 	var/obj/item/weapon/newspaper/NEWSPAPER = new /obj/item/weapon/newspaper
-	for(var/datum/feed_channel/FC in SSnews.network_channels)
+	for(var/channel in SSnews.network_channels)
+		var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
 		NEWSPAPER.news_content += FC
 	if(SSnews.wanted_issue)
 		NEWSPAPER.important_message = SSnews.wanted_issue

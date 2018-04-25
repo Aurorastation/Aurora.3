@@ -1312,7 +1312,8 @@
 
 	else if(href_list["ac_submit_new_channel"])
 		var/check = 0
-		for(var/datum/feed_channel/FC in SSnews.network_channels)
+		for(var/channel in SSnews.network_channels)
+			var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
 			if(FC.channel_name == src.admincaster_feed_channel.channel_name)
 				check = 1
 				break
@@ -1329,8 +1330,9 @@
 
 	else if(href_list["ac_set_channel_receiving"])
 		var/list/available_channels = list()
-		for(var/datum/feed_channel/F in SSnews.network_channels)
-			available_channels += F.channel_name
+		for(var/channel in SSnews.network_channels)
+			var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
+			available_channels += FC.channel_name
 		src.admincaster_feed_channel.channel_name = sanitizeSafe(input(usr, "Choose receiving Feed Channel", "Network Channel Handler") in available_channels )
 		src.access_news_network()
 
@@ -1343,7 +1345,8 @@
 			src.admincaster_screen = 6
 		else
 			feedback_inc("newscaster_stories",1)
-			SSnews.SubmitArticle(src.admincaster_feed_message.body, src.admincaster_signature, src.admincaster_feed_channel.channel_name, null, 1)
+			var/datum/feed_channel/ch =  SSnews.GetFeedChannel(src.admincaster_feed_channel.channel_name)
+			SSnews.SubmitArticle(src.admincaster_feed_message.body, src.admincaster_signature, ch, null, 1)
 			src.admincaster_screen=4
 
 		log_admin("[key_name_admin(usr)] submitted a feed story to channel: [src.admincaster_feed_channel.channel_name]!",admin_key=key_name(usr))
