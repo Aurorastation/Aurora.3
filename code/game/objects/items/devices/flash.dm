@@ -86,6 +86,7 @@
 				if(!E)
 					return
 				usr << span("alert", "Your eyes burn with the intense light of the flash, you collapse in pain!")
+				M.Weaken(10)
 				E.damage += rand(10, 11)
 				if(E.damage > 12)
 					M.eye_blurry += rand(3,6)
