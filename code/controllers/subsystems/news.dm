@@ -36,10 +36,10 @@
 				channel_query.item[6])
 		catch(var/exception/ec)
 			log_debug("SSnews: Error when loading channel: [ec]")
-		CHECK_TICK
 		var/DBQuery/news_query = dbcon.NewQuery("SELECT body, author, is_admin_message, message_type, time_stamp FROM ss13_news_stories WHERE deleted_at IS NULL AND channel_id = :channel_id: ORDER BY created_at DESC")
 		news_query.Execute(list("channel_id" = channel_query.item[1]))
 		while(news_query.NextRow())
+			CHECK_TICK
 			try
 				SubmitArticle(news_query.item[1], news_query.item[2], channel_query.item[2], null, text2num(news_query.item[3]), news_query.item[4], news_query.item[5])
 			catch(var/exception/en)
