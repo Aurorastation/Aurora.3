@@ -34,7 +34,7 @@
 
 // called on a SUCCESSFUL saw-off.
 /obj/item/weapon/gun/projectile/shotgun/proc/saw_off(mob/user, obj/item/tool)
-	to_chat(user, "<span class='notice'>You attempt to cut [src]'s barrel with [tool], but nothing happens.")
+	to_chat(user, "<span class='notice'>You attempt to cut [src]'s barrel with [tool], but nothing happens.</span>")
 	log_debug("shotgun: attempt to saw-off shotgun with no saw-off behavior.")
 
 /obj/item/weapon/gun/projectile/shotgun/pump
