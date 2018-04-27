@@ -1,6 +1,3 @@
-#define GET_BELOW_OR_NULL(atom, z) \
-	(!(z > world.maxz || z > 17 || z < 2) && z_levels & (1 << (z - 2))) ? get_step(atom, DOWN) : null
-
 /datum/random_map/automata/cave_system
 	iterations = 5
 	descriptor = "moon caves"
@@ -131,7 +128,7 @@
 			if(EMPTY_CHAR)
 				new_path = mineral_rich
 			if(FLOOR_CHAR)
-				var/turf/below = GET_BELOW_OR_NULL(T, T.z)
+				var/turf/below = GET_BELOW(T)
 				if(below)
 					var/area/below_area = below.loc		// Let's just assume that the turf is not in nullspace.
 					if(below_area.station_area)
@@ -164,5 +161,3 @@
 	target_turf_type = /turf/unsimulated/chasm_mask
 	mineral_sparse = /turf/simulated/floor/asteroid/ash
 	mineral_rich = /turf/simulated/floor/asteroid/ash
-
-#undef GET_BELOW_OR_NULL
