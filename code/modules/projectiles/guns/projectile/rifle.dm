@@ -116,11 +116,11 @@
 				load_ammo(has_clip, user)
 				src.cut_overlays()
 				if(!has_clip.stored_ammo.len)
-					src.add_overlay(image('icons/obj/gun.dmi', "springfield-clip-empty"))
+					add_overlay("springfield-clip-empty")
 				else if(has_clip.stored_ammo.len <= 3)
-					src.add_overlay(image('icons/obj/gun.dmi', "springfield-clip-half"))
+					add_overlay("springfield-clip-half")
 				else
-					src.add_overlay(image('icons/obj/gun.dmi', "springfield-clip-full"))
+					add_overlay("springfield-clip-full")
 			else
 				user << "<span class='warning'>There is no ammo in \the [has_clip.name]!</span>"
 		else if(!open_bolt)
