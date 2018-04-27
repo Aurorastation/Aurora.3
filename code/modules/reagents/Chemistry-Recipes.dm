@@ -592,8 +592,8 @@
 	name = "Hextrasenil"
 	id = "hextrasenil"
 	result = "hextrasenil"
-	required_reagents = list("truthserum" = 1, "platinum" = 1, "mindbreaker" = 1)
-	result_amount = 3
+	required_reagents = list("truthserum" = 1, "sliver" = 1, "mindbreaker" = 1)
+	result_amount = 2
 
 /datum/chemical_reaction/truthserum
 	name = "Truthserum"
@@ -601,6 +601,13 @@
 	result = "truthserum"
 	required_reagents = list("mindbreaker" = 1, "synaptizine" = 1, "phoron" = 0.1)
 	result_amount = 2
+
+/datum/chemical_reaction/calomel
+	name = "Calomel"
+	id = "calomel"
+	result = "calomel"
+	required_reagents = list("mercury" = 1, "sodiumchloride" = 1, "ammonia" = 1)
+	result_amount = 3
 
 /datum/chemical_reaction/cardox
 	name = "Cardox"

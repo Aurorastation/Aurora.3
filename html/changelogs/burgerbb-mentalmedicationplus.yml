@@ -8,3 +8,5 @@ changes:
   - tweak: "Trisyndicotin can now remove antagonist status on prompt, similiar to cult conversion. Removed the recipe for Trisyndicotin. Trisyndicotin is now renamed to Syndites. Syndites only work when injected or breathed in."
   - rscadd: "Cardox is now slightly poisonous, and can directly remove phoron from blood when consumed. Cardox can now remove phoron in the air when applied to turfs."
   - maptweak: "A secure box of hextrasenil pills and cardox grenades are now located in the vault. Added a book reminding non-medical staff not to give mental medication to prisoners."
+  - rscadd: "Added the panocelium mushrooms, a mushroom mutated from fly amanita. They contain panotoxic, a potent toxin that causes intense amounts of pain."
+  - rscadd: "Added Calomel, a special medication that purges most chemicals from the bloodstream."

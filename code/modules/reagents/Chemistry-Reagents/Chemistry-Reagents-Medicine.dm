@@ -532,6 +532,7 @@
 	metabolism = 0.001 * REM
 	metabolism_min = 0
 	data = 0
+	scannable = 1
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "bugs"
 	conflicting_reagent = /datum/reagent/alcohol
@@ -915,6 +916,7 @@
 	reagent_state = LIQUID
 	color = "#44FFFF"
 	metabolism = 0.04 * REM //Not meant to last a long time.
+	overdose = 20
 	data = 0
 	taste_description = "needles"
 	goodmessage = list("You feel calm.","You feel levelheaded.","You feel rational.","Emotions do not bother you.")
@@ -961,11 +963,11 @@
 			if(30 to 60)
 				to_chat(H,"<span class='warning'>You feel your very mind and body turn on itself...</span>")
 				H.adjustHalLoss(10)
-			if(60 to 120)
+			if(60 to 300)
 				to_chat(H,"<span class='danger'>Every inch of flesh in your body feels like a million stings...</span>")
 				H.adjustHalLoss(20)
-			if(120 to INFINITY)
-				overdose_delay = 60
+			if(300 to INFINITY)
+				overdose_delay = 120
 				H.adjustHalLoss(50)
 				H.weakened += 4
 				to_chat(H,"<span class='danger'>Your body cries out in pain while your willpower is on the verge of collapsing...</span>")
@@ -1004,6 +1006,8 @@
 	)
 	conflicting_reagent = /datum/reagent/mental/hextrasenil
 	messagedelay = 60
+	scannable = 0
+	var/overdose_delay = 15
 	var/dont_run_overdose = 0
 	var/overdose_time = 0
 	var/obj/item/weapon/implant/loyalty/implant
@@ -1013,7 +1017,7 @@
 
 /datum/reagent/mental/trisyndicotin/overdose(var/mob/living/carbon/human/H, var/alien, var/removed, var/scale)
 
-	if(!dont_run_overdose && overdose_time % 10 == 0 && istype(H))
+	if(!dont_run_overdose && overdose_time % overdose_delay == 0 && istype(H))
 
 		if(!implant)
 			for(var/obj/item/weapon/implant/loyalty/I in H.contents)
@@ -1032,10 +1036,10 @@
 			if(30 to 60)
 				to_chat(H,"<span class='warning'>Thinking becomes painful and your whole body starts to ache...</span>")
 				H.adjustHalLoss(5)
-			if(60 to 180)
+			if(60 to 300)
 				to_chat(H,"<span class='danger'>Your brain aches and burns trying to fend off the invasive thoughts!</span>")
 				H.adjustHalLoss(10)
-			if(180 to INFINITY)
+			if(300 to INFINITY)
 				H.adjustHalLoss(-50)
 				qdel(implant)
 				to_chat(H,"<span class='notice'><font size =3><B>With a relieving wave of euphoria, your loyalty implant deactivates. Freedom, at last!</B></font></span>")
@@ -1051,11 +1055,12 @@
 /datum/reagent/mental/truthserum
 	name = "Truth serum"
 	id = "truthserum"
-	description = "This highly illegal, expensive, military strength truth serum is a must have for secret corporate interrogations. One 50u pill is good for almost 10 minutes of interrogation."
+	description = "This highly illegal, expensive, military strength truth serum is a must have for secret corporate interrogations. Only works when injected."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.05 * REM
 	data = 0
+	scannable = 0
 	taste_description = "something"
 	goodmessage = list("You feel like you have nothing to hide.","You feel compelled to spill your secrets.","You feel like you can trust those around you.")
 	badmessage = list()
@@ -1078,6 +1083,40 @@
 //Narcolepsy
 //Discoordination
 //Aphasia
+
+/datum/reagent/calomel
+	name = "Calomel"
+	id = "calomel"
+	description = "A highly toxic medicine that quickly purges most chemicals from the bloodstream. Overdose causes bloodloss and more toxin buildup, however works twice as fast."
+	color = "#222244"
+	metabolism = 0.5 * REM
+	overdose = 30
+	scannable = 1
+	taste_description = "thick salt"
+	reagent_state = SOLID
+
+/datum/reagent/calomel/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+
+	var/amount_to_purge = removed*4
+	var/amount_purged = 0
+	var/is_overdosed = overdose && (dose > overdose)
+
+	if(is_overdosed)
+		removed *= 2
+
+	for(var/datum/reagent/selected in M.reagents)
+		if(selected == src)
+			continue
+		if(selected.id == "blood" && !is_overdosed)
+			continue
+		var/local_amount = min(amount_to_purge, selected.volume)
+		M.bloodstr.remove_reagent(selected.id, local_amount)
+		amount_to_purge -= local_amount
+		amount_purged += local_amount
+		if(amount_to_purge <= 0)
+			break
+
+	M.adjustToxLoss(removed + amount_purged*0.5) //15u has the potential to do 15 + 30 toxin damage in 30 seconds
 
 /datum/reagent/rezadone
 	name = "Rezadone"

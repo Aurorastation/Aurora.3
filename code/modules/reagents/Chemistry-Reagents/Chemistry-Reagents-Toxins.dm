@@ -47,6 +47,18 @@
 		return
 	..()
 
+/datum/reagent/toxin/panotoxin
+	name = "Panotoxin"
+	id = "panotoxin"
+	description = "A strange poison from the strange panocelium mushroom that causes intense pain when injected. High doses can cause paralysis."
+	reagent_state = LIQUID
+	color = "#008844"
+	strength = 0
+	taste_description = "stinging needles"
+
+/datum/reagent/toxin/panotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.apply_effects(weaken = removed*0.5, paralyze = removed*0.1, stutter = removed*0.5, agony = removed)
+
 /datum/reagent/toxin/phoron
 	name = "Phoron"
 	id = "phoron"
