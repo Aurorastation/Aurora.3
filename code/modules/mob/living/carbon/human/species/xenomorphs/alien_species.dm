@@ -301,6 +301,7 @@
 		)
 
 	inherent_verbs = list(
+		/mob/living/proc/ventcrawl,
 		/mob/living/carbon/human/proc/psychic_whisper,
 		/mob/living/proc/devour,
 		/mob/living/carbon/human/proc/regurgitate,
