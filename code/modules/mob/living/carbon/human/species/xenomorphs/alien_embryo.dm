@@ -60,12 +60,13 @@
 				if(prob(20))
 					owner.take_organ_damage(1)
 			if(prob(2))
+				owner  << "<span class='danger'>Your chest hurts.</span>"
 				if(prob(20))
 					owner.adjustToxLoss(1)
 					owner.updatehealth()
 			if(prob(2))
 				if(prob(20))
-					owner  << "<span class='danger'>Your chest hurts. It gets difficult to breathe...</span>"
+					owner  << "<span class='danger'>Your chest hurts badly. It gets difficult to breathe...</span>"
 					owner.emote("gasp")
 		if(5)
 			owner  << "<span class='danger'>You feel something tearing its way out of your chest!</span>"
