@@ -324,10 +324,6 @@
 		H.real_name = "Princess ([alien_number])"
 		H.name = H.real_name
 
-/datum/species/xenos/queen/handle_post_spawn(var/mob/living/carbon/human/H)
-	H.gender = FEMALE
-	return ..()
-
 /datum/hud_data/alien
 
 	icon = 'icons/mob/screen/alien.dmi'
