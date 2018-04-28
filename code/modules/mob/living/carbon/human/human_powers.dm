@@ -1,4 +1,4 @@
-w// These should all be procs, you can add them to humans/subspecies by
+// These should all be procs, you can add them to humans/subspecies by
 // species.dm's inherent_verbs ~ Z
 
 /mob/living/carbon/human/proc/tackle()
