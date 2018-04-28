@@ -225,13 +225,6 @@ w// These should all be procs, you can add them to humans/subspecies by
 
 	last_special = world.time + 200
 
-//	else
-	//	var/mob/living/M = G.affecting
-	//	if(istype(M))
-	//		visible_message("<span class='danger'>\The [src] rips viciously at \the [M]'s body with its inner jaw!</span>")
-	//		playsound(M.loc, 'sound/effects/blobattack.ogg', 50, 1)
-	//		M.gib()
-
 /mob/living/carbon/human/proc/commune()
 	set category = "Abilities"
 	set name = "Commune with creature"
