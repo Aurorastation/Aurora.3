@@ -1,0 +1,7 @@
+author: BurgerBB
+
+delete-after: True
+
+changes: 
+  - maptweak: "Added additional z-level protection for AI."
+  - maptweak: "Moved the bomb range further away from the station to prevent z-level breaches caused by explosions."
