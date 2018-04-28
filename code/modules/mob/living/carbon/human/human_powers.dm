@@ -1,4 +1,4 @@
-// These should all be procs, you can add them to humans/subspecies by
+w// These should all be procs, you can add them to humans/subspecies by
 // species.dm's inherent_verbs ~ Z
 
 /mob/living/carbon/human/proc/tackle()
@@ -171,6 +171,66 @@
 		M.apply_damage(50,BRUTE)
 		if(M.stat == 2)
 			M.gib()
+
+
+/mob/living/carbon/human/proc/headbite()
+	set category = "Abilities"
+	set name = "Headbite"
+	set desc = "While grabbing someone by their neck, viciously tear through and shred their skull with your inner jaw."
+
+	if(last_special > world.time)
+		src << "<span class='warning'>Your inner jaw is still sore!</span>"
+		return
+
+	if(stat || paralysis || stunned || weakened || lying)
+		src << "<span class='warning'>You cannot do that in your current state.</span>"
+		return
+
+
+	var/obj/item/weapon/grab/G = src.get_active_hand()
+	if(!istype(G))
+		src << "<span class='warning'>You must be grabbing a creature in your active hand to headbite it.</span>"
+		return
+
+	if(G.state != GRAB_KILL)
+		src << "<span class='warning'>You must have a tighter grip to headbite them.</span>"
+		return
+
+	if(istype(G.affecting,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = G.affecting
+
+		if(!H.species.has_limbs["head"])
+			src << "<span class='warning'>\The [H] does not have a head!</span>"
+			return
+
+		var/obj/item/organ/external/affecting = H.get_organ("head")
+		if(!istype(affecting) || affecting.is_stump())
+			src << "<span class='warning'>\The [H] does not have a head!</span>"
+			return
+
+		visible_message("<span class='danger'>\The [src] prepares its inner jaw and tightens its grip on \the [H], aiming at its prey's head!</span>")
+		sleep(10)
+		if(!src.Adjacent(G.affecting))
+			return
+		visible_message("<span class='danger'>\The [src] extends its inner jaw, completely piercing through \the [H]'s skull!</span>")
+		playsound(H.loc, 'sound/effects/blobattack.ogg', 50, 1)
+		H.apply_damage(200,BRUTE, "head")
+
+	else
+		var/mob/living/M = G.affecting
+		if(istype(M))
+			visible_message("<span class='danger'>\The [src] rips and shreds viciously at \the [M]'s body with its sharp teeth and claws!</span>")
+			playsound(M.loc, 'sound/effects/blobattack.ogg', 50, 1)
+			M.gib()
+
+	last_special = world.time + 200
+
+//	else
+	//	var/mob/living/M = G.affecting
+	//	if(istype(M))
+	//		visible_message("<span class='danger'>\The [src] rips viciously at \the [M]'s body with its inner jaw!</span>")
+	//		playsound(M.loc, 'sound/effects/blobattack.ogg', 50, 1)
+	//		M.gib()
 
 /mob/living/carbon/human/proc/commune()
 	set category = "Abilities"
@@ -549,7 +609,7 @@
 		src << "<span class='warning'>Your powers are not capable of taking you that far.</span>"
 		return
 
-	if (T.get_lumcount() > 0.1)
+	if (!T.dynamic_lighting || T.get_lumcount() > 0.1)
 		src << "<span class='warning'>The destination is too bright.</span>"
 		return
 
