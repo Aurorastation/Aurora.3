@@ -50,10 +50,6 @@
 				log_debug("SSnews: Error when loading news: [en]")
 
 /datum/controller/subsystem/news/proc/GetFeedChannel(var/channel_name)
-//	for(var/datum/feed_channel/FC in network_channels)
-//		if(FC.channel_name == channel_name)
-//			return FC
-//	return null
 	if(network_channels[channel_name])
 		return network_channels[channel_name]
 	return null
@@ -71,11 +67,9 @@
 	network_channels[channel_name] = newChannel
 	return newChannel
 
-/datum/controller/subsystem/news/proc/SubmitArticle(var/msg, var/author, var/channel, var/obj/item/weapon/photo/photo, var/adminMessage = 0, var/message_type = "", var/time_stamp)
-	if(!istype(channel,/datum/feed_channel))
-		channel = GetFeedChannel(channel)
+/datum/controller/subsystem/news/proc/SubmitArticle(var/msg, var/author, var/datum/feed_channel/channel, var/obj/item/weapon/photo/photo, var/adminMessage = 0, var/message_type = "", var/time_stamp)
 	if(!channel)
-		log_debug("SSnews: Attempted to insert news from author [author] into channel [channel] but channel does not exist.",SEVERITY_ERROR)
+		log_debug("SSnews: Attempted to submit a article from [author] without a proper channel",SEVERITY_ERROR)
 		return
 	
 	var/datum/feed_message/newMsg = new /datum/feed_message
