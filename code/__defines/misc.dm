@@ -278,8 +278,6 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 
 // Law settings
 #define PERMABRIG_SENTENCE 90 // Measured in minutes
-//#define PERMAPRISON_SENTENCE 60 // Measured in IC days
-#define FELONY_LEVEL 2.0 // What is the minimum law severity that counts as a felony?
 
 #define LAYER_TABLE	2.8
 #define LAYER_UNDER_TABLE	2.79

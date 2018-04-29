@@ -368,8 +368,8 @@
 		. += "<tr>"
 		. += "<td><b>[L.name]</b></td>"
 		. += "<td><i>[L.desc]</i></td>"
-		. += "<td>[L.min_brig_time] - [L.max_brig_time] minutes</td>"
-		. += "<td>[L.min_fine]-[L.max_fine]cR</td>"
+		. += "<td>[L.get_brig_time_string()]</td>"
+		. += "<td>[L.get_fine_string()]</td>"
 		. += "<td><a href='?src=\ref[src];button=add_charge;law=\ref[L]'>Charge</a></td>"
 		. += "</tr>"
 
@@ -398,8 +398,8 @@
 		. += "<tr>"
 		. += "<td><b>[L.name]</b></td>"
 		. += "<td><i>[L.desc]</i></td>"
-		. += "<td>[L.min_brig_time] - [L.max_brig_time] minutes</td>"
-		. += "<td>[L.min_fine]-[L.max_fine]cR</td>"
+		. += "<td>[L.get_brig_time_string()]</td>"
+		. += "<td>[L.get_fine_string()]</td>"
 		. += "<td><a href='?src=\ref[src];button=add_charge;law=\ref[L]'>Charge</a></td>"
 		. += "</tr>"
 
@@ -427,7 +427,7 @@
 		. += "<tr>"
 		. += "<td><b>[L.name]</b></td>"
 		. += "<td><i>[L.desc]</i></td>"
-		. += "<td>[L.min_brig_time] - [L.max_brig_time] minutes</td>"
+		. += "<td>[L.get_brig_time_string()]</td>"
 		. += "<td><a href='?src=\ref[src];button=add_charge;law=\ref[L]'>Charge</a></td>"
 		. += "</tr>"
 
@@ -483,6 +483,8 @@
 	for(var/datum/law/L in incident.charges)
 		if(L.felony)
 			buzz("\The [src] buzzes, \"The crimes are too severe to apply a fine!\"")
+		if(L.can_fine())
+			buzz("\The [src] buzzes, \"It is not possible to fine for [L.name]\"")
 			return
 
 	//Try to resole the security account first
