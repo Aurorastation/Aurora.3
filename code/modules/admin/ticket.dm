@@ -57,6 +57,8 @@ var/global/list/ticket_panels = list()
 	if (reminder_timer)
 		deltimer(reminder_timer)
 
+	log_to_db()
+
 	return 1
 
 /datum/ticket/proc/take(var/client/assigned_admin)
@@ -133,22 +135,32 @@ var/global/list/ticket_panels = list()
 	if (!establish_db_connection(dbcon))
 		return
 
-	var/DBQuery/Q = dbcon.NewQuery("INSERT INTO ss13_tickets (game_id, message_count, admin_count, admin_list, opened_by, taken_by, closed_by, response_delay, opened_at, closed_at) VALUES (:g_id:, :m_count:, :a_count:, :a_list:, :opened_by:, :taken_by, :closed_by:, :delay:, :opened_at:, :closed_at:)")
-	Q.Execute(list("g_id" = game_id, "m_count" = length(msgs), "a_count" = length(assigned_admins), "a_list" = json_encode(assigned_admins), "opened_by" = owner, "taken_by" = assigned_admins[0], "closed_by" = closed_by, "delay" = response_time, "opened_at" = SQLtime(opened_rt), "closed_at" = SQLtime(closed_rt)))
+	var/DBQuery/Q = dbcon.NewQuery({"INSERT INTO ss13_tickets
+		(game_id, message_count, admin_count, admin_list, opened_by, taken_by,
+		 closed_by, response_delay, opened_at, closed_at)
+	VALUES
+		(:g_id:, :m_count:, :a_count:, :a_list:, :opened_by:, :taken_by:,
+		 :closed_by:, :delay:, :opened_at:, :closed_at:)"})
+	Q.Execute(list(
+		"g_id" = game_id,
+		"m_count" = length(msgs),
+		"a_count" = length(assigned_admins),
+		"a_list" = json_encode(assigned_admins),
+		"opened_by" = owner,
+		"taken_by" = length(assigned_admins) ? assigned_admins[1] : null,
+		"closed_by" = closed_by,
+		"delay" = response_time || -1,
+		"opened_at" = SQLtime(opened_rt),
+		"closed_at" = SQLtime(closed_rt)
+	))
 
 /datum/ticket/proc/append_message(m_from, m_to, msg)
 	msgs += new /datum/ticket_msg(m_from, m_to, msg)
 
 	if (!response_time && m_from != owner)
-		response_time = round((world.time - opened_time) SECONDS)
+		response_time = round((world.time - opened_time) / 10)
 
 	update_ticket_panels()
-
-// Referenced in the statistics controller.
-/proc/log_all_tickets()
-	for (var/t in tickets)
-		var/datum/ticket/T = t
-		T.log_to_db()
 
 /datum/ticket_msg
 	var/msg_from

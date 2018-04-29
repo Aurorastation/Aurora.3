@@ -2,7 +2,7 @@
 	set category = "Special Verbs"
 	set name = "Create Poll"
 
-	if(!check_rights(R_ADMIN|R_DEV))
+	if(!check_rights(R_DEV))
 		return
 	if(!establish_db_connection(dbcon))
 		to_chat(src,"<span class='danger'>Failed to establish database connection.</span>")
@@ -60,13 +60,20 @@
 		viewtoken = "'[sanitizeSQL(viewtoken)]'"
 	else
 		viewtoken = "NULL"
+
+	var/link = null
+	link = input("Do you want to provide a link to get more information?","Link") as text
+	if(link)
+		link = "'[sanitizeSQL(link)]'"
+	else
+		link = "NULL"
 	
 	var/sql_ckey = sanitizeSQL(ckey)
 	var/question = input("Write your question","Question") as message
 	if(!question)
 		return
 	question = sanitizeSQL(question)
-	var/DBQuery/query_polladd_question = dbcon.NewQuery("INSERT INTO ss13_poll_question (polltype, starttime, endtime, question, adminonly, multiplechoiceoptions, createdby_ckey, createdby_ip, publicresult, viewtoken) VALUES ('[polltype]', '[starttime]', '[endtime]', '[question]', '[adminonly]', '[choice_amount]', '[sql_ckey]', '[address]', '[publicresult]', [viewtoken])")
+	var/DBQuery/query_polladd_question = dbcon.NewQuery("INSERT INTO ss13_poll_question (polltype, starttime, endtime, question, adminonly, multiplechoiceoptions, createdby_ckey, createdby_ip, publicresult, viewtoken, link) VALUES ('[polltype]', '[starttime]', '[endtime]', '[question]', '[adminonly]', '[choice_amount]', '[sql_ckey]', '[address]', '[publicresult]', [viewtoken], [link])")
 	if(!query_polladd_question.Execute())
 		var/err = query_polladd_question.ErrorMsg()
 		to_chat(src,"SQL ERROR adding new poll question to table. Error : \[[err]\]\n")
