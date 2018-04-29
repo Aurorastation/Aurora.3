@@ -125,6 +125,9 @@
 	log_debug("Bluespace Tech Spawned: X:[bst.x] Y:[bst.y] Z:[bst.z] User:[src]")
 
 	feedback_add_details("admin_verb","BST")
+
+	var/datum/martial_art/hokuto_shinken/F = new/datum/martial_art/hokuto_shinken(null)
+	F.teach(bst)
 	return 1
 
 /client/proc/bst_post_spawn(mob/living/carbon/human/bst/bst)
