@@ -316,7 +316,7 @@
 
 	set_pin_data(IC_OUTPUT, 1, T.x)
 	set_pin_data(IC_OUTPUT, 2, T.y)
-	set_pin_data(IC_OUTPUT, 2, T.z)
+	set_pin_data(IC_OUTPUT, 3, T.z)
 
 	push_data()
 	activate_pin(2)
