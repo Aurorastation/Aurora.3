@@ -1,0 +1,7 @@
+author: BurgerBB
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a an energy colt 1911 that stuns. Replace the energy pistol in the warden's locker with the energy colt 1911."
+  - soundadd: "Added a new and improved gyrogun sound."

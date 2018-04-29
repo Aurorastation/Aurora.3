@@ -166,6 +166,18 @@
 	tracer_type = /obj/effect/projectile/tracer/stun
 	impact_type = /obj/effect/projectile/impact/stun
 
+/obj/item/projectile/beam/stun_advanced
+	name = "advanced stun beam"
+	icon_state = "stun"
+	nodamage = 1
+	taser_effect = 1
+	agony = 50
+	damage_type = HALLOSS
+
+	muzzle_type = /obj/effect/projectile/muzzle/disabler
+	tracer_type = /obj/effect/projectile/tracer/disabler
+	impact_type = /obj/effect/projectile/impact/disabler
+
 /obj/item/projectile/beam/gatlinglaser
 	name = "diffused laser"
 	icon_state = "heavylaser"
