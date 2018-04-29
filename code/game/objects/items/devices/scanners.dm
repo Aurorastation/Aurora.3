@@ -4,6 +4,7 @@ HEALTH ANALYZER
 GAS ANALYZER
 MASS SPECTROMETER
 REAGENT SCANNER
+BREATH ANALYZER
 */
 
 /obj/item/device/healthanalyzer
@@ -19,8 +20,7 @@ REAGENT SCANNER
 	throw_range = 10
 	matter = list(DEFAULT_WALL_MATERIAL = 200)
 	origin_tech = list(TECH_MAGNET = 1, TECH_BIO = 1)
-	var/mode = 1;
-
+	var/mode = 1
 
 /obj/item/device/healthanalyzer/attack(mob/living/M as mob, mob/living/user as mob)
 	if ( ((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(50))
@@ -112,15 +112,6 @@ REAGENT SCANNER
 					++unknown
 			if(unknown)
 				user << "<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's stomach.</span>"
-		if(C.breathing && C.breathing.total_volume)
-			var/unknown = 0
-			for(var/datum/reagent/R in C.breathing.reagent_list)
-				if(R.scannable)
-					user << "<span class='notice'>[R.name] found in subject's respitory system.</span>"
-				else
-					++unknown
-			if(unknown)
-				user << "<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's respitory system.</span>"
 		if(C.virus2.len)
 			for (var/ID in C.virus2)
 				if (ID in virusDB)
@@ -403,3 +394,90 @@ REAGENT SCANNER
 	var/value = get_value(target)
 	user.visible_message("\The [user] scans \the [target] with \the [src]")
 	user.show_message("Price estimation of \the [target]: [value ? value : "N/A"] Credits")
+
+
+/obj/item/device/breath_analyzer
+	name = "breath analyzer"
+	desc = "A hand-held breath analyzer that provides a robust amount of information about the subject's respiratory system."
+	icon_state = "breath_analyzer"
+	item_state = "analyzer"
+	w_class = 2.0
+	flags = CONDUCT
+	slot_flags = SLOT_BELT
+	throwforce = 5
+	throw_speed = 4
+	throw_range = 20
+	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
+	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
+
+/obj/item/device/breath_analyzer/attack(mob/living/M as mob, mob/living/user as mob)
+
+	var/mob/living/carbon/human/H = M
+
+	if (!istype(H))
+		user.show_message("<span class='warning'>You can't find a way to use the [src] on [M].</span>")
+		return
+
+	if ( ((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(50))
+		user.show_message("<span class='danger'>Your hand slips from clumsiness!</span>")
+		eyestab(M,user)
+		user.show_message("<span class='danger'>Alert: No breathing detected.</span>")
+		return
+
+	if (!usr.IsAdvancedToolUser())
+		usr << "<span class='warning'>You don't have the dexterity to do this!</span>"
+		return
+
+	if(user == H)
+		if(!H.can_eat(src))
+			return
+	else
+		if(!H.can_force_feed(user, src))
+			return
+
+	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
+	user.do_attack_animation(M)
+
+	user.visible_message("<span class='notice'>[user] is trying to take a breath sample from [M].</span>","<span class='notice'>You gently insert the [src] into [M]'s mouth.</span>")
+
+	if (!LAZYLEN(src.other_DNA))
+		LAZYADD(src.other_DNA, H.dna.unique_enzymes)
+		src.other_DNA_type = "saliva"
+
+	if (!do_after(user, 4 SECONDS, act_target = M))
+		user.show_message("<span class='notice'>You and the target need to be standing still in order to take a breath sample.</span>")
+		return
+
+	user.visible_message("<span class='notice'>[user] takes a breath sample from [M].</span>","<span class='notice'>The [src] clicks as it finishes reading [M]'s breath sample.</span>")
+
+	if(H.stat == 2 || H.losebreath || !H.breathing)
+		user.show_message("<span class='danger'>Alert: No breathing detected.</span>")
+		return
+
+	user.show_message("<b>Breath Sample Results::</b>")
+	user.show_message(H.getOxyLoss() > 50 ? "<font color='blue'><b>Severe oxygen deprivation detected.</b></font>" : "Subject oxygen levels normal.")
+	var/obj/item/organ/L = H.internal_organs_by_name["lungs"]
+	if(istype(L))
+		user.show_message(L.is_bruised() ? "<font color='red'><b>Ruptured lung detected.</b></font>" : "Subject lung health normal.")
+	else
+		user.show_message("<span class='warning'>Subject lung health unknown.</span>")
+
+	var/BAC = (H.intoxication / AE_BLACKOUT) * 0.2
+	user.show_message("Blood Alcohol Content: [BAC]%")
+	switch(H.intoxication)
+		if(AE_DIZZY to AE_VOMIT) //Legally intoxicated
+			user.show_message("<span class='warning'>\[INTOXICATED\]</span>")
+		if(AE_VOMIT to AE_OVERDOSE) //Dangerously intoxicated
+			user.show_message("<span class='danger'>\[HEAVILY INTOXICATED\]</span>")
+		if(AE_OVERDOSE to INFINITY) //Alcohol poisoning
+			user.show_message("<span class='danger'>\[ALCOHOL POISONING LIKELY\]</span>")
+
+	if(H.breathing && H.breathing.total_volume)
+		var/unknown = 0
+		for(var/datum/reagent/R in H.breathing.reagent_list)
+			if(R.scannable)
+				user.show_message("<span class='notice'>[R.name] found in subject's respiratory system.</span>")
+			else
+				++unknown
+		if(unknown)
+			user.show_message("<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's respiratory system.</span>")

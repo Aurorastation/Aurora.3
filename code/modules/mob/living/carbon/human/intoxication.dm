@@ -1,21 +1,3 @@
-#define		AE_DIZZY 		5
-#define		AE_BUZZED_MIN	6
-#define 	AE_SLURRING 	15
-#define 	AE_CONFUSION 	18
-#define		AE_CLUMSY		22
-#define 	AE_BUZZED_MAX	24
-#define 	AE_BLURRING 	25
-#define		AE_VOMIT		40
-#define 	AE_DROWSY 		55
-#define 	AE_OVERDOSE 	70
-#define 	AE_BLACKOUT		80
-
-#define		BASE_DIZZY		100
-
-#define 	ALCOHOL_FILTRATION_RATE		0.015//The base rate at which intoxication decreases per proc. this is actually multiplied by 3 most of the time if the liver is healthy
-#define		BASE_VOMIT_CHANCE			2
-#define		VOMIT_CHANCE_SCALE			0.2//An extra 1% for every 5 units over the vomiting threshold
-
 var/mob/living/carbon/human/alcohol_clumsy = 0
 
 //This proc handles the effects of being intoxicated. Removal of intoxication is done elswhere: By the liver, in organ_internal.dm
@@ -119,15 +101,3 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 
 			return 1
 	return 0
-
-#undef		AE_DIZZY
-#undef		AE_BUZZED_MIN
-#undef 		AE_SLURRING
-#undef 		AE_CONFUSION
-#undef		AE_CLUMSY
-#undef 		AE_BUZZED_MAX
-#undef 		AE_BLURRING
-#undef		AE_VOMIT
-#undef 		AE_DROWSY
-#undef 		AE_OVERDOSE
-#undef 		AE_BLACKOUT

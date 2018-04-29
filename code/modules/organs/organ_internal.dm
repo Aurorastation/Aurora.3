@@ -28,7 +28,7 @@
 
 	if (germ_level > INFECTION_LEVEL_ONE)
 		if(prob(5))
-			owner.emote("cough")		//respitory tract infection
+			owner.emote("cough")		//Respiratory tract infection
 
 	if(is_bruised())
 		if(prob(2))

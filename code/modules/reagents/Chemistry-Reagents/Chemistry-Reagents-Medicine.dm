@@ -26,7 +26,7 @@
 /datum/reagent/bicaridine
 	name = "Bicaridine"
 	id = "bicaridine"
-	description = "Bicaridine is an analgesic medication and can be used to treat blunt trauma."
+	description = "Bicaridine is an analgesic medication and can be used to treat blunt trauma. When inhaled, it treats minor damage to the lungs."
 	reagent_state = LIQUID
 	color = "#BF0000"
 	overdose = REAGENTS_OVERDOSE
@@ -35,8 +35,18 @@
 	taste_description = "bitterness"
 	taste_mult = 3
 
+	breathe_met = 0.5
+	breathe_mul = 0.1
+
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(5 * removed, 0)
+
+/datum/reagent/bicaridine/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
+	. = ..()
+	if(istype(H))
+		var/obj/item/organ/L = H.internal_organs_by_name["lungs"]
+		if(istype(L) && !L.robotic && !L.is_broken())
+			L.take_damage(-1*removed) //Every 10 units heals 1 lung damage.
 
 /datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien)
 	..()//Bicard overdose heals internal wounds
@@ -97,12 +107,14 @@
 /datum/reagent/dexalin
 	name = "Dexalin"
 	id = "dexalin"
-	description = "Dexalin is used in the treatment of oxygen deprivation."
+	description = "Dexalin is used in the treatment of oxygen deprivation. The medication is twice as powerful and lasts twice as long when inhaled."
 	reagent_state = LIQUID
 	color = "#0080FF"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
+	breathe_met = 0.5
+	breathe_mul = 2
 
 /datum/reagent/dexalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VOX)
@@ -115,12 +127,14 @@
 /datum/reagent/dexalinp
 	name = "Dexalin Plus"
 	id = "dexalinp"
-	description = "Dexalin Plus is used in the treatment of oxygen deprivation. It is highly effective."
+	description = "Dexalin Plus is used in the treatment of oxygen deprivation. It is highly effective, and lasts twice as long when inhaled."
 	reagent_state = LIQUID
 	color = "#0040FF"
 	overdose = REAGENTS_OVERDOSE * 0.5
 	scannable = 1
 	taste_description = "bitterness"
+	breathe_met = 0.5
+	breathe_mul = 2
 
 /datum/reagent/dexalinp/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VOX)
@@ -137,7 +151,6 @@
 	reagent_state = LIQUID
 	color = "#8040FF"
 	scannable = 1
-
 	taste_description = "bitterness"
 
 /datum/reagent/tricordrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -249,7 +262,7 @@
 /datum/reagent/synaptizine
 	name = "Synaptizine"
 	id = "synaptizine"
-	description = "Synaptizine is used to treat various diseases."
+	description = "Synaptizine is used to treat drug-related conditions."
 	reagent_state = LIQUID
 	color = "#99CCFF"
 	metabolism = REM * 0.05
@@ -274,7 +287,6 @@
 /datum/reagent/synaptizine/Destroy()
 	QDEL_NULL(modifier)
 	return ..()
-
 
 /datum/reagent/alkysine
 	name = "Alkysine"
@@ -357,7 +369,7 @@
 /datum/reagent/hyperzine
 	name = "Hyperzine"
 	id = "hyperzine"
-	description = "Hyperzine is a highly effective, long lasting, muscle stimulant."
+	description = "Hyperzine is a highly effective, long lasting, muscle stimulant. Lasts twice as long when inhaled."
 	reagent_state = LIQUID
 	color = "#FF3300"
 	metabolism = REM * 0.15
@@ -365,6 +377,8 @@
 	var/datum/modifier = null
 	taste_description = "acid"
 	metabolism_min = REM * 0.025
+	breathe_met = 0.5
+	breathe_mul = 2
 
 /datum/reagent/hyperzine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(5))
@@ -536,12 +550,13 @@
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "bugs"
 	conflicting_reagent = /datum/reagent/alcohol
+	ingest_mul = 1
 	var/min_dose = 2
 	var/messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY
 	var/list/goodmessage = list() //Messages when all your brain traumas are cured.
 	var/list/badmessage = list() //Messages when you still have at least one brain trauma it's suppose to cure.
 	var/list/worstmessage = list() //Messages when the user is at possible risk for more trauma
-	var/list/suppress_traumas  //List of brain traumas that the medication temporarily suppresses, with the key being the brain trauma and the value being the minimum dosage required to cure.
+	var/list/suppress_traumas  //List of brain traumas that the medication temporarily suppresses, with the key being the brain trauma and the value being the minimum dosage required to cure. Negative values means that the trauma is temporarily gained on the value instead.
 	var/list/dosage_traumas //List of brain traumas that the medication permanently adds at these dosages, with the key being the brain trauma and the value being base percent chance to add.
 	var/list/withdrawal_traumas //List of withdrawl effects that the medication permanently adds during withdrawl, with the key being the brain trauma, and the value being the base percent chance to add.
 	var/list/suppressing_reagents = list() // List of reagents that suppress the withdrawal effects, with the key being the reagent and the vlue being the minimum dosage required to suppress.
@@ -556,21 +571,34 @@
 	if(B) //You won't feel anything if you don't have a brain.
 		for(var/datum/brain_trauma/BT in B.traumas)
 			var/goal_volume = suppress_traumas [BT]
-			if (volume >= goal_volume) // If the dosage is greater than the goal, then suppress the trauma.
-				if(!BT.suppressed)
-					BT.on_lose()
-					BT.suppressed = 1
-			else if(volume < goal_volume-1) // -1 So it doesn't spam back and forth constantly if reagents are being metabolized
-				if(BT.suppressed)
-					BT.on_gain()
-					BT.suppressed = 0
-					hastrauma = 1
+			if ( (volume >= goal_volume && goal_volume > 0) || (volume < -goal_volume && goal_volume < 0) ) // If the dosage is greater than the goal, then suppress the trauma.
+				if(goal_volume > 0)
+					if(!BT.suppressed)
+						BT.suppressed = 1
+						BT.on_lose()
+				else if(BT.source_id == id)
+					qdel(BT)
+			else if( (volume < goal_volume-1 && goal_volume > 0) || (volume > -(goal_volume+1) && goal_volume < 0)  ) // -1 So it doesn't spam back and forth constantly if reagents are being metabolized
+				if(goal_volume > 0)
+					if(BT.suppressed)
+						BT.suppressed = 0
+						BT.on_gain()
+						hastrauma = 1
+				else
+					if(!H.has_trauma_type(BT))
+						BT.source_id = id
+						B.gain_trauma(BT,TRUE)
+					else if(BT.suppressed)
+						BT.permanent = 1
+						BT.source_id = id
+						BT.suppressed = 0
+						BT.on_gain()
 		for(var/datum/brain_trauma/BT in dosage_traumas)
 			var/percentchance = max(0,dosage_traumas[BT] - dose*10) // If you've been taking this medication for a while then side effects are rarer.
 			if(!H.has_trauma_type(BT) && prob(percentchance))
+				BT.source_id = id
 				B.gain_trauma(BT,FALSE)
-
-		if(volume < max_dose*0.25) //If you haven't been taking youre regular dose, then cause issues.
+		if(volume < max_dose*0.25) //If you haven't been taking your regular dose, then cause issues.
 			var/suppress_withdrawl = FALSE
 			for(var/k in suppressing_reagents)
 				var/datum/reagent/v = suppressing_reagents[k]
@@ -585,6 +613,7 @@
 					var/datum/brain_trauma/BT = k
 					var/percentchance = max(withdrawal_traumas[k] * (dose/20)) //The higher the dosage, the more likely it is do get withdrawal traumas.
 					if(!H.has_trauma_type(BT) && prob(percentchance))
+						BT.source_id = id
 						B.gain_trauma(BT,FALSE)
 		else if(hastrauma || volume < max_dose*0.5) //If your current dose is not high enough, then alert the player.
 			if (H.shock_stage < 10 && badmessage.len)
@@ -1007,13 +1036,11 @@
 	conflicting_reagent = /datum/reagent/mental/hextrasenil
 	messagedelay = 60
 	scannable = 0
+	ingest_mul = 0 //Stomach acid will melt the nanobots
 	var/overdose_delay = 15
 	var/dont_run_overdose = 0
 	var/overdose_time = 0
 	var/obj/item/weapon/implant/loyalty/implant
-
-/datum/reagent/mental/trisyndicotin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	return //Stomach acid will melt the nanobots
 
 /datum/reagent/mental/trisyndicotin/overdose(var/mob/living/carbon/human/H, var/alien, var/removed, var/scale)
 
@@ -1067,6 +1094,29 @@
 	worstmessage = list()
 	suppress_traumas  = list(
 		/datum/brain_trauma/mild/tourettes = 1
+	)
+	dosage_traumas = list(
+		/datum/brain_trauma/severe/pacifism = 25
+	)
+	messagedelay = 30
+
+/datum/reagent/mental/feartoxin
+	name = "Fear toxin"
+	id = "feartoxin"
+	description = "A highly illegal, experimental toxic chemical used exclusively for lengthy torture sessions. Known to instill fear and hallucinations in the user."
+	reagent_state = SOLID
+	color = "#FF88FF"
+	metabolism = 0.05 * REM
+	data = 0
+	scannable = 0
+	taste_description = "fear"
+	goodmessage = list()
+	badmessage = list()
+	worstmessage = list()
+	suppress_traumas  = list(
+		/datum/brain_trauma/mild/tourettes = 1,
+		/datum/brain_trauma/mild/phobia = -5,
+		/datum/brain_trauma/mild/hallucinations = -5
 	)
 	dosage_traumas = list(
 		/datum/brain_trauma/severe/pacifism = 25

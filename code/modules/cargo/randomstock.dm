@@ -161,6 +161,7 @@ var/list/global/random_stock_uncommon = list(
 	"jetpack" = 3,
 	"xenocostume" = 1,
 	"bible" = 1,
+	"inhaler" = 1,
 	"advwelder" = 2,
 	"sord" = 1,
 	"policebaton" = 1.5,
@@ -710,6 +711,7 @@ var/list/global/random_stock_large = list(
 			//A random scanning device, most are useless
 			var/list/possible = list(
 			/obj/item/device/healthanalyzer = 5,
+			/obj/item/device/breath_analyzer = 1,
 			/obj/item/device/analyzer = 0.5,
 			/obj/item/device/mass_spectrometer = 0.5,
 			/obj/item/device/mass_spectrometer/adv = 0.5,
@@ -1540,6 +1542,27 @@ var/list/global/random_stock_large = list(
 
 		if ("contraband")
 			new /obj/random/contraband(L)
+
+		if ("inhaler")
+			var/number = rand(2,3)
+			var/list/inhalers = list(
+				/obj/item/weapon/reagent_containers/inhaler/dexalin = 8,
+				/obj/item/weapon/reagent_containers/inhaler/hyperzine = 2,
+				/obj/item/weapon/reagent_containers/inhaler/phoron = 2,
+				/obj/item/weapon/reagent_containers/inhaler/chloralhydrate = 1,
+				/obj/item/weapon/reagent_containers/inhaler/space_drugs = 3
+			)
+			while(number > 0)
+				var/type = pickweight(inhalers)
+				var/obj/item/weapon/reagent_containers/inhaler/spawned = new type(L)
+				if(prob(10) || istype(spawned,/obj/item/weapon/reagent_containers/inhaler/space_drugs))
+					spawned.name = "unlabeled inhaler"
+					spawned.desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one is unlabeled."
+				number -= 1
+
+			if(prob(33))
+				new /obj/item/device/breath_analyzer(L)
+
 
 //Large items go below here
 //=============================================================

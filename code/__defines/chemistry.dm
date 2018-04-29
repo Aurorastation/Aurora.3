@@ -39,3 +39,22 @@ var/list/tachycardics  = list("coffee", "inaprovaline", "hyperzine", "nitroglyce
 var/list/bradycardics  = list("neurotoxin", "cryoxadone", "clonexadone", "space_drugs", "stoxin")                 // Decrease heart rate.
 var/list/heartstopper  = list("potassium_chlorophoride", "zombie_powder") // This stops the heart.
 var/list/cheartstopper = list("potassium_chloride")                       // This stops the heart when overdose is met. -- c = conditional
+
+//Alcohol
+#define		AE_DIZZY 		5
+#define		AE_BUZZED_MIN	6
+#define 	AE_SLURRING 	15
+#define 	AE_CONFUSION 	18
+#define		AE_CLUMSY		22
+#define 	AE_BUZZED_MAX	24
+#define 	AE_BLURRING 	25
+#define		AE_VOMIT		40
+#define 	AE_DROWSY 		55
+#define 	AE_OVERDOSE 	70
+#define 	AE_BLACKOUT		80
+
+#define		BASE_DIZZY		100
+
+#define 	ALCOHOL_FILTRATION_RATE		0.015//The base rate at which intoxication decreases per proc. this is actually multiplied by 3 most of the time if the liver is healthy
+#define		BASE_VOMIT_CHANCE			2
+#define		VOMIT_CHANCE_SCALE			0.2//An extra 1% for every 5 units over the vomiting threshold

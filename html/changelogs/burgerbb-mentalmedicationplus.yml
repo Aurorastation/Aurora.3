@@ -3,10 +3,9 @@ author: BurgerBB
 delete-after: True
 
 changes: 
-  - bugfix: "Fixed the metabolism rate of mental medication to reflext their intended values. Reduced the dosage threshhold to supress traumas to reflect their intended values. Syringe (drugs) now contains truth serum."
-  - tweak: "Hextrasenil can now remove antagonist status on prompt, similiar to cult conversion. Changed the recipe of Hextrasenil to include rarer materials."
-  - tweak: "Trisyndicotin can now remove antagonist status on prompt, similiar to cult conversion. Removed the recipe for Trisyndicotin. Trisyndicotin is now renamed to Syndites. Syndites only work when injected or breathed in."
-  - rscadd: "Cardox is now slightly poisonous, and can directly remove phoron from blood when consumed. Cardox can now remove phoron in the air when applied to turfs."
+  - bugfix: "Fixed the metabolism rate of mental medication to reflext their intended values. Reduced the dosage threshhold to supress traumas to reflect their intended values. Syringe (drugs) now contains truth serum. Mental medication no longer receives dosage penalties when ingested."
+  - tweak: "Hextrasenil can now remove antagonist status on prompt, similiar to cult conversion. Changed the recipe of Hextrasenil to include rarer materials. Trisyndicotin can now remove antagonist status on prompt, similiar to cult conversion. Removed the recipe for Trisyndicotin. Trisyndicotin is now renamed to Syndites. Syndites only work when injected or breathed in."
   - maptweak: "A secure box of hextrasenil pills and cardox grenades are now located in the vault. Added a book reminding non-medical staff not to give mental medication to prisoners."
-  - rscadd: "Added the panocelium mushrooms, a mushroom mutated from fly amanita. They contain panotoxic, a potent toxin that causes intense amounts of pain."
-  - rscadd: "Added Calomel, a special medication that purges most chemicals from the bloodstream."
+  - tweak: "Cardox is now slightly poisonous, and can directly remove phoron from blood when consumed. Cardox can now remove phoron in the air when applied to turfs."
+  - rscadd: "Added the panocelium mushrooms, a mushroom mutated from fly amanita. They contain panotoxic, a potent toxin that causes intense amounts of pain. Added Calomel, a special medication that purges most chemicals from the bloodstream. Added fear toxin, a potent toxin that causes phobias."
+  - rscadd: "Added autoinhalers. Autoinhalers can quickly add reagents to the lungs. Oxygen deprevation kits now contain inhalers instead of pills. Added breath analyzers, a medical device that analyzes useful information about the respiratory system. Oxygen deprevation kits now contain breath analyzers instead of health analyzers."

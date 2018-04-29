@@ -516,6 +516,35 @@
 	required_reagents = list("phoron" = 1, "hydrazine" = 1, "ammonia" = 1)
 	result_amount = 3
 
+/datum/chemical_reaction/calomel
+	name = "Calomel"
+	id = "calomel"
+	result = "calomel"
+	required_reagents = list("mercury" = 1, "sodiumchloride" = 1, "ammonia" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/cardox
+	name = "Cardox"
+	id = "cardox"
+	result = "cardox"
+	required_reagents = list("platinum" = 1, "carbon" = 1, "sterilizine" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/cardox_removal
+	name = "Cardox Removal"
+	id = "cardox_removal"
+	result = "carbon"
+	required_reagents = list("cardox" = 0.1, "phoron" = 1)
+	result_amount = 0
+
+/datum/chemical_reaction/koispasteclean
+	name = "Filtered K'ois"
+	id = "koispasteclean"
+	result = "koispasteclean"
+	required_reagents = list("koispaste" = 2,"cardox" = 0.1)
+	catalysts = list("cardox" = 5)
+	result_amount = 1
+
 //Mental Medication
 
 /datum/chemical_reaction/methylphenidate
@@ -593,7 +622,7 @@
 	id = "hextrasenil"
 	result = "hextrasenil"
 	required_reagents = list("truthserum" = 1, "sliver" = 1, "mindbreaker" = 1)
-	result_amount = 2
+	result_amount = 3
 
 /datum/chemical_reaction/truthserum
 	name = "Truthserum"
@@ -602,33 +631,11 @@
 	required_reagents = list("mindbreaker" = 1, "synaptizine" = 1, "phoron" = 0.1)
 	result_amount = 2
 
-/datum/chemical_reaction/calomel
-	name = "Calomel"
-	id = "calomel"
-	result = "calomel"
-	required_reagents = list("mercury" = 1, "sodiumchloride" = 1, "ammonia" = 1)
-	result_amount = 3
-
-/datum/chemical_reaction/cardox
-	name = "Cardox"
-	id = "cardox"
-	result = "cardox"
-	required_reagents = list("platinum" = 1, "carbon" = 1, "sterilizine" = 1)
-	result_amount = 3
-
-/datum/chemical_reaction/cardox_removal
-	name = "Cardox Removal"
-	id = "cardox_removal"
-	result = "carbon"
-	required_reagents = list("cardox" = 0.1, "phoron" = 1)
-	result_amount = 0
-
-/datum/chemical_reaction/koispasteclean
-	name = "Filtered K'ois"
-	id = "koispasteclean"
-	result = "koispasteclean"
-	required_reagents = list("koispaste" = 2,"cardox" = 0.1)
-	catalysts = list("cardox" = 5)
+/datum/chemical_reaction/feartoxin
+	name = "Feartoxin"
+	id = "feartoxin"
+	result = "feartoxin"
+	required_reagents = list("mindbreaker" = 1, "synaptizine" = 1, "space_drugs" = 1)
 	result_amount = 1
 
 /* Solidification */
@@ -1445,12 +1452,6 @@
 	var/obj/effect/golemrune/Z = new /obj/effect/golemrune
 	Z.loc = get_turf(holder.my_atom)
 	Z.announce_to_ghosts()
-
-
-
-
-
-
 
 /*
 ====================

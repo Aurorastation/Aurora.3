@@ -62,17 +62,18 @@
 /datum/reagent/toxin/phoron
 	name = "Phoron"
 	id = "phoron"
-	description = "Phoron in its liquid form."
+	description = "Phoron in its liquid form. Twice as potent when breathed in."
 	reagent_state = LIQUID
 	color = "#9D14DB"
 	strength = 30
 	touch_met = 5
 	taste_mult = 1.5
+	breathe_mul = 2
 
 /datum/reagent/toxin/phoron/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if(H.species.has_organ["filtration bit"] && alien == IS_VAURCA)
+		if(alien == IS_VAURCA && H.species.has_organ["filtration bit"])
 			metabolism = REM * 20 //vaurcae metabolise phoron faster than other species - good for them if their filter isn't broken.
 			var/obj/item/organ/vaurca/filtrationbit/F = H.internal_organs_by_name["filtration bit"]
 			if(isnull(F))
@@ -91,6 +92,9 @@
 			..()
 	else
 		..()
+
+
+
 
 /datum/reagent/toxin/phoron/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))
@@ -298,16 +302,6 @@
 	removed *= M.reagent_permeability()
 	affect_blood(M, alien, removed*0.5)
 
-/datum/reagent/acid/polyacid
-	name = "Polytrinic acid"
-	id = "pacid"
-	description = "Polytrinic acid is a an extremely corrosive chemical substance."
-	reagent_state = LIQUID
-	color = "#8E18A9"
-	power = 6
-	meltdose = 4
-	taste_description = "acid"
-
 /datum/reagent/lexorin
 	name = "Lexorin"
 	id = "lexorin"
@@ -380,12 +374,13 @@
 /datum/reagent/soporific
 	name = "Soporific"
 	id = "stoxin"
-	description = "An effective hypnotic used to treat insomnia."
+	description = "An effective hypnotic used to treat insomnia. Twice as potent when inhaled."
 	reagent_state = LIQUID
 	color = "#009CA8"
 	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "bitterness"
+	breathe_mul = 2
 
 /datum/reagent/soporific/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
@@ -407,12 +402,13 @@
 /datum/reagent/chloralhydrate
 	name = "Chloral Hydrate"
 	id = "chloralhydrate"
-	description = "A powerful sedative."
+	description = "A powerful sedative. Three times as potent when inhaled."
 	reagent_state = SOLID
 	color = "#000067"
 	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE * 0.5
 	taste_description = "bitterness"
+	breathe_mul = 5
 
 /datum/reagent/chloralhydrate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
@@ -448,13 +444,15 @@
 /datum/reagent/space_drugs
 	name = "Space drugs"
 	id = "space_drugs"
-	description = "An illegal chemical compound used as drug."
+	description = "An illegal chemical compound used as drug. Lasts twice as long when inhaled."
 	reagent_state = LIQUID
 	color = "#60A584"
 	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "bitterness"
 	taste_mult = 0.4
+	breathe_mul = 2
+	breathe_met = 0.5
 
 /datum/reagent/space_drugs/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M

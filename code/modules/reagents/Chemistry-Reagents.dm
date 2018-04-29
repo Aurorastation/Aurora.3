@@ -12,6 +12,9 @@
 	var/ingest_met = 0
 	var/touch_met = 0
 	var/breathe_met = 0
+	var/ingest_mul = 0.5
+	var/touch_mul = 0
+	var/breathe_mul = 0.75
 	var/dose = 0
 	var/max_dose = 0
 	var/overdose = 0
@@ -97,13 +100,16 @@
 	M.adjustToxLoss(removed)
 
 /datum/reagent/proc/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	affect_blood(M, alien, removed * 0.5)
+	if(ingest_mul)
+		affect_blood(M, alien, removed * ingest_mul)
 
 /datum/reagent/proc/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	return
+	if(touch_mul)
+		affect_blood(M, alien, removed * touch_mul)
 
 /datum/reagent/proc/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed)
-	affect_blood(M, alien, removed * 0.75)
+	if(breathe_mul)
+		affect_blood(M, alien, removed * breathe_mul)
 
 /datum/reagent/proc/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1) // Overdose effect. Doesn't happen instantly.
 	M.adjustToxLoss(REM)
