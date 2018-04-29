@@ -57,3 +57,41 @@ Ensure that you present yourself professionally."}
 	icon_state = "pmc_commander"
 	item_state = "pmc_commander"
 	contained_sprite = TRUE
+
+
+/obj/item/weapon/implant/loyalty/eridani
+	name = "Eridani loyalty implant"
+	desc = "Makes you loyal or such."
+
+/obj/item/weapon/implant/loyalty/eridani/get_data()
+	. = {"
+<b>Implant Specifications:</b><BR>
+<b>Name:</b> Eridani Federal Navy Personnel Management Implant<BR>
+<b>Life:</b> Ten years.<BR>
+<b>Important Notes:</b> Personnel injected with this device tend to be much more loyal to the company.<BR>
+<HR>
+<b>Implant Details:</b><BR>
+<b>Function:</b> Contains a small pod of nanobots that manipulate the host's mental functions.<BR>
+<b>Special Features:</b> Will prevent and cure most forms of brainwashing.<BR>
+<b>Integrity:</b> Implant will last so long as the nanobots are inside the bloodstream."}
+
+/obj/item/weapon/implant/loyalty/eridani/implanted(mob/M)
+	if(!istype(M, /mob/living/carbon/human))	return 0
+	var/mob/living/carbon/human/H = M
+	var/datum/antagonist/antag_data = get_antag_data(H.mind.special_role)
+	if(antag_data && (antag_data.flags & ANTAG_IMPLANT_IMMUNE))
+		H.visible_message("[H] seems to resist the implant!", "You feel the corporate tendrils of Eridani Corporate Federation try to invade your mind!")
+		return 0
+	else
+		clear_antag_roles(H.mind, 1)
+		H << "<span class='notice'>You feel a surge of loyalty towards the members of the Eridani Corporate Federation's Board of Five.</span>"
+	return 1
+
+/mob/living/carbon/human/proc/implant_loyalty_eridani(mob/living/carbon/human/M, override = FALSE) // Won't override by default.
+	var/obj/item/weapon/implant/loyalty/eridani/L = new/obj/item/weapon/implant/loyalty/eridani(M)
+	L.imp_in = M
+	L.implanted = 1
+	var/obj/item/organ/external/affected = M.organs_by_name["head"]
+	affected.implants += L
+	L.part = affected
+	L.implanted(src)

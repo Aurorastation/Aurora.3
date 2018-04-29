@@ -47,7 +47,7 @@
 			H.equip_to_slot_or_del(new /obj/item/weapon/handcuffs(H), slot_l_store)
 		else
 			H.equip_to_slot_or_del(new /obj/item/weapon/handcuffs(H), slot_in_backpack)
-		H.implant_loyalty(H)
+		H.implant_loyalty_eridani(H)
 		return TRUE
 
 
