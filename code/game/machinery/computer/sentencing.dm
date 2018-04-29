@@ -483,7 +483,7 @@
 	for(var/datum/law/L in incident.charges)
 		if(L.felony)
 			buzz("\The [src] buzzes, \"The crimes are too severe to apply a fine!\"")
-		if(L.can_fine())
+		if(!L.can_fine())
 			buzz("\The [src] buzzes, \"It is not possible to fine for [L.name]\"")
 			return
 

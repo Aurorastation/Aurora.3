@@ -39,13 +39,13 @@ $PRISONER_NAME was found guilty of $CRIME on $DATE. Their sentence was $SENTENCE
 
 /datum/law/proc/get_fine_string()
 	if(max_fine == 0)
-		return 0
+		return "n.a."
 	return "[min_fine] - [max_fine] cR"
 
 /datum/law/proc/get_brig_time_string()
 	if(min_brig_time >= PERMABRIG_SENTENCE)
 		return "HuT"
 	if(max_brig_time >= PERMABRIG_SENTENCE)
-		return "[min_brig_time] min - HuT"
+		return "[min_brig_time] minutes - HuT"
 	else
 		return "[min_brig_time] - [max_brig_time] minutes"

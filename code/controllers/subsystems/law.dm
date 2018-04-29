@@ -18,11 +18,6 @@
 	else
 		load_from_code()
 
-	if(!laws.len)
-		log_debug("SSlaw: No laws loaded. Loading from code and migrating to SQL")
-		load_from_code()
-		migrate_to_sql()
-
 /datum/controller/subsystem/law/proc/load_from_code()
 	for (var/L in subtypesof(/datum/law/low_severity))
 		low_severity += new L
@@ -69,6 +64,10 @@
 			log_debug("SSlaw: Error when loading law: [el]")
 	
 	laws = low_severity + med_severity + high_severity
+	if(!laws.len)
+		log_debug("SSlaw: No laws loaded. Loading from code and migrating to SQL")
+		load_from_code()
+		migrate_to_sql()
 
 /datum/controller/subsystem/law/proc/migrate_to_sql()
 	for(var/datum/law/L in laws)
