@@ -317,6 +317,7 @@
 	base_icon = "chainsaw_off"
 	flags = CONDUCT
 	force = 10
+	force_unwielded = 10
 	force_wielded = 20
 	throwforce = 5
 	w_class = ITEMSIZE_LARGE
@@ -361,8 +362,9 @@
 	var/turf/T = get_turf(src)
 	T.audible_message(span("notice", "\The [src] rumbles to life."))
 	playsound(src, "sound/weapons/chainsawstart.ogg", 25, 0, 30)
-	force = 20
-	force_wielded = 40
+	force = 15
+	force_unwielded = 30
+	force_wielded = 60
 	throwforce = 20
 	icon_state = "chainsaw_on"
 	base_icon = "chainsaw_on"

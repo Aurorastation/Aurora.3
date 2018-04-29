@@ -1,0 +1,5 @@
+author: Alberyk
+delete-after: True
+
+changes:
+  - rscadd: "Added new tajara related clothing options to the custom loadout."
