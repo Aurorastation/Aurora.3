@@ -128,7 +128,7 @@ DBQuery/proc/Execute(var/list/argument_list = null, var/pass_not_found = 0, sql_
 
 	var/error = ErrorMsg()
 	if (error)
-		error("SQL Error: '[error]'")
+		log_debug("SQL Error: '[error]'",SEVERITY_ERROR)
 		// This is hacky and should probably be changed
 		if (error == "MySQL server has gone away")
 			log_game("MySQL connection drop detected, attempting to reconnect.")

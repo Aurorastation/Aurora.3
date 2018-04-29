@@ -39,6 +39,9 @@
 /proc/log_debug(text,level = SEVERITY_DEBUG)
 	if (config.log_debug)
 		game_log("DEBUG", text)
+	
+	if (level == SEVERITY_ERROR) // Errors are always logged
+		error(text)
 
 	for(var/client/C in admins)
 		if(!C.prefs) //This is to avoid null.toggles runtime error while still initialyzing players preferences
