@@ -35457,7 +35457,7 @@
 	dir = 5
 	},
 /obj/machinery/requests_console{
-	department = "Psychiatrist's Desk";
+	department = "Chemist's Desk";
 	departmentType = 1;
 	pixel_x = 32;
 	pixel_y = 0
