@@ -145,5 +145,5 @@
 	name = "thigh holster"
 	desc = "A drop leg holster made of a durable synthetic fiber."
 	icon_state = "holster_thigh"
-	sound_in = 'sound/items/holster/sheathin.ogg'
-	sound_out = 'sound/items/holster/sheathout.ogg'
+	sound_in = 'sound/items/holster/tactiholsterin.ogg'
+	sound_out = 'sound/items/holster/tactiholsterout.ogg'

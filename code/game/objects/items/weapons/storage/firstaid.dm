@@ -13,7 +13,6 @@
 	icon_state = "firstaid"
 	throw_speed = 2
 	throw_range = 8
-	use_sound = 'sound/items/storage/box.ogg'
 	var/empty = 0
 
 
