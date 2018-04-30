@@ -339,8 +339,7 @@
 	desc = "Contains aggressive drugs meant for torture."
 	Initialize()
 		. = ..()
-		reagents.add_reagent("mindbreaker",  5)
-		reagents.add_reagent("truthserum",  10)
+		reagents.add_reagent("feartoxin",  15)
 		mode = SYRINGE_INJECT
 		update_icon()
 

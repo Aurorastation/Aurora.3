@@ -17,6 +17,7 @@
 	var/pose = null
 	var/list/chem_effects = list()
 	var/intoxication = 0//Units of alcohol in their system
+	var/bac = 0 //Blood alcohol level, as calculated inside intoxication.dm
 	var/datum/reagents/metabolism/bloodstr = null
 	var/datum/reagents/metabolism/touching = null
 	var/datum/reagents/metabolism/breathing = null

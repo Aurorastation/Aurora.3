@@ -46,7 +46,7 @@
 	taste_description = "mordant"
 	taste_mult = 2
 	breathe_mul = 2
-	breathe_met = 0.5
+	breathe_met = REM * 0.25
 
 /datum/reagent/ammonia/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VOX)
@@ -129,7 +129,8 @@
 	M.adjustToxLoss(removed * 2)
 
 /datum/reagent/alcohol/affect_ingest(mob/living/carbon/M, alien, removed)
-	M.intoxication += (strength / 100) * removed
+
+	M.intoxication += (strength * removed) * 0.075
 
 	if (druggy != 0)
 		M.druggy = max(M.druggy, druggy)

@@ -452,7 +452,7 @@
 	taste_description = "bitterness"
 	taste_mult = 0.4
 	breathe_mul = 2
-	breathe_met = 0.5
+	breathe_met = REM * 0.25
 
 /datum/reagent/space_drugs/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M

@@ -398,7 +398,7 @@ BREATH ANALYZER
 
 /obj/item/device/breath_analyzer
 	name = "breath analyzer"
-	desc = "A hand-held breath analyzer that provides a robust amount of information about the subject's respiratory system."
+	desc = "A hand-held breath analyzer that provides a robust amount of information about the subject's respitory system."
 	icon_state = "breath_analyzer"
 	item_state = "analyzer"
 	w_class = 2.0
@@ -444,17 +444,18 @@ BREATH ANALYZER
 		LAZYADD(src.other_DNA, H.dna.unique_enzymes)
 		src.other_DNA_type = "saliva"
 
-	if (!do_after(user, 4 SECONDS, act_target = M))
+	if (!do_after(user, 2 SECONDS, act_target = M))
 		user.show_message("<span class='notice'>You and the target need to be standing still in order to take a breath sample.</span>")
 		return
 
 	user.visible_message("<span class='notice'>[user] takes a breath sample from [M].</span>","<span class='notice'>The [src] clicks as it finishes reading [M]'s breath sample.</span>")
 
+	user.show_message("<b>Breath Sample Results:</b>")
+
 	if(H.stat == 2 || H.losebreath || !H.breathing)
 		user.show_message("<span class='danger'>Alert: No breathing detected.</span>")
 		return
 
-	user.show_message("<b>Breath Sample Results::</b>")
 	user.show_message(H.getOxyLoss() > 50 ? "<font color='blue'><b>Severe oxygen deprivation detected.</b></font>" : "Subject oxygen levels normal.")
 	var/obj/item/organ/L = H.internal_organs_by_name["lungs"]
 	if(istype(L))
@@ -462,22 +463,26 @@ BREATH ANALYZER
 	else
 		user.show_message("<span class='warning'>Subject lung health unknown.</span>")
 
-	var/BAC = (H.intoxication / AE_BLACKOUT) * 0.2
-	user.show_message("Blood Alcohol Content: [BAC]%")
-	switch(H.intoxication)
-		if(AE_DIZZY to AE_VOMIT) //Legally intoxicated
-			user.show_message("<span class='warning'>\[INTOXICATED\]</span>")
-		if(AE_VOMIT to AE_OVERDOSE) //Dangerously intoxicated
-			user.show_message("<span class='danger'>\[HEAVILY INTOXICATED\]</span>")
-		if(AE_OVERDOSE to INFINITY) //Alcohol poisoning
-			user.show_message("<span class='danger'>\[ALCOHOL POISONING LIKELY\]</span>")
+	var/additional_string = "<font color='green'>\[NORMAL\]</font>"
+	switch(H.bac)
+		if(INTOX_JUDGEIMP to INTOX_MUSCLEIMP)
+			additional_string = "<b>\[LIGHTLY INTOXICATED\]</b>"
+		if(INTOX_MUSCLEIMP to INTOX_VOMIT)
+			additional_string = "<b>\[MODERATELY INTOXICATED\</b>]"
+		if(INTOX_VOMIT to INTOX_BALANCE)
+			additional_string = "<font color='red'>\[HEAVILY INTOXICATED\]</font>"
+		if(INTOX_BALANCE to INTOX_DEATH)
+			additional_string = "<font color='red'>\[ALCOHOL POISONING LIKELY\]</font>"
+		if(INTOX_DEATH to INFINITY)
+			additional_string = "<font color='red'>\[DEATH IMMINENT\]</font>"
+	user.show_message("<span class='normal'>Blood Alcohol Content: [round(H.bac,0.01)] [additional_string]</span>")
 
 	if(H.breathing && H.breathing.total_volume)
 		var/unknown = 0
 		for(var/datum/reagent/R in H.breathing.reagent_list)
 			if(R.scannable)
-				user.show_message("<span class='notice'>[R.name] found in subject's respiratory system.</span>")
+				user.show_message("<span class='notice'>[R.name] found in subject's respitory system.</span>")
 			else
 				++unknown
 		if(unknown)
-			user.show_message("<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's respiratory system.</span>")
+			user.show_message("<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's respitory system.</span>")

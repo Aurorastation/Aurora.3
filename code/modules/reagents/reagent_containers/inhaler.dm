@@ -54,7 +54,7 @@
 		user.visible_message("<span class='notice'>[user] sticks the [src] in their mouth and presses the injection button.</span>","<span class='notice'>You stick the [src] in your mouth and press the injection button</span>")
 	else
 		user.visible_message("<span class='warning'>[user] attempts to administer \the [src] to [M]...</span>","<span class='notice'>You attempt to administer \the [src] to [M]...</span>")
-		if (!do_after(user, 2 SECONDS, act_target = M))
+		if (!do_after(user, 1 SECONDS, act_target = M))
 			user.show_message("<span class='notice'>You and the target need to be standing still in order to inject \the [src].</span>")
 			return
 
@@ -67,6 +67,26 @@
 		user.show_message("<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
 
 	return
+
+/obj/item/weapon/reagent_containers/inhaler/attack(mob/M as mob, mob/user as mob)
+	..()
+	if(reagents.total_volume <= 0) //Prevents autoinjectors to be refilled.
+		flags &= ~OPENCONTAINER
+	update_icon()
+	return
+
+/obj/item/weapon/reagent_containers/inhaler/update_icon()
+	if(reagents.total_volume > 0)
+		icon_state = "[initial(icon_state)]1"
+	else
+		icon_state = "[initial(icon_state)]0"
+
+/obj/item/weapon/reagent_containers/inhaler/examine(mob/user)
+	..(user)
+	if(reagents && reagents.reagent_list.len)
+		user << "<span class='notice'>It is currently loaded.</span>"
+	else
+		user << "<span class='notice'>It is spent.</span>"
 
 /obj/item/weapon/reagent_containers/inhaler/dexalin
 	name = "autoinhaler (dexalin)"

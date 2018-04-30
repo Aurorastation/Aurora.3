@@ -2,6 +2,8 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 
 //This proc handles the effects of being intoxicated. Removal of intoxication is done elswhere: By the liver, in organ_internal.dm
 /mob/living/carbon/human/proc/handle_intoxication()
+
+
 	var/SR = species.ethanol_resistance
 	if (SR == -1)
 		//This species can't get drunk, how did we even get here?
@@ -19,58 +21,73 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 		sleeping = 0
 		//Many of these parameters normally tick down in life code, but some parts of that code don't run in godmode, so this prevents a BST being stuck with blurred vision
 
-	if(intoxication > AE_DIZZY*SR) // Early warning
+	src.bac = round(intoxication/vessel.get_reagent_amount("blood"),0.01)
+
+	if(bac > INTOX_BUZZED*SR && bac < INTOX_MUSCLEIMP*SR && !(locate(/datum/modifier/buzzed) in modifiers))
+		src.show_message("<span class='notice'>You feel buzzed.</span>")
+		add_modifier(/datum/modifier/buzzed, MODIFIER_CUSTOM)
+
+	if(bac > INTOX_JUDGEIMP*SR)
 		if (dizziness == 0)
-			src << "<span class='notice'>The room starts spinning!</span>"
-		var/target_dizziness = min(1000,(BASE_DIZZY + ((intoxication - AE_DIZZY*SR)*10)/SR))
-		make_dizzy(target_dizziness - dizziness) // We will repeatedly set our target dizziness to a desired value based on intoxication level
+			src.show_message("<span class='notice'>You feel a little tipsy.</span>")
+		var/target_dizziness = min(1000,(BASE_DIZZY + ((bac - INTOX_JUDGEIMP*SR)*10)/SR))
+		make_dizzy(target_dizziness - dizziness)
 
-	if(intoxication > AE_SLURRING*SR) // Slurring
-		slurring = max(slurring, 30)
+	if(bac > INTOX_MUSCLEIMP*SR)
+		if(drowsyness == 0)
+			src.show_message("<span class='notice'>You feel sluggish.</span>")
+		drowsyness = max(drowsyness, 1)
 
-	if(intoxication > AE_CONFUSION*SR) // Confusion - walking in random directions
+	if(bac > INTOX_REACTION*SR)
 		if (confused == 0)
-			src << "<span class='notice'>You feel unsteady on your feet!</span>"
-		confused = max(confused, 20)
-
-	//Make the drinker temporarily clumsy if intoxication is high enough
-	//We use a var to track if alcohol caused it, we won't add nor remove it if the drinker was already clumsy from some other source
-	if(intoxication > AE_CLUMSY*SR)
+			src.show_message("<span class='warning'>You feel uncoordinated and unsteady on your feet!</span>")
+		confused = max(confused, 10)
+		slurring = max(slurring, 20)
+		drowsyness = max(drowsyness, 10)
 		if (!alcohol_clumsy && !(CLUMSY in mutations))
-			src << "<span class='notice'>You feel a bit clumsy and uncoordinated.</span>"
 			mutations.Add(CLUMSY)
 			alcohol_clumsy = 1
-	else //Remove it if intoxication drops too low. We'll also have another check to remove it in life.dm
+	else
 		if (alcohol_clumsy)
-			src << "<span class='notice'>You feel more sober and steady</span>"
+			src.show_message("<span class='notice'>You feel more sober and steady.</span>")
 			mutations.Remove(CLUMSY)
 			alcohol_clumsy = 0
 
-	if(intoxication > AE_BLURRING*SR) // Blurry vision
-		if (prob(10))//blurry vision effect is annoying, so nerfing it
-			eye_blurry = max(eye_blurry, 2)
-			adjustBrainLoss(1, 15)
-
-	if(intoxication > AE_DROWSY*SR) // Drowsyness - periodically falling asleep
+	if(bac > INTOX_VOMIT*SR)
+		add_chemical_effect(CE_ALCOHOL_TOXIC, 1)
 		drowsyness = max(drowsyness, 20)
-
-	if(intoxication > AE_VOMIT*SR)//Vomiting, the body's natural defense mechanism against poisoning.
-		if (life_tick % 4 == 1)//Only process vomit chance periodically
-			var/chance = BASE_VOMIT_CHANCE + ((intoxication - AE_VOMIT)*VOMIT_CHANCE_SCALE)
+		slurring = max(slurring, 30)
+		if (life_tick % 4 == 1)
+			var/chance = BASE_VOMIT_CHANCE + ((bac - INTOX_VOMIT*SR)*VOMIT_CHANCE_SCALE)
 			if (prob(chance))
 				delayed_vomit()
 
-	if(intoxication > AE_OVERDOSE*SR) // Toxic dose
-		add_chemical_effect(CE_ALCOHOL_TOXIC, 1)
-		adjustBrainLoss(0.4, 55)
+	if(bac > INTOX_BALANCE*SR)
+		slurring = max(slurring, 50)
+		if (life_tick % 4 == 1 && prob(10))
+			src.visible_message("<span class='warning'>[src] loses balance and falls to the ground!</span>","<span class='warning'>You lose balance and fall to the ground!</span>")
+			paralysis = max(paralysis,3 SECONDS)
+			if(bac > INTOX_CONSCIOUS*SR)
+				slurring = max(slurring, 70)
+				src.visible_message("<span class='danger'>[src] loses consciousness!</span>","<span class='danger'>You lose consciousness!</span>")
+				paralysis = max(paralysis, 60 SECONDS)
+				sleeping  = max(sleeping, 60 SECONDS)
+				adjustBrainLoss(3,10)
+			else if(bac > INTOX_BLACKOUT*SR)
+				slurring = max(slurring, 80)
+				src.visible_message("<span class='danger'>[src] blackouts!</span>","<span class='danger'>You blackout!</span>")
+				paralysis = max(paralysis, 20 SECONDS)
+				sleeping  = max(sleeping, 20 SECONDS)
+				adjustBrainLoss(5,30)
+			else if(prob(10))
+				slurring = max(slurring, 90)
+				src.show_message("<span class='notice'>You decide that you like the ground and spend a few seconds to rest.</span>")
+				sleeping  = max(sleeping, 6 SECONDS)
+				adjustBrainLoss(1,5)
 
-	if(intoxication > AE_BLACKOUT*SR) // Pass out
-		paralysis = max(paralysis, 20)
-		sleeping  = max(sleeping, 30)
-		adjustBrainLoss(0.4, 55)
-
-	if( intoxication >= AE_BUZZED_MIN && intoxication <= AE_BUZZED_MAX && !(locate(/datum/modifier/buzzed) in modifiers))
-		add_modifier(/datum/modifier/buzzed, MODIFIER_CUSTOM)
+	if (bac > INTOX_DEATH*SR) //Death usually occurs here
+		adjustOxyLoss(10,100)
+		adjustBrainLoss(1,50)
 
 
 //Pleasant feeling from being slightly drunk
@@ -83,7 +100,6 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 	if (ishuman(target))
 		var/mob/living/carbon/human/H = target
 		H.move_delay_mod += -0.75
-
 		H.sprint_cost_factor += -0.1
 
 /datum/modifier/buzzed/deactivate()
@@ -91,13 +107,11 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 	if (ishuman(target))
 		var/mob/living/carbon/human/H = target
 		H.move_delay_mod -= -0.75
-
 		H.sprint_cost_factor -= -0.1
 
 /datum/modifier/buzzed/custom_validity()
 	if (ishuman(target))
 		var/mob/living/carbon/human/H = target
-		if (H.intoxication >= AE_BUZZED_MIN && H.intoxication <= AE_BUZZED_MAX)
-
+		if (H.bac >= INTOX_BUZZED*H.species.ethanol_resistance && H.bac <= INTOX_MUSCLEIMP*H.species.ethanol_resistance)
 			return 1
 	return 0

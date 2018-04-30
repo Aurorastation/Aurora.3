@@ -535,7 +535,7 @@
 
 /* mental */
 
-#define ANTIDEPRESSANT_MESSAGE_DELAY 1200 //2 minutes
+#define ANTIDEPRESSANT_MESSAGE_DELAY 1800 //3 minutes
 
 /datum/reagent/mental
 	name = "Experimental Antidepressant"
@@ -551,7 +551,7 @@
 	taste_description = "bugs"
 	conflicting_reagent = /datum/reagent/alcohol
 	ingest_mul = 1
-	var/min_dose = 2
+	var/min_dose = 1
 	var/messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY
 	var/list/goodmessage = list() //Messages when all your brain traumas are cured.
 	var/list/badmessage = list() //Messages when you still have at least one brain trauma it's suppose to cure.
@@ -563,7 +563,7 @@
 
 /datum/reagent/mental/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
 
-	if(max_dose < min_dose || !istype(H) || (world.time < data && volume > removed) || messagedelay == -1)
+	if(!istype(H) || max_dose < min_dose || (world.time < data && volume > removed) || messagedelay == -1)
 		return
 	var/hastrauma = 0 //whether or not the brain has trauma
 	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
@@ -573,7 +573,7 @@
 			var/goal_volume = suppress_traumas [BT]
 			if ( (volume >= goal_volume && goal_volume > 0) || (volume < -goal_volume && goal_volume < 0) ) // If the dosage is greater than the goal, then suppress the trauma.
 				if(goal_volume > 0)
-					if(!BT.suppressed)
+					if(!BT.suppressed && !BT.permanent)
 						BT.suppressed = 1
 						BT.on_lose()
 				else if(BT.source_id == id)
@@ -624,7 +624,7 @@
 				to_chat(H,"<span class='good'>[pick(goodmessage)]</span>")
 			messagedelay = initial(messagedelay)
 
-	data = world.time + messagedelay
+	data = world.time + (messagedelay SECONDS)
 
 /datum/reagent/mental/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed)
 	M.hallucination = max(M.hallucination, 10)
@@ -647,7 +647,7 @@
 		/datum/brain_trauma/mild/muscle_weakness/ = 0.05
 	)
 	conflicting_reagent = null
-	min_dose = 0.25
+	min_dose = 0.0064 * REM
 	var/datum/modifier/modifier
 
 /datum/reagent/mental/nicotine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)

@@ -41,20 +41,22 @@ var/list/heartstopper  = list("potassium_chlorophoride", "zombie_powder") // Thi
 var/list/cheartstopper = list("potassium_chloride")                       // This stops the heart when overdose is met. -- c = conditional
 
 //Alcohol
-#define		AE_DIZZY 		5
-#define		AE_BUZZED_MIN	6
-#define 	AE_SLURRING 	15
-#define 	AE_CONFUSION 	18
-#define		AE_CLUMSY		22
-#define 	AE_BUZZED_MAX	24
-#define 	AE_BLURRING 	25
-#define		AE_VOMIT		40
-#define 	AE_DROWSY 		55
-#define 	AE_OVERDOSE 	70
-#define 	AE_BLACKOUT		80
+#define INTOX_BUZZED     0.02
+#define INTOX_JUDGEIMP   0.06
+#define INTOX_MUSCLEIMP  0.08
+#define INTOX_REACTION   0.10
+#define INTOX_VOMIT		 0.12
+#define INTOX_BALANCE    0.15
+#define INTOX_BLACKOUT   0.20
+#define INTOX_CONSCIOUS  0.30
+#define INTOX_DEATH      0.45
+
+//How many units of alcohol to remove per second
+#define INTOX_FILTER_HEALTHY 0.3
+#define INTOX_FILTER_BRUISED 0.15
+#define INTOX_FILTER_DAMAGED 0.05
 
 #define		BASE_DIZZY		100
 
-#define 	ALCOHOL_FILTRATION_RATE		0.015//The base rate at which intoxication decreases per proc. this is actually multiplied by 3 most of the time if the liver is healthy
 #define		BASE_VOMIT_CHANCE			2
-#define		VOMIT_CHANCE_SCALE			0.2//An extra 1% for every 5 units over the vomiting threshold
+#define		VOMIT_CHANCE_SCALE			0.2
