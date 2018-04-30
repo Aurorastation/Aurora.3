@@ -11888,12 +11888,6 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/machinery/door/window/brigdoor{
-	dir = 2;
-	icon_state = "leftsecure";
-	name = "Secure Holding Cell";
-	req_access = list(2)
-	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "avA" = (
