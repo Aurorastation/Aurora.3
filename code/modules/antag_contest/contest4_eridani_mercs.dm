@@ -34,9 +34,7 @@ The Corporate Board has decided to issue you the following objective for today's
 Ensure that you present yourself professionally."}
 
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(null)
-	P.name = "Revised Corporate Board Orders"
-	P.info = fax_body
-	P.update_icon()
+	P.set_content("Revised Corporate Board Orders", fax_body)
 
 	if (!F.recievefax(P))
 		qdel(P)
