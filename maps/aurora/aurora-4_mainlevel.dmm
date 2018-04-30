@@ -45867,6 +45867,12 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
+/obj/item/device/radio{
+	frequency = 1487;
+	name = "Medbay Emergency Radio Link";
+	pixel_x = 5;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/emt)
 "bzG" = (
@@ -46474,6 +46480,9 @@
 	},
 /obj/item/device/radio{
 	pixel_x = -5
+	},
+/obj/item/device/gps{
+	gpstag = "MED0"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/emt)
