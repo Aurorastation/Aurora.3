@@ -1,0 +1,7 @@
+author: PoZe
+
+delete-after: True
+
+changes:
+  - rscadd: "EMT room now has two GPS and two medical emergency medical radios"
+  - maptweak: "Increased size of Toxin's airlock, adding canister refill from main air supply"
