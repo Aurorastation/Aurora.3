@@ -295,3 +295,11 @@
 /obj/item/weapon/storage/lockbox/vials/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
 	update_icon()
+
+/obj/item/weapon/storage/lockbox/vials/nelocacillin
+	name = "secure vials storage box (nelocacillin)"
+	desc = "A locked box for keeping things away from children. Contains vials of nelocacillin."
+
+/obj/item/weapon/storage/fancy/vials/nelocacillin/fill()
+	for(var/i=1; i <= storage_slots; i++)
+		new /obj/item/weapon/reagent_containers/glass/beaker/vial/nelocacillin(src)

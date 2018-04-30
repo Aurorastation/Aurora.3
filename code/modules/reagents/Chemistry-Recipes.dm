@@ -359,6 +359,14 @@
 	required_reagents = list("cryptobiolin" = 1, "inaprovaline" = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/nelocacillin
+	name = "Nelocacillin"
+	id = "nelocacillin"
+	result = "nelocacillin"
+	required_reagents = list("spaceacillin" = 1, "uranium" = 1, "phoron" = 0.1)
+	catalysts = list("phoron" = 5, "antibodies" = 1)
+	result_amount = 2
+
 /datum/chemical_reaction/imidazoline
 	name = "imidazoline"
 	id = "imidazoline"

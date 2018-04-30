@@ -205,6 +205,15 @@
 	possible_transfer_amounts = list(5,10,15,25)
 	flags = OPENCONTAINER
 
+/obj/item/weapon/reagent_containers/glass/beaker/vial/nelocacillin
+	name = "vial (nelocacillin)"
+	desc = "A small glass vial. Contains nelocacillin."
+
+/obj/item/weapon/reagent_containers/glass/beaker/vial/nelocacillin/Initialize()
+	. = ..()
+	reagents.add_reagent("nelocacillin", 30)
+	update_icon()
+
 /obj/item/weapon/reagent_containers/glass/beaker/cryoxadone
 /obj/item/weapon/reagent_containers/glass/beaker/cryoxadone/Initialize()
 	. = ..()

@@ -470,6 +470,25 @@
 	scannable = 1
 	taste_description = "bitterness"
 
+/datum/reagent/nelocacillin
+	name = "nelocacillin"
+	id = "nelocacillin"
+	description = "Prevents viruses from being introduced to the body. Does not cure viral infections, only prevents them. Does not prevent infections from wounds."
+	reagent_state = LIQUID
+	color = "#CCCCCC"
+	metabolism = REM * 0.008 //15u lasts 30 minutes
+	overdose = 20
+	scannable = 1
+	taste_description = "bitterness"
+
+/datum/reagent/nelocacillin/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	var/mob/living/carbon/human/H = M
+	if(istype(H))
+		for (var/obj/item/organ/external/E in H.organs)
+			for (var/datum/wound/W in E.wounds)
+				W.germ_level += min(removed*25, W.germ_level)
+
 /datum/reagent/sterilizine
 	name = "Sterilizine"
 	id = "sterilizine"
