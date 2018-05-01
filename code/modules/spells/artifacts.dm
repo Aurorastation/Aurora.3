@@ -300,11 +300,6 @@
 		H.emp_act(severity)
 		playsound(get_turf(H), 'sound/effects/EMPulse.ogg', 50, 1, -1)
 
-/obj/item/poppet/water_act(amount)
-	var/mob/living/carbon/human/H = target.resolve()
-	if(H)
-		H.water_act(amount)
-
 /obj/item/poppet/ex_act(severity)
 	var/mob/living/carbon/human/H = target.resolve()
 	if(H)
