@@ -213,7 +213,7 @@
 		to_chat(src, "<span class='warning'>Your powers are not capable of taking you that far.</span>")
 		return
 
-	if (!T.dynamic_lighting || T.get_lumcount() > 0.1)
+	if (T.get_lumcount() > 0.1)
 		// Too bright, cannot jump into.
 		to_chat(src, "<span class='warning'>The destination is too bright.</span>")
 		return
