@@ -91,6 +91,42 @@
 	desc = "A neosilk clip-on tie. This one is disgusting."
 	icon_state = "horribletie"
 
+/obj/item/clothing/accessory/tie/blue_clip
+	name = "blue tie with a clip"
+	icon_state = "bluecliptie"
+
+/obj/item/clothing/accessory/tie/blue_long
+	name = "blue long tie"
+	icon_state = "bluelongtie"
+
+/obj/item/clothing/accessory/tie/red_clip
+	name = "red tie with a clip"
+	icon_state = "redcliptie"
+
+/obj/item/clothing/accessory/tie/red_long
+	name = "red long tie"
+	icon_state = "redlongtie"
+
+/obj/item/clothing/accessory/tie/black
+	name = "black tie"
+	icon_state = "blacktie"
+
+/obj/item/clothing/accessory/tie/darkgreen
+	name = "dark green tie"
+	icon_state = "dgreentie"
+
+/obj/item/clothing/accessory/tie/yellow
+	name = "yellow tie"
+	icon_state = "yellowtie"
+
+/obj/item/clothing/accessory/tie/navy
+	name = "navy tie"
+	icon_state = "navytie"
+
+/obj/item/clothing/accessory/tie/white
+	name = "white tie"
+	icon_state = "whitetie"
+
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
 	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."
@@ -154,7 +190,7 @@
 	desc = "A bronze medal."
 	icon_state = "bronze"
 	item_state = "bronze"
-	
+
 /obj/item/clothing/accessory/medal/conduct
 	name = "distinguished conduct medal"
 	desc = "A bronze medal awarded for distinguished conduct. Whilst a great honor, this is most basic award on offer. It is often awarded by a captain to a member of their crew."
@@ -225,52 +261,58 @@
 	icon_state = "suspenders"
 	item_state = "suspenders"
 
+/obj/item/clothing/accessory/sweater
+	name = "sweater"
+	desc = "A warm knit sweater."
+	icon_state = "sweater"
+	item_state = "sweater"
+
 /obj/item/clothing/accessory/scarf
 	name = "white scarf"
 	desc = "A simple scarf, to protect your neck from the cold of space."
 	icon_state = "whitescarf"
 	item_state = "whitescarf"
-	
+
 /obj/item/clothing/accessory/scarf/yellow
 	name = "yellow scarf"
 	icon_state = "yellowscarf"
 	item_state = "yellowscarf"
-	
+
 /obj/item/clothing/accessory/scarf/green
 	name = "green scarf"
 	icon_state = "greenscarf"
 	item_state = "greenscarf"
-	
+
 /obj/item/clothing/accessory/scarf/purple
 	name = "purple scarf"
 	icon_state = "purplescarf"
 	item_state = "purplescarf"
-	
+
 /obj/item/clothing/accessory/scarf/black
 	name = "black scarf"
 	icon_state = "blackscarf"
 	item_state = "blackscarf"
-	
+
 /obj/item/clothing/accessory/scarf/red
 	name = "red scarf"
 	icon_state = "redscarf"
 	item_state = "redscarf"
-	
+
 /obj/item/clothing/accessory/scarf/orange
 	name = "orange scarf"
 	icon_state = "orangescarf"
 	item_state = "orangescarf"
-	
+
 /obj/item/clothing/accessory/scarf/light_blue
 	name = "light blue scarf"
 	icon_state = "lightbluescarf"
 	item_state = "lightbluescarf"
-	
+
 /obj/item/clothing/accessory/scarf/dark_blue
 	name = "dark blue scarf"
 	icon_state = "darkbluescarf"
 	item_state = "darkbluescarf"
-	
+
 /obj/item/clothing/accessory/scarf/zebra
 	name = "zebra scarf"
 	icon_state = "zebrascarf"

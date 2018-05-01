@@ -364,7 +364,7 @@
 
 /obj/item/robot_parts/chest/synthskin
 	name = "Human synthskin torso"
-	linked_frame = "Hephaestus G1 Industrial Frame"
+	linked_frame = "Shell Frame"
 
 /obj/item/robot_parts/chest/xion
 	name = "Xion manufacturing group torso"
@@ -376,4 +376,4 @@
 
 /obj/item/robot_parts/chest/industrial
 	name = "Hephaestus industrial torso"
-	linked_frame = "Bishop Accessory Frame"
+	linked_frame = "Hephaestus G1 Industrial Frame"
