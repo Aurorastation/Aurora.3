@@ -61,7 +61,3 @@
 	for(var/i=1; i <= startswith; i++)
 		new /obj/item/weapon/reagent_containers/food/snacks/pineapple_ring(src)
 	update_icon()
-	
-	
-	
-
