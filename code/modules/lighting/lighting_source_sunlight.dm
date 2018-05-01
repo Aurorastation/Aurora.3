@@ -73,7 +73,7 @@
 
 		check_t:
 
-		if (T.dynamic_lighting || T.light_sources)
+		if (TURF_IS_DYNAMICALLY_LIT_UNSAFE(T) || T.light_sources)
 			Tcorners = T.corners
 			if (!T.lighting_corners_initialised)
 				T.lighting_corners_initialised = TRUE

@@ -182,7 +182,7 @@ var/datum/controller/subsystem/cargo/SScargo
 			catch(var/exception/es)
 				log_debug("SScargo: Error when loading supplier: [es]")
 		//Load the items
-		var/DBQuery/item_query = dbcon.NewQuery("SELECT id, name, supplier, description, categories, price, items, access, container_type, groupable, item_mul FROM ss13_cargo_items WHERE deleted_at is NULL AND supplier IS NOT NULL ORDER BY order_by ASC, name ASC, supplier ASC")
+		var/DBQuery/item_query = dbcon.NewQuery("SELECT id, name, supplier, description, categories, price, items, access, container_type, groupable, item_mul FROM ss13_cargo_items WHERE deleted_at IS NULL AND approved_at IS NOT NULL AND supplier IS NOT NULL ORDER BY order_by ASC, name ASC, supplier ASC")
 		item_query.Execute()
 		while(item_query.NextRow())
 			CHECK_TICK

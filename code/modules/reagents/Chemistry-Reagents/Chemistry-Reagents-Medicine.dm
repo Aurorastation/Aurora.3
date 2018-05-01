@@ -622,7 +622,7 @@
 	M.Weaken(10 * removed * scale)
 
 /datum/reagent/mental/methylphenidate
-	name = "methylphenidate"
+	name = "Methylphenidate"
 	id = "methylphenidate"
 	description = "Methylphenidate is an AHDH treatment drug that treats basic distractions such as phobias and hallucinations at moderate doses. Withdrawl effects are rare. Side effects are rare, and include hallucinations."
 	reagent_state = LIQUID
@@ -647,7 +647,7 @@
 	)
 
 /datum/reagent/mental/fluvoxamine
-	name = "fluvoxamine"
+	name = "Fluvoxamine"
 	id = "fluvoxamine"
 	description = "Fluvoxamine is safe and effective at treating basic phobias, as well as schizophrenia and muscle weakness at higher doses. Withdrawl effects are rare. Side effects are rare, and include hallucinations."
 	reagent_state = LIQUID
@@ -673,7 +673,7 @@
 	)
 
 /datum/reagent/mental/sertraline
-	name = "sertraline"
+	name = "Sertraline"
 	id = "sertraline"
 	description = "Sertraline is cheap, safe, and effective at treating basic phobias, however it does not last as long as other drugs of it's class. Withdrawl effects are uncommon. Side effects are rare."
 	reagent_state = LIQUID
@@ -697,7 +697,7 @@
 	suppressing_reagents = list(/datum/reagent/mental/fluvoxamine = 5)
 
 /datum/reagent/mental/escitalopram
-	name = "escitalopram"
+	name = "Escitalopram"
 	id = "escitalopram"
 	description = "Escitalopram is expensive, safe and very effective at treating basic phobias as well as advanced phobias like monophobia. A common side effect is drowsiness, and a rare side effect is hallucinations. Withdrawl effects are uncommon."
 	reagent_state = LIQUID
@@ -724,12 +724,8 @@
 		/datum/reagent/mental/sertraline = 5
 	)
 
-/datum/reagent/mental/escitalopram/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.drowsyness += removed*100
-	. = ..()
-
 /datum/reagent/mental/paroxetine
-	name = "paroxetine"
+	name = "Paroxetine"
 	id = "paroxetine"
 	description = "Paroxetine is effective at treating basic phobias while also preventing the body from overheating. Side effects are rare, and include hallucinations. Withdrawl effects are frequent and unsafe."
 	reagent_state = LIQUID
@@ -762,7 +758,7 @@
 	. = ..()
 
 /datum/reagent/mental/duloxetine
-	name = "duloxetine"
+	name = "Duloxetine"
 	id = "duloxetine"
 	description = "Duloxetine is effective at treating basic phobias and concussions. A rare side effect is hallucinations. Withdrawl effects are common."
 	reagent_state = LIQUID
@@ -793,7 +789,7 @@
 	)
 
 /datum/reagent/mental/venlafaxine
-	name = "venlafaxine"
+	name = "Venlafaxine"
 	id = "venlafaxine"
 	description = "Venlafaxine is effective at treating basic phobias, monophobia, and stuttering. Side effects are uncommon and include hallucinations. Withdrawl effects are common."
 	reagent_state = LIQUID
@@ -825,7 +821,7 @@
 	)
 
 /datum/reagent/mental/risperidone
-	name = "risperidone"
+	name = "Risperidone"
 	id = "risperidone"
 	description = "Risperidone is a potent antipsychotic medication used to treat schizophrenia, stuttering, speech impediment, monophobia, hallucinations, tourettes, and muscle spasms. Side effects are common and include pacifism. Withdrawl symptoms are dangerous and almost always occur."
 	reagent_state = LIQUID
@@ -864,7 +860,7 @@
 	)
 
 /datum/reagent/mental/olanzapine
-	name = "olanzapine"
+	name = "Olanzapine"
 	id = "olanzapine"
 	description = "Olanzapine is a high-strength, expensive antipsychotic medication used to treat schizophrenia, stuttering, speech impediment, monophobia, hallucinations, tourettes, and muscle spasms. Side effects are common and include pacifism. The medication metabolizes quickly, and withdrawl is dangerous."
 	reagent_state = LIQUID
@@ -916,6 +912,9 @@
 		/datum/brain_trauma/special/imaginary_friend = 5,
 		/datum/brain_trauma/mild/tourettes = 5
 	)
+	dosage_traumas = list(
+		/datum/brain_trauma/severe/pacifism = 25
+	)
 	withdrawal_traumas = list()
 
 /datum/reagent/mental/trisyndicotin
@@ -935,7 +934,7 @@
 	)
 
 /datum/reagent/mental/truthserum
-	name = "truth serum"
+	name = "Truth serum"
 	id = "truthserum"
 	description = "This highly illegal, expensive, military strength truth serum is a must have for secret corporate interrogations. One 50u pill is good for almost 10 minutes of interrogation."
 	reagent_state = LIQUID

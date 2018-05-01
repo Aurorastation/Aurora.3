@@ -54,7 +54,7 @@
 			if(F_UNDER)
 				H.underwear = selection[pick]
 
-		H.update_body(1)
+		H.update_underwear(TRUE)
 
 	return 1
 

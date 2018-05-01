@@ -448,7 +448,7 @@ var/list/sacrificed = list()
 			chose_name = 1
 			break
 	D.universal_speak = 1
-	D.underwear = 0
+	D.underwear = null
 	D.key = ghost.key
 	cult.add_antagonist(D.mind)
 	playsound(loc, 'sound/magic/exit_blood.ogg', 100, 1)
