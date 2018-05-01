@@ -34,37 +34,34 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 		make_dizzy(target_dizziness - dizziness)
 
 	if(bac > INTOX_MUSCLEIMP*SR)
-		if(drowsyness == 0)
-			src.show_message("<span class='notice'>You feel sluggish.</span>")
-		drowsyness = max(drowsyness, 1)
+		slurring = max(slurring, 25)
+		if (!(locate(/datum/modifier/drunk) in modifiers))
+			src.show_message("<span class='notice'>You feel drunk.</span>")
+			add_modifier(/datum/modifier/drunk, MODIFIER_CUSTOM)
 
 	if(bac > INTOX_REACTION*SR)
 		if (confused == 0)
 			src.show_message("<span class='warning'>You feel uncoordinated and unsteady on your feet!</span>")
 		confused = max(confused, 10)
-		slurring = max(slurring, 20)
-		drowsyness = max(drowsyness, 10)
+		slurring = max(slurring, 50)
 		if (!alcohol_clumsy && !(CLUMSY in mutations))
 			mutations.Add(CLUMSY)
 			alcohol_clumsy = 1
-	else
-		if (alcohol_clumsy)
-			src.show_message("<span class='notice'>You feel more sober and steady.</span>")
-			mutations.Remove(CLUMSY)
-			alcohol_clumsy = 0
+	else if (alcohol_clumsy)
+		src.show_message("<span class='notice'>You feel more sober and steady.</span>")
+		mutations.Remove(CLUMSY)
+		alcohol_clumsy = 0
 
 	if(bac > INTOX_VOMIT*SR)
-		add_chemical_effect(CE_ALCOHOL_TOXIC, 1)
-		drowsyness = max(drowsyness, 20)
-		slurring = max(slurring, 30)
+		slurring = max(slurring, 75)
 		if (life_tick % 4 == 1)
 			var/chance = BASE_VOMIT_CHANCE + ((bac - INTOX_VOMIT*SR)*VOMIT_CHANCE_SCALE)
 			if (prob(chance))
 				delayed_vomit()
 
 	if(bac > INTOX_BALANCE*SR)
-		slurring = max(slurring, 50)
-		if (life_tick % 4 == 1 && prob(10))
+		slurring = max(slurring, 100)
+		if (life_tick % 4 == 1 && !lying && !buckled && prob(10) && loc:has_gravity())
 			src.visible_message("<span class='warning'>[src] loses balance and falls to the ground!</span>","<span class='warning'>You lose balance and fall to the ground!</span>")
 			paralysis = max(paralysis,3 SECONDS)
 			if(bac > INTOX_CONSCIOUS*SR)
@@ -86,7 +83,8 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 				adjustBrainLoss(1,5)
 
 	if (bac > INTOX_DEATH*SR) //Death usually occurs here
-		adjustOxyLoss(10,100)
+		add_chemical_effect(CE_ALCOHOL_TOXIC, 10)
+		adjustOxyLoss(3,100)
 		adjustBrainLoss(1,50)
 
 
@@ -97,21 +95,43 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 
 /datum/modifier/buzzed/activate()
 	..()
-	if (ishuman(target))
-		var/mob/living/carbon/human/H = target
+	var/mob/living/carbon/human/H = target
+	if(istype(H))
 		H.move_delay_mod += -0.75
 		H.sprint_cost_factor += -0.1
 
 /datum/modifier/buzzed/deactivate()
 	..()
-	if (ishuman(target))
-		var/mob/living/carbon/human/H = target
+	var/mob/living/carbon/human/H = target
+	if(istype(H))
 		H.move_delay_mod -= -0.75
 		H.sprint_cost_factor -= -0.1
 
 /datum/modifier/buzzed/custom_validity()
-	if (ishuman(target))
-		var/mob/living/carbon/human/H = target
-		if (H.bac >= INTOX_BUZZED*H.species.ethanol_resistance && H.bac <= INTOX_MUSCLEIMP*H.species.ethanol_resistance)
-			return 1
+	var/mob/living/carbon/human/H = target
+	if(istype(H) && H.bac >= INTOX_BUZZED*H.species.ethanol_resistance && H.bac <= INTOX_MUSCLEIMP*H.species.ethanol_resistance)
+		return 1
 	return 0
+
+/datum/modifier/drunk
+
+/datum/modifier/drunk/activate()
+	..()
+	var/mob/living/carbon/human/H = target
+	if(istype(H))
+		H.move_delay_mod += 4
+		H.sprint_cost_factor += 0.2
+
+/datum/modifier/drunk/deactivate()
+	..()
+	var/mob/living/carbon/human/H = target
+	if(istype(H))
+		H.move_delay_mod -= 4
+		H.sprint_cost_factor -= -0.2
+
+/datum/modifier/drunk/custom_validity()
+	var/mob/living/carbon/human/H = target
+	if(istype(H) && H.bac >= INTOX_MUSCLEIMP*H.species.ethanol_resistance)
+		return 1
+	return 0
+

@@ -51,9 +51,9 @@ var/list/cheartstopper = list("potassium_chloride")                       // Thi
 #define INTOX_CONSCIOUS  0.30
 #define INTOX_DEATH      0.45
 
-//How many units of alcohol to remove per second
-#define INTOX_FILTER_HEALTHY 0.3
-#define INTOX_FILTER_BRUISED 0.15
+//How many units of intoxication to remove per second
+#define INTOX_FILTER_HEALTHY 0.015
+#define INTOX_FILTER_BRUISED 0.010
 #define INTOX_FILTER_DAMAGED 0.05
 
 #define		BASE_DIZZY		100

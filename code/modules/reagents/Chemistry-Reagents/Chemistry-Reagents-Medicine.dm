@@ -242,19 +242,17 @@
 	metabolism = 0.02
 	taste_description = "bitterness"
 	metabolism_min = 0.005
-	conflicting_reagent = /datum/reagent/alcohol
 
 /datum/reagent/oxycodone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 200)
-
-/datum/reagent/oxycodone/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting)
-	..()
-	M.hallucination = max(M.hallucination, 60)
-	M.druggy = max(M.druggy, 10)
+	var/mob/living/carbon/human/H = M
+	if(istype(H) && H.bac >= 0.02)
+		M.hallucination = max(M.hallucination, H.bac * 300)
+		M.druggy = max(M.druggy, H.bac * 100)
 
 /datum/reagent/oxycodone/overdose(var/mob/living/carbon/M, var/alien)
 	..()
-	M.druggy = max(M.druggy, 10)
+	M.druggy = max(M.druggy, 20)
 	M.hallucination = max(M.hallucination, 60)
 
 /* Other medicine */
@@ -538,8 +536,8 @@
 #define ANTIDEPRESSANT_MESSAGE_DELAY 1800 //3 minutes
 
 /datum/reagent/mental
-	name = "Experimental Antidepressant"
-	id = null //Abstract, do not spawn.
+	name = null //Just like alcohol
+	id = "mental"
 	description = "Some nameless, experimental antidepressant that you should obviously not have your hands on."
 	reagent_state = LIQUID
 	color = "#FFFFFF"
@@ -549,7 +547,6 @@
 	scannable = 1
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "bugs"
-	conflicting_reagent = /datum/reagent/alcohol
 	ingest_mul = 1
 	var/alchohol_affected = 1
 	var/min_dose = 1
@@ -570,33 +567,20 @@
 	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
 
 	if(alchohol_affected && H.bac > 0.01)
-		H.hallucination = max(H.hallucination, H.bac * 1000)
+		H.hallucination = max(H.hallucination, H.bac * 400)
 
 	if(B) //You won't feel anything if you don't have a brain.
 		for(var/datum/brain_trauma/BT in B.traumas)
-			var/goal_volume = suppress_traumas [BT]
-			if ( (volume >= goal_volume && goal_volume > 0) || (volume < -goal_volume && goal_volume < 0) ) // If the dosage is greater than the goal, then suppress the trauma.
-				if(goal_volume > 0)
-					if(!BT.suppressed && !BT.permanent)
-						BT.suppressed = 1
-						BT.on_lose()
-				else if(BT.source_id == id)
-					qdel(BT)
-			else if( (volume < goal_volume-1 && goal_volume > 0) || (volume > -(goal_volume+1) && goal_volume < 0)  ) // -1 So it doesn't spam back and forth constantly if reagents are being metabolized
-				if(goal_volume > 0)
-					if(BT.suppressed)
-						BT.suppressed = 0
-						BT.on_gain()
-						hastrauma = 1
-				else
-					if(!H.has_trauma_type(BT))
-						BT.source_id = id
-						B.gain_trauma(BT,TRUE)
-					else if(BT.suppressed)
-						BT.permanent = 1
-						BT.source_id = id
-						BT.suppressed = 0
-						BT.on_gain()
+			var/goal_volume = suppress_traumas[BT]
+			if (volume >= goal_volume) // If the dosage is greater than the goal, then suppress the trauma.
+				if(!BT.suppressed && !BT.permanent)
+					BT.suppressed = 1
+					BT.on_lose()
+			else if(volume < goal_volume-1 && goal_volume > 0) // -1 So it doesn't spam back and forth constantly if reagents are being metabolized
+				if(BT.suppressed)
+					BT.suppressed = 0
+					BT.on_gain()
+					hastrauma = 1
 		for(var/datum/brain_trauma/BT in dosage_traumas)
 			var/percentchance = max(0,dosage_traumas[BT] - dose*10) // If you've been taking this medication for a while then side effects are rarer.
 			if(!H.has_trauma_type(BT) && prob(percentchance))

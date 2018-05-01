@@ -466,16 +466,16 @@ BREATH ANALYZER
 	var/additional_string = "<font color='green'>\[NORMAL\]</font>"
 	switch(H.bac)
 		if(INTOX_JUDGEIMP to INTOX_MUSCLEIMP)
-			additional_string = "<b>\[LIGHTLY INTOXICATED\]</b>"
+			additional_string = "\[LIGHTLY INTOXICATED\]"
 		if(INTOX_MUSCLEIMP to INTOX_VOMIT)
-			additional_string = "<b>\[MODERATELY INTOXICATED\</b>]"
+			additional_string = "\[MODERATELY INTOXICATED\]"
 		if(INTOX_VOMIT to INTOX_BALANCE)
 			additional_string = "<font color='red'>\[HEAVILY INTOXICATED\]</font>"
 		if(INTOX_BALANCE to INTOX_DEATH)
 			additional_string = "<font color='red'>\[ALCOHOL POISONING LIKELY\]</font>"
 		if(INTOX_DEATH to INFINITY)
 			additional_string = "<font color='red'>\[DEATH IMMINENT\]</font>"
-	user.show_message("<span class='normal'>Blood Alcohol Content: [round(H.bac,0.01)] [additional_string]</span>")
+	user.show_message("<span class='normal'>Blood Alcohol Content: [round(H.bac,0.01)] <b>[additional_string]</b></span>")
 
 	if(H.breathing && H.breathing.total_volume)
 		var/unknown = 0

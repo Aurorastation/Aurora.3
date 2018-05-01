@@ -143,8 +143,8 @@
 	new /obj/item/weapon/bonegel(src)
 	new /obj/item/weapon/FixOVein(src)
 	new /obj/item/stack/medical/advanced/bruise_pack(src)
-	new /obj/item/weapon/reagent_containers/inhaler/chloralhydrate(src)
-	new /obj/item/weapon/reagent_containers/inhaler/chloralhydrate(src)
+	new /obj/item/weapon/reagent_containers/inhaler/soporific(src)
+	new /obj/item/weapon/reagent_containers/inhaler/soporific(src)
 	make_exact_fit()
 
 /obj/item/weapon/storage/firstaid/brute

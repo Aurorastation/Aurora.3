@@ -1549,7 +1549,7 @@ var/list/global/random_stock_large = list(
 				/obj/item/weapon/reagent_containers/inhaler/dexalin = 8,
 				/obj/item/weapon/reagent_containers/inhaler/hyperzine = 2,
 				/obj/item/weapon/reagent_containers/inhaler/phoron = 2,
-				/obj/item/weapon/reagent_containers/inhaler/chloralhydrate = 1,
+				/obj/item/weapon/reagent_containers/inhaler/soporific = 1,
 				/obj/item/weapon/reagent_containers/inhaler/space_drugs = 3
 			)
 			while(number > 0)

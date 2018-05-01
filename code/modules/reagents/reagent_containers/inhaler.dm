@@ -128,13 +128,13 @@
 		update_icon()
 		return
 
-/obj/item/weapon/reagent_containers/inhaler/chloralhydrate
-	name = "autoinhaler (chloral hydrate)"
+/obj/item/weapon/reagent_containers/inhaler/soporific
+	name = "autoinhaler (soporific)"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains chloral hydrate."
 
 	Initialize()
 		. =..()
-		reagents.add_reagent("chloralhydrate", 5)
+		reagents.add_reagent("stoxin", 5)
 		update_icon()
 		return
 
