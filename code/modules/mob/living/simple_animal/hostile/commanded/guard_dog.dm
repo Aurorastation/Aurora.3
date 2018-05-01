@@ -1,5 +1,6 @@
 /mob/living/simple_animal/hostile/commanded/dog
 	name = "guard dog"
+	short_name = "dog"
 	desc = "A dog trained to listen and obey its owner commands, this one is a german shepherd."
 
 	icon = 'icons/mob/dog.dmi'
@@ -83,10 +84,13 @@
 	if(!name_changed)
 
 		var/input = sanitizeSafe(input("What do you want to name the dog?", ,""), MAX_NAME_LEN)
+		var/short_input = sanitizeSafe(input("What nickname do you want to give the dog ?", , ""), MAX_NAME_LEN)
 
 		if(src && input && !M.stat && in_range(M,src))
 			name = input
 			real_name = input
+			if(short_input != "")
+				short_name = short_input
 			name_changed = 1
 			return 1
 
@@ -103,6 +107,7 @@
 
 /mob/living/simple_animal/hostile/commanded/dog/columbo
 	name = "Lt. Columbo"
+	short_name = "Columbo"
 	desc = "A dog trained to listen and obey its owner commands. This one looks about three days from retirement."
 
 	melee_damage_lower = 5
