@@ -46476,7 +46476,7 @@
 /obj/structure/table/standard,
 /obj/item/weapon/storage/toolbox/emergency,
 /obj/item/device/gps{
-	gpstag = "MED0"
+	gpstag = "MED1"
 	},
 /obj/item/device/radio{
 	pixel_x = -5
@@ -92343,7 +92343,7 @@ bWm
 cai
 cai
 ciw
-clz
+cly
 cbi
 cbA
 cbV
@@ -92600,7 +92600,7 @@ bZs
 cix
 bZJ
 clo
-clA
+cly
 bPO
 bPL
 cbW
@@ -93114,7 +93114,7 @@ bZs
 bZK
 bZJ
 clp
-clB
+cly
 cbj
 cbB
 cbY
@@ -93371,7 +93371,7 @@ bUz
 bZL
 caj
 ciy
-clC
+cly
 cbk
 cbC
 cbZ
@@ -93628,7 +93628,7 @@ bUz
 clq
 clq
 clq
-clD
+cly
 bPO
 cbB
 cca
