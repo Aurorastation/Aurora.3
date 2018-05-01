@@ -250,11 +250,6 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define CAPTURE_MODE_ALL 1 //Admin camera mode
 #define CAPTURE_MODE_PARTIAL 3 //Simular to regular mode, but does not do dummy check
 
-//Sound effects toggles
-#define ASFX_AMBIENCE	1
-#define ASFX_FOOTSTEPS	2
-#define ASFX_VOTE		4
-
 //Cargo random stock vars
 //These are used in randomstock.dm
 //And also for generating random loot crates in crates.dm
