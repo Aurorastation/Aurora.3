@@ -21,7 +21,7 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 		sleeping = 0
 		//Many of these parameters normally tick down in life code, but some parts of that code don't run in godmode, so this prevents a BST being stuck with blurred vision
 
-	src.bac = round(intoxication/vessel.get_reagent_amount("blood"),0.01)
+	src.bac = round(intoxication/max(vessel.get_reagent_amount("blood"),1),0.01)
 
 	if(bac > INTOX_BUZZED*SR && bac < INTOX_MUSCLEIMP*SR && !(locate(/datum/modifier/buzzed) in modifiers))
 		src.show_message("<span class='notice'>You feel buzzed.</span>")

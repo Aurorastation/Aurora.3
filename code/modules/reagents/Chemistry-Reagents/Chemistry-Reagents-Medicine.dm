@@ -551,6 +551,7 @@
 	taste_description = "bugs"
 	conflicting_reagent = /datum/reagent/alcohol
 	ingest_mul = 1
+	var/alchohol_affected = 1
 	var/min_dose = 1
 	var/messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY
 	var/list/goodmessage = list() //Messages when all your brain traumas are cured.
@@ -567,6 +568,9 @@
 		return
 	var/hastrauma = 0 //whether or not the brain has trauma
 	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
+
+	if(alchohol_affected && H.bac > 0.01)
+		H.hallucination = max(H.hallucination, H.bac * 1000)
 
 	if(B) //You won't feel anything if you don't have a brain.
 		for(var/datum/brain_trauma/BT in B.traumas)
@@ -625,9 +629,6 @@
 			messagedelay = initial(messagedelay)
 
 	data = world.time + (messagedelay SECONDS)
-
-/datum/reagent/mental/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed)
-	M.hallucination = max(M.hallucination, 10)
 
 /datum/reagent/mental/nicotine
 	name = "Nicotine"
@@ -1036,6 +1037,7 @@
 	conflicting_reagent = /datum/reagent/mental/hextrasenil
 	messagedelay = 60
 	scannable = 0
+	alchohol_affected = 0
 	ingest_mul = 0 //Stomach acid will melt the nanobots
 	var/overdose_delay = 15
 	var/dont_run_overdose = 0
@@ -1064,7 +1066,7 @@
 				to_chat(H,"<span class='warning'>Thinking becomes painful and your whole body starts to ache...</span>")
 				H.adjustHalLoss(5)
 			if(60 to 300)
-				to_chat(H,"<span class='danger'>Your brain aches and burns trying to fend off the invasive thoughts!</span>")
+				to_chat(H,"<span class='danger'>Your brain aches and burns with every passing second!</span>")
 				H.adjustHalLoss(10)
 			if(300 to INFINITY)
 				H.adjustHalLoss(-50)
@@ -1082,7 +1084,7 @@
 /datum/reagent/mental/truthserum
 	name = "Truth serum"
 	id = "truthserum"
-	description = "This highly illegal, expensive, military strength truth serum is a must have for secret corporate interrogations. Only works when injected."
+	description = "This highly illegal, expensive, military strength truth serum is a must have for secret corporate interrogations. Do not ingest."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.05 * REM
@@ -1099,6 +1101,7 @@
 		/datum/brain_trauma/severe/pacifism = 25
 	)
 	messagedelay = 30
+	ingest_mul = 0 //Stomach acid will melt the nanobots
 
 /datum/reagent/mental/feartoxin
 	name = "Fear toxin"
