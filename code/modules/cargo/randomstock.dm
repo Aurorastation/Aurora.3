@@ -1009,7 +1009,7 @@ var/list/global/random_stock_large = list(
 				/obj/item/weapon/storage/fancy/crayons = 4,
 				/obj/item/weapon/pen/chameleon = 1,
 				/obj/item/weapon/pen/invisible = 2,
-				/obj/item/weapon/pen/multi = 2,
+				/obj/item/weapon/pen/multi = 2
 			)
 			var/type = pickweight(drawing)
 			new type(L)
