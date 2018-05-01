@@ -56,6 +56,10 @@
 	item_state = "clown"
 	worn_state = "clown"
 
+/obj/item/clothing/under/rank/clown/traitor
+	armor = list(melee = 10, bullet = 5, laser = 5,energy = 0, bomb = 0, bio = 0, rad = 0)
+	siemens_coefficient = 0.7
+
 
 /obj/item/clothing/under/rank/head_of_personnel
 	desc = "It's a jumpsuit worn by someone who works in the position of \"Head of Personnel\"."

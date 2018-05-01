@@ -1,0 +1,8 @@
+author: BurgerBB
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added traitor kits. Traitor kits are discount priced syndicate items that can be purchased in the 'Value Packs' category. Each value pack has a theme that contains items, sometimes exclusive, to that theme."
+  - rscadd: "Added .44 Ammo for the Deckard Pistol. Tweaked tommygun drum mags to have a lower weight class, but lack of pocket fitting."
+  

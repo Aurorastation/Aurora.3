@@ -183,6 +183,11 @@
 	item_state = "gy_suit"
 	worn_state = "gentlesuit"
 
+/obj/item/clothing/under/gentlesuit/traitor
+	desc = "A silk black shirt with a white tie and a matching gray vest and slacks. Feels proper, and durable!"
+	armor = list(melee = 15, bullet = 10, laser = 10, energy = 0, bomb = 0, bio = 0, rad = 0)
+	siemens_coefficient = 0.7
+
 /obj/item/clothing/under/gimmick/rank/captain/suit
 	name = "captain's suit"
 	desc = "A green suit and yellow necktie. Exemplifies authority."

@@ -114,3 +114,9 @@
 	name = "HUDPatch, Night-Vision"
 	item_cost = 4
 	path = /obj/item/clothing/glasses/eyepatch/hud/night
+
+/datum/uplink_item/item/tools/circuits
+	name = "Basic Circuits Kit"
+	item_cost = 10
+	path = /obj/item/weapon/storage/bag/circuits
+

@@ -192,6 +192,16 @@
 	icon_state = "fedora"
 	desc = "A sharp, stylish hat."
 
+/obj/item/clothing/head/fedora/sharp
+	name = "fedora"
+	icon_state = "fedora"
+	desc = "A literally sharp, stylish hat."
+	throw_speed = 10
+	throw_range = 15
+	force = 10
+	sharp = 1
+	edge =  1
+
 /obj/item/clothing/head/feathertrilby
 	name = "feather trilby"
 	icon_state = "feather_trilby"

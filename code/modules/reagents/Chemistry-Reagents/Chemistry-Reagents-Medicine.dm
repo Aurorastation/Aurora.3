@@ -23,6 +23,34 @@
 	QDEL_NULL(modifier)
 	return ..()
 
+/datum/reagent/steroids
+	name = "Vaurca Pheromones"
+	id = "steroids"
+	description = "Pure, uncut, and unfiltered Vaurca Pheromones. The ultimate performance enhancer."
+	reagent_state = LIQUID
+	color = "#00BFFF"
+	overdose = 50
+	metabolism = 0.05 //A match is about 10 minutes. 30 units should last 10 minutes.
+	metabolism_min = 0.025
+	scannable = 1
+	taste_description = "testosterone"
+	var/datum/modifier/modifier01
+	var/datum/modifier/modifier02
+
+/datum/reagent/steroids/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_STABLE)
+	M.add_chemical_effect(CE_PAINKILLER, 25)
+	M.add_chemical_effect(CE_SPEEDBOOST, 1)
+	if (!modifier01)
+		modifier01 = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 0.6, override = MODIFIER_OVERRIDE_STRENGTHEN)
+	if (!modifier02)
+		modifier02 = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+
+/datum/reagent/steroids/Destroy()
+	QDEL_NULL(modifier01)
+	QDEL_NULL(modifier02)
+	return ..()
+
 /datum/reagent/bicaridine
 	name = "Bicaridine"
 	id = "bicaridine"
@@ -274,7 +302,6 @@
 /datum/reagent/synaptizine/Destroy()
 	QDEL_NULL(modifier)
 	return ..()
-
 
 /datum/reagent/alkysine
 	name = "Alkysine"

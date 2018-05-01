@@ -14,6 +14,12 @@
 	icon_state = "greenshorts"
 	worn_state = "greenshorts"
 
+/obj/item/clothing/under/shorts/green/luchador
+	name = "robust luchador shorts"
+	icon_state = "greenshorts"
+	worn_state = "greenshorts"
+	armor = list(melee = 10, bullet = 10, laser = 5,energy = 0, bomb = 0, bio = 0, rad = 0)
+
 /obj/item/clothing/under/shorts/blue
 	name = "blue athletic shorts"
 	icon_state = "blueshorts"
