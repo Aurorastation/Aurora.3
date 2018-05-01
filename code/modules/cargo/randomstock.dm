@@ -58,6 +58,8 @@ var/global/stockname = ""
 */
 
 var/list/global/random_stock_common = list(
+	"backpack" = 1,
+	"drawing" = 1,
 	"toolbox" = 4,
 	"meds" = 5,
 	"steel" = 7,
@@ -88,7 +90,7 @@ var/list/global/random_stock_common = list(
 	"wheelchair" = 1,
 	"meson" = 1.5,
 	"beartrap" = 2,
-	"trays" = 1.8,
+	"trays" = 0.8,
 	"utensil" = 2,
 	"metalfoam" = 1.5,
 	"nanopaste" = 2,
@@ -134,6 +136,7 @@ var/list/global/random_stock_common = list(
 	"nothing" = 0)
 
 var/list/global/random_stock_uncommon = list(
+	"beekit" = 1,
 	"glowshrooms" = 2,
 	"plasteel" = 3,
 	"silver" = 2,
@@ -976,8 +979,6 @@ var/list/global/random_stock_large = list(
 				new /obj/item/weapon/grenade/chem_grenade/cleaner(L)
 				new /obj/item/weapon/grenade/chem_grenade/cleaner(L)
 
-
-
 		if ("mining")
 			if (prob(50))
 				new /obj/item/weapon/shovel(L)
@@ -1001,12 +1002,35 @@ var/list/global/random_stock_large = list(
 		if ("hide")
 			new /obj/item/stack/material/animalhide(L, rand(5,50))
 
+		if("drawing")
+			var/list/drawing = list(
+				/obj/item/weapon/pen/crayon/rainbow = 2,
+				/obj/item/weapon/pen/crayon/mime = 2,
+				/obj/item/weapon/storage/fancy/crayons = 4,
+				/obj/item/weapon/pen/chameleon = 1,
+				/obj/item/weapon/pen/invisible = 2,
+				/obj/item/weapon/pen/multi = 2,
+			)
+			var/type = pickweight(drawing)
+			new type(L)
+
+		if("backpack")
+			var/obj/item/weapon/storage/pack =  new /obj/random/backpack(src)
+			if(istype(pack) && prob(75))
+				new /obj/random/loot(pack)
+				new /obj/random/loot(pack)
+				new /obj/random/loot(pack)
+
 
 //Uncommon items below here
 //=============================================================
 //=============================================================
 //=============================================================
-		if ("glowshrooms")
+		if("beekit")
+			new /obj/item/bee_pack(src)
+			new /obj/item/weapon/bee_net(src)
+			new /obj/item/weapon/bee_smoker(src)
+		if("glowshrooms")
 			new /obj/item/seeds/glowshroom(L)
 			new /obj/item/seeds/glowshroom(L)
 			new /obj/item/seeds/glowshroom(L)

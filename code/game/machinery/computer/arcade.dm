@@ -21,11 +21,10 @@
 		new prize(src.loc)
 	else
 		var/atom/movable/chosen_prize = pick(contents)
-		chosen_prize.loc = src.loc
+		chosen_prize.forceMove(src.loc)
 
 /obj/machinery/computer/arcade/attack_ai(mob/user as mob)
 	return src.attack_hand(user)
-
 
 /obj/machinery/computer/arcade/emp_act(severity)
 	if(stat & (NOPOWER|BROKEN))

@@ -3,5 +3,5 @@ author: BurgerBB
 delete-after: True
 
 changes: 
-  - balance: "Removed some useless item spawns in cargo's warehouse. Reduced the chance of getting arcade loot in the warehouse."
-  - balance: "Increased the amount of loot in the warehouse from 80 to 100."
+  - balance: "Tweaked some of the more boring loot options to be more interesting. Reduced the chance of getting arcade loot in the warehouse. Increased the amount of loot in the warehouse from 80 to 100."
+
