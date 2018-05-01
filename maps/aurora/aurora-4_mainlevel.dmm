@@ -12334,15 +12334,12 @@
 /turf/simulated/open,
 /area/engineering/engine_waste)
 "awo" = (
-/obj/machinery/door/blast/regular{
-	dir = 4;
-	icon_state = "pdoor1";
-	id = "EngineVent";
-	name = "Reactor Vent";
-	p_open = 0
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
 	},
-/turf/simulated/floor/asteroid/ash/rocky,
-/area/engineering/engine_room)
+/turf/simulated/floor/tiled,
+/area/hydroponics)
 "awp" = (
 /turf/simulated/floor/greengrid/nitrogen,
 /area/engineering/engine_room)
@@ -37711,6 +37708,42 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/exam_room)
+"bmy" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/structure/closet/secure_closet/hydroponics,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"bmz" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/structure/flora/pottedplant/random,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 2
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"bmA" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/machinery/camera/network/service{
+	c_tag = "Hydroponics - West";
+	dir = 4
+	},
+/turf/simulated/floor/grass,
+/area/hydroponics)
+"bmB" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/camera/network/service{
+	c_tag = "Hydroponics - East";
+	dir = 8
+	},
+/turf/simulated/floor/grass,
+/area/hydroponics)
 "bmC" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -51438,26 +51471,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
-"bIY" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/maintenance{
-	name = "Research Division Maintenance";
-	req_access = list(47);
-	req_one_access = null
-	},
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 1;
-	icon_state = "pdoor0";
-	id = "Biohazard";
-	name = "Biohazard Shutter";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/crew_quarters/sleep/research)
 "bIZ" = (
 /turf/simulated/wall/r_wall,
 /area/crew_quarters/sleep/research)
@@ -55778,14 +55791,6 @@
 "bRL" = (
 /turf/simulated/wall,
 /area/hydroponics)
-"bRM" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Hydroponics Maintenance";
-	req_access = list(35)
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/hydroponics)
 "bRN" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -55884,200 +55889,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
-"bRY" = (
-/obj/machinery/navbeacon{
-	codes_txt = "delivery;dir=2";
-	freq = 1400;
-	location = "Hydroponics"
-	},
-/obj/structure/plasticflaps{
-	opacity = 1
-	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/hydroponics)
-"bRZ" = (
-/obj/machinery/door/window/eastright{
-	dir = 4;
-	icon_state = "right";
-	name = "Hydroponics Delivery";
-	req_access = list(35)
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/hydroponics)
-"bSa" = (
-/obj/machinery/alarm{
-	pixel_y = 22
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bSb" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bSc" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/green/full{
-	icon_state = "corner_white_full";
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bSd" = (
-/obj/machinery/door/airlock/glass{
-	name = "Hydroponics Supplies";
-	req_access = list(35)
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bSe" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/green/full{
-	icon_state = "corner_white_full";
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bSf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bSg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/machinery/newscaster{
-	pixel_x = 0;
-	pixel_y = 32
-	},
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bSh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bSi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/corner/green/full{
-	icon_state = "corner_white_full";
-	dir = 1
-	},
-/obj/machinery/light_switch{
-	pixel_y = 28
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bSj" = (
-/obj/machinery/door/airlock/glass{
-	name = "Hydroponics";
-	req_access = list(35)
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
 "bSk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -56292,44 +56103,8 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
-"bSJ" = (
-/obj/structure/closet/secure_closet/hydroponics,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bSK" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
 "bSL" = (
 /turf/simulated/floor/tiled,
-/area/hydroponics)
-"bSM" = (
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/seed_storage/garden,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bSN" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
 /area/hydroponics)
 "bSO" = (
 /obj/effect/floor_decal/corner/green{
@@ -56338,32 +56113,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
-"bSP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/corner/green,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
 "bSQ" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bSR" = (
-/obj/effect/floor_decal/corner/green/full{
-	icon_state = "corner_white_full";
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bSS" = (
-/obj/machinery/door/airlock/glass{
-	name = "Hydroponics";
-	req_access = list(35)
-	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bST" = (
@@ -56535,91 +56288,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"bTo" = (
-/obj/structure/table/standard{
-	name = "plastic table frame"
-	},
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/item/weapon/material/hatchet,
-/obj/item/weapon/material/minihoe,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
-/obj/machinery/camera/network/service{
-	c_tag = "Hydroponics - Produce Storage";
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bTp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bTq" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bTr" = (
-/obj/machinery/vending/hydronutrients,
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/firealarm/east,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bTs" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bTt" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/tiled/dark,
-/area/hydroponics)
-"bTu" = (
-/obj/machinery/light,
-/obj/structure/reagent_dispensers/watertank,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/hydroponics)
-"bTv" = (
-/obj/item/device/eftpos{
-	eftpos_name = "Hydroponics EFTPOS scanner"
-	},
-/obj/structure/table/standard{
-	name = "plastic table frame"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/hydroponics)
-"bTw" = (
-/obj/item/weapon/stool/padded,
-/turf/simulated/floor/tiled/dark,
-/area/hydroponics)
-"bTx" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/noticeboard{
-	pixel_y = -32
-	},
-/obj/structure/table/reinforced,
-/obj/machinery/door/window/westleft{
-	name = "Hydroponics";
-	req_access = list(35)
-	},
-/turf/simulated/floor/plating,
-/area/hydroponics)
 "bTy" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -56786,125 +56454,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"bTO" = (
-/obj/structure/closet/secure_closet/hydroponics,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bTP" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bTQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bTR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/green/full{
-	icon_state = "corner_white_full";
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bTS" = (
-/obj/machinery/door/airlock/glass{
-	name = "Hydroponics Supplies";
-	req_access = list(35)
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bTT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bTU" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/camera/network/service{
-	c_tag = "Hydroponics - Greenhouse";
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bTV" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/hydroponics)
-"bTW" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/hydroponics)
-"bTX" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/hydroponics)
 "bTY" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -57067,109 +56616,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"bUq" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/hydroponics)
-"bUr" = (
-/obj/machinery/door/airlock/glass{
-	name = "Hydroponics Pasture";
-	req_access = list(35)
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bUs" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/hydroponics)
-"bUt" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/hydroponics)
-"bUu" = (
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/structure/sink{
-	dir = 8;
-	icon_state = "sink";
-	pixel_x = -12;
-	pixel_y = 5
-	},
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/machinery/requests_console{
-	department = "Hydroponics";
-	departmentType = 2;
-	pixel_x = -32
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bUv" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/hydroponics)
-"bUw" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/flora/ausbushes/brflowers,
-/obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"bUx" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/hydroponics)
 "bUy" = (
 /obj/machinery/status_display{
 	pixel_x = 32
@@ -57245,97 +56691,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"bUM" = (
-/obj/structure/flora/ausbushes/brflowers,
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"bUN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"bUO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"bUP" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/obj/machinery/light{
-	dir = 4;
-	status = 2
-	},
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"bUQ" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/hydroponics)
-"bUR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bUS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bUT" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bUU" = (
-/obj/effect/floor_decal/corner/green/full{
-	icon_state = "corner_white_full";
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bUV" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/hydroponics)
 "bUW" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/alarm{
@@ -57450,71 +56805,12 @@
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/grass,
 /area/hydroponics)
-"bVm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"bVn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"bVo" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/hydroponics)
-"bVp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bVq" = (
-/obj/machinery/biogenerator,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bVr" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/landmark/start{
-	name = "Gardener"
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bVs" = (
-/obj/machinery/seed_extractor,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
 "bVt" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/hydroponics)
-"bVu" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
-	},
-/turf/simulated/floor/tiled/dark,
 /area/hydroponics)
 "bVv" = (
 /obj/machinery/light{
@@ -57595,58 +56891,6 @@
 /obj/random/loot,
 /turf/simulated/floor/tiled,
 /area/maintenance/research_port)
-"bVG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"bVH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"bVI" = (
-/obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"bVJ" = (
-/obj/machinery/door/airlock/glass{
-	name = "Hydroponics Pasture";
-	req_access = list(35)
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bVK" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bVL" = (
-/obj/machinery/vending/hydronutrients,
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bVM" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/landmark/start{
-	name = "Gardener"
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bVN" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/seed_storage/garden,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
 "bVO" = (
 /obj/machinery/door/airlock/glass{
 	name = "Diner"
@@ -57746,65 +56990,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
-"bVW" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
-	},
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"bVX" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"bVY" = (
-/obj/machinery/camera/network/service{
-	c_tag = "Hydroponics - Animal Pen";
-	dir = 1
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"bVZ" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/hydroponics)
-"bWa" = (
-/obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/corner/green,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bWb" = (
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bWc" = (
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
 "bWd" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -57944,68 +57129,6 @@
 "bWm" = (
 /turf/simulated/wall,
 /area/quartermaster/office)
-"bWn" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -22
-	},
-/obj/structure/sink{
-	dir = 8;
-	icon_state = "sink";
-	pixel_x = -12;
-	pixel_y = 5
-	},
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/effect/floor_decal/corner/green/full,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bWo" = (
-/obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/green/full{
-	icon_state = "corner_white_full";
-	dir = 4
-	},
-/obj/machinery/firealarm/south,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bWp" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/machinery/light,
-/turf/simulated/floor/tiled/dark,
-/area/hydroponics)
-"bWq" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"bWr" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/hydroponics)
-"bWs" = (
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Aft Corridor - Camera 1";
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/aft)
 "bWt" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -58160,15 +57283,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
-"bWJ" = (
-/obj/machinery/newscaster{
-	pixel_x = -32
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/aft)
 "bWK" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
@@ -58277,23 +57391,6 @@
 /obj/machinery/photocopier,
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
-"bWZ" = (
-/obj/item/weapon/paper_bin{
-	pixel_x = -3;
-	pixel_y = 7
-	},
-/obj/item/weapon/clipboard,
-/obj/item/weapon/pen/red{
-	pixel_x = 2;
-	pixel_y = 6
-	},
-/obj/structure/table/standard,
-/obj/machinery/light_switch{
-	pixel_x = 0;
-	pixel_y = 27
-	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/office)
 "bXa" = (
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -58307,22 +57404,6 @@
 /obj/machinery/status_display/supply_display{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/office)
-"bXb" = (
-/obj/machinery/atm{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/office)
-"bXc" = (
-/obj/machinery/alarm{
-	pixel_y = 23
-	},
-/obj/machinery/camera/network/supply{
-	c_tag = "Cargo - Main Lobby"
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "bXd" = (
@@ -58437,28 +57518,6 @@
 "bXq" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/office)
-"bXr" = (
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock East"
-	},
-/obj/machinery/door/window/westleft{
-	name = "Cargo Desk";
-	req_access = list(50)
-	},
-/obj/structure/noticeboard{
-	pixel_y = 27
-	},
-/obj/structure/table/standard{
-	name = "plastic table frame"
-	},
-/obj/machinery/ringer_button{
-	id = "cargo_ringer";
-	pixel_x = 5;
-	pixel_y = 5
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
@@ -58690,18 +57749,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"bXN" = (
-/obj/item/weapon/stamp{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/weapon/stamp/denied{
-	pixel_x = 4;
-	pixel_y = -2
-	},
-/obj/structure/table/standard,
-/turf/simulated/floor/tiled,
-/area/quartermaster/office)
 "bXO" = (
 /obj/item/modular_computer/console/preset/supply,
 /turf/simulated/floor/tiled,
@@ -64622,17 +63669,944 @@
 	},
 /area/outpost/mining_main/eva)
 "clx" = (
+/obj/machinery/door/blast/regular{
+	dir = 4;
+	icon_state = "pdoor1";
+	id = "EngineVent";
+	name = "Reactor Vent";
+	p_open = 0
+	},
+/turf/simulated/floor/asteroid/ash/rocky,
+/area/engineering/engine_room)
+"cly" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/maintenance{
+	name = "Research Division Maintenance";
+	req_access = list(47);
+	req_one_access = null
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 1;
+	icon_state = "pdoor0";
+	id = "Biohazard";
+	name = "Biohazard Shutter";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/crew_quarters/sleep/research)
+"clz" = (
+/obj/machinery/navbeacon{
+	codes_txt = "delivery;dir=2";
+	freq = 1400;
+	location = "Hydroponics"
+	},
+/obj/structure/plasticflaps,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/hydroponics)
+"clA" = (
+/obj/machinery/door/airlock/maintenance{
+	name = "Hydroponics Maintenance";
+	req_access = list(35)
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/hydroponics)
+"clB" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white_full";
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/item/device/radio/intercom{
+	pixel_x = 0;
+	pixel_y = 27
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"clC" = (
+/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/window{
+	dir = 2;
+	name = "Hydroponics Delivery";
+	req_access = list(35)
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"clD" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/structure/closet/secure_closet/hydroponics,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"clF" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/structure/table/standard,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_x = 0;
+	pixel_y = 24
+	},
+/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"clG" = (
+/obj/machinery/status_display{
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"clH" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/reagent_dispensers/watertank,
+/obj/item/device/radio/intercom{
+	pixel_x = 0;
+	pixel_y = 27
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"clJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/firealarm/north,
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"clK" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"clM" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
+"clN" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
+"clO" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -23;
+	pixel_y = 0
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"clP" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"clQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"clR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"clS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/window{
+	base_state = "left";
+	dir = 4;
+	icon_state = "left";
+	name = "Hydroponics Backroom";
+	req_access = list(35)
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"clV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"clW" = (
+/obj/effect/floor_decal/corner/green,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"clX" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 1;
+	icon_state = "door_closed";
+	name = "Hydroponics";
+	req_access = list(35)
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/door/firedoor/multi_tile{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cma" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
+"cmb" = (
+/obj/item/weapon/material/hatchet,
+/obj/item/weapon/material/minihoe,
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/structure/table/standard,
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/newscaster{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cmc" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/bed/chair/office/dark,
+/obj/effect/landmark/start{
+	name = "Gardener"
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cmd" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cme" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Gardener"
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cmf" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/table/standard,
+/obj/item/weapon/reagent_containers/chem_disp_cartridge,
+/obj/item/weapon/reagent_containers/chem_disp_cartridge,
+/obj/item/weapon/reagent_containers/chem_disp_cartridge,
+/obj/item/weapon/reagent_containers/chem_disp_cartridge,
+/obj/item/weapon/reagent_containers/chem_disp_cartridge,
+/obj/item/weapon/reagent_containers/chem_disp_cartridge,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/green,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cmg" = (
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/obj/machinery/disposal,
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cmh" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cmi" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cmj" = (
+/obj/structure/table/standard,
+/obj/machinery/door/window{
+	base_state = "left";
+	dir = 2;
+	icon_state = "left";
+	layer = 2.85;
+	name = "hydroponics desk";
+	req_access = list(35)
+	},
+/obj/item/weapon/paper_bin{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/obj/item/weapon/pen,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cmk" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/hydroponics)
+"cml" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/hydroponics)
+"cmm" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white_full"
+	},
+/obj/structure/table/standard,
+/obj/item/weapon/storage/box/pillbottles,
+/obj/item/weapon/storage/box/spraybottles,
+/obj/machinery/requests_console{
+	department = "Hydroponics";
+	departmentType = 2;
+	name = "Hydroponics Requests Console";
+	pixel_x = -30;
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
+"cmn" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/chemical_dispenser,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cmo" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cmp" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/chem_master,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cmq" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/table/standard,
+/obj/machinery/reagentgrinder{
+	pixel_y = 16
+	},
+/obj/item/weapon/storage/fancy/vials,
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white_full";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cmr" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/floor/grass,
+/area/hydroponics)
+"cms" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cmt" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cmu" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/structure/sink/kitchen{
+	name = "hydroponics sink";
+	pixel_y = 28
+	},
+/obj/item/weapon/reagent_containers/glass/bucket,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cmv" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Gardener"
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cmy" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/grass,
+/area/hydroponics)
+"cmz" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/floor/grass,
+/area/hydroponics)
+"cmA" = (
+/obj/machinery/door/window{
+	dir = 1;
+	name = "Hydroponics Garden";
+	req_access = list(35)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/grass,
+/area/hydroponics)
+"cmB" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/grass,
+/area/hydroponics)
+"cmC" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/holofloor/wood,
+/area/hydroponics)
+"cmE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cmK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/grass,
+/area/hydroponics)
+"cmL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/grass,
+/area/hydroponics)
+"cmM" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/item/weapon/reagent_containers/glass/bucket/wood,
+/turf/simulated/floor/holofloor/wood,
+/area/hydroponics)
+"cmO" = (
+/obj/machinery/vending/hydroseeds{
+	prices = list()
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cmP" = (
+/obj/machinery/vending/hydronutrients,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cmQ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/standard,
+/obj/item/watertank,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cmT" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/grass,
+/area/hydroponics)
+"cmX" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/landmark/start{
+	name = "Gardener"
+	},
+/obj/structure/bed/chair/wood{
+	icon_state = "wooden_chair";
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/hydroponics)
+"cmZ" = (
+/obj/machinery/biogenerator,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cna" = (
+/obj/machinery/seed_extractor,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cnb" = (
+/obj/machinery/smartfridge/drying_rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cne" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -23;
+	pixel_y = 0
+	},
+/turf/simulated/floor/grass,
+/area/hydroponics)
+"cni" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/item/weapon/reagent_containers/glass/bucket/wood,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/holofloor/wood,
+/area/hydroponics)
+"cnk" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white_full"
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cnl" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cnm" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white_full";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"cno" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/hydroponics)
+"cnp" = (
+/obj/item/device/radio/intercom{
+	pixel_y = -26
+	},
+/turf/simulated/floor/grass,
+/area/hydroponics)
+"cnq" = (
+/obj/machinery/status_display{
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/turf/simulated/floor/grass,
+/area/hydroponics)
+"cnr" = (
+/turf/simulated/floor/grass,
+/area/hydroponics)
+"cns" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -32
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/hydroponics)
+"cnu" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -32
+	},
+/turf/simulated/floor/grass,
+/area/hydroponics)
+"cnv" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/item/device/radio/intercom{
+	pixel_y = -26
+	},
+/turf/simulated/floor/grass,
+/area/hydroponics)
+"cnw" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/status_display{
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/turf/simulated/floor/grass,
+/area/hydroponics)
+"cnx" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/alarm{
+	dir = 1;
+	icon_state = "alarm0";
+	pixel_y = -22
+	},
+/turf/simulated/floor/grass,
+/area/hydroponics)
+"cny" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/simulated/floor/grass,
+/area/hydroponics)
+"cnz" = (
+/obj/structure/flora/pottedplant/random,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 2
+	},
+/turf/simulated/floor/grass,
+/area/hydroponics)
+"cnA" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/hydroponics)
+"cnC" = (
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Aft Corridor - Camera 1";
+	dir = 4
+	},
+/obj/machinery/newscaster{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
+"cnD" = (
+/obj/item/device/radio/intercom{
+	pixel_x = 0;
+	pixel_y = 27
+	},
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled,
+/area/quartermaster/office)
+"cnE" = (
+/obj/structure/table/standard,
+/obj/item/weapon/paper_bin{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/obj/item/weapon/pen/red{
+	pixel_x = 2;
+	pixel_y = 6
+	},
+/obj/machinery/light_switch{
+	pixel_x = 0;
+	pixel_y = 27
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/office)
+"cnF" = (
+/obj/item/modular_computer/console/preset/supply,
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/office)
+"cnG" = (
+/obj/machinery/alarm{
+	pixel_y = 23
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/office)
+"cnH" = (
+/obj/machinery/door/firedoor{
+	dir = 4;
+	name = "Firelock East"
+	},
+/obj/machinery/door/window/westleft{
+	name = "Cargo Desk";
+	req_access = list(50)
+	},
+/obj/structure/table/standard{
+	name = "plastic table frame"
+	},
+/obj/machinery/ringer_button{
+	id = "cargo_ringer";
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/structure/noticeboard{
+	pixel_y = 27
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/office)
+"cnI" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/quartermaster/office)
+"cnJ" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/quartermaster/office)
+"cnK" = (
+/obj/structure/table/standard,
+/obj/item/weapon/stamp/denied{
+	pixel_x = 4;
+	pixel_y = -2
+	},
+/obj/item/weapon/stamp{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/office)
+"cnL" = (
+/obj/machinery/atm{
+	pixel_x = -32
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/camera/network/supply{
+	c_tag = "Cargo - Entrance";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/office)
 
 (1,1,1) = {"
 aaa
@@ -75277,7 +75251,7 @@ akY
 akY
 akY
 akY
-awo
+clx
 akY
 akY
 akY
@@ -83806,7 +83780,7 @@ bES
 bFW
 bGY
 bIk
-bIY
+cly
 bJR
 bgm
 bLy
@@ -88960,7 +88934,7 @@ bOp
 bQy
 bRa
 bRL
-bRY
+clA
 bRL
 bRL
 bRL
@@ -89217,15 +89191,15 @@ bOp
 bQz
 bdJ
 bRL
-bRZ
-bSJ
-bTo
-bTO
-bUq
-bUM
+clB
+clO
+cmb
+cmm
+cmy
+bmA
+cmT
+cne
 bVl
-bUM
-bVW
 bWm
 bWF
 bWF
@@ -89473,16 +89447,16 @@ bOp
 bPX
 bQz
 bdJ
-bRL
-bSa
-bSK
-bTp
-bTP
-bUr
-bUN
-bVm
-bVG
-bVX
+clz
+clC
+clP
+cmc
+cmn
+cmz
+cnr
+cnr
+cnr
+cnp
 bWm
 bWm
 bWm
@@ -89730,16 +89704,16 @@ bPx
 bOp
 bQz
 bdJ
-bRM
-bSb
-bSL
-bTq
-bTQ
-bUs
-bUO
-bVn
-bVH
-bVY
+bRL
+clD
+clQ
+cmd
+cmo
+cmA
+cmK
+cnr
+cnr
+cnq
 bWm
 bWH
 bWV
@@ -89988,15 +89962,15 @@ bOp
 bQA
 bdJ
 bRL
-bSc
-bSM
-bTr
-bTR
-bUt
-bUP
-bVl
-bVI
-bVl
+bmy
+clR
+cme
+cmp
+cmB
+cmL
+cnr
+cnr
+cnr
 bWm
 bWI
 bWW
@@ -90245,18 +90219,18 @@ bIu
 bIu
 bRb
 bRL
-bSd
-bSN
-bRL
-bTS
-bRL
-bUQ
-bVo
-bVJ
-bVZ
-bWm
+clF
+clS
+cmf
+cmq
+cmC
+cmM
+cmX
+cni
+cns
 bWm
 bWX
+bXo
 bXo
 bXo
 bXo
@@ -90502,20 +90476,20 @@ baK
 btm
 bAi
 bRL
-bSe
-bSO
-bSO
-bTT
-bUu
-bSO
-bSO
-bSO
-clx
-bWn
+clG
+clV
+cmg
+cmr
+cny
+cny
+cny
+cny
+bmz
 bWm
-bWY
+cnD
 bXp
-bXN
+cnK
+bXp
 bYo
 bXT
 bXp
@@ -90759,20 +90733,20 @@ bMD
 bQB
 bMD
 bRL
-bSf
-bSP
-bTs
-bTU
-bTs
-bUR
-bVp
-bVK
-bWa
-bWo
+clH
+clV
+cmh
+bSO
+bSO
+bSO
+bSO
+cnk
+cnu
 bWm
-bWZ
+cnE
 bXq
 bXO
+bWY
 bYp
 chX
 bYX
@@ -91016,19 +90990,19 @@ bPY
 bOY
 bRc
 bRL
-bSg
+awo
+clV
+bSL
+cms
+bSL
+cmO
+cmZ
 bSQ
-bTt
-bTV
-bTt
-bUS
-bVq
-bVL
-bWb
-bTt
+cnv
 bWm
 bWm
-bXr
+cnH
+bWm
 bXP
 bYq
 bYK
@@ -91273,19 +91247,19 @@ bPZ
 bOY
 bRd
 bRL
-bSh
-bSQ
-bTt
-bTW
-bTt
-bUS
-bVr
-bVM
-bWc
-bTt
+clJ
+clW
+cmi
+cmt
+cmE
+cmP
+cna
+cnl
+cnw
 bWm
 bXa
 bXs
+cnL
 bXQ
 bXQ
 chY
@@ -91530,18 +91504,18 @@ bOY
 bQC
 bRe
 bRL
-bSh
+clK
+clX
+bRL
+cmu
+bSL
+cmQ
+cnb
 bSQ
-bTu
-bTW
-bUv
-bUT
-bVs
-bVN
-bWb
-bTt
-bWm
-bXb
+cnx
+bRL
+cnF
+bXs
 bXp
 bXR
 bYr
@@ -91786,19 +91760,19 @@ bPB
 bQa
 bQD
 bRf
-bRL
-bSh
-bSQ
-bTv
-bTW
-bTt
-bUU
+bPH
+clN
+cma
+cmj
+cmv
 bVt
 bVt
-bSR
-bTt
+bVt
+cnm
+cny
 bWm
-bXc
+cnG
+cnI
 bXt
 bXS
 bYo
@@ -92043,19 +92017,19 @@ bPC
 bQb
 bQb
 bRg
-bRL
-bSi
-bSR
-bTw
-bTX
-bUw
-bTt
-bVu
-bTt
-bTt
-bWq
+bPH
+clM
+cma
+cmk
+cny
+cny
+cny
+bmB
+cny
+cnz
 bWm
 bXd
+bYM
 bXu
 bXT
 bXp
@@ -92300,19 +92274,19 @@ bPD
 bQc
 bMD
 bMD
-bRL
-bSj
-bSS
-bTx
-bRL
-bUx
-bUV
-bUV
-bUV
-bUV
-bWr
+bPH
+clN
+cma
+cml
+cno
+cno
+cno
+cno
+cno
+cnA
 bWm
 bXe
+cnJ
 bXv
 bXT
 bYs
@@ -92567,8 +92541,8 @@ bLU
 bVv
 bLU
 bLU
-bWs
-bWJ
+cnC
+bRh
 bLU
 bXw
 bXV
