@@ -29,5 +29,5 @@
 	var/body = "Tau Ceti Daily wishes to congratulate <b>[winner_name]</b> for recieving the Tau Ceti Stellar Slam Lottery, and receiving the out of this world sum of [winner_sum] credits!"
 	if(!deposit_success)
 		body += "<br>Unfortunately, we were unable to verify the account details provided, so we were unable to transfer the money. Send a cheque containing the sum of 5000 credits to ND 'Stellar Slam' office on the Tau Ceti gateway containing updated details, and your winnings'll be re-sent within the month."
-
-	news_network.SubmitArticle(body, author, channel, null, 1)
+	var/datum/feed_channel/ch =  SSnews.GetFeedChannel(channel)
+	SSnews.SubmitArticle(body, author, ch, null, 1)

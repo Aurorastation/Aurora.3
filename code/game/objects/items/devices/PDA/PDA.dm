@@ -427,10 +427,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	data["new_Message"] = new_message
 	data["new_News"] = new_news
 
-	var/datum/reception/reception = get_reception(src, do_sleep = 0)
-	var/has_reception = reception.telecomms_reception & TELECOMMS_RECEPTION_SENDER
-	data["reception"] = has_reception
-
 	if(mode==2)
 		var/convopdas[0]
 		var/pdas[0]
@@ -518,16 +514,13 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		if(isnull(data["aircontents"]))
 			data["aircontents"] = list("reading" = 0)
 	if(mode==6)
-		if(has_reception)
-			feeds.Cut()
-			for(var/datum/feed_channel/channel in news_network.network_channels)
-				feeds[++feeds.len] = list("name" = channel.channel_name, "censored" = channel.censored)
+		feeds.Cut()
+		for(var/channel in SSnews.network_channels)
+			var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
+			feeds[++feeds.len] = list("name" = FC.channel_name, "censored" = FC.censored)
 		data["feedChannels"] = feeds
 	if(mode==61)
-		var/datum/feed_channel/FC
-		for(FC in news_network.network_channels)
-			if(FC.channel_name == active_feed["name"])
-				break
+		var/datum/feed_channel/FC = SSnews.GetFeedChannel(active_feed["name"])
 
 		var/list/feed = feed_info[active_feed]
 		if(!feed)
@@ -538,7 +531,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			feed["updated"] = -1
 			feed_info[active_feed] = feed
 
-		if(FC.updated > feed["updated"] && has_reception)
+		if(FC.updated > feed["updated"])
 			feed["author"]	= FC.author
 			feed["updated"]	= FC.updated
 			feed["censored"] = FC.censored
