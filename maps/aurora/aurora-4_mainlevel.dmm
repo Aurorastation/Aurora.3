@@ -37708,6 +37708,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/exam_room)
+"bmy" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/structure/closet/secure_closet/hydroponics,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
 "bmz" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -37719,6 +37727,22 @@
 	dir = 2
 	},
 /turf/simulated/floor/tiled,
+/area/hydroponics)
+"bmA" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/machinery/camera/network/service{
+	c_tag = "Hydroponics - West";
+	dir = 4
+	},
+/turf/simulated/floor/grass,
+/area/hydroponics)
+"bmB" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/camera/network/service{
+	c_tag = "Hydroponics - East";
+	dir = 8
+	},
+/turf/simulated/floor/grass,
 /area/hydroponics)
 "bmC" = (
 /obj/structure/disposalpipe/segment{
@@ -63737,17 +63761,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
-"clE" = (
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/structure/closet/secure_closet/hydroponics,
-/obj/machinery/camera/network/service{
-	c_tag = "Hydroponics - Backroom"
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
 "clF" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -64264,14 +64277,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
-"cmI" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/obj/machinery/camera/network/service{
-	c_tag = "Hydroponics - Garden";
-	dir = 4
-	},
-/turf/simulated/floor/grass,
-/area/hydroponics)
 "cmK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -64357,14 +64362,6 @@
 /obj/machinery/smartfridge/drying_rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/hydroponics)
-"cnc" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/machinery/camera/network/service{
-	c_tag = "Hydroponics - Main";
-	dir = 8
-	},
-/turf/simulated/floor/grass,
 /area/hydroponics)
 "cne" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
@@ -89199,7 +89196,7 @@ clO
 cmb
 cmm
 cmy
-cmI
+bmA
 cmT
 cne
 bVl
@@ -89965,7 +89962,7 @@ bOp
 bQA
 bdJ
 bRL
-clE
+bmy
 clR
 cme
 cmp
@@ -92027,7 +92024,7 @@ cmk
 cny
 cny
 cny
-cnc
+bmB
 cny
 cnz
 bWm
