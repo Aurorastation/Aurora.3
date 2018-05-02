@@ -711,7 +711,7 @@ proc/is_blind(A)
 
 		nutrition -= 60
 		if (intoxication)//The pain and system shock of vomiting, sobers you up a little
-			intoxication *= 0.8
+			intoxication *= 0.75
 
 		if (istype(src, /mob/living/carbon/human))
 			ingested.trans_to_turf(location,30)//Vomiting empties the stomach, transferring 30u reagents to the floor where you vomited

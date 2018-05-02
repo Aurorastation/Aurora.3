@@ -30,13 +30,13 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 	if(bac > INTOX_JUDGEIMP*SR)
 		if (dizziness == 0)
 			src.show_message("<span class='notice'>You feel a little tipsy.</span>")
-		var/target_dizziness = min(1000,(BASE_DIZZY + ((bac - INTOX_JUDGEIMP*SR)*10)/SR))
+		var/target_dizziness = BASE_DIZZY + ((bac - INTOX_JUDGEIMP*SR)*DIZZY_ADD_SCALE*100)
 		make_dizzy(target_dizziness - dizziness)
 
 	if(bac > INTOX_MUSCLEIMP*SR)
 		slurring = max(slurring, 25)
 		if (!(locate(/datum/modifier/drunk) in modifiers))
-			src.show_message("<span class='notice'>You feel drunk.</span>")
+			src.show_message("<span class='notice'>You feel drunk!</span>")
 			add_modifier(/datum/modifier/drunk, MODIFIER_CUSTOM)
 
 	if(bac > INTOX_REACTION*SR)
@@ -55,9 +55,10 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 	if(bac > INTOX_VOMIT*SR)
 		slurring = max(slurring, 75)
 		if (life_tick % 4 == 1)
-			var/chance = BASE_VOMIT_CHANCE + ((bac - INTOX_VOMIT*SR)*VOMIT_CHANCE_SCALE)
+			var/chance = BASE_VOMIT_CHANCE + ((bac - INTOX_VOMIT*SR)*VOMIT_CHANCE_SCALE*100)
 			if (prob(chance))
 				delayed_vomit()
+				add_chemical_effect(CE_ALCOHOL_TOXIC, 1)
 
 	if(bac > INTOX_BALANCE*SR)
 		slurring = max(slurring, 100)
@@ -65,20 +66,20 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 			src.visible_message("<span class='warning'>[src] loses balance and falls to the ground!</span>","<span class='warning'>You lose balance and fall to the ground!</span>")
 			paralysis = max(paralysis,3 SECONDS)
 			if(bac > INTOX_CONSCIOUS*SR)
-				slurring = max(slurring, 70)
+				slurring = max(slurring, 90)
 				src.visible_message("<span class='danger'>[src] loses consciousness!</span>","<span class='danger'>You lose consciousness!</span>")
 				paralysis = max(paralysis, 60 SECONDS)
 				sleeping  = max(sleeping, 60 SECONDS)
-				adjustBrainLoss(3,10)
+				adjustBrainLoss(5,30)
 			else if(bac > INTOX_BLACKOUT*SR)
 				slurring = max(slurring, 80)
 				src.visible_message("<span class='danger'>[src] blackouts!</span>","<span class='danger'>You blackout!</span>")
 				paralysis = max(paralysis, 20 SECONDS)
 				sleeping  = max(sleeping, 20 SECONDS)
-				adjustBrainLoss(5,30)
+				adjustBrainLoss(3,10)
 			else if(prob(10))
-				slurring = max(slurring, 90)
-				src.show_message("<span class='notice'>You decide that you like the ground and spend a few seconds to rest.</span>")
+				slurring = max(slurring, 70)
+				src.show_message("<span class='warning'>You decide that you like the ground and spend a few seconds to rest.</span>")
 				sleeping  = max(sleeping, 6 SECONDS)
 				adjustBrainLoss(1,5)
 
@@ -119,14 +120,14 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 	..()
 	var/mob/living/carbon/human/H = target
 	if(istype(H))
-		H.move_delay_mod += 4
+		H.move_delay_mod += 2
 		H.sprint_cost_factor += 0.2
 
 /datum/modifier/drunk/deactivate()
 	..()
 	var/mob/living/carbon/human/H = target
 	if(istype(H))
-		H.move_delay_mod -= 4
+		H.move_delay_mod -= 2
 		H.sprint_cost_factor -= -0.2
 
 /datum/modifier/drunk/custom_validity()
