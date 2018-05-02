@@ -25,7 +25,7 @@
 	if (!istype(H))
 		return
 
-	if ( ((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(25))
+	if ( ((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(10))
 		user.show_message("<span class='danger'>Your hand slips from clumsiness!</span>")
 		eyestab(M,user)
 		if(M.reagents)

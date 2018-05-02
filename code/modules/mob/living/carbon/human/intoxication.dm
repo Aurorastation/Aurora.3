@@ -31,6 +31,7 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 		if (dizziness == 0)
 			src.show_message("<span class='notice'>You feel a little tipsy.</span>")
 		var/target_dizziness = BASE_DIZZY + ((bac - INTOX_JUDGEIMP*SR)*DIZZY_ADD_SCALE*100)
+		src << target_dizziness
 		make_dizzy(target_dizziness - dizziness)
 
 	if(bac > INTOX_MUSCLEIMP*SR)

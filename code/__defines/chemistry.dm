@@ -41,8 +41,8 @@ var/list/heartstopper  = list("potassium_chlorophoride", "zombie_powder") // Thi
 var/list/cheartstopper = list("potassium_chloride")                       // This stops the heart when overdose is met. -- c = conditional
 
 //Alcohol
-#define INTOX_BUZZED     0.02
-#define INTOX_JUDGEIMP   0.06
+#define INTOX_BUZZED     0.01
+#define INTOX_JUDGEIMP   0.03
 #define INTOX_MUSCLEIMP  0.08
 #define INTOX_REACTION   0.10
 #define INTOX_VOMIT		 0.12
@@ -56,8 +56,8 @@ var/list/cheartstopper = list("potassium_chloride")                       // Thi
 #define INTOX_FILTER_BRUISED 0.010
 #define INTOX_FILTER_DAMAGED 0.05
 
-#define	BASE_DIZZY 50 //Base dizziness from getting drunk.
-#define DIZZY_ADD_SCALE 10 //Amount added for every 0.01 percent over the JUDGEIMP limit
+#define	BASE_DIZZY 100 //Base dizziness from getting drunk.
+#define DIZZY_ADD_SCALE 30 //Amount added for every 0.01 percent over the JUDGEIMP limit
 
 #define	BASE_VOMIT_CHANCE 10 //Base chance
 #define	VOMIT_CHANCE_SCALE 2.5 //Percent change added for every 0.01 percent over the VOMIT limit

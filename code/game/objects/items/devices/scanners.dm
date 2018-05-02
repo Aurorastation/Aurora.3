@@ -418,7 +418,7 @@ BREATH ANALYZER
 		user.show_message("<span class='warning'>You can't find a way to use the [src] on [M].</span>")
 		return
 
-	if ( ((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(50))
+	if ( ((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(20))
 		user.show_message("<span class='danger'>Your hand slips from clumsiness!</span>")
 		eyestab(M,user)
 		user.show_message("<span class='danger'>Alert: No breathing detected.</span>")
