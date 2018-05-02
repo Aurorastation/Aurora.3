@@ -370,7 +370,8 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/cmd_dev_bst,
 	/client/proc/lighting_show_verbs,
 	/client/proc/cmd_display_del_log,
-	/client/proc/cmd_display_init_log
+	/client/proc/cmd_display_init_log,
+	/client/proc/create_poll //Allows to create polls
 )
 var/list/admin_verbs_cciaa = list(
 	/client/proc/cmd_admin_pm_panel,	/*admin-pm list*/
@@ -382,7 +383,8 @@ var/list/admin_verbs_cciaa = list(
 	/datum/admins/proc/create_admin_fax,
 	/client/proc/check_fax_history,
 	/client/proc/aooc,
-	/client/proc/check_antagonists
+	/client/proc/check_antagonists,
+	/client/proc/spawn_ert_commander
 )
 
 /client/proc/add_admin_verbs()
@@ -635,7 +637,7 @@ var/list/admin_verbs_cciaa = list(
 
 	var/mob/living/carbon/human/C = T
 
-	C.cure_all_traumas(TRUE, TRUE)
+	C.cure_all_traumas(TRUE, CURE_ADMIN)
 	log_and_message_admins("<span class='notice'>cured [key_name(C)]'s traumas.</span>")
 	feedback_add_details("admin_verb","TB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!\
 

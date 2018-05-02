@@ -788,3 +788,11 @@
 	req_tech = list(TECH_MATERIAL = 3, TECH_POWER = 4, TECH_COMBAT = 4, TECH_MAGNET = 3)
 	materials = list(DEFAULT_WALL_MATERIAL= 7000, "glass"= 2250, "uranium"= 3250, "gold"= 2500)
 	build_path = /obj/item/rig_module/mounted/egun
+
+/datum/design/hardsuitmodules/cooling_module
+	name = "mounted cooling unit"
+	desc = "A heat sink with liquid cooled radiator."
+	id = "cooling_module"
+	req_tech = list(TECH_MATERIAL = 2, TECH_POWER = 3, TECH_ENGINEERING = 3)
+	materials = list(DEFAULT_WALL_MATERIAL= 7000, "glass"= 5500)
+	build_path = /obj/item/rig_module/cooling_unit

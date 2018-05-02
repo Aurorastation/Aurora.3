@@ -1478,7 +1478,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Blue Dock Port";
 	dir = 4
 	},
@@ -1513,7 +1513,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Blue Dock Starboard";
 	dir = 8
 	},
@@ -2653,7 +2653,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Yellow Dock Fore"
 	},
 /obj/machinery/status_display{
@@ -2761,7 +2761,7 @@
 	icon_state = "tube1";
 	dir = 1
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Red Dock Fore"
 	},
 /obj/effect/floor_decal/corner/red{
@@ -4116,7 +4116,7 @@
 /obj/item/device/radio/intercom{
 	pixel_y = 27
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Arrivals Terminal Fore"
 	},
 /obj/effect/floor_decal/corner/lime{
@@ -6063,7 +6063,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Arrivals Terminal Incoming";
 	dir = 4
 	},
@@ -6115,8 +6115,8 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/camera/network/civilian_east{
-	c_tag = "Surface - Arrivals Terminal Flight Tower";
+/obj/machinery/camera/network/civilian_surface{
+	c_tag = "Surface - Arrivals Terminal Checkpoint";
 	dir = 4;
 	pixel_y = 0
 	},
@@ -6146,7 +6146,7 @@
 	icon_state = "tube1";
 	dir = 4
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Arrivals Terminal Outgoing";
 	dir = 8
 	},
@@ -6319,7 +6319,7 @@
 /area/hallway/secondary/entry/port)
 "lm" = (
 /obj/machinery/light,
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Yellow Dock Aft";
 	dir = 1
 	},
@@ -6494,7 +6494,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Red Dock Aft";
 	dir = 1
 	},
@@ -7357,7 +7357,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "nd" = (
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Arrivals Terminal Aft";
 	dir = 1
 	},
@@ -8067,7 +8067,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Corridor Camera 11";
 	dir = 4
 	},
@@ -8611,7 +8611,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Vacant Office 2";
 	dir = 8
 	},
@@ -8652,7 +8652,7 @@
 /area/hallway/secondary/entry/fore)
 "py" = (
 /obj/structure/bed/chair/comfy/beige,
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Waiting Room";
 	dir = 8
 	},
@@ -8805,7 +8805,7 @@
 /area/security/vacantoffice)
 "pO" = (
 /obj/machinery/light,
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Vacant Office 1";
 	dir = 1
 	},
@@ -9193,7 +9193,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Primary Tool Storage Fore"
 	},
 /turf/simulated/floor/tiled,
@@ -9497,7 +9497,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Corridor Camera 10";
 	dir = 8
 	},
@@ -10120,7 +10120,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Cryostorage"
 	},
 /obj/effect/landmark{
@@ -10472,7 +10472,7 @@
 /obj/structure/table/standard,
 /obj/item/weapon/hand_labeler,
 /obj/machinery/light,
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Primary Tool Storage Aft";
 	dir = 1
 	},
@@ -10747,7 +10747,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Public Garden"
 	},
 /turf/simulated/floor/grass,
@@ -11735,7 +11735,7 @@
 /area/crew_quarters/locker)
 "vE" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Locker Rooms Fore"
 	},
 /turf/simulated/floor/tiled,
@@ -12779,7 +12779,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Corridor Camera 6";
 	dir = 4
 	},
@@ -12901,7 +12901,7 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Corridor Camera 7";
 	dir = 8
 	},
@@ -12917,7 +12917,7 @@
 	pixel_x = -22;
 	pixel_y = 0
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Corridor Camera 8";
 	dir = 4
 	},
@@ -12999,7 +12999,7 @@
 /turf/simulated/floor/beach/water/pool,
 /area/crew_quarters/fitness)
 "xR" = (
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Corridor Camera 7";
 	dir = 8
 	},
@@ -13341,7 +13341,7 @@
 /area/crew_quarters/fitness)
 "yz" = (
 /obj/structure/window/reinforced,
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Fitness Corridor";
 	dir = 1;
 	pixel_y = 6
@@ -13886,7 +13886,7 @@
 	icon_state = "tube1";
 	dir = 1
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Corridor Camera 5"
 	},
 /turf/simulated/floor/tiled,
@@ -14076,7 +14076,7 @@
 /obj/item/device/radio/intercom{
 	pixel_x = -32
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Locker Rooms Washing";
 	dir = 4
 	},
@@ -14319,7 +14319,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Lifeguard";
 	pixel_y = 0
 	},
@@ -14672,7 +14672,7 @@
 	name = "south bump";
 	pixel_y = -24
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Locker Rooms Aft";
 	dir = 1
 	},
@@ -14805,7 +14805,7 @@
 "Be" = (
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/mime,
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Dormitories Fore";
 	pixel_y = 0
 	},
@@ -14929,7 +14929,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Auxiliary Tool Storage"
 	},
 /turf/simulated/floor/tiled,
@@ -15012,7 +15012,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Restrooms";
 	dir = 8
 	},
@@ -15330,7 +15330,7 @@
 	name = "east bump";
 	pixel_x = 24
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Holodeck Storage";
 	dir = 8
 	},
@@ -15395,7 +15395,7 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Corridor Camera 4";
 	dir = 4
 	},
@@ -15756,7 +15756,7 @@
 "Dk" = (
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/mime,
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Dormitories Aft";
 	dir = 1
 	},
@@ -15846,7 +15846,7 @@
 	icon_state = "tube1";
 	dir = 4
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Corridor Camera 3";
 	dir = 8
 	},
@@ -15993,7 +15993,7 @@
 "DJ" = (
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Custodial Closet"
 	},
 /turf/simulated/floor/plating,
@@ -16006,7 +16006,7 @@
 /area/hallway/secondary/entry/aft)
 "DL" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Corridor Camera 9";
 	dir = 4
 	},
@@ -16394,7 +16394,7 @@
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
 "Ez" = (
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/supply{
 	c_tag = "Cargo - Loading Bay 2";
 	dir = 4
 	},
@@ -16593,7 +16593,7 @@
 /area/quartermaster/loading)
 "EY" = (
 /obj/machinery/vending/snack,
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/supply{
 	c_tag = "Cargo - Auxilliary Entrance";
 	dir = 4
 	},
@@ -17261,7 +17261,7 @@
 /area/hallway/secondary/entry/aft)
 "FY" = (
 /obj/machinery/light,
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Corridor Camera 1";
 	dir = 1
 	},
@@ -17365,7 +17365,7 @@
 	pixel_x = 25;
 	pixel_y = 0
 	},
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/supply{
 	c_tag = "Cargo - Equipment Storage";
 	dir = 8
 	},
@@ -17725,7 +17725,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "GS" = (
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/supply{
 	c_tag = "Cargo - Loading Bay 1";
 	dir = 8
 	},
@@ -17809,7 +17809,7 @@
 /area/quartermaster/qm)
 "GZ" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/supply{
 	c_tag = "Cargo - Quartermaster's Office";
 	dir = 8
 	},
@@ -18623,7 +18623,7 @@
 /turf/simulated/wall,
 /area/quartermaster/loading)
 "Ip" = (
-/obj/machinery/camera/network/civilian_east{
+/obj/machinery/camera/network/supply{
 	c_tag = "Cargo - Mail Room";
 	dir = 4
 	},

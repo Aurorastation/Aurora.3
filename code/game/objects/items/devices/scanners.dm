@@ -112,6 +112,15 @@ REAGENT SCANNER
 					++unknown
 			if(unknown)
 				user << "<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's stomach.</span>"
+		if(C.breathing && C.breathing.total_volume)
+			var/unknown = 0
+			for(var/datum/reagent/R in C.breathing.reagent_list)
+				if(R.scannable)
+					user << "<span class='notice'>[R.name] found in subject's respitory system.</span>"
+				else
+					++unknown
+			if(unknown)
+				user << "<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's respitory system.</span>"
 		if(C.virus2.len)
 			for (var/ID in C.virus2)
 				if (ID in virusDB)
@@ -136,11 +145,8 @@ REAGENT SCANNER
 			to_chat(user, "\t<span class='alert'>Severe brain damage detected. Subject likely to have mental traumas.</span>")
 		else if (H.getBrainLoss() >= 45)
 			to_chat(user, "\t<span class='alert'>Brain damage detected.</span>")
-		if(LAZYLEN(H.get_traumas()))
-			var/list/trauma_text = list()
-			for(var/datum/brain_trauma/B in H.get_traumas())
-				trauma_text += B.scan_desc
-			to_chat(user, "\t<span class='alert'>Cerebral traumas detected: subjects appears to be suffering from [english_list(trauma_text)].</span>")
+		else if(LAZYLEN(H.get_traumas()))
+			to_chat(user, "\t<span class='alert'>Severe brain damage detected. Subject likely to have mental traumas.</span>")
 		for(var/name in H.organs_by_name)
 			var/obj/item/organ/external/e = H.organs_by_name[name]
 			if(!e)

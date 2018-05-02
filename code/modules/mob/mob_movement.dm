@@ -436,7 +436,7 @@
 
 	if(!lastarea)
 		lastarea = get_area(loc)
-	if(!lastarea.has_gravity)
+	if(!lastarea.has_gravity())
 		return 0
 
 	return 1
@@ -451,7 +451,7 @@
 			return 1
 		else
 			var/area/A = T.loc
-			if(A.has_gravity || shoegrip)
+			if(A.has_gravity() || shoegrip)
 				return 1
 
 	for(var/obj/O in orange(1, src))

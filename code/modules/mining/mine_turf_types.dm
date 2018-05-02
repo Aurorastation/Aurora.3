@@ -100,6 +100,38 @@
 	if (prob(20))
 		add_overlay("asteroid[rand(0, 9)]", TRUE)
 
+
+
+/turf/simulated/floor/asteroid/ash/Entered(atom/A, atom/OL)
+	..()
+
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		var/obj/item/organ/external/l_foot = H.get_organ("l_foot")
+		var/obj/item/organ/external/r_foot = H.get_organ("r_foot")
+		var/hasfeet = 1
+		if((!l_foot || l_foot.is_stump()) && (!r_foot || r_foot.is_stump()))
+			hasfeet = 0
+		if(H.shoes && !H.buckled)//Adding ash to shoes
+			var/obj/item/clothing/shoes/S = H.shoes
+			if(istype(S))
+				S.blood_color = "#6C6564"
+				S.track_blood = max(12,S.track_blood)
+
+				if(!S.blood_overlay)
+					S.generate_blood_overlay()
+				if(S.blood_overlay && S.blood_overlay.color != "#6C6564")
+					S.cut_overlay(S.blood_overlay, TRUE)
+
+				S.blood_overlay.color = "#6C6564"
+				S.add_overlay(S.blood_overlay, TRUE)
+
+		else if (hasfeet)//Or feet
+			H.feet_blood_color = "#6C6564"
+			H.track_blood = max(12,H.track_blood)
+
+		H.update_inv_shoes(1)
+
 /turf/simulated/floor/asteroid/ash/rocky
 	name = "rocky ash"
 	icon_state = "rockyash"

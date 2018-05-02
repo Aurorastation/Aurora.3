@@ -86,27 +86,11 @@ var/datum/antagonist/deathsquad/deathsquad
 		id.access |= get_all_station_access()
 		id.icon_state = "centcom"
 
-/* //disabling this until the names are fixed to don't be dumb, NanoTrasen has no military
-/datum/antagonist/deathsquad/update_antag_mob(var/datum/mind/player)
-	..()
-	var/syndicate_commando_rank
-	if(leader && player == leader)
-		syndicate_commando_rank = pick("Corporal", "Sergeant", "Staff Sergeant", "Sergeant 1st Class", "Master Sergeant", "Sergeant Major")
-	else
-		syndicate_commando_rank = pick("Lieutenant", "Captain", "Major")
-	var/syndicate_commando_name = pick(last_names)
-	var/datum/preferences/A = new() //Randomize appearance for the commando.
-	A.randomize_appearance_for(player.current)
-	player.name = "[syndicate_commando_rank] [syndicate_commando_name]"
-	player.current.name = player.name
-	player.current.real_name = player.current.name
-	var/mob/living/carbon/human/H = player.current
-	if(istype(H))
-		H.gender = pick(MALE, FEMALE)
-		H.age = rand(25,45)
-		H.dna.ready_dna(H)
-	return
-*/
+	//gives them a martial art as well
+
+	var/datum/martial_art/sol_combat/F = new/datum/martial_art/sol_combat(null)
+	F.teach(player)
+
 /datum/antagonist/deathsquad/create_antagonist()
 	if(..() && !deployed)
 		deployed = 1

@@ -486,6 +486,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	body_parts_covered = null
 	fingerprint_chance = 100
 
+
 /obj/item/clothing/under/dress/fluff/sayyidah_dress //Traditional Jumper Dress - Sayyidah Al-Kateb - alberyk
 	name = "traditional jumper dress"
 	desc = "A light summer-time dress, decorated neatly with black and silver colors, it seems to be rather old."
@@ -1574,7 +1575,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/suit/storage/toggle/fluff/blessing_jacket //Armored Detective Jacket - Nelson Blessing - seniorscore
+/obj/item/clothing/suit/storage/toggle/det_trench/fluff/blessing_jacket //Armored Detective Jacket - Nelson Blessing - seniorscore
 	name = "armored detective jacket"
 	desc = "A white suit jacket, has a badge hanging out of a breast pocket. Touching it gives a feeling of working on a case for months."
 	icon = 'icons/obj/custom_items/blessing_jacket.dmi'
@@ -1877,3 +1878,165 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A version of the security thigh holster done up in tan leather - this one appears to have the word \"Rifler\" engraved down the side. It appears to be rather well made and hard wearing; more of a worker's holster than a show piece."
 	icon = 'icons/obj/custom_items/rifler_holster.dmi'
 	icon_state = "rifler_holster"
+
+
+/obj/item/weapon/storage/backpack/satchel/fluff/xerius_bag //Tote Bag - Shiur'izzi Xerius - nursiekitty
+	name = "tote bag"
+	desc = "A sackcloth bag with an image of Moghes printed onto it. Floating above the planet are the words \"Save Moghes!\"."
+	icon = 'icons/obj/custom_items/xerius_bag.dmi'
+	icon_state = "xerius_bag"
+	item_state = "xerius_bag"
+	contained_sprite = TRUE
+
+
+/obj/item/weapon/flame/lighter/zippo/fluff/moretti_zippo //Moretti's Zippo - Billy Moretti - lordbalkara
+	desc = "A dark zippo with a cool blue flame. Nice."
+	icon = 'icons/obj/custom_items/moretti_zippo.dmi'
+	icon_state = "moretti_zippo"
+	item_state = "moretti_zippo"
+	contained_sprite = TRUE
+	light_color = LIGHT_COLOR_BLUE
+
+
+obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.K.E - toasterstrudes
+	name = "raincoat poncho"
+	desc = "A tough brown hooded poncho that looks to be good at protecting someone from the rain."
+	icon = 'icons/obj/custom_items/make_items.dmi'
+	icon_state = "make_poncho"
+	item_state = "make_poncho"
+	contained_sprite = TRUE
+	hoodtype = /obj/item/clothing/head/winterhood/fluff/make_hood
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+
+/obj/item/clothing/head/winterhood/fluff/make_hood
+	flags_inv = HIDEEARS
+
+
+/obj/item/clothing/under/fluff/aegis_uniform //Hephaestus Experimental Projector - Sovereign Aegis - itanimulli
+	name = "Hephaestus experimental projector"
+	desc = "An odd device connected to a security uniform, apparently still in the prototype stage."
+	icon = 'icons/obj/custom_items/aegis_uniform.dmi'
+	icon_state = "aegis_uniform"
+	item_state = "aegis_uniform"
+	contained_sprite = TRUE
+	species_restricted = list("Heavy Machine")
+
+
+/obj/item/clothing/suit/chef/fluff/fakhr_coat //Royal Cooking Coat - Fakhr Al-Kandari - lordraven001
+	name = "royal cooking coat"
+	desc = "A royal cooking niform, it has gilded buttons on its cuffs and officer ranking epaulets don its shoulders."
+	icon = 'icons/obj/custom_items/fakhr_items.dmi'
+	icon_state = "fakhr_coat"
+	item_state = "fakhr_coat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/chefhat/fluff/fakhr_hat //Royal Toque Blanche - Fakhr Al-Kandari - lordraven001
+	name = "royal toque blanche"
+	desc = "A white toque blanche, There are gilded fabrics sewn into the top of it and a name in traditional Tajaran dialect \"Fakhr\"."
+	icon = 'icons/obj/custom_items/fakhr_items.dmi'
+	icon_state = "fakhr_hat"
+	item_state = "fakhr_hat"
+	contained_sprite = TRUE
+
+
+/obj/item/fluff/daliyah_visa //NanoTrasen Exchange Visa - Daliyah Veridan - xanderdox
+	name = "NanoTrasen exchange visa"
+	desc = "A work visa authorizing the holder, Daliyah Veridan, to work within the Republic of Biesel. An Eridani and NanoTrasen logo are embossed on the back."
+	icon = 'icons/obj/custom_items/daliyah_visa.dmi'
+	icon_state = "daliyah_visa"
+	w_class = 2
+
+
+/obj/item/weapon/retractor/fluff/tristen_retractor //Laser Retractor - Tristen Wolff - elianabeth
+	name = "laser retractor"
+	desc = "The fabled laser retractor. It's a horrible amalgamation of a laser pointer, a retractor, and lots of tape."
+	icon = 'icons/obj/custom_items/tristen_retractor.dmi'
+	icon_state = "tristen_retractor"
+
+
+/obj/item/fluff/amy_player //Music player - Amy Heris - golle
+	name = "music player"
+	desc = "An olive green HF24 in pristine condition, there is a small engraving on the back, reading \"To Amy, I will always be here for you, Varan.\""
+	icon = 'icons/obj/custom_items/amy_player.dmi'
+	icon_state = "amy_player_off"
+	item_state = "electornic"
+	w_class = 2
+	slot_flags = SLOT_BELT
+	var/broken = FALSE
+	var/open = FALSE
+	var/on = FALSE
+	var/obj/item/clothing/ears/earmuffs/earbuds
+
+/obj/item/fluff/amy_player/Initialize()
+	. = ..()
+	earbuds = new(src)
+
+/obj/item/fluff/amy_player/Destroy()
+	QDEL_NULL(earbuds)
+	return ..()
+
+/obj/item/fluff/amy_player/update_icon()
+	if(broken)
+		icon_state = "amy_player_broken"
+		return
+	if(on)
+		icon_state = "amy_player_on"
+	else
+		icon_state = "amy_player_off"
+
+/obj/item/fluff/amy_player/attack_self(mob/user as mob)
+	if(broken)
+		to_chat(user, "<span class='warning'>The screen flickers and blinks with errors.</span>")
+		return
+
+	if(!on)
+		to_chat(user, "<span class='notice'>You turn on \the [src].</span>")
+		on = TRUE
+
+	else
+		to_chat(user, "<span class='notice'>You turn off \the [src].</span>")
+		on = FALSE
+
+	update_icon()
+
+
+/obj/item/fluff/amy_player/attack_hand(var/mob/user)
+	if(earbuds && src.loc == user)
+		earbuds.forceMove(user.loc)
+		user.put_in_hands(earbuds)
+		earbuds = null
+		update_icon()
+		return
+
+	return ..()
+
+/obj/item/fluff/amy_player/attackby(var/obj/item/I, var/mob/user)
+	if(istype(I, /obj/item/clothing/ears/earmuffs) && !earbuds)
+		user.unEquip(I)
+		I.forceMove(src)
+		earbuds = I
+		to_chat(user, "<span class='notice'>You place \the [I] in \the [src].</span>")
+		return
+
+	if(broken)
+		if(isscrewdriver(I))
+			if(!open)
+				open = TRUE
+				to_chat(user, "<span class='notice'>You unfasten the back panel.</span>")
+
+			else
+				open = FALSE
+				to_chat(user, "<span class='notice'>You secure the back panel.</span>")
+			playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+
+		if(ismultitool(I) && open)
+			to_chat(user, "<span class='notice'>You quickly pulse a few fires, and reset the screen and device.</span>")
+			broken = FALSE
+			update_icon()
+
+/obj/item/fluff/amy_player/emp_act(severity)
+	broken = TRUE
+	on = FALSE
+	update_icon()
+	playsound(src, "spark", 50, 1, -1)
+	..()
