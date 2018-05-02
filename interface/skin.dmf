@@ -827,6 +827,12 @@ macro "hotkeymode"
  		name = "NUMPAD3"
  		command = "body-l-leg"
  		is-disabled = false
+	elem 
+		name = ","
+		command = "move-upwards"
+	elem 
+		name = "."
+		command = "move-down"
 
 macro "borgmacro"
 	elem

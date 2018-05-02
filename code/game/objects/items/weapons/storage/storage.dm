@@ -139,7 +139,7 @@
 
 /obj/item/weapon/storage/proc/open(mob/user as mob)
 	if (use_sound)
-		playsound(src.loc, src.use_sound, 50, 1, -5)
+		playsound(src.loc, src.use_sound, 50, 0, -5)
 
 	orient2hud(user)
 	if (user.s_active)

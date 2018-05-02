@@ -549,7 +549,7 @@
 		src << "<span class='warning'>Your powers are not capable of taking you that far.</span>"
 		return
 
-	if (!T.dynamic_lighting || T.get_lumcount() > 0.1)
+	if (T.get_lumcount() > 0.1)
 		src << "<span class='warning'>The destination is too bright.</span>"
 		return
 

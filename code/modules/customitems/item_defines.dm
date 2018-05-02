@@ -1937,3 +1937,106 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 	icon_state = "fakhr_hat"
 	item_state = "fakhr_hat"
 	contained_sprite = TRUE
+
+
+/obj/item/fluff/daliyah_visa //NanoTrasen Exchange Visa - Daliyah Veridan - xanderdox
+	name = "NanoTrasen exchange visa"
+	desc = "A work visa authorizing the holder, Daliyah Veridan, to work within the Republic of Biesel. An Eridani and NanoTrasen logo are embossed on the back."
+	icon = 'icons/obj/custom_items/daliyah_visa.dmi'
+	icon_state = "daliyah_visa"
+	w_class = 2
+
+
+/obj/item/weapon/retractor/fluff/tristen_retractor //Laser Retractor - Tristen Wolff - elianabeth
+	name = "laser retractor"
+	desc = "The fabled laser retractor. It's a horrible amalgamation of a laser pointer, a retractor, and lots of tape."
+	icon = 'icons/obj/custom_items/tristen_retractor.dmi'
+	icon_state = "tristen_retractor"
+
+
+/obj/item/fluff/amy_player //Music player - Amy Heris - golle
+	name = "music player"
+	desc = "An olive green HF24 in pristine condition, there is a small engraving on the back, reading \"To Amy, I will always be here for you, Varan.\""
+	icon = 'icons/obj/custom_items/amy_player.dmi'
+	icon_state = "amy_player_off"
+	item_state = "electornic"
+	w_class = 2
+	slot_flags = SLOT_BELT
+	var/broken = FALSE
+	var/open = FALSE
+	var/on = FALSE
+	var/obj/item/clothing/ears/earmuffs/earbuds
+
+/obj/item/fluff/amy_player/Initialize()
+	. = ..()
+	earbuds = new(src)
+
+/obj/item/fluff/amy_player/Destroy()
+	QDEL_NULL(earbuds)
+	return ..()
+
+/obj/item/fluff/amy_player/update_icon()
+	if(broken)
+		icon_state = "amy_player_broken"
+		return
+	if(on)
+		icon_state = "amy_player_on"
+	else
+		icon_state = "amy_player_off"
+
+/obj/item/fluff/amy_player/attack_self(mob/user as mob)
+	if(broken)
+		to_chat(user, "<span class='warning'>The screen flickers and blinks with errors.</span>")
+		return
+
+	if(!on)
+		to_chat(user, "<span class='notice'>You turn on \the [src].</span>")
+		on = TRUE
+
+	else
+		to_chat(user, "<span class='notice'>You turn off \the [src].</span>")
+		on = FALSE
+
+	update_icon()
+
+
+/obj/item/fluff/amy_player/attack_hand(var/mob/user)
+	if(earbuds && src.loc == user)
+		earbuds.forceMove(user.loc)
+		user.put_in_hands(earbuds)
+		earbuds = null
+		update_icon()
+		return
+
+	return ..()
+
+/obj/item/fluff/amy_player/attackby(var/obj/item/I, var/mob/user)
+	if(istype(I, /obj/item/clothing/ears/earmuffs) && !earbuds)
+		user.unEquip(I)
+		I.forceMove(src)
+		earbuds = I
+		to_chat(user, "<span class='notice'>You place \the [I] in \the [src].</span>")
+		return
+
+	if(broken)
+		if(isscrewdriver(I))
+			if(!open)
+				open = TRUE
+				to_chat(user, "<span class='notice'>You unfasten the back panel.</span>")
+
+			else
+				open = FALSE
+				to_chat(user, "<span class='notice'>You secure the back panel.</span>")
+			playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+
+		if(ismultitool(I) && open)
+			to_chat(user, "<span class='notice'>You quickly pulse a few fires, and reset the screen and device.</span>")
+			broken = FALSE
+			update_icon()
+
+/obj/item/fluff/amy_player/emp_act(severity)
+	broken = TRUE
+	on = FALSE
+	update_icon()
+	playsound(src, "spark", 50, 1, -1)
+	..()
