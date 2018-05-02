@@ -12406,7 +12406,6 @@
 	icon_state = "warning_dust";
 	dir = 5
 	},
-/obj/machinery/mining/drill,
 /turf/simulated/floor/tiled/airless{
 	icon_state = "asteroidfloor"
 	},
@@ -59355,9 +59354,9 @@ ab
 ab
 ab
 kr
-wZ
-xo
-xU
+uy
+lJ
+pV
 ja
 zg
 zi
@@ -59613,8 +59612,8 @@ cS
 cS
 kr
 xa
-xp
-xV
+yq
+or
 ja
 zg
 zB
@@ -60904,7 +60903,7 @@ yz
 zk
 zF
 Aw
-zk
+yA
 xX
 BO
 Cm
@@ -61414,7 +61413,7 @@ ja
 ja
 xs
 xX
-yA
+yz
 zm
 zH
 Ax
