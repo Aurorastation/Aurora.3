@@ -2764,8 +2764,24 @@
 /turf/simulated/floor/carpet,
 /area/security/detectives_office)
 "ff" = (
-/turf/simulated/floor/holofloor/tiled,
-/area/security/training)
+/obj/effect/floor_decal/corner/green/full{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
+/obj/structure/flora/pottedplant,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
+/obj/machinery/camera/network/medbay,
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
 "fg" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -3329,6 +3345,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/wood,
 /area/security/detectives_office)
 "gh" = (
@@ -3535,6 +3552,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "gy" = (
@@ -4072,6 +4090,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/investigations)
 "hk" = (
@@ -4132,7 +4151,6 @@
 /area/security/forensics_office)
 "hn" = (
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -4141,6 +4159,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/forensics_office)
 "ho" = (
@@ -4234,6 +4253,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/security/training)
 "hw" = (
@@ -4541,7 +4561,7 @@
 /area/security/training)
 "ia" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(1);
+	req_access = list(63);
 	req_one_access = null
 	},
 /obj/structure/cable/green{
@@ -4555,6 +4575,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/training)
 "ib" = (
@@ -4637,7 +4658,14 @@
 "ih" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/table/glass,
-/obj/item/device/mass_spectrometer,
+/obj/item/device/mass_spectrometer{
+	pixel_x = -1;
+	pixel_y = 1
+	},
+/obj/item/device/reagent_scanner{
+	pixel_x = 1;
+	pixel_y = -1
+	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
 "ii" = (
@@ -5339,20 +5367,29 @@
 /turf/simulated/floor/tiled,
 /area/security/training)
 "jA" = (
-/obj/effect/floor_decal/corner/red{
+/obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/structure/weightlifter,
-/turf/simulated/floor/tiled,
-/area/mine/unexplored)
+/obj/machinery/firealarm/west,
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Isolation Room";
+	dir = 4;
+	icon_state = "camera";
+	network = list("Medical","Isolation Room")
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
 "jB" = (
 /obj/effect/floor_decal/corner/blue/full{
 	icon_state = "corner_white_full";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/mine/unexplored)
+/area/security/training)
 "jC" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5466,32 +5503,18 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "jP" = (
-/obj/effect/floor_decal/corner/green/full{
-	icon_state = "corner_white_full";
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/obj/structure/flora/pottedplant,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
-	},
-/obj/machinery/alarm{
-	dir = 8;
-	icon_state = "alarm0";
-	pixel_x = 24
-	},
-/turf/simulated/floor/tiled/white,
+/obj/machinery/camera/network/medbay,
+/turf/simulated/floor/tiled/dark,
 /area/medical/psych)
 "jQ" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/firealarm/west,
+/obj/machinery/camera/network/medbay,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "jR" = (
@@ -6512,6 +6535,12 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Isolation Room";
+	dir = 4;
+	icon_state = "camera";
+	network = list("Medical","Isolation Room")
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lH" = (
@@ -6796,6 +6825,67 @@
 	pixel_y = 16
 	},
 /turf/simulated/open/airless,
+/area/mine/unexplored)
+"md" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 9
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"me" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 5
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"mf" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 8
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"mg" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 4
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"mh" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	tag = "icon-warning_dust (SOUTHWEST)";
+	icon_state = "warning_dust";
+	dir = 10
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"mi" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"mj" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 6
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
 /area/mine/unexplored)
 
 (1,1,1) = {"
@@ -29108,11 +29198,11 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -29364,14 +29454,14 @@ aa
 aa
 aa
 aa
+aa
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -29620,16 +29710,16 @@ aa
 aa
 aa
 aa
+aa
 ab
 ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -29879,14 +29969,14 @@ aa
 aa
 ab
 ab
-ad
-mc
+md
+mf
+mh
 ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -30136,14 +30226,14 @@ aa
 aa
 ab
 ab
+ad
+mc
+mi
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -30393,14 +30483,14 @@ aa
 aa
 ab
 ab
+me
+mg
+mj
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -30655,9 +30745,9 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
+aa
+aa
+aa
 aa
 aa
 aa
@@ -30908,12 +30998,12 @@ aa
 aa
 ab
 ab
+aa
+aa
 ab
 ab
-ab
-ab
-ab
-ab
+aa
+aa
 aa
 aa
 aa
@@ -31165,11 +31255,11 @@ aa
 aa
 ab
 ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -39522,7 +39612,7 @@ dR
 dR
 el
 db
-jA
+ex
 jB
 eV
 fg
@@ -42385,7 +42475,7 @@ ab
 ab
 jG
 jL
-jQ
+jA
 kb
 kl
 kw
@@ -44700,7 +44790,7 @@ jH
 jM
 jV
 jG
-ko
+jP
 kB
 jG
 kS
@@ -45731,7 +45821,7 @@ jG
 kr
 jG
 jG
-jM
+jQ
 lf
 lq
 kc
@@ -46239,7 +46329,7 @@ aa
 ab
 ab
 jG
-jP
+ff
 jX
 ki
 kt

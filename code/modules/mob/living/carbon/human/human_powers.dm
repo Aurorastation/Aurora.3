@@ -49,7 +49,7 @@
 		if ((O.client && !( O.blinded )))
 			O.show_message(text("<span class='danger'>[] [failed ? "tried to tackle" : "has tackled"] down []!</span>", src, T), 1)
 
-/mob/living/carbon/human/proc/leap(mob/living/T as mob in view(4))
+/mob/living/carbon/human/proc/leap(mob/living/T as mob in oview(4))
 	set category = "Abilities"
 	set name = "Leap"
 	set desc = "Leap at a target and grab them aggressively."
@@ -549,7 +549,7 @@
 		src << "<span class='warning'>Your powers are not capable of taking you that far.</span>"
 		return
 
-	if (!T.dynamic_lighting || T.get_lumcount() > 0.1)
+	if (T.get_lumcount() > 0.1)
 		src << "<span class='warning'>The destination is too bright.</span>"
 		return
 

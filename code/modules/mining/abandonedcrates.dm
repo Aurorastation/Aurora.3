@@ -113,7 +113,7 @@
 		if(90)
 			new/obj/item/organ/heart(src)
 		if(91)
-			new/obj/item/device/soulstone(src)
+			new/obj/item/poppet(src)
 		if(92)
 			new/obj/item/weapon/material/sword/katana(src)
 		if(93)

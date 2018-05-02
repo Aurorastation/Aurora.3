@@ -56,6 +56,7 @@
 
 	floor_markings = image('icons/obj/machines/stationmap.dmi', "decal_station_map")
 	floor_markings.dir = src.dir
+	floor_markings.layer = ON_TURF_LAYER
 	update_icon()
 
 /obj/machinery/station_map/attack_hand(var/mob/user)

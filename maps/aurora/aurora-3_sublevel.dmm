@@ -13338,46 +13338,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
-"xP" = (
-/obj/machinery/light,
-/turf/simulated/floor/asteroid/ash/rocky,
-/area/outpost/research/eva)
-"xQ" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 9
-	},
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
-	},
-/area/outpost/research/eva)
-"xR" = (
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1379;
-	master_tag = "research_airlock";
-	name = "exterior access button";
-	pixel_x = -25;
-	pixel_y = -25;
-	req_one_access = list(13,65)
-	},
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
-	},
-/area/outpost/research/eva)
-"xS" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 5
-	},
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
-	},
-/area/outpost/research/eva)
 "xT" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/tiled,
@@ -14107,39 +14067,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
-"zs" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 9
-	},
-/obj/machinery/mech_recharger,
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
-	},
-/area/outpost/research/eva)
-"zt" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/structure/table/steel,
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
-	},
-/area/outpost/research/eva)
-"zu" = (
-/obj/structure/table/steel,
-/obj/machinery/cell_charger{
-	pixel_y = 5
-	},
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 5
-	},
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
-	},
-/area/outpost/research/eva)
 "zv" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1379;
@@ -15161,13 +15088,6 @@
 "Bc" = (
 /obj/structure/closet/excavation,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/outpost/research/eva)
-"Bd" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
 "Be" = (
@@ -18768,15 +18688,6 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "Hg" = (
-/turf/simulated/floor/tiled/white,
-/area/rnd/test_range)
-"Hh" = (
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/structure/table/reinforced,
-/obj/item/weapon/folder/purple,
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "Hi" = (
@@ -27137,30 +27048,164 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/rnd/test_area)
-"VO" = (
+"VS" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 9
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/research/eva)
+"VT" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 1
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/research/eva)
+"VU" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 1
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/research/eva)
+"VV" = (
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1379;
+	master_tag = "research_airlock";
+	name = "exterior access button";
+	pixel_x = -25;
+	pixel_y = -25;
+	req_one_access = list(13,65)
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 1
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/research/eva)
+"VW" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 1
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/research/eva)
+"VX" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 5
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/research/eva)
+"VY" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
 	dir = 8
 	},
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
 	},
-/area/mine/unexplored)
-"VP" = (
+/area/outpost/research/eva)
+"VZ" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 8
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/research/eva)
+"Wa" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 9
+	},
+/obj/machinery/mech_recharger,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/research/eva)
+"Wb" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 1
+	},
+/obj/structure/table/steel,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/research/eva)
+"Wc" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 1
+	},
+/obj/structure/table/steel,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/research/eva)
+"Wd" = (
+/obj/structure/table/steel,
+/obj/machinery/cell_charger{
+	pixel_y = 5
+	},
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	icon_state = "warningcorner_dust";
+	dir = 1
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/research/eva)
+"We" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/research/eva)
+"Wf" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/structure/table/reinforced,
+/obj/item/weapon/folder/purple,
+/obj/item/weapon/storage/box/testpins,
+/turf/simulated/floor/tiled/white,
+/area/rnd/test_range)
+"Wg" = (
 /obj/structure/ladder/up{
 	pixel_y = 16
 	},
-/turf/simulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
-"VQ" = (
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
-"VR" = (
-/obj/structure/ladder/up,
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
+"Wh" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	tag = "icon-warning_dust (SOUTHWEST)";
+	icon_state = "warning_dust";
+	dir = 10
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
 
@@ -45296,7 +45341,7 @@ aa
 aa
 ac
 ac
-zs
+Wa
 ym
 ym
 ym
@@ -45306,7 +45351,7 @@ ym
 ym
 FE
 Gq
-Hh
+Wf
 Id
 Jg
 JV
@@ -45553,7 +45598,7 @@ aa
 ac
 ac
 ac
-zt
+Wb
 ym
 AF
 Bc
@@ -45810,10 +45855,10 @@ aa
 ac
 ac
 ac
-zt
+Wc
 ym
-AG
-Bd
+We
+BR
 BO
 CE
 DH
@@ -46064,10 +46109,10 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-zu
+VS
+VY
+VZ
+Wd
 ym
 AF
 Be
@@ -46321,7 +46366,7 @@ ac
 ac
 ac
 ac
-xP
+VT
 ym
 ym
 ym
@@ -46578,7 +46623,7 @@ ac
 ac
 ac
 ac
-xQ
+VU
 yn
 yJ
 zv
@@ -46835,7 +46880,7 @@ ac
 ac
 ac
 ac
-xR
+VV
 yo
 yK
 zw
@@ -47092,7 +47137,7 @@ ac
 ac
 ac
 ac
-xS
+VW
 yn
 yL
 zx
@@ -47349,7 +47394,7 @@ ac
 ac
 ac
 ac
-xP
+VX
 ym
 ym
 ym
@@ -47863,8 +47908,8 @@ vY
 ww
 ww
 ww
-ww
 yp
+yM
 yM
 yM
 yM
@@ -49470,12 +49515,12 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
 aa
 aa
 aa
+aa
+ac
+ac
 aa
 aa
 aa
@@ -49729,12 +49774,12 @@ ac
 ac
 ac
 ac
+aa
 ac
-aa
-aa
-aa
-aa
-aa
+ac
+ac
+ac
+ac
 aa
 aa
 aa
@@ -49988,10 +50033,10 @@ ac
 ac
 ac
 ac
-aa
-aa
-aa
-aa
+pD
+tP
+Wh
+ac
 aa
 aa
 aa
@@ -50245,10 +50290,10 @@ aa
 ac
 ac
 ac
+jL
+Wg
+xo
 ac
-ac
-ac
-aa
 aa
 aa
 aa
@@ -50502,10 +50547,10 @@ aa
 aa
 ac
 ac
-jL
-VP
+pE
+qm
+qL
 ac
-aa
 aa
 aa
 aa
@@ -50762,8 +50807,8 @@ ac
 ac
 ac
 ac
-aa
-aa
+ac
+ac
 aa
 aa
 aa
@@ -51019,8 +51064,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+ac
+ac
 aa
 aa
 aa

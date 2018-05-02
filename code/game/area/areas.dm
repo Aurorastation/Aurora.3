@@ -316,7 +316,7 @@ var/list/mob/living/forced_ambiance_list = new
 		L.lastarea = get_area(L.loc)
 	var/area/newarea = get_area(L.loc)
 	var/area/oldarea = L.lastarea
-	if((oldarea.has_gravity == 0) && (newarea.has_gravity == 1) && (L.m_intent == "run")) // Being ready when you change areas gives you a chance to avoid falling all together.
+	if((oldarea.has_gravity() == 0) && (newarea.has_gravity() == 1) && (L.m_intent == "run")) // Being ready when you change areas gives you a chance to avoid falling all together.
 		thunk(L)
 		L.update_floating( L.Check_Dense_Object() )
 
@@ -352,11 +352,11 @@ var/list/mob/living/forced_ambiance_list = new
 			L << sound(sound, repeat = 0, wait = 0, volume = 25, channel = 1)
 			L.client.played = world.time
 
-/area/proc/gravitychange(var/gravitystate = 0, var/area/A)
-	A.has_gravity = gravitystate
+/area/proc/gravitychange(var/gravitystate = 0)
+	has_gravity = gravitystate
 
-	for(var/mob/M in A)
-		if(has_gravity)
+	for(var/mob/M in src)
+		if(has_gravity())
 			thunk(M)
 		M.update_floating( M.Check_Dense_Object() )
 
@@ -386,6 +386,10 @@ var/list/mob/living/forced_ambiance_list = new
 		temp_windoor.open()
 
 /area/proc/has_gravity()
+	if(alwaysgravity)
+		return TRUE
+	if(nevergravity)
+		return FALSE
 	return has_gravity
 
 /area/space/has_gravity()
@@ -395,13 +399,8 @@ var/list/mob/living/forced_ambiance_list = new
 	if(!T)
 		T = get_turf(AT)
 	var/area/A = get_area(T)
-	if(istype(T, /turf/space)) //because space
-		return 0
-	else if(A && A.has_gravity)
+	if(A && A.has_gravity())
 		return 1
-	else
-		if(T && length(SSmachinery.gravity_generators))
-			return 1
 	return 0
 
 //A useful proc for events.
