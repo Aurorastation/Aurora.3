@@ -91,7 +91,7 @@ proc/GetAnomalySusceptibility(var/mob/living/carbon/human/H)
 	if(istype(H.back,/obj/item/weapon/rig/hazmat))
 		var/obj/item/weapon/rig/hazmat/rig = H.back
 		if(rig.suit_is_deployed() && !rig.offline)
-			return 1 //<- Maximum level of protection achieved.
+			return 0 //<- Maximum level of protection achieved.
 
 	var/protected = 0
 
@@ -111,10 +111,13 @@ proc/GetAnomalySusceptibility(var/mob/living/carbon/human/H)
 	/*
 	If you have Anomaly Suit, Anomaly Hood, Latex Gloves AND Science Goggles, you will have
 		0.6 + 0.3 + 0.1 + 0.1 = 1.1
-	maximum protection level. And since I'm not sure that caller accepts well negative values
-	in return of this procedure ( 1 - 1.1 = -0.1 ) I'm going to do this check:
+	maximum protection level. The CLAMP01 instruction make sure that "protected" will be
+	always in 0..1 range boundaries.
 	*/
-	if(protected < 1 && istype(H.glasses,/obj/item/clothing/glasses/science))
+	if(istype(H.glasses,/obj/item/clothing/glasses/science))
 		protected += 0.1 //<- In case of full not-Anomaly clothing, you'll have 0.5 + 0.2 + 0.1 + 0.1 = 0.9 maximum protection level.
+
+	//As said before, in case of a value of 1.1, "protected" will be setted to 1.
+	protected = CLAMP01(protected)
 
 	return 1 - protected
