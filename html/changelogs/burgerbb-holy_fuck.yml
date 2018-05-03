@@ -1,0 +1,6 @@
+author: BurgerBB
+
+delete-after: True
+
+changes: 
+  - rscadd: "Fixes the stacking machine from eating materials due to an oversight."
