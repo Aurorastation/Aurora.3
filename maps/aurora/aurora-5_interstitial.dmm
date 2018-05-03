@@ -2794,7 +2794,7 @@
 	dir = 4
 	},
 /obj/machinery/requests_console{
-	department = "Forensic Technician";
+	department = "Security Weights Room";
 	departmentType = 5;
 	pixel_x = 0;
 	pixel_y = -32
@@ -4395,7 +4395,7 @@
 	dir = 1
 	},
 /obj/machinery/requests_console{
-	department = "Forensic Technician";
+	department = "Theoretical Training Room";
 	departmentType = 5;
 	pixel_x = 0;
 	pixel_y = -32
