@@ -1,5 +1,5 @@
 /datum/job/hos
-	title = "Head of Security"
+	title = "Head Security Chief"
 	flag = HOS
 	head_position = 1
 	department = "Security"
@@ -33,7 +33,7 @@
 		if(!H)
 			return FALSE
 		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/heads/hos(H), slot_l_ear)
-		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/head_of_security(H), slot_w_uniform)
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/head_of_security/eridani(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/heads/hos(H), slot_belt)
 		if(istajara(H))
@@ -47,7 +47,7 @@
 			H.equip_to_slot_or_del(new /obj/item/weapon/handcuffs(H), slot_l_store)
 		else
 			H.equip_to_slot_or_del(new /obj/item/weapon/handcuffs(H), slot_in_backpack)
-		H.implant_loyalty(H)
+		H.implant_loyalty_eridani(H)
 		return TRUE
 
 
@@ -59,7 +59,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the head of security"
+	supervisors = "the Eridani Head Security Chief"
 	selection_color = "#ffeeee"
 	economic_modifier = 5
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_maint_tunnels, access_morgue, access_external_airlocks)
@@ -104,7 +104,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the head of security"
+	supervisors = "the Eridani Head Security Chief"
 	selection_color = "#ffeeee"
 	economic_modifier = 5
 	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_detective)
@@ -140,7 +140,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the head of security"
+	supervisors = "the Eridani Head Security Chief"
 	selection_color = "#ffeeee"
 	economic_modifier = 5
 	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels)
@@ -179,9 +179,9 @@
 	department = "Security"
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 4
-	spawn_positions = 4
-	supervisors = "the head of security"
+	total_positions = 2
+	spawn_positions = 2
+	supervisors = "the Eridani Head Security Chief"
 	selection_color = "#ffeeee"
 //	alt_titles = list("Junior Officer") //aurora already has security cadets
 	economic_modifier = 4
@@ -199,6 +199,41 @@
 			return FALSE
 		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_sec(H), slot_l_ear)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/security(H), slot_w_uniform)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/device/pda/security(H), slot_belt)
+		H.equip_to_slot_or_del(new /obj/item/weapon/handcuffs(H), slot_s_store)
+		H.equip_to_slot_or_del(new /obj/item/device/flash(H), slot_l_store)
+		if(H.backbag == 1)
+			H.equip_to_slot_or_del(new /obj/item/weapon/handcuffs(H), slot_l_hand)
+		else
+			H.equip_to_slot_or_del(new /obj/item/weapon/handcuffs(H), slot_in_backpack)
+		return TRUE
+
+/datum/job/eridani_pmc
+	title = "Eridani Private Security"
+	flag = ERIDANI_SEC
+	department = "Security"
+	department_flag = ENGSEC
+	faction = "Station"
+	total_positions = 2
+	spawn_positions = 2
+	supervisors = "the Eridani Head Security Chief"
+	selection_color = "#ffeeee"
+	economic_modifier = 4
+	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks)
+	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_external_airlocks)
+	minimal_player_age = 30
+
+	bag_type = /obj/item/weapon/storage/backpack/security
+	satchel_type = /obj/item/weapon/storage/backpack/satchel_sec
+	duffel_type = /obj/item/weapon/storage/backpack/duffel/sec
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/sec
+
+	equip(var/mob/living/carbon/human/H)
+		if(!H)
+			return FALSE
+		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_sec(H), slot_l_ear)
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/security/eridani(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/security(H), slot_belt)
 		H.equip_to_slot_or_del(new /obj/item/weapon/handcuffs(H), slot_s_store)
