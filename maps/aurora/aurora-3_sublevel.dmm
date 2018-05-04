@@ -26844,11 +26844,6 @@
 	id = "toxins_mass_driver"
 	},
 /obj/effect/floor_decal/industrial/warning/cee,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/airless{
 	icon_state = "asteroidfloor"
 	},
