@@ -72,6 +72,30 @@
 		FoundTarget()
 	return T
 
+/mob/living/simple_animal/hostile/attacked_with_item(var/obj/item/O, var/mob/user)
+	..()
+	target_mob = user
+	stance = HOSTILE_STANCE_ATTACK
+	think()
+
+/mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
+	..()
+	target_mob = user
+	stance = HOSTILE_STANCE_ATTACK
+	think()
+
+/mob/living/simple_animal/hostile//hit_with_weapon(obj/item/I, mob/living/user, var/effective_force, var/hit_zone, var/ground_zero)
+	..()
+	target_mob = user
+	stance = HOSTILE_STANCE_ATTACK
+	think()
+
+/mob/living/simple_animal/hostile/attack_hand(mob/living/carbon/human/M as mob)
+	..()
+	target_mob = M
+	stance = HOSTILE_STANCE_ATTACK
+	think()
+	return
 
 //This proc is called after a target is acquired
 /mob/living/simple_animal/hostile/proc/FoundTarget()
