@@ -42,16 +42,8 @@
 			break
 
 		if(isliving(A))
-			var/mob/living/L = A
-			if((L.faction == src.faction) && !attack_same)
-				continue
-			else if(L in friends)
-				continue
-			else
-				if(!L.stat)
-					stance = HOSTILE_STANCE_ATTACK
-					T = L
-					break
+			stance = HOSTILE_STANCE_ATTACK
+			T = find_weakest()
 
 		else if(istype(A, /obj/mecha)) // Our line of sight stuff was already done in ListTargets().
 			var/obj/mecha/M = A
@@ -72,6 +64,24 @@
 		FoundTarget()
 	return T
 
+// Finds weakest(with least health) living mob to attack
+/mob/living/simple_animal/hostile/proc/find_weakest()
+	var/lowest_health = 100
+	var/atom/T
+	for(var/atom/A in ListTargets(10))
+		if(isliving(A))
+			var/mob/living/L = A
+			if((L.faction == src.faction) && !attack_same)
+				continue
+			else if(L in friends)
+				continue
+			else
+				if(!L.stat)
+					if(L.health <= lowest_health)
+						lowest_health = L.health
+						T = A
+	return T
+
 /mob/living/simple_animal/hostile/attacked_with_item(var/obj/item/O, var/mob/user)
 	..()
 	target_mob = user
@@ -84,7 +94,7 @@
 	stance = HOSTILE_STANCE_ATTACK
 	think()
 
-/mob/living/simple_animal/hostile//hit_with_weapon(obj/item/I, mob/living/user, var/effective_force, var/hit_zone, var/ground_zero)
+/mob/living/simple_animal/hostile/hit_with_weapon(obj/item/I, mob/living/user, var/effective_force, var/hit_zone, var/ground_zero)
 	..()
 	target_mob = user
 	stance = HOSTILE_STANCE_ATTACK
@@ -187,6 +197,7 @@
 		if(HOSTILE_STANCE_ATTACKING)
 			if(!AttackTarget() && destroy_surroundings)	//hit a window OR a mob, not both at once
 				DestroySurroundings()
+			target_mob = FindTarget()
 
 
 /mob/living/simple_animal/hostile/proc/OpenFire(target_mob)
