@@ -9,6 +9,7 @@
 	overdose = REAGENTS_OVERDOSE * 2
 	metabolism = REM * 0.5
 	metabolism_min = REM * 0.125
+	breathe_mul = 0.5
 	scannable = 1
 	taste_description = "bitterness"
 	var/datum/modifier/modifier
@@ -127,7 +128,7 @@
 /datum/reagent/dexalinp
 	name = "Dexalin Plus"
 	id = "dexalinp"
-	description = "Dexalin Plus is used in the treatment of oxygen deprivation. It is highly effective, and lasts twice as long when inhaled."
+	description = "Dexalin Plus is used in the treatment of oxygen deprivation. It is highly effective, and is twice as powerful and lasts twice as long when inhaled."
 	reagent_state = LIQUID
 	color = "#0040FF"
 	overdose = REAGENTS_OVERDOSE * 0.5
@@ -147,11 +148,12 @@
 /datum/reagent/tricordrazine
 	name = "Tricordrazine"
 	id = "tricordrazine"
-	description = "Tricordrazine is a highly potent stimulant, originally derived from cordrazine. Can be used to treat a wide range of injuries."
+	description = "Tricordrazine is a highly potent stimulant, originally derived from cordrazine. Can be used to treat a wide range of injuries, however it does not work when inhaled."
 	reagent_state = LIQUID
 	color = "#8040FF"
 	scannable = 1
 	taste_description = "bitterness"
+	breathe_mul = 0
 
 /datum/reagent/tricordrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustOxyLoss(-6 * removed)
@@ -197,7 +199,7 @@
 /datum/reagent/paracetamol
 	name = "Paracetamol"
 	id = "paracetamol"
-	description = "Most probably know this as Tylenol, but this chemical is a mild, simple painkiller."
+	description = "Most probably know this as Tylenol, but this chemical is a mild, simple painkiller. Does not work when inhaled."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	overdose = 60
@@ -205,6 +207,7 @@
 	metabolism = 0.02
 	taste_description = "sickness"
 	metabolism_min = 0.005
+	breathe_mul = 0
 
 /datum/reagent/paracetamol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 50)
@@ -216,7 +219,7 @@
 /datum/reagent/tramadol
 	name = "Tramadol"
 	id = "tramadol"
-	description = "A simple, yet effective painkiller."
+	description = "Tramadol is a very effective painkiller designed for victims of heavy physical trauma. Does not work when inhaled."
 	reagent_state = LIQUID
 	color = "#CB68FC"
 	overdose = 30
@@ -224,6 +227,7 @@
 	metabolism = 0.02
 	taste_description = "sourness"
 	metabolism_min = 0.005
+	breathe_mul = 0
 
 /datum/reagent/tramadol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 80)
@@ -235,13 +239,14 @@
 /datum/reagent/oxycodone
 	name = "Oxycodone"
 	id = "oxycodone"
-	description = "An effective and very addictive painkiller."
+	description = "Oxycodone is incredibly potent and very addictive painkiller. Do not mix with alcohol. Does not work when inhaled."
 	reagent_state = LIQUID
 	color = "#800080"
 	overdose = 20
 	metabolism = 0.02
 	taste_description = "bitterness"
 	metabolism_min = 0.005
+	breathe_mul = 0
 
 /datum/reagent/oxycodone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 200)
@@ -260,7 +265,7 @@
 /datum/reagent/synaptizine
 	name = "Synaptizine"
 	id = "synaptizine"
-	description = "Synaptizine is used to treat drug-related conditions."
+	description = "Synaptizine is used to treat a robust array of conditions, such as drowsyness, paralysis, weakness, LSD overdose, hallucinations, and pain. Moderately poisonous, and should only be used as a last resort."
 	reagent_state = LIQUID
 	color = "#99CCFF"
 	metabolism = REM * 0.05
@@ -376,7 +381,6 @@
 	taste_description = "acid"
 	metabolism_min = REM * 0.025
 	breathe_met = 0.5
-	breathe_mul = 2
 
 /datum/reagent/hyperzine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(5))

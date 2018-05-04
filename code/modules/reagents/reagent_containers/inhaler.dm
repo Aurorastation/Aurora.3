@@ -32,6 +32,7 @@
 			var/contained = reagentlist()
 			var/trans = reagents.trans_to_mob(M, amount_per_transfer_from_this, CHEM_TOUCH)
 			admin_inject_log(user, M, src, contained, trans)
+			playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
 			user.visible_message("<span class='notice'>[user] accidentally sticks the [src] in [M]'s eye and presses the injection button!</span>","<span class='notice'>You accidentally stick the [src] in [M]'s eye and press the injection button!</span>")
 			user.show_message("<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
 		return
@@ -64,6 +65,7 @@
 		var/contained = reagentlist()
 		var/trans = reagents.trans_to_mob(M, amount_per_transfer_from_this, CHEM_BREATHE)
 		admin_inject_log(user, M, src, contained, trans)
+		playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
 		user.show_message("<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
 
 	return

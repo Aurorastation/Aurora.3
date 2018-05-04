@@ -2,18 +2,32 @@
 //Just like hypopsray code
 
 /obj/item/weapon/reagent_containers/personal_inhaler_cartridge
-	name = "personal inhaler cartridge"
-	desc = "Fill this when chemicals and attach this to personal inhalers. Contains enough areosol for 30u of reagents. The container must be activated for aerosol reagents to mix for the use in inhalers."
+	name = "small inhaler cartridge"
+	desc = "Fill this when chemicals and attach this to personal inhalers. Contains enough areosol for 15u of reagents. The container must be activated for aerosol reagents to mix for the use in inhalers."
 	icon = 'icons/obj/syringe.dmi'
 	item_state = "buildpipe"
-	icon_state = "pi_cartridge"
-	volume = 30
+	icon_state = "pi_cart_small"
+	volume = 15
 	w_class = 2
 	unacidable = 1
 	amount_per_transfer_from_this = 5
-	possible_transfer_amounts = list(5,10,15,30)
+	possible_transfer_amounts = list(5,10,15)
 	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
+	origin_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
+	matter = list(DEFAULT_WALL_MATERIAL = 250)
+
+/obj/item/weapon/reagent_containers/personal_inhaler_cartridge/examine(var/mob/user)
+	if(!..(user, 2))
+		return
+
+	if(is_open_container())
+		if(reagents && reagents.reagent_list.len)
+			user.show_message("<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of non-aerosol mix.</span>")
+		else
+			user.show_message("<span class='notice'>It is empty.</span>")
+	else
+		user.show_message("<span class='notice'>The reagents are secured in the aerosol mix.</span>")
 
 /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/attack(obj/O as obj, mob/user as mob)
 
@@ -43,6 +57,25 @@
 		user.show_message("<span class='notice'>\The reagents inside [src] are already secured.</span>")
 	return
 
+/obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large
+	name = "large inhaler cartridge"
+	icon_state = "pi_cart_medium"
+	volume = 30
+	w_class = 3
+	amount_per_transfer_from_this = 10
+	possible_transfer_amounts = list(5,10,15,30)
+	origin_tech = list(TECH_BIO = 4, TECH_MATERIAL = 4)
+
+/obj/item/weapon/reagent_containers/personal_inhaler_cartridge/bluespace
+	name = "bluespace inhaler cartridge"
+	icon_state = "pi_cart_large"
+	volume = 60
+	w_class = 3
+	amount_per_transfer_from_this = 10
+	possible_transfer_amounts = list(5,10,15,30,60)
+	origin_tech = list(TECH_BLUESPACE = 2, TECH_BIO = 6, TECH_MATERIAL = 6)
+
+
 /obj/item/weapon/personal_inhaler
 	name = "inhaler"
 	desc = "A safe way to administer small amounts of drugs into the lungs by trained personnel."
@@ -52,13 +85,18 @@
 	w_class = 2
 	slot_flags = SLOT_BELT
 	var/obj/item/weapon/reagent_containers/stored_cartridge
-	var/amount_per_transfer_from_this = 10
+	var/transfer_amount = 5
+	origin_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
+
+/obj/item/weapon/personal_inhaler/examine(var/mob/user)
+	if(!..(user, 2))
+		return
+	if(stored_cartridge)
+		user.show_message("<span class='notice'>\The [stored_cartridge] is attached to \the [src].</span>")
 
 /obj/item/weapon/personal_inhaler/update_icon()
-	if(!stored_cartridge)
-		icon_state = "pi_loaded"
-	else
-		icon_state = "pi"
+	if(stored_cartridge)
+		add_overlay(stored_cartridge.icon_state)
 
 /obj/item/weapon/personal_inhaler/attack_self()
 	if(stored_cartridge)
@@ -89,10 +127,11 @@
 		eyestab(M,user)
 		if(M.reagents)
 			var/contained = stored_cartridge.reagentlist()
-			var/trans = stored_cartridge.reagents.trans_to_mob(M, amount_per_transfer_from_this, CHEM_TOUCH)
+			var/trans = stored_cartridge.reagents.trans_to_mob(M, transfer_amount, CHEM_TOUCH)
 			admin_inject_log(user, M, src, contained, trans)
 			user.visible_message("<span class='notice'>[user] accidentally sticks the [src] in [M]'s eye and presses the injection button!</span>","<span class='notice'>You accidentally stick the [src] in [M]'s eye and press the injection button!</span>")
 			user.show_message("<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
+			playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
 		return
 
 	if (!usr.IsAdvancedToolUser())
@@ -121,9 +160,35 @@
 
 	if(M.reagents)
 		var/contained = stored_cartridge.reagentlist()
-		var/trans = stored_cartridge.reagents.trans_to_mob(M, amount_per_transfer_from_this, CHEM_BREATHE)
+		var/trans = stored_cartridge.reagents.trans_to_mob(M, transfer_amount, CHEM_BREATHE)
 		admin_inject_log(user, M, src, contained, trans)
 		user.show_message("<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
+		playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
 
 	return
 
+/obj/item/weapon/personal_inhaler/combat
+	name = "combat inhaler"
+	desc = "A large, bulky inhaler design that injects the entire contents of the loaded cartridge via an aerosol system in a single button press."
+	icon_state = "pi_combat"
+	w_class = 3
+	transfer_amount = 60
+	origin_tech = list(TECH_BIO = 4, TECH_MATERIAL = 4, TECH_ENGINEERING = 4)
+
+/obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large/hyperzine
+	name = "large inhaler cartridge (hyperzine)"
+	Initialize()
+		. =..()
+		reagents.add_reagent("hyperzine", 30)
+		flags ^= OPENCONTAINER
+		update_icon()
+		return
+
+/obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large/inaprovaline
+	name = "large inhaler cartridge (inaprovaline)"
+	Initialize()
+		. =..()
+		reagents.add_reagent("inaprovaline", 30)
+		flags ^= OPENCONTAINER
+		update_icon()
+		return

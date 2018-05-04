@@ -1545,24 +1545,29 @@ var/list/global/random_stock_large = list(
 			new /obj/random/contraband(L)
 
 		if ("inhaler")
-			var/number = rand(2,3)
-			var/list/inhalers = list(
-				/obj/item/weapon/reagent_containers/inhaler/dexalin = 8,
-				/obj/item/weapon/reagent_containers/inhaler/hyperzine = 2,
-				/obj/item/weapon/reagent_containers/inhaler/phoron = 2,
-				/obj/item/weapon/reagent_containers/inhaler/soporific = 1,
-				/obj/item/weapon/reagent_containers/inhaler/space_drugs = 3
-			)
-			while(number > 0)
-				var/type = pickweight(inhalers)
-				var/obj/item/weapon/reagent_containers/inhaler/spawned = new type(L)
-				if(prob(10) || istype(spawned,/obj/item/weapon/reagent_containers/inhaler/space_drugs))
-					spawned.name = "unlabeled inhaler"
-					spawned.desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one is unlabeled."
-				number -= 1
-
 			if(prob(33))
-				new /obj/item/device/breath_analyzer(L)
+				new /obj/item/weapon/storage/box/inhalers(src)
+			else
+				var/number = rand(2,3)
+				var/list/inhalers = list(
+					/obj/item/weapon/reagent_containers/inhaler/dexalin = 8,
+					/obj/item/weapon/reagent_containers/inhaler/hyperzine = 2,
+					/obj/item/weapon/reagent_containers/inhaler/phoron = 2,
+					/obj/item/weapon/reagent_containers/inhaler/soporific = 1,
+					/obj/item/weapon/reagent_containers/inhaler/space_drugs = 3
+				)
+				while(number > 0)
+					var/type = pickweight(inhalers)
+					var/obj/item/weapon/reagent_containers/inhaler/spawned = new type(L)
+					if(prob(10) || istype(spawned,/obj/item/weapon/reagent_containers/inhaler/space_drugs))
+						spawned.name = "unlabeled inhaler"
+						spawned.desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one is unlabeled."
+					number -= 1
+
+				if(prob(33))
+					new /obj/item/device/breath_analyzer(L)
+
+
 
 
 //Large items go below here
