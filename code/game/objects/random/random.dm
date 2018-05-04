@@ -818,6 +818,7 @@
 		/obj/random/spacecash = 0.3,
 		/obj/item/device/firing_pin = 0.3,
 		/obj/item/weapon/reagent_containers/inhaler/hyperzine = 0.1
+		/obj/item/weapon/storage/box/pineapple = 0.1
 	)
 
 /obj/random/hoodie

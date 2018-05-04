@@ -864,6 +864,17 @@
 	glass_name = "glass of watermelon juice"
 	glass_desc = "Delicious juice made from watermelon."
 
+/datum/reagent/drink/pineapplejuice
+	name = "Pineapple Juice"
+	id = "pineapplejuice"
+	description = "From freshly canned pineapples."
+	color = "#FFFF00"
+	taste_description = "pineapple"
+
+	glass_icon_state = "lemonjuice"
+	glass_name = "glass of pineapple juice"
+	glass_desc = "What the hell is this?"
+
 // Everything else
 
 /datum/reagent/drink/milk
