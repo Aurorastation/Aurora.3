@@ -18,6 +18,8 @@
 	hunger_enabled = 0//Until automated eating mechanics are enabled, disable hunger for hostile mobs
 	var/shuttletarget = null
 	var/enroute = 0
+	var/list/targets = list()
+	var/attacked_times = 0
 
 /mob/living/simple_animal/hostile/Destroy()
 	friends = null
@@ -31,7 +33,8 @@
 
 	var/atom/T = null
 	stop_automated_movement = 0
-	for(var/atom/A in ListTargets(10))
+
+	for(var/atom/A in targets)
 
 		if(A == src)
 			continue
@@ -42,33 +45,33 @@
 			break
 
 		if(isliving(A))
-			stance = HOSTILE_STANCE_ATTACK
 			T = find_weakest()
+			break
 
 		else if(istype(A, /obj/mecha)) // Our line of sight stuff was already done in ListTargets().
 			var/obj/mecha/M = A
 			if (M.occupant)
-				stance = HOSTILE_STANCE_ATTACK
 				T = M
 				break
 
 		if(istype(A, /obj/machinery/bot))
 			var/obj/machinery/bot/B = A
 			if (B.health > 0)
-				stance = HOSTILE_STANCE_ATTACK
 				T = B
 				break
 
 	if (T != target_mob)
 		target_mob = T
 		FoundTarget()
+	if(T != null)
+		stance = HOSTILE_STANCE_ATTACK
 	return T
 
 // Finds weakest(with least health) living mob to attack
 /mob/living/simple_animal/hostile/proc/find_weakest()
 	var/lowest_health = 100
-	var/atom/T
-	for(var/atom/A in ListTargets(10))
+	var/atom/T = null
+	for(var/atom/A in targets)
 		if(isliving(A))
 			var/mob/living/L = A
 			if((L.faction == src.faction) && !attack_same)
@@ -84,27 +87,31 @@
 
 /mob/living/simple_animal/hostile/attackby(var/obj/item/O, var/mob/user)
 	..()
-	target_mob = user
-	stance = HOSTILE_STANCE_ATTACK
-	think()
+	if(target_mob != user)
+		target_mob = user
+		stance = HOSTILE_STANCE_ATTACK
+		think()
 
 /mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
 	..()
-	target_mob = user
-	stance = HOSTILE_STANCE_ATTACK
-	think()
+	if(target_mob != user)
+		target_mob = user
+		stance = HOSTILE_STANCE_ATTACK
+		think()
 
 /mob/living/simple_animal/hostile/attack_generic(var/mob/user, var/damage, var/attack_message)
 	..()
-	target_mob = user
-	stance = HOSTILE_STANCE_ATTACK
-	think()
+	if(target_mob != user)
+		target_mob = user
+		stance = HOSTILE_STANCE_ATTACK
+		think()
 
 /mob/living/simple_animal/hostile/attack_hand(mob/living/carbon/human/M as mob)
 	..()
-	target_mob = M
-	stance = HOSTILE_STANCE_ATTACK
-	think()
+	if(target_mob != user)
+		target_mob = user
+		stance = HOSTILE_STANCE_ATTACK
+		think()
 
 //This proc is called after a target is acquired
 /mob/living/simple_animal/hostile/proc/FoundTarget()
@@ -117,7 +124,7 @@
 	stop_automated_movement = 1
 	if(QDELETED(target_mob) || SA_attackable(target_mob))
 		LoseTarget()
-	if(target_mob in ListTargets(10))
+	if(target_mob in targets)
 		if(ranged)
 			if(get_dist(src, target_mob) <= 6)
 				OpenFire(target_mob)
@@ -133,13 +140,14 @@
 	if(QDELETED(target_mob) || SA_attackable(target_mob))
 		LoseTarget()
 		return 0
-	if(!(target_mob in ListTargets(10)))
+	if(!(target_mob in targets))
 		LoseTarget()
 		return 0
 	if(next_move >= world.time)
 		return 0
 	if(get_dist(src, target_mob) <= 1)	//Attacking
 		AttackingTarget()
+		attacked_times += 1
 		return 1
 
 /mob/living/simple_animal/hostile/proc/AttackingTarget()
@@ -186,6 +194,7 @@
 	..()
 	switch(stance)
 		if(HOSTILE_STANCE_IDLE)
+			targets = ListTargets(10)
 			target_mob = FindTarget()
 
 		if(HOSTILE_STANCE_ATTACK)
@@ -196,7 +205,10 @@
 		if(HOSTILE_STANCE_ATTACKING)
 			if(!AttackTarget() && destroy_surroundings)	//hit a window OR a mob, not both at once
 				DestroySurroundings()
-			target_mob = FindTarget()
+			if(attacked_times >= rand(0, 4))
+				targets = ListTargets(10)
+				target_mob = FindTarget()
+				attacked_times = 0
 
 
 /mob/living/simple_animal/hostile/proc/OpenFire(target_mob)
