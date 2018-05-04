@@ -957,46 +957,48 @@
 	var/overdose_delay = 10
 	var/waiting_for_choice = 0
 
-/datum/reagent/mental/hextrasenil/overdose(var/mob/living/carbon/human/H, var/alien, var/removed, var/scale)
+/datum/reagent/mental/hextrasenil/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
 
+	if(max_dose > overdose)
+		if(!dont_run_overdose && overdose_time % overdose_delay == 0 && istype(H))
 
-	if(!dont_run_overdose && overdose_time % overdose_delay == 0 && istype(H))
+			if(!is_antag)
+				var/datum/antagonist/antag_data = get_antag_data(H.mind.special_role)
+				if(antag_data && !(antag_data.flags & ANTAG_IMPLANT_IMMUNE))
+					is_antag = 1
+				else
+					dont_run_overdose = 1
 
-		if(!is_antag)
-			var/datum/antagonist/antag_data = get_antag_data(H.mind.special_role)
-			if(antag_data && !(antag_data.flags & ANTAG_IMPLANT_IMMUNE))
-				is_antag = 1
-			else
-				dont_run_overdose = 1
-				return
+			if(!dont_run_overdose)
+				switch(overdose_time)
+					if(0 to 30)
+						to_chat(H,"<span class='warning'>You feel the tendrils of obedience invade your mind...</span>")
+						H.adjustHalLoss(5)
+					if(30 to 60)
+						to_chat(H,"<span class='warning'>You feel your very mind and body turn on itself...</span>")
+						H.adjustHalLoss(10)
+					if(60 to 300)
+						to_chat(H,"<span class='danger'>Every inch of flesh in your body feels like a million stings...</span>")
+						H.adjustHalLoss(20)
+					if(300 to INFINITY)
+						overdose_delay = 120
+						H.adjustHalLoss(50)
+						H.weakened += 4
+						to_chat(H,"<span class='danger'>Your body cries out in pain while your willpower is on the verge of collapsing...</span>")
+						if(!waiting_for_choice && prob(25))
+							spawn() //I don't know if this would work, ask tomorrow.
+								waiting_for_choice = 1
+								var/choice = alert(H,"Do you want to give into [current_map.company_name]?","Submit to [current_map.company_name]","Resist","Submit")
+								waiting_for_choice = 0
+								if(choice == "Submit")
+									clear_antag_roles(H.mind, 1)
+									to_chat(H,"<span class='notice'>You give into the pain and torment, and renounce your previous ways. Any harmful intentions towards [current_map.company_name] have been long forgotten.</span>")
+								else
+									to_chat(H,"<span class='noitce'>You hold onto the last bit of hope and hold on a little while longer...</span>")
 
-		switch(overdose_time)
-			if(0 to 30)
-				to_chat(H,"<span class='warning'>You feel the tendrils of obedience invade your mind...</span>")
-				H.adjustHalLoss(5)
-			if(30 to 60)
-				to_chat(H,"<span class='warning'>You feel your very mind and body turn on itself...</span>")
-				H.adjustHalLoss(10)
-			if(60 to 300)
-				to_chat(H,"<span class='danger'>Every inch of flesh in your body feels like a million stings...</span>")
-				H.adjustHalLoss(20)
-			if(300 to INFINITY)
-				overdose_delay = 120
-				H.adjustHalLoss(50)
-				H.weakened += 4
-				to_chat(H,"<span class='danger'>Your body cries out in pain while your willpower is on the verge of collapsing...</span>")
-				if(!waiting_for_choice && prob(25))
-					spawn() //I don't know if this would work, ask tomorrow.
-						waiting_for_choice = 1
-						var/choice = alert(H,"Do you want to give into [current_map.company_name]?","Submit to [current_map.company_name]","Resist","Submit")
-						waiting_for_choice = 0
-						if(choice == "Submit")
-							clear_antag_roles(H.mind, 1)
-							to_chat(H,"<span class='notice'>You give into the pain and torment, and renounce your previous ways. Any harmful intentions towards [current_map.company_name] have been long forgotten.</span>")
-						else
-							to_chat(H,"<span class='noitce'>You hold onto the last bit of hope and hold on a little while longer...</span>")
+		overdose_time += REM
 
-	overdose_time += REM
+	. = ..()
 
 /datum/reagent/mental/hextrasenil/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting)
 	var/amount = min(removed, conflicting.volume)
@@ -1028,37 +1030,38 @@
 	var/overdose_time = 0
 	var/obj/item/weapon/implant/loyalty/implant
 
-/datum/reagent/mental/trisyndicotin/overdose(var/mob/living/carbon/human/H, var/alien, var/removed, var/scale)
+/datum/reagent/mental/trisyndicotin/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
 
-	if(!dont_run_overdose && overdose_time % overdose_delay == 0 && istype(H))
+	if(max_dose > overdose)
+		if(!dont_run_overdose && overdose_time % overdose_delay == 0 && istype(H))
 
-		if(!implant)
-			for(var/obj/item/weapon/implant/loyalty/I in H.contents)
-				for(var/obj/item/organ/external/organs in H.organs)
-					if(I in organs.implants)
-						implant = I
-						break
+			if(!implant)
+				for(var/obj/item/weapon/implant/loyalty/I in H.contents)
+					for(var/obj/item/organ/external/organs in H.organs)
+						if(I in organs.implants)
+							implant = I
+							break
 
-			if(!implant) //Couldn't find an implant
-				dont_run_overdose = 1
-				return
+				if(!implant) //Couldn't find an implant
+					dont_run_overdose = 1
 
-		switch(overdose_time)
-			if(0 to 30)
-				to_chat(H,"<span class='warning'>You feel discomfort in your entire body...</span>")
-			if(30 to 60)
-				to_chat(H,"<span class='warning'>Thinking becomes painful and your whole body starts to ache...</span>")
-				H.adjustHalLoss(5)
-			if(60 to 300)
-				to_chat(H,"<span class='danger'>Your brain aches and burns with every passing second!</span>")
-				H.adjustHalLoss(10)
-			if(300 to INFINITY)
-				H.adjustHalLoss(-50)
-				qdel(implant)
-				to_chat(H,"<span class='notice'><font size =3><B>With a relieving wave of euphoria, your loyalty implant deactivates. Freedom, at last!</B></font></span>")
-				dont_run_overdose = 1
+			if(!dont_run_overdose)
+				switch(overdose_time)
+					if(0 to 30)
+						to_chat(H,"<span class='warning'>You feel discomfort in your entire body...</span>")
+					if(30 to 60)
+						to_chat(H,"<span class='warning'>Thinking becomes painful and your whole body starts to ache...</span>")
+						H.adjustHalLoss(5)
+					if(60 to 300)
+						to_chat(H,"<span class='danger'>Your brain aches and burns with every passing second!</span>")
+						H.adjustHalLoss(10)
+					if(300 to INFINITY)
+						H.adjustHalLoss(-50)
+						qdel(implant)
+						to_chat(H,"<span class='notice'><font size =3><B>With a relieving wave of euphoria, your loyalty implant deactivates. Freedom, at last!</B></font></span>")
+						dont_run_overdose = 1
 
-	overdose_time += REM
+		overdose_time += REM
 
 /datum/reagent/mental/trisyndicotin/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting)
 	var/amount = min(removed, conflicting.volume)
@@ -1134,14 +1137,14 @@
 
 /datum/reagent/calomel/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 
-	var/amount_to_purge = removed*4
+	var/amount_to_purge = removed*4 //Every unit removes 4 units of other chemicals
 	var/amount_purged = 0
 	var/is_overdosed = overdose && (dose > overdose)
 
 	if(is_overdosed)
 		removed *= 2
 
-	for(var/datum/reagent/selected in M.reagents)
+	for(var/datum/reagent/selected in M.bloodstr)
 		if(selected == src)
 			continue
 		if(selected.id == "blood" && !is_overdosed)
@@ -1154,6 +1157,40 @@
 			break
 
 	M.adjustToxLoss(removed + amount_purged*0.5) //15u has the potential to do 15 + 30 toxin damage in 30 seconds
+
+/datum/reagent/pulmodeiectionem
+	name = "Pulmodeiectionem"
+	id = "pulmodeiectionem"
+	description = "A powdery chemical that damages the mucus lining in the the main broncus and the trachea, allowing particles to easily escape the lungs. Only works when inhaled. May cause long term damage to the lungs, and oxygen deprevation."
+	color = "#550055"
+	metabolism = 2 * REM
+	overdose = 10
+	scannable = 1
+	taste_description = "dust"
+	reagent_state = SOLID
+
+/datum/reagent/pulmodeiectionem/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
+	if(istype(H))
+		var/obj/item/organ/L = H.internal_organs_by_name["lungs"]
+		if(istype(L) && !L.robotic && !L.is_broken())
+
+			var/amount_to_purge = removed*5 //Every unit removes 5 units of other chemicals.
+			for(var/datum/reagent/selected in H.breathing)
+				if(selected == src)
+					continue
+				var/local_amount = min(amount_to_purge, selected.volume)
+				H.breathing.remove_reagent(selected.id, local_amount)
+				amount_to_purge -= local_amount
+				if(amount_to_purge <= 0)
+					break
+
+			L.take_damage(1*removed) //Every 10 units deals 1 lung damage.
+			H.adjustOxyLoss(2*removed) //Every unit deals 2 oxy damage
+
+			if(prob(10)) //Cough uncontrolably
+				H.emote("cough")
+
+	. = ..()
 
 /datum/reagent/rezadone
 	name = "Rezadone"

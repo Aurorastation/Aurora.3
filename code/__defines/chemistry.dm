@@ -56,8 +56,8 @@ var/list/cheartstopper = list("potassium_chloride")                       // Thi
 #define INTOX_FILTER_BRUISED 0.010
 #define INTOX_FILTER_DAMAGED 0.05
 
-#define	BASE_DIZZY 100 //Base dizziness from getting drunk.
-#define DIZZY_ADD_SCALE 30 //Amount added for every 0.01 percent over the JUDGEIMP limit
+#define	BASE_DIZZY 50 //Base dizziness from getting drunk.
+#define DIZZY_ADD_SCALE 15 //Amount added for every 0.01 percent over the JUDGEIMP limit
 
 #define	BASE_VOMIT_CHANCE 10 //Base chance
 #define	VOMIT_CHANCE_SCALE 2.5 //Percent change added for every 0.01 percent over the VOMIT limit

@@ -31,7 +31,6 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 		if (dizziness == 0)
 			src.show_message("<span class='notice'>You feel a little tipsy.</span>")
 		var/target_dizziness = BASE_DIZZY + ((bac - INTOX_JUDGEIMP*SR)*DIZZY_ADD_SCALE*100)
-		src << target_dizziness
 		make_dizzy(target_dizziness - dizziness)
 
 	if(bac > INTOX_MUSCLEIMP*SR)
@@ -59,7 +58,7 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 			var/chance = BASE_VOMIT_CHANCE + ((bac - INTOX_VOMIT*SR)*VOMIT_CHANCE_SCALE*100)
 			if (prob(chance))
 				delayed_vomit()
-				add_chemical_effect(CE_ALCOHOL_TOXIC, 1)
+				add_chemical_effect(CE_ALCOHOL_TOXIC, 0.25)
 
 	if(bac > INTOX_BALANCE*SR)
 		slurring = max(slurring, 100)
@@ -84,7 +83,7 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 				sleeping  = max(sleeping, 6 SECONDS)
 				adjustBrainLoss(1,5)
 
-	if (bac > INTOX_DEATH*SR) //Death usually occurs here
+	if (bac > INTOX_DEATH*SR && !src.reagents.has_reagent("ethylredoxrazine")) //Death usually occurs here
 		add_chemical_effect(CE_ALCOHOL_TOXIC, 10)
 		adjustOxyLoss(3,100)
 		adjustBrainLoss(1,50)

@@ -348,9 +348,19 @@
 	desc = "Contains nanobots that are programmed to interfere with loyalty implants. Two 15u injections are required."
 	Initialize()
 		. = ..()
-		reagents.add_reagent("truthserum",  15)
+		reagents.add_reagent("trisyndicotin",  15)
 		mode = SYRINGE_INJECT
 		update_icon()
+
+/obj/item/weapon/reagent_containers/syringe/syndites
+	name = "Syringe (syndites)"
+	desc = "Contains nanobots that are programmed to interfere with loyalty implants. Two 15u injections are required."
+	Initialize()
+		. = ..()
+		reagents.add_reagent("calomel",  15)
+		mode = SYRINGE_INJECT
+		update_icon()
+
 
 /obj/item/weapon/reagent_containers/syringe/ld50_syringe/choral
 	Initialize()

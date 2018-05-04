@@ -121,7 +121,7 @@
 	color = "#EEEEEE"
 	taste_description = "cherry"
 	conflicting_reagent = /datum/reagent/toxin/phoron
-	strength = 5
+	strength = 1
 
 /datum/reagent/toxin/cardox/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	.. ()
@@ -130,23 +130,22 @@
 
 /datum/reagent/toxin/cardox/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VAURCA)
-		M.adjustToxLoss(removed * 5)
+		M.adjustToxLoss(removed * strength*2)
 	else
-		M.adjustToxLoss(removed * 2)
+		M.adjustToxLoss(removed * strength)
 
 /datum/reagent/toxin/cardox/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting)
 	var/amount = min(removed, conflicting.volume)
 	holder.remove_reagent(conflicting.id, amount)
 	M.adjustBrainLoss(amount * 0.25)
 
-/datum/reagent/toxin/cardox/touch_turf(var/turf/T)
-	if(volume >= 1)
+/datum/reagent/toxin/cardox/touch_turf(var/turf/T, var/amount)
+	if(amount >= 1)
 		for(var/mob/living/carbon/slime/M in T)
 			M.adjustToxLoss(rand(10, 20))
 
-	if(T.phoron)
-		var/datum/gas_mixture/environment = T.return_air()
-		environment.adjust_gas("phoron",-min(T.phoron,volume*0.5))
+	var/datum/gas_mixture/environment = T.return_air()
+	environment.adjust_gas("phoron",volume*0.5)
 
 /datum/reagent/toxin/cyanide //Fast and Lethal
 	name = "Cyanide"

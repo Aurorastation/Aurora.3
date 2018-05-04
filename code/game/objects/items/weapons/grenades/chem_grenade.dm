@@ -316,11 +316,10 @@
 		var/obj/item/weapon/reagent_containers/glass/beaker/large/B1 = new(src)
 		var/obj/item/weapon/reagent_containers/glass/beaker/large/B2 = new(src)
 
-		B1.reagents.add_reagent("phosphorus", 40)
-		B1.reagents.add_reagent("potassium", 40)
-		B1.reagents.add_reagent("cardox", 40)
-		B2.reagents.add_reagent("sugar", 40)
-		B2.reagents.add_reagent("cardox", 80)
+		B1.reagents.add_reagent("water", 60)
+		B1.reagents.add_reagent("cardox", 60)
+		B2.reagents.add_reagent("surfactant", 60)
+		B2.reagents.add_reagent("cardox", 60)
 
 		detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 

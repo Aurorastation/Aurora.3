@@ -980,13 +980,14 @@ var/list/global/random_stock_large = list(
 			new type(L)
 
 		if ("cleanernades")
-			new /obj/item/weapon/grenade/chem_grenade/cleaner(L)
-			new /obj/item/weapon/grenade/chem_grenade/cleaner(L)
-			if (prob(50))
+			if(prob(90))
 				new /obj/item/weapon/grenade/chem_grenade/cleaner(L)
 				new /obj/item/weapon/grenade/chem_grenade/cleaner(L)
-
-
+				if (prob(50))
+					new /obj/item/weapon/grenade/chem_grenade/cleaner(L)
+					new /obj/item/weapon/grenade/chem_grenade/cleaner(L)
+			else
+				new /obj/item/weapon/grenade/chem_grenade/large/phoroncleaner(L)
 
 		if ("mining")
 			if (prob(50))
