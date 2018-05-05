@@ -58,11 +58,11 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 			var/chance = BASE_VOMIT_CHANCE + ((bac - INTOX_VOMIT*SR)*VOMIT_CHANCE_SCALE*100)
 			if (prob(chance))
 				delayed_vomit()
-				add_chemical_effect(CE_ALCOHOL_TOXIC, 0.25)
+				add_chemical_effect(CE_ALCOHOL_TOXIC, 1)
 
 	if(bac > INTOX_BALANCE*SR)
 		slurring = max(slurring, 100)
-		if (life_tick % 4 == 1 && !lying && !buckled && prob(10) && loc:has_gravity())
+		if (life_tick % 4 == 1 && !lying && !buckled && prob(10))
 			src.visible_message("<span class='warning'>[src] loses balance and falls to the ground!</span>","<span class='warning'>You lose balance and fall to the ground!</span>")
 			paralysis = max(paralysis,3 SECONDS)
 			if(bac > INTOX_CONSCIOUS*SR)

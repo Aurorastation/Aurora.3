@@ -140,12 +140,14 @@
 	M.adjustBrainLoss(amount * 0.25)
 
 /datum/reagent/toxin/cardox/touch_turf(var/turf/T, var/amount)
+
 	if(amount >= 1)
 		for(var/mob/living/carbon/slime/M in T)
 			M.adjustToxLoss(rand(10, 20))
 
 	var/datum/gas_mixture/environment = T.return_air()
-	environment.adjust_gas("phoron",volume*0.5)
+	environment.adjust_gas("phoron",amount*0.5)
+	world << "Fuck Phoron: [amount]"
 
 /datum/reagent/toxin/cyanide //Fast and Lethal
 	name = "Cyanide"

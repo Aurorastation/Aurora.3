@@ -29,27 +29,7 @@
 	else
 		user.show_message("<span class='notice'>The reagents are secured in the aerosol mix.</span>")
 
-/obj/item/weapon/reagent_containers/personal_inhaler_cartridge/attack(obj/O as obj, mob/user as mob)
-
-	if(!istype(O))
-		return
-
-	if(istype(O,/obj/item/weapon/personal_inhaler))
-		var/obj/item/weapon/personal_inhaler/PI = O
-		if(PI.stored_cartridge)
-			user.show_message("<span class='notice'>\The [PI] already has a cartridge.</span>")
-			return
-		if(is_open_container())
-			user.show_message("<span class='notice'>\The [src] needs to be secured first.</span>")
-			return
-		user.remove_from_mob(PI)
-		PI.stored_cartridge = src
-		PI.loc = loc
-		return
-
-	. = ..()
-
-/obj/item/weapon/reagent_containers/personal_inhaler_cartridge/attack_self()
+/obj/item/weapon/reagent_containers/personal_inhaler_cartridge/attack_self(mob/user as mob)
 	if(is_open_container())
 		user.show_message("<span class='notice'>With a quick twist, you secure the reagents inside \the [src].</span>")
 		flags ^= OPENCONTAINER
@@ -166,6 +146,20 @@
 		playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
 
 	return
+
+/obj/item/weapon/personal_inhaler/attackby(var/obj/item/weapon/personal_inhaler/PI as obj, var/mob/user as mob)
+	if(istype(PI))
+		if(PI.stored_cartridge)
+			user.show_message("<span class='notice'>\The [PI] already has a cartridge.</span>")
+			return
+		if(is_open_container())
+			user.show_message("<span class='notice'>\The [src] needs to be secured first.</span>")
+			return
+		user.remove_from_mob(PI)
+		PI.stored_cartridge = src
+		PI.loc = loc
+		return
+	. = ..()
 
 /obj/item/weapon/personal_inhaler/combat
 	name = "combat inhaler"
