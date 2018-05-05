@@ -3,7 +3,7 @@
 	desc = "Oxygen candles are flare-like steel tubes of sodium chlorate that produces oxygen through chemical process."
 	icon = 'icons/obj/candle.dmi'
 	icon_state = "candle1"
-	w_class = ITEMSIZE_SMALL
+	w_class = ITEMSIZE_SMALL // Should fit into internal's box or maybe pocket
 	var/target_pressure = ONE_ATMOSPHERE
 	var/datum/gas_mixture/air_contents = null
 	var/volume = 5500 //One tile has 2500 volume of air, so two tiles plus a bit extra
@@ -63,14 +63,10 @@
 		var/list/air_mix = StandardAirMix()
 		air_contents.adjust_multi("oxygen", air_mix["oxygen"], "nitrogen", air_mix["nitrogen"])
 
-/obj/item/device/flashlight/update_icon()
+/obj/item/device/oxycandle/update_icon()
 	if(on)
 		icon_state = "candle1_lit"
 		set_light(brightness_on)
 	else
 		icon_state = "candle1"
 		set_light(0)
-
-
-
-
