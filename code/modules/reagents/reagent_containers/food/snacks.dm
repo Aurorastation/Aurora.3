@@ -144,7 +144,7 @@
 				user.visible_message("<span class='notice'>[user] feeds [M] a tiny bit of [src]. <b>It looks full.</b></span>")
 				if (!istype(M.loc, /turf))
 					M << "<span class='notice'>[user] feeds you a tiny bit of [src]. <b>You feel pretty full!</b></span>"
-			On_Consume(M)
+			On_Consume(user)
 			return 1
 		else
 			user << "<span class='danger'>[M.name] can't stomach anymore food!</span>"
