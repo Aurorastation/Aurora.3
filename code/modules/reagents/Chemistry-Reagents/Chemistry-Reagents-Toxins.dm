@@ -137,17 +137,15 @@
 /datum/reagent/toxin/cardox/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting)
 	var/amount = min(removed, conflicting.volume)
 	holder.remove_reagent(conflicting.id, amount)
-	M.adjustBrainLoss(amount * 0.25)
 
 /datum/reagent/toxin/cardox/touch_turf(var/turf/T, var/amount)
 
 	if(amount >= 1)
 		for(var/mob/living/carbon/slime/M in T)
-			M.adjustToxLoss(rand(10, 20))
+			M.adjustToxLoss(amount*10)
 
 	var/datum/gas_mixture/environment = T.return_air()
-	environment.adjust_gas("phoron",amount*0.5)
-	world << "Fuck Phoron: [amount]"
+	environment.adjust_gas("phoron",-amount*10)
 
 /datum/reagent/toxin/cyanide //Fast and Lethal
 	name = "Cyanide"

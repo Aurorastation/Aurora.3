@@ -31,7 +31,7 @@
 
 /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/attack_self(mob/user as mob)
 	if(is_open_container())
-		user.show_message("<span class='notice'>With a quick twist, you secure the reagents inside \the [src].</span>")
+		user.show_message("<span class='notice'>With a quick twist of the lid, you secure the reagents inside \the [src].</span>")
 		flags ^= OPENCONTAINER
 	else
 		user.show_message("<span class='notice'>\The reagents inside [src] are already secured.</span>")
@@ -55,7 +55,6 @@
 	possible_transfer_amounts = list(5,10,15,30,60)
 	origin_tech = list(TECH_BLUESPACE = 2, TECH_BIO = 6, TECH_MATERIAL = 6)
 
-
 /obj/item/weapon/personal_inhaler
 	name = "inhaler"
 	desc = "A safe way to administer small amounts of drugs into the lungs by trained personnel."
@@ -75,10 +74,11 @@
 		user.show_message("<span class='notice'>\The [stored_cartridge] is attached to \the [src].</span>")
 
 /obj/item/weapon/personal_inhaler/update_icon()
+	cut_overlays()
 	if(stored_cartridge)
 		add_overlay(stored_cartridge.icon_state)
 
-/obj/item/weapon/personal_inhaler/attack_self()
+/obj/item/weapon/personal_inhaler/attack_self(mob/user as mob)
 	if(stored_cartridge)
 		user.put_in_hands(stored_cartridge)
 		user.show_message("<span class='warning'>You remove \the [stored_cartridge] from the [src].</span>")
@@ -147,17 +147,18 @@
 
 	return
 
-/obj/item/weapon/personal_inhaler/attackby(var/obj/item/weapon/personal_inhaler/PI as obj, var/mob/user as mob)
-	if(istype(PI))
-		if(PI.stored_cartridge)
-			user.show_message("<span class='notice'>\The [PI] already has a cartridge.</span>")
+/obj/item/weapon/personal_inhaler/attackby(var/obj/item/weapon/reagent_containers/personal_inhaler_cartridge/cartridge as obj, var/mob/user as mob)
+	if(istype(cartridge))
+		if(src.stored_cartridge)
+			user.show_message("<span class='notice'>\The [src] already has a cartridge.</span>")
 			return
-		if(is_open_container())
-			user.show_message("<span class='notice'>\The [src] needs to be secured first.</span>")
+		if(cartridge.is_open_container())
+			user.show_message("<span class='notice'>\The [cartridge] needs to be secured first.</span>")
 			return
-		user.remove_from_mob(PI)
-		PI.stored_cartridge = src
-		PI.loc = loc
+		user.remove_from_mob(cartridge)
+		src.stored_cartridge = cartridge
+		cartridge.loc = src
+		update_icon()
 		return
 	. = ..()
 

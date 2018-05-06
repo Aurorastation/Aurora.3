@@ -1546,7 +1546,10 @@ var/list/global/random_stock_large = list(
 
 		if ("inhaler")
 			if(prob(33))
-				new /obj/item/weapon/storage/box/inhalers(src)
+				if(prob(10))
+					new/obj/item/weapon/storage/box/inhalers_large(src)
+				else
+					new /obj/item/weapon/storage/box/inhalers(src)
 			else
 				var/number = rand(2,3)
 				var/list/inhalers = list(
