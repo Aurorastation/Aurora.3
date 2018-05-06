@@ -33,8 +33,10 @@
 /obj/item/device/oxycandle/process()
 	if(on)
 		var/turf/pos = get_turf(src)
-		if(volume <= 0 || istype(pos, /turf/simulated/floor/beach/water))
+		if(volume <= 0 || istype(pos, /turf/simulated/floor/beach/water) || istype(pos, /turf/unsimulated/beach/water))
 			new/obj/item/trash/candle(src.loc) // Placeholder for new sprites
+			if(istype(src.loc, /mob))
+			src.dropped()
 			STOP_PROCESSING(SSprocessing, src)
 			qdel(src)
 		if(pos)
