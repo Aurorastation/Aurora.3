@@ -361,3 +361,10 @@
 /obj/item/clothing/head/turban/yellow
 	icon_state = "turban_yellow"
 	item_state = "turban_yellow"
+
+//praise verkister
+/obj/item/clothing/head/headbando
+	name = "basic headband"
+	desc = "Perfect for martial artists, sweaty rogue operators, and tunnel gangsters."
+	icon_state = "headbando"
+	item_state = "headbando"
