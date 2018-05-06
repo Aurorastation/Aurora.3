@@ -1,5 +1,5 @@
 /obj/item/device/oxycandle
-	name = "Oxygen Candle"
+	name = "oxygen Candle"
 	desc = "A steel tube with the words 'OXYGEN - PULL CORD TO IGNITE' stamped on the side. A small label warns against using the device underwater"
 	icon = 'icons/obj/candle.dmi' // Placeholder for new sprites
 	icon_state = "candle1" // Placeholder for new sprites
