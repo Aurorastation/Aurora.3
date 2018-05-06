@@ -944,10 +944,10 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			message += "Your [P] begins to spark violently!"
 
 
-	if(message)
-		message += " It melts in a puddle of plastic."
-	else
+	if(effect == "explosion")
 		message += " Your [P] shatters in a thousand pieces!"
+	else
+		message += " It melts in a puddle of plastic."
 
 	if(M && isliving(M))
 		to_chat(M, "<span class='warning'>[message]</span>")
