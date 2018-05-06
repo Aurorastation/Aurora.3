@@ -762,9 +762,6 @@
 /datum/reagent/philosopher_stone
 	value = 1000
 
-/datum/reagent/azoth
-	value = 200
-
 /datum/reagent/elixir
 	value = 1000
 

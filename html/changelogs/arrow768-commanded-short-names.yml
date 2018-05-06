@@ -1,0 +1,5 @@
+author: Arrow768
+delete-after: True
+
+changes:
+  - rscadd: "It is now possible to call commanded animals by a nickname."

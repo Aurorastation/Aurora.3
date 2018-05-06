@@ -1,0 +1,6 @@
+author: Alberyk
+delete-after: True
+
+changes:
+  - rscadd: "Added partial understanding to some languages, it allows you to understand some words from a certain language without knowing it."
+  - rscadd: "Added new tajara language, Delvahhi, available to the Zhan-Khazan."

@@ -815,7 +815,8 @@
 		/obj/random/junk = 0.9,
 		/obj/item/weapon/spacecash/ewallet/lotto = 0.3,
 		/obj/random/spacecash = 0.3,
-		/obj/item/device/firing_pin = 0.3
+		/obj/item/device/firing_pin = 0.3,
+		/obj/item/weapon/storage/box/pineapple = 0.1
 	)
 
 /obj/random/hoodie
@@ -939,3 +940,46 @@
 		/obj/item/weapon/material/sword/gladius
 	)
 
+/obj/random/arcade
+	name = "random arcade loot"
+	desc = "Arcade loot!"
+	icon = 'icons/obj/items.dmi'
+	icon_state = "gift3"
+	spawnlist = list(
+		/obj/item/weapon/storage/box/snappops			= 11,
+		/obj/item/clothing/under/syndicate/tacticool	= 5,
+		/obj/item/toy/sword								= 22,
+		/obj/item/weapon/gun/projectile/revolver/capgun	= 11,
+		/obj/item/toy/crossbow							= 11,
+		/obj/item/weapon/storage/fancy/crayons			= 11,
+		/obj/item/toy/spinningtoy						= 11,
+		/obj/item/toy/prize/ripley						= 1,
+		/obj/item/toy/prize/fireripley					= 1,
+		/obj/item/toy/prize/deathripley					= 1,
+		/obj/item/toy/prize/gygax						= 1,
+		/obj/item/toy/prize/durand						= 1,
+		/obj/item/toy/prize/honk						= 1,
+		/obj/item/toy/prize/marauder					= 1,
+		/obj/item/toy/prize/seraph						= 1,
+		/obj/item/toy/prize/mauler						= 1,
+		/obj/item/toy/prize/odysseus					= 1,
+		/obj/item/toy/prize/phazon						= 1,
+		/obj/item/toy/waterflower						= 5,
+		/obj/random/action_figure						= 11,
+		/obj/random/plushie								= 44,
+		/obj/item/toy/cultsword							= 5,
+		/obj/item/toy/syndicateballoon					= 5,
+		/obj/item/toy/nanotrasenballoon					= 5,
+		/obj/item/toy/katana							= 11,
+		/obj/item/toy/bosunwhistle						= 5,
+		/obj/item/weapon/storage/belt/champion			= 11,
+		/obj/item/weapon/pen/invisible					= 5,
+		/obj/item/weapon/grenade/fake					= 1,
+		/obj/item/weapon/bikehorn						= 11,
+		/obj/item/clothing/mask/fakemoustache			= 11,
+		/obj/item/clothing/mask/gas/clown_hat			= 11,
+		/obj/item/clothing/mask/gas/mime				= 11,
+		/obj/item/weapon/gun/energy/wand/toy			= 5,
+		/obj/item/device/binoculars						= 11,
+		/obj/item/device/megaphone						= 11
+	)
