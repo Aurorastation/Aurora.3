@@ -628,6 +628,7 @@ BLIND     // can't see anything
 	if(usr.put_in_hands(holding))
 		usr.visible_message("<span class='danger'>\The [usr] pulls \a [holding] out of their boot!</span>")
 		holding = null
+		playsound(get_turf(src), 'sound/items/holster/sheathout.ogg', 25)
 	else
 		usr << "<span class='warning'>Your need an empty, unbroken hand to do that.</span>"
 		holding.forceMove(src)
