@@ -1,16 +1,15 @@
 /obj/item/device/oxycandle
 	name = "Oxygen Candle"
-	desc = "Oxygen candles are flare-like steel tubes of sodium chlorate that produces oxygen through chemical process."
-	icon = 'icons/obj/candle.dmi'
-	icon_state = "candle1"
+	desc = "A steel tube with the words 'OXYGEN - PULL CORD TO IGNITE' stamped on the side. A small label warns against using the device underwater"
+	icon = 'icons/obj/candle.dmi' // Placeholder for new sprites
+	icon_state = "candle1" // Placeholder for new sprites
 	w_class = ITEMSIZE_SMALL // Should fit into internal's box or maybe pocket
 	var/target_pressure = ONE_ATMOSPHERE
 	var/datum/gas_mixture/air_contents = null
-	var/volume = 5500 //One tile has 2500 volume of air, so two tiles plus a bit extra
+	var/volume = 5500 // One tile has 2500 volume of air, so two tiles plus a bit extra
 	var/on = 0
 	var/activation_sound = 'sound/items/flare.ogg'
 	light_color = LIGHT_COLOR_FLARE
-	light_wedge = LIGHT_OMNI
 	uv_intensity = 50
 	var/brightness_on = 2 // Moderate bright.
 	light_power = 2
@@ -25,31 +24,21 @@
 		air_contents = new /datum/gas_mixture()
 		air_contents.volume = 200 //liters
 		air_contents.temperature = T20C
-		var/list/air_mix = StandardAirMix()
+		var/list/air_mix = list("oxygen" = O2STANDARD * (target_pressure * air_contents.volume) / (R_IDEAL_GAS_EQUATION * air_contents.temperature),
+		 						"nitrogen" = N2STANDARD *  (target_pressure * air_contents.volume) / (R_IDEAL_GAS_EQUATION * air_contents.temperature))
 		air_contents.adjust_multi("oxygen", air_mix["oxygen"], "nitrogen", air_mix["nitrogen"])
 		START_PROCESSING(SSprocessing, src)
-	else
-		var/turf/pos = get_turf(src)
-		if(pos)
-			pos.hotspot_expose(1500, 5)
 
-/obj/item/device/oxycandle/proc/StandardAirMix()
-	return list(
-		"oxygen" = O2STANDARD * MolesForPressure(),
-		"nitrogen" = N2STANDARD *  MolesForPressure())
-
-/obj/item/device/oxycandle/proc/MolesForPressure()
-	return (target_pressure * air_contents.volume) / (R_IDEAL_GAS_EQUATION * air_contents.temperature)
-
+// Process of Oxygen candles releasing air. Makes 200 volume of oxygen and nitrogen mix
 /obj/item/device/oxycandle/process()
 	if(on)
-		if(volume <= 0)
-			new/obj/item/trash/candle(src.loc)
-			if(istype(src.loc, /mob))
-				src.dropped()
-
+		var/turf/pos = get_turf(src)
+		if(volume <= 0 || istype(pos, /turf/simulated/floor/beach/water))
+			new/obj/item/trash/candle(src.loc) // Placeholder for new sprites
 			STOP_PROCESSING(SSprocessing, src)
 			qdel(src)
+		if(pos)
+			pos.hotspot_expose(1500, 5)
 		var/datum/gas_mixture/environment = loc.return_air()
 		var/pressure_delta = target_pressure - environment.return_pressure()
 		var/output_volume = environment.volume * environment.group_multiplier
@@ -60,13 +49,14 @@
 			return
 		environment.merge(removed)
 		volume -= 200
-		var/list/air_mix = StandardAirMix()
+		var/list/air_mix = list("oxygen" = O2STANDARD * (target_pressure * air_contents.volume) / (R_IDEAL_GAS_EQUATION * air_contents.temperature),
+		 						"nitrogen" = N2STANDARD *  (target_pressure * air_contents.volume) / (R_IDEAL_GAS_EQUATION * air_contents.temperature))
 		air_contents.adjust_multi("oxygen", air_mix["oxygen"], "nitrogen", air_mix["nitrogen"])
 
 /obj/item/device/oxycandle/update_icon()
 	if(on)
-		icon_state = "candle1_lit"
+		icon_state = "candle1_lit" // Placeholder for new sprites
 		set_light(brightness_on)
 	else
-		icon_state = "candle1"
+		icon_state = "candle1" // Placeholder for new sprites
 		set_light(0)
