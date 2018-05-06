@@ -5,13 +5,13 @@
 // will get logs that are one big line if the system is Linux and they are using notepad.  This solves it by adding CR to every line ending
 // in the logs.  ascii character 13 = CR
 
-#define SEVERITY_ALERT    1
-#define SEVERITY_CRITICAL 2
-#define SEVERITY_ERROR    3
-#define SEVERITY_WARNING  4
-#define SEVERITY_NOTICE   5
-#define SEVERITY_INFO     6
-#define SEVERITY_DEBUG    7
+#define SEVERITY_ALERT    1 //Alert: action must be taken immediately
+#define SEVERITY_CRITICAL 2 //Critical: critical conditions
+#define SEVERITY_ERROR    3 //Error: error conditions
+#define SEVERITY_WARNING  4 //Warning: warning conditions
+#define SEVERITY_NOTICE   5 //Notice: normal but significant condition
+#define SEVERITY_INFO     6 //Informational: informational messages
+#define SEVERITY_DEBUG    7 //Debug: debug-level messages
 
 /var/global/log_end = world.system_type == UNIX ? ascii2text(13) : ""
 
@@ -39,6 +39,9 @@
 /proc/log_debug(text,level = SEVERITY_DEBUG)
 	if (config.log_debug)
 		game_log("DEBUG", text)
+	
+	if (level == SEVERITY_ERROR) // Errors are always logged
+		error(text)
 
 	for(var/client/C in admins)
 		if(!C.prefs) //This is to avoid null.toggles runtime error while still initialyzing players preferences

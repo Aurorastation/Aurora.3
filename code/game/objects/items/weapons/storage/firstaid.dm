@@ -133,6 +133,7 @@
 	desc = "Contains tools for surgery. Has precise foam fitting for safe transport."
 	icon_state = "purplefirstaid"
 	item_state = "firstaid-advanced"
+	use_sound = 'sound/items/storage/briefcase.ogg'
 
 /obj/item/weapon/storage/firstaid/surgery/fill()
 	..()
@@ -179,7 +180,7 @@
 	can_hold = list(/obj/item/weapon/reagent_containers/pill,/obj/item/weapon/dice,/obj/item/weapon/paper)
 	allow_quick_gather = 1
 	use_to_pickup = 1
-	use_sound = null
+	use_sound = 'sound/items/storage/pillbottle.ogg'
 	max_storage_space = 16
 
 /obj/item/weapon/storage/pill_bottle/antitox
@@ -321,7 +322,7 @@
 		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
 		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
 		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
-		
+
 /obj/item/weapon/storage/pill_bottle/trisyndicotin
 	name = "bottle of Trisyndicotin pills"
 	desc = "Used to free one's mind from the oppression of NanoTrasen."
@@ -335,7 +336,7 @@
 		new /obj/item/weapon/reagent_containers/pill/trisyndicotin( src )
 		new /obj/item/weapon/reagent_containers/pill/trisyndicotin( src )
 		new /obj/item/weapon/reagent_containers/pill/trisyndicotin( src )
-		
+
 /obj/item/weapon/storage/pill_bottle/hextrasenil
 	name = "bottle of Hextrasenil pills"
 	desc = "Pacification through medication."

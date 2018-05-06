@@ -30,6 +30,7 @@
 			if(!H || !src || !H.organs_by_name["head"] || !H.has_eyes() || H.glasses || (H.head && (H.head.body_parts_covered & FACE)))
 				return
 
+			playsound(src, 'sound/items/tape.ogg',25)
 			user.visible_message("<span class='danger'>\The [user] has taped up \the [H]'s eyes!</span>")
 			H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/blindfold/tape(H), slot_glasses)
 			H.update_inv_glasses()
@@ -47,6 +48,8 @@
 			if(H.head && (H.head.body_parts_covered & FACE))
 				user << "<span class='warning'>Remove their [H.head] first.</span>"
 				return
+
+			playsound(src, 'sound/items/tape.ogg',25)
 			user.visible_message("<span class='danger'>\The [user] begins taping up \the [H]'s mouth!</span>")
 
 			if(!do_after(user, 30))
@@ -56,11 +59,13 @@
 			if(!H || !src || !H.organs_by_name["head"] || !H.check_has_mouth() || H.wear_mask || (H.head && (H.head.body_parts_covered & FACE)))
 				return
 
+			playsound(src, 'sound/items/tape.ogg',25)
 			user.visible_message("<span class='danger'>\The [user] has taped up \the [H]'s mouth!</span>")
 			H.equip_to_slot_or_del(new /obj/item/clothing/mask/muzzle/tape(H), slot_wear_mask)
 			H.update_inv_wear_mask()
 
 		else if(target_zone == "r_hand" || target_zone == "l_hand")
+			playsound(src, 'sound/items/tape.ogg',25)
 			var/obj/item/weapon/handcuffs/cable/tape/T = new(user)
 			if(!T.place_handcuffs(H, user))
 				user.unEquip(T)
@@ -132,6 +137,7 @@
 			return											// reduce papers around corners issue.
 
 	user.drop_from_inventory(src)
+	playsound(src, 'sound/items/tape.ogg',25)
 	forceMove(source_turf)
 
 	if(params)
