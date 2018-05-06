@@ -259,6 +259,7 @@ var/datum/controller/subsystem/vote/SSvote
 			if("restart")
 				choices.Add("Restart Round","Continue Playing")
 			if("gamemode")
+				round_voters.Cut() //Delete the old list, since we are having a new gamemode vote
 				if(SSticker.current_state >= 2)
 					return 0
 				choices.Add(config.votable_modes)
