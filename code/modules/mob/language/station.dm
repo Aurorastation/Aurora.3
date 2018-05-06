@@ -39,11 +39,12 @@
 		"ra", "ar", "re", "er", "ri", "ir", "ro", "or", "ru", "ur", "rs", "sr",
 		"a",  "a",  "e",  "e",  "i",  "i",  "o",  "o",  "u",  "u",  "s",  "s"
 	)
+	partial_understanding = list(LANGUAGE_AZAZIBA = 25)
 
 // tajaran languages
 /datum/language/tajaran
 	name = LANGUAGE_SIIK_MAAS
-	desc = "The traditionally employed tongue of Adhomai, composed of expressive yowls and chirps. Native to the Tajaran."
+	desc = "The traditionally employed tongue of Adhomai, composed of expressive yowls and chirps. Native to the Tajara."
 	speech_verb = "mrowls"
 	ask_verb = "mrowls"
 	exclaim_verb = "yowls"
@@ -54,6 +55,7 @@
 	"mi","jri","dynh","manq","rhe","zar","rrhaz","kal","chur","eech","thaa","dra","jurl","mah","sanu","dra","ii'r",
 	"ka","aasi","far","wa","baq","ara","qara","zir","sam","mak","hrar","nja","rir","khan","jun","dar","rik","kah",
 	"hal","ket","jurl","mah","tul","cresh","azu","ragh","mro","mra","mrro","mrra")
+	partial_understanding = list(LANGUAGE_SIIK_TAJR = 50, LANGUAGE_YA_SSA = 25, LANGUAGE_DELVAHII = 50)
 
 /datum/language/tajaran/get_random_name(var/gender)
 
@@ -74,6 +76,7 @@
 	colour = "i"
 	key = "i"
 	flags = NO_STUTTER | SIGNLANG | WHITELISTED
+	partial_understanding = list(LANGUAGE_SIIK_TAJR = 50)
 
 /datum/language/siik_tajr
 	name = LANGUAGE_SIIK_TAJR
@@ -89,6 +92,7 @@
 	"mi","jri","dynh","manq","rhe","zar","rrhaz","kal","chur","eech","thaa","dra","jurl","mah","sanu","dra","ii'r",
 	"ka","aasi","far","wa","baq","ara","qara","zir","sam","mak","hrar","nja","rir","khan","jun","dar","rik","kah",
 	"hal","ket","jurl","mah","tul","cresh","azu","ragh","mro","mra","mrro","mrra")
+	partial_understanding = list(LANGUAGE_SIIK_MAAS = 50, LANGUAGE_SIGN_TAJARA = 25)
 
 /datum/language/yassa
 	name = LANGUAGE_YA_SSA
@@ -103,6 +107,22 @@
 	"mi","jhri","dynher","manqi","rhas","shar","drhaz","kalh","shur","echi","tha","draer","jurl","maher","sanii","dra","ii'r",
 	"kan","aesi","fare","we","bash","arha","quara","zhir","sem","make","hrer","nja","rir","can","jhun","dar","rik","kah",
 	"hal","kete","juril","mah","tul","cresh","azu","ragh","miro","mara","mrero","mrara")
+	partial_understanding = list(LANGUAGE_SIIK_MAAS = 50)
+
+/datum/language/delvahhi
+	name = LANGUAGE_DELVAHII
+	desc = "A dialect developed by the Zhan-Khazan communities, commonly used in religious ceremonies dedicated to the Snow God and amongst settlements comprised mostly of Zhan-Khazan."
+	speech_verb = "mrowls"
+	ask_verb = "mrowls"
+	exclaim_verb = "yowls"
+	colour = "delvahhi"
+	key = "n"
+	flags = WHITELISTED
+	syllables = list("hrr","rhr","tarj","khir","rajh","kir","mier","kre","ahek","nlhal","veh","khaz","dri","rhan","darrer",
+	"mi","jhri","dynher","manqi","rhas","shar","drhaz","kalh","shur","echi","tha","draer","jurl","maher","sanii","dra","ii'r",
+	"kan","aesi","fare","we","bash","arha","quara","zhir","sem","make","hrer","nja","rir","can","jhun","dar","rik","kah",
+	"hal","kete","juril","mah","tul","cresh","azu","ragh","miro","mara","mrero","mrara")
+	partial_understanding = list(LANGUAGE_SIIK_MAAS = 50)
 
 /datum/language/skrell
 	name = LANGUAGE_SKRELLIAN
@@ -259,6 +279,7 @@
 	key = "p"
 	flags = WHITELISTED | NONVERBAL
 	syllables = list("azs","zis","zau","azua","skiu","zuakz","izo","aei","ki","kut","zo")
+	partial_understanding = list(LANGUAGE_UNATHI = 50)
 
 //Syllable Lists
 /*
