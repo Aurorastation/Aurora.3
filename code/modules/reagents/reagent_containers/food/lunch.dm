@@ -75,7 +75,9 @@ var/list/lunchables_drink_reagents_ = list(
 )
 
 // This default list is a bit different, it contains items we don't want
-var/list/lunchables_ethanol_reagents_ = list(
+var/list/lunchables_alcohol_reagents_ = list(
+	/datum/reagent/alcohol/ethanol,
+	/datum/reagent/alcohol/butanol,
 	/datum/reagent/alcohol/ethanol/acid_spit,
 	/datum/reagent/alcohol/ethanol/atomicbomb,
 	/datum/reagent/alcohol/ethanol/beepsky_smash,
@@ -110,10 +112,10 @@ var/list/lunchables_ethanol_reagents_ = list(
 		lunchables_drink_reagents_ = init_lunchable_reagent_list(lunchables_drink_reagents_, /datum/reagent/drink)
 	return lunchables_drink_reagents_
 
-/proc/lunchables_ethanol_reagents()
-	if(!(lunchables_ethanol_reagents_[lunchables_ethanol_reagents_[1]]))
-		lunchables_ethanol_reagents_ = init_lunchable_reagent_list(lunchables_ethanol_reagents_, /datum/reagent/alcohol/ethanol)
-	return lunchables_ethanol_reagents_
+/proc/lunchables_alcohol_reagents()
+	if(!(lunchables_alcohol_reagents_[lunchables_alcohol_reagents_[1]]))
+		lunchables_alcohol_reagents_ = init_lunchable_reagent_list(lunchables_alcohol_reagents_, /datum/reagent/alcohol)
+	return lunchables_alcohol_reagents_
 
 /proc/init_lunchable_list(var/list/lunches)
 	. = list()

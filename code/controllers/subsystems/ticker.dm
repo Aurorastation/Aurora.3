@@ -387,6 +387,12 @@ var/datum/controller/subsystem/ticker/SSticker
 	SSjobs.DivideOccupations() // Apparently important for new antagonist system to register specific job antags properly.
 
 	if(!src.mode.can_start())
+		var/list/voted_not_ready = list()
+		for(var/mob/abstract/new_player/player in player_list)
+			if((player.client)&&(!player.ready))
+				voted_not_ready += player.ckey
+		message_admins("The following players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")
+		log_game("Ticker: Players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")
 		world << "<B>Unable to start [mode.name].</B> Not enough players, [mode.required_players] players needed. Reverting to pre-game lobby."
 		current_state = GAME_STATE_PREGAME
 		mode.fail_setup()
