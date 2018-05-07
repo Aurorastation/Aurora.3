@@ -95,3 +95,7 @@
 	path = /obj/item/clothing/glasses/eyepatch/hud/welder
 	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice","Research Director","Roboticist")
 	cost = 2
+
+/datum/gear/eyes/spiffygogs
+	display_name = "Orange Goggles"
+	path = /obj/item/clothing/glasses/spiffygogs

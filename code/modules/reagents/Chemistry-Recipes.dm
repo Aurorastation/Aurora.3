@@ -2708,7 +2708,7 @@
 	name = "Wasteland Heat"
 	id = "wastelandheat"
 	result = "wastelandheat"
-	required_reagents = list("xuizi" = 10, "capsaicin" = 3)
+	required_reagents = list("xuizijuice" = 10, "capsaicin" = 3)
 	result_amount = 10
 
 /datum/chemical_reaction/sandgria

@@ -1,6 +1,6 @@
 //Config stuff
-#define SUPPLY_DOCKZ 2          //Z-level of the Dock.
-#define SUPPLY_STATIONZ 1       //Z-level of the Station.
+#define SUPPLY_DOCKZ 1          //Z-level of the Dock.
+#define SUPPLY_STATIONZ 6       //Z-level of the Station.
 #define SUPPLY_STATION_AREATYPE /area/supply/station //Type of the supply shuttle area for station
 #define SUPPLY_DOCK_AREATYPE /area/supply/dock	//Type of the supply shuttle area for dock
 
@@ -182,7 +182,7 @@ var/datum/controller/subsystem/cargo/SScargo
 			catch(var/exception/es)
 				log_debug("SScargo: Error when loading supplier: [es]")
 		//Load the items
-		var/DBQuery/item_query = dbcon.NewQuery("SELECT id, name, supplier, description, categories, price, items, access, container_type, groupable, item_mul FROM ss13_cargo_items WHERE deleted_at is NULL AND supplier IS NOT NULL ORDER BY order_by ASC, name ASC, supplier ASC")
+		var/DBQuery/item_query = dbcon.NewQuery("SELECT id, name, supplier, description, categories, price, items, access, container_type, groupable, item_mul FROM ss13_cargo_items WHERE deleted_at IS NULL AND approved_at IS NOT NULL AND supplier IS NOT NULL ORDER BY order_by ASC, name ASC, supplier ASC")
 		item_query.Execute()
 		while(item_query.NextRow())
 			CHECK_TICK
@@ -257,7 +257,7 @@ var/datum/controller/subsystem/cargo/SScargo
 				cargoconfig["items"][item]["access"],
 				cargoconfig["items"][item]["container_type"],
 				cargoconfig["items"][item]["groupable"],
-				cargoconfig["items"][item]["item_mul"])	
+				cargoconfig["items"][item]["item_mul"])
 		catch(var/exception/ei)
 			log_debug("SScargo: Error when loading supplier: [ei]")
 	return 1
@@ -292,7 +292,7 @@ var/datum/controller/subsystem/cargo/SScargo
 
 //Add a new item to the cargo subsystem, the categories and the items need to be a list and CAN NOT be passed as a json string.
 //Decoding of the string MUST take place before
-/datum/controller/subsystem/cargo/proc/add_item(var/id=null,var/name,var/supplier="nt",var/description,var/list/categories,var/price,var/list/items,var/access=0,var/container_type=CARGO_CONTAINER_CRATE,var/groupable=1,var/item_mul=1)	
+/datum/controller/subsystem/cargo/proc/add_item(var/id=null,var/name,var/supplier="nt",var/description,var/list/categories,var/price,var/list/items,var/access=0,var/container_type=CARGO_CONTAINER_CRATE,var/groupable=1,var/item_mul=1)
 	//TODO-CARGO: Maybe add the option to specify access as string instead of number
 
 	//If no item ID is supplied generate one ourselfs (use the next free id)
@@ -303,7 +303,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		id = text2num(id)
 		if(id > last_item_id)
 			last_item_id = id
-	
+
 	var/datum/cargo_item/ci = new()
 	try
 		ci.id = id
@@ -322,7 +322,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		log_debug("SScargo: Error when loading item: [e]")
 		qdel(ci)
 		return
-	
+
 	for(var/item in ci.items)
 		var/itempath = text2path(ci.items[item]["path"])
 		if(!ispath(itempath))
@@ -341,7 +341,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		log_debug("SScargo: [ci.supplier] is not a valid supplier for item [ci.name].")
 		QDEL_NULL(ci)
 		return
-	
+
 	//Setting the supplier
 	ci.supplier_datum = cs
 
@@ -362,7 +362,7 @@ var/datum/controller/subsystem/cargo/SScargo
 			cc.items.Add(ci)
 		else
 			log_debug("SScargo: Warning - Attempted to add [ci.name] item to category [category] that does not exist.")
-	
+
 	return ci
 
 /*
