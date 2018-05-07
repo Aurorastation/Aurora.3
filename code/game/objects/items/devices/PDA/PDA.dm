@@ -922,8 +922,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 		if("emp")
 			empulse(P.loc, 3, 6, 1)
-			message += "Your [P] emits a wave of electromagnetic energy!"
-			playsound(src, 'sound/effects/EMPulse.ogg', 50, 1)
 
 		if("smoke")
 			var/datum/effect/effect/system/smoke_spread/bad/S = new /datum/effect/effect/system/smoke_spread/bad
