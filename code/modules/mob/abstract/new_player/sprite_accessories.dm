@@ -618,11 +618,6 @@
 		icon_state = "hair_hightight"
 		gender = MALE
 
-	regulationmohawk
-		name = "Shaved Mohawk"
-		icon_state = "hair_shavedmohawk"
-		gender = MALE
-
 	topknot
 		name = "Topknot"
 		icon_state = "hair_topknot"
@@ -657,6 +652,46 @@
 		name = "Manbun"
 		icon_state = "hair_manbun"
 		gender = MALE
+
+	shavedbun
+		name = "Shaved Bun"
+		icon_state = "hair_shavedbun"
+
+	halfshaved
+		name = "Half-Shaved"
+		icon_state = "hair_halfshaved"
+
+	halfshavedemo
+		name = "Half-Shaved Emo"
+		icon_state = "hair_halfshavedemo"
+
+	longsideemo
+		name = "Long Side Emo"
+		icon_state = "hair_longsideemo"
+
+	sideswept
+		name = "Sideswept Hair"
+		icon_state = "hair_sideswept"
+
+	mohawkshaved
+		name = "Shaved Mohawk"
+		icon_state = "hair_mohawkshaved"
+
+	mohawkshaved2
+		name = "Tight Shaved Mohawk"
+		icon_state = "hair_mohawkshaved2"
+
+	mohawkshavednaomi
+		name = "Naomi Mohawk"
+		icon_state = "hair_mohawkshavednaomi"
+
+	leftsidecut
+		name = "Left Sidecut"
+		icon_state = "hair_leftside"
+
+	rightsidecut
+		name = "Right Sidecut"
+		icon_state = "hair_rightside"
 
 	// TG-format hair - uses ICON_MULTIPLY instead of ICON_ADD
 	uniter

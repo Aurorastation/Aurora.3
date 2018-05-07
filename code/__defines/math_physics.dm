@@ -19,7 +19,6 @@
 #define T20C 293.15 //   20.0 degrees celcius
 #define TCMB 2.7    // -270.3 degrees celcius
 
-#define CLAMP01(x) max(0, min(1, x))
 #define QUANTIZE(variable) (round(variable,0.0001))
 
 #define INFINITY	1.#INF
