@@ -1,0 +1,10 @@
+author: PoZe
+
+delete-after: True
+
+changes:
+  - rscadd: "EMT room now has two GPS and two medical emergency medical radios"
+  - maptweak: "Increased size of Toxin's airlock, allowing canister to refill from main air supply"
+  - bugfix: "Fixed tags(names) for medical construction level security cameras"
+  - spellcheck: "Chemistry, and security construction levels request consoles names are fixed according to their room."
+ 
