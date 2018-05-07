@@ -941,11 +941,13 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			spark(P.loc, 2)
 			message += "Your [P] begins to spark violently!"
 
+	if(message)
+		message += " "
 
 	if(effect == "explosion")
-		message += " Your [P] shatters in a thousand pieces!"
+		message += "Your [P] shatters in a thousand pieces!"
 	else
-		message += " It melts in a puddle of plastic."
+		message += "\The [P] melts in a puddle of plastic."
 
 	if(M && isliving(M))
 		to_chat(M, "<span class='warning'>[message]</span>")
