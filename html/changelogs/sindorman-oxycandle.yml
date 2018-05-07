@@ -3,4 +3,4 @@ author: PoZe
 delete-after: True
 
 changes:
-  - rsadd: "Added oxygen candles as an item. They are one-time emergency item that is used to fill 2-3 tiles of depressurized environment"
+  - rscadd: "Added oxygen candles as an item. They are one-time emergency item that is used to fill 2-3 tiles of depressurized environment"
