@@ -60,8 +60,10 @@
 
 /obj/machinery/telepad_cargo/attackby(obj/item/weapon/W, mob/user, params)
 	if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		anchored = 0
-		playsound(src, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(src, W.usesound, 50, 1)
 		if(anchored)
 			anchored = 0
 			user << "<span class='caution'>\The [src] can now be moved.</span>"
@@ -69,12 +71,14 @@
 			anchored = 1
 			user << "<span class='caution'>\The [src] is now secured.</span>"
 	if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		if(stage == 0)
-			playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
+			playsound(src, W.usesound, 50, 1)
 			user << "<span class='caution'>You unscrew the telepad's tracking beacon.</span>"
 			stage = 1
 		else if(stage == 1)
-			playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
+			playsound(src, W.usesound, 50, 1)
 			user << "<span class='caution'>You screw in the telepad's tracking beacon.</span>"
 			stage = 0
 	if(iswelder(W) && stage == 1)

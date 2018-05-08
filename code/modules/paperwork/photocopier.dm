@@ -123,7 +123,9 @@
 		else
 			user << "<span class='notice'>This cartridge is not yet ready for replacement! Use up the rest of the toner.</span>"
 	else if(iswrench(O))
-		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
+		if (!O.tool_is_usable())
+			return
+		playsound(loc, O.usesound, 50, 1)
 		anchored = !anchored
 		user << "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>"
 	return
@@ -178,12 +180,12 @@
 		img.pixel_x = copy.offset_x[j]
 		img.pixel_y = copy.offset_y[j]
 		c.add_overlay(img)
-	
+
 	toner--
 	if(toner == 0)
 		visible_message("<span class='notice'>A red light on \the [src] flashes, indicating that it is out of toner.</span>")
 		return
-	
+
 	c.set_content_unsafe(pname, info)
 	if (print)
 		src.print(c, use_sound, 'sound/items/poster_being_created.ogg', delay)

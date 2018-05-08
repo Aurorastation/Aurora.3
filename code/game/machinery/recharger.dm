@@ -14,7 +14,7 @@
 	var/obj/item/charging
 
 	var/list/allowed_devices = list(
-		/obj/item/weapon/gun/energy, 
+		/obj/item/weapon/gun/energy,
 		/obj/item/weapon/melee/baton,
 		/obj/item/weapon/cell,
 		/obj/item/modular_computer,
@@ -44,12 +44,14 @@
 
 /obj/machinery/recharger/attackby(obj/item/weapon/G as obj, mob/user as mob)
 	if(portable && iswrench(G))
+		if (!G.tool_is_usable())
+			return
 		if(charging)
 			user << "<span class='alert'>Remove [charging] first!</span>"
 			return
 		anchored = !anchored
 		user << "You have [anchored ? "attached" : "detached"] the recharger."
-		playsound(loc, 'sound/items/Ratchet.ogg', 75, 1)
+		playsound(loc, G.usesound, 75, 1)
 		return
 
 	if (istype(G, /obj/item/weapon/gripper))//Code for allowing cyborgs to use rechargers

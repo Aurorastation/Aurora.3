@@ -74,6 +74,8 @@
 			name = "unsecured grenade with [beakers.len] containers[detonator?" and detonator":""]"
 			stage = 1
 		else if(isscrewdriver(W) && path != 2)
+			if (!W.tool_is_usable())
+				return
 			if(stage == 1)
 				path = 1
 				if(beakers.len)
@@ -83,7 +85,7 @@
 //					user << "<span class='warning'>You need to add at least one beaker before locking the assembly.</span>"
 					user << "<span class='notice'>You lock the empty assembly.</span>"
 					name = "fake grenade"
-				playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, -3)
+				playsound(src.loc, W.usesound, 25, -3)
 				icon_state = initial(icon_state) +"_locked"
 				stage = 2
 			else if(stage == 2)
@@ -93,7 +95,7 @@
 					return
 				else
 					user << "<span class='notice'>You unlock the assembly.</span>"
-					playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, -3)
+					playsound(src.loc, W.usesound, 25, -3)
 					name = "unsecured grenade with [beakers.len] containers[detonator?" and detonator":""]"
 					icon_state = initial(icon_state) + (detonator?"_ass":"")
 					stage = 1
@@ -184,7 +186,7 @@
 		invisibility = INVISIBILITY_MAXIMUM //Why am i doing this?
 		//To make sure all reagents can work
 		//correctly before deleting the grenade.
-		QDEL_IN(src, 50)  
+		QDEL_IN(src, 50)
 
 /obj/item/weapon/grenade/chem_grenade/large
 	name = "large chem grenade"

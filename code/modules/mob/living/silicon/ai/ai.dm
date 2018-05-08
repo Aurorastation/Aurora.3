@@ -682,9 +682,11 @@ var/list/ai_verbs_default = list(
 		card.grab_ai(src, user)
 
 	else if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		if(anchored)
 			user.visible_message("<span class='notice'>\The [user] starts to unbolt \the [src] from the plating...</span>")
-			if(!do_after(user,40))
+			if(!do_after(user,40*W.toolspeed))
 				user.visible_message("<span class='notice'>\The [user] decides not to unbolt \the [src].</span>")
 				return
 			user.visible_message("<span class='notice'>\The [user] finishes unfastening \the [src]!</span>")
@@ -692,7 +694,7 @@ var/list/ai_verbs_default = list(
 			return
 		else
 			user.visible_message("<span class='notice'>\The [user] starts to bolt \the [src] to the plating.</span>..")
-			if(!do_after(user,40))
+			if(!do_after(user,40*W.toolspeed))
 				user.visible_message("<span class='notice'>\The [user] decides not to bolt \the [src].</span>")
 				return
 			user.visible_message("<span class='notice'>\The [user] finishes fastening down \the [src]!</span>")

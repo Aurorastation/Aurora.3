@@ -100,6 +100,8 @@
 /obj/machinery/sparker/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (isscrewdriver(W))
 		add_fingerprint(user)
+		if (!W.tool_is_usable())
+			return
 		disable = !disable
 		if(disable)
 			user.visible_message("<span class='warning'>[user] has disabled the [src]!</span>", "<span class='warning'>You disable the connection to the [src].</span>")

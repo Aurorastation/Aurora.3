@@ -268,7 +268,8 @@
 		return
 	else if(!active)
 		if(iswrench(O))
-
+			if (!O.tool_is_usable())
+				return
 			if(!anchored)
 				connect_to_network()
 				user << "<span class='notice'>You secure the generator to the floor.</span>"
@@ -280,8 +281,10 @@
 			anchored = !anchored
 
 		else if(isscrewdriver(O))
+			if (!O.tool_is_usable())
+				return
 			open = !open
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+			playsound(src.loc, O.usesound, 50, 1)
 			if(open)
 				user << "<span class='notice'>You open the access panel.</span>"
 			else

@@ -44,6 +44,8 @@
 		update_icon()
 		return
 	else if(iswrench(I))
+		if (!I.tool_is_usable())
+			return
 		anchored = !anchored
 		user.visible_message("<span class='notice'>[user] [anchored ? "wrenches" : "unwrenches"] \the [src].</span>", "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>")
 		if (!smoked && !anchored && (bee_count > 10))
@@ -104,12 +106,14 @@
 			user << "The hive is smoked."
 		return 1
 	else if(isscrewdriver(I))
+		if (!I.tool_is_usable())
+			return
 		if(bee_count)
 			visible_message("<span class='danger'>The bees are furious you're trying to destroy their home!</span>")
 			release_bees(1, 30)
 		user << "<span class='notice'>You start dismantling \the [src]. This will take a while...</span>"
-		playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
-		if(do_after(user, 150))
+		playsound(loc, I.usesound, 50, 1)
+		if(do_after(user, 150*I.toolspeed))
 			user.visible_message("<span class='notice'>[user] dismantles \the [src].</span>", "<span class='notice'>You dismantle \the [src].</span>")
 			new /obj/item/beehive_assembly(loc)
 			qdel(src)

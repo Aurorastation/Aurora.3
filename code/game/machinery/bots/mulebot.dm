@@ -95,6 +95,8 @@
 		cell = C
 		updateDialog()
 	else if(isscrewdriver(I))
+		if (!I.tool_is_usable())
+			return
 		if(locked)
 			user << "<span class='notice'>The maintenance hatch cannot be opened or closed while the controls are locked.</span>"
 			return
@@ -110,6 +112,8 @@
 
 		updateDialog()
 	else if (iswrench(I))
+		if (!I.tool_is_usable())
+			return
 		if (src.health < maxhealth)
 			src.health = min(maxhealth, src.health+25)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

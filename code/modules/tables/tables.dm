@@ -104,6 +104,8 @@
 /obj/structure/table/attackby(obj/item/weapon/W, mob/user)
 
 	if(reinforced && isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		remove_reinforced(W, user)
 		if(!reinforced)
 			update_desc()
@@ -131,6 +133,8 @@
 			user << "<span class='warning'>You don't have enough carpet!</span>"
 
 	if(!reinforced && !carpeted && material && iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		remove_material(W, user)
 		if(!material)
 			update_connections(1)
@@ -142,6 +146,8 @@
 		return 1
 
 	if(!carpeted && !reinforced && !material && iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		dismantle(W, user)
 		return 1
 
@@ -248,18 +254,18 @@
 	return null
 
 /obj/structure/table/proc/remove_reinforced(obj/item/weapon/screwdriver/S, mob/user)
-	reinforced = common_material_remove(user, reinforced, 40, "reinforcements", "screws", 'sound/items/Screwdriver.ogg')
+	reinforced = common_material_remove(user, reinforced, 40, "reinforcements", "screws", S.usesound)
 
 /obj/structure/table/proc/remove_material(obj/item/weapon/wrench/W, mob/user)
-	material = common_material_remove(user, material, 20, "plating", "bolts", 'sound/items/Ratchet.ogg')
+	material = common_material_remove(user, material, 20, "plating", "bolts", W.usesound)
 
 /obj/structure/table/proc/dismantle(obj/item/weapon/wrench/W, mob/user)
 	if(manipulating) return
 	manipulating = 1
 	user.visible_message("<span class='notice'>\The [user] begins dismantling \the [src].</span>",
 	                              "<span class='notice'>You begin dismantling \the [src].</span>")
-	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-	if(!do_after(user, 20))
+	playsound(src.loc, W.usesound, 50, 1)
+	if(!do_after(user, 20*W.toolspeed))
 		manipulating = 0
 		return
 	user.visible_message("<span class='notice'>\The [user] dismantles \the [src].</span>",

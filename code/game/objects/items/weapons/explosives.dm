@@ -26,6 +26,8 @@
 
 /obj/item/weapon/plastique/attackby(var/obj/item/I, var/mob/user)
 	if(isscrewdriver(I))
+		if (!I.tool_is_usable())
+			return
 		open_panel = !open_panel
 		user << "<span class='notice'>You [open_panel ? "open" : "close"] the wire panel.</span>"
 	else if(iswirecutter(I) || ismultitool(I) || istype(I, /obj/item/device/assembly/signaler ))

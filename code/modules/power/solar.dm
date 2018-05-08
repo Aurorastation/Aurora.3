@@ -225,15 +225,19 @@
 
 	if(!anchored && isturf(loc))
 		if(iswrench(W))
+			if (!W.tool_is_usable())
+				return
 			anchored = 1
 			user.visible_message("<span class='notice'>[user] wrenches the solar assembly into place.</span>")
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+			playsound(src.loc, W.usesound, 75, 1)
 			return 1
 	else
 		if(iswrench(W))
+			if (!W.tool_is_usable())
+				return
 			anchored = 0
 			user.visible_message("<span class='notice'>[user] unwrenches the solar assembly from it's place.</span>")
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+			playsound(src.loc, W.usesound, 75, 1)
 			return 1
 
 		if(istype(W, /obj/item/stack/material) && (W.get_material_name() == "glass" || W.get_material_name() == "rglass"))
@@ -399,7 +403,10 @@
 
 /obj/machinery/power/solar_control/attackby(I as obj, user as mob)
 	if(isscrewdriver(I))
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		var/obj/item/weapon/screwdriver/W = I
+		if (!W.tool_is_usable())
+			return
+		playsound(src.loc, W.usesound, 50, 1)
 		if(do_after(user, 20))
 			if (src.stat & BROKEN)
 				user << "<span class='notice'>The broken glass falls out.</span>"

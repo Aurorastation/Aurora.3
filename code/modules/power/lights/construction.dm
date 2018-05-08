@@ -45,10 +45,12 @@
 /obj/machinery/light_construct/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	add_fingerprint(user)
 	if (iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		if (src.stage == 1)
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+			playsound(src.loc, W.usesound, 75, 1)
 			usr << "You begin deconstructing [src]."
-			if (!do_after(usr, 30, act_target = src))
+			if (!do_after(usr, 30*W.toolspeed, act_target = src))
 				return
 			new /obj/item/stack/material/steel(get_turf(src.loc), sheets_refunded)
 			user.visible_message(
@@ -79,10 +81,10 @@
 		new /obj/item/stack/cable_coil(get_turf(src.loc), 1, "red")
 		user.visible_message(
 			"[user] removes the wiring from [src].",
-			"You remove the wiring from [src].", 
+			"You remove the wiring from [src].",
 			"You hear something being cut."
 		)
-		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+		playsound(src.loc, W.usesound, 100, 1)
 		return
 
 	if(iscoil(W))
@@ -102,6 +104,8 @@
 		return
 
 	if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		if (stage == 2)
 			switch(fixture_type)
 				if("tube")
@@ -114,7 +118,7 @@
 				"You close [src]'s casing.",
 				"You hear something being screwed in."
 			)
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 75, 1)
+			playsound(src.loc, W.usesound, 75, 1)
 
 			switch(fixture_type)
 				if("tube")
@@ -165,7 +169,7 @@
 			to_chat(user, "<span class='notice'>[src] does not have a power cell installed.</span>")
 			return
 
-		playsound(src.loc, 'sound/items/Crowbar.ogg', 50, TRUE)
+		playsound(src.loc, W.usesound, 50, TRUE)
 		visible_message(
 			"[user] removes [cell] from [src].",
 			"<span class='notice'>You remove [cell] from [src].</span>"

@@ -101,7 +101,8 @@
 			return
 
 		else if(iswrench(W))
-
+			if (!W.tool_is_usable())
+				return
 			if(!air_supply)
 				user << "There is not tank to remove."
 				return
@@ -115,7 +116,8 @@
 			return
 
 		else if(isscrewdriver(W))
-
+			if (!W.tool_is_usable())
+				return
 			var/list/current_mounts = list()
 			if(cell) current_mounts   += "cell"
 			if(installed_modules && installed_modules.len) current_mounts += "system module"

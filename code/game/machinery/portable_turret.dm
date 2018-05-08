@@ -279,6 +279,8 @@
 				qdel(src) // qdel
 
 	else if((iswrench(I)))
+		if (!I.tool_is_usable())
+			return
 		if (immobile)
 			user << "<span class='notice'>[src] is firmly attached to the ground with some form of epoxy.</span>"
 			return
@@ -302,12 +304,12 @@
 		if(do_after(user, 50))
 			//This code handles moving the turret around. After all, it's a portable turret!
 			if(!anchored)
-				playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
+				playsound(loc, I.usesound, 100, 1)
 				anchored = 1
 				update_icon()
 				user << "<span class='notice'>You secure the exterior bolts on the turret.</span>"
 			else if(anchored)
-				playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
+				playsound(loc, I.usesound, 100, 1)
 				anchored = 0
 				user << "<span class='notice'>You unsecure the exterior bolts on the turret.</span>"
 				update_icon()
@@ -669,7 +671,9 @@
 	switch(build_step)
 		if(0)	//first step
 			if(iswrench(I) && !anchored)
-				playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
+				if (I.tool_is_usable())
+					return
+				playsound(loc, I.usesound, 100, 1)
 				user << "<span class='notice'>You secure the external bolts.</span>"
 				anchored = 1
 				build_step = 1
@@ -677,7 +681,7 @@
 				return
 
 			else if(iscrowbar(I) && !anchored)
-				playsound(loc, 'sound/items/Crowbar.ogg', 75, 1)
+				playsound(loc, I.usesound, 75, 1)
 				user << "<span class='notice'>You dismantle the turret construction.</span>"
 				new /obj/item/stack/material/steel( loc, 5)
 				qdel(src)
@@ -695,7 +699,9 @@
 				return
 
 			else if(iswrench(I))
-				playsound(loc, 'sound/items/Ratchet.ogg', 75, 1)
+				if (!I.tool_is_usable())
+					return
+				playsound(loc, I.usesound, 75, 1)
 				user << "<span class='notice'>You unfasten the external bolts.</span>"
 				anchored = 0
 				build_step = 0
@@ -705,7 +711,9 @@
 
 		if(2)
 			if(iswrench(I))
-				playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
+				if (!I.tool_is_usable())
+					return
+				playsound(loc, I.usesound, 100, 1)
 				user << "<span class='notice'>You bolt the metal armor into place.</span>"
 				build_step = 3
 				icon_state = "turret_frame_3_[case_sprite_set]"
@@ -749,7 +757,9 @@
 					return
 
 			else if(iswrench(I))
-				playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
+				if (!I.tool_is_usable())
+					return
+				playsound(loc, I.usesound, 100, 1)
 				user << "<span class='notice'>You remove the turret's metal armor bolts.</span>"
 				build_step = 2
 				icon_state = "turret_frame_2_[case_sprite_set]"
@@ -769,7 +779,9 @@
 
 		if(5)
 			if(isscrewdriver(I))
-				playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
+				if (!I.tool_is_usable())
+					return
+				playsound(loc, I.usesound, 100, 1)
 				build_step = 6
 				user << "<span class='notice'>You close the access hatch.</span>"
 				icon_state = "turret_frame_5a_[case_sprite_set]"
@@ -794,7 +806,9 @@
 				return
 
 			else if(isscrewdriver(I))
-				playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
+				if (!I.tool_is_usable())
+					return
+				playsound(loc, I.usesound, 100, 1)
 				build_step = 5
 				user << "<span class='notice'>You open the access hatch.</span>"
 				cut_overlays()
@@ -849,7 +863,7 @@
 					qdel(src) // qdel
 
 			else if(iscrowbar(I))
-				playsound(loc, 'sound/items/Crowbar.ogg', 75, 1)
+				playsound(loc, I.usesound, 75, 1)
 				user << "<span class='notice'>You pry off the turret's exterior armor.</span>"
 				new /obj/item/stack/material/steel(loc, 2)
 				build_step = 6

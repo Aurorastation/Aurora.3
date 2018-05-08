@@ -22,6 +22,9 @@
 
 /obj/structure/sign/attackby(obj/item/tool as obj, mob/user as mob)	//deconstruction
 	if(isscrewdriver(tool) && !istype(src, /obj/structure/sign/double))
+		if (!tool.tool_is_usable())
+			return
+		playsound(src.loc, tool.usesound, 50, 1)
 		user << "You unfasten the sign with your [tool]."
 		unfasten()
 	else ..()
@@ -45,6 +48,8 @@
 
 /obj/item/sign/attackby(obj/item/tool as obj, mob/user as mob)	//construction
 	if(isscrewdriver(tool) && isturf(user.loc))
+		if (!tool.tool_is_usable())
+			return
 		var/direction = input("In which direction?", "Select direction.") in list("North", "East", "South", "West", "Cancel")
 		if(direction == "Cancel") return
 		var/obj/structure/sign/S = new(user.loc)
@@ -61,6 +66,7 @@
 		S.name = name
 		S.desc = desc
 		S.icon_state = sign_state
+		playsound(src.loc, tool.usesound, 50, 1)
 		user << "You fasten \the [S] with your [tool]."
 		qdel(src)
 	else ..()

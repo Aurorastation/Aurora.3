@@ -88,6 +88,8 @@
 				user << "<span class='warning'>Access denied.</span>"
 		return
 	else if(isscrewdriver(O))
+		if (!O.tool_is_usable())
+			return
 		if(!locked)
 			open = !open
 			user << "<span class='notice'>Maintenance panel is now [open ? "opened" : "closed"].</span>"

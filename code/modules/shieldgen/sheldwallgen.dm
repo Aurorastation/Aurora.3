@@ -158,20 +158,22 @@
 
 /obj/machinery/shieldwallgen/attackby(obj/item/W, mob/user)
 	if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		if(active)
 			user << "Turn off the field generator first."
 			return
 
 		else if(state == 0)
 			state = 1
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+			playsound(src.loc, W.usesound, 75, 1)
 			user << "You secure the external reinforcing bolts to the floor."
 			src.anchored = 1
 			return
 
 		else if(state == 1)
 			state = 0
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+			playsound(src.loc, W.usesound, 75, 1)
 			user << "You undo the external reinforcing bolts."
 			src.anchored = 0
 			return

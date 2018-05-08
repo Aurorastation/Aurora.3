@@ -72,10 +72,12 @@ var/global/list/rad_collectors = list()
 			eject()
 			return 1
 	else if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		if(P)
 			user << "<span class='notice'>Remove the phoron tank first.</span>"
 			return 1
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+		playsound(src.loc, W.usesound, 75, 1)
 		src.anchored = !src.anchored
 		user.visible_message("[user.name] [anchored? "secures":"unsecures"] the [src.name].", \
 			"You [anchored? "secure":"undo"] the external bolts.", \

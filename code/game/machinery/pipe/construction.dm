@@ -434,6 +434,8 @@ Buildable meters
 	//*
 	if (!iswrench(W) && !istype(W, /obj/item/weapon/pipewrench))
 		return ..()
+	if (!W.tool_is_usable())
+		return
 	if(istype(W, /obj/item/weapon/pipewrench))
 		var/action = alert(user, "Change pipe?", "Change pipe", "Yes", "No")
 		if(action == "Yes")
@@ -1209,11 +1211,13 @@ Buildable meters
 
 	if (!iswrench(W))
 		return ..()
+	if (!W.tool_is_usable())
+		return
 	if(!locate(/obj/machinery/atmospherics/pipe, src.loc))
 		user << "<span class='warning'>You need to fasten it to a pipe</span>"
 		return 1
 	new/obj/machinery/meter( src.loc )
-	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+	playsound(src.loc, W.usesound, 50, 1)
 	user << "<span class='notice'>You have fastened the meter to the pipe</span>"
 	qdel(src)
 //not sure why these are necessary

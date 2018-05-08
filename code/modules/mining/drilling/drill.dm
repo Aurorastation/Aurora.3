@@ -372,7 +372,8 @@
 		return
 
 	if(iswrench(W))
-
+		if (!W.tool_is_usable())
+			return
 		if(istype(get_turf(src), /turf/space))
 			user << "<span class='notice'>You send the [src] careening into space. Idiot.</span>"
 			var/inertia = rand(10,30)
@@ -400,7 +401,7 @@
 				connected.system_error("unexpected user interface error")
 				return
 
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+		playsound(src.loc, W.usesound, 100, 1)
 		user << "<span class='notice'>You [anchored ? "un" : ""]anchor the brace.</span>"
 
 		anchored = !anchored

@@ -103,6 +103,8 @@
 
 /obj/machinery/floodlight/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		if (!open)
 			if(unlocked)
 				unlocked = 0

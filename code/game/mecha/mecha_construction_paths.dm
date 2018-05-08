@@ -6,14 +6,20 @@
 	if(iswelder(used_atom))
 		var/obj/item/weapon/weldingtool/W = used_atom
 		if (W.remove_fuel(0, user))
-			playsound(holder, 'sound/items/Welder2.ogg', 50, 1)
+			playsound(holder, W.usesound, 50, 1)
 		else
 			return 0
 	else if(iswrench(used_atom))
-		playsound(holder, 'sound/items/Ratchet.ogg', 50, 1)
+		var/obj/item/weapon/wrench/W = used_atom
+		if (!W.tool_is_usable())
+			return
+		playsound(holder, W.usesound, 50, 1)
 
 	else if(isscrewdriver(used_atom))
-		playsound(holder, 'sound/items/Screwdriver.ogg', 50, 1)
+		var/obj/item/weapon/screwdriver/W = used_atom
+		if (!W.tool_is_usable())
+			return
+		playsound(holder, W.usesound, 50, 1)
 
 	else if(iswirecutter(used_atom))
 		playsound(holder, 'sound/items/Wirecutter.ogg', 50, 1)
@@ -42,10 +48,16 @@
 		else
 			return 0
 	else if(iswrench(used_atom))
-		playsound(holder, 'sound/items/Ratchet.ogg', 50, 1)
+		var/obj/item/weapon/wrench/W = used_atom
+		if (!W.tool_is_usable())
+			return
+		playsound(holder, W.usesound, 50, 1)
 
 	else if(isscrewdriver(used_atom))
-		playsound(holder, 'sound/items/Screwdriver.ogg', 50, 1)
+		var/obj/item/weapon/screwdriver/W = used_atom
+		if (!W.tool_is_usable())
+			return
+		playsound(holder, W.usesound, 50, 1)
 
 	else if(iswirecutter(used_atom))
 		playsound(holder, 'sound/items/Wirecutter.ogg', 50, 1)

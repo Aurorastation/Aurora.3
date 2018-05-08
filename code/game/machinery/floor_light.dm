@@ -25,6 +25,8 @@ var/list/floor_light_cache = list()
 
 /obj/machinery/floor_light/attackby(var/obj/item/W, var/mob/user)
 	if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		anchored = !anchored
 		visible_message("<span class='notice'>\The [user] has [anchored ? "attached" : "detached"] \the [src].</span>")
 	else if(iswelder(W) && (damaged || (stat & BROKEN)))

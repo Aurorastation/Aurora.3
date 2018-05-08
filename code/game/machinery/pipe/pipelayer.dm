@@ -40,6 +40,8 @@
 /obj/machinery/pipelayer/attackby(var/obj/item/W as obj, var/mob/user as mob)
 
 	if (iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		P_type_t = input("Choose pipe type", "Pipe type") as null|anything in Pipes
 		P_type = Pipes[P_type_t]
 		user.visible_message("<span class='notice'>[user] has set \the [src] to manufacture [P_type_t].</span>", "<span class='notice'>You set \the [src] to manufacture [P_type_t].</span>")
@@ -63,6 +65,8 @@
 		return
 
 	if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		if(metal)
 			var/m = round(input(usr,"Please specify the amount of metal to remove","Remove metal",min(round(metal),50)) as num, 1)
 			m = min(m, 50)

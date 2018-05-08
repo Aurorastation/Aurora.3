@@ -177,7 +177,7 @@ other types of metals and chemistry for reagents).
 	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 500)
 	build_path =/obj/item/weapon/weldingtool/experimental
-	sort_string = "VABAJ" 
+	sort_string = "VABAJ"
 
 /datum/design/item/posibrain
 	name = "Positronic brain"
@@ -433,4 +433,21 @@ other types of metals and chemistry for reagents).
 	req_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000)
 	build_path = /obj/item/weapon/disk/integrated_circuit/upgrade/advanced
+	sort_string = "VCAAH"
+//Power tools
+/datum/design/item/hand_drill
+	name = "Hand Drill"
+	desc = "A simple powered drill with a bolt bit."
+	id = "hand_drill"
+	req_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000, "silver" = 500)
+	build_path = /obj/item/weapon/wrench/power
+	sort_string = "VCAAH"
+/datum/design/item/jaws_of_life
+	name = "Jaws of Life"
+	desc = "A set of jaws of life, the magic of science has managed to fit it down into a device small enough to fit in a tool belt. It's fitted with a prying head."
+	id = "jaws_of_life"
+	req_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000, "silver" = 500)
+	build_path = /obj/item/weapon/crowbar/power
 	sort_string = "VCAAH"

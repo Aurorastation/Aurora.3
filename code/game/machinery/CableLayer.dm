@@ -42,7 +42,7 @@
 			m = min(m, cable.amount)
 			m = min(m, 30)
 			if(m)
-				playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
+				playsound(loc, O.usesound, 50, 1)
 				use_cable(m)
 				var/obj/item/stack/cable_coil/CC = new (get_turf(src))
 				CC.amount = m
@@ -74,7 +74,7 @@
 		visible_message("A red light flashes on \the [src].")
 		return
 	cable.use(amount)
-	if(QDELETED(cable)) 
+	if(QDELETED(cable))
 		cable = null
 	return 1
 

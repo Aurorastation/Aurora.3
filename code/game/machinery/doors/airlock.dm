@@ -931,13 +931,18 @@ About the new airlock wires panel:
 		else
 			return
 	else if(isscrewdriver(C))
+		var/obj/item/weapon/W = C
+		if (!W.tool_is_usable())
+			return
 		if (src.p_open)
 			if (stat & BROKEN)
 				usr << "<span class='warning'>The panel is broken and cannot be closed.</span>"
 			else
 				src.p_open = 0
+				playsound(src, W.usesound, 100, 1)
 		else
 			src.p_open = 1
+			playsound(src, W.usesound, 100, 1)
 		src.update_icon()
 	else if(iswirecutter(C))
 		return src.attack_hand(user)
@@ -951,7 +956,7 @@ About the new airlock wires panel:
 	else if(!repairing && iscrowbar(C))
 		if(src.p_open && (operating < 0 || (!operating && welded && !src.arePowerSystemsOn() && density && (!src.locked || (stat & BROKEN)))) )
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
-			user.visible_message("[user] removes the electronics from the airlock assembly.", "You start to remove electronics from the airlock assembly.")
+			user.visible_message("[C][user] removes the electronics from the airlock assembly.", "You start to remove electronics from the airlock assembly.")
 			if(do_after(user,40))
 				user << "<span class='notice'>You removed the airlock electronics!</span>"
 				CreateAssembly()

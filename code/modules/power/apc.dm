@@ -430,9 +430,9 @@
 			if (terminal)
 				user << "<span class='warning'>Disconnect wires first.</span>"
 				return
-			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+			playsound(src.loc, W.usesound, 50, 1)
 			user << "You are trying to remove the power control board..." //lpeters - fixed grammar issues
-			if(do_after(user, 50))
+			if(do_after(user, 50*W.toolspeed))
 				if (has_electronics==1)
 					has_electronics = 0
 					if ((stat & BROKEN))
@@ -456,7 +456,7 @@
 			return
 		else
 			opened = 1
-			panel_open = 1		
+			panel_open = 1
 			update_icon()
 	else if (istype(W, /obj/item/weapon/gripper))//Code for allowing cyborgs to use rechargers
 		var/obj/item/weapon/gripper/Gri = W
@@ -491,6 +491,8 @@
 		chargecount = 0
 		update_icon()
 	else if	(isscrewdriver(W))	// haxing
+		if (!W.tool_is_usable())
+			return
 		if(opened)
 			if (cell)
 				user << "<span class='warning'>Close the APC first.</span>" //Less hints more mystery!
@@ -499,12 +501,12 @@
 				if (has_electronics==1 && terminal)
 					has_electronics = 2
 					stat &= ~MAINT
-					playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+					playsound(src.loc, W.usesound, 50, 1)
 					user << "You screw the circuit electronics into place."
 				else if (has_electronics==2)
 					has_electronics = 1
 					stat |= MAINT
-					playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+					playsound(src.loc, W.usesound, 50, 1)
 					user << "You unfasten the electronics."
 				else /* has_electronics==0 */
 					user << "<span class='warning'>There is nothing to secure.</span>"

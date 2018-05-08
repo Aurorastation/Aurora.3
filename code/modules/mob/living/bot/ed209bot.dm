@@ -169,10 +169,12 @@
 
 		if(8)
 			if(isscrewdriver(W))
-				playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
+				if (!W.tool_is_usable())
+					return
+				playsound(src.loc, W.usesound, 100, 1)
 				var/turf/T = get_turf(user)
 				user << "<span class='notice'>Now attaching the gun to the frame...</span>"
-				sleep(40)
+				sleep(40*W.toolspeed)
 				if(get_turf(user) == T && build_step == 8)
 					build_step++
 					name = "armed [name]"

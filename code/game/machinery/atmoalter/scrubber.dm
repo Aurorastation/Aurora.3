@@ -207,12 +207,14 @@
 
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/attackby(var/obj/item/I as obj, var/mob/user as mob)
 	if(iswrench(I))
+		if (!I.tool_is_usable())
+			return
 		if(on)
 			user << "<span class='warning'>Turn \the [src] off first!</span>"
 			return
 
 		anchored = !anchored
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(src.loc, I.usesound, 50, 1)
 		user << "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>"
 
 		return

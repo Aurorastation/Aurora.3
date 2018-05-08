@@ -71,9 +71,11 @@
 		user << "You add the pill bottle into the dispenser slot!"
 		src.updateUsrDialog()
 	else if(iswrench(B))
+		if (!B.tool_is_usable())
+			return
 		anchored = !anchored
 		user << "You [anchored ? "attach" : "detach"] the [src] [anchored ? "to" : "from"] the ground"
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+		playsound(src.loc, B.usesound, 75, 1)
 
 
 /obj/machinery/chem_master/Topic(href, href_list)
@@ -229,7 +231,7 @@
 	if(inoperable())
 		return
 	user.set_machine(src)
-	
+
 	var/datum/asset/pill_icons = get_asset_datum(/datum/asset/chem_master)
 	pill_icons.send(user.client)
 

@@ -37,6 +37,8 @@
 /obj/machinery/floorlayer/attackby(var/obj/item/W as obj, var/mob/user as mob)
 
 	if (iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		var/m = input("Choose work mode", "Mode") as null|anything in mode
 		mode[m] = !mode[m]
 		var/O = mode[m]
@@ -61,6 +63,8 @@
 		return
 
 	if(isscrewdriver(W))
+		if (!W.tool_is_usable())
+			return
 		T = input("Choose tile type.", "Tiles") as null|anything in contents
 		return
 	..()

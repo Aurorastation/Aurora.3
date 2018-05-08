@@ -341,7 +341,9 @@
 	// attempt to stick weapon into light socket
 	else if(status == LIGHT_EMPTY)
 		if(isscrewdriver(W)) //If it's a screwdriver open it.
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 75, 1)
+			if (!W.tool_is_usable())
+				return
+			playsound(src.loc, W.usesound, 75, 1)
 			user.visible_message("[user.name] opens [src]'s casing.", \
 				"You open [src]'s casing.", "You hear a noise.")
 			var/obj/machinery/light_construct/newlight = null

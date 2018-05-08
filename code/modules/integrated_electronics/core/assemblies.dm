@@ -255,7 +255,7 @@
 			return TRUE
 
 	else if(istype(I, /obj/item/weapon/crowbar))
-		playsound(get_turf(src), 'sound/items/Crowbar.ogg', 50, 1)
+		playsound(get_turf(src), I.usesound, 50, 1)
 		opened = !opened
 		to_chat(user, "<span class='notice'>You [opened ? "open" : "close"] \the [src].</span>")
 		update_icon()

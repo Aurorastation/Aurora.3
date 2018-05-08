@@ -139,7 +139,7 @@
 /obj/machinery/power/am_control_unit/update_icon()
 	if(active)
 		icon_state = "control_[icon_mod]"
-	else 
+	else
 		icon_state = "control"
 	//No other icons for it atm
 
@@ -147,8 +147,10 @@
 	if(!istype(W) || !user)
 		return
 	if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		if(!anchored)
-			playsound(get_turf(src), 'sound/items/Ratchet.ogg', 75, 1)
+			playsound(get_turf(src), W.usesound, 75, 1)
 			user.visible_message("[user.name] secures the [src.name] to the floor.", \
 				"You secure the anchor bolts to the floor.", \
 				"You hear a ratchet")
@@ -157,7 +159,7 @@
 			check_shield_icons()
 			connect_to_network()
 		else if(!linked_shielding.len > 0)
-			playsound(get_turf(src), 'sound/items/Ratchet.ogg', 75, 1)
+			playsound(get_turf(src), W.usesound, 75, 1)
 			user.visible_message("[user.name] unsecures the [src.name].", \
 				"You remove the anchor bolts.", \
 				"You hear a ratchet")

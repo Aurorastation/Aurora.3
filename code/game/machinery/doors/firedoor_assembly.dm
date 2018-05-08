@@ -47,8 +47,11 @@ obj/structure/firedoor_assembly/attackby(C as obj, mob/user as mob)
 		else
 			user << "<span class='warning'>You must secure \the [src] first!</span>"
 	else if(iswrench(C))
+		var/obj/item/weapon/wrench/W = C
+		if (!W.tool_is_usable())
+			return
 		anchored = !anchored
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(src.loc, W.usesound, 50, 1)
 		user.visible_message("<span class='warning'>[user] has [anchored ? "" : "un" ]secured \the [src]!</span>",
 							  "You have [anchored ? "" : "un" ]secured \the [src]!")
 		update_icon()

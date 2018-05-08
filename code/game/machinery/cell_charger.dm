@@ -60,13 +60,15 @@
 			chargelevel = -1
 		update_icon()
 	else if(iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		if(charging)
 			user << "<span class='warning'>Remove the cell first!</span>"
 			return
 
 		anchored = !anchored
 		user << "You [anchored ? "attach" : "detach"] the cell charger [anchored ? "to" : "from"] the ground"
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+		playsound(src.loc, W.usesound, 75, 1)
 
 /obj/machinery/cell_charger/attack_hand(mob/user)
 	if(charging)

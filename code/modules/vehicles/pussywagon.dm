@@ -144,6 +144,8 @@
 			return
 
 	if(iswrench(W) && open)
+		if (!W.tool_is_usable())
+			return
 		if(bucket)
 			bucket.forceMove(user.loc)
 			bucket = null

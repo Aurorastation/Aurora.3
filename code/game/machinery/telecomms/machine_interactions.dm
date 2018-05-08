@@ -34,25 +34,33 @@
 	switch(construct_op)
 		if(0)
 			if(isscrewdriver(P))
+				if (!P.tool_is_usable())
+					return
 				user << "You unfasten the bolts."
-				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src.loc, P.usesound, 50, 1)
 				construct_op ++
 		if(1)
 			if(isscrewdriver(P))
+				if (!P.tool_is_usable())
+					return
 				user << "You fasten the bolts."
-				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src.loc, P.usesound, 50, 1)
 				construct_op --
 			if(iswrench(P))
+				if (!P.tool_is_usable())
+					return
 				user << "You dislodge the external plating."
-				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+				playsound(src.loc, P.usesound, 75, 1)
 				construct_op ++
 		if(2)
 			if(iswrench(P))
+				if (!P.tool_is_usable())
+					return
 				user << "You secure the external plating."
-				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+				playsound(src.loc, P.usesound, 75, 1)
 				construct_op --
 			if(iswirecutter(P))
-				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+				playsound(src.loc, P.usesound, 50, 1)
 				user << "You remove the cables."
 				construct_op ++
 				var/obj/item/stack/cable_coil/A = new /obj/item/stack/cable_coil( user.loc )
@@ -69,7 +77,7 @@
 					user << "<span class='warning'>You need five coils of wire for this.</span>"
 			if(iscrowbar(P))
 				user << "You begin prying out the circuit board other components..."
-				playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+				playsound(src.loc, P.usesound, 50, 1)
 				if(do_after(user,60))
 					user << "You finish prying out the components."
 

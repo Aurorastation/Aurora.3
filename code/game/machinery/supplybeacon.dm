@@ -46,12 +46,14 @@
 
 /obj/machinery/power/supply_beacon/attackby(var/obj/item/weapon/W, var/mob/user)
 	if(!use_power && iswrench(W))
+		if (!W.tool_is_usable())
+			return
 		if(!anchored && !connect_to_network())
 			user << "<span class='warning'>This device must be placed over an exposed cable.</span>"
 			return
 		anchored = !anchored
 		user.visible_message("<span class='notice'>\The [user] [anchored ? "secures" : "unsecures"] \the [src].</span>")
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(src.loc, W.usesound, 50, 1)
 		return
 	return ..()
 

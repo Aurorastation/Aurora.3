@@ -46,17 +46,19 @@ var/bomb_set
 /obj/machinery/nuclearbomb/attackby(obj/item/weapon/O as obj, mob/user as mob, params)
 	if (isscrewdriver(O))
 		src.add_fingerprint(user)
+		if (!O.tool_is_usable())
+			return
 		if (src.auth)
 			if (panel_open == 0)
 				panel_open = 1
 				add_overlay("panel_open")
 				user << "You unscrew the control panel of [src]."
-				playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src, O.usesound, 50, 1)
 			else
 				panel_open = 0
 				cut_overlay("panel_open")
 				user << "You screw the control panel of [src] back on."
-				playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src, O.usesound, 50, 1)
 		else
 			if (panel_open == 0)
 				user << "\The [src] emits a buzzing noise, the panel staying locked in."
@@ -64,7 +66,7 @@ var/bomb_set
 				panel_open = 0
 				cut_overlay("panel_open")
 				user << "You screw the control panel of \the [src] back on."
-				playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src, O.usesound, 50, 1)
 			flick("lock", src)
 		return
 
@@ -126,10 +128,12 @@ var/bomb_set
 
 			if(3)
 				if(iswrench(O))
+					if (!O.tool_is_usable())
+						return
 
 					user.visible_message("[user] begins unwrenching the anchoring bolts on [src].", "You begin unwrenching the anchoring bolts...")
 
-					if(do_after(user,50))
+					if(do_after(user,50*O.toolspeed))
 						if(!src || !user) return
 						user.visible_message("[user] unwrenches the anchoring bolts on [src].", "You unwrench the anchoring bolts.")
 						removal_stage = 4

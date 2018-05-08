@@ -29,7 +29,7 @@
 		qdel(igniter)
 	if(ptank)
 		qdel(ptank)
-	
+
 	return ..()
 
 
@@ -72,6 +72,8 @@
 /obj/item/weapon/flamethrower/attackby(obj/item/W as obj, mob/user as mob)
 	if(user.stat || user.restrained() || user.lying)	return
 	if(iswrench(W) && !status)//Taking this apart
+		if (!W.tool_is_usable())
+			return
 		var/turf/T = get_turf(src)
 		if(weldtool)
 			weldtool.loc = T
@@ -87,6 +89,8 @@
 		return
 
 	if(isscrewdriver(W) && igniter && !lit)
+		if (!W.tool_is_usable())
+			return
 		status = !status
 		user << "<span class='notice'>[igniter] is now [status ? "secured" : "unsecured"]!</span>"
 		update_icon()
