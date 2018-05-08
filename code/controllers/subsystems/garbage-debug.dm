@@ -829,7 +829,7 @@
 	SearchVar(lunchables_snacks_)
 	SearchVar(lunchables_drinks_)
 	SearchVar(lunchables_drink_reagents_)
-	SearchVar(lunchables_ethanol_reagents_)
+	SearchVar(lunchables_alcohol_reagents_)
 	SearchVar(message_servers)
 	SearchVar(blackbox)
 	SearchVar(responsive_carriers)
