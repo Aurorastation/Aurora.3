@@ -679,7 +679,7 @@ default behaviour is:
 
 /mob/living/var/last_resist
 
- /mob/living/proc/resist_grab()
+/mob/living/proc/resist_grab()
 	if (last_resist + 4 > world.time)
 		return
 	last_resist = world.time
