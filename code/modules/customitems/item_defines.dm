@@ -2035,7 +2035,7 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 	favored_number = 2
 
 
-/obj/item/weapon/flame/lighter/zippo/fluff/locke_zippo //Vasili Mine Zippo - Nikit Vasili - simontheminer
+/obj/item/weapon/flame/lighter/zippo/fluff/nikit_zippo //Vasili Mine Zippo - Nikit Vasili - simontheminer
 	desc = "An old looking zippo lighter with Vasili Mine Logo engraved on it. \"Good Luck Nikit\" is crudely scratched on under the logo in small writing."
 	icon = 'icons/obj/custom_items/nikit_zippo.dmi'
 	icon_state = "nikit_zippo"
