@@ -2764,8 +2764,27 @@
 /turf/simulated/floor/carpet,
 /area/security/detectives_office)
 "ff" = (
-/turf/simulated/floor/holofloor/tiled,
-/area/security/training)
+/obj/effect/floor_decal/corner/green/full{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
+/obj/structure/flora/pottedplant,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Psychiatry Hallway";
+	network = list("Medical")
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
 "fg" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -2775,7 +2794,7 @@
 	dir = 4
 	},
 /obj/machinery/requests_console{
-	department = "Forensic Technician";
+	department = "Security Weights Room";
 	departmentType = 5;
 	pixel_x = 0;
 	pixel_y = -32
@@ -3329,6 +3348,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/wood,
 /area/security/detectives_office)
 "gh" = (
@@ -3535,6 +3555,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "gy" = (
@@ -4072,6 +4093,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/investigations)
 "hk" = (
@@ -4132,7 +4154,6 @@
 /area/security/forensics_office)
 "hn" = (
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -4141,6 +4162,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/forensics_office)
 "ho" = (
@@ -4234,6 +4256,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/security/training)
 "hw" = (
@@ -4372,7 +4395,7 @@
 	dir = 1
 	},
 /obj/machinery/requests_console{
-	department = "Forensic Technician";
+	department = "Theoretical Training Room";
 	departmentType = 5;
 	pixel_x = 0;
 	pixel_y = -32
@@ -4555,6 +4578,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/training)
 "ib" = (
@@ -5339,13 +5363,22 @@
 /turf/simulated/floor/tiled,
 /area/security/training)
 "jA" = (
-/obj/effect/floor_decal/corner/red{
+/obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/structure/weightlifter,
-/turf/simulated/floor/tiled,
-/area/mine/unexplored)
+/obj/machinery/firealarm/west,
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Psychaitry Patient Room";
+	dir = 4;
+	icon_state = "camera";
+	network = list("Medical")
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
 "jB" = (
 /obj/effect/floor_decal/corner/blue/full{
 	icon_state = "corner_white_full";
@@ -5466,32 +5499,24 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "jP" = (
-/obj/effect/floor_decal/corner/green/full{
-	icon_state = "corner_white_full";
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/obj/structure/flora/pottedplant,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Psychaitry Closet";
+	network = list("Medical")
 	},
-/obj/machinery/alarm{
-	dir = 8;
-	icon_state = "alarm0";
-	pixel_x = 24
-	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/dark,
 /area/medical/psych)
 "jQ" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/firealarm/west,
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Psychiatry Waiting";
+	network = list("Medical")
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "jR" = (
@@ -5972,10 +5997,10 @@
 /area/medical/psych)
 "kH" = (
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Isolation Room";
+	c_tag = "Medical - Psychaitry Isolation Room";
 	dir = 4;
 	icon_state = "camera";
-	network = list("Medical","Isolation Room")
+	network = list("Medical")
 	},
 /turf/simulated/floor/reinforced,
 /area/medical/psych)
@@ -6511,6 +6536,12 @@
 /obj/effect/floor_decal/corner/green/full,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Psychaitry Isolation Room Entrance";
+	dir = 4;
+	icon_state = "camera";
+	network = list("Medical")
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
@@ -42446,7 +42477,7 @@ ab
 ab
 jG
 jL
-jQ
+jA
 kb
 kl
 kw
@@ -44761,7 +44792,7 @@ jH
 jM
 jV
 jG
-ko
+jP
 kB
 jG
 kS
@@ -45792,7 +45823,7 @@ jG
 kr
 jG
 jG
-jM
+jQ
 lf
 lq
 kc
@@ -46300,7 +46331,7 @@ aa
 ab
 ab
 jG
-jP
+ff
 jX
 ki
 kt

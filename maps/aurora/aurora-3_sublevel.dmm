@@ -26221,9 +26221,6 @@
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
 "Uk" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
@@ -26232,16 +26229,17 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
 "Ul" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
 "Um" = (
@@ -26329,6 +26327,15 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "Uw" = (
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1379;
+	master_tag = "toxinsairlock_airlock";
+	name = "exterior access button";
+	pixel_x = 25;
+	pixel_y = -25;
+	req_one_access = list(13,65)
+	},
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
@@ -26425,51 +26432,49 @@
 /turf/simulated/floor/plating,
 /area/rnd/mixing)
 "UB" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 10
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
-	dir = 9
+/obj/effect/floor_decal/industrial/warning/cee{
+	icon_state = "warningcee";
+	dir = 8
 	},
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1379;
-	master_tag = "toxinsairlock_airlock";
-	name = "interior access button";
-	pixel_x = 0;
-	pixel_y = -25;
-	req_one_access = list(13,65)
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 8;
+	name = "Distro to Canisters";
+	target_pressure = 150
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/rnd/mixing)
 "UC" = (
 /obj/machinery/light/small,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -22
 	},
-/obj/effect/floor_decal/industrial/warning,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	icon_state = "warningcee";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/rnd/mixing)
 "UD" = (
-/obj/machinery/suit_storage_unit/standard_unit,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
@@ -26562,7 +26567,7 @@
 "UL" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/mineral,
-/area/mine/unexplored)
+/area/rnd/mixing)
 "UM" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/bed/chair{
@@ -26715,7 +26720,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/mineral,
-/area/mine/unexplored)
+/area/rnd/mixing)
 "Va" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -27208,6 +27213,42 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"Wi" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/suit_storage_unit/standard_unit,
+/turf/simulated/floor/tiled,
+/area/rnd/mixing)
+"Wj" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/mixing)
+"Wk" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1379;
+	master_tag = "toxinsairlock_airlock";
+	name = "interior access button";
+	pixel_x = 0;
+	pixel_y = -25;
+	req_one_access = list(13,65)
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible,
+/obj/machinery/meter,
+/turf/simulated/floor/tiled,
+/area/rnd/mixing)
 
 (1,1,1) = {"
 aa
@@ -43317,9 +43358,9 @@ Tm
 Ty
 Sm
 ac
-ac
-Ux
-ac
+NP
+Uy
+NP
 ac
 ac
 Ve
@@ -43575,7 +43616,7 @@ Tz
 Sm
 ac
 NP
-Uy
+Uz
 NP
 aa
 ac
@@ -43830,9 +43871,9 @@ SS
 To
 SS
 TK
-ac
 NP
-Uz
+NP
+UA
 NP
 aa
 ac
@@ -44087,9 +44128,9 @@ ST
 Tp
 TA
 NP
-NP
-NP
-UA
+TY
+Uj
+Wk
 NP
 NP
 Va
@@ -44344,8 +44385,8 @@ SU
 PV
 TB
 NP
-TY
-Uj
+Wi
+Wj
 UB
 NP
 ac
@@ -45855,7 +45896,7 @@ aa
 ac
 ac
 ac
-Wc
+Wb
 ym
 We
 BR
@@ -46111,7 +46152,7 @@ ac
 ac
 VS
 VY
-VZ
+VY
 Wd
 ym
 AF
@@ -47137,7 +47178,7 @@ ac
 ac
 ac
 ac
-VW
+VU
 yn
 yL
 zx
