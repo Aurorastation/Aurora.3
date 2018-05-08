@@ -25,11 +25,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 			desc = "Inside the pocket watch, there is a collection of numbers, displaying '[worldtime2text()]'. On the inside of the lid, there is another sequence of numbers etched into the lid itself."
 
 
-/obj/item/clothing/head/soft/sec/corp/fluff/mendoza_cap //Mendoza's cap - Chance Mendoza - loow
-	name = "well-worn corporate security cap"
-	desc = "A baseball hat in corporate colors.\"C. Mendoza\" is embroidered in fine print on the bill. On the underside of the cap, in dark ink, the phrase \"Gamble till you're Lucky!\" is written in loopy cursive handwriting."
-
-
 /obj/item/clothing/head/fluff/ziva_bandana //Ziva's Bandana - Ziva Ta'Kim - sierrakomodo
 	name = "old bandana"
 	desc = "An old orange-ish-yellow bandana. It has a few stains from engine grease, and the color has been dulled."
@@ -116,11 +111,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	slot_flags = SLOT_MASK | SLOT_TIE
 
 
-/obj/item/clothing/ears/skrell/purple_skrell_cloth_male/fluff/dompesh_cloth //Skrell Purple Head Cloth - Shkor-Dyet Dom'Pesh - mofo1995
-	name = "male skrell purple head cloth"
-	desc = "A set of purple headcloths fit for a skrell's head tails. This one has a small SAMPLe logo on the interior of each cloth, perfect for scientific skrell."
-
-
 /obj/item/weapon/fluff/kiara_altar //Pocket Altar - Kiara Branwen - nursiekitty
 	name = "pocket altar"
 	desc = "A black tin box with a symbol painted over it. It shimmers in the light."
@@ -156,11 +146,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	allowed = list(/obj/item/weapon/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/weapon/gun/energy,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,
 	/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/flame/lighter,/obj/item/device/taperecorder, /obj/item/clothing/accessory/badge/fluff/bell_badge)
-
-
-/obj/item/clothing/under/syndicate/tacticool/fluff/jaylor_turtleneck //Borderworlds Turtleneck - Jaylor Rameau - evilbrage
-	name = "borderworlds turtleneck"
-	desc = "A loose-fitting turtleneck, common among borderworld pilots and criminals. One criminal in particular is missing his, apparently."
 
 
 /obj/item/weapon/melee/fluff/tina_knife //Consecrated Athame - Tina Kaekel - tainavaa
@@ -396,10 +381,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	usr.update_inv_wear_suit()
 
-/obj/item/clothing/head/beret/centcom/officer/fluff/fabian_beret //Worn Security Beret - Fabian Goellstein - mirkoloio
-	name = "worn security beret"
-	desc = "A NT Asset Protection Force Beret. It has the NT APF insignia on it as well as the Name \"Goellstein\" inside."
-
 
 /obj/item/clothing/head/fluff/vittorio_fez //Black Fez - Vittorio Giurifiglio - tytostyris
 	name = "black fez"
@@ -473,18 +454,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "barcia_flask"
 
 
-/obj/item/clothing/gloves/fluff/stone_ring //Thunder Dome Pendant Ring - Jerimiah Stone - dominicthemafiaso
+/obj/item/clothing/ring/fluff/stone_ring //Thunder Dome Pendant Ring - Jerimiah Stone - dominicthemafiaso
 	name = "thunder dome pendant ring"
 	desc = "It appears to be a Collectors edition Thunder dome Pendant ring from the IGTDL's show rumble in the red planet in 2444. It has a decorative diamond center with a image of the Intergalactic belt in the center."
 	icon = 'icons/obj/custom_items/stone_ring.dmi'
 	icon_state = "stone_ring"
 	item_state = "stone_ring"
 	contained_sprite = TRUE
-	clipped = TRUE
-	species_restricted = null
-	gender = NEUTER
-	body_parts_covered = null
-	fingerprint_chance = 100
 
 
 /obj/item/clothing/under/dress/fluff/sayyidah_dress //Traditional Jumper Dress - Sayyidah Al-Kateb - alberyk
@@ -655,11 +631,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/head/soft/sec/corp/fluff/karson_cap //Karson's Cap - Eric Karson - dronzthewolf
-	name = "well-worn corporate security cap"
-	desc = "A well-worn corporate security cap. The name \"Karson\" is written on the underside of the brim, it is well-worn at the point where it has shaped to the owner's head."
-
-
 /obj/item/sign/fluff/triaka_atimono //Framed Zatimono - Azkuyua Triaka - jackboot
 	name = "framed zatimono"
 	desc = "A framed Zatimono, a Unathi standard worn into battle similar to an old-Earth Sashimono. This one is slightly faded."
@@ -691,16 +662,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "zohjar_uniform"
 	item_state = "zohjar_uniform"
 	contained_sprite = TRUE
-
-/obj/item/clothing/suit/storage/toggle/labcoat/tajaran/fluff/zohjar_jacket //People's Republic Medical Officer Coat - Zohjar Rasateir - lordraven001
-	name = "people's republic medical officer coat"
-	desc = "A sterile insulated coat made of leather stitched over fur. It has two gold lapels indicating Officer rank. \
-	The a white armband with a scarlet line in the center indicates that the person wearing this coat is medically trained."
-
-
-/obj/item/clothing/suit/storage/tajaran/fluff/maksim_coat //Tajaran Naval Officer's Coat - Maksim Vasilyev - aimlessanalyst
-	name = "tajaran naval officer coat"
-	desc = "A thick wool coat from Adhomai, calling back to days long past."
 
 
 /obj/item/sign/fluff/iskanz_atimono //Framed Zatimono - Iskanz Sal'Dans - zundy
@@ -829,11 +790,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A faded badge, backed with leather, that reads \"NT Security Force\" across the front. It bears the emblem of the forensic division."
 	stored_name = "Ana Issek"
 	badge_string = "NanoTrasen Security Department"
-
-
-/obj/item/clothing/head/hairflower/fluff/aquila_pin //Magnetic Flower Pin - Aquila - nandastar
-	name = "magnetic flower pin"
-	desc = "That's a magnet in the shape of a hair flower pin. Smells nice."
 
 
 /obj/item/clothing/head/beret/engineering/fluff/ikrad_beret //LR-31MTA Beret - Ikrad Yam'hir - houseofsynth
@@ -1163,6 +1119,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/mask/fluff/corvo_cigarette/examine(mob/user)
 	if(..(user, 1))
 		user << "It is [active ? "on" : "off"]."
+
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/cognac/fluff/leonce_cognac //Old Earth Luxury Cognac - Francois Leonce - driecg36
 	name = "old earth luxury cognac"
