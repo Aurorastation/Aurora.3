@@ -100,9 +100,7 @@
 #define INV_R_HAND_DEF_ICON 'icons/mob/items/righthand.dmi'
 #define INV_W_UNIFORM_DEF_ICON 'icons/mob/uniform.dmi'
 #define INV_ACCESSORIES_DEF_ICON 'icons/mob/ties.dmi'
-#define INV_SUIT_DEF_ICON 'icons/mob/ties.dmi'
 #define INV_SUIT_DEF_ICON 'icons/mob/suit.dmi'
-#define MAX_SUPPLIED_LAW_NUMBER 50
 
 // NT's alignment towards the character
 #define COMPANY_LOYAL 			"Loyal"
@@ -211,4 +209,8 @@
 #define BRAIN_TRAUMA_SEVERE /datum/brain_trauma/severe
 #define BRAIN_TRAUMA_SPECIAL /datum/brain_trauma/special
 
-#define BRAIN_DAMAGE_INTEGRITY_MULTIPLIER 0.5
+#define CURE_CRYSTAL "crystal"
+#define CURE_SOLITUDE "solitude"
+#define CURE_HYPNOSIS "hypnosis"
+#define CURE_SURGERY "surgery"
+#define CURE_ADMIN "all"

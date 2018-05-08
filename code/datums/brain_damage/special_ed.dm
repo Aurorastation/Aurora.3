@@ -10,6 +10,7 @@
 	gain_text = "<span class='notice'>You feel the bluespace pulsing around you...</span>"
 	lose_text = "<span class='warning'>The faint pulsing of bluespace fades into silence.</span>"
 	var/next_portal = 0
+	cure_type = CURE_SURGERY
 
 /datum/brain_trauma/special/bluespace_prophet/on_life()
 	if(world.time > next_portal)

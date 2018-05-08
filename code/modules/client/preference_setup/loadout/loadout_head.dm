@@ -173,3 +173,11 @@
 	surgical["surgical cap, green"] = /obj/item/clothing/head/surgery/green
 	surgical["surgical cap, black"] = /obj/item/clothing/head/surgery/black
 	gear_tweaks += new/datum/gear_tweak/path(surgical)
+
+/datum/gear/head/headbando
+	display_name = "Basic Headband"
+	path = /obj/item/clothing/head/headbando
+
+/datum/gear/head/headbando/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)

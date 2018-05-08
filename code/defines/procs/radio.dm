@@ -75,19 +75,3 @@
 	reception.message = signal && signal.data["compression"] > 0 ? Gibberish(message, signal.data["compression"] + 50) : message
 
 	return reception
-
-/proc/get_receptions(var/atom/sender, var/list/atom/receivers, var/do_sleep = 1)
-	var/datum/receptions/receptions = new
-	receptions.message_server = get_message_server()
-
-	var/datum/signal/signal
-	if(sender)
-		signal = sender.telecomms_process(do_sleep)
-		receptions.sender_reception = get_sender_reception(sender, signal)
-
-	for(var/atom/receiver in receivers)
-		if(!signal)
-			signal = receiver.telecomms_process()
-		receptions.receiver_reception[receiver] = get_receiver_reception(receiver, signal)
-
-	return receptions

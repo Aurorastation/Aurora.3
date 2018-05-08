@@ -515,6 +515,8 @@
 // The crush act proc
 //
 /atom/movable/proc/crush_act()
+	if(!simulated)
+		return
 	ex_act(1)
 	if(!QDELETED(src))
 		qdel(src)//Just as a failsafe

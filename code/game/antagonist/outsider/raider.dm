@@ -41,7 +41,7 @@ var/datum/antagonist/raider/raiders
 
 	var/list/raider_glasses = list(
 		/obj/item/clothing/glasses/thermal,
-		/obj/item/clothing/glasses/thermal/plain/eyepatch,
+		/obj/item/clothing/glasses/eyepatch/hud/thermal,
 		/obj/item/clothing/glasses/thermal/plain/monocle
 		)
 
@@ -91,7 +91,7 @@ var/datum/antagonist/raider/raiders
 		/obj/item/weapon/gun/projectile/shotgun/doublebarrel,
 		/obj/item/weapon/gun/projectile/shotgun/doublebarrel/pellet,
 		/obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn,
-		/obj/item/weapon/gun/projectile/boltaction,
+		/obj/item/weapon/gun/projectile/shotgun/pump/rifle,
 		/obj/item/weapon/gun/projectile/colt,
 		/obj/item/weapon/gun/projectile/sec,
 		/obj/item/weapon/gun/projectile/pistol,
@@ -103,7 +103,7 @@ var/datum/antagonist/raider/raiders
 		/obj/item/weapon/gun/projectile/contender,
 		/obj/item/weapon/gun/projectile/pirate,
 		/obj/item/weapon/gun/projectile/tanto,
-		/obj/item/weapon/gun/projectile/boltaction/vintage
+		/obj/item/weapon/gun/projectile/shotgun/pump/rifle/vintage
 		)
 
 

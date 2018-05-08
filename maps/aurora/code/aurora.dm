@@ -36,8 +36,8 @@
 	command_spawn_message = "Welcome to the Odin! Simply proceed down and to the right to board the shuttle to your workplace!"
 
 	station_networks = list(
-		NETWORK_CIVILIAN_EAST,
-		NETWORK_CIVILIAN_WEST,
+		NETWORK_CIVILIAN_MAIN,
+		NETWORK_CIVILIAN_SURFACE,
 		NETWORK_COMMAND,
 		NETWORK_ENGINE,
 		NETWORK_ENGINEERING,
@@ -49,7 +49,9 @@
 		NETWORK_RESEARCH_OUTPOST,
 		NETWORK_ROBOTS,
 		NETWORK_PRISON,
-		NETWORK_SECURITY
+		NETWORK_SECURITY,
+		NETWORK_SERVICE,
+		NETWORK_SUPPLY
 	)
 
 	shuttle_docked_message = "The scheduled Crew Transfer Shuttle to %dock% has docked with the station. It will depart in approximately %ETA% minutes."

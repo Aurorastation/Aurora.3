@@ -47,7 +47,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	name = "Illegal weapons crate"
 	num_contained = 2
 	contains = list(/obj/item/weapon/gun/projectile/automatic/mini_uzi,
-					/obj/item/weapon/gun/projectile/boltaction,
+					/obj/item/weapon/gun/projectile/shotgun/pump/rifle,
 					/obj/item/weapon/gun/projectile/silenced,
 					/obj/item/weapon/gun/projectile/pirate,
 					/obj/item/weapon/gun/projectile/revolver/derringer,

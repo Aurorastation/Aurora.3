@@ -40,16 +40,23 @@
 
 /datum/gear/uniform/skirt
 	display_name = "skirt selection"
-	path = /obj/item/clothing/under/dress/plaid_blue
+	path = /obj/item/clothing/under/skirt/
 
 /datum/gear/uniform/skirt/New()
 	..()
 	var/skirts = list()
-	skirts["plaid skirt, blue"] = /obj/item/clothing/under/dress/plaid_blue
-	skirts["plaid skirt, purple"] = /obj/item/clothing/under/dress/plaid_purple
-	skirts["plaid skirt, red"] = /obj/item/clothing/under/dress/plaid_red
-	skirts["jumpskirt, black"] = /obj/item/clothing/under/blackjumpskirt
-	skirts["skirt, black"] = /obj/item/clothing/under/blackskirt
+	skirts["plaid skirt, blue"] = /obj/item/clothing/under/skirt/plaid_blue
+	skirts["plaid skirt, purple"] = /obj/item/clothing/under/skirt/plaid_purple
+	skirts["plaid skirt, red"] = /obj/item/clothing/under/skirt/plaid_red
+	skirts["jumpskirt, black"] = /obj/item/clothing/under/skirt/blackjumpskirt
+	skirts["skirt, black"] = /obj/item/clothing/under/skirt/
+	skirts["skirt, khaki"] = /obj/item/clothing/under/skirt/khaki
+	skirts["short skirt, black"] = /obj/item/clothing/under/skirt/short_black
+	skirts["short skirt, blue"] = /obj/item/clothing/under/skirt/blue
+	skirts["short skirt, red"] = /obj/item/clothing/under/skirt/red
+	skirts["skirt, swept"] = /obj/item/clothing/under/skirt/swept
+
+
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
 
 /datum/gear/uniform/suit
@@ -168,17 +175,28 @@
 	pants["khaki pants"] = /obj/item/clothing/under/pants/khaki
 	pants["track pants"] = /obj/item/clothing/under/pants/track
 	pants["camo pants"] = /obj/item/clothing/under/pants/camo
+	pants["athletic shorts, black"] = /obj/item/clothing/under/shorts
+	pants["athletic shorts, red"] = /obj/item/clothing/under/shorts/red
+	pants["athletic shorts, green"] = /obj/item/clothing/under/shorts/green
+	pants["athletic shorts, black"] = /obj/item/clothing/under/shorts/black
+	pants["athletic shorts, grey"] = /obj/item/clothing/under/shorts/grey
+	pants["jean shorts"] = /obj/item/clothing/under/shorts/jeans
+	pants["jean short shorts"] = /obj/item/clothing/under/shorts/jeans/female
+	pants["classic jeans shorts"] = /obj/item/clothing/under/shorts/jeans/classic
+	pants["classic jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans/classic/female
+	pants["mustang jeans shorts"] = /obj/item/clothing/under/shorts/jeans/mustang
+	pants["mustang jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans/mustang/female
+	pants["young folks jeans shorts"] = /obj/item/clothing/under/shorts/jeans/youngfolks
+	pants["young folks jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans/youngfolks/female
+	pants["black jeans shorts"] = /obj/item/clothing/under/shorts/jeans/black
+	pants["black jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans/black/female
+	pants["grey jeans shorts"] = /obj/item/clothing/under/shorts/jeans/grey
+	pants["grey jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans
+	pants["khaki shorts"] = /obj/item/clothing/under/shorts/khaki
+	pants["khaki shorts shorts"] = /obj/item/clothing/under/shorts/khaki/female
 	gear_tweaks += new/datum/gear_tweak/path(pants)
 
 /datum/gear/uniform/turtleneck
 	display_name = "tacticool turtleneck"
 	path = /obj/item/clothing/under/syndicate/tacticool
 
-
-/datum/gear/uniform/sweater
-	display_name = "sweater"
-	path = /obj/item/clothing/under/sweater
-
-/datum/gear/uniform/sweater/New()
-	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)

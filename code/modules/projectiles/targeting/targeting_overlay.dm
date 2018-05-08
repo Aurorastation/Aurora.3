@@ -7,6 +7,7 @@
 	density = 0
 	opacity = 0
 	layer = FLY_LAYER
+	appearance_flags = NO_CLIENT_COLOR
 	simulated = 0
 	mouse_opacity = 0
 

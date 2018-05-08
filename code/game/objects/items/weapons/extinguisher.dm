@@ -127,7 +127,7 @@
 				W.set_color()
 				W.set_up(my_target)
 
-		if((istype(usr.loc, /turf/space)) || (usr.lastarea.has_gravity == 0))
+		if((istype(usr.loc, /turf/space)) || (usr.lastarea.has_gravity() == 0))
 			user.inertia_dir = get_dir(target, user)
 			step(user, user.inertia_dir)
 	else

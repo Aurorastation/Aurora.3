@@ -116,7 +116,7 @@ datum/preferences
 	var/exploit_record = ""
 	var/ccia_record = ""
 	var/list/ccia_actions = list()
-	var/disabilities = 0
+	var/list/disabilities = list()
 
 	var/nanotrasen_relation = "Neutral"
 
@@ -369,6 +369,8 @@ datum/preferences
 	// Destroy/cyborgize organs & setup body markings
 	character.sync_organ_prefs_to_mob(src)
 
+	character.sync_trait_prefs_to_mob(src)
+
 	character.underwear = underwear
 
 	character.undershirt = undershirt
@@ -385,6 +387,7 @@ datum/preferences
 		character.update_mutations(0)
 		character.update_body(0)
 		character.update_hair(0)
+		character.update_underwear(0)
 		character.update_icons()
 
 /datum/preferences/proc/open_load_dialog_sql(mob/user)
@@ -535,7 +538,7 @@ datum/preferences
 		flavour_texts_robot = list()
 
 		ccia_actions = list()
-		disabilities = 0
+		disabilities = list()
 
 		nanotrasen_relation = "Neutral"
 

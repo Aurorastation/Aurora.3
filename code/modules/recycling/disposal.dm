@@ -1114,6 +1114,7 @@
 	icon_state = "pipe-tagger"
 	var/sort_tag = ""
 	var/partial = 0
+	var/no_override = 0
 
 /obj/structure/disposalpipe/tagger/proc/updatedesc()
 	desc = initial(desc)
@@ -1152,10 +1153,11 @@
 
 /obj/structure/disposalpipe/tagger/transfer(var/obj/disposalholder/H)
 	if(sort_tag)
-		if(partial)
-			H.setpartialtag(sort_tag)
-		else
-			H.settag(sort_tag)
+		if(!no_override || H.destinationTag == "")
+			if(partial)
+				H.setpartialtag(sort_tag)
+			else
+				H.settag(sort_tag)
 	return ..()
 
 /obj/structure/disposalpipe/tagger/partial //needs two passes to tag

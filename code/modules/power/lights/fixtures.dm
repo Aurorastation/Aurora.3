@@ -82,6 +82,11 @@
 	brightness_power = 4
 	supports_nightmode = FALSE
 
+/obj/machinery/light/spot/weak
+	name = "exterior spotlight"
+	brightness_range = 12
+	brightness_power = 1.2
+
 /obj/machinery/light/built
 	start_with_cell = FALSE
 
