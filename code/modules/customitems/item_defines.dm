@@ -2040,3 +2040,43 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 	update_icon()
 	playsound(src, "spark", 50, 1, -1)
 	..()
+
+/obj/item/clothing/under/dress/fluff/marwani_dress_front //Unathi Purple Dress - Ilaeza Marwani - BurgerBB
+	name = "unathi purple dress, front"
+	desc = "A strange purple dress designed to fit very tall female unathi, suitable for indoor wear in warmer climate. This is the front piece."
+	icon = 'icons/obj/custom_items/marwani_dress.dmi'
+	icon_state = "mar_front_dress"
+	item_state = "mar_front_dress"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/fluff/marwani_dress_back //Unathi Purple Dress - Ilaeza Marwani - BurgerBB
+	name = "unathi purple dress, back"
+	desc = "A strange purple dress designed to fit very tall female unathi, suitable for indoor wear in warmer climate. This is the back piece."
+	icon = 'icons/obj/custom_items/marwani_dress.dmi'
+	icon_state = "mar_back_dress"
+	item_state = "mar_back_dress"
+	contained_sprite = TRUE
+
+/obj/item/clothing/shoes/jackboots/unathi/fluff/marwani_shoes //Unathi Purple Boots - Ilaeza Marwani - BurgerBB
+	name = "unathi purple boots"
+	desc = "Giant, closed-toe boots with extra claw space and support, perfect for those with clawed feet."
+	icon = 'icons/obj/custom_items/marwani_dress.dmi'
+	item_state = "mar_boots"
+	icon_state = "mar_boots"
+	contained_sprite = TRUE
+
+/obj/item/clothing/gloves/white/unathi/fluff/marwani_gloves //Unathi Arm Warmers - Ilaeza Marwani - BurgerBB
+	name = "unathi arm warmers"
+	desc = "Light, white cotton arm warmers fashionably designed to warm unathi arms."
+	icon = 'icons/obj/custom_items/marwani_dress.dmi'
+	icon_state = "mar_gloves"
+	item_state = "mar_gloves"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/fluff/marwani_armor //Clan Marwani Emblem - Ilaeza Marwani - BurgerBB
+	name = "clan marwani armor"
+	desc = "A large, decorative iron and brass alloyed breastplate signifying the industrial strength of Clan Marwani."
+	icon = 'icons/obj/custom_items/marwani_dress.dmi'
+	icon_state = "mar_emblem"
+	item_state = "mar_emblem"
+	contained_sprite = TRUE
