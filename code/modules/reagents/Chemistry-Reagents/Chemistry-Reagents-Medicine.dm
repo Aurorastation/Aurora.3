@@ -87,7 +87,7 @@
 	color = "#00A000"
 	scannable = 1
 
-	taste_description = "a roll of gauze"
+	taste_description = "bittersweet"
 
 /datum/reagent/dylovene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.drowsyness = max(0, M.drowsyness - 6 * removed)
@@ -1073,3 +1073,33 @@
 			M.adjustOxyLoss(-rand(15,20))
 			M.visible_message("<span class='danger'>\The [M] shudders violently!</span>")
 			M.stat = 0
+
+
+// Wizard medicine
+
+/datum/reagent/magustears
+	name = "Magus Tears"
+	id = "magustears"
+	description = "A pale blue liquid that seems to pulse with potentional and energy."
+	reagent_state = LIQUID
+	color = "#7fffe5"
+	metabolism = REM * 0.1
+	overdose = 10
+	taste_description = "cold lightning"
+
+/datum/reagent/magustears/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+    M.heal_organ_damage(5 * removed)
+    M.adjustToxLoss(-5 * removed)
+    M.adjustOxyLoss(-20 * removed)
+    M.adjustBruteLoss(-5 * removed)
+    M.adjustBrainLoss(-3 * removed)
+    M.adjustCloneLoss(-5 * removed)
+
+    if (ishuman(M))
+        var/mob/living/carbon/human/H = M
+        if (prob(20))
+            H.cure_all_traumas()
+
+        for(var/obj/item/organ/I in H.internal_organs)
+            if((I.damage > 0) && (I.robotic != 2)) 
+                I.damage = max(I.damage - removed * 5)

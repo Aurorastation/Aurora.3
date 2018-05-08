@@ -15,7 +15,7 @@
 	summon_type = list(/turf/simulated/floor/grass)
 	var/spread = 0
 	var/datum/seed/seed
-	var/seed_type = /datum/seed/merlin_tear
+	var/seed_type = /datum/seed/magustear
 
 /spell/aoe_turf/conjure/grove/New()
 	..()
@@ -42,7 +42,7 @@
 	
 	level_max = list(Sp_TOTAL = 3, Sp_SPEED = 3, Sp_POWER = 1)
 
-	seed_type = /datum/seed/merlin_tear
+	seed_type = /datum/seed/magustear
 	newVars = list("name" = "sanctuary", "desc" = "This grass makes you feel comfortable. Peaceful.","blessed" = 1)
 
 	hud_state = "wiz_grove"
@@ -54,19 +54,19 @@
 	spread = 40
 	return "Your sanctuary will now grow beyond that of the grassy perimeter."
 
-/datum/seed/merlin_tear
-	name = "merlin tears"
-	seed_name = "merlin tears"
-	display_name = "merlin tears"
-	chems = list("bicaridine" = list(3,7), "dermaline" = list(3,7), "anti_toxin" = list(3,7), "tricordrazine" = list(3,7), "alkysine" = list(1,2), "imidazoline" = list(1,2), "peridaxon" = list(4,5))
+/datum/seed/magustear
+	name = "Magus Tears"
+	seed_name = "Magus Tears"
+	display_name = "Magus Tears"
+	chems = list("magustears" = list(7,9))
 	kitchen_tag = "berries"
 
-/datum/seed/merlin_tear/setup_traits()
+/datum/seed/magustear/setup_traits()
 	..()
-	set_trait(TRAIT_PLANT_ICON,"bush5")
-	set_trait(TRAIT_PRODUCT_ICON,"berry")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#4d4dff")
-	set_trait(TRAIT_PLANT_COLOUR, "#ff6600")
+	set_trait(TRAIT_PLANT_ICON,"magusplant")
+	set_trait(TRAIT_PRODUCT_ICON,"magustears")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#000000")
+	set_trait(TRAIT_PLANT_COLOUR, "#000000")
 	set_trait(TRAIT_YIELD,4)
 	set_trait(TRAIT_MATURATION,6)
 	set_trait(TRAIT_PRODUCTION,6)
