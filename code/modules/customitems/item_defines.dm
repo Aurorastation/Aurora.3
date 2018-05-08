@@ -2040,3 +2040,45 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 	update_icon()
 	playsound(src, "spark", 50, 1, -1)
 	..()
+
+
+/obj/item/clothing/head/fluff/jix_wrap //Dull Headwraps - JIX - kyres1
+	name = "dull headwraps"
+	desc = "A sturdy, dull brown cloth."
+	icon = 'icons/obj/custom_items/jix_items.dmi'
+	icon_state = "jix_wrap"
+	item_state = "jix_wrap"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/fluff/jix_robes //Dull Robes - JIX - kyres1
+	name = "dull robes"
+	desc = "A set of drab robes which look particularly old, though in good condition. It consists of two pieces, loosely connected and separating at the center."
+	icon = 'icons/obj/custom_items/jix_items.dmi'
+	icon_state = "jix_robes"
+	item_state = "jix_robes"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/mask/fluff/ird_mask //Titanium Faceplate - IRD - kyres1
+	name = "titanium faceplate"
+	desc = "An odd mask seeming to mimic the face of a Human with some artistic liberties taken. Small lights keep it dimly illuminated from within with holographic projectors emulating two bright blue eyes.  \
+	Its rigid frame is composed of what looks like polished titanium."
+	icon = 'icons/obj/custom_items/ird_face.dmi'
+	icon_state = "ird_mask"
+	item_state = "ird_mask"
+	contained_sprite = TRUE
+	flags_inv = HIDEEARS|HIDEFACE
+	body_parts_covered = FACE
+	w_class = 3.0
+
+
+/obj/item/weapon/dice/fluff/baron_dice //BARON's Dice - BARON - iamcrystalclear
+	weighted = TRUE
+	favored_number = 2
+
+
+/obj/item/weapon/flame/lighter/zippo/fluff/locke_zippo //Vasili Mine Zippo - Nikit Vasili - simontheminer
+	desc = "An old looking zippo lighter with Vasili Mine Logo engraved on it. \"Good Luck Nikit\" is crudely scratched on under the logo in small writing."
+	icon = 'icons/obj/custom_items/nikit_zippo.dmi'
+	icon_state = "nikit_zippo"
