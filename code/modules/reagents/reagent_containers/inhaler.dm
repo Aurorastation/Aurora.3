@@ -130,9 +130,20 @@
 		update_icon()
 		return
 
+/obj/item/weapon/reagent_containers/inhaler/phoron_special
+	name = "vaurca autoinhaler (phoron)"
+	desc = "A strange device that contains some sort of heavy-duty bag and mouthpiece combo."
+	icon_state = "anthaler"
+	volume = 10
+	Initialize()
+		. =..()
+		reagents.add_reagent("phoron", 10)
+		update_icon()
+		return
+
 /obj/item/weapon/reagent_containers/inhaler/soporific
 	name = "autoinhaler (soporific)"
-	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains chloral hydrate."
+	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains soporific."
 
 	Initialize()
 		. =..()

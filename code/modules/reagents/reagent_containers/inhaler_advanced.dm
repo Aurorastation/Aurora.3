@@ -66,6 +66,7 @@
 	var/obj/item/weapon/reagent_containers/stored_cartridge
 	var/transfer_amount = 5
 	origin_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
+	var/eject_when_empty = FALSE
 
 /obj/item/weapon/personal_inhaler/examine(var/mob/user)
 	if(!..(user, 2))
@@ -81,7 +82,7 @@
 /obj/item/weapon/personal_inhaler/attack_self(mob/user as mob)
 	if(stored_cartridge)
 		user.put_in_hands(stored_cartridge)
-		user.show_message("<span class='warning'>You remove \the [stored_cartridge] from the [src].</span>")
+		user.show_message("<span class='warning'>You remove \the [stored_cartridge] from \the [src].</span>")
 		stored_cartridge.update_icon()
 		stored_cartridge = null
 
@@ -109,13 +110,19 @@
 			var/contained = stored_cartridge.reagentlist()
 			var/trans = stored_cartridge.reagents.trans_to_mob(M, transfer_amount, CHEM_TOUCH)
 			admin_inject_log(user, M, src, contained, trans)
-			user.visible_message("<span class='notice'>[user] accidentally sticks the [src] in [M]'s eye and presses the injection button!</span>","<span class='notice'>You accidentally stick the [src] in [M]'s eye and press the injection button!</span>")
+			user.visible_message("<span class='notice'>[user] accidentally sticks \the [src] in [M]'s eye and presses the injection button!</span>","<span class='notice'>You accidentally stick the [src] in [M]'s eye and press the injection button!</span>")
 			user.show_message("<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
 			playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
+			if(eject_when_empty)
+				user.show_message("<span class='notice'>\The [stored_cartridge] automatically ejects from \the [src].</span>")
+				stored_cartridge.forceMove(user.loc)
+				stored_cartridge.update_icon()
+				stored_cartridge = null
+				update_icon()
 		return
 
 	if (!usr.IsAdvancedToolUser())
-		usr << "<span class='warning'>You don't have the dexterity to do this!</span>"
+		user.show_message("<span class='warning'>You don't have the dexterity to do this!</span>")
 		return
 
 	if(user == M)
@@ -129,14 +136,14 @@
 	user.do_attack_animation(M)
 
 	if(user == M)
-		user.visible_message("<span class='notice'>[user] sticks the [src] in their mouth and presses the injection button.</span>","<span class='notice'>You stick the [src] in your mouth and press the injection button</span>")
+		user.visible_message("<span class='notice'>[user] sticks \the [src] in their mouth and presses the injection button.</span>","<span class='notice'>You stick \the [src] in your mouth and press the injection button</span>")
 	else
 		user.visible_message("<span class='warning'>[user] attempts to administer \the [src] to [M]...</span>","<span class='notice'>You attempt to administer \the [src] to [M]...</span>")
 		if (!do_after(user, 1 SECONDS, act_target = M))
-			user.show_message("<span class='notice'>You and the target need to be standing still in order to inject \the [src].</span>")
+			user.show_message("<span class='notice'>You and \the [M] need to be standing still in order to inject \the [src].</span>")
 			return
 
-		user.visible_message("<span class='notice'>[user] sticks the [src] in [M]'s mouth and presses the injection button.</span>","<span class='notice'>You stick the [src] in [M]'s mouth and press the injection button</span>")
+		user.visible_message("<span class='notice'>[user] sticks \the [src] in [M]'s mouth and presses the injection button.</span>","<span class='notice'>You stick \the [src] in [M]'s mouth and press the injection button</span>")
 
 	if(M.reagents)
 		var/contained = stored_cartridge.reagentlist()
@@ -144,6 +151,12 @@
 		admin_inject_log(user, M, src, contained, trans)
 		user.show_message("<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
 		playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
+		if(eject_when_empty)
+			user.show_message("<span class='notice'>\The [stored_cartridge] automatically ejects from \the [src].</span>")
+			stored_cartridge.forceMove(user.loc)
+			stored_cartridge.update_icon()
+			stored_cartridge = null
+			update_icon()
 
 	return
 
@@ -169,6 +182,7 @@
 	w_class = 3
 	transfer_amount = 60
 	origin_tech = list(TECH_BIO = 4, TECH_MATERIAL = 4, TECH_ENGINEERING = 4)
+	eject_when_empty = TRUE
 
 /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large/hyperzine
 	name = "large inhaler cartridge (hyperzine)"
