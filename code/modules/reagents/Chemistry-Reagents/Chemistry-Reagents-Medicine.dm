@@ -588,7 +588,6 @@
 		for(var/datum/brain_trauma/BT in dosage_traumas)
 			var/percentchance = max(0,dosage_traumas[BT] - dose*10) // If you've been taking this medication for a while then side effects are rarer.
 			if(!H.has_trauma_type(BT) && prob(percentchance))
-				BT.source_id = id
 				B.gain_trauma(BT,FALSE)
 		if(volume < max_dose*0.25) //If you haven't been taking your regular dose, then cause issues.
 			var/suppress_withdrawl = FALSE
@@ -605,7 +604,6 @@
 					var/datum/brain_trauma/BT = k
 					var/percentchance = max(withdrawal_traumas[k] * (dose/20)) //The higher the dosage, the more likely it is do get withdrawal traumas.
 					if(!H.has_trauma_type(BT) && prob(percentchance))
-						BT.source_id = id
 						B.gain_trauma(BT,FALSE)
 		else if(hastrauma || volume < max_dose*0.5) //If your current dose is not high enough, then alert the player.
 			if (H.shock_stage < 10 && badmessage.len)
@@ -949,29 +947,6 @@
 	messagedelay = 30
 	ingest_mul = 0 //Stomach acid will melt the nanobots
 
-/datum/reagent/mental/feartoxin
-	name = "Fear toxin"
-	id = "feartoxin"
-	description = "A highly illegal, experimental toxic chemical used exclusively for lengthy torture sessions. Known to instill fear and hallucinations in the user."
-	reagent_state = SOLID
-	color = "#FF88FF"
-	metabolism = 0.05 * REM
-	data = 0
-	scannable = 0
-	taste_description = "fear"
-	goodmessage = list()
-	badmessage = list()
-	worstmessage = list()
-	suppress_traumas  = list(
-		/datum/brain_trauma/mild/tourettes = 1,
-		/datum/brain_trauma/mild/phobia = -5,
-		/datum/brain_trauma/mild/hallucinations = -5
-	)
-	dosage_traumas = list(
-		/datum/brain_trauma/severe/pacifism = 25
-	)
-	messagedelay = 30
-
 //Things that are not cured by medication:
 //Dumbness
 //Gerstmann Syndrome
@@ -995,27 +970,28 @@
 	reagent_state = SOLID
 
 /datum/reagent/calomel/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-
-	var/amount_to_purge = removed*4 //Every unit removes 4 units of other chemicals
-	var/amount_purged = 0
 	var/is_overdosed = overdose && (dose > overdose)
-
 	if(is_overdosed)
 		removed *= 2
 
-	for(var/datum/reagent/selected in M.bloodstr)
+	var/amount_to_purge = removed*4 //Every unit removes 4 units of other chemicals
+	var/amount_purged = 0
+
+	for(var/datum/reagent/selected in M.reagents.reagent_list)
 		if(selected == src)
 			continue
 		if(selected.id == "blood" && !is_overdosed)
 			continue
 		var/local_amount = min(amount_to_purge, selected.volume)
-		M.bloodstr.remove_reagent(selected.id, local_amount)
+		M.reagents.remove_reagent(selected.id, local_amount)
 		amount_to_purge -= local_amount
 		amount_purged += local_amount
 		if(amount_to_purge <= 0)
 			break
 
 	M.adjustToxLoss(removed + amount_purged*0.5) //15u has the potential to do 15 + 30 toxin damage in 30 seconds
+
+	. = ..()
 
 /datum/reagent/pulmodeiectionem
 	name = "Pulmodeiectionem"
@@ -1025,16 +1001,15 @@
 	metabolism = 2 * REM
 	overdose = 10
 	scannable = 1
-	taste_description = "dust"
+	taste_description = "coarse dust"
 	reagent_state = SOLID
 
 /datum/reagent/pulmodeiectionem/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
 	if(istype(H))
 		var/obj/item/organ/L = H.internal_organs_by_name["lungs"]
 		if(istype(L) && !L.robotic && !L.is_broken())
-
 			var/amount_to_purge = removed*5 //Every unit removes 5 units of other chemicals.
-			for(var/datum/reagent/selected in H.breathing)
+			for(var/datum/reagent/selected in H.breathing.reagent_list)
 				if(selected == src)
 					continue
 				var/local_amount = min(amount_to_purge, selected.volume)
@@ -1043,11 +1018,10 @@
 				if(amount_to_purge <= 0)
 					break
 
-			L.take_damage(1*removed) //Every 10 units deals 1 lung damage.
 			H.adjustOxyLoss(2*removed) //Every unit deals 2 oxy damage
-
-			if(prob(10)) //Cough uncontrolably
+			if(prob(75)) //Cough uncontrolably
 				H.emote("cough")
+				L.take_damage(0.2*removed) //Every 5 units deals 1 lung damage, absolute worse case scenario.
 
 	. = ..()
 

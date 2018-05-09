@@ -96,7 +96,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent("dexalin", 5)
+		reagents.add_reagent("dexalin", volume)
 		update_icon()
 		return
 
@@ -106,7 +106,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent("peridaxon", 5)
+		reagents.add_reagent("peridaxon", volume)
 		update_icon()
 		return
 
@@ -116,7 +116,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent("hyperzine", 5)
+		reagents.add_reagent("hyperzine", volume)
 		update_icon()
 		return
 
@@ -126,7 +126,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent("phoron", 5)
+		reagents.add_reagent("phoron", volume)
 		update_icon()
 		return
 
@@ -137,17 +137,19 @@
 	volume = 10
 	Initialize()
 		. =..()
-		reagents.add_reagent("phoron", 10)
+		reagents.add_reagent("phoron", volume)
 		update_icon()
 		return
 
 /obj/item/weapon/reagent_containers/inhaler/soporific
 	name = "autoinhaler (soporific)"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains soporific."
+	icon_state = "so_inhaler"
+	volume = 10
 
 	Initialize()
 		. =..()
-		reagents.add_reagent("stoxin", 5)
+		reagents.add_reagent("stoxin", volume)
 		update_icon()
 		return
 
@@ -157,7 +159,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent("space_drugs", 5)
+		reagents.add_reagent("space_drugs", volume)
 		update_icon()
 		return
 
@@ -167,7 +169,21 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent("ammonia", 5)
+		reagents.add_reagent("ammonia", volume)
 		update_icon()
 		return
+
+/obj/item/weapon/reagent_containers/inhaler/pulmodeiectionem
+	name = "autoinhaler (pulmodeiectionem)"
+	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains pulmodeiectionem."
+
+	Initialize()
+		. =..()
+		reagents.add_reagent("pulmodeiectionem", volume)
+		update_icon()
+		return
+
+
+
+
 

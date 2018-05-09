@@ -50,14 +50,14 @@
 /datum/reagent/toxin/panotoxin
 	name = "Panotoxin"
 	id = "panotoxin"
-	description = "A strange poison from the strange panocelium mushroom that causes intense pain when injected. High doses can cause paralysis."
+	description = "A strange poison from the strange panocelium mushroom that causes intense pain when injected."
 	reagent_state = LIQUID
 	color = "#008844"
 	strength = 0
 	taste_description = "stinging needles"
 
 /datum/reagent/toxin/panotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.apply_effects(weaken = removed*0.5, paralyze = removed*0.1, stutter = removed*0.5, agony = removed)
+	M.adjustHalLoss(removed*15)
 
 /datum/reagent/toxin/phoron
 	name = "Phoron"
@@ -373,13 +373,14 @@
 /datum/reagent/soporific
 	name = "Soporific"
 	id = "stoxin"
-	description = "An effective hypnotic used to treat insomnia. Twice as potent when inhaled."
+	description = "An effective hypnotic used to treat insomnia, can act as a sedative. Lasts three times longer when inhaled."
 	reagent_state = LIQUID
 	color = "#009CA8"
 	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "bitterness"
-	breathe_mul = 2
+	breathe_met = 0.33
+	var/total_strength = 0
 
 /datum/reagent/soporific/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
@@ -401,13 +402,13 @@
 /datum/reagent/chloralhydrate
 	name = "Chloral Hydrate"
 	id = "chloralhydrate"
-	description = "A powerful sedative. Three times as potent when inhaled."
+	description = "A powerful sedative. Lasts three times longer when inhaled."
 	reagent_state = SOLID
 	color = "#000067"
 	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE * 0.5
 	taste_description = "bitterness"
-	breathe_mul = 5
+	breathe_met = 0.33
 
 /datum/reagent/chloralhydrate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M

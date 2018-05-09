@@ -545,6 +545,13 @@
 	catalysts = list("cardox" = 5)
 	result_amount = 1
 
+/datum/chemical_reaction/pulmodeiectionem
+	name = "Pulmodeiectionem"
+	id = "pulmodeiectionem"
+	result = "pulmodeiectionem"
+	required_reagents = list("calomel" = 1, "lexorin" = 1)
+	result_amount = 2
+
 //Mental Medication
 
 /datum/chemical_reaction/methylphenidate

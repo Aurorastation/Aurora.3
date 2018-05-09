@@ -13,7 +13,6 @@
 	var/permanent = FALSE //can this be cured?
 	var/suppressed = 0 //currently being suppressed
 	var/cure_type //type of therapy that cures the trauma
-	var/source_id //The source of the trauma
 	//current cures:
 		//hypnosis - cures traumas that alter behavior
 		//solitude - cures traumas that produce hallucination

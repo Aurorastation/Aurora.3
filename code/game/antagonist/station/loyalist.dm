@@ -45,12 +45,6 @@ var/datum/antagonist/loyalists/loyalists
 		loyal_obj.explanation_text = "Protect [player.real_name], the [player.mind.assigned_role]."
 		global_objectives += loyal_obj
 
-/datum/antagonist/loyalists/can_become_antag(var/datum/mind/player)
-	if(!..())
-		return 0
-	return 1
-
-
 /datum/antagonist/loyalists/equip(var/mob/living/carbon/human/player)
 
 	if(!..())
