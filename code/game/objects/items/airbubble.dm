@@ -1,14 +1,15 @@
-/obj/item/air_bubble
+// Regular airbubble - folded
+/obj/item/airbubble
 	name = "air bubble"
 	desc = "Special air bubble designed to protect people inside of it from decompressed enviroments."
-	icon = 'icons/obj/bodybag.dmi'
-	icon_state = "bodybag_folded"
+	icon = 'icons/obj/airbubble.dmi'
+	icon_state = "airbubble_fact_folded"
 	w_class = ITEMSIZE_SMALL
 	var/used = 0
 	var/obj/item/weapon/tank/internal_tank
 
-/obj/item/air_bubble/attack_self(mob/user)
-	var/obj/structure/closet/air_bubble/R = new /obj/structure/closet/air_bubble(user.loc)
+/obj/item/airbubble/attack_self(mob/user)
+	var/obj/structure/closet/airbubble/R = new /obj/structure/closet/airbubble(user.loc)
 	if(!used)
 		internal_tank = new /obj/item/weapon/tank/emergency_oxygen/double(src)
 	R.internal_tank = internal_tank
@@ -17,16 +18,16 @@
 	R.add_fingerprint(user)
 	qdel(src)
 
-/obj/structure/closet/air_bubble
+/obj/structure/closet/airbubble
 	name = "air bubble"
 	desc = "Special air bubble designed to protect people inside of it from decompressed enviroments."
-	icon = 'icons/obj/bodybag.dmi'
-	icon_state = "bodybag_closed"
-	icon_closed = "bodybag_closed"
-	icon_opened = "bodybag_open"
+	icon = 'icons/obj/airbubble.dmi'
+	icon_state = "airbubble"
+	icon_closed = "airbubble"
+	icon_opened = "airbubble_open"
 	open_sound = 'sound/items/zip.ogg'
 	close_sound = 'sound/items/zip.ogg'
-	var/item_path = /obj/item/air_bubble
+	var/item_path = /obj/item/airbubble
 	var/zipped = 0
 	density = 0
 	storage_capacity = 20
@@ -39,12 +40,12 @@
 	var/obj/item/weapon/tank/internal_tank
 	var/process_ticks = 0
 
-/obj/structure/closet/air_bubble/can_open()
+/obj/structure/closet/airbubble/can_open()
 	if(zipped)
 		return 0
 	return 1
 
-/obj/structure/closet/air_bubble/can_close()
+/obj/structure/closet/airbubble/can_close()
 	for(var/obj/structure/closet/closet in get_turf(src))
 		if(closet != src)
 			return 0
@@ -56,7 +57,7 @@
 			return 0
 	return 1
 
-/obj/structure/closet/air_bubble/dump_contents()
+/obj/structure/closet/airbubble/dump_contents()
 
 	for(var/obj/I in src)
 		if(!istype(I, /obj/item/weapon/tank))
@@ -68,12 +69,12 @@
 			M.client.eye = M.client.mob
 			M.client.perspective = MOB_PERSPECTIVE
 
-/obj/structure/closet/air_bubble/Initialize()
+/obj/structure/closet/airbubble/Initialize()
 	. = ..()
 	add_inside()
 	START_PROCESSING(SSfast_process, src)
 
-/obj/structure/closet/air_bubble/Destroy()
+/obj/structure/closet/airbubble/Destroy()
 	STOP_PROCESSING(SSfast_process, src)
 	if(parts)
 		new parts(loc)
@@ -81,7 +82,7 @@
 		queue_smooth_neighbors(src)
 	return ..()
 
-/obj/structure/closet/air_bubble/close()
+/obj/structure/closet/airbubble/close()
 	if(!opened)
 		return 0
 	if(!can_close())
@@ -104,7 +105,24 @@
 	add_inside()
 	return 1
 
-/obj/structure/closet/air_bubble/verb/set_internals(mob/user as mob)
+/obj/structure/closet/airbubble/MouseDrop(over_object, src_location, over_location)
+	..()
+	if(!zipped)
+		if((over_object == usr && (in_range(src, usr) || usr.contents.Find(src))))
+			if(!ishuman(usr))	return
+			if(opened)	return 0
+			if(contents.len > 1)	return 0
+			visible_message("[usr] folds up the [src.name]")
+			var/obj/item/airbubble/bag = new /obj/item/airbubble(get_turf(src))
+			bag.internal_tank = internal_tank
+			internal_tank.forceMove(bag)
+			internal_tank = null
+			bag.w_class = ITEMSIZE_NORMAL
+			bag.icon_state = "airbubble_man_folded"
+			qdel(src)
+			return
+
+/obj/structure/closet/airbubble/verb/set_internals(mob/user as mob)
 	set src in oview(1)
 	set category = "Object"
 	set name = "Set Internals"
@@ -123,7 +141,7 @@
 	else
 		visible_message("<span class='notice'>[src] has no internal tank.</span>")
 
-/obj/structure/closet/air_bubble/verb/take_tank(mob/user as mob)
+/obj/structure/closet/airbubble/verb/take_tank(mob/user as mob)
 	if(use_internal_tank)
 		set src in oview(1)
 		set category = "Object"
@@ -144,7 +162,7 @@
 		visible_message(
 		"<span class='warning'>[src] already has no tank.</span>")
 
-/obj/structure/closet/air_bubble/attackby(W as obj, mob/user as mob)
+/obj/structure/closet/airbubble/attackby(W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/tank))
 		if(!use_internal_tank)
 			user.visible_message(
@@ -206,36 +224,17 @@
 		attack_hand(user)
 	return
 
-/obj/structure/closet/air_bubble/store_mobs(var/stored_units)
+/obj/structure/closet/airbubble/store_mobs(var/stored_units)
 	contains_body = ..()
 	return contains_body
 
-/obj/structure/closet/air_bubble/MouseDrop(over_object, src_location, over_location)
-	..()
-	if(!zipped)
-		if((over_object == usr && (in_range(src, usr) || usr.contents.Find(src))))
-			if(!ishuman(usr))	return
-			if(opened)	return 0
-			if(contents.len)	return 0
-			visible_message("[usr] folds up the [src.name]")
-			var/obj/item/air_bubble/bag = new /obj/item/air_bubble(get_turf(src))
-			bag.internal_tank = internal_tank
-			internal_tank.forceMove(bag)
-			internal_tank = null
-			bag.w_class = ITEMSIZE_NORMAL
-			qdel(src)
-			return
-
-/obj/structure/closet/air_bubble/update_icon()
+/obj/structure/closet/airbubble/update_icon()
 	if(opened)
 		icon_state = icon_opened
 	else
-		if(contains_body > 0)
-			icon_state = "bodybag_closed1"
-		else
-			icon_state = icon_closed
+		icon_state = icon_closed
 
-/obj/structure/closet/air_bubble/proc/process_tank_give_air()
+/obj/structure/closet/airbubble/proc/process_tank_give_air()
 	if(internal_tank)
 		var/datum/gas_mixture/tank_air = internal_tank.return_air()
 
@@ -265,12 +264,12 @@
 				else //just delete the inside gas, we're in space or some shit
 					qdel(removed)
 
-/obj/structure/closet/air_bubble/proc/process_preserve_temp()
+/obj/structure/closet/airbubble/proc/process_preserve_temp()
 	if (inside_air && inside_air.volume > 0)
 		var/delta = inside_air.temperature - T20C
 		inside_air.temperature -= max(-10, min(10, round(delta/4,0.1)))
 
-/obj/structure/closet/air_bubble/remove_air(amount)
+/obj/structure/closet/airbubble/remove_air(amount)
 	if(use_internal_tank)
 		return inside_air.remove(amount)
 	else
@@ -279,18 +278,18 @@
 			return T.remove_air(amount)
 	return
 
-/obj/structure/closet/air_bubble/return_air()
+/obj/structure/closet/airbubble/return_air()
 	if(use_internal_tank)
 		return inside_air
 	return ..()
 
-/obj/structure/closet/air_bubble/proc/get_turf_air()
+/obj/structure/closet/airbubble/proc/get_turf_air()
 	var/turf/T = get_turf(src)
 	if(T)
 		. = T.return_air()
 	return
 
-/obj/structure/closet/air_bubble/proc/return_pressure()
+/obj/structure/closet/airbubble/proc/return_pressure()
 	. = 0
 	if(use_internal_tank)
 		. =  inside_air.return_pressure()
@@ -301,7 +300,7 @@
 	return
 
 
-/obj/structure/closet/air_bubble/proc/return_temperature()
+/obj/structure/closet/airbubble/proc/return_temperature()
 	. = 0
 	if(use_internal_tank)
 		. = inside_air.temperature
@@ -311,7 +310,7 @@
 			. = t_air.temperature
 	return
 
-/obj/structure/closet/air_bubble/process()
+/obj/structure/closet/airbubble/process()
 	if (!(process_ticks % 4))
 		process_preserve_temp()
 
@@ -320,11 +319,51 @@
 
 	process_ticks = (process_ticks + 1) % 17
 
-/obj/structure/closet/air_bubble/proc/add_inside()
+/obj/structure/closet/airbubble/proc/add_inside()
 	inside_air = new
 	inside_air.temperature = T20C
 	inside_air.volume = 2
 	inside_air.adjust_multi("oxygen", O2STANDARD*inside_air.volume/(R_IDEAL_GAS_EQUATION*inside_air.temperature), "nitrogen", N2STANDARD*inside_air.volume/(R_IDEAL_GAS_EQUATION*inside_air.temperature))
 	return inside_air
 
+// Syndicate airbubble
+/obj/item/airbubble/syndie
+	name = "air bubble"
+	desc = "Special air bubble designed to protect people inside of it from decompressed enviroments. This does not seem like a regular color scheme"
+	icon_state = "airbubble_syndie_fact_folded"
 
+/obj/structure/closet/airbubble/syndie
+	name = "air bubble"
+	desc = "Special air bubble designed to protect people inside of it from decompressed enviroments. This does not seem like a regular color scheme"
+	icon_state = "airbubble_syndie"
+	icon_closed = "airbubble_syndie"
+	icon_closed = "airbubble_syndie"
+	icon_opened = "airbubble_syndie_open"
+	item_path = /obj/item/airbubble/syndie
+
+/obj/structure/closet/airbubble/syndie/MouseDrop(over_object, src_location, over_location)
+	..()
+	if(!zipped)
+		if((over_object == usr && (in_range(src, usr) || usr.contents.Find(src))))
+			if(!ishuman(usr))	return
+			if(opened)	return 0
+			if(contents.len > 1)	return 0
+			visible_message("[usr] folds up the [src.name]")
+			var/obj/item/airbubble/bag = new /obj/item/airbubble(get_turf(src))
+			bag.internal_tank = internal_tank
+			internal_tank.forceMove(bag)
+			internal_tank = null
+			bag.w_class = ITEMSIZE_NORMAL
+			bag.icon_state = "airbubble_syndie_man_folded"
+			qdel(src)
+			return
+
+/obj/item/airbubble/syndie/attack_self(mob/user)
+	var/obj/structure/closet/airbubble/R = new /obj/structure/closet/airbubble/syndie(user.loc)
+	if(!used)
+		internal_tank = new /obj/item/weapon/tank/emergency_oxygen/double(src)
+	R.internal_tank = internal_tank
+	internal_tank.forceMove(R)
+	internal_tank = null
+	R.add_fingerprint(user)
+	qdel(src)
