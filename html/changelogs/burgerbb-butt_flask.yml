@@ -1,0 +1,6 @@
+author: BurgerBB
+
+delete-after: True
+
+changes: 
+  - tweak: "Butanol based drinks can now be selected from the loadout via flask."
