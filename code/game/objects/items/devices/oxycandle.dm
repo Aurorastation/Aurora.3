@@ -1,8 +1,9 @@
 /obj/item/device/oxycandle
 	name = "oxygen Candle"
 	desc = "A steel tube with the words 'OXYGEN - PULL CORD TO IGNITE' stamped on the side. A small label warns against using the device underwater"
-	icon = 'icons/obj/candle.dmi' // Placeholder for new sprites
-	icon_state = "candle1" // Placeholder for new sprites
+	icon = 'icons/obj/device.dmi'
+	icon_state = "oxycandle"
+	item_state = "oxycandle"
 	w_class = ITEMSIZE_SMALL // Should fit into internal's box or maybe pocket
 	var/target_pressure = ONE_ATMOSPHERE
 	var/datum/gas_mixture/air_contents = null
@@ -17,6 +18,7 @@
 
 /obj/item/device/oxycandle/attack_self(mob/user)
 	if(!on)
+		user << "<span class='notice'>You pull the cord and witness chemical reaction turn into fire that smells very refreshing.</span>"
 		light_range = brightness_on
 		on = 1
 		update_icon()
@@ -34,11 +36,12 @@
 	if(on)
 		var/turf/pos = get_turf(src)
 		if(volume <= 0 || istype(pos, /turf/simulated/floor/beach/water) || istype(pos, /turf/unsimulated/beach/water))
-			new/obj/item/trash/candle(src.loc) // Placeholder for new sprites
-			if(istype(src.loc, /mob))
-				src.dropped()
 			STOP_PROCESSING(SSprocessing, src)
-			qdel(src)
+			icon_state = "oxycandle_burnt"
+			item_state = icon_state
+			set_light(0)
+			update_held_icon()
+			return
 		if(pos)
 			pos.hotspot_expose(1500, 5)
 		var/datum/gas_mixture/environment = loc.return_air()
@@ -57,8 +60,11 @@
 
 /obj/item/device/oxycandle/update_icon()
 	if(on)
-		icon_state = "candle1_lit" // Placeholder for new sprites
+		icon_state = "oxycandle_on"
+		item_state = icon_state
 		set_light(brightness_on)
 	else
-		icon_state = "candle1" // Placeholder for new sprites
+		icon_state = "oxycandle"
+		item_state = icon_state
 		set_light(0)
+	update_held_icon()
