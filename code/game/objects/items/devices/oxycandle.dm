@@ -1,5 +1,5 @@
 /obj/item/device/oxycandle
-	name = "oxygen Candle"
+	name = "oxygen candle"
 	desc = "A steel tube with the words 'OXYGEN - PULL CORD TO IGNITE' stamped on the side. A small label warns against using the device underwater"
 	icon = 'icons/obj/device.dmi'
 	icon_state = "oxycandle"
@@ -41,6 +41,8 @@
 			item_state = icon_state
 			set_light(0)
 			update_held_icon()
+			name = "burnt oxygen candle"
+			desc = "A steel tube with the words 'OXYGEN - PULL CORD TO IGNITE' stamped on the side. A small label warns against using the device underwater. This tube exhausted its chemicals."
 			return
 		if(pos)
 			pos.hotspot_expose(1500, 5)
