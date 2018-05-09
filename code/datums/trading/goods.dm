@@ -178,7 +178,6 @@
 		/obj/item/clothing/gloves/force                 = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/swat/fluff            = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/black/fluff           = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/gloves/fluff                 = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/yellow/typec          = TRADER_BLACKLIST,
 		/obj/item/clothing/gloves/swat/bst              = TRADER_BLACKLIST,
 		/obj/item/clothing/gloves/watch/fluff           = TRADER_BLACKLIST_ALL,
@@ -196,11 +195,9 @@
 		/obj/item/clothing/head/radiation               = TRADER_BLACKLIST,
 		/obj/item/clothing/head/tajaran                 = TRADER_BLACKLIST,
 		/obj/item/clothing/head/welding                 = TRADER_BLACKLIST,
-		/obj/item/clothing/head/soft/sec/corp/fluff     = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/fluff                   = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/det/fluff               = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/winterhood              = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/head/hairflower/fluff        = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/beret/engineering/fluff = TRADER_BLACKLIST_ALL
 	)
 
