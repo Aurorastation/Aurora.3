@@ -24,6 +24,7 @@
 /mob/living/simple_animal/hostile/Destroy()
 	friends = null
 	target_mob = null
+	targets = null
 	return ..()
 
 /mob/living/simple_animal/hostile/proc/FindTarget()
@@ -32,6 +33,7 @@
 		return null
 
 	var/atom/T = null
+	var/lowest_health = 100
 	stop_automated_movement = 0
 
 	for(var/atom/A in targets)
@@ -45,8 +47,16 @@
 			break
 
 		if(isliving(A))
-			T = find_weakest()
-			break
+			var/mob/living/L = A
+			if((L.faction == src.faction) && !attack_same)
+				continue
+			if(L in friends)
+				continue
+
+			if(!L.stat && (L.health < lowest_health))
+				lowest_health = L.health
+				T = L
+				break
 
 		else if(istype(A, /obj/mecha)) // Our line of sight stuff was already done in ListTargets().
 			var/obj/mecha/M = A
@@ -63,55 +73,42 @@
 	if (T != target_mob)
 		target_mob = T
 		FoundTarget()
-	if(T != null)
+	if(!isnull(T))
 		stance = HOSTILE_STANCE_ATTACK
 	return T
 
-// Finds weakest(with least health) living mob to attack
-/mob/living/simple_animal/hostile/proc/find_weakest()
-	var/lowest_health = 100
-	var/atom/T = null
-	for(var/atom/A in targets)
-		if(isliving(A))
-			var/mob/living/L = A
-			if((L.faction == src.faction) && !attack_same)
-				continue
-			else if(L in friends)
-				continue
-			else
-				if(!L.stat)
-					if(L.health <= lowest_health)
-						lowest_health = L.health
-						T = A
-	return T
+/mob/living/simple_animal/hostile/bullet_act(var/obj/item/projectile/P, var/def_zone)
+	..()
+	if(ismob(P.firer))
+		if(target_mob != P.firer)
+			target_mob = P.firer
+			stance = HOSTILE_STANCE_ATTACK
 
 /mob/living/simple_animal/hostile/attackby(var/obj/item/O, var/mob/user)
 	..()
 	if(target_mob != user)
 		target_mob = user
 		stance = HOSTILE_STANCE_ATTACK
-		think()
 
-/mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
+mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
 	..()
-	if(target_mob != user)
-		target_mob = user
-		stance = HOSTILE_STANCE_ATTACK
-		think()
+	if(istype(AM,/obj/))
+		var/obj/O = AM
+		if((target_mob != O.thrower) && ismob(O.thrower))
+			target_mob = O.thrower
+			stance = HOSTILE_STANCE_ATTACK
 
 /mob/living/simple_animal/hostile/attack_generic(var/mob/user, var/damage, var/attack_message)
 	..()
 	if(target_mob != user)
 		target_mob = user
 		stance = HOSTILE_STANCE_ATTACK
-		think()
 
 /mob/living/simple_animal/hostile/attack_hand(mob/living/carbon/human/M as mob)
 	..()
-	if(target_mob != user)
-		target_mob = user
+	if(target_mob != M)
+		target_mob = M
 		stance = HOSTILE_STANCE_ATTACK
-		think()
 
 //This proc is called after a target is acquired
 /mob/living/simple_animal/hostile/proc/FoundTarget()
