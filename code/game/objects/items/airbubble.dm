@@ -4,7 +4,7 @@
 	desc = "Special air bubble designed to protect people inside of it from decompressed enviroments."
 	icon = 'icons/obj/airbubble.dmi'
 	icon_state = "airbubble_fact_folded"
-	w_class = ITEMSIZE_SMALL
+	w_class = ITEMSIZE_NORMAL
 	var/used = 0
 	var/obj/item/weapon/tank/internal_tank
 
@@ -117,7 +117,7 @@
 			bag.internal_tank = internal_tank
 			internal_tank.forceMove(bag)
 			internal_tank = null
-			bag.w_class = ITEMSIZE_NORMAL
+			bag.w_class = ITEMSIZE_LARGE
 			bag.icon_state = "airbubble_man_folded"
 			qdel(src)
 			return
@@ -353,7 +353,7 @@
 			bag.internal_tank = internal_tank
 			internal_tank.forceMove(bag)
 			internal_tank = null
-			bag.w_class = ITEMSIZE_NORMAL
+			bag.w_class = ITEMSIZE_LARGE
 			bag.icon_state = "airbubble_syndie_man_folded"
 			qdel(src)
 			return
