@@ -7,8 +7,8 @@
 	w_class = ITEMSIZE_SMALL // Should fit into internal's box or maybe pocket
 	var/target_pressure = ONE_ATMOSPHERE
 	var/datum/gas_mixture/air_contents = null
-	var/volume = 5500 // One tile has 2500 volume of air, so two tiles plus a bit extra
-	var/on = 0
+	var/volume = 5600 // One tile has 2500 volume of air, so two tiles plus a bit extra
+	var/on = FALSE
 	var/activation_sound = 'sound/items/flare.ogg'
 	light_color = LIGHT_COLOR_FLARE
 	uv_intensity = 50
@@ -20,7 +20,7 @@
 	if(!on)
 		user << "<span class='notice'>You pull the cord and witness chemical reaction turn into fire that smells very refreshing.</span>"
 		light_range = brightness_on
-		on = 1
+		on = TRUE
 		update_icon()
 		playsound(src.loc, activation_sound, 75, 1)
 		air_contents = new /datum/gas_mixture()
@@ -33,32 +33,33 @@
 
 // Process of Oxygen candles releasing air. Makes 200 volume of oxygen and nitrogen mix
 /obj/item/device/oxycandle/process()
-	if(on)
-		var/turf/pos = get_turf(src)
-		if(volume <= 0 || istype(pos, /turf/simulated/floor/beach/water) || istype(pos, /turf/unsimulated/beach/water))
-			STOP_PROCESSING(SSprocessing, src)
-			icon_state = "oxycandle_burnt"
-			item_state = icon_state
-			set_light(0)
-			update_held_icon()
-			name = "burnt oxygen candle"
-			desc = "A steel tube with the words 'OXYGEN - PULL CORD TO IGNITE' stamped on the side. A small label warns against using the device underwater. This tube exhausted its chemicals."
-			return
-		if(pos)
-			pos.hotspot_expose(1500, 5)
-		var/datum/gas_mixture/environment = loc.return_air()
-		var/pressure_delta = target_pressure - environment.return_pressure()
-		var/output_volume = environment.volume * environment.group_multiplier
-		var/air_temperature = air_contents.temperature? air_contents.temperature : environment.temperature
-		var/transfer_moles = pressure_delta*output_volume/(air_temperature * R_IDEAL_GAS_EQUATION)
-		var/datum/gas_mixture/removed = air_contents.remove(transfer_moles)
-		if (!removed) //Just in case
-			return
-		environment.merge(removed)
-		volume -= 200
-		var/list/air_mix = list("oxygen" = O2STANDARD * (target_pressure * air_contents.volume) / (R_IDEAL_GAS_EQUATION * air_contents.temperature),
-		 						"nitrogen" = N2STANDARD *  (target_pressure * air_contents.volume) / (R_IDEAL_GAS_EQUATION * air_contents.temperature))
-		air_contents.adjust_multi("oxygen", air_mix["oxygen"], "nitrogen", air_mix["nitrogen"])
+	if(!loc)
+		return
+	var/turf/pos = get_turf(src)
+	if(volume <= 0 || istype(pos, /turf/simulated/floor/beach/water) || istype(pos, /turf/unsimulated/beach/water))
+		STOP_PROCESSING(SSprocessing, src)
+		icon_state = "oxycandle_burnt"
+		item_state = icon_state
+		set_light(0)
+		update_held_icon()
+		name = "burnt oxygen candle"
+		desc = "A steel tube with the words 'OXYGEN - PULL CORD TO IGNITE' stamped on the side. A small label warns against using the device underwater. This tube exhausted its chemicals."
+		return
+	if(pos)
+		pos.hotspot_expose(1500, 5)
+	var/datum/gas_mixture/environment = loc.return_air()
+	var/pressure_delta = target_pressure - environment.return_pressure()
+	var/output_volume = environment.volume * environment.group_multiplier
+	var/air_temperature = air_contents.temperature? air_contents.temperature : environment.temperature
+	var/transfer_moles = pressure_delta*output_volume/(air_temperature * R_IDEAL_GAS_EQUATION)
+	var/datum/gas_mixture/removed = air_contents.remove(transfer_moles)
+	if (!removed) //Just in case
+		return
+	environment.merge(removed)
+	volume -= 200
+	var/list/air_mix = list("oxygen" = O2STANDARD * (target_pressure * air_contents.volume) / (R_IDEAL_GAS_EQUATION * air_contents.temperature),
+	 						"nitrogen" = N2STANDARD *  (target_pressure * air_contents.volume) / (R_IDEAL_GAS_EQUATION * air_contents.temperature))
+	air_contents.adjust_multi("oxygen", air_mix["oxygen"], "nitrogen", air_mix["nitrogen"])
 
 /obj/item/device/oxycandle/update_icon()
 	if(on)
