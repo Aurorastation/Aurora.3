@@ -18,7 +18,7 @@
 
 /obj/item/device/oxycandle/attack_self(mob/user)
 	if(!on)
-		user << "<span class='notice'>You pull the cord and witness chemical reaction turn into fire that smells very refreshing.</span>"
+		user << "<span class='notice'>You pull the cord and [src] ignites.</span>"
 		light_range = brightness_on
 		on = TRUE
 		update_icon()
@@ -43,7 +43,7 @@
 		set_light(0)
 		update_held_icon()
 		name = "burnt oxygen candle"
-		desc = "A steel tube with the words 'OXYGEN - PULL CORD TO IGNITE' stamped on the side. A small label warns against using the device underwater. This tube exhausted its chemicals."
+		desc += "This tube has exhausted its chemicals."
 		return
 	if(pos)
 		pos.hotspot_expose(1500, 5)
