@@ -24,12 +24,7 @@
 	item_cost = 12
 	path = /obj/item/weapon/storage/firstaid/combat
 
-/datum/uplink_item/item/medical/trisyndicotin
-	name = "Box of Loyalty Implant Removing Syringes"
-	item_cost = 6
-	path = /obj/item/weapon/storage/box/syndie_kit/syndites
-
-/datum/uplink_item/item/medical/trisyndicotin
+/datum/uplink_item/item/medical/stimulants
 	name = "Box of Combat Stimulants"
 	item_cost = 6
 	path = /obj/item/weapon/storage/box/syndie_kit/stimulants

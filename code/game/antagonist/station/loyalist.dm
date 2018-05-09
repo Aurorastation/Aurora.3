@@ -48,8 +48,6 @@ var/datum/antagonist/loyalists/loyalists
 /datum/antagonist/loyalists/can_become_antag(var/datum/mind/player)
 	if(!..())
 		return 0
-	if(istype(player.current.reagents) && player.current.reagents.has_reagent("trisyndicotin"))
-		return 0
 	return 1
 
 

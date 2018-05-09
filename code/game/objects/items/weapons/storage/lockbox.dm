@@ -125,15 +125,3 @@
 	new /obj/item/clothing/accessory/medal/silver/valor(src)
 	new /obj/item/clothing/accessory/medal/silver/security(src)
 	new /obj/item/clothing/accessory/medal/silver/security(src)
-
-/obj/item/weapon/storage/lockbox/hextrasenil
-	name = "hextrasenil lockbox"
-	desc = "A high security lockbox containing special mind-altering medication."
-	req_access = list(access_heads)
-
-/obj/item/weapon/storage/lockbox/hextrasenil/fill()
-	..()
-	new /obj/item/weapon/storage/pill_bottle/hextrasenil(src)
-	new /obj/item/weapon/storage/pill_bottle/hextrasenil(src)
-	new /obj/item/weapon/storage/pill_bottle/hextrasenil(src)
-	new /obj/item/weapon/storage/pill_bottle/hextrasenil(src)

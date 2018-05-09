@@ -617,13 +617,6 @@
 	required_reagents = list("mindbreaker" = 1, "space_drugs" = 1, "silicon" = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/hextrasenil
-	name = "Hextrasenil"
-	id = "hextrasenil"
-	result = "hextrasenil"
-	required_reagents = list("truthserum" = 1, "sliver" = 1, "mindbreaker" = 1)
-	result_amount = 3
-
 /datum/chemical_reaction/truthserum
 	name = "Truthserum"
 	id = "truthserum"

@@ -53,8 +53,6 @@ var/datum/antagonist/revolutionary/revs
 	for(var/obj/item/weapon/implant/loyalty/L in player.current)
 		if(L && (L.imp_in == player.current))
 			return 0
-	if(istype(player.current.reagents) && player.current.reagents.has_reagent("hextrasenil"))
-		return 0
 	return 1
 
 /datum/antagonist/revolutionary/equip(var/mob/living/carbon/human/player)
