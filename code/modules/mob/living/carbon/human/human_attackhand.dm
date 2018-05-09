@@ -180,7 +180,7 @@
 				G.icon_state = "grabbed1"
 				visible_message("<span class='warning'>[M] gets a strong grip on [src]!</span>")
 				return 1
-			visible_message("<span class='warning'>[M] has grabbed [src] passively!</span>")
+			visible_message("<span class='warning'>[M] has grabbed [src] [(M.zone_sel.selecting == "l_hand"||M.zone_sel.selecting == "r_hand")?("by [gender==FEMALE?("her"):(gender==MALE?"his":"their")] hands"):("passively")]!</span>")
 			return 1
 
 		if(I_HURT)
