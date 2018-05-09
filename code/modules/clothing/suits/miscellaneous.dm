@@ -195,8 +195,11 @@
 /obj/item/clothing/suit/leathercoat
 	name = "leather coat"
 	desc = "A long, thick black leather coat."
-	icon_state = "leathercoat"
-	item_state = "leathercoat"
+	icon_state = "leathercoat_alt"
+	item_state = "leathercoat_alt"
+	body_parts_covered = UPPER_TORSO|ARMS
+	min_cold_protection_temperature = T0C - 20
+	siemens_coefficient = 0.7
 
 /obj/item/clothing/suit/browncoat
 	name = "brown leather coat"
@@ -272,6 +275,15 @@
 	desc = "A black leather coat. A corporate logo is proudly displayed on the back."
 	icon_state = "leather_jacket_nt"
 
+/obj/item/clothing/suit/storage/toggle/leather_vest
+	name = "leather vest"
+	desc = "A black leather vest."
+	icon_state = "leather_jacket_sleeveless"
+	item_state = "leather_jacket_sleeveless"
+	icon_open = "leather_jacket_sleeveless_open"
+	icon_closed = "leather_jacket_sleeveless"
+	body_parts_covered = UPPER_TORSO
+
 //This one has buttons for some reason
 /obj/item/clothing/suit/storage/toggle/brown_jacket
 	name = "leather jacket"
@@ -281,6 +293,15 @@
 	icon_open = "brown_jacket_open"
 	icon_closed = "brown_jacket"
 	body_parts_covered = UPPER_TORSO|ARMS
+
+/obj/item/clothing/suit/storage/toggle/brown_jacket/sleeveless
+	name = "brown vest"
+	desc = "A brown leather vest."
+	icon_state = "brown_jacket_sleeveless"
+	item_state = "brown_jacket_sleeveless"
+	icon_open = "brown_jacket_sleeveless_open"
+	icon_closed = "brown_jacket_sleeveless"
+	body_parts_covered = UPPER_TORSO
 
 /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen
 	desc = "A brown leather coat. A corporate logo is proudly displayed on the back."

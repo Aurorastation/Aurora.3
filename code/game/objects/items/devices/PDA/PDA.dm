@@ -903,65 +903,56 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 /obj/item/device/pda/proc/detonate_act(var/obj/item/device/pda/P)
 	//TODO: sometimes these attacks show up on the message server
-	var/i = rand(1,100)
-	var/j = rand(0,1) //Possibility of losing the PDA after the detonation
+	var/effect = pick("explosion", "burn", "emp", "smoke", "stun", "spark")
 	var/message = ""
 	var/mob/living/M = null
 	if(ismob(P.loc))
 		M = P.loc
 
-	//switch(i) //Yes, the overlapping cases are intended.
-	if(i<=10) //The traditional explosion
-		P.explode()
-		j=1
-		message += "Your [P] suddenly explodes!"
-	if(i>=10 && i<= 20) //The PDA burns a hole in the holder.
-		j=1
-		if(M && isliving(M))
-			M.apply_damage( rand(30,60) , BURN)
-		message += "You feel a searing heat! Your [P] is burning!"
-	if(i>=20 && i<=25) //EMP
-		empulse(P.loc, 3, 6, 1)
-		message += "Your [P] emits a wave of electromagnetic energy!"
-	if(i>=25 && i<=40) //Smoke
-		var/datum/effect/effect/system/smoke_spread/chem/S = new /datum/effect/effect/system/smoke_spread/chem
-		S.attach(P.loc)
-		S.set_up(P, 10, 0, P.loc, 60)
-		playsound(P.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
-		S.start()
-		message += "Large clouds of smoke billow forth from your [P]!"
-	if(i>=40 && i<=45) //Bad smoke
-		var/datum/effect/effect/system/smoke_spread/bad/B = new /datum/effect/effect/system/smoke_spread/bad
-		B.attach(P.loc)
-		B.set_up(P, 10, 0, P.loc)
-		playsound(P.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
-		B.start()
-		message += "Large clouds of noxious smoke billow forth from your [P]!"
-	if(i>=65 && i<=75) //Weaken
-		if(M && isliving(M))
-			M.apply_effects(weaken = 1)
-		message += "Your [P] flashes with a blinding white light! You feel weaker."
-	if(i>=75 && i<=85) //Stun and stutter
-		if(M && isliving(M))
-			M.apply_effects(stun = 1, stutter = 1)
-		message += "Your [P] flashes with a blinding white light! You feel weaker."
-	if(i>=85) //Sparks
-		spark(P.loc, 2)
-		message += "Your [P] begins to spark violently!"
-	if(i>45 && i<65 && prob(50)) //Nothing happens
-		message += "Your [P] bleeps loudly."
-		j = prob(10)
+	switch(effect)
 
-	if(j) //This kills the PDA
-		qdel(P)
-		if(message)
-			message += "It melts in a puddle of plastic."
-		else
-			message += "Your [P] shatters in a thousand pieces!"
+		if("explosion")
+			P.explode()
+			message += "Your [P] suddenly explodes!"
+
+		if("burn")
+			if(M && isliving(M))
+				M.apply_damage( rand(30,60) , BURN)
+			message += "You feel a searing heat! Your [P] is burning!"
+
+		if("emp")
+			empulse(P.loc, 3, 6, 1)
+
+		if("smoke")
+			var/datum/effect/effect/system/smoke_spread/bad/S = new /datum/effect/effect/system/smoke_spread/bad
+			S.set_up(P, 10, 0, P.loc, 60)
+			S.attach(P.loc)
+			S.start()
+			playsound(P.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
+			message += "Large clouds of smoke billow forth from your [P]!"
+
+		if("stun")
+			if(M && isliving(M))
+				M.apply_effect(5, WEAKEN)
+				flick("flash", M.flash)
+			message += "Your [P] flashes with a blinding white light!"
+
+		if("spark")
+			spark(P.loc, 2)
+			message += "Your [P] begins to spark violently!"
+
+	if(message)
+		message += " "
+
+	if(effect == "explosion")
+		message += "Your [P] shatters in a thousand pieces!"
+	else
+		message += "\The [P] melts in a puddle of plastic."
 
 	if(M && isliving(M))
-		message = "<span class='warning'>[message]</span>"
-		M.show_message(message, 1)
+		to_chat(M, "<span class='warning'>[message]</span>")
+
+	qdel(P)
 
 /obj/item/device/pda/proc/remove_id()
 	if (id)
@@ -1466,20 +1457,20 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	icon = 'icons/obj/pda.dmi'
 	icon_state = "pdabox"
 
-	New()
-		..()
-		new /obj/item/device/pda(src)
-		new /obj/item/device/pda(src)
-		new /obj/item/device/pda(src)
-		new /obj/item/device/pda(src)
-		new /obj/item/weapon/cartridge/head(src)
+/obj/item/weapon/storage/box/PDAs/fill()
+	..()
+	new /obj/item/device/pda(src)
+	new /obj/item/device/pda(src)
+	new /obj/item/device/pda(src)
+	new /obj/item/device/pda(src)
+	new /obj/item/weapon/cartridge/head(src)
 
-		var/newcart = pick(	/obj/item/weapon/cartridge/engineering,
-							/obj/item/weapon/cartridge/security,
-							/obj/item/weapon/cartridge/medical,
-							/obj/item/weapon/cartridge/signal/science,
-							/obj/item/weapon/cartridge/quartermaster)
-		new newcart(src)
+	var/newcart = pick(	/obj/item/weapon/cartridge/engineering,
+						/obj/item/weapon/cartridge/security,
+						/obj/item/weapon/cartridge/medical,
+						/obj/item/weapon/cartridge/signal/science,
+						/obj/item/weapon/cartridge/quartermaster)
+	new newcart(src)
 
 // Pass along the pulse to atoms in contents, largely added so pAIs are vulnerable to EMP
 /obj/item/device/pda/emp_act(severity)

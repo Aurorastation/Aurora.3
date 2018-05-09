@@ -123,9 +123,10 @@
 		var/turf/T = get_turf(input)
 		for(var/obj/item/O in T)
 			if(!O) return
-			if(istype(O, /obj/item/stack) && stack_storage[O.type] != null)
-				stack_storage[O.type]++
-				qdel(O)
+			var/obj/item/stack/S = O
+			if(istype(S) && stack_storage[S.type] != null)
+				stack_storage[S.type] += S.amount
+				qdel(S)
 			else
 				O.forceMove(output.loc)
 

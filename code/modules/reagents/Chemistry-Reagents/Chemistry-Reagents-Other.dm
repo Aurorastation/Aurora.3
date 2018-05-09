@@ -462,7 +462,7 @@
 	L.reveal_blood()
 
 /datum/reagent/estus
-	name = "liquid light"
+	name = "Liquid Light"
 	id = "estus"
 	description = "This impossible substance slowly converts from a liquid into actual light."
 	reagent_state = LIQUID
