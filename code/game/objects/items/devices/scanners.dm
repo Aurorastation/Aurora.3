@@ -424,16 +424,14 @@ BREATH ANALYZER
 		user.show_message("<span class='danger'>Alert: No breathing detected.</span>")
 		return
 
-	if (!usr.IsAdvancedToolUser())
-		usr << "<span class='warning'>You don't have the dexterity to do this!</span>"
+	if (!user.IsAdvancedToolUser())
+		user.show_message("<span class='warning'>You don't have the dexterity to do this!</span>")
 		return
 
-	if(user == H)
-		if(!H.can_eat(src))
-			return
-	else
-		if(!H.can_force_feed(user, src))
-			return
+	if(user == H && !H.can_eat(src))
+		return
+	else if(!H.can_force_feed(user, src))
+		return
 
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(M)
@@ -452,7 +450,7 @@ BREATH ANALYZER
 
 	user.show_message("<b>Breath Sample Results:</b>")
 
-	if(H.stat == 2 || H.losebreath || !H.breathing)
+	if(H.stat == DEAD || H.losebreath || !H.breathing)
 		user.show_message("<span class='danger'>Alert: No breathing detected.</span>")
 		return
 

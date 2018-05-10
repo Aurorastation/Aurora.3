@@ -121,16 +121,14 @@
 				update_icon()
 		return
 
-	if (!usr.IsAdvancedToolUser())
+	if (!user.IsAdvancedToolUser())
 		user.show_message("<span class='warning'>You don't have the dexterity to do this!</span>")
 		return
 
-	if(user == M)
-		if(!M.can_eat(src))
-			return
-	else
-		if(!M.can_force_feed(user, src))
-			return
+	if(user == H && !H.can_eat(src))
+		return
+	else if(!H.can_force_feed(user, src))
+		return
 
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(M)
