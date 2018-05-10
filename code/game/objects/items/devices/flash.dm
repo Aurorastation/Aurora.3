@@ -85,7 +85,7 @@
 				var/obj/item/organ/eyes/E = H.get_eyes()
 				if(!E)
 					return
-				usr << span("alert", "Your eyes burn with the intense light of the flash. You keel over, your antennae twitching as you lay in a daze.")
+				usr << span("alert", "Your eyes burn with the intense light of the flash!")
 				M.Weaken(10)
 				E.damage += rand(10, 11)
 				if(E.damage > 12)
