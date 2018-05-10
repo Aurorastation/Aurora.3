@@ -179,7 +179,7 @@
 	allowed_roles = list("Head of Security")
 
 /datum/gear/suit/dominia
-	display_name = "labcoat selection"
+	display_name = "dominia great coat selection"
 	path = /obj/item/clothing/suit/storage/toggle/dominia
 
 /datum/gear/suit/dominia/New()
