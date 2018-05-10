@@ -72,6 +72,14 @@
 	name = "\improper Engineering - Storage"
 	icon_state = "engineering_storage"
 
+/area/engineering/construction
+	name = "\improper Engineering - Construction Area"
+	icon_state = "yellow"
+
+/area/engineering/construction_level
+	name = "\improper Engineering - Construction Level"
+	icon_state = "red"
+
 /area/engineering/break_room
 	name = "\improper Engineering - Break Room"
 	icon_state = "engineering_break"
