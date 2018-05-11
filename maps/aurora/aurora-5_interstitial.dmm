@@ -2763,25 +2763,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/security/detectives_office)
-"ff" = (
-/obj/effect/floor_decal/corner/green/full{
-	icon_state = "corner_white_full";
-	dir = 1
-	},
-/obj/structure/flora/pottedplant,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
-	},
-/obj/machinery/alarm{
-	dir = 8;
-	icon_state = "alarm0";
-	pixel_x = 24
-	},
-/obj/machinery/camera/network/medbay,
-/turf/simulated/floor/tiled/white,
-/area/medical/psych)
 "fg" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -3325,29 +3306,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/security/detectives_office)
-"gg" = (
-/obj/machinery/door/airlock/security{
-	id_tag = "detdoor";
-	name = "Detective";
-	req_access = list(68)
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/wood,
-/area/security/detectives_office)
 "gh" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -3533,28 +3491,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/investigations)
-"gx" = (
-/obj/machinery/door/airlock/security{
-	name = "Forensic Technician";
-	req_access = list(4)
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/security/forensics_office)
 "gy" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -4072,27 +4008,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/security/investigations)
-"hj" = (
-/obj/machinery/door/airlock/maintenance{
-	req_one_access = list(4,68)
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/security/investigations)
 "hk" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -4147,19 +4062,6 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/security/forensics_office)
-"hn" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/forensics_office)
 "ho" = (
@@ -4241,20 +4143,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/training)
-"hv" = (
-/obj/machinery/door/airlock/glass_security{
-	name = "Theorethical Training";
-	req_access = list(1)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
 /area/security/training)
 "hw" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -4559,25 +4447,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/training)
-"ia" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list(63);
-	req_one_access = null
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/security/training)
 "ib" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -4652,19 +4521,6 @@
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Forensics Laboratory";
 	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/security/forensics_office)
-"ih" = (
-/obj/effect/floor_decal/corner/beige/diagonal,
-/obj/structure/table/glass,
-/obj/item/device/mass_spectrometer{
-	pixel_x = -1;
-	pixel_y = 1
-	},
-/obj/item/device/reagent_scanner{
-	pixel_x = 1;
-	pixel_y = -1
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
@@ -5366,23 +5222,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/security/training)
-"jA" = (
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/firealarm/west,
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Isolation Room";
-	dir = 4;
-	icon_state = "camera";
-	network = list("Medical","Isolation Room")
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/psych)
 "jB" = (
 /obj/effect/floor_decal/corner/blue/full{
 	icon_state = "corner_white_full";
@@ -5500,21 +5339,6 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
-/turf/simulated/floor/tiled/white,
-/area/medical/psych)
-"jP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/camera/network/medbay,
-/turf/simulated/floor/tiled/dark,
-/area/medical/psych)
-"jQ" = (
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/machinery/camera/network/medbay,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "jR" = (
@@ -6530,19 +6354,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
-"lG" = (
-/obj/effect/floor_decal/corner/green/full,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Isolation Room";
-	dir = 4;
-	icon_state = "camera";
-	network = list("Medical","Isolation Room")
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/psych)
 "lH" = (
 /obj/structure/bed/chair/office/light,
 /turf/simulated/floor/tiled/white,
@@ -6886,6 +6697,1551 @@
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
+/area/mine/unexplored)
+"mk" = (
+/obj/machinery/door/airlock/security{
+	id_tag = "detdoor";
+	name = "Detective";
+	req_access = list(68)
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/wood,
+/area/security/detectives_office)
+"ml" = (
+/obj/machinery/door/airlock/security{
+	name = "Forensic Technician";
+	req_access = list(4)
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"mm" = (
+/obj/machinery/door/airlock/maintenance{
+	req_one_access = list(4,68)
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/security/investigations)
+"mn" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"mo" = (
+/obj/machinery/door/airlock/glass_security{
+	name = "Theorethical Training";
+	req_access = list(1)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/security/training)
+"mp" = (
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(63);
+	req_one_access = null
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/security/training)
+"mq" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/structure/table/glass,
+/obj/item/device/mass_spectrometer{
+	pixel_x = -1;
+	pixel_y = 1
+	},
+/obj/item/device/reagent_scanner{
+	pixel_x = 1;
+	pixel_y = -1
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"mr" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ms" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mt" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mu" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mv" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mw" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mx" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"my" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mz" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mA" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mB" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mC" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mD" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mE" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mF" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mG" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mH" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mI" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mJ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mK" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mL" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mM" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mN" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mO" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mP" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mQ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mR" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mS" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mT" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mU" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mV" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mW" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mX" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mY" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"mZ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"na" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nb" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nc" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nd" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ne" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nf" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ng" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nh" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ni" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nj" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nk" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nl" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nm" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nn" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"no" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"np" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nq" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nr" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ns" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nt" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nu" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nv" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nw" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nx" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ny" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nz" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nA" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nB" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nC" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nD" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nE" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nF" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nG" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nH" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nI" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nJ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nK" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nL" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nM" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nN" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nO" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nP" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nQ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nR" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nS" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nT" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nU" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nV" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nW" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nX" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nY" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"nZ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oa" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ob" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oc" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"od" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oe" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"of" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"og" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oh" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oi" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oj" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ok" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ol" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"om" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"on" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oo" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"op" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oq" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"or" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"os" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ot" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ou" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ov" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ow" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ox" = (
+/obj/effect/landmark{
+	name = "cavernspawn"
+	},
+/turf/simulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
+"oy" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oz" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oA" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oB" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oC" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oD" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oE" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oF" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oG" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oH" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oI" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oJ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oK" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oL" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oM" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oN" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oO" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oP" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oQ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oR" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oS" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oT" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oU" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oV" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oW" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oX" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oY" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"oZ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pa" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pb" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pc" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pd" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pe" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pf" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pg" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ph" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pi" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pj" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pk" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pl" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pm" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pn" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"po" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pp" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pq" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pr" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ps" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pt" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pu" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pv" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pw" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"px" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"py" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pz" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pA" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pB" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pC" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pD" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pE" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pF" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pG" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pH" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pI" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pJ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pK" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pL" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pM" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pN" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pO" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pP" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pQ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pR" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pS" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pT" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pU" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pV" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pW" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pX" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pY" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"pZ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qa" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qb" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qc" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qd" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qe" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qf" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qg" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qh" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qi" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qj" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qk" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ql" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qm" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qn" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qo" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qp" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qq" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qr" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qs" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qt" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qu" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qv" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qw" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qx" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qy" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qz" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qA" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qB" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qC" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qD" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qE" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qF" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qG" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qH" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qI" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qJ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qK" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qL" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qM" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qN" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qO" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qP" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qQ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qR" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qS" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qT" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qU" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qV" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qW" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qX" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qY" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"qZ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ra" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rb" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rc" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rd" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"re" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rf" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rg" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rh" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ri" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rj" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rk" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rl" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rm" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rn" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ro" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rp" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rq" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rr" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rs" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rt" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ru" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rv" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rw" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rx" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ry" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rz" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rA" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rB" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rC" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rD" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rE" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rF" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rG" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rH" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rI" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rJ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rK" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rL" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rM" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rN" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rO" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rP" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rQ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rR" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rS" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rT" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rU" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rV" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rW" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rX" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rY" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"rZ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sa" = (
+/obj/effect/floor_decal/corner/green/full{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
+/obj/structure/flora/pottedplant,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
+/obj/machinery/camera/network/medbay,
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"sb" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sc" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sd" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"se" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sf" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sg" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sh" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"si" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sj" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sk" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sl" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sm" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sn" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/firealarm/west,
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Isolation Room";
+	dir = 4;
+	icon_state = "camera";
+	network = list("Medical","Isolation Room")
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"so" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sp" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sq" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sr" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ss" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"st" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"su" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sv" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sw" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sx" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sy" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sz" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/camera/network/medbay,
+/turf/simulated/floor/tiled/dark,
+/area/medical/psych)
+"sB" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sC" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sD" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sE" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sF" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sG" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sH" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sI" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sJ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sK" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sL" = (
+/obj/effect/landmark{
+	name = "cavernspawn"
+	},
+/turf/simulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
+"sM" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sN" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sO" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sP" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/camera/network/medbay,
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"sQ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sR" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sS" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sT" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sU" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sV" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sW" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sX" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sY" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"sZ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ta" = (
+/obj/effect/floor_decal/corner/green/full,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Isolation Room";
+	dir = 4;
+	icon_state = "camera";
+	network = list("Medical","Isolation Room")
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"tb" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tc" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"td" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"te" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tf" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tg" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"th" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ti" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tj" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tk" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tl" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tm" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tn" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"to" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tp" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tq" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tr" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ts" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tt" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tu" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tv" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tw" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tx" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ty" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tz" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tA" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tB" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tC" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tD" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tE" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tF" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tG" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tH" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tI" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tJ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tK" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tL" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tM" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tN" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tO" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tP" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tQ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tR" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tS" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tT" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tU" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tV" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tW" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tX" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tY" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"tZ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ua" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ub" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uc" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ud" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ue" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uf" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ug" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uh" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ui" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uj" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uk" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ul" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"um" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"un" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uo" = (
+/obj/effect/landmark{
+	name = "cavernspawn"
+	},
+/turf/simulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
+"up" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uq" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ur" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"us" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ut" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uu" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uv" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uw" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ux" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uy" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uz" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uA" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uB" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uC" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uD" = (
+/obj/effect/landmark{
+	name = "cavernspawn"
+	},
+/turf/simulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
+"uE" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uF" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uG" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uH" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uI" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uJ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uK" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uL" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uM" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uN" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uO" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uP" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uQ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uR" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uS" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uT" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uU" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uV" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uW" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uX" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uY" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"uZ" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"va" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"vb" = (
+/turf/simulated/mineral,
 /area/mine/unexplored)
 
 (1,1,1) = {"
@@ -40650,7 +42006,7 @@ ga
 ga
 dL
 dc
-hv
+mo
 hL
 dc
 aa
@@ -41680,7 +43036,7 @@ dc
 dc
 dc
 dc
-ia
+mp
 dc
 dc
 dc
@@ -42475,7 +43831,7 @@ ab
 ab
 jG
 jL
-jA
+sn
 kb
 kl
 kw
@@ -42959,10 +44315,10 @@ eO
 eZ
 et
 fK
-gg
+mk
 gu
 gu
-hj
+mm
 gu
 jE
 gu
@@ -43731,7 +45087,7 @@ ab
 fw
 fN
 gj
-gx
+ml
 fw
 fw
 fw
@@ -44247,7 +45603,7 @@ fP
 gl
 gz
 gS
-hn
+mn
 hB
 hU
 hB
@@ -44790,7 +46146,7 @@ jH
 jM
 jV
 jG
-jP
+sA
 kB
 jG
 kS
@@ -45278,7 +46634,7 @@ gW
 fw
 hF
 hX
-ih
+mq
 fy
 ab
 ab
@@ -45821,7 +47177,7 @@ jG
 kr
 jG
 jG
-jQ
+sP
 lf
 lq
 kc
@@ -46329,7 +47685,7 @@ aa
 ab
 ab
 jG
-ff
+sa
 jX
 ki
 kt
@@ -46852,7 +48208,7 @@ ku
 kj
 li
 lu
-lG
+ta
 lQ
 jG
 lW
@@ -50713,10 +52069,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ur
+uz
+uH
+uP
 aa
 aa
 aa
@@ -50967,13 +52323,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+tJ
+tU
+ue
+us
+uA
+uI
+uQ
 aa
 aa
 aa
@@ -51222,16 +52578,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+tj
+tw
+tK
+tV
+uf
+ut
+uB
+uJ
+uR
+uU
 bc
 bc
 bc
@@ -51478,15 +52834,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+tb
+tk
+tx
+tL
+tW
+ug
+uu
+uC
+uK
 ab
 ab
 bc
@@ -51735,13 +53091,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+tc
+tl
+ty
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -51992,13 +53348,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+td
+tm
+tz
+ab
+ab
+ab
+ab
 ab
 ab
 aS
@@ -52249,13 +53605,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+te
+tn
+tA
+ab
+ab
+ab
+ab
 ab
 aQ
 aT
@@ -52507,12 +53863,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+to
+tB
+tM
+ab
+ab
+ab
 ab
 ab
 aU
@@ -52764,13 +54120,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+tp
+tC
+tN
+tX
+ab
+ab
+ab
 ab
 ab
 ab
@@ -53022,12 +54378,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+tD
+tO
+tY
+uh
+ab
+uD
 ab
 ab
 ab
@@ -53282,12 +54638,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+ui
+ab
+ab
+ab
+ab
+ab
 bc
 bc
 bB
@@ -53534,17 +54890,17 @@ io
 io
 io
 io
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+tf
+tq
+tE
+tP
+tZ
+uj
+ab
+ab
+ab
+ab
+ab
 aa
 bc
 bC
@@ -54023,10 +55379,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+nR
+ol
+ov
+oD
 aa
 io
 io
@@ -54049,17 +55405,17 @@ iL
 iO
 io
 io
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+tr
+tF
+tQ
+ua
+uk
+ab
+ab
+ab
+ab
+ab
+va
 bc
 bc
 jm
@@ -54279,11 +55635,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+nr
+nS
+om
+ow
+oE
 io
 io
 io
@@ -54310,13 +55666,13 @@ io
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ul
+ab
+ab
+ab
+ab
+uV
+vb
 aa
 bc
 jn
@@ -54536,10 +55892,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ns
+nT
+on
+ab
 io
 io
 io
@@ -54567,12 +55923,12 @@ io
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+um
+ab
+ab
+ab
+ab
+uW
 aa
 aa
 bc
@@ -54792,11 +56148,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+mT
+nt
+nU
+oo
+ab
 io
 io
 ip
@@ -54823,13 +56179,13 @@ io
 io
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ub
+un
+ab
+ab
+ab
+ab
+uX
 aa
 aa
 bc
@@ -55049,11 +56405,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+mU
+nu
+nV
+op
+ab
 io
 io
 io
@@ -55080,13 +56436,13 @@ io
 io
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+uc
+ab
+ab
+ab
+ab
+uS
+uY
 aa
 aa
 bc
@@ -55305,13 +56661,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mC
+mV
+nv
+nW
+oq
+ab
+ab
 io
 io
 io
@@ -55336,14 +56692,14 @@ io
 io
 io
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+tR
+ud
+ab
+ab
+ab
+uL
+uT
+uZ
 aa
 aa
 bc
@@ -55562,14 +56918,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mD
+mW
+nw
+nX
+or
+ab
+ab
+oO
 io
 io
 io
@@ -55593,12 +56949,12 @@ io
 io
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+tS
+ab
+ab
+ab
+ab
+uM
 aa
 aa
 aa
@@ -55820,17 +57176,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mX
+nx
+nY
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+qd
 aa
 aa
 aa
@@ -55849,13 +57205,13 @@ io
 io
 io
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+tG
+tT
+ab
+ab
+ab
+ab
+uN
 aa
 aa
 aa
@@ -56078,16 +57434,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ny
+nZ
+ab
+ab
+ab
+ab
+ab
+ab
+pL
+qe
 aa
 aa
 aa
@@ -56106,13 +57462,13 @@ io
 io
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+tH
+ab
+ab
+uo
+ab
+uE
+uO
 aa
 aa
 aa
@@ -56336,6 +57692,14 @@ aa
 aa
 aa
 aa
+oa
+ab
+ox
+ab
+ab
+pe
+pv
+pM
 aa
 aa
 aa
@@ -56354,21 +57718,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ts
+tI
+ab
+ab
+ab
+ab
+uF
 aa
 aa
 aa
@@ -56593,6 +57949,12 @@ aa
 aa
 aa
 aa
+ob
+ab
+ab
+ab
+ab
+pf
 aa
 aa
 aa
@@ -56613,19 +57975,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+tt
+ab
+ab
+ab
+ab
+uv
+uG
 aa
 aa
 aa
@@ -56849,6 +58205,13 @@ aa
 aa
 aa
 aa
+nz
+oc
+ab
+ab
+ab
+oP
+pg
 aa
 aa
 aa
@@ -56868,20 +58231,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+tg
+tu
+ab
+ab
+ab
+ab
+uw
 aa
 aa
 aa
@@ -57106,6 +58462,19 @@ aa
 aa
 aa
 aa
+nA
+od
+ab
+ab
+ab
+oQ
+aa
+aa
+aa
+aa
+qw
+qO
+re
 aa
 aa
 aa
@@ -57118,27 +58487,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+sW
+th
+ab
+ab
+ab
+ab
+up
+ux
 aa
 aa
 aa
@@ -57362,6 +58718,20 @@ aa
 aa
 aa
 aa
+mY
+nB
+oe
+ab
+ab
+ab
+oR
+ph
+pw
+pN
+qf
+qx
+qP
+rf
 aa
 aa
 aa
@@ -57374,28 +58744,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+sX
+ab
+ab
+ab
+ab
+ab
+uq
+uy
 aa
 aa
 aa
@@ -57618,6 +58974,23 @@ aa
 aa
 aa
 aa
+mE
+mZ
+nC
+of
+ab
+ab
+ab
+ab
+ab
+px
+pO
+qg
+qy
+qQ
+rg
+rr
+rx
 aa
 aa
 aa
@@ -57627,31 +59000,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+sS
+sY
+ab
+ab
+ab
+ab
+ab
+ab
 bc
 bc
 bc
@@ -57874,40 +59230,40 @@ aa
 aa
 aa
 aa
+mr
+mF
+na
+nD
+og
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+qh
+qz
+qR
+rh
+rs
+ry
+rE
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+so
+sw
+sB
+sE
+sJ
+sQ
+sT
+ab
+ab
+ab
+ab
+ab
+ab
 bc
 bc
 bc
@@ -58131,37 +59487,37 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ms
+mG
+nb
+nE
+oh
+os
+mf
+mf
+mf
+mf
+mf
+pP
+qi
+qA
+qS
+ri
+rt
+rz
+rF
+rM
+sb
+sp
+ab
+ab
+sF
+sK
+ab
+ab
+ab
+ab
+ab
 bc
 bc
 bc
@@ -58388,36 +59744,36 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mt
+mH
+nc
+nF
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+mi
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 bc
 bc
 bc
@@ -58645,36 +60001,36 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mu
+mI
+nd
+nG
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+mi
+ab
+ab
+ab
+ab
+ab
+sL
+ab
+ab
+ab
+ab
 bc
 bc
 iW
@@ -58904,34 +60260,34 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ne
+nH
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+qB
+aB
+aB
+aB
+aB
+aB
+mi
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 bc
 bc
 bc
@@ -59161,35 +60517,35 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+nf
+nI
+aB
+aB
+aB
+aB
+oS
+pi
+py
+pQ
+qj
+qC
+qT
+rj
+aB
+aB
+aB
+rN
+sc
+ab
+ab
+ab
+ab
+ab
+ab
+sU
+sZ
+ti
+tv
 bc
 bc
 bc
@@ -59418,32 +60774,32 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ng
+nJ
+aB
+aB
+aB
+aB
+oT
+pj
+pz
+pR
+qk
+qD
+qU
+rk
+aB
+aB
+aB
+rO
+sd
+ab
+ab
+ab
+ab
+sM
+sR
+sV
 aa
 aa
 aa
@@ -59674,31 +61030,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mJ
+nh
+aB
+aB
+aB
+aB
+oF
+oU
+pk
+pA
+pS
+ql
+qE
+qV
+rl
+aB
+aB
+aB
+rP
+se
+sq
+ab
+ab
+sG
+sN
 aa
 aa
 aa
@@ -59931,31 +61287,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mK
+ni
+aB
+aB
+aB
+oy
+oG
+oV
+pl
+pB
+pT
+qm
+qF
+qW
+rm
+aB
+aB
+aB
+rQ
+sf
+sr
+sx
+sC
+sH
+sO
 aa
 aa
 aa
@@ -60187,31 +61543,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mv
+mL
+nj
+aB
+aB
+aB
+oz
+oH
+oW
+pm
+pC
+pU
+qn
+qG
+qX
+rn
+aB
+aB
+aB
+rR
+sg
+ss
+sy
+sD
+sI
 aa
 aa
 aa
@@ -60444,29 +61800,29 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mw
+mM
+nk
+aB
+aB
+aB
+oA
+oI
+oX
+pn
+pD
+pV
+qo
+qH
+qY
+ro
+aB
+aB
+aB
+rS
+sh
+st
+sz
 aa
 aa
 aa
@@ -60701,28 +62057,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mx
+mN
+nl
+nK
+aB
+aB
+aB
+oJ
+oY
+po
+pE
+pW
+qp
+qI
+qZ
+aB
+aB
+aB
+aB
+rT
+si
+su
 aa
 aa
 aa
@@ -60958,28 +62314,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+my
+mO
+nm
+nL
+aB
+aB
+aB
+oK
+oZ
+pp
+pF
+pX
+qq
+qJ
+ra
+aB
+aB
+aB
+rG
+rU
+sj
+sv
 aa
 aa
 aa
@@ -61215,27 +62571,27 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mz
+mP
+nn
+nM
+aB
+aB
+aB
+aB
+pa
+pq
+pG
+pY
+qr
+qK
+aB
+aB
+aB
+aB
+rH
+rV
+sk
 aa
 aa
 aa
@@ -61472,27 +62828,27 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mA
+mQ
+no
+nN
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+rI
+rW
+sl
 aa
 aa
 aa
@@ -61729,27 +63085,27 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mB
+mR
+np
+nO
+oi
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+rA
+rJ
+rX
+sm
 aa
 aa
 aa
@@ -61987,25 +63343,25 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mS
+nq
+nP
+oj
+ot
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+ru
+rB
+rK
+rY
 aa
 aa
 aa
@@ -62246,23 +63602,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+nQ
+ok
+ou
+oB
+oL
+pb
+pr
+pH
+pZ
+qs
+qL
+rb
+rp
+rv
+rC
+rL
+rZ
 aa
 aa
 aa
@@ -62506,18 +63862,18 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+oC
+oM
+pc
+ps
+pI
+qa
+qt
+qM
+rc
+rq
+rw
+rD
 aa
 aa
 aa
@@ -62764,14 +64120,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+oN
+pd
+pt
+pJ
+qb
+qu
+qN
+rd
 aa
 aa
 aa
@@ -63023,10 +64379,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+pu
+pK
+qc
+qv
 aa
 aa
 aa
