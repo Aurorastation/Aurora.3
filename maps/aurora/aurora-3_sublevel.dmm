@@ -6337,7 +6337,7 @@
 	pixel_y = 0
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = 0;
 	listening = 1;
 	name = "Common Channel";
 	pixel_x = -27;
@@ -7151,7 +7151,7 @@
 	pixel_y = -26
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = 0;
 	listening = 1;
 	name = "Common Channel";
 	pixel_x = 27;
@@ -7868,7 +7868,7 @@
 	pixel_y = 0
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = 0;
 	listening = 1;
 	name = "Common Channel";
 	pixel_x = -27;
