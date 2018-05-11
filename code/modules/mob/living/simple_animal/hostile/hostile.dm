@@ -79,7 +79,7 @@
 
 /mob/living/simple_animal/hostile/bullet_act(var/obj/item/projectile/P, var/def_zone)
 	..()
-	if (ismob(P.firer) && target_mob != P.firer))
+	if (ismob(P.firer) && target_mob != P.firer)
 		target_mob = P.firer
 		stance = HOSTILE_STANCE_ATTACK
 
