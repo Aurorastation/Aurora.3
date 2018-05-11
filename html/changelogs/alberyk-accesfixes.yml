@@ -1,0 +1,6 @@
+author: Alberyk
+delete-after: True
+
+changes:
+  - bugfix: "Fixed securitrons trying to arrest the head of personnel because of their gun."
+  - bugfix: "ERT's id should have the proper access now."
