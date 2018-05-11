@@ -62452,14 +62452,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/outpost/mining_main/eva)
-"clx" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Security Maintenance";
-	req_access = list(63)
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/security/brig)
 "cly" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Security Maintenance";
@@ -62597,13 +62589,6 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/security/brig)
-"clI" = (
-/obj/structure/toilet,
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/freezer,
 /area/security/brig)
 "clJ" = (
 /obj/structure/toilet,
@@ -62868,41 +62853,9 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/security/brig)
-"cmh" = (
-/obj/machinery/shower{
-	dir = 8;
-	icon_state = "shower";
-	pixel_x = 0;
-	pixel_y = 0
-	},
-/obj/machinery/door/window/westleft,
-/obj/structure/curtain/open/shower,
-/obj/item/weapon/soap,
-/turf/simulated/floor/tiled/freezer,
-/area/security/brig)
 "cmi" = (
 /obj/structure/closet/secure_closet/security,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/security/brig)
-"cmj" = (
-/obj/effect/floor_decal/corner/blue{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/dark,
-/area/security/brig)
-"cmk" = (
-/obj/effect/floor_decal/corner/blue{
-	icon_state = "corner_white";
-	dir = 6
-	},
 /turf/simulated/floor/tiled/dark,
 /area/security/brig)
 "cml" = (
@@ -63165,22 +63118,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
-"cmJ" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor,
-/area/security/main)
 "cmK" = (
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/blue{
@@ -63240,14 +63177,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/main)
-"cmR" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Security Maintenance";
-	req_access = list(63)
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/security/brig)
 "cmS" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Security Office";
@@ -63346,22 +63275,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/security/main)
-"cnb" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor,
-/area/security/main)
 "cnc" = (
 /obj/structure/coatrack,
 /obj/effect/floor_decal/corner/blue{
@@ -63406,12 +63319,6 @@
 /obj/structure/window/reinforced,
 /obj/item/weapon/paper_bin,
 /turf/simulated/floor/tiled/dark,
-/area/security/main)
-"cnh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
 /area/security/main)
 "cni" = (
 /obj/machinery/alarm{
@@ -63476,12 +63383,6 @@
 	},
 /obj/item/weapon/paper_bin,
 /turf/simulated/floor/tiled/dark,
-/area/security/main)
-"cno" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
 /area/security/main)
 "cnp" = (
 /obj/structure/noticeboard{
@@ -63725,22 +63626,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/security/main)
-"cnK" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor,
 /area/security/main)
 "cnL" = (
 /obj/machinery/door/airlock/glass_security{
@@ -64040,24 +63925,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
-"cog" = (
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/aft)
 "coh" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -64157,34 +64024,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
-"coo" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"cop" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
 "coq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -64229,18 +64068,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
-"cot" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/aft)
-"cou" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/aft)
 "cov" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10
@@ -64487,21 +64314,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
-"coR" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"coS" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/hydroponics)
 "coT" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -64547,28 +64359,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/holofloor/wood,
 /area/hydroponics)
-"coY" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/grass,
-/area/hydroponics)
 "coZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/hydroponics)
-"cpa" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"cpb" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
 /area/hydroponics)
 "cpc" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
@@ -64576,9 +64369,6 @@
 	c_tag = "Hydroponics - West";
 	dir = 4
 	},
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"cpd" = (
 /turf/simulated/floor/grass,
 /area/hydroponics)
 "cpe" = (
@@ -64613,10 +64403,6 @@
 /obj/item/weapon/reagent_containers/glass/bucket/wood,
 /turf/simulated/floor/holofloor/wood,
 /area/hydroponics)
-"cph" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/grass,
-/area/hydroponics)
 "cpi" = (
 /obj/machinery/vending/hydroseeds{
 	prices = list()
@@ -64635,35 +64421,11 @@
 /obj/item/watertank,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
-"cpl" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"cpm" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/hydroponics)
 "cpn" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"cpo" = (
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"cpp" = (
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"cpq" = (
 /turf/simulated/floor/grass,
 /area/hydroponics)
 "cpr" = (
@@ -64679,10 +64441,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/wood,
-/area/hydroponics)
-"cps" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/grass,
 /area/hydroponics)
 "cpt" = (
 /obj/machinery/biogenerator,
@@ -64707,17 +64465,6 @@
 	},
 /turf/simulated/floor/grass,
 /area/hydroponics)
-"cpx" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/hydroponics)
 "cpy" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/machinery/alarm{
@@ -64727,15 +64474,6 @@
 	},
 /turf/simulated/floor/grass,
 /area/hydroponics)
-"cpz" = (
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"cpA" = (
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"cpB" = (
-/turf/simulated/floor/grass,
-/area/hydroponics)
 "cpC" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -64743,10 +64481,6 @@
 /obj/item/weapon/reagent_containers/glass/bucket/wood,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/holofloor/wood,
-/area/hydroponics)
-"cpD" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/grass,
 /area/hydroponics)
 "cpE" = (
 /obj/effect/floor_decal/corner/green{
@@ -64769,10 +64503,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/hydroponics)
-"cpH" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/grass,
 /area/hydroponics)
 "cpI" = (
 /obj/structure/grille,
@@ -89837,9 +89567,9 @@ cok
 cox
 coI
 coU
-cpd
-cpo
-cpz
+cpL
+cpL
+cpL
 cpJ
 bWm
 bWm
@@ -90095,8 +89825,8 @@ coy
 coJ
 coV
 cpe
-cpp
-cpA
+cpL
+cpL
 cpK
 bWm
 bWH
@@ -90352,8 +90082,8 @@ coz
 coK
 coW
 cpf
-cpq
-cpB
+cpL
+cpL
 cpL
 bWm
 bWI
@@ -90861,13 +90591,13 @@ btm
 bAi
 bRL
 cob
-coo
+coq
 coB
 coM
-coY
-cph
-cps
-cpD
+cpS
+cpS
+cpS
+cpS
 cpN
 bWm
 cpW
@@ -91118,7 +90848,7 @@ bQB
 bMD
 bRL
 coc
-cop
+coq
 coC
 bSO
 bSO
@@ -92145,8 +91875,8 @@ bQa
 bQD
 bRf
 bPH
-cog
-cot
+coi
+cov
 coE
 coQ
 bVt
@@ -92403,13 +92133,13 @@ bQb
 bRg
 bPH
 coh
-cou
+cov
 coF
-coR
-cpa
-cpl
+cpS
+cpS
+cpS
 cpw
-cpH
+cpS
 cpT
 bWm
 bXd
@@ -92662,10 +92392,10 @@ bPH
 coi
 cov
 coG
-coS
-cpb
-cpm
-cpx
+cpI
+cpI
+cpI
+cpI
 cpI
 cpU
 bWm
@@ -95929,7 +95659,7 @@ aaV
 aiY
 aaV
 ahr
-cmR
+cnR
 ahr
 aaV
 aoF
@@ -96699,9 +96429,9 @@ aaV
 aaV
 aja
 aja
-cmJ
+cnM
 cmS
-cnb
+cnM
 aja
 aja
 aja
@@ -97195,7 +96925,7 @@ aad
 aaM
 aaV
 aaV
-clx
+cnR
 aaV
 aaV
 aaV
@@ -97209,7 +96939,7 @@ clF
 clO
 clU
 cmb
-cmj
+cmr
 cmr
 cmx
 cmE
@@ -97466,7 +97196,7 @@ clG
 abC
 clV
 cmc
-cmk
+cms
 cms
 cmy
 cmF
@@ -98233,7 +97963,7 @@ aaV
 adW
 aeC
 aaV
-clI
+clJ
 clQ
 clX
 cmf
@@ -98247,7 +97977,7 @@ cng
 cnn
 cnu
 cnC
-cnK
+cnM
 asC
 auo
 avN
@@ -98500,8 +98230,8 @@ cmB
 cmH
 cmP
 cmZ
-cnh
-cno
+cnv
+cnv
 cnv
 cnD
 cnL
@@ -98750,7 +98480,7 @@ aaV
 clJ
 clR
 clZ
-cmh
+cmw
 cmo
 cmw
 cmC
@@ -114716,15 +114446,15 @@ aSp
 aSp
 aSp
 aSp
-aaa
-aaa
-aaa
-aaa
+anR
+anR
+anR
+anR
 aZu
 bgc
 aRV
 aZu
-aaa
+anR
 aaa
 aab
 aaa
@@ -114972,17 +114702,17 @@ aab
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+anR
+anR
+anR
+anR
+anR
 aZu
 bgd
 bht
 aZu
-aaa
-aab
+anR
+anR
 aab
 aab
 aab
@@ -115225,22 +114955,22 @@ aaa
 aab
 aab
 aab
+aab
+aab
+aab
+aab
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+anR
+anR
+anR
 aZu
 bge
 bhu
 aZu
-aaa
-aab
-aab
+anR
+anR
+anR
 aab
 aab
 aab
@@ -115482,23 +115212,23 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aZu
-aZu
-aZu
-aZu
-aaa
 aab
 aab
 aab
+aab
+aaa
+aaa
+aaa
+anR
+anR
+aZu
+aZu
+aZu
+aZu
+anR
+anR
+anR
+anR
 aab
 aab
 aab
@@ -115733,29 +115463,29 @@ aab
 aab
 aab
 aab
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aab
-biX
-biX
-biX
 aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aaa
+aaa
+aaa
+aaa
+anR
+anR
+anR
+anR
+anR
+biX
+biX
+biX
+anR
 aab
 aab
 aab
@@ -115986,12 +115716,6 @@ aaa
 aaa
 aaa
 aaa
-aab
-aab
-aab
-aab
-aab
-aaa
 aaa
 aaa
 aaa
@@ -116006,8 +115730,14 @@ aaa
 aaa
 aaa
 aab
-aab
-aab
+aaa
+aaa
+aaa
+aaa
+aaa
+anR
+anR
+anR
 biX
 biX
 biX
@@ -116238,33 +115968,33 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+anR
+anR
+anR
+anR
+anR
+anR
+anR
+anR
+anR
+anR
+anR
+anR
+anR
+anR
+anR
+anR
+anR
 aaa
 aab
 aab
 aab
+aaa
+aaa
 aab
+aab
+anR
+anR
 biX
 biX
 blv
@@ -116495,33 +116225,33 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aaa
-aab
-aab
-aab
-aab
-aab
-aaa
+anR
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+anR
 aaa
 aab
+aab
+aab
+aab
+aab
+aab
+aaa
+aaa
+anR
 biX
 biX
 blw
@@ -116752,33 +116482,33 @@ aaa
 aaa
 aaa
 aaa
+anR
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+anR
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
 aab
 aab
 aab
-aab
-aab
-aab
-aab
 aaa
 aaa
 aaa
 aaa
-aab
+anR
 biX
 biX
 blx
@@ -117009,24 +116739,24 @@ aaa
 aaa
 aaa
 aaa
+anR
+arK
+arK
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+arK
+arK
+anR
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aab
 aab
 aaa
 aab
@@ -117266,23 +116996,23 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+anR
+arK
+arK
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+arK
+arK
+anR
 aaa
 aaa
 aaa
@@ -117522,24 +117252,24 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+anR
+anR
+arK
+arK
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+arK
+arK
+anR
 aaa
 aaa
 aaa
@@ -117779,24 +117509,24 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+anR
+arK
+arK
+arK
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+arK
+arK
+anR
 aaa
 aaa
 aaa
@@ -118036,24 +117766,24 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+anR
+arK
+arK
+arK
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+arK
+arK
+anR
 aaa
 aaa
 aaa
@@ -118293,24 +118023,24 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+anR
+arK
+arK
+arK
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+arK
+arK
+anR
 aaa
 aaa
 aaa
@@ -118550,24 +118280,24 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+anR
+arK
+arK
+arK
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+arK
+arK
+arK
+anR
 aaa
 aaa
 aaa
@@ -118807,24 +118537,24 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+anR
+anR
+arK
+arK
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+arK
+arK
+arK
+anR
 aaa
 aaa
 aaa
@@ -119065,23 +118795,23 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+anR
+arK
+arK
+arK
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+arK
+arK
+anR
+anR
 aaa
 aaa
 aaa
@@ -119322,22 +119052,22 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+anR
+arK
+arK
+arK
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+arK
+arK
+arK
+anR
 aaa
 aaa
 aaa
@@ -119579,22 +119309,22 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+anR
+anR
+arK
+arK
+arK
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+aaR
+arK
+arK
+arK
+anR
 aaa
 aaa
 aaa
@@ -119837,21 +119567,21 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+anR
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+anR
+anR
 aaa
 aaa
 aaa
@@ -120094,20 +119824,20 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+anR
+anR
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+arK
+anR
+anR
 aaa
 aaa
 aaa
@@ -120352,18 +120082,18 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+anR
+anR
+anR
+anR
+anR
+anR
+anR
+anR
+anR
+anR
+anR
+anR
 aaa
 aaa
 aaa
