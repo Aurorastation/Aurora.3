@@ -142,6 +142,12 @@
 	desc = "It's worth 1000 credits."
 	worth = 1000
 
+/obj/item/weapon/spacecash/bundle/c10000
+	name = "credit chips"
+	icon_state = "spacecash1000"
+	desc = "It's worth 10000 credits."
+	worth = 10000
+
 proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 	if(sum in list(1000,500,200,100,50,20,10,1))
 		var/cash_type = text2path("/obj/item/weapon/spacecash/c[sum]")

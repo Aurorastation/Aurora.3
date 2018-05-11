@@ -139,3 +139,54 @@
 		/obj/item/rig_module/stealth_field,
 		/obj/item/rig_module/vision
 		)
+
+//Tri-Ninja
+
+/obj/item/weapon/rig/light/ninja/combat
+	name = "tiger suit control module"
+	suit_type = "stealth suit"
+	desc = "A unique, vaccum-proof suit of nano-enhanced armor designed specifically for combat operations."
+	icon_state = "ninja_rig"
+	armor = list(melee = 50, bullet = 35, laser = 35, energy = 30, bomb = 25, bio = 100, rad = 30) //Same stats as regular ninja.
+	emp_protection = 40
+	slowdown = 1
+
+	chest_type = /obj/item/clothing/suit/space/rig/light/ninja
+	glove_type = /obj/item/clothing/gloves/rig/light/ninja
+	helm_type =  /obj/item/clothing/head/helmet/space/rig/light/ninja
+	boot_type = /obj/item/clothing/shoes/rig/light/ninja
+
+	initial_modules = list()
+
+/obj/item/weapon/rig/light/ninja/mobility
+	name = "spider suit control module"
+	suit_type = "stealth suit"
+	desc = "A unique, vaccum-proof suit of nano-enhanced armor designed specifically for mobility operations."
+	icon_state = "ninja_rig"
+	armor = list(melee = 25, bullet = 20, laser = 20, energy = 20, bomb = 20, bio = 100, rad = 100)
+	emp_protection = 25
+	slowdown = -2
+
+	chest_type = /obj/item/clothing/suit/space/rig/light/ninja
+	glove_type = /obj/item/clothing/gloves/rig/light/ninja
+	helm_type =  /obj/item/clothing/head/helmet/space/rig/light/ninja
+	boot_type = /obj/item/clothing/shoes/rig/light/ninja
+
+	initial_modules = list()
+
+/obj/item/weapon/rig/light/ninja/stealth
+	name = "snake suit control module"
+	suit_type = "stealth suit"
+	desc = "A unique, vaccum-proof suit of nano-enhanced armor designed specifically for stealth operations."
+	icon_state = "ninja_rig"
+	armor = list(melee = 50, bullet = 10, laser = 10, energy = 10, bomb = 10, bio = 100, rad = 30)
+	emp_protection = 25
+	slowdown = 0
+
+	chest_type = /obj/item/clothing/suit/space/rig/light/ninja
+	glove_type = /obj/item/clothing/gloves/rig/light/ninja
+	helm_type =  /obj/item/clothing/head/helmet/space/rig/light/ninja
+	boot_type = /obj/item/clothing/shoes/rig/light/ninja
+
+	initial_modules = list()
+

@@ -94,6 +94,118 @@
 	)
 	product_ads = "Only the finest!;Have some tools.;The most robust equipment.;The finest gear in space!"
 
+/obj/machinery/vending/assist/ninja
+	name = "Ninja Module Vendor"
+	vend_id = "tools"
+	can_move = 0
+	can_tamper = 0
+	use_power = 0
+	emagged = 1
+	categories = CAT_NORMAL | CAT_HIDDEN
+	products = list()
+	contraband = list(
+		/obj/item/device/pda/fake = 1,
+		/obj/item/rig_module/actuators/combat = 1,
+		/obj/item/rig_module/device/healthscanner = 1,
+		/obj/item/rig_module/chem_dispenser/ninja = 1,
+		/obj/item/rig_module/power_sink = 1,
+		/obj/item/rig_module/emergency_powergenerator = 1,
+		/obj/item/rig_module/emag_hand = 1,
+		/obj/item/rig_module/vision/multi = 1,
+		/obj/item/weapon/material/sword/katana = 1,
+		/obj/item/weapon/material/sword/dao = 1,
+		/obj/item/weapon/material/star = 4,
+		/obj/item/weapon/material/twohanded/spear/steel = 1,
+		/obj/item/weapon/nullrod/nullstaff = 1,
+		/obj/item/weapon/grenade/smokebomb/instant = 4,
+		/obj/item/weapon/handcuffs/ziptie = 4
+	)
+	premium = list()
+	prices = list()
+
+/obj/machinery/vending/assist/ninja/combat
+	name = "Tiger Module Vendor"
+	products = list(
+		/obj/item/rig_module/chem_dispenser/combat = 2,
+		/obj/item/rig_module/grenade_launcher = 2,
+		/obj/item/rig_module/mounted/energy_blade = 2,
+		/obj/item/rig_module/fabricator = 2,
+		/obj/item/rig_module/emp_shielding = 2,
+		/obj/item/weapon/beartrap = 4,
+		/obj/item/weapon/shield/energy = 2,
+		/obj/item/weapon/storage/firstaid/combat = 2,
+		/obj/item/weapon/grenade/flashbang = 4,
+		/obj/item/weapon/melee/energy/glaive = 2
+	)
+	prices = list(
+		/obj/item/rig_module/chem_dispenser/combat = 1000,
+		/obj/item/rig_module/grenade_launcher = 3000,
+		/obj/item/rig_module/mounted/energy_blade = 3000,
+		/obj/item/rig_module/fabricator = 3000,
+		/obj/item/rig_module/emp_shielding = 2000,
+		/obj/item/weapon/beartrap = 250,
+		/obj/item/weapon/shield/energy = 2000,
+		/obj/item/weapon/storage/firstaid/combat = 1000,
+		/obj/item/weapon/grenade/flashbang = 100,
+		/obj/item/weapon/melee/energy/glaive = 3000,
+		/obj/item/weapon/melee/energy/sword/red = 2000
+	)
+
+/obj/machinery/vending/assist/ninja/stealth
+	name = "Snake Module Vendor"
+	products = list(
+		/obj/item/rig_module/voice = 2,
+		/obj/item/rig_module/ai_container = 2,
+		/obj/item/rig_module/datajack = 2,
+		/obj/item/rig_module/electrowarfare_suite = 2,
+		/obj/item/rig_module/stealth_field = 2,
+		/obj/item/device/radiojammer = 2,
+		/obj/item/device/chameleon = 2,
+		/obj/item/weapon/cane/concealed = 2,
+		/obj/item/weapon/storage/box/syndie_kit/chameleon = 2,
+		/obj/item/weapon/storage/box/syndie_kit/spy = 2
+	)
+	prices = list(
+		/obj/item/rig_module/voice = 1000,
+		/obj/item/rig_module/ai_container = 500,
+		/obj/item/rig_module/datajack = 500,
+		/obj/item/rig_module/electrowarfare_suite = 1000,
+		/obj/item/rig_module/stealth_field = 3000,
+		/obj/item/device/radiojammer = 1000,
+		/obj/item/device/announcer = 3000,
+		/obj/item/device/chameleon = 2000,
+		/obj/item/weapon/cane/concealed = 1000,
+		/obj/item/weapon/storage/box/syndie_kit/chameleon = 2000,
+		/obj/item/weapon/storage/box/syndie_kit/spy = 500
+	)
+
+/obj/machinery/vending/assist/ninja/mobility
+	name = "Spider Module Vendor"
+	products = list(
+		/obj/item/rig_module/maneuvering_jets = 2,
+		/obj/item/rig_module/device/flash = 2,
+		/obj/item/rig_module/mounted/taser = 2,
+		/obj/item/rig_module/ai_container = 2,
+		/obj/item/rig_module/datajack = 2,
+		/obj/item/rig_module/teleporter = 2,
+		/obj/item/rig_module/fabricator/energy_net = 2,
+		/obj/item/device/batterer = 2,
+		/obj/item/device/gps = 2,
+		/obj/item/weapon/pinpointer/advpinpointer = 2
+	)
+	prices = list(
+		/obj/item/rig_module/maneuvering_jets = 2000,
+		/obj/item/rig_module/device/flash = 2000,
+		/obj/item/rig_module/mounted/taser = 2000,
+		/obj/item/rig_module/ai_container = 1000,
+		/obj/item/rig_module/datajack = 500,
+		/obj/item/rig_module/teleporter = 4000,
+		/obj/item/rig_module/fabricator/energy_net = 2000,
+		/obj/item/device/batterer = 2000,
+		/obj/item/device/gps = 500,
+		/obj/item/weapon/pinpointer/advpinpointer = 5000
+	)
+
 /obj/machinery/vending/coffee
 	name = "Hot Drinks machine"
 	desc = "A vending machine which dispenses hot drinks."

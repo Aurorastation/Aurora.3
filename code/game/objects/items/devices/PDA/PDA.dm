@@ -178,6 +178,45 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	owner = "John Doe"
 	hidden = 1
 
+/obj/item/device/pda/tiger
+	icon_state = "pda-hos"
+	name = "Tiger PDA"
+	owner = "Tiger"
+	hidden = 1
+	message_silent = 1
+
+/obj/item/device/pda/snake
+	icon_state = "pda-hos"
+	name = "Snake PDA"
+	owner = "Snake"
+	hidden = 1
+	message_silent = 1
+
+/obj/item/device/pda/spider
+	icon_state = "pda-hos"
+	name = "Spider PDA"
+	owner = "Spider"
+	hidden = 1
+	message_silent = 1
+
+/obj/item/device/pda/fake
+	name = "Fake PDA"
+	owner = "John Doe"
+	ownjob = "Visitor"
+	toff = 1
+
+/obj/item/device/pda/fake/New()
+	. = ..()
+	owner = "[pick(first_names_male)] [pick(last_names)]"
+	name = "PDA-[owner] ([ownjob])"
+
+/obj/item/device/pda/syndicate
+	default_cartridge = /obj/item/weapon/cartridge/syndicate
+	icon_state = "pda-syn"
+	name = "Military PDA"
+	owner = "John Doe"
+	hidden = 1
+
 /obj/item/device/pda/chaplain
 	icon_state = "pda-holy"
 	ttone = "holy"

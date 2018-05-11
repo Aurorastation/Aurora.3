@@ -99,6 +99,7 @@
 
 	var/can_move = 1	//if you can wrench the machine out of place
 	var/vend_id = "generic"
+	var/can_tamper = 1 //If you're allowed to emag/screwdriver the machine.
 
 /obj/machinery/vending/Initialize()
 	. = ..()
@@ -152,6 +153,9 @@
 	return ..()
 
 /obj/machinery/vending/ex_act(severity)
+	if(!can_tamper)
+		return
+
 	switch(severity)
 		if(1.0)
 			qdel(src)
@@ -170,7 +174,7 @@
 	return
 
 /obj/machinery/vending/emag_act(var/remaining_charges, var/mob/user)
-	if (!emagged)
+	if (can_tamper && !emagged)
 		src.emagged = 1
 		user << "You short out the product lock on \the [src]"
 		return 1
@@ -221,60 +225,62 @@
 
 		SSnanoui.update_uis(src)  // Speaker switch is on the main UI, not wires UI
 		return
-	else if(ismultitool(W)||iswirecutter(W))
-		if(src.panel_open)
-			attack_hand(user)
-		return
-	else if(istype(W, /obj/item/weapon/coin) && premium.len > 0)
-		user.drop_item()
-		W.loc = src
-		coin = W
-		categories |= CAT_COIN
-		user << "<span class='notice'>You insert \the [W] into \the [src].</span>"
-		SSnanoui.update_uis(src)
-		return
-	else if(iswrench(W))
-		if(!can_move)
+	else if(can_tamper)
+		if(ismultitool(W)||iswirecutter(W))
+			if(src.panel_open)
+				attack_hand(user)
 			return
-		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
-		if(anchored)
-			user.visible_message("[user] begins unsecuring \the [src] from the floor.", "You start unsecuring \the [src] from the floor.")
-		else
-			user.visible_message("[user] begins securing \the [src] to the floor.", "You start securing \the [src] to the floor.")
-
-		if(do_after(user, 20))
-			if(!src) return
-			user << "<span class='notice'>You [anchored? "un" : ""]secured \the [src]!</span>"
-			anchored = !anchored
-		return
-
-	else if(istype(W,/obj/item/weapon/vending_refill))
-		if(panel_open)
-			var/obj/item/weapon/vending_refill/VR = W
-			if(VR.charges)
-				if(VR.vend_id == vend_id)
-					VR.restock_inventory(src)
-					user << "<span class='notice'>You restock \the [src] with \the [VR]!</span>"
-					if(!VR.charges)
-						user << "<span class='warning'>\The [VR] is depleted!</span>"
-				else
-					user << "<span class='warning'>\The [VR] is not stocked for this type of vendor!</span>"
-			else
-				user << "<span class='warning'>\The [VR] is depleted!</span>"
+		else if(istype(W, /obj/item/weapon/coin) && premium.len > 0)
+			user.drop_item()
+			W.loc = src
+			coin = W
+			categories |= CAT_COIN
+			user << "<span class='notice'>You insert \the [W] into \the [src].</span>"
+			SSnanoui.update_uis(src)
 			return
-		else
-			user << "<span class='warning'>You must open \the [src]'s maintenance panel first!</span>"
-			return
-
-	else if(!is_borg_item(W))
-
-		for(var/datum/data/vending_product/R in product_records)
-			if(istype(W, R.product_path))
-				stock(R, user)
-				qdel(W)
+		else if(iswrench(W))
+			if(!can_move)
 				return
-		..()
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+			playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+			if(anchored)
+				user.visible_message("[user] begins unsecuring \the [src] from the floor.", "You start unsecuring \the [src] from the floor.")
+			else
+				user.visible_message("[user] begins securing \the [src] to the floor.", "You start securing \the [src] to the floor.")
+
+			if(do_after(user, 20))
+				if(!src) return
+				user << "<span class='notice'>You [anchored? "un" : ""]secured \the [src]!</span>"
+				anchored = !anchored
+			return
+
+		else if(istype(W,/obj/item/weapon/vending_refill))
+			if(panel_open)
+				var/obj/item/weapon/vending_refill/VR = W
+				if(VR.charges)
+					if(VR.vend_id == vend_id)
+						VR.restock_inventory(src)
+						user << "<span class='notice'>You restock \the [src] with \the [VR]!</span>"
+						if(!VR.charges)
+							user << "<span class='warning'>\The [VR] is depleted!</span>"
+					else
+						user << "<span class='warning'>\The [VR] is not stocked for this type of vendor!</span>"
+				else
+					user << "<span class='warning'>\The [VR] is depleted!</span>"
+				return
+			else
+				user << "<span class='warning'>You must open \the [src]'s maintenance panel first!</span>"
+				return
+
+		else if(!is_borg_item(W))
+			for(var/datum/data/vending_product/R in product_records)
+				if(istype(W, R.product_path))
+					stock(R, user)
+					qdel(W)
+					return
+			..()
+		else
+			..()
 	else
 		..()
 
@@ -432,7 +438,9 @@
 		if(src.shock(user, 100))
 			return
 
-	wires.Interact(user)
+	if(can_tamper)
+		wires.Interact(user)
+
 	ui_interact(user)
 
 /**
@@ -648,6 +656,9 @@
 
 //Oh no we're malfunctioning!  Dump out some product and break.
 /obj/machinery/vending/proc/malfunction()
+	if(!can_tamper)
+		return
+
 	for(var/datum/data/vending_product/R in src.product_records)
 		if (R.amount <= 0) //Try to use a record that actually has something to dump.
 			continue
