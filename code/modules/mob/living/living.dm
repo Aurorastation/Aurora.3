@@ -683,7 +683,7 @@ default behaviour is:
 	if (last_resist + 4 > world.time)
 		return
 	last_resist = world.time
-	if (stat || paralysis || stunned)
+	if (stat || paralysis || weakened)
 		src << "<span class='notice'>You can't move...</span>"
 		return
 	var/resisting = 0
