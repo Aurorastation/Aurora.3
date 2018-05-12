@@ -135,7 +135,7 @@ var/list/sacrificed = list()
 
 		//If you dont have blood, blood magic doesnt work on you
 		if(target.is_mechanical())
-			attacker << "<span class='danger'>You sense that your powers cant not effect them.</span>"
+			attacker << "<span class='danger'>You sense that your powers can not effect them.</span>"
 			return 0
 
 		target.take_overall_damage(0, rand(5, 20)) // You dirty resister cannot handle the damage to your mind. Easily. - even cultists who accept right away should experience some effects
