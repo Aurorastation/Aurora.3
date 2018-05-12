@@ -133,6 +133,11 @@ var/list/sacrificed = list()
 				target.hallucination = min(target.hallucination, 500)
 			return 0
 
+		//If you dont have blood, blood magic doesnt work on you
+		if(target.species.flags & NO_BLOOD)
+			attacker << "<span class='danger'>You sense that your powers cant not effect them.</span>"
+			return 0
+
 		target.take_overall_damage(0, rand(5, 20)) // You dirty resister cannot handle the damage to your mind. Easily. - even cultists who accept right away should experience some effects
 		// Resist messages go!
 		if(initial_message) //don't do this stuff right away, only if they resist or hesitate.
