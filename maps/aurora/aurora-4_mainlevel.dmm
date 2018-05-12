@@ -28259,14 +28259,14 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "aYg" = (
-/obj/machinery/door/airlock/engineering{
-	name = "Custodial Technician";
-	req_access = list(26)
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock{
+	name = "Custodial Closet";
+	req_access = list(26)
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -28987,8 +28987,8 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "aZx" = (
-/obj/machinery/camera/network/engineering{
-	c_tag = "Engineering - Janitor";
+/obj/machinery/camera/network/service{
+	c_tag = "Janitor - Garage";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -29621,12 +29621,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "baG" = (
-/obj/machinery/door/airlock/engineering{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock{
 	name = "Custodial Closet";
 	req_access = list(26)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "baH" = (
@@ -32732,8 +32732,8 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/camera/network/engineering{
-	c_tag = "Engineering - Janitor's Closet";
+/obj/machinery/camera/network/service{
+	c_tag = "Janitor - Main Storage";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -33448,8 +33448,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "bhx" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/vending/tool,
+/obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "bhy" = (
@@ -35081,20 +35080,16 @@
 /area/bridge/minibar)
 "bkd" = (
 /obj/structure/table/rack,
-/obj/item/stack/material/glass{
-	amount = 20;
-	pixel_x = -4;
-	pixel_y = 4
+/obj/item/weapon/paper_bin{
+	pixel_x = 6;
+	pixel_y = -6
+	},
+/obj/item/weapon/paper_bin,
+/obj/item/weapon/paper_bin{
+	pixel_x = -6;
+	pixel_y = 6
 	},
 /obj/machinery/light/small,
-/obj/item/stack/material/glass/reinforced{
-	amount = 50
-	},
-/obj/item/stack/material/steel{
-	amount = 20;
-	pixel_x = 4;
-	pixel_y = -4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "bke" = (
@@ -80531,7 +80526,7 @@ beI
 beI
 bhw
 bjb
-bke
+bhx
 aKi
 bmY
 aKi
@@ -80788,7 +80783,7 @@ beJ
 beJ
 bhx
 bbZ
-bkf
+bhx
 aKi
 bmY
 aKi
