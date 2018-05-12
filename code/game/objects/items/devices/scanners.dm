@@ -449,7 +449,7 @@ BREATH ANALYZER
 	to_chat(user,"<b>Breath Sample Results:</b>")
 
 	if(H.stat == DEAD || H.losebreath || !H.breathing)
-		user.show_message("<span class='danger'>Alert: No breathing detected.</span>")
+		to_chat("<span class='danger'>Alert: No breathing detected.</span>")
 		return
 
 	user.show_message(H.getOxyLoss() > 50 ? "<font color='blue'><b>Severe oxygen deprivation detected.</b></font>" : "Subject oxygen levels normal.")
