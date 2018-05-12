@@ -564,8 +564,8 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/janitor
 	name = "custodial robot module"
-	channels = list("Engineering" = 1)
-	networks = list(NETWORK_ENGINEERING)
+	channels = list("Service" = 1)
+	networks = list(NETWORK_SERVICE)
 	sprites = list(
 					"Basic" = "robotjani",
 					"Mopbot"  = "janitorrobot",
@@ -601,6 +601,7 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/clerical
 	name = "service robot module"
 	channels = list("Service" = 1)
+	networks = list(NETWORK_SERVICE)
 	languages = list(
 					LANGUAGE_SOL_COMMON = 1,
 					LANGUAGE_TRADEBAND = 1,
@@ -719,6 +720,7 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/research
 	name = "research module"
 	channels = list("Science" = 1)
+	networks = list(NETWORK_SCIENCE)
 	sprites = list(
 					"Droid" = "droid-science",
 					"Drone" = "drone-science",
