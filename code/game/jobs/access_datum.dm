@@ -401,6 +401,12 @@
 	desc = "Detective Equipment"
 	region = ACCESS_REGION_SECURITY
 
+/var/const/access_weapons = 69
+/datum/access/access_weapons
+	id = access_weapons
+	desc = "Weaponry Permission"
+	region = ACCESS_REGION_SECURITY
+
 /******************
 * Central Command *
 ******************/
