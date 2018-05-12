@@ -134,7 +134,7 @@ var/list/sacrificed = list()
 			return 0
 
 		//If you dont have blood, blood magic doesnt work on you
-		if(target.species.flags & NO_BLOOD)
+		if(target.species.flags & IS_MECHANICAL)
 			attacker << "<span class='danger'>You sense that your powers cant not effect them.</span>"
 			return 0
 
