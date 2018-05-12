@@ -398,7 +398,7 @@ BREATH ANALYZER
 
 /obj/item/device/breath_analyzer
 	name = "breath analyzer"
-	desc = "A hand-held breath analyzer that provides a robust amount of information about the subject's respitory system."
+	desc = "A hand-held breath analyzer that provides a robust amount of information about the subject's repository system."
 	icon_state = "breath_analyzer"
 	item_state = "analyzer"
 	w_class = 2.0
@@ -410,22 +410,20 @@ BREATH ANALYZER
 	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 
-/obj/item/device/breath_analyzer/attack(mob/living/M as mob, mob/living/user as mob)
-
-	var/mob/living/carbon/human/H = M
+/obj/item/device/breath_analyzer/attack(mob/living/carbon/human/H as mob, mob/living/user as mob)
 
 	if (!istype(H))
-		user.show_message("<span class='warning'>You can't find a way to use the [src] on [M].</span>")
+		to_chat(user,"<span class='warning'>You can't find a way to use the [src] on [H]!</span>")
 		return
 
 	if ( ((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(20))
-		user.show_message("<span class='danger'>Your hand slips from clumsiness!</span>")
-		eyestab(M,user)
+		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
+		eyestab(H,user)
 		user.show_message("<span class='danger'>Alert: No breathing detected.</span>")
 		return
 
 	if (!user.IsAdvancedToolUser())
-		user.show_message("<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(user,"<span class='warning'>You don't have the dexterity to do this!</span>")
 		return
 
 	if(user == H && !H.can_eat(src))
@@ -434,21 +432,21 @@ BREATH ANALYZER
 		return
 
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
-	user.do_attack_animation(M)
+	user.do_attack_animation(H)
 
-	user.visible_message("<span class='notice'>[user] is trying to take a breath sample from [M].</span>","<span class='notice'>You gently insert the [src] into [M]'s mouth.</span>")
+	user.visible_message("<span class='notice'>[user] is trying to take a breath sample from [H].</span>","<span class='notice'>You gently insert the [src] into [H]'s mouth.</span>")
 
 	if (!LAZYLEN(src.other_DNA))
 		LAZYADD(src.other_DNA, H.dna.unique_enzymes)
 		src.other_DNA_type = "saliva"
 
-	if (!do_after(user, 2 SECONDS, act_target = M))
-		user.show_message("<span class='notice'>You and the target need to be standing still in order to take a breath sample.</span>")
+	if (!do_after(user, 2 SECONDS, act_target = H))
+		to_chat(user,"<span class='notice'>You and the target need to be standing still in order to take a breath sample.</span>")
 		return
 
-	user.visible_message("<span class='notice'>[user] takes a breath sample from [M].</span>","<span class='notice'>The [src] clicks as it finishes reading [M]'s breath sample.</span>")
+	user.visible_message("<span class='notice'>[user] takes a breath sample from [H].</span>","<span class='notice'>The [src] clicks as it finishes reading [H]'s breath sample.</span>")
 
-	user.show_message("<b>Breath Sample Results:</b>")
+	to_chat(user,"<b>Breath Sample Results:</b>")
 
 	if(H.stat == DEAD || H.losebreath || !H.breathing)
 		user.show_message("<span class='danger'>Alert: No breathing detected.</span>")
@@ -457,12 +455,12 @@ BREATH ANALYZER
 	user.show_message(H.getOxyLoss() > 50 ? "<font color='blue'><b>Severe oxygen deprivation detected.</b></font>" : "Subject oxygen levels normal.")
 	var/obj/item/organ/L = H.internal_organs_by_name["lungs"]
 	if(istype(L))
-		user.show_message(L.is_bruised() ? "<font color='red'><b>Ruptured lung detected.</b></font>" : "Subject lung health normal.")
+		to_chat(user,L.is_bruised() ? "<font color='red'><b>Ruptured lung detected.</b></font>" : "Subject lung health normal.")
 	else
-		user.show_message("<span class='warning'>Subject lung health unknown.</span>")
+		to_chat(user,"<span class='warning'>Subject lung health unknown.</span>")
 
 	var/additional_string = "<font color='green'>\[NORMAL\]</font>"
-	switch(H.bac)
+	switch(H.get_blood_alcohol())
 		if(INTOX_JUDGEIMP to INTOX_MUSCLEIMP)
 			additional_string = "\[LIGHTLY INTOXICATED\]"
 		if(INTOX_MUSCLEIMP to INTOX_VOMIT)
@@ -473,14 +471,14 @@ BREATH ANALYZER
 			additional_string = "<font color='red'>\[ALCOHOL POISONING LIKELY\]</font>"
 		if(INTOX_DEATH to INFINITY)
 			additional_string = "<font color='red'>\[DEATH IMMINENT\]</font>"
-	user.show_message("<span class='normal'>Blood Alcohol Content: [round(H.bac,0.01)] <b>[additional_string]</b></span>")
+	to_chat(user,"<span class='normal'>Blood Alcohol Content: [round(H.bac,0.01)] <b>[additional_string]</b></span>")
 
 	if(H.breathing && H.breathing.total_volume)
 		var/unknown = 0
 		for(var/datum/reagent/R in H.breathing.reagent_list)
 			if(R.scannable)
-				user.show_message("<span class='notice'>[R.name] found in subject's respitory system.</span>")
+				to_chat(user,"<span class='notice'>[R.name] found in subject's respitory system.</span>")
 			else
 				++unknown
 		if(unknown)
-			user.show_message("<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's respitory system.</span>")
+			to_chat(user,"<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's respitory system.</span>")

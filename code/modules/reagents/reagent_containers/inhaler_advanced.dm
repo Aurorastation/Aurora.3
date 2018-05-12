@@ -23,18 +23,18 @@
 
 	if(is_open_container())
 		if(reagents && reagents.reagent_list.len)
-			user.show_message("<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of non-aerosol mix.</span>")
+			to_chat(user,"<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of non-aerosol mix.</span>")
 		else
-			user.show_message("<span class='notice'>It is empty.</span>")
+			to_chat(user,"<span class='notice'>It is empty.</span>")
 	else
-		user.show_message("<span class='notice'>The reagents are secured in the aerosol mix.</span>")
+		to_chat(user,"<span class='notice'>The reagents are secured in the aerosol mix.</span>")
 
 /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/attack_self(mob/user as mob)
 	if(is_open_container())
-		user.show_message("<span class='notice'>With a quick twist of the lid, you secure the reagents inside \the [src].</span>")
+		to_chat(user,"<span class='notice'>With a quick twist of the lid, you secure the reagents inside \the [src].</span>")
 		flags ^= OPENCONTAINER
 	else
-		user.show_message("<span class='notice'>\The reagents inside [src] are already secured.</span>")
+		to_chat(user,"<span class='notice'>\The reagents inside [src] are already secured.</span>")
 	return
 
 /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large
@@ -72,7 +72,7 @@
 	if(!..(user, 2))
 		return
 	if(stored_cartridge)
-		user.show_message("<span class='notice'>\The [stored_cartridge] is attached to \the [src].</span>")
+		to_chat(user,"<span class='notice'>\The [stored_cartridge] is attached to \the [src].</span>")
 
 /obj/item/weapon/personal_inhaler/update_icon()
 	cut_overlays()
@@ -82,7 +82,7 @@
 /obj/item/weapon/personal_inhaler/attack_self(mob/user as mob)
 	if(stored_cartridge)
 		user.put_in_hands(stored_cartridge)
-		user.show_message("<span class='warning'>You remove \the [stored_cartridge] from \the [src].</span>")
+		to_chat(user,"<span class='warning'>You remove \the [stored_cartridge] from \the [src].</span>")
 		stored_cartridge.update_icon()
 		stored_cartridge = null
 
@@ -96,25 +96,25 @@
 		return
 
 	if(!stored_cartridge)
-		user.show_message("<span class='warning'>\The [src] has no cartridge installed!</span>")
+		to_chat(user,"<span class='warning'>\The [src] has no cartridge installed!</span>")
 		return
 
 	if(!stored_cartridge.reagents || !stored_cartridge.reagents.total_volume)
-		user.show_message("<span class='warning'>\The [src]'s cartridge is empty!</span>")
+		to_chat(user,"<span class='warning'>\The [src]'s cartridge is empty!</span>")
 		return
 
 	if ( ((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(10))
-		user.show_message("<span class='danger'>Your hand slips from clumsiness!</span>")
+		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
 		eyestab(M,user)
 		if(M.reagents)
 			var/contained = stored_cartridge.reagentlist()
 			var/trans = stored_cartridge.reagents.trans_to_mob(M, transfer_amount, CHEM_TOUCH)
 			admin_inject_log(user, M, src, contained, trans)
 			user.visible_message("<span class='notice'>[user] accidentally sticks \the [src] in [M]'s eye and presses the injection button!</span>","<span class='notice'>You accidentally stick the [src] in [M]'s eye and press the injection button!</span>")
-			user.show_message("<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
+			to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
 			playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
 			if(eject_when_empty)
-				user.show_message("<span class='notice'>\The [stored_cartridge] automatically ejects from \the [src].</span>")
+				to_chat(user,"<span class='notice'>\The [stored_cartridge] automatically ejects from \the [src].</span>")
 				stored_cartridge.forceMove(user.loc)
 				stored_cartridge.update_icon()
 				stored_cartridge = null
@@ -122,7 +122,7 @@
 		return
 
 	if (!user.IsAdvancedToolUser())
-		user.show_message("<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(user,"<span class='warning'>You don't have the dexterity to do this!</span>")
 		return
 
 	if(user == H && !H.can_eat(src))
@@ -138,7 +138,7 @@
 	else
 		user.visible_message("<span class='warning'>[user] attempts to administer \the [src] to [M]...</span>","<span class='notice'>You attempt to administer \the [src] to [M]...</span>")
 		if (!do_after(user, 1 SECONDS, act_target = M))
-			user.show_message("<span class='notice'>You and \the [M] need to be standing still in order to inject \the [src].</span>")
+			to_chat(user,"<span class='notice'>You and \the [M] need to be standing still in order to inject \the [src].</span>")
 			return
 
 		user.visible_message("<span class='notice'>[user] sticks \the [src] in [M]'s mouth and presses the injection button.</span>","<span class='notice'>You stick \the [src] in [M]'s mouth and press the injection button</span>")
@@ -147,10 +147,10 @@
 		var/contained = stored_cartridge.reagentlist()
 		var/trans = stored_cartridge.reagents.trans_to_mob(M, transfer_amount, CHEM_BREATHE)
 		admin_inject_log(user, M, src, contained, trans)
-		user.show_message("<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
+		to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
 		playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
 		if(eject_when_empty)
-			user.show_message("<span class='notice'>\The [stored_cartridge] automatically ejects from \the [src].</span>")
+			to_chat(user,"<span class='notice'>\The [stored_cartridge] automatically ejects from \the [src].</span>")
 			stored_cartridge.forceMove(user.loc)
 			stored_cartridge.update_icon()
 			stored_cartridge = null
@@ -161,10 +161,10 @@
 /obj/item/weapon/personal_inhaler/attackby(var/obj/item/weapon/reagent_containers/personal_inhaler_cartridge/cartridge as obj, var/mob/user as mob)
 	if(istype(cartridge))
 		if(src.stored_cartridge)
-			user.show_message("<span class='notice'>\The [src] already has a cartridge.</span>")
+			to_chat(user,"<span class='notice'>\The [src] already has a cartridge.</span>")
 			return
 		if(cartridge.is_open_container())
-			user.show_message("<span class='notice'>\The [cartridge] needs to be secured first.</span>")
+			to_chat(user,"<span class='notice'>\The [cartridge] needs to be secured first.</span>")
 			return
 		user.remove_from_mob(cartridge)
 		src.stored_cartridge = cartridge

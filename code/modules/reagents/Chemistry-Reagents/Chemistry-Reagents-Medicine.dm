@@ -567,6 +567,10 @@
 
 	if(!istype(H) || max_dose < min_dose || (world.time < data && volume > removed) || messagedelay == -1)
 		return
+	//max_dose < min_dose and volume > removed prevents message startup/startdown spam if you're using something like a cigarette or similiar device that transfers a little bit of reagents at a time.
+	//If in the case that a cigarette has a lower transfer rate than the metabolism rate, then message spam will occur since it's starting and stopping constantly.
+	//This also prevents the whole code from working if the dosage is very small.
+
 	var/hastrauma = 0 //whether or not the brain has trauma
 	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
 

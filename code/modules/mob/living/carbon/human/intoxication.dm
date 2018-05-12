@@ -21,34 +21,34 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 		sleeping = 0
 		//Many of these parameters normally tick down in life code, but some parts of that code don't run in godmode, so this prevents a BST being stuck with blurred vision
 
-	src.bac = round(intoxication/max(vessel.get_reagent_amount("blood"),1),0.01)
+	var/bac = get_blood_alcohol()
 
 	if(bac > INTOX_BUZZED*SR && bac < INTOX_MUSCLEIMP*SR && !(locate(/datum/modifier/buzzed) in modifiers))
-		src.show_message("<span class='notice'>You feel buzzed.</span>")
+		to_chat(src,"<span class='notice'>You feel buzzed.</span>")
 		add_modifier(/datum/modifier/buzzed, MODIFIER_CUSTOM)
 
 	if(bac > INTOX_JUDGEIMP*SR)
 		if (dizziness == 0)
-			src.show_message("<span class='notice'>You feel a little tipsy.</span>")
+			to_chat(src,"<span class='notice'>You feel a little tipsy.</span>")
 		var/target_dizziness = BASE_DIZZY + ((bac - INTOX_JUDGEIMP*SR)*DIZZY_ADD_SCALE*100)
 		make_dizzy(target_dizziness - dizziness)
 
 	if(bac > INTOX_MUSCLEIMP*SR)
 		slurring = max(slurring, 25)
 		if (!(locate(/datum/modifier/drunk) in modifiers))
-			src.show_message("<span class='notice'>You feel drunk!</span>")
+			to_chat(src,"<span class='notice'>You feel drunk!</span>")
 			add_modifier(/datum/modifier/drunk, MODIFIER_CUSTOM)
 
 	if(bac > INTOX_REACTION*SR)
 		if (confused == 0)
-			src.show_message("<span class='warning'>You feel uncoordinated and unsteady on your feet!</span>")
+			to_chat(src,"<span class='warning'>You feel uncoordinated and unsteady on your feet!</span>")
 		confused = max(confused, 10)
 		slurring = max(slurring, 50)
 		if (!alcohol_clumsy && !(CLUMSY in mutations))
 			mutations.Add(CLUMSY)
 			alcohol_clumsy = 1
 	else if (alcohol_clumsy)
-		src.show_message("<span class='notice'>You feel more sober and steady.</span>")
+		to_chat(src,"<span class='notice'>You feel more sober and steady.</span>")
 		mutations.Remove(CLUMSY)
 		alcohol_clumsy = 0
 
@@ -64,7 +64,7 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 		slurring = max(slurring, 100)
 		if (life_tick % 4 == 1 && !lying && !buckled && prob(10))
 			src.visible_message("<span class='warning'>[src] loses balance and falls to the ground!</span>","<span class='warning'>You lose balance and fall to the ground!</span>")
-			paralysis = max(paralysis,3 SECONDS)
+			Paralyse(3 SECONDS)
 			if(bac > INTOX_CONSCIOUS*SR)
 				slurring = max(slurring, 90)
 				src.visible_message("<span class='danger'>[src] loses consciousness!</span>","<span class='danger'>You lose consciousness!</span>")
@@ -79,7 +79,7 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 				adjustBrainLoss(3,10)
 			else if(prob(10))
 				slurring = max(slurring, 70)
-				src.show_message("<span class='warning'>You decide that you like the ground and spend a few seconds to rest.</span>")
+				to_chat(src,"<span class='warning'>You decide that you like the ground and spend a few seconds to rest.</span>")
 				sleeping  = max(sleeping, 6 SECONDS)
 				adjustBrainLoss(1,5)
 
