@@ -1,6 +1,6 @@
 /obj/item/organ/xenos/alien_embryo
 	name = "alien embryo"
-	desc = "All slimy and yuck."
+	desc = "All slimy and yucky."
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "larva0_dead"
 	parent_organ = "chest"
@@ -60,12 +60,16 @@
 				if(prob(20))
 					owner.take_organ_damage(1)
 			if(prob(2))
-				owner  << "<span class='danger'>Your stomach hurts.</span>"
+				owner  << "<span class='danger'>Your chest hurts.</span>"
 				if(prob(20))
 					owner.adjustToxLoss(1)
 					owner.updatehealth()
+			if(prob(2))
+				if(prob(20))
+					owner  << "<span class='danger'>Your chest hurts badly. It gets difficult to breathe...</span>"
+					owner.emote("gasp")
 		if(5)
-			owner  << "<span class='danger'>You feel something tearing its way out of your stomach!</span>"
+			owner  << "<span class='danger'>You feel something tearing its way out of your chest!</span>"
 			owner.adjustToxLoss(10)
 			owner.updatehealth()
 			if(prob(50))

@@ -38,10 +38,11 @@
 	sprint_cost_factor = 0.80
 	stamina_recovery = 5
 
+
 	virus_immune = 1
 
 	brute_mod = 0.25 // Hardened carapace.
-	burn_mod = 1.75    // Weak to fire.
+	burn_mod = 1   // Weaker to fire than brute damage. However, 1.75x is too big of a modifier.
 
 	warning_low_pressure = 50
 	hazard_low_pressure = -1
@@ -93,7 +94,7 @@
 	return "Xenomorph"
 
 /datum/species/xenos/get_random_name()
-	return "alien [caste_name] ([alien_number])"
+	return "[caste_name] ([alien_number])"
 
 /datum/species/xenos/can_understand(var/mob/other)
 
@@ -107,13 +108,13 @@
 					"<span class='notice'>You caress [target] with your scythe-like arm.</span>")
 
 /datum/species/xenos/handle_post_spawn(var/mob/living/carbon/human/H)
-
+	H.gender = NEUTER
 	if(H.mind)
 		H.mind.assigned_role = "Alien"
 		H.mind.special_role = "Alien"
 
 	alien_number++ //Keep track of how many aliens we've had so far.
-	H.real_name = "alien [caste_name] ([alien_number])"
+	H.real_name = "[caste_name] ([alien_number])"
 	H.name = H.real_name
 
 	..()
@@ -169,7 +170,7 @@
 
 /datum/species/xenos/drone
 	name = "Xenomorph Drone"
-	caste_name = "drone"
+	caste_name = "Drone"
 	weeds_plasma_rate = 15
 	slowdown = 1
 	tail = "xenos_drone_tail"
@@ -211,7 +212,7 @@
 
 	name = "Xenomorph Hunter"
 	weeds_plasma_rate = 5
-	caste_name = "hunter"
+	caste_name = "Hunter"
 	slowdown = -2
 	total_health = 150
 	tail = "xenos_hunter_tail"
@@ -235,7 +236,7 @@
 	inherent_verbs = list(
 		/mob/living/proc/ventcrawl,
 		/mob/living/carbon/human/proc/tackle,
-		/mob/living/carbon/human/proc/gut,
+		/mob/living/carbon/human/proc/headbite,
 		/mob/living/carbon/human/proc/leap,
 		/mob/living/carbon/human/proc/psychic_whisper,
 		/mob/living/proc/devour,
@@ -246,7 +247,7 @@
 /datum/species/xenos/sentinel
 	name = "Xenomorph Sentinel"
 	weeds_plasma_rate = 10
-	caste_name = "sentinel"
+	caste_name = "Sentinel"
 	slowdown = 0
 	total_health = 125
 	tail = "xenos_sentinel_tail"
@@ -280,7 +281,7 @@
 	total_health = 250
 	weeds_heal_rate = 5
 	weeds_plasma_rate = 20
-	caste_name = "queen"
+	caste_name = "Queen"
 	slowdown = 4
 	tail = "xenos_queen_tail"
 	rarity_value = 10
@@ -309,7 +310,7 @@
 		/mob/living/carbon/human/proc/transfer_plasma,
 		/mob/living/carbon/human/proc/corrosive_acid,
 		/mob/living/carbon/human/proc/neurotoxin,
-		/mob/living/carbon/human/proc/gut,
+		/mob/living/carbon/human/proc/headbite,
 		/mob/living/carbon/human/proc/resin,
 		/mob/living/carbon/human/proc/darkness_eyes
 		)
@@ -318,10 +319,10 @@
 	..()
 	// Make sure only one official queen exists at any point.
 	if(!alien_queen_exists(1,H))
-		H.real_name = "alien queen ([alien_number])"
+		H.real_name = "Queen ([alien_number])"
 		H.name = H.real_name
 	else
-		H.real_name = "alien princess ([alien_number])"
+		H.real_name = "Princess ([alien_number])"
 		H.name = H.real_name
 
 /datum/hud_data/alien

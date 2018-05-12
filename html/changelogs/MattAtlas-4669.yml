@@ -1,0 +1,7 @@
+author: MattAtlas
+delete-after: True
+changes: 
+  - rscadd: "Added a 'Headbite' verb for Xenomorphs."
+  - rscdel: "Removed 'Gut' verb from Xenomorph Hunters and Queens."
+  - rscdel: "Queen can no longer ventcrawl."
+  - balance: "Xenomorphs have a higher resistance to burn damage. It is still, however, much more efficient than brute damage."
