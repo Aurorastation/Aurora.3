@@ -110,8 +110,12 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 
 /datum/modifier/buzzed/custom_validity()
 	var/mob/living/carbon/human/H = target
-	if(istype(H) && H.bac >= INTOX_BUZZED*H.species.ethanol_resistance && H.bac <= INTOX_MUSCLEIMP*H.species.ethanol_resistance)
+	if(!istype(H))
+		return 0
+	var/bac = H.get_blood_alcohol()
+	if(bac >= INTOX_BUZZED*H.species.ethanol_resistance && bac <= INTOX_MUSCLEIMP*H.species.ethanol_resistance)
 		return 1
+
 	return 0
 
 /datum/modifier/drunk
@@ -132,7 +136,10 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 
 /datum/modifier/drunk/custom_validity()
 	var/mob/living/carbon/human/H = target
-	if(istype(H) && H.bac >= INTOX_MUSCLEIMP*H.species.ethanol_resistance)
+	if(istype(H))
+		return 0
+	if(H.get_blood_alcohol() >= INTOX_MUSCLEIMP*H.species.ethanol_resistance)
 		return 1
+
 	return 0
 

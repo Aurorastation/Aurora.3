@@ -419,7 +419,7 @@ BREATH ANALYZER
 	if ( ((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(20))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
 		eyestab(H,user)
-		user.show_message("<span class='danger'>Alert: No breathing detected.</span>")
+		to_chat(user,"<span class='danger'>Alert: No breathing detected.</span>")
 		return
 
 	if (!user.IsAdvancedToolUser())
@@ -449,10 +449,10 @@ BREATH ANALYZER
 	to_chat(user,"<b>Breath Sample Results:</b>")
 
 	if(H.stat == DEAD || H.losebreath || !H.breathing)
-		to_chat("<span class='danger'>Alert: No breathing detected.</span>")
+		to_chat(user,"<span class='danger'>Alert: No breathing detected.</span>")
 		return
 
-	user.show_message(H.getOxyLoss() > 50 ? "<font color='blue'><b>Severe oxygen deprivation detected.</b></font>" : "Subject oxygen levels normal.")
+	to_chat(user,H.getOxyLoss() > 50 ? "<font color='blue'><b>Severe oxygen deprivation detected.</b></font>" : "Subject oxygen levels normal.")
 	var/obj/item/organ/L = H.internal_organs_by_name["lungs"]
 	if(istype(L))
 		to_chat(user,L.is_bruised() ? "<font color='red'><b>Ruptured lung detected.</b></font>" : "Subject lung health normal.")
@@ -460,7 +460,8 @@ BREATH ANALYZER
 		to_chat(user,"<span class='warning'>Subject lung health unknown.</span>")
 
 	var/additional_string = "<font color='green'>\[NORMAL\]</font>"
-	switch(H.get_blood_alcohol())
+	var/bac = H.get_blood_alcohol()
+	switch(bac)
 		if(INTOX_JUDGEIMP to INTOX_MUSCLEIMP)
 			additional_string = "\[LIGHTLY INTOXICATED\]"
 		if(INTOX_MUSCLEIMP to INTOX_VOMIT)
@@ -471,7 +472,7 @@ BREATH ANALYZER
 			additional_string = "<font color='red'>\[ALCOHOL POISONING LIKELY\]</font>"
 		if(INTOX_DEATH to INFINITY)
 			additional_string = "<font color='red'>\[DEATH IMMINENT\]</font>"
-	to_chat(user,"<span class='normal'>Blood Alcohol Content: [round(H.bac,0.01)] <b>[additional_string]</b></span>")
+	to_chat(user,"<span class='normal'>Blood Alcohol Content: [round(bac,0.01)] <b>[additional_string]</b></span>")
 
 	if(H.breathing && H.breathing.total_volume)
 		var/unknown = 0

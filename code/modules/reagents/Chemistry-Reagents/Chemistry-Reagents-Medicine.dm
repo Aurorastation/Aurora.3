@@ -251,9 +251,12 @@
 /datum/reagent/oxycodone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 200)
 	var/mob/living/carbon/human/H = M
-	if(istype(H) && H.bac >= 0.02)
-		M.hallucination = max(M.hallucination, H.bac * 300)
-		M.druggy = max(M.druggy, H.bac * 100)
+	if(!istype(H))
+		return
+	var/bac = H.get_blood_alcohol()
+	if(bac >= 0.02)
+		M.hallucination = max(M.hallucination, bac * 300)
+		M.druggy = max(M.druggy, bac * 100)
 
 /datum/reagent/oxycodone/overdose(var/mob/living/carbon/M, var/alien)
 	..()
@@ -573,9 +576,10 @@
 
 	var/hastrauma = 0 //whether or not the brain has trauma
 	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
+	var/bac = H.get_blood_alcohol()
 
-	if(alchohol_affected && H.bac > 0.01)
-		H.hallucination = max(H.hallucination, H.bac * 400)
+	if(alchohol_affected && bac > 0.01)
+		H.hallucination = max(H.hallucination, bac * 400)
 
 	if(B) //You won't feel anything if you don't have a brain.
 		for(var/datum/brain_trauma/BT in B.traumas)
