@@ -1,0 +1,6 @@
+author: PoZe
+
+delete-after: True
+
+changes:
+  - tweak: "All AI intercom microphones are turned off by default. To help new antag AI players not to accidentally reveal their plans"
