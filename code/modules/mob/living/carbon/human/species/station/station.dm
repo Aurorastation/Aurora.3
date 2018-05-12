@@ -218,13 +218,13 @@
 	flags = NO_SLIP
 
 	has_organ = list(
-		"heart" =    /obj/item/organ/heart/skrell,
-		"lungs" =    /obj/item/organ/lungs/skrell,
-		"liver" =    /obj/item/organ/liver/skrell,
-		"kidneys" =  /obj/item/organ/kidneys/skrell,
+		BP_HEART =    /obj/item/organ/heart/skrell,
+		BP_LUNGS =    /obj/item/organ/lungs/skrell,
+		BP_LIVER =    /obj/item/organ/liver/skrell,
+		BP_KIDNEYS =  /obj/item/organ/kidneys/skrell,
 		"brain" =    /obj/item/organ/brain/skrell,
-		"appendix" = /obj/item/organ/appendix,
-		"eyes" =     /obj/item/organ/eyes/skrell
+		BP_APPENDIX = /obj/item/organ/appendix,
+		BP_EYES =     /obj/item/organ/eyes/skrell
 		)
 
 	flesh_color = "#8CD7A3"
@@ -288,17 +288,17 @@
 	)
 
 	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest/diona),
-		"groin" =  list("path" = /obj/item/organ/external/groin/diona),
-		"head" =   list("path" = /obj/item/organ/external/head/diona),
-		"l_arm" =  list("path" = /obj/item/organ/external/arm/diona),
-		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/diona),
-		"l_leg" =  list("path" = /obj/item/organ/external/leg/diona),
-		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/diona),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/diona),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/diona),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/diona),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/diona)
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/diona),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/diona),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/diona),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/diona),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/diona),
+		BP_L_LEG=  list("path" = /obj/item/organ/external/leg/diona),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/diona),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/diona),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/diona),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/diona),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/diona)
 		)
 
 	warning_low_pressure = 50
@@ -462,17 +462,17 @@
 	vision_organ = "optics"
 
 	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest/ipc),
-		"groin" =  list("path" = /obj/item/organ/external/groin/ipc),
-		"head" =   list("path" = /obj/item/organ/external/head/ipc),
-		"l_arm" =  list("path" = /obj/item/organ/external/arm/ipc),
-		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/ipc),
-		"l_leg" =  list("path" = /obj/item/organ/external/leg/ipc),
-		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/ipc),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/ipc),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/ipc),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/ipc),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/ipc)
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/ipc),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/ipc),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/ipc),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/ipc),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/ipc),
+		BP_L_LEG=  list("path" = /obj/item/organ/external/leg/ipc),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/ipc),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/ipc),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/ipc),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/ipc),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/ipc)
 	)
 
 
@@ -701,15 +701,15 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 
 	has_organ = list(
 		"neural socket"       = /obj/item/organ/vaurca/neuralsocket,
-		"lungs"               = /obj/item/organ/lungs,
+		BP_LUNGS               = /obj/item/organ/lungs,
 		"filtration bit"      = /obj/item/organ/vaurca/filtrationbit,
 		"right heart"         = /obj/item/organ/heart/right,
 		"left heart"          = /obj/item/organ/heart/left,
 		"phoron reserve tank" = /obj/item/organ/vaurca/preserve,
-		"liver"               = /obj/item/organ/liver,
-		"kidneys"             = /obj/item/organ/kidneys,
+		BP_LIVER               = /obj/item/organ/liver,
+		BP_KIDNEYS             = /obj/item/organ/kidneys,
 		"brain"               = /obj/item/organ/brain,
-		"eyes"                = /obj/item/organ/eyes
+		BP_EYES                = /obj/item/organ/eyes
 	)
 
 /datum/species/bug/equip_survival_gear(var/mob/living/carbon/human/H)

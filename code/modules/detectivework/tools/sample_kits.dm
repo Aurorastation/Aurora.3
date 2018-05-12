@@ -94,13 +94,13 @@
 		user.visible_message("<span class='danger'>\The [user] tries to take prints from \the [H], but they move away.</span>")
 		return 1
 
-	if(target_zone == "r_hand" || target_zone == "l_hand")
+	if(target_zone == BP_R_HAND || target_zone == BP_L_HAND)
 		var/has_hand
-		var/obj/item/organ/external/O = H.organs_by_name["r_hand"]
+		var/obj/item/organ/external/O = H.organs_by_name[BP_R_HAND]
 		if(istype(O) && !O.is_stump())
 			has_hand = 1
 		else
-			O = H.organs_by_name["l_hand"]
+			O = H.organs_by_name[BP_L_HAND]
 			if(istype(O) && !O.is_stump())
 				has_hand = 1
 		if(!has_hand)

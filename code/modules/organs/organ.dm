@@ -12,7 +12,7 @@
 	var/max_damage
 	var/organ_tag = "organ"
 
-	var/parent_organ = "chest"
+	var/parent_organ = BP_CHEST
 	var/robotic = 0 //For being a robot
 	var/rejecting   // Is this organ already being rejected?
 
@@ -386,6 +386,6 @@
 /obj/item/organ/attack_self(mob/user as mob)
 
 	// Convert it to an edible form, yum yum.
-	if(!robotic && user.a_intent == "help" && user.zone_sel.selecting == "mouth")
+	if(!robotic && user.a_intent == "help" && user.zone_sel.selecting == BP_MOUTH)
 		bitten(user)
 		return

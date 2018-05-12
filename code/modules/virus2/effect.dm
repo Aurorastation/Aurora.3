@@ -139,7 +139,7 @@
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		if(istype(mob, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = mob
-			var/organ = pick(list("r_arm","l_arm","r_leg","r_leg"))
+			var/organ = pick(list(BP_R_ARM,BP_L_ARM,BP_R_LEG,BP_R_LEG))
 			var/obj/item/organ/external/E = H.organs_by_name[organ]
 			if (!(E.status & ORGAN_DEAD))
 				E.status |= ORGAN_DEAD

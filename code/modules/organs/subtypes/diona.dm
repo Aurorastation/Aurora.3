@@ -29,7 +29,7 @@
 
 /obj/item/organ/external/chest/diona
 	name = "core trunk"
-	limb_name = "chest"
+	limb_name = BP_CHEST
 	icon_name = "torso"
 	max_damage = 200
 	min_broken_damage = 50
@@ -45,13 +45,13 @@
 //------
 /obj/item/organ/external/groin/diona
 	name = "fork"
-	limb_name = "groin"
-	icon_name = "groin"
+	limb_name = BP_GROIN
+	icon_name = BP_GROIN
 	max_damage = 100
 	min_broken_damage = 50
 	w_class = 4
 	body_part = LOWER_TORSO
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	cannot_break = 1
 	dislocated = -1
 	joint = "structural ligament"
@@ -59,13 +59,13 @@
 
 /obj/item/organ/external/arm/diona
 	name = "left upper tendril"
-	limb_name = "l_arm"
-	icon_name = "l_arm"
+	limb_name = BP_L_ARM
+	icon_name = BP_L_ARM
 	max_damage = 35
 	min_broken_damage = 20
 	w_class = 3
 	body_part = ARM_LEFT
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	can_grasp = 1
 	cannot_break = 1
 	dislocated = -1
@@ -74,8 +74,8 @@
 
 /obj/item/organ/external/arm/right/diona
 	name = "right upper tendril"
-	limb_name = "r_arm"
-	icon_name = "r_arm"
+	limb_name = BP_R_ARM
+	icon_name = BP_R_ARM
 	body_part = ARM_RIGHT
 	cannot_break = 1
 	dislocated = -1
@@ -84,14 +84,14 @@
 
 /obj/item/organ/external/leg/diona
 	name = "left lower tendril"
-	limb_name = "l_leg"
-	icon_name = "l_leg"
+	limb_name = BP_L_LEG
+	icon_name = BP_L_LEG
 	max_damage = 35
 	min_broken_damage = 20
 	w_class = 3
 	body_part = LEG_LEFT
 	icon_position = LEFT
-	parent_organ = "groin"
+	parent_organ = BP_GROIN
 	can_stand = 1
 	cannot_break = 1
 	dislocated = -1
@@ -100,8 +100,8 @@
 
 /obj/item/organ/external/leg/right/diona
 	name = "right lower tendril"
-	limb_name = "r_leg"
-	icon_name = "r_leg"
+	limb_name = BP_R_LEG
+	icon_name = BP_R_LEG
 	body_part = LEG_RIGHT
 	icon_position = RIGHT
 	cannot_break = 1
@@ -111,14 +111,14 @@
 
 /obj/item/organ/external/foot/diona
 	name = "left foot"
-	limb_name = "l_foot"
-	icon_name = "l_foot"
+	limb_name = BP_L_FOOT
+	icon_name = BP_L_FOOT
 	max_damage = 20
 	min_broken_damage = 10
 	w_class = 2
 	body_part = FOOT_LEFT
 	icon_position = LEFT
-	parent_organ = "l_leg"
+	parent_organ = BP_L_LEG
 	can_stand = 1
 	cannot_break = 1
 	dislocated = -1
@@ -127,11 +127,11 @@
 
 /obj/item/organ/external/foot/right/diona
 	name = "right foot"
-	limb_name = "r_foot"
-	icon_name = "r_foot"
+	limb_name = BP_R_FOOT
+	icon_name = BP_R_FOOT
 	body_part = FOOT_RIGHT
 	icon_position = RIGHT
-	parent_organ = "r_leg"
+	parent_organ = BP_R_LEG
 	joint = "right ankle"
 	amputation_point = "right ankle"
 	cannot_break = 1
@@ -141,13 +141,13 @@
 
 /obj/item/organ/external/hand/diona
 	name = "left grasper"
-	limb_name = "l_hand"
-	icon_name = "l_hand"
+	limb_name = BP_L_HAND
+	icon_name = BP_L_HAND
 	max_damage = 30
 	min_broken_damage = 15
 	w_class = 2
 	body_part = HAND_LEFT
-	parent_organ = "l_arm"
+	parent_organ = BP_L_ARM
 	can_grasp = 1
 	cannot_break = 1
 	dislocated = -1
@@ -156,24 +156,24 @@
 
 /obj/item/organ/external/hand/right/diona
 	name = "right grasper"
-	limb_name = "r_hand"
-	icon_name = "r_hand"
+	limb_name = BP_R_HAND
+	icon_name = BP_R_HAND
 	body_part = HAND_RIGHT
-	parent_organ = "r_arm"
+	parent_organ = BP_R_ARM
 	cannot_break = 1
 	dislocated = -1
 	joint = "structural ligament"
 	amputation_point = "branch"
 
 /obj/item/organ/external/head/diona
-	limb_name = "head"
-	icon_name = "head"
-	name = "head"
+	limb_name = BP_HEAD
+	icon_name = BP_HEAD
+	name = BP_HEAD
 	max_damage = 50
 	min_broken_damage = 25
 	w_class = 3
 	body_part = HEAD
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	cannot_break = 1
 	dislocated = -1
 	joint = "structural ligament"
@@ -186,23 +186,23 @@
 
 /obj/item/organ/diona/strata
 	name = "neural strata"
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	organ_tag = "neural strata"
 
 
 /obj/item/organ/diona/bladder
 	name = "gas bladder"
-	parent_organ = "head"
+	parent_organ = BP_HEAD
 	organ_tag = "gas bladder"
 
 /obj/item/organ/diona/polyp
 	name = "polyp segment"
-	parent_organ = "groin"
+	parent_organ = BP_GROIN
 	organ_tag = "polyp segment"
 
 /obj/item/organ/diona/ligament
 	name = "anchoring ligament"
-	parent_organ = "groin"
+	parent_organ = BP_GROIN
 	organ_tag = "anchoring ligament"
 
 /obj/item/organ/diona
@@ -223,7 +223,7 @@
 // species (absorbing radiation and light respectively)
 /obj/item/organ/diona/nutrients
 	name = "nutrient channel"
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	organ_tag = "nutrient channel"
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "claw"
@@ -233,7 +233,7 @@
 
 /obj/item/organ/diona/node
 	name = "response node"
-	parent_organ = "head"
+	parent_organ = BP_HEAD
 	organ_tag = "response node"
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "claw"

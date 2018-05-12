@@ -132,7 +132,7 @@
 			if(M.stat == DEAD)
 				M.gib()
 			else
-				M.apply_damage(60, BRUTE, "head")
+				M.apply_damage(60, BRUTE, BP_HEAD)
 			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
 		else if(isturf(a) || isobj(a))
 			var/atom/A = a

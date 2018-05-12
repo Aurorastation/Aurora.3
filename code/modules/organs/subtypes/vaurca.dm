@@ -1,15 +1,15 @@
 /obj/item/organ/heart/left
-	name = "heart"
+	name = BP_HEART
 	icon_state = "heart-on"
 	organ_tag = "left heart"
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	dead_icon = "heart-off"
 
 /obj/item/organ/heart/right
-	name = "heart"
+	name = BP_HEART
 	icon_state = "heart-on"
 	organ_tag = "right heart"
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	dead_icon = "heart-off"
 
 /obj/item/organ/vaurca/neuralsocket
@@ -17,7 +17,7 @@
 	organ_tag = "neural socket"
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "neural_socket"
-	parent_organ = "head"
+	parent_organ = BP_HEAD
 	robotic = 2
 
 obj/item/organ/vaurca/neuralsocket/process()
@@ -46,7 +46,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 /obj/item/organ/vaurca/filtrationbit
 	name = "filtration bit"
 	organ_tag = "filtration bit"
-	parent_organ = "head"
+	parent_organ = BP_HEAD
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "filter"
 	robotic = 2
@@ -54,7 +54,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 /obj/item/organ/vaurca/preserve
 	name = "phoron reserve tank"
 	organ_tag = "phoron reserve tank"
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "breathing_app"
 	robotic = 1

@@ -158,9 +158,9 @@
 	if (!user) return
 	if (hasorgans(user))
 		var/mob/living/carbon/human/H = user
-		var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]
+		var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
 		if (user.hand)
-			temp = H.organs_by_name["l_hand"]
+			temp = H.organs_by_name[BP_L_HAND]
 		if(temp && !temp.is_usable())
 			user << "<span class='notice'>You try to move your [temp.name], but cannot!</span>"
 			return
@@ -546,7 +546,7 @@ var/list/global/slot_flags_enumeration = list(
 			if (eyes.damage >= eyes.min_broken_damage)
 				if(M.stat != 2)
 					M << "<span class='warning'>You go blind!</span>"
-		var/obj/item/organ/external/affecting = H.get_organ("head")
+		var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
 		if(affecting.take_damage(7))
 			M:UpdateDamageIcon()
 	else

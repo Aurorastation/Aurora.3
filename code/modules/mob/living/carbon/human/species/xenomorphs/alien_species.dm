@@ -18,17 +18,17 @@
 	fall_mod = 0
 
 	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest/unbreakable),
-		"groin" =  list("path" = /obj/item/organ/external/groin/unbreakable),
-		"head" =   list("path" = /obj/item/organ/external/head/unbreakable),
-		"l_arm" =  list("path" = /obj/item/organ/external/arm/unbreakable),
-		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/unbreakable),
-		"l_leg" =  list("path" = /obj/item/organ/external/leg/unbreakable),
-		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/unbreakable),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/unbreakable),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/unbreakable),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/unbreakable),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/unbreakable)
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/unbreakable),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/unbreakable),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/unbreakable),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/unbreakable),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/unbreakable),
+		BP_L_LEG=  list("path" = /obj/item/organ/external/leg/unbreakable),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/unbreakable),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/unbreakable),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/unbreakable),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/unbreakable),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/unbreakable)
 		)
 
 	eyes = "blank_eyes"
@@ -73,7 +73,7 @@
 	darksight = 8
 
 	has_organ = list(
-		"heart" =           /obj/item/organ/heart,
+		BP_HEART =           /obj/item/organ/heart,
 		"brain" =           /obj/item/organ/brain/xeno,
 		"plasma vessel" =   /obj/item/organ/xenos/plasmavessel,
 		"hive node" =       /obj/item/organ/xenos/hivenode,
@@ -179,7 +179,7 @@
 	deform =  'icons/mob/human_races/xenos/r_xenos_drone.dmi'
 
 	has_organ = list(
-		"heart" =           /obj/item/organ/heart,
+		BP_HEART =           /obj/item/organ/heart,
 		"brain" =           /obj/item/organ/brain/xeno,
 		"plasma vessel" =   /obj/item/organ/xenos/plasmavessel/queen,
 		"acid gland" =      /obj/item/organ/xenos/acidgland,
@@ -220,7 +220,7 @@
 	deform =  'icons/mob/human_races/xenos/r_xenos_hunter.dmi'
 
 	has_organ = list(
-		"heart" =           /obj/item/organ/heart,
+		BP_HEART =           /obj/item/organ/heart,
 		"brain" =           /obj/item/organ/brain/xeno,
 		"plasma vessel" =   /obj/item/organ/xenos/plasmavessel/hunter,
 		"hive node" =       /obj/item/organ/xenos/hivenode,
@@ -255,7 +255,7 @@
 	deform =  'icons/mob/human_races/xenos/r_xenos_sentinel.dmi'
 
 	has_organ = list(
-		"heart" =           /obj/item/organ/heart,
+		BP_HEART =           /obj/item/organ/heart,
 		"brain" =           /obj/item/organ/brain/xeno,
 		"plasma vessel" =   /obj/item/organ/xenos/plasmavessel/sentinel,
 		"acid gland" =      /obj/item/organ/xenos/acidgland,
@@ -289,7 +289,7 @@
 	deform =  'icons/mob/human_races/xenos/r_xenos_queen.dmi'
 
 	has_organ = list(
-		"heart" =           /obj/item/organ/heart,
+		BP_HEART =           /obj/item/organ/heart,
 		"brain" =           /obj/item/organ/brain/xeno,
 		"egg sac" =         /obj/item/organ/xenos/eggsac,
 		"plasma vessel" =   /obj/item/organ/xenos/plasmavessel/queen,
@@ -341,7 +341,7 @@
 
 	gear = list(
 		"o_clothing" =   list("loc" = ui_belt,      "name" = "Suit",         "slot" = slot_wear_suit, "state" = "equip",  "dir" = SOUTH),
-		"head" =         list("loc" = ui_id,        "name" = "Hat",          "slot" = slot_head,      "state" = "hair"),
+		BP_HEAD =         list("loc" = ui_id,        "name" = "Hat",          "slot" = slot_head,      "state" = "hair"),
 		"storage1" =     list("loc" = ui_storage1,  "name" = "Left Pocket",  "slot" = slot_l_store,   "state" = "pocket"),
 		"storage2" =     list("loc" = ui_storage2,  "name" = "Right Pocket", "slot" = slot_r_store,   "state" = "pocket")
 		)

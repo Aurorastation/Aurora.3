@@ -32,8 +32,8 @@
 		user.visible_message("<span class='danger'>\The [user] tries to take a swab sample from \the [H], but they move away.</span>")
 		return
 
-	if(target_zone == "mouth")
-		if(!H.organs_by_name["head"])
+	if(target_zone == BP_MOUTH)
+		if(!H.organs_by_name[BP_HEAD])
 			user << "<span class='warning'>They don't have a head.</span>"
 			return
 		if(!H.check_has_mouth())
@@ -43,13 +43,13 @@
 		dna = list(H.dna.unique_enzymes)
 		sample_type = "DNA"
 
-	else if(target_zone == "r_hand" || target_zone == "l_hand")
+	else if(target_zone == BP_R_HAND || target_zone == BP_L_HAND)
 		var/has_hand
-		var/obj/item/organ/external/O = H.organs_by_name["r_hand"]
+		var/obj/item/organ/external/O = H.organs_by_name[BP_R_HAND]
 		if(istype(O) && !O.is_stump())
 			has_hand = 1
 		else
-			O = H.organs_by_name["l_hand"]
+			O = H.organs_by_name[BP_L_HAND]
 			if(istype(O) && !O.is_stump())
 				has_hand = 1
 		if(!has_hand)

@@ -7,18 +7,18 @@
 
 // Brain is defined in brain_item.dm.
 /obj/item/organ/heart
-	name = "heart"
+	name = BP_HEART
 	icon_state = "heart-on"
-	organ_tag = "heart"
-	parent_organ = "chest"
+	organ_tag = BP_HEART
+	parent_organ = BP_CHEST
 	dead_icon = "heart-off"
 
 /obj/item/organ/lungs
-	name = "lungs"
-	icon_state = "lungs"
+	name = BP_LUNGS
+	icon_state = BP_LUNGS
 	gender = PLURAL
-	organ_tag = "lungs"
-	parent_organ = "chest"
+	organ_tag = BP_LUNGS
+	parent_organ = BP_CHEST
 
 /obj/item/organ/lungs/process()
 	..()
@@ -39,11 +39,11 @@
 			owner.losebreath += 15
 
 /obj/item/organ/kidneys
-	name = "kidneys"
-	icon_state = "kidneys"
+	name = BP_KIDNEYS
+	icon_state = BP_KIDNEYS
 	gender = PLURAL
-	organ_tag = "kidneys"
-	parent_organ = "groin"
+	organ_tag = BP_KIDNEYS
+	parent_organ = BP_GROIN
 
 /obj/item/organ/kidneys/process()
 
@@ -64,10 +64,10 @@
 
 /obj/item/organ/eyes
 	name = "eyeballs"
-	icon_state = "eyes"
+	icon_state = BP_EYES
 	gender = PLURAL
-	organ_tag = "eyes"
-	parent_organ = "head"
+	organ_tag = BP_EYES
+	parent_organ = BP_HEAD
 	var/list/eye_colour = list(0,0,0)
 	var/singular_name = "eye"
 
@@ -96,10 +96,10 @@
 		owner.eye_blind = 20
 
 /obj/item/organ/liver
-	name = "liver"
-	icon_state = "liver"
-	organ_tag = "liver"
-	parent_organ = "groin"
+	name = BP_LIVER
+	icon_state = BP_LIVER
+	organ_tag = BP_LIVER
+	parent_organ = BP_GROIN
 
 /obj/item/organ/liver/process()
 
@@ -158,10 +158,10 @@
 				take_damage(owner.chem_effects[CE_ALCOHOL_TOXIC] * 0.1 * PROCESS_ACCURACY, prob(1)) // Chance to warn them
 
 /obj/item/organ/appendix
-	name = "appendix"
-	icon_state = "appendix"
-	parent_organ = "groin"
-	organ_tag = "appendix"
+	name = BP_APPENDIX
+	icon_state = BP_APPENDIX
+	parent_organ = BP_GROIN
+	organ_tag = BP_APPENDIX
 
 /obj/item/organ/appendix/removed()
 	if(owner)

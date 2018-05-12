@@ -1047,7 +1047,7 @@
 
 /datum/reagent/adipemcina/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(istype(M))
-		var/obj/item/organ/F = M.internal_organs_by_name["heart"]
+		var/obj/item/organ/F = M.internal_organs_by_name[BP_HEART]
 		if(istype(F))
 			var/nutritionmod = max(0.25, (1 - M.nutrition) / M.max_nutrition * 0.5) //Less effective when your stomach is "full".
 			F.take_damage(-removed*nutritionmod)

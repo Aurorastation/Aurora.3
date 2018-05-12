@@ -3,7 +3,7 @@
 	desc = "All slimy and yuck."
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "larva0_dead"
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	organ_tag = "alien embryo"
 	origin_tech = list(TECH_BIO = 5)
 	var/stage = 0
@@ -91,7 +91,7 @@
 	var/mob/living/carbon/alien/larva/new_xeno = new(owner.loc)
 	new_xeno.key = picked
 	new_xeno << sound('sound/voice/hiss5.ogg',0,0,0,100)	//To get the player's attention
-	owner.apply_damage(500, BRUTE, "chest")
+	owner.apply_damage(500, BRUTE, BP_CHEST)
 	STOP_PROCESSING(SSprocessing, src)
 	qdel(src)
 

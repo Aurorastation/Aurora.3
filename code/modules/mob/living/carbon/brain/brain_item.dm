@@ -3,7 +3,7 @@
 	health = 400 //They need to live awhile longer than other organs. Is this even used by organ code anymore?
 	desc = "A piece of juicy meat found in a person's head."
 	organ_tag = "brain"
-	parent_organ = "head"
+	parent_organ = BP_HEAD
 	vital = 1
 	icon_state = "brain2"
 	force = 1.0
@@ -22,7 +22,7 @@
 	name = "brain remnants"
 	desc = "Did someone tread on this? It looks useless for cloning or cyborgification."
 	organ_tag = "brain"
-	parent_organ = "head"
+	parent_organ = BP_HEAD
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "chitin"
 	vital = 1

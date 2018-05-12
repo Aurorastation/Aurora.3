@@ -367,7 +367,7 @@
 				completed = 1
 				return
 
-		var/obj/item/organ/external/head/head = H.get_organ("head")
+		var/obj/item/organ/external/head/head = H.get_organ(BP_HEAD)
 		if (head.disfigured)
 			completed = 1
 			return

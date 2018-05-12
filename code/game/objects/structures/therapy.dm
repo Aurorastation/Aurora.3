@@ -63,10 +63,10 @@
 	flick("echair1", src)
 	spark(src, 12, alldirs)
 	if(buckled_mob && istype(C))
-		if(electrocute_mob(buckled_mob, C, src, 1.25, "head"))
+		if(electrocute_mob(buckled_mob, C, src, 1.25, BP_HEAD))
 			buckled_mob << "<span class='danger'>You feel a deep shock course through your body!</span>"
 			sleep(1)
-			if(electrocute_mob(buckled_mob, C, src, 1.25, "head"))
+			if(electrocute_mob(buckled_mob, C, src, 1.25, BP_HEAD))
 				buckled_mob.Stun(PN.get_electrocute_damage()*10)
 	visible_message("<span class='danger'>The electric chair goes off!</span>", "<span class='danger'>You hear an electrical discharge!</span>")
 

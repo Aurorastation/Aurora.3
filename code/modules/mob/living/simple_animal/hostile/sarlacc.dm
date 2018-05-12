@@ -58,7 +58,7 @@
 			"<span class='danger'>You feel a searing pain as \the [src] severs your lower body and sends you careening into its grotesque gullet!</span>",
 			"<b>You hear a sick crunch!</b>"
 			)
-		var/obj/item/organ/external/G = H.get_organ("groin")
+		var/obj/item/organ/external/G = H.get_organ(BP_GROIN)
 		G.droplimb(0,DROPLIMB_EDGE)
 		if(SSmob.greatasses.len)
 			var/obj/structure/greatworm/S = pick(SSmob.greatasses)

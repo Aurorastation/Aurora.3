@@ -24,12 +24,12 @@
 			switch(kois_type)
 				if(1) //Normal
 					if(!H.internal_organs_by_name["kois"] && prob(5*removed))
-						var/obj/item/organ/external/affected = H.get_organ("chest")
+						var/obj/item/organ/external/affected = H.get_organ(BP_CHEST)
 						var/obj/item/organ/parasite/kois/infest = new()
 						infest.replaced(H, affected)
 				if(2) //Modified
 					if(!H.internal_organs_by_name["blackkois"] && prob(10*removed))
-						var/obj/item/organ/external/affected = H.get_organ("head")
+						var/obj/item/organ/external/affected = H.get_organ(BP_HEAD)
 						var/obj/item/organ/parasite/blackkois/infest = new()
 						infest.replaced(H, affected)
 	..()
@@ -2525,7 +2525,7 @@
 		M.adjustToxLoss(2 * removed)
 	if(dose > 60 && ishuman(M) && prob(5))
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/heart/L = H.internal_organs_by_name["heart"]
+		var/obj/item/organ/heart/L = H.internal_organs_by_name[BP_HEART]
 		if (L && istype(L))
 			if(dose < 120)
 				L.take_damage(10 * removed, 0)

@@ -14,7 +14,7 @@
 
 	proc/get_max_wclass(var/obj/item/organ/external/affected)
 		switch (affected.name)
-			if ("head")
+			if (BP_HEAD)
 				return 1
 			if ("upper body")
 				return 3
@@ -24,7 +24,7 @@
 
 	proc/get_cavity(var/obj/item/organ/external/affected)
 		switch (affected.name)
-			if ("head")
+			if (BP_HEAD)
 				return "cranial"
 			if ("upper body")
 				return "thoracic"
