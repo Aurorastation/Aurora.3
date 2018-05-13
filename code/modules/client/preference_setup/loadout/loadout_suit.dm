@@ -177,3 +177,17 @@
 	display_name = "navy security jacket (Head of Security)"
 	path = /obj/item/clothing/suit/security/navyhos
 	allowed_roles = list("Head of Security")
+
+/datum/gear/suit/dominia
+	display_name = "dominia great coat selection"
+	path = /obj/item/clothing/suit/storage/toggle/dominia
+
+/datum/gear/suit/dominia/New()
+	..()
+	var/coat = list()
+	coat["dominia great coat"] = /obj/item/clothing/suit/storage/toggle/dominia
+	coat["dominia great coat, alternative"] = /obj/item/clothing/suit/storage/toggle/dominia/alt
+	coat["dominia cape"] = /obj/item/clothing/suit/storage/dominia
+	coat["dominia great coat, black"] = /obj/item/clothing/suit/storage/toggle/dominia/black
+	coat["dominia great coat, alternative black"] = /obj/item/clothing/suit/storage/toggle/dominia/black/alt
+	gear_tweaks += new/datum/gear_tweak/path(coat)

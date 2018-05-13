@@ -15113,6 +15113,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/weapon/book/manual/brainwashing,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aCF" = (
@@ -20926,14 +20927,14 @@
 /obj/item/weapon/rcd_ammo,
 /obj/item/weapon/rcd_ammo,
 /obj/item/weapon/rcd,
-/obj/machinery/door/window/brigdoor/southright{
-	req_access = list(56)
-	},
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/window/brigdoor/southright{
+	req_access = list(56)
+	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/chief)
 "aLX" = (
@@ -23183,6 +23184,7 @@
 	pixel_x = 5;
 	pixel_y = -30
 	},
+/obj/item/weapon/book/manual/brainwashing,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "aPR" = (
@@ -24828,7 +24830,8 @@
 /obj/item/weapon/tank/emergency_oxygen/engi,
 /obj/item/device/gps/engineering,
 /obj/item/weapon/pipewrench,
-/turf/simulated/floor/carpet,
+/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner,
+/turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
 "aSt" = (
 /obj/item/modular_computer/console/preset/engineering,
@@ -80000,7 +80003,7 @@ aKi
 aKi
 aKi
 aKi
-aKi
+aUg
 aVg
 aWP
 aYd
@@ -80513,7 +80516,7 @@ aaa
 aLU
 aLU
 aLU
-aaa
+arK
 aUg
 aVi
 aWR
@@ -80770,7 +80773,7 @@ aLU
 aLU
 aPm
 aLU
-aLU
+aSs
 aLU
 aVj
 aWS
@@ -81027,7 +81030,7 @@ aLV
 aNK
 aPn
 aRb
-aSs
+aPn
 aLU
 aVk
 aWT

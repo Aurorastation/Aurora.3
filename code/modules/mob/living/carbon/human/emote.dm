@@ -649,7 +649,7 @@
 					message = "buzzes."
 				playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
 				m_type = 1
-		
+
 		if("vomit")
 			if (!check_has_mouth(src))
 				src << "<span class='warning'>You are unable to vomit.</span>"
