@@ -55,3 +55,10 @@
 
 /datum/character_disabilities/deaf/apply_self(var/mob/living/carbon/human/H)
 	H.sdisabilities |= DEAF
+
+/datum/character_disabilities/asthma
+	name = "Asthma"
+	desc = "You are prone to inflammation in the lungs."
+
+/datum/character_disabilities/deaf/apply_self(var/mob/living/carbon/human/H)
+	H.disabilities |= ASTHMA
