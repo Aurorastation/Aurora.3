@@ -207,33 +207,6 @@
 		H.adjustOxyLoss(2)
 		H.Weaken(10)
 
-/datum/reagent/toxin/zombiepowder
-	name = "Zombie Powder"
-	id = "zombiepowder"
-	description = "A strong neurotoxin that puts the subject into a death-like state."
-	reagent_state = SOLID
-	color = "#669900"
-	metabolism = REM
-	strength = 3
-	taste_description = "death"
-
-/datum/reagent/toxin/zombiepowder/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	..()
-	var/mob/living/carbon/human/H = M
-	if(istype(H) && (H.species.flags & NO_SCAN))
-		return
-	M.status_flags |= FAKEDEATH
-	M.adjustOxyLoss(3 * removed)
-	M.Weaken(10)
-	M.silent = max(M.silent, 10)
-	M.tod = worldtime2text()
-
-/datum/reagent/toxin/zombiepowder/Destroy()
-	if(holder && holder.my_atom && ismob(holder.my_atom))
-		var/mob/M = holder.my_atom
-		M.status_flags &= ~FAKEDEATH
-	return ..()
-
 /datum/reagent/toxin/fertilizer //Reagents used for plant fertilizers.
 	name = "fertilizer"
 	id = "fertilizer"
@@ -464,24 +437,6 @@
 	if(prob(7))
 		M.emote(pick("twitch", "drool", "moan", "giggle"))
 
-/datum/reagent/serotrotium
-	name = "Serotrotium"
-	id = "serotrotium"
-	description = "A chemical compound that promotes concentrated production of the serotonin neurotransmitter in humans."
-	reagent_state = LIQUID
-	color = "#202040"
-	metabolism = REM * 0.25
-	overdose = REAGENTS_OVERDOSE
-	taste_description = "bitterness"
-
-/datum/reagent/serotrotium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	var/mob/living/carbon/human/H = M
-	if(istype(H) && (H.species.flags & NO_BLOOD))
-		return
-	if(prob(7))
-		M.emote(pick("twitch", "drool", "moan", "gasp"))
-	return
-
 /datum/reagent/cryptobiolin
 	name = "Cryptobiolin"
 	id = "cryptobiolin"
@@ -617,50 +572,6 @@
 	else
 		new_mob.key = M.key
 	qdel(M)
-
-/datum/reagent/nanites
-	name = "Nanomachines"
-	id = "nanites"
-	description = "Microscopic construction robots."
-	reagent_state = LIQUID
-	color = "#535E66"
-	taste_description = "slimey metal"
-
-/datum/reagent/nanites/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	if(prob(10))
-		M.contract_disease(new /datum/disease/robotic_transformation(0), 1) //What
-
-/datum/reagent/nanites/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.contract_disease(new /datum/disease/robotic_transformation(0), 1)
-
-/datum/reagent/xenomicrobes
-	name = "Xenomicrobes"
-	id = "xenomicrobes"
-	description = "Microbes with an entirely alien cellular structure."
-	reagent_state = LIQUID
-	color = "#535E66"
-	taste_description = "sludge"
-
-/datum/reagent/xenomicrobes/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	if(prob(10))
-		M.contract_disease(new /datum/disease/xeno_transformation(0), 1)
-
-/datum/reagent/xenomicrobes/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.contract_disease(new /datum/disease/xeno_transformation(0), 1)
-
-/datum/reagent/toxin/undead
-	name = "Undead Ichor"
-	id = "undead_ichor"
-	description = "A wicked liquid with unknown origins and uses."
-	color = "#b2beb5"
-	strength = 25
-	taste_description = "ashes"
-
-/datum/reagent/toxin/undead/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien && alien == IS_UNDEAD)
-		M.heal_organ_damage(10 * removed, 15 * removed)
-		return
-	..()
 
 /datum/reagent/toxin/tobacco
 	name = "Space Tobacco"

@@ -170,25 +170,11 @@
 	required_reagents = list("ethanol" = 1, "anti_toxin" = 1, "hclacid" = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/silicate
-	name = "Silicate"
-	id = "silicate"
-	result = "silicate"
-	required_reagents = list("aluminum" = 1, "silicon" = 1, "acetone" = 1)
-	result_amount = 3
-
 /datum/chemical_reaction/mutagen
 	name = "Unstable mutagen"
 	id = "mutagen"
 	result = "mutagen"
 	required_reagents = list("radium" = 1, "phosphorus" = 1, "hclacid" = 1)
-	result_amount = 3
-
-/datum/chemical_reaction/thermite
-	name = "Thermite"
-	id = "thermite"
-	result = "thermite"
-	required_reagents = list("aluminum" = 1, "iron" = 1, "acetone" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/space_drugs
@@ -415,13 +401,6 @@
 	result = "potassium_chlorophoride"
 	required_reagents = list("potassium_chloride" = 1, "phoron" = 1, "chloralhydrate" = 1)
 	result_amount = 4
-
-/datum/chemical_reaction/zombiepowder
-	name = "Zombie Powder"
-	id = "zombiepowder"
-	result = "zombiepowder"
-	required_reagents = list("carpotoxin" = 5, "stoxin" = 5, "copper" = 5)
-	result_amount = 2
 
 /datum/chemical_reaction/mindbreaker
 	name = "Mindbreaker Toxin"
@@ -746,21 +725,6 @@
 	e.start()
 
 	holder.clear_reagents()
-	return
-
-/datum/chemical_reaction/napalm
-	name = "Napalm"
-	id = "napalm"
-	result = null
-	required_reagents = list("aluminum" = 1, "phoron" = 1, "sacid" = 1 )
-	result_amount = 1
-
-/datum/chemical_reaction/napalm/on_reaction(var/datum/reagents/holder, var/created_volume)
-	var/turf/location = get_turf(holder.my_atom.loc)
-	for(var/turf/simulated/floor/target_tile in range(0,location))
-		target_tile.assume_gas("phoron", created_volume, 400+T0C)
-		spawn (0) target_tile.hotspot_expose(700, 400)
-	holder.del_reagent("napalm")
 	return
 
 /datum/chemical_reaction/chemsmoke
@@ -2380,13 +2344,6 @@
 	required_reagents = list("space_up" = 1, "bluecuracao" = 1, "melonliquor" = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/luminol
-	name = "Luminol"
-	id = "luminol"
-	result = "luminol"
-	required_reagents = list("hydrazine" = 2, "carbon" = 2, "ammonia" = 2)
-	result_amount = 6
-
 //aurora's drinks
 
 /datum/chemical_reaction/daiquiri
@@ -2753,47 +2710,3 @@
 	result = "bloodwine"
 	required_reagents = list("blood" = 2, "sarezhiwine" = 3)
 	result_amount = 5
-
-//transmutation
-
-/datum/chemical_reaction/transmutation_silver
-	name = "Transmutation: Silver"
-	id = "transmutation_silver"
-	result = null
-	required_reagents = list("iron" = 5, "copper" = 5)
-	catalysts = list("philosopher_stone" = 1)
-	result_amount = 1
-
-/datum/chemical_reaction/transmutation_silver/on_reaction(var/datum/reagents/holder, var/created_volume)
-	var/location = get_turf(holder.my_atom)
-	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/stack/material/silver(location)
-	return
-
-/datum/chemical_reaction/transmutation_gold
-	name = "Transmutation: Gold"
-	id = "transmutation_gold"
-	result = null
-	required_reagents = list("aluminum" = 5, "silver" = 5)
-	catalysts = list("philosopher_stone" = 1)
-	result_amount = 1
-
-/datum/chemical_reaction/transmutation_gold/on_reaction(var/datum/reagents/holder, var/created_volume)
-	var/location = get_turf(holder.my_atom)
-	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/stack/material/gold(location)
-	return
-
-/datum/chemical_reaction/transmutation_diamond
-	name = "Transmutation: Diamond"
-	id = "transmutation_diamond"
-	result = null
-	required_reagents = list("carbon" = 5, "gold" = 5)
-	catalysts = list("philosopher_stone" = 1)
-	result_amount = 1
-
-/datum/chemical_reaction/transmutation_diamond/on_reaction(var/datum/reagents/holder, var/created_volume)
-	var/location = get_turf(holder.my_atom)
-	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/stack/material/diamond(location)
-	return
