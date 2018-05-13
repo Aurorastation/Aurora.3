@@ -30,5 +30,6 @@
 				/spell/targeted/mindcontrol =                       2,
 				/obj/item/weapon/gun/energy/staff/focus = 			2,
 				/obj/item/weapon/storage/belt/wands/full = 			2,
-				/obj/item/weapon/contract/apprentice = 				1
+				/obj/item/weapon/contract/apprentice = 				1,
+				/obj/item/poppet =									1
 				)

@@ -1011,10 +1011,6 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
                 {{:helper.link('Set news tone', 'comment', {'choice' : "Newstone"}, null, 'fixedLeftWide')}}
             </div>
         </div>
-        
-		{{if data.reception != 1}}
-			<span class="bad">No reception with newscaster network.</span>
-		{{/if}}
 		
 		<div class="item">
             <div class="itemContent">
@@ -1032,12 +1028,7 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
 
     {{else data.mode == 61}}      
         <H2><span class="white">{{:data.feed.channel}}</span></H2>
-        <span class="white">Created by: </span><span class="average">{{:data.feed.author}}<br></span>
-		
-		{{if data.reception != 1}}
-			<span class="bad">No reception with newscaster network.</span>
-		{{/if}}
-		
+        <span class="white">Created by: </span><span class="average">{{:data.feed.author}}<br></span>		
         <div class="statusDisplay" style="overflow: auto;">
             <div class="item">
                 <div class="itemContent" style="width: 100%;">

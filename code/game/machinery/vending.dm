@@ -98,7 +98,8 @@
 	var/datum/wires/vending/wires = null
 
 	var/can_move = 1	//if you can wrench the machine out of place
-	var/vend_id = "generic"
+	var/vend_id = "generic"	//Id of the refill cartridge that has to be used
+	var/restock_items = 0	//If items can be restocked into the vending machine
 
 /obj/machinery/vending/Initialize()
 	. = ..()
@@ -270,7 +271,7 @@
 	else if(!is_borg_item(W))
 
 		for(var/datum/data/vending_product/R in product_records)
-			if(istype(W, R.product_path))
+			if(istype(W, R.product_path) && restock_items)
 				stock(R, user)
 				qdel(W)
 				return

@@ -55,3 +55,31 @@
 	shoes["dress flats, green"] = /obj/item/clothing/shoes/flats/green
 	shoes["dress flats, purple"] = /obj/item/clothing/shoes/flats/purple
 	gear_tweaks += new/datum/gear_tweak/path(shoes)
+
+/datum/gear/shoes/cowboy
+	display_name = "cowboy boots selection"
+	path = /obj/item/clothing/shoes/cowboy
+
+/datum/gear/shoes/cowboy/New()
+	..()
+	var/shoes = list()
+	shoes["cowboy boots"] = /obj/item/clothing/shoes/cowboy
+	shoes["classic cowboy boots"] = /obj/item/clothing/shoes/cowboy/classic
+	shoes["snakeskin cowboy boots"] = /obj/item/clothing/shoes/cowboy/snakeskin
+	gear_tweaks += new/datum/gear_tweak/path(shoes)
+
+/datum/gear/shoes/heels
+	display_name = "high heels"
+	path = /obj/item/clothing/shoes/heels
+
+/datum/gear/shoes/heels/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/shoes/tongs
+	display_name = "flip flops"
+	path = /obj/item/clothing/shoes/sandal/flipflop
+
+/datum/gear/shoes/tongs/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
