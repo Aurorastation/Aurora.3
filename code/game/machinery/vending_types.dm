@@ -265,6 +265,7 @@
 		/obj/item/weapon/reagent_containers/syringe/antiviral = 4,
 		/obj/item/weapon/reagent_containers/syringe = 12,
 		/obj/item/device/healthanalyzer = 5,
+		/obj/item/device/breath_analyzer = 2,
 		/obj/item/weapon/reagent_containers/glass/beaker = 4,
 		/obj/item/weapon/reagent_containers/dropper = 2,
 		/obj/item/stack/medical/advanced/bruise_pack = 3,
@@ -308,7 +309,8 @@
 		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/ointment = 2,
 		/obj/item/weapon/reagent_containers/hypospray/autoinjector = 4,
-		/obj/item/device/healthanalyzer = 1
+		/obj/item/device/healthanalyzer = 1,
+		/obj/item/device/breath_analyzer  = 1
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/syringe/antitoxin = 4,
