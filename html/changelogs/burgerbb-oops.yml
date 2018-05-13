@@ -1,0 +1,7 @@
+author: BurgerBB
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed breath analyzers not working. Fixed inhalers not playing their proper injection sounds."
+  - tweak: "Tweaked the weight of the inhalers to match their size and sprite. Added more information to inhaler cartridges when examining them. Made inhalers more user-friendly."
