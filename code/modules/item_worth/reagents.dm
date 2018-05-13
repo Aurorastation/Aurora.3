@@ -651,9 +651,6 @@
 /datum/reagent/coolant
 	value = 0.8
 
-/datum/reagent/woodpulp
-	value = 0.6
-
 /datum/reagent/luminol
 	value = 1.4
 
@@ -666,9 +663,6 @@
 /datum/reagent/toxin/amatoxin
 	value = 2.3
 
-/datum/reagent/toxin/carpotoxin
-	value = 3
-
 /datum/reagent/toxin/phoron
 	value = 10
 
@@ -680,9 +674,6 @@
 
 /datum/reagent/toxin/potassium_chlorophoride
 	value = 4.5
-
-/datum/reagent/toxin/zombiepowder
-	value = 2.9
 
 /datum/reagent/toxin/fertilizer
 	value = 1.2
@@ -713,9 +704,6 @@
 
 /datum/reagent/space_drugs
 	value = 2.8
-
-/datum/reagent/serotrotium
-	value = 2.5
 
 /datum/reagent/cryptobiolin
 	value = 2

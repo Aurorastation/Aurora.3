@@ -2344,13 +2344,6 @@
 	required_reagents = list("space_up" = 1, "bluecuracao" = 1, "melonliquor" = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/luminol
-	name = "Luminol"
-	id = "luminol"
-	result = "luminol"
-	required_reagents = list("hydrazine" = 2, "carbon" = 2, "ammonia" = 2)
-	result_amount = 6
-
 //aurora's drinks
 
 /datum/chemical_reaction/daiquiri
