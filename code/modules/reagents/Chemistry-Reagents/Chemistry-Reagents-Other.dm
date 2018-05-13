@@ -224,38 +224,6 @@
 	M.SetWeakened(0)
 	M.adjustToxLoss(rand(3)*removed)
 
-/datum/reagent/water/holywater
-	name = "Holy Water"
-	id = "holywater"
-	description = "An ashen-obsidian-water mix, this solution will alter certain sections of the brain's rationality."
-	color = "#E0E8EF"
-
-	glass_icon_state = "glass_clear"
-	glass_name = "glass of holy water"
-	glass_desc = "An ashen-obsidian-water mix, this solution will alter certain sections of the brain's rationality."
-
-/datum/reagent/water/holywater/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	..()
-	if(ishuman(M))
-		if (M.mind && M.mind.vampire)
-			var/datum/vampire/vampire = M.mind.vampire
-			vampire.frenzy += removed * 5
-		else if(M.mind && cult.is_antagonist(M.mind) && prob(10))
-			cult.remove_antagonist(M.mind)
-	if(alien && alien == IS_UNDEAD)
-		M.adjust_fire_stacks(10)
-		M.IgniteMob()
-
-/datum/reagent/water/holywater/touch_turf(var/turf/T)
-	if(volume >= 5)
-		T.holy = 1
-	return
-
-/datum/reagent/water/holywater/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien && alien == IS_UNDEAD)
-		M.adjust_fire_stacks(5)
-		M.IgniteMob()
-
 /datum/reagent/diethylamine
 	name = "Diethylamine"
 	id = "diethylamine"
@@ -279,31 +247,6 @@
 	reagent_state = SOLID
 	color = "#664B63"
 	taste_description = "metal"
-
-/datum/reagent/thermite
-	name = "Thermite"
-	id = "thermite"
-	description = "Thermite produces an aluminothermic reaction known as a thermite reaction. Can be used to melt walls."
-	reagent_state = SOLID
-	color = "#673910"
-	touch_met = 50
-	taste_description = "sweet tasting metal"
-
-/datum/reagent/thermite/touch_turf(var/turf/T)
-	if(volume >= 5)
-		if(istype(T, /turf/simulated/wall))
-			var/turf/simulated/wall/W = T
-			W.thermite = 1
-			W.add_overlay(image('icons/effects/effects.dmi',icon_state = "#673910"))
-			remove_self(5)
-	return
-
-/datum/reagent/thermite/touch_mob(var/mob/living/L, var/amount)
-	if(istype(L))
-		L.adjust_fire_stacks(amount / 5)
-
-/datum/reagent/thermite/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.adjustFireLoss(3 * removed)
 
 /datum/reagent/space_cleaner
 	name = "Space cleaner"
@@ -368,21 +311,6 @@
 	if(volume >= 1)
 		T.wet_floor(2)
 
-/datum/reagent/silicate
-	name = "Silicate"
-	id = "silicate"
-	description = "A compound that can be used to reinforce glass."
-	reagent_state = LIQUID
-	color = "#C7FFFF"
-	taste_description = "plastic"
-
-/datum/reagent/silicate/touch_obj(var/obj/O)
-	if(istype(O, /obj/structure/window))
-		var/obj/structure/window/W = O
-		W.apply_silicate(volume)
-		remove_self(volume)
-	return
-
 /datum/reagent/glycerol
 	name = "Glycerol"
 	id = "glycerol"
@@ -408,21 +336,6 @@
 	taste_description = "sourness"
 	taste_mult = 1.1
 
-/datum/reagent/ultraglue
-	name = "Ultra Glue"
-	id = "glue"
-	description = "An extremely powerful bonding agent."
-	color = "#FFFFCC"
-	taste_description = "a special education class"
-
-/datum/reagent/woodpulp
-	name = "Wood Pulp"
-	id = "woodpulp"
-	description = "A mass of wood fibers."
-	reagent_state = LIQUID
-	color = "#B97A57"
-	taste_description = "wood"
-
 /datum/reagent/luminol
 	name = "Luminol"
 	id = "luminol"
@@ -436,99 +349,4 @@
 
 /datum/reagent/luminol/touch_mob(var/mob/living/L)
 	L.reveal_blood()
-
-/datum/reagent/estus
-	name = "Liquid Light"
-	id = "estus"
-	description = "This impossible substance slowly converts from a liquid into actual light."
-	reagent_state = LIQUID
-	color = "#ffff40"
-	scannable = 1
-	metabolism = REM * 0.25
-	taste_description = "bottled fire"
-	var/datum/modifier/modifier
-
-/datum/reagent/estus/affect_blood(var/mob/living/carbon/M, var/removed)
-	if (!modifier)
-		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
-	if(isskeleton(M))
-		M.heal_organ_damage(10 * removed, 15 * removed)
-
-/datum/reagent/estus/affect_ingest(var/mob/living/carbon/M, var/removed)
-	if (!modifier)
-		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
-	if(isskeleton(M))
-		M.heal_organ_damage(10 * removed, 15 * removed)
-
-/datum/reagent/estus/affect_touch(var/mob/living/carbon/M, var/removed)
-	if (!modifier)
-		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
-	if(isskeleton(M))
-		M.heal_organ_damage(10 * removed, 15 * removed)
-
-/datum/reagent/liquid_fire
-	name = "Liquid Fire"
-	id = "liquid_fire"
-	description = "A dangerous flammable chemical, capable of causing fires when in contact with organic matter."
-	reagent_state = LIQUID
-	color = "#E25822"
-	touch_met = 5
-	taste_description = "metal"
-
-/datum/reagent/liquid_fire/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(istype(M))
-		M.adjust_fire_stacks(10)
-		M.IgniteMob()
-
-/datum/reagent/liquid_fire/touch_mob(var/mob/living/L, var/amount)
-	if(istype(L))
-		L.adjust_fire_stacks(10)
-		L.IgniteMob()
-
-/datum/reagent/black_matter
-	name = "Unstable Black Matter"
-	id = "black_matter"
-	description = "A pitch black blend of cosmic origins, handle with care."
-	color = "#000000"
-	taste_description = "emptyness"
-
-/datum/reagent/black_matter/touch_turf(var/turf/T)
-	var/obj/effect/portal/P = new /obj/effect/portal(T)
-	P.creator = null
-	P.icon = 'icons/obj/objects.dmi'
-	P.failchance = 0
-	P.icon_state = "anom"
-	P.name = "wormhole"
-	var/list/pick_turfs = list()
-	for(var/turf/simulated/floor/exit in turfs)
-		if(exit.z in current_map.station_levels)
-			pick_turfs += exit
-	P.target = pick(pick_turfs)
-	QDEL_IN(P, rand(150,300))
-	remove_self(volume)
-	return
-
-/datum/reagent/bluespace_dust
-	name = "Bluespace Dust"
-	id = "bluespace_dust"
-	description = "A dust composed of microscopic bluespace crystals."
-	color = "#1f8999"
-	taste_description = "fizzling blue"
-
-/datum/reagent/bluespace_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(prob(25))
-		M.make_jittery(5)
-		M << "<span class='warning'>You feel unstable...</span>"
-
-	if(prob(10))
-		do_teleport(M, get_turf(M), 5, asoundin = 'sound/effects/phasein.ogg')
-
-/datum/reagent/bluespace_dust/touch_mob(var/mob/living/L, var/amount)
-	do_teleport(L, get_turf(L), amount, asoundin = 'sound/effects/phasein.ogg')
-
-/datum/reagent/philosopher_stone
-	name = "Philosopher's Stone"
-	id = "philosopher_stone"
-	description = "A mythical compound, rumored to be the catalyst of fantastic reactions."
-	color = "#f4c430"
 	taste_description = "heavenly knowledge"

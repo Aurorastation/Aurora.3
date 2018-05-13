@@ -732,7 +732,7 @@
 /datum/reagent/mental/escitalopram
 	name = "Escitalopram"
 	id = "escitalopram"
-	description = "Escitalopram is expensive, safe and very effective at treating basic phobias as well as advanced phobias like monophobia. A common side effect is drowsiness, and a rare side effect is hallucinations. Withdrawl effects are uncommon."
+	description = "Escitalopram is expensive, safe and very effective at treating basic phobias as well as advanced phobias like monophobia. A common side effect is drowsiness, and a rare side effect is hallucinations. Withdrawal effects are uncommon."
 	reagent_state = LIQUID
 	color = "#FF8888"
 	metabolism = 0.01 * REM
@@ -1074,35 +1074,6 @@
 /datum/reagent/ipecac/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(2 * removed) //If you inject it you're doing it wrong
 
-/datum/reagent/azoth
-	name = "Azoth"
-	id = "azoth"
-	description = "Azoth is a miraculous medicine, capable of healing internal injuries."
-	reagent_state = LIQUID
-	color = "#BF0000"
-	taste_description = "bitter metal"
-	overdose = 5
-
-/datum/reagent/azoth/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	..()
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		for (var/A in H.organs)
-			var/obj/item/organ/external/E = A
-			for (var/X in E.wounds)
-				var/datum/wound/W = X
-				if (W && W.internal)
-					E.wounds -= W
-					return 1
-
-			if(E.status & ORGAN_BROKEN)
-				E.status &= ~ORGAN_BROKEN
-				E.stage = 0
-				return 1
-
-/datum/reagent/azoth/overdose(var/mob/living/carbon/M, var/alien)
-	M.adjustBruteLoss(5)
-
 /datum/reagent/adipemcina //Based on quinapril
 	name = "Adipemcina"
 	id = "adipemcina"
@@ -1127,18 +1098,3 @@
 		if(prob(25))
 			M.add_chemical_effect(CE_ALCOHOL_TOXIC, 1)
 			M.vomit()
-
-/datum/reagent/elixir
-	name = "Elixir of Life"
-	id = "elixir_life"
-	description = "A mythical substance, the cure for the ultimate illness."
-	color = "#ffd700"
-	affects_dead = 1
-	taste_description = "eternal blissfulness"
-
-/datum/reagent/elixir/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(ishuman(M))
-		if(M && M.stat == DEAD)
-			M.adjustOxyLoss(-rand(15,20))
-			M.visible_message("<span class='danger'>\The [M] shudders violently!</span>")
-			M.stat = 0
