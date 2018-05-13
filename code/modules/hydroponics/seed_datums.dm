@@ -513,7 +513,7 @@
 	name = "amanita"
 	seed_name = "fly amanita"
 	display_name = "fly amanita mushrooms"
-	mutants = list("destroyingangel","plastic")
+	mutants = list("destroyingangel","plastic","panocelium")
 	chems = list("nutriment" = list(1), "amatoxin" = list(3,3), "psilocybin" = list(1,25))
 
 /datum/seed/mushroom/poison/setup_traits()
@@ -543,7 +543,24 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#EDE8EA")
 	set_trait(TRAIT_PLANT_COLOUR,"#E6D8DD")
 	set_trait(TRAIT_PLANT_ICON,"mushroom5")
+	
+/datum/seed/mushroom/poison/panocelium
+	name = "panocelium"
+	seed_name = "panocelium"
+	display_name = "panocelium mushrooms"
+	mutants = null
+	chems = list("nutriment" = list(1,50), "panotoxin" = list(10,3), "psilocybin" = list(1,25))	
 
+/datum/seed/mushroom/poison/panocelium/setup_traits()
+	..()
+	set_trait(TRAIT_MATURATION,12)
+	set_trait(TRAIT_YIELD,4)
+	set_trait(TRAIT_POTENCY,20)
+	set_trait(TRAIT_PRODUCT_ICON,"mushroom6")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#88FFFF")
+	set_trait(TRAIT_PLANT_COLOUR,"#88FFFF")
+	set_trait(TRAIT_PLANT_ICON,"mushroom6")
+	
 /datum/seed/mushroom/towercap
 	name = "towercap"
 	seed_name = "tower cap"

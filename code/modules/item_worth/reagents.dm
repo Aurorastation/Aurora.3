@@ -597,12 +597,6 @@
 /datum/reagent/mental/truthserum
 	value = 8
 
-/datum/reagent/mental/hextrasenil
-	value = 12
-	
-/datum/reagent/mental/trisyndicotin
-	value = 16
-
 /datum/reagent/mental/nicotine
 	value = 2
 
