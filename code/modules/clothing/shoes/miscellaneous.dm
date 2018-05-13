@@ -54,6 +54,11 @@
 	icon_state = "black"
 	body_parts_covered = FEET
 
+/obj/item/clothing/shoes/sandal/flipflop
+	name = "flip flops"
+	desc = "A pair of foam flip flops. For those not afraid to show a little ankle."
+	icon_state = "thongsandal"
+
 /obj/item/clothing/shoes/clown_shoes
 	desc = "The prankster's standard-issue clowning shoes. Damn they're huge!"
 	name = "clown shoes"
@@ -141,3 +146,23 @@
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = FEET|LEGS
 	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
+
+/obj/item/clothing/shoes/cowboy
+	name = "cowboy boots"
+	desc = "Lacking a durasteel horse to ride."
+	icon_state = "cowboy"
+
+/obj/item/clothing/shoes/cowboy/classic
+	name = "classic cowboy boots"
+	desc = "A classic looking pair of durable cowboy boots."
+	icon_state = "cowboy_classic"
+
+/obj/item/clothing/shoes/cowboy/snakeskin
+	name = "snakeskin cowboy boots"
+	desc = "A pair of cowboy boots made from python skin."
+	icon_state = "cowboy_snakeskin"
+
+/obj/item/clothing/shoes/heels
+	name = "high heels"
+	desc = "A pair of high-heeled shoes. Fancy!"
+	icon_state = "heels"
