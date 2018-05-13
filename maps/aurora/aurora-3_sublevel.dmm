@@ -6337,7 +6337,7 @@
 	pixel_y = 0
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = 0;
 	listening = 1;
 	name = "Common Channel";
 	pixel_x = -27;
@@ -7151,7 +7151,7 @@
 	pixel_y = -26
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = 0;
 	listening = 1;
 	name = "Common Channel";
 	pixel_x = 27;
@@ -7868,7 +7868,7 @@
 	pixel_y = 0
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = 0;
 	listening = 1;
 	name = "Common Channel";
 	pixel_x = -27;
@@ -26287,25 +26287,12 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "Uj" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/obj/machinery/camera/network/research_outpost{
-	c_tag = "Research Sublevel - Toxins Testing Storage";
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/alarm{
-	dir = 4;
-	icon_state = "alarm0";
-	pixel_x = -22
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
 "Uk" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
@@ -26314,16 +26301,17 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
 "Ul" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
 "Um" = (
@@ -26506,54 +26494,46 @@
 /turf/simulated/floor/plating,
 /area/rnd/mixing)
 "UB" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 10
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
-	dir = 9
+/obj/effect/floor_decal/industrial/warning/cee{
+	icon_state = "warningcee";
+	dir = 8
 	},
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1379;
-	master_tag = "toxinsairlock_airlock";
-	name = "interior access button";
-	pixel_x = 0;
-	pixel_y = -25;
-	req_one_access = list(13,65)
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 8;
+	name = "Distro to Canisters";
+	target_pressure = 150
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/rnd/mixing)
 "UC" = (
 /obj/machinery/light/small,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/requests_console{
-	department = "Science";
-	departmentType = 2;
-	name = "Science Requests Console";
-	pixel_x = 0;
-	pixel_y = -30
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -22
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
 "UD" = (
-/obj/machinery/suit_storage_unit/standard_unit,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
@@ -27195,6 +27175,64 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"Wi" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/suit_storage_unit/standard_unit,
+/turf/simulated/floor/tiled,
+/area/rnd/mixing)
+"Wj" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/camera/network/research_outpost{
+	c_tag = "Research Sublevel - Toxins Testing Storage";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/mixing)
+"Wk" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1379;
+	master_tag = "toxinsairlock_airlock";
+	name = "exterior access button";
+	pixel_x = 25;
+	pixel_y = -25;
+	req_one_access = list(13,65)
+	},
+/turf/simulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
+"Wl" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1379;
+	master_tag = "toxinsairlock_airlock";
+	name = "interior access button";
+	pixel_x = 0;
+	pixel_y = -25;
+	req_one_access = list(13,65)
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible,
+/obj/machinery/meter,
+/turf/simulated/floor/tiled,
+/area/rnd/mixing)
 
 (1,1,1) = {"
 aa
@@ -43048,7 +43086,7 @@ Tx
 Sm
 ac
 ac
-Ve
+Wk
 rH
 UU
 sK
@@ -43304,9 +43342,9 @@ Tm
 Ty
 Sm
 ac
-ac
-Ux
-rH
+NP
+Uy
+NP
 UV
 sK
 aa
@@ -43562,7 +43600,7 @@ Tz
 Sm
 ac
 NP
-Uy
+Uz
 NP
 UY
 NP
@@ -43817,9 +43855,9 @@ SS
 To
 SS
 TK
-ac
 NP
-Uz
+NP
+UA
 NP
 UY
 NP
@@ -44074,9 +44112,9 @@ ST
 Tp
 TA
 NP
-NP
-NP
-UA
+TY
+Wj
+Wl
 NP
 UY
 NP
@@ -44331,7 +44369,7 @@ SU
 PV
 TB
 NP
-TY
+Wi
 Uj
 UB
 NP

@@ -677,7 +677,15 @@ default behaviour is:
 	if(buckled)
 		buckled.user_unbuckle_mob(src)
 
+/mob/living/var/last_resist
+
 /mob/living/proc/resist_grab()
+	if (last_resist + 4 > world.time)
+		return
+	last_resist = world.time
+	if (stat || paralysis || stunned)
+		src << "<span class='notice'>You can't move...</span>"
+		return
 	var/resisting = 0
 	for(var/obj/O in requests)
 		requests.Remove(O)
