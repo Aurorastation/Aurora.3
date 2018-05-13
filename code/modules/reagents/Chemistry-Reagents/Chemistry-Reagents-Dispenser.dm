@@ -39,12 +39,14 @@
 /datum/reagent/ammonia
 	name = "Ammonia"
 	id = "ammonia"
-	description = "A caustic substance commonly used in fertilizer or household cleaners."
+	description = "A caustic substance commonly used in fertilizer or household cleaners. Poisonous to most lifeforms, lingers for a while if inhaled."
 	reagent_state = LIQUID
 	color = "#404030"
 	metabolism = REM * 0.5
 	taste_description = "mordant"
 	taste_mult = 2
+	breathe_mul = 2
+	breathe_met = REM * 0.25
 
 /datum/reagent/ammonia/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VOX)
@@ -127,7 +129,8 @@
 	M.adjustToxLoss(removed * 2)
 
 /datum/reagent/alcohol/affect_ingest(mob/living/carbon/M, alien, removed)
-	M.intoxication += (strength / 100) * removed
+
+	M.intoxication += (strength * removed) * 0.075
 
 	if (druggy != 0)
 		M.druggy = max(M.druggy, druggy)
@@ -343,6 +346,13 @@
 /datum/reagent/acid/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.take_organ_damage(0, removed * power)
 
+/datum/reagent/acid/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
+	. = ..()
+	if(istype(H))
+		var/obj/item/organ/L = H.internal_organs_by_name["lungs"]
+		if(istype(L))
+			L.take_damage(removed * power * 0.5)
+
 /datum/reagent/acid/affect_touch(var/mob/living/carbon/M, var/alien, var/removed) // This is the most interesting
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -423,6 +433,16 @@
 	power = 3
 	meltdose = 8
 	taste_description = "stomach acid"
+
+/datum/reagent/acid/polyacid //Not in dispensers, but it should be here
+	name = "Polytrinic acid"
+	id = "pacid"
+	description = "Polytrinic acid is a an extremely corrosive chemical substance."
+	reagent_state = LIQUID
+	color = "#8E18A9"
+	power = 6
+	meltdose = 4
+	taste_description = "acid"
 
 /datum/reagent/silicon
 	name = "Silicon"

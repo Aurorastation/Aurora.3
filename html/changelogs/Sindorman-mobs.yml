@@ -1,0 +1,6 @@
+author: PoZe
+
+delete-after: True
+
+changes:
+  - tweak: "Hostile mobs now attack back any mobs who touch/attack/shoot or throw objects at them. They also now prioritize mobs with lowest health"
