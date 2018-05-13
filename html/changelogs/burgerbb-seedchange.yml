@@ -1,6 +1,0 @@
-author: BurgerBB
-
-delete-after: True
-
-changes: 
-  - bugfix: "Added missing seeds to garden vendors. Converted the hydroponics seed vendor into a better vending machine."
