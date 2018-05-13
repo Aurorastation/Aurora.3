@@ -1,9 +1,9 @@
 // Minimap generation system adapted from vorestation, adapted from /vg/.
 // Seems to be much simpler/saner than /vg/'s implementation.
 
-/var/datum/controller/subsystem/minimap/SSminimap
+/var/datum/controller/subsystem/holomap/SSholomap
 
-/datum/controller/subsystem/minimap
+/datum/controller/subsystem/holomap
 	name = "Holomap"
 	flags = SS_NO_FIRE
 	init_order = SS_INIT_HOLOMAP
@@ -12,15 +12,15 @@
 	var/list/extra_minimaps = list()
 	var/list/station_holomaps = list()
 
-/datum/controller/subsystem/minimap/New()
-	NEW_SS_GLOBAL(SSminimap)
+/datum/controller/subsystem/holomap/New()
+	NEW_SS_GLOBAL(SSholomap)
 
-/datum/controller/subsystem/minimap/Initialize()
+/datum/controller/subsystem/holomap/Initialize()
 	holo_minimaps.len = world.maxz
 	for (var/z in 1 to world.maxz)
 		holo_minimaps[z] = generateHoloMinimap(z)
 
-	log_debug("SSminimap: [holo_minimaps.len] maps.")
+	log_debug("SSholomap: [holo_minimaps.len] maps.")
 
 	for (var/z in current_map.station_levels)
 		generateStationMinimap(z)
@@ -29,7 +29,7 @@
 
 
 // Generates the "base" holomap for one z-level, showing only the physical structure of walls and paths.
-/datum/controller/subsystem/minimap/proc/generateHoloMinimap(zlevel = 1)
+/datum/controller/subsystem/holomap/proc/generateHoloMinimap(zlevel = 1)
 	// Save these values now to avoid a bazillion array lookups
 	var/offset_x = HOLOMAP_PIXEL_OFFSET_X(zlevel)
 	var/offset_y = HOLOMAP_PIXEL_OFFSET_Y(zlevel)
@@ -77,7 +77,7 @@
 
 	return canvas
 
-/datum/controller/subsystem/minimap/proc/generateStationMinimap(zlevel)
+/datum/controller/subsystem/holomap/proc/generateStationMinimap(zlevel)
 	// Save these values now to avoid a bazillion array lookups
 	var/offset_x = HOLOMAP_PIXEL_OFFSET_X(zlevel)
 	var/offset_y = HOLOMAP_PIXEL_OFFSET_Y(zlevel)
