@@ -8739,6 +8739,9 @@
 /obj/item/weapon/rig/hazmat,
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/security/nuke_storage)
 "pJ" = (
@@ -8748,10 +8751,13 @@
 /turf/simulated/floor/plating,
 /area/security/nuke_storage)
 "pK" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced,
+/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner,
+/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner,
+/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner,
+/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner,
+/turf/simulated/floor/plating,
 /area/security/nuke_storage)
 "pL" = (
 /obj/machinery/porta_turret/stationary,
@@ -9224,9 +9230,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "qq" = (
-/obj/machinery/light/small/emergency{
-	icon_state = "bulb1";
-	dir = 4
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 25;
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
@@ -9716,6 +9726,7 @@
 	pixel_x = 24
 	},
 /obj/structure/cable,
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "rp" = (
@@ -9817,6 +9828,7 @@
 /obj/item/weapon/rig/unathi{
 	pixel_y = -6
 	},
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/security/nuke_storage)
 "ry" = (
@@ -9829,14 +9841,11 @@
 /area/security/nuke_storage)
 "rz" = (
 /obj/structure/window/reinforced{
-	dir = 8
+	icon_state = "rwindow";
+	dir = 1
 	},
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 25;
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/table/reinforced,
+/turf/simulated/floor/plating,
 /area/security/nuke_storage)
 "rA" = (
 /obj/structure/cable{
