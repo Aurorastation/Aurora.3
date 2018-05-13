@@ -141,7 +141,6 @@
 		var/contained = stored_cartridge.reagentlist()
 		var/trans = stored_cartridge.reagents.trans_to_mob(M, transfer_amount, CHEM_BREATHE)
 		admin_inject_log(user, M, src, contained, trans)
-		to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
 		playsound(M.loc, 'sound/items/stimpack.ogg', 50, 1)
 		if(eject_when_empty)
 			to_chat(user,"<span class='notice'>\The [stored_cartridge] automatically ejects from \the [src].</span>")
