@@ -5634,7 +5634,7 @@
 	},
 /obj/structure/table/glass,
 /turf/simulated/shuttle/floor{
-	icon_state = "floor6"
+	icon_state = "floor4"
 	},
 /area/syndicate_station/start)
 "aoX" = (
