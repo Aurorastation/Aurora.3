@@ -130,7 +130,7 @@
 
 /datum/reagent/alcohol/affect_ingest(mob/living/carbon/M, alien, removed)
 
-	M.intoxication += (strength * removed) * 0.075
+	M.intoxication += (strength / 100) * removed
 
 	if (druggy != 0)
 		M.druggy = max(M.druggy, druggy)
