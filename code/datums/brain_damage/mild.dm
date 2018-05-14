@@ -75,22 +75,6 @@
 	owner.disabilities &= ~UNINTELLIGIBLE
 	..()
 
-/datum/brain_trauma/mild/tourettes
-	name = "Tourettes Syndrome"
-	desc = "Patient is compelled to vulgarity."
-	scan_desc = "vulgarity problem"
-	gain_text = "Your mind fills with foul language!"
-	lose_text = "Your mind returns to decency."
-	cure_type = CURE_CRYSTAL
-
-/datum/brain_trauma/mild/tourettes/on_gain()
-	owner.disabilities |= TOURETTES
-	..()
-
-/datum/brain_trauma/mild/tourettes/on_lose()
-	owner.disabilities &= ~TOURETTES
-	..()
-
 /datum/brain_trauma/mild/gertie
 	name = "Gerstmann Syndrome"
 	desc = "Patient displays severe left right disorientation."

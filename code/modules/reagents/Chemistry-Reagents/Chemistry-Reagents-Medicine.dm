@@ -823,7 +823,7 @@
 /datum/reagent/mental/risperidone
 	name = "Risperidone"
 	id = "risperidone"
-	description = "Risperidone is a potent antipsychotic medication used to treat schizophrenia, stuttering, speech impediment, monophobia, hallucinations, tourettes, and muscle spasms. Side effects are common and include pacifism. Withdrawl symptoms are dangerous and almost always occur."
+	description = "Risperidone is a potent antipsychotic medication used to treat schizophrenia, stuttering, speech impediment, monophobia, hallucinations, and muscle spasms. Side effects are common and include pacifism. Withdrawl symptoms are dangerous and almost always occur."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.02
@@ -840,7 +840,6 @@
 		/datum/brain_trauma/severe/monophobia = 10,
 		/datum/brain_trauma/mild/hallucinations = 10,
 		/datum/brain_trauma/mild/muscle_spasms = 20,
-		/datum/brain_trauma/mild/tourettes = 20
 	)
 	dosage_traumas = list(
 		/datum/brain_trauma/severe/pacifism = 25
@@ -849,7 +848,6 @@
 		/datum/brain_trauma/mild/hallucinations = 100,
 		/datum/brain_trauma/severe/split_personality = 10,
 		/datum/brain_trauma/special/imaginary_friend = 20,
-		/datum/brain_trauma/mild/tourettes = 50,
 		/datum/brain_trauma/severe/monophobia = 50
 	)
 	suppressing_reagents = list(
@@ -862,7 +860,7 @@
 /datum/reagent/mental/olanzapine
 	name = "Olanzapine"
 	id = "olanzapine"
-	description = "Olanzapine is a high-strength, expensive antipsychotic medication used to treat schizophrenia, stuttering, speech impediment, monophobia, hallucinations, tourettes, and muscle spasms. Side effects are common and include pacifism. The medication metabolizes quickly, and withdrawl is dangerous."
+	description = "Olanzapine is a high-strength, expensive antipsychotic medication used to treat schizophrenia, stuttering, speech impediment, monophobia, hallucinations, and muscle spasms. Side effects are common and include pacifism. The medication metabolizes quickly, and withdrawl is dangerous."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.02
@@ -878,7 +876,6 @@
 		/datum/brain_trauma/mild/speech_impediment = 5,
 		/datum/brain_trauma/severe/monophobia = 5,
 		/datum/brain_trauma/mild/muscle_spasms = 10,
-		/datum/brain_trauma/mild/tourettes = 20
 	)
 	dosage_traumas = list(
 		/datum/brain_trauma/severe/pacifism = 25
@@ -898,7 +895,7 @@
 /datum/reagent/mental/hextrasenil
 	name = "Hextrasenil"
 	id = "hextrasenil"
-	description = "Hextrasenil is a super-strength, fast-metabolizing, expensive antipsychotic medication intended for the use in criminal rehabilitation that treats tourettes, schizophrenia, hallucinations, and loyalty issues. Side effects include undying loyalty to NanoTrasen and respect for authority. Withdrawl effects include undying hatred towards NanoTrasen."
+	description = "Hextrasenil is a super-strength, fast-metabolizing, expensive antipsychotic medication intended for the use in criminal rehabilitation that treats, schizophrenia, hallucinations, and loyalty issues. Side effects include undying loyalty to NanoTrasen and respect for authority. Withdrawl effects include undying hatred towards NanoTrasen."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.04 //Not meant to last a long time.
@@ -910,7 +907,6 @@
 	suppress_traumas  = list(
 		/datum/brain_trauma/severe/split_personality = 5, //Gotta remove those enemies to nanotrasen.
 		/datum/brain_trauma/special/imaginary_friend = 5,
-		/datum/brain_trauma/mild/tourettes = 5
 	)
 	dosage_traumas = list(
 		/datum/brain_trauma/severe/pacifism = 25
@@ -945,9 +941,7 @@
 	goodmessage = list("You feel like you have nothing to hide.","You feel compelled to spill your secrets.","You feel like you can trust those around you.")
 	badmessage = list()
 	worstmessage = list()
-	suppress_traumas  = list(
-		/datum/brain_trauma/mild/tourettes = 1
-	)
+	suppress_traumas  = list()
 	dosage_traumas = list(
 		/datum/brain_trauma/severe/pacifism = 25
 	)

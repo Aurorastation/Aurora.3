@@ -84,14 +84,6 @@
 	New()
 		block=CLUMSYBLOCK
 
-/datum/dna/gene/disability/tourettes
-	name="Tourettes"
-	activation_message="You twitch."
-	disability=TOURETTES
-
-	New()
-		block=TWITCHBLOCK
-
 /datum/dna/gene/disability/nervousness
 	name="Nervousness"
 	activation_message="You feel nervous."
