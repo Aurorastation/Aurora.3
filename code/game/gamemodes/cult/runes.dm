@@ -257,8 +257,6 @@ var/list/sacrificed = list()
 		user.whisper("Ta'gh fara[pick("'","`")]qha fel d'amar det!")
 	playsound(U, 'sound/magic/Disable_Tech.ogg', 25, 1)
 	var/turf/T = get_turf(U)
-	if(T)
-		T.hotspot_expose(700,125)
 	var/rune = src // detaching the proc - in theory
 	empulse(U, (range_red - 2), range_red)
 	qdel(rune)
