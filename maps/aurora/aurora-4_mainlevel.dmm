@@ -62805,11 +62805,11 @@
 	icon_state = "1-4"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
 	},
+/obj/machinery/door/firedoor/multi_tile,
 /turf/simulated/floor/tiled/dark,
 /area/security/main)
 "cmG" = (
@@ -62823,7 +62823,6 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 6
@@ -96816,10 +96815,10 @@ aja
 cmK
 cmT
 cmK
-crc
-crf
-crh
-crj
+crb
+crb
+crb
+crb
 asw
 auk
 avI
@@ -97076,7 +97075,7 @@ cnd
 cnk
 cnr
 cnz
-crk
+crb
 asx
 auk
 avJ
@@ -97329,10 +97328,10 @@ cmy
 cmF
 cmM
 cmV
-cra
-crd
-crg
-cri
+cqZ
+cqZ
+cqZ
+cqZ
 cnJ
 asy
 aul
@@ -97847,7 +97846,7 @@ cnf
 cnm
 cnt
 cnB
-crl
+crb
 asA
 aum
 avK
@@ -98104,7 +98103,7 @@ cng
 cnn
 cnu
 cnC
-crm
+crb
 asB
 aun
 avM
@@ -99129,10 +99128,10 @@ afe
 afe
 afe
 crb
-cre
+crb
 cny
 cnG
-crn
+crb
 asF
 aun
 avM
