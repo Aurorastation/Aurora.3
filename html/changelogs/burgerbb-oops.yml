@@ -3,5 +3,5 @@ author: BurgerBB
 delete-after: True
 
 changes: 
-  - bugfix: "Fixed breath analyzers not working. Fixed inhalers not playing their proper injection sounds. Fixed BLT recipe."
+  - bugfix: "Fixed breath analyzers not working. Fixed inhalers not playing their proper injection sounds. Fixed BLT recipe. Fixed a misplaced tile in Hydroponics."
   - tweak: "Tweaked the weight of the inhalers to match their size and sprite. Added more information to inhaler cartridges when examining them. Made inhalers more user-friendly."
