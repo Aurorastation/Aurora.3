@@ -395,7 +395,6 @@ BREATH ANALYZER
 	user.visible_message("\The [user] scans \the [target] with \the [src]")
 	user.show_message("Price estimation of \the [target]: [value ? value : "N/A"] Credits")
 
-
 /obj/item/device/breath_analyzer
 	name = "breath analyzer"
 	desc = "A hand-held breath analyzer that provides a robust amount of information about the subject's repository system."
@@ -452,10 +451,22 @@ BREATH ANALYZER
 		to_chat(user,"<span class='danger'>Alert: No breathing detected.</span>")
 		return
 
-	to_chat(user,H.getOxyLoss() > 50 ? "<font color='blue'><b>Severe oxygen deprivation detected.</b></font>" : "Subject oxygen levels normal.")
+	switch(H.getOxyLoss())
+		if(0 to 25)
+			to_chat(user,"Subject oxygen levels nominal.")
+		if(25 to 50)
+			to_chat(user,"<font color='blue'>Subject oxygen levels abnormal.</font>")
+		if(50 to INFINITY)
+			to_chat(user,"<font color='blue'><b>Severe oxygen deprivation detected.</b></font>")
+
 	var/obj/item/organ/L = H.internal_organs_by_name["lungs"]
 	if(istype(L))
-		to_chat(user,L.is_bruised() ? "<font color='red'><b>Ruptured lung detected.</b></font>" : "Subject lung health normal.")
+		if(L.is_bruised())
+			to_chat(user,"<font color='red'><b>Ruptured lung detected.</b></font>")
+		else if(L.is_damaged())
+			to_chat(user,"<b>Damaged lung detected.</b>")
+		else
+			to_chat(user,"Subject lung health nominal.")
 	else
 		to_chat(user,"<span class='warning'>Subject lung health unknown.</span>")
 
