@@ -4,7 +4,6 @@ var/list/sacrificed = list()
 	return
 
 /obj/effect/rune
-
 /*
  * Use as a general guideline for this and related files:
  *  * <span class='warning'>...</span> - when something non-trivial or an error happens, so something similar to "Sparks come out of the machine!"
@@ -297,7 +296,6 @@ var/list/sacrificed = list()
 		if((world.timeofday - time) >= EMPDEBUG)
 			log_and_message_admins("EMPDEBUG: [T.name] - [T.type] - took [world.timeofday - time]ds to process emp_act()!")
 		#endif
-	return 1
 	qdel(rune)
 	return
 
