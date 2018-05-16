@@ -7,6 +7,10 @@
 	w_class = ITEMSIZE_NORMAL
 	var/used = 0
 	var/obj/item/weapon/tank/internal_tank
+	
+/obj/item/airbubble/Destroy()
+	qdel(internal_tank)
+	return ..()
 
 /obj/item/airbubble/attack_self(mob/user)
 	var/obj/structure/closet/airbubble/R = new /obj/structure/closet/airbubble(user.loc)
