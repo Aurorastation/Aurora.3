@@ -19,11 +19,9 @@
 	hud_state = "wiz_tech"
 
 /spell/aoe_turf/disable_tech/cast(list/targets, mob/user)
-	var/list/ex = list()
-	ex += user
 
 	for(var/turf/target in targets)
-		empulse(get_turf(target), emp_heavy, emp_light, log = TRUE, exclude = ex)
+		empulse(get_turf(target), emp_heavy, emp_light, log = TRUE, exclude = list(user))
 	return
 
 /spell/aoe_turf/disable_tech/empower_spell()
