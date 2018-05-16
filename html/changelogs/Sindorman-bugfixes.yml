@@ -2,5 +2,5 @@ author: PoZe
 
 delete-after: True
 
-changes: 
-  - bugfix: "Wizard disable technology no longer affects caster(wizard), making wizard IPC not take damage. It does still damage other wizard IPC, who is not caster."
+changes:
+  - bugfix: "Wizard disable technology spell no longer affects the caster."
