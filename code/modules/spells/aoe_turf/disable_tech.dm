@@ -10,7 +10,7 @@
 	range = 0
 	inner_radius = -1
 	cast_sound = 'sound/magic/Disable_Tech.ogg'
-	
+
 	cooldown_min = 200 //50 deciseconds reduction per rank
 
 	var/emp_heavy = 3
@@ -18,10 +18,12 @@
 
 	hud_state = "wiz_tech"
 
-/spell/aoe_turf/disable_tech/cast(list/targets)
+/spell/aoe_turf/disable_tech/cast(list/targets, mob/user)
+	var/list/ex = list()
+	ex += user
 
 	for(var/turf/target in targets)
-		empulse(get_turf(target), emp_heavy, emp_light)
+		empulse_exclusive(get_turf(target), emp_heavy, emp_light, TRUE, ex)
 	return
 
 /spell/aoe_turf/disable_tech/empower_spell()
