@@ -76,6 +76,7 @@
 
 /obj/structure/closet/airbubble/Destroy()
 	STOP_PROCESSING(SSfast_process, src)
+	qdel(internal_tank)
 	if(parts)
 		new parts(loc)
 	if (smooth)
