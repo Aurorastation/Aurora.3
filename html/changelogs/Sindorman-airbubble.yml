@@ -1,0 +1,7 @@
+author: Code - PoZe, Sprites - DronzTheWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds airbubble(oxyball) into the game. It is used to protect user inside from decompressed environment for 30 minutes. Has an air tank attached to it that can be replaced."
+  - rscadd: "Adds airbubble to every emergency locker"
