@@ -52,14 +52,14 @@
 	user.do_attack_animation(M)
 
 	if(user == M)
-		user.visible_message("<span class='notice'>[user] injects themselves with the [src]</span>","<span class='notice'>You stick the [src] in your mouth and press the injection button</span>")
+		user.visible_message("<span class='notice'>[user] injects themselves with the [src]</span>","<span class='notice'>You stick the [src] in your mouth and press the injection button.</span>")
 	else
 		user.visible_message("<span class='warning'>[user] attempts to administer \the [src] to [M]...</span>","<span class='notice'>You attempt to administer \the [src] to [M]...</span>")
 		if (!do_after(user, 1 SECONDS, act_target = M))
 			to_chat(user,"<span class='notice'>You and the target need to be standing still in order to inject \the [src].</span>")
 			return
 
-		user.visible_message("<span class='notice'>[user] injects [M] with the [src].</span>","<span class='notice'>You stick the [src] in [M]'s mouth and press the injection button</span>")
+		user.visible_message("<span class='notice'>[user] injects [M] with the [src].</span>","<span class='notice'>You stick the [src] in [M]'s mouth and press the injection button.</span>")
 
 	if(M.reagents)
 		var/contained = reagentlist()
