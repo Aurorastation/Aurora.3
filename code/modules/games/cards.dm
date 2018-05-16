@@ -8,6 +8,9 @@
 	icon = 'icons/obj/playing_cards.dmi'
 	var/list/cards = list()
 
+/obj/item/weapon/deck/proc/generate_deck() //the procs that creates the cards
+	return
+
 /obj/item/weapon/deck/holder
 	name = "card box"
 	desc = "A small leather case to show how classy you are compared to everyone else."
@@ -18,9 +21,11 @@
 	desc = "A simple deck of playing cards."
 	icon_state = "deck"
 
-/obj/item/weapon/deck/cards/New()
+/obj/item/weapon/deck/New()
 	..()
+	generate_deck()
 
+/obj/item/weapon/deck/cards/generate_deck()
 	var/datum/playingcard/P
 	for(var/suit in list("spades","clubs","diamonds","hearts"))
 
