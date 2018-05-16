@@ -2214,7 +2214,7 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 	update_icon()
 
 	if(!do_after(user,2 MINUTES))
-		to_chat(user, "<span class='warning'>You concentration is broken!</span>")
+		to_chat(user, "<span class='warning'>Your concentration is broken!</span>")
 		working = FALSE
 		update_icon()
 		return

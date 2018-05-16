@@ -21,8 +21,8 @@
 	desc = "A simple deck of playing cards."
 	icon_state = "deck"
 
-/obj/item/weapon/deck/New()
-	..()
+/obj/item/weapon/deck/Initialize()
+	. = ..()
 	generate_deck()
 
 /obj/item/weapon/deck/cards/generate_deck()
