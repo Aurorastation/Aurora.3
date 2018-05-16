@@ -4,7 +4,7 @@
 
 // #define EMPDEBUG 10
 
-proc/empulse(turf/epicenter, heavy_range, light_range, list/exclude, log=FALSE)
+proc/empulse(turf/epicenter, heavy_range, light_range, log=FALSE, list/exclude=null)
 	if(!epicenter) return
 
 	if(!istype(epicenter, /turf))
@@ -45,6 +45,6 @@ proc/empulse(turf/epicenter, heavy_range, light_range, list/exclude, log=FALSE)
 			A.emp_act(2)
 		#ifdef EMPDEBUG
 		if((world.timeofday - time) >= EMPDEBUG)
-			log_and_message_admins("EMPDEBUG: [epicenter.name] - [epicenter.type] - took [world.timeofday - time]ds to process emp_act()!")
+			log_and_message_admins("EMPDEBUG: [A.name] - [A.type] - took [world.timeofday - time]ds to process emp_act()!")
 		#endif
 	return 1

@@ -23,7 +23,7 @@
 	ex += user
 
 	for(var/turf/target in targets)
-		empulse(get_turf(target), emp_heavy, emp_light, ex, TRUE)
+		empulse(get_turf(target), emp_heavy, emp_light, log = TRUE, exclude = ex)
 	return
 
 /spell/aoe_turf/disable_tech/empower_spell()
