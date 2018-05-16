@@ -59492,6 +59492,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/item/weapon/landmine,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cdS" = (
@@ -59810,6 +59811,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/item/weapon/landmine,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cev" = (
@@ -60253,6 +60255,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/item/weapon/landmine,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cfp" = (
@@ -89838,8 +89841,8 @@ cox
 coI
 coU
 cpd
-cpo
-cpz
+cpd
+cpd
 cpJ
 bWm
 bWm
@@ -90032,7 +90035,7 @@ axf
 axf
 axf
 aaV
-cnR
+clx
 aHl
 aHl
 aHl
@@ -90095,8 +90098,8 @@ coy
 coJ
 coV
 cpe
-cpp
-cpA
+cpd
+cpd
 cpK
 bWm
 bWH
@@ -90352,9 +90355,9 @@ coz
 coK
 coW
 cpf
-cpq
-cpB
-cpL
+cpd
+cpd
+cpd
 bWm
 bWI
 bWW
@@ -90864,10 +90867,10 @@ cob
 coo
 coB
 coM
-coY
-cph
-cps
-cpD
+coR
+coR
+coR
+coR
 cpN
 bWm
 cpW
@@ -91118,7 +91121,7 @@ bQB
 bMD
 bRL
 coc
-cop
+coo
 coC
 bSO
 bSO
@@ -91375,7 +91378,7 @@ bOY
 bRc
 bRL
 cod
-coq
+coo
 bSL
 coN
 bSL
@@ -92153,7 +92156,7 @@ bVt
 bVt
 bVt
 cpG
-cpS
+coR
 bWm
 cpZ
 cqb
@@ -92403,13 +92406,13 @@ bQb
 bRg
 bPH
 coh
-cou
+cot
 coF
 coR
-cpa
-cpl
+coR
+coR
 cpw
-cpH
+coR
 cpT
 bWm
 bXd
@@ -92659,14 +92662,14 @@ bQc
 bMD
 bMD
 bPH
-coi
-cov
+cog
+cot
 coG
 coS
-cpb
-cpm
-cpx
-cpI
+coS
+coS
+coS
+coS
 cpU
 bWm
 bXe
@@ -95929,7 +95932,7 @@ aaV
 aiY
 aaV
 ahr
-cmR
+clx
 ahr
 aaV
 aoF
@@ -96701,7 +96704,7 @@ aja
 aja
 cmJ
 cmS
-cnb
+cmJ
 aja
 aja
 aja
@@ -97210,7 +97213,7 @@ clO
 clU
 cmb
 cmj
-cmr
+cmj
 cmx
 cmE
 cmL
@@ -97467,7 +97470,7 @@ abC
 clV
 cmc
 cmk
-cms
+cmk
 cmy
 cmF
 cmM
@@ -98247,7 +98250,7 @@ cng
 cnn
 cnu
 cnC
-cnK
+cmJ
 asC
 auo
 avN
@@ -98501,8 +98504,8 @@ cmH
 cmP
 cmZ
 cnh
-cno
-cnv
+cnh
+cnh
 cnD
 cnL
 cnP
@@ -98747,12 +98750,12 @@ aaV
 adY
 clB
 aaV
-clJ
+clI
 clR
 clZ
 cmh
 cmo
-cmw
+cmh
 cmC
 aja
 cmQ
@@ -98761,7 +98764,7 @@ cni
 cnp
 cnw
 cnE
-cnM
+cmJ
 asE
 aup
 avK
