@@ -2139,7 +2139,7 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 		return
 
 	else
-		usr.visible_message("<span class='notice'>With a flick of \the [usr]'s wrists and a close of \his fingers, the small flames are extinguished.</span>")
+		usr.visible_message("<span class='notice'>With the flick of \the [user] wrists and the pinch of \his fingers, the glove's flames are extinguished.</span>")
 		lit = FALSE
 		playsound(src.loc, 'sound/items/lighter_off.ogg', 75, 1)
 		update_icon()
