@@ -10,12 +10,6 @@
 
 	var/cart_icon = "janicart"
 
-/obj/item/weapon/key/janicart
-	name = "key"
-	desc = "A keyring with a small steel key, and a pink fob reading \"Pussy Wagon\"."
-	icon = 'icons/obj/vehicles.dmi'
-	icon_state = "keys"
-	w_class = 1
 
 /obj/vehicle/train/cargo/engine/pussywagon/Initialize()
 	. = ..()

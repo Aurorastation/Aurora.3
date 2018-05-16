@@ -636,12 +636,6 @@
 /obj/vehicle/train/cargo/trolley/mining/Move(var/turf/destination)
 	return ((locate(/obj/structure/track) in destination)) ? ..() : FALSE
 
-/obj/item/weapon/key/minecarts
-	name = "key"
-	desc = "A keyring with a small steel key, and a pickaxe shaped fob."
-	icon = 'icons/obj/vehicles.dmi'
-	icon_state = "mine_keys"
-	w_class = 1
 
 /**********************Pinpointer**********************/
 

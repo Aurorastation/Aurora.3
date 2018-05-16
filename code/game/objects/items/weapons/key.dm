@@ -9,15 +9,17 @@
 	var/obj/item/weapon/keyfob/has_keyfob = null
 	w_class = 1
 
-/obj/item/weapon/key/attackby(var/obj/item/A, mob/user)
-	if(istype(A, /obj/item/weapon/keyfob))
-		if(has_keyfob)
-			return
-		to_chat(user, "<span class='notice'>You add the [has_keyfob.name] to the keyring.</span>")
-		user.drop_from_inventory(A)
-		A.forceMove(src)
-		has_keyfob = A
-		add_keyfob(A)
+/obj/item/weapon/key/attackby(var/obj/item/weapon/keyfob/A, mob/user)
+	if(!istype(A))
+		return
+	else if(has_keyfob)
+		to_chat(user, "<span class='warning'>The keyring already has a keyfob!</span>")
+		return
+	to_chat(user, "<span class='notice'>You add the [has_keyfob.name] to the keyring.</span>")
+	user.drop_from_inventory(A)
+	A.forceMove(src)
+	has_keyfob = A
+	add_keyfob(A)
 
 /obj/item/weapon/key/attack_self(mob/user)
 	if(has_keyfob)
