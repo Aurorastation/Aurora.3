@@ -7,7 +7,7 @@
 	w_class = ITEMSIZE_NORMAL
 	var/used = 0
 	var/obj/item/weapon/tank/internal_tank
-	
+
 /obj/item/airbubble/Destroy()
 	qdel(internal_tank)
 	return ..()
@@ -354,7 +354,7 @@
 			if(opened)	return 0
 			if(contents.len > 1)	return 0
 			visible_message("[usr] folds up the [src.name]")
-			var/obj/item/airbubble/bag = new /obj/item/airbubble(get_turf(src))
+			var/obj/item/airbubble/bag = new /obj/item/airbubble/syndie(get_turf(src))
 			bag.internal_tank = internal_tank
 			internal_tank.forceMove(bag)
 			internal_tank = null
