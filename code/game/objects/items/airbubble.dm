@@ -50,11 +50,12 @@
 	return 1
 
 /obj/structure/closet/airbubble/can_close()
-	for(var/obj/structure/closet/closet in get_turf(src))
+	var/turf/T = get_turf(src)
+	for(var/obj/structure/closet/closet in T)
 		if(closet != src)
 			return 0
 	var/mob_num = 0
-	for(var/mob/living/M in loc)
+	for(var/mob/living/M in T)
 		mob_num += 1
 		if(mob_num > 1)
 			visible_message("<span class='warning'>[src] can only fit one person.</span>")
@@ -124,6 +125,7 @@
 			internal_tank = null
 			bag.w_class = ITEMSIZE_LARGE
 			bag.icon_state = "airbubble_man_folded"
+			bag.desc = "Special air bubble designed to protect people inside of it from decompressed enviroments. It appears to be poorly hand folded."
 			qdel(src)
 			return
 
@@ -360,6 +362,7 @@
 			internal_tank = null
 			bag.w_class = ITEMSIZE_LARGE
 			bag.icon_state = "airbubble_syndie_man_folded"
+			bag.desc = "Special air bubble designed to protect people inside of it from decompressed enviroments.This does not seem like a regular color scheme. It appears to be poorly hand folded."
 			qdel(src)
 			return
 
