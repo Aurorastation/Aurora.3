@@ -624,7 +624,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	bodytype = "Vaurca"
 	age_min = 1
 	age_max = 20
-	economic_modifier = 1
+	economic_modifier = 2
 	language = LANGUAGE_VAURCA
 	primitive_form = "V'krexi"
 	greater_form = "Vaurca Warrior"
