@@ -5,4 +5,3 @@ changes:
   - balance: "Blinding sources are significantly increased in duration."
   - rscdel: "Direct flashes no longer stun those who are -not- sentient trees, robots, or bugpeople."
   - tweak: "Changed how flash break mechanics work. Crappy budget NT tech is more likely to break from overuse."
-  - tweak: "The security cyborg now sustains for longer with consistent use of the stun baton."
