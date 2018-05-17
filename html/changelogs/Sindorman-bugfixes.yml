@@ -1,0 +1,6 @@
+author: PoZe
+
+delete-after: True
+
+changes:
+  - bugfix: "Wizard disable technology spell no longer affects the caster."
