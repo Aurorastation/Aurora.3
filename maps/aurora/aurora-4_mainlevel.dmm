@@ -64691,6 +64691,15 @@
 "cqY" = (
 /turf/simulated/wall,
 /area/crew_quarters/sleep/cryo)
+"cqZ" = (
+/obj/structure/table/steel,
+/obj/item/weapon/screwdriver{
+	pixel_y = 16
+	},
+/obj/item/weapon/crowbar,
+/obj/item/weapon/wrench,
+/turf/simulated/floor/tiled/dark,
+/area/janitor)
 
 (1,1,1) = {"
 aaa
@@ -80756,7 +80765,7 @@ bbZ
 bdv
 beJ
 beJ
-cog
+cqZ
 bbZ
 cog
 aKi
