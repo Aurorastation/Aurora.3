@@ -464,11 +464,14 @@
 
 	H.adjustHalLoss(remainder*0.25)
 	H.updatehealth()
+	if((H.halloss >= 10) && prob(H.halloss*2))
+		H.flash_pain()
 
 	if ((H.halloss + H.oxyloss) >= (exhaust_threshold * 0.8))
 		H.m_intent = "walk"
 		H.hud_used.move_intent.update_move_icon(H)
 		H << span("danger", "You're too exhausted to run anymore!")
+		H.flash_pain()
 		return 0
 
 	H.hud_used.move_intent.update_move_icon(H)

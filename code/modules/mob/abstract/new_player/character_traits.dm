@@ -60,5 +60,8 @@
 	name = "Asthma"
 	desc = "You are prone to inflammation in the lungs."
 
-/datum/character_disabilities/deaf/apply_self(var/mob/living/carbon/human/H)
+/datum/character_disabilities/asthma/apply_self(var/mob/living/carbon/human/H)
 	H.disabilities |= ASTHMA
+	if(H.max_stamina)
+		H.max_stamina *= 0.8
+		H.stamina = H.max_stamina
