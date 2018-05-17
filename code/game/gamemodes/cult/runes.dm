@@ -258,44 +258,13 @@ var/list/sacrificed = list()
 	var/turf/T = get_turf(U)
 	var/rune = src // detaching the proc - in theory
 
-	// Code taken and modifed from empulse.dm
-	if(!T) return
-
-	if(range_red > 1)
-		var/obj/effect/overlay/pulse = new /obj/effect/overlay(T)
-		pulse.icon = 'icons/effects/effects.dmi'
-		pulse.icon_state = "emppulse"
-		pulse.name = "emp pulse"
-		pulse.anchored = 1
-		QDEL_IN(pulse, 20)
-
-	for(var/mob/M in range(range_red - 2, T))
-		M << 'sound/effects/EMPulse.ogg'
-
-	for(var/atom/A in range(range_red, T))
-		#ifdef EMPDEBUG
-		var/time = world.timeofday
-		#endif
-		if(ismob(A))
-			var/mob/B = A
-			if(isipc(B) && iscultist(B))
-				continue
-		var/distance = get_dist(T, A)
-		if(distance < 0)
-			distance = 0
-		if(distance < range_red - 2)
-			A.emp_act(1)
-		else if(distance == range_red - 2)
-			if(prob(50))
-				A.emp_act(1)
-			else
-				A.emp_act(2)
-		else if(distance <= range_red)
-			A.emp_act(2)
-		#ifdef EMPDEBUG
-		if((world.timeofday - time) >= EMPDEBUG)
-			log_and_message_admins("EMPDEBUG: [T.name] - [T.type] - took [world.timeofday - time]ds to process emp_act()!")
-		#endif
+	var/list/ex = list(user) // exclude caster
+	for(var/mob/M in range(range_red, T))
+		if(isipc(M) && iscultist(M))
+			ex += M
+		else
+			continue
+	empulse(T, range_red - 2, range_red, exclude = ex)
 	qdel(rune)
 	return
 
