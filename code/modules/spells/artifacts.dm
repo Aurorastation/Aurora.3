@@ -15,7 +15,7 @@
 /obj/item/weapon/scrying/pickup(mob/living/user as mob)
 	if(!user.is_wizard())
 		user << "<span class='warning'>As you pick up \the [src], you glimse into its depths. Your vision spins and you feel sick, even as you look away quickly. You don't think looking closer would be a good idea...</span>"
-		user.make_dizzy(100)
+		user.make_dizzy(120)
 
 /obj/item/weapon/scrying/attack_self(mob/living/user as mob)
 	if(!user.is_wizard())
@@ -147,8 +147,8 @@
 /obj/item/phylactery/Initialize()
 	. = ..()
 	world_phylactery += src
-	create_reagents(120)
-	reagents.add_reagent("undead_ichor", 120)
+	create_reagents(0)
+	reagents.add_reagent("undead_ichor", 0)
 
 /obj/item/phylactery/Destroy()
 	lich << "<span class='danger'>Your phylactery was destroyed, your soul is cast into the abyss as your immortality vanishes away!</span>"
@@ -187,7 +187,7 @@
 	w_class = 2
 	var/datum/weakref/target = null
 	var/countenance = null //what species does it looks like?
-	var/cooldown_time = 120
+	var/cooldown_time = 0
 	var/cooldown = 0
 
 /obj/item/poppet/Destroy()

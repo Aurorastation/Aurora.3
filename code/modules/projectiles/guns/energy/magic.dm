@@ -24,7 +24,7 @@
 /obj/item/weapon/gun/energy/staff/pickup(mob/living/user as mob)
 	if(!user.is_wizard())
 		user << "<span class='warning'>When you pick up \the [src], you can feel it humming unsettlingly through your limbs. You don't think you should try and use this...</span>"
-		user.make_dizzy(100)
+		user.make_dizzy(120)
 
 obj/item/weapon/gun/energy/staff/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
@@ -79,7 +79,7 @@ obj/item/weapon/gun/energy/staff/special_check(var/mob/living/user)
 /obj/item/weapon/gun/energy/staff/animate/pickup(mob/living/user as mob)
 	if(!user.is_wizard())
 		user << "<span class='warning'>When you pick up \the [src], you feel your your limbs crawling. You don't think you should try and use this...</span>"
-		user.make_dizzy(100)
+		user.make_dizzy(120)
 
 obj/item/weapon/gun/energy/staff/animate/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
@@ -120,7 +120,7 @@ obj/item/weapon/gun/energy/staff/focus
 /obj/item/weapon/gun/energy/staff/focus/pickup(mob/living/user as mob)
 	if(!user.is_wizard())
 		user << "<span class='warning'>When you pick up \the [src], you can feel it thumping unnervingly in your grip. You don't think you should try and use this...</span>"
-		user.make_dizzy(100)
+		user.make_dizzy(120)
 
 obj/item/weapon/gun/energy/staff/focus/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
@@ -158,7 +158,7 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 /obj/item/weapon/gun/energy/staff/chaos/pickup(mob/living/user as mob)
 	if(!user.is_wizard())
 		user << "<span class='warning'>When you pick up \the [src], you can feel an erratic buzzing rushing through your limbs. You don't think you should try and use this...</span>"
-		user.make_dizzy(100)
+		user.make_dizzy(120)
 
 /obj/item/weapon/gun/energy/staff/chaos
 	name = "staff of chaos"
@@ -246,7 +246,7 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 /obj/item/weapon/gun/energy/wand/fire/pickup(mob/living/user as mob)
 	if(!user.is_wizard())
 		user << "<span class='warning'>When you pick up \the [src], you can feel alarming pulses of heat rushing up your arms. You don't think you should try and use this...</span>"
-		user.make_dizzy(100)
+		user.make_dizzy(120)
 
 /obj/item/weapon/gun/energy/wand/fire/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
@@ -278,7 +278,7 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 /obj/item/weapon/gun/energy/wand/polymorph/pickup(mob/living/user as mob)
 	if(!user.is_wizard())
 		user << "<span class='warning'>When you pick up \the [src], you can feel your limbs starting to twist and change. You don't think you should try and use this...</span>"
-		user.make_dizzy(100)
+		user.make_dizzy(120)
 
 /obj/item/weapon/gun/energy/wand/polymorph/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
@@ -309,7 +309,7 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 /obj/item/weapon/gun/energy/wand/teleport/pickup(mob/living/user as mob)
 	if(!user.is_wizard())
 		user << "<span class='warning'>When you pick up \the [src], the world around you starts to flicker and distort. You don't think you should try and use this...</span>"
-		user.make_dizzy(100)
+		user.make_dizzy(120)
 
 /obj/item/weapon/gun/energy/wand/teleport/special_check(var/mob/living/user) //todo: think of something else for this
 	if(HULK in user.mutations)
@@ -350,7 +350,7 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 /obj/item/weapon/gun/energy/wand/force/pickup(mob/living/user as mob)
 	if(!user.is_wizard())
 		user << "<span class='warning'>When you pick up \the [src], it makes your arm thump unpleasantly. You don't think you should try and use this...</span>"
-		user.make_dizzy(100)
+		user.make_dizzy(120)
 
 /obj/item/weapon/gun/energy/wand/force/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
@@ -381,7 +381,7 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 /obj/item/weapon/gun/energy/wand/teleport/pickup(mob/living/user as mob)
 	if(!user.is_wizard())
 		user << "<span class='warning'>When you pick up \the [src], you can feel it vibrating menacingly in your grasp. You don't think you should try and use this...</span>"
-		user.make_dizzy(100)
+		user.make_dizzy(120)
 
 /obj/item/weapon/gun/energy/wand/animation/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
