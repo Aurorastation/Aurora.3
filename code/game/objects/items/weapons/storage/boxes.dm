@@ -982,3 +982,27 @@
 /obj/item/weapon/storage/box/stims/fill()
 	for(var/i in 1 to 4)
 		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/stimpack(src)
+
+/obj/item/weapon/storage/box/inhalers
+	name = "inhaler kit"
+	desc = "A box filled with several inhalers and empty inhaler cartridges."
+	icon_state = "box_inhalers"
+
+/obj/item/weapon/storage/box/inhalers/fill()
+	for(var/i in 1 to 2)
+		new /obj/item/weapon/personal_inhaler(src)
+
+	for(var/i in 1 to 6)
+		new /obj/item/weapon/reagent_containers/personal_inhaler_cartridge(src)
+
+/obj/item/weapon/storage/box/inhalers_large
+	name = "combat inhaler kit"
+	desc = "A box filled with a combat inhaler and several large empty inhaler cartridges."
+	icon_state = "box_inhalers"
+
+/obj/item/weapon/storage/box/inhalers_large/fill()
+
+	new /obj/item/weapon/personal_inhaler/combat(src)
+
+	for(var/i in 1 to 6)
+		new /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large(src)
