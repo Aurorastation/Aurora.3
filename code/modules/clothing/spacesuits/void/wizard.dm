@@ -19,7 +19,7 @@
 		var/obj/item/organ/external/LH = H.get_organ("l_hand")
 		var/obj/item/organ/external/RH = H.get_organ("r_hand")
 		var/active_hand = H.hand
-		user << "<span class='warning'>As you pick it up, \the [src] flashes, and you feel a searing pain through your hand! You think you really should put this down as soon as you can!</span>"
+		user << "<span class='warning'>As you pick it up, \the [src] flashes, and you feel a searing pain through your hand! You should put this down as soon as you can!</span>"
 		playsound(user, 'sound/effects/sparks4.ogg', 40, 1)
 		if(active_hand)
 			LH.take_damage(15)
@@ -34,7 +34,7 @@
 		return 0
 
 	if(!M.is_wizard())
-		M << "<span class='danger'>As you try to put on \the [src], the gems studding it suddenly grow to spikes, stabbing into your head and neck until you drop it!</span>"
+		M << "<span class='danger'>As you try to put on \the [src], the gems studding it suddenly grow to spikes, stabbing into your head and neck until you yank it off and drop it!</span>"
 		M.apply_damage(30, BRUTE, "head")
 		playsound(M, 'sound/effects/splut.ogg', 40, 1)
 		M.drop_item()
@@ -64,7 +64,7 @@
 		var/obj/item/organ/external/LH = H.get_organ("l_hand")
 		var/obj/item/organ/external/RH = H.get_organ("r_hand")
 		var/active_hand = H.hand
-		user << "<span class='warning'>As you pick it up, \the [src] flashes, and you feel a searing pain through your hand! You think you really should put this down as soon as you can!</span>"
+		user << "<span class='warning'>As you pick it up, \the [src] flashes, and you feel a searing pain through your hand! You should put this down as soon as you can!</span>"
 		playsound(user, 'sound/effects/sparks4.ogg', 40, 1)
 		if(active_hand)
 			LH.take_damage(15)
@@ -79,7 +79,7 @@
 		return 0
 
 	if(!M.is_wizard())
-		M << "<span class='danger'>As you try to put on \the [src], the gems studding it suddenly grow to spikes, stabbing into your body until you drop it!</span>"
+		M << "<span class='danger'>As you try to put on \the [src], the gems studding it suddenly grow to spikes, stabbing into your body until you yank it off and drop it!</span>"
 		M.apply_damage(30, BRUTE, "chest")
 		playsound(M, 'sound/effects/splut.ogg', 40, 1)
 		M.drop_item()
