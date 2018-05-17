@@ -25,6 +25,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		return (F.lit)
 	else if(istype(A, /obj/item/device/assembly/igniter))
 		return 1
+	else if(istype(A, /obj/item/clothing/gloves/fluff/lunea_gloves))
+		var/obj/item/clothing/gloves/fluff/lunea_gloves/F = A
+		return (F.lit)
 	return 0
 
 ///////////
