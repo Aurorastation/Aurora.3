@@ -19,17 +19,26 @@
 		var/obj/item/organ/external/LH = H.get_organ("l_hand")
 		var/obj/item/organ/external/RH = H.get_organ("r_hand")
 		var/active_hand = H.hand
-		user << "<span class='warning'>Your hand passes through the [src] with a flash of searing heat!</span>"
+		user << "<span class='warning'>As you pick it up, \the [src] flashes, and you feel a searing pain through your hand! You think you really should put this down as soon as you can!</span>"
 		playsound(user, 'sound/effects/sparks4.ogg', 40, 1)
-		user.drop_item()
 		if(active_hand)
-			LH.droplimb(0,DROPLIMB_BURN)
+			LH.take_damage(15)
 		else
-			RH.droplimb(0,DROPLIMB_BURN)
+			RH.take_damage(15)
 		return
 	else
 		..()
 
+/obj/item/clothing/head/helmet/space/void/wizard/mob_can_equip(mob/living/carbon/human/M, slot)
+	if (!..())
+		return 0
+
+	if(!M.is_wizard())
+		M << "<span class='danger'>As you try to put on \the [src], the gems studding it suddenly grow to spikes, stabbing into your head and neck until you drop it!</span>"
+		M.apply_damage(30, BRUTE, "head")
+		playsound(M, 'sound/effects/splut.ogg', 40, 1)
+		M.drop_item()
+		return 0
 
 /obj/item/clothing/suit/space/void/wizard
 	icon_state = "rig-wiz"
@@ -55,14 +64,23 @@
 		var/obj/item/organ/external/LH = H.get_organ("l_hand")
 		var/obj/item/organ/external/RH = H.get_organ("r_hand")
 		var/active_hand = H.hand
-		user << "<span class='warning'>Your hand passes through the [src] with a flash of searing heat!</span>"
+		user << "<span class='warning'>As you pick it up, \the [src] flashes, and you feel a searing pain through your hand! You think you really should put this down as soon as you can!</span>"
 		playsound(user, 'sound/effects/sparks4.ogg', 40, 1)
-		user.drop_item()
 		if(active_hand)
-			LH.droplimb(0,DROPLIMB_BURN)
+			LH.take_damage(15)
 		else
-			RH.droplimb(0,DROPLIMB_BURN)
+			RH.take_damage(15)
 		return
 	else
 		..()
 
+/obj/item/clothing/suit/space/void/wizard/mob_can_equip(mob/living/carbon/human/M, slot)
+	if (!..())
+		return 0
+
+	if(!M.is_wizard())
+		M << "<span class='danger'>As you try to put on \the [src], the gems studding it suddenly grow to spikes, stabbing into your body until you drop it!</span>"
+		M.apply_damage(30, BRUTE, "chest")
+		playsound(M, 'sound/effects/splut.ogg', 40, 1)
+		M.drop_item()
+		return 0

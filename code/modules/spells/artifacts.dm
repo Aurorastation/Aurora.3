@@ -12,6 +12,11 @@
 	force = 10
 	hitsound = 'sound/items/welder2.ogg'
 
+/obj/item/weapon/scrying/pickup(mob/living/user as mob)
+	if(!user.is_wizard())
+		user << "<span class='warning'>As you pick up \the [src], you glimse into its depths. Your vision spins and you feel sick, even as you look away quickly. You don't think looking closer would be a good idea...</span>"
+		user.make_dizzy(100)
+
 /obj/item/weapon/scrying/attack_self(mob/living/user as mob)
 	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
