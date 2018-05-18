@@ -181,10 +181,10 @@
 	desc = "A large mixing bowl."
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "mixingbowl"
-	matter = list("metal" = 300)
+	matter = list(DEFAULT_WALL_MATERIAL = 300)
 	volume = 180
 	amount_per_transfer_from_this = 10
-	possible_transfer_amounts = "5;10;15;25;30;60;180"
+	possible_transfer_amounts = list(5,10,15,25,30,60,180)
 	flags = OPENCONTAINER
 	unacidable = 0
 
