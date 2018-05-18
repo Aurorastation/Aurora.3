@@ -2674,7 +2674,7 @@
 	name = "Bahama Lizard"
 	id = "bahamalizard"
 	result = "bahamalizard"
-	required_reagents = list("xuizijuice" = 2, "orangejuice" = 2, "limejuice" = 1, "ice" = 1)
+	required_reagents = list("xuizijuice" = 2, "lemonjuice" = 2, "cream" = 1, "ice" = 1)
 	result_amount = 6
 
 /datum/chemical_reaction/cactuscreme

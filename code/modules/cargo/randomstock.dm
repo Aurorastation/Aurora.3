@@ -683,6 +683,9 @@ var/list/global/random_stock_large = list(
 			var/list/allgloves = typesof(/obj/item/clothing/gloves)
 
 			var/list/exclusion = list(/obj/item/clothing/gloves,
+			/obj/item/clothing/gloves/fluff,
+			/obj/item/clothing/gloves/black/fluff,
+			/obj/item/clothing/gloves/white/unathi/fluff,
 			/obj/item/clothing/gloves/swat/bst,
 			/obj/item/clothing/gloves/swat/fluff,
 			/obj/item/clothing/gloves/black/fluff,

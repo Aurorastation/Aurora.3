@@ -4979,7 +4979,7 @@
 	nutriment_amt = 0
 	bitesize = 4
 
-/obj/item/weapon/reagent_containers/food/snacks/Initialize()
+/obj/item/weapon/reagent_containers/food/snacks/truffle/Initialize()
 	. = ..()
 	reagents.add_reagent("coco", 4)
 
