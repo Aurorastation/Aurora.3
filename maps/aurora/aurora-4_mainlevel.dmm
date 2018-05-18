@@ -793,6 +793,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"abE" = (
+/obj/structure/bed/chair/office/light,
+/obj/effect/landmark/start{
+	name = "Librarian"
+	},
+/turf/simulated/floor/carpet,
+/area/library)
 "abF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -1698,6 +1705,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/mine/unexplored)
+"adu" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 4
+	},
+/obj/effect/landmark/start{
+	name = "Librarian"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/library)
 "adv" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/cups,
@@ -1748,6 +1764,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"adz" = (
+/obj/structure/bed/chair/office/light{
+	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Librarian"
+	},
+/turf/simulated/floor/carpet,
+/area/library)
 "adA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -63713,15 +63738,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/library)
-"crv" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/library)
 "crw" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -63766,17 +63782,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"crA" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/library)
 "crB" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/wood,
@@ -63926,17 +63931,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"crO" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/library)
 "crP" = (
 /obj/structure/table/standard,
 /obj/machinery/light/small{
@@ -63950,12 +63944,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/library)
-"crR" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/carpet,
-/area/library)
 "crS" = (
 /obj/structure/table/wood,
 /obj/machinery/door/window/westright{
@@ -63963,10 +63951,6 @@
 	req_access = list(37)
 	},
 /turf/simulated/floor/wood,
-/area/library)
-"crT" = (
-/obj/structure/bed/chair/office/light,
-/turf/simulated/floor/carpet,
 /area/library)
 "crU" = (
 /obj/structure/disposalpipe/segment,
@@ -63990,28 +63974,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/library)
-"crX" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/library)
 "crY" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/tiled/dark,
-/area/library)
-"crZ" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
 /area/library)
 "csa" = (
 /obj/structure/table/standard,
@@ -64164,13 +64130,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/library)
-"csu" = (
-/obj/structure/table/wood,
-/obj/machinery/librarypubliccomp{
-	pixel_y = 8
-	},
-/turf/simulated/floor/wood,
-/area/library)
 "csv" = (
 /obj/structure/table/wood,
 /obj/machinery/librarypubliccomp{
@@ -64207,10 +64166,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/library)
-"csy" = (
-/obj/structure/bookcase/libraryspawn/religion,
-/turf/simulated/floor/carpet,
-/area/library)
 "csz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -64219,33 +64174,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/library)
-"csA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/carpet,
-/area/library)
-"csB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/carpet,
-/area/library)
-"csC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/carpet,
 /area/library)
 "csD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -64275,10 +64203,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/library)
-"csG" = (
-/obj/structure/bed/chair/office/light,
-/turf/simulated/floor/wood,
-/area/library)
 "csH" = (
 /obj/structure/bed/chair/office/light,
 /turf/simulated/floor/wood,
@@ -64301,33 +64225,6 @@
 /obj/structure/bookcase/libraryspawn/religion,
 /turf/simulated/floor/carpet,
 /area/library)
-"csL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/wood,
-/area/library)
-"csM" = (
-/obj/structure/bed/chair/office/light,
-/turf/simulated/floor/carpet,
-/area/library)
-"csN" = (
-/obj/structure/table/wood,
-/turf/simulated/floor/carpet,
-/area/library)
-"csO" = (
-/obj/structure/table/wood,
-/turf/simulated/floor/carpet,
-/area/library)
-"csP" = (
-/obj/structure/bed/chair/office/light{
-	dir = 1
-	},
-/turf/simulated/floor/carpet,
-/area/library)
-"csQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/wood,
-/area/library)
 "csR" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -64335,15 +64232,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
-	},
-/turf/simulated/floor/wood,
-/area/library)
-"csS" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/library)
@@ -64388,35 +64276,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood,
 /area/library)
-"csY" = (
-/obj/structure/bed/chair/office/light{
-	dir = 1
-	},
-/turf/simulated/floor/carpet,
-/area/library)
-"csZ" = (
-/obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green,
-/turf/simulated/floor/carpet,
-/area/library)
 "cta" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/carpet,
-/area/library)
-"ctb" = (
-/obj/structure/bed/chair/office/light{
-	dir = 8
-	},
-/turf/simulated/floor/carpet,
-/area/library)
-"ctc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/wood,
-/area/library)
-"ctd" = (
-/obj/structure/bed/chair/office/light{
-	dir = 1
-	},
 /turf/simulated/floor/carpet,
 /area/library)
 "cte" = (
@@ -64439,19 +64300,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood,
 /area/library)
-"cth" = (
-/obj/structure/bed/chair/office/light,
-/turf/simulated/floor/carpet,
-/area/library)
 "cti" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green,
-/turf/simulated/floor/carpet,
-/area/library)
-"ctj" = (
-/obj/structure/bed/chair/office/light{
-	dir = 8
-	},
 /turf/simulated/floor/carpet,
 /area/library)
 "ctk" = (
@@ -64475,10 +64326,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/library)
-"ctm" = (
-/obj/structure/bookcase/libraryspawn/adult,
-/turf/simulated/floor/wood,
-/area/library)
 "ctn" = (
 /obj/structure/bookcase/libraryspawn/adult,
 /turf/simulated/floor/wood,
@@ -64493,32 +64340,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood,
 /area/library)
-"ctp" = (
-/obj/structure/bookcase/libraryspawn/reference,
-/turf/simulated/floor/carpet,
-/area/library)
-"ctq" = (
-/obj/structure/bookcase/libraryspawn/reference,
-/turf/simulated/floor/carpet,
-/area/library)
-"ctr" = (
-/obj/structure/bookcase/libraryspawn/nonfiction,
-/turf/simulated/floor/carpet,
-/area/library)
 "cts" = (
 /obj/structure/bookcase/libraryspawn/nonfiction,
-/turf/simulated/floor/carpet,
-/area/library)
-"ctt" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/turf/simulated/floor/wood,
-/area/library)
-"ctu" = (
-/obj/structure/bed/chair/office/light{
-	dir = 8
-	},
 /turf/simulated/floor/carpet,
 /area/library)
 "ctv" = (
@@ -64526,23 +64349,6 @@
 /obj/item/weapon/storage/pill_bottle/dice/gaming,
 /obj/item/weapon/storage/pill_bottle/dice,
 /turf/simulated/floor/carpet,
-/area/library)
-"ctw" = (
-/obj/structure/bed/chair/office/light{
-	dir = 1
-	},
-/turf/simulated/floor/carpet,
-/area/library)
-"ctx" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
 /area/library)
 "cty" = (
 /obj/structure/table/wood,
@@ -64667,16 +64473,8 @@
 	},
 /turf/simulated/floor/wood,
 /area/library)
-"ctN" = (
-/obj/structure/bookcase/libraryspawn/reference,
-/turf/simulated/floor/carpet,
-/area/library)
 "ctO" = (
 /obj/structure/bookcase/libraryspawn/reference,
-/turf/simulated/floor/carpet,
-/area/library)
-"ctP" = (
-/obj/structure/bookcase/libraryspawn/fiction,
 /turf/simulated/floor/carpet,
 /area/library)
 "ctQ" = (
@@ -64888,24 +64686,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/tiled/freezer{
-	name = "freezer storage tiles";
-	temperature = 253.15
-	},
-/area/crew_quarters/kitchen)
-"cuk" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/freezer{
-	name = "freezer storage tiles";
-	temperature = 253.15
-	},
-/area/crew_quarters/kitchen)
-"cul" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "freezer storage tiles";
@@ -95242,9 +95022,9 @@ aVI
 aXq
 bEu
 cru
-crA
-crO
-crZ
+ctG
+ctG
+ctS
 bFv
 bFv
 bFv
@@ -95498,7 +95278,7 @@ bxs
 bCz
 bDu
 bEt
-crv
+crw
 crB
 crP
 csa
@@ -95508,7 +95288,7 @@ csx
 csJ
 bGy
 bFv
-ctm
+ctn
 ctA
 ctJ
 bPI
@@ -95761,7 +95541,7 @@ bGA
 csb
 bKA
 bGy
-csy
+csK
 csK
 bGy
 bFv
@@ -96271,12 +96051,12 @@ crp
 crr
 crx
 crE
-crR
+csd
 csd
 csj
 cso
 csz
-csL
+csX
 csX
 ctf
 cto
@@ -96532,19 +96312,19 @@ bGy
 bGy
 bGA
 csp
-csA
-csM
-csY
+csD
+abE
+ctD
 bGy
-ctp
+ctO
 bGy
-ctN
+ctO
 bGy
 bPI
 ctY
 cud
 bRS
-cuk
+cum
 cuq
 bPI
 bPJ
@@ -96789,11 +96569,11 @@ bGA
 bGA
 bGA
 bGA
-csB
-csN
-csZ
+csD
+cta
+cti
 bGy
-ctq
+ctO
 bGy
 ctO
 bGy
@@ -96801,7 +96581,7 @@ bPI
 ctZ
 cue
 bRS
-cul
+cum
 bTf
 bPI
 bPJ
@@ -97046,13 +96826,13 @@ crS
 cse
 csk
 bKx
-csC
-csO
+csD
+cta
 cta
 bGy
-ctr
+cts
 bGy
-ctP
+ctQ
 bGy
 bPI
 cua
@@ -97299,13 +97079,13 @@ bDA
 crs
 bFv
 crI
-crT
+abE
 bGy
 csl
 csq
 csD
-csP
-ctb
+ctD
+ctF
 bGy
 cts
 bGy
@@ -97561,10 +97341,10 @@ bGy
 csm
 csr
 csE
-csQ
-ctc
 ctg
-ctt
+ctg
+ctg
+ctT
 bGA
 bGA
 bGA
@@ -97820,8 +97600,8 @@ css
 csF
 csR
 bGy
-cth
-ctu
+ctR
+ctF
 ctD
 bGy
 ctV
@@ -98074,9 +97854,9 @@ crV
 bFv
 bFv
 cst
-csG
-csS
-ctd
+csH
+csT
+adz
 cti
 ctv
 ctE
@@ -98330,12 +98110,12 @@ crL
 crW
 bII
 bFv
-csu
+csv
 csH
 csT
 bGy
-ctj
-ctw
+ctF
+ctD
 ctF
 bGy
 ctW
@@ -98584,7 +98364,7 @@ bxw
 bEB
 bFv
 crM
-crX
+adu
 csg
 bFv
 csv
@@ -98849,7 +98629,7 @@ bFv
 csV
 bFv
 ctl
-ctx
+ctG
 ctG
 ctS
 bFv
