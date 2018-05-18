@@ -103,7 +103,7 @@
 
 	if(istype(user, /mob/living/carbon/human))
 		var/mob/living/carbon/human/M = user
-		if(M.h_style == "Floorlength Braid" || M.h_style == "Very Long Hair")
+		if(M.h_style == "Very Long Hair")
 			if(prob(10))
 				M.apply_damage(30, BRUTE, "head")
 				M.apply_damage(45, HALLOSS)

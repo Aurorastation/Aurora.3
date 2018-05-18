@@ -389,11 +389,6 @@
 		icon_state = "hair_grande"
 		gender = FEMALE
 
-	braid
-		name = "Floorlength Braid"
-		icon_state = "hair_braid"
-		gender = FEMALE
-
 	mbraid
 		name = "Medium Braid"
 		icon_state = "hair_shortbraid"
