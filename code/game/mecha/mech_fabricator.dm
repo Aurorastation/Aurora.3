@@ -88,7 +88,7 @@
 		return
 	if(ishuman(user))
 		var/mob/living/carbon/human/M = user
-		if(M.h_style == "Floorlength Braid" || M.h_style == "Very Long Hair")
+		if(M.h_style == "Very Long Hair")
 			if(prob(10))
 				M.apply_damage(30, BRUTE, "head")
 				M.apply_damage(45, HALLOSS)
@@ -208,7 +208,7 @@
 	if (!istype(target) || target.buckled || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))
 		return
 	if(target == user)
-		if(target.h_style == "Floorlength Braid" || target.h_style == "Very Long Hair")
+		if(target.h_style == "Very Long Hair")
 			user.visible_message(span("notice", "[user] looks like they're about to feed their own hair into the [src], but think better of it."), span("notice", "You grasp your hair and are about to feed it into the [src], but stop and come to your senses."))
 			return
 	src.add_fingerprint(user)

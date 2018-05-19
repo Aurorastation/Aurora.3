@@ -417,7 +417,7 @@
 	if(!def_zone)
 		//The way this works is by damaging multiple areas in an "Arc" if no def_zone is provided. should be pretty easy to add more arcs if it's needed. though I can't imangine a situation that can apply.
 		if(istype(user, /mob/living/carbon/human))
-			if(h_style == "Floorlength Braid" || h_style == "Very Long Hair")
+			if(h_style == "Very Long Hair")
 				hairvar = 1
 		var/count = hairvar == 1 ? rand(1, 7) : rand(1, 6)
 		switch (count)
