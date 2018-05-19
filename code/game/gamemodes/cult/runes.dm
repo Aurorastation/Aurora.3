@@ -260,7 +260,7 @@ var/list/sacrificed = list()
 
 	var/list/ex = list(user) // exclude caster
 	for(var/mob/M in range(range_red, T))
-		if(isipc(M) && iscultist(M))
+		if(iscultist(M))
 			ex += M
 		else
 			continue
