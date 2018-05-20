@@ -23,6 +23,7 @@
 	icon_state = "boozeomat"        //////////////18 drink entities below, plus the glasses, in case someone wants to edit the number of bottles
 	icon_deny = "boozeomat-deny"
 	vend_id = "booze"
+	restock_items = 1
 	products = list(
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/gin = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey = 5,
@@ -93,6 +94,7 @@
 		/obj/item/device/assembly/timer = 2
 	)
 	product_ads = "Only the finest!;Have some tools.;The most robust equipment.;The finest gear in space!"
+	restock_items = 1
 
 /obj/machinery/vending/coffee
 	name = "Hot Drinks machine"
@@ -117,7 +119,6 @@
 		/obj/item/weapon/reagent_containers/food/drinks/tea = 20,
 		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 22
 	)
-
 
 /obj/machinery/vending/snack
 	name = "Getmore Chocolate Corp"
@@ -160,7 +161,6 @@
 		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 24,
 		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 60
 	)
-
 
 /obj/machinery/vending/cola
 	name = "Robust Softdrinks"
@@ -218,6 +218,7 @@
 		/obj/item/weapon/cartridge/captain = 3,
 		/obj/item/weapon/cartridge/quartermaster = 10
 	)
+	restock_items = 1
 
 
 /obj/machinery/vending/cigarette
@@ -247,7 +248,6 @@
 		/obj/item/weapon/flame/lighter/random = 12,
 		/obj/item/weapon/spacecash/ewallet/lotto = 200
 	)
-
 
 /obj/machinery/vending/medical
 	name = "NanoMed Plus"
@@ -279,7 +279,6 @@
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 
-
 //This one's from bay12
 /obj/machinery/vending/phoronresearch
 	name = "Toximate 3000"
@@ -295,6 +294,7 @@
 		/obj/item/device/assembly/prox_sensor = 6,
 		/obj/item/device/assembly/igniter = 6
 	)
+	restock_items = 1
 
 /obj/machinery/vending/wallmed1
 	name = "NanoMed"
@@ -349,7 +349,6 @@
 		/obj/item/weapon/handcuffs = 8,
 		/obj/item/weapon/grenade/chem_grenade/teargas = 4,
 		/obj/item/device/flash = 5,
-		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 12,
 		/obj/item/weapon/storage/box/evidence = 6,
 		/obj/item/device/holowarrant = 5
 	)
@@ -360,6 +359,7 @@
 		/obj/item/clothing/glasses/sunglasses = 2,
 		/obj/item/weapon/grenade/flashbang = 4
 	)
+	restock_items = 1
 
 /obj/machinery/vending/hydronutrients
 	name = "NutriMax"
@@ -384,6 +384,7 @@
 	contraband = list(
 		/obj/item/weapon/reagent_containers/glass/bottle/mutagen = 2
 	)
+	restock_items = 1
 
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 
@@ -524,9 +525,7 @@
 		/obj/item/clothing/shoes/sandal = 1,
 		/obj/item/weapon/staff = 2
 	)
-	contraband = list(
-		/obj/item/weapon/reagent_containers/glass/bottle/wizarditis = 1
-	)	//No one can get to the machine to hack it anyways; for the lulz - Microwave
+	restock_items = 1
 
 /obj/machinery/vending/dinnerware
 	name = "Dinnerware"
@@ -551,6 +550,7 @@
 		/obj/item/weapon/material/knife/butch = 2,
 		/obj/item/weapon/storage/toolbox/lunchbox/syndicate = 2
 	)
+	restock_items = 1
 
 /obj/machinery/vending/sovietsoda
 	name = "BODA"
@@ -594,6 +594,7 @@
 	premium = list(
 		/obj/item/clothing/gloves/yellow = 1
 	)
+	restock_items = 1
 
 /obj/machinery/vending/engivend
 	name = "Engi-Vend"
@@ -617,6 +618,7 @@
 	premium = list(
 		/obj/item/weapon/storage/belt/utility = 3
 	)
+	restock_items = 1
 
 /obj/machinery/vending/tacticool //Tried not to go overboard with the amount of fun security has access to.
 	name = "Tactical Express"
@@ -699,6 +701,7 @@
 	// There was an incorrect entry (cablecoil/power).  I improvised to cablecoil/heavyduty.
 	// Another invalid entry, /obj/item/weapon/circuitry.  I don't even know what that would translate to, removed it.
 	// The original products list wasn't finished.  The ones without given quantities became quantity 5.  -Sayu
+	restock_items = 1
 
 //This one's from bay12
 /obj/machinery/vending/robotics
@@ -725,6 +728,7 @@
 		/obj/item/weapon/crowbar = 5
 	)
 	//everything after the power cell had no amounts, I improvised.  -Sayu
+	restock_items = 1
 
 //RECURSION
 /obj/machinery/vending/vendors
@@ -747,5 +751,4 @@
 		/obj/item/weapon/vending_refill/hydro = 1,
 		/obj/item/weapon/vending_refill/cutlery = 1,
 		/obj/item/weapon/vending_refill/robo = 1
-
 	)
