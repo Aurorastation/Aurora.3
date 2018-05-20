@@ -1121,7 +1121,6 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/bun,
 		/obj/item/weapon/reagent_containers/food/snacks/meat,
 		/obj/item/weapon/reagent_containers/food/snacks/bacon,
-		/obj/item/weapon/reagent_containers/food/snacks/bacon,
 		/obj/item/weapon/reagent_containers/food/snacks/bacon
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/baconburger
@@ -1129,10 +1128,9 @@ I said no!
 /datum/recipe/ntmuffin
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/plumphelmetbiscuit,
-		/obj/item/weapon/reagent_containers/food/snacks/cutlet,
+		/obj/item/weapon/reagent_containers/food/snacks/sausage,
 		/obj/item/weapon/reagent_containers/food/snacks/friedegg,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
-		/obj/item/weapon/reagent_containers/food/snacks/spreads/butter
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/nt_muffin
 
@@ -1149,7 +1147,6 @@ I said no!
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/breadslice,
 		/obj/item/weapon/reagent_containers/food/snacks/breadslice,
-		/obj/item/weapon/reagent_containers/food/snacks/bacon,
 		/obj/item/weapon/reagent_containers/food/snacks/bacon,
 		/obj/item/weapon/reagent_containers/food/snacks/bacon
 	)
