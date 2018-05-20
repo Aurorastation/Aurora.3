@@ -4964,7 +4964,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/corn_dog
 	name = "corn dog"
 	desc = "A cornbread covered sausage deepfried in oil."
-	icon_state = "corn_dog"
+	icon_state = "corndog"
 	nutriment_desc = list("corn batter" = 4)
 	nutriment_amt = 4
 
@@ -4981,7 +4981,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/truffle/Initialize()
 	. = ..()
-	reagents.add_reagent("coco", 4)
+	reagents.add_reagent("coco", 6)
 
 /obj/item/weapon/reagent_containers/food/snacks/truffle/random
 	name = "mystery chocolate truffle"
