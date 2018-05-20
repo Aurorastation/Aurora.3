@@ -1,4 +1,4 @@
-/obj/structure/table //Exists for the purpose of neatness in the editor. Don't map this ever.
+/obj/structure/table
 	var/table_mat
 	var/table_reinf
 
