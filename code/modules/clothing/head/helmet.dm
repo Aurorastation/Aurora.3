@@ -18,10 +18,13 @@
 	w_class = 3
 	var/allow_hair_covering = TRUE //in case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
 
-/obj/item/clothing/head/helmet/attack_self(mob/user)
+/obj/item/clothing/head/helmet/verb/toggle_block_hair()
+	set name = "Toggle Helmet Hair Coverage"
+	set category = "Object"
+
 	if(allow_hair_covering)
 		flags_inv ^= BLOCKHEADHAIR
-		user << "<span class='notice'>[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair.</span>"
+		usr << "<span class='notice'>[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair.</span>"
 	..()
 
 /obj/item/clothing/head/helmet/warden
