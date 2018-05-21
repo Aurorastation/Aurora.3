@@ -189,8 +189,7 @@ var/list/sacrificed = list()
 						playsound(target, 'sound/effects/bloodcult.ogg', 100, 1)
 
 						//Spawn some remains
-						var/obj/effect/decal/remains/remains = target.species.remains_type //spawns a skeleton based on the species remain type
-						new remains(target.loc)
+						new target.species.remains_type(target.loc) //spawns a skeleton based on the species remain type
 						target.invisibility = 101
 						var/atom/movable/overlay/animation = new /atom/movable/overlay( target.loc )
 						animation.icon_state = "blank"
@@ -1108,7 +1107,7 @@ var/list/sacrificed = list()
 	"<span class='warning'>You are blinded by the flash of red light! After you're able to see again, you see that you are now wearing a set of armor.</span>")
 
 	if(istype(user, /mob/living/simple_animal/construct))
-		var/mob/living/C = user
+		var/mob/living/simple_animal/construct/C = user
 		var/construct_class
 		if(narsie_cometh)
 			construct_class = alert(C, "Please choose which type of construct you wish to become.",,"Juggernaut","Wraith","Harvester")
