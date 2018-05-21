@@ -327,7 +327,7 @@
 
 
 /obj/structure/closet/secure_closet/detective
-	name = "detective's cabinet"
+	name = "detective's locker"
 	req_access = list(access_detective)
 	icon_state = "sec1"
 	icon_closed = "sec"
@@ -335,7 +335,6 @@
 	icon_opened = "secopen"
 	icon_broken = "secbroken"
 	icon_off = "secoff"
-	storage_capacity = 45 //such a big closet deserves a little more capacity
 
 	fill()
 		//Appearance
