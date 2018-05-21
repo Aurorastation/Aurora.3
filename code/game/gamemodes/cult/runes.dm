@@ -133,11 +133,6 @@ var/list/sacrificed = list()
 				target.hallucination = min(target.hallucination, 500)
 			return 0
 
-		//If you dont have blood, blood magic doesnt work on you
-		if(target.is_mechanical())
-			attacker << "<span class='danger'>You sense that your powers can not effect them.</span>"
-			return 0
-
 		target.take_overall_damage(0, rand(5, 20)) // You dirty resister cannot handle the damage to your mind. Easily. - even cultists who accept right away should experience some effects
 		// Resist messages go!
 		if(initial_message) //don't do this stuff right away, only if they resist or hesitate.
@@ -185,6 +180,8 @@ var/list/sacrificed = list()
 					converting -= target
 					target.hallucination = 0 //sudden clarity
 					playsound(target, 'sound/effects/bloodcult.ogg', 100, 1)
+					if(target.is_mechanical())
+						armor(target,TRUE)
 
 		sleep(100) //proc once every 10 seconds
 	return 1
@@ -1063,7 +1060,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////TWENTY-FIFTH RUNE
 
-/obj/effect/rune/proc/armor(var/mob/living/user)
+/obj/effect/rune/proc/armor(var/mob/living/user, force_construct=FALSE)
 
 	if(istype(src,/obj/effect/rune))
 		user.say("N'ath reth sh'yro eth d[pick("'","`")]raggathnor!")
@@ -1072,8 +1069,8 @@ var/list/sacrificed = list()
 	user.visible_message("<span class='warning'>The rune disappears with a flash of red light, and a set of armor appears on [user]...</span>", \
 	"<span class='warning'>You are blinded by the flash of red light! After you're able to see again, you see that you are now wearing a set of armor.</span>")
 
-	if(istype(user, /mob/living/simple_animal/construct))
-		var/mob/living/simple_animal/construct/C = user
+	if(istype(user, /mob/living/simple_animal/construct) || force_construct)
+		var/mob/living/C = user
 		var/construct_class
 		if(narsie_cometh)
 			construct_class = alert(C, "Please choose which type of construct you wish to become.",,"Juggernaut","Wraith","Harvester")
@@ -1083,7 +1080,7 @@ var/list/sacrificed = list()
 			if("Juggernaut")
 				var/mob/living/simple_animal/construct/armoured/Z = new /mob/living/simple_animal/construct/armoured (get_turf(C.loc))
 				Z.key = C.key
-				if(iscultist(C))
+				if(iscultist(C) || force_construct)
 					cult.add_antagonist(Z.mind)
 				C.death()
 				Z << "<B>You are playing a Juggernaut. Though slow, you can withstand extreme punishment, and rip apart enemies and walls alike.</B>"
@@ -1092,7 +1089,7 @@ var/list/sacrificed = list()
 			if("Wraith")
 				var/mob/living/simple_animal/construct/wraith/Z = new /mob/living/simple_animal/construct/wraith (get_turf(C.loc))
 				Z.key = C.key
-				if(iscultist(C))
+				if(iscultist(C) || force_construct)
 					cult.add_antagonist(Z.mind)
 				C.death()
 				Z << "<B>You are playing a Wraith. Though relatively fragile, you are fast, deadly, and even able to phase through walls.</B>"
@@ -1101,7 +1098,7 @@ var/list/sacrificed = list()
 			if("Artificer")
 				var/mob/living/simple_animal/construct/builder/Z = new /mob/living/simple_animal/construct/builder (get_turf(C.loc))
 				Z.key = C.key
-				if(iscultist(C))
+				if(iscultist(C) || force_construct)
 					cult.add_antagonist(Z.mind)
 				C.death()
 				Z << "<B>You are playing an Artificer. You are incredibly weak and fragile, but you are able to construct fortifications, repair allied constructs (by clicking on them), and even create new constructs</B>"
@@ -1110,7 +1107,7 @@ var/list/sacrificed = list()
 			if("Harvester")
 				var/mob/living/simple_animal/construct/builder/Z = new /mob/living/simple_animal/construct/harvester (get_turf(C.loc))
 				Z.key = C.key
-				if(iscultist(C))
+				if(iscultist(C) || force_construct)
 					cult.add_antagonist(Z.mind)
 				C.death()
 				Z << "<B>You are playing a Harvester. You are gifted with the ability to open doors with your mind, to draw runes at will, and to teleport back to Nar'Sie. Seek out all non-believers and bring them to the Geometer.</B>"
