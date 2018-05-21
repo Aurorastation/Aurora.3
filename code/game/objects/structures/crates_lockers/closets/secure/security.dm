@@ -329,12 +329,12 @@
 /obj/structure/closet/secure_closet/detective
 	name = "detective's cabinet"
 	req_access = list(access_detective)
-	icon_state = "cabinetdetective_locked"
-	icon_closed = "cabinetdetective"
-	icon_locked = "cabinetdetective_locked"
-	icon_opened = "cabinetdetective_open"
-	icon_broken = "cabinetdetective_broken"
-	icon_off = "cabinetdetective_broken"
+	icon_state = "sec1"
+	icon_closed = "sec"
+	icon_locked = "sec1"
+	icon_opened = "secopen"
+	icon_broken = "secbroken"
+	icon_off = "secoff"
 	storage_capacity = 45 //such a big closet deserves a little more capacity
 
 	fill()
@@ -342,11 +342,7 @@
 		new /obj/item/clothing/under/det(src)
 		new /obj/item/clothing/under/det/black(src)
 		new /obj/item/clothing/under/det/slob(src)
-		new /obj/item/clothing/suit/storage/toggle/det_trench(src)
-		new /obj/item/clothing/suit/storage/toggle/det_trench/technicolor(src)
 		new /obj/item/clothing/gloves/black(src)
-		new /obj/item/clothing/head/det(src)
-		new /obj/item/clothing/head/det/technicolor(src)
 		new /obj/item/clothing/gloves/black(src)
 		new /obj/item/clothing/shoes/brown(src)
 		new /obj/item/clothing/under/det(src)
