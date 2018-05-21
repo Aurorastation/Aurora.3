@@ -176,13 +176,52 @@ var/list/sacrificed = list()
 				var/choice = alert(target,"Do you want to join the cult?","Submit to Nar'Sie","Resist","Submit")
 				waiting_for_input[target] = 0
 				if(choice == "Submit") //choosing 'Resist' does nothing of course.
-					cult.add_antagonist(target.mind)
-					converting -= target
-					target.hallucination = 0 //sudden clarity
-					playsound(target, 'sound/effects/bloodcult.ogg', 100, 1)
-					if(target.is_mechanical())
-						armor(target,TRUE)
+					if(!target.is_mechanical())
+						cult.add_antagonist(target.mind)
+						converting -= target
+						target.hallucination = 0 //sudden clarity
+						playsound(target, 'sound/effects/bloodcult.ogg', 100, 1)
+					else
+						converting -= target
+						//If we are dealing with a IPC then ask the caster what construct they want
+						var/construct_class = alert(attacker, "Please choose which type of construct you wish to create.",,"Juggernaut","Wraith","Artificer")
 
+						playsound(target, 'sound/effects/bloodcult.ogg', 100, 1)
+
+						//Spawn some remains
+						var/obj/effect/decal/remains/remains = target.species.remains_type //spawns a skeleton based on the species remain type
+						new remains(target.loc)
+						target.invisibility = 101
+						var/atom/movable/overlay/animation = new /atom/movable/overlay( target.loc )
+						animation.icon_state = "blank"
+						animation.icon = 'icons/mob/mob.dmi'
+						animation.master = target
+						flick("dust-h", animation)
+						qdel(animation)
+
+						//Spawn the selected construct						
+						switch(construct_class)
+							if("Juggernaut")
+								var/mob/living/simple_animal/construct/armoured/Z = new /mob/living/simple_animal/construct/armoured (get_turf(target.loc))
+								Z.key = target.key
+								qdel(target)
+								cult.add_antagonist(Z.mind)
+								Z << "<B>You are playing a Juggernaut. Though slow, you can withstand extreme punishment, and rip apart enemies and walls alike.</B>"
+								Z << "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>"
+							if("Wraith")
+								var/mob/living/simple_animal/construct/wraith/Z = new /mob/living/simple_animal/construct/wraith (get_turf(target.loc))
+								Z.key = target.key
+								qdel(target)
+								cult.add_antagonist(Z.mind)
+								Z << "<B>You are playing a Wraith. Though relatively fragile, you are fast, deadly, and even able to phase through walls.</B>"
+								Z << "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>"
+							if("Artificer")
+								var/mob/living/simple_animal/construct/builder/Z = new /mob/living/simple_animal/construct/builder (get_turf(target.loc))
+								Z.key = target.key
+								qdel(target)
+								cult.add_antagonist(Z.mind)
+								Z << "<B>You are playing an Artificer. You are incredibly weak and fragile, but you are able to construct fortifications, repair allied constructs (by clicking on them), and even create new constructs</B>"
+								Z << "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>"
 		sleep(100) //proc once every 10 seconds
 	return 1
 
@@ -1060,8 +1099,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////TWENTY-FIFTH RUNE
 
-/obj/effect/rune/proc/armor(var/mob/living/user, force_construct=FALSE)
-
+/obj/effect/rune/proc/armor(var/mob/living/user)
 	if(istype(src,/obj/effect/rune))
 		user.say("N'ath reth sh'yro eth d[pick("'","`")]raggathnor!")
 	else
@@ -1069,7 +1107,7 @@ var/list/sacrificed = list()
 	user.visible_message("<span class='warning'>The rune disappears with a flash of red light, and a set of armor appears on [user]...</span>", \
 	"<span class='warning'>You are blinded by the flash of red light! After you're able to see again, you see that you are now wearing a set of armor.</span>")
 
-	if(istype(user, /mob/living/simple_animal/construct) || force_construct)
+	if(istype(user, /mob/living/simple_animal/construct))
 		var/mob/living/C = user
 		var/construct_class
 		if(narsie_cometh)
@@ -1080,7 +1118,7 @@ var/list/sacrificed = list()
 			if("Juggernaut")
 				var/mob/living/simple_animal/construct/armoured/Z = new /mob/living/simple_animal/construct/armoured (get_turf(C.loc))
 				Z.key = C.key
-				if(iscultist(C) || force_construct)
+				if(iscultist(C))
 					cult.add_antagonist(Z.mind)
 				C.death()
 				Z << "<B>You are playing a Juggernaut. Though slow, you can withstand extreme punishment, and rip apart enemies and walls alike.</B>"
@@ -1089,7 +1127,7 @@ var/list/sacrificed = list()
 			if("Wraith")
 				var/mob/living/simple_animal/construct/wraith/Z = new /mob/living/simple_animal/construct/wraith (get_turf(C.loc))
 				Z.key = C.key
-				if(iscultist(C) || force_construct)
+				if(iscultist(C))
 					cult.add_antagonist(Z.mind)
 				C.death()
 				Z << "<B>You are playing a Wraith. Though relatively fragile, you are fast, deadly, and even able to phase through walls.</B>"
@@ -1098,7 +1136,7 @@ var/list/sacrificed = list()
 			if("Artificer")
 				var/mob/living/simple_animal/construct/builder/Z = new /mob/living/simple_animal/construct/builder (get_turf(C.loc))
 				Z.key = C.key
-				if(iscultist(C) || force_construct)
+				if(iscultist(C))
 					cult.add_antagonist(Z.mind)
 				C.death()
 				Z << "<B>You are playing an Artificer. You are incredibly weak and fragile, but you are able to construct fortifications, repair allied constructs (by clicking on them), and even create new constructs</B>"
@@ -1107,7 +1145,7 @@ var/list/sacrificed = list()
 			if("Harvester")
 				var/mob/living/simple_animal/construct/builder/Z = new /mob/living/simple_animal/construct/harvester (get_turf(C.loc))
 				Z.key = C.key
-				if(iscultist(C) || force_construct)
+				if(iscultist(C))
 					cult.add_antagonist(Z.mind)
 				C.death()
 				Z << "<B>You are playing a Harvester. You are gifted with the ability to open doors with your mind, to draw runes at will, and to teleport back to Nar'Sie. Seek out all non-believers and bring them to the Geometer.</B>"
