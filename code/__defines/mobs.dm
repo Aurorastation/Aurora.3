@@ -167,12 +167,13 @@
 #define RESPAWN_ANIMAL 3000
 #define RESPAWN_MINISYNTH 6000
 
-//Flags for the eat_types variable, a bitfield of what can or can't be eaten
-//Note that any given mob can be more than one type
-#define TYPE_ORGANIC	1//Almost any creature under /mob/living/carbon and most simple animals
-#define	TYPE_SYNTHETIC	2//Everything under /mob/living/silicon, plus IPCs, viscerators
-#define TYPE_HUMANOID	4//Humans, skrell, unathi, tajara, vaurca, diona, IPC, vox
-#define TYPE_WEIRD		8//Slimes, constructs, demons, and other creatures of a magical or bluespace nature.
+// Flags for the eat_types variable, a bitfield of what can or can't be eaten
+// Note that any given mob can be more than one type
+#define TYPE_ORGANIC      1	// Almost any creature under /mob/living/carbon and most simple animals
+#define	TYPE_SYNTHETIC    2	// Everything under /mob/living/silicon, plus IPCs, viscerators
+#define TYPE_HUMANOID     4	// Humans, skrell, unathi, tajara, vaurca, diona, IPC, vox
+#define TYPE_WEIRD        8	// Slimes, constructs, demons, and other creatures of a magical or bluespace nature.
+#define TYPE_INCORPOREAL 16 // Mobs that don't really have any physical form to them.
 
 // Maximum number of chickens allowed at once.
 // If the number of chickens on the map exceeds this, laid eggs will not hatch.
