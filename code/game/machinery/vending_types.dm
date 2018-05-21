@@ -23,7 +23,6 @@
 	icon_state = "boozeomat"        //////////////18 drink entities below, plus the glasses, in case someone wants to edit the number of bottles
 	icon_deny = "boozeomat-deny"
 	vend_id = "booze"
-	restock_items = 1
 	products = list(
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/gin = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey = 5,
@@ -359,6 +358,11 @@
 		/obj/item/clothing/glasses/sunglasses = 2,
 		/obj/item/weapon/grenade/flashbang = 4
 	)
+	restock_blocked_items = list(
+		/obj/item/weapon/storage/box/donut, 
+		/obj/item/weapon/storage/box/evidence,
+		/obj/item/device/flash
+		)
 	restock_items = 1
 
 /obj/machinery/vending/hydronutrients
@@ -384,7 +388,6 @@
 	contraband = list(
 		/obj/item/weapon/reagent_containers/glass/bottle/mutagen = 2
 	)
-	restock_items = 1
 
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 
@@ -481,6 +484,7 @@
 		/obj/item/seeds/wheatseed = 20,
 		/obj/item/seeds/whitebeetseed = 20
 	)
+	restock_items = 1
 
 /**
  *  Populate hydroseeds product_records
@@ -594,8 +598,13 @@
 	premium = list(
 		/obj/item/clothing/gloves/yellow = 1
 	)
+	restock_blocked_items = list(
+		/obj/item/stack/cable_coil,
+		/obj/item/weapon/weldingtool,
+		/obj/item/weapon/weldingtool/hugetank
+	)
 	restock_items = 1
-
+	
 /obj/machinery/vending/engivend
 	name = "Engi-Vend"
 	desc = "Spare tool vending. What? Did you expect some witty description?"
@@ -701,6 +710,11 @@
 	// There was an incorrect entry (cablecoil/power).  I improvised to cablecoil/heavyduty.
 	// Another invalid entry, /obj/item/weapon/circuitry.  I don't even know what that would translate to, removed it.
 	// The original products list wasn't finished.  The ones without given quantities became quantity 5.  -Sayu
+	restock_blocked_items = list(
+		/obj/item/stack/cable_coil/heavyduty,
+		/obj/item/weapon/weldingtool,
+		/obj/item/weapon/light/tube
+	)
 	restock_items = 1
 
 //This one's from bay12
@@ -728,6 +742,12 @@
 		/obj/item/weapon/crowbar = 5
 	)
 	//everything after the power cell had no amounts, I improvised.  -Sayu
+	restock_blocked_items = list(
+		/obj/item/stack/cable_coil,
+		/obj/item/device/flash,
+		/obj/item/weapon/light/tube,
+		/obj/item/weapon/tank/anesthetic
+	)
 	restock_items = 1
 
 //RECURSION
