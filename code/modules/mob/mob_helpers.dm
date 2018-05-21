@@ -1046,6 +1046,9 @@ proc/is_blind(A)
 	if (is_type_in_typecache(src, SSmob.mtl_weird))
 		. |= TYPE_WEIRD
 
+	if (is_type_in_typecache(src, SSmob.mtl_incorporeal))
+		. |= TYPE_INCORPOREAL
+
 	// If it's not TYPE_SYNTHETIC, TYPE_WEIRD or TYPE_INCORPOREAL, we can assume it's TYPE_ORGANIC.
 	if (!(. & (TYPE_SYNTHETIC|TYPE_WEIRD|TYPE_INCORPOREAL)))
 		. |= TYPE_ORGANIC
@@ -1053,8 +1056,6 @@ proc/is_blind(A)
 	if (is_type_in_typecache(src, SSmob.mtl_humanoid))
 		. |= TYPE_HUMANOID
 
-	if (is_type_in_typecache(src, SSmob.mtl_incorporeal))
-		. |= TYPE_INCORPOREAL
 
 /mob/living/proc/get_vessel(create = FALSE)
 	if (!create)

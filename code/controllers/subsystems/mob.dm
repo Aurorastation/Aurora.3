@@ -51,8 +51,9 @@
 		/mob/living/simple_animal/spiderbot = TRUE
 	)
 
-	mtl_weird = typecacheof(mtl_weird) 
-	mtl_weird[/mob/living/simple_animal/adultslime] = TRUE
+	mtl_weird = typecacheof(mtl_weird) + list(
+		/mob/living/simple_animal/adultslime = TRUE
+	)
 
 	mtl_humanoid = typecacheof(mtl_humanoid)
 
