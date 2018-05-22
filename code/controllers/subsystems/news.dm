@@ -40,7 +40,7 @@
 		catch(var/exception/ec)
 			log_debug("SSnews: Error when loading channel: [ec]")
 			continue
-		var/DBQuery/news_query = dbcon.NewQuery("SELECT body, author, is_admin_message, message_type, publish_at, url FROM ss13_news_stories WHERE deleted_at IS NULL AND channel_id = :channel_id: AND publish_at < NOW() AND publish_until > NOW() AND approved_at IS NOT NULL ORDER BY publish_at DESC")
+		var/DBQuery/news_query = dbcon.NewQuery("SELECT body, author, is_admin_message, message_type, ic_timestamp, url FROM ss13_news_stories WHERE deleted_at IS NULL AND channel_id = :channel_id: AND publish_at < NOW() AND (publish_until > NOW() OR publish_until IS NULL) AND approved_at IS NOT NULL ORDER BY publish_at DESC")
 		news_query.Execute(list("channel_id" = channel_query.item[1]))
 		while(news_query.NextRow())
 			CHECK_TICK
