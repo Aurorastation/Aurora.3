@@ -103,3 +103,16 @@
 	desc = "A furred scarf, a common tajaran vanity item, this one is cream."
 	icon_state = "furscarf_cream"
 	item_state = "furscarf_cream"
+
+/obj/item/clothing/accessory/tajaran_wrap
+	name = "marriage wrap"
+	desc = "A holy cloth wrap which signifies marriage amongst tajara, it has white and gold markings. This one is meant for the husband."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "wrap_male"
+	item_state = "wrap_male"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/tajaran_wrap/female
+	desc = "A holy cloth wrap which signifies marriage amongst tajara, it has blue and light blue markings. This one is meant for the wife."
+	icon_state = "wrap_female"
+	item_state = "wrap_female"

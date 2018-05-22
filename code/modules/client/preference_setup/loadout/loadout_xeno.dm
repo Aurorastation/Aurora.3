@@ -225,6 +225,19 @@
 	circlet["silver dress circlet"] = /obj/item/clothing/head/tajaran/circlet/silver
 	gear_tweaks += new/datum/gear_tweak/path(circlet)
 
+/datum/gear/accessory/tajara_wrap
+	display_name = "marriage wrap (Tajara)"
+	path = /obj/item/clothing/accessory/tajaran_wrap
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	sort_category = "Xenowear"
+
+/datum/gear/accessory/tajara_wrap/New()
+	..()
+	var/wrap = list()
+	wrap["marriage wrap, male"] = /obj/item/clothing/accessory/tajaran_wrap
+	wrap["marriage wrap, female"] = /obj/item/clothing/accessory/tajaran_wrap/female
+	gear_tweaks += new/datum/gear_tweak/path(wrap)
+
 //other things
 
 /datum/gear/uniform/gearharness
