@@ -121,6 +121,11 @@ var/global/list/robot_modules = list(
 		else if(F.times_used)
 			F.times_used--
 
+	var/obj/item/weapon/reagent_containers/syringe/S = locate() in src.modules
+	if(S && S.mode == 2)
+		S.mode = 0
+		S.update_icon()
+
 	if(!synths || !synths.len)
 		return
 
@@ -242,6 +247,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/reagent_containers/syringe(src)
 	src.modules += new /obj/item/device/reagent_scanner/adv(src)
 	src.modules += new /obj/item/weapon/autopsy_scanner(src) // an autopsy scanner
+	src.modules += new /obj/item/weapon/personal_inhaler/cyborg(src)
 	src.emag = new /obj/item/weapon/reagent_containers/spray(src)
 	src.emag.reagents.add_reagent("pacid", 250)
 	src.emag.name = "Polyacid spray"
@@ -303,6 +309,9 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/extinguisher/mini(src)
 	src.modules += new /obj/item/weapon/inflatable_dispenser(src) // Allows usage of inflatables. Since they are basically robotic alternative to EMTs, they should probably have them.
 	src.modules += new /obj/item/device/gps(src) // for coordinating with medical suit health sensors console
+	src.modules += new /obj/item/weapon/personal_inhaler/cyborg(src)
+	src.modules += new /obj/item/weapon/gripper/chemistry(src)
+
 	src.emag = new /obj/item/weapon/reagent_containers/spray(src)
 	src.emag.reagents.add_reagent("pacid", 250)
 	src.emag.name = "Polyacid spray"
@@ -736,12 +745,15 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/gripper/research(src)
 	src.modules += new /obj/item/weapon/gripper/no_use/loader(src)
 	src.modules += new /obj/item/device/robotanalyzer(src)
+	src.modules += new /obj/item/device/multitool(src)
 	src.modules += new /obj/item/weapon/card/robot(src)
 	src.modules += new /obj/item/weapon/wrench(src)
 	src.modules += new /obj/item/weapon/screwdriver(src)
 	src.modules += new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/weapon/scalpel(src)
 	src.modules += new /obj/item/weapon/circular_saw(src)
+	src.modules += new /obj/item/weapon/hemostat(src)
+	src.modules += new /obj/item/weapon/retractor(src)
 	src.modules += new /obj/item/weapon/extinguisher/mini(src)
 	src.modules += new /obj/item/weapon/reagent_containers/syringe(src)
 	src.modules += new /obj/item/weapon/gripper/chemistry(src)
@@ -750,16 +762,18 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/extinguisher(src)
 	src.modules += new /obj/item/weapon/storage/bag/plants(src)
 	src.modules += new /obj/item/weapon/pen/robopen(src)
+	src.modules += new /obj/item/weapon/storage/bag/slimes(src)
+	src.modules += new /obj/item/device/slime_scanner(src)
+	src.modules += new /obj/item/weapon/weldingtool/experimental(src)
+
+
+	var/datum/matter_synth/wire = new /datum/matter_synth/wire(15)
+	synths += wire
+	var/obj/item/stack/cable_coil/cyborg/C = new /obj/item/stack/cable_coil/cyborg(src)
+	C.synths = list(wire)
+	src.modules += C
+
 	src.emag = new /obj/item/weapon/hand_tele(src)
-
-	var/datum/matter_synth/nanite = new /datum/matter_synth/nanite(10000)
-	synths += nanite
-
-	var/obj/item/stack/nanopaste/N = new /obj/item/stack/nanopaste(src)
-	N.uses_charge = 1
-	N.charge_costs = list(1000)
-	N.synths = list(nanite)
-	src.modules += N
 
 /obj/item/weapon/robot_module/syndicate
 	name = "syndicate robot module"

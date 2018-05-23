@@ -230,18 +230,27 @@
 		/obj/item/weapon/disk,
 		/obj/item/device/analyzer/plant_analyzer,//For farmbot construction
 		/obj/item/weapon/material/minihoe,//Farmbots and xenoflora
-		/obj/item/weapon/computer_hardware
+		/obj/item/weapon/computer_hardware,
+		/obj/item/weapon/slimepotion,
+		/obj/item/weapon/slimepotion2,
+		/obj/item/weapon/slimesteroid,
+		/obj/item/weapon/slimesteroid2,
+		/obj/item/slime_extract,
+		/obj/item/mecha_parts
 		)
 
 /obj/item/weapon/gripper/chemistry //A gripper designed for chemistry, to allow borgs to work efficiently in the lab
-	name = "chemistry gripper"
+	name = "medical gripper"
 	icon_state = "gripper-sci"
 	desc = "A specialised grasping tool designed for working in chemistry and pharmaceutical labs"
 
 	can_hold = list(
+		/obj/item/weapon/reagent_containers/blood,
+		/obj/item/weapon/reagent_containers/chem_disp_cartridge,
 		/obj/item/weapon/reagent_containers/glass,
 		/obj/item/weapon/reagent_containers/pill,
 		/obj/item/weapon/reagent_containers/spray,
+		/obj/item/weapon/reagent_containers/personal_inhaler_cartridge,
 		/obj/item/weapon/storage/pill_bottle,
 		/obj/item/weapon/hand_labeler,
 		/obj/item/stack/material/phoron
