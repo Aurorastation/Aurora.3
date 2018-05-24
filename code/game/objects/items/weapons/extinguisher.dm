@@ -5,7 +5,7 @@
 	icon_state = "fire_extinguisher0"
 	item_state = "fire_extinguisher"
 	hitsound = 'sound/weapons/smash.ogg'
-	flags = CONDUCT
+	flags = CONDUCT | OPENCONTAINER
 	throwforce = 10
 	w_class = 3.0
 	throw_speed = 2
@@ -27,21 +27,24 @@
 	icon_state = "miniFE0"
 	item_state = "miniFE"
 	hitsound = null	//it is much lighter, after all.
+	flags = OPENCONTAINER
 	throwforce = 2
 	w_class = 2.0
-	force = 3.0
-	max_water = 150
+	force = 2.0
+	max_water = 60
+	spray_amount = 5
 	spray_particles = 3
 	sprite_name = "miniFE"
 
 /obj/item/weapon/extinguisher/New()
 	create_reagents(max_water)
-	reagents.add_reagent("water", max_water)
+	reagents.add_reagent("monoammoniumphosphate", max_water)
 	..()
 
 /obj/item/weapon/extinguisher/examine(mob/user)
 	if(..(user, 0))
-		user << text("\icon[] [] contains [] units of water left!", src, src.name, src.reagents.total_volume)
+		to_chat(user,"The [src] contains [src.reagents.total_volume] units of reagents.")
+		to_chat(user,"The safety is [safety ? "on" : "off"].")
 	return
 
 /obj/item/weapon/extinguisher/attack_self(mob/user as mob)
@@ -72,7 +75,7 @@
 /obj/item/weapon/extinguisher/afterattack(var/atom/target, var/mob/user, var/flag)
 	//TODO; Add support for reagents in water.
 
-	if( istype(target, /obj/structure/reagent_dispensers/watertank) && flag)
+	if( istype(target, /obj/structure/reagent_dispensers) && flag)
 		var/obj/o = target
 		var/amount = o.reagents.trans_to_obj(src, 50)
 

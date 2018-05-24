@@ -7,6 +7,7 @@
 	icon_state = "watertank"
 	density = 1
 	anchored = 0
+	flags = OPENCONTAINER
 
 	var/amount_per_transfer_from_this = 10
 	var/possible_transfer_amounts = list(10,25,50,100)
@@ -58,12 +59,6 @@
 			else
 		return
 
-
-
-
-
-
-
 //Dispensers
 /obj/structure/reagent_dispensers/watertank
 	name = "watertank"
@@ -74,6 +69,17 @@
 	New()
 		..()
 		reagents.add_reagent("water",capacity)
+
+/obj/structure/reagent_dispensers/extinguisher
+	name = "extinguisher tank"
+	desc = "A tank filled with extinguisher fluid."
+	icon = 'icons/obj/objects.dmi'
+	icon_state = "extinguisher_tank"
+	amount_per_transfer_from_this = 10
+	capacity = 500
+	New()
+		..()
+		reagents.add_reagent("monoammoniumphosphate",capacity)
 
 /obj/structure/reagent_dispensers/fueltank
 	name = "fuel tank"

@@ -537,6 +537,13 @@
 	required_reagents = list("cardox" = 0.1, "phoron" = 1)
 	result_amount = 0
 
+/datum/chemical_reaction/monoammoniumphosphate
+	name = "Monoammoniumphosphate"
+	id = "monoammoniumphosphate"
+	result = "monoammoniumphosphate"
+	required_reagents = list("ammonia" = 1, "sacid" = 1, "sodium" = 1, "phosphorus" = 1)
+	result_amount = 4
+
 /datum/chemical_reaction/koispasteclean
 	name = "Filtered K'ois"
 	id = "koispasteclean"
