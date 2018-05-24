@@ -40,7 +40,7 @@ world/IsBanned(key,address,computer_id)
 			return
 
 		//Check if we got a gdpr ban for that person
-		var/DBQuery/bangdprquery = dbcon.NewQuery("SELECT id, created_at FROM ss13_ban_gdpr WHERE ckey_hashed = SHA2(:ckey:) OR address_hashed = SHA2(:address:) OR computerid_hashed = SHA2(:computerid:)")
+		var/DBQuery/bangdprquery = dbcon.NewQuery("SELECT id, created_at FROM ss13_ban_gdpr WHERE ckey_hashed = SHA2(:ckey:,256) OR address_hashed = SHA2(:address:,256) OR computerid_hashed = SHA2(:computerid:,256)")
 		bangdprquery.Execute(list("ckey"=ckey, "computerid"=computer_id, "address"=address))
 		while(bangdprquery.NextRow())
 			var/gdpr_ban_id = text2num(bangdprquery.item[1])
