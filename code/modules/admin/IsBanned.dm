@@ -39,6 +39,14 @@ world/IsBanned(key,address,computer_id)
 			log_misc("Ban database connection failure. Key [ckey] not checked")
 			return
 
+		//Check if we got a gdpr ban for that person
+		var/DBQuery/bangdprquery = dbcon.NewQuery("SELECT id, created_at FROM ss13_ban_gdpr WHERE ckey_hashed = SHA2(:ckey:) OR address_hashed = SHA2(:address:) OR computerid_hashed = SHA2(:computerid:)")
+		bangdprquery.Execute(list("ckey"=ckey, "computerid"=computer_id, "address"=address))
+		while(bangdprquery.NextRow())
+			var/gdpr_ban_id = text2num(bangdprquery.item[1])
+			var/created_at = bangdprquery.item[2]
+			return list("reason"="PERMABAN", "desc"="You or another user has made a GDPR deletion request for their data at [created_at]", "id" = gdpr_ban_id)
+
 		var/pulled_ban_id = get_active_mirror(ckey, address, computer_id)
 
 		var/params[] = list()
