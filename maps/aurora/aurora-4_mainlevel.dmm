@@ -4780,6 +4780,21 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"ajI" = (
+/obj/structure/table/standard,
+/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos)
+"ajJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos)
 "ajP" = (
 /obj/structure/closet/secure_closet/security,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -86041,7 +86056,7 @@ aab
 aab
 agC
 aet
-aet
+ajI
 aet
 agC
 afR
@@ -87329,7 +87344,7 @@ aeG
 afz
 afz
 afz
-afU
+ajJ
 afr
 amq
 ajD
