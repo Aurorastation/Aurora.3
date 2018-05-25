@@ -183,31 +183,38 @@
 	else
 		return ..() //Pistolwhippin'
 
-/obj/item/weapon/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
-	if(!user || !target) return
+/obj/item/weapon/gun/proc/fire_checks(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
+	if(!user || !target)
+		return 0
 
 	add_fingerprint(user)
 	if(user.client && (user.client.prefs.toggles_secondary & SAFETY_CHECK) && user.a_intent != I_HURT) //Check this first to save time.
 		user << "You refrain from firing, as you aren't on harm intent."
-		return
+		return 0
 
 	if(!special_check(user))
-		return
+		return 0
 
 	var/failure_chance = 100 - reliability
 	if(failure_chance && prob(failure_chance))
 		handle_reliability_fail(user)
-		return
+		return 0
 
 	if(world.time < next_fire_time)
 		if (world.time % 3) //to prevent spam
 			user << "<span class='warning'>[src] is not ready to fire again!</span>"
-		return
+		return 0
 
 	var/shoot_time = (burst - 1)* burst_delay
-	user.setClickCooldown(shoot_time) //no clicking on things while shooting
-	user.setMoveCooldown(shoot_time) //no moving while shooting either
+	user.setClickCooldown(shoot_time)
+	user.setMoveCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
+
+	return 1
+
+/obj/item/weapon/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
+	if(!fire_checks(target,user,clickparams,pointblank,reflex))
+		return
 
 	//actually attempt to shoot
 	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.

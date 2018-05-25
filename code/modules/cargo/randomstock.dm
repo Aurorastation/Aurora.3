@@ -225,6 +225,7 @@ var/list/global/random_stock_rare = list(
 	"humanhide" = 0.5,
 	"modkit" = 1,
 	"contraband" = 0.8,
+	"custom_ka" = 0.5,
 	"nothing" = 0)
 
 var/list/global/random_stock_large = list(
@@ -1396,6 +1397,8 @@ var/list/global/random_stock_large = list(
 //=============================================================
 //=============================================================
 //=============================================================
+		if("custom_ka")
+			new /obj/random/custom_ka(L)
 		if("gold")
 			new /obj/item/stack/material/gold(L, rand(2,15))
 		if("diamond")
