@@ -21,9 +21,8 @@
 	internal_tank.forceMove(R)
 	internal_tank = null
 	R.add_fingerprint(user)
-	if(ripped)
-		R.ripped = ripped
-		R.update_icon()
+	R.ripped = ripped
+	R.update_icon()
 	qdel(src)
 
 /obj/structure/closet/airbubble
@@ -55,6 +54,8 @@
 	return 1
 
 /obj/structure/closet/airbubble/can_close()
+	if(zipped)
+		return 0
 	var/turf/T = get_turf(src)
 	for(var/obj/structure/closet/closet in T)
 		if(closet != src)
@@ -118,7 +119,7 @@
 
 /obj/structure/closet/airbubble/MouseDrop(over_object, src_location, over_location)
 	..()
-	if(!zipped && (over_object == usr && (in_range(src, usr) || usr.contents.Find(src))))
+	if((!zipped || ripped )&& (over_object == usr && (in_range(src, usr) || usr.contents.Find(src))))
 		if(!ishuman(usr))	return
 		if(opened)	return 0
 		if(contents.len > 1)	return 0
@@ -129,17 +130,27 @@
 		internal_tank.forceMove(bag)
 		internal_tank = null
 		bag.w_class = ITEMSIZE_LARGE
-		bag.icon_state = "airbubble_man_folded"
+		bag.icon_state = "[icon_state]_man_folded"
 		bag.desc = "Special air bubble designed to protect people inside of it from decompressed enviroments. It appears to be poorly hand folded."
 		qdel(src)
 		return
+
+/obj/structure/closet/airbubble/req_breakout()
+
+	if(opened)
+		return 0 //Door's open... wait, why are you in it's contents then?
+	if(zipped)
+		return 1 //closed but not welded...
+	if(breakout)
+		return -1 //Already breaking out.
+	return 0
 
 /obj/structure/closet/airbubble/mob_breakout(var/mob/living/escapee)
 
 	//Improved by nanako
 	//Now it actually works, also locker breakout time stacks with locking and welding
 	//This means secure lockers are more useful for imprisoning people
-	var/breakout_time = 1.5//1.5 minutes if locked or welded, 3 minutes if both
+	var/breakout_time = 1 * req_breakout()//1.5 minutes if locked or welded, 3 minutes if both
 	if(breakout_time <= 0)
 		return
 
@@ -149,7 +160,7 @@
 	escapee.next_move = world.time + 100
 	escapee.last_special = world.time + 100
 	escapee << "<span class='warning'>You lean on the back of \the [src] and start punching internal wall with your legs. (this will take about [breakout_time] minutes)</span>"
-	visible_message("<span class='danger'>\The [src] begins to shake violently!</span>")
+	visible_message("<span class='danger'>\The [src] begins to shake violently! Something is terring it from the inside!</span>")
 
 	var/time = 6 * breakout_time * 2
 
@@ -183,15 +194,14 @@
 
 	//Well then break it!
 	breakout = 0
-	escapee << "<span class='warning'>You successfully break out!</span>"
-	visible_message("<span class='danger'>\the [escapee] successfully broke out of \the [src]!</span>")
+	escapee << "<span class='warning'>You successfully break out! Tearing the bubble's walls!</span>"
+	visible_message("<span class='danger'>\the [escapee] successfully broke out of \the [src]! Tearing the bubble's walls!</span>")
 	playsound(loc, "sound/items/[pick("rip1","rip2")].ogg", 100, 1)
 	break_open()
 	animate_shake()
 	qdel(bar)
 
 /obj/structure/closet/airbubble/break_open()
-	opened = TRUE
 	ripped = TRUE
 	update_icon()
 	dump_contents()
@@ -301,19 +311,22 @@
 		icon_state = icon_opened
 	else if(ripped)
 		name = "ripped air bubble"
-		icon_state = "airbubble_ripped"
-		add_overlay("airbubble_restrained")
+		icon_state = "[icon_state]_ripped"
+		add_overlay("[icon_closed]_restrained")
 	else
 		icon_state = icon_closed
 		if(zipped)
-			add_overlay("airbubble_restrained")
+			add_overlay("[icon_state]_restrained")
 
 
 /obj/structure/closet/airbubble/proc/process_tank_give_air()
-	if(internal_tank)
+	if(internal_tank && !ripped)
 		var/datum/gas_mixture/tank_air = internal_tank.return_air()
 
 		var/release_pressure = internal_tank_valve
+		if(ripped)
+			inside_air = get_turf_air()
+			visible_message("<span class='warning'>You hear air howling from [src]'s hole. Maybe it is good to shut off valve on the internals tank?</span>")
 		var/inside_pressure = inside_air.return_pressure()
 		var/pressure_delta = min(release_pressure - inside_pressure, (tank_air.return_pressure() - inside_pressure)/2)
 		var/transfer_moles = 0
@@ -343,15 +356,6 @@
 	if (inside_air && inside_air.volume > 0)
 		var/delta = inside_air.temperature - T20C
 		inside_air.temperature -= max(-10, min(10, round(delta/4,0.1)))
-
-/obj/structure/closet/airbubble/remove_air(amount)
-	if(use_internal_tank)
-		return inside_air.remove(amount)
-	else
-		var/turf/T = get_turf(src)
-		if(T)
-			return T.remove_air(amount)
-	return
 
 /obj/structure/closet/airbubble/return_air()
 	if(use_internal_tank)
@@ -429,7 +433,7 @@
 			internal_tank.forceMove(bag)
 			internal_tank = null
 			bag.w_class = ITEMSIZE_LARGE
-			bag.icon_state = "airbubble_syndie_man_folded"
+			bag.icon_state = "[icon_state]_man_folded"
 			bag.desc = "Special air bubble designed to protect people inside of it from decompressed enviroments.This does not seem like a regular color scheme. It appears to be poorly hand folded."
 			qdel(src)
 			return
@@ -443,3 +447,16 @@
 	internal_tank = null
 	R.add_fingerprint(user)
 	qdel(src)
+
+/obj/structure/closet/airbubble/syndie/update_icon()
+	cut_overlays()
+	if(opened)
+		icon_state = icon_opened
+	else if(ripped)
+		name = "ripped air bubble"
+		icon_state = "[icon_state]_ripped"
+		add_overlay("[icon_closed]_restrained")
+	else
+		icon_state = icon_closed
+		if(zipped)
+			add_overlay("[icon_state]_restrained")
