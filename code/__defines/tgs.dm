@@ -14,13 +14,13 @@
 
 //create a global variable named `Name` and set it to `Value`
 //These globals must not be modifiable from anywhere outside of the server tools
-#define TGS_DEFINE_AND_SET_GLOBAL(Name, Value) var/##Name = ##Value
+#define TGS_DEFINE_AND_SET_GLOBAL(Name, Value) var/global/_tgs_##Name = ##Value
 
 //Read the value in the global variable `Name`
-#define TGS_READ_GLOBAL(Name) ##Name
+#define TGS_READ_GLOBAL(Name) global._tgs_##Name
 
 //Set the value in the global variable `Name` to `Value`
-#define TGS_WRITE_GLOBAL(Name, Value) ##Name = ##Value
+#define TGS_WRITE_GLOBAL(Name, Value) global._tgs_##Name = ##Value
 
 //Disallow ANYONE from reflecting a given `path`, security measure to prevent in-game priveledge escalation
 #define TGS_PROTECT_DATUM(Path)
@@ -32,10 +32,10 @@
 #define TGS_NOTIFY_ADMINS(event) message_admins(##event)
 
 //Write an info `message` to a server log
-#define TGS_INFO_LOG(message) log_game("TGS: Info: [##message]")
+#define TGS_INFO_LOG(message) log_tgs("[##message]")
 
 //Write an error `message` to a server log
-#define TGS_ERROR_LOG(message) log_game("TGS: Error: [##message]", SEVERITY_ERROR)
+#define TGS_ERROR_LOG(message) log_tgs("[##message]", SEVERITY_ERROR)
 
 //Get the number of connected /clients
 #define TGS_CLIENT_COUNT clients.len
