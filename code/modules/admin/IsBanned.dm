@@ -43,6 +43,9 @@ world/IsBanned(key,address,computer_id)
 		var/DBQuery/bangdprquery = dbcon.NewQuery("SELECT id, created_at FROM ss13_ban_gdpr WHERE ckey_hashed = SHA2(:ckey:,256) OR address_hashed = SHA2(:address:,256) OR computerid_hashed = SHA2(:computerid:,256)")
 		bangdprquery.Execute(list("ckey"=ckey, "computerid"=computer_id, "address"=address))
 		while(bangdprquery.NextRow())
+			//They connected again, so we got their conset to use their data again. Let´s log their connection attempt
+			log_access("Failed Login: [key] [computer_id] [address] - GDPR-Banned",ckey=key_name(key))
+			message_admins("<span class='notice'>Failed Login: [key] id:[computer_id] ip:[address] - GDPR-Banned</span>")
 			var/gdpr_ban_id = text2num(bangdprquery.item[1])
 			var/created_at = bangdprquery.item[2]
 			return list("reason"="PERMABAN", "desc"="You or another user has made a GDPR deletion request for their data at [created_at]", "id" = gdpr_ban_id)
