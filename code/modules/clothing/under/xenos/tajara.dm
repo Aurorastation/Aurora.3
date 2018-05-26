@@ -106,13 +106,21 @@
 
 /obj/item/clothing/accessory/tajaran_wrap
 	name = "marriage wrap"
-	desc = "A holy cloth wrap which signifies marriage amongst tajara, it has white and gold markings. This one is meant for the husband."
+	desc = "A holy cloth wrap that signifies marriage amongst tajara, it has white and gold markings. This one is meant for the husband."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "wrap_male"
 	item_state = "wrap_male"
 	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/tajaran_wrap/female
-	desc = "A holy cloth wrap which signifies marriage amongst tajara, it has blue and light blue markings. This one is meant for the wife."
+	desc = "A holy cloth wrap that signifies marriage amongst tajara, it has blue and light blue markings. This one is meant for the wife."
 	icon_state = "wrap_female"
 	item_state = "wrap_female"
+
+/obj/item/clothing/accessory/tajaran_pelt
+	name = "ceremonial pelt"
+	desc = "A piece of pelt that signifies the marriage between two followers of Ma'ta'ke."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "pelt"
+	item_state = "pelt"
+	contained_sprite = TRUE
