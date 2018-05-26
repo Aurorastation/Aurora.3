@@ -22,7 +22,7 @@
 /obj/item/custom_ka_upgrade/cells/cell01
 	//Pump Action
 	name = "pump action KA cell"
-	build_name = "Pump-action"
+	build_name = "pump-action"
 	desc = "A very basic power cell and pump action combo that stores a single charge. A pump is required after each shot, however it deals increased damage and has increased range."
 	icon_state = "cell01"
 	damage_increase = 10
@@ -35,7 +35,7 @@
 	mod_limit_increase = 0
 
 	pump_restore = 1
-	pump_delay = 0.5 SECONDS
+	pump_delay = 0.4 SECONDS
 
 	origin_tech = list(TECH_MATERIAL = 2,TECH_ENGINEERING = 2,TECH_MAGNET = 2,TECH_POWER = 2)
 
@@ -52,7 +52,7 @@
 	mod_limit_increase = 0
 
 	pump_restore = 1
-	pump_delay = 0.4 SECONDS
+	pump_delay = 0.5 SECONDS
 
 	origin_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 3,TECH_MAGNET = 3,TECH_POWER = 3)
 
@@ -70,7 +70,7 @@
 	mod_limit_increase = 0
 
 	pump_restore = 40
-	pump_delay = 2 SECONDS
+	pump_delay = 1 SECONDS
 
 	origin_tech = list(TECH_MATERIAL = 4,TECH_ENGINEERING = 4,TECH_MAGNET = 4,TECH_POWER = 4)
 
@@ -99,7 +99,7 @@
 	build_name = "recoil-reloading"
 	desc = "A very experimental and well designed cell and pump assembly that converts some of the kinetic energy from the weapon's recoil into usable energy. Only works if the recoil is high enough. Contains a basic top-mounted pump just in case."
 	icon_state = "cell05"
-	firedelay_increase = 0.25 SECONDS
+	firedelay_increase = 0.4 SECONDS
 	damage_increase = 0
 	recoil_increase = -5
 	cost_increase = -3
@@ -108,7 +108,7 @@
 	mod_limit_increase = 0
 
 	pump_restore = 5
-	pump_delay = 0.75 SECONDS
+	pump_delay = 0.5 SECONDS
 
 	origin_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 6,TECH_MAGNET = 6,TECH_POWER = 6)
 
@@ -131,6 +131,6 @@
 	mod_limit_increase = 0
 
 	pump_restore = 20
-	pump_delay = 1 SECONDS
+	pump_delay = 0.5 SECONDS
 
 	origin_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 3,TECH_MAGNET = 3,TECH_POWER = 3, TECH_ILLEGAL = 4)

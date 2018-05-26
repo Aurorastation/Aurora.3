@@ -1,6 +1,6 @@
 /obj/item/custom_ka_upgrade/barrels/barrel01
 	name = "standard core KA power converter"
-	build_name = "core XC 'Standard'"
+	build_name = "'Standard'"
 	desc = "A very standard kinetic accelerator energy converter and barrel assembly. Has poor range, but gets the job done."
 	icon_state = "barrel01"
 	damage_increase = 10
@@ -16,7 +16,7 @@
 
 /obj/item/custom_ka_upgrade/barrels/barrel02
 	name = "professional core KA power converter"
-	build_name = "core XXC 'Profesional'"
+	build_name = "'Professional'"
 	desc = "A more advanced kinetic accelerator energy converter and barrel assembly intended for professional miners out on the rock."
 	icon_state = "barrel02"
 	damage_increase = 15
@@ -32,7 +32,7 @@
 
 /obj/item/custom_ka_upgrade/barrels/barrel03
 	name = "meteor core KA power converter"
-	build_name = "core XXYB 'Meteor'"
+	build_name = "'Meteor'"
 	desc = "A very robust kinetic accelerator energy converter used by professional mining contractors intended for the use in mining soft metals such as gold on asteroids."
 	icon_state = "barrel03"
 	damage_increase = 20
@@ -49,7 +49,7 @@
 
 /obj/item/custom_ka_upgrade/barrels/barrel04
 	name = "planet core KA power converter"
-	build_name = "core XXYYZB 'Planet'"
+	build_name = "'Planet'"
 	desc = "An incredibly powerful and effecient kinetic accelerator energy converter intended for the use in atmospheric areas such as planets and gas giants."
 	icon_state = "barrel04"
 	damage_increase = 25
@@ -65,8 +65,8 @@
 
 /obj/item/custom_ka_upgrade/barrels/barrel05
 	name = "experimental core KA power converter"
-	build_name = "core E 'Experimental'"
-	desc = "A very experimental kinetic accelerator energy converter. Not much is known about this thing, other than it kicks like a muel and stings like an energy sword."
+	build_name = "'Experimental'"
+	desc = "A very experimental kinetic accelerator energy converter. Not much is known about this thing, other than it kicks like a muel and stings like an e-sword."
 	icon_state = "barrel05"
 	damage_increase = 30
 	firedelay_increase = 1 SECONDS
@@ -80,15 +80,15 @@
 	origin_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 6,TECH_MAGNET = 6)
 
 /obj/item/custom_ka_upgrade/barrels/illegal
-	name = "illegal laser KA power converter"
-	build_name = "lasermod 'Syndicate''"
+	name = "laser KA power converter"
+	build_name = "'Syndicate''"
 	desc = "A laser cystal ripped from a laser rifle and repurposed for kinetic accelerator assemblies."
 	icon_state = "barrel_laser"
-	damage_increase = 25
+	damage_increase = 15
 	firedelay_increase = 1.5 SECONDS
 	range_increase = 64
-	recoil_increase = 10
-	cost_increase = 12
+	recoil_increase = 6
+	cost_increase = 4
 	cell_increase = 0
 	capacity_increase = 0
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'

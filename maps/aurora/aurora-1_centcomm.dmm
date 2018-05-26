@@ -5673,8 +5673,6 @@
 /obj/item/weapon/gun/energy/gun,
 /obj/item/weapon/gun/energy/gun,
 /obj/item/weapon/gun/energy/gun,
-/obj/item/weapon/gun/energy/gun,
-/obj/item/weapon/gun/energy/gun,
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 5;
 	pixel_y = -32
@@ -10212,7 +10210,9 @@
 	pixel_x = 5;
 	pixel_y = -32
 	},
-/obj/item/weapon/gun/custom_ka/frame01/illegal,
+/obj/item/weapon/gun/energy/gun,
+/obj/item/weapon/gun/energy/gun,
+/obj/item/weapon/gun/energy/gun,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},

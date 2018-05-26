@@ -1,15 +1,16 @@
 /obj/item/weapon/gun/custom_ka/frame01
-	name = "chicken legs kinetic accelerator frame"
-	build_name = "Chicken Legs"
+	name = "compact kinetic accelerator frame"
+	build_name = "compact"
 	icon_state = "frame01"
 	w_class = 3
 	capacity_increase = 3
 	mod_limit_increase = 2
 	origin_tech = list(TECH_MATERIAL = 2,TECH_ENGINEERING = 2)
+	slot_flags = SLOT_BELT
 
 /obj/item/weapon/gun/custom_ka/frame02
-	name = "boomstick kinetic accelerator frame"
-	build_name = "Boomstick"
+	name = "light kinetic accelerator frame"
+	build_name = "light"
 	icon_state = "frame02"
 	w_class = 3
 	recoil_increase = -1
@@ -18,8 +19,8 @@
 	origin_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 3)
 
 /obj/item/weapon/gun/custom_ka/frame03
-	name = "black club kinetic accelerator frame"
-	build_name = "Black Club"
+	name = "medium kinetic accelerator frame"
+	build_name = "medium"
 	icon_state = "frame03"
 	w_class = 4
 	recoil_increase = -2
@@ -28,8 +29,8 @@
 	origin_tech = list(TECH_MATERIAL = 4,TECH_ENGINEERING = 4)
 
 /obj/item/weapon/gun/custom_ka/frame04
-	name = "loopclaw kinetic accelerator frame"
-	build_name = "Loopclaw"
+	name = "heavy kinetic accelerator frame"
+	build_name = "heavy"
 	icon_state = "frame04"
 	w_class = 5
 	recoil_increase = -5
@@ -38,8 +39,8 @@
 	origin_tech = list(TECH_MATERIAL = 5,TECH_ENGINEERING = 5)
 
 /obj/item/weapon/gun/custom_ka/frame05
-	name = "laserback kinetic accelerator frame"
-	build_name = "Laserback"
+	name = "tactical kinetic accelerator frame"
+	build_name = "tactical"
 	icon_state = "frame05"
 	w_class = 5
 	recoil_increase = -6
@@ -67,6 +68,10 @@
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel04
 	installed_upgrade_chip = /obj/item/custom_ka_upgrade/upgrade_chips/effeciency
 
+/obj/item/weapon/gun/custom_ka/frame04/illegal
+	installed_cell = /obj/item/custom_ka_upgrade/cells/illegal
+	installed_barrel = /obj/item/custom_ka_upgrade/barrels/illegal
+
 /obj/item/weapon/gun/custom_ka/frame05/prebuilt
 	installed_cell = /obj/item/custom_ka_upgrade/cells/cell05
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel05
@@ -90,23 +95,22 @@
 	damage_type = BRUTE
 	check_armour = "bomb"
 	range = 5
-
 	var/pressure_decrease = 0.25
-	var/list/hit_overlays = list()
 
 /obj/item/projectile/kinetic/on_impact(var/atom/A,var/aoe_scale = 1, var/damage_scale = 1)
 
-	if(damage_scale == 1)
-		var/turf/target_turf = get_turf(A)
-		if(!target_turf)
-			target_turf = get_turf(src)
-		var/datum/gas_mixture/environment = target_turf.return_air()
-		var/pressure = environment.return_pressure()
-		if(pressure > 50)
-			name = "weakened [name]"
-			damage *= pressure_decrease
+
+	var/turf/target_turf = get_turf(A)
+	if(!target_turf)
+		target_turf = get_turf(src)
+	var/datum/gas_mixture/environment = target_turf.return_air()
+	var/pressure = environment.return_pressure()
+	if(pressure > 50)
+		name = "weakened [name]"
+		damage *= pressure_decrease
 
 	strike_thing(A,aoe*aoe_scale,damage*damage_scale)
+
 	. = ..()
 
 /obj/item/projectile/kinetic/proc/strike_thing(atom/target,var/new_aoe,var/damage_scale)
@@ -115,13 +119,12 @@
 	if(istype(target_turf, /turf/simulated/mineral))
 		var/turf/simulated/mineral/M = target_turf
 		M.kinetic_hit(damage,dir)
-	var/obj/effect/overlay/temp/kinetic_blast/K = new /obj/effect/overlay/temp/kinetic_blast(target_turf)
-	K.color = color
+	else if(istype(target_turf, /turf/simulated/floor/asteroid))
+		var/turf/simulated/floor/asteroid/A = target_turf
+		A.gets_dug()
 
-	for(var/type in hit_overlays)
-		new type(target_turf)
+	new /obj/effect/overlay/temp/kinetic_blast(target_turf)
 
-	if(aoe)
-		aoe -= 1
-		for(var/new_target in orange(1, target_turf))
-			on_impact(new_target,0,0.5)
+	if(new_aoe > 0)
+		for(var/new_target in orange(new_aoe, target_turf))
+			src.on_impact(new_target,0,0.5)

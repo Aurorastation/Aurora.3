@@ -214,9 +214,6 @@
 	if(installed_upgrade_chip)
 		installed_upgrade_chip.on_fire(src)
 
-	if(damage_increase > 20)
-		aoe_increase += 1
-
 	shot_projectile.damage = damage_increase
 	shot_projectile.range = range_increase
 	shot_projectile.aoe = aoe_increase
@@ -332,6 +329,11 @@
 	cost_increase = max(cost_increase,1)
 	recoil_increase = max(recoil_increase,1)
 	firedelay_increase = max(firedelay_increase,0.125 SECONDS)
+
+	if(damage_increase > 20)
+		aoe_increase += 1
+
+	aoe_increase = max(0,aoe_increase)
 
 	//Gun stats
 	recoil = recoil_increase*0.25
