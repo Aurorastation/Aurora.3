@@ -23,13 +23,13 @@
 	if(power_supply.charge < power_supply.maxcharge)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user.visible_message(
-				"<span class='warning'>\The [user] begins to rotate \the [src]'s crank!</span>",
-				"<span class='warning'>You begin to rotate \the [src]'s crank!</span>"
+				"<span class='notice'>\The [user] begins to crank \the [src]!</span>",
+				"<span class='notice'>You begin to rotate \the [src]'s crank!</span>"
 				)
 		playsound(user.loc, 'sound/items/crank.ogg', 60, 1)
 		is_charging = TRUE
 		if(do_after(user,20))
-			user << "<span class='notice'>You finished charging \the [src].</span>"
+			user << "<span class='notice'>You finish charging \the [src].</span>"
 			power_supply.give(charge_cost)
 			update_icon()
 			is_charging = FALSE
