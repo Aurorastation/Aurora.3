@@ -1544,7 +1544,7 @@
 /datum/chemical_reaction/meatball/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
 	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/meatball(location)
+		new /obj/item/weapon/reagent_containers/food/snacks/rawmeatball(location)
 	return
 
 /datum/chemical_reaction/dough
@@ -2674,7 +2674,7 @@
 	name = "Bahama Lizard"
 	id = "bahamalizard"
 	result = "bahamalizard"
-	required_reagents = list("xuizijuice" = 2, "orangejuice" = 2, "limejuice" = 1, "ice" = 1)
+	required_reagents = list("xuizijuice" = 2, "lemonjuice" = 2, "cream" = 1, "ice" = 1)
 	result_amount = 6
 
 /datum/chemical_reaction/cactuscreme

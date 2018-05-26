@@ -45,12 +45,12 @@
 	return 0
 
 /obj/machinery/smartfridge/seeds
-	name = "\improper MegaSeed Servitor"
+	name = "\improper MegaSeed Storage"
 	desc = "When you need seeds fast!"
 	icon = 'icons/obj/vending.dmi'
-	icon_state = "seeds"
-	icon_on = "seeds"
-	icon_off = "seeds-off"
+	icon_state = "nutrimat"
+	icon_on = "nutrimat"
+	icon_off = "nutrimat-off"
 
 /obj/machinery/smartfridge/seeds/accept_check(var/obj/item/O as obj)
 	if(istype(O,/obj/item/seeds/))
