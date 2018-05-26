@@ -192,7 +192,7 @@
 	can_hold = list(
 		/obj/item/weapon/cell,
 		/obj/item/weapon/stock_parts,
-		/obj/item/custom_ka_upgrade,
+		/obj/item/custom_ka_upgrade
 	)
 
 /obj/item/weapon/gripper/paperwork
