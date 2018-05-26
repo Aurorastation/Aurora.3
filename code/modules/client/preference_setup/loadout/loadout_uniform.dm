@@ -200,3 +200,14 @@
 	display_name = "tacticool turtleneck"
 	path = /obj/item/clothing/under/syndicate/tacticool
 
+/datum/gear/uniform/dominia
+	display_name = "dominia suit selection"
+	path = /obj/item/clothing/under/dominia
+
+/datum/gear/uniform/dominia/New()
+	..()
+	var/suit = list()
+	suit["dominia suit"] = /obj/item/clothing/under/dominia
+	suit["dominia suit, black"] = /obj/item/clothing/under/dominia/black
+	suit["lyodsuit"] = /obj/item/clothing/under/dom_thermal
+	gear_tweaks += new/datum/gear_tweak/path(suit)

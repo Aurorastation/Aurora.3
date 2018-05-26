@@ -36,17 +36,21 @@
 	if (nutriment_amt)
 		reagents.add_reagent(nutriment_type, nutriment_amt, nutriment_desc)
 
-/obj/item/weapon/reagent_containers/food/snacks/proc/On_Consume(var/mob/M)
+/obj/item/weapon/reagent_containers/food/snacks/proc/On_Consume(var/mob/eater, var/mob/feeder = null)
 	if(!reagents.total_volume)
-		M.visible_message("<span class='notice'>[M] finishes eating \the [src].</span>","<span class='notice'>You finish eating \the [src].</span>")
-		M.drop_from_inventory(src)	//so icons update :[
+		eater.visible_message("<span class='notice'>[eater] finishes eating \the [src].</span>","<span class='notice'>You finish eating \the [src].</span>")
+
+		if (!feeder)
+			feeder = eater
+
+		feeder.drop_from_inventory(src)	//so icons update :[
 
 		if(trash)
 			if(ispath(trash,/obj/item))
-				var/obj/item/TrashItem = new trash(M)
-				M.put_in_hands(TrashItem)
+				var/obj/item/TrashItem = new trash(feeder)
+				feeder.put_in_hands(TrashItem)
 			else if(istype(trash,/obj/item))
-				M.put_in_hands(trash)
+				feeder.put_in_hands(trash)
 		qdel(src)
 	return
 
@@ -114,7 +118,7 @@
 				else
 					reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
 				bitecount++
-				On_Consume(M)
+				On_Consume(M, user)
 			return 1
 
 	else if (isanimal(M))
@@ -144,7 +148,7 @@
 				user.visible_message("<span class='notice'>[user] feeds [M] a tiny bit of [src]. <b>It looks full.</b></span>")
 				if (!istype(M.loc, /turf))
 					M << "<span class='notice'>[user] feeds you a tiny bit of [src]. <b>You feel pretty full!</b></span>"
-			On_Consume(M)
+			On_Consume(M, user)
 			return 1
 		else
 			user << "<span class='danger'>[M.name] can't stomach anymore food!</span>"
@@ -4960,7 +4964,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/corn_dog
 	name = "corn dog"
 	desc = "A cornbread covered sausage deepfried in oil."
-	icon_state = "corn_dog"
+	icon_state = "corndog"
 	nutriment_desc = list("corn batter" = 4)
 	nutriment_amt = 4
 
@@ -4975,9 +4979,9 @@
 	nutriment_amt = 0
 	bitesize = 4
 
-/obj/item/weapon/reagent_containers/food/snacks/Initialize()
+/obj/item/weapon/reagent_containers/food/snacks/truffle/Initialize()
 	. = ..()
-	reagents.add_reagent("coco", 4)
+	reagents.add_reagent("coco", 6)
 
 /obj/item/weapon/reagent_containers/food/snacks/truffle/random
 	name = "mystery chocolate truffle"

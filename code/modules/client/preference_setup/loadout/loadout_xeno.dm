@@ -151,6 +151,7 @@
 	coat["tajaran naval coat"] = /obj/item/clothing/suit/storage/tajaran
 	coat["commoner cloak"] = /obj/item/clothing/suit/storage/tajaran/cloak
 	coat["royal cloak"] = /obj/item/clothing/suit/storage/tajaran/cloak/fancy
+	coat["gruff cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 /datum/gear/suit/tajaran_labcoat

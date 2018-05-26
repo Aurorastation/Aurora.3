@@ -148,9 +148,12 @@
 		new /obj/item/taperoll/police(src)
 		new /obj/item/device/flash(src)
 		new /obj/item/device/holowarrant(src)
+		new /obj/item/device/breath_analyzer(src)
 		//Belts
 		new /obj/item/clothing/accessory/holster/waist(src)
 		new /obj/item/weapon/storage/belt/security(src)
+
+
 
 /obj/structure/closet/secure_closet/hos2
 	name = "head of security's attire"
@@ -177,6 +180,8 @@
 		//Belts
 		new /obj/item/weapon/storage/belt/security(src)
 		new /obj/item/clothing/accessory/holster/waist(src)
+
+		new /obj/item/device/breath_analyzer(src)
 
 /obj/structure/closet/secure_closet/warden
 	name = "warden's locker"
