@@ -33,6 +33,8 @@
 			power_supply.give(charge_cost)
 			update_icon()
 			is_charging = FALSE
+		else
+			is_charging = FALSE
 
 /obj/item/weapon/gun/energy/rifle/icelance/update_icon()
 	..()
