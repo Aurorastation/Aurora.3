@@ -6,6 +6,7 @@
 	icon = 'icons/obj/kinetic_accelerators.dmi'
 	icon_state = ""
 	item_state = "kineticgun"
+	contained_sprite = 1
 	flags =  CONDUCT
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
