@@ -33,7 +33,9 @@
 				return
 			if("supply")
 				supply()
-		user.take_organ_damage(5, 0)
+		if (ishuman(user))
+			var/mob/living/carbon/human/H = user
+			H.vessel.remove_reagent("blood", 15)
 		if(src && src.imbue!="supply" && src.imbue!="runestun")
 			if(delete)
 				qdel(src)
