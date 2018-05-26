@@ -4,7 +4,7 @@
 
 // #define EMPDEBUG 10
 
-proc/empulse(turf/epicenter, heavy_range, light_range, log=0)
+proc/empulse(turf/epicenter, heavy_range, light_range, log = FALSE, list/exclude = null)
 	if(!epicenter) return
 
 	if(!istype(epicenter, /turf))
@@ -28,24 +28,26 @@ proc/empulse(turf/epicenter, heavy_range, light_range, log=0)
 	for(var/mob/M in range(heavy_range, epicenter))
 		M << 'sound/effects/EMPulse.ogg'
 
-	for(var/atom/T in range(light_range, epicenter))
+	for(var/atom/A in range(light_range, epicenter))
 		#ifdef EMPDEBUG
 		var/time = world.timeofday
 		#endif
-		var/distance = get_dist(epicenter, T)
+		if(exclude && (A in exclude))
+			continue
+		var/distance = get_dist(epicenter, A)
 		if(distance < 0)
 			distance = 0
 		if(distance < heavy_range)
-			T.emp_act(1)
+			A.emp_act(1)
 		else if(distance == heavy_range)
 			if(prob(50))
-				T.emp_act(1)
+				A.emp_act(1)
 			else
-				T.emp_act(2)
+				A.emp_act(2)
 		else if(distance <= light_range)
-			T.emp_act(2)
+			A.emp_act(2)
 		#ifdef EMPDEBUG
 		if((world.timeofday - time) >= EMPDEBUG)
-			log_and_message_admins("EMPDEBUG: [T.name] - [T.type] - took [world.timeofday - time]ds to process emp_act()!")
+			log_and_message_admins("EMPDEBUG: [A.name] - [A.type] - took [world.timeofday - time]ds to process emp_act()!")
 		#endif
 	return 1

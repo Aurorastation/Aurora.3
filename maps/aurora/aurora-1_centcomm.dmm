@@ -10522,7 +10522,7 @@
 	},
 /area/centcom/specops)
 "axY" = (
-/obj/machinery/porta_turret,
+/obj/machinery/porta_turret/crescent,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
