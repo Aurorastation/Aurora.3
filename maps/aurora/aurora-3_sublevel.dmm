@@ -18202,6 +18202,10 @@
 	icon_state = "alarm0";
 	pixel_x = 24
 	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Isolation Containment";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_c)
 "Gn" = (
@@ -20056,11 +20060,19 @@
 	icon_state = "alarm0";
 	pixel_x = 24
 	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Isolation Access";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_c)
 "Jc" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Isolation Airlock";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_c)

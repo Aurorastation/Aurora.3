@@ -2039,3 +2039,230 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 	desc = "An old looking zippo lighter with Vasili Mine Logo engraved on it. \"Good Luck Nikit\" is crudely scratched on under the logo in small writing."
 	icon = 'icons/obj/custom_items/nikit_zippo.dmi'
 	icon_state = "nikit_zippo"
+
+
+/obj/item/clothing/under/dress/fluff/marwani_dress_front //Unathi Purple Dress - Ilaeza Marwani - burgerbb
+	name = "unathi purple dress"
+	desc = "A strange purple dress designed to fit very tall female unathi, suitable for indoor wear in warmer climate. This is the front piece."
+	icon = 'icons/obj/custom_items/marwani_dress.dmi'
+	icon_state = "mar_front_dress"
+	item_state = "mar_front_dress"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/fluff/marwani_dress_back //Unathi Purple Dress - Ilaeza Marwani - burgerbb
+	name = "unathi purple dress"
+	desc = "A strange purple dress designed to fit very tall female unathi, suitable for indoor wear in warmer climate. This is the back piece."
+	icon = 'icons/obj/custom_items/marwani_dress.dmi'
+	icon_state = "mar_back_dress"
+	item_state = "mar_back_dress"
+	contained_sprite = TRUE
+
+/obj/item/clothing/shoes/jackboots/unathi/fluff/marwani_shoes //Unathi Purple Boots - Ilaeza Marwani - burgerbb
+	name = "unathi purple boots"
+	desc = "Giant, closed-toe boots with extra claw space and support, perfect for those with clawed feet."
+	icon = 'icons/obj/custom_items/marwani_dress.dmi'
+	item_state = "mar_boots"
+	icon_state = "mar_boots"
+	contained_sprite = TRUE
+
+/obj/item/clothing/gloves/white/unathi/fluff/marwani_gloves //Unathi Arm Warmers - Ilaeza Marwani - burgerbb
+	name = "unathi arm warmers"
+	desc = "Light, white cotton arm warmers fashionably designed to warm unathi arms."
+	icon = 'icons/obj/custom_items/marwani_dress.dmi'
+	icon_state = "mar_gloves"
+	item_state = "mar_gloves"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/fluff/marwani_armor //Clan Marwani Emblem - Ilaeza Marwani - burgerbb
+	name = "clan marwani armor"
+	desc = "A large, decorative iron and brass alloyed breastplate signifying the industrial strength of Clan Marwani."
+	icon = 'icons/obj/custom_items/marwani_dress.dmi'
+	icon_state = "mar_emblem"
+	item_state = "mar_emblem"
+	contained_sprite = TRUE
+
+
+/obj/item/weapon/deck/tarot/fluff/klavdiya_cards //Adhomian Divination Cards Deck - Klavdiya Tikhomirov - alberyk
+	name = "adhomian divination cards deck"
+	desc = "An adhomian deck of divination cards, used to read the fortunte or play games."
+	icon_state = "deck_adhomai"
+
+/obj/item/weapon/deck/tarot/fluff/klavdiya_cards/generate_deck()
+	var/datum/playingcard/P
+	for(var/name in list("D'as'ral Massacre","Clairvoyant","Suns' Sister","Queen","King","Father of the Parivara","S'rendal'Matir","Tank","Royal Grenadier","Kraszarrumalkarii","Hand of Fate","Great Revolution","Assassin","Assassination","Dymtris Line",
+	"Rrak'narrr","Steeple","Messa","Raskara","S'rendarr","Kazarrhaldiye","Adhomai"))
+		P = new()
+		P.name = "[name]"
+		P.card_icon = "adhomai_major"
+		P.back_icon = "card_back_adhomai"
+		cards += P
+	for(var/suit in list("wands","pentacles","cups","swords"))
+
+
+		for(var/number in list("ace","two","three","four","five","six","seven","eight","nine","ten","serf","soldier","queen","king"))
+			P = new()
+			P.name = "[number] of [suit]"
+			P.card_icon = "adhomai_[suit]"
+			P.back_icon = "card_back_adhomai"
+			cards += P
+
+/obj/item/clothing/accessory/locket/fluff/klavdiya_amulet //Moon Shaped Amulet - Klavdiya Tikhomirov - alberyk
+	name = "moon shaped amulet"
+	desc = "A metalic necklace that bears a silver moon shapped pendant."
+	icon = 'icons/obj/custom_items/klavdiya_amulet.dmi'
+	icon_state = "klavdiya_amulet"
+
+
+/obj/item/clothing/gloves/fluff/lunea_gloves //Spark Gloves - Lunea Discata - tishinastalker
+	name = "spark gloves"
+	desc = "Custom made flame retardant gloves designed after Cpt. Stallion from hit 2451 anime series Truesteel Arcanist: Fellowship. \
+	A lighter assembly is built along the index finger with a tiny plate of steel, and there is a small flint built into the thumb."
+	icon = 'icons/obj/custom_items/lunea_gloves.dmi'
+	icon_state = "lunea_gloves"
+	item_state = "lunea_gloves"
+	contained_sprite = TRUE
+	var/lit = FALSE
+
+/obj/item/clothing/gloves/fluff/lunea_gloves/verb/toggle()
+	set name = "Toggle Spark Gloves"
+	set category = "Object"
+	set src in usr
+
+	if (use_check(usr)) return
+
+	if(!lit)
+		usr.visible_message("<span class='notice'>With a snap of \the [usr]'s fingers, a small lighter flame sparks from \his index fingers!</span>")
+		lit = TRUE
+		playsound(src.loc, 'sound/items/lighter_on.ogg', 75, 1)
+		update_icon()
+		usr.update_inv_gloves()
+		return
+
+	else
+		usr.visible_message("<span class='notice'>With the flick of \the [user] wrists and the pinch of \his fingers, the glove's flames are extinguished.</span>")
+		lit = FALSE
+		playsound(src.loc, 'sound/items/lighter_off.ogg', 75, 1)
+		update_icon()
+		usr.update_inv_gloves()
+		return
+
+/obj/item/clothing/gloves/fluff/lunea_gloves/update_icon()
+	if(lit)
+		icon_state = "[icon_state]_lit"
+		item_state = "[item_state]_lit"
+		set_light(2, 0.25, "#E38F46")
+	else
+		icon_state = initial(icon_state)
+		item_state = initial(item_state)
+		set_light(0)
+
+
+/obj/item/fluff/fernando_knittingneedles //Kitting Needles - Fernando Gonzales - resilynn
+	name = "knitting needles"
+	desc = "Silver knitting needles used for stitching yarn."
+	icon = 'icons/obj/custom_items/fernando_knitting.dmi'
+	icon_state = "knittingneedles"
+	item_state = "knittingneedles"
+	w_class = 2
+	contained_sprite = TRUE
+	var/working = FALSE
+	var/obj/item/fluff/yarn/ball
+
+/obj/item/fluff/fernando_knittingneedles/Destroy()
+	if(ball)
+		QDEL_NULL(ball)
+	return ..()
+
+/obj/item/fluff/fernando_knittingneedles/examine(mob/user)
+	if(..(user, 1))
+		if(ball)
+			to_chat(user, "There is \the [ball] between the needles.")
+
+/obj/item/fluff/fernando_knittingneedles/update_icon()
+	if(working)
+		icon_state = "knittingneedles_on"
+		item_state = "knittingneedles_on"
+	else
+		icon_state = initial(icon_state)
+		item_state = initial(item_state)
+
+	if(ball)
+		add_overlay("[ball.icon_state]")
+	else
+		cut_overlays()
+
+/obj/item/fluff/fernando_knittingneedles/attackby(obj/item/O, mob/user)
+	if(istype(O, /obj/item/fluff/yarn))
+		if(!ball)
+			user.unEquip(O)
+			O.forceMove(src)
+			ball = O
+			to_chat(user, "<span class='notice'>You place \the [O] in \the [src]</span>")
+			update_icon()
+
+/obj/item/fluff/fernando_knittingneedles/attack_self(mob/user as mob)
+	if(!ball) //if there is no yarn ball, nothing happens
+		to_chat(user, "<span class='warning'>You need a yarn ball to stitch.</span>")
+		return
+
+	if(working)
+		to_chat(user, "<span class='warning'>You are already sitching something.</span>")
+		return
+
+	user.visible_message("<span class='notice'>\The [user] is knitting something soft and cozy.</span>")
+	working = TRUE
+	update_icon()
+
+	if(!do_after(user,2 MINUTES))
+		to_chat(user, "<span class='warning'>Your concentration is broken!</span>")
+		working = FALSE
+		update_icon()
+		return
+
+	var/obj/item/clothing/under/sweater/G = new(get_turf(user))
+	G.color = ball.color
+	qdel(ball)
+	ball = null
+	working = FALSE
+	update_icon()
+	to_chat(user, "<span class='warning'>You finished \the [G]!</span>")
+
+/obj/item/fluff/yarn
+	name = "ball of yarn"
+	desc = "A ball of yarn, this one is white."
+	icon = 'icons/obj/custom_items/fernando_knitting.dmi'
+	icon_state = "white_ball"
+	w_class = 1
+
+/obj/item/fluff/yarn/red
+	desc = "A ball of yarn, this one is red."
+	color = "#ff0000"
+
+/obj/item/fluff/yarn/blue
+	desc = "A ball of yarn, this one is blue."
+	color = "#0000FF"
+
+/obj/item/fluff/yarn/green
+	desc = "A ball of yarn, this one is green."
+	color = "#00ff00"
+
+/obj/item/fluff/yarn/purple
+	desc = "A ball of yarn, this one is purple."
+	color = "#800080"
+
+/obj/item/fluff/yarn/yellow
+	desc = "A ball of yarn, this one is yellow."
+	color = "#FFFF00"
+
+/obj/item/weapon/storage/box/fluff/knitting //a bunch of things, so it goes into the box
+	name = "knitting supplies"
+
+/obj/item/weapon/storage/box/fluff/knitting/fill()
+	..()
+	new /obj/item/fluff/fernando_knittingneedles(src)
+	new /obj/item/fluff/yarn(src)
+	new /obj/item/fluff/yarn/red(src)
+	new /obj/item/fluff/yarn/blue(src)
+	new /obj/item/fluff/yarn/green(src)
+	new /obj/item/fluff/yarn/purple(src)
+	new /obj/item/fluff/yarn/yellow(src)

@@ -1040,18 +1040,22 @@ proc/is_blind(A)
 // It's not worth adding a proc for every single one of these types.
 /mob/living/simple_animal/find_type()
 	. = ..()
-	if (is_type_in_typecache(src, global.mtl_synthetic))
+	if (is_type_in_typecache(src, SSmob.mtl_synthetic))
 		. |= TYPE_SYNTHETIC
 
-	if (is_type_in_typecache(src, global.mtl_weird))
+	if (is_type_in_typecache(src, SSmob.mtl_weird))
 		. |= TYPE_WEIRD
 
-	// If it's not TYPE_SYNTHETIC or TYPE_WEIRD, we can assume it's TYPE_ORGANIC.
-	if (!(. & (TYPE_SYNTHETIC|TYPE_WEIRD)))
+	if (is_type_in_typecache(src, SSmob.mtl_incorporeal))
+		. |= TYPE_INCORPOREAL
+
+	// If it's not TYPE_SYNTHETIC, TYPE_WEIRD or TYPE_INCORPOREAL, we can assume it's TYPE_ORGANIC.
+	if (!(. & (TYPE_SYNTHETIC|TYPE_WEIRD|TYPE_INCORPOREAL)))
 		. |= TYPE_ORGANIC
 
-	if (is_type_in_typecache(src, global.mtl_humanoid))
+	if (is_type_in_typecache(src, SSmob.mtl_humanoid))
 		. |= TYPE_HUMANOID
+
 
 /mob/living/proc/get_vessel(create = FALSE)
 	if (!create)
