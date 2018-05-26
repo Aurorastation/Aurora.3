@@ -25,6 +25,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		return (F.lit)
 	else if(istype(A, /obj/item/device/assembly/igniter))
 		return 1
+	else if(istype(A, /obj/item/clothing/gloves/fluff/lunea_gloves))
+		var/obj/item/clothing/gloves/fluff/lunea_gloves/F = A
+		return (F.lit)
 	return 0
 
 ///////////
@@ -387,7 +390,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = "pipeoff"
 	icon_on = "pipeon"  //Note - these are in masks.dmi
 	icon_off = "pipeoff"
-	burn_rate = 0
+	burn_rate = 0.003 //Lasts ~300 seconds
 	w_class = 1
 	chem_volume = 30
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
@@ -446,6 +449,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			return
 		burn_rate = 0.1
 		if(G.reagents)
+			initial_volume = G.reagents.total_volume
 			G.reagents.trans_to_obj(src, G.reagents.total_volume)
 		name = "[G.name]-packed [initial(name)]"
 		qdel(G)
