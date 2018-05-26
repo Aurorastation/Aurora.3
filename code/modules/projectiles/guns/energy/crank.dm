@@ -24,7 +24,7 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user.visible_message(
 				"<span class='warning'>\The [user] begins to rotate \the [src]'s crank!</span>",
-				"<span class='warning'>You beging to rotate \the [src]'s crank!</span>"
+				"<span class='warning'>You begin to rotate \the [src]'s crank!</span>"
 				)
 		playsound(user.loc, 'sound/items/crank.ogg', 60, 1)
 		is_charging = TRUE
