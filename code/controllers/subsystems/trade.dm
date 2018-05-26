@@ -62,14 +62,12 @@
 		else
 			possible = trade_ships
 
-		try_loop: 
-			for(var/i in 1 to 10)
-				var/type = pick(possible)
-				if (locate(type) in traders)
-					continue
-
+		for(var/i in 1 to 10)
+			var/type = pick(possible)
+			if (locate(type) in traders)
+				continue
 				new type
-				return
+			return
 
 /datum/controller/subsystem/trade/proc/FlattenItemList(list/tradelist, key)
 	if (item_list_cache[key])
