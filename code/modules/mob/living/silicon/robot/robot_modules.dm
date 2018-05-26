@@ -925,7 +925,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/pickaxe/drill(src)
 	src.modules += new /obj/item/weapon/storage/bag/sheetsnatcher/borg(src)
 	src.modules += new /obj/item/weapon/gripper/miner(src)
-	src.modules += new /obj/item/weapon/gripper/wrench(src)
+	src.modules += new /obj/item/weapon/wrench(src)
 	src.modules += new /obj/item/weapon/mining_scanner(src)
 
 	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
@@ -939,7 +939,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/pickaxe/jackhammer(src)
 	src.modules += new /obj/item/weapon/storage/bag/sheetsnatcher/borg(src)
 	src.modules += new /obj/item/weapon/gripper/miner(src)
-	src.modules += new /obj/item/weapon/gripper/wrench(src)
+	src.modules += new /obj/item/weapon/wrench(src)
 	src.modules += new /obj/item/weapon/mining_scanner(src)
 
 	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
@@ -953,7 +953,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/gun/custom_ka/frame05/cyborg(src)
 	src.modules += new /obj/item/weapon/storage/bag/sheetsnatcher/borg(src)
 	src.modules += new /obj/item/weapon/gripper/miner(src)
-	src.modules += new /obj/item/weapon/gripper/wrench(src)
+	src.modules += new /obj/item/weapon/wrench(src)
 	src.modules += new /obj/item/weapon/mining_scanner(src)
 
 	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
@@ -968,7 +968,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/pickaxe/jackhammer(src)
 	src.modules += new /obj/item/weapon/storage/bag/sheetsnatcher/borg(src)
 	src.modules += new /obj/item/weapon/gripper/miner(src)
-	src.modules += new /obj/item/weapon/gripper/wrench(src)
+	src.modules += new /obj/item/weapon/wrench(src)
 	src.modules += new /obj/item/weapon/mining_scanner(src)
 
 	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)

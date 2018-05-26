@@ -99,7 +99,7 @@
 	item_cost = 2
 	path = /obj/item/weapon/material/star
 
-/datum/uplink_item/item/visible_weapons/g9mm
+/datum/uplink_item/item/visible_weapons/custom_ka
 	name = "Kinetic Laser Assembly"
 	item_cost = 12
 	path = /obj/item/weapon/gun/custom_ka/frame01/illegal
