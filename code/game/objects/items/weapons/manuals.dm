@@ -1403,8 +1403,8 @@
 /obj/item/weapon/book/manual/ka_custom
 	name = "Guide to Custom Kinetic Accelerators"
 	icon_state ="rulebook"
-	author = "Dr. Fredrick Richards"
-	title = "Disloyal to Loyal: The Legality of Brainwashing"
+	author = "Quatermaster Burgs"
+	title = "Guide to Custom Kinetic Accelerators"
 	dat = {"<html>
 				<head>
 					<style>

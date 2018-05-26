@@ -36,3 +36,4 @@ delete-after: True
 changes: 
   - rscadd: "Removed basic kinetic accelerators from code. Replaced them with customizable kinetic accelerators with a robust array of customization. Weaker custom kinetic accelerators can be purchased from the mining vendor or found randomly in cargo, while the stronger variants can be researched and produced by science."
   - rscadd: "Added traitor kinetic accelerators to uplink, as well as one in the merc headquarters. These ones shoot laser beams, and can accept custom accelerator parts."
+  - rscadd: "Gave wrenches to mining drones and mining cyborgs."
