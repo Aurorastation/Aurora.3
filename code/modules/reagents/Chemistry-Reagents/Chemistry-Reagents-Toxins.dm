@@ -113,7 +113,6 @@
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 	M.adjustOxyLoss(20 * removed)
-	M.sleeping += 1
 
 /datum/reagent/toxin/potassium_chloride
 	name = "Potassium Chloride"
