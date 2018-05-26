@@ -11,6 +11,7 @@
 	projectile_type = /obj/item/projectile/beam
 	secondary_projectile_type = null
 	secondary_fire_sound = null
+	charge_failure_message = "'s charging socket was removed to make room for a crank."
 	var/is_charging = FALSE
 
 	firemodes = list()
@@ -35,6 +36,9 @@
 			is_charging = FALSE
 		else
 			is_charging = FALSE
+
+/obj/item/weapon/gun/energy/rifle/icelance/get_cell()
+	return DEVICE_NO_CELL
 
 /obj/item/weapon/gun/energy/rifle/icelance/update_icon()
 	..()
