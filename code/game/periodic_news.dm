@@ -52,14 +52,14 @@
 	random_junk
 
 		cheesy_honkers
-			author = "Assistant Editor Carl Ritz"
+			author = "Editor Carl Ritz"
 			channel_name = "The Gibson Gazette"
 			message = {"Do cheesy honkers increase risk of having a miscarriage? Several health administrations
 						say so!"}
 			round_time = 60 * 15
 
 		net_block
-			author = "Assistant Editor Carl Ritz"
+			author = "Editor Carl Ritz"
 			channel_name = "The Gibson Gazette"
 			message = {"Several corporations banding together to block access to 'wetskrell.nt', site administrators
 			claiming violation of net laws."}
@@ -129,19 +129,10 @@ proc/check_for_newscaster_updates(type)
 			announce_newscaster_news(news)
 
 proc/announce_newscaster_news(datum/news_announcement/news)
-	var/datum/feed_channel/sendto
-	for(var/datum/feed_channel/FC in news_network.network_channels)
-		if(FC.channel_name == news.channel_name)
-			sendto = FC
-			break
-
+	var/datum/feed_channel/sendto = SSnews.GetFeedChannel(news.channel_name)
 	if(!sendto)
-		sendto = new /datum/feed_channel
-		sendto.channel_name = news.channel_name
-		sendto.author = news.author
-		sendto.locked = 1
-		sendto.is_admin_channel = 1
-		news_network.network_channels += sendto
+		SSnews.CreateFeedChannel(news.channel_name, news.author, 1, 1)
 
 	var/author = news.author ? news.author : sendto.author
-	news_network.SubmitArticle(news.message, author, news.channel_name, null, !news.can_be_redacted, news.message_type)
+	var/datum/feed_channel/ch =  SSnews.GetFeedChannel(news.channel_name)
+	SSnews.SubmitArticle(news.message, author, ch, null, !news.can_be_redacted, news.message_type)

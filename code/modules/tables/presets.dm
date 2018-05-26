@@ -1,15 +1,17 @@
-/obj/structure/table //Exists for the purpose of neatness in the editor. Don't map this ever.
-	var/table_mat = DEFAULT_TABLE_MATERIAL
+/obj/structure/table
+	var/table_mat
 	var/table_reinf
 
 /obj/structure/table/Initialize()
-	material = get_material_by_name(table_mat)
+	if(table_mat)
+		material = get_material_by_name(table_mat)
 	if(table_reinf)
 		reinforced = get_material_by_name(table_reinf)
 	. = ..()
 
 /obj/structure/table/standard
 	icon_state = "plain_preview"
+	table_mat = DEFAULT_TABLE_MATERIAL
 
 /obj/structure/table/steel
 	icon_state = "plain_preview"
@@ -24,6 +26,7 @@
 
 /obj/structure/table/reinforced
 	icon_state = "reinf_preview"
+	table_mat = DEFAULT_TABLE_MATERIAL
 	table_reinf = DEFAULT_WALL_MATERIAL
 
 /obj/structure/table/reinforced/steel
