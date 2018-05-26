@@ -69,23 +69,23 @@
 /obj/item/weapon/gun/custom_ka/examine(var/mob/user)
 	. = ..()
 	if(installed_upgrade_chip)
-		user << "It is equipped with \the [installed_barrel], \the [installed_cell], and \the [installed_upgrade_chip]."
+		to_chat(user,"It is equipped with \the [installed_barrel], \the [installed_cell], and \the [installed_upgrade_chip].")
 	else if(installed_barrel)
-		user << "It is equipped with \the [installed_barrel] and \the [installed_cell]. It has space for an upgrade chip."
+		to_chat(user,"It is equipped with \the [installed_barrel] and \the [installed_cell]. It has space for an upgrade chip.")
 	else if(installed_cell)
-		user << "It is equipped with \the [installed_cell]. The assembly lacks a barrel installation."
+		to_chat(user,"It is equipped with \the [installed_cell]. The assembly lacks a barrel installation.")
 
 	if(installed_barrel)
 		if(custom_name)
-			user << "[custom_name] is written crudely in pen across the side, with the offical designation \"[official_name]\" is etched neatly on the side."
+			to_chat(user,"[custom_name] is written crudely in pen across the side, with the offical designation \"[official_name]\" is etched neatly on the side.")
 		else
-			user << "The offical designation \"[official_name]\" is etched neatly on the side."
+			to_chat(user,"The offical designation \"[official_name]\" is etched neatly on the side.")
 
 	if(installed_cell)
-		user << "It has [round(installed_cell.stored_charge / cost_increase)] shots remaining."
+		to_chat(user,"It has [round(installed_cell.stored_charge / cost_increase)] shots remaining.")
 
 /obj/item/weapon/gun/custom_ka/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
-	user << "You override the safeties on the [src]."
+	to_chat(user,"<span class='warning'>You override the safeties on the [src]...</span>")
 	is_emagged = 1
 	return 1
 
@@ -148,7 +148,7 @@
 			disaster = "overheat"
 
 	if(warning_message)
-		user << "\The [src]'s screen flashes, \"[warning_message].\""
+		to_chat(user,"<b>\The [src]</b> flashes, \"[warning_message].\"")
 		playsound(src,'sound/machines/buzz-two.ogg', 50, 0)
 		handle_click_empty(user)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN*4)
@@ -156,13 +156,13 @@
 	else
 		switch(disaster)
 			if("spark")
-				user << "\The [src] sparks!"
+				to_chat(user,"<span class='danger'>\The [src] sparks!</span>")
 				spark(src.loc, 3, alldirs)
 			if("overheat")
-				user << "\The [src] turns red hot!"
+				to_chat(user,"<span class='danger'>\The [src] turns red hot!</span>")
 				user.IgniteMob()
 			if("explode")
-				user << "\The [src] violently explodes!"
+				to_chat(user,"<span class='danger'>\The [src] violently explodes!</span>")
 				explosion(get_turf(src.loc), 0, 1, 2, 4)
 				qdel(src)
 
@@ -353,12 +353,12 @@
 
 	if(istype(I,/obj/item/weapon/pen))
 		custom_name = sanitize(input("Enter a custom name for your [name]", "Set Name") as text|null)
-		user << "You label \the [name] as [custom_name]."
+		to_chat(user,"You label \the [name] as \"[custom_name]\"")
 		update_icon()
 	else if(istype(I,/obj/item/weapon/wrench))
 		if(installed_upgrade_chip)
 			playsound(src,'sound/items/Screwdriver.ogg', 50, 0)
-			user << "You remove \the [installed_upgrade_chip]."
+			to_chat(user,"You remove \the [installed_upgrade_chip].")
 			installed_upgrade_chip.forceMove(user.loc)
 			installed_upgrade_chip.update_icon()
 			installed_upgrade_chip = null
@@ -366,7 +366,7 @@
 			update_icon()
 		else if(installed_barrel)
 			playsound(src,'sound/items/Ratchet.ogg', 50, 0)
-			user << "You remove \the [installed_barrel]."
+			to_chat(user,"You remove \the [installed_barrel].")
 			installed_barrel.forceMove(user.loc)
 			installed_barrel.update_icon()
 			installed_barrel = null
@@ -374,17 +374,17 @@
 			update_icon()
 		else if(installed_cell && can_disassemble_cell)
 			playsound(src,'sound/items/Ratchet.ogg', 50, 0)
-			user << "You remove \the [installed_cell]."
+			to_chat(user,"You remove \the [installed_cell].")
 			installed_cell.forceMove(user.loc)
 			installed_cell.update_icon()
 			installed_cell = null
 			update_stats()
 			update_icon()
 		else
-			user << "There is nothing to remove from \the [src]."
+			to_chat(user,"There is nothing to remove from \the [src].")
 	else if(istype(I,/obj/item/custom_ka_upgrade/cells))
 		if(installed_cell)
-			user << "There is already \an [installed_cell] installed."
+			to_chat(user,"There is already \an [installed_cell] installed.")
 		else
 			var/obj/item/custom_ka_upgrade/cells/tempvar = I
 			installed_cell = tempvar
@@ -395,9 +395,9 @@
 			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
 	else if(istype(I,/obj/item/custom_ka_upgrade/barrels))
 		if(!installed_cell)
-			user << "You must install a power cell before installing \the [I]."
+			to_chat(user,"You must install a power cell before installing \the [I].")
 		else if(installed_barrel)
-			user << "There is already \an [installed_barrel] installed."
+			to_chat(user,"There is already \an [installed_barrel] installed.")
 		else
 			var/obj/item/custom_ka_upgrade/barrels/tempvar = I
 			installed_barrel = tempvar
@@ -408,9 +408,9 @@
 			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
 	else if(istype(I,/obj/item/custom_ka_upgrade/upgrade_chips))
 		if(!installed_cell || !installed_barrel)
-			user << "A barrel and a cell need to be installed before you install \the [I]."
+			to_chat(user,"A barrel and a cell need to be installed before you install \the [I].")
 		else if(installed_upgrade_chip)
-			user << "There is already \an [installed_upgrade_chip] installed."
+			to_chat(user,"There is already \an [installed_upgrade_chip] installed.")
 		else
 			var/obj/item/custom_ka_upgrade/upgrade_chips/tempvar = I
 			installed_upgrade_chip = tempvar

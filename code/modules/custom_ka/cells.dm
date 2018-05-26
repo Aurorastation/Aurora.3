@@ -6,13 +6,13 @@
 	if(pump_restore)
 		is_pumping = TRUE
 		if(stored_charge >= cell_increase)
-			user << "The pump on the [src] refuses to move."
+			to_chat(user,"The pump on the [src] refuses to move.")
 		else
 			if(!pump_delay || do_after(user,pump_delay,use_user_turf = -1))
 				if(isturf(src.loc))
-					user << "You finish pumping the [src]."
+					to_chat(user,"You pump \the [src].")
 				else
-					user << "You finish pumping the [src.loc]."
+					to_chat(user,"You pump \the [src.loc].")
 				stored_charge = min(stored_charge + pump_restore,cell_increase)
 				playsound(src,'sound/weapons/kenetic_reload.ogg', 50, 0)
 
