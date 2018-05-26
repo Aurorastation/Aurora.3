@@ -22,6 +22,9 @@ proc/empulse(turf/epicenter, heavy_range, light_range, log = FALSE, list/exclude
 		pulse.anchored = 1
 		QDEL_IN(pulse, 20)
 
+	if(heavy_range > light_range)
+		light_range = heavy_range
+
 	for(var/mob/M in range(heavy_range, epicenter))
 		M << 'sound/effects/EMPulse.ogg'
 
