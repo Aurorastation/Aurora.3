@@ -589,3 +589,10 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 2000, "gold" = 1000, "diamond" = 1000)
 	build_path = /obj/item/custom_ka_upgrade/upgrade_chips/capacity
 	sort_string = "TZZIF"
+
+/datum/design/item/weapon/ka_upgrade07
+	id = "ka_upgrade07"
+	req_tech = list(TECH_POWER = 4,TECH_MAGNET = 4, TECH_DATA = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 2000, "gold" = 1000, "diamond" = 1000)
+	build_path = /obj/item/custom_ka_upgrade/upgrade_chips/explosive
+	sort_string = "TZZIF"

@@ -1,17 +1,3 @@
-/obj/item/custom_ka_upgrade/upgrade_chips
-	name = "kinetic accelerator upgrade chip"
-	icon = 'icons/obj/kinetic_accelerators.dmi'
-	damage_increase = 0
-	firedelay_increase = 0
-	range_increase = 0
-	recoil_increase = 0
-	cost_increase = 0
-	cell_increase = 0
-	capacity_increase = 0
-	mod_limit_increase = 0
-
-	origin_tech = list(TECH_POWER = 4,TECH_MAGNET = 4, TECH_DATA = 4)
-
 /obj/item/custom_ka_upgrade/upgrade_chips/damage
 	name = "upgrade chip - damage increase"
 	desc = "Increases damage and recoil."
@@ -42,19 +28,27 @@
 
 /obj/item/custom_ka_upgrade/upgrade_chips/focusing
 	name = "upgrade chip - focusing"
-	desc = "Significantly increases damage and accuracy, however reduces the range."
+	desc = "Increases damage and accuracy, however reduces the range and reduce aoe capabilities."
 	icon_state = "upgrade_chip"
 	damage_increase = 10
 	recoil_increase = -4
-	range_increase = -3
+	range_increase = -2
+	aoe_increase = -100
 
 /obj/item/custom_ka_upgrade/upgrade_chips/capacity
 	name = "upgrade chip - capacity increase"
-	desc = "Increases the maximum capacity of the assembly at the cost of more power drain."
+	desc = "Increases the maximum capacity of the assembly at the cost of more power drain per shot."
 	icon_state = "upgrade_chip"
-	cost_increase = 5
+	cost_increase = 3
 	capacity_increase = 5
 	mod_limit_increase = 1
+
+/obj/item/custom_ka_upgrade/upgrade_chips/explosive
+	name = "upgrade chip - aoe explosion MKI"
+	desc = "Kinetic blasts explode in an increased AoE radius at significantly increased power drain per shot."
+	icon_state = "upgrade_chip"
+	cost_increase = 5
+	aoe_increase = 2
 
 /obj/item/custom_ka_upgrade/upgrade_chips/illegal
 	name = "illegal custom KA upgrade chip"

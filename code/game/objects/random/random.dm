@@ -1019,12 +1019,12 @@
 		var/obj/item/weapon/gun/custom_ka/spawned_frame = new frame_type(thing.loc)
 
 		var/cell_type = pickweight(cells)
-		spawned_frame.installed_cell = new cell_type(spawned_frame.loc)
+		spawned_frame.installed_cell = new cell_type(spawned_frame)
 
 		var/barrel_type = pickweight(barrels)
-		spawned_frame.installed_barrel = new barrel_type(spawned_frame.loc)
+		spawned_frame.installed_barrel = new barrel_type(spawned_frame)
 
-		spawned_frame.installed_upgrade_chip = new /obj/item/custom_ka_upgrade/upgrade_chips/capacity(spawned_frame.loc)
+		spawned_frame.installed_upgrade_chip = new /obj/item/custom_ka_upgrade/upgrade_chips/capacity(spawned_frame)
 
 		spawned_frame.update_icon()
 		spawned_frame.update_stats()

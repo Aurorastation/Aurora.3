@@ -19,8 +19,10 @@
 /obj/machinery/mineral/rigpress/attackby(obj/item/W, mob/user)
 	if(!pressing)
 		var/outcome_path
-		var/list/kinetic_mods = list()
-		var/kineticaccelerator
+
+		//var/list/kinetic_mods = list()
+		//var/kineticaccelerator
+
 		if(istype(W, /obj/item/clothing/glasses/material))
 			outcome_path = /obj/item/rig_module/vision/meson
 
@@ -33,12 +35,13 @@
 		if(istype(W, /obj/item/weapon/pickaxe/drill))
 			outcome_path = /obj/item/rig_module/device/basicdrill
 
-		if(istype(W, /obj/item/weapon/gun/energy/kinetic_accelerator))
-			outcome_path = /obj/item/rig_module/mounted/kinetic_accelerator
-			var/obj/item/weapon/gun/energy/kinetic_accelerator/KA = W
-			kineticaccelerator = 1
-			for(var/obj/item/borg/upgrade/modkit/kmod in KA.modkits)
-				kinetic_mods += kmod
+		//TODO: MOUNTED CUSTOM KAS
+		//if(istype(W, /obj/item/weapon/gun/energy/kinetic_accelerator))
+		//	outcome_path = /obj/item/rig_module/mounted/kinetic_accelerator
+		//	var/obj/item/weapon/gun/energy/kinetic_accelerator/KA = W
+		//	kineticaccelerator = 1
+		//	for(var/obj/item/borg/upgrade/modkit/kmod in KA.modkits)
+		//		kinetic_mods += kmod
 
 		if(istype(W, /obj/item/weapon/gun/energy/plasmacutter))
 			outcome_path = /obj/item/rig_module/mounted/plasmacutter
@@ -61,13 +64,17 @@
 			qdel(W)
 			spawn(300)
 				ping( "\The [src] pings, \"Module successfuly produced!\"" )
-				if(kineticaccelerator)
-					var/obj/item/rig_module/mounted/kinetic_accelerator/KA = new /obj/item/rig_module/mounted/kinetic_accelerator(src.loc)
-					var/obj/item/weapon/gun/energy/kinetic_accelerator/cyborg/KGUN = KA.gun
-					for(var/obj/item/borg/upgrade/modkit/kmod in kinetic_mods)
-						KGUN.modkits += kmod
-				else
-					new outcome_path(src.loc)
+
+				//TODO: MOUNTED CUSTOM KAS
+				//if(kineticaccelerator)
+				//	var/obj/item/rig_module/mounted/kinetic_accelerator/KA = new /obj/item/rig_module/mounted/kinetic_accelerator(src.loc)
+				//	var/obj/item/weapon/gun/energy/kinetic_accelerator/cyborg/KGUN = KA.gun
+				//	for(var/obj/item/borg/upgrade/modkit/kmod in kinetic_mods)
+				//		KGUN.modkits += kmod
+				//else
+
+				new outcome_path(src.loc)
+
 				use_power(500)
 				pressing = 0
 				update_icon()

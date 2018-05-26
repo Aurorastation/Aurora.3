@@ -1,21 +1,3 @@
-/obj/item/custom_ka_upgrade/cells
-	name = "kinetic accelerator cell"
-	icon = 'icons/obj/kinetic_accelerators.dmi'
-	icon_state = ""
-	damage_increase = 0
-	firedelay_increase = 0
-	range_increase = 0
-	recoil_increase = 0
-	cost_increase = 0
-	cell_increase = 0
-	capacity_increase = 0
-	mod_limit_increase = 0
-	var/stored_charge = 0
-	var/pump_restore = 0
-	var/pump_delay = 0
-	var/is_pumping = FALSE //Prevents from pumping stupidly fast do to a do_after exploit
-	origin_tech = list(TECH_MATERIAL = 2,TECH_ENGINEERING = 2,TECH_MAGNET = 2,TECH_POWER=2)
-
 /obj/item/custom_ka_upgrade/cells/attack_self(mob/user as mob)
 
 	if(is_pumping)
@@ -26,7 +8,7 @@
 		if(stored_charge >= cell_increase)
 			user << "The pump on the [src] refuses to move."
 		else
-			if(!pump_delay || do_after(user,pump_delay))
+			if(!pump_delay || do_after(user,pump_delay,use_user_turf = -1))
 				if(isturf(src.loc))
 					user << "You finish pumping the [src]."
 				else
@@ -41,13 +23,13 @@
 	//Pump Action
 	name = "pump action KA cell"
 	build_name = "Pump-action"
-	desc = "A very basic power cell and pump action combo that stores a single, small charge of 1. A pump is required after each shot."
+	desc = "A very basic power cell and pump action combo that stores a single charge. A pump is required after each shot, however it deals increased damage and has increased range."
 	icon_state = "cell01"
-	damage_increase = 0
+	damage_increase = 10
 	firedelay_increase = 0.25 SECONDS
-	range_increase = 0
-	recoil_increase = 0
-	cost_increase = 0
+	range_increase = 3
+	recoil_increase = -1
+	cost_increase = -100 //Always have a single charge
 	cell_increase = 1
 	capacity_increase = -1
 	mod_limit_increase = 0
@@ -64,14 +46,13 @@
 	desc = "A somewhat more advanced, standard issue pump and cell assembly that allows the user to 'pre-pump' their charges, up to a capacity of 12. Can fire quite quickly."
 	icon_state = "cell02"
 	firedelay_increase = 0
-	recoil_increase = 0
-	cost_increase = 0
+	recoil_increase = 1
 	cell_increase = 12
 	capacity_increase = -2
 	mod_limit_increase = 0
 
 	pump_restore = 1
-	pump_delay = 0.5 SECONDS
+	pump_delay = 0.4 SECONDS
 
 	origin_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 3,TECH_MAGNET = 3,TECH_POWER = 3)
 
@@ -84,11 +65,11 @@
 	firedelay_increase = 0.5 SECONDS
 	recoil_increase = 4
 	cost_increase = -1
-	cell_increase = 20
+	cell_increase = 40
 	capacity_increase = -3
 	mod_limit_increase = 0
 
-	pump_restore = 20
+	pump_restore = 40
 	pump_delay = 2 SECONDS
 
 	origin_tech = list(TECH_MATERIAL = 4,TECH_ENGINEERING = 4,TECH_MAGNET = 4,TECH_POWER = 4)
@@ -101,7 +82,7 @@
 	damage_increase = -5
 	recoil_increase = 0
 	cost_increase = -2
-	cell_increase = 40
+	cell_increase = 60
 	capacity_increase = -4
 	mod_limit_increase = 0
 
@@ -122,12 +103,12 @@
 	damage_increase = 0
 	recoil_increase = -5
 	cost_increase = -3
-	cell_increase = 40
+	cell_increase = 80
 	capacity_increase = -5
 	mod_limit_increase = 0
 
 	pump_restore = 5
-	pump_delay = 1 SECONDS
+	pump_delay = 0.75 SECONDS
 
 	origin_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 6,TECH_MAGNET = 6,TECH_POWER = 6)
 
