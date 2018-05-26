@@ -321,7 +321,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 	M << "<span class='danger'>You feel searing heat inside!</span>"
 
 
-/obj/item/weapon/book/tome/attack_self(mob/living/user)
+/obj/item/weapon/book/tome/attack_self(var/mob/living/carbon/human/user)
 
 	if(!user.canmove || user.stat || user.restrained())
 		return
@@ -407,13 +407,18 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 
 		if(user.get_active_hand() != src)
 			return
-
-		for (var/mob/V in viewers(src))
-			V.show_message("<span class='danger'>\The [user] slices open a finger and begins to chant and paint symbols on the floor.</span>", 3, "<span class='danger'>You hear chanting.</span>", 2)
-		user << "<span class='danger'>You slice open one of your fingers and begin drawing a rune on the floor whilst chanting the ritual that binds your life essence with the dark arcane energies flowing through the surrounding world.</span>"
-		if (ishuman(user))
-			var/mob/living/carbon/human/H = user
-			H.vessel.remove_reagent("blood", 15)
+		
+		if(ishuman(user))
+			if(ishuman(user))
+				var/mob/living/carbon/human/H = user
+				if (H.is_diona())
+					H.show_message("<span class='warning'>\The [H] slices open a limb and begins to chant slowly and draw symbols on the floor, their sap turning to blood...</span>", 3, "<span class='danger'>You hear chanting.</span>", 2)
+					user << "<span class='warning'>You break open one of your nymphs and begin drawing a rune on the floor with the sap whilst chanting the ritual that turns the sap to blood and binds your essence into it. You can feel the darkness clawing into your being...</span>"
+					H.take_overall_damage(10)
+				else
+					H.show_message("<span class='warning'>\The [H] slices open a finger and begins to chant and paint symbols on the floor.</span>", 3, "<span class='danger'>You hear chanting.</span>", 2)
+					user << "<span class='warning'>You slice open one of your fingers and begin drawing a rune on the floor whilst chanting the ritual that binds your life essence with the dark arcane energies flowing through the surrounding world.</span>"
+					H.vessel.remove_reagent("blood", 15)
 		if(do_after(user, 50))
 			var/area/A = get_area(user)
 			log_and_message_admins("created \an [chosen_rune] rune at \the [A.name] - [user.loc.x]-[user.loc.y]-[user.loc.z].")

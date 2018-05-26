@@ -4,7 +4,7 @@
 	var/uses = 0
 	info = "<center><img src='talisman.png'></center><br/><br/>"
 
-/obj/item/weapon/paper/talisman/attack_self(mob/living/user as mob)
+/obj/item/weapon/paper/talisman/attack_self(var/mob/living/carbon/human/user)
 	if(iscultist(user))
 		var/delete = 1
 		// who the hell thought this was a good idea :(
@@ -33,11 +33,13 @@
 				return
 			if("supply")
 				supply()
-		if (ishuman(user))
+		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
-			H.vessel.remove_reagent("blood", 15)
-		if(src && src.imbue!="supply" && src.imbue!="runestun")
-			if(delete)
+			if (H.is_diona())
+				H.take_overall_damage(10)
+			else
+				H.vessel.remove_reagent("blood", 15)
+			if (src && src.imbue != "supply" && src.imbue != "runestun" && delete)
 				qdel(src)
 		return
 	else
