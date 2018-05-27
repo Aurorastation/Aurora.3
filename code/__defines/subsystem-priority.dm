@@ -27,9 +27,12 @@
 // Each group has its own priority bracket.
 // SS_BACKGROUND handles high server load differently than Normal and SS_TICKER do.
 
+// Priorities are a weight that controls how much of the BYOND tick the subsystem will be allowed to use. 50 is the default, so a subsystem with a priority of 100 would
+//  be allocated twice the amount of runtime as normal, and 25 would get half the amount.
+
 // SS_TICKER
 #define SS_PRIORITY_OVERLAY   100	// Applies overlays. May cause overlay pop-in if it gets behind.
-//#define SS_PRIORITY_DEFAULT  20	// This is defined somewhere else.
+//#define SS_PRIORITY_DEFAULT  50	// This is defined somewhere else.
 #define SS_PRIORITY_TIMER      20	// Timed event scheduling. This is important.
 #define SS_PRIORITY_SMOOTHING  10	// Smooth turf generation.
 #define SS_PRIORITY_ORBIT       5	// Orbit datum updates.
@@ -38,7 +41,7 @@
 
 // Normal
 #define SS_PRIORITY_TICKER     100	// Gameticker.
-//#define SS_PRIORITY_DEFAULT   20	// This is defined somewhere else.
+//#define SS_PRIORITY_DEFAULT   50	// This is defined somewhere else.
 #define SS_PRIORITY_LIGHTING    50	// Queued lighting engine updates.
 #define SS_PRIORITY_MOB         30	// Mob Life().
 #define SS_PRIORITY_AIR         30	// ZAS processing.
@@ -58,10 +61,10 @@
 #define SS_PRIORITY_ZCOPY       10	// Z-mimic icon generation/updates.
 
 // SS_BACKGROUND
-#define SS_PRIORITY_PROCESSING    30	// Generic datum processor. Replaces objects processor.
-#define SS_PRIORITY_ARRIVALS      20	// Centcomm arrivals shuttle auto-launch. Usually asleep.
+#define SS_PRIORITY_PROCESSING    50	// Generic datum processor. Replaces objects processor.
+//#define SS_PRIORITY_DEFAULT     50	// This is defined somewhere else.
+#define SS_PRIORITY_ARRIVALS      30	// Centcomm arrivals shuttle auto-launch. Usually asleep.
 #define SS_PRIORITY_EXPLOSIVES    20	// Explosion processor. Doesn't have much effect on explosion tick-checking.
-//#define SS_PRIORITY_DEFAULT     20	// This is defined somewhere else.
 #define SS_PRIORITY_DISPOSALS     20	// Disposal holder movement.
 #define SS_PRIORITY_MODIFIER      10
 #define SS_PRIORITY_NIGHT         10	// Nightmode.
