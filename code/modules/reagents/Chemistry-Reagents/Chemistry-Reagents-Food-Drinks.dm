@@ -3424,7 +3424,7 @@
 	description = "A tropical cocktail containing cactus juice from Moghes, but no actual alcohol."
 	color = "#FF7F3B"
 	strength = 15
-	taste_description = "lime and orange"
+	taste_description = "sweet lemons"
 
 	glass_icon_state = "bahamalizard"
 	glass_name = "glass of Bahama Lizard"

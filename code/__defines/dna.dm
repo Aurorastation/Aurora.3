@@ -41,6 +41,7 @@
 #define PACIFIST        128
 #define UNINTELLIGIBLE  256
 #define GERTIE 512
+#define ASTHMA 1024
 
 // sdisabilities
 #define BLIND 0x1
