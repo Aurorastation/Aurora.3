@@ -98,7 +98,9 @@
 	var/datum/wires/vending/wires = null
 
 	var/can_move = 1	//if you can wrench the machine out of place
-	var/vend_id = "generic"
+	var/vend_id = "generic"	//Id of the refill cartridge that has to be used
+	var/restock_items = 0	//If items can be restocked into the vending machine
+	var/list/restock_blocked_items = list() //Items that can not be restocked if restock_items is enabled
 
 /obj/machinery/vending/Initialize()
 	. = ..()
@@ -268,6 +270,13 @@
 			return
 
 	else if(!is_borg_item(W))
+		if(!restock_items)
+			user << "<span class='warning'>\the [src] can not be restocked manually!</span>"
+			return
+		for(var/path in restock_blocked_items)
+			if(istype(W,path))
+				user << "<span class='warning'>\the [src] does not accept this item!</span>"
+				return
 
 		for(var/datum/data/vending_product/R in product_records)
 			if(istype(W, R.product_path))

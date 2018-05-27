@@ -26,6 +26,7 @@
 #define ANTAG_RANDSPAWN         0x100 // Potentially randomly spawns due to events.
 #define ANTAG_VOTABLE           0x200 // Can be voted as an additional antagonist before roundstart.
 #define ANTAG_SET_APPEARANCE    0x400 // Causes antagonists to use an appearance modifier on spawn.
+#define ANTAG_RANDOM_EXCEPTED   0x800 // If a game mode randomly selects antag types, antag types with this flag should be excluded.
 
 // Mode/antag template macros.
 #define MODE_BORER "borer"
@@ -35,7 +36,6 @@
 #define MODE_COMMANDO "commando"
 #define MODE_DEATHSQUAD "deathsquad"
 #define MODE_ERT "ert"
-#define MODE_ACTOR "actor"
 #define MODE_MERCENARY "mercenary"
 #define MODE_NINJA "ninja"
 #define MODE_RAIDER "raider"
@@ -46,7 +46,6 @@
 #define MODE_MONKEY "monkey"
 #define MODE_RENEGADE "renegade"
 #define MODE_REVOLUTIONARY "revolutionary"
-#define MODE_LOYALIST "loyalist"
 #define MODE_MALFUNCTION "malf"
 #define MODE_TRAITOR "traitor"
 #define MODE_VAMPIRE "vampire"

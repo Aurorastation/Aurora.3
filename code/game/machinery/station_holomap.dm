@@ -29,7 +29,7 @@
 	var/datum/station_holomap/holomap_datum
 
 /obj/machinery/station_map/Destroy()
-	SSminimap.station_holomaps -= src
+	SSholomap.station_holomaps -= src
 	stopWatching()
 	QDEL_NULL(holomap_datum)
 	return ..()
@@ -38,12 +38,12 @@
 	. = ..()
 	holomap_datum = new()
 	original_zLevel = loc.z
-	SSminimap.station_holomaps += src
+	SSholomap.station_holomaps += src
 	flags |= ON_BORDER // Why? It doesn't help if its not density
 	bogus = FALSE
 	var/turf/T = get_turf(src)
 	original_zLevel = T.z
-	if(!("[HOLOMAP_EXTRA_STATIONMAP]_[original_zLevel]" in SSminimap.extra_minimaps))
+	if(!("[HOLOMAP_EXTRA_STATIONMAP]_[original_zLevel]" in SSholomap.extra_minimaps))
 		bogus = TRUE
 		holomap_datum.initialize_holomap_bogus()
 		update_icon()
@@ -51,11 +51,12 @@
 
 	holomap_datum.initialize_holomap(T, reinit = TRUE)
 
-	small_station_map = image(SSminimap.extra_minimaps["[HOLOMAP_EXTRA_STATIONMAPSMALL]_[original_zLevel]"], dir = dir)
+	small_station_map = image(SSholomap.extra_minimaps["[HOLOMAP_EXTRA_STATIONMAPSMALL]_[original_zLevel]"], dir = dir)
 	small_station_map.layer = LIGHTING_LAYER + 0.1
 
 	floor_markings = image('icons/obj/machines/stationmap.dmi', "decal_station_map")
 	floor_markings.dir = src.dir
+	floor_markings.layer = ON_TURF_LAYER
 	update_icon()
 
 /obj/machinery/station_map/attack_hand(var/mob/user)
@@ -153,7 +154,7 @@
 		if(bogus)
 			holomap_datum.initialize_holomap_bogus()
 		else
-			small_station_map.icon = SSminimap.extra_minimaps["[HOLOMAP_EXTRA_STATIONMAPSMALL]_[original_zLevel]"]
+			small_station_map.icon = SSholomap.extra_minimaps["[HOLOMAP_EXTRA_STATIONMAPSMALL]_[original_zLevel]"]
 			add_overlay(small_station_map)
 			holomap_datum.initialize_holomap(get_turf(src))
 
@@ -200,7 +201,7 @@
 
 /datum/station_holomap/proc/initialize_holomap(turf/T, isAI = null, mob/user = null, reinit = FALSE)
 	if(!station_map || reinit)
-		station_map = image(SSminimap.extra_minimaps["[HOLOMAP_EXTRA_STATIONMAP]_[T.z]"])
+		station_map = image(SSholomap.extra_minimaps["[HOLOMAP_EXTRA_STATIONMAP]_[T.z]"])
 	if(!cursor || reinit)
 		cursor = image('icons/misc/holomap_markers.dmi', "you")
 	if(!legend || reinit)

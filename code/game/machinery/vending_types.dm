@@ -93,6 +93,7 @@
 		/obj/item/device/assembly/timer = 2
 	)
 	product_ads = "Only the finest!;Have some tools.;The most robust equipment.;The finest gear in space!"
+	restock_items = 1
 
 /obj/machinery/vending/coffee
 	name = "Hot Drinks machine"
@@ -117,7 +118,6 @@
 		/obj/item/weapon/reagent_containers/food/drinks/tea = 20,
 		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 22
 	)
-
 
 /obj/machinery/vending/snack
 	name = "Getmore Chocolate Corp"
@@ -160,7 +160,6 @@
 		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 24,
 		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 60
 	)
-
 
 /obj/machinery/vending/cola
 	name = "Robust Softdrinks"
@@ -218,6 +217,7 @@
 		/obj/item/weapon/cartridge/captain = 3,
 		/obj/item/weapon/cartridge/quartermaster = 10
 	)
+	restock_items = 1
 
 
 /obj/machinery/vending/cigarette
@@ -248,7 +248,6 @@
 		/obj/item/weapon/spacecash/ewallet/lotto = 200
 	)
 
-
 /obj/machinery/vending/medical
 	name = "NanoMed Plus"
 	desc = "Medical drug dispenser."
@@ -265,6 +264,7 @@
 		/obj/item/weapon/reagent_containers/syringe/antiviral = 4,
 		/obj/item/weapon/reagent_containers/syringe = 12,
 		/obj/item/device/healthanalyzer = 5,
+		/obj/item/device/breath_analyzer = 2,
 		/obj/item/weapon/reagent_containers/glass/beaker = 4,
 		/obj/item/weapon/reagent_containers/dropper = 2,
 		/obj/item/stack/medical/advanced/bruise_pack = 3,
@@ -277,7 +277,6 @@
 		/obj/item/weapon/reagent_containers/pill/stox = 4
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
-
 
 //This one's from bay12
 /obj/machinery/vending/phoronresearch
@@ -294,6 +293,7 @@
 		/obj/item/device/assembly/prox_sensor = 6,
 		/obj/item/device/assembly/igniter = 6
 	)
+	restock_items = 1
 
 /obj/machinery/vending/wallmed1
 	name = "NanoMed"
@@ -308,7 +308,8 @@
 		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/ointment = 2,
 		/obj/item/weapon/reagent_containers/hypospray/autoinjector = 4,
-		/obj/item/device/healthanalyzer = 1
+		/obj/item/device/healthanalyzer = 1,
+		/obj/item/device/breath_analyzer  = 1
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/syringe/antitoxin = 4,
@@ -347,7 +348,6 @@
 		/obj/item/weapon/handcuffs = 8,
 		/obj/item/weapon/grenade/chem_grenade/teargas = 4,
 		/obj/item/device/flash = 5,
-		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 12,
 		/obj/item/weapon/storage/box/evidence = 6,
 		/obj/item/device/holowarrant = 5
 	)
@@ -358,6 +358,12 @@
 		/obj/item/clothing/glasses/sunglasses = 2,
 		/obj/item/weapon/grenade/flashbang = 4
 	)
+	restock_blocked_items = list(
+		/obj/item/weapon/storage/box/donut, 
+		/obj/item/weapon/storage/box/evidence,
+		/obj/item/device/flash
+		)
+	restock_items = 1
 
 /obj/machinery/vending/hydronutrients
 	name = "NutriMax"
@@ -392,89 +398,93 @@
 	product_ads = "We like plants!;Grow some crops!;Grow, baby, growww!;Aw h'yeah son!"
 	icon_state = "seeds"
 	vend_id = "seeds"
-
 	products = list(
+		/obj/item/seeds/appleseed = 3,
 		/obj/item/seeds/bananaseed = 3,
 		/obj/item/seeds/berryseed = 3,
+		/obj/item/seeds/blueberryseed = 3,
+		/obj/item/seeds/cabbageseed = 3,
 		/obj/item/seeds/carrotseed = 3,
 		/obj/item/seeds/chantermycelium = 3,
+		/obj/item/seeds/cherryseed = 3,
 		/obj/item/seeds/chiliseed = 3,
+		/obj/item/seeds/cocoapodseed = 3,
 		/obj/item/seeds/cornseed = 3,
 		/obj/item/seeds/eggplantseed = 3,
+		/obj/item/seeds/grapeseed = 3,
+		/obj/item/seeds/grassseed = 3,
+		/obj/item/seeds/greengrapeseed = 3,
+		/obj/item/seeds/harebell = 3,
+		/obj/item/seeds/lemonseed = 3,
+		/obj/item/seeds/limeseed = 3,
+		/obj/item/seeds/mtearseed = 3,
+		/obj/item/seeds/orangeseed = 3,
+		/obj/item/seeds/peanutseed = 3,
+		/obj/item/seeds/plumpmycelium = 3,
+		/obj/item/seeds/poppyseed = 3,
 		/obj/item/seeds/potatoseed = 3,
+		/obj/item/seeds/pumpkinseed = 3,
 		/obj/item/seeds/replicapod = 3,
+		/obj/item/seeds/riceseed = 3,
+		/obj/item/seeds/shandseed = 3,
 		/obj/item/seeds/soyaseed = 3,
+		/obj/item/seeds/sugarcaneseed = 3,
 		/obj/item/seeds/sunflowerseed = 3,
 		/obj/item/seeds/tomatoseed = 3,
 		/obj/item/seeds/towermycelium = 3,
-		/obj/item/seeds/wheatseed = 3,
-		/obj/item/seeds/appleseed = 3,
-		/obj/item/seeds/poppyseed = 3,
-		/obj/item/seeds/sugarcaneseed = 3,
-		/obj/item/seeds/peanutseed = 3,
-		/obj/item/seeds/whitebeetseed = 3,
 		/obj/item/seeds/watermelonseed = 3,
-		/obj/item/seeds/limeseed = 3,
-		/obj/item/seeds/lemonseed = 3,
-		/obj/item/seeds/orangeseed = 3,
-		/obj/item/seeds/grassseed = 3,
-		/obj/item/seeds/cocoapodseed = 3,
-		/obj/item/seeds/plumpmycelium = 2,
-		/obj/item/seeds/cabbageseed = 3,
-		/obj/item/seeds/grapeseed = 3,
-		/obj/item/seeds/pumpkinseed = 3,
-		/obj/item/seeds/cherryseed = 3,
-		/obj/item/seeds/plastiseed = 3,
-		/obj/item/seeds/riceseed = 3
+		/obj/item/seeds/wheatseed = 3,
+		/obj/item/seeds/whitebeetseed = 3
 	)
 	contraband = list(
-		/obj/item/seeds/amanitamycelium = 2,
-		/obj/item/seeds/glowshroom = 2,
-		/obj/item/seeds/libertymycelium = 2,
-		/obj/item/seeds/mtearseed = 2,
-		/obj/item/seeds/nettleseed = 2,
-		/obj/item/seeds/reishimycelium = 2,
-		/obj/item/seeds/reishimycelium = 2,
-		/obj/item/seeds/shandseed = 2,
-		/obj/item/seeds/ambrosiavulgarisseed = 3
-	)
-	premium = list(
-		/obj/item/toy/waterflower = 1
+		/obj/item/seeds/amanitamycelium = 3,
+		/obj/item/seeds/ambrosiadeusseed = 3,
+		/obj/item/seeds/ambrosiavulgarisseed = 3,
+		/obj/item/seeds/glowshroom = 3,
+		/obj/item/seeds/libertymycelium = 3,
+		/obj/item/seeds/nettleseed = 3,
+		/obj/item/seeds/plastiseed = 3,
+		/obj/item/seeds/reishimycelium = 3
 	)
 	prices = list(
-		/obj/item/seeds/bananaseed = 30,
-		/obj/item/seeds/berryseed = 15,
-		/obj/item/seeds/carrotseed = 15,
-		/obj/item/seeds/chantermycelium = 5,
-		/obj/item/seeds/chiliseed = 10,
-		/obj/item/seeds/cornseed = 15,
-		/obj/item/seeds/eggplantseed = 10,
-		/obj/item/seeds/potatoseed = 10,
-		/obj/item/seeds/replicapod = 175,
-		/obj/item/seeds/soyaseed = 10,
-		/obj/item/seeds/sunflowerseed = 5,
-		/obj/item/seeds/tomatoseed = 15,
-		/obj/item/seeds/towermycelium = 5,
-		/obj/item/seeds/wheatseed = 5,
-		/obj/item/seeds/appleseed = 15,
-		/obj/item/seeds/poppyseed = 20,
-		/obj/item/seeds/sugarcaneseed = 12,
-		/obj/item/seeds/peanutseed = 25,
-		/obj/item/seeds/whitebeetseed = 20,
-		/obj/item/seeds/watermelonseed = 15,
-		/obj/item/seeds/limeseed = 15,
-		/obj/item/seeds/lemonseed = 15,
-		/obj/item/seeds/orangeseed = 15,
-		/obj/item/seeds/grassseed = 2,
-		/obj/item/seeds/cocoapodseed = 25,
-		/obj/item/seeds/plumpmycelium = 30,
-		/obj/item/seeds/cabbageseed = 15,
-		/obj/item/seeds/grapeseed = 15,
-		/obj/item/seeds/pumpkinseed = 25,
-		/obj/item/seeds/cherryseed = 25,
-		/obj/item/seeds/plastiseed = 25,
-		/obj/item/seeds/riceseed = 25
+		/obj/item/seeds/appleseed = 50,
+		/obj/item/seeds/bananaseed = 60,
+		/obj/item/seeds/berryseed = 40,
+		/obj/item/seeds/blueberryseed = 30,
+		/obj/item/seeds/cabbageseed = 40,
+		/obj/item/seeds/carrotseed = 20,
+		/obj/item/seeds/chantermycelium = 20,
+		/obj/item/seeds/cherryseed = 40,
+		/obj/item/seeds/chiliseed = 50,
+		/obj/item/seeds/cocoapodseed = 50,
+		/obj/item/seeds/cornseed = 30,
+		/obj/item/seeds/eggplantseed = 30,
+		/obj/item/seeds/grapeseed = 40,
+		/obj/item/seeds/grassseed = 40,
+		/obj/item/seeds/greengrapeseed = 40,
+		/obj/item/seeds/harebell = 10,
+		/obj/item/seeds/lemonseed = 40,
+		/obj/item/seeds/limeseed = 50,
+		/obj/item/seeds/mtearseed = 60,
+		/obj/item/seeds/orangeseed = 40,
+		/obj/item/seeds/peanutseed = 30,
+		/obj/item/seeds/plumpmycelium = 20,
+		/obj/item/seeds/poppyseed = 10,
+		/obj/item/seeds/potatoseed = 30,
+		/obj/item/seeds/pumpkinseed = 40,
+		/obj/item/seeds/replicapod = 200,
+		/obj/item/seeds/riceseed = 20,
+		/obj/item/seeds/shandseed = 60,
+		/obj/item/seeds/soyaseed = 40,
+		/obj/item/seeds/sugarcaneseed = 20,
+		/obj/item/seeds/sunflowerseed = 20,
+		/obj/item/seeds/tomatoseed = 30,
+		/obj/item/seeds/towermycelium = 20,
+		/obj/item/seeds/watermelonseed = 30,
+		/obj/item/seeds/wheatseed = 20,
+		/obj/item/seeds/whitebeetseed = 20
 	)
+	restock_items = 1
 
 /**
  *  Populate hydroseeds product_records
@@ -519,9 +529,7 @@
 		/obj/item/clothing/shoes/sandal = 1,
 		/obj/item/weapon/staff = 2
 	)
-	contraband = list(
-		/obj/item/weapon/reagent_containers/glass/bottle/wizarditis = 1
-	)	//No one can get to the machine to hack it anyways; for the lulz - Microwave
+	restock_items = 1
 
 /obj/machinery/vending/dinnerware
 	name = "Dinnerware"
@@ -546,6 +554,7 @@
 		/obj/item/weapon/material/knife/butch = 2,
 		/obj/item/weapon/storage/toolbox/lunchbox/syndicate = 2
 	)
+	restock_items = 1
 
 /obj/machinery/vending/sovietsoda
 	name = "BODA"
@@ -589,7 +598,13 @@
 	premium = list(
 		/obj/item/clothing/gloves/yellow = 1
 	)
-
+	restock_blocked_items = list(
+		/obj/item/stack/cable_coil,
+		/obj/item/weapon/weldingtool,
+		/obj/item/weapon/weldingtool/hugetank
+	)
+	restock_items = 1
+	
 /obj/machinery/vending/engivend
 	name = "Engi-Vend"
 	desc = "Spare tool vending. What? Did you expect some witty description?"
@@ -612,6 +627,7 @@
 	premium = list(
 		/obj/item/weapon/storage/belt/utility = 3
 	)
+	restock_items = 1
 
 /obj/machinery/vending/tacticool //Tried not to go overboard with the amount of fun security has access to.
 	name = "Tactical Express"
@@ -694,6 +710,12 @@
 	// There was an incorrect entry (cablecoil/power).  I improvised to cablecoil/heavyduty.
 	// Another invalid entry, /obj/item/weapon/circuitry.  I don't even know what that would translate to, removed it.
 	// The original products list wasn't finished.  The ones without given quantities became quantity 5.  -Sayu
+	restock_blocked_items = list(
+		/obj/item/stack/cable_coil/heavyduty,
+		/obj/item/weapon/weldingtool,
+		/obj/item/weapon/light/tube
+	)
+	restock_items = 1
 
 //This one's from bay12
 /obj/machinery/vending/robotics
@@ -720,36 +742,13 @@
 		/obj/item/weapon/crowbar = 5
 	)
 	//everything after the power cell had no amounts, I improvised.  -Sayu
-
-//FOR ACTORS GUILD - mainly props that cannot be spawned otherwise
-/obj/machinery/vending/props
-	name = "prop dispenser"
-	desc = "All the props an actor could need. Probably."
-	icon_state = "Theater"
-	vend_id = "baygay"
-	products = list(
-		/obj/structure/flora/pottedplant = 2,
-		/obj/item/device/flashlight/lamp = 2,
-		/obj/item/device/flashlight/lamp/green = 2,
-		/obj/item/weapon/reagent_containers/food/drinks/jar = 1,
-		/obj/item/weapon/nullrod = 1,
-		/obj/item/toy/cultsword = 4,
-		/obj/item/toy/katana = 2,
-		/obj/item/weapon/phone = 3
+	restock_blocked_items = list(
+		/obj/item/stack/cable_coil,
+		/obj/item/device/flash,
+		/obj/item/weapon/light/tube,
+		/obj/item/weapon/tank/anesthetic
 	)
-
-//FOR ACTORS GUILD - Containers
-/obj/machinery/vending/containers
-	name = "container dispenser"
-	desc = "A container that dispenses containers."
-	icon_state = "robotics"
-	vend_id = "baygay"
-	products = list(
-		/obj/structure/closet/crate/freezer = 2,
-		/obj/structure/closet = 3,
-		/obj/structure/closet/crate = 3
-	)
-
+	restock_items = 1
 
 //RECURSION
 /obj/machinery/vending/vendors
@@ -772,5 +771,4 @@
 		/obj/item/weapon/vending_refill/hydro = 1,
 		/obj/item/weapon/vending_refill/cutlery = 1,
 		/obj/item/weapon/vending_refill/robo = 1
-
 	)

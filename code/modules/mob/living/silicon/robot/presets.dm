@@ -9,7 +9,7 @@
 	scrambledcodes = 1
 	lawupdate = 0
 	lawpreset = /datum/ai_laws/nanotrasen_aggressive
-	idcard_type = /obj/item/weapon/card/id/centcom/ERT
+	idcard_type = /obj/item/weapon/card/id/ert
 	key_type = /obj/item/device/encryptionkey/ert
 
 /mob/living/silicon/robot/combat/ert/init()

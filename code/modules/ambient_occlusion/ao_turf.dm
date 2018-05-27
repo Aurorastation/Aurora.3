@@ -1,7 +1,9 @@
 #ifdef AO_USE_LIGHTING_OPACITY
 #define AO_TURF_CHECK(T) (!T.has_opaque_atom || !T.permit_ao)
+#define AO_SELF_CHECK(T) (!T.has_opaque_atom)
 #else
 #define AO_TURF_CHECK(T) (!T.density || !T.opacity || !T.permit_ao)
+#define AO_SELF_CHECK(T) (!T.density && !T.opacity)
 #endif
 
 /turf
@@ -29,7 +31,7 @@
 	var/turf/T
 	if (flags & MIMIC_BELOW)
 		CALCULATE_NEIGHBORS(src, ao_neighbors_mimic, T, (T.flags & MIMIC_BELOW))
-	if (!has_opaque_atom && !(flags & MIMIC_NO_AO))
+	if (AO_SELF_CHECK(src) && !(flags & MIMIC_NO_AO))
 		CALCULATE_NEIGHBORS(src, ao_neighbors, T, AO_TURF_CHECK(T))
 
 /proc/make_ao_image(corner, i, px = 0, py = 0, pz = 0, pw = 0)
@@ -41,6 +43,7 @@
 	I.alpha = WALL_AO_ALPHA
 	I.blend_mode = BLEND_OVERLAY
 	I.appearance_flags = RESET_ALPHA|RESET_COLOR|TILE_BOUND
+	I.layer = AO_LAYER
 	// If there's an offset, counteract it.
 	if (px || py || pz || pw)
 		I.pixel_x = -px
@@ -109,3 +112,5 @@
 
 #undef REGEN_AO
 #undef PROCESS_AO_CORNER
+#undef AO_TURF_CHECK
+#undef AO_SELF_CHECK

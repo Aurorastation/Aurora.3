@@ -219,9 +219,9 @@
 
 
 	if (!(src.species.flags & NO_CHUBBY))
-		if(nutrition < 100)
+		if(nutrition < max(max_nutrition - 300, 0))
 			msg += "[T.He] [T.is] severely malnourished.\n"
-		else if(nutrition >= 500)
+		else if(nutrition >= max_nutrition + 100)
 			msg += "[T.He] [T.is] quite chubby.\n"
 
 

@@ -49,7 +49,7 @@ var/list/admin_verbs_lighting = list(
 
 	if (!check_rights(R_DEBUG|R_DEV)) return
 
-	if (!T.dynamic_lighting)
+	if (TURF_IS_DYNAMICALLY_LIT(T))
 		src << "That turf is not dynamically lit."
 		return
 

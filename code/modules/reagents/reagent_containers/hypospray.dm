@@ -41,6 +41,7 @@
 	user.do_attack_animation(M)
 	user << "<span class='notice'>You inject [M] with [src].</span>"
 	M << "<span class='notice'>You feel a tiny prick!</span>"
+	playsound(src, 'sound/items/hypospray.ogg',25)
 
 	if(M.reagents)
 		var/contained = reagentlist()

@@ -8133,13 +8133,20 @@
 	},
 /area/centcom/living)
 "atb" = (
-/obj/machinery/vending/snack,
+/obj/machinery/vending/snack{
+	name = "Free Chocolate Corp";
+	prices = list()
+	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
 /area/centcom/living)
 "atc" = (
 /obj/machinery/vending/cola,
+/obj/machinery/vending/cola{
+	name = "Free Robust Softdrinks";
+	prices = list()
+	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -10522,7 +10529,7 @@
 	},
 /area/centcom/specops)
 "axY" = (
-/obj/machinery/porta_turret,
+/obj/machinery/porta_turret/crescent,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -12573,7 +12580,7 @@
 /area/centcom/specops)
 "aBL" = (
 /obj/machinery/vending/snack{
-	name = "hacked Getmore Chocolate Corp";
+	name = "Free Chocolate Corp";
 	prices = list()
 	},
 /turf/unsimulated/floor{
@@ -12672,7 +12679,7 @@
 /area/centcom/specops)
 "aBY" = (
 /obj/machinery/vending/cola{
-	name = "Robust Softdrinks";
+	name = "Free Robust Softdrinks";
 	prices = list()
 	},
 /turf/unsimulated/floor{
@@ -12739,7 +12746,7 @@
 /area/shuttle/specops/centcom)
 "aCh" = (
 /obj/machinery/vending/cigarette{
-	name = "cigarette machine";
+	name = "Free Cigarette Machine";
 	prices = list()
 	},
 /turf/unsimulated/floor{
@@ -15939,7 +15946,10 @@
 	},
 /area/centcom/holding)
 "aJv" = (
-/obj/machinery/vending/coffee,
+/obj/machinery/vending/coffee{
+	name = "Free Hot Drinks machine";
+	prices = list()
+	},
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 4
@@ -16190,7 +16200,10 @@
 	},
 /area/centcom/holding)
 "aJW" = (
-/obj/machinery/vending/cigarette,
+/obj/machinery/vending/cigarette{
+	name = "Free Cigarette Machine";
+	prices = list()
+	},
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 4
@@ -18517,7 +18530,8 @@
 	icon_state = "floor"
 	},
 /obj/machinery/vending/snack{
-	can_move = 0
+	name = "Free Chocolate Corp";
+	prices = list()
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_siding4"
@@ -18614,7 +18628,8 @@
 	icon_state = "floor"
 	},
 /obj/machinery/vending/cola{
-	can_move = 0
+	name = "Free Robust Softdrinks";
+	prices = list()
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_siding8"
@@ -20553,6 +20568,10 @@
 /area/tdome)
 "aTh" = (
 /obj/machinery/vending/cigarette,
+/obj/machinery/vending/cigarette{
+	name = "Free Cigarette Machine";
+	prices = list()
+	},
 /turf/unsimulated/floor{
 	icon_state = "redbluefull";
 	dir = 8
@@ -20592,6 +20611,10 @@
 /area/tdome/tdomeobserve)
 "aTm" = (
 /obj/machinery/vending/coffee,
+/obj/machinery/vending/coffee{
+	name = "Free Hot Drinks machine";
+	prices = list()
+	},
 /turf/unsimulated/floor{
 	icon_state = "redbluefull";
 	dir = 8
@@ -20678,7 +20701,10 @@
 	},
 /area/tdome/tdomeobserve)
 "aTx" = (
-/obj/machinery/vending/snack,
+/obj/machinery/vending/snack{
+	name = "Free Chocolate Corp";
+	prices = list()
+	},
 /turf/unsimulated/floor{
 	icon_state = "redbluefull";
 	dir = 8
