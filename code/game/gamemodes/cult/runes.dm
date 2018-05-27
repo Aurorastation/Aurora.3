@@ -31,7 +31,7 @@ var/list/sacrificed = list()
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			if (H.is_diona())
-				H.take_overall_damage(10)
+				H.take_overall_damage(15)
 			else
 				H.vessel.remove_reagent("blood", 15)
 			qdel(src)
@@ -71,7 +71,7 @@ var/list/sacrificed = list()
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if (H.is_diona())
-			H.take_overall_damage(10)
+			H.take_overall_damage(15)
 		else
 			H.vessel.remove_reagent("blood", 15)
 	qdel(src)
@@ -421,9 +421,9 @@ var/list/sacrificed = list()
 				if(ishuman(L))
 					var/mob/living/carbon/human/H = L
 					if (H.is_diona())
-						H.take_overall_damage(10)
+						H.take_overall_damage(15)
 					else
-						L.vessel.remove_reagent("blood", 15)
+						L.vessel.remove_reagent("blood", 10)
 			sleep(100)
 	return fizzle(user)
 
@@ -477,7 +477,7 @@ var/list/sacrificed = list()
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if (H.is_diona())
-			H.take_overall_damage(10)
+			H.take_overall_damage(15)
 		else
 			H.vessel.remove_reagent("blood", 15)
 	sleep(30)
@@ -784,7 +784,7 @@ var/list/sacrificed = list()
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if (H.is_diona())
-			H.take_overall_damage(10)
+			H.take_overall_damage(15)
 		else
 			H.vessel.remove_reagent("blood", 15)
 	if(src.density)
@@ -836,7 +836,7 @@ var/list/sacrificed = list()
 			if(ishuman(user))
 				var/mob/living/carbon/human/H = user
 				if (H.is_diona())
-					H.take_overall_damage(10)
+					H.take_overall_damage(15)
 				else
 					H.vessel.remove_reagent("blood", 15)
 			user.say("Khari[pick("'","`")]d! Gual'te nikka!")
@@ -873,7 +873,7 @@ var/list/sacrificed = list()
 				if(ishuman(C))
 					var/mob/living/carbon/human/H = user
 					if (H.is_diona())
-						H.take_overall_damage(25)
+						H.take_overall_damage(30)
 					else
 						H.vessel.remove_reagent("blood", 25)
 				if(users.len <= 4)				// You did the minimum, this is going to hurt more and we're going to stun you.
@@ -1007,7 +1007,7 @@ var/list/sacrificed = list()
 				if(ishuman(C))
 					var/mob/living/carbon/human/H = C
 					if (H.is_diona())
-						H.take_overall_damage(45)
+						H.take_overall_damage(60)
 					else
 						H.vessel.remove_reagent("blood", 50)			
 				C.say("Dedo ol[pick("'","`")]btoh!")

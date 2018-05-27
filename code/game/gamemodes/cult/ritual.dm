@@ -414,7 +414,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 				if (H.is_diona())
 					H.show_message("<span class='warning'>\The [H] slices open a limb and begins to chant slowly and draw symbols on the floor, their sap turning to blood...</span>", 3, "<span class='danger'>You hear chanting.</span>", 2)
 					user << "<span class='warning'>You break open one of your nymphs and begin drawing a rune on the floor with the sap whilst chanting the ritual that turns the sap to blood and binds your essence into it. You can feel the darkness clawing into your being...</span>"
-					H.take_overall_damage(10)
+					H.take_overall_damage(15)
 				else
 					H.show_message("<span class='warning'>\The [H] slices open a finger and begins to chant and paint symbols on the floor.</span>", 3, "<span class='danger'>You hear chanting.</span>", 2)
 					user << "<span class='warning'>You slice open one of your fingers and begin drawing a rune on the floor whilst chanting the ritual that binds your life essence with the dark arcane energies flowing through the surrounding world.</span>"
