@@ -238,6 +238,12 @@
 	wrap["marriage wrap, female"] = /obj/item/clothing/accessory/tajaran_wrap/female
 	gear_tweaks += new/datum/gear_tweak/path(wrap)
 
+/datum/gear/accessory/tajara_pelt
+	display_name = "ceremonial pelt (Tajara)"
+	path = /obj/item/clothing/accessory/tajaran_pelt
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	sort_category = "Xenowear"
+
 //other things
 
 /datum/gear/uniform/gearharness
