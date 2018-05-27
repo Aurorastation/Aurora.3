@@ -17,7 +17,8 @@
 	volume = 15
 	w_class = 1
 	slot_flags = SLOT_EARS
-	sharp = 0
+	sharp = 1
+	noslice = 1
 	unacidable = 1 //glass
 	var/mode = SYRINGE_DRAW
 	var/image/filling //holds a reference to the current filling overlay
@@ -351,3 +352,5 @@
 		reagents.add_reagent("chloralhydrate", 60)
 		mode = SYRINGE_INJECT
 		update_icon()
+
+/obj/item/weapon/noslice
