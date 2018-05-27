@@ -119,7 +119,7 @@
 
 /obj/item/clothing/accessory/tajaran_pelt
 	name = "ceremonial pelt"
-	desc = "A piece of pelt that signifies the marriage between two followers of Ma'ta'ke."
+	desc = "A piece of pelt that signifies the union between two followers of Ma'ta'ke."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "pelt"
 	item_state = "pelt"
