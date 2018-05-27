@@ -2225,7 +2225,15 @@
 /area/security/brig)
 "aet" = (
 /obj/structure/table/standard,
-/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner,
+/obj/item/weapon/grenade/chem_grenade/monoammoniumphosphate{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/weapon/grenade/chem_grenade/monoammoniumphosphate{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/weapon/grenade/chem_grenade/monoammoniumphosphate,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "aeu" = (
@@ -2604,7 +2612,7 @@
 	base_state = "rightsecure";
 	dir = 8;
 	icon_state = "rightsecure";
-	name = "cardox storage";
+	name = "grenade storage";
 	req_access = list(24)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4782,10 +4790,18 @@
 /area/security/brig)
 "ajI" = (
 /obj/structure/table/standard,
-/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner,
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/weapon/grenade/chem_grenade/monoammoniumphosphate{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/weapon/grenade/chem_grenade/monoammoniumphosphate{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/weapon/grenade/chem_grenade/monoammoniumphosphate,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "ajJ" = (
@@ -4795,6 +4811,22 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
+"ajK" = (
+/obj/structure/table/standard,
+/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos)
+"ajL" = (
+/turf/simulated/wall/r_wall,
+/area/maintenance/engineering)
 "ajP" = (
 /obj/structure/closet/secure_closet/security,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -86057,7 +86089,7 @@ aab
 agC
 aet
 ajI
-aet
+ajK
 agC
 afR
 agt
@@ -86574,7 +86606,7 @@ afy
 afP
 agQ
 afT
-afr
+ajL
 amn
 ajD
 aon
@@ -86831,7 +86863,7 @@ afz
 afz
 afz
 agR
-afr
+ajL
 amo
 ajD
 aoo
@@ -87088,7 +87120,7 @@ afz
 afz
 afz
 afU
-afr
+ajL
 amp
 ajD
 aop
@@ -87345,7 +87377,7 @@ afz
 afz
 afz
 ajJ
-afr
+ajL
 amq
 ajD
 aoq
@@ -87602,7 +87634,7 @@ afA
 afQ
 afQ
 afV
-afr
+ajL
 amq
 ajD
 ajD
@@ -87859,7 +87891,7 @@ afB
 afB
 afB
 afB
-afr
+ajL
 amq
 afr
 aor
@@ -88116,7 +88148,7 @@ agC
 agC
 agC
 agC
-afr
+ajL
 amr
 ann
 aos
