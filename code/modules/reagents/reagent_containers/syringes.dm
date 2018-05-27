@@ -352,5 +352,3 @@
 		reagents.add_reagent("chloralhydrate", 60)
 		mode = SYRINGE_INJECT
 		update_icon()
-
-/obj/item/weapon/noslice
