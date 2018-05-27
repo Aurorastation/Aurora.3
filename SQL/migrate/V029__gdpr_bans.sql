@@ -1,0 +1,18 @@
+--
+-- Ban Users in a GDPR compliant form
+--
+CREATE TABLE `ss13_ban_gdpr` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`ckey_hashed` VARCHAR(300) NULL DEFAULT NULL COLLATE 'utf8_bin',
+	`address_hashed` VARCHAR(300) NULL DEFAULT NULL COLLATE 'utf8_bin',
+	`computerid_hashed` VARCHAR(300) NULL DEFAULT NULL COLLATE 'utf8_bin',
+	`created_by` VARCHAR(50) NOT NULL COLLATE 'utf8_bin',
+	`deleted_by` VARCHAR(50) NOT NULL COLLATE 'utf8_bin',
+	`created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+	`updated_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	`deleted_at` DATETIME NULL DEFAULT NULL,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_bin'
+ENGINE=InnoDB
+;
