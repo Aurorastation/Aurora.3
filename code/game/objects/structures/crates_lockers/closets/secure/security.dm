@@ -338,6 +338,7 @@
 
 	fill()
 		//Appearance
+		new /obj/item/clothing/suit/storage/leather_jacket/nanotrasen/det(src)
 		new /obj/item/clothing/under/det(src)
 		new /obj/item/clothing/under/det/black(src)
 		new /obj/item/clothing/under/det/slob(src)
