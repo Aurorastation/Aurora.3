@@ -132,7 +132,7 @@
 	name = "ritual knife"
 	desc = "A wicked looking curvy dagger with sharp edges. It seems to be stained with blood."
 	icon_state = "ritualknife"
-	item_state = "nullathame"
+	item_state = "cultknife"
 	w_class = 2
 	force = 12
 	throwforce = 10

@@ -221,7 +221,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 			user.drop_item()
 			C.forceMove(src)
 			ritualknife = C
-			user << "<span class='notice'>You convert \the [C] into a sigil of blood and hide it safely within the \the [src],</span>"
+			user << "<span class='notice'>You convert \the [C] into a sigil of blood and hide it safely within the \the [src].</span>"
 		return
 
 /obj/item/weapon/book/tome
