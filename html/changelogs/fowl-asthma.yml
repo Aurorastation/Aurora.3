@@ -23,7 +23,7 @@
 #################################
 
 # Your name.  
-author: Arrow768
+author: LordFowl
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -34,6 +34,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "NT has entered a cooperation with various news outlets to provide quality information at the start of the shift."
-  - rscdel: "Due to quality issues NT has banned Editor Mike Hammers of the Gibson Gazette from publishing news."
-  - rscadd: "It has come to our attention that a flaw might effect the containment systems of the station."
+  - rscadd: "Sprinting no longer deals oxygen damage unless you have asthma, a coughing disability, or damage to your lungs."
+  - rscadd: "Adds the asthma disability to chargen, which reduces your ability to sprint and your ability to naturally regenerate oxygen damage."

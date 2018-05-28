@@ -349,18 +349,19 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "centcom"
 	registered_name = "Central Command"
 	assignment = "General"
-	New()
-		access = get_all_centcom_access()
-		..()
 
-/obj/item/weapon/card/id/centcom/ERT
+/obj/item/weapon/card/id/centcom/New()
+	access = get_all_centcom_access()
+	..()
+
+/obj/item/weapon/card/id/ert
 	name = "\improper Emergency Response Team ID"
 	icon_state = "centcom"
 	assignment = "Emergency Response Team"
 
-obj/item/weapon/card/id/centcom/ERT/New()
+obj/item/weapon/card/id/ert/New()
+	access = get_all_station_access() + get_centcom_access("Emergency Response Team")
 	..()
-	access = get_all_accesses() + get_centcom_access("Emergency Response Team")
 
 /obj/item/weapon/card/id/all_access
 	name = "\improper Administrator's spare ID"

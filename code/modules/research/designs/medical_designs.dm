@@ -109,3 +109,48 @@
 	materials = list (DEFAULT_WALL_MATERIAL = 12500, "glass" = 7500, "silver" = 1500, "gold" = 1500, "diamond" = 750)
 	build_path = /obj/item/weapon/scalpel/manager
 	sort_string = "MBBAD"
+
+/datum/design/item/medical/inhaler
+	name = "Inhaler"
+	desc = "A very basic personal inhaler that directly injects chemicals into the lungs using a basic cartridge aerosol method."
+	id = "inhaler"
+	req_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 3000, "glass" = 1000)
+	build_path = /obj/item/weapon/personal_inhaler
+	sort_string = "MBCAA"
+
+/datum/design/item/medical/inhaler_combat
+	name = "Combat Inhaler"
+	desc = "An improved inhaler design that injects the entirety of the chemicals in the loaded cartridge in a single button press."
+	id = "inhaler_combat"
+	req_tech = list(TECH_BIO = 4, TECH_MATERIAL = 4, TECH_ENGINEERING = 4 )
+	materials = list(DEFAULT_WALL_MATERIAL = 6000, "glass" = 3000, "silver" = 1500)
+	build_path = /obj/item/weapon/personal_inhaler/combat
+	sort_string = "MBCAB"
+
+/datum/design/item/medical/inhaler_cartridge_small
+	name = "Small Inhaler Cartridge"
+	desc = "A small aerosol cartridge that can hold a small amount of chemicals. For use in an inhaler."
+	id = "inhaler_cartridge_small"
+	req_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 500)
+	build_path = /obj/item/weapon/reagent_containers/personal_inhaler_cartridge
+	sort_string = "MBCAC"
+
+/datum/design/item/medical/inhaler_cartridge_large
+	name = "Large Inhaler Cartridge"
+	desc = "A large aerosol cartridge that can hold a decent amount of chemicals. For use in an inhaler."
+	id = "inhaler_cartridge_large"
+	req_tech = list(TECH_BIO = 4, TECH_MATERIAL = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 500, "silver" = 500)
+	build_path = /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large
+	sort_string = "MBCAD"
+
+/datum/design/item/medical/inhaler_cartridge_bluespace
+	name = "Bluespace Inhaler Cartridge"
+	desc = "A bluespace aerosol cartridge that can hold a robust amount of chemicals. For use in an inhaler."
+	id = "inhaler_cartridge_bluespace"
+	req_tech = list(TECH_BLUESPACE = 2, TECH_MATERIAL = 6, TECH_BIO = 6)
+	materials = list(DEFAULT_WALL_MATERIAL = 3000, "phoron" = 3000, "diamond" = 500)
+	build_path = /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/bluespace
+	sort_string = "MBCAE"
