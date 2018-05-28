@@ -2771,8 +2771,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "afA" = (
-/turf/unsimulated/chasm_mask,
-/area/engineering/atmos)
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor/tiled,
+/area/assembly/robotics)
 "afB" = (
 /obj/structure/closet/firecloset,
 /obj/item/weapon/extinguisher,
@@ -3383,6 +3385,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
+"agR" = (
+/obj/structure/closet/firecloset,
+/turf/simulated/floor/tiled/white,
+/area/rnd/research)
 "agS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
@@ -3680,10 +3686,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/storage)
-"ahu" = (
-/obj/structure/reagent_dispensers/extinguisher,
-/turf/simulated/floor/tiled/white,
-/area/rnd/research)
 "ahv" = (
 /obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/plating,
@@ -38696,11 +38698,6 @@
 "bpW" = (
 /obj/structure/closet/firecloset,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/assembly/robotics)
-"bpX" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/firecloset,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bpY" = (
@@ -87625,7 +87622,7 @@ agC
 agC
 agC
 agC
-afA
+aaa
 ajL
 amq
 ajD
@@ -87877,12 +87874,12 @@ aab
 aab
 aab
 aaa
-afA
-afA
-afA
-afA
-afA
-afA
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 ajL
 amq
 afr
@@ -88134,12 +88131,12 @@ aab
 aab
 aab
 aaa
-afA
-afA
-afA
-afA
-afA
-afA
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 ajL
 amr
 ann
@@ -90492,7 +90489,7 @@ bkt
 blR
 bjg
 boN
-bpX
+afA
 aZM
 bsq
 btE
@@ -90751,7 +90748,7 @@ bnx
 aZM
 aZM
 aZM
-ahu
+agR
 bsf
 buH
 bvN
