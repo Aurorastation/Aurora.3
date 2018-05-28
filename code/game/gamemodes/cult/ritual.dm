@@ -214,15 +214,20 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 					ritualknife = FALSE
 
 /obj/item/weapon/book/tome/attackby(obj/item/C as obj, mob/user)
-	if(istype(C, /obj/item/weapon/melee/cultknife))
-		if(ritualknife)
-			user << "<span class='notice'>There is already a ritual knife in \the [src].</span>"
-		else
-			user.drop_item()
-			C.forceMove(src)
-			ritualknife = C
-			user << "<span class='notice'>You convert \the [C] into a sigil of blood and hide it safely within the \the [src].</span>"
+	if(!iscultist(user))
+		if(istype(C, /obj/item/weapon/melee/cultknife))
+			user << "<span class='notice'>You try to stab the \the [src] with \the [C], but an invisible force prevents you from bringing the blade close enough.</span>"
+	else	
+		if(istype(C, /obj/item/weapon/melee/cultknife))
+			if(ritualknife)
+				user << "<span class='notice'>There is already a ritual knife in \the [src].</span>"
+			else
+				user.drop_item()
+				C.forceMove(src)
+				ritualknife = C
+				user << "<span class='notice'>You convert \the [C] into a sigil of blood and hide it safely within the \the [src].</span>"
 		return
+	return
 
 /obj/item/weapon/book/tome
 	name = "arcane tome"
@@ -386,9 +391,9 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 	visible_message(
 		"<span class='danger'>\The [src] slices open their [target.name]!</span>",
 		"<span class='danger'>You ritualistically slice open your [target.name], creating a metaphysical bond between your blood and Nar'sie.</span>",
-		"You hear the soft slicing of a knife across flesh."    // ow the edge
+		"You hear the soft slicing of a knife across flesh."
 	)
-	if(do_after(user, 50))
+	if(do_after(src, 50))
 		target.take_damage(15)
 		target.cultmark = TRUE
 		craft_rune(target)
