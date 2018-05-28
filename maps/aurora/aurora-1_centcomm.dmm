@@ -21567,11 +21567,16 @@
 	},
 /area/shuttle/escape/centcom)
 "VH" = (
-/obj/machinery/hologram/holopad,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor7"
+/turf/unsimulated/floor{
+	icon_state = "engine"
 	},
-/area/shuttle/escape/centcom)
+/obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/storage/toolbox/electrical,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding1";
+	dir = 6
+	},
+/area/centcom/control)
 "VI" = (
 /obj/machinery/door/airlock/command{
 	name = "Cockpit"
@@ -21834,11 +21839,18 @@
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 8
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/storage/toolbox/electrical,
+/obj/effect/decal/cleanable/generic,
 /turf/unsimulated/floor{
-	icon_state = "wood_siding1";
-	dir = 6
+	icon_state = "wood_siding9"
 	},
 /area/centcom/control)
 "Wk" = (
@@ -21857,22 +21869,14 @@
 /area/centcom/holding)
 "Wm" = (
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "wood"
 	},
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 8
-	},
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic,
+/obj/item/weapon/stool/padded,
 /turf/unsimulated/floor{
-	icon_state = "wood_siding9"
+	name = "plating";
+	icon_state = "siding2"
 	},
-/area/centcom/control)
+/area/centcom/holding)
 "Wn" = (
 /obj/machinery/computer/shuttle_control/emergency,
 /turf/simulated/shuttle/floor{
@@ -22281,15 +22285,15 @@
 	},
 /area/shuttle/escape/centcom)
 "Xi" = (
-/turf/unsimulated/floor{
-	icon_state = "wood"
+/obj/machinery/hologram/holopad,
+/obj/machinery/door/window/brigdoor/westleft{
+	name = "Shuttle Brig";
+	req_access = list(2)
 	},
-/obj/item/weapon/stool/padded,
-/turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "siding2"
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
 	},
-/area/centcom/holding)
+/area/shuttle/escape/centcom)
 "Xj" = (
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -56961,7 +56965,7 @@ DM
 DM
 EP
 EP
-Xi
+Wm
 Gq
 GE
 GF
@@ -57218,7 +57222,7 @@ Fi
 Fo
 EP
 EP
-Xi
+Wm
 Gq
 GF
 GF
@@ -57475,7 +57479,7 @@ Fj
 Fp
 EP
 EP
-Xi
+Wm
 Gq
 GF
 GF
@@ -57732,7 +57736,7 @@ Fk
 Fp
 EP
 EP
-Xi
+Wm
 Gq
 GF
 GF
@@ -57989,7 +57993,7 @@ EP
 EP
 Fy
 EP
-Xi
+Wm
 Gq
 GF
 GF
@@ -58246,7 +58250,7 @@ EP
 EP
 EP
 EP
-Xi
+Wm
 Gq
 GF
 GF
@@ -64417,7 +64421,7 @@ Ds
 Ds
 HL
 VJ
-VH
+Xi
 VJ
 Fn
 Fu
@@ -64651,7 +64655,7 @@ wl
 xe
 xA
 Bp
-Wm
+Wj
 uT
 Cq
 CG
@@ -65935,7 +65939,7 @@ yE
 wq
 xj
 Eh
-Wj
+VH
 BT
 uT
 Cq
