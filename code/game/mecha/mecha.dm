@@ -329,8 +329,7 @@
 	if(istype(target, /obj/machinery/access_button) && target.Adjacent(src))
 		src.occupant_message("<span class='notice'>Interfacing with [target].</span>")
 		src.log_message("Interfaced with [target].")
-		if(src.occupant && (src.allowed(src.occupant) || target.check_access_list(src.operation_req_access)))
-			target.attack_hand(src.occupant, TRUE)
+		target.attack_hand(src.occupant, TRUE)
 		return 1
 	if(istype(target, /obj/machinery/embedded_controller))
 		if(target in view(2,src))
