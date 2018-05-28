@@ -402,6 +402,9 @@ var/list/sacrificed = list()
 		call(/obj/effect/rune/proc/fizzle)(user)
 		return
 
+/obj/effect/rune/hide() //so pulling up floor tiles stops revealing hidden runes
+	return
+
 /////////////////////////////////////////TENTH RUNE
 
 /obj/effect/rune/proc/ajourney(var/mob/living/carbon/human/user) //some bits copypastaed from admin tools - Urist

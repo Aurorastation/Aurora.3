@@ -408,7 +408,6 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 		if(user.get_active_hand() != src)
 			return
 		
-		if(ishuman(user))
 			if(ishuman(user))
 				var/mob/living/carbon/human/H = user
 				if (H.is_diona())
