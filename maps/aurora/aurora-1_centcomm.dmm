@@ -10473,12 +10473,12 @@
 	},
 /area/centcom/specops)
 "xY" = (
-/obj/machinery/porta_turret,
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+/turf/template_noop,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/shuttle/wall/dark{
+	icon_state = "swall_c"
 	},
-/area/centcom/specops)
+/area/template_noop)
 "xZ" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor{
@@ -12514,7 +12514,8 @@
 /turf/template_noop,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/wall/dark{
-	icon_state = "swall_c"
+	icon_state = "swall_c";
+	dir = 8
 	},
 /area/template_noop)
 "BT" = (
@@ -12906,7 +12907,7 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/wall/dark{
 	icon_state = "swall_c";
-	dir = 8
+	dir = 4
 	},
 /area/template_noop)
 "CR" = (
@@ -13047,13 +13048,21 @@
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
 "Dg" = (
-/turf/template_noop,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/wall/dark{
-	icon_state = "swall_c";
-	dir = 4
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
 	},
-/area/template_noop)
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "27"
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	id = "battery3";
+	name = "Battery 3 Firing Control"
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_siding10"
+	},
+/area/centcom/control)
 "Dh" = (
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
@@ -13208,15 +13217,15 @@
 	icon_state = "gcircuit"
 	},
 /obj/structure/artilleryplaceholder/decorative{
-	icon_state = "27"
+	icon_state = "28"
 	},
-/obj/structure/table/reinforced/steel,
-/obj/machinery/button/remote/blast_door{
-	id = "battery3";
-	name = "Battery 3 Firing Control"
+/obj/machinery/artillerycontrol{
+	desc = "Bluespace Artillery; the thinking man's solution."
 	},
+/obj/effect/decal/warning_stripes,
 /turf/unsimulated/floor{
-	icon_state = "wood_siding10"
+	icon_state = "wood_siding2";
+	dir = 6
 	},
 /area/centcom/control)
 "DB" = (
@@ -13510,15 +13519,11 @@
 	icon_state = "gcircuit"
 	},
 /obj/structure/artilleryplaceholder/decorative{
-	icon_state = "28"
+	icon_state = "29"
 	},
-/obj/machinery/artillerycontrol{
-	desc = "Bluespace Artillery; the thinking man's solution."
-	},
-/obj/effect/decal/warning_stripes,
+/obj/machinery/porta_turret/crescent,
 /turf/unsimulated/floor{
-	icon_state = "wood_siding2";
-	dir = 6
+	icon_state = "wood_siding6"
 	},
 /area/centcom/control)
 "Ei" = (
@@ -13584,17 +13589,12 @@
 	},
 /area/centcom/holding)
 "Er" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "29"
-	},
 /obj/machinery/porta_turret/crescent,
 /turf/unsimulated/floor{
-	icon_state = "wood_siding6"
+	icon_state = "vault";
+	dir = 1
 	},
-/area/centcom/control)
+/area/centcom/specops)
 "Es" = (
 /turf/unsimulated/floor{
 	icon_state = "sandwater"
@@ -54103,7 +54103,7 @@ vs
 vs
 wM
 ve
-xY
+Er
 wS
 wS
 wS
@@ -54360,7 +54360,7 @@ vs
 vs
 wN
 ve
-xY
+Er
 wS
 wS
 wS
@@ -65410,7 +65410,7 @@ it
 uT
 wo
 xh
-DA
+Dg
 yl
 yE
 wo
@@ -65667,17 +65667,17 @@ aM
 uT
 wp
 xi
-Eh
+DA
 yl
 yE
 wp
 xi
-Eh
+DA
 yl
 yE
 wp
 xi
-Eh
+DA
 GP
 BT
 uT
@@ -65924,17 +65924,17 @@ it
 uT
 wq
 xj
-Er
+Eh
 yl
 yE
 wq
 xj
-Er
+Eh
 yl
 yE
 wq
 xj
-Er
+Eh
 Wj
 BT
 uT
@@ -74806,7 +74806,7 @@ aM
 aM
 aM
 hV
-Dg
+CQ
 iw
 jb
 jh
@@ -75848,7 +75848,7 @@ aM
 aM
 aM
 aM
-Dg
+CQ
 it
 aM
 aM
@@ -79686,9 +79686,9 @@ aM
 aM
 aM
 aM
-BS
+xY
 iH
-CQ
+BS
 aM
 aM
 aM
