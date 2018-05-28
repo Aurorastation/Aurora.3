@@ -2771,16 +2771,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "afA" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled/dark,
+/turf/unsimulated/chasm_mask,
 /area/engineering/atmos)
 "afB" = (
 /obj/structure/closet/firecloset,
-/obj/structure/fireaxecabinet{
-	pixel_x = 32
-	},
 /obj/item/weapon/extinguisher,
 /obj/item/weapon/extinguisher/mini,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "afC" = (
@@ -2881,7 +2878,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "afQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -23;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "afR" = (
@@ -2898,15 +2900,10 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "afS" = (
-/obj/machinery/door/airlock/atmos{
-	name = "Atmospherics Fire Storage";
-	req_access = list(24)
+/obj/structure/fireaxecabinet{
+	pixel_x = 32
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "afT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2919,16 +2916,24 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "afU" = (
+/obj/machinery/door/airlock/atmos{
+	name = "Atmospherics Fire Storage";
+	req_access = list(24)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "afV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 9
+	dir = 4
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "afW" = (
@@ -3365,17 +3370,11 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "agQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -23;
-	pixel_y = 0
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos)
-"agR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/structure/fireaxecabinet{
+	pixel_x = 32
 	},
 /obj/item/device/radio/intercom{
 	frequency = 1449;
@@ -4802,13 +4801,6 @@
 	pixel_y = 4
 	},
 /obj/item/weapon/grenade/chem_grenade/monoammoniumphosphate,
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos)
-"ajJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "ajK" = (
@@ -86348,7 +86340,7 @@ aeD
 afd
 afO
 agC
-afS
+afU
 ajD
 aht
 ajD
@@ -86604,7 +86596,7 @@ agE
 aeG
 afy
 afP
-agQ
+afQ
 afT
 ajL
 amn
@@ -86862,7 +86854,7 @@ aeG
 afz
 afz
 afz
-agR
+afV
 ajL
 amo
 ajD
@@ -87114,12 +87106,12 @@ aab
 aab
 aab
 aab
-agE
+agF
 aeG
 afz
 afz
-afz
-afU
+afS
+agQ
 ajL
 amp
 ajD
@@ -87371,12 +87363,12 @@ aab
 aab
 aab
 aab
-agE
+agC
 aeG
-afz
-afz
-afz
-ajJ
+afB
+afB
+agC
+agC
 ajL
 amq
 ajD
@@ -87627,13 +87619,13 @@ aab
 aab
 aab
 aab
-aab
-agE
-aeG
+aaa
+agC
+agC
+agC
+agC
+agC
 afA
-afQ
-afQ
-afV
 ajL
 amq
 ajD
@@ -87884,13 +87876,13 @@ aab
 aab
 aab
 aab
-aab
-agF
-aeG
-afB
-afB
-afB
-afB
+aaa
+afA
+afA
+afA
+afA
+afA
+afA
 ajL
 amq
 afr
@@ -88141,13 +88133,13 @@ aab
 aab
 aab
 aab
-aab
-agC
-agC
-agC
-agC
-agC
-agC
+aaa
+afA
+afA
+afA
+afA
+afA
+afA
 ajL
 amr
 ann
@@ -88398,10 +88390,10 @@ aab
 aab
 aab
 aab
-aab
-aab
-aab
-aab
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
