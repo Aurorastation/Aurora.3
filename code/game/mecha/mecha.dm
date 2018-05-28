@@ -329,7 +329,8 @@
 	if(istype(target, /obj/machinery/access_button) && target.Adjacent(src))
 		src.occupant_message("<span class='notice'>Interfacing with [target].</span>")
 		src.log_message("Interfaced with [target].")
-		target.attack_hand(src.occupant)
+		if(src.occupant && (src.allowed(src.occupant) || target.check_access_list(src.operation_req_access)))
+			target.attack_hand(src.occupant, TRUE)
 		return 1
 	if(istype(target, /obj/machinery/embedded_controller))
 		if(target in view(2,src))
@@ -1242,6 +1243,10 @@
 		return 0
 
 /obj/mecha/proc/mmi_move_inside(var/obj/item/device/mmi/mmi_as_oc as obj,mob/user as mob)
+	if(!src.operation_allowed(user))
+		usr << "<span class='warning'>Access denied</span>"
+		src.log_append_to_last("Permission denied.")
+		return 0
 	if(!mmi_as_oc.brainmob || !mmi_as_oc.brainmob.client)
 		user << "Consciousness matrix not detected."
 		return 0
@@ -1255,7 +1260,7 @@
 		user << "Stop it!"
 		return 0
 
-	visible_message("<span class='notice'>\The [usr] starts to insert an MMI into [src.name]</span>")
+	visible_message("<span class='notice'>\The [usr] starts to insert \the [mmi_as_oc] into \the [src]</span>")
 
 	if(enter_after(40,user))
 		if(!occupant)
