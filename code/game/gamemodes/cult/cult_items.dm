@@ -127,3 +127,50 @@
 
 /obj/item/clothing/suit/space/cult/cultify()
 	return
+
+/obj/item/weapon/melee/cultknife
+	name = "ritual knife"
+	desc = "A wicked looking curvy dagger with sharp edges. It seems to be stained with blood."
+	icon_state = "ritualknife"
+	item_state = "ritualknife"
+	w_class = 2
+	force = 12
+	throwforce = 10
+	edge = 1
+	sharp = 1
+	hitsound = 'sound/weapons/bladeslice.ogg'
+
+	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	can_embed = 0 
+
+/obj/item/weapon/melee/cultblade/cultify()
+	return
+
+/obj/item/weapon/melee/cultblade/attack(mob/living/M, mob/living/user, var/target_zone)
+	if(iscultist(user))
+		return ..()
+
+	var/zone = (user.hand ? "l_arm":"r_arm")
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/obj/item/organ/external/affecting = H.get_organ(zone)
+		user << "<span class='danger'>An unexplicable force rips through your [affecting.name], tearing the knife from your grip!</span>"
+	else
+		user << "<span class='danger'>An unexplicable force rips through you, tearing the knife from your grip!</span>"
+
+	//random amount of damage between half of the blade's force and the full force of the blade.
+	user.apply_damage(rand(force/2, force), BRUTE, zone, 0, sharp=1, edge=1)
+	user.Weaken(5)
+
+	user.drop_from_inventory(src)
+	throw_at(get_edge_target_turf(src, pick(alldirs)), rand(1,3), throw_speed)
+
+	var/spooky = pick('sound/hallucinations/growl1.ogg', 'sound/hallucinations/growl2.ogg', 'sound/hallucinations/growl3.ogg', 'sound/hallucinations/wail.ogg')
+	playsound(loc, spooky, 50, 1)
+
+	return 1
+
+/obj/item/weapon/melee/cultblade/pickup(mob/living/user as mob)
+	if(!iscultist(user))
+		user << "<span class='warning'>An overwhelming feeling of dread comes over you as you pick up \the [src]. Nothing about this knife can be healthy.</span>"
+		user.make_dizzy(120)

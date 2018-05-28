@@ -177,6 +177,53 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 /obj/effect/rune/proc/check_icon()
 	icon = get_uristrune_cult(word1, word2, word3)
 
+/obj/item/weapon/book/tome/Initialize()
+    . = ..()
+    ritualknife = new /obj/item/weapon/melee/cultknife(src)
+
+/obj/item/weapon/book/tome/verb/verb_manifest_knife()
+	set category = "Object"
+	set name = "Manifest"
+
+	manifest_knife(usr)
+
+/obj/item/weapon/book/tome/proc/manifest_knife(mob/living/carbon/human/user)
+	if(!iscultist(user))
+		user << "<span class='notice'>You're not sure if this is even a manifest.</span>"
+		return
+	else
+		if (!ritualknife)
+			user << "<span class='notice'>\The [src] does not have a ritual dagger in it.</span>"
+			return
+
+		switch (use_check(user, USE_DISALLOW_SILICONS, show_messages = FALSE))
+			if (USE_FAIL_NON_ADJACENT)
+				user << "<span class='notice'>You are too far away from [src].</span>"
+
+			if (USE_FAIL_DEAD,USE_FAIL_INCAPACITATED)
+				user << "<span class='notice'>You cannot do this in your current state.</span>"
+
+			if (USE_SUCCESS)
+				if (loc == user && !user.get_active_hand())
+					user << "<span class='notice'>You conjure the the ritual dagger from \the [src].</span>"
+					user.put_in_hands(ritualknife)
+					ritualknife = FALSE
+				else
+					user << "<span class='notice'>You conjure the ritual dagger from \the [src], dropping it on the ground.</span>"
+					ritualknife.forceMove(get_turf(src))
+					ritualknife = FALSE
+
+/obj/item/weapon/book/tome/attackby(obj/item/C as obj, mob/user)
+	if(istype(C, /obj/item/weapon/melee/cultknife))
+		if(ritualknife)
+			user << "<span class='notice'>There is already a ritual knife in \the [src].</span>"
+		else
+			user.drop_item()
+			C.forceMove(src)
+			ritualknife = C
+			user << "<span class='notice'>You convert \the [C] into a sigil of blood and hide it safely within the \the [src],</span>"
+		return
+
 /obj/item/weapon/book/tome
 	name = "arcane tome"
 	icon = 'icons/obj/weapons.dmi'
@@ -187,6 +234,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 	unique = 1
 	var/tomedat = ""
 	var/list/words = list("ire" = "ire", "ego" = "ego", "nahlizet" = "nahlizet", "certum" = "certum", "veri" = "veri", "jatkaa" = "jatkaa", "balaq" = "balaq", "mgar" = "mgar", "karazet" = "karazet", "geeri" = "geeri")
+	var/obj/item/weapon/melee/cultknife/ritualknife
 
 	tomedat = {"<html>
 				<head>
@@ -201,7 +249,10 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 				<body>
 				<h1>The scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood.</h1>
 
-				<i>The book is written in an unknown dialect, there are lots of pictures of various complex geometric shapes. You find some notes in english that give you basic understanding of the many runes written in the book. The notes give you an understanding what the words for the runes should be. However, you do not know how to write all these words in this dialect.</i><br>
+				<i>The book is written in an unknown dialect, there are lots of pictures of various complex geometric shapes. You find some notes in english that give you basic understanding of the many runes written in the book. The notes give you an understanding what the words for the runes should be.</i><br>
+				<i>Within this tome there is a ritual dagger, concealed safely within a rune of blood. You may conjure it as you wish to aid you in your journey.</i><br><br>
+				<i>There is a scribbled note below this that says, "Before you may call upon the Geometer, you must bond your blood with him in a ritual wound in of your arms, or should you have no flesh left in your arms, a direct bond to your heart can suffice. Take care that you are prepared to treat this wound, or risk discovery by the uninitiated."</i><br>
+
 				<i>Below is the summary of the runes.</i> <br>
 
 				<h2>Contents</h2>
@@ -323,7 +374,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 /mob/living/carbon/human/proc/tree_bond(user)
 	visible_message(
 		"<span class='danger'>\The [src] shudders and creaks, chanting as its nymphs cracking open and leak sap everywhere!</span>",
-		"<span class='warning'>You have no blood to offer the Geometer, so you offer up your very biomass as fuel for his powers. Agony wracks across all parts of you, and you can feel your nymphs cracking open as parts of them are taken away to fuel the bond.</span>",
+		"<span class='danger'>You have no blood to offer the Geometer, so you offer up your very biomass as fuel for his powers. Agony wracks across all parts of you, and you can feel your nymphs cracking open as parts of them are taken away to fuel the bond.</span>",
 		"You hear creaking and snapping."
 	)
 	apply_damage(30)
@@ -333,7 +384,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 /mob/living/carbon/human/proc/cut_self(obj/item/organ/external/target)
 	visible_message(
 		"<span class='danger'>\The [src] slices open their [target.name]!</span>",
-		"<span class='warning'>You ritualistically slice open your [target.name], creating a metaphysical bond between your blood and Nar'sie.</span>",
+		"<span class='danger'>You ritualistically slice open your [target.name], creating a metaphysical bond between your blood and Nar'sie.</span>",
 		"You hear the soft slicing of a knife across flesh."    // ow the edge
 	)
 	target.take_damage(15)
@@ -460,12 +511,14 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 					break
 
 			if (!found_limb)
-				var/obj/item/organ/external/O = user.organs_by_name["torso"]
-				visible_message("<span class='danger'>\The [src] plunges a knife into their [O.name]!</span>",
+				var/obj/item/organ/external/O = user.organs_by_name["chest"]
+				user.visible_message("<span class='danger'>\The [src] plunges a knife into their [O.name]!</span>",
 				"<span class='warning'>You sink your blade deep into your [O.name], creating a metaphysical link between your heart and the Geometer. It hurts quite a lot, and for the next few moments you feel nothing but agony as you regret every decision in your life that lead to you losing your arms.</span>",
 				"You hear a soft squelch."
 				)
 				O.take_damage(20)
+				O.cultmark = TRUE
+				user.craft_rune(O)
 
 		if(do_after(user, 50))
 			var/area/A = get_area(user)

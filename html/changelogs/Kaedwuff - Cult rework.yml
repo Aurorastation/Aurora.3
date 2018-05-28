@@ -34,4 +34,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Cultists now use their own blood to power their runes, instead of cutting up their bodies to feel alive. Unless you're a tree, then you'll be cutting up your nymphs for delicious power."
+  - tweak: "Cultists now use their own blood to power their runes, and there have been some mechanical reworks to compensate. Also, all arcane tomes now hold a nifty cultist dagger you may use for rituals, and murder."
