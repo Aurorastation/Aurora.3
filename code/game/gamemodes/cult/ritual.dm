@@ -377,10 +377,10 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 		"<span class='danger'>You have no blood to offer the Geometer, so you offer up your very biomass as fuel for his powers. Agony wracks across all parts of you, and you can feel your nymphs cracking open as parts of them are taken away to fuel the bond.</span>",
 		"You hear creaking and snapping."
 	)
-	do_after(50)
-	apply_damage(30)
-	cultbond = TRUE
-	diona_rune(user)
+	if(do_after(user, 50))
+		apply_damage(30)
+		cultbond = TRUE
+		diona_rune(user)
 
 /mob/living/carbon/human/proc/cut_self(obj/item/organ/external/target)
 	visible_message(
@@ -388,10 +388,10 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 		"<span class='danger'>You ritualistically slice open your [target.name], creating a metaphysical bond between your blood and Nar'sie.</span>",
 		"You hear the soft slicing of a knife across flesh."    // ow the edge
 	)
-	do_after(50)
-	target.take_damage(15)
-	target.cultmark = TRUE
-	craft_rune(target)
+	if(do_after(user, 50))
+		target.take_damage(15)
+		target.cultmark = TRUE
+		craft_rune(target)
 
 /mob/living/carbon/human/proc/diona_rune(user)
 	visible_message("<span class='warning'>\The [src] slices open a limb and begins to chant slowly and draw symbols on the floor, their sap turning to blood...</span>",
@@ -402,7 +402,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 
 /mob/living/carbon/human/proc/craft_rune(obj/item/organ/external/target)
 	visible_message("<span class='danger'>\The [src] puts a palm to their [target] and chants, drawing forth a gush of blood that splatters onto the floor, where writhes and shifts!</span>",
-	"<span class='warning'>You draw blood our through your the ritual wound in your [target], spilling it across the floor as you chant the ritual that slowly forms your blood into a rune...</span>",
+	"<span class='warning'>You draw blood out through your the ritual wound in your [target], spilling it across the floor as you chant the ritual that slowly forms your blood into a rune...</span>",
 	"<span class='danger'>You hear chanting and a splattering sound.</span>"
 	)
 	src.vessel.remove_reagent("blood", 10)
@@ -518,10 +518,11 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 				"<span class='warning'>You sink your blade deep into your [O.name], creating a metaphysical link between your heart and the Geometer. It hurts quite a lot, and for the next few moments you feel nothing but agony as you regret every decision in your life that lead to you losing your arms.</span>",
 				"You hear a soft squelch."
 				)
-				do_after(50)
-				O.take_damage(20)
-				O.cultmark = TRUE
-				user.craft_rune(O)
+				if(do_after(user, 50))
+					O.take_damage(20)
+					O.cultmark = TRUE
+					user.make_dizzy(120)
+					user.craft_rune(O)
 
 		if(do_after(user, 50))
 			var/area/A = get_area(user)
