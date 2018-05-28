@@ -320,6 +320,39 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 		O.show_message("<span class='warning'>\The [user] beats \the [M] with \the [src]!</span>", 1)
 	M << "<span class='danger'>You feel searing heat inside!</span>"
 
+/mob/living/carbon/human/proc/tree_bond(user)
+	visible_message(
+		"<span class='danger'>\The [src] shudders and creaks, chanting as its nymphs cracking open and leak sap everywhere!</span>",
+		"<span class='warning'>You have no blood to offer the Geometer, so you offer up your very biomass as fuel for his powers. Agony wracks across all parts of you, and you can feel your nymphs cracking open as parts of them are taken away to fuel the bond.</span>",
+		"You hear creaking and snapping."
+	)
+	apply_damage(30)
+	cultbond = TRUE
+	diona_rune(user)
+
+/mob/living/carbon/human/proc/cut_self(obj/item/organ/external/target)
+	visible_message(
+		"<span class='danger'>\The [src] slices open their [target.name]!</span>",
+		"<span class='warning'>You ritualistically slice open your [target.name], creating a metaphysical bond between your blood and Nar'sie.</span>",
+		"You hear the soft slicing of a knife across flesh."    // ow the edge
+	)
+	target.take_damage(15)
+	target.cultmark = TRUE
+	craft_rune(target)
+
+/mob/living/carbon/human/proc/diona_rune(user)
+	visible_message("<span class='warning'>\The [src] slices open a limb and begins to chant slowly and draw symbols on the floor, their sap turning to blood...</span>",
+	"<span class='warning'>You break open one of your nymphs and begin drawing a rune on the floor with the sap whilst chanting the ritual that turns the sap to blood and binds your essence into it. You can feel the darkness clawing into your being...</span>",
+	"<span class='warning'>You hear chanting and creaking.</span>"
+	)
+	src.take_overall_damage(15)
+
+/mob/living/carbon/human/proc/craft_rune(obj/item/organ/external/target)
+	visible_message("<span class='danger'>\The [src] puts a palm to their [target] and chants, drawing forth a gush of blood that splatters onto the floor, where writhes and shifts!</span>",
+	"<span class='warning'>You draw blood our through your the ritual wound in your [target], spilling it across the floor as you chant the ritual that slowly forms your blood into a rune...</span>",
+	"<span class='danger'>You hear chanting and a splattering sound.</span>"
+	)
+	src.vessel.remove_reagent("blood", 10)
 
 /obj/item/weapon/book/tome/attack_self(var/mob/living/carbon/human/user)
 
@@ -408,16 +441,32 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 		if(user.get_active_hand() != src)
 			return
 		
-			if(ishuman(user))
-				var/mob/living/carbon/human/H = user
-				if (H.is_diona())
-					H.show_message("<span class='warning'>\The [H] slices open a limb and begins to chant slowly and draw symbols on the floor, their sap turning to blood...</span>", 3, "<span class='danger'>You hear chanting.</span>", 2)
-					user << "<span class='warning'>You break open one of your nymphs and begin drawing a rune on the floor with the sap whilst chanting the ritual that turns the sap to blood and binds your essence into it. You can feel the darkness clawing into your being...</span>"
-					H.take_overall_damage(15)
-				else
-					H.show_message("<span class='warning'>\The [H] slices open a finger and begins to chant and paint symbols on the floor.</span>", 3, "<span class='danger'>You hear chanting.</span>", 2)
-					user << "<span class='warning'>You slice open one of your fingers and begin drawing a rune on the floor whilst chanting the ritual that binds your life essence with the dark arcane energies flowing through the surrounding world.</span>"
-					H.vessel.remove_reagent("blood", 15)
+		if(user.is_diona())
+			if (!user.cultbond)
+				user.tree_bond(user)
+			else
+				user.diona_rune(user)
+		
+		else
+			var/found_limb = FALSE
+			for (var/organ_tag in list("l_hand", "l_arm", "r_hand", "r_arm"))
+				var/obj/item/organ/external/O = user.organs_by_name[organ_tag]
+				if (!QDELETED(O) && !O.is_stump() && !(O.status & (ORGAN_ROBOT|ORGAN_ADV_ROBOT)))
+					if (!O.cultmark)
+						user.cut_self(O)
+					else
+						user.craft_rune(O)
+					found_limb = TRUE
+					break
+
+			if (!found_limb)
+				var/obj/item/organ/external/O = user.organs_by_name["torso"]
+				visible_message("<span class='danger'>\The [src] plunges a knife into their [O.name]!</span>",
+				"<span class='warning'>You sink your blade deep into your [O.name], creating a metaphysical link between your heart and the Geometer. It hurts quite a lot, and for the next few moments you feel nothing but agony as you regret every decision in your life that lead to you losing your arms.</span>",
+				"You hear a soft squelch."
+				)
+				O.take_damage(20)
+
 		if(do_after(user, 50))
 			var/area/A = get_area(user)
 			log_and_message_admins("created \an [chosen_rune] rune at \the [A.name] - [user.loc.x]-[user.loc.y]-[user.loc.z].")

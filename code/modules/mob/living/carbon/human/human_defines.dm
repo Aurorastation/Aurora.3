@@ -113,3 +113,5 @@
 	var/datum/unarmed_attack/default_attack	//default unarmed attack
 
 	var/datum/martial_art/martial_art = null
+	
+	var/cultbond // For diona that have pledged their souls to the Geometer
