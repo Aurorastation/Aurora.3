@@ -377,6 +377,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 		"<span class='danger'>You have no blood to offer the Geometer, so you offer up your very biomass as fuel for his powers. Agony wracks across all parts of you, and you can feel your nymphs cracking open as parts of them are taken away to fuel the bond.</span>",
 		"You hear creaking and snapping."
 	)
+	do_after(50)
 	apply_damage(30)
 	cultbond = TRUE
 	diona_rune(user)
@@ -387,6 +388,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 		"<span class='danger'>You ritualistically slice open your [target.name], creating a metaphysical bond between your blood and Nar'sie.</span>",
 		"You hear the soft slicing of a knife across flesh."    // ow the edge
 	)
+	do_after(50)
 	target.take_damage(15)
 	target.cultmark = TRUE
 	craft_rune(target)
@@ -516,6 +518,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 				"<span class='warning'>You sink your blade deep into your [O.name], creating a metaphysical link between your heart and the Geometer. It hurts quite a lot, and for the next few moments you feel nothing but agony as you regret every decision in your life that lead to you losing your arms.</span>",
 				"You hear a soft squelch."
 				)
+				do_after(50)
 				O.take_damage(20)
 				O.cultmark = TRUE
 				user.craft_rune(O)
