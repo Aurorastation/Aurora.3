@@ -11861,21 +11861,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/table/rack,
 /obj/item/weapon/storage/box/firingpins,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/obj/structure/sign/nosmoking_2{
-	pixel_y = 32
-	},
-/obj/machinery/camera/network/security{
-	c_tag = "Security - Armoury Entrance";
-	network = list("Security","Armoury")
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
@@ -63109,7 +63095,6 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/clothing/gloves/combat,
 /obj/item/weapon/handcuffs,
 /turf/simulated/floor/tiled/dark,
 /area/security/main)
