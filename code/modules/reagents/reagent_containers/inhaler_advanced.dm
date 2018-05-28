@@ -194,3 +194,12 @@
 		flags ^= OPENCONTAINER
 		update_icon()
 		return
+
+/obj/item/weapon/personal_inhaler/cyborg
+	name = "cyborg inhaler"
+	desc = "A large, bulky inhaler design that injects the entire contents of the loaded cartridge via an aerosol system in a single button press. For cyborgs."
+	icon_state = "pi_combat"
+	w_class = 3
+	transfer_amount = 60
+	origin_tech = null
+	eject_when_empty = TRUE
