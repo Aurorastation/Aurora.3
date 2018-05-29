@@ -135,13 +135,6 @@
 	item_state = "cultknife"
 	w_class = 2
 	force = 12
-	throwforce = 10
-	edge = 1
-	sharp = 1
-	hitsound = 'sound/weapons/bladeslice.ogg'
-
-	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
-	can_embed = 0 
 
 /obj/item/weapon/melee/cultblade/cultknife/cultify()
 	return
