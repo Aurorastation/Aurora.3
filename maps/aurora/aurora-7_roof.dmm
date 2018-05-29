@@ -565,8 +565,10 @@
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
 "bn" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/random/loot,
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 1
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
 "bo" = (
@@ -842,13 +844,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tcommsat/lounge)
-"bS" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/random/junk,
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
 "bT" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/random/medical,
@@ -2564,13 +2559,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
-"eX" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
 "eY" = (
 /obj/effect/landmark/map_data{
 	height = 6
@@ -2679,39 +2667,6 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
 	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
-"fn" = (
-/obj/effect/floor_decal/industrial/warning/corner,
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 1
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
-"fo" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 1
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
-"fp" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
-"fq" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -27677,11 +27632,11 @@ aa
 aa
 aa
 aa
-fn
-ai
-ai
-ai
-ff
+bn
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -27934,11 +27889,11 @@ ag
 fI
 fH
 fJ
-fo
-aa
-aa
-aa
-ae
+fe
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -28191,11 +28146,11 @@ ah
 ah
 ah
 ah
-al
-aa
-aa
-ad
-fe
+ah
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -28448,10 +28403,10 @@ ah
 ah
 ah
 ah
-bm
-aa
-aa
-ae
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -28705,10 +28660,10 @@ ah
 ah
 ah
 ah
-bn
-aa
-aa
-ae
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -28962,10 +28917,10 @@ ah
 ah
 ah
 ah
-fh
-ag
-bG
-fe
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -29990,10 +29945,10 @@ ah
 ah
 ah
 ah
-fg
-ai
-ai
-ff
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -30247,11 +30202,11 @@ ah
 ah
 ah
 ah
-al
-aa
-aa
-bS
-bX
+ah
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -30504,10 +30459,10 @@ ah
 ah
 ah
 ah
-al
-aa
-aa
-aj
+ah
+ah
+ah
+ah
 ah
 an
 ah
@@ -30761,11 +30716,11 @@ ah
 ah
 ah
 ah
-al
-aa
-aa
-ak
-ff
+ah
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -31017,12 +30972,12 @@ aq
 aq
 aq
 aq
-aq
-fp
-aa
-aa
-aa
-ae
+ff
+ah
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -31274,12 +31229,13 @@ aa
 aa
 aa
 aa
-aa
-fq
-ag
-ag
-ag
-fe
+ae
+ah
+ah
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -31288,7 +31244,6 @@ ah
 ah
 ah
 fg
-ai
 ai
 ai
 ai
@@ -31531,7 +31486,6 @@ aa
 aa
 aa
 aa
-aa
 ae
 ah
 ah
@@ -31544,8 +31498,9 @@ ah
 ah
 ah
 ah
+ah
+ah
 al
-aa
 aa
 aa
 aa
@@ -31788,7 +31743,6 @@ aa
 aa
 aa
 aa
-aa
 ae
 ah
 ah
@@ -31801,8 +31755,9 @@ ah
 ah
 ah
 ah
+ah
+ah
 al
-aa
 aa
 aa
 aa
@@ -32045,7 +32000,6 @@ aa
 aa
 aa
 aa
-aa
 ae
 ah
 ah
@@ -32058,8 +32012,9 @@ ah
 ah
 ah
 ah
+ah
+ah
 al
-aa
 aa
 aa
 aa
@@ -32302,7 +32257,6 @@ aa
 aa
 aa
 aa
-aa
 ae
 ah
 ah
@@ -32315,8 +32269,9 @@ ah
 ah
 ah
 ah
+ah
+ah
 al
-aa
 aa
 aa
 aa
@@ -32559,7 +32514,6 @@ aa
 aC
 aa
 aa
-aa
 ae
 ah
 ah
@@ -32572,8 +32526,9 @@ ah
 ah
 ah
 ah
+ah
+ah
 al
-aa
 aa
 aa
 aa
@@ -32816,7 +32771,6 @@ aa
 aa
 aa
 aa
-aa
 ae
 ah
 ah
@@ -32829,8 +32783,9 @@ ah
 ah
 ah
 ah
+ah
+ah
 al
-aa
 aa
 aa
 aa
@@ -33073,7 +33028,6 @@ aa
 aa
 aa
 aa
-aa
 ae
 ah
 ah
@@ -33086,8 +33040,9 @@ ah
 ah
 ah
 ah
+ah
+ah
 al
-aa
 aa
 aa
 aa
@@ -33330,9 +33285,7 @@ aa
 aa
 aa
 aa
-aa
 af
-ao
 ff
 ah
 ah
@@ -33341,10 +33294,12 @@ ah
 ah
 ah
 ah
+ah
+ah
+ah
+ah
 fg
-ao
 am
-aa
 aa
 aa
 aa
@@ -33588,19 +33543,19 @@ aa
 aa
 aa
 aa
-aa
-aa
 ae
 ah
-fg
-ai
-ai
-ai
-ff
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
 ah
 al
-aa
-aa
 aa
 aa
 aa
@@ -33845,19 +33800,19 @@ aa
 aa
 aa
 aa
-aa
-aa
 ae
 ah
-al
-aa
-aa
-aa
-ae
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
 ah
 al
-aa
-aa
 aa
 aa
 aa
@@ -34102,19 +34057,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-af
+ed
+ao
 ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ao
 am
-aa
-aa
-aa
-af
-aq
-am
-aa
-aa
 aa
 aa
 aa
