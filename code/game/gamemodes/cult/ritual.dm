@@ -554,7 +554,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
     if (iscultist(user))
         to_chat(user, "The scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood. Contains the details of every ritual his followers could think of.")
         if (. && ritualknife)
-            to_chat(user, "<span class='notice'>There is \a [ritualknife] concealed in the pages.</span>"
+            to_chat(user, "<span class='notice'>There is \a [ritualknife] concealed in the pages.</span>")
     else
         to_chat(user, "An old, dusty tome with frayed edges and a sinister looking cover.")
 
