@@ -207,11 +207,11 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 				if (loc == user && !user.get_active_hand())
 					user << "<span class='notice'>You conjure the the ritual dagger from \the [src].</span>"
 					user.put_in_hands(ritualknife)
-					ritualknife = FALSE
+					ritualknife = null
 				else
 					user << "<span class='notice'>You conjure the ritual dagger from \the [src], dropping it on the ground.</span>"
 					ritualknife.forceMove(get_turf(src))
-					ritualknife = FALSE
+					ritualknife = null
 
 /obj/item/weapon/book/tome/attackby(obj/item/C as obj, mob/user)
 	if(!iscultist(user))
@@ -376,13 +376,13 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 		O.show_message("<span class='warning'>\The [user] beats \the [M] with \the [src]!</span>", 1)
 	M << "<span class='danger'>You feel searing heat inside!</span>"
 
-/mob/living/carbon/human/proc/tree_bond(user)
+/mob/living/carbon/human/proc/tree_bond()
 	visible_message(
 		"<span class='danger'>\The [src] shudders and creaks, chanting as its nymphs cracking open and leak sap everywhere!</span>",
 		"<span class='danger'>You have no blood to offer the Geometer, so you offer up your very biomass as fuel for his powers. Agony wracks across all parts of you, and you can feel your nymphs cracking open as parts of them are taken away to fuel the bond.</span>",
 		"You hear creaking and snapping."
 	)
-	if(do_after(user, 50))
+	if(do_after(src, 50))
 		apply_damage(30)
 		cultbond = TRUE
 		diona_rune(user)
@@ -398,7 +398,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 		target.cultmark = TRUE
 		craft_rune(target)
 
-/mob/living/carbon/human/proc/diona_rune(user)
+/mob/living/carbon/human/proc/diona_rune()
 	visible_message("<span class='warning'>\The [src] slices open a limb and begins to chant slowly and draw symbols on the floor, their sap turning to blood...</span>",
 	"<span class='warning'>You break open one of your nymphs and begin drawing a rune on the floor with the sap whilst chanting the ritual that turns the sap to blood and binds your essence into it. You can feel the darkness clawing into your being...</span>",
 	"<span class='warning'>You hear chanting and creaking.</span>"
@@ -550,11 +550,13 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 		return
 
 /obj/item/weapon/book/tome/examine(mob/user)
-	..(user)
-	if(!iscultist(user))
-		desc = "An old, dusty tome with frayed edges and a sinister looking cover."
-	else
-		desc = "The scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood. Contains the details of every ritual his followers could think of. Most of these are useless, though."
+    . = ..(user, 2)
+    if (iscultist(user))
+        to_chat(user, "The scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood. Contains the details of every ritual his followers could think of.")
+        if (. && ritualknife)
+            to_chat(user, "<span class='notice'>There is \a [ritualknife] concealed in the pages.</span>"
+    else
+        to_chat(user, "An old, dusty tome with frayed edges and a sinister looking cover.")
 
 /obj/item/weapon/book/tome/cultify()
 	return
