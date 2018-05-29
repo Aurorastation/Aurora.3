@@ -178,7 +178,6 @@
 		/obj/item/clothing/gloves/force                 = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/swat/fluff            = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/black/fluff           = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/gloves/fluff                 = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/yellow/typec          = TRADER_BLACKLIST,
 		/obj/item/clothing/gloves/swat/bst              = TRADER_BLACKLIST,
 		/obj/item/clothing/gloves/watch/fluff           = TRADER_BLACKLIST_ALL,
@@ -196,11 +195,9 @@
 		/obj/item/clothing/head/radiation               = TRADER_BLACKLIST,
 		/obj/item/clothing/head/tajaran                 = TRADER_BLACKLIST,
 		/obj/item/clothing/head/welding                 = TRADER_BLACKLIST,
-		/obj/item/clothing/head/soft/sec/corp/fluff     = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/fluff                   = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/det/fluff               = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/winterhood              = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/head/hairflower/fluff        = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/beret/engineering/fluff = TRADER_BLACKLIST_ALL
 	)
 
@@ -226,6 +223,7 @@ Sells devices, odds and ends, and medical stuff
 		/obj/item/device/paicard                   = TRADER_THIS_TYPE,
 		/obj/item/device/pipe_painter              = TRADER_THIS_TYPE,
 		/obj/item/device/healthanalyzer            = TRADER_THIS_TYPE,
+		/obj/item/device/breath_analyzer           = TRADER_THIS_TYPE,
 		/obj/item/device/analyzer                  = TRADER_ALL,
 		/obj/item/device/mass_spectrometer         = TRADER_ALL,
 		/obj/item/device/reagent_scanner           = TRADER_ALL,

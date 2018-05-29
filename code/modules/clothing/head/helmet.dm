@@ -16,6 +16,16 @@
 	max_heat_protection_temperature = HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
 	w_class = 3
+	var/allow_hair_covering = TRUE //in case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
+
+/obj/item/clothing/head/helmet/verb/toggle_block_hair()
+	set name = "Toggle Helmet Hair Coverage"
+	set category = "Object"
+
+	if(allow_hair_covering)
+		flags_inv ^= BLOCKHEADHAIR
+		usr << "<span class='notice'>[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair.</span>"
+	..()
 
 /obj/item/clothing/head/helmet/warden
 	name = "warden's hat"
@@ -41,6 +51,7 @@
 	name = "dermal armour patch"
 	desc = "You're not quite sure how you manage to take it on and off, but it implants nicely in your head."
 	icon_state = "dermal"
+	allow_hair_covering = FALSE
 
 /obj/item/clothing/head/helmet/hop
 	name = "crew resource's hat"

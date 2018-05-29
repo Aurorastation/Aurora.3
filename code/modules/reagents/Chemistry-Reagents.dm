@@ -12,6 +12,9 @@
 	var/ingest_met = 0
 	var/touch_met = 0
 	var/breathe_met = 0
+	var/ingest_mul = 0.5
+	var/touch_mul = 0
+	var/breathe_mul = 0.75
 	var/dose = 0
 	var/max_dose = 0
 	var/overdose = 0
@@ -25,7 +28,7 @@
 	var/color_weight = 1
 	var/unaffected_species = IS_DIONA | IS_MACHINE	// Species that aren't affected by this reagent. Does not prevent affect_touch.
 	var/metabolism_min = 0.01 //How much for the medicine to be present in the system to actually have an effect.
-	var/list/conflicting_reagents //Reagents that conflict with this medicine, and cause adverse effects when in the blood.
+	var/conflicting_reagent //Reagents that conflict with this medicine, and cause adverse effects when in the blood.
 
 /datum/reagent/proc/remove_self(var/amount) // Shortcut
 	if (!holder)
@@ -71,10 +74,9 @@
 
 	dose = min(dose + removed, max_dose)
 
-	for(var/conflicting_reagent in conflicting_reagents)
-		var/amount_min = conflicting_reagents[conflicting_reagent]
-		if(M.reagents.has_reagent(conflicting_reagent,amount_min))
-			affect_conflicting(M,alien,removed,conflicting_reagent)
+	for(var/datum/reagent/R in M.bloodstr.reagent_list)
+		if(istype(R, conflicting_reagent))
+			affect_conflicting(M,alien,removed,R)
 	if(removed >= metabolism_min)
 		switch(location)
 			if(CHEM_BLOOD)
@@ -98,13 +100,16 @@
 	M.adjustToxLoss(removed)
 
 /datum/reagent/proc/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	affect_blood(M, alien, removed * 0.5)
+	if(ingest_mul)
+		affect_blood(M, alien, removed * ingest_mul)
 
 /datum/reagent/proc/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	return
+	if(touch_mul)
+		affect_blood(M, alien, removed * touch_mul)
 
 /datum/reagent/proc/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed)
-	affect_blood(M, alien, removed * 0.75)
+	if(breathe_mul)
+		affect_blood(M, alien, removed * breathe_mul)
 
 /datum/reagent/proc/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1) // Overdose effect. Doesn't happen instantly.
 	M.adjustToxLoss(REM)
