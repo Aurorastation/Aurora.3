@@ -200,10 +200,10 @@
 	escapee << "<span class='warning'>You lean on the back of \the [src] and start punching internal wall with your legs. (this will take about [breakout_time] minutes)</span>"
 	visible_message("<span class='danger'>\The [src] begins to shake violently! Something is terring it from the inside!</span>")
 
-	var/time = 6 * breakout_time * 2
+	var/time = 360 * breakout_time * 2
 	breakout = TRUE
 
-	if (!do_after(escapee, time, extra_checks = CALLBACK(src, .proc/breakout_callback, escapee)))
+	if (!do_after(escapee, time, act_target = src, extra_checks = CALLBACK(src, .proc/breakout_callback, escapee)))
 		breakout = FALSE
 		return
 
@@ -305,7 +305,7 @@
 			return
 		user.drop_item()
 	else if(istype(W, /obj/item/weapon/handcuffs/cable))
-		visible_message(
+		user.visible_message(
 		"<span class='warning'>[user] begins putting cable restrains on zipper of [src].</span>",
 		"<span class='notice'>You begin putting cable restrains on zipper of [src].</span>"
 		)
@@ -315,7 +315,7 @@
 		zipped = !zipped
 		update_icon()
 		user.visible_message(
-		"<span class='warning'>[src]'s zipper has been zipped by [user].</span>",
+		"<span class='warning'>[src]'s zipper have been zipped by [user].</span>",
 		"<span class='notice'>You put restrains on [src]'s zipper.</span>"
 		)
 
