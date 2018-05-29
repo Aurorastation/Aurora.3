@@ -7175,22 +7175,6 @@
 	name = "Atmospheric Hardsuits";
 	req_access = list(24)
 	},
-/obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/atmos,
-/obj/item/clothing/head/helmet/space/void/atmos,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/mask/breath,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/door/window/southleft{
-	dir = 4;
-	icon_state = "left";
-	name = "Atmospheric Hardsuits";
-	req_access = list(24)
-	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "apu" = (
@@ -7762,11 +7746,9 @@
 /turf/simulated/floor/plating,
 /area/engineering/storage)
 "aqH" = (
-/obj/structure/table/rack,
 /obj/item/clothing/suit/space/void/atmos,
 /obj/item/clothing/head/helmet/space/void/atmos,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/mask/breath,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/door/window/southleft{
 	dir = 4;
@@ -7775,17 +7757,7 @@
 	req_access = list(24)
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/atmos,
-/obj/item/clothing/head/helmet/space/void/atmos,
-/obj/item/clothing/shoes/magboots,
 /obj/item/clothing/mask/breath,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/door/window/southleft{
-	dir = 4;
-	icon_state = "left";
-	name = "Atmospheric Hardsuits";
-	req_access = list(24)
-	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "aqI" = (
@@ -32730,7 +32702,6 @@
 	},
 /obj/item/weapon/circuitboard/clonescanner,
 /obj/item/weapon/circuitboard/clonepod,
-/obj/item/weapon/circuitboard/scan_consolenew,
 /obj/item/weapon/circuitboard/med_data{
 	pixel_x = 3;
 	pixel_y = -3
