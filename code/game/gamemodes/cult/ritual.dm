@@ -179,7 +179,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 
 /obj/item/weapon/book/tome/Initialize()
     . = ..()
-    ritualknife = new /obj/item/weapon/melee/cultknife(src)
+    ritualknife = new /obj/item/weapon/melee/cultblade/cultknife(src)
 
 /obj/item/weapon/book/tome/verb/verb_manifest_knife()
 	set category = "Object"
@@ -215,10 +215,10 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 
 /obj/item/weapon/book/tome/attackby(obj/item/C as obj, mob/user)
 	if(!iscultist(user))
-		if(istype(C, /obj/item/weapon/melee/cultknife))
+		if(istype(C, /obj/item/weapon/melee/cultblade/cultknife))
 			user << "<span class='notice'>You try to stab the \the [src] with \the [C], but an invisible force prevents you from bringing the blade close enough.</span>"
 	else	
-		if(istype(C, /obj/item/weapon/melee/cultknife))
+		if(istype(C, /obj/item/weapon/melee/cultblade/cultknife))
 			if(ritualknife)
 				user << "<span class='notice'>There is already a ritual knife in \the [src].</span>"
 			else
@@ -239,7 +239,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 	unique = 1
 	var/tomedat = ""
 	var/list/words = list("ire" = "ire", "ego" = "ego", "nahlizet" = "nahlizet", "certum" = "certum", "veri" = "veri", "jatkaa" = "jatkaa", "balaq" = "balaq", "mgar" = "mgar", "karazet" = "karazet", "geeri" = "geeri")
-	var/obj/item/weapon/melee/cultknife/ritualknife
+	var/obj/item/weapon/melee/cultblade/cultknife/ritualknife
 
 	tomedat = {"<html>
 				<head>

@@ -128,7 +128,7 @@
 /obj/item/clothing/suit/space/cult/cultify()
 	return
 
-/obj/item/weapon/melee/cultknife
+/obj/item/weapon/melee/cultblade/cultknife
 	name = "ritual knife"
 	desc = "A wicked looking curvy dagger with sharp edges. It seems to be stained with blood."
 	icon_state = "ritualknife"
@@ -143,10 +143,10 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	can_embed = 0 
 
-/obj/item/weapon/melee/cultknife/cultify()
+/obj/item/weapon/melee/cultblade/cultknife/cultify()
 	return
 
-/obj/item/weapon/melee/cultknife/attack(mob/living/M, mob/living/user, var/target_zone)
+/obj/item/weapon/melee/cultblade/cultknife/attack(mob/living/M, mob/living/user, var/target_zone)
 	if(iscultist(user))
 		return ..()
 
@@ -170,7 +170,7 @@
 
 	return 1
 
-/obj/item/weapon/melee/cultknife/pickup(mob/living/user as mob)
+/obj/item/weapon/melee/cultblade/cultknife/pickup(mob/living/user as mob)
 	if(!iscultist(user))
 		user << "<span class='warning'>An overwhelming feeling of dread comes over you as you pick up \the [src]. Nothing about this knife can be healthy.</span>"
 		user.make_dizzy(120)
