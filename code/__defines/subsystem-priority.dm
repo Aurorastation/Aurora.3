@@ -52,11 +52,11 @@
 #define SS_PRIORITY_CALAMITY    20	// Singularity, Tesla, Nar'sie, blob, etc.
 #define SS_PRIORITY_EVENT       20
 #define SS_PRIORITY_DISEASE     20	// Disease ticks.
-#define SS_PRIORITY_CHEMISTRY   10	// Multi-tick chemical reactions.
-#define SS_PRIORITY_SHUTTLE     10	// Shuttle movement.
 #define SS_PRIORITY_ALARMS      20
 #define SS_PRIORITY_PLANTS      20	// Spreading plant effects.
 #define SS_PRIORITY_EFFECTS     20	// New-style effects manager. Timing of effects may be off if this gets too far behind.
+#define SS_PRIORITY_CHEMISTRY   10	// Multi-tick chemical reactions.
+#define SS_PRIORITY_SHUTTLE     10	// Shuttle movement.
 #define SS_PRIORITY_AIRFLOW     10	// Handles object movement due to ZAS airflow.
 #define SS_PRIORITY_ZCOPY       10	// Z-mimic icon generation/updates.
 
