@@ -63,6 +63,7 @@
 	var/obj/item/weapon/tank/internal_tank
 	var/process_ticks = 0
 	var/syndie = FALSE
+	var/last_shake = 0
 
 /obj/structure/closet/airbubble/can_open()
 	if(zipped)
@@ -175,7 +176,7 @@
 		return -1 //Already breaking out.
 	return 0
 
-/obj/structure/closet/airbubble/proc/breakout_callback(/mob/living/escapee)
+/obj/structure/closet/airbubble/proc/breakout_callback(var/mob/living/escapee)
 	if (QDELETED(escapee))
 		return FALSE
 
@@ -190,7 +191,7 @@
 	return TRUE
 
 // If we are stuck, and need to get out
-/obj/structure/closet/airbubble/mob_breakout(/mob/living/escapee)
+/obj/structure/closet/airbubble/mob_breakout(var/mob/living/escapee)
 	if (req_breakout() < 1)
 		return
 
@@ -212,7 +213,6 @@
 	playsound(loc, "sound/items/[pick("rip1","rip2")].ogg", 100, 1)
 	break_open()
 	animate_shake()
-	qdel(bar)
 	desc += " <span class='danger'>It has hole in it! Maybe you shouldn't use it!</span>"
 
 // We are out finally, the bubble is ripped. So dump everything out from it. Especially air and user.
