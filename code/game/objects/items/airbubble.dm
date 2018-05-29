@@ -175,11 +175,23 @@
 		return -1 //Already breaking out.
 	return 0
 
-// If we are stuck, and need to get out
-/obj/structure/closet/airbubble/mob_breakout(var/mob/living/escapee)
+/obj/structure/closet/airbubble/proc/breakout_callback(/mob/living/escapee)
+	if (QDELETED(escapee))
+		return FALSE
 
-	breakout_time *= req_breakout()
-	if(breakout_time <= 0)
+	if ((world.time - last_shake) > 5 SECONDS)
+		playsound(loc, "sound/items/[pick("rip1","rip2")].ogg", 100, 1)
+		animate_shake()
+		last_shake = world.time
+
+	if (!req_breakout())
+		return FALSE
+
+	return TRUE
+
+// If we are stuck, and need to get out
+/obj/structure/closet/airbubble/mob_breakout(/mob/living/escapee)
+	if (req_breakout() < 1)
 		return
 
 	escapee.next_move = world.time + 100
@@ -188,42 +200,20 @@
 	visible_message("<span class='danger'>\The [src] begins to shake violently! Something is terring it from the inside!</span>")
 
 	var/time = 6 * breakout_time * 2
+	breakout = TRUE
 
-	var/datum/progressbar/bar
-	if (escapee.client && escapee.client.prefs.toggles_secondary & PROGRESS_BARS)
-		bar = new(escapee, time, src)
+	if (!do_after(escapee, time, extra_checks = CALLBACK(src, .proc/breakout_callback, escapee)))
+		breakout = FALSE
+		return
 
-	breakout = 1
-	for(var/i in 1 to time) //minutes * 6 * 5seconds * 2
-		playsound(loc, "sound/items/[pick("rip1","rip2")].ogg", 100, 1)
-		animate_shake()
-
-		if (bar)
-			bar.update(i)
-
-		if(!do_after(escapee, 50, display_progress = FALSE)) //5 seconds
-			breakout = 0
-			qdel(bar)
-			return
-
-		if(!escapee || escapee.stat || escapee.loc != src)
-			breakout = 0
-			qdel(bar)
-			return //closet/user destroyed OR user dead/unconcious OR user no longer in closet OR closet opened
-
-		if(!req_breakout())
-			breakout = 0
-			qdel(bar)
-			return
-
-	breakout = 0
+	breakout = FALSE
 	escapee << "<span class='warning'>You successfully break out! Tearing the bubble's walls!</span>"
 	visible_message("<span class='danger'>\the [escapee] successfully broke out of \the [src]! Tearing the bubble's walls!</span>")
 	playsound(loc, "sound/items/[pick("rip1","rip2")].ogg", 100, 1)
 	break_open()
 	animate_shake()
-	desc += " <span class='danger'>It has hole in it! Maybe you shouldn't use it!</span>"
 	qdel(bar)
+	desc += " <span class='danger'>It has hole in it! Maybe you shouldn't use it!</span>"
 
 // We are out finally, the bubble is ripped. So dump everything out from it. Especially air and user.
 /obj/structure/closet/airbubble/break_open()
@@ -246,7 +236,7 @@
 		if (!do_after(user, 2 SECONDS, act_target = src))
 			return
 		user.visible_message(
-		"<span class='warning'>[user] have set [src] internals.</span>" ,
+		"<span class='warning'>[user] has set [src] internals.</span>" ,
 		"<span class='notice'>You set [src] internals.</span>"
 		)
 		if(use_internal_tank)
@@ -270,7 +260,7 @@
 		if (!do_after(user, 2 SECONDS, act_target = src))
 			return
 		user.visible_message(
-		"<span class='warning'>[user] have removed [internal_tank] from [src].</span>",
+		"<span class='warning'>[user] has removed [internal_tank] from [src].</span>",
 		"<span class='notice'>You removed [internal_tank] from [src].</span>"
 		)
 		for(var/obj/I in src)
@@ -293,7 +283,7 @@
 			if (!do_after(user, 2 SECONDS, act_target = src))
 				return
 			user.visible_message(
-			"<span class='warning'>[user] have attached [W] to [src].</span>",
+			"<span class='warning'>[user] has attached [W] to [src].</span>",
 			"<span class='notice'>You attached [W] to [src].</span>"
 			)
 			var/obj/item/weapon/tank/T = W
@@ -342,7 +332,7 @@
 		zipped = !zipped
 		update_icon()
 		user.visible_message(
-		"<span class='warning'>[src] zipper's cable restrains have been cut by [user].</span>",
+		"<span class='warning'>[src] zipper's cable restrains has been cut by [user].</span>",
 		"<span class='notice'>You cut cable restrains on [src]'s zipper.</span>"
 		)
 		new/obj/item/weapon/handcuffs/cable(src.loc)
@@ -375,7 +365,7 @@
 		var/release_pressure = internal_tank_valve
 		// If ripped, we are leaking
 		if(ripped)
-			// If we have no pressure in the tank, why bother?
+			// If we has no pressure in the tank, why bother?
 			if(tank_air.return_pressure() <= 1)
 				STOP_PROCESSING(SSfast_process, src)
 				use_internal_tank = !use_internal_tank
