@@ -34,6 +34,10 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Added Monoammonium Phosphate, a reagent that excels in extinguishing fires, and acts as a fertilizer. They are now found in fire extinguishers instead of water. Added Monoammonium Phosphate tanks around the station. Added a 'Fire Storage' room in Atmospherics that contains 3 large cardox grenades, and a bunch of firefighting equipment."
-  - tweak: "Fire extinguishers and all sorts of tanks (Fuel Tanks, Water Tanks) can be filled with any reagent."
-  - bugfix: "Removed the Security Intercomm in atmospherics."
+  - rscadd: "Added Monoammonium Phosphate, a reagent that excels in extinguishing fires, and acts as a fertilizer. They are now found in fire extinguishers instead of water. Added Monoammonium Phosphate tanks around the station in place of some water tanks."
+  - rscadd: "Added a new weak chem sprayer, 'Xenoblaster', which can be found in xenobiology for xenobiologists."
+  - tweak: "Fire extinguishers can be filled with any reagent using a fire extinguisher cartridge. Fire extinguisher cartridges can be ordered by cargo, or found in atmospherics."
+  - tweak: "Reagent dispensers, such as watertanks and beer kegs, can now be filled with any reagent. Fuel tanks are an exception." 
+  - tweak: "Reworked how reagent containers (glass beakers, drinks) behave on interaction. You can splash anyone with any container on harm intent, does not work on other intents."
+  - maptweak: "Removed pointless reinforced plating in engineering maintenance and the janitor's closet. Removed the Security Intercomm in atmospherics. Added a fire storage area in atmospherics that contains firefighting equipment."
+

@@ -1,5 +1,3 @@
-
-
 /obj/structure/reagent_dispensers
 	name = "Dispenser"
 	desc = "..."
@@ -7,13 +5,11 @@
 	icon_state = "watertank"
 	density = 1
 	anchored = 0
-	flags = OPENCONTAINER
+	var/accept_any_reagent = TRUE
 
 	var/amount_per_transfer_from_this = 10
-	var/possible_transfer_amounts = list(10,25,50,100)
+	var/possible_transfer_amounts = list(5,10,15,25,30,50,60,100,120,250,300)
 	var/capacity = 1000
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
-		return
 
 	New()
 		var/datum/reagents/R = new/datum/reagents(capacity)
@@ -59,9 +55,34 @@
 			else
 		return
 
+	attackby(obj/item/O as obj, mob/user as mob)
+		if(accept_any_reagent)
+			if (iswrench(O))
+				var/is_closed = flags & OPENCONTAINER
+				var/verb01 = is_closed ? "unwrenches" : "wrenches"
+				var/verb02 = (is_closed ? "open" : "shut")
+				user.visible_message("<span class='notice'>[user] [verb01] the top cap [verb02] from \the [src].</span>", "<span class='notice'>You [verb01] the top cap [verb02] from \the [src].</span>")
+				flags ^= OPENCONTAINER
+				return
+
+			var/obj/item/weapon/reagent_containers/RG = O
+			if (istype(RG) && RG.is_open_container())
+				var/atype = alert(usr, "Do you want to fill or empty \the [RG] at \the [src]?", "Fill or Empty", "Fill", "Empty", "Cancel")
+				if(!usr.Adjacent(src)) return
+				if(RG.loc != usr) return
+				switch(atype)
+					if ("Fill")
+						RG.standard_dispenser_refill(user,src)
+					if ("Empty")
+						if(is_open_container())
+							RG.standard_pour_into(user,src)
+						else
+							to_chat(user,"<span class='notice'>The top cap is wrenched on tight!</span>")
+				return
+
 //Dispensers
 /obj/structure/reagent_dispensers/watertank
-	name = "watertank"
+	name = "water tank"
 	desc = "A tank filled with water."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "watertank"
@@ -76,7 +97,6 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "extinguisher_tank"
 	amount_per_transfer_from_this = 10
-	capacity = 500
 	New()
 		..()
 		reagents.add_reagent("monoammoniumphosphate",capacity)
@@ -86,6 +106,7 @@
 	desc = "A tank filled with welding fuel."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "weldtank"
+	accept_any_reagent = FALSE
 	amount_per_transfer_from_this = 10
 	var/modded = 0
 	var/defuse = 0
@@ -114,7 +135,7 @@
 
 /obj/structure/reagent_dispensers/fueltank/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	src.add_fingerprint(user)
-	if (iswrench(W))
+	if (iswrench(W) && user.a_intent == I_HURT)
 		user.visible_message("[user] wrenches [src]'s faucet [modded ? "closed" : "open"].", \
 			"You wrench [src]'s faucet [modded ? "closed" : "open"]")
 		modded = modded ? 0 : 1
@@ -228,12 +249,13 @@
 	icon_state = "water_cooler"
 	possible_transfer_amounts = null
 	anchored = 1
+	capacity = 500
 	New()
 		..()
-		reagents.add_reagent("water",500)
+		reagents.add_reagent("water",capacity)
 
 /obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (iswrench(W))
+	if (isscrewdriver(W))
 		src.add_fingerprint(user)
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 		if(do_after(user, 20))
@@ -241,9 +263,9 @@
 			switch (anchored)
 				if (0)
 					anchored = 1
-					user.visible_message("\The [user] tightens the bolts securing \the [src] to the floor.", "You tighten the bolts securing \the [src] to the floor.")
+					user.visible_message("\The [user] tightens the screws securing \the [src] to the floor.", "You tighten the screws securing \the [src] to the floor.")
 				if (1)
-					user.visible_message("\The [user] unfastens the bolts securing \the [src] to the floor.", "You unfasten the bolts securing \the [src] to the floor.")
+					user.visible_message("\The [user] unfastens the screws securing \the [src] to the floor.", "You unfasten the screws securing \the [src] to the floor.")
 					anchored = 0
 		return
 

@@ -75,3 +75,5 @@
 	name = "chemicals"
 	icon = 'icons/obj/chempuff.dmi'
 	icon_state = ""
+
+/obj/effect/effect/water/extinguisher

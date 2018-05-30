@@ -270,7 +270,7 @@
 	strength = 0.25
 	description = "Commonly found in fire extinguishers, also works as a fertilizer."
 	reagent_state = SOLID
-	color = "#999999"
+	color = "#CCCCCC"
 	taste_description = "salty dirt"
 	metabolism = REM * 2
 
@@ -280,11 +280,16 @@
 
 	var/hotspot = (locate(/obj/fire) in T)
 	if(hotspot && !istype(T, /turf/space))
-		var/datum/gas_mixture/lowertemp = T.remove_air(T:air:total_moles)
+		var/datum/gas_mixture/lowertemp = T.remove_air(T.air.total_moles)
 		lowertemp.temperature = max(min(lowertemp.temperature-2000, lowertemp.temperature / 2), 0)
 		lowertemp.react()
 		T.assume_air(lowertemp)
 		qdel(hotspot)
+
+	new /obj/effect/decal/cleanable/foam(T, volume)
+	remove_self(volume)
+	return
+
 
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))
@@ -293,9 +298,8 @@
 			L.fire_stacks = 0
 			L.ExtinguishMob()
 
-/datum/reagent/toxin/fertilizer/monoammoniumphosphate/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	if(istype(M, /mob/living/carbon/slime))
-		var/mob/living/carbon/slime/S = M
+/datum/reagent/toxin/fertilizer/monoammoniumphosphate/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed)
+	if(istype(S))
 		S.adjustToxLoss(8 * removed)
 		if(!S.client)
 			if(S.Target) // Like cats
