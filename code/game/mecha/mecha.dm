@@ -1203,7 +1203,7 @@
 	else if(src.operation_allowed(usr))
 		passed = 1
 	if(!passed)
-		usr << "<span class='warning'>Access denied</span>"
+		user << "<span class='warning'>Access denied</span>"
 		src.log_append_to_last("Permission denied.")
 		return
 	for(var/mob/living/carbon/slime/M in range(1,usr))
@@ -1259,7 +1259,7 @@
 		user << "Stop it!"
 		return 0
 
-	visible_message("<span class='notice'>\The [usr] starts to insert \the [mmi_as_oc] into \the [src]</span>")
+	visible_message("<span class='notice'>\The [user] starts to insert \the [mmi_as_oc] into \the [src]</span>")
 
 	if(enter_after(40,user))
 		if(!occupant)
