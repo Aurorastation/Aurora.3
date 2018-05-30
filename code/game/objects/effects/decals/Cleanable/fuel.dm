@@ -72,7 +72,7 @@
 
 /obj/effect/decal/cleanable/foam //Copied from liquid fuel
 	name = "foam"
-	desc = "Some kind of foam."
+	desc = "Some kind of extinguishing foam."
 	gender = PLURAL
 	density = 0
 	anchored = 1
@@ -95,6 +95,7 @@
 
 		if(!has_spread)
 			Spread()
+			QDEL_IN(src, 2 MINUTES)
 		else
 			qdel(src)
 

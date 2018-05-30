@@ -42,9 +42,6 @@
 	if(force && !(flags & NOBLUDGEON) && user.a_intent == I_HURT)
 		return ..()
 
-	if(standard_feed_mob(user, M))
-		return
-
 	return 0
 
 /obj/item/weapon/reagent_containers/food/drinks/standard_feed_mob(var/mob/user, var/mob/target)

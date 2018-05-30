@@ -128,7 +128,7 @@
 	msg_admin_attack("[user.name] ([user.ckey]) splashed [target.name] ([target.key]) with [name]. Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 
 	user.visible_message("<span class='danger'>[target] has been splashed with something by [user]!</span>", "<span class = 'notice'>You splash the solution onto [target].</span>")
-	reagents.splash(target, reagents.total_volume)
+	reagents.splash(target, min(120,reagents.total_volume) ) //Splash Limit
 
 	if (istype(target, /mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = target
@@ -174,7 +174,7 @@
 
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //puts a limit on how fast people can eat/drink things
 		self_feed_message(user)
-		reagents.trans_to_mob(user, amount_per_transfer_from_this, CHEM_INGEST)
+		reagents.trans_to_mob(user, min(10,amount_per_transfer_from_this), CHEM_INGEST) //A sane limiter. So you don't go drinking 300u all at once.
 		feed_sound(user)
 		return 1
 	else

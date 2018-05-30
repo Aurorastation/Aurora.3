@@ -20,11 +20,18 @@
 //	reagents.add_reagent("tricordrazine", 30)
 //	return
 
-/obj/item/weapon/reagent_containers/hypospray/attack(mob/living/M as mob, mob/user as mob)
+/obj/item/weapon/reagent_containers/hypospray/afterattack(obj/target, mob/user, proximity)
+
+	if(!proximity)
+		return
+
+	var/mob/living/M = target
+	if (!istype(M))
+		. = ..()
+		return
+
 	if(!reagents.total_volume)
 		user << "<span class='warning'>[src] is empty.</span>"
-		return
-	if (!istype(M))
 		return
 
 	var/mob/living/carbon/human/H = M

@@ -95,6 +95,13 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 	return 0
 
 /turf/simulated/create_fire(fl)
+
+	var/obj/effect/decal/cleanable/foam/extinguisher_foam = locate() in src
+	
+	if(extinguisher_foam)
+		qdel(extinguisher_foam)
+		return 1
+
 	if(fire)
 		fire.firelevel = max(fl, fire.firelevel)
 		return 1

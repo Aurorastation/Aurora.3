@@ -21,10 +21,6 @@
 	attack_self(var/mob/user as mob)
 		return
 
-	attack(var/mob/M as mob, var/mob/user as mob, var/def_zone)
-		if(standard_feed_mob(user, M))
-			return
-
 	feed_sound(var/mob/user)
 		playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
 

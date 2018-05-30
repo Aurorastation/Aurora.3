@@ -51,8 +51,14 @@
 					reagent_volumes[T] = min(reagent_volumes[T] + 5, volume)
 	return 1
 
-/obj/item/weapon/reagent_containers/borghypo/attack(var/mob/living/M, var/mob/user)
+/obj/item/weapon/reagent_containers/borghypo/afterattack(var/obj/target, var/mob/user, proximity)
+
+	if(!proximity)
+		return
+
+	var/mob/living/M = target
 	if(!istype(M))
+		. = ..()
 		return
 
 	if(!reagent_volumes[reagent_ids[mode]])
