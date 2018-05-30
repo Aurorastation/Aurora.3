@@ -2375,6 +2375,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"aeG" = (
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/loading{
+	icon_state = "loadingarea";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/quartermaster/office)
 "aeH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2765,6 +2778,38 @@
 /obj/machinery/seed_extractor,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
+"afz" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/quartermaster/office)
+"afA" = (
+/obj/machinery/camera/network/supply{
+	c_tag = "Cargo - Warehouse Entrence";
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/machinery/light/small,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/storage)
+"afB" = (
+/obj/structure/sign/drop{
+	pixel_y = 32
+	},
+/turf/simulated/open,
+/area/maintenance/disposal)
 "afC" = (
 /obj/structure/closet{
 	name = "Evidence Closet"
@@ -2851,6 +2896,33 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"afO" = (
+/obj/machinery/light/small/emergency,
+/turf/simulated/open,
+/area/maintenance/disposal)
+"afP" = (
+/obj/structure/disposaloutlet{
+	spread = 180;
+	spread_point = 1
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
+	},
+/area/maintenance/disposal)
+"afQ" = (
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/structure/disposaloutlet{
+	dir = 8;
+	spread = 360;
+	spread_point = 2
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/disposal)
 "afX" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark{
@@ -57431,18 +57503,6 @@
 /obj/item/weapon/wrapping_paper,
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
-"cad" = (
-/obj/effect/floor_decal/corner/brown{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/loading{
-	icon_state = "loadingarea";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/quartermaster/office)
 "cae" = (
 /obj/effect/floor_decal/corner/brown/full{
 	icon_state = "corner_white_full";
@@ -57756,17 +57816,6 @@
 /obj/effect/large_stock_marker,
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
-"caM" = (
-/obj/machinery/camera/network/supply{
-	c_tag = "Cargo - Warehouse Entrence";
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/brown{
-	dir = 10
-	},
-/obj/machinery/light/small,
-/turf/simulated/floor/tiled,
-/area/quartermaster/storage)
 "caN" = (
 /obj/effect/floor_decal/corner/brown/full{
 	icon_state = "corner_white_full";
@@ -58325,17 +58374,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/disposal)
-"ccd" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open,
-/area/maintenance/disposal)
-"cce" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/sign/drop{
-	pixel_y = 32
-	},
-/turf/simulated/open,
-/area/maintenance/disposal)
 "ccf" = (
 /turf/simulated/open,
 /area/maintenance/disposal)
@@ -58531,15 +58569,6 @@
 	use_power = 1
 	},
 /turf/simulated/floor/tiled,
-/area/maintenance/disposal)
-"ccA" = (
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
-/obj/structure/disposaloutlet{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "ccB" = (
 /obj/structure/cable{
@@ -58767,11 +58796,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/disposal)
-"ccW" = (
-/obj/machinery/light/small/emergency,
-/obj/structure/lattice/catwalk,
-/turf/simulated/open,
-/area/maintenance/disposal)
 "ccX" = (
 /obj/machinery/light/small/emergency,
 /obj/structure/closet/crate,
@@ -58842,15 +58866,6 @@
 	dir = 4
 	},
 /turf/simulated/wall/r_wall,
-/area/maintenance/disposal)
-"cdi" = (
-/obj/structure/disposaloutlet,
-/obj/structure/disposalpipe/trunk{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
-	},
 /area/maintenance/disposal)
 "cdj" = (
 /obj/machinery/light/small/emergency{
@@ -89280,9 +89295,9 @@ bWF
 bWm
 cih
 cim
-cad
-bXT
-caM
+aeG
+afz
+afA
 bWm
 cbs
 cbM
@@ -94425,9 +94440,9 @@ bUz
 bPO
 bPK
 cbD
-ccd
 ccf
-ccd
+ccf
+ccf
 cdh
 aaa
 aab
@@ -94682,9 +94697,9 @@ bUz
 caW
 bPL
 cbE
-cce
+afB
 ccf
-ccW
+afO
 cdh
 aab
 aab
@@ -95197,7 +95212,7 @@ bPO
 bPL
 cbE
 cbE
-ccA
+afQ
 cbE
 cdh
 cdt
@@ -95456,7 +95471,7 @@ cbF
 ccg
 cbD
 cbE
-cdi
+afP
 cdu
 cdE
 aab
