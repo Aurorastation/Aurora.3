@@ -35,9 +35,8 @@
 		. = ..()
 		return
 
-	for(var/type in can_be_placed_into)
-		if(istype(target, type))
-			return
+	if(is_type_in_list(target,can_be_placed_into))
+		return
 
 	if(istype(A, /mob))
 		user.setClickCooldown(25)

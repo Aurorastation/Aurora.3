@@ -14,14 +14,10 @@
 	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
 
-/obj/item/weapon/reagent_containers/inhaler/afterattack(var/obj/target, var/mob/user, proximity)
-
-
-	var/mob/living/carbon/human/H = target
+/obj/item/weapon/reagent_containers/inhaler/afterattack(var/mob/living/carbon/human/H, var/mob/user, proximity)
 
 	if (!istype(H))
-		. = ..()
-		return
+		return ..()
 
 	if(!reagents.total_volume)
 		to_chat(user,"<span class='warning'>\The [src] is empty.</span>")

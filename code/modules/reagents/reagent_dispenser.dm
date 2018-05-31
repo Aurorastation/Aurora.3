@@ -67,9 +67,9 @@
 
 			var/obj/item/weapon/reagent_containers/RG = O
 			if (istype(RG) && RG.is_open_container())
-				var/atype = alert(usr, "Do you want to fill or empty \the [RG] at \the [src]?", "Fill or Empty", "Fill", "Empty", "Cancel")
-				if(!usr.Adjacent(src)) return
-				if(RG.loc != usr) return
+				var/atype = alert(user, "Do you want to fill or empty \the [RG] at \the [src]?", "Fill or Empty", "Fill", "Empty", "Cancel")
+				if(!user.Adjacent(src)) return
+				if(RG.loc != user) return
 				switch(atype)
 					if ("Fill")
 						RG.standard_dispenser_refill(user,src)
@@ -126,10 +126,10 @@
 
 /obj/structure/reagent_dispensers/fueltank/attack_hand()
 	if (rig)
-		usr.visible_message("[usr] begins to detach [rig] from \the [src].", "You begin to detach [rig] from \the [src]")
-		if(do_after(usr, 20))
-			usr.visible_message("<span class='notice'>[usr] detaches [rig] from \the [src].</span>", "<span class='notice'>You detach [rig] from \the [src]</span>")
-			rig.loc = get_turf(usr)
+		user.visible_message("[user] begins to detach [rig] from \the [src].", "You begin to detach [rig] from \the [src]")
+		if(do_after(user, 20))
+			user.visible_message("<span class='notice'>[user] detaches [rig] from \the [src].</span>", "<span class='notice'>You detach [rig] from \the [src]</span>")
+			rig.loc = get_turf(user)
 			rig = null
 			overlays = new/list()
 

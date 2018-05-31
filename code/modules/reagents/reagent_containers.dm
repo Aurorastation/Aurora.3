@@ -62,9 +62,8 @@
 /obj/item/weapon/reagent_containers/afterattack(var/obj/target, var/mob/user, var/proximity)
 	if(!proximity || !is_open_container())
 		return
-	for(var/type in can_be_placed_into)
-		if(istype(target, type))
-			return
+	if(is_type_in_list(target,can_be_placed_into))
+		return
 	if(standard_splash_mob(user, target))
 		return
 	if(standard_feed_mob(user,target))
