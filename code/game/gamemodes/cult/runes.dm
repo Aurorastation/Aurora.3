@@ -615,7 +615,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////FIFTEENTH RUNE
 
-/obj/effect/rune/proc/sacrifice(var/mob/living/carbon/human/user)
+/obj/effect/rune/proc/sacrifice(var/mob/living/user)
 	var/list/mob/living/carbon/human/cultsinrange = list()
 	var/list/mob/living/carbon/human/victims = list()
 	for(var/mob/living/carbon/human/V in src.loc)//Checks for non-cultist humans to sacrifice
@@ -644,6 +644,7 @@ var/list/sacrificed = list()
 			var/mob/living/carbon/human/lamb = H
 			if(lamb.species.rarity_value > 3)
 				worth = 1
+
 		if (SSticker.mode.name == "Cult")
 			if(H.mind == cult.sacrifice_target)
 				if(cultsinrange.len >= 3)
@@ -692,9 +693,7 @@ var/list/sacrificed = list()
 						else
 							H.gib()
 		else
-		
-		if(H.mind == cult.sacrifice_target)
- 			if(cultsinrange.len >= 3)
+			if(cultsinrange.len >= 3)
 				if(H.stat !=2)
 					if(prob(80))
 						user << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
@@ -705,34 +704,29 @@ var/list/sacrificed = list()
 						H.dust()//To prevent the MMI from remaining
 					else
 						H.gib()
-+				sacrificed += H.mind
-+				if(isrobot(H))
-+					H.dust()//To prevent the MMI from remaining
- 				else
--					if(prob(40))
--						user << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
--					else
--						user << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
--						user << "<span class='warning'>However, a mere dead body is not enough to satisfy Him.</span>"
--					if(isrobot(H))
--						H.dust()//To prevent the MMI from remaining
--					else
--						H.gib()
-+					if (locate(/obj/item/weapon/melee/cultblade) in list(mob.l_hand, mob.r_hand))
-+				user << "<span class='cult'>The Geometer of Blood accepts this sacrifice, your objective is now complete.</span>"
- 			else
--				if(H.stat !=2)
--					user << "<span class='warning'>The victim is still alive, you will need more cultists chanting for the sacrifice to succeed.</span>"
--				else
--					if(prob(40))
--						user << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
--					else
--						user << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
--						user << "<span class='warning'>However, a mere dead body is not enough to satisfy Him.</span>"
--					if(isrobot(H))
--						H.dust()//To prevent the MMI from remaining
--					else
--						H.gib()
+				else
+					if(prob(40))
+						user << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
+					else
+						user << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
+						user << "<span class='warning'>However, a mere dead body is not enough to satisfy Him.</span>"
+					if(isrobot(H))
+						H.dust()//To prevent the MMI from remaining
+					else
+						H.gib()
+			else
+				if(H.stat !=2)
+					user << "<span class='warning'>The victim is still alive, you will need more cultists chanting for the sacrifice to succeed.</span>"
+				else
+					if(prob(40))
+						user << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
+					else
+						user << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
+						user << "<span class='warning'>However, a mere dead body is not enough to satisfy Him.</span>"
+					if(isrobot(H))
+						H.dust()//To prevent the MMI from remaining
+					else
+						H.gib()
 
 /////////////////////////////////////////SIXTEENTH RUNE
 
