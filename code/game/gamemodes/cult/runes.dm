@@ -433,7 +433,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////ELEVENTH RUNE
 
-/obj/effect/rune/proc/manifest(var/mob/living/carbon/human/user)
+/obj/effect/rune/proc/manifest(var/mob/living/user)
 	var/obj/effect/rune/this_rune = src
 	if(user.loc!=this_rune.loc)
 		return this_rune.fizzle(user)
@@ -488,7 +488,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////TWELFTH RUNE
 
-/obj/effect/rune/proc/talisman(var/mob/living/carbon/human/user)//only hide, emp, teleport, deafen, blind and tome runes can be imbued atm
+/obj/effect/rune/proc/talisman(var/mob/living/user)//only hide, emp, teleport, deafen, blind and tome runes can be imbued atm
 	var/obj/item/weapon/paper/newtalisman
 	var/unsuitable_newtalisman = 0
 	for(var/obj/item/weapon/paper/P in src.loc)
@@ -588,7 +588,7 @@ var/list/sacrificed = list()
 /////////////////////////////////////////FOURTEETH RUNE
 
 // returns 0 if the rune is not used. returns 1 if the rune is used.
-/obj/effect/rune/proc/communicate(var/mob/living/carbon/human/user)
+/obj/effect/rune/proc/communicate(var/mob/living/user)
 	. = 1 // Default output is 1. If the rune is deleted it will return 1
 	var/input = input(user, "Please choose a message to tell to the other acolytes.", "Voice of Blood", "")//sanitize() below, say() and whisper() have their own
 	if(!input)
@@ -645,92 +645,22 @@ var/list/sacrificed = list()
 			if(lamb.species.rarity_value > 3)
 				worth = 1
 
-		if (SSticker.mode.name == "Cult")
-			if(H.mind == cult.sacrifice_target)
-				if(cultsinrange.len >= 3)
-					sacrificed += H.mind
-					if(isrobot(H))
-						H.dust()//To prevent the MMI from remaining
-					else
-						H.gib()
-					user << "<span class='cult'>The Geometer of Blood accepts this sacrifice, your objective is now complete.</span>"
-				else
-					user << "<span class='warning'>Your target's earthly bonds are too strong. You need more cultists to succeed in this ritual.</span>"
-			else
-				if(cultsinrange.len >= 3)
-					if(H.stat !=2)
-						if(prob(80) || worth)
-							user << "<span class='cult'>The Geometer of Blood accepts this [worth ? "exotic " : ""]sacrifice.</span>"
-						else
-							user << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
-							user << "<span class='warning'>However, this soul was not enough to gain His favor.</span>"
-						if(isrobot(H))
-							H.dust()//To prevent the MMI from remaining
-						else
-							H.gib()
-					else
-						if(prob(40) || worth)
-							user << "<span class='cult'>The Geometer of Blood accepts this [worth ? "exotic " : ""]sacrifice.</span>"
-						else
-							user << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
-							user << "<span class='warning'>However, a mere dead body is not enough to satisfy Him.</span>"
-						if(isrobot(H))
-							H.dust()//To prevent the MMI from remaining
-						else
-							H.gib()
-				else
-					if(H.stat !=2)
-						user << "<span class='warning'>The victim is still alive, you will need more cultists chanting for the sacrifice to succeed.</span>"
-					else
-						if(prob(40))
-
-							user << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
-						else
-							user << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
-							user << "<span class='warning'>However, a mere dead body is not enough to satisfy Him.</span>"
-						if(isrobot(H))
-							H.dust()//To prevent the MMI from remaining
-						else
-							H.gib()
-		else
+		
+		if(H.mind == cult.sacrifice_target)
 			if(cultsinrange.len >= 3)
-				if(H.stat !=2)
-					if(prob(80))
-						user << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
-					else
-						user << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
-						user << "<span class='warning'>However, this soul was not enough to gain His favor.</span>"
-					if(isrobot(H))
-						H.dust()//To prevent the MMI from remaining
-					else
-						H.gib()
+				sacrificed += H.mind
+				if(isrobot(H))
+					H.dust()//To prevent the MMI from remaining
 				else
-					if(prob(40))
-						user << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
-					else
-						user << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
-						user << "<span class='warning'>However, a mere dead body is not enough to satisfy Him.</span>"
-					if(isrobot(H))
-						H.dust()//To prevent the MMI from remaining
-					else
-						H.gib()
+					if (locate(/obj/item/weapon/melee/cultblade) in list(mob.l_hand, mob.r_hand))
+				user << "<span class='cult'>The Geometer of Blood accepts this sacrifice, your objective is now complete.</span>"
 			else
-				if(H.stat !=2)
-					user << "<span class='warning'>The victim is still alive, you will need more cultists chanting for the sacrifice to succeed.</span>"
-				else
-					if(prob(40))
-						user << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
-					else
-						user << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
-						user << "<span class='warning'>However, a mere dead body is not enough to satisfy Him.</span>"
-					if(isrobot(H))
-						H.dust()//To prevent the MMI from remaining
-					else
-						H.gib()
+				user << "<span class='warning'>Your target's earthly bonds are too strong. You need more cultists to succeed in this ritual.</span>"
+
 
 /////////////////////////////////////////SIXTEENTH RUNE
 
-/obj/effect/rune/proc/revealrunes(var/mob/living/carbon/human/user, var/obj/W as obj)
+/obj/effect/rune/proc/revealrunes(var/mob/living/user, var/obj/W as obj)
 	var/go=0
 	var/rad
 	var/S=0
@@ -794,7 +724,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////EIGHTTEENTH RUNE
 
-/obj/effect/rune/proc/freedom(var/mob/living/carbon/human/user)
+/obj/effect/rune/proc/freedom(var/mob/living/user)
 	var/list/mob/living/carbon/cultists = new
 	for(var/datum/mind/H in cult.current_antagonists)
 		if (istype(H.current,/mob/living/carbon))
@@ -839,7 +769,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////NINETEENTH RUNE
 
-/obj/effect/rune/proc/cultsummon(var/mob/living/carbon/human/user)
+/obj/effect/rune/proc/cultsummon(var/mob/living/user)
 	var/list/mob/living/carbon/cultists = new
 	for(var/datum/mind/H in cult.current_antagonists)
 		if (istype(H.current,/mob/living/carbon))
@@ -876,7 +806,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////TWENTIETH RUNES
 
-/obj/effect/rune/proc/deafen(var/mob/living/carbon/human/user)
+/obj/effect/rune/proc/deafen(var/mob/living/user)
 	if(istype(src,/obj/effect/rune))
 		var/list/affected = new()
 		for(var/mob/living/carbon/C in range(7,src))
@@ -918,7 +848,7 @@ var/list/sacrificed = list()
 					V.show_message("<span class='warning'>Dust flows from [user]'s hands for a moment, and the world suddenly becomes quiet..</span>", 3)
 	return
 
-/obj/effect/rune/proc/blind(var/mob/living/carbon/human/user)
+/obj/effect/rune/proc/blind(var/mob/human/user)
 	if(istype(src,/obj/effect/rune))
 		var/list/affected = new()
 		for(var/mob/living/carbon/C in viewers(src))
@@ -962,7 +892,7 @@ var/list/sacrificed = list()
 	return
 
 
-/obj/effect/rune/proc/bloodboil(var/mob/living/carbon/human/user) //cultists need at least one DANGEROUS rune. Even if they're all stealthy.
+/obj/effect/rune/proc/bloodboil(var/mob/living/user) //cultists need at least one DANGEROUS rune. Even if they're all stealthy.
 /*
 	var/list/mob/living/carbon/cultists = new
 	for(var/datum/mind/H in ticker.mode.cult)
@@ -1032,7 +962,7 @@ var/list/sacrificed = list()
 
 //////////             Rune 24 (counting burningblood, which kinda doesnt work yet.)
 
-/obj/effect/rune/proc/runestun(var/mob/living/carbon/human/user, var/mob/living/T)
+/obj/effect/rune/proc/runestun(var/mob/living//user, var/mob/living/T)
 	if(istype(src,/obj/effect/rune))   ///When invoked as rune, flash and stun everyone around.
 		user.say("Fuu ma[pick("'","`")]jin!")
 		for(var/mob/living/L in viewers(src))
@@ -1077,7 +1007,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////TWENTY-FIFTH RUNE
 
-/obj/effect/rune/proc/armor(var/mob/living/carbon/human/user)
+/obj/effect/rune/proc/armor(var/mob/living/user)
 
 	if(istype(src,/obj/effect/rune))
 		user.say("N'ath reth sh'yro eth d[pick("'","`")]raggathnor!")
