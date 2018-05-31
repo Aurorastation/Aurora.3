@@ -1083,7 +1083,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////TWENTY-FIFTH RUNE
 
-/obj/effect/rune/proc/armor(var/mob/living/carbon/human/user)
+/obj/effect/rune/proc/armor(var/mob/living/user)
 
 	if(istype(src,/obj/effect/rune))
 		user.say("N'ath reth sh'yro eth d[pick("'","`")]raggathnor!")
