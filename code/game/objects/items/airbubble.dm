@@ -224,19 +224,19 @@
 	t_air.merge(inside_air)
 
 // Change valve on internal tank
-/obj/structure/closet/airbubble/verb/set_internals(mob/user as mob)
+/obj/structure/closet/airbubble/verb/set_internals()
 	set src in oview(1)
 	set category = "Object"
 	set name = "Set Internals"
 	if(!isnull(internal_tank))
-		user.visible_message(
-		"<span class='warning'>[user] is setting [src] internals.</span>",
+		usr.visible_message(
+		"<span class='warning'>[usr] is setting [src] internals.</span>",
 		"<span class='notice'>You are settting [src] internals.</span>"
 		)
 		if (!do_after(user, 2 SECONDS, act_target = src))
 			return
-		user.visible_message(
-		"<span class='warning'>[user] has set [src] internals.</span>" ,
+		usr.visible_message(
+		"<span class='warning'>[usr] has set [src] internals.</span>" ,
 		"<span class='notice'>You set [src] internals.</span>"
 		)
 		if(use_internal_tank)
@@ -245,22 +245,22 @@
 			START_PROCESSING(SSfast_process, src)
 		use_internal_tank = !use_internal_tank
 	else
-		user << "<span class='notice'>[src] has no internal tank.</span>"
+		usr << "<span class='notice'>[src] has no internal tank.</span>"
 
 // Remove tank from bubble
-/obj/structure/closet/airbubble/verb/take_tank(mob/user as mob)
+/obj/structure/closet/airbubble/verb/take_tank()
 	set src in oview(1)
 	set category = "Object"
 	set name = "Remove Air Tank"
 	if(!isnull(internal_tank))
-		user.visible_message(
-		"<span class='warning'>[user] is removing [internal_tank] from [src].</span>",
+		usr.visible_message(
+		"<span class='warning'>[usr] is removing [internal_tank] from [src].</span>",
 		"<span class='notice'>You are removing [internal_tank] from [src].</span>"
 		)
 		if (!do_after(user, 2 SECONDS, act_target = src))
 			return
-		user.visible_message(
-		"<span class='warning'>[user] has removed [internal_tank] from [src].</span>",
+		usr.visible_message(
+		"<span class='warning'>[usr] has removed [internal_tank] from [src].</span>",
 		"<span class='notice'>You removed [internal_tank] from [src].</span>"
 		)
 		for(var/obj/I in src)
@@ -270,7 +270,7 @@
 		update_icon()
 		STOP_PROCESSING(SSfast_process, src)
 	else
-		user << "<span class='warning'>[src] already has no tank.</span>"
+		usr << "<span class='warning'>[src] already has no tank.</span>"
 
 // Handle most of things: restraining, cutting restrains, attaching tank.
 /obj/structure/closet/airbubble/attackby(W as obj, mob/user as mob)
