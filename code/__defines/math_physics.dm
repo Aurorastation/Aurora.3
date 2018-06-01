@@ -20,6 +20,7 @@
 #define TCMB 2.7    // -270.3 degrees celcius
 
 #define QUANTIZE(variable) (round(variable,0.0001))
+#define CEILING(x, y) ( -round(-(x) / (y)) * (y) )
 
 #define INFINITY	1.#INF
 
