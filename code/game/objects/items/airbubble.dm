@@ -233,7 +233,7 @@
 		"<span class='warning'>[usr] is setting [src] internals.</span>",
 		"<span class='notice'>You are settting [src] internals.</span>"
 		)
-		if (!do_after(user, 2 SECONDS, act_target = src))
+		if (!do_after(usr, 2 SECONDS, act_target = src))
 			return
 		usr.visible_message(
 		"<span class='warning'>[usr] has set [src] internals.</span>" ,
@@ -257,7 +257,7 @@
 		"<span class='warning'>[usr] is removing [internal_tank] from [src].</span>",
 		"<span class='notice'>You are removing [internal_tank] from [src].</span>"
 		)
-		if (!do_after(user, 2 SECONDS, act_target = src))
+		if (!do_after(usr, 2 SECONDS, act_target = src))
 			return
 		usr.visible_message(
 		"<span class='warning'>[usr] has removed [internal_tank] from [src].</span>",
