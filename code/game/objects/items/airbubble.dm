@@ -264,7 +264,7 @@
 		"<span class='notice'>You removed [internal_tank] from [src].</span>"
 		)
 		for(var/obj/I in src)
-			I.forceMove(user.loc)
+			I.forceMove(usr.loc)
 		use_internal_tank = 0
 		internal_tank = null
 		update_icon()
