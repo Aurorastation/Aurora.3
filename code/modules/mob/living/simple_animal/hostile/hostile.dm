@@ -33,7 +33,7 @@
 		return null
 
 	var/atom/T = null
-	var/lowest_health = 100
+	var/lowest_health = 1000 // Max you can get
 	stop_automated_movement = 0
 
 	for(var/atom/A in targets)
