@@ -192,7 +192,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		if(HOSTILE_STANCE_IDLE)
 			targets = ListTargets(10)
 			target_mob = FindTarget()
-			if(isnull(target_mob))
+			if(destroy_surroundings && isnull(target_mob))
 				DestroySurroundings()
 
 		if(HOSTILE_STANCE_ATTACK)
