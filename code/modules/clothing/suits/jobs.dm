@@ -109,11 +109,19 @@
 
 //Detective
 
-obj/item/clothing/suit/storage/leather_jacket/nanotrasen/det
+/*obj/item/clothing/suit/storage/det_jacket
+	name = "detective's jacket"
+	desc = "a stylish yet comfortable professional jacket designed and created by CL corporation for Nano-Trasen corporate investigators. Unique structure of jacket's fibers will shield the wearer from damage"
+	icon = ''
+	icon_state = ""
+	item_state = ""
+	contained_sprite = TRUE
+	blood_overlay_type = "coat"
+	body_parts_covered = UPPER_TORSO|ARMS
 	allowed = list(/obj/item/weapon/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/weapon/gun/energy,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/flame/lighter,/obj/item/device/taperecorder)
 	armor = list(melee = 50, bullet = 10, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
-
+*/
 /obj/item/clothing/suit/storage/toggle/det_trench
 	name = "brown trenchcoat"
 	desc = "A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. The coat is externally impact resistant - perfect for your next act of autodefenestration!"

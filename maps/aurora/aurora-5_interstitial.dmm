@@ -4221,18 +4221,13 @@
 /turf/simulated/floor/tiled,
 /area/security/training)
 "hw" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 4;
+	icon_state = "1-4"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/security/training)
 "hx" = (
@@ -4240,23 +4235,32 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	name = "Station Intercom (General)";
-	pixel_x = 24
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/security/training)
 "hy" = (
+/obj/machinery/light/small/emergency,
 /obj/structure/cable/green{
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 8;
+	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light/small/emergency{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/security/training)
@@ -4382,7 +4386,12 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/firealarm/south,
+/obj/item/device/radio/intercom{
+	frequency = 1481;
+	name = "station intercom (Isolation Room)";
+	pixel_x = 0;
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled,
 /area/security/training)
 "hN" = (
@@ -4399,9 +4408,6 @@
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 6
-	},
-/obj/structure/noticeboard{
-	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
 /area/security/training)
@@ -4512,19 +4518,17 @@
 /turf/simulated/floor/tiled,
 /area/security/training)
 "ib" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
+/obj/item/clothing/head/fedora/brown,
+/obj/item/ammo_casing/c38{
+	pixel_x = 8;
+	pixel_y = -9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+/obj/item/ammo_casing/c38{
+	pixel_x = -9;
+	pixel_y = -7
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 9
-	},
+/obj/item/clothing/suit/storage/toggle/det_trench,
+/obj/effect/decal/remains,
 /turf/simulated/floor/plating,
 /area/security/training)
 "ic" = (
@@ -8251,6 +8255,48 @@
 "uZ" = (
 /turf/simulated/mineral,
 /area/mine/unexplored)
+"va" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/tiled,
+/area/security/training)
+"vb" = (
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(63);
+	req_one_access = null
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/security/training)
+"vc" = (
+/obj/structure/bed/chair/unmovable{
+	icon_state = "chair_preview";
+	dir = 1
+	},
+/obj/item/weapon/handcuffs,
+/obj/item/clothing/suit/storage/toggle/det_trench/black,
+/obj/effect/decal/remains,
+/turf/simulated/floor/plating,
+/area/security/training)
 
 (1,1,1) = {"
 aa
@@ -42260,7 +42306,7 @@ dK
 dS
 ec
 en
-dS
+va
 eB
 eM
 dS
@@ -42529,8 +42575,8 @@ gt
 gK
 hd
 hw
-hN
-hY
+dM
+dM
 jF
 ii
 dc
@@ -42787,7 +42833,7 @@ gL
 he
 hx
 hO
-hZ
+hO
 ii
 ii
 dc
@@ -43042,9 +43088,9 @@ gb
 dc
 dc
 dc
+vb
 dc
 dc
-mm
 dc
 dc
 dc
@@ -43300,10 +43346,10 @@ dc
 gM
 hf
 hy
-hP
-ib
 dc
-aa
+ib
+vc
+dc
 aa
 aa
 aa
@@ -43560,7 +43606,7 @@ dc
 dc
 dc
 dc
-aa
+dc
 aa
 aa
 aa
