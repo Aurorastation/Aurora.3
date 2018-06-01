@@ -1150,4 +1150,28 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/bacon,
 		/obj/item/weapon/reagent_containers/food/snacks/bacon
 	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/blt
+	result = /obj/item/weapon/reagent_containers/food/snacks/tajaran_stew
+
+/datum/recipe/tajaran_stew
+	fruit = list("nifberries" = 2, "mushroom" = 1, "cabbage" = 1)
+	reagents = list("water" = 10)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
+		/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/tajaran_stew
+
+/datum/recipe/spicy_clams
+	fruit = list("chili" = 1, "cabbage" = 1)
+	reagents = list("blackpepper" = 1, "spacespice" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/clam,
+		/obj/item/weapon/reagent_containers/food/snacks/clam
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/spicy_clams
+
+
+/datum/recipe/earthenroot_soup
+	fruit = list("earthenroot" = 2)
+	reagents = list("water" = 10, "spacespice" = 1, "sodiumchloride" = 1)
+	result = /obj/item/weapon/reagent_containers/food/snacks/earthenroot_soup

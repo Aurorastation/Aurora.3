@@ -988,7 +988,7 @@
 	color = "#102838"
 	adj_temp = -5
 
-	glass_icon_state = "icedcoffeeglass"
+	glass_icon_state = "frappe"
 	glass_name = "glass of frappe coffee"
 	glass_desc = "A drink to perk you up and refresh you!"
 
@@ -3570,3 +3570,4 @@
 	glass_icon_state = "crocodile_glass"
 	glass_name = "glass of Crocodile Guwan"
 	glass_desc = "The smell says no, but the pretty colors say yes."
+
