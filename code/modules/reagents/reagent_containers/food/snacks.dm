@@ -3975,10 +3975,6 @@
 	nutriment_desc = list("uncooked dough" = 3)
 	nutriment_amt = 3
 
-/obj/item/weapon/reagent_containers/food/snacks/dough/Initialize()
-	. = ..()
-	reagents.add_reagent("protein", 1)
-
 // Dough + rolling pin = flat dough
 /obj/item/weapon/reagent_containers/food/snacks/dough/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/material/kitchen/rollingpin))
@@ -3997,10 +3993,6 @@
 	center_of_mass = list("x"=16, "y"=16)
 	nutriment_desc = list("uncooked dough" = 3)
 	nutriment_amt = 3
-
-/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough/Initialize()
-	. = ..()
-	reagents.add_reagent("protein", 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/doughslice
 	name = "dough slice"

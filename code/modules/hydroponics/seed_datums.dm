@@ -1129,7 +1129,7 @@
 	name = "shand"
 	seed_name = "S'Rendarr's hand"
 	display_name = "S'Rendarr's hand leaves"
-	chems = list("bicaridine" = list(0,10))
+	chems = list("tobaccorich" = list(1,10), "nicotine" = list(3,5))
 	kitchen_tag = "shand"
 
 /datum/seed/shand/setup_traits()
@@ -1294,26 +1294,26 @@
 	name = "earthenroot"
 	seed_name = "earthen-root"
 	display_name = "earthen-roots"
-	chems = list("nutriment" = list(0,15), "sugar" = list(1,5), "iron" = list(1,3))
+	chems = list("nutriment" = list(0,5), "sugar" = list(1,5), "earthenrootjuice" = list(4,8))
 	kitchen_tag = "earthenroot"
 
 /datum/seed/earthenroot/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,6)
-	set_trait(TRAIT_PRODUCTION,6)
-	set_trait(TRAIT_YIELD,6)
+	set_trait(TRAIT_MATURATION,7)
+	set_trait(TRAIT_PRODUCTION,5)
+	set_trait(TRAIT_YIELD,5)
 	set_trait(TRAIT_POTENCY,8)
-	set_trait(TRAIT_PRODUCT_ICON,"alien2")
+	set_trait(TRAIT_PRODUCT_ICON,"carrot2")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#87CEEB")
 	set_trait(TRAIT_PLANT_COLOUR,"#4D8F53")
-	set_trait(TRAIT_PLANT_ICON,"carrot2")
-	set_trait(TRAIT_WATER_CONSUMPTION, 4)
+	set_trait(TRAIT_PLANT_ICON,"alien2")
+	set_trait(TRAIT_WATER_CONSUMPTION, 8)
 
 /datum/seed/nifberries
 	name = "nifberries"
 	seed_name = "nif-berries"
 	display_name = "nif-berries shrub"
-	chems = list("nutriment" = list(0,15), "oil" = list(1,5), "iron" = list(1,3))
+	chems = list("nutriment" = list(0,15), "oil" = list(1,5))
 	kitchen_tag = "nifberries"
 
 /datum/seed/nifberries/setup_traits()
@@ -1325,7 +1325,7 @@
 	set_trait(TRAIT_YIELD,2)
 	set_trait(TRAIT_POTENCY,10)
 	set_trait(TRAIT_PRODUCT_ICON,"nuts")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#471C01")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#C4AE7A")
 	set_trait(TRAIT_PLANT_COLOUR,"#4D8F53")
 	set_trait(TRAIT_PLANT_ICON,"bush4")
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
