@@ -64,5 +64,5 @@ var/global/list/religion_choices = list(
 	"Ma'ta'ke",
 	"Th'akh",
 	"Sk'akh",
-	"Moroz Holy Tribuna"
+	"Moroz Holy Tribunal"
 	)
