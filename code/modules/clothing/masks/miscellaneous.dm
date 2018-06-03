@@ -9,7 +9,7 @@
 	voicechange = 1
 
 /obj/item/clothing/mask/muzzle/tape
-	name = "length of tape"
+	name = "tape muzzle"
 	desc = "It's a robust DIY muzzle!"
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "tape_cross"
