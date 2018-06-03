@@ -101,7 +101,14 @@ proc/get_radio_key_from_channel(var/channel)
 		verb = pick("slobbers","slurs")
 		speech_problem_flag = 1
 	if(stuttering)
-		message = NewStutter(message)
+		if(iscarbon(src))
+			var/mob/living/carbon/C = src
+			if(C.shock_stage >= 30)
+				message = stutter(message)
+			else
+				message = NewStutter(message)
+		else
+			message = stutter(message)
 		verb = pick("stammers","stutters")
 		speech_problem_flag = 1
 	if(tarded)
