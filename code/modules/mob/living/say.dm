@@ -101,7 +101,7 @@ proc/get_radio_key_from_channel(var/channel)
 		verb = pick("slobbers","slurs")
 		speech_problem_flag = 1
 	if(stuttering)
-		message = stutter(message)
+		message = NewStutter(message)
 		verb = pick("stammers","stutters")
 		speech_problem_flag = 1
 	if(tarded)
