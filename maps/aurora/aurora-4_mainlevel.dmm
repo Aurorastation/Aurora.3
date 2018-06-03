@@ -2375,6 +2375,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"aeG" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/structure/ladder/up{
+	step_y = 0;
+	pixel_y = 16
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "aeH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2764,6 +2781,18 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/seed_extractor,
 /turf/simulated/floor/tiled,
+/area/hydroponics)
+"afz" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
 /area/hydroponics)
 "afC" = (
 /obj/structure/closet{
@@ -62941,18 +62970,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hydroponics)
-"coV" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/hydroponics)
 "coW" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white_full"
@@ -63633,13 +63650,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/main)
-"crf" = (
-/obj/structure/toilet,
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/freezer,
-/area/security/main)
 "crg" = (
 /obj/structure/toilet,
 /obj/machinery/light/small{
@@ -63874,18 +63884,6 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/security/main)
-"crC" = (
-/obj/machinery/shower{
-	dir = 8;
-	icon_state = "shower";
-	pixel_x = 0;
-	pixel_y = 0
-	},
-/obj/machinery/door/window/westleft,
-/obj/structure/curtain/open/shower,
-/obj/item/weapon/soap,
-/turf/simulated/floor/tiled/freezer,
-/area/security/main)
 "crD" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -64049,22 +64047,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/main)
-"crQ" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor,
-/area/security/security_office)
 "crR" = (
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/blue{
@@ -64090,9 +64072,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled,
-/area/security/security_office)
-"crU" = (
 /turf/simulated/floor/tiled,
 /area/security/security_office)
 "crV" = (
@@ -64225,31 +64204,12 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/security/security_office)
-"csi" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor,
-/area/security/security_office)
 "csj" = (
 /obj/structure/coatrack,
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
-/area/security/security_office)
-"csk" = (
 /turf/simulated/floor/tiled,
 /area/security/security_office)
 "csl" = (
@@ -64289,12 +64249,6 @@
 /obj/item/weapon/paper_bin,
 /turf/simulated/floor/tiled/dark,
 /area/security/security_office)
-"csp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
-/area/security/security_office)
 "csq" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -64306,20 +64260,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/security_office)
-"csr" = (
-/turf/simulated/wall,
-/area/security/security_office)
-"css" = (
-/turf/simulated/wall,
-/area/security/security_office)
 "cst" = (
 /obj/structure/bed/chair,
 /obj/item/device/radio/intercom{
 	pixel_x = -28
 	},
-/turf/simulated/floor/tiled,
-/area/security/security_office)
-"csu" = (
 /turf/simulated/floor/tiled,
 /area/security/security_office)
 "csv" = (
@@ -64368,23 +64313,11 @@
 /obj/item/weapon/paper_bin,
 /turf/simulated/floor/tiled/dark,
 /area/security/security_office)
-"csz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
-/area/security/security_office)
 "csA" = (
 /obj/structure/noticeboard{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
-/area/security/security_office)
-"csB" = (
-/turf/simulated/wall,
-/area/security/security_office)
-"csC" = (
-/turf/simulated/wall,
 /area/security/security_office)
 "csD" = (
 /obj/structure/table/standard,
@@ -64392,9 +64325,6 @@
 /obj/machinery/newscaster{
 	pixel_x = -28
 	},
-/turf/simulated/floor/tiled,
-/area/security/security_office)
-"csE" = (
 /turf/simulated/floor/tiled,
 /area/security/security_office)
 "csF" = (
@@ -64498,9 +64428,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
-"csN" = (
-/turf/simulated/wall,
-/area/security/security_office)
 "csO" = (
 /obj/machinery/vending/coffee,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -64633,12 +64560,6 @@
 /obj/item/clothing/mask/breath,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
-"csZ" = (
-/turf/simulated/wall,
-/area/security/security_office)
-"cta" = (
-/turf/simulated/wall,
-/area/security/security_office)
 "ctb" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -64661,28 +64582,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/security/security_office)
-"ctd" = (
-/turf/simulated/wall,
-/area/security/security_office)
-"cte" = (
-/turf/simulated/wall,
-/area/security/security_office)
-"ctf" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor,
 /area/security/security_office)
 "ctg" = (
 /obj/machinery/door/airlock/glass_security{
@@ -92476,8 +92375,8 @@ bMD
 bMD
 bPH
 cox
-coK
-coV
+aeG
+afz
 cpX
 cpX
 cpX
@@ -96515,13 +96414,13 @@ aja
 aja
 aja
 aja
-crQ
+cth
 crZ
-csi
-css
-csC
-csN
-csZ
+cth
+cti
+cti
+cti
+cti
 asw
 auk
 avI
@@ -96778,7 +96677,7 @@ csj
 cst
 csD
 csO
-cta
+cti
 asx
 auk
 avJ
@@ -97031,9 +96930,9 @@ cmy
 crO
 crS
 csb
-csk
-csu
-csE
+csP
+csP
+csP
 csP
 ctb
 asy
@@ -97543,13 +97442,13 @@ crF
 cmA
 cmA
 cmH
-crU
+csP
 csd
 csm
 csw
 csG
 csR
-ctd
+cti
 asA
 aum
 avK
@@ -97806,7 +97705,7 @@ csn
 csx
 csH
 csS
-cte
+cti
 asB
 aun
 avM
@@ -98049,7 +97948,7 @@ aaV
 adW
 aeC
 aja
-crf
+crg
 crl
 crs
 crA
@@ -98063,7 +97962,7 @@ cso
 csy
 csI
 csT
-ctf
+cth
 asC
 auo
 avN
@@ -98316,8 +98215,8 @@ cmC
 cmI
 crX
 csg
-csp
-csz
+csJ
+csJ
 csJ
 csU
 ctg
@@ -98566,7 +98465,7 @@ aja
 crg
 crm
 cru
-crC
+crN
 cmD
 crN
 cmD
@@ -98830,8 +98729,8 @@ afe
 afe
 afe
 afe
-csr
-csB
+cti
+cti
 csL
 csW
 cti
