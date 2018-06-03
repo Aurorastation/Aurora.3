@@ -15984,14 +15984,16 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "DI" = (
-/obj/structure/mopbucket,
-/obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
 "DJ" = (
-/obj/structure/reagent_dispensers/watertank,
+/obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/camera/network/civilian_surface{
+	c_tag = "Surface - Custodial Closet"
+	},
+/obj/item/weapon/reagent_containers/glass/bucket,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
 "DK" = (
@@ -16009,12 +16011,15 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "DM" = (
-/obj/effect/decal/cleanable/generic,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/camera/network/civilian_surface{
-	c_tag = "Surface - Custodial Closet"
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
 	},
-/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
 "DN" = (
@@ -16052,13 +16057,9 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "DQ" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/ladder/updown,
-/turf/simulated/open,
+/obj/structure/reagent_dispensers/watertank,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
 "DR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -16113,9 +16114,14 @@
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
 "DY" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/plating,
+/obj/machinery/door/airlock{
+	name = "Custodial Closet";
+	req_access = null
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor,
 /area/hallway/secondary/entry/aft)
 "DZ" = (
 /obj/machinery/firealarm/east,
@@ -19075,31 +19081,25 @@
 "Jc" = (
 /turf/simulated/floor/asteroid/ash,
 /area/skipjack_station/surface)
-"Jd" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
+"LT" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
-	},
+/obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
-"Je" = (
-/obj/machinery/door/airlock{
-	name = "Custodial Closet";
-	req_access = null
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor,
-/area/hallway/secondary/entry/aft)
-"Jf" = (
+"TM" = (
+/obj/structure/mopbucket,
+/obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
+/area/hallway/secondary/entry/aft)
+"WG" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/ladder/updown,
+/turf/simulated/open,
 /area/hallway/secondary/entry/aft)
 
 (1,1,1) = {"
@@ -46509,9 +46509,9 @@ sU
 aa
 aa
 CU
-DI
+TM
+WG
 DQ
-DJ
 CU
 Es
 Cp
@@ -46766,9 +46766,9 @@ sU
 aa
 aa
 CU
-Jf
-Jd
-DY
+DI
+DM
+LT
 CU
 Et
 Cp
@@ -47023,10 +47023,10 @@ sU
 ag
 aa
 CU
-DM
+DJ
 DN
 DR
-Je
+DY
 Eu
 Eu
 Fb
