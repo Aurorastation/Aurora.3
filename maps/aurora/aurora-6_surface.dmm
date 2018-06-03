@@ -16333,14 +16333,18 @@
 /obj/machinery/alarm{
 	pixel_y = 22
 	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "Et" = (
-/obj/machinery/newscaster{
-	pixel_x = 0;
-	pixel_y = 32
+/obj/structure/ladder{
+	icon_state = "ladder01";
+	pixel_y = 16
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/open,
 /area/hallway/secondary/entry/aft)
 "Eu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -16349,6 +16353,10 @@
 /area/hallway/secondary/entry/aft)
 "Ev" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/newscaster{
+	pixel_x = 0;
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "Ew" = (
@@ -19080,6 +19088,21 @@
 "Jc" = (
 /turf/simulated/floor/asteroid/ash,
 /area/skipjack_station/surface)
+"Jd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/aft)
+"Je" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/aft)
 
 (1,1,1) = {"
 aa
@@ -46750,7 +46773,7 @@ DM
 DQ
 CU
 Et
-Cp
+Je
 Fa
 Cp
 Cp
@@ -47006,7 +47029,7 @@ DJ
 DN
 DR
 DY
-Eu
+Jd
 Eu
 Fb
 Cp
