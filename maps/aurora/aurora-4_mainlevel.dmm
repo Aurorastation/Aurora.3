@@ -2807,10 +2807,6 @@
 /area/journalistoffice)
 "afA" = (
 /obj/structure/flora/pottedplant/random,
-/obj/item/toy/nanotrasenballoon{
-	anchored = 1;
-	desc = "Across the balloon the following is printed: \"Man, I love NanoTrasen soooo much. I use only NT products. You have NO idea.\" It appears to be stuck, somehow. It's probably not watching you."
-	},
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "afB" = (
@@ -3163,9 +3159,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
-"agq" = (
-/turf/simulated/floor/wood,
-/area/journalistoffice)
 "agr" = (
 /obj/machinery/light_switch{
 	pixel_x = 24
@@ -3685,9 +3678,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
-"aht" = (
-/turf/simulated/floor/carpet,
-/area/journalistoffice)
 "ahu" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -4076,25 +4066,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
-"aih" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/blast/shutters{
-	dir = 8;
-	id = "storefront";
-	layer = 3.3;
-	name = "Storefront Shutters"
-	},
-/turf/simulated/floor/plating,
-/area/store)
 "aii" = (
 /obj/machinery/requests_console{
 	department = "Journalist's Office";
@@ -64672,9 +64643,6 @@
 /obj/structure/grille,
 /turf/simulated/floor,
 /area/journalistoffice)
-"ctm" = (
-/turf/simulated/floor/wood,
-/area/journalistoffice)
 "ctn" = (
 /turf/simulated/floor/wood,
 /area/journalistoffice)
@@ -102612,9 +102580,9 @@ aLd
 aMW
 aet
 afB
-ctm
+ctn
 ctp
-aht
+ctr
 aij
 aet
 aYY
@@ -103640,10 +103608,10 @@ aLg
 aNa
 afy
 afR
-agq
+ctn
 agQ
-agq
-agq
+ctn
+ctn
 ajJ
 aYY
 bah
