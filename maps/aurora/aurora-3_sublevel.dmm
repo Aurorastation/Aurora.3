@@ -4063,6 +4063,7 @@
 	dir = 5;
 	icon_state = "camera"
 	},
+/obj/machinery/power/emitter,
 /turf/simulated/floor{
 	icon_state = "plating"
 	},
@@ -4275,6 +4276,7 @@
 	icon_state = "alarm0";
 	pixel_x = -22
 	},
+/obj/machinery/power/emitter,
 /turf/simulated/floor{
 	icon_state = "plating"
 	},
@@ -6337,7 +6339,7 @@
 	pixel_y = 0
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = 0;
 	listening = 1;
 	name = "Common Channel";
 	pixel_x = -27;
@@ -7151,7 +7153,7 @@
 	pixel_y = -26
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = 0;
 	listening = 1;
 	name = "Common Channel";
 	pixel_x = 27;
@@ -7868,7 +7870,7 @@
 	pixel_y = 0
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = 0;
 	listening = 1;
 	name = "Common Channel";
 	pixel_x = -27;
@@ -8739,6 +8741,9 @@
 /obj/item/weapon/rig/hazmat,
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/security/nuke_storage)
 "pJ" = (
@@ -8748,10 +8753,13 @@
 /turf/simulated/floor/plating,
 /area/security/nuke_storage)
 "pK" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced,
+/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner,
+/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner,
+/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner,
+/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner,
+/turf/simulated/floor/plating,
 /area/security/nuke_storage)
 "pL" = (
 /obj/machinery/porta_turret/stationary,
@@ -9224,9 +9232,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "qq" = (
-/obj/machinery/light/small/emergency{
-	icon_state = "bulb1";
-	dir = 4
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 25;
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
@@ -9716,6 +9728,7 @@
 	pixel_x = 24
 	},
 /obj/structure/cable,
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "rp" = (
@@ -9817,6 +9830,7 @@
 /obj/item/weapon/rig/unathi{
 	pixel_y = -6
 	},
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/security/nuke_storage)
 "ry" = (
@@ -9829,14 +9843,11 @@
 /area/security/nuke_storage)
 "rz" = (
 /obj/structure/window/reinforced{
-	dir = 8
+	icon_state = "rwindow";
+	dir = 1
 	},
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 25;
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/table/reinforced,
+/turf/simulated/floor/plating,
 /area/security/nuke_storage)
 "rA" = (
 /obj/structure/cable{
@@ -18193,6 +18204,10 @@
 	icon_state = "alarm0";
 	pixel_x = 24
 	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Isolation Containment";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_c)
 "Gn" = (
@@ -20047,11 +20062,19 @@
 	icon_state = "alarm0";
 	pixel_x = 24
 	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Isolation Access";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_c)
 "Jc" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Isolation Airlock";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_c)
@@ -26278,25 +26301,12 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "Uj" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/obj/machinery/camera/network/research_outpost{
-	c_tag = "Research Sublevel - Toxins Testing Storage";
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/alarm{
-	dir = 4;
-	icon_state = "alarm0";
-	pixel_x = -22
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
 "Uk" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
@@ -26305,16 +26315,17 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
 "Ul" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
 "Um" = (
@@ -26497,54 +26508,46 @@
 /turf/simulated/floor/plating,
 /area/rnd/mixing)
 "UB" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 10
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
-	dir = 9
+/obj/effect/floor_decal/industrial/warning/cee{
+	icon_state = "warningcee";
+	dir = 8
 	},
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1379;
-	master_tag = "toxinsairlock_airlock";
-	name = "interior access button";
-	pixel_x = 0;
-	pixel_y = -25;
-	req_one_access = list(13,65)
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 8;
+	name = "Distro to Canisters";
+	target_pressure = 150
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/rnd/mixing)
 "UC" = (
 /obj/machinery/light/small,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/requests_console{
-	department = "Science";
-	departmentType = 2;
-	name = "Science Requests Console";
-	pixel_x = 0;
-	pixel_y = -30
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -22
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
 "UD" = (
-/obj/machinery/suit_storage_unit/standard_unit,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
@@ -27186,6 +27189,79 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"Wi" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/suit_storage_unit/standard_unit,
+/turf/simulated/floor/tiled,
+/area/rnd/mixing)
+"Wj" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/camera/network/research_outpost{
+	c_tag = "Research Sublevel - Toxins Testing Storage";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/mixing)
+"Wk" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1379;
+	master_tag = "toxinsairlock_airlock";
+	name = "exterior access button";
+	pixel_x = 25;
+	pixel_y = -25;
+	req_one_access = list(13,65)
+	},
+/turf/simulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
+"Wl" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1379;
+	master_tag = "toxinsairlock_airlock";
+	name = "interior access button";
+	pixel_x = 0;
+	pixel_y = -25;
+	req_one_access = list(13,65)
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible,
+/obj/machinery/meter,
+/turf/simulated/floor/tiled,
+/area/rnd/mixing)
+"Wm" = (
+/obj/machinery/power/emitter,
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/outpost/engineering/storage)
+"Wn" = (
+/obj/structure/particle_accelerator/end_cap{
+	icon_state = "end_cap";
+	dir = 8
+	},
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/outpost/engineering/storage)
 
 (1,1,1) = {"
 aa
@@ -40389,7 +40465,7 @@ gC
 fT
 fy
 iv
-iy
+Wm
 jq
 jO
 ku
@@ -40647,9 +40723,9 @@ hp
 fy
 iw
 iW
-jr
+jq
+Wn
 jP
-kv
 iA
 aa
 aa
@@ -41416,7 +41492,7 @@ fT
 gE
 fT
 fy
-iy
+kv
 iY
 iY
 iY
@@ -43039,7 +43115,7 @@ Tx
 Sm
 ac
 ac
-Ve
+Wk
 rH
 UU
 sK
@@ -43295,9 +43371,9 @@ Tm
 Ty
 Sm
 ac
-ac
-Ux
-rH
+NP
+Uy
+NP
 UV
 sK
 aa
@@ -43553,7 +43629,7 @@ Tz
 Sm
 ac
 NP
-Uy
+Uz
 NP
 UY
 NP
@@ -43808,9 +43884,9 @@ SS
 To
 SS
 TK
-ac
 NP
-Uz
+NP
+UA
 NP
 UY
 NP
@@ -44065,9 +44141,9 @@ ST
 Tp
 TA
 NP
-NP
-NP
-UA
+TY
+Wj
+Wl
 NP
 UY
 NP
@@ -44322,7 +44398,7 @@ SU
 PV
 TB
 NP
-TY
+Wi
 Uj
 UB
 NP

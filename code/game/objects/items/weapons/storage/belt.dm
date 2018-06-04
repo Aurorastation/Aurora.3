@@ -83,6 +83,7 @@
 	icon_state = "medicalbelt"
 	item_state = "medical"
 	can_hold = list(
+		/obj/item/device/breath_analyzer,
 		/obj/item/device/healthanalyzer,
 		/obj/item/weapon/dnainjector,
 		/obj/item/weapon/reagent_containers/dropper,
@@ -102,7 +103,8 @@
 		/obj/item/clothing/glasses/hud/health,
 		/obj/item/weapon/crowbar,
 		/obj/item/device/flashlight,
-		/obj/item/weapon/extinguisher/mini
+		/obj/item/weapon/extinguisher/mini,
+		/obj/item/weapon/reagent_containers/inhaler
 		)
 
 /obj/item/weapon/storage/belt/medical/emt

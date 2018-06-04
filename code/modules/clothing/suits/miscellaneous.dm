@@ -398,3 +398,35 @@
 	icon_open = "trench2_open"
 	icon_closed = "trench2"
 	blood_overlay_type = "coat"
+
+/obj/item/clothing/suit/storage/dominia
+	name = "dominia cape"
+	desc = "This is a cape in the style of Dominia nobility. It's the latest fashion across Dominian space."
+	icon_state = "dominian_cape"
+	item_state = "dominian_cape"
+
+/obj/item/clothing/suit/storage/toggle/dominia
+	name = "dominia great coat"
+	desc = "This is a great coat in the style of Dominia nobility. It's the latest fashion across Dominian space."
+	icon_state = "dominian_noble"
+	item_state = "dominian_noble"
+	icon_open = "dominian_noble_open"
+	icon_closed = "dominian_noble"
+
+/obj/item/clothing/suit/storage/toggle/dominia/alt
+	icon_state = "dominian_noble2"
+	item_state = "dominian_noble2"
+	icon_open = "dominian_noble2_open"
+	icon_closed = "dominian_noble2"
+
+/obj/item/clothing/suit/storage/toggle/dominia/black
+	icon_state = "dominian_noble4"
+	item_state = "dominian_noble4"
+	icon_open = "dominian_noble4_open"
+	icon_closed = "dominian_noble4"
+
+/obj/item/clothing/suit/storage/toggle/dominia/black/alt
+	icon_state = "dominian_noble5"
+	item_state = "dominian_noble5"
+	icon_open = "dominian_noble5_open"
+	icon_closed = "dominian_noble5"

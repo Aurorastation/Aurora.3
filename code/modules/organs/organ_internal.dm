@@ -28,7 +28,7 @@
 
 	if (germ_level > INFECTION_LEVEL_ONE)
 		if(prob(5))
-			owner.emote("cough")		//respitory tract infection
+			owner.emote("cough")		//Respiratory tract infection
 
 	if(is_bruised())
 		if(prob(2))
@@ -135,27 +135,22 @@
 		if(src.damage < 0)
 			src.damage = 0
 
-		// Get the effectiveness of the liver.
-		var/filter_effect = 3
+		var/filter_strength = INTOX_FILTER_HEALTHY
 		if(is_bruised())
-			filter_effect -= 1
+			filter_strength = INTOX_FILTER_BRUISED
 		if(is_broken())
-			filter_effect -= 2
+			filter_strength = INTOX_FILTER_DAMAGED
 
 		if (owner.intoxication > 0)
-			//ALCOHOL_FILTRATION_RATE is defined in intoxication.dm
-			owner.intoxication -= ALCOHOL_FILTRATION_RATE*filter_effect*PROCESS_ACCURACY//A weakened liver filters out alcohol more slowly
+			owner.intoxication -= filter_strength*PROCESS_ACCURACY
 			owner.intoxication = max(owner.intoxication, 0)
 			if (!owner.intoxication)
-				//If intoxication has just been reduced to zero, this will handle removing any effects
 				owner.handle_intoxication()
 
-		// Do some reagent processing.
 		if(owner.chem_effects[CE_ALCOHOL_TOXIC])
-			if(filter_effect < 3)
+			take_damage(owner.chem_effects[CE_ALCOHOL_TOXIC] * 0.1 * PROCESS_ACCURACY, prob(1))
+			if(is_damaged())
 				owner.adjustToxLoss(owner.chem_effects[CE_ALCOHOL_TOXIC] * 0.1 * PROCESS_ACCURACY)
-			else
-				take_damage(owner.chem_effects[CE_ALCOHOL_TOXIC] * 0.1 * PROCESS_ACCURACY, prob(1)) // Chance to warn them
 
 /obj/item/organ/appendix
 	name = "appendix"

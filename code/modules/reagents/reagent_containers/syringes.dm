@@ -18,6 +18,7 @@
 	w_class = 1
 	slot_flags = SLOT_EARS
 	sharp = 1
+	noslice = 1
 	unacidable = 1 //glass
 	var/mode = SYRINGE_DRAW
 	var/image/filling //holds a reference to the current filling overlay
@@ -339,11 +340,20 @@
 	desc = "Contains aggressive drugs meant for torture."
 	Initialize()
 		. = ..()
-		reagents.add_reagent("space_drugs",  5)
-		reagents.add_reagent("mindbreaker",  5)
-		reagents.add_reagent("cryptobiolin", 5)
+		reagents.add_reagent("panotoxin",  5)
+		reagents.add_reagent("mindbreaker",  10)
 		mode = SYRINGE_INJECT
 		update_icon()
+
+/obj/item/weapon/reagent_containers/syringe/calomel
+	name = "Syringe (calomel)"
+	desc = "Contains purging medicine."
+	Initialize()
+		. = ..()
+		reagents.add_reagent("calomel",  15)
+		mode = SYRINGE_INJECT
+		update_icon()
+
 
 /obj/item/weapon/reagent_containers/syringe/ld50_syringe/choral
 	Initialize()

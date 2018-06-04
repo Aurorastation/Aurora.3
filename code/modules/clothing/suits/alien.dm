@@ -74,6 +74,7 @@
 	icon_state = "taj_cloak"
 	item_state = "taj_cloak"
 	contained_sprite = TRUE
+	flags_inv = HIDETAIL
 	hoodtype = /obj/item/clothing/head/winterhood
 
 /obj/item/clothing/head/tajaran/circlet
