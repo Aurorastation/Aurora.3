@@ -1412,9 +1412,13 @@
 	var/turf/target	// this will be where the output objects are 'thrown' to.
 	var/mode = 0
 
+	var/spread = 0
+	var/spread_point = 10
+
+
 /obj/structure/disposaloutlet/Initialize()
 	. = ..()
-	target = get_ranged_target_turf(src, dir, 10)
+	target = get_ranged_target_turf(src, dir, spread_point)
 
 	var/obj/structure/disposalpipe/trunk/trunk = locate() in src.loc
 	if(trunk)
@@ -1437,7 +1441,12 @@
 			AM.pipe_eject(dir)
 			if(!istype(AM,/mob/living/silicon/robot/drone)) //Drones keep smashing windows from being fired out of chutes. Bad for the station. ~Z
 				spawn(5)
-					AM.throw_at(target, 3, 1)
+					if(spread)
+						var/turf/new_turf_target = get_step(target,turn(src.dir, rand(-spread,spread)))
+						AM.throw_at(new_turf_target, 3, 1)
+					else
+						AM.throw_at(target, 3, 1)
+
 		H.vent_gas(src.loc)
 		qdel(H)
 
