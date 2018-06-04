@@ -1491,6 +1491,66 @@
 	else if(href_list["ac_set_signature"])
 		src.admincaster_signature = sanitize(input(usr, "Provide your desired signature", "Network Identity Handler", ""))
 		src.access_news_network()
+	
+	else if(href_list["ac_add_comment"])
+		var/com_msg = sanitize(input(usr, "Write your Comment", "Network Comment Handler", "") as message, encode = 0, trim = 0, extra = 0)
+		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
+		if(!istype(viewing_story))
+			return
+		var/datum/feed_comment/comment = new
+		comment.author = src.admincaster_signature
+		comment.message = com_msg
+		comment.posted = "[worldtime2text()]"
+		viewing_story.comments += comment
+		to_chat(usr, "Comment successfully added!")
+		src.admincaster_screen = 20
+		src.access_news_network()
+		
+	else if(href_list["ac_view_comments"])
+		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
+		if(!istype(viewing_story))
+			return
+		src.admincaster_screen = 20
+		src.viewing_message = viewing_story
+		src.access_news_network()
+		
+	else if(href_list["ac_like"])
+		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
+		if((src.admincaster_signature in viewing_story.interacted) || !istype(viewing_story))
+			return
+		viewing_story.interacted += src.admincaster_signature
+		viewing_story.likes += 1
+		src.access_news_network()
+		
+	else if(href_list["ac_dislike"])
+		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
+		if((src.admincaster_signature in viewing_story.interacted) || !istype(viewing_story))
+			return
+		viewing_story.interacted += src.admincaster_signature
+		viewing_story.dislikes += 1
+		src.access_news_network()
+	
+	else if(href_list["ac_setlikes"])
+		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
+		if(!istype(viewing_story))
+			return
+		var/amount = input(usr, "Provide your desired number of likes", "Network Social Manager", "") as num
+		viewing_story.likes = amount
+		src.access_news_network()
+	else if(href_list["ac_setdislikes"])
+		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
+		if(!istype(viewing_story))
+			return
+		var/amount = input(usr, "Provide your desired number of dislikes", "Network Social Manager", "") as num
+		viewing_story.dislikes = amount
+		src.access_news_network()
+	else if(href_list["ac_censorcomment"])
+		var/datum/feed_comment/comment = locate(href_list["ac_comment"])
+			if(!istype(comment))
+				return
+			comment.message = "\[REDACTED\]"
+			src.admincaster_screen = 20
+			src.access_news_network()
 
 	else if(href_list["populate_inactive_customitems"])
 		if(check_rights(R_ADMIN|R_SERVER))

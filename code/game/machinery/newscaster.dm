@@ -258,7 +258,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 						var/i = 0
 						for(var/datum/feed_message/MESSAGE in src.viewing_channel.messages)
 							i++
-							dat+="<BLOCKQUOTE style=\"padding:4px;border-left:4px #797979 solid\">[MESSAGE.body] <FONT SIZE=1>\[Likes: <FONT COLOR='DarkGreen'>[MESSAGE.likes]</FONT> Dislikes: <FONT COLOR='maroon'>[MESSAGE.dislikes]</FONT>\]</FONT><BR>"
+							dat+="<BLOCKQUOTE style=\"padding:2px 4px;border-left:4px #797979 solid\">[MESSAGE.body] <FONT SIZE=1>\[Likes: <FONT COLOR='DarkGreen'>[MESSAGE.likes]</FONT> Dislikes: <FONT COLOR='maroon'>[MESSAGE.dislikes]</FONT>\]</FONT><BR>"
 							if(MESSAGE.img)
 								usr << browse_rsc(MESSAGE.img, "tmp_photo[i].png")
 								dat+="<img src='tmp_photo[i].png' width = '180'><BR>"
@@ -317,8 +317,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 						dat+="<I>No feed messages found in channel...</I><BR>"
 					else
 						for(var/datum/feed_message/MESSAGE in src.viewing_channel.messages)
-							dat+="<BLOCKQUOTE style=\"padding:4px;border-left:4px #797979 solid\">[MESSAGE.body] <FONT SIZE=1>\[Likes: <FONT COLOR='DarkGreen'>[MESSAGE.likes]</FONT> Dislikes: <FONT COLOR='maroon'>[MESSAGE.dislikes]</FONT>\]</FONT><BR>"
-							dat+="<FONT SIZE=1><A href='?src=\ref[src];view_comments=1;story=\ref[MESSAGE]'>View Comments</A> <A href='?src=\ref[src];add_comment=1;story=\ref[MESSAGE]'>Add Comment</A> <A href='?src=\ref[src];like=1;story=\ref[MESSAGE]'>Like Story</A> <A href='?src=\ref[src];dislike=1;story=\ref[MESSAGE]'>Dislike Story</A></FONT><BR>"
+							dat+="<BLOCKQUOTE style=\"padding:2px 4px;border-left:4px #797979 solid\">[MESSAGE.body] <FONT SIZE=1>\[Likes: <FONT COLOR='DarkGreen'>[MESSAGE.likes]</FONT> Dislikes: <FONT COLOR='maroon'>[MESSAGE.dislikes]</FONT>\]</FONT><BR>"
+							dat+="<FONT SIZE=1><A href='?src=\ref[src];view_comments=1;story=\ref[MESSAGE];privileged=1;'>View Comments</A> <A href='?src=\ref[src];add_comment=1;story=\ref[MESSAGE]'>Add Comment</A> <A href='?src=\ref[src];like=1;story=\ref[MESSAGE]'>Like Story</A> <A href='?src=\ref[src];dislike=1;story=\ref[MESSAGE]'>Dislike Story</A></FONT><BR>"
 							dat+="<FONT SIZE=1>\[Story by <FONT COLOR='maroon'>[MESSAGE.author] - [MESSAGE.time_stamp]</FONT>\]</FONT></BLOCKQUOTE><BR>"
 
 				dat+="<BR><A href='?src=\ref[src];setScreen=[11]'>Back</A>"
@@ -380,16 +380,24 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			if(21)
 				dat+="<FONT COLOR='maroon'>Unable to print newspaper. Insufficient paper. Please notify maintenance personnel to refill machine storage.</FONT><BR><BR>"
 				dat+="<A href='?src=\ref[src];setScreen=[0]'>Return</A>"
-			if(22) //
+			if(22) //comments!
 				dat+="<B>Comments:</B></BR>"
 				if(isemptylist(src.viewing_message.comments))
 					dat+="No comments on this story yet!</BR>"
 				else
 					for(var/datum/feed_comment/COMMENT in src.viewing_message.comments)
-						dat+="<BLOCKQUOTE style=\"padding:4px;border-left:4px #797979 solid;\"><B>\[[world.time]\] [COMMENT.author]:</B>[COMMENT.message]<BR></BLOCKQUOTE>"
+						dat+="<BLOCKQUOTE style=\"padding:2px 4px;border-left:4px #797979 solid;\"><B>\[[world.time]\] [COMMENT.author]:</B>[COMMENT.message]<BR></BLOCKQUOTE>"
+				dat+="<A href='?src=\ref[src];setScreen=[9]'>Return</A>"
+			if(23) //comments but with more censorship!
+				dat+="<B>Comments:</B></BR>"
+				if(isemptylist(src.viewing_message.comments))
+					dat+="No comments on this story yet!</BR>"
+				else
+					for(var/datum/feed_comment/COMMENT in src.viewing_message.comments)
+						dat+="<BLOCKQUOTE style=\"padding:2px 4px;border-left:4px #797979 solid;\"><B>\[[world.time]\] [COMMENT.author]:</B>[COMMENT.message]<BR><A href='?src=\ref[src];censor_comment=1;comment=\ref[COMMENT]>Censor Comment</A></BLOCKQUOTE>"
 				dat+="<A href='?src=\ref[src];setScreen=[9]'>Return</A>"
 			else
-				dat+="I'm sorry to break your immersion. This shit's bugged. Report this bug to Agouri, polyxenitopalidou@gmail.com"
+				dat+="Please report this on GitHub, along with what you did to make this appear."
 
 
 		human_or_robot_user << browse(dat, "window=newscaster_main;size=400x600")
@@ -473,7 +481,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			src.updateUsrDialog()
 		
 		else if(href_list["add_comment"])
-			var/com_msg = sanitize(input(usr, "Write your Comment", "Network Story Handler", "") as message, encode = 0, trim = 0, extra = 0)
+			var/com_msg = sanitize(input(usr, "Write your Comment", "Network Comment Handler", "") as message, encode = 0, trim = 0, extra = 0)
 			if(com_msg =="" || com_msg=="\[REDACTED\]" || src.scanned_user == "Unknown" )
 				return
 			var/datum/feed_message/viewing_story = locate(href_list["story"])
@@ -492,8 +500,16 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			var/datum/feed_message/viewing_story = locate(href_list["story"])
 			if(!istype(viewing_story))
 				return
-			src.screen = 22
+			src.screen = href_list["privileged"] ? 23 : 22
 			src.viewing_message = viewing_story
+			src.updateUsrDialog()
+		
+		else if(href_list["censor_comment"])
+			var/datum/feed_comment/comment = locate(href_list["comment"])
+			if(!istype(comment))
+				return
+			comment.message = "\[REDACTED\]"
+			src.screen = 22
 			src.updateUsrDialog()
 			
 		else if(href_list["like"])
