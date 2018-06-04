@@ -2223,6 +2223,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"aet" = (
+/turf/simulated/wall,
+/area/journalistoffice)
 "aeu" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -2311,6 +2314,22 @@
 	dir = 4
 	},
 /area/security/brig)
+"aeD" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "journalist"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "journalist"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "journalist"
+	},
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/journalistoffice)
 "aeE" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -2346,6 +2365,22 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"aeG" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "journalist"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "journalist"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "journalist"
+	},
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/journalistoffice)
 "aeH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2580,6 +2615,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"afd" = (
+/obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock{
+	name = "Journalist's Office";
+	req_access = list(111)
+	},
+/turf/simulated/floor/tiled,
+/area/journalistoffice)
 "afe" = (
 /turf/simulated/wall/r_wall,
 /area/security/investigations)
@@ -2726,6 +2772,53 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"afy" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "journalist"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "journalist"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "journalist"
+	},
+/obj/structure/grille,
+/turf/simulated/floor,
+/area/journalistoffice)
+"afz" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "journalist"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "journalist"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "journalist"
+	},
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/journalistoffice)
+"afA" = (
+/obj/structure/flora/pottedplant/random,
+/obj/item/toy/nanotrasenballoon{
+	anchored = 1;
+	desc = "Across the balloon the following is printed: \"Man, I love NanoTrasen soooo much. I use only NT products. You have NO idea.\" It appears to be stuck, somehow. It's probably not watching you."
+	},
+/turf/simulated/floor/wood,
+/area/journalistoffice)
+"afB" = (
+/obj/structure/table/rack,
+/obj/item/device/camera_film,
+/obj/item/device/camera,
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "afC" = (
 /obj/structure/closet{
 	name = "Evidence Closet"
@@ -2812,6 +2905,97 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"afO" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/photo_album,
+/obj/item/device/taperecorder,
+/turf/simulated/floor/wood,
+/area/journalistoffice)
+"afP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/wood,
+/area/journalistoffice)
+"afQ" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/wood,
+/area/journalistoffice)
+"afR" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/journalistoffice)
+"afS" = (
+/obj/item/toy/figure/librarian{
+	desc = "A \"Space Life\" brand Librarian action figure. The word 'librarian' on the tag is scratched out with marker, and 'journalist' is written in its place.";
+	name = "Journalist action figure"
+	},
+/obj/structure/flora/pottedplant/random,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 25;
+	pixel_y = 0
+	},
+/turf/simulated/floor/wood,
+/area/journalistoffice)
+"afT" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "journalist"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "journalist"
+	},
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/journalistoffice)
+"afU" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/journalistoffice)
+"afV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/wood,
+/area/journalistoffice)
+"afW" = (
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "afX" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark{
@@ -2979,6 +3163,44 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"agq" = (
+/turf/simulated/floor/wood,
+/area/journalistoffice)
+"agr" = (
+/obj/machinery/light_switch{
+	pixel_x = 24
+	},
+/turf/simulated/floor/wood,
+/area/journalistoffice)
+"ags" = (
+/obj/structure/table/wood,
+/obj/item/weapon/paper_bin,
+/obj/item/weapon/pen,
+/obj/item/weapon/pen/blue,
+/obj/item/weapon/pen/red,
+/turf/simulated/floor/carpet,
+/area/journalistoffice)
+"agt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/table/wood,
+/obj/item/weapon/clipboard,
+/turf/simulated/floor/carpet,
+/area/journalistoffice)
+"agu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "agv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark{
@@ -3172,6 +3394,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"agQ" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/journalistoffice)
+"agR" = (
+/obj/structure/closet,
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "agS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
@@ -3453,6 +3685,41 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"aht" = (
+/turf/simulated/floor/carpet,
+/area/journalistoffice)
+"ahu" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Journalist"
+	},
+/turf/simulated/floor/carpet,
+/area/journalistoffice)
+"ahv" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/structure/table/wood,
+/obj/item/weapon/packageWrap,
+/obj/item/weapon/packageWrap,
+/obj/item/weapon/packageWrap,
+/turf/simulated/floor/carpet,
+/area/journalistoffice)
+"ahw" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/obj/structure/filingcabinet/filingcabinet,
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "ahx" = (
 /obj/structure/filingcabinet/filingcabinet{
 	desc = "A large cabinet with drawers. There seems to be a layer of dust covering it."
@@ -3809,6 +4076,68 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"aih" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/blast/shutters{
+	dir = 8;
+	id = "storefront";
+	layer = 3.3;
+	name = "Storefront Shutters"
+	},
+/turf/simulated/floor/plating,
+/area/store)
+"aii" = (
+/obj/machinery/requests_console{
+	department = "Journalist's Office";
+	dir = 8;
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/obj/machinery/newscaster{
+	pixel_y = -32
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/machinery/disposal,
+/turf/simulated/floor/carpet,
+/area/journalistoffice)
+"aij" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 2
+	},
+/obj/structure/noticeboard{
+	desc = "A board for uncovering hidden conspiracies.";
+	name = "corkboard";
+	pixel_y = -32
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/carpet,
+/area/journalistoffice)
+"aik" = (
+/obj/machinery/power/apc{
+	dir = 2;
+	name = "south bump";
+	pixel_y = -24
+	},
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/carpet,
+/area/journalistoffice)
 "ail" = (
 /obj/structure/table/standard,
 /obj/item/weapon/paper_bin,
@@ -4191,9 +4520,32 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/brig)
+"aiZ" = (
+/obj/machinery/button/windowtint{
+	dir = 2;
+	id = "journalist";
+	pixel_x = 0;
+	pixel_y = -24
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/carpet,
+/area/journalistoffice)
 "aja" = (
 /turf/simulated/wall,
 /area/security/main)
+"ajb" = (
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Starboard Corridor - Store";
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "ajc" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -4511,6 +4863,20 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"ajI" = (
+/obj/item/device/radio/intercom{
+	pixel_y = -27
+	},
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/wood,
+/area/journalistoffice)
+"ajJ" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(57)
+	},
+/turf/simulated/floor/plating,
+/area/journalistoffice)
 "ajP" = (
 /obj/structure/closet/secure_closet/security,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -7117,9 +7483,21 @@
 /turf/simulated/floor/plating,
 /area/engineering/storage)
 "apt" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/atmos,
+/obj/item/clothing/head/helmet/space/void/atmos,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/mask/breath,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/window/southleft{
+	dir = 4;
+	icon_state = "left";
+	name = "Atmospheric Hardsuits";
+	req_access = list(24)
 	},
 /obj/structure/table/rack,
 /obj/item/clothing/suit/space/void/atmos,
@@ -7708,6 +8086,18 @@
 /turf/simulated/floor/plating,
 /area/engineering/storage)
 "aqH" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/atmos,
+/obj/item/clothing/head/helmet/space/void/atmos,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/mask/breath,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/window/southleft{
+	dir = 4;
+	icon_state = "left";
+	name = "Atmospheric Hardsuits";
+	req_access = list(24)
+	},
 /obj/structure/table/rack,
 /obj/item/clothing/suit/space/void/atmos,
 /obj/item/clothing/head/helmet/space/void/atmos,
@@ -21492,6 +21882,13 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/machinery/button/remote/blast_door{
+	id = "merch_shop";
+	name = "Store Shutters";
+	pixel_x = 0;
+	pixel_y = -28;
+	req_access = list(57)
+	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
@@ -22370,68 +22767,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
-"aOF" = (
-/turf/simulated/wall,
-/area/journalistoffice)
-"aOG" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "journalist"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "journalist"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "journalist"
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/journalistoffice)
-"aOH" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "journalist"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "journalist"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "journalist"
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/journalistoffice)
-"aOI" = (
-/obj/machinery/door/firedoor,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock{
-	name = "Journalist's Office";
-	req_access = list(111)
-	},
-/turf/simulated/floor/tiled,
-/area/journalistoffice)
-"aOJ" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "journalist"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "journalist"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "journalist"
-	},
-/obj/structure/grille,
-/turf/simulated/floor,
-/area/journalistoffice)
 "aOK" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12)
@@ -23305,92 +23640,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
-"aQj" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "journalist"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "journalist"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "journalist"
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/journalistoffice)
 "aQk" = (
 /obj/effect/floor_decal/industrial/warning/dust,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
 /area/outpost/mining_main/eva)
-"aQl" = (
-/obj/structure/table/rack,
-/obj/item/device/camera_film,
-/obj/item/device/camera,
-/turf/simulated/floor/wood,
-/area/journalistoffice)
 "aQm" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
 /area/outpost/mining_main/eva)
-"aQn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 6
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/wood,
-/area/journalistoffice)
-"aQo" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/wood,
-/area/journalistoffice)
-"aQp" = (
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
-	},
-/turf/simulated/floor/wood,
-/area/journalistoffice)
-"aQq" = (
-/obj/item/toy/figure/librarian{
-	desc = "A \"Space Life\" brand Librarian action figure. The word 'librarian' on the tag is scratched out with marker, and 'journalist' is written in its place.";
-	name = "Journalist action figure"
-	},
-/obj/structure/flora/pottedplant/random,
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 25;
-	pixel_y = 0
-	},
-/turf/simulated/floor/wood,
-/area/journalistoffice)
 "aQr" = (
 /obj/item/device/t_scanner,
 /obj/structure/table/steel,
@@ -24416,19 +24677,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
-"aRO" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "journalist"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "journalist"
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/journalistoffice)
 "aRP" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -24438,29 +24686,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/outpost/mining_main/eva)
-"aRQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/wood,
-/area/journalistoffice)
-"aRR" = (
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/wood,
-/area/journalistoffice)
-"aRS" = (
-/turf/simulated/floor/wood,
-/area/journalistoffice)
-"aRT" = (
-/obj/machinery/light_switch{
-	pixel_x = 24
-	},
-/turf/simulated/floor/wood,
-/area/journalistoffice)
 "aRU" = (
 /obj/structure/closet,
 /obj/item/clothing/head/ushanka,
@@ -25351,37 +25576,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/outpost/mining_main/eva)
-"aTx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/table/wood,
-/obj/item/weapon/clipboard,
-/turf/simulated/floor/carpet,
-/area/journalistoffice)
-"aTy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/wood,
-/area/journalistoffice)
-"aTz" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/wood,
-/area/journalistoffice)
-"aTA" = (
-/obj/structure/closet,
-/turf/simulated/floor/wood,
-/area/journalistoffice)
 "aTB" = (
 /obj/structure/table/rack{
 	dir = 1
@@ -26092,47 +26286,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
-"aUG" = (
-/turf/simulated/floor/carpet,
-/area/journalistoffice)
-"aUH" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/bed/chair/office/dark{
-	dir = 1
-	},
-/obj/effect/landmark/start{
-	name = "Journalist"
-	},
-/turf/simulated/floor/carpet,
-/area/journalistoffice)
-"aUI" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/obj/structure/table/wood,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/packageWrap,
-/turf/simulated/floor/carpet,
-/area/journalistoffice)
-"aUJ" = (
-/obj/structure/table/rack,
-/obj/item/weapon/storage/photo_album,
-/obj/item/device/taperecorder,
-/turf/simulated/floor/wood,
-/area/journalistoffice)
-"aUK" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/obj/structure/filingcabinet/filingcabinet,
-/turf/simulated/floor/wood,
-/area/journalistoffice)
 "aUL" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -26782,25 +26935,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
-"aWh" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/blast/shutters{
-	dir = 8;
-	id = "storefront";
-	layer = 3.3;
-	name = "Storefront Shutters"
-	},
-/turf/simulated/floor/plating,
-/area/store)
 "aWi" = (
 /obj/structure/track{
 	icon_state = "track13"
@@ -26813,56 +26947,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/outpost/mining_main/eva)
-"aWj" = (
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 2
-	},
-/obj/structure/noticeboard{
-	desc = "A board for uncovering hidden conspiracies.";
-	name = "corkboard";
-	pixel_y = -32
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/carpet,
-/area/journalistoffice)
-"aWk" = (
-/obj/machinery/power/apc{
-	dir = 2;
-	name = "south bump";
-	pixel_y = -24
-	},
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/carpet,
-/area/journalistoffice)
-"aWl" = (
-/obj/machinery/button/windowtint{
-	dir = 2;
-	id = "journalist";
-	pixel_x = 0;
-	pixel_y = -24
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/carpet,
-/area/journalistoffice)
-"aWm" = (
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Starboard Corridor - Store";
-	dir = 1
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/wood,
-/area/journalistoffice)
 "aWn" = (
 /obj/structure/sign/drop,
 /turf/simulated/wall,
@@ -27833,13 +27917,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
-"aXC" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/maintenance{
-	req_access = list(57)
-	},
-/turf/simulated/floor/plating,
-/area/journalistoffice)
 "aXD" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
@@ -32611,6 +32688,7 @@
 	},
 /obj/item/weapon/circuitboard/clonescanner,
 /obj/item/weapon/circuitboard/clonepod,
+/obj/item/weapon/circuitboard/scan_consolenew,
 /obj/item/weapon/circuitboard/med_data{
 	pixel_x = 3;
 	pixel_y = -3
@@ -60621,29 +60699,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
-"cgO" = (
-/obj/structure/flora/pottedplant/random,
-/obj/item/toy/nanotrasenballoon{
-	anchored = 1;
-	desc = "Across the balloon the following is printed: \"Man, I love NanoTrasen soooo much. I use only NT products. You have NO idea.\" It appears to be stuck, somehow. It's probably not watching you."
-	},
-/turf/simulated/floor/wood,
-/area/journalistoffice)
-"cgR" = (
-/obj/structure/table/wood,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
-/obj/item/weapon/pen/blue,
-/obj/item/weapon/pen/red,
-/turf/simulated/floor/carpet,
-/area/journalistoffice)
-"cgS" = (
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
-	},
-/turf/simulated/floor/wood,
-/area/journalistoffice)
 "cgT" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
@@ -60652,29 +60707,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
-"cgU" = (
-/obj/machinery/requests_console{
-	department = "Journalist's Office";
-	dir = 8;
-	pixel_x = -32;
-	pixel_y = 0
-	},
-/obj/machinery/newscaster{
-	pixel_y = -32
-	},
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
-/obj/machinery/disposal,
-/turf/simulated/floor/carpet,
-/area/journalistoffice)
-"cgV" = (
-/obj/item/device/radio/intercom{
-	pixel_y = -27
-	},
-/obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/wood,
-/area/journalistoffice)
 "cgW" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -63651,13 +63683,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/main)
-"crf" = (
-/obj/structure/toilet,
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/freezer,
-/area/security/main)
 "crg" = (
 /obj/structure/toilet,
 /obj/machinery/light/small{
@@ -63892,18 +63917,6 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/security/main)
-"crC" = (
-/obj/machinery/shower{
-	dir = 8;
-	icon_state = "shower";
-	pixel_x = 0;
-	pixel_y = 0
-	},
-/obj/machinery/door/window/westleft,
-/obj/structure/curtain/open/shower,
-/obj/item/weapon/soap,
-/turf/simulated/floor/tiled/freezer,
-/area/security/main)
 "crD" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -64067,22 +64080,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/main)
-"crQ" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor,
-/area/security/security_office)
 "crR" = (
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/blue{
@@ -64108,9 +64105,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled,
-/area/security/security_office)
-"crU" = (
 /turf/simulated/floor/tiled,
 /area/security/security_office)
 "crV" = (
@@ -64243,31 +64237,12 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/security/security_office)
-"csi" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor,
-/area/security/security_office)
 "csj" = (
 /obj/structure/coatrack,
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
-/area/security/security_office)
-"csk" = (
 /turf/simulated/floor/tiled,
 /area/security/security_office)
 "csl" = (
@@ -64307,12 +64282,6 @@
 /obj/item/weapon/paper_bin,
 /turf/simulated/floor/tiled/dark,
 /area/security/security_office)
-"csp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
-/area/security/security_office)
 "csq" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -64324,20 +64293,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/security_office)
-"csr" = (
-/turf/simulated/wall,
-/area/security/security_office)
-"css" = (
-/turf/simulated/wall,
-/area/security/security_office)
 "cst" = (
 /obj/structure/bed/chair,
 /obj/item/device/radio/intercom{
 	pixel_x = -28
 	},
-/turf/simulated/floor/tiled,
-/area/security/security_office)
-"csu" = (
 /turf/simulated/floor/tiled,
 /area/security/security_office)
 "csv" = (
@@ -64386,23 +64346,11 @@
 /obj/item/weapon/paper_bin,
 /turf/simulated/floor/tiled/dark,
 /area/security/security_office)
-"csz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
-/area/security/security_office)
 "csA" = (
 /obj/structure/noticeboard{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
-/area/security/security_office)
-"csB" = (
-/turf/simulated/wall,
-/area/security/security_office)
-"csC" = (
-/turf/simulated/wall,
 /area/security/security_office)
 "csD" = (
 /obj/structure/table/standard,
@@ -64410,9 +64358,6 @@
 /obj/machinery/newscaster{
 	pixel_x = -28
 	},
-/turf/simulated/floor/tiled,
-/area/security/security_office)
-"csE" = (
 /turf/simulated/floor/tiled,
 /area/security/security_office)
 "csF" = (
@@ -64496,9 +64441,6 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
-/area/security/security_office)
-"csM" = (
-/turf/simulated/wall,
 /area/security/security_office)
 "csN" = (
 /obj/machinery/vending/coffee,
@@ -64617,12 +64559,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
-"csX" = (
-/turf/simulated/wall,
-/area/security/security_office)
-"csY" = (
-/turf/simulated/wall,
-/area/security/security_office)
 "csZ" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -64645,28 +64581,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/security/security_office)
-"ctb" = (
-/turf/simulated/wall,
-/area/security/security_office)
-"ctc" = (
-/turf/simulated/wall,
-/area/security/security_office)
-"ctd" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor,
 /area/security/security_office)
 "cte" = (
 /obj/machinery/door/airlock/glass_security{
@@ -96508,13 +96422,13 @@ aja
 aja
 aja
 aja
-crQ
+ctf
 crZ
-crQ
-csr
-csr
-csr
-csr
+ctf
+ctg
+ctg
+ctg
+ctg
 asw
 auk
 avI
@@ -96771,7 +96685,7 @@ csj
 cst
 csD
 csN
-csr
+ctg
 asx
 auk
 avJ
@@ -97024,10 +96938,10 @@ cmy
 crO
 crS
 csb
-crU
-crU
-crU
-crU
+csO
+csO
+csO
+csO
 csZ
 asy
 aul
@@ -97536,13 +97450,13 @@ crF
 cmA
 cmA
 cmH
-crU
+csO
 csd
 csm
 csw
 csG
 csQ
-csr
+ctg
 asA
 aum
 avK
@@ -97799,7 +97713,7 @@ csn
 csx
 csH
 csR
-csr
+ctg
 asB
 aun
 avM
@@ -98042,7 +97956,7 @@ aaV
 adW
 aeC
 aja
-crf
+crg
 crl
 crs
 crA
@@ -98056,7 +97970,7 @@ cso
 csy
 csI
 csS
-crQ
+ctf
 asC
 auo
 avN
@@ -98309,9 +98223,9 @@ cmC
 cmI
 crX
 csg
-csp
-csp
-csp
+csJ
+csJ
+csJ
 csT
 cte
 cnQ
@@ -98556,12 +98470,12 @@ aaV
 adY
 clC
 aja
-crf
+crg
 crm
 cru
-crC
+crN
 cmD
-crC
+crN
 cmD
 aja
 crY
@@ -98570,7 +98484,7 @@ csq
 csA
 csK
 csU
-crQ
+ctf
 asE
 aup
 avK
@@ -98823,11 +98737,11 @@ afe
 afe
 afe
 afe
-csr
-csr
+ctg
+ctg
 csL
 csV
-csr
+ctg
 asF
 aun
 avM
@@ -102182,13 +102096,13 @@ asL
 axP
 aLc
 axP
-aOF
-aQj
-aRO
-aRO
+aet
+afz
+afT
+afT
 ctq
-aOF
-aOF
+aet
+aet
 aYW
 bah
 bbv
@@ -102439,13 +102353,13 @@ asL
 aJs
 aLc
 aMV
-aOF
-cgO
-cgS
+aet
+afA
+afU
 cto
 ctr
-cgU
-aOF
+aii
+aet
 aYX
 bah
 bbw
@@ -102696,13 +102610,13 @@ asL
 axP
 aLd
 aMW
-aOF
-aQl
+aet
+afB
 ctm
 ctp
-aUG
-aWj
-aOF
+aht
+aij
+aet
 aYY
 bah
 bbx
@@ -102953,13 +102867,13 @@ asL
 aJt
 aLe
 aMX
-aOG
-aUJ
+aeD
+afO
 ctn
-cgR
-aUH
-aWk
-aOF
+ags
+ahu
+aik
+aet
 aYY
 bah
 bby
@@ -103210,13 +103124,13 @@ aHS
 axP
 aLc
 aMY
-aOH
-aQn
-aRQ
-aTx
-aUI
-aWl
-aOF
+aeG
+afP
+afV
+agt
+ahv
+aiZ
+aet
 aYY
 bah
 bbz
@@ -103467,13 +103381,13 @@ aHT
 awb
 aLf
 aMZ
-aOI
-aQo
-aRR
-aTy
-aRR
-aWm
-aOF
+afd
+afQ
+afW
+agu
+afW
+ajb
+aet
 aYZ
 bah
 bbA
@@ -103724,13 +103638,13 @@ aHS
 axP
 aLg
 aNa
-aOJ
-aQp
-aRS
-aTz
-aRS
-aRS
-aXC
+afy
+afR
+agq
+agQ
+agq
+agq
+ajJ
 aYY
 bah
 bbB
@@ -103982,12 +103896,12 @@ aJu
 aLg
 aNa
 ctl
-aQq
-aRT
-aTA
-aUK
-cgV
-aOF
+afS
+agr
+agR
+ahw
+ajI
+aet
 aZa
 bah
 bbC
@@ -104238,13 +104152,13 @@ aGb
 awc
 aLh
 aNb
-aOF
-aOF
-aOF
-aOF
-aOF
-aOF
-aOF
+aet
+aet
+aet
+aet
+aet
+aet
+aet
 aZb
 bah
 bbD

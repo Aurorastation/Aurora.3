@@ -33,7 +33,7 @@
 		return null
 
 	var/atom/T = null
-	var/lowest_health = 100
+	var/lowest_health = INFINITY // Max you can get
 	stop_automated_movement = 0
 
 	for(var/atom/A in targets)
@@ -192,6 +192,8 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		if(HOSTILE_STANCE_IDLE)
 			targets = ListTargets(10)
 			target_mob = FindTarget()
+			if(destroy_surroundings && isnull(target_mob))
+				DestroySurroundings()
 
 		if(HOSTILE_STANCE_ATTACK)
 			if(destroy_surroundings)
