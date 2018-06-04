@@ -21516,13 +21516,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/button/remote/blast_door{
-	id = "merch_shop";
-	name = "Store Shutters";
-	pixel_x = 0;
-	pixel_y = -28;
-	req_access = list(57)
-	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
@@ -22403,58 +22396,66 @@
 /area/hallway/primary/starboard)
 "aOF" = (
 /turf/simulated/wall,
-/area/store)
+/area/journalistoffice)
 "aOG" = (
 /obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "journalist"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "journalist"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "journalist"
+	},
 /obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /turf/simulated/floor/plating,
-/area/store)
+/area/journalistoffice)
 "aOH" = (
 /obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "journalist"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "journalist"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "journalist"
+	},
 /obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /turf/simulated/floor/plating,
-/area/store)
+/area/journalistoffice)
 "aOI" = (
-/obj/machinery/door/blast/shutters{
-	id = "merch_shop";
-	name = "Merchandise Store"
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/machinery/door/airlock{
+	name = "Journalist's Office";
+	req_access = list(111)
 	},
 /turf/simulated/floor/tiled,
-/area/store)
+/area/journalistoffice)
 "aOJ" = (
-/obj/machinery/door/blast/shutters{
-	id = "merch_shop";
-	name = "Merchandise Store"
-	},
 /obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
-/area/store)
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "journalist"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "journalist"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "journalist"
+	},
+/obj/structure/grille,
+/turf/simulated/floor,
+/area/journalistoffice)
 "aOK" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12)
@@ -23330,25 +23331,21 @@
 /area/security/brig)
 "aQj" = (
 /obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/blast/shutters{
+/obj/structure/window/reinforced/polarized{
 	dir = 8;
-	id = "storefront";
-	layer = 3.3;
-	name = "Storefront Shutters"
+	id = "journalist"
 	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "journalist"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "journalist"
+	},
+/obj/structure/grille,
 /turf/simulated/floor/plating,
-/area/store)
+/area/journalistoffice)
 "aQk" = (
 /obj/effect/floor_decal/industrial/warning/dust,
 /turf/simulated/floor/airless{
@@ -23356,15 +23353,11 @@
 	},
 /area/outpost/mining_main/eva)
 "aQl" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/store)
+/obj/structure/table/rack,
+/obj/item/device/camera_film,
+/obj/item/device/camera,
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "aQm" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner,
 /turf/simulated/floor/airless{
@@ -23372,11 +23365,6 @@
 	},
 /area/outpost/mining_main/eva)
 "aQn" = (
-/obj/machinery/door/window/northleft{
-	dir = 4;
-	name = "Store Access";
-	req_access = null
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
@@ -23384,21 +23372,14 @@
 	icon_state = "intact-supply";
 	dir = 6
 	},
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/turf/simulated/floor/tiled,
-/area/store)
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "aQo" = (
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 10
-	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -23412,27 +23393,28 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/tiled,
-/area/store)
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "aQp" = (
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 10
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
 	},
-/turf/simulated/floor/tiled,
-/area/store)
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "aQq" = (
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 10
+/obj/item/toy/figure/librarian{
+	desc = "A \"Space Life\" brand Librarian action figure. The word 'librarian' on the tag is scratched out with marker, and 'journalist' is written in its place.";
+	name = "Journalist action figure"
 	},
-/obj/structure/noticeboard{
-	pixel_x = 32;
+/obj/structure/flora/pottedplant/random,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 25;
 	pixel_y = 0
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/store)
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "aQr" = (
 /obj/item/device/t_scanner,
 /obj/structure/table/steel,
@@ -24460,22 +24442,17 @@
 /area/hallway/primary/starboard)
 "aRO" = (
 /obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/machinery/door/blast/shutters{
+/obj/structure/window/reinforced/polarized{
 	dir = 8;
-	id = "storefront";
-	layer = 3.3;
-	name = "Storefront Shutters"
+	id = "journalist"
 	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "journalist"
+	},
+/obj/structure/grille,
 /turf/simulated/floor/plating,
-/area/store)
+/area/journalistoffice)
 "aRP" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -24486,9 +24463,6 @@
 	},
 /area/outpost/mining_main/eva)
 "aRQ" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -24496,56 +24470,21 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled,
-/area/store)
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "aRR" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/store)
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "aRS" = (
-/obj/structure/table/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/hand_labeler,
-/turf/simulated/floor/tiled,
-/area/store)
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "aRT" = (
-/obj/structure/table/reinforced,
-/obj/machinery/door/window/northleft{
-	name = "Store Desk";
-	req_access = null
+/obj/machinery/light_switch{
+	pixel_x = 24
 	},
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/item/weapon/folder/yellow,
-/obj/item/device/eftpos{
-	eftpos_name = "Store EFTPOS scanner"
-	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
-	},
-/turf/simulated/floor/tiled,
-/area/store)
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "aRU" = (
 /obj/structure/closet,
 /obj/item/clothing/head/ushanka,
@@ -25446,30 +25385,27 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/tiled,
-/area/store)
+/obj/structure/table/wood,
+/obj/item/weapon/clipboard,
+/turf/simulated/floor/carpet,
+/area/journalistoffice)
 "aTy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
-/area/store)
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "aTz" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
-/area/store)
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "aTA" = (
-/obj/structure/bed/chair/office/light{
-	dir = 1
-	},
-/obj/machinery/requests_console{
-	department = "Store";
-	pixel_x = 32
-	},
-/turf/simulated/floor/tiled,
-/area/store)
+/obj/structure/closet,
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "aTB" = (
 /obj/structure/table/rack{
 	dir = 1
@@ -26181,42 +26117,46 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aUG" = (
-/obj/machinery/door/window/northleft{
-	dir = 4;
-	icon_state = "left";
-	name = "Storefront Access"
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/store)
+/turf/simulated/floor/carpet,
+/area/journalistoffice)
 "aUH" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled,
-/area/store)
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Journalist"
+	},
+/turf/simulated/floor/carpet,
+/area/journalistoffice)
 "aUI" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
-/area/store)
+/obj/structure/table/wood,
+/obj/item/weapon/packageWrap,
+/obj/item/weapon/packageWrap,
+/obj/item/weapon/packageWrap,
+/turf/simulated/floor/carpet,
+/area/journalistoffice)
 "aUJ" = (
-/turf/simulated/floor/tiled,
-/area/store)
+/obj/structure/table/rack,
+/obj/item/weapon/storage/photo_album,
+/obj/item/device/taperecorder,
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "aUK" = (
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 25;
-	pixel_y = 0
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
-/area/store)
+/obj/structure/filingcabinet/filingcabinet,
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "aUL" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -26898,48 +26838,55 @@
 	},
 /area/outpost/mining_main/eva)
 "aWj" = (
-/obj/structure/window/reinforced{
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 2
+	},
+/obj/structure/noticeboard{
+	desc = "A board for uncovering hidden conspiracies.";
+	name = "corkboard";
+	pixel_y = -32
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -25
-	},
-/turf/simulated/floor/tiled/dark,
-/area/store)
+/turf/simulated/floor/carpet,
+/area/journalistoffice)
 "aWk" = (
-/obj/structure/closet,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/power/apc{
 	dir = 2;
 	name = "south bump";
 	pixel_y = -24
 	},
 /obj/structure/cable,
-/turf/simulated/floor/tiled,
-/area/store)
-"aWl" = (
-/obj/structure/closet/crate,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/firealarm/south,
-/turf/simulated/floor/tiled,
-/area/store)
-"aWm" = (
-/obj/structure/closet/crate,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/newscaster{
-	pixel_y = -32
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
+/turf/simulated/floor/carpet,
+/area/journalistoffice)
+"aWl" = (
+/obj/machinery/button/windowtint{
+	dir = 2;
+	id = "journalist";
+	pixel_x = 0;
+	pixel_y = -24
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/carpet,
+/area/journalistoffice)
+"aWm" = (
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Starboard Corridor - Store";
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
-/area/store)
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "aWn" = (
 /obj/structure/sign/drop,
 /turf/simulated/wall,
@@ -27916,7 +27863,7 @@
 	req_access = list(57)
 	},
 /turf/simulated/floor/plating,
-/area/store)
+/area/journalistoffice)
 "aXD" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
@@ -60700,24 +60647,28 @@
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "cgO" = (
-/obj/machinery/light{
-	dir = 1
+/obj/structure/flora/pottedplant/random,
+/obj/item/toy/nanotrasenballoon{
+	anchored = 1;
+	desc = "Across the balloon the following is printed: \"Man, I love NanoTrasen soooo much. I use only NT products. You have NO idea.\" It appears to be stuck, somehow. It's probably not watching you."
 	},
-/obj/structure/table/standard,
-/turf/simulated/floor/tiled/dark,
-/area/store)
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "cgR" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled,
-/area/store)
+/obj/structure/table/wood,
+/obj/item/weapon/paper_bin,
+/obj/item/weapon/pen,
+/obj/item/weapon/pen/blue,
+/obj/item/weapon/pen/red,
+/turf/simulated/floor/carpet,
+/area/journalistoffice)
 "cgS" = (
-/obj/structure/table/standard,
-/turf/simulated/floor/tiled/dark,
-/area/store)
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "cgT" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
@@ -60727,33 +60678,28 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "cgU" = (
-/obj/machinery/light,
-/obj/structure/table/standard,
-/turf/simulated/floor/tiled/dark,
-/area/store)
+/obj/machinery/requests_console{
+	department = "Journalist's Office";
+	dir = 8;
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/obj/machinery/newscaster{
+	pixel_y = -32
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/machinery/disposal,
+/turf/simulated/floor/carpet,
+/area/journalistoffice)
 "cgV" = (
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
-/obj/machinery/button/remote/blast_door{
-	id = "merch_shop";
-	name = "Entrance Shutters";
-	pixel_x = 28;
-	pixel_y = 5;
-	req_access = null
-	},
-/obj/machinery/button/remote/blast_door{
-	id = "storefront";
-	name = "Storefront Shutters";
-	pixel_x = 28;
-	pixel_y = -5;
-	req_access = null
-	},
 /obj/item/device/radio/intercom{
 	pixel_y = -27
 	},
-/obj/structure/table/standard,
-/turf/simulated/floor/tiled,
-/area/store)
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "cgW" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -64821,6 +64767,64 @@
 /obj/machinery/seed_extractor,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
+"ctl" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "journalist"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "journalist"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "journalist"
+	},
+/obj/structure/grille,
+/turf/simulated/floor,
+/area/journalistoffice)
+"ctm" = (
+/turf/simulated/floor/wood,
+/area/journalistoffice)
+"ctn" = (
+/turf/simulated/floor/wood,
+/area/journalistoffice)
+"cto" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/structure/table/wood,
+/obj/item/weapon/folder/white,
+/obj/item/weapon/folder/red,
+/obj/item/weapon/folder/yellow,
+/obj/item/weapon/folder/blue,
+/obj/item/weapon/folder,
+/turf/simulated/floor/carpet,
+/area/journalistoffice)
+"ctp" = (
+/obj/structure/table/wood,
+/obj/item/glass_jar/peter,
+/turf/simulated/floor/carpet,
+/area/journalistoffice)
+"ctq" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "journalist"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "journalist"
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	id = "journalist"
+	},
+/turf/simulated/floor/plating,
+/area/journalistoffice)
+"ctr" = (
+/turf/simulated/floor/carpet,
+/area/journalistoffice)
 
 (1,1,1) = {"
 aaa
@@ -102207,8 +102211,8 @@ aOF
 aQj
 aRO
 aRO
-aRO
-aWh
+ctq
+aOF
 aOF
 aYW
 bah
@@ -102463,8 +102467,8 @@ aMV
 aOF
 cgO
 cgS
-cgS
-cgS
+cto
+ctr
 cgU
 aOF
 aYX
@@ -102719,8 +102723,8 @@ aLd
 aMW
 aOF
 aQl
-aQl
-aQl
+ctm
+ctp
 aUG
 aWj
 aOF
@@ -102976,7 +102980,7 @@ aLe
 aMX
 aOG
 aUJ
-aUJ
+ctn
 cgR
 aUH
 aWk
@@ -103492,7 +103496,7 @@ aOI
 aQo
 aRR
 aTy
-aUJ
+aRR
 aWm
 aOF
 aYZ
@@ -103749,8 +103753,8 @@ aOJ
 aQp
 aRS
 aTz
-aUJ
-aUJ
+aRS
+aRS
 aXC
 aYY
 bah
@@ -104002,7 +104006,7 @@ auy
 aJu
 aLg
 aNa
-aOJ
+ctl
 aQq
 aRT
 aTA

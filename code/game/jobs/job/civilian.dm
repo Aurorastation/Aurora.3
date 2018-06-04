@@ -216,6 +216,28 @@
 		return TRUE
 
 
+/datum/job/journalist
+	title = "Journalist"
+	flag = JOURNALIST
+	department = "Civilian"
+	department_flag = CIVILIAN
+	faction = "Station"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the head of personnel"
+	selection_color = "#ddbbbb"
+	access = list(access_journalist, access_maint_tunnels, access_sec_doors)
+	minimal_access = list(access_journalist, access_maint_tunnels)
+	alt_titles = list("Security Correspondent")
+
+/datum/job/journalist/equip(var/mob/living/carbon/human/H)
+	if(!H)
+		return FALSE
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/red(H), slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/device/pda/librarian(H), slot_belt)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
+	return TRUE
+
 //More or less assistants
 /datum/job/librarian
 	title = "Librarian"
@@ -229,7 +251,6 @@
 	selection_color = "#dddddd"
 	access = list(access_library, access_maint_tunnels)
 	minimal_access = list(access_library)
-	alt_titles = list("Journalist")
 
 
 	equip(var/mob/living/carbon/human/H)
