@@ -57955,7 +57955,7 @@
 /area/quartermaster/office)
 "caM" = (
 /obj/machinery/camera/network/supply{
-	c_tag = "Cargo - Warehouse Entrence";
+	c_tag = "Cargo - Warehouse Entrance";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/brown{
