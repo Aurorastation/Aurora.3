@@ -226,7 +226,7 @@
 	spawn_positions = 1
 	supervisors = "the head of personnel"
 	selection_color = "#ddbbbb"
-	access = list(access_journalist, access_maint_tunnels, access_sec_doors)
+	access = list(access_journalist, access_maint_tunnels)
 	minimal_access = list(access_journalist, access_maint_tunnels)
 	alt_titles = list("Security Correspondent")
 

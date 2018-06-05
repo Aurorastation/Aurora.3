@@ -1511,7 +1511,7 @@
 		if(!istype(viewing_story))
 			return
 		src.admincaster_screen = 20
-		src.viewing_message = viewing_story
+		src.admincaster_viewing_message = viewing_story
 		src.access_news_network()
 		
 	else if(href_list["ac_like"])
@@ -1546,11 +1546,11 @@
 		src.access_news_network()
 	else if(href_list["ac_censorcomment"])
 		var/datum/feed_comment/comment = locate(href_list["ac_comment"])
-			if(!istype(comment))
-				return
-			comment.message = "\[REDACTED\]"
-			src.admincaster_screen = 20
-			src.access_news_network()
+		if(!istype(comment))
+			return
+		comment.message = "\[REDACTED\]"
+		src.admincaster_screen = 20
+		src.access_news_network()
 
 	else if(href_list["populate_inactive_customitems"])
 		if(check_rights(R_ADMIN|R_SERVER))
