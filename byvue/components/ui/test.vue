@@ -1,10 +1,12 @@
 <template>
-    
+    <div>
+         <code>{{ data_raw }}</code> TEST UI IS LOADED
+    </div>
 </template>
 
 <script>
 export default {
-    name: 'bybutton'
+    name: 'ui-test'
 }
 </script>
 

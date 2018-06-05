@@ -95,6 +95,7 @@
 		current.mind = null
 
 		SSnanoui.user_transferred(current, new_character) // transfer active NanoUI instances to new user
+		SSbyvue.user_transferred(current, new_character) 
 		if(current.client && ticket_panels[current.client])
 			var/datum/ticket_panel/tp = ticket_panels[current.client]
 			tp.ticket_panel_window.user = new_character
