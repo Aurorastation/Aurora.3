@@ -13,6 +13,7 @@
 	var/damtype = "brute"
 	var/force = 0
 	var/armor_penetration = 0
+	var/noslice = 0 // To make it not able to slice things.
 
 	var/being_shocked = 0
 

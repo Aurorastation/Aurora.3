@@ -368,30 +368,6 @@
 	if(volume >= 1)
 		T.wet_floor(2)
 
-/datum/reagent/cardox
-	name = "Cardox"
-	id = "cardox"
-	description = "Cardox is an expensive, NanoTrasen designed cleaner intended to eliminate liquid phoron stains from suits."
-	reagent_state = LIQUID
-	color = "#EEEEEE"
-	taste_description = "cherry"
-
-/datum/reagent/toxin/cardox/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	.. ()
-	if(alien == IS_VAURCA)
-		affect_blood(M, alien, removed * 0.25)
-
-/datum/reagent/cardox/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VAURCA)
-		M.adjustToxLoss(removed * 5)
-	else
-		M.adjustToxLoss(removed * 2)
-
-/datum/reagent/cardox/touch_turf(var/turf/T)
-	if(volume >= 1)
-		for(var/mob/living/carbon/slime/M in T)
-			M.adjustToxLoss(rand(10, 20))
-
 /datum/reagent/silicate
 	name = "Silicate"
 	id = "silicate"
@@ -462,7 +438,7 @@
 	L.reveal_blood()
 
 /datum/reagent/estus
-	name = "liquid light"
+	name = "Liquid Light"
 	id = "estus"
 	description = "This impossible substance slowly converts from a liquid into actual light."
 	reagent_state = LIQUID

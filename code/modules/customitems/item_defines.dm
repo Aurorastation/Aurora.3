@@ -25,11 +25,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 			desc = "Inside the pocket watch, there is a collection of numbers, displaying '[worldtime2text()]'. On the inside of the lid, there is another sequence of numbers etched into the lid itself."
 
 
-/obj/item/clothing/head/soft/sec/corp/fluff/mendoza_cap //Mendoza's cap - Chance Mendoza - loow
-	name = "well-worn corporate security cap"
-	desc = "A baseball hat in corporate colors.\"C. Mendoza\" is embroidered in fine print on the bill. On the underside of the cap, in dark ink, the phrase \"Gamble till you're Lucky!\" is written in loopy cursive handwriting."
-
-
 /obj/item/clothing/head/fluff/ziva_bandana //Ziva's Bandana - Ziva Ta'Kim - sierrakomodo
 	name = "old bandana"
 	desc = "An old orange-ish-yellow bandana. It has a few stains from engine grease, and the color has been dulled."
@@ -116,11 +111,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	slot_flags = SLOT_MASK | SLOT_TIE
 
 
-/obj/item/clothing/ears/skrell/purple_skrell_cloth_male/fluff/dompesh_cloth //Skrell Purple Head Cloth - Shkor-Dyet Dom'Pesh - mofo1995
-	name = "male skrell purple head cloth"
-	desc = "A set of purple headcloths fit for a skrell's head tails. This one has a small SAMPLe logo on the interior of each cloth, perfect for scientific skrell."
-
-
 /obj/item/weapon/fluff/kiara_altar //Pocket Altar - Kiara Branwen - nursiekitty
 	name = "pocket altar"
 	desc = "A black tin box with a symbol painted over it. It shimmers in the light."
@@ -156,11 +146,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	allowed = list(/obj/item/weapon/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/weapon/gun/energy,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,
 	/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/flame/lighter,/obj/item/device/taperecorder, /obj/item/clothing/accessory/badge/fluff/bell_badge)
-
-
-/obj/item/clothing/under/syndicate/tacticool/fluff/jaylor_turtleneck //Borderworlds Turtleneck - Jaylor Rameau - evilbrage
-	name = "borderworlds turtleneck"
-	desc = "A loose-fitting turtleneck, common among borderworld pilots and criminals. One criminal in particular is missing his, apparently."
 
 
 /obj/item/weapon/melee/fluff/tina_knife //Consecrated Athame - Tina Kaekel - tainavaa
@@ -396,10 +381,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	usr.update_inv_wear_suit()
 
-/obj/item/clothing/head/beret/centcom/officer/fluff/fabian_beret //Worn Security Beret - Fabian Goellstein - mirkoloio
-	name = "worn security beret"
-	desc = "A NT Asset Protection Force Beret. It has the NT APF insignia on it as well as the Name \"Goellstein\" inside."
-
 
 /obj/item/clothing/head/fluff/vittorio_fez //Black Fez - Vittorio Giurifiglio - tytostyris
 	name = "black fez"
@@ -473,18 +454,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "barcia_flask"
 
 
-/obj/item/clothing/gloves/fluff/stone_ring //Thunder Dome Pendant Ring - Jerimiah Stone - dominicthemafiaso
+/obj/item/clothing/ring/fluff/stone_ring //Thunder Dome Pendant Ring - Jerimiah Stone - dominicthemafiaso
 	name = "thunder dome pendant ring"
 	desc = "It appears to be a Collectors edition Thunder dome Pendant ring from the IGTDL's show rumble in the red planet in 2444. It has a decorative diamond center with a image of the Intergalactic belt in the center."
 	icon = 'icons/obj/custom_items/stone_ring.dmi'
 	icon_state = "stone_ring"
 	item_state = "stone_ring"
 	contained_sprite = TRUE
-	clipped = TRUE
-	species_restricted = null
-	gender = NEUTER
-	body_parts_covered = null
-	fingerprint_chance = 100
 
 
 /obj/item/clothing/under/dress/fluff/sayyidah_dress //Traditional Jumper Dress - Sayyidah Al-Kateb - alberyk
@@ -655,11 +631,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/head/soft/sec/corp/fluff/karson_cap //Karson's Cap - Eric Karson - dronzthewolf
-	name = "well-worn corporate security cap"
-	desc = "A well-worn corporate security cap. The name \"Karson\" is written on the underside of the brim, it is well-worn at the point where it has shaped to the owner's head."
-
-
 /obj/item/sign/fluff/triaka_atimono //Framed Zatimono - Azkuyua Triaka - jackboot
 	name = "framed zatimono"
 	desc = "A framed Zatimono, a Unathi standard worn into battle similar to an old-Earth Sashimono. This one is slightly faded."
@@ -691,16 +662,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "zohjar_uniform"
 	item_state = "zohjar_uniform"
 	contained_sprite = TRUE
-
-/obj/item/clothing/suit/storage/toggle/labcoat/tajaran/fluff/zohjar_jacket //People's Republic Medical Officer Coat - Zohjar Rasateir - lordraven001
-	name = "people's republic medical officer coat"
-	desc = "A sterile insulated coat made of leather stitched over fur. It has two gold lapels indicating Officer rank. \
-	The a white armband with a scarlet line in the center indicates that the person wearing this coat is medically trained."
-
-
-/obj/item/clothing/suit/storage/tajaran/fluff/maksim_coat //Tajaran Naval Officer's Coat - Maksim Vasilyev - aimlessanalyst
-	name = "tajaran naval officer coat"
-	desc = "A thick wool coat from Adhomai, calling back to days long past."
 
 
 /obj/item/sign/fluff/iskanz_atimono //Framed Zatimono - Iskanz Sal'Dans - zundy
@@ -829,11 +790,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A faded badge, backed with leather, that reads \"NT Security Force\" across the front. It bears the emblem of the forensic division."
 	stored_name = "Ana Issek"
 	badge_string = "NanoTrasen Security Department"
-
-
-/obj/item/clothing/head/hairflower/fluff/aquila_pin //Magnetic Flower Pin - Aquila - nandastar
-	name = "magnetic flower pin"
-	desc = "That's a magnet in the shape of a hair flower pin. Smells nice."
 
 
 /obj/item/clothing/head/beret/engineering/fluff/ikrad_beret //LR-31MTA Beret - Ikrad Yam'hir - houseofsynth
@@ -1163,6 +1119,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/mask/fluff/corvo_cigarette/examine(mob/user)
 	if(..(user, 1))
 		user << "It is [active ? "on" : "off"]."
+
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/cognac/fluff/leonce_cognac //Old Earth Luxury Cognac - Francois Leonce - driecg36
 	name = "old earth luxury cognac"
@@ -1937,3 +1894,375 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 	icon_state = "fakhr_hat"
 	item_state = "fakhr_hat"
 	contained_sprite = TRUE
+
+
+/obj/item/fluff/daliyah_visa //NanoTrasen Exchange Visa - Daliyah Veridan - xanderdox
+	name = "NanoTrasen exchange visa"
+	desc = "A work visa authorizing the holder, Daliyah Veridan, to work within the Republic of Biesel. An Eridani and NanoTrasen logo are embossed on the back."
+	icon = 'icons/obj/custom_items/daliyah_visa.dmi'
+	icon_state = "daliyah_visa"
+	w_class = 2
+
+
+/obj/item/weapon/retractor/fluff/tristen_retractor //Laser Retractor - Tristen Wolff - elianabeth
+	name = "laser retractor"
+	desc = "The fabled laser retractor. It's a horrible amalgamation of a laser pointer, a retractor, and lots of tape."
+	icon = 'icons/obj/custom_items/tristen_retractor.dmi'
+	icon_state = "tristen_retractor"
+
+
+/obj/item/fluff/amy_player //Music player - Amy Heris - golle
+	name = "music player"
+	desc = "An olive green HF24 in pristine condition, there is a small engraving on the back, reading \"To Amy, I will always be here for you, Varan.\""
+	icon = 'icons/obj/custom_items/amy_player.dmi'
+	icon_state = "amy_player_off"
+	item_state = "electornic"
+	w_class = 2
+	slot_flags = SLOT_BELT
+	var/broken = FALSE
+	var/open = FALSE
+	var/on = FALSE
+	var/obj/item/clothing/ears/earmuffs/earbuds
+
+/obj/item/fluff/amy_player/Initialize()
+	. = ..()
+	earbuds = new(src)
+
+/obj/item/fluff/amy_player/Destroy()
+	QDEL_NULL(earbuds)
+	return ..()
+
+/obj/item/fluff/amy_player/update_icon()
+	if(broken)
+		icon_state = "amy_player_broken"
+		return
+	if(on)
+		icon_state = "amy_player_on"
+	else
+		icon_state = "amy_player_off"
+
+/obj/item/fluff/amy_player/attack_self(mob/user as mob)
+	if(broken)
+		to_chat(user, "<span class='warning'>The screen flickers and blinks with errors.</span>")
+		return
+
+	if(!on)
+		to_chat(user, "<span class='notice'>You turn on \the [src].</span>")
+		on = TRUE
+
+	else
+		to_chat(user, "<span class='notice'>You turn off \the [src].</span>")
+		on = FALSE
+
+	update_icon()
+
+
+/obj/item/fluff/amy_player/attack_hand(var/mob/user)
+	if(earbuds && src.loc == user)
+		earbuds.forceMove(user.loc)
+		user.put_in_hands(earbuds)
+		earbuds = null
+		update_icon()
+		return
+
+	return ..()
+
+/obj/item/fluff/amy_player/attackby(var/obj/item/I, var/mob/user)
+	if(istype(I, /obj/item/clothing/ears/earmuffs) && !earbuds)
+		user.unEquip(I)
+		I.forceMove(src)
+		earbuds = I
+		to_chat(user, "<span class='notice'>You place \the [I] in \the [src].</span>")
+		return
+
+	if(broken)
+		if(isscrewdriver(I))
+			if(!open)
+				open = TRUE
+				to_chat(user, "<span class='notice'>You unfasten the back panel.</span>")
+
+			else
+				open = FALSE
+				to_chat(user, "<span class='notice'>You secure the back panel.</span>")
+			playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+
+		if(ismultitool(I) && open)
+			to_chat(user, "<span class='notice'>You quickly pulse a few fires, and reset the screen and device.</span>")
+			broken = FALSE
+			update_icon()
+
+/obj/item/fluff/amy_player/emp_act(severity)
+	broken = TRUE
+	on = FALSE
+	update_icon()
+	playsound(src, "spark", 50, 1, -1)
+	..()
+
+
+/obj/item/clothing/head/fluff/jix_wrap //Dull Headwraps - JIX - kyres1
+	name = "dull headwraps"
+	desc = "A sturdy, dull brown cloth."
+	icon = 'icons/obj/custom_items/jix_items.dmi'
+	icon_state = "jix_wrap"
+	item_state = "jix_wrap"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/fluff/jix_robes //Dull Robes - JIX - kyres1
+	name = "dull robes"
+	desc = "A set of drab robes which look particularly old, though in good condition. It consists of two pieces, loosely connected and separating at the center."
+	icon = 'icons/obj/custom_items/jix_items.dmi'
+	icon_state = "jix_robes"
+	item_state = "jix_robes"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/mask/fluff/ird_mask //Titanium Faceplate - IRD - kyres1
+	name = "titanium faceplate"
+	desc = "An odd mask seeming to mimic the face of a Human with some artistic liberties taken. Small lights keep it dimly illuminated from within with holographic projectors emulating two bright blue eyes.  \
+	Its rigid frame is composed of what looks like polished titanium."
+	icon = 'icons/obj/custom_items/ird_face.dmi'
+	icon_state = "ird_mask"
+	item_state = "ird_mask"
+	contained_sprite = TRUE
+	flags_inv = HIDEEARS|HIDEFACE
+	body_parts_covered = FACE
+	w_class = 3.0
+
+
+/obj/item/weapon/dice/fluff/baron_dice //BARON's Dice - BARON - iamcrystalclear
+	weighted = TRUE
+	favored_number = 2
+
+
+/obj/item/weapon/flame/lighter/zippo/fluff/nikit_zippo //Vasili Mine Zippo - Nikit Vasili - simontheminer
+	desc = "An old looking zippo lighter with Vasili Mine Logo engraved on it. \"Good Luck Nikit\" is crudely scratched on under the logo in small writing."
+	icon = 'icons/obj/custom_items/nikit_zippo.dmi'
+	icon_state = "nikit_zippo"
+
+
+/obj/item/clothing/under/dress/fluff/marwani_dress_front //Unathi Purple Dress - Ilaeza Marwani - burgerbb
+	name = "unathi purple dress"
+	desc = "A strange purple dress designed to fit very tall female unathi, suitable for indoor wear in warmer climate. This is the front piece."
+	icon = 'icons/obj/custom_items/marwani_dress.dmi'
+	icon_state = "mar_front_dress"
+	item_state = "mar_front_dress"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/fluff/marwani_dress_back //Unathi Purple Dress - Ilaeza Marwani - burgerbb
+	name = "unathi purple dress"
+	desc = "A strange purple dress designed to fit very tall female unathi, suitable for indoor wear in warmer climate. This is the back piece."
+	icon = 'icons/obj/custom_items/marwani_dress.dmi'
+	icon_state = "mar_back_dress"
+	item_state = "mar_back_dress"
+	contained_sprite = TRUE
+
+/obj/item/clothing/shoes/jackboots/unathi/fluff/marwani_shoes //Unathi Purple Boots - Ilaeza Marwani - burgerbb
+	name = "unathi purple boots"
+	desc = "Giant, closed-toe boots with extra claw space and support, perfect for those with clawed feet."
+	icon = 'icons/obj/custom_items/marwani_dress.dmi'
+	item_state = "mar_boots"
+	icon_state = "mar_boots"
+	contained_sprite = TRUE
+
+/obj/item/clothing/gloves/white/unathi/fluff/marwani_gloves //Unathi Arm Warmers - Ilaeza Marwani - burgerbb
+	name = "unathi arm warmers"
+	desc = "Light, white cotton arm warmers fashionably designed to warm unathi arms."
+	icon = 'icons/obj/custom_items/marwani_dress.dmi'
+	icon_state = "mar_gloves"
+	item_state = "mar_gloves"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/fluff/marwani_armor //Clan Marwani Emblem - Ilaeza Marwani - burgerbb
+	name = "clan marwani armor"
+	desc = "A large, decorative iron and brass alloyed breastplate signifying the industrial strength of Clan Marwani."
+	icon = 'icons/obj/custom_items/marwani_dress.dmi'
+	icon_state = "mar_emblem"
+	item_state = "mar_emblem"
+	contained_sprite = TRUE
+
+
+/obj/item/weapon/deck/tarot/fluff/klavdiya_cards //Adhomian Divination Cards Deck - Klavdiya Tikhomirov - alberyk
+	name = "adhomian divination cards deck"
+	desc = "An adhomian deck of divination cards, used to read the fortunte or play games."
+	icon_state = "deck_adhomai"
+
+/obj/item/weapon/deck/tarot/fluff/klavdiya_cards/generate_deck()
+	var/datum/playingcard/P
+	for(var/name in list("D'as'ral Massacre","Clairvoyant","Suns' Sister","Queen","King","Father of the Parivara","S'rendal'Matir","Tank","Royal Grenadier","Kraszarrumalkarii","Hand of Fate","Great Revolution","Assassin","Assassination","Dymtris Line",
+	"Rrak'narrr","Steeple","Messa","Raskara","S'rendarr","Kazarrhaldiye","Adhomai"))
+		P = new()
+		P.name = "[name]"
+		P.card_icon = "adhomai_major"
+		P.back_icon = "card_back_adhomai"
+		cards += P
+	for(var/suit in list("wands","pentacles","cups","swords"))
+
+
+		for(var/number in list("ace","two","three","four","five","six","seven","eight","nine","ten","serf","soldier","queen","king"))
+			P = new()
+			P.name = "[number] of [suit]"
+			P.card_icon = "adhomai_[suit]"
+			P.back_icon = "card_back_adhomai"
+			cards += P
+
+/obj/item/clothing/accessory/locket/fluff/klavdiya_amulet //Moon Shaped Amulet - Klavdiya Tikhomirov - alberyk
+	name = "moon shaped amulet"
+	desc = "A metalic necklace that bears a silver moon shapped pendant."
+	icon = 'icons/obj/custom_items/klavdiya_amulet.dmi'
+	icon_state = "klavdiya_amulet"
+
+
+/obj/item/clothing/gloves/fluff/lunea_gloves //Spark Gloves - Lunea Discata - tishinastalker
+	name = "spark gloves"
+	desc = "Custom made flame retardant gloves designed after Cpt. Stallion from hit 2451 anime series Truesteel Arcanist: Fellowship. \
+	A lighter assembly is built along the index finger with a tiny plate of steel, and there is a small flint built into the thumb."
+	icon = 'icons/obj/custom_items/lunea_gloves.dmi'
+	icon_state = "lunea_gloves"
+	item_state = "lunea_gloves"
+	contained_sprite = TRUE
+	var/lit = FALSE
+
+/obj/item/clothing/gloves/fluff/lunea_gloves/verb/toggle()
+	set name = "Toggle Spark Gloves"
+	set category = "Object"
+	set src in usr
+
+	if (use_check(usr)) return
+
+	if(!lit)
+		usr.visible_message("<span class='notice'>With a snap of \the [usr]'s fingers, a small lighter flame sparks from \his index fingers!</span>")
+		lit = TRUE
+		playsound(src.loc, 'sound/items/lighter_on.ogg', 75, 1)
+		update_icon()
+		usr.update_inv_gloves()
+		return
+
+	else
+		usr.visible_message("<span class='notice'>With the flick of \the [user] wrists and the pinch of \his fingers, the glove's flames are extinguished.</span>")
+		lit = FALSE
+		playsound(src.loc, 'sound/items/lighter_off.ogg', 75, 1)
+		update_icon()
+		usr.update_inv_gloves()
+		return
+
+/obj/item/clothing/gloves/fluff/lunea_gloves/update_icon()
+	if(lit)
+		icon_state = "[icon_state]_lit"
+		item_state = "[item_state]_lit"
+		set_light(2, 0.25, "#E38F46")
+	else
+		icon_state = initial(icon_state)
+		item_state = initial(item_state)
+		set_light(0)
+
+
+/obj/item/fluff/fernando_knittingneedles //Kitting Needles - Fernando Gonzales - resilynn
+	name = "knitting needles"
+	desc = "Silver knitting needles used for stitching yarn."
+	icon = 'icons/obj/custom_items/fernando_knitting.dmi'
+	icon_state = "knittingneedles"
+	item_state = "knittingneedles"
+	w_class = 2
+	contained_sprite = TRUE
+	var/working = FALSE
+	var/obj/item/fluff/yarn/ball
+
+/obj/item/fluff/fernando_knittingneedles/Destroy()
+	if(ball)
+		QDEL_NULL(ball)
+	return ..()
+
+/obj/item/fluff/fernando_knittingneedles/examine(mob/user)
+	if(..(user, 1))
+		if(ball)
+			to_chat(user, "There is \the [ball] between the needles.")
+
+/obj/item/fluff/fernando_knittingneedles/update_icon()
+	if(working)
+		icon_state = "knittingneedles_on"
+		item_state = "knittingneedles_on"
+	else
+		icon_state = initial(icon_state)
+		item_state = initial(item_state)
+
+	if(ball)
+		add_overlay("[ball.icon_state]")
+	else
+		cut_overlays()
+
+/obj/item/fluff/fernando_knittingneedles/attackby(obj/item/O, mob/user)
+	if(istype(O, /obj/item/fluff/yarn))
+		if(!ball)
+			user.unEquip(O)
+			O.forceMove(src)
+			ball = O
+			to_chat(user, "<span class='notice'>You place \the [O] in \the [src]</span>")
+			update_icon()
+
+/obj/item/fluff/fernando_knittingneedles/attack_self(mob/user as mob)
+	if(!ball) //if there is no yarn ball, nothing happens
+		to_chat(user, "<span class='warning'>You need a yarn ball to stitch.</span>")
+		return
+
+	if(working)
+		to_chat(user, "<span class='warning'>You are already sitching something.</span>")
+		return
+
+	user.visible_message("<span class='notice'>\The [user] is knitting something soft and cozy.</span>")
+	working = TRUE
+	update_icon()
+
+	if(!do_after(user,2 MINUTES))
+		to_chat(user, "<span class='warning'>Your concentration is broken!</span>")
+		working = FALSE
+		update_icon()
+		return
+
+	var/obj/item/clothing/under/sweater/G = new(get_turf(user))
+	G.color = ball.color
+	qdel(ball)
+	ball = null
+	working = FALSE
+	update_icon()
+	to_chat(user, "<span class='warning'>You finished \the [G]!</span>")
+
+/obj/item/fluff/yarn
+	name = "ball of yarn"
+	desc = "A ball of yarn, this one is white."
+	icon = 'icons/obj/custom_items/fernando_knitting.dmi'
+	icon_state = "white_ball"
+	w_class = 1
+
+/obj/item/fluff/yarn/red
+	desc = "A ball of yarn, this one is red."
+	color = "#ff0000"
+
+/obj/item/fluff/yarn/blue
+	desc = "A ball of yarn, this one is blue."
+	color = "#0000FF"
+
+/obj/item/fluff/yarn/green
+	desc = "A ball of yarn, this one is green."
+	color = "#00ff00"
+
+/obj/item/fluff/yarn/purple
+	desc = "A ball of yarn, this one is purple."
+	color = "#800080"
+
+/obj/item/fluff/yarn/yellow
+	desc = "A ball of yarn, this one is yellow."
+	color = "#FFFF00"
+
+/obj/item/weapon/storage/box/fluff/knitting //a bunch of things, so it goes into the box
+	name = "knitting supplies"
+
+/obj/item/weapon/storage/box/fluff/knitting/fill()
+	..()
+	new /obj/item/fluff/fernando_knittingneedles(src)
+	new /obj/item/fluff/yarn(src)
+	new /obj/item/fluff/yarn/red(src)
+	new /obj/item/fluff/yarn/blue(src)
+	new /obj/item/fluff/yarn/green(src)
+	new /obj/item/fluff/yarn/purple(src)
+	new /obj/item/fluff/yarn/yellow(src)

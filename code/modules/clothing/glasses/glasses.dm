@@ -1,12 +1,24 @@
-
+///////////////////////////////////////////////////////////////////////
+//Glasses
+/*
+SEE_SELF  // can see self, no matter what
+SEE_MOBS  // can see all mobs, no matter what
+SEE_OBJS  // can see all objs, no matter what
+SEE_TURFS // can see all turfs (and areas), no matter what
+SEE_PIXELS// if an object is located on an unlit area, but some of its pixels are
+          // in a lit area (via pixel_x,y or smooth movement), can see those pixels
+BLIND     // can't see anything
+*/
 /obj/item/clothing/glasses
 	name = "glasses"
 	icon = 'icons/obj/clothing/glasses.dmi'
-	//w_class = 2.0
-	//slot_flags = SLOT_EYES
-	//var/vision_flags = 0
-	//var/darkness_view = 0//Base human is 2
+	w_class = 2.0
+	slot_flags = SLOT_EYES
+	body_parts_covered = EYES
+	var/vision_flags = 0
+	var/darkness_view = 0//Base human is 2
 	var/prescription = 0
+	var/see_invisible = -1
 	var/toggleable = 0
 	var/off_state = "degoggles"
 	var/active = 1
@@ -14,6 +26,17 @@
 	var/obj/screen/overlay = null
 	var/obj/item/clothing/glasses/hud/hud = null	// Hud glasses, if any
 	var/activated_color = null
+	sprite_sheets = list(
+		"Vox" = 'icons/mob/species/vox/eyes.dmi',
+		"Resomi" = 'icons/mob/species/resomi/eyes.dmi'
+		)
+	species_restricted = list("exclude","Vaurca Breeder")
+
+/obj/item/clothing/glasses/update_clothing_icon()
+	if (ismob(src.loc))
+		var/mob/M = src.loc
+		M.update_inv_glasses()
+
 
 /obj/item/clothing/glasses/attack_self(mob/user)
 	if(toggleable)
@@ -482,3 +505,41 @@
 	..()
 	overlay = global_hud.nvg
 
+//from verkister
+/obj/item/clothing/glasses/spiffygogs
+	name = "Orange Goggles"
+	desc = "You can almost feel the raw power radiating off these strange specs."
+	icon_state = "spiffygogs"
+	item_state = "spiffygogs"
+	action_button_name = "Adjust Goggles"
+	var/up = 0
+	item_flags = AIRTIGHT
+
+/obj/item/clothing/glasses/spiffygogs/attack_self()
+	toggle()
+
+
+/obj/item/clothing/glasses/spiffygogs/verb/toggle()
+	set category = "Object"
+	set name = "Adjust Goggles"
+	set src in usr
+
+	if(usr.canmove && !usr.stat && !usr.restrained())
+		if(src.up)
+			src.up = !src.up
+			flags_inv |= HIDEEYES
+			body_parts_covered |= EYES
+			icon_state = initial(icon_state)
+			item_state = initial(item_state)
+			item_flags |= AIRTIGHT
+			usr << "You flip \the [src] down over your eyes."
+		else
+			src.up = !src.up
+			flags_inv &= ~HIDEEYES
+			body_parts_covered &= ~EYES
+			icon_state = "[initial(icon_state)]up"
+			item_state = "[initial(item_state)]up"
+			item_flags &= ~AIRTIGHT
+			usr << "You push \the [src] up off your eyes."
+		update_clothing_icon()
+		usr.update_action_buttons()

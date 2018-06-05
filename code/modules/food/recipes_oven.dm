@@ -384,9 +384,16 @@
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/vegetablepizza
 
-
-
-
+/datum/recipe/pineapplepizza
+	appliance = OVEN
+	fruit = list("tomato" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/weapon/reagent_containers/food/snacks/pineapple_ring,
+		/obj/item/weapon/reagent_containers/food/snacks/pineapple_ring
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/pineapple
 
 //Spicy
 //================
@@ -473,10 +480,7 @@
 /datum/recipe/pancakes
 	appliance = OVEN
 	fruit = list("blueberries" = 2)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough,
-		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough
-	)
+	reagents = list("milk" = 5, "flour" = 15, "egg" = 9, "coco" = 4, "sugar" = 5)
 	result = /obj/item/weapon/reagent_containers/food/snacks/pancakes
 
 /datum/recipe/lasagna
@@ -521,3 +525,36 @@
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/bacon/oven
 	result_quantity = 6
+
+/datum/recipe/meat_pocket
+	appliance = OVEN
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/weapon/reagent_containers/food/snacks/meatball,
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/meat_pocket
+	result_quantity = 2
+
+/datum/recipe/bacon_flatbread
+	appliance = OVEN
+	fruit = list("tomato" = 2)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/weapon/reagent_containers/food/snacks/bacon,
+		/obj/item/weapon/reagent_containers/food/snacks/bacon,
+		/obj/item/weapon/reagent_containers/food/snacks/bacon,
+		/obj/item/weapon/reagent_containers/food/snacks/bacon
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/bacon_flatbread
+
+/datum/recipe/truffle
+	appliance = OVEN
+	reagents = list("sugar" = 5, "cream" = 5)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/chocolatebar
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/weapon/reagent_containers/food/snacks/truffle
+	result_quantity = 4

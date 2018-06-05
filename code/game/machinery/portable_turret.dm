@@ -231,6 +231,7 @@
 			enabled = value
 		else if(href_list["command"] == "lethal")
 			lethal = value
+			lethal_icon = value
 		else if(href_list["command"] == "check_synth")
 			check_synth = value
 		else if(href_list["command"] == "check_weapons")

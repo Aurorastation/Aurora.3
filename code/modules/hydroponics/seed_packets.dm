@@ -165,6 +165,9 @@ var/global/list/plant_seed_sprites = list()
 /obj/item/seeds/amanitamycelium
 	seed_type = "amanita"
 
+/obj/item/seeds/panocelium
+	seed_type = "panocelium"
+
 /obj/item/seeds/angelmycelium
 	seed_type = "destroyingangel"
 
