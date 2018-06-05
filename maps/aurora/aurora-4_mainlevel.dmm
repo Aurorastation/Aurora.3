@@ -28626,6 +28626,10 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
 	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Starboard Corridor - Medbay Entrance";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aYW" = (
@@ -41361,7 +41365,7 @@
 /area/holodeck/alphadeck)
 "buL" = (
 /obj/machinery/camera/network/civilian_main{
-	c_tag = "Central Corridor - Medical Entrance";
+	c_tag = "Central Corridor - Medical EMT Entrance";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime{
@@ -96517,11 +96521,11 @@ aja
 aja
 crQ
 crZ
-csi
-css
-csC
-csN
-csZ
+crQ
+csr
+csr
+csr
+csr
 asw
 auk
 avI
@@ -96778,7 +96782,7 @@ csj
 cst
 csD
 csO
-cta
+csr
 asx
 auk
 avJ
@@ -97031,10 +97035,10 @@ cmy
 crO
 crS
 csb
-csk
-csu
-csE
-csP
+crU
+crU
+crU
+crU
 ctb
 asy
 aul
@@ -97549,7 +97553,7 @@ csm
 csw
 csG
 csR
-ctd
+csr
 asA
 aum
 avK
@@ -97806,7 +97810,7 @@ csn
 csx
 csH
 csS
-cte
+csr
 asB
 aun
 avM
@@ -98063,7 +98067,7 @@ cso
 csy
 csI
 csT
-ctf
+crQ
 asC
 auo
 avN
@@ -98317,8 +98321,8 @@ cmI
 crX
 csg
 csp
-csz
-csJ
+csp
+csp
 csU
 ctg
 cnQ
@@ -98563,12 +98567,12 @@ aaV
 adY
 clC
 aja
-crg
+crf
 crm
 cru
 crC
 cmD
-crN
+crC
 cmD
 aja
 crY
@@ -98577,7 +98581,7 @@ csq
 csA
 csK
 csV
-cth
+crQ
 asE
 aup
 avK
@@ -98831,10 +98835,10 @@ afe
 afe
 afe
 csr
-csB
+csr
 csL
 csW
-cti
+csr
 asF
 aun
 avM
