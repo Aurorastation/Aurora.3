@@ -8,9 +8,10 @@
 	w_class = 4
 	slot_flags = SLOT_BACK
 
-	var/obj/item/weapon/gun/projectile/automatic/minigun/gun
+	var/obj/item/weapon/gun/projectile/automatic/rifle/minigun/gun
 	var/armed = FALSE
-	var/obj/item/ammo_magazine/ammo_magazine = /obj/item/ammo_magazine/minigun
+	var/obj/item/ammo_magazine/ammo_magazine
+	var/magazine_type =  /obj/item/ammo_magazine/minigun
 
 /obj/item/minigunpack/update_icon()
 	..()
@@ -25,6 +26,8 @@
 	. = ..()
 	gun = make_gun()
 	gun.source = src
+	ammo_magazine = new magazine_type(src)
+	gun.magazine_type = ammo_magazine
 	gun.ammo_magazine = ammo_magazine
 	gun.loc = src
 
@@ -54,6 +57,7 @@
 		if(!gun)
 			gun = make_gun()
 			gun.source = src
+			gun.magazine_type = ammo_magazine
 			gun.ammo_magazine = ammo_magazine
 			gun.loc = src
 
@@ -77,6 +81,7 @@
 	if(!gun)
 		gun = make_gun()
 		gun.source = src
+		gun.magazine_type = ammo_magazine
 		gun.ammo_magazine = ammo_magazine
 		gun.loc = src
 	if(ismob(gun.loc))
@@ -107,11 +112,12 @@
 	item_state = "minigun"
 	contained_sprite = 1
 	caliber = "a762"
+	magazine_type = null
 	fire_sound = 'sound/weapons/gunshot_saw.ogg'
 
 	firemodes = list(
-		list(mode_name="short bursts",	burst=5, move_delay=6, burst_accuracy = list(0,-1,-1,-2,-2),          dispersion = list(3, 6, 9)),
-		list(mode_name="long bursts",	burst=8, move_delay=8, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(8))
+		list(mode_name="short bursts",	burst=6, move_delay=8, burst_accuracy = list(0,-1,-1,-2,-2),          dispersion = list(3, 6, 9)),
+		list(mode_name="long bursts",	burst=12, move_delay=9, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(8))
 		)
 
 
@@ -132,12 +138,14 @@
 
 /obj/item/weapon/gun/projectile/automatic/rifle/minigun/dropped(mob/user)
 	..()
-	to_chat(user, "<span class='notice'>\The [src] snaps back onto the backpack.</span>")
-	source.armed = FALSE
-	forceMove(source)
+	if(source)
+		to_chat(user, "<span class='notice'>\The [src] snaps back onto the backpack.</span>")
+		source.armed = FALSE
+		forceMove(source)
 
 /obj/item/weapon/gun/projectile/automatic/rifle/minigun/Move()
 	..()
-	if(loc != source.loc)
-		forceMove(source.loc)
+	if(source)
+		if(loc != source.loc)
+			forceMove(source.loc)
 
