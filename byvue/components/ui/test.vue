@@ -1,12 +1,14 @@
 <template>
     <div>
-         <code>{{ data_raw }}</code> TEST UI IS LOADED
+         <code>{{ active }}</code> TEST UI IS LOADED
+         <button v-on:click="state.c++"></button>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'ui-test'
+    name: 'ui-test',
+    data () {return this.$root.$data}
 }
 </script>
 

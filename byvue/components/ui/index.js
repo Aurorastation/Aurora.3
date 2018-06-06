@@ -1,4 +1,4 @@
+import Vue from 'vue'
 import test from './test.vue'
-export default {
-    test
-}
+
+Vue.component("ui-test", test)

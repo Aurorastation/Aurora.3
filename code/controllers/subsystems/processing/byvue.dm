@@ -8,9 +8,10 @@ var/datum/controller/subsystem/processing/byvue/SSbyvue
     priority = SS_PRIORITY_NANOUI
     stat_tag = "B"
 
-    var/list/open_uis = list()
+    var/list/open_uis
 
 /datum/controller/subsystem/processing/byvue/New()
+    LAZYINITLIST(open_uis)
     NEW_SS_GLOBAL(SSbyvue)
 
 /datum/controller/subsystem/processing/byvue/proc/get_open_ui(mob/user, src_object)

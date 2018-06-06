@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import bybutton from './bybutton.vue'
 
-export default {bybutton};
+Vue.component("bybutton", bybutton)

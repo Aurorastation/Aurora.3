@@ -12,6 +12,12 @@ var app = new Vue({
     data: Store.state,
     components,
     render (createElement) {
-        return createElement("ui-" + this.$root.$data.active)
+        return createElement('ui-' + this.$root.$data.active)
     }
+})
+
+var dapp = new Vue({
+    el: '#dapp',
+    data: Store.state,
+    template: '<p>{{ JSON.stringify(this.$root.$data) }}</p>'
 })
