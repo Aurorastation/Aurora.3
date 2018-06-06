@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=11">
         <meta charset="UTF-8">
     </head>
     <body>
@@ -8,15 +9,22 @@
 
         </div>
         <div id="dapp"></div>
+        <noscript>
+            <div id='uiNoScript'>
+                <h2>JAVASCRIPT REQUIRED</h2>
+                <p>Your Internet Explorer's Javascript is disabled (or broken).<br/>
+                Enable Javascript and then open this UI again.</p>
+            </div>
+        </noscript>
+        <script type="application/json" id="initialstate">
+            {
+                "assets": [],
+                "state": {
+                    "c": 0
+                },
+                "active": "test"
+            }
+        </script>
+        <script type="text/javascript" src="dist/main.js"></script>
     </body>
-    <script type="application/json" id="initialstate">
-        {
-            "assets": [],
-            "state": {
-                "c": 0
-            },
-            "active": "test"
-        }
-    </script>
-    <script type="text/javascript" src="dist/main.js"></script>
 </html>

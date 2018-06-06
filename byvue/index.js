@@ -7,6 +7,10 @@ var state = JSON.parse(document.getElementById('initialstate').innerHTML)
 
 Store.loadState(state)
 
+global.receveUIState = (jsonState) => {
+
+}
+
 var app = new Vue({
     el: '#app',
     data: Store.state,

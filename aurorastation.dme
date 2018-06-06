@@ -1138,6 +1138,7 @@
 #include "code\modules\awaymissions\zlevel.dm"
 #include "code\modules\blob\blob.dm"
 #include "code\modules\byvue\external.dm"
+#include "code\modules\byvue\test.dm"
 #include "code\modules\byvue\ui.dm"
 #include "code\modules\cargo\randomstock.dm"
 #include "code\modules\cciaa\cciaa.dm"

@@ -24,12 +24,12 @@ main ui datum.
     // currently active ui component
     var/activeui = "test"
 
-/datum/byvueui/New(var/nuser, var/nobject, var/ntitle = 0, var/nwidth = 0, var/nheight = 0, var/atom/nwobject = null)
+/datum/byvueui/New(var/nuser, var/nobject, var/nactiveui = 0, var/nwidth = 0, var/nheight = 0, var/atom/nwobject = null)
     user = nuser
     object = nobject
 
-    if (ntitle)
-        title = sanitize(ntitle)
+    if (nactiveui)
+        activeui = sanitize(nactiveui)
     if (nwidth)
         width = nwidth
     if (nheight)
@@ -42,11 +42,14 @@ main ui datum.
         return
     if(!user.client)
         return
+    
+    if(!state)
+        state = object.byvue_state_change(null, user, src)
 
     var/params = "window=byvue_\ref[src]"
     if(width && height)
         params += "size=[width]x[height];"
-    sendResourcesAndAssets(user.client)
+    send_resources_and_assets(user.client)
     user << browse(generate_html(), params)
     winset(user, "mapwindow.map", "focus=true")
     winset(user, "byvue_\ref[src]", "on-close=\"byvueclose [params]\"")
@@ -62,12 +65,14 @@ main ui datum.
 <!DOCTYPE html>
 <html>
     <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=11">
         <meta charset="UTF-8">
     </head>
     <body>
         <div id="app">
 
         </div>
+        <div id="dapp"></div>
         <noscript>
             <div id='uiNoScript'>
                 <h2>JAVASCRIPT REQUIRED</h2>
@@ -88,11 +93,19 @@ main ui datum.
     data["state"] = state    
     data["assets"] = list()
     data["active"] = activeui
+    data["uiref"] = "\ref[src]"
     for(var/ass in assets)
         data["assets"].add(sanitize("\ref[ass]" + ".png"))
     return json_encode(data)
      
-/datum/byvueui/proc/sendResourcesAndAssets(var/client/cl)
+/datum/byvueui/proc/send_resources_and_assets(var/client/cl)
     cl << browse_rsc(file("byvue/dist/main.js"), "byvue.js")
     for(var/ass in assets)
         cl << browse_rsc(ass, sanitize("\ref[ass]") + ".png")
+
+/datum/byvueui/Topic(href, href_list)
+    object.Topic(href, href_list)
+
+/datum/byvueui/proc/push_change(var/list/nstate)
+    state = nstate
+    user << output(list2params(list(generate_data_json())),"byvue_\ref[src].browser:receveUIState")
