@@ -83,6 +83,15 @@ proc/get_radio_key_from_channel(var/channel)
 		if(!istype(dongle)) return
 		if(dongle.translate_binary) return 1
 
+/mob/living/proc/get_stuttered_message(message)
+	return stutter(message)
+
+/mob/living/carbon/get_stuttered_message(message)
+	if (shock_stage >= 30)
+		return stutter(message)
+	else
+		return NewStutter(message)
+
 /mob/living/proc/get_default_language()
 	return default_language
 
@@ -101,14 +110,7 @@ proc/get_radio_key_from_channel(var/channel)
 		verb = pick("slobbers","slurs")
 		speech_problem_flag = 1
 	if(stuttering)
-		if(iscarbon(src))
-			var/mob/living/carbon/C = src
-			if(C.shock_stage >= 30)
-				message = stutter(message)
-			else
-				message = NewStutter(message)
-		else
-			message = stutter(message)
+		message = get_stuttered_message(message)
 		verb = pick("stammers","stutters")
 		speech_problem_flag = 1
 	if(tarded)
