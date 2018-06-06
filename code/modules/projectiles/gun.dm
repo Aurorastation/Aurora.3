@@ -67,6 +67,8 @@
 
 	var/obj/item/device/firing_pin/pin = /obj/item/device/firing_pin//standard firing pin for most guns.
 
+	var/can_bayonet = FALSE
+	var/obj/item/weapon/material/knife/bayonet/bayonet
 
 	var/next_fire_time = 0
 
@@ -103,6 +105,11 @@
 
 	queue_icon_update()
 
+/obj/item/weapon/gun/update_icon()
+	cut_overlays()
+	if(bayonet)
+		add_overlay("[icon_state]_bayonet")
+	return ..()
 
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
@@ -180,6 +187,8 @@
 		handle_suicide(user)
 	else if(user.a_intent == I_HURT) //point blank shooting
 		Fire(A, user, pointblank=1)
+	else if(bayonet)
+		bayonet.attack(A, user, def_zone)
 	else
 		return ..() //Pistolwhippin'
 
@@ -648,6 +657,8 @@
 obj/item/weapon/gun/Destroy()
 	if (istype(pin))
 		QDEL_NULL(pin)
+	if(bayonet)
+		QDEL_NULL(bayonet)
 	return ..()
 
 
@@ -692,4 +703,15 @@ obj/item/weapon/gun/Destroy()
 				"You hear a metallic crack.")
 				qdel(pin)
 				pin = null
+
+	if(istype(I, /obj/item/weapon/material/knife/bayonet))
+
+		if(!can_bayonet)
+			return ..()
+
+		I.forceMove(src)
+		bayonet = I
+		to_chat(user, "<span class='notice'>You attach \the [I] to the front of \the [src].</span>")
+		update_icon()
+
 	.=..()

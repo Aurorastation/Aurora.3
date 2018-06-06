@@ -82,3 +82,12 @@
 	desc = "A huge thing used for chopping and chopping up meat. This includes clowns and clown-by-products."
 	force_divisor = 0.25 // 15 when wielded with hardness 60 (steel)
 	attack_verb = list("cleaved", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+
+/obj/item/weapon/material/knife/bayonet
+	name = "bayonet"
+	desc = "A sharp military knife, can be attached to a rifle."
+	icon_state = "bayonet"
+	item_state = "knife"
+	applies_material_colour = 0
+	force_divisor = 0.25
+	can_embed = 0

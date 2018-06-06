@@ -13,6 +13,8 @@
 	pump_snd = 'sound/weapons/riflebolt.ogg'
 	has_wield_state = FALSE
 
+	can_bayonet = TRUE
+
 	can_sawoff = TRUE
 	sawnoff_workmsg = "shorten the barrel and stock"
 
@@ -26,6 +28,11 @@
 	item_state = "obrez"
 	slot_flags &= ~SLOT_BACK
 	slot_flags |= (SLOT_BELT|SLOT_HOLSTER)
+	can_bayonet = FALSE
+	if(bayonet)
+		qdel(bayonet)
+		bayonet = null
+		update_icon()
 	name = "obrez"
 	desc = "A shortened bolt action rifle, not really acurate. Uses 7.62mm rounds."
 	to_chat(user, "<span class='warning'>You shorten the barrel and stock of the rifle!</span>")
@@ -39,6 +46,7 @@
 	recoil = 2
 	accuracy = -2
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	can_bayonet = FALSE
 
 /obj/item/weapon/gun/projectile/contender
 	name = "pocket rifle"
@@ -101,6 +109,7 @@
 	handle_casings = HOLD_CASINGS
 	caliber = "vintage"
 	ammo_type = /obj/item/ammo_casing/vintage
+	can_bayonet = TRUE
 	var/open_bolt = 0
 	var/obj/item/ammo_magazine/boltaction/vintage/has_clip
 
