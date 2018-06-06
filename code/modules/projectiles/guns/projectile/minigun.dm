@@ -13,7 +13,7 @@
 	var/obj/item/ammo_magazine/ammo_magazine
 	var/magazine_type =  /obj/item/ammo_magazine/minigun
 
-/obj/item/minigunpack/update_icon()
+/obj/item/minigunpack/update_icon(var/mob/user)
 	..()
 	if(armed)
 		icon_state = "notholstered"
@@ -21,6 +21,7 @@
 	else
 		icon_state = "holstered"
 		item_state = "holstered"
+	user.update_inv_back()
 
 /obj/item/minigunpack/Initialize()
 	. = ..()
@@ -38,39 +39,37 @@
 	toggle_gun()
 
 /obj/item/minigunpack/verb/toggle_gun()
-	set name = "Toggle Gun"
+	set name = "Deploy Minigun"
 	set category = "Object"
 	var/mob/living/carbon/human/user
 	if(istype(usr,/mob/living/carbon/human))
 		user = usr
 	else
 		return
+
 	if(!user)
 		return
+
 	if (user.back!= src)
 		to_chat(user, "<span class='warning'>\The [src] must be worn to deploy \the [gun]!</span>")
 		return
+
 	if(use_check(user))
 		return
-	armed = !armed
-	if(gun)
-		if(!gun)
-			gun = make_gun()
-			gun.source = src
-			gun.magazine_type = ammo_magazine
-			gun.ammo_magazine = ammo_magazine
-			gun.loc = src
 
+	if(!gun)
+		to_chat(user, "<span class='warning'>There is no weapon attached the \the [src]!</span>")
+
+	if(armed)
+		to_chat(user, "<span class='warning'>\The [src] has been already deployed!</span>")
+
+	else
 		if(!user.put_in_hands(gun))
-			armed = FALSE
 			to_chat(user, "<span class='warning'>You need a free hand to hold \the [gun]!</span>")
 			return
-		gun.loc = user
-		update_icon()
-		user.update_inv_back()
-	else
-		remove_gun()
-	return
+
+		armed = TRUE
+		update_icon(user)
 
 /obj/item/minigunpack/equipped(mob/user, slot)
 	..()
@@ -79,21 +78,26 @@
 
 /obj/item/minigunpack/proc/remove_gun()
 	if(!gun)
-		gun = make_gun()
-		gun.source = src
-		gun.magazine_type = ammo_magazine
-		gun.ammo_magazine = ammo_magazine
-		gun.loc = src
+		return
 	if(ismob(gun.loc))
 		var/mob/M = gun.loc
-		M.drop_from_inventory(gun)
-		gun.loc = src
+		if(M.drop_from_inventory(gun, src))
+			update_icon(M)
+	else
+		gun.forceMove(src)
 		update_icon()
+
+	armed = FALSE
+
 	return
 
 /obj/item/minigunpack/Destroy()
-	qdel(gun)
-	gun = null
+	if(gun)
+		qdel(gun)
+		gun = null
+	if(ammo_magazine)
+		qdel(ammo_magazine)
+		ammo_magazine = null
 	return ..()
 
 /obj/item/minigunpack/attackby(obj/item/W, mob/user, params)
@@ -113,7 +117,9 @@
 	contained_sprite = 1
 	caliber = "a762"
 	magazine_type = null
+	max_shells = 1000
 	fire_sound = 'sound/weapons/gunshot_saw.ogg'
+	needspin = FALSE
 
 	firemodes = list(
 		list(mode_name="short bursts",	burst=6, move_delay=8, burst_accuracy = list(0,-1,-1,-2,-2),          dispersion = list(3, 6, 9)),
@@ -122,6 +128,11 @@
 
 
 	var/obj/item/minigunpack/source
+
+/obj/item/weapon/gun/projectile/automatic/rifle/minigun/Initialize()
+	. = ..()
+	if(!source)
+		QDEL_IN(src, 1)
 
 /obj/item/weapon/gun/projectile/automatic/rifle/minigun/special_check(var/mob/user)
 	if(!wielded)
@@ -139,13 +150,10 @@
 /obj/item/weapon/gun/projectile/automatic/rifle/minigun/dropped(mob/user)
 	..()
 	if(source)
-		to_chat(user, "<span class='notice'>\The [src] snaps back onto the backpack.</span>")
-		source.armed = FALSE
-		forceMove(source)
+		to_chat(user, "<span class='notice'>/The [src] snaps back onto \the [source].</span>")
+		addtimer(CALLBACK(source, /obj/item/minigunpack/.proc/remove_gun), 0)
 
 /obj/item/weapon/gun/projectile/automatic/rifle/minigun/Move()
 	..()
-	if(source)
-		if(loc != source.loc)
-			forceMove(source.loc)
-
+	if(loc != source.loc)
+		addtimer(CALLBACK(source, /obj/item/minigunpack/.proc/remove_gun), 0)
