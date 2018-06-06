@@ -6,7 +6,7 @@ var/datum/controller/subsystem/processing/byvue/SSbyvue
     name = "ByVue"
     flags = SS_NO_INIT
     priority = SS_PRIORITY_NANOUI
-    stat_tag = "B"
+    stat_tag = "A"
 
     var/list/open_uis
 
@@ -57,7 +57,7 @@ var/datum/controller/subsystem/processing/byvue/SSbyvue
 
     if (!LAZYLEN(obj_uis))
         open_uis -= src_object_key
-
+    world << "Closed ui \ref[ui]"
     return 1
 
 /datum/controller/subsystem/processing/byvue/proc/user_logout(mob/user)

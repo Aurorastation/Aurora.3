@@ -104,6 +104,14 @@ main ui datum.
         cl << browse_rsc(ass, sanitize("\ref[ass]") + ".png")
 
 /datum/byvueui/Topic(href, href_list)
+    if(href_list["byvuestateupdate"])
+        var/data = json_decode(href_list["byvuestateupdate"])
+        var/nstate = data["state"]
+        var/ret = object.byvue_state_change(nstate, user, src)
+        if(ret)
+            nstate = ret
+            push_change(ret)
+        state = nstate
     object.Topic(href, href_list)
 
 /datum/byvueui/proc/push_change(var/list/nstate)
