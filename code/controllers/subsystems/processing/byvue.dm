@@ -1,4 +1,4 @@
-var/datum/controller/subsystem/processing/byvue/SSbyvue
+var/datum/controller/subsystem/processing/byvue/SSvueui
 
 #define NULL_OR_EQUAL(self,other) (!(self) || (self) == (other))
 
@@ -12,7 +12,7 @@ var/datum/controller/subsystem/processing/byvue/SSbyvue
 
 /datum/controller/subsystem/processing/byvue/New()
     LAZYINITLIST(open_uis)
-    NEW_SS_GLOBAL(SSbyvue)
+    NEW_SS_GLOBAL(SSvueui)
 
 /datum/controller/subsystem/processing/byvue/proc/get_open_ui(mob/user, src_object)
     var/src_object_key = SOFTREF(src_object)
@@ -37,27 +37,26 @@ var/datum/controller/subsystem/processing/byvue/SSbyvue
 /datum/controller/subsystem/processing/byvue/proc/ui_opened(datum/byvueui/ui)
     var/src_object_key = SOFTREF(ui.object)
     LAZYINITLIST(open_uis[src_object_key])
-
+    if(!ui.user.open_byvue_uis)
+        LAZYINITLIST(ui.user.open_byvue_uis)
     LAZYADD(ui.user.open_byvue_uis, ui)
     LAZYADD(open_uis[src_object_key], ui)
-    START_PROCESSING(SSbyvue, ui)
+    START_PROCESSING(SSvueui, ui)
 
 /datum/controller/subsystem/processing/byvue/proc/ui_closed(datum/byvueui/ui)
     var/src_object_key = SOFTREF(ui.object)
-    var/list/obj_uis = open_uis[src_object_key]
 
-    if (!LAZYLEN(obj_uis))
+    if (!LAZYLEN(open_uis[src_object_key]))
         return 0	// Wasn't open.
 
-    STOP_PROCESSING(SSbyvue, ui)
+    STOP_PROCESSING(SSvueui, ui)
     if(ui.user)	// Sanity check in case a user has been deleted (say a blown up borg watching the alarm interface)
         LAZYREMOVE(ui.user.open_byvue_uis, ui)
 
-    obj_uis -= ui
+    open_uis[src_object_key] -= ui
 
-    if (!LAZYLEN(obj_uis))
+    if (!LAZYLEN(open_uis[src_object_key]))
         open_uis -= src_object_key
-    world << "Closed ui \ref[ui]"
     return 1
 
 /datum/controller/subsystem/processing/byvue/proc/user_logout(mob/user)

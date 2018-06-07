@@ -9,16 +9,17 @@
 /datum/byvueuitest
 
 /datum/byvueuitest/proc/open_ui()
-    var/datum/byvueui/ui = SSbyvue.get_open_ui(usr, src)
+    var/datum/byvueui/ui = SSvueui.get_open_ui(usr, src)
     if (!ui)
-        ui = new(usr, src, "test", 200, 200)
+        ui = new(usr, src, "test", 300, 300)
     ui.open()
 
 /datum/byvueuitest/byvue_state_change(var/list/newstate, var/mob/user, var/datum/byvueui/ui)
     if(!newstate)
         // generate new state
         return list("c" = 0)
-    world << newstate
+    if(newstate["c"] >= 10)
+        return list("c" = 0)
     return
 
 

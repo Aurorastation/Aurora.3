@@ -20,4 +20,4 @@
 /datum/proc/byvue_state_change(var/list/newstate, var/mob/user, var/datum/byvueui/ui)
     return
 
-/mob/var/list/open_byvue_uis = list()
+/mob/var/list/open_byvue_uis

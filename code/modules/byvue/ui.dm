@@ -23,6 +23,8 @@ main ui datum.
     var/status = STATUS_INTERACTIVE
     // currently active ui component
     var/activeui = "test"
+    // window id
+    var/windowid
 
 /datum/byvueui/New(var/nuser, var/nobject, var/nactiveui = 0, var/nwidth = 0, var/nheight = 0, var/atom/nwobject = null)
     user = nuser
@@ -37,6 +39,9 @@ main ui datum.
     if (nwobject)
         wobject = nwobject
 
+    SSvueui.ui_opened(src)
+    windowid = sanitize("byvue\ref[src]")
+
 /datum/byvueui/proc/open()
     if(!object)
         return
@@ -46,18 +51,18 @@ main ui datum.
     if(!state)
         state = object.byvue_state_change(null, user, src)
 
-    var/params = "window=byvue_\ref[src]"
+    var/params = "window=[windowid];"
     if(width && height)
         params += "size=[width]x[height];"
     send_resources_and_assets(user.client)
     user << browse(generate_html(), params)
     winset(user, "mapwindow.map", "focus=true")
-    winset(user, "byvue_\ref[src]", "on-close=\"byvueclose [params]\"")
-    SSbyvue.ui_opened(src)
+    spawn(1)
+        winset(user, windowid, "on-close=\"byvueclose \ref[src]\"")
 
 /datum/byvueui/proc/close()
-    SSbyvue.ui_closed(src)
-    user << browse(null, "window=byvue_\ref[src]")
+    SSvueui.ui_closed(src)
+    user << browse(null, "window=[windowid]")
     status = null
     
 /datum/byvueui/proc/generate_html()
@@ -116,4 +121,4 @@ main ui datum.
 
 /datum/byvueui/proc/push_change(var/list/nstate)
     state = nstate
-    user << output(list2params(list(generate_data_json())),"byvue_\ref[src].browser:receveUIState")
+    user << output(list2params(list(generate_data_json())),"[windowid].browser:receveUIState")
