@@ -16,6 +16,7 @@
     "css-loader": "^0.28.11",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.2",
+    "url-loader": "^1.0.1",
     "vue-loader": "^15.2.4",
     "vue-template-compiler": "^2.5.16",
     "webpack": "^4.10.2",

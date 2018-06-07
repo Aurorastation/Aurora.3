@@ -40,7 +40,7 @@ main ui datum.
         wobject = nwobject
 
     SSvueui.ui_opened(src)
-    windowid = sanitize("byvue\ref[src]")
+    windowid = "byvue\ref[src]"
 
 /datum/byvueui/proc/open()
     if(!object)
@@ -73,7 +73,7 @@ main ui datum.
         <meta http-equiv="X-UA-Compatible" content="IE=11">
         <meta charset="UTF-8">
     </head>
-    <body>
+    <body class="theme-nanoui">
         <div id="app">
 
         </div>
@@ -122,3 +122,8 @@ main ui datum.
 /datum/byvueui/proc/push_change(var/list/nstate)
     state = nstate
     user << output(list2params(list(generate_data_json())),"[windowid].browser:receveUIState")
+
+/datum/byvueui/proc/check_for_change()
+    var/ret = object.byvue_state_change(state, user, src)
+    if(ret)
+        push_change(ret)

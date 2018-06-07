@@ -24,4 +24,6 @@
 
 
 /datum/byvueuitest/Topic(href, href_list)
+    if(href_list["action"] == "test")
+        world << "ByVueUi got action Test called with data [href_list["data"]]"
     return
