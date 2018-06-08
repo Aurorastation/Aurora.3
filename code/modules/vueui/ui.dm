@@ -9,26 +9,27 @@ main ui datum.
     var/mob/user
     // object that contains this ui
     var/datum/object
-    // apperant object that contains ui, used for checks
-    var/atom/wobject = null
     // browser window width
     var/width = 100
     // browser window height
     var/height = 100
-    // current state of ui
-    var/list/state
+    // current state of ui data
+    var/list/data
     // currently used server generated assets
     var/list/assets
     // current status of ui
     var/status = STATUS_INTERACTIVE
+    var/datum/topic_state/state = null
     // currently active ui component
     var/activeui = "test"
     // window id
     var/windowid
 
-/datum/vueuiui/New(var/nuser, var/nobject, var/nactiveui = 0, var/nwidth = 0, var/nheight = 0, var/atom/nwobject = null)
+/datum/vueuiui/New(var/nuser, var/nobject, var/nactiveui = 0, var/nwidth = 0, var/nheight = 0, var/list/ndata, var/datum/topic_state/nstate = default_state)
     user = nuser
     object = nobject
+    data = ndata
+    state = nstate
 
     if (nactiveui)
         activeui = sanitize(nactiveui)
@@ -36,8 +37,6 @@ main ui datum.
         width = nwidth
     if (nheight)
         height = nheight
-    if (nwobject)
-        wobject = nwobject
 
     SSvueui.ui_opened(src)
     windowid = "vueui\ref[src]"
@@ -48,8 +47,11 @@ main ui datum.
     if(!user.client)
         return
     
-    if(!state)
-        state = object.vueui_state_change(null, user, src)
+    if(!data)
+        data = object.vueui_data_change(null, user, src)
+    update_status()
+    if(status == STATUS_CLOSE)
+		return
 
     var/params = "window=[windowid];"
     if(width && height)
@@ -95,7 +97,7 @@ main ui datum.
 
 /datum/vueuiui/proc/generate_data_json()
     var/list/data = list()
-    data["state"] = state    
+    data["state"] = data    
     data["assets"] = list()
     data["active"] = activeui
     data["uiref"] = "\ref[src]"
@@ -109,21 +111,63 @@ main ui datum.
         cl << browse_rsc(ass, sanitize("\ref[ass]") + ".png")
 
 /datum/vueuiui/Topic(href, href_list)
+    update_status()
+    if(status < STATUS_INTERACTIVE || user != usr)
+        return
     if(href_list["vueuistateupdate"])
         var/data = json_decode(href_list["vueuistateupdate"])
-        var/nstate = data["state"]
-        var/ret = object.vueui_state_change(nstate, user, src)
+        var/ndata = data["state"]
+        var/ret = object.vueui_data_change(ndata, user, src)
         if(ret)
-            nstate = ret
+            ndata = ret
             push_change(ret)
-        state = nstate
+        data = ndata
     object.Topic(href, href_list)
 
-/datum/vueuiui/proc/push_change(var/list/nstate)
-    state = nstate
+/datum/vueuiui/proc/push_change(var/list/ndata)
+    if(ndata && status > STATUS_DISABLED)
+        data = ndata
     user << output(list2params(list(generate_data_json())),"[windowid].browser:receveUIState")
 
-/datum/vueuiui/proc/check_for_change()
-    var/ret = object.vueui_state_change(state, user, src)
+/datum/vueuiui/proc/check_for_change(var/force = 0)
+    var/ret = object.vueui_data_change(data, user, src)
     if(ret)
         push_change(ret)
+    else if(force)
+        push_change(null)
+
+/**
+  * Set the current status (also known as visibility) of this ui.
+  *
+  * @param state int The status to set, see the defines at the top of this file
+  *
+  * @return nothing
+  */
+/datum/vueuiui/proc/set_status(nstatus)
+        if (nstatus != status) // Only update if it is different
+        status = nstatus
+        if(nstatus > STATUS_DISABLED)
+            check_for_change(1) // Gather data and update it
+        else if (nstatus == STATUS_DISABLED)
+            push_change(null) // Only update ui data
+        else
+            close()
+
+/**
+  * Update the status (visibility) of this ui based on the user's status
+  *
+  * @return nothing
+  */
+/datum/vueuiui/proc/update_status()
+    set_status(object.CanUseTopic(user, state))
+
+/**
+  * Preocess this ui
+  *
+  * @return nothing
+  */
+/datum/vueuiui/process()
+    if (!object || !user || status < 0)
+        close()
+        return
+    update_status()

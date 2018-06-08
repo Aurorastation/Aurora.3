@@ -73,13 +73,13 @@
 	..()
 	implant.icon_state = icon_state
 
-/obj/item/device/electronic_assembly/implant/nano_host()
+/obj/item/device/electronic_assembly/implant/ui_host()
 	return implant
 
-/obj/item/device/electronic_assembly/proc/resolve_nano_host()
+/obj/item/device/electronic_assembly/proc/resolve_ui_host()
 	return src
 
-/obj/item/device/electronic_assembly/implant/resolve_nano_host()
+/obj/item/device/electronic_assembly/implant/resolve_ui_host()
 	return implant
 
 /obj/item/device/electronic_assembly/proc/check_interactivity(mob/user)

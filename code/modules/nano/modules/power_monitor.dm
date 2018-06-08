@@ -48,7 +48,7 @@
 // Refreshes list of active sensors kept on this computer.
 /datum/nano_module/power_monitor/proc/refresh_sensors()
 	grid_sensors = list()
-	var/turf/T = get_turf(nano_host())
+	var/turf/T = get_turf(ui_host())
 	if(!T) // Safety check
 		return
 	for(var/obj/machinery/power/sensor/S in SSpower.all_sensors)

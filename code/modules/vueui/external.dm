@@ -9,15 +9,15 @@
 
 
  /**
-  * Alert UI host of state change made by Ui and gather initial state
+  * Alert UI host of data change made by Ui and gather initial data
   *
-  * @param newstate - a list containing current ui state, null obtaining initial state
+  * @param newdata - a list containing current ui data, null obtaining initial data
   * @param user - mob that has opened ui and get this data shown
   * @param ui - that is alerting of change / requesting initial data
   *
-  * @return list containing changed state, null if state wasn't changed by host
+  * @return list containing changed data, null if data wasn't changed by host
   */
-/datum/proc/vueui_state_change(var/list/newstate, var/mob/user, var/datum/vueuiui/ui)
+/datum/proc/vueui_data_change(var/list/newdata, var/mob/user, var/datum/vueuiui/ui)
     return
 
 /mob/var/list/open_vueui_uis

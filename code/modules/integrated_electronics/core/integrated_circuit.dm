@@ -53,7 +53,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		qdel(A)
 	. = ..()
 
-/obj/item/integrated_circuit/nano_host()
+/obj/item/integrated_circuit/ui_host()
 	if(istype(src.loc, /obj/item/device/electronic_assembly))
 		var/obj/item/device/electronic_assembly/assembly = loc
 		return assembly.resolve_nano_host()

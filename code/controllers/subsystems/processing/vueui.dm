@@ -25,6 +25,15 @@ var/datum/controller/subsystem/processing/vueui/SSvueui
 
     return null
 
+/datum/controller/subsystem/processing/vueui/proc/check_uis_for_change(src_object)
+    var/src_object_key = SOFTREF(src_object)
+    if (!LAZYLEN(open_uis[src_object_key]))
+        return
+
+    var/ret = list()
+    for (var/datum/vueuiui/ui in open_uis[src_object_key])
+        ui.check_for_change()
+
 /datum/controller/subsystem/processing/vueui/proc/close_user_uis(mob/user, src_object)
     if (!LAZYLEN(user.open_vueui_uis))
         return 0

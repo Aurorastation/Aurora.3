@@ -14,11 +14,11 @@
         ui = new(usr, src, "test", 300, 300)
     ui.open()
 
-/datum/vueuiuitest/vueui_state_change(var/list/newstate, var/mob/user, var/datum/vueuiui/ui)
-    if(!newstate)
-        // generate new state
+/datum/vueuiuitest/vueui_data_change(var/list/newdata, var/mob/user, var/datum/vueuiui/ui)
+    if(!newdata)
+        // generate new data
         return list("c" = 0)
-    if(newstate["c"] >= 10)
+    if(newdata["c"] >= 10)
         return list("c" = 0)
     return
 
