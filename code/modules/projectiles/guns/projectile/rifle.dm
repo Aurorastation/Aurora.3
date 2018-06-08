@@ -14,7 +14,8 @@
 	has_wield_state = FALSE
 
 	can_bayonet = TRUE
-
+	knife_x_offset = 27
+	knife_y_offset = 13
 	can_sawoff = TRUE
 	sawnoff_workmsg = "shorten the barrel and stock"
 
@@ -102,6 +103,7 @@
 	name = "\improper vintage bolt action rifle"
 	desc = "An extremely old-looking rifle. Words you can't read are stamped on the gun. Doesn't look like it'll take any modern rounds."
 	icon_state = "springfield"
+	item_state = "moistnugget"
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 3)
 	fire_sound = 'sound/weapons/rifleshot.ogg'
 	slot_flags = SLOT_BACK

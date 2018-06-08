@@ -69,6 +69,8 @@
 
 	var/can_bayonet = FALSE
 	var/obj/item/weapon/material/knife/bayonet/bayonet
+	var/knife_x_offset = 0
+	var/knife_y_offset = 0
 
 	var/next_fire_time = 0
 
@@ -108,7 +110,11 @@
 /obj/item/weapon/gun/update_icon()
 	cut_overlays()
 	if(bayonet)
-		add_overlay("[icon_state]_bayonet")
+		var/image/I
+		I = image('icons/obj/gun.dmi', "bayonet")
+		I.pixel_x = knife_x_offset
+		I.pixel_y = knife_y_offset
+		add_overlay(I)
 	return ..()
 
 //Checks whether a given mob can use the gun
@@ -686,6 +692,21 @@ obj/item/weapon/gun/Destroy()
 	return
 
 /obj/item/weapon/gun/attackby(var/obj/item/I as obj, var/mob/user as mob)
+
+	if(istype(I, /obj/item/weapon/material/knife/bayonet))
+		if(!can_bayonet)
+			return ..()
+
+		if(bayonet)
+			to_chat(user, "<span class='danger'>There is a bayonet attached to \the [src] already.</span>")
+			return
+
+		user.drop_from_inventory(I)
+		bayonet = I
+		I.forceMove(src)
+		to_chat(user, "<span class='notice'>You attach \the [I] to the front of \the [src].</span>")
+		update_icon()
+
 	if(!pin)
 		return ..()
 
@@ -703,15 +724,4 @@ obj/item/weapon/gun/Destroy()
 				"You hear a metallic crack.")
 				qdel(pin)
 				pin = null
-
-	if(istype(I, /obj/item/weapon/material/knife/bayonet))
-
-		if(!can_bayonet)
-			return ..()
-
-		I.forceMove(src)
-		bayonet = I
-		to_chat(user, "<span class='notice'>You attach \the [I] to the front of \the [src].</span>")
-		update_icon()
-
 	.=..()

@@ -86,6 +86,7 @@
 /obj/item/weapon/material/knife/bayonet
 	name = "bayonet"
 	desc = "A sharp military knife, can be attached to a rifle."
+	icon = 'icons/obj/weapons.dmi'
 	icon_state = "bayonet"
 	item_state = "knife"
 	applies_material_colour = 0
