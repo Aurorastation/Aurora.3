@@ -30,7 +30,6 @@ var/datum/controller/subsystem/processing/vueui/SSvueui
     if (!LAZYLEN(open_uis[src_object_key]))
         return
 
-    var/ret = list()
     for (var/datum/vueuiui/ui in open_uis[src_object_key])
         ui.check_for_change()
 

@@ -51,7 +51,7 @@ main ui datum.
         data = object.vueui_data_change(null, user, src)
     update_status()
     if(status == STATUS_CLOSE)
-		return
+        return
 
     var/params = "window=[windowid];"
     if(width && height)
@@ -144,7 +144,7 @@ main ui datum.
   * @return nothing
   */
 /datum/vueuiui/proc/set_status(nstatus)
-        if (nstatus != status) // Only update if it is different
+    if (nstatus != status) // Only update if it is different
         status = nstatus
         if(nstatus > STATUS_DISABLED)
             check_for_change(1) // Gather data and update it
