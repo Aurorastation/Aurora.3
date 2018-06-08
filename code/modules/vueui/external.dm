@@ -1,8 +1,8 @@
-/client/verb/byvueclose(var/uiref as text)
+/client/verb/vueuiclose(var/uiref as text)
     set hidden = 1	// hide this verb from the user's panel
-    set name = "byvueclose"
+    set name = "vueuiclose"
 
-    var/datum/byvueui/ui = locate(uiref)
+    var/datum/vueuiui/ui = locate(uiref)
 
     if (istype(ui))
         ui.close()
@@ -17,7 +17,7 @@
   *
   * @return list containing changed state, null if state wasn't changed by host
   */
-/datum/proc/byvue_state_change(var/list/newstate, var/mob/user, var/datum/byvueui/ui)
+/datum/proc/vueui_state_change(var/list/newstate, var/mob/user, var/datum/vueuiui/ui)
     return
 
-/mob/var/list/open_byvue_uis
+/mob/var/list/open_vueui_uis

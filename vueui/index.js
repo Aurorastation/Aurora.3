@@ -24,7 +24,7 @@ var app = new Vue({
             handler(val) {
                 if (Store.isUpdating) return
                 var r = new XMLHttpRequest()
-                r.open("GET", "?src=" + Store.state.uiref + "&byvuestateupdate=" + encodeURIComponent(JSON.stringify(Store.state)), true);
+                r.open("GET", "?src=" + Store.state.uiref + "&vueuistateupdate=" + encodeURIComponent(JSON.stringify(Store.state)), true);
                 r.send()
             },
             deep: true

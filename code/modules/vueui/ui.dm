@@ -2,7 +2,7 @@
 Byond Vue UI framework
 main ui datum.
 */
-/datum/byvueui
+/datum/vueuiui
     // title of ui window
     var/title = "HTML5 UI"
     // user that opened this ui
@@ -26,7 +26,7 @@ main ui datum.
     // window id
     var/windowid
 
-/datum/byvueui/New(var/nuser, var/nobject, var/nactiveui = 0, var/nwidth = 0, var/nheight = 0, var/atom/nwobject = null)
+/datum/vueuiui/New(var/nuser, var/nobject, var/nactiveui = 0, var/nwidth = 0, var/nheight = 0, var/atom/nwobject = null)
     user = nuser
     object = nobject
 
@@ -40,16 +40,16 @@ main ui datum.
         wobject = nwobject
 
     SSvueui.ui_opened(src)
-    windowid = "byvue\ref[src]"
+    windowid = "vueui\ref[src]"
 
-/datum/byvueui/proc/open()
+/datum/vueuiui/proc/open()
     if(!object)
         return
     if(!user.client)
         return
     
     if(!state)
-        state = object.byvue_state_change(null, user, src)
+        state = object.vueui_state_change(null, user, src)
 
     var/params = "window=[windowid];"
     if(width && height)
@@ -58,14 +58,14 @@ main ui datum.
     user << browse(generate_html(), params)
     winset(user, "mapwindow.map", "focus=true")
     spawn(1)
-        winset(user, windowid, "on-close=\"byvueclose \ref[src]\"")
+        winset(user, windowid, "on-close=\"vueuiclose \ref[src]\"")
 
-/datum/byvueui/proc/close()
+/datum/vueuiui/proc/close()
     SSvueui.ui_closed(src)
     user << browse(null, "window=[windowid]")
     status = null
     
-/datum/byvueui/proc/generate_html()
+/datum/vueuiui/proc/generate_html()
     return {"
 <!DOCTYPE html>
 <html>
@@ -89,11 +89,11 @@ main ui datum.
     <script type="application/json" id="initialstate">
         [generate_data_json()]
     </script>
-    <script type="text/javascript" src="byvue.js"></script>
+    <script type="text/javascript" src="vueui.js"></script>
 </html>
     "}
 
-/datum/byvueui/proc/generate_data_json()
+/datum/vueuiui/proc/generate_data_json()
     var/list/data = list()
     data["state"] = state    
     data["assets"] = list()
@@ -103,27 +103,27 @@ main ui datum.
         data["assets"].add(sanitize("\ref[ass]" + ".png"))
     return json_encode(data)
      
-/datum/byvueui/proc/send_resources_and_assets(var/client/cl)
-    cl << browse_rsc(file("byvue/dist/main.js"), "byvue.js")
+/datum/vueuiui/proc/send_resources_and_assets(var/client/cl)
+    cl << browse_rsc(file("vueui/dist/main.js"), "vueui.js")
     for(var/ass in assets)
         cl << browse_rsc(ass, sanitize("\ref[ass]") + ".png")
 
-/datum/byvueui/Topic(href, href_list)
-    if(href_list["byvuestateupdate"])
-        var/data = json_decode(href_list["byvuestateupdate"])
+/datum/vueuiui/Topic(href, href_list)
+    if(href_list["vueuistateupdate"])
+        var/data = json_decode(href_list["vueuistateupdate"])
         var/nstate = data["state"]
-        var/ret = object.byvue_state_change(nstate, user, src)
+        var/ret = object.vueui_state_change(nstate, user, src)
         if(ret)
             nstate = ret
             push_change(ret)
         state = nstate
     object.Topic(href, href_list)
 
-/datum/byvueui/proc/push_change(var/list/nstate)
+/datum/vueuiui/proc/push_change(var/list/nstate)
     state = nstate
     user << output(list2params(list(generate_data_json())),"[windowid].browser:receveUIState")
 
-/datum/byvueui/proc/check_for_change()
-    var/ret = object.byvue_state_change(state, user, src)
+/datum/vueuiui/proc/check_for_change()
+    var/ret = object.vueui_state_change(state, user, src)
     if(ret)
         push_change(ret)
