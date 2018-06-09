@@ -144,7 +144,7 @@
 		return 0
 
 	if (user.back!= source)
-		to_chat(user, "<span class='warning'>\The [source] must be worn to fire \the [gun]!</span>")
+		to_chat(user, "<span class='warning'>\The [source] must be worn to fire \the [src]!</span>")
 		return 0
 
 	return ..()
@@ -160,6 +160,7 @@
 	if(source)
 		to_chat(user, "<span class='notice'>\The [src] snaps back onto \the [source].</span>")
 		addtimer(CALLBACK(source, /obj/item/minigunpack/.proc/remove_gun), 0)
+		source.update_icon(user)
 
 /obj/item/weapon/gun/projectile/automatic/rifle/minigun/Move()
 	..()
