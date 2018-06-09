@@ -112,7 +112,7 @@
 
 /obj/item/clothing/accessory/storage/bayonet
 	name = "bayonet sheat"
-	desc = "A leadher sheat designated to hold a bayonet."
+	desc = "A leather sheat designated to hold a bayonet."
 	icon_state = "holster_machete"
 	slots = 1
 
