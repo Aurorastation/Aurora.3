@@ -7,6 +7,8 @@
 	contained_sprite = 1
 	w_class = 4
 	slot_flags = SLOT_BACK
+	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 6, TECH_MAGNET = 4, TECH_ILLEGAL = 7)
+	action_button_name = "Deploy the Gatling Machine Gun"
 
 	var/obj/item/weapon/gun/projectile/automatic/rifle/minigun/gun
 	var/armed = FALSE
@@ -36,10 +38,11 @@
 	return new /obj/item/weapon/gun/projectile/automatic/rifle/minigun()
 
 /obj/item/minigunpack/ui_action_click()
-	toggle_gun()
+	if(src in usr)
+		toggle_gun()
 
 /obj/item/minigunpack/verb/toggle_gun()
-	set name = "Deploy Minigun"
+	set name = "Deploy the gatling machine gun"
 	set category = "Object"
 	var/mob/living/carbon/human/user
 	if(istype(usr,/mob/living/carbon/human))
@@ -120,6 +123,7 @@
 	max_shells = 1000
 	fire_sound = 'sound/weapons/gunshot_saw.ogg'
 	needspin = FALSE
+	origin_tech = null
 
 	firemodes = list(
 		list(mode_name="short bursts",	burst=6, move_delay=8, burst_accuracy = list(0,-1,-1,-2,-2),          dispersion = list(3, 6, 9)),
@@ -139,6 +143,10 @@
 		user << "<span class='danger'>You cannot fire this weapon with just one hand!</span>"
 		return 0
 
+	if (user.back!= source)
+		to_chat(user, "<span class='warning'>\The [source] must be worn to fire \the [gun]!</span>")
+		return 0
+
 	return ..()
 
 /obj/item/weapon/gun/projectile/automatic/rifle/minigun/load_ammo(var/obj/item/A, mob/user)
@@ -150,7 +158,7 @@
 /obj/item/weapon/gun/projectile/automatic/rifle/minigun/dropped(mob/user)
 	..()
 	if(source)
-		to_chat(user, "<span class='notice'>/The [src] snaps back onto \the [source].</span>")
+		to_chat(user, "<span class='notice'>\The [src] snaps back onto \the [source].</span>")
 		addtimer(CALLBACK(source, /obj/item/minigunpack/.proc/remove_gun), 0)
 
 /obj/item/weapon/gun/projectile/automatic/rifle/minigun/Move()
