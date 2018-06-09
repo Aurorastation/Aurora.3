@@ -2266,3 +2266,30 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 	new /obj/item/fluff/yarn/green(src)
 	new /obj/item/fluff/yarn/purple(src)
 	new /obj/item/fluff/yarn/yellow(src)
+
+
+/obj/item/clothing/under/fluff/moyers_shirt //Custom Martian Raider T-Shirt - Caiden Moyers - tylaaaar
+	name = "custom martian raider t-shirt"
+	desc = "A Martian Raider Spaceball T-shirt with the name \"MOYERS\" Written on the back in plain white text."
+	icon = 'icons/obj/custom_items/moyers_shirt.dmi'
+	icon_state = "moyers_shirt"
+	item_state = "moyers_shirt"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/suit/fluff/eri_robes //Senior Alchemist Robes - Eri Akhandi - paradoxspace
+	name = "senior alchemist robes"
+	desc = "A green set of robes, trimmed with what appears to be real gold. Looking at the necklace, you can see the alchemical symbol for the Philosopher's Stone, made of ruby."
+	icon = 'icons/obj/custom_items/eri_robes.dmi'
+	icon_state = "eri_robes"
+	item_state = "eri_robes"
+	contained_sprite = TRUE
+
+
+/obj/item/fluff/halstere_card //Solarian Alliance Military ID - Kalren Halstere - brutishcrab51
+	name = "solarian alliance military ID"
+	desc = "A green and white military identification card, with an Alliance of Sovereign Solarian Nations sigil stamped on the front."
+	icon = 'icons/obj/custom_items/halstere_clothing.dmi'
+	icon_state = "halstere_card"
+	item_state = "halstere_card"
+	w_class = 2
