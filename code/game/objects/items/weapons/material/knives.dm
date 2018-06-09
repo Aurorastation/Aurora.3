@@ -90,5 +90,6 @@
 	icon_state = "bayonet"
 	item_state = "knife"
 	applies_material_colour = 0
-	force_divisor = 0.25
+	force_divisor = 0.35
 	can_embed = 0
+	w_class = 3
