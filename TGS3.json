@@ -17,5 +17,10 @@
       "data"
     ],
     "dlls": [
+    "libmariadb.so",
+    "UDPShipper.dll",
+    "libcurl.dll",
+    "ByondPOST.dll",
+    "libmysql.dll"
     ]
   }
