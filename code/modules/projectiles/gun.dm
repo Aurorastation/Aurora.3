@@ -108,13 +108,13 @@
 	queue_icon_update()
 
 /obj/item/weapon/gun/update_icon()
-	cut_overlays()
+	underlays.Cut()
 	if(bayonet)
 		var/image/I
 		I = image('icons/obj/gun.dmi', "bayonet")
 		I.pixel_x = knife_x_offset
 		I.pixel_y = knife_y_offset
-		add_overlay(I)
+		underlays += I
 	return ..()
 
 //Checks whether a given mob can use the gun
