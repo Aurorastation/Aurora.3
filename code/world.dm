@@ -115,7 +115,13 @@ var/list/world_api_rate_limit = list()
 	log_debug("API: Request Received - from:[addr], master:[master], key:[key]")
 	diary << "TOPIC: \"[T]\", from:[addr], master:[master], key:[key], auth:[queryparams["auth"] ? queryparams["auth"] : "null"] [log_end]"
 
-	if (!queryparams.len)
+	// TGS topic hook. Returns if successful, expects old-style serialization.
+	var/tgs_topic_return = TgsTopic(T)
+
+	if (tgs_topic_return)
+		log_debug("API - TGS3 Request.")
+		return tgs_topic_return
+	else if (!queryparams.len)
 		log_debug("API - Bad Request - Invalid/no JSON data sent.")
 		response["statuscode"] = 400
 		response["response"] = "Bad Request - Invalid/no JSON data sent."
