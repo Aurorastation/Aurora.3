@@ -46,10 +46,9 @@ jobs:
         - md5sum -c - <<< "94c0d540b3b0f008fbc4353e667de690 *html/changelogs/example.yml"
     - stage: Compile and run
       env:
-        matrix:
-          - USE_MAP=aurora
-          - USE_MAP=runtime
-          - USE_MAP=exodus
+        - USE_MAP=aurora
+        - USE_MAP=runtime
+        - USE_MAP=exodus
       script:
         - ./vueui/build.sh
         - $HOME/flyway-${FLYWAY_BUILD}/flyway migrate -user=root -password= -url=jdbc:mysql://localhost:3306/ss13_test
