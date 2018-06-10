@@ -2291,5 +2291,20 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 	desc = "A green and white military identification card, with an Alliance of Sovereign Solarian Nations sigil stamped on the front."
 	icon = 'icons/obj/custom_items/halstere_clothing.dmi'
 	icon_state = "halstere_card"
-	item_state = "halstere_card"
 	w_class = 2
+	var/flipped = FALSE
+
+/obj/item/fluff/halstere_card/attack_self(mob/user as mob)
+	flipped = !flipped
+	update_icon()
+
+/obj/item/fluff/halstere_card/update_icon()
+	if(flipped)
+		icon_state = "halstere_card_open"
+	else
+		icon_state = initial(icon_state)
+
+/obj/item/fluff/halstere_card/examine(mob/user)
+	if(..(user, 1))
+		if(flipped)
+			to_chat(user, "The name 'Halstere, Kalren C.' is stamped on it. An expiration date is listed on it, '2465JAN01'. A pay grade is listed beside the name. 'MAJ/O4'. A number is listed under the expiration date: '14015236810'.")
