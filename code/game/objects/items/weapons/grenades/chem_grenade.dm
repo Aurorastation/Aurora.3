@@ -24,9 +24,8 @@
 /obj/item/weapon/grenade/chem_grenade/attack_self(mob/user as mob)
 	if(!stage || stage==1)
 		if(detonator)
-//				detonator.loc=src.loc
 			detonator.detached()
-			usr.put_in_hands(detonator)
+			user.put_in_hands(detonator)
 			detonator=null
 			det_time = null
 			stage=0
@@ -80,7 +79,6 @@
 				user << "<span class='notice'>You lock the assembly.</span>"
 				name = "grenade"
 			else
-//					user << "<span class='warning'>You need to add at least one beaker before locking the assembly.</span>"
 				user << "<span class='notice'>You lock the empty assembly.</span>"
 				name = "fake grenade"
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, -3)
@@ -107,7 +105,7 @@
 			if(W.reagents.total_volume)
 				user << "<span class='notice'>You add \the [W] to the assembly.</span>"
 				user.drop_item()
-				W.loc = src
+				W.forceMove(src)
 				beakers += W
 				stage = 1
 				name = "unsecured grenade with [beakers.len] containers[detonator?" and detonator":""]"
@@ -176,7 +174,7 @@
 			if( A == src ) continue
 			src.reagents.touch(A)
 
-	if(istype(loc, /mob/living/carbon))		//drop dat grenade if it goes off in your hand
+	if (iscarbon(loc))		//drop dat grenade if it goes off in your hand
 		var/mob/living/carbon/C = loc
 		C.drop_from_inventory(src)
 		C.throw_mode_off()

@@ -40,11 +40,12 @@
 	if(iscarbon(M))
 		eye_safety = M.eyecheck(TRUE)
 		if(ishuman(M))
-			if(istype(M:l_ear, /obj/item/clothing/ears/earmuffs) || istype(M:r_ear, /obj/item/clothing/ears/earmuffs))
+			var/mob/living/carbon/human/H = M
+			if(istype(H.l_ear, /obj/item/clothing/ears/earmuffs) || istype(H.r_ear, /obj/item/clothing/ears/earmuffs))
 				ear_safety += 2
-			if(HULK in M.mutations)
+			if(HULK in H.mutations)
 				ear_safety += 1
-			if(istype(M:head, /obj/item/clothing/head/helmet))
+			if(istype(H.head, /obj/item/clothing/head/helmet))
 				ear_safety += 1
 
 //Flashing everyone
@@ -58,7 +59,7 @@
 			var/obj/item/organ/eyes/E = H.get_eyes()
 			if(!E)
 				return
-			usr << span("alert", "Your eyes burn with the intense light of the flash!.")
+			H << span("alert", "Your eyes burn with the intense light of the flash!.")
 			E.damage += rand(10, 11)
 			if(E.damage > 12)
 				M.eye_blurry += rand(3,6)
