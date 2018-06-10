@@ -2,6 +2,9 @@ var/datum/controller/subsystem/processing/vueui/SSvueui
 
 #define NULL_OR_EQUAL(self,other) (!(self) || (self) == (other))
 
+/*
+Byond Vue UI framework's management subsystem
+*/
 /datum/controller/subsystem/processing/vueui
     name = "VueUI"
     flags = SS_NO_INIT
@@ -14,6 +17,15 @@ var/datum/controller/subsystem/processing/vueui/SSvueui
     LAZYINITLIST(open_uis)
     NEW_SS_GLOBAL(SSvueui)
 
+
+/**
+  * Gets open ui for specified object and user
+  *
+  * @param user - user that has that ui open
+  * @param src_object - object that hosts the ui we are looking for
+  *
+  * @return ui datum
+  */ 
 /datum/controller/subsystem/processing/vueui/proc/get_open_ui(mob/user, src_object)
     var/src_object_key = SOFTREF(src_object)
     if (!LAZYLEN(open_uis[src_object_key]))
@@ -25,6 +37,13 @@ var/datum/controller/subsystem/processing/vueui/SSvueui
 
     return null
 
+/**
+  * Initiates check for data change of specified object
+  *
+  * @param src_object - object that hosts ui that should be updated
+  *
+  * @return nothing
+  */ 
 /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change(src_object)
     var/src_object_key = SOFTREF(src_object)
     if (!LAZYLEN(open_uis[src_object_key]))
@@ -33,6 +52,14 @@ var/datum/controller/subsystem/processing/vueui/SSvueui
     for (var/datum/vueuiui/ui in open_uis[src_object_key])
         ui.check_for_change()
 
+/**
+  * Initiates check for data change of specified object
+  *
+  * @param user - user who's ui's has to be closed
+  * @param src_object - object that hosts ui that should be closed. Optional
+  *
+  * @return number of uis closed
+  */ 
 /datum/controller/subsystem/processing/vueui/proc/close_user_uis(mob/user, src_object)
     if (!LAZYLEN(user.open_vueui_uis))
         return 0
@@ -42,6 +69,13 @@ var/datum/controller/subsystem/processing/vueui/SSvueui
             ui.close()
             .++
 
+/**
+  * Alerts of subsystem of opened ui, and starts processing it.
+  *
+  * @param ui - ui that got opened
+  *
+  * @return nothing
+  */ 
 /datum/controller/subsystem/processing/vueui/proc/ui_opened(datum/vueuiui/ui)
     var/src_object_key = SOFTREF(ui.object)
     LAZYINITLIST(open_uis[src_object_key])
@@ -51,6 +85,13 @@ var/datum/controller/subsystem/processing/vueui/SSvueui
     LAZYADD(open_uis[src_object_key], ui)
     START_PROCESSING(SSvueui, ui)
 
+/**
+  * Alerts of subsystem of closed ui, and stops processing it.
+  *
+  * @param ui - ui that got closed
+  *
+  * @return 0 if failed, 1 if success
+  */ 
 /datum/controller/subsystem/processing/vueui/proc/ui_closed(datum/vueuiui/ui)
     var/src_object_key = SOFTREF(ui.object)
 
@@ -58,7 +99,7 @@ var/datum/controller/subsystem/processing/vueui/SSvueui
         return 0	// Wasn't open.
 
     STOP_PROCESSING(SSvueui, ui)
-    if(ui.user)	// Sanity check in case a user has been deleted (say a blown up borg watching the alarm interface)
+    if(!QDELETED(ui.user))	// Sanity check in case a user has been deleted (say a blown up borg watching the alarm interface)
         LAZYREMOVE(ui.user.open_vueui_uis, ui)
 
     open_uis[src_object_key] -= ui
@@ -67,9 +108,24 @@ var/datum/controller/subsystem/processing/vueui/SSvueui
         open_uis -= src_object_key
     return 1
 
+/**
+  * Alerts of subsystem of logged off user and closes there uis.
+  *
+  * @param ui - ui that got closed
+  *
+  * @return number of uis closed
+  */ 
 /datum/controller/subsystem/processing/vueui/proc/user_logout(mob/user)
     return close_user_uis(user)
 
+/**
+  * Alerts of subsystem of user client transfer to other mob.
+  *
+  * @param oldMob - mob that had ui opened
+  * @param newMob - mob to whome ui was transfered
+  *
+  * @return 0 if failed, 1 if success
+  */ 
 /datum/controller/subsystem/processing/vueui/proc/user_transferred(mob/oldMob, mob/newMob)
     if (!oldMob || !LAZYLEN(oldMob.open_vueui_uis) || !LAZYLEN(open_uis))
         return 0

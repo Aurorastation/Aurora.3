@@ -2,6 +2,8 @@
 Byond Vue UI framework
 main ui datum.
 */
+#define UIDEBUG 0
+
 /datum/vueuiui
     // title of ui window
     var/title = "HTML5 UI"
@@ -25,6 +27,20 @@ main ui datum.
     // window id
     var/windowid
 
+
+/**
+  * Creates a new ui
+  *
+  * @param nuser - user that has opened this ui
+  * @param nobject - object that hosts this ui and handles all data / Topic processing
+  * @param nactiveui - Vue component that is opened to render this ui's data
+  * @param nwidth - initial width of this ui
+  * @param nheight - initial height of this ui
+  * @param ndata - initial data. Optional.
+  * @param nstate - Topic state used for this ui's checks. Optional.
+  *
+  * @return nothing
+  */
 /datum/vueuiui/New(var/nuser, var/nobject, var/nactiveui = 0, var/nwidth = 0, var/nheight = 0, var/list/ndata, var/datum/topic_state/nstate = default_state)
     user = nuser
     object = nobject
@@ -41,8 +57,13 @@ main ui datum.
     SSvueui.ui_opened(src)
     windowid = "vueui\ref[src]"
 
+/**
+  * Opens this ui, gathers initial data
+  *
+  * @return nothing
+  */
 /datum/vueuiui/proc/open()
-    if(!object)
+    if(QDELETED(object))
         return
     if(!user.client)
         return
@@ -62,12 +83,27 @@ main ui datum.
     spawn(1)
         winset(user, windowid, "on-close=\"vueuiclose \ref[src]\"")
 
+/**
+  * Closes this ui
+  *
+  * @return nothing
+  */
 /datum/vueuiui/proc/close()
     SSvueui.ui_closed(src)
     user << browse(null, "window=[windowid]")
     status = null
     
+/**
+  * Generates base html for this ui to be rendered.
+  *
+  * @return html code - text
+  */
 /datum/vueuiui/proc/generate_html()
+#if UIDEBUG
+    var/debugtxt = "<div id=\"dapp\"></div>"
+#else
+    var/debugtxt = ""
+#endif
     return {"
 <!DOCTYPE html>
 <html>
@@ -79,7 +115,7 @@ main ui datum.
         <div id="app">
 
         </div>
-        <div id="dapp"></div>
+        [debugtxt]
         <noscript>
             <div id='uiNoScript'>
                 <h2>JAVASCRIPT REQUIRED</h2>
@@ -95,21 +131,70 @@ main ui datum.
 </html>
     "}
 
+/**
+  * Generates json state object to be sent to ui.
+  *
+  * @return json object - text
+  */
 /datum/vueuiui/proc/generate_data_json()
     var/list/data = list()
     data["state"] = data    
     data["assets"] = list()
     data["active"] = activeui
     data["uiref"] = "\ref[src]"
-    for(var/ass in assets)
-        data["assets"].add(sanitize("\ref[ass]" + ".png"))
+    data["status"] = status
+    for(var/list/asset in assets)
+        data["assets"][asset["name"]] = list("ref" = "\ref[asset["img"]]")
     return json_encode(data)
-     
-/datum/vueuiui/proc/send_resources_and_assets(var/client/cl)
-    cl << browse_rsc(file("vueui/dist/main.js"), "vueui.js")
-    for(var/ass in assets)
-        cl << browse_rsc(ass, sanitize("\ref[ass]") + ".png")
 
+/**
+  * Sends all resources required for proper renderig of ui
+  *
+  * @param cl - client that should get assets
+  *
+  * @return nothing
+  */ 
+/datum/vueuiui/proc/send_resources_and_assets(var/client/cl)
+#if UIDEBUG
+    cl << browse_rsc(file("vueui/dist/main.js"), "vueui.js")
+#else
+    var/datum/asset/assets = get_asset_datum(/datum/asset/simple/vueui)
+    assets.send(cl)
+#endif
+    for(var/list/asset in assets)
+        if (!QDELETED(asset["img"]))
+            cl << browse_rsc(asset, sanitize("\ref[asset["img"]]") + ".png")
+
+/**
+  * Adds dynamic asset for this ui's use
+  *
+  * @param name - name of asset that should be added
+  * @param img - image, an asset that will be used
+  *
+  * @return nothing
+  */ 
+/datum/vueuiui/proc/add_asset(var/name, var/image/img)
+    if(QDELETED(img))
+        return
+    name = ckey(name)
+    assets[name] = list("name" = name, "img" = img)
+
+/**
+  * Removes dynamic asset for this ui's use
+  *
+  * @param name - name of asset that will be removed
+  *
+  * @return nothing
+  */ 
+/datum/vueuiui/proc/remove_asset(var/name)
+    name = ckey(name)
+    assets -= assets[name]
+
+/**
+  * Handles interactivity and state updates
+  *
+  * @return nothing
+  */ 
 /datum/vueuiui/Topic(href, href_list)
     update_status()
     if(status < STATUS_INTERACTIVE || user != usr)
@@ -122,13 +207,28 @@ main ui datum.
             ndata = ret
             push_change(ret)
         data = ndata
+        return // Object shal not get state update calls
     object.Topic(href, href_list)
 
+/**
+  * Pushes latest data to client (Including metadata such as: assets index, status, activeui)
+  *
+  * @param ndate - new data that should be pushed to client, if null then exisitng data is pushed
+  *
+  * @return nothing
+  */ 
 /datum/vueuiui/proc/push_change(var/list/ndata)
     if(ndata && status > STATUS_DISABLED)
         data = ndata
     user << output(list2params(list(generate_data_json())),"[windowid].browser:receveUIState")
 
+/**
+  * Check for change and push that change of data
+  *
+  * @param force - determines should data be pushed even if no change is present
+  *
+  * @return nothing
+  */ 
 /datum/vueuiui/proc/check_for_change(var/force = 0)
     var/ret = object.vueui_data_change(data, user, src)
     if(ret)
@@ -171,3 +271,5 @@ main ui datum.
         close()
         return
     update_status()
+
+#undef UIDEBUG
