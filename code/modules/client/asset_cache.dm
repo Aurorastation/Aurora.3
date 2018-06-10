@@ -205,7 +205,7 @@ var/list/asset_datums = list()
 
 /datum/asset/simple/vueui
 	assets = list(
-		"vueui.js" = 'vueui/dist/main.js',
+		"vueui.js" = 'vueui/dist/main.js'
 	)
 
 /datum/asset/chem_master
