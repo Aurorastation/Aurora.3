@@ -675,7 +675,6 @@
 		/obj/item/clothing/under/overalls = 1,
 		/obj/item/clothing/under/redcoat = 0.5,
 		/obj/item/clothing/under/serviceoveralls = 1,
-		/obj/item/clothing/under/psyche = 0.5,
 		/obj/item/clothing/under/rank/dispatch = 0.8,
 		/obj/item/clothing/under/syndicate/tacticool = 1,
 		/obj/item/clothing/under/syndicate/tracksuit = 0.2,
