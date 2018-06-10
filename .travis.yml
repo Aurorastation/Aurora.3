@@ -44,17 +44,17 @@ stages:
 
 
 script:
-        - ./vueui/build.sh
-        - $HOME/flyway-${FLYWAY_BUILD}/flyway migrate -user=root -password= -url=jdbc:mysql://localhost:3306/ss13_test
-        - python tools/TagMatcher/tag-matcher.py ../..
-        - python tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
-        - source $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}/byond/bin/byondsetup
-        - cp config/example/* config/
-        - scripts/dm.sh -DUNIT_TEST -M$USE_MAP aurorastation.dme
-        - grep "0 warnings" build_log.txt
-        - DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
-        - grep "All Unit Tests Passed" log.txt
-        - (! grep "runtime error:" log.txt)
+  - $HOME/flyway-${FLYWAY_BUILD}/flyway migrate -user=root -password= -url=jdbc:mysql://localhost:3306/ss13_test
+  - python tools/TagMatcher/tag-matcher.py ../..
+  - python tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
+  - ./vueui/build.sh
+  - source $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}/byond/bin/byondsetup
+  - cp config/example/* config/
+  - scripts/dm.sh -DUNIT_TEST -M$USE_MAP aurorastation.dme
+  - grep "0 warnings" build_log.txt
+  - DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
+  - grep "All Unit Tests Passed" log.txt
+  - (! grep "runtime error:" log.txt)
 
 jobs:
   include:
