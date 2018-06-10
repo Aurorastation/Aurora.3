@@ -103,9 +103,8 @@
 /obj/structure/bookcase/libraryspawn/Initialize()
 	//list("Any", "Fiction", "Non-Fiction", "Adult", "Reference", "Religion")
 	.= ..()
-	spawn_category = sanitizeSQL(spawn_category)
-	var/DBQuery/query = dbcon.NewQuery("SELECT * FROM ss13_library WHERE category=[spawn_category] ORDER BY RAND() LIMIT BY [spawn_amount]")
-	query.Execute()
+	var/DBQuery/query = dbcon.NewQuery("SELECT * FROM ss13_library WHERE category = :cat: ORDER BY RAND() LIMIT :amount:")
+	query.Execute(list("cat" = spawn_category, "amount" = spawn_amount))
 	while(query.NextRow())
 		var/author = query.item[2]
 		var/title = query.item[3]
