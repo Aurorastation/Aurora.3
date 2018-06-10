@@ -320,7 +320,7 @@
 	tracer_type = /obj/effect/projectile/tracer/plasma_cutter
 	impact_type = /obj/effect/projectile/impact/plasma_cutter
 	maiming = 1
-	maim_rate = 3
+	maim_rate = 1
 
 /obj/item/projectile/beam/plasmacutter/on_impact(var/atom/A)
 	if(istype(A, /turf/simulated/mineral))

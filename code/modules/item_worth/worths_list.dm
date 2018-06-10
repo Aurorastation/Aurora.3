@@ -28,6 +28,7 @@ var/list/worths = list(
 //ENERGY GUNS,
 					/obj/item/weapon/gun/energy/rifle/pulse/destroyer = 9000,
 					/obj/item/weapon/gun/energy/rifle/pulse = 7000,
+					/obj/item/weapon/gun/energy/rifle/icelance = 800,
 					/obj/item/weapon/gun/energy/rifle/laser/heavy = 6500,
 					/obj/item/weapon/gun/energy/rifle/laser/xray = 4500,
 					/obj/item/weapon/gun/energy/rifle = 1500,
