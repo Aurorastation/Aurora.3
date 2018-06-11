@@ -102,19 +102,20 @@
 
 /obj/structure/bookcase/libraryspawn/Initialize()
 	.= ..()
-	//Stolen from /tg/, which was stolen from somewhere else.
-	var/DBQuery/query_books = dbcon.NewQuery("SELECT * FROM ss13_library WHERE isnull(deleted)[spawn_category] GROUP BY title ORDER BY rand() LIMIT [spawn_amount];")
-	if(query_books.Execute())
-		while(query_books.NextRow())
-			var/author = query_books.item[2]
-			var/title = query_books.item[3]
-			var/content = query_books.item[4]
-			var/obj/item/weapon/book/B = new(src.loc)
-			B.name = "Book: [title]"
-			B.title = title
-			B.author = author
-			B.dat = content
-			B.icon_state = "book[rand(1,7)]"
+
+	if(config.sql_enabled)
+		var/DBQuery/query_books = dbcon.NewQuery("SELECT * FROM ss13_library WHERE category = :cat: ORDER BY RAND() LIMIT :amount:")
+		if(query_books.Execute(list("cat" = spawn_category, "amount" = spawn_amount)))
+			while(query_books.NextRow())
+				var/author = query_books.item[2]
+				var/title = query_books.item[3]
+				var/content = query_books.item[4]
+				var/obj/item/weapon/book/B = new(src.loc)
+				B.name = "Book: [title]"
+				B.title = title
+				B.author = author
+				B.dat = content
+				B.icon_state = "book[rand(1,7)]"
 
 	name = "[initial(name)] ([spawn_category])"
 	update_icon()
