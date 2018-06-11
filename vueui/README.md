@@ -55,7 +55,7 @@ To create ui itself, you need to create `.vue` file inside `\vueui\components\ui
 export default {
   name: 'ui-uiname',
   data() {
-    return this.$root.$data; // Make data more easily acessible
+    return this.$root.$data.state; // Make data more easily acessible
   }
 };
 </script>
@@ -66,6 +66,8 @@ p {
 }
 </style>
 ```
+### Step 5: Compile
+This ui framework requres whole ui to be compiled for changes to be avavible. Compilation requres Node.js runtime. To do initial dependency setup run `npm install` to gather all dependencies nedded for ui. Single compilation can be done with `npm run compile`, but if you constantly do changes, then `npm run run` is more convienient, as it compiles everything as soon as change is detected.
 # Notes
 ## Usefull APIs
 ### `SSvueui.check_uis_for_change(object)`
