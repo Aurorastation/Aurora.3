@@ -32,8 +32,10 @@ var app = new Vue({
     }
 })
 
-var dapp = new Vue({
-    el: '#dapp',
-    data: Store.state,
-    template: '<pre>{{ JSON.stringify(this.$root.$data, null, \'    \') }}</pre>'
-})
+if (document.getElementById("dapp")) {
+    var dapp = new Vue({
+        el: '#dapp',
+        data: Store.state,
+        template: '<div><h1>Current data of UI:</h1><pre>{{ JSON.stringify(this.$root.$data, null, \'    \') }}</pre></div>'
+    })
+}
