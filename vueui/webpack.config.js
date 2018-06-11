@@ -1,10 +1,11 @@
 const path = require('path');
 const webpack = require('webpack')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
-    //mode: 'production',
-    mode: 'development', // Uncomment this line to set mode to development
+    mode: 'production',
+    //mode: 'development', // Uncomment this line to set mode to development
     entry: './index.js',
     output: {
         filename: 'main.js',
@@ -69,7 +70,8 @@ module.exports = {
         ]
     },
     plugins: [
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new UglifyJsPlugin()
     ],
     resolve: {
         alias: {

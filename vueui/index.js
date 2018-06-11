@@ -35,5 +35,5 @@ var app = new Vue({
 var dapp = new Vue({
     el: '#dapp',
     data: Store.state,
-    template: '<p>{{ JSON.stringify(this.$root.$data) }}</p>'
+    template: '<pre>{{ JSON.stringify(this.$root.$data, null, \'    \') }}</pre>'
 })
