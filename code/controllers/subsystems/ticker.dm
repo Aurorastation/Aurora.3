@@ -419,7 +419,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	create_characters() //Create player characters and transfer them
 	collect_minds()
 	equip_characters()
-	data_core.manifest()
+	SSrecords.build_records()
 
 	Master.RoundStart()
 	round_start_time = world.time

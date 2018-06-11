@@ -502,10 +502,10 @@ proc/api_update_command_database()
 			"bot" = nonhuman_positions
 		)
 
-	for(var/datum/data/record/t in data_core.general)
-		var/name = t.fields["name"]
-		var/rank = t.fields["rank"]
-		var/real_rank = make_list_rank(t.fields["real_rank"])
+	for(var/list/t in SSrecords.records)
+		var/name = t["name"]
+		var/rank = t["rank"]
+		var/real_rank = make_list_rank(t["real_rank"])
 
 		var/department = 0
 		for(var/k in set_names)
