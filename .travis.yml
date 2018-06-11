@@ -62,7 +62,7 @@ jobs:
         - (! grep 'step_[xy]' maps/**/*.dmm)
         - (! find nano/templates/ -type f -exec md5sum {} + | sort | uniq -D -w 32 | grep nano)
         - (! grep -E "<\s*span\s+class\s*=\s*('[^'>]+|[^'>]+')\s*>" **/*.dm)
-        - "(! grep -v \"^ *//\" vueui/webpack.config.js | grep \"mode: *\'production\'\")"
+        - "grep -v \"^ *//\" vueui/webpack.config.js | grep \"mode: *\'production\'\""
         - grep '#define UIDEBUG' code/modules/vueui/ui.dm | grep '0'
         - (num=`grep -E '\\\\(red|blue|green|black|b|i[^mc])' **/*.dm | wc -l`; echo "$num escapes (expecting ${MACRO_COUNT} or less)"; [ $num -le ${MACRO_COUNT} ])
         - awk -f tools/indentation.awk **/*.dm
