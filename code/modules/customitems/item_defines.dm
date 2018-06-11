@@ -2270,7 +2270,7 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 
 /obj/item/clothing/under/fluff/moyers_shirt //Custom Martian Raider T-Shirt - Caiden Moyers - tylaaaar
 	name = "custom martian raider t-shirt"
-	desc = "A Martian Raider Spaceball T-shirt with the name \"MOYERS\" Written on the back in plain white text."
+	desc = "A Martian Raider Spaceball T-shirt with the name \"MOYERS\" written on the back in plain white text."
 	icon = 'icons/obj/custom_items/moyers_shirt.dmi'
 	icon_state = "moyers_shirt"
 	item_state = "moyers_shirt"
@@ -2296,7 +2296,7 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 
 /obj/item/fluff/halstere_card/attack_self(mob/user as mob)
 	flipped = !flipped
-	update_icon()
+	queue_icon_update()
 
 /obj/item/fluff/halstere_card/update_icon()
 	if(flipped)
@@ -2305,6 +2305,5 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 		icon_state = initial(icon_state)
 
 /obj/item/fluff/halstere_card/examine(mob/user)
-	if(..(user, 1))
-		if(flipped)
-			to_chat(user, "The name 'Halstere, Kalren C.' is stamped on it. An expiration date is listed on it, '2465JAN01'. A pay grade is listed beside the name. 'MAJ/O4'. A number is listed under the expiration date: '14015236810'.")
+	if(..(user, 1) && flipped)
+		to_chat(user, "The name 'Halstere, Kalren C.' is stamped on it. An expiration date is listed on it, '2465JAN01'. A pay grade is listed beside the name. 'MAJ/O4'. A number is listed under the expiration date: '14015236810'.")
