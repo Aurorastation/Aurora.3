@@ -2365,6 +2365,7 @@
 #include "maps\_common\areas\station\storage.dm"
 #include "maps\_common\mapsystem\map.dm"
 #include "maps\_common\mapsystem\map_unit.dm"
+#include "maps\asteroid_spawns\meme_unique.dmm"
 #include "maps\aurora\code\aurora.dm"
 #include "maps\aurora\code\aurora_holodeck.dm"
 #include "maps\aurora\code\aurora_lifts.dm"
