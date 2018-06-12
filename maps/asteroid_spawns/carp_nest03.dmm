@@ -1,0 +1,46 @@
+"a" = (/turf/unsimulated/chasm_mask,/area/mine/unexplored)
+"b" = (/turf/simulated/mineral,/area/mine/unexplored)
+"c" = (/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
+"d" = (/obj/structure/plushie/carp,/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
+"e" = (/turf/simulated/wall/wood,/area/mine/unexplored)
+"f" = (/turf/simulated/floor/holofloor/wood,/area/mine/unexplored)
+"g" = (/obj/structure/closet/crate,/obj/random/mining_reward_major,/obj/random/mining_reward_major,/obj/random/mining_reward_minor,/turf/simulated/floor/holofloor/wood,/area/mine/unexplored)
+"h" = (/obj/structure/simple_door/wood,/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
+"i" = (/mob/living/simple_animal/hostile/carp/shark,/turf/simulated/floor/holofloor/wood,/area/mine/unexplored)
+"j" = (/obj/effect/decal/remains,/obj/random/mining_reward_minor,/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
+"k" = (/obj/effect/decal/remains,/obj/random/mining_reward_major,/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaabbbbbbbaaa
+aaaaaaaaaaaaaaaaaaaaabbaaaakbaaa
+aaaaaaaaaaaaaaaaaaaabbeeeeecbbaa
+aaaaaabbbbaaaaaaaaaabaefffecabaa
+bbbbbbbaabbbbaaaaaaabaefgfedabaa
+baaaaaaaaaaabbbaaaabbbefifecabaa
+baaccccccaaaaabbabbbabeeheecabaa
+bbaaccdccccaaaabbbaaacccccccbbaa
+abaaaccjccccccabbaaacccbaacabaaa
+abbbaacccaaccdcbaaacccabbbaabaaa
+aaabbaacccccjcccaaccjcababbabaaa
+aaaabbaacaaacccccccdcccbaabbbaaa
+aaaaabbccaaaabccccccccccaccbbaaa
+aaaabbbcccbabbaaccabaccdccccbaaa
+aaaabaacccbbbaacccabaacccccabaaa
+aaaabaacccaabbacacabaaccjcaabaaa
+aaabbaaccccaabccaccbbaacccabbaaa
+aaabaaacdjcaabbccccabbaaccabaaaa
+aaabaaacccccacccbaccabbbaaabaaaa
+aaabaaaccccccccabbcdccabbabbaaaa
+aaabbaaaccdccccabaccjcaabbbaaaaa
+aaaabaaaaccjccaabaacccaabbaaaaaa
+aaaabbaaacccccabbbbaaabbbaaaaaaa
+aaaaabbaaacccaabaabbbbbaaaaaaaaa
+aaaaaabbbacccaabaaaaaaaaaaaaaaaa
+aaaaaaaabbcccbbaaaaaaaaaaaaaaaaa
+aaaaaaaaacccccaaaaaaaaaaaaaaaaaa
+aaaaaaaacccccccaaaaaaaaaaaaaaaaa
+aaaaaaacccccccccaaaaaaaaaaaaaaaa
+aaaaaacccccccccccaaaaaaaaaaaaaaa
+aaaaacccccccccccccaaaaaaaaaaaaaa
+"}

@@ -1,0 +1,43 @@
+"a" = (/turf/unsimulated/chasm_mask,/area/mine/unexplored)
+"b" = (/turf/simulated/wall/gold,/area/mine/unexplored)
+"d" = (/turf/simulated/floor/cult,/area/mine/unexplored)
+"e" = (/obj/structure/alien/weeds,/turf/simulated/floor/cult,/area/mine/unexplored)
+"f" = (/obj/structure/alien/weeds/node,/turf/simulated/floor/cult,/area/mine/unexplored)
+"g" = (/obj/structure/alien/weeds,/obj/structure/alien/egg,/turf/simulated/floor/cult,/area/mine/unexplored)
+"h" = (/obj/structure/simple_door/gold,/turf/unsimulated/chasm_mask,/area/mine/unexplored)
+"i" = (/obj/structure/simple_door/gold,/turf/simulated/floor/cult,/area/mine/unexplored)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaabbibbaaaaaaaaaaaaaa
+aaaaaaaaaaaaabdddbaaaaaaaaaaaaaa
+aaaaaaaaaaaaabdddbaaaaaaaaaaaaaa
+aaaaaabbbbbbbbbhbbbbbbbbbaaaaaaa
+aaaaaabdddddddddddddddddbaaaaaaa
+aaaaaabdddddddddddddddddbaaaaaaa
+aaaaaabddbbbbbbbbbbbbbddbaaaaaaa
+aaaaaabddbdddddddddddbddbaaaaaaa
+aaaaaabddbdddddddddddbddbaaaaaaa
+aaaaaabddbddbbbibbbddbddbaaaaaaa
+aaaaaabddbddbdddefbddbddbaaaaaaa
+aaaaaabddbddbedeeebddbddbaaaaaaa
+aaaaaabddbddbeegedbddbddbaaaaaaa
+aaaaaabddbddbefeddbddbddbaaaaaaa
+aaaaaabddbddbeeeeebddbddbaaaaaaa
+aaaaaabddbddbbbbbbbddbddbaaaaaaa
+aaaaaabddbdddddddddddbddbaaaaaaa
+aaaaaabddbdddddddddddbddbaaaaaaa
+aaaaaabddbbbbbbibbbbbbddbaaaaaaa
+aaaaaabdddddddddddddddddbaaaaaaa
+aaaaaabdddddddddddddddddbaaaaaaa
+aaaaaabbbbbbbbbbbbbbbbbbbaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+"}

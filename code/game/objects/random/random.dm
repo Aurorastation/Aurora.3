@@ -985,3 +985,32 @@
 		/obj/item/device/binoculars						= 11,
 		/obj/item/device/megaphone						= 11
 	)
+
+/obj/random/mining_reward_minor
+	name = "mining reward - minor"
+	desc = "muh powercreep"
+	icon = 'icons/obj/items.dmi'
+	icon_state = "gift3"
+	spawnlist = list(
+		/obj/random/arcade = 0.1,
+		/obj/random/loot = 2,
+		/obj/random/spacecash = 1,
+		/obj/random/sword = 0.5,
+		/obj/random/contraband = 1
+	)
+
+
+/obj/random/mining_reward_major
+	name = "mining reward - major"
+	desc = "muh powercreep"
+	icon = 'icons/obj/items.dmi'
+	icon_state = "gift3"
+	spawnlist = list(
+		/obj/random/highvalue = 0.1,
+		/obj/random/energy_antag = 2,
+		/obj/random/voidsuit = 1,
+		/obj/random/melee = 2,
+		/obj/random/projectile = 0.5,
+		/obj/random/energy = 0.5
+	)
+

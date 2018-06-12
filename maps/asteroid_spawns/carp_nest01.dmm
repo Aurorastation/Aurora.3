@@ -2,9 +2,9 @@
 "b" = (/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
 "c" = (/turf/simulated/open/airless,/area/mine/unexplored)
 "d" = (/mob/living/simple_animal/hostile/carp,/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
-"e" = (/obj/effect/decal/remains/xeno,/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
-"f" = (/obj/effect/decal/remains/human,/obj/random/loot,/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
-"g" = (/obj/effect/decal/remains/human,/obj/random/voidsuit,/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
+"e" = (/obj/effect/decal/remains/xeno,/obj/random/mining_reward_minor,/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
+"f" = (/obj/effect/decal/remains/human,/obj/random/mining_reward_minor,/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
+"g" = (/obj/effect/decal/remains/human,/obj/random/voidsuit,/obj/random/mining_reward_minor,/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
 "h" = (/obj/random/projectile,/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
 "i" = (/obj/item/device/gps/engineering,/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
 
