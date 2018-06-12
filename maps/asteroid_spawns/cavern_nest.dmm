@@ -1,0 +1,41 @@
+"a" = (/turf/unsimulated/chasm_mask,/area/mine/unexplored)
+"b" = (/turf/simulated/mineral/random,/area/mine/unexplored)
+"c" = (/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
+"d" = (/mob/living/simple_animal/hostile/retaliate/cavern_dweller,/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
+"e" = (/turf/simulated/mineral/random/higher_chance,/area/mine/unexplored)
+"f" = (/obj/structure/closet/crate,/obj/random/energy_antag,/obj/random/loot,/obj/random/loot,/obj/random/contraband,/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaabbbaaaaaaaaaaaaaaaaaa
+aaaaaaabbbbbabbbbbbaaaaaaaaaaaaa
+aaabbbbbaaaaaaaaaabbaaaaaaaaaaaa
+aabbcaaacccccccccaabaaaaaaaaaaaa
+aabaccccdcccdccdccabbaaaaaaaaaaa
+aabacdccccccccccccaabaaaaabbbbaa
+aabaaccecccceccccccabaabbbbaabba
+aabaacceefceecccdcccbabbaaaccaba
+aabbaccceeeeccccccccbbbaaccccbba
+aaabacccccccdccceeccbbacccaaabaa
+aaabaaccccccccceeeeccccbaaaabbaa
+aaabbaacccdccccceeeecbbbbbbbbaaa
+aaaabbacccceeeccceeeccabbaaaaaaa
+aaaaabaccceeeecccccccccabbbaaaaa
+aaaabbacceeeeccccccccccccabbbaaa
+aaabbacccceccccaccdccecccccabbaa
+aabbaaccccccccaaacccceeecccccbba
+aabaaccdccccaaaaaaaaccccccccccbb
+aabacccccccaabbbaaaaaaccdceecccc
+aabaccccccaaababbbbaaaccccceecdc
+aabaccdccaaabbaaaabbbaaacccccccc
+aabacccccaaabaaaaaaabbbaaaaccccc
+aabacccccaabbaaaaaaaaabbbaaaaaaa
+abbacccccaabaaaaaaaaaaaabbbbbbbb
+abaacccccaabaaaaaaaaaaaaaaaaaaaa
+abaaccdcaaabaaaaaaaaaaaaaaaaaaaa
+abbaccccaabbaaaaaaaaaaaaaaaaaaaa
+aabaccccaabaaaaaaaaaaaaaaaaaaaaa
+aabcccccabbaaaaaaaaaaaaaaaaaaaaa
+"}

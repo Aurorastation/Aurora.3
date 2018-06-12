@@ -74,3 +74,8 @@
 	name = "\improper AI Main New"
 	icon_state = "storage"
 
+/area/turret_protected/hidden_vault
+	station_area = 0
+	name = "\improper *CLASSIFIED*"
+	icon_state = "storage"
+

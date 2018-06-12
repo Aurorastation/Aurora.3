@@ -1,0 +1,44 @@
+"a" = (/turf/unsimulated/chasm_mask,/area/mine/unexplored)
+"b" = (/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
+"c" = (/turf/simulated/open/airless,/area/mine/unexplored)
+"d" = (/mob/living/simple_animal/hostile/carp,/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
+"e" = (/obj/effect/decal/remains/xeno,/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
+"f" = (/obj/effect/decal/remains/human,/obj/random/loot,/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
+"g" = (/obj/effect/decal/remains/human,/obj/random/voidsuit,/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
+"h" = (/obj/random/projectile,/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
+"i" = (/obj/item/device/gps/engineering,/turf/simulated/floor/asteroid/ash/rocky,/area/mine/unexplored)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaabbbbaaaaaaa
+aaaaaaaaaaaaaaaaaaabdbebbbbaaaaa
+aaaaaaaaaaaaaabbbbbbbbbbcbbaaaaa
+aaaaaaaaaaaaabbbbdbbbccccbbbaaaa
+aaaaaaaabbbbbbbfbbbccccccbdbaaaa
+aaaaaaaabbbbbbbbbccccccccbbbaaaa
+aaaaaaabbbebdbbbccccccccbbbbaaaa
+aaaaaaabbbbbbbbcccccccccbdebaaaa
+aaaaabbbbdbfbbbccccccccbbbbbaaaa
+aaaaabbibbbbbcccccccccbbbbbaaaaa
+aaaaaabbghbccccccccbbbbbaaaaaaaa
+aaaaaabbbbbbccccccbbbfbbaaaaaaaa
+aaaaaaabbbbbbbccbbbbdbbbaaaaaaaa
+aaaaaaabbdbbbbbbbebbbaaaaaaaaaaa
+aaaaaabbbbbfbbbbbbbbbaaaaaaaaaaa
+aaaaabbbbbbbbbbdbbaaaaaaaaaaaaaa
+aaaabbbbbbaaaaaaaaaaaaaaaaaaaaaa
+aaaabbdbbaaaaaaaaaaaaaaaaaaaaaaa
+aaaabbbbaaaaaaaaaaaaaaaaaaaaaaaa
+aaabbbbbaaaaaaaaaaaaaaaaaaaaaaaa
+aaabbbbaaaaaaaaaaaaaaaaaaaaaaaaa
+aaabbbbaaaaaaaaaaaaaaaaaaaaaaaaa
+aabbbbbaaaaaaaaaaaaaaaaaaaaaaaaa
+aabbbbbaaaaaaaaaaaaaaaaaaaaaaaaa
+aabbdbbaaaaaaaaaaaaaaaaaaaaaaaaa
+aabbbbbaaaaaaaaaaaaaaaaaaaaaaaaa
+"}

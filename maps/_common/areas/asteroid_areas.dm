@@ -14,6 +14,11 @@
 	icon_state = "unexplored"
 	flags = HIDE_FROM_HOLOMAP
 
+/area/mine/unexplored/ceiling
+	name = "Mine"
+	icon_state = "unexplored"
+	flags = HIDE_FROM_HOLOMAP
+
 //S
 
 // Smalls
