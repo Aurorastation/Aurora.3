@@ -112,7 +112,7 @@
 	establish_db_connection(dbcon)
 
 	if(!dbcon.IsConnected())
-		log_debug(" Library Book Spawning: SQL ERROR - Failed to connect and spawn books for [spawn_category].")
+		log_debug("Library Book Spawning: SQL ERROR - Failed to connect and spawn books for [spawn_category].")
 		return
 
 	var/cat_fix = spawn_category ? "category = :cat:" : ""
