@@ -1274,6 +1274,7 @@
 #include "code\modules\custom_ka\cells.dm"
 #include "code\modules\custom_ka\core.dm"
 #include "code\modules\custom_ka\frames.dm"
+#include "code\modules\custom_ka\projectiles.dm"
 #include "code\modules\custom_ka\upgrade_chips.dm"
 #include "code\modules\customitems\item_defines.dm"
 #include "code\modules\customitems\item_spawning.dm"

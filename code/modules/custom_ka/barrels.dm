@@ -66,7 +66,7 @@
 /obj/item/custom_ka_upgrade/barrels/barrel05
 	name = "experimental core KA power converter"
 	build_name = "'Experimental'"
-	desc = "A very experimental kinetic accelerator energy converter. Not much is known about this thing, other than it kicks like a muel and stings like an e-sword."
+	desc = "A very experimental kinetic accelerator energy converter. Not much is known about this thing, other than it kicks like a mule and stings like an e-sword."
 	icon_state = "barrel05"
 	damage_increase = 30
 	firedelay_increase = 1 SECONDS
@@ -82,7 +82,7 @@
 /obj/item/custom_ka_upgrade/barrels/illegal
 	name = "laser KA power converter"
 	build_name = "'Syndicate''"
-	desc = "A laser cystal ripped from a laser rifle and repurposed for kinetic accelerator assemblies."
+	desc = "A laser crystal ripped from a laser rifle and repurposed for kinetic accelerator assemblies."
 	icon_state = "barrel_laser"
 	damage_increase = 15
 	firedelay_increase = 1.5 SECONDS

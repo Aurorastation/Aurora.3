@@ -77,7 +77,7 @@
 
 	if(installed_barrel)
 		if(custom_name)
-			to_chat(user,"[custom_name] is written crudely in pen across the side, with the offical designation \"[official_name]\" is etched neatly on the side.")
+			to_chat(user,"[custom_name] is written crudely in pen across the side, covering up the offical designation.")
 		else
 			to_chat(user,"The offical designation \"[official_name]\" is etched neatly on the side.")
 
@@ -330,9 +330,7 @@
 	recoil_increase = max(recoil_increase,1)
 	firedelay_increase = max(firedelay_increase,0.125 SECONDS)
 
-	if(damage_increase > 20)
-		aoe_increase += 1
-
+	aoe_increase += round(damage_increase/30)
 	aoe_increase = max(0,aoe_increase)
 
 	//Gun stats

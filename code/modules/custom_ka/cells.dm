@@ -25,7 +25,7 @@
 	build_name = "pump-action"
 	desc = "A very basic power cell and pump action combo that stores a single charge. A pump is required after each shot, however it deals increased damage and has increased range."
 	icon_state = "cell01"
-	damage_increase = 10
+	damage_increase = 5
 	firedelay_increase = 0.25 SECONDS
 	range_increase = 3
 	recoil_increase = -1

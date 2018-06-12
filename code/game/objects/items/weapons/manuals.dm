@@ -1369,37 +1369,6 @@
 			</html>
 			"}
 
-/obj/item/weapon/book/manual/brainwashing
-	name = "Disloyal to Loyal: The Legality of Brainwashing"
-	icon_state ="rulebook"
-	author = "Dr. Fredrick Richards"
-	title = "Disloyal to Loyal: The Legality of Brainwashing"
-	dat = {"<html>
-				<head>
-				<style>
-				h1 {font-size: 21px; margin: 15px 0px 5px;}
-				h2 {font-size: 15px; margin: 15px 0px 5px;}
-				li {margin: 2px 0px 2px 15px;}
-				ul {margin: 5px; padding: 0px;}
-				ol {margin: 5px; padding: 0px 15px;}
-				body {font-size: 13px; font-family: Verdana;}
-				</style>
-				</head>
-				<body>
-				<h1>Disloyal to Loyal: The Legality of Brainwashing</h1>
-				<h2>by Doctor Fredrick Richards with help from the NanoTrasen Legal Department</h2>
-
-				While it may be tempting as a Captain, Head of Security, or sometimes an officer to go around distributing anti-psychotics to maintain the peace, there are a few Corporate regulations and rules that must be kept in mind before even considering obtaining the medication.<BR><BR>
-
-				<h2>Pre-injection</h2>
-				Generally, anti-psychotic medications should only be given out to criminals who have been charged with crimes that typically have Hold until Transfer, Cyborgification, and Loyalty Implant sentences, however some exceptions may apply. It is important to note that when using medicine to rehabilitate a criminal, the criminal in question is now legally considered a medical patient. In Tau Ceti space, it is illegal to prescribe, consume, or force a patient to consume anti-psychotic medication as a non-medical professional. As such, a non-medical personnel who injects or feeds prisoners with anti-psychotics may be charged with Suspicious Conduct, Excessive Use of Force In Detainment, Mistreatment of Prisoners, Neglect of Duty, Assault, Exceeding Official Powers, Mistreatment of Prisoners, and/or Gross Negligence. A trained and licensed medical professional are legally required to perform an evaluation first, and must be the one to perform the injection.<BR><BR>
-
-				<h2>Post-injection</h2>
-				It is your duty as a member of the security department to oversee the health and well-being of prisoners and parolees. Those who have been giving anti-psychotic medication must be carefully monitored for their behaviour. Prisoners who skip doses, or overdose, are a threat to themselves and the people near them. If in the case of an overdose occurs, or a dose is missed, medical personnel should be contacted immediately and the situation dealt with appropriately. Failure to do so may result in Gross Negligence charges and potential demotion.
-				</body>
-			</html>
-			"}
-
 /obj/item/weapon/book/manual/ka_custom
 	name = "Guide to Custom Kinetic Accelerators"
 	icon_state ="rulebook"

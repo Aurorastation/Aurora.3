@@ -28,7 +28,7 @@
 
 /obj/item/custom_ka_upgrade/upgrade_chips/focusing
 	name = "upgrade chip - focusing"
-	desc = "Increases damage and accuracy, however reduces the range and reduce aoe capabilities."
+	desc = "Increases damage and accuracy, however reduces the range and explosion size, if any."
 	icon_state = "upgrade_chip"
 	damage_increase = 10
 	recoil_increase = -4
