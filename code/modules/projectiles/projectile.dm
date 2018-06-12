@@ -126,7 +126,7 @@
 		can_be_maimed and maim_bonus are defined on 'obj/item/organ/external'.
 		*/
 		if(organ.can_be_maimed && maiming)
-			if(prob(maim_rate * (organ.get_damage() * organ.maim_bonus)))
+			if(prob((maim_rate * (organ.get_damage() * organ.maim_bonus) - (armor/2))))
 				organ.droplimb(clean_cut,maim_type)
 
 	if (damage_type == BRUTE)
