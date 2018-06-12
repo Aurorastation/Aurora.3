@@ -216,7 +216,6 @@
 		return TRUE
 
 
-//More or less assistants
 /datum/job/librarian
 	title = "Librarian"
 	flag = LIBRARIAN
