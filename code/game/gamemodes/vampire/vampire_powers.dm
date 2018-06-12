@@ -15,8 +15,8 @@
 		to_chat(src, "<span class='warning'>You must be grabbing a victim in your active hand to drain their blood.</span>")
 		return
 
-	if (G.state == GRAB_PASSIVE || G.state == GRAB_UPGRADING)
-		to_chat(src, "<span class='warning'>You must have the victim pinned to the ground to drain their blood.</span>")
+	if (G.state != GRAB_AGGRESSIVE)
+		to_chat(src, "<span class='warning'>You must have a strong grip on the victim to drain their blood.</span>")
 		return
 
 	var/mob/living/carbon/human/T = G.affecting
