@@ -1,6 +1,6 @@
 This is the readme file for asteroid dungeons. Create all new dungeons in this directory here so that they may be loaded in the game.
 
-Step by step.
+Step by step:
 0. Learn how to actually map, including how to use mapmerge and how to use git.
 1. Open DreamMaker
 2. Create a new .tgm file at the directory maps/dungeon_spawns
@@ -15,3 +15,8 @@ Step by step.
 11. Merge the dungeons you made.
 12. Ensure that you're not a fuckup and did everything right.
 13. Do git magic here.
+
+Final Notes:
+If the dungeon is meant to be unique, append "_unique" at the end of the filename (like "snowflake_unique") so it can only spawn once. Otherwise, your dungeon may occur multiple times.
+
+Ensure that your dungeon actually works if you've added anything complex like a powernet or some other complex thing. You can do this by temporarily deleting all the rest of the dungeon files so your unique dungeon will always spawn.

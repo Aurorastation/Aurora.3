@@ -45,25 +45,28 @@
 
 	log_ss("map_finalization","Creating asteroid dungeons for [length(asteroid_spawn)] different areas, with [length(files)] possible dungeons.")
 
+	var/always_prob = 0
+
 	for(var/turf/spawn_location in asteroid_spawn)
 
 		if(length(files) <= 0) //Sanity
 			log_ss("map_finalization","There aren't enough dungeon map files to fill the entire dungeon map. You should put in some non-unique dungeons as filler!")
 			break
 
-		if(prob(25))
+		if(prob(25) || always_prob)
+
 			var/chosen_dungeon = pick(files)
+			always_prob = 0
 
-			log_ss("map_finalization", "Checking file: [map_directory][chosen_dungeon]...")
-
-			if(dd_hassuffix(chosen_dungeon,".txt")) //Don't read the readme! Only humans can read the readme!
+			if(!dd_hassuffix(chosen_dungeon,".dmm")) //Don't read anything that isn't a map file
 				files -= chosen_dungeon
+				always_prob = 1 //We wasted our 25% roll on a readme file so be sure that the next dungeon will contain an actual dungeon.
 				continue
 
 			var/map_file = file("[map_directory][chosen_dungeon]")
 
 			if(isfile(map_file)) //Sanity
-				log_ss("map_finalization","Loading dungeon '[chosen_dungeon]' at coordinates [spawn_location.x],[spawn_location.y],[spawn_location.z].")
+				log_ss("map_finalization","Loading dungeon '[chosen_dungeon]' at coordinates [spawn_location.x], [spawn_location.y], [spawn_location.z].")
 				maploader.load_map(map_file,spawn_location.x,spawn_location.y,spawn_location.z)
 				dungeons_placed += 1
 			else
