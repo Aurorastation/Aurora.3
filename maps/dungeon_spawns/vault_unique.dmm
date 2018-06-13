@@ -1,0 +1,1388 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/unsimulated/chasm_mask,
+/area/mine/unexplored)
+"b" = (
+/turf/simulated/mineral/random,
+/area/mine/unexplored)
+"c" = (
+/turf/simulated/wall/r_wall,
+/area/turret_protected/hidden_vault)
+"d" = (
+/obj/machinery/power/port_gen/pacman,
+/obj/structure/cable/yellow{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/turret_protected/hidden_vault)
+"e" = (
+/obj/machinery/power/smes/buildable{
+	charge = 5e+006;
+	input_attempt = 0;
+	input_level = 200000;
+	output_attempt = 1;
+	output_level = 200000;
+	RCon = 0
+	},
+/obj/structure/cable/yellow{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/structure/cable/blue{
+	icon_state = "0-4"
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/turret_protected/hidden_vault)
+"f" = (
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/turret_protected/hidden_vault)
+"g" = (
+/obj/structure/table/reinforced,
+/obj/item/stack/material/phoron{
+	amount = 50
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/turret_protected/hidden_vault)
+"h" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/item/stack/material/phoron{
+	amount = 50
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/turret_protected/hidden_vault)
+"i" = (
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/turret_protected/hidden_vault)
+"j" = (
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/turret_protected/hidden_vault)
+"k" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/wrench,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/turret_protected/hidden_vault)
+"l" = (
+/obj/machinery/porta_turret/thermal,
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/turret_protected/hidden_vault)
+"m" = (
+/obj/structure/sign/securearea,
+/turf/simulated/wall/r_wall,
+/area/turret_protected/hidden_vault)
+"n" = (
+/obj/structure/table/reinforced,
+/obj/machinery/power/apc/super/critical{
+	pixel_y = 32
+	},
+/obj/structure/cable/blue{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/item/weapon/gun/energy/toxgun,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/turret_protected/hidden_vault)
+"o" = (
+/obj/machinery/door/airlock/vault/bolted,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/turret_protected/hidden_vault)
+"p" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/turret_protected/hidden_vault)
+"q" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/turret_protected/hidden_vault)
+"r" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/turret_protected/hidden_vault)
+"s" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/turret_protected/hidden_vault)
+"t" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/item/stack/material/phoron{
+	amount = 50
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/turret_protected/hidden_vault)
+"u" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light/small/emergency{
+	icon_state = "bulb1";
+	dir = 4
+	},
+/obj/item/stack/material/phoron{
+	amount = 50
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/turret_protected/hidden_vault)
+"v" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor,
+/area/turret_protected/hidden_vault)
+"w" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "door_locked";
+	id_tag = "hidden_vault_inner";
+	locked = 1;
+	name = "Vault Inner Access";
+	req_access = list(13)
+	},
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1379;
+	master_tag = "hidden_vault_airlock";
+	name = "interior access button";
+	pixel_x = -28;
+	pixel_y = 0;
+	req_access = list(53);
+	req_one_access = null
+	},
+/turf/simulated/floor,
+/area/turret_protected/hidden_vault)
+"x" = (
+/turf/simulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
+"y" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor,
+/area/turret_protected/hidden_vault)
+"z" = (
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"A" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "door_locked";
+	id_tag = "hidden_vault_outer";
+	locked = 1;
+	name = "Vault Outer Access";
+	req_access = list(13)
+	},
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1379;
+	master_tag = "hidden_vault_airlock";
+	name = "exterior access button";
+	pixel_x = -28;
+	pixel_y = 0;
+	req_access = list(53);
+	req_one_access = null
+	},
+/turf/simulated/floor,
+/area/turret_protected/hidden_vault)
+"B" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"C" = (
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/turret_protected/hidden_vault)
+"D" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/turret_protected/hidden_vault)
+"E" = (
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/turret_protected/hidden_vault)
+"F" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	frequency = 1380;
+	id_tag = "hidden_vault_airpump";
+	name = "Large Air Vent"
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1379;
+	id_tag = "hidden_vault_airlock_sensor";
+	layer = 3.3;
+	pixel_x = -24;
+	pixel_y = 0
+	},
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor,
+/area/turret_protected/hidden_vault)
+"G" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1380;
+	id_tag = "hidden_vault_airpump"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1379;
+	id_tag = "hidden_vault_airlock";
+	pixel_x = 30;
+	pixel_y = 0;
+	req_one_access = list(13);
+	tag_airpump = "hidden_vault_airpump";
+	tag_chamber_sensor = "hidden_vault_airlock_sensor";
+	tag_exterior_door = "hidden_vault_outer";
+	tag_interior_door = "hidden_vault_inner"
+	},
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor,
+/area/turret_protected/hidden_vault)
+"H" = (
+/obj/machinery/turretid/lethal{
+	ailock = 1;
+	check_synth = 1;
+	control_area = "\improper *CLASSIFIED*";
+	desc = "A firewall prevents AIs from interacting with this device.";
+	name = "lethal turret control";
+	pixel_y = 29;
+	req_access = list(61)
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"I" = (
+/obj/item/weapon/archaeological_find,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/turret_protected/hidden_vault)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(3,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(4,1,1) = {"
+a
+a
+a
+a
+a
+b
+b
+b
+b
+a
+a
+b
+b
+b
+a
+a
+b
+b
+b
+b
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(5,1,1) = {"
+a
+a
+a
+a
+a
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(6,1,1) = {"
+a
+a
+a
+a
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+a
+a
+a
+a
+a
+a
+a
+"}
+(7,1,1) = {"
+a
+a
+a
+a
+b
+b
+c
+c
+b
+b
+b
+c
+c
+c
+c
+c
+b
+b
+c
+c
+b
+b
+b
+b
+b
+b
+b
+a
+a
+a
+a
+a
+"}
+(8,1,1) = {"
+a
+a
+a
+a
+b
+b
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+b
+x
+b
+b
+b
+b
+b
+b
+a
+a
+a
+a
+"}
+(9,1,1) = {"
+a
+a
+a
+a
+b
+b
+b
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+b
+x
+x
+x
+b
+b
+b
+x
+a
+a
+a
+a
+a
+"}
+(10,1,1) = {"
+a
+a
+a
+a
+b
+b
+b
+c
+c
+g
+g
+t
+g
+i
+c
+p
+p
+c
+c
+x
+x
+x
+x
+b
+b
+x
+x
+x
+a
+a
+a
+a
+"}
+(11,1,1) = {"
+a
+a
+a
+a
+a
+b
+b
+c
+c
+g
+i
+i
+i
+i
+c
+q
+r
+c
+c
+c
+x
+x
+x
+b
+b
+b
+x
+x
+a
+a
+x
+a
+"}
+(12,1,1) = {"
+a
+a
+a
+a
+b
+b
+b
+c
+c
+h
+i
+l
+i
+c
+c
+i
+D
+c
+c
+c
+x
+x
+x
+x
+b
+b
+b
+x
+x
+a
+x
+a
+"}
+(13,1,1) = {"
+a
+a
+a
+a
+b
+b
+b
+c
+c
+g
+i
+i
+i
+c
+l
+i
+s
+c
+c
+x
+x
+x
+x
+x
+b
+b
+b
+x
+x
+x
+x
+a
+"}
+(14,1,1) = {"
+a
+a
+a
+a
+b
+b
+c
+c
+c
+k
+i
+i
+E
+c
+c
+C
+s
+c
+c
+m
+z
+B
+B
+x
+x
+x
+b
+b
+x
+x
+x
+a
+"}
+(15,1,1) = {"
+a
+a
+a
+a
+b
+b
+c
+c
+d
+i
+i
+i
+i
+i
+m
+i
+s
+v
+F
+c
+B
+B
+B
+x
+x
+x
+x
+x
+x
+x
+x
+a
+"}
+(16,1,1) = {"
+a
+a
+a
+a
+a
+b
+c
+c
+e
+i
+i
+I
+i
+i
+o
+i
+q
+w
+y
+A
+B
+B
+B
+x
+x
+x
+x
+x
+x
+x
+x
+x
+"}
+(17,1,1) = {"
+a
+a
+a
+a
+a
+b
+c
+c
+f
+j
+i
+i
+i
+i
+m
+i
+i
+v
+G
+c
+H
+B
+B
+x
+x
+x
+x
+x
+x
+x
+x
+x
+"}
+(18,1,1) = {"
+a
+a
+a
+a
+a
+b
+c
+c
+c
+n
+i
+i
+E
+c
+c
+C
+i
+c
+c
+m
+z
+B
+B
+x
+x
+x
+x
+x
+x
+a
+x
+x
+"}
+(19,1,1) = {"
+a
+a
+a
+a
+a
+b
+b
+c
+c
+g
+i
+i
+i
+c
+l
+i
+i
+c
+c
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+a
+x
+x
+"}
+(20,1,1) = {"
+a
+a
+a
+a
+b
+b
+b
+c
+c
+h
+i
+l
+i
+c
+c
+i
+E
+c
+c
+c
+x
+x
+x
+x
+x
+x
+x
+x
+a
+a
+x
+x
+"}
+(21,1,1) = {"
+a
+a
+a
+a
+b
+b
+b
+c
+c
+g
+i
+i
+i
+i
+c
+i
+i
+c
+c
+c
+x
+x
+x
+x
+x
+b
+x
+x
+a
+a
+a
+x
+"}
+(22,1,1) = {"
+a
+a
+a
+b
+b
+b
+b
+c
+c
+g
+g
+u
+g
+i
+c
+i
+i
+c
+c
+x
+x
+x
+x
+x
+b
+b
+x
+x
+a
+a
+a
+x
+"}
+(23,1,1) = {"
+a
+a
+b
+b
+b
+b
+b
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+b
+b
+x
+x
+b
+b
+b
+x
+a
+a
+a
+a
+a
+"}
+(24,1,1) = {"
+a
+a
+a
+b
+b
+b
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+b
+b
+b
+b
+b
+b
+b
+b
+a
+a
+a
+a
+"}
+(25,1,1) = {"
+a
+a
+a
+a
+b
+b
+c
+c
+b
+b
+b
+c
+c
+c
+c
+c
+b
+b
+c
+c
+b
+b
+b
+b
+b
+b
+b
+b
+b
+a
+a
+a
+"}
+(26,1,1) = {"
+a
+a
+a
+a
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+a
+a
+b
+b
+a
+a
+a
+a
+a
+a
+a
+"}
+(27,1,1) = {"
+a
+a
+a
+a
+a
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(28,1,1) = {"
+a
+a
+a
+a
+a
+a
+b
+b
+a
+a
+a
+b
+b
+a
+a
+a
+b
+b
+b
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(29,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(30,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(31,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(32,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}

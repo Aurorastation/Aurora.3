@@ -137,6 +137,7 @@ var/list/gamemode_cache = list()
 
 	var/welder_vision = 1
 	var/generate_asteroid = 0
+	var/generate_dungeons = 0
 	var/no_click_cooldown = 0
 
 	//Used for modifying movement speed for mobs.
@@ -396,6 +397,9 @@ var/list/gamemode_cache = list()
 				if ("log_runtime")
 					config.log_runtime = text2num(value)
 
+				if ("generate_dungeons")
+					config.generate_dungeons = 1					
+					
 				if ("generate_asteroid")
 					config.generate_asteroid = 1
 
