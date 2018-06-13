@@ -567,16 +567,37 @@
 /datum/reagent/leporazine
 	value = 2
 
-/datum/reagent/methylphenidate
+/datum/reagent/mental/methylphenidate
 	value = 6
 
-/datum/reagent/citalopram
+/datum/reagent/mental/sertraline
+	value = 6
+	
+/datum/reagent/mental/fluvoxamine
+	value = 6
+	
+/datum/reagent/mental/escitalopram
 	value = 6
 
-/datum/reagent/paroxetine
+/datum/reagent/mental/paroxetine
 	value = 3.5
+	
+/datum/reagent/mental/duloxetine
+	value = 6
+	
+/datum/reagent/mental/venlafaxine
+	value = 6
+	
+/datum/reagent/mental/risperidone
+	value = 6
+	
+/datum/reagent/mental/olanzapine
+	value = 6
+	
+/datum/reagent/mental/truthserum
+	value = 8
 
-/datum/reagent/nicotine
+/datum/reagent/mental/nicotine
 	value = 2
 
 /datum/reagent/rezadone
@@ -734,9 +755,6 @@
 
 /datum/reagent/philosopher_stone
 	value = 1000
-
-/datum/reagent/azoth
-	value = 200
 
 /datum/reagent/elixir
 	value = 1000

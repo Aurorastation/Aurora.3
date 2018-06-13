@@ -176,11 +176,51 @@ var/list/sacrificed = list()
 				var/choice = alert(target,"Do you want to join the cult?","Submit to Nar'Sie","Resist","Submit")
 				waiting_for_input[target] = 0
 				if(choice == "Submit") //choosing 'Resist' does nothing of course.
-					cult.add_antagonist(target.mind)
-					converting -= target
-					target.hallucination = 0 //sudden clarity
-					playsound(target, 'sound/effects/bloodcult.ogg', 100, 1)
+					if(!target.is_mechanical())
+						cult.add_antagonist(target.mind)
+						converting -= target
+						target.hallucination = 0 //sudden clarity
+						playsound(target, 'sound/effects/bloodcult.ogg', 100, 1)
+					else
+						converting -= target
+						//If we are dealing with a IPC then ask the caster what construct they want
+						var/construct_class = alert(attacker, "Please choose which type of construct you wish to create.",,"Juggernaut","Wraith","Artificer")
 
+						playsound(target, 'sound/effects/bloodcult.ogg', 100, 1)
+
+						//Spawn some remains
+						new target.species.remains_type(target.loc) //spawns a skeleton based on the species remain type
+						target.invisibility = 101
+						var/atom/movable/overlay/animation = new /atom/movable/overlay( target.loc )
+						animation.icon_state = "blank"
+						animation.icon = 'icons/mob/mob.dmi'
+						animation.master = target
+						flick("dust-h", animation)
+						qdel(animation)
+
+						//Spawn the selected construct						
+						switch(construct_class)
+							if("Juggernaut")
+								var/mob/living/simple_animal/construct/armoured/Z = new /mob/living/simple_animal/construct/armoured (get_turf(target.loc))
+								Z.key = target.key
+								qdel(target)
+								cult.add_antagonist(Z.mind)
+								Z << "<B>You are playing a Juggernaut. Though slow, you can withstand extreme punishment, and rip apart enemies and walls alike.</B>"
+								Z << "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>"
+							if("Wraith")
+								var/mob/living/simple_animal/construct/wraith/Z = new /mob/living/simple_animal/construct/wraith (get_turf(target.loc))
+								Z.key = target.key
+								qdel(target)
+								cult.add_antagonist(Z.mind)
+								Z << "<B>You are playing a Wraith. Though relatively fragile, you are fast, deadly, and even able to phase through walls.</B>"
+								Z << "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>"
+							if("Artificer")
+								var/mob/living/simple_animal/construct/builder/Z = new /mob/living/simple_animal/construct/builder (get_turf(target.loc))
+								Z.key = target.key
+								qdel(target)
+								cult.add_antagonist(Z.mind)
+								Z << "<B>You are playing an Artificer. You are incredibly weak and fragile, but you are able to construct fortifications, repair allied constructs (by clicking on them), and even create new constructs</B>"
+								Z << "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>"
 		sleep(100) //proc once every 10 seconds
 	return 1
 
@@ -448,7 +488,7 @@ var/list/sacrificed = list()
 			chose_name = 1
 			break
 	D.universal_speak = 1
-	D.underwear = 0
+	D.underwear = null
 	D.key = ghost.key
 	cult.add_antagonist(D.mind)
 	playsound(loc, 'sound/magic/exit_blood.ogg', 100, 1)
@@ -1059,7 +1099,6 @@ var/list/sacrificed = list()
 /////////////////////////////////////////TWENTY-FIFTH RUNE
 
 /obj/effect/rune/proc/armor(var/mob/living/user)
-
 	if(istype(src,/obj/effect/rune))
 		user.say("N'ath reth sh'yro eth d[pick("'","`")]raggathnor!")
 	else

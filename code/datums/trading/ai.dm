@@ -128,6 +128,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/weapon/storage/pill_bottle                            = TRADER_SUBTYPES_ONLY,
 		/obj/item/weapon/reagent_containers/hypospray                   = TRADER_ALL,
 		/obj/item/device/healthanalyzer                                 = TRADER_THIS_TYPE,
+		/obj/item/device/breath_analyzer                                = TRADER_THIS_TYPE,
 		/obj/item/stack/medical/bruise_pack                             = TRADER_THIS_TYPE,
 		/obj/item/stack/medical/ointment                                = TRADER_THIS_TYPE,
 		/obj/item/stack/medical/advanced                                = TRADER_SUBTYPES_ONLY,

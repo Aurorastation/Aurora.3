@@ -297,4 +297,24 @@
 				if(length(cword))
 					rearranged += cword
 			message ="[prefix][jointext(rearranged," ")]"
+		if(losebreath>=5) //Gasping is a mutation, right?
+			var/prefix=copytext(message,1,2)
+			if(prefix == ";")
+				message = copytext(message,2)
+			else if(prefix in list(":","#"))
+				prefix += copytext(message,2,3)
+				message = copytext(message,3)
+			else
+				prefix=""
+
+			var/list/words = splittext(message," ")
+			if (prob(50))
+				if (words.len>1)
+					var/gasppoint = rand(2, words.len)
+					words.Cut(gasppoint)
+				words[words.len] = "[words[words.len]]..."
+				emote("gasp")
+
+
+			message = "[prefix][jointext(words," ")]"
 	return message

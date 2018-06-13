@@ -29,5 +29,6 @@
 				/spell/targeted/flesh_to_stone =                        1,
 				/obj/structure/closet/wizard/souls = 				1,
 				/obj/item/weapon/monster_manual = 				1,
-				/obj/item/weapon/contract/apprentice = 				1
+				/obj/item/weapon/contract/apprentice = 				1,
+				/obj/item/poppet =								1
 				)

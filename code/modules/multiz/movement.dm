@@ -62,7 +62,7 @@
 
 	// If we want to move up,but the current area has gravity. Invoke CanAvoidGravity()
 	// to check if this move is possible.
-	if(direction == UP && area.has_gravity && !CanAvoidGravity())
+	if(direction == UP && area.has_gravity() && !CanAvoidGravity())
 		to_chat(src, "<span class='warning'>Gravity stops you from moving upward.</span>")
 		return FALSE
 
@@ -314,7 +314,7 @@
 /atom/movable/proc/fall_impact(levels_fallen, stopped_early = FALSE)
 	// No gravity, stop falling into spess!
 	var/area/area = get_area(src)
-	if (istype(loc, /turf/space) || (area && !area.has_gravity))
+	if (istype(loc, /turf/space) || (area && !area.has_gravity()))
 		return FALSE
 
 	visible_message("\The [src] falls and lands on \the [loc]!", "You hear a thud!")
@@ -325,7 +325,7 @@
 /mob/living/fall_impact(levels_fallen, stopped_early = FALSE)
 	// No gravity, stop falling into spess!
 	var/area/area = get_area(src)
-	if (istype(loc, /turf/space) || (area && !area.has_gravity))
+	if (istype(loc, /turf/space) || (area && !area.has_gravity()))
 		return FALSE
 
 	visible_message("\The [src] falls and lands on \the [loc]!",
@@ -354,7 +354,7 @@
 /mob/living/carbon/human/fall_impact(levels_fallen, stopped_early = FALSE)
 	// No gravity, stop falling into spess!
 	var/area/area = get_area(src)
-	if (istype(loc, /turf/space) || (area && !area.has_gravity))
+	if (istype(loc, /turf/space) || (area && !area.has_gravity()))
 		return FALSE
 
 	var/obj/item/weapon/rig/rig = get_rig()
@@ -503,7 +503,7 @@
 /atom/movable/proc/fall_collateral(levels_fallen, stopped_early = FALSE)
 	// No gravity, stop falling into spess!
 	var/area/area = get_area(src)
-	if (istype(loc, /turf/space) || (area && !area.has_gravity))
+	if (istype(loc, /turf/space) || (area && !area.has_gravity()))
 		return null
 
 	var/list/fall_specs = fall_get_specs(levels_fallen)

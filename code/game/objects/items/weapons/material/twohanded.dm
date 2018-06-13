@@ -245,6 +245,7 @@
 		MA.layer = FLOAT_LAYER
 		HS.add_overlay(MA)
 		HS.name = "[I.name] on a spear"
+		HS.material = material.name
 		qdel(src)
 		return
 
@@ -299,25 +300,27 @@
 	icon_state = "headspear"
 	density = 0
 	anchored = 1
+	var/material = "glass"
 
 /obj/structure/headspear/attack_hand(mob/living/user)
 	user.visible_message("<span class='warning'>[user] kicks over \the [src]!</span>", "<span class='danger'>You kick down \the [src]!</span>")
-	new /obj/item/weapon/material/twohanded/spear(user.loc)
+	new /obj/item/weapon/material/twohanded/spear(user.loc, material)
 	for(var/obj/item/organ/external/head/H in src)
 		H.loc = user.loc
 	qdel(src)
 
 // Chainsaws!
-
 /obj/item/weapon/material/twohanded/chainsaw
 	name = "chainsaw"
+	desc = "A robust tree-cutting chainsaw intended to cut down various types of invasive spaceplants that grow on the station."
 	icon_state = "chainsaw_off"
 	base_icon = "chainsaw_off"
 	flags = CONDUCT
 	force = 10
+	force_unwielded = 10
 	force_wielded = 20
-	throwforce = 7
-	w_class = 4
+	throwforce = 5
+	w_class = ITEMSIZE_LARGE
 	sharp = 1
 	edge = 1
 	origin_tech = list(TECH_COMBAT = 5)
@@ -327,6 +330,7 @@
 	applies_material_colour = 0
 	default_material = "steel"
 	parry_chance = 5
+	var/fuel_type = "fuel"
 	var/opendelay = 30 // How long it takes to perform a door opening action with this chainsaw, in seconds.
 	var/max_fuel = 300 // The maximum amount of fuel the chainsaw stores.
 	var/fuel_cost = 1 // Multiplier for fuel cost.
@@ -334,22 +338,33 @@
 	var/cutting = 0 //Ignore
 	var/powered = 0 //Ignore
 
-/obj/item/weapon/material/twohanded/chainsaw/op //For events or whatever
-	name = "bloody chainsaw"
-	opendelay = 5
-	max_fuel = 1000
-	fuel_cost = 0.5
-
 /obj/item/weapon/material/twohanded/chainsaw/Initialize()
 	. = ..()
 	create_reagents(max_fuel)
+
+/obj/item/weapon/material/twohanded/chainsaw/fueled/Initialize()
+	. = ..()
+	reagents.add_reagent(fuel_type, max_fuel)
+
+/obj/item/weapon/material/twohanded/chainsaw/op //For events or whatever
+	opendelay = 5
+	max_fuel = 1000
+	fuel_cost = 0.5
+	unbreakable = TRUE
+	parry_chance = 100 //Gotta punish those validhunters
+	default_material = "plasteel"
+
+/obj/item/weapon/material/twohanded/chainsaw/op/Initialize()
+	. = ..()
+	reagents.add_reagent(fuel_type, max_fuel)
 
 /obj/item/weapon/material/twohanded/chainsaw/proc/PowerUp()
 	var/turf/T = get_turf(src)
 	T.audible_message(span("notice", "\The [src] rumbles to life."))
 	playsound(src, "sound/weapons/chainsawstart.ogg", 25, 0, 30)
-	force = 20
-	force_wielded = 40
+	force = 15
+	force_unwielded = 30
+	force_wielded = 60
 	throwforce = 20
 	icon_state = "chainsaw_on"
 	base_icon = "chainsaw_on"
@@ -372,26 +387,36 @@
 	powered = 0
 	update_held_icon()
 
+/obj/item/weapon/material/twohanded/chainsaw/shatter(var/consumed)
+	var/turf/T = get_turf(src)
+	new /obj/effect/decal/cleanable/blood/oil(T)
+	new /obj/effect/decal/cleanable/liquid_fuel(T)
+	new /obj/item/trash/uselessplastic(T)
+	. = ..()
+
 /obj/item/weapon/material/twohanded/chainsaw/Destroy()
 	STOP_PROCESSING(SSfast_process, src)
 	return ..()
 
 /obj/item/weapon/material/twohanded/chainsaw/proc/RemoveFuel(var/amount = 1)
-	amount = amount * fuel_cost
-	reagents.remove_reagent("fuel", Clamp(amount,0,reagents.get_reagent_amount("fuel")))
-	if(reagents.get_reagent_amount("fuel") <= 0)
-		powered = 0
+	if(reagents && istype(reagents))
+		amount *= fuel_cost
+		reagents.remove_reagent(fuel_type, Clamp(amount,0,reagents.get_reagent_amount(fuel_type)))
+		if(reagents.get_reagent_amount(fuel_type) <= 0)
+			PowerDown()
+	else
 		PowerDown()
 
 /obj/item/weapon/material/twohanded/chainsaw/process()
 	//TickRate is 0.1
 	var/FuelToRemove = 0.1 //0.1 Every 0.1 seconds
-
 	if(cutting)
 		FuelToRemove = 1
 		playsound(loc, 'sound/weapons/chainsawloop2.ogg', 25, 0, 30)
-		spark(src, 3, alldirs)
-		eyecheck(loc)
+		if(prob(75))
+			spark(src, 3, alldirs)
+			if(prob(25))
+				eyecheck(2,loc)
 	else
 		playsound(loc, 'sound/weapons/chainsawloop.ogg', 25, 0, 30)
 
@@ -399,7 +424,13 @@
 
 /obj/item/weapon/material/twohanded/chainsaw/examine(mob/user)
 	if(..(user, 1))
-		user << "A heavy-duty chainsaw meant for cutting wood. Contains [round(reagents.total_volume)] unit\s of fuel."
+		user << "A heavy-duty chainsaw meant for cutting wood. Contains [round(reagents.get_reagent_amount(fuel_type))] unit\s of fuel."
+
+/obj/item/weapon/material/twohanded/chainsaw/attack(mob/M as mob, mob/living/user as mob)
+	. = ..()
+	if(powered)
+		playsound(loc, "sound/weapons/chainsword.ogg", 25, 0, 30)
+		RemoveFuel(3)
 
 /obj/item/weapon/material/twohanded/chainsaw/afterattack(obj/O as obj, mob/user as mob, proximity)
 	if(!proximity) return
@@ -409,51 +440,32 @@
 		playsound(loc, 'sound/effects/refill.ogg', 50, 1, -6)
 		return
 	else if(powered)
-		playsound(loc, "sound/weapons/chainsword.ogg", 25, 0, 30)
-		RemoveFuel(3)
-		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //No sound spam
+		if(!istype(O))
+			user.visible_message(\
+				"<span class='warning'>[user] revs the chainsaw!.</span>",\
+				"<span class='warning'>You rev the chainsaw!.</span>",\
+				"<span class='warning'>You hear a machine rev.</span>"\
+			)
+
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+			playsound(loc, "sound/weapons/chainsword.ogg", 25, 0, 30)
+			RemoveFuel(3)
 
 	. = ..()
 
-/obj/item/weapon/material/twohanded/chainsaw/proc/eyecheck(mob/living/carbon/human/H as mob) //Shamefully copied from the welder. Damage values multiplied by 0.1
+/obj/item/weapon/material/twohanded/chainsaw/proc/eyecheck(var/multiplier, mob/living/carbon/human/H as mob) //Shamefully copied from the welder. Damage values multiplied by 0.1
 
-	if (!istype(H))
-		return 1
+	if (!istype(H) || H.status_flags & GODMODE)
+		return
 
 	var/obj/item/organ/eyes/E = H.get_eyes()
-	if(!E)
+	if(!istype(E))
 		return
-	var/safety = H.eyecheck()
-	if(H.status_flags & GODMODE)
-		return
-	switch(safety)
-		if(FLASH_PROTECTION_MODERATE)
-			H << "<span class='warning'>Your eyes sting a little.</span>"
-			E.damage += rand(1, 2)*0.1
-			if(E.damage > 12)
-				H.eye_blurry += rand(3,6)*0.1
-		if(FLASH_PROTECTION_NONE)
-			H << "<span class='warning'>Your eyes burn.</span>"
-			E.damage += rand(2, 4)*0.1
-			if(E.damage > 10)
-				E.damage += rand(4,10)*0.1
-		if(FLASH_PROTECTION_REDUCED)
-			H << "<span class='danger'>Your equipment intensify the welder's glow. Your eyes itch and burn severely.</span>"
-			H.eye_blurry += rand(12,20)*0.1
-			E.damage += rand(12, 16)*0.1
-	if(safety<FLASH_PROTECTION_MAJOR)
-		if(E.damage > 10)
-			H << "<span class='warning'>Your eyes are really starting to hurt. This can't be good for you!</span>"
 
-		if (E.damage >= E.min_broken_damage)
-			H << "<span class='danger'>You go blind!</span>"
-			H.sdisabilities |= BLIND
-		else if (E.damage >= E.min_bruised_damage)
-			H << "<span class='danger'>You go blind!</span>"
-			H.eye_blind = 5
-			H.eye_blurry = 5
-			H.disabilities |= NEARSIGHTED
-			addtimer(CALLBACK(H, /mob/.proc/reset_nearsighted), 100)
+	var/eye_damage = max(0, (2 - H.eyecheck())*multiplier )
+	E.damage += eye_damage
+	if(eye_damage > 0)
+		H << "<span class='danger'>Some stray sparks fly in your eyes!</span>"
 
 /obj/item/weapon/material/twohanded/chainsaw/AltClick(mob/user as mob)
 

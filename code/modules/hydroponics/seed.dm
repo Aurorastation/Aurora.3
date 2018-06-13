@@ -292,7 +292,7 @@
 
 	// Handle light requirements.
 	if(!light_supplied)
-		if (current_turf.dynamic_lighting)
+		if (TURF_IS_DYNAMICALLY_LIT(current_turf))
 			light_supplied = current_turf.get_lumcount(0, 3) * 10
 		else
 			light_supplied = 5
