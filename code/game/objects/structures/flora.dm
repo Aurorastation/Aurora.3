@@ -78,6 +78,7 @@
 	icon = 'icons/obj/plants.dmi'
 	icon_state = "plant-26"
 	var/dead = 0
+	var/obj/item/stored_item
 
 /obj/structure/flora/pottedplant/proc/death()
 	if (!dead)
@@ -94,12 +95,24 @@
 	death()
 	return ..()
 
-/obj/structure/flora/pottedplant/attackby(obj/item/weapon/W, mob/user)
-	if (W.edge)
-		user.visible_message(span("warning", "[user] cuts down the [src]"))
-		death()
-		return 1
+/obj/structure/flora/pottedplant/attackby(obj/item/W, mob/user)
+	if(do_after(user, 20, act_target = src))
+		if(!stored_item)
+			stored_item = W
+			to_chat(user,"<span class='notice'>You hide [W] in [src]</span>")
+			return
+		else
+			to_chat(user,"<span class='notice'>There is something hidden in [src]</span>")
+			return
 	return ..()
+
+/obj/structure/flora/pottedplant/attack_hand(mob/user)
+	if(do_after(user, 40, act_target = src))
+		if(!stored_item)
+			user.visible_message("<span class='notice'>Searches [src] for hidden items</span>","<span class='notice'>There is nothing hidden in [src]</span>")
+		else
+			user.put_in_hands(stored_item)
+			user.visible_message("<span class='notice'>Searches [src] for hidden items</span>","<span class='notice'>You take [stored_item] from [src]</span>")
 
 /obj/structure/flora/pottedplant/bullet_act(var/obj/item/projectile/Proj)
 	if (prob(Proj.damage*2))
