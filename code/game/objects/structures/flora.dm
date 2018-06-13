@@ -80,6 +80,10 @@
 	var/dead = 0
 	var/obj/item/stored_item
 
+/obj/structure/flora/pottedplant/Destroy()
+	QDEL_NULL(stored_item)
+	return ..()
+
 /obj/structure/flora/pottedplant/proc/death()
 	if (!dead)
 		icon_state = "plant-dead"
@@ -99,20 +103,21 @@
 	if(do_after(user, 20, act_target = src))
 		if(!stored_item)
 			stored_item = W
-			to_chat(user,"<span class='notice'>You hide [W] in [src]</span>")
+			to_chat(user,"<span class='notice'>You hide [W] in [src].</span>")
 			return
 		else
-			to_chat(user,"<span class='notice'>There is something hidden in [src]</span>")
+			to_chat(user,"<span class='notice'>There is something hidden in [src].</span>")
 			return
 	return ..()
 
 /obj/structure/flora/pottedplant/attack_hand(mob/user)
+	user.visible_message("<span class='notice'>[user] searches [src].</span>","<span class='notice'>You search [src].</span>")
 	if(do_after(user, 40, act_target = src))
 		if(!stored_item)
-			user.visible_message("<span class='notice'>Searches [src] for hidden items</span>","<span class='notice'>There is nothing hidden in [src]</span>")
+			to_chat(user,"<span class='notice'>There is nothing hidden in [src].</span>")
 		else
 			user.put_in_hands(stored_item)
-			user.visible_message("<span class='notice'>Searches [src] for hidden items</span>","<span class='notice'>You take [stored_item] from [src]</span>")
+			to_chat(user,"<span class='notice'>You take [stored_item] from [src].</span>")
 
 /obj/structure/flora/pottedplant/bullet_act(var/obj/item/projectile/Proj)
 	if (prob(Proj.damage*2))
