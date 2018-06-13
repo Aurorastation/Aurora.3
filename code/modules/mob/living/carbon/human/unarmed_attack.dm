@@ -115,7 +115,7 @@ var/global/list/sparring_attack_cache = list()
 
 /datum/unarmed_attack/bite/is_usable(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone)
 
-	if (user.wear_mask && istype(user.wear_mask, /obj/item/clothing/mask/muzzle))
+	if (user.wear_mask && is_muzzle(user.wear_mask))
 		return 0
 	if (user == target && (zone == "head" || zone == "eyes" || zone == "mouth"))
 		return 0

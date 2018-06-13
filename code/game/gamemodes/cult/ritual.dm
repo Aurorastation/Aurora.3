@@ -106,7 +106,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 	if(!iscultist(user))
 		user << "You can't mouth the arcane scratchings without fumbling over them."
 		return
-	if(istype(user.wear_mask, /obj/item/clothing/mask/muzzle))
+	if(is_muzzle(user.wear_mask))
 		user << "You are unable to speak the words of the rune."
 		return
 	if(!word1 || !word2 || !word3 || prob(user.getBrainLoss()))
