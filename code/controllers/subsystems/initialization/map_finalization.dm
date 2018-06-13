@@ -15,7 +15,7 @@
 
 	if(config.generate_dungeons) //dependant on markers
 		place_dungeon_spawns()
-	
+
 	if(config.generate_asteroid)
 		time = world.time
 		current_map.generate_asteroid()
@@ -37,44 +37,41 @@
 	sortTim(all_areas, /proc/cmp_name_asc)
 
 /proc/place_dungeon_spawns()
-
-	var/list/known_maps = list()
 	var/map_directory = "maps/dungeon_spawns/"
 	var/list/files = flist(map_directory)
 	var/start_time = world.time
 	var/dungeons_placed = 0
 	var/static/dmm_suite/maploader = new
 
-	log_ss("asteroid_spawns","Creating asteroid dungeons for [length(asteroid_spawn)] different areas, with [length(files)] possible dungeons.")
+	log_ss("map_finalization","Creating asteroid dungeons for [length(asteroid_spawn)] different areas, with [length(files)] possible dungeons.")
 
 	for(var/turf/spawn_location in asteroid_spawn)
 
 		if(length(files) <= 0) //Sanity
-			log_ss("asteroid_spawns","There aren't enough dungeon map files to fill the entire dungeon map. You should put in some non-unique dungeons as filler!")
+			log_ss("map_finalization","There aren't enough dungeon map files to fill the entire dungeon map. You should put in some non-unique dungeons as filler!")
 			break
 
-		//if(prob(25))
-		var/chosen_dungeon = pick(files)
+		if(prob(25))
+			var/chosen_dungeon = pick(files)
 
-		log_ss("asteroid_spawns", "Checking file: [map_directory][chosen_dungeon].")
+			log_ss("map_finalization", "Checking file: [map_directory][chosen_dungeon]...")
 
-		if(dd_hassuffix(chosen_dungeon,".txt")) //Don't read the readme! Only humans can read the readme!
-			files -= chosen_dungeon
-			continue
+			if(dd_hassuffix(chosen_dungeon,".txt")) //Don't read the readme! Only humans can read the readme!
+				files -= chosen_dungeon
+				continue
 
-		var/map_file = file("[map_directory][chosen_dungeon]")
+			var/map_file = file("[map_directory][chosen_dungeon]")
 
-		if(isfile(map_file)) //Sanity
-			log_ss("asteroid_spawns","Loading dungeon '[chosen_dungeon]' at coordinates [spawn_location.x],[spawn_location.y],[spawn_location.z].")
-			maploader.load_map(map_file,spawn_location.x,spawn_location.y,spawn_location.z)
-			dungeons_placed += 1
-		else
-			log_ss("asteroid_spawns","ERROR: Something fucking weird happened with the file: [chosen_dungeon].")
+			if(isfile(map_file)) //Sanity
+				log_ss("map_finalization","Loading dungeon '[chosen_dungeon]' at coordinates [spawn_location.x],[spawn_location.y],[spawn_location.z].")
+				maploader.load_map(map_file,spawn_location.x,spawn_location.y,spawn_location.z)
+				dungeons_placed += 1
+			else
+				log_ss("map_finalization","ERROR: Something fucking weird happened with the file: [chosen_dungeon].")
 
-		if(dd_hassuffix(chosen_dungeon,"_unique.dmm")) //Unique dungeons should only spawn once.
-			files -= chosen_dungeon
+			if(dd_hassuffix(chosen_dungeon,"_unique.dmm")) //Unique dungeons should only spawn once.
+				files -= chosen_dungeon
 
-	log_ss("asteroid_spawns","Loaded [dungeons_placed] asteroid dungeons in [(world.time - start_time)/10] seconds.")
-	
-	qdel(maploader)	
-	
+	log_ss("map_finalization","Loaded [dungeons_placed] asteroid dungeons in [(world.time - start_time)/10] seconds.")
+
+	qdel(maploader)
