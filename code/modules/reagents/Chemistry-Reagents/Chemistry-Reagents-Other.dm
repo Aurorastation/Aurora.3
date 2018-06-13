@@ -542,11 +542,12 @@
 	taste_description = "horses"
 
 /datum/reagent/sglue/touch_obj(var/obj/O)
-	if((istype(O, /obj/item)) && (volume > 10*O.w_class))
+	if((istype(O, /obj/item) && !istype(O, /obj/item/weapon/reagent_containers)) && (volume > 10*O.w_class))
 		var/obj/item/I = O
 		I.canremove = 0
 		I.desc += " It appears to glisten with some gluey substance."
 		remove_self(10*I.w_class)
+		I.visible_message("<span class='notice'>[I] begins to glisten with some gluey substance.</span>")
 
 /datum/reagent/usolve
 	name = "Universal Solvent"
@@ -557,10 +558,11 @@
 	taste_description = "alcohol"
 
 /datum/reagent/usolve/touch_obj(var/obj/O)
-	if((istype(O, /obj/item)) && (volume > 10*O.w_class))
+	if((istype(O, /obj/item) && !istype(O, /obj/item/weapon/reagent_containers)) && (volume > 10*O.w_class))
 		var/obj/item/I = O
 		I.canremove = initial(I.canremove)
 		I.desc = initial(I.desc)
+		I.visible_message("<span class='notice'>A thin shell of glue cracks off of [I].</span>")
 		remove_self(10*I.w_class)
 
 /datum/reagent/shapesand
@@ -572,8 +574,8 @@
 	taste_description = "sand"
 
 /datum/reagent/shapesand/touch_obj(var/obj/O)
-	if((istype(O, /obj/item)) && (volume > 10*O.w_class))
-		var/obj/item/shapesand/mimic = new /obj/item/shapesand(get_turf(O))
+	if((istype(O, /obj/item) && !istype(O, /obj/item/weapon/reagent_containers)) && (volume > 10*O.w_class))
+		var/obj/item/shapesand/mimic = new /obj/item/shapesand(O.loc)
 		mimic.name = O.name
 		mimic.desc = O.desc
 		mimic.icon = O.icon
@@ -581,6 +583,7 @@
 		mimic.item_state = O.item_state
 		mimic.overlays = O.overlays
 		remove_self(10*O.w_class)
+		mimic.visible_message("<span class='notice'>The sand forms into an exact duplicate of [O].</span>")
 
 /obj/item/shapesand
 	name = "shapesand"

@@ -108,7 +108,7 @@
 		if(L != owner)
 			beloved = L
 			break
-	if(target)
+	if(beloved)
 		to_chat(owner, "<span class='notice'>You can't help but love [beloved]. You can't bear to be apart from them, and would do anything they say.</span>")
 
 	else
@@ -119,12 +119,12 @@
 	..()
 	if(check_alone())
 		stress = min(stress + 0.5, 100)
-		if(stress > 10 && (prob(5)))
+		if(stress > 10 && (prob(10)))
 			stress_reaction()
 	else
-		stress -= 4
+		stress = max(0, stress - 4)
 		if(prob(5) && stress > 0)
-			var/mushy = pick("You feel so good when [target] is with you.","You can't believe you ever lived without [target].","You'd do anything for [target].","[target] makes everything better.","You can never let [target] leave again.")
+			var/mushy = pick("You feel so good when [beloved] is with you.","You can't believe you ever lived without [beloved].","You'd do anything for [beloved].","[beloved] makes everything better.","You can never let [beloved] leave again.")
 			to_chat(owner, "<span class='notice'>[mushy]</span>")
 
 /datum/brain_trauma/special/love/proc/check_alone()
@@ -132,7 +132,7 @@
 		return TRUE
 
 	for(var/mob/living/L in view(owner, 7))
-		if(L == target)
+		if(L == beloved)
 			return FALSE
 
 	return TRUE
@@ -147,7 +147,7 @@
 			if(!high_stress)
 				to_chat(owner, "<span class='warning'>You feel sick...</span>")
 			else
-				to_chat(owner, "<span class='warning'>You feel really sick at the thought of being seperated from [target]!</span>")
+				to_chat(owner, "<span class='warning'>You feel really sick at the thought of being seperated from [beloved]!</span>")
 			addtimer(CALLBACK(owner, /mob/living/carbon.proc/vomit, high_stress), 50) //blood vomit if high stress
 		if(2)
 			if(!high_stress)
@@ -156,7 +156,7 @@
 				owner.confused += 20
 				owner.Jitter(20)
 			else
-				to_chat(owner, "<span class='warning'>You feel weak and scared! If only [target] was here!</span>")
+				to_chat(owner, "<span class='warning'>You feel weak and scared! If only [beloved] was here!</span>")
 				owner.dizziness += 20
 				owner.confused += 20
 				owner.Jitter(20)
@@ -164,14 +164,14 @@
 
 		if(3, 4)
 			if(!high_stress)
-				to_chat(owner, "<span class='warning'>You feel really lonely without [target]...</span>")
+				to_chat(owner, "<span class='warning'>You feel really lonely without [beloved]...</span>")
 			else
-				to_chat(owner, "<span class='warning'>You're going mad with loneliness! You need [target]!</span>")
+				to_chat(owner, "<span class='warning'>You're going mad with loneliness! You need [beloved]!</span>")
 				owner.hallucination += 20
 
 		if(5)
 			if(!high_stress)
-				to_chat(owner, "<span class='warning'>Your heart skips a beat. Oh, [target]!</span>")
+				to_chat(owner, "<span class='warning'>Your heart skips a beat. Oh, [beloved]!</span>")
 				owner.adjustOxyLoss(8)
 			else
 				if(prob(15) && ishuman(owner))
@@ -180,5 +180,5 @@
 					heart.take_damage(heart.min_bruised_damage)
 					to_chat(H, "<span class='userdanger'>You feel a stabbing pain in your heart!</span>")
 				else
-					to_chat(owner, "<span class='userdanger'>You feel your heart lurching in your chest... Oh, [target]!</span>")
+					to_chat(owner, "<span class='userdanger'>You feel your heart lurching in your chest... Oh, [beloved]!</span>")
 					owner.adjustOxyLoss(8)
