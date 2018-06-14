@@ -17412,9 +17412,6 @@
 /turf/simulated/wall,
 /area/quartermaster/qm)
 "Gl" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
-	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
 	d1 = 1;
@@ -17424,6 +17421,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
 "Gm" = (
@@ -18928,9 +18926,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "IQ" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
-	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
 	d1 = 1;
