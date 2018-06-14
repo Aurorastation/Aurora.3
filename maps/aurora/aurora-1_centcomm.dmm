@@ -14354,8 +14354,7 @@
 	dir = 4
 	},
 /obj/machinery/status_display{
-	pixel_x = -32;
-	pixel_y = 32
+	pixel_y = -32
 	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
@@ -15309,15 +15308,17 @@
 	},
 /area/centcom/spawning)
 "If" = (
-/turf/unsimulated/floor{
-	icon_state = "wood"
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
+	dir = 8
 	},
-/obj/item/weapon/stool/padded,
-/turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "siding2"
+/obj/machinery/status_display{
+	pixel_y = -32
 	},
-/area/centcom/holding)
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
 "Ig" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -15451,17 +15452,14 @@
 	},
 /area/centcom/holding)
 "Ix" = (
-/obj/structure/bed/chair/office/bridge{
-	icon_state = "bridge";
-	dir = 8
+/obj/machinery/light{
+	dir = 1
 	},
+/obj/structure/flora/pottedplant/random,
 /obj/machinery/status_display{
-	pixel_x = 32;
 	pixel_y = 32
 	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
+/turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
 "Iy" = (
 /turf/unsimulated/floor{
@@ -15499,16 +15497,14 @@
 	},
 /area/centcom/spawning)
 "IC" = (
-/turf/unsimulated/floor{
-	icon_state = "floor"
+/obj/machinery/door/airlock/glass_security{
+	name = "Secure Holding";
+	req_access = list(1)
 	},
-/obj/structure/bed/chair/unmovable{
-	dir = 1
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
 	},
-/turf/unsimulated/floor{
-	icon_state = "wood_siding2"
-	},
-/area/centcom/spawning)
+/area/shuttle/escape/centcom)
 "ID" = (
 /obj/effect/floor_decal/spline/plain{
 	icon_state = "spline_plain";
@@ -18503,10 +18499,10 @@
 /turf/unsimulated/wall/riveted,
 /area/centcom/spawning)
 "OX" = (
-/obj/machinery/light{
-	dir = 1
+/obj/machinery/door/airlock/glass_command{
+	name = "Cockpit";
+	req_access = list(19)
 	},
-/obj/structure/flora/pottedplant/random,
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
 "OY" = (
@@ -21572,8 +21568,9 @@
 	},
 /area/shuttle/escape/centcom)
 "VE" = (
-/obj/machinery/door/airlock/glass_command{
-	name = "Cockpit"
+/obj/machinery/door/airlock/command{
+	name = "Cockpit";
+	req_access = list(19)
 	},
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
@@ -21629,12 +21626,14 @@
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
 "VM" = (
-/obj/machinery/door/airlock/command{
-	name = "Cockpit"
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 1
 	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor2"
+/obj/machinery/status_display{
+	pixel_y = -32
 	},
+/turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
 "VN" = (
 /obj/machinery/door/airlock/glass{
@@ -21948,17 +21947,14 @@
 	},
 /area/centcom/holding)
 "Ws" = (
-/turf/unsimulated/floor{
-	icon_state = "floor"
+/obj/machinery/door/airlock/glass_medical{
+	name = "Medical Bay";
+	req_access = list(5)
 	},
-/obj/machinery/vending/snack{
-	name = "Free Chocolate Corp";
-	prices = list()
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
 	},
-/turf/unsimulated/floor{
-	icon_state = "wood_siding4"
-	},
-/area/centcom/spawning)
+/area/shuttle/escape/centcom)
 "Wt" = (
 /obj/machinery/vending/coffee,
 /turf/unsimulated/floor{
@@ -22035,20 +22031,20 @@
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
 "WE" = (
-/obj/machinery/door/airlock/glass_security{
-	name = "Secure Holding"
+/turf/unsimulated/floor{
+	icon_state = "wood"
 	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor7"
+/obj/item/weapon/stool/padded,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "siding2"
 	},
-/area/shuttle/escape/centcom)
+/area/centcom/holding)
 "WF" = (
-/obj/machinery/door/airlock/glass_medical{
-	name = "Medical Bay"
+/obj/machinery/status_display{
+	pixel_y = -32
 	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
+/turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
 "WG" = (
 /obj/structure/flora/pottedplant/random,
@@ -22353,6 +22349,29 @@
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
+/obj/structure/bed/chair/unmovable{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_siding2"
+	},
+/area/centcom/spawning)
+"Xm" = (
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/obj/machinery/vending/snack{
+	name = "Free Chocolate Corp";
+	prices = list()
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_siding4"
+	},
+/area/centcom/spawning)
+"Xn" = (
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
 /obj/machinery/vending/cola{
 	name = "Free Robust Softdrinks";
 	prices = list()
@@ -22361,7 +22380,7 @@
 	icon_state = "wood_siding8"
 	},
 /area/centcom/spawning)
-"Xm" = (
+"Xo" = (
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -56999,7 +57018,7 @@ DM
 DM
 EP
 EP
-If
+WE
 Gq
 GE
 GF
@@ -57256,7 +57275,7 @@ Fi
 Fo
 EP
 EP
-If
+WE
 Gq
 GF
 GF
@@ -57513,7 +57532,7 @@ Fj
 Fp
 EP
 EP
-If
+WE
 Gq
 GF
 GF
@@ -57770,7 +57789,7 @@ Fk
 Fp
 EP
 EP
-If
+WE
 Gq
 GF
 GF
@@ -58027,7 +58046,7 @@ EP
 EP
 Fy
 EP
-If
+WE
 Gq
 GF
 GF
@@ -58284,7 +58303,7 @@ EP
 EP
 EP
 EP
-If
+WE
 Gq
 GF
 GF
@@ -64184,11 +64203,11 @@ CQ
 GQ
 FZ
 CP
-OX
+Ix
 Ds
 VS
 VP
-VE
+OX
 Ds
 Ds
 VP
@@ -64196,7 +64215,7 @@ Ds
 Ds
 Ds
 Ds
-WE
+IC
 Wu
 Wu
 Wu
@@ -64442,7 +64461,7 @@ Fu
 Ga
 CP
 CP
-VE
+OX
 CP
 CP
 CP
@@ -64476,7 +64495,7 @@ Ms
 Id
 Id
 Id
-Ws
+Xm
 Id
 Id
 Id
@@ -64709,7 +64728,7 @@ Wk
 Wc
 Wm
 Ds
-Ds
+WF
 CP
 WN
 Wu
@@ -64732,9 +64751,9 @@ KZ
 Ms
 Id
 Id
-IC
+Xl
 OY
-Xm
+Xo
 Id
 Id
 OA
@@ -64957,7 +64976,7 @@ GO
 GQ
 Pe
 VI
-VM
+VE
 Ds
 Ds
 Ds
@@ -64989,9 +65008,9 @@ MN
 Ms
 Id
 Id
-IC
+Xl
 OZ
-Xm
+Xo
 Id
 Id
 Qn
@@ -65213,7 +65232,7 @@ FB
 GP
 ID
 Pi
-VI
+VM
 CP
 VR
 VV
@@ -65470,7 +65489,7 @@ FB
 HM
 ID
 Pi
-VI
+VM
 CP
 VR
 VU
@@ -65481,7 +65500,7 @@ Wc
 Wm
 Ds
 Ds
-WF
+Ws
 WO
 WX
 Xb
@@ -65503,9 +65522,9 @@ KZ
 Ms
 Id
 Id
-IC
+Xl
 Pa
-Xm
+Xo
 Id
 Id
 OA
@@ -65728,7 +65747,7 @@ GO
 GQ
 VB
 VI
-VM
+VE
 Ds
 Ds
 Ds
@@ -65760,9 +65779,9 @@ Nw
 Ms
 Id
 Id
-IC
+Xl
 Pb
-Xm
+Xo
 Id
 Id
 OA
@@ -66017,9 +66036,9 @@ KZ
 Ms
 Id
 Id
-IC
+Xl
 Pc
-Xm
+Xo
 Id
 Id
 OA
@@ -66495,7 +66514,7 @@ CO
 CQ
 CQ
 GQ
-Ix
+If
 CP
 VD
 VJ
@@ -66508,7 +66527,7 @@ Ds
 Ds
 Ds
 Ds
-Ds
+WF
 CP
 WS
 WY
@@ -66531,9 +66550,9 @@ MN
 Ms
 Id
 Id
-IC
+Xl
 Pb
-Xm
+Xo
 Id
 Id
 OA
@@ -66788,9 +66807,9 @@ KZ
 Ms
 Id
 Id
-IC
+Xl
 Pd
-Xm
+Xo
 Id
 Id
 OA
@@ -67046,7 +67065,7 @@ Ms
 Id
 Id
 Id
-Xl
+Xn
 Id
 Id
 Id
