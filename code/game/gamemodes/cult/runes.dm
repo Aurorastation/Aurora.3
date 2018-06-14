@@ -12,7 +12,7 @@ var/list/sacrificed = list()
  *  * <span class='cult'>...</span>    - when there is a private message to the cultists. This guideline is very arbitrary but there has to be some consistency!
  */
 
-/mob/living/carbon/proc/rune_apply_damage(blood_amt, dmg_amt)
+/mob/living/proc/rune_apply_damage(blood_amt, dmg_amt)
 	take_overall_damage(dmg_amt)
 
 /mob/living/carbon/human/rune_apply_damage(blood_amt, dmg_amt)

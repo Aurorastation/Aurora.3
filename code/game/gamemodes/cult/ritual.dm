@@ -384,7 +384,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 	)
 	if(do_after(src, 50))
 		apply_damage(30)
-		cultbond = TRUE
+		global.cult.cultbonds[SOFTREF(src)] = TRUE
 		diona_rune(user)
 
 /mob/living/carbon/human/proc/cut_self(obj/item/organ/external/target)
@@ -395,7 +395,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 	)
 	if(do_after(src, 50))
 		target.take_damage(15)
-		target.cultmark = TRUE
+		global.cult.cultbonds[SOFTREF(src)] = TRUE
 		craft_rune(target)
 
 /mob/living/carbon/human/proc/diona_rune()
@@ -500,7 +500,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 			return
 		
 		if(user.is_diona())
-			if (!user.cultbond)
+			if (!global.cult.cultbonds[SOFTREF(user)])
 				user.tree_bond(user)
 			else
 				user.diona_rune(user)
@@ -510,7 +510,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 			for (var/organ_tag in list("l_hand", "l_arm", "r_hand", "r_arm"))
 				var/obj/item/organ/external/O = user.organs_by_name[organ_tag]
 				if (!QDELETED(O) && !O.is_stump() && !(O.status & (ORGAN_ROBOT|ORGAN_ADV_ROBOT)))
-					if (!O.cultmark)
+					if (!global.cult.cultbonds[SOFTREF(O)])
 						user.cut_self(O)
 					else
 						user.craft_rune(O)
@@ -525,7 +525,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 				)
 				if(do_after(user, 50))
 					O.take_damage(20)
-					O.cultmark = TRUE
+					global.cult.cultbonds[SOFTREF(O)] = TRUE
 					user.make_dizzy(120)
 					user.craft_rune(O)
 

@@ -32,7 +32,6 @@ var/datum/antagonist/cultist/cult
 	initial_spawn_req = 4
 	initial_spawn_target = 6
 	antaghud_indicator = "hudcultist"
-
 	faction = "cult"
 
 	restricted_species = list(
@@ -50,6 +49,7 @@ var/datum/antagonist/cultist/cult
 	var/list/allwords = list("travel","self","see","hell","blood","join","tech","destroy", "other", "hide")
 	var/list/sacrificed = list()
 	var/list/harvested = list()
+	var/list/cultbonds = list()
 
 /datum/antagonist/cultist/New()
 	..()

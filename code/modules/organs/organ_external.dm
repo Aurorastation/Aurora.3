@@ -65,7 +65,6 @@
 	var/list/cached_markings	// The two above lists cached for perf. reasons.
 	var/maim_bonus = 0.75 //For special projectile gibbing calculation, dubbed "maiming"
 	var/can_be_maimed = TRUE //Can this limb be 'maimed'?
-	var/cultmark = 0 // Have you cut yourself for Nar'sie?
 
 /obj/item/organ/external/proc/invalidate_marking_cache()
 	cached_markings = null
