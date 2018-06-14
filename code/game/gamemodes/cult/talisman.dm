@@ -34,12 +34,8 @@
 			if("supply")
 				supply()
 		if(ishuman(user))
-			var/mob/living/carbon/human/H = user
-			if (H.is_diona())
-				H.take_overall_damage(15)
-			else
-				H.vessel.remove_reagent("blood", 10)
-			if (src && src.imbue != "supply" && src.imbue != "runestun" && delete)
+			user.rune_apply_damage(10, 15)
+		if (src && src.imbue != "supply" && src.imbue != "runestun" && delete)
 				qdel(src)
 		return
 	else
