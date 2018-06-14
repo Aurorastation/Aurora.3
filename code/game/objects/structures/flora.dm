@@ -102,9 +102,13 @@
 /obj/structure/flora/pottedplant/attackby(obj/item/W, mob/user)
 	if(do_after(user, 20, act_target = src))
 		if(!stored_item)
-			stored_item = W
-			to_chat(user,"<span class='notice'>You hide [W] in [src].</span>")
-			return
+			if(W.w_class <= ITEMSIZE_NORMAL)
+				stored_item = W
+				to_chat(user,"<span class='notice'>You hide [W] in [src].</span>")
+				return
+			else
+				to_chat(user,"<span class='notice'>[W] cant be hidden in [src]. Its too big.</span>")
+				return
 		else
 			to_chat(user,"<span class='notice'>There is something hidden in [src].</span>")
 			return
