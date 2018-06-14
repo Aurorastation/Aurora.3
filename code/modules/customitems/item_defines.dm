@@ -25,11 +25,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 			desc = "Inside the pocket watch, there is a collection of numbers, displaying '[worldtime2text()]'. On the inside of the lid, there is another sequence of numbers etched into the lid itself."
 
 
-/obj/item/clothing/head/soft/sec/corp/fluff/mendoza_cap //Mendoza's cap - Chance Mendoza - loow
-	name = "well-worn corporate security cap"
-	desc = "A baseball hat in corporate colors.\"C. Mendoza\" is embroidered in fine print on the bill. On the underside of the cap, in dark ink, the phrase \"Gamble till you're Lucky!\" is written in loopy cursive handwriting."
-
-
 /obj/item/clothing/head/fluff/ziva_bandana //Ziva's Bandana - Ziva Ta'Kim - sierrakomodo
 	name = "old bandana"
 	desc = "An old orange-ish-yellow bandana. It has a few stains from engine grease, and the color has been dulled."
@@ -116,11 +111,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	slot_flags = SLOT_MASK | SLOT_TIE
 
 
-/obj/item/clothing/ears/skrell/purple_skrell_cloth_male/fluff/dompesh_cloth //Skrell Purple Head Cloth - Shkor-Dyet Dom'Pesh - mofo1995
-	name = "male skrell purple head cloth"
-	desc = "A set of purple headcloths fit for a skrell's head tails. This one has a small SAMPLe logo on the interior of each cloth, perfect for scientific skrell."
-
-
 /obj/item/weapon/fluff/kiara_altar //Pocket Altar - Kiara Branwen - nursiekitty
 	name = "pocket altar"
 	desc = "A black tin box with a symbol painted over it. It shimmers in the light."
@@ -156,11 +146,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	allowed = list(/obj/item/weapon/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/weapon/gun/energy,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,
 	/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/flame/lighter,/obj/item/device/taperecorder, /obj/item/clothing/accessory/badge/fluff/bell_badge)
-
-
-/obj/item/clothing/under/syndicate/tacticool/fluff/jaylor_turtleneck //Borderworlds Turtleneck - Jaylor Rameau - evilbrage
-	name = "borderworlds turtleneck"
-	desc = "A loose-fitting turtleneck, common among borderworld pilots and criminals. One criminal in particular is missing his, apparently."
 
 
 /obj/item/weapon/melee/fluff/tina_knife //Consecrated Athame - Tina Kaekel - tainavaa
@@ -396,10 +381,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	usr.update_inv_wear_suit()
 
-/obj/item/clothing/head/beret/centcom/officer/fluff/fabian_beret //Worn Security Beret - Fabian Goellstein - mirkoloio
-	name = "worn security beret"
-	desc = "A NT Asset Protection Force Beret. It has the NT APF insignia on it as well as the Name \"Goellstein\" inside."
-
 
 /obj/item/clothing/head/fluff/vittorio_fez //Black Fez - Vittorio Giurifiglio - tytostyris
 	name = "black fez"
@@ -473,18 +454,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "barcia_flask"
 
 
-/obj/item/clothing/gloves/fluff/stone_ring //Thunder Dome Pendant Ring - Jerimiah Stone - dominicthemafiaso
+/obj/item/clothing/ring/fluff/stone_ring //Thunder Dome Pendant Ring - Jerimiah Stone - dominicthemafiaso
 	name = "thunder dome pendant ring"
 	desc = "It appears to be a Collectors edition Thunder dome Pendant ring from the IGTDL's show rumble in the red planet in 2444. It has a decorative diamond center with a image of the Intergalactic belt in the center."
 	icon = 'icons/obj/custom_items/stone_ring.dmi'
 	icon_state = "stone_ring"
 	item_state = "stone_ring"
 	contained_sprite = TRUE
-	clipped = TRUE
-	species_restricted = null
-	gender = NEUTER
-	body_parts_covered = null
-	fingerprint_chance = 100
 
 
 /obj/item/clothing/under/dress/fluff/sayyidah_dress //Traditional Jumper Dress - Sayyidah Al-Kateb - alberyk
@@ -655,11 +631,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/head/soft/sec/corp/fluff/karson_cap //Karson's Cap - Eric Karson - dronzthewolf
-	name = "well-worn corporate security cap"
-	desc = "A well-worn corporate security cap. The name \"Karson\" is written on the underside of the brim, it is well-worn at the point where it has shaped to the owner's head."
-
-
 /obj/item/sign/fluff/triaka_atimono //Framed Zatimono - Azkuyua Triaka - jackboot
 	name = "framed zatimono"
 	desc = "A framed Zatimono, a Unathi standard worn into battle similar to an old-Earth Sashimono. This one is slightly faded."
@@ -691,16 +662,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "zohjar_uniform"
 	item_state = "zohjar_uniform"
 	contained_sprite = TRUE
-
-/obj/item/clothing/suit/storage/toggle/labcoat/tajaran/fluff/zohjar_jacket //People's Republic Medical Officer Coat - Zohjar Rasateir - lordraven001
-	name = "people's republic medical officer coat"
-	desc = "A sterile insulated coat made of leather stitched over fur. It has two gold lapels indicating Officer rank. \
-	The a white armband with a scarlet line in the center indicates that the person wearing this coat is medically trained."
-
-
-/obj/item/clothing/suit/storage/tajaran/fluff/maksim_coat //Tajaran Naval Officer's Coat - Maksim Vasilyev - aimlessanalyst
-	name = "tajaran naval officer coat"
-	desc = "A thick wool coat from Adhomai, calling back to days long past."
 
 
 /obj/item/sign/fluff/iskanz_atimono //Framed Zatimono - Iskanz Sal'Dans - zundy
@@ -829,11 +790,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A faded badge, backed with leather, that reads \"NT Security Force\" across the front. It bears the emblem of the forensic division."
 	stored_name = "Ana Issek"
 	badge_string = "NanoTrasen Security Department"
-
-
-/obj/item/clothing/head/hairflower/fluff/aquila_pin //Magnetic Flower Pin - Aquila - nandastar
-	name = "magnetic flower pin"
-	desc = "That's a magnet in the shape of a hair flower pin. Smells nice."
 
 
 /obj/item/clothing/head/beret/engineering/fluff/ikrad_beret //LR-31MTA Beret - Ikrad Yam'hir - houseofsynth
@@ -1163,6 +1119,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/mask/fluff/corvo_cigarette/examine(mob/user)
 	if(..(user, 1))
 		user << "It is [active ? "on" : "off"]."
+
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/cognac/fluff/leonce_cognac //Old Earth Luxury Cognac - Francois Leonce - driecg36
 	name = "old earth luxury cognac"
@@ -1898,7 +1855,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	light_color = LIGHT_COLOR_BLUE
 
 
-/obj/item/clothing/suit/storage/hooded/wintercoat/fluff/make_poncho //Raincoat Poncho - M.A.K.E - toasterstrudes
+obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.K.E - toasterstrudes
 	name = "raincoat poncho"
 	desc = "A tough brown hooded poncho that looks to be good at protecting someone from the rain."
 	icon = 'icons/obj/custom_items/make_items.dmi'
@@ -1906,6 +1863,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "make_poncho"
 	contained_sprite = TRUE
 	hoodtype = /obj/item/clothing/head/winterhood/fluff/make_hood
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/head/winterhood/fluff/make_hood
 	flags_inv = HIDEEARS
@@ -1936,3 +1894,148 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "fakhr_hat"
 	item_state = "fakhr_hat"
 	contained_sprite = TRUE
+
+
+/obj/item/fluff/daliyah_visa //NanoTrasen Exchange Visa - Daliyah Veridan - xanderdox
+	name = "NanoTrasen exchange visa"
+	desc = "A work visa authorizing the holder, Daliyah Veridan, to work within the Republic of Biesel. An Eridani and NanoTrasen logo are embossed on the back."
+	icon = 'icons/obj/custom_items/daliyah_visa.dmi'
+	icon_state = "daliyah_visa"
+	w_class = 2
+
+
+/obj/item/weapon/retractor/fluff/tristen_retractor //Laser Retractor - Tristen Wolff - elianabeth
+	name = "laser retractor"
+	desc = "The fabled laser retractor. It's a horrible amalgamation of a laser pointer, a retractor, and lots of tape."
+	icon = 'icons/obj/custom_items/tristen_retractor.dmi'
+	icon_state = "tristen_retractor"
+
+
+/obj/item/fluff/amy_player //Music player - Amy Heris - golle
+	name = "music player"
+	desc = "An olive green HF24 in pristine condition, there is a small engraving on the back, reading \"To Amy, I will always be here for you, Varan.\""
+	icon = 'icons/obj/custom_items/amy_player.dmi'
+	icon_state = "amy_player_off"
+	item_state = "electornic"
+	w_class = 2
+	slot_flags = SLOT_BELT
+	var/broken = FALSE
+	var/open = FALSE
+	var/on = FALSE
+	var/obj/item/clothing/ears/earmuffs/earbuds
+
+/obj/item/fluff/amy_player/Initialize()
+	. = ..()
+	earbuds = new(src)
+
+/obj/item/fluff/amy_player/Destroy()
+	QDEL_NULL(earbuds)
+	return ..()
+
+/obj/item/fluff/amy_player/update_icon()
+	if(broken)
+		icon_state = "amy_player_broken"
+		return
+	if(on)
+		icon_state = "amy_player_on"
+	else
+		icon_state = "amy_player_off"
+
+/obj/item/fluff/amy_player/attack_self(mob/user as mob)
+	if(broken)
+		to_chat(user, "<span class='warning'>The screen flickers and blinks with errors.</span>")
+		return
+
+	if(!on)
+		to_chat(user, "<span class='notice'>You turn on \the [src].</span>")
+		on = TRUE
+
+	else
+		to_chat(user, "<span class='notice'>You turn off \the [src].</span>")
+		on = FALSE
+
+	update_icon()
+
+
+/obj/item/fluff/amy_player/attack_hand(var/mob/user)
+	if(earbuds && src.loc == user)
+		earbuds.forceMove(user.loc)
+		user.put_in_hands(earbuds)
+		earbuds = null
+		update_icon()
+		return
+
+	return ..()
+
+/obj/item/fluff/amy_player/attackby(var/obj/item/I, var/mob/user)
+	if(istype(I, /obj/item/clothing/ears/earmuffs) && !earbuds)
+		user.unEquip(I)
+		I.forceMove(src)
+		earbuds = I
+		to_chat(user, "<span class='notice'>You place \the [I] in \the [src].</span>")
+		return
+
+	if(broken)
+		if(isscrewdriver(I))
+			if(!open)
+				open = TRUE
+				to_chat(user, "<span class='notice'>You unfasten the back panel.</span>")
+
+			else
+				open = FALSE
+				to_chat(user, "<span class='notice'>You secure the back panel.</span>")
+			playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+
+		if(ismultitool(I) && open)
+			to_chat(user, "<span class='notice'>You quickly pulse a few fires, and reset the screen and device.</span>")
+			broken = FALSE
+			update_icon()
+
+/obj/item/fluff/amy_player/emp_act(severity)
+	broken = TRUE
+	on = FALSE
+	update_icon()
+	playsound(src, "spark", 50, 1, -1)
+	..()
+
+
+/obj/item/clothing/head/fluff/jix_wrap //Dull Headwraps - JIX - kyres1
+	name = "dull headwraps"
+	desc = "A sturdy, dull brown cloth."
+	icon = 'icons/obj/custom_items/jix_items.dmi'
+	icon_state = "jix_wrap"
+	item_state = "jix_wrap"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/fluff/jix_robes //Dull Robes - JIX - kyres1
+	name = "dull robes"
+	desc = "A set of drab robes which look particularly old, though in good condition. It consists of two pieces, loosely connected and separating at the center."
+	icon = 'icons/obj/custom_items/jix_items.dmi'
+	icon_state = "jix_robes"
+	item_state = "jix_robes"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/mask/fluff/ird_mask //Titanium Faceplate - IRD - kyres1
+	name = "titanium faceplate"
+	desc = "An odd mask seeming to mimic the face of a Human with some artistic liberties taken. Small lights keep it dimly illuminated from within with holographic projectors emulating two bright blue eyes.  \
+	Its rigid frame is composed of what looks like polished titanium."
+	icon = 'icons/obj/custom_items/ird_face.dmi'
+	icon_state = "ird_mask"
+	item_state = "ird_mask"
+	contained_sprite = TRUE
+	flags_inv = HIDEEARS|HIDEFACE
+	body_parts_covered = FACE
+	w_class = 3.0
+
+
+/obj/item/weapon/dice/fluff/baron_dice //BARON's Dice - BARON - iamcrystalclear
+	weighted = TRUE
+	favored_number = 2
+
+
+/obj/item/weapon/flame/lighter/zippo/fluff/nikit_zippo //Vasili Mine Zippo - Nikit Vasili - simontheminer
+	desc = "An old looking zippo lighter with Vasili Mine Logo engraved on it. \"Good Luck Nikit\" is crudely scratched on under the logo in small writing."
+	icon = 'icons/obj/custom_items/nikit_zippo.dmi'
+	icon_state = "nikit_zippo"

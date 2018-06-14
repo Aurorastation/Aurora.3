@@ -576,7 +576,7 @@ default behaviour is:
 
 						if(!istype(M.loc, /turf/space))
 							var/area/A = get_area(M)
-							if(A.has_gravity)
+							if(A.has_gravity())
 								//this is the gay blood on floor shit -- Added back -- Skie
 								if (M.lying && (prob(M.getBruteLoss() / 6)))
 									var/turf/location = M.loc
@@ -628,7 +628,6 @@ default behaviour is:
 	set category = "IC"
 
 	if(!incapacitated(INCAPACITATION_KNOCKOUT) && canClick())
-		setClickCooldown(20)
 		resist_grab()
 		if(!weakened)
 			process_resist()
@@ -678,7 +677,15 @@ default behaviour is:
 	if(buckled)
 		buckled.user_unbuckle_mob(src)
 
+/mob/living/var/last_resist
+
 /mob/living/proc/resist_grab()
+	if (last_resist + 4 > world.time)
+		return
+	last_resist = world.time
+	if (stat || paralysis || stunned)
+		src << "<span class='notice'>You can't move...</span>"
+		return
 	var/resisting = 0
 	for(var/obj/O in requests)
 		requests.Remove(O)
@@ -700,6 +707,7 @@ default behaviour is:
 					qdel(G)
 	if(resisting)
 		visible_message("<span class='danger'>[src] resists!</span>")
+		setClickCooldown(20)
 
 /mob/living/verb/lay_down()
 	set name = "Rest"

@@ -4,6 +4,8 @@
 	icon_state = "holster"
 	slot = "utility"
 	var/obj/item/holstered = null
+	var/sound_in = 'sound/items/holster/holsterin.ogg'
+	var/sound_out = 'sound/items/holster/holsterout.ogg'
 
 /obj/item/clothing/accessory/holster/proc/holster(var/obj/item/I, var/mob/living/user)
 	if(holstered && istype(user))
@@ -13,6 +15,9 @@
 	if (!(I.slot_flags & SLOT_HOLSTER))
 		user << "<span class='warning'>[I] won't fit in [src]!</span>"
 		return
+
+	if(sound_in)
+		playsound(get_turf(src), sound_in, 50)
 
 	if(istype(user))
 		user.stop_aiming(no_message=1)
@@ -35,7 +40,9 @@
 	if(istype(user.get_active_hand(),/obj) && istype(user.get_inactive_hand(),/obj))
 		user << "<span class='warning'>You need an empty hand to draw \the [holstered]!</span>"
 	else
+		var/sound_vol = 25
 		if(user.a_intent == I_HURT)
+			sound_vol = 50
 			usr.visible_message(
 				"<span class='danger'>[user] draws \the [holstered], ready to shoot!</span>",
 				"<span class='warning'>You draw \the [holstered], ready to shoot!</span>"
@@ -45,6 +52,10 @@
 				"<span class='notice'>[user] draws \the [holstered], pointing it at the ground.</span>",
 				"<span class='notice'>You draw \the [holstered], pointing it at the ground.</span>"
 				)
+
+		if(sound_out)
+			playsound(get_turf(src), sound_out, sound_vol)
+
 		user.put_in_hands(holstered)
 		holstered.add_fingerprint(user)
 		w_class = initial(w_class)
@@ -134,3 +145,5 @@
 	name = "thigh holster"
 	desc = "A drop leg holster made of a durable synthetic fiber."
 	icon_state = "holster_thigh"
+	sound_in = 'sound/items/holster/tactiholsterin.ogg'
+	sound_out = 'sound/items/holster/tactiholsterout.ogg'

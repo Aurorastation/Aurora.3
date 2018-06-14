@@ -104,7 +104,7 @@
 	longfringe
 		name = "Long Fringe"
 		icon_state = "hair_longfringe"
-		
+
 	longeralt
 		name = "Longer Fringe"
 		icon_state = "hair_vlongfringe"
@@ -618,11 +618,6 @@
 		icon_state = "hair_hightight"
 		gender = MALE
 
-	regulationmohawk
-		name = "Shaved Mohawk"
-		icon_state = "hair_shavedmohawk"
-		gender = MALE
-
 	topknot
 		name = "Topknot"
 		icon_state = "hair_topknot"
@@ -657,6 +652,46 @@
 		name = "Manbun"
 		icon_state = "hair_manbun"
 		gender = MALE
+
+	shavedbun
+		name = "Shaved Bun"
+		icon_state = "hair_shavedbun"
+
+	halfshaved
+		name = "Half-Shaved"
+		icon_state = "hair_halfshaved"
+
+	halfshavedemo
+		name = "Half-Shaved Emo"
+		icon_state = "hair_halfshavedemo"
+
+	longsideemo
+		name = "Long Side Emo"
+		icon_state = "hair_longsideemo"
+
+	sideswept
+		name = "Sideswept Hair"
+		icon_state = "hair_sideswept"
+
+	mohawkshaved
+		name = "Shaved Mohawk"
+		icon_state = "hair_mohawkshaved"
+
+	mohawkshaved2
+		name = "Tight Shaved Mohawk"
+		icon_state = "hair_mohawkshaved2"
+
+	mohawkshavednaomi
+		name = "Naomi Mohawk"
+		icon_state = "hair_mohawkshavednaomi"
+
+	leftsidecut
+		name = "Left Sidecut"
+		icon_state = "hair_leftside"
+
+	rightsidecut
+		name = "Right Sidecut"
+		icon_state = "hair_rightside"
 
 	// TG-format hair - uses ICON_MULTIPLY instead of ICON_ADD
 	uniter
@@ -754,7 +789,7 @@
 		name = "Shaved"
 		icon_state = "bald"
 		gender = NEUTER
-		species_allowed = list("Human","Unathi","Tajara","Skrell","Vox","Machine")
+		species_allowed = list("Human","Unathi","Tajara","Skrell","Vox")
 
 	watson
 		name = "Watson Mustache"
@@ -1035,6 +1070,53 @@
 			name = "Quill Mohawk"
 			icon_state = "vox_mohawk"
 
+/datum/sprite_accessory/facial_hair
+	taj_sideburns
+		icon = 'icons/mob/human_face/tajara_facial_hair.dmi'
+		name = "Tajara Sideburns"
+		icon_state = "facial_sideburns"
+		species_allowed = list("Tajara")
+
+		taj_mutton
+			name = "Tajara Mutton"
+			icon_state = "facial_mutton"
+
+		taj_pencilstache
+			name = "Tajara Pencilstache"
+			icon_state = "facial_pencilstache"
+
+		taj_moustache
+			name = "Tajara Moustache"
+			icon_state = "facial_moustache"
+
+		taj_goatee
+			name = "Tajara Goatee"
+			icon_state = "facial_goatee"
+
+		taj_smallstache
+			name = "Tajara Smallsatche"
+			icon_state = "facial_smallstache"
+
+//unathi horn beards and the like
+
+	una_chinhorn
+		icon = 'icons/mob/human_face/unathi_facial_hair.dmi'
+		name = "Unathi Chin Horn"
+		icon_state = "facial_chinhorns"
+		species_allowed = list("Unathi")
+
+		una_hornadorns
+			name = "Unathi Horn Adorns"
+			icon_state = "facial_hornadorns"
+
+		una_spinespikes
+			name = "Unathi Spine Spikes"
+			icon_state = "facial_spikes"
+
+		una_dorsalfrill
+			name = "Unathi Dorsal Frill"
+			icon_state = "facial_dorsalfrill"
+
 //ipc screens
 
 	ipc_screen_pink
@@ -1042,6 +1124,7 @@
 		name = "pink IPC screen"
 		icon_state = "ipc_pink"
 		species_allowed = list("Machine")
+		gender = NEUTER
 
 		ipc_screen_red
 			name = "red IPC screen"
@@ -1098,53 +1181,6 @@
 		ipc_screen_yellow
 			name = "yellow IPC screen"
 			icon_state = "ipc_yellow"
-
-/datum/sprite_accessory/facial_hair
-	taj_sideburns
-		icon = 'icons/mob/human_face/tajara_facial_hair.dmi'
-		name = "Tajara Sideburns"
-		icon_state = "facial_sideburns"
-		species_allowed = list("Tajara")
-
-		taj_mutton
-			name = "Tajara Mutton"
-			icon_state = "facial_mutton"
-
-		taj_pencilstache
-			name = "Tajara Pencilstache"
-			icon_state = "facial_pencilstache"
-
-		taj_moustache
-			name = "Tajara Moustache"
-			icon_state = "facial_moustache"
-
-		taj_goatee
-			name = "Tajara Goatee"
-			icon_state = "facial_goatee"
-
-		taj_smallstache
-			name = "Tajara Smallsatche"
-			icon_state = "facial_smallstache"
-
-//unathi horn beards and the like
-
-	una_chinhorn
-		icon = 'icons/mob/human_face/unathi_facial_hair.dmi'
-		name = "Unathi Chin Horn"
-		icon_state = "facial_chinhorns"
-		species_allowed = list("Unathi")
-
-		una_hornadorns
-			name = "Unathi Horn Adorns"
-			icon_state = "facial_hornadorns"
-
-		una_spinespikes
-			name = "Unathi Spine Spikes"
-			icon_state = "facial_spikes"
-
-		una_dorsalfrill
-			name = "Unathi Dorsal Frill"
-			icon_state = "facial_dorsalfrill"
 
 /*
 ////////////////////////////

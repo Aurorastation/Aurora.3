@@ -651,6 +651,33 @@
 
 		return 1
 
+
+/obj/item/rig_module/cooling_unit
+	name = "mounted cooling unit"
+	toggleable = 1
+	origin_tech = list(TECH_MAGNET = 2, TECH_MATERIAL = 2, TECH_ENGINEERING = 3)
+	interface_name = "mounted cooling unit"
+	interface_desc = "A heat sink with liquid cooled radiator."
+	icon_state = "suitcooler"
+	var/charge_consumption = 1
+	var/max_cooling = 12
+	var/thermostat = T20C
+
+/obj/item/rig_module/cooling_unit/process()
+	if(!active)
+		return passive_power_cost
+
+	var/mob/living/carbon/human/H = holder.wearer
+
+	var/temp_adj = min(H.bodytemperature - thermostat, max_cooling)
+
+	if (temp_adj < 0.5)
+		return passive_power_cost
+
+	H.bodytemperature -= temp_adj
+	active_power_cost = round((temp_adj/max_cooling)*charge_consumption)
+	return active_power_cost
+
 /obj/item/rig_module/boring
 	name = "burrowing lasers"
 	desc = "A set of precise boring lasers designed to carve a hole beneath the user."
@@ -709,3 +736,4 @@ var/global/list/lattice_users = list()
 	var/mob/living/carbon/human/H = holder.wearer
 	H << "<span class='notice'>Neural lattice disengaged. Pain receptors restored.</span>"
 	lattice_users.Remove(H)
+

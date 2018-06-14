@@ -57,11 +57,13 @@
 	name = "arcane beam"
 	icon_state = "cult"
 	light_color = LIGHT_COLOR_VIOLET
+	appearance_flags = NO_CLIENT_COLOR
 
 /obj/effect/projectile/tracer/cult/heavy
 	name = "heavy arcane beam"
 	icon_state = "hcult"
 	light_power = 3
+	appearance_flags = NO_CLIENT_COLOR
 
 /obj/effect/projectile/tracer/solar
 	name = "solar energy"

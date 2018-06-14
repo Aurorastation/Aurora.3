@@ -9,7 +9,7 @@
 	from their fellow Tajara who cite their lackluster test scores, even among Tajara, and their higher \
 	crime rates."
 
-	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR)
+	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_DELVAHII)
 
 	slowdown = -0.8 //As opposed to -1 for Base tajara
 	sprint_speed_factor = 0.55 // As opposed to 0.65

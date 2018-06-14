@@ -173,6 +173,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/cola = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/space_mountain_wind = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/dr_gibb = 10,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/root_beer = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/starkist = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 10,
@@ -188,6 +189,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/cola = 15,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/space_mountain_wind = 11,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/dr_gibb = 16,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/root_beer = 13,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/starkist = 15,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle = 12,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 15,
@@ -263,6 +265,7 @@
 		/obj/item/weapon/reagent_containers/syringe/antiviral = 4,
 		/obj/item/weapon/reagent_containers/syringe = 12,
 		/obj/item/device/healthanalyzer = 5,
+		/obj/item/device/breath_analyzer = 2,
 		/obj/item/weapon/reagent_containers/glass/beaker = 4,
 		/obj/item/weapon/reagent_containers/dropper = 2,
 		/obj/item/stack/medical/advanced/bruise_pack = 3,
@@ -306,7 +309,8 @@
 		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/ointment = 2,
 		/obj/item/weapon/reagent_containers/hypospray/autoinjector = 4,
-		/obj/item/device/healthanalyzer = 1
+		/obj/item/device/healthanalyzer = 1,
+		/obj/item/device/breath_analyzer  = 1
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/syringe/antitoxin = 4,
@@ -390,88 +394,91 @@
 	product_ads = "We like plants!;Grow some crops!;Grow, baby, growww!;Aw h'yeah son!"
 	icon_state = "seeds"
 	vend_id = "seeds"
-
 	products = list(
+		/obj/item/seeds/appleseed = 3,
 		/obj/item/seeds/bananaseed = 3,
 		/obj/item/seeds/berryseed = 3,
+		/obj/item/seeds/blueberryseed = 3,
+		/obj/item/seeds/cabbageseed = 3,
 		/obj/item/seeds/carrotseed = 3,
 		/obj/item/seeds/chantermycelium = 3,
+		/obj/item/seeds/cherryseed = 3,
 		/obj/item/seeds/chiliseed = 3,
+		/obj/item/seeds/cocoapodseed = 3,
 		/obj/item/seeds/cornseed = 3,
 		/obj/item/seeds/eggplantseed = 3,
+		/obj/item/seeds/grapeseed = 3,
+		/obj/item/seeds/grassseed = 3,
+		/obj/item/seeds/greengrapeseed = 3,
+		/obj/item/seeds/harebell = 3,
+		/obj/item/seeds/lemonseed = 3,
+		/obj/item/seeds/limeseed = 3,
+		/obj/item/seeds/mtearseed = 3,
+		/obj/item/seeds/orangeseed = 3,
+		/obj/item/seeds/peanutseed = 3,
+		/obj/item/seeds/plumpmycelium = 3,
+		/obj/item/seeds/poppyseed = 3,
 		/obj/item/seeds/potatoseed = 3,
+		/obj/item/seeds/pumpkinseed = 3,
 		/obj/item/seeds/replicapod = 3,
+		/obj/item/seeds/riceseed = 3,
+		/obj/item/seeds/shandseed = 3,
 		/obj/item/seeds/soyaseed = 3,
+		/obj/item/seeds/sugarcaneseed = 3,
 		/obj/item/seeds/sunflowerseed = 3,
 		/obj/item/seeds/tomatoseed = 3,
 		/obj/item/seeds/towermycelium = 3,
-		/obj/item/seeds/wheatseed = 3,
-		/obj/item/seeds/appleseed = 3,
-		/obj/item/seeds/poppyseed = 3,
-		/obj/item/seeds/sugarcaneseed = 3,
-		/obj/item/seeds/peanutseed = 3,
-		/obj/item/seeds/whitebeetseed = 3,
 		/obj/item/seeds/watermelonseed = 3,
-		/obj/item/seeds/limeseed = 3,
-		/obj/item/seeds/lemonseed = 3,
-		/obj/item/seeds/orangeseed = 3,
-		/obj/item/seeds/grassseed = 3,
-		/obj/item/seeds/cocoapodseed = 3,
-		/obj/item/seeds/plumpmycelium = 2,
-		/obj/item/seeds/cabbageseed = 3,
-		/obj/item/seeds/grapeseed = 3,
-		/obj/item/seeds/pumpkinseed = 3,
-		/obj/item/seeds/cherryseed = 3,
-		/obj/item/seeds/plastiseed = 3,
-		/obj/item/seeds/riceseed = 3
+		/obj/item/seeds/wheatseed = 3,
+		/obj/item/seeds/whitebeetseed = 3
 	)
 	contraband = list(
-		/obj/item/seeds/amanitamycelium = 2,
-		/obj/item/seeds/glowshroom = 2,
-		/obj/item/seeds/libertymycelium = 2,
-		/obj/item/seeds/mtearseed = 2,
-		/obj/item/seeds/nettleseed = 2,
-		/obj/item/seeds/reishimycelium = 2,
-		/obj/item/seeds/reishimycelium = 2,
-		/obj/item/seeds/shandseed = 2,
-		/obj/item/seeds/ambrosiavulgarisseed = 3
-	)
-	premium = list(
-		/obj/item/toy/waterflower = 1
+		/obj/item/seeds/amanitamycelium = 3,
+		/obj/item/seeds/ambrosiadeusseed = 3,
+		/obj/item/seeds/ambrosiavulgarisseed = 3,
+		/obj/item/seeds/glowshroom = 3,
+		/obj/item/seeds/libertymycelium = 3,
+		/obj/item/seeds/nettleseed = 3,
+		/obj/item/seeds/plastiseed = 3,
+		/obj/item/seeds/reishimycelium = 3
 	)
 	prices = list(
-		/obj/item/seeds/bananaseed = 30,
-		/obj/item/seeds/berryseed = 15,
-		/obj/item/seeds/carrotseed = 15,
-		/obj/item/seeds/chantermycelium = 5,
-		/obj/item/seeds/chiliseed = 10,
-		/obj/item/seeds/cornseed = 15,
-		/obj/item/seeds/eggplantseed = 10,
-		/obj/item/seeds/potatoseed = 10,
-		/obj/item/seeds/replicapod = 175,
-		/obj/item/seeds/soyaseed = 10,
-		/obj/item/seeds/sunflowerseed = 5,
-		/obj/item/seeds/tomatoseed = 15,
-		/obj/item/seeds/towermycelium = 5,
-		/obj/item/seeds/wheatseed = 5,
-		/obj/item/seeds/appleseed = 15,
-		/obj/item/seeds/poppyseed = 20,
-		/obj/item/seeds/sugarcaneseed = 12,
-		/obj/item/seeds/peanutseed = 25,
-		/obj/item/seeds/whitebeetseed = 20,
-		/obj/item/seeds/watermelonseed = 15,
-		/obj/item/seeds/limeseed = 15,
-		/obj/item/seeds/lemonseed = 15,
-		/obj/item/seeds/orangeseed = 15,
-		/obj/item/seeds/grassseed = 2,
-		/obj/item/seeds/cocoapodseed = 25,
-		/obj/item/seeds/plumpmycelium = 30,
-		/obj/item/seeds/cabbageseed = 15,
-		/obj/item/seeds/grapeseed = 15,
-		/obj/item/seeds/pumpkinseed = 25,
-		/obj/item/seeds/cherryseed = 25,
-		/obj/item/seeds/plastiseed = 25,
-		/obj/item/seeds/riceseed = 25
+		/obj/item/seeds/appleseed = 50,
+		/obj/item/seeds/bananaseed = 60,
+		/obj/item/seeds/berryseed = 40,
+		/obj/item/seeds/blueberryseed = 30,
+		/obj/item/seeds/cabbageseed = 40,
+		/obj/item/seeds/carrotseed = 20,
+		/obj/item/seeds/chantermycelium = 20,
+		/obj/item/seeds/cherryseed = 40,
+		/obj/item/seeds/chiliseed = 50,
+		/obj/item/seeds/cocoapodseed = 50,
+		/obj/item/seeds/cornseed = 30,
+		/obj/item/seeds/eggplantseed = 30,
+		/obj/item/seeds/grapeseed = 40,
+		/obj/item/seeds/grassseed = 40,
+		/obj/item/seeds/greengrapeseed = 40,
+		/obj/item/seeds/harebell = 10,
+		/obj/item/seeds/lemonseed = 40,
+		/obj/item/seeds/limeseed = 50,
+		/obj/item/seeds/mtearseed = 60,
+		/obj/item/seeds/orangeseed = 40,
+		/obj/item/seeds/peanutseed = 30,
+		/obj/item/seeds/plumpmycelium = 20,
+		/obj/item/seeds/poppyseed = 10,
+		/obj/item/seeds/potatoseed = 30,
+		/obj/item/seeds/pumpkinseed = 40,
+		/obj/item/seeds/replicapod = 200,
+		/obj/item/seeds/riceseed = 20,
+		/obj/item/seeds/shandseed = 60,
+		/obj/item/seeds/soyaseed = 40,
+		/obj/item/seeds/sugarcaneseed = 20,
+		/obj/item/seeds/sunflowerseed = 20,
+		/obj/item/seeds/tomatoseed = 30,
+		/obj/item/seeds/towermycelium = 20,
+		/obj/item/seeds/watermelonseed = 30,
+		/obj/item/seeds/wheatseed = 20,
+		/obj/item/seeds/whitebeetseed = 20
 	)
 
 /**
@@ -718,36 +725,6 @@
 		/obj/item/weapon/crowbar = 5
 	)
 	//everything after the power cell had no amounts, I improvised.  -Sayu
-
-//FOR ACTORS GUILD - mainly props that cannot be spawned otherwise
-/obj/machinery/vending/props
-	name = "prop dispenser"
-	desc = "All the props an actor could need. Probably."
-	icon_state = "Theater"
-	vend_id = "baygay"
-	products = list(
-		/obj/structure/flora/pottedplant = 2,
-		/obj/item/device/flashlight/lamp = 2,
-		/obj/item/device/flashlight/lamp/green = 2,
-		/obj/item/weapon/reagent_containers/food/drinks/jar = 1,
-		/obj/item/weapon/nullrod = 1,
-		/obj/item/toy/cultsword = 4,
-		/obj/item/toy/katana = 2,
-		/obj/item/weapon/phone = 3
-	)
-
-//FOR ACTORS GUILD - Containers
-/obj/machinery/vending/containers
-	name = "container dispenser"
-	desc = "A container that dispenses containers."
-	icon_state = "robotics"
-	vend_id = "baygay"
-	products = list(
-		/obj/structure/closet/crate/freezer = 2,
-		/obj/structure/closet = 3,
-		/obj/structure/closet/crate = 3
-	)
-
 
 //RECURSION
 /obj/machinery/vending/vendors

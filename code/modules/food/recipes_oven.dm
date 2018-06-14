@@ -384,9 +384,16 @@
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/vegetablepizza
 
-
-
-
+/datum/recipe/pineapplepizza
+	appliance = OVEN
+	fruit = list("tomato" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/weapon/reagent_containers/food/snacks/pineapple_ring,
+		/obj/item/weapon/reagent_containers/food/snacks/pineapple_ring
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/pineapple
 
 //Spicy
 //================
@@ -521,3 +528,32 @@
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/bacon/oven
 	result_quantity = 6
+
+/datum/recipe/meat_pocket
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/weapon/reagent_containers/food/snacks/meatball,
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/meat_pocket
+	result_quantity = 2
+
+/datum/recipe/bacon_flatbread
+	fruit = list("tomato" = 2)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/weapon/reagent_containers/food/snacks/bacon,
+		/obj/item/weapon/reagent_containers/food/snacks/bacon,
+		/obj/item/weapon/reagent_containers/food/snacks/bacon,
+		/obj/item/weapon/reagent_containers/food/snacks/bacon
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/bacon_flatbread
+
+/datum/recipe/truffle
+	reagents = list("sugar" = 5, "cream" = 5)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/chocolatebar
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/truffle
+	result_quantity = 4

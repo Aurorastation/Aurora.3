@@ -453,6 +453,7 @@
 					)
 	is_charging = 1
 	if(!do_after(user, 40))
+		is_charging = FALSE
 		return 0
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))

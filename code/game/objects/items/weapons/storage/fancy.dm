@@ -161,10 +161,18 @@
 		if(!istype(W))
 			user <<"<span class ='notice'>The [W] is blocking the cigarettes.</span>"
 			return
+		//Checking contents of packet so lighters won't be cigarettes.
+		for (var/i = contents.len; i > 0; i--)
+			W = contents[i]
+			if (istype(W))
+				break
+			else
+				W = null
+		if (!W)
+			return
 		reagents.trans_to_obj(W, (reagents.total_volume/contents.len))
 		user.equip_to_slot_if_possible(W, slot_wear_mask)
 		reagents.maximum_volume = 15 * contents.len
-		contents.len--
 		user << "<span class='notice'>You take a cigarette out of the pack.</span>"
 		update_icon()
 	else
@@ -287,3 +295,18 @@
 /obj/item/weapon/storage/lockbox/vials/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
 	update_icon()
+
+/obj/item/weapon/storage/fancy/chocolate_box
+	icon = 'icons/obj/chocolate.dmi'
+	icon_state = "chocolatebox"
+	icon_type = "chocolatebox"
+	name = "chocolate box"
+	storage_slots = 8
+	can_hold = list(
+		/obj/item/weapon/reagent_containers/food/snacks
+	)
+
+/obj/item/weapon/storage/fancy/chocolate_box/fill()
+	for(var/i=1; i <= storage_slots; i++)
+		new /obj/item/weapon/reagent_containers/food/snacks/random(src)
+

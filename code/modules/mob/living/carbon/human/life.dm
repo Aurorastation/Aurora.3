@@ -933,7 +933,7 @@
 
 	// nutrition decrease
 	if (nutrition > 0 && stat != 2)
-		nutrition = max (0, nutrition - nutrition_loss)
+		nutrition = max(0, nutrition - (nutrition_loss * nutrition_attrition_rate))
 
 	if (nutrition > max_nutrition)
 		if(overeatduration < 600) //capped so people don't take forever to unfat
@@ -1287,7 +1287,7 @@
 	//0.1% chance of playing a scary sound to someone who's in complete darkness
 	if(isturf(loc) && rand(1,1000) == 1)
 		var/turf/T = loc
-		if(T.dynamic_lighting && T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
+		if(T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
 			playsound_local(src,pick(scarySounds),50, 1, -1)
 
 /mob/living/carbon/human/proc/handle_changeling()

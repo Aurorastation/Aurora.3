@@ -56,3 +56,46 @@
 /datum/gear/eyes/shades/prescriptionsun
 	display_name = "sunglasses, presciption"
 	path = /obj/item/clothing/glasses/sunglasses/prescription
+
+/datum/gear/eyes/hudpatch
+	display_name = "iPatch"
+	path = /obj/item/clothing/glasses/eyepatch/hud
+
+/datum/gear/eyes/secpatch
+	display_name = "HUDpatch, Security"
+	path= /obj/item/clothing/glasses/eyepatch/hud/security
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
+	cost = 2 //snowflake tax
+
+/datum/gear/eyes/medpatch
+	display_name = "HUDpatch, Medical"
+	path = /obj/item/clothing/glasses/eyepatch/hud/medical
+	allowed_roles = list("Medical Doctor", "Chief Medical Officer", "Chemist", "Paramedic", "Psychiatrist", "Medical Resident")
+	cost = 2
+
+/datum/gear/eyes/mespatch
+	display_name = "HUDpatch, Mesons"
+	path = /obj/item/clothing/glasses/eyepatch/hud/meson
+	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice", "Research Director","Scientist", "Shaft Miner")
+	cost = 2
+
+/datum/gear/eyes/matpatch
+	display_name = "HUDpatch, Material"
+	path = /obj/item/clothing/glasses/eyepatch/hud/material
+	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice", "Shaft Miner")
+	cost = 2
+
+/datum/gear/eyes/scipatch
+	display_name = "HUDpatch, Science"
+	path = /obj/item/clothing/glasses/eyepatch/hud/science
+	cost = 2
+
+/datum/gear/eyes/weldpatch
+	display_name = "HUDpatch, Welding"
+	path = /obj/item/clothing/glasses/eyepatch/hud/welder
+	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice","Research Director","Roboticist")
+	cost = 2
+
+/datum/gear/eyes/spiffygogs
+	display_name = "Orange Goggles"
+	path = /obj/item/clothing/glasses/spiffygogs
