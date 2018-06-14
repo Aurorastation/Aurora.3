@@ -22,7 +22,7 @@ var/list/sacrificed = list()
 		vessel.remove_reagent("blood", blood_amt)
 
 /////////////////////////////////////////FIRST RUNE
-/obj/effect/rune/proc/teleport(var/mob/living/carbon/human/user, var/key)
+/obj/effect/rune/proc/teleport(var/mob/living/user, var/key)
 	var/allrunesloc[]
 	allrunesloc = new/list()
 	var/index = 0
@@ -55,7 +55,7 @@ var/list/sacrificed = list()
 		return
 
 
-/obj/effect/rune/proc/itemport(var/mob/living/carbon/human/user, var/key)
+/obj/effect/rune/proc/itemport(var/mob/living/user, var/key)
 //	var/allrunesloc[]
 //	allrunesloc = new/list()
 //	var/index = 0
@@ -93,7 +93,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////SECOND RUNE
 
-/obj/effect/rune/proc/tomesummon(var/mob/living/carbon/human/user)
+/obj/effect/rune/proc/tomesummon(var/mob/living/user)
 	if(istype(src,/obj/effect/rune))
 		user.say("N[pick("'","`")]ath reth sh'yro eth d'raggathnor!")
 	else
@@ -112,7 +112,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////THIRD RUNE
 
-/obj/effect/rune/proc/convert(var/mob/living/carbon/human/user)
+/obj/effect/rune/proc/convert(var/mob/living/user)
 	var/mob/attacker = user
 	var/mob/living/carbon/target = null
 	for(var/mob/living/carbon/M in src.loc)
@@ -232,7 +232,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////FOURTH RUNE
 
-/obj/effect/rune/proc/tearreality(var/mob/living/carbon/human/user)
+/obj/effect/rune/proc/tearreality(var/mob/living/user)
 	if(!cult.allow_narsie)
 		return fizzle(user)
 
@@ -255,7 +255,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////FIFTH RUNE
 
-/obj/effect/rune/proc/emp(var/mob/living/carbon/human/user, var/U, var/range_red) //range_red - var which determines by which number to reduce the default emp range, U is the source loc, needed because of talisman emps which are held in hand at the moment of using and that apparently messes things up -- Urist
+/obj/effect/rune/proc/emp(var/mob/living/user, var/U, var/range_red) //range_red - var which determines by which number to reduce the default emp range, U is the source loc, needed because of talisman emps which are held in hand at the moment of using and that apparently messes things up -- Urist
 	log_and_message_admins("activated an EMP rune.")
 	if(istype(src,/obj/effect/rune))
 		user.say("Ta'gh fara[pick("'","`")]qha fel d'amar det!")
@@ -272,7 +272,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////SIXTH RUNE
 
-/obj/effect/rune/proc/drain(var/mob/living/carbon/human/user)
+/obj/effect/rune/proc/drain(var/mob/living/user)
 	var/drain = 0
 	for(var/obj/effect/rune/R in rune_list)
 		if(R.word1==cultwords["travel"] && R.word2==cultwords["blood"] && R.word3==cultwords["self"])
@@ -315,7 +315,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////SEVENTH RUNE
 
-/obj/effect/rune/proc/seer(var/mob/living/carbon/human/user)
+/obj/effect/rune/proc/seer(var/mob/living/user)
 	if(user.loc==src.loc)
 		if(user.seer==1)
 			user.say("Rash'tla sektath mal[pick("'","`")]zua. Zasan therium viortia.")
@@ -336,7 +336,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////EIGHTH RUNE
 
-/obj/effect/rune/proc/raise(var/mob/living/carbon/human/user)
+/obj/effect/rune/proc/raise(var/mob/living/user)
 	var/mob/living/carbon/human/corpse_to_raise
 	var/mob/living/carbon/human/body_to_sacrifice
 
@@ -414,7 +414,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////NINETH RUNE
 
-/obj/effect/rune/proc/obscure(var/mob/living/carbon/human/user, var/rad)
+/obj/effect/rune/proc/obscure(var/mob/living/user, var/rad)
 	var/S=0
 	for(var/obj/effect/rune/R in orange(rad,src))
 		if(R!=src)
@@ -445,7 +445,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////TENTH RUNE
 
-/obj/effect/rune/proc/ajourney(var/mob/living/carbon/human/user) //some bits copypastaed from admin tools - Urist
+/obj/effect/rune/proc/ajourney(var/mob/living/user) //some bits copypastaed from admin tools - Urist
 	if(user.loc==src.loc)
 		var/mob/living/carbon/human/L = user
 		user.say("Fwe[pick("'","`")]sh mah erl nyag r'ya!")
@@ -468,7 +468,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////ELEVENTH RUNE
 
-/obj/effect/rune/proc/manifest(var/mob/living/carbon/human/user)
+/obj/effect/rune/proc/manifest(var/mob/living/user)
 	var/obj/effect/rune/this_rune = src
 	if(user.loc!=this_rune.loc)
 		return this_rune.fizzle(user)
@@ -523,7 +523,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////TWELFTH RUNE
 
-/obj/effect/rune/proc/talisman(var/mob/living/carbon/human/user)//only hide, emp, teleport, deafen, blind and tome runes can be imbued atm
+/obj/effect/rune/proc/talisman(var/mob/living/user)//only hide, emp, teleport, deafen, blind and tome runes can be imbued atm
 	var/obj/item/weapon/paper/newtalisman
 	var/unsuitable_newtalisman = 0
 	for(var/obj/item/weapon/paper/P in src.loc)
@@ -604,7 +604,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////THIRTEENTH RUNE
 
-/obj/effect/rune/proc/mend(var/mob/living/carbon/human/user)
+/obj/effect/rune/proc/mend(var/mob/living/user)
 	src = null
 	user.say("Uhrast ka'hfa heldsagen ver[pick("'","`")]lot!")
 	user.take_overall_damage(200, 0)
@@ -623,7 +623,7 @@ var/list/sacrificed = list()
 /////////////////////////////////////////FOURTEETH RUNE
 
 // returns 0 if the rune is not used. returns 1 if the rune is used.
-/obj/effect/rune/proc/communicate(var/mob/living/carbon/human/user)
+/obj/effect/rune/proc/communicate(var/mob/living/user)
 	. = 1 // Default output is 1. If the rune is deleted it will return 1
 	var/input = input(user, "Please choose a message to tell to the other acolytes.", "Voice of Blood", "")//sanitize() below, say() and whisper() have their own
 	if(!input)
@@ -765,7 +765,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////SIXTEENTH RUNE
 
-/obj/effect/rune/proc/revealrunes(var/mob/living/carbon/human/user, var/obj/W as obj)
+/obj/effect/rune/proc/revealrunes(var/mob/living/user, var/obj/W as obj)
 	var/go=0
 	var/rad
 	var/S=0
@@ -809,7 +809,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////SEVENTEENTH RUNE
 
-/obj/effect/rune/proc/wall(var/mob/living/carbon/human/user)
+/obj/effect/rune/proc/wall(var/mob/living/user)
 	user.say("Khari[pick("'","`")]d! Eske'te tannin!")
 	src.density = !src.density
 	user.rune_apply_damage(10, 15)
@@ -829,7 +829,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////EIGHTTEENTH RUNE
 
-/obj/effect/rune/proc/freedom(var/mob/living/carbon/human/user)
+/obj/effect/rune/proc/freedom(var/mob/living/user)
 	var/list/mob/living/carbon/cultists = new
 	for(var/datum/mind/H in cult.current_antagonists)
 		if (istype(H.current,/mob/living/carbon))
@@ -874,7 +874,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////NINETEENTH RUNE
 
-/obj/effect/rune/proc/cultsummon(var/mob/living/carbon/human/user)
+/obj/effect/rune/proc/cultsummon(var/mob/living/user)
 	var/list/mob/living/carbon/cultists = new
 	for(var/datum/mind/H in cult.current_antagonists)
 		if (istype(H.current,/mob/living/carbon))
@@ -911,7 +911,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////TWENTIETH RUNES
 
-/obj/effect/rune/proc/deafen(var/mob/living/carbon/human/user)
+/obj/effect/rune/proc/deafen(var/mob/living/user)
 	if(istype(src,/obj/effect/rune))
 		var/list/affected = new()
 		for(var/mob/living/carbon/C in range(7,src))
@@ -953,7 +953,7 @@ var/list/sacrificed = list()
 					V.show_message("<span class='warning'>Dust flows from [user]'s hands for a moment, and the world suddenly becomes quiet..</span>", 3)
 	return
 
-/obj/effect/rune/proc/blind(var/mob/living/carbon/human/user)
+/obj/effect/rune/proc/blind(var/mob/living/user)
 	if(istype(src,/obj/effect/rune))
 		var/list/affected = new()
 		for(var/mob/living/carbon/C in viewers(src))
@@ -997,7 +997,7 @@ var/list/sacrificed = list()
 	return
 
 
-/obj/effect/rune/proc/bloodboil(var/mob/living/carbon/human/user) //cultists need at least one DANGEROUS rune. Even if they're all stealthy.
+/obj/effect/rune/proc/bloodboil(var/mob/living/user) //cultists need at least one DANGEROUS rune. Even if they're all stealthy.
 /*
 	var/list/mob/living/carbon/cultists = new
 	for(var/datum/mind/H in ticker.mode.cult)
@@ -1039,7 +1039,7 @@ var/list/sacrificed = list()
 
 // WIP rune, I'll wait for Rastaf0 to add limited blood.
 
-/obj/effect/rune/proc/burningblood(var/mob/living/carbon/human/user)
+/obj/effect/rune/proc/burningblood(var/mob/living/user)
 	var/culcount = 0
 	for(var/mob/living/carbon/C in orange(1,src))
 		if(iscultist(C) && !C.stat)
@@ -1067,7 +1067,7 @@ var/list/sacrificed = list()
 
 //////////             Rune 24 (counting burningblood, which kinda doesnt work yet.)
 
-/obj/effect/rune/proc/runestun(var/mob/living/carbon/human/user, var/mob/living/T)
+/obj/effect/rune/proc/runestun(var/mob/living/user, var/mob/living/T)
 	if(istype(src,/obj/effect/rune))   ///When invoked as rune, flash and stun everyone around.
 		user.say("Fuu ma[pick("'","`")]jin!")
 		for(var/mob/living/L in viewers(src))

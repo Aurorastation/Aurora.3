@@ -184,39 +184,39 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 /obj/item/weapon/book/tome/verb/verb_manifest_knife()
 	set category = "Object"
 	set name = "Manifest"
-
+	set src in usr
 	manifest_knife(usr)
 
 /obj/item/weapon/book/tome/proc/manifest_knife(mob/living/carbon/human/user)
 	if(!iscultist(user))
-		user << "<span class='notice'>You're not sure if this is even a manifest.</span>"
+		user << "<span class='notice'>You don't know what this is.</span>"
 		return
-	else
-		if (!ritualknife)
-			user << "<span class='notice'>\The [src] does not have a ritual dagger in it.</span>"
-			return
+	if (!ritualknife)
+		user << "<span class='notice'>\The [src] does not have a ritual dagger in it.</span>"
+		return
 
-		switch (use_check(user, USE_DISALLOW_SILICONS, show_messages = FALSE))
-			if (USE_FAIL_NON_ADJACENT)
-				user << "<span class='notice'>You are too far away from [src].</span>"
+	switch (use_check(user, USE_DISALLOW_SILICONS, show_messages = FALSE))
+		if (USE_FAIL_NON_ADJACENT)
+			user << "<span class='notice'>You are too far away from [src].</span>"
 
-			if (USE_FAIL_DEAD,USE_FAIL_INCAPACITATED)
-				user << "<span class='notice'>You cannot do this in your current state.</span>"
+		if (USE_FAIL_DEAD,USE_FAIL_INCAPACITATED)
+			user << "<span class='notice'>You cannot do this in your current state.</span>"
 
-			if (USE_SUCCESS)
-				if (loc == user && !user.get_active_hand())
-					user << "<span class='notice'>You conjure the the ritual dagger from \the [src].</span>"
-					user.put_in_hands(ritualknife)
-					ritualknife = null
-				else
-					user << "<span class='notice'>You conjure the ritual dagger from \the [src], dropping it on the ground.</span>"
-					ritualknife.forceMove(get_turf(src))
-					ritualknife = null
+		if (USE_SUCCESS)
+			if (loc == user && !user.get_active_hand())
+				user << "<span class='notice'>You conjure the the ritual dagger from \the [src].</span>"
+				user.put_in_hands(ritualknife)
+				ritualknife = null
+			else
+				user << "<span class='notice'>You conjure the ritual dagger from \the [src], dropping it on the ground.</span>"
+				ritualknife.forceMove(get_turf(src))
+				ritualknife = null
 
 /obj/item/weapon/book/tome/attackby(obj/item/C as obj, mob/user)
+	if(!istype(C, /obj/item/weapon/melee/cultblade/cultknife))
+		return
 	if(!iscultist(user))
-		if(istype(C, /obj/item/weapon/melee/cultblade/cultknife))
-			user << "<span class='notice'>You try to stab the \the [src] with \the [C], but an invisible force prevents you from bringing the blade close enough.</span>"
+		user << "<span class='notice'>You try to stab the \the [src] with \the [C], but an invisible force prevents you from bringing the blade close enough.</span>"
 	else	
 		if(istype(C, /obj/item/weapon/melee/cultblade/cultknife))
 			if(ritualknife)
