@@ -720,8 +720,8 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	var/obj/item/clothing/mask/breath/M = new /obj/item/clothing/mask/breath(H)
 	if(H.equip_to_slot_or_del(M, slot_wear_mask))
 		M.autodrobe_no_remove = 1
-	H.gender = NEUTER
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
+	H.add_client_color(/datum/client_color/vaurca)
 	return ..()
