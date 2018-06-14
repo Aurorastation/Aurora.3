@@ -1150,7 +1150,7 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/bacon,
 		/obj/item/weapon/reagent_containers/food/snacks/bacon
 	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/tajaran_stew
+	result = /obj/item/weapon/reagent_containers/food/snacks/blt
 
 /datum/recipe/tajaran_stew
 	fruit = list("nifberries" = 2, "mushroom" = 1, "mtear" = 1)
