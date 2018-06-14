@@ -511,6 +511,7 @@
 	icon_state = "tachyoncarbine"
 	item_state = "tachyoncarbine"
 	fire_sound = 'sound/weapons/laser3.ogg'
+	projectile_type = /obj/item/projectile/beam/tachyon
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	max_shots = 10
 	fire_delay = 1

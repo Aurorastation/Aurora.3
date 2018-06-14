@@ -139,7 +139,7 @@
 /obj/item/weapon/gun/energy/rifle/pulse/destroyer/attack_self(mob/living/user as mob)
 	user << "<span class='warning'>[src.name] has three settings, and they are all DESTROY.</span>"
 
-/obj/item/weapon/gun/energy/rifle/laser/vaurca
+/obj/item/weapon/gun/energy/rifle/laser/tachyon
 	name = "tachyon rifle"
 	desc = "A Vaurcan rifle that fires a beam of concentrated faster than light particles, capable of passing through most forms of matter."
 	contained_sprite = 1
@@ -147,7 +147,7 @@
 	icon_state = "tachyonrifle"
 	item_state = "tachyonrifle"
 	fire_sound = 'sound/weapons/laser3.ogg'
-	projectile_type = /obj/item/projectile/beam/xray
+	projectile_type = /obj/item/projectile/beam/tachyon
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	secondary_projectile_type = null
 	secondary_fire_sound = null
