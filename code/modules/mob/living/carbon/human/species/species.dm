@@ -74,7 +74,7 @@
 	var/inherent_eye_protection              // If set, this species has this level of inherent eye protection.
 	var/eyes_are_impermeable = FALSE         // If TRUE, this species' eyes are not damaged by phoron.
 	var/list/breakcuffs = list()                      //used in resist.dm to check if they can break hand/leg cuffs
-
+	var/climb_score = 0                      //Added to a climb check roll. Anything higher than a 60 will result in auto-success.
 	// Death vars.
 	var/meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/human
 	var/gibber_type = /obj/effect/gibspawner/human

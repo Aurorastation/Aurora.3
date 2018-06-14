@@ -206,6 +206,12 @@
 		return
 	return
 
+/turf/simulated/open/attack_hand(var/mob/user)
+
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		H.climb(DOWN, src)
+
 //Most things use is_plating to test if there is a cover tile on top (like regular floors)
 /turf/simulated/open/is_plating()
 	return TRUE

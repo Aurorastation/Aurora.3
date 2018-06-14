@@ -126,10 +126,53 @@
 	if(Allow_Spacemove())
 		return TRUE
 
-	if(Check_Shoegrip())	//scaling hull with magboots
-		for(var/turf/simulated/T in RANGE_TURFS(1,src))
-			if(T.density)
+	for(var/turf/simulated/T in RANGE_TURFS(1,src))
+		if(T.density)
+			if(Check_Shoegrip(FALSE))
 				return TRUE
+
+/mob/living/carbon/human/proc/climb(var/direction, var/turf/source)
+	var/turf/destination
+	if(direction == UP)
+		destination = GetAbove(source)
+	else
+		destination = GetBelow(source)
+
+	if(!destination)
+		return
+
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+		return
+
+	if(destination.density)
+		return
+
+	visible_message("<span class='notice'>The [src] begins to climb [(direction == UP) ? "upwards" : "downwards"].</span>",
+		"<span class='notice'>You begin to climb [(direction == UP) ? "upwards" : "downwards"].</span>")
+	var/climb_chance = 40
+
+	if(species && species.climb_score)
+		climb_chance += species.climb_score
+
+	for(var/obj/O in get_turf(src))
+		if(O.w_class >= 4.0 || O.anchored) //if an object is anchored it's stable footing
+			climb_chance += O.w_class //large items increase your reach
+		else
+			climb_chance -= O.w_class //small items destabilize your footing
+
+	climb_chance = max(0, min(climb_chance, 100))
+
+	if(do_after(src, 600/climb_chance))
+		if(climb_chance < 100)
+			if(prob(climb_chance))
+				forceMove(destination)
+			else
+				if(direction == DOWN)
+					Move(source)
+				else
+					Move(destination)
+		else
+			forceMove(destination)
 
 /mob/living/silicon/robot/can_ztravel(var/direction)
 	if(incapacitated() || is_dead())
