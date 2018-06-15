@@ -772,7 +772,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 
 		photo_data = new(selection, 1)
 
-/obj/machinery/newscaster/proc/AttachPaper(mob/user as mob)
+/obj/machinery/newscaster/proc/AttachPaper(mob/user)
 	if(paper_data || paper_name)
 		paper_name = ""
 		paper_data = ""
@@ -782,6 +782,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		paper_name = attached.name
 		paper_data = attached.info
 		to_chat(user, "You scan \the [attached] and add it to the news story.")
+	else
+		to_chat(user, "The newscaster refuses to scan [user.get_active_hand()].")
 
 //########################################################################################################################
 //###################################### NEWSPAPER! ######################################################################
