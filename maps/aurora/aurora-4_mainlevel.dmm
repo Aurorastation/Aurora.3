@@ -21847,13 +21847,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/button/remote/blast_door{
-	id = "merch_shop";
-	name = "Store Shutters";
-	pixel_x = 0;
-	pixel_y = -28;
-	req_access = list(57)
-	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
