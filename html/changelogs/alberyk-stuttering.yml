@@ -1,0 +1,5 @@
+author: Alberyk
+delete-after: True
+
+changes:
+  - tweak: "Changed how stuttering is handled in game, it should be less ridiculous overall."
