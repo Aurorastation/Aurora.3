@@ -28,8 +28,6 @@ addons:
 install:
   - pip install --user PyYaml -q
   - pip install --user beautifulsoup4 -q
-
-before_script:
   - mysql -e 'CREATE DATABASE ss13_test;'
   - chmod +x ./install-byond.sh
   - ./install-byond.sh
@@ -58,6 +56,7 @@ script:
 jobs:
   include:
     - stage: code check
+      install: skip
       script:
         - (! grep 'step_[xy]' maps/**/*.dmm)
         - (! find nano/templates/ -type f -exec md5sum {} + | sort | uniq -D -w 32 | grep nano)
