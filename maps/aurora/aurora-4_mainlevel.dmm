@@ -2946,10 +2946,7 @@
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "afS" = (
-/obj/item/toy/figure/librarian{
-	desc = "A \"Space Life\" brand Librarian action figure. The word 'librarian' on the tag is scratched out with marker, and 'journalist' is written in its place.";
-	name = "Journalist action figure"
-	},
+/obj/item/toy/figure/journalist,
 /obj/structure/flora/pottedplant/random,
 /obj/machinery/alarm{
 	dir = 8;
