@@ -37,5 +37,6 @@ changes:
   - tweak: "Tweaks a lot of things to do with newscasters. Maybe there will be a fancy new UI soon? Who knows."
   - rscdel: "Removes the Journalist alt-title from Librarian."
   - rscadd: "Adds the Journalist role."
-  - maptweak: "The store has been replaced with a brand-new journalist's office."
+  - maptweak: "The merchandise store has been replaced with a brand-new journalist's office."
   - experiment: "You can now comment, like, and dislike newscaster stories."
+  - experiment: "PDAs can see, but not interact with, the new newscaster functionality. This may expand or be removed in the future."
