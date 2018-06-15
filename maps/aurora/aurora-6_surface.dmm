@@ -15984,10 +15984,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "DI" = (
-/obj/structure/mopbucket,
-/obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/vomit,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
 "DJ" = (
@@ -15996,6 +15993,7 @@
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Custodial Closet"
 	},
+/obj/item/weapon/reagent_containers/glass/bucket,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
 "DK" = (
@@ -16018,7 +16016,10 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
 "DN" = (
@@ -16115,7 +16116,7 @@
 "DY" = (
 /obj/machinery/door/airlock{
 	name = "Custodial Closet";
-	req_access = list(26)
+	req_access = null
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -19080,6 +19081,26 @@
 "Jc" = (
 /turf/simulated/floor/asteroid/ash,
 /area/skipjack_station/surface)
+"LT" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/aft)
+"TM" = (
+/obj/structure/mopbucket,
+/obj/effect/decal/cleanable/cobweb,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/aft)
+"WG" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/ladder/updown,
+/turf/simulated/open,
+/area/hallway/secondary/entry/aft)
 
 (1,1,1) = {"
 aa
@@ -46230,10 +46251,10 @@ tt
 sU
 aa
 aa
-aa
-aa
-aa
-aa
+CU
+CU
+CU
+CU
 CU
 Er
 EI
@@ -46488,9 +46509,9 @@ sU
 aa
 aa
 CU
-CU
-CU
-CU
+TM
+WG
+DQ
 CU
 Es
 Cp
@@ -46747,7 +46768,7 @@ aa
 CU
 DI
 DM
-DQ
+LT
 CU
 Et
 Cp
