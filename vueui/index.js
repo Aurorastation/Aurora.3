@@ -1,8 +1,29 @@
 import Vue from 'vue'
+import upperFirst from 'lodash/upperFirst'
+import camelCase from 'lodash/camelCase'
 
 import Store from './store.js'
 import styles from './styles/global.scss'
-import components from './components'
+
+const requireComponent = require.context(
+    './components', // The relative path of the components folder
+    true, // Whether or not to look in subfolders
+    /[A-Za-z]\w+\.vue$/ // The regular expression used to match base component filenames
+)
+
+requireComponent.keys().forEach(fileName => {
+    const componentConfig = requireComponent(fileName)
+    const componentName = upperFirst(
+        camelCase(
+            // Strip the leading `'./` and extension from the filename
+            fileName.replace(/^\.\/(.*)\.\w+$/, '$1')
+        )
+    )
+    Vue.component(
+        componentName,
+        componentConfig.default || componentConfig
+    )
+})
 
 var state = JSON.parse(document.getElementById('initialstate').innerHTML)
 
@@ -15,9 +36,8 @@ global.receveUIState = (jsonState) => {
 var app = new Vue({
     el: '#app',
     data: Store.state,
-    components,
     render (createElement) {
-        return createElement('ui-' + this.$root.$data.active)
+        return createElement('view-' + this.$root.$data.active)
     },
     watch: {
         state: {
@@ -30,6 +50,11 @@ var app = new Vue({
             deep: true
         }
     }
+})
+
+var header = new Vue({
+    el: '#header',
+    data: Store.state
 })
 
 if (document.getElementById("dapp")) {

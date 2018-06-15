@@ -1,15 +1,16 @@
 <template>
     <div @click="senddata()" class="button">
-        <slot>A button</slot>
+        <div v-if="icon" :class="'uiIcon16 icon-' + icon"></div>
+        <span><slot>A button</slot></span>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'bybutton',
+    name: 'vui-button',
     props: {
         icon: {
-            type: [String],
+            type: String,
             default: ""
         },
         params: {

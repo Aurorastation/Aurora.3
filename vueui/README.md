@@ -67,7 +67,7 @@ p {
 </style>
 ```
 ### Step 5: Compile
-This ui framework requres whole ui to be compiled for changes to be avavible. Compilation requres Node.js runtime. To do initial dependency setup run `npm install` to gather all dependencies nedded for ui. Single compilation can be done with `npm run compile`, but if you constantly do changes, then `npm run run` is more convienient, as it compiles everything as soon as change is detected.
+This ui framework requres whole ui to be compiled for changes to be avavible. Compilation requres Node.js runtime, what is opbtainable in varous ways, most common is install from official site. To do initial dependency setup run `npm install` to gather all dependencies nedded for ui. Single compilation can be done with `npm run compile`, but if you constantly do changes, then `npm run run` is more convienient, as it compiles everything as soon as change is detected.
 # Notes
 ## Usefull APIs
 ### `SSvueui.check_uis_for_change(object)`
@@ -87,12 +87,29 @@ To enable debug mode and make figuring out things easier do following steps:
 ```
  - Use `\vueui\template.html` in Internet explorer to use inspector to analyze ui behavour. Also don't forget to copy paste data data from actual ui to this debug ui. 
 
+## Vue sintax
+You should look at [official Vuejs guide](https://vuejs.org/v2/guide/syntax.html). As it's more detailed and more acurarate than any explanation that could have been written here.
 ## UI components
-### ByButton `<bybutton>`
+### VuiButton `<vui-button>`
+Button programmed to send provided data to ui object. Comes with icon support.
+
 Example:
 ```Vue
-<bybutton :params="{ action: 'delete' }">Delete</bybutton>
+<vui-button :params="{ action: 'delete' }" icon="close">Delete</vui-button>
 ```
 Parameters:
+ - `$slot` - Contents of button.
  - `params` - key value pairs to send to `Topic` of object.
  - `icon` - icon that should be used in that button. For avavible icons look at `\vueui\styles\theme-nano.scss`
+
+### VuiProgress `<vui-progress>`
+Simple progress bar for representing progress of a process or indicate status.
+Example:
+```Vue
+<vui-progress> :value="50"></vui-progress>
+```
+Parameters:
+ - `value` - numerical value to display. Should be used with binding.
+ - `max` - maximum value of provided value's range. Should be used with binding.
+ - `min` - minimum value of provided value's range. Should be used with binding.
+

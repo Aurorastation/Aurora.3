@@ -24,6 +24,8 @@ main ui datum.
     var/datum/topic_state/state = null
     // currently active ui component
     var/activeui = "test"
+    // header used for this ui, should be set before open()
+    var/header = "default"
     // window id
     var/windowid
 
@@ -112,6 +114,9 @@ main ui datum.
         <meta charset="UTF-8">
     </head>
     <body class="theme-nanoui">
+        <div id="header">
+            <header-[header]></header-[header]>
+        </div
         <div id="app">
 
         </div>
