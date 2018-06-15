@@ -50,7 +50,7 @@
 /obj/item/custom_ka_upgrade/barrels/barrel04
 	name = "planet core KA power converter"
 	build_name = "'Planet'"
-	desc = "An incredibly powerful and effecient kinetic accelerator energy converter intended for the use in atmospheric areas such as planets and gas giants."
+	desc = "An incredibly powerful and efficient kinetic accelerator energy converter intended for the use in atmospheric areas such as planets and gas giants."
 	icon_state = "barrel04"
 	damage_increase = 25
 	firedelay_increase = 1 SECONDS
