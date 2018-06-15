@@ -549,7 +549,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			feed["messages"] = messages
 
 		data["feed"] = feed
-		
+
 	data["manifest"] = PDA_Manifest
 
 	nanoUI = data
