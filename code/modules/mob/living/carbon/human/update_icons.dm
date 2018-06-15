@@ -93,9 +93,9 @@ There are several things that need to be remembered:
 #define SHOES_LAYER       7
 #define GLOVES_LAYER      8
 #define BELT_LAYER        9
-#define TAIL_NORTH_LAYER 10
+#define TAIL_SOUTH_LAYER 10
 #define SUIT_LAYER       11
-#define TAIL_SOUTH_LAYER 12
+#define TAIL_NORTH_LAYER 12
 #define GLASSES_LAYER    13
 #define BELT_LAYER_ALT   14
 #define SUIT_STORE_LAYER 15
@@ -298,11 +298,11 @@ There are several things that need to be remembered:
 	//END CACHED ICON GENERATION.
 	stand_icon.Blend(base_icon,ICON_OVERLAY)
 
-	if(update_icons)
-		update_icons()
-
 	//tail
 	update_tail_showing(0)
+
+	if(update_icons)
+		update_icons()
 
 /mob/living/carbon/human/proc/update_underwear(update_icons = TRUE)
 	var/list/ovr
@@ -1130,10 +1130,10 @@ There are several things that need to be remembered:
 		update_icons()
 
 /mob/living/carbon/human/proc/get_tail_layer()
-	if (src.dir == SOUTH)
-		return TAIL_SOUTH_LAYER
-	else
+	if (src.dir == NORTH)
 		return TAIL_NORTH_LAYER
+	else
+		return TAIL_SOUTH_LAYER
 
 /mob/living/carbon/human/proc/update_tail_showing(var/update_icons=1)
 
