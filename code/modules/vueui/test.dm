@@ -11,7 +11,7 @@
 /datum/vueuiuitest/proc/open_ui()
     var/datum/vueuiui/ui = SSvueui.get_open_ui(usr, src)
     if (!ui)
-        ui = new(usr, src, "test", 300, 300)
+        ui = new(usr, src, "test", 300, 300, null, interactive_state)
     ui.open()
 
 /datum/vueuiuitest/vueui_data_change(var/list/newdata, var/mob/user, var/datum/vueuiui/ui)

@@ -1,7 +1,7 @@
 <template>
-    <div @click="senddata()" class="button">
+    <div @click="senddata(); $emit('click')" class="button" :disabled="$root.$data.status < 2">
         <div v-if="icon" :class="'uiIcon16 icon-' + icon"></div>
-        <span><slot>A button</slot></span>
+        <span><slot></slot></span>
     </div>
 </template>
 
@@ -15,11 +15,16 @@ export default {
         },
         params: {
             type: Object,
-            default: []
+            default() {
+                return {}
+            }
         }
     },
     methods: {
         senddata() {
+            if(this.$root.$data.status < 2 || this.params) {
+                return
+            }
             var sendparams = []
             for(var val in this.params) {
                 sendparams.push(encodeURIComponent(val) + "=" + encodeURIComponent(this.params[val]))
@@ -34,5 +39,10 @@ export default {
 </script>
 
 <style lang="scss">
-    
+    .button {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
 </style>

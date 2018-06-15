@@ -116,7 +116,7 @@ main ui datum.
     <body class="theme-nanoui">
         <div id="header">
             <header-[header]></header-[header]>
-        </div
+        </div>
         <div id="app">
 
         </div>
@@ -142,15 +142,15 @@ main ui datum.
   * @return json object - text
   */
 /datum/vueuiui/proc/generate_data_json()
-    var/list/data = list()
-    data["state"] = data    
-    data["assets"] = list()
-    data["active"] = activeui
-    data["uiref"] = "\ref[src]"
-    data["status"] = status
+    var/list/sdata = list()
+    sdata["state"] = src.data
+    sdata["assets"] = list()
+    sdata["active"] = activeui
+    sdata["uiref"] = "\ref[src]"
+    sdata["status"] = status
     for(var/list/asset in assets)
-        data["assets"][asset["name"]] = list("ref" = "\ref[asset["img"]]")
-    return json_encode(data)
+        sdata["assets"][asset["name"]] = list("ref" = "\ref[asset["img"]]")
+    return json_encode(sdata)
 
 /**
   * Sends all resources required for proper renderig of ui
@@ -205,13 +205,13 @@ main ui datum.
     if(status < STATUS_INTERACTIVE || user != usr)
         return
     if(href_list["vueuistateupdate"])
-        var/data = json_decode(href_list["vueuistateupdate"])
-        var/ndata = data["state"]
+        var/rdata = json_decode(href_list["vueuistateupdate"])
+        var/ndata = rdata["state"]
         var/ret = object.vueui_data_change(ndata, user, src)
         if(ret)
             ndata = ret
             push_change(ret)
-        data = ndata
+        src.data = ndata
         return // Object shal not get state update calls
     object.Topic(href, href_list)
 
@@ -224,7 +224,7 @@ main ui datum.
   */ 
 /datum/vueuiui/proc/push_change(var/list/ndata)
     if(ndata && status > STATUS_DISABLED)
-        data = ndata
+        src.data = ndata
     user << output(list2params(list(generate_data_json())),"[windowid].browser:receveUIState")
 
 /**

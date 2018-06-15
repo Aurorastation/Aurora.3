@@ -4,7 +4,8 @@ export default {
         assets: [],
         state: {},
         active: '',
-        uiref: ''
+        uiref: '',
+        status: 2,
     },
     loadState (loadedState) {
         this.isUpdating = true
@@ -13,6 +14,7 @@ export default {
         this.state.state = loadedState.state
         this.state.active = loadedState.active
         this.state.uiref = loadedState.uiref
+        this.state.status = loadedState.status
         this.isUpdating = false
     },
     isUpdating: false
