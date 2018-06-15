@@ -93,23 +93,24 @@ There are several things that need to be remembered:
 #define SHOES_LAYER       7
 #define GLOVES_LAYER      8
 #define BELT_LAYER        9
-#define SUIT_LAYER       10
-#define TAIL_LAYER       11
-#define GLASSES_LAYER    12
-#define BELT_LAYER_ALT   13
-#define SUIT_STORE_LAYER 14
-#define BACK_LAYER       15
-#define HAIR_LAYER       16
-#define EARS_LAYER       17
-#define FACEMASK_LAYER   18
-#define HEAD_LAYER       19
-#define COLLAR_LAYER     20
-#define HANDCUFF_LAYER   21
-#define LEGCUFF_LAYER    22
-#define L_HAND_LAYER     23
-#define R_HAND_LAYER     24
-#define FIRE_LAYER       25		//If you're on fire
-#define TOTAL_LAYERS     25
+#define TAIL_NORTH_LAYER 10
+#define SUIT_LAYER       11
+#define TAIL_SOUTH_LAYER 12
+#define GLASSES_LAYER    13
+#define BELT_LAYER_ALT   14
+#define SUIT_STORE_LAYER 15
+#define BACK_LAYER       16
+#define HAIR_LAYER       17
+#define EARS_LAYER       18
+#define FACEMASK_LAYER   19
+#define HEAD_LAYER       20
+#define COLLAR_LAYER     21
+#define HANDCUFF_LAYER   22
+#define LEGCUFF_LAYER    23
+#define L_HAND_LAYER     24
+#define R_HAND_LAYER     25
+#define FIRE_LAYER       26		//If you're on fire
+#define TOTAL_LAYERS     26
 //////////////////////////////////
 
 #define UNDERSCORE_OR_NULL(target) "[target ? "[target]_" : ""]"
@@ -1128,15 +1129,25 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icons()
 
+/mob/living/carbon/human/proc/get_tail_layer()
+	if (src.dir == SOUTH)
+		return TAIL_SOUTH_LAYER
+	else
+		return TAIL_NORTH_LAYER
+
 /mob/living/carbon/human/proc/update_tail_showing(var/update_icons=1)
+
 	if (QDELING(src))
 		return
 
-	overlays_raw[TAIL_LAYER] = null
+	overlays_raw[TAIL_NORTH_LAYER] = null
+	overlays_raw[TAIL_SOUTH_LAYER] = null
+
+	var/tail_layer = get_tail_layer()
 
 	if(species.tail && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
 		var/icon/tail_s = get_tail_icon()
-		overlays_raw[TAIL_LAYER] = image(tail_s, icon_state = "[species.tail]_s")
+		overlays_raw[tail_layer] = image(tail_s, icon_state = "[species.tail]_s")
 		animate_tail_reset(0)
 
 	if(update_icons)
@@ -1165,7 +1176,9 @@ There are several things that need to be remembered:
 	if (!species.tail)
 		return
 
-	var/image/tail_overlay = overlays_raw[TAIL_LAYER]
+	var/tail_layer = get_tail_layer()
+
+	var/image/tail_overlay = overlays_raw[tail_layer]
 
 	if(tail_overlay && species.tail_animation)
 		if (tail_overlay.icon_state != t_state)
@@ -1179,7 +1192,9 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/proc/animate_tail_once()
 	var/t_state = "[species.tail]_once"
 
-	var/image/tail_overlay = overlays_raw[TAIL_LAYER]
+	var/tail_layer = get_tail_layer()
+
+	var/image/tail_overlay = overlays_raw[tail_layer]
 	if(tail_overlay && tail_overlay.icon_state == t_state)
 		return //let the existing animation finish
 
@@ -1189,7 +1204,8 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/proc/end_animate_tail_once(image/tail_overlay)
 	//check that the animation hasn't changed in the meantime
-	if(overlays_raw[TAIL_LAYER] == tail_overlay && tail_overlay.icon_state == "[species.tail]_once")
+	var/tail_layer = get_tail_layer()
+	if(overlays_raw[tail_layer] == tail_overlay && tail_overlay.icon_state == "[species.tail]_once")
 		animate_tail_stop()
 
 /mob/living/carbon/human/proc/animate_tail_start()
@@ -1321,7 +1337,8 @@ There are several things that need to be remembered:
 #undef GLOVES_LAYER
 #undef BELT_LAYER
 #undef SUIT_LAYER
-#undef TAIL_LAYER
+#undef TAIL_NORTH_LAYER
+#undef TAIL_SOUTH_LAYER
 #undef GLASSES_LAYER
 #undef BELT_LAYER_ALT
 #undef SUIT_STORE_LAYER
