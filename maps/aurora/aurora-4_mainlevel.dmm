@@ -3163,6 +3163,8 @@
 /obj/machinery/light_switch{
 	pixel_x = 24
 	},
+/obj/structure/table/wood,
+/obj/item/glass_jar/peter,
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "ags" = (
@@ -3171,20 +3173,24 @@
 /obj/item/weapon/pen,
 /obj/item/weapon/pen/blue,
 /obj/item/weapon/pen/red,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
 /turf/simulated/floor/carpet,
 /area/journalistoffice)
 "agt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
 	},
 /obj/structure/table/wood,
-/obj/item/weapon/clipboard,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/item/device/taperecorder,
+/obj/item/weapon/storage/photo_album,
 /turf/simulated/floor/carpet,
 /area/journalistoffice)
 "agu" = (
@@ -3690,16 +3696,21 @@
 /obj/effect/landmark/start{
 	name = "Journalist"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/carpet,
 /area/journalistoffice)
 "ahv" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/table/wood,
+/obj/item/device/camera_film,
+/obj/item/device/camera,
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/structure/table/wood,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/packageWrap,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/carpet,
 /area/journalistoffice)
 "ahw" = (
@@ -4076,10 +4087,6 @@
 /obj/machinery/newscaster{
 	pixel_y = -32
 	},
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
-/obj/machinery/disposal,
 /turf/simulated/floor/carpet,
 /area/journalistoffice)
 "aij" = (
@@ -4092,9 +4099,6 @@
 	name = "corkboard";
 	pixel_y = -32
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/floor/carpet,
 /area/journalistoffice)
 "aik" = (
@@ -4104,9 +4108,6 @@
 	pixel_y = -24
 	},
 /obj/structure/cable,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/floor/carpet,
 /area/journalistoffice)
 "ail" = (
@@ -4498,9 +4499,6 @@
 	pixel_x = 0;
 	pixel_y = -24
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/floor/carpet,
 /area/journalistoffice)
 "aja" = (
@@ -4511,9 +4509,8 @@
 	c_tag = "Starboard Corridor - Store";
 	dir = 1
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
+/obj/item/device/radio/intercom{
+	pixel_y = -27
 	},
 /turf/simulated/floor/wood,
 /area/journalistoffice)
@@ -64648,9 +64645,6 @@
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "cto" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
 /obj/structure/table/wood,
 /obj/item/weapon/folder/white,
 /obj/item/weapon/folder/red,
@@ -64661,7 +64655,7 @@
 /area/journalistoffice)
 "ctp" = (
 /obj/structure/table/wood,
-/obj/item/glass_jar/peter,
+/obj/item/weapon/clipboard,
 /turf/simulated/floor/carpet,
 /area/journalistoffice)
 "ctq" = (
@@ -64681,7 +64675,28 @@
 /turf/simulated/floor/plating,
 /area/journalistoffice)
 "ctr" = (
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
 /turf/simulated/floor/carpet,
+/area/journalistoffice)
+"cts" = (
+/obj/structure/bed/chair,
+/turf/simulated/floor/wood,
+/area/journalistoffice)
+"ctt" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/carpet,
+/area/journalistoffice)
+"ctu" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/wood,
 /area/journalistoffice)
 
 (1,1,1) = {"
@@ -102580,10 +102595,10 @@ axP
 aLd
 aMW
 aet
-afB
+ctn
 ctn
 ctp
-ctr
+ctt
 aij
 aet
 aYY
@@ -102837,8 +102852,8 @@ aJt
 aLe
 aMX
 aeD
-afO
 ctn
+cts
 ags
 ahu
 aik
@@ -103353,8 +103368,8 @@ aMZ
 afd
 afQ
 afW
-agu
 afW
+ctu
 ajb
 aet
 aYZ
@@ -103610,7 +103625,7 @@ aNa
 afy
 afR
 ctn
-agQ
+ctn
 ctn
 ctn
 ajJ
@@ -103869,7 +103884,7 @@ afS
 agr
 agR
 ahw
-ajI
+afA
 aet
 aZa
 bah
