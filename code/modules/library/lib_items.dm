@@ -107,7 +107,7 @@
 	if (!establish_db_connection(dbcon))
 		return
 
-	var/query_str = "SELECT * FROM ss13_library ORDER BY RAND() LIMIT :amount:"
+	var/query_str = "SELECT author, title, content FROM ss13_library ORDER BY RAND() LIMIT :amount:"
 	var/list/query_data = list("amount" = spawn_amount)
 
 	if (spawn_category)
@@ -119,9 +119,9 @@
 
 	while (query_books.NextRow())
 		CHECK_TICK
-		var/author = query_books.item[2]
-		var/title = query_books.item[3]
-		var/content = query_books.item[4]
+		var/author = query_books.item[1]
+		var/title = query_books.item[2]
+		var/content = query_books.item[3]
 		var/obj/item/weapon/book/B = new(src.loc)
 		B.name = "Book: [title]"
 		B.title = title
