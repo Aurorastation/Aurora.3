@@ -396,8 +396,6 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 					for(var/datum/feed_comment/COMMENT in src.viewing_message.comments)
 						dat+="<BLOCKQUOTE style=\"padding:2px 4px;border-left:4px #797979 solid;\"><B>\[[world.time]\] [COMMENT.author]:</B>[COMMENT.message]<BR><A href='?src=\ref[src];censor_comment=1;comment=\ref[COMMENT]>Censor Comment</A></BLOCKQUOTE>"
 				dat+="<A href='?src=\ref[src];setScreen=[9]'>Return</A>"
-			else
-				dat+="Please report this on GitHub, along with what you did to make this appear."
 
 
 		human_or_robot_user << browse(dat, "window=newscaster_main;size=400x600")

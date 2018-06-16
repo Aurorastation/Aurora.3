@@ -224,10 +224,9 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
-	selection_color = "#ddbbbb"
+	selection_color = "#dddddd"
 	access = list(access_journalist, access_maint_tunnels)
 	minimal_access = list(access_journalist, access_maint_tunnels)
-	alt_titles = list("Security Correspondent")
 
 /datum/job/journalist/equip(var/mob/living/carbon/human/H)
 	if(!H)
