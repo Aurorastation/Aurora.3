@@ -13,7 +13,8 @@ var/list/lunchables_lunches_ = list(
 	/obj/item/weapon/reagent_containers/food/snacks/tossedsalad,
 	/obj/item/weapon/reagent_containers/food/snacks/koiswaffles,
 	/obj/item/weapon/reagent_containers/food/snacks/funnelcake,
-	/obj/item/weapon/reagent_containers/food/snacks/hotdog
+	/obj/item/weapon/reagent_containers/food/snacks/hotdog,
+	/obj/item/weapon/reagent_containers/food/snacks/tajaran_bread
 )
 
 var/list/lunchables_snacks_ = list(
@@ -47,7 +48,8 @@ var/list/lunchables_snacks_ = list(
 	/obj/item/weapon/reagent_containers/food/snacks/friedkois,
 	/obj/item/weapon/reagent_containers/food/snacks/meatsnack,
 	/obj/item/weapon/reagent_containers/food/snacks/maps,
-	/obj/item/weapon/reagent_containers/food/snacks/nathisnack
+	/obj/item/weapon/reagent_containers/food/snacks/nathisnack,
+	/obj/item/weapon/reagent_containers/food/snacks/adhomian_can
 )
 
 var/list/lunchables_drinks_ = list(
