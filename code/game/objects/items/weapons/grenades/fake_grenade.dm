@@ -2,6 +2,7 @@
 	name = "fragmentation grenade"
 	desc = "A military fragmentation grenade, designed to explode in a deadly shower of fragments, this one is just a toy however."
 	icon_state = "frag"
+	fake = TRUE
 
 /obj/item/weapon/grenade/fake/prime()
 	active = 0
