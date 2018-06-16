@@ -53,6 +53,8 @@
 					B.name = "Toolbox Manifesto"
 				if("homosexuality")
 					B.name = "Guys Gone Wild"
+				if("moroz holy tribunal","moroz","holy tribunal")
+					B.name = "Tribunal Codex"
 				//if("lol", "wtf", "gay", "penis", "ass", "poo", "badmin", "shitmin", "deadmin", "cock", "cocks")
 				//	B.name = pick("Woodys Got Wood: The Aftermath", "War of the Cocks", "Sweet Bro and Hella Jef: Expanded Edition")
 				//	H.setBrainLoss(100) // starts off retarded as fuck

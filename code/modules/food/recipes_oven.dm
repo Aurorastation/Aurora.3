@@ -231,6 +231,15 @@
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/quiche
 	reagent_mix = RECIPE_REAGENT_REPLACE //No raw egg in finished product, protein after cooking causes magic meatballs otherwise
 
+/datum/recipe/tajaran_bread
+	fruit = list("nifberries" = 1)
+	reagents = list("spacespice" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/tajaran_bread
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
 //Baked sweets:
 //---------------
 
@@ -493,6 +502,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/meat
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/lasagna
+	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /datum/recipe/honeybun
 	appliance = OVEN
