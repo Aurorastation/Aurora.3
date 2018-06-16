@@ -49894,6 +49894,7 @@
 "bIJ" = (
 /obj/structure/cult/tome,
 /obj/item/clothing/under/suit_jacket/red,
+/obj/item/device/radio/headset/headset_service,
 /turf/simulated/floor/tiled/dark,
 /area/library)
 "bIK" = (
