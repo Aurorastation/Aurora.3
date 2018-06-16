@@ -148,6 +148,7 @@ main ui datum.
     sdata["active"] = activeui
     sdata["uiref"] = "\ref[src]"
     sdata["status"] = status
+    sdata["wtime"] = world.time
     for(var/list/asset in assets)
         sdata["assets"][asset["name"]] = list("ref" = "\ref[asset["img"]]")
     return json_encode(sdata)

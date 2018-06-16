@@ -6,6 +6,7 @@ export default {
         active: '',
         uiref: '',
         status: 2,
+        wtime: 0
     },
     loadState (loadedState) {
         this.isUpdating = true
@@ -15,6 +16,7 @@ export default {
         this.state.active = loadedState.active
         this.state.uiref = loadedState.uiref
         this.state.status = loadedState.status
+        this.state.wtime = loadedState.wtime
         this.isUpdating = false
     },
     isUpdating: false

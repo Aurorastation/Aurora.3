@@ -33,6 +33,10 @@ global.receveUIState = (jsonState) => {
     Store.loadState(JSON.parse(jsonState))
 }
 
+window.setInterval(() => {
+    Store.state.wtime += 2
+}, 200)
+
 var app = new Vue({
     el: '#app',
     data: Store.state,
