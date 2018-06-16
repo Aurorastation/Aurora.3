@@ -4063,6 +4063,7 @@
 	dir = 5;
 	icon_state = "camera"
 	},
+/obj/machinery/power/emitter,
 /turf/simulated/floor{
 	icon_state = "plating"
 	},
@@ -4275,6 +4276,7 @@
 	icon_state = "alarm0";
 	pixel_x = -22
 	},
+/obj/machinery/power/emitter,
 /turf/simulated/floor{
 	icon_state = "plating"
 	},
@@ -18202,6 +18204,10 @@
 	icon_state = "alarm0";
 	pixel_x = 24
 	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Isolation Containment";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_c)
 "Gn" = (
@@ -20056,11 +20062,19 @@
 	icon_state = "alarm0";
 	pixel_x = 24
 	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Isolation Access";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_c)
 "Jc" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Isolation Airlock";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_c)
@@ -27233,6 +27247,21 @@
 /obj/machinery/meter,
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
+"Wm" = (
+/obj/machinery/power/emitter,
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/outpost/engineering/storage)
+"Wn" = (
+/obj/structure/particle_accelerator/end_cap{
+	icon_state = "end_cap";
+	dir = 8
+	},
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/outpost/engineering/storage)
 
 (1,1,1) = {"
 aa
@@ -40436,7 +40465,7 @@ gC
 fT
 fy
 iv
-iy
+Wm
 jq
 jO
 ku
@@ -40694,9 +40723,9 @@ hp
 fy
 iw
 iW
-jr
+jq
+Wn
 jP
-kv
 iA
 aa
 aa
@@ -41463,7 +41492,7 @@ fT
 gE
 fT
 fy
-iy
+kv
 iY
 iY
 iY
@@ -64616,7 +64645,7 @@ oz
 oz
 pG
 qo
-qP
+qS
 rm
 rv
 oz
@@ -64873,7 +64902,7 @@ oz
 oz
 pH
 qp
-qQ
+qR
 rn
 rw
 oz
@@ -65130,7 +65159,7 @@ oz
 oz
 pI
 qp
-qR
+qQ
 rn
 rx
 oz
@@ -65386,9 +65415,9 @@ kj
 oz
 oz
 pJ
-qp
 qS
-rn
+qR
+qS
 ry
 oz
 oz

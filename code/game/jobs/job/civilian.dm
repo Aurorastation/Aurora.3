@@ -216,7 +216,6 @@
 		return TRUE
 
 
-//More or less assistants
 /datum/job/librarian
 	title = "Librarian"
 	flag = LIBRARIAN
@@ -235,6 +234,7 @@
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
 			return FALSE
+		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_service(H), slot_l_ear)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/red(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/librarian(H), slot_belt)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)

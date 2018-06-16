@@ -136,7 +136,7 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 
 /datum/modifier/drunk/custom_validity()
 	var/mob/living/carbon/human/H = target
-	if(istype(H))
+	if(!istype(H))
 		return 0
 	if(H.get_blood_alcohol() >= INTOX_MUSCLEIMP*H.species.ethanol_resistance)
 		return 1

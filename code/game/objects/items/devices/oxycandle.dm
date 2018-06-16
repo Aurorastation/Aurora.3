@@ -71,3 +71,8 @@
 		item_state = icon_state
 		set_light(0)
 	update_held_icon()
+
+/obj/item/device/oxycandle/Destroy()
+	QDEL_NULL(air_contents)
+	STOP_PROCESSING(SSprocessing, src)
+	. = ..()

@@ -202,7 +202,7 @@
 
 			if(!src.head.law_manager)
 
-				if(!is_alien_whitelisted(M.brainmob, src.chest.linked_frame) && config.usealienwhitelist)
+				if(!is_alien_whitelisted(M.brainmob, "Baseline Frame") && config.usealienwhitelist)
 					user << "<span class='warning'>\The [W] does not seem to fit.</span>"
 					return
 
