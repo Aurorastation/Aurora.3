@@ -291,7 +291,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 			continue
 
 		//Byond resumed us late. assume it might have to do the same next tick
-		if (last_run + Ceiling(world.tick_lag * (processing * sleep_delta), world.tick_lag) < world.time)
+		if (last_run + CEILING(world.tick_lag * (processing * sleep_delta), world.tick_lag) < world.time)
 			sleep_delta += 1
 
 		sleep_delta = MC_AVERAGE_FAST(sleep_delta, 1) //decay sleep_delta
@@ -377,7 +377,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 		if (SS_flags & SS_NO_FIRE)
 			subsystemstocheck -= SS
 			continue
-		if (!(SS_flags & SS_TICKER) && (SS_flags & SS_KEEP_TIMING) && SS.last_fire + (SS.wait * 0.75) > world.time)
+		if ((SS_flags & (SS_TICKER|SS_KEEP_TIMING)) == SS_KEEP_TIMING && SS.last_fire + (SS.wait * 0.75) > world.time)
 			continue
 		SS.enqueue()
 	. = 1

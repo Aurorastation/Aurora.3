@@ -333,7 +333,10 @@
 	// this is the data which will be sent to the ui
 	var/data[0]
 	data["nameTag"] = name_tag
-	data["storedCapacity"] = round(100.0*charge/capacity, 0.1)
+	if(capacity)
+		data["storedCapacity"] = round(100.0*charge/capacity, 0.1)
+	else
+		data["storedCapacity"] = 0
 	data["charging"] = inputting
 	data["chargeMode"] = input_attempt
 	data["chargeLevel"] = input_level

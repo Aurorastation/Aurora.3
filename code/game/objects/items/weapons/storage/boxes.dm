@@ -968,7 +968,8 @@
 			/obj/item/weapon/reagent_containers/food/snacks/tastybread,
 			/obj/item/weapon/reagent_containers/food/snacks/meatsnack,
 			/obj/item/weapon/reagent_containers/food/snacks/maps,
-			/obj/item/weapon/reagent_containers/food/snacks/nathisnack
+			/obj/item/weapon/reagent_containers/food/snacks/nathisnack,
+			/obj/item/weapon/reagent_containers/food/snacks/adhomian_can
 	)
 	for (var/i = 0,i<7,i++)
 		var/type = pick(snacks)
@@ -1006,3 +1007,15 @@
 
 	for(var/i in 1 to 6)
 		new /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large(src)
+
+/obj/item/weapon/storage/box/clams
+	name = "box of Ras'val clam"
+	desc = "A box filled with clams from the Ras'val sea, imported by Njadra'Akhar Enterprises."
+
+/obj/item/weapon/storage/box/clams/fill()
+	..()
+	new /obj/item/weapon/reagent_containers/food/snacks/clam(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/clam(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/clam(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/clam(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/clam(src)
