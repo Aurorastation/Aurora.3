@@ -18438,6 +18438,9 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/item/airbubble/syndie,
+/obj/item/airbubble/syndie,
+/obj/item/airbubble/syndie,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
 "aOM" = (
