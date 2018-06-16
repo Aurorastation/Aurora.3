@@ -101,34 +101,33 @@
 	var/spawn_amount = 3
 
 /obj/structure/bookcase/libraryspawn/Initialize()
-
 	. = ..()
-
 	name = "[initial(name)] ([spawn_category])"
 
-	if(!config.sql_enabled)
+	if (!establish_db_connection(dbcon))
 		return
 
-	establish_db_connection(dbcon)
+	var/query_str = "SELECT * FROM ss13_library ORDER BY RAND() LIMIT :amount:"
+	var/list/query_data = list("amount" = spawn_amount)
 
-	if(!dbcon.IsConnected())
-		log_debug("Library Book Spawning: SQL ERROR - Failed to connect and spawn books for [spawn_category].")
-		return
+	if (spawn_category)
+		query_str = "SELECT * FROM ss13_library WHERE category = :cat: ORDER BY RAND() LIMIT :amount:"
+		query_data["cat"] = spawn_category
 
-	var/cat_fix = spawn_category ? "category = :cat:" : ""
-	var/DBQuery/query_books = dbcon.NewQuery("SELECT * FROM ss13_library WHERE category = [cat_fix] ORDER BY RAND() LIMIT :amount:")
-	if(query_books.Execute(list("cat" = spawn_category, "amount" = spawn_amount)))
-		while(query_books.NextRow())
-			CHECK_TICK
-			var/author = query_books.item[2]
-			var/title = query_books.item[3]
-			var/content = query_books.item[4]
-			var/obj/item/weapon/book/B = new(src.loc)
-			B.name = "Book: [title]"
-			B.title = title
-			B.author = author
-			B.dat = content
-			B.icon_state = "book[rand(1,7)]"
+	var/DBQuery/query_books = dbcon.NewQuery(query_str)
+	query_books.Execute()
+
+	while (query_books.NextRow())
+		CHECK_TICK
+		var/author = query_books.item[2]
+		var/title = query_books.item[3]
+		var/content = query_books.item[4]
+		var/obj/item/weapon/book/B = new(src.loc)
+		B.name = "Book: [title]"
+		B.title = title
+		B.author = author
+		B.dat = content
+		B.icon_state = "book[rand(1,7)]"
 
 	update_icon()
 
