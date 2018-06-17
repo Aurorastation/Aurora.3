@@ -543,13 +543,13 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#EDE8EA")
 	set_trait(TRAIT_PLANT_COLOUR,"#E6D8DD")
 	set_trait(TRAIT_PLANT_ICON,"mushroom5")
-	
+
 /datum/seed/mushroom/poison/panocelium
 	name = "panocelium"
 	seed_name = "panocelium"
 	display_name = "panocelium mushrooms"
 	mutants = null
-	chems = list("nutriment" = list(1,50), "panotoxin" = list(10,3), "psilocybin" = list(1,25))	
+	chems = list("nutriment" = list(1,50), "panotoxin" = list(10,3), "psilocybin" = list(1,25))
 
 /datum/seed/mushroom/poison/panocelium/setup_traits()
 	..()
@@ -560,7 +560,7 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#88FFFF")
 	set_trait(TRAIT_PLANT_COLOUR,"#88FFFF")
 	set_trait(TRAIT_PLANT_ICON,"mushroom6")
-	
+
 /datum/seed/mushroom/towercap
 	name = "towercap"
 	seed_name = "tower cap"
@@ -1127,9 +1127,9 @@
 
 /datum/seed/shand
 	name = "shand"
-	seed_name = "S'randar's hand"
-	display_name = "S'randar's hand leaves"
-	chems = list("bicaridine" = list(0,10))
+	seed_name = "S'Rendarr's hand"
+	display_name = "S'Rendarr's hand leaves"
+	chems = list("tobaccorich" = list(1,10), "nicotine" = list(3,5))
 	kitchen_tag = "shand"
 
 /datum/seed/shand/setup_traits()
@@ -1289,3 +1289,44 @@
 	set_trait(TRAIT_YIELD,-1)
 	set_trait(TRAIT_SPREAD,2)
 	set_trait(TRAIT_POTENCY,50)
+
+/datum/seed/earthenroot
+	name = "earthenroot"
+	seed_name = "earthen-root"
+	display_name = "earthen-roots"
+	chems = list("nutriment" = list(0,5), "sugar" = list(1,5), "earthenrootjuice" = list(4,8))
+	kitchen_tag = "earthenroot"
+
+/datum/seed/earthenroot/setup_traits()
+	..()
+	set_trait(TRAIT_MATURATION,7)
+	set_trait(TRAIT_PRODUCTION,5)
+	set_trait(TRAIT_YIELD,5)
+	set_trait(TRAIT_POTENCY,8)
+	set_trait(TRAIT_PRODUCT_ICON,"carrot2")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#87CEEB")
+	set_trait(TRAIT_PLANT_COLOUR,"#4D8F53")
+	set_trait(TRAIT_PLANT_ICON,"alien2")
+	set_trait(TRAIT_WATER_CONSUMPTION, 8)
+
+/datum/seed/nifberries
+	name = "nifberries"
+	seed_name = "nif-berries"
+	display_name = "nif-berries shrub"
+	chems = list("nutriment" = list(0,15), "oil" = list(1,5))
+	kitchen_tag = "nifberries"
+
+/datum/seed/nifberries/setup_traits()
+	..()
+	set_trait(TRAIT_HARVEST_REPEAT,1)
+	set_trait(TRAIT_JUICY,1)
+	set_trait(TRAIT_MATURATION,5)
+	set_trait(TRAIT_PRODUCTION,5)
+	set_trait(TRAIT_YIELD,2)
+	set_trait(TRAIT_POTENCY,10)
+	set_trait(TRAIT_PRODUCT_ICON,"nuts")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#C4AE7A")
+	set_trait(TRAIT_PLANT_COLOUR,"#4D8F53")
+	set_trait(TRAIT_PLANT_ICON,"bush4")
+	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
