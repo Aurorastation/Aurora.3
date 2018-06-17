@@ -1,0 +1,8 @@
+author: PoZe
+
+delete-after: True
+
+changes:
+  - tweak: "IPCs can not be convertable to cult."
+  - balance: "IPCs can no longer draw runes, since they have no blood. They still can use talismans"
+  - tweak: "Cultist IPCs are immune to cultist EMP from runes or talismans."

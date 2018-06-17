@@ -89,6 +89,11 @@
 	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
 	path = /obj/item/weapon/gun/projectile/heavysniper
 
+/datum/uplink_item/item/visible_weapons/gatling
+	name = "Gatling Machine Gun"
+	item_cost = DEFAULT_TELECRYSTAL_AMOUNT*2
+	path = /obj/item/minigunpack
+
 /datum/uplink_item/item/visible_weapons/chainsaw
 	name = "Chainsaw"
 	item_cost = 10
