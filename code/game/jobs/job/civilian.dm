@@ -216,7 +216,7 @@
 		return TRUE
 
 /datum/job/journalist
-	title = "Journalist"
+	title = "Corporate Reporter"
 	flag = JOURNALIST
 	department = "Civilian"
 	department_flag = CIVILIAN
@@ -227,6 +227,7 @@
 	selection_color = "#dddddd"
 	access = list(access_journalist, access_maint_tunnels)
 	minimal_access = list(access_journalist, access_maint_tunnels)
+	alt_titles = list("Freelance Journalist")
 
 /datum/job/journalist/equip(var/mob/living/carbon/human/H)
 	if(!H)
@@ -234,6 +235,11 @@
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/red(H), slot_w_uniform)
 	H.equip_to_slot_or_del(new /obj/item/device/pda/librarian(H), slot_belt)
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
+	if(has_alt_title(H, alt_title,"Corporate Reporter"))
+		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_service(H), slot_l_ear)
+		H.equip_to_slot_or_del(new /obj/item/clothing/accessory/badge/press(H), slot_in_backpack)
+	else if(has_alt_title(H, alt_title,"Freelance Journalist"))
+		H.equip_to_slot_or_del(new /obj/item/clothing/accessory/badge/press/independent(H), slot_in_backpack)
 	return TRUE
 
 /datum/job/librarian
