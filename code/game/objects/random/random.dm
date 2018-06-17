@@ -570,7 +570,8 @@
 		/obj/item/weapon/material/twohanded/pike,
 		/obj/item/weapon/material/twohanded/pike/halberd,
 		/obj/item/weapon/material/twohanded/pike/pitchfork,
-		/obj/item/weapon/melee/whip
+		/obj/item/weapon/melee/whip,
+		/obj/item/clothing/accessory/storage/bayonet
 	)
 
 /obj/random/coin

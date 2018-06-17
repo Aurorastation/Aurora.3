@@ -532,3 +532,88 @@
 	description = "A mythical compound, rumored to be the catalyst of fantastic reactions."
 	color = "#f4c430"
 	taste_description = "heavenly knowledge"
+
+/datum/reagent/sglue
+	name = "Sovereign Glue"
+	id = "sglue"
+	description = "A very potent adhesive which can be applied to inanimate surfaces."
+	reagent_state = LIQUID
+	color = "#EDE8E2"
+	taste_description = "horses"
+
+/datum/reagent/sglue/touch_obj(var/obj/O)
+	if((istype(O, /obj/item) && !istype(O, /obj/item/weapon/reagent_containers)) && (volume > 10*O.w_class))
+		var/obj/item/I = O
+		I.canremove = 0
+		I.desc += " It appears to glisten with some gluey substance."
+		remove_self(10*I.w_class)
+		I.visible_message("<span class='notice'>[I] begins to glisten with some gluey substance.</span>")
+
+/datum/reagent/usolve
+	name = "Universal Solvent"
+	id = "usolve"
+	description = "A very potent solvent which can be applied to inanimate surfaces."
+	reagent_state = LIQUID
+	color = "#EDE8E2"
+	taste_description = "alcohol"
+
+/datum/reagent/usolve/touch_obj(var/obj/O)
+	if((istype(O, /obj/item) && !istype(O, /obj/item/weapon/reagent_containers)) && (volume > 10*O.w_class))
+		var/obj/item/I = O
+		I.canremove = initial(I.canremove)
+		I.desc = initial(I.desc)
+		I.visible_message("<span class='notice'>A thin shell of glue cracks off of [I].</span>")
+		remove_self(10*I.w_class)
+
+/datum/reagent/shapesand
+	name = "Shapesand"
+	id = "shapesand"
+	description = "A strangely animate clump of sand which can shift its color and consistency."
+	reagent_state = SOLID
+	color = "#c2b280"
+	taste_description = "sand"
+
+/datum/reagent/shapesand/touch_obj(var/obj/O)
+	if((istype(O, /obj/item) && !istype(O, /obj/item/weapon/reagent_containers)) && (volume > 10*O.w_class))
+		var/obj/item/shapesand/mimic = new /obj/item/shapesand(O.loc)
+		mimic.name = O.name
+		mimic.desc = O.desc
+		mimic.icon = O.icon
+		mimic.icon_state = O.icon_state
+		mimic.item_state = O.item_state
+		mimic.overlays = O.overlays
+		remove_self(10*O.w_class)
+		mimic.visible_message("<span class='notice'>The sand forms into an exact duplicate of [O].</span>")
+
+/obj/item/shapesand
+	name = "shapesand"
+	desc = "A strangely animate clump of sand which can shift its color and consistency."
+	icon = 'icons/obj/mining.dmi'
+	w_class = 1.0
+	icon_state = "ore_glass"
+
+/obj/item/shapesand/attack() //can't be used to actually bludgeon things
+	return 1
+
+/obj/item/shapesand/afterattack(atom/A, mob/living/user)
+	user << "<span class='warning'>As you attempt to use the [src], it crumbles into inert sand!</span>"
+	new /obj/item/weapon/ore/glass(get_turf(src))
+	qdel(src)
+	return
+
+/datum/reagent/love_potion
+	name = "Philter of Love"
+	id = "love"
+	description = "A sickly sweet compound that induces chemical dependency on the first person the subject sees."
+	reagent_state = LIQUID
+	color = "#ff69b4"
+	taste_description = "sickly sweet candy"
+
+/datum/reagent/love_potion/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
+
+	if(!istype(H))
+		return
+
+	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
+	if(!H.has_trauma_type(/datum/brain_trauma/special/love))
+		B.gain_trauma(/datum/brain_trauma/special/love,FALSE)
