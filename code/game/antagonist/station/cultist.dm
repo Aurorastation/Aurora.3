@@ -35,16 +35,6 @@ var/datum/antagonist/cultist/cult
 
 	faction = "cult"
 
-	restricted_species = list(
-		"Baseline Frame",
-		"Shell Frame",
-		"Hephaestus G1 Industrial Frame",
-		"Hephaestus G2 Industrial Frame",
-		"Xion Industrial Frame",
-		"Zeng-Hu Mobility Frame",
-		"Bishop Accessory Frame"
-	)
-
 	var/allow_narsie = 1
 	var/datum/mind/sacrifice_target
 	var/list/allwords = list("travel","self","see","hell","blood","join","tech","destroy", "other", "hide")
