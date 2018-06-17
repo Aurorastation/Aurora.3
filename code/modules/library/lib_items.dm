@@ -118,7 +118,7 @@
 		query_data["cat"] = spawn_category
 
 	var/DBQuery/query_books = dbcon.NewQuery(query_str)
-	query_books.Execute()
+	query_books.Execute(query_data)
 
 	while (query_books.NextRow())
 		CHECK_TICK
