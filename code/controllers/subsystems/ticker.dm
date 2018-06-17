@@ -1,5 +1,9 @@
 #define LOBBY_TIME 180
 
+#define SETUP_OK 0
+#define SETUP_REVOTE 1
+#define SETUP_REATTEMPT 2
+
 var/datum/controller/subsystem/ticker/SSticker
 
 /datum/controller/subsystem/ticker
@@ -137,11 +141,14 @@ var/datum/controller/subsystem/ticker/SSticker
 	if (pregame_timeleft <= 0 || current_state == GAME_STATE_SETTING_UP)
 		current_state = GAME_STATE_SETTING_UP
 		wait = 2 SECONDS
-		if (!setup())
-			// Something fucked up.
+		var/setup_state = setup()
+		if (setup_state == SETUP_REVOTE)
 			wait = 1 SECOND
 			is_revote = TRUE
 			pregame()
+		else if (setup_state == SETUP_REATTEMPT)
+			pregame_timeleft = 1 SECOND
+			to_world("Reattempting gamemode selection.")
 
 /datum/controller/subsystem/ticker/proc/game_tick()
 	if(current_state != GAME_STATE_PLAYING)
@@ -342,7 +349,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	world << "<B><FONT color='blue'>Welcome to the pre-game lobby!</FONT></B>"
 	world << "Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds."
 
-/datum/controller/subsystem/ticker/proc/setup(var/setup_attempts = 0)
+/datum/controller/subsystem/ticker/proc/setup()
 	//Create and announce mode
 	if(master_mode == ROUNDTYPE_STR_SECRET)
 		src.hide_mode = ROUNDTYPE_SECRET
@@ -354,7 +361,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		if(!runnable_modes.len)
 			current_state = GAME_STATE_PREGAME
 			world << "<B>Unable to choose playable game mode.</B> Reverting to pre-game lobby."
-			return 0
+			return SETUP_REVOTE
 		if(secret_force_mode != ROUNDTYPE_STR_SECRET && secret_force_mode != ROUNDTYPE_STR_MIXED_SECRET)
 			src.mode = config.pick_mode(secret_force_mode)
 		if(!src.mode)
@@ -379,7 +386,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	if(!src.mode)
 		current_state = GAME_STATE_PREGAME
 		world << "<span class='danger'>Serious error in mode setup!</span> Reverting to pre-game lobby."
-		return 0
+		return SETUP_REVOTE
 
 	SSjobs.ResetOccupations()
 	src.mode.create_antagonists()
@@ -388,10 +395,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	if(!src.mode.can_start())
 		if(master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
-			if(setup_attempts <= 10)
-				mode.fail_setup()
-				mode = null
-				return setup(setup_attempts + 1) // If setup failed, let's try again
+			return SETUP_REATTEMPT
 		var/list/voted_not_ready = list()
 		for(var/mob/abstract/new_player/player in player_list)
 			if((player.client)&&(!player.ready))
@@ -403,7 +407,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		mode.fail_setup()
 		mode = null
 		SSjobs.ResetOccupations()
-		return 0
+		return SETUP_REVOTE
 
 	var/starttime = REALTIMEOFDAY
 
@@ -449,7 +453,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	log_debug("SSticker: Round-start setup took [(REALTIMEOFDAY - starttime)/10] seconds.")
 
-	return 1
+	return SETUP_OK
 
 /datum/controller/subsystem/ticker/proc/run_callback_list(list/callbacklist)
 	set waitfor = FALSE
@@ -606,4 +610,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	LAZYADD(roundstart_callbacks, callback)
 
 
+#undef SETUP_OK
+#undef SETUP_REVOTE
+#undef SETUP_REATTEMPT
 #undef LOBBY_TIME
