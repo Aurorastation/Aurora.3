@@ -48,6 +48,20 @@
 	mod_limit_increase = 5
 	origin_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 6)
 
+/obj/item/weapon/gun/custom_ka/cyborg
+	name = "cyborg kinetic accelerator frame"
+	build_name = "cyborg compatible"
+	icon_state = "frame_cyborg"
+	w_class = 5
+	recoil_increase = -10 //Cyborgs are STRONG
+	capacity_increase = 100
+	mod_limit_increase = 100
+	origin_tech = list()
+	can_disassemble_cell = FALSE
+
+	installed_cell = /obj/item/custom_ka_upgrade/cells/cyborg
+	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel01
+
 /obj/item/weapon/gun/custom_ka/frame01/prebuilt
 	installed_cell = /obj/item/custom_ka_upgrade/cells/cell01
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel01
@@ -82,7 +96,3 @@
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/illegal
 	installed_upgrade_chip = /obj/item/custom_ka_upgrade/upgrade_chips/illegal
 
-/obj/item/weapon/gun/custom_ka/frame05/cyborg
-	can_disassemble_cell = FALSE
-	installed_cell = /obj/item/custom_ka_upgrade/cells/cell04
-	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel02

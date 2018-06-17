@@ -244,7 +244,7 @@
 		installed_barrel.on_update(src)
 	if(installed_upgrade_chip)
 		installed_upgrade_chip.on_update(src)
-	. = ..()
+	..()
 
 /obj/item/weapon/gun/custom_ka/update_icon()
 	. = ..()
@@ -271,7 +271,7 @@
 		if(custom_name)
 			name = custom_name
 		else
-			name = official_name
+			name = "custom kinetic accelerator"
 	else
 		name = initial(name)
 

@@ -81,7 +81,7 @@
 	icon_state = "cell04"
 	damage_increase = -5
 	recoil_increase = 0
-	cost_increase = -2
+	cost_increase = 0
 	cell_increase = 60
 	capacity_increase = -4
 	mod_limit_increase = 0
@@ -92,7 +92,7 @@
 	origin_tech = list(TECH_MATERIAL = 5,TECH_ENGINEERING = 5,TECH_MAGNET = 5,TECH_POWER = 5)
 
 /obj/item/custom_ka_upgrade/cells/cell04/on_update(var/obj/item/weapon/gun/custom_ka/the_gun)
-	stored_charge = min(stored_charge + 4,cell_increase)
+	stored_charge = min(stored_charge + 3,cell_increase)
 
 /obj/item/custom_ka_upgrade/cells/cell05
 	name = "recoil reloader KA cell"
@@ -115,6 +115,35 @@
 /obj/item/custom_ka_upgrade/cells/cell05/on_fire(var/obj/item/weapon/gun/custom_ka/the_gun)
 	if(the_gun.recoil_increase > 0)
 		stored_charge = min(stored_charge + min(the_gun.recoil_increase*2,the_gun.cost_increase*0.5),cell_increase)
+
+/obj/item/custom_ka_upgrade/cells/cyborg
+	name = "cyborg KA cell"
+	build_name = "battery powered"
+	desc = "A pumpless cell assembly that leaches power from the cyborg's internal battery."
+	icon_state = "cell_cyborg"
+	damage_increase = 0
+	recoil_increase = 0
+	cost_increase = 0
+	cell_increase = 20
+	capacity_increase = 0
+	mod_limit_increase = 0
+	firedelay_increase = 0.25 SECONDS
+
+	pump_restore = 0
+	pump_delay = 0
+
+	origin_tech = list(TECH_MATERIAL = 5,TECH_ENGINEERING = 5,TECH_MAGNET = 5,TECH_POWER = 5)
+
+/obj/item/custom_ka_upgrade/cells/cyborg/on_update(var/obj/item/weapon/gun/custom_ka/the_gun)
+	var/mob/living/silicon/robot/owner_robot = the_gun.loc
+	if(!istype(owner_robot))
+		return
+
+	var/obj/item/weapon/cell/external = owner_robot.cell
+	var/charge_to_give = cell_increase - stored_charge
+	if(istype(external) && external.use(charge_to_give*5))
+		stored_charge += charge_to_give
+
 
 /obj/item/custom_ka_upgrade/cells/illegal
 	//Pump Action
