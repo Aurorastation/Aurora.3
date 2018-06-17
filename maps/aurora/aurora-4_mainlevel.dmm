@@ -58179,22 +58179,6 @@
 /obj/item/weapon/ladder_mobile,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
-"ceO" = (
-/obj/structure/table/rack{
-	dir = 1
-	},
-/obj/item/weapon/pickaxe{
-	pixel_x = 5
-	},
-/obj/item/weapon/shovel{
-	pixel_x = -5
-	},
-/obj/effect/floor_decal/corner/brown{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/outpost/mining_main/eva)
 "ceP" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -65178,6 +65162,24 @@
 	icon_state = "asteroidfloor"
 	},
 /area/maintenance/disposal)
+"cxQ" = (
+/obj/structure/table/rack{
+	dir = 1
+	},
+/obj/item/weapon/pickaxe{
+	pixel_x = 5
+	},
+/obj/item/weapon/shovel{
+	pixel_x = -5
+	},
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/item/weapon/wrench,
+/obj/item/weapon/crowbar,
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/eva)
 
 (1,1,1) = {"
 aaa
@@ -90055,7 +90057,7 @@ cdV
 cec
 cer
 ceH
-ceO
+cxQ
 cff
 cfs
 cfG
