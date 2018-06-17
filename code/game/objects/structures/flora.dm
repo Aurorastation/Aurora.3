@@ -110,7 +110,7 @@
 				to_chat(user,"<span class='notice'>You hide \the [W] in [src].</span>")
 				return
 			else
-				to_chat(user,"<span class='notice'>\The [W] can't be hidden in [src]. It's too big.</span>")
+				to_chat(user,"<span class='notice'>\The [W] can't be hidden in [src], it's too big.</span>")
 				return
 		else
 			to_chat(user,"<span class='notice'>There is something hidden in [src].</span>")
