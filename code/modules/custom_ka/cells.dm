@@ -144,7 +144,6 @@
 	if(istype(external) && external.use(charge_to_give*5))
 		stored_charge += charge_to_give
 
-
 /obj/item/custom_ka_upgrade/cells/illegal
 	//Pump Action
 	name = "pump action KA cell"

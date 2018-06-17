@@ -63589,7 +63589,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start{
-	name = "Journalist"
+	name = "Corporate Reporter"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -65114,14 +65114,17 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "cxJ" = (
-/obj/machinery/camera/network/supply{
-	c_tag = "Cargo - Warehouse Entrence";
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
+/obj/machinery/camera/network/supply{
+	c_tag = "Cargo - Warehouse Entrance";
+	dir = 1
+	},
 /obj/machinery/light/small,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "cxK" = (
@@ -94930,7 +94933,7 @@ bPK
 cbD
 cxK
 ccf
-cxN
+cxK
 cdh
 aaa
 aab
@@ -95402,7 +95405,7 @@ aXq
 bEu
 cuL
 cuR
-cvf
+cuR
 cvp
 bFv
 bFv
@@ -95914,17 +95917,17 @@ bxs
 bCA
 aXt
 bEt
-cuN
+cuM
 cuT
 bGA
 cvr
 bKA
 bGy
 cvO
-cwa
+cvO
 bGy
 bFv
-cwD
+cwC
 cwR
 cxa
 bPI
@@ -96431,17 +96434,17 @@ cuI
 cuO
 cuV
 cvi
-cvt
+cvi
 cvz
 cvE
 cvP
 cwb
-cwn
+cwb
 cwv
 cwE
 cwS
 cxc
-cxj
+cwJ
 bPI
 bRS
 cxs
@@ -96692,8 +96695,8 @@ bGy
 bGA
 cvF
 cvQ
-cwc
-cwo
+cvk
+cwf
 bGy
 cwF
 bGy
@@ -96890,11 +96893,11 @@ aja
 aja
 crQ
 crZ
-csi
-css
-csC
-csN
-csZ
+crQ
+csr
+csr
+csr
+csr
 asw
 auk
 avI
@@ -96948,19 +96951,19 @@ bGA
 bGA
 bGA
 bGA
-cvR
+cvQ
 cwd
 cwp
 bGy
-cwG
+cwF
 bGy
-cxe
+cxd
 bGy
 bPI
 cxp
 cxu
 bRS
-cxB
+cxA
 bTf
 bPI
 bPJ
@@ -97151,7 +97154,7 @@ csj
 cst
 csD
 csO
-cta
+csr
 asx
 auk
 avJ
@@ -97205,11 +97208,11 @@ cvj
 cvu
 cvA
 bKx
-cvS
-cwe
-cwq
+cvQ
+cwd
+cwd
 bGy
-cwH
+cwF
 bGy
 cxf
 bGy
@@ -97217,7 +97220,7 @@ bPI
 cxq
 bRw
 bRT
-cxC
+cxA
 bTh
 bPI
 bPJ
@@ -97404,10 +97407,10 @@ cmy
 crO
 crS
 csb
-csk
-csu
-csE
-csP
+crU
+crU
+crU
+crU
 ctb
 asy
 aul
@@ -97462,13 +97465,13 @@ cvk
 bGy
 cvB
 cvG
-cvT
+cvQ
 cwf
 cwr
 bGy
-cwI
+cwF
 bGy
-cxg
+cxf
 cxk
 bPI
 bPI
@@ -97721,8 +97724,8 @@ cvC
 cvH
 cvU
 cwg
-cws
-cww
+cwg
+cwg
 cwJ
 bGA
 bGA
@@ -97922,7 +97925,7 @@ csm
 csw
 csG
 csR
-ctd
+csr
 asA
 aum
 avK
@@ -97980,8 +97983,8 @@ cvV
 cwh
 bGy
 cwx
-cwK
-cwT
+cwr
+cwf
 bGy
 cxl
 bFv
@@ -98179,7 +98182,7 @@ csn
 csx
 csH
 csS
-cte
+csr
 asB
 aun
 avM
@@ -98236,10 +98239,10 @@ cvJ
 cvW
 cwi
 cwt
-cwy
+cwp
 cwL
 cwU
-cxh
+cwx
 bOJ
 bFv
 bMj
@@ -98436,7 +98439,7 @@ cso
 csy
 csI
 csT
-ctf
+crQ
 asC
 auo
 avN
@@ -98490,12 +98493,12 @@ cvn
 bII
 bFv
 cvK
-cvX
-cwj
+cvW
+cwi
 bGy
-cwz
-cwM
-cwV
+cwr
+cwf
+cwr
 bGy
 cxm
 bFv
@@ -98690,8 +98693,8 @@ cmI
 crX
 csg
 csp
-csz
-csJ
+csp
+csp
 csU
 ctg
 cnQ
@@ -98746,7 +98749,7 @@ cvd
 bHR
 cvw
 bFv
-cvL
+cvK
 cvY
 cwk
 cwu
@@ -98936,12 +98939,12 @@ aaV
 adY
 clC
 aja
-crg
+crf
 crm
 cru
 crC
 cmD
-crN
+crC
 cmD
 aja
 crY
@@ -98950,7 +98953,7 @@ csq
 csA
 csK
 csV
-cth
+crQ
 asE
 aup
 avK
@@ -99008,9 +99011,9 @@ bFv
 cwl
 bFv
 cwB
-cwN
-cwW
-cxi
+cuR
+cuR
+cvp
 bFv
 bFv
 bPJ
@@ -99204,10 +99207,10 @@ afe
 afe
 afe
 csr
-csB
+csr
 csL
 csW
-cti
+csr
 asF
 aun
 avM
@@ -102565,10 +102568,10 @@ axP
 ctu
 ctD
 ctM
-ctV
+ctM
 cue
-cun
-cuw
+ctu
+ctu
 aYW
 bah
 bbv
@@ -102819,13 +102822,13 @@ asL
 aJs
 aLc
 aMV
-ctv
+ctu
 ctE
 ctN
 ctW
 cuf
 cuo
-cux
+ctu
 aYX
 bah
 bbw
@@ -103076,13 +103079,13 @@ asL
 axP
 aLd
 aMW
-ctw
+ctu
 ctF
-ctO
+ctF
 ctX
 cug
 cup
-cuy
+ctu
 aYY
 bah
 bbx
@@ -103334,12 +103337,12 @@ aJt
 aLe
 aMX
 ctx
-ctG
+ctF
 ctP
 ctY
 cuh
 cuq
-cuz
+ctu
 aYY
 bah
 bby
@@ -103596,7 +103599,7 @@ ctQ
 ctZ
 cui
 cur
-cuA
+ctu
 aYY
 bah
 bbz
@@ -103850,10 +103853,10 @@ aMZ
 ctz
 ctI
 ctR
-cua
+ctR
 cuj
 cus
-cuB
+ctu
 aYZ
 bah
 bbA
@@ -104106,10 +104109,10 @@ aLg
 aNa
 ctA
 ctJ
-ctS
-cub
-cuk
-cut
+ctF
+ctF
+ctF
+ctF
 cuC
 aYY
 bah
@@ -104366,8 +104369,8 @@ ctK
 ctT
 cuc
 cul
-cuu
-cuD
+ctE
+ctu
 aZa
 bah
 bbC
@@ -104618,13 +104621,13 @@ aGb
 awc
 aLh
 ctt
-ctC
-ctL
-ctU
-cud
-cum
-cuv
-cuE
+ctu
+ctu
+ctu
+ctu
+ctu
+ctu
+ctu
 aZb
 bah
 bbD

@@ -95,4 +95,3 @@
 	installed_cell = /obj/item/custom_ka_upgrade/cells/illegal
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/illegal
 	installed_upgrade_chip = /obj/item/custom_ka_upgrade/upgrade_chips/illegal
-

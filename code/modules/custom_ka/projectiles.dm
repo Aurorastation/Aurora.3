@@ -9,12 +9,9 @@
 	var/pressure_decrease = 0.25
 
 /obj/item/projectile/kinetic/on_impact(var/atom/A,var/aoe_scale = 1, var/damage_scale = 1)
-
-
 	var/turf/target_turf = get_turf(A)
 	if(!target_turf)
 		target_turf = get_turf(src)
-
 	if(istype(target_turf))
 		var/datum/gas_mixture/environment = target_turf.return_air()
 
