@@ -229,7 +229,7 @@
 	minimal_access = list(access_journalist, access_maint_tunnels)
 	alt_titles = list("Freelance Journalist")
 
-/datum/job/journalist/equip(var/mob/living/carbon/human/H)
+/datum/job/journalist/equip(var/mob/living/carbon/human/H, var/alt_title)
 	if(!H)
 		return FALSE
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/red(H), slot_w_uniform)
