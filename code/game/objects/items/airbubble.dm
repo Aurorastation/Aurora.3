@@ -22,14 +22,14 @@
 		return
 
 	user.visible_message(
-		"<span class='warning'>[user] begins deploying the [src.name].</span>",
-		"<span class='notice'>You begin deplyoing the [src.name].</span>"
+		"<span class='warning'>[user] begins deploying \the [src].</span>",
+		"<span class='notice'>You begin deplyoing \the [src].</span>"
 	)
 	if (!do_after(user, 0.45 SECONDS, act_target = src))
 		return
 	user.visible_message(
-		"<span class='warning'>[user] deployed the [src.name].</span>" ,
-		"<span class='notice'>You deploy the [src.name].</span>"
+		"<span class='warning'>[user] deployed \the [src].</span>" ,
+		"<span class='notice'>You deploy \the [src].</span>"
 	)
 	var/obj/structure/closet/airbubble/R
 	if(syndie)
@@ -123,7 +123,14 @@
 		queue_smooth_neighbors(src)
 	return ..()
 
-/obj/structure/closet/airbubble/open()
+/obj/structure/closet/airbubble/toggle(mob/user as mob)
+	if(!(opened ? close(user) : open(user)))
+		user << "<span class='notice'>It won't budge!</span>"
+		return
+	update_icon()
+	return 1
+
+/obj/structure/closet/airbubble/open(mob/user as mob)
 	if(opened)
 		return 0
 
@@ -132,7 +139,7 @@
 
 	dump_contents()
 
-	if(!do_after(usr, 0.35 SECONDS, act_target = src))
+	if(!do_after(user, 0.35 SECONDS, act_target = src))
 		return
 
 	icon_state = icon_opened
@@ -141,7 +148,7 @@
 	density = 0
 	return 1
 
-/obj/structure/closet/airbubble/close()
+/obj/structure/closet/airbubble/close(mob/user as mob)
 	if(!opened)
 		return 0
 	if(!can_close())
@@ -149,7 +156,7 @@
 
 	var/stored_units = 0
 
-	if(!do_after(usr, 0.35 SECONDS, act_target = src))
+	if(!do_after(user, 0.35 SECONDS, act_target = src))
 		return
 
 	if(store_misc)
