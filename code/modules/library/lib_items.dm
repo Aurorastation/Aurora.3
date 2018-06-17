@@ -96,6 +96,58 @@
 		icon_state = "book-5"
 
 
+/obj/structure/bookcase/libraryspawn
+	var/spawn_category
+	var/spawn_amount = 3
+
+/obj/structure/bookcase/libraryspawn/Initialize()
+	. = ..()
+	name = "[initial(name)] ([spawn_category])"
+
+	addtimer(CALLBACK(src, .proc/populate_shelves), 0)
+
+/obj/structure/bookcase/libraryspawn/proc/populate_shelves()
+	if (!establish_db_connection(dbcon))
+		return
+
+	var/query_str = "SELECT author, title, content FROM ss13_library ORDER BY RAND() LIMIT :amount:"
+	var/list/query_data = list("amount" = spawn_amount)
+
+	if (spawn_category)
+		query_str = "SELECT author, title, content FROM ss13_library WHERE category = :cat: ORDER BY RAND() LIMIT :amount:"
+		query_data["cat"] = spawn_category
+
+	var/DBQuery/query_books = dbcon.NewQuery(query_str)
+	query_books.Execute()
+
+	while (query_books.NextRow())
+		CHECK_TICK
+		var/author = query_books.item[1]
+		var/title = query_books.item[2]
+		var/content = query_books.item[3]
+		var/obj/item/weapon/book/B = new(src.loc)
+		B.name = "Book: [title]"
+		B.title = title
+		B.author = author
+		B.dat = content
+		B.icon_state = "book[rand(1,7)]"
+
+	update_icon()
+
+/obj/structure/bookcase/libraryspawn/fiction
+	spawn_category = "Fiction"
+
+/obj/structure/bookcase/libraryspawn/nonfiction
+	spawn_category = "Non-Fiction"
+
+/obj/structure/bookcase/libraryspawn/adult
+	spawn_category = "Adult"
+
+/obj/structure/bookcase/libraryspawn/reference
+	spawn_category = "Reference"
+
+/obj/structure/bookcase/libraryspawn/religion
+	spawn_category = "Religion"
 
 /obj/structure/bookcase/manuals/medical
 	name = "Medical Manuals bookcase"
