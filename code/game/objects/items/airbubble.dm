@@ -20,16 +20,28 @@
 	if (!isturf(user.loc))
 		to_chat(user, "You're fucking stupid, the air bubble can't deploy in an enclosed space.")
 		return
+
+	user.visible_message(
+		"<span class='warning'>[user] begins deploying the [src.name].</span>",
+		"<span class='notice'>You begin deplyoing the [src.name].</span>"
+	)
+	if (!do_after(user, 0.45 SECONDS, act_target = src))
+		return
+	user.visible_message(
+		"<span class='warning'>[user] deployed the [src.name].</span>" ,
+		"<span class='notice'>You deploy the [src.name].</span>"
+	)
 	var/obj/structure/closet/airbubble/R
 	if(syndie)
 		R = new /obj/structure/closet/airbubble/syndie(user.loc)
 	else
 		R = new /obj/structure/closet/airbubble(user.loc)
-	if(!used && !ripped)
+	if(!used)
 		internal_tank = new /obj/item/weapon/tank/emergency_oxygen/double(src)
 	R.internal_tank = internal_tank
-	internal_tank.forceMove(R)
-	internal_tank = null
+	if(!isnull(internal_tank))
+		internal_tank.forceMove(R)
+		internal_tank = null
 	R.add_fingerprint(user)
 	R.ripped = ripped
 	R.zipped = zipped
@@ -111,6 +123,24 @@
 		queue_smooth_neighbors(src)
 	return ..()
 
+/obj/structure/closet/airbubble/open()
+	if(opened)
+		return 0
+
+	if(!can_open())
+		return 0
+
+	dump_contents()
+
+	if(!do_after(usr, 0.35 SECONDS, act_target = src))
+		return
+
+	icon_state = icon_opened
+	opened = 1
+	playsound(loc, open_sound, 15, 1, -3)
+	density = 0
+	return 1
+
 /obj/structure/closet/airbubble/close()
 	if(!opened)
 		return 0
@@ -118,6 +148,9 @@
 		return 0
 
 	var/stored_units = 0
+
+	if(!do_after(usr, 0.35 SECONDS, act_target = src))
+		return
 
 	if(store_misc)
 		stored_units += store_misc(stored_units)
@@ -140,7 +173,16 @@
 		if(!ishuman(usr))	return
 		if(opened)	return 0
 		if(contents.len > 1)	return 0
-		visible_message("[usr] folds up the [src.name]")
+		usr.visible_message(
+		"<span class='warning'>[usr] begins folding up the [src.name].</span>",
+		"<span class='notice'>You begin folding up the [src.name].</span>"
+		)
+		if (!do_after(usr, 0.45 SECONDS, act_target = src))
+			return
+		usr.visible_message(
+		"<span class='warning'>[usr] folds up the [src.name].</span>" ,
+		"<span class='notice'>You fold up the [src.name].</span>"
+		)
 		var/obj/item/airbubble/bag
 		if(syndie)
 			bag = new /obj/item/airbubble/syndie(get_turf(src))
@@ -148,9 +190,11 @@
 			bag = new /obj/item/airbubble(get_turf(src))
 		bag.ripped = ripped
 		bag.zipped = zipped
+		bag.used = TRUE
 		bag.internal_tank = internal_tank
-		internal_tank.forceMove(bag)
-		internal_tank = null
+		if(!isnull(internal_tank))
+			internal_tank.forceMove(bag)
+			internal_tank = null
 		bag.w_class = ITEMSIZE_LARGE
 
 		bag.desc = "Special air bubble designed to protect people inside of it from decompressed enviroments."
@@ -275,7 +319,7 @@
 // Handle most of things: restraining, cutting restrains, attaching tank.
 /obj/structure/closet/airbubble/attackby(W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/tank))
-		if(!use_internal_tank)
+		if(!isnull(use_internal_tank))
 			user.visible_message(
 			"<span class='warning'>[user] is attaching [W] to [src].</span>",
 			"<span class='notice'>You are attaching [W] to [src].</span>"
@@ -292,6 +336,7 @@
 			T.forceMove(src)
 			use_internal_tank = 1
 			START_PROCESSING(SSfast_process, src)
+			return
 		else
 			user << "<span class='warning'>[src] already has a tank attached.</span>"
 	if(opened)
