@@ -387,8 +387,11 @@ var/datum/controller/subsystem/ticker/SSticker
 	SSjobs.DivideOccupations() // Apparently important for new antagonist system to register specific job antags properly.
 
 	if(!src.mode.can_start())
-		if((master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET) && setup_attempts < 10))
-			return setup(setup_attempts + 1) // If setup failed, let's try again
+		if(master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
+			if(setup_attempts <= 10)
+				mode.fail_setup()
+				mode = null
+				return setup(setup_attempts + 1) // If setup failed, let's try again
 		var/list/voted_not_ready = list()
 		for(var/mob/abstract/new_player/player in player_list)
 			if((player.client)&&(!player.ready))
