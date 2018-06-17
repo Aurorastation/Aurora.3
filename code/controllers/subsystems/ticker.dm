@@ -342,7 +342,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	world << "<B><FONT color='blue'>Welcome to the pre-game lobby!</FONT></B>"
 	world << "Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds."
 
-/datum/controller/subsystem/ticker/proc/setup()
+/datum/controller/subsystem/ticker/proc/setup(var/setup_attempts = 0)
 	//Create and announce mode
 	if(master_mode == ROUNDTYPE_STR_SECRET)
 		src.hide_mode = ROUNDTYPE_SECRET
@@ -387,6 +387,8 @@ var/datum/controller/subsystem/ticker/SSticker
 	SSjobs.DivideOccupations() // Apparently important for new antagonist system to register specific job antags properly.
 
 	if(!src.mode.can_start())
+		if((master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET) && setup_attempts < 10))
+			return setup(setup_attempts + 1) // If setup failed, let's try again
 		var/list/voted_not_ready = list()
 		for(var/mob/abstract/new_player/player in player_list)
 			if((player.client)&&(!player.ready))
