@@ -63313,6 +63313,12 @@
 	name = "Journalist's Office";
 	req_access = list(111)
 	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/journalistoffice)
 "ctA" = (
@@ -63518,6 +63524,11 @@
 /obj/item/weapon/pen/red,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/carpet,
 /area/journalistoffice)
