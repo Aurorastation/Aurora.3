@@ -43,7 +43,7 @@ main ui datum.
   *
   * @return nothing
   */
-/datum/vueuiui/New(var/nuser, var/nobject, var/nactiveui = 0, var/nwidth = 0, var/nheight = 0, var/list/ndata, var/datum/topic_state/nstate = default_state)
+/datum/vueuiui/New(var/nuser, var/nobject, var/nactiveui = 0, var/nwidth = 0, var/nheight = 0, var/ntitle, var/list/ndata, var/datum/topic_state/nstate = default_state)
     user = nuser
     object = nobject
     data = ndata
@@ -55,6 +55,8 @@ main ui datum.
         width = nwidth
     if (nheight)
         height = nheight
+    if (ntitle)
+        title = ntitle
 
     SSvueui.ui_opened(src)
     windowid = "vueui\ref[src]"
@@ -148,6 +150,7 @@ main ui datum.
     sdata["active"] = activeui
     sdata["uiref"] = "\ref[src]"
     sdata["status"] = status
+    sdata["title"] = title
     sdata["wtime"] = world.time
     for(var/list/asset in assets)
         sdata["assets"][asset["name"]] = list("ref" = "\ref[asset["img"]]")
@@ -214,6 +217,7 @@ main ui datum.
             push_change(ret)
         src.data = ndata
         return // Object shal not get state update calls
+    href_list["vueui"] = src // Let's pass our UI object to object for it to do things.
     object.Topic(href, href_list)
 
 /**

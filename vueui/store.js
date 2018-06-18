@@ -1,5 +1,5 @@
 export default {
-    debug: true,
+    debug: false,
     state: {
         assets: [],
         state: {},
@@ -16,6 +16,7 @@ export default {
         this.state.active = loadedState.active
         this.state.uiref = loadedState.uiref
         this.state.status = loadedState.status
+        this.state.title = loadedState.title
         this.state.wtime = loadedState.wtime
         this.isUpdating = false
     },

@@ -1,7 +1,8 @@
 <template>
     <div id='uiTitleWrapper' unselectable="on">
-        <div id='uiStatusIcon' class='icon24 uiStatusAverage' unselectable="on"></div>
-        <div id='uiTitleText' unselectable="on">TITLE</div>
+        <slot></slot>
+        <div id='uiStatusIcon' class='icon24' :class="statusClass" unselectable="on"></div>
+        <div id='uiTitleText' unselectable="on">{{ title }}</div>
         <div id='uiTitleFluff' unselectable="on"></div>
     </div>
 </template>
@@ -11,27 +12,38 @@ export default {
     name: "header-default",
     data () {
         return this.$root.$data
+    },
+    computed: {
+        statusClass() {
+            if (this.status == 2) return 'uiStatusGood'
+            if (this.status == 1) return 'uiStatusAverage'
+            return 'uiStatusBad'
+        }
     }
 }
 </script>
 
 <style lang="scss" scoped>
 #uiTitleWrapper {
-    box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.5);
     margin: -8px -8px 10px;
     position: relative;
-    height: 32px;
+    padding-bottom: 8px;
+    float: none;
     background: url(../../resources/uiTitleBackground.png) repeat center;
 }
 
 #uiTitleText {
-    position: absolute;
-    top: 6px;
-    left: 44px;
+    position: relative;
+    display: inline-block;
+    top: 4px;
+    left: 18px;
     width: 66%;
-    overflow: hidden;
+    width: calc(100% - 36px - 42px - 18px);
     color: #E9C183;
     font-size: 16px;
+    line-height: 20px;
+    vertical-align: middle;
 }
 
 #uiTitle.icon {
@@ -41,20 +53,21 @@ export default {
 }
 
 #uiTitleFluff {
-    position: absolute;
+    position: relative;
+    float: right;
     top: 4px;
-    right: 12px;
+    right: 10px;
     width: 42px;
     height: 24px;
     background: url(../../resources/uiTitleFluff.png) 50% 50% no-repeat;
 }
 
 #uiStatusIcon {
-    position: absolute;
+    position: relative;
+    display: inline-block;
     top: 4px;
     left: 12px;
-    width: 24px;
-    height: 24px;
+    vertical-align: middle;
 }
 </style>
 

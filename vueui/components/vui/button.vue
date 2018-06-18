@@ -1,5 +1,5 @@
 <template>
-    <div @click="senddata(); $emit('click')" class="button" :disabled="$root.$data.status < 2">
+    <div @click="senddata()" class="button" :disabled="$root.$data.status < 2">
         <div v-if="icon" :class="'uiIcon16 icon-' + icon"></div>
         <span><slot></slot></span>
     </div>
@@ -22,7 +22,11 @@ export default {
     },
     methods: {
         senddata() {
-            if(this.$root.$data.status < 2 || this.params) {
+            if(this.$root.$data.status < 2) {
+                return
+            }
+            this.$emit('click')
+            if(!this.params) {
                 return
             }
             var sendparams = []
