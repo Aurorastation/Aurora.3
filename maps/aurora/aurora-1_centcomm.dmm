@@ -22403,7 +22403,7 @@
 "Xq" = (
 /obj/machinery/light{
 	dir = 4;
-	status = 0
+	status = 2
 	},
 /turf/simulated/floor/tiled/ramp,
 /area/shuttle/escape/centcom)
@@ -65769,7 +65769,7 @@ VE
 Ds
 Ds
 Ds
-DA
+Ds
 Ds
 Ds
 Ds

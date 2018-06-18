@@ -5754,9 +5754,6 @@
 "ks" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/effect/floor_decal/industrial/warning/cee,
-/obj/machinery/light{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "kt" = (
@@ -19321,16 +19318,13 @@
 /turf/simulated/floor/plating,
 /area/mine/explored)
 "JI" = (
-/obj/machinery/alarm{
-	dir = 4;
-	icon_state = "alarm0";
-	pixel_x = -22;
-	pixel_y = 0
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
@@ -19399,6 +19393,16 @@
 "JP" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/space_heater,
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"JQ" = (
+/obj/effect/floor_decal/corner/red/full,
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 
@@ -48035,7 +48039,7 @@ jx
 kr
 Jf
 lB
-kZ
+JQ
 lb
 Jz
 Jz
