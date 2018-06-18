@@ -40,7 +40,6 @@
 	var/mob_transfer_message = "You are transported to ORIGIN." //What message gets sent to mobs that get sold.
 
 /datum/trader/New()
-	..()
 	if(name_language)
 		if(name_language == TRADER_DEFAULT_NAME)
 			name = capitalize(pick(first_names_female + first_names_male)) + " " + capitalize(pick(last_names))
@@ -48,60 +47,48 @@
 			var/datum/language/L = all_languages[name_language]
 			if(L)
 				name = L.get_random_name(pick(MALE,FEMALE))
-	if(possible_origins && possible_origins.len)
+
+	if(LAZYLEN(possible_origins))
 		origin = pick(possible_origins)
+
+	// flatten our trading lists
+	possible_trading_items = SStrade.FlattenItemList(possible_trading_items, "[type]:trade")
+	possible_wanted_items = SStrade.FlattenItemList(possible_wanted_items, "[type]:want")
 
 	for(var/i in 3 to 6)
 		add_to_pool(trading_items, possible_trading_items, force = 1)
 		add_to_pool(wanted_items, possible_wanted_items, force = 1)
 
+	SStrade.traders += src
+
+/datum/trader/Destroy()
+	SStrade.traders -= src
+	return ..()
+
 //If this hits 0 then they decide to up and leave.
 /datum/trader/proc/tick()
-	addtimer(CALLBACK(src, .proc/do_after_tick), 0)
 	return 1
 
-/datum/trader/proc/do_after_tick()
+/datum/trader/proc/readjust_pool()
 	add_to_pool(trading_items, possible_trading_items, 200)
 	add_to_pool(wanted_items, possible_wanted_items, 50)
-	remove_from_pool(possible_trading_items, 9) //We want the stock to change every so often, so we make it so that they have roughly 10~11 ish items max
-	return
+	remove_from_pool(trading_items, 9) //We want the stock to change every so often, so we make it so that they have roughly 10~11 ish items max
 
-/datum/trader/proc/remove_from_pool(var/list/pool, var/chance_per_item)
+/datum/trader/proc/remove_from_pool(list/pool, chance_per_item)
 	if(pool && prob(chance_per_item * pool.len))
 		var/i = rand(1,pool.len)
-		pool[pool[i]] = null
-		pool -= pool[i]
+		pool.Cut(i, i+1)
 
-/datum/trader/proc/add_to_pool(var/list/pool, var/list/possible, var/base_chance = 100, var/force = 0)
+/datum/trader/proc/add_to_pool(list/pool, list/possible, base_chance = 100, force = 0)
 	var/divisor = 1
-	if(pool && pool.len)
+	if(LAZYLEN(pool))
 		divisor = pool.len
+
 	if(force || prob(base_chance/divisor))
-		var/new_item = get_possible_item(possible)
-		if(new_item)
-			pool |= new_item
-
-/datum/trader/proc/get_possible_item(var/list/trading_pool)
-	if(!trading_pool || !trading_pool.len)
-		return
-	var/list/possible = list()
-	for(var/type in trading_pool)
-		var/status = trading_pool[type]
-		if(status & TRADER_THIS_TYPE)
-			possible += type
-		if(status & TRADER_SUBTYPES_ONLY)
-			possible += subtypesof(type)
-		if(status & TRADER_BLACKLIST)
-			possible -= type
-		if(status & TRADER_BLACKLIST_SUB)
-			possible -= subtypesof(type)
-
-	if(possible.len)
-		var/picked = pick(possible)
-		var/atom/A = picked
-		if(initial(A.name) in list("object", "item","weapon", "structure", "machinery", "Mecha", "organ", "snack")) //weed out a few of the common bad types. Reason we don't check types specifically is that (hopefully) further bad subtypes don't set their name up and are similar.
-			return
-		return picked
+		if (LAZYLEN(possible))
+			var/new_item = pick(possible)
+			if(new_item)
+				pool |= new_item
 
 /datum/trader/proc/get_response(var/key, var/default)
 	var/text
