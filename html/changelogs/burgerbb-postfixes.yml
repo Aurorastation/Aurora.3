@@ -36,5 +36,5 @@ delete-after: True
 changes: 
   - bugfix: "Fixed library books spawning outside of shelves."
   - bugfix: "Fixed kinetic accelerators displaying an error when equipped on the waist."
-  - balance: "Balances kinetic accelerator research to prevent easy research exploit. Balances traitor kinetic accelerator to be less insane."
-  - maptweak: "Tweaked the new library to be more astheticly pleasing. Removed empty mediwall from the command section of the shuttle. Removed floating light near departures and on the shuttle. Removed pointless holopad on the evac shuttle."
+  - balance: "Balances kinetic accelerator research to prevent easy research exploit. Balances traitor kinetic accelerator to be less powerful."
+  - maptweak: "Tweaked the new library to be more aesthetically pleasing. Removed empty mediwall from the command section of the shuttle. Removed floating light near departures and on the shuttle. Removed pointless holopad on the evac shuttle."
