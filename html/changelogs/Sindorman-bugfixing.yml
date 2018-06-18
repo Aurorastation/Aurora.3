@@ -1,0 +1,8 @@
+author: PoZe
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed Journalist Office missing power cables."
+  - maptweak: "Journalist Office is now connected to the bridge subgrid, instead of main grid."
+  - maptweak: "Shuttle wall structures that are on the corners have been moved one tile in different directions, so that it looks good."
