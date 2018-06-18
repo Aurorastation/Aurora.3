@@ -305,5 +305,5 @@
 		/obj/item/warp_core,
 		/obj/item/weapon/extraction_pack,
 		/obj/item/weapon/rrf,
-		/obj/item/weapon/gun/energy/kinetic_accelerator
+		/obj/item/weapon/gun/custom_ka/
 		)

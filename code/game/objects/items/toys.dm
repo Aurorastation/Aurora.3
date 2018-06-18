@@ -630,6 +630,11 @@
 	name = "Librarian action figure"
 	desc = "A \"Space Life\" brand Librarian action figure."
 	icon_state = "librarian"
+	
+/obj/item/toy/figure/journalist
+	name = "Journalist action figure"
+	desc = "A \"Space Life\" brand Librarian action figure. The word 'librarian' on the tag is scratched out with marker, and 'journalist' is written in its place."
+	icon_state = "librarian"
 
 /obj/item/toy/figure/md
 	name = "Medical Doctor action figure"

@@ -2266,3 +2266,44 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 	new /obj/item/fluff/yarn/green(src)
 	new /obj/item/fluff/yarn/purple(src)
 	new /obj/item/fluff/yarn/yellow(src)
+
+
+/obj/item/clothing/under/fluff/moyers_shirt //Custom Martian Raider T-Shirt - Caiden Moyers - tylaaaar
+	name = "custom martian raider t-shirt"
+	desc = "A Martian Raider Spaceball T-shirt with the name \"MOYERS\" written on the back in plain white text."
+	icon = 'icons/obj/custom_items/moyers_shirt.dmi'
+	icon_state = "moyers_shirt"
+	item_state = "moyers_shirt"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/suit/fluff/eri_robes //Senior Alchemist Robes - Eri Akhandi - paradoxspace
+	name = "senior alchemist robes"
+	desc = "A green set of robes, trimmed with what appears to be real gold. Looking at the necklace, you can see the alchemical symbol for the Philosopher's Stone, made of ruby."
+	icon = 'icons/obj/custom_items/eri_robes.dmi'
+	icon_state = "eri_robes"
+	item_state = "eri_robes"
+	contained_sprite = TRUE
+
+
+/obj/item/fluff/halstere_card //Solarian Alliance Military ID - Kalren Halstere - brutishcrab51
+	name = "solarian alliance military ID"
+	desc = "A green and white military identification card, with an Alliance of Sovereign Solarian Nations sigil stamped on the front."
+	icon = 'icons/obj/custom_items/halstere_clothing.dmi'
+	icon_state = "halstere_card"
+	w_class = 2
+	var/flipped = FALSE
+
+/obj/item/fluff/halstere_card/attack_self(mob/user as mob)
+	flipped = !flipped
+	queue_icon_update()
+
+/obj/item/fluff/halstere_card/update_icon()
+	if(flipped)
+		icon_state = "halstere_card_open"
+	else
+		icon_state = initial(icon_state)
+
+/obj/item/fluff/halstere_card/examine(mob/user)
+	if(..(user, 1) && flipped)
+		to_chat(user, "The name 'Halstere, Kalren C.' is stamped on it. An expiration date is listed on it, '2465JAN01'. A pay grade is listed beside the name. 'MAJ/O4'. A number is listed under the expiration date: '14015236810'.")

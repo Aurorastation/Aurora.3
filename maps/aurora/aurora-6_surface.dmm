@@ -2516,7 +2516,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/hallway/secondary/exit)
+/area/mine/explored)
 "eK" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -2532,12 +2532,9 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/hallway/secondary/exit)
+/area/mine/explored)
 "eM" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -2683,18 +2680,23 @@
 /area/hallway/secondary/entry/port)
 "eZ" = (
 /obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
+	name = "KEEP CLEAR: DOCKING AREA";
+	pixel_y = 0
+	},
+/obj/machinery/door/firedoor{
+	dir = 2
+	},
 /turf/simulated/floor/plating,
-/area/hallway/secondary/entry/port)
+/area/hallway/secondary/exit)
 "fa" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -2710,108 +2712,67 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/dock)
 "fb" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
+/turf/simulated/floor/grass,
+/area/hallway/secondary/entry/dock)
+"fc" = (
+/obj/machinery/light/small,
+/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
+	frequency = 1380;
+	id_tag = "escape_dock_north_airlock";
+	master_tag = "escape_dock";
+	pixel_y = 30;
+	req_one_access = list(13);
+	tag_airlock_mech_sensor = "escape_dock_north_mech";
+	tag_airpump = "escape_dock_north_pump";
+	tag_chamber_sensor = "escape_dock_north_sensor";
+	tag_exterior_door = "escape_dock_north_outer";
+	tag_interior_door = "escape_dock_north_inner";
+	tag_shuttle_mech_sensor = "shuttle_dock_north_mech"
 	},
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1380;
+	id_tag = "escape_dock_north_pump"
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
-"fc" = (
-/obj/effect/floor_decal/corner/red/full{
-	icon_state = "corner_white_full";
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/exit)
 "fd" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
+/obj/effect/floor_decal/corner/lime/full{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/red/full{
-	icon_state = "corner_white_full";
-	dir = 1
-	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
-/area/hallway/secondary/exit)
+/area/hallway/secondary/entry/fore)
 "fe" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/red/full{
-	icon_state = "corner_white_full";
-	dir = 8
-	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/hallway/secondary/exit)
+/area/hallway/secondary/entry/port)
 "ff" = (
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
-	},
-/obj/machinery/camera/network/civilian_surface{
-	c_tag = "Surface - Red Dock Fore"
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/machinery/status_display{
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "fg" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor{
+	dir = 2
+	},
 /obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/red/full{
-	icon_state = "corner_white_full";
-	dir = 8
-	},
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
+	dir = 1
 	},
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
-	dir = 1
+	dir = 4
 	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/window/eastright,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/exit)
+/turf/simulated/floor/plating,
+/area/mine/explored)
 "fh" = (
-/obj/effect/floor_decal/corner/red/full{
-	icon_state = "corner_white_full";
-	dir = 1
-	},
-/obj/machinery/embedded_controller/radio/docking_port_multi{
-	child_names_txt = "Airlock One;Airlock Two";
-	child_tags_txt = "escape_dock_north_airlock;escape_dock_south_airlock";
+/obj/machinery/airlock_sensor{
 	frequency = 1380;
-	id_tag = "escape_dock";
-	pixel_x = 25;
-	pixel_y = 0;
-	req_one_access = list(13)
+	id_tag = "escape_dock_north_sensor";
+	master_tag = "escape_dock_north_airlock";
+	pixel_x = 0;
+	pixel_y = -25
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10;
-	icon_state = "intact"
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "fi" = (
 /obj/machinery/camera/network/telecom{
@@ -3107,86 +3068,81 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
 "fN" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "escape_dock_north_outer";
+	locked = 1;
+	name = "Escape Airlock";
+	req_access = list(13)
 	},
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1380;
+	master_tag = "escape_dock_north_airlock";
+	name = "exterior access button";
+	pixel_x = 4;
+	pixel_y = -26;
+	req_one_access = list(13)
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "fO" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
+/obj/machinery/door/airlock/glass{
+	name = "Blue Dock"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/hallway/secondary/exit)
+/area/hallway/secondary/entry/dock)
 "fP" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
-	},
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/hallway/secondary/exit)
+/area/hallway/secondary/entry/fore)
 "fQ" = (
-/obj/structure/bed/chair{
-	dir = 4
+/obj/machinery/door/airlock/glass{
+	name = "Blue Dock"
 	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/secondary/exit)
+/area/hallway/secondary/entry/dock)
 "fR" = (
+/obj/structure/bed/chair,
+/obj/effect/floor_decal/corner/red/full{
+	icon_state = "corner_white_full";
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "fS" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/structure/bed/chair{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
+/turf/unsimulated/chasm_mask,
 /area/hallway/secondary/exit)
 "fT" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "fU" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/structure/bed/chair,
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 5
 	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "fV" = (
 /obj/structure/grille,
@@ -3200,22 +3156,14 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "fW" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
-	name = "KEEP CLEAR: DOCKING AREA";
-	pixel_y = 0
-	},
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "fX" = (
@@ -3477,17 +3425,24 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
 "gu" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
+	frequency = 1380;
+	id_tag = "escape_dock_center_airlock";
+	master_tag = "escape_dock";
+	pixel_y = 30;
+	req_one_access = list(13);
+	tag_airlock_mech_sensor = "escape_dock_center_mech";
+	tag_airpump = "escape_dock_center_pump";
+	tag_chamber_sensor = "escape_dock_center_sensor";
+	tag_exterior_door = "escape_dock_center_outer";
+	tag_interior_door = "escape_dock_center_inner";
+	tag_shuttle_mech_sensor = "shuttle_dock_center_mech"
 	},
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/machinery/light/small{
+	dir = 1
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/hallway/secondary/entry/port)
+/area/hallway/secondary/exit)
 "gv" = (
 /turf/simulated/wall,
 /area/hallway/secondary/entry/fore)
@@ -3516,114 +3471,91 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/fore)
 "gy" = (
-/obj/machinery/door/airlock/glass{
-	name = "Blue Dock"
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/fore)
-"gz" = (
-/obj/machinery/door/airlock/glass{
-	name = "Blue Dock"
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/fore)
-"gA" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/hallway/secondary/exit)
-"gB" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/exit)
-"gC" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1380;
-	master_tag = "escape_dock_north_airlock";
-	name = "interior access button";
-	pixel_x = 30;
-	pixel_y = 26;
-	req_one_access = list(13)
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8;
-	icon_state = "map"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/exit)
-"gD" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "escape_dock_north_inner";
+	id_tag = "escape_dock_center_outer";
 	locked = 1;
 	name = "Escape Airlock";
 	req_access = list(13)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
-	dir = 4
+/turf/simulated/floor/plating,
+/area/hallway/secondary/exit)
+"gz" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1380;
+	id_tag = "escape_dock_center_pump"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
-"gE" = (
-/obj/machinery/light/small,
+"gA" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor{
+	dir = 2
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/exit)
+"gB" = (
+/obj/machinery/status_display{
+	pixel_y = 32
+	},
+/obj/structure/bed/chair,
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"gC" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
 	frequency = 1380;
-	id_tag = "escape_dock_north_airlock";
+	id_tag = "escape_dock_south_airlock";
 	master_tag = "escape_dock";
-	pixel_y = 30;
+	pixel_y = -30;
 	req_one_access = list(13);
-	tag_airlock_mech_sensor = "escape_dock_north_mech";
-	tag_airpump = "escape_dock_north_pump";
-	tag_chamber_sensor = "escape_dock_north_sensor";
-	tag_exterior_door = "escape_dock_north_outer";
-	tag_interior_door = "escape_dock_north_inner";
-	tag_shuttle_mech_sensor = "shuttle_dock_north_mech"
+	tag_airlock_mech_sensor = "escape_dock_south_mech";
+	tag_airpump = "escape_dock_south_pump";
+	tag_chamber_sensor = "escape_dock_south_sensor";
+	tag_exterior_door = "escape_dock_south_outer";
+	tag_interior_door = "escape_dock_south_inner";
+	tag_shuttle_mech_sensor = "shuttle_dock_south_mech"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
 	frequency = 1380;
-	id_tag = "escape_dock_north_pump"
+	id_tag = "escape_dock_south_pump"
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/exit)
+"gD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"gE" = (
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "escape_dock_south_sensor";
+	master_tag = "escape_dock_south_airlock";
+	pixel_x = 0;
+	pixel_y = 25
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "gF" = (
-/obj/machinery/airlock_sensor{
-	frequency = 1380;
-	id_tag = "escape_dock_north_sensor";
-	master_tag = "escape_dock_north_airlock";
-	pixel_x = 0;
-	pixel_y = -25
-	},
-/turf/simulated/floor/plating,
-/area/hallway/secondary/exit)
-"gG" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "escape_dock_north_outer";
+	id_tag = "escape_dock_south_outer";
 	locked = 1;
 	name = "Escape Airlock";
 	req_access = list(13)
@@ -3631,13 +3563,22 @@
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1380;
-	master_tag = "escape_dock_north_airlock";
+	master_tag = "escape_dock_south_airlock";
 	name = "exterior access button";
 	pixel_x = 4;
-	pixel_y = -26;
+	pixel_y = 26;
 	req_one_access = list(13)
 	},
 /turf/simulated/floor/plating,
+/area/hallway/secondary/exit)
+"gG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "gH" = (
 /obj/machinery/power/tracker,
@@ -4072,13 +4013,16 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
 "hs" = (
-/obj/structure/closet/emcloset,
-/obj/effect/floor_decal/corner/lime/full{
-	icon_state = "corner_white_full";
-	dir = 8
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "escape_dock_center_sensor";
+	master_tag = "escape_dock_center_airlock";
+	pixel_x = 0;
+	pixel_y = -25
 	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/fore)
+/obj/machinery/light/small,
+/turf/simulated/floor/plating,
+/area/hallway/secondary/exit)
 "ht" = (
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
@@ -4126,66 +4070,94 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "hx" = (
-/obj/effect/floor_decal/corner/lime/full{
-	icon_state = "corner_white_full";
-	dir = 1
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
 	},
-/obj/machinery/firealarm/east,
+/obj/machinery/alarm{
+	dir = 1;
+	icon_state = "alarm0";
+	pixel_y = -22
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "hy" = (
-/obj/item/device/radio/intercom{
-	pixel_x = -32
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
 	},
-/obj/machinery/light{
-	dir = 8
+/obj/machinery/door/firedoor{
+	dir = 2
 	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "hz" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "escape_dock_center_outer";
+	locked = 1;
+	name = "Escape Airlock";
+	req_access = list(13)
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1380;
+	master_tag = "escape_dock_center_airlock";
+	name = "exterior access button";
+	pixel_x = 4;
+	pixel_y = -26;
+	req_one_access = list(13)
+	},
+/turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "hA" = (
-/obj/effect/floor_decal/industrial/warning/cee{
-	icon_state = "warningcee";
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/hallway/secondary/exit)
-"hB" = (
-/obj/effect/floor_decal/industrial/warning/cee{
-	icon_state = "warningcee";
-	dir = 4
-	},
-/obj/machinery/atmospherics/binary/pump/on{
-	dir = 4;
-	name = "Distro to Canisters";
-	target_pressure = 200
-	},
-/turf/simulated/floor/plating,
-/area/hallway/secondary/exit)
-"hC" = (
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 4
-	},
+/obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4;
-	icon_state = "map"
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1380;
+	master_tag = "escape_dock_north_airlock";
+	name = "interior access button";
+	pixel_x = 30;
+	pixel_y = -26;
+	req_one_access = list(13)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5;
+	icon_state = "intact"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"hB" = (
+/obj/machinery/door/firedoor{
+	dir = 2
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/exit)
+"hC" = (
+/obj/structure/window/reinforced,
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
@@ -4427,15 +4399,16 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "ie" = (
-/obj/effect/floor_decal/corner/lime{
-	icon_state = "corner_white";
-	dir = 5
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "escape_dock_center_inner";
+	locked = 1;
+	name = "Escape Airlock";
+	req_access = list(13)
 	},
-/obj/machinery/alarm{
-	pixel_y = 22
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/fore)
+/turf/simulated/floor/plating,
+/area/hallway/secondary/exit)
 "if" = (
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
@@ -4510,7 +4483,23 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "iq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9;
+	icon_state = "intact"
+	},
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1380;
+	master_tag = "escape_dock_center_airlock";
+	name = "interior access button";
+	pixel_x = 30;
+	pixel_y = -26;
+	req_one_access = list(13)
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "ir" = (
@@ -4951,68 +4940,37 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "iV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/exit)
-"iW" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
+"iW" = (
+/obj/structure/window/reinforced,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
 "iX" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "iY" = (
-/obj/machinery/hologram/holopad,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4;
+	icon_state = "map"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/window/brigdoor/southleft{
+	name = "Command Lobby";
+	req_access = list(19)
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
@@ -5021,14 +4979,8 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
@@ -5037,13 +4989,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -5198,14 +5143,18 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "jx" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
@@ -5485,37 +5434,42 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "jU" = (
-/obj/effect/floor_decal/corner/lime/full{
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/fore)
+/area/hallway/secondary/exit)
 "jV" = (
-/obj/machinery/light{
+/obj/structure/bed/chair{
 	dir = 8
 	},
-/obj/structure/cable/green,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/machinery/power/apc/critical{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -28;
-	pixel_y = 0
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "jW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/embedded_controller/radio/docking_port_multi{
+	child_names_txt = "Airlock North; Airlock Main; Airlock South";
+	child_tags_txt = "escape_dock_north_airlock;escape_dock_center_airlock;escape_dock_south_airlock";
+	frequency = 1380;
+	id_tag = "escape_dock";
+	pixel_x = 28;
+	pixel_y = 0;
+	req_one_access = list(13)
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
@@ -5770,121 +5724,79 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "kp" = (
-/obj/machinery/alarm{
-	dir = 4;
-	icon_state = "alarm0";
-	pixel_x = -22;
-	pixel_y = 0
-	},
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
-	dir = 9
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "kq" = (
-/obj/effect/floor_decal/corner/red,
+/obj/structure/window/reinforced,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "kr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
-	dir = 10
+	dir = 9
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "ks" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1380;
-	master_tag = "escape_dock_south_airlock";
-	name = "interior access button";
-	pixel_x = 30;
-	pixel_y = 26;
-	req_one_access = list(13)
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/effect/floor_decal/industrial/warning/cee,
+/turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "kt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
-	dir = 4
-	},
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "escape_dock_south_inner";
+	id_tag = "escape_dock_north_inner";
 	locked = 1;
 	name = "Escape Airlock";
 	req_access = list(13)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "ku" = (
-/obj/machinery/light/small{
-	dir = 1
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 4
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
-	frequency = 1380;
-	id_tag = "escape_dock_south_airlock";
-	master_tag = "escape_dock";
-	pixel_y = -30;
-	req_one_access = list(13);
-	tag_airlock_mech_sensor = "escape_dock_south_mech";
-	tag_airpump = "escape_dock_south_pump";
-	tag_chamber_sensor = "escape_dock_south_sensor";
-	tag_exterior_door = "escape_dock_south_outer";
-	tag_interior_door = "escape_dock_south_inner";
-	tag_shuttle_mech_sensor = "shuttle_dock_south_mech"
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1380;
-	id_tag = "escape_dock_south_pump"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "kv" = (
-/obj/machinery/airlock_sensor{
-	frequency = 1380;
-	id_tag = "escape_dock_south_sensor";
-	master_tag = "escape_dock_south_airlock";
-	pixel_x = 0;
-	pixel_y = 25
-	},
-/turf/simulated/floor/plating,
-/area/hallway/secondary/exit)
-"kw" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "escape_dock_south_outer";
+	id_tag = "escape_dock_center_inner";
 	locked = 1;
 	name = "Escape Airlock";
 	req_access = list(13)
 	},
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1380;
-	master_tag = "escape_dock_south_airlock";
-	name = "exterior access button";
-	pixel_x = 4;
-	pixel_y = 26;
-	req_one_access = list(13)
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	icon_state = "intact";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
+/area/hallway/secondary/exit)
+"kw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "kx" = (
 /obj/structure/cable/yellow{
@@ -6157,49 +6069,46 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "kY" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/machinery/firealarm/west,
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/exit)
-"kZ" = (
-/obj/structure/bed/chair{
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/window/southright,
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"kZ" = (
+/obj/effect/floor_decal/corner/red/full,
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"la" = (
+/obj/structure/bed/chair{
 	dir = 8
 	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"lb" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/exit)
-"la" = (
-/obj/machinery/door/window/brigdoor/eastleft{
-	dir = 1;
-	icon_state = "leftsecure";
-	name = "Holding Cell";
-	req_access = list(2)
+/obj/structure/bed/chair{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/secondary/exit)
-"lb" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "lc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6463,63 +6372,63 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "lw" = (
-/obj/effect/floor_decal/corner/red/full,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/bed/chair,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "lx" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
 /obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/red/full{
-	icon_state = "corner_white_full";
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/exit)
-"ly" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/red/full,
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/exit)
-"lz" = (
-/obj/machinery/light,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/obj/machinery/camera/network/civilian_surface{
-	c_tag = "Surface - Red Dock Aft";
+	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
-	dir = 10
+	dir = 9
 	},
-/obj/machinery/status_display{
-	pixel_y = -32
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"ly" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 9
 	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"lz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "lA" = (
-/obj/structure/bed/chair{
-	dir = 4
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 1;
+	name = "Distro to Canisters";
+	target_pressure = 150
 	},
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/effect/floor_decal/industrial/warning/cee{
+	icon_state = "warningcee";
+	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "lB" = (
-/obj/machinery/status_display{
-	pixel_x = 32
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/structure/cable/green,
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
@@ -19080,6 +18989,422 @@
 "Jc" = (
 /turf/simulated/floor/asteroid/ash,
 /area/skipjack_station/surface)
+"Jd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	icon_state = "intact";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"Je" = (
+/obj/effect/floor_decal/corner/red,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	icon_state = "intact";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"Jf" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"Jg" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"Jh" = (
+/obj/structure/bed/chair,
+/obj/effect/floor_decal/corner/red/full{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"Ji" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"Jj" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"Jk" = (
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 4;
+	status = 0
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"Jl" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"Jm" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"Jn" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4;
+	icon_state = "map"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"Jo" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/structure/window/reinforced,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"Jp" = (
+/obj/structure/window/reinforced,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"Jq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"Jr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/window/brigdoor/eastright{
+	name = "Secure Holding";
+	req_access = list(2)
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"Js" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1380;
+	master_tag = "escape_dock_south_airlock";
+	name = "interior access button";
+	pixel_x = 30;
+	pixel_y = 26;
+	req_one_access = list(13)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"Jt" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"Ju" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/window/brigdoor/northleft{
+	name = "Security Lobby"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"Jv" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"Jw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	icon_state = "intact";
+	dir = 4
+	},
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "escape_dock_south_inner";
+	locked = 1;
+	name = "Escape Airlock";
+	req_access = list(13)
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/exit)
+"Jx" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/firedoor{
+	dir = 2
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/exit)
+"Jy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5;
+	icon_state = "intact"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"Jz" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"JA" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"JB" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/camera/network/civilian_surface{
+	c_tag = "Surface - Red Dock Command";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"JC" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/camera/network/civilian_surface{
+	c_tag = "Surface - Red Dock Security";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"JD" = (
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10;
+	icon_state = "intact"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"JE" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"JF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10;
+	icon_state = "intact"
+	},
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"JG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8;
+	icon_state = "map"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"JH" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor{
+	dir = 2
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/mine/explored)
+"JI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"JJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9;
+	icon_state = "intact"
+	},
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"JK" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"JL" = (
+/obj/machinery/status_display{
+	pixel_y = -32
+	},
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"JM" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"JN" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red/full{
+	icon_state = "corner_white_full";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"JO" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"JP" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/space_heater,
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"JQ" = (
+/obj/effect/floor_decal/corner/red/full,
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
 
 (1,1,1) = {"
 aa
@@ -43850,9 +44175,9 @@ aa
 aa
 aa
 ey
-eZ
-fJ
-gu
+fe
+fe
+fe
 ey
 ic
 iH
@@ -44103,13 +44428,13 @@ bK
 cj
 cj
 cj
-cj
 dM
 bp
 bp
-aa
-aa
-aa
+bp
+fa
+fK
+bp
 gv
 id
 iI
@@ -44364,11 +44689,11 @@ dr
 cD
 ed
 eC
-aa
-aa
-gv
-gv
-ie
+fb
+fb
+eC
+fP
+ht
 iJ
 jq
 jK
@@ -44621,10 +44946,10 @@ cn
 cE
 ee
 eD
-aa
-aa
-gw
-hs
+fb
+fb
+eD
+ml
 if
 iK
 jr
@@ -44878,9 +45203,9 @@ cm
 cm
 ee
 eE
-aa
-aa
-gx
+fb
+fb
+eE
 ht
 ig
 iL
@@ -45137,7 +45462,7 @@ ef
 bp
 fa
 fK
-gv
+bp
 hu
 ih
 iM
@@ -45394,7 +45719,7 @@ eg
 eF
 eF
 fL
-gy
+fO
 ht
 ii
 iN
@@ -45651,7 +45976,7 @@ eh
 eG
 eG
 fM
-gz
+fQ
 hv
 ij
 iO
@@ -45908,11 +46233,11 @@ ei
 eH
 eH
 el
-gy
+fO
 ht
 ik
 iP
-js
+hx
 jO
 km
 kT
@@ -46165,7 +46490,7 @@ ej
 bp
 fa
 fK
-gv
+bp
 hw
 il
 iQ
@@ -46420,9 +46745,9 @@ cm
 cm
 ek
 eC
-aa
-aa
-gw
+fb
+fb
+eC
 ht
 im
 iR
@@ -46677,10 +47002,10 @@ cn
 dQ
 ek
 eD
-aa
-aa
-gx
-hx
+fb
+fb
+eD
+ms
 in
 iS
 ju
@@ -46934,10 +47259,10 @@ cq
 dR
 el
 eE
-aa
-aa
-gv
-gv
+fb
+fb
+eE
+fP
 ht
 iK
 jv
@@ -47187,18 +47512,18 @@ bK
 cj
 cj
 cj
-cj
 dM
 bp
 bp
-aa
-aa
-aa
+bp
+fa
+fK
+bp
 gv
 io
 iT
 jw
-jU
+fd
 ko
 kX
 lv
@@ -47445,12 +47770,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-eI
-fb
-fN
-gA
+ab
+fT
+jU
+kY
+JO
+JP
 eI
 ip
 iU
@@ -47702,23 +48027,23 @@ aa
 aa
 aa
 aa
-aa
-aa
 eJ
-fc
-fO
-fO
-hy
-fO
-iV
+JD
+Jn
+Jo
+lA
+ks
+JI
+ly
 jx
-jV
-kp
-kY
-lw
+kr
+Jf
+lB
+JQ
+lb
+Jz
+Jz
 eJ
-aa
-aa
 aa
 aa
 aa
@@ -47959,23 +48284,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-eK
-fd
-fP
+eL
 fR
-fR
-fP
-iW
-fP
-fR
-fR
-fP
+JA
+hC
+jV
+iZ
+iZ
+ff
+Jg
+ff
+Jl
+iZ
+la
 lx
-eK
-aa
-aa
+JA
+kZ
+eL
 aa
 aa
 aa
@@ -48216,23 +48541,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-eK
-fe
-fQ
-fR
-fR
-fQ
-iX
-fQ
-fR
-fR
-fQ
-ly
-eK
-aa
-aa
+eL
+fU
+gD
+iW
+ja
+ja
+ja
+ff
+ff
+ff
+Jm
+ja
+ja
+lw
+Jr
+JK
+eL
 aa
 aa
 aa
@@ -48473,23 +48798,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-eK
-ff
-fR
+eL
 gB
-hz
-iq
+gG
 iY
-iq
-iq
-iq
-iq
 lz
-eK
-aa
-aa
+lz
+lz
+lz
+Jq
+JG
+Jt
+lz
+lz
+Ju
+Jy
+JL
+eL
 aa
 aa
 aa
@@ -48730,23 +49055,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-eK
-fd
-fP
-fR
-hA
-fP
-iZ
-fP
-fR
+eL
+fU
+kw
 kq
-fP
-lx
-eK
-aa
-aa
+iZ
+iZ
+iZ
+ff
+Ji
+Jd
+iZ
+iZ
+iZ
+Jv
+kw
+JM
+eL
 aa
 aa
 aa
@@ -48987,23 +49312,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-eK
-fg
-fS
-fR
-hB
-fQ
+eL
+fU
+kw
+Jp
 ja
-fQ
-fR
-kr
-kZ
-lA
-eK
-aa
-aa
+ja
+ja
+ff
+Ji
+Jd
+ja
+ja
+ja
+JE
+kw
+JM
+eL
 aa
 aa
 aa
@@ -49244,23 +49569,23 @@ aa
 aa
 aa
 aa
-aa
-aa
 eL
-fh
-fT
-gC
-hC
-fT
-fT
-fT
-jW
-ks
-la
-lB
+Jh
+JF
+hA
+JB
+iV
+iV
+ku
+Jj
+Je
+iV
+iV
+JC
+Js
+JJ
+JN
 eL
-aa
-aa
 aa
 aa
 aa
@@ -49501,24 +49826,24 @@ aa
 aa
 aa
 aa
-aa
-aa
-eI
-eI
-fU
-gD
-hD
-ir
-ir
-ir
-jX
+fg
+is
+gA
 kt
-lb
-eI
-eI
-aw
-aw
-aw
+hD
+Jk
+jW
+kp
+iX
+iq
+ir
+Jk
+jX
+Jw
+Jx
+is
+JH
+aa
 aa
 aa
 aa
@@ -49751,33 +50076,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 fV
-gE
+fc
 hE
 is
-is
+fW
+ie
+kv
+ie
+hB
 is
 jY
-ku
+gC
 fV
 aw
-bU
-bU
-bU
 aw
 aw
-aa
+aw
+aw
 aa
 aa
 aa
@@ -50008,33 +50333,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-fV
-gF
-fV
-aa
-aa
-aa
-fV
-kv
-fV
-aw
-bU
-bU
-bU
 aw
 aw
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+fV
+fh
+fV
+fS
+eK
+gu
+gz
+hs
+eK
+fS
+fV
+gE
+fV
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -50265,10 +50590,6 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 aw
 aw
 aw
@@ -50276,22 +50597,26 @@ aw
 aw
 aw
 aw
-fW
-gG
+aw
+aw
+eZ
+fN
 hF
-aa
-aa
-aa
+fS
+hy
+gy
+gy
+hz
+hy
+fS
 hF
-kw
-fW
-bU
-bU
+gF
+eZ
+aw
 bU
 bU
 aw
 aw
-aa
 aa
 aa
 aa
@@ -50522,12 +50847,6 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aw
-aw
-aw
 aw
 aw
 aw
@@ -50546,9 +50865,15 @@ bU
 bU
 bU
 bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
 aw
 aw
-aa
 aa
 aa
 aa
@@ -50779,15 +51104,15 @@ aa
 aa
 aa
 aa
-aa
-aa
 aw
 aw
 aw
-aw
-aw
-aw
-aw
+bU
+bU
+bU
+bU
+bU
+bU
 bU
 bU
 bU
@@ -51036,10 +51361,10 @@ aa
 aa
 aa
 aa
-aa
-aa
 aw
 aw
+bU
+bU
 bU
 bU
 bU
@@ -51293,7 +51618,6 @@ aa
 aa
 aa
 aa
-aa
 aw
 aw
 bU
@@ -51319,6 +51643,7 @@ bU
 bU
 bU
 bU
+aw
 aw
 aa
 aa
@@ -51550,7 +51875,7 @@ aa
 aa
 aa
 aa
-aa
+aw
 aw
 bU
 bU
@@ -51575,7 +51900,7 @@ bU
 bU
 bU
 bU
-bU
+aw
 aw
 aa
 aa
@@ -51807,7 +52132,7 @@ aa
 aa
 aa
 aa
-aa
+aw
 aw
 bU
 bU
@@ -51832,7 +52157,7 @@ bU
 bU
 bU
 bU
-bU
+aw
 aw
 aa
 nx
@@ -52064,7 +52389,7 @@ aa
 aa
 aa
 aa
-aa
+aw
 aw
 bU
 bU
@@ -52089,7 +52414,7 @@ bU
 bU
 bU
 bU
-bU
+aw
 aw
 aa
 nx
@@ -52321,7 +52646,7 @@ aa
 aa
 aa
 aa
-aa
+aw
 aw
 bU
 bU
@@ -52346,7 +52671,7 @@ bU
 bU
 bU
 bU
-bU
+aw
 aw
 aa
 nx
@@ -52578,7 +52903,7 @@ aa
 aa
 aa
 aa
-aa
+aw
 aw
 bU
 bU
@@ -52835,7 +53160,7 @@ aa
 aa
 aa
 aa
-aa
+aw
 aw
 bU
 bU
@@ -52860,7 +53185,7 @@ bU
 bU
 bU
 bU
-bU
+aw
 aw
 aa
 nx
@@ -53092,7 +53417,7 @@ aa
 aa
 aa
 aa
-aa
+aw
 aw
 bU
 bU
@@ -53117,7 +53442,7 @@ bU
 bU
 bU
 bU
-bU
+aw
 aw
 aa
 aa
@@ -53349,7 +53674,7 @@ aa
 aa
 aa
 aa
-aa
+aw
 aw
 bU
 bU
@@ -53374,7 +53699,7 @@ bU
 bU
 bU
 bU
-bU
+aw
 aw
 aa
 aa
@@ -53606,7 +53931,8 @@ aa
 aa
 aa
 aa
-aa
+aw
+aw
 aw
 bU
 bU
@@ -53630,8 +53956,7 @@ bU
 bU
 bU
 bU
-bU
-bU
+aw
 aw
 aa
 aa
@@ -53863,7 +54188,8 @@ aa
 aa
 aa
 aa
-aa
+aw
+aw
 aw
 aw
 bU
@@ -53887,8 +54213,7 @@ bU
 bU
 bU
 bU
-bU
-bU
+aw
 aw
 aa
 aa
@@ -54120,29 +54445,29 @@ aa
 aa
 aa
 aa
-aa
 aw
 aw
 aw
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 bU
 bU
 aw
@@ -54377,8 +54702,6 @@ aa
 aa
 aa
 aa
-aa
-aa
 aw
 aw
 aw
@@ -54386,22 +54709,24 @@ aw
 aw
 aw
 aw
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aw
 aw
 aa
@@ -54634,9 +54959,6 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 aw
 aw
 aw
@@ -54644,23 +54966,26 @@ aw
 aw
 aw
 aw
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
 aw
 aw
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -54895,28 +55220,28 @@ aa
 aa
 aa
 aa
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-bU
-bU
-bU
-bU
-aw
-aw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -55167,13 +55492,13 @@ aa
 aa
 aa
 aa
-aw
-aw
-bU
-bU
-bU
-aw
-aw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -55425,12 +55750,12 @@ aa
 aa
 aa
 aa
-aw
-bU
-bU
-bU
-aw
-aw
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -55682,11 +56007,11 @@ aa
 aa
 aa
 aa
-aw
-aw
-aw
-aw
-aw
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
