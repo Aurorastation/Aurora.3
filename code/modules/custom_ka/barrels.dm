@@ -5,7 +5,7 @@
 	icon_state = "barrel01"
 	damage_increase = 15
 	firedelay_increase = 1 SECONDS
-	range_increase = 2
+	range_increase = 3
 	recoil_increase = 2
 	cost_increase = 1
 	cell_increase = 0
@@ -21,7 +21,7 @@
 	icon_state = "barrel02"
 	damage_increase = 15
 	firedelay_increase = 0.5 SECONDS
-	range_increase = 3
+	range_increase = 4
 	recoil_increase = 3
 	cost_increase = 1
 	cell_increase = 0
@@ -37,7 +37,7 @@
 	icon_state = "barrel03"
 	damage_increase = 20
 	firedelay_increase = 0.75 SECONDS
-	range_increase = 4
+	range_increase = 5
 	recoil_increase = 4
 	cost_increase = 2
 	cell_increase = 0
@@ -54,7 +54,7 @@
 	icon_state = "barrel04"
 	damage_increase = 25
 	firedelay_increase = 1 SECONDS
-	range_increase = 5
+	range_increase = 6
 	recoil_increase = 6
 	cost_increase = 5
 	cell_increase = 0
@@ -70,7 +70,7 @@
 	icon_state = "barrel05"
 	damage_increase = 30
 	firedelay_increase = 1 SECONDS
-	range_increase = 6
+	range_increase = 7
 	recoil_increase = 10
 	cost_increase = 10
 	cell_increase = 0
