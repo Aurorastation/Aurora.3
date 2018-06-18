@@ -9,20 +9,19 @@
 	var/pressure_decrease = 0.25
 
 /obj/item/projectile/kinetic/on_impact(var/atom/A,var/aoe_scale = 1, var/damage_scale = 1)
-
-
 	var/turf/target_turf = get_turf(A)
 	if(!target_turf)
 		target_turf = get_turf(src)
-	var/datum/gas_mixture/environment = target_turf.return_air()
+	if(istype(target_turf))
+		var/datum/gas_mixture/environment = target_turf.return_air()
 
-	damage *= max(1 - (environment.return_pressure()/100)*0.75,0)
+		damage *= max(1 - (environment.return_pressure()/100)*0.75,0)
 
-	if(isliving(A)) //Never do more than 15 damage to a living being per shot.
-		damage = min(damage,15)
+		if(isliving(A)) //Never do more than 15 damage to a living being per shot.
+			damage = min(damage,15)
 
 
-	strike_thing(A,aoe*aoe_scale,damage)
+		strike_thing(A,aoe*aoe_scale,damage)
 
 	. = ..()
 
