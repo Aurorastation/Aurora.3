@@ -108,7 +108,8 @@
 	products = list(
 		/obj/item/weapon/reagent_containers/food/drinks/coffee = 25,
 		/obj/item/weapon/reagent_containers/food/drinks/tea = 25,
-		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 25
+		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 25,
+		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 20
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/drinks/ice = 10
@@ -116,7 +117,8 @@
 	prices = list(
 		/obj/item/weapon/reagent_containers/food/drinks/coffee = 20,
 		/obj/item/weapon/reagent_containers/food/drinks/tea = 20,
-		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 22
+		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 22,
+		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 6
 	)
 
 /obj/machinery/vending/snack
@@ -348,6 +350,7 @@
 		/obj/item/weapon/handcuffs = 8,
 		/obj/item/weapon/grenade/chem_grenade/teargas = 4,
 		/obj/item/device/flash = 5,
+		/obj/item/weapon/reagent_containers/spray/pepper = 5,
 		/obj/item/weapon/storage/box/evidence = 6,
 		/obj/item/device/holowarrant = 5
 	)
@@ -359,9 +362,10 @@
 		/obj/item/weapon/grenade/flashbang = 4
 	)
 	restock_blocked_items = list(
-		/obj/item/weapon/storage/box/donut, 
+		/obj/item/weapon/storage/box/donut,
 		/obj/item/weapon/storage/box/evidence,
-		/obj/item/device/flash
+		/obj/item/device/flash,
+		/obj/item/weapon/reagent_containers/spray/pepper
 		)
 	restock_items = 1
 
@@ -542,16 +546,17 @@
 		/obj/item/weapon/material/kitchen/utensil/fork = 6,
 		/obj/item/weapon/material/kitchen/utensil/knife = 6,
 		/obj/item/weapon/material/kitchen/utensil/spoon = 6,
-		/obj/item/weapon/material/knife = 3,
+		/obj/item/weapon/material/knife = 2,
+		/obj/item/weapon/material/knife/butch = 2,
 		/obj/item/weapon/reagent_containers/food/drinks/drinkingglass = 8,
 		/obj/item/clothing/suit/chef/classic = 2,
 		/obj/item/weapon/material/kitchen/rollingpin = 2,
 		/obj/item/weapon/reagent_containers/cooking_container/oven = 5,
 		/obj/item/weapon/reagent_containers/cooking_container/fryer = 4,
-		/obj/item/weapon/storage/toolbox/lunchbox/nt = 6
+		/obj/item/weapon/storage/toolbox/lunchbox/nt = 6,
+		/obj/item/weapon/reagent_containers/glass/beaker/bowl = 4
 	)
 	contraband = list(
-		/obj/item/weapon/material/knife/butch = 2,
 		/obj/item/weapon/storage/toolbox/lunchbox/syndicate = 2
 	)
 	restock_items = 1
@@ -604,7 +609,7 @@
 		/obj/item/weapon/weldingtool/hugetank
 	)
 	restock_items = 1
-	
+
 /obj/machinery/vending/engivend
 	name = "Engi-Vend"
 	desc = "Spare tool vending. What? Did you expect some witty description?"
