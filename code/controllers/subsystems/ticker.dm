@@ -141,14 +141,14 @@ var/datum/controller/subsystem/ticker/SSticker
 	if (pregame_timeleft <= 0 || current_state == GAME_STATE_SETTING_UP)
 		current_state = GAME_STATE_SETTING_UP
 		wait = 2 SECONDS
-		var/setup_state = setup()
-		if (setup_state == SETUP_REVOTE)
-			wait = 1 SECOND
-			is_revote = TRUE
-			pregame()
-		else if (setup_state == SETUP_REATTEMPT)
-			pregame_timeleft = 1 SECOND
-			to_world("Reattempting gamemode selection.")
+		switch (setup())
+			if (SETUP_REVOTE)
+				wait = 1 SECOND
+				is_revote = TRUE
+				pregame()
+			if (SETUP_REATTEMPT)
+				pregame_timeleft = 1 SECOND
+				to_world("Reattempting gamemode selection.")
 
 /datum/controller/subsystem/ticker/proc/game_tick()
 	if(current_state != GAME_STATE_PLAYING)
