@@ -104,12 +104,23 @@ Parameters:
 
 ### VuiProgress `<vui-progress>`
 Simple progress bar for representing progress of a process or indicate status.
+
 Example:
 ```Vue
-<vui-progress> :value="50"></vui-progress>
+<vui-progress :value="50"></vui-progress>
 ```
 Parameters:
  - `value` - numerical value to display. Should be used with binding.
  - `max` - maximum value of provided value's range. Should be used with binding.
  - `min` - minimum value of provided value's range. Should be used with binding.
+
+### VuiImg `<vui-img>`
+Wrapper for showing images added with ui proc `add_asset(var/name, var/image/img)`. Please note: images are sent to client when `open()` is called, if it's added after, then `send_asset(var/name)` should be used, also image index is sent with next data change, if imediate image change is needed then `check_for_change(1)` or `push_change(null)` should be used to send index.
+
+Example:
+```Vue
+<vui-img name="my-image-name"></vui-img>
+```
+Parameters:
+ - `name` - name of asset to show that was sent to client. 
 

@@ -1,5 +1,5 @@
 <template>
-    <img :width="width" :height="height" :src="source">
+    <img :src="source">
 </template>
 
 <script>
@@ -9,12 +9,6 @@ export default {
         name: {
             type: String,
             default: ""
-        },
-        width: {
-            type: Number
-        },
-        heigth: {
-            type: Number
         }
     },
     computed: {

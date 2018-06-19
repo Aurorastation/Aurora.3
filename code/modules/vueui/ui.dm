@@ -177,7 +177,20 @@ main ui datum.
             cl << browse_rsc(asset["img"], "vueuiimg_" + ckey("\ref[asset["img"]]") + ".png")
 
 /**
-  * Adds dynamic asset for this ui's use
+  * Sends requested asset to ui's client
+  *
+  * @param name - asset's name that should be sent to client
+  *
+  * @return nothing
+  */ 
+/datum/vueuiui/proc/send_asset(var/name)
+    if (!QDELETED(user) || !user.client)
+        return
+    if (name in assets)
+        user.client << browse_rsc(assets[name]["img"], "vueuiimg_" + ckey("\ref[assets[name]["img"]]") + ".png")
+
+/**
+  * Adds / sets dynamic asset for this ui's use
   *
   * @param name - name of asset that should be added
   * @param img - image, an asset that will be used
