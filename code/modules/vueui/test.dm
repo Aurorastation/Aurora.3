@@ -12,6 +12,7 @@
     var/datum/vueuiui/ui = SSvueui.get_open_ui(usr, src)
     if (!ui)
         ui = new(usr, src, "test", 400, 400, "Test ui title", null, interactive_state)
+    ui.add_asset("testimg", getFlatIcon(SSmob.get_mannequin()))
     ui.open()
 
 /datum/vueuiuitest/vueui_data_change(var/list/newdata, var/mob/user, var/datum/vueuiui/ui)

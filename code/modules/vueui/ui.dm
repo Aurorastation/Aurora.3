@@ -152,8 +152,9 @@ main ui datum.
     sdata["status"] = status
     sdata["title"] = title
     sdata["wtime"] = world.time
-    for(var/list/asset in assets)
-        sdata["assets"][asset["name"]] = list("ref" = "\ref[asset["img"]]")
+    for(var/asset_name in assets)
+        var/asset = assets[asset_name]
+        sdata["assets"][asset_name] = list("ref" = ckey("\ref[asset["img"]]"))
     return json_encode(sdata)
 
 /**
@@ -170,9 +171,10 @@ main ui datum.
     var/datum/asset/assets = get_asset_datum(/datum/asset/simple/vueui)
     assets.send(cl)
 #endif
-    for(var/list/asset in assets)
+    for(var/asset_name in assets)
+        var/asset = assets[asset_name]
         if (!QDELETED(asset["img"]))
-            cl << browse_rsc(asset, sanitize("\ref[asset["img"]]") + ".png")
+            cl << browse_rsc(asset["img"], "vueuiimg_" + ckey("\ref[asset["img"]]") + ".png")
 
 /**
   * Adds dynamic asset for this ui's use
@@ -186,6 +188,7 @@ main ui datum.
     if(QDELETED(img))
         return
     name = ckey(name)
+    LAZYINITLIST(assets)
     assets[name] = list("name" = name, "img" = img)
 
 /**
