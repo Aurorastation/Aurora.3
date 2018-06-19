@@ -2516,7 +2516,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/mine/explored)
+/area/hallway/secondary/exit)
 "eK" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -2528,13 +2528,18 @@
 /area/hallway/secondary/exit)
 "eL" = (
 /obj/structure/grille,
-/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor{
+	dir = 2
+	},
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
-/area/mine/explored)
+/area/hallway/secondary/exit)
 "eM" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -2752,18 +2757,16 @@
 /area/hallway/secondary/exit)
 "fg" = (
 /obj/structure/grille,
+/obj/structure/window/reinforced,
 /obj/machinery/door/firedoor{
 	dir = 2
-	},
-/obj/structure/window/reinforced{
-	dir = 1
 	},
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/mine/explored)
+/area/hallway/secondary/exit)
 "fh" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
@@ -19305,18 +19308,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
-"JH" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/mine/explored)
 "JI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/red{
@@ -47770,7 +47761,7 @@ aa
 aa
 aa
 aa
-ab
+eI
 fT
 jU
 kY
@@ -48284,7 +48275,7 @@ aa
 aa
 aa
 aa
-eL
+eK
 fR
 JA
 hC
@@ -48300,7 +48291,7 @@ la
 lx
 JA
 kZ
-eL
+eK
 aa
 aa
 aa
@@ -48541,7 +48532,7 @@ aa
 aa
 aa
 aa
-eL
+eK
 fU
 gD
 iW
@@ -48557,7 +48548,7 @@ ja
 lw
 Jr
 JK
-eL
+eK
 aa
 aa
 aa
@@ -48798,7 +48789,7 @@ aa
 aa
 aa
 aa
-eL
+eK
 gB
 gG
 iY
@@ -48814,7 +48805,7 @@ lz
 Ju
 Jy
 JL
-eL
+eK
 aa
 aa
 aa
@@ -49055,7 +49046,7 @@ aa
 aa
 aa
 aa
-eL
+eK
 fU
 kw
 kq
@@ -49071,7 +49062,7 @@ iZ
 Jv
 kw
 JM
-eL
+eK
 aa
 aa
 aa
@@ -49312,7 +49303,7 @@ aa
 aa
 aa
 aa
-eL
+eK
 fU
 kw
 Jp
@@ -49328,7 +49319,7 @@ ja
 JE
 kw
 JM
-eL
+eK
 aa
 aa
 aa
@@ -49569,7 +49560,7 @@ aa
 aa
 aa
 aa
-eL
+eK
 Jh
 JF
 hA
@@ -49585,7 +49576,7 @@ JC
 Js
 JJ
 JN
-eL
+eK
 aa
 aa
 aa
@@ -49826,7 +49817,7 @@ aa
 aa
 aa
 aa
-fg
+eL
 is
 gA
 kt
@@ -49842,7 +49833,7 @@ jX
 Jw
 Jx
 is
-JH
+fg
 aa
 aa
 aa
