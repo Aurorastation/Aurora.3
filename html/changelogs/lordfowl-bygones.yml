@@ -40,4 +40,4 @@ changes:
   - rscadd: "Added climbing. Click on a wall/open turf to climb. Large and/or anchored items increase your ability to climb. Small items decrease your ability to climb."
   - rscadd: "Made Vaurca natural climbers."
   - rscadd: "Added various event-orientated Vaurca items."
-  - balance: "Vaurca can now wear specially modified softsuits, and rigs now contort to their alien proportions."
+  - balance: "Vaurca can now wear specially modified softsuits."
