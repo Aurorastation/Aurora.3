@@ -469,7 +469,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				src.screen=6
 			else
 				if(paper_data)
-					src.msg += "</BR>Attachment Name: [paper_name]</BR>Attachment:<PRE><CODE>[paper_data]</CODE></PRE>"
+					src.msg += "</BR>Attachment Name: [paper_name]</BR>Attachment:<PRE><BLOCKQUOTE style=\"border: 1px black solid\">[paper_data]</BLOCKQUOTE></PRE>"
 				var/image = photo_data ? photo_data.photo : null
 				feedback_inc("newscaster_stories",1)
 				var/datum/feed_channel/ch =  SSnews.GetFeedChannel(src.channel_name)
