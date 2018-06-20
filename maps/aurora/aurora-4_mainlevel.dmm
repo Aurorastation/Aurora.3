@@ -3096,6 +3096,46 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"agq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/wood,
+/area/library)
+"agr" = (
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/structure/disposaloutlet{
+	dir = 8;
+	spread = 360;
+	spread_point = 2
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/disposal)
+"ags" = (
+/obj/structure/sign/drop{
+	pixel_y = 32
+	},
+/turf/simulated/open,
+/area/maintenance/disposal)
+"agt" = (
+/obj/machinery/light/small/emergency,
+/turf/simulated/open,
+/area/maintenance/disposal)
+"agu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/office)
 "agv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark{
@@ -3289,6 +3329,22 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"agQ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"agR" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
 "agS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
@@ -3570,6 +3626,56 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"aht" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/wood,
+/area/chapel/office)
+"ahu" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/white,
+/area/outpost/research/chemistry)
+"ahv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/eva)
+"ahw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/eva)
 "ahx" = (
 /obj/structure/filingcabinet/filingcabinet{
 	desc = "A large cabinet with drawers. There seems to be a layer of dust covering it."
@@ -48005,27 +48111,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/chemistry)
-"bGl" = (
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled/white,
-/area/outpost/research/chemistry)
 "bGm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -52091,15 +52176,6 @@
 "bPA" = (
 /obj/structure/bed/chair{
 	dir = 8
-	},
-/turf/simulated/floor/wood,
-/area/chapel/office)
-"bPB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
 	},
 /turf/simulated/floor/wood,
 /area/chapel/office)
@@ -58404,18 +58480,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
-"cfd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled,
-/area/outpost/mining_main/eva)
 "cfe" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable/green{
@@ -61456,14 +61520,6 @@
 /obj/effect/landmark/start{
 	name = "Gardener"
 	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"coN" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "coO" = (
@@ -64715,31 +64771,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
-"cxL" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/sign/drop{
-	pixel_y = 32
-	},
-/turf/simulated/open,
-/area/maintenance/disposal)
-"cxM" = (
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
-/obj/structure/disposaloutlet{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/disposal)
-"cxN" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open,
-/area/maintenance/disposal)
-"cxO" = (
-/obj/machinery/light/small/emergency,
-/obj/structure/lattice/catwalk,
-/turf/simulated/open,
-/area/maintenance/disposal)
 "cxP" = (
 /obj/structure/disposaloutlet,
 /obj/structure/disposalpipe/trunk{
@@ -89131,8 +89162,8 @@ cjw
 cea
 ceF
 cea
-cfd
-cfq
+ahv
+ahw
 cfE
 cfP
 cfZ
@@ -89371,7 +89402,7 @@ bWm
 cih
 cim
 cxI
-bXT
+agu
 cxJ
 bWm
 cbs
@@ -89867,7 +89898,7 @@ bdJ
 bRL
 con
 coA
-coN
+agQ
 coY
 cpk
 cpt
@@ -90105,7 +90136,7 @@ bCw
 bDp
 bEp
 bFn
-bGl
+ahu
 bHt
 bFj
 bJn
@@ -90897,7 +90928,7 @@ cor
 coF
 coR
 bSO
-bSO
+agR
 bSO
 bSO
 cpT
@@ -91916,7 +91947,7 @@ bNi
 bNL
 bOt
 bOZ
-bPB
+aht
 bQa
 bQD
 bRf
@@ -94515,9 +94546,9 @@ bUz
 bPO
 bPK
 cbD
-cxN
 ccf
-cxN
+ccf
+ccf
 cdh
 aaa
 aab
@@ -94772,9 +94803,9 @@ bUz
 caW
 bPL
 cbE
-cxL
+ags
 ccf
-cxO
+agt
 cdh
 aab
 aab
@@ -95287,7 +95318,7 @@ bPO
 bPL
 cbE
 cbE
-cxM
+agr
 cbE
 cdh
 cdt
@@ -97308,7 +97339,7 @@ cvC
 cvH
 cvU
 cww
-cww
+agq
 cww
 cxj
 bGA
