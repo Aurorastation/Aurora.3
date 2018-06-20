@@ -179,8 +179,8 @@
 	user.show_message("<span class = 'warning'>You implanted the implant into [M].</span>")
 
 	ipc_tag.replaced(H, H.organs_by_name["head"])
-
-	qdel(ipc_tag)
+	
+	ipc_tag = null
 
 	update()
 
