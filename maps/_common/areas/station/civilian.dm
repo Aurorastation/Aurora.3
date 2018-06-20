@@ -179,3 +179,8 @@
 	name = "\improper Station Store"
 	icon_state = "quartstorage"
 	station_area = 1
+
+/area/journalistoffice
+	name = "\improper Journalist's Office"
+	station_area = 1
+	sound_env = SMALL_SOFTFLOOR

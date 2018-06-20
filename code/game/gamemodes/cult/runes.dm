@@ -4,7 +4,6 @@ var/list/sacrificed = list()
 	return
 
 /obj/effect/rune
-
 /*
  * Use as a general guideline for this and related files:
  *  * <span class='warning'>...</span> - when something non-trivial or an error happens, so something similar to "Sparks come out of the machine!"
@@ -263,10 +262,15 @@ var/list/sacrificed = list()
 		user.whisper("Ta'gh fara[pick("'","`")]qha fel d'amar det!")
 	playsound(U, 'sound/magic/Disable_Tech.ogg', 25, 1)
 	var/turf/T = get_turf(U)
-	if(T)
-		T.hotspot_expose(700,125)
 	var/rune = src // detaching the proc - in theory
-	empulse(U, (range_red - 2), range_red)
+
+	var/list/ex = list(user) // exclude caster
+	for(var/mob/M in range(range_red, T))
+		if(iscultist(M))
+			ex += M
+		else
+			continue
+	empulse(T, range_red - 2, range_red, exclude = ex)
 	qdel(rune)
 	return
 

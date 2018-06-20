@@ -10,30 +10,30 @@
 	var/deliveryamt = 1 // amount of type to deliver
 	var/list/newvars
 
-	prime()													// Prime now just handles the two loops that query for people in lockers and people who can see it.
+/obj/item/weapon/grenade/spawnergrenade/prime()	// Prime now just handles the two loops that query for people in lockers and people who can see it.
 
-		if(spawner_type && deliveryamt)
-			// Make a quick flash
-			var/turf/T = get_turf(src)
-			playsound(T, 'sound/effects/phasein.ogg', 100, 1)
-			for(var/mob/living/carbon/human/M in viewers(T, null))
-				if(M.eyecheck(TRUE) < FLASH_PROTECTION_MODERATE)
-					flick("e_flash", M.flash)
+	if(spawner_type && deliveryamt)
+		// Make a quick flash
+		var/turf/T = get_turf(src)
+		playsound(T, 'sound/effects/phasein.ogg', 100, 1)
+		for(var/mob/living/carbon/human/M in viewers(T, null))
+			if(M.eyecheck(TRUE) < FLASH_PROTECTION_MODERATE)
+				flick("e_flash", M.flash)
 
-			for(var/i=1, i<=deliveryamt, i++)
-				var/atom/movable/x = new spawner_type
-				if(newvars && length(newvars))
-					for(var/v in newvars)
-						x.vars[v] = newvars[v]
-				x.loc = T
-				if(prob(50))
-					for(var/j = 1, j <= rand(1, 3), j++)
-						step(x, pick(NORTH,SOUTH,EAST,WEST))
+		for(var/i=1, i<=deliveryamt, i++)
+			var/atom/movable/x = new spawner_type
+			if(newvars && length(newvars))
+				for(var/v in newvars)
+					x.vars[v] = newvars[v]
+			x.forceMove(T)
+			if(prob(50))
+				for(var/j = 1, j <= rand(1, 3), j++)
+					step(x, pick(NORTH,SOUTH,EAST,WEST))
 
-				// Spawn some hostile syndicate critters
+			// Spawn some hostile syndicate critters
 
-		qdel(src)
-		return
+	qdel(src)
+	return
 
 /obj/item/weapon/grenade/spawnergrenade/manhacks
 	name = "manhack delivery grenade"
@@ -54,9 +54,11 @@
 
 /obj/item/weapon/grenade/spawnergrenade/singularity/toy
 	spawner_type = /obj/item/toy/spinningtoy
+	fake = TRUE
 
 /obj/item/weapon/grenade/spawnergrenade/fake_carp
 	origin_tech = list(TECH_MATERIAL = 2, TECH_MAGNET = 2, TECH_BLUESPACE = 5)
 	spawner_type = /mob/living/simple_animal/hostile/carp/holodeck
 	deliveryamt = 4
+	fake = TRUE
 	newvars = list("faction" = null, "melee_damage_lower" = 0, "melee_damage_upper" = 0, "environment_smash" = 0, "destroy_surroundings" = 0)
