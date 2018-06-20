@@ -178,8 +178,8 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 	icon = get_uristrune_cult(word1, word2, word3)
 
 /obj/item/weapon/book/tome/Initialize()
-    . = ..()
-    ritualknife = new /obj/item/weapon/melee/cultblade/cultknife(src)
+	. = ..()
+	ritualknife = new /obj/item/weapon/melee/cultblade/cultknife(src)
 
 /obj/item/weapon/book/tome/verb/verb_manifest_knife()
 	set category = "Object"
@@ -550,13 +550,13 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 		return
 
 /obj/item/weapon/book/tome/examine(mob/user)
-    . = ..(user, 2)
-    if (iscultist(user))
-        to_chat(user, "The scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood. Contains the details of every ritual his followers could think of.")
-        if (. && ritualknife)
-            to_chat(user, "<span class='notice'>There is \a [ritualknife] concealed in the pages.</span>")
-    else
-        to_chat(user, "An old, dusty tome with frayed edges and a sinister looking cover.")
+	. = ..(user, 2)
+	if (iscultist(user))
+		to_chat(user, "The scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood. Contains the details of every ritual his followers could think of.")
+		if (. && ritualknife)
+			to_chat(user, "<span class='notice'>There is \a [ritualknife] concealed in the pages.</span>")
+	else
+		to_chat(user, "An old, dusty tome with frayed edges and a sinister looking cover.")
 
 /obj/item/weapon/book/tome/cultify()
 	return

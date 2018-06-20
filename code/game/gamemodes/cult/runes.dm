@@ -510,8 +510,8 @@ var/list/sacrificed = list()
 	log_and_message_admins("used a manifest rune.")
 
 	while(this_rune && user && user.stat==CONSCIOUS && user.client && user.loc==this_rune.loc)
-	user.rune_apply_damage(10, 15)
-	sleep(30)
+		user.rune_apply_damage(10, 15)
+		sleep(30)
 	if(D)
 		D.visible_message("<span class='danger'>[D] slowly dissipates into dust and bones.</span>", \
 		"<span class='danger'>You feel pain, as bonds formed between your soul and this homunculus break.</span>", \
@@ -825,7 +825,6 @@ var/list/sacrificed = list()
 		user << "<span class='danger'>Your blood flows into the rune, and you feel that the very space over the rune thickens.</span>"
 	else
 		user << "<span class='danger'>Your blood flows into the rune, and you feel as the rune releases its grasp on space.</span>"
-	return
 
 /////////////////////////////////////////EIGHTTEENTH RUNE
 
@@ -867,8 +866,8 @@ var/list/sacrificed = list()
 		if(istype(cultist.loc, /obj/machinery/dna_scannernew)&&cultist.loc:locked)
 			cultist.loc:locked = 0
 		for(var/mob/living/carbon/C in users)
-			user.rune_apply_damage(10, 15)
-			user.say("Khari[pick("'","`")]d! Gual'te nikka!")
+			C.rune_apply_damage(10, 15)
+			C.say("Khari[pick("'","`")]d! Gual'te nikka!")
 		qdel(src)
 	return fizzle(user)
 
@@ -899,7 +898,7 @@ var/list/sacrificed = list()
 		for(var/mob/living/carbon/human/C in users)
 			if(iscultist(C) && !C.stat)
 				C.say("N'ath reth sh'yro eth d[pick("'","`")]rekkathnor!")
-				user.rune_apply_damage(25, 30)
+				C.rune_apply_damage(25, 30)
 				if(users.len <= 4)				// You did the minimum, this is going to hurt more and we're going to stun you.
 					C.apply_effect(rand(3,6), STUN)
 					C.apply_effect(1, WEAKEN)
@@ -1028,7 +1027,7 @@ var/list/sacrificed = list()
 				explosion(R.loc, -1, 0, 1, 5)
 		for(var/mob/living/carbon/human/C in orange(1,src))
 			if(iscultist(C) && !C.stat)
-				user.rune_apply_damage(50, 60)
+				C.rune_apply_damage(50, 60)
 				C.say("Dedo ol[pick("'","`")]btoh!")
 		admin_attacker_log_many_victims(user, victims, "Used a blood boil rune.", "Was the victim of a blood boil rune.", "used a blood boil rune on")
 		log_and_message_admins_many(cultists - user, "assisted activating a blood boil rune.")
