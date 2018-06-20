@@ -7822,7 +7822,7 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Psychaitry Closet";
+	c_tag = "Medical - Psychiatry Closet";
 	network = list("Medical")
 	},
 /turf/simulated/floor/tiled/dark,
