@@ -26,11 +26,11 @@
 	if(is_type_in_list(W, allowed))
 		can_hang = 1
 	if (can_hang && !coat)
-		if(istype(W, /obj/item/clothing/suit/storage/toggle/)
+		if(istype(W, /obj/item/clothing/suit/storage/toggle)
 			var/obj/item/clothing/suit/storage/toggle/T = coat
-				if(T.icon_state == T.icon_open) // avoid icon conflicts
-					T.icon_state = T.icon_closed
-					T.item_state = T.icon_closed
+			if(T.icon_state == T.icon_open) // avoid icon conflicts
+				T.icon_state = T.icon_closed
+				T.item_state = T.icon_closed
 		user.visible_message("[user] hangs [W] on \the [src].", "You hang [W] on the \the [src]")
 		coat = W
 		user.drop_from_inventory(coat, src)
