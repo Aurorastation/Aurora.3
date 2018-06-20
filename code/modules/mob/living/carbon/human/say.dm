@@ -133,11 +133,16 @@
 	if(silent || (sdisabilities & MUTE))
 		message = ""
 		speech_problem_flag = 1
-	else if(!src.is_diona() && (istype(wear_mask, /obj/item/clothing/mask) || is_muzzle(wear_mask)))
-		var/obj/item/clothing/mask/M = wear_mask
-		if(M.voicechange)
-			message = pick(M.say_messages)
-			verb = pick(M.say_verbs)
+	else if (!is_diona() && is_muzzled(wear_mask))
+		if (istype(wear_mask, /obj/item/clothing/mask))
+			var/obj/item/clothing/mask/M = wear_mask
+			if (M.voicechange)
+				message = pick(M.say_messages)
+				verb = pick(M.say_verbs)
+				speech_problem_flag = 1
+		else
+			message = pick(list("Mmfph!", "Mmmf mrrfff!", "Mmmf mnnf!"))
+			verb = pick(list("mumbles", "says"))
 			speech_problem_flag = 1
 
 	if(message != "")

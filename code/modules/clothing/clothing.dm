@@ -956,5 +956,12 @@ BLIND     // can't see anything
 
 	. = ..()
 
-/proc/is_muzzle(thing)
-	return istype(thing, /obj/item/clothing/mask/muzzle) || istype(thing, /obj/item/clothing/glasses/tape/)
+/mob/living/carbon/human/is_muzzled()
+	if (..())
+		return TRUE
+
+	if (wear_mask)
+		if (istype(wear_mask, /obj/item/clothing/mask/muzzle) || istype(wear_mask, /obj/item/clothing/glasses/tape))
+			return TRUE
+
+	return FALSE
