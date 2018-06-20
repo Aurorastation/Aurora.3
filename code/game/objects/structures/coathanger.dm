@@ -26,7 +26,7 @@
 	if(is_type_in_list(W, allowed))
 		can_hang = 1
 	if (can_hang && !coat)
-		if(istype(W, /obj/item/clothing/suit/storage/toggle)
+		if(istype(W, /obj/item/clothing/suit/storage/toggle))
 			var/obj/item/clothing/suit/storage/toggle/T = coat
 			if(T.icon_state == T.icon_open) // avoid icon conflicts
 				T.icon_state = T.icon_closed
