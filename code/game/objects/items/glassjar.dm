@@ -112,3 +112,15 @@
 				name = "glass jar with [S]"
 				desc = "A small jar with [S] inside."
 	return
+
+/obj/item/glass_jar/peter/
+	name = "Peter's Jar"
+/obj/item/glass_jar/peter/Initialize()
+	. = ..()
+	var/obj/effect/spider/spiderling/S = new
+	S.name = "Peter"
+	S.desc = "The journalist's pet spider, Peter. It has a miniature camera around its neck and seems to glow faintly."
+	S.forceMove(src)
+	contains = 3
+	STOP_PROCESSING(SSprocessing, S)
+	update_icon()
