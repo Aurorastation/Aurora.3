@@ -232,15 +232,6 @@
 
 	gun_type = /obj/item/weapon/gun/energy/plasmacutter/mounted
 
-/obj/item/rig_module/mounted/kinetic_accelerator
-	name = "hardsuit kinetic accelerator"
-	desc = "A lethal-looking industrial cutter."
-	icon_state = "kineticgun"
-	interface_name = "kinetic accelerator"
-	interface_desc = "A ranged mining tool that does increased damage in low pressure."
-
-	gun_type = /obj/item/weapon/gun/energy/kinetic_accelerator/cyborg
-
 /obj/item/rig_module/mounted/thermalldrill
 	name = "hardsuit thermal drill"
 	desc = "An incredibly lethal looking thermal drill."

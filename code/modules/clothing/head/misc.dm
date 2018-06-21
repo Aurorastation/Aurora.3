@@ -368,3 +368,17 @@
 	desc = "Perfect for martial artists, sweaty rogue operators, and tunnel gangsters."
 	icon_state = "headbando"
 	item_state = "headbando"
+
+/obj/item/clothing/head/fedora/brown
+	name = "fedora"
+	desc = "A brown fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
+	icon_state = "detective"
+	item_state_slots = list(
+		slot_l_hand_str = "det_hat",
+		slot_r_hand_str = "det_hat"
+		)
+	siemens_coefficient = 0.7
+
+/obj/item/clothing/head/fedora/grey
+	icon_state = "detective2"
+	desc = "A grey fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
