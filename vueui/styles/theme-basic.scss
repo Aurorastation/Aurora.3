@@ -9,9 +9,6 @@ body {
 code {
     font-family: 'Courier New', Courier, monospace;
 }
-bybutton {
-    background-color: red;
-}
 
 input, textarea, button, select, .button {
     box-sizing: border-box;
@@ -22,16 +19,90 @@ input, textarea, button, select, .button {
 }
 
 .button, button, input[type=submit], input[type=button], input[type=reset], input[disabled] {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     background-color: #d8d8d8;
     cursor: pointer;
+    padding: 2px 4px;
+    vertical-align: top;
     &:hover {
         background-color: #b2deee;
     }
-    &:active {
-        padding: 4px 6px;
+    .uiIcon16 {
+        margin: 0;
+    }
+    * {
+        vertical-align: middle;
     }
 }
 
 .hidden {
     display: none;
+}
+
+.itemGroup {
+    border: 1px solid #e9c183;
+    background: #2c2c2c;
+    padding: 4px;
+}
+
+.item {
+    width: 100%;
+    margin: 4px 0 0 0;
+}
+
+.itemContentNarrow {
+    width: 30%;
+}
+
+.itemContent {
+    width: 69%;
+}
+
+.itemLabelNarrow, .itemLabel, .itemLabelWide, .itemLabelWider, .itemLabelWidest, .itemContentNarrow, .itemContent {
+    display: inline-block
+}
+
+.itemLabelNarrow {
+    width: 20%;
+}
+
+.itemLabel {
+    width: 30%;
+    vertical-align: middle;
+}
+
+.itemLabelWide {
+    width: 45%;
+}
+
+.itemLabelWider {
+    width: 69%;
+}
+
+.itemLabelWidest {
+    width: 100%;
+}
+
+.itemContentWide {
+    width: 79%;
+}
+
+.itemContentSmall {
+    width: 33%;
+}
+
+.itemContentMedium {
+    width: 55%;
+}
+
+.notice {
+    background: #ffac4e;
+    color: #000000;
+    font-style: italic;
+    font-weight: bold;
+    padding: 3px 4px;
+    margin: 4px 0px;
 }

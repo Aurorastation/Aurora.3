@@ -115,7 +115,7 @@ main ui datum.
         <meta http-equiv="X-UA-Compatible" content="IE=11">
         <meta charset="UTF-8">
     </head>
-    <body class="theme-nanoui">
+    <body class="[get_theme_class()]">
         <div id="header">
             <header-[header]></header-[header]>
         </div>
@@ -297,5 +297,13 @@ main ui datum.
         close()
         return
     update_status()
+
+/**
+  * Generates json state object to be sent to ui.
+  *
+  * @return json object - text
+  */
+/datum/vueuiui/proc/get_theme_class()
+    return ""
 
 #undef UIDEBUG

@@ -235,10 +235,30 @@
         font-size: 12px;
         font-style: italic;
         font-weight: bold;
-        padding: 3px 4px 3px 4px;
+        padding: 3px 4px;
         margin: 4px 0 4px 0;
     }
     
+    .uiTitleWrapper {
+        background: url(../resources/uiTitleBackground.png) repeat center;
+        color: #E9C183;
+        box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.5);
+    }
+
+    .uiTitleFluff {
+        display: initial;
+        position: relative;
+        float: right;
+        top: 4px;
+        right: 10px;
+        width: 42px;
+        height: 24px;
+        background: url(../resources/uiTitleFluff.png) 50% 50% no-repeat;
+    }
+
+    .uiIcon16 {
+        background-image: url(../resources/uiIcons16.png);
+    }
 }
 
 // Nano Icons
@@ -247,7 +267,7 @@
 	width: 16px;
 	height: 16px;
 	margin: 2px 2px 0 2px;
-    background-image: url(../resources/uiIcons16.png);
+    background-image: url(../resources/uiIcons16Black.png);
 
     $icons:
     "blank" 16px 16px,

@@ -1,9 +1,9 @@
 <template>
-    <div id='uiTitleWrapper' unselectable="on">
+    <div class='uiTitleWrapper' unselectable="on">
         <slot></slot>
-        <div id='uiStatusIcon' class='icon24' :class="statusClass" unselectable="on"></div>
-        <div id='uiTitleText' unselectable="on">{{ title }}</div>
-        <div id='uiTitleFluff' unselectable="on"></div>
+        <div class='uiStatusIcon icon24' :class="statusClass" unselectable="on"></div>
+        <div class='uiTitleText' unselectable="on">{{ title }}</div>
+        <div class='uiTitleFluff' unselectable="on"></div>
     </div>
 </template>
 
@@ -24,45 +24,37 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#uiTitleWrapper {
-    box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.5);
+.uiTitleWrapper {
     margin: -8px -8px 10px;
     position: relative;
     padding-bottom: 8px;
     float: none;
-    background: url(../../resources/uiTitleBackground.png) repeat center;
+    background-color: #b9b9b9;
 }
 
-#uiTitleText {
+.uiTitleText {
     position: relative;
     display: inline-block;
     top: 4px;
     left: 18px;
     width: 66%;
     width: calc(100% - 36px - 42px - 18px);
-    color: #E9C183;
     font-size: 16px;
     line-height: 20px;
     vertical-align: middle;
 }
 
-#uiTitle.icon {
+.uiTitle.icon {
     padding: 6px 8px 6px 42px;
     background-position: 2px 50%;
     background-repeat: no-repeat;
 }
 
-#uiTitleFluff {
-    position: relative;
-    float: right;
-    top: 4px;
-    right: 10px;
-    width: 42px;
-    height: 24px;
-    background: url(../../resources/uiTitleFluff.png) 50% 50% no-repeat;
+.uiTitleFluff {
+    display: none;
 }
 
-#uiStatusIcon {
+.uiStatusIcon {
     position: relative;
     display: inline-block;
     top: 4px;

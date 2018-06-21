@@ -43,10 +43,4 @@ export default {
 </script>
 
 <style lang="scss">
-    .button {
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
 </style>
