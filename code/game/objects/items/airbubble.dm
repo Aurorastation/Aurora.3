@@ -357,6 +357,9 @@
 			return
 		user.drop_item()
 	else if(istype(W, /obj/item/weapon/handcuffs/cable))
+		if(zipped)
+			user.visible_message("<span class='warning'>[src]'s zipper is already cuffed.</span>")
+			return
 		user.visible_message(
 		"<span class='warning'>[user] begins putting cable restrains on zipper of [src].</span>",
 		"<span class='notice'>You begin putting cable restrains on zipper of [src].</span>"
@@ -374,6 +377,10 @@
 		qdel(W)
 		update_icon()
 	else if(istype(W, /obj/item/weapon/wirecutters))
+		if(!zipped)
+			user.visible_message("<span class='warning'>[src]'s has no cables to cut.</span>")
+			attack_hand(user)
+			return
 		user.visible_message(
 		"<span class='warning'>[user] begins cutting cable restrains on zipper of [src].</span>",
 		"<span class='notice'>You begin cutting cable restrains on zipper of [src].</span>"
