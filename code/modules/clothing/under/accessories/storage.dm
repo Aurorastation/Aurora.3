@@ -118,7 +118,7 @@
 
 /obj/item/clothing/accessory/storage/bayonet/Initialize()
 	. = ..()
-	hold.max_storage_space = 2
+	hold.max_storage_space = 4
 	hold.max_w_class = 3
 	hold.can_hold = list(
 		/obj/item/weapon/material/knife/bayonet
