@@ -27,15 +27,25 @@ Byond Vue UI framework's management subsystem
   * @return ui datum
   */ 
 /datum/controller/subsystem/processing/vueui/proc/get_open_ui(mob/user, src_object)
-    var/src_object_key = SOFTREF(src_object)
-    if (!LAZYLEN(open_uis[src_object_key]))
-        return null
-
-    for (var/datum/vueuiui/ui in open_uis[src_object_key])
+    for (var/datum/vueuiui/ui in get_open_uis(src_object))
         if (ui.user == user)
             return ui
 
     return null
+
+/**
+  * Gets open uis for specified object
+  *
+  * @param src_object - object that hosts the ui we are looking for
+  *
+  * @return list of ui datums
+  */ 
+/datum/controller/subsystem/processing/vueui/proc/get_open_uis(src_object)
+    var/src_object_key = SOFTREF(src_object)
+    if (!LAZYLEN(open_uis[src_object_key]))
+        return list()
+        
+    return open_uis[src_object_key]
 
 /**
   * Initiates check for data change of specified object
@@ -45,11 +55,7 @@ Byond Vue UI framework's management subsystem
   * @return nothing
   */ 
 /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change(src_object)
-    var/src_object_key = SOFTREF(src_object)
-    if (!LAZYLEN(open_uis[src_object_key]))
-        return
-
-    for (var/datum/vueuiui/ui in open_uis[src_object_key])
+    for (var/datum/vueuiui/ui in get_open_uis(src_object))
         ui.check_for_change()
 
 /**
@@ -79,8 +85,7 @@ Byond Vue UI framework's management subsystem
 /datum/controller/subsystem/processing/vueui/proc/ui_opened(datum/vueuiui/ui)
     var/src_object_key = SOFTREF(ui.object)
     LAZYINITLIST(open_uis[src_object_key])
-    if(!ui.user.open_vueui_uis)
-        LAZYINITLIST(ui.user.open_vueui_uis)
+    LAZYINITLIST(ui.user.open_vueui_uis)
     LAZYADD(ui.user.open_vueui_uis, ui)
     LAZYADD(open_uis[src_object_key], ui)
     START_PROCESSING(SSvueui, ui)
