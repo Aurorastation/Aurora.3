@@ -106,3 +106,38 @@ input, textarea, button, select, .button {
     padding: 3px 4px;
     margin: 4px 0px;
 }
+
+.displayBar {
+    display: inline-block;
+    background: #ffffff;
+    margin: 0 5px 0 0;
+    border: 1px solid #cecece;
+    overflow: hidden;
+    width: 236px;
+    height: 16px;
+    vertical-align: text-bottom;
+    .displayBarFill {
+        width: 0%;
+        height: 100%;
+        background: #acacac;
+        overflow: hidden;
+        float: left;
+        color: #000000;
+    }
+    &.good .displayBarFill {
+        background: #5fe42b;
+    }
+    &.average .displayBarFill {
+        background: #ff8000;
+    }
+    &.bad .displayBarFill {
+        background: #ff2323;
+    }
+    &.highlight .displayBarFill {
+        background: #9dc7d6;
+    }
+}
+
+.uiTitleFluff {
+    display: none;
+}

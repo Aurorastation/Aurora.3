@@ -50,10 +50,6 @@ export default {
     background-repeat: no-repeat;
 }
 
-.uiTitleFluff {
-    display: none;
-}
-
 .uiStatusIcon {
     position: relative;
     display: inline-block;

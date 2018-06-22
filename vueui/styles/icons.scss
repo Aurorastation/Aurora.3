@@ -1,0 +1,250 @@
+.dark-theme .uiIcon16 {
+    background-image: url(../resources/uiIcons16.png);
+}
+
+.uiIcon16 {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 2px 2px 0 2px;
+    background-image: url(../resources/uiIcons16Black.png);
+
+    $icons:
+    "blank" 16px 16px,
+    "carat-1-n" 0 0,
+    "carat-1-ne" -16px 0,
+    "carat-1-e" -32px 0,
+    "carat-1-se" -48px 0,
+    "carat-1-s" -64px 0,
+    "carat-1-sw" -80px 0,
+    "carat-1-w" -96px 0,
+    "carat-1-nw" -112px 0,
+    "carat-2-n-s" -128px 0,
+    "carat-2-e-w" -144px 0,
+    "triangle-1-n" 0 -16px,
+    "triangle-1-ne" -16px -16px,
+    "triangle-1-e" -32px -16px,
+    "triangle-1-se" -48px -16px,
+    "triangle-1-s" -64px -16px,
+    "triangle-1-sw" -80px -16px,
+    "triangle-1-w" -96px -16px,
+    "triangle-1-nw" -112px -16px,
+    "triangle-2-n-s" -128px -16px,
+    "triangle-2-e-w" -144px -16px,
+    "arrow-1-n" 0 -32px,
+    "arrow-1-ne" -16px -32px,
+    "arrow-1-e" -32px -32px,
+    "arrow-1-se" -48px -32px,
+    "arrow-1-s" -64px -32px,
+    "arrow-1-sw" -80px -32px,
+    "arrow-1-w" -96px -32px,
+    "arrow-1-nw" -112px -32px,
+    "arrow-2-n-s" -128px -32px,
+    "arrow-2-ne-sw" -144px -32px,
+    "arrow-2-e-w" -160px -32px,
+    "arrow-2-se-nw" -176px -32px,
+    "arrowstop-1-n" -192px -32px,
+    "arrowstop-1-e" -208px -32px,
+    "arrowstop-1-s" -224px -32px,
+    "arrowstop-1-w" -240px -32px,
+    "arrowthick-1-n" 0 -48px,
+    "arrowthick-1-ne" -16px -48px,
+    "arrowthick-1-e" -32px -48px,
+    "arrowthick-1-se" -48px -48px,
+    "arrowthick-1-s" -64px -48px,
+    "arrowthick-1-sw" -80px -48px,
+    "arrowthick-1-w" -96px -48px,
+    "arrowthick-1-nw" -112px -48px,
+    "arrowthick-2-n-s" -128px -48px,
+    "arrowthick-2-ne-sw" -144px -48px,
+    "arrowthick-2-e-w" -160px -48px,
+    "arrowthick-2-se-nw" -176px -48px,
+    "arrowthickstop-1-n" -192px -48px,
+    "arrowthickstop-1-e" -208px -48px,
+    "arrowthickstop-1-s" -224px -48px,
+    "arrowthickstop-1-w" -240px -48px,
+    "arrowreturnthick-1-w" 0 -64px,
+    "arrowreturnthick-1-n" -16px -64px,
+    "arrowreturnthick-1-e" -32px -64px,
+    "arrowreturnthick-1-s" -48px -64px,
+    "arrowreturn-1-w" -64px -64px,
+    "arrowreturn-1-n" -80px -64px,
+    "arrowreturn-1-e" -96px -64px,
+    "arrowreturn-1-s" -112px -64px,
+    "arrowrefresh-1-w" -128px -64px,
+    "arrowrefresh-1-n" -144px -64px,
+    "arrowrefresh-1-e" -160px -64px,
+    "arrowrefresh-1-s" -176px -64px,
+    "arrow-4" 0 -80px,
+    "arrow-4-diag" -16px -80px,
+    "extlink" -32px -80px,
+    "newwin" -48px -80px,
+    "refresh" -64px -80px,
+    "shuffle" -80px -80px,
+    "transfer-e-w" -96px -80px,
+    "transferthick-e-w" -112px -80px,
+    "radiation" -128px -80px,
+    "folder-collapsed" 0 -96px,
+    "folder-open" -16px -96px,
+    "document" -32px -96px,
+    "document-b" -48px -96px,
+    "note" -64px -96px,
+    "mail-closed" -80px -96px,
+    "mail-open" -96px -96px,
+    "suitcase" -112px -96px,
+    "comment" -128px -96px,
+    "person" -144px -96px,
+    "print" -160px -96px,
+    "trash" -176px -96px,
+    "locked" -192px -96px,
+    "unlocked" -208px -96px,
+    "bookmark" -224px -96px,
+    "tag" -240px -96px,
+    "home" 0 -112px,
+    "flag" -16px -112px,
+    "calendar" -32px -112px,
+    "cart" -48px -112px,
+    "pencil" -64px -112px,
+    "clock" -80px -112px,
+    "disk" -96px -112px,
+    "calculator" -112px -112px,
+    "zoomin" -128px -112px,
+    "zoomout" -144px -112px,
+    "search" -160px -112px,
+    "wrench" -176px -112px,
+    "gear" -192px -112px,
+    "heart" -208px -112px,
+    "star" -224px -112px,
+    "link" -240px -112px,
+    "cancel" 0 -128px,
+    "plus" -16px -128px,
+    "plusthick" -32px -128px,
+    "minus" -48px -128px,
+    "minusthick" -64px -128px,
+    "close" -80px -128px,
+    "closethick" -96px -128px,
+    "key" -112px -128px,
+    "lightbulb" -128px -128px,
+    "scissors" -144px -128px,
+    "clipboard" -160px -128px,
+    "copy" -176px -128px,
+    "contact" -192px -128px,
+    "image" -208px -128px,
+    "video" -224px -128px,
+    "script" -240px -128px,
+    "alert" 0 -144px,
+    "info" -16px -144px,
+    "notice" -32px -144px,
+    "help" -48px -144px,
+    "check" -64px -144px,
+    "bullet" -80px -144px,
+    "radio-on" -96px -144px,
+    "radio-off" -112px -144px,
+    "pin-w" -128px -144px,
+    "pin-s" -144px -144px,
+    "night" -160px -144px,
+    "play" 0 -160px,
+    "pause" -16px -160px,
+    "seek-next" -32px -160px,
+    "seek-prev" -48px -160px,
+    "seek-end" -64px -160px,
+    "seek-start" -80px -160px,
+    "seek-first" -80px -160px,
+    "stop" -96px -160px,
+    "eject" -112px -160px,
+    "volume-off" -128px -160px,
+    "volume-on" -144px -160px,
+    "power" 0 -176px,
+    "signal-diag" -16px -176px,
+    "signal" -32px -176px,
+    "battery-0" -48px -176px,
+    "battery-1" -64px -176px,
+    "battery-2" -80px -176px,
+    "battery-3" -96px -176px,
+    "circle-plus" 0 -192px,
+    "circle-minus" -16px -192px,
+    "circle-close" -32px -192px,
+    "circle-triangle-e" -48px -192px,
+    "circle-triangle-s" -64px -192px,
+    "circle-triangle-w" -80px -192px,
+    "circle-triangle-n" -96px -192px,
+    "circle-arrow-e" -112px -192px,
+    "circle-arrow-s" -128px -192px,
+    "circle-arrow-w" -144px -192px,
+    "circle-arrow-n" -160px -192px,
+    "circle-zoomin" -176px -192px,
+    "circle-zoomout" -192px -192px,
+    "circle-check" -208px -192px,
+    "circlesmall-plus" 0 -208px,
+    "circlesmall-minus" -16px -208px,
+    "circlesmall-close" -32px -208px,
+    "squaresmall-plus" -48px -208px,
+    "squaresmall-minus" -64px -208px,
+    "squaresmall-close" -80px -208px,
+    "grip-dotted-vertical" 0 -224px,
+    "grip-dotted-horizontal" -16px -224px,
+    "grip-solid-vertical" -32px -224px,
+    "grip-solid-horizontal" -48px -224px,
+    "gripsmall-diagonal-se" -64px -224px,
+    "grip-diagonal-se" -80px -224px,
+
+    /* Command Positions */
+    "captain" -224px -112px,
+    "headofpersonnel" -112px -96px,
+    "headofsecurity" -112px -128px,
+    "chiefengineer" -176px -112px,
+    "researchdirector" -128px -128px,
+    "chiefmedicalofficer" -32px -128px,
+    
+    /* Engineering Positions */
+    "stationengineer" -176px -112px,
+    "atmospherictechnician" -176px -112px,
+    
+    /* Medical Positions */
+    "medicaldoctor" -32px -128px,
+    "geneticist" -32px -128px,
+    "psychiatrist" -32px -128px,
+    "chemist" -32px -128px,
+    
+    /* Science Positions */
+    "scientist" -128px -128px,
+    "geneticist" -128px -128px,
+    "roboticist" -128px -128px,
+    "xenobiologist" -128px -128px,
+    
+    /* Security Positions */
+    "warden" -112px -128px,
+    "detective" -112px -128px,
+    "securityofficer" -112px -128px;
+
+    &.red {
+        background-image: url(../resources/uiIcons16Red.png);
+    }
+
+    &.green {
+        background-image: url(../resources/uiIcons16Green.png);
+    }
+
+
+    @each $i in $icons{
+        &.icon-#{nth($i, 1)} {
+            background-position: nth($i, 2) nth($i, 3);
+        }
+    }
+}
+
+.icon24
+{
+    width: 24px;
+    height: 24px;
+    background: url(../resources/uiIcons24.png);
+    &.uiStatusGood {
+        background-position: 0 0;
+    }
+    &.uiStatusAverage {
+        background-position: 0 -24px;
+    }
+    &.uiStatusBad {
+        background-position: 0 -48px;
+    }
+}
