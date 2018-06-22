@@ -64806,7 +64806,7 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/plaque{
-	desc = "Charlie Dove Memorial Hall<br>With an endless capacity for kindness, she touched the lives of everyone she met. She was the 4th victim murdered by the notorious Odin Killer, and will be missed. \[BIRTH] - \[2460]"
+	desc = "Charlie Dove Memorial Hall<br>With an endless capacity for kindness, she touched the lives of everyone she met. <br>She was the 4th victim murdered by the notorious Odin Killer, and will be missed. BIRTH - 2460"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
@@ -64815,7 +64815,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/plaque{
-	desc = "Mikail Ivanovich Memorial<br>The 3rd Victim of the Odin Killer. Mikail Ivanovich had an unparalelled work ethic and an unbreakable drive to end corruption. Struck down too soon. \[BIRTH DATE] - 2460"
+	desc = "Mikail Ivanovich Memorial<br>The 3rd Victim of the Odin Killer. Mikail Ivanovich had an unparalelled work ethic and an unbreakable drive to end corruption. <br>Struck down too soon. BIRTH DATE - 2460"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
