@@ -139,9 +139,6 @@
 
 	dump_contents()
 
-	if(!do_after(user, 0.35 SECONDS, act_target = src))
-		return
-
 	icon_state = icon_opened
 	opened = 1
 	playsound(loc, open_sound, 15, 1, -3)
@@ -155,9 +152,6 @@
 		return 0
 
 	var/stored_units = 0
-
-	if(!do_after(user, 0.35 SECONDS, act_target = src))
-		return
 
 	if(store_misc)
 		stored_units += store_misc(stored_units)
