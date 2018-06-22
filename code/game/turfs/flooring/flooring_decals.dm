@@ -21,6 +21,8 @@
 		if(!T.decals) T.decals = list()
 		T.decals |= floor_decals[cache_key]
 		T.add_overlay(floor_decals[cache_key])
+		if(desc)
+			T.desc += "<br>\The [src] has the following inscription: \"[desc]\"."
 
 	qdel(src)
 
