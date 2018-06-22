@@ -153,36 +153,49 @@
 		var/cciaa_actions = count_ccia_actions(user)
 		if (cciaa_actions)
 			new_notification("info", cciaa_actions)
+		
+		add_active_notifications()
 
 /datum/preferences/proc/add_active_notifications(var/client/user)
 	if(!user)
 		return null
 
 	if (!establish_db_connection(dbcon))
-		error("Error initiatlizing database connection while counting CCIA actions.")
+		error("Error initiatlizing database connection while getting notifications.")
 		return null
 
 	var/DBQuery/query = dbcon.NewQuery({"SELECT
-		message, type
+		message, type, id
 		FROM ss13_player_notifications
 		WHERE acked_at IS NOT NULL AND ckey = :ckey:
 	"})
 	query.Execute(list("ckey" = user.ckey))
 
 	while(query.NextRow())
+		var/autoack=0
 		//Lets loop through the results
 		switch(query.item[2])
 			if("player_greeting")
-				new_notification("danger",query.item[1])
+				new_notification("danger", query.item[1], callback_src=user, callback_proc="acknowledge_notification", callback_args=query.item[3])
 			if("player_greeting_chat")
-				new_notification("danger",query.item[1])
+				new_notification("danger",query.item[1], callback_src=user, callback_proc="acknowledge_notification", callback_args=query.item[3])
 				to_chat(user,"<span class='warning'>[query.item[1]]</span>")
 			if("admin")
 				discord_bot.send_to_admins("Server Notification for [user.ckey]: [query.item[1]]")
 				post_webhook_event(WEBHOOK_ADMIN, list("title"="Server Notification for: [user.ckey]", "message"="Server Notification Triggered for [user.ckey]: [query.item[1]]"))
+				//Immediately ack the notification
+				autoack=1
 			if("ccia")
 				discord_bot.send_to_cciaa("Server Notification for [user.ckey]: [query.item[1]]")
 				post_webhook_event(WEBHOOK_CCIAA_EMERGENCY_MESSAGE, list("title"="Server Notification for: [user.ckey]", "message"="Server Notification Triggered for [user.ckey]: [query.item[1]]"))
+				//Immeidately ack the notification
+				autoack=1
+		if(autoack)
+			var/DBQuery/ackquery = dbcon.NewQuery({"UPDATE ss13_player_notifications
+				SET acked_by = 'autoack-server', acked_at = NOW()
+				WHERE id = :id:
+			"})
+			ackquery.Execute(list("id" = query.item[3]))
 
 /*
  * Helper proc for getting a count of active CCIA actions against the player's characters.
