@@ -241,17 +241,17 @@
 .theme-nano-light {
     @extend .theme-nano;
     color: black;
-    background: #c9c9c9 url(../resources/theme-nano/uiBackground-ligth.png) 50% 0 repeat-x;
+    background: #c9c9c9 url(../resources/theme-nano/uiBackground-light.png) 50% 0 repeat-x;
 
     .itemLabelNarrow, .itemLabel, .itemLabelWide, .itemLabelWider, .itemLabelWidest {
         color: #8F5700
     }
     .uiTitleWrapper {
-        background: url(../resources/theme-nano/uiTitleBackground-ligth.png) repeat center;
+        background: url(../resources/theme-nano/uiTitleBackground-light.png) repeat center;
         color: #8F5700
     }
     .uiTitleFluff {
-        background: url(../resources/theme-nano/uiTitleFluff-ligth.png) 50% 50% no-repeat;
+        background: url(../resources/theme-nano/uiTitleFluff-light.png) 50% 50% no-repeat;
     }
 
     .good {
