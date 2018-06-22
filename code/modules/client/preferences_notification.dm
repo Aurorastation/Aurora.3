@@ -154,7 +154,7 @@
 		if (cciaa_actions)
 			new_notification("info", cciaa_actions)
 		
-		add_active_notifications()
+		add_active_notifications(user)
 
 /datum/preferences/proc/add_active_notifications(var/client/user)
 	if(!user)
