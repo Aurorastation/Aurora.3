@@ -154,6 +154,34 @@
 		if (cciaa_actions)
 			new_notification("info", cciaa_actions)
 
+/datum/preferences/proc/add_active_notifications(var/client/user)
+	if(!user)
+		return null
+
+	if (!establish_db_connection(dbcon))
+		error("Error initiatlizing database connection while counting CCIA actions.")
+		return null
+
+	var/DBQuery/query = dbcon.NewQuery({"SELECT
+		message, type
+		FROM ss13_player_notifications
+		WHERE acked_at IS NOT NULL AND ckey = :ckey:
+	"})
+	query.Execute(list("ckey" = user.ckey))
+
+	while(query.NextRow())
+		//Lets loop through the results
+		switch(query.item[2])
+			if("player_greeting")
+				new_notification("danger",query.item[1])
+			if("player_greeting_chat")
+				new_notification("danger",query.item[1])
+				to_chat(user,"<span class='warning'>[query.item[1]]</span>")
+			if("admin")
+				discord_bot.send_to_admins("Server Notification for [user.ckey]: [query.item[1]]")
+			if("ccia")
+				discord_bot.send_to_cciaa("Server Notification for [user.ckey]: [query.item[1]]")
+
 /*
  * Helper proc for getting a count of active CCIA actions against the player's character.
  */
