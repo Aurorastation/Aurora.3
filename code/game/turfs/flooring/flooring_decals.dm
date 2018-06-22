@@ -22,7 +22,7 @@
 		T.decals |= floor_decals[cache_key]
 		T.add_overlay(floor_decals[cache_key])
 		if(desc)
-			T.desc += "<br>\There is a [src] on /the [T] with the following inscription:<br><i>[desc]</i>"
+			T.desc += "<br>There is a [src] on \the [T] with the following inscription:<br><i>[desc]</i>"
 
 	qdel(src)
 
