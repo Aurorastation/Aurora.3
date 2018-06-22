@@ -38,6 +38,7 @@ main ui datum.
   * @param nactiveui - Vue component that is opened to render this ui's data
   * @param nwidth - initial width of this ui
   * @param nheight - initial height of this ui
+  * @param ntitle - title of this ui
   * @param ndata - initial data. Optional.
   * @param nstate - Topic state used for this ui's checks. Optional.
   *
@@ -186,6 +187,7 @@ main ui datum.
 /datum/vueuiui/proc/send_asset(var/name)
     if (!QDELETED(user) || !user.client)
         return
+    name = ckey(name)
     if (name in assets)
         user.client << browse_rsc(assets[name]["img"], "vueuiimg_" + ckey("\ref[assets[name]["img"]]") + ".png")
 
@@ -299,11 +301,11 @@ main ui datum.
     update_status()
 
 /**
-  * Generates json state object to be sent to ui.
+  * Returns actuve theme on varous conditions
   *
-  * @return json object - text
+  * @return themes class - text
   */
 /datum/vueuiui/proc/get_theme_class()
-    return ""
+    return "theme-nano dark-theme"
 
 #undef UIDEBUG

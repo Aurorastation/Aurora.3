@@ -43,7 +43,7 @@ Byond Vue UI framework's management subsystem
 /datum/controller/subsystem/processing/vueui/proc/get_open_uis(src_object)
     var/src_object_key = SOFTREF(src_object)
     if (!LAZYLEN(open_uis[src_object_key]))
-        return list()
+        return null
         
     return open_uis[src_object_key]
 
