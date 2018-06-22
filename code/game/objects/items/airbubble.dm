@@ -358,7 +358,7 @@
 		user.drop_item()
 	else if(istype(W, /obj/item/weapon/handcuffs/cable))
 		if(zipped)
-			user.visible_message("<span class='warning'>[src]'s zipper is already cuffed.</span>")
+			user.visible_message("<span class='warning'>[src]'s zipper is already restrained.</span>")
 			return
 		user.visible_message(
 		"<span class='warning'>[user] begins putting cable restrains on zipper of [src].</span>",
