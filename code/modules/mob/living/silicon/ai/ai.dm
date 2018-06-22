@@ -606,19 +606,22 @@ var/list/ai_verbs_default = list(
 		for(var/datum/data/record/t in data_core.locked)//Look in data core locked.
 			personnel_list["[t.fields["name"]]: [t.fields["rank"]]"] = t.fields["image"]//Pull names, rank, and image.
 			if(current_mobs[t.fields["name"]])
-				personnel_list["[t.fields["name"]]: [t.fields["rank"]]"] = current_mobs[t.fields["name"]]
+				personnel_list["[t.fields["name"]]: [t.fields["rank"]]"] = list("mob" = current_mobs[t.fields["name"]], "image" = t.fields["image"])
 
 		if(personnel_list.len)
 			input = input("Select a crew member:") as null|anything in personnel_list
 			var/selection = personnel_list[input]
 			var/icon/character_icon 
-			if(selection && istype(selection, /mob/living/carbon/human))
-				var/mob/living/carbon/human/H = selection
-				character_icon = new('icons/mob/human.dmi', "blank")
-				character_icon.Insert(getHologramIcon(getFlatIcon(H, SOUTH)), dir = SOUTH)
-				character_icon.Insert(getHologramIcon(getFlatIcon(H, NORTH)), dir = NORTH)
-				character_icon.Insert(getHologramIcon(getFlatIcon(H, EAST)), dir = EAST)
-				character_icon.Insert(getHologramIcon(getFlatIcon(H, WEST)), dir = WEST)
+			if(selection && istype(selection, /list))
+				var/mob/living/carbon/human/H = selection["mob"]
+				if (H.near_camera())
+					character_icon = new('icons/mob/human.dmi', "blank")
+					character_icon.Insert(getHologramIcon(getFlatIcon(H, SOUTH)), dir = SOUTH)
+					character_icon.Insert(getHologramIcon(getFlatIcon(H, NORTH)), dir = NORTH)
+					character_icon.Insert(getHologramIcon(getFlatIcon(H, EAST)), dir = EAST)
+					character_icon.Insert(getHologramIcon(getFlatIcon(H, WEST)), dir = WEST)
+				else
+					character_icon = getHologramIcon(icon(selection["image"]))
 			if(selection && istype(selection, /icon))
 				character_icon = getHologramIcon(icon(selection))
 			if(character_icon)
