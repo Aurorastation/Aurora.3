@@ -171,6 +171,8 @@
 	"})
 	query.Execute(list("ckey" = user.ckey))
 
+	var/chat_notification=0
+
 	while(query.NextRow())
 		var/autoack=0
 		//Lets loop through the results
@@ -179,7 +181,7 @@
 				new_notification("danger", query.item[1], callback_src=user, callback_proc="acknowledge_notification", callback_args=query.item[3])
 			if("player_greeting_chat")
 				new_notification("danger",query.item[1], callback_src=user, callback_proc="acknowledge_notification", callback_args=query.item[3])
-				to_chat(user,"<span class='warning'>[query.item[1]]</span>")
+				chat_notification=1
 			if("admin")
 				discord_bot.send_to_admins("Server Notification for [user.ckey]: [query.item[1]]")
 				post_webhook_event(WEBHOOK_ADMIN, list("title"="Server Notification for: [user.ckey]", "message"="Server Notification Triggered for [user.ckey]: [query.item[1]]"))
@@ -196,6 +198,9 @@
 				WHERE id = :id:
 			"})
 			ackquery.Execute(list("id" = query.item[3]))
+	
+	if(chat_notification)
+		to_chat(user,"<font color='red'><BIG><B>You have unacknowledged notifications. Take a look at them in the motd.</B></BIG><br>")
 
 /*
  * Helper proc for getting a count of active CCIA actions against the player's characters.
