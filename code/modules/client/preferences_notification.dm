@@ -167,7 +167,7 @@
 	var/DBQuery/query = dbcon.NewQuery({"SELECT
 		message, type, id
 		FROM ss13_player_notifications
-		WHERE acked_at IS NOT NULL AND ckey = :ckey:
+		WHERE acked_at IS NULL AND ckey = :ckey:
 	"})
 	query.Execute(list("ckey" = user.ckey))
 
