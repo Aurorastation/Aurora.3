@@ -404,7 +404,19 @@
 	if(!ckey)
 		to_chat(usr,"You need to specify a ckey.")
 		return
-	
+
+	//Validate ckey
+	var/DBQuery/validatequery = dbcon.NewQuery("SELECT count(*) as count FROM ss13_player WHERE ckey = :ckey:")
+	validatequery.Execute(list("ckey" = ckey))
+	var/count = 0
+	if(!validatequery.NextRow())
+		to_chat(usr,"Could not find player with the specified ckey")
+		return
+	count = text2num(validatequery.item[1])
+	if(count != 1)
+		to_chat(usr,"Could not find player with the specified ckey")
+		return
+
 	var/list/types=list("player_greeting","player_greeting_chat","admin","ccia")
 	var/type = input(usr, "Which Type?", "Choose a type", "") as null|anything in (types)
 	if(!type)
@@ -420,8 +432,8 @@
 		error("Error: Unable to establish db connection while adding a notification.")
 		return
 
-	var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_player_notifications (`ckey`, `type`, `message`, `created_by`) VALUES (:ckey:, :type:, :message:, :a_ckey:)")
-	query.Execute(list("ckey" = ckey, "type" = type, "message" = message, "a_ckey" = usr.ckey))
+	var/DBQuery/addquery = dbcon.NewQuery("INSERT INTO ss13_player_notifications (`ckey`, `type`, `message`, `created_by`) VALUES (:ckey:, :type:, :message:, :a_ckey:)")
+	addquery.Execute(list("ckey" = ckey, "type" = type, "message" = message, "a_ckey" = usr.ckey))
 	to_chat(usr,"Notification added.")
 	
 
