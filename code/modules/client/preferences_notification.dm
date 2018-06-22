@@ -172,16 +172,20 @@
 	query.Execute(list("ckey" = user.ckey))
 
 	var/chat_notification=0
+	var/panel_notification=0
+	var/notification_count=0
 
 	while(query.NextRow())
 		var/autoack=0
 		//Lets loop through the results
 		switch(query.item[2])
 			if("player_greeting")
-				new_notification("danger", query.item[1], callback_src=user, callback_proc="acknowledge_notification", callback_args=query.item[3])
+				panel_notification=1
+				notification_count++
 			if("player_greeting_chat")
-				new_notification("danger",query.item[1], callback_src=user, callback_proc="acknowledge_notification", callback_args=query.item[3])
 				chat_notification=1
+				panel_notification=1
+				notification_count++
 			if("admin")
 				discord_bot.send_to_admins("Server Notification for [user.ckey]: [query.item[1]]")
 				post_webhook_event(WEBHOOK_ADMIN, list("title"="Server Notification for: [user.ckey]", "message"="Server Notification Triggered for [user.ckey]: [query.item[1]]"))
@@ -198,9 +202,10 @@
 				WHERE id = :id:
 			"})
 			ackquery.Execute(list("id" = query.item[3]))
-	
+	if(panel_notification)
+		new_notification("warning","You have <b>[notification_count] unread notifications!</b> Click <a href='?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!")
 	if(chat_notification)
-		to_chat(user,"<font color='red'><BIG><B>You have unacknowledged notifications. Take a look at them in the motd.</B></BIG><br>")
+		to_chat(user,"<font color='red'><BIG><B>You have unacknowledged notifications.</B></BIG><br>Click <a href='?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!</font>")
 
 /*
  * Helper proc for getting a count of active CCIA actions against the player's characters.

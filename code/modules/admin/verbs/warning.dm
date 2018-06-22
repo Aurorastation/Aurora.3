@@ -102,7 +102,7 @@
  */
 
 /client/verb/warnings_check()
-	set name = "My warnings"
+	set name = "Warnings and Notifications"
 	set category = "OOC"
 	set desc = "Display warnings issued to you."
 
@@ -115,7 +115,48 @@
 		alert("Connection to the SQL database lost. Aborting. Please alert an Administrator or a member of staff.")
 		return
 
-	var/dat = "<div align='center'><h3>Warnings received</h3></div><br>"
+	var/dat = ""
+
+	//
+	// Notifications
+	//
+
+	var/DBQuery/notification_query = dbcon.NewQuery({"SELECT
+		id, message, created_by
+	FROM ss13_player_notifications
+	WHERE 
+		acked_at IS NULL 
+		AND ckey = :ckey:
+		AND type IN ('player_greeting','player_greeting_chat')
+	"})
+	notification_query.Execute(list("ckey" = ckey))
+
+	var/notification_header=0
+	while(notification_query.NextRow())
+		if(!notification_header)
+			notification_header=1
+			dat += "<div align='center'><h3>Pending Notifications</h3></div><br>"
+			dat += "<table width='90%' bgcolor='#e3e3e3' cellpadding='5' cellspacing='0' align='center'>"
+			dat += "<tr>"
+			dat += "<th width='20%'>ADMIN</th>"
+			dat += "<th width='60%'>TEXT</th>"
+			dat += "<th width='20%'>ACKNOWLEDGE</th>"
+			dat += "</tr>"
+		
+		dat += "<tr bgcolor='90ee90' align='center'>"
+		dat += "<td>[notification_query.item[3]]</td>"
+		dat += "<td>[notification_query.item[2]]</td>"
+		dat += "<td><b>(<a href='byond://?src=\ref[src];notifacknowledge=[notification_query.item[1]]'>Acknowledge Notification</a>)</b></td>"
+		dat += "</tr>"
+
+	if(notification_header)
+		dat += "</table>"
+
+	//
+	// Warnings
+	//
+
+	dat += "<div align='center'><h3>Warnings Received</h3></div><br>"
 
 	dat += "<table width='90%' bgcolor='#e3e3e3' cellpadding='5' cellspacing='0' align='center'>"
 	dat += "<tr>"
@@ -179,6 +220,23 @@
 
 	var/DBQuery/query = dbcon.NewQuery("UPDATE ss13_warnings SET acknowledged = 1 WHERE id = :warning_id:;")
 	query.Execute(list("warning_id" = warning_id))
+
+	warnings_check()
+
+/client/proc/notifications_acknowledge(var/id)
+	if(!id)
+		error("Error: Argument ID for notificaton acknowledgement not supplied.")
+		return
+
+	if (!establish_db_connection(dbcon))
+		error("Error: Unable to establish db connection during notification acknowledgement.")
+		return
+
+	var/DBQuery/query = dbcon.NewQuery({"UPDATE ss13_player_notifications
+	SET acked_by = :ckey:, acked_at = NOW()
+	WHERE id = :id: AND ckey = :ckey:
+	"})
+	query.Execute(list("ckey" = src.ckey, "id" = id))
 
 	warnings_check()
 

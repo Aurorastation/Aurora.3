@@ -101,6 +101,10 @@
 	if(href_list["warnacknowledge"])
 		var/queryid = text2num(href_list["warnacknowledge"])
 		warnings_acknowledge(queryid)
+	
+	if(href_list["notifacknowledge"])
+		var/queryid = text2num(href_list["notifacknowledge"])
+		notifications_acknowledge(queryid)
 
 	if(href_list["warnview"])
 		warnings_check()
@@ -683,21 +687,6 @@
 			. = R.group[1]
 		else
 			CRASH("Age check regex failed for [src.ckey]")
-
-/client/proc/acknowledge_notification(var/id)
-	if(!id)
-		error("Error: Argument ID for notificaton acknowledgement not supplied.")
-		return null
-
-	if (!establish_db_connection(dbcon))
-		error("Error: Unable to establish db connection during notification acknowledgement.")
-		return null
-
-	var/DBQuery/query = dbcon.NewQuery({"UPDATE ss13_player_notifications
-	SET acked_by = :ckey:, acked_at = NOW()
-	WHERE id = :id: AND ckey = :ckey:
-	"})
-	query.Execute(list("ckey" = src.ckey, "id" = id))
 
 // Byond seemingly calls stat, each tick.
 // Calling things each tick can get expensive real quick.
