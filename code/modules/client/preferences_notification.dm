@@ -179,11 +179,13 @@
 				to_chat(user,"<span class='warning'>[query.item[1]]</span>")
 			if("admin")
 				discord_bot.send_to_admins("Server Notification for [user.ckey]: [query.item[1]]")
+				post_webhook_event(WEBHOOK_ADMIN, list("title"="Server Notification for: [user.ckey]", "message"="Server Notification Triggered for [user.ckey]: [query.item[1]]"))
 			if("ccia")
 				discord_bot.send_to_cciaa("Server Notification for [user.ckey]: [query.item[1]]")
+				post_webhook_event(WEBHOOK_CCIAA_EMERGENCY_MESSAGE, list("title"="Server Notification for: [user.ckey]", "message"="Server Notification Triggered for [user.ckey]: [query.item[1]]"))
 
 /*
- * Helper proc for getting a count of active CCIA actions against the player's character.
+ * Helper proc for getting a count of active CCIA actions against the player's characters.
  */
 /datum/preferences/proc/count_ccia_actions(var/client/user)
 	if (!user)
