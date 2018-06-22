@@ -372,7 +372,7 @@
 		update_icon()
 	else if(istype(W, /obj/item/weapon/wirecutters))
 		if(!zipped)
-			user.visible_message("<span class='warning'>[src]'s has no cables to cut.</span>")
+			user.visible_message("<span class='warning'>[src] has no cables to cut.</span>")
 			attack_hand(user)
 			return
 		user.visible_message(
