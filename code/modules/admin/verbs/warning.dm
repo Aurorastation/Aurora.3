@@ -392,6 +392,39 @@
 	usr << browse(dat, "window=lookupwarns;size=900x500")
 	feedback_add_details("admin_verb","WARN-LKUP")
 
+//Admin Proc to add a new User Notification
+/client/proc/notification_add()
+	set category = "Admin"
+	set name = "Add Notification"
+
+	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG|R_DEV|R_CCIAA))
+		return
+
+	var/ckey = input(usr, "What ckey ?", "Enter a ckey")
+	if(!ckey)
+		to_chat(usr,"You need to specify a ckey.")
+		return
+	
+	var/list/types=list("player_greeting","player_greeting_chat","admin","ccia")
+	var/type = input(usr, "Which Type?", "Choose a type", "") as null|anything in (types)
+	if(!type)
+		to_chat(usr,"You need to specify a type.")
+		return
+
+	var/message = input(usr,"Notification Message", "Specify a notification message")
+	if(!message)
+		to_chat(usr,"You need to specify a notification message.")
+		return
+
+	if (!establish_db_connection(dbcon))
+		error("Error: Unable to establish db connection while adding a notification.")
+		return
+
+	var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_player_notifications (`ckey`, `type`, `message`, `created_by`) VALUES (:ckey:, :type:, :message:, :a_ckey:)")
+	query.Execute(list("ckey" = ckey, "type" = type, "message" = message, "a_ckey" = usr.ckey))
+	to_chat(usr,"Notification added.")
+	
+
 /*
  * A proc for editing and deleting warnings issued
  */
