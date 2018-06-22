@@ -53,7 +53,20 @@ var/list/mineral_can_smooth_with = list(
 
 	var/obj/effect/mineral/my_mineral
 
+	var/rock_health = 20 //10 to 20, in initialize
+
 	has_resources = 1
+
+/turf/simulated/mineral/proc/kinetic_hit(var/damage,var/direction)
+
+	rock_health -= damage
+
+	if(rock_health <= 0)
+		var/turf/simulated/mineral/next_rock = get_step(src,direction)
+		if(istype(next_rock))
+			new /obj/effect/overlay/temp/kinetic_blast(next_rock)
+			next_rock.kinetic_hit(-rock_health,direction)
+		GetDrilled(1)
 
 // Copypaste parent call for performance.
 /turf/simulated/mineral/Initialize(mapload)
@@ -82,6 +95,8 @@ var/list/mineral_can_smooth_with = list(
 
 	if (!mapload)
 		queue_smooth_neighbors(src)
+
+	rock_health = rand(10,20)
 
 	return INITIALIZE_HINT_NORMAL
 

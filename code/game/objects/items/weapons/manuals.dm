@@ -1368,3 +1368,52 @@
 				</body>
 			</html>
 			"}
+
+/obj/item/weapon/book/manual/ka_custom
+	name = "Guide to Custom Kinetic Accelerators"
+	icon_state ="rulebook"
+	author = "Quartermaster Burgs"
+	title = "Guide to Custom Kinetic Accelerators"
+	dat = {"<html>
+				<head>
+					<style>
+						h1 {font-size: 21px; margin: 15px 0px 5px;}
+						h2 {font-size: 15px; margin: 15px 0px 5px;}
+						li {margin: 2px 0px 2px 15px;}
+						ul {margin: 5px; padding: 0px;}
+						ol {margin: 5px; padding: 0px 15px;}
+						body {font-size: 13px; font-family: Verdana;}
+					</style>
+				</head>
+				<body>
+					<h1>Metal Snowflake: Your Guide to Custom Kinetic Accelerators</h1>
+					<h2>by Quartermaster Burgs</h2>
+					<br>
+					<p>So you want to make your own custom kinetic accelerator. While it may look simple to take apart, swap, and modify parts to fit your working needs, there are a few things to keep in mind before assembling.</p>
+
+					<p>Know your parts. To make a working kinetic accelerator, you require a power converter, a kinetic cell, and a frame to store it all on. Some parts are better for certain jobs than others. Some are more compact, more economical, more powerful, more quick, more durable. Mix and match parts to your liking, however there may be some parts that are incompatible with other parts due to software differences.</p>
+
+					<p>A power converter contains a complex assembly that converts kinetic energy into destructive energy via powerful magnets and heat induction, which are perfect for destroying rock in areas with minimal atmosphere.</p>
+
+					<p>A kinetic cell holds the kinetic energy and usually has a means of creating it, such as a lever, a pump, or an internal power source. Manual pumps are quite the common and wise choice given how electrical outlets and recharging station are not too common while out on the dig.</p>
+
+					<p>A frame is quite literally a frame; the weapon's base. All frames contain special software that allows the components to interact with eachother easily and safely without causing sparks or other malfunctions. Some frames contain extra bonus software, such as over-clocking or recoil damping predictors.</p>
+
+					<p>Assembly is very easy. First, you secure the power cell, then you secure the power converter, then you install any additional upgrade chips. The bolts will quite literally screw themselves securely. If you wish to remove the parts, a wrench is required to disassemble.</p>
+
+					<p>It's best to test fire the weapon in a safe location before going out for a long haul. There are plenty of things that could go wrong with the assembly, but thankfully do to regulations and other legalwork, the weapon will prevent itself from firing if the software detects an issue. There is a digital screen located on the top of the frame that would state if there was anything wrong with the weapon if an attempt to fire is made. Here are the error codes for said weapon.</p>
+					<br>
+					<h2>Error Codes:</h2>
+
+					<p>0: Means that there is a component connection issue. Ensure that the entire assembly (Frame, Power Converter, Cell) are secured together as one.</p>
+
+					<p>101: Means that there is not enough voltage going into the power converter. Ensure that the cell is rated enough to handle the power consumption of the entire assembly.</p>
+
+					<p>102: Means that there is not enough amps going into the power converter. Ensure that there are no other modules that may reduce the amount of amps going into the power converter.</p>
+
+					<p>103: Means that there are not enough watts going into the power converter. Ensure that the power cell is rated enough to handle the power consumption of the entire assembly.</p>
+
+					<p>201: Means that the frame is not rated to handle the entirety of the heat energy of the components. Either upgrade the frame, or downgrade the components.</p>
+				</body>
+			</html>
+			"}
