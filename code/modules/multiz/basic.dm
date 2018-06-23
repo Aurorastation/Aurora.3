@@ -1,6 +1,5 @@
 // If you add a more comprehensive system, just untick this file.
-// WARNING: Only works for up to 17 z-levels!
-var/z_levels = 0 // Each bit represents a connection between adjacent levels.  So the first bit means levels 1 and 2 are connected.
+// WARNING: Only works for up to 17 z-levels, and Z1 cannot connect to others!
 
 // If the height is more than 1, we mark all contained levels as connected.
 /obj/effect/landmark/map_data/New()
@@ -10,7 +9,7 @@ var/z_levels = 0 // Each bit represents a connection between adjacent levels.  S
 	ASSERT(height <= z)
 	// Due to the offsets of how connections are stored v.s. how z-levels are indexed, some magic number silliness happened.
 	for(var/i = (z - height) to (z - 2))
-		z_levels |= (1 << i)
+		SSatlas.z_levels |= (1 << i)
 	qdel(src)
 
 /obj/effect/landmark/map_data/Destroy()
