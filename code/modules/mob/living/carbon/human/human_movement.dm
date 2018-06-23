@@ -114,10 +114,10 @@
 	if(shoes && (shoes.item_flags & NOSLIP) && istype(shoes, /obj/item/clothing/shoes/magboots))  //magboots + dense_object = no floating
 		return 1
 	return 0
-	
+
 /mob/living/carbon/human/set_dir(var/new_dir)
 	. = ..()
-	if(species.tail)
+	if(. && species.tail)
 		update_tail_showing(1)
 
 /mob/living/carbon/human/Move()
