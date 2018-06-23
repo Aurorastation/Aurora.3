@@ -25,11 +25,13 @@
 
 // Thankfully, no bitwise magic is needed here.
 /proc/GetAbove(atom/A)
-	A = get_turf(A)
+	if (!A.z)
+		A = get_turf(A)
 	return A ? GET_ABOVE(A) : null
 
 /proc/GetBelow(atom/A)
-	A = get_turf(A)
+	if (!A.z)
+		A = get_turf(A)
 	return A ? GET_BELOW(A) : null
 
 /proc/GetConnectedZlevels(z)
