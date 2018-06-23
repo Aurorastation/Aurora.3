@@ -37,7 +37,8 @@
 	else
 		R = new /obj/structure/closet/airbubble(user.loc)
 	if(!used)
-		internal_tank = new /obj/item/weapon/tank/emergency_oxygen/double(src)
+		internal_tank = new /obj/item/weapon/tank/emergency_oxygen/engi(src)
+		internal_tank.air_contents.adjust_gas("oxygen", (42*ONE_ATMOSPHERE)/(R_IDEAL_GAS_EQUATION*T20C))
 	R.internal_tank = internal_tank
 	if(!isnull(internal_tank))
 		internal_tank.forceMove(R)
@@ -267,6 +268,12 @@
 	dump_contents()
 	var/datum/gas_mixture/t_air = get_turf_air()
 	t_air.merge(inside_air)
+
+// When we shoot bubble, make it rip.
+/obj/structure/closet/airbubble/bullet_act(var/obj/item/projectile/Proj)
+	..()
+	ripped = TRUE
+	update_icon()
 
 // Change valve on internal tank
 /obj/structure/closet/airbubble/verb/set_internals()
