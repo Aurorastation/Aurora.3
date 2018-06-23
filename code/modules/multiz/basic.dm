@@ -26,9 +26,11 @@ var/z_levels = 0 // Each bit represents a connection between adjacent levels.  S
 
 // Thankfully, no bitwise magic is needed here.
 /proc/GetAbove(atom/A)
+	A = get_turf(A)
 	return A ? GET_ABOVE(A) : null
 
 /proc/GetBelow(atom/A)
+	A = get_turf(A)
 	return A ? GET_BELOW(A) : null
 
 /proc/GetConnectedZlevels(z)
@@ -57,7 +59,11 @@ var/z_levels = 0 // Each bit represents a connection between adjacent levels.  S
 
 	return new_entry[zB]
 
-/proc/get_zstep(ref, dir)
+/proc/get_zstep(atom/ref, dir)
+	if (!isloc(ref))
+		CRASH("Expected atom.")
+	if (!ref.z)
+		ref = get_turf(ref)
 	switch (dir)
 		if (UP)
 			. = GET_ABOVE(ref)
