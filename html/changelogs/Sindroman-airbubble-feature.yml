@@ -3,5 +3,5 @@ author: PoZe
 delete-after: True
 
 changes:
-  - tweak: "Airbubble comes now with fully filled engineering extended airtank(6 liters max). Instead of double airtank(10 liters max). It lasts around the same time, even slightly longer(40 minutes)."
+  - tweak: "Airbubble comes now with fully filled engineering extended airtank(6 liters max). Instead of double emergency airtank(10 liters max). It lasts around the same time, even slightly longer(40 minutes)."
   - tweak: "Airbubble now gets ripped and leaks after being shot with projectile weapons."
