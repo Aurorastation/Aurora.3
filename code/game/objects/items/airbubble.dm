@@ -82,7 +82,7 @@
 		return 0
 	return 1
 
-/obj/structure/closet/airbubble/can_close()
+/obj/structure/closet/airbubble/can_close(mob/user as mob)
 	if(zipped)
 		return 0
 	var/turf/T = get_turf(src)
@@ -93,7 +93,7 @@
 	for(var/mob/living/M in T)
 		mob_num += 1
 		if(mob_num > 1)
-			user << "<span class='warning'>[src] can only fit one person.</span>"
+			to_chat(user, "<span class='warning'>[src] can only fit one person.</span>")
 			return 0
 	return 1
 
@@ -125,7 +125,7 @@
 
 /obj/structure/closet/airbubble/toggle(mob/user as mob)
 	if(!(opened ? close(user) : open(user)))
-		user << "<span class='notice'>It won't budge!</span>"
+		to_chat(user, "<span class='notice'>It won't budge!</span>")
 		return
 	update_icon()
 	return 1
@@ -148,7 +148,7 @@
 /obj/structure/closet/airbubble/close(mob/user as mob)
 	if(!opened)
 		return 0
-	if(!can_close())
+	if(!can_close(user))
 		return 0
 
 	var/stored_units = 0
@@ -290,7 +290,7 @@
 			START_PROCESSING(SSfast_process, src)
 		use_internal_tank = !use_internal_tank
 	else
-		usr << "<span class='notice'>[src] has no internal tank.</span>"
+		to_chat(usr, "<span class='notice'>[src] has no internal tank.</span>")
 
 // Remove tank from bubble
 /obj/structure/closet/airbubble/verb/take_tank()
@@ -315,7 +315,7 @@
 		update_icon()
 		STOP_PROCESSING(SSfast_process, src)
 	else
-		usr << "<span class='warning'>[src] already has no tank.</span>"
+		to_chat(user, "<span class='warning'>[src] already has no tank.</span>")
 
 // Handle most of things: restraining, cutting restrains, attaching tank.
 /obj/structure/closet/airbubble/attackby(W as obj, mob/user as mob)
@@ -339,7 +339,7 @@
 			START_PROCESSING(SSfast_process, src)
 			return
 		else
-			user << "<span class='warning'>[src] already has a tank attached.</span>"
+			to_chat(user, "<span class='warning'>[src] already has a tank attached.</span>")
 	if(opened)
 		if(istype(W, /obj/item/weapon/grab))
 			var/obj/item/weapon/grab/G = W
@@ -352,7 +352,7 @@
 		user.drop_item()
 	else if(istype(W, /obj/item/weapon/handcuffs/cable))
 		if(zipped)
-			user.visible_message("<span class='warning'>[src]'s zipper is already restrained.</span>")
+			to_chat(user, "<span class='warning'>[src]'s zipper is already restrained.</span>")
 			return
 		user.visible_message(
 		"<span class='warning'>[user] begins putting cable restrains on zipper of [src].</span>",
@@ -372,7 +372,7 @@
 		update_icon()
 	else if(istype(W, /obj/item/weapon/wirecutters))
 		if(!zipped)
-			user.visible_message("<span class='warning'>[src] has no cables to cut.</span>")
+			to_chat(user, "<span class='warning'>[src] has no cables to cut.</span>")
 			attack_hand(user)
 			return
 		user.visible_message(
