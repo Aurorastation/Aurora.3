@@ -2043,7 +2043,7 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 
 /obj/item/clothing/suit/fluff/marwani_dress //Unathi Purple Dress - Ilaeza Marwani - burgerbb
 	name = "unathi purple dress"
-	desc = "A strange purple dress designed to fit very tall female unathi, suitable for indoor wear in warmer climate. Attached to it is some sort of giant emblem piece acting as chest armor."
+	desc = "A strange purple dress designed to fit very tall female unathi, suitable for indoor wear in warmer climate. Attached to it is some sort of giant iron emblem."
 	icon = 'icons/obj/custom_items/marwani_dress.dmi'
 	icon_state = "mar_dress"
 	item_state = "mar_dress"
