@@ -3,5 +3,5 @@ author: PoZe
 delete-after: True
 
 changes:
-  - rscadd: "Airbubble now shows pressure of the tank when examined"
+  - rscadd: "Airbubble now shows what kind of tank is attached and what is the pressure of the tank when examined"
   - rsadd: "Airbubble sprite now shows if airbubble is using tank or not."
