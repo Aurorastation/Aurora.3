@@ -570,7 +570,8 @@
 		/obj/item/weapon/material/twohanded/pike,
 		/obj/item/weapon/material/twohanded/pike/halberd,
 		/obj/item/weapon/material/twohanded/pike/pitchfork,
-		/obj/item/weapon/melee/whip
+		/obj/item/weapon/melee/whip,
+		/obj/item/clothing/accessory/storage/bayonet
 	)
 
 /obj/random/coin
@@ -984,3 +985,48 @@
 		/obj/item/device/binoculars						= 11,
 		/obj/item/device/megaphone						= 11
 	)
+
+/obj/random/custom_ka
+	name = "random custom kinetic accelerator"
+	desc = "Wew."
+	icon = 'icons/obj/kinetic_accelerators.dmi'
+	icon_state = "frame01"
+
+	spawnlist = list(
+		/obj/item/toy/prize/honk
+	)
+	has_postspawn = TRUE
+	post_spawn(obj/thing)
+		var/list/frames = list(
+			/obj/item/weapon/gun/custom_ka/frame01 = 3,
+			/obj/item/weapon/gun/custom_ka/frame02 = 2,
+			/obj/item/weapon/gun/custom_ka/frame03 = 1
+		)
+
+		var/list/cells = list(
+			/obj/item/custom_ka_upgrade/cells/cell01 = 3,
+			/obj/item/custom_ka_upgrade/cells/cell02 = 2,
+			/obj/item/custom_ka_upgrade/cells/cell03 = 1
+		)
+
+		var/list/barrels = list(
+			/obj/item/custom_ka_upgrade/barrels/barrel01 = 3,
+			/obj/item/custom_ka_upgrade/barrels/barrel02 = 2,
+			/obj/item/custom_ka_upgrade/barrels/barrel03 = 1
+		)
+
+		var/frame_type = pickweight(frames)
+		var/obj/item/weapon/gun/custom_ka/spawned_frame = new frame_type(thing.loc)
+
+		var/cell_type = pickweight(cells)
+		spawned_frame.installed_cell = new cell_type(spawned_frame)
+
+		var/barrel_type = pickweight(barrels)
+		spawned_frame.installed_barrel = new barrel_type(spawned_frame)
+
+		spawned_frame.installed_upgrade_chip = new /obj/item/custom_ka_upgrade/upgrade_chips/capacity(spawned_frame)
+
+		spawned_frame.update_icon()
+		spawned_frame.update_stats()
+
+		qdel(thing)

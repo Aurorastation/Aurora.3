@@ -153,6 +153,7 @@
 						dat += "<BR>\n<BR>\n<CENTER><B>Incidents</B></CENTER><BR><hr>"
 						for(var/datum/char_infraction/I in active2.fields["incidents"])
 							dat += "UID: [I.UID] <br>"
+							dat += "Date: [I.datetime] <br>"
 							dat += "Charges: "
 							for (var/L in I.charges)
 								dat += "[L], "

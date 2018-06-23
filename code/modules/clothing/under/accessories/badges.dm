@@ -14,6 +14,19 @@
 	var/stored_name
 	var/badge_string = "Corporate Security"
 
+/obj/item/clothing/accessory/badge/press
+	name = "corporate press pass"
+	desc = "A corporate reporter's pass, emblazoned with the NanoTrasen logo."
+	icon_state = "pressbadge"
+	item_state = "pbadge"
+	badge_string = "Corporate Reporter"
+
+/obj/item/clothing/accessory/badge/press/independent
+	name = "press pass"
+	desc = "A freelance journalist's pass."
+	icon_state = "pressbadge-i"
+	badge_string = "Freelance Journalist"
+
 /obj/item/clothing/accessory/badge/old
 	name = "faded badge"
 	desc = "A faded security badge, backed with leather."
