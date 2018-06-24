@@ -110,16 +110,14 @@
 		H = helmet.loc
 		if(istype(H))
 			if(helmet && H.head == helmet)
-				H.drop_from_inventory(helmet)
-				helmet.forceMove(src)
+				H.drop_from_inventory(helmet,src)
 
 	if(boots)
 		boots.canremove = 1
 		H = boots.loc
 		if(istype(H))
 			if(boots && H.shoes == boots)
-				H.drop_from_inventory(boots)
-				boots.forceMove(src)
+				H.drop_from_inventory(boots,src)
 
 	if(tank)
 		tank.canremove = 1
@@ -154,8 +152,7 @@
 	if(H.head == helmet)
 		H << "<span class='notice'>You retract your suit helmet.</span>"
 		helmet.canremove = 1
-		H.drop_from_inventory(helmet)
-		helmet.forceMove(src)
+		H.drop_from_inventory(helmet,src)
 	else
 		if(H.head)
 			H << "<span class='danger'>You cannot deploy your helmet while wearing \the [H.head].</span>"

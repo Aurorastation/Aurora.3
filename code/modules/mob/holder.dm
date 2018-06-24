@@ -103,6 +103,7 @@ var/list/holder_mob_icon_cache = list()
 
 	contained = null
 	var/mob/L = get_holding_mob()
+	//TODO: Await Lohikar
 	if (L)
 		L.drop_from_inventory(src)
 
@@ -114,6 +115,7 @@ var/list/holder_mob_icon_cache = list()
 	var/turf/T = get_turf(src)
 	var/mob/L = get_holding_mob()
 	if (L)
+		//TODO: Await Lohikar
 		L.drop_from_inventory(src)
 
 	for(var/mob/M in contents)

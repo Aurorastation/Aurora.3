@@ -324,6 +324,7 @@
 
 	user << "You add the robot arm to [src]."
 	loc = A //Place the water tank into the assembly, it will be needed for the finished bot
+	//TODO: Check with Lohikar
 	user.drop_from_inventory(S)
 	qdel(S)
 

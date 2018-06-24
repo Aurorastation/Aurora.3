@@ -23,7 +23,8 @@
 
 	if(!parts)
 		user << "<span class='warning'>This kit has no parts for this modification left.</span>"
-		user.drop_from_inventory(src)
+		user.drop_from_inventory(src,disable_animate = TRUE)
+		//TODO: Animate Here
 		qdel(src)
 		return
 
@@ -59,7 +60,8 @@
 		parts &= ~MODKIT_SUIT
 
 	if(!parts)
-		user.drop_from_inventory(src)
+		user.drop_from_inventory(src,disable_animate = TRUE)
+		//TODO: Animate Here
 		qdel(src)
 
 /obj/item/device/modkit/examine(mob/user)

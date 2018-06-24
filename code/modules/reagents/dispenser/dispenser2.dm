@@ -51,10 +51,11 @@
 		return
 
 	if(user)
-		user.drop_from_inventory(C)
+		user.drop_from_inventory(C,src)
 		user << "<span class='notice'>You add \the [C] to \the [src].</span>"
+	else
+		C.forceMove(src)
 
-	C.loc = src
 	cartridges[C.label] = C
 	sortTim(cartridges, /proc/cmp_text_asc)
 	SSnanoui.update_uis(src)
@@ -104,8 +105,7 @@
 			return
 
 		container =  RC
-		user.drop_from_inventory(RC)
-		RC.loc = src
+		user.drop_from_inventory(RC,src)
 		user << "<span class='notice'>You set \the [RC] on \the [src].</span>"
 		SSnanoui.update_uis(src) // update all UIs attached to src
 

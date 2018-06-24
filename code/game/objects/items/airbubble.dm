@@ -47,7 +47,7 @@
 	R.zipped = zipped
 	R.update_icon()
 	R.desc = desc
-	user.drop_from_inventory(src)
+	user.drop_from_inventory(src,disable_animate = TRUE)
 	qdel(src)
 
 // Deployed bubble
@@ -339,8 +339,7 @@
 			)
 			var/obj/item/weapon/tank/T = W
 			internal_tank = T
-			user.drop_from_inventory(T)
-			T.forceMove(src)
+			user.drop_from_inventory(T,src)
 			use_internal_tank = 1
 			START_PROCESSING(SSfast_process, src)
 			return

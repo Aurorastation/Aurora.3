@@ -73,8 +73,7 @@
 		noz.loc = src
 	if(ismob(noz.loc))
 		var/mob/M = noz.loc
-		M.drop_from_inventory(noz)
-		noz.loc = src
+		M.drop_from_inventory(noz,src)
 	return
 
 /obj/item/watertank/Destroy()

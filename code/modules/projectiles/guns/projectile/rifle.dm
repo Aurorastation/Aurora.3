@@ -175,8 +175,7 @@
 			user << "<span class='notice'>You need to open the bolt of \the [src] first.</span>"
 			return
 		if(!has_clip)
-			user.drop_from_inventory(A)
-			A.forceMove(src)
+			user.drop_from_inventory(A,src)
 			has_clip = A
 			user << "<span class='notice'>You load the clip into \the [src].</span>"
 			if(!has_clip.stored_ammo.len)

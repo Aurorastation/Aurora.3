@@ -314,6 +314,7 @@
 		var/obj/item/weapon/toolbox_tiles/B = new /obj/item/weapon/toolbox_tiles
 		user.put_in_hands(B)
 		user << "<span class='notice'>You add the tiles into the empty toolbox. They protrude from the top.</span>"
+		//TODO: Check with Lohikar
 		user.drop_from_inventory(src)
 		qdel(src)
 	else
@@ -340,6 +341,7 @@
 		B.created_name = created_name
 		user.put_in_hands(B)
 		user << "<span class='notice'>You add the sensor to the toolbox and tiles!</span>"
+		//TODO: Check with Lohikar
 		user.drop_from_inventory(src)
 		qdel(src)
 		return 1
@@ -371,6 +373,7 @@
 		var/mob/living/bot/floorbot/A = new /mob/living/bot/floorbot(T)
 		A.name = created_name
 		user << "<span class='notice'>You add the robot arm to the odd looking toolbox assembly! Boop beep!</span>"
+		//TODO: Check with Lohikar
 		user.drop_from_inventory(src)
 		qdel(src)
 		return 1

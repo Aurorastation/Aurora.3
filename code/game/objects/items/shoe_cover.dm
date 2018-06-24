@@ -13,5 +13,6 @@
 		user << "You attahed the [src] to [S] making movement silent"
 		S.silent = 1
 		S.desc += " They appear to have some type of fabric soles"
-		user.drop_from_inventory(src)
+		user.drop_from_inventory(src,disable_animate = TRUE)
+		//TODO: Animate here
 		qdel(src)

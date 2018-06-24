@@ -73,8 +73,9 @@ Protectiveness | Armor %
 		if(second_plate.material != src.material)
 			to_chat(user, "<span class='warning'>Both plates need to be the same type of material.</span>")
 			return
-		user.drop_from_inventory(src)
-		user.drop_from_inventory(second_plate)
+		//TODO: Possible better animations
+		user.drop_from_inventory(src,disable_animate = TRUE)
+		user.drop_from_inventory(second_plate,disable_animate = TRUE)
 		var/obj/item/clothing/suit/armor/material/makeshift/new_armor = new(null, src.material.name)
 		user.put_in_hands(new_armor)
 		qdel(second_plate)
@@ -108,7 +109,7 @@ Protectiveness | Armor %
 			to_chat(user, "<span class='notice'>You apply some [S.material.use_name] to \the [src]. </span>")
 			var/obj/item/clothing/head/helmet/material/makeshift/helmet = new(null, S.material.name)
 			user.put_in_hands(helmet)
-			user.drop_from_inventory(src)
+			user.drop_from_inventory(src,disable_animate = TRUE)
 			qdel(src)
 			return
 		else
@@ -143,8 +144,8 @@ Protectiveness | Armor %
 /obj/item/clothing/suit/armor/material/makeshift/attackby(var/obj/O, mob/user)
 	if(istype(O, /obj/item/clothing/suit/storage/toggle/trench))
 		var/obj/item/clothing/suit/storage/toggle/trench/kelly = O
-		user.drop_from_inventory(src)
-		user.drop_from_inventory(kelly)
+		user.drop_from_inventory(src,disable_animate = TRUE)
+		user.drop_from_inventory(kelly,disable_animate = TRUE)
 		var/obj/item/clothing/suit/armor/material/makeshift/trenchcoat/new_armor = new(null, src.material.name)
 		user.put_in_hands(new_armor)
 		qdel(src)

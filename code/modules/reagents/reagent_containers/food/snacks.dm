@@ -43,7 +43,7 @@
 		if (!feeder)
 			feeder = eater
 
-		feeder.drop_from_inventory(src)	//so icons update :[
+		feeder.drop_from_inventory(src)	//so icons update :[ //what the fuck is this????
 
 		if(trash)
 			if(ispath(trash,/obj/item))
@@ -60,6 +60,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/attack(mob/M as mob, mob/user as mob, def_zone)
 	if(!reagents.total_volume)
 		user << "<span class='danger'>None of [src] left!</span>"
+		//TODO: Bug Lohikar
 		user.drop_from_inventory(src)
 		qdel(src)
 		return 0
@@ -728,6 +729,7 @@
 		return
 	user << "You crack \the [src] into \the [O]."
 	reagents.trans_to(O, reagents.total_volume)
+	//TODO: Bug Lohikar
 	user.drop_from_inventory(src)
 	qdel(src)
 
@@ -4056,6 +4058,7 @@
 
 		//If the bun was in your hands, the result will be too
 		if (loc == user)
+			//TODO: Bug Lohikar
 			user.drop_from_inventory(src)
 			user.put_in_hands(result)
 

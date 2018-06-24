@@ -249,12 +249,14 @@
 		user << "You add [D] to [src]."
 		qdel(D)
 		user.put_in_hands(new /obj/item/weapon/bucket_sensor)
+		//TODO: Bug Lohikar
 		user.drop_from_inventory(src)
 		qdel(src)
 		return
 	else if(istype(D, /obj/item/weapon/wirecutters))
 		to_chat(user, "<span class='notice'>You cut a big hole in \the [src] with \the [D].</span>")
 		user.put_in_hands(new /obj/item/clothing/head/helmet/bucket)
+		//TODO: Bug Lohikar
 		user.drop_from_inventory(src)
 		qdel(src)
 		return
@@ -290,6 +292,7 @@ obj/item/weapon/reagent_containers/glass/bucket/wood
 	else if(istype(D, /obj/item/weapon/material/hatchet))
 		to_chat(user, "<span class='notice'>You cut a big hole in \the [src] with \the [D].</span>")
 		user.put_in_hands(new /obj/item/clothing/head/helmet/bucket/wood)
+		//TODO: Bug Lohikar
 		user.drop_from_inventory(src)
 		qdel(src)
 		return

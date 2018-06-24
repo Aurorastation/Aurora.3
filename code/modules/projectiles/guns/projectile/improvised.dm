@@ -101,6 +101,7 @@
 /obj/item/weapon/receivergun/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/pipe))
 		if(buildstate == 0)
+			//TODO: Bug Lohikar
 			user.drop_from_inventory(W)
 			qdel(W)
 			user << "<span class='notice'>You place the pipe and the receiver together.</span>"
@@ -109,6 +110,7 @@
 			return
 	else if(istype(W,/obj/item/weapon/stock))
 		if(buildstate == 1)
+			//TODO: Bug Lohikar
 			user.drop_from_inventory(W)
 			qdel(W)
 			user << "<span class='notice'>You add the stock to the assembly.</span>"
@@ -117,6 +119,7 @@
 			return
 	else if(istype(W,/obj/item/weapon/tape_roll))
 		if(buildstate == 2)
+			//TODO: Bug Lohikar
 			user.drop_from_inventory(W)
 			qdel(W)
 			user << "<span class='notice'>You strap the pieces together with tape.</span>"
@@ -185,6 +188,7 @@
 			return
 	else if(istype(W,/obj/item/weapon/receivergun))
 		if(buildstate == 1)
+			//TODO: Bug Lohikar
 			user.drop_from_inventory(W)
 			qdel(W)
 			user << "<span class='notice'>You add the receiver to the assembly.</span>"
@@ -193,6 +197,7 @@
 			return
 	else if(istype(W,/obj/item/pipe))
 		if(buildstate == 2)
+			//TODO: Bug Lohikar
 			user.drop_from_inventory(W)
 			qdel(W)
 			user << "<span class='notice'>You strap the pipe to the assembly.</span>"

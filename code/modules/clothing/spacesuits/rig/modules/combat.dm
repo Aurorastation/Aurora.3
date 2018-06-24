@@ -55,6 +55,7 @@
 		return 0
 
 	user << "<font color='blue'><b>You slot \the [input_device] into the suit module.</b></font>"
+	//TODO: wait for lohikar's response
 	user.drop_from_inventory(input_device)
 	qdel(input_device)
 	accepted_item.charges++
@@ -297,6 +298,7 @@
 		return
 
 	for(var/obj/item/weapon/melee/energy/blade/blade in M.contents)
+		//TODO: wait for lohikar's response
 		M.drop_from_inventory(blade)
 		qdel(blade)
 

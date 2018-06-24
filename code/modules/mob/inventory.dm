@@ -142,7 +142,7 @@ var/list/slot_equipment_priority = list( \
 
 // Removes an item from inventory and places it in the target atom.
 // If canremove or other conditions need to be checked then use unEquip instead.
-/mob/proc/drop_from_inventory(var/obj/item/W, var/atom/Target = null)
+/mob/proc/drop_from_inventory(var/obj/item/W, var/atom/Target = null, var/disable_animate = FALSE)
 
 	if(W)
 		if(!Target)
@@ -151,7 +151,7 @@ var/list/slot_equipment_priority = list( \
 		if(!(W && W.loc)) return 1 // self destroying objects (tk, grabs)
 		W.forceMove(Target)
 		update_icons()
-		if(Target != src)
+		if(Target != src && !disable_animate)
 			animate_item(W,get_turf(src),get_turf(W),0.25 SECONDS,ANIMATION_STYLE_GROWMOVE)
 		return 1
 	return 0
@@ -343,6 +343,7 @@ var/list/slot_equipment_priority = list( \
 
 /mob/proc/delete_inventory(var/include_carried = FALSE)
 	for(var/entry in get_equipped_items(include_carried))
+		//TODO: Check with Lohikar
 		drop_from_inventory(entry)
 		qdel(entry)
 

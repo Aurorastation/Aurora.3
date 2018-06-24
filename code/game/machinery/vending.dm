@@ -308,7 +308,7 @@
 		cashmoney_bundle.worth -= currently_vending.price
 
 		if(cashmoney_bundle.worth <= 0)
-			usr.drop_from_inventory(cashmoney_bundle)
+			usr.drop_from_inventory(cashmoney_bundle,get_turf(src))
 			qdel(cashmoney_bundle)
 		else
 			cashmoney_bundle.update_icon()
@@ -320,7 +320,7 @@
 
 		visible_message("<span class='info'>\The [usr] inserts a bill into \the [src].</span>")
 		var/left = cashmoney.worth - currently_vending.price
-		usr.drop_from_inventory(cashmoney)
+		usr.drop_from_inventory(cashmoney,get_turf(src))
 		qdel(cashmoney)
 
 		if(left)

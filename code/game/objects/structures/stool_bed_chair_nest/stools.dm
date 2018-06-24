@@ -122,6 +122,7 @@
 			return
 		var/obj/item/stack/C = W
 		if(C.get_amount() < 1) // How??
+			//TODO: Await lohikar's response
 			user.drop_from_inventory(C)
 			qdel(C)
 			return

@@ -322,7 +322,8 @@
 			if(get_dist(src, user) < 2 && user.get_active_hand() == P)
 				user.visible_message("<span class='[class]'>[user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", \
 				"<span class='[class]'>You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>")
-
+				
+				//TODO: Bug Lohikar
 				if(user.get_inactive_hand() == src)
 					user.drop_from_inventory(src)
 
@@ -419,7 +420,8 @@
 			B.name = name
 		else if (P.name != "paper" && P.name != "photo")
 			B.name = P.name
-		user.drop_from_inventory(P)
+		user.drop_from_inventory(P,B)
+		//TODO: Look into this stuff
 		if (istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/h_user = user
 			if (h_user.r_hand == src)
@@ -449,7 +451,6 @@
 				h_user.put_in_hands(B)
 		user << "<span class='notice'>You clip the [P.name] to [(src.name == "paper") ? "the paper" : src.name].</span>"
 		src.loc = B
-		P.loc = B
 
 		B.pages.Add(src)
 		B.pages.Add(P)

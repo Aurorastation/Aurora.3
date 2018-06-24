@@ -180,7 +180,7 @@
 			var/mob/living/carbon/human/H = loc
 			H.drop_r_hand()
 			H.drop_l_hand()
-			H.drop_from_inventory(H.handcuffed)
+			H.drop_from_inventory(H.handcuffed,disable_animate = TRUE)
 	..()
 
 /obj/item/clothing/suit/ianshirt

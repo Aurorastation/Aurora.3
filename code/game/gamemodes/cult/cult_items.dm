@@ -32,7 +32,7 @@
 	user.apply_damage(rand(force/2, force), BRUTE, zone, 0, sharp=1, edge=1)
 	user.Weaken(5)
 
-	user.drop_from_inventory(src)
+	user.drop_from_inventory(src,disable_animate = TRUE)
 	throw_at(get_edge_target_turf(src, pick(alldirs)), rand(1,3), throw_speed)
 
 	var/spooky = pick('sound/hallucinations/growl1.ogg', 'sound/hallucinations/growl2.ogg', 'sound/hallucinations/growl3.ogg', 'sound/hallucinations/wail.ogg')

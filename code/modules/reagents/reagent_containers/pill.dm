@@ -25,6 +25,7 @@
 				return
 
 			M << "<span class='notice'>You swallow \the [src].</span>"
+			//TODO: Bug Lohikar
 			M.drop_from_inventory(src) //icon update
 			if(reagents.total_volume)
 				reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
@@ -41,6 +42,7 @@
 			if(!do_mob(user, M))
 				return
 
+			//TODO: Bug Lohikar
 			user.drop_from_inventory(src) //icon update
 			user.visible_message("<span class='warning'>[user] forces [M] to swallow \the [src].</span>")
 
