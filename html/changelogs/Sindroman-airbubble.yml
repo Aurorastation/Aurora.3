@@ -1,8 +1,0 @@
-author: PoZe
-
-delete-after: True
-
-changes:
-  - bugfix: "Airbubbles no longer produces infinite cable restrains."
-  - bugfix: "Users of airbubble can no longer 'magically' get out of bubble with it still remaining closed."
-  - tweak: "No longer it takes time to get in and out of Airbubble."
