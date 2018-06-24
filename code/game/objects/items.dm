@@ -83,7 +83,7 @@
 /obj/item/Destroy()
 	if(ismob(loc))
 		var/mob/m = loc
-		m.drop_from_inventory(src,disable_animate = TRUE)
+		m.drop_from_inventory(src,enable_animations = FALSE)
 		m.update_inv_r_hand()
 		m.update_inv_l_hand()
 		src.loc = null

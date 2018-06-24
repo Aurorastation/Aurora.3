@@ -93,7 +93,7 @@
 
 	spawn(0)//this prevents the collapse of space-time continuum
 		if (user)
-			user.drop_from_inventory(src, disable_animate = TRUE)
+			user.drop_from_inventory(src, enable_animations = FALSE)
 		qdel(src)
 	return uses
 

@@ -95,10 +95,10 @@
 			to_chat(user, "<span class='danger'>You need a better grip to do that!</span>")
 			return
 		move_into_gibber(user,G.affecting)
-		user.drop_from_inventory(G,disable_animate = TRUE)
+		user.drop_from_inventory(G,enable_animations = FALSE)
 
 	else if(istype(W, /obj/item/organ))
-		user.drop_from_inventory(W,disable_animate = TRUE)
+		user.drop_from_inventory(W,enable_animations = FALSE)
 		//TODO: Gibber Animations
 		qdel(W)
 		user.visible_message("<span class='danger'>\The [user] feeds \the [W] into \the [src], obliterating it.</span>")

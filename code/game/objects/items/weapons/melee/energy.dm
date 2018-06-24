@@ -317,7 +317,7 @@
 	if(!active)
 		return
 	playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
-	user.drop_from_inventory(src,disable_animate = TRUE)
+	user.drop_from_inventory(src,enable_animations = FALSE)
 	QDEL_IN(src, 1)
 
 
@@ -336,5 +336,5 @@
 							organ.implants -= src
 			host.pinned -= src
 			host.embedded -= src
-			host.drop_from_inventory(src,disable_animate = TRUE)
+			host.drop_from_inventory(src,enable_animations = FALSE)
 		QDEL_IN(src, 1)

@@ -734,7 +734,7 @@ default behaviour is:
 		layer = UNDERDOOR
 		underdoor = 1
 
-/mob/living/carbon/drop_from_inventory(var/obj/item/W, var/atom/Target = null)
+/mob/living/carbon/drop_from_inventory(var/obj/item/W, var/atom/target = null, var/delete = FALSE, var/enable_animations = TRUE)
 	if(W in internal_organs)
 		return
 	..()

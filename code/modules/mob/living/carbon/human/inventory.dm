@@ -409,7 +409,10 @@ This saves us from having to call add_fingerprint() any time something is put in
 	if(!..() || l_hand)
 		return 0
 	if(W.loc != src)
-		animate_item(W,get_turf(W),get_turf(src),0.25 SECONDS,ANIMATION_STYLE_SHRINKMOVE)
+		if(isturf(W.loc))
+			animate_item(W,get_turf(W),get_turf(src),0.25 SECONDS,ANIMATION_STYLE_SHRINKMOVE) //Big to small
+		else
+			animate_item(W,get_turf(W),get_turf(src),0.25 SECONDS,ANIMATION_STYLE_HALFMOVE) //Small to small
 	W.forceMove(src)
 	l_hand = W
 	W.equipped(src,slot_l_hand)
