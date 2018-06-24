@@ -156,9 +156,6 @@
 
 /obj/item/weapon/rig/Destroy()
 	for(var/obj/item/piece in list(gloves,boots,helmet,chest))
-		var/mob/living/M = piece.loc
-		if(istype(M)) //TODO: Look into whether or not this is supposed to destroy mobs
-			M.drop_from_inventory(piece)
 		qdel(piece)
 	STOP_PROCESSING(SSprocessing, src)
 	qdel(wires)

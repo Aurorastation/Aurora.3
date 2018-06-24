@@ -38,7 +38,7 @@ var/list/sacrificed = list()
 		user.visible_message("<span class='danger'>[user] disappears in a flash of red light!</span>", \
 		"<span class='danger'>You feel as your body gets dragged through the dimension of Nar-Sie!</span>", \
 		"<span class='danger'>You hear a sickening crunch and sloshing of viscera.</span>")
-		user.loc = allrunesloc[rand(1,index)]
+		user.forceMove(allrunesloc[rand(1,index)])
 		return
 	if(istype(src,/obj/effect/rune))
 		return	fizzle(user) //Use friggin manuals, Dorf, your list was of zero length.
@@ -76,9 +76,9 @@ var/list/sacrificed = list()
 		"<span class='warning'>You smell ozone.</span>")
 		for(var/obj/O in src.loc)
 			if(!O.anchored)
-				O.loc = IP.loc
+				O.forceMove(IP.loc)
 		for(var/mob/M in src.loc)
-			M.loc = IP.loc
+			M.forceMove(IP.loc)
 		return
 
 	return fizzle(user)
@@ -880,7 +880,7 @@ var/list/sacrificed = list()
 		if(cultist.buckled || cultist.handcuffed || (!isturf(cultist.loc) && !istype(cultist.loc, /obj/structure/closet)))
 			user << "<span class='warning'>You cannot summon \the [cultist], for \his shackles of blood are strong.</span>"
 			return fizzle(user)
-		cultist.loc = src.loc
+		cultist.forceMove(src.loc)
 		cultist.lying = 1
 		cultist.regenerate_icons()
 

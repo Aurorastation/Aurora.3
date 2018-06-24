@@ -384,7 +384,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	for(var/obj/T in C)
 		qdel(T)
 
-	O.loc = C.loc
+	O.forceMove(C.loc)
 
 	O.UpdateAppearance()
 	domutcheck(O, null)
@@ -394,7 +394,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	O.adjustFireLoss(C.getFireLoss())
 	O.stat = C.stat
 	for (var/obj/item/weapon/implant/I in implants)
-		I.loc = O
+		I.forceMove(O)
 		I.implanted = O
 
 	C.mind.transfer_to(O)

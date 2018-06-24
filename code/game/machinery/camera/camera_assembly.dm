@@ -96,7 +96,7 @@
 
 				state = 4
 				var/obj/machinery/camera/C = new(src.loc)
-				src.loc = C
+				src.forceMove(C)
 				C.assembly = src
 
 				C.auto_turn()

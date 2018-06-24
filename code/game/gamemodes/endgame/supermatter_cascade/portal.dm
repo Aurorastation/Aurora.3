@@ -35,7 +35,7 @@
 		if(L.buckled && istype(L.buckled,/obj/structure/bed/))
 			var/turf/O = L.buckled
 			do_teleport(O, pick(endgame_safespawns))
-			L.loc = O.loc
+			L.forceMove(O.loc)
 		else
 			do_teleport(L, pick(endgame_safespawns)) //dead-on precision
 
@@ -82,7 +82,7 @@
 		var/new_y = 32 * (R.y - T_mob.y) + R.pixel_y
 		riftimage.pixel_x = new_x
 		riftimage.pixel_y = new_y
-		riftimage.loc = T_mob
+		riftimage.forceMove(T_mob)
 
 		src << riftimage
 	else

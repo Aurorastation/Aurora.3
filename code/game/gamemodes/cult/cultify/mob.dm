@@ -52,8 +52,8 @@
 		narsimage.pixel_y = new_y
 		narglow.pixel_x = new_x
 		narglow.pixel_y = new_y
-		narsimage.loc = src.loc
-		narglow.loc = src.loc
+		narsimage.forceMove(src.loc)
+		narglow.forceMove(src.loc)
 		//Display the new narsimage to the player
 		src << narsimage
 		src << narglow

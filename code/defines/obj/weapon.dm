@@ -284,7 +284,7 @@
 		user.visible_message("<span class='warning'>[user] has sheathed \a [W] into \his [src]!</span>", "You sheathe \the [W] into \the [src].")
 		playsound(user.loc, 'sound/weapons/blade_sheath.ogg', 50, 1)
 		user.drop_from_inventory(W)
-		W.loc = src
+		W.forceMove(src)
 		src.concealed_blade = W
 		update_icon()
 	else
