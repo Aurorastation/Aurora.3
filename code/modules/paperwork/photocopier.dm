@@ -104,9 +104,8 @@
 /obj/machinery/photocopier/attackby(obj/item/O as obj, mob/user as mob)
 	if(istype(O, /obj/item/weapon/paper) || istype(O, /obj/item/weapon/photo) || istype(O, /obj/item/weapon/paper_bundle))
 		if(!copyitem)
-			user.drop_item()
+			user.drop_from_inventory(O,src)
 			copyitem = O
-			O.forceMove(src)
 			user << "<span class='notice'>You insert \the [O] into \the [src].</span>"
 			flick(insert_anim, src)
 			updateUsrDialog()
@@ -114,11 +113,10 @@
 			user << "<span class='notice'>There is already something in \the [src].</span>"
 	else if(istype(O, /obj/item/device/toner))
 		if(toner <= 10) //allow replacing when low toner is affecting the print darkness
-			user.drop_item()
-			user << "<span class='notice'>You insert the toner cartridge into \the [src].</span>"
+			user << "<span class='notice'>You insert \the [O] into \the [src].</span>"
 			var/obj/item/device/toner/T = O
 			toner += T.toner_amount
-			qdel(O)
+			user.drop_from_inventory(O,get_turf(src),TRUE)
 			updateUsrDialog()
 		else
 			user << "<span class='notice'>This cartridge is not yet ready for replacement! Use up the rest of the toner.</span>"

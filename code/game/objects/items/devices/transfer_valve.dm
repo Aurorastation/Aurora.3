@@ -25,13 +25,11 @@
 
 		if(!tank_one)
 			tank_one = item
-			user.drop_item()
-			item.forceMove(src)
+			user.drop_from_inventory(item,src)
 			user << "<span class='notice'>You attach the tank to the transfer valve.</span>"
 		else if(!tank_two)
 			tank_two = item
-			user.drop_item()
-			item.forceMove(src)
+			user.drop_from_inventory(item,src)
 			user << "<span class='notice'>You attach the tank to the transfer valve.</span>"
 			message_admins("[key_name_admin(user)] attached both tanks to a transfer valve. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
 			log_game("[key_name_admin(user)] attached both tanks to a transfer valve.",ckey=key_name(user))

@@ -90,8 +90,7 @@
 /obj/machinery/bot/mulebot/attackby(var/obj/item/I, var/mob/user)
 	if(istype(I,/obj/item/weapon/cell) && open && !cell)
 		var/obj/item/weapon/cell/C = I
-		user.drop_item()
-		C.forceMove(src)
+		user.drop_from_inventory(C,src)
 		cell = C
 		updateDialog()
 	else if(isscrewdriver(I))
@@ -276,9 +275,8 @@
 				if(open && !cell)
 					var/obj/item/weapon/cell/C = usr.get_active_hand()
 					if(istype(C))
-						usr.drop_item()
+						usr.drop_from_inventory(C,src)
 						cell = C
-						C.forceMove(src)
 						C.add_fingerprint(usr)
 
 						usr.visible_message("<span class='notice'>[usr] inserts a power cell into [src].</span>", "<span class='notice'>You insert the power cell into [src].</span>")

@@ -524,8 +524,7 @@
 			user << "<font color='blue'>The unit already contains a suit.</font>"
 			return
 		user << "You load the [S.name] into the storage compartment."
-		user.drop_item()
-		S.forceMove(src)
+		user.drop_from_inventory(S,src)
 		src.SUIT = S
 		src.update_icon()
 		src.updateUsrDialog()
@@ -538,8 +537,7 @@
 			user << "<font color='blue'>The unit already contains a helmet.</font>"
 			return
 		user << "You load the [H.name] into the storage compartment."
-		user.drop_item()
-		H.forceMove(src)
+		user.drop_from_inventory(H,src)
 		src.HELMET = H
 		src.update_icon()
 		src.updateUsrDialog()
@@ -552,8 +550,7 @@
 			user << "<font color='blue'>The unit already contains a mask.</font>"
 			return
 		user << "You load the [M.name] into the storage compartment."
-		user.drop_item()
-		M.forceMove(src)
+		user.drop_from_inventory(M,src)
 		src.MASK = M
 		src.update_icon()
 		src.updateUsrDialog()
@@ -739,8 +736,7 @@
 			return
 
 		user << "You fit \the [I] into the suit cycler."
-		user.drop_item()
-		I.forceMove(src)
+		user.drop_from_inventory(I,src)
 		helmet = I
 
 		src.update_icon()
@@ -762,8 +758,7 @@
 			return
 
 		user << "You fit \the [I] into the suit cycler."
-		user.drop_item()
-		I.forceMove(src)
+		user.drop_from_inventory(I,src)
 		suit = I
 
 		src.update_icon()

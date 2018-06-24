@@ -142,12 +142,17 @@ var/list/slot_equipment_priority = list( \
 
 // Removes an item from inventory and places it in the target atom.
 // If canremove or other conditions need to be checked then use unEquip instead.
-/mob/proc/drop_from_inventory(var/obj/item/W, var/atom/Target = null, var/disable_animate = FALSE)
+/mob/proc/drop_from_inventory(var/obj/item/W, var/atom/Target = null, var/delete = FALSE, var/disable_animate = FALSE)
 	if(W)
 		if(!Target)
 			Target = loc
 		remove_from_mob(W)
-		if(!(W && W.loc)) return 1 // self destroying objects (tk, grabs)
+		if(!(W && W.loc))
+			return 1 // self destroying objects (tk, grabs)
+		if(delete)
+			qdel(W)
+			update_icons()
+			return 1
 		W.forceMove(Target)
 		update_icons()
 		if(Target != src && !disable_animate)
@@ -298,7 +303,7 @@ var/list/slot_equipment_priority = list( \
 				if(disabilities & PACIFIST)
 					to_chat(src, "<span class='notice'>You gently let go of [M].</span>")
 					src.remove_from_mob(item)
-					item.forceMove(src.loc)
+					item.loc = src.loc
 					return
 				var/start_T_descriptor = "<font color='#6b5d00'>tile at [start_T.x], [start_T.y], [start_T.z] in area [get_area(start_T)]</font>"
 				var/end_T_descriptor = "<font color='#6b4400'>tile at [end_T.x], [end_T.y], [end_T.z] in area [get_area(end_T)]</font>"
@@ -313,7 +318,7 @@ var/list/slot_equipment_priority = list( \
 
 
 	src.remove_from_mob(item)
-	item.forceMove(src.loc)
+	item.loc = src.loc
 
 	if(disabilities & PACIFIST)
 		to_chat(src, "<span class='notice'>You set [item] down gently on the ground.</span>")

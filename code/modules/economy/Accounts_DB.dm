@@ -49,8 +49,7 @@
 		return ..()
 
 	if(!held_card)
-		user.drop_item()
-		O.forceMove(src)
+		user.drop_from_inventory(O,src)
 		held_card = O
 
 		SSnanoui.update_uis(src)
@@ -171,8 +170,7 @@
 					var/obj/item/I = usr.get_active_hand()
 					if (istype(I, /obj/item/weapon/card/id))
 						var/obj/item/weapon/card/id/C = I
-						usr.drop_item()
-						C.forceMove(src)
+						usr.drop_from_inventory(C,src)
 						held_card = C
 
 			if("view_account_detail")

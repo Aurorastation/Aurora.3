@@ -53,8 +53,7 @@
 			user << "A beaker is already loaded into the machine."
 			return
 		src.beaker = B
-		user.drop_item()
-		B.forceMove(src)
+		user.drop_from_inventory(B,src)
 		user << "You add the beaker to the machine!"
 		src.updateUsrDialog()
 		icon_state = "mixer1"
@@ -66,8 +65,7 @@
 			return
 
 		src.loaded_pill_bottle = B
-		user.drop_item()
-		B.forceMove(src)
+		user.drop_from_inventory(B,src)
 		user << "You add the pill bottle into the dispenser slot!"
 		src.updateUsrDialog()
 	else if(iswrench(B))
@@ -530,8 +528,7 @@
 			return
 
 		src.beaker =  I
-		user.drop_item()
-		I.forceMove(src)
+		user.drop_from_inventory(I,src)
 		user << "You add the beaker to the machine!"
 		src.updateUsrDialog()
 		icon_state = "mixer1"
@@ -583,8 +580,7 @@
 			return 1
 		else
 			src.beaker =  O
-			user.drop_item()
-			O.forceMove(src)
+			user.drop_from_inventory(O,src)
 			update_icon()
 			src.updateUsrDialog()
 			return 0

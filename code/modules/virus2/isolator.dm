@@ -36,8 +36,7 @@
 		return
 
 	sample = S
-	user.drop_item()
-	S.forceMove(src)
+	user.drop_from_inventory(S,src)
 
 	user.visible_message("[user] adds \a [O] to \the [src]!", "You add \a [O] to \the [src]!")
 	SSnanoui.update_uis(src)

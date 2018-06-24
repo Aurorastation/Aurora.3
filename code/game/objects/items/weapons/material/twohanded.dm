@@ -239,8 +239,7 @@
 		var/obj/structure/headspear/HS = new /obj/structure/headspear(user.loc)
 		var/matrix/M = matrix()
 		I.transform = M
-		usr.drop_item()
-		I.forceMove(HS)
+		usr.drop_from_inventory(I,HS)
 		var/mutable_appearance/MA = new(I)
 		MA.layer = FLOAT_LAYER
 		HS.add_overlay(MA)

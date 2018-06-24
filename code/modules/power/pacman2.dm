@@ -72,8 +72,7 @@
 				user << "<span class='warning'>The generator already has a phoron tank loaded!</span>"
 				return
 			P = O
-			user.drop_item()
-			O.forceMove(src)
+			user.drop_from_inventory(O,src)
 			user << "<span class='notice'>You add the phoron tank to the generator.</span>"
 		else if(!active)
 			if(iswrench(O))

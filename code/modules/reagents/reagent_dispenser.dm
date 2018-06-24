@@ -130,9 +130,7 @@
 				log_game("[key_name(user)] rigged fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) for explosion.",ckey=key_name(user))
 
 			rig = W
-			user.drop_item()
-			W.forceMove(src)
-
+			user.drop_from_inventory(W,src)
 			var/mutable_appearance/MA = new(W)
 			MA.pixel_x += 1
 			MA.pixel_y += 6

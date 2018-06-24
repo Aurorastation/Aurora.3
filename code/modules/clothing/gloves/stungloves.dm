@@ -35,8 +35,7 @@
 		if(!wired)
 			user << "<span class='notice'>The [src] need to be wired first.</span>"
 		else if(!cell)
-			user.drop_item()
-			W.forceMove(src)
+			user.drop_from_inventory(W,src)
 			cell = W
 			w_class = 3.0
 			user << "<span class='notice'>You attach the [cell] to the [src].</span>"

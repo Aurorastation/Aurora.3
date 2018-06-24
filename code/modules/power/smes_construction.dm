@@ -367,10 +367,9 @@
 					return
 
 				usr << "You install the coil into the SMES unit!"
-				user.drop_item()
+				user.drop_from_inventory(W,src)
 				cur_coils ++
 				component_parts += W
-				W.forceMove(src)
 				recalc_coils()
 			else
 				usr << "<span class='warning'>You can't insert more coils to this SMES unit!</span>"

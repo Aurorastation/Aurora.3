@@ -357,8 +357,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		if(lid)	//More of that restocking business
 			var/obj/item/weapon/paper_bundle/C = O
 			paperstock += C.amount
-			user.drop_item(C)
-			qdel(C)
+			user.drop_from_inventory(C,get_turf(src),TRUE)
 			for (var/mob/U in hearers(4, src.loc))
 				U.show_message(text("\icon[src] *The Requests Console beeps: 'Paper added.'"))
 		else
@@ -366,7 +365,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	else if (istype(O, /obj/item/weapon/paper))
 		if(lid)					//Stocking them papers
 			var/obj/item/weapon/paper/C = O
-			user.drop_item(C)
+			user.drop_from_inventory(C,get_turf(src))
 			qdel(C)
 			paperstock++
 			for (var/mob/U in hearers(4, src.loc))

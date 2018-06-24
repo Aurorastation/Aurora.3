@@ -267,11 +267,8 @@
 	if( istype( O, /obj/item/weapon/paper/incident ))
 		if( !incident )
 			if( import( O, user ))
-				usr.drop_item()
-				O.forceMove(src)
-
 				ping( "\The [src] pings, \"Successfully imported incident report!\"" )
-				qdel( O )
+				usr.drop_from_inventory(O,get_turf(src),TRUE)
 				src.updateUsrDialog()
 		else
 			user <<  "<span class='alert'>\The [src] buzzes, \"There's already an active sentence!\"</span>"

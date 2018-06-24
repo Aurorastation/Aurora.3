@@ -43,8 +43,7 @@
 				user << "<span class='notice'>You place the circuit board inside the frame.</span>"
 				icon_state = "1"
 				circuit = P
-				user.drop_item()
-				P.forceMove(src)
+				user.drop_from_inventory(P,src)
 			if(isscrewdriver(P) && circuit)
 				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				user << "<span class='notice'>You screw the circuit board into place.</span>"
@@ -139,8 +138,7 @@
 				if(M.brainmob.mind)
 					clear_antag_roles(M.brainmob.mind, 1)
 
-				user.drop_item()
-				P.forceMove(src)
+				user.drop_from_inventory(P,src)
 				brain = P
 				usr << "Added [P]."
 				icon_state = "3b"

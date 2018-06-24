@@ -104,8 +104,7 @@
 		else
 			if(W.reagents.total_volume)
 				user << "<span class='notice'>You add \the [W] to the assembly.</span>"
-				user.drop_item()
-				W.forceMove(src)
+				user.drop_from_inventory(W,src)
 				beakers += W
 				stage = 1
 				name = "unsecured grenade with [beakers.len] containers[detonator?" and detonator":""]"

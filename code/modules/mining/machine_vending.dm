@@ -142,8 +142,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 		else if(href_list["choice"] == "insert")
 			var/obj/item/weapon/card/id/I = usr.get_active_hand()
 			if(istype(I))
-				usr.drop_item()
-				I.forceMove(src)
+				usr.drop_from_inventory(I,src)
 				inserted_id = I
 			else usr << "<span class='danger'>No valid ID.</span>"
 	if(href_list["purchase"])
@@ -207,8 +206,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	if(istype(I,/obj/item/weapon/card/id))
 		var/obj/item/weapon/card/id/C = usr.get_active_hand()
 		if(istype(C) && !istype(inserted_id))
-			usr.drop_item()
-			C.forceMove(src)
+			usr.drop_from_inventory(C,src)
 			inserted_id = C
 			interact(user)
 		return

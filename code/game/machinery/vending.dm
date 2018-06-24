@@ -228,8 +228,7 @@
 			attack_hand(user)
 		return
 	else if(istype(W, /obj/item/weapon/coin) && premium.len > 0)
-		user.drop_item()
-		W.forceMove(src)
+		user.drop_from_inventory(W,src)
 		coin = W
 		categories |= CAT_COIN
 		user << "<span class='notice'>You insert \the [W] into \the [src].</span>"

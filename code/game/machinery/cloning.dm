@@ -235,7 +235,7 @@
 	else if(istype(W, /obj/item/weapon/reagent_containers/food/snacks/meat))
 		user << "<span class='notice'>\The [src] processes \the [W].</span>"
 		biomass += 50
-		user.drop_item()
+		user.drop_from_inventory(W,src)
 		qdel(W)
 		return
 	else if(iswrench(W))

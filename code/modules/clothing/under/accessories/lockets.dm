@@ -39,8 +39,7 @@
 			usr << "\The [src] already has something inside it."
 		else
 			usr << "You slip [O] into [src]."
-			user.drop_item()
-			O.forceMove(src)
+			user.drop_from_inventory(O,src)
 			src.held = O
 		return
 	..()

@@ -14,8 +14,7 @@
 		var/mob/living/carbon/C = user
 		if(!container)
 			container = I
-			C.drop_item()
-			I.forceMove(src)
+			C.drop_from_inventory(I,src)
 		return
 	if(istype(I,/obj/item/weapon/virusdish))
 		if(virusing)

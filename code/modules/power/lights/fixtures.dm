@@ -306,8 +306,7 @@
 
 				update()
 
-				user.drop_item()	//drop the item to update overlays and such
-				qdel(L)
+				user.drop_from_inventory(L,get_turf(src),TRUE)
 
 				if(!stat && rigged)
 					log_admin("LOG: Rigged light explosion, last touched by [fingerprintslast]")

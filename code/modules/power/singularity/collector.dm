@@ -62,9 +62,8 @@ var/global/list/rad_collectors = list()
 		if(src.P)
 			user << "<span class='warning'>There's already a phoron tank loaded.</span>"
 			return 1
-		user.drop_item()
+		user.drop_from_inventory(W,src)
 		src.P = W
-		W.forceMove(src)
 		update_icons()
 		return 1
 	else if(iscrowbar(W))

@@ -215,11 +215,10 @@
 		if(user.l_hand != src && user.r_hand != src)	//if we're not in his hands
 			user << "<span class='notice'>You'll need [src] in your hands to do that.</span>"
 			return
-		user.drop_item()
+		user.drop_from_inventory(I,src)
 		user << "<span class='notice'>You screw [I] onto [src].</span>"
 		silenced = I	//dodgy?
 		w_class = 3
-		I.forceMove(src)		//put the silencer into the gun
 		update_icon()
 		return
 	..()

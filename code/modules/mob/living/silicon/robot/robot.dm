@@ -688,9 +688,9 @@
 			storage = null
 		else
 			user << "You install \the [W]"
-		user.drop_item()
+		
 		storage = W
-		W.forceMove(src)
+		user.drop_from_inventory(W,src)
 		recalculate_synth_capacities()
 
 	else if (istype(W, /obj/item/weapon/cell) && opened)	// trying to put a cell inside
@@ -702,8 +702,7 @@
 		else if(W.w_class != 3)
 			user << "\The [W] is too [W.w_class < 3? "small" : "large"] to fit here."
 		else
-			user.drop_item()
-			W.forceMove(src)
+			user.drop_from_inventory(W,src)
 			cell = W
 			user << "You insert the power cell."
 
@@ -763,8 +762,7 @@
 		else
 			if(U.action(src))
 				usr << "You apply the upgrade to [src]!"
-				usr.drop_item()
-				U.forceMove(src)
+				user.drop_from_inventory(U,src)
 			else
 				usr << "Upgrade error!"
 

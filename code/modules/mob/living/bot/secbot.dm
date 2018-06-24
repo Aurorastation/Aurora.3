@@ -552,29 +552,26 @@
 			return 1
 
 	else if(isprox(O) && (build_step == 1))
-		user.drop_item()
 		build_step = 2
 		user << "You add \the [O] to [src]."
 		add_overlay("hs_eye")
 		name = "helmet/signaler/prox sensor assembly"
-		qdel(O)
+		user.drop_from_inventory(O,get_turf(src),TRUE)
 		return 1
 
 	else if((istype(O, /obj/item/robot_parts/l_arm) || istype(O, /obj/item/robot_parts/r_arm)) && build_step == 2)
-		user.drop_item()
 		build_step = 3
 		user << "You add \the [O] to [src]."
 		name = "helmet/signaler/prox sensor/robot arm assembly"
 		add_overlay("hs_arm")
-		qdel(O)
+		user.drop_from_inventory(O,get_turf(src),TRUE)
 		return 1
 
 	else if(istype(O, /obj/item/weapon/melee/baton) && build_step == 3)
-		user.drop_item()
 		user << "You complete the Securitron! Beep boop."
 		var/mob/living/bot/secbot/S = new /mob/living/bot/secbot(get_turf(src))
 		S.name = created_name
-		qdel(O)
+		user.drop_from_inventory(O,get_turf(src),TRUE)
 		qdel(src)
 		return 1
 

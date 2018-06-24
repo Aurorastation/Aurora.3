@@ -37,8 +37,7 @@
 
 /obj/item/weapon/folder/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/paper) || istype(W, /obj/item/weapon/photo) || istype(W, /obj/item/weapon/paper_bundle))
-		user.drop_item()
-		W.forceMove(src)
+		user.drop_from_inventory(W,src)
 		user << "<span class='notice'>You put the [W] into \the [src].</span>"
 		update_icon()
 	else if(istype(W, /obj/item/weapon/pen))

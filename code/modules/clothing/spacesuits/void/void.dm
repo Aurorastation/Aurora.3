@@ -222,8 +222,7 @@
 			user << "\The [src] already has a helmet installed."
 		else
 			user << "You attach \the [W] to \the [src]'s helmet mount."
-			user.drop_item()
-			W.forceMove(src)
+			user.drop_from_inventory(W,src)
 			src.helmet = W
 		return
 	else if(istype(W,/obj/item/clothing/shoes/magboots))
@@ -231,8 +230,7 @@
 			user << "\The [src] already has magboots installed."
 		else
 			user << "You attach \the [W] to \the [src]'s boot mounts."
-			user.drop_item()
-			W.forceMove(src)
+			user.drop_from_inventory(W,src)
 			boots = W
 		return
 	else if(istype(W,/obj/item/weapon/tank))
@@ -242,8 +240,7 @@
 			user << "\The [W] cannot be inserted into \the [src]'s storage compartment."
 		else
 			user << "You insert \the [W] into \the [src]'s storage compartment."
-			user.drop_item()
-			W.forceMove(src)
+			user.drop_from_inventory(W,src)
 			tank = W
 		return
 

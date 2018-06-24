@@ -158,8 +158,7 @@ var/global/photo_count = 0
 			user << "<span class='notice'>[src] still has some film in it!</span>"
 			return
 		user << "<span class='notice'>You insert [I] into [src].</span>"
-		user.drop_item()
-		qdel(I)
+		user.drop_from_inventory(I,get_turf(src),TRUE)
 		pictures_left = pictures_max
 		return
 	..()

@@ -95,8 +95,7 @@
 		if(scanned_item)
 			user << "<span class=warning>\The [src] already has \a [scanned_item] inside!</span>"
 			return
-		user.drop_item()
-		I.forceMove(src)
+		user.drop_from_inventory(I,src)
 		scanned_item = I
 		user << "<span class=notice>You put \the [I] into \the [src].</span>"
 

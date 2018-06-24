@@ -50,14 +50,13 @@
 		else
 			health = 10
 			nutrilevel += 10
-			user.drop_item()
-			qdel(O)
+			user.drop_from_inventory(O,get_turf(src),TRUE)
 			user << "<span class='notice'>You carefully insert the queen into [src], she gets busy making a hive.</span>"
 			bees_in_hive = 0
 	else if(istype(O, /obj/item/beezeez))
 		beezeez += 100
 		nutrilevel += 10
-		user.drop_item()
+		user.drop_from_inventory(O,get_turf(src),TRUE)
 		if(health > 0)
 			user << "<span class='notice'>You insert [O] into [src]. A relaxed humming appears to pick up.</span>"
 		else

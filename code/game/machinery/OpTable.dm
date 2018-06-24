@@ -57,11 +57,9 @@
 
 /obj/machinery/optable/MouseDrop_T(obj/O as obj, mob/user as mob)
 
-	if ((!( istype(O, /obj/item/weapon) ) || user.get_active_hand() != O))
+	if (!istype(O, /obj/item/weapon))
 		return
-	user.drop_item()
-	if (O.loc != src.loc)
-		step(O, get_dir(O, src))
+	user.drop_from_inventory(O,get_turf(src))
 	return
 
 /obj/machinery/optable/proc/check_victim()

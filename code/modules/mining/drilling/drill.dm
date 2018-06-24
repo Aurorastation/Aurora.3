@@ -168,8 +168,7 @@
 		if(cell)
 			user << "The drill already has a cell installed."
 		else
-			user.drop_item()
-			O.forceMove(src)
+			user.drop_from_inventory(O,src)
 			cell = O
 			component_parts += O
 			user << "You install \the [O]."

@@ -112,8 +112,7 @@
 			user << "<span class='notice'>[src] already has [max_beakers] beakers in it - another one isn't going to fit!</span>"
 			return
 		var/obj/item/weapon/reagent_containers/glass/beaker/B = I
-		user.drop_item()
-		B.forceMove(src)
+		user.drop_from_inventory(B,src)
 		beakers += B
 		user << "<span class='notice'>You slot [B] into [src].</span>"
 		src.updateUsrDialog()

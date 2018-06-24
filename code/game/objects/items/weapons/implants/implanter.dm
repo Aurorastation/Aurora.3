@@ -197,6 +197,5 @@
 		return
 
 	ipc_tag = new_tag
-	user.drop_item()
-	new_tag.forceMove(src)
+	user.drop_from_inventory(new_tag,src)
 	update()

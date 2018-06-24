@@ -740,8 +740,7 @@
 						user << "<span class='notice'>\the [I] is stuck to your hand, you cannot put it in \the [src]</span>"
 						return
 					user << "<span class='notice'>You install [I] into the turret.</span>"
-					user.drop_item()
-					E.forceMove(src)
+					user.drop_from_inventory(E,src)
 					target_type = /obj/machinery/porta_turret
 					installation = I.type //installation becomes I.type
 					build_step = 4

@@ -96,8 +96,7 @@
 		var/obj/item/device/assembly/igniter/I = W
 		if(I.secured)	return
 		if(igniter)		return
-		user.drop_item()
-		I.forceMove(src)
+		user.drop_from_inventory(I,src)
 		igniter = I
 		update_icon()
 		return
@@ -106,9 +105,8 @@
 		if(ptank)
 			user << "<span class='notice'>There appears to already be a phoron tank loaded in [src]!</span>"
 			return
-		user.drop_item()
+		user.drop_from_inventory(W,src)
 		ptank = W
-		W.forceMove(src)
 		update_icon()
 		return
 

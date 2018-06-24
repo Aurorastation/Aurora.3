@@ -128,37 +128,32 @@
 			user << "<span class='warning'>You need one sheet of metal to arm the robot frame.</span>"
 	if(istype(W, /obj/item/robot_parts/l_leg))
 		if(src.l_leg)	return
-		user.drop_item()
-		W.forceMove(src)
+		user.drop_from_inventory(W,src)
 		src.l_leg = W
 		src.updateicon()
 
 	if(istype(W, /obj/item/robot_parts/r_leg))
 		if(src.r_leg)	return
-		user.drop_item()
-		W.forceMove(src)
+		user.drop_from_inventory(W,src)
 		src.r_leg = W
 		src.updateicon()
 
 	if(istype(W, /obj/item/robot_parts/l_arm))
 		if(src.l_arm)	return
-		user.drop_item()
-		W.forceMove(src)
+		user.drop_from_inventory(W,src)
 		src.l_arm = W
 		src.updateicon()
 
 	if(istype(W, /obj/item/robot_parts/r_arm))
 		if(src.r_arm)	return
-		user.drop_item()
-		W.forceMove(src)
+		user.drop_from_inventory(W,src)
 		src.r_arm = W
 		src.updateicon()
 
 	if(istype(W, /obj/item/robot_parts/chest))
 		if(src.chest)	return
 		if(W:wires && W:cell)
-			user.drop_item()
-			W.forceMove(src)
+			user.drop_from_inventory(W,src)
 			src.chest = W
 			src.updateicon()
 		else if(!W:wires)
@@ -169,8 +164,7 @@
 	if(istype(W, /obj/item/robot_parts/head))
 		if(src.head)	return
 		if(W:flash2 && W:flash1)
-			user.drop_item()
-			W.forceMove(src)
+			user.drop_from_inventory(W,src)
 			src.head = W
 			src.updateicon()
 		else
@@ -229,7 +223,7 @@
 				var/mob/living/silicon/robot/O = new /mob/living/silicon/robot(get_turf(loc), TRUE)
 				if(!O)	return
 
-				user.drop_item()
+				user.drop_item() //TODO: Look into this.
 
 				O.mmi = W
 				O.invisibility = 0
@@ -279,8 +273,7 @@
 			user << "<span class='warning'>You have already inserted a cell!</span>"
 			return
 		else
-			user.drop_item()
-			W.forceMove(src)
+			user.drop_from_inventory(W,src)
 			src.cell = W
 			user << "<span class='notice'>You insert the cell!</span>"
 	if(iscoil(W))
@@ -316,9 +309,11 @@
 			add_flashes(W,user)
 	else if(istype(W, /obj/item/weapon/stock_parts/manipulator))
 		user << "<span class='notice'>You install some manipulators and modify the head, creating a functional spider-bot!</span>"
+
+
+
 		new /mob/living/simple_animal/spiderbot(get_turf(loc))
-		user.drop_item()
-		qdel(W)
+		user.drop_from_inventory(W,get_turf(loc),TRUE)
 		qdel(src)
 		return
 	return
@@ -328,13 +323,11 @@
 		user << "<span class='notice'>You have already inserted the eyes!</span>"
 		return
 	else if(src.flash1)
-		user.drop_item()
-		W.forceMove(src)
+		user.drop_from_inventory(W,src)
 		src.flash2 = W
 		user << "<span class='notice'>You insert the flash into the eye socket!</span>"
 	else
-		user.drop_item()
-		W.forceMove(src)
+		user.drop_from_inventory(W,src)
 		src.flash1 = W
 		user << "<span class='notice'>You insert the flash into the eye socket!</span>"
 

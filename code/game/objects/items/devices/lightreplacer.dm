@@ -98,8 +98,7 @@
 			if(uses < max_uses)
 				AddUses(1)
 				user << "You insert \the [L.name] into \the [src.name]. You have [uses] light\s remaining."
-				user.drop_item()
-				qdel(L)
+				user.drop_from_inventory(L,get_turf(src),TRUE)
 				return
 		else
 			user << "You need a working light."

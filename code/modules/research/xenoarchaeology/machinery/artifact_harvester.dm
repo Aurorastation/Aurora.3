@@ -25,8 +25,7 @@
 	if(istype(I,/obj/item/weapon/anobattery))
 		if(!inserted_battery)
 			user << "<span class='notice'>You insert [I] into [src].</span>"
-			user.drop_item()
-			I.forceMove(src)
+			user.drop_from_inventory(I,src)
 			src.inserted_battery = I
 			updateDialog()
 		else

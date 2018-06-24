@@ -47,8 +47,7 @@
 
 /obj/machinery/computer/secure_data/attackby(obj/item/O as obj, user as mob)
 	if(istype(O, /obj/item/weapon/card/id) && !scan)
-		usr.drop_item()
-		O.forceMove(src)
+		usr.drop_from_inventory(O,src)
 		scan = O
 		user << "You insert [O]."
 	..()

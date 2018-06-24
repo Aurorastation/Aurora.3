@@ -186,8 +186,7 @@
 
 						var/obj/item/device/radio/headset/headset_to_add = item_to_add
 
-						usr.drop_item()
-						headset_to_add.forceMove(src)
+						usr.drop_from_inventory(headset_to_add,src)
 						src.ears = headset_to_add
 						usr << "You fit the headset onto [src]."
 

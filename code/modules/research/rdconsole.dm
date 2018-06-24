@@ -119,8 +119,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		else
 			user << "<span class='notice'>Machine cannot accept disks in that format.</span>"
 			return
-		user.drop_item()
-		D.forceMove(src)
+		user.drop_from_inventory(D,src)
 		user << "<span class='notice'>You add \the [D] to the machine.</span>"
 	else
 		//The construction/deconstruction of the console code.

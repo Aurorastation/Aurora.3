@@ -55,8 +55,7 @@
 						playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 						user << "<span class='notice'>You add the circuit board to the frame.</span>"
 						circuit = P
-						user.drop_item()
-						P.forceMove(src)
+						user.drop_from_inventory(P,src)
 						icon_state = "box_2"
 						state = 3
 						components = list()
@@ -146,8 +145,7 @@
 											req_components[I] -= camt
 											update_desc()
 											break
-									user.drop_item()
-									P.forceMove(src)
+									user.drop_from_inventory(P,src)
 									components += P
 									req_components[I]--
 									update_desc()

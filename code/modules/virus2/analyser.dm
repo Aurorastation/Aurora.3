@@ -18,8 +18,7 @@
 		return
 
 	dish = O
-	user.drop_item()
-	O.forceMove(src)
+	user.drop_from_inventory(O,src)
 
 	user.visible_message("[user] adds \a [O] to \the [src]!", "You add \a [O] to \the [src]!")
 
