@@ -64,7 +64,7 @@ var/global/list/rad_collectors = list()
 			return 1
 		user.drop_item()
 		src.P = W
-		W.loc = src
+		W.forceMove(src)
 		update_icons()
 		return 1
 	else if(iscrowbar(W))
@@ -115,7 +115,7 @@ var/global/list/rad_collectors = list()
 	var/obj/item/weapon/tank/phoron/Z = src.P
 	if (!Z)
 		return
-	Z.loc = get_turf(src)
+	Z.forceMove(get_turf(src))
 	Z.layer = initial(Z.layer)
 	src.P = null
 	if(active)

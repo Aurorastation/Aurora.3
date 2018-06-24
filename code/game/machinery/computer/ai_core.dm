@@ -44,7 +44,7 @@
 				icon_state = "1"
 				circuit = P
 				user.drop_item()
-				P.loc = src
+				P.forceMove(src)
 			if(isscrewdriver(P) && circuit)
 				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				user << "<span class='notice'>You screw the circuit board into place.</span>"
@@ -55,7 +55,7 @@
 				user << "<span class='notice'>You remove the circuit board.</span>"
 				state = 1
 				icon_state = "0"
-				circuit.loc = loc
+				circuit.forceMove(loc)
 				circuit = null
 		if(2)
 			if(isscrewdriver(P) && circuit)
@@ -140,7 +140,7 @@
 					clear_antag_roles(M.brainmob.mind, 1)
 
 				user.drop_item()
-				P.loc = src
+				P.forceMove(src)
 				brain = P
 				usr << "Added [P]."
 				icon_state = "3b"
@@ -148,7 +148,7 @@
 			if(iscrowbar(P) && brain)
 				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
 				user << "<span class='notice'>You remove the brain.</span>"
-				brain.loc = loc
+				brain.forceMove(loc)
 				brain = null
 				icon_state = "3"
 
@@ -200,7 +200,7 @@
 	transfer.aiRestorePowerRoutine = 0
 	transfer.control_disabled = 0
 	transfer.aiRadio.disabledAi = 0
-	transfer.loc = get_turf(src)
+	transfer.forceMove(get_turf(src))
 	transfer.create_eyeobj()
 	transfer.cancel_camera()
 	user << "<span class='notice'>Transfer successful:</span> [transfer.name] ([rand(1000,9999)].exe) downloaded to host terminal. Local copy wiped."

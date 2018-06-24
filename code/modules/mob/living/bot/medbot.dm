@@ -172,7 +172,7 @@
 			return
 
 		user.drop_item()
-		O.loc = src
+		O.forceMove(src)
 		reagent_glass = O
 		user << "<span class='notice'>You insert [O].</span>"
 		return 1
@@ -216,7 +216,7 @@
 
 	else if (href_list["eject"] && (!isnull(reagent_glass)))
 		if(!locked)
-			reagent_glass.loc = get_turf(src)
+			reagent_glass.forceMove(get_turf(src))
 			reagent_glass = null
 		else
 			usr << "<span class='notice'>You cannot eject the beaker because the panel is locked.</span>"
@@ -257,7 +257,7 @@
 		new /obj/item/robot_parts/l_arm(Tsec)
 
 	if(reagent_glass)
-		reagent_glass.loc = Tsec
+		reagent_glass.forceMove(Tsec)
 		reagent_glass = null
 
 	spark(src, 3, alldirs)

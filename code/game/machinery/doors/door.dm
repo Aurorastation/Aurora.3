@@ -287,7 +287,7 @@
 		else
 			repairing = stack.split(amount_needed)
 			if (repairing)
-				repairing.loc = src
+				repairing.forceMove(src)
 				transfer = repairing.amount
 
 		if (transfer)
@@ -315,7 +315,7 @@
 	if(repairing && iscrowbar(I))
 		user << "<span class='notice'>You remove \the [repairing].</span>"
 		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
-		repairing.loc = user.loc
+		repairing.forceMove(user.loc)
 		repairing = null
 		return
 

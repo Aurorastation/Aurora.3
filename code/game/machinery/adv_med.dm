@@ -126,7 +126,7 @@
 			update_use_power(2)
 			src.icon_state = "body_scanner_1"
 			for(var/obj/O in src)
-				O.loc = src.loc
+				O.forceMove(src.loc)
 		//Foreach goto(154)
 	src.add_fingerprint(user)
 	//G = null

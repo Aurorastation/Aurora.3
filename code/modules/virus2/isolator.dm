@@ -37,7 +37,7 @@
 
 	sample = S
 	user.drop_item()
-	S.loc = src
+	S.forceMove(src)
 
 	user.visible_message("[user] adds \a [O] to \the [src]!", "You add \a [O] to \the [src]!")
 	SSnanoui.update_uis(src)
@@ -163,7 +163,7 @@
 		return 1
 
 	if (href_list["eject"])
-		sample.loc = src.loc
+		sample.forceMove(src.loc)
 		sample = null
 		update_icon()
 		return 1

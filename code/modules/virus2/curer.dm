@@ -15,7 +15,7 @@
 		if(!container)
 			container = I
 			C.drop_item()
-			I.loc = src
+			I.forceMove(src)
 		return
 	if(istype(I,/obj/item/weapon/virusdish))
 		if(virusing)
@@ -85,7 +85,7 @@
 	if (href_list["antibody"])
 		curing = 10
 	else if(href_list["eject"])
-		container.loc = src.loc
+		container.forceMove(src.loc)
 		container = null
 
 	src.add_fingerprint(usr)

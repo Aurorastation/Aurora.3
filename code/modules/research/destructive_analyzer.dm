@@ -72,7 +72,7 @@ Note: Must be placed within 3 tiles of the R&D Console
 		busy = 1
 		loaded_item = O
 		user.drop_item()
-		O.loc = src
+		O.forceMove(src)
 		user << "<span class='notice'>You add \the [O] to \the [src].</span>"
 		flick("d_analyzer_la", src)
 		spawn(10)

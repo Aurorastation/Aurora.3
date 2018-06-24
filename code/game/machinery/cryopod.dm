@@ -312,7 +312,7 @@
 		else
 			if(control_computer && control_computer.allow_items)
 				control_computer.frozen_items += W
-				W.loc = null
+				W.forceMove(null)
 			else
 				W.forceMove(src.loc)
 
@@ -416,7 +416,7 @@
 		if(do_after(user, 20))
 			if(!L) return
 
-			L.loc = src
+			L.forceMove(src)
 
 			if(L.client)
 				L.client.perspective = EYE_PERSPECTIVE

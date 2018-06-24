@@ -54,7 +54,7 @@
 			return
 		src.beaker = B
 		user.drop_item()
-		B.loc = src
+		B.forceMove(src)
 		user << "You add the beaker to the machine!"
 		src.updateUsrDialog()
 		icon_state = "mixer1"
@@ -67,7 +67,7 @@
 
 		src.loaded_pill_bottle = B
 		user.drop_item()
-		B.loc = src
+		B.forceMove(src)
 		user << "You add the pill bottle into the dispenser slot!"
 		src.updateUsrDialog()
 	else if(iswrench(B))
@@ -82,7 +82,7 @@
 
 	if (href_list["ejectp"])
 		if(loaded_pill_bottle)
-			loaded_pill_bottle.loc = src.loc
+			loaded_pill_bottle.forceMove(src.loc)
 			loaded_pill_bottle = null
 	else if(href_list["close"])
 		usr << browse(null, "window=chemmaster")
@@ -531,7 +531,7 @@
 
 		src.beaker =  I
 		user.drop_item()
-		I.loc = src
+		I.forceMove(src)
 		user << "You add the beaker to the machine!"
 		src.updateUsrDialog()
 		icon_state = "mixer1"
@@ -584,7 +584,7 @@
 		else
 			src.beaker =  O
 			user.drop_item()
-			O.loc = src
+			O.forceMove(src)
 			update_icon()
 			src.updateUsrDialog()
 			return 0
@@ -625,7 +625,7 @@
 		return 0
 
 	user.remove_from_mob(O)
-	O.loc = src
+	O.forceMove(src)
 	holdingitems += O
 	src.updateUsrDialog()
 	return 0
@@ -713,7 +713,7 @@
 		return
 	if (!beaker)
 		return
-	beaker.loc = src.loc
+	beaker.forceMove(src.loc)
 	beaker = null
 	update_icon()
 
@@ -725,7 +725,7 @@
 		return
 
 	for(var/obj/item/O in holdingitems)
-		O.loc = src.loc
+		O.forceMove(src.loc)
 		holdingitems -= O
 	holdingitems.Cut()
 

@@ -104,7 +104,7 @@
 			return
 		var/obj/item/weapon/tank/T = W
 		user.drop_item()
-		T.loc = src
+		T.forceMove(src)
 		src.holding = T
 		update_icon()
 		return
@@ -163,7 +163,7 @@
 		user.drop_item()
 		C.add_fingerprint(user)
 		cell = C
-		C.loc = src
+		C.forceMove(src)
 		user.visible_message("<span class='notice'>[user] opens the panel on [src] and inserts [C].</span>", "<span class='notice'>You open the panel on [src] and insert [C].</span>")
 		power_change()
 		return
@@ -175,7 +175,7 @@
 
 		user.visible_message("<span class='notice'>[user] opens the panel on [src] and removes [cell].</span>", "<span class='notice'>You open the panel on [src] and remove [cell].</span>")
 		cell.add_fingerprint(user)
-		cell.loc = src.loc
+		cell.forceMove(src.loc)
 		cell = null
 		power_change()
 		return

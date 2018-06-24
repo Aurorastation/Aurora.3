@@ -256,7 +256,7 @@
 			user << "<span class='notice'>You removed the airlock electronics!</span>"
 			src.state = 1
 			src.name = "Wired Airlock Assembly"
-			electronics.loc = src.loc
+			electronics.forceMove(src.loc)
 			electronics = null
 
 	else if(istype(W, /obj/item/stack/material) && !glass)

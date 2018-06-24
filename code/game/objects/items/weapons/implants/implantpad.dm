@@ -43,7 +43,7 @@
 		if(istype(C, /obj/item/weapon/implantcase))
 			if(!( src.case ))
 				user.drop_item()
-				C.loc = src
+				C.forceMove(src)
 				src.case = C
 		else
 			return

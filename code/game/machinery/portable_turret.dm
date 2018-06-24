@@ -741,7 +741,7 @@
 						return
 					user << "<span class='notice'>You install [I] into the turret.</span>"
 					user.drop_item()
-					E.loc = src
+					E.forceMove(src)
 					target_type = /obj/machinery/porta_turret
 					installation = I.type //installation becomes I.type
 					build_step = 4
@@ -879,7 +879,7 @@
 			if(!installation)
 				return
 			build_step = 3
-			E.loc = src.loc
+			E.forceMove(src.loc)
 			installation = null
 			cut_overlays()
 			icon_state = "turret_frame_3_[case_sprite_set]"

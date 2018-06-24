@@ -29,7 +29,7 @@
 	if(istype(swab) && swab.is_used())
 		user.unEquip(W)
 		src.bloodsamp = swab
-		swab.loc = src
+		swab.forceMove(src)
 		user << "<span class='notice'>You insert \the [W] into \the [src].</span>"
 	else
 		user << "<span class='warning'>\The [src] only accepts used swabs.</span>"

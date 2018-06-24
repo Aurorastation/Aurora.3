@@ -116,7 +116,7 @@
 		C.use(1)
 		if(!istype(src.loc, /turf))
 			user.drop_from_inventory(src)
-			src.loc = get_turf(src)
+			src.forceMove(get_turf(src))
 		user << "You add padding to \the [src]."
 		add_padding(padding_type)
 		return
@@ -134,7 +134,7 @@
 		var/mob/living/affecting = G.affecting
 		user.visible_message("<span class='notice'>[user] attempts to buckle [affecting] into \the [src]!</span>")
 		if(do_after(user, 20))
-			affecting.loc = loc
+			affecting.forceMove(loc)
 			spawn(0)
 				if(buckle_mob(affecting))
 					affecting.visible_message(\
@@ -223,7 +223,7 @@
 		var/obj/item/roller_holder/RH = W
 		if(!RH.held)
 			user << "<span class='notice'>You collect the roller bed.</span>"
-			src.loc = RH
+			src.forceMove(RH)
 			RH.held = src
 			return
 
@@ -257,7 +257,7 @@
 	..()
 	if(buckled_mob)
 		if(buckled_mob.buckled == src)
-			buckled_mob.loc = src.loc
+			buckled_mob.forceMove(src.loc)
 		else
 			buckled_mob = null
 

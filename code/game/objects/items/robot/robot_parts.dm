@@ -118,7 +118,7 @@
 		var/obj/item/stack/material/M = W
 		if (M.use(1))
 			var/obj/item/weapon/secbot_assembly/ed209_assembly/B = new /obj/item/weapon/secbot_assembly/ed209_assembly
-			B.loc = get_turf(src)
+			B.forceMove(get_turf(src))
 			user << "<span class='notice'>You armed the robot frame.</span>"
 			if (user.get_inactive_hand()==src)
 				user.remove_from_mob(src)
@@ -129,28 +129,28 @@
 	if(istype(W, /obj/item/robot_parts/l_leg))
 		if(src.l_leg)	return
 		user.drop_item()
-		W.loc = src
+		W.forceMove(src)
 		src.l_leg = W
 		src.updateicon()
 
 	if(istype(W, /obj/item/robot_parts/r_leg))
 		if(src.r_leg)	return
 		user.drop_item()
-		W.loc = src
+		W.forceMove(src)
 		src.r_leg = W
 		src.updateicon()
 
 	if(istype(W, /obj/item/robot_parts/l_arm))
 		if(src.l_arm)	return
 		user.drop_item()
-		W.loc = src
+		W.forceMove(src)
 		src.l_arm = W
 		src.updateicon()
 
 	if(istype(W, /obj/item/robot_parts/r_arm))
 		if(src.r_arm)	return
 		user.drop_item()
-		W.loc = src
+		W.forceMove(src)
 		src.r_arm = W
 		src.updateicon()
 
@@ -158,7 +158,7 @@
 		if(src.chest)	return
 		if(W:wires && W:cell)
 			user.drop_item()
-			W.loc = src
+			W.forceMove(src)
 			src.chest = W
 			src.updateicon()
 		else if(!W:wires)
@@ -170,7 +170,7 @@
 		if(src.head)	return
 		if(W:flash2 && W:flash1)
 			user.drop_item()
-			W.loc = src
+			W.forceMove(src)
 			src.head = W
 			src.updateicon()
 		else
@@ -244,8 +244,8 @@
 				O.job = "Cyborg"
 
 				O.cell = chest.cell
-				O.cell.loc = O
-				W.loc = O//Should fix cybros run time erroring when blown up. It got deleted before, along with the frame.
+				O.cell.forceMove(O)
+				W.forceMove(O)//Should fix cybros run time erroring when blown up. It got deleted before, along with the frame.
 
 				// Since we "magically" installed a cell, we also have to update the correct component.
 				if(O.cell)
@@ -280,7 +280,7 @@
 			return
 		else
 			user.drop_item()
-			W.loc = src
+			W.forceMove(src)
 			src.cell = W
 			user << "<span class='notice'>You insert the cell!</span>"
 	if(iscoil(W))
@@ -329,12 +329,12 @@
 		return
 	else if(src.flash1)
 		user.drop_item()
-		W.loc = src
+		W.forceMove(src)
 		src.flash2 = W
 		user << "<span class='notice'>You insert the flash into the eye socket!</span>"
 	else
 		user.drop_item()
-		W.loc = src
+		W.forceMove(src)
 		src.flash1 = W
 		user << "<span class='notice'>You insert the flash into the eye socket!</span>"
 

@@ -919,7 +919,7 @@ proc/admin_notice(var/message, var/rights)
 	set name = "Unprison"
 	if (M.z == 2)
 		if (config.allow_admin_jump)
-			M.loc = pick(latejoin)
+			M.forceMove(pick(latejoin))
 			message_admins("[key_name_admin(usr)] has unprisoned [key_name_admin(M)]", 1)
 			log_admin("[key_name(usr)] has unprisoned [key_name(M)]")
 		else

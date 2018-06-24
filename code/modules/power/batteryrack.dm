@@ -63,7 +63,7 @@
 					M.state = 2
 					M.icon_state = "box_1"
 					for(var/obj/I in component_parts)
-						I.loc = src.loc
+						I.forceMove(src.loc)
 					qdel(src)
 					return 1
 				else
@@ -75,7 +75,7 @@
 				if (!output_attempt && !input_attempt)
 					user.drop_item()
 					component_parts += W
-					W.loc = src
+					W.forceMove(src)
 					RefreshParts()
 					user << "<span class='notice'>You upgrade the [src] with [W.name].</span>"
 				else

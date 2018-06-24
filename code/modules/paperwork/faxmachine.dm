@@ -123,7 +123,7 @@ var/list/admin_departments
 
 	else if(href_list["remove"])
 		if(copyitem)
-			copyitem.loc = loc
+			copyitem.forceMove(loc)
 			if (get_dist(usr, src) < 2)
 				usr.put_in_hands(copyitem)
 				usr << "<span class='notice'>You take \the [copyitem] out of \the [src].</span>"
@@ -135,17 +135,17 @@ var/list/admin_departments
 	if(href_list["scan"])
 		if (scan)
 			if(ishuman(usr))
-				scan.loc = usr.loc
+				scan.forceMove(usr.loc)
 				if(!usr.get_active_hand())
 					usr.put_in_hands(scan)
 				scan = null
 			else
-				scan.loc = src.loc
+				scan.forceMove(src.loc)
 				scan = null
 		else
 			var/obj/item/I = usr.get_active_hand()
 			if (istype(I, /obj/item/weapon/card/id) && usr.unEquip(I))
-				I.loc = src
+				I.forceMove(src)
 				scan = I
 		authenticated = 0
 

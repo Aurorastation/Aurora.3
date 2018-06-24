@@ -268,7 +268,7 @@
 		if( !incident )
 			if( import( O, user ))
 				usr.drop_item()
-				O.loc = src
+				O.forceMove(src)
 
 				ping( "\The [src] pings, \"Successfully imported incident report!\"" )
 				qdel( O )

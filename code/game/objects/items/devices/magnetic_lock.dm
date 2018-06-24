@@ -184,7 +184,7 @@
 				if (!powercell)
 					user << span("notice","You place the [I] inside \the [src].")
 					user.drop_item()
-					I.loc = src
+					I.forceMove(src)
 					powercell = I
 					setconstructionstate(1)
 				return

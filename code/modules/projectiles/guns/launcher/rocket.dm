@@ -27,7 +27,7 @@
 	if(istype(I, /obj/item/ammo_casing/rocket))
 		if(rockets.len < max_rockets)
 			user.drop_item()
-			I.loc = src
+			I.forceMove(src)
 			rockets += I
 			user << "<span class='notice'>You put the rocket in [src].</span>"
 			user << "<span class='notice'>[rockets.len] / [max_rockets] rockets.</span>"

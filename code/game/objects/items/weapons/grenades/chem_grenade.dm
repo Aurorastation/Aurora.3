@@ -61,7 +61,7 @@
 		user << "<span class='notice'>You add [W] to the metal casing.</span>"
 		playsound(src.loc, 'sound/items/Screwdriver2.ogg', 25, -3)
 		user.remove_from_mob(det)
-		det.loc = src
+		det.forceMove(src)
 		detonator = det
 		if(istimer(detonator.a_left))
 			var/obj/item/device/assembly/timer/T = detonator.a_left

@@ -614,7 +614,7 @@ var/global/list/default_medbay_channels = list(
 			if(keyslot)
 				var/turf/T = get_turf(user)
 				if(T)
-					keyslot.loc = T
+					keyslot.forceMove(T)
 					keyslot = null
 
 			recalculateChannels()
@@ -630,7 +630,7 @@ var/global/list/default_medbay_channels = list(
 
 		if(!keyslot)
 			user.drop_item()
-			W.loc = src
+			W.forceMove(src)
 			keyslot = W
 
 		recalculateChannels()

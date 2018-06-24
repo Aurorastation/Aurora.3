@@ -82,7 +82,7 @@
 				COIN = locate(/obj/item/weapon/coin/uranium,src.contents)
 		if(!COIN)
 			return
-		COIN.loc = src.loc
+		COIN.forceMove(src.loc)
 	return
 
 

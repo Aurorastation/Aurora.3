@@ -24,7 +24,7 @@
 
 		dish = I
 		c.drop_item()
-		I.loc = src
+		I.forceMove(src)
 
 	if(istype(I,/obj/item/weapon/diseasedisk))
 		user << "You upload the contents of the disk onto the buffer."
@@ -155,7 +155,7 @@
 
 	if(href_list["eject"])
 		if (dish)
-			dish.loc = src.loc
+			dish.forceMove(src.loc)
 			dish = null
 		return 1
 

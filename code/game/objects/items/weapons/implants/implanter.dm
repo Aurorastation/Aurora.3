@@ -11,7 +11,7 @@
 /obj/item/weapon/implanter/attack_self(var/mob/user)
 	if(!imp)
 		return ..()
-	imp.loc = get_turf(src)
+	imp.forceMove(get_turf(src))
 	user.put_in_hands(imp)
 	user << "<span class='notice'>You remove \the [imp] from \the [src].</span>"
 	name = "implanter"
@@ -43,7 +43,7 @@
 				admin_attack_log(user, M, "Implanted using \the [src.name] ([src.imp.name])", "Implanted with \the [src.name] ([src.imp.name])", "used an implanter, [src.name] ([src.imp.name]), on")
 
 				if(src.imp.implanted(M))
-					src.imp.loc = M
+					src.imp.forceMove(M)
 					src.imp.imp_in = M
 					src.imp.implanted = 1
 					if (ishuman(M))
@@ -198,5 +198,5 @@
 
 	ipc_tag = new_tag
 	user.drop_item()
-	new_tag.loc = src
+	new_tag.forceMove(src)
 	update()

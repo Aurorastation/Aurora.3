@@ -74,13 +74,13 @@
 	if(iswrench(W) && !status)//Taking this apart
 		var/turf/T = get_turf(src)
 		if(weldtool)
-			weldtool.loc = T
+			weldtool.forceMove(T)
 			weldtool = null
 		if(igniter)
-			igniter.loc = T
+			igniter.forceMove(T)
 			igniter = null
 		if(ptank)
-			ptank.loc = T
+			ptank.forceMove(T)
 			ptank = null
 		new /obj/item/stack/rods(T)
 		qdel(src)
@@ -97,7 +97,7 @@
 		if(I.secured)	return
 		if(igniter)		return
 		user.drop_item()
-		I.loc = src
+		I.forceMove(src)
 		igniter = I
 		update_icon()
 		return
@@ -108,7 +108,7 @@
 			return
 		user.drop_item()
 		ptank = W
-		W.loc = src
+		W.forceMove(src)
 		update_icon()
 		return
 

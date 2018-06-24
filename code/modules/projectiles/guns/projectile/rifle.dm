@@ -72,7 +72,7 @@
 
 /obj/item/weapon/gun/projectile/contender/attack_self(mob/user as mob)
 	if(chambered)
-		chambered.loc = get_turf(src)
+		chambered.forceMove(get_turf(src))
 		chambered = null
 		var/obj/item/ammo_casing/C = loaded[1]
 		loaded -= C
@@ -159,7 +159,7 @@
 
 
 	if(chambered)//We have a shell in the chamber
-		chambered.loc = get_turf(src)//Eject casing
+		chambered.forceMove(get_turf(src))//Eject casing
 		chambered = null
 
 	if(loaded.len)

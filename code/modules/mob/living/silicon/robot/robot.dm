@@ -243,7 +243,8 @@
 /mob/living/silicon/robot/Destroy()
 	if(mmi && mind)//Safety for when a cyborg gets dust()ed. Or there is no MMI inside.
 		var/turf/T = get_turf(loc)//To hopefully prevent run time errors.
-		if(T)	mmi.loc = T
+		if(T)	
+			mmi.forceMove(T)
 		if(mmi.brainmob)
 			mind.transfer_to(mmi.brainmob)
 		else
@@ -665,7 +666,7 @@
 					I.brute = C.brute_damage
 					I.burn = C.electronics_damage
 
-				I.loc = src.loc
+				I.forceMove(src.loc)
 
 				if(C.installed == 1)
 					C.uninstall()
@@ -702,7 +703,7 @@
 			user << "\The [W] is too [W.w_class < 3? "small" : "large"] to fit here."
 		else
 			user.drop_item()
-			W.loc = src
+			W.forceMove(src)
 			cell = W
 			user << "You insert the power cell."
 
@@ -763,7 +764,7 @@
 			if(U.action(src))
 				usr << "You apply the upgrade to [src]!"
 				usr.drop_item()
-				U.loc = src
+				U.forceMove(src)
 			else
 				usr << "Upgrade error!"
 

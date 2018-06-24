@@ -500,7 +500,7 @@
 
 	L.update()
 	L.add_fingerprint(user)
-	L.loc = loc
+	L.forceMove(loc)
 
 	inserted_light = null
 

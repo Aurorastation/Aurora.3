@@ -50,7 +50,7 @@
 
 /obj/structure/janitorialcart/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
 	if (istype(O, /obj/structure/mopbucket) && !mybucket)
-		O.loc = src
+		O.forceMove(src)
 		mybucket = O
 		user << "You mount the [O] on the janicart."
 		update_icon()

@@ -494,7 +494,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 				if("armor")
 					R.word1=cultwords["hell"]
 					R.word2=cultwords["destroy"]
-					R.word3=cultwords["other"])
+					R.word3=cultwords["other"]
 				if("convert")
 					R.word1=cultwords["join"]
 					R.word2=cultwords["blood"]

@@ -65,7 +65,7 @@
 			else if (response == "Carbon-Copy")
 				P = new /obj/item/weapon/paper/carbon
 
-		P.loc = user.loc
+		P.forceMove(user.loc)
 		user.put_in_hands(P)
 		user << "<span class='notice'>You take [P] out of the [src].</span>"
 	else
@@ -79,7 +79,7 @@
 	if(istype(O, /obj/item/weapon/paper))
 		var/obj/item/weapon/paper/i = O
 		user.drop_item()
-		i.loc = src
+		i.forceMove(src)
 		user << "<span class='notice'>You put [i] in [src].</span>"
 		papers.Add(i)
 		amount++

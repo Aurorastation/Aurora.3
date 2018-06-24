@@ -243,7 +243,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/Destroy()
 	if(contents)
 		for(var/atom/movable/something in contents)
-			something.loc = get_turf(src)
+			something.forceMove(get_turf(src))
 	return ..()
 
 
@@ -1948,7 +1948,7 @@
 		user << "You place \the [name] under a stream of water..."
 		if(istype(user))
 			user.unEquip(src)
-		src.loc = get_turf(src)
+		src.forceMove(get_turf(src))
 		return Expand()
 	..()
 
@@ -3883,7 +3883,7 @@
 			if( (boxes.len+1) + boxestoadd.len <= 5 )
 				user.drop_item()
 
-				box.loc = src
+				box.forceMove(src)
 				box.boxes = list() // Clear the box boxes so we don't have boxes inside boxes. - Xzibit
 				src.boxes.Add( boxestoadd )
 
@@ -3902,7 +3902,7 @@
 
 		if( src.open )
 			user.drop_item()
-			I.loc = src
+			I.forceMove(src)
 			src.pizza = I
 
 			update_icon()

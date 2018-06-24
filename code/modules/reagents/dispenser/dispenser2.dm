@@ -87,7 +87,7 @@
 		var/obj/item/weapon/reagent_containers/chem_disp_cartridge/C = remove_cartridge(label)
 		if(C)
 			user << "<span class='notice'>You remove \the [C] from \the [src].</span>"
-			C.loc = loc
+			C.forceMove(loc)
 
 	else if(istype(W, /obj/item/weapon/reagent_containers/glass) || istype(W, /obj/item/weapon/reagent_containers/food))
 		if(container)
@@ -161,7 +161,7 @@
 	else if(href_list["ejectBeaker"])
 		if(container)
 			var/obj/item/weapon/reagent_containers/B = container
-			B.loc = loc
+			B.forceMove(loc)
 			container = null
 
 	add_fingerprint(usr)

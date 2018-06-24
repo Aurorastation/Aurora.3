@@ -306,7 +306,7 @@
 	user.visible_message("<span class='warning'>[user] kicks over \the [src]!</span>", "<span class='danger'>You kick down \the [src]!</span>")
 	new /obj/item/weapon/material/twohanded/spear(user.loc, material)
 	for(var/obj/item/organ/external/head/H in src)
-		H.loc = user.loc
+		H.forceMove(user.loc)
 	qdel(src)
 
 // Chainsaws!
