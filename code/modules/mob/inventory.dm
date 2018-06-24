@@ -147,12 +147,12 @@ var/list/slot_equipment_priority = list( \
 	if(W)
 		if(!Target)
 			Target = loc
-
 		remove_from_mob(W)
 		if(!(W && W.loc)) return 1 // self destroying objects (tk, grabs)
-
 		W.forceMove(Target)
 		update_icons()
+		if(Target != src)
+			animate_item(W,get_turf(src),get_turf(W),0.25 SECONDS,ANIMATION_STYLE_GROWMOVE)
 		return 1
 	return 0
 

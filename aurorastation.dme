@@ -1114,6 +1114,7 @@
 #include "code\modules\alarm\power_alarm.dm"
 #include "code\modules\ambient_occlusion\ao_turf.dm"
 #include "code\modules\ambient_occlusion\ao_verbs.dm"
+#include "code\modules\animation\core.dm"
 #include "code\modules\antag_contest\sol_items.dm"
 #include "code\modules\assembly\assembly.dm"
 #include "code\modules\assembly\bomb.dm"
