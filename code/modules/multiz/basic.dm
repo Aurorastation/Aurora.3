@@ -1,5 +1,5 @@
 // If you add a more comprehensive system, just untick this file.
-// WARNING: Only works for up to 17 z-levels, and Z1 cannot connect to others!
+// WARNING: Only works for up to 17 z-levels!
 
 // If the height is more than 1, we mark all contained levels as connected.
 /obj/effect/landmark/map_data/New()
