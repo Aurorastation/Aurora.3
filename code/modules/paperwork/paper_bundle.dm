@@ -34,10 +34,8 @@
 
 	// merging bundles
 	else if(istype(W, /obj/item/weapon/paper_bundle))
-		//TODO: Bug Lohikar
-		user.drop_from_inventory(W)
 		for(var/obj/O in W)
-			O.loc = src
+			O.forceMove(src)
 			O.add_fingerprint(usr)
 			pages.Add(O)
 			amount++
@@ -84,10 +82,6 @@
 			if(get_dist(src, user) < 2 && user.get_active_hand() == P && P.lit)
 				user.visible_message("<span class='[class]'>[user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", \
 				"<span class='[class]'>You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>")
-				//TODO: Bug Lohikar
-				if(user.get_inactive_hand() == src)
-					user.drop_from_inventory(src)
-
 				new /obj/effect/decal/cleanable/ash(src.loc)
 				qdel(src)
 
@@ -167,14 +161,10 @@
 
 			usr << "<span class='notice'>You remove the [W.name] from the bundle.</span>"
 
-			//TODO: Bug Lohikar
 			if(pages.len <= 1)
 				var/obj/item/weapon/paper/P = src[1]
-				//TODO: Bug Lohikar
-				usr.drop_from_inventory(src)
 				usr.put_in_hands(P)
 				qdel(src)
-
 				return
 
 			if(page > pages.len)
@@ -209,8 +199,6 @@
 		O.loc = usr.loc
 		O.layer = initial(O.layer)
 		O.add_fingerprint(usr)
-	//TODO: Bug Lohikar
-	usr.drop_from_inventory(src)
 	qdel(src)
 	return
 

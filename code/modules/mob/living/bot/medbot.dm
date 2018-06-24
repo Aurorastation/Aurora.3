@@ -329,8 +329,6 @@
 	qdel(S)
 	user.put_in_hands(A)
 	user << "<span class='notice'>You add the robot arm to the first aid kit.</span>"
-	//TODO: Check with Lohikar
-	user.drop_from_inventory(src)
 	qdel(src)
 
 /obj/item/weapon/firstaid_arm_assembly
@@ -378,7 +376,5 @@
 					var/mob/living/bot/medbot/S = new /mob/living/bot/medbot(T)
 					S.skin = skin
 					S.name = created_name
-					//TODO: Check with Lohikar
-					user.drop_from_inventory(src)
 					qdel(src)
 					return 1

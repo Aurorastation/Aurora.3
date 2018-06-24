@@ -385,8 +385,6 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		var/mob/living/bot/cleanbot/A = new /mob/living/bot/cleanbot(T)
 		A.name = created_name
 		user << "<span class='notice'>You add the robot arm to the bucket and sensor assembly. Beep boop!</span>"
-		//Check with Lohikar
-		user.drop_from_inventory(src)
 		qdel(src)
 
 	else if(istype(O, /obj/item/weapon/pen))

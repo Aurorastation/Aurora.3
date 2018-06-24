@@ -322,11 +322,6 @@
 			if(get_dist(src, user) < 2 && user.get_active_hand() == P)
 				user.visible_message("<span class='[class]'>[user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", \
 				"<span class='[class]'>You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>")
-				
-				//TODO: Bug Lohikar
-				if(user.get_inactive_hand() == src)
-					user.drop_from_inventory(src)
-
 				new /obj/effect/decal/cleanable/ash(src.loc)
 				qdel(src)
 

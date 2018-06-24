@@ -669,29 +669,21 @@
 	if(sealed)
 		if(H.head)
 			var/obj/item/garbage = H.head
-			//TODO: Await Lohikar's response
-			H.drop_from_inventory(garbage)
 			H.head = null
 			qdel(garbage)
 
 		if(H.gloves)
 			var/obj/item/garbage = H.gloves
-			//TODO: Await Lohikar's response
-			H.drop_from_inventory(garbage)
 			H.gloves = null
 			qdel(garbage)
 
 		if(H.shoes)
 			var/obj/item/garbage = H.shoes
-			//TODO: Await Lohikar's response
-			H.drop_from_inventory(garbage)
 			H.shoes = null
 			qdel(garbage)
 
 		if(H.wear_suit)
 			var/obj/item/garbage = H.wear_suit
-			//TODO: Await Lohikar's response
-			H.drop_from_inventory(garbage)
 			H.wear_suit = null
 			qdel(garbage)
 

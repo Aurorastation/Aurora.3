@@ -23,9 +23,7 @@
 		var/obj/item/weapon/spacecash/bundle/bundle
 		if(!istype(W, /obj/item/weapon/spacecash/bundle))
 			var/obj/item/weapon/spacecash/cash = W
-			//TODO: Wait for Lohikar to respond
-			user.drop_from_inventory(cash)
-			bundle = new (src.loc)
+			bundle = new(src.loc)
 			bundle.worth += cash.worth
 			qdel(cash)
 		else //is bundle

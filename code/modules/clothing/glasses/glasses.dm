@@ -178,8 +178,6 @@ BLIND     // can't see anything
 		user << "<span class='notice'>You attach a set of medical HUDs to your glasses.</span>"
 		var/turf/T = get_turf(src)
 		new /obj/item/clothing/glasses/hud/health/prescription(T)
-		//TODO: wait for lohikar's response
-		user.drop_from_inventory(src)
 		qdel(src)
 	if(istype(W, /obj/item/clothing/glasses/hud/security))
 		user.drop_item()
@@ -187,8 +185,6 @@ BLIND     // can't see anything
 		user << "<span class='notice'>You attach a set of security HUDs to your glasses.</span>"
 		var/turf/T = get_turf(src)
 		new /obj/item/clothing/glasses/hud/security/prescription(T)
-		//TODO: wait for lohikar's response
-		user.drop_from_inventory(src)
 		qdel(src)
 
 /obj/item/clothing/glasses/regular/scanners

@@ -60,8 +60,6 @@
 /obj/item/weapon/reagent_containers/food/snacks/attack(mob/M as mob, mob/user as mob, def_zone)
 	if(!reagents.total_volume)
 		user << "<span class='danger'>None of [src] left!</span>"
-		//TODO: Bug Lohikar
-		user.drop_from_inventory(src)
 		qdel(src)
 		return 0
 
@@ -729,8 +727,6 @@
 		return
 	user << "You crack \the [src] into \the [O]."
 	reagents.trans_to(O, reagents.total_volume)
-	//TODO: Bug Lohikar
-	user.drop_from_inventory(src)
 	qdel(src)
 
 /obj/item/weapon/reagent_containers/food/snacks/egg/throw_impact(atom/hit_atom)
@@ -4058,8 +4054,7 @@
 
 		//If the bun was in your hands, the result will be too
 		if (loc == user)
-			//TODO: Bug Lohikar
-			user.drop_from_inventory(src)
+			user.drop_from_inventory(src, disable_animate = TRUE) //This has to be here in order to put the pun in the proper place
 			user.put_in_hands(result)
 
 		qdel(W)

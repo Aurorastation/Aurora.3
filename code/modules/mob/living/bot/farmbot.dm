@@ -324,8 +324,6 @@
 
 	user << "You add the robot arm to [src]."
 	loc = A //Place the water tank into the assembly, it will be needed for the finished bot
-	//TODO: Check with Lohikar
-	user.drop_from_inventory(S)
 	qdel(S)
 
 /obj/item/weapon/farmbot_arm_assembly/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -334,7 +332,6 @@
 		build_step++
 		user << "You add the plant analyzer to [src]."
 		name = "farmbot assembly"
-		user.remove_from_mob(W)
 		qdel(W)
 		return 1
 
@@ -342,7 +339,6 @@
 		build_step++
 		user << "You add a bucket to [src]."
 		name = "farmbot assembly with bucket"
-		user.remove_from_mob(W)
 		qdel(W)
 		return 1//Prevents the object's afterattack from executing and causing runtime errors
 

@@ -186,7 +186,5 @@
 				new /mob/living/bot/secbot/ed209(T,created_name,lasercolor)
 				user.drop_item()
 				qdel(W)
-				//Check with Lohikar
-				user.drop_from_inventory(src)
 				qdel(src)
 				return 1

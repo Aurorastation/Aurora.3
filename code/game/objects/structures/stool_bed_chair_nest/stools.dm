@@ -122,8 +122,6 @@
 			return
 		var/obj/item/stack/C = W
 		if(C.get_amount() < 1) // How??
-			//TODO: Await lohikar's response
-			user.drop_from_inventory(C)
 			qdel(C)
 			return
 		var/padding_type //This is awful but it needs to be like this until tiles are given a material var.
