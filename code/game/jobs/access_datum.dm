@@ -411,7 +411,7 @@ var/const/access_journalist = 70//journalist's office access
 /datum/access/journalist
 	id = access_journalist
 	desc = "Journalist Office"
-	access_type = ACCESS_REGION_GENERAL
+	region = ACCESS_REGION_GENERAL
 
 /******************
 * Central Command *

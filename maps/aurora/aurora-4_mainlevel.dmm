@@ -63338,7 +63338,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock{
 	name = "Journalist's Office";
-	req_access = list(111)
+	req_access = list(70)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -63674,7 +63674,7 @@
 "cuC" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(57)
+	req_access = list(70)
 	},
 /turf/simulated/floor/plating,
 /area/journalistoffice)
