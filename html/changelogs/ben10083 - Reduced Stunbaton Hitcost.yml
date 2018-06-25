@@ -34,4 +34,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - balance: "Reduced stunbaton hitcost by half (including borgs) to make it a more effective tool"
+  - balance: "Sec Borgs rejoice! Your stunbatons have been buffed to consume half of the charge it used to!"
