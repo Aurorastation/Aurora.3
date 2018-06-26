@@ -1,0 +1,7 @@
+author: PoZe
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed commanded mobs. They will no longer attack people they follow, destroy things around them."
+  - tweak: "Commanded mobs will not attack their master even if they are being attacked by their own master."
