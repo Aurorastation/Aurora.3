@@ -19405,7 +19405,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/plaque{
-	desc = "Harley O'Ryan Memorial Hall<br>O'Ryan is memorialized here as the first victim of the Odin Killer. <br>Cut down before her time. BIRTH DATE - 2460"
+	desc = "Harley O'Ryan Memorial Hall<br>O'Ryan is memorialized here as the first victim of the Odin Killer. She was always in a good mood. She was brought down before her time. <br>August 8th 2439 - May 2460"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
