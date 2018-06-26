@@ -10,6 +10,7 @@
 	var/mob/master = null //undisputed master. Their commands hold ultimate sway and ultimate power.
 	var/list/allowed_targets = list() //WHO CAN I KILL D:
 	var/retribution = 1 //whether or not they will attack us if we attack them like some kinda dick.
+	var/list/sad_emote = list("whimpers")
 
 /mob/living/simple_animal/hostile/commanded/Initialize()
 	..()
@@ -194,6 +195,7 @@
 	if(user == master)
 		stance = HOSTILE_STANCE_IDLE
 		target_mob = null
+		audible_emote("[pick(sad_emote)].",0)
 		return
 	if(!. && retribution)
 		stance = HOSTILE_STANCE_ATTACK
@@ -210,6 +212,7 @@
 	if(M == master)
 		stance = HOSTILE_STANCE_IDLE
 		target_mob = null
+		audible_emote("[pick(sad_emote)].",0)
 		return
 	if(M.a_intent == I_HURT && retribution) //assume he wants to hurt us.
 		target_mob = M
@@ -225,7 +228,7 @@
 	if(user == master)
 		target_mob = null
 		stance = HOSTILE_STANCE_IDLE
-
+		audible_emote("[pick(sad_emote)].",0)
 
 /mob/living/simple_animal/hostile/commanded/bullet_act(var/obj/item/projectile/P, var/def_zone)
 	..()
@@ -234,6 +237,7 @@
 	if (ismob(P.firer) && P.firer == master)
 		target_mob = null
 		stance = HOSTILE_STANCE_IDLE
+		audible_emote("[pick(sad_emote)].",0)
 
 /mob/living/simple_animal/hostile/commanded/attackby(var/obj/item/O, var/mob/user)
 	..()
@@ -242,3 +246,15 @@
 	if(user == master)
 		target_mob = null
 		stance = HOSTILE_STANCE_IDLE
+		audible_emote("[pick(sad_emote)].",0)
+
+mob/living/simple_animal/hostile/commanded/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
+	..()
+
+	if(istype(AM,/obj/))
+		var/obj/O = AM
+		if(ismob(O.thrower))
+			if(O.thrower == master)
+				target_mob = null
+				stance = HOSTILE_STANCE_IDLE
+				audible_emote("[pick(sad_emote)].",0)
