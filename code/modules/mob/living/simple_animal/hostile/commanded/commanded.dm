@@ -212,9 +212,12 @@
 	if(M == master)
 		stance = HOSTILE_STANCE_IDLE
 		target_mob = null
-		audible_emote("[pick(sad_emote)].",0)
-		return
+		if(M.a_intent == I_HURT)
+			audible_emote("[pick(sad_emote)].",0)
+			return
+
 	if(M.a_intent == I_HURT && retribution) //assume he wants to hurt us.
+
 		target_mob = M
 		allowed_targets += M
 		stance = HOSTILE_STANCE_ATTACK
