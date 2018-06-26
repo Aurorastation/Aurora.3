@@ -83,6 +83,7 @@
 	var/datum/point/vector/trajectory
 	var/trajectory_ignore_forcemove = FALSE	//instructs forceMove to NOT reset our trajectory to the new location!
 	var/range = 50 //This will de-increment every step. When 0, it will deletze the projectile.
+	var/aoe = 0 //For KAs, really
 
 	//Hitscan
 	var/hitscan = FALSE		//Whether this is hitscan. If it is, speed is basically ignored.
