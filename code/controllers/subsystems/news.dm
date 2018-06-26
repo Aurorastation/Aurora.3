@@ -124,6 +124,10 @@
 	var/backup_author = ""
 	var/icon/backup_img = null
 	var/icon/backup_caption = ""
+	var/list/comments = list()
+	var/list/interacted = list()
+	var/likes = 0
+	var/dislikes = 0
 
 /datum/feed_message/proc/clear()
 	src.author = ""
@@ -135,6 +139,10 @@
 	src.backup_author = ""
 	src.backup_caption = ""
 	src.backup_img = null
+	src.comments = list()
+	src.interacted = list()
+	src.likes = 0
+	src.dislikes = 0
 	parent_channel.update()
 
 /datum/feed_channel
@@ -161,3 +169,8 @@
 	src.is_admin_channel = 0
 	src.announcement = ""
 	update()
+
+/datum/feed_comment
+	var/author = ""
+	var/message = ""
+	var/posted = 0

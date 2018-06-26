@@ -470,6 +470,12 @@
 	desc = "Merchant Access"
 	access_type = ACCESS_TYPE_CENTCOM
 
+var/const/access_journalist = 111//journalist's office access
+/datum/access/journalist
+	id = access_journalist
+	desc = "Journalist Access"
+	access_type = ACCESS_REGION_GENERAL
+
 /***************
 * Antag access *
 ***************/

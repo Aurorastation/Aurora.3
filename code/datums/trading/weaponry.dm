@@ -100,7 +100,9 @@
 		/obj/item/weapon/gun/projectile/pirate             = TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/projectile/contender          = TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/projectile/revolver/lemat     = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/shotgun/pump/rifle/vintage = TRADER_THIS_TYPE
+		/obj/item/weapon/gun/projectile/shotgun/pump/rifle/vintage = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/rifle/icelance     = TRADER_THIS_TYPE,
+		/obj/item/clothing/accessory/storage/bayonet       = TRADER_THIS_TYPE
 	)
 
 

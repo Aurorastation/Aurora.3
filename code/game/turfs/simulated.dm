@@ -89,27 +89,22 @@
 			var/mob/living/carbon/human/H = M
 			// Tracking blood
 			var/list/bloodDNA = list()
-			var/will_track = 0
 			var/bloodcolor=""
 			if(H.shoes)
 				var/obj/item/clothing/shoes/S = H.shoes
 				if(istype(S))
 					S.handle_movement(src,(H.m_intent == "run" ? 1 : 0))
 					if(S.track_blood)
-						if(S.blood_DNA)
-							bloodDNA = S.blood_DNA
+						bloodDNA = S.blood_DNA
 						bloodcolor=S.blood_color
 						S.track_blood--
-						will_track = 1
 			else
-				if(H.track_blood)
-					if(H.feet_blood_DNA)
-						bloodDNA = H.feet_blood_DNA
+				if(H.track_blood && H.feet_blood_DNA)
+					bloodDNA = H.feet_blood_DNA
 					bloodcolor = H.feet_blood_color
 					H.track_blood--
-					will_track = 1
 
-			if(will_track)
+			if(bloodDNA)
 				src.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints,bloodDNA,H.dir,0,bloodcolor) // Coming
 				var/turf/simulated/from = get_step(H,reverse_direction(H.dir))
 				if(istype(from) && from)
