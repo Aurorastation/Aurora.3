@@ -62925,7 +62925,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/security_office)
 "csw" = (
-/obj/item/clothing/gloves/combat,
 /obj/item/weapon/handcuffs,
 /obj/structure/table/standard,
 /obj/structure/window/reinforced{
@@ -63230,8 +63229,6 @@
 /area/security/security_office)
 "ctr" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/atmos,
-/obj/item/clothing/head/helmet/space/void/atmos,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/mask/breath,
 /obj/structure/window/reinforced{
@@ -63245,49 +63242,23 @@
 	name = "Atmospheric Hardsuits";
 	req_access = list(24)
 	},
-/obj/structure/table/rack,
 /obj/item/clothing/suit/space/void/atmos,
 /obj/item/clothing/head/helmet/space/void/atmos,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/mask/breath,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/door/window/southleft{
-	dir = 4;
-	icon_state = "left";
-	name = "Atmospheric Hardsuits";
-	req_access = list(24)
-	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "cts" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/atmos,
-/obj/item/clothing/head/helmet/space/void/atmos,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/mask/breath,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/door/window/southleft{
 	dir = 4;
 	icon_state = "left";
 	name = "Atmospheric Hardsuits";
 	req_access = list(24)
 	},
-/obj/structure/table/rack,
 /obj/item/clothing/suit/space/void/atmos,
 /obj/item/clothing/head/helmet/space/void/atmos,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/mask/breath,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/door/window/southleft{
-	dir = 4;
-	icon_state = "left";
-	name = "Atmospheric Hardsuits";
-	req_access = list(24)
-	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "ctt" = (
