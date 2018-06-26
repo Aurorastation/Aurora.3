@@ -25,46 +25,50 @@ requireComponent.keys().forEach(fileName => {
     )
 })
 
-var state = JSON.parse(document.getElementById('initialstate').innerHTML)
+if (document.getElementById("app")) {
+    var state = JSON.parse(document.getElementById('initialstate').innerHTML)
 
-Store.loadState(state)
+    Store.loadState(state)
 
-global.receveUIState = (jsonState) => {
-    Store.loadState(JSON.parse(jsonState))
-}
-
-window.setInterval(() => {
-    Store.state.wtime += 2
-}, 200)
-
-var app = new Vue({
-    el: '#app',
-    data: Store.state,
-    render (createElement) {
-        return createElement('view-' + this.$root.$data.active)
-    },
-    watch: {
-        state: {
-            handler(val) {
-                if (Store.isUpdating) return
-                var r = new XMLHttpRequest()
-                r.open("GET", "?src=" + this.uiref + "&vueuistateupdate=" + encodeURIComponent(JSON.stringify(Store.state)), true);
-                r.send()
-            },
-            deep: true
-        }
+    global.receiveUIState = (jsonState) => {
+        Store.loadState(JSON.parse(jsonState))
     }
-})
 
-var header = new Vue({
-    el: '#header',
-    data: Store.state
-})
+    window.setInterval(() => {
+        Store.state.wtime += 2
+    }, 200)
 
-if (document.getElementById("dapp")) {
-    var dapp = new Vue({
-        el: '#dapp',
+    var app = new Vue({
+        el: '#app',
         data: Store.state,
-        template: '<div><h1>Current data of UI:</h1><pre>{{ JSON.stringify(this.$root.$data, null, \'    \') }}</pre></div>'
+        render (createElement) {
+            return createElement('view-' + this.$root.$data.active)
+        },
+        watch: {
+            state: {
+                handler(val) {
+                    if (Store.isUpdating) return
+                    var r = new XMLHttpRequest()
+                    r.open("GET", "?src=" + this.uiref + "&vueuistateupdate=" + encodeURIComponent(JSON.stringify(Store.state)), true);
+                    r.send()
+                },
+                deep: true
+            }
+        }
     })
+
+    if (document.getElementById("header")) {
+        var header = new Vue({
+            el: '#header',
+            data: Store.state
+        })
+    }
+
+    if (document.getElementById("dapp")) {
+        var dapp = new Vue({
+            el: '#dapp',
+            data: Store.state,
+            template: '<div><h1>Current data of UI:</h1><pre>{{ JSON.stringify(this.$root.$data, null, \'    \') }}</pre></div>'
+        })
+    }
 }

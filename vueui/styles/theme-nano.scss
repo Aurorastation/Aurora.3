@@ -1,5 +1,6 @@
 // Theme that emulates nanoui look
 .theme-nano {
+    @extend .dark-theme;
     font-size: 12px;
     color: #ffffff;
     line-height: 1.9em;
@@ -41,12 +42,10 @@
             }
         }
         &.off, &[disabled], &.inactive{
-            color: inherit;
             background: #999999;
             border-color: #666666;
         }
         &.danger, &.red {
-            color: inherit;
             background: #ff0000;
             border-color: #aa0000;
             &:hover {
@@ -244,11 +243,11 @@
     background: #c9c9c9 url(../resources/theme-nano/uiBackground-light.png) 50% 0 repeat-x;
 
     .itemLabelNarrow, .itemLabel, .itemLabelWide, .itemLabelWider, .itemLabelWidest {
-        color: #8F5700
+        color: #4C401C
     }
     .uiTitleWrapper {
         background: url(../resources/theme-nano/uiTitleBackground-light.png) repeat center;
-        color: #8F5700
+        color: #4C401C
     }
     .uiTitleFluff {
         background: url(../resources/theme-nano/uiTitleFluff-light.png) 50% 50% no-repeat;
@@ -292,6 +291,7 @@
     }
 
     a, .button, button, input[type=submit], input[type=button], input[type=reset], input[disabled] {
+        color: #ffffff;
         background: #556d99;
         &:hover {
             background: #7C9EDE;
@@ -306,12 +306,10 @@
             }
         }
         &.off, &[disabled], &.inactive{
-            color: inherit;
             background: #999999;
             border-color: #444444;
         }
         &.danger, &.red {
-            color: inherit;
             background: #FF2222;
             border-color: #aa0000;
             &:hover {
