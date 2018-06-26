@@ -64818,7 +64818,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/plaque{
-	desc = "Mikail Ivanovich Memorial<br>The 3rd Victim of the Odin Killer. Mikail Ivanovich had an unparalelled work ethic and an unbreakable drive to end corruption. Struck down too soon. <br>May 2419 - June 2460"
+	desc = "Mikail Ivanovich Memorial<br>The 3rd Victim of the Odin Killer. Mikail Ivanovich had an unparalleled work ethic and an unbreakable drive to end corruption. Struck down too soon. <br>May 2419 - June 2460"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
