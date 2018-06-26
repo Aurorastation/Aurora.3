@@ -42,16 +42,20 @@
 
 	var/name_changed = 0
 
+	destroy_surroundings = FALSE
+
 /mob/living/simple_animal/hostile/commanded/dog/hit_with_weapon(obj/item/O, mob/living/user, var/effective_force, var/hit_zone)
-	. = ..()
-	if(!.)
-		src.emote("barks!")
+	..()
+	src.emote("barks!")
+	if(user == master)
+		src.emote("whines")
 
 /mob/living/simple_animal/hostile/commanded/dog/attack_hand(mob/living/carbon/human/M as mob)
 	..()
 	if(M.a_intent == I_HURT)
 		src.emote("barks!")
-
+		if(M == master)
+			src.emote("whines")
 
 /mob/living/simple_animal/hostile/commanded/dog/verb/befriend()
 	set name = "Befriend Dog"

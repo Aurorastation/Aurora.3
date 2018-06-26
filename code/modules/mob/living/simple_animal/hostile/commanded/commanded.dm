@@ -55,7 +55,7 @@
 	var/mode = "specific"
 	if(allowed_targets[1] == "everyone") //we have been given the golden gift of murdering everything. Except our master, of course. And our friends. So just mostly everyone.
 		mode = "everyone"
-	for(var/atom/A in ListTargets(10))
+	for(var/atom/A in targets)
 		var/mob/M = null
 		if(A == src)
 			continue
@@ -141,8 +141,7 @@
 		allowed_targets = list("everyone")//everyone? EVERYONE
 		return 1
 
-	var/list/targets = get_targets_by_name(text)
-	allowed_targets += targets
+	allowed_targets += get_targets_by_name(text)
 	if(emote_hear && emote_hear.len)
 		audible_emote("[pick(emote_hear)].",0)
 	return targets.len != 0
@@ -190,6 +189,12 @@
 /mob/living/simple_animal/hostile/commanded/hit_with_weapon(obj/item/O, mob/living/user, var/effective_force, var/hit_zone)
 	//if they attack us, we want to kill them. None of that "you weren't given a command so free kill" bullshit.
 	. = ..()
+
+	// We forgive our master
+	if(user == master)
+		stance = HOSTILE_STANCE_IDLE
+		target_mob = null
+		return
 	if(!. && retribution)
 		stance = HOSTILE_STANCE_ATTACK
 		target_mob = user
@@ -200,9 +205,40 @@
 
 /mob/living/simple_animal/hostile/commanded/attack_hand(mob/living/carbon/human/M as mob)
 	..()
+
+	// We forgive our master
+	if(M == master)
+		stance = HOSTILE_STANCE_IDLE
+		target_mob = null
+		return
 	if(M.a_intent == I_HURT && retribution) //assume he wants to hurt us.
 		target_mob = M
 		allowed_targets += M
 		stance = HOSTILE_STANCE_ATTACK
 		if(M in friends)
 			friends -= M
+
+/mob/living/simple_animal/hostile/commanded/attack_generic(var/mob/user, var/damage, var/attack_message)
+	..()
+
+	// We forgive our master
+	if(user == master)
+		target_mob = null
+		stance = HOSTILE_STANCE_IDLE
+
+
+/mob/living/simple_animal/hostile/commanded/bullet_act(var/obj/item/projectile/P, var/def_zone)
+	..()
+
+	// We forgive our master
+	if (ismob(P.firer) && P.firer == master)
+		target_mob = null
+		stance = HOSTILE_STANCE_IDLE
+
+/mob/living/simple_animal/hostile/commanded/attackby(var/obj/item/O, var/mob/user)
+	..()
+
+	// We forgive our master
+	if(user == master)
+		target_mob = null
+		stance = HOSTILE_STANCE_IDLE
