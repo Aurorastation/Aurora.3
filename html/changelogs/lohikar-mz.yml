@@ -1,4 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - bugfix: "RIG actuator Z-climbing now actually works. Probably."
