@@ -8,6 +8,7 @@
     var/list/records_locked
 
     var/list/warrants
+    var/list/viruses
 
     var/list/excluded_fields
 
@@ -18,6 +19,7 @@
     records = list()
     records_locked = list()
     warrants = list()
+    viruses = list()
     excluded_fields = list()
     manifest = list()
     NEW_SS_GLOBAL(SSrecords)
@@ -43,6 +45,8 @@
             records += record
         if(/datum/record/warrant)
             warrants += record
+        if(/datum/record/virus)
+            viruses += record
 
 /datum/controller/subsystem/records/proc/update_record(var/datum/record/record)
     switch(record.type)
@@ -52,21 +56,23 @@
             records |= record
         if(/datum/record/warrant)
             warrants |= record
+        if(/datum/record/virus)
+            viruses |= record
 
 /datum/controller/subsystem/records/proc/remove_record(var/datum/record/record)
     switch(record.type)
-    if(istype(record, /datum/record/general/locked))
-        records_locked -= record
-        qdel(record)
-        return
-    if(istype(record, /datum/record/general))
-        records -= record
-        qdel(record)
-        return
-    if(istype(record, /datum/record/warrant))
-        warrants -= record
-        qdel(record)
-        return
+        if(/datum/record/general/locked)
+            records_locked -= record
+            qdel(record)
+        if(/datum/record/general)
+            records -= record
+            qdel(record)
+        if(/datum/record/warrant)
+            warrants -= record
+            qdel(record)
+        if(/datum/record/virus)
+            viruses *= record
+            qdel(record)
 
 /datum/controller/subsystem/records/proc/remove_record_by_field(var/field, var/value, var/record_type = RECORD_GENERAL)
     remove_record(find_record(field, value, record_type))
@@ -79,6 +85,13 @@
         searchedList = records_locked
     if(record_type & RECORD_WARRANT)
         for(var/datum/record/warrant/r in warrants)
+            if(field in r.excluded_fields)
+                continue
+            if(r.vars[field] == value)
+                return r
+        return
+    if(record_type & RECORD_VIRUS)
+        for(var/datum/record/virus/r in viruses)
             if(field in r.excluded_fields)
                 continue
             if(r.vars[field] == value)
@@ -105,6 +118,45 @@
 /datum/controller/subsystem/records/proc/reset_manifest()
     if(manifest.len)
         manifest.Cut()
+
+/datum/controller/subsystem/records/proc/get_manifest(var/monochrome = 0, var/OOC = 0)
+    if(!manifest.len)
+        get_manifest_json()
+    var/dat = {"
+    <head><style>
+        .manifest {border-collapse:collapse;}
+        .manifest td, th {border:1px solid [monochrome?"black":"#DEF; background-color:white; color:black"]; padding:.25em}
+        .manifest th {height: 2em; [monochrome?"border-top-width: 3px":"background-color: #48C; color:white"]}
+        .manifest tr.head th { [monochrome?"border-top-width: 1px":"background-color: #488;"] }
+        .manifest td:first-child {text-align:right}
+        .manifest tr.alt td {[monochrome?"border-top-width: 2px":"background-color: #DEF"]}
+    </style></head>
+    <table class="manifest" width='350px'>
+    <tr class='head'><th>Name</th><th>Rank</th><th>Activity</th></tr>
+    "}
+    var/even = 0
+    var/list/isactive = new()
+    for(var/mob/M in player_list)
+        if (OOC)
+            if(M.client && M.client.inactivity <= 10 * 60 * 10)
+                isactive[M.real_name] = "Active"
+            else
+                isactive[M.real_name] = "Inactive"
+        else
+            isactive[M.real_name] = 0
+
+    var/nameMap = list("heads" = "Heads", "sec" = "Security", "eng" = "Engineering", "med" = "Medical", "sci" = "Science", "car" = "Cargo", "civ" = "Civilian", "bot" = "Silicon", "misc" = "Miscellaneous")
+    for(var/dep in manifest)
+        var/list/depI = manifest[dep]
+        if(depI.len > 0)
+            dat += "<tr><th colspan=3>[nameMap[dep]]</th></tr>"
+            for(var/list/item in depI)
+                dat += "<tr[even ? " class='alt'" : ""]><td>[item["name"]]</td><td>[item["rank"]]</td><td>[isactive[item["name"]] ? isactive[item["name"]] : item["active"]]</td></tr>"
+                even = !even
+    dat += "</table>"
+    dat = replacetext(dat, "\n", "") // so it can be placed on paper correctly
+    dat = replacetext(dat, "\t", "")
+    return dat
 
 /datum/controller/subsystem/records/proc/get_manifest_json()
     if(manifest.len)

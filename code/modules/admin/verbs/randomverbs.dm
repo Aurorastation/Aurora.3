@@ -399,7 +399,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		new_character.real_name = record_found.name
 		new_character.gender = record_found.sex
 		new_character.age = record_found.age
-		new_character.b_type = record_found.b_type
+		new_character.b_type = record_found.medical.blood_type
 	else
 		new_character.gender = pick(MALE,FEMALE)
 		var/datum/preferences/A = new()

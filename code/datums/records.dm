@@ -37,7 +37,7 @@
     var/sex = "Unknown"
     var/fingerprint = "Unknown"
     var/phisical_status = "Active"
-    var/medical_status = "Stable"
+    var/mental_status = "Stable"
     var/species = "Unknown"
     var/home_system = "Unknown"
     var/citizenship = "Unknown"
@@ -103,6 +103,7 @@
     var/disabilities = "No disabilities have been declared."
     var/allergies = "No allergies have been detected in this patient."
     var/diseases = "No diseases have been diagnosed at the moment."
+    var/list/comments = list()
 
 /datum/record/medical/New(var/mob/living/carbon/human/H, var/nid)
     if(!nid) nid = generate_record_id()
@@ -118,6 +119,7 @@
     var/criminal = "None"
     var/crimes = "There is no crime convictions."
     var/incidents = ""
+    var/list/comments = list()
 
 /datum/record/security/New(var/mob/living/carbon/human/H, var/nid)
     if(!nid) nid = generate_record_id()
@@ -139,3 +141,11 @@
 var/warrant_uid = 0
 /datum/record/warrant/New()
     id = warrant_uid++
+
+// Digital warrant
+/datum/record/virus
+    var/name = "Unknown"
+    var/description = ""
+    var/antigen
+    var/spread_type = "Unknown"
+    cmp_field = "name"

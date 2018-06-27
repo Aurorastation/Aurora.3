@@ -202,11 +202,9 @@
 	// Check if player is a antag
 	if(isnull(criminal.mind.special_role))
 		cinf.saveToDB()
-	for (var/datum/data/record/E in data_core.general)
-		if(E.fields["name"] == criminal.name)
-			for (var/datum/data/record/R in data_core.security)
-				if(R.fields["id"] == E.fields["id"])
-					R.fields["incidents"] += cinf
+	var/datum/record/general/R = SSrecords.find_record("name", criminal.name)
+	if(istype(R) && istype(R.security))
+		R.security.incidents += cinf
 
 /datum/char_infraction
 	var/db_id = 0

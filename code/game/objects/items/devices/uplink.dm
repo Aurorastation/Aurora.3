@@ -163,29 +163,29 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		nanoui_data["items"] = items
 	else if(nanoui_menu == 2)
 		var/permanentData[0]
-		for(var/datum/data/record/L in sortRecord(data_core.locked))
-			permanentData[++permanentData.len] = list(Name = L.fields["name"],"id" = L.fields["id"])
+		for(var/datum/record/general/locked/L in sortRecord(SSrecords.records_locked))
+			permanentData[++permanentData.len] = list(Name = L.name,"id" = L.id)
 		nanoui_data["exploit_records"] = permanentData
 	else if(nanoui_menu == 21)
 		nanoui_data["exploit_exists"] = 0
 
-		for(var/datum/data/record/L in data_core.locked)
-			if(L.fields["id"] == exploit_id)
+		for(var/datum/record/general/locked/L in SSrecords.records_locked)
+			if(L.id == exploit_id)
 				nanoui_data["exploit"] = list()  // Setting this to equal L.fields passes it's variables that are lists as reference instead of value.
 								 // We trade off being able to automatically add shit for more control over what gets passed to json
 								 // and if it's sanitized for html.
-				nanoui_data["exploit"]["nanoui_exploit_record"] = html_encode(L.fields["exploit_record"])                         		// Change stuff into html
-				nanoui_data["exploit"]["nanoui_exploit_record"] = replacetext(nanoui_data["exploit"]["nanoui_exploit_record"], "\n", "<br>")    // change line breaks into <br>
-				nanoui_data["exploit"]["name"] =  html_encode(L.fields["name"])
-				nanoui_data["exploit"]["sex"] =  html_encode(L.fields["sex"])
-				nanoui_data["exploit"]["age"] =  html_encode(L.fields["age"])
-				nanoui_data["exploit"]["species"] =  html_encode(L.fields["species"])
-				nanoui_data["exploit"]["rank"] =  html_encode(L.fields["rank"])
-				nanoui_data["exploit"]["home_system"] =  html_encode(L.fields["home_system"])
-				nanoui_data["exploit"]["citizenship"] =  html_encode(L.fields["citizenship"])
-				nanoui_data["exploit"]["faction"] =  html_encode(L.fields["faction"])
-				nanoui_data["exploit"]["religion"] =  html_encode(L.fields["religion"])
-				nanoui_data["exploit"]["fingerprint"] =  html_encode(L.fields["fingerprint"])
+				nanoui_data["exploit"]["nanoui_exploit_record"] = html_encode(L.exploit_record) // Change stuff into html
+				nanoui_data["exploit"]["nanoui_exploit_record"] = replacetext(nanoui_data["exploit"]["nanoui_exploit_record"], "\n", "<br>") // change line breaks into <br>
+				nanoui_data["exploit"]["name"] =  html_encode(L.name)
+				nanoui_data["exploit"]["sex"] =  html_encode(L.sex)
+				nanoui_data["exploit"]["age"] =  html_encode(L.age)
+				nanoui_data["exploit"]["species"] =  html_encode(L.species)
+				nanoui_data["exploit"]["rank"] =  html_encode(L.rank)
+				nanoui_data["exploit"]["home_system"] =  html_encode(L.home_system)
+				nanoui_data["exploit"]["citizenship"] =  html_encode(L.citizenship)
+				nanoui_data["exploit"]["faction"] =  html_encode(L.faction)
+				nanoui_data["exploit"]["religion"] =  html_encode(L.religion)
+				nanoui_data["exploit"]["fingerprint"] =  html_encode(L.fingerprint)
 
 				nanoui_data["exploit_exists"] = 1
 				break

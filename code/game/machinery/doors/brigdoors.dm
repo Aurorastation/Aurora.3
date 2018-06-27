@@ -138,7 +138,7 @@
 
 	if(istype(incident))
 		var/datum/record/general/R = SSrecords.find_record("name", incident.criminal.name)
-		if(R && R.security)
+		if(istype(R) && istype(R.security))
 			if(early == 1)
 				R.security.criminal = "Parolled"
 			else

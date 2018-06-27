@@ -862,7 +862,6 @@
 	SearchVar(ventcrawl_machinery)
 	SearchVar(can_enter_vent_with)
 	SearchVar(ALL_ANTIGENS)
-	SearchVar(virusDB)
 	SearchVar(all_unit_tests_passed)
 	SearchVar(failed_unit_tests)
 	SearchVar(total_unit_tests)
