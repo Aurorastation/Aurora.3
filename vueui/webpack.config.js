@@ -9,6 +9,7 @@ module.exports = {
     mode: 'production',
     //mode: 'development', // Uncomment this line to set mode to development
     entry: './index.js',
+    performance: { hints: false },
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist')

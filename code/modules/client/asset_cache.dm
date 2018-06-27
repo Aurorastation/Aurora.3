@@ -203,6 +203,11 @@ var/list/asset_datums = list()
 		"changelog.js" = 'html/changelog.js'
 	)
 
+/datum/asset/simple/vueui_theming
+	assets = list(
+		"vueui.css" = 'vueui/dist/main.css'
+	)
+
 /datum/asset/simple/vueui
 	assets = list(
 		"vueui.js" = 'vueui/dist/main.js',

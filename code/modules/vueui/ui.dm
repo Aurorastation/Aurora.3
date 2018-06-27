@@ -308,6 +308,6 @@ main ui datum.
   * @return themes class - text
   */
 /datum/vueuiui/proc/get_theme_class()
-    return "theme-nano dark-theme"
+    return get_html_theme_class(user)
 
 #undef UIDEBUG
