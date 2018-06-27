@@ -465,8 +465,6 @@
 	SearchVar(VENDING_WIRE_IDSCAN)
 	SearchVar(same_wires)
 	SearchVar(wireColours)
-	SearchVar(PDA_Manifest)
-	SearchVar(ManifestJSON)
 	SearchVar(accessible_z_levels)
 	SearchVar(base_turf_by_z)
 	SearchVar(newscaster_standard_feeds)

@@ -729,9 +729,8 @@
 
 	// Delete them from datacore.
 
-	if(PDA_Manifest.len)
-		PDA_Manifest.Cut()
 	SSrecords.remove_record_by_field("name", H.real_name)
+	SSrecords.reset_manifest()
 
 	log_and_message_admins("([H.mind.role_alt_title]) entered cryostorage.", user = H)
 
