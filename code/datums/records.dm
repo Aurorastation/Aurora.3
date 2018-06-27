@@ -112,3 +112,15 @@
         incidents = H.incidents
         if(H.sec_record && !jobban_isbanned(H, "Records"))
             notes = H.sec_record
+
+
+// Digital warrant
+/datum/record/warrant
+    var/authorization = "Unauthorized"
+    var/wtype = "Unknown"
+    var/name = "Unknown"
+    notes = "No charges present"
+
+var/warrant_uid = 0
+/datum/record/warrant/New()
+    id = warrant_uid++
