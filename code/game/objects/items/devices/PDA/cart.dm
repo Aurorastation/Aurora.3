@@ -25,9 +25,8 @@
 	var/charges = 0
 	var/mode = null
 	var/menu
-	var/datum/data/record/active1 = null //General
-	var/datum/data/record/active2 = null //Medical
-	var/datum/data/record/active3 = null //Security
+	var/datum/record/general/active = null //General
+	var/list/listify_cache
 	var/selected_sensor = null // Power Sensor
 	var/message1	// used for status_displays
 	var/message2
@@ -274,8 +273,12 @@
 
 	/*		General Records (Mode: 44 / 441 / 45 / 451)	*/
 	if(mode == 44 || mode == 441 || mode == 45 || mode ==451)
-		if(istype(active1, /datum/data/record) && (active1 in data_core.general))
-			values["general"] = active1.fields
+		if(istype(active, /datum/record/general) && (active in SSrecords.records))
+			LAZYINITLIST(listify_cache)
+			if(listify_cache["type"] != RECORD_GENERAL)
+				listify_cache["type"] = RECORD_GENERAL
+				listify_cache["data"] = active.Listify()
+			values["general"] = listify_cache["data"]
 			values["general_exists"] = 1
 
 		else
@@ -287,12 +290,17 @@
 
 	if(mode == 44 || mode == 441)
 		var/medData[0]
-		for(var/datum/data/record/R in sortRecord(data_core.general))
-			medData[++medData.len] = list(Name = R.fields["name"],"ref" = "\ref[R]")
+		for(var/datum/record/general/R in sortRecord(SSrecords.records))
+			medData += list(list(Name = R.name,"ref" = "\ref[R]"))
 		values["medical_records"] = medData
 
-		if(istype(active2, /datum/data/record) && (active2 in data_core.medical))
-			values["medical"] = active2.fields
+		if(istype(active, /datum/record/general) && (active in SSrecords.records) && istype(active.medical, /datum/record/medical))
+			LAZYINITLIST(listify_cache)
+			if(listify_cache["type"] != RECORD_MEDICAL)
+				listify_cache["type"] = RECORD_MEDICAL
+				listify_cache["data"] = active.Listify(0)
+				listify_cache["data"] += active.medical.Listify()
+			values["medical"] = listify_cache["data"]
 			values["medical_exists"] = 1
 		else
 			values["medical_exists"] = 0
@@ -301,12 +309,17 @@
 
 	if(mode == 45 || mode == 451)
 		var/secData[0]
-		for (var/datum/data/record/R in sortRecord(data_core.general))
-			secData[++secData.len] = list(Name = R.fields["name"], "ref" = "\ref[R]")
+		for(var/datum/record/general/R in sortRecord(SSrecords.records))
+			secData += list(list(Name = R.name,"ref" = "\ref[R]"))
 		values["security_records"] = secData
 
-		if(istype(active3, /datum/data/record) && (active3 in data_core.security))
-			values["security"] = active3.fields
+		if(istype(active, /datum/record/general) && (active in SSrecords.records) && istype(active.security, /datum/record/security))
+			LAZYINITLIST(listify_cache)
+			if(listify_cache["type"] != RECORD_SECURITY)
+				listify_cache["type"] = RECORD_SECURITY
+				listify_cache["data"] = active.Listify(0)
+				listify_cache["data"] += active.security.Listify()
+			values["security"] = listify_cache["data"]
 			values["security_exists"] = 1
 		else
 			values["security_exists"] = 0
@@ -486,30 +499,18 @@
 
 	switch(href_list["choice"])
 		if("Medical Records")
-			var/datum/data/record/R = locate(href_list["target"])
-			var/datum/data/record/M = locate(href_list["target"])
+			var/datum/record/general/R = locate(href_list["target"])
 			loc:mode = 441
 			mode = 441
-			if (R in data_core.general)
-				for (var/datum/data/record/E in data_core.medical)
-					if ((E.fields["name"] == R.fields["name"] || E.fields["id"] == R.fields["id"]))
-						M = E
-						break
-				active1 = R
-				active2 = M
+			if ((R in SSrecords.records) && istype(R))
+				active = R
 
 		if("Security Records")
-			var/datum/data/record/R = locate(href_list["target"])
-			var/datum/data/record/S = locate(href_list["target"])
+			var/datum/record/general/R = locate(href_list["target"])
 			loc:mode = 451
 			mode = 451
-			if (R in data_core.general)
-				for (var/datum/data/record/E in data_core.security)
-					if ((E.fields["name"] == R.fields["name"] || E.fields["id"] == R.fields["id"]))
-						S = E
-						break
-				active1 = R
-				active3 = S
+			if ((R in SSrecords.records) && istype(R))
+				active = R
 
 		if("Send Signal")
 			spawn( 0 )

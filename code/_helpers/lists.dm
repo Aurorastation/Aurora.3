@@ -184,6 +184,14 @@
 	var/list/target = L.Copy()
 	return sortTim(target, order ? /proc/cmp_name_asc : /proc/cmp_name_dsc, FALSE)
 
+//Mergesort: Specifically for record datums in a list.
+/proc/sortRecord(var/list/datum/record/L, var/order = 1)
+	if (!L)
+		return
+	var/list/target = L.Copy()
+	sortTim(target, order ? /proc/cmp_records_asc : /proc/cmp_records_dsc, FALSE)
+	return target
+
 //Mergesort: any value in a list
 /proc/sortList(var/list/L)
 	if (!L)

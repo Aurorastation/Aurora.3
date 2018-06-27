@@ -20,6 +20,8 @@
     var/datum/D = new()
     for(var/v in D.vars)
         excluded_fields += v
+    excluded_fields += "cmp_field"
+    excluded_fields += "excluded_fields"
 
 /datum/controller/subsystem/records/proc/generate_record(var/mob/living/carbon/human/H)
     if(H.mind && SSjobs.ShouldCreateRecords(H.mind))
@@ -76,10 +78,14 @@
         searchedList = records_locked
     if(record_type & RECORD_WARRANT)
         for(var/datum/record/warrant/r in warrants)
+            if(field in r.excluded_fields)
+                continue
             if(r.vars[field] == value)
                 return r
         return
     for(var/datum/record/general/r in searchedList)
+        if(field in r.excluded_fields)
+            continue
         if(record_type & RECORD_GENERAL)
             if(r.vars[field] == value)
                 return r

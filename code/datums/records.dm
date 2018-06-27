@@ -3,16 +3,28 @@
     var/id
     var/notes = "No notes found."
 
+    var/cmp_field = "id"
+    var/list/excluded_fields
+
 /datum/record/proc/Copy(var/datum/copied)
     if(!copied)
         copied = new type()
     for(var/variable in src.vars)
-        if(!(variable in SSrecords.excluded_fields))
+        if(!(variable in list(SSrecords.excluded_fields, excluded_fields)))
             if(istype(src.vars[variable], /datum/record) || istype(src.vars[variable], /list))
                 copied.vars[variable] = src.vars[variable].Copy()
             else
                 copied.vars[variable] = src.vars[variable]
     return copied
+
+/datum/record/proc/Listify(var/deep = 1) // Mostyl to support old things or to use with serialization
+    var/list/record = list()
+    for(var/variable in src.vars)
+        if(!(variable in list(SSrecords.excluded_fields, excluded_fields)))
+            if(deep && (istype(src.vars[variable], /datum/record)))
+                record[variable] = src.vars[variable].Listify()
+            else if (istype(src.vars[variable], /list) || istext(src.vars[variable]) || isnum(src.vars[variable]))
+                record[variable] = src.vars[variable]
 
 // Record for storing general data, data tree top level datum
 /datum/record/general
@@ -35,6 +47,8 @@
     var/ccia_actions = "No CCIA actions found"
     var/icon/photo_front
     var/icon/photo_side
+    cmp_field = "name"
+    excluded_fields = list("photo_front", "photo_side")
 
 /datum/record/general/New(var/mob/living/carbon/human/H, var/nid)
     if (!H)
@@ -120,6 +134,7 @@
     var/wtype = "Unknown"
     var/name = "Unknown"
     notes = "No charges present"
+    cmp_field = "name"
 
 var/warrant_uid = 0
 /datum/record/warrant/New()
