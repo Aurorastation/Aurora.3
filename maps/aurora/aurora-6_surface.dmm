@@ -19396,6 +19396,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
+"NI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/plaque{
+	desc = "Harley O'Ryan Memorial Hall<br>O'Ryan is memorialized here as the first victim of the Odin Killer. She was always in a good mood. She was brought down before her time. <br>August 2439 - May 2460"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/fore)
 
 (1,1,1) = {"
 aa
@@ -45995,7 +46008,7 @@ jq
 pZ
 kP
 qv
-kP
+NI
 qO
 kP
 rd

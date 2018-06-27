@@ -17000,6 +17000,9 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
+/obj/effect/floor_decal/plaque{
+	desc = "Charles Hall Memorial Hall<br>Charles Hall was the 2nd victim of the infamous Odin Killer. From beginnings as an orphan, he rose to Head of Security and dedicated his life to ensuring security was robust and effective. He will be missed.<br>March 2425 - June 2460"
+	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "aFr" = (
@@ -64769,6 +64772,27 @@
 /obj/item/weapon/crowbar,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
+"cKq" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
+	},
+/obj/effect/floor_decal/plaque{
+	desc = "Charlie Dove Memorial Hall<br>With an endless capacity for kindness, she used her skills as a doctor to better the lives of everyone she met. She was the 4th victim murdered by the notorious Odin Killer, and will be missed.<br>December 2416 - June 2460"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
+"grp" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/plaque{
+	desc = "Mikail Ivanovich Memorial<br>The 3rd Victim of the Odin Killer. Mikail Ivanovich had an unparalleled work ethic and an unbreakable drive to end corruption. Struck down too soon. <br>May 2419 - June 2460"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 
 (1,1,1) = {"
 aaa
@@ -101387,7 +101411,7 @@ axP
 axP
 aWg
 aLc
-aYO
+cKq
 baj
 bbs
 bcR
@@ -103172,7 +103196,7 @@ awa
 axN
 azm
 aAH
-aCj
+grp
 aEc
 axP
 aHS
