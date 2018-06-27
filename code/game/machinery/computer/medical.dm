@@ -12,11 +12,11 @@
 	var/authenticated = null
 	var/rank = null
 	var/screen = null
-	var/datum/data/record/active1 = null
-	var/datum/data/record/active2 = null
+	// var/datum/data/record/active1 = null
+	// var/datum/data/record/active2 = null
 	var/a_id = null
 	var/temp = null
-
+/*
 /obj/machinery/computer/med_data/AltClick(var/mob/user)
 	eject_id()
 
@@ -564,3 +564,4 @@
 
 	icon_screen = "medlaptop"
 	is_holographic = FALSE
+*/

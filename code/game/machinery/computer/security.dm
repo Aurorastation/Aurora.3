@@ -12,8 +12,8 @@
 	var/authenticated = null
 	var/rank = null
 	var/screen = null
-	var/datum/data/record/active1 = null
-	var/datum/data/record/active2 = null
+	// var/datum/data/record/active1 = null
+	// var/datum/data/record/active2 = null
 	var/a_id = null
 	var/temp = null
 	//var/printing = null
@@ -23,7 +23,7 @@
 	//Sorting Variables
 	var/sortBy = "name"
 	var/order = 1 // -1 = Descending - 1 = Ascending
-
+/*
 
 /obj/machinery/computer/secure_data/AltClick(var/mob/user)
 	eject_id()
@@ -651,3 +651,4 @@ What a mess.*/
 
 	light_range_on = 0
 	light_power_on = 0
+*/

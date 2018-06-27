@@ -13,7 +13,7 @@
 	var/authenticated = null
 	var/rank = null
 	var/screen = null
-	var/datum/data/record/active1 = null
+	// var/datum/data/record/active1 = null
 	var/a_id = null
 	var/temp = null
 	is_holographic = FALSE
@@ -25,6 +25,7 @@
 	var/order = 1 // -1 = Descending - 1 = Ascending
 	density = 0
 
+/*
 /obj/machinery/computer/skills/attackby(obj/item/O as obj, var/mob/user)
 	if(istype(O, /obj/item/weapon/card/id) && !scan && user.unEquip(O))
 		O.loc = src
@@ -474,3 +475,4 @@ What a mess.*/
 			continue
 
 	..(severity)
+*/
