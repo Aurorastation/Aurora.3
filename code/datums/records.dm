@@ -25,6 +25,7 @@
                 record[variable] = src.vars[variable].Listify()
             else if (istype(src.vars[variable], /list) || istext(src.vars[variable]) || isnum(src.vars[variable]))
                 record[variable] = src.vars[variable]
+    return record
 
 // Record for storing general data, data tree top level datum
 /datum/record/general
