@@ -82,35 +82,3 @@
 		update_icon()
 
 	return
-
-/obj/item/weapon/melee/telebaton/attack(mob/target as mob, mob/living/user as mob, var/target_zone)
-	if(on)
-		if ((CLUMSY in user.mutations) && prob(50))
-			user << "<span class='warning'>You club yourself over the head.</span>"
-			user.Weaken(3 * force)
-			if(ishuman(user))
-				var/mob/living/carbon/human/H = user
-				H.apply_damage(2*force, BRUTE, "head")
-			else
-				user.take_organ_damage(2*force)
-			return
-		if(..() == 1)
-			playsound(src.loc, "swing_hit", 50, 1, -1)
-			if (target_zone == "r_leg" || target_zone == "l_leg")
-				var/stun_chance = 100
-				if(ishuman(target))
-					var/mob/living/carbon/human/T = target
-					var/armor = T.run_armor_check(target_zone,"melee")
-					stun_chance -= armor
-
-					if(T.shoes && (T.shoes.item_flags & NOSLIP) && istype(T.shoes, /obj/item/clothing/shoes/magboots))
-						stun_chance -= 10
-
-					if(T.species.brute_mod<0.8)
-						stun_chance -= 10
-
-					if(prob(stun_chance))
-						T.Weaken(5) //nerfed, because yes.
-			return
-	else
-		return ..()
