@@ -62924,7 +62924,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/security_office)
 "csw" = (
-/obj/item/clothing/gloves/combat,
 /obj/item/weapon/handcuffs,
 /obj/structure/table/standard,
 /obj/structure/window/reinforced{
@@ -63229,24 +63228,6 @@
 /area/security/security_office)
 "ctr" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/atmos,
-/obj/item/clothing/head/helmet/space/void/atmos,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/mask/breath,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/atmos,
-/obj/item/clothing/head/helmet/space/void/atmos,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/mask/breath,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/door/window/southleft{
 	dir = 4;
@@ -63254,20 +63235,18 @@
 	name = "Atmospheric Hardsuits";
 	req_access = list(24)
 	},
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/mask/breath,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/item/clothing/suit/space/void/atmos,
+/obj/item/clothing/head/helmet/space/void/atmos,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "cts" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/atmos,
-/obj/item/clothing/head/helmet/space/void/atmos,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/mask/breath,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/atmos,
-/obj/item/clothing/head/helmet/space/void/atmos,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/mask/breath,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/door/window/southleft{
 	dir = 4;
@@ -63275,6 +63254,11 @@
 	name = "Atmospheric Hardsuits";
 	req_access = list(24)
 	},
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/suit/space/void/atmos,
+/obj/item/clothing/head/helmet/space/void/atmos,
+/obj/structure/window/reinforced,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "ctt" = (
@@ -63325,7 +63309,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock{
 	name = "Journalist's Office";
-	req_access = list(111)
+	req_access = list(70)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -63662,7 +63646,7 @@
 "cuC" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(57)
+	req_access = list(70)
 	},
 /turf/simulated/floor/plating,
 /area/journalistoffice)
