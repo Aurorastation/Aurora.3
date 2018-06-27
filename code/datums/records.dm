@@ -10,11 +10,11 @@
     if(!copied)
         copied = new type()
     for(var/variable in src.vars)
-        if(!(variable in list(SSrecords.excluded_fields, excluded_fields)))
-            if(istype(src.vars[variable], /datum/record) || istype(src.vars[variable], /list))
-                copied.vars[variable] = src.vars[variable].Copy()
-            else
-                copied.vars[variable] = src.vars[variable]
+        if((variable in SSrecords.excluded_fields) || (variable in excluded_fields)) continue
+        if(istype(src.vars[variable], /datum/record) || istype(src.vars[variable], /list))
+            copied.vars[variable] = src.vars[variable].Copy()
+        else
+            copied.vars[variable] = src.vars[variable]
     return copied
 
 /datum/record/proc/Listify(var/deep = 1) // Mostyl to support old things or to use with serialization
@@ -67,7 +67,7 @@
         age = H.age
         fingerprint = md5(H.dna.uni_identity)
         sex = H.gender
-        species = H.species
+        species = H.get_species()
         home_system = H.home_system
         citizenship = H.citizenship
         faction = H.personal_faction
