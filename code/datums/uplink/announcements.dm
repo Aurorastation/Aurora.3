@@ -42,44 +42,43 @@
 		return 0
 
 	var/obj/item/weapon/card/id/I = user.GetIdCard()
-	var/list/random_record
+	var/datum/record/general/random_record
 	if(SSrecords.records.len)
 		random_record = pick(SSrecords.records)
 	else
-		random_record = SSrecords.create_empty_record(user, generate_record_id())
+		random_record = new(user)
 
-	var/list/record = random_record.Copy()
-	record["medical"] = random_record["medical"].Copy()
+	var/datum/record/general/record = random_record.Copy()
 	
 	if(I)
-		record["age"] = I.age
-		record["rank"] = I.assignment
-		record["real_rank"] = I.assignment
-		record["name"] = I.registered_name
-		record["sex"] = I.sex
+		record.age = I.age
+		record.rank = I.assignment
+		record.real_rank = I.assignment
+		record.name = I.registered_name
+		record.sex = I.sex
 	else
 		var/mob/living/carbon/human/H
 		if(istype(user,/mob/living/carbon/human))
 			H = user
-			record["age"] = H.age
+			record.age. = H.age
 		else
-			record["age"] = initial(H.age)
+			record.age. = initial(H.age)
 		var/assignment = GetAssignment(user)
-		record["rank"] = assignment
-		record["real_rank"] = assignment
-		record["name"] = user.real_name
-		record["sex"] = capitalize(user.gender)
+		record.rank = assignment
+		record.real_rank = assignment
+		record.name = user.real_name
+		record.sex = capitalize(user.gender)
 
-	record["species"] = user.get_species()
-	record["security"] = list("crimes" = "There is no crime convictions.", "notes" = "No notes found.")
+	record.species = user.get_species()
+	record.security = new(null, record.id)
 
 	if(I)
-		record["fingerprint"] 	= I.fingerprint_hash
-		record["medical"]["blood_type"]	= I.blood_type
-		record["medical"]["blood_dna"]		= I.dna_hash
+		record.fingerprint = I.fingerprint_hash
+		record.medical.blood_type = I.blood_type
+		record.medical.blood_dna = I.dna_hash
 
 	SSrecords.add_record(record)
-	AnnounceArrivalSimple(record["name"], record["rank"])
+	AnnounceArrivalSimple(record.name, record.rank)
 	return 1
 
 /datum/uplink_item/abstract/announcements/fake_ion_storm

@@ -120,7 +120,6 @@
 
 
 /datum/proc/find_references_in_globals()
-	SearchVar(data_core)
 	SearchVar(all_areas)
 	SearchVar(processing_power_items)
 	SearchVar(med_hud_users)
@@ -370,6 +369,7 @@
 	SearchVar(SSoverlays)
 	SearchVar(SSparallax)
 	SearchVar(SSradio)
+	SearchVar(SSrecords)
 	SearchVar(sun)
 	SearchVar(SScargo)
 	SearchVar(SSticker)

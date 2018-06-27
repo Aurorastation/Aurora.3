@@ -657,11 +657,11 @@ proc/is_blind(A)
 		if(id)
 			perpname = id.registered_name
 
-		var/list/R = SSrecords.find_record("name", perpname)
+		var/datum/record/general/R = SSrecords.find_record("name", perpname)
 		if(check_records && !R)
 			threatcount += 4
 
-		if(check_arrest && R && R["security"] && (R["security"]["criminal"] == "*Arrest*"))
+		if(check_arrest && R && R.security && (R.security.criminal == "*Arrest*"))
 			threatcount += 4
 
 	return threatcount

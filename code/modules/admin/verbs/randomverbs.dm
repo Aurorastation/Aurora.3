@@ -385,21 +385,21 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	var/mob/living/carbon/human/new_character = new(pick(latejoin))//The mob being spawned.
 
-	var/list/record_found			//Referenced to later to either randomize or not randomize the character.
+	var/datum/record/general/locked/record_found			//Referenced to later to either randomize or not randomize the character.
 	if(G_found.mind && !G_found.mind.active)	//mind isn't currently in use by someone/something
 		/*Try and locate a record for the person being respawned through data_core.
 		This isn't an exact science but it does the trick more often than not.*/
 		var/id = md5("[G_found.real_name][G_found.mind.assigned_role]")
-		for(var/list/t in SSrecords.records)
-			if(t["locked"] && t["locked"]["nid"] == id)
-				record_found = t//We shall now reference the record.
+		for(var/datum/record/general/locked/R in SSrecords.records_locked)
+			if(R.nid == id)
+				record_found = R//We shall now reference the record.
 				break
 
 	if(record_found)//If they have a record we can determine a few things.
-		new_character.real_name = record_found["name"]
-		new_character.gender = record_found["sex"]
-		new_character.age = record_found["age"]
-		new_character.b_type = record_found["b_type"]
+		new_character.real_name = record_found.name
+		new_character.gender = record_found.sex
+		new_character.age = record_found.age
+		new_character.b_type = record_found.b_type
 	else
 		new_character.gender = pick(MALE,FEMALE)
 		var/datum/preferences/A = new()
@@ -421,13 +421,13 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!new_character.mind.assigned_role)	new_character.mind.assigned_role = "Assistant"//If they somehow got a null assigned role.
 
 	//DNA
-	if(record_found && record_found["medical"] && record_found["locked"])//Pull up their name from database records if they did have a mind.
+	if(record_found && record_found.medical)//Pull up their name from database records if they did have a mind.
 		new_character.dna = new()//Let's first give them a new DNA.
-		new_character.dna.unique_enzymes = record_found["medical"]["blood_dna"]//Enzymes are based on real name but we'll use the record for conformity.
+		new_character.dna.unique_enzymes = record_found.medical.blood_dna //Enzymes are based on real name but we'll use the record for conformity.
 
 		// I HATE BYOND.  HATE.  HATE. - N3X
-		var/list/newSE= record_found["locked"]["enzymes"]
-		var/list/newUI = record_found["locked"]["identity"]
+		var/list/newSE= record_found.enzymes
+		var/list/newUI = record_found.identity
 		new_character.dna.SE = newSE.Copy() //This is the default of enzymes so I think it's safe to go with.
 		new_character.dna.UpdateSE()
 		new_character.UpdateAppearance(newUI.Copy())//Now we configure their appearance based on their unique identity, same as with a DNA machine or somesuch.
