@@ -1000,8 +1000,8 @@
 			/obj/item/weapon/gun/custom_ka/frame01 = 1,
 			/obj/item/weapon/gun/custom_ka/frame02 = 2,
 			/obj/item/weapon/gun/custom_ka/frame03 = 3,
-			/obj/item/weapon/gun/custom_ka/frame02 = 2,
-			/obj/item/weapon/gun/custom_ka/frame03 = 1
+			/obj/item/weapon/gun/custom_ka/frame04 = 2,
+			/obj/item/weapon/gun/custom_ka/frame05 = 1
 		)
 
 		var/list/cells = list(

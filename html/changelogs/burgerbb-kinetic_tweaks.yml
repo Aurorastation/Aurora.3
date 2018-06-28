@@ -34,4 +34,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Kinetic Accelerators can no longer dig holes. Improved warehouse and abandoned crate loot chances of getting kinetic accelerators."
+  - rscadd: "Kinetic Accelerators can no longer dig holes. Improved warehouse and abandoned crate loot chances of getting kinetic accelerators. High level kinetic accelerators can now be found."
