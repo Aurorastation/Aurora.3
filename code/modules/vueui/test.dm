@@ -11,7 +11,7 @@
 /datum/vueuiuitest/proc/open_ui()
     var/datum/vueuiui/ui = SSvueui.get_open_ui(usr, src)
     if (!ui)
-        ui = new(usr, src, "test", 400, 400, "Test ui title", null, interactive_state)
+        ui = new(usr, src, "?<h1>{{ $root.$data.wtime }}</h1>", 400, 400, "Test ui title", null, interactive_state)
     ui.add_asset("testimg", getFlatIcon(SSmob.get_mannequin()))
     ui.open()
 

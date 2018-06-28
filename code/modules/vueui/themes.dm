@@ -29,3 +29,8 @@
         class += " [theme["class"]]"
         return class
     return ""
+
+/proc/send_theme_resources(var/mob/user)
+    if(user.client)
+        var/datum/asset/assets = get_asset_datum(/datum/asset/simple/vueui_theming)
+        assets.send(user.client)

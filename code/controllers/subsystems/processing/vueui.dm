@@ -144,4 +144,30 @@ Byond Vue UI framework's management subsystem
 
     return 1 // success
 
+/**
+  * Transfers ui from one object to other
+  *
+  * @param old_object - object from whom uis should be transfered
+  * @param new_object - object that receves uis
+  * @param new_activeui - Vue component name to be used in ui with new object
+  * @param new_data - initial data for this transfered ui
+  *
+  * @return 0 if failed, 1 if success
+  */ 
+/datum/controller/subsystem/processing/vueui/proc/transfer_uis(old_object, new_object, new_activeui = null, new_data = null)
+    var/old_object_key = SOFTREF(old_object)
+    var/new_object_key = SOFTREF(new_object)
+    LAZYINITLIST(open_uis[new_object_key])
+
+    for(var/datum/vueuiui/ui in open_uis[old_object_key])
+        ui.object = new_object
+        if(new_activeui) ui.activeui = new_activeui
+        ui.data = new_data
+        open_uis[old_object_key] -= ui
+        LAZYADD(open_uis[new_object_key], ui)
+        ui.check_for_change()
+    
+    if (!LAZYLEN(open_uis[old_object_key]))
+        open_uis -= old_object_key
+
 #undef NULL_OR_EQUAL

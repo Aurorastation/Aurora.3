@@ -51,7 +51,7 @@ main ui datum.
     state = nstate
 
     if (nactiveui)
-        activeui = sanitize(nactiveui)
+        activeui = nactiveui
     if (nwidth)
         width = nwidth
     if (nheight)
