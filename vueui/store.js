@@ -12,7 +12,9 @@ export default {
         this.isUpdating = true
         if (this.debug) console.log('Loaded state with', loadedState)
         this.state.assets = loadedState.assets
-        this.state.state = loadedState.state
+        Object.keys(loadedState.state).forEach((key) => {
+            this.state.state[key] = loadedState.state[key]
+        })
         this.state.active = loadedState.active
         this.state.uiref = loadedState.uiref
         this.state.status = loadedState.status
@@ -20,5 +22,8 @@ export default {
         this.state.wtime = loadedState.wtime
         this.isUpdating = false
     },
-    isUpdating: false
+    isUpdating: false,
+    getStatePushString () {
+        return "vueuistateupdate=" + encodeURIComponent(JSON.stringify(this.state))
+    }
 }

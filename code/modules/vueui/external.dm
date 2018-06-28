@@ -2,7 +2,7 @@
     set hidden = 1	// hide this verb from the user's panel
     set name = "vueuiclose"
 
-    var/datum/vueuiui/ui = locate(uiref)
+    var/vueui/ui = locate(uiref)
 
     if (istype(ui))
         ui.close()
@@ -17,7 +17,7 @@
   *
   * @return list containing changed data, null if data wasn't changed by host
   */
-/datum/proc/vueui_data_change(var/list/newdata, var/mob/user, var/datum/vueuiui/ui)
+/datum/proc/vueui_data_change(var/list/newdata, var/mob/user, var/vueui/ui)
     return
 
 /mob/var/list/open_vueui_uis

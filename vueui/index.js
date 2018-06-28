@@ -25,60 +25,63 @@ requireComponent.keys().forEach(fileName => {
     )
 })
 
-if (document.getElementById("app")) {
-    var state = JSON.parse(document.getElementById('initialstate').innerHTML)
 
-    Store.loadState(state)
+var state = JSON.parse(document.getElementById('initialstate').innerHTML)
 
-    global.receiveUIState = (jsonState) => {
-        Store.loadState(JSON.parse(jsonState))
-    }
+Store.loadState(state)
 
-    window.setInterval(() => {
-        Store.state.wtime += 2
-    }, 200)
+global.receiveUIState = (jsonState) => {
+    Store.loadState(JSON.parse(jsonState))
+}
 
-    var app = new Vue({
-        el: '#app',
-        data: Store.state,
-        template: "<div><component v-if='componentName' :is='componentName'/><component v-if='templateString' :is='{template:templateString}'/></div>",
-        computed: {
-            componentName() {
-                if(this.$root.$data.active.charAt(0) != "?") {
-                    return 'view-' + this.$root.$data.active
-                }
-            },
-            templateString() {
-                if(this.$root.$data.active.charAt(0) == "?") {
-                    return "<div>" + this.$root.$data.active.substr(1) + "</div>"
-                }
+global.pushUIState =  function() {
+    if (Store.isUpdating) {alert(Store.isUpdating); return}
+    var r = new XMLHttpRequest()
+    r.open("GET", "?src=" + Store.state.uiref + "&" + Store.getStatePushString(), true);
+    r.send()
+}
+
+window.setInterval(() => {
+    Store.state.wtime += 2
+}, 200)
+
+var app = new Vue({
+    el: '#app',
+    data: Store.state,
+    template: "<div><component v-if='componentName' :is='componentName'/><component v-if='templateString' :is='{template:templateString}'/></div>",
+    computed: {
+        componentName() {
+            if(this.$root.$data.active.charAt(0) != "?") {
+                return 'view-' + this.$root.$data.active
             }
         },
-        watch: {
-            state: {
-                handler(val) {
-                    if (Store.isUpdating) return
-                    var r = new XMLHttpRequest()
-                    r.open("GET", "?src=" + this.uiref + "&vueuistateupdate=" + encodeURIComponent(JSON.stringify(Store.state)), true);
-                    r.send()
-                },
-                deep: true
+        templateString() {
+            if(this.$root.$data.active.charAt(0) == "?") {
+                return "<div>" + this.$root.$data.active.substr(1) + "</div>"
             }
         }
+    },
+    watch: {
+        state: {
+            handler(val) {
+                global.pushUIState()
+            },
+            deep: true
+        }
+    }
+})
+
+if (document.getElementById("header")) {
+    var header = new Vue({
+        el: '#header',
+        data: Store.state
     })
+}
 
-    if (document.getElementById("header")) {
-        var header = new Vue({
-            el: '#header',
-            data: Store.state
-        })
-    }
-
-    if (document.getElementById("dapp")) {
-        var dapp = new Vue({
-            el: '#dapp',
-            data: Store.state,
-            template: '<div><h1>Current data of UI:</h1><pre>{{ JSON.stringify(this.$root.$data, null, \'    \') }}</pre></div>'
-        })
-    }
+if (document.getElementById("dapp")) {
+    var dapp = new Vue({
+        el: '#dapp',
+        data: Store.state,
+        template: '<div><h1>Current data of UI:</h1><pre>{{ JSON.stringify(this.$root.$data, null, \'    \') }}</pre></div>'
+    })
 }

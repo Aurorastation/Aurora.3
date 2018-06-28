@@ -4,7 +4,7 @@ main ui datum.
 */
 #define UIDEBUG 0
 
-/datum/vueuiui
+/vueui
     // title of ui window
     var/title = "HTML5 UI"
     // user that opened this ui
@@ -44,7 +44,7 @@ main ui datum.
   *
   * @return nothing
   */
-/datum/vueuiui/New(var/nuser, var/nobject, var/nactiveui = 0, var/nwidth = 0, var/nheight = 0, var/ntitle, var/list/ndata, var/datum/topic_state/nstate = default_state)
+/vueui/New(var/nuser, var/nobject, var/nactiveui = 0, var/nwidth = 0, var/nheight = 0, var/ntitle, var/list/ndata, var/datum/topic_state/nstate = default_state)
     user = nuser
     object = nobject
     data = ndata
@@ -67,7 +67,7 @@ main ui datum.
   *
   * @return nothing
   */
-/datum/vueuiui/proc/open()
+/vueui/proc/open()
     if(QDELETED(object))
         return
     if(!user.client)
@@ -76,7 +76,7 @@ main ui datum.
     if(!data)
         data = object.vueui_data_change(null, user, src)
     update_status()
-    if(status == STATUS_CLOSE)
+    if(!status || status == STATUS_CLOSE)
         return
 
     var/params = "window=[windowid];"
@@ -93,7 +93,7 @@ main ui datum.
   *
   * @return nothing
   */
-/datum/vueuiui/proc/close()
+/vueui/proc/close()
     SSvueui.ui_closed(src)
     user << browse(null, "window=[windowid]")
     status = null
@@ -103,7 +103,7 @@ main ui datum.
   *
   * @return html code - text
   */
-/datum/vueuiui/proc/generate_html()
+/vueui/proc/generate_html()
 #if UIDEBUG
     var/debugtxt = "<div id=\"dapp\"></div>"
 #else
@@ -145,7 +145,7 @@ main ui datum.
   *
   * @return json object - text
   */
-/datum/vueuiui/proc/generate_data_json()
+/vueui/proc/generate_data_json()
     var/list/sdata = list()
     sdata["state"] = src.data
     sdata["assets"] = list()
@@ -166,7 +166,7 @@ main ui datum.
   *
   * @return nothing
   */ 
-/datum/vueuiui/proc/send_resources_and_assets(var/client/cl)
+/vueui/proc/send_resources_and_assets(var/client/cl)
 #if UIDEBUG
     cl << browse_rsc(file("vueui/dist/main.js"), "vueui.js")
     cl << browse_rsc(file("vueui/dist/main.css"), "vueui.css")
@@ -186,7 +186,7 @@ main ui datum.
   *
   * @return nothing
   */ 
-/datum/vueuiui/proc/send_asset(var/name)
+/vueui/proc/send_asset(var/name)
     if (!QDELETED(user) || !user.client)
         return
     name = ckey(name)
@@ -201,7 +201,7 @@ main ui datum.
   *
   * @return nothing
   */ 
-/datum/vueuiui/proc/add_asset(var/name, var/image/img)
+/vueui/proc/add_asset(var/name, var/image/img)
     if(QDELETED(img))
         return
     name = ckey(name)
@@ -215,7 +215,7 @@ main ui datum.
   *
   * @return nothing
   */ 
-/datum/vueuiui/proc/remove_asset(var/name)
+/vueui/proc/remove_asset(var/name)
     name = ckey(name)
     assets -= assets[name]
 
@@ -224,7 +224,7 @@ main ui datum.
   *
   * @return nothing
   */ 
-/datum/vueuiui/Topic(href, href_list)
+/vueui/Topic(href, href_list)
     update_status()
     if(status < STATUS_INTERACTIVE || user != usr)
         return
@@ -236,7 +236,6 @@ main ui datum.
             ndata = ret
             push_change(ret)
         src.data = ndata
-        return // Object shal not get state update calls
     href_list["vueui"] = src // Let's pass our UI object to object for it to do things.
     object.Topic(href, href_list)
 
@@ -247,7 +246,7 @@ main ui datum.
   *
   * @return nothing
   */ 
-/datum/vueuiui/proc/push_change(var/list/ndata)
+/vueui/proc/push_change(var/list/ndata)
     if(ndata && status > STATUS_DISABLED)
         src.data = ndata
     user << output(list2params(list(generate_data_json())),"[windowid].browser:receiveUIState")
@@ -259,7 +258,7 @@ main ui datum.
   *
   * @return nothing
   */ 
-/datum/vueuiui/proc/check_for_change(var/force = 0)
+/vueui/proc/check_for_change(var/force = 0)
     var/ret = object.vueui_data_change(data, user, src)
     if(ret)
         push_change(ret)
@@ -273,7 +272,7 @@ main ui datum.
   *
   * @return nothing
   */
-/datum/vueuiui/proc/set_status(nstatus)
+/vueui/proc/set_status(nstatus)
     if (nstatus != status) // Only update if it is different
         status = nstatus
         if(nstatus > STATUS_DISABLED)
@@ -288,7 +287,7 @@ main ui datum.
   *
   * @return nothing
   */
-/datum/vueuiui/proc/update_status()
+/vueui/proc/update_status()
     set_status(object.CanUseTopic(user, state))
 
 /**
@@ -296,7 +295,7 @@ main ui datum.
   *
   * @return nothing
   */
-/datum/vueuiui/process()
+/vueui/process()
     if (!object || !user || status < 0)
         close()
         return
@@ -307,7 +306,7 @@ main ui datum.
   *
   * @return themes class - text
   */
-/datum/vueuiui/proc/get_theme_class()
+/vueui/proc/get_theme_class()
     return get_html_theme_class(user)
 
 #undef UIDEBUG

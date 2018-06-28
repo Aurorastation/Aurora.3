@@ -10,7 +10,7 @@ This UI framework is mostly composed of four main parts:
 First we have to create a way to open ui, for example, a proc that's called when we want to open ui:
 ```DM
 /datum/mydatum/proc/open_ui()
-    var/datum/vueuiui/ui = SSvueui.get_open_ui(usr, src)
+    var/vueui/ui = SSvueui.get_open_ui(usr, src)
     if (!ui)
         ui = new(usr, src, "uiname", 300, 300, "Title of ui")
     ui.open()
@@ -19,7 +19,7 @@ On first line we check if we already have open ui for this user, if we already h
 ### Step 2: Provide data
 But how we pass data to it? There is two ways to do it, first one is to pass initial data in constructor: `new(usr, src, "uiname", 300, 300, "Title of ui", data)`. But it's recommended to use `vueui_data_change` proc for data feed to ui.
 ```DM
-/datum/mydatum/vueui_data_change(var/list/newdata, var/mob/user, var/datum/vueuiui/ui)
+/datum/mydatum/vueui_data_change(var/list/newdata, var/mob/user, var/vueui/ui)
     if(!newdata)
         // generate new data
         return list("counter" = 0)
@@ -121,6 +121,7 @@ Parameters:
  - `$slot` - Contents of button.
  - `params` - key value pairs to send to `Topic` of object.
  - `icon` - icon that should be used in that button. For available icons look at `\vueui\styles\icons.scss`
+ - `push-state` - Boolean determining if current ui state should be pushed on button click. This often results in `vueui_data_change` call right before `Topic` call.
 
 ### VuiProgress `<vui-progress>`
 Simple progress bar for representing progress of a process or indicate status.

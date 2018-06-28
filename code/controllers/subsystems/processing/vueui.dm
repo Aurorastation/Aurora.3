@@ -27,7 +27,7 @@ Byond Vue UI framework's management subsystem
   * @return ui datum
   */ 
 /datum/controller/subsystem/processing/vueui/proc/get_open_ui(mob/user, src_object)
-    for (var/datum/vueuiui/ui in get_open_uis(src_object))
+    for (var/vueui/ui in get_open_uis(src_object))
         if (ui.user == user)
             return ui
 
@@ -55,7 +55,7 @@ Byond Vue UI framework's management subsystem
   * @return nothing
   */ 
 /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change(src_object)
-    for (var/datum/vueuiui/ui in get_open_uis(src_object))
+    for (var/vueui/ui in get_open_uis(src_object))
         ui.check_for_change()
 
 /**
@@ -70,7 +70,7 @@ Byond Vue UI framework's management subsystem
     if (!LAZYLEN(user.open_vueui_uis))
         return 0
 
-    for (var/datum/vueuiui/ui in user.open_vueui_uis)
+    for (var/vueui/ui in user.open_vueui_uis)
         if (NULL_OR_EQUAL(src_object, ui.object))
             ui.close()
             .++
@@ -82,7 +82,7 @@ Byond Vue UI framework's management subsystem
   *
   * @return nothing
   */ 
-/datum/controller/subsystem/processing/vueui/proc/ui_opened(datum/vueuiui/ui)
+/datum/controller/subsystem/processing/vueui/proc/ui_opened(vueui/ui)
     var/src_object_key = SOFTREF(ui.object)
     LAZYINITLIST(open_uis[src_object_key])
     LAZYINITLIST(ui.user.open_vueui_uis)
@@ -97,7 +97,7 @@ Byond Vue UI framework's management subsystem
   *
   * @return 0 if failed, 1 if success
   */ 
-/datum/controller/subsystem/processing/vueui/proc/ui_closed(datum/vueuiui/ui)
+/datum/controller/subsystem/processing/vueui/proc/ui_closed(vueui/ui)
     var/src_object_key = SOFTREF(ui.object)
 
     if (!LAZYLEN(open_uis[src_object_key]))
@@ -136,7 +136,7 @@ Byond Vue UI framework's management subsystem
         return 0
 
     for (var/thing in oldMob.open_vueui_uis)
-        var/datum/vueuiui/ui = thing
+        var/vueui/ui = thing
         ui.user = newMob
         LAZYADD(newMob.open_vueui_uis, ui)
 
@@ -159,7 +159,7 @@ Byond Vue UI framework's management subsystem
     var/new_object_key = SOFTREF(new_object)
     LAZYINITLIST(open_uis[new_object_key])
 
-    for(var/datum/vueuiui/ui in open_uis[old_object_key])
+    for(var/vueui/ui in open_uis[old_object_key])
         ui.object = new_object
         if(new_activeui) ui.activeui = new_activeui
         ui.data = new_data

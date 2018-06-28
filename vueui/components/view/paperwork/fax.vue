@@ -48,7 +48,7 @@
 
 <script>
 export default {
-    name: 'view-fax',
+    name: 'view-paperwork-fax',
     data() {
         return this.$root.$data;
     },

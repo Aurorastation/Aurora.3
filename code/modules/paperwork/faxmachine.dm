@@ -36,7 +36,7 @@ var/list/admin_departments
 	if( !(("[department]" in alldepartments) || ("[department]" in admin_departments)) )
 		alldepartments |= department
 
-/obj/machinery/photocopier/faxmachine/vueui_data_change(var/list/newdata, var/mob/user, var/datum/vueuiui/ui)
+/obj/machinery/photocopier/faxmachine/vueui_data_change(var/list/newdata, var/mob/user, var/vueui/ui)
 	var/isChanged = FALSE
 	// Build baseline data, that's read-only
 	if(!newdata)
@@ -68,9 +68,9 @@ var/list/admin_departments
 		return newdata
 
 /obj/machinery/photocopier/faxmachine/attack_hand(mob/user as mob)
-	var/datum/vueuiui/ui = SSvueui.get_open_ui(user, src)
+	var/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(usr, src, "fax", 450, 350, capitalize(src.name))
+		ui = new(usr, src, "paperwork-fax", 450, 350, capitalize(src.name))
 	ui.open()
 
 /obj/machinery/photocopier/faxmachine/attackby(obj/item/O as obj, mob/user as mob)
@@ -85,7 +85,10 @@ var/list/admin_departments
 			SSvueui.check_uis_for_change(src)
 			return
 
-		var/destination = href_list["vueui"].data["destination"]
+		var/vueui/ui = href_list["vueui"]
+		if(!istype(ui))
+			return
+		var/destination = ui.data["destination"]
 		if(copyitem && is_authenticated())
 			if (destination in admin_departments)
 				send_admin_fax(usr, destination)
