@@ -211,7 +211,7 @@
 	num_alternate_languages = 3
 	language = LANGUAGE_SKRELLIAN
 	secondary_langs = list(LANGUAGE_SIIK_TAU)
-	name_language = null
+	name_language = LANGUAGE_SKRELLIAN
 	rarity_value = 3
 
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
@@ -251,8 +251,7 @@
 	economic_modifier = 3
 	icobase = 'icons/mob/human_races/r_diona.dmi'
 	deform = 'icons/mob/human_races/r_def_plant.dmi'
-	language = "Ceti Basic"
-	default_language = LANGUAGE_ROOTSONG
+	language = LANGUAGE_ROOTSONG
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
@@ -266,7 +265,7 @@
 	eyes = "blank_eyes"
 	show_ssd = "completely quiescent"
 	num_alternate_languages = 1
-	name_language = "Rootsong"
+	name_language = LANGUAGE_ROOTSONG
 	ethanol_resistance = -1	//Can't get drunk
 	taste_sensitivity = TASTE_DULL
 	mob_size = 12	//Worker gestalts are 150kg
