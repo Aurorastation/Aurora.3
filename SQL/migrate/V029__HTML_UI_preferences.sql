@@ -3,4 +3,4 @@
 --
 
 ALTER TABLE `ss13_player_preferences`
-	ADD `html_UI_style` TINYTEXT NULL DEFAULT NULL;
+	ADD `html_UI_style` varchar NULL DEFAULT `Nano`;
