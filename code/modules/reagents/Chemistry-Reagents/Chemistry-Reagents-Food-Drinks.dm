@@ -647,7 +647,7 @@
 		message = "<span class='danger'>Your face and throat burn!</span>"
 		if(prob(25))
 			M.custom_emote(2, "[pick("coughs!","coughs hysterically!","splutters!")]")
-			M.apply_effect(30, AGONY, 0)
+		M.apply_effect(40, AGONY, 0)
 
 #undef EYES_PROTECTED
 #undef EYES_MECH
