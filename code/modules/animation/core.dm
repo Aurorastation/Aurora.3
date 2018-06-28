@@ -15,6 +15,11 @@
 	layer = ABOVE_MOB_LAYER
 
 /obj/effect/animated_inventory/proc/do_animate()
+
+	if(TICK_CHECK)
+		return
+
+
 	icon = object_to_animate.icon
 	icon_state = object_to_animate.icon_state
 	pixel_x = object_to_animate.pixel_x

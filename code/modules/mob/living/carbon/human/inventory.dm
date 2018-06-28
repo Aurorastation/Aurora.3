@@ -405,10 +405,10 @@ This saves us from having to call add_fingerprint() any time something is put in
 	else
 		return ..()
 
-/mob/living/carbon/human/put_in_l_hand(var/obj/item/W)
+/mob/living/carbon/human/put_in_l_hand(var/obj/item/W, var/enable_animations = TRUE)
 	if(!..() || l_hand)
 		return 0
-	if(W.loc != src)
+	if(W.loc != src && enable_animations)
 		if(isturf(W.loc))
 			animate_item(W,get_turf(W),get_turf(src),0.25 SECONDS,ANIMATION_STYLE_SHRINKMOVE) //Big to small
 		else
@@ -420,7 +420,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 	update_inv_l_hand()
 	return 1
 
-/mob/living/carbon/human/put_in_r_hand(var/obj/item/W)
+/mob/living/carbon/human/put_in_r_hand(var/obj/item/W, var/enable_animations = TRUE)
 	if(!..() || r_hand)
 		return 0
 	if(W.loc != src)

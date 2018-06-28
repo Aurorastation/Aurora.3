@@ -109,13 +109,13 @@ var/list/slot_equipment_priority = list( \
 	else		return l_hand
 
 //Puts the item into your l_hand if possible and calls all necessary triggers/updates. returns 1 on success.
-/mob/proc/put_in_l_hand(var/obj/item/W)
+/mob/proc/put_in_l_hand(var/obj/item/W, var/enable_animations = TRUE)
 	if(lying || !istype(W))
 		return 0
 	return 1
 
 //Puts the item into your r_hand if possible and calls all necessary triggers/updates. returns 1 on success.
-/mob/proc/put_in_r_hand(var/obj/item/W)
+/mob/proc/put_in_r_hand(var/obj/item/W, var/enable_animations = TRUE)
 	if(lying || !istype(W))
 		return 0
 	return 1
