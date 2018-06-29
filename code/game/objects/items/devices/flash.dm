@@ -123,7 +123,7 @@
 			var/mob/living/silicon/robot/R = M
 			if(R.overclocked)
 				return
-		M.Weaken(rand(5,10))
+		M.Weaken(rand(3,7)) //should be that borg is disabled for around 3-7 seconds
 	else
 		flashfail = 1
 
