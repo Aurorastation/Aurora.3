@@ -88,7 +88,7 @@
 		if(istype(M, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = M
 			// Tracking blood
-			var/list/bloodDNA = list()
+			var/list/bloodDNA = null
 			var/bloodcolor=""
 			if(H.shoes)
 				var/obj/item/clothing/shoes/S = H.shoes
