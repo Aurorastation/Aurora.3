@@ -1,4 +1,4 @@
 author: MattAtlas
 delete-after: True
 changes: 
-  - rscadd: "Added new firearm sounds. Enjoy."
+  - soundadd: "Added new firearm sounds. Enjoy."
