@@ -38,7 +38,7 @@
 	user.set_machine(src)
 	var/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(usr, src, "paperwork-photocopier", 450, 350, capitalize(src.name))
+		ui = new(usr, src, "paperwork-photocopier", 230, 160, capitalize(src.name))
 	ui.open()
 
 /obj/machinery/photocopier/Topic(href, href_list)

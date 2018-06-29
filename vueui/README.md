@@ -41,7 +41,7 @@ Simply use `Topic` proc to get ui action calls from ui.
 ### Step 4: Make ui itself.
 It is recommended to [enable debugging](.#debug-ui) for this step to make things easier. 
 
-To create ui itself, you need to create `.vue` file inside `\vueui\components\ui` and register it inside `\vueui\components\ui\index.js`. Example vueui file:
+To create ui itself, you need to create `.vue` file somewhere in `\vueui\components\view`. Example vueui file:
 ```vue
 <template>
     <div>
@@ -75,9 +75,13 @@ Asks all ui's to call `object`'s `vueui_data_change` proc to make all uis up tp 
 ### `SSvueui.get_open_uis(object)`
 Gets a list of all open uis for specified object. This allows to interact with individual uis. 
 ### `ui.activeui`
-Determines currently active view component for this ui datum. Should be combines with `check_for_change()` or `push_change()`.
+Determines currently active view component for this ui datum. Should be combines with `check_for_change()` or `push_change()`. 
+
+It is also plausible for server to send templates dynamically. First character of template should be `?` to specify to vueui that its going to be not recompiled `view` component, but a template. Also template should have single root element. Example for such component would be `?<span>Time since server boot: {{ $root.$data.wtime / 2 }} seconds.</span>`
 ### `ui.header`
 Determines header component that is used with this ui. Should be set before `ui.open()`.
+### `ui.auto_update_content`
+Constantly checks for change using `ui.check_for_change()`. This should be only used when data changes unpredictably , 
 ### `ui.open()`
 Tries to open this ui, and sends all necessary assets for proper ui rendering. If ui has no data, then calls `object.vueui_data_change(null ...)` to obtain initial ui data.
 ### `ui.send_asset(name)`
@@ -108,7 +112,35 @@ To enable debug mode and make figuring out things easier do following steps:
  - Use `\vueui\template.html` in Internet explorer to use inspector to analyze ui behaviour. Also don't forget to copy paste data from actual ui to this debug ui inside templates code. 
 
 ## Vue syntax
-You should look at [official Vuejs guide](https://vuejs.org/v2/guide/syntax.html). As it's more detailed and more accurate than any explanation that could have been written here.
+You should look at [official Vue.js guide](https://vuejs.org/v2/guide/syntax.html). As it's more detailed and more accurate than any explanation that could have been written here.
+### Data passed to uis
+To access global metadata for this ui, use `this.$root.$data` or `$root.$data`, depending on context. To simplify access you can use following hack that links global data to local component data. It simplifies access to data. following explanation assumes you have done so. _Note: changes made on client side aren't sent to server, so **please** do not alter them._
+```vue
+<script>
+export default {
+    name: 'view-name',
+    data() {
+        return this.$root.$data;
+    }
+};
+</script>
+```
+#### `state` - Representation of `ui.data` inside ui.
+This is outside metadata, so changes to this variable can be made, but this variable is expected to be a object or how BYOND calls it - a keyed list, using other type *will* cause errors. This variable is main way to interact with server without using `Topic()`.
+
+Note: `state` can get very out of sync with `ui.data`, this often occur on rapid changes. So to make sure latest data gets to ui datum, when ui data is needed for usage, `<vui-button>` parameter `push-state` should be set. Example: `<vui-button push-state :params="{copy: 1}">Copy</vui-button>` in photocopier.vue - makes sure that copy amount is up to date. When `state` object is huge, it's discouraged to solve this issue like this. Then it should be solved by sending needed data inside `params`.
+#### `wtime` - Global world time since boot, client side guess of `word.time`
+This is constantly counting counter updated every 200ms representing time since server has started. This should be used for displaying counters, timers, as it doesn't depend on pushed state so much, so it allows making better user experiences.
+#### `title` - This ui's title, copy of `ui.title`
+This uis title, mostly used by header components.
+#### `status` - Interactivity status, mirror of `ui.status`
+Topic status, used to determine how interactive is ui. Meanings of numbers can be seen `\code\__defines\machinery.dm`.
+#### `assets` - This makes `add_asset`, `remove_asset` and `<vui-img>` tick
+As described, this makes them tick. This ***should*** shouldn't be used, unless you know what you are doing.
+#### `active` - Representation of `ui.activeui`
+This determines what should be used to display data.
+#### `uiref` - Reference for ui datum
+Reference to ui datum is used by state updates, and `<vui-button>` to make appropriate requests.
 ## UI components
 ### VuiButton `<vui-button>`
 Button programmed to send provided data to ui object. Comes with icon support.

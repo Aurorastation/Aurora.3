@@ -5,6 +5,7 @@ main ui datum.
 #define UIDEBUG 0
 
 /vueui
+    var/name = "Vueui"
     // title of ui window
     var/title = "HTML5 UI"
     // user that opened this ui
@@ -28,6 +29,8 @@ main ui datum.
     var/header = "default"
     // window id
     var/windowid
+    // determines if ui state should be constantly be cheacked for updates
+    var/auto_update_content = FALSE
 
 
 /**
@@ -61,6 +64,7 @@ main ui datum.
 
     SSvueui.ui_opened(src)
     windowid = "vueui\ref[src]"
+    name = "Vueui [object]/[user]"
 
 /**
   * Opens this ui, gathers initial data
@@ -259,10 +263,13 @@ main ui datum.
   * @return nothing
   */ 
 /vueui/proc/check_for_change(var/force = 0)
-    var/ret = object.vueui_data_change(data, user, src)
-    if(ret)
-        push_change(ret)
-    else if(force)
+    if(status > STATUS_DISABLED)
+        var/ret = object.vueui_data_change(data, user, src)
+        if(ret)
+            push_change(ret)
+        else if (force)
+            push_change(null)
+    else if (force && status == STATUS_DISABLED)
         push_change(null)
 
 /**
@@ -291,7 +298,7 @@ main ui datum.
     set_status(object.CanUseTopic(user, state))
 
 /**
-  * Preocess this ui
+  * Process this ui
   *
   * @return nothing
   */
@@ -300,6 +307,8 @@ main ui datum.
         close()
         return
     update_status()
+    if(auto_update_content)
+        check_for_change()
 
 /**
   * Returns actuve theme on varous conditions
