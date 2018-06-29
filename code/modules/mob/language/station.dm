@@ -304,8 +304,8 @@
 			"ti","ti","ti","hi","hi","ki","ki","ki","ki","ya","ta","ha","ka","ya","chi","cha","kah", "SKRE","AHK","EHK","RAWK","KRA","AAA","EEE","KI","II","KRI","KA", "ire","ego","nahlizet","certum","veri","jatkaa","mgar","balaq", "karazet", "geeri",,
 			"mah'weyh", "pleggh", "at", "e'ntrath", "tok-lyr", "rqa'nap", "g'lt-ulotf", "ta'gh", "fara'qha", "fel", "d'amar det")
 	partial_understanding = list(
-			LANGUAGE_UNATHI = 10, LANGUAGE_SOL_COMMON = 15, LANGUAGE_SIIK_MAAS = 1, LANGUAGE_SIIK_TAJR = 1, LANGUAGE_SIGN_TAJARA = 1, LANGUAGE_YA_SSA = 1, LANGUAGE_DELVAHII = 10,
-			LANGUAGE_SKRELLIAN = 10, LANGUAGE_RESOMI = 15, LANGUAGE_ROOTSONG = 25, LANGUAGE_TRADEBAND = 15, LANGUAGE_GUTTER = 20, LANGUAGE_VAURCA = 30, LANGUAGE_AZAZIBA = 10, LANGUAGE_TCB = 20,
+			LANGUAGE_UNATHI = 20, LANGUAGE_SOL_COMMON = 25, LANGUAGE_SIIK_MAAS = 10, LANGUAGE_SIIK_TAJR = 10, LANGUAGE_SIGN_TAJARA = 10, LANGUAGE_YA_SSA = 10, LANGUAGE_DELVAHII = 10,
+			LANGUAGE_SKRELLIAN = 20, LANGUAGE_RESOMI = 15, LANGUAGE_ROOTSONG = 25, LANGUAGE_TRADEBAND = 20, LANGUAGE_GUTTER = 20, LANGUAGE_VAURCA = 30, LANGUAGE_AZAZIBA = 10, LANGUAGE_TCB = 20,
 			LANGUAGE_VOX = 30, LANGUAGE_GIBBERING = 99, LANGUAGE_EAL = 10)
 
 //Syllable Lists
