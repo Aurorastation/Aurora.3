@@ -281,6 +281,33 @@
 	syllables = list("azs","zis","zau","azua","skiu","zuakz","izo","aei","ki","kut","zo")
 	partial_understanding = list(LANGUAGE_UNATHI = 50)
 
+/datum/language/omega_tongue
+	name = LANGUAGE_OMEGA
+	desc = "A language that is said to have sprung first amongst the Tajara stowaways in 2454, Encoded Nral'sinta'maas-songnet Basic-pidgin sees great popularity in the modern day owing to its macaronic heritage."
+	speech_verb = "stutters"
+	ask_verb = "gesticulates"
+	exclaim_verb = "screeches"
+	signlang_verb = list("signs", "gestures aggressively")
+	colour = "omega"
+	key = "m"
+	syllables = list(
+			"azs","zis","zau","azua","skiu","zuakz","izo","aei","ki","kut","zo", "ca", "ra", "ma", "sa", "na", "ta", "la", "sha", "scha", "a", "a",
+			"beep","beep","beep","beep","beep","boop","boop","boop","bop","bop","dee","dee","doo","doo","hiss","hss","buzz","buzz","bzz","ksssh","keey","wurr",
+			"wahh","vaur","uyek","uyit","avek","sc'theth","k'ztak","teth","wre'ge","lii","dra'","zo'","ra'","k'lax'","zz","vh","ik","ak",
+			"qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!","hrr","rhr","tarj","khir","rajh","kir","mier","kre","ahek","nlhal","veh","khaz","dri","rhan","darrer",
+			"mrr","rr","tajr","kir","raj","kii","mir","kra","ahk","nal","vah","khaz","jri","ran","darr","mrr","rr","tajr","kir","raj","kii","mir","kra","ahk","nal","vah","khaz","jri","ran","darr",
+			"za", "az", "ze", "ez", "zi", "iz", "zo", "oz", "zu", "uz", "zs", "sz", "hs","zt","kr","st","sh", "a", "ai", "an", "ang", "ao", "ba", "bai", "ban", "bang", "bao", "bei", "ben", "beng", "bi", "bian", "biao",
+			"den", "deng", "di", "dian", "diao", "die", "ding", "diu", "dong", "dou", "du", "duan", "dui", "dun", "duo", "e", "shai", "shan", "shang", "shao", "she", "shei", "shen", "sheng", "shi", "shou", "shu", "shua", "shuai", "shuan", "shuang", "shui",
+			"ve", "wa", "all", "and", "are", "but", "ent", "era", "ere", "eve", "for", "had", "hat", "hen", "her", "hin", "blah","blah","blah","bleh","meh","neh","nah","wah",
+			"lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing", "elit", "in", "culpa", "qui", "officia", "deserunt", "mollit", "anim", "id", "est", "laborum",
+			"slo","nik","ko","zels","het","zlo","nis","iv","da","ati","yib","ban","dup","sha","ansh","nou","nec","zby", "ci", "m","n","gh","h","l","s","r","a","e","i","o","u",
+			"ti","ti","ti","hi","hi","ki","ki","ki","ki","ya","ta","ha","ka","ya","chi","cha","kah", "SKRE","AHK","EHK","RAWK","KRA","AAA","EEE","KI","II","KRI","KA", "ire","ego","nahlizet","certum","veri","jatkaa","mgar","balaq", "karazet", "geeri",,
+			"mah'weyh", "pleggh", "at", "e'ntrath", "tok-lyr", "rqa'nap", "g'lt-ulotf", "ta'gh", "fara'qha", "fel", "d'amar det")
+	partial_understanding = list(
+			LANGUAGE_UNATHI = 10, LANGUAGE_SOL_COMMON = 15, LANGUAGE_SIIK_MAAS = 1, LANGUAGE_SIIK_TAJR = 1, LANGUAGE_SIGN_TAJARA = 1, LANGUAGE_YA_SSA = 1, LANGUAGE_DELVAHII = 10,
+			LANGUAGE_SKRELLIAN = 10, LANGUAGE_RESOMI = 15, LANGUAGE_ROOTSONG = 25, LANGUAGE_TRADEBAND = 15, LANGUAGE_GUTTER = 20, LANGUAGE_VAURCA = 30, LANGUAGE_AZAZIBA = 10, LANGUAGE_TCB = 20,
+			LANGUAGE_VOX = 30, LANGUAGE_GIBBERING = 99, LANGUAGE_EAL = 10)
+
 //Syllable Lists
 /*
 	This list really long, mainly because I can't make up my mind about which mandarin syllables should be removed,
