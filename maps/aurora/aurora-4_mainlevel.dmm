@@ -29027,7 +29027,6 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
@@ -63232,18 +63231,18 @@
 /area/security/security_office)
 "ctr" = (
 /obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/mask/breath,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/door/window/southleft{
 	dir = 4;
 	icon_state = "left";
 	name = "Atmospheric Hardsuits";
 	req_access = list(24)
+	},
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/mask/breath,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
 	},
 /obj/item/clothing/suit/space/void/atmos,
 /obj/item/clothing/head/helmet/space/void/atmos,
@@ -63251,17 +63250,18 @@
 /area/engineering/atmos/storage)
 "cts" = (
 /obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/mask/breath,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/door/window/southleft{
 	dir = 4;
 	icon_state = "left";
 	name = "Atmospheric Hardsuits";
 	req_access = list(24)
 	},
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/mask/breath,
 /obj/item/clothing/suit/space/void/atmos,
 /obj/item/clothing/head/helmet/space/void/atmos,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "ctt" = (
@@ -63437,6 +63437,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "ctT" = (
