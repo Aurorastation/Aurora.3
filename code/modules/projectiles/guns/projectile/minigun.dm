@@ -15,7 +15,7 @@
 	var/obj/item/ammo_magazine/ammo_magazine
 	var/magazine_type =  /obj/item/ammo_magazine/minigun
 
-/obj/item/minigunpack/update_icon()
+/obj/item/minigunpack/update_icon(var/mob/user)
 	..()
 	if(armed)
 		icon_state = "notholstered"
@@ -23,6 +23,7 @@
 	else
 		icon_state = "holstered"
 		item_state = "holstered"
+	user.update_inv_back()
 
 /obj/item/minigunpack/Initialize()
 	. = ..()
@@ -71,14 +72,12 @@
 			return
 
 		armed = TRUE
-		update_icon()
-		user.update_inv_back()
+		update_icon(user)
 
 /obj/item/minigunpack/equipped(mob/user, slot)
 	..()
 	if(slot != slot_back)
 		remove_gun()
-		user.update_inv_back()
 
 /obj/item/minigunpack/proc/remove_gun()
 	if(!gun)
@@ -86,7 +85,7 @@
 	if(ismob(gun.loc))
 		var/mob/M = gun.loc
 		if(M.drop_from_inventory(gun, src))
-			update_icon()
+			update_icon(M)
 	else
 		gun.forceMove(src)
 		update_icon()
@@ -161,8 +160,7 @@
 	if(source)
 		to_chat(user, "<span class='notice'>\The [src] snaps back onto \the [source].</span>")
 		addtimer(CALLBACK(source, /obj/item/minigunpack/.proc/remove_gun), 0)
-		source.update_icon()
-		user.update_inv_back()
+		source.update_icon(user)
 
 /obj/item/weapon/gun/projectile/automatic/rifle/minigun/Move()
 	..()
