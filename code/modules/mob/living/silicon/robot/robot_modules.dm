@@ -112,6 +112,8 @@ var/global/list/robot_modules = list(
 	return
 
 /obj/item/weapon/robot_module/proc/respawn_consumable(var/mob/living/silicon/robot/R, var/rate)
+	//BURGER TODO: FIX THIS
+	/*
 	var/obj/item/device/flash/F = locate() in src.modules
 	if(F)
 		if(F.broken)
@@ -120,6 +122,7 @@ var/global/list/robot_modules = list(
 			F.icon_state = "flash"
 		else if(F.times_used)
 			F.times_used--
+	*/
 
 	if(!synths || !synths.len)
 		return
