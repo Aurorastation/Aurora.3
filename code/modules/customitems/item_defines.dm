@@ -554,7 +554,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	F.take_damage(5)
 	src << "<span class='warning'>You feel a stabbing pain in your chest!</span>"
-	playsound(user, 'sound/effects/Heart Beat.ogg', 20, 1)
+	playsound(src, 'sound/effects/Heart Beat.ogg', 20, 1)	// shouldn't this be only to src?
 
 
 /obj/item/clothing/accessory/badge/fluff/caleb_badge //Worn Badge - Caleb Greene - notmegatron
@@ -1373,7 +1373,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 			desc = "A grey t-shirt with a stylistic white, faded depiction of the Parthenon on it. It has been cut in half, displaying the inside, with sections clearly labelled in small font."
 
 	usr.update_inv_w_uniform()
-	usr.visible_message("<span class='notice'>[user] fumbles with \the [src], changing the shirt..</span>",
+	usr.visible_message("<span class='notice'>[usr] fumbles with \the [src], changing the shirt..</span>",
 						"<span class='notice'>You change \the [src]'s style to be '[style]'.</span>")
 
 
@@ -1600,7 +1600,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	usr.visible_message("<span class='notice'>[usr] yanks apart \the [src]!</span>")
-	var/obj/item/fluff/jamie_tag/tag = new(get_turf(user))
+	var/obj/item/fluff/jamie_tag/tag = new(get_turf(usr))
 	usr.put_in_hands(tag)
 	src.separated = TRUE
 	src.update_icon()
@@ -2123,7 +2123,7 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 		return
 
 	else
-		usr.visible_message("<span class='notice'>With the flick of \the [user] wrists and the pinch of \his fingers, the glove's flames are extinguished.</span>")
+		usr.visible_message("<span class='notice'>With the flick of \the [usr] wrists and the pinch of \his fingers, the glove's flames are extinguished.</span>")
 		lit = FALSE
 		playsound(src.loc, 'sound/items/lighter_off.ogg', 75, 1)
 		update_icon()
