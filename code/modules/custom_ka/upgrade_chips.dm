@@ -1,6 +1,6 @@
 /obj/item/custom_ka_upgrade/upgrade_chips/damage
 	name = "upgrade chip - damage increase"
-	desc = "Increases damage and recoil."
+	desc = "Increases damage and recoil, reduces accuracy."
 	icon_state = "upgrade_chip"
 	damage_increase = 10
 	recoil_increase = 3
@@ -54,7 +54,6 @@
 	name = "illegal custom KA upgrade chip"
 	desc = "Overrides safety settings for a custom kinetic accelerator. What's the worst that could happen?"
 	icon_state = "upgrade_chip_illegal"
-	damage_increase = 10
 	firedelay_increase = -0.5 SECONDS
 	recoil_increase = 4
 	cost_increase = 1
