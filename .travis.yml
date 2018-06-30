@@ -17,6 +17,7 @@ cache:
   directories:
     - $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}
     - $HOME/flyway-${FLYWAY_BUILD}
+    - vueui/dist
 
 addons:
   mariadb: '10.1'
