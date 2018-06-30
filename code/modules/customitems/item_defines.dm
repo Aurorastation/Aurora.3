@@ -2041,20 +2041,12 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 	icon_state = "nikit_zippo"
 
 
-/obj/item/clothing/under/dress/fluff/marwani_dress_front //Unathi Purple Dress - Ilaeza Marwani - burgerbb
+/obj/item/clothing/suit/fluff/marwani_dress //Unathi Purple Dress - Ilaeza Marwani - burgerbb
 	name = "unathi purple dress"
-	desc = "A strange purple dress designed to fit very tall female unathi, suitable for indoor wear in warmer climate. This is the front piece."
+	desc = "A strange purple dress designed to fit very tall female unathi, suitable for indoor wear in warmer climate. Attached to it is some sort of giant iron emblem."
 	icon = 'icons/obj/custom_items/marwani_dress.dmi'
-	icon_state = "mar_front_dress"
-	item_state = "mar_front_dress"
-	contained_sprite = TRUE
-
-/obj/item/clothing/suit/fluff/marwani_dress_back //Unathi Purple Dress - Ilaeza Marwani - burgerbb
-	name = "unathi purple dress"
-	desc = "A strange purple dress designed to fit very tall female unathi, suitable for indoor wear in warmer climate. This is the back piece."
-	icon = 'icons/obj/custom_items/marwani_dress.dmi'
-	icon_state = "mar_back_dress"
-	item_state = "mar_back_dress"
+	icon_state = "mar_dress"
+	item_state = "mar_dress"
 	contained_sprite = TRUE
 
 /obj/item/clothing/shoes/jackboots/unathi/fluff/marwani_shoes //Unathi Purple Boots - Ilaeza Marwani - burgerbb
@@ -2071,14 +2063,6 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 	icon = 'icons/obj/custom_items/marwani_dress.dmi'
 	icon_state = "mar_gloves"
 	item_state = "mar_gloves"
-	contained_sprite = TRUE
-
-/obj/item/clothing/accessory/fluff/marwani_armor //Clan Marwani Emblem - Ilaeza Marwani - burgerbb
-	name = "clan marwani armor"
-	desc = "A large, decorative iron and brass alloyed breastplate signifying the industrial strength of Clan Marwani."
-	icon = 'icons/obj/custom_items/marwani_dress.dmi'
-	icon_state = "mar_emblem"
-	item_state = "mar_emblem"
 	contained_sprite = TRUE
 
 
@@ -2266,3 +2250,44 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 	new /obj/item/fluff/yarn/green(src)
 	new /obj/item/fluff/yarn/purple(src)
 	new /obj/item/fluff/yarn/yellow(src)
+
+
+/obj/item/clothing/under/fluff/moyers_shirt //Custom Martian Raider T-Shirt - Caiden Moyers - tylaaaar
+	name = "custom martian raider t-shirt"
+	desc = "A Martian Raider Spaceball T-shirt with the name \"MOYERS\" written on the back in plain white text."
+	icon = 'icons/obj/custom_items/moyers_shirt.dmi'
+	icon_state = "moyers_shirt"
+	item_state = "moyers_shirt"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/suit/fluff/eri_robes //Senior Alchemist Robes - Eri Akhandi - paradoxspace
+	name = "senior alchemist robes"
+	desc = "A green set of robes, trimmed with what appears to be real gold. Looking at the necklace, you can see the alchemical symbol for the Philosopher's Stone, made of ruby."
+	icon = 'icons/obj/custom_items/eri_robes.dmi'
+	icon_state = "eri_robes"
+	item_state = "eri_robes"
+	contained_sprite = TRUE
+
+
+/obj/item/fluff/halstere_card //Solarian Alliance Military ID - Kalren Halstere - brutishcrab51
+	name = "solarian alliance military ID"
+	desc = "A green and white military identification card, with an Alliance of Sovereign Solarian Nations sigil stamped on the front."
+	icon = 'icons/obj/custom_items/halstere_clothing.dmi'
+	icon_state = "halstere_card"
+	w_class = 2
+	var/flipped = FALSE
+
+/obj/item/fluff/halstere_card/attack_self(mob/user as mob)
+	flipped = !flipped
+	queue_icon_update()
+
+/obj/item/fluff/halstere_card/update_icon()
+	if(flipped)
+		icon_state = "halstere_card_open"
+	else
+		icon_state = initial(icon_state)
+
+/obj/item/fluff/halstere_card/examine(mob/user)
+	if(..(user, 1) && flipped)
+		to_chat(user, "The name 'Halstere, Kalren C.' is stamped on it. An expiration date is listed on it, '2465JAN01'. A pay grade is listed beside the name. 'MAJ/O4'. A number is listed under the expiration date: '14015236810'.")

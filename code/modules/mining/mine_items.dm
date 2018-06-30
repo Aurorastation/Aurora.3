@@ -27,6 +27,7 @@
 	new /obj/item/weapon/ore_radar(src)
 	new /obj/item/weapon/key/minecarts(src)
 	new /obj/item/device/gps/mining(src)
+	new /obj/item/weapon/book/manual/ka_custom(src)
 
 /******************************Lantern*******************************/
 

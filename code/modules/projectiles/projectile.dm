@@ -83,6 +83,7 @@
 	var/datum/point/vector/trajectory
 	var/trajectory_ignore_forcemove = FALSE	//instructs forceMove to NOT reset our trajectory to the new location!
 	var/range = 50 //This will de-increment every step. When 0, it will deletze the projectile.
+	var/aoe = 0 //For KAs, really
 
 	//Hitscan
 	var/hitscan = FALSE		//Whether this is hitscan. If it is, speed is basically ignored.
@@ -125,7 +126,7 @@
 		can_be_maimed and maim_bonus are defined on 'obj/item/organ/external'.
 		*/
 		if(organ.can_be_maimed && maiming)
-			if(prob(maim_rate * (organ.get_damage() * organ.maim_bonus)))
+			if(prob((maim_rate * (organ.get_damage() * organ.maim_bonus) - (armor/2))))
 				organ.droplimb(clean_cut,maim_type)
 
 	if (damage_type == BRUTE)

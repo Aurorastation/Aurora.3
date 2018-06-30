@@ -82,6 +82,7 @@
 	gain_text = "Your mind fills with foul language!"
 	lose_text = "Your mind returns to decency."
 	cure_type = CURE_CRYSTAL
+	can_gain = FALSE
 
 /datum/brain_trauma/mild/tourettes/on_gain()
 	owner.disabilities |= TOURETTES
