@@ -397,24 +397,27 @@
 	set category = "Admin"
 	set name = "Add Notification"
 
-	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG|R_DEV|R_CCIAA))
+	if(!check_rights(R_ADMIN|R_MOD|R_DEV|R_CCIAA))
 		return
 
-	var/ckey = input(usr, "What ckey ?", "Enter a ckey")
+	if (!establish_db_connection(dbcon))
+		error("Error: Unable to establish db connection while adding a notification.")
+		return
+
+	var/ckey = ckey(input(usr, "What ckey?", "Enter a ckey"))
 	if(!ckey)
 		to_chat(usr,"You need to specify a ckey.")
 		return
 
 	//Validate ckey
-	var/DBQuery/validatequery = dbcon.NewQuery("SELECT count(*) as count FROM ss13_player WHERE ckey = :ckey:")
+	var/DBQuery/validatequery = dbcon.NewQuery("SELECT id FROM ss13_player WHERE ckey = :ckey:")
 	validatequery.Execute(list("ckey" = ckey))
-	var/count = 0
-	if(!validatequery.NextRow())
-		to_chat(usr,"Could not find player with the specified ckey")
+
+	if (validatequery.RowCount() == 0)
+		to_chat(usr, "Could not find a player with that ckey.")
 		return
-	count = text2num(validatequery.item[1])
-	if(count != 1)
-		to_chat(usr,"Could not find player with the specified ckey")
+	else if (validatequery.RowCount() != 1)
+		to_chat(usr, "Found more than one player with this ckey. This should not happen, please inform the server maintainers.")
 		return
 
 	var/list/types=list("player_greeting","player_greeting_chat","admin","ccia")
@@ -423,13 +426,9 @@
 		to_chat(usr,"You need to specify a type.")
 		return
 
-	var/message = input(usr,"Notification Message", "Specify a notification message")
+	var/message = sanitize(input(usr,"Notification Message", "Specify a notification message"))
 	if(!message)
 		to_chat(usr,"You need to specify a notification message.")
-		return
-
-	if (!establish_db_connection(dbcon))
-		error("Error: Unable to establish db connection while adding a notification.")
 		return
 
 	var/DBQuery/addquery = dbcon.NewQuery("INSERT INTO ss13_player_notifications (`ckey`, `type`, `message`, `created_by`) VALUES (:ckey:, :type:, :message:, :a_ckey:)")
