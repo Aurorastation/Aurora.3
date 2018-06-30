@@ -26,8 +26,8 @@ Byond Vue UI framework's management subsystem
   *
   * @return ui datum
   */ 
-/datum/controller/subsystem/processing/vueui/proc/get_open_ui(mob/user, src_object)
-    for (var/vueui/ui in get_open_uis(src_object))
+/datum/controller/subsystem/processing/vueui/proc/get_open_ui(var/mob/user, var/src_object)
+    for (var/datum/vueui/ui in get_open_uis(src_object))
         if (ui.user == user)
             return ui
 
@@ -40,7 +40,7 @@ Byond Vue UI framework's management subsystem
   *
   * @return list of ui datums
   */ 
-/datum/controller/subsystem/processing/vueui/proc/get_open_uis(src_object)
+/datum/controller/subsystem/processing/vueui/proc/get_open_uis(var/src_object)
     var/src_object_key = SOFTREF(src_object)
     if (!LAZYLEN(open_uis[src_object_key]))
         return null
@@ -54,8 +54,8 @@ Byond Vue UI framework's management subsystem
   *
   * @return nothing
   */ 
-/datum/controller/subsystem/processing/vueui/proc/check_uis_for_change(src_object)
-    for (var/vueui/ui in get_open_uis(src_object))
+/datum/controller/subsystem/processing/vueui/proc/check_uis_for_change(var/src_object)
+    for (var/datum/vueui/ui in get_open_uis(src_object))
         ui.check_for_change()
 
 /**
@@ -66,11 +66,11 @@ Byond Vue UI framework's management subsystem
   *
   * @return number of uis closed
   */ 
-/datum/controller/subsystem/processing/vueui/proc/close_user_uis(mob/user, src_object)
+/datum/controller/subsystem/processing/vueui/proc/close_user_uis(var/mob/user, var/src_object)
     if (!LAZYLEN(user.open_vueui_uis))
         return 0
 
-    for (var/vueui/ui in user.open_vueui_uis)
+    for (var/datum/vueui/ui in user.open_vueui_uis)
         if (NULL_OR_EQUAL(src_object, ui.object))
             ui.close()
             .++
@@ -82,7 +82,7 @@ Byond Vue UI framework's management subsystem
   *
   * @return nothing
   */ 
-/datum/controller/subsystem/processing/vueui/proc/ui_opened(vueui/ui)
+/datum/controller/subsystem/processing/vueui/proc/ui_opened(var/datum/vueui/ui)
     var/src_object_key = SOFTREF(ui.object)
     LAZYINITLIST(open_uis[src_object_key])
     LAZYINITLIST(ui.user.open_vueui_uis)
@@ -97,7 +97,7 @@ Byond Vue UI framework's management subsystem
   *
   * @return 0 if failed, 1 if success
   */ 
-/datum/controller/subsystem/processing/vueui/proc/ui_closed(vueui/ui)
+/datum/controller/subsystem/processing/vueui/proc/ui_closed(var/datum/vueui/ui)
     var/src_object_key = SOFTREF(ui.object)
 
     if (!LAZYLEN(open_uis[src_object_key]))
@@ -120,7 +120,7 @@ Byond Vue UI framework's management subsystem
   *
   * @return number of uis closed
   */ 
-/datum/controller/subsystem/processing/vueui/proc/user_logout(mob/user)
+/datum/controller/subsystem/processing/vueui/proc/user_logout(var/mob/user)
     return close_user_uis(user)
 
 /**
@@ -131,12 +131,12 @@ Byond Vue UI framework's management subsystem
   *
   * @return 0 if failed, 1 if success
   */ 
-/datum/controller/subsystem/processing/vueui/proc/user_transferred(mob/oldMob, mob/newMob)
+/datum/controller/subsystem/processing/vueui/proc/user_transferred(var/mob/oldMob, var/mob/newMob)
     if (!oldMob || !LAZYLEN(oldMob.open_vueui_uis) || !LAZYLEN(open_uis))
         return 0
 
     for (var/thing in oldMob.open_vueui_uis)
-        var/vueui/ui = thing
+        var/datum/vueui/ui = thing
         ui.user = newMob
         LAZYADD(newMob.open_vueui_uis, ui)
 
@@ -154,12 +154,12 @@ Byond Vue UI framework's management subsystem
   *
   * @return 0 if failed, 1 if success
   */ 
-/datum/controller/subsystem/processing/vueui/proc/transfer_uis(old_object, new_object, new_activeui = null, new_data = null)
+/datum/controller/subsystem/processing/vueui/proc/transfer_uis(var/old_object, var/new_object, var/new_activeui = null, var/new_data = null)
     var/old_object_key = SOFTREF(old_object)
     var/new_object_key = SOFTREF(new_object)
     LAZYINITLIST(open_uis[new_object_key])
 
-    for(var/vueui/ui in open_uis[old_object_key])
+    for(var/datum/vueui/ui in open_uis[old_object_key])
         ui.object = new_object
         if(new_activeui) ui.activeui = new_activeui
         ui.data = new_data

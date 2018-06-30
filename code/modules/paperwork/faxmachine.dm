@@ -68,7 +68,7 @@ var/list/admin_departments
 		return newdata
 
 /obj/machinery/photocopier/faxmachine/attack_hand(mob/user as mob)
-	var/vueui/ui = SSvueui.get_open_ui(user, src)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		ui = new(usr, src, "paperwork-fax", 450, 350, capitalize(src.name))
 	ui.open()
@@ -85,7 +85,7 @@ var/list/admin_departments
 			SSvueui.check_uis_for_change(src)
 			return
 
-		var/vueui/ui = href_list["vueui"]
+		var/datum/vueui/ui = href_list["vueui"]
 		if(!istype(ui))
 			return
 		var/destination = ui.data["destination"]

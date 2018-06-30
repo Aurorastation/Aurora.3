@@ -7,6 +7,7 @@ env:
     BYOND_MINOR="1401"
     MACRO_COUNT=77
     FLYWAY_BUILD="4.2.0"
+    NODE_VERSION=10
   matrix:
     - USE_MAP=aurora
     - USE_MAP=runtime
@@ -38,6 +39,7 @@ install:
 
 stages:
   - code check
+  - vueui build
   - test
 
 
@@ -66,3 +68,15 @@ jobs:
         - (num=`grep -E '\\\\(red|blue|green|black|b|i[^mc])' **/*.dm | wc -l`; echo "$num escapes (expecting ${MACRO_COUNT} or less)"; [ $num -le ${MACRO_COUNT} ])
         - awk -f tools/indentation.awk **/*.dm
         - md5sum -c - <<< "94c0d540b3b0f008fbc4353e667de690 *html/changelogs/example.yml"
+    - stage: vueui build
+      install:
+        - curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+        - . ~/.nvm/nvm.sh
+        - nvm install node ${NODE_VERSION}
+        - nvm use node ${NODE_VERSION}
+        - ./vueui/install
+      script:
+        - ./vueui/build
+      cache:
+        directories:
+          - vueui/dist

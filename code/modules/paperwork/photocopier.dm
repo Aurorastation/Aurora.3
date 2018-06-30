@@ -36,16 +36,16 @@
 
 /obj/machinery/photocopier/attack_hand(mob/user as mob)
 	user.set_machine(src)
-	var/vueui/ui = SSvueui.get_open_ui(user, src)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(usr, src, "paperwork-photocopier", 230, 160, capitalize(src.name))
+		ui = new(usr, src, "paperwork-photocopier", 300, 160, capitalize(src.name))
 	ui.open()
 
 /obj/machinery/photocopier/Topic(href, href_list)
 	if(href_list["copy"])
 		if(stat & (BROKEN|NOPOWER))
 			return
-		var/vueui/ui = href_list["vueui"]
+		var/datum/vueui/ui = href_list["vueui"]
 		if(!istype(ui))
 			return
 		var/copies = ui.data["copies"]
