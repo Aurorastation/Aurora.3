@@ -10,5 +10,7 @@
 /mob/living/carbon/human/on_flash(var/mob/living/attacker as mob, var/obj/weapon, var/severity = 1)
 	. = ..()
 	flick("flash", src.flash)
-
-
+	//Confused, eye blind, and eye blurry are measured in life cycles, which take 2 seconds to complete.
+	src.confused = max(src.confused,(4/2) * severity)
+	src.eye_blind = max(src.eye_blind,(4/2) * severity)
+	src.eye_blurry = max(src.eye_blurry,(8/2) * severity)
