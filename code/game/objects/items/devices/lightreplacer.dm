@@ -159,7 +159,8 @@
 	usr << "It has [uses] lights remaining."
 
 /obj/item/device/lightreplacer/update_icon()
-	icon_state = "lightreplacer[emagged]"
+	if(emagged)
+		add_overlay("emagged")
 
 
 /obj/item/device/lightreplacer/proc/Use(var/mob/user)
