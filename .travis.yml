@@ -45,7 +45,6 @@ stages:
 
 script:
   - $HOME/flyway-${FLYWAY_BUILD}/flyway migrate -user=root -password= -url=jdbc:mysql://localhost:3306/ss13_test
-  - python tools/TagMatcher/tag-matcher.py ../..
   - python tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
   - source $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}/byond/bin/byondsetup
   - cp config/example/* config/
@@ -74,3 +73,4 @@ jobs:
         - (num=`grep -E '\\\\(red|blue|green|black|b|i[^mc])' **/*.dm | wc -l`; echo "$num escapes (expecting ${MACRO_COUNT} or less)"; [ $num -le ${MACRO_COUNT} ])
         - awk -f tools/indentation.awk **/*.dm
         - md5sum -c - <<< "94c0d540b3b0f008fbc4353e667de690 *html/changelogs/example.yml"
+        - python tools/TagMatcher/tag-matcher.py ../..

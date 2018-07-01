@@ -2327,7 +2327,6 @@
 #include "code\modules\virus2\isolator.dm"
 #include "code\modules\virus2\items_devices.dm"
 #include "code\modules\vueui\external.dm"
-#include "code\modules\vueui\themes.dm"
 #include "code\modules\vueui\ui.dm"
 #include "code\modules\web_interface\webint_procs.dm"
 #include "code\modules\xgm\xgm_gas_data.dm"

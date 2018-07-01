@@ -1,11 +1,11 @@
 /client/verb/vueuiclose(var/uiref as text)
-    set hidden = 1	// hide this verb from the user's panel
-    set name = "vueuiclose"
+	set hidden = 1	// hide this verb from the user's panel
+	set name = "vueuiclose"
 
-    var/datum/vueui/ui = locate(uiref)
+	var/datum/vueui/ui = locate(uiref)
 
-    if (istype(ui))
-        ui.close()
+	if (istype(ui))
+		ui.close()
 
 
  /**
@@ -18,6 +18,6 @@
   * @return list containing changed data, null if data wasn't changed by host
   */
 /datum/proc/vueui_data_change(var/list/newdata, var/mob/user, var/datum/vueui/ui)
-    return
+	return
 
 /mob/var/list/open_vueui_uis

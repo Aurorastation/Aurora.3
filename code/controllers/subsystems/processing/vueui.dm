@@ -1,21 +1,42 @@
 var/datum/controller/subsystem/processing/vueui/SSvueui
 
-#define NULL_OR_EQUAL(self,other) (!(self) || (self) == (other))
-
 /*
 Byond Vue UI framework's management subsystem
 */
 /datum/controller/subsystem/processing/vueui
-    name = "VueUI"
-    flags = SS_NO_INIT
-    priority = SS_PRIORITY_NANOUI
-    stat_tag = "O"
+	name = "VueUI"
+	flags = SS_NO_INIT
+	priority = SS_PRIORITY_NANOUI
+	stat_tag = "O"
 
-    var/list/open_uis
+	var/list/open_uis
+
+	var/available_html_themes = list(
+		"Nano" = list(
+			"name" = "Nano Dark",
+			"class" = "theme-nano",
+			"type" = THEME_TYPE_DARK
+		),
+		"Nano Light" = list(
+			"name" = "Nano Light",
+			"class" = "theme-nano-light",
+			"type" = THEME_TYPE_LIGHT
+		),
+		"Basic" = list(
+			"name" = "Basic Light",
+			"class" = "theme-basic",
+			"type" = THEME_TYPE_LIGHT
+		),
+		"Basic Dark" = list(
+			"name" = "Basic Dark",
+			"class" = "theme-basic-dark",
+			"type" = THEME_TYPE_DARK
+		)
+	)
 
 /datum/controller/subsystem/processing/vueui/New()
-    LAZYINITLIST(open_uis)
-    NEW_SS_GLOBAL(SSvueui)
+	LAZYINITLIST(open_uis)
+	NEW_SS_GLOBAL(SSvueui)
 
 
 /**
@@ -27,11 +48,11 @@ Byond Vue UI framework's management subsystem
   * @return ui datum
   */ 
 /datum/controller/subsystem/processing/vueui/proc/get_open_ui(var/mob/user, var/src_object)
-    for (var/datum/vueui/ui in get_open_uis(src_object))
-        if (ui.user == user)
-            return ui
+	for (var/datum/vueui/ui in get_open_uis(src_object))
+		if (ui.user == user)
+			return ui
 
-    return null
+	return null
 
 /**
   * Gets open uis for specified object
@@ -41,11 +62,11 @@ Byond Vue UI framework's management subsystem
   * @return list of ui datums
   */ 
 /datum/controller/subsystem/processing/vueui/proc/get_open_uis(var/src_object)
-    var/src_object_key = SOFTREF(src_object)
-    if (!LAZYLEN(open_uis[src_object_key]))
-        return null
-        
-    return open_uis[src_object_key]
+	var/src_object_key = SOFTREF(src_object)
+	if (!LAZYLEN(open_uis[src_object_key]))
+		return null
+		
+	return open_uis[src_object_key]
 
 /**
   * Initiates check for data change of specified object
@@ -55,8 +76,8 @@ Byond Vue UI framework's management subsystem
   * @return nothing
   */ 
 /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change(var/src_object)
-    for (var/datum/vueui/ui in get_open_uis(src_object))
-        ui.check_for_change()
+	for (var/datum/vueui/ui in get_open_uis(src_object))
+		ui.check_for_change()
 
 /**
   * Initiates check for data change of specified object
@@ -67,13 +88,13 @@ Byond Vue UI framework's management subsystem
   * @return number of uis closed
   */ 
 /datum/controller/subsystem/processing/vueui/proc/close_user_uis(var/mob/user, var/src_object)
-    if (!LAZYLEN(user.open_vueui_uis))
-        return 0
+	if (!LAZYLEN(user.open_vueui_uis))
+		return 0
 
-    for (var/datum/vueui/ui in user.open_vueui_uis)
-        if (NULL_OR_EQUAL(src_object, ui.object))
-            ui.close()
-            .++
+	for (var/datum/vueui/ui in user.open_vueui_uis)
+		if (NULL_OR_EQUAL(src_object, ui.object))
+			ui.close()
+			.++
 
 /**
   * Alerts of subsystem of opened ui, and starts processing it.
@@ -83,12 +104,12 @@ Byond Vue UI framework's management subsystem
   * @return nothing
   */ 
 /datum/controller/subsystem/processing/vueui/proc/ui_opened(var/datum/vueui/ui)
-    var/src_object_key = SOFTREF(ui.object)
-    LAZYINITLIST(open_uis[src_object_key])
-    LAZYINITLIST(ui.user.open_vueui_uis)
-    LAZYADD(ui.user.open_vueui_uis, ui)
-    LAZYADD(open_uis[src_object_key], ui)
-    START_PROCESSING(SSvueui, ui)
+	var/src_object_key = SOFTREF(ui.object)
+	LAZYINITLIST(open_uis[src_object_key])
+	LAZYINITLIST(ui.user.open_vueui_uis)
+	LAZYADD(ui.user.open_vueui_uis, ui)
+	LAZYADD(open_uis[src_object_key], ui)
+	START_PROCESSING(SSvueui, ui)
 
 /**
   * Alerts of subsystem of closed ui, and stops processing it.
@@ -98,20 +119,20 @@ Byond Vue UI framework's management subsystem
   * @return 0 if failed, 1 if success
   */ 
 /datum/controller/subsystem/processing/vueui/proc/ui_closed(var/datum/vueui/ui)
-    var/src_object_key = SOFTREF(ui.object)
+	var/src_object_key = SOFTREF(ui.object)
 
-    if (!LAZYLEN(open_uis[src_object_key]))
-        return 0	// Wasn't open.
+	if (!LAZYLEN(open_uis[src_object_key]))
+		return 0	// Wasn't open.
 
-    STOP_PROCESSING(SSvueui, ui)
-    if(!QDELETED(ui.user))	// Sanity check in case a user has been deleted (say a blown up borg watching the alarm interface)
-        LAZYREMOVE(ui.user.open_vueui_uis, ui)
+	STOP_PROCESSING(SSvueui, ui)
+	if(!QDELETED(ui.user))	// Sanity check in case a user has been deleted (say a blown up borg watching the alarm interface)
+		LAZYREMOVE(ui.user.open_vueui_uis, ui)
 
-    open_uis[src_object_key] -= ui
+	open_uis[src_object_key] -= ui
 
-    if (!LAZYLEN(open_uis[src_object_key]))
-        open_uis -= src_object_key
-    return 1
+	if (!LAZYLEN(open_uis[src_object_key]))
+		open_uis -= src_object_key
+	return 1
 
 /**
   * Alerts of subsystem of logged off user and closes there uis.
@@ -121,7 +142,7 @@ Byond Vue UI framework's management subsystem
   * @return number of uis closed
   */ 
 /datum/controller/subsystem/processing/vueui/proc/user_logout(var/mob/user)
-    return close_user_uis(user)
+	return close_user_uis(user)
 
 /**
   * Alerts of subsystem of user client transfer to other mob.
@@ -132,17 +153,17 @@ Byond Vue UI framework's management subsystem
   * @return 0 if failed, 1 if success
   */ 
 /datum/controller/subsystem/processing/vueui/proc/user_transferred(var/mob/oldMob, var/mob/newMob)
-    if (!oldMob || !LAZYLEN(oldMob.open_vueui_uis) || !LAZYLEN(open_uis))
-        return 0
+	if (!oldMob || !LAZYLEN(oldMob.open_vueui_uis) || !LAZYLEN(open_uis))
+		return 0
 
-    for (var/thing in oldMob.open_vueui_uis)
-        var/datum/vueui/ui = thing
-        ui.user = newMob
-        LAZYADD(newMob.open_vueui_uis, ui)
+	for (var/thing in oldMob.open_vueui_uis)
+		var/datum/vueui/ui = thing
+		ui.user = newMob
+		LAZYADD(newMob.open_vueui_uis, ui)
 
-    oldMob.open_vueui_uis = null
+	oldMob.open_vueui_uis = null
 
-    return 1 // success
+	return 1 // success
 
 /**
   * Transfers ui from one object to other
@@ -155,19 +176,35 @@ Byond Vue UI framework's management subsystem
   * @return 0 if failed, 1 if success
   */ 
 /datum/controller/subsystem/processing/vueui/proc/transfer_uis(var/old_object, var/new_object, var/new_activeui = null, var/new_data = null)
-    var/old_object_key = SOFTREF(old_object)
-    var/new_object_key = SOFTREF(new_object)
-    LAZYINITLIST(open_uis[new_object_key])
+	var/old_object_key = SOFTREF(old_object)
+	var/new_object_key = SOFTREF(new_object)
+	LAZYINITLIST(open_uis[new_object_key])
 
-    for(var/datum/vueui/ui in open_uis[old_object_key])
-        ui.object = new_object
-        if(new_activeui) ui.activeui = new_activeui
-        ui.data = new_data
-        open_uis[old_object_key] -= ui
-        LAZYADD(open_uis[new_object_key], ui)
-        ui.check_for_change()
-    
-    if (!LAZYLEN(open_uis[old_object_key]))
-        open_uis -= old_object_key
+	for(var/datum/vueui/ui in open_uis[old_object_key])
+		ui.object = new_object
+		if(new_activeui) ui.activeui = new_activeui
+		ui.data = new_data
+		open_uis[old_object_key] -= ui
+		LAZYADD(open_uis[new_object_key], ui)
+		ui.check_for_change()
+		
+	if (!LAZYLEN(open_uis[old_object_key]))
+		open_uis -= old_object_key
+
+/datum/controller/subsystem/processing/vueui/proc/get_html_theme_class(var/mob/user)
+	if(user.client)
+		var/style = user.client.prefs.html_UI_style
+		if(!(style in available_html_themes))
+			style = "Nano"
+		var/list/theme = available_html_themes[style]
+		var/class = ""
+		class += "[theme["class"]]"
+		return class
+	return ""
+
+/datum/controller/subsystem/processing/vueui/proc/send_theme_resources(var/mob/user)
+	if(user.client)
+		var/datum/asset/assets = get_asset_datum(/datum/asset/simple/vueui_theming)
+		assets.send(user.client)
 
 #undef NULL_OR_EQUAL

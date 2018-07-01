@@ -1,5 +1,3 @@
-#define VUEUI_SET_CHECK(a, b, c, d) if (a != b) { a = b; c = d; }
-
 var/list/obj/machinery/photocopier/faxmachine/allfaxes = list()
 var/list/arrived_faxes = list()	//cache for faxes that have been sent to the admins
 var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
@@ -319,5 +317,3 @@ var/list/admin_departments
 
 		var/message = "New fax has arrived at [src.department] fax machine."
 		pda.new_info(pda.message_silent, pda.ttone, "\icon[pda] <b>[message]</b>")
-
-#undef VUEUI_SET_CHECK

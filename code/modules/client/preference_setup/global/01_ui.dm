@@ -59,7 +59,7 @@
 	pref.UI_style       = sanitize_inlist(pref.UI_style, all_ui_styles, initial(pref.UI_style))
 	pref.UI_style_color = sanitize_hexcolor(pref.UI_style_color, initial(pref.UI_style_color))
 	pref.UI_style_alpha = sanitize_integer(text2num(pref.UI_style_alpha), 0, 255, initial(pref.UI_style_alpha))
-	pref.html_UI_style       = sanitize_inlist(pref.html_UI_style, available_html_themes, initial(pref.html_UI_style))
+	pref.html_UI_style       = sanitize_inlist(pref.html_UI_style, SSvueui.available_html_themes, initial(pref.html_UI_style))
 	pref.ooccolor       = sanitize_hexcolor(pref.ooccolor, initial(pref.ooccolor))
 
 /datum/category_item/player_setup_item/player_global/ui/content(mob/user)
@@ -99,7 +99,7 @@
 		return TOPIC_REFRESH
 
 	else if(href_list["select_html"])
-		var/html_style_new = input(user, "Choose HTML UI style.", "Global Preference", pref.html_UI_style) as null|anything in available_html_themes
+		var/html_style_new = input(user, "Choose HTML UI style.", "Global Preference", pref.html_UI_style) as null|anything in SSvueui.available_html_themes
 		if(isnull(html_style_new) || !CanUseTopic(user)) return TOPIC_NOACTION
 		pref.html_UI_style = html_style_new
 		return TOPIC_REFRESH

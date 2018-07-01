@@ -1,4 +1,3 @@
-#define VUEUI_SET_CHECK(a, b, c, d) if (a != b) { a = b; c = d; }
 /obj/machinery/photocopier
 	name = "photocopier"
 	icon = 'icons/obj/library.dmi'
@@ -236,5 +235,3 @@
 	name = "toner cartridge"
 	icon_state = "tonercartridge"
 	var/toner_amount = 30
-
-#undef VUEUI_SET_CHECK
