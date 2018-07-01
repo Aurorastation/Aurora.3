@@ -3,7 +3,7 @@ This UI framework is mostly composed of four main parts:
  - Main JS file and supporting HTML code
  - UI DM datum, responsible for linking opened ui window with code
  - Object specific code, that generates data for uis, and handles actions.
- - Sub System responsible for keeping track of all uis and making sure they tick.
+ - SubSystem responsible for keeping track of all uis and making sure they tick.
  
 ## How to use it?
 ### Step 1: Open ui
@@ -27,9 +27,8 @@ But how we pass data to it? There is two ways to do it, first one is to pass ini
     // or do actions depending on it's change
     if(newdata["counter"] >= 10) 
         return list("counter" = 0)
-    return
 ```
-Every time server receives of frontend state change it calls this proc to make sure that frontend state didn't go too far from actual data it should represent. If everything is alright with `newstate` and no push to frontend of data is needed then it should return `0` or `null`, else return data that should be pushed.
+Every time server receives of front end state change it calls this proc to make sure that front end state didn't go too far from data it should represent. If everything is alright with `newstate` and no push to front end of data is needed then it should return `0` or `null`, else return data that should be pushed.
 ### Step 3: Handle actions.
 Simply use `Topic` proc to get ui action calls from ui.
 ```DM
@@ -67,11 +66,11 @@ p {
 </style>
 ```
 ### Step 5: Compile
-This ui framework requires whole ui to be compiled for changes to be available. Compilation requires Node.js runtime, what is obtainable in various ways, most common is install from official site. To do initial dependency setup run `npm install` to gather all dependencies needed for ui. Single compilation can be done with `npm run compile`, but if you constantly do changes, then `npm run run` is more convenient, as it compiles everything as soon as change is detected.
+This ui framework requires whole ui to be compiled for changes to be available. Compilation requires Node.js runtime, that is obtainable in various ways, most common is install from official site. To do initial dependency setup run `npm install` to gather all dependencies needed for ui. Single compilation can be done with `npm run compile`, but if you constantly do changes, then `npm run run` is more convenient, as it compiles everything as soon as change is detected.
 # Notes
 ## Useful APIs
 ### `SSvueui.check_uis_for_change(object)`
-Asks all ui's to call `object`'s `vueui_data_change` proc to make all uis up tp date. Should be used when bigger change was done or action done change that would affect global data.
+Asks all uis to call `object`'s `vueui_data_change` proc to make all uis up tp date. Should be used when bigger change was done or action done change that would affect global data.
 ### `SSvueui.get_open_uis(object)`
 Gets a list of all open uis for specified object. This allows to interact with individual uis. 
 ### `ui.activeui`
@@ -81,7 +80,7 @@ It is also plausible for server to send templates dynamically. First character o
 ### `ui.header`
 Determines header component that is used with this ui. Should be set before `ui.open()`.
 ### `ui.auto_update_content`
-Constantly checks for change using `ui.check_for_change()`. This should be only used when data changes unpredictably , 
+Checks for change using `ui.check_for_change()` every `process()` tick of `SSvueui` (what is approximately 2 seconds). This should be only used when data changes unpredictably.
 ### `ui.open()`
 Tries to open this ui, and sends all necessary assets for proper ui rendering. If ui has no data, then calls `object.vueui_data_change(null ...)` to obtain initial ui data.
 ### `ui.send_asset(name)`
@@ -93,9 +92,9 @@ Removes asset from future use in ui. But client-side asset index isn't updated i
 ### `ui.push_change(data).`
 Pushes data change to client. This also pushes changes to metadata, what includes: title, world time, ui status, active ui component, client-side asset index.
 ### `ui.check_for_change(forcedPush)`
-Checks with `object.vueui_data_change` if data has changed, if so, then change is pushed. If forcedPush is resolving to true, then it pushes change anyways.
+Checks with `object.vueui_data_change` if data has changed, if so, then change is pushed. If forcedPush is true, then it pushes change anyways.
 ### `ui.update_status()`
-This call should be used if external change was detected. It checks if user still can use this ui, and what's it usability level.
+This call should be used if external change was detected. It checks if user still can use this ui, and what's its usability level.
 ## Debug ui
 To enable debug mode and make figuring out things easier do following steps:
  - Enable development mode inside webpack file by changing out commented out line 
@@ -104,10 +103,9 @@ To enable debug mode and make figuring out things easier do following steps:
    mode: 'production', // And comment this one out
    //mode: 'development', // Uncomment this line to set mode to development
 ```
- - Enable debugging inside ui datum. (This will always push new JS file each time open() is called and show data in JSON format at the end of ui)
+ - Enable debugging for ui datum, by inserting this line anywhere. (This will always push new JS file each time open() is called and show data in JSON format at the end of ui)
 ```DM
-\code\modules\vueui\ui.dm: line 5
-#define UIDEBUG 0 // Change 0 to 1
+#define UIDEBUG
 ```
  - Use `\vueui\template.html` in Internet explorer to use inspector to analyze ui behaviour. Also don't forget to copy paste data from actual ui to this debug ui inside templates code. 
 

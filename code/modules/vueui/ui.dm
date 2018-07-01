@@ -2,8 +2,6 @@
 Byond Vue UI framework
 main ui datum.
 */
-#define UIDEBUG 0
-
 /datum/vueui
 	var/name = "Vueui"
 	// title of ui window
@@ -108,7 +106,7 @@ main ui datum.
   * @return html code - text
   */
 /datum/vueui/proc/generate_html()
-#if UIDEBUG
+#ifdef UIDEBUG
 	var/debugtxt = "<div id=\"dapp\"></div>"
 #else
 	var/debugtxt = ""

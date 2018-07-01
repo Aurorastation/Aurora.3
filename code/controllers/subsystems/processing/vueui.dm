@@ -45,7 +45,7 @@ Byond Vue UI framework's management subsystem
   * @param user - user that has that ui open
   * @param src_object - object that hosts the ui we are looking for
   *
-  * @return ui datum
+  * @return ui datum or null
   */ 
 /datum/controller/subsystem/processing/vueui/proc/get_open_ui(var/mob/user, var/src_object)
 	for (var/datum/vueui/ui in get_open_uis(src_object))
@@ -59,7 +59,7 @@ Byond Vue UI framework's management subsystem
   *
   * @param src_object - object that hosts the ui we are looking for
   *
-  * @return list of ui datums
+  * @return list of UI datums or null
   */ 
 /datum/controller/subsystem/processing/vueui/proc/get_open_uis(var/src_object)
 	var/src_object_key = SOFTREF(src_object)
@@ -100,8 +100,6 @@ Byond Vue UI framework's management subsystem
   * Alerts of subsystem of opened ui, and starts processing it.
   *
   * @param ui - ui that got opened
-  *
-  * @return nothing
   */ 
 /datum/controller/subsystem/processing/vueui/proc/ui_opened(var/datum/vueui/ui)
 	var/src_object_key = SOFTREF(ui.object)
