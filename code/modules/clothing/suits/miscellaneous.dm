@@ -220,10 +220,11 @@
 	siemens_coefficient = 2.0
 
 /obj/item/clothing/suit/poncho
-	name = "poncho"
-	desc = "A simple, comfortable poncho."
+	name = "tan poncho"
+	desc = "A simple, comfortable sleeveless poncho. This one is tan."
 	icon_state = "classicponcho"
 	item_state = "classicponcho"
+	allowed = list(/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/storage/bible,/obj/item/weapon/nullrod,/obj/item/weapon/reagent_containers/food/drinks/bottle/holywater)
 
 /obj/item/clothing/suit/poncho/green
 	name = "green poncho"
