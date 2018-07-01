@@ -296,6 +296,13 @@ Class Procs:
 	state(text, "blue")
 	playsound(src.loc, 'sound/machines/pingx3.ogg', 50, 0)
 
+/obj/machinery/proc/buzz(text=null)
+	if (!text)
+		text = "\The [src] buzzes."
+
+	state(text, "blue")
+	playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0) //TODO: Check if that one is the correct sound
+
 /obj/machinery/proc/shock(mob/user, prb)
 	if(inoperable())
 		return 0

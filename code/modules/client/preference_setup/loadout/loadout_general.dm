@@ -36,7 +36,7 @@
 
 /datum/gear/flask/New()
 	..()
-	gear_tweaks += new/datum/gear_tweak/reagents(lunchables_ethanol_reagents())
+	gear_tweaks += new/datum/gear_tweak/reagents(lunchables_alcohol_reagents())
 
 /datum/gear/vacflask
 	display_name = "vacuum-flask"

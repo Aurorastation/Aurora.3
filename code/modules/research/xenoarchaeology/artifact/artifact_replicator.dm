@@ -35,6 +35,7 @@
 	/obj/item/device/flash,\
 	/obj/item/device/flashlight,\
 	/obj/item/device/healthanalyzer,\
+	/obj/item/device/breath_analyzer,\
 	/obj/item/device/multitool,\
 	/obj/item/device/paicard,\
 	/obj/item/device/radio,\

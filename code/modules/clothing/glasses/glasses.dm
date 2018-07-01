@@ -505,3 +505,41 @@ BLIND     // can't see anything
 	..()
 	overlay = global_hud.nvg
 
+//from verkister
+/obj/item/clothing/glasses/spiffygogs
+	name = "orange goggles"
+	desc = "You can almost feel the raw power radiating off these strange specs."
+	icon_state = "spiffygogs"
+	item_state = "spiffygogs"
+	action_button_name = "Adjust Goggles"
+	var/up = 0
+	item_flags = AIRTIGHT
+
+/obj/item/clothing/glasses/spiffygogs/attack_self()
+	toggle()
+
+
+/obj/item/clothing/glasses/spiffygogs/verb/toggle()
+	set category = "Object"
+	set name = "Adjust Goggles"
+	set src in usr
+
+	if(usr.canmove && !usr.stat && !usr.restrained())
+		if(src.up)
+			src.up = !src.up
+			flags_inv |= HIDEEYES
+			body_parts_covered |= EYES
+			icon_state = initial(icon_state)
+			item_state = initial(item_state)
+			item_flags |= AIRTIGHT
+			usr << "You flip \the [src] down over your eyes."
+		else
+			src.up = !src.up
+			flags_inv &= ~HIDEEYES
+			body_parts_covered &= ~EYES
+			icon_state = "[initial(icon_state)]up"
+			item_state = "[initial(item_state)]up"
+			item_flags &= ~AIRTIGHT
+			usr << "You push \the [src] up off your eyes."
+		update_clothing_icon()
+		usr.update_action_buttons()

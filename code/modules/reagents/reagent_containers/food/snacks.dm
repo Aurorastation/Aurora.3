@@ -3975,10 +3975,6 @@
 	nutriment_desc = list("uncooked dough" = 3)
 	nutriment_amt = 3
 
-/obj/item/weapon/reagent_containers/food/snacks/dough/Initialize()
-	. = ..()
-	reagents.add_reagent("protein", 1)
-
 // Dough + rolling pin = flat dough
 /obj/item/weapon/reagent_containers/food/snacks/dough/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/material/kitchen/rollingpin))
@@ -3997,10 +3993,6 @@
 	center_of_mass = list("x"=16, "y"=16)
 	nutriment_desc = list("uncooked dough" = 3)
 	nutriment_amt = 3
-
-/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough/Initialize()
-	. = ..()
-	reagents.add_reagent("protein", 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/doughslice
 	name = "dough slice"
@@ -4462,7 +4454,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/icecreamsandwich
 	name = "ice cream sandwich"
 	desc = "Portable ice cream in its own packaging."
-	icon_state = "4no_raisins"
+	icon_state = "icecreamsandwich"
 	filling_color = "#343834"
 	center_of_mass = list("x"=15, "y"=4)
 	nutriment_desc = list("ice cream" = 4)
@@ -4728,6 +4720,15 @@
 	nutriment_desc = list("hellfire" = 6)
 	nutriment_amt = 24// 10 Chilis is a lot.
 
+/obj/item/weapon/reagent_containers/food/snacks/breakfast_wrap
+	name = "breakfast wrap"
+	desc = "Bacon, eggs, cheese, and tortilla grilled to perfection."
+	icon_state = "breakfast_wrap"
+	bitesize = 4
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_desc = list("tortilla" = 6)
+	nutriment_amt = 6
+
 /obj/item/weapon/reagent_containers/food/snacks/burrito_hell/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 9)
@@ -4955,13 +4956,209 @@
 /obj/item/weapon/reagent_containers/food/snacks/corn_dog
 	name = "corn dog"
 	desc = "A cornbread covered sausage deepfried in oil."
-	icon_state = "corn_dog"
+	icon_state = "corndog"
 	nutriment_desc = list("corn batter" = 4)
 	nutriment_amt = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/corn_dog/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 3)
+
+/obj/item/weapon/reagent_containers/food/snacks/truffle
+	name = "chocolate truffle"
+	desc = "Rich bite-sized chocolate."
+	icon_state = "truffle"
+	nutriment_amt = 0
+	bitesize = 4
+
+/obj/item/weapon/reagent_containers/food/snacks/truffle/Initialize()
+	. = ..()
+	reagents.add_reagent("coco", 6)
+
+/obj/item/weapon/reagent_containers/food/snacks/truffle/random
+	name = "mystery chocolate truffle"
+	desc = "Rich bite-sized chocolate with a mystery filling!"
+
+/obj/item/weapon/reagent_containers/food/snacks/random/Initialize()
+	. = ..()
+	var/reagent_string = pick(list("cream","cherryjelly","mint","frostoil","capsaicin","cream","coffee","milkshake"))
+	reagents.add_reagent(reagent_string, 4)
+
+/obj/item/weapon/reagent_containers/food/snacks/bacon_flatbread
+	name = "bacon cheese flatbread"
+	desc = "Not a pizza."
+	icon_state = "bacon_pizza"
+	nutriment_desc = list("flatbread" = 5)
+	nutriment_amt = 5
+
+/obj/item/weapon/reagent_containers/food/snacks/bacon_flatbread/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 5)
+
+/obj/item/weapon/reagent_containers/food/snacks/meat_pocket
+	name = "meat pocket"
+	desc = "Meat and cheese stuffed in a flatbread pocket, grilled to perfection."
+	icon_state = "meat_pocket"
+	nutriment_desc = list("flatbread" = 3)
+	nutriment_amt = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/meat_pocket/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 3)
+
+/obj/item/weapon/reagent_containers/food/snacks/fish_taco
+	name = "carp taco"
+	desc = "A questionably cooked fish taco decorated with herbs, spices, and special sauce."
+	icon_state = "fish_taco"
+	nutriment_desc = list("flatbread" = 3)
+	nutriment_amt = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/fish_taco/Initialize()
+	. = ..()
+	reagents.add_reagent("seafood",3)
+
+/obj/item/weapon/reagent_containers/food/snacks/nt_muffin
+	name = "\improper NtMuffin"
+	desc = "A NanoTrasen sponsered biscuit with egg, cheese, and sausage."
+	icon_state = "nt_muffin"
+	nutriment_desc = list("biscuit" = 3)
+	nutriment_amt = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/nt_muffin/Initialize()
+	. = ..()
+	reagents.add_reagent("protein",5)
+
+/obj/item/weapon/reagent_containers/food/snacks/pineapple_ring
+	name = "pineapple ring"
+	desc = "What the hell is this?"
+	icon_state = "pineapple_ring"
+	nutriment_desc = list("sweetness" = 2)
+	nutriment_amt = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/pineapple_ring/Initialize()
+	. = ..()
+	reagents.add_reagent("pineapplejuice",3)
+
+/obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/pineapple
+	name = "ham & pineapple pizza"
+	desc = "One of the most debated pizzas in existence."
+	icon_state = "pineapple_pizza"
+	slice_path = /obj/item/weapon/reagent_containers/food/snacks/pineappleslice
+	slices_num = 6
+	center_of_mass = list("x"=16, "y"=11)
+	nutriment_desc = list("pizza crust" = 10, "tomato" = 10, "ham" = 10)
+	nutriment_amt = 30
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/pineapple/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 4)
+	reagents.add_reagent("cheese", 5)
+	reagents.add_reagent("tomatojuice", 6)
+
+/obj/item/weapon/reagent_containers/food/snacks/pineappleslice
+	name = "ham & pineapple pizza slice"
+	desc = "A slice of contraband."
+	icon_state = "pineapple_pizza_slice"
+	filling_color = "#BAA14C"
+	bitesize = 2
+	center_of_mass = list("x"=18, "y"=13)
+
+/obj/item/weapon/reagent_containers/food/snacks/pineappleslice/filled
+	nutriment_desc = list("pizza crust" = 5, "tomato" = 5)
+	nutriment_amt = 5
+
+/obj/item/weapon/reagent_containers/food/snacks/baconburger
+	name = "bacon burger"
+	desc = "The cornerstone of every nutritious breakfast, now with bacon!"
+	icon_state = "hburger"
+	filling_color = "#D63C3C"
+	center_of_mass = list("x"=16, "y"=11)
+	nutriment_desc = list("bun" = 2)
+	nutriment_amt = 3
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/baconburger/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 4)
+
+/obj/item/weapon/reagent_containers/food/snacks/blt
+	name = "BLT"
+	desc = "Bacon, lettuce, tomatoes. The perfect lunch."
+	icon_state = "blt"
+	filling_color = "#D63C3C"
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_desc = list("bread" = 4)
+	nutriment_amt = 4
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/blt/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 4)
+
+/obj/item/weapon/reagent_containers/food/snacks/clam
+	name = "Ras'val clam"
+	desc = "An adhomian clam, native from the sea of Ras'val."
+	icon_state = "clam"
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/clam/Initialize()
+	. = ..()
+	reagents.add_reagent("seafood", 2)
+
+/obj/item/weapon/reagent_containers/food/snacks/spicy_clams
+	name = "spicy Ras'val clams"
+	desc = "A famous adhomian clam dish, named after the Ras'val sea."
+	icon_state = "spicy_clams"
+	bitesize = 2
+	trash = /obj/item/trash/snack_bowl
+
+/obj/item/weapon/reagent_containers/food/snacks/spicy_clams/Initialize()
+	. = ..()
+	reagents.add_reagent("seafood", 4)
+	reagents.add_reagent("pepper", 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/tajaran_bread
+	name = "adhomian bread"
+	desc = "A traditional tajaran bread, usually baked with blizzard ears' flour."
+	icon_state = "tajaran_bread"
+	bitesize = 2
+	nutriment_desc = list("bread" = 2)
+	nutriment_amt = 5
+
+/obj/item/weapon/reagent_containers/food/snacks/earthenroot_soup
+	name = "earthen-root soup"
+	desc = "A soup made with earthen-root, a traditional dish from Northern Harr'masir."
+	icon_state = "tajaran_soup"
+	bitesize = 2
+	nutriment_desc = list("soup" = 5)
+	nutriment_amt = 4
+	trash = /obj/item/trash/snack_bowl
+
+/obj/item/weapon/reagent_containers/food/snacks/tajaran_stew
+	name = "nav'twir stew"
+	desc = "An adhomian stew, made with nav'twir meat and native plants."
+	icon_state = "tajaran_stew"
+	bitesize = 2
+	nutriment_desc = list("sweetness" = 2)
+	nutriment_amt = 4
+
+/obj/item/weapon/reagent_containers/food/snacks/tajaran_stew/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 4)
+	reagents.add_reagent("water", 4)
+
+/obj/item/weapon/reagent_containers/food/snacks/adhomian_can
+	name = "canned fastshouters meat"
+	desc = "A piece of salted N’hanzafu's meat stored inside a metal can."
+	icon_state = "canned"
+	bitesize = 2
+	trash = /obj/item/trash/can
+
+/obj/item/weapon/reagent_containers/food/snacks/adhomian_can/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 5)
+	reagents.add_reagent("sodiumchloride", 2)
 
 #undef NUTRIMENT_GOOD
 #undef NUTRIMENT_BAD

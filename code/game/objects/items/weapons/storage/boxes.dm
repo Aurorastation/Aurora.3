@@ -764,6 +764,8 @@
 		W.damtype = "burn"
 		W.icon_state = "match_lit"
 		START_PROCESSING(SSprocessing, W)
+		playsound(src.loc, 'sound/items/match.ogg', 60, 1, -4)
+		user.visible_message("<span class='notice'>[user] strikes the match on the matchbox.</span>")
 	W.update_icon()
 	return
 
@@ -966,7 +968,8 @@
 			/obj/item/weapon/reagent_containers/food/snacks/tastybread,
 			/obj/item/weapon/reagent_containers/food/snacks/meatsnack,
 			/obj/item/weapon/reagent_containers/food/snacks/maps,
-			/obj/item/weapon/reagent_containers/food/snacks/nathisnack
+			/obj/item/weapon/reagent_containers/food/snacks/nathisnack,
+			/obj/item/weapon/reagent_containers/food/snacks/adhomian_can
 	)
 	for (var/i = 0,i<7,i++)
 		var/type = pick(snacks)
@@ -980,3 +983,39 @@
 /obj/item/weapon/storage/box/stims/fill()
 	for(var/i in 1 to 4)
 		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/stimpack(src)
+
+/obj/item/weapon/storage/box/inhalers
+	name = "inhaler kit"
+	desc = "A box filled with several inhalers and empty inhaler cartridges."
+	icon_state = "box_inhalers"
+
+/obj/item/weapon/storage/box/inhalers/fill()
+	for(var/i in 1 to 2)
+		new /obj/item/weapon/personal_inhaler(src)
+
+	for(var/i in 1 to 6)
+		new /obj/item/weapon/reagent_containers/personal_inhaler_cartridge(src)
+
+/obj/item/weapon/storage/box/inhalers_large
+	name = "combat inhaler kit"
+	desc = "A box filled with a combat inhaler and several large empty inhaler cartridges."
+	icon_state = "box_inhalers"
+
+/obj/item/weapon/storage/box/inhalers_large/fill()
+
+	new /obj/item/weapon/personal_inhaler/combat(src)
+
+	for(var/i in 1 to 6)
+		new /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large(src)
+
+/obj/item/weapon/storage/box/clams
+	name = "box of Ras'val clam"
+	desc = "A box filled with clams from the Ras'val sea, imported by Njadra'Akhar Enterprises."
+
+/obj/item/weapon/storage/box/clams/fill()
+	..()
+	new /obj/item/weapon/reagent_containers/food/snacks/clam(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/clam(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/clam(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/clam(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/clam(src)

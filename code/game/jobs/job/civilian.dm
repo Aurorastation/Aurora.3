@@ -186,7 +186,62 @@
 		H.species.equip_survival_gear(H,1)
 		return TRUE
 
-//More or less assistants
+//Not engineers, just the mop boys
+/datum/job/janitor
+	title = "Janitor"
+	flag = JANITOR
+	department = "Civilian"
+	department_flag = CIVILIAN
+	faction = "Station"
+	total_positions = 2
+	spawn_positions = 2
+	supervisors = "the head of personnel"
+	selection_color = "#dddddd"
+	access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_medical)
+	minimal_access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_medical)
+
+	bag_type = /obj/item/weapon/storage/backpack
+	satchel_type = /obj/item/weapon/storage/backpack/satchel_norm
+	duffel_type = /obj/item/weapon/storage/backpack/satchel
+	messenger_bag_type = /obj/item/weapon/storage/backpack/duffel
+
+
+	equip(var/mob/living/carbon/human/H)
+		if(!H)
+			return FALSE
+		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_service(H), slot_l_ear)
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/janitor(H), slot_w_uniform)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/device/pda/janitor(H), slot_belt)
+		return TRUE
+
+/datum/job/journalist
+	title = "Corporate Reporter"
+	flag = JOURNALIST
+	department = "Civilian"
+	department_flag = CIVILIAN
+	faction = "Station"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the head of personnel"
+	selection_color = "#dddddd"
+	access = list(access_journalist, access_maint_tunnels)
+	minimal_access = list(access_journalist, access_maint_tunnels)
+	alt_titles = list("Freelance Journalist")
+
+/datum/job/journalist/equip(var/mob/living/carbon/human/H, var/alt_title)
+	if(!H)
+		return FALSE
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/red(H), slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/device/pda/librarian(H), slot_belt)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
+	if(has_alt_title(H, alt_title,"Corporate Reporter"))
+		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_service(H), slot_l_ear)
+		H.equip_to_slot_or_del(new /obj/item/clothing/accessory/badge/press(H), slot_in_backpack)
+	else if(has_alt_title(H, alt_title,"Freelance Journalist"))
+		H.equip_to_slot_or_del(new /obj/item/clothing/accessory/badge/press/independent(H), slot_in_backpack)
+	return TRUE
+
 /datum/job/librarian
 	title = "Librarian"
 	flag = LIBRARIAN
@@ -199,12 +254,12 @@
 	selection_color = "#dddddd"
 	access = list(access_library, access_maint_tunnels)
 	minimal_access = list(access_library)
-	alt_titles = list("Journalist")
 
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
 			return FALSE
+		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_service(H), slot_l_ear)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/red(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/librarian(H), slot_belt)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)

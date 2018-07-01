@@ -445,3 +445,11 @@
 	icon_state = "csms"
 	ammo_type = /obj/item/ammo_casing/shotgun/stunshell
 	matter = list(DEFAULT_WALL_MATERIAL = 2880, "glass" = 5760)
+
+/obj/item/ammo_magazine/minigun
+	name = "minigun magazine box (7.62mm)"
+	icon_state = "a762"
+	mag_type = MAGAZINE
+	caliber = "a762"
+	ammo_type = /obj/item/ammo_casing/a762
+	max_ammo = 1000

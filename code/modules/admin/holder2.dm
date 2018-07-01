@@ -13,6 +13,7 @@ var/list/admin_datums = list()
 	var/admincaster_screen = 0	//See newscaster.dm under machinery for a full description
 	var/datum/feed_message/admincaster_feed_message = new /datum/feed_message   //These two will act as holders.
 	var/datum/feed_channel/admincaster_feed_channel = new /datum/feed_channel
+	var/datum/feed_message/admincaster_viewing_message = null
 	var/admincaster_signature	//What you'll sign the newsfeeds as
 
 	var/list/watched_processes	// Processes marked to be shown in Status instead of just Processes.

@@ -113,8 +113,7 @@
 	M.nutrition += nutriment_factor * removed // For hunger and fatness
 	M.nutrition_attrition_rate = Clamp(M.nutrition_attrition_rate + attrition_factor, 1, 2)
 	M.add_chemical_effect(CE_BLOODRESTORE, blood_factor * removed)
-
-
+	M.intoxication -= min(M.intoxication,nutriment_factor*removed*0.05) //Nutrients can absorb alcohol.
 
 /*
 	Coatings are used in cooking. Dipping food items in a reagent container with a coating in it
@@ -507,6 +506,10 @@
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "salt"
 
+/datum/reagent/sodiumchloride/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
+	M.intoxication -= min(M.intoxication,removed*2) //Salt absorbs alcohol
+
 /datum/reagent/blackpepper
 	name = "Black Pepper"
 	id = "blackpepper"
@@ -861,6 +864,28 @@
 	glass_name = "glass of watermelon juice"
 	glass_desc = "Delicious juice made from watermelon."
 
+/datum/reagent/drink/pineapplejuice
+	name = "Pineapple Juice"
+	id = "pineapplejuice"
+	description = "From freshly canned pineapples."
+	color = "#FFFF00"
+	taste_description = "pineapple"
+
+	glass_icon_state = "lemonjuice"
+	glass_name = "glass of pineapple juice"
+	glass_desc = "What the hell is this?"
+
+/datum/reagent/drink/earthenrootjuice
+	name = "Earthen-Root Juice"
+	id = "earthenrootjuice"
+	description = "Juice extracted from earthen-root, a plant native to Adhomai."
+	color = "#4D8F53"
+	taste_description = "sweetness"
+
+	glass_icon_state = "bluelagoon"
+	glass_name = "glass of earthen-root juice"
+	glass_desc = "Juice extracted from earthen-root, a plant native to Adhomai."
+
 // Everything else
 
 /datum/reagent/drink/milk
@@ -974,7 +999,7 @@
 	color = "#102838"
 	adj_temp = -5
 
-	glass_icon_state = "icedcoffeeglass"
+	glass_icon_state = "frappe"
 	glass_name = "glass of frappe coffee"
 	glass_desc = "A drink to perk you up and refresh you!"
 
@@ -3347,6 +3372,32 @@
 	glass_desc = "A very classy looking drink."
 	glass_center_of_mass = list("x"=15, "y"=7)
 
+/datum/reagent/alcohol/messa_mead
+	name = "Messa's Mead"
+	id = "messa_mead"
+	description = "A sweet alcoholic adhomian drink. Produced with Messa's tears and earthen-root."
+	color = "#664300"
+	strength = 25
+	taste_description = "honey"
+
+	glass_icon_state = "messa_mead_glass"
+	glass_name = "glass of Messa's Mead"
+	glass_desc = "A sweet alcoholic adhomian drink. Produced with Messa's tears."
+
+/datum/reagent/alcohol/winter_offensive
+	name = "Winter Offensive"
+	id = "winter_offensive"
+	description = "An alcoholic tajaran cocktail, named after a less than successful military campaign."
+	color = "#664300"
+	strength = 15
+	taste_description = "cold oily gin"
+	adj_temp = -15
+	targ_temp = 270
+
+	glass_icon_state = "winter_offensive"
+	glass_name = "glass of Winter Offensive"
+	glass_desc = "Proven to be more successful than the campaign."
+
 // Butanol-based alcoholic drinks
 //=====================================
 //These are mainly for unathi, and have very little (but still some) effect on other species
@@ -3410,7 +3461,7 @@
 	description = "A tropical cocktail containing cactus juice from Moghes, but no actual alcohol."
 	color = "#FF7F3B"
 	strength = 15
-	taste_description = "lime and orange"
+	taste_description = "sweet lemons"
 
 	glass_icon_state = "bahamalizard"
 	glass_name = "glass of Bahama Lizard"
@@ -3556,3 +3607,4 @@
 	glass_icon_state = "crocodile_glass"
 	glass_name = "glass of Crocodile Guwan"
 	glass_desc = "The smell says no, but the pretty colors say yes."
+

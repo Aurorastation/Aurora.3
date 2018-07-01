@@ -564,8 +564,8 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/janitor
 	name = "custodial robot module"
-	channels = list("Engineering" = 1)
-	networks = list(NETWORK_ENGINEERING)
+	channels = list("Service" = 1)
+	networks = list(NETWORK_SERVICE)
 	sprites = list(
 					"Basic" = "robotjani",
 					"Mopbot"  = "janitorrobot",
@@ -601,6 +601,7 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/clerical
 	name = "service robot module"
 	channels = list("Service" = 1)
+	networks = list(NETWORK_SERVICE)
 	languages = list(
 					LANGUAGE_SOL_COMMON = 1,
 					LANGUAGE_TRADEBAND = 1,
@@ -713,12 +714,13 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/gripper/miner(src)
 	src.modules += new /obj/item/weapon/mining_scanner(src)
 	src.modules += new /obj/item/device/gps/mining(src) // for locating itself in the deep space
+	src.modules += new /obj/item/weapon/gun/custom_ka/cyborg(src)
 	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
-	..()
 
 /obj/item/weapon/robot_module/research
 	name = "research module"
 	channels = list("Science" = 1)
+	networks = list(NETWORK_RESEARCH)
 	sprites = list(
 					"Droid" = "droid-science",
 					"Drone" = "drone-science",
@@ -922,6 +924,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/pickaxe/drill(src)
 	src.modules += new /obj/item/weapon/storage/bag/sheetsnatcher/borg(src)
 	src.modules += new /obj/item/weapon/gripper/miner(src)
+	src.modules += new /obj/item/weapon/wrench(src)
 	src.modules += new /obj/item/weapon/mining_scanner(src)
 
 	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
@@ -935,6 +938,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/pickaxe/jackhammer(src)
 	src.modules += new /obj/item/weapon/storage/bag/sheetsnatcher/borg(src)
 	src.modules += new /obj/item/weapon/gripper/miner(src)
+	src.modules += new /obj/item/weapon/wrench(src)
 	src.modules += new /obj/item/weapon/mining_scanner(src)
 
 	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
@@ -945,9 +949,10 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/material(src)
 	src.modules += new /obj/item/weapon/storage/bag/ore/drone(src)
-	src.modules += new /obj/item/weapon/gun/energy/kinetic_accelerator/cyborg(src)
+	src.modules += new /obj/item/weapon/gun/custom_ka/cyborg(src)
 	src.modules += new /obj/item/weapon/storage/bag/sheetsnatcher/borg(src)
 	src.modules += new /obj/item/weapon/gripper/miner(src)
+	src.modules += new /obj/item/weapon/wrench(src)
 	src.modules += new /obj/item/weapon/mining_scanner(src)
 
 	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
@@ -958,10 +963,11 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/material(src)
 	src.modules += new /obj/item/weapon/storage/bag/ore/drone(src)
-	src.modules += new /obj/item/weapon/gun/energy/kinetic_accelerator/cyborg(src)
+	src.modules += new /obj/item/weapon/gun/custom_ka/cyborg(src)
 	src.modules += new /obj/item/weapon/pickaxe/jackhammer(src)
 	src.modules += new /obj/item/weapon/storage/bag/sheetsnatcher/borg(src)
 	src.modules += new /obj/item/weapon/gripper/miner(src)
+	src.modules += new /obj/item/weapon/wrench(src)
 	src.modules += new /obj/item/weapon/mining_scanner(src)
 
 	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)

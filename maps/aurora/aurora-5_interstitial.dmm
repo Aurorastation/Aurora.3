@@ -2537,7 +2537,7 @@
 /turf/simulated/floor/carpet,
 /area/security/detectives_office)
 "eH" = (
-/obj/machinery/computer/security/wooden_tv,
+/obj/machinery/computer/security,
 /turf/simulated/floor/carpet,
 /area/security/detectives_office)
 "eI" = (
@@ -2763,44 +2763,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/security/detectives_office)
-"ff" = (
-/obj/effect/floor_decal/corner/green/full{
-	icon_state = "corner_white_full";
-	dir = 1
-	},
-/obj/structure/flora/pottedplant,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
-	},
-/obj/machinery/alarm{
-	dir = 8;
-	icon_state = "alarm0";
-	pixel_x = 24
-	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Psychiatry Hallway";
-	network = list("Medical")
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/psych)
-"fg" = (
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/obj/machinery/requests_console{
-	department = "Security Weights Room";
-	departmentType = 5;
-	pixel_x = 0;
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled,
-/area/security/training)
 "fh" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -3067,7 +3029,6 @@
 "fJ" = (
 /obj/structure/window/reinforced,
 /obj/structure/closet/secure_closet/detective,
-/obj/item/weapon/reagent_containers/food/drinks/flask/detflask,
 /obj/item/weapon/book/manual/security_space_law,
 /turf/simulated/floor/lino,
 /area/security/detectives_office)
@@ -4260,17 +4221,15 @@
 /turf/simulated/floor/tiled,
 /area/security/training)
 "hw" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/effect/floor_decal/plaque{
+	desc = "Avery Bennett Memorial Hall<br>The 5th and final victim of the Odin Killer. He was slain by the Odin Killer for his brave, personal investigation on the killings. Studying to become a detective at the time of his death, he was posthumously granted the title.<br>November 2428 - June 2460"
 	},
 /turf/simulated/floor/tiled,
 /area/security/training)
@@ -4279,23 +4238,32 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	name = "Station Intercom (General)";
-	pixel_x = 24
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/security/training)
 "hy" = (
+/obj/machinery/light/small/emergency,
 /obj/structure/cable/green{
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 8;
+	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light/small/emergency{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/security/training)
@@ -4390,18 +4358,6 @@
 /obj/item/weapon/folder/sec,
 /turf/simulated/floor/tiled/dark,
 /area/security/training)
-"hJ" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
-/obj/machinery/requests_console{
-	department = "Theoretical Training Room";
-	departmentType = 5;
-	pixel_x = 0;
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/training)
 "hK" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -4433,16 +4389,11 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/firealarm/south,
-/turf/simulated/floor/tiled,
-/area/security/training)
-"hN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/item/device/radio/intercom{
+	frequency = 1481;
+	name = "station intercom (Isolation Room)";
+	pixel_x = 0;
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
 /area/security/training)
@@ -4451,20 +4402,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/structure/noticeboard{
-	pixel_x = 32
-	},
 /turf/simulated/floor/tiled,
-/area/security/training)
-"hP" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating,
 /area/security/training)
 "hQ" = (
 /turf/simulated/open,
@@ -4529,72 +4467,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
-"hY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled,
-/area/security/training)
-"hZ" = (
-/obj/effect/floor_decal/corner/blue{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/security/training)
-"ia" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list(1);
-	req_one_access = null
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/security/training)
 "ib" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
+/obj/item/clothing/head/fedora/brown,
+/obj/item/ammo_casing/c38{
+	pixel_x = 8;
+	pixel_y = -9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+/obj/item/ammo_casing/c38{
+	pixel_x = -9;
+	pixel_y = -7
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 9
-	},
+/obj/item/clothing/suit/storage/toggle/det_trench,
+/obj/effect/decal/remains,
 /turf/simulated/floor/plating,
 /area/security/training)
 "ic" = (
@@ -4656,12 +4540,6 @@
 	c_tag = "Security - Forensics Laboratory";
 	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
-/area/security/forensics_office)
-"ih" = (
-/obj/effect/floor_decal/corner/beige/diagonal,
-/obj/structure/table/glass,
-/obj/item/device/mass_spectrometer,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
 "ii" = (
@@ -5362,23 +5240,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/security/training)
-"jA" = (
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/firealarm/west,
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Psychaitry Patient Room";
-	dir = 4;
-	icon_state = "camera";
-	network = list("Medical")
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/psych)
 "jB" = (
 /obj/effect/floor_decal/corner/blue/full{
 	icon_state = "corner_white_full";
@@ -5495,27 +5356,6 @@
 	dir = 8;
 	icon_state = "tube1";
 	pixel_x = 0
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/psych)
-"jP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Psychaitry Closet";
-	network = list("Medical")
-	},
-/turf/simulated/floor/tiled/dark,
-/area/medical/psych)
-"jQ" = (
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Psychiatry Waiting";
-	network = list("Medical")
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
@@ -5994,15 +5834,6 @@
 	pixel_x = 0
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/psych)
-"kH" = (
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Psychaitry Isolation Room";
-	dir = 4;
-	icon_state = "camera";
-	network = list("Medical")
-	},
-/turf/simulated/floor/reinforced,
 /area/medical/psych)
 "kI" = (
 /obj/item/device/radio/intercom{
@@ -6532,19 +6363,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
-"lG" = (
-/obj/effect/floor_decal/corner/green/full,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Psychaitry Isolation Room Entrance";
-	dir = 4;
-	icon_state = "camera";
-	network = list("Medical")
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/psych)
 "lH" = (
 /obj/structure/bed/chair/office/light,
 /turf/simulated/floor/tiled/white,
@@ -6889,6 +6707,175 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"mk" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/requests_console{
+	department = "Security Weights Room";
+	departmentType = 5;
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"ml" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/machinery/requests_console{
+	department = "Theoretical Training Room";
+	departmentType = 5;
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/training)
+"mn" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/structure/table/glass,
+/obj/item/device/mass_spectrometer{
+	pixel_x = -1;
+	pixel_y = 1
+	},
+/obj/item/device/reagent_scanner{
+	pixel_x = 1;
+	pixel_y = -1
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"mo" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"ou" = (
+/obj/effect/landmark{
+	name = "cavernspawn"
+	},
+/turf/simulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
+"rX" = (
+/obj/effect/floor_decal/corner/green/full{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
+/obj/structure/flora/pottedplant,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Psychiatry Hallway";
+	network = list("Medical")
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"sk" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/firealarm/west,
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Psychaitry Patient Room";
+	dir = 4;
+	icon_state = "camera";
+	network = list("Medical")
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"sx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Psychaitry Closet";
+	network = list("Medical")
+	},
+/turf/simulated/floor/tiled/dark,
+/area/medical/psych)
+"sB" = (
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Psychaitry Isolation Room";
+	dir = 4;
+	icon_state = "camera";
+	network = list("Medical")
+	},
+/turf/simulated/floor/reinforced,
+/area/medical/psych)
+"sN" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Psychiatry Waiting";
+	network = list("Medical")
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"sY" = (
+/obj/effect/floor_decal/corner/green/full,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Psychaitry Isolation Room Entrance";
+	dir = 4;
+	icon_state = "camera";
+	network = list("Medical")
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
+"va" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/tiled,
+/area/security/training)
+"vb" = (
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(63);
+	req_one_access = null
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/security/training)
+"vc" = (
+/obj/structure/bed/chair/unmovable{
+	icon_state = "chair_preview";
+	dir = 1
+	},
+/obj/item/weapon/handcuffs,
+/obj/item/clothing/suit/storage/toggle/det_trench/black,
+/obj/effect/decal/remains,
+/turf/simulated/floor/plating,
+/area/security/training)
 
 (1,1,1) = {"
 aa
@@ -39617,7 +39604,7 @@ db
 ex
 jB
 eV
-fg
+mk
 dc
 fB
 fX
@@ -40139,7 +40126,7 @@ gr
 gG
 gZ
 ht
-hJ
+ml
 dc
 aa
 aa
@@ -40898,7 +40885,7 @@ dK
 dS
 ec
 en
-dS
+va
 eB
 eM
 dS
@@ -41167,8 +41154,8 @@ gt
 gK
 hd
 hw
-hN
-hY
+dM
+dM
 jF
 ii
 dc
@@ -41425,7 +41412,7 @@ gL
 he
 hx
 hO
-hZ
+hO
 ii
 ii
 dc
@@ -41680,9 +41667,9 @@ gb
 dc
 dc
 dc
+vb
 dc
 dc
-ia
 dc
 dc
 dc
@@ -41938,10 +41925,10 @@ dc
 gM
 hf
 hy
-hP
-ib
 dc
-aa
+ib
+vc
+dc
 aa
 aa
 aa
@@ -42198,7 +42185,7 @@ dc
 dc
 dc
 dc
-aa
+dc
 aa
 aa
 aa
@@ -42477,7 +42464,7 @@ ab
 ab
 jG
 jL
-jA
+sk
 kb
 kl
 kw
@@ -44792,7 +44779,7 @@ jH
 jM
 jV
 jG
-jP
+sx
 kB
 jG
 kS
@@ -45280,7 +45267,7 @@ gW
 fw
 hF
 hX
-ih
+mn
 fy
 ab
 ab
@@ -45823,7 +45810,7 @@ jG
 kr
 jG
 jG
-jQ
+sN
 lf
 lq
 kc
@@ -46331,7 +46318,7 @@ aa
 ab
 ab
 jG
-ff
+rX
 jX
 ki
 kt
@@ -46849,12 +46836,12 @@ jK
 jZ
 kj
 ku
-kH
+sB
 ku
 kj
 li
 lu
-lG
+sY
 lQ
 jG
 lW
@@ -50715,10 +50702,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
 aa
 aa
 aa
@@ -50969,13 +50956,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+mo
+mo
+mo
 aa
 aa
 aa
@@ -51224,16 +51211,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
 bc
 bc
 bc
@@ -51480,15 +51467,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
 ab
 ab
 bc
@@ -51737,13 +51724,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -51994,13 +51981,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+ab
+ab
+ab
+ab
 ab
 ab
 aS
@@ -52251,13 +52238,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+ab
+ab
+ab
+ab
 ab
 aQ
 aT
@@ -52509,12 +52496,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+ab
+ab
+ab
 ab
 ab
 aU
@@ -52766,13 +52753,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+ab
+ab
+ab
 ab
 ab
 ab
@@ -53024,12 +53011,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+ab
+ou
 ab
 ab
 ab
@@ -53284,12 +53271,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+ab
+ab
+ab
+ab
+ab
 bc
 bc
 bB
@@ -53536,17 +53523,17 @@ io
 io
 io
 io
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+mo
+mo
+ab
+ab
+ab
+ab
+ab
 aa
 bc
 bC
@@ -54025,10 +54012,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
 aa
 io
 io
@@ -54051,17 +54038,17 @@ iL
 iO
 io
 io
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+mo
+ab
+ab
+ab
+ab
+ab
+mo
 bc
 bc
 jm
@@ -54281,11 +54268,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+mo
 io
 io
 io
@@ -54312,13 +54299,13 @@ io
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+ab
+ab
+ab
+ab
+mo
+mo
 aa
 bc
 jn
@@ -54538,10 +54525,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+ab
 io
 io
 io
@@ -54569,12 +54556,12 @@ io
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+ab
+ab
+ab
+ab
+mo
 aa
 aa
 bc
@@ -54794,11 +54781,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+ab
 io
 io
 ip
@@ -54825,13 +54812,13 @@ io
 io
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+ab
+ab
+ab
+ab
+mo
 aa
 aa
 bc
@@ -55051,11 +55038,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+ab
 io
 io
 io
@@ -55082,13 +55069,13 @@ io
 io
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+ab
+ab
+ab
+ab
+mo
+mo
 aa
 aa
 bc
@@ -55307,13 +55294,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+mo
+ab
+ab
 io
 io
 io
@@ -55338,14 +55325,14 @@ io
 io
 io
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+ab
+ab
+ab
+mo
+mo
+mo
 aa
 aa
 bc
@@ -55564,14 +55551,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+mo
+ab
+ab
+mo
 io
 io
 io
@@ -55595,12 +55582,12 @@ io
 io
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+ab
+ab
+ab
+ab
+mo
 aa
 aa
 aa
@@ -55822,17 +55809,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+mo
 aa
 aa
 aa
@@ -55851,13 +55838,13 @@ io
 io
 io
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+ab
+ab
+ab
+ab
+mo
 aa
 aa
 aa
@@ -56080,16 +56067,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+ab
+ab
+ab
+ab
+ab
+ab
+mo
+mo
 aa
 aa
 aa
@@ -56108,13 +56095,13 @@ io
 io
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+ab
+ab
+ou
+ab
+mo
+mo
 aa
 aa
 aa
@@ -56338,6 +56325,14 @@ aa
 aa
 aa
 aa
+mo
+ab
+ou
+ab
+ab
+mo
+mo
+mo
 aa
 aa
 aa
@@ -56356,21 +56351,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+ab
+ab
+ab
+ab
+mo
 aa
 aa
 aa
@@ -56595,6 +56582,12 @@ aa
 aa
 aa
 aa
+mo
+ab
+ab
+ab
+ab
+mo
 aa
 aa
 aa
@@ -56615,19 +56608,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+ab
+ab
+ab
+ab
+mo
+mo
 aa
 aa
 aa
@@ -56851,6 +56838,13 @@ aa
 aa
 aa
 aa
+mo
+mo
+ab
+ab
+ab
+mo
+mo
 aa
 aa
 aa
@@ -56870,20 +56864,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+ab
+ab
+ab
+ab
+mo
 aa
 aa
 aa
@@ -57108,6 +57095,19 @@ aa
 aa
 aa
 aa
+mo
+mo
+ab
+ab
+ab
+mo
+aa
+aa
+aa
+aa
+mo
+mo
+mo
 aa
 aa
 aa
@@ -57120,27 +57120,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+ab
+ab
+ab
+ab
+mo
+mo
 aa
 aa
 aa
@@ -57364,6 +57351,20 @@ aa
 aa
 aa
 aa
+mo
+mo
+mo
+ab
+ab
+ab
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
 aa
 aa
 aa
@@ -57376,28 +57377,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+ab
+ab
+ab
+ab
+ab
+mo
+mo
 aa
 aa
 aa
@@ -57620,6 +57607,23 @@ aa
 aa
 aa
 aa
+mo
+mo
+mo
+mo
+ab
+ab
+ab
+ab
+ab
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
 aa
 aa
 aa
@@ -57629,31 +57633,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+ab
+ab
+ab
+ab
+ab
+ab
 bc
 bc
 bc
@@ -57876,40 +57863,40 @@ aa
 aa
 aa
 aa
+mo
+mo
+mo
+mo
+mo
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+mo
+mo
+mo
+mo
+mo
+mo
+mo
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+ab
+ab
+ab
+ab
+ab
+ab
 bc
 bc
 bc
@@ -58133,37 +58120,37 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+mo
+mo
+mf
+mf
+mf
+mf
+mf
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+ab
+ab
+mo
+mo
+ab
+ab
+ab
+ab
+ab
 bc
 bc
 bc
@@ -58390,36 +58377,36 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+mi
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 bc
 bc
 bc
@@ -58647,36 +58634,36 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+mi
+ab
+ab
+ab
+ab
+ab
+ou
+ab
+ab
+ab
+ab
 bc
 bc
 iW
@@ -58906,34 +58893,34 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+mo
+aB
+aB
+aB
+aB
+aB
+mi
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 bc
 bc
 bc
@@ -59163,35 +59150,35 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+aB
+aB
+aB
+aB
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+aB
+aB
+aB
+mo
+mo
+ab
+ab
+ab
+ab
+ab
+ab
+mo
+mo
+mo
+mo
 bc
 bc
 bc
@@ -59420,32 +59407,32 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+aB
+aB
+aB
+aB
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+aB
+aB
+aB
+mo
+mo
+ab
+ab
+ab
+ab
+mo
+mo
+mo
 aa
 aa
 aa
@@ -59676,31 +59663,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+aB
+aB
+aB
+aB
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+aB
+aB
+aB
+mo
+mo
+mo
+ab
+ab
+mo
+mo
 aa
 aa
 aa
@@ -59933,31 +59920,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+aB
+aB
+aB
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+aB
+aB
+aB
+mo
+mo
+mo
+mo
+mo
+mo
+mo
 aa
 aa
 aa
@@ -60189,31 +60176,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+aB
+aB
+aB
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+aB
+aB
+aB
+mo
+mo
+mo
+mo
+mo
+mo
 aa
 aa
 aa
@@ -60446,29 +60433,29 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+aB
+aB
+aB
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+aB
+aB
+aB
+mo
+mo
+mo
+mo
 aa
 aa
 aa
@@ -60703,28 +60690,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+aB
+aB
+aB
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+aB
+aB
+aB
+aB
+mo
+mo
+mo
 aa
 aa
 aa
@@ -60960,28 +60947,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+aB
+aB
+aB
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+aB
+aB
+aB
+mo
+mo
+mo
+mo
 aa
 aa
 aa
@@ -61217,27 +61204,27 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+aB
+aB
+aB
+aB
+mo
+mo
+mo
+mo
+mo
+mo
+aB
+aB
+aB
+aB
+mo
+mo
+mo
 aa
 aa
 aa
@@ -61474,27 +61461,27 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+mo
+mo
+mo
 aa
 aa
 aa
@@ -61731,27 +61718,27 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+mo
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+mo
+mo
+mo
+mo
 aa
 aa
 aa
@@ -61989,25 +61976,25 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+mo
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+aB
+mo
+mo
+mo
+mo
 aa
 aa
 aa
@@ -62248,23 +62235,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
 aa
 aa
 aa
@@ -62508,18 +62495,18 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
 aa
 aa
 aa
@@ -62766,14 +62753,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
+mo
+mo
+mo
+mo
 aa
 aa
 aa
@@ -63025,10 +63012,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
 aa
 aa
 aa
