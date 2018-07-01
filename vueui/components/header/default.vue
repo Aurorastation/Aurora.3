@@ -1,7 +1,7 @@
 <template>
     <div class='uiTitleWrapper' unselectable="on">
         <slot></slot>
-        <div class='uiStatusIcon icon24' :class="statusClass" unselectable="on"></div>
+        <div class='uiStatusIcon uiIcon24' :class="statusClass" unselectable="on"></div>
         <div class='uiTitleText' unselectable="on">{{ title }}</div>
         <div class='uiTitleFluff' unselectable="on"></div>
     </div>
@@ -23,7 +23,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .uiTitleWrapper {
     margin: -8px -8px 10px;
     position: relative;

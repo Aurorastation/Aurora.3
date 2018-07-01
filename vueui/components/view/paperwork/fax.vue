@@ -24,12 +24,7 @@
                             {{ state.paper }}
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="itemLabel"></div>
-                        <div class="itemContent">
-                            <vui-button :params="{ send: 1}">Send</vui-button>
-                        </div>
-                    </div>
+                    <vui-button :params="{ send: 1}">Send</vui-button>
                 </template>
                 <span v-else>Please insert paper to send via secure connection.</span>
             </template>

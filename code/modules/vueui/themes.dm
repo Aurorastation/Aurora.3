@@ -14,6 +14,16 @@
         "name" = "Nano Light",
         "class" = "theme-nano-light",
         "type" = THEME_TYPE_LIGHT
+    ),
+    "Basic" = list(
+        "name" = "Basic Light",
+        "class" = "theme-basic",
+        "type" = THEME_TYPE_LIGHT
+    ),
+    "Basic Dark" = list(
+        "name" = "Basic Dark",
+        "class" = "theme-basic-dark",
+        "type" = THEME_TYPE_DARK
     )
 )
 
@@ -24,9 +34,7 @@
             style = "Nano"
         var/list/theme = available_html_themes[style]
         var/class = ""
-        if(theme["type"] == THEME_TYPE_DARK)
-            class += "dark-theme"
-        class += " [theme["class"]]"
+        class += "[theme["class"]]"
         return class
     return ""
 
