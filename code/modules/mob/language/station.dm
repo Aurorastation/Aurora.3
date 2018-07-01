@@ -293,16 +293,16 @@
 	syllables = list(
 			"azs","zis","zau","azua","skiu","zuakz","izo","aei","ki","kut","zo", "ca", "ra", "ma", "sa", "na", "ta", "la", "sha", "scha", "a", "a",
 			"beep","beep","beep","beep","beep","boop","boop","boop","bop","bop","dee","dee","doo","doo","hiss","hss","buzz","buzz","bzz","ksssh","keey","wurr",
-			"wahh","vaur","uyek","uyit","avek","sc'theth","k'ztak","teth","wre'ge","lii","dra'","zo'","ra'","k'lax'","zz","vh","ik","ak",
+			"wahh","vaur","uyek", " clown ","uyit","avek","sc'theth","k'ztak","teth","wre'ge","lii","dra'","zo'","ra'","k'lax'","zz","vh","ik","ak",
 			"qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!","hrr","rhr","tarj","khir","rajh","kir","mier","kre","ahek","nlhal","veh","khaz","dri","rhan","darrer",
-			"mrr","rr","tajr","kir","raj","kii","mir","kra","ahk","nal","vah","khaz","jri","ran","darr","mrr","rr","tajr","kir","raj","kii","mir","kra","ahk","nal","vah","khaz","jri","ran","darr",
+			"mrr","rr","tajr","kir","raj","kii","mir","kra","ahk","nal","vah","khaz","jri"," clown ""ran","darr","mrr","rr","tajr","kir","raj","kii","mir","kra","ahk","nal","vah","khaz","jri","ran","darr",
 			"za", "az", "ze", "ez", "zi", "iz", "zo", "oz", "zu", "uz", "zs", "sz", "hs","zt","kr","st","sh", "a", "ai", "an", "ang", "ao", "ba", "bai", "ban", "bang", "bao", "bei", "ben", "beng", "bi", "bian", "biao",
 			"den", "deng", "di", "dian", "diao", "die", "ding", "diu", "dong", "dou", "du", "duan", "dui", "dun", "duo", "e", "shai", "shan", "shang", "shao", "she", "shei", "shen", "sheng", "shi", "shou", "shu", "shua", "shuai", "shuan", "shuang", "shui",
 			"ve", "wa", "all", "and", "are", "but", "ent", "era", "ere", "eve", "for", "had", "hat", "hen", "her", "hin", "blah","blah","blah","bleh","meh","neh","nah","wah",
 			"lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing", "elit", "in", "culpa", "qui", "officia", "deserunt", "mollit", "anim", "id", "est", "laborum",
 			"slo","nik","ko","zels","het","zlo","nis","iv","da","ati","yib","ban","dup","sha","ansh","nou","nec","zby", "ci", "m","n","gh","h","l","s","r","a","e","i","o","u",
 			"ti","ti","ti","hi","hi","ki","ki","ki","ki","ya","ta","ha","ka","ya","chi","cha","kah", "SKRE","AHK","EHK","RAWK","KRA","AAA","EEE","KI","II","KRI","KA", "ire","ego","nahlizet","certum","veri","jatkaa","mgar","balaq", "karazet", "geeri",,
-			"mah'weyh", "pleggh", "at", "e'ntrath", "tok-lyr", "rqa'nap", "g'lt-ulotf", "ta'gh", "fara'qha", "fel", "d'amar det")
+			"mah'weyh", "pleggh", "at", "e'ntrath", "tok-lyr", "rqa'nap", "g'lt-ulotf", "ta'gh", "fara'qha", "fel", "d'amar det", " clown ")
 	partial_understanding = list(
 			LANGUAGE_UNATHI = 20, LANGUAGE_SOL_COMMON = 25, LANGUAGE_SIIK_MAAS = 10, LANGUAGE_SIIK_TAJR = 10, LANGUAGE_SIGN_TAJARA = 10, LANGUAGE_YA_SSA = 10, LANGUAGE_DELVAHII = 10,
 			LANGUAGE_SKRELLIAN = 20, LANGUAGE_RESOMI = 15, LANGUAGE_ROOTSONG = 25, LANGUAGE_TRADEBAND = 20, LANGUAGE_GUTTER = 20, LANGUAGE_VAURCA = 30, LANGUAGE_AZAZIBA = 10, LANGUAGE_TCB = 20,
