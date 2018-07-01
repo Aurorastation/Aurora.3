@@ -7,9 +7,3 @@
 
 /obj/item/device/flash/budget/full
 	cell_type = /obj/item/weapon/cell/crap
-
-/obj/item/device/flash/strong/
-	bulb_type = /obj/item/weapon/flash_bulb/strong
-
-/obj/item/device/flash/strong/full
-	cell_type = /obj/item/weapon/cell/high

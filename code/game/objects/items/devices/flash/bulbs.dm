@@ -24,16 +24,6 @@
 	max_heat_damage = 2
 	cooldown_delay = 30 SECONDS
 
-/obj/item/weapon/flash_bulb/strong
-	name = "strong flash bulb"
-	desc = "A small bulb built to be fit inside a flash. This one seems to be made with stronger materials."
-	icon_state = "bulb_strong"
-	strength = 1
-	build_name = "advanced flash"
-	heat_damage_to_add = 1
-	max_heat_damage = 10
-	cooldown_delay = 30 SECONDS
-
 /obj/item/weapon/flash_bulb/proc/add_heat(var/heat_multiplier)
 	//Yes, this is fucky.
 	//And also a clever way to avoid processing things we don't need to process.
