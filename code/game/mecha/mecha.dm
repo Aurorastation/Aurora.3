@@ -1243,7 +1243,7 @@
 
 /obj/mecha/proc/mmi_move_inside(var/obj/item/device/mmi/mmi_as_oc as obj,mob/user as mob)
 	if(!src.operation_allowed(user))
-		usr << "<span class='warning'>Access denied</span>"
+		user << "<span class='warning'>Access denied</span>"
 		src.log_append_to_last("Permission denied.")
 		return 0
 	if(!mmi_as_oc.brainmob || !mmi_as_oc.brainmob.client)
