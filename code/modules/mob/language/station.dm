@@ -295,7 +295,7 @@
 			"beep","beep","beep","beep","beep","boop","boop","boop","bop","bop","dee","dee","doo","doo","hiss","hss","buzz","buzz","bzz","ksssh","keey","wurr",
 			"wahh","vaur","uyek", " clown ","uyit","avek","sc'theth","k'ztak","teth","wre'ge","lii","dra'","zo'","ra'","k'lax'","zz","vh","ik","ak",
 			"qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!","hrr","rhr","tarj","khir","rajh","kir","mier","kre","ahek","nlhal","veh","khaz","dri","rhan","darrer",
-			"mrr","rr","tajr","kir","raj","kii","mir","kra","ahk","nal","vah","khaz","jri"," clown ""ran","darr","mrr","rr","tajr","kir","raj","kii","mir","kra","ahk","nal","vah","khaz","jri","ran","darr",
+			"mrr","rr","tajr","kir","raj","kii","mir","kra","ahk","nal","vah","khaz","jri"," clown ","ran","darr","mrr","rr","tajr","kir","raj","kii","mir","kra","ahk","nal","vah","khaz","jri","ran","darr",
 			"za", "az", "ze", "ez", "zi", "iz", "zo", "oz", "zu", "uz", "zs", "sz", "hs","zt","kr","st","sh", "a", "ai", "an", "ang", "ao", "ba", "bai", "ban", "bang", "bao", "bei", "ben", "beng", "bi", "bian", "biao",
 			"den", "deng", "di", "dian", "diao", "die", "ding", "diu", "dong", "dou", "du", "duan", "dui", "dun", "duo", "e", "shai", "shan", "shang", "shao", "she", "shei", "shen", "sheng", "shi", "shou", "shu", "shua", "shuai", "shuan", "shuang", "shui",
 			"ve", "wa", "all", "and", "are", "but", "ent", "era", "ere", "eve", "for", "had", "hat", "hen", "her", "hin", "blah","blah","blah","bleh","meh","neh","nah","wah",
