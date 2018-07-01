@@ -453,7 +453,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			src.updateUsrDialog()
 
 		else if(href_list["set_new_message"])
-			src.msg = pencode2html(sanitize(input(usr, "Write your Feed story", "Network Channel Handler", "") as message, encode = 0, trim = 0, extra = 0))
+			src.msg = pencode2html(sanitize(input(usr, "Write your Feed story", "Network Channel Handler", "") as message, max_length = MAX_BOOK_MESSAGE_LEN, encode = 0, trim = 0, extra = 0))
 			src.updateUsrDialog()
 
 		else if(href_list["set_attachment"])
@@ -469,7 +469,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				src.screen=6
 			else
 				if(paper_data)
-					src.msg += "</BR>Attachment Name: [paper_name]</BR>Attachment:<PRE><CODE>[paper_data]</CODE></PRE>"
+					src.msg += "</BR>Attachment Name: [paper_name]</BR>Attachment:<PRE><BLOCKQUOTE style=\"border: 1px black solid;\">[paper_data]</BLOCKQUOTE></PRE>"
 				var/image = photo_data ? photo_data.photo : null
 				feedback_inc("newscaster_stories",1)
 				var/datum/feed_channel/ch =  SSnews.GetFeedChannel(src.channel_name)

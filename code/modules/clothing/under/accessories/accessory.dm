@@ -29,6 +29,8 @@
 		if(contained_sprite)
 			tmp_icon_state = "[tmp_icon_state]"
 			inv_overlay = image("icon" = icon, "icon_state" = "[tmp_icon_state]_w", dir = SOUTH)
+	if(color)
+		inv_overlay.color = color
 	return inv_overlay
 
 /obj/item/clothing/accessory/proc/get_mob_overlay()
@@ -43,6 +45,8 @@
 			mob_overlay = image("icon" = icon, "icon_state" = "[tmp_icon_state]")
 		else
 			mob_overlay = image("icon" = INV_ACCESSORIES_DEF_ICON, "icon_state" = "[tmp_icon_state]")
+	if(color)
+		mob_overlay.color = color
 	return mob_overlay
 
 //when user attached an accessory to S
