@@ -322,7 +322,7 @@
 		update_icon()
 		STOP_PROCESSING(SSfast_process, src)
 	else
-		to_chat(user, "<span class='warning'>[src] already has no tank.</span>")
+		to_chat(usr, "<span class='warning'>[src] has no tank.</span>")
 
 // Handle most of things: restraining, cutting restrains, attaching tank.
 /obj/structure/closet/airbubble/attackby(W as obj, mob/user as mob)

@@ -317,7 +317,7 @@
 /obj/item/weapon/tray/throw_impact(atom/hit_atom)
 	spill(null, src.loc)
 
-/obj/item/weapon/tray/throw_at(/var/atom/target, var/throw_range, var/throw_speed, /var/mob/user)
+/obj/item/weapon/tray/throw_at(atom/target, throw_range, throw_speed, mob/user)
 	safedrop = 1//we dont want the tray to spill when thrown, it will spill on impact instead
 	..()
 
