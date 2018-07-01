@@ -169,7 +169,7 @@ main ui datum.
   * @return nothing
   */ 
 /datum/vueui/proc/send_resources_and_assets(var/client/cl)
-#if UIDEBUG
+#ifdef UIDEBUG
 	cl << browse_rsc(file("vueui/dist/main.js"), "vueui.js")
 	cl << browse_rsc(file("vueui/dist/main.css"), "vueui.css")
 #else
