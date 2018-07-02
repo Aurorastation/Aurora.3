@@ -72,8 +72,6 @@ Byond Vue UI framework's management subsystem
   * Initiates check for data change of specified object
   *
   * @param src_object - object that hosts ui that should be updated
-  *
-  * @return nothing
   */ 
 /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change(var/src_object)
 	for (var/datum/vueui/ui in get_open_uis(src_object))
