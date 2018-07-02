@@ -211,16 +211,16 @@
 
 		var/amount_to_take = 1
 		if(stored_charge + charge_per_sheet > cell_increase)
-			to_chat(user,"<span class='notice'>You can't put any more [I] into \the [src].</notice>")
+			to_chat(user,"<span class='notice'>You can't put any more [I] into \the [src].</span>")
 			return
 
 		amount_to_take = min(amount_to_take,the_sheet.amount)
 		the_sheet.amount -= amount_to_take
 		stored_charge += amount_to_take*charge_per_sheet
 
-		user.visible_message("<span class='notice'>\The [user] inserts a sheet [I] into \the [src].</notice>", \
-			"<span class='notice'>You insert a sheet of [I]s into \the [src].</notice>", \
-			"<span class='notice'>You hear mechanical whirring.</notice>")
+		user.visible_message("<span class='notice'>\The [user] inserts a sheet [I] into \the [src].</span>", \
+			"<span class='notice'>You insert a sheet of [I]s into \the [src].</span>", \
+			"<span class='notice'>You hear mechanical whirring.</span>")
 
 
 		if(the_sheet.amount <= 0)
