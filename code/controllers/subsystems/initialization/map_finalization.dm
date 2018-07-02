@@ -13,7 +13,7 @@
 	current_map.finalize_load()
 	log_ss("map_finalization", "Finalized map in [(world.time - time)/10] seconds.")
 
-	if(config.generate_dungeons) //dependant on markers
+	if(config.dungeon_chance > 0)
 		place_dungeon_spawns()
 
 	if(config.generate_asteroid)
@@ -43,24 +43,26 @@
 	var/dungeons_placed = 0
 	var/static/dmm_suite/maploader = new
 
-	log_ss("map_finalization","Creating asteroid dungeons for [length(asteroid_spawn)] different areas, with [length(files)] possible dungeons.")
+	var/dungeon_chance = config.dungeon_chance
+
+	log_ss("map_finalization","Attempting to create asteroid dungeons for [length(asteroid_spawn)] different areas, with [length(files) - 1] possible dungeons, with a [dungeon_chance]% chance to spawn a dungeon per area.")
 
 	var/always_prob = 0
 
 	for(var/turf/spawn_location in asteroid_spawn)
 
 		if(length(files) <= 0) //Sanity
-			log_ss("map_finalization","There aren't enough dungeon map files to fill the entire dungeon map. You should put in some non-unique dungeons as filler!")
+			log_ss("map_finalization","There aren't enough dungeon map files to fill the entire dungeon map. There may be less dungeons than expected.")
 			break
 
-		if(prob(25) || always_prob)
+		if(always_prob || prob(dungeon_chance))
 
 			var/chosen_dungeon = pick(files)
 			always_prob = 0
 
 			if(!dd_hassuffix(chosen_dungeon,".dmm")) //Don't read anything that isn't a map file
 				files -= chosen_dungeon
-				always_prob = 1 //We wasted our 25% roll on a readme file so be sure that the next dungeon will contain an actual dungeon.
+				always_prob = 1 //We wasted our roll on a readme file so be sure that the next dungeon will contain an actual dungeon.
 				continue
 
 			var/map_file = file("[map_directory][chosen_dungeon]")
