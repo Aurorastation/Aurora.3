@@ -155,14 +155,6 @@ var/list/slot_equipment_priority = list( \
 			return 1
 		W.forceMove(target)
 		update_icons()
-
-		if(enable_animations && target != src)
-			if(isturf(target)) //Drop into world, small to big.
-				animate_item(W,get_turf(src),target,0.25 SECONDS,ANIMATION_STYLE_GROWMOVE)
-			else //Drop into another object, small to small
-				animate_item(W,get_turf(src),get_turf(target),0.25 SECONDS,ANIMATION_STYLE_HALFMOVE)
-
-
 		return 1
 	return 0
 

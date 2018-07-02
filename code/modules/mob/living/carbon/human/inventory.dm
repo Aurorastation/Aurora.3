@@ -408,11 +408,6 @@ This saves us from having to call add_fingerprint() any time something is put in
 /mob/living/carbon/human/put_in_l_hand(var/obj/item/W, var/enable_animations = TRUE)
 	if(!..() || l_hand)
 		return 0
-	if(W.loc != src && enable_animations)
-		if(isturf(W.loc))
-			animate_item(W,get_turf(W),get_turf(src),0.25 SECONDS,ANIMATION_STYLE_SHRINKMOVE) //Big to small
-		else
-			animate_item(W,get_turf(W),get_turf(src),0.25 SECONDS,ANIMATION_STYLE_HALFMOVE) //Small to small
 	W.forceMove(src)
 	l_hand = W
 	W.equipped(src,slot_l_hand)
@@ -423,8 +418,6 @@ This saves us from having to call add_fingerprint() any time something is put in
 /mob/living/carbon/human/put_in_r_hand(var/obj/item/W, var/enable_animations = TRUE)
 	if(!..() || r_hand)
 		return 0
-	if(W.loc != src)
-		animate_item(W,get_turf(W),get_turf(src),0.25 SECONDS,ANIMATION_STYLE_SHRINKMOVE)
 	W.forceMove(src)
 	r_hand = W
 	W.equipped(src,slot_r_hand)
