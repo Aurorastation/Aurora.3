@@ -19,16 +19,13 @@
 		return 0
 
 	flick("flash", src.flash)
-	//Confused, eye blind, and eye blurry are measured in life cycles, which take 2 seconds to complete.
 	src.confused = max(src.confused,(8/2) * severity * safety)
-	src.eye_blind = max(src.eye_blind,(8/2) * severity * safety)
-	src.eye_blurry = max(src.eye_blurry,(30/2) * severity * safety)
 
 	if(isvaurca(src)) //I fucking hate using this, but until vaurca aren't different types, this will have to do
 		src.druggy = max(src.druggy,(60/2) * severity * safety)
 		var/obj/item/organ/eyes/E = src.get_eyes()
 		if(E)
-			E.damage += 5 * severity * safety)
+			E.damage += 5 * severity * safety
 			to_chat(src,"<span class='warning'>Your eyes burn with the intense light of the flash!</span>")
 		src.Weaken(10 * severity * safety)
 
@@ -37,16 +34,16 @@
 /mob/living/carbon/human/diona/on_flash(var/mob/living/attacker as mob, var/obj/weapon, var/severity = 1)
 	. = ..()
 	//Dionaea Gestalt
-	flick("flash", src.flash)
 	var/datum/dionastats/DS = src.get_dionastats()
 	DS.stored_energy += 10*severity
 
 	return severity
 
-/mob/living/silicon/on_flash(var/mob/living/attacker as mob, var/obj/weapon, var/severity = 1)
+/mob/living/silicon/robot/on_flash(var/mob/living/attacker as mob, var/obj/weapon, var/severity = 1)
 	. = ..()
 	if(overclocked)
 		return 0
 	src.Weaken(7*severity)
+	flick("flash", src.flash)
 
 	return severity

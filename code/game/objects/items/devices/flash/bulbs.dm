@@ -1,8 +1,10 @@
-/obj/item/weapon/flash_bulb
+/obj/item/weapon/flash_bulb //Get these from cargo
 	name = "flash bulb"
 	desc = "A small bulb built to be fit inside a flash."
 	icon = 'icons/obj/flash.dmi'
 	icon_state = "bulb_normal"
+
+	matter = list("glass" = 1000)
 
 	var/on = FALSE
 	var/strength = 1
@@ -13,16 +15,6 @@
 	var/heat_damage = 0 //Heat damage. Reach max_heat_damage and it breaks
 	var/cooldown_delay = 30 SECONDS //How long it takes to remove max_heat_damage heat damage
 	var/build_name = "flash"
-
-/obj/item/weapon/flash_bulb/weak
-	name = "weak flash bulb"
-	desc = "A small bulb built to be fit inside a flash. This one is cheaply made."
-	icon_state = "bulb_weak"
-	strength = 0.75
-	build_name = "budget flash"
-	heat_damage_to_add = 1
-	max_heat_damage = 2
-	cooldown_delay = 30 SECONDS
 
 /obj/item/weapon/flash_bulb/proc/add_heat(var/heat_multiplier)
 	//Yes, this is fucky.

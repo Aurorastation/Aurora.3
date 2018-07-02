@@ -29,7 +29,7 @@
 		new /obj/item/device/radio/headset/heads/captain(src)
 		new /obj/item/weapon/cartridge/captain(src)
 		new /obj/item/weapon/gun/energy/pistol(src)
-		new /obj/item/device/flash(src)
+		new /obj/item/device/flash/weak/full(src)
 		new /obj/item/weapon/melee/telebaton(src)
 
 /obj/structure/closet/secure_closet/captains2
@@ -82,7 +82,7 @@
 		new /obj/item/device/radio/headset/heads/hop(src)
 		new /obj/item/weapon/gun/energy/pistol(src)
 		new /obj/item/weapon/gun/projectile/sec/flash(src)
-		new /obj/item/device/flash(src)
+		new /obj/item/device/flash/full(src)
 
 /obj/structure/closet/secure_closet/hop2
 	name = "head of personnel's attire"
@@ -146,7 +146,7 @@
 		new /obj/item/weapon/melee/telebaton(src)
 		new /obj/item/weapon/gun/energy/pistol(src)
 		new /obj/item/taperoll/police(src)
-		new /obj/item/device/flash(src)
+		new /obj/item/device/flash/full(src)
 		new /obj/item/device/holowarrant(src)
 		new /obj/item/device/breath_analyzer(src)
 		//Belts
@@ -248,7 +248,7 @@
 		new /obj/item/clothing/under/rank/security2(src)
 		//Tools
 		new /obj/item/device/radio/headset/headset_sec(src)
-		new /obj/item/device/flash(src)
+		new /obj/item/device/flash/full(src)
 		new /obj/item/weapon/reagent_containers/spray/pepper(src)
 		new /obj/item/taperoll/police(src)
 		new /obj/item/device/hailer(src)
@@ -284,7 +284,7 @@
 		new /obj/item/ammo_magazine/c45m/rubber(src)
 		new /obj/random/handgun(src)
 		new /obj/item/weapon/gun/energy/taser(src)
-		new /obj/item/device/flash(src)
+		new /obj/item/device/flash/full(src)
 		new /obj/item/weapon/reagent_containers/spray/pepper(src)
 		new /obj/item/weapon/melee/baton/loaded(src)
 		new /obj/item/taperoll/police(src)
@@ -403,7 +403,7 @@
 		//Tools
 		new /obj/item/device/radio/headset/headset_sec(src)
 		new /obj/item/weapon/storage/box/evidence(src)
-		new /obj/item/device/flash(src)
+		new /obj/item/device/flash/weak(src)
 		new /obj/item/taperoll/police(src)
 
 /obj/structure/closet/secure_closet/injection

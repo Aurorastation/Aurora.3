@@ -289,7 +289,7 @@
 	new /obj/item/device/radio/headset/heads/captain(src)
 	new /obj/item/clothing/gloves/white(src)
 	new /obj/item/weapon/gun/energy/pistol(src)
-	new /obj/item/device/flash(src)
+	new /obj/item/device/flash/full(src)
 	new /obj/item/weapon/melee/telebaton(src)
 	new /obj/item/weapon/melee/ceremonial_sword(src)
 	new /obj/item/clothing/under/rank/fatigues(src)

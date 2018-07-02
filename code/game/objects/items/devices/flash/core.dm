@@ -23,6 +23,8 @@
 
 	var/recharge_time = 4//No clue
 
+	var/DRM = FALSE //True means you can't modify it.
+
 /obj/item/device/flash/Initialize() //Stolen from energy gun code.
 	. = ..()
 	if(cell_type)
@@ -213,30 +215,17 @@
 			update_icon()
 
 /obj/item/device/flash/attack_self(var/mob/user as mob)
-
 	if(get_cell())
-		switch(strength_mul)
-			if(1)
-				strength_mul = 0.75
-			if(0.75)
-				strength_mul = 0.50
-			if(0.50)
-				strength_mul = 0.25
-			if(0.25)
-				strength_mul = 0
-			if(0)
-				strength_mul = 1
-		if(strength_mul == 0)
-			to_chat(user,"<span class='notice'>You turn \the [src] off.</span>")
-			if(bulb)
-				bulb.on = FALSE
-		else if(strength_mul == 1)
+		strength_mul = !strength_mul
+		if(strength_mul)
 			to_chat(user, "<span class='notice'>You turn \the [src] on.</span>")
 			if(bulb)
 				bulb.on = TRUE
 		else
-			to_chat(user,"<span class='notice'>You adjust the dial on \the [src] to [strength_mul * 100]%.</span>")
+			to_chat(user,"<span class='notice'>You turn \the [src] off.</span>")
+			if(bulb)
+				bulb.on = FALSE
 	else
-		to_chat(user,"<span class='notice'>\The [src]'s dial refuses to budge!</span>")
+		to_chat(user,"<span class='notice'>Nothing seems to happen...</span>")
 
 	update_icon()

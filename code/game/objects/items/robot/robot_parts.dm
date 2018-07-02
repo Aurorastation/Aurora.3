@@ -304,7 +304,17 @@
 			user << "<span class='notice'>You enable the lawing circuits on \the [src].</span>"
 			law_manager = TRUE
 
-	if(istype(W, /obj/item/device/flash))
+	var/obj/item/device/flash/selected_flash = W
+
+	if(istype(selected_flash))
+		if(selected_flash.power_supply)
+			to_chat(user,"<span class='notice'>You need to remove the power source on \the [W] first!</span>")
+			return
+
+		if(!selected_flash.bulb)
+			to_chat(user,"<span class='notice'>You need to install a bulb in \the [W] first!</span>")
+			return
+
 		if(istype(user,/mob/living/silicon/robot))
 			var/current_module = user.get_active_hand()
 			if(current_module == W)
@@ -314,7 +324,8 @@
 				add_flashes(W,user)
 		else
 			add_flashes(W,user)
-	else if(istype(W, /obj/item/weapon/stock_parts/manipulator))
+
+	if(istype(W, /obj/item/weapon/stock_parts/manipulator))
 		user << "<span class='notice'>You install some manipulators and modify the head, creating a functional spider-bot!</span>"
 		new /mob/living/simple_animal/spiderbot(get_turf(loc))
 		user.drop_item()

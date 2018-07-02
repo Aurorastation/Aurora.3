@@ -86,7 +86,7 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
 		H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/sechud(H), slot_glasses)
 //		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas(H), slot_wear_mask) //Grab one from the armory you donk
-		H.equip_to_slot_or_del(new /obj/item/device/flash(H), slot_l_store)
+		H.equip_to_slot_or_del(new /obj/item/device/flash/full(H), slot_l_store)
 		if(H.backbag == 1)
 			H.equip_to_slot_or_del(new /obj/item/weapon/handcuffs(H), slot_l_hand)
 		else
@@ -201,7 +201,7 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/security(H), slot_belt)
 		H.equip_to_slot_or_del(new /obj/item/weapon/handcuffs(H), slot_s_store)
-		H.equip_to_slot_or_del(new /obj/item/device/flash(H), slot_l_store)
+		H.equip_to_slot_or_del(new /obj/item/device/flash/full(H), slot_l_store)
 		if(H.backbag == 1)
 			H.equip_to_slot_or_del(new /obj/item/weapon/handcuffs(H), slot_l_hand)
 		else
