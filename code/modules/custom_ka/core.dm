@@ -8,7 +8,7 @@
 	item_state = "kineticgun"
 	contained_sprite = 1
 	flags =  CONDUCT
-	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	slot_flags = SLOT_BELT
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	w_class = 3
 	origin_tech = list(TECH_MATERIAL = 2,TECH_ENGINEERING = 2)
@@ -412,6 +412,10 @@
 			to_chat(user,"A barrel and a cell need to be installed before you install \the [I].")
 		else if(installed_upgrade_chip)
 			to_chat(user,"There is already \an [installed_upgrade_chip] installed.")
+		else if(installed_cell.disallow_chip == TRUE)
+			to_chat(user,"\The [installed_cell] prevents you from installing \the [I]!")
+		else if(installed_barrel.disallow_chip == TRUE)
+			to_chat(user,"\The [installed_barrel] prevents you from installing \the [I]!")
 		else
 			var/obj/item/custom_ka_upgrade/upgrade_chips/tempvar = I
 			installed_upgrade_chip = tempvar
@@ -420,6 +424,13 @@
 			update_stats()
 			update_icon()
 			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
+
+	if(installed_cell)
+		installed_cell.attackby(I,user)
+	if(installed_barrel)
+		installed_barrel.attackby(I,user)
+	if(installed_upgrade_chip)
+		installed_upgrade_chip.attackby(I,user)
 
 /obj/item/custom_ka_upgrade //base item
 	name = null //abstract
@@ -438,6 +449,8 @@
 
 	var/is_emagged = 0
 	var/is_emped = 0
+
+	var/disallow_chip = FALSE //Prevent installation of an upgrade chip.
 
 /obj/item/custom_ka_upgrade/proc/on_update(var/obj/item/weapon/gun/custom_ka)
 	//Do update related things here

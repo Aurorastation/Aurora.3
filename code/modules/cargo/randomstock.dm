@@ -226,6 +226,7 @@ var/list/global/random_stock_rare = list(
 	"modkit" = 1,
 	"contraband" = 0.8,
 	"custom_ka" = 0.5,
+	"prebuilt_ka" = 0.5,
 	"nothing" = 0)
 
 var/list/global/random_stock_large = list(
@@ -1397,6 +1398,8 @@ var/list/global/random_stock_large = list(
 //=============================================================
 //=============================================================
 //=============================================================
+		if("prebuilt_ka")
+			new /obj/random/prebuilt_ka(L)
 		if("custom_ka")
 			new /obj/random/custom_ka(L)
 		if("gold")
