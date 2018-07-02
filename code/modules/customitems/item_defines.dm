@@ -2037,20 +2037,12 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 	icon_state = "nikit_zippo"
 
 
-/obj/item/clothing/under/dress/fluff/marwani_dress_front //Unathi Purple Dress - Ilaeza Marwani - burgerbb
+/obj/item/clothing/suit/fluff/marwani_dress //Unathi Purple Dress - Ilaeza Marwani - burgerbb
 	name = "unathi purple dress"
-	desc = "A strange purple dress designed to fit very tall female unathi, suitable for indoor wear in warmer climate. This is the front piece."
+	desc = "A strange purple dress designed to fit very tall female unathi, suitable for indoor wear in warmer climate. Attached to it is some sort of giant iron emblem."
 	icon = 'icons/obj/custom_items/marwani_dress.dmi'
-	icon_state = "mar_front_dress"
-	item_state = "mar_front_dress"
-	contained_sprite = TRUE
-
-/obj/item/clothing/suit/fluff/marwani_dress_back //Unathi Purple Dress - Ilaeza Marwani - burgerbb
-	name = "unathi purple dress"
-	desc = "A strange purple dress designed to fit very tall female unathi, suitable for indoor wear in warmer climate. This is the back piece."
-	icon = 'icons/obj/custom_items/marwani_dress.dmi'
-	icon_state = "mar_back_dress"
-	item_state = "mar_back_dress"
+	icon_state = "mar_dress"
+	item_state = "mar_dress"
 	contained_sprite = TRUE
 
 /obj/item/clothing/shoes/jackboots/unathi/fluff/marwani_shoes //Unathi Purple Boots - Ilaeza Marwani - burgerbb
@@ -2067,14 +2059,6 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 	icon = 'icons/obj/custom_items/marwani_dress.dmi'
 	icon_state = "mar_gloves"
 	item_state = "mar_gloves"
-	contained_sprite = TRUE
-
-/obj/item/clothing/accessory/fluff/marwani_armor //Clan Marwani Emblem - Ilaeza Marwani - burgerbb
-	name = "clan marwani armor"
-	desc = "A large, decorative iron and brass alloyed breastplate signifying the industrial strength of Clan Marwani."
-	icon = 'icons/obj/custom_items/marwani_dress.dmi'
-	icon_state = "mar_emblem"
-	item_state = "mar_emblem"
 	contained_sprite = TRUE
 
 

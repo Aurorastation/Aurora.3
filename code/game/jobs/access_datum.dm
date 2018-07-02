@@ -407,6 +407,12 @@
 	desc = "Weaponry Permission"
 	region = ACCESS_REGION_SECURITY
 
+var/const/access_journalist = 70//journalist's office access
+/datum/access/journalist
+	id = access_journalist
+	desc = "Journalist Office"
+	region = ACCESS_REGION_GENERAL
+
 /******************
 * Central Command *
 ******************/
@@ -469,12 +475,6 @@
 	id = access_merchant
 	desc = "Merchant Access"
 	access_type = ACCESS_TYPE_CENTCOM
-
-var/const/access_journalist = 111//journalist's office access
-/datum/access/journalist
-	id = access_journalist
-	desc = "Journalist Access"
-	access_type = ACCESS_REGION_GENERAL
 
 /***************
 * Antag access *

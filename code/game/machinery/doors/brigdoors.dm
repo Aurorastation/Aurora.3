@@ -263,7 +263,7 @@
 
 	return .
 
-/obj/machinery/door_timer/attackby(obj/item/O as obj, user as mob)
+/obj/machinery/door_timer/attackby(obj/item/O as obj, var/mob/user as mob)
 	if( istype( O, /obj/item/weapon/paper/incident ))
 		if( !incident )
 			if( import( O, user ))

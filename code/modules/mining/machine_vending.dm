@@ -136,8 +136,11 @@ var/global/list/minevendor_list = list( //keep in order of price
 		if(istype(inserted_id))
 			if(href_list["choice"] == "eject")
 				inserted_id.forceMove(loc)
-				if(!usr.get_active_hand())
-					usr.put_in_hands(inserted_id)
+				if(ishuman(usr))
+					if(!usr.get_active_hand())
+						usr.put_in_hands(inserted_id)
+				else
+					inserted_id.forceMove(get_turf(src))
 				inserted_id = null
 		else if(href_list["choice"] == "insert")
 			var/obj/item/weapon/card/id/I = usr.get_active_hand()
