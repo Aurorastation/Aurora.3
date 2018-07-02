@@ -3,4 +3,4 @@ author: BurgerBB
 delete-after: True
 
 changes: 
-  - maptweak: "Added random dungeons and creature nests that can be found scattered around the asteroid. These areas contain valuable loot for science and mining."
+  - maptweak: "Added a random dungeon framework. Mappers can make their own dungeons and submit them to Github."
