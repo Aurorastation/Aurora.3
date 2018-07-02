@@ -253,7 +253,7 @@
 
 	if(wearing_rig) //I don't know if this is the best way, but I'm hard-pressed to think of a different way. Thanks Vaurca.
 		for(var/obj/item/rig_module/lattice/L in wearing_rig.installed_modules)
-			if(istype(L) && L.active && lattice_users.len)
+			if(L.active && lattice_users.len)
 				amount = amount / (lattice_users.len + 1)
 				for(var/mob/living/carbon/human/H in lattice_users)
 					if(H != src)

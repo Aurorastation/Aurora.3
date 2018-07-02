@@ -16,6 +16,7 @@
 	stamina = 100 // As opposed to 90
 	brute_mod = 1.1 // Less Brute Damage
 	ethanol_resistance = 1 // Default value
+	climb_coeff = 1.1
 
 	cold_level_1 = 160 //RaceDefault 200 Default 260
 	cold_level_2 = 100 //RaceDefault 140 Default 200

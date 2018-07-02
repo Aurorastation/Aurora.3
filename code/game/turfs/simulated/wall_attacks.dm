@@ -72,7 +72,7 @@
 			return 1
 
 	if(ishuman(user))
-		var/mob/living/carbon/human/H
+		var/mob/living/carbon/human/H = user
 		var/turf/destination = GetAbove(H)
 
 		if(destination)
@@ -80,6 +80,7 @@
 			if(start.CanZPass(H, UP))
 				if(destination.CanZPass(H, UP))
 					H.climb(UP, src)
+					return
 
 	try_touch(user, rotting)
 

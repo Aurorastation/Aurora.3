@@ -69,5 +69,5 @@
 
 /obj/effect/projectile/impact/tachyon
 	name = "xray impact"
-	icon_state = "impact_pulse"
-	light_color = LIGHT_COLOR_CYAN
+	icon_state = "impact_tachyon"
+	light_color = LIGHT_COLOR_RED

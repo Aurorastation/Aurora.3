@@ -698,7 +698,7 @@
 
 	playsound(src,'sound/magic/lightningbolt.ogg',60,1)
 	var/turf/T = get_turf(holder.wearer)
-	if(T && !istype(T, /turf/simulated))
+	if(T && istype(T, /turf/simulated))
 		if(istype(T, /turf/simulated/mineral) || istype(T, /turf/simulated/wall) || istype(T, /turf/simulated/shuttle))
 			T.ChangeTurf(T.baseturf)
 		else

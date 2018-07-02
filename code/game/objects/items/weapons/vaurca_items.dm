@@ -39,7 +39,10 @@
 	icon_state = "eknife1"
 	item_state = icon_state
 	damtype = "fire"
-	user.regenerate_icons()
+	if(istype(user,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
 	user << "<span class='notice'>\The [src] is now energised.</span>"
 
 /obj/item/weapon/melee/energy/vaurca/deactivate(mob/living/user)
@@ -47,7 +50,10 @@
 	icon_state = "eknife0"
 	item_state = icon_state
 	damtype = "brute"
-	user.regenerate_icons()
+	if(istype(user,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
 	user << "<span class='notice'>\The [src] is de-energised.</span>"
 
 /obj/item/vaurca/box
@@ -172,7 +178,8 @@
 
 	species_restricted = list("Vaurca")
 
-	light_overlay = "helmet_light"
+	light_overlay = "helmet_light_dual_green"
+	light_color = "#3e7c3e"
 
 /obj/item/clothing/shoes/magboots/vox/vaurca
 
@@ -199,9 +206,6 @@
 	species_restricted = list("Vaurca")
 	armor = list(melee = 50, bullet = 20, laser = 50, energy = 30, bomb = 45, bio = 100, rad = 10)
 
-	boots = /obj/item/clothing/shoes/magboots/vox/vaurca
-	helmet = /obj/item/clothing/head/helmet/space/void/scout
-
 /obj/item/clothing/head/helmet/space/void/scout
 	name = "scout helmet"
 	desc = "A helmet designed for K'laxan scouts, made of lightweight sturdy material that does not restrict movement."
@@ -213,7 +217,8 @@
 	species_restricted = list("Vaurca")
 	armor = list(melee = 40, bullet = 20, laser = 40, energy = 30, bomb = 45, bio = 100, rad = 10)
 
-	light_overlay = "helmet_light"
+	light_overlay = "helmet_light_dual_green"
+	light_color = "#3e7c3e"
 
 /obj/item/clothing/suit/space/void/commando
 	name = "commando armor"
@@ -226,9 +231,6 @@
 	species_restricted = list("Vaurca")
 	armor = list(melee = 40, bullet = 40, laser = 60, energy = 50, bomb = 45, bio = 100, rad = 10)
 
-	boots = /obj/item/clothing/shoes/magboots/vox/vaurca
-	helmet = /obj/item/clothing/head/helmet/space/void/commando
-
 /obj/item/clothing/head/helmet/space/void/commando
 	name = "commando helmet"
 	desc = "A design perfected by the Zo'ra, this helmet is commonly used  by frontline warriors of a hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
@@ -240,7 +242,8 @@
 	species_restricted = list("Vaurca")
 	armor = list(melee = 30, bullet = 30, laser = 60, energy = 50, bomb = 45, bio = 100, rad = 10)
 
-	light_overlay = "helmet_light"
+	light_overlay = "helmet_light_dual_green"
+	light_color = "#3e7c3e"
 
 /obj/item/clothing/mask/gas/vaurca
 	name = "tactical garment"
@@ -295,7 +298,10 @@
 	icon_state = "greatblade1"
 	item_state = icon_state
 	damtype = "fire"
-	user.regenerate_icons()
+	if(istype(user,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
 	user << "<span class='notice'>\The [src] is now energised.</span>"
 
 /obj/item/weapon/melee/energy/vaurca_zweihander/deactivate(mob/living/user)
@@ -303,7 +309,10 @@
 	icon_state = "greatblade0"
 	item_state = icon_state
 	damtype = "brute"
-	user.regenerate_icons()
+	if(istype(user,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
 	user << "<span class='notice'>\The [src] is de-energised.</span>"
 
 /obj/item/weapon/gun/launcher/crossbow/vaurca
@@ -330,7 +339,6 @@
 /obj/item/weapon/gun/launcher/crossbow/vaurca/handle_post_fire(mob/user, atom/target)
 	bolt = null
 	tension = 1
-	update_icon()
 	..()
 
 /obj/item/weapon/gun/launcher/crossbow/vaurca/attack_self(mob/living/user as mob)
@@ -398,3 +406,6 @@
 
 	bolt.throwforce = 25
 	bolt.icon_state = "metal-rod-superheated"
+
+/obj/item/weapon/gun/launcher/crossbow/vaurca/update_icon()
+	return

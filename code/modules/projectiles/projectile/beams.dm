@@ -345,7 +345,7 @@
 	icon_state = "xray"
 	damage = 25
 	armor_penetration = 65
-	penetrating = 3
+	penetrating = 1
 	maiming = 1
 	maim_rate = 5
 	clean_cut = 1

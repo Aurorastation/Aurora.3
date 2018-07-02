@@ -48,9 +48,10 @@
 	slowdown = 2
 	offline_slowdown = 3
 
-	chest_type = /obj/item/clothing/head/helmet/space/rig/vaurca
+	chest_type = /obj/item/clothing/suit/space/rig/vaurca
 	helm_type = /obj/item/clothing/head/helmet/space/rig/vaurca
-	boot_type = /obj/item/clothing/head/helmet/space/rig/vaurca
+	boot_type = /obj/item/clothing/shoes/magboots/rig/vaurca
+	air_type =   /obj/item/weapon/tank/phoron
 
 	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy)
 
@@ -65,6 +66,8 @@
 
 /obj/item/clothing/head/helmet/space/rig/vaurca
 	species_restricted = list("Vaurca")
+	light_overlay = "helmet_light_dual_green"
+	light_color = "#3e7c3e"
 
 /obj/item/clothing/suit/space/rig/vaurca
 	species_restricted = list("Vaurca")

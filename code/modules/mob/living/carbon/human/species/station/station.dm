@@ -33,6 +33,8 @@
 	sprint_speed_factor = 0.9
 	sprint_cost_factor = 0.5
 
+	climb_coeff = 1
+
 /datum/species/unathi
 	name = "Unathi"
 	short_name = "una"
@@ -69,6 +71,7 @@
 	rarity_value = 3
 	breakcuffs = list(MALE)
 	mob_size = 10
+	climb_coeff = 1.35
 
 	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the Uuosa-Eso \
 	system, which roughly translates to 'burning mother'. A relatively recent addition to the galactic stage, they \
@@ -326,6 +329,7 @@
 	stamina = -1	// Diona sprinting uses energy instead of stamina
 	sprint_speed_factor = 0.5	//Speed gained is minor
 	sprint_cost_factor = 0.8
+	climb_coeff = 1.3
 
 /datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
 	var/datum/dionastats/DS = H.get_dionastats()
@@ -657,7 +661,8 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	breath_type = "phoron"
 	poison_type = "nitrogen" //a species that breathes plasma shouldn't be poisoned by it.
 	mob_size = 13 //their half an inch thick exoskeleton and impressive height, plus all of their mechanical organs.
-	climb_score = 100
+	natural_climbing = TRUE
+	climb_coeff = 0.75
 
 	blurb = "Type A are the most common type of Vaurca and can be seen as the 'backbone' of Vaurcae societies. Their most prevalent feature is their hardened exoskeleton, varying in colors \
 	in accordance to their hive. It is approximately half an inch thick among all Type A Vaurca. The carapace provides protection against harsh radiation, solar \
