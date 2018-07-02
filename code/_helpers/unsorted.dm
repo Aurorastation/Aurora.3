@@ -714,7 +714,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 		else
 			user_loc_to_check = user.loc
 
-		if (!user || user.stat || user.weakened || user.stunned || !(user_loc_to_check == Location))
+		if (!user || user.stat || user.weakened || user.stunned || (use_user_turf >= 0 && user_loc_to_check != Location))
 			. = 0
 			break
 

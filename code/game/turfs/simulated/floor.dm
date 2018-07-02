@@ -37,6 +37,9 @@
 	if (!mapload)
 		make_plating(defer_icon_update = 1)
 	flooring = newflooring
+	//Set the initial strings
+	name = flooring.name
+	desc = flooring.desc
 	if (mapload)
 		queue_icon_update()
 	else

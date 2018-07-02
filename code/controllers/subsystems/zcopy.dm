@@ -13,9 +13,9 @@
 	flags = SS_FIRE_IN_LOBBY
 
 	var/list/queued_turfs = list()
-	var/list/qt_idex = 1
+	var/qt_idex = 1
 	var/list/queued_overlays = list()
-	var/list/qo_idex = 1
+	var/qo_idex = 1
 
 	var/list/openspace_overlays = list()
 	var/list/openspace_turfs = list()

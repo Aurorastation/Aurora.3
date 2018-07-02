@@ -6,7 +6,8 @@ var/list/admin_verbs_default = list(
 	/client/proc/deadmin_self,			/*destroys our own admin datum so we can play as a regular player*/
 	/client/proc/hide_verbs,			/*hides all our adminverbs*/
 	/client/proc/hide_most_verbs,		/*hides all our hideable adminverbs*/
-	/client/proc/cmd_mentor_check_new_players
+	/client/proc/cmd_mentor_check_new_players,
+	/client/proc/notification_add		/*allows everyone to set up player notifications*/
 	)
 var/list/admin_verbs_admin = list(
 	/client/proc/debug_variables,		/*allows us to -see- the variables of any instance in the game.*/
