@@ -1178,48 +1178,48 @@
 	set name = "Enter Exosuit"
 	set src in oview(1)
 
-	if (usr.stat || !ishuman(usr))
+	if (user.stat || !ishuman(user))
 		return
 
-	if (usr.buckled)
-		usr << "<span class='warning'>You can't climb into the exosuit while buckled!</span>"
+	if (user.buckled)
+		user << "<span class='warning'>You can't climb into the exosuit while buckled!</span>"
 		return
 
-	src.log_message("[usr] tries to move in.")
-	if(iscarbon(usr))
-		var/mob/living/carbon/C = usr
+	src.log_message("[user] tries to move in.")
+	if(iscarbon(user))
+		var/mob/living/carbon/C = user
 		if(C.handcuffed)
-			usr << "<span class='danger'>Kinda hard to climb in while handcuffed don't you think?</span>"
+			user << "<span class='danger'>Kinda hard to climb in while handcuffed don't you think?</span>"
 			return
 	if (src.occupant)
-		usr << "<span class='danger'>The [src.name] is already occupied!</span>"
+		user << "<span class='danger'>The [src.name] is already occupied!</span>"
 		src.log_append_to_last("Permission denied.")
 		return
 
 	var/passed
 	if(src.dna)
-		if(usr.dna.unique_enzymes==src.dna)
+		if(user.dna.unique_enzymes==src.dna)
 			passed = 1
-	else if(src.operation_allowed(usr))
+	else if(src.operation_allowed(user))
 		passed = 1
 	if(!passed)
 		user << "<span class='warning'>Access denied</span>"
 		src.log_append_to_last("Permission denied.")
 		return
-	for(var/mob/living/carbon/slime/M in range(1,usr))
-		if(M.Victim == usr)
-			usr << "You're too busy getting your life sucked out of you."
+	for(var/mob/living/carbon/slime/M in range(1,user))
+		if(M.Victim == user)
+			user << "You're too busy getting your life sucked out of you."
 			return
 
-	visible_message("<span class='notice'>\The [usr] starts to climb into [src.name]</span>")
+	visible_message("<span class='notice'>\The [user] starts to climb into [src.name]</span>")
 
-	if(enter_after(40,usr))
+	if(enter_after(40,user))
 		if(!src.occupant)
-			moved_inside(usr)
-		else if(src.occupant!=usr)
-			usr << "[src.occupant] was faster. Try better next time, loser."
+			moved_inside(user)
+		else if(src.occupant!=user)
+			user << "[src.occupant] was faster. Try better next time, loser."
 	else
-		usr << "You stop entering the exosuit."
+		user << "You stop entering the exosuit."
 	return
 
 /obj/mecha/proc/moved_inside(var/mob/living/carbon/human/H as mob)
