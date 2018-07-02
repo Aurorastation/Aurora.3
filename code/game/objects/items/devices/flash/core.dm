@@ -182,11 +182,11 @@
 			strength_mul = 0
 			update_icon()
 		else
-			to_chat(user,"<span class='notice'>There is nothing to remove on \the [src]!")
+			to_chat(user,"<span class='notice'>There is nothing to remove on \the [src]!</span>")
 
 	if(istype(the_bulb))
 		if(bulb)
-			to_chat(user,"<span class='notice'>There is already a [bulb] installed in \the [src]!")
+			to_chat(user,"<span class='notice'>There is already a [bulb] installed in \the [src]!</span>")
 		else
 			user.visible_message("<span class='notice'>\The [user] inserts \the [the_bulb] in \the [src].</span>", \
 				"<span class='notice'>You insert \the [the_bulb] in \the [src].</span>", \
@@ -200,9 +200,9 @@
 
 	else if(istype(the_cell))
 		if(power_supply)
-			to_chat(user,"<span class='notice'>There is already a [power_supply] installed in \the [src]!")
+			to_chat(user,"<span class='notice'>There is already a [power_supply] installed in \the [src]!</span>")
 		else if(!bulb)
-			to_chat(user,"<span class='notice'>You need to install a bulb first before you install \the [the_cell]!")
+			to_chat(user,"<span class='notice'>You need to install a bulb first before you install \the [the_cell]!</span>")
 		else
 			user.visible_message("<span class='notice'>\The [user] inserts \the [the_cell] in \the [src].</span>", \
 				"<span class='notice'>You insert \the [the_cell] in \the [src].</span>", \
