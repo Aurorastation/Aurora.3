@@ -407,6 +407,12 @@
 	desc = "Weaponry Permission"
 	region = ACCESS_REGION_SECURITY
 
+var/const/access_journalist = 70//journalist's office access
+/datum/access/journalist
+	id = access_journalist
+	desc = "Journalist Office"
+	region = ACCESS_REGION_GENERAL
+
 /******************
 * Central Command *
 ******************/

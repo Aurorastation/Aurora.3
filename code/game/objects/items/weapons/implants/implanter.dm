@@ -161,7 +161,7 @@
 		return
 
 	var/mob/living/carbon/human/H = M
-	if (!H.species || !isipc(H) || !H.organs_by_name["groin"])
+	if (!H.species || !isipc(H) || !H.organs_by_name["head"])
 		user << "<span class = 'warning'>You cannot use this on a non-synthetic organism!</span>"
 		return
 
@@ -178,9 +178,9 @@
 
 	user.show_message("<span class = 'warning'>You implanted the implant into [M].</span>")
 
-	ipc_tag.replaced(H, H.organs_by_name["groin"])
-
-	qdel(ipc_tag)
+	ipc_tag.replaced(H, H.organs_by_name["head"])
+	
+	ipc_tag = null
 
 	update()
 

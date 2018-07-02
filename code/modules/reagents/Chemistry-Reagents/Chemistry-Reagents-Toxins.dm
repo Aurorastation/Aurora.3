@@ -155,6 +155,7 @@
 	color = "#CF3600"
 	strength = 20
 	metabolism = REM * 2
+	taste_description = "bitter almonds"
 	taste_mult = 1.5
 
 /datum/reagent/toxin/cyanide/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -163,7 +164,6 @@
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 	M.adjustOxyLoss(20 * removed)
-	M.sleeping += 1
 
 /datum/reagent/toxin/potassium_chloride
 	name = "Potassium Chloride"
