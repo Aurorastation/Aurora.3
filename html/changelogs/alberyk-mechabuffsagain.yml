@@ -1,0 +1,5 @@
+author: Alberyk
+delete-after: True
+
+changes:
+  - rscadd: "You can install mmi/posibrains inside mechas again."

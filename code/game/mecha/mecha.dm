@@ -329,7 +329,7 @@
 	if(istype(target, /obj/machinery/access_button) && target.Adjacent(src))
 		src.occupant_message("<span class='notice'>Interfacing with [target].</span>")
 		src.log_message("Interfaced with [target].")
-		target.attack_hand(src.occupant)
+		target.attack_hand(src.occupant, TRUE)
 		return 1
 	if(istype(target, /obj/machinery/embedded_controller))
 		if(target in view(2,src))
@@ -749,6 +749,13 @@
 //////////////////////
 
 /obj/mecha/attackby(obj/item/weapon/W as obj, mob/user as mob)
+
+	if(istype(W, /obj/item/device/mmi))
+		if(mmi_move_inside(W,user))
+			user << "[src]-MMI interface initialized successfuly"
+		else
+			user << "[src]-MMI interface initialization failed."
+		return
 
 	if(istype(W, /obj/item/mecha_parts/mecha_equipment))
 		var/obj/item/mecha_parts/mecha_equipment/E = W
@@ -1171,48 +1178,48 @@
 	set name = "Enter Exosuit"
 	set src in oview(1)
 
-	if (usr.stat || !ishuman(usr))
+	if (user.stat || !ishuman(user))
 		return
 
-	if (usr.buckled)
-		usr << "<span class='warning'>You can't climb into the exosuit while buckled!</span>"
+	if (user.buckled)
+		user << "<span class='warning'>You can't climb into the exosuit while buckled!</span>"
 		return
 
-	src.log_message("[usr] tries to move in.")
-	if(iscarbon(usr))
-		var/mob/living/carbon/C = usr
+	src.log_message("[user] tries to move in.")
+	if(iscarbon(user))
+		var/mob/living/carbon/C = user
 		if(C.handcuffed)
-			usr << "<span class='danger'>Kinda hard to climb in while handcuffed don't you think?</span>"
+			user << "<span class='danger'>Kinda hard to climb in while handcuffed don't you think?</span>"
 			return
 	if (src.occupant)
-		usr << "<span class='danger'>The [src.name] is already occupied!</span>"
+		user << "<span class='danger'>The [src.name] is already occupied!</span>"
 		src.log_append_to_last("Permission denied.")
 		return
 
 	var/passed
 	if(src.dna)
-		if(usr.dna.unique_enzymes==src.dna)
+		if(user.dna.unique_enzymes==src.dna)
 			passed = 1
-	else if(src.operation_allowed(usr))
+	else if(src.operation_allowed(user))
 		passed = 1
 	if(!passed)
-		usr << "<span class='warning'>Access denied</span>"
+		user << "<span class='warning'>Access denied</span>"
 		src.log_append_to_last("Permission denied.")
 		return
-	for(var/mob/living/carbon/slime/M in range(1,usr))
-		if(M.Victim == usr)
-			usr << "You're too busy getting your life sucked out of you."
+	for(var/mob/living/carbon/slime/M in range(1,user))
+		if(M.Victim == user)
+			user << "You're too busy getting your life sucked out of you."
 			return
 
-	visible_message("<span class='notice'>\The [usr] starts to climb into [src.name]</span>")
+	visible_message("<span class='notice'>\The [user] starts to climb into [src.name]</span>")
 
-	if(enter_after(40,usr))
+	if(enter_after(40,user))
 		if(!src.occupant)
-			moved_inside(usr)
-		else if(src.occupant!=usr)
-			usr << "[src.occupant] was faster. Try better next time, loser."
+			moved_inside(user)
+		else if(src.occupant!=user)
+			user << "[src.occupant] was faster. Try better next time, loser."
 	else
-		usr << "You stop entering the exosuit."
+		user << "You stop entering the exosuit."
 	return
 
 /obj/mecha/proc/moved_inside(var/mob/living/carbon/human/H as mob)
@@ -1230,6 +1237,63 @@
 		playsound(src, 'sound/machines/windowdoor.ogg', 50, 1)
 		if(cell && !hasInternalDamage() && cell.charge >= cell.maxcharge && health >= initial(health))
 			narrator_message(NOMINAL)
+		return 1
+	else
+		return 0
+
+/obj/mecha/proc/mmi_move_inside(var/obj/item/device/mmi/mmi_as_oc as obj,mob/user as mob)
+	if(!src.operation_allowed(user))
+		user << "<span class='warning'>Access denied</span>"
+		src.log_append_to_last("Permission denied.")
+		return 0
+	if(!mmi_as_oc.brainmob || !mmi_as_oc.brainmob.client)
+		user << "Consciousness matrix not detected."
+		return 0
+	else if(mmi_as_oc.brainmob.stat)
+		user << "Beta-rhythm below acceptable level."
+		return 0
+	else if(occupant)
+		user << "Occupant detected."
+		return 0
+	else if(dna && dna!=mmi_as_oc.brainmob.dna.unique_enzymes)
+		user << "Stop it!"
+		return 0
+
+	visible_message("<span class='notice'>\The [user] starts to insert \the [mmi_as_oc] into \the [src]</span>")
+
+	if(enter_after(40,user))
+		if(!occupant)
+			return mmi_moved_inside(mmi_as_oc,user)
+		else
+			user << "Occupant detected."
+	else
+		user << "You stop inserting the MMI."
+	return 0
+
+/obj/mecha/proc/mmi_moved_inside(var/obj/item/device/mmi/mmi_as_oc as obj,mob/user as mob)
+	if(mmi_as_oc && user in range(1))
+		if(!mmi_as_oc.brainmob || !mmi_as_oc.brainmob.client)
+			user << "Consciousness matrix not detected."
+			return 0
+		else if(mmi_as_oc.brainmob.stat)
+			user << "Beta-rhythm below acceptable level."
+			return 0
+		user.drop_from_inventory(mmi_as_oc)
+		var/mob/brainmob = mmi_as_oc.brainmob
+		brainmob.reset_view(src)
+		occupant = brainmob
+		brainmob.loc = src //should allow relaymove
+		brainmob.canmove = 1
+		mmi_as_oc.loc = src
+		mmi_as_oc.mecha = src
+		src.verbs -= /obj/mecha/verb/eject
+		src.Entered(mmi_as_oc)
+		src.Move(src.loc)
+		src.icon_state = src.reset_icon()
+		set_dir(dir_in)
+		src.log_message("[mmi_as_oc] moved in as pilot.")
+		if(!hasInternalDamage())
+			src.occupant << sound('sound/mecha/nominal.ogg',volume=50)
 		return 1
 	else
 		return 0
