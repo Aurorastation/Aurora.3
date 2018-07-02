@@ -63635,7 +63635,7 @@
 /area/journalistoffice)
 "cus" = (
 /obj/machinery/camera/network/civilian_main{
-	c_tag = "Starboard Corridor - Store";
+	c_tag = "Starboard Corridor - Journalist's Office";
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
