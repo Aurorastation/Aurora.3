@@ -5,7 +5,7 @@
 	w_class = 3
 	capacity_increase = 3
 	mod_limit_increase = 2
-	origin_tech = list(TECH_MATERIAL = 2,TECH_ENGINEERING = 2)
+	origin_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 1)
 	slot_flags = SLOT_BELT
 
 /obj/item/weapon/gun/custom_ka/frame02
@@ -16,7 +16,7 @@
 	recoil_increase = -1
 	capacity_increase = 5
 	mod_limit_increase = 3
-	origin_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 3)
+	origin_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 3)
 
 /obj/item/weapon/gun/custom_ka/frame03
 	name = "medium kinetic accelerator frame"
@@ -26,7 +26,7 @@
 	recoil_increase = -2
 	capacity_increase = 7
 	mod_limit_increase = 4
-	origin_tech = list(TECH_MATERIAL = 4,TECH_ENGINEERING = 4)
+	origin_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 3)
 
 /obj/item/weapon/gun/custom_ka/frame04
 	name = "heavy kinetic accelerator frame"
@@ -36,7 +36,7 @@
 	recoil_increase = -5
 	capacity_increase = 9
 	mod_limit_increase = 5
-	origin_tech = list(TECH_MATERIAL = 5,TECH_ENGINEERING = 5)
+	origin_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 5)
 
 /obj/item/weapon/gun/custom_ka/frame05
 	name = "tactical kinetic accelerator frame"

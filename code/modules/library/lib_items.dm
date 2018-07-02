@@ -125,7 +125,7 @@
 		var/author = query_books.item[1]
 		var/title = query_books.item[2]
 		var/content = query_books.item[3]
-		var/obj/item/weapon/book/B = new(src.loc)
+		var/obj/item/weapon/book/B = new(src)
 		B.name = "Book: [title]"
 		B.title = title
 		B.author = author

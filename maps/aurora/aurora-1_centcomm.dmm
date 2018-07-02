@@ -14356,6 +14356,7 @@
 /obj/machinery/status_display{
 	pixel_y = -32
 	},
+/obj/machinery/light,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
@@ -15315,6 +15316,7 @@
 /obj/machinery/status_display{
 	pixel_y = -32
 	},
+/obj/machinery/light,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
@@ -22389,6 +22391,22 @@
 	icon_state = "wood_siding1"
 	},
 /area/centcom/spawning)
+"Xp" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/closet/medical_wall{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/ramp,
+/area/shuttle/escape/centcom)
+"Xq" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled/ramp,
+/area/shuttle/escape/centcom)
 
 (1,1,1) = {"
 aa
@@ -64458,7 +64476,7 @@ CG
 CQ
 VC
 Fu
-Ga
+GQ
 CP
 CP
 OX
@@ -64716,8 +64734,8 @@ CQ
 Fn
 Fz
 GN
-HL
-GO
+GQ
+Xp
 VH
 CP
 VQ
@@ -65751,7 +65769,7 @@ VE
 Ds
 Ds
 Ds
-DA
+Ds
 Ds
 Ds
 Ds
@@ -66001,8 +66019,8 @@ CQ
 Ft
 FO
 Ig
-Ma
-GO
+GQ
+Xq
 VH
 CP
 Ds
@@ -66257,7 +66275,7 @@ CG
 CQ
 DK
 VF
-Ga
+GQ
 CP
 CP
 CP

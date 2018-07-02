@@ -125,8 +125,8 @@
 			return
 		else
 			user.put_in_hands(stored_item)
-			stored_item = null
 			to_chat(user,"<span class='notice'>You take \the [stored_item] from [src].</span>")
+			stored_item = null
 			return
 
 /obj/structure/flora/pottedplant/bullet_act(var/obj/item/projectile/Proj)

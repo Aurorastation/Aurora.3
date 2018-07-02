@@ -21,6 +21,7 @@
 	speak = list("Woof!", "Bark!", "AUUUUUU!","AwooOOOoo!")
 	speak_emote = list("barks", "woofs")
 	emote_hear = list("barks", "woofs")
+	sad_emote = list("whines")
 
 	attacktext = "bitten"
 	attack_sound = 'sound/misc/dog_bark.ogg'
@@ -42,16 +43,7 @@
 
 	var/name_changed = 0
 
-/mob/living/simple_animal/hostile/commanded/dog/hit_with_weapon(obj/item/O, mob/living/user, var/effective_force, var/hit_zone)
-	. = ..()
-	if(!.)
-		src.emote("barks!")
-
-/mob/living/simple_animal/hostile/commanded/dog/attack_hand(mob/living/carbon/human/M as mob)
-	..()
-	if(M.a_intent == I_HURT)
-		src.emote("barks!")
-
+	destroy_surroundings = FALSE
 
 /mob/living/simple_animal/hostile/commanded/dog/verb/befriend()
 	set name = "Befriend Dog"
