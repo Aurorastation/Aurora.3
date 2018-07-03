@@ -1,5 +1,5 @@
 <template>
-    <img :src="source">
+  <img :src="source">
 </template>
 
 <script>

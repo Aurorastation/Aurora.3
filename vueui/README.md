@@ -40,7 +40,7 @@ Simply use `Topic` proc to get ui action calls from ui.
 ### Step 4: Make ui itself.
 It is recommended to [enable debugging](.#debug-ui) for this step to make things easier. 
 
-To create ui itself, you need to create `.vue` file somewhere in `\vueui\components\view`. Example vueui file:
+To create ui itself, you need to create `.vue` file somewhere in `\vueui\src\components\view`. Example vueui file:
 ```vue
 <template>
     <div>
@@ -65,8 +65,10 @@ p {
 }
 </style>
 ```
-### Step 5: Compile
-This ui framework requires whole ui to be compiled for changes to be available. Compilation requires Node.js runtime, that is obtainable in various ways, most common is install from official site. To do initial dependency setup run `npm install` to gather all dependencies needed for ui. Single compilation can be done with `npm run compile`, but if you constantly do changes, then `npm run run` is more convenient, as it compiles everything as soon as change is detected.
+### Step 5: Compile and lint
+This ui framework requires whole ui to be compiled for changes to be available. Compilation requires Node.js runtime, that is obtainable in various ways, most common is install from official site. To do initial dependency setup run `npm install` to gather all dependencies needed for ui. Single compilation can be done with `npm run build-dev`, but if you constantly do changes, then `npm run dev` is more convenient, as it compiles everything as soon as change is detected. To make client side code better, you should also lint code with command `npm run lint`.
+### Step 6: Add built files to repository
+When changes are made to ui code updated compiled code is needed to be included with PR. To compile code for production run `npm run build`
 # Notes
 ## Useful APIs
 ### `SSvueui.check_uis_for_change(object)`
@@ -97,12 +99,7 @@ Checks with `object.vueui_data_change` if data has changed, if so, then change i
 This call should be used if external change was detected. It checks if user still can use this ui, and what's its usability level.
 ## Debug ui
 To enable debug mode and make figuring out things easier do following steps:
- - Enable development mode inside webpack file by changing out commented out line 
-```js
-\vueui\webpack.config.js: line 7
-   mode: 'production', // And comment this one out
-   //mode: 'development', // Uncomment this line to set mode to development
-```
+ - Enable development mode by building ui using `npm run build-dev` or `npm run dev` if oyu want it to auto rebuild on change.
  - Enable debugging for ui datum, by inserting this line anywhere. (This will always push new JS file each time open() is called and show data in JSON format at the end of ui)
 ```DM
 #define UIDEBUG
@@ -136,7 +133,7 @@ Topic status, used to determine how interactive is ui. Meanings of numbers can b
 #### `assets` - This makes `add_asset`, `remove_asset` and `<vui-img>` tick
 As described, this makes them tick. This ***should*** shouldn't be used, unless you know what you are doing.
 #### `active` - Representation of `ui.activeui`
-This determines what should be used to display data.
+This determines what component / template should be used to display data.
 #### `uiref` - Reference for ui datum
 Reference to ui datum is used by state updates, and `<vui-button>` to make appropriate requests.
 ## UI components

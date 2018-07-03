@@ -1,10 +1,10 @@
 <template>
-    <div class='uiTitleWrapper' unselectable="on">
-        <slot></slot>
-        <div class='uiStatusIcon uiIcon24' :class="statusClass" unselectable="on"></div>
-        <div class='uiTitleText' unselectable="on">{{ title }}</div>
-        <div class='uiTitleFluff' unselectable="on"></div>
-    </div>
+  <div class='uiTitleWrapper' unselectable="on">
+    <slot></slot>
+    <div class='uiStatusIcon uiIcon24' :class="statusClass" unselectable="on"></div>
+    <div class='uiTitleText' unselectable="on">{{ title }}</div>
+    <div class='uiTitleFluff' unselectable="on"></div>
+  </div>
 </template>
 
 <script>

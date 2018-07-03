@@ -1,7 +1,7 @@
 <template>
-    <div class="displayBar">
-        <div class="displayBarFill" :style="{ width: percentage + '%'}"></div>
-    </div>
+  <div class="displayBar">
+    <div class="displayBarFill" :style="{ width: percentage + '%'}"></div>
+  </div>
 </template>
 
 <script>

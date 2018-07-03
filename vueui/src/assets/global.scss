@@ -27,9 +27,6 @@ input, textarea, button, select, .button {
 }
 
 .button, button, input[type=submit], input[type=button], input[type=reset], input[disabled] {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
     background-color: #d8d8d8;
     cursor: pointer;

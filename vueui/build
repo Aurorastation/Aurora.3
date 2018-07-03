@@ -1,4 +1,5 @@
 #!/bin/bash
 BASEDIR=$(dirname $0)
 cd $BASEDIR
-npm run compile
+npm run lint
+npm run build

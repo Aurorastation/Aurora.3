@@ -205,13 +205,13 @@ var/list/asset_datums = list()
 
 /datum/asset/simple/vueui_theming
 	assets = list(
-		"vueui.css" = 'vueui/dist/main.css'
+		"vueui.css" = 'vueui/dist/app.css'
 	)
 
 /datum/asset/simple/vueui
 	assets = list(
-		"vueui.js" = 'vueui/dist/main.js',
-		"vueui.css" = 'vueui/dist/main.css'
+		"vueui.js" = 'vueui/dist/app.js',
+		"vueui.css" = 'vueui/dist/app.css'
 	)
 
 /datum/asset/chem_master

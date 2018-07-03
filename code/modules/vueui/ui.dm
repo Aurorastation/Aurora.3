@@ -115,7 +115,7 @@ main ui datum.
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=11">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="vueui.css">
 	</head>
@@ -170,8 +170,8 @@ main ui datum.
   */ 
 /datum/vueui/proc/send_resources_and_assets(var/client/cl)
 #ifdef UIDEBUG
-	cl << browse_rsc(file("vueui/dist/main.js"), "vueui.js")
-	cl << browse_rsc(file("vueui/dist/main.css"), "vueui.css")
+	cl << browse_rsc(file("vueui/dist/app.js"), "vueui.js")
+	cl << browse_rsc(file("vueui/dist/app.css"), "vueui.css")
 #else
 	var/datum/asset/assets = get_asset_datum(/datum/asset/simple/vueui)
 	assets.send(cl)
