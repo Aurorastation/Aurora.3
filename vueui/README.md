@@ -99,12 +99,12 @@ Checks with `object.vueui_data_change` if data has changed, if so, then change i
 This call should be used if external change was detected. It checks if user still can use this ui, and what's its usability level.
 ## Debug ui
 To enable debug mode and make figuring out things easier do following steps:
- - Enable development mode by building ui using `npm run build-dev` or `npm run dev` if oyu want it to auto rebuild on change.
+ - Enable development mode for ui by building it using `npm run build-dev` or `npm run dev` if you want it to auto rebuild on change.
  - Enable debugging for ui datum, by inserting this line anywhere. (This will always push new JS file each time open() is called and show data in JSON format at the end of ui)
 ```DM
 #define UIDEBUG
 ```
- - Use `\vueui\template.html` in Internet explorer to use inspector to analyze ui behaviour. Also don't forget to copy paste data from actual ui to this debug ui inside templates code. 
+ - Use `\vueui\template.html` in Internet explorer / Microsoft Edge to use inspector to analyze ui behaviour. Also don't forget to copy paste data from actual ui to this debug ui inside template's code. 
 
 ## Vue syntax
 You should look at [official Vue.js guide](https://vuejs.org/v2/guide/syntax.html). As it's more detailed and more accurate than any explanation that could have been written here.
