@@ -87,5 +87,3 @@ if (document.getElementById("dapp")) {
     template: '<div><h1>Current data of UI:</h1><pre>{{ JSON.stringify(this.$root.$data, null, \'    \') }}</pre></div>'
   }).$mount('#dapp')
 }
-
-var lintfail = 1
