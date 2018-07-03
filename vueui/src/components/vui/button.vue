@@ -1,7 +1,7 @@
 <template>
   <div @click="senddata()" class="button" :disabled="$root.$data.status < 2 || this.disabled">
     <div v-if="icon" class="uiIcon16">{{ icon }}</div>
-    <span><slot></slot></span>
+    <span><slot/></span>
   </div>
 </template>
 
