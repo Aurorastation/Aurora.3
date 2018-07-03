@@ -205,9 +205,6 @@
 	taste_description = "meat"
 
 /datum/reagent/nutriment/protein/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien && alien == IS_SKRELL)
-		M.adjustToxLoss(0.5 * removed)
-		return
 	if(alien && alien == IS_UNATHI)
 		digest(M,removed)
 		return
@@ -219,29 +216,11 @@
 	color = "#fdffa8"
 	taste_description = "tofu"
 
-/datum/reagent/nutriment/protein/tofu/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien && alien == IS_SKRELL)
-		digest(M,removed) //Skrell are allowed to eat tofu, but not most animal proteins
-		return
-	..()
-
 /datum/reagent/nutriment/protein/seafood // Good for Skrell!
 	name = "seafood protein"
 	id = "seafood"
 	color = "#f5f4e9"
 	taste_description = "fish"
-
-/datum/reagent/nutriment/protein/seafood/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien && alien == IS_SKRELL)
-		digest(M,removed)//Skrell are allowed to eat fish, but not other proteins
-		return
-	..()
-
-/datum/reagent/nutriment/protein/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien && alien == IS_SKRELL)
-		M.adjustToxLoss(2 * removed)
-		return
-	..()
 
 /datum/reagent/nutriment/protein/egg // Also bad for skrell.
 	name = "egg yolk"
@@ -250,9 +229,6 @@
 	taste_description = "egg"
 
 /datum/reagent/nutriment/egg/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien && alien == IS_SKRELL)
-		M.adjustToxLoss(0.5 * removed)
-		return
 	if(alien && alien == IS_UNATHI)
 		digest(M,removed)
 		return
