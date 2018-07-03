@@ -86,7 +86,7 @@
 				var/choice = alert(K,"Do you want to give up your goal?","Become cleansed","Resist","Give in")
 				switch(choice)
 					if("Resist")
-						K.visible_message("<span class='warning'>The gaze in [K]'s eyes remains determined.</span>", "<span class='notice'>You turn away from the light, remaining true to your dark lord. <b>Anathema!</b></span>")
+						K.visible_message("<span class='warning'>The gaze in [K]'s eyes remains determined.</span>", "<span class='notice'>You turn away from the light, remaining true to the Geometer!</span>")
 						K.say("*scream")
 						K.take_overall_damage(5, 15)
 					if("Give in")
@@ -97,10 +97,10 @@
 				user.visible_message("<span class='warning'>[user]'s concentration is broken!</span>", "<span class='warning'>Your concentration is broken! You and your target need to stay uninterrupted for longer!</span>")
 				return
 		else if(prob(10))
-			user << "<span class='danger'>The rod slips in your hand.</span>"
+			user << "<span class='danger'>The [src] slips in your hand.</span>"
 			..()
 		else
-			user << "<span class='danger'>The rod appears to do nothing.</span>"
+			user << "<span class='danger'>The [src] appears to do nothing.</span>"
 			M.visible_message("<span class='danger'>\The [user] waves \the [src] over \the [M]'s head.</span>")
 			if(ishuman(M))
 				var/mob/living/carbon/human/H = M
