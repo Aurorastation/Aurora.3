@@ -86,7 +86,7 @@
 				var/choice = alert(K,"Do you want to give up your goal?","Become cleansed","Resist","Give in")
 				switch(choice)
 					if("Resist")
-						K.visible_message("<span class='warning'>The gaze in [K]'s eyes remains determined.</span>", "<span class='notice'>You turn away from the light, remaining true to your dark lord. <b>Anathema!</b></span>")
+						K.visible_message("<span class='warning'>The gaze in [K]'s eyes remains determined.</span>", "<span class='notice'>You turn away from the light, remaining true to the Geometer!</span>")
 						K.say("*scream")
 						K.take_overall_damage(5, 15)
 					if("Give in")
