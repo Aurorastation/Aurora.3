@@ -31,14 +31,14 @@
 	icon_state = "nullathame"
 	item_state = "nullathame"
 
-/obj/item/weapon/nullrod/itembox
-	name = "null item box"
-	desc = "A box to safe keep your religious items. What item did you bring to work today?"
+/obj/item/weapon/nullrod/obsidianshards
+	name = "Obsidian Shards"
+	desc = "A loose pile of obsidian shards, waiting to be assembled into a religious focus."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "box"
 	item_state = "box"
 
-/obj/item/weapon/nullrod/itembox/attack_self(mob/user as mob)
+/obj/item/weapon/nullrod/obsidianshards/attack_self(mob/user as mob)
 	if(..()) return
 
 	var/selection = input("Pick a null item type.") in list("Rod","Staff", /*"Orb",*/ "Athame")
@@ -54,8 +54,7 @@
 		if ("Athame")
 			new /obj/item/weapon/nullrod/nullathame(user.loc)
 			user << "<span class='notice'>An athame, a ritualistic dagger. It's blade is curved and ornate, yet it is rather blunt.</span>"
-	user << "<span class='notice'>You take your [selection] from the box, and throw the empty box away.</span>"
-	qdel(src)
+	user << "<span class='notice'>You take your [selection] from the box.</span>"
 	return
 
 /obj/item/weapon/nullrod/attack(mob/M as mob, mob/living/user as mob) //Paste from old-code to decult with a null rod.
