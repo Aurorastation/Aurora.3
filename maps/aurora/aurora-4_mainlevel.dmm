@@ -7609,7 +7609,7 @@
 /obj/structure/cable/green,
 /obj/structure/extinguisher_cabinet{
 	pixel_y = -32;
-	step_y = 0
+	pixel_y = 0
 	},
 /obj/machinery/light_switch{
 	pixel_x = 24;
@@ -8273,7 +8273,7 @@
 	icon_state = "tube1"
 	},
 /obj/machinery/light_switch{
-	step_x = 26
+	pixel_x = 26
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "barshutters01";
@@ -63944,7 +63944,7 @@
 "czB" = (
 /obj/machinery/alarm{
 	pixel_y = 32;
-	step_y = 0;
+	pixel_y = 0;
 	target_temperature = 278
 	},
 /obj/structure/closet/secure_closet/freezer/meat,
@@ -64144,7 +64144,7 @@
 	pixel_y = 5
 	},
 /obj/structure/sign/double/barsign{
-	step_y = 30
+	pixel_y = 30
 	},
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
