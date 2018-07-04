@@ -10,6 +10,7 @@
 	throw_range = 4
 	throwforce = 10
 	w_class = 2
+	var/global/list/nullchoices
 
 /obj/item/weapon/nullrod/nullstaff
 	name = "null staff"
@@ -34,29 +35,29 @@
 /obj/item/weapon/nullrod/obsidianshards
 	name = "Obsidian Shards"
 	desc = "A loose pile of obsidian shards, waiting to be assembled into a religious focus."
-	icon = 'icons/obj/storage.dmi'
-	icon_state = "box"
-	item_state = "box"
+	icon_state = "nullshards"
+	item_state = "nullshards"
 
-/obj/item/weapon/nullrod/obsidianshards/attack_self(mob/user as mob)
-	if(..()) return
+/obj/item/weapon/nullrod/Initialize()
+	. = ..()
+	if(!nullchoices)
+		var/blocked = list(src.type, /obj/item/weapon/nullrod/nullorb) + typesof(/obj/item/weapon/nullrod/fluff)
+		nullchoices = generate_chameleon_choices(/obj/item/weapon/nullrod, blocked)
 
-	var/selection = input("Pick a null item type.") in list("Rod","Staff", /*"Orb",*/ "Athame")
-	switch(selection)
-		if ("Rod")
-			new /obj/item/weapon/nullrod(user.loc)
-			to_chat(user, "<span class='notice'>A simple obsidian rod, a classic. Rods like these are seen in the hands of religious folks all across the galaxy.</span>")
-		if ("Staff")
-			new /obj/item/weapon/nullrod/nullstaff(user.loc)
-			to_chat(user, "<span class='notice'>A simple staff, a popular choice amongst shamans and wise men. You doubt this will fit in your bag, but you can put it on your back.</span>")
-		if ("Orb")
-			new /obj/item/weapon/nullrod/nullorb(user.loc)
-		if ("Athame")
-			new /obj/item/weapon/nullrod/nullathame(user.loc)
-			to_chat(user, "<span class='notice'>An athame, a ritualistic dagger. It's blade is curved and ornate, yet it is rather blunt.</span>")
-	to_chat(user, "<span class='notice'>You take your [selection] from the box, and throw the empty box away.</span>")
-	qdel(src)
-	return
+/obj/item/weapon/nullrod/verb/change(picked in nullchoices)
+	set name = "Reassemble"
+	set category = "Obsidian Relics"
+	set src in usr
+
+	if(!ispath(nullchoices[picked]))
+		return
+
+	disguise(nullchoices[picked])
+
+	if (ismob(src.loc))
+		var/mob/M = src.loc
+		M.update_inv_r_hand()
+		M.update_inv_l_hand()
 
 /obj/item/weapon/nullrod/attack(mob/M as mob, mob/living/user as mob) //Paste from old-code to decult with a null rod.
 
