@@ -12,6 +12,7 @@
 	bulb_type = /obj/item/weapon/flash_bulb/cyborg
 	cell_type = /obj/item/weapon/cell/secborg
 	DRM = TRUE
+	use_external_power = TRUE
 
 /obj/item/weapon/flash_bulb/weak //Get these from the autolathe.
 	name = "weak flash bulb"

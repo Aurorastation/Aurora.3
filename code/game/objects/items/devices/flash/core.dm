@@ -18,6 +18,7 @@
 	var/obj/item/weapon/cell/power_supply //The stored power cell. Internal value.
 	var/obj/item/weapon/flash_bulb/bulb //The installed bulb. Internal value.
 
+	var/self_recharge = FALSE
 	var/use_external_power = FALSE
 	var/charge_cost = 100 //How much charge to take away per use
 
@@ -98,7 +99,7 @@
 
 /obj/item/device/flash/proc/try_recharge()
 	. = 1
-	if (!power_supply || power_supply.charge >= power_supply.maxcharge)
+	if (!power_supply || power_supply.charge >= power_supply.maxcharge || !self_recharge)
 		return 0
 
 	if (use_external_power)
@@ -151,6 +152,9 @@
 			"<span class='danger'>You flash \the [M] using \the [src]!</span>", \
 			"<span class='notice'>You hear a distinct mechanical shutter...</span>")
 		M.on_flash(user,src,bulb.strength*strength_mul)
+
+	if (self_recharge)
+		addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
 
 	bulb.add_heat(strength_mul)
 

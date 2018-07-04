@@ -403,7 +403,7 @@
 		//Tools
 		new /obj/item/device/radio/headset/headset_sec(src)
 		new /obj/item/weapon/storage/box/evidence(src)
-		new /obj/item/device/flash/weak(src)
+		new /obj/item/device/flash/weak/full(src)
 		new /obj/item/taperoll/police(src)
 
 /obj/structure/closet/secure_closet/injection

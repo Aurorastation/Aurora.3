@@ -14,22 +14,26 @@
 	. = ..()
 
 	var/safety = src.eyecheck(TRUE)
+	severity -= safety
 
-	if(safety < 0)
+	if(severity <= 0)
 		return 0
+	else if(severity >= 1)
+		flick("e_flash", src.flash)
+	else
+		flick("flash", src.flash)
 
-	flick("flash", src.flash)
-	src.confused = max(src.confused,(8/2) * severity * safety)
+	src.confused = max(src.confused,(8/2) * severity)
 
 	if(isvaurca(src)) //I fucking hate using this, but until vaurca aren't different types, this will have to do
-		src.druggy = max(src.druggy,(60/2) * severity * safety)
+		src.druggy = max(src.druggy,(60/2) * severity)
 		var/obj/item/organ/eyes/E = src.get_eyes()
 		if(E)
-			E.damage += 5 * severity * safety
+			E.damage += 5 * severity
 			to_chat(src,"<span class='warning'>Your eyes burn with the intense light of the flash!</span>")
-		src.Weaken(10 * severity * safety)
+		src.Weaken(10 * severity)
 
-	return severity*safety
+	return severity
 
 /mob/living/carbon/human/diona/on_flash(var/mob/living/attacker as mob, var/obj/weapon, var/severity = 1)
 	. = ..()
@@ -41,9 +45,13 @@
 
 /mob/living/silicon/robot/on_flash(var/mob/living/attacker as mob, var/obj/weapon, var/severity = 1)
 	. = ..()
-	if(overclocked)
+	if(overclocked || severity <= 0)
 		return 0
+	else if(severity >= 1)
+		flick("e_flash", src.flash)
+	else
+		flick("flash", src.flash)
+
 	src.Weaken(7*severity)
-	flick("flash", src.flash)
 
 	return severity
