@@ -24,7 +24,7 @@
 
 	var/recharge_time = 4//No clue
 
-	var/DRM = FALSE //True means you can't modify it.
+	var/no_tamper = FALSE //Set to true if you're not supposed to take apart the flash. Used only for cyborg flashes, but whatever.
 
 /obj/item/device/flash/Initialize() //Stolen from energy gun code.
 	. = ..()
@@ -40,10 +40,9 @@
 	update_icon()
 
 /obj/item/device/flash/examine(mob/user)
-	..(user)
-	var/uses_remaining = round(power_supply.charge / charge_cost)
-	to_chat(user,"Has [uses_remaining] use\s remaining.")
-	return
+	if(..(user, 1))
+		var/uses_remaining = round(power_supply.charge / charge_cost)
+		to_chat(user,"Has [uses_remaining] use\s remaining.")
 
 /obj/item/device/flash/emp_act(severity)
 
@@ -119,38 +118,29 @@
 
 	if(strength_mul <= 0 || !power_supply || !power_supply.checked_use(charge_cost) || !bulb || bulb.is_burnt)
 		playsound(src.loc, 'sound/items/flashlight.ogg', 50, 1)
-		if(M != user)
-			user.visible_message("<span class='notice'>\The [user] sticks \the [src] in \the [src]'s direction, but nothing happens.</span>", \
-				"<span class='notice'>You stick \the [src] in \the [M]'s direction, but nothing happens.</span>", \
-				"<span class='notice'>You hear a click.</span>")
-		else
-			user.visible_message("<span class='notice'>\The [user.name] sticks \the [src] in the air and presses the activation button, but nothing happens.</span>", \
-				"<span class='notice'>You stick \the [src] in the air and press the activation button, but nothing happens.</span>", \
-				"<span class='notice'>You hear a click.</span>")
+		to_chat(user,"<span class='notice'>You try to activate \the [src] but nothing happens!</span>")
 		return
 
 	playsound(src.loc, 'sound/weapons/flash.ogg', 50, 1)
-
 	src.update_icon()
 	src.add_overlay("flash_animation")
 
 	if(M == user) //Radial flash
-		user.visible_message("<span class='warning'>\The [user.name] sticks \the [src] in the air and presses the activation button!</span>", \
-			"<span class='warning'>You stick \the [src] in the air and press the activation button!</span>", \
-			"<span class='notice'>You hear a distinct mechanical shutter...</span>")
+		user.visible_message("<span class='warning'>\The [user.name] activates \the [src]!</span>", \
+			"<span class='warning'>You activate \the [src]!</span>", \
+			"<span class='notice'>You hear a distinct mechanical shutter.</span>")
 		for (var/mob/living/T in view(user))
 			if(T == user)
 				continue
 			var/distance_mod = 1 - min(1,get_dist(user,T)/6)
 			var/total_power = bulb.strength*strength_mul*0.75*distance_mod
 			if(total_power > 0)
-				T.visible_message("<span class='danger'>\The [T] is caught in the flash!</span>", \
-				"<span class='danger'>You're caught in the flash!</span>")
+				to_chat(T,"<span class='warning'>A flash of light coming from [user] blinds you!</span>")
 				T.on_flash(user,src,total_power)
 	else
-		user.visible_message("<span class='danger'>\The [user.name] flashes \the [M] using \the [src]!</span>", \
-			"<span class='danger'>You flash \the [M] using \the [src]!</span>", \
-			"<span class='notice'>You hear a distinct mechanical shutter...</span>")
+		user.visible_message("<span class='danger'>\The [user.name] blinds \the [M] using \the [src]!</span>", \
+			"<span class='danger'>You blind \the [M] using \the [src]!</span>", \
+			"<span class='notice'>You hear a distinct mechanical shutter.</span>")
 		M.on_flash(user,src,bulb.strength*strength_mul)
 
 	if (self_recharge)
@@ -159,9 +149,6 @@
 	bulb.add_heat(strength_mul)
 
 /obj/item/device/flash/attackby(obj/item/weapon/W as obj, mob/user as mob)
-
-	var/obj/item/weapon/cell/the_cell = W
-	var/obj/item/weapon/flash_bulb/the_bulb = W
 
 	if(isscrewdriver(W))
 		if(power_supply)
@@ -176,7 +163,7 @@
 			update_icon()
 		else if(bulb)
 			user.visible_message("<span class='notice'>\The [user] removes \the [bulb] from \the [src] using \the [W].</span>", \
-				"<span class='notice'>You remove \the [the_bulb] from \the [src] using \the [W].</span>", \
+				"<span class='notice'>You remove \the [bulb] from \the [src] using \the [W].</span>", \
 				"<span class='notice'>You hear something screwing something open...</span>")
 			playsound(src.loc, 'sound/items/screwdriver.ogg', 50, 1)
 			bulb.on = FALSE
@@ -188,7 +175,8 @@
 		else
 			to_chat(user,"<span class='notice'>There is nothing to remove on \the [src]!</span>")
 
-	if(istype(the_bulb))
+	if(istype(W,/obj/item/weapon/flash_bulb))
+		var/obj/item/weapon/flash_bulb/the_bulb = W
 		if(bulb)
 			to_chat(user,"<span class='notice'>There is already a [bulb] installed in \the [src]!</span>")
 		else
@@ -202,7 +190,8 @@
 			strength_mul = 0
 			update_icon()
 
-	else if(istype(the_cell))
+	else if(istype(W,/obj/item/weapon/cell))
+		var/obj/item/weapon/cell/the_cell = W
 		if(power_supply)
 			to_chat(user,"<span class='notice'>There is already a [power_supply] installed in \the [src]!</span>")
 		else if(!bulb)
@@ -218,7 +207,7 @@
 			bulb.on = FALSE
 			update_icon()
 
-/obj/item/device/flash/attack_self(var/mob/user as mob)
+/obj/item/device/flash/attack_self(var/mob/user)
 	if(get_cell())
 		strength_mul = !strength_mul
 		if(strength_mul)

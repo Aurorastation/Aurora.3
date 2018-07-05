@@ -296,6 +296,7 @@
 
 /obj/item/robot_parts/head/attackby(obj/item/W as obj, mob/user as mob)
 	..()
+
 	if(ismultitool(W))
 		if(law_manager)
 			user << "<span class='notice'>You disable the lawing circuits on \the [src].</span>"
@@ -304,9 +305,8 @@
 			user << "<span class='notice'>You enable the lawing circuits on \the [src].</span>"
 			law_manager = TRUE
 
-	var/obj/item/device/flash/selected_flash = W
-
-	if(istype(selected_flash))
+	if(istype(W,/obj/item/device/flash))
+		var/obj/item/device/flash/selected_flash = W
 		if(selected_flash.power_supply)
 			to_chat(user,"<span class='notice'>You need to remove the power source on \the [W] first!</span>")
 			return
@@ -332,6 +332,7 @@
 		qdel(W)
 		qdel(src)
 		return
+
 	return
 
 /obj/item/robot_parts/head/proc/add_flashes(obj/item/W as obj, mob/user as mob) //Made into a seperate proc to avoid copypasta

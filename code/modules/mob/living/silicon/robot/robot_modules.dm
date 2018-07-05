@@ -116,7 +116,7 @@ var/global/list/robot_modules = list(
 	var/obj/item/device/flash/F = locate() in src.modules
 	if(F)
 		var/obj/item/weapon/flash_bulb/bulb = F.bulb
-		if(bulb && istype(bulb))
+		if(istype(bulb))
 			bulb.heat_damage = 0
 			bulb.is_burnt = FALSE
 			bulb.last_used = 0
