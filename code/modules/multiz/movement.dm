@@ -149,7 +149,7 @@
 
 	visible_message("<span class='notice'>The [src] begins to climb [(direction == UP) ? "upwards" : "downwards"].</span>",
 		"<span class='notice'>You begin to climb [(direction == UP) ? "upwards" : "downwards"].</span>")
-	var/climb_chance = 40
+	var/climb_chance = 50
 	var/climb_speed = 45 SECONDS
 	var/will_succeed = FALSE
 	var/turf/stack_turf = get_turf(src) //turf upon which obejcts must be stacked upon to gain vantage

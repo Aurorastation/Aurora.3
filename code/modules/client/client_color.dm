@@ -47,7 +47,7 @@
 /mob/proc/update_client_color()
 	if(!client)
 		return
-	client.color = ""
+	client.color = null
 	if(!client_colors.len)
 		return
 	var/datum/client_color/CC = client_colors[1]
@@ -71,5 +71,7 @@
 	priority = 100
 
 /datum/client_color/vaurca
-	client_color = list(0.2,0.6,0.5, 0.4,0.3,0.5, 0.2,0.2,0.4)
+	client_color = list(0.1,0.5,0.4, 0.3,0.2,0.4, 0,0,0.8)
+	//client_color = list(0,0.2,0.2, 0.2,0.8,0.2, 0.2,0.2,0.8)
+	//client_color = list(0,0.3,0.3, 0.2,0.6,0.3, 0.3,0.3,0.6)
 	priority = 101

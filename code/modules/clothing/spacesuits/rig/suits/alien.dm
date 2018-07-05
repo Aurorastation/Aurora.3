@@ -61,6 +61,7 @@
 		/obj/item/rig_module/device/flash,
 		/obj/item/rig_module/chem_dispenser/vaurca,
 		/obj/item/rig_module/boring,
+		/obj/item/rig_module/lattice
 
 		)
 

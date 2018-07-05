@@ -317,21 +317,53 @@
 
 /obj/item/weapon/gun/launcher/crossbow/vaurca
 	name = "gauss rifle"
-	desc = "A unwieldy, heavy weapon that propels metal projectiles with magnetic coils that run its length."
+	desc = "An unwieldy, heavy weapon that propels metal projectiles with magnetic coils that run its length."
 	contained_sprite = 1
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "gaussrifle"
 	item_state = "gaussrifle"
 	fire_sound = 'sound/effects/Explosion2.ogg'
 	fire_sound_text = "a subdued boom"
-	fire_delay = 5
+	fire_delay = 12
 	slot_flags = SLOT_BACK
 	needspin = TRUE
+	recoil = 6
 
 
 	release_speed = 15
 	var/list/belt = new/list()
-	var/belt_size = 5 //holds this + one in the chamber
+	var/belt_size = 12 //holds this + one in the chamber
+	recoil_wielded = 2
+	accuracy_wielded = -1
+	fire_delay_wielded = 1
+
+	//action button for wielding
+	action_button_name = "Wield rifle"
+
+/obj/item/weapon/gun/launcher/crossbow/vaurca/can_wield()
+	return 1
+
+/obj/item/weapon/gun/launcher/crossbow/vaurca/ui_action_click()
+	if(src in usr)
+		toggle_wield(usr)
+
+/obj/item/weapon/gun/launcher/crossbow/vaurca/verb/wield_rifle()
+	set name = "Wield rifle"
+	set category = "Object"
+	set src in usr
+
+	toggle_wield(usr)
+	if(istype(usr,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = usr
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
+
+/obj/item/weapon/gun/launcher/crossbow/vaurca/update_icon()
+	if(wielded)
+		item_state = "gaussrifle-wielded"
+	else
+		item_state = "gaussrifle"
+	update_held_icon()
 
 /obj/item/weapon/gun/launcher/crossbow/vaurca/consume_next_projectile(mob/user=null)
 	return bolt
