@@ -7608,8 +7608,7 @@
 	},
 /obj/structure/cable/green,
 /obj/structure/extinguisher_cabinet{
-	pixel_y = -32;
-	pixel_y = 0
+	pixel_y = -32
 	},
 /obj/machinery/light_switch{
 	pixel_x = 24;
@@ -63944,7 +63943,6 @@
 "czB" = (
 /obj/machinery/alarm{
 	pixel_y = 32;
-	pixel_y = 0;
 	target_temperature = 278
 	},
 /obj/structure/closet/secure_closet/freezer/meat,
@@ -64377,8 +64375,7 @@
 	},
 /obj/machinery/atm{
 	pixel_x = 5;
-	pixel_y = 26;
-	pixel_y = 0
+	pixel_y = 26
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
