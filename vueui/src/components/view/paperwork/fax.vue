@@ -9,21 +9,13 @@
     <div v-if="state.auth" style="margin-top: 24px; clear: both;">
       <b>Logged in to:</b> {{ state.bossname }} Quantum Entanglement Network
       <template v-if="remaining_cooldown <= 0">
-        <div class="item">
-          <div class="itemLabel">Sending to:</div>
-          <div class="itemContent">
-            <select v-model.lazy="state.destination" class="button">
-              <option v-for="dep in state.departiments" :key="dep" :value="dep">{{ dep }}</option>
-            </select>
-          </div>
-        </div>
+        <vui-item label="Sending to:">
+          <select v-model.lazy="state.destination" class="button">
+            <option v-for="dep in state.departiments" :key="dep" :value="dep">{{ dep }}</option>
+          </select>
+        </vui-item>
         <template v-if="state.paper">
-          <div class="item">
-            <div class="itemLabel">Currently sending:</div>
-            <div class="itemContent">
-              {{ state.paper }}
-            </div>
-          </div>
+          <vui-item label="Currently sending:">{{ state.paper }}</vui-item>
           <vui-button push-state :params="{ send: 1}">Send</vui-button>
         </template>
         <span v-else>Please insert paper to send via secure connection.</span>

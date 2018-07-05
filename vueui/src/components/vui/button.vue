@@ -54,3 +54,10 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+.uiIcon16 {
+    margin-right: 4px;
+}
+</style>
+

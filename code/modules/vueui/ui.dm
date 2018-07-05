@@ -238,6 +238,8 @@ main ui datum.
 			ndata = ret
 			push_change(ret)
 		src.data = ndata
+		if(href_list["vueuipushonly"])
+			return
 	href_list["vueui"] = src // Let's pass our UI object to object for it to do things.
 	object.Topic(href, href_list)
 

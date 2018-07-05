@@ -42,7 +42,7 @@ global.receiveUIState = (jsonState) => {
 global.pushUIState =  function() {
   if (Store.isUpdating) {alert(Store.isUpdating); return}
   var r = new XMLHttpRequest()
-  r.open("GET", "?src=" + Store.state.uiref + "&" + Store.getStatePushString(), true);
+  r.open("GET", "?src=" + Store.state.uiref + "&vueuipushonly=1&" + Store.getStatePushString(), true);
   r.send()
 }
 

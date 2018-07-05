@@ -172,4 +172,14 @@ Example:
 Parameters:
  - `name` - name of asset to show that was sent to client. 
 Please note that regular `<img>` parameters apply here.
+### VuiImg `<vui-item>`
+Helper for making item lists using legacy nano styles.
+
+Example:
+```Vue
+<vui-item label="Current health:">75%</vui-item>
+```
+Parameters:
+ - `label` - Label to display next to contents
+ - `balance` - This determines how much space is used by content compared to label. This parameter value should be between 0 and 1.
 

@@ -195,6 +195,8 @@ Byond Vue UI framework's management subsystem
 		var/list/theme = available_html_themes[style]
 		var/class = ""
 		class += "[theme["class"]]"
+		if(theme["type"] == THEME_TYPE_DARK)
+			class += " dark-theme"
 		return class
 	return ""
 

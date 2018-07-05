@@ -68,7 +68,7 @@ var/list/admin_departments
 /obj/machinery/photocopier/faxmachine/attack_hand(mob/user as mob)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(usr, src, "paperwork-fax", 450, 350, capitalize(src.name))
+		ui = new(user, src, "paperwork-fax", 450, 350, capitalize(src.name))
 	ui.open()
 
 /obj/machinery/photocopier/faxmachine/attackby(obj/item/O as obj, mob/user as mob)
