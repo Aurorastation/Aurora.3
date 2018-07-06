@@ -1510,7 +1510,7 @@
 /area/quartermaster/miningdock)
 "cR" = (
 /turf/simulated/wall/r_wall,
-/area/crew_quarters/bar/rafters)
+/area/maintenance/bar/above)
 "cS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -2684,10 +2684,10 @@
 "ff" = (
 /obj/structure/lattice/catwalk,
 /turf/simulated/open,
-/area/crew_quarters/bar/rafters)
+/area/maintenance/bar/above)
 "fg" = (
 /turf/simulated/floor/plating,
-/area/crew_quarters/bar/rafters)
+/area/maintenance/bar/above)
 "fh" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -4285,7 +4285,7 @@
 /area/security/training)
 "hJ" = (
 /turf/simulated/open,
-/area/crew_quarters/bar/rafters)
+/area/maintenance/bar/above)
 "hK" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -4326,12 +4326,8 @@
 /turf/simulated/floor/tiled,
 /area/security/training)
 "hN" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/crew_quarters/bar/rafters)
+/turf/simulated/wall,
+/area/maintenance/bar/above)
 "hO" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -4340,9 +4336,23 @@
 /turf/simulated/floor/tiled,
 /area/security/training)
 "hP" = (
-/obj/structure/ladder,
-/turf/simulated/open,
-/area/crew_quarters/bar/rafters)
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
+	},
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2";
+	pixel_y = 0
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_x = 0;
+	pixel_y = 24
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/bar/above)
 "hQ" = (
 /turf/simulated/open,
 /area/security/investigations)
@@ -4407,13 +4417,23 @@
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
 "hY" = (
+/obj/structure/ladder,
+/turf/simulated/open,
+/area/maintenance/bar/above)
+"hZ" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
 	dir = 4
 	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
 /turf/simulated/floor/plating,
-/area/crew_quarters/bar/rafters)
-"hZ" = (
+/area/maintenance/bar/above)
+"ia" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 1
@@ -4423,15 +4443,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/crew_quarters/bar/rafters)
-"ia" = (
-/obj/structure/lattice/catwalk,
-/obj/machinery/light/small/emergency{
-	icon_state = "bulb1";
-	dir = 4
-	},
-/turf/simulated/open,
-/area/crew_quarters/bar/rafters)
+/area/maintenance/bar/above)
 "ib" = (
 /obj/item/clothing/head/fedora/brown,
 /obj/item/ammo_casing/c38{
@@ -4510,12 +4522,13 @@
 "ih" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
 	},
 /turf/simulated/open,
-/area/crew_quarters/bar/rafters)
+/area/maintenance/bar/above)
 "ii" = (
 /turf/simulated/open,
 /area/security/training)
@@ -5227,14 +5240,12 @@
 /area/security/training)
 "jA" = (
 /obj/structure/lattice/catwalk,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
+/obj/machinery/light/small/emergency{
+	icon_state = "bulb1";
+	dir = 4
 	},
 /turf/simulated/open,
-/area/crew_quarters/bar/rafters)
+/area/maintenance/bar/above)
 "jB" = (
 /obj/effect/floor_decal/corner/blue/full{
 	icon_state = "corner_white_full";
@@ -5355,31 +5366,24 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "jP" = (
+/obj/structure/lattice/catwalk,
 /obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
-/obj/machinery/power/apc{
-	dir = 2;
-	name = "south bump";
-	pixel_y = -24
-	},
-/turf/simulated/floor/plating,
-/area/crew_quarters/bar/rafters)
+/turf/simulated/open,
+/area/maintenance/bar/above)
 "jQ" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Bar Maintenance";
-	req_access = null;
-	req_one_access = list(12,28)
-	},
+/obj/structure/lattice/catwalk,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
 	},
-/turf/simulated/floor/plating,
-/area/crew_quarters/bar/rafters)
+/turf/simulated/open,
+/area/maintenance/bar/above)
 "jR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6833,16 +6837,33 @@
 /turf/simulated/mineral,
 /area/mine/unexplored)
 "mp" = (
-/turf/simulated/wall,
-/area/crew_quarters/bar/rafters)
+/obj/machinery/door/airlock/maintenance{
+	name = "Bar Maintenance";
+	req_access = null;
+	req_one_access = list(12,28)
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/bar/above)
 "mq" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Bar Maintenance";
 	req_access = null;
 	req_one_access = list(12,28)
 	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
 /turf/simulated/floor/plating,
-/area/crew_quarters/bar/rafters)
+/area/maintenance/bar/above)
 "mr" = (
 /obj/structure/disposalpipe/down{
 	icon_state = "pipe-d";
@@ -6919,11 +6940,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "mw" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
@@ -7002,6 +7018,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
+"mB" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/open,
+/area/maintenance/bar/above)
+"mC" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/bar/above)
 "ou" = (
 /obj/effect/landmark{
 	name = "cavernspawn"
@@ -36099,8 +36133,8 @@ fg
 ff
 ff
 ff
-ih
-jQ
+jP
+mq
 cO
 mA
 cN
@@ -36356,7 +36390,7 @@ hJ
 hJ
 hJ
 hJ
-jA
+jQ
 cR
 cN
 cN
@@ -36613,7 +36647,7 @@ hJ
 hJ
 hJ
 hJ
-jA
+jQ
 cR
 aa
 aa
@@ -36870,7 +36904,7 @@ hJ
 hJ
 hJ
 hJ
-jA
+jQ
 cR
 aa
 aa
@@ -37127,7 +37161,7 @@ hJ
 hJ
 hJ
 fg
-jP
+mC
 cR
 aa
 aa
@@ -37384,7 +37418,7 @@ hJ
 hJ
 hJ
 hJ
-ff
+jQ
 cR
 aa
 aa
@@ -37641,7 +37675,7 @@ hJ
 hJ
 hJ
 hJ
-ff
+jQ
 cR
 aa
 aa
@@ -37898,7 +37932,7 @@ hJ
 hJ
 hJ
 hJ
-ff
+jQ
 cR
 aa
 aa
@@ -38155,7 +38189,7 @@ hJ
 hJ
 hJ
 hJ
-ff
+jQ
 cR
 aa
 aa
@@ -38412,7 +38446,7 @@ hJ
 hJ
 hJ
 hJ
-ff
+jQ
 cR
 aa
 aa
@@ -38669,7 +38703,7 @@ hJ
 hJ
 hJ
 hJ
-ff
+jQ
 cR
 aa
 aa
@@ -38926,7 +38960,7 @@ hJ
 hJ
 hJ
 hJ
-ff
+jQ
 cR
 aa
 aa
@@ -39183,7 +39217,7 @@ hJ
 hJ
 hJ
 hJ
-ff
+jQ
 cR
 aa
 aa
@@ -39440,7 +39474,7 @@ hJ
 hJ
 hJ
 hJ
-ff
+jQ
 cR
 aa
 aa
@@ -39697,7 +39731,7 @@ hJ
 hJ
 hJ
 hJ
-ff
+jQ
 cR
 aa
 aa
@@ -39947,14 +39981,14 @@ ff
 ff
 ff
 ff
-ff
-ff
-ff
-ff
-ff
-ff
-ff
-ff
+jP
+ih
+ih
+ih
+ih
+ih
+ih
+mB
 cR
 aa
 aa
@@ -40201,12 +40235,12 @@ cR
 cR
 cR
 cR
+hN
+hN
+hN
 mp
-mp
-mp
-mq
-mp
-mp
+hN
+hN
 cR
 cR
 cR
@@ -40458,10 +40492,10 @@ aa
 aa
 aa
 cR
-hN
-hY
-ff
-ff
+hP
+hZ
+ih
+mB
 ff
 ff
 cR
@@ -40715,11 +40749,11 @@ aa
 aa
 aa
 cR
-hP
-hZ
-ff
-ff
+hY
 ia
+ff
+ff
+jA
 ff
 cR
 aa
