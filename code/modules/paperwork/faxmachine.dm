@@ -65,7 +65,7 @@ var/list/admin_departments
 	if(isChanged)
 		return newdata
 
-/obj/machinery/photocopier/faxmachine/attack_hand(mob/user as mob)
+/obj/machinery/photocopier/faxmachine/ui_interact(mob/user as mob)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		ui = new(user, src, "paperwork-fax", 450, 350, capitalize(src.name))

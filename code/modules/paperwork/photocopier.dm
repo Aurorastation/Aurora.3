@@ -33,8 +33,11 @@
 	if(isChanged)
 		return data
 
-/obj/machinery/photocopier/attack_hand(mob/user as mob)
+/obj/machinery/photocopier/attack_hand(mob/user)
 	user.set_machine(src)
+	ui_interact(user)
+
+/obj/machinery/photocopier/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		ui = new(user, src, "paperwork-photocopier", 300, 160, capitalize(src.name))

@@ -110,6 +110,9 @@ obj/machinery/computer/general_air_control/Destroy()
 		return data
 
 /obj/machinery/computer/general_air_control/attack_hand(mob/user)
+	ui_interact(user)
+
+/obj/machinery/computer/general_air_control/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		ui = new(user, src, "console-atmocontrol-main", 450, 470, capitalize(src.name))
