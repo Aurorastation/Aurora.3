@@ -39,13 +39,6 @@ global.receiveUIState = (jsonState) => {
     Store.loadState(JSON.parse(jsonState))
 }
 
-global.pushUIState =  function() {
-  if (Store.isUpdating) {alert(Store.isUpdating); return}
-  var r = new XMLHttpRequest()
-  r.open("GET", "?src=" + Store.state.uiref + "&vueuipushonly=1&" + Store.getStatePushString(), true);
-  r.send()
-}
-
 window.setInterval(() => {
   Store.state.wtime += 2
 }, 200)
@@ -68,7 +61,7 @@ new Vue({
   watch: {
     state: {
       handler() {
-        global.pushUIState()
+        Store.pushState()
       },
       deep: true
     }

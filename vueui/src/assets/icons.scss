@@ -25,6 +25,7 @@
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: 'liga';
     color: inherit;
+    overflow: visible;
     &.red {
         color: #cc0000;
     }

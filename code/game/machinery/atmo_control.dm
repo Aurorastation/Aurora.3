@@ -116,6 +116,7 @@ obj/machinery/computer/general_air_control/Destroy()
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		ui = new(user, src, "console-atmocontrol-main", 450, 470, capitalize(src.name))
+		ui.auto_update_content = TRUE
 	ui.open()
 
 /obj/machinery/computer/general_air_control/receive_signal(datum/signal/signal)
@@ -125,7 +126,6 @@ obj/machinery/computer/general_air_control/Destroy()
 	if(!id_tag || !sensors.Find(id_tag)) return
 
 	sensor_information[id_tag] = signal.data
-	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/computer/general_air_control/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
@@ -183,10 +183,8 @@ obj/machinery/computer/general_air_control/Destroy()
 
 	if(input_tag == id_tag)
 		input_info = signal.data
-		SSvueui.check_uis_for_change(src)
 	else if(output_tag == id_tag)
 		output_info = signal.data
-		SSvueui.check_uis_for_change(src)
 	else
 		..(signal)
 
@@ -277,10 +275,8 @@ obj/machinery/computer/general_air_control/Destroy()
 
 	if(input_tag == id_tag)
 		input_info = signal.data
-		SSvueui.check_uis_for_change(src)
 	else if(output_tag == id_tag)
 		output_info = signal.data
-		SSvueui.check_uis_for_change(src)
 	else
 		..(signal)
 
@@ -389,7 +385,6 @@ obj/machinery/computer/general_air_control/Destroy()
 
 	if(device_tag == id_tag)
 		device_info = signal.data
-		SSvueui.check_uis_for_change(src)
 	else
 		..(signal)
 

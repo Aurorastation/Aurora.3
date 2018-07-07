@@ -37,6 +37,9 @@ export default {
             }
             this.$emit('click')
             if(!this.params) {
+                if (this.pushState) {
+                    Store.pushState()
+                }
                 return
             }
             var sendparams = []
