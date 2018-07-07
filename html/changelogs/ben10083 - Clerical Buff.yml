@@ -34,4 +34,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Gave Clerical Module a denied stamp (WHY WAS THIS A EMAG ITEM?!) and tape roll, if it's emagged/hacked it gets a electrified arm and a chameleon stamp."
+  - rscadd: "Gave Clerical Module a denied stamp (WHY WAS THIS THE EMAG ITEM?!) and tape roll, if it's emagged/hacked it gets a chameleon stamp for proper forging of documents."
