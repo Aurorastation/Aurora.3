@@ -29,6 +29,6 @@ export default {
 
 <style lang="scss" scoped>
 .complist {
-  margin-right: 2em;
+  margin-right: 1em;
 }
 </style>
