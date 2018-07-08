@@ -49,7 +49,9 @@
 
 	to_chat(T, "<span class='warning'>You are unable to resist or even move. Your mind blanks as you're being fed upon.</span>")
 
-	T.Stun(10)
+	playsound(src.loc, 'sound/effects/drain_blood.ogg', 50, 1)
+
+	T.Stun(20)
 
 	while (do_mob(src, T, 50))
 		if (!mind.vampire)
