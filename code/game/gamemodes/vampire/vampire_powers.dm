@@ -27,6 +27,9 @@
 		to_chat(src, "<span class='warning'>[T] is not a creature you can drain useful blood from.</span>")
 		return
 
+	if(T.head && (T.head.item_flags & AIRTIGHT))
+		to_chat(src, "<span class='warning'>[T]'s headgear is blocking the way to the neck.</span>")
+
 	if (vampire.status & VAMP_DRAINING)
 		to_chat(src, "<span class='warning'>Your fangs are already sunk into a victim's neck!</span>")
 		return
@@ -103,8 +106,7 @@
 		T.vessel.remove_reagent("blood", 25)
 
 	vampire.status &= ~VAMP_DRAINING
-	to_chat(src, "<span class='notice'>You extract your fangs from [T.name]'s neck and stop draining them of blood. They will remember nothing of this occurance. Provided they survived.</span>")
-
+	visible_message("<span class='danger'>[src.name] stops bitting [T.name]'s neck!</span>", "<span class='notice'>You extract your fangs from [T.name]'s neck and stop draining them of blood. They will remember nothing of this occurance. Provided they survived.</span>")
 	if (T.stat != 2)
 		to_chat(T, "<span class='warning'>You remember nothing about being fed upon. Instead, you simply remember having a pleasant encounter with [src.name].</span>")
 
@@ -847,6 +849,10 @@
 
 	if (T.stat == 2)
 		to_chat(src, "<span class='warning'>[T]'s body is broken and damaged beyond salvation. You have no use for them.</span>")
+		return
+
+	if (T.species.flags & NO_BLOOD)
+		to_chat(src, "<span class='warning'>[T] has no blood and can not be affected by your powers!</span>")
 		return
 
 	if (vampire.status & VAMP_DRAINING)
