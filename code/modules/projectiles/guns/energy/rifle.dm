@@ -153,26 +153,15 @@
 	secondary_fire_sound = null
 	can_switch_modes = 0
 	can_turret = 0
-	zoomdevicename = "thermal scope"
+	zoomdevicename = "rifle scope"
 	var/obj/screen/overlay = null
 
 /obj/item/weapon/gun/energy/rifle/laser/tachyon/verb/scope()
 	set category = "Object"
-	set name = "Use Thermal Scope"
+	set name = "Use Rifle Scope"
 	set popup_menu = 1
 
 	if(wielded)
 		toggle_scope(2.0, usr)
 	else
 		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
-
-/obj/item/weapon/gun/energy/rifle/laser/tachyon/zoom()
-	..()
-	if(zoom)
-		M.stop_sight_update = 0
-		M.see_invisible = SEE_INVISIBLE_NO_LIGHTING
-		overlay = global_hud.thermal
-	else
-		M.stop_sight_update = initial(M.stop_sight_update)
-		M.see_invisible = initial(M.see_invisible)
-		overlay = initial(overlay)

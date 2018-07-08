@@ -35,9 +35,13 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - rscadd: "Added the Sedantis flag."
-  - rscadd: "Added Vaurca variants of softsuits and rigs."
-  - rscadd: "Changed Vaurca to utilize a blue-heavy vision that converts red to blue-green."
+  - rscadd: "Added Vaurca variants of softsuits."
+  - rscadd: "Changed Vaurca vision to use client colors."
   - rscadd: "Added climbing. Click on a wall/open turf to climb. Large and/or anchored items increase your ability to climb. Small items decrease your ability to climb."
-  - rscadd: "Made Vaurca natural climbers."
+  - rscadd: "Humans and Vaurca are fastest at climbing, and Unathi and Dionaea are the slowest at climbing."
+  - rscadd: "Made Vaurca natural climbers, meaning they can never fail."
   - rscadd: "Added various event-orientated Vaurca items."
   - balance: "Vaurca can now wear specially modified softsuits."
+  - rscadd: "Added cleave to energy glaives."
+  - imageadd: "Changes the sprites of all organs in Vaurca to be more alien."
+  - bugfix: "Tweaked client colors, fixing inaccuracies in colorblindedness."

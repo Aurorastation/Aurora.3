@@ -1,21 +1,35 @@
 /obj/item/organ/heart/left
 	name = "heart"
-	icon_state = "heart-on"
+	icon_state = "vaurca_heart_l-on"
 	organ_tag = "left heart"
 	parent_organ = "chest"
-	dead_icon = "heart-off"
+	dead_icon = "vaurca_heart_l-off"
 
 /obj/item/organ/heart/right
 	name = "heart"
-	icon_state = "heart-on"
+	icon_state = "vaurca_heart_r-on"
 	organ_tag = "right heart"
 	parent_organ = "chest"
-	dead_icon = "heart-off"
+	dead_icon = "vaurca_heart_r-off"
+
+/obj/item/organ/lungs/vaurca
+	icon_state = "lungs_vaurca"
+
+/obj/item/organ/kidneys/vaurca
+	icon_state = "kidney_vaurca"
+
+/obj/item/organ/eyes/vaurca
+	icon_state = "eyes_vaurca"
+
+/obj/item/organ/liver/vaurca
+	icon_state = "liver_vaurca"
+
+/obj/item/organ/brain/vaurca
+	icon_state = "brain_vaurca"
 
 /obj/item/organ/vaurca/neuralsocket
 	name = "neural socket"
 	organ_tag = "neural socket"
-	icon = 'icons/mob/alien.dmi'
 	icon_state = "neural_socket"
 	parent_organ = "head"
 	robotic = 2
@@ -47,7 +61,6 @@ obj/item/organ/vaurca/neuralsocket/process()
 	name = "filtration bit"
 	organ_tag = "filtration bit"
 	parent_organ = "head"
-	icon = 'icons/mob/alien.dmi'
 	icon_state = "filter"
 	robotic = 2
 
@@ -55,7 +68,6 @@ obj/item/organ/vaurca/neuralsocket/process()
 	name = "phoron reserve tank"
 	organ_tag = "phoron reserve tank"
 	parent_organ = "chest"
-	icon = 'icons/mob/alien.dmi'
 	icon_state = "breathing_app"
 	robotic = 1
 	var/datum/gas_mixture/air_contents = null
