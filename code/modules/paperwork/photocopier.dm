@@ -40,7 +40,7 @@
 /obj/machinery/photocopier/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, "paperwork-photocopier", 300, 160, capitalize(src.name))
+		ui = new(user, src, "paperwork-photocopier", 300, 200, capitalize(src.name))
 	ui.open()
 
 /obj/machinery/photocopier/Topic(href, href_list)

@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>Core Cooling Control System</h3>
-    <template v-if="state['input']">
+    <div v-if="state['input']">
       <vui-item label="Input:">
         <span v-if="state['input'].power">Injecting</span>
         <span v-else>On Hold</span>&nbsp;
@@ -18,9 +18,9 @@
         <vui-button push-state :disabled="state['input'].setrate + 100 > state.maxrate" @click="state['input'].setrate += 100">+</vui-button><br>
         <vui-button push-state :params="{ in_set_flowrate: state['input'].setrate }">Set Flow Rate</vui-button>
       </vui-item>
-    </template>
+    </div>
     <vui-button v-else :params="{ in_refresh_status: 1 }">Search for input port</vui-button>
-    <template v-if="state['output']">
+    <div style="margin-top: 2em;" v-if="state['output']">
       <vui-item label="Core Outpump:">
         <span v-if="state['output'].power">Open</span>
         <span v-else>On Hold</span>&nbsp;
@@ -38,7 +38,7 @@
         <br>
         <vui-button push-state :params="{ out_set_pressure: state['output'].setpressure }">Set Pressure</vui-button>
       </vui-item>
-    </template>
+    </div>
     <vui-button v-else :params="{ out_refresh_status: 1 }">Search for output port</vui-button>
   </div>
 </template>

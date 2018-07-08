@@ -115,69 +115,8 @@
         color: #8BA5C4;
     }
 
-    .itemGroup {
-        border: 1px solid #e9c183;
-        background: #2c2c2c;
-        padding: 4px;
-        clear: both;
-    }
-    
-    .item {
-        width: 100%;
-        margin: 4px 0 0 0;
-        clear: both;
-    }
-
-    .itemContentNarrow, .itemContent {
-        float: left;
-    }
-    
-    .itemContentNarrow {
-        width: 30%;
-    }
-    
-    .itemContent {
-        width: 69%;
-    }
-    
     .itemLabelNarrow, .itemLabel, .itemLabelWide, .itemLabelWider, .itemLabelWidest {
-        float: left;
         color: #e9c183;
-    }
-    
-    .itemLabelNarrow {
-        width: 20%;
-    }
-    
-    .itemLabel {
-        width: 30%;
-    }
-    
-    .itemLabelWide {
-        width: 45%;
-    }
-    
-    .itemLabelWider {
-        width: 69%;
-    }
-    
-    .itemLabelWidest {
-        width: 100%;
-    }
-    
-    .itemContentWide {
-        float: left;
-        width: 79%;
-    }
-    
-    .itemContentSmall {
-        float: left;
-        width: 33%;
-    }
-    
-    .itemContentMedium {
-        float: left;
-        width: 55%;
     }
 
     .notice {

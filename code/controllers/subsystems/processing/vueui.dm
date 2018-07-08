@@ -187,6 +187,9 @@ Byond Vue UI framework's management subsystem
 	if (!LAZYLEN(open_uis[old_object_key]))
 		open_uis -= old_object_key
 
+/datum/controller/subsystem/processing/vueui/proc/get_html_theme_header()
+	return {"<meta http-equiv="X-UA-Compatible" content="IE=edge"><link rel="stylesheet" type="text/css" href="vueui.css">"}
+
 /datum/controller/subsystem/processing/vueui/proc/get_html_theme_class(var/mob/user)
 	if(user.client)
 		var/style = user.client.prefs.html_UI_style
