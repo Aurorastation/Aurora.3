@@ -149,7 +149,7 @@
 /obj/item/weapon/cell/emp_act(severity)
 
 	if(isrobot(loc))
-		charge -= (charge - 6500 < 0) ? (0) : (6500) // deplete 6000 charge, that makes 2 shot
+		charge -= (charge - 7500 < 0) ? (0) : (7500) // deplete 7500 charge, that makes 1 shot tier 1 and 2 shots tier 2.
 		..()
 		return
 	charge -= maxcharge / severity
