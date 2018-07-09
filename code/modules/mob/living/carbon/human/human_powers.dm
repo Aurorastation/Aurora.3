@@ -583,7 +583,7 @@
 	last_special = world.time
 
 	src.visible_message("<span class='warning'>\The [src] takes a step backwards and rears up.</span>",
-			"<span class='notice'>You take a step backwards and then...")
+			"<span class='notice'>You take a step backwards and then...</span>")
 	if(do_after(src,5))
 		playsound(loc, 'sound/species/shadow/grue_screech.ogg', 100, 1)
 		src.visible_message("<span class='danger'>\The [src] charges!</span>")
@@ -717,7 +717,7 @@
 		if (!vampire_can_affect_target(T, 0))
 			continue
 
-		to_chat(T, "<span class='danger'><font size='3'><b>You hear an ear piercing shriek and feel your senses go dull!</b></font></span>")
+		to_chat(T, "<span class='danger'>You hear an ear piercing shriek and feel your senses go dull!</span>")
 		T.Weaken(5)
 		T.ear_deaf = 20
 		T.stuttering = 20
