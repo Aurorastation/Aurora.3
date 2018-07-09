@@ -147,11 +147,11 @@
 		rigged = 1 //broken batterys are dangerous
 
 /obj/item/weapon/cell/emp_act(severity)
-	//remove this once emp changes on dev are merged in
-	if(isrobot(loc))
-		var/mob/living/silicon/robot/R = loc
-		severity *= R.cell_emp_mult
 
+	if(isrobot(loc))
+		charge -= (charge - 6500 < 0) ? (0) : (6500) // deplete 6000 charge, that makes 2 shot
+		..()
+		return
 	charge -= maxcharge / severity
 	if (charge < 0)
 		charge = 0
