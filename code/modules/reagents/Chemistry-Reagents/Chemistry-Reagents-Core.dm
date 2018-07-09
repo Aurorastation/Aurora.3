@@ -252,7 +252,7 @@
 /datum/reagent/fuel/napalm
 	name = "Zo'rane Fire"
 	id = "greekfire"
-	description = "A highly flammable and cohesive gel once used commonly in the tunnels of Sedantis."
+	description = "A highly flammable and cohesive gel once used commonly in the tunnels of Sedantis. Napalm sticks to kids."
 	reagent_state = LIQUID
 	color = "#D35908"
 	touch_met = 50
@@ -262,6 +262,7 @@
 	new /obj/effect/decal/cleanable/liquid_fuel/napalm(T, volume/3)
 	for(var/mob/living/L in T)
 		L.adjust_fire_stacks(volume / 10)
+		L.add_modifier(/datum/modifier/napalm, MODIFIER_CUSTOM, _strength = 2)
 	remove_self(volume)
 	return
 
@@ -270,3 +271,4 @@
 		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!
 		new /obj/effect/decal/cleanable/liquid_fuel/napalm(get_turf(L), amount/3)
 		remove_self(volume)
+		L.add_modifier(/datum/modifier/napalm, MODIFIER_CUSTOM, _strength = 2)

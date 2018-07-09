@@ -95,9 +95,12 @@
 			var/obj/effect/decal/cleanable/liquid_fuel/napalm/other_fuel = locate() in target
 			if(other_fuel)
 				other_fuel.amount += amount*0.5
+				target.hotspot_expose(2000, 400)
 			else
 				new/obj/effect/decal/cleanable/liquid_fuel/napalm(target, amount*0.5,1)
+				target.hotspot_expose(2000, 400)
 			amount *= 0.5
+		origin.hotspot_expose(2000, 400) //immediately ignite. its napalm bitch
 
 /obj/effect/decal/cleanable/liquid_fuel/napalm/process()
 	for(var/mob/living/L in get_turf(src))

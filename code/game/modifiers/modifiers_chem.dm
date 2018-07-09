@@ -83,3 +83,29 @@
 	if (isliving(target))
 		var/mob/living/L = target
 		L.set_light(0)
+
+//Doubleburn napalm modifier. Applied by Zo'rane Fire
+//Increases damage dealt by burn sources
+/datum/modifier/napalm
+	var/burn_mod
+	var/delta
+
+/datum/modifier/napalm/activate()
+	..()
+	delta = strength
+	if (isliving(target))
+		var/mob/living/L = target
+		L.burn_mod *= delta
+
+/datum/modifier/napalm/deactivate()
+	..()
+	if (isliving(target))
+		var/mob/living/L = target
+		L.burn_mod /= delta
+
+/datum/modifier/napalm/custom_validity()
+	if(istype(target, /mob/living))
+		var/mob/living/L = target
+		if(L.fire_stacks)
+			return 1
+	return 0

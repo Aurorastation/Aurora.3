@@ -744,11 +744,11 @@
 	set desc = "Spew a cone of ignited napalm in front of you"
 
 	if(last_special > world.time)
-		to_chat(src,"<span class='notice>You are too tired to spray napalm.</span>")
+		to_chat(src,"<span class='notice'>You are too tired to spray napalm.</span>")
 		return
 
 	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
-		to_chat(src,"<span class='notice>You cannot spray napalm in your current state.</span>")
+		to_chat(src,"<span class='notice'>You cannot spray napalm in your current state.</span>")
 		return
 
 	last_special = world.time
@@ -757,7 +757,7 @@
 			"<span class='danger'>You unleash a gust of fire!</span>",
 			"<span class='danger'>You hear the roar of an inferno!</span>")
 
-	var/turf/T  = get_step(src, dir)
+	var/turf/T  = get_step(get_step(src, dir), dir)
 	var/turf/T1 = get_step(T, dir)
 	var/turf/T2 = get_step(T1,turn(dir, 90))
 	var/turf/T3 = get_step(T1,turn(dir, -90))
@@ -771,17 +771,12 @@
 	playsound(src.loc, 'sound/magic/Fireball.ogg', 200, 1)
 	for(var/turf/FuelSpot in the_targets)
 		spawn(0)
-			var/obj/effect/effect/water/firewater/D = new/obj/effect/effect/water/firewater(get_turf(src))
+			var/obj/effect/effect/water/firewater/D = new/obj/effect/effect/water/firewater(get_turf(get_step(src, dir)))
 			var/turf/my_target = FuelSpot
-			D.create_reagents(300)
+			D.create_reagents(200)
 			if(!src)
 				return
-			D.reagents.add_reagent("greekfire", 300)
+			D.reagents.add_reagent("greekfire", 200)
 			D.set_color()
 			D.set_up(my_target, rand(6,8), 1, 50)
-
-	sleep(2)
-
-	for(var/turf/HotSpot in the_targets)
-		HotSpot.hotspot_expose(2000, 400)
 	return

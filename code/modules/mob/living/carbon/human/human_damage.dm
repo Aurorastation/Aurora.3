@@ -102,7 +102,7 @@
 
 
 /mob/living/carbon/human/adjustBruteLoss(var/amount)
-	amount = amount*species.brute_mod
+	amount *= brute_mod
 	if(amount > 0)
 		take_overall_damage(amount, 0)
 	else
@@ -110,7 +110,7 @@
 	BITSET(hud_updateflag, HEALTH_HUD)
 
 /mob/living/carbon/human/adjustFireLoss(var/amount)
-	amount = amount*species.burn_mod
+	amount *= burn_mod
 	if(amount > 0)
 		take_overall_damage(0, amount)
 	else
@@ -118,7 +118,7 @@
 	BITSET(hud_updateflag, HEALTH_HUD)
 
 /mob/living/carbon/human/proc/adjustBruteLossByPart(var/amount, var/organ_name, var/obj/damage_source = null)
-	amount = amount*species.brute_mod
+	amount *= brute_mod
 	if (organ_name in organs_by_name)
 		var/obj/item/organ/external/O = get_organ(organ_name)
 
@@ -131,7 +131,7 @@
 	BITSET(hud_updateflag, HEALTH_HUD)
 
 /mob/living/carbon/human/proc/adjustFireLossByPart(var/amount, var/organ_name, var/obj/damage_source = null)
-	amount = amount*species.burn_mod
+	amount *= burn_mod
 	if (organ_name in organs_by_name)
 		var/obj/item/organ/external/O = get_organ(organ_name)
 
