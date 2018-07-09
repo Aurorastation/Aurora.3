@@ -108,7 +108,7 @@
 		T.vessel.remove_reagent("blood", 25)
 
 	vampire.status &= ~VAMP_DRAINING
-	visible_message("<span class='danger'>[src.name] stops bitting [T.name]'s neck!</span>", "<span class='notice'>You extract your fangs from [T.name]'s neck and stop draining them of blood. They will remember nothing of this occurance. Provided they survived.</span>")
+	visible_message("<span class='danger'>[src.name] stops biting [T.name]'s neck!</span>", "<span class='notice'>You extract your fangs from [T.name]'s neck and stop draining them of blood. They will remember nothing of this occurance. Provided they survived.</span>")
 	if (T.stat != 2)
 		to_chat(T, "<span class='warning'>You remember nothing about being fed upon. Instead, you simply remember having a pleasant encounter with [src.name].</span>")
 
