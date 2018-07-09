@@ -841,14 +841,15 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "ikrad_letter"
 	w_class = 2
 
-
-/obj/item/clothing/suit/storage/fluff/ryan_jacket //Mars' Militia Leather Jacket - Ryan McLean - seniorscore
+/obj/item/clothing/suit/storage/toggle/fluff/ryan_jacket //Mars' Militia Leather Jacket - Ryan McLean - seniorscore
 	name = "mars militia leather jacket"
 	desc = "A leather jacket, appears to have a shield on back with the words \"Contra omnes stabimus\", as well as a unit name \"Sandworms of Thadeus\", \
 	stitched along a banner at the bottom of the shield."
 	icon = 'icons/obj/custom_items/ryan_jacket.dmi'
 	icon_state = "ryan_jacket"
 	item_state = "ryan_jacket"
+	icon_open = "ryan_jacket_open"
+	icon_closed = "ryan_jacket"
 	contained_sprite = TRUE
 
 
@@ -2068,7 +2069,7 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 
 /obj/item/weapon/deck/tarot/fluff/klavdiya_cards //Adhomian Divination Cards Deck - Klavdiya Tikhomirov - alberyk
 	name = "adhomian divination cards deck"
-	desc = "An adhomian deck of divination cards, used to read the fortunte or play games."
+	desc = "An adhomian deck of divination cards, used to read the fortune or play games."
 	icon_state = "deck_adhomai"
 
 /obj/item/weapon/deck/tarot/fluff/klavdiya_cards/generate_deck()
