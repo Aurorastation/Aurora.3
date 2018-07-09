@@ -21,11 +21,35 @@
 /obj/item/organ/eyes/vaurca
 	icon_state = "eyes_vaurca"
 
+/obj/item/organ/kidneys/vaurca/robo
+	icon_state = "kidney_vaurca"
+	organ_tag = "mechanical kidneys"
+	robotic = 2
+
+/obj/item/organ/liver/vaurca/robo
+	icon_state = "liver_vaurca"
+	organ_tag = "mechanical liver"
+	robotic = 2
+
 /obj/item/organ/liver/vaurca
 	icon_state = "liver_vaurca"
 
 /obj/item/organ/brain/vaurca
 	icon_state = "brain_vaurca"
+
+/obj/item/organ/vaurca/reservoir
+	name = "phoron reservoir"
+	organ_tag = "phoron reservoir"
+	parent_organ = "chest"
+	icon_state = "phoron_reservoir"
+	robotic = 1
+
+/obj/item/organ/vaurca/filtrationbit
+	name = "filtration bit"
+	organ_tag = "filtration bit"
+	parent_organ = "head"
+	icon_state = "filter"
+	robotic = 2
 
 /obj/item/organ/vaurca/neuralsocket
 	name = "neural socket"
@@ -56,13 +80,6 @@ obj/item/organ/vaurca/neuralsocket/process()
 		target.remove_language(LANGUAGE_VAURCA)
 		target << "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>"
 	..()
-
-/obj/item/organ/vaurca/filtrationbit
-	name = "filtration bit"
-	organ_tag = "filtration bit"
-	parent_organ = "head"
-	icon_state = "filter"
-	robotic = 2
 
 /obj/item/organ/vaurca/preserve
 	name = "phoron reserve tank"

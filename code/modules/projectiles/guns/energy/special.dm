@@ -343,8 +343,14 @@
 
 	toggle_wield(usr)
 
-/obj/item/weapon/gun/energy/vaurca/typec/attack(atom/A, mob/living/user, def_zone)
-	return ..() //Pistolwhippin'
+/obj/item/weapon/gun/energy/vaurca/typec/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+	user.setClickCooldown(16)
+	..()
+
+/obj/item/weapon/gun/energy/vaurca/typec/pre_attack(var/mob/living/target, var/mob/living/user)
+	if(istype(target))
+		cleave(user, target)
+	..()
 
 /obj/item/weapon/gun/energy/vaurca/typec/special_check(var/mob/user)
 	if(is_charging)
@@ -371,14 +377,13 @@
 /obj/item/weapon/gun/energy/vaurca/typec/attack_hand(mob/user as mob)
 	if(loc != user)
 		var/mob/living/carbon/human/H = user
-		if(istype(H))
-			if(H.species.name == "Vaurca Breeder")
-				playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
-				anchored = 1
-				user << "<span class='notice'>\The [src] is now energised.</span>"
-				icon_state = "megaglaive1"
-				..()
-				return
+		if(H.mob_size >= 30)
+			playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
+			anchored = 1
+			user << "<span class='notice'>\The [src] is now energised.</span>"
+			icon_state = "megaglaive1"
+			..()
+			return
 		user << "<span class='warning'>\The [src] is far too large for you to pick up.</span>"
 		return
 

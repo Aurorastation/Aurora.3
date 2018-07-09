@@ -190,7 +190,10 @@
 	contained_sprite = 1
 	icon = 'icons/obj/vaurca_items.dmi'
 
-	species_restricted = list("Vaurca")
+	species_restricted = list("Vaurca","Vaurca Warform")
+	sprite_sheets = list(
+		"Vaurca Warform" = 'icons/mob/species/warriorform/shoes.dmi'
+		)
 
 	action_button_name = "Toggle the magclaws"
 
