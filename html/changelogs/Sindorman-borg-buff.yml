@@ -34,4 +34,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - balance: "EMP now drains 7.5k of battery from borgs. As supposed to 10k. This makes so that starting with high-power cell, borgs need at least 2 shots of ION rifle to be entirely disabled."
+  - tweak: "EMP now drains certain percentage of cyborgs battery. Not one shot drain."
