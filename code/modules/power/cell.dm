@@ -149,13 +149,11 @@
 /obj/item/weapon/cell/emp_act(severity)
 
 	if(isrobot(loc))
-		charge -= (charge - 7500 < 0) ? (0) : (7500) // deplete 7500 charge, that makes 1 shot tier 1 and 2 shots tier 2.
-		..()
-		return
+		var/mob/living/silicon/robot/R = loc
+		severity *= R.cell_emp_mult
 	charge -= maxcharge / severity
 	if (charge < 0)
 		charge = 0
-	..()
 
 /obj/item/weapon/cell/ex_act(severity)
 
