@@ -17,7 +17,7 @@
           Controls Locked Out
         </template>
         <template v-else>
-          <vui-button :params="{ toggle_injector: 1 }" icon="power_settings_new">Toggle Power</vui-button>
+          <vui-button :params="{ toggle_injector: 1 }" icon="power-off">Toggle Power</vui-button>
           <vui-button :params="{ injection: 1 }">Inject (1 Cycle)</vui-button>
         </template>
       </vui-item>

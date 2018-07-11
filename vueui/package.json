@@ -9,6 +9,7 @@
     "run": "vue-cli-service build --watch"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.1.0",
     "vue": "^2.5.16"
   },
   "devDependencies": {

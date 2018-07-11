@@ -142,7 +142,7 @@ Button programmed to send provided data to ui object. Comes with icon support.
 
 Example:
 ```Vue
-<vui-button :params="{ action: 'delete' }" icon="close">Delete</vui-button>
+<vui-button :params="{ action: 'delete' }" icon="trash">Delete</vui-button>
 ```
 Parameters:
  - `$slot` - Contents of button.

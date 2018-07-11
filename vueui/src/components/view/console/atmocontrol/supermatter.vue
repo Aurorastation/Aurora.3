@@ -5,7 +5,7 @@
       <vui-item label="Input:">
         <span v-if="state['input'].power">Injecting</span>
         <span v-else>On Hold</span>&nbsp;
-        <vui-button :params="{ in_toggle_injector: 1 }" icon="power_settings_new">Toggle Power</vui-button>
+        <vui-button :params="{ in_toggle_injector: 1 }" icon="power-off">Toggle Power</vui-button>
       </vui-item>
       <vui-item label="Flow Rate Limit:">{{ state['input'].rate }} L/s</vui-item>
       <vui-item label="Command:">
@@ -24,7 +24,7 @@
       <vui-item label="Core Outpump:">
         <span v-if="state['output'].power">Open</span>
         <span v-else>On Hold</span>&nbsp;
-        <vui-button :params="{ out_toggle_power: 1 }" icon="power_settings_new">Toggle Power</vui-button>
+        <vui-button :params="{ out_toggle_power: 1 }" icon="power-off">Toggle Power</vui-button>
       </vui-item>
       <vui-item label="Min Core Pressure:">{{ state['output'].pressure }} kPa</vui-item>
       <vui-item label="Command:">

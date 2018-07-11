@@ -5,7 +5,7 @@
       <vui-item :balance="0.65" label="Input:">
         <span v-if="state['input'].power">Injecting</span>
         <span v-else>On Hold</span>&nbsp;
-        <vui-button :params="{ in_toggle_injector: 1 }" icon="power_settings_new">Toggle Power</vui-button>
+        <vui-button :params="{ in_toggle_injector: 1 }" icon="power-off">Toggle Power</vui-button>
       </vui-item>
       <vui-item :balance="0.65" label="Flow Rate Limit:">{{ state['input'].rate }} L/s</vui-item>
       <vui-item :balance="0.65" label="Command:">
@@ -20,11 +20,11 @@
       </vui-item>
     </div>
     <vui-button v-else :params="{ in_refresh_status: 1 }">Search for input port</vui-button>
-    <div  style="margin-top: 2em;" v-if="state['output']">
+    <div style="margin-top: 2em;" v-if="state['output']">
       <vui-item :balance="0.65" label="Output:">
         <span v-if="state['output'].power">Open</span>
         <span v-else>On Hold</span>&nbsp;
-        <vui-button :params="{ out_toggle_power: 1 }" icon="power_settings_new">Toggle Power</vui-button>
+        <vui-button :params="{ out_toggle_power: 1 }" icon="power-off">Toggle Power</vui-button>
       </vui-item>
       <vui-item :balance="0.65" label="Max Output Pressure:">{{ state['output'].pressure }} kPa</vui-item>
       <vui-item :balance="0.65" label="Command:">
