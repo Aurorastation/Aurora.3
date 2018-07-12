@@ -438,7 +438,9 @@
 		/obj/item/seeds/towermycelium = 3,
 		/obj/item/seeds/watermelonseed = 3,
 		/obj/item/seeds/wheatseed = 3,
-		/obj/item/seeds/whitebeetseed = 3
+		/obj/item/seeds/whitebeetseed = 3,
+		/obj/item/seeds/earthenroot = 2,
+		/obj/item/seeds/nifberries = 2
 	)
 	contraband = list(
 		/obj/item/seeds/amanitamycelium = 3,
@@ -486,7 +488,9 @@
 		/obj/item/seeds/towermycelium = 20,
 		/obj/item/seeds/watermelonseed = 30,
 		/obj/item/seeds/wheatseed = 20,
-		/obj/item/seeds/whitebeetseed = 20
+		/obj/item/seeds/whitebeetseed = 20,
+		/obj/item/seeds/earthenroot = 70,
+		/obj/item/seeds/nifberries = 70
 	)
 	restock_items = 1
 
