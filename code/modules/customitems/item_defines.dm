@@ -2314,6 +2314,7 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 	w_class = 4
 	can_hold = list(/obj/item/weapon/holder/cat)
 	storage_slots = 4
+	max_storage_space = 16
 	var/used = FALSE
 
 /obj/item/weapon/storage/fluff/sovno_carrier/open(mob/user as mob)
