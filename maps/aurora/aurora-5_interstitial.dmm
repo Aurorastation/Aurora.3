@@ -6840,7 +6840,7 @@
 /obj/machinery/door/airlock/maintenance{
 	name = "Bar Maintenance";
 	req_access = null;
-	req_one_access = list(12,28)
+	req_one_access = list(12,25)
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -6854,7 +6854,7 @@
 /obj/machinery/door/airlock/maintenance{
 	name = "Bar Maintenance";
 	req_access = null;
-	req_one_access = list(12,28)
+	req_one_access = list(12,25)
 	},
 /obj/structure/cable{
 	d1 = 1;

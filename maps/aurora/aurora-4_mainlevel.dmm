@@ -4849,11 +4849,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/door/airlock/maintenance{
-	name = "Theatre";
-	req_access = null;
-	req_one_access = list(12,25)
-	},
+/obj/structure/curtain/black,
 /turf/simulated/floor/wood,
 /area/crew_quarters/theatre)
 "ajP" = (
@@ -6734,7 +6730,7 @@
 	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Kitchen Maintenance";
-	req_access = list();
+	req_access = null;
 	req_one_access = list(12,28)
 	},
 /obj/machinery/door/firedoor,
@@ -42606,8 +42602,11 @@
 /turf/simulated/floor/holofloor/reinforced,
 /area/holodeck/alphadeck)
 "buL" = (
-/obj/machinery/door/airlock/maintenance,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
+	req_access = list(12)
+	},
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
 "buM" = (
@@ -48565,8 +48564,11 @@
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
 "bEz" = (
-/obj/machinery/door/airlock/maintenance,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
+	req_access = list(12)
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "bEA" = (
@@ -65054,14 +65056,6 @@
 	pixel_x = 0
 	},
 /turf/simulated/floor/wood,
-/area/crew_quarters/bar)
-"cCy" = (
-/obj/structure/device/piano,
-/turf/simulated/floor/carpet,
-/area/crew_quarters/bar)
-"cCz" = (
-/obj/item/weapon/stool/padded,
-/turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "cCD" = (
 /obj/structure/noticeboard{
@@ -97921,7 +97915,7 @@ bVa
 cBL
 cCd
 cDH
-cCy
+cDH
 cDH
 cDH
 cDi
@@ -98178,7 +98172,7 @@ cBF
 cBM
 cCe
 aQj
-cCz
+cDH
 aQj
 cCZ
 cDj

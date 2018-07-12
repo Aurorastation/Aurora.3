@@ -27011,10 +27011,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
-"VF" = (
-/obj/item/weapon/material/twohanded/spear/steel,
-/turf/simulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
 "VG" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	id_tag = "crusher";
@@ -27023,13 +27019,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
-"VH" = (
-/mob/living/simple_animal/hostile/carp{
-	dir = 4;
-	stat = 1
-	},
-/turf/simulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
 "VI" = (
 /obj/structure/sign/securearea{
 	name = "\improper CAUTION: TRASH COMPACTOR";
@@ -27519,9 +27508,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "WD" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list(47)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
@@ -27530,6 +27516,9 @@
 	d2 = 2;
 	icon_state = "1-2";
 	pixel_y = 0
+	},
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
@@ -54842,7 +54831,7 @@ Iy
 OP
 Kl
 Fc
-VH
+ac
 Vo
 Vo
 Vo
@@ -55099,7 +55088,7 @@ Fc
 Fc
 Fc
 Fc
-VF
+ac
 Vo
 iV
 iV
