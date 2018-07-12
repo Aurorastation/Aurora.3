@@ -2069,7 +2069,7 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 
 /obj/item/weapon/deck/tarot/fluff/klavdiya_cards //Adhomian Divination Cards Deck - Klavdiya Tikhomirov - alberyk
 	name = "adhomian divination cards deck"
-	desc = "An adhomian deck of divination cards, used to read the fortune or play games."
+	desc = "An adhomian deck of divination cards, used to read the one's fortune or play games."
 	icon_state = "deck_adhomai"
 
 /obj/item/weapon/deck/tarot/fluff/klavdiya_cards/generate_deck()
@@ -2292,3 +2292,86 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 /obj/item/fluff/halstere_card/examine(mob/user)
 	if(..(user, 1) && flipped)
 		to_chat(user, "The name 'Halstere, Kalren C.' is stamped on it. An expiration date is listed on it, '2465JAN01'. A pay grade is listed beside the name. 'MAJ/O4'. A number is listed under the expiration date: '14015236810'.")
+
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/fluff/balkerina_robes //Red Armada Robes - Zorrianna Balkerina - queenofyugoslavia
+	name = "red armada robes"
+	desc = "Deep red robes belonging to a Consortium Magister. A curious symbol is displayed on the black tabard down it's front."
+	icon = 'icons/obj/custom_items/balkerina_robes.dmi'
+	icon_state = "balkerina_robes"
+	item_state = "balkerina_robes"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	contained_sprite = TRUE
+
+
+/obj/item/weapon/storage/fluff/sovno_carrier //Reinforced Cat Carrier - Anabelle Sovno - pratepresidenten
+	name = "cat carrier"
+	desc = "It appears to be a reinforced cat carrier. Decals of hearts and kittens are plastered all over its sides."
+	icon = 'icons/obj/custom_items/sovno_carrier.dmi'
+	icon_state = "sovno_carrier"
+	item_state = "sovno_carrier"
+	contained_sprite = TRUE
+	w_class = 4
+	can_hold = list(/obj/item/weapon/holder/cat)
+	storage_slots = 4
+	var/used = FALSE
+
+/obj/item/weapon/storage/fluff/sovno_carrier/open(mob/user as mob)
+	if(!used)
+		deploy_cats(user)
+	else
+		..()
+
+/obj/item/weapon/storage/fluff/sovno_carrier/attack_self(mob/user)
+	if(!used)
+		deploy_cats(user)
+
+/obj/item/weapon/storage/fluff/sovno_carrier/proc/deploy_cats(mob/user as mob)
+	used = TRUE
+	to_chat(user, "<span class='notice'>You open \the [src]'s hatch.</span>")
+	new /mob/living/simple_animal/cat/fluff/jonesy(user.loc)
+	new /mob/living/simple_animal/cat/fluff/kathrine(user.loc)
+	new /mob/living/simple_animal/cat/fluff/fluffles(user.loc)
+	new /mob/living/simple_animal/cat/fluff/faysaljr(user.loc)
+
+/mob/living/simple_animal/cat/fluff/jonesy
+	name = "Jonesy"
+	desc = "An orange tabby cat. He has a purple silk neckerchief."
+	icon = 'icons/obj/custom_items/sovno_carrier.dmi'
+	icon_state = "jonesy"
+	item_state = "jonesy"
+	icon_living = "jonesy"
+	icon_dead = "jonesy_dead"
+	icon_rest = "jonesy_rest"
+
+/mob/living/simple_animal/cat/fluff/kathrine
+	name = "Kathrine"
+	desc = "She has an elegant, shiny black coat of fur. Around her neck sits a dark pink collar with a golden bell attached to it."
+	gender = FEMALE
+	icon = 'icons/obj/custom_items/sovno_carrier.dmi'
+	icon_state = "kathrine"
+	item_state = "kathrine"
+	icon_living = "kathrine"
+	icon_dead = "kathrine_dead"
+	icon_rest = "kathrine_rest"
+
+/mob/living/simple_animal/cat/fluff/fluffles
+	name = "Fluffles"
+	desc = "A somewhat sickly looking cat. Her fur is white with black patches. A black collar sits around her neck, a golden heart with the word \"Fluffles\" attached to it."
+	gender = FEMALE
+	icon = 'icons/obj/custom_items/sovno_carrier.dmi'
+	icon_state = "fluffles"
+	item_state = "fluffles"
+	icon_living = "fluffles"
+	icon_dead = "fluffles_dead"
+	icon_rest = "fluffles_rest"
+
+/mob/living/simple_animal/cat/fluff/faysaljr
+	name = "Faysal Jr"
+	desc = "A black and white tabby kitten. His coat is very fluffy and his tail stained completely black. A silver collar with a red gem rests around his neck."
+	icon = 'icons/obj/custom_items/sovno_carrier.dmi'
+	icon_state = "faysaljr"
+	item_state = "faysaljr"
+	icon_living = "faysaljr"
+	icon_dead = "faysaljr_dead"
+	can_nap = 0
