@@ -29,6 +29,7 @@
 
 	if(T.head && (T.head.item_flags & AIRTIGHT))
 		to_chat(src, "<span class='warning'>[T]'s headgear is blocking the way to the neck.</span>")
+		return
 
 	if (vampire.status & VAMP_DRAINING)
 		to_chat(src, "<span class='warning'>Your fangs are already sunk into a victim's neck!</span>")
