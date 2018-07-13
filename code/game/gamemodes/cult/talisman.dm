@@ -4,7 +4,7 @@
 	var/uses = 0
 	info = "<center><img src='talisman.png'></center><br/><br/>"
 
-/obj/item/weapon/paper/talisman/attack_self(mob/living/user as mob)
+/obj/item/weapon/paper/talisman/attack_self(var/mob/living/user)
 	if(iscultist(user))
 		var/delete = 1
 		// who the hell thought this was a good idea :(
@@ -33,9 +33,9 @@
 				return
 			if("supply")
 				supply()
-		user.take_organ_damage(5, 0)
-		if(src && src.imbue!="supply" && src.imbue!="runestun")
-			if(delete)
+		if(ishuman(user))
+			user.rune_apply_damage(10, 15)
+			if (src && src.imbue != "supply" && src.imbue != "runestun" && delete)
 				qdel(src)
 		return
 	else

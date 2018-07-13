@@ -177,6 +177,58 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 /obj/effect/rune/proc/check_icon()
 	icon = get_uristrune_cult(word1, word2, word3)
 
+/obj/item/weapon/book/tome/Initialize()
+	. = ..()
+	ritualknife = new /obj/item/weapon/melee/cultblade/cultknife(src)
+
+/obj/item/weapon/book/tome/verb/verb_manifest_knife()
+	set category = "Object"
+	set name = "Manifest"
+	set src in usr
+	manifest_knife(usr)
+
+/obj/item/weapon/book/tome/proc/manifest_knife(mob/living/carbon/human/user)
+	if(!iscultist(user))
+		user << "<span class='notice'>You don't know what this is.</span>"
+		return
+	if (!ritualknife)
+		user << "<span class='notice'>\The [src] does not have a ritual dagger in it.</span>"
+		return
+
+	switch (use_check(user, USE_DISALLOW_SILICONS, show_messages = FALSE))
+		if (USE_FAIL_NON_ADJACENT)
+			user << "<span class='notice'>You are too far away from [src].</span>"
+
+		if (USE_FAIL_DEAD,USE_FAIL_INCAPACITATED)
+			user << "<span class='notice'>You cannot do this in your current state.</span>"
+
+		if (USE_SUCCESS)
+			if (loc == user && !user.get_active_hand())
+				user << "<span class='notice'>You conjure the the ritual dagger from \the [src].</span>"
+				user.put_in_hands(ritualknife)
+				ritualknife = null
+			else
+				user << "<span class='notice'>You conjure the ritual dagger from \the [src], dropping it on the ground.</span>"
+				ritualknife.forceMove(get_turf(src))
+				ritualknife = null
+
+/obj/item/weapon/book/tome/attackby(obj/item/C as obj, mob/user)
+	if(!istype(C, /obj/item/weapon/melee/cultblade/cultknife))
+		return
+	if(!iscultist(user))
+		user << "<span class='notice'>You try to stab the \the [src] with \the [C], but an invisible force prevents you from bringing the blade close enough.</span>"
+	else	
+		if(istype(C, /obj/item/weapon/melee/cultblade/cultknife))
+			if(ritualknife)
+				user << "<span class='notice'>There is already a ritual knife in \the [src].</span>"
+			else
+				user.drop_item()
+				C.forceMove(src)
+				ritualknife = C
+				user << "<span class='notice'>You convert \the [C] into a sigil of blood and hide it safely within the \the [src].</span>"
+		return
+	return
+
 /obj/item/weapon/book/tome
 	name = "arcane tome"
 	icon = 'icons/obj/weapons.dmi'
@@ -187,6 +239,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 	unique = 1
 	var/tomedat = ""
 	var/list/words = list("ire" = "ire", "ego" = "ego", "nahlizet" = "nahlizet", "certum" = "certum", "veri" = "veri", "jatkaa" = "jatkaa", "balaq" = "balaq", "mgar" = "mgar", "karazet" = "karazet", "geeri" = "geeri")
+	var/obj/item/weapon/melee/cultblade/cultknife/ritualknife
 
 	tomedat = {"<html>
 				<head>
@@ -201,7 +254,10 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 				<body>
 				<h1>The scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood.</h1>
 
-				<i>The book is written in an unknown dialect, there are lots of pictures of various complex geometric shapes. You find some notes in english that give you basic understanding of the many runes written in the book. The notes give you an understanding what the words for the runes should be. However, you do not know how to write all these words in this dialect.</i><br>
+				<i>The book is written in an unknown dialect, there are lots of pictures of various complex geometric shapes. You find some notes in english that give you basic understanding of the many runes written in the book. The notes give you an understanding what the words for the runes should be.</i><br>
+				<i>Within this tome there is a ritual dagger, concealed safely within a rune of blood. You may conjure it as you wish to aid you in your journey.</i><br><br>
+				<i>There is a scribbled note below this that says, "Before you may call upon the Geometer, you must bond your blood with him in a ritual wound in of your arms, or should you have no flesh left in your arms, a direct bond to your heart can suffice. Take care that you are prepared to treat this wound, or risk discovery by the uninitiated."</i><br>
+
 				<i>Below is the summary of the runes.</i> <br>
 
 				<h2>Contents</h2>
@@ -320,8 +376,43 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 		O.show_message("<span class='warning'>\The [user] beats \the [M] with \the [src]!</span>", 1)
 	M << "<span class='danger'>You feel searing heat inside!</span>"
 
+/mob/living/carbon/human/proc/tree_bond()
+	visible_message(
+		"<span class='danger'>\The [src] shudders and creaks, chanting as its nymphs cracking open and leak sap everywhere!</span>",
+		"<span class='danger'>You have no blood to offer the Geometer, so you offer up your very biomass as fuel for his powers. Agony wracks across all parts of you, and you can feel your nymphs cracking open as parts of them are taken away to fuel the bond.</span>",
+		"You hear creaking and snapping."
+	)
+	if(do_after(src, 50))
+		apply_damage(30)
+		global.cult.cultbonds[SOFTREF(src)] = TRUE
+		diona_rune(user)
 
-/obj/item/weapon/book/tome/attack_self(mob/living/user as mob)
+/mob/living/carbon/human/proc/cut_self(obj/item/organ/external/target)
+	visible_message(
+		"<span class='danger'>\The [src] slices open their [target.name]!</span>",
+		"<span class='danger'>You ritualistically slice open your [target.name], creating a metaphysical bond between your blood and Nar'sie.</span>",
+		"You hear the soft slicing of a knife across flesh."
+	)
+	if(do_after(src, 50))
+		target.take_damage(15)
+		global.cult.cultbonds[SOFTREF(src)] = TRUE
+		craft_rune(target)
+
+/mob/living/carbon/human/proc/diona_rune()
+	visible_message("<span class='warning'>\The [src] slices open a limb and begins to chant slowly and draw symbols on the floor, their sap turning to blood...</span>",
+	"<span class='warning'>You break open one of your nymphs and begin drawing a rune on the floor with the sap whilst chanting the ritual that turns the sap to blood and binds your essence into it. You can feel the darkness clawing into your being...</span>",
+	"<span class='warning'>You hear chanting and creaking.</span>"
+	)
+	src.take_overall_damage(15)
+
+/mob/living/carbon/human/proc/craft_rune(obj/item/organ/external/target)
+	visible_message("<span class='danger'>\The [src] puts a palm to their [target] and chants, drawing forth a gush of blood that splatters onto the floor, where writhes and shifts!</span>",
+	"<span class='warning'>You draw blood out through your the ritual wound in your [target], spilling it across the floor as you chant the ritual that slowly forms your blood into a rune...</span>",
+	"<span class='danger'>You hear chanting and a splattering sound.</span>"
+	)
+	src.vessel.remove_reagent("blood", 10)
+
+/obj/item/weapon/book/tome/attack_self(var/mob/living/carbon/human/user)
 
 	if(!user.canmove || user.stat || user.restrained())
 		return
@@ -410,11 +501,37 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 
 		if(user.get_active_hand() != src)
 			return
+		
+		if(user.is_diona())
+			if (!global.cult.cultbonds[SOFTREF(user)])
+				user.tree_bond(user)
+			else
+				user.diona_rune(user)
+		
+		else
+			var/found_limb = FALSE
+			for (var/organ_tag in list("l_hand", "l_arm", "r_hand", "r_arm"))
+				var/obj/item/organ/external/O = user.organs_by_name[organ_tag]
+				if (!QDELETED(O) && !O.is_stump() && !(O.status & (ORGAN_ROBOT|ORGAN_ADV_ROBOT)))
+					if (!global.cult.cultbonds[SOFTREF(O)])
+						user.cut_self(O)
+					else
+						user.craft_rune(O)
+					found_limb = TRUE
+					break
 
-		for (var/mob/V in viewers(src))
-			V.show_message("<span class='danger'>\The [user] slices open a finger and begins to chant and paint symbols on the floor.</span>", 3, "<span class='danger'>You hear chanting.</span>", 2)
-		user << "<span class='danger'>You slice open one of your fingers and begin drawing a rune on the floor whilst chanting the ritual that binds your life essence with the dark arcane energies flowing through the surrounding world.</span>"
-		user.take_overall_damage((rand(9)+1)/10) // 0.1 to 1.0 damage
+			if (!found_limb)
+				var/obj/item/organ/external/O = user.organs_by_name["chest"]
+				user.visible_message("<span class='danger'>\The [src] plunges a knife into their [O.name]!</span>",
+				"<span class='warning'>You sink your blade deep into your [O.name], creating a metaphysical link between your heart and the Geometer. It hurts quite a lot, and for the next few moments you feel nothing but agony as you regret every decision in your life that lead to you losing your arms.</span>",
+				"You hear a soft squelch."
+				)
+				if(do_after(user, 50))
+					O.take_damage(20)
+					global.cult.cultbonds[SOFTREF(O)] = TRUE
+					user.make_dizzy(120)
+					user.craft_rune(O)
+
 		if(do_after(user, 50))
 			var/area/A = get_area(user)
 			log_and_message_admins("created \an [chosen_rune] rune at \the [A.name] - [user.loc.x]-[user.loc.y]-[user.loc.z].")
@@ -436,11 +553,13 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 		return
 
 /obj/item/weapon/book/tome/examine(mob/user)
-	..(user)
-	if(!iscultist(user))
-		desc = "An old, dusty tome with frayed edges and a sinister looking cover."
+	. = ..(user, 2)
+	if (iscultist(user))
+		to_chat(user, "The scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood. Contains the details of every ritual his followers could think of.")
+		if (. && ritualknife)
+			to_chat(user, "<span class='notice'>There is \a [ritualknife] concealed in the pages.</span>")
 	else
-		desc = "The scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood. Contains the details of every ritual his followers could think of. Most of these are useless, though."
+		to_chat(user, "An old, dusty tome with frayed edges and a sinister looking cover.")
 
 /obj/item/weapon/book/tome/cultify()
 	return
