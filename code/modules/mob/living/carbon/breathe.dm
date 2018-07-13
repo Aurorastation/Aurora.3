@@ -11,7 +11,7 @@
 		return 0
 
 	if(!bypass_mask)
-		if(BLOCK_GAS_SMOKE_EFFECT) //Check if the gasmask blocks an effect
+		if(wear_mask && wear_mask.item_flags & BLOCK_GAS_SMOKE_EFFECT) //Check if the gasmask blocks an effect
 			return 0
 		if (internals && internals.icon_state == "internal1") //Check for internals
 			return 0
