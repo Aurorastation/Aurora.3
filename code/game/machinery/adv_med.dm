@@ -107,10 +107,10 @@
 
 	if(istype(G, /obj/item/weapon/grab))
 
-		var/mob/living/L = G:affecting
-		visible_message("[user] starts putting [G:affecting] into the scanner bed.", 3)
+		var/mob/living/L = G.affecting
+		visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>")
 
-		if (do_mob(user, G:affecting, 30, needhand = 0))
+		if (do_mob(user, G.affecting, 30, needhand = 0))
 			var/bucklestatus = L.bucklecheck(user)
 			if (!bucklestatus)//incase the patient got buckled during the delay
 				return
@@ -153,9 +153,9 @@
 		return
 
 	if(L == user)
-		visible_message("[user] starts climbing into the scanner bed.", 3)
+		visible_message("<span class='notice'>[user] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>")
 	else
-		visible_message("[user] starts putting [L.name] into the scanner bed.", 3)
+		visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>")
 
 	if (do_mob(user, L, 30, needhand = 0))
 		if (bucklestatus == 2)

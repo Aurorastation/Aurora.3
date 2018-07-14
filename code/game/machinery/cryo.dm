@@ -182,25 +182,25 @@
 		user.visible_message("[user] adds \a [G] to \the [src]!", "You add \a [G] to \the [src]!")
 	else if(istype(G, /obj/item/weapon/grab))
 
-		var/mob/living/L = G:affecting
-		visible_message("[user] starts putting [G:affecting] into the cryopod.", 3)
+		var/mob/living/L = G.affecting
+		visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>")
 
-		if (do_mob(user, G:affecting, 30, needhand = 0))
+		if (do_mob(user, G.affecting, 30, needhand = 0))
 			var/bucklestatus = L.bucklecheck(user)
 			if (!bucklestatus)//incase the patient got buckled during the delay
 				return
 			if (bucklestatus == 2)
 				var/obj/structure/LB = L.buckled
 				LB.user_unbuckle_mob(user)
-			if(!ismob(G:affecting))
+			if(!ismob(G.affecting))
 				return
-			for(var/mob/living/carbon/slime/M in range(1,G:affecting))
-				if(M.Victim == G:affecting)
-					usr << "[G:affecting:name] will not fit into the cryo because they have a slime latched onto their head."
+			for(var/mob/living/carbon/slime/M in range(1,G.affecting))
+				if(M.Victim == G.affecting)
+					user << "[G.affecting.name] will not fit into the cryo because they have a slime latched onto their head."
 					return
-			var/mob/M = G:affecting
+			var/mob/M = G.affecting
 			if(put_mob(M))
-				visible_message("[user] puts [M.name] into the cryo cell.", 3)
+				visible_message("<span class='notice'>[user] puts [M] into [src].</span>", "<span class='notice'>You put [M] into [src].</span>")
 				qdel(G)
 	return
 
@@ -221,18 +221,18 @@
 		return
 
 	if(L == user)
-		visible_message("[user] starts climbing into the cryopod.", 3)
+		visible_message("<span class='notice'>[user] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>")
 	else
-		visible_message("[user] starts putting [L.name] into the cryopod.", 3)
+		visible_message("<span class='notice'>[user] starts putting [L] into the cryopod.</span>", "<span class='notice'>You start putting [L] into [src].</span>")
 	if (do_mob(user, L, 30, needhand = 0))
 		if (bucklestatus == 2)
 			var/obj/structure/LB = L.buckled
 			LB.user_unbuckle_mob(user)
 		if(put_mob(L))
 			if(L == user)
-				visible_message("[user] climbs into the cryo cell.", 3)
+				visible_message("<span class='notice'>[user] climbs into [src].</span>", "<span class='notice'>You climb into [src].</span>")
 			else
-				visible_message("[user] puts [L.name] into the cryo cell.", 3)
+				visible_message("<span class='notice'>[user] puts [L] into [src].</span>", "<span class='notice'>You put [L] into [src].</span>")
 				if(user.pulling == L)
 					user.pulling = null
 
@@ -395,7 +395,7 @@
 			return
 	if (usr.stat != 0)
 		return
-	visible_message("[usr] climbs into the cryo cell.", 3)
+	visible_message("<span class='notice'>[usr] climbs into [src].</span>", "<span class='notice'>You climb into [src].</span>")
 	put_mob(usr)
 	return
 
