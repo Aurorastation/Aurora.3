@@ -183,7 +183,7 @@
 	else if(istype(G, /obj/item/weapon/grab))
 
 		var/mob/living/L = G.affecting
-		visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>")
+		user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", 3)
 
 		if (do_mob(user, G.affecting, 30, needhand = 0))
 			var/bucklestatus = L.bucklecheck(user)
@@ -200,7 +200,7 @@
 					return
 			var/mob/M = G.affecting
 			if(put_mob(M))
-				visible_message("<span class='notice'>[user] puts [M] into [src].</span>", "<span class='notice'>You put [M] into [src].</span>")
+				user.visible_message("<span class='notice'>[user] puts [M] into [src].</span>", "<span class='notice'>You put [M] into [src].</span>", 3)
 				qdel(G)
 	return
 
@@ -221,18 +221,18 @@
 		return
 
 	if(L == user)
-		visible_message("<span class='notice'>[user] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>")
+		user.visible_message("<span class='notice'>[user] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", 3)
 	else
-		visible_message("<span class='notice'>[user] starts putting [L] into the cryopod.</span>", "<span class='notice'>You start putting [L] into [src].</span>")
+		user.visible_message("<span class='notice'>[user] starts putting [L] into the cryopod.</span>", "<span class='notice'>You start putting [L] into [src].</span>", 3)
 	if (do_mob(user, L, 30, needhand = 0))
 		if (bucklestatus == 2)
 			var/obj/structure/LB = L.buckled
 			LB.user_unbuckle_mob(user)
 		if(put_mob(L))
 			if(L == user)
-				visible_message("<span class='notice'>[user] climbs into [src].</span>", "<span class='notice'>You climb into [src].</span>")
+				user.visible_message("<span class='notice'>[user] climbs into [src].</span>", "<span class='notice'>You climb into [src].</span>", 3)
 			else
-				visible_message("<span class='notice'>[user] puts [L] into [src].</span>", "<span class='notice'>You put [L] into [src].</span>")
+				user.visible_message("<span class='notice'>[user] puts [L] into [src].</span>", "<span class='notice'>You put [L] into [src].</span>", 3)
 				if(user.pulling == L)
 					user.pulling = null
 
@@ -395,7 +395,7 @@
 			return
 	if (usr.stat != 0)
 		return
-	visible_message("<span class='notice'>[usr] climbs into [src].</span>", "<span class='notice'>You climb into [src].</span>")
+	usr.visible_message("<span class='notice'>[usr] climbs into [src].</span>", "<span class='notice'>You climb into [src].</span>", 3)
 	put_mob(usr)
 	return
 

@@ -109,7 +109,7 @@
 			user << "<span class='notice'>\The [I] is no longer in storage.</span>"
 			return
 
-		visible_message("<span class='notice'>The console beeps happily as it disgorges \the [I].</span>")
+		visible_message("<span class='notice'>The console beeps happily as it disgorges \the [I].</span>", range = 3)
 
 		I.forceMove(get_turf(src))
 		frozen_items -= I
@@ -121,7 +121,7 @@
 			user << "<span class='notice'>There is nothing to recover from storage.</span>"
 			return
 
-		visible_message("<span class='notice'>The console beeps happily as it disgorges the desired objects.</span>")
+		visible_message("<span class='notice'>The console beeps happily as it disgorges the desired objects.</span>", range = 3)
 
 		for(var/obj/item/I in frozen_items)
 			I.forceMove(get_turf(src))
@@ -354,7 +354,7 @@
 
 		if(willing)
 
-			visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>")
+			user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", 3)
 
 			if(do_after(user, 20))
 				if(!M || !G || !G.affecting) return
@@ -410,9 +410,9 @@
 
 	if(willing)
 		if(L == user)
-			visible_message("<span class='notice'>[user] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>")
+			user.visible_message("<span class='notice'>[user] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", 3)
 		else
-			visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>")
+			user.visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>", 3)
 
 		if(do_after(user, 20))
 			if(!L) return
@@ -483,7 +483,7 @@
 			usr << "You're too busy getting your life sucked out of you."
 			return
 
-	visible_message("<span class='notice'>[usr] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>")
+	usr.visible_message("<span class='notice'>[usr] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", 3)
 
 	if(do_after(usr, 20))
 
