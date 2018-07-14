@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed an oversight that allowed the detonation of emmaged cyborgs using the robotics console."
-  - rscadd: "Vaurca should now spawn with proper survival gear."

@@ -1,6 +1,0 @@
-author: PoZe
-
-delete-after: True
-
-changes:
-  - bugfix: "Branded IPC frames can now wear wizard and mercs void suits"
