@@ -37,7 +37,7 @@
 			user << "<span class='danger'>You cannot inject a robotic limb.</span>"
 			return
 
-		user.visible_message("<span class='warning'>[user] is trying to inject [target] with [src]!</span>","<span class='notice'>You are trying to inject [M] with [src].</span>")
+		user.visible_message("<span class='warning'>[user] is trying to inject [M] with [src]!</span>","<span class='notice'>You are trying to inject [M] with [src].</span>")
 		if(H.run_armor_check(target_zone,"melee",0,"Your armor slows down the injection!","Your armor slows down the injection!"))
 			if(!do_mob(user, M, 60))
 				return
