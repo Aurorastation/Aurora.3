@@ -1572,31 +1572,31 @@
 
 /mob/living/carbon/human/proc/get_traumas()
 	. = list()
-	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
-	if(B && species && species.has_organ["brain"] && !isipc(src))
+	var/obj/item/organ/B = internal_organs_by_name["brain"]
+	if(B && species && species.has_organ["brain"])
 		. = B.traumas
 
 /mob/living/carbon/human/proc/has_trauma_type(brain_trauma_type, consider_permanent = FALSE)
-	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
-	if(B && species && species.has_organ["brain"] && !isipc(src))
+	var/obj/item/organ/B = internal_organs_by_name["brain"]
+	if(B && species && species.has_organ["brain"])
 		. = B.has_trauma_type(brain_trauma_type, consider_permanent)
 
 /mob/living/carbon/human/proc/gain_trauma(datum/brain_trauma/trauma, permanent = FALSE, list/arguments)
-	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
-	if(B && species && species.has_organ["brain"] && !isipc(src))
+	var/obj/item/organ/B = internal_organs_by_name["brain"]
+	if(B && species && species.has_organ["brain"])
 		. = B.gain_trauma(trauma, permanent, arguments)
 
 /mob/living/carbon/human/proc/gain_trauma_type(brain_trauma_type = /datum/brain_trauma, permanent = FALSE)
-	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
-	if(B && species && species.has_organ["brain"] && !isipc(src))
+	var/obj/item/organ/B = internal_organs_by_name["brain"]
+	if(B && species && species.has_organ["brain"])
 		. = B.gain_trauma_type(brain_trauma_type, permanent)
 
 /mob/living/carbon/human/proc/cure_trauma_type(brain_trauma_type, cure_permanent = FALSE)
-	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
-	if(B && species && species.has_organ["brain"] && !isipc(src))
+	var/obj/item/organ/B = internal_organs_by_name["brain"]
+	if(B && species && species.has_organ["brain"])
 		. = B.cure_trauma_type(brain_trauma_type, cure_permanent)
 
-/mob/living/carbon/human/proc/cure_all_traumas(cure_permanent = FALSE, cure_type = "")
-	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
-	if(B && species && species.has_organ["brain"] && !isipc(src))
-		. = B.cure_all_traumas(cure_permanent, cure_type)
+/mob/living/carbon/human/proc/cure_all_traumas(cure_permanent = FALSE)
+	var/obj/item/organ/B = internal_organs_by_name["brain"]
+	if(B && species && species.has_organ["brain"])
+		. = B.cure_all_traumas(cure_permanent)

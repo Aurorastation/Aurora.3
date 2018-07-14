@@ -631,8 +631,8 @@
 	badmessage = list("You start to crave nicotine...")
 	worstmessage = list("You need your nicotine fix!")
 	suppress_traumas  = list(
-		/datum/brain_trauma/mild/phobia = 0.1,
-		/datum/brain_trauma/mild/muscle_weakness/ = 0.05
+		/datum/brain_trauma/organic/mild/phobia = 0.1,
+		/datum/brain_trauma/organic/mild/muscle_weakness/ = 0.05
 	)
 	conflicting_reagent = null
 	min_dose = 0.0064 * REM
@@ -661,15 +661,15 @@
 	worstmessage = list("You feel completely distrtacted...","You feel like you don't want to work...","You think you see things...")
 	suppress_traumas  = list(
 		/datum/brain_trauma/special/imaginary_friend = 20,
-		/datum/brain_trauma/mild/hallucinations = 10,
-		/datum/brain_trauma/mild/phobia/ = 10
+		/datum/brain_trauma/organic/mild/hallucinations = 10,
+		/datum/brain_trauma/organic/mild/phobia/ = 10
 	)
 	dosage_traumas = list(
-		/datum/brain_trauma/mild/hallucinations = 5
+		/datum/brain_trauma/organic/mild/hallucinations = 5
 	)
 	withdrawal_traumas = list(
-		/datum/brain_trauma/mild/phobia/ = 5,
-		/datum/brain_trauma/mild/hallucinations = 2
+		/datum/brain_trauma/organic/mild/phobia/ = 5,
+		/datum/brain_trauma/organic/mild/hallucinations = 2
 	)
 
 /datum/reagent/mental/fluvoxamine
@@ -685,17 +685,17 @@
 	badmessage = list("You feel a little blue.","You feel slight agitation...","You feel a little nervous...")
 	worstmessage = list("You worry about the littlest thing...","You feel like you are at risk...","You think you see things...")
 	suppress_traumas  = list(
-		/datum/brain_trauma/mild/phobia/ = 2,
-		/datum/brain_trauma/severe/split_personality = 10,
+		/datum/brain_trauma/organic/mild/phobia/ = 2,
+		/datum/brain_trauma/organic/severe/split_personality = 10,
 		/datum/brain_trauma/special/imaginary_friend = 20,
-		/datum/brain_trauma/mild/muscle_weakness = 10
+		/datum/brain_trauma/organic/mild/muscle_weakness = 10
 	)
 	dosage_traumas = list(
-		/datum/brain_trauma/mild/hallucinations = 5
+		/datum/brain_trauma/organic/mild/hallucinations = 5
 	)
 	withdrawal_traumas = list(
-		/datum/brain_trauma/mild/phobia/ = 5,
-		/datum/brain_trauma/mild/hallucinations = 2
+		/datum/brain_trauma/organic/mild/phobia/ = 5,
+		/datum/brain_trauma/organic/mild/hallucinations = 2
 	)
 
 /datum/reagent/mental/sertraline
@@ -711,14 +711,14 @@
 	badmessage = list("You feel a little blue.","You feel slight agitation...","You feel a little nervous...")
 	worstmessage = list("You worry about the littlest thing...","You feel like you are at risk...","You think you see things...")
 	suppress_traumas  = list(
-		/datum/brain_trauma/mild/phobia/ = 2
+		/datum/brain_trauma/organic/mild/phobia/ = 2
 	)
 	dosage_traumas = list(
-		/datum/brain_trauma/mild/hallucinations = 5
+		/datum/brain_trauma/organic/mild/hallucinations = 5
 	)
 	withdrawal_traumas = list(
-		/datum/brain_trauma/mild/phobia/ = 10,
-		/datum/brain_trauma/mild/hallucinations = 5
+		/datum/brain_trauma/organic/mild/phobia/ = 10,
+		/datum/brain_trauma/organic/mild/hallucinations = 5
 	)
 	suppressing_reagents = list(/datum/reagent/mental/fluvoxamine = 5)
 
@@ -735,15 +735,15 @@
 	badmessage = list("You feel worried.","You feel slight agitation.","You feel nervous.")
 	worstmessage = list("You worry about the littlest thing...","You feel like you are at risk...","You think you see things...")
 	suppress_traumas  = list(
-		/datum/brain_trauma/mild/phobia/ = 1,
-		/datum/brain_trauma/severe/monophobia = 5
+		/datum/brain_trauma/organic/mild/phobia/ = 1,
+		/datum/brain_trauma/organic/severe/monophobia = 5
 	)
 	dosage_traumas = list(
-		/datum/brain_trauma/mild/hallucinations = 5
+		/datum/brain_trauma/organic/mild/hallucinations = 5
 	)
 	withdrawal_traumas = list(
-		/datum/brain_trauma/mild/phobia/ = 10,
-		/datum/brain_trauma/mild/hallucinations = 10
+		/datum/brain_trauma/organic/mild/phobia/ = 10,
+		/datum/brain_trauma/organic/mild/hallucinations = 10
 	)
 	suppressing_reagents = list(
 		/datum/reagent/mental/fluvoxamine = 5,
@@ -764,14 +764,14 @@
 	worstmessage = list("You start to overreact to sounds and movement...","Your hear dangerous thoughts in your head...","You are really starting to see things...")
 	messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY * 0.75
 	suppress_traumas  = list(
-		/datum/brain_trauma/mild/phobia/ = 5
+		/datum/brain_trauma/organic/mild/phobia/ = 5
 	)
 	dosage_traumas = list(
-		/datum/brain_trauma/mild/hallucinations = 5
+		/datum/brain_trauma/organic/mild/hallucinations = 5
 	)
 	withdrawal_traumas = list(
-		/datum/brain_trauma/mild/phobia/ = 25,
-		/datum/brain_trauma/mild/hallucinations = 50
+		/datum/brain_trauma/organic/mild/phobia/ = 25,
+		/datum/brain_trauma/organic/mild/hallucinations = 50
 	)
 	suppressing_reagents = list(
 		/datum/reagent/mental/escitalopram = 5,
@@ -798,16 +798,16 @@
 	worstmessage = list("You start to overreact to sounds and movement...","Your head feels really weird.","You are really starting to see things...")
 	messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY * 0.75
 	suppress_traumas  = list(
-		/datum/brain_trauma/mild/concussion = 5,
-		/datum/brain_trauma/mild/phobia/ = 5
+		/datum/brain_trauma/organic/mild/concussion = 5,
+		/datum/brain_trauma/organic/mild/phobia/ = 5
 	)
 	dosage_traumas = list(
-		/datum/brain_trauma/mild/hallucinations = 5
+		/datum/brain_trauma/organic/mild/hallucinations = 5
 	)
 	withdrawal_traumas = list(
-		/datum/brain_trauma/mild/phobia/ = 25,
-		/datum/brain_trauma/mild/hallucinations = 25,
-		/datum/brain_trauma/mild/concussion = 10
+		/datum/brain_trauma/organic/mild/phobia/ = 25,
+		/datum/brain_trauma/organic/mild/hallucinations = 25,
+		/datum/brain_trauma/organic/mild/concussion = 10
 	)
 	suppressing_reagents = list(
 		/datum/reagent/mental/paroxetine = 5,
@@ -830,16 +830,16 @@
 	worstmessage = list("You start to overreact to sounds and movement...","You are really starting to see things...")
 	messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY * 0.75
 	suppress_traumas  = list(
-		/datum/brain_trauma/mild/phobia = 5,
-		/datum/brain_trauma/mild/stuttering = 2,
-		/datum/brain_trauma/severe/monophobia = 5
+		/datum/brain_trauma/organic/mild/phobia = 5,
+		/datum/brain_trauma/organic/mild/stuttering = 2,
+		/datum/brain_trauma/organic/severe/monophobia = 5
 	)
 	dosage_traumas = list(
-		/datum/brain_trauma/mild/hallucinations = 10
+		/datum/brain_trauma/organic/mild/hallucinations = 10
 	)
 	withdrawal_traumas = list(
-		/datum/brain_trauma/mild/phobia/ = 25,
-		/datum/brain_trauma/mild/hallucinations = 25
+		/datum/brain_trauma/organic/mild/phobia/ = 25,
+		/datum/brain_trauma/organic/mild/hallucinations = 25
 	)
 	suppressing_reagents = list(
 		/datum/reagent/mental/duloxetine = 5,
@@ -863,24 +863,24 @@
 	worstmessage = list("You think you start seeing things...","You swear someone inside you spoke to you...","You hate feeling alone...","You feel really upset...")
 	messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY * 0.5
 	suppress_traumas  = list(
-		/datum/brain_trauma/severe/split_personality = 5,
+		/datum/brain_trauma/organic/severe/split_personality = 5,
 		/datum/brain_trauma/special/imaginary_friend = 10,
-		/datum/brain_trauma/mild/stuttering = 2,
-		/datum/brain_trauma/mild/speech_impediment = 5,
-		/datum/brain_trauma/severe/monophobia = 5,
-		/datum/brain_trauma/mild/hallucinations = 5,
-		/datum/brain_trauma/mild/muscle_spasms = 10,
-		/datum/brain_trauma/mild/tourettes = 10
+		/datum/brain_trauma/organic/mild/stuttering = 2,
+		/datum/brain_trauma/organic/mild/speech_impediment = 5,
+		/datum/brain_trauma/organic/severe/monophobia = 5,
+		/datum/brain_trauma/organic/mild/hallucinations = 5,
+		/datum/brain_trauma/organic/mild/muscle_spasms = 10,
+		/datum/brain_trauma/organic/mild/tourettes = 10
 	)
 	dosage_traumas = list(
-		/datum/brain_trauma/severe/pacifism = 25
+		/datum/brain_trauma/organic/severe/pacifism = 25
 	)
 	withdrawal_traumas = list(
-		/datum/brain_trauma/mild/hallucinations = 100,
-		/datum/brain_trauma/severe/split_personality = 10,
+		/datum/brain_trauma/organic/mild/hallucinations = 100,
+		/datum/brain_trauma/organic/severe/split_personality = 10,
 		/datum/brain_trauma/special/imaginary_friend = 20,
-		/datum/brain_trauma/mild/tourettes = 50,
-		/datum/brain_trauma/severe/monophobia = 50
+		/datum/brain_trauma/organic/mild/tourettes = 50,
+		/datum/brain_trauma/organic/severe/monophobia = 50
 	)
 	suppressing_reagents = list(
 		/datum/reagent/mental/venlafaxine = 20,
@@ -903,20 +903,20 @@
 	worstmessage = list("You think you start seeing things...","You swear someone inside you spoke to you...")
 	messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY * 0.5
 	suppress_traumas  = list(
-		/datum/brain_trauma/severe/split_personality = 5,
+		/datum/brain_trauma/organic/severe/split_personality = 5,
 		/datum/brain_trauma/special/imaginary_friend = 10,
-		/datum/brain_trauma/mild/stuttering = 1,
-		/datum/brain_trauma/mild/speech_impediment = 2,
-		/datum/brain_trauma/severe/monophobia = 2,
-		/datum/brain_trauma/mild/muscle_spasms = 5,
-		/datum/brain_trauma/mild/tourettes = 10
+		/datum/brain_trauma/organic/mild/stuttering = 1,
+		/datum/brain_trauma/organic/mild/speech_impediment = 2,
+		/datum/brain_trauma/organic/severe/monophobia = 2,
+		/datum/brain_trauma/organic/mild/muscle_spasms = 5,
+		/datum/brain_trauma/organic/mild/tourettes = 10
 	)
 	dosage_traumas = list(
-		/datum/brain_trauma/severe/pacifism = 25
+		/datum/brain_trauma/organic/severe/pacifism = 25
 	)
 	withdrawal_traumas = list(
-		/datum/brain_trauma/mild/hallucinations = 200,
-		/datum/brain_trauma/severe/split_personality = 50,
+		/datum/brain_trauma/organic/mild/hallucinations = 200,
+		/datum/brain_trauma/organic/severe/split_personality = 50,
 		/datum/brain_trauma/special/imaginary_friend = 50
 	)
 	suppressing_reagents = list(
@@ -940,10 +940,10 @@
 	badmessage = list()
 	worstmessage = list()
 	suppress_traumas  = list(
-		/datum/brain_trauma/mild/tourettes = 1
+		/datum/brain_trauma/organic/mild/tourettes = 1
 	)
 	dosage_traumas = list(
-		/datum/brain_trauma/severe/pacifism = 25
+		/datum/brain_trauma/organic/severe/pacifism = 25
 	)
 	messagedelay = 30
 	ingest_mul = 0 //Stomach acid will melt the nanobots

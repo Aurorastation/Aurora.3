@@ -4,7 +4,6 @@
 	scan_desc = "partial schizophrenia"
 	gain_text = "<span class='notice'>You feel in good company, for some reason.</span>"
 	lose_text = "<span class='warning'>You feel lonely again.</span>"
-	cure_type = CURE_SOLITUDE
 	var/mob/abstract/mental/friend/friend
 
 /datum/brain_trauma/special/imaginary_friend/on_gain()

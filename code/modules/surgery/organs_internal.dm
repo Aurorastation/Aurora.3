@@ -75,9 +75,6 @@
 					user.visible_message("<span class='notice'>[user] treats damage to [target]'s [I.name] with [tool_name].</span>", \
 					"<span class='notice'>You treat damage to [target]'s [I.name] with [tool_name].</span>" )
 					I.damage = 0
-					var/obj/item/organ/brain/sponge = target.internal_organs_by_name["brain"]
-					if(sponge && istype(I, sponge))
-						target.cure_all_traumas(cure_type = CURE_SURGERY)
 
 	fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 

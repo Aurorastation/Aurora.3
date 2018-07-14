@@ -27,6 +27,8 @@
 
 	var/force_skintone = FALSE		// If true, icon generation will skip is-robotic checks. Used for synthskin limbs.
 
+	var/list/datum/brain_trauma/traumas = list() //because there is 0 consistency in what a mob uses for its brain except its an organ
+
 /obj/item/organ/New(loc, ...)
 	..()
 	if (!initialized && istype(loc, /mob/living/carbon/human/dummy/mannequin))
@@ -389,3 +391,18 @@
 	if(!robotic && user.a_intent == "help" && user.zone_sel.selecting == "mouth")
 		bitten(user)
 		return
+
+/obj/item/organ/proc/has_trauma_type(brain_trauma_type, consider_permanent = FALSE)
+	return
+
+/obj/item/organ/proc/gain_trauma(datum/brain_trauma/trauma, permanent = FALSE, list/arguments)
+	return
+
+/obj/item/organ/proc/gain_trauma_type(brain_trauma_type = /datum/brain_trauma, permanent = FALSE)
+	return
+
+/obj/item/organ/proc/cure_trauma_type(brain_trauma_type, cure_permanent = FALSE)
+	return
+
+/obj/item/organ/proc/cure_all_traumas(cure_permanent = FALSE)
+	return

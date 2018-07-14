@@ -1,122 +1,132 @@
-//Mild traumas are the most common; they are generally minor annoyances.
+//organic/mild traumas are the most common; they are generally minor annoyances.
 //They can be suppressed with escitalopram, but not chemically cured, although brain surgery still works.
 //Most of the old brain damage effects have been transferred to the dumbness trauma.
 
-/datum/brain_trauma/mild
-
-/datum/brain_trauma/mild/hallucinations
+/datum/brain_trauma/organic/mild/hallucinations
 	name = "Hallucinations"
 	desc = "Patient suffers constant hallucinations."
 	scan_desc = "schizophrenia"
 	gain_text = "<span class='warning'>You feel your grip on reality slipping...</span>"
 	lose_text = "<span class='notice'>You feel more grounded.</span>"
-	cure_type = CURE_SOLITUDE
 
-/datum/brain_trauma/mild/hallucinations/on_life()
+
+/datum/brain_trauma/organic/mild/hallucinations/triggered_life()
 	owner.hallucination = min(owner.hallucination + 10, 50)
-	..()
 
-/datum/brain_trauma/mild/hallucinations/on_lose()
+
+/datum/brain_trauma/organic/mild/hallucinations/on_lose()
 	owner.hallucination = 0
-	..()
 
-/datum/brain_trauma/mild/stuttering
+
+/datum/brain_trauma/organic/mild/stuttering
 	name = "Stuttering"
 	desc = "Patient can't speak properly."
 	scan_desc = "reduced mouth coordination"
 	gain_text = "<span class='warning'>Speaking clearly is getting harder.</span>"
 	lose_text = "<span class='notice'>You feel in control of your speech.</span>"
-	cure_type = CURE_CRYSTAL
 
-/datum/brain_trauma/mild/stuttering/on_life()
+
+/datum/brain_trauma/organic/mild/stuttering/triggered_life()
+	..()
 	owner.stuttering = min(owner.stuttering + 5, 25)
-	..()
 
-/datum/brain_trauma/mild/stuttering/on_lose()
+
+/datum/brain_trauma/organic/mild/stuttering/on_lose()
+	..()
 	owner.stuttering = 0
-	..()
 
-/datum/brain_trauma/mild/dumbness
+
+/datum/brain_trauma/organic/mild/dumbness
 	name = "Dumbness"
 	desc = "Patient has reduced brain activity, making them less intelligent."
 	scan_desc = "reduced brain activity"
 	gain_text = "<span class='warning'>You feel dumber.</span>"
 	lose_text = "<span class='notice'>You feel smart again.</span>"
-	cure_type = CURE_CRYSTAL
 
-/datum/brain_trauma/mild/dumbness/on_gain()
-	owner.disabilities |= DUMB
+
+/datum/brain_trauma/organic/mild/dumbness/on_gain()
 	..()
+	owner.disabilities |= DUMB
 
-/datum/brain_trauma/mild/dumbness/on_life()
+
+/datum/brain_trauma/organic/mild/dumbness/triggered_life()
+	..()
 	owner.tarded = min(owner.slurring + 5, 25)
 	if(prob(3))
 		owner.emote("drool")
-	..()
 
-/datum/brain_trauma/mild/dumbness/on_lose()
+
+/datum/brain_trauma/organic/mild/dumbness/on_lose()
+	..()
 	owner.disabilities &= ~DUMB
 	owner.tarded = 0
-	..()
 
-/datum/brain_trauma/mild/speech_impediment
+
+/datum/brain_trauma/organic/mild/speech_impediment
 	name = "Speech Impediment"
 	desc = "Patient is unable to form coherent sentences."
 	scan_desc = "communication disorder"
 	gain_text = "You feel lost for words!"
 	lose_text = "You regain your bearing!"
-	cure_type = CURE_CRYSTAL
 
-/datum/brain_trauma/mild/speech_impediment/on_gain()
+
+/datum/brain_trauma/organic/mild/speech_impediment/on_gain()
+	..()
 	owner.disabilities |= UNINTELLIGIBLE
-	..()
 
-/datum/brain_trauma/mild/speech_impediment/on_lose()
+
+/datum/brain_trauma/organic/mild/speech_impediment/on_lose()
+	..()
 	owner.disabilities &= ~UNINTELLIGIBLE
-	..()
 
-/datum/brain_trauma/mild/tourettes
+
+/datum/brain_trauma/organic/mild/tourettes
 	name = "Tourettes Syndrome"
 	desc = "Patient is compelled to vulgarity."
 	scan_desc = "vulgarity problem"
 	gain_text = "Your mind fills with foul language!"
 	lose_text = "Your mind returns to decency."
-	cure_type = CURE_CRYSTAL
+
 	can_gain = FALSE
 
-/datum/brain_trauma/mild/tourettes/on_gain()
+/datum/brain_trauma/organic/mild/tourettes/on_gain()
+	..()
 	owner.disabilities |= TOURETTES
-	..()
 
-/datum/brain_trauma/mild/tourettes/on_lose()
+
+/datum/brain_trauma/organic/mild/tourettes/on_lose()
+	..()
 	owner.disabilities &= ~TOURETTES
-	..()
 
-/datum/brain_trauma/mild/gertie
+
+/datum/brain_trauma/organic/mild/gertie
 	name = "Gerstmann Syndrome"
 	desc = "Patient displays severe left right disorientation."
 	scan_desc = "left-right disorientation"
 	gain_text = "You wonder to yourself, does three rights really make a left?!"
 	lose_text = "You remember that you can just turn left directly!"
-	cure_type = CURE_HYPNOSIS
 
-/datum/brain_trauma/mild/gertie/on_gain()
+
+/datum/brain_trauma/organic/mild/gertie/on_gain()
+	..()
 	owner.disabilities |= GERTIE
-	..()
 
-/datum/brain_trauma/mild/gertie/on_lose()
+
+/datum/brain_trauma/organic/mild/gertie/on_lose()
+	..()
 	owner.disabilities &= ~GERTIE
-	..()
 
-/datum/brain_trauma/mild/concussion
+
+/datum/brain_trauma/organic/mild/concussion
 	name = "Concussion"
 	desc = "Patient's brain is concussed."
 	scan_desc = "a concussion"
 	gain_text = "<span class='warning'>Your head hurts!</span>"
 	lose_text = "<span class='notice'>The pressure inside your head starts fading.</span>"
-	cure_type = CURE_SURGERY
 
-/datum/brain_trauma/mild/concussion/on_life()
+
+/datum/brain_trauma/organic/mild/concussion/triggered_life()
+	..()
 	if(prob(25))
 		switch(rand(1,11))
 			if(1)
@@ -139,17 +149,18 @@
 				to_chat(owner, "<span class='warning'>You faint.</span>")
 				owner.Sleeping(80)
 
-	..()
 
-/datum/brain_trauma/mild/muscle_weakness
+
+/datum/brain_trauma/organic/mild/muscle_weakness
 	name = "Muscle Weakness"
 	desc = "Patient experiences occasional bouts of muscle weakness."
 	scan_desc = "weak motor nerve signal"
 	gain_text = "<span class='warning'>Your muscles feel oddly faint.</span>"
 	lose_text = "<span class='notice'>You feel in control of your muscles again.</span>"
-	cure_type = CURE_CRYSTAL
 
-/datum/brain_trauma/mild/muscle_weakness/on_life()
+
+/datum/brain_trauma/organic/mild/muscle_weakness/triggered_life()
+	..()
 	var/fall_chance = 5
 	if(owner.m_intent == "run")
 		fall_chance += 15
@@ -167,17 +178,18 @@
 	else if(prob(3))
 		to_chat(owner, "<span class='warning'>You feel a sudden weakness in your muscles!</span>")
 		owner.adjustHalLoss(25)
-	..()
 
-/datum/brain_trauma/mild/muscle_spasms
+
+/datum/brain_trauma/organic/mild/muscle_spasms
 	name = "Muscle Spasms"
 	desc = "Patient has occasional muscle spasms, causing them to move unintentionally."
 	scan_desc = "nervous fits"
 	gain_text = "<span class='warning'>Your muscles feel oddly faint.</span>"
 	lose_text = "<span class='notice'>You feel in control of your muscles again.</span>"
-	cure_type = CURE_CRYSTAL
 
-/datum/brain_trauma/mild/muscle_spasms/on_life()
+
+/datum/brain_trauma/organic/mild/muscle_spasms/triggered_life()
+	..()
 	if(prob(25))
 		switch(rand(1,5))
 			if(1)
@@ -226,32 +238,35 @@
 				if(LAZYLEN(targets) && I)
 					to_chat(owner, "<span class='warning'>Your arm spasms!</span>")
 					owner.throw_item(pick(targets))
-	..()
 
-/datum/brain_trauma/mild/nearsightedness
+
+/datum/brain_trauma/organic/mild/nearsightedness
 	name = "Cerebral Near-Blindness"
 	desc = "Patient's brain is loosely connected to its eyes."
 	scan_desc = "minor damage to the brain's occipital lobe"
 	gain_text = "<span class='warning'>You can barely see!</span>"
 	lose_text = "<span class='notice'>Your vision returns.</span>"
-	cure_type = CURE_SURGERY
 
-/datum/brain_trauma/mild/nearsightedness/on_gain()
-	owner.disabilities |= NEARSIGHTED
+
+/datum/brain_trauma/organic/mild/nearsightedness/on_gain()
 	..()
+	owner.disabilities |= NEARSIGHTED
+
 
 //no fiddling with genetics to get out of this one
-/datum/brain_trauma/mild/nearsightedness/on_life()
+/datum/brain_trauma/organic/mild/nearsightedness/triggered_life()
+	..()
 	if(!(owner.disabilities & NEARSIGHTED))
 		on_gain()
-	..()
 
-/datum/brain_trauma/mild/nearsightedness/on_lose()
+
+/datum/brain_trauma/organic/mild/nearsightedness/on_lose()
+	..()
 	if(owner.disabilities & NEARSIGHTED)
 		owner.disabilities &= ~NEARSIGHTED
-	..()
 
-/datum/brain_trauma/mild/colorblind
+
+/datum/brain_trauma/organic/mild/colorblind
 	name = "Partial Colorblindedness"
 	desc = "Patient's brain is loosely connected to ocular cones."
 	scan_desc = "minor damage to the brain's occipital lobe"
@@ -259,8 +274,10 @@
 	lose_text = "<span class='notice'>Your vision returns.</span>"
 	var/colorblindedness
 
-/datum/brain_trauma/mild/colorblind/on_gain()
-	colorblindedness = pick("deuteranopia", "protanopia", "tritanopia")
+/datum/brain_trauma/organic/mild/colorblind/on_gain()
+	..()
+	if(!colorblindedness)
+		colorblindedness = pick("deuteranopia", "protanopia", "tritanopia")
 	switch(colorblindedness)
 		if("deuteranopia")
 			owner.add_client_color(/datum/client_color/deuteranopia)
@@ -268,13 +285,15 @@
 			owner.add_client_color(/datum/client_color/protanopia)
 		if("tritanopia")
 			owner.add_client_color(/datum/client_color/tritanopia)
-	..()
 
-/datum/brain_trauma/mild/colorblind/on_life()
+
+/datum/brain_trauma/organic/mild/colorblind/triggered_life()
+	..()
 	if(owner.client && !owner.client.color)
 		on_gain()
 
-/datum/brain_trauma/mild/colorblind/on_lose()
+/datum/brain_trauma/organic/mild/colorblind/on_lose()
+	..()
 	switch(colorblindedness)
 		if("deuteranopia")
 			owner.remove_client_color(/datum/client_color/deuteranopia)
@@ -282,4 +301,3 @@
 			owner.remove_client_color(/datum/client_color/protanopia)
 		if("tritanopia")
 			owner.remove_client_color(/datum/client_color/tritanopia)
-	..()

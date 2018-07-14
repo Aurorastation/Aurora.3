@@ -1,0 +1,1 @@
+/datum/brain_trauma/robot/mild

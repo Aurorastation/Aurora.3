@@ -6,39 +6,34 @@
 	var/desc = "A trauma caused by brain damage, which causes issues to the patient."
 	var/scan_desc = "a generic brain trauma" //description when detected by a health scanner
 	var/mob/living/carbon/owner //the poor bastard
-	var/obj/item/organ/brain/brain //the poor bastard's brain
+	var/obj/item/organ/brainowner //the poor bastard's brain
 	var/gain_text = "<span class='notice'>You feel traumatized.</span>"
 	var/lose_text = "<span class='notice'>You no longer feel traumatized.</span>"
 	var/can_gain = TRUE //can this be gained through random traumas?
 	var/permanent = FALSE //can this be cured?
 	var/suppressed = 0 //currently being suppressed
-	var/cure_type //type of therapy that cures the trauma
-	//current cures:
-		//hypnosis - cures traumas that alter behavior
-		//solitude - cures traumas that produce hallucination
-		//electroshock - cures traumas that have physical effects
-		//surgery - cures traumas not covered above
+	var/organic = 1
 
-/datum/brain_trauma/New(obj/item/organ/brain/B, _permanent)
-	brain = B
+/datum/brain_trauma/New(obj/item/organ/B, _permanent)
+	brainowner = B
 	owner = B.owner
 	permanent = _permanent
 	if(owner)
 		on_gain()
 
 /datum/brain_trauma/Destroy()
-	brain.traumas -= src
+	brainowner.traumas -= src
 	if(owner)
 		on_lose()
-	brain = null
+		owner.adjustBrainLoss(-1)
+	brainowner = null
 	owner = null
 	return ..()
 
 //Called on life ticks
 /datum/brain_trauma/proc/on_life()
-	if(owner.getBrainLoss() < brain.traumas.len)
-		owner.setBrainLoss(brain.traumas.len)
-	return
+	if(owner.getBrainLoss() < brainowner.traumas.len)
+		owner.setBrainLoss(brainowner.traumas.len)
 
 //Called when given to a mob
 /datum/brain_trauma/proc/on_gain()
@@ -48,7 +43,6 @@
 /datum/brain_trauma/proc/on_lose(silent)
 	if(!silent)
 		to_chat(owner, lose_text)
-	owner.adjustBrainLoss(-1)
 
 //Called when hearing a spoken message
 /datum/brain_trauma/proc/on_hear(message, speaker, message_language, raw_message, radio_freq)

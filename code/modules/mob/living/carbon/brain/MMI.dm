@@ -22,6 +22,7 @@
 	icon_state = "mmi_empty"
 	w_class = 3
 	origin_tech = list(TECH_BIO = 3)
+	var/list/datum/brain_trauma/traumas = list()
 
 	req_access = list(access_robotics)
 
