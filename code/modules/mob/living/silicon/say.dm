@@ -15,9 +15,9 @@
 			message=Gibberish(message,C.max_damage/C.get_damage())
 	else
 		var/damaged = 100-(Clamp(health,0,maxHealth)/maxHealth)*100
-		if(damaged > 30)
+		if(damaged > 40)
 			speech_problem_flag = 1
-			message = Gibberish(message,damaged)
+			message = Gibberish(message,damaged-10)
 
 	var/list/returns[3]
 	returns[1] = message

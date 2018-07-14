@@ -533,9 +533,7 @@ var/global/list/robot_modules = list(
 					"Classic" = "secborg",
 					"Spider" = "spidersec",
 					"Heavy" = "heavysec"
-
 				)
-	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/weapon/robot_module/security/general/New()
 	..()
