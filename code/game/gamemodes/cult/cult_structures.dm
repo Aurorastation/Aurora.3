@@ -435,7 +435,7 @@
 	return ..()
 
 /obj/structure/cult/pylon/bullet_act(var/obj/item/projectile/Proj)
-	attackpylon(user, Proj.damage, Proj)
+	attackpylon(Proj.firer, Proj.damage, Proj)
 
 //Explosions will usually cause instant shattering, or heavy damage
 //Class 3 or lower blast is sometimes survivable. 2 or higher will always shatter

@@ -56,7 +56,7 @@
 	var/list/langs = S.secondary_langs.Copy()
 	for (var/L in all_languages)
 		var/datum/language/lang = all_languages[L]
-		if (!(lang.flags & RESTRICTED) && (!config.usealienwhitelist || is_alien_whitelisted(user, L) || !(lang.flags & WHITELISTED)))
+		if (!(lang.flags & RESTRICTED) && (!config.usealienwhitelist || is_alien_whitelisted(pref.client.mob, L) || !(lang.flags & WHITELISTED)))
 			langs |= L
 
 	var/list/bad_langs = pref.alternate_languages - langs

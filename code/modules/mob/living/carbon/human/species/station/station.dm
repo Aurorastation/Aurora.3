@@ -713,7 +713,10 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	)
 
 /datum/species/bug/equip_survival_gear(var/mob/living/carbon/human/H)
-	..()
+	if(H.backbag == 1)
+		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vaurca(H), slot_r_hand)
+	else
+		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vaurca(H.back), slot_in_backpack)
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
 	if(H.equip_to_slot_or_del(S,slot_shoes))
 		S.autodrobe_no_remove = 1
