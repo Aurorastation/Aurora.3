@@ -178,6 +178,7 @@
 
 	R.surge = TRUE
 	R.surged_count = 0
+	R.surge_life_span = rand(1, 3)
 
 	return 1
 
