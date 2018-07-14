@@ -124,6 +124,16 @@
 	for(var/obj/item/thing in contents)
 		thing.autodrobe_no_remove = 1
 
+/obj/item/weapon/storage/box/vaurca
+	autodrobe_no_remove = 1
+
+/obj/item/weapon/storage/box/vaurca/fill()
+	..()
+	new /obj/item/clothing/mask/breath( src )
+	new /obj/item/weapon/reagent_containers/inhaler/phoron_special(src)
+	for(var/obj/item/thing in contents)
+		thing.autodrobe_no_remove = 1
+
 /obj/item/weapon/storage/box/gloves
 	name = "box of sterile gloves"
 	desc = "Contains sterile gloves."

@@ -149,7 +149,7 @@
 				var/new_y = P.starting.y + pick(0, 0, -1, 1, -2, 2, -2, 2, -2, 2, -3, 3, -3, 3)
 
 				// redirect the projectile
-				P.firer = user
+				P.firer = src
 				P.old_style_target(locate(new_x, new_y, P.z))
 
 			return -1 // complete projectile permutation

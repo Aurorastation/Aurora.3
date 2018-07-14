@@ -2516,7 +2516,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/mine/explored)
+/area/hallway/secondary/exit)
 "eK" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -2528,13 +2528,18 @@
 /area/hallway/secondary/exit)
 "eL" = (
 /obj/structure/grille,
-/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor{
+	dir = 2
+	},
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
-/area/mine/explored)
+/area/hallway/secondary/exit)
 "eM" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -2752,18 +2757,16 @@
 /area/hallway/secondary/exit)
 "fg" = (
 /obj/structure/grille,
+/obj/structure/window/reinforced,
 /obj/machinery/door/firedoor{
 	dir = 2
-	},
-/obj/structure/window/reinforced{
-	dir = 1
 	},
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/mine/explored)
+/area/hallway/secondary/exit)
 "fh" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
@@ -5754,9 +5757,6 @@
 "ks" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/effect/floor_decal/industrial/warning/cee,
-/obj/machinery/light{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "kt" = (
@@ -19308,29 +19308,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
-"JH" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/mine/explored)
 "JI" = (
-/obj/machinery/alarm{
-	dir = 4;
-	icon_state = "alarm0";
-	pixel_x = -22;
-	pixel_y = 0
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
@@ -19401,6 +19386,29 @@
 /obj/machinery/space_heater,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
+"JQ" = (
+/obj/effect/floor_decal/corner/red/full,
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"NI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/plaque{
+	desc = "Harley O'Ryan Memorial Hall<br>O'Ryan is memorialized here as the first victim of the Odin Killer. She was always in a good mood. She was brought down before her time. <br>August 2439 - May 2460"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/fore)
 
 (1,1,1) = {"
 aa
@@ -46000,7 +46008,7 @@ jq
 pZ
 kP
 qv
-kP
+NI
 qO
 kP
 rd
@@ -47766,7 +47774,7 @@ aa
 aa
 aa
 aa
-ab
+eI
 fT
 jU
 kY
@@ -48035,7 +48043,7 @@ jx
 kr
 Jf
 lB
-kZ
+JQ
 lb
 Jz
 Jz
@@ -48280,7 +48288,7 @@ aa
 aa
 aa
 aa
-eL
+eK
 fR
 JA
 hC
@@ -48296,7 +48304,7 @@ la
 lx
 JA
 kZ
-eL
+eK
 aa
 aa
 aa
@@ -48537,7 +48545,7 @@ aa
 aa
 aa
 aa
-eL
+eK
 fU
 gD
 iW
@@ -48553,7 +48561,7 @@ ja
 lw
 Jr
 JK
-eL
+eK
 aa
 aa
 aa
@@ -48794,7 +48802,7 @@ aa
 aa
 aa
 aa
-eL
+eK
 gB
 gG
 iY
@@ -48810,7 +48818,7 @@ lz
 Ju
 Jy
 JL
-eL
+eK
 aa
 aa
 aa
@@ -49051,7 +49059,7 @@ aa
 aa
 aa
 aa
-eL
+eK
 fU
 kw
 kq
@@ -49067,7 +49075,7 @@ iZ
 Jv
 kw
 JM
-eL
+eK
 aa
 aa
 aa
@@ -49308,7 +49316,7 @@ aa
 aa
 aa
 aa
-eL
+eK
 fU
 kw
 Jp
@@ -49324,7 +49332,7 @@ ja
 JE
 kw
 JM
-eL
+eK
 aa
 aa
 aa
@@ -49565,7 +49573,7 @@ aa
 aa
 aa
 aa
-eL
+eK
 Jh
 JF
 hA
@@ -49581,7 +49589,7 @@ JC
 Js
 JJ
 JN
-eL
+eK
 aa
 aa
 aa
@@ -49822,7 +49830,7 @@ aa
 aa
 aa
 aa
-fg
+eL
 is
 gA
 kt
@@ -49838,7 +49846,7 @@ jX
 Jw
 Jx
 is
-JH
+fg
 aa
 aa
 aa

@@ -111,14 +111,15 @@
 	new /obj/item/weapon/material/hatchet/unathiknife(hold)
 
 /obj/item/clothing/accessory/storage/bayonet
-	name = "bayonet sheat"
-	desc = "A leather sheat designated to hold a bayonet."
+	name = "bayonet sheath"
+	desc = "A leather sheath designated to hold a bayonet."
 	icon_state = "holster_machete"
 	slots = 1
 
 /obj/item/clothing/accessory/storage/bayonet/Initialize()
 	. = ..()
-	hold.max_storage_space = 2
+	hold.max_storage_space = 4
+	hold.max_w_class = 3
 	hold.can_hold = list(
 		/obj/item/weapon/material/knife/bayonet
 	)
