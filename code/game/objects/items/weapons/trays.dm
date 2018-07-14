@@ -214,7 +214,7 @@
 	return 1
 
 /obj/item/weapon/tray/AltClick(var/mob/user)
-	if(!user || user.stat || user.lying || user.restrained() || !Adjacent(user))	return
+	if (!use_check(user, FALSE)) return
 	unload(user)
 
 /obj/item/weapon/tray/proc/attempt_load_item(var/obj/item/I, var/mob/user, var/messages = 1)
