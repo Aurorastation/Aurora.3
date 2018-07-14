@@ -800,7 +800,6 @@
 	SearchVar(ntnet_card_uid)
 	SearchVar(ntnet_global)
 	SearchVar(ntnrc_uid)
-	SearchVar(z_levels)
 	SearchVar(BLOOD_VOLUME_SAFE)
 	SearchVar(BLOOD_VOLUME_OKAY)
 	SearchVar(BLOOD_VOLUME_BAD)
