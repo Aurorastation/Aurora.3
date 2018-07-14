@@ -340,6 +340,13 @@
 	id = "borg_floodlight_module"
 	build_path = /obj/item/borg/upgrade/floodlight
 
+/datum/design/item/robot_upgrade/floodlight
+	name = "Heavy surge prevention module"
+	desc = "Used to boost prevent damage from EMP. Has limited surge preventions."
+	id = "borg_surge_module"
+	materials = list(DEFAULT_WALL_MATERIAL = 20000, "glass" = 6000, "gold" = 10000, "silver" = 15000) // Should be expensive
+	build_path = /obj/item/borg/upgrade/surge
+
 /datum/design/item/robot_upgrade/restart
 	name = "Emergency restart module"
 	desc = "Used to force a restart of a disabled-but-repaired robot, bringing it back online."

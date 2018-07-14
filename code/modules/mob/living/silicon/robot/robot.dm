@@ -81,8 +81,7 @@
 	var/locked = 1
 	var/has_power = 1
 	var/surge = 0 // If we have surge protector installed
-	var/surged_count = 0 // How many times have surge been done
-	var/surge_life_span = 0 // Random number assigned between 1-3
+	var/surge_left = 0 // How time we can be protected
 
 	var/lawpreset = /datum/ai_laws/nanotrasen
 	var/spawn_module = null

@@ -68,6 +68,19 @@
 	return
 
 /mob/living/silicon/emp_act(severity)
+	if(istype(src, /mob/living/silicon/robot))
+		var/mob/living/silicon/robot/R = src
+		if(R.surge)
+			if(R.surge_left > 0)
+				R.surge_left -= 1
+				to_chat(R, "<span class='warning'>Warning: Power surge detected, source - EMP. Surge prevention module re-routed surge to prevent damage to vital electronics.</span>")
+				if(R.surge_left)
+					to_chat(R, "<span class='warning'>[R.surge_left] preventions left!</span>")
+				else
+					to_chat(R, "<span class='danger'>Module is entirely fried, replacement is recommended.</span>")
+				return
+			else
+				to_chat(R, "Warnining: Power surge detected, source - EMP. Surge prevention module is depleted and requires replacement")
 	switch(severity)
 		if(1)
 			src.take_organ_damage(0,20,emp=1)
