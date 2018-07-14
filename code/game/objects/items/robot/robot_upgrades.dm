@@ -12,7 +12,7 @@
 
 /obj/item/borg/upgrade/proc/action(var/mob/living/silicon/robot/R)
 	if(R.stat == DEAD)
-		usr << "<span class='warning'>The [src] will not function on a deceased robot.</span>"
+		to_chat(usr, "<span class='warning'>The [src] will not function on a deceased robot.</span>")
 		return 1
 	return 0
 
@@ -65,7 +65,7 @@
 	if(..()) return 0
 
 	if(R.intenselight)
-		usr << "This cyborg's light was already upgraded"
+		to_chat(usr, "This cyborg's light was already upgraded")
 		return 0
 	else
 		R.intenselight = 1
@@ -81,7 +81,7 @@
 
 /obj/item/borg/upgrade/restart/action(var/mob/living/silicon/robot/R)
 	if(R.health < 0)
-		usr << "You have to repair the robot before using this module!"
+		to_chat(usr, "You have to repair the robot before using this module!")
 		return 0
 
 	if(!R.key)
@@ -123,8 +123,8 @@
 	if(..()) return 0
 
 	if(!R.module || !(src.type in R.module.supported_upgrades))
-		R << "Upgrade mounting error!  No suitable hardpoint detected!"
-		usr << "There's no mounting point for the module!"
+		to_chat(R, "Upgrade mounting error!  No suitable hardpoint detected!")
+		to_chat(usr, "There's no mounting point for the module!")
 		return 0
 
 	var/obj/item/weapon/gun/energy/taser/mounted/cyborg/T = locate() in R.module
@@ -133,12 +133,12 @@
 	if(!T)
 		T = locate() in R.module.modules
 	if(!T)
-		usr << "This robot has had its taser removed!"
+		to_chat(usr, "This robot has had its taser removed!")
 		return 0
 
 	if(T.recharge_time <= 2)
-		R << "Maximum cooling achieved for this hardpoint!"
-		usr << "There's no room for another cooling unit!"
+		to_chat(R, "Maximum cooling achieved for this hardpoint!")
+		to_chat(usr, "There's no room for another cooling unit!")
 		return 0
 
 	else
@@ -161,6 +161,24 @@
 
 	R.emagged = 1
 	R.fakeemagged = 1
+	return 1
+
+/obj/item/borg/upgrade/surge
+	name = "heavy surge prevention module"
+	desc = "Module that prevents cyborg from heavy power surge, like EMP. When surge occurs the module will re-route power from any modules to itself, thus frying itself. Designed to withstand few power surges, the exact number is varied for each module."
+	icon_state = "cyborg_upgrade2"
+
+/obj/item/borg/upgrade/surge/action(var/mob/living/silicon/robot/R)
+	if(..()) return 0
+
+	if(R.surge)
+		to_chat(R, "Warning, surge module is already installed and functional!")
+		to_chat(usr, "There is no room for another surge protector!")
+		return 0
+
+	R.surge = TRUE
+	R.surged_count = 0
+
 	return 1
 
 /obj/item/borg/upgrade/combat
