@@ -584,7 +584,7 @@
 			return
 		else
 			C = new job.idtype(H)
-			C.access = job.get_access()
+			C.access = job.get_access(title)
 	else
 		C = new /obj/item/weapon/card/id(H)
 	if(C)
