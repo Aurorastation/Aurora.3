@@ -39,8 +39,8 @@
 	wrapped.icon_state = brokenstate // Module-specific broken icons! Yay!
 
 	// The thing itself isn't there anymore, but some fried remains are.
-	installed = -1
 	uninstall()
+	installed = -1
 
 /datum/robot_component/proc/take_damage(brute, electronics, sharp, edge)
 	if(installed != 1) return
