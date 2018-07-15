@@ -95,6 +95,7 @@
 			"<span class='notice'>[user] applies some nanite paste to itself!</span>"
 			)
 			amount = 0
+			used = TRUE
 			return 1
 		else if(!H.surge_left)
 			visible_message(
@@ -109,6 +110,7 @@
 			"<span class='notice'>[user] applies some nanite paste to itself!</span>"
 			)
 			amount = 0
+			used = TRUE
 			return 1
 		else
 			to_chat(user, "<span class='warning'> You already have fully functional surge prevention module installed</span>")
