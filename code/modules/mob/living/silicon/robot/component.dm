@@ -284,7 +284,7 @@
 
 /obj/item/robot_parts/robot_component/surge
 	name = "surge preventor"
-	desc = "Cyborg component designed to savee internal electronics from damage of EMP pulse."
+	desc = "Cyborg component designed to save internal electronics from damage of EMP pulse."
 	icon_state = "surge"
 	icon_state_broken = "surge_broken"
 
