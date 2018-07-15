@@ -334,7 +334,10 @@
 // Returns a Invoice for the Order
 /datum/cargo_order/proc/get_report_invoice()
 	var/list/order_data = list()
-	order_data += "<h4>Invoice #[order_id]</h4>"
+	var/invoice_type = "Preliminary"
+	if(status == "delivered" && paid_by)
+		invoice_type = "Final"
+	order_data += "<h4>[invoice_type] Invoice #[order_id]</h4>"
 	order_data += "<hr>"
 	//List the personell involved in the order
 	order_data += "<u>Ordered by:</u> [ordered_by]<br>"
@@ -482,6 +485,7 @@
 	var/shuttle_called_by //The person that called the shuttle
 	var/shuttle_recalled_by //The person that recalled the shuttle
 	var/completed = 0
+	var/message = null //Message from central
 
 /datum/cargo_shipment/proc/get_list(var/shipment_completion = 1)
 	if(shipment_completion != completed)
@@ -512,6 +516,7 @@
 	invoice_data += "shuttle time: [shuttle_time]<br>"
 	invoice_data += "shuttle called by: [shuttle_called_by]<br>"
 	invoice_data += "shuttle recalled by: [shuttle_recalled_by]<br>"
+	invoice_data += "centcom message:<br>[nl2br(message)]"
 
 	shipment_invoice = invoice_data.Join("")
 	completed = 1
@@ -525,3 +530,17 @@
 		else
 			return "Invoice Unavailable. Shipment not completed."
 	return shipment_invoice
+
+/*
+A item wanted by central (for now)
+*/
+/datum/cargo_wanted
+	var/name = null
+	var/description = null
+	var/obj/item/wanted_item = null //The item (path) wanted
+	var/amount = -1 //The amount of items wanted -1 -> not limited
+	var/display = 1 //If the item should be displayed in the wanted list (disable for stuff that is always wanted such as minerals, ...)
+	var/reward_value = 0 //If the item value should be rewarded in addition to reward_credits and reward_item
+	var/reward_credits = 0 //The credits to be rewarded
+	var/reward_mult = 1 //A multiplier for the reward that should be paid out
+	var/obj/item/reward_item = null //The item to be rewarded
