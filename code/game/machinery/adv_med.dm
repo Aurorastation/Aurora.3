@@ -96,7 +96,7 @@
 	return
 
 /obj/machinery/bodyscanner/attackby(obj/item/weapon/grab/G, mob/user)
-	if ((!( istype(G, /obj/item/weapon/grab) ) || !( ismob(G.affecting) )))
+	if ((!( istype(G, /obj/item/weapon/grab) ) || !( isliving(G.affecting) )))
 		return
 	if (src.occupant)
 		user << "<span class='warning'>The scanner is already occupied!</span>"
@@ -105,7 +105,7 @@
 		user << "<span class='warning'>Subject cannot have abiotic items on.</span>"
 		return
 
-	var/mob/M = G.affecting
+	var/mob/living/M = G.affecting
 	user.visible_message("<span class='notice'>[user] starts putting [M] into [src].</span>", "<span class='notice'>You start putting [M] into [src].</span>", range = 3)
 
 	if (do_mob(user, G.affecting, 30, needhand = 0))
