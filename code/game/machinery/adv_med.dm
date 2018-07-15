@@ -95,7 +95,7 @@
 	src.icon_state = "body_scanner_0"
 	return
 
-/obj/machinery/bodyscanner/attackby(obj/item/weapon/grab/G as obj, user as mob)
+/obj/machinery/bodyscanner/attackby(obj/item/weapon/grab/G, mob/user)
 	if ((!( istype(G, /obj/item/weapon/grab) ) || !( ismob(G.affecting) )))
 		return
 	if (src.occupant)
@@ -105,28 +105,26 @@
 		user << "<span class='warning'>Subject cannot have abiotic items on.</span>"
 		return
 
-	if(istype(G, /obj/item/weapon/grab))
+	var/mob/M = G.affecting
+	user.visible_message("<span class='notice'>[user] starts putting [M] into [src].</span>", "<span class='notice'>You start putting [M] into [src].</span>", range = 3)
 
-		var/mob/living/L = G.affecting
-		user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", 3)
+	if (do_mob(user, G.affecting, 30, needhand = 0))
+		var/bucklestatus = M.bucklecheck(user)
+		if (!bucklestatus)//incase the patient got buckled during the delay
+			return
+		if (bucklestatus == 2)
+			var/obj/structure/LB = M.buckled
+			LB.user_unbuckle_mob(user)
+		if (M.client)
+			M.client.perspective = EYE_PERSPECTIVE
+			M.client.eye = src
 
-		if (do_mob(user, G.affecting, 30, needhand = 0))
-			var/bucklestatus = L.bucklecheck(user)
-			if (!bucklestatus)//incase the patient got buckled during the delay
-				return
-			if (bucklestatus == 2)
-				var/obj/structure/LB = L.buckled
-				LB.user_unbuckle_mob(user)
-			var/mob/M = G.affecting
-			if (istype(M) && M.client)
-				M.client.perspective = EYE_PERSPECTIVE
-				M.client.eye = src
-			M.loc = src
-			src.occupant = M
-			update_use_power(2)
-			src.icon_state = "body_scanner_1"
-			for(var/obj/O in src)
-				O.loc = src.loc
+		M.forceMove(src)
+		src.occupant = M
+		update_use_power(2)
+		src.icon_state = "body_scanner_1"
+		for(var/obj/O in src)
+			O.forceMove(loc)
 		//Foreach goto(154)
 	src.add_fingerprint(user)
 	//G = null
@@ -153,9 +151,9 @@
 		return
 
 	if(L == user)
-		user.visible_message("<span class='notice'>[user] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", 3)
+		user.visible_message("<span class='notice'>[user] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", range = 3)
 	else
-		user.visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>", 3)
+		user.visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
 
 	if (do_mob(user, L, 30, needhand = 0))
 		if (bucklestatus == 2)

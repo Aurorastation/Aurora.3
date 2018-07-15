@@ -334,7 +334,7 @@
 
 
 	var/mob/living/L = G.affecting
-	user.visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>", 3)
+	user.visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
 
 	if (do_mob(user, L, 30, needhand = 0))
 		var/bucklestatus = L.bucklecheck(user)
@@ -378,9 +378,9 @@
 		return
 
 	if(H == user)
-		user.visible_message("<span class='notice'>[user] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", 3)
+		user.visible_message("<span class='notice'>[user] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", range = 3)
 	else
-		user.visible_message("<span class='notice'>[user] starts putting [H] into [src].</span>", "<span class='notice'>You start putting [H] into [src].</span>", 3)
+		user.visible_message("<span class='notice'>[user] starts putting [H] into [src].</span>", "<span class='notice'>You start putting [H] into [src].</span>", range = 3)
 
 	if (do_mob(user, H, 30, needhand = 0))
 		if (bucklestatus == 2)

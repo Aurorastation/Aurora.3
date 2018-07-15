@@ -354,7 +354,7 @@
 
 		if(willing)
 
-			user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", 3)
+			user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
 
 			if(do_after(user, 20))
 				if(!M || !G || !G.affecting) return
@@ -410,9 +410,9 @@
 
 	if(willing)
 		if(L == user)
-			user.visible_message("<span class='notice'>[user] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", 3)
+			user.visible_message("<span class='notice'>[user] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", range = 3)
 		else
-			user.visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>", 3)
+			user.visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
 
 		if(do_after(user, 20))
 			if(!L) return
@@ -483,7 +483,7 @@
 			usr << "You're too busy getting your life sucked out of you."
 			return
 
-	usr.visible_message("<span class='notice'>[usr] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", 3)
+	usr.visible_message("<span class='notice'>[usr] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", range = 3)
 
 	if(do_after(usr, 20))
 
