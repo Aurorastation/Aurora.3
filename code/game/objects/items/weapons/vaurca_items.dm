@@ -434,7 +434,7 @@
 	else
 		..()
 
-/obj/item/weapon/gun/launcher/crossbow/vaurca/superheat_rod()
+/obj/item/weapon/gun/launcher/crossbow/vaurca/superheat_rod(mob/user)
 	if(!user || !bolt) return
 	if(bolt.throwforce >= 25) return
 	if(!istype(bolt,/obj/item/weapon/arrow/rod)) return
