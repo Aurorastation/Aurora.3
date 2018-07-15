@@ -39,8 +39,8 @@
 	wrapped.icon_state = brokenstate // Module-specific broken icons! Yay!
 
 	// The thing itself isn't there anymore, but some fried remains are.
-	installed = -1
 	uninstall()
+	installed = -1
 
 /datum/robot_component/proc/take_damage(brute, electronics, sharp, edge)
 	if(installed != 1) return
@@ -97,16 +97,12 @@
 	external_type = /obj/item/robot_parts/robot_component/surge
 	max_damage = 60
 	installed = 0
+	var/surge_left = 0
 
 /datum/robot_component/surge/install()
 	..()
-	owner.surge = 1
-	owner.surge_left = rand(1, 3)
-
-/datum/robot_component/surge/uninstall()
-	..()
-	owner.surge = 0
-	owner.surge_left = 0
+	if(!surge_left)
+		surge_left = rand(1, 3)
 
 /datum/robot_component/jetpack/install()
 	..()
@@ -236,6 +232,7 @@
 	components["comms"] = new/datum/robot_component/binary_communication(src)
 	components["armour"] = new/datum/robot_component/armour(src)
 	components["jetpack"] = new/datum/robot_component/jetpack(src)
+	components["surge"] = new/datum/robot_component/surge(src)
 	jetpackComponent = components["jetpack"]
 	jetpackComponent.installed = 0//We start the jetpack as not installed, because its nondefault
 

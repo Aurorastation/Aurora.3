@@ -149,14 +149,15 @@
 		parts -= picked
 
 /mob/living/silicon/robot/emp_act(severity)
-	if(surge)
-		if(surge_left)
-			playsound(src.loc, 'sound/magic/LightningShock.ogg', 50, 1)
-			surge_left -= 1
+	if(components["surge"].installed)
+		if(components["surge"].surge_left)
+			playsound(src.loc, 'sound/magic/LightningShock.ogg', 25, 1)
+			components["surge"].surge_left -= 1
 			visible_message("<span class='warning'>[src] was not affected by EMP pulse.</span>", "<span class='warning'>Warning: Power surge detected, source - EMP. Surge prevention module re-routed surge to prevent damage to vital electronics.</span>")
-			if(surge_left)
-				to_chat(src, "<span class='notice'>surge module has [surge_left] preventions left!</span>")
+			if(components["surge"].surge_left)
+				to_chat(src, "<span class='notice'>surge module has [components["surge"].surge_left] preventions left!</span>")
 			else
+				components["surge"].destroy()
 				to_chat(src, "<span class='danger'>Module is entirely fried, replacement is recommended.</span>")
 			return
 		else
