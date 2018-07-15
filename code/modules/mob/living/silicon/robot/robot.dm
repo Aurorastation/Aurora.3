@@ -80,8 +80,8 @@
 	var/wiresexposed = 0
 	var/locked = 1
 	var/has_power = 1
-	var/surge = 0 // If we have surge protector installed
-	var/surge_left = 0 // How time we can be protected
+	var/surge = FALSE // If we have surge protector installed
+	var/surge_left = FALSE // How time we can be protected
 
 	var/lawpreset = /datum/ai_laws/nanotrasen
 	var/spawn_module = null
