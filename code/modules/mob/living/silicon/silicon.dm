@@ -71,9 +71,8 @@
 	if(istype(src, /mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = src
 		if(R.surge)
-			if(R.surge_left > 0)
+			if(R.surge_left)
 				playsound(src.loc, 'sound/magic/LightningShock.ogg', 100, 1)
-				flick("coilhit", src)
 				R.surge_left -= 1
 				visible_message("<span class='warning'>[src] was not affected by EMP pulse.</span>", "<span class='warning'>Warning: Power surge detected, source - EMP. Surge prevention module re-routed surge to prevent damage to vital electronics.</span>")
 				if(R.surge_left)

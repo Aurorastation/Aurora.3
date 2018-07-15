@@ -345,6 +345,7 @@
 	desc = "Used to boost prevent damage from EMP. Has limited surge preventions."
 	id = "borg_surge_module"
 	materials = list(DEFAULT_WALL_MATERIAL = 20000, "glass" = 6000, "gold" = 10000, "silver" = 15000) // Should be expensive
+	req_tech = list(TECH_MATERIAL = 4, TECH_BLUESPACE = 2, TECH_MAGNET = 5, TECH_POWER = 5, TECH_ENGINEERING = 4, TECH_COMBAT = 3)
 	build_path = /obj/item/borg/upgrade/surge
 
 /datum/design/item/robot_upgrade/restart

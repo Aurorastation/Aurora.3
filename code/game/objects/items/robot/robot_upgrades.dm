@@ -65,7 +65,7 @@
 	if(..()) return 0
 
 	if(R.intenselight)
-		to_chat(usr, "This cyborg's light was already upgraded")
+		to_chat(usr, "<span class='notice'>This cyborg's light was already upgraded </span>")
 		return 0
 	else
 		R.intenselight = 1
@@ -81,7 +81,7 @@
 
 /obj/item/borg/upgrade/restart/action(var/mob/living/silicon/robot/R)
 	if(R.health < 0)
-		to_chat(usr, "You have to repair the robot before using this module!")
+		to_chat(usr, "<span class='warning'>You have to repair the robot before using this module!</span>")
 		return 0
 
 	if(!R.key)
@@ -123,8 +123,8 @@
 	if(..()) return 0
 
 	if(!R.module || !(src.type in R.module.supported_upgrades))
-		to_chat(R, "Upgrade mounting error!  No suitable hardpoint detected!")
-		to_chat(usr, "There's no mounting point for the module!")
+		to_chat(R, "<span class='notice'>Upgrade mounting error!  No suitable hardpoint detected!</span>")
+		to_chat(usr, "<span class='warning'> There's no mounting point for the module!</span>")
 		return 0
 
 	var/obj/item/weapon/gun/energy/taser/mounted/cyborg/T = locate() in R.module
@@ -137,8 +137,8 @@
 		return 0
 
 	if(T.recharge_time <= 2)
-		to_chat(R, "Maximum cooling achieved for this hardpoint!")
-		to_chat(usr, "There's no room for another cooling unit!")
+		to_chat(R, "<span class='notice'>Maximum cooling achieved for this hardpoint!</span>")
+		to_chat(usr, "<span class='warning'>There's no room for another cooling unit!</span>")
 		return 0
 
 	else
@@ -167,18 +167,40 @@
 	name = "heavy surge prevention module"
 	desc = "Module that prevents cyborg from heavy power surge, like EMP. When surge occurs the module will re-route power from any modules to itself, thus frying itself. Designed to withstand few power surges, the exact number is varied for each module."
 	icon_state = "cyborg_upgrade2"
+	var/broken = FALSE
 
 /obj/item/borg/upgrade/surge/action(var/mob/living/silicon/robot/R)
 	if(..()) return 0
 
-	if(R.surge)
-		to_chat(R, "Warning, surge module is already installed and functional!")
-		to_chat(usr, "There is no room for another surge protector!")
+	if(broken)
+		to_chat(usr, "<span class='warning'>This module appears to be entirely fried, there is no reason to install it.</span>")
 		return 0
+
+	if(R.surge)
+		if(R.surge_left)
+			to_chat(R, "<span class='notice'>Warning, surge module is already installed and functional!</span>")
+			to_chat(usr, "<span class='warning'>There is no room for another surge protector!</span>")
+			return 0
+		else
+			visible_message(
+			"<span class='notice'> [usr] is trying to replace [src]</span>",
+			"<span class='notice'> You start to carefully replace [src]</span>"
+			)
+			if (!do_after(usr, 1 SECONDS, act_target = R))
+				return 0
+			visible_message(
+			"<span class='notice'>[usr] takes out fried [src] and replaces with newly functional [src]!</span>",
+			"<span class='notice'>You take out fried [src] and replace with newly functional [src]!</span>"
+			)
+			var/obj/item/borg/upgrade/surge/S = new /obj/item/borg/upgrade/surge(usr.loc)
+			S.icon_state = "cyborg_upgrade_broken"
+			S.broken = TRUE
+			S.name = "fried heavy surge prevention module"
+			S.desc += "<span class='warning'> It is entirely melted</span>"
 
 	R.surge = TRUE
 	R.surge_left = rand(1, 3)
-
+	to_chat(R, "<span class='notice'>Warning, [src] has been installed. Number of possible safe surges is [R.surge_left]!</span>")
 	return 1
 
 /obj/item/borg/upgrade/combat
