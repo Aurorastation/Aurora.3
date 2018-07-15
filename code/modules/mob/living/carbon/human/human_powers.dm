@@ -645,11 +645,6 @@
 	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
 		return 0
 
-
-	var/damage = crash_damage(A)
-
-
-
 	if (istype(A, /mob/living))
 		var/mob/living/M = A
 		attack_log += "\[[time_stamp()]\]<font color='red'> Crashed into [key_name(M)]</font>"
@@ -661,30 +656,9 @@
 	sleep(1)
 	if (A && !(A.gcDestroyed) && A.type == oldtype)
 		src.visible_message("<span class='danger'>[src.name] plows into \the [aname]!</span>")
-		src.apply_damage(damage*1.5,BRUTE)
 		return 0
-	else
-		src.apply_damage(damage,BRUTE)
 
 	return 1
-
-/mob/living/carbon/human/proc/crash_damage(var/A)
-	if (istype(A, /mob/living))
-		var/mob/living/M = A
-		return min((M.mob_size / 3),2)
-
-	else if (istype(A, /obj/structure/window))
-		return 1.5
-	else if (istype(A, /obj/structure/grille))
-		return 3
-	else if (istype(A, /obj/machinery))
-		return 3
-	else if (istype(A, /obj/structure))
-		return 6
-	else if (istype(A, /turf))
-		return 8
-	else
-		return 3
 
 /mob/living/carbon/human/proc/rebel_yell()
 	set category = "Abilities"

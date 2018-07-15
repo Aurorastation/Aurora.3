@@ -270,5 +270,6 @@
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!
 		new /obj/effect/decal/cleanable/liquid_fuel/napalm(get_turf(L), amount/3)
+		L.adjustFireLoss(amount / 10)
 		remove_self(volume)
 		L.add_modifier(/datum/modifier/napalm, MODIFIER_CUSTOM, _strength = 2)
