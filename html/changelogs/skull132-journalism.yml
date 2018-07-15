@@ -1,0 +1,6 @@
+author: Skull132
+delete-after: true
+
+changes:
+  - rscadd: "Corporate Reports now gain rudiemntary department access, so they coudl better report corporate affairs."
+  - tweak: "The news feeds of Freelance Journalists cannot be censored nor D-noticed without Central Command involvement."
