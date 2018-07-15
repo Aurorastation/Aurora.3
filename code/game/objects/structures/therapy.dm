@@ -71,6 +71,99 @@
 	visible_message("<span class='danger'>The electric chair goes off!</span>", "<span class='danger'>You hear an electrical discharge!</span>")
 
 	return
+/obj/item/weapon/mesmetron
+	name = "mesmetron pocketwatch"
+	desc = "An elaborate pocketwatch, with captivating gold etching and an enchanting face. . ."
+	icon = 'icons/obj/items.dmi'
+	icon_state = "pocketwatch"
+	matter = list("glass" = 150, "gold" = 50)
+	w_class = 1
+	var/datum/weakref/thrall = null
+	var/time_counter = 0
+
+/obj/item/weapon/mesmetron/Destroy()
+	STOP_PROCESSING(SSfast_process, src)
+	thrall = null
+	. = ..()
+
+/obj/item/weapon/mesmetron/process()
+	if (!thrall)
+		STOP_PROCESSING(SSfast_process, src)
+		return
+
+	var/mob/living/carbon/human/H = thrall.resolve()
+	if(!H)
+		thrall = null
+		STOP_PROCESSING(SSfast_process, src)
+		return
+
+	if (time_counter > 20)
+		time_counter += 0.5
+		var/thrall_response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
+		if(thrall_response == "No")
+			H.sleeping = max(H.sleeping - 40, 0)
+			H.drowsyness = max(H.drowsyness - 60, 0)
+			thrall = null
+			STOP_PROCESSING(SSfast_process, src)
+		else
+			H.sleeping = max(H.sleeping, 40)
+			H.drowsyness = max(H.drowsyness, 60)
+	else
+		STOP_PROCESSING(SSfast_process, src)
+
+/obj/item/weapon/mesmetron/attack_self(mob/user as mob)
+	if(!thrall || !thrall.resolve())
+		thrall = null
+		user << "You decipher the watch's mesmerizing face, discerning the time to be: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'."
+		return
+
+	var/mob/living/carbon/human/H = thrall.resolve()
+
+	var/response = alert(user, "Would you like to make a suggestion to [thrall], or release them?", "Mesmetron", "Suggestion", "Release")
+
+	if (response == "Release")
+		thrall = null
+		STOP_PROCESSING(SSfast_process, src)
+	else
+		if(get_dist(user, H) > 1)
+			user << "You must stand in whisper range of [H]."
+			return
+
+		text = input("What would you like to suggest?", "Hypnotic suggestion", null, null)
+		text = sanitize(text)
+		if(!text)
+			return
+
+		var/thrall_response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
+		if(thrall_response == "Yes")
+			H << "<span class='notice'><i>... [text] ...</i></span>"
+		else
+			thrall = null
+
+/obj/item/weapon/mesmetron/afterattack(mob/living/carbon/human/H, mob/user, proximity)
+	if(!proximity)
+		return
+
+	if(!istype(H))
+		return
+
+	user.visible_message("<span class='warning'>[user] begins to mesmerizingly wave [src] like a pendulum before [H]'s very eyes!</span>")
+
+	if(!do_mob(user, H, 10 SECONDS))
+		return
+
+	if(!(user in view(1, loc)))
+		return
+
+	var/response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
+
+	if(response == "Yes")
+		H.visible_message("<span class='warning'>[H] falls into a deep slumber!</span>", "<span class ='danger'>You fall into a deep slumber!</span>")
+
+		H.sleeping = max(H.sleeping, 40)
+		H.drowsyness = max(H.drowsyness, 60)
+		thrall = WEAKREF(H)
+		START_PROCESSING(SSfast_process, src)
 
 /obj/machinery/chakrapod
 	name = "Hallucinatory Therapy Pod"
@@ -351,7 +444,10 @@
 						var/obj/item/organ/sponge = H.internal_organs_by_name["brain"]
 						for(var/X in sponge.traumas)
 							var/datum/brain_trauma/organic/BT = X
-							report += "<B>[BT.name]</B> with severity of <B>[BT.trauma_severity]</B><br>"
+							if(prob(80))
+								report += "<B>[BT.name]</B> with severity of <B>[BT.trauma_severity] units.</B><br>"
+							else
+								report += "<B>[capitalize(BT.scan_desc)]</B> with severity of <B>[BT.trauma_severity + rand(-5,5) + rand()] units.</B><br>"
 							traumas_found = 1
 						if(!traumas_found)
 							report = "<B>No traumas detected with subject #[scan_count].</B><br>"
@@ -359,15 +455,14 @@
 						P.info = {"<center><img src = ntlogo.png></center>
 					<center><b><i>NanoTrasen Psychology Report</b></i><br>
 					<font size = \"1\"><font face='Courier New'>[report]</font></font><hr>
+					<font size = \"1\">Subject's total brain integrity: <B>[sponge.damage] / [sponge.max_damage]</B>.</font><br>
 					<center><img src = barcode[rand(0, 3)].png></center></center>"}
 						P.update_icon()
 						visible_message("\icon[src] <span class = 'notice'>The [usr] pings, \"[P.name] ready for review\", and happily disgorges a small printout.</span>", 2)
 						playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
 
 				else
-					user << "<span class='danger'>Error: Total braindeath in subject detected!</span>"
-					playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
-					visible_message("<span class='warning'>[connected] buzzes harshly.</span>", "<span class='warning'>You hear a sharp buzz.</span>")
+					system_error("ERROR: Total braindeath in subject detected.")
 				return
 
 			if("Initiate Hallucinatory Therapy")
@@ -386,19 +481,20 @@
 				playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
 				return
 			if("Purge Chemical Tray")
-				user << "<span class='warning'>Purging chemical tray.</span>"
-				playsound(src.loc, 'sound/machines/juicer.ogg', 50, 1)
-				if(do_after(user,100))
-					connected.reagents.clear_reagents()
-					reagents.clear_reagents()
-					visible_message("<span class='notice'>[connected] pings cheerfully.</span>", "<span class='notice'>You hear a ping.</span>")
-					playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
+				switch(alert(user,"Tray loaded with: [reagents.total_volume] units of chemical.","Please confirm purge.","Confirm","Cancel"))
+					if("Confirm")
+						user << "<span class='warning'>Purging chemical tray.</span>"
+						playsound(src.loc, 'sound/machines/juicer.ogg', 50, 1)
+						if(do_after(user,100))
+							connected.reagents.clear_reagents()
+							reagents.clear_reagents()
+							visible_message("<span class='notice'>[connected] pings cheerfully.</span>", "<span class='notice'>You hear a ping.</span>")
+							playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
 				return
 
 /obj/machinery/chakraconsole/proc/administer_dose(var/obj/item/organ/sponge, var/amount = 0)
 	if(!sponge || !amount)
-		playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
-		visible_message("<span class='warning'>[connected] buzzes harshly.</span>", "<span class='warning'>You hear a sharp buzz.</span>")
+		system_error("ERROR: System failure. Doseage terminated.")
 		return 0
 
 	var/dose_id
@@ -409,11 +505,10 @@
 			break
 	if(!dose_id)
 		reagents.trans_to_mob(sponge.owner, reagents.total_volume)
-		playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
-		visible_message("<span class='warning'>[connected] buzzes harshly.</span>", "<span class='warning'>You hear a sharp buzz.</span>")
+		system_error("ERROR: Chemical tray emptied.")
 		return 0
 	else
-		reagents.trans_id_to(connected.reagents, dose_id, amount)
+		reagents.trans_id_to(connected.reagents, dose_id, amount/10)
 		connected.reagents.trans_to_mob(sponge.owner, connected.reagents.total_volume)
 		var/probability = 0
 
@@ -431,8 +526,13 @@
 			if("psilocybin")
 				probability = min(75, 25 + amount)
 
+		connected.occupant << "<span class='notice'>You begin to see flashing images of [calibrations] . . .</span>"
 		if(prob(probability))
 			return 1
+
+	if(do_after(src, 100))
+		connected.occupant. << "<span class='notice'>The flashing images of [calibrations] subside, but your traumas persist.</span>"
+		system_error("ERROR: Subject failed to hallucinate.")
 	return 0
 
 /obj/machinery/chakraconsole/proc/neural_check(var/mob/user, var/mob/living/carbon/human/H)
@@ -444,11 +544,11 @@
 		if(do_after(src, 100))
 			if(BT.trigger_type == calibrations)
 				qdel(BT)
+				connected.occupant << "<span class='notice'>The flashing images of [calibrations] subside, and you begin to feel almost well again.</span>"
 				visible_message("<span class='notice'>[connected] pings cheerfully.</span>", "<span class='notice'>You hear a ping.</span>")
 				playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
 			else
-				playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
-				visible_message("<span class='warning'>[connected] buzzes harshly.</span>", "<span class='warning'>You hear a sharp buzz.</span>")
+				system_error("ERROR: Hallucinatory feedback has no impact.")
 	return
 
 /obj/machinery/chakraconsole/proc/total_recall(var/mob/user, var/mob/living/carbon/human/H)
@@ -484,8 +584,9 @@
 							H << "<span class='danger'>You blink, and somehow between the timespan of your eyes closing and your eyes opening your perception of the world has changed in some imperceptible way...</span>"
 							H << "<b>A new memory has been implanted in your mind as follows: [memory_implant] - you have no reason to suspect the memory to be fabricated, as your memory of the past two minutes has also been altered.</b>"
 							return
+	system_error("ERROR: Error not found!")
 
-	if(get_dist(user,src) <= 1)
-		user << "<span class='danger'>Error: Operation failed. Terminating operation.</span>"
-	playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
-	visible_message("<span class='warning'>[connected] buzzes harshly.</span>", "<span class='warning'>You hear a sharp buzz.</span>")
+/obj/machinery/chakraconsole/proc/system_error(var/error)
+	if(error)
+		visible_message("<span class='warning'>\icon[src] [src.name] flashes a system warning: [error].</span>")
+		playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)

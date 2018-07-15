@@ -5598,7 +5598,19 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "kj" = (
-/turf/simulated/wall/r_wall,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/medical/psych)
 "kk" = (
 /obj/structure/cable/green{
@@ -5681,48 +5693,68 @@
 /turf/simulated/floor/tiled/dark,
 /area/medical/psych)
 "ks" = (
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 9
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/medical/psych)
+"kt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/white,
-/area/medical/psych)
-"kt" = (
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	name = "Station Intercom (General)";
-	pixel_x = 24
-	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/dark,
 /area/medical/psych)
 "ku" = (
-/turf/simulated/floor/reinforced,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
+	req_access = list(5)
+	},
+/turf/simulated/floor/plating,
 /area/medical/psych)
 "kv" = (
-/obj/structure/table/steel,
-/obj/structure/metronome,
-/obj/machinery/light/small/red{
-	tag = "icon-bulb1 (NORTH)";
-	icon_state = "bulb1";
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/turf/simulated/floor/reinforced,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
 /area/medical/psych)
 "kw" = (
 /turf/simulated/wall,
@@ -5810,18 +5842,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/medical/psych)
 "kF" = (
-/obj/effect/floor_decal/corner/green/full,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/white,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
 /area/medical/psych)
 "kG" = (
 /obj/effect/floor_decal/corner/green/full{
@@ -5873,21 +5901,19 @@
 /turf/simulated/open,
 /area/medical/reception)
 "kN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
-/obj/machinery/door/airlock/medical{
-	name = "Therapy Ward";
-	req_access = list(64)
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/white,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/medical{
+	name = "Psychiatry Closet";
+	req_access = list(64)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/dark,
 /area/medical/psych)
 "kO" = (
 /obj/structure/lattice/catwalk,
@@ -6122,12 +6148,6 @@
 	icon_state = "corner_white_full";
 	dir = 8
 	},
-/obj/machinery/button/remote/airlock{
-	id = "psiso";
-	pixel_x = 8;
-	pixel_y = 32;
-	specialfunctions = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lj" = (
@@ -6136,6 +6156,10 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lk" = (
@@ -6255,8 +6279,6 @@
 	pixel_y = 0
 	},
 /obj/machinery/chakraconsole{
-	tag = "icon-body_scannerconsole (EAST)";
-	icon_state = "body_scannerconsole";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -6880,6 +6902,23 @@
 /obj/effect/decal/remains,
 /turf/simulated/floor/plating,
 /area/security/training)
+"vd" = (
+/turf/simulated/wall,
+/area/mine/unexplored)
+"ve" = (
+/turf/unsimulated/chasm_mask,
+/area/medical/psych)
+"vf" = (
+/turf/unsimulated/chasm_mask,
+/area/medical/psych)
+"vg" = (
+/turf/unsimulated/chasm_mask,
+/area/medical/psych)
+"vh" = (
+/obj/structure/lattice/catwalk,
+/obj/item/weapon/mesmetron,
+/turf/simulated/open,
+/area/medical/reception)
 
 (1,1,1) = {"
 aa
@@ -42209,11 +42248,11 @@ aa
 aa
 aa
 ab
-jG
-jG
-jG
-jG
-jG
+ab
+ab
+ab
+ab
+ab
 kw
 kw
 kw
@@ -42466,20 +42505,20 @@ aa
 aa
 ab
 ab
-jG
-jL
-sk
-kb
-kl
+ab
+ab
+ab
+ab
+ab
 kw
 kK
 kO
 kK
 kK
 kO
-kK
+vh
 kw
-aa
+ab
 aa
 aa
 aa
@@ -42723,11 +42762,11 @@ aa
 aa
 ab
 ab
-jH
-jM
-jR
-kc
-kc
+ab
+ab
+ab
+ab
+ab
 kx
 kL
 kM
@@ -42735,9 +42774,9 @@ kL
 kL
 kM
 kL
-kw
-aa
-aa
+kx
+ab
+ab
 aa
 aa
 aa
@@ -42980,11 +43019,11 @@ aa
 ab
 ab
 ab
-jI
-jM
-jR
-kd
-km
+ab
+ab
+ab
+ab
+ab
 ky
 kM
 kM
@@ -42992,9 +43031,9 @@ kL
 kL
 kM
 kM
-kw
-aa
-aa
+ky
+ab
+ab
 aa
 aa
 aa
@@ -43237,11 +43276,11 @@ aa
 ab
 ab
 ab
-jI
-jM
-jR
-ke
-ke
+ab
+ab
+ab
+ab
+ab
 kw
 kL
 kM
@@ -43250,8 +43289,8 @@ kL
 kM
 kL
 kw
-aa
-aa
+ab
+ab
 aa
 aa
 aa
@@ -43494,11 +43533,11 @@ aa
 ab
 ab
 ab
-jI
-jM
-jR
-kf
-kl
+ab
+ab
+ab
+ab
+ab
 kz
 kL
 kM
@@ -43506,10 +43545,10 @@ kL
 kL
 kM
 kL
-kw
-aa
-aa
-aa
+kz
+ab
+ab
+ab
 aa
 aa
 aa
@@ -43751,11 +43790,11 @@ ab
 ab
 ab
 ab
-jJ
-jM
-jR
-kc
-kc
+ab
+ab
+ab
+ab
+ab
 ky
 kM
 kM
@@ -43763,10 +43802,10 @@ kL
 kL
 kM
 kM
-kw
-aa
-aa
-aa
+ky
+ab
+ab
+ab
 aa
 aa
 aa
@@ -44008,11 +44047,11 @@ ab
 ab
 ab
 ab
-jG
-jN
-jS
-kg
-km
+ab
+ab
+ab
+ab
+ab
 kw
 kL
 kP
@@ -44021,9 +44060,9 @@ kL
 kP
 kL
 kw
-aa
-aa
-aa
+ab
+ab
+ab
 aa
 aa
 aa
@@ -44264,12 +44303,12 @@ aa
 ab
 ab
 ab
-jG
-jG
-jG
-jT
-jG
-jG
+ab
+ab
+ab
+ab
+ab
+ab
 kw
 kw
 kQ
@@ -44278,10 +44317,10 @@ kZ
 ly
 kw
 kw
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -44522,12 +44561,12 @@ ab
 ab
 ab
 ab
-jG
-jO
-jU
-jG
-kn
-kA
+ab
+ab
+ab
+ab
+ab
+ab
 jG
 kR
 la
@@ -44536,9 +44575,9 @@ lz
 lK
 ab
 ab
-aa
-aa
-aa
+ab
+ab
+ab
 aa
 aa
 aa
@@ -44779,12 +44818,12 @@ aa
 ab
 ab
 ab
-jH
-jM
-jV
-jG
-sx
-kB
+ab
+ab
+ab
+ab
+ab
+ab
 jG
 kS
 lb
@@ -44794,8 +44833,8 @@ lL
 ab
 ab
 ab
-aa
-aa
+ab
+ab
 aa
 aa
 aa
@@ -45036,12 +45075,12 @@ aa
 ab
 ab
 ab
-jI
-jM
-jV
-jG
-kp
-kC
+ab
+ab
+ab
+ab
+ab
+ab
 jG
 kT
 lc
@@ -45293,12 +45332,12 @@ aa
 ab
 ab
 ab
-jI
-jM
-jV
+ab
+ab
+ab
 jG
-ko
-kD
+jG
+jG
 jG
 kU
 ld
@@ -45550,12 +45589,12 @@ aa
 ab
 ab
 ab
-jI
-jM
-jV
+ab
+ab
+ab
 jG
-kq
-kE
+kn
+kA
 jG
 kV
 le
@@ -45807,12 +45846,12 @@ aa
 aa
 ab
 ab
-jI
-jM
-jV
+ab
+ab
+ab
 jG
-kr
-jG
+sx
+kB
 jG
 sN
 lf
@@ -46064,10 +46103,10 @@ aa
 aa
 ab
 ab
-jJ
-jM
-jW
-kh
+ab
+ab
+ab
+jG
 ks
 kF
 kN
@@ -46321,12 +46360,12 @@ aa
 aa
 ab
 ab
+ab
+ab
+ab
 jG
-rX
-jX
-ki
 kt
-kG
+kD
 jG
 kX
 lh
@@ -46578,14 +46617,14 @@ aa
 aa
 aa
 ab
-jK
-jK
-jY
+ab
+ab
+ab
+jG
 kj
-kj
-kj
-kj
-kj
+kE
+jG
+jG
 jG
 lt
 jG
@@ -46836,13 +46875,13 @@ aa
 aa
 aa
 ab
-jK
-jZ
-kj
+ab
+ab
+jG
 ku
-sB
-ku
-kj
+jG
+jG
+jG
 li
 lu
 sY
@@ -47093,14 +47132,14 @@ aa
 aa
 aa
 ab
-jK
-jZ
-kj
+ab
+ab
+jG
 kv
-ku
-ku
-kY
-kc
+jG
+ve
+jG
+jM
 jR
 lH
 lR
@@ -47350,13 +47389,13 @@ aa
 aa
 aa
 aa
-jK
-jZ
-kj
-ku
-kI
-ku
-kj
+ab
+ab
+jG
+kv
+jG
+vf
+jG
 lj
 lv
 kc
@@ -47607,13 +47646,13 @@ aa
 aa
 aa
 aa
-jK
-jZ
-kj
-kj
-kj
-kj
-kj
+ab
+ab
+jG
+kv
+jG
+vg
+jG
 lk
 lw
 lI
@@ -47864,11 +47903,11 @@ aa
 aa
 aa
 aa
+ab
+ab
 jK
-ka
-kk
-kk
-kJ
+jZ
+jK
 jK
 jG
 ll
@@ -48121,11 +48160,11 @@ aa
 aa
 aa
 aa
+ab
+ab
 jK
-jK
-jK
-jK
-jZ
+ka
+lY
 jK
 ab
 ab
@@ -48380,7 +48419,7 @@ aa
 aa
 aa
 aa
-aa
+vd
 jK
 jZ
 jK

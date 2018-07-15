@@ -32,3 +32,28 @@ mob/living/carbon/proc/handle_dreams()
 		dream()
 
 mob/living/carbon/var/dreaming = 0
+
+mob/living/carbon/human/dream()
+	dreaming = 1
+
+	spawn(0)
+		for(var/i = rand(1,4),i > 0, i--)
+			var/obj/item/organ/sponge = internal_organs_by_name["brain"]
+			if(sponge.traumas.len)
+				if(prob(50))
+					for(var/X in sponge.traumas)
+						var/datum/brain_trauma/organic/BT = X
+						if(BT.trigger_type)
+							src << "<span class='notice'><i>... [BT.trigger_type] ...</i></span>"
+						if(prob(50))
+							break
+				else
+					src << "<span class='notice'><i>... [pick(dreams)] ...</i></span>"
+			else
+				src << "<span class='notice'><i>... [pick(dreams)] ...</i></span>"
+			sleep(rand(40,70))
+			if(paralysis <= 0)
+				dreaming = 0
+				return 0
+		dreaming = 0
+		return 1
