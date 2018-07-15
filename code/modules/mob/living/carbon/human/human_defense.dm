@@ -160,7 +160,7 @@ emp_act
 /mob/living/carbon/human/emp_act(severity)
 	if(isipc(src) && surge)
 		if(surge_left)
-			playsound(src.loc, 'sound/magic/LightningShock.ogg', 100, 1)
+			playsound(src.loc, 'sound/magic/LightningShock.ogg', 50, 1)
 			surge_left -= 1
 			if(surge_left)
 				to_chat(usr, "<span class='warning'> Warning: EMP detected, integrated surge prevention module activated. There are [surge_left] preventions left.</span>")

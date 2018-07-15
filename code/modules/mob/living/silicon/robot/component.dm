@@ -92,6 +92,21 @@
 
 	var/obj/item/weapon/tank/jetpack/carbondioxide/synthetic/tank = null
 
+/datum/robot_component/surge
+	name = "surge preventor"
+	external_type = /obj/item/robot_parts/robot_component/surge
+	max_damage = 60
+	installed = 0
+
+/datum/robot_component/surge/install()
+	..()
+	owner.surge = 1
+	owner.surge_left = rand(1, 3)
+
+/datum/robot_component/surge/uninstall()
+	..()
+	owner.surge = 0
+	owner.surge_left = 0
 
 /datum/robot_component/jetpack/install()
 	..()
@@ -269,6 +284,12 @@
 	name = "armour plating"
 	icon_state = "armor"
 	icon_state_broken = "armor_broken"
+
+/obj/item/robot_parts/robot_component/surge
+	name = "surge preventor"
+	desc = "Cyborg component designed to savee internal electronics from damage of EMP pulse."
+	icon_state = "surge"
+	icon_state_broken = "surge_broken"
 
 /obj/item/robot_parts/robot_component/camera
 	name = "camera"

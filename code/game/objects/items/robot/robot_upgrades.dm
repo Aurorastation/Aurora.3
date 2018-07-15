@@ -163,46 +163,6 @@
 	R.fakeemagged = 1
 	return 1
 
-/obj/item/borg/upgrade/surge
-	name = "heavy surge prevention module"
-	desc = "Module that prevents cyborg from heavy power surge, like EMP. When surge occurs the module will re-route power from any modules to itself, thus frying itself. Designed to withstand few power surges, the exact number is varied for each module."
-	icon_state = "cyborg_upgrade2"
-	var/broken = FALSE
-
-/obj/item/borg/upgrade/surge/action(var/mob/living/silicon/robot/R)
-	if(..()) return 0
-
-	if(broken)
-		to_chat(usr, "<span class='warning'>This module appears to be entirely fried, there is no reason to install it.</span>")
-		return 0
-
-	if(R.surge)
-		if(R.surge_left)
-			to_chat(R, "<span class='notice'>Warning, surge module is already installed and functional!</span>")
-			to_chat(usr, "<span class='warning'>There is no room for another surge protector!</span>")
-			return 0
-		else
-			visible_message(
-			"<span class='notice'> [usr] is trying to replace [src]</span>",
-			"<span class='notice'> You start to carefully replace [src]</span>"
-			)
-			if (!do_after(usr, 1 SECONDS, act_target = R))
-				return 0
-			visible_message(
-			"<span class='notice'>[usr] takes out fried [src] and replaces with newly functional [src]!</span>",
-			"<span class='notice'>You take out fried [src] and replace with newly functional [src]!</span>"
-			)
-			var/obj/item/borg/upgrade/surge/S = new /obj/item/borg/upgrade/surge(usr.loc)
-			S.icon_state = "cyborg_upgrade_broken"
-			S.broken = TRUE
-			S.name = "fried heavy surge prevention module"
-			S.desc += "<span class='warning'> It is entirely melted</span>"
-
-	R.surge = TRUE
-	R.surge_left = rand(1, 3)
-	to_chat(R, "<span class='notice'>Warning, [src] has been installed. Number of possible safe surges is [R.surge_left]!</span>")
-	return 1
-
 /obj/item/borg/upgrade/combat
 	name = "combat cyborg module"
 	desc = "Unlocks the combat cyborg module"

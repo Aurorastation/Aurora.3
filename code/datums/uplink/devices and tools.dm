@@ -21,7 +21,7 @@
 	path = /obj/item/device/firing_pin
 	desc = "A Syndicate-branded Firing pin - It should be compatible with nearly every weapon onboard."
 
-/datum/uplink_item/item/tools/firingpin
+/datum/uplink_item/item/tools/surge
 	name = "IPC surge prevention module"
 	item_cost = 14
 	path = /obj/item/stack/nanopaste/surge
