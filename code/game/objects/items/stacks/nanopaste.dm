@@ -58,3 +58,55 @@
 					return
 			else
 				user << "<span class='notice'>Nothing to fix in here.</span>"
+
+
+/obj/item/stack/nanopaste/surge
+	name = "modified nanopaste"
+	singular_name = "nanite swarm"
+	desc = "A tube of paste containing swarms of repair nanites. This one appears to be customely modified to have different nanites"
+	icon = 'icons/obj/nanopaste.dmi'
+	icon_state = "tube-surge"
+	origin_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 4, TECH_MAGNET = 5, TECH_POWER = 5, TECH_COMBAT = 3, TECH_ILLEGAL = 4)
+	amount = 0
+
+	construction_cost = null
+
+/obj/item/stack/nanopaste/surge/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
+	if (!istype(M) || !istype(user))
+		return 0
+
+	if (isipc(M))
+		var/mob/living/carbon/human/H = M
+		if(!H.surge)
+			visible_message(
+			"<span class='notice'> [user] is trying to apply [src] to itself</span>",
+			"<span class='notice'> You start applying [src] to yourself</span>"
+			)
+			if (!do_after(usr, 1 SECONDS, act_target = user))
+				return 0
+			H.surge_left = rand(1, 3)
+			H.surge = TRUE
+			visible_message(
+			"<span class='notice'>[user] applies some nanite paste to itself!</span>",
+			"<span class='notice'>You apply [src] to yourself. You can feel nanites inside you creating something new. An internal OS voice states \"Warning: surge prevention module has been installed, it has [H.surge_left] preventions left!\"</span>"
+			)
+			return 1
+		else if(!H.surge_left)
+			visible_message(
+			"<span class='notice'> [user] is trying to apply [src] to itself</span>",
+			"<span class='notice'> You start applying [src] to yourself</span>"
+			)
+			if (!do_after(usr, 1 SECONDS, act_target = user))
+				return 0
+			H.surge_left = rand(1, 3)
+			visible_message(
+			"<span class='notice'>[user] applies some nanite paste to itself!</span>",
+			"<span class='notice'>You apply [src] to yourself. You can feel nanites inside you regenerating your surge prevention module. An internal OS voice states \"Warning: surge prevention module repaired, it has [H.surge_left] preventions left!\"</span>"
+			)
+			return 1
+		else
+			to_chat(user, "<span class='warning'> You already have fully functional surge prevention module installed</span>")
+			return 0
+	else
+		to_chat(user, "<span class='warning'>[src]'s nanites refuse to work on you.</span>")
+		return 0

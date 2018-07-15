@@ -158,6 +158,17 @@ emp_act
 	return 0
 
 /mob/living/carbon/human/emp_act(severity)
+	if(isipc(src) && surge)
+		if(surge_left)
+			playsound(src.loc, 'sound/magic/LightningShock.ogg', 100, 1)
+			surge_left -= 1
+			if(surge_left)
+				to_chat(usr, "<span class='warning'> Warning: EMP detected, integrated surge prevention module activated. There are [surge_left] preventions left.</span>")
+			else
+				to_chat(usr, "<span class='warning'> Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended.</span>")
+			return 1
+		else
+			to_chat(usr, "<span class='danger'> Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended.</span>")
 	for(var/obj/O in src)
 		if(!O)	continue
 		O.emp_act(severity)
