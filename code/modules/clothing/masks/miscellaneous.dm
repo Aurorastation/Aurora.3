@@ -38,6 +38,35 @@
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.01
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
+	action_button_name = "Adjust Mask"
+	var/hanging = 0
+
+/obj/item/clothing/mask/surgical/proc/adjust_mask(mob/user)
+	if(!user.stat || !user.restrained() || !user.incapacitated())
+		src.hanging = !src.hanging
+		if (src.hanging)
+			gas_transfer_coefficient = 1
+			body_parts_covered = body_parts_covered & ~FACE
+			item_flags = item_flags & ~FLEXIBLEMATERIAL
+			icon_state = "[icon_state]down"
+			user << "Your mask is now hanging on your neck."
+		else
+			gas_transfer_coefficient = initial(gas_transfer_coefficient)
+			body_parts_covered = initial(body_parts_covered)
+			item_flags = initial(item_flags)
+			icon_state = initial(icon_state)
+			user << "You pull the mask up to cover your face."
+		update_clothing_icon()
+
+/obj/item/clothing/mask/surgical/attack_self(mob/user)
+	adjust_mask(user)
+
+/obj/item/clothing/mask/surgical/verb/toggle()
+	set category = "Object"
+	set name = "Adjust mask"
+	set src in usr
+
+	adjust_mask(usr)
 
 /obj/item/clothing/mask/fakemoustache
 	name = "fake moustache"

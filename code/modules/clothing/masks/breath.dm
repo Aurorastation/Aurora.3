@@ -8,16 +8,17 @@
 	w_class = 2
 	gas_transfer_coefficient = 0.10
 	permeability_coefficient = 0.50
+	action_button_name = "Adjust Mask"
 	var/hanging = 0
 
 /obj/item/clothing/mask/breath/proc/adjust_mask(mob/user)
-	if(user.canmove && !user.stat)
+	if(!user.stat || !user.restrained() || !user.incapacitated())
 		src.hanging = !src.hanging
 		if (src.hanging)
 			gas_transfer_coefficient = 1
 			body_parts_covered = body_parts_covered & ~FACE
 			item_flags = item_flags & ~AIRTIGHT
-			icon_state = "breathdown"
+			icon_state = "[icon_state]down"
 			user << "Your mask is now hanging on your neck."
 		else
 			gas_transfer_coefficient = initial(gas_transfer_coefficient)
@@ -31,11 +32,11 @@
 	adjust_mask(user)
 
 /obj/item/clothing/mask/breath/verb/toggle()
-		set category = "Object"
-		set name = "Adjust mask"
-		set src in usr
+	set category = "Object"
+	set name = "Adjust mask"
+	set src in usr
 
-		adjust_mask(usr)
+	adjust_mask(usr)
 
 /obj/item/clothing/mask/breath/medical
 	desc = "A close-fitting sterile mask that can be connected to an air supply."
