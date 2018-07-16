@@ -178,7 +178,7 @@
 					var/mob/living/carbon/human/H = owner
 					var/obj/item/organ/heart/heart = H.internal_organs_by_name["heart"]
 					heart.take_damage(heart.min_bruised_damage)
-					to_chat(H, "<span class='userdanger'>You feel a stabbing pain in your heart!</span>")
+					to_chat(H, "<span class='danger'>You feel a stabbing pain in your heart!</span>")
 				else
-					to_chat(owner, "<span class='userdanger'>You feel your heart lurching in your chest... Oh, [beloved]!</span>")
+					to_chat(owner, "<span class='danger'>You feel your heart lurching in your chest... Oh, [beloved]!</span>")
 					owner.adjustOxyLoss(8)

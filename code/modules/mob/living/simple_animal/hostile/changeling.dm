@@ -137,5 +137,5 @@
 
 	playsound(src.loc, 'sound/weapons/bloodyslice.ogg', 50, 1)
 	var/obj/item/weapon/bone_dart/A = new /obj/item/weapon/bone_dart(usr.loc)
-	A.throw_at(target, 10, 20, user)
+	A.throw_at(target, 10, 20, usr)
 	add_logs(src, target, "launched a bone dart at")
