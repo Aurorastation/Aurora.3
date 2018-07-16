@@ -96,7 +96,7 @@
 
 // Returns a new bounty of random type, but does not add it to bounties_list.
 /datum/controller/subsystem/cargo/proc/random_bounty()
-	switch(rand(1, 9))
+	switch(rand(1, 11))
 		if(1)
 			var/subtype = pick(subtypesof(/datum/bounty/item/assistant))
 			return new subtype
@@ -124,6 +124,12 @@
 		if(9)
 			var/subtype = pick(subtypesof(/datum/bounty/item/slime))
 			return new subtype
+		if(10)
+			var/subtype = pick(subtypesof(/datum/bounty/item/bot))
+			return new subtype
+		if(11)
+			var/subtype = pick(subtypesof(/datum/bounty/weapon_prototype))
+			return new subtype
 
 // Called lazily at startup to populate bounties_list with random bounties.
 /datum/controller/subsystem/cargo/proc/setupBounties()
@@ -134,7 +140,7 @@
 
 	for(var/i = 0; i < 1; ++i)
 		CHECK_TICK
-		var/list/subtype = pick(subtypesof(/datum/bounty/item/mech))
+		var/list/subtype = pick(subtypesof(/datum/bounty/item/mech,/datum/bounty/item/bot))
 		try_add_bounty(new subtype)
 
 	for(var/i = 0; i < 2; ++i)

@@ -1141,6 +1141,7 @@
 #include "code\modules\cargo\exports.dm"
 #include "code\modules\cargo\randomstock.dm"
 #include "code\modules\cargo\bounties\assistant.dm"
+#include "code\modules\cargo\bounties\bot.dm"
 #include "code\modules\cargo\bounties\chef.dm"
 #include "code\modules\cargo\bounties\item.dm"
 #include "code\modules\cargo\bounties\mech.dm"

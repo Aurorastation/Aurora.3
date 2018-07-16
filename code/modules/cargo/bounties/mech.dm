@@ -33,8 +33,9 @@
 	reward = 20000
 	wanted_types = list(/obj/mecha/combat/durand)
 
+/*
 /datum/bounty/item/mech/phazon
 	name = "Phazon"
 	reward = 50000
 	wanted_types = list(/obj/mecha/combat/phazon)
-
+*/
