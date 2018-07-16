@@ -115,6 +115,11 @@
 		return 1
 	return 0
 
+/mob/living/carbon/human/set_dir(var/new_dir)
+	. = ..()
+	if(. && species.tail)
+		update_tail_showing(1)
+
 /mob/living/carbon/human/Move()
 	. = ..()
 
