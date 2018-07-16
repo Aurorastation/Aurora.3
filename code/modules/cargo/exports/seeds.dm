@@ -12,16 +12,16 @@
 		return 0
 	if(needs_discovery && !(S.type in discoveredPlants))
 		return 0
-	return ..() * S.rarity // That's right, no bonus for potency. Send a crappy sample first to "show improvement" later.
+	return ..() // That's right, no bonus for potency. Send a crappy sample first to "show improvement" later.
 
 /datum/export/seed/sell_object(obj/O)
 	..()
 	var/obj/item/seeds/S = O
-	discoveredPlants[S.type] = S.potency
+	discoveredPlants[S.type] = S.seed.traits[TRAIT_POTENCY]
 
 
 /datum/export/seed/potency
-	cost = 2.5 // Gets multiplied by potency and rarity.
+	cost = 2.5 // Gets multiplied by potency.
 	unit_name = "improved plant sample"
 	export_types = list(/obj/item/seeds)
 	needs_discovery = TRUE // Only for already discovered species
@@ -32,6 +32,6 @@
 	if(!cost)
 		return 0
 
-	var/potDiff = (S.potency - discoveredPlants[S.type])
+	var/potDiff = (S.seed.traits[TRAIT_POTENCY] - discoveredPlants[S.type])
 
 	return round(..() * potDiff)

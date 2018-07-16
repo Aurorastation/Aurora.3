@@ -116,8 +116,8 @@
 		if(6)
 			return new /datum/bounty/reagent/chemical
 		if(7)
-		//	var/subtype = pick(subtypesof(/datum/bounty/virus))
-		//	return new subtype
+			var/subtype = pick(subtypesof(/datum/bounty/virus))
+			return new subtype
 		if(8)
 			var/subtype = pick(subtypesof(/datum/bounty/item/science))
 			return new subtype
