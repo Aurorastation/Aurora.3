@@ -45,3 +45,4 @@ changes:
   - rscadd: "Added cleave to energy glaives."
   - imageadd: "Changes the sprites of all organs in Vaurca to be more alien."
   - bugfix: "Tweaked client colors, fixing inaccuracies in colorblindedness."
+  - tweak: "Cardox no longer acts as an acid, no longer affecting mobs on touch."
