@@ -15960,9 +15960,6 @@
 	dir = 8
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/stamp{
-	name = "warden's rubber stamp"
-	},
 /obj/item/weapon/folder/sec,
 /obj/item/weapon/stamp{
 	name = "warden's rubber stamp"
@@ -28450,6 +28447,10 @@
 	},
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
+	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Starboard Corridor - Medbay Entrance";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
@@ -41185,7 +41186,7 @@
 /area/holodeck/alphadeck)
 "buL" = (
 /obj/machinery/camera/network/civilian_main{
-	c_tag = "Central Corridor - Medical Entrance";
+	c_tag = "Central Corridor - Medical EMT Entrance";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime{
@@ -63631,7 +63632,7 @@
 /area/journalistoffice)
 "cus" = (
 /obj/machinery/camera/network/civilian_main{
-	c_tag = "Starboard Corridor - Store";
+	c_tag = "Starboard Corridor - Journalist's Office";
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
