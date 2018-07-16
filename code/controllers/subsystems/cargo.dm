@@ -49,11 +49,6 @@ var/datum/controller/subsystem/cargo/SScargo
 	var/list/exports_list = list()
 	var/list/bounties_list = list()
 
-	//Wanted items
-	var/list/wanted_items_waiting = list() //The list of wanted items that didnt show up so far
-	var/list/wanted_items_current = list() //The list of currently wanted items (selected from wanted_items_waiting)
-	var/list/wanted_items_received = list() //The list of items that has been received by central
-
 /datum/controller/subsystem/cargo/Recover()
 	src.shuttle = SScargo.shuttle
 	src.cargo_items = SScargo.cargo_items
@@ -64,8 +59,8 @@ var/datum/controller/subsystem/cargo/SScargo
 	src.cargo_handlingfee_change = SScargo.cargo_handlingfee_change
 	src.supply_account = SScargo.supply_account
 	src.last_item_id = SScargo.last_item_id
-	src.wanted_items_current = SScargo.wanted_items_current
-	src.wanted_items_received = SScargo.wanted_items_received
+	src.exports_list = SScargo.exports_list
+	src.bounties_list = SScargo.bounties_list
 
 /datum/controller/subsystem/cargo/Initialize(timeofday)
 	//Generate the ordernumber and shipmentnumber to start with

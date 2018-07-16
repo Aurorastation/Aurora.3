@@ -97,5 +97,5 @@
 
 /datum/export/rcd_ammo
 	cost = 60
-	unit_name = "compressed matter cardridge"
+	unit_name = "compressed matter cartridge"
 	export_types = list(/obj/item/weapon/rcd_ammo)
