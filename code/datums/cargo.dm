@@ -530,17 +530,3 @@
 		else
 			return "Invoice Unavailable. Shipment not completed."
 	return shipment_invoice
-
-/*
-A item wanted by central (for now)
-*/
-/datum/cargo_wanted
-	var/name = null
-	var/description = null
-	var/obj/item/wanted_item = null //The item (path) wanted
-	var/amount = -1 //The amount of items wanted -1 -> not limited
-	var/display = 1 //If the item should be displayed in the wanted list (disable for stuff that is always wanted such as minerals, ...)
-	var/reward_value = 0 //If the item value should be rewarded in addition to reward_credits and reward_item
-	var/reward_credits = 0 //The credits to be rewarded
-	var/reward_mult = 1 //A multiplier for the reward that should be paid out
-	var/obj/item/reward_item = null //The item to be rewarded
