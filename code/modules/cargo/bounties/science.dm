@@ -1,73 +1,85 @@
-/datum/bounty/item/science/boh
+/datum/bounty/item/science/boh/New()
+	..()
 	name = "Bag of Holding"
-	description = "Nanotrasen would make good use of high-capacity backpacks. If you have any, please ship them."
+	description = "[current_map.company_name] would make good use of high-capacity backpacks. If you have any, please ship them."
 	reward = 10000
 	wanted_types = list(/obj/item/weapon/storage/backpack/holding)
 /*
-/datum/bounty/item/science/tboh
+/datum/bounty/item/science/tboh/New()
+	..()
 	name = "Trash Bag of Holding"
-	description = "Nanotrasen would make good use of high-capacity trash bags. If you have any, please ship them."
+	description = "[current_map.company_name] would make good use of high-capacity trash bags. If you have any, please ship them."
 	reward = 10000
 	wanted_types = list(/obj/item/storage/backpack/holding)
 
-/datum/bounty/item/science/bluespace_syringe
+/datum/bounty/item/science/bluespace_syringe/New()
+	..()
 	name = "Bluespace Syringe"
-	description = "Nanotrasen would make good use of high-capacity syringes. If you have any, please ship them."
+	description = "[current_map.company_name] would make good use of high-capacity syringes. If you have any, please ship them."
 	reward = 10000
 	wanted_types = list(/obj/item/reagent_containers/syringe/bluespace)
 
-/datum/bounty/item/science/bluespace_body_bag
+/datum/bounty/item/science/bluespace_body_bag/New()
+	..()
 	name = "Bluespace Body Bag"
-	description = "Nanotrasen would make good use of high-capacity body bags. If you have any, please ship them."
+	description = "[current_map.company_name] would make good use of high-capacity body bags. If you have any, please ship them."
 	reward = 10000
 	wanted_types = list(/obj/item/bodybag/bluespace)
 */
-/datum/bounty/item/science/nightvision_goggles
+/datum/bounty/item/science/nightvision_goggles/New()
+	..()
 	name = "Night Vision Goggles"
-	description = "An electrical storm has busted all the lights at CentCom. While management is waiting for replacements, perhaps some night vision goggles can be shipped?"
+	description = "An electrical storm has busted all the lights at [current_map.boss_short]. While management is waiting for replacements, perhaps some night vision goggles can be shipped?"
 	reward = 10000
 	wanted_types = list(/obj/item/clothing/glasses/night)
 
-/datum/bounty/item/science/experimental_welding_tool
+/datum/bounty/item/science/experimental_welding_tool/New()
+	..()
 	name = "Experimental Welding Tool"
-	description = "A recent accident has left most of CentCom's welding tools exploded. Ship replacements to be rewarded."
+	description = "A recent accident has left most of [current_map.boss_short]'s welding tools exploded. Ship replacements to be rewarded."
 	reward = 10000
 	required_count = 3
 	wanted_types = list(/obj/item/weapon/weldingtool/experimental)
 
-/datum/bounty/item/science/cryostasis_beaker
+/datum/bounty/item/science/cryostasis_beaker/New()
+	..()
 	name = "Cryostasis Beaker"
-	description = "Chemists at Central Command have discovered a new chemical that can only be held in cryostasis beakers. The only problem is they don't have any! Rectify this to receive payment."
+	description = "Chemists at [current_map.boss_name] have discovered a new chemical that can only be held in cryostasis beakers. The only problem is they don't have any! Rectify this to receive payment."
 	reward = 10000
 	wanted_types = list(/obj/item/weapon/reagent_containers/glass/beaker/noreact)
 
-/datum/bounty/item/science/mech_diamond_drill
+/datum/bounty/item/science/mech_diamond_drill/New()
+	..()
 	name = "Mech Diamond Mining Drill"
-	description = "Central Command is willing to pay three months salary in exchange for one mech diamond mining drill."
+	description = "[current_map.boss_name] is willing to pay three months salary in exchange for one mech diamond mining drill."
 	reward = 15000
 	wanted_types = list(/obj/item/mecha_parts/mecha_equipment/tool/drill/diamonddrill)
 
-/datum/bounty/item/science/advanced_egun
+/datum/bounty/item/science/advanced_egun/New()
+	..()
 	name = "Advanced Energy Gun"
 	description = "With the price of rechargers on the rise, upper management is interested in purchasing guns that are self-powered. If you ship one, they'll pay."
 	reward = 10000
 	wanted_types = list(/obj/item/weapon/gun/energy/gun/nuclear)
 
-/datum/bounty/item/science/posibrain
+/datum/bounty/item/science/posibrain/New()
+	..()
 	name = "Posibrain"
 	description = "Due to a sudden spike in assistants-related accidents management has decided to replace some of them with borgs. Ship us 2 posibrains."
 	reward = 10000
 	required_count = 2
 	wanted_types = list(/obj/item/device/mmi/digital/posibrain)
 
-/datum/bounty/item/science/borgbody
+/datum/bounty/item/science/borgbody/New()
+	..()
 	name = "Robot Endoskeleton"
 	description = "Due to a sudden spike in assistants-related accidents management has decided to replace some of them with borgs. Ship us fully assembled robot endoskeletons without a mmi/posibrain inside of it."
 	reward = 10000
 	required_count = 2
 	wanted_types = list(/obj/item/robot_parts/robot_suit)
 
-/datum/bounty/item/science/borgbody/halstre
+/datum/bounty/item/science/borgbody/halstre/New()
+	..()
 	description = "Due to the borging of Kalren Halstre, we require you to ship us one fully assembled cyborg endoskeleton without a mmi/posibrain inside of it"
 	required_count = 1
 

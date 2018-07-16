@@ -146,6 +146,11 @@
 		CHECK_TICK
 		var/list/subtype = pick(subtypesof(/datum/bounty/item/security))
 		try_add_bounty(new subtype)
+	
+	for(var/i = 0; i < 5; ++i)
+		CHECK_TICK
+		var/list/subtype = pick(subtypesof(/datum/bounty/weapon_prototype, /datum/bounty/item/science, /datum/bounty/item/slime))
+		try_add_bounty(new subtype)
 
 	try_add_bounty(new /datum/bounty/reagent/simple_drink)
 	try_add_bounty(new /datum/bounty/reagent/complex_drink)

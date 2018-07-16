@@ -10,7 +10,7 @@
 	if(rand(3) == 1)
 		stat_value *= -1
 	name = "Virus ([stat_name] of [stat_value])"
-	description = "Nanotrasen is interested in a virus with a [stat_name] stat of exactly [stat_value]. Central Command will pay handsomely for such a virus."
+	description = "[current_map.company_name] is interested in a virus with a [stat_name] stat of exactly [stat_value]. [current_map.boss_name] will pay handsomely for such a virus."
 	reward += rand(0, 4) * 500
 
 /datum/bounty/virus/completion_string()
