@@ -179,13 +179,13 @@ var/list/sacrificed = list()
 						cult.add_antagonist(target.mind)
 						converting -= target
 						target.hallucination = 0 //sudden clarity
-						playsound(target, 'sound/effects/bloodcult.ogg', 100, 1)
+						sound_to(target, 'sound/effects/bloodcult.ogg')
 					else
 						converting -= target
 						//If we are dealing with a IPC then ask the caster what construct they want
 						var/construct_class = alert(attacker, "Please choose which type of construct you wish to create.",,"Juggernaut","Wraith","Artificer")
 
-						playsound(target, 'sound/effects/bloodcult.ogg', 100, 1)
+						sound_to(target, 'sound/effects/bloodcult.ogg')
 
 						//Spawn some remains
 						new target.species.remains_type(target.loc) //spawns a skeleton based on the species remain type
@@ -197,7 +197,7 @@ var/list/sacrificed = list()
 						flick("dust-h", animation)
 						qdel(animation)
 
-						//Spawn the selected construct						
+						//Spawn the selected construct
 						switch(construct_class)
 							if("Juggernaut")
 								var/mob/living/simple_animal/construct/armoured/Z = new /mob/living/simple_animal/construct/armoured (get_turf(target.loc))

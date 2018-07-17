@@ -45,7 +45,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 
 /obj/item/weapon/gun/projectile/sec/update_icon()
@@ -187,7 +187,7 @@
 	caliber = "9mm"
 	silenced = 0
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mm
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm)

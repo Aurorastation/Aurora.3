@@ -405,7 +405,6 @@
 		return wear_id.GetID()
 
 /mob/living/carbon/human/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
-	var/hairvar = 0
 	var/list/damage_areas = list()
 	if(status_flags & GODMODE)	return 0	//godmode
 
@@ -416,11 +415,7 @@
 
 	if(!def_zone)
 		//The way this works is by damaging multiple areas in an "Arc" if no def_zone is provided. should be pretty easy to add more arcs if it's needed. though I can't imangine a situation that can apply.
-		if(istype(user, /mob/living/carbon/human))
-			if(h_style == "Floorlength Braid" || h_style == "Very Long Hair")
-				hairvar = 1
-		var/count = hairvar == 1 ? rand(1, 7) : rand(1, 6)
-		switch (count)
+		switch ((h_style == "Floorlength Braid" || h_style == "Very Long Hair") ? rand(1, 7) : rand(1, 6))
 			if(1)
 				damage_areas = list("l_hand", "l_arm", "chest", "r_arm", "r_hand")
 			if(2)

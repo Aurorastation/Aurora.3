@@ -111,3 +111,37 @@
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
 	default_material = "steel"
+
+
+/obj/item/weapon/material/woodenshield
+	name = "shield donut"
+	desc = "A wooden disc. Unusable as a shield without metal. Don't eat this."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "buckler2"
+	force_divisor = 0.1
+	thrown_force_divisor = 0.1
+	default_material = "wood"
+
+/obj/item/weapon/material/woodenshield/attackby(var/obj/item/I, mob/user as mob)
+	..()
+	var/obj/item/finished
+	if(istype(I, /obj/item/weapon/material/shieldbits))
+		var/obj/item/weapon/material/woodenshield/donut = I
+		finished = new /obj/item/weapon/shield/buckler(get_turf(user), donut.material.name)
+		user << "<span class='notice'>You attach \the [I] to \the [src].</span>"
+	if(finished)
+		user.drop_from_inventory(src)
+		user.drop_from_inventory(I)
+		qdel(I)
+		qdel(src)
+		user.put_in_hands(finished)
+	update_icon(user)
+
+/obj/item/weapon/material/shieldbits
+	name = "shield fittings"
+	desc = "A metal ring and boss, fitting for a buckler."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "buckler1"
+	force_divisor = 0.1
+	thrown_force_divisor = 0.1
+	default_material = "steel"
