@@ -35,6 +35,8 @@
 		/obj/item/weapon/storage/box/beanbags                = TRADER_THIS_TYPE,
 		/obj/item/weapon/storage/box/shotgunammo             = TRADER_THIS_TYPE,
 		/obj/item/weapon/storage/box/shotgunshells           = TRADER_THIS_TYPE,
+		/obj/item/weapon/storage/box/haywireshells           = TRADER_THIS_TYPE,
+		/obj/item/weapon/storage/box/incendiaryshells        = TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/holster                 = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/accessory/holster/thigh/fluff     = TRADER_BLACKLIST_ALL
 	)
