@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes:
-  - bugfix: "The staff of change should work properly now."
