@@ -28,7 +28,7 @@
 			new/obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey(src)
 			new/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiadeus(src)
 			new/obj/item/weapon/flame/lighter/zippo(src)
-		if(5 to 10)
+		if(6 to 10)
 			new/obj/random/custom_ka(src)
 			new/obj/random/custom_ka(src)
 			new/obj/random/custom_ka(src)
