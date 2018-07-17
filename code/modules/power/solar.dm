@@ -254,7 +254,8 @@
 	if(!tracker)
 		if(istype(W, /obj/item/weapon/tracker_electronics))
 			tracker = 1
-			user.drop_from_inventory(W,get_turf(src),TRUE)
+			user.drop_from_inventory(W,get_turf(src))
+			qdel(W)
 			user.visible_message("<span class='notice'>[user] inserts the electronics into the solar assembly.</span>")
 			return 1
 	else

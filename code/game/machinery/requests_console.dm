@@ -357,7 +357,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		if(lid)	//More of that restocking business
 			var/obj/item/weapon/paper_bundle/C = O
 			paperstock += C.amount
-			user.drop_from_inventory(C,get_turf(src),TRUE)
+			user.drop_from_inventory(C,get_turf(src))
+			qdel(C)
 			for (var/mob/U in hearers(4, src.loc))
 				U.show_message(text("\icon[src] *The Requests Console beeps: 'Paper added.'"))
 		else

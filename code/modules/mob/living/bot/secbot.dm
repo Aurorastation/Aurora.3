@@ -556,7 +556,8 @@
 		user << "You add \the [O] to [src]."
 		add_overlay("hs_eye")
 		name = "helmet/signaler/prox sensor assembly"
-		user.drop_from_inventory(O,get_turf(src),TRUE)
+		user.drop_from_inventory(O,get_turf(src))
+		qdel(O)
 		return 1
 
 	else if((istype(O, /obj/item/robot_parts/l_arm) || istype(O, /obj/item/robot_parts/r_arm)) && build_step == 2)
@@ -564,14 +565,16 @@
 		user << "You add \the [O] to [src]."
 		name = "helmet/signaler/prox sensor/robot arm assembly"
 		add_overlay("hs_arm")
-		user.drop_from_inventory(O,get_turf(src),TRUE)
+		user.drop_from_inventory(O,get_turf(src))
+		qdel(O)
 		return 1
 
 	else if(istype(O, /obj/item/weapon/melee/baton) && build_step == 3)
 		user << "You complete the Securitron! Beep boop."
 		var/mob/living/bot/secbot/S = new /mob/living/bot/secbot(get_turf(src))
 		S.name = created_name
-		user.drop_from_inventory(O,get_turf(src),TRUE)
+		user.drop_from_inventory(O,get_turf(src))
+		qdel(O)
 		qdel(src)
 		return 1
 

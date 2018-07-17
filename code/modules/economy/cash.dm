@@ -81,7 +81,7 @@
 	src.worth -= amount
 	src.update_icon()
 	if(!worth)
-		usr.drop_from_inventory(src,do_animate = FALSE)
+		usr.drop_from_inventory(src)
 		
 	if(amount in list(1000,500,200,100,50,20,1))
 		var/cashtype = text2path("/obj/item/weapon/spacecash/c[amount]")

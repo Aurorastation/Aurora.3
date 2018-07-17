@@ -268,7 +268,8 @@
 		if( !incident )
 			if( import( O, user ))
 				ping( "\The [src] pings, \"Successfully imported incident report!\"" )
-				user.drop_from_inventory(O,get_turf(src),TRUE)
+				user.drop_from_inventory(O,get_turf(src))
+				qdel(O)
 				src.updateUsrDialog()
 		else
 			user <<  "<span class='alert'>\The [src] buzzes, \"There's already an active sentence!\"</span>"

@@ -262,7 +262,8 @@
 					span("notice", "\The [user] feeds \the [O] to \the [name]! It clucks happily."),
 					span("notice", "You feed \the [O] to \the [name]! It clucks happily."),
 					"You hear a cluck.")
-				user.drop_from_inventory(O,get_turf(src),TRUE)
+				user.drop_from_inventory(O,get_turf(src))
+				qdel(O)
 				eggsleft += rand(1, 4)
 			else
 				user << "\The [name] doesn't seem hungry!"

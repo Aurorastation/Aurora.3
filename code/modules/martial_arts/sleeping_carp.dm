@@ -141,4 +141,5 @@
 	theSleepingCarp.teach(user)
 	visible_message("<span class='warning'>[src] lights up in fire and quickly burns to ash.</span>")
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
-	user.drop_from_inventory(src,get_turf(src),TRUE)
+	user.drop_from_inventory(src,get_turf(src))
+	qdel(src)

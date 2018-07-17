@@ -1521,7 +1521,7 @@
 		"<span class='danger'>You pop [S]'s [current_limb.joint] back in!</span>")
 	current_limb.undislocate()
 
-/mob/living/carbon/human/drop_from_inventory(var/obj/item/W, var/atom/target = null, var/delete = FALSE, var/enable_animations = TRUE)
+/mob/living/carbon/human/drop_from_inventory(var/obj/item/W, var/atom/target = null)
 	if(W in organs)
 		return
 	..()

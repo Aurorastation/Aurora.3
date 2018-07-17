@@ -358,7 +358,8 @@
 		switch(build_step)
 			if(0)
 				if(istype(W, /obj/item/device/healthanalyzer))
-					user.drop_from_inventory(W,get_turf(src),TRUE)
+					user.drop_from_inventory(W,get_turf(src))
+					qdel(W)
 					build_step++
 					user << "<span class='notice'>You add the health sensor to [src].</span>"
 					name = "First aid/robot arm/health analyzer assembly"
@@ -367,7 +368,8 @@
 
 			if(1)
 				if(isprox(W))
-					user.drop_from_inventory(W,get_turf(src),TRUE)
+					user.drop_from_inventory(W,get_turf(src))
+					qdel(W)
 					user << "<span class='notice'>You complete the Medibot! Beep boop.</span>"
 					var/turf/T = get_turf(src)
 					var/mob/living/bot/medbot/S = new /mob/living/bot/medbot(T)

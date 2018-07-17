@@ -277,7 +277,7 @@
 
 
 
-/mob/living/silicon/robot/drop_from_inventory(var/obj/item/W, var/atom/target = null, var/delete = FALSE, var/enable_animations = TRUE)
+/mob/living/silicon/robot/drop_from_inventory(var/obj/item/W, var/atom/target = null)
 	if(W)
 		if(!target)
 			target = loc

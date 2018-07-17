@@ -99,7 +99,7 @@
 				AddUses(1)
 				to_chat(user, "You insert \the [L.name] into \the [src.name]. You have [uses] light\s remaining.")
 				user.drop_from_inventory(L,get_turf(src))
-        qdel(L)
+				qdel(L)
 				return
 		else
 			to_chat(user, "You need a working light.")

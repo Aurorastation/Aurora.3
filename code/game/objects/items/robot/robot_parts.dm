@@ -313,7 +313,8 @@
 
 
 		new /mob/living/simple_animal/spiderbot(get_turf(loc))
-		user.drop_from_inventory(W,get_turf(loc),TRUE)
+		user.drop_from_inventory(W,get_turf(loc))
+		qdel(W)
 		qdel(src)
 		return
 	return

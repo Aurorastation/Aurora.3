@@ -15,7 +15,8 @@
 	uses -= amt
 	playsound(get_turf(user), 'sound/items/Screwdriver.ogg', 50, 1)
 	if(uses<1)
-		user.drop_from_inventory(src,get_turf(src),TRUE)
+		user.drop_from_inventory(src,get_turf(src))
+		qdel(src)
 
 // Root voidsuit kit defines.
 // Icons for modified voidsuits need to be in the proper .dmis because suit cyclers may cock them up.

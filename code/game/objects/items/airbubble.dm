@@ -48,7 +48,7 @@
 	R.zipped = zipped
 	R.update_icon()
 	R.desc = desc
-	user.drop_from_inventory(src,enable_animations = FALSE)
+	user.drop_from_inventory(src)
 	qdel(src)
 
 // Deployed bubble

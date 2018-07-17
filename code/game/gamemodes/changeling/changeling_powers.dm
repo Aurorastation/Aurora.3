@@ -370,7 +370,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	qdel(animation)
 
 	for(var/obj/item/W in src)
-		C.drop_from_inventory(W,enable_animations = FALSE)
+		C.drop_from_inventory(W)
 
 	var/mob/living/carbon/human/O = new /mob/living/carbon/human( src )
 	if (C.dna.GetUIState(DNA_UI_GENDER))
@@ -937,7 +937,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 		for(var/obj/item/I in M.contents)
 			if(isorgan(I))
 				continue
-			M.drop_from_inventory(I,enable_animations = FALSE)
+			M.drop_from_inventory(I)
 
 	if(M.mind)
 		M.mind.transfer_to(ling)

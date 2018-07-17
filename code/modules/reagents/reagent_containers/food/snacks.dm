@@ -4051,7 +4051,7 @@
 
 		//If the bun was in your hands, the result will be too
 		if (loc == user)
-			user.drop_from_inventory(src, enable_animations = FALSE) //This has to be here in order to put the pun in the proper place
+			user.drop_from_inventory(src) //This has to be here in order to put the pun in the proper place
 			user.put_in_hands(result)
 
 		qdel(W)

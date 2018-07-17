@@ -306,7 +306,8 @@
 
 				update()
 
-				user.drop_from_inventory(L,get_turf(src),TRUE)
+				user.drop_from_inventory(L,get_turf(src))
+				qdel(L)
 
 				if(!stat && rigged)
 					log_admin("LOG: Rigged light explosion, last touched by [fingerprintslast]")

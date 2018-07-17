@@ -86,7 +86,8 @@
  		var/obj/item/weapon/paper_bundle/j = O
  		amount += j.amount
  		user << "<span class='notice'>You add paper from [j] into [src].</span>"
- 		user.drop_from_inventory(j,get_turf(src),TRUE)
+ 		user.drop_from_inventory(j,get_turf(src))
+		qdel(j)
  */
 
 

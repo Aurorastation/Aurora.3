@@ -189,10 +189,10 @@
 
 	H.cards += cards
 	cards.Cut();
-	user.drop_from_inventory(src,get_turf(src),TRUE)
-
+	user.drop_from_inventory(src,get_turf(src))
 	H.update_icon()
 	user.put_in_active_hand(H)
+	qdel(src)
 
 /obj/item/weapon/hand
 	name = "hand of cards"

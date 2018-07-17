@@ -43,7 +43,7 @@
 							organ.implants -= src
 			host.pinned -= src
 			host.embedded -= src
-			host.drop_from_inventory(src,enable_animations = FALSE)
+			host.drop_from_inventory(src)
 		QDEL_IN(src, 1)
 
 /obj/item/weapon/shield/riot/changeling
@@ -87,7 +87,7 @@
 							organ.implants -= src
 			host.pinned -= src
 			host.embedded -= src
-			host.drop_from_inventory(src,enable_animations = FALSE)
+			host.drop_from_inventory(src)
 		QDEL_IN(src, 1)
 
 /obj/item/weapon/bone_dart
