@@ -23,7 +23,12 @@
 /obj/structure/closet/crate/secure/loot/proc/generate_loot()
 	var/loot = rand(1, 100)
 	switch(loot)
-		if(1 to 10)
+		if(1 to 5) // Common things go, 5%
+			new/obj/item/weapon/reagent_containers/food/drinks/bottle/rum(src)
+			new/obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey(src)
+			new/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiadeus(src)
+			new/obj/item/weapon/flame/lighter/zippo(src)
+		if(5 to 10)
 			new/obj/random/custom_ka(src)
 			new/obj/random/custom_ka(src)
 			new/obj/random/custom_ka(src)
