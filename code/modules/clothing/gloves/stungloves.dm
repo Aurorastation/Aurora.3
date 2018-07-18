@@ -69,6 +69,7 @@
 			user.visible_message("<span class='warning'>[user] cuts the fingertips off of the [src].</span>","<span class='warning'>You cut the fingertips off of the [src].</span>")
 
 			clipped = 1
+			siemens_coefficient += 0.25
 			name = "mangled [name]"
 			desc = "[desc]<br>They have had the fingertips cut off of them."
 			if("exclude" in species_restricted)
