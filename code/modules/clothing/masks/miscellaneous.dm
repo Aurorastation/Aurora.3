@@ -42,7 +42,7 @@
 	var/hanging = 0
 
 /obj/item/clothing/mask/surgical/proc/adjust_mask(mob/user)
-	if(!user.stat || !user.restrained() || !user.incapacitated())
+	if(!use_check(user))
 		src.hanging = !src.hanging
 		if (src.hanging)
 			gas_transfer_coefficient = 1
