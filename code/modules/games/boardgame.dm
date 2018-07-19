@@ -1,6 +1,6 @@
 /obj/item/weapon/board
 	name = "board"
-	desc = "A standard 16\" checkerboard. Well used." //Goddamn imperial system.
+	desc = "A standard 16\" checkerboard. Well used."
 	icon = 'icons/obj/pieces.dmi'
 	icon_state = "board"
 
