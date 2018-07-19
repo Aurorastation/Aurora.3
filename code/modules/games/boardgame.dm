@@ -9,6 +9,12 @@
 	var/board = list()
 	var/selected = -1
 
+/obj/item/weapon/board/MouseDrop(mob/user as mob)
+	if((user == usr && (!use_check(usr))) && (usr.contents.Find(src) || in_range(src, usr)))
+		if(ishuman(usr))
+			forceMove(get_turf(usr))
+			usr.put_in_hands(src)
+
 /obj/item/weapon/board/examine(mob/user, var/distance = -1)
 	if(in_range(user,src))
 		user.set_machine(src)
@@ -17,6 +23,8 @@
 	..()
 
 /obj/item/weapon/board/attack_hand(mob/living/carbon/human/M as mob)
+	if(!istype(loc, /turf/))
+		..()
 	if(M.machine == src)
 		..()
 	else
