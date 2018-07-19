@@ -436,9 +436,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				src.screen=7
 			else
 				var/choice = alert("Please confirm Feed channel creation","Network Channel Handler","Confirm","Cancel")
-				var/can_be_censored = (ishuman(src) && GetAssignment(usr) == "Freelance Journalist")
 				if(choice=="Confirm")
-					SSnews.CreateFeedChannel(src.channel_name, src.scanned_user, c_locked, adminChannel = can_be_censored)
+					SSnews.CreateFeedChannel(src.channel_name, src.scanned_user, c_locked)
 					src.screen=5
 			src.updateUsrDialog()
 			//src.update_icon()
