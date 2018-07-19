@@ -1,4 +1,4 @@
-obj/item/weapon/board
+/obj/item/weapon/board
 	name = "board"
 	desc = "A standard 16\" checkerboard. Well used." //Goddamn imperial system.
 	icon = 'icons/obj/pieces.dmi'
