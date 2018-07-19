@@ -34,11 +34,11 @@
 	if(wrapped)
 		qdel(wrapped)
 
-
 	wrapped = new/obj/item/broken_device
 	wrapped.icon_state = brokenstate // Module-specific broken icons! Yay!
 
 	// The thing itself isn't there anymore, but some fried remains are.
+	uninstall()
 	installed = -1
 
 /datum/robot_component/proc/get_damage(var/type)

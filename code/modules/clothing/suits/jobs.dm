@@ -137,11 +137,13 @@
 	siemens_coefficient = 0.7
 
 /obj/item/clothing/suit/storage/toggle/det_trench/black
+	name = "black trenchcoat"
 	icon_state = "detective2"
 	icon_open = "detective2_open"
 	icon_closed = "detective2"
 
 /obj/item/clothing/suit/storage/toggle/det_trench/technicolor
+	name = "black trenchcoat"
 	desc = "A 23rd-century multi-purpose trenchcoat. It's fibres are hyper-absorbent."
 	icon_state = "suit_detective_black"
 	item_state = "suit_detective_black"
