@@ -1,6 +1,6 @@
-/obj/item/weapon/board
+obj/item/weapon/board
 	name = "board"
-	desc = "A standard 12' checkerboard. Well used."
+	desc = "A standard 16\" checkerboard. Well used." //Goddamn imperial system.
 	icon = 'icons/obj/pieces.dmi'
 	icon_state = "board"
 
@@ -8,13 +8,6 @@
 	var/board_icons = list()
 	var/board = list()
 	var/selected = -1
-
-/obj/item/weapon/board/New()
-	..()
-	var i
-	for(i = 0; i < 12; i++)
-		new /obj/item/weapon/checker(src.loc)
-		new /obj/item/weapon/checker/red(src.loc)
 
 /obj/item/weapon/board/examine(mob/user, var/distance = -1)
 	if(in_range(user,src))
@@ -45,7 +38,6 @@ obj/item/weapon/board/attackby(obj/item/I as obj, mob/user as mob)
 		return 0
 	if(!user.Adjacent(src))
 		return 0
-
 	user.drop_from_inventory(I)
 	I.forceMove(src)
 	num++
@@ -74,39 +66,39 @@ obj/item/weapon/board/attackby(obj/item/I as obj, mob/user as mob)
 		user.unset_machine()
 		return
 
-	var/dat = "<HTML>"
-	dat += "<table border='0'>"
-	var i, stagger;
+	var/list/dat = list({"
+	<html><head><style type='text/css'>
+	td,td a{height:50px;width:50px}table{border-spacing:0;border:none;border-collapse:collapse}td{text-align:center;padding:0;background-repeat:no-repeat;background-position:center center}td.light{background-color:#6cf}td.dark{background-color:#544b50}td.selected{background-color:#c8dbc3}td a{display:table-cell;text-decoration:none;position:relative;line-height:50px;height:50px;width:50 px;vertical-align:middle}
+	</style></head><body><table>
+	"})
+	var i, stagger
 	stagger = 0 //so we can have the checkerboard effect
-	for(i=0; i<64; i++)
+	for(i=0, i<64, i++)
 		if(i%8 == 0)
 			dat += "<tr>"
 			stagger = !stagger
-		dat += "<td align='center' height='50' width='50' bgcolor="
 		if(selected == i)
-			dat += "'#FF8566'>"
+			dat += "<td class='selected'"
 		else if((i + stagger)%2 == 0)
-			dat += "'#66CCFF'>"
+			dat += "<td class='dark'"
 		else
-			dat += "'#252536'>"
-		if(!isobserver(user))
-			dat += "<A href='?src=\ref[src];select=[i]' style='display:block;text-decoration:none;'>"
+			dat += "<td class='light'"
+
 		if(board["[i]"])
 			var/obj/item/I = board["[i]"]
 			user << browse_rsc(board_icons["[I.icon] [I.icon_state]"],"[I.icon_state].png")
-			dat += "<image src='[I.icon_state].png' style='border-style: none'>"
+			dat += " style='background-image:url([I.icon_state].png)'>"
 		else
-			dat += "&nbsp;"
-
+			dat+= ">"
 		if(!isobserver(user))
-			dat += "</A>"
+			dat += "<a href='?src=\ref[src];select=[i];person=\ref[user]'></a>"
 		dat += "</td>"
 
-	dat += "</table><br>"
+	dat += "</table>"
 
 	if(selected >= 0 && !isobserver(user))
 		dat += "<br><A href='?src=\ref[src];remove=0'>Remove Selected Piece</A>"
-	user << browse(dat,"window=boardgame;size=500x500")
+	user << browse(jointext(dat, null),"window=boardgame;size=430x500") // 50px * 8 squares + 30 margin
 	onclose(usr, "boardgame")
 
 /obj/item/weapon/board/Topic(href, href_list)
@@ -122,19 +114,19 @@ obj/item/weapon/board/attackby(obj/item/I as obj, mob/user as mob)
 			if(selected >= 0)
 				//check to see if clicked on tile is currently selected one
 				if(text2num(s) == selected)
-					selected = 0 //deselect it
-					return
+					selected = -1 //deselect it
+				else
 
-				if(I) //cant put items on other items.
-					return
+					if(I) //cant put items on other items.
+						return
 
-			//put item in new spot.
-				I = board["[selected]"]
-				board["[selected]"] = null
-				board -= "[selected]"
-				board -= null
-				board["[s]"] = I
-				selected = -1
+				//put item in new spot.
+					I = board["[selected]"]
+					board["[selected]"] = null
+					board -= "[selected]"
+					board -= null
+					board["[s]"] = I
+					selected = -1
 			else
 				if(I)
 					selected = text2num(s)
@@ -148,6 +140,8 @@ obj/item/weapon/board/attackby(obj/item/I as obj, mob/user as mob)
 					addPiece(O,H,text2num(s))
 		if(href_list["remove"])
 			var/obj/item/I = board["[selected]"]
+			if(!I)
+				return
 			board["[selected]"] = null
 			board -= "[selected]"
 			board -= null
@@ -167,13 +161,105 @@ obj/item/weapon/board/attackby(obj/item/I as obj, mob/user as mob)
 			board_icons -= null
 	src.updateDialog()
 
-/obj/item/weapon/checker/
-	name = "black checker"
+//checkes
+/obj/item/weapon/checker
+	name = "checker"
 	desc = "It is plastic and shiny."
 	icon = 'icons/obj/pieces.dmi'
 	icon_state = "checker_black"
 	w_class = 1
+	var/piece_color ="black"
+
+/obj/item/weapon/checker/Initialize()
+	. = ..()
+	icon_state = "[name]_[piece_color]"
+	name = "[piece_color] [name]"
 
 /obj/item/weapon/checker/red
-	name = "red checker"
-	icon_state = "checker_red"
+	piece_color ="red"
+
+/obj/item/weapon/storage/box/checkers
+	name = "checkers box"
+	desc = "This box holds a nifty portion of checkers."
+	icon_state = "checkers"
+	max_storage_space = 24
+	can_hold = list(/obj/item/weapon/checker)
+
+/obj/item/weapon/storage/box/checkers/fill()
+	for(var/i = 0; i < 12; i++)
+		new /obj/item/weapon/checker(src)
+		new /obj/item/weapon/checker/red(src)
+
+//chess
+
+//Chess
+
+/obj/item/weapon/checker/pawn
+	name = "pawn"
+
+/obj/item/weapon/checker/pawn/red
+	piece_color ="red"
+
+/obj/item/weapon/checker/knight
+	name = "knight"
+
+/obj/item/weapon/checker/knight/red
+	piece_color ="red"
+
+/obj/item/weapon/checker/bishop
+	name = "bishop"
+
+/obj/item/weapon/checker/bishop/red
+	piece_color ="red"
+
+/obj/item/weapon/checker/rook
+	name = "rook"
+
+/obj/item/weapon/checker/rook/red
+	piece_color ="red"
+
+/obj/item/weapon/checker/queen
+	name = "queen"
+
+/obj/item/weapon/checker/queen/red
+	piece_color ="red"
+
+/obj/item/weapon/checker/king
+	name = "king"
+
+/obj/item/weapon/checker/king/red
+	piece_color ="red"
+
+/obj/item/weapon/storage/box/checkers/chess
+	name = "black chess box"
+	desc = "This box holds all the pieces needed for the black side of the chess board."
+	icon_state = "chess_b"
+
+/obj/item/weapon/storage/box/checkers/chess/fill()
+	for(var/i = 0; i < 8; i++)
+		new /obj/item/weapon/checker/pawn(src)
+	new /obj/item/weapon/checker/knight (src)
+	new /obj/item/weapon/checker/knight (src)
+	new	/obj/item/weapon/checker/bishop (src)
+	new	/obj/item/weapon/checker/bishop (src)
+	new	/obj/item/weapon/checker/rook (src)
+	new	/obj/item/weapon/checker/rook (src)
+	new	/obj/item/weapon/checker/queen (src)
+	new	/obj/item/weapon/checker/king (src)
+
+/obj/item/weapon/storage/box/checkers/chess/red
+	name = "red chess box"
+	desc = "This box holds all the pieces needed for the red side of the chess board."
+	icon_state = "chess_r"
+
+/obj/item/weapon/storage/box/checkers/chess/red/fill()
+	for(var/i = 0; i < 8; i++)
+		new /obj/item/weapon/checker/pawn/red(src)
+	new /obj/item/weapon/checker/knight/red (src)
+	new /obj/item/weapon/checker/knight/red (src)
+	new	/obj/item/weapon/checker/bishop/red (src)
+	new	/obj/item/weapon/checker/bishop/red (src)
+	new	/obj/item/weapon/checker/rook/red (src)
+	new	/obj/item/weapon/checker/rook/red (src)
+	new	/obj/item/weapon/checker/queen/red (src)
+	new	/obj/item/weapon/checker/king/red (src)
