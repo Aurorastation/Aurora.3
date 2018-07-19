@@ -23,7 +23,7 @@
 	..()
 
 /obj/item/weapon/board/attack_hand(mob/living/carbon/human/M as mob)
-	if(!istype(loc, /turf/))
+	if(!istype(loc, /turf/)) //so if you want to play the game, you need to put it down somewhere
 		..()
 	if(M.machine == src)
 		..()
@@ -191,6 +191,7 @@ obj/item/weapon/board/attackby(obj/item/I as obj, mob/user as mob)
 	desc = "This box holds a nifty portion of checkers."
 	icon_state = "checkers"
 	max_storage_space = 24
+	w_class = 1
 	can_hold = list(/obj/item/weapon/checker)
 
 /obj/item/weapon/storage/box/checkers/fill()
@@ -238,12 +239,15 @@ obj/item/weapon/board/attackby(obj/item/I as obj, mob/user as mob)
 /obj/item/weapon/checker/king/red
 	piece_color ="red"
 
-/obj/item/weapon/storage/box/checkers/chess
+/obj/item/weapon/storage/box/chess
 	name = "black chess box"
 	desc = "This box holds all the pieces needed for the black side of the chess board."
 	icon_state = "chess_b"
+	max_storage_space = 24
+	w_class = 2
+	can_hold = list(/obj/item/weapon/checker)
 
-/obj/item/weapon/storage/box/checkers/chess/fill()
+/obj/item/weapon/storage/box/chess/fill()
 	for(var/i = 0; i < 8; i++)
 		new /obj/item/weapon/checker/pawn(src)
 	new /obj/item/weapon/checker/knight (src)
@@ -255,12 +259,12 @@ obj/item/weapon/board/attackby(obj/item/I as obj, mob/user as mob)
 	new /obj/item/weapon/checker/queen (src)
 	new /obj/item/weapon/checker/king (src)
 
-/obj/item/weapon/storage/box/checkers/chess/red
+/obj/item/weapon/storage/box/chess/red
 	name = "red chess box"
 	desc = "This box holds all the pieces needed for the red side of the chess board."
 	icon_state = "chess_r"
 
-/obj/item/weapon/storage/box/checkers/chess/red/fill()
+/obj/item/weapon/storage/box/chess/red/fill()
 	for(var/i = 0; i < 8; i++)
 		new /obj/item/weapon/checker/pawn/red(src)
 	new /obj/item/weapon/checker/knight/red (src)
@@ -271,3 +275,29 @@ obj/item/weapon/board/attackby(obj/item/I as obj, mob/user as mob)
 	new /obj/item/weapon/checker/rook/red (src)
 	new /obj/item/weapon/checker/queen/red (src)
 	new /obj/item/weapon/checker/king/red (src)
+
+//game kits
+/obj/item/weapon/storage/box/checkers_kit
+	name = "checkers game kit"
+	desc = "This box holds all the parts needed for a game of checkers."
+	icon_state = "largebox"
+	max_storage_space = 8
+	can_hold = list(/obj/item/weapon/board,
+					/obj/item/weapon/storage/box/checkers)
+
+/obj/item/weapon/storage/box/checkers_kit/fill()
+	new /obj/item/weapon/board (src)
+	new /obj/item/weapon/storage/box/checkers (src)
+
+/obj/item/weapon/storage/box/chess_kit
+	name = "chess game kit"
+	desc = "This box holds all the parts needed for a game of chess."
+	icon_state = "largebox"
+	max_storage_space = 8
+	can_hold = list(/obj/item/weapon/board,
+					/obj/item/weapon/storage/box/chess)
+
+/obj/item/weapon/storage/box/chess_kit/fill()
+	new /obj/item/weapon/board (src)
+	new /obj/item/weapon/storage/box/chess (src)
+	new /obj/item/weapon/storage/box/chess/red (src)
