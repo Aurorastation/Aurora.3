@@ -87,7 +87,7 @@
 //Doubleburn napalm modifier. Applied by Zo'rane Fire
 //Increases damage dealt by burn sources
 /datum/modifier/napalm
-	var/burn_mod
+	var/added_burn_mod
 	var/delta
 
 /datum/modifier/napalm/activate()
@@ -95,13 +95,14 @@
 	delta = strength
 	if (isliving(target))
 		var/mob/living/L = target
-		L.burn_mod *= delta
+		added_burn_mod = L.burn_mod * delta - L.burn_mod
+		L.burn_mod += added_burn_mod
 
 /datum/modifier/napalm/deactivate()
 	..()
 	if (isliving(target))
 		var/mob/living/L = target
-		L.burn_mod /= delta
+		L.burn_mod -= added_burn_mod
 
 /datum/modifier/napalm/custom_validity()
 	if(istype(target, /mob/living))

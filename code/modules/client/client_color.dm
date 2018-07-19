@@ -72,7 +72,4 @@
 
 /datum/client_color/vaurca
 	client_color = list(0.3,0,0, 0,0.5,0, 0.5,0,1.5)
-	//client_color = list(0.1,0.5,0.4, 0.3,0.2,0.4, 0,0,0.8)
-	//client_color = list(0,0.2,0.2, 0.2,0.8,0.2, 0.2,0.2,0.8)
-	//client_color = list(0,0.3,0.3, 0.2,0.6,0.3, 0.3,0.3,0.6)
 	priority = 101

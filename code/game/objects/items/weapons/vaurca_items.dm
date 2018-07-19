@@ -39,7 +39,7 @@
 	icon_state = "eknife1"
 	item_state = icon_state
 	damtype = "fire"
-	if(istype(user,/mob/living/carbon/human))
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
@@ -50,7 +50,7 @@
 	icon_state = "eknife0"
 	item_state = icon_state
 	damtype = "brute"
-	if(istype(user,/mob/living/carbon/human))
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
@@ -301,7 +301,7 @@
 	icon_state = "greatblade1"
 	item_state = icon_state
 	damtype = "fire"
-	if(istype(user,/mob/living/carbon/human))
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
@@ -312,7 +312,7 @@
 	icon_state = "greatblade0"
 	item_state = icon_state
 	damtype = "brute"
-	if(istype(user,/mob/living/carbon/human))
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()

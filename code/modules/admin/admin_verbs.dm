@@ -1165,7 +1165,10 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Add Client Color"
 	set desc = "Adds a client color to a given mob"
 
-	if(!istype(T,/mob/living/carbon/human))
+	if(!check_rights(R_DEV))
+		return
+
+	if(!ishuman(T))
 		to_chat(usr, "This can only be done to instances of type /mob/living/carbon/human")
 		return
 

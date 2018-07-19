@@ -670,7 +670,7 @@
 		return
 
 	if(stat || paralysis || stunned || weakened)
-		to_chat(src, "<span class='danger'>You cannot screecj in your current state!.</span>")
+		to_chat(src, "<span class='danger'>You cannot screech in your current state!.</span>")
 		return
 
 	last_special = world.time
@@ -709,8 +709,6 @@
 
 	if (victims.len)
 		admin_attacker_log_many_victims(src, victims, "used rebel yell to stun", "was stunned by [key_name(src)] using rebel yell", "used rebel yell to stun")
-	else
-		log_and_message_admins("used rebel yell screech.")
 
 /mob/living/carbon/human/proc/formic_spray()
 	set category = "Abilities"

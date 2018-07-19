@@ -77,10 +77,9 @@
 
 		if(destination)
 			var/turf/start = get_turf(H)
-			if(start.CanZPass(H, UP))
-				if(destination.CanZPass(H, UP))
-					H.climb(UP, src)
-					return
+			if(start.CanZPass(H, UP) && destination.CanZPass(H, UP))
+				H.climb(UP, src)
+				return
 
 	try_touch(user, rotting)
 
