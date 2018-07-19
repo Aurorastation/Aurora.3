@@ -410,7 +410,12 @@
 	return ffuu
 
 /obj/machinery/microwave/Topic(href, href_list)
-	if(..())
+	if(stat & BROKEN)
+		return
+
+	if(!interact_offline && (stat & NOPOWER))
+		if (href_list["action"] == "dispose")
+			dispose()
 		return
 
 	usr.set_machine(src)
