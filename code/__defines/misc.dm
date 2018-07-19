@@ -459,9 +459,3 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define GET_BELOW(A) (HAS_BELOW(A:z) ? get_step(A, DOWN) : null)
 
 #define NULL_OR_EQUAL(self,other) (!(self) || (self) == (other))
-
-// Vueui defines
-#define VUEUI_SET_CHECK(a, b, c, d) if (a != b) { a = b; c = d; }
-#define VUEUI_SET_CHECK_IFNOTSET(a, b, c, d) if (a == null && a != b) { a = b; c = d; }
-#define THEME_TYPE_DARK 1
-#define THEME_TYPE_LIGHT 0

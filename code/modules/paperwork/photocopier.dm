@@ -16,22 +16,22 @@
 /obj/machinery/photocopier/attack_ai(mob/user as mob)
 	return attack_hand(user)
 
+VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
+	watch_var("toner", "toner")
+	watch_var("maxcopies", "maxcopies")
+	watch_var("copyitem", "gotitem", CALLBACK(null, .proc/transform_to_boolean, 0))
+
 /obj/machinery/photocopier/vueui_data_change(var/list/data, var/mob/user, var/vueui/ui)
-	var/isChanged = FALSE
-	if(!data)
-		isChanged = TRUE
-		data = list("copies" = 1)
-	VUEUI_SET_CHECK(data["toner"], toner, isChanged, TRUE)
-	VUEUI_SET_CHECK(data["isAI"], istype(user,/mob/living/silicon), isChanged, TRUE)
-	VUEUI_SET_CHECK(data["gotitem"], !!copyitem, isChanged, TRUE)
-	VUEUI_SET_CHECK(data["maxcopies"], maxcopies, isChanged, TRUE)
-	// Sanity checks to determine if ui haven't gotten too far from reality
-	if(data["copies"] < 1)
-		VUEUI_SET_CHECK(data["copies"], 1, isChanged, TRUE)
-	else if (data["copies"] > maxcopies)
-		VUEUI_SET_CHECK(data["copies"], maxcopies, isChanged, TRUE)
-	if(isChanged)
-		return data
+	var/monitordata = ..()
+	if(monitordata)
+		data = monitordata
+		. = data
+	if(data && data["isAI"] != istype(user, /mob/living/silicon))
+		data["isAI"] = istype(user, /mob/living/silicon)
+		. = data
+	if(data && !isnum(data["copies"]))
+		data["copies"] = 1
+		. = data
 
 /obj/machinery/photocopier/attack_hand(mob/user)
 	user.set_machine(src)
@@ -50,7 +50,7 @@
 		var/datum/vueui/ui = href_list["vueui"]
 		if(!istype(ui))
 			return
-		var/copies = ui.data["copies"]
+		var/copies = between(0, ui.data["copies"], maxcopies)
 
 		for(var/i = 0, i < copies, i++)
 			if(toner <= 0)
@@ -178,12 +178,12 @@
 		img.pixel_x = copy.offset_x[j]
 		img.pixel_y = copy.offset_y[j]
 		c.add_overlay(img)
-	
+
 	toner--
 	if(toner == 0)
 		visible_message("<span class='notice'>A red light on \the [src] flashes, indicating that it is out of toner.</span>")
 		return
-	
+
 	c.set_content_unsafe(pname, info)
 	if (print)
 		src.print(c, use_sound, 'sound/items/poster_being_created.ogg', delay)

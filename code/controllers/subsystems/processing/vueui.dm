@@ -5,13 +5,13 @@ Byond Vue UI framework's management subsystem
 */
 /datum/controller/subsystem/processing/vueui
 	name = "VueUI"
-	flags = SS_NO_INIT
+	flags = 0
 	priority = SS_PRIORITY_NANOUI
 	stat_tag = "O"
 
 	var/list/open_uis
 
-	var/available_html_themes = list(
+	var/list/available_html_themes = list(
 		"Nano" = list(
 			"name" = "Nano Dark",
 			"class" = "theme-nano",
@@ -34,10 +34,29 @@ Byond Vue UI framework's management subsystem
 		)
 	)
 
+	var/list/var_monitor_map
+
 /datum/controller/subsystem/processing/vueui/New()
 	LAZYINITLIST(open_uis)
 	NEW_SS_GLOBAL(SSvueui)
 
+/datum/controller/subsystem/processing/vueui/Initialize(timeofday)
+	var_monitor_map = list()
+	for (var/path in subtypesof(/datum/vueui_var_monitor))
+		var/datum/vueui_var_monitor/VM = new path()
+		var_monitor_map[VM.subject_type] = VM
+
+	..()
+
+/**
+  * Gets a vueui_var_monitor associated with the given source type.
+  *
+  * @param subject - the object we're querying a monitor for.
+  *
+  * @return a vueui_var_monitor associated with the type, or null.
+  */
+/datum/controller/subsystem/processing/vueui/proc/get_var_monitor(datum/subject)
+	return var_monitor_map[subject.type]
 
 /**
   * Gets open ui for specified object and user
@@ -46,7 +65,7 @@ Byond Vue UI framework's management subsystem
   * @param src_object - object that hosts the ui we are looking for
   *
   * @return ui datum or null
-  */ 
+  */
 /datum/controller/subsystem/processing/vueui/proc/get_open_ui(var/mob/user, var/src_object)
 	for (var/datum/vueui/ui in get_open_uis(src_object))
 		if (ui.user == user)
@@ -60,19 +79,19 @@ Byond Vue UI framework's management subsystem
   * @param src_object - object that hosts the ui we are looking for
   *
   * @return list of UI datums or null
-  */ 
+  */
 /datum/controller/subsystem/processing/vueui/proc/get_open_uis(var/src_object)
 	var/src_object_key = SOFTREF(src_object)
 	if (!LAZYLEN(open_uis[src_object_key]))
 		return null
-		
+
 	return open_uis[src_object_key]
 
 /**
   * Initiates check for data change of specified object
   *
   * @param src_object - object that hosts ui that should be updated
-  */ 
+  */
 /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change(var/src_object)
 	for (var/datum/vueui/ui in get_open_uis(src_object))
 		ui.check_for_change()
@@ -84,7 +103,7 @@ Byond Vue UI framework's management subsystem
   * @param src_object - object that hosts ui that should be closed. Optional
   *
   * @return number of uis closed
-  */ 
+  */
 /datum/controller/subsystem/processing/vueui/proc/close_user_uis(var/mob/user, var/src_object)
 	if (!LAZYLEN(user.open_vueui_uis))
 		return 0
@@ -98,7 +117,7 @@ Byond Vue UI framework's management subsystem
   * Alerts of subsystem of opened ui, and starts processing it.
   *
   * @param ui - ui that got opened
-  */ 
+  */
 /datum/controller/subsystem/processing/vueui/proc/ui_opened(var/datum/vueui/ui)
 	var/src_object_key = SOFTREF(ui.object)
 	LAZYINITLIST(open_uis[src_object_key])
@@ -113,7 +132,7 @@ Byond Vue UI framework's management subsystem
   * @param ui - ui that got closed
   *
   * @return 0 if failed, 1 if success
-  */ 
+  */
 /datum/controller/subsystem/processing/vueui/proc/ui_closed(var/datum/vueui/ui)
 	var/src_object_key = SOFTREF(ui.object)
 
@@ -136,7 +155,7 @@ Byond Vue UI framework's management subsystem
   * @param ui - ui that got closed
   *
   * @return number of uis closed
-  */ 
+  */
 /datum/controller/subsystem/processing/vueui/proc/user_logout(var/mob/user)
 	return close_user_uis(user)
 
@@ -147,7 +166,7 @@ Byond Vue UI framework's management subsystem
   * @param newMob - mob to whome ui was transfered
   *
   * @return 0 if failed, 1 if success
-  */ 
+  */
 /datum/controller/subsystem/processing/vueui/proc/user_transferred(var/mob/oldMob, var/mob/newMob)
 	if (!oldMob || !LAZYLEN(oldMob.open_vueui_uis) || !LAZYLEN(open_uis))
 		return 0
@@ -170,7 +189,7 @@ Byond Vue UI framework's management subsystem
   * @param new_data - initial data for this transfered ui
   *
   * @return 0 if failed, 1 if success
-  */ 
+  */
 /datum/controller/subsystem/processing/vueui/proc/transfer_uis(var/old_object, var/new_object, var/new_activeui = null, var/new_data = null)
 	var/old_object_key = SOFTREF(old_object)
 	var/new_object_key = SOFTREF(new_object)
@@ -183,7 +202,7 @@ Byond Vue UI framework's management subsystem
 		open_uis[old_object_key] -= ui
 		LAZYADD(open_uis[new_object_key], ui)
 		ui.check_for_change()
-		
+
 	if (!LAZYLEN(open_uis[old_object_key]))
 		open_uis -= old_object_key
 

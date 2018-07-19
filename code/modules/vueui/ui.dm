@@ -74,7 +74,7 @@ main ui datum.
 		return
 	if(!user.client)
 		return
-		
+
 	if(!data)
 		data = object.vueui_data_change(null, user, src)
 	update_status()
@@ -99,7 +99,7 @@ main ui datum.
 	SSvueui.ui_closed(src)
 	user << browse(null, "window=[windowid]")
 	status = null
-		
+
 /**
   * Generates base html for this ui to be rendered.
   *
@@ -167,7 +167,7 @@ main ui datum.
   * @param cl - client that should get assets
   *
   * @return nothing
-  */ 
+  */
 /datum/vueui/proc/send_resources_and_assets(var/client/cl)
 #ifdef UIDEBUG
 	cl << browse_rsc(file("vueui/dist/app.js"), "vueui.js")
@@ -187,7 +187,7 @@ main ui datum.
   * @param name - asset's name that should be sent to client
   *
   * @return nothing
-  */ 
+  */
 /datum/vueui/proc/send_asset(var/name)
 	if (!QDELETED(user) || !user.client)
 		return
@@ -202,7 +202,7 @@ main ui datum.
   * @param img - image, an asset that will be used
   *
   * @return nothing
-  */ 
+  */
 /datum/vueui/proc/add_asset(var/name, var/image/img)
 	if(QDELETED(img))
 		return
@@ -216,7 +216,7 @@ main ui datum.
   * @param name - name of asset that will be removed
   *
   * @return nothing
-  */ 
+  */
 /datum/vueui/proc/remove_asset(var/name)
 	name = ckey(name)
 	assets -= assets[name]
@@ -225,7 +225,7 @@ main ui datum.
   * Handles interactivity and state updates
   *
   * @return nothing
-  */ 
+  */
 /datum/vueui/Topic(href, href_list)
 	update_status()
 	if(status < STATUS_INTERACTIVE || user != usr)
@@ -249,7 +249,7 @@ main ui datum.
   * @param ndate - new data that should be pushed to client, if null then exisitng data is pushed
   *
   * @return nothing
-  */ 
+  */
 /datum/vueui/proc/push_change(var/list/ndata)
 	if(ndata && status > STATUS_DISABLED)
 		src.data = ndata
@@ -261,7 +261,7 @@ main ui datum.
   * @param force - determines should data be pushed even if no change is present
   *
   * @return nothing
-  */ 
+  */
 /datum/vueui/proc/check_for_change(var/force = 0)
 	if(status > STATUS_DISABLED)
 		var/ret = object.vueui_data_change(data, user, src)
