@@ -2763,6 +2763,10 @@
 	},
 /turf/simulated/floor/carpet,
 /area/security/detectives_office)
+"ff" = (
+/obj/effect/landmark/dungeon_spawn,
+/turf/unsimulated/chasm_mask,
+/area/mine/unexplored)
 "fh" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -17220,7 +17224,7 @@ aa
 aa
 aa
 aa
-aa
+ff
 aa
 aa
 aa
@@ -18164,7 +18168,7 @@ aa
 aa
 aa
 aa
-aa
+ff
 aa
 aa
 aa
@@ -40849,7 +40853,7 @@ aa
 aa
 aa
 aa
-aa
+ff
 aa
 aa
 aa
@@ -54265,7 +54269,7 @@ aa
 aa
 aa
 aa
-aa
+ff
 aa
 aa
 aa
@@ -54920,7 +54924,7 @@ aa
 aa
 aa
 aa
-aa
+ff
 aa
 aa
 aa
