@@ -125,7 +125,7 @@
 
 	return verb
 
-/mob/living/carbon/human/handle_speech_problems(var/message, var/verb)
+/mob/living/carbon/human/handle_speech_problems(var/message, var/verb, var/message_mode)
 	message = handle_speech_muts(message,verb)
 	for(var/datum/brain_trauma/trauma in get_traumas())
 		if(!trauma.suppressed)
