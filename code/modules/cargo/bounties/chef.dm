@@ -61,7 +61,7 @@
 
 /datum/bounty/item/chef/poppypretzel
 	name = "Poppy Pretzel"
-	description = "%BOSSNAME needs a reason to fire their HR head. Send over a poppy pretzel to force a failed drug test."
+	description = "%BOSSNAME needs a popply brezel for the drug-training of their security department."
 	reward = 3000
 	wanted_types = list(/obj/item/weapon/reagent_containers/food/snacks/poppypretzel)
 

@@ -20,7 +20,7 @@
 */
 /datum/bounty/item/assistant/stunprod
 	name = "Stunprod"
-	description = "%BOSSSHORT demands a stunprod to use against dissidents. Craft one, then ship it."
+	description = "%BOSSSHORT needs to pacify some rioting \"cows\". Craft one, then ship it."
 	reward = 1300
 	wanted_types = list(/obj/item/weapon/melee/baton/cattleprod)
 
@@ -33,14 +33,14 @@
 
 /datum/bounty/item/assistant/spear
 	name = "Spears"
-	description = "%BOSSSHORT's security forces are going through budget cuts. You will be paid if you ship a set of spears."
+	description = "As part of our cultural appreciation programs, we require a bunch of spears to please a Unathi diplomat. Please send your best!"
 	reward = 2000
 	required_count = 5
 	wanted_types = list(/obj/item/weapon/material/twohanded/spear)
 
 /datum/bounty/item/assistant/toolbox
 	name = "Toolboxes"
-	description = "There's an absence of robustness at %BOSSNAME. Hurry up and ship some toolboxes as a solution."
+	description = "There's an absence of \"engineering robustness\" at %BOSSNAME. Hurry up and ship some toolboxes as a solution."
 	reward = 2000
 	required_count = 6
 	wanted_types = list(/obj/item/weapon/storage/toolbox)
@@ -63,7 +63,7 @@
 	name = "Cheesie Honkers"
 	description = "Apparently the company that makes Cheesie Honkers is going out of business soon. %BOSSSHORT wants to stock up before it happens!"
 	reward = 1200
-	required_count = 3
+	required_count = 30
 	wanted_types = list(/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers)
 
 /datum/bounty/item/assistant/baseball_bat
@@ -143,7 +143,7 @@
 
 /datum/bounty/item/assistant/revolver
 	name = "Revolver"
-	description = "Captain Johann of station 12 has challenged Captain Vic of station 11 to a duel. He's asked for help securing an appropriate revolver to use."
+	description = "One of our Lead Investigators lost their revolver. He's asked for help securing an appropriate replacement."
 	reward = 2000
 	wanted_types = list(/obj/item/weapon/gun/projectile/revolver)
 

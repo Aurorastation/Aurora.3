@@ -17,14 +17,14 @@
 
 /datum/bounty/item/bot/ed209
 	name = "ED 209"
-	description = "To increase the security presence at our checkpoints we need a couble of ED209s."
+	description = "To increase the security presence at our checkpoints we need a couple of ED209s."
 	reward = 5000
 	required_count = 2
 	wanted_types = list(/mob/living/bot/secbot/ed209)
 
 /datum/bounty/item/bot/farmbot
 	name = "Farmbot"
-	description = "After a kois incident multiple botanists are hospitalized. Provide a farmbot to replace them."
+	description = "After a k'ois incident multiple botanists are hospitalized. Provide a farmbot to replace them."
 	reward = 2000
 	required_count = 3
 	wanted_types = list(/mob/living/bot/farmbot)
