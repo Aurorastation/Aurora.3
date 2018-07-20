@@ -412,10 +412,10 @@
 /obj/machinery/microwave/Topic(href, href_list)
 	if(stat & BROKEN)
 		return
+	if(href_list["action"] == "dispose")
+		dispose()
 
-	if(!interact_offline && (stat & NOPOWER))
-		if (href_list["action"] == "dispose")
-			dispose()
+	if(..())
 		return
 
 	usr.set_machine(src)
