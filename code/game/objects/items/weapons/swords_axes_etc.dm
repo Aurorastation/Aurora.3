@@ -82,3 +82,27 @@
 		update_icon()
 
 	return
+
+/obj/item/weapon/melee/telebaton/attack(mob/target as mob, mob/living/user as mob, var/target_zone)
+	if(on)
+		if ((CLUMSY in user.mutations) && prob(50))
+			user << "<span class='warning'>You club yourself over the head.</span>"
+			user.Weaken(3 * force)
+			if(ishuman(user))
+				var/mob/living/carbon/human/H = user
+				H.apply_damage(2*force, BRUTE, "head")
+			else
+				user.take_organ_damage(2*force)
+			return
+		if(..() == 1)
+			if(user.a_intent == I_DISARM)
+				var/pain = 40
+				if(ishuman(target))
+					var/mob/living/carbon/human/T = target
+					var/armor = T.run_armor_check(target_zone,"melee")
+					pain -= armor
+
+					T.apply_damage(pain, HALLOSS, target_zone, armor)
+		return
+	else
+		return ..()
