@@ -12861,7 +12861,7 @@
 /area/crew_quarters/sleep/cryo)
 "xJ" = (
 /obj/machinery/door/airlock/glass{
-	name = "Holodeck"
+	name = "Recreation Center"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -13206,7 +13206,7 @@
 /area/crew_quarters/sleep/cryo)
 "yw" = (
 /obj/machinery/door/airlock/glass{
-	name = "Holodeck"
+	name = "Recreation Center"
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
