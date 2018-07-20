@@ -1035,5 +1035,3 @@
 		spawned_frame.update_stats()
 
 		qdel(thing)
-
-
