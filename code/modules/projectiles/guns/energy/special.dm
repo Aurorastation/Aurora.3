@@ -419,8 +419,8 @@
 
 	firemodes = list(
 		list(mode_name="2 second burst", burst=10, burst_delay = 1, fire_delay = 20),
-		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40, dispersion = list(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)),
-		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60, dispersion = list(0, 1.5, 3, 4.5, 6, 7.5, 9, 10.5, 12, 13.5, 15, 16.5, 18, 19.5, 21))
+		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40),
+		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60)
 		)
 
 	action_button_name = "Wield thermal drill"
@@ -485,7 +485,6 @@
 	charge_meter = 1
 	use_external_power = 1
 	charge_cost = 25
-	dispersion = list(0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30)
 
 /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill/special_check(var/mob/user)
 	if(is_charging)
