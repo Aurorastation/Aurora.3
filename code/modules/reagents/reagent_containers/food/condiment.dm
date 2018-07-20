@@ -106,6 +106,11 @@
 					desc = "An exotic blend of spices for cooking. It must flow."
 					icon_state = "spacespicebottle"
 					center_of_mass = list("x"=16, "y"=6)
+				if("barbecue")
+					name = "barbecue sauce"
+					desc = "Barbecue sauce, it's labeled 'sweet and spicy'"
+					icon_state = "barbecue"
+					center_of_mass = list("x"=16, "y"=6)
 				else
 					name = "misc condiment bottle"
 					if (reagents.reagent_list.len==1)
@@ -179,3 +184,11 @@
 	Initialize()
 		. = ..()
 		reagents.add_reagent("spacespice", 40)
+
+/obj/item/weapon/reagent_containers/food/condiment/barbecue
+	name = "barbecue sauce"
+	desc = "Barbecue sauce, it's labeled 'sweet and spicy'"
+	icon_state = "barbecue"
+	Initialize()
+		..()
+		reagents.add_reagent("barbecue", 50)

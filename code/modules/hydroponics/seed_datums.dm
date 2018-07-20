@@ -1338,7 +1338,7 @@
 	mutants = list("finetobacco")
 	chems = list("tobacco" = list(1,10), "nicotine" = list(1,3))
 
-/datum/seed/tobacco/New()
+/datum/seed/tobacco/setup_traits()
 	..()
 	set_trait(TRAIT_MATURATION,6)
 	set_trait(TRAIT_PRODUCTION,6)
@@ -1358,7 +1358,7 @@
 	display_name = "fine tobacco leaves"
 	chems = list("tobaccorich" = list(1,10), "nicotine" = list(3,5))
 
-/datum/seed/tobacco/finetobacco/New()
+/datum/seed/tobacco/finetobacco/setup_traits()
 	..()
 	set_trait(TRAIT_YIELD,4)
 	set_trait(TRAIT_PRODUCT_COLOUR,"#33571b")
@@ -1371,7 +1371,7 @@
 	display_name = "black pepper"
 	chems = list("blackpepper" = list(10,10))
 
-/datum/seed/peppercorn/New()
+/datum/seed/peppercorn/setup_traits()
 	..()
 	set_trait(TRAIT_HARVEST_REPEAT,1)
 	set_trait(TRAIT_MATURATION,4)
@@ -1387,10 +1387,10 @@
 	name = "garlic"
 	seed_name = "garlic"
 	display_name = "garlic"
-	chems = list("nutriment" = list(1,5))
+	chems = list("garlicjuice" = list(1,5))
 	kitchen_tag = "garlic"
 
-/datum/seed/garlic/New()
+/datum/seed/garlic/setup_traits()
 	..()
 	set_trait(TRAIT_MATURATION,10)
 	set_trait(TRAIT_PRODUCTION,1)
@@ -1405,10 +1405,10 @@
 	name = "onion"
 	seed_name = "onion"
 	display_name = "onions"
-	chems = list("nutriment" = list(1,5))
+	chems = list("onionjuice" = list(1,5))
 	kitchen_tag = "onion"
 
-/datum/seed/onion/New()
+/datum/seed/onion/setup_traits()
 	..()
 	set_trait(TRAIT_MATURATION,10)
 	set_trait(TRAIT_PRODUCTION,1)
