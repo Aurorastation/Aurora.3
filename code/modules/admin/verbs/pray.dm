@@ -26,7 +26,7 @@
 	usr << "Your prayers have been received by the gods."
 
 	feedback_add_details("admin_verb","PR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	//log_admin("HELP: [key_name(src)]: [msg]")
+	log_admin("HELP: [key_name(src)]: [msg]")
 
 /proc/Centcomm_announce(var/msg, var/mob/Sender, var/iamessage)
 	var/msg_cciaa = "<span class='notice'><b><font color=orange>[uppertext(current_map.boss_short)][iamessage ? " IA" : ""]:</font>[key_name(Sender, 1)] (<A HREF='?_src_=holder;CentcommReply=\ref[Sender]'>RPLY</A>):</b> [msg]</span>"
