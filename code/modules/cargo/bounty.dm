@@ -5,6 +5,15 @@
 	var/claimed = FALSE
 	var/high_priority = FALSE
 
+/datum/bounty/New()
+	description = replacetext(description, "%DOCKNAME",current_map.dock_name)
+	description = replacetext(description, "%DOCKSHORT",current_map.dock_short)
+	description = replacetext(description, "%BOSSNAME",current_map.boss_name)
+	description = replacetext(description, "%BOSSSHORT",current_map.boss_short)
+	description = replacetext(description, "%COMPNAME",current_map.company_name)
+	description = replacetext(description, "%COMPSHORT",current_map.company_short)
+
+
 // Displayed on bounty UI screen.
 /datum/bounty/proc/completion_string()
 	return ""

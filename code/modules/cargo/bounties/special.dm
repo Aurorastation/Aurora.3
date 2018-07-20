@@ -26,7 +26,7 @@
 	reward = 3 // number of bounties
 	var/required_bounties = 5
 /datum/bounty/more_bounties/New()
-	description = "Complete enough bounties and [current_map.boss_short] will issue new ones!"
+	description = "Complete enough bounties and %BOSSSHORT will issue new ones!"
 
 /datum/bounty/more_bounties/can_claim()
 	return ..() && SScargo.completed_bounty_count() >= required_bounties
