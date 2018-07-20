@@ -212,3 +212,13 @@
 		custom_emote(m_type,message)
 
 	return
+
+/mob/living/silicon/robot/verb/powerwarn()
+	set category = "Robot Commands"
+	set name = "Power Warning"
+	if(!is_component_functioning("power cell") || !cell || !cell.charge)
+		visible_message("The power warning light on <span class='name'>[src]</span> flashes urgently.",\
+		"You announce you are operating in low power mode.")
+		playsound(loc, 'sound/machines/buzz-two.ogg', 50, 0)
+	else
+		to_chat(src, "<span class='warning'>You can only use this emote when you're out of charge.</span>")

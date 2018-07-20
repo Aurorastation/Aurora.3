@@ -10,14 +10,20 @@
 	var/amount = 0
 	for(var/V in components)
 		var/datum/robot_component/C = components[V]
-		if(C.installed != 0) amount += C.brute_damage
+		if(C.installed) 
+			amount += Clamp(C.brute_damage,0,C.max_damage)
+		else if(C.installed == -1)
+			amount += C.max_damage/2
 	return amount
 
 /mob/living/silicon/robot/getFireLoss()
 	var/amount = 0
 	for(var/V in components)
 		var/datum/robot_component/C = components[V]
-		if(C.installed != 0) amount += C.electronics_damage
+		if(C.installed)
+			amount += Clamp(C.electronics_damage,0,C.max_damage)
+		else if(C.installed == -1)
+			amount += C.max_damage/2
 	return amount
 
 /mob/living/silicon/robot/adjustBruteLoss(var/amount)
