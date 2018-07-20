@@ -396,6 +396,9 @@
 	set category = "Object"
 	set src in usr
 
+	toggle_wield(usr)
+	usr.update_icon()
+
 /obj/item/weapon/gun/projectile/automatic/rifle/shotgun
 	name = "assault shotgun"
 	desc = "A experimental, semi-automatic combat shotgun, designed for boarding operations and law enforcement agencies."

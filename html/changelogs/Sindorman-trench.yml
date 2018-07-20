@@ -1,0 +1,7 @@
+author: PoZe
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed names for black and technicolor detective armoured trenchcoats"
+  - rscadd: "Detective armoured trenchcoats are avaliable in loadout section of character setup. (Only for detectives and HOS)"

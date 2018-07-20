@@ -90,6 +90,7 @@
 	recipes += new/datum/stack_recipe("modular console frame", /obj/item/modular_computer/console, 20, time = 25, one_per_turf = TRUE)
 	recipes += new/datum/stack_recipe("modular laptop frame", /obj/item/modular_computer/laptop, 10, time = 25)
 	recipes += new/datum/stack_recipe("modular tablet frame", /obj/item/modular_computer/tablet, 5, time = 25)
+	recipes += new/datum/stack_recipe("shield fittings", /obj/item/weapon/material/shieldbits, 10, time = 25)
 
 /material/plasteel/generate_recipes()
 	..()
@@ -127,6 +128,7 @@
 	recipes += new/datum/stack_recipe("ore box", /obj/structure/ore_box, 10, time = 15, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("wooden bucket", /obj/item/weapon/reagent_containers/glass/bucket/wood, 2, time = 4, one_per_turf = 0, on_floor = 0)
 	recipes += new/datum/stack_recipe("shaft", /obj/item/weapon/material/shaft, 10, time = 25, one_per_turf = 0, on_floor = 0)
+	recipes += new/datum/stack_recipe("buckler donut", /obj/item/weapon/material/woodenshield, 20, time = 25, one_per_turf = 0, on_floor = 0)
 
 /material/cardboard/generate_recipes()
 	..()
