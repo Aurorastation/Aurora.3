@@ -447,7 +447,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		if (burn_rate)
 			user << "<span class='notice'>[src] is already packed.</span>"
 			return
-		burn_rate = 0.1
 		if(G.reagents)
 			initial_volume = G.reagents.total_volume
 			G.reagents.trans_to_obj(src, G.reagents.total_volume)
