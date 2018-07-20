@@ -47,22 +47,19 @@
 
 	log_ss("map_finalization","Attempting to create asteroid dungeons for [length(asteroid_spawn)] different areas, with [length(files) - 1] possible dungeons, with a [dungeon_chance]% chance to spawn a dungeon per area.")
 
-	var/always_prob = 0
-
 	for(var/turf/spawn_location in asteroid_spawn)
 
 		if(length(files) <= 0) //Sanity
 			log_ss("map_finalization","There aren't enough dungeon map files to fill the entire dungeon map. There may be less dungeons than expected.")
 			break
 
-		if(always_prob || prob(dungeon_chance))
+		if(prob(dungeon_chance))
 
 			var/chosen_dungeon = pick(files)
-			always_prob = 0
 
 			if(!dd_hassuffix(chosen_dungeon,".dmm")) //Don't read anything that isn't a map file
 				files -= chosen_dungeon
-				always_prob = 1 //We wasted our roll on a readme file so be sure that the next dungeon will contain an actual dungeon.
+				log_ss("map_finalization","ALERT: [chosen_dungeon] is not a .dmm file! Skipping!")
 				continue
 
 			var/map_file = file("[map_directory][chosen_dungeon]")
@@ -72,7 +69,7 @@
 				maploader.load_map(map_file,spawn_location.x,spawn_location.y,spawn_location.z)
 				dungeons_placed += 1
 			else
-				log_ss("map_finalization","ERROR: Something fucking weird happened with the file: [chosen_dungeon].")
+				log_ss("map_finalization","ERROR: Something weird happened with the file: [chosen_dungeon].")
 
 			if(dd_hassuffix(chosen_dungeon,"_unique.dmm")) //Unique dungeons should only spawn once.
 				files -= chosen_dungeon
