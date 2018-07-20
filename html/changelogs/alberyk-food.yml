@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added tobacco, onion and garlic seeds."
+  - rscadd: "Added new cooking recipes."
