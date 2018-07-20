@@ -2948,6 +2948,9 @@
 /obj/machinery/appliance/mixer/cereal{
 	pixel_y = 4
 	},
+/obj/machinery/alarm{
+	pixel_y = 22
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "afW" = (
@@ -3135,7 +3138,8 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "agq" = (
-/obj/structure/table/stone/marble,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/closet/secure_closet/freezer/kitchen,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "agr" = (
@@ -4469,7 +4473,6 @@
 /area/security/main)
 "ajb" = (
 /obj/structure/closet/chefcloset,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "ajc" = (
@@ -5353,15 +5356,11 @@
 /area/maintenance/library)
 "akG" = (
 /obj/structure/table/rack,
-/obj/item/weapon/reagent_containers/food/condiment/flour{
-	pixel_x = -8;
-	pixel_y = 8
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
 	},
-/obj/item/weapon/reagent_containers/food/condiment/flour{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/item/weapon/reagent_containers/food/condiment/flour,
+/obj/item/weapon/storage/box/kitchen,
+/obj/item/weapon/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "akH" = (
@@ -5389,30 +5388,26 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "akJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
+/obj/structure/table/reinforced,
+/obj/item/glass_jar,
+/obj/item/device/eftpos{
+	eftpos_name = "Kitchen EFTPOS scanner"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 4
+/obj/machinery/button/remote/blast_door{
+	id = "kitchenshutters01";
+	name = "Canteen Shutters Control";
+	pixel_x = 0;
+	pixel_y = 28;
+	req_access = list(28)
 	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/machinery/camera/network/civilian_east{
+	c_tag = "Kitchen - Canteen";
+	c_tag_order = 999;
+	dir = 2
 	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/structure/disposalpipe/sortjunction/flipped{
-	dir = 1;
-	name = "Kitchen";
-	sortType = "Kitchen"
+/obj/machinery/light_switch{
+	pixel_x = 8;
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -5841,22 +5836,15 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "alB" = (
-/obj/structure/table/reinforced,
-/obj/item/glass_jar,
-/obj/item/device/eftpos{
-	eftpos_name = "Kitchen EFTPOS scanner"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/obj/machinery/button/remote/blast_door{
-	id = "kitchenshutters01";
-	name = "Canteen Shutters Control";
-	pixel_x = 0;
-	pixel_y = 28;
-	req_access = list(28)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
 	},
-/obj/machinery/camera/network/civilian_east{
-	c_tag = "Kitchen - Canteen";
-	c_tag_order = 999;
-	dir = 2
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -5889,34 +5877,11 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "alG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
-"alH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
@@ -5929,6 +5894,19 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
+"alH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -6352,21 +6330,11 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "amB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+/obj/structure/table/reinforced,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -32
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
+/obj/item/toy/figure/chef,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "amC" = (
@@ -7571,26 +7539,19 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/kitchen)
 "aoK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 5
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+/obj/structure/window/reinforced{
+	dir = 1
 	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
-/obj/machinery/light{
+/obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/plating,
 /area/crew_quarters/kitchen)
 "aoL" = (
 /obj/machinery/smartfridge/secure{
@@ -7610,20 +7571,14 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "aoN" = (
-/obj/structure/table/reinforced,
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24;
-	pixel_y = -8
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
-/obj/structure/cable/green,
-/obj/structure/extinguisher_cabinet{
-	pixel_y = -32
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
 	},
-/obj/machinery/light_switch{
-	pixel_x = 24;
-	pixel_y = 8
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -7643,16 +7598,11 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "aoP" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -7943,19 +7893,25 @@
 /turf/simulated/floor/plating,
 /area/engineering/storage)
 "apt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
 	dir = 4
 	},
 /obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/obj/structure/disposalpipe/segment{
+/obj/machinery/light{
 	dir = 4
+	},
+/obj/structure/disposalpipe/sortjunction/flipped{
+	dir = 1;
+	name = "Kitchen";
+	sortType = "Kitchen"
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -23432,22 +23388,6 @@
 	},
 /turf/simulated/open,
 /area/maintenance/disposal)
-"aOJ" = (
-/obj/structure/table/rack,
-/obj/item/weapon/reagent_containers/food/condiment/sugar{
-	pixel_x = -8;
-	pixel_y = 8
-	},
-/obj/item/weapon/reagent_containers/food/condiment/sugar{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/item/weapon/reagent_containers/food/condiment/spacespice,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
 "aOK" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12)
@@ -52182,6 +52122,31 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
+"bKu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
+"bKv" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
+"bKw" = (
+/obj/structure/table/stone/marble,
+/obj/item/weapon/reagent_containers/food/condiment/enzyme,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "bKx" = (
 /obj/structure/table/wood,
 /obj/machinery/recharger,
@@ -94558,7 +94523,7 @@ bNP
 bOz
 bPd
 bPI
-alB
+akJ
 cAf
 akI
 aoI
@@ -95074,8 +95039,8 @@ bFv
 bPI
 afA
 alC
-alG
-aoN
+alB
+amB
 bPI
 czE
 czV
@@ -95329,10 +95294,10 @@ bFv
 adu
 cvi
 bPI
-bPI
+aoK
 cAf
-alH
-bPI
+alG
+aoK
 bPI
 akH
 bPI
@@ -95588,11 +95553,11 @@ cxm
 bPI
 agr
 afO
-amB
-aoK
-ahv
+alH
+bKu
+bKv
 alF
-agq
+ahv
 agR
 bPI
 cAK
@@ -95846,7 +95811,7 @@ bPI
 ags
 cAf
 cAf
-aoP
+aoN
 amz
 amA
 alA
@@ -96103,7 +96068,7 @@ bPI
 agt
 cAf
 cAf
-apt
+aoP
 agQ
 agu
 ahu
@@ -96360,7 +96325,7 @@ bPI
 bPI
 afB
 cAf
-apt
+aoP
 aij
 cAf
 aij
@@ -96617,10 +96582,10 @@ cwX
 bPI
 afB
 cAf
-apt
+aoP
 aht
 asD
-agq
+bKw
 cAf
 apP
 bUB
@@ -96874,7 +96839,7 @@ bGy
 bPI
 apT
 cAf
-apt
+aoP
 cAf
 cAf
 cAf
@@ -97131,7 +97096,7 @@ bGy
 bPI
 afP
 cAf
-apt
+aoP
 agQ
 agu
 ahu
@@ -97388,7 +97353,7 @@ bGy
 bPI
 afT
 cAf
-apt
+aoP
 aij
 cAf
 aij
@@ -97645,10 +97610,10 @@ adz
 bPI
 afU
 cAf
-apt
+aoP
 aht
 asD
-agq
+bKw
 apR
 bPI
 bUz
@@ -97902,7 +97867,7 @@ bGA
 bPI
 afV
 cAf
-apt
+aoP
 cAf
 cAf
 cAf
@@ -98159,7 +98124,7 @@ aet
 bPI
 afW
 ahw
-akJ
+apt
 anA
 aoO
 anA
@@ -98676,7 +98641,7 @@ aiZ
 bPI
 ajK
 akL
-akG
+ajb
 bPI
 bBY
 bDA
@@ -98931,9 +98896,9 @@ bPI
 afR
 ajI
 bPI
-ajb
+agq
 aLg
-aOJ
+akG
 bPI
 bDa
 btN

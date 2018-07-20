@@ -27011,6 +27011,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
+"VF" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/item/weapon/contraband/poster,
+/obj/item/weapon/contraband/poster,
+/obj/item/weapon/contraband/poster,
+/obj/item/weapon/contraband/poster,
+/obj/item/weapon/contraband/poster,
+/obj/item/weapon/contraband/poster,
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar/below)
 "VG" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	id_tag = "crusher";
@@ -56379,7 +56389,7 @@ iV
 jr
 Vh
 Vr
-VL
+VF
 VL
 VL
 VO
