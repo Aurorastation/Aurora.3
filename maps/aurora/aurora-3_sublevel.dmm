@@ -4462,9 +4462,20 @@
 	},
 /area/outpost/engineering/storage)
 "jr" = (
-/obj/effect/landmark/dungeon_spawn,
-/turf/unsimulated/chasm_mask,
-/area/mine/unexplored)
+/obj/structure/particle_accelerator/end_cap{
+	icon_state = "end_cap";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/outpost/engineering/storage)
 "js" = (
 /obj/machinery/power/grounding_rod,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -9456,6 +9467,12 @@
 /area/mine/unexplored)
 "qO" = (
 /turf/simulated/floor/reinforced,
+/area/security/nuke_storage)
+"qP" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "qQ" = (
 /obj/machinery/hologram/holopad,
@@ -26402,6 +26419,23 @@
 	},
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
+"Ux" = (
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1379;
+	master_tag = "toxinsairlock_airlock";
+	name = "exterior access button";
+	pixel_x = 25;
+	pixel_y = -25;
+	req_one_access = list(13,65)
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
 "Uy" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -29487,7 +29521,7 @@ aa
 aa
 aa
 aa
-jr
+aa
 aa
 aa
 aa
@@ -37553,7 +37587,7 @@ aa
 aa
 aa
 aa
-jr
+aa
 aa
 aa
 aa
@@ -59191,7 +59225,7 @@ aa
 aa
 aa
 aa
-jr
+aa
 aa
 aa
 aa
@@ -61898,7 +61932,7 @@ aa
 aa
 aa
 aa
-jr
+aa
 aa
 aa
 aa
@@ -73801,7 +73835,7 @@ aa
 aa
 aa
 aa
-jr
+aa
 aa
 aa
 aa
@@ -76762,7 +76796,7 @@ aa
 aa
 aa
 aa
-jr
+aa
 aa
 aa
 aa
