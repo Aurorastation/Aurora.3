@@ -37,8 +37,7 @@ var/list/admin_departments
 /obj/machinery/photocopier/faxmachine/vueui_data_change(var/list/newdata, var/mob/user, var/vueui/ui)
 	// Build baseline data, that's read-only
 	if(!newdata)
-		newdata = list("destination" = "[current_map.boss_name]", "idname" = "", "paper" = "")
-		. = newdata
+		. = newdata = list("destination" = "[current_map.boss_name]", "idname" = "", "paper" = "")
 	newdata["bossname"] = current_map.boss_name
 	VUEUI_SET_CHECK(newdata["auth"], is_authenticated(), ., newdata)
 	VUEUI_SET_CHECK(newdata["cooldownend"], sendtime + sendcooldown, ., newdata)

@@ -85,8 +85,7 @@ This way is more primitive, but simpler and allows reverse data flow. Let's look
 ```DM
 /datum/mydatum/vueui_data_change(var/list/newdata, var/mob/user, var/datum/vueui/ui)
     if(!newdata)
-        newdata = list()
-        . = newdata
+        . = newdata = list()
     VUEUI_SET_CHECK(newdata["uis_var_name"], objects_var_name, ., newdata)
     VUEUI_SET_CHECK(newdata["has_other_datum"], !!other_datum, ., newdata)
     VUEUI_SET_CHECK_IFNOTSET(newdata["text"], "[other_datum]", ., newdata)
@@ -101,8 +100,7 @@ VUEUI_MONITOR_VARS(/datum/mydatum, mydatummonitor)
 /datum/mydatum/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
     var/monitordata = ..()
     if(monitordata)
-        data = monitordata
-        . = data
+        . = data = monitordata
     VUEUI_SET_CHECK_IFNOTSET(data["text"], "[other_datum]", ., data)
 ```
 # Notes

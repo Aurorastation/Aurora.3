@@ -95,8 +95,7 @@ obj/machinery/computer/general_air_control/Destroy()
 
 /obj/machinery/computer/general_air_control/vueui_data_change(var/list/data, var/mob/user, var/vueui/ui)
 	if(!data)
-		data = list("sensors" = list())
-		. = data
+		. = data = list("sensors" = list())
 	data["control"] = null
 	for(var/id_tag in sensors)
 		var/long_name = sensors[id_tag]
