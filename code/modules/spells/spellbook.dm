@@ -40,10 +40,15 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 	name = spellbook.name
 	desc = spellbook.desc
 
-/obj/item/weapon/spellbook/attack_self(mob/user as mob)
+/obj/item/weapon/spellbook/pickup(var/mob/living/user)
+	if(!user.is_wizard())
+		user << "<span class='warning'>You feel a wave of disorientation wash over you as you pick up \the [src] and look at the cover. You sense it would be a very bad idea to try to read this...</span>"
+		user.make_dizzy(120)
+
+/obj/item/weapon/spellbook/attack_self(var/mob/living/user)
 	if(!user)
 		return
-	if(!(user.faction == "Space Wizard"))
+	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user

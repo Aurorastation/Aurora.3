@@ -21,6 +21,11 @@
 /obj/item/weapon/gun/energy/staff/emp_act(severity) // to prevent it from breaking.
 	return
 
+/obj/item/weapon/gun/energy/staff/pickup(mob/living/user as mob)
+	if(!user.is_wizard())
+		user << "<span class='warning'>When you pick up \the [src], you can feel it humming unsettlingly through your limbs.</span>"
+		user.make_dizzy(120)
+
 obj/item/weapon/gun/energy/staff/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>"
@@ -71,6 +76,11 @@ obj/item/weapon/gun/energy/staff/special_check(var/mob/living/user)
 	fire_sound = 'sound/magic/wand.ogg'
 	max_shots = 10
 
+/obj/item/weapon/gun/energy/staff/animate/pickup(mob/living/user as mob)
+	if(!user.is_wizard())
+		user << "<span class='warning'>When you pick up \the [src], you feel your your limbs crawling.</span>"
+		user.make_dizzy(120)
+
 obj/item/weapon/gun/energy/staff/animate/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>"
@@ -107,6 +117,11 @@ obj/item/weapon/gun/energy/staff/focus
 	slot_flags = SLOT_BACK
 	projectile_type = /obj/item/projectile/forcebolt
 
+/obj/item/weapon/gun/energy/staff/focus/pickup(mob/living/user as mob)
+	if(!user.is_wizard())
+		user << "<span class='warning'>When you pick up \the [src], you can feel it throbbing unnervingly in your grip.</span>"
+		user.make_dizzy(120)
+
 obj/item/weapon/gun/energy/staff/focus/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>"
@@ -140,6 +155,10 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 		user << "<span class='warning'>The [src.name] will now strike only a single person.</span>"
 		projectile_type = /obj/item/projectile/forcebolt
 
+/obj/item/weapon/gun/energy/staff/chaos/pickup(mob/living/user as mob)
+	if(!user.is_wizard())
+		user << "<span class='warning'>When you pick up \the [src], you can feel an erratic buzzing rushing through your limbs.</span>"
+		user.make_dizzy(120)
 
 /obj/item/weapon/gun/energy/staff/chaos
 	name = "staff of chaos"
@@ -224,6 +243,11 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	max_shots = 5
 	projectile_type = /obj/item/projectile/magic/fireball
 
+/obj/item/weapon/gun/energy/wand/fire/pickup(mob/living/user as mob)
+	if(!user.is_wizard())
+		user << "<span class='warning'>When you pick up \the [src], you can feel alarming pulses of heat rushing up your arms.</span>"
+		user.make_dizzy(120)
+
 /obj/item/weapon/gun/energy/wand/fire/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
@@ -251,6 +275,11 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	max_shots = 10
 	projectile_type = /obj/item/projectile/change
 
+/obj/item/weapon/gun/energy/wand/polymorph/pickup(mob/living/user as mob)
+	if(!user.is_wizard())
+		user << "<span class='warning'>When you pick up \the [src], you can feel your limbs starting to twist and change.</span>"
+		user.make_dizzy(120)
+
 /obj/item/weapon/gun/energy/wand/polymorph/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
@@ -276,6 +305,11 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	fire_sound = 'sound/magic/Wand_Teleport.ogg'
 	max_shots = 10
 	projectile_type = /obj/item/projectile/magic/teleport
+
+/obj/item/weapon/gun/energy/wand/teleport/pickup(mob/living/user as mob)
+	if(!user.is_wizard())
+		user << "<span class='warning'>When you pick up \the [src], the world around you starts to flicker and distort</span>"
+		user.make_dizzy(120)
 
 /obj/item/weapon/gun/energy/wand/teleport/special_check(var/mob/living/user) //todo: think of something else for this
 	if(HULK in user.mutations)
@@ -313,6 +347,11 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	max_shots = 10
 	projectile_type = /obj/item/projectile/forcebolt
 
+/obj/item/weapon/gun/energy/wand/force/pickup(mob/living/user as mob)
+	if(!user.is_wizard())
+		user << "<span class='warning'>When you pick up \the [src], it makes your arm throb unpleasantly</span>"
+		user.make_dizzy(120)
+
 /obj/item/weapon/gun/energy/wand/force/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
@@ -339,6 +378,11 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	max_shots = 10
 	projectile_type = /obj/item/projectile/animate
 
+/obj/item/weapon/gun/energy/wand/teleport/pickup(mob/living/user as mob)
+	if(!user.is_wizard())
+		user << "<span class='warning'>When you pick up \the [src], you can feel it vibrating menacingly in your grasp</span>"
+		user.make_dizzy(120)
+
 /obj/item/weapon/gun/energy/wand/animation/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
@@ -346,7 +390,7 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
-			H.visible_message("<span class='danger'>\The [src] jumps from [H]'s hand and swifts into a crate!</span>")
+			H.visible_message("<span class='danger'>\The [src] jumps from [H]'s hand and shifts into a crate!</span>")
 			new /mob/living/simple_animal/hostile/mimic(H.loc)
 			H.drop_item()
 			qdel(src)
