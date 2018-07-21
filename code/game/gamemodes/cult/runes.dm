@@ -834,7 +834,7 @@ var/list/sacrificed = list()
 			return
 		if(!(cultist.buckled || \
 			cultist.handcuffed || \
-			istype(cultist.wear_mask, /obj/item/clothing/mask/muzzle) || \
+			is_muzzled(user.wear_mask) || \
 			(istype(cultist.loc, /obj/structure/closet)&&cultist.loc:welded) || \
 			(istype(cultist.loc, /obj/structure/closet/secure_closet)&&cultist.loc:locked) || \
 			(istype(cultist.loc, /obj/machinery/dna_scannernew)&&cultist.loc:locked) \
@@ -846,7 +846,7 @@ var/list/sacrificed = list()
 			cultist.drop_from_inventory(cultist.handcuffed)
 		if (cultist.legcuffed)
 			cultist.drop_from_inventory(cultist.legcuffed)
-		if (istype(cultist.wear_mask, /obj/item/clothing/mask/muzzle))
+		if (is_muzzled(cultist.wear_mask))
 			cultist.drop_from_inventory(cultist.wear_mask)
 		if(istype(cultist.loc, /obj/structure/closet)&&cultist.loc:welded)
 			cultist.loc:welded = 0

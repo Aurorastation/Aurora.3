@@ -32,7 +32,7 @@
 
 			playsound(src, 'sound/items/tape.ogg',25)
 			user.visible_message("<span class='danger'>\The [user] has taped up \the [H]'s eyes!</span>")
-			H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/blindfold/tape(H), slot_glasses)
+			H.equip_to_slot_or_del(new /obj/item/clothing/glasses/tape(H), slot_glasses)
 			H.update_inv_glasses()
 
 		else if(target_zone == "mouth" || target_zone == "head")
@@ -61,7 +61,7 @@
 
 			playsound(src, 'sound/items/tape.ogg',25)
 			user.visible_message("<span class='danger'>\The [user] has taped up \the [H]'s mouth!</span>")
-			H.equip_to_slot_or_del(new /obj/item/clothing/mask/muzzle/tape(H), slot_wear_mask)
+			H.equip_to_slot_or_del(new /obj/item/clothing/glasses/tape(H), slot_wear_mask)
 			H.update_inv_wear_mask()
 
 		else if(target_zone == "r_hand" || target_zone == "l_hand")

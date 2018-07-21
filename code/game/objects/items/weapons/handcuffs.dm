@@ -155,7 +155,7 @@
 
 /obj/item/weapon/handcuffs/cable/tape
 	name = "tape restraints"
-	desc = "DIY!"
+	desc = "Several lengths of tape that have been fashioned into restraints."
 	icon_state = "tape_cross"
 	item_state = null
 	icon = 'icons/obj/bureaucracy.dmi'

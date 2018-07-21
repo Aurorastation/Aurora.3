@@ -36,7 +36,7 @@
 //This is used by both the whisper verb and human/say() to handle whispering
 /mob/living/carbon/human/proc/whisper_say(var/message, var/datum/language/speaking = null, var/alt_name="", var/verb="whispers")
 
-	if (istype(src.wear_mask, /obj/item/clothing/mask/muzzle))
+	if (is_muzzled(src.wear_mask))
 		src << "<span class='danger'>You're muzzled and cannot speak!</span>"
 		return
 

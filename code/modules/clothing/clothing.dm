@@ -900,3 +900,37 @@
 	slot_flags = SLOT_GLOVES
 	gender = NEUTER
 	var/undergloves = 1
+
+// Tape
+
+/obj/item/clothing/glasses/tape
+	name = "length of tape"
+	desc = "A length of sturdy tape."
+	icon = 'icons/obj/bureaucracy.dmi'
+	icon_state = "tape_cross"
+	item_state = "tape_cross"
+	body_parts_covered = HEAD
+	slot_flags = SLOT_MASK | SLOT_EYES
+	body_parts_covered = FACE|EYES
+
+	var/voicechange = 1
+	var/say_messages = list("Mmfph!", "Mmmf mrrfff!", "Mmmf mnnf!")
+	var/say_verbs = list("mumbles", "says")
+
+/obj/item/clothing/glasses/tape/equipped(mob/user, slot)
+	if (slot == slot_glasses)
+		tint = TINT_BLIND
+	else
+		tint = TINT_NONE
+
+	. = ..()
+
+/mob/living/carbon/human/is_muzzled()
+	if (..())
+		return TRUE
+
+	if (wear_mask)
+		if (istype(wear_mask, /obj/item/clothing/mask/muzzle) || istype(wear_mask, /obj/item/clothing/glasses/tape))
+			return TRUE
+
+	return FALSE

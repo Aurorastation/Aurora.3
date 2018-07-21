@@ -7,17 +7,6 @@
 	w_class = 2
 	gas_transfer_coefficient = 0.90
 	voicechange = 1
-
-/obj/item/clothing/mask/muzzle/tape
-	name = "length of tape"
-	desc = "It's a robust DIY muzzle!"
-	icon = 'icons/obj/bureaucracy.dmi'
-	icon_state = "tape_cross"
-	item_state = null
-	w_class = 1
-
-/obj/item/clothing/mask/muzzle/Initialize()
-	. = ..()
 	say_messages = list("Mmfph!", "Mmmf mrrfff!", "Mmmf mnnf!")
 	say_verbs = list("mumbles", "says")
 
