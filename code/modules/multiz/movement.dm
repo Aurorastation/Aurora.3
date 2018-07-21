@@ -331,7 +331,7 @@
 	visible_message("\The [src] falls and lands on \the [loc]!",
 		"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
-	var/z_velocity = 5*(levels_fallen**2)
+	var/z_velocity = Z_VELOCITY(levels_fallen)
 	var/damage = ((60 + z_velocity) + rand(-20,20))
 	apply_damage(damage, BRUTE)
 
@@ -373,7 +373,7 @@
 			visible_message("<span class='notice'>\The [src] tucks into a roll as they hit \the [loc]!</span>",
 				"<span class='notice'>You tuck into a roll as you hit \the [loc], minimizing damage!</span>")
 
-	var/z_velocity = 5*(levels_fallen**2)
+	var/z_velocity = Z_VELOCITY(levels_fallen)
 	var/damage = (((60 * species.fall_mod) + z_velocity) + rand(-20,20)) * combat_roll
 	var/limb_damage = rand(0,damage/2)
 
@@ -468,7 +468,7 @@
 	if (!.)
 		return
 
-	var/z_velocity = 5*(levels_fallen**2)
+	var/z_velocity = Z_VELOCITY(levels_fallen)
 	var/damage = ((60 + z_velocity) + rand(-20,20))
 	take_damage(damage)
 
@@ -480,7 +480,7 @@
 	if (!.)
 		return
 
-	var/z_velocity = 5*(levels_fallen**2)
+	var/z_velocity = Z_VELOCITY(levels_fallen)
 	var/damage = ((60 + z_velocity) + rand(-20,20))
 	health -= (damage * brute_dam_coeff)
 

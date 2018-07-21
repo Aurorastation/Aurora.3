@@ -37,3 +37,6 @@
 
 /turf/space/CanZPass(atom, direction)
 	return TRUE
+
+/turf/proc/fall_impact(atom/movable/other, distance, stopped_early = FALSE)
+	return !stopped_early
