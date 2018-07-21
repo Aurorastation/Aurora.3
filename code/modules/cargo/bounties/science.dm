@@ -23,7 +23,6 @@
 	wanted_types = list(/obj/item/bodybag/bluespace)
 */
 /datum/bounty/item/science/nightvision_goggles
-
 	name = "Night Vision Goggles"
 	description = "An electrical storm has busted all the lights at %BOSSSHORT. While management is waiting for replacements, perhaps some night vision goggles can be shipped?"
 	reward = 10000

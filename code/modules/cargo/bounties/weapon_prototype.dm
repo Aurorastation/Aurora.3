@@ -9,7 +9,7 @@
 	if(rand(3) == 1)
 		stat_value *= -1
 	name = "Weapon ([stat_name] of [stat_value])"
-	description = "[current_map.company_name] is interested in a laser prototype with a [stat_name] stat [stat_comparison] [stat_value]. %BOSSNAME will pay handsomely for such a weapon."
+	description = "[current_map.company_name] is interested in a laser prototype with a [stat_name] stat [stat_comparison] [stat_value]. [current_map.boss_name] will pay handsomely for such a weapon."
 	reward += rand(0, 4) * 500
 	..()
 
