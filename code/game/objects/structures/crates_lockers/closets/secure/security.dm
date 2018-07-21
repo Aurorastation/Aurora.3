@@ -29,7 +29,7 @@
 		new /obj/item/device/radio/headset/heads/captain(src)
 		new /obj/item/weapon/cartridge/captain(src)
 		new /obj/item/weapon/gun/energy/pistol(src)
-		new /obj/item/device/flash/weak/full(src)
+		new /obj/item/device/flash/full(src)
 		new /obj/item/weapon/melee/telebaton(src)
 
 /obj/structure/closet/secure_closet/captains2
@@ -82,7 +82,7 @@
 		new /obj/item/device/radio/headset/heads/hop(src)
 		new /obj/item/weapon/gun/energy/pistol(src)
 		new /obj/item/weapon/gun/projectile/sec/flash(src)
-		new /obj/item/device/flash/full(src)
+		new /obj/item/device/flash/weak/full(src)
 
 /obj/structure/closet/secure_closet/hop2
 	name = "head of personnel's attire"

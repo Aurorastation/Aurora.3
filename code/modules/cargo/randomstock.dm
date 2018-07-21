@@ -733,7 +733,19 @@ var/list/global/random_stock_large = list(
 			if (prob(50))
 				new /obj/item/device/binoculars(L)
 		if ("flash")
-			new /obj/item/device/flash(L)
+			var/list/possible = list( 
+				/obj/item/device/flash = 2, //No cell/bulb
+				/obj/item/device/flash/full = 1 //Cell and bulb
+				/obj/item/device/flash/weak = 2, //Bulb but no cell
+				/obj/item/device/flash/weak/full = 2 //Bulb and cell
+			)
+
+			var/number = rand(1,3)
+			while (number > 0)
+				var/stype = pickweight(possible)
+				new stype(L)
+				number--				
+
 		if ("BDSM")
 			if (prob(50))
 				new /obj/item/clothing/glasses/sunglasses/blindfold(L)
