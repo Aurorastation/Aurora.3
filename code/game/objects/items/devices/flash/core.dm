@@ -62,6 +62,7 @@
 /obj/item/device/flash/update_icon()
 	. = ..()
 	cut_overlays()
+
 	if(bulb)
 		name = bulb.build_name
 		bulb.update_icon()
@@ -79,9 +80,12 @@
 			add_overlay("very_low")
 		else
 			add_overlay("battery_none")
+			if(bulb)
+				bulb.on = FALSE
 	else
 		add_overlay("battery_hatch")
-
+		if(bulb)
+			bulb.on = FALSE
 /obj/item/device/flash/proc/get_external_power_supply()
 	if(isrobot(src.loc))
 		var/mob/living/silicon/robot/R = src.loc
@@ -143,7 +147,7 @@
 			"<span class='notice'>You hear a distinct mechanical shutter.</span>")
 		M.on_flash(user,src,bulb.strength*strength_mul)
 
-	if (self_recharge)
+	if (self_recharge || use_external_power)
 		addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
 
 	bulb.add_heat(strength_mul)
@@ -222,3 +226,16 @@
 		to_chat(user,"<span class='notice'>Nothing seems to happen...</span>")
 
 	update_icon()
+
+/obj/item/device/flash/flash_bulb/ex_act(var/severity = 3)
+
+	severity = max(severity,1)
+
+	if(bulb && prob(100/severity))
+		bulb.ex_act(severity)
+
+	if(power_supply && prob(100/severity))
+		power_supply.ex_act(severity)
+		qdel(src)
+
+

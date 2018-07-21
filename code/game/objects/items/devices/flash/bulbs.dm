@@ -16,6 +16,10 @@
 	var/cooldown_delay = 30 SECONDS //How long it takes to remove max_heat_damage heat damage
 	var/build_name = "flash"
 
+/obj/item/weapon/flash_bulb/Initialize()
+	. = ..()
+	update_icon()
+
 /obj/item/weapon/flash_bulb/proc/add_heat(var/heat_multiplier)
 	//Yes, this is fucky.
 	//And also a clever way to avoid processing things we don't need to process.
@@ -31,6 +35,7 @@
 
 /obj/item/weapon/flash_bulb/proc/do_break() //Burn the bulb
 	is_burnt = TRUE
+	playsound(src.loc, 'sound/effects/hit_on_shattered_glass.ogg')
 	update_icon()
 
 /obj/item/weapon/flash_bulb/update_icon()
@@ -39,5 +44,9 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/weapon/flash_bulb/emp_act(severity)
+/obj/item/weapon/flash_bulb/emp_act(var/severity = 3.0)
 	do_break()
+
+/obj/item/weapon/flash_bulb/ex_act(var/severity = 3.0)
+	do_break()
+	qdel(src)

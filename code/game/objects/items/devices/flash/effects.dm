@@ -46,8 +46,6 @@
 	if(overclocked || severity <= 0)
 		return 0
 
-
-
 	if(severity >= 1)
 		flick("e_flash", src.flash)
 	else
