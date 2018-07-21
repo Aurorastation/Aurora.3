@@ -94,20 +94,17 @@ obj/machinery/computer/general_air_control/Destroy()
 	return ..()
 
 /obj/machinery/computer/general_air_control/vueui_data_change(var/list/data, var/mob/user, var/vueui/ui)
-	var/isChanged = FALSE
 	if(!data)
-		isChanged = TRUE
 		data = list("sensors" = list())
+		. = data
 	data["control"] = null
 	for(var/id_tag in sensors)
 		var/long_name = sensors[id_tag]
 		var/list/sdata = sensor_information[id_tag]
 		LAZYINITLIST(data["sensors"][id_tag])
-		VUEUI_SET_CHECK(data["sensors"][id_tag]["name"], long_name, isChanged, TRUE)
+		VUEUI_SET_CHECK(data["sensors"][id_tag]["name"], long_name, ., data)
 		for(var/datapoint in list("pressure", "temperature", "oxygen", "nitrogen", "carbon_dioxide", "phoron"))
-			VUEUI_SET_CHECK(data["sensors"][id_tag][datapoint], sdata[datapoint], isChanged, TRUE)
-	if(isChanged)
-		return data
+			VUEUI_SET_CHECK(data["sensors"][id_tag][datapoint], sdata[datapoint], ., data)
 
 /obj/machinery/computer/general_air_control/attack_hand(mob/user)
 	ui_interact(user)
@@ -155,7 +152,6 @@ obj/machinery/computer/general_air_control/Destroy()
 
 /obj/machinery/computer/general_air_control/large_tank_control/vueui_data_change(var/list/data, var/mob/user, var/vueui/ui)
 	. = ..()
-	var/isChanged = FALSE
 	if (.)
 		data = .
 	data["control"] = "tank"
@@ -163,18 +159,16 @@ obj/machinery/computer/general_air_control/Destroy()
 	data["maxpressure"] = max_pressure_setting
 	if(input_info)
 		LAZYINITLIST(data["input"])
-		VUEUI_SET_CHECK(data["input"]["power"], input_info["power"], isChanged, TRUE)
-		VUEUI_SET_CHECK(data["input"]["rate"], input_info["volume_rate"], isChanged, TRUE)
-		VUEUI_SET_CHECK_IFNOTSET(data["input"]["setrate"], default_input_flow_setting, isChanged, TRUE)
+		VUEUI_SET_CHECK(data["input"]["power"], input_info["power"], ., data)
+		VUEUI_SET_CHECK(data["input"]["rate"], input_info["volume_rate"], ., data)
+		VUEUI_SET_CHECK_IFNOTSET(data["input"]["setrate"], default_input_flow_setting, ., data)
 
 	if(output_info)
 		LAZYINITLIST(data["output"])
-		VUEUI_SET_CHECK(data["output"]["power"], output_info["power"], isChanged, TRUE)
-		VUEUI_SET_CHECK(data["output"]["pressure"], output_info["internal"], isChanged, TRUE)
-		VUEUI_SET_CHECK_IFNOTSET(data["output"]["setpressure"], default_pressure_setting, isChanged, TRUE)
+		VUEUI_SET_CHECK(data["output"]["power"], output_info["power"], ., data)
+		VUEUI_SET_CHECK(data["output"]["pressure"], output_info["internal"], ., data)
+		VUEUI_SET_CHECK_IFNOTSET(data["output"]["setpressure"], default_pressure_setting, ., data)
 
-	if(isChanged)
-		return data
 
 /obj/machinery/computer/general_air_control/large_tank_control/receive_signal(datum/signal/signal)
 	if(!signal || signal.encryption) return
@@ -247,7 +241,6 @@ obj/machinery/computer/general_air_control/Destroy()
 
 /obj/machinery/computer/general_air_control/supermatter_core/vueui_data_change(var/list/data, var/mob/user, var/vueui/ui)
 	. = ..()
-	var/isChanged = FALSE
 	if (.)
 		data = .
 	data["control"] = "supermatter"
@@ -255,18 +248,15 @@ obj/machinery/computer/general_air_control/Destroy()
 	data["maxpressure"] = max_pressure_setting
 	if(input_info)
 		LAZYINITLIST(data["input"])
-		VUEUI_SET_CHECK(data["input"]["power"], input_info["power"], isChanged, TRUE)
-		VUEUI_SET_CHECK(data["input"]["rate"], input_info["volume_rate"], isChanged, TRUE)
-		VUEUI_SET_CHECK_IFNOTSET(data["input"]["setrate"], default_input_flow_setting, isChanged, TRUE)
+		VUEUI_SET_CHECK(data["input"]["power"], input_info["power"], ., data)
+		VUEUI_SET_CHECK(data["input"]["rate"], input_info["volume_rate"], ., data)
+		VUEUI_SET_CHECK_IFNOTSET(data["input"]["setrate"], default_input_flow_setting, ., data)
 
 	if(output_info)
 		LAZYINITLIST(data["output"])
-		VUEUI_SET_CHECK(data["output"]["power"], output_info["power"], isChanged, TRUE)
-		VUEUI_SET_CHECK(data["output"]["pressure"], output_info["external"], isChanged, TRUE)
-		VUEUI_SET_CHECK_IFNOTSET(data["output"]["setpressure"], default_pressure_setting, isChanged, TRUE)
-
-	if(isChanged)
-		return data
+		VUEUI_SET_CHECK(data["output"]["power"], output_info["power"], ., data)
+		VUEUI_SET_CHECK(data["output"]["pressure"], output_info["external"], ., data)
+		VUEUI_SET_CHECK_IFNOTSET(data["output"]["setpressure"], default_pressure_setting, ., data)
 
 /obj/machinery/computer/general_air_control/supermatter_core/receive_signal(datum/signal/signal)
 	if(!signal || signal.encryption) return
@@ -365,18 +355,14 @@ obj/machinery/computer/general_air_control/Destroy()
 
 /obj/machinery/computer/general_air_control/fuel_injection/vueui_data_change(var/list/data, var/mob/user, var/vueui/ui)
 	. = ..()
-	var/isChanged = FALSE
 	if (.)
 		data = .
 	data["control"] = "injector"
 	if(device_info)
 		LAZYINITLIST(data["device"])
-		VUEUI_SET_CHECK(data["device"]["power"], device_info["power"], isChanged, TRUE)
-		VUEUI_SET_CHECK(data["device"]["rate"], device_info["volume_rate"], isChanged, TRUE)
-		VUEUI_SET_CHECK(data["device"]["automation"], automation, isChanged, TRUE)
-
-	if(isChanged)
-		return data
+		VUEUI_SET_CHECK(data["device"]["power"], device_info["power"], ., data)
+		VUEUI_SET_CHECK(data["device"]["rate"], device_info["volume_rate"], ., data)
+		VUEUI_SET_CHECK(data["device"]["automation"], automation, ., data)
 
 /obj/machinery/computer/general_air_control/fuel_injection/receive_signal(datum/signal/signal)
 	if(!signal || signal.encryption) return

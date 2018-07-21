@@ -35,22 +35,21 @@ var/list/admin_departments
 		alldepartments |= department
 
 /obj/machinery/photocopier/faxmachine/vueui_data_change(var/list/newdata, var/mob/user, var/vueui/ui)
-	var/isChanged = FALSE
 	// Build baseline data, that's read-only
 	if(!newdata)
-		isChanged = TRUE
 		newdata = list("destination" = "[current_map.boss_name]", "idname" = "", "paper" = "")
+		. = newdata
 	newdata["bossname"] = current_map.boss_name
-	VUEUI_SET_CHECK(newdata["auth"], is_authenticated(), isChanged, TRUE)
-	VUEUI_SET_CHECK(newdata["cooldownend"], sendtime + sendcooldown, isChanged, TRUE)
+	VUEUI_SET_CHECK(newdata["auth"], is_authenticated(), ., newdata)
+	VUEUI_SET_CHECK(newdata["cooldownend"], sendtime + sendcooldown, ., newdata)
 	if(scan)
-		VUEUI_SET_CHECK(newdata["idname"], scan.name, isChanged, TRUE)
+		VUEUI_SET_CHECK(newdata["idname"], scan.name, ., newdata)
 	else
-		VUEUI_SET_CHECK(newdata["idname"], "", isChanged, TRUE)
-	VUEUI_SET_CHECK(newdata["paper"], (copyitem ? copyitem.name : ""), isChanged, TRUE)
+		VUEUI_SET_CHECK(newdata["idname"], "", ., newdata)
+	VUEUI_SET_CHECK(newdata["paper"], (copyitem ? copyitem.name : ""), ., newdata)
 
 	if(newdata["alertpdas"] && alert_pdas && newdata["alertpdas"].len != alert_pdas.len)
-		isChanged = TRUE
+		. = newdata
 	newdata["alertpdas"] = list()
 	if (alert_pdas && alert_pdas.len)
 		for (var/obj/item/device/pda/pda in alert_pdas)
@@ -61,9 +60,7 @@ var/list/admin_departments
 
 	// Get destination from UI
 	if(!(newdata["destination"] in (alldepartments + admin_departments + broadcast_departments)))
-		newdata["destination"] = "[current_map.boss_name]"		
-	if(isChanged)
-		return newdata
+		newdata["destination"] = "[current_map.boss_name]"
 
 /obj/machinery/photocopier/faxmachine/ui_interact(mob/user as mob)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)

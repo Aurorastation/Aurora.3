@@ -17,7 +17,7 @@ First we have to create a way to open ui, for example, a proc that's called when
 ```
 On first line we check if we already have open ui for this user, if we already have, then we just open it on last line, but if we don't have existing ui, we then create a new one.
 ### Step 2: Provide data
-But how we pass data to it? There is two ways to do it, first one is to pass initial data in constructor: `new(usr, src, "uiname", 300, 300, "Title of ui", data)`. But it's recommended to use `vueui_data_change` proc for data feed to ui.
+But how we pass data to it? There is two ways to do it, first one is to pass initial data in constructor: `new(usr, src, "uiname", 300, 300, "Title of ui", data)`. But it's recommended to use `vueui_data_change` proc for data feed to ui. More information is available [on different ways to provide data.](.#ways-to-provide-data-to-ui-more-easily)
 ```DM
 /datum/mydatum/vueui_data_change(var/list/newdata, var/mob/user, var/datum/vueui/ui)
     if(!newdata)
@@ -69,6 +69,42 @@ p {
 This ui framework requires whole ui to be compiled for changes to be available. Compilation requires Node.js runtime, that is obtainable in various ways, most common is install from official site. To do initial dependency setup run `npm install` to gather all dependencies needed for ui. Single compilation can be done with `npm run build-dev`, but if you constantly do changes, then `npm run dev` is more convenient, as it compiles everything as soon as change is detected. To make client side code better, you should also lint code with command `npm run lint`.
 ### Step 6: Add built files to repository
 When changes are made to ui code updated compiled code is needed to be included with PR. To compile code for production run `npm run build`
+## Ways to provide data to ui more easily
+Currently there is multiple ways of providing data to ui, some are more advanced, others are simpler and get job done.
+### 1. Var monitor
+In other words, var monitor is just one-way link between object's vars and ui data. It is great when object has vars that can be directly passed to ui. All you need to do is to define somewhere vars to be monitored.
+```DM
+VUEUI_MONITOR_VARS(/datum/mydatum, mydatummonitor)
+    watch_var("objects_var_name", "uis_var_name")
+    watch_var("other_datum", "has_other_datum", CALLBACK(null, .proc/transform_to_boolean, FALSE))
+```
+In this example it monitors `/datum/mydatum/var/objects_var_name` and presents it to ui as `uis_var_name`. On last line we define other watcher, that has transform (sanitizer) callback function set. In this case it's set to call `/datum/vueui_var_monitor/proc/transform_to_boolean` right before var is transferred to ui data list. It also allows us to pass additional options to call back function, in this case it's boolean that determines if conversion is inverting. Other parameters passed to callback right after those defined in `CALLBACK` are: value of source var, last value of ui var, user that is interacting with ui, ui datum. `callback(..., var/source, var/current, var/mob/user, var/datum/vueui/ui)`
+There is also plausibility to extend var monitors with other ways by extending default `vueui_data_change` proc. For example of this, you can look at `photocopier.dm`
+### 2. Macro assist
+This way is more primitive, but simpler and allows reverse data flow. Let's look at example:
+```DM
+/datum/mydatum/vueui_data_change(var/list/newdata, var/mob/user, var/datum/vueui/ui)
+    if(!newdata)
+        newdata = list()
+        . = newdata
+    VUEUI_SET_CHECK(newdata["uis_var_name"], objects_var_name, ., newdata)
+    VUEUI_SET_CHECK(newdata["has_other_datum"], !!other_datum, ., newdata)
+    VUEUI_SET_CHECK_IFNOTSET(newdata["text"], "[other_datum]", ., newdata)
+```
+This code functionally is same as example that is provided for var monitors. Macro `VUEUI_SET_CHECK` compare if first two params are equal, if not, then it makes them equal, and also sets third parameter to fourth one (I this case it sets `.` to `newdata`, what makes it return data). `VUEUI_SET_CHECK_IFNOTSET` is almost exactly same, but it's checks if first var is not already set (is null), and if it is null, then it sets it.
+### 3. Combination of both
+```DM
+VUEUI_MONITOR_VARS(/datum/mydatum, mydatummonitor)
+    watch_var("objects_var_name", "uis_var_name")
+    watch_var("other_datum", "has_other_datum", CALLBACK(null, .proc/transform_to_boolean, FALSE))
+
+/datum/mydatum/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+    var/monitordata = ..()
+    if(monitordata)
+        data = monitordata
+        . = data
+    VUEUI_SET_CHECK_IFNOTSET(data["text"], "[other_datum]", ., data)
+```
 # Notes
 ## Useful APIs
 ### `SSvueui.check_uis_for_change(object)`

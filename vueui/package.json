@@ -6,7 +6,7 @@
     "build-dev": "vue-cli-service build --target app --name main --mode development",
     "build": "vue-cli-service build --target app --name main",
     "lint": "vue-cli-service lint",
-    "run": "vue-cli-service build --watch"
+    "dev": "vue-cli-service build --watch"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.1.0",
