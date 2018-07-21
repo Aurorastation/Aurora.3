@@ -62,8 +62,10 @@
 
 	for(var/datum/computer_file/program/P in idle_threads)
 		P.event_idremoved(1)
-
-	user.put_in_hands(card_slot.stored_card)
+	if(ishuman(user))
+		user.put_in_hands(card_slot.stored_card)
+	else
+		card_slot.stored_card.forceMove(get_turf(src))
 	card_slot.stored_card = null
 	update_uis()
 	to_chat(user, "You remove the card from \the [src]")
@@ -88,7 +90,10 @@
 		to_chat(user, "There is no intellicard connected to \the [src].")
 		return
 
-	user.put_in_hands(ai_slot.stored_card)
+	if(ishuman(user))
+		user.put_in_hands(ai_slot.stored_card)
+	else
+		ai_slot.stored_card.forceMove(get_turf(src))
 	ai_slot.stored_card = null
 	ai_slot.update_power_usage()
 	update_uis()
@@ -157,7 +162,7 @@
 		playsound(user, 'sound/items/Ratchet.ogg', 100, 1)
 		if (do_after(user, 20))
 			new /obj/item/stack/material/steel(get_turf(src.loc), steel_sheet_cost)
-			src.visible_message("\The [user] disassembles \the [src].", 
+			src.visible_message("\The [user] disassembles \the [src].",
 				"You disassemble \the [src].",
 				"You hear a ratchet.")
 			qdel(src)
