@@ -34,7 +34,6 @@
 	reward = 1500
 
 /datum/bounty/reagent/simple_drink/New()
-	..()
 	// Don't worry about making this comprehensive. It doesn't matter if some drinks are skipped.
 	var/static/list/possible_reagents = list(\
 		/datum/reagent/alcohol/ethanol/antifreeze,\
@@ -74,13 +73,13 @@
 	name = wanted_reagent.name
 	description = "%BOSSSHORT is thirsty! Send a shipment of [name] to %DOCKNAME to quench the company's thirst."
 	reward += rand(0, 2) * 500
+	..()
 
 /datum/bounty/reagent/complex_drink
 	name = "Complex Drink"
 	reward = 4000
 
 /datum/bounty/reagent/complex_drink/New()
-	..()
 	// Don't worry about making this comprehensive. It doesn't matter if some drinks are skipped.
 	var/static/list/possible_reagents = list(\
 		/datum/reagent/alcohol/ethanol/atomicbomb,\
@@ -97,6 +96,7 @@
 	name = wanted_reagent.name
 	description = "%BOSSSHORT is offering a reward for talented bartenders. Ship a container of [name] to claim the prize."
 	reward += rand(0, 4) * 500
+	..()
 
 /datum/bounty/reagent/chemical
 	name = "Chemical"
@@ -104,7 +104,6 @@
 	required_volume = 30
 
 /datum/bounty/reagent/chemical/New()
-	..()
 	// Don't worry about making this comprehensive. It doesn't matter if some chems are skipped.
 	var/static/list/possible_reagents = list(\
 		/datum/reagent/leporazine,\
@@ -123,3 +122,4 @@
 	name = wanted_reagent.name
 	description = "%BOSSSHORT is in desperate need of the chemical [name]. Ship a container of it to be rewarded."
 	reward += rand(0, 4) * 500
+	..()

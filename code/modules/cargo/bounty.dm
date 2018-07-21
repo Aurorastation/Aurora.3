@@ -104,8 +104,10 @@
 	return TRUE
 
 // Returns a new bounty of random type, but does not add it to bounties_list.
-/datum/controller/subsystem/cargo/proc/random_bounty()
-	switch(rand(1, 11))
+/datum/controller/subsystem/cargo/proc/random_bounty(var/category)
+	if(!category)
+		category = rand(1, 11)
+	switch(category)
 		if(1)
 			var/subtype = pick(subtypesof(/datum/bounty/item/assistant))
 			return new subtype
@@ -139,6 +141,20 @@
 		if(11)
 			var/subtype = pick(subtypesof(/datum/bounty/weapon_prototype))
 			return new subtype
+
+//A abstraction to simplify adding new bounties
+/datum/controller/subsystem/cargo/proc/add_bounty_abstract(var/string,var/number)
+	if(string=="random")
+		if(try_add_bounty(random_bounty(number)))
+			return "Added random bounty"
+		else
+			return "Failed to add random bounty"
+	else
+		var/datum/bounty/b = text2path(string)
+		if(b && try_add_bounty(new b))
+			return "Added bounty [b.name]"
+		else
+			return "Failed to add bounty"
 
 // Called lazily at startup to populate bounties_list with random bounties.
 /datum/controller/subsystem/cargo/proc/setupBounties()
