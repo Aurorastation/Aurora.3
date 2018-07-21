@@ -133,6 +133,7 @@ var/list/global/random_stock_common = list(
 	"phoronsheets" = 2,
 	"hide" = 1,
 	"arcade" = 2,
+	"custom_ka" = 1,
 	"nothing" = 0)
 
 var/list/global/random_stock_uncommon = list(
@@ -225,7 +226,6 @@ var/list/global/random_stock_rare = list(
 	"humanhide" = 0.5,
 	"modkit" = 1,
 	"contraband" = 0.8,
-	"custom_ka" = 0.5,
 	"nothing" = 0)
 
 var/list/global/random_stock_large = list(
@@ -733,9 +733,9 @@ var/list/global/random_stock_large = list(
 			if (prob(50))
 				new /obj/item/device/binoculars(L)
 		if ("flash")
-			var/list/possible = list( 
+			var/list/possible = list(
 				/obj/item/device/flash = 2, //No cell/bulb
-				/obj/item/device/flash/full = 1 //Cell and bulb
+				/obj/item/device/flash/full = 1, //Cell and bulb
 				/obj/item/device/flash/weak = 2, //Bulb but no cell
 				/obj/item/device/flash/weak/full = 2 //Bulb and cell
 			)
@@ -744,7 +744,7 @@ var/list/global/random_stock_large = list(
 			while (number > 0)
 				var/stype = pickweight(possible)
 				new stype(L)
-				number--				
+				number--
 
 		if ("BDSM")
 			if (prob(50))

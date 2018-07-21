@@ -25,8 +25,7 @@
 	A.do_attack_animation(D)
 	if(D.stat || D.weakened)
 		return 0
-	D.visible_message("<span class='warning'>[A] leg sweeps [D]!</span>", \
-					  	"<span class='userdanger'>[A] leg sweeps you!</span>")
+	D.visible_message("<span class='warning'>[A] leg sweeps [D]!</span>")
 	playsound(get_turf(A), "swing_hit", 50, 1, -1)
 	D.apply_damage(5, BRUTE)
 	D.Weaken(2)

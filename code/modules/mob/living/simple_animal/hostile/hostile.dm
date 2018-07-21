@@ -259,7 +259,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 /mob/living/simple_animal/hostile/RangedAttack(atom/A, params) //Player firing
 	if(ranged)
 		setClickCooldown(attack_delay)
-		target = A
+		target_mob = A
 		OpenFire(A)
 	..()
 
