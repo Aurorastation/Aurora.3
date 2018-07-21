@@ -6880,6 +6880,10 @@
 /obj/effect/decal/remains,
 /turf/simulated/floor/plating,
 /area/security/training)
+"FK" = (
+/obj/effect/landmark/dungeon_spawn,
+/turf/unsimulated/chasm_mask,
+/area/mine/unexplored)
 
 (1,1,1) = {"
 aa
@@ -17220,7 +17224,7 @@ aa
 aa
 aa
 aa
-aa
+FK
 aa
 aa
 aa
@@ -18164,7 +18168,7 @@ aa
 aa
 aa
 aa
-aa
+FK
 aa
 aa
 aa
@@ -40849,7 +40853,7 @@ aa
 aa
 aa
 aa
-aa
+FK
 aa
 aa
 aa
@@ -54265,7 +54269,7 @@ aa
 aa
 aa
 aa
-aa
+FK
 aa
 aa
 aa
@@ -54920,7 +54924,7 @@ aa
 aa
 aa
 aa
-aa
+FK
 aa
 aa
 aa

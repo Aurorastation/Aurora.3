@@ -407,6 +407,9 @@ MERCHANT_CHANCE 20
 ## Enable asteroid tunnel/cave generation. Will behave strangely if turned off with a map that expects it on.
 # GENERATE_ASTEROID
 
+## Enable asteroid dungeon generation. The value preceding is the chance for a dungeon slot to be occupied.
+# DUNGEON_CHANCE 25
+
 ## Uncomment to enable organ decay outside of a body or storage item.
 #ORGANS_CAN_DECAY
 
