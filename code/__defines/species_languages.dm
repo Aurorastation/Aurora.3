@@ -50,6 +50,7 @@
 #define LANGUAGE_VAURCA "Hivenet"
 #define LANGUAGE_AZAZIBA "Sinta'azaziba"
 #define LANGUAGE_SIGN "Sign Language"
+#define LANGUAGE_OMEGA "Encoded Nral'sinta'maas-songnet Basic-pidgin"
 
 // Antag Languages
 #define LANGUAGE_XENOMORPH "Xenomorph"
