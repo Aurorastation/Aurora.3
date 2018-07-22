@@ -333,7 +333,7 @@
 	recoil = 6
 
 
-	release_speed = 7
+	release_speed = 5
 	var/list/belt = new/list()
 	var/belt_size = 12 //holds this + one in the chamber
 	recoil_wielded = 2
