@@ -416,6 +416,44 @@
 /obj/item/weapon/flag/eridani/l
 	flag_size = 1
 
+/obj/structure/sign/flag/vaurca
+	name = "Sedantis flag"
+	desc = "The emblem of Sedantis on a flag, emblematic of Vaurca longing."
+	icon_state = "sedantis"
+
+/obj/structure/sign/flag/vaurca/left
+	icon_state = "sedantis_l"
+
+/obj/structure/sign/flag/vaurca/right
+	icon_state = "sedantis_r"
+
+/obj/item/weapon/flag/vaurca
+	name = "Sedantis flag"
+	desc = "The emblem of Sedantis on a flag, emblematic of Vaurca longing."
+	flag_path = "sedantis"
+
+/obj/item/weapon/flag/vaurca/l
+	flag_size = 1
+
+/obj/structure/sign/flag/america
+	name = "Old World flag"
+	desc = "The banner of an ancient nation, its glory old."
+	icon_state = "oldglory"
+
+/obj/structure/sign/flag/america/left
+	icon_state = "oldglory_l"
+
+/obj/structure/sign/flag/america/right
+	icon_state = "oldglory_r"
+
+/obj/item/weapon/flag/america
+	name = "Old World flag"
+	desc = "The banner of an ancient nation, its glory old."
+	flag_path = "soldglory"
+
+/obj/item/weapon/flag/america/l
+	flag_size = 1
+
 /obj/item/weapon/flag
 	name = "boxed flag"
 	desc = "A flag neatly folded into a wooden container."

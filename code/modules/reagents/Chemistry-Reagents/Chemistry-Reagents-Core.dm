@@ -241,7 +241,7 @@
 /datum/reagent/fuel
 	name = "Welding fuel"
 	id = "fuel"
-	description = "Required for welders. Flamable."
+	description = "Required for welders. Flammable."
 	reagent_state = LIQUID
 	color = "#660000"
 	touch_met = 5
@@ -263,3 +263,27 @@
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!
 
+/datum/reagent/fuel/napalm
+	name = "Zo'rane Fire"
+	id = "greekfire"
+	description = "A highly flammable and cohesive gel once used commonly in the tunnels of Sedantis. Napalm sticks to kids."
+	reagent_state = LIQUID
+	color = "#D35908"
+	touch_met = 50
+	taste_description = "fiery death"
+
+/datum/reagent/fuel/napalm/touch_turf(var/turf/T)
+	new /obj/effect/decal/cleanable/liquid_fuel/napalm(T, volume/3)
+	for(var/mob/living/L in T)
+		L.adjust_fire_stacks(volume / 10)
+		L.add_modifier(/datum/modifier/napalm, MODIFIER_CUSTOM, _strength = 2)
+	remove_self(volume)
+	return
+
+/datum/reagent/fuel/touch_mob(var/mob/living/L, var/amount)
+	if(istype(L))
+		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!
+		new /obj/effect/decal/cleanable/liquid_fuel/napalm(get_turf(L), amount/3)
+		L.adjustFireLoss(amount / 10)
+		remove_self(volume)
+		L.add_modifier(/datum/modifier/napalm, MODIFIER_CUSTOM, _strength = 2)
