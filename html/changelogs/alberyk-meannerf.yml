@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "Removed the telebaton stun when aiming for the legs. The telebaton will now deal halloss, pain damage, when attacking in disarm intent"
+  - tweak: "Pepperspray does not stun when hitting someone without face protection anymore, it will now cause moderate pain instead." 

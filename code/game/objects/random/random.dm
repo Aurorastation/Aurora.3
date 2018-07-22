@@ -907,7 +907,9 @@
 		/obj/item/ammo_casing/c45/rubber = 0.5,
 		/obj/item/ammo_casing/c9mm/rubber = 0.5,
 		/obj/item/ammo_casing/c45/flash = 0.5,
-		/obj/item/ammo_casing/shotgun/beanbag = 0.5
+		/obj/item/ammo_casing/shotgun/beanbag = 0.5,
+		/obj/item/weapon/flag/america = 1,
+		/obj/item/weapon/flag/america/l = 1
 	)
 
 //Sometimes the chef will have spare oil in storage.
