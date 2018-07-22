@@ -991,28 +991,33 @@
 	desc = "Wew."
 	icon = 'icons/obj/kinetic_accelerators.dmi'
 	icon_state = "frame01"
-
 	spawnlist = list(
 		/obj/item/toy/prize/honk
 	)
 	has_postspawn = TRUE
 	post_spawn(obj/thing)
 		var/list/frames = list(
-			/obj/item/weapon/gun/custom_ka/frame01 = 3,
+			/obj/item/weapon/gun/custom_ka/frame01 = 1,
 			/obj/item/weapon/gun/custom_ka/frame02 = 2,
-			/obj/item/weapon/gun/custom_ka/frame03 = 1
+			/obj/item/weapon/gun/custom_ka/frame03 = 3,
+			/obj/item/weapon/gun/custom_ka/frame04 = 2,
+			/obj/item/weapon/gun/custom_ka/frame05 = 1
 		)
 
 		var/list/cells = list(
-			/obj/item/custom_ka_upgrade/cells/cell01 = 3,
-			/obj/item/custom_ka_upgrade/cells/cell02 = 2,
-			/obj/item/custom_ka_upgrade/cells/cell03 = 1
+			/obj/item/custom_ka_upgrade/cells/cell01 = 2,
+			/obj/item/custom_ka_upgrade/cells/cell02 = 3,
+			/obj/item/custom_ka_upgrade/cells/cell03 = 2,
+			/obj/item/custom_ka_upgrade/cells/cell04 = 1,
+			/obj/item/custom_ka_upgrade/cells/cell05 = 1
 		)
 
 		var/list/barrels = list(
-			/obj/item/custom_ka_upgrade/barrels/barrel01 = 3,
-			/obj/item/custom_ka_upgrade/barrels/barrel02 = 2,
-			/obj/item/custom_ka_upgrade/barrels/barrel03 = 1
+			/obj/item/custom_ka_upgrade/barrels/barrel01 = 2,
+			/obj/item/custom_ka_upgrade/barrels/barrel02 = 3,
+			/obj/item/custom_ka_upgrade/barrels/barrel03 = 2,
+			/obj/item/custom_ka_upgrade/barrels/barrel04 = 1,
+			/obj/item/custom_ka_upgrade/barrels/barrel05 = 1
 		)
 
 		var/frame_type = pickweight(frames)
