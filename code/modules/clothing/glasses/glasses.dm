@@ -28,7 +28,8 @@ BLIND     // can't see anything
 	var/activated_color = null
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/eyes.dmi',
-		"Resomi" = 'icons/mob/species/resomi/eyes.dmi'
+		"Resomi" = 'icons/mob/species/resomi/eyes.dmi',
+		"Vaurca Warform" = 'icons/mob/species/warriorform/eyes.dmi'
 		)
 	species_restricted = list("exclude","Vaurca Breeder")
 
@@ -507,7 +508,7 @@ BLIND     // can't see anything
 
 //from verkister
 /obj/item/clothing/glasses/spiffygogs
-	name = "Orange Goggles"
+	name = "orange goggles"
 	desc = "You can almost feel the raw power radiating off these strange specs."
 	icon_state = "spiffygogs"
 	item_state = "spiffygogs"

@@ -58,7 +58,7 @@
 		long_message = "[time_stamp()]: [text]",
 		level = level,
 		category = "GAME",
-		additional_data = list("_ckey" = html_encode(ckey), "_admin_key" = html_encode(admin_key), "_target" = html_encode(target))
+		additional_data = list("_ckey" = html_encode(ckey), "_admin_key" = html_encode(admin_key), "_target" = html_encode(ckey_target))
 	)
 
 /proc/log_vote(text)

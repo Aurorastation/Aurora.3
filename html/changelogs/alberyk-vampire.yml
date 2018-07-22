@@ -1,0 +1,6 @@
+author: Alberyk
+delete-after: True
+
+changes:
+  - tweak: "Vampires can't bite people wearing airtight helmets due to their necks being protected anymore."
+  - rscadd: "Vampires can now drink blood from drinking glasses and etc to gain usable blood."

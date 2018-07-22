@@ -112,12 +112,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/target                    = TRADER_ALL,
 		/obj/structure/dispenser            = TRADER_SUBTYPES_ONLY,
 		/obj/structure/filingcabinet        = TRADER_THIS_TYPE,
-		/obj/structure/safe                 = TRADER_THIS_TYPE,
-		/obj/structure/plushie              = TRADER_SUBTYPES_ONLY,
-		/obj/structure/sign                 = TRADER_SUBTYPES_ONLY,
-		/obj/structure/sign/double          = TRADER_BLACKLIST_ALL,
-		/obj/structure/sign/goldenplaque    = TRADER_BLACKLIST_ALL,
-		/obj/structure/sign/poster          = TRADER_BLACKLIST
+		/obj/structure/plushie              = TRADER_SUBTYPES_ONLY
 	)
 
 /datum/trader/trading_beacon/medical
