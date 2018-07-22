@@ -573,11 +573,11 @@
 	set desc = "Charge forward, trampling anything in your path until you hit something more stubborn than you are."
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='danger'>You are too tired to charge!.</span>")
+		to_chat(src, "<span class='danger'>You are too tired to charge!</span>")
 		return
 
 	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
-		to_chat(src, "<span class='danger'>You cannot charge in your current state!.</span>")
+		to_chat(src, "<span class='danger'>You cannot charge in your current state!</span>")
 		return
 
 	last_special = world.time + 200
@@ -666,11 +666,11 @@
 	set desc = "Emit a powerful screech which stuns hearers in a two-tile radius."
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='danger'>You are too tired to screech!.</span>")
+		to_chat(src, "<span class='danger'>You are too tired to screech!</span>")
 		return
 
 	if(stat || paralysis || stunned || weakened)
-		to_chat(src, "<span class='danger'>You cannot screech in your current state!.</span>")
+		to_chat(src, "<span class='danger'>You cannot screech in your current state!</span>")
 		return
 
 	last_special = world.time + 200
@@ -678,6 +678,8 @@
 	visible_message("<span class='danger'>[src.name] lets out an ear piercing shriek!</span>",
 			"<span class='danger'>You let out an ear-shattering shriek!</span>",
 			"<span class='danger'>You hear a painfully loud shriek!</span>")
+
+	playsound(loc, 'sound/voice/shriek1.ogg', 100, 1)
 
 	var/list/victims = list()
 
@@ -705,8 +707,6 @@
 	for (var/obj/machinery/light/L in view(4))
 		L.broken()
 
-	playsound(loc, 'sound/voice/shriek1.ogg', 100, 1)
-
 	if (victims.len)
 		admin_attacker_log_many_victims(src, victims, "used rebel yell to stun", "was stunned by [key_name(src)] using rebel yell", "used rebel yell to stun")
 
@@ -716,7 +716,7 @@
 	set desc = "Spew a cone of ignited napalm in front of you"
 
 	if(last_special > world.time)
-		to_chat(src,"<span class='notice'>You are too tired to spray napalm.</span>")
+		to_chat(src,"<span class='notice'>You are too tired to spray napalm!</span>")
 		return
 
 	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
