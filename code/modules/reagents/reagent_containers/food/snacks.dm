@@ -1118,6 +1118,20 @@
 	. = ..()
 	reagents.add_reagent("nutriment", 3)
 
+/obj/item/weapon/reagent_containers/food/snacks/monkeyburger/burger
+	name = "burger burger"
+	desc = "It looks like this has been here for a while..."
+	icon_state = "hburger"
+	filling_color = "#D63C3C"
+	center_of_mass = list("x"=16, "y"=11)
+	nutriment_desc = list("bun" = 2)
+	nutriment_amt = 3
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/monkeyburger/burger/Initialize()
+	. = ..()
+	reagents.add_reagent("potassium_chloride", 20)
+
 /obj/item/weapon/reagent_containers/food/snacks/fishburger
 	name = "fillet -o- carp sandwich"
 	desc = "Almost like a carp is yelling somewhere... Give me back that fillet -o- carp, give me that carp."
