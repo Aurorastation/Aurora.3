@@ -60,46 +60,6 @@
 	icon_state = "xeno_f_lab"
 	no_light_control = TRUE
 
-/area/rnd/xenobiology/alpha
-	name = "\improper Research - Xenobiology Containment Alpha"
-	icon_state = "red"
-	no_light_control = TRUE
-
-/area/rnd/xenobiology/bravo
-	name = "\improper Research - Xenobiology Containment Bravo"
-	icon_state = "blue"
-	no_light_control = TRUE
-
-/area/rnd/xenobiology/charlie
-	name = "\improper Research - Xenobiology Containment Charlie"
-	icon_state = "red"
-	no_light_control = TRUE
-
-/area/rnd/xenobiology/delta
-	name = "\improper Research - Xenobiology Containment Delta"
-	icon_state = "blue"
-	no_light_control = TRUE
-
-/area/rnd/xenobiology/echo
-	name = "\improper Research - Xenobiology Containment Echo"
-	icon_state = "red"
-	no_light_control = TRUE
-
-/area/rnd/xenobiology/foxtrot
-	name = "\improper Research - Xenobiology Containment Foxtrot"
-	icon_state = "blue"
-	no_light_control = TRUE
-
-/area/rnd/xenobiology/golf
-	name = "\improper Research - Xenobiology Containment Golf"
-	icon_state = "red"
-	no_light_control = TRUE
-
-/area/rnd/xenobiology/hotel
-	name = "\improper Research - Xenobiology Containment Hotel"
-	icon_state = "blue"
-	no_light_control = TRUE
-
 /area/rnd/storage
 	name = "\improper Research - Toxins Storage"
 	icon_state = "toxstorage"
