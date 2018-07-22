@@ -109,6 +109,24 @@
 	display_name = "trenchcoat, grey"
 	path = /obj/item/clothing/suit/storage/toggle/trench/grey
 
+/datum/gear/suit/det_trenchcoat_brown
+	display_name = "brown trenchcoat (Detective)"
+	description = "A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. The coat is externally impact resistant - perfect for your next act of autodefenestration!"
+	path = /obj/item/clothing/suit/storage/toggle/det_trench
+	allowed_roles = list("Detective", "Head of Security")
+
+/datum/gear/suit/det_trenchcoat_black
+	display_name = "black trenchcoat (Detective)"
+	description = "A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. The coat is externally impact resistant - perfect for your next act of autodefenestration!"
+	path = /obj/item/clothing/suit/storage/toggle/det_trench/black
+	allowed_roles = list("Detective", "Head of Security")
+
+/datum/gear/suit/det_trenchcoat_techni
+	display_name = "technicolor trenchcoat (Detective)"
+	description = "A 23rd-century multi-purpose trenchcoat. It's fibres are hyper-absorbent. Can be painted into any color."
+	path = /obj/item/clothing/suit/storage/toggle/det_trench/technicolor
+	allowed_roles = list("Detective", "Head of Security")
+
 /datum/gear/suit/ian
 	display_name = "worn shirt"
 	description = "A worn out, curiously comfortable t-shirt with a picture of Ian."
