@@ -228,3 +228,33 @@
 	baseturf = /turf/space
 
 /turf/simulated/floor/light
+
+/turf/simulated/floor/silver
+	name = "silver floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "silver"
+	initial_flooring = /decl/flooring/silver
+
+/turf/simulated/floor/gold
+	name = "golden floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "gold"
+	initial_flooring = /decl/flooring/gold
+
+/turf/simulated/floor/uranium
+	name = "uranium floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "uranium"
+	initial_flooring =/decl/flooring/uranium
+
+/turf/simulated/floor/phoron
+	name = "phoron floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "plasma"
+	initial_flooring = /decl/flooring/phoron
+
+/turf/simulated/floor/diamond
+	name = "diamond floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "diamond"
+	initial_flooring = /decl/flooring/diamond

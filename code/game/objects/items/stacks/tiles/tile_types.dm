@@ -109,6 +109,36 @@
 	icon_state = "tile_freezer"
 	matter = list("plastic" = 937.5)
 
+/obj/item/stack/tile/silver
+	name = "silver floor tile"
+	singular_name = "silver floor tile"
+	icon_state = "tile_silver"
+	matter = list("silver" = 937.5)
+
+/obj/item/stack/tile/gold
+	name = "golden floor tile"
+	singular_name = "golden floor tile"
+	icon_state = "tile_gold"
+	matter = list("gold" = 937.5)
+
+/obj/item/stack/tile/uranium
+	name = "uranium floor tile"
+	singular_name = "uranium floor tile"
+	icon_state = "tile_uranium"
+	matter = list("uranium" = 937.5)
+
+/obj/item/stack/tile/phoron
+	name = "phoron floor tile"
+	singular_name = "phoron floor tile"
+	icon_state = "tile_plasma"
+	matter = list("phoron" = 937.5)
+
+/obj/item/stack/tile/diamond
+	name = "diamond floor tile"
+	singular_name = "diamond floor tile"
+	icon_state = "tile_diamond"
+	matter = list("diamond" = 937.5)
+
 /*
  * Cyborg modules
  */
