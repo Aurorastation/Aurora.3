@@ -1544,7 +1544,7 @@
 /datum/chemical_reaction/meatball/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
 	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/meatball(location)
+		new /obj/item/weapon/reagent_containers/food/snacks/rawmeatball(location)
 	return
 
 /datum/chemical_reaction/dough
@@ -2660,6 +2660,20 @@
 	required_reagents = list("sarezhiwine" = 5, "toxin" = 1)
 	result_amount = 6
 
+/datum/chemical_reaction/messa_mead
+	name = "Messa's Mead"
+	id = "messa_mead"
+	result = "messa_mead"
+	required_reagents = list("honey" = 1, "earthenrootjuice" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/winter_offensive
+	name = "Winter Offensive"
+	id = "winter_offensive"
+	result = "winter_offensive"
+	required_reagents = list("ice" = 1, "victorygin" = 1)
+	result_amount = 2
+
 //Kaed's Unathi cocktails
 //========
 
@@ -2674,7 +2688,7 @@
 	name = "Bahama Lizard"
 	id = "bahamalizard"
 	result = "bahamalizard"
-	required_reagents = list("xuizijuice" = 2, "orangejuice" = 2, "limejuice" = 1, "ice" = 1)
+	required_reagents = list("xuizijuice" = 2, "lemonjuice" = 2, "cream" = 1, "ice" = 1)
 	result_amount = 6
 
 /datum/chemical_reaction/cactuscreme

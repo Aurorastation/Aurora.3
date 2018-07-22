@@ -120,7 +120,7 @@
 	. = ..()
 	icon_state = "Fill"
 
-/turf/simulated/open/airless/chasm/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
+/turf/simulated/open/chasm/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
 	underlay_appearance.icon = 'icons/turf/basalt.dmi'
 	underlay_appearance.icon_state = "basalt"
 	if (prob(20))

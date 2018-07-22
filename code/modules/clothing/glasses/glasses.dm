@@ -508,7 +508,7 @@ BLIND     // can't see anything
 
 //from verkister
 /obj/item/clothing/glasses/spiffygogs
-	name = "Orange Goggles"
+	name = "orange goggles"
 	desc = "You can almost feel the raw power radiating off these strange specs."
 	icon_state = "spiffygogs"
 	item_state = "spiffygogs"

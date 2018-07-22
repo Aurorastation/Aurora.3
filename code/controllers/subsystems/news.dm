@@ -40,7 +40,7 @@
 		catch(var/exception/ec)
 			log_debug("SSnews: Error when loading channel: [ec]")
 			continue
-		var/DBQuery/news_query = dbcon.NewQuery("SELECT body, author, is_admin_message, message_type, time_stamp FROM ss13_news_stories WHERE deleted_at IS NULL AND channel_id = :channel_id: ORDER BY created_at DESC")
+		var/DBQuery/news_query = dbcon.NewQuery("SELECT body, author, is_admin_message, message_type, ic_timestamp, url FROM ss13_news_stories WHERE deleted_at IS NULL AND channel_id = :channel_id: AND publish_at < NOW() AND (publish_until > NOW() OR publish_until IS NULL) AND approved_at IS NOT NULL ORDER BY publish_at DESC")
 		news_query.Execute(list("channel_id" = channel_query.item[1]))
 		while(news_query.NextRow())
 			CHECK_TICK
@@ -124,6 +124,10 @@
 	var/backup_author = ""
 	var/icon/backup_img = null
 	var/icon/backup_caption = ""
+	var/list/comments = list()
+	var/list/interacted = list()
+	var/likes = 0
+	var/dislikes = 0
 
 /datum/feed_message/proc/clear()
 	src.author = ""
@@ -135,6 +139,10 @@
 	src.backup_author = ""
 	src.backup_caption = ""
 	src.backup_img = null
+	src.comments = list()
+	src.interacted = list()
+	src.likes = 0
+	src.dislikes = 0
 	parent_channel.update()
 
 /datum/feed_channel
@@ -161,3 +169,8 @@
 	src.is_admin_channel = 0
 	src.announcement = ""
 	update()
+
+/datum/feed_comment
+	var/author = ""
+	var/message = ""
+	var/posted = 0

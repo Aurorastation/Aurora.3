@@ -3975,10 +3975,6 @@
 	nutriment_desc = list("uncooked dough" = 3)
 	nutriment_amt = 3
 
-/obj/item/weapon/reagent_containers/food/snacks/dough/Initialize()
-	. = ..()
-	reagents.add_reagent("protein", 1)
-
 // Dough + rolling pin = flat dough
 /obj/item/weapon/reagent_containers/food/snacks/dough/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/material/kitchen/rollingpin))
@@ -3997,10 +3993,6 @@
 	center_of_mass = list("x"=16, "y"=16)
 	nutriment_desc = list("uncooked dough" = 3)
 	nutriment_amt = 3
-
-/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough/Initialize()
-	. = ..()
-	reagents.add_reagent("protein", 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/doughslice
 	name = "dough slice"
@@ -4462,7 +4454,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/icecreamsandwich
 	name = "ice cream sandwich"
 	desc = "Portable ice cream in its own packaging."
-	icon_state = "4no_raisins"
+	icon_state = "icecreamsandwich"
 	filling_color = "#343834"
 	center_of_mass = list("x"=15, "y"=4)
 	nutriment_desc = list("ice cream" = 4)
@@ -4964,7 +4956,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/corn_dog
 	name = "corn dog"
 	desc = "A cornbread covered sausage deepfried in oil."
-	icon_state = "corn_dog"
+	icon_state = "corndog"
 	nutriment_desc = list("corn batter" = 4)
 	nutriment_amt = 4
 
@@ -4979,9 +4971,9 @@
 	nutriment_amt = 0
 	bitesize = 4
 
-/obj/item/weapon/reagent_containers/food/snacks/Initialize()
+/obj/item/weapon/reagent_containers/food/snacks/truffle/Initialize()
 	. = ..()
-	reagents.add_reagent("coco", 4)
+	reagents.add_reagent("coco", 6)
 
 /obj/item/weapon/reagent_containers/food/snacks/truffle/random
 	name = "mystery chocolate truffle"
@@ -5087,6 +5079,7 @@
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/baconburger/Initialize()
+	. = ..()
 	reagents.add_reagent("protein", 4)
 
 /obj/item/weapon/reagent_containers/food/snacks/blt
@@ -5100,8 +5093,72 @@
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/blt/Initialize()
+	. = ..()
 	reagents.add_reagent("protein", 4)
 
+/obj/item/weapon/reagent_containers/food/snacks/clam
+	name = "Ras'val clam"
+	desc = "An adhomian clam, native from the sea of Ras'val."
+	icon_state = "clam"
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/clam/Initialize()
+	. = ..()
+	reagents.add_reagent("seafood", 2)
+
+/obj/item/weapon/reagent_containers/food/snacks/spicy_clams
+	name = "spicy Ras'val clams"
+	desc = "A famous adhomian clam dish, named after the Ras'val sea."
+	icon_state = "spicy_clams"
+	bitesize = 2
+	trash = /obj/item/trash/snack_bowl
+
+/obj/item/weapon/reagent_containers/food/snacks/spicy_clams/Initialize()
+	. = ..()
+	reagents.add_reagent("seafood", 4)
+	reagents.add_reagent("pepper", 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/tajaran_bread
+	name = "adhomian bread"
+	desc = "A traditional tajaran bread, usually baked with blizzard ears' flour."
+	icon_state = "tajaran_bread"
+	bitesize = 2
+	nutriment_desc = list("bread" = 2)
+	nutriment_amt = 5
+
+/obj/item/weapon/reagent_containers/food/snacks/earthenroot_soup
+	name = "earthen-root soup"
+	desc = "A soup made with earthen-root, a traditional dish from Northern Harr'masir."
+	icon_state = "tajaran_soup"
+	bitesize = 2
+	nutriment_desc = list("soup" = 5)
+	nutriment_amt = 4
+	trash = /obj/item/trash/snack_bowl
+
+/obj/item/weapon/reagent_containers/food/snacks/tajaran_stew
+	name = "nav'twir stew"
+	desc = "An adhomian stew, made with nav'twir meat and native plants."
+	icon_state = "tajaran_stew"
+	bitesize = 2
+	nutriment_desc = list("sweetness" = 2)
+	nutriment_amt = 4
+
+/obj/item/weapon/reagent_containers/food/snacks/tajaran_stew/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 4)
+	reagents.add_reagent("water", 4)
+
+/obj/item/weapon/reagent_containers/food/snacks/adhomian_can
+	name = "canned fastshouters meat"
+	desc = "A piece of salted N’hanzafu's meat stored inside a metal can."
+	icon_state = "canned"
+	bitesize = 2
+	trash = /obj/item/trash/can
+
+/obj/item/weapon/reagent_containers/food/snacks/adhomian_can/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 5)
+	reagents.add_reagent("sodiumchloride", 2)
 
 #undef NUTRIMENT_GOOD
 #undef NUTRIMENT_BAD

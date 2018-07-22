@@ -52,18 +52,18 @@
 	user.do_attack_animation(M)
 
 	if(user == M)
-		user.visible_message("<span class='notice'>[user] injects themselves with the [src]</span>","<span class='notice'>You stick the [src] in your mouth and press the injection button</span>")
+		user.visible_message("<span class='notice'>[user] injects themselves with the [src]</span>","<span class='notice'>You stick the [src] in your mouth and press the injection button.</span>")
 	else
 		user.visible_message("<span class='warning'>[user] attempts to administer \the [src] to [M]...</span>","<span class='notice'>You attempt to administer \the [src] to [M]...</span>")
 		if (!do_after(user, 1 SECONDS, act_target = M))
 			to_chat(user,"<span class='notice'>You and the target need to be standing still in order to inject \the [src].</span>")
 			return
 
-		user.visible_message("<span class='notice'>[user] injects [M] with the [src].</span>","<span class='notice'>You stick the [src] in [M]'s mouth and press the injection button</span>")
+		user.visible_message("<span class='notice'>[user] injects [M] with the [src].</span>","<span class='notice'>You stick the [src] in [M]'s mouth and press the injection button.</span>")
 
 	if(M.reagents)
 		var/contained = reagentlist()
-		var/trans = reagents.trans_to_mob(M, amount_per_transfer_from_this, CHEM_BREATHE)
+		var/trans = reagents.trans_to_mob(M, amount_per_transfer_from_this, CHEM_BREATHE, bypass_mask = TRUE)
 		admin_inject_log(user, M, src, contained, trans)
 		playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
 		to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")

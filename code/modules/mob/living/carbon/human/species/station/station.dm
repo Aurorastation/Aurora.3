@@ -21,7 +21,7 @@
 	megacorporations have sparked secretive factions to fight their influence, while there is always the risk of someone digging too \
 	deep into the secrets of the galaxy..."
 	num_alternate_languages = 2
-	secondary_langs = list("Sol Common")
+	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_SIIK_TAU)
 	name_language = null // Use the first-name last-name generator rather than a language scrambler
 	mob_size = 9
 	spawn_flags = CAN_JOIN
@@ -143,7 +143,7 @@
 	brute_mod = 1.2
 	fall_mod = 0.5
 	num_alternate_languages = 2
-	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_YA_SSA)
+	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_YA_SSA, LANGUAGE_SIIK_TAU)
 	name_language = LANGUAGE_SIIK_MAAS
 	ethanol_resistance = 0.8//Gets drunk a little faster
 	rarity_value = 2
@@ -211,9 +211,10 @@
 	forever scarred the species and left them with a deep rooted suspicion of artificial intelligence. As \
 	such an ancient and venerable species, they often hold patronizing attitudes towards the younger races."
 
-	num_alternate_languages = 2
-	secondary_langs = list(LANGUAGE_SKRELLIAN)
-	name_language = null
+	num_alternate_languages = 3
+	language = LANGUAGE_SKRELLIAN
+	secondary_langs = list(LANGUAGE_SIIK_TAU)
+	name_language = LANGUAGE_SKRELLIAN
 	rarity_value = 3
 
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
@@ -253,8 +254,7 @@
 	economic_modifier = 3
 	icobase = 'icons/mob/human_races/r_diona.dmi'
 	deform = 'icons/mob/human_races/r_def_plant.dmi'
-	language = "Ceti Basic"
-	default_language = LANGUAGE_ROOTSONG
+	language = LANGUAGE_ROOTSONG
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
@@ -268,7 +268,7 @@
 	eyes = "blank_eyes"
 	show_ssd = "completely quiescent"
 	num_alternate_languages = 1
-	name_language = "Rootsong"
+	name_language = LANGUAGE_ROOTSONG
 	ethanol_resistance = -1	//Can't get drunk
 	taste_sensitivity = TASTE_DULL
 	mob_size = 12	//Worker gestalts are 150kg
@@ -719,7 +719,10 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	)
 
 /datum/species/bug/equip_survival_gear(var/mob/living/carbon/human/H)
-	..()
+	if(H.backbag == 1)
+		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vaurca(H), slot_r_hand)
+	else
+		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vaurca(H.back), slot_in_backpack)
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
 	if(H.equip_to_slot_or_del(S,slot_shoes))
 		S.autodrobe_no_remove = 1

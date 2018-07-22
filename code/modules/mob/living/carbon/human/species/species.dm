@@ -452,16 +452,30 @@
 	else
 		remainder = cost
 
-	H.adjustOxyLoss(remainder*0.25)
+	if(H.disabilities & ASTHMA)
+		H.adjustOxyLoss(remainder*0.15)
+
+	if(H.disabilities & COUGHING)
+		H.adjustHalLoss(remainder*0.1)
+
+	if (breathing_organ && has_organ[breathing_organ])
+		var/obj/item/organ/O = H.internal_organs_by_name[breathing_organ]
+		if(O.is_bruised())
+			H.adjustOxyLoss(remainder*0.15)
+			H.adjustHalLoss(remainder*0.25)
+
 	H.adjustHalLoss(remainder*0.25)
 	H.updatehealth()
-	H.update_oxy_overlay()
+	if((H.halloss >= 10) && prob(H.halloss*2))
+		H.flash_pain()
 
-	if (H.oxyloss >= (exhaust_threshold * 0.8))
+	if ((H.halloss + H.oxyloss) >= (exhaust_threshold * 0.8))
 		H.m_intent = "walk"
 		H.hud_used.move_intent.update_move_icon(H)
 		H << span("danger", "You're too exhausted to run anymore!")
+		H.flash_pain()
 		return 0
+
 	H.hud_used.move_intent.update_move_icon(H)
 	return 1
 

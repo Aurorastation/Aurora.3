@@ -4063,6 +4063,7 @@
 	dir = 5;
 	icon_state = "camera"
 	},
+/obj/machinery/power/emitter,
 /turf/simulated/floor{
 	icon_state = "plating"
 	},
@@ -4275,6 +4276,7 @@
 	icon_state = "alarm0";
 	pixel_x = -22
 	},
+/obj/machinery/power/emitter,
 /turf/simulated/floor{
 	icon_state = "plating"
 	},
@@ -4460,20 +4462,9 @@
 	},
 /area/outpost/engineering/storage)
 "jr" = (
-/obj/structure/particle_accelerator/end_cap{
-	icon_state = "end_cap";
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor{
-	icon_state = "plating"
-	},
-/area/outpost/engineering/storage)
+/obj/effect/landmark/dungeon_spawn,
+/turf/unsimulated/chasm_mask,
+/area/mine/unexplored)
 "js" = (
 /obj/machinery/power/grounding_rod,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -9465,12 +9456,6 @@
 /area/mine/unexplored)
 "qO" = (
 /turf/simulated/floor/reinforced,
-/area/security/nuke_storage)
-"qP" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "qQ" = (
 /obj/machinery/hologram/holopad,
@@ -18202,6 +18187,10 @@
 	icon_state = "alarm0";
 	pixel_x = 24
 	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Isolation Containment";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_c)
 "Gn" = (
@@ -20056,11 +20045,19 @@
 	icon_state = "alarm0";
 	pixel_x = 24
 	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Isolation Access";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_c)
 "Jc" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Isolation Airlock";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_c)
@@ -26405,23 +26402,6 @@
 	},
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
-"Ux" = (
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1379;
-	master_tag = "toxinsairlock_airlock";
-	name = "exterior access button";
-	pixel_x = 25;
-	pixel_y = -25;
-	req_one_access = list(13,65)
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
 "Uy" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -27233,6 +27213,21 @@
 /obj/machinery/meter,
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
+"Wm" = (
+/obj/machinery/power/emitter,
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/outpost/engineering/storage)
+"Wn" = (
+/obj/structure/particle_accelerator/end_cap{
+	icon_state = "end_cap";
+	dir = 8
+	},
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/outpost/engineering/storage)
 
 (1,1,1) = {"
 aa
@@ -28430,7 +28425,7 @@ aa
 aa
 aa
 aa
-aa
+jr
 aa
 aa
 aa
@@ -39127,7 +39122,7 @@ aa
 aa
 aa
 aa
-aa
+jr
 aa
 aa
 aa
@@ -40436,7 +40431,7 @@ gC
 fT
 fy
 iv
-iy
+Wm
 jq
 jO
 ku
@@ -40694,9 +40689,9 @@ hp
 fy
 iw
 iW
-jr
+jq
+Wn
 jP
-kv
 iA
 aa
 aa
@@ -41463,7 +41458,7 @@ fT
 gE
 fT
 fy
-iy
+kv
 iY
 iY
 iY
@@ -54204,7 +54199,7 @@ aa
 aa
 aa
 aa
-aa
+jr
 aa
 aa
 aa
@@ -63014,7 +63009,7 @@ aa
 aa
 aa
 aa
-aa
+jr
 aa
 aa
 aa
@@ -64616,7 +64611,7 @@ oz
 oz
 pG
 qo
-qP
+qS
 rm
 rv
 oz
@@ -64873,7 +64868,7 @@ oz
 oz
 pH
 qp
-qQ
+qR
 rn
 rw
 oz
@@ -65130,7 +65125,7 @@ oz
 oz
 pI
 qp
-qR
+qQ
 rn
 rx
 oz
@@ -65386,9 +65381,9 @@ kj
 oz
 oz
 pJ
-qp
 qS
-rn
+qR
+qS
 ry
 oz
 oz
@@ -77044,7 +77039,7 @@ aa
 aa
 aa
 aa
-aa
+jr
 aa
 aa
 aa

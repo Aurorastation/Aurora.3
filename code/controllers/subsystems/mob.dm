@@ -2,7 +2,7 @@
 
 /datum/controller/subsystem/mobs
 	name = "Mobs - Life"
-	flags = SS_NO_INIT
+	init_order = SS_INIT_MISC	// doesn't really matter when we init
 	priority = SS_PRIORITY_MOB
 
 	var/list/slept = list()
@@ -16,8 +16,48 @@
 	var/list/ghost_darkness_images = list()	//this is a list of images for things ghosts should still be able to see when they toggle darkness
 	var/list/ghost_sightless_images = list()	//this is a list of images for things ghosts should still be able to see even without ghost sight
 
+	// Devour types (these are typecaches). Only simple_animals check these, other types are handled specially.
+	var/list/mtl_synthetic = list(
+		/mob/living/simple_animal/hostile/hivebot
+	)
+
+	var/list/mtl_weird = list(
+		/mob/living/simple_animal/construct,
+		/mob/living/simple_animal/shade,
+		/mob/living/simple_animal/slime,
+		/mob/living/simple_animal/hostile/faithless
+	)
+
+	// Actual human mobs are delibrately not in this list as they are handled elsewhere.
+	var/list/mtl_humanoid = list(
+		/mob/living/simple_animal/hostile/pirate,
+		/mob/living/simple_animal/hostile/russian,
+		/mob/living/simple_animal/hostile/syndicate
+	)
+
+	var/list/mtl_incorporeal = list(
+		/mob/living/simple_animal/hostile/carp/holodeck,
+		/mob/living/simple_animal/penguin/holodeck
+	)
+
 /datum/controller/subsystem/mobs/New()
 	NEW_SS_GLOBAL(SSmob)
+
+/datum/controller/subsystem/mobs/Initialize()
+	// Some setup work for the eat-types lists.
+	mtl_synthetic = typecacheof(mtl_synthetic) + list(
+		/mob/living/simple_animal/hostile/retaliate/malf_drone = TRUE,
+		/mob/living/simple_animal/hostile/viscerator = TRUE,
+		/mob/living/simple_animal/spiderbot = TRUE
+	)
+
+	mtl_weird = typecacheof(mtl_weird) + list(
+		/mob/living/simple_animal/adultslime = TRUE
+	)
+
+	mtl_humanoid = typecacheof(mtl_humanoid)
+
+	mtl_incorporeal = typecacheof(mtl_incorporeal)
 
 /datum/controller/subsystem/mobs/stat_entry()
 	..("P:[mob_list.len]")

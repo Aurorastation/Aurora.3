@@ -395,7 +395,6 @@ BREATH ANALYZER
 	user.visible_message("\The [user] scans \the [target] with \the [src]")
 	user.show_message("Price estimation of \the [target]: [value ? value : "N/A"] Credits")
 
-
 /obj/item/device/breath_analyzer
 	name = "breath analyzer"
 	desc = "A hand-held breath analyzer that provides a robust amount of information about the subject's repository system."
@@ -404,16 +403,16 @@ BREATH ANALYZER
 	w_class = 2.0
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
-	throwforce = 5
-	throw_speed = 4
-	throw_range = 20
+	throwforce = 0
+	throw_speed = 3
+	throw_range = 3
 	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 
-/obj/item/device/breath_analyzer/attack(mob/living/carbon/human/H as mob, mob/living/user as mob)
+/obj/item/device/breath_analyzer/attack(mob/living/carbon/human/H, mob/living/user as mob)
 
 	if (!istype(H))
-		to_chat(user,"<span class='warning'>You can't find a way to use the [src] on [H]!</span>")
+		to_chat(user,"<span class='warning'>You can't find a way to use \the [src] on [H]!</span>")
 		return
 
 	if ( ((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(20))
@@ -434,7 +433,7 @@ BREATH ANALYZER
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(H)
 
-	user.visible_message("<span class='notice'>[user] is trying to take a breath sample from [H].</span>","<span class='notice'>You gently insert the [src] into [H]'s mouth.</span>")
+	user.visible_message("<span class='notice'>[user] is trying to take a breath sample from [H].</span>","<span class='notice'>You gently insert \the [src] into [H]'s mouth.</span>")
 
 	if (!LAZYLEN(src.other_DNA))
 		LAZYADD(src.other_DNA, H.dna.unique_enzymes)
@@ -444,7 +443,7 @@ BREATH ANALYZER
 		to_chat(user,"<span class='notice'>You and the target need to be standing still in order to take a breath sample.</span>")
 		return
 
-	user.visible_message("<span class='notice'>[user] takes a breath sample from [H].</span>","<span class='notice'>The [src] clicks as it finishes reading [H]'s breath sample.</span>")
+	user.visible_message("<span class='notice'>[user] takes a breath sample from [H].</span>","<span class='notice'>\The [src] clicks as it finishes reading [H]'s breath sample.</span>")
 
 	to_chat(user,"<b>Breath Sample Results:</b>")
 
@@ -452,10 +451,22 @@ BREATH ANALYZER
 		to_chat(user,"<span class='danger'>Alert: No breathing detected.</span>")
 		return
 
-	to_chat(user,H.getOxyLoss() > 50 ? "<font color='blue'><b>Severe oxygen deprivation detected.</b></font>" : "Subject oxygen levels normal.")
+	switch(H.getOxyLoss())
+		if(0 to 25)
+			to_chat(user,"Subject oxygen levels nominal.")
+		if(25 to 50)
+			to_chat(user,"<font color='blue'>Subject oxygen levels abnormal.</font>")
+		if(50 to INFINITY)
+			to_chat(user,"<font color='blue'><b>Severe oxygen deprivation detected.</b></font>")
+
 	var/obj/item/organ/L = H.internal_organs_by_name["lungs"]
 	if(istype(L))
-		to_chat(user,L.is_bruised() ? "<font color='red'><b>Ruptured lung detected.</b></font>" : "Subject lung health normal.")
+		if(L.is_bruised())
+			to_chat(user,"<font color='red'><b>Ruptured lung detected.</b></font>")
+		else if(L.is_damaged())
+			to_chat(user,"<b>Damaged lung detected.</b>")
+		else
+			to_chat(user,"Subject lung health nominal.")
 	else
 		to_chat(user,"<span class='warning'>Subject lung health unknown.</span>")
 

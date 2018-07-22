@@ -20,7 +20,7 @@
 //	reagents.add_reagent("tricordrazine", 30)
 //	return
 
-/obj/item/weapon/reagent_containers/hypospray/attack(mob/living/M as mob, mob/user as mob)
+/obj/item/weapon/reagent_containers/hypospray/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
 	if(!reagents.total_volume)
 		user << "<span class='warning'>[src] is empty.</span>"
 		return
@@ -29,7 +29,7 @@
 
 	var/mob/living/carbon/human/H = M
 	if(istype(H))
-		var/obj/item/organ/external/affected = H.get_organ(user.zone_sel.selecting)
+		var/obj/item/organ/external/affected = H.get_organ(target_zone)
 		if(!affected)
 			user << "<span class='danger'>\The [H] is missing that limb!</span>"
 			return
@@ -37,9 +37,13 @@
 			user << "<span class='danger'>You cannot inject a robotic limb.</span>"
 			return
 
+		user.visible_message("<span class='warning'>[user] is trying to inject [M] with [src]!</span>","<span class='notice'>You are trying to inject [M] with [src].</span>")
+		if(H.run_armor_check(target_zone,"melee",0,"Your armor slows down the injection!","Your armor slows down the injection!"))
+			if(!do_mob(user, M, 60))
+				return
+
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(M)
-	user << "<span class='notice'>You inject [M] with [src].</span>"
 	M << "<span class='notice'>You feel a tiny prick!</span>"
 	playsound(src, 'sound/items/hypospray.ogg',25)
 
