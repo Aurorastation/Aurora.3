@@ -37,6 +37,8 @@
 	sprint_speed_factor = 2
 	sprint_cost_factor = 0.80
 	stamina_recovery = 5
+	natural_climbing = 1
+	climb_coeff = 0.1
 
 	virus_immune = 1
 

@@ -28448,6 +28448,10 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
 	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Starboard Corridor - Medbay Entrance";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aYW" = (
@@ -41182,7 +41186,7 @@
 /area/holodeck/alphadeck)
 "buL" = (
 /obj/machinery/camera/network/civilian_main{
-	c_tag = "Central Corridor - Medical Entrance";
+	c_tag = "Central Corridor - Medical EMT Entrance";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime{
