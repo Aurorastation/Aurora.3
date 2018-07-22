@@ -265,3 +265,8 @@
 	name = "\improper Derelict Ship"
 	icon_state = "yellow"
 	flags = RAD_SHIELDED | SPAWN_ROOF
+
+/area/tomb
+	name = "\improper Burial Chamber"
+	icon_state = "yellow"
+	flags = SPAWN_ROOF
