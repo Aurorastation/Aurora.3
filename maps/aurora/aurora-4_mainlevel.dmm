@@ -5315,6 +5315,22 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/grass,
 /area/hydroponics)
+"akG" = (
+/obj/structure/fireaxecabinet{
+	pixel_x = -32
+	},
+/obj/structure/closet/crate/extinguisher_catridges,
+/turf/simulated/floor/tiled,
+/area/engineering/atmos/storage)
+"akH" = (
+/obj/structure/table/standard,
+/obj/machinery/cell_charger,
+/obj/structure/sign/nosmoking_2{
+	pixel_x = -32
+	},
+/obj/item/device/multitool,
+/turf/simulated/floor/tiled,
+/area/engineering/atmos/storage)
 "akN" = (
 /obj/structure/morgue{
 	icon_state = "morgue1";
@@ -5520,14 +5536,6 @@
 /obj/structure/cable/green,
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
-"ali" = (
-/obj/structure/table/standard,
-/obj/item/device/multitool,
-/obj/structure/fireaxecabinet{
-	pixel_x = -32
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/atmos/storage)
 "alj" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -5912,14 +5920,6 @@
 /obj/machinery/shield_gen,
 /turf/simulated/floor/plating,
 /area/engineering/storage)
-"amf" = (
-/obj/structure/table/standard,
-/obj/machinery/cell_charger,
-/obj/structure/sign/nosmoking_2{
-	pixel_x = -32
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/atmos/storage)
 "amg" = (
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
@@ -84171,8 +84171,8 @@ ahY
 aiO
 agD
 akv
-ali
-amf
+akG
+akH
 anh
 aoh
 ctr
