@@ -35,7 +35,7 @@
 		. = ..()
 		return
 
-	if(is_type_in_list(target,can_be_placed_into))
+	if(is_type_in_list(A,can_be_placed_into))
 		return
 
 	if(istype(A, /mob))

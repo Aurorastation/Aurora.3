@@ -15,7 +15,8 @@
 	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
 
-/obj/item/weapon/reagent_containers/hypospray/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
+/obj/item/weapon/reagent_containers/hypospray/attack(var/mob/M, var/mob/user, target_zone)
+
 	if(!reagents.total_volume)
 		user << "<span class='warning'>[src] is empty.</span>"
 		return
@@ -97,10 +98,10 @@
 	amount_per_transfer_from_this = 20
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/stimpack/Initialize()
-		. = ..()
-		reagents.add_reagent("hyperzine", 12)
-		reagents.add_reagent("tramadol", 8)
-		update_icon()
+	. = ..()
+	reagents.add_reagent("hyperzine", 12)
+	reagents.add_reagent("tramadol", 8)
+	update_icon()
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/survival
 	name = "survival autoinjector"
@@ -109,13 +110,13 @@
 	amount_per_transfer_from_this = 35
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/survival/Initialize()
-		. = ..()
-		reagents.add_reagent("tricordrazine", 15)
-		reagents.add_reagent("inaprovaline", 5)
-		reagents.add_reagent("dexalinp", 5)
-		reagents.add_reagent("oxycodone", 5)
-		reagents.add_reagent("methylphenidate", 5)
-		update_icon()
+	. = ..()
+	reagents.add_reagent("tricordrazine", 15)
+	reagents.add_reagent("inaprovaline", 5)
+	reagents.add_reagent("dexalinp", 5)
+	reagents.add_reagent("oxycodone", 5)
+	reagents.add_reagent("methylphenidate", 5)
+	update_icon()
 
 /obj/item/weapon/reagent_containers/hypospray/combat
 	name = "combat hypospray"
@@ -130,5 +131,4 @@
 	reagents.add_reagent("synaptizine", 5)
 	reagents.add_reagent("hyperzine", 5)
 	reagents.add_reagent("arithrazine", 5)
-
-	return
+	update_icon()

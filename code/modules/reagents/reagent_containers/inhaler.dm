@@ -61,8 +61,8 @@
 
 	if(H.reagents)
 		var/contained = reagentlist()
-		var/trans = reagents.trans_to_mob(M, amount_per_transfer_from_this, CHEM_BREATHE, bypass_mask = TRUE)
-		admin_inject_log(user, M, src, contained, trans)
+		var/trans = reagents.trans_to_mob(H, amount_per_transfer_from_this, CHEM_BREATHE, bypass_mask = TRUE)
+		admin_inject_log(user, H, src, contained, trans)
 		playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
 		to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
 

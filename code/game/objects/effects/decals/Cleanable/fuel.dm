@@ -101,9 +101,14 @@
 				target.hotspot_expose(2000, 400)
 			amount *= 0.5
 		origin.hotspot_expose(2000, 400) //immediately ignite. its napalm bitch
+		amount *= 0.25
 
-<<<<<<< HEAD
-			amount *= 0.25
+/obj/effect/decal/cleanable/liquid_fuel/napalm/process()
+	for(var/mob/living/L in get_turf(src))
+		var/sticky = min(rand(5,25), amount)
+		if(sticky > 1)
+			L.adjust_fire_stacks(sticky)
+			amount = max(1, amount - sticky)
 
 /obj/effect/decal/cleanable/foam //Copied from liquid fuel
 	name = "foam"
@@ -151,11 +156,3 @@
 				else
 					new/obj/effect/decal/cleanable/foam(target, amount*0.25,1)
 				amount *= 0.75
-=======
-/obj/effect/decal/cleanable/liquid_fuel/napalm/process()
-	for(var/mob/living/L in get_turf(src))
-		var/sticky = min(rand(5,25), amount)
-		if(sticky > 1)
-			L.adjust_fire_stacks(sticky)
-			amount = max(1, amount - sticky)
->>>>>>> upstream/development
