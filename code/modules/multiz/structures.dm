@@ -184,7 +184,7 @@
 		if(!istype(above))
 			above.ChangeToOpenturf()
 
-/obj/structure/stairs/Uncross(atom/movable/A)
+/obj/structure/stairs/CollidedWith(atom/movable/A)
 	if(A.dir == dir && A.loc == loc)
 		// This is hackish but whatever.
 		var/turf/target = get_step(GetAbove(A), dir)
@@ -193,24 +193,27 @@
 		return FALSE
 	return TRUE
 
-/obj/structure/stairs/CanPass(obj/mover, turf/source, height, airflow)
-	if (airflow)
-		return TRUE
-
-	// Disallow stepping onto the elevated part of the stairs.
-	if (isliving(mover) && z == mover.z && mover.loc != loc && get_step(mover, get_dir(mover, src)) == loc)
+/obj/structure/stairs/CheckExit(atom/movable/mover as mob|obj, turf/target as turf)
+	if(get_dir(loc, target) == dir && upperStep(mover.loc))
 		return FALSE
-
-	return !density
-
-/obj/structure/stairs/CheckExit(mob/living/mover, turf/target)
-	if (!istype(mover) || target.z != z)
-		return ..()
 
 	if (mover.loc == loc && get_dir(mover, target) != reverse_dir[dir])
 		addtimer(CALLBACK(src, .proc/mob_fall, mover), 0)
 
 	return ..()
+
+/obj/structure/stairs/CollidedWith(atom/movable/A)
+	// This is hackish but whatever.
+	var/turf/target = get_step(GetAbove(A), dir)
+	if(target.Enter(A, src)) // Pass src to be ignored to avoid infinate loop
+		A.forceMove(target)
+		if(isliving(A))
+			var/mob/living/L = A
+			if(L.pulling)
+				L.pulling.forceMove(target)
+
+/obj/structure/stairs/proc/upperStep(var/turf/T)
+	return (T == loc)
 
 /obj/structure/stairs/proc/mob_fall(mob/living/L)
 	if (isopenturf(L.loc))
