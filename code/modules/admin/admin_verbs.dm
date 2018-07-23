@@ -218,7 +218,8 @@ var/list/admin_verbs_debug = list(
 	/client/proc/cmd_ss_panic,
 	/client/proc/reset_openturf,
 	/datum/admins/proc/capture_map,
-	/client/proc/global_ao_regenerate
+	/client/proc/global_ao_regenerate,
+	/client/proc/add_client_color
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
@@ -1159,6 +1160,47 @@ var/list/admin_verbs_cciaa = list(
 	log_and_message_admins("has regenerated all openturfs.")
 
 	SSzcopy.hard_reset()
+
+/client/proc/add_client_color(mob/T as mob in mob_list)
+	set category = "Debug"
+	set name = "Add Client Color"
+	set desc = "Adds a client color to a given mob"
+
+	if(!check_rights(R_DEV))
+		return
+
+	if(!ishuman(T))
+		to_chat(usr, "This can only be done to instances of type /mob/living/carbon/human")
+		return
+
+	var/mob/living/carbon/human/C = T
+
+	var/rr = input("Enter color value", "Red-Red") as num|null
+	var/rg = input("Enter color value", "Red-Green") as num|null
+	var/rb = input("Enter color value", "Red-Blue") as num|null
+	var/gr = input("Enter color value", "Green-Red") as num|null
+	var/gg = input("Enter color value", "Green-Green") as num|null
+	var/gb = input("Enter color value", "Green-Blue") as num|null
+	var/br = input("Enter color value", "Blue-Red") as num|null
+	var/bg = input("Enter color value", "Blue-Green") as num|null
+	var/bb = input("Enter color value", "Blue-Blue") as num|null
+	var/priority = input("Enter priority value.", "Priority") as num|null
+	if(!usr)
+		return
+	if(!C)
+		to_chat(usr, "Mob doesn't exist anymore")
+		return
+
+	if(priority)
+		var/datum/client_color/CC = new /datum/client_color()
+		CC.client_color = list(rr,rg,rb, gr,gg,gb, br,bg,bb)
+		CC.priority = priority
+		C.client_colors |= CC
+		sortTim(C.client_colors, /proc/cmp_clientcolor_priority)
+		C.update_client_color()
+
+	log_and_message_admins("<span class='notice'>gave [key_name(C)] a new client color.</span>")
+	feedback_add_details("admin_verb","CR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 #ifdef ENABLE_SUNLIGHT
 /client/proc/apply_sunstate()

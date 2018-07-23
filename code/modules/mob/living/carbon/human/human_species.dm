@@ -78,6 +78,14 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/type_c
 	layer = 5
 
+/mob/living/carbon/human/type_big/Initialize(mapload)
+	. = ..(mapload, "Vaurca Warform")
+	src.gender = NEUTER
+	src.mutations.Add(HULK)
+
+/mob/living/carbon/human/type_big
+	layer = 5
+
 /mob/living/carbon/human/msai_tajara/Initialize(mapload)
 	h_style = "Tajaran Ears"
 	. = ..(mapload, "M'sai Tajara")
