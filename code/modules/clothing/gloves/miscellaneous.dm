@@ -213,7 +213,7 @@
 	force = 5
 	punch_force = 10
 	clipped = 1
-	species_restricted = list("exclude","Golem","Vaurca Breeder")
+	species_restricted = list("exclude","Golem","Vaurca Breeder","Vaurca Warform")
 
 /obj/item/clothing/gloves/powerfist/Touch(atom/A, mob/living/user, proximity)
 	if(!proximity)

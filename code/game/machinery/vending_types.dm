@@ -23,7 +23,6 @@
 	icon_state = "boozeomat"        //////////////18 drink entities below, plus the glasses, in case someone wants to edit the number of bottles
 	icon_deny = "boozeomat-deny"
 	vend_id = "booze"
-	restock_items = 1
 	products = list(
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/gin = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey = 5,
@@ -109,7 +108,8 @@
 	products = list(
 		/obj/item/weapon/reagent_containers/food/drinks/coffee = 25,
 		/obj/item/weapon/reagent_containers/food/drinks/tea = 25,
-		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 25
+		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 25,
+		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 20
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/drinks/ice = 10
@@ -117,7 +117,8 @@
 	prices = list(
 		/obj/item/weapon/reagent_containers/food/drinks/coffee = 20,
 		/obj/item/weapon/reagent_containers/food/drinks/tea = 20,
-		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 22
+		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 22,
+		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 6
 	)
 
 /obj/machinery/vending/snack
@@ -349,6 +350,7 @@
 		/obj/item/weapon/handcuffs = 8,
 		/obj/item/weapon/grenade/chem_grenade/teargas = 4,
 		/obj/item/device/flash = 5,
+		/obj/item/weapon/reagent_containers/spray/pepper = 5,
 		/obj/item/weapon/storage/box/evidence = 6,
 		/obj/item/device/holowarrant = 5
 	)
@@ -359,6 +361,12 @@
 		/obj/item/clothing/glasses/sunglasses = 2,
 		/obj/item/weapon/grenade/flashbang = 4
 	)
+	restock_blocked_items = list(
+		/obj/item/weapon/storage/box/donut,
+		/obj/item/weapon/storage/box/evidence,
+		/obj/item/device/flash,
+		/obj/item/weapon/reagent_containers/spray/pepper
+		)
 	restock_items = 1
 
 /obj/machinery/vending/hydronutrients
@@ -384,7 +392,6 @@
 	contraband = list(
 		/obj/item/weapon/reagent_containers/glass/bottle/mutagen = 2
 	)
-	restock_items = 1
 
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 
@@ -431,7 +438,9 @@
 		/obj/item/seeds/towermycelium = 3,
 		/obj/item/seeds/watermelonseed = 3,
 		/obj/item/seeds/wheatseed = 3,
-		/obj/item/seeds/whitebeetseed = 3
+		/obj/item/seeds/whitebeetseed = 3,
+		/obj/item/seeds/earthenroot = 2,
+		/obj/item/seeds/nifberries = 2
 	)
 	contraband = list(
 		/obj/item/seeds/amanitamycelium = 3,
@@ -479,8 +488,11 @@
 		/obj/item/seeds/towermycelium = 20,
 		/obj/item/seeds/watermelonseed = 30,
 		/obj/item/seeds/wheatseed = 20,
-		/obj/item/seeds/whitebeetseed = 20
+		/obj/item/seeds/whitebeetseed = 20,
+		/obj/item/seeds/earthenroot = 70,
+		/obj/item/seeds/nifberries = 70
 	)
+	restock_items = 1
 
 /**
  *  Populate hydroseeds product_records
@@ -538,16 +550,17 @@
 		/obj/item/weapon/material/kitchen/utensil/fork = 6,
 		/obj/item/weapon/material/kitchen/utensil/knife = 6,
 		/obj/item/weapon/material/kitchen/utensil/spoon = 6,
-		/obj/item/weapon/material/knife = 3,
+		/obj/item/weapon/material/knife = 2,
+		/obj/item/weapon/material/knife/butch = 2,
 		/obj/item/weapon/reagent_containers/food/drinks/drinkingglass = 8,
 		/obj/item/clothing/suit/chef/classic = 2,
 		/obj/item/weapon/material/kitchen/rollingpin = 2,
 		/obj/item/weapon/reagent_containers/cooking_container/oven = 5,
 		/obj/item/weapon/reagent_containers/cooking_container/fryer = 4,
-		/obj/item/weapon/storage/toolbox/lunchbox/nt = 6
+		/obj/item/weapon/storage/toolbox/lunchbox/nt = 6,
+		/obj/item/weapon/reagent_containers/glass/beaker/bowl = 4
 	)
 	contraband = list(
-		/obj/item/weapon/material/knife/butch = 2,
 		/obj/item/weapon/storage/toolbox/lunchbox/syndicate = 2
 	)
 	restock_items = 1
@@ -593,6 +606,11 @@
 	)
 	premium = list(
 		/obj/item/clothing/gloves/yellow = 1
+	)
+	restock_blocked_items = list(
+		/obj/item/stack/cable_coil,
+		/obj/item/weapon/weldingtool,
+		/obj/item/weapon/weldingtool/hugetank
 	)
 	restock_items = 1
 
@@ -701,6 +719,11 @@
 	// There was an incorrect entry (cablecoil/power).  I improvised to cablecoil/heavyduty.
 	// Another invalid entry, /obj/item/weapon/circuitry.  I don't even know what that would translate to, removed it.
 	// The original products list wasn't finished.  The ones without given quantities became quantity 5.  -Sayu
+	restock_blocked_items = list(
+		/obj/item/stack/cable_coil/heavyduty,
+		/obj/item/weapon/weldingtool,
+		/obj/item/weapon/light/tube
+	)
 	restock_items = 1
 
 //This one's from bay12
@@ -728,6 +751,12 @@
 		/obj/item/weapon/crowbar = 5
 	)
 	//everything after the power cell had no amounts, I improvised.  -Sayu
+	restock_blocked_items = list(
+		/obj/item/stack/cable_coil,
+		/obj/item/device/flash,
+		/obj/item/weapon/light/tube,
+		/obj/item/weapon/tank/anesthetic
+	)
 	restock_items = 1
 
 //RECURSION

@@ -154,7 +154,7 @@ datum/track/New(var/title_name, var/audio)
 
 /obj/machinery/media/jukebox/proc/explode()
 	walk_to(src,0)
-	src.visible_message("<span class='danger'>\the [src] blows apart!</span>", 1)
+	visible_message("<span class='danger'>\the [src] blows apart!</span>")
 
 	explosion(src.loc, 0, 0, 1, rand(1,2), 1)
 

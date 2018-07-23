@@ -134,6 +134,9 @@
 /obj/item/weapon/gun/projectile/automatic/rifle/sts35
 	name = "assault rifle"
 	desc = "A durable, rugged looking automatic weapon of a make popular on the frontier worlds. Uses 7.62mm rounds. It is unmarked."
+	can_bayonet = TRUE
+	knife_x_offset = 23
+	knife_y_offset = 13
 
 /obj/item/weapon/gun/projectile/automatic/rifle/sts35/update_icon()
 	..()
@@ -164,6 +167,10 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/a556)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+
+	can_bayonet = TRUE
+	knife_x_offset = 23
+	knife_y_offset = 13
 
 	burst_delay = 4
 	firemodes = list(
@@ -388,6 +395,9 @@
 	set name = "Wield rifle"
 	set category = "Object"
 	set src in usr
+
+	toggle_wield(usr)
+	usr.update_icon()
 
 /obj/item/weapon/gun/projectile/automatic/rifle/shotgun
 	name = "assault shotgun"

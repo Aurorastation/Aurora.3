@@ -686,8 +686,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		if(!cannotzoom)
 			M.visible_message("[zoomdevicename ? "[M] looks up from the [src.name]" : "[M] lowers the [src.name]"].")
 
-	return
-
 /obj/item/proc/pwr_drain()
 	return 0 // Process Kill
 

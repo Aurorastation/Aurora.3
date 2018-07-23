@@ -1369,33 +1369,51 @@
 			</html>
 			"}
 
-/obj/item/weapon/book/manual/brainwashing
-	name = "Disloyal to Loyal: The Legality of Brainwashing"
+/obj/item/weapon/book/manual/ka_custom
+	name = "Guide to Custom Kinetic Accelerators"
 	icon_state ="rulebook"
-	author = "Dr. Fredrick Richards"
-	title = "Disloyal to Loyal: The Legality of Brainwashing"
+	author = "Quartermaster Burgs"
+	title = "Guide to Custom Kinetic Accelerators"
 	dat = {"<html>
 				<head>
-				<style>
-				h1 {font-size: 21px; margin: 15px 0px 5px;}
-				h2 {font-size: 15px; margin: 15px 0px 5px;}
-				li {margin: 2px 0px 2px 15px;}
-				ul {margin: 5px; padding: 0px;}
-				ol {margin: 5px; padding: 0px 15px;}
-				body {font-size: 13px; font-family: Verdana;}
-				</style>
+					<style>
+						h1 {font-size: 21px; margin: 15px 0px 5px;}
+						h2 {font-size: 15px; margin: 15px 0px 5px;}
+						li {margin: 2px 0px 2px 15px;}
+						ul {margin: 5px; padding: 0px;}
+						ol {margin: 5px; padding: 0px 15px;}
+						body {font-size: 13px; font-family: Verdana;}
+					</style>
 				</head>
 				<body>
-				<h1>Disloyal to Loyal: The Legality of Brainwashing</h1>
-				<h2>by Doctor Fredrick Richards with help from the NanoTrasen Legal Department</h2>
+					<h1>Metal Snowflake: Your Guide to Custom Kinetic Accelerators</h1>
+					<h2>by Quartermaster Burgs</h2>
+					<br>
+					<p>So you want to make your own custom kinetic accelerator. While it may look simple to take apart, swap, and modify parts to fit your working needs, there are a few things to keep in mind before assembling.</p>
 
-				While it may be tempting as a Captain, Head of Security, or sometimes an officer to go around distributing anti-psychotics to maintain the peace, there are a few Corporate regulations and rules that must be kept in mind before even considering obtaining the medication.<BR><BR>
+					<p>Know your parts. To make a working kinetic accelerator, you require a power converter, a kinetic cell, and a frame to store it all on. Some parts are better for certain jobs than others. Some are more compact, more economical, more powerful, more quick, more durable. Mix and match parts to your liking, however there may be some parts that are incompatible with other parts due to software differences.</p>
 
-				<h2>Pre-injection</h2>
-				Generally, anti-psychotic medications should only be given out to criminals who have been charged with crimes that typically have Hold until Transfer, Cyborgification, and Loyalty Implant sentences, however some exceptions may apply. It is important to note that when using medicine to rehabilitate a criminal, the criminal in question is now legally considered a medical patient. In Tau Ceti space, it is illegal to prescribe, consume, or force a patient to consume anti-psychotic medication as a non-medical professional. As such, a non-medical personnel who injects or feeds prisoners with anti-psychotics may be charged with Suspicious Conduct, Excessive Use of Force In Detainment, Mistreatment of Prisoners, Neglect of Duty, Assault, Exceeding Official Powers, Mistreatment of Prisoners, and/or Gross Negligence. A trained and licensed medical professional are legally required to perform an evaluation first, and must be the one to perform the injection.<BR><BR>
+					<p>A power converter contains a complex assembly that converts kinetic energy into destructive energy via powerful magnets and heat induction, which are perfect for destroying rock in areas with minimal atmosphere.</p>
 
-				<h2>Post-injection</h2>
-				It is your duty as a member of the security department to oversee the health and well-being of prisoners and parolees. Those who have been giving anti-psychotic medication must be carefully monitored for their behaviour. Prisoners who skip doses, or overdose, are a threat to themselves and the people near them. If in the case of an overdose occurs, or a dose is missed, medical personnel should be contacted immediately and the situation dealt with appropriately. Failure to do so may result in Gross Negligence charges and potential demotion.
+					<p>A kinetic cell holds the kinetic energy and usually has a means of creating it, such as a lever, a pump, or an internal power source. Manual pumps are quite the common and wise choice given how electrical outlets and recharging station are not too common while out on the dig.</p>
+
+					<p>A frame is quite literally a frame; the weapon's base. All frames contain special software that allows the components to interact with eachother easily and safely without causing sparks or other malfunctions. Some frames contain extra bonus software, such as over-clocking or recoil damping predictors.</p>
+
+					<p>Assembly is very easy. First, you secure the power cell, then you secure the power converter, then you install any additional upgrade chips. The bolts will quite literally screw themselves securely. If you wish to remove the parts, a wrench is required to disassemble.</p>
+
+					<p>It's best to test fire the weapon in a safe location before going out for a long haul. There are plenty of things that could go wrong with the assembly, but thankfully do to regulations and other legalwork, the weapon will prevent itself from firing if the software detects an issue. There is a digital screen located on the top of the frame that would state if there was anything wrong with the weapon if an attempt to fire is made. Here are the error codes for said weapon.</p>
+					<br>
+					<h2>Error Codes:</h2>
+
+					<p>0: Means that there is a component connection issue. Ensure that the entire assembly (Frame, Power Converter, Cell) are secured together as one.</p>
+
+					<p>101: Means that there is not enough voltage going into the power converter. Ensure that the cell is rated enough to handle the power consumption of the entire assembly.</p>
+
+					<p>102: Means that there is not enough amps going into the power converter. Ensure that there are no other modules that may reduce the amount of amps going into the power converter.</p>
+
+					<p>103: Means that there are not enough watts going into the power converter. Ensure that the power cell is rated enough to handle the power consumption of the entire assembly.</p>
+
+					<p>201: Means that the frame is not rated to handle the entirety of the heat energy of the components. Either upgrade the frame, or downgrade the components.</p>
 				</body>
 			</html>
 			"}

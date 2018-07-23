@@ -2667,6 +2667,20 @@
 	required_reagents = list("sarezhiwine" = 5, "toxin" = 1)
 	result_amount = 6
 
+/datum/chemical_reaction/messa_mead
+	name = "Messa's Mead"
+	id = "messa_mead"
+	result = "messa_mead"
+	required_reagents = list("honey" = 1, "earthenrootjuice" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/winter_offensive
+	name = "Winter Offensive"
+	id = "winter_offensive"
+	result = "winter_offensive"
+	required_reagents = list("ice" = 1, "victorygin" = 1)
+	result_amount = 2
+
 //Kaed's Unathi cocktails
 //========
 

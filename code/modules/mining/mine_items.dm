@@ -27,6 +27,7 @@
 	new /obj/item/weapon/ore_radar(src)
 	new /obj/item/weapon/key/minecarts(src)
 	new /obj/item/device/gps/mining(src)
+	new /obj/item/weapon/book/manual/ka_custom(src)
 
 /******************************Lantern*******************************/
 
@@ -120,6 +121,10 @@
 			user << "<span class='warning'>It's too heavy for you to wield fully.</span>"
 			return
 	else
+		return
+
+	if(!istype(user.get_active_hand(), src))
+		user << "<span class='warning'>You need to be holding the [name] in your active hand.</span>"
 		return
 
 	if(wielded) //Trying to unwield it

@@ -39,7 +39,7 @@
 /proc/log_debug(text,level = SEVERITY_DEBUG)
 	if (config.log_debug)
 		game_log("DEBUG", text)
-	
+
 	if (level == SEVERITY_ERROR) // Errors are always logged
 		error(text)
 
@@ -58,7 +58,7 @@
 		long_message = "[time_stamp()]: [text]",
 		level = level,
 		category = "GAME",
-		additional_data = list("_ckey" = html_encode(ckey), "_admin_key" = html_encode(admin_key), "_target" = html_encode(target))
+		additional_data = list("_ckey" = html_encode(ckey), "_admin_key" = html_encode(admin_key), "_target" = html_encode(ckey_target))
 	)
 
 /proc/log_vote(text)
@@ -164,6 +164,15 @@
 /proc/log_failsafe(text)
 	game_log("FAILSAFE", text)
 	send_gelf_log(text, "[time_stamp()]: [text]", SEVERITY_ALERT, "FAILSAFE")
+
+/proc/log_tgs(text, severity = SEVERITY_INFO)
+	game_log("TGS", text)
+	send_gelf_log(
+		short_message = text,
+		long_message="[time_stamp()]: [text]",
+		level = severity,
+		category = "TGS"
+	)
 
 /proc/log_unit_test(text)
 	world.log << "## UNIT_TEST ##: [text]"

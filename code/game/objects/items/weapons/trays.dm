@@ -214,8 +214,8 @@
 	return 1
 
 /obj/item/weapon/tray/AltClick(var/mob/user)
+	if (!use_check(user, show_messages = FALSE)) return
 	unload(user)
-
 
 /obj/item/weapon/tray/proc/attempt_load_item(var/obj/item/I, var/mob/user, var/messages = 1)
 	if( I != src && !I.anchored && !istype(I, /obj/item/projectile) )
@@ -317,7 +317,7 @@
 /obj/item/weapon/tray/throw_impact(atom/hit_atom)
 	spill(null, src.loc)
 
-/obj/item/weapon/tray/throw_at(/var/atom/target, var/throw_range, var/throw_speed, /var/mob/user)
+/obj/item/weapon/tray/throw_at(atom/target, throw_range, throw_speed, mob/user)
 	safedrop = 1//we dont want the tray to spill when thrown, it will spill on impact instead
 	..()
 
