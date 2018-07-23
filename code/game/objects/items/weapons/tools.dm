@@ -47,7 +47,7 @@
 	throw_range = 5
 	matter = list(DEFAULT_WALL_MATERIAL = 75)
 	attack_verb = list("stabbed")
-	random_icon = TRUE
+	var/random_icon = TRUE
 
 /obj/item/weapon/screwdriver/Initialize()
 	. = ..()
