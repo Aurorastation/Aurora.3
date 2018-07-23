@@ -5,5 +5,5 @@ delete-after: True
 changes:
   - bugfix: "Mechs that were shot with ION guns and got into maintenance mode while having it forbidden to switch the mode can now be unlocked by their DNA owners. By being able to allow maintenance mode."
   - bugfix: "Cyborgs, AI, simple animals rejuvinate proc no longer crashes, making healing process to be complete."
-  - bugfix: "You can now eject content of a microwave even if there is no power in the area."
+  - rscadd: "Microwave now has a verb to eject its content even whe it is not powered on"
   - bugfix: "Fixed service cyborg basic sprite eyes overlay"
