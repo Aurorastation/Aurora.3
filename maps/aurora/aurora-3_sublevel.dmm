@@ -9457,6 +9457,10 @@
 "qO" = (
 /turf/simulated/floor/reinforced,
 /area/security/nuke_storage)
+"qP" = (
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor/plating,
+/area/maintenance/sublevel)
 "qQ" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
@@ -18343,9 +18347,15 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "Gz" = (
-/obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/plating,
-/area/maintenance/sublevel)
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/structure/window/reinforced,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor/tiled/white,
+/area/outpost/research/hallway)
 "GA" = (
 /obj/structure/closet/firecloset,
 /turf/simulated/floor/plating,
@@ -18868,15 +18878,9 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "Hq" = (
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/structure/window/reinforced,
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/tiled/white,
-/area/outpost/research/hallway)
+/turf/simulated/floor/plating,
+/area/maintenance/sublevel)
 "Hr" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -48969,7 +48973,7 @@ BW
 BW
 yM
 Gy
-Hq
+Gz
 Ik
 xt
 vT
@@ -49482,7 +49486,7 @@ CO
 DT
 ES
 jB
-Gz
+qP
 kz
 Im
 jB
@@ -50768,8 +50772,8 @@ DX
 EW
 jB
 CX
-qH
-qH
+Hq
+Hq
 qH
 Ht
 KT

@@ -841,7 +841,7 @@
 /turf/simulated/floor/plating,
 /area/tcommsat/computer)
 "bD" = (
-/obj/structure/reagent_dispensers/watertank,
+/obj/structure/reagent_dispensers/extinguisher,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/tcommsat/computer)
@@ -9825,7 +9825,7 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "rP" = (
-/obj/structure/reagent_dispensers/watertank,
+/obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "rQ" = (
@@ -11642,7 +11642,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "vD" = (
-/obj/structure/reagent_dispensers/watertank,
+/obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "vE" = (
@@ -15249,7 +15249,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness)
 "Cg" = (
-/obj/structure/reagent_dispensers/watertank,
+/obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "Ch" = (
@@ -15416,7 +15416,7 @@
 /turf/simulated/floor/tiled,
 /area/storage/tools)
 "CF" = (
-/obj/structure/reagent_dispensers/watertank,
+/obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/tiled,
 /area/storage/tools)
 "CG" = (
@@ -15968,8 +15968,8 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "DQ" = (
-/obj/structure/reagent_dispensers/watertank,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
 "DR" = (
