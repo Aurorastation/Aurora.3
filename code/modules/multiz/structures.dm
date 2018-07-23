@@ -184,15 +184,6 @@
 		if(!istype(above))
 			above.ChangeToOpenturf()
 
-/obj/structure/stairs/CollidedWith(atom/movable/A)
-	if(A.dir == dir && A.loc == loc)
-		// This is hackish but whatever.
-		var/turf/target = get_step(GetAbove(A), dir)
-		if (target.Enter(A, A.loc))
-			A.forceMove(target)
-		return FALSE
-	return TRUE
-
 /obj/structure/stairs/CheckExit(atom/movable/mover as mob|obj, turf/target as turf)
 	if(get_dir(loc, target) == dir && upperStep(mover.loc))
 		return FALSE
@@ -205,7 +196,7 @@
 /obj/structure/stairs/CollidedWith(atom/movable/A)
 	// This is hackish but whatever.
 	var/turf/target = get_step(GetAbove(A), dir)
-	if(target.Enter(A, src)) // Pass src to be ignored to avoid infinate loop
+	if(target.Enter(A, src))
 		A.forceMove(target)
 		if(isliving(A))
 			var/mob/living/L = A
