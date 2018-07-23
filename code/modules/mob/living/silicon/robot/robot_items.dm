@@ -363,3 +363,38 @@
 
 	user << "You fail to pick up \the [A] with \the [src]"
 	return
+
+/obj/item/weapon/gun/energy/mountedcannon
+	name = "mounted ballistic cannon"
+	desc = "A cyborg mounted ballistic cannon."
+	icon = 'icons/obj/robot_items.dmi'
+	icon_state = "cannon"
+	item_state = "cannon"
+	fire_sound = 'sound/effects/Explosion1.ogg'
+	charge_meter = 0
+	max_shots = 10
+	charge_cost = 300
+	projectile_type = /obj/item/projectile/bullet/gyro
+	self_recharge = 1
+	use_external_power = 1
+	recharge_time = 5
+	needspin = FALSE
+
+/obj/item/weapon/crowbar/robotic
+	icon = 'icons/obj/robot_items.dmi'
+
+/obj/item/weapon/wrench/robotic
+	icon = 'icons/obj/robot_items.dmi'
+
+/obj/item/weapon/screwdriver/robotic
+	icon = 'icons/obj/robot_items.dmi'
+	random_icon = FALSE
+
+/obj/item/device/multitool/robotic
+	icon = 'icons/obj/robot_items.dmi'
+
+/obj/item/weapon/wirecutters/robotic
+	icon = 'icons/obj/robot_items.dmi'
+
+/obj/item/weapon/weldingtool/robotic
+	icon = 'icons/obj/robot_items.dmi'
