@@ -688,9 +688,6 @@
 		if (istype(T) && (T:l_ear || T:r_ear) && istype((T:l_ear || T:r_ear), /obj/item/clothing/ears/earmuffs))
 			continue
 
-		if (!vampire_can_affect_target(T, 0))
-			continue
-
 		to_chat(T, "<span class='danger'>You hear an ear piercing shriek and feel your senses go dull!</span>")
 		T.Weaken(5)
 		T.ear_deaf = 20
