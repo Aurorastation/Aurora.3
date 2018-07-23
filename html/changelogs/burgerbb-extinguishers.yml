@@ -39,5 +39,5 @@ changes:
   - tweak: "Fire extinguishers can be filled with any reagent using an extinguisher cartridge. Extinguisher cartridges can be ordered by cargo, or found in atmospherics."
   - tweak: "Reagent dispensers, such as watertanks and beer kegs, can now be filled with any reagent. Fuel tanks are an exception." 
   - tweak: "Reworked how reagent containers (glass beakers, drinks) behave on interaction. You can splash anyone with any container on harm intent, does not work on other intents."
-  - maptweak: "Removed pointless reinforced plating in engineering maintenance and the janitor's closet. Removed the Security Intercomm in atmospherics. Added a fire storage area in atmospherics that contains firefighting equipment."
+  - maptweak: "Added a fire storage area in atmospherics that contains firefighting equipment and Monoammonium Phosphate containers."
 

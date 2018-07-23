@@ -21,9 +21,6 @@
 	attack_self(var/mob/user as mob)
 		return
 
-	feed_sound(var/mob/user)
-		playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
-
 	self_feed_message(var/mob/user)
 		user << "<span class='notice'>You swallow some of contents of \the [src].</span>"
 

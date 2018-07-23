@@ -17,15 +17,11 @@
 
 /obj/item/weapon/reagent_containers/hypospray/attack(var/mob/M, var/mob/user, target_zone)
 
-	if(!reagents.total_volume)
-		user << "<span class='warning'>[src] is empty.</span>"
-		return
-
 	if (!istype(M))
 		return ..()
 
 	if(!reagents.total_volume)
-		to_chat(user,"<span class='warning'>[src] is empty.</span>")
+		to_chat(user,"<span class='notice'>\The [src] is empty.</span>")
 		return
 
 	var/mob/living/carbon/human/H = M

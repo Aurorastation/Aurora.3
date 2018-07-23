@@ -41,7 +41,6 @@
 /obj/item/weapon/reagent_containers/food/drinks/attack(mob/M as mob, mob/user as mob, def_zone)
 	if(force && !(flags & NOBLUDGEON) && user.a_intent == I_HURT)
 		return ..()
-
 	return 0
 
 /obj/item/weapon/reagent_containers/food/drinks/standard_feed_mob(var/mob/user, var/mob/target)
@@ -61,12 +60,6 @@
 		user << "<span class='notice'>You need to open [src]!</span>"
 		return 1
 	return ..()
-
-/obj/item/weapon/reagent_containers/food/drinks/self_feed_message(var/mob/user)
-	user << "<span class='notice'>You swallow a gulp from \the [src].</span>"
-
-/obj/item/weapon/reagent_containers/food/drinks/feed_sound(var/mob/user)
-	playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
 
 /obj/item/weapon/reagent_containers/food/drinks/examine(mob/user)
 	if(!..(user, 1))
