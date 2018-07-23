@@ -18343,7 +18343,7 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "Gz" = (
-/obj/structure/reagent_dispensers/extinguisher,
+/obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
 "GA" = (
@@ -21787,7 +21787,6 @@
 	pixel_x = 25;
 	pixel_y = 0
 	},
-/obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/hallway)
 "Mk" = (
@@ -21977,11 +21976,11 @@
 	dir = 8
 	},
 /obj/item/weapon/storage/bag/slimes,
-/obj/item/weapon/storage/box/syringes,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "Mv" = (
 /obj/structure/table/standard,
+/obj/item/weapon/storage/box/syringes,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -21992,8 +21991,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/item/weapon/reagent_containers/spray/chemsprayer/xenobiology,
-/obj/item/weapon/reagent_containers/spray/chemsprayer/xenobiology,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "Mw" = (
