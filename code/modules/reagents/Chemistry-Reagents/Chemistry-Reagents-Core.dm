@@ -187,7 +187,7 @@
 			T.visible_message("<span class='warning'>The water sizzles as it lands on \the [T]!</span>")
 
 	else if(volume >= 10)
-		T.wet_floor(1)
+		T.wet_floor(WET_TYPE_WATER,volume)
 
 /datum/reagent/water/touch_obj(var/obj/O)
 	if(istype(O))

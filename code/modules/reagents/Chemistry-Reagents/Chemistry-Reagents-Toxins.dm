@@ -270,6 +270,7 @@
 	metabolism = REM * 2
 
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_turf(var/turf/simulated/T)
+
 	if(!istype(T))
 		return
 
@@ -281,8 +282,10 @@
 		T.assume_air(lowertemp)
 		qdel(hotspot)
 
-	new /obj/effect/decal/cleanable/foam(T, volume)
-	remove_self(volume)
+	var/amount_to_remove = max(1,round(volume * 0.5))
+
+	new /obj/effect/decal/cleanable/foam(T, amount_to_remove)
+	remove_self(amount_to_remove)
 	return
 
 

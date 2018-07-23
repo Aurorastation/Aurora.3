@@ -100,7 +100,7 @@
 				new/obj/effect/decal/cleanable/liquid_fuel/napalm(target, amount*0.5,1)
 				target.hotspot_expose(2000, 400)
 			amount *= 0.5
-		origin.hotspot_expose(2000, 400) //immediately ignite. its britney bitch
+		origin.hotspot_expose(2000, 400) //immediately ignite. its napalm bitch
 
 /obj/effect/decal/cleanable/liquid_fuel/napalm/process()
 	for(var/mob/living/L in get_turf(src))

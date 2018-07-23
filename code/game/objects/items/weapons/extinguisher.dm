@@ -89,6 +89,7 @@
 
 	var/spray_particles = 3
 	var/spray_amount = 10	//units of liquid per particle
+	var/spray_distance = 3
 	var/max_water = 300
 	var/last_use = 1.0
 	var/safety = 1
@@ -105,8 +106,9 @@
 	w_class = 2.0
 	force = 2.0
 	max_water = 60
-	spray_amount = 5
-	spray_particles = 3
+	spray_amount = 10
+	spray_particles = 1
+	spray_distance = 1
 	sprite_name = "miniFE"
 
 /obj/item/weapon/extinguisher/New()
@@ -202,7 +204,7 @@
 				W.create_reagents(spray_amount)
 				reagents.trans_to_obj(W, spray_amount)
 				W.set_color()
-				W.set_up(my_target)
+				W.set_up(my_target,spray_distance,3)
 
 		if((istype(usr.loc, /turf/space)) || (usr.lastarea.has_gravity() == 0))
 			user.inertia_dir = get_dir(target, user)

@@ -16,28 +16,22 @@
 	slot_flags = SLOT_BELT
 
 /obj/item/weapon/reagent_containers/hypospray/attack(var/mob/M, var/mob/user, target_zone)
+	. = ..()
+	var/mob/living/carbon/human/H = M
+	if(istype(H))
+		user.visible_message("<span class='warning'>[user] is trying to inject \the [M] with \the [src]!</span>","<span class='notice'>You are trying to inject \the [M] with \the [src].</span>")
+		if(H.run_armor_check(target_zone,"melee",0,"Your armor slows down the injection!","Your armor slows down the injection!"))
+			if(!do_mob(user, M, 60))
+				return
+
+/obj/item/weapon/reagent_containers/hypospray/afterattack(var/mob/M, var/mob/user, proximity)
 
 	if (!istype(M))
 		return ..()
 
 	if(!reagents.total_volume)
-		to_chat(user,"<span class='notice'>\The [src] is empty.</span>")
+		to_chat(user,"<span class='warning'>\The [src] is empty.</span>")
 		return
-
-	var/mob/living/carbon/human/H = M
-	if(istype(H))
-		var/obj/item/organ/external/affected = H.get_organ(target_zone)
-		if(!affected)
-			to_chat(user,"<span class='danger'>\The [H] is missing that limb!</span>")
-			return
-		else if(affected.status & ORGAN_ROBOT)
-			to_chat(user,"<span class='danger'>You cannot inject a robotic limb.</span>")
-			return
-
-		user.visible_message("<span class='warning'>[user] is trying to inject [M] with [src]!</span>","<span class='notice'>You are trying to inject [M] with [src].</span>")
-		if(H.run_armor_check(target_zone,"melee",0,"Your armor slows down the injection!","Your armor slows down the injection!"))
-			if(!do_mob(user, M, 60))
-				return
 
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(M)
