@@ -214,8 +214,8 @@
 	return 1
 
 /obj/item/weapon/tray/AltClick(var/mob/user)
+	if (!use_check(user, show_messages = FALSE)) return
 	unload(user)
-
 
 /obj/item/weapon/tray/proc/attempt_load_item(var/obj/item/I, var/mob/user, var/messages = 1)
 	if( I != src && !I.anchored && !istype(I, /obj/item/projectile) )
