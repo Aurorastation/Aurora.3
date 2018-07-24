@@ -147,7 +147,7 @@ proc/api_update_command_database()
 	var/versionstring = null
 	//The Version Number follows SemVer http://semver.org/
 	version["major"] = 2 //Major Version Number --> Increment when implementing breaking changes
-	version["minor"] = 2 //Minor Version Number --> Increment when adding features
+	version["minor"] = 3 //Minor Version Number --> Increment when adding features
 	version["patch"] = 0 //Patchlevel --> Increment when fixing bugs
 
 	versionstring = "[version["major"]].[version["minor"]].[version["patch"]]"
@@ -634,9 +634,11 @@ proc/api_update_command_database()
 		return 1
 
 //Get Server Status
-/datum/topic_command/get_serverstatus
-	name = "get_serverstatus"
+/datum/topic_command/get_serverstatus_public
+	name = "get_serverstatus_public"
 	description = "Gets the serverstatus"
+	no_auth = 1
+
 /datum/topic_command/get_serverstatus/run_command(queryparams)
 	var/list/s[] = list()
 	s["version"] = game_version
@@ -647,6 +649,45 @@ proc/api_update_command_database()
 	s["ai"] = config.allow_ai
 	s["host"] = host ? host : null
 	s["players"] = 0
+	s["admins"] = 0
+	s["stationtime"] = worldtime2text()
+	s["roundduration"] = round_duration()
+	s["gameid"] = game_id
+
+	var/n = 0
+	var/admins = 0
+
+	for(var/client/C in clients)
+		if(C.holder)
+			if(C.holder.fakekey)
+				continue	//so stealthmins aren't revealed by the hub
+			admins++
+		n++
+
+	s["players"] = n
+	s["admins"] = admins
+
+	statuscode = 200
+	response = "Server Status fetched"
+	data = s
+	return 1
+
+//Get Server Status
+/datum/topic_command/get_serverstatus
+	name = "get_serverstatus"
+	description = "Gets the serverstatus"
+
+/datum/topic_command/get_serverstatus/run_command(queryparams)
+	var/list/s[] = list()
+	s["version"] = game_version
+	s["mode"] = master_mode
+	s["respawn"] = config.abandon_allowed
+	s["enter"] = config.enter_allowed
+	s["vote"] = config.allow_vote_mode
+	s["ai"] = config.allow_ai
+	s["host"] = host ? host : null
+	s["players"] = 0
+	s["admins"] = 0
 	s["stationtime"] = worldtime2text()
 	s["roundduration"] = round_duration()
 	s["gameid"] = game_id
