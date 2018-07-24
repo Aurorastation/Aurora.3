@@ -580,7 +580,7 @@
 		to_chat(src, "<span class='danger'>You cannot charge in your current state!</span>")
 		return
 
-	last_special = world.time + 10
+	last_special = world.time + 50
 
 	src.visible_message("<span class='warning'>\The [src] takes a step backwards and rears up.</span>",
 			"<span class='notice'>You take a step backwards and then...</span>")
