@@ -331,8 +331,8 @@ datum/preferences
 	character.ccia_actions = ccia_actions
 	character.exploit_record = exploit_record
 
-	character.age = age
 	character.gender = gender
+	character.age = age
 	character.b_type = b_type
 
 	character.r_eyes = r_eyes
