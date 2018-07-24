@@ -71,7 +71,7 @@
 	var/used = FALSE
 	construction_cost = null
 
-/obj/item/stack/nanopaste/surge/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
+/obj/item/stack/nanopaste/surge/attack(mob/living/carbon/human/M as mob, mob/user as mob, var/target_zone)
 	if (!istype(M) || !istype(user))
 		return 0
 
@@ -80,41 +80,50 @@
 		return 0
 
 	if (isipc(M))
-		var/mob/living/carbon/human/H = M
-		if(!H.surge)
-			visible_message(
-			"<span class='notice'> [user] is trying to apply [src] to itself</span>",
-			"<span class='notice'> You start applying [src] to yourself</span>"
+		var/obj/item/organ/surge/s = organs["chest"].internal_organs["surge"]
+		if(!isnull(surge))
+			user.visible_message(
+			"<span class='notice'>[user] is trying to apply [src] to [(M == user) ? ("itself") : (M)]!</span>",
+			"<span class='notice'>You start applying [src] to [(M == user) ? ("yourself") : (M)]!</span>"
 			)
-			if (!do_after(usr, 1 SECONDS, act_target = user))
+
+			if (!do_mob(src, user, 1))
 				return 0
-			H.surge_left = rand(1, 3)
-			H.surge = TRUE
-			visible_message(
-			"<span class='notice'>You apply [src] to yourself. You can feel nanites inside you creating something new. An internal OS voice states \"Warning: surge prevention module has been installed, it has [H.surge_left] preventions left!\"</span>",
-			"<span class='notice'>[user] applies some nanite paste to itself!</span>"
+
+			s = new /obj/item/organ/surge(M)
+			user.visible_message(
+			"<span class='notice'>[user] applies some nanite paste to [(M == user) ? ("itself") : (M)]!</span>",
+			"<span class='notice'>You apply [src] to [(M == user) ? ("youself") : (M)].</span>"
 			)
-			amount = 0
-			used = TRUE
-			return 1
-		else if(!H.surge_left)
-			visible_message(
-			"<span class='notice'> You start applying [src] to yourself</span>",
-			"<span class='notice'> [user] is trying to apply [src] to itself</span>"
-			)
-			if (!do_after(usr, 1 SECONDS, act_target = user))
-				return 0
-			H.surge_left = rand(1, 3)
-			visible_message(
-			"<span class='notice'>You apply [src] to yourself. You can feel nanites inside you regenerating your surge prevention module. An internal OS voice states \"Warning: surge prevention module repaired, it has [H.surge_left] preventions left!\"</span>",
-			"<span class='notice'>[user] applies some nanite paste to itself!</span>"
-			)
+			to_chat((user == M) ? (src) : (M), "<span class='notice'>You can feel nanites inside you creating something new. An internal OS voice states \"Warning: surge prevention module has been installed, it has [s.surge_left] preventions left!\"</span>")
 			amount = 0
 			used = TRUE
 			return 1
 		else
-			to_chat(user, "<span class='warning'> You already have fully functional surge prevention module installed</span>")
-			return 0
-	else
-		to_chat(user, "<span class='warning'>[src]'s nanites refuse to work on you.</span>")
-		return 0
+			if(!s.surge_left)
+				user.visible_message(
+				"<span class='notice'>[user] is trying to apply [src] to [(M == user) ? ("itself") : (M)]!</span>",
+				"<span class='notice'>You start applying [src] to [(M == user) ? ("yourself") : (M)]!</span>"
+				)
+
+				if (!do_mob(src, user, 1))
+					return 0
+
+				s.surge_left = rand(1, 3)
+				s.broken = 0
+				s.icon_state = "surge_ipc"
+
+				user.visible_message(
+				"<span class='notice'>[user] applies some nanite paste to [(M == user) ? ("itself") : (M)]!</span>",
+				"<span class='notice'>You apply [src] to [(M == user) ? ("yourself") : (M)].</span>"
+				)
+				to_chat((user == M) ? (src) : (M),  "<span class='notice'>You can feel nanites inside you regenerating your surge prevention module. An internal OS voice states \"Warning: surge prevention module repaired, it has [H.surge_left] preventions left!\"</span>")
+				amount = 0
+				used = TRUE
+				return 1
+
+				to_chat(user, "<span class='warning'>[(M == user) ? ("You already have") : ("[M] already has")] fully functional surge prevention module installed</span>")
+				return 0
+			else
+				to_chat(user, "<span class='warning'>[src]'s nanites refuse to work on [(M == user) ? ("you") : (M)].</span>")
+				return 0

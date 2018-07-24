@@ -113,6 +113,3 @@
 	var/datum/unarmed_attack/default_attack	//default unarmed attack
 
 	var/datum/martial_art/martial_art = null
-
-	var/surge = FALSE // Used for IPC only
-	var/surge_left = FALSE // Used for IPC only
