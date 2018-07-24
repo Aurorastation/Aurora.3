@@ -105,6 +105,7 @@
 	eyes_icons = 'icons/mob/human_face/warform_eyes.dmi'
 	brute_mod = 0.5
 	burn_mod = 0.1
+	fall_mod = 0
 	toxins_mod = 1
 	total_health = 200
 	breakcuffs = list(MALE,FEMALE,NEUTER)
