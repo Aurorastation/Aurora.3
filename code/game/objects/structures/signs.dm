@@ -454,17 +454,6 @@
 /obj/item/weapon/flag/america/l
 	flag_size = 1
 
-/obj/structure/sign/flag/america
-	name = "Old World flag"
-	desc = "The banner of an ancient nation, its glory old."
-	icon_state = "oldglory"
-
-/obj/structure/sign/flag/america/left
-	icon_state = "oldglory_l"
-
-/obj/structure/sign/flag/america/right
-	icon_state = "oldglory_r"
-
 /obj/item/weapon/flag/dpra
 	name = "Democratic People's Republic of Adhomai flag"
 	desc = "The black flag of the Democratic People's Republic of Adhomai."
