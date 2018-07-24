@@ -229,7 +229,6 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/borg/sight/hud/med(src)
 	src.modules += new /obj/item/device/healthanalyzer(src)
 	src.modules += new /obj/item/weapon/reagent_containers/borghypo/medical(src)
-	src.modules += new /obj/item/weapon/scalpel/manager(src) // an Incision Management System
 	src.modules += new /obj/item/weapon/scalpel(src)
 	src.modules += new /obj/item/weapon/hemostat(src)
 	src.modules += new /obj/item/weapon/retractor(src)
