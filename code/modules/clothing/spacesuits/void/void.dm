@@ -21,7 +21,7 @@
 		"Unathi" = 'icons/obj/clothing/species/unathi/hats.dmi',
 		"Tajara" = 'icons/obj/clothing/species/tajaran/hats.dmi',
 		"Skrell" = 'icons/obj/clothing/species/skrell/hats.dmi',
-		"Vaurca" = 'icons/obj/clothing/species/vaurca/hats.dmi',
+		"Vaurca" = 'icons/obj/clothing/species/vaurca/hats.dmi'
 		)
 
 	light_overlay = "helmet_light"
