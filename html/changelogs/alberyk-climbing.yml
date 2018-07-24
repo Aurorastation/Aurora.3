@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "You now need to be in the grab intent to climb up walls and climb down open spaces."
