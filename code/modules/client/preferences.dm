@@ -308,7 +308,6 @@ datum/preferences
 
 	character.real_name = real_name
 	character.name = character.real_name
-	character.gender = gender
 	character.set_species(species)
 	if(character.dna)
 		character.dna.real_name = character.real_name
@@ -333,6 +332,7 @@ datum/preferences
 	character.exploit_record = exploit_record
 
 	character.age = age
+	character.gender = gender
 	character.b_type = b_type
 
 	character.r_eyes = r_eyes
