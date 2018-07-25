@@ -69,7 +69,3 @@
 /datum/client_color/tritanopia
 	client_color = list(0.95,0.07,0, 0,0.44,0.52, 0.05,0.49,0.48)
 	priority = 100
-
-/datum/client_color/vaurca
-	client_color = list(0.3,0,0, 0,0.5,0, 0.5,0,1.5)
-	priority = 101
