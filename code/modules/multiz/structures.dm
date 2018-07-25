@@ -206,6 +206,16 @@
 /obj/structure/stairs/proc/upperStep(var/turf/T)
 	return (T == loc)
 
+/obj/structure/stairs/CanPass(obj/mover, turf/source, height, airflow)
+	if (airflow)
+		return TRUE
+
+	// Disallow stepping onto the elevated part of the stairs.
+	if (isliving(mover) && z == mover.z && mover.loc != loc && get_step(mover, get_dir(mover, src)) == loc)
+		return FALSE
+
+	return !density
+
 /obj/structure/stairs/proc/mob_fall(mob/living/L)
 	if (isopenturf(L.loc))
 		return
