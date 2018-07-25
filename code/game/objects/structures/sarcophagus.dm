@@ -18,11 +18,23 @@
 	else
 		icon_state = initial(icon_state)
 
+/obj/structure/sarcophagus/ex_act(severity)
+	switch(severity
+		if(1.0)
+			qdel(src)
+		if(2.0)
+			if(prob(50))
+				qdel(src)
+		if(3.0)
+			if(prob(25))
+				open()
+	return
+
 /obj/structure/sarcophagus/attackby(obj/item/I as obj, mob/user as mob)
 	if(open)
 		return
 	if(istype(I, /obj/item/sarcophagus_key))
-		to_chat(usr, "<span class='notice'>You slide \the [I] inside an opening in \the [src]..</span>")
+		to_chat(usr, "<span class='notice'>You slide \the [I] inside an opening in \the [src].</span>")
 		open()
 
 /obj/structure/sarcophagus/proc/open()
