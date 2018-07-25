@@ -73,7 +73,7 @@
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "r" = (
-/obj/item/weapon/holder/drone/mining,
+/mob/living/silicon/robot/drone/mining,
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "s" = (
