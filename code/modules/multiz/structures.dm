@@ -166,7 +166,7 @@
 	icon_state = "ladder11"
 
 /obj/structure/stairs
-	name = "Stairs"
+	name = "stairs"
 	desc = "Stairs leading to another deck.  Not too useful if the gravity goes out."
 	icon = 'icons/obj/stairs.dmi'
 	density = 0
@@ -217,17 +217,18 @@
 	return !density
 
 /obj/structure/stairs/proc/mob_fall(mob/living/L)
-	if (isopenturf(L.loc))
+	if (isopenturf(L.loc) || L.loc == loc || !ishuman(L))
 		return
 
 	L.Weaken(2)
-	L.visible_message(
-		"<span class='alert'>\The [L] steps off of [src] and faceplants onto [L.loc].</span>",
-		"<span class='danger'>You step off [src] and faceplant onto [L.loc].</span>",
-		"<span class='alert'>You hear a thump.</span>"
-	)
-	var/snd = pick('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg')
-	playsound(L.loc, snd, 75, 1)
+	if (L.lying)
+		L.visible_message(
+			"<span class='alert'>\The [L] steps off of [src] and faceplants onto [L.loc].</span>",
+			"<span class='danger'>You step off [src] and faceplant onto [L.loc].</span>",
+			"<span class='alert'>You hear a thump.</span>"
+		)
+		var/snd = pick('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg')
+		playsound(L.loc, snd, 75, 1)
 
 // type paths to make mapping easier.
 /obj/structure/stairs/north
