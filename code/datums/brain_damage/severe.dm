@@ -83,9 +83,9 @@
 
 	if(owner.stat == UNCONSCIOUS || owner.sleeping > 0)
 		return
-	var/sleep_chance = 5
+	var/sleep_chance = 25
 	if(owner.m_intent == "run")
-		sleep_chance += 15
+		sleep_chance += 25
 	if(owner.drowsyness)
 		sleep_chance += owner.drowsyness + 5
 		if(owner.drowsyness >= 66)
@@ -118,12 +118,11 @@
 	..()
 
 	if(check_alone())
-		stress = min(stress + 0.5, 100)
-		if(stress > 10 && (prob(5)))
+		stress = min(stress + 4, 100)
+		if(stress > 10 && (prob(25)))
 			stress_reaction()
 	else
-		stress -= 4
-
+		stress = max(0, stress - 8)
 /datum/brain_trauma/organic/severe/monophobia/proc/check_alone()
 	if(owner.disabilities & BLIND)
 		return TRUE

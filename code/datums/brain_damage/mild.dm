@@ -79,26 +79,6 @@
 	..()
 	owner.disabilities &= ~UNINTELLIGIBLE
 
-
-/datum/brain_trauma/organic/mild/tourettes
-	name = "Tourettes Syndrome"
-	desc = "Patient is compelled to vulgarity."
-	scan_desc = "vulgarity problem"
-	gain_text = "Your mind fills with foul language!"
-	lose_text = "Your mind returns to decency."
-
-	can_gain = FALSE
-
-/datum/brain_trauma/organic/mild/tourettes/on_gain()
-	..()
-	owner.disabilities |= TOURETTES
-
-
-/datum/brain_trauma/organic/mild/tourettes/on_lose()
-	..()
-	owner.disabilities &= ~TOURETTES
-
-
 /datum/brain_trauma/organic/mild/gertie
 	name = "Gerstmann Syndrome"
 	desc = "Patient displays severe left right disorientation."
@@ -127,7 +107,7 @@
 
 /datum/brain_trauma/organic/mild/concussion/triggered_life()
 	..()
-	if(prob(25))
+	if(prob(50))
 		switch(rand(1,11))
 			if(1)
 				to_chat(owner, "<span class='notice'>Your stomach writhes with pain.</span>")
@@ -161,7 +141,7 @@
 
 /datum/brain_trauma/organic/mild/muscle_weakness/triggered_life()
 	..()
-	var/fall_chance = 5
+	var/fall_chance = 15
 	if(owner.m_intent == "run")
 		fall_chance += 15
 	if(prob(fall_chance) && !owner.lying && !owner.buckled)
@@ -169,13 +149,13 @@
 		owner.Weaken(5)
 
 	else if(owner.get_active_hand())
-		var/drop_chance = 15
+		var/drop_chance = 25
 		var/obj/item/I = owner.get_active_hand()
 		drop_chance += I.w_class
 		if(prob(drop_chance) && owner.drop_from_inventory(I))
 			to_chat(owner, "<span class='warning'>You drop [I]!</span>")
 
-	else if(prob(3))
+	else if(prob(9))
 		to_chat(owner, "<span class='warning'>You feel a sudden weakness in your muscles!</span>")
 		owner.adjustHalLoss(25)
 
@@ -190,7 +170,7 @@
 
 /datum/brain_trauma/organic/mild/muscle_spasms/triggered_life()
 	..()
-	if(prob(25))
+	if(prob(50))
 		switch(rand(1,5))
 			if(1)
 				if(owner.canmove)

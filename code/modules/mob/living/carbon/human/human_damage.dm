@@ -53,7 +53,7 @@
 				gain_trauma_type(BRAIN_TRAUMA_MILD_ROBOT)
 	if(brainloss > BRAIN_DAMAGE_SEVERE && !(has_trauma_type(BRAIN_TRAUMA_SEVERE) || has_trauma_type(BRAIN_TRAUMA_SEVERE_ROBOT)) && !has_trauma_type(BRAIN_TRAUMA_SPECIAL))
 		if(prob(amount + ((brainloss - BRAIN_DAMAGE_SEVERE) / 15))) //1 damage|150 brain damage = 3% chance
-			if(prob(20))
+			if(prob(25))
 				gain_trauma_type(BRAIN_TRAUMA_SPECIAL)
 			else
 				if(isipc(src))

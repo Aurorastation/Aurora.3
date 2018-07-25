@@ -686,7 +686,7 @@
 	worstmessage = list("You worry about the littlest thing...","You feel like you are at risk...","You think you see things...")
 	suppress_traumas  = list(
 		/datum/brain_trauma/organic/mild/phobia/ = 2,
-		/datum/brain_trauma/organic/severe/split_personality = 10,
+		/datum/brain_trauma/special/split_personality = 10,
 		/datum/brain_trauma/special/imaginary_friend = 20,
 		/datum/brain_trauma/organic/mild/muscle_weakness = 10
 	)
@@ -863,23 +863,21 @@
 	worstmessage = list("You think you start seeing things...","You swear someone inside you spoke to you...","You hate feeling alone...","You feel really upset...")
 	messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY * 0.5
 	suppress_traumas  = list(
-		/datum/brain_trauma/organic/severe/split_personality = 5,
+		/datum/brain_trauma/special/split_personality = 5,
 		/datum/brain_trauma/special/imaginary_friend = 10,
 		/datum/brain_trauma/organic/mild/stuttering = 2,
 		/datum/brain_trauma/organic/mild/speech_impediment = 5,
 		/datum/brain_trauma/organic/severe/monophobia = 5,
 		/datum/brain_trauma/organic/mild/hallucinations = 5,
-		/datum/brain_trauma/organic/mild/muscle_spasms = 10,
-		/datum/brain_trauma/organic/mild/tourettes = 10
+		/datum/brain_trauma/organic/mild/muscle_spasms = 10
 	)
 	dosage_traumas = list(
 		/datum/brain_trauma/organic/severe/pacifism = 25
 	)
 	withdrawal_traumas = list(
 		/datum/brain_trauma/organic/mild/hallucinations = 100,
-		/datum/brain_trauma/organic/severe/split_personality = 10,
+		/datum/brain_trauma/special/split_personality = 10,
 		/datum/brain_trauma/special/imaginary_friend = 20,
-		/datum/brain_trauma/organic/mild/tourettes = 50,
 		/datum/brain_trauma/organic/severe/monophobia = 50
 	)
 	suppressing_reagents = list(
@@ -903,20 +901,19 @@
 	worstmessage = list("You think you start seeing things...","You swear someone inside you spoke to you...")
 	messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY * 0.5
 	suppress_traumas  = list(
-		/datum/brain_trauma/organic/severe/split_personality = 5,
+		/datum/brain_trauma/special/split_personality = 5,
 		/datum/brain_trauma/special/imaginary_friend = 10,
 		/datum/brain_trauma/organic/mild/stuttering = 1,
 		/datum/brain_trauma/organic/mild/speech_impediment = 2,
 		/datum/brain_trauma/organic/severe/monophobia = 2,
-		/datum/brain_trauma/organic/mild/muscle_spasms = 5,
-		/datum/brain_trauma/organic/mild/tourettes = 10
+		/datum/brain_trauma/organic/mild/muscle_spasms = 5
 	)
 	dosage_traumas = list(
 		/datum/brain_trauma/organic/severe/pacifism = 25
 	)
 	withdrawal_traumas = list(
 		/datum/brain_trauma/organic/mild/hallucinations = 200,
-		/datum/brain_trauma/organic/severe/split_personality = 50,
+		/datum/brain_trauma/special/split_personality = 50,
 		/datum/brain_trauma/special/imaginary_friend = 50
 	)
 	suppressing_reagents = list(
@@ -940,7 +937,7 @@
 	badmessage = list()
 	worstmessage = list()
 	suppress_traumas  = list(
-		/datum/brain_trauma/organic/mild/tourettes = 1
+		/datum/brain_trauma/special/love= 1
 	)
 	dosage_traumas = list(
 		/datum/brain_trauma/organic/severe/pacifism = 25

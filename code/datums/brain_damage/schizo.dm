@@ -1,7 +1,7 @@
 #define OWNER 0
 #define STRANGER 1
 
-/datum/brain_trauma/organic/severe/split_personality
+/datum/brain_trauma/special/split_personality
 	name = "Split Personality"
 	desc = "Patient's brain is split into two personalities, which randomly switch control of the body."
 	scan_desc = "conflicting neuroimaging reports"
@@ -13,28 +13,28 @@
 	var/mob/living/mental/split_personality/stranger_backseat //there's two so they can swap without overwriting
 	var/mob/living/mental/split_personality/owner_backseat
 
-/datum/brain_trauma/organic/severe/split_personality/on_gain()
+/datum/brain_trauma/special/split_personality/on_gain()
 	..()
 	make_backseats()
 	get_ghost()
 
-/datum/brain_trauma/organic/severe/split_personality/proc/make_backseats()
+/datum/brain_trauma/special/split_personality/proc/make_backseats()
 	stranger_backseat = new(owner, src)
 	owner_backseat = new(owner, src)
 
-/datum/brain_trauma/organic/severe/split_personality/proc/get_ghost()
+/datum/brain_trauma/special/split_personality/proc/get_ghost()
 	set waitfor = FALSE
 	var/datum/ghosttrap/G = get_ghost_trap("split personality")
 	G.request_player(stranger_backseat, "Would you like to play as [owner]'s split personality?", 60 SECONDS)
 	addtimer(CALLBACK(src, .proc/reset_search), 60 SECONDS)
 
-/datum/brain_trauma/organic/severe/split_personality/proc/reset_search()
+/datum/brain_trauma/special/split_personality/proc/reset_search()
 	if(src.stranger_backseat && src.stranger_backseat.key)
 		return
 	else
 		qdel(src)
 
-/datum/brain_trauma/organic/severe/split_personality/triggered_life()
+/datum/brain_trauma/special/split_personality/on_life()
 	..()
 	if(owner.stat == DEAD)
 		if(current_controller != OWNER)
@@ -43,14 +43,14 @@
 	else if(prob(3))
 		switch_personalities()
 
-/datum/brain_trauma/organic/severe/split_personality/on_lose()
+/datum/brain_trauma/special/split_personality/on_lose()
 	..()
 	if(current_controller != OWNER) //it would be funny to cure a guy only to be left with the other personality, but it seems too cruel
 		switch_personalities()
 	QDEL_NULL(stranger_backseat)
 	QDEL_NULL(owner_backseat)
 
-/datum/brain_trauma/organic/severe/split_personality/proc/switch_personalities()
+/datum/brain_trauma/special/split_personality/proc/switch_personalities()
 	if(QDELETED(owner) || owner.stat == DEAD || QDELETED(stranger_backseat) || QDELETED(owner_backseat))
 		return
 
@@ -110,7 +110,7 @@
 	name = "split personality"
 	real_name = "unknown conscience"
 	var/mob/living/carbon/body
-	var/datum/brain_trauma/organic/severe/split_personality/trauma
+	var/datum/brain_trauma/special/split_personality/trauma
 
 /mob/living/mental/split_personality/Initialize(mapload, _trauma)
 	if(iscarbon(loc))
@@ -148,7 +148,7 @@
 
 ///////////////BRAINWASHING////////////////////
 
-/datum/brain_trauma/organic/severe/split_personality/brainwashing
+/datum/brain_trauma/special/split_personality/brainwashing
 	name = "Split Personality"
 	desc = "Patient's brain is split into two personalities, which randomly switch control of the body."
 	scan_desc = "complete lobe separation"
@@ -158,7 +158,7 @@
 	var/codeword
 	var/objective
 
-/datum/brain_trauma/organic/severe/split_personality/brainwashing/New(obj/item/organ/brain/B, _permanent, _codeword, _objective)
+/datum/brain_trauma/special/split_personality/brainwashing/New(obj/item/organ/brain/B, _permanent, _codeword, _objective)
 	..()
 	if(_codeword)
 		codeword = _codeword
@@ -170,36 +170,36 @@
 			| strings("ion_laws.json", "ionfood")\
 			| strings("ion_laws.json", "iondrinks"))
 
-/datum/brain_trauma/organic/severe/split_personality/brainwashing/on_gain()
+/datum/brain_trauma/special/split_personality/brainwashing/on_gain()
 	..()
 	var/mob/living/mental/split_personality/traitor/traitor_backseat = stranger_backseat
 	traitor_backseat.codeword = codeword
 	traitor_backseat.objective = objective
 
-/datum/brain_trauma/organic/severe/split_personality/brainwashing/make_backseats()
+/datum/brain_trauma/special/split_personality/brainwashing/make_backseats()
 	stranger_backseat = new /mob/living/mental/split_personality/traitor(owner, src, codeword, objective)
 	owner_backseat = new(owner, src)
 
 
-/datum/brain_trauma/organic/severe/split_personality/brainwashing/get_ghost()
+/datum/brain_trauma/special/split_personality/brainwashing/get_ghost()
 	set waitfor = FALSE
 	var/datum/ghosttrap/G = get_ghost_trap("split personality")
 	G.request_player(stranger_backseat, "Would you like to play as [owner]'s split personality?", 60 SECONDS)
 	addtimer(CALLBACK(src, .proc/reset_search), 60 SECONDS)
 
-/datum/brain_trauma/organic/severe/split_personality/brainwashing/triggered_life()
+/datum/brain_trauma/special/split_personality/brainwashing/on_life()
 	..()
 	return //no random switching
 
-/datum/brain_trauma/organic/severe/split_personality/brainwashing/on_hear(message, speaker, message_language, raw_message, radio_freq)
+/datum/brain_trauma/special/split_personality/brainwashing/on_hear(message, speaker, message_language, raw_message, radio_freq)
 	if(owner.disabilities & DEAF || owner == speaker)
 		return message
 	if(findtext(message, codeword))
 		message = replacetext(message, codeword, "<span class='warning'>[codeword]</span>")
-		addtimer(CALLBACK(src, /datum/brain_trauma/organic/severe/split_personality.proc/switch_personalities), 10)
+		addtimer(CALLBACK(src, /datum/brain_trauma/special/split_personality.proc/switch_personalities), 10)
 	return message
 
-/datum/brain_trauma/organic/severe/split_personality/brainwashing/on_say(message)
+/datum/brain_trauma/special/split_personality/brainwashing/on_say(message)
 	if(findtext(message, codeword))
 		return "" //oh hey did you want to tell people about the secret word to bring you back?
 	return message

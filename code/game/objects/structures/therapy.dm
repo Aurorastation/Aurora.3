@@ -218,9 +218,10 @@
 
 	if (usr.stat != 0 || locked)
 		return
-	if (occupant.resolve())
-		usr << "<span class='warning'>The pod is already occupied!</span>"
-		return
+	if(occupant)
+		if (occupant.resolve())
+			usr << "<span class='warning'>The pod is already occupied!</span>"
+			return
 	if (usr.abiotic())
 		usr << "<span class='warning'>The subject cannot have abiotic items on.</span>"
 		return
@@ -422,7 +423,7 @@
 	if(!H)
 		user << "<span class='notice'>The pod is currently unoccupied.</span>"
 	else
-		var/list/choices1 = list("Therapy Pod", "Toggle Locking Mechanism", "Initiate Neural Scan", "Initiate Hallucinatory Therapy", "Purge Chemical Tray", "Calibrate Hallucinogen Control", "Cancel")
+		var/list/choices1 = list("Toggle Locking Mechanism", "Initiate Neural Scan", "Initiate Hallucinatory Therapy", "Purge Chemical Tray", "Calibrate Hallucinogen Control", "Cancel")
 		if(emagged)
 			choices1.Add("%eRr:# C:\\NT>quaid.exe")
 		var/response1 = input(user,"Input Operation","Therapy Pod OS") as null|anything in choices1
@@ -436,7 +437,7 @@
 			if("Initiate Neural Scan")
 				visible_message("<span class='warning'>[connected] begins humming with an electrical tone.</span>", "<span class='warning'>You hear an electrical humming.</span>")
 				if(H && connected.occupant.resolve() == H)
-					if(do_after(src,20))
+					if(do_after(user,20))
 						scan_count++
 						var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(get_turf(src))
 						var/report = "<B>The following traumas are detected within subject #[scan_count]:</B><br>"
@@ -530,8 +531,8 @@
 		if(prob(probability))
 			return 1
 
-	if(do_after(src, 100))
-		connected.occupant. << "<span class='notice'>The flashing images of [calibrations] subside, but your traumas persist.</span>"
+	if(do_after(connected.occupant, 100))
+		connected.occupant << "<span class='notice'>The flashing images of [calibrations] subside, but your traumas persist.</span>"
 		system_error("ERROR: Subject failed to hallucinate.")
 	return 0
 
@@ -541,7 +542,7 @@
 		var/datum/brain_trauma/organic/BT = sponge.traumas[1]
 		if(!administer_dose(sponge, BT.trauma_severity))
 			return
-		if(do_after(src, 100))
+		if(do_after(user, 100))
 			if(BT.trigger_type == calibrations)
 				qdel(BT)
 				connected.occupant << "<span class='notice'>The flashing images of [calibrations] subside, and you begin to feel almost well again.</span>"

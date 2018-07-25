@@ -1,5 +1,6 @@
 /datum/brain_trauma/organic
 	var/triggered = 0
+	var/triggered_timer = 0
 	var/trigger_type
 	var/next_check = 0
 	var/special_check = 0
@@ -26,12 +27,14 @@
 	owner = B.owner
 	permanent = _permanent
 	if(owner)
-		trauma_severity = owner.brainloss/10
+		trauma_severity = max(1, round(owner.brainloss/10,1))
 		on_gain()
 
 /datum/brain_trauma/organic/on_life()
 	..()
 	triggered_life()
+	if(triggered_timer)
+		triggered_timer = max(0, triggered_timer - 1)
 	if(owner.eye_blind)
 		if(trigger_type == "darkness" && prob(25))
 			on_gain() //rip
@@ -76,15 +79,24 @@
 						if(!QDELETED(I) && is_type_in_typecache(I, trigger_objs))
 							on_gain(I)
 							return
-		on_lose()
+		if(triggered && !triggered_timer)
+			on_lose()
 	if(!triggered)
 		return
 
 /datum/brain_trauma/organic/on_gain(atom/reason, trigger_word)
 	if(triggered)
 		return
+	var/message = pick("sends you reeling", "brings back the bad memories", "hurts your mind", "sends you into the dark place", "sends chills down your spine")
+	if(reason)
+		to_chat(owner, "<span class='danger'>Seeing [reason] [message]!</span>")
+	else if(trigger_word)
+		to_chat(owner, "<span class='danger'>Hearing \"[trigger_word]\" [message]!</span>")
+	else
+		to_chat(owner, "<span class='danger'>Something [message]!</span>")
 	to_chat(owner, gain_text)
 	triggered = 1
+	triggered_timer = 20
 
 /datum/brain_trauma/organic/on_lose(silent)
 	..()
