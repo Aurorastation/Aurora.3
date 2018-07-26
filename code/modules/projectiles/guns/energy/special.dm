@@ -343,8 +343,14 @@
 
 	toggle_wield(usr)
 
-/obj/item/weapon/gun/energy/vaurca/typec/attack(atom/A, mob/living/user, def_zone)
-	return ..() //Pistolwhippin'
+/obj/item/weapon/gun/energy/vaurca/typec/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+	user.setClickCooldown(16)
+	..()
+
+/obj/item/weapon/gun/energy/vaurca/typec/pre_attack(var/mob/living/target, var/mob/living/user)
+	if(istype(target))
+		cleave(user, target)
+	..()
 
 /obj/item/weapon/gun/energy/vaurca/typec/special_check(var/mob/user)
 	if(is_charging)
@@ -371,14 +377,13 @@
 /obj/item/weapon/gun/energy/vaurca/typec/attack_hand(mob/user as mob)
 	if(loc != user)
 		var/mob/living/carbon/human/H = user
-		if(istype(H))
-			if(H.species.name == "Vaurca Breeder")
-				playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
-				anchored = 1
-				user << "<span class='notice'>\The [src] is now energised.</span>"
-				icon_state = "megaglaive1"
-				..()
-				return
+		if(H.mob_size >= 30)
+			playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
+			anchored = 1
+			user << "<span class='notice'>\The [src] is now energised.</span>"
+			icon_state = "megaglaive1"
+			..()
+			return
 		user << "<span class='warning'>\The [src] is far too large for you to pick up.</span>"
 		return
 
@@ -503,23 +508,19 @@
 
 	return ..()
 
-/*/obj/item/weapon/gun/energy/vaurca/flamer
-	name = "Vaurcae Incinerator"
-	desc = "A devious flamethrower device that procedurally converts atmosphere to fuel for a virtually unlimited tank."
-	icon_state = "incinerator"
-	item_state = "incinerator"
-	fire_sound = 'sound/effects/extinguish.ogg'
-	charge_meter = 0
-	slot_flags = SLOT_BACK
-	w_class = 3
-	force = 10
-	projectile_type = /obj/item/projectile/energy/flamer
-	self_recharge = 1
-	recharge_time = 2
-	max_shots = 80
-	firemodes = list(
-		list(mode_name="spray", burst = 20, burst_delay = -1, fire_delay = 10, dispersion = list(0.5, 0.5, 1.0, 1.0, 1.5, 1.5, 2.0, 2.0, 2.5, 2.5, 3.0, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.0, 6.0)),
-		)*/
+/obj/item/weapon/gun/energy/vaurca/tachyon
+	name = "tachyon carbine"
+	desc = "A Vaurcan carbine that fires a beam of concentrated faster than light particles, capable of passing through most forms of matter."
+	contained_sprite = 1
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "tachyoncarbine"
+	item_state = "tachyoncarbine"
+	fire_sound = 'sound/weapons/laser3.ogg'
+	projectile_type = /obj/item/projectile/beam/tachyon
+	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
+	max_shots = 10
+	fire_delay = 1
+	can_turret = 0
 
 /obj/item/weapon/gun/energy/tesla
 	name = "tesla gun"

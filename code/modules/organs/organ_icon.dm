@@ -63,7 +63,7 @@
 
 			var/icon/eyes_icon = SSicon_cache.human_eye_cache[cache_key]
 			if (!eyes_icon)
-				eyes_icon = new/icon('icons/mob/human_face/eyes.dmi', species.eyes)
+				eyes_icon = new/icon(species.eyes_icons, species.eyes)
 				if(eyecolor)
 					eyes_icon.Blend(eyecolor, species.eyes_icon_blend)
 				else

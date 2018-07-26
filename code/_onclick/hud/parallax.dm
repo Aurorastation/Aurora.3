@@ -21,7 +21,7 @@
 	var/parallax_speed = 0
 
 /obj/screen/plane_master
-	appearance_flags = PLANE_MASTER
+	appearance_flags = PLANE_MASTER | NO_CLIENT_COLOR
 	screen_loc = "CENTER,CENTER"
 
 /obj/screen/plane_master/parallax_master

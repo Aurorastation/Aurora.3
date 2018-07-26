@@ -115,3 +115,36 @@
 		step_away(target,user,15)
 		sleep(1)
 		target.apply_effect(attack_damage * 0.4, WEAKEN, armour)
+
+/datum/unarmed_attack/claws/cleave
+	attack_verb = list("cleaved", "plowed", "swiped")
+	attack_noun = list("massive claws")
+	damage = 25
+	sharp = 1
+	edge = 1
+	attack_name = "massive claws"
+	shredding = 1
+
+/datum/unarmed_attack/claws/cleave/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armour,var/attack_damage,var/zone)
+	..()
+	var/hit_mobs = 0
+	for(var/mob/living/L in orange(1,user))
+		if(L == user)
+			continue
+		if(L == target)
+			continue
+		L.apply_damage(rand(5,20), BRUTE, zone, armour)
+		to_chat(L, "<span class='danger'>\The [user] [pick(attack_verb)] you with its [attack_noun]!</span>")
+		hit_mobs++
+	if(hit_mobs)
+		to_chat(user, "<span class='danger'>You used \the [attack_noun] to attack [hit_mobs] other target\s!</span>")
+
+
+/datum/unarmed_attack/bite/mandibles
+	attack_verb = list("mauled","gored","perforated")
+	attack_noun = list("mandibles")
+	damage = 35
+	shredding = 1
+	sharp = 1
+	edge = 1
+	attack_name = "mandibles"
