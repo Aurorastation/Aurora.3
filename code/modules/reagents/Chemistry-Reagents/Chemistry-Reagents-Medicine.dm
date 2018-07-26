@@ -458,8 +458,8 @@
 		if(last_taste_time + 500 < world.time) // Not to spam message
 			to_chat(M, "<span class='danger'>Your body withers as you feel a searing pain throughout.</span>")
 			last_taste_time = world.time
-		metabolism = REM * 0.5
-		M.adjustToxLoss(35 * removed) // Tested numbers myself
+		metabolism = REM * 0.33
+		M.adjustToxLoss(30 * removed) // Tested numbers myself
 	else
 		M.apply_radiation(-30 * removed)
 
@@ -481,8 +481,8 @@
 		if(last_taste_time + 250 < world.time) // Not to spam message
 			to_chat(M, "<span class='danger'>Your body withers as you feel a searing pain throughout.</span>")
 			last_taste_time = world.time
+		metabolism = REM * 0.33
 		M.adjustToxLoss(120 * removed) // Tested numbers myself
-		metabolism = REM * 0.5
 	else
 		M.apply_radiation(-70 * removed)
 		M.adjustToxLoss(-10 * removed)
