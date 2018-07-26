@@ -595,7 +595,7 @@
 		item_flags = initial(item_flags)
 		flags_inv = initial(flags_inv)
 		to_chat(usr, "You pull [src] up to cover your face.")
-		user.visible_message("<span class='notice'>[user] puts \his [src] back up, to cover \his face.<span>", "<span class='notice'>Your put your [src] back on.</span>")
+		user.visible_message("<span class='notice'>[user] puts \his [src] back up, to cover \his face.</span>", "<span class='notice'>Your put your [src] back on.</span>")
 
 	update_clothing_icon()
 
