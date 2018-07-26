@@ -10,9 +10,9 @@
 /obj/structure/sarcophagus/examine(mob/user)
 	..()
 	if(!open)
-		to_chat(usr, "\The [src]'s lid is closed shut.")
+		to_chat(user, "\The [src]'s lid is closed shut.")
 	else
-		to_chat(usr, "\The [src]'s lid is open.")
+		to_chat(user, "\The [src]'s lid is open.")
 
 /obj/structure/sarcophagus/Initialize()
 	. = ..()
