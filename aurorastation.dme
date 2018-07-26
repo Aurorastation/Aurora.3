@@ -801,6 +801,7 @@
 #include "code\game\objects\items\weapons\gift_wrappaper.dm"
 #include "code\game\objects\items\weapons\handcuffs.dm"
 #include "code\game\objects\items\weapons\improvised_components.dm"
+#include "code\game\objects\items\weapons\key.dm"
 #include "code\game\objects\items\weapons\landmines.dm"
 #include "code\game\objects\items\weapons\manuals.dm"
 #include "code\game\objects\items\weapons\mop.dm"
