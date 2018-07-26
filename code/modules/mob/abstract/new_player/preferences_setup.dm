@@ -241,14 +241,18 @@ datum/preferences
 	preview_icon.Scale(48+32, 16+32)
 
 	mannequin.dir = NORTH
+	mannequin.update_tail_showing(1)
 	var/icon/stamp = getFlatIcon(mannequin)
 	preview_icon.Blend(stamp, ICON_OVERLAY, 25, 17)
 
 	mannequin.dir = WEST
+	mannequin.update_tail_showing(1)
 	stamp = getFlatIcon(mannequin)
 	preview_icon.Blend(stamp, ICON_OVERLAY, 1, 9)
 
+
 	mannequin.dir = SOUTH
+	mannequin.update_tail_showing(1)
 	stamp = getFlatIcon(mannequin)
 	preview_icon.Blend(stamp, ICON_OVERLAY, 49, 1)
 

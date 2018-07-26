@@ -27,6 +27,7 @@
 	key = "0"
 	flags = RESTRICTED
 	syllables = list("blah","blah","blah","bleh","meh","neh","nah","wah")
+	partial_understanding = list(LANGUAGE_SIIK_TAU = 60)
 
 //TODO flag certain languages to use the mob-type specific say_quote and then get rid of these.
 /datum/language/common/get_spoken_verb(var/msg_end)
@@ -66,7 +67,7 @@
 // Sign language
 /datum/language/sign
 	name = LANGUAGE_SIGN
-	desc = "A signed version of Standard, though its intent is primarily to help out people who are deaf and mute, "
+	desc = "A signed version of Ceti Basic, though its intent is primarily to help out people who are deaf and mute, "
 	speech_verb = "signs"
 	signlang_verb = list("signs", "gestures")
 	colour = "i"

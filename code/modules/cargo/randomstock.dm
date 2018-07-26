@@ -133,6 +133,7 @@ var/list/global/random_stock_common = list(
 	"phoronsheets" = 2,
 	"hide" = 1,
 	"arcade" = 2,
+	"custom_ka" = 1,
 	"nothing" = 0)
 
 var/list/global/random_stock_uncommon = list(
@@ -225,7 +226,6 @@ var/list/global/random_stock_rare = list(
 	"humanhide" = 0.5,
 	"modkit" = 1,
 	"contraband" = 0.8,
-	"custom_ka" = 0.5,
 	"prebuilt_ka" = 0.5,
 	"nothing" = 0)
 
