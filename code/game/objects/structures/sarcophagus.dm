@@ -7,6 +7,13 @@
 	anchored = 0
 	var/open = FALSE
 
+/obj/structure/sarcophagus/examine(mob/user)
+	..()
+	if(!open)
+		to_chat(usr, "\The [src]'s lid is closed shut.")
+	else
+		to_chat(usr, "\The [src]'s lid is open.")
+
 /obj/structure/sarcophagus/Initialize()
 	. = ..()
 	if(prob(25))
@@ -59,9 +66,9 @@
 			new /obj/machinery/power/supermatter/shard (get_turf(src))
 		if("artifact")
 			new /obj/machinery/artifact (get_turf(src))
-			return
 		if("beyond")
 			new /obj/machinery/from_beyond (get_turf(src))
+	return
 
 /obj/item/sarcophagus_key
 	name = "ancient key"
