@@ -34,4 +34,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Adds additional kinetic accelerator parts. These can be found VERY rarely in the warehouse, or more commonly out on the dig."
+  - rscadd: "Adds several new and unique kinetic accelerator parts that can only be found in warehouse or in abandoned crates."
+  - tweak: "Kinetic Accelerators can now be held with two hands for a recoil reduction, accuracy increase, and slight firerate increase. Some high-end kinetic accelerators require two hands to fire, and all kinetic accelerators require two hands to pump."
+  - rscadd: "Adds a kinetic analyzer, a device that can be purchased from cargo that analyzes kinetic accelerators, displaying useful data about the assembly."

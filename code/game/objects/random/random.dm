@@ -1053,6 +1053,6 @@
 		/obj/item/weapon/gun/custom_ka/frameB/prebuilt = 1,
 		/obj/item/weapon/gun/custom_ka/frameC/prebuilt = 1,
 		/obj/item/weapon/gun/custom_ka/frameD/prebuilt = 1,
-		//obj/item/weapon/gun/custom_ka/frameE/prebuilt = 1,
-		/obj/item/weapon/gun/custom_ka/frameF/prebuilt = 1
+		/obj/item/weapon/gun/custom_ka/frameF/prebuilt01 = 1,
+		/obj/item/weapon/gun/custom_ka/frameF/prebuilt02 = 1
 	)

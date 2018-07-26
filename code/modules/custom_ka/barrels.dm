@@ -98,13 +98,13 @@
 /obj/item/custom_ka_upgrade/barrels/barrel02_alt
 	name = "rapid core KA power converter"
 	build_name = "'rapid Professional'"
-	desc = "A more advanced kinetic accelerator energy converter and barrel assembly intended for professional miners out on the rock. This one seems to fire significantly quicker at the cost of reduced aoe capabilities and damage."
+	desc = "A more advanced kinetic accelerator energy converter and barrel assembly intended for professional miners out on the rock. This one seems to fire significantly quicker at the cost of reduced aoe capabilities, damage, amd increased cost."
 	icon_state = "barrel02_alt"
 	damage_increase = 10
 	firedelay_increase = 0.1 SECONDS
 	range_increase = 6
 	recoil_increase = 3
-	cost_increase = 1
+	cost_increase = 2
 	cell_increase = 0
 	capacity_increase = -2
 	aoe_increase = -100

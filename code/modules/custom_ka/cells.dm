@@ -172,7 +172,7 @@
 	damage_increase = 0
 	recoil_increase = 0
 	cost_increase = 0
-	cell_increase = 60
+	cell_increase = 30
 	capacity_increase = -4
 	mod_limit_increase = 0
 
