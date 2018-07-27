@@ -23,7 +23,7 @@
 	..()
 
 /obj/item/weapon/board/attack_hand(mob/living/carbon/human/M as mob)
-	if(!istype(loc, /turf/)) //so if you want to play the game, you need to put it down somewhere
+	if(!isturf(loc)) //so if you want to play the game, you need to put it down somewhere
 		..()
 	if(M.machine == src)
 		..()
