@@ -617,7 +617,7 @@ var/list/ai_verbs_default = list(
 				if (H.near_camera())
 					character_icon = new('icons/mob/human.dmi', "blank")
 					for(var/renderdir in list(SOUTH, NORTH, EAST, WEST))
-					character_icon.Insert(getHologramIcon(getFlatIcon(H, renderdir, always_use_defdir=1)), dir = renderdir)
+						character_icon.Insert(getHologramIcon(getFlatIcon(H, renderdir, always_use_defdir=1)), dir = renderdir)
 				else
 					character_icon = getHologramIcon(icon(selection["image"]))
 			if(selection && istype(selection, /icon))
