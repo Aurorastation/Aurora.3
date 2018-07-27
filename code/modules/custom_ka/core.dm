@@ -563,16 +563,17 @@
 
 		var/obj/item/weapon/gun/custom_ka/ka = target
 
-		var/total_message += "<b>Kinetic Accelerator Stats:</b><br>"
-		total_message += "Damage Rating: [ka.damage_increase*0.1]MJ<br>"
-		total_message += "Energy Rating: [ka.cost_increase]MJ<br>"
-		total_message += "Cell Rating: [ka.cell_increase]MJ<br>"
-		total_message += "Fire Delay: [ka.firedelay_increase]<br>"
-		total_message += "Range: [ka.range_increase]m<br>"
-		total_message += "Recoil Rating: [ka.recoil_increase]kJ<br>"
-		total_message += "<b>Software Stats:</b><br>"
-		total_message += "Software Version: [ka.mod_limit_increase].[ka.mod_limit_increase*32 % 10].[ka.mod_limit_increase*64 % 324]<br>"
-		total_message += "Available Power Flow: [ka.capacity_increase*10]kW<br>"
+		var/total_message = "<b>Kinetic Accelerator Stats:</b><br>\
+		Damage Rating: [ka.damage_increase*0.1]MJ<br>\
+		Energy Rating: [ka.cost_increase]MJ<br>\
+		Cell Rating: [ka.cell_increase]MJ<br>\
+		Fire Delay: [ka.firedelay_increase]<br>\
+		Range: [ka.range_increase]<br>\
+		Recoil Rating: [ka.recoil_increase]kJ<br>\
+		<b>Software Stats:</b><br>\
+		Software Version: [ka.mod_limit_increase].[ka.mod_limit_increase*32 % 10].[ka.mod_limit_increase*64 % 324]<br>\
+		Available Power Flow: [ka.capacity_increase*10]kW<br>"
+
 		to_chat(user,"<span class='notice'>[total_message]</span>")
 	else
 		to_chat(user,"<span class='notice'>Nothing happens.</span>")
