@@ -640,7 +640,7 @@
 	item_state = "fancy_kimono"
 
 /obj/item/clothing/under/gov
-	name = "Green formal uniform"
+	name = "green formal uniform"
 	desc = "A neat proper uniform of someone on offical business. Plain, professional attire. The collar is <i>immaculately</i> starched."
 	icon_state = "greensuit"
 	item_state = "greensuit"

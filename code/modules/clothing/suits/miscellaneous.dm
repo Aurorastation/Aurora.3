@@ -327,16 +327,6 @@
 	icon_open = "black_hoodie_open"
 	icon_closed = "black_hoodie"
 
-/obj/item/clothing/suit/storage/toggle/tracksuit
-	name = "track jacket"
-	desc = "An athletic black and white track jacket."
-	icon = 'icons/obj/tracksuit.dmi'
-	icon_state = "trackjacket"
-	item_state = "trackjacket"
-	icon_open = "trackjacket_open"
-	icon_closed = "trackjacket"
-	contained_sprite = 1
-
 /obj/item/clothing/suit/storage/toggle/flannel
 	name = "green flannel shirt"
 	desc = "A flannel shirt, for all your space hipster needs."
@@ -443,39 +433,49 @@
 /obj/item/clothing/suit/storage/toggle/track
 	name = "track jacket"
 	desc = "a track jacket, for the athletic."
+	icon = 'icons/obj/tracksuit.dmi'
 	icon_state = "trackjacket"
 	item_state = "trackjacket"
 	icon_open = "trackjacket_open"
 	icon_closed = "trackjacket"
 	allowed = list (/obj/item/weapon/pen, /obj/item/weapon/paper, /obj/item/device/flashlight, /obj/item/weapon/tank/emergency_oxygen, /obj/item/weapon/storage/fancy/cigarettes, /obj/item/weapon/storage/box/matches, /obj/item/weapon/reagent_containers/food/drinks/flask)
+	contained_sprite = 1
 
 /obj/item/clothing/suit/storage/toggle/track/blue
 	name = "blue track jacket"
+	icon = 'icons/obj/tracksuit.dmi'
 	icon_state = "trackjacketblue"
 	item_state = "trackjacketblue"
 	icon_open = "trackjacketblue_open"
 	icon_closed = "trackjacketblue"
+	contained_sprite = 1
 
 /obj/item/clothing/suit/storage/toggle/track/green
 	name = "green track jacket"
+	icon = 'icons/obj/tracksuit.dmi'
 	icon_state = "trackjacketgreen"
 	item_state = "trackjacketgreen"
 	icon_open = "trackjacketgreen_open"
 	icon_closed = "trackjacketgreen"
+	contained_sprite = 1
 
 /obj/item/clothing/suit/storage/toggle/track/red
 	name = "red track jacket"
+	icon = 'icons/obj/tracksuit.dmi'
 	icon_state = "trackjacketred"
 	item_state = "trackjacketred"
 	icon_open = "trackjacketred_open"
 	icon_closed = "trackjacketred"
+	contained_sprite = 1
 
 /obj/item/clothing/suit/storage/toggle/track/white
 	name = "white track jacket"
+	icon = 'icons/obj/tracksuit.dmi'
 	icon_state = "trackjacketwhite"
 	item_state = "trackjacketwhite"
 	icon_open = "trackjacketwhite_open"
 	icon_closed = "trackjacketwhite"
+	contained_sprite = 1
 
 /obj/item/clothing/suit/varsity
 	name = "black varsity jacket"
@@ -530,7 +530,7 @@
 
 /obj/item/clothing/suit/jacket/puffer
 	name = "puffer jacket"
-	desc = "A thick jacket with a rubbery, water-resistant shell."
+	desc = "A thick jacket with a rubbery, water-resistant shell. Oddly enough, you don't feel any heat."
 	icon_state = "pufferjacket"
 	item_state = "pufferjacket"
 

@@ -83,3 +83,35 @@
 /datum/gear/shoes/tongs/New()
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/shoes/hitops/
+	display_name = "high-top, white"
+	path = /obj/item/clothing/shoes/hitops/
+
+/datum/gear/shoes/hitops/red
+	display_name = "high-top, red"
+	path = /obj/item/clothing/shoes/hitops/red
+
+/datum/gear/shoes/hitops/black
+	display_name = "high-top, black"
+	path = /obj/item/clothing/shoes/hitops/black
+
+/datum/gear/shoes/hitops/orange
+	display_name = "high-top, orange"
+	path = /obj/item/clothing/shoes/hitops/orange
+
+/datum/gear/shoes/hitops/blue
+	display_name = "high-top, blue"
+	path = /obj/item/clothing/shoes/hitops/blue
+
+/datum/gear/shoes/hitops/green
+	display_name = "high-top, green"
+	path = /obj/item/clothing/shoes/hitops/green
+
+/datum/gear/shoes/hitops/purple
+	display_name = "high-top, purple"
+	path = /obj/item/clothing/shoes/hitops/purple
+
+/datum/gear/shoes/hitops/yellow
+	display_name = "high-top, yellow"
+	path = /obj/item/clothing/shoes/hitops/yellow

@@ -55,7 +55,6 @@
 	skirts["short skirt, blue"] = /obj/item/clothing/under/skirt/blue
 	skirts["short skirt, red"] = /obj/item/clothing/under/skirt/red
 	skirts["skirt, swept"] = /obj/item/clothing/under/skirt/swept
-	skirts["loincloth"] = /obj/item/clothing/under/skirt/loincloth
 
 
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
@@ -175,6 +174,10 @@
 	pants["tan pants"] = /obj/item/clothing/under/pants/tan
 	pants["khaki pants"] = /obj/item/clothing/under/pants/khaki
 	pants["track pants"] = /obj/item/clothing/under/pants/track
+	pants["blue track pants"] = /obj/item/clothing/under/pants/track/blue
+	pants["green track pants"] = /obj/item/clothing/under/pants/track/green
+	pants["white track pants"] = /obj/item/clothing/under/pants/track/white
+	pants["red track pants"] = /obj/item/clothing/under/pants/track/blue
 	pants["camo pants"] = /obj/item/clothing/under/pants/camo
 	pants["athletic shorts, black"] = /obj/item/clothing/under/shorts
 	pants["athletic shorts, red"] = /obj/item/clothing/under/shorts/red

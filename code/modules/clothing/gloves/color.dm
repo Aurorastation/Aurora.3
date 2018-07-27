@@ -202,3 +202,10 @@
 	icon_state = "fingerlessgloves"
 	item_state = "fingerlessgloves"
 	fingerprint_chance = 100
+
+/obj/item/clothing/gloves/fingerless/attackby(obj/item/weapon/W, mob/user)
+	if(iswirecutter(W) || istype(W, /obj/item/weapon/scalpel))
+		user << "<span class='notice'>What do you plan to snip?</span>"	//Nope
+		return
+	..()
+
