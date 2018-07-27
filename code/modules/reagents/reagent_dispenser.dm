@@ -22,7 +22,7 @@
 /obj/structure/reagent_dispensers/examine(mob/user)
 	if(!..(user, 2))
 		return
-	to_chat(user,"<span class='notice'>It contains [R.total_volume] units of reagents.</span>")
+	to_chat(user,"<span class='notice'>It contains [reagents.total_volume] units of reagents.</span>")
 
 /obj/structure/reagent_dispensers/verb/set_APTFT() //set amount_per_transfer_from_this
 	set name = "Set transfer amount"
