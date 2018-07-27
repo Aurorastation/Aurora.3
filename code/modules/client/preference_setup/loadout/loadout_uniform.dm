@@ -55,6 +55,7 @@
 	skirts["short skirt, blue"] = /obj/item/clothing/under/skirt/blue
 	skirts["short skirt, red"] = /obj/item/clothing/under/skirt/red
 	skirts["skirt, swept"] = /obj/item/clothing/under/skirt/swept
+	skirts["loincloth"] = /obj/item/clothing/under/skirt/loincloth
 
 
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
@@ -211,3 +212,23 @@
 	suit["dominia suit, black"] = /obj/item/clothing/under/dominia/black
 	suit["lyodsuit"] = /obj/item/clothing/under/dom_thermal
 	gear_tweaks += new/datum/gear_tweak/path(suit)
+
+/datum/gear/uniform/miscellaneous/kimono
+	display_name = "kimono"
+	path = /obj/item/clothing/under/kimono
+
+/datum/gear/uniform/miscellaneous/kimono/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/uniform/miscellaneous/roninkimono
+	display_name = "ronin kimono"
+	path = /obj/item/clothing/under/kimono/ronin
+
+/datum/gear/uniform/miscellaneous/fancykimono
+	display_name = "fancy kimono"
+	path = /obj/item/clothing/under/kimono/fancy
+
+/datum/gear/uniform/miscellaneous/greensuit
+	display_name = "green formal uniform"
+	path = /obj/item/clothing/under/gov

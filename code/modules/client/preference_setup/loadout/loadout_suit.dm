@@ -209,3 +209,75 @@
 	coat["dominia great coat, black"] = /obj/item/clothing/suit/storage/toggle/dominia/black
 	coat["dominia great coat, alternative black"] = /obj/item/clothing/suit/storage/toggle/dominia/black/alt
 	gear_tweaks += new/datum/gear_tweak/path(coat)
+
+/datum/gear/suit/mil
+	display_name = "military jacket"
+	path = /obj/item/clothing/suit/storage/miljacket
+
+/datum/gear/suit/mil/alt
+	display_name = "military jacket, alt"
+	path = /obj/item/clothing/suit/storage/miljacket/alt
+
+/datum/gear/suit/mil/green
+	display_name = "military jacket, green"
+	path = /obj/item/clothing/suit/storage/miljacket/green
+
+/datum/gear/suit/miscellaneous/engi_dep_jacket
+	display_name = "department jacket, engineering"
+	path = /obj/item/clothing/suit/storage/toggle/engi_dep_jacket
+
+/datum/gear/suit/miscellaneous/supply_dep_jacket
+	display_name = "department jacket, supply"
+	path = /obj/item/clothing/suit/storage/toggle/supply_dep_jacket
+
+/datum/gear/suit/miscellaneous/sci_dep_jacket
+	display_name = "department jacket, science"
+	path = /obj/item/clothing/suit/storage/toggle/sci_dep_jacket
+
+/datum/gear/suit/miscellaneous/med_dep_jacket
+	display_name = "department jacket, medical"
+	path = /obj/item/clothing/suit/storage/toggle/med_dep_jacket
+
+/datum/gear/suit/miscellaneous/peacoat
+	display_name = "peacoat"
+	path = /obj/item/clothing/suit/storage/toggle/peacoat
+
+/datum/gear/suit/miscellaneous/peacoat/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/suit/varsity
+	display_name = "varsity jacket selection"
+	path = /obj/item/clothing/suit/varsity
+
+/datum/gear/suit/varsity/New()
+	..()
+	var/list/varsities = list()
+	for(var/varsity_style in typesof(/obj/item/clothing/suit/varsity))
+		var/obj/item/clothing/suit/varsity/varsity = varsity_style
+		varsities[initial(varsity.name)] = varsity
+	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(varsities))
+
+/datum/gear/suit/track
+	display_name = "track jacket selection"
+	path = /obj/item/clothing/suit/storage/toggle/track
+
+/datum/gear/suit/track/New()
+	..()
+	var/list/tracks = list()
+	for(var/track_style in typesof(/obj/item/clothing/suit/storage/toggle/track))
+		var/obj/item/clothing/suit/storage/toggle/track/track = track_style
+		tracks[initial(track.name)] = track
+	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(tracks))
+
+/datum/gear/suit/puffer_coat
+	display_name = "puffer coat"
+	path = /obj/item/clothing/suit/jacket/puffer
+
+/datum/gear/suit/puffer_vest
+	display_name = "puffer vest"
+	path = /obj/item/clothing/suit/jacket/puffer/vest
+
+/datum/gear/suit/greenjacket
+	display_name = "green suit jacket"
+	path = /obj/item/clothing/suit/storage/toggle/greengov

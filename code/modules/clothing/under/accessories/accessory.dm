@@ -321,3 +321,15 @@
 	name = "zebra scarf"
 	icon_state = "zebrascarf"
 	item_state = "zebrascarf"
+
+/obj/item/clothing/accessory/chaps
+	name = "brown chaps"
+	desc = "A pair of loose, brown leather chaps."
+	icon_state = "chaps"
+	item_state = "chaps"
+
+/obj/item/clothing/accessory/chaps/black
+	name = "black chaps"
+	desc = "A pair of loose, black leather chaps."
+	icon_state = "chaps_black"
+	item_state = "chaps_black"

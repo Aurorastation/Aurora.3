@@ -430,3 +430,148 @@
 	item_state = "dominian_noble5"
 	icon_open = "dominian_noble5_open"
 	icon_closed = "dominian_noble5"
+
+/obj/item/clothing/suit/storage/toggle/greengov
+	name = "green formal jacket"
+	desc = "A sleek proper formal jacket with gold buttons."
+	icon_state = "suitjacket_green_open"
+	item_state = "suitjacket_green"
+	icon_open = "suitjacket_green_open"
+	icon_closed = "suitjacket_green"
+	body_parts_covered = UPPER_TORSO|ARMS
+
+/obj/item/clothing/suit/storage/toggle/track
+	name = "track jacket"
+	desc = "a track jacket, for the athletic."
+	icon_state = "trackjacket"
+	item_state = "trackjacket"
+	icon_open = "trackjacket_open"
+	icon_closed = "trackjacket"
+	allowed = list (/obj/item/weapon/pen, /obj/item/weapon/paper, /obj/item/device/flashlight, /obj/item/weapon/tank/emergency_oxygen, /obj/item/weapon/storage/fancy/cigarettes, /obj/item/weapon/storage/box/matches, /obj/item/weapon/reagent_containers/food/drinks/flask)
+
+/obj/item/clothing/suit/storage/toggle/track/blue
+	name = "blue track jacket"
+	icon_state = "trackjacketblue"
+	item_state = "trackjacketblue"
+	icon_open = "trackjacketblue_open"
+	icon_closed = "trackjacketblue"
+
+/obj/item/clothing/suit/storage/toggle/track/green
+	name = "green track jacket"
+	icon_state = "trackjacketgreen"
+	item_state = "trackjacketgreen"
+	icon_open = "trackjacketgreen_open"
+	icon_closed = "trackjacketgreen"
+
+/obj/item/clothing/suit/storage/toggle/track/red
+	name = "red track jacket"
+	icon_state = "trackjacketred"
+	item_state = "trackjacketred"
+	icon_open = "trackjacketred_open"
+	icon_closed = "trackjacketred"
+
+/obj/item/clothing/suit/storage/toggle/track/white
+	name = "white track jacket"
+	icon_state = "trackjacketwhite"
+	item_state = "trackjacketwhite"
+	icon_open = "trackjacketwhite_open"
+	icon_closed = "trackjacketwhite"
+
+/obj/item/clothing/suit/varsity
+	name = "black varsity jacket"
+	desc = "A favorite of jocks everywhere from Sol to the Frontier."
+	icon_state = "varsity"
+	item_state = "varsity"
+	allowed = list (/obj/item/weapon/pen, /obj/item/weapon/paper, /obj/item/device/flashlight, /obj/item/weapon/tank/emergency_oxygen, /obj/item/weapon/storage/box/matches, /obj/item/weapon/reagent_containers/food/drinks/flask)
+
+/obj/item/clothing/suit/varsity/red
+	name = "red varsity jacket"
+	icon_state = "varsity_red"
+	item_state = "varsity_red"
+
+/obj/item/clothing/suit/varsity/purple
+	name = "purple varsity jacket"
+	icon_state = "varsity_purple"
+	item_state = "varsity_purple"
+
+/obj/item/clothing/suit/varsity/green
+	name = "green varsity jacket"
+	icon_state = "varsity_green"
+	item_state = "varsity_green"
+
+/obj/item/clothing/suit/varsity/blue
+	name = "blue varsity jacket"
+	icon_state = "varsity_blue"
+	item_state = "varsity_blue"
+
+/obj/item/clothing/suit/varsity/brown
+	name = "brown varsity jacket"
+	icon_state = "varsity_brown"
+	item_state = "varsity_brown"
+
+/obj/item/clothing/suit/storage/miljacket
+	name = "military jacket"
+	desc = "A canvas jacket styled after classical American military garb. Feels sturdy, yet comfortable."
+	icon_state = "militaryjacket_nobadge"
+	item_state = "militaryjacket_nobadge"
+	allowed = list (/obj/item/weapon/pen, /obj/item/weapon/paper, /obj/item/device/flashlight, /obj/item/weapon/tank/emergency_oxygen, /obj/item/weapon/storage/box/matches, /obj/item/weapon/reagent_containers/food/drinks/flask)
+
+/obj/item/clothing/suit/storage/miljacket/alt
+	name = "military jacket"
+	desc = "A canvas jacket styled after classical American military garb. Feels sturdy, yet comfortable."
+	icon_state = "militaryjacket_badge"
+	item_state = "militaryjacket_badge"
+
+/obj/item/clothing/suit/storage/miljacket/green
+	name = "military jacket"
+	desc = "A dark green canvas jacket. Feels sturdy, yet comfortable."
+	icon_state = "militaryjacket_green"
+	item_state = "militaryjacket_green"
+
+/obj/item/clothing/suit/jacket/puffer
+	name = "puffer jacket"
+	desc = "A thick jacket with a rubbery, water-resistant shell."
+	icon_state = "pufferjacket"
+	item_state = "pufferjacket"
+
+/obj/item/clothing/suit/jacket/puffer/vest
+	name = "puffer vest"
+	desc = "A thick vest with a rubbery, water-resistant shell."
+	icon_state = "puffervest"
+	item_state = "puffervest"
+
+/obj/item/clothing/suit/storage/toggle/peacoat
+	name = "peacoat"
+	desc = "A well-tailored, stylish peacoat."
+	icon_state = "peacoat"
+	item_state = "peacoat"
+
+/*
+ * Department Jackets
+ */
+/obj/item/clothing/suit/storage/toggle/engi_dep_jacket
+	name = "department jacket, engineering"
+	desc = "A cozy jacket in engineering's colors. Show your department pride!"
+	icon_state = "engi_dep_jacket"
+	item_state = "engi_dep_jacket"
+
+/obj/item/clothing/suit/storage/toggle/supply_dep_jacket
+	name = "department jacket, supply"
+	desc = "A cozy jacket in supply's colors. Show your department pride!"
+	icon_state = "supply_dep_jacket"
+	item_state = "supply_dep_jacket"
+
+/obj/item/clothing/suit/storage/toggle/sci_dep_jacket
+	name = "department jacket, science"
+	desc = "A cozy jacket in science's colors. Show your department pride!"
+	icon_state = "sci_dep_jacket"
+	item_state = "sci_dep_jacket"
+
+/obj/item/clothing/suit/storage/toggle/med_dep_jacket
+	name = "department jacket, medical"
+	desc = "A cozy jacket in medical's colors. Show your department pride!"
+	icon_state = "med_dep_jacket"
+	item_state = "med_dep_jacket"
+
+
+
