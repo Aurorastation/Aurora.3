@@ -15,7 +15,7 @@
 
 /obj/structure/reagent_dispensers/Initialize()
 	. = ..()
-	reagents = create_reagents(capacity)
+	create_reagents(capacity)
 	if (!possible_transfer_amounts)
 		src.verbs -= /obj/structure/reagent_dispensers/verb/set_APTFT
 
