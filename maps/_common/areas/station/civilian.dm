@@ -101,7 +101,13 @@
 	name = "\improper Bar"
 	icon_state = "bar"
 	sound_env = LARGE_SOFTFLOOR
-	allow_nightmode = 1
+	allow_nightmode = 0
+
+/area/crew_quarters/bar/below
+	name = "\improper Bar - Sublevel"
+	icon_state = "red"
+	sound_env = TUNNEL_ENCLOSED
+	flags = HIDE_FROM_HOLOMAP
 
 /area/crew_quarters/theatre
 	name = "\improper Theatre"
@@ -132,7 +138,6 @@
 	icon_state = "law"
 	station_area = 1
 
-
 /area/quartermaster
 	name = "\improper Quartermasters"
 	icon_state = "quart"
@@ -140,7 +145,7 @@
 	holomap_color = HOLOMAP_AREACOLOR_CARGO
 
 /area/quartermaster/office
-	name = "\improper Cargo Office"
+	name = "\improper Cargo Lobby"
 	icon_state = "quartoffice"
 
 /area/quartermaster/storage
