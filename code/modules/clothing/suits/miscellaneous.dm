@@ -545,6 +545,8 @@
 	desc = "A well-tailored, stylish peacoat."
 	icon_state = "peacoat"
 	item_state = "peacoat"
+	icon_open = "peacoat_open"
+	icon_closed = "peacoat"
 
 /*
  * Department Jackets
