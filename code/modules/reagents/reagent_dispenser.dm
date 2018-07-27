@@ -105,7 +105,7 @@
 	icon_state = "extinguisher_tank"
 	amount_per_transfer_from_this = 10
 	Initialize()
-		 . = ..()
+		. = ..()
 		reagents.add_reagent("monoammoniumphosphate",capacity)
 
 /obj/structure/reagent_dispensers/fueltank
