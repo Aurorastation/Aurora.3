@@ -1,6 +1,0 @@
-author: Alberyk
-delete-after: True
-
-changes:
-  - tweak: "Merchant's pet sellers should sell more mudane animals, and buy more exotic ones, also fixing an exploit with buying and selling animals."
-  - tweak: "Merchant should not be able to buy flags or other objects that can not be moved anymore."

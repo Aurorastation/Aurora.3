@@ -98,7 +98,7 @@ proc/get_radio_key_from_channel(var/channel)
 /mob/living/proc/is_muzzled()
 	return 0
 
-/mob/living/proc/handle_speech_problems(var/message, var/verb)
+/mob/living/proc/handle_speech_problems(var/message, var/verb, var/message_mode)
 	var/list/returns[3]
 	var/speech_problem_flag = 0
 	if((HULK in mutations) && health >= 25 && length(message))
@@ -205,7 +205,7 @@ proc/get_radio_key_from_channel(var/channel)
 	if(!(speaking && (speaking.flags & NO_STUTTER)))
 		message = handle_autohiss(message, speaking)
 
-		var/list/handle_s = handle_speech_problems(message, verb)
+		var/list/handle_s = handle_speech_problems(message, verb, message_mode)
 		message = handle_s[1]
 		verb = handle_s[2]
 

@@ -20,7 +20,6 @@
 		if(isliving(A)) //Never do more than 15 damage to a living being per shot.
 			damage = min(damage,15)
 
-
 		strike_thing(A,aoe*aoe_scale,damage)
 
 	. = ..()
@@ -31,9 +30,6 @@
 	if(istype(target_turf, /turf/simulated/mineral))
 		var/turf/simulated/mineral/M = target_turf
 		M.kinetic_hit(damage,dir)
-	else if(istype(target_turf, /turf/simulated/floor/asteroid))
-		var/turf/simulated/floor/asteroid/A = target_turf
-		A.gets_dug()
 
 	new /obj/effect/overlay/temp/kinetic_blast(target_turf)
 
