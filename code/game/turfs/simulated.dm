@@ -19,35 +19,24 @@
 
 	roof_type = /turf/simulated/floor/airless/ceiling
 
-/turf/simulated/proc/wet_floor(var/type = WET_TYPE_WATER, var/amount = 1)
+/turf/simulated/proc/wet_floor(var/apply_type = WET_TYPE_WATER, var/amount = 1)
 
 	//Wet type:
 	//WET_TYPE_WATER = water
 	//WET_TYPE_LUBE = lube
 	//WET_TYPE_ICE = ice
-	
+
 	if(!wet_type)
 		wet_type = type
 	else if(type != wet_type)
-		if(type == WET_TYPE_WATER) //Water is being added
-			if(wet_type == WET_TYPE_LUBE) //Water being added to lube
-				wet_type = WET_TYPE_WATER //Convert lube into water
-			else if(wet_type == WET_TYPE_ICE) //Water being added to ice
-				wet_type = WET_TYPE_ICE //Retain ice
-		else if(type == WET_TYPE_LUBE) //Lube is being added
-			if(wet_type == WET_TYPE_WATER) //Lube is being added to water
-				wet_type = WET_TYPE_WATER //Retain water
-			else if(wet_type == WET_TYPE_ICE) //Lube is being added to ice
-				wet_type = WET_TYPE_ICE //Retain ice
-		else if(type == WET_TYPE_ICE) //Ice is being added
-			if(wet_type == WET_TYPE_WATER) //Ice is being added to water
-				wet_type = WET_TYPE_ICE //Convert water into ice
-			else if(wet_type == WET_TYPE_LUBE) //Ice is being added to lube
-				wet_type = WET_TYPE_ICE //Convert lube into ice
+		if(type == WET_TYPE_WATER && wet_type == WET_TYPE_LUBE)
+			wet_type = WET_TYPE_WATER
+		else if(type == WET_TYPE_ICE && (wet_type == WET_TYPE_WATER || wet_type == WET_TYPE_LUBE))
+			wet_type = apply_type
 
 	if(wet_amount <= 0)
 		wet_amount = 0 //Just in case
-		
+
 	if(!wet_overlay)
 		wet_overlay = image('icons/effects/water.dmi',src,"wet_floor")
 		add_overlay(wet_overlay, TRUE)
@@ -64,10 +53,10 @@
 			if(src.CanPass(null, target, 0, 0) && target.CanPass(null, src, 0, 0))
 				if(target.wet_amount)
 					var/edited_value = round(wet_per_tile * 0.5) //Prevent infinite loops
-					target.wet_floor(type,edited_value)
+					target.wet_floor(apply_type,edited_value)
 					wet_amount += edited_value
 				else
-					target.wet_floor(type,wet_per_tile)
+					target.wet_floor(apply_type,wet_per_tile)
 
 	unwet_timer = addtimer(CALLBACK(src, .proc/unwet_floor), 120 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_STOPPABLE)
 

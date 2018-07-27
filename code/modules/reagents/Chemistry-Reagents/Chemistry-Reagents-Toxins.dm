@@ -276,10 +276,9 @@
 
 	var/hotspot = (locate(/obj/fire) in T)
 	if(hotspot && !istype(T, /turf/space))
-		var/datum/gas_mixture/lowertemp = T.remove_air(T.air.total_moles)
+		var/datum/gas_mixture/lowertemp = T.return_air()
 		lowertemp.temperature = max(min(lowertemp.temperature-2000, lowertemp.temperature / 2), 0)
 		lowertemp.react()
-		T.assume_air(lowertemp)
 		qdel(hotspot)
 
 	var/amount_to_remove = max(1,round(volume * 0.5))
@@ -299,12 +298,11 @@
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed)
 	if(istype(S))
 		S.adjustToxLoss(8 * removed)
-		if(!S.client)
-			if(S.Target) // Like cats
-				S.Target = null
-				++S.Discipline
+		if(!S.client && S.Target)
+			S.Target = null
+			++S.Discipline
 		if(dose == removed)
-			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the water touches it!</span>", "<span class='danger'>Your flesh burns in the water!</span>")
+			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the liquid touches it!</span>", "<span class='danger'>Your flesh burns in the liquid!</span>")
 
 /datum/reagent/toxin/plantbgone
 	name = "Plant-B-Gone"

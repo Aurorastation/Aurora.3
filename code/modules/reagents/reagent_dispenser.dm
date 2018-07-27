@@ -13,23 +13,16 @@
 	var/can_tamper = TRUE
 	var/is_leaking = FALSE
 
-/obj/structure/reagent_dispensers/New()
-	var/datum/reagents/R = new/datum/reagents(capacity)
-	reagents = R
-	R.my_atom = src
+/obj/structure/reagent_dispensers/Initialize()
+	. = ..()
+	reagents = create_reagents(capacity)
 	if (!possible_transfer_amounts)
 		src.verbs -= /obj/structure/reagent_dispensers/verb/set_APTFT
-	..()
 
 /obj/structure/reagent_dispensers/examine(mob/user)
 	if(!..(user, 2))
 		return
-	user << "<span class='notice'>It contains:</span>"
-	if(reagents && reagents.reagent_list.len)
-		for(var/datum/reagent/R in reagents.reagent_list)
-			user << "<span class='notice'>[R.volume] units of [R.name]</span>"
-	else
-		user << "<span class='notice'>Nothing.</span>"
+	to_chat(user,"<span class='notice'>It contains [R.total_volume] units of reagents.</span>")
 
 /obj/structure/reagent_dispensers/verb/set_APTFT() //set amount_per_transfer_from_this
 	set name = "Set transfer amount"
@@ -101,8 +94,8 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "watertank"
 	amount_per_transfer_from_this = 10
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("water",capacity)
 
 /obj/structure/reagent_dispensers/extinguisher
@@ -111,8 +104,8 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "extinguisher_tank"
 	amount_per_transfer_from_this = 10
-	New()
-		..()
+	Initialize()
+		 . = ..()
 		reagents.add_reagent("monoammoniumphosphate",capacity)
 
 /obj/structure/reagent_dispensers/fueltank
@@ -126,8 +119,8 @@
 	var/defuse = 0
 	var/armed = 0
 	var/obj/item/device/assembly_holder/rig = null
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("fuel",capacity)
 
 /obj/structure/reagent_dispensers/fueltank/examine(mob/user)
@@ -195,7 +188,7 @@
 		if(!istype(Proj ,/obj/item/projectile/beam/lastertag) && !istype(Proj ,/obj/item/projectile/beam/practice) )
 			ex_act()
 
-/obj/structure/reagent_dispensers/fueltank/ex_act()
+/obj/structure/reagent_dispensers/fueltank/ex_act(var/severity = 3.0)
 
 	if (QDELETED(src))
 		return
@@ -229,8 +222,8 @@
 	density = 0
 	amount_per_transfer_from_this = 45
 	can_tamper = FALSE
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("condensedcapsaicin",capacity)
 
 /obj/structure/reagent_dispensers/water_cooler
@@ -243,8 +236,8 @@
 	anchored = 1
 	capacity = 500
 	can_tamper = FALSE
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("water",capacity)
 
 /obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -268,8 +261,8 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "beertankTEMP"
 	amount_per_transfer_from_this = 10
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("beer",capacity)
 
 /obj/structure/reagent_dispensers/xuizikeg
@@ -278,8 +271,8 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "keg_xuizi"
 	amount_per_transfer_from_this = 10
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("xuizijuice",capacity)
 
 /obj/structure/reagent_dispensers/virusfood
@@ -291,9 +284,8 @@
 	anchored = 1
 	density = 0
 	can_tamper = FALSE
-
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("virusfood", capacity)
 
 /obj/structure/reagent_dispensers/acid
@@ -305,9 +297,8 @@
 	anchored = 1
 	density = 0
 	can_tamper = FALSE
-
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("sacid", capacity)
 
 //Cooking oil refill tank
@@ -318,10 +309,9 @@
 	icon_state = "oiltank"
 	amount_per_transfer_from_this = 120
 	capacity = 5000
-
-/obj/structure/reagent_dispensers/cookingoil/Initialize()
-	. = ..()
-	reagents.add_reagent("cornoil",capacity)
+	Initialize()
+		. = ..()
+		reagents.add_reagent("cornoil",capacity)
 
 /obj/structure/reagent_dispensers/cookingoil/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.get_structure_damage())

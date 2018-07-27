@@ -22,7 +22,7 @@
 			if (istype(src.loc.loc, /obj/structure/reagent_dispensers/fueltank/))
 				var/obj/structure/reagent_dispensers/fueltank/tank = src.loc.loc
 				if (tank && tank.modded)
-					tank.ex_act()
+					tank.ex_act(3.0)
 
 		spark(src, 4, cardinal)
 	return 1
