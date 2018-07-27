@@ -202,7 +202,7 @@
 							usr << "<span class='warning'>No log exists for this job: [t1]</span>"
 							return
 
-						access = jobdatum.get_access()
+						access = jobdatum.get_access(t1)
 
 					remove_nt_access(id_card)
 					apply_access(id_card, access)

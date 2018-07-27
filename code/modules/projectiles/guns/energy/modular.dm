@@ -162,11 +162,11 @@
 			modifier.degrade(1)
 	if((prob(A.damage)/burst))
 		if(prob(A.damage/2))
-			medium_fail(user)
+			medium_fail(ismob(loc) ? loc : null)
 		else
-			small_fail(user)
+			small_fail(ismob(loc) ? loc : null)
 
-	updatetype(user)
+	updatetype(ismob(loc) ? loc : null)
 	return A
 
 /obj/item/weapon/gun/energy/laser/prototype/proc/disassemble(var/mob/user)
