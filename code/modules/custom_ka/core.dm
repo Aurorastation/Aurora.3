@@ -563,9 +563,7 @@
 
 		var/obj/item/weapon/gun/custom_ka/ka = target
 
-		var/total_message = "<span class='notice'>"
-
-		total_message += "<b>Kinetic Accelerator Stats:</b><br>"
+		var/total_message += "<b>Kinetic Accelerator Stats:</b><br>"
 		total_message += "Damage Rating: [ka.damage_increase*0.1]MJ<br>"
 		total_message += "Energy Rating: [ka.cost_increase]MJ<br>"
 		total_message += "Cell Rating: [ka.cell_increase]MJ<br>"
@@ -575,10 +573,7 @@
 		total_message += "<b>Software Stats:</b><br>"
 		total_message += "Software Version: [ka.mod_limit_increase].[ka.mod_limit_increase*32 % 10].[ka.mod_limit_increase*64 % 324]<br>"
 		total_message += "Available Power Flow: [ka.capacity_increase*10]kW<br>"
-
-		total_message += "</span>"
-
-		to_chat(user,total_message)
+		to_chat(user,"<span class='notice'>[total_message]</span>")
 	else
 		to_chat(user,"<span class='notice'>Nothing happens.</span>")
 
