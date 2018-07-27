@@ -19506,11 +19506,10 @@
 /turf/simulated/floor/wood,
 /area/sconference_room)
 "JX" = (
-/obj/structure/table/standard,
-/obj/item/weapon/hand_labeler,
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Conference Antechamber"
 	},
+/obj/machinery/vending/coffee,
 /turf/simulated/floor/wood,
 /area/sconference_room)
 "JY" = (
@@ -19844,11 +19843,7 @@
 /turf/simulated/floor/plating,
 /area/sconference_room)
 "KC" = (
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 25;
-	pixel_y = 0
-	},
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/simulated/floor/wood,
 /area/sconference_room)
 "KD" = (
@@ -19897,20 +19892,21 @@
 /turf/simulated/floor/carpet,
 /area/sconference_room)
 "KJ" = (
-/obj/machinery/vending/coffee,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 25;
+	pixel_y = 0
+	},
+/obj/structure/bed/chair/comfy/black,
 /turf/simulated/floor/wood,
 /area/sconference_room)
 "KK" = (
-/obj/machinery/light,
-/obj/structure/reagent_dispensers/water_cooler,
+/obj/item/weapon/storage/box/cups,
+/obj/structure/table/standard,
 /turf/simulated/floor/wood,
 /area/sconference_room)
 "KL" = (
-/obj/machinery/newscaster{
-	pixel_y = -32
-	},
-/obj/structure/table/standard,
-/obj/item/weapon/storage/box/cups,
+/obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/sconference_room)
 "KM" = (
@@ -19970,19 +19966,9 @@
 /turf/simulated/floor/wood,
 /area/sconference_room)
 "KT" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/hallway/secondary/entry/aft)
+/obj/machinery/light,
+/turf/simulated/floor/wood,
+/area/sconference_room)
 "KU" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -20061,6 +20047,19 @@
 	id = "sconferenceprivacy"
 	},
 /turf/simulated/floor/plating,
+/area/sconference_room)
+"KZ" = (
+/obj/machinery/newscaster{
+	pixel_y = -32
+	},
+/turf/simulated/floor/wood,
+/area/sconference_room)
+"La" = (
+/obj/structure/bed/chair/comfy/black{
+	icon_state = "chair_padding_over";
+	dir = 1
+	},
+/turf/simulated/floor/wood,
 /area/sconference_room)
 "NI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -49537,7 +49536,7 @@ Kp
 Kf
 JH
 JH
-KT
+CU
 DF
 DF
 DF
@@ -49791,10 +49790,10 @@ JH
 JU
 JZ
 Kq
-JZ
-KJ
-JH
-aa
+KC
+KK
+KM
+ab
 aa
 aa
 aa
@@ -50049,9 +50048,9 @@ JV
 Kg
 Kr
 Km
-KK
-JH
-aa
+Km
+KT
+ab
 aa
 aa
 aa
@@ -50306,9 +50305,9 @@ JW
 Kh
 Ks
 Km
-KL
-JH
-aa
+Km
+KZ
+ab
 aa
 aa
 aa
@@ -50562,10 +50561,10 @@ JH
 JX
 JZ
 Kt
-KC
-KM
-JH
-aa
+KJ
+KL
+La
+ab
 aa
 aa
 aa
