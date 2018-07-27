@@ -114,7 +114,7 @@
 /obj/item/weapon/gun/custom_ka/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 
 	if(require_wield && !wielded)
-		to_chat(user,"<span class='warning'>\The [src] is too heavy to fire with one hand!")
+		to_chat(user,"<span class='warning'>\The [src] is too heavy to fire with one hand!</span>")
 		return
 
 	if(!fire_checks(target,user,clickparams,pointblank,reflex))
