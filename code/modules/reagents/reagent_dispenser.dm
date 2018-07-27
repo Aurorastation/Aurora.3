@@ -186,7 +186,7 @@
 			log_game("[key_name(Proj.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).",ckey=key_name(Proj.firer))
 
 		if(!istype(Proj ,/obj/item/projectile/beam/lastertag) && !istype(Proj ,/obj/item/projectile/beam/practice) )
-			ex_act()
+			ex_act(2.0)
 
 /obj/structure/reagent_dispensers/fueltank/ex_act(var/severity = 3.0)
 
@@ -204,14 +204,14 @@
 
 /obj/structure/reagent_dispensers/fueltank/fire_act(datum/gas_mixture/air, temperature, volume)
 	if (modded)
-		ex_act()
+		ex_act(2.0)
 	else if (temperature > T0C+500)
-		ex_act()
+		ex_act(2.0)
 	return ..()
 
 /obj/structure/reagent_dispensers/fueltank/tesla_act()
 	..()
-	ex_act()
+	ex_act(2.0)
 
 /obj/structure/reagent_dispensers/peppertank
 	name = "Pepper Spray Refiller"
@@ -315,4 +315,4 @@
 
 /obj/structure/reagent_dispensers/cookingoil/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.get_structure_damage())
-		ex_act()
+		ex_act(2.0)

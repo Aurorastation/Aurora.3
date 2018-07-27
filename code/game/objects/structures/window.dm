@@ -525,7 +525,7 @@
 /obj/structure/window/reinforced/crescent/attackby()
 	return
 
-/obj/structure/window/reinforced/crescent/ex_act()
+/obj/structure/window/reinforced/crescent/ex_act(var/severity = 2.0)
 	return
 
 /obj/structure/window/reinforced/crescent/hitby()

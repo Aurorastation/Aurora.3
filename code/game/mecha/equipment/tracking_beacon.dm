@@ -92,7 +92,7 @@
 	qdel(src)
 	return
 
-/obj/item/mecha_parts/mecha_tracking/ex_act()
+/obj/item/mecha_parts/mecha_tracking/ex_act(var/severity = 2.0)
 	qdel(src)
 	return
 
