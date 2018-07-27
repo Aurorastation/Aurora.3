@@ -1,0 +1,4 @@
+author: Karolis2011
+delete-after: True
+changes: 
+  - bugfix: Fixes holograms not having proper rotation state when copied subject is rotated.
