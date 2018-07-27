@@ -19625,20 +19625,13 @@
 /turf/simulated/floor/carpet,
 /area/sconference_room)
 "Kn" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
+/obj/machinery/button/windowtint{
+	id = "sconferenceprivacy";
+	pixel_x = 0;
+	pixel_y = 26;
+	req_access = list(66)
 	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/wood,
 /area/sconference_room)
 "Ko" = (
 /obj/structure/cable/green{
@@ -19834,16 +19827,20 @@
 /turf/simulated/floor/carpet,
 /area/sconference_room)
 "KB" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/grille,
 /obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "sconferenceprivacy"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "sconferenceprivacy"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "sconferenceprivacy"
+	},
 /turf/simulated/floor/plating,
 /area/sconference_room)
 "KC" = (
@@ -19938,17 +19935,16 @@
 /turf/simulated/floor/carpet,
 /area/sconference_room)
 "KP" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/grille,
 /obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "sconferenceprivacy"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "sconferenceprivacy"
+	},
 /turf/simulated/floor/plating,
 /area/sconference_room)
 "KQ" = (
@@ -19988,41 +19984,47 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
 "KU" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/grille,
 /obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "sconferenceprivacy"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "sconferenceprivacy"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "sconferenceprivacy"
+	},
 /turf/simulated/floor/plating,
 /area/sconference_room)
 "KV" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/grille,
 /obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	id = "sconferenceprivacy"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "sconferenceprivacy"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "sconferenceprivacy"
+	},
 /turf/simulated/floor/plating,
 /area/sconference_room)
 "KW" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/grille,
 /obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "sconferenceprivacy"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "sconferenceprivacy"
+	},
 /turf/simulated/floor/plating,
 /area/sconference_room)
 "KX" = (
@@ -20044,6 +20046,22 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"KY" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "sconferenceprivacy"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "sconferenceprivacy"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "sconferenceprivacy"
+	},
+/turf/simulated/floor/plating,
+/area/sconference_room)
 "NI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -51575,7 +51593,7 @@ Kv
 KE
 Km
 JZ
-KU
+KV
 aw
 aa
 aa
@@ -51832,7 +51850,7 @@ Kw
 KF
 KO
 JZ
-KV
+KW
 aw
 aw
 aa
@@ -52089,7 +52107,7 @@ Kx
 KG
 KO
 JZ
-KV
+KW
 aw
 aw
 aa
@@ -52346,7 +52364,7 @@ Ky
 KH
 KO
 JZ
-KV
+KW
 aw
 aw
 aa
@@ -52597,13 +52615,13 @@ CG
 tM
 tt
 JH
-JZ
+Kn
 Kk
 Kz
 KI
 KO
 JZ
-KV
+KW
 aw
 aa
 aa
@@ -52860,7 +52878,7 @@ KA
 KA
 Km
 JZ
-KW
+KY
 aw
 aa
 aa
@@ -53369,10 +53387,10 @@ tM
 ag
 JH
 JH
-Kn
-KB
 KB
 KP
+KP
+KU
 JH
 JH
 aw
