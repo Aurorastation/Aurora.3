@@ -23,7 +23,7 @@
 
 	src.confused = max(src.confused,(8/2) * severity)
 
-	if(isvaurca(src)) //I fucking hate using this, but until vaurca aren't different types, this will have to do
+	if(isvaurca(src)) //I fucking hate using this, but until vaurca aren't different types, this will have to do.
 		src.druggy = max(src.druggy,(60/2) * severity)
 		var/obj/item/organ/eyes/E = src.get_eyes()
 		if(E && !(E.status & ORGAN_ROBOT))

@@ -14,7 +14,10 @@
 	icon_state = "flash"
 	interface_name = "mounted flash"
 	interface_desc = "Stuns your target by blinding them with a bright light."
-	device_type = /obj/item/device/flash/cyborg
+	device_type = /obj/item/device/flash/immortal
+
+	module_cooldown = 2 SECONDS
+	use_power_cost = 200
 
 /obj/item/rig_module/grenade_launcher
 

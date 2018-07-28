@@ -52,9 +52,6 @@
 	if(power_supply)
 		power_supply.emp_act(severity)
 
-/obj/item/device/flash/get_cell()
-	return power_supply
-
 /obj/item/device/flash/Destroy()
 	QDEL_NULL(power_supply)
 	return ..()
@@ -86,6 +83,14 @@
 		add_overlay("battery_hatch")
 		if(bulb)
 			bulb.on = FALSE
+
+
+/obj/item/device/flash/proc/get_power_source()
+	if(use_external_power)
+		return get_external_power_supply()
+	else
+		return power_supply
+
 /obj/item/device/flash/proc/get_external_power_supply()
 	if(isrobot(src.loc))
 		var/mob/living/silicon/robot/R = src.loc
@@ -115,19 +120,22 @@
 
 	addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
 
+	return 1
+
 /obj/item/device/flash/attack(mob/living/M as mob, mob/living/user as mob, var/target_zone)
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(M)
 
-	if(strength_mul <= 0 || !power_supply || !power_supply.checked_use(charge_cost) || !bulb || bulb.is_burnt)
+	var/obj/item/weapon/cell/power_source = get_power_source()
+
+	if(strength_mul <= 0 || !power_source || !power_source.checked_use(charge_cost) || !bulb || bulb.is_burnt)
 		playsound(src.loc, 'sound/items/flashlight.ogg', 50, 1)
 		to_chat(user,"<span class='notice'>You try to activate \the [src] but nothing happens!</span>")
+		update_icon()
 		return
 
 	playsound(src.loc, 'sound/weapons/flash.ogg', 50, 1)
-	src.update_icon()
-	src.add_overlay("flash_animation")
 
 	if(M == user) //Radial flash
 		user.visible_message("<span class='warning'>\The [user.name] activates \the [src]!</span>", \
@@ -147,10 +155,11 @@
 			"<span class='notice'>You hear a distinct mechanical shutter.</span>")
 		M.on_flash(user,src,bulb.strength*strength_mul)
 
-	if (self_recharge || use_external_power)
+	if (self_recharge)
 		addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
 
 	bulb.add_heat(strength_mul)
+	update_icon()
 
 /obj/item/device/flash/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
@@ -212,7 +221,7 @@
 			update_icon()
 
 /obj/item/device/flash/attack_self(var/mob/user)
-	if(get_cell())
+	if(get_power_source())
 		strength_mul = !strength_mul
 		if(strength_mul)
 			to_chat(user, "<span class='notice'>You turn \the [src] on.</span>")

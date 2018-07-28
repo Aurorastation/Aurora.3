@@ -23,6 +23,8 @@
 /obj/item/weapon/flash_bulb/proc/add_heat(var/heat_multiplier)
 	//Yes, this is fucky.
 	//And also a clever way to avoid processing things we don't need to process.
+	if(!cooldown_delay)
+		return
 
 	var/heat_amount = heat_multiplier * heat_damage_to_add
 	var/time_passed = (world.time - last_used) //In deciseconds
