@@ -12481,8 +12481,9 @@
 /area/centcom/control)
 "BS" = (
 /obj/structure/table/wood,
-/obj/item/weapon/storage/box/cups,
 /obj/machinery/chemical_dispenser/coffee/full,
+/obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
+/obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
