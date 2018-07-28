@@ -1,0 +1,5 @@
+
+author: Karolis2011
+delete-after: True
+changes: 
+  - balance: Removes Topic() rate limiting. This should make HTML UIs more responsive.

@@ -71,6 +71,16 @@
 			fail_smash(user, 2)
 			return 1
 
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/turf/destination = GetAbove(H)
+
+		if(destination)
+			var/turf/start = get_turf(H)
+			if(start.CanZPass(H, UP) && destination.CanZPass(H, UP))
+				H.climb(UP, src)
+				return
+
 	try_touch(user, rotting)
 
 /turf/simulated/wall/attack_generic(var/mob/user, var/damage, var/attack_message, var/wallbreaker)

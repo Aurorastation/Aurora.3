@@ -37,7 +37,6 @@
 		////////////
 		//SECURITY//
 		////////////
-	var/next_allowed_topic_time = 10
 	var/info_sent = 0
 	// comment out the line below when debugging locally to enable the options & messages menu
 	//control_freak = 1

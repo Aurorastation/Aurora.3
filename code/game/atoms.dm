@@ -152,7 +152,7 @@
 /atom/proc/set_dir(new_dir)
 	. = new_dir != dir
 	dir = new_dir
-	
+
 	// Lighting
 	if (.)
 		var/datum/light_source/L
