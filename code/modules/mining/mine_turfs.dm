@@ -518,7 +518,7 @@ var/list/mineral_can_smooth_with = list(
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	if(ishuman(user))
-		var/mob/living/carbon/human/H
+		var/mob/living/carbon/human/H = user
 		var/turf/destination = GetAbove(H)
 
 		if(destination)
