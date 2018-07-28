@@ -580,7 +580,7 @@
 		to_chat(src, "<span class='danger'>You cannot charge in your current state!</span>")
 		return
 
-	last_special = world.time + 200
+	last_special = world.time + 100
 
 	src.visible_message("<span class='warning'>\The [src] takes a step backwards and rears up.</span>",
 			"<span class='notice'>You take a step backwards and then...</span>")
@@ -673,7 +673,7 @@
 		to_chat(src, "<span class='danger'>You cannot screech in your current state!</span>")
 		return
 
-	last_special = world.time + 200
+	last_special = world.time + 100
 
 	visible_message("<span class='danger'>[src.name] lets out an ear piercing shriek!</span>",
 			"<span class='danger'>You let out an ear-shattering shriek!</span>",
@@ -720,7 +720,7 @@
 		to_chat(src,"<span class='notice'>You cannot spray napalm in your current state.</span>")
 		return
 
-	last_special = world.time + 200
+	last_special = world.time + 100
 	playsound(loc, 'sound/species/shadow/grue_screech.ogg', 100, 1)
 	visible_message("<span class='danger'>\The [src] unleashes a torrent of raging flame!</span>",
 			"<span class='danger'>You unleash a gust of fire!</span>",

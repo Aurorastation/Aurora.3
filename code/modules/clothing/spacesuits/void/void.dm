@@ -20,7 +20,8 @@
 	sprite_sheets_obj = list(
 		"Unathi" = 'icons/obj/clothing/species/unathi/hats.dmi',
 		"Tajara" = 'icons/obj/clothing/species/tajaran/hats.dmi',
-		"Skrell" = 'icons/obj/clothing/species/skrell/hats.dmi'
+		"Skrell" = 'icons/obj/clothing/species/skrell/hats.dmi',
+		"Vaurca" = 'icons/obj/clothing/species/vaurca/hats.dmi'
 		)
 
 	light_overlay = "helmet_light"
@@ -47,7 +48,8 @@
 	sprite_sheets_obj = list(
 		"Unathi" = 'icons/obj/clothing/species/unathi/suits.dmi',
 		"Tajara" = 'icons/obj/clothing/species/tajaran/suits.dmi',
-		"Skrell" = 'icons/obj/clothing/species/skrell/suits.dmi'
+		"Skrell" = 'icons/obj/clothing/species/skrell/suits.dmi',
+		"Vaurca" = 'icons/obj/clothing/species/vaurca/suits.dmi'
 		)
 
 	//Breach thresholds, should ideally be inherited by most (if not all) voidsuits.
