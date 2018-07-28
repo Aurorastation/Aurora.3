@@ -43,7 +43,8 @@
 		var/datum/computer_file/data/F = new/datum/computer_file/data()
 		F.filename = newname
 		F.filetype = "TXT"
-		F.password = newpassword
+		if (newpassword)
+			F.password = newpassword
 		HDD.store_file(F)
 	if(href_list["PRG_deletefile"])
 		. = 1
@@ -65,10 +66,10 @@
 				return 1
 	if(href_list["PRG_usbdeletefile"])
 		. = 1
-		var/obj/item/weapon/computer_hardware/hard_drive/RHDD = computer.portable_drive
+		var/obj/item/weapon/computer_hardware/hard_drive/RHDD = computer.hard_drive
 		if(!RHDD)
 			return 1
-		var/datum/computer_file/file = RHDD.find_file_by_name(href_list["PRG_usbdeletefile"])
+		var/datum/computer_file/file = RHDD.find_file_by_name(href_list["PRG_deletefile"])
 		var/checkpass = ""
 		var/currentpass = file.password
 		if(!file || file.undeletable)
@@ -181,8 +182,17 @@
 		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_copytousb"])
 		if(!F || !istype(F))
 			return 1
+		var/checkpass = ""
+		var/currentpass = F.password
 		var/datum/computer_file/C = F.clone(0)
-		RHDD.store_file(C)
+		if(!currentpass)
+			RHDD.store_file(C)
+		else
+			checkpass = sanitize(input(usr, "Please enter the password:"))
+			if(checkpass == currentpass)
+				RHDD.store_file(C)
+			else
+				return 1
 	if(href_list["PRG_copyfromusb"])
 		. = 1
 		var/obj/item/weapon/computer_hardware/hard_drive/HDD = computer.hard_drive
@@ -192,8 +202,19 @@
 		var/datum/computer_file/F = RHDD.find_file_by_name(href_list["PRG_copyfromusb"])
 		if(!F || !istype(F))
 			return 1
+		var/checkpass = ""
+		var/currentpass = F.password
+		if(!F || !istype(F))
+			return 1
 		var/datum/computer_file/C = F.clone(0)
-		HDD.store_file(C)
+		if(!currentpass)
+			HDD.store_file(C)
+		else
+			checkpass = sanitize(input(usr, "Please enter the password:"))
+			if(checkpass == currentpass)
+				HDD.store_file(C)
+			else
+				return 1
 	if(.)
 		SSnanoui.update_uis(NM)
 
