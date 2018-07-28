@@ -25,11 +25,11 @@
 		var/currentpass = file.password
 		if(!currentpass)
 			open_file = href_list["PRG_openfile"]
-		if(currentpass)
+		else
 			checkpass = sanitize(input(usr, "Please enter the password:"))
 			if(checkpass == currentpass)
 				open_file = href_list["PRG_openfile"]
-			if(!checkpass == currentpass)
+			else
 				return 1
 	if(href_list["PRG_newtextfile"])
 		. = 1
@@ -57,11 +57,11 @@
 			return 1
 		if(!currentpass)
 			HDD.remove_file(file)
-		if(currentpass)
+		else
 			checkpass = sanitize(input(usr, "Please enter the password:"))
 			if(checkpass == currentpass)
 				HDD.remove_file(file)
-			if(!checkpass == currentpass)
+			else
 				return 1
 	if(href_list["PRG_usbdeletefile"])
 		. = 1
@@ -75,11 +75,11 @@
 			return 1
 		if(!currentpass)
 			RHDD.remove_file(file)
-		if(currentpass)
+		else
 			checkpass = sanitize(input(usr, "Please enter the password:"))
 			if(checkpass == currentpass)
 				RHDD.remove_file(file)
-			if(!checkpass == currentpass)
+			else
 				return 1
 	if(href_list["PRG_closefile"])
 		. = 1
@@ -98,11 +98,11 @@
 		var/datum/computer_file/C = F.clone(1)
 		if(!currentpass)
 			HDD.store_file(C)
-		if(currentpass)
+		else
 			checkpass = sanitize(input(usr, "Please enter the password:"))
 			if(checkpass == currentpass)
 				HDD.store_file(C)
-			if(!checkpass == currentpass)
+			else
 				return 1
 	if(href_list["PRG_rename"])
 		. = 1
@@ -118,12 +118,12 @@
 		if(!currentpass)
 			if(file && newname)
 				file.filename = newname
-		if(currentpass)
+		else
 			checkpass = sanitize(input(usr, "Please enter the password:"))
 			if(checkpass == currentpass)
 				if(file && newname)
 					file.filename = newname
-			if(!checkpass == currentpass)
+			else
 				return 1
 	if(href_list["PRG_edit"])
 		. = 1
