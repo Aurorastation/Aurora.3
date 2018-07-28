@@ -77,3 +77,8 @@
 /obj/effect/projectile/tracer/emitter
 	icon_state = "emitter"
 	light_color = LIGHT_COLOR_GREEN
+
+/obj/effect/projectile/tracer/tachyon
+	name = "particle beam"
+	icon_state = "invisible"
+	light_color = LIGHT_COLOR_VIOLET

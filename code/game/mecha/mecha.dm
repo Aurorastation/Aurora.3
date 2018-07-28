@@ -1657,7 +1657,7 @@
 		return
 	if(href_list["toggle_maint_access"])
 		if(usr != src.occupant)	return
-		if(state)
+		if(state && src.dna != src.occupant.dna.unique_enzymes)
 			occupant_message("<font color='red'>Maintenance protocols in effect</font>")
 			return
 		maint_access = !maint_access

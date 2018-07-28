@@ -27,7 +27,7 @@
 /datum/reagent/bicaridine
 	name = "Bicaridine"
 	id = "bicaridine"
-	description = "Bicaridine is an analgesic medication and can be used to treat blunt trauma. When inhaled, it treats minor damage to the lungs."
+	description = "Bicaridine is an analgesic medication and can be used to treat blunt trauma."
 	reagent_state = LIQUID
 	color = "#BF0000"
 	overdose = REAGENTS_OVERDOSE
@@ -41,13 +41,6 @@
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(5 * removed, 0)
-
-/datum/reagent/bicaridine/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
-	. = ..()
-	if(istype(H))
-		var/obj/item/organ/L = H.internal_organs_by_name["lungs"]
-		if(istype(L) && !L.robotic && !L.is_broken())
-			L.take_damage(-1*removed) //Every 10 units heals 1 lung damage.
 
 /datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien)
 	..()//Bicard overdose heals internal wounds

@@ -533,9 +533,7 @@ var/global/list/robot_modules = list(
 					"Classic" = "secborg",
 					"Spider" = "spidersec",
 					"Heavy" = "heavysec"
-
 				)
-	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/weapon/robot_module/security/general/New()
 	..()
@@ -616,7 +614,7 @@ var/global/list/robot_modules = list(
 					"Kent" = "toiletbot",
 					"Bro" = "brobot",
 					"Rich" = "maximillion",
-					"Basic" = "robotServ",
+					"Basic" = "robotserv",
 					"Drone - Service" = "drone-service",
 					"Drone - Hydro" = "drone-hydro",
 					"Classic" = "service2",
@@ -675,7 +673,10 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/form_printer(src)
 	src.modules += new /obj/item/weapon/gripper/paperwork(src)
 	src.modules += new /obj/item/weapon/hand_labeler(src)
-	src.emag = new /obj/item/weapon/stamp/denied(src)
+	src.modules += new /obj/item/weapon/tape_roll(src) //allows it to place flyers
+	src.modules += new /obj/item/weapon/stamp/denied(src) //why was this even a emagged item before smh
+	src.emag = new /obj/item/weapon/stamp/chameleon(src)
+
 
 /obj/item/weapon/robot_module/general/butler/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
 	..()

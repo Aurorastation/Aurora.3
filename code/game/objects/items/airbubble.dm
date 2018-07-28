@@ -78,6 +78,14 @@
 	var/syndie = FALSE
 	var/last_shake = 0
 
+// Examine to see tank pressure
+/obj/structure/closet/airbubble/examine(mob/user)
+	..()
+	if(!isnull(internal_tank))
+		to_chat(user, "<span class='notice'>\The [src] has [internal_tank] attached, that displays [round(internal_tank.air_contents.return_pressure() ? internal_tank.air_contents.return_pressure() : 0)] KPa.</span>")
+	else
+		to_chat(user, "<span class='notice'>\The [src] has no tank attached.</span>")
+
 /obj/structure/closet/airbubble/can_open()
 	if(zipped)
 		return 0
@@ -296,6 +304,7 @@
 		else
 			START_PROCESSING(SSfast_process, src)
 		use_internal_tank = !use_internal_tank
+		update_icon()
 	else
 		to_chat(usr, "<span class='notice'>[src] has no internal tank.</span>")
 
@@ -416,6 +425,7 @@
 		icon_state = icon_closed
 	if(zipped)
 		add_overlay("[icon_closed]_restrained")
+	add_overlay("pressure_[(use_internal_tank) ?("on") : ("off") ]")
 
 // Process transfer of air from the tank. Handle if it is ripped open.
 /obj/structure/closet/airbubble/proc/process_tank_give_air()

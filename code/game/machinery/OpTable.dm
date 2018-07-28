@@ -113,9 +113,9 @@
 
 
 		if(L == user)
-			visible_message("[user] starts climbing onto the operating table.", 3)
+			user.visible_message("<span class='notice'>[user] starts climbing onto [src].</span>", "<span class='notice'>You start climbing onto [src].</span>", range = 3)
 		else
-			visible_message("[user] starts putting [L.name] onto the operating table.", 3)
+			user.visible_message("<span class='notice'>[user] starts putting [L] onto [src].</span>", "<span class='notice'>You start putting [L] onto [src].</span>", range = 3)
 		if (do_mob(user, L, 10, needhand = 0))
 			if (bucklestatus == 2)
 				var/obj/structure/LB = L.buckled
@@ -149,9 +149,9 @@
 
 
 		if(L == user)
-			visible_message("[user] starts climbing onto the operating table.", 3)
+			user.visible_message("<span class='notice'>[user] starts climbing onto [src].</span>", "<span class='notice'>You start climbing onto [src].</span>", range = 3)
 		else
-			visible_message("[user] starts putting [L.name] onto the operating table.", 3)
+			user.visible_message("<span class='notice'>[user] starts putting [L] onto [src].</span>", "<span class='notice'>You start putting [L] onto [src].</span>", range = 3)
 		if (do_mob(user, L, 10, needhand = 0))
 			if (bucklestatus == 2)
 				var/obj/structure/LB = L.buckled

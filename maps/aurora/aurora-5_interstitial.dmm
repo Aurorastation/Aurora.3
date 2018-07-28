@@ -2763,6 +2763,10 @@
 	},
 /turf/simulated/floor/carpet,
 /area/security/detectives_office)
+"ff" = (
+/obj/effect/landmark/dungeon_spawn,
+/turf/unsimulated/chasm_mask,
+/area/mine/unexplored)
 "fh" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -5935,6 +5939,10 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/item/weapon/book/manual/psych,
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Psychiatrist Office";
+	network = list("Medical")
+	},
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "kS" = (
@@ -6801,7 +6809,7 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Psychaitry Closet";
+	c_tag = "Medical - Psychiatry Closet";
 	network = list("Medical")
 	},
 /turf/simulated/floor/tiled/dark,
@@ -17216,7 +17224,7 @@ aa
 aa
 aa
 aa
-aa
+ff
 aa
 aa
 aa
@@ -18160,7 +18168,7 @@ aa
 aa
 aa
 aa
-aa
+ff
 aa
 aa
 aa
@@ -40845,7 +40853,7 @@ aa
 aa
 aa
 aa
-aa
+ff
 aa
 aa
 aa
@@ -54261,7 +54269,7 @@ aa
 aa
 aa
 aa
-aa
+ff
 aa
 aa
 aa
@@ -54916,7 +54924,7 @@ aa
 aa
 aa
 aa
-aa
+ff
 aa
 aa
 aa
