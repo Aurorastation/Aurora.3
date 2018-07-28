@@ -12481,6 +12481,7 @@
 /area/centcom/control)
 "BS" = (
 /obj/structure/table/wood,
+/obj/item/weapon/storage/box/cups,
 /obj/machinery/chemical_dispenser/coffee/full,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -22418,6 +22419,10 @@
 	icon_state = "wood_siding1"
 	},
 /area/centcom/spawning)
+"Xs" = (
+/obj/machinery/chemical_dispenser/coffee/full,
+/turf/template_noop,
+/area/template_noop)
 
 (1,1,1) = {"
 aa
@@ -64446,7 +64451,7 @@ aM
 aM
 aM
 aM
-aM
+Xs
 aM
 sV
 te
