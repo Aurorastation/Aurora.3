@@ -83,13 +83,22 @@ proc/get_radio_key_from_channel(var/channel)
 		if(!istype(dongle)) return
 		if(dongle.translate_binary) return 1
 
+/mob/living/proc/get_stuttered_message(message)
+	return stutter(message)
+
+/mob/living/carbon/get_stuttered_message(message)
+	if (shock_stage >= 30)
+		return stutter(message)
+	else
+		return NewStutter(message)
+
 /mob/living/proc/get_default_language()
 	return default_language
 
 /mob/living/proc/is_muzzled()
 	return 0
 
-/mob/living/proc/handle_speech_problems(var/message, var/verb)
+/mob/living/proc/handle_speech_problems(var/message, var/verb, var/message_mode)
 	var/list/returns[3]
 	var/speech_problem_flag = 0
 	if((HULK in mutations) && health >= 25 && length(message))
@@ -101,7 +110,7 @@ proc/get_radio_key_from_channel(var/channel)
 		verb = pick("slobbers","slurs")
 		speech_problem_flag = 1
 	if(stuttering)
-		message = stutter(message)
+		message = get_stuttered_message(message)
 		verb = pick("stammers","stutters")
 		speech_problem_flag = 1
 	if(tarded)
@@ -196,7 +205,7 @@ proc/get_radio_key_from_channel(var/channel)
 	if(!(speaking && (speaking.flags & NO_STUTTER)))
 		message = handle_autohiss(message, speaking)
 
-		var/list/handle_s = handle_speech_problems(message, verb)
+		var/list/handle_s = handle_speech_problems(message, verb, message_mode)
 		message = handle_s[1]
 		verb = handle_s[2]
 

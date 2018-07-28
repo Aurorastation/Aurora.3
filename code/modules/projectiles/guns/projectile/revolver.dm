@@ -50,7 +50,7 @@
 	max_shells = 6
 	caliber = "38"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot_strong.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
 
 /obj/item/weapon/gun/projectile/revolver/detective/verb/rename_gun()
@@ -79,7 +79,7 @@
 	icon_state = "deckard-empty"
 	caliber = "38"
 	ammo_type = /obj/item/ammo_casing/c38
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot_strong.ogg'
 
 /obj/item/weapon/gun/projectile/revolver/deckard/update_icon()
 	..()
@@ -138,7 +138,7 @@
 	handle_casings = CYCLE_CASINGS
 	max_shells = 6
 	caliber = "38"
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot_strong.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
 	var/secondary_max_shells = 1
 	var/secondary_caliber = "shotgun"

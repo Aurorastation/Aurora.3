@@ -4,7 +4,6 @@ var/list/sacrificed = list()
 	return
 
 /obj/effect/rune
-
 /*
  * Use as a general guideline for this and related files:
  *  * <span class='warning'>...</span> - when something non-trivial or an error happens, so something similar to "Sparks come out of the machine!"
@@ -180,13 +179,13 @@ var/list/sacrificed = list()
 						cult.add_antagonist(target.mind)
 						converting -= target
 						target.hallucination = 0 //sudden clarity
-						playsound(target, 'sound/effects/bloodcult.ogg', 100, 1)
+						sound_to(target, 'sound/effects/bloodcult.ogg')
 					else
 						converting -= target
 						//If we are dealing with a IPC then ask the caster what construct they want
 						var/construct_class = alert(attacker, "Please choose which type of construct you wish to create.",,"Juggernaut","Wraith","Artificer")
 
-						playsound(target, 'sound/effects/bloodcult.ogg', 100, 1)
+						sound_to(target, 'sound/effects/bloodcult.ogg')
 
 						//Spawn some remains
 						new target.species.remains_type(target.loc) //spawns a skeleton based on the species remain type
@@ -198,7 +197,7 @@ var/list/sacrificed = list()
 						flick("dust-h", animation)
 						qdel(animation)
 
-						//Spawn the selected construct						
+						//Spawn the selected construct
 						switch(construct_class)
 							if("Juggernaut")
 								var/mob/living/simple_animal/construct/armoured/Z = new /mob/living/simple_animal/construct/armoured (get_turf(target.loc))
@@ -257,10 +256,15 @@ var/list/sacrificed = list()
 		user.whisper("Ta'gh fara[pick("'","`")]qha fel d'amar det!")
 	playsound(U, 'sound/magic/Disable_Tech.ogg', 25, 1)
 	var/turf/T = get_turf(U)
-	if(T)
-		T.hotspot_expose(700,125)
 	var/rune = src // detaching the proc - in theory
-	empulse(U, (range_red - 2), range_red)
+
+	var/list/ex = list(user) // exclude caster
+	for(var/mob/M in range(range_red, T))
+		if(iscultist(M))
+			ex += M
+		else
+			continue
+	empulse(T, range_red - 2, range_red, exclude = ex)
 	qdel(rune)
 	return
 

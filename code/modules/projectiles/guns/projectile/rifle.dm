@@ -13,6 +13,9 @@
 	pump_snd = 'sound/weapons/riflebolt.ogg'
 	has_wield_state = FALSE
 
+	can_bayonet = TRUE
+	knife_x_offset = 23
+	knife_y_offset = 13
 	can_sawoff = TRUE
 	sawnoff_workmsg = "shorten the barrel and stock"
 
@@ -26,6 +29,11 @@
 	item_state = "obrez"
 	slot_flags &= ~SLOT_BACK
 	slot_flags |= (SLOT_BELT|SLOT_HOLSTER)
+	can_bayonet = FALSE
+	if(bayonet)
+		qdel(bayonet)
+		bayonet = null
+		update_icon()
 	name = "obrez"
 	desc = "A shortened bolt action rifle, not really acurate. Uses 7.62mm rounds."
 	to_chat(user, "<span class='warning'>You shorten the barrel and stock of the rifle!</span>")
@@ -39,6 +47,7 @@
 	recoil = 2
 	accuracy = -2
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	can_bayonet = FALSE
 
 /obj/item/weapon/gun/projectile/contender
 	name = "pocket rifle"
@@ -51,7 +60,7 @@
 	ammo_type = /obj/item/ammo_casing/a556
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	load_method = SINGLE_CASING
-	fire_sound = 'sound/weapons/rifleshot.ogg'
+	fire_sound = 'sound/weapons/gunshot3.ogg'
 	var/retracted_bolt = 0
 	var/icon_retracted = "pockrifle-empty"
 
@@ -94,6 +103,7 @@
 	name = "\improper vintage bolt action rifle"
 	desc = "An extremely old-looking rifle. Words you can't read are stamped on the gun. Doesn't look like it'll take any modern rounds."
 	icon_state = "springfield"
+	icon_state = "springfield"
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 3)
 	fire_sound = 'sound/weapons/rifleshot.ogg'
 	slot_flags = SLOT_BACK
@@ -101,6 +111,7 @@
 	handle_casings = HOLD_CASINGS
 	caliber = "vintage"
 	ammo_type = /obj/item/ammo_casing/vintage
+	can_bayonet = TRUE
 	var/open_bolt = 0
 	var/obj/item/ammo_magazine/boltaction/vintage/has_clip
 

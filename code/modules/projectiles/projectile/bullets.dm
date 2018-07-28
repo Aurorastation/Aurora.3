@@ -196,7 +196,7 @@
 	armor_penetration = 80
 	hitscan = 1 //so the PTR isn't useless as a sniper weapon
 	maiming = 1
-	maim_rate = 60
+	maim_rate = 3
 	maim_type = DROPLIMB_BLUNT
 
 /obj/item/projectile/bullet/rifle/vintage

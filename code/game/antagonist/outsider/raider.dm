@@ -68,6 +68,7 @@ var/datum/antagonist/raider/raiders
 	var/list/raider_guns = list(
 		/obj/item/weapon/gun/energy/rifle/laser,
 		/obj/item/weapon/gun/energy/rifle/laser/xray,
+		/obj/item/weapon/gun/energy/rifle/icelance,
 		/obj/item/weapon/gun/energy/retro,
 		/obj/item/weapon/gun/energy/xray,
 		/obj/item/weapon/gun/energy/mindflayer,

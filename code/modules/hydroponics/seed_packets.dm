@@ -290,3 +290,9 @@ var/global/list/plant_seed_sprites = list()
 
 /obj/item/seeds/blackkois
 	seed_type = "blackkois"
+
+/obj/item/seeds/earthenroot
+	seed_type = "earthenroot"
+
+/obj/item/seeds/nifberries
+	seed_type = "nifberries"
