@@ -166,7 +166,7 @@
 
 /obj/item/clothing/head/helmet/unathi
 	name = "unathi helmet"
-	desc = "An helmet designated to be worn by an unathi, used commonly by the hegemony levies."
+	desc = "A helmet designated to be worn by an unathi, used commonly by the hegemony levies."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "unathi_helmet"
 	item_state = "unathi_helmet"
