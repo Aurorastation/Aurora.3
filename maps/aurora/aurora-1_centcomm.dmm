@@ -7922,7 +7922,7 @@
 	},
 /area/centcom/living)
 "sE" = (
-/obj/structure/filingcabinet,
+/obj/structure/flora/pottedplant/random,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -7998,6 +7998,9 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/structure/flora/pottedplant/random{
+	anchored = 1
+	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -8045,15 +8048,15 @@
 /area/centcom/living)
 "sS" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/weapon/pen/multi,
+/obj/item/weapon/paper_bin,
 /turf/unsimulated/floor{
 	dir = 10;
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
 "sT" = (
-/obj/structure/table/wood,
-/obj/item/device/radio/phone,
+/obj/structure/filingcabinet,
 /turf/unsimulated/floor{
 	dir = 9;
 	icon_state = "carpetside"
@@ -9342,11 +9345,7 @@
 /area/centcom/creed)
 "vK" = (
 /obj/structure/table/wood,
-/obj/item/weapon/paper_bin{
-	pixel_x = 1;
-	pixel_y = 9
-	},
-/obj/item/weapon/pen/fluff/zilosnish_pen,
+/obj/item/device/radio/phone,
 /turf/unsimulated/floor{
 	dir = 5;
 	icon_state = "carpetside"
@@ -12481,9 +12480,9 @@
 /area/centcom/control)
 "BS" = (
 /obj/structure/table/wood,
+/obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
+/obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
 /obj/machinery/chemical_dispenser/coffee/full,
-/obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
-/obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -22424,6 +22423,14 @@
 /obj/machinery/chemical_dispenser/coffee/full,
 /turf/template_noop,
 /area/template_noop)
+"Xt" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp,
+/turf/unsimulated/floor{
+	dir = 6;
+	icon_state = "carpetside"
+	},
+/area/centcom/living)
 
 (1,1,1) = {"
 aa
@@ -63164,7 +63171,7 @@ aM
 sq
 sF
 vK
-sU
+Xt
 sF
 sF
 Df
@@ -64452,7 +64459,7 @@ aM
 aM
 aM
 aM
-Xs
+aM
 aM
 sV
 te
