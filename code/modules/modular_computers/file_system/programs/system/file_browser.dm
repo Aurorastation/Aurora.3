@@ -19,18 +19,16 @@
 
 	if(href_list["PRG_openfile"])
 		. = 1
+		var/passcheck
 		var/obj/item/weapon/computer_hardware/hard_drive/HDD = computer.hard_drive
-		var/datum/computer_file/file = HDD.find_file_by_name(href_list["PRG_openfile"])
-		var/checkpass = ""
-		var/currentpass = file.password
-		if(!currentpass)
+		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_openfile"])
+		var/iscorrect = F.can_acess_file(passcheck)
+		if (!F)
+			return
+		if (iscorrect)
 			open_file = href_list["PRG_openfile"]
 		else
-			checkpass = sanitize(input(usr, "Please enter the password:"))
-			if(checkpass == currentpass)
-				open_file = href_list["PRG_openfile"]
-			else
-				return 1
+			return
 	if(href_list["PRG_newtextfile"])
 		. = 1
 		var/newname = sanitize(input(usr, "Enter file name or leave blank to cancel:", "File rename"))
@@ -52,36 +50,18 @@
 		if(!HDD)
 			return 1
 		var/datum/computer_file/file = HDD.find_file_by_name(href_list["PRG_deletefile"])
-		var/checkpass = ""
-		var/currentpass = file.password
 		if(!file || file.undeletable)
 			return 1
-		if(!currentpass)
-			HDD.remove_file(file)
-		else
-			checkpass = sanitize(input(usr, "Please enter the password:"))
-			if(checkpass == currentpass)
-				HDD.remove_file(file)
-			else
-				return 1
+		HDD.remove_file(file)
 	if(href_list["PRG_usbdeletefile"])
 		. = 1
-		var/obj/item/weapon/computer_hardware/hard_drive/RHDD = computer.hard_drive
+		var/obj/item/weapon/computer_hardware/hard_drive/RHDD = computer.portable_drive
 		if(!RHDD)
 			return 1
 		var/datum/computer_file/file = RHDD.find_file_by_name(href_list["PRG_deletefile"])
-		var/checkpass = ""
-		var/currentpass = file.password
 		if(!file || file.undeletable)
 			return 1
-		if(!currentpass)
-			RHDD.remove_file(file)
-		else
-			checkpass = sanitize(input(usr, "Please enter the password:"))
-			if(checkpass == currentpass)
-				RHDD.remove_file(file)
-			else
-				return 1
+		RHDD.remove_file(file)
 	if(href_list["PRG_closefile"])
 		. = 1
 		open_file = null
@@ -92,40 +72,20 @@
 		if(!HDD)
 			return 1
 		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_clone"])
-		var/checkpass = ""
-		var/currentpass = F.password
 		if(!F || !istype(F))
 			return 1
 		var/datum/computer_file/C = F.clone(1)
-		if(!currentpass)
-			HDD.store_file(C)
-		else
-			checkpass = sanitize(input(usr, "Please enter the password:"))
-			if(checkpass == currentpass)
-				HDD.store_file(C)
-			else
-				return 1
+		HDD.store_file(C)
 	if(href_list["PRG_rename"])
 		. = 1
 		var/obj/item/weapon/computer_hardware/hard_drive/HDD = computer.hard_drive
 		if(!HDD)
 			return 1
 		var/datum/computer_file/file = HDD.find_file_by_name(href_list["PRG_rename"])
-		var/checkpass = ""
-		var/currentpass = file.password
 		if(!file || !istype(file))
 			return 1
 		var/newname = sanitize(input(usr, "Enter new file name:", "File rename", file.filename))
-		if(!currentpass)
-			if(file && newname)
-				file.filename = newname
-		else
-			checkpass = sanitize(input(usr, "Please enter the password:"))
-			if(checkpass == currentpass)
-				if(file && newname)
-					file.filename = newname
-			else
-				return 1
+		file.filename = newname
 	if(href_list["PRG_edit"])
 		. = 1
 		if(!open_file)
@@ -182,17 +142,8 @@
 		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_copytousb"])
 		if(!F || !istype(F))
 			return 1
-		var/checkpass = ""
-		var/currentpass = F.password
 		var/datum/computer_file/C = F.clone(0)
-		if(!currentpass)
-			RHDD.store_file(C)
-		else
-			checkpass = sanitize(input(usr, "Please enter the password:"))
-			if(checkpass == currentpass)
-				RHDD.store_file(C)
-			else
-				return 1
+		RHDD.store_file(C)
 	if(href_list["PRG_copyfromusb"])
 		. = 1
 		var/obj/item/weapon/computer_hardware/hard_drive/HDD = computer.hard_drive
@@ -202,24 +153,23 @@
 		var/datum/computer_file/F = RHDD.find_file_by_name(href_list["PRG_copyfromusb"])
 		if(!F || !istype(F))
 			return 1
-		var/checkpass = ""
-		var/currentpass = F.password
-		if(!F || !istype(F))
-			return 1
 		var/datum/computer_file/C = F.clone(0)
-		if(!currentpass)
-			HDD.store_file(C)
-		else
-			checkpass = sanitize(input(usr, "Please enter the password:"))
-			if(checkpass == currentpass)
-				HDD.store_file(C)
-			else
-				return 1
+		HDD.store_file(C)
 	if(.)
 		SSnanoui.update_uis(NM)
 
 /datum/nano_module/program/computer_filemanager
 	name = "NTOS File Manager"
+
+/datum/computer_file/proc/can_acess_file(input_password = "")
+	if(!password)
+		return TRUE
+	else
+		input_password = sanitize(input(usr, "Please enter a password to access file '[filename]':"))
+		if (input_password == password)
+			return TRUE
+		else
+			return FALSE
 
 /datum/nano_module/program/computer_filemanager/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	var/list/data = host.initial_data()
