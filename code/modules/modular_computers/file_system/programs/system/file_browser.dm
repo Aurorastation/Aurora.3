@@ -19,13 +19,11 @@
 
 	if(href_list["PRG_openfile"])
 		. = 1
-		var/passcheck
 		var/obj/item/weapon/computer_hardware/hard_drive/HDD = computer.hard_drive
 		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_openfile"])
-		var/iscorrect = F.can_acess_file(passcheck)
 		if (!F)
 			return
-		if (iscorrect)
+		if (F.can_acess_file(usr))
 			open_file = href_list["PRG_openfile"]
 		else
 			return
@@ -161,11 +159,11 @@
 /datum/nano_module/program/computer_filemanager
 	name = "NTOS File Manager"
 
-/datum/computer_file/proc/can_acess_file(input_password = "")
+/datum/computer_file/proc/can_acess_file(var/mob/user, input_password = "")
 	if(!password)
 		return TRUE
 	else
-		input_password = sanitize(input(usr, "Please enter a password to access file '[filename]':"))
+		input_password = sanitize(input(user, "Please enter a password to access file '[filename]':"))
 		if (input_password == password)
 			return TRUE
 		else
