@@ -224,14 +224,6 @@
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
-/datum/gear/uniform/miscellaneous/roninkimono
-	display_name = "ronin kimono"
-	path = /obj/item/clothing/under/kimono/ronin
-
-/datum/gear/uniform/miscellaneous/fancykimono
-	display_name = "fancy kimono"
-	path = /obj/item/clothing/under/kimono/fancy
-
 /datum/gear/uniform/miscellaneous/greensuit
 	display_name = "green formal uniform"
 	path = /obj/item/clothing/under/gov
