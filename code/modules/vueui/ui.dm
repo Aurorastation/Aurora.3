@@ -87,8 +87,10 @@ main ui datum.
 	send_resources_and_assets(user.client)
 	user << browse(generate_html(), params)
 	winset(user, "mapwindow.map", "focus=true")
-	spawn(1)
-		winset(user, windowid, "on-close=\"vueuiclose \ref[src]\"")
+	addtimer(CALLBACK(src, /datum/vueui/proc/setclose), 1)
+
+/datum/vueui/proc/setclose()
+	winset(user, windowid, "on-close=\"vueuiclose \ref[src]\"")
 
 /**
   * Closes this ui
