@@ -35,12 +35,9 @@
 		var/obj/item/weapon/computer_hardware/hard_drive/HDD = computer.hard_drive
 		if(!HDD)
 			return 1
-		var/newpassword = sanitize(input(usr, "Enter a password or leave blank to leave unprotected:"))
 		var/datum/computer_file/data/F = new/datum/computer_file/data()
 		F.filename = newname
 		F.filetype = "TXT"
-		if (newpassword)
-			F.password = newpassword
 		HDD.store_file(F)
 	if(href_list["PRG_deletefile"])
 		. = 1
@@ -153,6 +150,23 @@
 			return 1
 		var/datum/computer_file/C = F.clone(0)
 		HDD.store_file(C)
+	if(href_list["PRG_encrypt"])
+		. = 1
+		var/obj/item/weapon/computer_hardware/hard_drive/HDD = computer.hard_drive
+		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_openfile"])
+		if (!F)
+			return
+		F.password = sanitize(input(usr, "Enter an encryption key:", "Encrypt File"))
+	if(href_list["PRG_decrypt"])
+		. = 1
+		var/obj/item/weapon/computer_hardware/hard_drive/HDD = computer.hard_drive
+		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_openfile"])
+		if (!F)
+			return
+		if (F.can_access_file(usr))
+			F.password = ""
+		else
+			return
 	if(.)
 		SSnanoui.update_uis(NM)
 
