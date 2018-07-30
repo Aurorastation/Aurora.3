@@ -151,8 +151,7 @@ obj/machinery/computer/general_air_control/Destroy()
 
 /obj/machinery/computer/general_air_control/large_tank_control/vueui_data_change(var/list/data, var/mob/user, var/vueui/ui)
 	. = ..()
-	if (.)
-		data = .
+	data = . || data
 	data["control"] = "tank"
 	data["maxrate"] = max_input_flow_setting
 	data["maxpressure"] = max_pressure_setting
@@ -239,8 +238,7 @@ obj/machinery/computer/general_air_control/Destroy()
 
 /obj/machinery/computer/general_air_control/supermatter_core/vueui_data_change(var/list/data, var/mob/user, var/vueui/ui)
 	. = ..()
-	if (.)
-		data = .
+	data = . || data
 	data["control"] = "supermatter"
 	data["maxrate"] = max_input_flow_setting
 	data["maxpressure"] = max_pressure_setting
@@ -352,8 +350,7 @@ obj/machinery/computer/general_air_control/Destroy()
 
 /obj/machinery/computer/general_air_control/fuel_injection/vueui_data_change(var/list/data, var/mob/user, var/vueui/ui)
 	. = ..()
-	if (.)
-		data = .
+	data = . || data
 	data["control"] = "injector"
 	if(device_info)
 		LAZYINITLIST(data["device"])
