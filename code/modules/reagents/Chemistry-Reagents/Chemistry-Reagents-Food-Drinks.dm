@@ -958,6 +958,7 @@
 	glass_desc = "Tasty black tea, it has antioxidants, it's good for you!"
 
 	unaffected_species = IS_MACHINE
+	var/last_taste_time = -100
 
 /datum/reagent/drink/tea/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
