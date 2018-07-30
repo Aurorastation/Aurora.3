@@ -429,8 +429,8 @@
 //	bitesize = 3													//This is the amount each bite consumes.
 
 /obj/item/weapon/reagent_containers/food/snacks/koisbar_clean
-	name = "k'ois bar"
-	desc = "Bland NanoTrasen produced K'ois bars, rich in syrup and injected with extra phoron."
+	name = "k'ois bar (unsafe for human consumption)"
+	desc = "Bland NanoTrasen produced K'ois bars, rich in syrup and injected with extra phoron; it has a label on it warning about its toxicity."
 	icon_state = "koisbar"
 	trash = /obj/item/trash/koisbar
 	filling_color = "#dcd9cd"
