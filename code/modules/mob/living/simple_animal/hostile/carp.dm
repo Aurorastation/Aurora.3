@@ -51,44 +51,41 @@
 	var/atom/T = null
 	var/lowest_health = INFINITY // Max you can get
 	stop_automated_movement = 0
-
-	for(var/atom/A in targets)
-
-		if(A == src)
+	for(var/mob/living/L in targets)
+		if((L.faction == src.faction) && !attack_same)
+			continue
+		if(L in friends)
 			continue
 
-		var/atom/F = Found(A)
-		if(F)
-			T = F
-			break
+		if(!L.stat && (L.health < lowest_health))
+			lowest_health = L.health
+			T = L
+	if(isnull(T))
+		for(var/atom/A in targets)
 
-		if(isliving(A))
-			var/mob/living/L = A
-			if((L.faction == src.faction) && !attack_same)
-				continue
-			if(L in friends)
+			if(A == src)
 				continue
 
-			if(!L.stat && (L.health < lowest_health))
-				lowest_health = L.health
-				T = L
+			var/atom/F = Found(A)
+			if(F)
+				T = F
 				break
 
-		else if(istype(A, /obj/mecha)) // Our line of sight stuff was already done in ListTargets().
-			var/obj/mecha/M = A
-			if (M.occupant)
-				T = M
-				break
+			else if(istype(A, /obj/mecha)) // Our line of sight stuff was already done in ListTargets().
+				var/obj/mecha/M = A
+				if (M.occupant)
+					T = M
+					break
 
-		if(istype(A, /obj/machinery/bot))
-			var/obj/machinery/bot/B = A
-			if (B.health > 0)
-				T = B
-				break
+			if(istype(A, /obj/machinery/bot))
+				var/obj/machinery/bot/B = A
+				if (B.health > 0)
+					T = B
+					break
 
-		if(istype(A, /obj/effect/energy_field))
-			T = A
-			break
+			if(istype(A, /obj/effect/energy_field))
+				T = A
+				break
 
 	if (T != target_mob)
 		target_mob = T
@@ -121,6 +118,7 @@
 	stop_automated_movement = 1
 	if(istype(target_mob, /obj/effect/energy_field) && !QDELETED(target_mob) && (get_dist(src, target_mob) <= 1))
 		AttackingTarget()
+		attacked_times += 1
 		return 1
 	if(QDELETED(target_mob) || SA_attackable(target_mob))
 		LoseTarget()
@@ -156,8 +154,28 @@
 		return B
 	if(istype(target_mob, /obj/effect/energy_field))
 		var/obj/effect/energy_field/e = target_mob
-		e.Stress(rand(2,4))
+		e.Stress(rand(1,2))
 		visible_message("<span class='danger'>\the [src] has attacked [e]!</span>")
+		src.do_attack_animation(e)
+
+/mob/living/simple_animal/hostile/carp/DestroySurroundings()
+	if(prob(break_stuff_probability))
+		for(var/dir in cardinal) // North, South, East, West
+			var/obj/effect/energy_field/e = (/obj/effect/energy_field in get_step(src, dir))
+			if(e)
+				e.Stress(rand(1,2))
+				visible_message("<span class='danger'>\the [src] has attacked [e]!</span>")
+				src.do_attack_animation(e)
+				return 1
+			for(var/obj/structure/window/obstacle in get_step(src, dir))
+				if(obstacle.dir == reverse_dir[dir]) // So that windows get smashed in the right order
+					obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+					return 1
+			var/obj/structure/obstacle = locate(/obj/structure, get_step(src, dir))
+			if(istype(obstacle, /obj/structure/window) || istype(obstacle, /obj/structure/closet) || istype(obstacle, /obj/structure/table) || istype(obstacle, /obj/structure/grille))
+				obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+				return 1
+	return 0
 
 /mob/living/simple_animal/hostile/carp/russian
 	name = "Ivan the carp"
