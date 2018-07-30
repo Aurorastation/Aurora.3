@@ -211,20 +211,23 @@ var/hadevent    = 0
 
 /proc/high_radiation_event()
 
-/* // Haha, this is way too laggy. I'll keep the prison break though.
-	for(var/obj/machinery/light/L in world)
-		if(isNotStationLevel(L.z)) continue
-		L.flicker(50)
-
-	sleep(100)
-*/
 	for(var/mob/living/carbon/human/H in living_mob_list)
 		var/turf/T = get_turf(H)
 		if(!T)
 			continue
 		if(isNotStationLevel(T.z))
 			continue
-		if(istype(H,/mob/living/carbon/human))
+		if(H.is_diona())
+			if(prob(5))
+				var/damage = rand(15, 75)
+				H.adjustToxLoss(-damage)
+				H.apply_effect((rand(15,75)),IRRADIATE, blocked = H.getarmor(null, "rad"))
+			else
+				var/damage = rand(90, 150)
+				H.adjustToxLoss(-damage)
+				H.apply_effect((rand(90,150)),IRRADIATE, blocked = H.getarmor(null, "rad"))
+			to_chat(H, "<span class='notice'>You can feel flow of energy which makes you regenerate.</span>")
+		else
 			H.apply_effect((rand(15,75)),IRRADIATE, blocked = H.getarmor(null, "rad"))
 			if (prob(5))
 				H.apply_effect((rand(90,150)),IRRADIATE, blocked = H.getarmor(null, "rad"))
