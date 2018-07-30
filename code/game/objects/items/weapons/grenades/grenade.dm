@@ -10,7 +10,7 @@
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	var/active = 0
-	var/det_time = 40
+	var/det_time = 30
 	var/fake = FALSE
 
 /obj/item/weapon/grenade/proc/clown_check(var/mob/living/user)
