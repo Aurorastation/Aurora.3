@@ -298,11 +298,6 @@
 	reagent_state = SOLID
 	color = "#A0A0A0"
 	taste_description = "sweetness" //potassium is bitter in higher doses but sweet in lower ones.
-	unaffected_species = IS_MACHINE
-
-/datum/reagent/potassium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		M.adjustToxLoss(-20 * removed)
 
 /datum/reagent/radium
 	name = "Radium"
@@ -311,9 +306,13 @@
 	reagent_state = SOLID
 	color = "#C7C7C7"
 	taste_description = "the color blue, and regret"
+	unaffected_species = IS_MACHINE
 
 /datum/reagent/radium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.apply_effect(10 * removed, IRRADIATE, blocked = 0) // Radium may increase your chances to cure a disease
+	if(alien == IS_DIONA)
+		M.adjustToxLoss(-20 * removed)
+		return
 	if(M.virus2.len)
 		for(var/ID in M.virus2)
 			var/datum/disease2/disease/V = M.virus2[ID]
