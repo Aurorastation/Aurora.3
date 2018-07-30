@@ -23,7 +23,7 @@
 		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_openfile"])
 		if (!F)
 			return
-		if (F.can_acess_file(usr))
+		if (F.can_access_file(usr))
 			open_file = href_list["PRG_openfile"]
 		else
 			return
@@ -159,7 +159,7 @@
 /datum/nano_module/program/computer_filemanager
 	name = "NTOS File Manager"
 
-/datum/computer_file/proc/can_acess_file(var/mob/user, input_password = "")
+/datum/computer_file/proc/can_access_file(var/mob/user, input_password = "")
 	if(!password)
 		return TRUE
 	else
