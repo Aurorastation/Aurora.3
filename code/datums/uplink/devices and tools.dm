@@ -21,7 +21,6 @@
 	path = /obj/item/device/firing_pin
 	desc = "A Syndicate-branded Firing pin - It should be compatible with nearly every weapon onboard."
 
-
 /datum/uplink_item/item/tools/clerical
 	name = "Morphic Clerical Kit"
 	item_cost = 3
@@ -114,3 +113,9 @@
 	name = "HUDPatch, Night-Vision"
 	item_cost = 4
 	path = /obj/item/clothing/glasses/eyepatch/hud/night
+
+/datum/uplink_item/item/tools/tactical_harness
+	name = "Tactical Harness"
+	item_cost = 3
+	desc = "A belt-harness used to perform quick reloads with small arm weapons, such as the .45 or 9mm pistol."
+	path = /obj/item/weapon/storage/belt/tactical_harness

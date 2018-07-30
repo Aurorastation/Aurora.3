@@ -185,6 +185,55 @@
 	max_w_class = 3
 	max_storage_space = 28
 
+/obj/item/weapon/storage/belt/tactical_harness
+	name = "tactical harness"
+	desc = "An extremely robust tactical harness equipped with a reload-assisting system that allows quick and fast reloads with most small-arms weapons. It can only hold small-arms magazines."
+	icon_state = "tactical_harness"
+	item_state = "tactical_harness"
+	storage_slots = 6
+	max_w_class = 2
+	max_storage_space = 12
+	w_class = 4
+	can_hold = list(
+		/obj/item/ammo_magazine/a10mm,
+		/obj/item/ammo_magazine/a50,
+		/obj/item/ammo_magazine/c45m,
+		/obj/item/ammo_magazine/c45uzi,
+		/obj/item/ammo_magazine/mc9mm
+	)
+
+/obj/item/weapon/storage/belt/tactical_harness/proc/do_tactical_reload(obj/item/W as obj, mob/user as mob,var/use_dual = 1)
+
+	if(istype(W,/obj/item/weapon/gun/projectile))
+		var/obj/item/weapon/gun/projectile/the_gun = W
+		var/obj/item/ammo_magazine/found_mag
+		for(var/obj/item/ammo_magazine/mag in src.contents)
+			if(!(mag.caliber == the_gun.caliber && mag.mag_type & the_gun.load_method))
+				continue
+			found_mag = mag
+			break
+
+		if(found_mag)
+			the_gun.attackby(found_mag,user,0)
+
+			if(use_dual)
+				var/obj/item/weapon/gun/projectile/other_gun = user.get_inactive_hand()
+				if(istype(other_gun))
+					do_tactical_reload(other_gun,user,0)
+
+			return 1
+		else
+			to_chat(user,"<span class='warning'>You can't find a magazine to load into \the [the_gun]!</span>")
+
+	return 0
+
+/obj/item/weapon/storage/belt/tactical_harness/attackby(obj/item/W as obj, mob/user as mob)
+
+	if(do_tactical_reload(W,user,1))
+		return
+
+	. = ..()
+
 /obj/item/weapon/storage/belt/military
 	name = "military belt"
 	desc = "A syndicate belt designed to be used by boarding parties. Its style is modeled after the hardsuits they wear."

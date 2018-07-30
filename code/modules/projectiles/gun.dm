@@ -91,6 +91,8 @@
 	var/tmp/mob/living/last_moved_mob //Used to fire faster at more than one person.
 	var/tmp/lock_time = -100
 
+	var/enable_dual_fire = TRUE //Set to false if you don't want this to trigger or be triggered by dual firing.
+
 /obj/item/weapon/gun/Initialize(mapload)
 	. = ..()
 	for(var/i in 1 to firemodes.len)
@@ -227,7 +229,7 @@
 
 	return 1
 
-/obj/item/weapon/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
+/obj/item/weapon/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0, dual_fire=1)
 	if(!fire_checks(target,user,clickparams,pointblank,reflex))
 		return
 
@@ -263,6 +265,16 @@
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.setMoveCooldown(move_delay)
 	next_fire_time = world.time + fire_delay
+
+	if(enable_dual_fire && dual_fire)
+		var/obj/item/weapon/gun/the_gun = user.get_inactive_hand()
+		if(istype(the_gun,/obj/item/weapon/gun/offhand) || !istype(the_gun) || !the_gun.enable_dual_fire)
+			return
+
+		spawn(fire_delay/2)
+			the_gun.Fire(target,user,clickparams,pointblank,reflex,0)
+
+
 
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
 /obj/item/weapon/gun/proc/Fire_userless(atom/target)
