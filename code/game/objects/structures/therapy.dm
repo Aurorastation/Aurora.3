@@ -501,7 +501,7 @@
 	var/dose_id
 	var/list/drugs_list = list("mind_breaker","psilocybin","space_drugs","serotrotium","cryptobiolin","impedrezene")
 	for(var/id in drugs_list)
-		if(reagents.has_reagent(id, amount))
+		if(reagents.has_reagent(id, amount/10))
 			dose_id = id
 			break
 	if(!dose_id)
@@ -523,7 +523,7 @@
 			if("impedrezene")
 				probability = 25
 			if("mindbreaker")
-				probability = max(0, 100 - amount*1.5)
+				probability = max(0, 100 - amount)
 			if("psilocybin")
 				probability = min(75, 25 + amount)
 
