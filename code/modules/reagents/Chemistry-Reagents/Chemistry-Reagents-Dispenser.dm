@@ -298,6 +298,11 @@
 	reagent_state = SOLID
 	color = "#A0A0A0"
 	taste_description = "sweetness" //potassium is bitter in higher doses but sweet in lower ones.
+	unaffected_species = IS_MACHINE
+
+/datum/reagent/potassium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_DIONA)
+		M.adjustToxLoss(-20 * removed)
 
 /datum/reagent/radium
 	name = "Radium"
