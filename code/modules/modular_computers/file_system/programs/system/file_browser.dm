@@ -80,7 +80,8 @@
 		if(!file || !istype(file))
 			return 1
 		var/newname = sanitize(input(usr, "Enter new file name:", "File rename", file.filename))
-		file.filename = newname
+		if(file && newname)
+			file.filename = newname
 	if(href_list["PRG_edit"])
 		. = 1
 		if(!open_file)
@@ -153,14 +154,18 @@
 	if(href_list["PRG_encrypt"])
 		. = 1
 		var/obj/item/weapon/computer_hardware/hard_drive/HDD = computer.hard_drive
-		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_openfile"])
+		if (!HDD || computer.enrolled != 2)
+			return
+		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_encrypt"])
 		if (!F)
 			return
 		F.password = sanitize(input(usr, "Enter an encryption key:", "Encrypt File"))
 	if(href_list["PRG_decrypt"])
 		. = 1
 		var/obj/item/weapon/computer_hardware/hard_drive/HDD = computer.hard_drive
-		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_openfile"])
+		if (!HDD || computer.enrolled != 2)
+			return
+		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_encrypt"])
 		if (!F)
 			return
 		if (F.can_access_file(usr))
