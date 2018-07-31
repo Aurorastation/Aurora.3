@@ -34,7 +34,7 @@
 	key_type = /obj/item/device/encryptionkey/syndicate
 	spawn_module = /obj/item/weapon/robot_module/hunter_seeker
 	no_pda = TRUE
-	light_color = 255
+	light_color = LIGHT_COLOR_EMERGENCY
 	light_power = 15
 	light_range  = 15
 	integrated_light_power = 15
