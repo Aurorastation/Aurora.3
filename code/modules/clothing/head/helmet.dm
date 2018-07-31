@@ -124,6 +124,23 @@
 	desc = "A full helmet made of highly advanced ceramic materials, complete with a jetblack visor. Shines with a mirror sheen."
 	icon_state = "erthelmet_peacekeeper"
 	item_state = "erthelmet_peacekeeper"
+	body_parts_covered = HEAD|FACE|EYES //face shield
+	flags_inv = HIDEEARS
+	action_button_name = "Toggle Visor"
+
+/obj/item/clothing/head/helmet/swat/peacekeeper/attack_self(mob/user as mob)
+	if (use_check(user))
+		return
+
+	if(src.icon_state == initial(icon_state))
+		src.icon_state = "[icon_state]-up"
+		user << "You raise the visor on \the [src]."
+		body_parts_covered = HEAD
+	else
+		src.icon_state = initial(icon_state)
+		user << "You lower the visor on \the [src]."
+		body_parts_covered = HEAD|FACE|EYES
+	update_clothing_icon()
 
 /obj/item/clothing/head/helmet/thunderdome
 	name = "\improper Thunderdome helmet"
