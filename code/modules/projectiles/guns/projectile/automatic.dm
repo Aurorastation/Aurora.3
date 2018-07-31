@@ -402,21 +402,6 @@
 	else
 		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
 
-/obj/item/weapon/gun/projectile/automatic/terminator/can_wield()
-	return 1
-
-/obj/item/weapon/gun/projectile/automatic/terminator/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/projectile/automatic/terminator/verb/wield_rifle()
-	set name = "Wield rifle"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
-	usr.update_icon()
-
 /obj/item/weapon/gun/projectile/automatic/rifle/shotgun
 	name = "assault shotgun"
 	desc = "A experimental, semi-automatic combat shotgun, designed for boarding operations and law enforcement agencies."

@@ -225,17 +225,6 @@
 	else
 		return 0
 
-/obj/item/weapon/gun/energy/laser/prototype/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/energy/laser/prototype/verb/wield_shotgun()
-	set name = "Wield prototype"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
-
 /obj/item/weapon/gun/energy/laser/prototype/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"

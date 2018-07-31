@@ -134,6 +134,7 @@
 	set src in usr
 
 	toggle_wield(usr)
+	usr.update_icon()
 
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.

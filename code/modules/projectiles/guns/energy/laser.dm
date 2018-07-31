@@ -144,13 +144,6 @@ obj/item/weapon/gun/energy/retro
 	//action button for wielding
 	action_button_name = "Wield rifle"
 
-/obj/item/weapon/gun/energy/sniperrifle/can_wield()
-	return 1
-
-/obj/item/weapon/gun/energy/sniperrifle/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
 /obj/item/weapon/gun/energy/sniperrifle/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"

@@ -479,20 +479,6 @@
 	accuracy = HEAVY_ACCURACY_UNWIELDED
 	accuracy_wielded = HEAVY_ACCURACY_WIELDED
 
-/obj/item/weapon/gun/energy/vaurca/thermaldrill/can_wield()
-	return 1
-
-/obj/item/weapon/gun/energy/vaurca/thermaldrill/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/energy/vaurca/thermaldrill/verb/wield_rifle()
-	set name = "Wield thermal drill"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
-
 /obj/item/weapon/gun/energy/vaurca/thermaldrill/special_check(var/mob/user)
 	if(is_charging)
 		user << "<span class='danger'>\The [src] is already charging!</span>"

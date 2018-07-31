@@ -29,21 +29,6 @@
 	accuracy = SNIPER_ACCURACY_UNWIELDED
 	accuracy_wielded = SNIPER_ACCURACY_WIELDED
 
-/obj/item/weapon/gun/projectile/heavysniper/can_wield()
-	return 1
-
-/obj/item/weapon/gun/projectile/heavysniper/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/projectile/heavysniper/verb/wield_rifle()
-	set name = "Wield rifle"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
-	usr.update_icon()
-
 /obj/item/weapon/gun/projectile/heavysniper/update_icon()
 	if(bolt_open)
 		icon_state = "heavysniper-open"
@@ -170,25 +155,10 @@
 	accuracy_wielded = SNIPER_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/projectile/dragunov/update_icon()
-
 	if(ammo_magazine)
 		icon_state = "dragunov"
 	else
 		icon_state = "dragunov-empty"
-
-/obj/item/weapon/gun/projectile/dragunov/can_wield()
-	return 1
-
-/obj/item/weapon/gun/projectile/dragunov/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/projectile/dragunov/verb/wield_rifle()
-	set name = "Wield rifle"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
 
 /obj/item/weapon/gun/projectile/dragunov/special_check(mob/user)
 	if(!wielded)
