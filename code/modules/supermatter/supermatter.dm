@@ -91,6 +91,7 @@
 	var/obj/item/device/radio/radio
 
 	var/debug = 0
+	var/last_taste_time = -100 //for message
 
 /obj/machinery/power/supermatter/Initialize()
 	. = ..()
@@ -278,6 +279,10 @@
 		if (!(l in oview(rad_range, src)) && !(l in range(src, round(rad_range * 2/3))))
 			continue
 		l.apply_effect(rads, IRRADIATE, blocked = l.getarmor(null, "rad"))
+		if(l.is_diona())
+			l.adjustToxLoss(-rads)
+			if(last_taste_time + 800 < world.time) // Not to spam message
+				to_chat(l, "<span class='notice'>You can feel an extreme level of energy which flows throught your body which makes you regenerate very fast.</span>")
 
 	power -= (power/DECAY_FACTOR)**3		//energy losses due to radiation
 
