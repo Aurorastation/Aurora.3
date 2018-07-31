@@ -36,3 +36,4 @@ delete-after: True
 changes: 
   - bugfix: "You can no longer vote before the 2 hour mark. The round duration's time is measured in REAL time, and not ticks."
   - bugfix: "Fixed the game calling an annoying crew transfer vote and informing everyone when raiders/mercs/whatever left."
+  - tweak: "Changes + fixes the 'next vote' time metric to be saner."
