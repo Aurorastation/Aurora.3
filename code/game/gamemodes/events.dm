@@ -217,27 +217,17 @@ var/hadevent    = 0
 			continue
 		if(isNotStationLevel(T.z))
 			continue
-		if(H.is_diona())
-			if(prob(5))
-				var/damage = rand(15, 75)
-				H.adjustToxLoss(-damage)
-				H.apply_effect((rand(15,75)),IRRADIATE, blocked = H.getarmor(null, "rad"))
+
+		H.apply_effect((rand(15,75)),IRRADIATE, blocked = H.getarmor(null, "rad"))
+		if (prob(5))
+			H.apply_effect((rand(90,150)),IRRADIATE, blocked = H.getarmor(null, "rad"))
+		if (prob(25))
+			if (prob(75))
+				randmutb(H)
+				domutcheck(H,null,MUTCHK_FORCED)
 			else
-				var/damage = rand(90, 150)
-				H.adjustToxLoss(-damage)
-				H.apply_effect((rand(90,150)),IRRADIATE, blocked = H.getarmor(null, "rad"))
-			to_chat(H, "<span class='notice'>You can feel flow of energy which makes you regenerate.</span>")
-		else
-			H.apply_effect((rand(15,75)),IRRADIATE, blocked = H.getarmor(null, "rad"))
-			if (prob(5))
-				H.apply_effect((rand(90,150)),IRRADIATE, blocked = H.getarmor(null, "rad"))
-			if (prob(25))
-				if (prob(75))
-					randmutb(H)
-					domutcheck(H,null,MUTCHK_FORCED)
-				else
-					randmutg(H)
-					domutcheck(H,null,MUTCHK_FORCED)
+				randmutg(H)
+				domutcheck(H,null,MUTCHK_FORCED)
 	sleep(100)
 	command_announcement.Announce("High levels of radiation detected near the station. Please report to the Med-bay if you feel strange.", "Anomaly Alert", new_sound = 'sound/AI/radiation.ogg')
 
