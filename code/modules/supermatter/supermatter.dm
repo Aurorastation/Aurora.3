@@ -353,9 +353,11 @@
 /obj/machinery/power/supermatter/attackby(obj/item/weapon/W as obj, mob/living/user as mob)
 
 	if(istype(W,/obj/item/weapon/tape_roll))
+		var/obj/item/weapon/tape_roll/tape = W
 		playsound(src, 'sound/items/tape.ogg',25)
-		user.visible_message("<span class='notice'>\The [user] applies duct tape to the supermatter, repairing it.</span>")
+		user.visible_message("<span class='notice'>\The [user] applies duct tape to \the [src], repairing it.</span>")
 		damage -= 5
+		tape.take_charge(user,1)
 		return
 
 	user.visible_message("<span class=\"warning\">\The [user] touches \a [W] to \the [src] as a silence fills the room...</span>",\
