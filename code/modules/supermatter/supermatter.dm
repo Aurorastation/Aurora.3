@@ -355,7 +355,7 @@
 	if(istype(W,/obj/item/weapon/tape_roll))
 		playsound(src, 'sound/items/tape.ogg',25)
 		user.visible_message("<span class='notice'>\The [user] applies duct tape to the supermatter, repairing it.</span>")
-		damage -= 5
+		damage = max(0,damage - 5)
 		return
 
 	user.visible_message("<span class=\"warning\">\The [user] touches \a [W] to \the [src] as a silence fills the room...</span>",\
