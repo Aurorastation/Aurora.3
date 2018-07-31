@@ -34,6 +34,9 @@
     //action button for wielding
 	action_button_name = "Wield rifle"
 
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/energy/rifle/can_wield()
 	return 1
 
@@ -87,6 +90,9 @@
 
 	fire_delay_wielded = 20
 
+	accuracy = HEAVY_ACCURACY_UNWIELDED
+	accuracy_wielded = HEAVY_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/energy/rifle/laser/xray
 	name = "xray laser rifle"
 	desc = "A high-power laser rifle capable of expelling concentrated xray blasts."
@@ -101,6 +107,9 @@
 	can_switch_modes = 0
 	turret_sprite_set = "xray"
 	turret_is_lethal = 1
+
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/energy/rifle/pulse
 	name = "pulse rifle"
@@ -125,6 +134,9 @@
 		list(mode_name="DESTROY", projectile_type=/obj/item/projectile/beam/pulse, fire_sound='sound/weapons/pulse.ogg')
 		)
 
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/energy/rifle/pulse/destroyer
 	name = "pulse destroyer"
 	desc = "A heavy-duty, pulse-based energy weapon. Because of its complexity and cost, it is rarely seen in use except by specialists."
@@ -135,6 +147,9 @@
 	max_shots = 30
 	secondary_projectile_type = null
 	secondary_fire_sound = null
+
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/energy/rifle/pulse/destroyer/attack_self(mob/living/user as mob)
 	user << "<span class='warning'>[src.name] has three settings, and they are all DESTROY.</span>"
@@ -155,6 +170,9 @@
 	can_turret = 0
 	zoomdevicename = "rifle scope"
 	var/obj/screen/overlay = null
+
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/energy/rifle/laser/tachyon/verb/scope()
 	set category = "Object"

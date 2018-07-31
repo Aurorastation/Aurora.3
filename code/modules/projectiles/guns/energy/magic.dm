@@ -18,6 +18,9 @@
 	charge_meter = 0
 	pin = /obj/item/device/firing_pin/magic
 
+	accuracy = STAFF_ACCURACY_UNWIELDED
+	accuracy_wielded = STAFF_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/energy/staff/emp_act(severity) // to prevent it from breaking.
 	return
 
@@ -193,6 +196,9 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	charge_meter = 0
 	pin = /obj/item/device/firing_pin/magic
 	charge_failure_message = null
+
+	accuracy = STAFF_ACCURACY_UNWIELDED
+	accuracy_wielded = STAFF_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/energy/wand/get_cell()
 	return DEVICE_NO_CELL

@@ -22,6 +22,9 @@
 		list(mode_name="DESTROY", projectile_type=/obj/item/projectile/beam/pulse, fire_sound='sound/weapons/pulse.ogg', fire_delay=25)
 		)
 
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/energy/pulse/mounted
 	name = "mounted pulse carbine"
 	charge_cost = 400
@@ -30,6 +33,9 @@
 	recharge_time = 10
 	can_turret = 0
 
+	accuracy = 0
+	accuracy_wielded = 0
+
 /obj/item/weapon/gun/energy/pulse/pistol
 	name = "pulse pistol"
 	desc = "A weapon that uses advanced pulse-based beam generation technology to emit powerful laser blasts. This one is a really compact model."
@@ -37,3 +43,6 @@
 	icon_state = "pulse_pistol"
 	item_state = "pulse_pistol"
 	max_shots = 5
+
+	accuracy = PISTOL_ACCURACY_UNWIELDED
+	accuracy_wielded = PISTOL_ACCURACY_WIELDED

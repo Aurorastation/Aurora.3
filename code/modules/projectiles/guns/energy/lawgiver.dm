@@ -15,6 +15,9 @@
 	var/message_disable = 0 //If the loop should be stopped
 	var/default_desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."
 
+	accuracy = PISTOL_ACCURACY_UNWIELDED
+	accuracy_wielded = PISTOL_ACCURACY_WIELDED
+
 	firemodes = list(
 		list(
 			mode_name = "singleshot",

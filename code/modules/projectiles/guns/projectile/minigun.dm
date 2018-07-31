@@ -131,6 +131,8 @@
 		list(mode_name="long bursts",	burst=12, move_delay=9, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(8))
 		)
 
+	accuracy = HEAVY_ACCURACY_UNWIELDED
+	accuracy_wielded = HEAVY_ACCURACY_WIELDED
 
 	var/obj/item/minigunpack/source
 

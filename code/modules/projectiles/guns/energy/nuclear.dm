@@ -23,11 +23,17 @@
 
 	var/crit_fail = 0 //Added crit_fail as a local variable
 
+	accuracy = SMG_ACCURACY_UNWIELDED
+	accuracy_wielded = SMG_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/energy/gun/mounted
 	name = "mounted energy gun"
 	self_recharge = 1
 	use_external_power = 1
 	can_turret = 0
+
+	accuracy = 0
+	accuracy_wielded = 0
 
 /obj/item/weapon/gun/energy/gun/nuclear
 	name = "advanced energy gun"
@@ -48,6 +54,9 @@
 		)
 
 	var/lightfail = 0
+
+	accuracy = SMG_ACCURACY_UNWIELDED
+	accuracy_wielded = SMG_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/energy/gun/nuclear/get_cell()
 	return DEVICE_NO_CELL
@@ -139,3 +148,6 @@
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="epistolstun", fire_sound='sound/weapons/Taser.ogg'),
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pistol, modifystate="epistolkill", fire_sound='sound/weapons/Laser.ogg')
 		)
+
+	accuracy = PISTOL_ACCURACY_UNWIELDED
+	accuracy_wielded = PISTOL_ACCURACY_WIELDED

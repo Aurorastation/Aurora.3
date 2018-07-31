@@ -21,6 +21,10 @@
 	fire_sound = 'sound/weapons/shotgun.ogg'
 	var/fail_chance = 35
 
+	accuracy = SHOTGUN_ACCURACY_UNWIELDED
+	accuracy_wielded = SHOTGUN_ACCURACY_WIELDED
+
+
 /obj/item/weapon/gun/projectile/shotgun/improvised/special_check(var/mob/living/carbon/human/M)
 	if(prob(fail_chance))
 		M.visible_message("<span class='danger'>[M]'s weapon blows up, shattering into pieces!</span>","<span class='danger'>[src] blows up in your face!</span>", "You hear a loud bang!")
@@ -71,6 +75,10 @@
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	w_class = 3
 	force = 5
+
+	accuracy = HEAVY_ACCURACY_UNWIELDED
+	accuracy_wielded = HEAVY_ACCURACY_WIELDED
+
 
 // shotgun construction
 
@@ -156,6 +164,9 @@
 	load_method = MAGAZINE
 	jam_chance = 20
 	needspin = FALSE
+
+	accuracy = PISTOL_ACCURACY_UNWIELDED
+	accuracy_wielded = PISTOL_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/projectile/improvised_handgun/examine(mob/user)
 	..(user)

@@ -56,7 +56,7 @@
 	var/move_delay = 1
 	var/fire_sound = 'sound/weapons/Gunshot.ogg'
 	var/fire_sound_text = "gunshot"
-	var/recoil = 0		//screen shake
+	var/recoil = 2		//screen shake
 	var/silenced = 0
 	var/muzzle_flash = 3
 	var/accuracy = 0   //accuracy is measured in tiles. +1 accuracy means that everything is effectively one tile closer for the purpose of miss chance, -1 means the opposite. launchers are not supported, at the moment.
@@ -78,9 +78,9 @@
 	var/list/firemodes = list()
 
 	//wielding information
-	var/fire_delay_wielded = 0
-	var/recoil_wielded = 0
-	var/accuracy_wielded = 0
+	var/fire_delay_wielded = 0 //The new delay of the weapon, if it is wielded. Leave at 0 if you want no change from the original value.
+	var/recoil_wielded = 0 //The new recoil of the weapon, if it is wielded. Leave at 0 if you want no change from the original value.
+	var/accuracy_wielded = 0 //The new accuracy of the weapon, if it is wielded. Leave at 0 if you want no change from the original value.
 	var/wielded = 0
 	var/needspin = TRUE
 
@@ -92,6 +92,8 @@
 	var/tmp/lock_time = -100
 
 	var/enable_dual_fire = TRUE //Set to false if you don't want this to trigger or be triggered by dual firing.
+
+	action_button_name = "Wield gun"
 
 /obj/item/weapon/gun/Initialize(mapload)
 	. = ..()
@@ -118,6 +120,20 @@
 		I.pixel_y = knife_y_offset
 		underlays += I
 	return ..()
+
+/obj/item/weapon/gun/proc/can_wield()
+	return 1
+
+/obj/item/weapon/gun/ui_action_click()
+	if(src in usr)
+		toggle_wield(usr)
+
+/obj/item/weapon/gun/verb/wield_gun()
+	set name = "Wield Gun"
+	set category = "Object"
+	set src in usr
+
+	toggle_wield(usr)
 
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
@@ -546,10 +562,6 @@
 	var/datum/firemode/new_mode = switch_firemodes(user)
 	if(new_mode)
 		user << "<span class='notice'>\The [src] is now set to [new_mode.name].</span>"
-
-//Handling of rifles and two-handed weapons.
-/obj/item/weapon/gun/proc/can_wield()
-	return 0
 
 /obj/item/weapon/gun/proc/toggle_wield(mob/user as mob)
 	if(!can_wield())

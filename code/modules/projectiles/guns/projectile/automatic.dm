@@ -19,6 +19,10 @@
 		list(mode_name="short bursts",   burst=5, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1,-2,-2), dispersion=list(5, 10, 15, 20))
 		)
 
+	accuracy = SMG_ACCURACY_UNWIELDED
+	accuracy_wielded = SMG_ACCURACY_WIELDED
+
+
 //Submachine guns and personal defence weapons, go.
 
 /obj/item/weapon/gun/projectile/automatic/mini_uzi
@@ -107,7 +111,6 @@
 
 	//slower to regain aim, more inaccurate if not wielding
 	fire_delay = 10
-	accuracy = -2
 
 	//wielding information
 	fire_delay_wielded = 6
@@ -115,6 +118,10 @@
 
 	//action button for wielding
 	action_button_name = "Wield rifle"
+
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
+
 
 /obj/item/weapon/gun/projectile/automatic/rifle/can_wield()
 	return 1
@@ -251,6 +258,10 @@
 
 	var/cover_open = 0
 
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
+
+
 /obj/item/weapon/gun/projectile/automatic/rifle/l6_saw/special_check(mob/user)
 	if(cover_open)
 		user << "<span class='warning'>[src]'s cover is open! Close it before firing!</span>"
@@ -338,6 +349,9 @@
 		list(mode_name="dual coil",	burst=2, move_delay=8, accuracy = list(-2,-3), dispersion = list(20))
 		)
 
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
+
 
 /obj/item/weapon/gun/projectile/automatic/terminator
 	name = "flechette rifle"
@@ -373,6 +387,10 @@
 	scoped_accuracy = 2
 
 	action_button_name = "Wield rifle"
+
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
+
 
 /obj/item/weapon/gun/projectile/automatic/terminator/verb/scope()
 	set category = "Object"
@@ -430,6 +448,9 @@
 		list(mode_name="semiauto",       burst=1, fire_delay= 10,    move_delay=null, burst_accuracy=null, dispersion=null),
 		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1),       dispersion=list(0, 10, 15))
 		)
+
+	accuracy = SHOTGUN_ACCURACY_UNWIELDED
+	accuracy_wielded = SHOTGUN_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/projectile/automatic/rifle/shotgun/update_icon()
 	..()

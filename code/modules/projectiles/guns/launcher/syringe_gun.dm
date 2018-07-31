@@ -83,6 +83,9 @@
 	var/max_darts = 1
 	var/obj/item/weapon/syringe_cartridge/next
 
+	accuracy = SMG_ACCURACY_UNWIELDED
+	accuracy_wielded = SMG_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/launcher/syringe/consume_next_projectile()
 	if(next)
 		next.prime()

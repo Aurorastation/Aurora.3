@@ -18,6 +18,10 @@
 	var/max_rockets = 1
 	var/list/rockets = new/list()
 
+	accuracy = HEAVY_ACCURACY_UNWIELDED
+	accuracy_wielded = HEAVY_ACCURACY_WIELDED
+
+
 /obj/item/weapon/gun/launcher/rocket/examine(mob/user)
 	if(!..(user, 2))
 		return

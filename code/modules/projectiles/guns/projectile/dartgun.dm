@@ -64,6 +64,9 @@
 	var/container_type = /obj/item/weapon/reagent_containers/glass/beaker
 	var/list/starting_chems = null
 
+	accuracy = SMG_ACCURACY_UNWIELDED
+	accuracy_wielded = SMG_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/projectile/dartgun/Initialize()
 	. = ..()
 	if(starting_chems)

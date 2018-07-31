@@ -21,6 +21,9 @@
 
 	action_button_name = "Wield rifle"
 
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/saw_off(mob/user, obj/item/tool)
 	icon_state = "obrez"
 	w_class = 3
@@ -49,6 +52,9 @@
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	can_bayonet = FALSE
 
+	accuracy = SMG_ACCURACY_UNWIELDED
+	accuracy_wielded = SMG_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/projectile/contender
 	name = "pocket rifle"
 	desc = "A perfect, pristine replica of an ancient one-shot hand-cannon. This one has been modified to work almost like a bolt-action. Uses 5.56mm rounds."
@@ -63,6 +69,9 @@
 	fire_sound = 'sound/weapons/gunshot3.ogg'
 	var/retracted_bolt = 0
 	var/icon_retracted = "pockrifle-empty"
+
+	accuracy = SMG_ACCURACY_UNWIELDED
+	accuracy_wielded = SMG_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/projectile/contender/special_check(mob/user)
 	if(retracted_bolt)
@@ -114,6 +123,9 @@
 	can_bayonet = TRUE
 	var/open_bolt = 0
 	var/obj/item/ammo_magazine/boltaction/vintage/has_clip
+
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/vintage/attack_self(mob/living/user as mob)
 	if(wielded)

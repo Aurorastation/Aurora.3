@@ -15,6 +15,9 @@
 	can_turret = 1
 	turret_sprite_set = "ion"
 
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/energy/ionrifle/emp_act(severity)
 	..(max(severity, 2)) //so it doesn't EMP itself, I guess
 
@@ -32,6 +35,9 @@
 	recharge_time = 10
 	can_turret = 0
 
+	accuracy = 0
+	accuracy_wielded = 0
+
 /obj/item/weapon/gun/energy/decloner
 	name = "biological demolecularisor"
 	desc = "A gun that discharges high amounts of controlled radiation to slowly break a target into component elements."
@@ -41,6 +47,9 @@
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 4, TECH_POWER = 3)
 	max_shots = 10
 	projectile_type = /obj/item/projectile/energy/declone
+
+	accuracy = PISTOL_ACCURACY_UNWIELDED
+	accuracy_wielded = PISTOL_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/energy/floragun
 	name = "floral somatoray"
@@ -59,6 +68,9 @@
 		list(mode_name="induce mutations", projectile_type=/obj/item/projectile/energy/floramut, modifystate="floramut"),
 		list(mode_name="increase yield", projectile_type=/obj/item/projectile/energy/florayield, modifystate="florayield")
 		)
+
+	accuracy = PISTOL_ACCURACY_UNWIELDED
+	accuracy_wielded = PISTOL_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/energy/floragun/afterattack(obj/target, mob/user, adjacent_flag)
 	//allow shooting into adjacent hydrotrays regardless of intent
@@ -83,6 +95,9 @@
 	can_turret = 1
 	turret_sprite_set = "meteor"
 
+	accuracy = HEAVY_ACCURACY_UNWIELDED
+	accuracy_wielded = HEAVY_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/energy/meteorgun/pen
 	name = "meteor pen"
 	desc = "The pen is mightier than the sword."
@@ -93,6 +108,8 @@
 	slot_flags = SLOT_BELT
 	can_turret = 0
 
+	accuracy = 0
+	accuracy_wielded = 0
 
 /obj/item/weapon/gun/energy/mindflayer
 	name = "mind flayer"
@@ -102,6 +119,9 @@
 	fire_sound = 'sound/weapons/Laser.ogg'
 	can_turret = 1
 	turret_sprite_set = "xray"
+
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/energy/toxgun
 	name = "phoron pistol"
@@ -114,6 +134,9 @@
 	can_turret = 1
 	turret_is_lethal = 0
 	turret_sprite_set = "net"
+
+	accuracy = PISTOL_ACCURACY_UNWIELDED
+	accuracy_wielded = PISTOL_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/energy/beegun
 	name = "\improper NanoTrasen Portable Apiary"
@@ -133,6 +156,9 @@
 	move_delay = 3
 	fire_delay = 0
 	dispersion = list(0, 8)
+
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/energy/mousegun
 	name = "\improper NT \"Arodentia\" Exterminator ray"
@@ -154,6 +180,9 @@
 	dispersion = list(0, 15, 15)
 
 	var/lightfail = 0
+
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/energy/mousegun/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
 	var/T = get_turf(user)
@@ -181,12 +210,18 @@
 	recharge_time = 40
 	can_turret = 0
 
+	accuracy = 0
+	accuracy_wielded = 0
+
 /* Vaurca Weapons */
 
 /obj/item/weapon/gun/energy/vaurca
 	name = "Alien Firearm"
 	desc = "Vaurcae weapons tend to be specialized and highly lethal. This one doesn't do much"
 	var/is_charging = 0 //special var for sanity checks in the three guns that currently use charging as a special_check
+
+	accuracy = HEAVY_ACCURACY_UNWIELDED
+	accuracy_wielded = HEAVY_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/energy/vaurca/bfg
 	name = "BFG 9000"
@@ -202,7 +237,9 @@
 	max_shots = 3
 	sel_mode = 1
 	fire_delay = 10
-	accuracy = 20
+	accuracy = 10
+	accuracy_wielded = 20
+
 	muzzle_flash = 10
 
 #define GATLINGLASER_DISPERSION_CONCENTRATED list(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
@@ -234,6 +271,9 @@
 
 	action_button_name = "Wield gatling laser"
 	charge_cost = 50
+
+	accuracy = HEAVY_ACCURACY_UNWIELDED
+	accuracy_wielded = HEAVY_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/energy/vaurca/gatlinglaser/can_wield()
 	return 1
@@ -295,6 +335,9 @@
 		list(mode_name="concentrated burst", burst=3, burst_delay = 1, fire_delay = 5)
 		)
 
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/energy/vaurca/typec
 	name = "thermal lance"
 	desc = "A powerful piece of Zo'rane energy artillery, converted to be portable...if you weigh a metric tonne, that is."
@@ -328,6 +371,9 @@
 	needspin = FALSE
 
 	action_button_name = "Wield thermal lance"
+
+	accuracy = HEAVY_ACCURACY_UNWIELDED
+	accuracy_wielded = HEAVY_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/energy/vaurca/typec/can_wield()
 	return 1
@@ -430,6 +476,9 @@
 
 	action_button_name = "Wield thermal drill"
 
+	accuracy = HEAVY_ACCURACY_UNWIELDED
+	accuracy_wielded = HEAVY_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/energy/vaurca/thermaldrill/can_wield()
 	return 1
 
@@ -491,6 +540,9 @@
 	use_external_power = 1
 	charge_cost = 25
 
+	accuracy = 0
+	accuracy_wielded = 0
+
 /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill/special_check(var/mob/user)
 	if(is_charging)
 		user << "<span class='danger'>\The [src] is already charging!</span>"
@@ -522,6 +574,9 @@
 	fire_delay = 1
 	can_turret = 0
 
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/energy/tesla
 	name = "tesla gun"
 	desc = "A gun that shoots a projectile that bounces from living thing to living thing. Keep your distance from whatever you are shooting at."
@@ -537,8 +592,10 @@
 	max_shots = 3
 	sel_mode = 1
 	fire_delay = 10
-	accuracy = 80
 	muzzle_flash = 15
+
+	accuracy = 40
+	accuracy_wielded = 80
 
 /obj/item/weapon/gun/energy/gravity_gun
 	name = "gravity gun"
@@ -555,5 +612,7 @@
 	max_shots = 2
 	sel_mode = 1
 	fire_delay = 20
-	accuracy = 40
 	muzzle_flash = 10
+
+	accuracy = 20
+	accuracy_wielded = 40

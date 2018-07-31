@@ -10,11 +10,17 @@
 	turret_sprite_set = "carbine"
 	turret_is_lethal = 0
 
+	accuracy = PISTOL_ACCURACY_UNWIELDED
+	accuracy_wielded = PISTOL_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/energy/taser/mounted
 	name = "mounted taser gun"
 	self_recharge = 1
 	use_external_power = 1
 	can_turret = 0
+
+	accuracy = 0
+	accuracy_wielded = 0
 
 /obj/item/weapon/gun/energy/taser/mounted/cyborg
 	name = "taser gun"
@@ -31,6 +37,9 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_POWER = 2)
 	projectile_type = /obj/item/projectile/energy/electrode
 	max_shots = 8
+
+	accuracy = PISTOL_ACCURACY_UNWIELDED
+	accuracy_wielded = PISTOL_ACCURACY_WIELDED
 
 
 /obj/item/weapon/gun/energy/crossbow
@@ -52,12 +61,18 @@
 	turret_sprite_set = "crossbow"
 	charge_failure_message = "'s charging socket was removed to make room for a minaturized reactor."
 
+	accuracy = PISTOL_ACCURACY_UNWIELDED
+	accuracy_wielded = PISTOL_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/energy/crossbow/get_cell()
 	return DEVICE_NO_CELL
 
 /obj/item/weapon/gun/energy/crossbow/ninja
 	name = "energy dart thrower"
 	projectile_type = /obj/item/projectile/energy/dart
+
+	accuracy = PISTOL_ACCURACY_UNWIELDED
+	accuracy_wielded = PISTOL_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/energy/crossbow/largecrossbow
 	name = "energy crossbow"
@@ -68,4 +83,7 @@
 	item_state = "crossbow"
 	matter = list(DEFAULT_WALL_MATERIAL = 200000)
 	projectile_type = /obj/item/projectile/energy/bolt/large
+
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
 

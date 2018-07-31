@@ -13,6 +13,9 @@
 	can_turret = 1
 	turret_sprite_set = "laser"
 
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/energy/laser/mounted
 	name = "mounted laser carbine"
 	self_recharge = 1
@@ -37,6 +40,9 @@ obj/item/weapon/gun/energy/retro
 	can_turret = 1
 	turret_sprite_set = "retro"
 
+	accuracy = SMG_ACCURACY_UNWIELDED
+	accuracy_wielded = SMG_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/energy/captain
 	name = "antique laser gun"
 	icon_state = "caplaser"
@@ -53,6 +59,9 @@ obj/item/weapon/gun/energy/retro
 	can_turret = 1
 	turret_sprite_set = "captain"
 
+	accuracy = SMG_ACCURACY_UNWIELDED
+	accuracy_wielded = SMG_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/energy/lasercannon
 	name = "laser cannon"
 	desc = "With the laser cannon, the lasing medium is enclosed in a tube lined with uranium-235 and subjected to high neutron flux in a nuclear reactor core. This incredible technology may help YOU achieve high excitation rates with small laser volumes!"
@@ -68,12 +77,18 @@ obj/item/weapon/gun/energy/retro
 	can_turret = 1
 	turret_sprite_set = "cannon"
 
+	accuracy = HEAVY_ACCURACY_UNWIELDED
+	accuracy_wielded = HEAVY_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/energy/lasercannon/mounted
 	name = "mounted laser cannon"
 	self_recharge = 1
 	use_external_power = 1
 	recharge_time = 10
 	can_turret = 0
+
+	accuracy = 0
+	accuracy_wielded = 0
 
 /obj/item/weapon/gun/energy/xray
 	name = "xray laser gun"
@@ -89,6 +104,9 @@ obj/item/weapon/gun/energy/retro
 	can_turret = 1
 	turret_sprite_set = "xray"
 
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/energy/xray/mounted
 	name = "mounted xray laser gun"
 	charge_cost = 200
@@ -96,6 +114,9 @@ obj/item/weapon/gun/energy/retro
 	use_external_power = 1
 	recharge_time = 5
 	can_turret = 0
+
+	accuracy = 0
+	accuracy_wielded = 0
 
 /obj/item/weapon/gun/energy/sniperrifle
 	name = "marksman energy rifle"
@@ -111,13 +132,14 @@ obj/item/weapon/gun/energy/retro
 	fire_delay = 45
 	force = 10
 	w_class = 4
-	accuracy = -5 //shooting at the hip
 	scoped_accuracy = 0
 	can_turret = 1
 	turret_sprite_set = "sniper"
 
 	fire_delay_wielded = 35
-	accuracy_wielded = -3
+
+	accuracy = SNIPER_ACCURACY_UNWIELDED
+	accuracy_wielded = SNIPER_ACCURACY_WIELDED
 
 	//action button for wielding
 	action_button_name = "Wield rifle"
@@ -161,6 +183,9 @@ obj/item/weapon/gun/energy/retro
 	can_turret = 1
 	turret_sprite_set = "laser"
 
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
+
 ////////Laser Tag////////////////////
 
 /obj/item/weapon/gun/energy/lasertag
@@ -173,6 +198,9 @@ obj/item/weapon/gun/energy/retro
 	fire_sound = 'sound/weapons/Laser.ogg'
 	projectile_type = /obj/item/projectile/beam/lastertag/blue
 	var/required_vest
+
+	accuracy = SMG_ACCURACY_UNWIELDED
+	accuracy_wielded = SMG_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/energy/lasertag/special_check(var/mob/living/carbon/human/M)
 	if(ishuman(M))

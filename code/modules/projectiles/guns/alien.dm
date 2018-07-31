@@ -16,6 +16,9 @@
 	fire_sound = 'sound/weapons/bladeslice.ogg'
 	needspin = FALSE
 
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/launcher/spikethrower/Initialize()
 	. = ..()
 	last_regen = world.time
@@ -81,6 +84,9 @@
 	sprite_sheets = list(
 		"Vox Armalis" = 'icons/mob/species/armalis/held.dmi'
 		)
+
+	accuracy = HEAVY_ACCURACY_UNWIELDED
+	accuracy_wielded = HEAVY_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/energy/noisecannon/attack_hand(mob/user as mob)
 	if(loc != user)

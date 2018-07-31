@@ -4,6 +4,10 @@
 	icon_state = "icelance"
 	item_state = "icelance"
 	fire_sound = 'sound/weapons/Laser.ogg'
+
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
+
 	max_shots = 3
 	fire_delay = 10
 	fire_delay_wielded = 8

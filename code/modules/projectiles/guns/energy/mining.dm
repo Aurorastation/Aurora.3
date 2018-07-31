@@ -24,6 +24,9 @@
 	projectile_type = /obj/item/projectile/beam/plasmacutter
 	max_shots = 15
 
+	accuracy = SMG_ACCURACY_UNWIELDED
+	accuracy_wielded = SMG_ACCURACY_WIELDED
+
 /obj/item/projectile/beam/plasmacutter
 	name = "plasma arc"
 	icon_state = "omnilaser"

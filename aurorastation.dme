@@ -49,6 +49,7 @@
 #include "code\__defines\tgs.dm"
 #include "code\__defines\time.dm"
 #include "code\__defines\turfs.dm"
+#include "code\__defines\weapons.dm"
 #include "code\__defines\webhook.dm"
 #include "code\__defines\ZAS.dm"
 #include "code\_helpers\_string_lists.dm"

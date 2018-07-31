@@ -9,6 +9,9 @@
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
 
+	accuracy = PISTOL_ACCURACY_UNWIELDED
+	accuracy_wielded = PISTOL_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/projectile/colt/update_icon()
 	..()
 	if(ammo_magazine && ammo_magazine.stored_ammo.len)
@@ -47,6 +50,9 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot_pistol.ogg'
 	load_method = MAGAZINE
+
+	accuracy = PISTOL_ACCURACY_UNWIELDED
+	accuracy_wielded = PISTOL_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/projectile/sec/update_icon()
 	..()
@@ -91,6 +97,9 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
+	accuracy = SMG_ACCURACY_UNWIELDED
+	accuracy_wielded = SMG_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/projectile/tanto
 	desc = "A Necropolis Industries Tanto .40, designed to compete with the NT Mk58. Uses 10mm rounds."
 	name = "10mm pistol"
@@ -102,6 +111,9 @@
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
 	sel_mode = 1
+
+	accuracy = SMG_ACCURACY_UNWIELDED
+	accuracy_wielded = SMG_ACCURACY_WIELDED
 
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),
@@ -128,6 +140,9 @@
 	magazine_type = /obj/item/ammo_magazine/c45m
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 
+	accuracy = PISTOL_ACCURACY_UNWIELDED
+	accuracy_wielded = PISTOL_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/projectile/deagle
 	name = ".50 magnum pistol"
 	desc = "A robust handgun that uses .50 AE ammo."
@@ -139,6 +154,9 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/a50)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+
+	accuracy = PISTOL_ACCURACY_UNWIELDED
+	accuracy_wielded = PISTOL_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/projectile/deagle/update_icon()
 	..()
@@ -171,6 +189,9 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
+	accuracy = PISTOL_ACCURACY_UNWIELDED
+	accuracy_wielded = PISTOL_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/projectile/gyropistol/update_icon()
 	..()
 	if(ammo_magazine)
@@ -191,6 +212,9 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mm
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm)
+
+	accuracy = PISTOL_ACCURACY_UNWIELDED
+	accuracy_wielded = PISTOL_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/projectile/pistol/flash
 	name = "9mm signal pistol"
@@ -255,6 +279,9 @@
 	handle_casings = CYCLE_CASINGS //player has to take the old casing out manually before reloading
 	load_method = SINGLE_CASING
 	max_shells = 1 //literally just a barrel
+
+	accuracy = PISTOL_ACCURACY_UNWIELDED
+	accuracy_wielded = PISTOL_ACCURACY_WIELDED
 
 	var/global/list/ammo_types = list(
 		/obj/item/ammo_casing/a357              = ".357",

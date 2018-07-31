@@ -23,6 +23,9 @@
 	var/max_grenades = 5 //holds this + one in the chamber
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
+
 //revolves the magazine, allowing players to choose between multiple grenade types
 /obj/item/weapon/gun/launcher/grenade/proc/pump(mob/M as mob)
 	playsound(M, 'sound/weapons/shotgunpump.ogg', 60, 1)

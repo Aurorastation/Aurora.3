@@ -22,6 +22,10 @@
 	var/force_divisor = 400                             // Force equates to speed. Speed/5 equates to a damage multiplier for whoever you hit.
 	                                                    // For reference, a fully pressurized oxy tank at 50% gas release firing a health
 	                                                    // analyzer with a force_divisor of 10 hit with a damage multiplier of 3000+.
+
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
+
 /obj/item/weapon/gun/launcher/pneumatic/Initialize()
 	. = ..()
 	item_storage = new(src)

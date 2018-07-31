@@ -16,6 +16,9 @@
 
 	cell_type = /obj/item/weapon/cell/crap //WAS High, but brought down to match energy use
 
+	accuracy = RIFLE_ACCURACY_UNWIELDED
+	accuracy_wielded = RIFLE_ACCURACY_WIELDED
+
 /*
 /obj/item/weapon/gun/energy/temperature/New()
 	..()
