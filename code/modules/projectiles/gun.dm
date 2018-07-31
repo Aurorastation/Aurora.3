@@ -79,7 +79,7 @@
 
 	//wielding information
 	var/fire_delay_wielded = 0 //The new delay of the weapon, if it is wielded. Leave at 0 if you want no change from the original value.
-	var/recoil_wielded = 0 //The new recoil of the weapon, if it is wielded. Leave at 0 if you want no change from the original value.
+	var/recoil_wielded = -1 //The new recoil of the weapon, if it is wielded. Leave at 0 if you want no change from the original value.
 	var/accuracy_wielded = 0 //The new accuracy of the weapon, if it is wielded. Leave at 0 if you want no change from the original value.
 	var/wielded = 0
 	var/needspin = TRUE
@@ -288,10 +288,8 @@
 		if(istype(the_gun,/obj/item/weapon/gun/offhand) || !istype(the_gun) || !the_gun.enable_dual_fire)
 			return
 
-		spawn(fire_delay/2)
-			the_gun.Fire(target,user,clickparams,pointblank,reflex,0)
-
-
+		var/adjusted_delay = (max(fire_delay,DEFAULT_QUICK_COOLDOWN) / 2) - 1
+		addtimer(CALLBACK(the_gun, .proc/Fire, target, user, clickparams, pointblank, reflex, 0), adjusted_delay)
 
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
 /obj/item/weapon/gun/proc/Fire_userless(atom/target)
@@ -664,6 +662,8 @@
 	name = "offhand"
 	needspin = FALSE
 
+	action_button_name = null
+
 	unwield()
 		if (ismob(loc))
 			var/mob/the_mob = loc
@@ -691,6 +691,9 @@
 
 	mob_can_equip(M as mob, slot)
 		return 0
+
+/obj/item/weapon/gun/offhand/can_wield()
+	return 0
 
 obj/item/weapon/gun/Destroy()
 	if (istype(pin))

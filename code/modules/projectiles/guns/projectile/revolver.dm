@@ -11,8 +11,8 @@
 	fire_sound = 'sound/weapons/revolver_shoot.ogg'
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
 
-	accuracy = PISTOL_ACCURACY_UNWIELDED
-	accuracy_wielded = PISTOL_ACCURACY_WIELDED
+	accuracy = HEAVY_PISTOL_ACCURACY_UNWIELDED
+	accuracy_wielded = HEAVY_PISTOL_ACCURACY_WIELDED
 
 /obj/item/weapon/gun/projectile/revolver/verb/spin_cylinder()
 	set name = "Spin cylinder"
