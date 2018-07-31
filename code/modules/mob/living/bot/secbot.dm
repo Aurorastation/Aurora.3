@@ -394,7 +394,7 @@
 		if(loc == next)
 			path -= next
 			return
-		walk_to(src, next, 1, move_to_delay-2)
+		walk_to(src, next, 1, move_to_delay+2)
 		path -= next
 		frustration = 0
 		if(frustration > 5) // Make a new path
