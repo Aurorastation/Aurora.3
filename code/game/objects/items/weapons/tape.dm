@@ -8,7 +8,7 @@
 
 /obj/item/weapon/tape_roll/proc/take_charge(var/mob/user,var/amount)
 	charge -= amount
-	if(charge < 0)
+	if(charge <= 0)
 		to_chat(user,"<span class='notice'>You ran out of tape!</span>")
 		qdel(src)
 
