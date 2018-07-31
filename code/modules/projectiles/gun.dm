@@ -59,7 +59,7 @@
 	var/recoil = 2		//screen shake
 	var/silenced = 0
 	var/muzzle_flash = 3
-	var/accuracy = 0   //accuracy is measured in tiles. +1 accuracy means that everything is effectively one tile closer for the purpose of miss chance, -1 means the opposite. launchers are not supported, at the moment.
+	var/accuracy = RIFLE_ACCURACY_UNWIELDED   //accuracy is measured in tiles. +1 accuracy means that everything is effectively one tile closer for the purpose of miss chance, -1 means the opposite. launchers are not supported, at the moment.
 	var/scoped_accuracy = null
 	var/list/burst_accuracy = list(0) //allows for different accuracies for each shot in a burst. Applied on top of accuracy
 	var/list/dispersion = list(0)
@@ -80,7 +80,7 @@
 	//wielding information
 	var/fire_delay_wielded = 0 //The new delay of the weapon, if it is wielded. Leave at 0 if you want no change from the original value.
 	var/recoil_wielded = -1 //The new recoil of the weapon, if it is wielded. Leave at 0 if you want no change from the original value.
-	var/accuracy_wielded = 0 //The new accuracy of the weapon, if it is wielded. Leave at 0 if you want no change from the original value.
+	var/accuracy_wielded = RIFLE_ACCURACY_WIELDED //The new accuracy of the weapon, if it is wielded. Leave at 0 if you want no change from the original value.
 	var/wielded = 0
 	var/needspin = TRUE
 
