@@ -5181,7 +5181,7 @@
 	nutriment_desc = list("sweetness" = 1, "muffin" = 2, "berries" = 2)
 	bitesize = 2
 
-/obj/item/weapon/reagent_containers/food/snacks/onionsoup
+/obj/item/weapon/reagent_containers/food/snacks/soup/onionsoup
 	name = "onion soup"
 	desc = "A soup with layers."
 	icon_state = "onionsoup"

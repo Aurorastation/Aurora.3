@@ -1194,7 +1194,7 @@ I said no!
 /datum/recipe/onionsoup
 	fruit = list("onion" = 1)
 	reagents = list("water" = 10)
-	result = /obj/item/weapon/reagent_containers/food/snacks/onionsoup
+	result = /obj/item/weapon/reagent_containers/food/snacks/soup/onionsoup
 
 /datum/recipe/porkbowl
 	reagents = list("water" = 5, "rice" = 10)
