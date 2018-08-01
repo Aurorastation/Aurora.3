@@ -53,7 +53,7 @@
 		var/obj/item/weapon/computer_hardware/hard_drive/RHDD = computer.portable_drive
 		if(!RHDD)
 			return 1
-		var/datum/computer_file/file = RHDD.find_file_by_name(href_list["PRG_deletefile"])
+		var/datum/computer_file/file = RHDD.find_file_by_name(href_list["PRG_usbdeletefile"])
 		if(!file || file.undeletable)
 			return 1
 		RHDD.remove_file(file)
@@ -154,7 +154,7 @@
 	if(href_list["PRG_encrypt"])
 		. = 1
 		var/obj/item/weapon/computer_hardware/hard_drive/HDD = computer.hard_drive
-		if (!HDD || computer.enrolled != 2)
+		if (!HDD)
 			return
 		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_encrypt"])
 		if (!F)
@@ -163,7 +163,7 @@
 	if(href_list["PRG_decrypt"])
 		. = 1
 		var/obj/item/weapon/computer_hardware/hard_drive/HDD = computer.hard_drive
-		if (!HDD || computer.enrolled != 2)
+		if (!HDD)
 			return
 		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_encrypt"])
 		if (!F)
@@ -177,16 +177,6 @@
 
 /datum/nano_module/program/computer_filemanager
 	name = "NTOS File Manager"
-
-/datum/computer_file/proc/can_access_file(var/mob/user, input_password = "")
-	if(!password)
-		return TRUE
-	else
-		input_password = sanitize(input(user, "Please enter a password to access file '[filename]':"))
-		if (input_password == password)
-			return TRUE
-		else
-			return FALSE
 
 /datum/nano_module/program/computer_filemanager/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	var/list/data = host.initial_data()
