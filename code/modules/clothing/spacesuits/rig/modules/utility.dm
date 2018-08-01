@@ -272,6 +272,21 @@
 	interface_name = "combat chem dispenser"
 	interface_desc = "Dispenses loaded chemicals directly into the bloodstream."
 
+/obj/item/rig_module/chem_dispenser/vaurca
+
+	name = "vaurca combat chemical injector"
+	desc = "A complex web of tubing and needles suitable for vaurcan hardsuit use."
+
+	charges = list(
+		list("synaptizine",   "synaptizine",   0, 30),
+		list("hyperzine",     "hyperzine",     0, 30),
+		list("oxycodone",     "oxycodone",     0, 30),
+		list("phoron",     "phoron",     0, 60),
+		list("kois",     "k'ois paste",     0, 80)
+		)
+
+	interface_name = "vaurca combat chem dispenser"
+	interface_desc = "Dispenses loaded chemicals directly into the bloodstream."
 
 /obj/item/rig_module/chem_dispenser/injector
 
@@ -636,6 +651,7 @@
 
 		return 1
 
+
 /obj/item/rig_module/cooling_unit
 	name = "mounted cooling unit"
 	toggleable = 1
@@ -661,3 +677,63 @@
 	H.bodytemperature -= temp_adj
 	active_power_cost = round((temp_adj/max_cooling)*charge_consumption)
 	return active_power_cost
+
+/obj/item/rig_module/boring
+	name = "burrowing lasers"
+	desc = "A set of precise boring lasers designed to carve a hole beneath the user."
+	icon_state = "actuators"
+	interface_name = "boring laser"
+	interface_desc = "Allows you to burrow to the z-level below."
+
+	disruptive = 1
+
+	use_power_cost = 5
+	module_cooldown = 25
+
+	usable = 1
+
+/obj/item/rig_module/boring/engage()
+	if (!..())
+		return 0
+
+	playsound(src,'sound/magic/lightningbolt.ogg',60,1)
+	var/turf/T = get_turf(holder.wearer)
+	if(istype(T, /turf/simulated))
+		if(istype(T, /turf/simulated/mineral) || istype(T, /turf/simulated/wall) || istype(T, /turf/simulated/shuttle))
+			T.ChangeTurf(T.baseturf)
+		else
+			T.ChangeTurf(/turf/space)
+
+
+
+var/global/list/lattice_users = list()
+
+/obj/item/rig_module/lattice
+	name = "neural lattice"
+	desc = "A probing mind collar that synchronizes the subject's pain receptors with all other neural lattices on the local grid."
+	icon_state = "actuators"
+	interface_name = "neural lattice"
+	interface_desc = "Synchronize neural lattice to reduce pain."
+
+	disruptive = 0
+
+	toggleable = 1
+	confined_use = 1
+
+
+/obj/item/rig_module/lattice/activate()
+	if (!..())
+		return 0
+
+	var/mob/living/carbon/human/H = holder.wearer
+	H << "<span class='notice'>Neural lattice engaged. Pain receptors altered.</span>"
+	lattice_users.Add(H)
+
+/obj/item/rig_module/lattice/deactivate()
+	if (!..())
+		return 0
+
+	var/mob/living/carbon/human/H = holder.wearer
+	H << "<span class='notice'>Neural lattice disengaged. Pain receptors restored.</span>"
+	lattice_users.Remove(H)
+

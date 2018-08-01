@@ -478,11 +478,11 @@
 /datum/controller/subsystem/jobs/proc/centcomm_despawn_mob(mob/living/H)
 	if(ishuman(H))
 		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered long-term storage.", "[current_map.dock_name] Cryogenic Oversight")
-		H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s cryostorage, and departs.</span>", 3)
+		H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s cryostorage, and departs.</span>", "<span class='notice'>You make your way into [current_map.dock_short]'s cryostorage, and depart.</span>", range = 3)
 		DespawnMob(H)
 	else
 		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered robotic storage.", "[current_map.dock_name] Robotic Oversight")
-		H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s robotic storage, and departs.</span>", 3)
+		H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s robotic storage, and departs.</span>", "<span class='notice'>You make your way into [current_map.dock_short]'s robotic storage, and depart.</span>", range = 3)
 		DespawnMob(H)
 
 /datum/controller/subsystem/jobs/proc/EquipPersonal(mob/living/carbon/human/H, rank, joined_late = FALSE, spawning_at)
@@ -584,7 +584,7 @@
 			return
 		else
 			C = new job.idtype(H)
-			C.access = job.get_access()
+			C.access = job.get_access(title)
 	else
 		C = new /obj/item/weapon/card/id(H)
 	if(C)
