@@ -10,7 +10,7 @@
 	var/amount = 0
 	for(var/V in components)
 		var/datum/robot_component/C = components[V]
-		if(C.installed) 
+		if(C.installed)
 			amount += Clamp(C.brute_damage,0,C.max_damage)
 		else if(C.installed == -1)
 			amount += C.max_damage/2
@@ -161,7 +161,7 @@
 			components["surge"].surge_left -= 1
 			visible_message("<span class='warning'>[src] was not affected by EMP pulse.</span>", "<span class='warning'>Warning: Power surge detected, source - EMP. Surge prevention module re-routed surge to prevent damage to vital electronics.</span>")
 			if(components["surge"].surge_left)
-				to_chat(src, "<span class='notice'>surge module has [components["surge"].surge_left] preventions left!</span>")
+				to_chat(src, "<span class='notice'>Surge module has [components["surge"].surge_left] preventions left!</span>")
 			else
 				components["surge"].destroy()
 				to_chat(src, "<span class='danger'>Module is entirely fried, replacement is recommended.</span>")
