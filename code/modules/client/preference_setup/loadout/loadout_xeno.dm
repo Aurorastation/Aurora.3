@@ -40,6 +40,16 @@
 	un_gloves["white gloves"] = /obj/item/clothing/gloves/white/unathi
 	gear_tweaks += new/datum/gear_tweak/path(un_gloves)
 
+/datum/gear/uniform/unathi
+	display_name = "sinta tunic (Unathi)"
+	path = /obj/item/clothing/under/unathi
+	whitelisted = list("Unathi")
+	sort_category = "Xenowear"
+
+/datum/gear/uniform/unathi/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
 //skrell items
 
 /datum/gear/ears/f_skrell

@@ -10,7 +10,7 @@
 /obj/item/clothing/suit/unathi/robe/robe_coat //I was at a loss for names under-the-hood.
 	name = "tzirzi robes"
 	desc = "A casual Moghes-native garment typically worn by Unathi while planet-side."
-	icon = 'icons/obj/clothing/robe_coat.dmi'
+	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "robe_coat"
 	item_state = "robe_coat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
