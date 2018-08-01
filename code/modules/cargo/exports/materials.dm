@@ -43,19 +43,19 @@
 	material_id = "silver"
 	message = "silver sheets"
 
-/datum/export/material/titanium
+/datum/export/material/platinum
 	cost = 125
-	material_id = "titanium"
-	message = "titanium sheets"
+	material_id = "platinum"
+	message = "platinum sheets"
 
 /datum/export/material/metal
 	cost = 5
-	message = "metal sheets"
 	material_id = "metal"
+	message = "metal sheets"
 
 
 /datum/export/material/glass
 	cost = 5
-	message = "glass sheets"
 	material_id = "glass"
+	message = "glass sheets"
 
