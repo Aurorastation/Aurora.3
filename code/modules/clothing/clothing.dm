@@ -577,7 +577,7 @@
 	if(use_check(user))
 		return
 
-	src.hanging = !src.hanging
+	hanging = !hanging
 
 	if(hanging)
 		gas_transfer_coefficient = down_gas_transfer_coefficient
