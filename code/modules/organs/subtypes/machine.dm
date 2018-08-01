@@ -91,7 +91,7 @@
 	organ_tag = "surge"
 	parent_organ = "chest"
 	vital = 0
-	surge_left = 0
+	var/surge_left = 0
 	var/broken = 0
 
 /obj/item/organ/surge/Initialize()

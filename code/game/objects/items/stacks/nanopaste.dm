@@ -80,22 +80,24 @@
 		return 0
 
 	if (isipc(M))
-		var/obj/item/organ/surge/s = organs["chest"].internal_organs["surge"]
-		if(!isnull(surge))
+		var/obj/item/organ/surge/s = M.internal_organs_by_name["surge"]
+		if(isnull(s))
 			user.visible_message(
 			"<span class='notice'>[user] is trying to apply [src] to [(M == user) ? ("itself") : (M)]!</span>",
 			"<span class='notice'>You start applying [src] to [(M == user) ? ("yourself") : (M)]!</span>"
 			)
 
-			if (!do_mob(src, user, 1))
+			if (!do_mob(user, M, 2))
 				return 0
 
-			s = new /obj/item/organ/surge(M)
+			s = new /obj/item/organ/surge()
+			M.internal_organs += s
+			M.internal_organs_by_name["surge"] = s
 			user.visible_message(
 			"<span class='notice'>[user] applies some nanite paste to [(M == user) ? ("itself") : (M)]!</span>",
 			"<span class='notice'>You apply [src] to [(M == user) ? ("youself") : (M)].</span>"
 			)
-			to_chat((user == M) ? (src) : (M), "<span class='notice'>You can feel nanites inside you creating something new. An internal OS voice states \"Warning: surge prevention module has been installed, it has [s.surge_left] preventions left!\"</span>")
+			to_chat(((user == M) ? (user) : (M)), "<span class='notice'>You can feel nanites inside you creating something new. An internal OS voice states \"Warning: surge prevention module has been installed, it has [s.surge_left] preventions left!\"</span>")
 			amount = 0
 			used = TRUE
 			return 1
@@ -106,7 +108,7 @@
 				"<span class='notice'>You start applying [src] to [(M == user) ? ("yourself") : (M)]!</span>"
 				)
 
-				if (!do_mob(src, user, 1))
+				if (!do_mob(user, M, 2))
 					return 0
 
 				s.surge_left = rand(1, 3)
@@ -117,13 +119,13 @@
 				"<span class='notice'>[user] applies some nanite paste to [(M == user) ? ("itself") : (M)]!</span>",
 				"<span class='notice'>You apply [src] to [(M == user) ? ("yourself") : (M)].</span>"
 				)
-				to_chat((user == M) ? (src) : (M),  "<span class='notice'>You can feel nanites inside you regenerating your surge prevention module. An internal OS voice states \"Warning: surge prevention module repaired, it has [H.surge_left] preventions left!\"</span>")
+				to_chat(((user == M) ? (user) : (M)),  "<span class='notice'>You can feel nanites inside you regenerating your surge prevention module. An internal OS voice states \"Warning: surge prevention module repaired, it has [s.surge_left] preventions left!\"</span>")
 				amount = 0
 				used = TRUE
 				return 1
 
-				to_chat(user, "<span class='warning'>[(M == user) ? ("You already have") : ("[M] already has")] fully functional surge prevention module installed</span>")
-				return 0
-			else
-				to_chat(user, "<span class='warning'>[src]'s nanites refuse to work on [(M == user) ? ("you") : (M)].</span>")
-				return 0
+			to_chat(user, "<span class='warning'>[(M == user) ? ("You already have") : ("[M] already has")] fully functional surge prevention module installed</span>")
+			return 0
+	else
+		to_chat(user, "<span class='warning'>[src]'s nanites refuse to work on [(M == user) ? ("you") : (M)].</span>")
+		return 0
