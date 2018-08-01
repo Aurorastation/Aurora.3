@@ -258,9 +258,6 @@ var/global/list/plant_seed_sprites = list()
 /obj/item/seeds/cherryseed
 	seed_type = "cherry"
 
-/obj/item/seeds/tobaccoseed
-	seed_type = "tobacco"
-
 /obj/item/seeds/kudzuseed
 	seed_type = "kudzu"
 
@@ -296,3 +293,18 @@ var/global/list/plant_seed_sprites = list()
 
 /obj/item/seeds/nifberries
 	seed_type = "nifberries"
+
+/obj/item/seeds/tobaccoseed
+	seed_type = "tobacco"
+
+/obj/item/seeds/finetobacco
+	seed_type = "finetobacco"
+
+/obj/item/seeds/peppercornseed
+	seed_type = "peppercorn"
+
+/obj/item/seeds/garlicseed
+	seed_type = "garlic"
+
+/obj/item/seeds/onionseed
+	seed_type = "onion"
