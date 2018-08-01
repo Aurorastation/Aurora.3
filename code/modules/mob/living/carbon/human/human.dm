@@ -1296,6 +1296,9 @@
 	if (src.is_diona())
 		setup_gestalt(1)
 
+	burn_mod = species.burn_mod
+	brute_mod = species.brute_mod
+
 	max_stamina = species.stamina
 	stamina = max_stamina
 	sprint_speed_factor = species.sprint_speed_factor

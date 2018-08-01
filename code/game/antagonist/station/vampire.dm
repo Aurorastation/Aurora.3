@@ -33,5 +33,5 @@ var/datum/antagonist/vampire/vamp = null
 		vampirepowers += new type()
 
 /datum/antagonist/vampire/update_antag_mob(var/datum/mind/player)
-		..()
-		player.current.make_vampire()
+	..()
+	player.current.make_vampire()

@@ -195,7 +195,7 @@
 		return 1
 
 /obj/vehicle/proc/explode()
-	src.visible_message("<span class='danger'>[src] blows apart!</span>", 1)
+	visible_message("<span class='danger'>[src] blows apart!</span>")
 	var/turf/Tsec = get_turf(src)
 
 	new /obj/item/stack/rods(Tsec)
