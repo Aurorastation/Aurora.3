@@ -45,7 +45,8 @@
 
 		var/trans = reagents.trans_to_obj(target, amount_per_transfer_from_this)
 		user << "<span class='notice'>You add [trans] units of the condiment to \the [target].</span>"
-	feed_sound(var/mob/user)
+
+/obj/item/weapon/reagent_containers/food/condiment/feed_sound(var/mob/user)
 	playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
 
 /obj/item/weapon/reagent_containers/food/condiment/self_feed_message(var/mob/user)
