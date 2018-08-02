@@ -27,7 +27,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 	icon_state = "1"
 	var/visibility = 0
 	unacidable = 1
-	layer = TURF_LAYER
+	layer = ABOVE_CABLE_LAYER
 
 
 	var/word1
