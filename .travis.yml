@@ -70,8 +70,9 @@ jobs:
         - (! grep -r --include=\*.dm '#define UIDEBUG' ./)
         - (cd vueui && npm run lint)
         - (cd vueui && npm run build)
+        - (git diff --stat --exit-code)
         - (num=`grep -E '\\\\(red|blue|green|black|b|i[^mc])' **/*.dm | wc -l`; echo "$num escapes (expecting ${MACRO_COUNT} or less)"; [ $num -le ${MACRO_COUNT} ])
         - awk -f tools/indentation.awk **/*.dm
         - md5sum -c - <<< "94c0d540b3b0f008fbc4353e667de690 *html/changelogs/example.yml"
-        - md5sum -c - <<< "60ba226bfce15133e8b78a7cbce525e4 *vueui/template.html"
+        - md5sum -c - <<< "51704c822012212faa577079db2e11fd *vueui/template.html"
         - python tools/TagMatcher/tag-matcher.py ../..
