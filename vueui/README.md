@@ -1,4 +1,4 @@
-# vueui - Vue.js based UI framework for SS13
+# VueUi - Vue.js based UI framework for SS13
 This UI framework is mostly composed of four main parts:
  - Main JS file and supporting HTML code
  - UI DM datum, responsible for linking opened ui window with code
@@ -40,19 +40,18 @@ Simply use `Topic` proc to get ui action calls from ui.
 ### Step 4: Make ui itself.
 It is recommended to [enable debugging](.#debug-ui) for this step to make things easier. 
 
-To create ui itself, you need to create `.vue` file somewhere in `\vueui\src\components\view`. Example vueui file:
+To create ui itself, you need to create `.vue` file somewhere in `\vueui\src\components\view`. Depending on location of .vue file depends it's component name. Example `\vueui\src\components\view\uiname.vue` file:
 ```vue
 <template>
-    <div>
-        <p>{{ counter }}</p>
-        <vui-button :params="{ action: 'test', data: 'This is from ui.' }">Call topic</vui-button>
-        <vui-button @click="counter++">Increment counter</vui-button>
-    </div>
+  <div>
+    <p>{{ counter }}</p>
+    <vui-button :params="{ action: 'test', data: 'This is from ui.' }">Call topic</vui-button>
+    <vui-button @click="counter++">Increment counter</vui-button>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'view-uiname',
   data() {
     return this.$root.$data.state; // Make data more easily accessible
   }
@@ -61,7 +60,7 @@ export default {
 
 <style lang="scss" scoped>
 p {
-    font-size: 3em;
+  font-size: 3em;
 }
 </style>
 ```

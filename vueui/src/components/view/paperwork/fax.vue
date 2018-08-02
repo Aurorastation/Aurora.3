@@ -35,20 +35,19 @@
 
 <script>
 export default {
-    name: 'view-paperwork-fax',
-    data() {
-        return this.$root.$data;
-    },
-    computed: {
-        remaining_cooldown() {
-            return this.state.cooldownend - this.wtime 
-        }
-    },
-    filters: {
-        roundRemaining(value) {
-            return Math.round(value / 10);
-        }
+  data() {
+    return this.$root.$data;
+  },
+  computed: {
+    remaining_cooldown() {
+      return this.state.cooldownend - this.wtime 
     }
+  },
+  filters: {
+    roundRemaining(value) {
+      return Math.round(value / 10);
+    }
+  }
 };
 </script>
 

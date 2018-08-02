@@ -20,10 +20,9 @@
 
 <script>
 export default {
-    name: 'view-console-atmocontrol-main',
-    data() {
-        return this.$root.$data;
-    }
+  data() {
+    return this.$root.$data;
+  }
 };
 </script>
 

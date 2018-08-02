@@ -24,19 +24,18 @@
 
 <script>
 export default {
-    name: 'view-paperwork-photocopier',
-    data() {
-        return this.$root.$data;
-    }
+  data() {
+    return this.$root.$data;
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 .copylabel {
-    display: inline-block;
-    width: initial;
+  display: inline-block;
+  width: initial;
 }
 .copyBlock {
-    display: inline-block;
+  display: inline-block;
 }
 </style>

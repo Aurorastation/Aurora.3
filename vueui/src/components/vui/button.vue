@@ -9,58 +9,56 @@
 import Store from '../../store.js'
 
 export default {
-    name: 'vui-button',
-    props: {
-        icon: {
-            type: String,
-            default: ""
-        },
-        params: {
-            type: Object,
-            default() {
-                return {}
-            }
-        },
-        pushState: {
-            type: Boolean,
-            default: false
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        }
+  props: {
+    icon: {
+      type: String,
+      default: ""
     },
-    methods: {
-        senddata() {
-            if(this.$root.$data.status < 2 || this.disabled) {
-                return
-            }
-            this.$emit('click')
-            if(!this.params) {
-                if (this.pushState) {
-                    Store.pushState()
-                }
-                return
-            }
-            var sendparams = []
-            for(var val in this.params) {
-                sendparams.push(encodeURIComponent(val) + "=" + encodeURIComponent(this.params[val]))
-            }
-            var r = new XMLHttpRequest()
-            var sendUrl = "?src=" + Store.state.uiref + "&" + sendparams.join("&")
-            if (this.pushState) {
-                sendUrl += "&" + Store.getStatePushString()
-            }
-            r.open("GET", sendUrl, true);
-            r.send()
-        }
+    params: {
+      type: Object,
+      default() {
+        return {}
+      }
+    },
+    pushState: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
+  },
+  methods: {
+    senddata() {
+      if(this.$root.$data.status < 2 || this.disabled) {
+        return
+      }
+      this.$emit('click')
+      if(!this.params) {
+        if (this.pushState) {
+          Store.pushState()
+        }
+        return
+      }
+      var sendparams = []
+      for(var val in this.params) {
+        sendparams.push(encodeURIComponent(val) + "=" + encodeURIComponent(this.params[val]))
+      }
+      var r = new XMLHttpRequest()
+      var sendUrl = "?src=" + Store.state.uiref + "&" + sendparams.join("&")
+      if (this.pushState) {
+        sendUrl += "&" + Store.getStatePushString()
+      }
+      r.open("GET", sendUrl, true);
+      r.send()
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .uiIcon16 {
-    margin-right: 4px;
+  margin-right: 4px;
 }
 </style>
-

@@ -4,17 +4,16 @@
 
 <script>
 export default {
-    name: "vui-img",
-    props: {
-        name: {
-            type: String,
-            default: ""
-        }
-    },
-    computed: {
-        source() {
-            return "vueuiimg_" + this.$root.$data.assets[this.name].ref + ".png"
-        }
+  props: {
+    name: {
+      type: String,
+      default: ""
     }
+  },
+  computed: {
+    source() {
+      return "vueuiimg_" + this.$root.$data.assets[this.name].ref + ".png"
+    }
+  }
 }
 </script>

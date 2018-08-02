@@ -24,6 +24,7 @@
   },
   "browserslist": [
     "ie >= 9",
-    "edge >= 12"
+    "edge >= 12",
+    "cover 50%"
   ]
 }

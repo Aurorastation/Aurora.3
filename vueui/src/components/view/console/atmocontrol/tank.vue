@@ -47,7 +47,6 @@
 
 <script>
 export default {
-name: 'view-console-atmocontrol-tank',
   data() {
     return this.$root.$data;
   }

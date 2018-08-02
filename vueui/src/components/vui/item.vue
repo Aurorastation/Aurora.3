@@ -7,22 +7,16 @@
 
 <script>
 export default {
-    name: "vui-item",
-    props: {
-        label: {
-            type: String,
-            default: ""
-        },
-        balance: {
-            type: Number,
-            default: 0.6
-        }
+  name: "vui-item",
+  props: {
+    label: {
+      type: String,
+      default: ""
+    },
+    balance: {
+      type: Number,
+      default: 0.6
     }
+  }
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>
-
-
