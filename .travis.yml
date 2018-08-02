@@ -27,6 +27,9 @@ addons:
       - libgcc1:i386
       - libstdc++6:i386
 
+node_js:
+  - "10"
+
 install:
   - pip install --user PyYaml -q
   - pip install --user beautifulsoup4 -q
@@ -58,10 +61,6 @@ jobs:
   include:
     - stage: code check
       install:
-        - curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-        - . ~/.nvm/nvm.sh
-        - nvm install node ${NODE_VERSION}
-        - nvm use node ${NODE_VERSION}
         - ./vueui/install
       script:
         - (! grep 'step_[xy]' maps/**/*.dmm)
