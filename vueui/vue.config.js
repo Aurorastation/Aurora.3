@@ -6,7 +6,9 @@ module.exports = {
   runtimeCompiler: true,
   productionSourceMap: undefined,
   parallel: undefined,
-  css: undefined,
+  css: {
+    extract: true
+  },
   chainWebpack: config => {
     config
       .performance
@@ -30,6 +32,7 @@ module.exports = {
             .loader('url-loader')
             .options({})
             .end()
+          .delete("file-loader")
           .end()
         .rule('fonts')
           .use('url-loader')
@@ -37,11 +40,12 @@ module.exports = {
             .end()
           .end()
         .end()
-    
+        
     config.plugins
         .delete("html")
         .delete("preload")
         .delete("prefetch")
+        .delete("hmr")
 
     config.when(process.env.NODE_ENV === 'production', config => {
       config.plugin('extract-css')
@@ -49,6 +53,5 @@ module.exports = {
           args[0].filename = '[name].css'
         })
     });
-    
   }
 }

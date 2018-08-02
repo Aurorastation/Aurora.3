@@ -9,15 +9,15 @@ This UI framework is mostly composed of four main parts:
 ### Step 1: Open ui
 First we have to create a way to open ui, for example, a proc that's called when we want to open ui:
 ```DM
-/datum/mydatum/proc/open_ui()
-    var/datum/vueui/ui = SSvueui.get_open_ui(usr, src)
+/datum/mydatum/ui_interact(mob/user)
+    var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
     if (!ui)
-        ui = new(usr, src, "uiname", 300, 300, "Title of ui")
+        ui = new(user, src, "uiname", 300, 300, "Title of ui")
     ui.open()
 ```
 On first line we check if we already have open ui for this user, if we already have, then we just open it on last line, but if we don't have existing ui, we then create a new one.
 ### Step 2: Provide data
-But how we pass data to it? There is two ways to do it, first one is to pass initial data in constructor: `new(usr, src, "uiname", 300, 300, "Title of ui", data)`. But it's recommended to use `vueui_data_change` proc for data feed to ui. More information is available [on different ways to provide data.](.#ways-to-provide-data-to-ui-more-easily)
+But how we pass data to it? There is two ways to do it, first one is to pass initial data in constructor: `new(user, src, "uiname", 300, 300, "Title of ui", data)`. But it's recommended to use `vueui_data_change` proc for data feed to ui. More information is available [on different ways to provide data.](.#ways-to-provide-data-to-ui-more-easily)
 ```DM
 /datum/mydatum/vueui_data_change(var/list/newdata, var/mob/user, var/datum/vueui/ui)
     if(!newdata)
@@ -131,6 +131,13 @@ Pushes data change to client. This also pushes changes to metadata, what include
 Checks with `object.vueui_data_change` if data has changed, if so, then change is pushed. If forcedPush is true, then it pushes change anyways.
 ### `ui.update_status()`
 This call should be used if external change was detected. It checks if user still can use this ui, and what's its usability level.
+### `href_list["vueui"]`
+This variable provides a way to obtain instance of ui that has invoked this `Topic()` call. Fast and simple way to safetly obtain it using this var is:
+```DM
+var/datum/vueui/ui = href_list["vueui"]
+if(!istype(ui))
+	return
+```
 ## Debug ui
 To enable debug mode and make figuring out things easier do following steps:
  - Enable development mode for ui by building it using `npm run build-dev` or `npm run dev` if you want it to auto rebuild on change.

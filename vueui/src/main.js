@@ -39,7 +39,7 @@ global.receiveUIState = (jsonState) => {
     Store.loadState(JSON.parse(jsonState))
 }
 
-window.setInterval(() => {
+window.__wtimetimer = window.setInterval(() => {
   Store.state.wtime += 2
 }, 200)
 
@@ -77,6 +77,11 @@ if (document.getElementById("header")) {
 if (document.getElementById("dapp")) {
   new Vue({
     data: Store.state,
-    template: '<div><h1>Current data of UI:</h1><pre>{{ JSON.stringify(this.$root.$data, null, \'    \') }}</pre></div>'
+    template: '<div><h1>Current data of UI:</h1><pre>{{ JSON.stringify(this.$root.$data, null, \'    \') }}</pre><button @click="stop()">STOP WTIME TRACKING</button></div>',
+    methods: {
+      stop() {
+        window.clearInterval(window.__wtimetimer)
+      }
+    }
   }).$mount('#dapp')
 }
