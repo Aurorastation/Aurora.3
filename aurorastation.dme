@@ -1273,6 +1273,7 @@
 #include "code\modules\clothing\under\jobs\security.dm"
 #include "code\modules\clothing\under\xenos\resomi.dm"
 #include "code\modules\clothing\under\xenos\tajara.dm"
+#include "code\modules\clothing\under\xenos\unathi.dm"
 #include "code\modules\custom_ka\barrels.dm"
 #include "code\modules\custom_ka\cells.dm"
 #include "code\modules\custom_ka\core.dm"
