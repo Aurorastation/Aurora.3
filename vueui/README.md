@@ -17,14 +17,14 @@ First we have to create a way to open ui, for example, a proc that's called when
 ```
 On first line we check if we already have open ui for this user, if we already have, then we just open it on last line, but if we don't have existing ui, we then create a new one.
 ### Step 2: Provide data
-But how we pass data to it? There is two ways to do it, first one is to pass initial data in constructor: `new(user, src, "uiname", 300, 300, "Title of ui", data)`. But it's recommended to use `vueui_data_change` proc for data feed to ui. More information is available [on different ways to provide data.](.#ways-to-provide-data-to-ui-more-easily)
+But how we pass data to it? There are two ways to do it, first one is to pass initial data in constructor: `new(user, src, "uiname", 300, 300, "Title of ui", data)`. But it's recommended to use `vueui_data_change` proc for data feed to ui. More information is available [on different ways to provide data.](.#ways-to-provide-data-to-ui-more-easily)
 ```DM
 /datum/mydatum/vueui_data_change(var/list/newdata, var/mob/user, var/datum/vueui/ui)
     if(!newdata)
         // generate new data
         return list("counter" = 0)
     // Here we can add checks for difference of state and alter it
-    // or do actions depending on it's change
+    // or do actions depending on its change
     if(newdata["counter"] >= 10) 
         return list("counter" = 0)
 ```
@@ -40,7 +40,7 @@ Simply use `Topic` proc to get ui action calls from ui.
 ### Step 4: Make ui itself.
 It is recommended to [enable debugging](.#debug-ui) for this step to make things easier. 
 
-To create ui itself, you need to create `.vue` file somewhere in `\vueui\src\components\view`. Depending on location of .vue file depends it's component name. Example `\vueui\src\components\view\uiname.vue` file:
+To create ui itself, you need to create `.vue` file somewhere in `\vueui\src\components\view`. Depending on location of .vue file depends on its component name. Example `\vueui\src\components\view\uiname.vue` file:
 ```vue
 <template>
   <div>
