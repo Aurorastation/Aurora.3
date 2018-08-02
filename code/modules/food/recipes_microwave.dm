@@ -1170,8 +1170,41 @@ I said no!
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/spicy_clams
 
-
 /datum/recipe/earthenroot_soup
 	fruit = list("earthenroot" = 2)
 	reagents = list("water" = 10, "spacespice" = 1, "sodiumchloride" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/earthenroot_soup
+
+/datum/recipe/onionrings
+	fruit = list("onion" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/onionrings
+
+/datum/recipe/berrymuffin
+	reagents = list("milk" = 5, "sugar" = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/dough
+	)
+	fruit = list("berries" = 1)
+	result = /obj/item/weapon/reagent_containers/food/snacks/muffin
+
+/datum/recipe/onionsoup
+	fruit = list("onion" = 1)
+	reagents = list("water" = 10)
+	result = /obj/item/weapon/reagent_containers/food/snacks/soup/onionsoup
+
+/datum/recipe/porkbowl
+	reagents = list("water" = 5, "rice" = 10)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/bacon
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/porkbowl
+
+/datum/recipe/mashedpotato
+	fruit = list("potato" = 1)
+	result = /obj/item/weapon/reagent_containers/food/snacks/mashedpotato
+
