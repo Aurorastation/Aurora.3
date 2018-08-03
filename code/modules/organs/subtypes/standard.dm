@@ -61,7 +61,7 @@
 	limb_name = "l_leg"
 	name = "left leg"
 	icon_name = "l_leg"
-	max_damage = 50
+	max_damage = 75
 	min_broken_damage = 30
 	w_class = 3
 	body_part = LEG_LEFT
@@ -84,7 +84,7 @@
 	limb_name = "l_foot"
 	name = "left foot"
 	icon_name = "l_foot"
-	max_damage = 30
+	max_damage = 40
 	min_broken_damage = 15
 	w_class = 2
 	body_part = FOOT_LEFT
@@ -93,7 +93,6 @@
 	joint = "left ankle"
 	amputation_point = "left ankle"
 	can_stand = 1
-	maim_bonus = 1
 
 /obj/item/organ/external/foot/removed()
 	if(owner) owner.drop_from_inventory(owner.shoes)
