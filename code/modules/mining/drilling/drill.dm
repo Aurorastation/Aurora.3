@@ -168,8 +168,7 @@
 		if(cell)
 			user << "The drill already has a cell installed."
 		else
-			user.drop_item()
-			O.loc = src
+			user.drop_from_inventory(O,src)
 			cell = O
 			component_parts += O
 			user << "You install \the [O]."
@@ -323,7 +322,7 @@
 	var/obj/structure/ore_box/B = locate() in orange(1)
 	if(B)
 		for(var/obj/item/weapon/ore/O in contents)
-			O.loc = B
+			O.forceMove(B)
 		usr << "<span class='notice'>You unload the drill's storage cache into the ore box.</span>"
 	else
 		for(var/obj/item/weapon/ore/O in contents)

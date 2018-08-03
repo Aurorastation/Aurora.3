@@ -58,7 +58,7 @@
 	if(bolt_open)
 		if(chambered)
 			user << "<span class='notice'>You work the bolt open, ejecting [chambered]!</span>"
-			chambered.loc = get_turf(src)
+			chambered.forceMove(get_turf(src))
 			loaded -= chambered
 			chambered = null
 		else

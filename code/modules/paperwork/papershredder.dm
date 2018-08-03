@@ -45,14 +45,13 @@
 				return
 			if (paper_result > 0)
 				paperamount += paper_result
-			user.drop_from_inventory(W)
 			qdel(W)
 			playsound(src.loc, 'sound/items/pshred.ogg', 75, 1)
 			if(paperamount > max_paper)
 				user <<"<span class='danger'>\The [src] was too full, and shredded paper goes everywhere!</span>"
 				for(var/i=(paperamount-max_paper);i>0;i--)
 					var/obj/item/weapon/shreddedp/SP = get_shredded_paper()
-					SP.loc = get_turf(src)
+					SP.forceMove(get_turf(src))
 					SP.throw_at(get_edge_target_turf(src,pick(alldirs)),1,5)
 				paperamount = max_paper
 			update_icon()
@@ -131,9 +130,6 @@
 	FireBurn()
 
 /obj/item/weapon/shreddedp/proc/FireBurn()
-	var/mob/living/M = loc
-	if(istype(M))
-		M.drop_from_inventory(src)
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
 	qdel(src)
 
