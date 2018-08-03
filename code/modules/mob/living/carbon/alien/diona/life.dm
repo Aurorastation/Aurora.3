@@ -40,7 +40,8 @@
 /mob/living/carbon/alien/diona/think()
 	..()
 	if (!gestalt)
-		if(master_nymph && !client && master_nymph != src)
-			walk_to(src,master_nymph,1,movement_delay())
-		else
-			walk_to(src,0)
+		if(stat != DEAD)
+			if(master_nymph && !client && master_nymph != src)
+				walk_to(src,master_nymph,1,movement_delay())
+			else
+				walk_to(src,0)

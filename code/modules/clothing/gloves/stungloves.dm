@@ -62,26 +62,6 @@
 			update_icon()
 			return
 
-		//clipping fingertips
-		if(!clipped)
-			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
-			user.visible_message("<span class='warning'>[user] cuts the fingertips off of the [src].</span>","<span class='warning'>You cut the fingertips off of the [src].</span>")
-
-			clipped = 1
-			name = "mangled [name]"
-			desc = "[desc]<br>They have had the fingertips cut off of them."
-			if("exclude" in species_restricted)
-				species_restricted -= "Unathi"
-				species_restricted -= "Tajara"
-				species_restricted -= "Vaurca"
-			return
-		else
-			user << "<span class='notice'>The [src] have already been clipped!</span>"
-			update_icon()
-			return
-
-		return
-
 	..()
 
 /obj/item/clothing/gloves/update_icon()

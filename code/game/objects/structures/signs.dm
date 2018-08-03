@@ -416,6 +416,82 @@
 /obj/item/weapon/flag/eridani/l
 	flag_size = 1
 
+/obj/structure/sign/flag/vaurca
+	name = "Sedantis flag"
+	desc = "The emblem of Sedantis on a flag, emblematic of Vaurca longing."
+	icon_state = "sedantis"
+
+/obj/structure/sign/flag/vaurca/left
+	icon_state = "sedantis_l"
+
+/obj/structure/sign/flag/vaurca/right
+	icon_state = "sedantis_r"
+
+/obj/item/weapon/flag/vaurca
+	name = "Sedantis flag"
+	desc = "The emblem of Sedantis on a flag, emblematic of Vaurca longing."
+	flag_path = "sedantis"
+
+/obj/item/weapon/flag/vaurca/l
+	flag_size = 1
+
+/obj/structure/sign/flag/america
+	name = "Old World flag"
+	desc = "The banner of an ancient nation, its glory old."
+	icon_state = "oldglory"
+
+/obj/structure/sign/flag/america/left
+	icon_state = "oldglory_l"
+
+/obj/structure/sign/flag/america/right
+	icon_state = "oldglory_r"
+
+/obj/item/weapon/flag/america
+	name = "Old World flag"
+	desc = "The banner of an ancient nation, its glory old."
+	flag_path = "soldglory"
+
+/obj/item/weapon/flag/america/l
+	flag_size = 1
+
+/obj/item/weapon/flag/dpra
+	name = "Democratic People's Republic of Adhomai flag"
+	desc = "The black flag of the Democratic People's Republic of Adhomai."
+	flag_path = "dpra"
+
+/obj/item/weapon/flag/dpra/l
+	flag_size = 1
+
+/obj/structure/sign/flag/dpra
+	name = "Democratic People's Republic of Adhomai flag"
+	desc = "The banner of an ancient nation, its glory old."
+	icon_state = "dpra"
+
+/obj/structure/sign/flag/dpra/left
+	icon_state = "dpra_l"
+
+/obj/structure/sign/flag/dpra/right
+	icon_state = "dpra_r"
+
+/obj/item/weapon/flag/pra
+	name = "People's Republic of Adhomai flag"
+	desc = "The tajaran flag of the People's Republic of Adhomai."
+	flag_path = "pra"
+
+/obj/item/weapon/flag/pra/l
+	flag_size = 1
+
+/obj/structure/sign/flag/pra
+	name = "People's Republic of Adhomai flag"
+	desc = "The banner of an ancient nation, its glory old."
+	icon_state = "pra"
+
+/obj/structure/sign/flag/pra/left
+	icon_state = "pra_l"
+
+/obj/structure/sign/flag/pra/right
+	icon_state = "pra_r"
+
 /obj/item/weapon/flag
 	name = "boxed flag"
 	desc = "A flag neatly folded into a wooden container."

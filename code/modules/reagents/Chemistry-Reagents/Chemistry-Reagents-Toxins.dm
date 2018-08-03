@@ -123,11 +123,6 @@
 	conflicting_reagent = /datum/reagent/toxin/phoron
 	strength = 1
 
-/datum/reagent/toxin/cardox/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	.. ()
-	if(alien == IS_VAURCA)
-		affect_blood(M, alien, removed * 0.25)
-
 /datum/reagent/toxin/cardox/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VAURCA)
 		M.adjustToxLoss(removed * strength*2)

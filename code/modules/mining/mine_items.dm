@@ -123,6 +123,10 @@
 	else
 		return
 
+	if(!istype(user.get_active_hand(), src))
+		user << "<span class='warning'>You need to be holding the [name] in your active hand.</span>"
+		return
+
 	if(wielded) //Trying to unwield it
 		unwield()
 		user << "<span class='notice'>You are now carrying the [initial(name)] with one hand.</span>"

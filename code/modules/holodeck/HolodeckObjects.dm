@@ -324,12 +324,12 @@
 			return
 		G.affecting.forceMove(src.loc)
 		G.affecting.Weaken(5)
-		visible_message("<span class='warning'>[G.assailant] dunks [G.affecting] into the [src]!</span>", 3)
+		visible_message("<span class='warning'>[G.assailant] dunks [G.affecting] into the [src]!</span>", range = 3)
 		qdel(W)
 		return
 	else if (istype(W, /obj/item) && get_dist(src,user)<2)
 		user.drop_from_inventory(W,get_turf(src))
-		visible_message("<span class='notice'>[user] dunks [W] into the [src]!</span>", 3)
+		visible_message("<span class='notice'>[user] dunks [W] into the [src]!</span>", range = 3)
 		return
 
 /obj/structure/holohoop/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
@@ -339,9 +339,9 @@
 			return
 		if(prob(50))
 			I.forceMove(src.loc)
-			visible_message("<span class='notice'>Swish! \the [I] lands in \the [src].</span>", 3)
+			visible_message("<span class='notice'>Swish! \the [I] lands in \the [src].</span>", range = 3)
 		else
-			visible_message("<span class='warning'>\The [I] bounces off of \the [src]'s rim!</span>", 3)
+			visible_message("<span class='warning'>\The [I] bounces off of \the [src]'s rim!</span>", range = 3)
 		return 0
 	else
 		return ..(mover, target, height, air_group)

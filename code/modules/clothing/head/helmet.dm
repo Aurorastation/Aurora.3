@@ -164,6 +164,16 @@
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 
+/obj/item/clothing/head/helmet/unathi
+	name = "unathi helmet"
+	desc = "A helmet designated to be worn by an unathi, used commonly by the hegemony levies."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "unathi_helmet"
+	item_state = "unathi_helmet"
+	contained_sprite = 1
+	species_restricted = list("Unathi")
+	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+
 //Non-hardsuit ERT helmets.
 /obj/item/clothing/head/helmet/ert
 	name = "emergency response team helmet"

@@ -429,7 +429,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/koisbar_clean
 	name = "k'ois bar"
-	desc = "Bland NanoTrasen produced K'ois bars, rich in syrup and injected with extra phoron."
+	desc = "Bland NanoTrasen produced K'ois bars, rich in syrup and injected with extra phoron; it has a label on it warning that it is unsafe for human consumption."
 	icon_state = "koisbar"
 	trash = /obj/item/trash/koisbar
 	filling_color = "#dcd9cd"
@@ -5154,6 +5154,71 @@
 	. = ..()
 	reagents.add_reagent("protein", 5)
 	reagents.add_reagent("sodiumchloride", 2)
+
+/obj/item/weapon/reagent_containers/food/snacks/onionrings
+	name = "onion rings"
+	desc = "Like circular fries but better."
+	icon_state = "onionrings"
+	trash = /obj/item/trash/plate
+	filling_color = "#eddd00"
+	center_of_mass = "x=16;y=11"
+	nutriment_desc = list("fried onions" = 5)
+	nutriment_amt = 5
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/berrymuffin
+	name = "berry muffin"
+	desc = "A delicious and spongy little cake, with berries."
+	icon_state = "berrymuffin"
+	filling_color = "#E0CF9B"
+	center_of_mass = list("x"=17, "y"=4)
+	nutriment_amt = 5
+	nutriment_desc = list("sweetness" = 1, "muffin" = 2, "berries" = 2)
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/soup/onionsoup
+	name = "onion soup"
+	desc = "A soup with layers."
+	icon_state = "onionsoup"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#E0C367"
+	center_of_mass = list("x"=16, "y"=7)
+	nutriment_amt = 5
+	nutriment_desc = list("onion" = 2, "soup" = 2)
+	bitesize = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/porkbowl
+	name = "pork bowl"
+	desc = "A bowl of fried rice with cuts of meat."
+	icon_state = "porkbowl"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#FFFBDB"
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/porkbowl/Initialize()
+	..()
+	reagents.add_reagent("rice", 6)
+	reagents.add_reagent("protein", 4)
+
+/obj/item/weapon/reagent_containers/food/snacks/mashedpotato
+	name = "mashed potato"
+	desc = "Pillowy mounds of mashed potato."
+	icon_state = "mashedpotato"
+	trash = /obj/item/trash/plate
+	filling_color = "#EDDD00"
+	center_of_mass = list("x"=16, "y"=11)
+	nutriment_amt = 4
+	nutriment_desc = list("mashed potatoes" = 4)
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/croissant
+	name = "croissant"
+	desc = "True french cuisine."
+	filling_color = "#E3D796"
+	icon_state = "croissant"
+	nutriment_amt = 4
+	nutriment_desc = list("french bread" = 4)
+	bitesize = 2
 
 #undef NUTRIMENT_GOOD
 #undef NUTRIMENT_BAD

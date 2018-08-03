@@ -334,7 +334,7 @@
 	body_parts_covered = HANDS
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")
-	species_restricted = list("exclude","Unathi","Tajara","Vaurca", "Golem","Vaurca Breeder")
+	species_restricted = list("exclude","Unathi","Tajara","Vaurca", "Golem","Vaurca Breeder","Vaurca Warform")
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/gloves.dmi',
 		"Resomi" = 'icons/mob/species/resomi/gloves.dmi'
@@ -360,6 +360,7 @@
 	return 0 // return 1 to cancel attack_hand()
 
 /obj/item/clothing/gloves/attackby(obj/item/weapon/W, mob/user)
+	..()
 	if(iswirecutter(W) || istype(W, /obj/item/weapon/scalpel))
 		if (clipped)
 			user << "<span class='notice'>\The [src] have already been clipped!</span>"
@@ -370,6 +371,7 @@
 		user.visible_message("<span class='warning'>[user] cuts the fingertips off of \the [src].</span>","<span class='warning'>You cut the fingertips off of \the [src].</span>")
 
 		clipped = 1
+		siemens_coefficient += 0.25
 		name = "modified [name]"
 		desc = "[desc]<br>They have had the fingertips cut off of them."
 		if("exclude" in species_restricted)
@@ -433,7 +435,7 @@
 	slot_flags = SLOT_HEAD
 	w_class = 2.0
 	uv_intensity = 50 //Light emitted by this object or creature has limited interaction with diona
-	species_restricted = list("exclude","Vaurca Breeder")
+	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
 
 	var/light_overlay = "helmet_light"
 	var/light_applied
@@ -541,11 +543,23 @@
 		"Resomi" = 'icons/mob/species/resomi/masks.dmi',
 						"Tajara" = 'icons/mob/species/tajaran/mask.dmi',
 						"Unathi" = 'icons/mob/species/unathi/mask.dmi')
-	species_restricted = list("exclude","Vaurca Breeder")
+	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
 
 	var/voicechange = 0
 	var/list/say_messages
 	var/list/say_verbs
+	var/down_gas_transfer_coefficient = 0
+	var/down_body_parts_covered = 0
+	var/down_item_flags = 0
+	var/down_flags_inv = 0
+	var/adjustable = FALSE
+	var/hanging = 0
+
+/obj/item/clothing/mask/Initialize()
+	. = ..()
+	if(adjustable)
+		action_button_name = "Adjust Mask"
+		verbs += /obj/item/clothing/mask/proc/adjust_mask
 
 /obj/item/clothing/mask/update_clothing_icon()
 	if (ismob(src.loc))
@@ -554,6 +568,38 @@
 
 /obj/item/clothing/mask/proc/filter_air(datum/gas_mixture/air)
 	return
+
+/obj/item/clothing/mask/proc/adjust_mask(mob/user)
+	if(!adjustable)
+		return
+	if(use_check(user))
+		return
+
+	hanging = !hanging
+
+	if(hanging)
+		gas_transfer_coefficient = down_gas_transfer_coefficient
+		body_parts_covered = down_body_parts_covered
+		icon_state = "[icon_state]down"
+		item_flags = down_item_flags
+		flags_inv = down_flags_inv
+		user.visible_message("<span class='notice'>[user] adjust \his [src] to hang around \his neck.</span>", "<span class='notice'>Your [src] is now hanging around your neck.</span>")
+
+	else
+		gas_transfer_coefficient = initial(gas_transfer_coefficient)
+		body_parts_covered = initial(body_parts_covered)
+		icon_state = initial(icon_state)
+		item_state = initial(icon_state)
+		item_flags = initial(item_flags)
+		flags_inv = initial(flags_inv)
+		to_chat(user, "You pull [src] up to cover your face.")
+		user.visible_message("<span class='notice'>[user] puts \his [src] back up, to cover \his face.</span>", "<span class='notice'>Your put your [src] back on.</span>")
+
+	update_clothing_icon()
+
+/obj/item/clothing/mask/attack_self(mob/user)
+	if(adjustable)
+		adjust_mask(user)
 
 ///////////////////////////////////////////////////////////////////////
 //Shoes
@@ -573,7 +619,7 @@
 	slowdown = SHOES_SLOWDOWN
 	force = 0
 	var/overshoes = 0
-	species_restricted = list("exclude","Unathi","Tajara","Vox","Vaurca","Vaurca Breeder")
+	species_restricted = list("exclude","Unathi","Tajara","Vox","Vaurca","Vaurca Breeder","Vaurca Warform")
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/shoes.dmi')
 	var/silent = 0
 	sprite_sheets = list(
@@ -648,7 +694,7 @@
 	var/blood_overlay_type = "suit"
 	siemens_coefficient = 0.9
 	w_class = 3
-	species_restricted = list("exclude","Vaurca Breeder")
+	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
 
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/suit.dmi',
@@ -688,7 +734,7 @@
 		"Vox" = 'icons/mob/species/vox/uniform.dmi',
 		"Golem" = 'icons/mob/uniform_fat.dmi',
 		"Resomi" = 'icons/mob/species/resomi/uniform.dmi')
-	species_restricted = list("exclude","Vaurca Breeder")
+	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
 
 	//convenience var for defining the icon state for the overlay used when the clothing is worn.
 	//Also used by rolling/unrolling.

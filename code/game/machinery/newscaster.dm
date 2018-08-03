@@ -459,11 +459,11 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		else if(href_list["set_attachment"])
 			AttachPhoto(usr)
 			src.updateUsrDialog()
-		
+
 		else if(href_list["set_paper"])
 			AttachPaper(usr)
 			src.updateUsrDialog()
-		
+
 		else if(href_list["submit_new_message"])
 			if(src.msg =="" || src.msg=="\[REDACTED\]" || src.scanned_user == "Unknown" || src.channel_name == "" )
 				src.screen=6
@@ -477,7 +477,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				src.screen=4
 
 			src.updateUsrDialog()
-		
+
 		else if(href_list["add_comment"])
 			var/com_msg = sanitize(input(usr, "Write your Comment", "Network Comment Handler", "") as message, encode = 0, trim = 0, extra = 0)
 			if(com_msg =="" || com_msg=="\[REDACTED\]" || src.scanned_user == "Unknown" )
@@ -493,7 +493,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			to_chat(usr, "Comment successfully added!")
 			src.screen = 22
 			src.updateUsrDialog()
-			
+
 		else if(href_list["view_comments"])
 			var/datum/feed_message/viewing_story = locate(href_list["story"])
 			if(!istype(viewing_story))
@@ -501,7 +501,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			src.screen = href_list["privileged"] ? 23 : 22
 			src.viewing_message = viewing_story
 			src.updateUsrDialog()
-		
+
 		else if(href_list["censor_comment"])
 			var/datum/feed_comment/comment = locate(href_list["comment"])
 			if(!istype(comment))
@@ -509,7 +509,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			comment.message = "\[REDACTED\]"
 			src.screen = 22
 			src.updateUsrDialog()
-			
+
 		else if(href_list["like"])
 			var/datum/feed_message/viewing_story = locate(href_list["story"])
 			if(src.scanned_user == "Unknown" || (src.scanned_user in viewing_story.interacted) || !istype(viewing_story))
@@ -517,7 +517,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			viewing_story.interacted += src.scanned_user
 			viewing_story.likes += 1
 			src.updateUsrDialog()
-			
+
 		else if(href_list["dislike"])
 			var/datum/feed_message/viewing_story = locate(href_list["story"])
 			if(src.scanned_user == "Unknown" || (src.scanned_user in viewing_story.interacted) || !istype(viewing_story))
@@ -525,7 +525,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			viewing_story.interacted += src.scanned_user
 			viewing_story.dislikes += 1
 			src.updateUsrDialog()
-			
+
 		else if(href_list["create_channel"])
 			src.screen=2
 			src.updateUsrDialog()
@@ -773,7 +773,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	if(paper_data || paper_name)
 		paper_name = ""
 		paper_data = ""
-	
+
 	if(istype(user.get_active_hand(), /obj/item/weapon/paper))
 		var/obj/item/weapon/paper/attached = user.get_active_hand()
 		paper_name = attached.name

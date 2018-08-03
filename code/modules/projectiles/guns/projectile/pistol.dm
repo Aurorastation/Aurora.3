@@ -274,3 +274,22 @@
 	var/obj/item/ammo_casing/ammo = ammo_type
 	caliber = initial(ammo.caliber)
 	. = ..()
+
+/obj/item/weapon/gun/projectile/leyon
+	name = "10mm pistol"
+	desc = "The Leyon LCC Everyman is a small pistol that holds five shots and is loaded with a stripper clip, popular for self-defense on Mars. Uses 10mm rounds."
+	icon_state = "leyon"
+	caliber = "10mm"
+	w_class = 2
+	ammo_type = /obj/item/ammo_casing/t40
+	max_shells = 5
+	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
+	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	load_method = SINGLE_CASING|SPEEDLOADER
+
+/obj/item/weapon/gun/projectile/leyon/update_icon()
+	..()
+	if(loaded.len)
+		icon_state = "leyon"
+	else
+		icon_state = "leyon-e"

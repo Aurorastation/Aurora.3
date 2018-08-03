@@ -160,7 +160,7 @@
 			user << "<span class='warning'>\The machine won't accept that.</span>"
 			return
 
-		visible_message("[user] starts putting [G.affecting] into the [src].", 3)
+		user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
 
 		if (do_mob(user, G.affecting, 20, needhand = 0))
 			if(occupant)

@@ -884,7 +884,6 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	src.visible_message("<span class='danger'>A grotesque blade forms around [M]\'s arm!</span>",
 							"<span class='danger'>Our arm twists and mutates, transforming it into a deadly blade.</span>",
 							"<span class='danger'>You hear organic matter ripping and tearing!</span>")
-	gibs(src.loc)
 
 /mob/proc/changeling_shield()
 	set category = "Changeling"
@@ -908,7 +907,6 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	src.visible_message("<span class='danger'>The end of [M]\'s hand inflates rapidly, forming a huge shield-like mass!</span>",
 							"<span class='warning'>We inflate our hand into a robust shield.</span>",
 							"<span class='warning'>You hear organic matter ripping and tearing!</span>")
-	gibs(src.loc)
 
 /mob/proc/horror_form()
 	set category = "Changeling"

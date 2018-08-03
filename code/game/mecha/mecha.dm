@@ -1183,6 +1183,8 @@
 		if(C.handcuffed)
 			usr << "<span class='danger'>Kinda hard to climb in while handcuffed don't you think?</span>"
 			return
+		if(!C.IsAdvancedToolUser())
+			return
 	if (src.occupant)
 		usr << "<span class='danger'>The [src.name] is already occupied!</span>"
 		src.log_append_to_last("Permission denied.")

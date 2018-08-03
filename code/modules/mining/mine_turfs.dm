@@ -513,7 +513,19 @@ var/list/mineral_can_smooth_with = list(
 	)
 	mineralChance = 75
 
+/turf/simulated/mineral/attack_hand(var/mob/user)
+	add_fingerprint(user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
+	if(ishuman(user))
+		var/mob/living/carbon/human/H
+		var/turf/destination = GetAbove(H)
+
+		if(destination)
+			var/turf/start = get_turf(H)
+			if(start.CanZPass(H, UP))
+				if(destination.CanZPass(H, UP))
+					H.climb(UP, src, 20)
 
 /**********************Asteroid**************************/
 

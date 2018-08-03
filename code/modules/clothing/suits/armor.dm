@@ -491,8 +491,17 @@
 	icon_state = "ert_peacekeeper"
 	item_state = "ert_peacekeeper"
 
-//warden armor
+//unathi armor
 
+/obj/item/clothing/suit/armor/unathi
+	name = "unathi body armor"
+	desc = "An armored chestplate designated to be worn by an unathi, used commonly by the hegemony levies."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "unathi_armor"
+	item_state = "unathi_armor"
+	contained_sprite = 1
+	species_restricted = list("Unathi")
+	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 
 //All of the armor below is mostly unused
 
