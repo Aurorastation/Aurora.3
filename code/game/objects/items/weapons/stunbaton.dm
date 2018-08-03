@@ -284,5 +284,5 @@
 	agonyforce = 60
 
 /obj/item/weapon/melee/baton/slime/update_icon()
-	icon_state = intial(icon_state)
+	icon_state = initial(icon_state)
 	item_state = initial(item_state)
