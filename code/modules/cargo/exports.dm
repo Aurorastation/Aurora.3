@@ -73,14 +73,14 @@ Credit dupes that require a lot of manual work shouldn't be removed, unless they
 
 /datum/export/New()
 	..()
-	SSprocessing.processing += src
+	START_PROCESSING(SSprocessing)
 	init_cost = cost
 	export_types = typecacheof(export_types)
 	exclude_types = typecacheof(exclude_types)
 
 
 /datum/export/Destroy()
-	SSprocessing.processing -= src
+	STOP_PROCESSING(SSprocessing)
 	return ..()
 
 /datum/export/process()

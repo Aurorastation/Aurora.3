@@ -9,9 +9,6 @@
 	siemens_coefficient = 1
 	var/obj/machinery/computer/cargo/cargo_console = null
 
-/obj/item/export_scanner/examine(user)
-	..()
-
 /obj/item/export_scanner/afterattack(obj/O, mob/user, proximity)
 	. = ..()
 	if(!istype(O) || !proximity)

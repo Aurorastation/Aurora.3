@@ -26,13 +26,6 @@
 	reward = 4000
 	required_count = 3
 	wanted_types = list(/obj/item/weapon/reagent_containers/food/snacks/icecreamsandwich)
-/*
-/datum/bounty/item/chef/bread
-	name = "Bread"
-	description = "Problems with central planning have led to bread prices skyrocketing. Ship some bread to ease tensions."
-	reward = 1000
-	wanted_types = list(/obj/item/weapon/reagent_containers/food/snacks/store/bread, /obj/item/weapon/reagent_containers/food/snacks/breadslice, /obj/item/weapon/reagent_containers/food/snacks/bun, /obj/item/weapon/reagent_containers/food/snacks/pizzabread, /obj/item/weapon/reagent_containers/food/snacks/rawpastrybase) 
-*/
 /datum/bounty/item/chef/pie
 	name = "Pie"
 	description = "3.14159? No! %BOSSSHORT management wants edible pie! Ship a whole one."

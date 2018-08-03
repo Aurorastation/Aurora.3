@@ -1,23 +1,3 @@
-/*
-/datum/bounty/item/assistant/strange_object
-	name = "Strange Object"
-	description = "%COMPNAME has taken an interest in strange objects. Find one in maint, and ship it off to %BOSSSHORT right away."
-	reward = 1200
-	wanted_types = list(/obj/item/relic)
-
-/datum/bounty/item/assistant/scooter
-	name = "Scooter"
-	description = "%COMPNAME has determined walking to be wasteful. Ship a scooter to %BOSSSHORT to speed operations up."
-	reward = 1080 // the mat hoffman
-	wanted_types = list(/obj/vehicle/ridden/scooter)
-	include_subtypes = FALSE
-
-/datum/bounty/item/assistant/skateboard
-	name = "Skateboard"
-	description = "%COMPNAME has determined walking to be a wasteful. Ship a skateboard to %BOSSSHORT to speed operations up."
-	reward = 900 // the tony hawk
-	wanted_types = list(/obj/vehicle/ridden/scooter/skateboard)
-*/
 /datum/bounty/item/assistant/stunprod
 	name = "Stunprod"
 	description = "%BOSSSHORT needs to pacify some rioting \"cows\". Craft one, then ship it."
@@ -185,15 +165,6 @@
 	description = "The chef at %BOSSSHORT is having trouble butchering her animals. She requests one chainsaw, please."
 	reward = 2500
 	wanted_types = list(/obj/item/weapon/material/twohanded/chainsaw)
-
-/*
-/datum/bounty/item/assistant/ied
-	name = "IED"
-	description = "%COMPNAME's maximum security prison at %BOSSSHORT is undergoing personnel training. Ship a handful of IEDs to serve as a training tools."
-	reward = 2000
-	required_count = 3
-	wanted_types = list(/obj/item/grenade/iedcasing)
-*/
 
 /datum/bounty/item/assistant/plasma_tank/
 	name = "Full Tank of Plasma"
