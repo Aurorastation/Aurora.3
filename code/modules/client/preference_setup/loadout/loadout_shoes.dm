@@ -84,34 +84,19 @@
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
-/datum/gear/shoes/hitops/
-	display_name = "high-top, white"
-	path = /obj/item/clothing/shoes/hitops/
+/datum/gear/shoes/hitops
+	display_name = "high-top selection"
+	description = "High-top sneakers, in a selection of colors."
+	path = /obj/item/clothing/shoes/hitops
 
-/datum/gear/shoes/hitops/red
-	display_name = "high-top, red"
-	path = /obj/item/clothing/shoes/hitops/red
-
-/datum/gear/shoes/hitops/black
-	display_name = "high-top, black"
-	path = /obj/item/clothing/shoes/hitops/black
-
-/datum/gear/shoes/hitops/orange
-	display_name = "high-top, orange"
-	path = /obj/item/clothing/shoes/hitops/orange
-
-/datum/gear/shoes/hitops/blue
-	display_name = "high-top, blue"
-	path = /obj/item/clothing/shoes/hitops/blue
-
-/datum/gear/shoes/hitops/green
-	display_name = "high-top, green"
-	path = /obj/item/clothing/shoes/hitops/green
-
-/datum/gear/shoes/hitops/purple
-	display_name = "high-top, purple"
-	path = /obj/item/clothing/shoes/hitops/purple
-
-/datum/gear/shoes/hitops/yellow
-	display_name = "high-top, yellow"
-	path = /obj/item/clothing/shoes/hitops/yellow
+/datum/gear/shoes/hitops/New()
+	..()
+	var/shoes = list()
+	shoes["high-tops, white"] = /obj/item/clothing/shoes/hitops
+	shoes["high-tops, red"] = /obj/item/clothing/shoes/hitops/red
+	shoes["high-tops, black"] = /obj/item/clothing/shoes/hitops/black
+	shoes["high-tops, blue"] = /obj/item/clothing/shoes/hitops/blue
+	shoes["high-tops, green"] = /obj/item/clothing/shoes/hitops/green
+	shoes["high-tops, purple"] = /obj/item/clothing/shoes/hitops/purple
+	shoes["high-tops, yellow"] = /obj/item/clothing/shoes/hitops/yellow
+	gear_tweaks += new/datum/gear_tweak/path(shoes)

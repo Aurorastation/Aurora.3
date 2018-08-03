@@ -278,17 +278,17 @@
 	coat["dominia great coat, alternative black"] = /obj/item/clothing/suit/storage/toggle/dominia/black/alt
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
-/datum/gear/suit/mil
-	display_name = "military jacket"
+/datum/gear/suit/military
+	display_name = "military jacket selection"
 	path = /obj/item/clothing/suit/storage/miljacket
 
-/datum/gear/suit/mil/alt
-	display_name = "military jacket, alt"
-	path = /obj/item/clothing/suit/storage/miljacket/alt
-
-/datum/gear/suit/mil/green
-	display_name = "military jacket, green"
-	path = /obj/item/clothing/suit/storage/miljacket/green
+/datum/gear/suit/military/New()
+	..()
+	var/coat = list()
+	coat["dominia great coat"] = /obj/item/clothing/suit/storage/miljacket
+	coat["dominia great coat, alternative"] = /obj/item/clothing/suit/storage/miljacket/alt
+	coat["dominia cape"] = /obj/item/clothing/suit/storage/miljacket/green
+	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 /datum/gear/suit/miscellaneous/engi_dep_jacket
 	display_name = "department jacket, engineering"
