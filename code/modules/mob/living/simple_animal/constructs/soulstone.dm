@@ -2,7 +2,7 @@
 	return
 
 /obj/item/device/soulstone
-	name = "Soul Stone Shard"
+	name = "soul stone shard"
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "soulstone"
 	item_state = "electronic"

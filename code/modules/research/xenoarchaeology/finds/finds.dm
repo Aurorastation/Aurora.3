@@ -88,7 +88,7 @@
 	if(new_item_type)
 		find_type = new_item_type
 	else
-		find_type = rand(1,35)	//update this when you add new find types
+		find_type = rand(1,36)	//update this when you add new find types
 
 	var/item_type = "object"
 	icon_state = "unknown[rand(1,4)]"
@@ -489,6 +489,9 @@
 				new_item = new /obj/item/clothing/mask/gas/poltergeist(src.loc)
 			else
 				new_item = new /obj/item/clothing/mask/gas(src.loc)
+		if(36)
+			new_item = new /obj/item/sarcophagus_key(src.loc)
+
 	var/decorations = ""
 	if(apply_material_decorations)
 		source_material = pick("cordite","quadrinium",DEFAULT_WALL_MATERIAL,"titanium","aluminium","ferritic-alloy","plasteel","duranium")
@@ -531,7 +534,7 @@
 		desc += engravings
 
 	if(apply_prefix)
-		name = "[pick("Strange","Ancient","Alien","")] [item_type]"
+		name = "[pick("strange","ancient","alien")] [item_type]"
 	else
 		name = item_type
 
