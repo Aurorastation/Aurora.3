@@ -157,7 +157,9 @@
 		if (!HDD)
 			return
 		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_encrypt"])
-		if (!F)
+		if(!F || F.undeletable)
+			return
+		if(F.password)
 			return
 		F.password = sanitize(input(usr, "Enter an encryption key:", "Encrypt File"))
 	if(href_list["PRG_decrypt"])
@@ -166,7 +168,7 @@
 		if (!HDD)
 			return
 		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_encrypt"])
-		if (!F)
+		if(!F || F.undeletable)
 			return
 		if (F.can_access_file(usr))
 			F.password = ""
@@ -224,7 +226,8 @@
 						"name" = F.filename,
 						"type" = F.filetype,
 						"size" = F.size,
-						"undeletable" = F.undeletable
+						"undeletable" = F.undeletable,
+						"encrypted" = !!F.password
 					)))
 				data["usbfiles"] = usbfiles
 
