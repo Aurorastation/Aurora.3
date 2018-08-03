@@ -568,3 +568,10 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/weapon/reagent_containers/food/snacks/truffle
 	result_quantity = 4
+
+/datum/recipe/croissant
+	appliance = OVEN
+	reagents = list("sodiumchloride" = 1, "water" = 5, "milk" = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	items = list(/obj/item/weapon/reagent_containers/food/snacks/dough)
+	result = /obj/item/weapon/reagent_containers/food/snacks/croissant

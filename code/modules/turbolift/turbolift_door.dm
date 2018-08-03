@@ -9,6 +9,7 @@
 	assembly_type = /obj/structure/door_assembly/door_assembly_lift
 	hashatch = 0
 	panel_visible_while_open = TRUE
+	insecure = 0
 
 	var/datum/turbolift/lift
 	var/datum/turbolift_floor/floor
