@@ -235,7 +235,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			var/tempicon = getFlatIcon(caller_id)
 
 			hologram.name = "[caller_id.name] (Hologram)"
-			hologram.loc = get_step(src,1)
+			hologram.forceMove(get_step(src,1))
 			masters[caller_id] = hologram
 			hologram.icon = getHologramIcon(icon(tempicon)) // Add the callers image as an overlay to keep coloration!
 		else

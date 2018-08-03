@@ -107,7 +107,7 @@
 					user << "<span class='danger'>You need a better grip to do that!</span>"
 					return
 			else
-				G.affecting.loc = src.loc
+				G.affecting.forceMove(src.loc)
 				G.affecting.Weaken(rand(2,4))
 				visible_message("<span class='danger'>[G.assailant] puts [G.affecting] on \the [src].</span>")
 			qdel(W)

@@ -278,8 +278,7 @@
 			return FALSE
 
 		var/obj/item/weapon/cell/device/cell = I
-		user.drop_item(cell)
-		cell.forceMove(src)
+		user.drop_from_inventory(cell,src)
 		battery = cell
 		playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>You slot \the [cell] inside \the [src]'s power supply.</span>")
