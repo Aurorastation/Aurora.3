@@ -29,7 +29,7 @@
 				if (source.client)
 					source.client.screen -= W
 				if (W)
-					W.loc = source.loc
+					W.forceMove(source.loc)
 					dropped(source)
 					if (W)
 						W.layer = initial(W.layer)
@@ -40,7 +40,7 @@
 				if (source.client)
 					source.client.screen -= W
 				if (W)
-					W.loc = source.loc
+					W.forceMove(source.loc)
 					dropped(source)
 					if (W)
 						W.layer = initial(W.layer)

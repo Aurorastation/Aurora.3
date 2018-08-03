@@ -229,7 +229,7 @@
 	affecting.visible_message("[affecting] vanishes in a flare of light!")
 
 	if(holdingfacility.len)
-		affecting.loc = pick(holdingfacility)
+		affecting.forceMove(pick(holdingfacility))
 
 	affecting << "You appear in a strange place!"
 

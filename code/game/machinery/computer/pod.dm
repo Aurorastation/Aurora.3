@@ -73,7 +73,7 @@
 					M = new /obj/item/weapon/circuitboard/pod( A )
 
 				for (var/obj/C in src)
-					C.loc = loc
+					C.forceMove(loc)
 				M.id = id
 				A.circuit = M
 				A.state = 3
@@ -96,7 +96,7 @@
 					M = new /obj/item/weapon/circuitboard/pod( A )
 
 				for (var/obj/C in src)
-					C.loc = loc
+					C.forceMove(loc)
 				M.id = id
 				A.circuit = M
 				A.state = 4

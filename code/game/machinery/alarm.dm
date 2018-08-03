@@ -796,7 +796,7 @@
 				if(do_after(user,20))
 					user << "You pry out the circuit!"
 					var/obj/item/weapon/airalarm_electronics/circuit = new /obj/item/weapon/airalarm_electronics()
-					circuit.loc = user.loc
+					circuit.forceMove(user.loc)
 					buildstage = 0
 					update_icon()
 				return

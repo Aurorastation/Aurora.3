@@ -75,7 +75,7 @@
 
 /obj/item/device/chameleon/proc/eject_all()
 	for(var/atom/movable/A in active_dummy)
-		A.loc = active_dummy.loc
+		A.forceMove(active_dummy.loc)
 		if(ismob(A))
 			var/mob/M = A
 			M.reset_view(null)
@@ -95,7 +95,7 @@
 	icon_state = new_iconstate
 	overlays = new_overlays
 	set_dir(O.dir)
-	M.loc = src
+	M.forceMove(src)
 	master = C
 	master.active_dummy = src
 

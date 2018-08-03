@@ -65,7 +65,7 @@
 		updateUsrDialog()
 	else if(href_list["remove"])
 		if(copyitem)
-			copyitem.loc = usr.loc
+			copyitem.forceMove(usr.loc)
 			usr.put_in_hands(copyitem)
 			usr << "<span class='notice'>You take \the [copyitem] out of \the [src].</span>"
 			copyitem = null
@@ -104,9 +104,8 @@
 /obj/machinery/photocopier/attackby(obj/item/O as obj, mob/user as mob)
 	if(istype(O, /obj/item/weapon/paper) || istype(O, /obj/item/weapon/photo) || istype(O, /obj/item/weapon/paper_bundle))
 		if(!copyitem)
-			user.drop_item()
+			user.drop_from_inventory(O,src)
 			copyitem = O
-			O.loc = src
 			user << "<span class='notice'>You insert \the [O] into \the [src].</span>"
 			flick(insert_anim, src)
 			updateUsrDialog()
@@ -114,10 +113,10 @@
 			user << "<span class='notice'>There is already something in \the [src].</span>"
 	else if(istype(O, /obj/item/device/toner))
 		if(toner <= 10) //allow replacing when low toner is affecting the print darkness
-			user.drop_item()
-			user << "<span class='notice'>You insert the toner cartridge into \the [src].</span>"
+			user << "<span class='notice'>You insert \the [O] into \the [src].</span>"
 			var/obj/item/device/toner/T = O
 			toner += T.toner_amount
+			user.drop_from_inventory(O,get_turf(src))
 			qdel(O)
 			updateUsrDialog()
 		else
@@ -191,7 +190,7 @@
 
 /obj/machinery/photocopier/proc/photocopy(var/obj/item/weapon/photo/photocopy)
 	var/obj/item/weapon/photo/p = photocopy.copy()
-	p.loc = src.loc
+	p.forceMove(src.loc)
 
 	var/icon/I = icon(photocopy.icon, photocopy.icon_state)
 	if(toner > 10)	//plenty of toner, go straight greyscale
@@ -223,10 +222,10 @@
 			W = copy(W)
 		else if(istype(W, /obj/item/weapon/photo))
 			W = photocopy(W)
-		W.loc = p
+		W.forceMove(p)
 		p.pages += W
 
-	p.loc = src.loc
+	p.forceMove(src.loc)
 	p.update_icon()
 	p.icon_state = "paper_words"
 	p.name = bundle.name

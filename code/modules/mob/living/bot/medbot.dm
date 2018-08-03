@@ -171,8 +171,7 @@
 			user << "<span class='notice'>There is already a beaker loaded.</span>"
 			return
 
-		user.drop_item()
-		O.loc = src
+		user.drop_from_inventory(O,src)
 		reagent_glass = O
 		user << "<span class='notice'>You insert [O].</span>"
 		return 1
@@ -216,7 +215,7 @@
 
 	else if (href_list["eject"] && (!isnull(reagent_glass)))
 		if(!locked)
-			reagent_glass.loc = get_turf(src)
+			reagent_glass.forceMove(get_turf(src))
 			reagent_glass = null
 		else
 			usr << "<span class='notice'>You cannot eject the beaker because the panel is locked.</span>"
@@ -257,7 +256,7 @@
 		new /obj/item/robot_parts/l_arm(Tsec)
 
 	if(reagent_glass)
-		reagent_glass.loc = Tsec
+		reagent_glass.forceMove(Tsec)
 		reagent_glass = null
 
 	spark(src, 3, alldirs)
@@ -329,7 +328,6 @@
 	qdel(S)
 	user.put_in_hands(A)
 	user << "<span class='notice'>You add the robot arm to the first aid kit.</span>"
-	user.drop_from_inventory(src)
 	qdel(src)
 
 /obj/item/weapon/firstaid_arm_assembly
@@ -360,7 +358,7 @@
 		switch(build_step)
 			if(0)
 				if(istype(W, /obj/item/device/healthanalyzer))
-					user.drop_item()
+					user.drop_from_inventory(W,get_turf(src))
 					qdel(W)
 					build_step++
 					user << "<span class='notice'>You add the health sensor to [src].</span>"
@@ -370,13 +368,12 @@
 
 			if(1)
 				if(isprox(W))
-					user.drop_item()
+					user.drop_from_inventory(W,get_turf(src))
 					qdel(W)
 					user << "<span class='notice'>You complete the Medibot! Beep boop.</span>"
 					var/turf/T = get_turf(src)
 					var/mob/living/bot/medbot/S = new /mob/living/bot/medbot(T)
 					S.skin = skin
 					S.name = created_name
-					user.drop_from_inventory(src)
 					qdel(src)
 					return 1

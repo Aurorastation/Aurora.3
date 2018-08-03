@@ -27,8 +27,7 @@
 /obj/vehicle/train/cargo/engine/pussywagon/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/key/janicart))
 		if(!key)
-			user.drop_item()
-			W.forceMove(src)
+			user.drop_from_inventory(W,src)
 			key = W
 			verbs += /obj/vehicle/train/cargo/engine/verb/remove_key
 		return
@@ -137,9 +136,8 @@
 /obj/vehicle/train/cargo/trolley/pussywagon/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/reagent_containers) && open)
 		if(!bucket)
-			user.drop_item()
+			user.drop_from_inventory(W,src)
 			bucket = W
-			W.forceMove(src)
 			user << "<span class='notice'>You replace \the [src]'s reagent reservoir.</span>"
 			return
 
