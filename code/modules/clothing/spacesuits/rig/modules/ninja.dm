@@ -46,7 +46,7 @@
 
 	anim(get_turf(H), H, 'icons/effects/effects.dmi', "electricity",null,20,null)
 
-	H.visible_message("[H.name] vanishes into thin air!",1)
+	H.visible_message("<span class='notice'>[H] vanishes into thin air!</span>", "<span class='notice'>You vanish into thin air!</span>")
 
 /obj/item/rig_module/stealth_field/deactivate()
 

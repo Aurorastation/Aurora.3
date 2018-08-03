@@ -73,6 +73,8 @@ var/global/datum/global_init/init = new ()
 	if(byond_version < RECOMMENDED_VERSION)
 		world.log << "Your server's byond version does not meet the recommended requirements for this server. Please update BYOND to [RECOMMENDED_VERSION]."
 
+	world.TgsNew()
+
 	config.post_load()
 
 	if(config && config.server_name != null && config.server_suffix && world.port > 0)
@@ -115,7 +117,13 @@ var/list/world_api_rate_limit = list()
 	log_debug("API: Request Received - from:[addr], master:[master], key:[key]")
 	diary << "TOPIC: \"[T]\", from:[addr], master:[master], key:[key], auth:[queryparams["auth"] ? queryparams["auth"] : "null"] [log_end]"
 
-	if (!queryparams.len)
+	// TGS topic hook. Returns if successful, expects old-style serialization.
+	var/tgs_topic_return = TgsTopic(T)
+
+	if (tgs_topic_return)
+		log_debug("API - TGS3 Request.")
+		return tgs_topic_return
+	else if (!queryparams.len)
 		log_debug("API - Bad Request - Invalid/no JSON data sent.")
 		response["statuscode"] = 400
 		response["response"] = "Bad Request - Invalid/no JSON data sent."
@@ -181,9 +189,7 @@ var/list/world_api_rate_limit = list()
 
 
 /world/Reboot(var/reason)
-	/*spawn(0)
-		world << sound(pick('sound/AI/newroundsexy.ogg','sound/misc/apcdestroyed.ogg','sound/misc/bangindonk.ogg')) // random end sounds!! - LastyBatsy
-		*/
+	world.TgsReboot()
 
 	Master.Shutdown()
 

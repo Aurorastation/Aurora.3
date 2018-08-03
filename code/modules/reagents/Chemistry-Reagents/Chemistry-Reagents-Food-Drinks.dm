@@ -471,6 +471,24 @@
 	if(M.nutrition < 0)
 		M.nutrition = 0
 
+/datum/reagent/nutriment/barbecue
+	name = "Barbecue Sauce"
+	id = "barbecue"
+	description = "Barbecue sauce for barbecues and long shifts."
+	taste_description = "barbecue"
+	reagent_state = LIQUID
+	nutriment_factor = 5
+	color = "#4F330F"
+
+/datum/reagent/nutriment/garlicsauce
+	name = "Garlic Sauce"
+	id = "garlicsauce"
+	description = "Garlic sauce, perfect for spicing up a plate of garlic."
+	taste_description = "garlic"
+	reagent_state = LIQUID
+	nutriment_factor = 4
+	color = "#d8c045"
+
 /* Non-food stuff like condiments */
 
 /datum/reagent/sodiumchloride
@@ -623,8 +641,8 @@
 		message = "<span class='danger'>Your face and throat burn!</span>"
 		if(prob(25))
 			M.custom_emote(2, "[pick("coughs!","coughs hysterically!","splutters!")]")
-		M.Stun(5)
-		M.Weaken(5)
+		M.apply_effect(40, AGONY, 0)
+
 #undef EYES_PROTECTED
 #undef EYES_MECH
 
@@ -861,6 +879,28 @@
 	glass_icon_state = "bluelagoon"
 	glass_name = "glass of earthen-root juice"
 	glass_desc = "Juice extracted from earthen-root, a plant native to Adhomai."
+
+/datum/reagent/drink/juice/garlic
+	name = "Garlic Juice"
+	id = "garlicjuice"
+	description = "Who would even drink this?"
+	taste_description = "garlic"
+	nutrition = 1
+	color = "#eeddcc"
+
+	glass_name = "glass of garlic juice"
+	glass_desc = "Who would even drink juice from garlic?"
+
+/datum/reagent/drink/juice/onion
+	name = "Onion Juice"
+	id = "onionjuice"
+	description = "Juice from an onion, for when you need to cry."
+	taste_description = "onion"
+	nutrition = 1
+	color = "#ffeedd"
+
+	glass_name = "glass of onion juice"
+	glass_desc = "Juice from an onion, for when you need to cry."
 
 // Everything else
 
