@@ -1129,7 +1129,7 @@
 	name = "shand"
 	seed_name = "S'Rendarr's hand"
 	display_name = "S'Rendarr's hand leaves"
-	chems = list("tobaccorich" = list(1,10), "nicotine" = list(3,5))
+	chems = list("tobacco" = list(1,5), "bicaridine" = list(3,5), "nicotine" = list(1,3))
 	kitchen_tag = "shand"
 
 /datum/seed/shand/setup_traits()
@@ -1330,3 +1330,91 @@
 	set_trait(TRAIT_PLANT_ICON,"bush4")
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
+
+/datum/seed/tobacco
+	name = "tobacco"
+	seed_name = "tobacco"
+	display_name = "tobacco leaves"
+	mutants = list("finetobacco")
+	chems = list("tobacco" = list(1,10), "nicotine" = list(1,3))
+
+/datum/seed/tobacco/setup_traits()
+	..()
+	set_trait(TRAIT_MATURATION,6)
+	set_trait(TRAIT_PRODUCTION,6)
+	set_trait(TRAIT_YIELD,5)
+	set_trait(TRAIT_PRODUCT_ICON,"tobacco")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#749733")
+	set_trait(TRAIT_PLANT_COLOUR,"#749733")
+	set_trait(TRAIT_PLANT_ICON,"vine2")
+	set_trait(TRAIT_IDEAL_HEAT, 299)
+	set_trait(TRAIT_IDEAL_LIGHT, 7)
+	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
+
+/datum/seed/tobacco/finetobacco
+	name = "finetobacco"
+	seed_name = "fine tobacco"
+	display_name = "fine tobacco leaves"
+	chems = list("tobaccorich" = list(1,10), "nicotine" = list(3,5))
+
+/datum/seed/tobacco/finetobacco/setup_traits()
+	..()
+	set_trait(TRAIT_YIELD,4)
+	set_trait(TRAIT_PRODUCT_COLOUR,"#33571b")
+	set_trait(TRAIT_PLANT_COLOUR,"#33571b")
+	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.20)
+
+/datum/seed/peppercorn
+	name = "peppercorn"
+	seed_name = "peppercorn"
+	display_name = "black pepper"
+	chems = list("blackpepper" = list(10,10))
+
+/datum/seed/peppercorn/setup_traits()
+	..()
+	set_trait(TRAIT_HARVEST_REPEAT,1)
+	set_trait(TRAIT_MATURATION,4)
+	set_trait(TRAIT_PRODUCTION,4)
+	set_trait(TRAIT_YIELD,3)
+	set_trait(TRAIT_POTENCY,5)
+	set_trait(TRAIT_PRODUCT_ICON,"nuts")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#4d4d4d")
+	set_trait(TRAIT_PLANT_ICON,"vine2")
+	set_trait(TRAIT_IDEAL_LIGHT, 6)
+
+/datum/seed/garlic
+	name = "garlic"
+	seed_name = "garlic"
+	display_name = "garlic"
+	chems = list("garlicjuice" = list(1,5))
+	kitchen_tag = "garlic"
+
+/datum/seed/garlic/setup_traits()
+	..()
+	set_trait(TRAIT_MATURATION,10)
+	set_trait(TRAIT_PRODUCTION,1)
+	set_trait(TRAIT_YIELD,5)
+	set_trait(TRAIT_POTENCY,12)
+	set_trait(TRAIT_PRODUCT_ICON,"bulb")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#fff8dd")
+	set_trait(TRAIT_PLANT_ICON,"stalk")
+	set_trait(TRAIT_WATER_CONSUMPTION, 7)
+
+/datum/seed/onion
+	name = "onion"
+	seed_name = "onion"
+	display_name = "onions"
+	chems = list("onionjuice" = list(1,5))
+	kitchen_tag = "onion"
+
+/datum/seed/onion/setup_traits()
+	..()
+	set_trait(TRAIT_MATURATION,10)
+	set_trait(TRAIT_PRODUCTION,1)
+	set_trait(TRAIT_YIELD,4)
+	set_trait(TRAIT_POTENCY,10)
+	set_trait(TRAIT_PRODUCT_ICON,"bulb")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#ffeedd")
+	set_trait(TRAIT_PLANT_ICON,"stalk")
+	set_trait(TRAIT_WATER_CONSUMPTION, 5)

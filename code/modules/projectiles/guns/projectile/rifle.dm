@@ -99,6 +99,12 @@
 		return
 	..()
 
+/obj/item/weapon/gun/projectile/contender/unload_ammo(mob/user, var/allow_dump=1)
+	if(!retracted_bolt)
+		to_chat(user, "<span class='notice'>You can't unload \the [src] without cycling the bolt.</span>")
+		return
+	..()
+
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/vintage
 	name = "\improper vintage bolt action rifle"
 	desc = "An extremely old-looking rifle. Words you can't read are stamped on the gun. Doesn't look like it'll take any modern rounds."
