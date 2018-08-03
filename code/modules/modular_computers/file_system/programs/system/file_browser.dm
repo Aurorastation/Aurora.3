@@ -215,7 +215,8 @@
 					"name" = F.filename,
 					"type" = F.filetype,
 					"size" = F.size,
-					"undeletable" = F.undeletable
+					"undeletable" = F.undeletable,
+					"encrypted" = !!F.password
 				)))
 			data["files"] = files
 			if(RHDD)
