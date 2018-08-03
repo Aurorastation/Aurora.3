@@ -577,6 +577,18 @@
 	var/voicechange = 0
 	var/list/say_messages
 	var/list/say_verbs
+	var/down_gas_transfer_coefficient = 0
+	var/down_body_parts_covered = 0
+	var/down_item_flags = 0
+	var/down_flags_inv = 0
+	var/adjustable = FALSE
+	var/hanging = 0
+
+/obj/item/clothing/mask/Initialize()
+	. = ..()
+	if(adjustable)
+		action_button_name = "Adjust Mask"
+		verbs += /obj/item/clothing/mask/proc/adjust_mask
 
 /obj/item/clothing/mask/update_clothing_icon()
 	if (ismob(src.loc))
@@ -585,6 +597,38 @@
 
 /obj/item/clothing/mask/proc/filter_air(datum/gas_mixture/air)
 	return
+
+/obj/item/clothing/mask/proc/adjust_mask(mob/user)
+	if(!adjustable)
+		return
+	if(use_check(user))
+		return
+
+	hanging = !hanging
+
+	if(hanging)
+		gas_transfer_coefficient = down_gas_transfer_coefficient
+		body_parts_covered = down_body_parts_covered
+		icon_state = "[icon_state]down"
+		item_flags = down_item_flags
+		flags_inv = down_flags_inv
+		user.visible_message("<span class='notice'>[user] adjust \his [src] to hang around \his neck.</span>", "<span class='notice'>Your [src] is now hanging around your neck.</span>")
+
+	else
+		gas_transfer_coefficient = initial(gas_transfer_coefficient)
+		body_parts_covered = initial(body_parts_covered)
+		icon_state = initial(icon_state)
+		item_state = initial(icon_state)
+		item_flags = initial(item_flags)
+		flags_inv = initial(flags_inv)
+		to_chat(user, "You pull [src] up to cover your face.")
+		user.visible_message("<span class='notice'>[user] puts \his [src] back up, to cover \his face.</span>", "<span class='notice'>Your put your [src] back on.</span>")
+
+	update_clothing_icon()
+
+/obj/item/clothing/mask/attack_self(mob/user)
+	if(adjustable)
+		adjust_mask(user)
 
 ///////////////////////////////////////////////////////////////////////
 //Shoes
