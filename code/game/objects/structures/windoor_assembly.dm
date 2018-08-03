@@ -175,8 +175,7 @@ obj/structure/windoor_assembly/Destroy()
 					if(do_after(user, 40))
 						EL.inuse = 0
 						if(!src) return
-						user.drop_item()
-						EL.forceMove(src)
+						user.drop_from_inventory(EL,src)
 						user << "<span class='notice'>You've installed the airlock electronics!</span>"
 						src.name = "Near finished Windoor Assembly"
 						src.electronics = EL
@@ -197,7 +196,7 @@ obj/structure/windoor_assembly/Destroy()
 						src.name = "Wired Windoor Assembly"
 					var/obj/item/weapon/airlock_electronics/ae = electronics
 					electronics = null
-					ae.loc = src.loc
+					ae.forceMove(src.loc)
 
 			//Crowbar to complete the assembly, Step 7 complete.
 			else if(iscrowbar(W))
@@ -232,7 +231,7 @@ obj/structure/windoor_assembly/Destroy()
 						else
 							windoor.req_access = src.electronics.conf_access
 						windoor.electronics = src.electronics
-						src.electronics.loc = windoor
+						src.electronics.forceMove(windoor)
 					else
 						var/obj/machinery/door/window/windoor = new /obj/machinery/door/window(src.loc)
 						if(src.facing == "l")
@@ -250,7 +249,7 @@ obj/structure/windoor_assembly/Destroy()
 						else
 							windoor.req_access = src.electronics.conf_access
 						windoor.electronics = src.electronics
-						src.electronics.loc = windoor
+						src.electronics.forceMove(windoor)
 
 
 					qdel(src)

@@ -353,7 +353,7 @@
 				M.state = 2
 				M.icon_state = "box_1"
 				for(var/obj/I in component_parts)
-					I.loc = src.loc
+					I.forceMove(src.loc)
 					component_parts -= I
 				qdel(src)
 				return
@@ -367,10 +367,9 @@
 					return
 
 				usr << "You install the coil into the SMES unit!"
-				user.drop_item()
+				user.drop_from_inventory(W,src)
 				cur_coils ++
 				component_parts += W
-				W.loc = src
 				recalc_coils()
 			else
 				usr << "<span class='warning'>You can't insert more coils to this SMES unit!</span>"

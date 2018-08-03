@@ -44,7 +44,7 @@
 			if(!suspension_field.contents.len)
 				suspension_field.icon_state = "energynet"
 				suspension_field.add_overlay("shield2")
-			I.loc = suspension_field
+			I.forceMove(suspension_field)
 
 		for(var/mob/living/simple_animal/M in T)
 			M.weakened = max(M.weakened, 3)
@@ -128,8 +128,7 @@
 	else if(href_list["insertcard"])
 		var/obj/item/I = usr.get_active_hand()
 		if (istype(I, /obj/item/weapon/card))
-			usr.drop_item()
-			I.loc = src
+			usr.drop_from_inventory(I,src)
 			auth_card = I
 			if(attempt_unlock(I, usr))
 				usr << "<span class='info'>You insert [I], the console flashes \'<i>Access granted.</i>\'</span>"
@@ -138,12 +137,12 @@
 	else if(href_list["ejectcard"])
 		if(auth_card)
 			if(ishuman(usr))
-				auth_card.loc = usr.loc
+				auth_card.forceMove(usr.loc)
 				if(!usr.get_active_hand())
 					usr.put_in_hands(auth_card)
 				auth_card = null
 			else
-				auth_card.loc = loc
+				auth_card.forceMove(loc)
 				auth_card = null
 	else if(href_list["lock"])
 		locked = 1
@@ -157,7 +156,7 @@
 	if(!open)
 		interact(user)
 	else if(cell)
-		cell.loc = loc
+		cell.forceMove(loc)
 		cell.add_fingerprint(user)
 		cell.update_icon()
 
@@ -207,8 +206,7 @@
 			if(cell)
 				user << "<span class='warning'>There is a power cell already installed.</span>"
 			else
-				user.drop_item()
-				W.loc = src
+				user.drop_from_inventory(W,src)
 				cell = W
 				user << "<span class='info'>You insert the power cell.</span>"
 				icon_state = "suspension1"
@@ -286,7 +284,7 @@
 	icon_state = "suspension3"
 
 	for(var/obj/item/I in T)
-		I.loc = suspension_field
+		I.forceMove(suspension_field)
 		collected++
 
 	if(collected)
@@ -346,5 +344,5 @@
 
 /obj/effect/suspension_field/Destroy()
 	for(var/obj/I in src)
-		I.loc = src.loc
+		I.forceMove(src.loc)
 	return ..()
