@@ -1,5 +1,0 @@
-author: Skull132
-delete-after: true
-
-changes:
-  - bugfix: "Fixed a slew of cases where an action would or might print a numeric value to the user."

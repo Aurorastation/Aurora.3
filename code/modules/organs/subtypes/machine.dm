@@ -144,7 +144,7 @@
 /obj/item/organ/mmi_holder/removed(var/mob/living/user)
 
 	if(stored_mmi)
-		stored_mmi.loc = get_turf(src)
+		stored_mmi.forceMove(get_turf(src))
 		if(owner.mind)
 			owner.mind.transfer_to(stored_mmi.brainmob)
 	. = ..()
@@ -168,7 +168,7 @@
 		stored_mmi.icon_state = "posibrain-occupied"
 		update_from_mmi()
 	else
-		stored_mmi.loc = get_turf(src)
+		stored_mmi.forceMove(get_turf(src))
 		qdel(src)
 
 //////////////

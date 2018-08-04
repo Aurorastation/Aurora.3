@@ -102,7 +102,7 @@
 		usr.visible_message("[usr] begins to detach [rig] from \the [src].", "You begin to detach [rig] from \the [src]")
 		if(do_after(usr, 20))
 			usr.visible_message("<span class='notice'>[usr] detaches [rig] from \the [src].</span>", "<span class='notice'>You detach [rig] from \the [src]</span>")
-			rig.loc = get_turf(usr)
+			rig.forceMove(get_turf(usr))
 			rig = null
 			overlays = new/list()
 
@@ -130,9 +130,7 @@
 				log_game("[key_name(user)] rigged fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) for explosion.",ckey=key_name(user))
 
 			rig = W
-			user.drop_item()
-			W.forceMove(src)
-
+			user.drop_from_inventory(W,src)
 			var/mutable_appearance/MA = new(W)
 			MA.pixel_x += 1
 			MA.pixel_y += 6

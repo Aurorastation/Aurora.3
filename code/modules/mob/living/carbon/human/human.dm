@@ -1296,6 +1296,9 @@
 	if (src.is_diona())
 		setup_gestalt(1)
 
+	burn_mod = species.burn_mod
+	brute_mod = species.brute_mod
+
 	max_stamina = species.stamina
 	stamina = max_stamina
 	sprint_speed_factor = species.sprint_speed_factor
@@ -1521,7 +1524,7 @@
 		"<span class='danger'>You pop [S]'s [current_limb.joint] back in!</span>")
 	current_limb.undislocate()
 
-/mob/living/carbon/human/drop_from_inventory(var/obj/item/W, var/atom/Target = null)
+/mob/living/carbon/human/drop_from_inventory(var/obj/item/W, var/atom/target = null)
 	if(W in organs)
 		return
 	..()

@@ -391,20 +391,20 @@
 		var/obj/temp = new /obj(src) //To prevent infinite loops, all results will be moved into a temporary location so they're not considered as inputs for other recipes
 
 		for (var/atom/movable/AM in results)
-			AM.loc = temp
+			AM.forceMove(temp)
 
 		//making multiple copies of a recipe from one container. For example, tons of fries
 		while (select_recipe(RECIPE_LIST(appliancetype), C) == recipe)
 			var/list/TR = list()
 			TR += recipe.make_food(C)
 			for (var/atom/movable/AM in TR) //Move results to buffer
-				AM.loc = temp
+				AM.forceMove(temp)
 			results += TR
 
 
 		for (var/r in results)
 			var/obj/item/weapon/reagent_containers/food/snacks/R = r
-			R.loc = C //Move everything from the buffer back to the container
+			R.forceMove(C) //Move everything from the buffer back to the container
 			R.cooked |= cook_type
 
 		QDEL_NULL(temp) //delete buffer object

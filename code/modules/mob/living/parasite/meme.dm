@@ -35,7 +35,7 @@ var/controlling
 		return 0
 
 	src.host = host
-	src.loc = host
+	src.forceMove(host)
 	host.parasites.Add(src)
 
 	if(client) client.eye = host
@@ -96,7 +96,8 @@ var/controlling
 
 /mob/living/parasite/meme/death()
 	// make sure the mob is on the actual map before gibbing
-	if(host) src.loc = host.loc
+	if(host) 
+		src.forceMove(host.loc)
 	src.stat = 2
 	..()
 	qdel(src)
