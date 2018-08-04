@@ -95,7 +95,7 @@
 	if(href_list["choice"])
 		if(istype(inserted_id))
 			if(href_list["choice"] == "eject")
-				inserted_id.loc = loc
+				inserted_id.forceMove(loc)
 				if(!usr.get_active_hand())
 					usr.put_in_hands(inserted_id)
 				inserted_id = null
@@ -113,8 +113,7 @@
 		else if(href_list["choice"] == "insert")
 			var/obj/item/weapon/card/id/I = usr.get_active_hand()
 			if(istype(I))
-				usr.drop_item()
-				I.loc = src
+				usr.drop_from_inventory(I,src)
 				inserted_id = I
 			else usr << "<span class='warning'>No valid ID.</span>"
 

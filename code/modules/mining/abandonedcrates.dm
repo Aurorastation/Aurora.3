@@ -94,11 +94,13 @@
 			new/obj/item/weapon/pickaxe/gold(src)
 		if(81 to 82)
 			new/obj/item/weapon/gun/energy/plasmacutter(src)
-		if(83 to 84)
+		if(83) // Rarest things, some are unobtainble otherwise, some are just robust,  1% each
+			new/obj/random/prebuilt_ka(src)
+		if(84)
 			new/obj/item/toy/katana(src)
 		if(85)
 			new/obj/item/seeds/random(src)
-		if(86) // Rarest things, some are unobtainble otherwise, some are just robust,  1% each
+		if(86)
 			new/obj/item/weed_extract(src)
 		if(87)
 			new/obj/item/xenos_claw(src)

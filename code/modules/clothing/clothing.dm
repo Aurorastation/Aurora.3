@@ -178,12 +178,11 @@
 	T.visible_message("<span class='danger'>\The [src] [material.destruction_desc]!</span>")
 	if(istype(loc, /mob/living))
 		var/mob/living/M = loc
-		M.drop_from_inventory(src)
 		if(material.shard_type == SHARD_SHARD) // Wearing glass armor is a bad idea.
 			var/obj/item/weapon/material/shard/S = material.place_shard(T)
 			M.embed(S)
 
-	playsound(src, "shatter", 70, 1)
+	playsound(src.loc, "shatter", 70, 1)
 	qdel(src)
 
 /obj/item/clothing/suit/armor/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
@@ -390,8 +389,7 @@
 				to_chat(user, "You are unable to wear \the [src] as \the [H.gloves] are in the way.")
 				ring = null
 				return 0
-			H.drop_from_inventory(ring)	//Remove the ring (or other under-glove item in the hand slot?) so you can put on the gloves.
-			ring.forceMove(src)
+			H.drop_from_inventory(ring,src)
 
 	if(!..())
 		if(ring) //Put the ring back on if the check fails.

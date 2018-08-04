@@ -24,9 +24,8 @@
 		if(stored_card)
 			user << "\The [src] is already occupied."
 			return
-		user.drop_from_inventory(W)
+		user.drop_from_inventory(W,src)
 		stored_card = W
-		W.forceMove(src)
 		update_power_usage()
 	if(isscrewdriver(W))
 		user << "You manually remove \the [stored_card] from \the [src]."

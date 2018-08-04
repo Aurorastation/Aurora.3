@@ -349,8 +349,7 @@
 			)
 			var/obj/item/weapon/tank/T = W
 			internal_tank = T
-			user.drop_from_inventory(T)
-			T.forceMove(src)
+			user.drop_from_inventory(T,src)
 			use_internal_tank = 1
 			START_PROCESSING(SSfast_process, src)
 			return

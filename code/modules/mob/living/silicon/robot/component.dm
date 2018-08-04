@@ -99,7 +99,7 @@
 	..()
 	tank = new/obj/item/weapon/tank/jetpack/carbondioxide/synthetic
 	owner.internals = tank
-	tank.loc = owner
+	tank.forceMove(owner)
 	owner.jetpack = tank
 
 /datum/robot_component/jetpack/uninstall()

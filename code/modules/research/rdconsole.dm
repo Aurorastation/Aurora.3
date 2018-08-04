@@ -119,8 +119,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		else
 			user << "<span class='notice'>Machine cannot accept disks in that format.</span>"
 			return
-		user.drop_item()
-		D.loc = src
+		user.drop_from_inventory(D,src)
 		user << "<span class='notice'>You add \the [D] to the machine.</span>"
 	else
 		//The construction/deconstruction of the console code.
@@ -162,7 +161,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		t_disk.stored = null
 
 	else if(href_list["eject_tech"]) //Eject the technology disk.
-		t_disk.loc = loc
+		t_disk.forceMove(loc)
 		t_disk = null
 		screen = 1.0
 
@@ -185,7 +184,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		d_disk.blueprint = null
 
 	else if(href_list["eject_design"]) //Eject the design disk.
-		d_disk.loc = loc
+		d_disk.forceMove(loc)
 		d_disk = null
 		screen = 1.0
 
@@ -202,7 +201,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				usr << "<span class='notice'>The destructive analyzer is busy at the moment.</span>"
 
 			else if(linked_destroy.loaded_item)
-				linked_destroy.loaded_item.loc = linked_destroy.loc
+				linked_destroy.loaded_item.forceMove(linked_destroy.loc)
 				linked_destroy.loaded_item = null
 				linked_destroy.icon_state = "d_analyzer"
 				screen = 2.1

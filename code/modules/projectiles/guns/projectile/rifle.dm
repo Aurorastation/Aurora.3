@@ -72,7 +72,7 @@
 
 /obj/item/weapon/gun/projectile/contender/attack_self(mob/user as mob)
 	if(chambered)
-		chambered.loc = get_turf(src)
+		chambered.forceMove(get_turf(src))
 		chambered = null
 		var/obj/item/ammo_casing/C = loaded[1]
 		loaded -= C
@@ -165,7 +165,7 @@
 
 
 	if(chambered)//We have a shell in the chamber
-		chambered.loc = get_turf(src)//Eject casing
+		chambered.forceMove(get_turf(src))//Eject casing
 		chambered = null
 
 	if(loaded.len)
@@ -181,8 +181,7 @@
 			user << "<span class='notice'>You need to open the bolt of \the [src] first.</span>"
 			return
 		if(!has_clip)
-			user.drop_from_inventory(A)
-			A.forceMove(src)
+			user.drop_from_inventory(A,src)
 			has_clip = A
 			user << "<span class='notice'>You load the clip into \the [src].</span>"
 			if(!has_clip.stored_ammo.len)

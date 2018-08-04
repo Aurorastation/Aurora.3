@@ -43,7 +43,7 @@
 		if (!feeder)
 			feeder = eater
 
-		feeder.drop_from_inventory(src)	//so icons update :[
+		feeder.drop_from_inventory(src)	//so icons update :[ //what the fuck is this????
 
 		if(trash)
 			if(ispath(trash,/obj/item))
@@ -60,7 +60,6 @@
 /obj/item/weapon/reagent_containers/food/snacks/attack(mob/M as mob, mob/user as mob, def_zone)
 	if(!reagents.total_volume)
 		user << "<span class='danger'>None of [src] left!</span>"
-		user.drop_from_inventory(src)
 		qdel(src)
 		return 0
 
@@ -244,7 +243,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/Destroy()
 	if(contents)
 		for(var/atom/movable/something in contents)
-			something.loc = get_turf(src)
+			something.forceMove(get_turf(src))
 	return ..()
 
 
@@ -728,7 +727,6 @@
 		return
 	user << "You crack \the [src] into \the [O]."
 	reagents.trans_to(O, reagents.total_volume)
-	user.drop_from_inventory(src)
 	qdel(src)
 
 /obj/item/weapon/reagent_containers/food/snacks/egg/throw_impact(atom/hit_atom)
@@ -1950,7 +1948,7 @@
 		user << "You place \the [name] under a stream of water..."
 		if(istype(user))
 			user.unEquip(src)
-		src.loc = get_turf(src)
+		src.forceMove(get_turf(src))
 		return Expand()
 	..()
 
@@ -3883,9 +3881,7 @@
 				boxestoadd += i
 
 			if( (boxes.len+1) + boxestoadd.len <= 5 )
-				user.drop_item()
-
-				box.loc = src
+				user.drop_from_inventory(box,src)
 				box.boxes = list() // Clear the box boxes so we don't have boxes inside boxes. - Xzibit
 				src.boxes.Add( boxestoadd )
 
@@ -3903,8 +3899,7 @@
 	if( istype(I, /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/) ) // Long ass fucking object name
 
 		if( src.open )
-			user.drop_item()
-			I.loc = src
+			user.drop_from_inventory(I,src)
 			src.pizza = I
 
 			update_icon()
@@ -4056,7 +4051,7 @@
 
 		//If the bun was in your hands, the result will be too
 		if (loc == user)
-			user.drop_from_inventory(src)
+			user.drop_from_inventory(src) //This has to be here in order to put the pun in the proper place
 			user.put_in_hands(result)
 
 		qdel(W)

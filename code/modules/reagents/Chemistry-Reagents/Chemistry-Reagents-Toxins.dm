@@ -602,7 +602,7 @@
 			qdel(W)
 			continue
 		W.layer = initial(W.layer)
-		W.loc = M.loc
+		W.forceMove(M.loc)
 		W.dropped(M)
 	var/mob/living/carbon/slime/new_mob = new /mob/living/carbon/slime(M.loc)
 	new_mob.a_intent = "hurt"

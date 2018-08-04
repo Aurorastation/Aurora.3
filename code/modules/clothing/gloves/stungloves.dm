@@ -35,8 +35,7 @@
 		if(!wired)
 			user << "<span class='notice'>The [src] need to be wired first.</span>"
 		else if(!cell)
-			user.drop_item()
-			W.loc = src
+			user.drop_from_inventory(W,src)
 			cell = W
 			w_class = 3.0
 			user << "<span class='notice'>You attach the [cell] to the [src].</span>"
@@ -51,7 +50,7 @@
 		if(cell)
 			cell.update_icon()
 			user << "<span class='notice'>You cut the [cell] away from the [src].</span>"
-			cell.loc = get_turf(src.loc)
+			cell.forceMove(get_turf(src.loc))
 			cell = null
 			w_class = 2.0
 			update_icon()
