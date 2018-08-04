@@ -94,9 +94,10 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "watertank"
 	amount_per_transfer_from_this = 10
-	Initialize()
-		. = ..()
-		reagents.add_reagent("water",capacity)
+
+/obj/structure/reagent_dispensers/watertank/Initialize()
+	. = ..()
+	reagents.add_reagent("water",capacity)
 
 /obj/structure/reagent_dispensers/extinguisher
 	name = "extinguisher tank"
@@ -104,9 +105,10 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "extinguisher_tank"
 	amount_per_transfer_from_this = 10
-	Initialize()
-		. = ..()
-		reagents.add_reagent("monoammoniumphosphate",capacity)
+
+/obj/structure/reagent_dispensers/extinguisher/Initialize()
+	. = ..()
+	reagents.add_reagent("monoammoniumphosphate",capacity)
 
 /obj/structure/reagent_dispensers/fueltank
 	name = "fuel tank"
@@ -119,9 +121,10 @@
 	var/defuse = 0
 	var/armed = 0
 	var/obj/item/device/assembly_holder/rig = null
-	Initialize()
-		. = ..()
-		reagents.add_reagent("fuel",capacity)
+
+/obj/structure/reagent_dispensers/fueltank/Initialize()
+	. = ..()
+	reagents.add_reagent("fuel",capacity)
 
 /obj/structure/reagent_dispensers/fueltank/examine(mob/user)
 	if(!..(user, 2))
@@ -220,9 +223,10 @@
 	density = 0
 	amount_per_transfer_from_this = 45
 	can_tamper = FALSE
-	Initialize()
-		. = ..()
-		reagents.add_reagent("condensedcapsaicin",capacity)
+
+/obj/structure/reagent_dispensers/peppertank/Initialize()
+	. = ..()
+	reagents.add_reagent("condensedcapsaicin",capacity)
 
 /obj/structure/reagent_dispensers/water_cooler
 	name = "Water-Cooler"
@@ -234,9 +238,10 @@
 	anchored = 1
 	capacity = 500
 	can_tamper = FALSE
-	Initialize()
-		. = ..()
-		reagents.add_reagent("water",capacity)
+
+/obj/structure/reagent_dispensers/water_cooler/Initialize()
+	. = ..()
+	reagents.add_reagent("water",capacity)
 
 /obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (isscrewdriver(W))
@@ -259,9 +264,10 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "beertankTEMP"
 	amount_per_transfer_from_this = 10
-	Initialize()
-		. = ..()
-		reagents.add_reagent("beer",capacity)
+
+/obj/structure/reagent_dispensers/beerkeg/Initialize()
+	. = ..()
+	reagents.add_reagent("beer",capacity)
 
 /obj/structure/reagent_dispensers/xuizikeg
 	name = "xuizi juice keg"
@@ -269,9 +275,10 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "keg_xuizi"
 	amount_per_transfer_from_this = 10
-	Initialize()
-		. = ..()
-		reagents.add_reagent("xuizijuice",capacity)
+
+/obj/structure/reagent_dispensers/xuizikeg/Initialize()
+	. = ..()
+	reagents.add_reagent("xuizijuice",capacity)
 
 /obj/structure/reagent_dispensers/virusfood
 	name = "Virus Food Dispenser"
@@ -282,9 +289,10 @@
 	anchored = 1
 	density = 0
 	can_tamper = FALSE
-	Initialize()
-		. = ..()
-		reagents.add_reagent("virusfood", capacity)
+
+/obj/structure/reagent_dispensers/virusfood/Initialize()
+	. = ..()
+	reagents.add_reagent("virusfood", capacity)
 
 /obj/structure/reagent_dispensers/acid
 	name = "Sulphuric Acid Dispenser"
@@ -295,9 +303,10 @@
 	anchored = 1
 	density = 0
 	can_tamper = FALSE
-	Initialize()
-		. = ..()
-		reagents.add_reagent("sacid", capacity)
+
+/obj/structure/reagent_dispensers/acid/Initialize()
+	. = ..()
+	reagents.add_reagent("sacid", capacity)
 
 //Cooking oil refill tank
 /obj/structure/reagent_dispensers/cookingoil
@@ -307,9 +316,10 @@
 	icon_state = "oiltank"
 	amount_per_transfer_from_this = 120
 	capacity = 5000
-	Initialize()
-		. = ..()
-		reagents.add_reagent("cornoil",capacity)
+
+/obj/structure/reagent_dispensers/cookingoil/Initialize()
+	. = ..()
+	reagents.add_reagent("cornoil",capacity)
 
 /obj/structure/reagent_dispensers/cookingoil/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.get_structure_damage())

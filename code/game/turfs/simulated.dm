@@ -27,11 +27,11 @@
 	//WET_TYPE_ICE = ice
 
 	if(!wet_type)
-		wet_type = type
-	else if(type != wet_type)
-		if(type == WET_TYPE_WATER && wet_type == WET_TYPE_LUBE)
+		wet_type = apply_type
+	else if(apply_type != wet_type)
+		if(apply_type == WET_TYPE_WATER && wet_type == WET_TYPE_LUBE)
 			wet_type = WET_TYPE_WATER
-		else if(type == WET_TYPE_ICE && (wet_type == WET_TYPE_WATER || wet_type == WET_TYPE_LUBE))
+		else if(apply_type == WET_TYPE_ICE && (wet_type == WET_TYPE_WATER || wet_type == WET_TYPE_LUBE))
 			wet_type = apply_type
 
 	if(wet_amount <= 0)

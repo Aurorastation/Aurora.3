@@ -65,7 +65,7 @@
 	name = "extinguisher refiller (monoammonium phosphate)"
 	desc = "A one time use extinguisher refiller that allows fire extinguishers to be refilled with an aerosol mix. This one is contains monoammonium phosphate."
 
-	Initialize()
+/obj/item/weapon/reagent_containers/extinguisher_refill/filled/Initialize()
 		. =..()
 		reagents.add_reagent("monoammoniumphosphate", volume)
 		flags &= ~OPENCONTAINER
