@@ -1700,7 +1700,7 @@
 	input_tag = "air_in";
 	name = "Mixed Air Supply Control";
 	output_tag = "air_out";
-	pressure_setting = 2000;
+	default_pressure_setting = 2000;
 	sensors = list("air_sensor" = "Tank")
 	},
 /turf/simulated/floor/tiled,

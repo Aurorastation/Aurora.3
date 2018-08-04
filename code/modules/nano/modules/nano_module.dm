@@ -6,10 +6,10 @@
 
 /datum/nano_module/New(var/datum/host, var/topic_manager)
 	..()
-	src.host = host.nano_host()
+	src.host = host.ui_host()
 	src.topic_manager = topic_manager
 
-/datum/nano_module/nano_host()
+/datum/nano_module/ui_host()
 	return host ? host : src
 
 /datum/nano_module/proc/can_still_topic(var/datum/topic_state/state = default_state)
