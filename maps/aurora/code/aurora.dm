@@ -27,7 +27,7 @@
 	dock_name = "NTCC Odin"
 	dock_short = "Odin"
 	boss_name = "Central Command"
-	boss_short = "Centcom"
+	boss_short = "CentCom"
 	company_name = "NanoTrasen"
 	company_short = "NT"
 	system_name = "Tau Ceti"

@@ -115,6 +115,13 @@
 	M.inject_blood(src, volume)
 	remove_self(volume)
 
+/datum/reagent/blood/proc/get_diseases()
+	. = list()
+	if(data && data["viruses"])
+		for(var/thing in data["viruses"])
+			var/datum/disease/D = thing
+			. += D
+
 /datum/reagent/vaccine
 	name = "Vaccine"
 	id = "vaccine"
