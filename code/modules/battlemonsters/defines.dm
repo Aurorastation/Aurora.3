@@ -275,7 +275,7 @@ datum/battle_monsters/card/proc/Generate_Prefix()
 			rarity += 1
 			special_effects += "%NAME gains 200 extra defense points for every water monster in defense mode on the same side of the field.<br>"
 		if("Water Temple God")
-			description += "They are made out of pure liquid. Massive stormclouds circle them."
+			description += "They're one of the many worshipped gods by fishermen and sailors. Those on long sea voyages usually pray to %NAME to protect them."
 			power += 1200
 			defense_points_mul += 0.5
 			elements |= BATTLE_MONSTERS_CARD_GOD
@@ -284,5 +284,39 @@ datum/battle_monsters/card/proc/Generate_Prefix()
 			special_effects += "%NAME cannot be attacked by water creatures.<br>"
 			special_effects += "For every water creature on the field, %NAME gains 100 attack points.<br>"
 			special_effects += "For every fire creature on the field, %NAME loses 100 attack points.<br>"
+		if("Ice")
+			description += "They seem to made entirely out of ice."
+			no_new_effects = TRUE
+			rarity += 1
+			special_effects += "%NAME gains the water element if there is a fire monster on the field."
+		if("Cold")
+			description += "Everything they touch turns to ice."
+			no_new_effects = TRUE
+			rarity += 1
+			special_effects += "While this card is in play, every water monsters on the same side of the field gains the ice element."
+		if("Snow")
+			description += "They're adorned in heavy fur from Artic Wolves, a telltale sign of the strong and hardy inhabitants of the mystical Snowy Mountains."
+			rarity += 1
+			special_effects += "%NAME is immune to all frost-based spell and trap cards.<br>"
+			power += 200
+			defense_points_mul += 0.25
+		if("Crystal")
+			description += "They're entirely made up of magic crystals. Wizards of the Crystal Mines summon these beings to defend their resources from rival wizards."
+			rarity += 1
+			special_effects += "%NAME is immune to all spell cards."
+			defense_points_mul -= 1
+			power -= 200
+		if("Frost Servant")
+			description += "Their skin is made entirely out of shifting snow; a common feature of the few reclusive follower of the Frost Lords."
+			rarity += 1
+			special_effects += "%NAME is immune to all frost-based spell and trap cards.<br>"
+		if("Frost Lord")
+			description += "They're bigger than a house, and can summon deadly blizards on demand. Depicted below them is several Frost Servants channeling magic into them."
+			rarity += 2
+			power += 1200
+			elements |= BATTLE_MONSTERS_CARD_GOD
+			defense_points_mul += 0.5
+			special_effects += "%NAME cannot be attack or attacked by Frost Servants.<br>"
+			special_effects += "%NAME is immune to all non-fire based spell and trap cards.<br>"
 
 datum/battle_monsters/card/proc/Generate_Base()
