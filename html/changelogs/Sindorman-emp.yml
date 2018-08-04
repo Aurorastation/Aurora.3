@@ -1,0 +1,13 @@
+author: PoZe
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - rscadd: "Adds cyborg surge prevention upgrade module. It is an upgrade that makes cyborg being immune to 1-3 EMP pulses. Can be constructed by robotics, but is expensive and high tech. After being fried, module can be replaced with new module"
+  - rscadd: "Adds IPC surge prevention module. Available only via traitor uplink, costs 14 telecrystals. Just like cyborg module it make user immune to 1-3 EMP pulses. Comes in from uplink as modified nanopaste that is one time use(doesn't heal user). Module can be repaired with another traitor nanopaste"

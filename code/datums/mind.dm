@@ -95,6 +95,7 @@
 		current.mind = null
 
 		SSnanoui.user_transferred(current, new_character) // transfer active NanoUI instances to new user
+		SSvueui.user_transferred(current, new_character)
 		if(current.client && ticket_panels[current.client])
 			var/datum/ticket_panel/tp = ticket_panels[current.client]
 			tp.ticket_panel_window.user = new_character
@@ -121,7 +122,7 @@
 
 	if(ambitions)
 		output += "<HR><B>Ambitions:</B> [ambitions]<br>"
-	
+
 	if(objectives.len>0)
 		output += "<HR><B>Objectives:</B>"
 
@@ -210,7 +211,7 @@
 			return
 		src.ambitions = sanitize(new_ambition)
 		src.current << "<span class='warning'>Your ambitions have been changed by higher powers, they are now: [src.ambitions]</span>"
-	
+
 	else if (href_list["obj_edit"] || href_list["obj_add"])
 		var/datum/objective/objective
 		var/objective_pos

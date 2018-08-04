@@ -845,13 +845,18 @@
 /turf/simulated/floor/plating,
 /area/tcommsat/lounge)
 "bS" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
 	dir = 8
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/mine/explored)
@@ -1966,19 +1971,13 @@
 /turf/simulated/floor/airless,
 /area/mine/explored)
 "eb" = (
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 4
-	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/airless,
@@ -2005,17 +2004,15 @@
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
 "ee" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/structure/cable{
 	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
+	d2 = 8;
+	icon_state = "2-8"
 	},
-/obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1
+	icon_state = "warning";
+	dir = 5
 	},
 /turf/simulated/floor/airless,
 /area/mine/explored)
@@ -2032,17 +2029,16 @@
 /turf/simulated/floor/airless,
 /area/mine/explored)
 "eg" = (
-/obj/structure/cable{
+/obj/structure/cable/yellow{
 	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
+	d2 = 4;
+	icon_state = "2-4"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1
+	icon_state = "warning";
+	dir = 9
 	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/airless,
 /area/mine/explored)
 "eh" = (
@@ -2089,12 +2085,16 @@
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
 "el" = (
-/obj/structure/cable{
+/obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -2492,11 +2492,16 @@
 	dir = 1
 	},
 /obj/structure/cable/yellow{
-	d1 = 4;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "4-8"
+	icon_state = "1-8"
 	},
-/obj/effect/floor_decal/industrial/warning,
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/airless,
 /area/mine/explored)
 "eQ" = (
@@ -2574,14 +2579,13 @@
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
 "eX" = (
-/obj/structure/cable/yellow{
+/obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4
+	dir = 6
 	},
 /turf/simulated/floor/airless,
 /area/mine/explored)
@@ -2902,6 +2906,226 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fM" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/airless,
+/area/mine/explored)
+"fN" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/mine/explored)
+"fO" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/mine/explored)
+"fP" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/mine/explored)
+"fQ" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/mine/explored)
+"fR" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/mine/explored)
+"fS" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/mine/explored)
+"fT" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/mine/explored)
+"fU" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/mine/explored)
+"fV" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/mine/explored)
+"fW" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/mine/explored)
+"fX" = (
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/mine/explored)
+"fY" = (
+/obj/random/junk,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/mine/explored)
+"fZ" = (
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/mine/explored)
+"ga" = (
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/mine/explored)
+"gb" = (
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
 /area/mine/explored)
 
 (1,1,1) = {"
@@ -26194,17 +26418,17 @@ ab
 ac
 ac
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ae
-ah
-ah
+fM
+fN
+fO
+fP
+fQ
+fR
+fS
+fT
+fU
+fV
+fW
 ah
 ah
 ah
@@ -26451,7 +26675,7 @@ ab
 ab
 ab
 ab
-ab
+eO
 ei
 ei
 ei
@@ -26459,9 +26683,9 @@ ei
 ei
 ei
 ei
-fe
 ah
 ah
+fX
 ah
 ah
 ah
@@ -26708,7 +26932,7 @@ ab
 ab
 ab
 ab
-ab
+eO
 ei
 en
 eq
@@ -26718,7 +26942,7 @@ eC
 ex
 eG
 ah
-an
+fY
 ah
 ah
 ah
@@ -26975,7 +27199,7 @@ eD
 eF
 eH
 eN
-ah
+fZ
 ah
 ah
 ah
@@ -27222,7 +27446,7 @@ ab
 ab
 ab
 ae
-ef
+ah
 ek
 ep
 es
@@ -27232,7 +27456,7 @@ eE
 ex
 eI
 eL
-ah
+ga
 ah
 ah
 ah
@@ -27479,7 +27703,7 @@ ac
 ab
 ab
 ae
-ef
+ah
 ei
 ei
 et
@@ -27489,7 +27713,7 @@ ei
 ei
 eJ
 eL
-ah
+gb
 ah
 ah
 ah
@@ -27746,7 +27970,7 @@ el
 el
 bS
 eP
-ah
+eX
 ah
 ah
 ah
@@ -27993,14 +28217,14 @@ ab
 ab
 ab
 ae
-eh
-em
-em
-em
-em
-em
-em
-em
+eL
+ah
+ah
+ah
+ah
+ah
+ah
+ah
 eb
 eX
 ah

@@ -63,7 +63,7 @@
 			if(istype(I,typepath))
 				if (feedback)
 					user << "You collect \the [I]."
-				I.loc = src
+				I.forceMove(src)
 				wrapped = I
 				update_icon()
 				return 1

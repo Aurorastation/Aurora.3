@@ -52,8 +52,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 
 /obj/item/device/firing_pin/proc/gun_insert(mob/living/user, obj/item/weapon/gun/G)
 	gun = G
-	user.drop_from_inventory(src)
-	forceMove(gun)
+	user.drop_from_inventory(src,gun)
 	gun.pin = src
 	return
 

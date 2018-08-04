@@ -111,7 +111,7 @@
 		if (!isturf(C.loc))
 			continue
 
-		if (C.loc.loc == src)
+		if (C.loc.loc == src) //what the fuck is this
 			. += C
 
 /area/proc/atmosalert(danger_level, var/alarm_source)
