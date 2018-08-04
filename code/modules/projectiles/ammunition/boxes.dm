@@ -445,3 +445,20 @@
 	icon_state = "csms"
 	ammo_type = /obj/item/ammo_casing/shotgun/stunshell
 	matter = list(DEFAULT_WALL_MATERIAL = 2880, "glass" = 5760)
+
+/obj/item/ammo_magazine/minigun
+	name = "minigun magazine box (7.62mm)"
+	icon_state = "a762"
+	mag_type = MAGAZINE
+	caliber = "a762"
+	ammo_type = /obj/item/ammo_casing/a762
+	max_ammo = 1000
+
+/obj/item/ammo_magazine/leyon
+	name = "ammo clip (10mm)"
+	icon_state = "10mmclip"
+	ammo_type = /obj/item/ammo_casing/t40
+	caliber = "10mm"
+	matter = list(DEFAULT_WALL_MATERIAL = 1800)
+	max_ammo = 5
+	multiple_sprites = 1

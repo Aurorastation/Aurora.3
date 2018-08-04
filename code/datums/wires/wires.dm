@@ -141,7 +141,7 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 				// Attach
 				else
 					if(istype(I, /obj/item/device/assembly/signaler))
-						L.drop_item()
+						usr.drop_from_inventory(I)
 						Attach(colour, I)
 					else
 						L << "<span class='error'>You need a remote signaller!</span>"
@@ -241,7 +241,7 @@ var/const/POWER = 8
 	if(colour && S)
 		if(!IsAttached(colour))
 			signallers[colour] = S
-			S.loc = holder
+			S.forceMove(holder)
 			S.connected = src
 			return S
 
@@ -251,7 +251,7 @@ var/const/POWER = 8
 		if(S)
 			signallers -= colour
 			S.connected = null
-			S.loc = holder.loc
+			S.forceMove(holder.loc)
 			return S
 
 

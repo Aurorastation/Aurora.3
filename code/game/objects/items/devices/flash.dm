@@ -17,7 +17,7 @@
 /obj/item/device/flash/proc/clown_check(var/mob/user)
 	if(user && (CLUMSY in user.mutations) && prob(50))
 		user << "<span class='warning'>\The [src] slips out of your hand.</span>"
-		user.drop_item()
+		user.drop_from_inventory(src)
 		return 0
 	return 1
 
@@ -123,7 +123,9 @@
 			var/mob/living/silicon/robot/R = M
 			if(R.overclocked)
 				return
-		M.Weaken(7)
+
+		M.Weaken(rand(3,7)) //should be that borg is disabled for around 3-7 seconds
+
 	else
 		flashfail = 1
 

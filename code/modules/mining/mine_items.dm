@@ -27,6 +27,7 @@
 	new /obj/item/weapon/ore_radar(src)
 	new /obj/item/weapon/key/minecarts(src)
 	new /obj/item/device/gps/mining(src)
+	new /obj/item/weapon/book/manual/ka_custom(src)
 
 /******************************Lantern*******************************/
 
@@ -120,6 +121,10 @@
 			user << "<span class='warning'>It's too heavy for you to wield fully.</span>"
 			return
 	else
+		return
+
+	if(!istype(user.get_active_hand(), src))
+		user << "<span class='warning'>You need to be holding the [name] in your active hand.</span>"
 		return
 
 	if(wielded) //Trying to unwield it
@@ -601,8 +606,7 @@
 /obj/vehicle/train/cargo/engine/mining/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/key/minecarts))
 		if(!key)
-			user.drop_item()
-			W.forceMove(src)
+			user.drop_from_inventory(W,src)
 			key = W
 			verbs += /obj/vehicle/train/cargo/engine/verb/remove_key
 		return
@@ -936,7 +940,7 @@ var/list/total_extraction_beacons = list()
 			var/list/flooring_near_beacon = list()
 			for(var/turf/simulated/floor/floor in orange(1, beacon))
 				flooring_near_beacon += floor
-			A.loc = pick(flooring_near_beacon)
+			A.forceMove(pick(flooring_near_beacon))
 			single_spark(A.loc)
 			if(uses_left <= 0)
 				qdel(src)
@@ -1284,7 +1288,7 @@ var/list/total_extraction_beacons = list()
 		icon_state = "fitnessweight-c"
 		user.dir = SOUTH
 		user.Stun(4)
-		user.loc = src.loc
+		user.forceMove(src.loc)
 		var/image/W = image('icons/obj/mining.dmi',"fitnessweight-w")
 		W.layer = 5.1
 		add_overlay(W)

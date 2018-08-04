@@ -124,6 +124,16 @@
 	for(var/obj/item/thing in contents)
 		thing.autodrobe_no_remove = 1
 
+/obj/item/weapon/storage/box/vaurca
+	autodrobe_no_remove = 1
+
+/obj/item/weapon/storage/box/vaurca/fill()
+	..()
+	new /obj/item/clothing/mask/breath( src )
+	new /obj/item/weapon/reagent_containers/inhaler/phoron_special(src)
+	for(var/obj/item/thing in contents)
+		thing.autodrobe_no_remove = 1
+
 /obj/item/weapon/storage/box/gloves
 	name = "box of sterile gloves"
 	desc = "Contains sterile gloves."
@@ -214,101 +224,93 @@
 
 /obj/item/weapon/storage/box/blanks
 	name = "box of blank shells"
-	desc = "It has a picture of a gun and several warning symbols on the front."
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front."
+	icon_state = "blankshot_box"
 
 /obj/item/weapon/storage/box/blanks/fill()
 	..()
-	new /obj/item/ammo_casing/shotgun/blank(src)
-	new /obj/item/ammo_casing/shotgun/blank(src)
-	new /obj/item/ammo_casing/shotgun/blank(src)
-	new /obj/item/ammo_casing/shotgun/blank(src)
-	new /obj/item/ammo_casing/shotgun/blank(src)
-	new /obj/item/ammo_casing/shotgun/blank(src)
-	new /obj/item/ammo_casing/shotgun/blank(src)
+	for(var/i in 1 to 8)
+		new /obj/item/ammo_casing/shotgun/blank(src)
 
 /obj/item/weapon/storage/box/beanbags
 	name = "box of beanbag shells"
-	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "beanshot_box"
 
 /obj/item/weapon/storage/box/beanbags/fill()
 	..()
-	new /obj/item/ammo_casing/shotgun/beanbag(src)
-	new /obj/item/ammo_casing/shotgun/beanbag(src)
-	new /obj/item/ammo_casing/shotgun/beanbag(src)
-	new /obj/item/ammo_casing/shotgun/beanbag(src)
-	new /obj/item/ammo_casing/shotgun/beanbag(src)
-	new /obj/item/ammo_casing/shotgun/beanbag(src)
-	new /obj/item/ammo_casing/shotgun/beanbag(src)
+	for(var/i in 1 to 8)
+		new /obj/item/ammo_casing/shotgun/beanbag(src)
 
 /obj/item/weapon/storage/box/shotgunammo
 	name = "box of shotgun slugs"
-	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "lethalslug_box"
 
 /obj/item/weapon/storage/box/shotgunammo/fill()
 	..()
-	new /obj/item/ammo_casing/shotgun(src)
-	new /obj/item/ammo_casing/shotgun(src)
-	new /obj/item/ammo_casing/shotgun(src)
-	new /obj/item/ammo_casing/shotgun(src)
-	new /obj/item/ammo_casing/shotgun(src)
-	new /obj/item/ammo_casing/shotgun(src)
-	new /obj/item/ammo_casing/shotgun(src)
+	for(var/i in 1 to 8)
+		new /obj/item/ammo_casing/shotgun(src)
 
 /obj/item/weapon/storage/box/shotgunshells
 	name = "box of shotgun shells"
-	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "lethalshell_box"
 
 /obj/item/weapon/storage/box/shotgunshells/fill()
 	..()
-	new /obj/item/ammo_casing/shotgun/pellet(src)
-	new /obj/item/ammo_casing/shotgun/pellet(src)
-	new /obj/item/ammo_casing/shotgun/pellet(src)
-	new /obj/item/ammo_casing/shotgun/pellet(src)
-	new /obj/item/ammo_casing/shotgun/pellet(src)
-	new /obj/item/ammo_casing/shotgun/pellet(src)
-	new /obj/item/ammo_casing/shotgun/pellet(src)
+	for(var/i in 1 to 8)
+		new /obj/item/ammo_casing/shotgun/pellet(src)
 
 /obj/item/weapon/storage/box/flashshells
 	name = "box of illumination shells"
-	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "illumshot_box"
 
 /obj/item/weapon/storage/box/flashshells/fill()
 	..()
-	new /obj/item/ammo_casing/shotgun/flash(src)
-	new /obj/item/ammo_casing/shotgun/flash(src)
-	new /obj/item/ammo_casing/shotgun/flash(src)
-	new /obj/item/ammo_casing/shotgun/flash(src)
-	new /obj/item/ammo_casing/shotgun/flash(src)
-	new /obj/item/ammo_casing/shotgun/flash(src)
-	new /obj/item/ammo_casing/shotgun/flash(src)
+	for(var/i in 1 to 8)
+		new /obj/item/ammo_casing/shotgun/flash(src)
 
 /obj/item/weapon/storage/box/stunshells
 	name = "box of stun shells"
-	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "stunshot_box"
 
 /obj/item/weapon/storage/box/stunshells/fill()
 	..()
-	new /obj/item/ammo_casing/shotgun/stunshell(src)
-	new /obj/item/ammo_casing/shotgun/stunshell(src)
-	new /obj/item/ammo_casing/shotgun/stunshell(src)
-	new /obj/item/ammo_casing/shotgun/stunshell(src)
-	new /obj/item/ammo_casing/shotgun/stunshell(src)
-	new /obj/item/ammo_casing/shotgun/stunshell(src)
-	new /obj/item/ammo_casing/shotgun/stunshell(src)
+	for(var/i in 1 to 8)
+		new /obj/item/ammo_casing/shotgun/stunshell(src)
 
 /obj/item/weapon/storage/box/practiceshells
 	name = "box of practice shells"
-	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "blankshot_box"
 
 /obj/item/weapon/storage/box/practiceshells/fill()
 	..()
-	new /obj/item/ammo_casing/shotgun/practice(src)
-	new /obj/item/ammo_casing/shotgun/practice(src)
-	new /obj/item/ammo_casing/shotgun/practice(src)
-	new /obj/item/ammo_casing/shotgun/practice(src)
-	new /obj/item/ammo_casing/shotgun/practice(src)
-	new /obj/item/ammo_casing/shotgun/practice(src)
-	new /obj/item/ammo_casing/shotgun/practice(src)
+	for(var/i in 1 to 8)
+		new /obj/item/ammo_casing/shotgun/practice(src)
+
+/obj/item/weapon/storage/box/haywireshells
+	name = "box of haywire shells"
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "empshot_box"
+
+/obj/item/weapon/storage/box/haywireshells/fill()
+	..()
+	for(var/i in 1 to 8)
+		new /obj/item/ammo_casing/shotgun/emp(src)
+
+/obj/item/weapon/storage/box/incendiaryshells
+	name = "box of incendiary shells"
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "incendiaryshot_box"
+
+/obj/item/weapon/storage/box/incendiaryshells/fill()
+	..()
+	for(var/i in 1 to 8)
+		new /obj/item/ammo_casing/shotgun/incendiary(src)
 
 /obj/item/weapon/storage/box/sniperammo
 	name = "box of 14.5mm shells"
@@ -968,7 +970,8 @@
 			/obj/item/weapon/reagent_containers/food/snacks/tastybread,
 			/obj/item/weapon/reagent_containers/food/snacks/meatsnack,
 			/obj/item/weapon/reagent_containers/food/snacks/maps,
-			/obj/item/weapon/reagent_containers/food/snacks/nathisnack
+			/obj/item/weapon/reagent_containers/food/snacks/nathisnack,
+			/obj/item/weapon/reagent_containers/food/snacks/adhomian_can
 	)
 	for (var/i = 0,i<7,i++)
 		var/type = pick(snacks)
@@ -1006,3 +1009,15 @@
 
 	for(var/i in 1 to 6)
 		new /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large(src)
+
+/obj/item/weapon/storage/box/clams
+	name = "box of Ras'val clam"
+	desc = "A box filled with clams from the Ras'val sea, imported by Njadra'Akhar Enterprises."
+
+/obj/item/weapon/storage/box/clams/fill()
+	..()
+	new /obj/item/weapon/reagent_containers/food/snacks/clam(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/clam(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/clam(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/clam(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/clam(src)

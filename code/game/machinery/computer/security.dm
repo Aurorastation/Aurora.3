@@ -37,7 +37,7 @@
 
 	if(scan)
 		usr << "You remove \the [scan] from \the [src]."
-		scan.loc = get_turf(src)
+		scan.forceMove(get_turf(src))
 		if(!usr.get_active_hand() && istype(usr,/mob/living/carbon/human))
 			usr.put_in_hands(scan)
 		scan = null
@@ -47,8 +47,7 @@
 
 /obj/machinery/computer/secure_data/attackby(obj/item/O as obj, user as mob)
 	if(istype(O, /obj/item/weapon/card/id) && !scan)
-		usr.drop_item()
-		O.loc = src
+		usr.drop_from_inventory(O,src)
 		scan = O
 		user << "You insert [O]."
 	..()
@@ -272,12 +271,12 @@ What a mess.*/
 					if(istype(usr,/mob/living/carbon/human) && !usr.get_active_hand())
 						usr.put_in_hands(scan)
 					else
-						scan.loc = get_turf(src)
+						scan.forceMove(get_turf(src))
 					scan = null
 				else
 					var/obj/item/I = usr.get_active_hand()
 					if (istype(I, /obj/item/weapon/card/id) && usr.unEquip(I))
-						I.loc = src
+						I.forceMove(src)
 						scan = I
 
 			if("Log Out")

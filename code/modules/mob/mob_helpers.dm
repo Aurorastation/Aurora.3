@@ -60,11 +60,13 @@
 /proc/isvaurca(A)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
-			if ("Vaurca Worker")
+			if("Vaurca Worker")
 				return 1
 			if("Vaurca Warrior")
 				return 1
 			if("Vaurca Breeder")
+				return 1
+			if("Vaurca Warform")
 				return 1
 			if("V'krexi")
 				return 1

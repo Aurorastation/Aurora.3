@@ -108,7 +108,8 @@
 	products = list(
 		/obj/item/weapon/reagent_containers/food/drinks/coffee = 25,
 		/obj/item/weapon/reagent_containers/food/drinks/tea = 25,
-		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 25
+		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 25,
+		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 20
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/drinks/ice = 10
@@ -116,7 +117,8 @@
 	prices = list(
 		/obj/item/weapon/reagent_containers/food/drinks/coffee = 20,
 		/obj/item/weapon/reagent_containers/food/drinks/tea = 20,
-		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 22
+		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 22,
+		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 6
 	)
 
 /obj/machinery/vending/snack
@@ -348,6 +350,7 @@
 		/obj/item/weapon/handcuffs = 8,
 		/obj/item/weapon/grenade/chem_grenade/teargas = 4,
 		/obj/item/device/flash = 5,
+		/obj/item/weapon/reagent_containers/spray/pepper = 5,
 		/obj/item/weapon/storage/box/evidence = 6,
 		/obj/item/device/holowarrant = 5
 	)
@@ -359,9 +362,10 @@
 		/obj/item/weapon/grenade/flashbang = 4
 	)
 	restock_blocked_items = list(
-		/obj/item/weapon/storage/box/donut, 
+		/obj/item/weapon/storage/box/donut,
 		/obj/item/weapon/storage/box/evidence,
-		/obj/item/device/flash
+		/obj/item/device/flash,
+		/obj/item/weapon/reagent_containers/spray/pepper
 		)
 	restock_items = 1
 
@@ -410,7 +414,9 @@
 		/obj/item/seeds/chiliseed = 3,
 		/obj/item/seeds/cocoapodseed = 3,
 		/obj/item/seeds/cornseed = 3,
+		/obj/item/seeds/earthenroot = 2,
 		/obj/item/seeds/eggplantseed = 3,
+		/obj/item/seeds/garlicseed = 3,
 		/obj/item/seeds/grapeseed = 3,
 		/obj/item/seeds/grassseed = 3,
 		/obj/item/seeds/greengrapeseed = 3,
@@ -418,8 +424,11 @@
 		/obj/item/seeds/lemonseed = 3,
 		/obj/item/seeds/limeseed = 3,
 		/obj/item/seeds/mtearseed = 3,
+		/obj/item/seeds/nifberries = 2,
+		/obj/item/seeds/onionseed = 3,
 		/obj/item/seeds/orangeseed = 3,
 		/obj/item/seeds/peanutseed = 3,
+		/obj/item/seeds/peppercornseed = 3,
 		/obj/item/seeds/plumpmycelium = 3,
 		/obj/item/seeds/poppyseed = 3,
 		/obj/item/seeds/potatoseed = 3,
@@ -430,6 +439,7 @@
 		/obj/item/seeds/soyaseed = 3,
 		/obj/item/seeds/sugarcaneseed = 3,
 		/obj/item/seeds/sunflowerseed = 3,
+		/obj/item/seeds/tobaccoseed = 3,
 		/obj/item/seeds/tomatoseed = 3,
 		/obj/item/seeds/towermycelium = 3,
 		/obj/item/seeds/watermelonseed = 3,
@@ -458,7 +468,9 @@
 		/obj/item/seeds/chiliseed = 50,
 		/obj/item/seeds/cocoapodseed = 50,
 		/obj/item/seeds/cornseed = 30,
+		/obj/item/seeds/earthenroot = 70,
 		/obj/item/seeds/eggplantseed = 30,
+		/obj/item/seeds/garlicseed = 30,
 		/obj/item/seeds/grapeseed = 40,
 		/obj/item/seeds/grassseed = 40,
 		/obj/item/seeds/greengrapeseed = 40,
@@ -466,8 +478,11 @@
 		/obj/item/seeds/lemonseed = 40,
 		/obj/item/seeds/limeseed = 50,
 		/obj/item/seeds/mtearseed = 60,
+		/obj/item/seeds/nifberries = 70,
+		/obj/item/seeds/onionseed = 30,
 		/obj/item/seeds/orangeseed = 40,
 		/obj/item/seeds/peanutseed = 30,
+		/obj/item/seeds/peppercornseed = 30,
 		/obj/item/seeds/plumpmycelium = 20,
 		/obj/item/seeds/poppyseed = 10,
 		/obj/item/seeds/potatoseed = 30,
@@ -478,6 +493,7 @@
 		/obj/item/seeds/soyaseed = 40,
 		/obj/item/seeds/sugarcaneseed = 20,
 		/obj/item/seeds/sunflowerseed = 20,
+		/obj/item/seeds/tobaccoseed = 40,
 		/obj/item/seeds/tomatoseed = 30,
 		/obj/item/seeds/towermycelium = 20,
 		/obj/item/seeds/watermelonseed = 30,
@@ -605,7 +621,7 @@
 		/obj/item/weapon/weldingtool/hugetank
 	)
 	restock_items = 1
-	
+
 /obj/machinery/vending/engivend
 	name = "Engi-Vend"
 	desc = "Spare tool vending. What? Did you expect some witty description?"

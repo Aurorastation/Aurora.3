@@ -31,14 +31,13 @@
 	. = ..()
 	for(var/obj/item/I in loc)
 		if(istype(I, /obj/item/weapon/paper) || istype(I, /obj/item/weapon/folder) || istype(I, /obj/item/weapon/photo) || istype(I, /obj/item/weapon/paper_bundle))
-			I.loc = src
+			I.forceMove(src)
 
 
 /obj/structure/filingcabinet/attackby(obj/item/P as obj, mob/user as mob)
 	if(istype(P, /obj/item/weapon/paper) || istype(P, /obj/item/weapon/folder) || istype(P, /obj/item/weapon/photo) || istype(P, /obj/item/weapon/paper_bundle))
 		user << "<span class='notice'>You put [P] in [src].</span>"
-		user.drop_item()
-		P.loc = src
+		user.drop_from_inventory(P,src)
 		icon_state = "[initial(icon_state)]-open"
 		sleep(5)
 		icon_state = initial(icon_state)
@@ -75,7 +74,7 @@
 	if(contents.len)
 		if(prob(40 + contents.len * 5))
 			var/obj/item/I = pick(contents)
-			I.loc = loc
+			I.forceMove(loc)
 			if(prob(25))
 				step_rand(I)
 			user << "<span class='notice'>You pull \a [I] out of [src] at random.</span>"

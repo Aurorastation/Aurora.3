@@ -231,6 +231,15 @@
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/quiche
 	reagent_mix = RECIPE_REAGENT_REPLACE //No raw egg in finished product, protein after cooking causes magic meatballs otherwise
 
+/datum/recipe/tajaran_bread
+	fruit = list("nifberries" = 1)
+	reagents = list("spacespice" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/tajaran_bread
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
 //Baked sweets:
 //---------------
 
@@ -278,7 +287,7 @@
 
 
 		for (var/obj/item/weapon/reagent_containers/food/snacks/fortunecookie/being_cooked in .)
-			paper.loc = being_cooked
+			paper.forceMove(being_cooked)
 			being_cooked.trash = paper //so the paper is left behind as trash without special-snowflake(TM Nodrak) code ~carn
 			return
 
@@ -493,6 +502,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/meat
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/lasagna
+	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /datum/recipe/honeybun
 	appliance = OVEN
@@ -558,3 +568,10 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/weapon/reagent_containers/food/snacks/truffle
 	result_quantity = 4
+
+/datum/recipe/croissant
+	appliance = OVEN
+	reagents = list("sodiumchloride" = 1, "water" = 5, "milk" = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	items = list(/obj/item/weapon/reagent_containers/food/snacks/dough)
+	result = /obj/item/weapon/reagent_containers/food/snacks/croissant

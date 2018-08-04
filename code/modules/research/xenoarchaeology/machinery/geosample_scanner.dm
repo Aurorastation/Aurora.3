@@ -95,8 +95,7 @@
 		if(scanned_item)
 			user << "<span class=warning>\The [src] already has \a [scanned_item] inside!</span>"
 			return
-		user.drop_item()
-		I.loc = src
+		user.drop_from_inventory(I,src)
 		scanned_item = I
 		user << "<span class=notice>You put \the [I] into \the [src].</span>"
 
@@ -236,16 +235,16 @@
 			//emergency stop if seal integrity reaches 0
 			if(scanner_seal_integrity <= 0 || (scanner_temperature >= 1273 && !rad_shield))
 				stop_scanning()
-				src.visible_message("<span class='notice'>\icon[src] buzzes unhappily. It has failed mid-scan!</span>", 2)
+				visible_message("<span class='notice'>\icon[src] buzzes unhappily. It has failed mid-scan!</span>", range = 2)
 
 			if(prob(5))
-				src.visible_message("<span class='notice'>\icon[src] [pick("whirrs","chuffs","clicks")][pick(" excitedly"," energetically"," busily")].</span>", 2)
+				visible_message("<span class='notice'>\icon[src] [pick("whirrs","chuffs","clicks")][pick(" excitedly"," energetically"," busily")].</span>", range = 2)
 	else
 		//gradually cool down over time
 		if(scanner_temperature > 0)
 			scanner_temperature = max(scanner_temperature - 5 - 10 * rand(), 0)
 		if(prob(0.75))
-			src.visible_message("<span class='notice'>\icon[src] [pick("plinks","hisses")][pick(" quietly"," softly"," sadly"," plaintively")].</span>", 2)
+			visible_message("<span class='notice'>\icon[src] [pick("plinks","hisses")][pick(" quietly"," softly"," sadly"," plaintively")].</span>", range = 2)
 	last_process_worldtime = world.time
 
 /obj/machinery/radiocarbon_spectrometer/proc/stop_scanning()
@@ -263,7 +262,7 @@
 		used_coolant = 0
 
 /obj/machinery/radiocarbon_spectrometer/proc/complete_scan()
-	src.visible_message("<span class='notice'>\icon[src] makes an insistent chime.</span>", 2)
+	visible_message("<span class='notice'>\icon[src] makes an insistent chime.</span>", range = 2)
 
 	if(scanned_item)
 		//create report
@@ -320,9 +319,9 @@
 		P.info = "<b>[src] analysis report #[report_num]</b><br>"
 		P.info += "<b>Scanned item:</b> [scanned_item.name]<br><br>" + data
 		last_scan_data = P.info
-		P.loc = src.loc
+		P.forceMove(src.loc)
 
-		scanned_item.loc = src.loc
+		scanned_item.forceMove(src.loc)
 		scanned_item = null
 
 /obj/machinery/radiocarbon_spectrometer/Topic(href, href_list)
@@ -358,7 +357,7 @@
 
 	if(href_list["ejectItem"])
 		if(scanned_item)
-			scanned_item.loc = src.loc
+			scanned_item.forceMove(src.loc)
 			scanned_item = null
 
 	add_fingerprint(usr)

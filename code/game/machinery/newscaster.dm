@@ -43,10 +43,13 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	var/scanned_user = "Unknown" //Will contain the name of the person who currently uses the newscaster
 	var/msg = "";                //Feed message
 	var/datum/news_photo/photo_data = null
+	var/paper_data = ""
+	var/paper_name = ""
 	var/channel_name = ""; //the feed channel which will be receiving the feed, or being created
 	var/c_locked=0;        //Will our new channel be locked to public submissions?
 	var/hitstaken = 0      //Death at 3 hits from an item with force>=15
 	var/datum/feed_channel/viewing_channel = null
+	var/datum/feed_message/viewing_message = null
 	light_range = 0
 	anchored = 1
 
@@ -187,6 +190,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				dat+="<B>Message Author:</B> <FONT COLOR='green'>[src.scanned_user]</FONT><BR>"
 				dat+="<B><A href='?src=\ref[src];set_new_message=1'>Message Body</A>:</B> [src.msg] <BR>"
 				dat+="<B><A href='?src=\ref[src];set_attachment=1'>Attach Photo</A>:</B>  [(src.photo_data ? "Photo Attached" : "No Photo")]</BR>"
+				dat+="<B><A href='?src=\ref[src];set_paper=1'>Scan Paper</A>:</B>  [((src.paper_data || src.paper_name) ? "Paper Scanned" : "No Paper")]</BR>"
 				dat+="<BR><A href='?src=\ref[src];submit_new_message=1'>Submit</A><BR><BR><A href='?src=\ref[src];setScreen=[0]'>Cancel</A><BR>"
 			if(4)
 				dat+="Feed story successfully submitted to [src.channel_name].<BR><BR>"
@@ -254,14 +258,15 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 						var/i = 0
 						for(var/datum/feed_message/MESSAGE in src.viewing_channel.messages)
 							i++
-							dat+="-[MESSAGE.body] <BR>"
+							dat+="<BLOCKQUOTE style=\"padding:2px 4px;border-left:4px #797979 solid\">[MESSAGE.body] <FONT SIZE=1>\[Likes: <FONT COLOR='DarkGreen'>[MESSAGE.likes]</FONT> Dislikes: <FONT COLOR='maroon'>[MESSAGE.dislikes]</FONT>\]</FONT><BR>"
 							if(MESSAGE.img)
 								usr << browse_rsc(MESSAGE.img, "tmp_photo[i].png")
 								dat+="<img src='tmp_photo[i].png' width = '180'><BR>"
 								if(MESSAGE.caption)
 									dat+="<FONT SIZE=1><B>[MESSAGE.caption]</B></FONT><BR>"
 								dat+="<BR>"
-							dat+="<FONT SIZE=1>\[Story by <FONT COLOR='maroon'>[MESSAGE.author] - [MESSAGE.time_stamp]</FONT>\]</FONT><BR>"
+							dat+="<FONT SIZE=1><A href='?src=\ref[src];view_comments=1;story=\ref[MESSAGE]'>View Comments</A> <A href='?src=\ref[src];add_comment=1;story=\ref[MESSAGE]'>Add Comment</A> <A href='?src=\ref[src];like=1;story=\ref[MESSAGE]'>Like Story</A> <A href='?src=\ref[src];dislike=1;story=\ref[MESSAGE]'>Dislike Story</A></FONT><BR>"
+							dat+="<FONT SIZE=1>\[Story by <FONT COLOR='maroon'>[MESSAGE.author] - [MESSAGE.time_stamp]</FONT>\]</FONT></BLOCKQUOTE><BR>"
 				dat+="<BR><HR><A href='?src=\ref[src];refresh=1'>Refresh</A>"
 				dat+="<BR><A href='?src=\ref[src];setScreen=[1]'>Back</A>"
 			if(10)
@@ -312,7 +317,9 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 						dat+="<I>No feed messages found in channel...</I><BR>"
 					else
 						for(var/datum/feed_message/MESSAGE in src.viewing_channel.messages)
-							dat+="-[MESSAGE.body] <BR><FONT SIZE=1>\[[MESSAGE.message_type] by <FONT COLOR='maroon'>[MESSAGE.author]</FONT>\]</FONT><BR>"
+							dat+="<BLOCKQUOTE style=\"padding:2px 4px;border-left:4px #797979 solid\">[MESSAGE.body] <FONT SIZE=1>\[Likes: <FONT COLOR='DarkGreen'>[MESSAGE.likes]</FONT> Dislikes: <FONT COLOR='maroon'>[MESSAGE.dislikes]</FONT>\]</FONT><BR>"
+							dat+="<FONT SIZE=1><A href='?src=\ref[src];view_comments=1;story=\ref[MESSAGE];privileged=1;'>View Comments</A> <A href='?src=\ref[src];add_comment=1;story=\ref[MESSAGE]'>Add Comment</A> <A href='?src=\ref[src];like=1;story=\ref[MESSAGE]'>Like Story</A> <A href='?src=\ref[src];dislike=1;story=\ref[MESSAGE]'>Dislike Story</A></FONT><BR>"
+							dat+="<FONT SIZE=1>\[Story by <FONT COLOR='maroon'>[MESSAGE.author] - [MESSAGE.time_stamp]</FONT>\]</FONT></BLOCKQUOTE><BR>"
 
 				dat+="<BR><A href='?src=\ref[src];setScreen=[11]'>Back</A>"
 			if(14)
@@ -329,6 +336,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				dat+="<A href='?src=\ref[src];set_wanted_name=1'>Criminal Name</A>: [src.channel_name] <BR>"
 				dat+="<A href='?src=\ref[src];set_wanted_desc=1'>Description</A>: [src.msg] <BR>"
 				dat+="<A href='?src=\ref[src];set_attachment=1'>Attach Photo</A>: [(src.photo_data ? "Photo Attached" : "No Photo")]</BR>"
+				dat+="<B><A href='?src=\ref[src];set_paper=1'>Scan Paper</A>:</B>  [((src.paper_data || src.paper_name) ? "Paper Scanned" : "No Paper")]</BR>"
 				if(wanted_already)
 					dat+="<B>Wanted Issue created by:</B><FONT COLOR='green'> [SSnews.wanted_issue.backup_author]</FONT><BR>"
 				else
@@ -372,8 +380,22 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			if(21)
 				dat+="<FONT COLOR='maroon'>Unable to print newspaper. Insufficient paper. Please notify maintenance personnel to refill machine storage.</FONT><BR><BR>"
 				dat+="<A href='?src=\ref[src];setScreen=[0]'>Return</A>"
-			else
-				dat+="I'm sorry to break your immersion. This shit's bugged. Report this bug to Agouri, polyxenitopalidou@gmail.com"
+			if(22) //comments!
+				dat+="<B>Comments:</B></BR>"
+				if(isemptylist(src.viewing_message.comments))
+					dat+="No comments on this story yet!</BR>"
+				else
+					for(var/datum/feed_comment/COMMENT in src.viewing_message.comments)
+						dat+="<BLOCKQUOTE style=\"padding:2px 4px;border-left:4px #797979 solid;\"><B>\[[world.time]\] [COMMENT.author]:</B>[COMMENT.message]<BR></BLOCKQUOTE>"
+				dat+="<A href='?src=\ref[src];setScreen=[9]'>Return</A>"
+			if(23) //comments but with more censorship!
+				dat+="<B>Comments:</B></BR>"
+				if(isemptylist(src.viewing_message.comments))
+					dat+="No comments on this story yet!</BR>"
+				else
+					for(var/datum/feed_comment/COMMENT in src.viewing_message.comments)
+						dat+="<BLOCKQUOTE style=\"padding:2px 4px;border-left:4px #797979 solid;\"><B>\[[world.time]\] [COMMENT.author]:</B>[COMMENT.message]<BR><A href='?src=\ref[src];censor_comment=1;comment=\ref[COMMENT]>Censor Comment</A></BLOCKQUOTE>"
+				dat+="<A href='?src=\ref[src];setScreen=[9]'>Return</A>"
 
 
 		human_or_robot_user << browse(dat, "window=newscaster_main;size=400x600")
@@ -431,23 +453,77 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			src.updateUsrDialog()
 
 		else if(href_list["set_new_message"])
-			src.msg = sanitize(input(usr, "Write your Feed story", "Network Channel Handler", ""))
+			src.msg = pencode2html(sanitize(input(usr, "Write your Feed story", "Network Channel Handler", "") as message, max_length = MAX_BOOK_MESSAGE_LEN, encode = 0, trim = 0, extra = 0))
 			src.updateUsrDialog()
 
 		else if(href_list["set_attachment"])
 			AttachPhoto(usr)
 			src.updateUsrDialog()
 
+		else if(href_list["set_paper"])
+			AttachPaper(usr)
+			src.updateUsrDialog()
+
 		else if(href_list["submit_new_message"])
 			if(src.msg =="" || src.msg=="\[REDACTED\]" || src.scanned_user == "Unknown" || src.channel_name == "" )
 				src.screen=6
 			else
+				if(paper_data)
+					src.msg += "</BR>Attachment Name: [paper_name]</BR>Attachment:<PRE><BLOCKQUOTE style=\"border: 1px black solid;\">[paper_data]</BLOCKQUOTE></PRE>"
 				var/image = photo_data ? photo_data.photo : null
 				feedback_inc("newscaster_stories",1)
 				var/datum/feed_channel/ch =  SSnews.GetFeedChannel(src.channel_name)
 				SSnews.SubmitArticle(src.msg, src.scanned_user, ch, image, 0)
 				src.screen=4
 
+			src.updateUsrDialog()
+
+		else if(href_list["add_comment"])
+			var/com_msg = sanitize(input(usr, "Write your Comment", "Network Comment Handler", "") as message, encode = 0, trim = 0, extra = 0)
+			if(com_msg =="" || com_msg=="\[REDACTED\]" || src.scanned_user == "Unknown" )
+				return
+			var/datum/feed_message/viewing_story = locate(href_list["story"])
+			if(!istype(viewing_story))
+				return
+			var/datum/feed_comment/comment = new
+			comment.author = src.scanned_user
+			comment.message = com_msg
+			comment.posted = "[worldtime2text()]"
+			viewing_story.comments += comment
+			to_chat(usr, "Comment successfully added!")
+			src.screen = 22
+			src.updateUsrDialog()
+
+		else if(href_list["view_comments"])
+			var/datum/feed_message/viewing_story = locate(href_list["story"])
+			if(!istype(viewing_story))
+				return
+			src.screen = href_list["privileged"] ? 23 : 22
+			src.viewing_message = viewing_story
+			src.updateUsrDialog()
+
+		else if(href_list["censor_comment"])
+			var/datum/feed_comment/comment = locate(href_list["comment"])
+			if(!istype(comment))
+				return
+			comment.message = "\[REDACTED\]"
+			src.screen = 22
+			src.updateUsrDialog()
+
+		else if(href_list["like"])
+			var/datum/feed_message/viewing_story = locate(href_list["story"])
+			if(src.scanned_user == "Unknown" || (src.scanned_user in viewing_story.interacted) || !istype(viewing_story))
+				return
+			viewing_story.interacted += src.scanned_user
+			viewing_story.likes += 1
+			src.updateUsrDialog()
+
+		else if(href_list["dislike"])
+			var/datum/feed_message/viewing_story = locate(href_list["story"])
+			if(src.scanned_user == "Unknown" || (src.scanned_user in viewing_story.interacted) || !istype(viewing_story))
+				return
+			viewing_story.interacted += src.scanned_user
+			viewing_story.dislikes += 1
 			src.updateUsrDialog()
 
 		else if(href_list["create_channel"])
@@ -614,6 +690,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				src.c_locked=0;
 				channel_name="";
 				src.viewing_channel = null
+				src.viewing_message = null
 			src.updateUsrDialog()
 
 		else if(href_list["show_channel"])
@@ -675,15 +752,14 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 /obj/machinery/newscaster/proc/AttachPhoto(mob/user as mob)
 	if(photo_data)
 		if(!photo_data.is_synth)
-			photo_data.photo.loc = src.loc
+			photo_data.photo.forceMove(src.loc)
 			if(!issilicon(user))
 				user.put_in_inactive_hand(photo_data.photo)
 		qdel(photo_data)
 
 	if(istype(user.get_active_hand(), /obj/item/weapon/photo))
 		var/obj/item/photo = user.get_active_hand()
-		user.drop_item()
-		photo.loc = src
+		user.drop_from_inventory(photo,src)
 		photo_data = new(photo, 0)
 	else if(istype(user,/mob/living/silicon))
 		var/mob/living/silicon/tempAI = user
@@ -693,6 +769,18 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 
 		photo_data = new(selection, 1)
 
+/obj/machinery/newscaster/proc/AttachPaper(mob/user)
+	if(paper_data || paper_name)
+		paper_name = ""
+		paper_data = ""
+
+	if(istype(user.get_active_hand(), /obj/item/weapon/paper))
+		var/obj/item/weapon/paper/attached = user.get_active_hand()
+		paper_name = attached.name
+		paper_data = attached.info
+		to_chat(user, "You scan \the [attached] and add it to the news story.")
+	else
+		to_chat(user, "The newscaster refuses to scan [user.get_active_hand()].")
 
 //########################################################################################################################
 //###################################### NEWSPAPER! ######################################################################
@@ -875,7 +963,7 @@ obj/item/weapon/newspaper/attackby(obj/item/weapon/W as obj, mob/user as mob)
 		NEWSPAPER.news_content += FC
 	if(SSnews.wanted_issue)
 		NEWSPAPER.important_message = SSnews.wanted_issue
-	NEWSPAPER.loc = get_turf(src)
+	NEWSPAPER.forceMove(get_turf(src))
 	src.paper_remaining--
 	return
 

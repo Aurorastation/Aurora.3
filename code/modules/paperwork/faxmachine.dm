@@ -21,146 +21,104 @@ var/list/admin_departments
 
 	var/static/const/broadcast_departments = "Stationwide broadcast (WARNING)"
 	var/obj/item/weapon/card/id/scan = null // identification
-	var/authenticated = 0
 	var/sendtime = 0		// Time when fax was sent
 	var/sendcooldown = 0	// Delay, before another fax can be sent (in 1/10 second). Used by set_cooldown() and get_remaining_cooldown()
 
 	var/department = "Unknown" // our department
-	var/destination = null // the department we're sending to
 
 	var/list/obj/item/device/pda/alert_pdas = list() //A list of PDAs to alert upon arrival of the fax.
 
 /obj/machinery/photocopier/faxmachine/Initialize()
 	. = ..()
 	allfaxes += src
-	if(!destination) destination = "[current_map.boss_name]"
 	if( !(("[department]" in alldepartments) || ("[department]" in admin_departments)) )
 		alldepartments |= department
 
-/obj/machinery/photocopier/faxmachine/attack_hand(mob/user as mob)
-	user.set_machine(src)
-
-	var/remaining_cooldown = get_remaining_cooldown()
-	var/dat = "Fax Machine<BR>"
-
-	var/scan_name
+/obj/machinery/photocopier/faxmachine/vueui_data_change(var/list/newdata, var/mob/user, var/vueui/ui)
+	// Build baseline data, that's read-only
+	if(!newdata)
+		. = newdata = list("destination" = "[current_map.boss_name]", "idname" = "", "paper" = "")
+	newdata["bossname"] = current_map.boss_name
+	VUEUI_SET_CHECK(newdata["auth"], is_authenticated(), ., newdata)
+	VUEUI_SET_CHECK(newdata["cooldownend"], sendtime + sendcooldown, ., newdata)
 	if(scan)
-		scan_name = scan.name
+		VUEUI_SET_CHECK(newdata["idname"], scan.name, ., newdata)
 	else
-		scan_name = "--------"
+		VUEUI_SET_CHECK(newdata["idname"], "", ., newdata)
+	VUEUI_SET_CHECK(newdata["paper"], (copyitem ? copyitem.name : ""), ., newdata)
 
-	dat += "Confirm Identity: <a href='byond://?src=\ref[src];scan=1'>[scan_name]</a><br>"
-
-	if(authenticated)
-		dat += "<a href='byond://?src=\ref[src];logout=1'>{Log Out}</a>"
-	else
-		dat += "<a href='byond://?src=\ref[src];auth=1'>{Log In}</a>"
-
-	dat += "<hr>"
-
-	if(authenticated)
-		dat += "<b>Logged in to:</b> [current_map.boss_name] Quantum Entanglement Network<br><br>"
-
-		if(copyitem)
-			dat += "<a href='byond://?src=\ref[src];remove=1'>Remove Item</a><br><br>"
-
-			if(remaining_cooldown > 0)
-				dat += "<b>Transmitter arrays realigning. Please stand by. [round(remaining_cooldown / 10)] seconds remaining.</b><br>"
-
-			else
-
-				dat += "<a href='byond://?src=\ref[src];send=1'>Send</a><br>"
-				dat += "<b>Currently sending:</b> [copyitem.name]<br>"
-				dat += "<b>Sending to:</b> <a href='byond://?src=\ref[src];dept=1'>[destination]</a><br>"
-
-		else
-			if(remaining_cooldown > 0)
-				dat += "Please insert paper to send via secure connection.<br><br>"
-				dat += "<b>Transmitter arrays realigning. Please stand by. [round(remaining_cooldown / 10)] seconds remaining.</b><br>"
-			else
-				dat += "Please insert paper to send via secure connection.<br><br>"
-
-	else
-		dat += "Proper authentication is required to use this device.<br><br>"
-
-		if(copyitem)
-			dat += "<a href ='byond://?src=\ref[src];remove=1'>Remove Item</a><br>"
-
-	dat += "<br>PDAs to notify:<br>"
-
+	if(newdata["alertpdas"] && alert_pdas && newdata["alertpdas"].len != alert_pdas.len)
+		. = newdata
+	newdata["alertpdas"] = list()
 	if (alert_pdas && alert_pdas.len)
 		for (var/obj/item/device/pda/pda in alert_pdas)
-			dat += "[alert_pdas[pda]] - <a href='byond://?src=\ref[src];unlink=\ref[pda]'>Unlink</a><br>"
+			newdata["alertpdas"] += list(list("name" = "[alert_pdas[pda]]", "ref" = "\ref[pda]"))
+	newdata["departiments"] = list()
+	for (var/dept in (alldepartments + admin_departments + broadcast_departments))
+		newdata["departiments"] += "[dept]"
 
-	dat += "<br><a href='byond://?src=\ref[src];linkpda=1'>Add PDA to Notify</a>"
+	// Get destination from UI
+	if(!(newdata["destination"] in (alldepartments + admin_departments + broadcast_departments)))
+		newdata["destination"] = "[current_map.boss_name]"
 
-	user << browse(dat, "window=copier")
-	onclose(user, "copier")
+/obj/machinery/photocopier/faxmachine/ui_interact(mob/user as mob)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if (!ui)
+		ui = new(user, src, "paperwork-fax", 450, 350, capitalize(src.name))
+	ui.open()
 
-	if (remaining_cooldown > 0)
-		spawn(50)
-			// Auto-refresh every 5 seconds, if cooldown is active
-			updateUsrDialog()
-
-	return
+/obj/machinery/photocopier/faxmachine/attackby(obj/item/O as obj, mob/user as mob)
+	. = ..()
+	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/photocopier/faxmachine/Topic(href, href_list)
 	if(href_list["send"])
 		if (get_remaining_cooldown() > 0)
 			// Rate-limit sending faxes
 			usr << "<span class='warning'>The fax machine isn't ready, yet!</span>"
-			updateUsrDialog()
+			SSvueui.check_uis_for_change(src)
 			return
 
-		if(copyitem)
+		var/datum/vueui/ui = href_list["vueui"]
+		if(!istype(ui))
+			return
+		var/destination = ui.data["destination"]
+		if(copyitem && is_authenticated())
 			if (destination in admin_departments)
 				send_admin_fax(usr, destination)
 			else if (destination == broadcast_departments)
 				send_broadcast_fax()
 			else
 				sendfax(destination)
-			updateUsrDialog()
+			SSvueui.check_uis_for_change(src)
 
 	else if(href_list["remove"])
 		if(copyitem)
-			copyitem.loc = loc
+			copyitem.forceMove(loc)
 			if (get_dist(usr, src) < 2)
 				usr.put_in_hands(copyitem)
 				usr << "<span class='notice'>You take \the [copyitem] out of \the [src].</span>"
 			else
 				usr << "<span class='notice'>You eject \the [copyitem] from \the [src].</span>"
 			copyitem = null
-			updateUsrDialog()
+			SSvueui.check_uis_for_change(src)
 
 	if(href_list["scan"])
 		if (scan)
 			if(ishuman(usr))
-				scan.loc = usr.loc
+				scan.forceMove(usr.loc)
 				if(!usr.get_active_hand())
 					usr.put_in_hands(scan)
 				scan = null
 			else
-				scan.loc = src.loc
+				scan.forceMove(src.loc)
 				scan = null
 		else
 			var/obj/item/I = usr.get_active_hand()
 			if (istype(I, /obj/item/weapon/card/id) && usr.unEquip(I))
-				I.loc = src
+				I.forceMove(src)
 				scan = I
-		authenticated = 0
-
-	if(href_list["dept"])
-		var/lastdestination = destination
-		destination = input(usr, "Which department?", "Choose a department", "") as null|anything in (alldepartments + admin_departments + broadcast_departments)
-		if(!destination) destination = lastdestination
-
-	if(href_list["auth"])
-		if ( (!( authenticated ) && (scan)) )
-			if (check_access(scan))
-				authenticated = 1
-
-	if(href_list["logout"])
-		authenticated = 0
+		SSvueui.check_uis_for_change(src)
 
 	if(href_list["linkpda"])
 		var/obj/item/device/pda/pda = usr.get_active_hand()
@@ -170,10 +128,12 @@ var/list/admin_departments
 			usr << "<span class='notice'>\The [pda] appears to be already linked.</span>"
 			//Update the name real quick.
 			alert_pdas[pda] = pda.name
+			SSvueui.check_uis_for_change(src)
 		else
 			alert_pdas += pda
 			alert_pdas[pda] = pda.name
 			usr << "<span class='notice'>You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine.</span>"
+			SSvueui.check_uis_for_change(src)
 
 	if(href_list["unlink"])
 		var/obj/item/device/pda/pda = locate(href_list["unlink"])
@@ -181,8 +141,7 @@ var/list/admin_departments
 			if (pda in alert_pdas)
 				usr << "<span class='notice'>You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes.</span>"
 				alert_pdas -= pda
-
-	updateUsrDialog()
+				SSvueui.check_uis_for_change(src)
 
 /obj/machinery/photocopier/faxmachine/machinery_process()
 	.=..()
@@ -190,6 +149,12 @@ var/list/admin_departments
 
 	if ((sendtime + sendcooldown) < world.time)
 		sendcooldown = 0
+
+/*
+ * Check if current id in machine is autenthicated
+ */
+/obj/machinery/photocopier/faxmachine/proc/is_authenticated()
+	return scan ? check_access(scan) : FALSE
 
 /*
  * Set the send cooldown

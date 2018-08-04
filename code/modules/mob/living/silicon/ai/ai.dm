@@ -599,16 +599,34 @@ var/list/ai_verbs_default = list(
 	if(alert("Would you like to select a hologram based on a crew member or switch to unique avatar?",,"Crew Member","Unique")=="Crew Member")
 
 		var/personnel_list[] = list()
+		var/current_mobs = list()
 
+		for(var/mob/living/carbon/human/H in human_mob_list)
+			current_mobs[H.real_name] = H
 		for(var/datum/record/general/t in SSrecords.records_locked)//Look in data core locked.
 			personnel_list["[t.name]: [t.rank]"] = t.photo_front //Pull names, rank, and image.
+			if(current_mobs[t.fields["name"]])
+				personnel_list["[t.fields["name"]]: [t.fields["rank"]]"] = list("mob" = current_mobs[t.fields["name"]], "image" = t.fields["image"])
 
 		if(personnel_list.len)
 			input = input("Select a crew member:") as null|anything in personnel_list
-			var/icon/character_icon = personnel_list[input]
+			var/selection = personnel_list[input]
+			var/icon/character_icon 
+			if(selection && istype(selection, /list))
+				var/mob/living/carbon/human/H = selection["mob"]
+				if (H.near_camera())
+					character_icon = new('icons/mob/human.dmi', "blank")
+					character_icon.Insert(getHologramIcon(getFlatIcon(H, SOUTH)), dir = SOUTH)
+					character_icon.Insert(getHologramIcon(getFlatIcon(H, NORTH)), dir = NORTH)
+					character_icon.Insert(getHologramIcon(getFlatIcon(H, EAST)), dir = EAST)
+					character_icon.Insert(getHologramIcon(getFlatIcon(H, WEST)), dir = WEST)
+				else
+					character_icon = getHologramIcon(icon(selection["image"]))
+			if(selection && istype(selection, /icon))
+				character_icon = getHologramIcon(icon(selection))
 			if(character_icon)
-				qdel(holo_icon)//Clear old icon so we're not storing it in memory.
-				holo_icon = getHologramIcon(icon(character_icon))
+				qdel(holo_icon) // Clear old icon so we're not storing it in memory.
+				holo_icon = character_icon
 		else
 			alert("No suitable records found. Aborting.")
 

@@ -270,20 +270,20 @@
 
 //If our active module is a gripper, drop the thing in it.
 //Otherwise do nothing. We don't drop our modules
-/mob/living/silicon/robot/drop_item(var/atom/Target)
+/mob/living/silicon/robot/drop_item(var/atom/target)
 	if (istype(module_active, /obj/item/weapon/gripper))
 		var/obj/item/weapon/gripper/G = module_active
-		G.drop(Target)
+		G.drop(target)
 
 
 
-/mob/living/silicon/robot/drop_from_inventory(var/obj/item/W, var/atom/Target = null)
+/mob/living/silicon/robot/drop_from_inventory(var/obj/item/W, var/atom/target = null)
 	if(W)
-		if(!Target)
-			Target = loc
+		if(!target)
+			target = loc
 		if (istype(W.loc, /obj/item/weapon/gripper))
 			var/obj/item/weapon/gripper/G = W.loc
-			G.drop(Target)
+			G.drop(target)
 			return 1
 	return 0
 

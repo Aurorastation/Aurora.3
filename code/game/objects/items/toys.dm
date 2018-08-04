@@ -156,7 +156,7 @@
 	attackby(obj/item/I as obj, mob/user as mob)
 		if(istype(I, /obj/item/toy/ammo/crossbow))
 			if(bullets <= 4)
-				user.drop_item()
+				user.drop_from_inventory(I,src)
 				qdel(I)
 				bullets++
 				user << "<span class='notice'>You load the foam dart into the crossbow.</span>"
@@ -629,6 +629,11 @@
 /obj/item/toy/figure/librarian
 	name = "Librarian action figure"
 	desc = "A \"Space Life\" brand Librarian action figure."
+	icon_state = "librarian"
+	
+/obj/item/toy/figure/journalist
+	name = "Journalist action figure"
+	desc = "A \"Space Life\" brand Librarian action figure. The word 'librarian' on the tag is scratched out with marker, and 'journalist' is written in its place."
 	icon_state = "librarian"
 
 /obj/item/toy/figure/md

@@ -1,6 +1,0 @@
-author: LordRaven001
-delete-after: True
-changes: 
-  - rscadd: "Ports mixing bowls from Baystation"
-  - tweak: "Removed butcher knives from the contraband section in the vendor, added them to the normal vendor."
-  - balance: "Balanced the Kitchen Vendor around 2 Chefs"

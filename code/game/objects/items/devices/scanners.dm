@@ -412,7 +412,7 @@ BREATH ANALYZER
 /obj/item/device/breath_analyzer/attack(mob/living/carbon/human/H, mob/living/user as mob)
 
 	if (!istype(H))
-		to_chat(user,"<span class='warning'>You can't find a way to use the [src] on [H]!</span>")
+		to_chat(user,"<span class='warning'>You can't find a way to use \the [src] on [H]!</span>")
 		return
 
 	if ( ((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(20))
@@ -433,7 +433,7 @@ BREATH ANALYZER
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(H)
 
-	user.visible_message("<span class='notice'>[user] is trying to take a breath sample from [H].</span>","<span class='notice'>You gently insert the [src] into [H]'s mouth.</span>")
+	user.visible_message("<span class='notice'>[user] is trying to take a breath sample from [H].</span>","<span class='notice'>You gently insert \the [src] into [H]'s mouth.</span>")
 
 	if (!LAZYLEN(src.other_DNA))
 		LAZYADD(src.other_DNA, H.dna.unique_enzymes)
@@ -443,7 +443,7 @@ BREATH ANALYZER
 		to_chat(user,"<span class='notice'>You and the target need to be standing still in order to take a breath sample.</span>")
 		return
 
-	user.visible_message("<span class='notice'>[user] takes a breath sample from [H].</span>","<span class='notice'>The [src] clicks as it finishes reading [H]'s breath sample.</span>")
+	user.visible_message("<span class='notice'>[user] takes a breath sample from [H].</span>","<span class='notice'>\The [src] clicks as it finishes reading [H]'s breath sample.</span>")
 
 	to_chat(user,"<b>Breath Sample Results:</b>")
 

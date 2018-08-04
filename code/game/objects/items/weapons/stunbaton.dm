@@ -66,8 +66,7 @@
 /obj/item/weapon/melee/baton/attackby(obj/item/weapon/W, mob/user)
 	if(istype(W, /obj/item/weapon/cell))
 		if(!bcell)
-			user.drop_item()
-			W.forceMove(src)
+			user.drop_from_inventory(W,src)
 			bcell = W
 			user << "<span class='notice'>You install a cell in [src].</span>"
 			update_icon()
@@ -188,7 +187,7 @@
 //secborg stun baton module
 
 /obj/item/weapon/melee/baton/robot
-	hitcost = 600
+	hitcost = 300
 
 /obj/item/weapon/melee/baton/robot/attack_self(mob/user)
 	//try to find our power cell
