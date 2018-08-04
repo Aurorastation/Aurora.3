@@ -94,3 +94,54 @@
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
 	projectile_type = /obj/item/projectile/beam/midlaser
 	origin_tech = list(TECH_MATERIAL = 4,TECH_ENGINEERING = 4,TECH_MAGNET = 4,TECH_COMBAT = 5,TECH_ILLEGAL = 5)
+
+/obj/item/custom_ka_upgrade/barrels/barrel02_alt
+	name = "rapid core KA power converter"
+	build_name = "'rapid Professional'"
+	desc = "A more advanced kinetic accelerator energy converter and barrel assembly intended for professional miners out on the rock. This one seems to fire significantly quicker at the cost of reduced aoe capabilities, damage, amd increased cost."
+	icon_state = "barrel02_alt"
+	damage_increase = 10
+	firedelay_increase = 0.1 SECONDS
+	range_increase = 6
+	recoil_increase = 3
+	cost_increase = 2
+	cell_increase = 0
+	capacity_increase = -2
+	aoe_increase = -100
+	fire_sound = 'sound/weapons/Kenetic_accel.ogg'
+	projectile_type = /obj/item/projectile/kinetic
+	origin_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 1,TECH_MAGNET = 3, TECH_PHORON = 2)
+
+/obj/item/custom_ka_upgrade/barrels/phoron
+	name = "phoron core KA power converter"
+	build_name = "'Phoron'"
+	desc = "A highly experimental kinetic accelerator barrel equipped with phoron focusing crystals and a massive magnetic discharger that's big enough to block the upgrade chip slot. Use with caution."
+	icon_state = "barrel_phoron"
+	damage_increase = 50
+	firedelay_increase = 2 SECONDS
+	range_increase = 5
+	recoil_increase = 20
+	cost_increase = 50
+	cell_increase = 0
+	capacity_increase = -5
+	fire_sound = 'sound/weapons/marauder.ogg'
+	projectile_type = /obj/item/projectile/kinetic
+	origin_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 5,TECH_MAGNET = 6, TECH_PHORON = 6)
+	disallow_chip = TRUE
+
+/obj/item/custom_ka_upgrade/barrels/supermatter
+	name = "supermatter core KA power converter"
+	build_name = "'Supermatter'"
+	desc = "What have you done?"
+	icon_state = "barrel_supermatter"
+	damage_increase = 150 //Don't worry there is a hardcap of 50 damage per shot to a person. Also currently this is spawn only.
+	firedelay_increase = 4 SECONDS
+	range_increase = 20
+	recoil_increase = 50
+	cost_increase = 200
+	cell_increase = 0
+	capacity_increase = -5
+	fire_sound = 'sound/weapons/pulse2.ogg'
+	projectile_type = /obj/item/projectile/kinetic
+	origin_tech = list(TECH_MATERIAL = 8,TECH_ENGINEERING = 8,TECH_MAGNET = 8, TECH_ILLEGAL = 8)
+	disallow_chip = TRUE

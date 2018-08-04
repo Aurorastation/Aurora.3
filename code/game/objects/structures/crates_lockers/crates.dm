@@ -105,8 +105,7 @@
 	else if(istype(W, /obj/item/device/radio/electropack))
 		if(rigged)
 			user  << "<span class='notice'>You attach [W] to [src].</span>"
-			user.drop_item()
-			W.forceMove(src)
+			user.drop_from_inventory(W,src)
 			return
 	else if(iswirecutter(W))
 		if(rigged)

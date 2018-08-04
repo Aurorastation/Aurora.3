@@ -23,13 +23,12 @@
 	. = ..()
 	for(var/obj/item/I in loc)
 		if(istype(I, /obj/item/weapon/book))
-			I.loc = src
+			I.forceMove(src)
 	update_icon()
 
 /obj/structure/bookcase/attackby(obj/O as obj, mob/user as mob)
 	if(istype(O, /obj/item/weapon/book))
-		user.drop_item()
-		O.loc = src
+		user.drop_from_inventory(O,src)
 		update_icon()
 	else if(istype(O, /obj/item/weapon/pen))
 		var/newname = sanitizeSafe(input("What would you like to title this bookshelf?"), MAX_NAME_LEN)
@@ -48,7 +47,7 @@
 			user << "<span class='notice'>You dismantle \the [src].</span>"
 			new /obj/item/stack/material/wood(get_turf(src), 3)
 			for(var/obj/item/weapon/book/b in contents)
-				b.loc = (get_turf(src))
+				b.forceMove((get_turf(src)))
 			qdel(src)
 
 	else
@@ -64,7 +63,7 @@
 				if(!user.get_active_hand())
 					user.put_in_hands(choice)
 			else
-				choice.loc = get_turf(src)
+				choice.forceMove(get_turf(src))
 			update_icon()
 
 /obj/structure/bookcase/ex_act(severity)
@@ -76,14 +75,14 @@
 			return
 		if(2.0)
 			for(var/obj/item/weapon/book/b in contents)
-				if (prob(50)) b.loc = (get_turf(src))
+				if (prob(50)) b.forceMove(get_turf(src))
 				else qdel(b)
 			qdel(src)
 			return
 		if(3.0)
 			if (prob(50))
 				for(var/obj/item/weapon/book/b in contents)
-					b.loc = (get_turf(src))
+					b.forceMove(get_turf(src))
 				qdel(src)
 			return
 		else
@@ -207,7 +206,7 @@
 	if(carved)
 		if(store)
 			user << "<span class='notice'>[store] falls out of [title]!</span>"
-			store.loc = get_turf(src.loc)
+			store.forceMove(get_turf(src.loc))
 			store = null
 			return
 		else
@@ -224,8 +223,7 @@
 	if(carved)
 		if(!store)
 			if(W.w_class < 3)
-				user.drop_item()
-				W.loc = src
+				user.drop_from_inventory(W,src)
 				store = W
 				user << "<span class='notice'>You put [W] in [title].</span>"
 				return

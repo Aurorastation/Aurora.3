@@ -35,8 +35,7 @@
 		if(!wired)
 			user << "<span class='notice'>The [src] need to be wired first.</span>"
 		else if(!cell)
-			user.drop_item()
-			W.loc = src
+			user.drop_from_inventory(W,src)
 			cell = W
 			w_class = 3.0
 			user << "<span class='notice'>You attach the [cell] to the [src].</span>"
@@ -51,7 +50,7 @@
 		if(cell)
 			cell.update_icon()
 			user << "<span class='notice'>You cut the [cell] away from the [src].</span>"
-			cell.loc = get_turf(src.loc)
+			cell.forceMove(get_turf(src.loc))
 			cell = null
 			w_class = 2.0
 			update_icon()
@@ -62,26 +61,6 @@
 			user << "<span class='notice'>You cut the wires away from the [src].</span>"
 			update_icon()
 			return
-
-		//clipping fingertips
-		if(!clipped)
-			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
-			user.visible_message("<span class='warning'>[user] cuts the fingertips off of the [src].</span>","<span class='warning'>You cut the fingertips off of the [src].</span>")
-
-			clipped = 1
-			name = "mangled [name]"
-			desc = "[desc]<br>They have had the fingertips cut off of them."
-			if("exclude" in species_restricted)
-				species_restricted -= "Unathi"
-				species_restricted -= "Tajara"
-				species_restricted -= "Vaurca"
-			return
-		else
-			user << "<span class='notice'>The [src] have already been clipped!</span>"
-			update_icon()
-			return
-
-		return
 
 	..()
 

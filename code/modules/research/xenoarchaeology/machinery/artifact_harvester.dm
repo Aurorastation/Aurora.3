@@ -25,8 +25,7 @@
 	if(istype(I,/obj/item/weapon/anobattery))
 		if(!inserted_battery)
 			user << "<span class='notice'>You insert [I] into [src].</span>"
-			user.drop_item()
-			I.loc = src
+			user.drop_from_inventory(I,src)
 			src.inserted_battery = I
 			updateDialog()
 		else
@@ -225,7 +224,7 @@
 			icon_state = "incubator"
 
 	if (href_list["ejectbattery"])
-		src.inserted_battery.loc = src.loc
+		src.inserted_battery.forceMove(src.loc)
 		src.inserted_battery = null
 
 	if (href_list["drainbattery"])
