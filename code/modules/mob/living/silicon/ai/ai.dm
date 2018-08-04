@@ -605,8 +605,8 @@ var/list/ai_verbs_default = list(
 			current_mobs[H.real_name] = H
 		for(var/datum/record/general/t in SSrecords.records_locked)//Look in data core locked.
 			personnel_list["[t.name]: [t.rank]"] = t.photo_front //Pull names, rank, and image.
-			if(current_mobs[t.fields["name"]])
-				personnel_list["[t.fields["name"]]: [t.fields["rank"]]"] = list("mob" = current_mobs[t.fields["name"]], "image" = t.fields["image"])
+			if(current_mobs[t.name])
+				personnel_list["[t.name]: [t.rank]"] = list("mob" = current_mobs[t.name], "image" = t.photo_front)
 
 		if(personnel_list.len)
 			input = input("Select a crew member:") as null|anything in personnel_list
