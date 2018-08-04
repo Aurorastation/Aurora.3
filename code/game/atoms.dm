@@ -161,7 +161,7 @@
 			if (L.light_angle)
 				L.source_atom.update_light()
 
-/atom/proc/ex_act(var/severity = 2.0)
+/atom/proc/ex_act()
 	set waitfor = FALSE
 	return
 
