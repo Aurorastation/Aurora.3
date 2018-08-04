@@ -287,7 +287,7 @@
 
 
 		for (var/obj/item/weapon/reagent_containers/food/snacks/fortunecookie/being_cooked in .)
-			paper.loc = being_cooked
+			paper.forceMove(being_cooked)
 			being_cooked.trash = paper //so the paper is left behind as trash without special-snowflake(TM Nodrak) code ~carn
 			return
 
@@ -568,3 +568,10 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/weapon/reagent_containers/food/snacks/truffle
 	result_quantity = 4
+
+/datum/recipe/croissant
+	appliance = OVEN
+	reagents = list("sodiumchloride" = 1, "water" = 5, "milk" = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	items = list(/obj/item/weapon/reagent_containers/food/snacks/dough)
+	result = /obj/item/weapon/reagent_containers/food/snacks/croissant

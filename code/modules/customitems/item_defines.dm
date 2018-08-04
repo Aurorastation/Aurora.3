@@ -79,8 +79,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/glasses/fluff/nebula_glasses/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/disk/fluff/nebula_chip) && !chip)
 		//user.u_equip(W)
-		user.drop_from_inventory(W)
-		W.forceMove(src)
+		user.drop_from_inventory(W,src)
 		chip = W
 		W.add_fingerprint(user)
 		add_fingerprint(user)
@@ -816,9 +815,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/head/beret/engineering/fluff/ikrad_beret/attack_self(var/mob/user)
 	if(letter)
 		user << "<span class='notice'>You remove \the [letter] from inside the [src]'s flap.</span>"
-		user.drop_from_inventory(src)
 		user.put_in_hands(letter)
-		user.put_in_hands(src)
 		letter = null
 	else
 		..()
@@ -826,8 +823,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/head/beret/engineering/fluff/ikrad_beret/attackby(var/obj/item/fluff/ikrad_letter/W, var/mob/user)
 	if(!src.letter && istype(W))
 		user << "<span class='notice'>You place \the [W] back inside the [src]'s flap.</span>"
-		user.drop_from_inventory(W)
-		W.forceMove(src)
+		user.drop_from_inventory(W,src)
 		src.letter = W
 	else
 		..()

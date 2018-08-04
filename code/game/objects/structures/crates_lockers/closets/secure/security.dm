@@ -366,9 +366,7 @@
 			return
 		else if(W.loc != user) // This should stop mounted modules ending up outside the module.
 			return
-		user.drop_item()
-		if(W)
-			W.forceMove(loc)
+		user.drop_from_inventory(W,loc)
 	else if(!opened)
 		if(istype(W, /obj/item/weapon/melee/energy/blade))//Attempt to cut open locker if locked
 			if(emag_act(INFINITY, user, "<span class='danger'>The locker has been sliced open by [user] with \an [W]</span>!", "<span class='danger'>You hear metal being sliced and sparks flying.</span>"))

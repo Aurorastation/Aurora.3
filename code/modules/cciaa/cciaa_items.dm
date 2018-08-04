@@ -204,7 +204,7 @@
 	var/pname = "[firstLine]"
 	var/info = "[dat]"
 	P.set_content_unsafe(pname, info)
-	P.loc = get_turf(src.loc)
+	P.forceMove(get_turf(src.loc))
 
 	return
 

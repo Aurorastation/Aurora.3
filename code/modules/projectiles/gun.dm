@@ -708,9 +708,8 @@ obj/item/weapon/gun/Destroy()
 			to_chat(user, "<span class='danger'>There is a bayonet attached to \the [src] already.</span>")
 			return
 
-		user.drop_from_inventory(I)
+		user.drop_from_inventory(I,src)
 		bayonet = I
-		I.forceMove(src)
 		to_chat(user, "<span class='notice'>You attach \the [I] to the front of \the [src].</span>")
 		update_icon()
 
