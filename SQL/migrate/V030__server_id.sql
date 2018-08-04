@@ -1,0 +1,96 @@
+--
+-- Adds a server_id to the relevant tables
+--
+ALTER TABLE `ss13_admin_log`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `log`;
+
+ALTER TABLE `ss13_api_tokens`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `deleted_at`;
+
+ALTER TABLE `ss13_ban`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `unbanned_ip`;
+
+ALTER TABLE `ss13_ban_mirrors`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `extra_info`;
+
+ALTER TABLE `ss13_cargo_categories`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `order_by`;
+
+ALTER TABLE `ss13_cargo_items`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `path_old`;
+
+ALTER TABLE `ss13_cargo_suppliers`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `price_modifier`;
+
+ALTER TABLE `ss13_ccia_actions`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `url`;
+
+ALTER TABLE `ss13_ccia_general_notice_list`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `automatic`;
+
+ALTER TABLE `ss13_characters`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `gear`;
+
+ALTER TABLE `ss13_characters_log`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `special_role`;
+
+ALTER TABLE `ss13_character_incidents`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `game_id`;
+
+ALTER TABLE `ss13_connection_log`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `byond_build`;
+
+ALTER TABLE `ss13_death`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `oxyloss`;
+
+ALTER TABLE `ss13_feedback`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `details`;
+
+ALTER TABLE `ss13_forms`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `info`;
+
+ALTER TABLE `ss13_law`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `felony`;
+
+ALTER TABLE `ss13_library`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `uploader`;
+
+ALTER TABLE `ss13_news_channels`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `announcement`;
+
+ALTER TABLE `ss13_news_stories`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `is_admin_message`;
+
+ALTER TABLE `ss13_notes`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `edited`;
+
+ALTER TABLE `ss13_player`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `discord_id`;
+
+ALTER TABLE `ss13_poll_question`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `link`;
+
+ALTER TABLE `ss13_poll_question`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `link`;
+
+ALTER TABLE `ss13_poll_vote`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `rating`;
+
+ALTER TABLE `ss13_population`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `time`;
+
+ALTER TABLE `ss13_syndie_contracts`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `completer_name`;
+
+ALTER TABLE `ss13_tickets`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `response_delay`;
+
+ALTER TABLE `ss13_warnings`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `lasteditdate`;
+
+ALTER TABLE `ss13_webhooks`
+	ADD COLUMN `server_id` TINYINT UNSIGNED NULL DEFAULT NULL AFTER `dateadded`;
+
+DROP TABLE `ss13_git_pull_requests`;
+DROP TABLE `ss13_git_pull_todos`;
+DROP TABLE `ss13_git_pull_todo_stats`;
