@@ -12,7 +12,7 @@
 
 /datum/nano_module/program/civilian/cargocontrol/
 	name = "Cargo Control"
-	var/page = "overview_main" //overview_main - Main Menu, overview_submitted - Submitted Order Overview, overview_approved - Approved Order Overview, settings - Settings, details - order details
+	var/page = "overview_main" //overview_main - Main Menu, overview_submitted - Submitted Order Overview, overview_approved - Approved Order Overview, settings - Settings, details - order details, bounties - centcom bounties
 	var/last_user_name = "" //Name of the User that last used the computer
 	var/status_message = null //A status message that can be displayed
 	var/list/order_details = list() //Order Details for the order
@@ -20,6 +20,7 @@
 
 /datum/nano_module/program/civilian/cargocontrol/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	var/list/data = host.initial_data()
+	var/obj/item/modular_computer/console = host
 	
 	post_signal("supply")
 
@@ -74,6 +75,12 @@
 
 	data["cargo_money"] = SScargo.get_cargo_money()
 	data["handling_fee"] = SScargo.get_handlingfee()
+	data["bounties"] = SScargo.get_bounty_list()
+
+	if(console)
+		data["have_printer"] = !!console.nano_printer
+	else
+		data["have_printer"] = 0
 
 	//Shuttle Stuff
 	var/datum/shuttle/ferry/supply/shuttle = SScargo.shuttle
@@ -102,6 +109,7 @@
 
 /datum/nano_module/program/civilian/cargocontrol/Topic(href, href_list)
 	var/datum/shuttle/ferry/supply/shuttle = SScargo.shuttle
+	var/obj/item/modular_computer/console = host
 	if (!shuttle)
 		world.log << "## ERROR: Eek. The supply/shuttle datum is missing somehow."
 		return
@@ -132,6 +140,8 @@
 				page = "shipment_details"
 			if("settings")
 				page = "settings" //Settings page that allows to tweak various settings such as the cargo handling fee
+			if("bounties")
+				page = "bounties" //Page listing the currently available centcom bounties
 			else
 				page = "overview_main" //fall back to overview_main if a unknown page has been supplied
 		return 1
@@ -179,13 +189,54 @@
 	if(href_list["clear_message"])
 		status_message = null
 		return 1
-
+	//Change the handling fee
 	if(href_list["handling_fee"])
 		var/handling_fee = sanitize(input(usr,"Handling Fee:","Set the new handling fee?",SScargo.get_handlingfee()) as null|text)
 		status_message = SScargo.set_handlingfee(text2num(handling_fee))
 		return 1
 
-	//Change Settings
+	//Claim a bounty
+	if(href_list["claim_bounty"])
+		for(var/datum/bounty/b in SScargo.bounties_list)
+			if(b.name == href_list["claim_bounty"])
+				if(b.claim())
+					status_message = "Bounty for [b.name] claimed successfully"
+				else
+					status_message = "Could not claim Bounty for [b.name]"
+				return
+	//Print functions
+	if(href_list["order_print"])
+		//Get the order
+		var/datum/cargo_order/co = SScargo.get_order_by_id(text2num(href_list["order_print"]))
+		if(co && console && console.nano_printer)
+			if(!console.nano_printer.print_text(co.get_report_invoice(),"Order Invoice #[co.order_id]"))
+				to_chat(usr,"<span class='notice'>Hardware error: Printer was unable to print the file. It may be out of paper.</span>")
+				return
+			else
+				console.visible_message("<span class='notice'>\The [console] prints out paper.</span>")
+	if(href_list["shipment_print"])
+		var/datum/cargo_shipment/cs = SScargo.get_shipment_by_id(text2num(href_list["shipment_print"]))
+		if(cs && cs.completed && console && console.nano_printer)
+			if(!console.nano_printer.print_text(cs.get_invoice(),"Shipment Invoice #[cs.shipment_num]"))
+				to_chat(usr,"<span class='notice'>Hardware error: Printer was unable to print the file. It may be out of paper.</span>")
+				return
+			else
+				console.visible_message("<span class='notice'>\The [console] prints out paper.</span>")
+	if(href_list["bounty_print"])
+		if(console && console.nano_printer)
+			var/text = "<h2>Nanotrasen Cargo Bounties</h2></br>"
+			for(var/datum/bounty/B in SScargo.bounties_list)
+				if(B.claimed)
+					continue
+				text += "<h3>[B.name]</h3>"
+				text += "<ul><li>Reward: [B.reward_string()]</li>"
+				text += "<li>Completed: [B.completion_string()]</li></ul>"
+			if(!console.nano_printer.print_text(text,"paper - Bounties"))
+				to_chat(usr,"<span class='notice'>Hardware error: Printer was unable to print the file. It may be out of paper.</span>")
+				return
+			else
+				console.visible_message("<span class='notice'>\The [console] prints out paper.</span>")	
+
 
 /datum/nano_module/program/civilian/cargocontrol/proc/post_signal(var/command) //Old code right here - Used to send a refresh command to the status screens incargo
 

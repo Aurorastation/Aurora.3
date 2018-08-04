@@ -4440,7 +4440,7 @@
 	},
 /obj/effect/decal/cleanable/greenglow,
 /obj/item/weapon/reagent_containers/food/snacks/xemeatpie,
-/obj/item/weapon/reagent_containers/food/snacks/xenoburger,
+/obj/item/weapon/reagent_containers/food/snacks/burger/xeno,
 /obj/item/weapon/reagent_containers/food/snacks/xenomeat,
 /obj/item/weapon/reagent_containers/food/snacks/xenomeatbreadslice,
 /obj/effect/decal/cleanable/dirt,
@@ -6377,7 +6377,7 @@
 /turf/template_noop,
 /area/template_noop)
 "sW" = (
-/obj/item/weapon/reagent_containers/food/snacks/birthdaycakeslice,
+/obj/item/weapon/reagent_containers/food/snacks/cakeslice/birthday,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
