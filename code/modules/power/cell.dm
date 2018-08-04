@@ -106,6 +106,7 @@
 	else if(istype(W, /obj/item/device/assembly_holder))
 		var/obj/item/device/assembly_holder/assembly = W
 		if (istype(assembly.a_left, /obj/item/device/assembly/signaler) && istype(assembly.a_right, /obj/item/device/assembly/signaler))
+			//TODO: Look into this bad code
 			user.drop_item()
 			user.drop_from_inventory(src)
 

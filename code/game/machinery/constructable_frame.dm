@@ -55,8 +55,7 @@
 						playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 						user << "<span class='notice'>You add the circuit board to the frame.</span>"
 						circuit = P
-						user.drop_item()
-						P.loc = src
+						user.drop_from_inventory(P,src)
 						icon_state = "box_2"
 						state = 3
 						components = list()
@@ -85,14 +84,14 @@
 				if(iscrowbar(P))
 					playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 					state = 2
-					circuit.loc = src.loc
+					circuit.forceMove(src.loc)
 					circuit = null
 					if(components.len == 0)
 						user << "<span class='notice'>You remove the circuit board.</span>"
 					else
 						user << "<span class='notice'>You remove the circuit board and other components.</span>"
 						for(var/obj/item/weapon/W in components)
-							W.loc = src.loc
+							W.forceMove(src.loc)
 					desc = initial(desc)
 					req_components = null
 					components = null
@@ -146,8 +145,7 @@
 											req_components[I] -= camt
 											update_desc()
 											break
-									user.drop_item()
-									P.loc = src
+									user.drop_from_inventory(P,src)
 									components += P
 									req_components[I]--
 									update_desc()

@@ -120,7 +120,7 @@
 	var/datum/martial_art/plasma_fist/F = new/datum/martial_art/plasma_fist(null)
 	F.teach(H)
 	to_chat(H, "<span class='boldannounce'>You have learned the ancient martial art of Plasma Fist.</span>")
-	user.drop_item()
 	visible_message("<span class='warning'>[src] lights up in fire and quickly burns to ash.</span>")
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
+	user.drop_from_inventory(src,get_turf(src))
 	qdel(src)

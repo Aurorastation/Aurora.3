@@ -453,3 +453,12 @@
 	caliber = "a762"
 	ammo_type = /obj/item/ammo_casing/a762
 	max_ammo = 1000
+
+/obj/item/ammo_magazine/leyon
+	name = "ammo clip (10mm)"
+	icon_state = "10mmclip"
+	ammo_type = /obj/item/ammo_casing/t40
+	caliber = "10mm"
+	matter = list(DEFAULT_WALL_MATERIAL = 1800)
+	max_ammo = 5
+	multiple_sprites = 1

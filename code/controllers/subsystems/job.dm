@@ -345,13 +345,13 @@
 	if(!joined_late || job.latejoin_at_spawnpoints)
 		var/obj/S = get_roundstart_spawnpoint(rank)
 		if(istype(S, /obj/effect/landmark/start) && istype(S.loc, /turf))
-			H.loc = S.loc
+			H.forceMove(S.loc)
 		else
 			LateSpawn(H, rank)
 
 		// Moving wheelchair if they have one
 		if(H.buckled && istype(H.buckled, /obj/structure/bed/chair/wheelchair))
-			H.buckled.loc = H.loc
+			H.buckled.forceMove(H.loc)
 			H.buckled.set_dir(H.dir)
 
 	// If they're head, give them the account info for their department
@@ -478,11 +478,11 @@
 /datum/controller/subsystem/jobs/proc/centcomm_despawn_mob(mob/living/H)
 	if(ishuman(H))
 		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered long-term storage.", "[current_map.dock_name] Cryogenic Oversight")
-		H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s cryostorage, and departs.</span>", 3)
+		H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s cryostorage, and departs.</span>", "<span class='notice'>You make your way into [current_map.dock_short]'s cryostorage, and depart.</span>", range = 3)
 		DespawnMob(H)
 	else
 		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered robotic storage.", "[current_map.dock_name] Robotic Oversight")
-		H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s robotic storage, and departs.</span>", 3)
+		H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s robotic storage, and departs.</span>", "<span class='notice'>You make your way into [current_map.dock_short]'s robotic storage, and depart.</span>", range = 3)
 		DespawnMob(H)
 
 /datum/controller/subsystem/jobs/proc/EquipPersonal(mob/living/carbon/human/H, rank, joined_late = FALSE, spawning_at)
@@ -584,7 +584,7 @@
 			return
 		else
 			C = new job.idtype(H)
-			C.access = job.get_access()
+			C.access = job.get_access(title)
 	else
 		C = new /obj/item/weapon/card/id(H)
 	if(C)
@@ -694,14 +694,14 @@
 
 	if(spawnpos && istype(spawnpos))
 		if(spawnpos.check_job_spawning(rank))
-			H.loc = pick(spawnpos.turfs)
+			H.forceMove(pick(spawnpos.turfs))
 			. = spawnpos.msg
 		else
 			H << "Your chosen spawnpoint ([spawnpos.display_name]) is unavailable for your chosen job. Spawning you at the Arrivals shuttle instead."
-			H.loc = pick(latejoin)
+			H.forceMove(pick(latejoin))
 			. = "is inbound from the [current_map.dock_name]"
 	else
-		H.loc = pick(latejoin)
+		H.forceMove(pick(latejoin))
 		. = "is inbound from the [current_map.dock_name]"
 
 	Debug("LS/([H]): Completed, spawning at area [H.loc.loc].")

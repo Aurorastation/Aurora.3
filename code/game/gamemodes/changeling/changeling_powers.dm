@@ -384,7 +384,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	for(var/obj/T in C)
 		qdel(T)
 
-	O.loc = C.loc
+	O.forceMove(C.loc)
 
 	O.UpdateAppearance()
 	domutcheck(O, null)
@@ -394,7 +394,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	O.adjustFireLoss(C.getFireLoss())
 	O.stat = C.stat
 	for (var/obj/item/weapon/implant/I in implants)
-		I.loc = O
+		I.forceMove(O)
 		I.implanted = O
 
 	C.mind.transfer_to(O)
@@ -884,7 +884,6 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	src.visible_message("<span class='danger'>A grotesque blade forms around [M]\'s arm!</span>",
 							"<span class='danger'>Our arm twists and mutates, transforming it into a deadly blade.</span>",
 							"<span class='danger'>You hear organic matter ripping and tearing!</span>")
-	gibs(src.loc)
 
 /mob/proc/changeling_shield()
 	set category = "Changeling"
@@ -908,7 +907,6 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	src.visible_message("<span class='danger'>The end of [M]\'s hand inflates rapidly, forming a huge shield-like mass!</span>",
 							"<span class='warning'>We inflate our hand into a robust shield.</span>",
 							"<span class='warning'>You hear organic matter ripping and tearing!</span>")
-	gibs(src.loc)
 
 /mob/proc/horror_form()
 	set category = "Changeling"

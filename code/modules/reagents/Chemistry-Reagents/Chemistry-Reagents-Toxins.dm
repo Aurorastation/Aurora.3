@@ -123,11 +123,6 @@
 	conflicting_reagent = /datum/reagent/toxin/phoron
 	strength = 1
 
-/datum/reagent/toxin/cardox/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	.. ()
-	if(alien == IS_VAURCA)
-		affect_blood(M, alien, removed * 0.25)
-
 /datum/reagent/toxin/cardox/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VAURCA)
 		M.adjustToxLoss(removed * strength*2)
@@ -607,7 +602,7 @@
 			qdel(W)
 			continue
 		W.layer = initial(W.layer)
-		W.loc = M.loc
+		W.forceMove(M.loc)
 		W.dropped(M)
 	var/mob/living/carbon/slime/new_mob = new /mob/living/carbon/slime(M.loc)
 	new_mob.a_intent = "hurt"

@@ -116,8 +116,7 @@
 			return
 		else
 		//	user.remove_from_mob(O)	//This just causes problems so far as I can tell. -Pete
-			user.drop_item()
-			O.loc = src
+			user.drop_from_inventory(O,src)
 			user.visible_message( \
 				"<span class='notice'>\The [user] has added \the [O] to \the [src].</span>", \
 				"<span class='notice'>You add \the [O] to \the [src].</span>")
@@ -259,7 +258,7 @@
 			wzhzhzh(16)
 			muck_finish()
 			cooked = fail()
-			cooked.loc = src.loc
+			cooked.forceMove(src.loc)
 			return
 		else if (has_extra_item())
 			if (!wzhzhzh(16))
@@ -267,7 +266,7 @@
 				return
 			broke()
 			cooked = fail()
-			cooked.loc = src.loc
+			cooked.forceMove(src.loc)
 			return
 		else
 			if (!wzhzhzh(40))
@@ -275,7 +274,7 @@
 				return
 			stop()
 			cooked = fail()
-			cooked.loc = src.loc
+			cooked.forceMove(src.loc)
 			return
 	else
 		var/halftime = round((recipe.time*4)/10/2)
@@ -285,7 +284,7 @@
 		if (!wzhzhzh(halftime))
 			abort()
 			cooked = fail()
-			cooked.loc = src.loc
+			cooked.forceMove(src.loc)
 			return
 
 
@@ -300,7 +299,7 @@
 			cooked_items += things
 			//Move cooked things to the buffer so they're not considered as ingredients
 			for (var/atom/movable/AM in things)
-				AM.loc = temp
+				AM.forceMove(temp)
 
 			valid = 0
 			recipe = select_recipe(RECIPE_LIST(appliancetype),src)
@@ -310,7 +309,7 @@
 
 		for (var/r in cooked_items)
 			var/atom/movable/R = r
-			R.loc = src //Move everything from the buffer back to the container
+			R.forceMove(src) //Move everything from the buffer back to the container
 
 		qdel(temp)//Delete buffer object
 		temp = null

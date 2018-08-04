@@ -43,7 +43,7 @@
 		if (!feeder)
 			feeder = eater
 
-		feeder.drop_from_inventory(src)	//so icons update :[
+		feeder.drop_from_inventory(src)	//so icons update :[ //what the fuck is this????
 
 		if(trash)
 			if(ispath(trash,/obj/item))
@@ -60,7 +60,6 @@
 /obj/item/weapon/reagent_containers/food/snacks/attack(mob/M as mob, mob/user as mob, def_zone)
 	if(!reagents.total_volume)
 		user << "<span class='danger'>None of [src] left!</span>"
-		user.drop_from_inventory(src)
 		qdel(src)
 		return 0
 
@@ -244,7 +243,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/Destroy()
 	if(contents)
 		for(var/atom/movable/something in contents)
-			something.loc = get_turf(src)
+			something.forceMove(get_turf(src))
 	return ..()
 
 
@@ -430,7 +429,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/koisbar_clean
 	name = "k'ois bar"
-	desc = "Bland NanoTrasen produced K'ois bars, rich in syrup and injected with extra phoron."
+	desc = "Bland NanoTrasen produced K'ois bars, rich in syrup and injected with extra phoron; it has a label on it warning that it is unsafe for human consumption."
 	icon_state = "koisbar"
 	trash = /obj/item/trash/koisbar
 	filling_color = "#dcd9cd"
@@ -728,7 +727,6 @@
 		return
 	user << "You crack \the [src] into \the [O]."
 	reagents.trans_to(O, reagents.total_volume)
-	user.drop_from_inventory(src)
 	qdel(src)
 
 /obj/item/weapon/reagent_containers/food/snacks/egg/throw_impact(atom/hit_atom)
@@ -1950,7 +1948,7 @@
 		user << "You place \the [name] under a stream of water..."
 		if(istype(user))
 			user.unEquip(src)
-		src.loc = get_turf(src)
+		src.forceMove(get_turf(src))
 		return Expand()
 	..()
 
@@ -3883,9 +3881,7 @@
 				boxestoadd += i
 
 			if( (boxes.len+1) + boxestoadd.len <= 5 )
-				user.drop_item()
-
-				box.loc = src
+				user.drop_from_inventory(box,src)
 				box.boxes = list() // Clear the box boxes so we don't have boxes inside boxes. - Xzibit
 				src.boxes.Add( boxestoadd )
 
@@ -3903,8 +3899,7 @@
 	if( istype(I, /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/) ) // Long ass fucking object name
 
 		if( src.open )
-			user.drop_item()
-			I.loc = src
+			user.drop_from_inventory(I,src)
 			src.pizza = I
 
 			update_icon()
@@ -4056,7 +4051,7 @@
 
 		//If the bun was in your hands, the result will be too
 		if (loc == user)
-			user.drop_from_inventory(src)
+			user.drop_from_inventory(src) //This has to be here in order to put the pun in the proper place
 			user.put_in_hands(result)
 
 		qdel(W)
@@ -5159,6 +5154,71 @@
 	. = ..()
 	reagents.add_reagent("protein", 5)
 	reagents.add_reagent("sodiumchloride", 2)
+
+/obj/item/weapon/reagent_containers/food/snacks/onionrings
+	name = "onion rings"
+	desc = "Like circular fries but better."
+	icon_state = "onionrings"
+	trash = /obj/item/trash/plate
+	filling_color = "#eddd00"
+	center_of_mass = "x=16;y=11"
+	nutriment_desc = list("fried onions" = 5)
+	nutriment_amt = 5
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/berrymuffin
+	name = "berry muffin"
+	desc = "A delicious and spongy little cake, with berries."
+	icon_state = "berrymuffin"
+	filling_color = "#E0CF9B"
+	center_of_mass = list("x"=17, "y"=4)
+	nutriment_amt = 5
+	nutriment_desc = list("sweetness" = 1, "muffin" = 2, "berries" = 2)
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/soup/onionsoup
+	name = "onion soup"
+	desc = "A soup with layers."
+	icon_state = "onionsoup"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#E0C367"
+	center_of_mass = list("x"=16, "y"=7)
+	nutriment_amt = 5
+	nutriment_desc = list("onion" = 2, "soup" = 2)
+	bitesize = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/porkbowl
+	name = "pork bowl"
+	desc = "A bowl of fried rice with cuts of meat."
+	icon_state = "porkbowl"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#FFFBDB"
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/porkbowl/Initialize()
+	..()
+	reagents.add_reagent("rice", 6)
+	reagents.add_reagent("protein", 4)
+
+/obj/item/weapon/reagent_containers/food/snacks/mashedpotato
+	name = "mashed potato"
+	desc = "Pillowy mounds of mashed potato."
+	icon_state = "mashedpotato"
+	trash = /obj/item/trash/plate
+	filling_color = "#EDDD00"
+	center_of_mass = list("x"=16, "y"=11)
+	nutriment_amt = 4
+	nutriment_desc = list("mashed potatoes" = 4)
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/croissant
+	name = "croissant"
+	desc = "True french cuisine."
+	filling_color = "#E3D796"
+	icon_state = "croissant"
+	nutriment_amt = 4
+	nutriment_desc = list("french bread" = 4)
+	bitesize = 2
 
 #undef NUTRIMENT_GOOD
 #undef NUTRIMENT_BAD

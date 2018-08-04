@@ -33,6 +33,8 @@
 	sprint_speed_factor = 0.9
 	sprint_cost_factor = 0.5
 
+	climb_coeff = 1
+
 /datum/species/unathi
 	name = "Unathi"
 	short_name = "una"
@@ -69,6 +71,7 @@
 	rarity_value = 3
 	breakcuffs = list(MALE)
 	mob_size = 10
+	climb_coeff = 1.35
 
 	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the Uuosa-Eso \
 	system, which roughly translates to 'burning mother'. A relatively recent addition to the galactic stage, they \
@@ -326,6 +329,7 @@
 	stamina = -1	// Diona sprinting uses energy instead of stamina
 	sprint_speed_factor = 0.5	//Speed gained is minor
 	sprint_cost_factor = 0.8
+	climb_coeff = 1.3
 
 /datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
 	var/datum/dionastats/DS = H.get_dionastats()
@@ -657,6 +661,8 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	breath_type = "phoron"
 	poison_type = "nitrogen" //a species that breathes plasma shouldn't be poisoned by it.
 	mob_size = 13 //their half an inch thick exoskeleton and impressive height, plus all of their mechanical organs.
+	natural_climbing = TRUE
+	climb_coeff = 0.75
 
 	blurb = "Type A are the most common type of Vaurca and can be seen as the 'backbone' of Vaurcae societies. Their most prevalent feature is their hardened exoskeleton, varying in colors \
 	in accordance to their hive. It is approximately half an inch thick among all Type A Vaurca. The carapace provides protection against harsh radiation, solar \
@@ -701,15 +707,15 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 
 	has_organ = list(
 		"neural socket"       = /obj/item/organ/vaurca/neuralsocket,
-		"lungs"               = /obj/item/organ/lungs,
+		"lungs"               = /obj/item/organ/lungs/vaurca,
 		"filtration bit"      = /obj/item/organ/vaurca/filtrationbit,
 		"right heart"         = /obj/item/organ/heart/right,
 		"left heart"          = /obj/item/organ/heart/left,
 		"phoron reserve tank" = /obj/item/organ/vaurca/preserve,
-		"liver"               = /obj/item/organ/liver,
-		"kidneys"             = /obj/item/organ/kidneys,
-		"brain"               = /obj/item/organ/brain,
-		"eyes"                = /obj/item/organ/eyes
+		"liver"               = /obj/item/organ/liver/vaurca,
+		"kidneys"             = /obj/item/organ/kidneys/vaurca,
+		"brain"               = /obj/item/organ/brain/vaurca,
+		"eyes"                = /obj/item/organ/eyes/vaurca
 	)
 
 /datum/species/bug/equip_survival_gear(var/mob/living/carbon/human/H)
@@ -723,8 +729,8 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	var/obj/item/clothing/mask/breath/M = new /obj/item/clothing/mask/breath(H)
 	if(H.equip_to_slot_or_del(M, slot_wear_mask))
 		M.autodrobe_no_remove = 1
-	H.gender = NEUTER
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
+	H.add_client_color(/datum/client_color/vaurca)
 	return ..()

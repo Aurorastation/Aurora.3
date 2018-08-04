@@ -262,7 +262,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		if(!circuit)
 			return
 		circuit.loc = null
-		circuit.loc = assy
+		circuit.forceMove(assy)
 		. = 1
 		update_to_assembly = 1
 
