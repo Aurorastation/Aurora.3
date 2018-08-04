@@ -45,6 +45,14 @@
 	if(!jetpack)
 		jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
 
+	var/obj/item/robot_parts/robot_component/surge/S = new(src)
+	for(var/V in components)
+		var/datum/robot_component/C = components[V]
+		if(!C.installed && istype(S, C.external_type))
+			C.wrapped = S
+			C.install()
+			S.loc = null
+
 /mob/living/silicon/robot/hunter_seeker/updateicon() //because this was the only way I found out how to make their eyes and etc works
 	cut_overlays()
 	if(stat == 0)
@@ -68,12 +76,3 @@
 		else
 			icon_state = module_sprites[icontype]
 
-/mob/living/silicon/robot/hunter_seeker/emp_act(severity)
-	switch(severity)
-		if(1)
-			Stun(rand(5,10))
-		if(2)
-			Stun(rand(1,5))
-	flick("noise", src:flash)
-	src << "<span class='danger'>*BZZZT*</span>"
-	src << "<span class='warning'>Warning: Electromagnetic pulse detected.</span>"
