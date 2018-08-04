@@ -91,6 +91,7 @@
 	var/obj/item/device/radio/radio
 
 	var/debug = 0
+	var/last_message_time = -100 //for message
 
 /obj/machinery/power/supermatter/Initialize()
 	. = ..()
@@ -272,7 +273,6 @@
 	//note that the rads given at the maximum range is a constant 0.2 - as power increases the maximum range merely increases.
 	//adjusted to pseudo take into account obstacles in the way (1/3rd of the range is dropped if no direct visibility between core and target is)
 	var/rad_range = round(sqrt(power / 2))
-	var/last_message_time = -100 //for message
 	for(var/mob/living/l in range(src, rad_range))
 		var/radius = max(get_dist(l, src), 1)
 		var/rads = (power / 10) * ( 1 / (radius**2) )
@@ -283,7 +283,7 @@
 			l.adjustToxLoss(-rads)
 			if(last_message_time + 800 < world.time) // Not to spam message
 				to_chat(l, "<span class='notice'>You can feel an extreme level of energy which flows throught your body and makes you regenerate very fast.</span>")
-				last_message_time = world.time
+		last_message_time = world.time
 
 	power -= (power/DECAY_FACTOR)**3		//energy losses due to radiation
 
