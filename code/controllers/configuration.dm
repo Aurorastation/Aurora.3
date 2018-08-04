@@ -3,6 +3,7 @@ var/list/gamemode_cache = list()
 /datum/configuration
 	var/server_name = null				// server name (for world name / status)
 	var/server_suffix = 0				// generate numeric suffix based on server port
+	var/server_id = 0					// ID of the server -> Should be set if the database is used
 
 	var/log_ooc = 0						// log OOC channel
 	var/log_access = 0					// log login/logout
@@ -467,6 +468,9 @@ var/list/gamemode_cache = list()
 
 				if ("serversuffix")
 					config.server_suffix = 1
+
+				if ("serverid")
+					config.server_id = text2num(value)
 
 				if ("hostedby")
 					config.hostedby = value
@@ -997,3 +1001,9 @@ var/list/gamemode_cache = list()
 			config.python_path = "/usr/bin/env python2"
 		else //probably windows, if not this should work anyway
 			config.python_path = "python"
+
+	//Check if the server_id is set
+	if(config.sql_enabled && !server_id)
+		var/msg = "SQL has been enabled, but the server_id has not been set!"
+		admin_notice(span("danger", msg), R_DEBUG)
+		world.log << msg

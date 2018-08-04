@@ -4461,10 +4461,6 @@
 	icon_state = "plating"
 	},
 /area/outpost/engineering/storage)
-"jr" = (
-/obj/effect/landmark/dungeon_spawn,
-/turf/unsimulated/chasm_mask,
-/area/mine/unexplored)
 "js" = (
 /obj/machinery/power/grounding_rod,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -13332,25 +13328,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
-"xP" = (
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
-	},
-/area/rnd/test_area)
-"xQ" = (
-/turf/simulated/floor/tiled/airless,
-/area/rnd/test_area)
-"xR" = (
-/obj/structure/window/reinforced{
-	dir = 5;
-	health = 1e+007
-	},
-/turf/simulated/floor/tiled/airless,
-/area/rnd/test_area)
-"xS" = (
-/obj/structure/sign/securearea,
-/turf/simulated/wall/r_wall,
-/area/rnd/test_area)
 "xT" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/tiled,
@@ -14080,32 +14057,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
-"zs" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"zt" = (
-/obj/machinery/light/spot{
-	icon_state = "tube1";
-	dir = 8
-	},
-/obj/machinery/camera/network/research_outpost{
-	c_tag = "Research Sublevel - Toxins Testing Port";
-	dir = 4;
-	network = list("Research Outpost","Toxins Test Area")
-	},
-/turf/simulated/floor/tiled/airless,
-/area/rnd/test_area)
-"zu" = (
-/obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/tiled/airless,
-/area/rnd/test_area)
 "zv" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1379;
@@ -15129,18 +15080,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
-"Bd" = (
-/obj/machinery/light/spot{
-	icon_state = "tube1";
-	dir = 4
-	},
-/obj/machinery/camera/network/research_outpost{
-	c_tag = "Research Sublevel - Toxins Testing Starboard";
-	dir = 8;
-	network = list("Research Outpost","Toxins Test Area")
-	},
-/turf/simulated/floor/tiled/airless,
-/area/rnd/test_area)
 "Be" = (
 /obj/structure/table/rack,
 /obj/item/clothing/mask/breath,
@@ -18745,15 +18684,6 @@
 "Hg" = (
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
-"Hh" = (
-/obj/machinery/light/spot,
-/obj/machinery/camera/network/research_outpost{
-	c_tag = "Research Sublevel - Toxins Testing Aft";
-	dir = 1;
-	network = list("Research Outpost","Toxins Test Area")
-	},
-/turf/simulated/floor/tiled/airless,
-/area/rnd/test_area)
 "Hi" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -26127,18 +26057,6 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
-"TS" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/structure/table/standard,
-/obj/item/weapon/screwdriver,
-/obj/item/weapon/wrench,
-/obj/structure/sign/nosmoking_1{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/mixing)
 "TT" = (
 /obj/effect/floor_decal/corner/red/full{
 	icon_state = "corner_white_full";
@@ -26231,10 +26149,6 @@
 "Uc" = (
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
-"Ud" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled,
-/area/rnd/mixing)
 "Ue" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -26284,8 +26198,13 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "Uj" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/camera/network/research_outpost{
+	c_tag = "Research Sublevel - Toxins Testing Storage";
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
@@ -26350,12 +26269,6 @@
 "Up" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/mixing)
-"Uq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
@@ -26525,89 +26438,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
-"UF" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/mixing)
-"UG" = (
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
-	},
-/area/rnd/mixing)
-"UH" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for watching the test chamber.";
-	layer = 4;
-	name = "Test Chamber Telescreen";
-	network = list("Toxins Test Area");
-	pixel_x = 0;
-	pixel_y = -32
-	},
-/obj/structure/bed/chair,
-/obj/effect/floor_decal/corner/red/full,
-/turf/simulated/floor/tiled,
-/area/rnd/mixing)
-"UI" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for watching the test chamber.";
-	layer = 4;
-	name = "Test Chamber Telescreen";
-	network = list("Toxins Test Area");
-	pixel_x = 0;
-	pixel_y = -32
-	},
-/obj/structure/bed/chair,
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/mixing)
 "UJ" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/wall,
-/area/rnd/mixing)
-"UK" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for watching the test chamber.";
-	layer = 4;
-	name = "Test Chamber Telescreen";
-	network = list("Toxins Test Area");
-	pixel_x = 0;
-	pixel_y = -32
-	},
-/obj/structure/bed/chair,
-/obj/machinery/button/remote/driver{
-	id = "toxins_mass_driver";
-	name = "Mass Driver button";
-	pixel_x = 26;
-	req_access = list(7)
-	},
-/obj/effect/floor_decal/corner/red/full{
-	icon_state = "corner_white_full";
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
 "UL" = (
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/airless{
 	icon_state = "asteroidfloor"
 	},
@@ -26655,16 +26491,63 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
-"UR" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+"UU" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
 	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
-"US" = (
+/turf/simulated/floor/tiled,
+/area/rnd/mixing)
+"UV" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/firealarm/east,
+/turf/simulated/floor/tiled,
+/area/rnd/mixing)
+"UX" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/computer/security/telescreen{
+	desc = "Used for watching the test chamber.";
+	layer = 4;
+	name = "Test Chamber Telescreen";
+	network = list("Toxins Test Area");
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/obj/structure/bed/chair,
+/obj/machinery/button/remote/driver{
+	id = "toxins_mass_driver";
+	name = "Mass Driver button";
+	pixel_x = 26;
+	req_access = list(7)
+	},
+/obj/effect/floor_decal/corner/red/full{
+	icon_state = "corner_white_full";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/mixing)
+"UY" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
+	},
+/area/rnd/mixing)
+"UZ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
+	},
+/area/rnd/mixing)
+"Vb" = (
 /obj/structure/grille,
 /obj/structure/window/phoronreinforced{
 	icon_state = "phoronrwindow";
@@ -26673,7 +26556,7 @@
 /obj/structure/window/phoronreinforced,
 /obj/structure/window/phoronreinforced{
 	icon_state = "phoronrwindow";
-	dir = 8
+	dir = 4
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -26684,115 +26567,6 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/rnd/mixing)
-"UT" = (
-/obj/structure/disposaloutlet,
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/warning/corner,
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
-	},
-/area/mine/unexplored)
-"UU" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
-	},
-/area/mine/unexplored)
-"UV" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning/cee{
-	icon_state = "warningcee";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
-	},
-/area/mine/unexplored)
-"UW" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/asteroid/ash/rocky,
-/area/rnd/mixing)
-"UX" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
-"UY" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
-	},
-/area/rnd/mixing)
-"UZ" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
-	},
-/area/mine/unexplored)
-"Va" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
-	},
-/area/mine/unexplored)
-"Vb" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/machinery/firealarm/east,
-/turf/simulated/floor/tiled,
 /area/rnd/mixing)
 "Vc" = (
 /obj/structure/window/reinforced{
@@ -26803,20 +26577,6 @@
 	},
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
-"Vd" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/mass_driver{
-	id = "toxins_mass_driver"
-	},
-/obj/effect/floor_decal/industrial/warning/cee,
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
-	},
-/area/mine/unexplored)
 "Ve" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -26825,10 +26585,6 @@
 	},
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
-"Vf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
-/area/rnd/mixing)
 "Vj" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -26836,44 +26592,16 @@
 	},
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
-"Vl" = (
-/obj/structure/grille,
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 1
-	},
-/obj/structure/window/phoronreinforced,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "Biohazard";
-	name = "Biohazard Shutter";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/rnd/mixing)
 "Vm" = (
-/obj/structure/grille,
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 1
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/obj/structure/window/phoronreinforced,
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 4
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
 	},
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "Biohazard";
-	name = "Biohazard Shutter";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/rnd/mixing)
+/area/mine/unexplored)
 "Vn" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -27008,6 +26736,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
+"VF" = (
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
+	},
+/area/rnd/test_area)
 "VG" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	id_tag = "crusher";
@@ -27016,6 +26749,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
+"VH" = (
+/turf/simulated/floor/tiled/airless,
+/area/rnd/test_area)
 "VI" = (
 /obj/structure/sign/securearea{
 	name = "\improper CAUTION: TRASH COMPACTOR";
@@ -27023,6 +26759,50 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/maintenance/disposal)
+"VJ" = (
+/obj/structure/window/reinforced{
+	dir = 5;
+	health = 1e+007
+	},
+/turf/simulated/floor/tiled/airless,
+/area/rnd/test_area)
+"VK" = (
+/obj/machinery/light/spot{
+	icon_state = "tube1";
+	dir = 8
+	},
+/obj/machinery/camera/network/research_outpost{
+	c_tag = "Research Sublevel - Toxins Testing Port";
+	dir = 4;
+	network = list("Research Outpost","Toxins Test Area")
+	},
+/turf/simulated/floor/tiled/airless,
+/area/rnd/test_area)
+"VL" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/tiled/airless,
+/area/rnd/test_area)
+"VM" = (
+/obj/machinery/light/spot{
+	icon_state = "tube1";
+	dir = 4
+	},
+/obj/machinery/camera/network/research_outpost{
+	c_tag = "Research Sublevel - Toxins Testing Starboard";
+	dir = 8;
+	network = list("Research Outpost","Toxins Test Area")
+	},
+/turf/simulated/floor/tiled/airless,
+/area/rnd/test_area)
+"VN" = (
+/obj/machinery/light/spot,
+/obj/machinery/camera/network/research_outpost{
+	c_tag = "Research Sublevel - Toxins Testing Aft";
+	dir = 1;
+	network = list("Research Outpost","Toxins Test Area")
+	},
+/turf/simulated/floor/tiled/airless,
+/area/rnd/test_area)
 "VS" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -27034,6 +26814,15 @@
 /area/outpost/research/eva)
 "VT" = (
 /obj/machinery/light,
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 1
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/research/eva)
+"VU" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
 	dir = 1
@@ -27060,15 +26849,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/outpost/research/eva)
-"VW" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/outpost/research/eva)
 "VX" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -27079,7 +26859,7 @@
 	icon_state = "asteroidplating"
 	},
 /area/outpost/research/eva)
-"VZ" = (
+"VY" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
 	dir = 8
@@ -27098,7 +26878,7 @@
 	icon_state = "asteroidplating"
 	},
 /area/outpost/research/eva)
-"Wc" = (
+"Wb" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
 	dir = 1
@@ -27155,25 +26935,83 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
-"Wi" = (
+"Wp" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
+	},
+/area/mine/unexplored)
+"Wu" = (
+/obj/effect/landmark/dungeon_spawn,
+/turf/unsimulated/chasm_mask,
+/area/mine/unexplored)
+"WM" = (
+/obj/machinery/power/emitter,
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/outpost/engineering/storage)
+"WN" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled,
+/area/rnd/mixing)
+"WS" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
+"WT" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/rnd/test_area)
+"WX" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
-"Wj" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/obj/machinery/camera/network/research_outpost{
-	c_tag = "Research Sublevel - Toxins Testing Storage";
+"Xf" = (
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/machinery/computer/security/telescreen{
+	desc = "Used for watching the test chamber.";
+	layer = 4;
+	name = "Test Chamber Telescreen";
+	network = list("Toxins Test Area");
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/obj/structure/bed/chair,
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
-"Wk" = (
+"Xu" = (
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -27190,7 +27028,7 @@
 	},
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
-"Wl" = (
+"Xz" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 10
@@ -27213,13 +27051,119 @@
 /obj/machinery/meter,
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
-"Wm" = (
-/obj/machinery/power/emitter,
-/turf/simulated/floor{
-	icon_state = "plating"
+"XG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
-/area/outpost/engineering/storage)
-"Wn" = (
+/turf/simulated/floor/tiled,
+/area/rnd/mixing)
+"XQ" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/structure/table/standard,
+/obj/item/weapon/screwdriver,
+/obj/item/weapon/wrench,
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/mixing)
+"XT" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/asteroid/ash/rocky,
+/area/rnd/mixing)
+"Yh" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/mixing)
+"Yk" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	icon_state = "warningcee";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
+	},
+/area/mine/unexplored)
+"YL" = (
+/obj/structure/grille,
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
+/obj/structure/window/phoronreinforced,
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 8
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Biohazard";
+	name = "Biohazard Shutter";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/rnd/mixing)
+"Zg" = (
+/obj/structure/grille,
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
+/obj/structure/window/phoronreinforced,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Biohazard";
+	name = "Biohazard Shutter";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/rnd/mixing)
+"Zl" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/mass_driver{
+	id = "toxins_mass_driver"
+	},
+/obj/effect/floor_decal/industrial/warning/cee,
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
+	},
+/area/mine/unexplored)
+"Zo" = (
+/obj/structure/disposaloutlet,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
+	},
+/area/mine/unexplored)
+"Zp" = (
 /obj/structure/particle_accelerator/end_cap{
 	icon_state = "end_cap";
 	dir = 8
@@ -27228,6 +27172,62 @@
 	icon_state = "plating"
 	},
 /area/outpost/engineering/storage)
+"ZA" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/computer/security/telescreen{
+	desc = "Used for watching the test chamber.";
+	layer = 4;
+	name = "Test Chamber Telescreen";
+	network = list("Toxins Test Area");
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/obj/structure/bed/chair,
+/obj/effect/floor_decal/corner/red/full,
+/turf/simulated/floor/tiled,
+/area/rnd/mixing)
+"ZN" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/wall,
+/area/rnd/mixing)
+"ZP" = (
+/obj/structure/sign/securearea,
+/turf/simulated/wall/r_wall,
+/area/rnd/test_area)
+"ZQ" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
+	},
+/area/mine/unexplored)
+"ZW" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/airless{
+	icon_state = "asteroidfloor"
+	},
+/area/mine/unexplored)
 
 (1,1,1) = {"
 aa
@@ -28425,7 +28425,7 @@ aa
 aa
 aa
 aa
-jr
+Wu
 aa
 aa
 aa
@@ -39122,7 +39122,7 @@ aa
 aa
 aa
 aa
-jr
+Wu
 aa
 aa
 aa
@@ -40295,9 +40295,9 @@ aa
 VA
 VA
 VA
-xQ
-xR
-xQ
+VH
+VJ
+VH
 VA
 VA
 VA
@@ -40431,7 +40431,7 @@ gC
 fT
 fy
 iv
-Wm
+WM
 jq
 jO
 ku
@@ -40551,11 +40551,11 @@ aa
 VA
 VA
 VA
-xQ
-xQ
-zt
-xQ
-xQ
+VH
+VH
+VK
+VH
+VH
 VA
 VA
 VA
@@ -40690,7 +40690,7 @@ fy
 iw
 iW
 jq
-Wn
+Zp
 jP
 iA
 aa
@@ -40807,13 +40807,13 @@ aa
 VA
 VA
 VA
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
+VH
+VH
+VH
+VH
+VH
+VH
+VH
 VA
 VA
 VA
@@ -41063,15 +41063,15 @@ aa
 VA
 VA
 VA
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
 VA
 VA
 VA
@@ -41319,17 +41319,17 @@ aa
 VA
 VA
 VA
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
 VA
 VA
 VA
@@ -41575,19 +41575,19 @@ ac
 VA
 VA
 VA
-xP
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
+VF
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
 VA
 VA
 VA
@@ -41829,23 +41829,23 @@ ac
 ac
 ac
 ac
-xS
+ZP
 VA
-xP
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
+VF
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
 VA
 VA
 aa
@@ -42054,12 +42054,12 @@ lh
 jL
 ac
 Uw
-UR
-UT
-UZ
-Va
-Vd
-UX
+WS
+Zo
+ZQ
+Wp
+Zl
+Vm
 Vn
 Vn
 Vn
@@ -42086,23 +42086,23 @@ Vn
 Vn
 Vn
 Vn
-zs
+WT
 VB
-xP
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-zu
-xR
-xQ
-xQ
-xQ
-xQ
-Hh
-xR
+VF
+VH
+VH
+VH
+VH
+VH
+VH
+VL
+VJ
+VH
+VH
+VH
+VH
+VN
+VJ
 VA
 VA
 aa
@@ -42312,7 +42312,7 @@ jL
 ac
 Ve
 rH
-UU
+ZW
 Vc
 Vj
 Vj
@@ -42343,23 +42343,23 @@ ac
 ac
 ac
 ac
-xS
+ZP
 VA
-xP
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
+VF
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
 VA
 VA
 aa
@@ -42569,7 +42569,7 @@ jL
 ac
 Ve
 rH
-UU
+ZW
 sK
 ac
 aa
@@ -42603,19 +42603,19 @@ ac
 VA
 VA
 VA
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
 VA
 VA
 VA
@@ -42826,7 +42826,7 @@ jL
 ac
 Ve
 rH
-UU
+ZW
 sK
 aa
 aa
@@ -42861,17 +42861,17 @@ aa
 VA
 VA
 VA
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
 VA
 VA
 VA
@@ -43081,9 +43081,9 @@ Tx
 Sm
 ac
 ac
-Wk
+Xu
 rH
-UU
+ZW
 sK
 aa
 aa
@@ -43119,15 +43119,15 @@ aa
 VA
 VA
 VA
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
+VH
 VA
 VA
 VA
@@ -43340,7 +43340,7 @@ ac
 NP
 Uy
 NP
-UV
+Yk
 sK
 aa
 aa
@@ -43377,13 +43377,13 @@ aa
 VA
 VA
 VA
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
+VH
+VH
+VH
+VH
+VH
+VH
+VH
 VA
 VA
 VA
@@ -43635,11 +43635,11 @@ aa
 VA
 VA
 VA
-xQ
-xQ
-Bd
-xQ
-xQ
+VH
+VH
+VM
+VH
+VH
 VA
 VA
 VA
@@ -43893,9 +43893,9 @@ aa
 VA
 VA
 VA
-xQ
-xR
-xQ
+VH
+VJ
+VH
 VA
 VA
 VA
@@ -44108,8 +44108,8 @@ Tp
 TA
 NP
 TY
-Wj
-Wl
+Uj
+Xz
 NP
 UY
 NP
@@ -44364,8 +44364,8 @@ SU
 PV
 TB
 NP
-Wi
-Uj
+WX
+Yh
 UB
 NP
 UY
@@ -45139,9 +45139,9 @@ NP
 Um
 NP
 NP
-UJ
+ZN
 NP
-UW
+XT
 ac
 ac
 ac
@@ -45396,8 +45396,8 @@ Ub
 Un
 UE
 UE
-UH
-US
+ZA
+YL
 ac
 ac
 ac
@@ -45618,7 +45618,7 @@ aa
 ac
 ac
 ac
-Wc
+Wb
 ym
 AF
 Bc
@@ -45649,12 +45649,12 @@ NQ
 aa
 NP
 TN
-Ud
+WN
 Uo
 Uc
 Uc
-UI
-Vl
+Xf
+Zg
 ac
 ac
 ac
@@ -45875,7 +45875,7 @@ aa
 ac
 ac
 ac
-Wc
+Wb
 ym
 We
 BR
@@ -45910,8 +45910,8 @@ Uc
 Up
 Uc
 Uc
-UI
-Vl
+Xf
+Zg
 ac
 ac
 ac
@@ -46130,8 +46130,8 @@ ac
 ac
 ac
 VS
-VZ
-VZ
+VY
+VY
 Wd
 ym
 AF
@@ -46167,8 +46167,8 @@ Uc
 Up
 Uc
 Uc
-UI
-Vl
+Xf
+Zg
 ac
 ac
 ac
@@ -46419,13 +46419,13 @@ Sx
 NQ
 aa
 NP
-TS
+XQ
 Uc
 Up
 Ur
 Uc
-UI
-Vl
+Xf
+Zg
 ac
 ac
 ac
@@ -46643,7 +46643,7 @@ ac
 ac
 ac
 ac
-VW
+VU
 yn
 yJ
 zv
@@ -46681,8 +46681,8 @@ Uc
 Up
 Uc
 Uc
-UI
-Vl
+Xf
+Zg
 ac
 ac
 ac
@@ -46935,11 +46935,11 @@ aa
 NP
 TR
 Uc
-Uq
-Vf
-UF
-UI
-Vl
+XG
+UJ
+UU
+Xf
+Zg
 ac
 ac
 ac
@@ -47157,7 +47157,7 @@ ac
 ac
 ac
 ac
-VW
+VU
 yn
 yL
 zx
@@ -47194,9 +47194,9 @@ TT
 Ue
 Us
 Ue
+UV
+UX
 Vb
-UK
-Vm
 ac
 ac
 aa
@@ -47452,9 +47452,9 @@ Uf
 NP
 NP
 NP
-UJ
+ZN
 NP
-UW
+XT
 ac
 aa
 aa
@@ -47707,9 +47707,9 @@ aa
 NP
 Ug
 Ut
-UG
-UG
 UL
+UL
+UZ
 NP
 ac
 ac
@@ -54199,7 +54199,7 @@ aa
 aa
 aa
 aa
-jr
+Wu
 aa
 aa
 aa
@@ -63009,7 +63009,7 @@ aa
 aa
 aa
 aa
-jr
+Wu
 aa
 aa
 aa
@@ -77039,7 +77039,7 @@ aa
 aa
 aa
 aa
-jr
+Wu
 aa
 aa
 aa
