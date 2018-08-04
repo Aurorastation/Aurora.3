@@ -58,3 +58,74 @@
 					return
 			else
 				user << "<span class='notice'>Nothing to fix in here.</span>"
+
+
+/obj/item/stack/nanopaste/surge
+	name = "modified nanopaste"
+	singular_name = "nanite swarm"
+	desc = "A tube of paste containing swarms of repair nanites. This one appears to contain different nanites."
+	icon = 'icons/obj/nanopaste.dmi'
+	icon_state = "tube-surge"
+	origin_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 4, TECH_MAGNET = 5, TECH_POWER = 5, TECH_COMBAT = 3, TECH_ILLEGAL = 4)
+	amount = 20
+	var/used = FALSE
+	construction_cost = null
+
+/obj/item/stack/nanopaste/surge/attack(mob/living/carbon/human/M as mob, mob/user as mob, var/target_zone)
+	if (!istype(M) || !istype(user))
+		return 0
+
+	if(used)
+		to_chat(user, "<span class='warning'>[src] has depleted it's nanites.</span>")
+		return 0
+
+	if (isipc(M))
+		var/obj/item/organ/surge/s = M.internal_organs_by_name["surge"]
+		if(isnull(s))
+			user.visible_message(
+			"<span class='notice'>[user] is trying to apply [src] to [(M == user) ? ("itself") : (M)]!</span>",
+			"<span class='notice'>You start applying [src] to [(M == user) ? ("yourself") : (M)]!</span>"
+			)
+
+			if (!do_mob(user, M, 2))
+				return 0
+
+			s = new /obj/item/organ/surge()
+			M.internal_organs += s
+			M.internal_organs_by_name["surge"] = s
+			user.visible_message(
+			"<span class='notice'>[user] applies some nanite paste to [(M == user) ? ("itself") : (M)]!</span>",
+			"<span class='notice'>You apply [src] to [(M == user) ? ("youself") : (M)].</span>"
+			)
+			to_chat(M, "<span class='notice'>You can feel nanites inside you creating something new. An internal OS voice states \"Warning: surge prevention module has been installed, it has [s.surge_left] preventions left!\"</span>")
+			amount = 0
+			used = TRUE
+			return 1
+		else
+			if(!s.surge_left)
+				user.visible_message(
+				"<span class='notice'>[user] is trying to apply [src] to [(M == user) ? ("itself") : (M)]!</span>",
+				"<span class='notice'>You start applying [src] to [(M == user) ? ("yourself") : (M)]!</span>"
+				)
+
+				if (!do_mob(user, M, 2))
+					return 0
+
+				s.surge_left = rand(1, 3)
+				s.broken = 0
+				s.icon_state = "surge_ipc"
+
+				user.visible_message(
+				"<span class='notice'>[user] applies some nanite paste to [(M == user) ? ("itself") : (M)]!</span>",
+				"<span class='notice'>You apply [src] to [(M == user) ? ("yourself") : (M)].</span>"
+				)
+				to_chat(M,  "<span class='notice'>You can feel nanites inside you regenerating your surge prevention module. An internal OS voice states \"Warning: surge prevention module repaired, it has [s.surge_left] preventions left!\"</span>")
+				amount = 0
+				used = TRUE
+				return 1
+
+			to_chat(user, "<span class='warning'>[(M == user) ? ("You already have") : ("[M] already has")] fully functional surge prevention module installed.</span>")
+			return 0
+	else
+		to_chat(user, "<span class='warning'>[src]'s nanites refuse to work on [(M == user) ? ("you") : (M)].</span>")
+		return 0

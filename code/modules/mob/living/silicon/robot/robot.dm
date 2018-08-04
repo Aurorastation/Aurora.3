@@ -150,7 +150,7 @@
 	initialize_components()
 	//if(!unfinished)
 	// Create all the robot parts.
-	for(var/V in components) if(V != "power cell" && V != "jetpack")//We don't install the jetpack onstart
+	for(var/V in components) if(V != "power cell" && V != "jetpack" && V != "surge")//We don't install the jetpack onstart
 		var/datum/robot_component/C = components[V]
 		C.installed = 1
 		C.wrapped = new C.external_type
