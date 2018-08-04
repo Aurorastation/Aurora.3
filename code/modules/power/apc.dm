@@ -487,12 +487,11 @@
 			user << "\The [W] is too [W.w_class < 3? "small" : "large"] to fit here."
 			return
 
-		user.drop_item(src)
-		W.forceMove(src)
+		user.drop_from_inventory(W,src)
 		cell = W
 		user.visible_message(\
-			"<span class='warning'>[user.name] has inserted the power cell to [src.name]!</span>",\
-			"<span class='notice'>You insert the power cell.</span>")
+			"<span class='warning'>[user.name] has inserted \the [cell] to [src.name]!</span>",\
+			"<span class='notice'>You insert \the [cell].</span>")
 		chargecount = 0
 		update_icon()
 	else if	(isscrewdriver(W))	// haxing

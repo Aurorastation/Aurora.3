@@ -266,7 +266,7 @@
 	new /obj/item/device/analyzer/plant_analyzer(Tsec)
 
 	if(tank)
-		tank.loc = Tsec
+		tank.forceMove(Tsec)
 
 	if(prob(50))
 		new /obj/item/robot_parts/l_arm(Tsec)
@@ -324,7 +324,6 @@
 
 	user << "You add the robot arm to [src]."
 	loc = A //Place the water tank into the assembly, it will be needed for the finished bot
-	user.drop_from_inventory(S)
 	qdel(S)
 
 /obj/item/weapon/farmbot_arm_assembly/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -333,7 +332,6 @@
 		build_step++
 		user << "You add the plant analyzer to [src]."
 		name = "farmbot assembly"
-		user.remove_from_mob(W)
 		qdel(W)
 		return 1
 
@@ -341,7 +339,6 @@
 		build_step++
 		user << "You add a bucket to [src]."
 		name = "farmbot assembly with bucket"
-		user.remove_from_mob(W)
 		qdel(W)
 		return 1//Prevents the object's afterattack from executing and causing runtime errors
 
@@ -358,7 +355,7 @@
 		user << "You complete the Farmbot! Beep boop."
 		var/mob/living/bot/farmbot/S = new /mob/living/bot/farmbot(get_turf(src))
 		for(var/obj/structure/reagent_dispensers/watertank/wTank in contents)
-			wTank.loc = S
+			wTank.forceMove(S)
 			S.tank = wTank
 		S.name = created_name
 		user.remove_from_mob(W)

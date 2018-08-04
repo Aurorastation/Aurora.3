@@ -15,7 +15,7 @@
 	uses -= amt
 	playsound(get_turf(user), 'sound/items/Screwdriver.ogg', 50, 1)
 	if(uses<1)
-		user.drop_item()
+		user.drop_from_inventory(src,get_turf(src))
 		qdel(src)
 
 // Root voidsuit kit defines.

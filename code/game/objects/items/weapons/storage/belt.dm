@@ -305,5 +305,13 @@
 		/obj/item/warp_core,
 		/obj/item/weapon/extraction_pack,
 		/obj/item/weapon/rrf,
-		/obj/item/weapon/gun/custom_ka/
+		/obj/item/weapon/gun/custom_ka
 		)
+
+/obj/item/weapon/storage/belt/bandolier
+	name = "bandolier"
+	desc = "A pocketed belt designated to hold shotgun shells."
+	icon_state = "bandolier"
+	item_state = "bandolier"
+	can_hold = list(/obj/item/ammo_casing/shotgun)
+	storage_slots = 16

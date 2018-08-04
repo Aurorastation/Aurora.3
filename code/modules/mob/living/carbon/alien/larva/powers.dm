@@ -52,7 +52,7 @@
 	var/obj/item/organ/external/E = pick(H.organs)
 	src << "<span class='danger'>You burrow deeply into \the [H]'s [E.name]!</span>"
 	var/obj/item/weapon/holder/holder = new (loc)
-	src.loc = holder
+	src.forceMove(holder)
 	holder.name = src.name
 	E.embed(holder,0,"\The [src] burrows deeply into \the [H]'s [E.name]!")
 
@@ -102,9 +102,9 @@
 					affected = organ
 					break
 		affected.implants -= holder
-		holder.loc = get_turf(holder)
+		holder.forceMove(get_turf(holder))
 	else
-		src.loc = get_turf(src)
+		src.forceMove(get_turf(src))
 	if(affected)
 		src << "<span class='danger'>You crawl out of \the [H]'s [affected.name] and plop to the ground.</span>"
 	else

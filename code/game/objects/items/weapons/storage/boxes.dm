@@ -224,101 +224,93 @@
 
 /obj/item/weapon/storage/box/blanks
 	name = "box of blank shells"
-	desc = "It has a picture of a gun and several warning symbols on the front."
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front."
+	icon_state = "blankshot_box"
 
 /obj/item/weapon/storage/box/blanks/fill()
 	..()
-	new /obj/item/ammo_casing/shotgun/blank(src)
-	new /obj/item/ammo_casing/shotgun/blank(src)
-	new /obj/item/ammo_casing/shotgun/blank(src)
-	new /obj/item/ammo_casing/shotgun/blank(src)
-	new /obj/item/ammo_casing/shotgun/blank(src)
-	new /obj/item/ammo_casing/shotgun/blank(src)
-	new /obj/item/ammo_casing/shotgun/blank(src)
+	for(var/i in 1 to 8)
+		new /obj/item/ammo_casing/shotgun/blank(src)
 
 /obj/item/weapon/storage/box/beanbags
 	name = "box of beanbag shells"
-	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "beanshot_box"
 
 /obj/item/weapon/storage/box/beanbags/fill()
 	..()
-	new /obj/item/ammo_casing/shotgun/beanbag(src)
-	new /obj/item/ammo_casing/shotgun/beanbag(src)
-	new /obj/item/ammo_casing/shotgun/beanbag(src)
-	new /obj/item/ammo_casing/shotgun/beanbag(src)
-	new /obj/item/ammo_casing/shotgun/beanbag(src)
-	new /obj/item/ammo_casing/shotgun/beanbag(src)
-	new /obj/item/ammo_casing/shotgun/beanbag(src)
+	for(var/i in 1 to 8)
+		new /obj/item/ammo_casing/shotgun/beanbag(src)
 
 /obj/item/weapon/storage/box/shotgunammo
 	name = "box of shotgun slugs"
-	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "lethalslug_box"
 
 /obj/item/weapon/storage/box/shotgunammo/fill()
 	..()
-	new /obj/item/ammo_casing/shotgun(src)
-	new /obj/item/ammo_casing/shotgun(src)
-	new /obj/item/ammo_casing/shotgun(src)
-	new /obj/item/ammo_casing/shotgun(src)
-	new /obj/item/ammo_casing/shotgun(src)
-	new /obj/item/ammo_casing/shotgun(src)
-	new /obj/item/ammo_casing/shotgun(src)
+	for(var/i in 1 to 8)
+		new /obj/item/ammo_casing/shotgun(src)
 
 /obj/item/weapon/storage/box/shotgunshells
 	name = "box of shotgun shells"
-	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "lethalshell_box"
 
 /obj/item/weapon/storage/box/shotgunshells/fill()
 	..()
-	new /obj/item/ammo_casing/shotgun/pellet(src)
-	new /obj/item/ammo_casing/shotgun/pellet(src)
-	new /obj/item/ammo_casing/shotgun/pellet(src)
-	new /obj/item/ammo_casing/shotgun/pellet(src)
-	new /obj/item/ammo_casing/shotgun/pellet(src)
-	new /obj/item/ammo_casing/shotgun/pellet(src)
-	new /obj/item/ammo_casing/shotgun/pellet(src)
+	for(var/i in 1 to 8)
+		new /obj/item/ammo_casing/shotgun/pellet(src)
 
 /obj/item/weapon/storage/box/flashshells
 	name = "box of illumination shells"
-	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "illumshot_box"
 
 /obj/item/weapon/storage/box/flashshells/fill()
 	..()
-	new /obj/item/ammo_casing/shotgun/flash(src)
-	new /obj/item/ammo_casing/shotgun/flash(src)
-	new /obj/item/ammo_casing/shotgun/flash(src)
-	new /obj/item/ammo_casing/shotgun/flash(src)
-	new /obj/item/ammo_casing/shotgun/flash(src)
-	new /obj/item/ammo_casing/shotgun/flash(src)
-	new /obj/item/ammo_casing/shotgun/flash(src)
+	for(var/i in 1 to 8)
+		new /obj/item/ammo_casing/shotgun/flash(src)
 
 /obj/item/weapon/storage/box/stunshells
 	name = "box of stun shells"
-	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "stunshot_box"
 
 /obj/item/weapon/storage/box/stunshells/fill()
 	..()
-	new /obj/item/ammo_casing/shotgun/stunshell(src)
-	new /obj/item/ammo_casing/shotgun/stunshell(src)
-	new /obj/item/ammo_casing/shotgun/stunshell(src)
-	new /obj/item/ammo_casing/shotgun/stunshell(src)
-	new /obj/item/ammo_casing/shotgun/stunshell(src)
-	new /obj/item/ammo_casing/shotgun/stunshell(src)
-	new /obj/item/ammo_casing/shotgun/stunshell(src)
+	for(var/i in 1 to 8)
+		new /obj/item/ammo_casing/shotgun/stunshell(src)
 
 /obj/item/weapon/storage/box/practiceshells
 	name = "box of practice shells"
-	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "blankshot_box"
 
 /obj/item/weapon/storage/box/practiceshells/fill()
 	..()
-	new /obj/item/ammo_casing/shotgun/practice(src)
-	new /obj/item/ammo_casing/shotgun/practice(src)
-	new /obj/item/ammo_casing/shotgun/practice(src)
-	new /obj/item/ammo_casing/shotgun/practice(src)
-	new /obj/item/ammo_casing/shotgun/practice(src)
-	new /obj/item/ammo_casing/shotgun/practice(src)
-	new /obj/item/ammo_casing/shotgun/practice(src)
+	for(var/i in 1 to 8)
+		new /obj/item/ammo_casing/shotgun/practice(src)
+
+/obj/item/weapon/storage/box/haywireshells
+	name = "box of haywire shells"
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "empshot_box"
+
+/obj/item/weapon/storage/box/haywireshells/fill()
+	..()
+	for(var/i in 1 to 8)
+		new /obj/item/ammo_casing/shotgun/emp(src)
+
+/obj/item/weapon/storage/box/incendiaryshells
+	name = "box of incendiary shells"
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "incendiaryshot_box"
+
+/obj/item/weapon/storage/box/incendiaryshells/fill()
+	..()
+	for(var/i in 1 to 8)
+		new /obj/item/ammo_casing/shotgun/incendiary(src)
 
 /obj/item/weapon/storage/box/sniperammo
 	name = "box of 14.5mm shells"
