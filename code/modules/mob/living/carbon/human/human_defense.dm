@@ -165,14 +165,14 @@ emp_act
 				playsound(src.loc, 'sound/magic/LightningShock.ogg', 25, 1)
 				s.surge_left -= 1
 				if(s.surge_left)
-					to_chat(src, "<span class='warning'> Warning: EMP detected, integrated surge prevention module activated. There are [s.surge_left] preventions left.</span>")
+					to_chat(src, "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. There are [s.surge_left] preventions left.</span>")
 				else
 					s.broken = 1
 					s.icon_state = "surge_ipc_broken"
-					to_chat(src, "<span class='warning'> Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended.</span>")
+					to_chat(src, "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended.</span>")
 				return 1
 			else
-				to_chat(src, "<span class='danger'> Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended.</span>")
+				to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended.</span>")
 	for(var/obj/O in src)
 		if(!O)	continue
 		O.emp_act(severity)

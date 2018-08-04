@@ -76,7 +76,7 @@
 		return 0
 
 	if(used)
-		to_chat(user, "<span class='warning'>[src] has depleted it's nanites. </span>")
+		to_chat(user, "<span class='warning'>[src] has depleted it's nanites.</span>")
 		return 0
 
 	if (isipc(M))
@@ -97,7 +97,7 @@
 			"<span class='notice'>[user] applies some nanite paste to [(M == user) ? ("itself") : (M)]!</span>",
 			"<span class='notice'>You apply [src] to [(M == user) ? ("youself") : (M)].</span>"
 			)
-			to_chat(((user == M) ? (user) : (M)), "<span class='notice'>You can feel nanites inside you creating something new. An internal OS voice states \"Warning: surge prevention module has been installed, it has [s.surge_left] preventions left!\"</span>")
+			to_chat(M, "<span class='notice'>You can feel nanites inside you creating something new. An internal OS voice states \"Warning: surge prevention module has been installed, it has [s.surge_left] preventions left!\"</span>")
 			amount = 0
 			used = TRUE
 			return 1
@@ -119,12 +119,12 @@
 				"<span class='notice'>[user] applies some nanite paste to [(M == user) ? ("itself") : (M)]!</span>",
 				"<span class='notice'>You apply [src] to [(M == user) ? ("yourself") : (M)].</span>"
 				)
-				to_chat(((user == M) ? (user) : (M)),  "<span class='notice'>You can feel nanites inside you regenerating your surge prevention module. An internal OS voice states \"Warning: surge prevention module repaired, it has [s.surge_left] preventions left!\"</span>")
+				to_chat(M,  "<span class='notice'>You can feel nanites inside you regenerating your surge prevention module. An internal OS voice states \"Warning: surge prevention module repaired, it has [s.surge_left] preventions left!\"</span>")
 				amount = 0
 				used = TRUE
 				return 1
 
-			to_chat(user, "<span class='warning'>[(M == user) ? ("You already have") : ("[M] already has")] fully functional surge prevention module installed</span>")
+			to_chat(user, "<span class='warning'>[(M == user) ? ("You already have") : ("[M] already has")] fully functional surge prevention module installed.</span>")
 			return 0
 	else
 		to_chat(user, "<span class='warning'>[src]'s nanites refuse to work on [(M == user) ? ("you") : (M)].</span>")
