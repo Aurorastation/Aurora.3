@@ -252,7 +252,7 @@
 	return amount
 
 /datum/reagents/proc/trans_to_holder(var/datum/reagents/target, var/amount = 1, var/multiplier = 1, var/copy = 0) // Transfers [amount] reagents from [src] to [target], multiplying them by [multiplier]. Returns actual amount removed from [src] (not amount transferred to [target]).
-	
+
 	if(!target || !istype(target))
 		return 0
 
@@ -276,7 +276,7 @@
 		handle_reactions()
 
 	target.handle_reactions()
-	
+
 	return amount
 
 /* Holder-to-atom and similar procs */
@@ -385,16 +385,16 @@
 
 	return trans_to_mob(target, amount*0.75, CHEM_TOUCH, multiplier, copy) + trans_to_mob(target, amount*0.25, CHEM_BREATHE, multiplier, copy)
 
-/datum/reagents/proc/trans_to_mob(var/mob/target, var/amount = 1, var/type = CHEM_BLOOD, var/multiplier = 1, var/copy = 0) // Transfer after checking into which holder...
+/datum/reagents/proc/trans_to_mob(var/mob/target, var/amount = 1, var/type = CHEM_BLOOD, var/multiplier = 1, var/copy = 0, var/bypass_checks = FALSE) // Transfer after checking into which holder...
 
 	if(!target || !istype(target) || !target.simulated)
 		return 0
-		
+
 	var/mob/living/carbon/C = target
 	if(istype(C))
 		if(type == CHEM_BREATHE)
 			var/datum/reagents/R = C.breathing
-			return C.inhale(src, R, amount, multiplier, copy)
+			return C.inhale(src, R, amount, multiplier, copy, bypass_checks)
 		if(type == CHEM_BLOOD)
 			var/datum/reagents/R = C.reagents
 			return trans_to_holder(R, amount, multiplier, copy)

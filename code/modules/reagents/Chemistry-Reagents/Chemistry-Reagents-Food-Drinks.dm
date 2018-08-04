@@ -113,8 +113,7 @@
 	M.nutrition += nutriment_factor * removed // For hunger and fatness
 	M.nutrition_attrition_rate = Clamp(M.nutrition_attrition_rate + attrition_factor, 1, 2)
 	M.add_chemical_effect(CE_BLOODRESTORE, blood_factor * removed)
-
-
+	M.intoxication -= min(M.intoxication,nutriment_factor*removed*0.05) //Nutrients can absorb alcohol.
 
 /*
 	Coatings are used in cooking. Dipping food items in a reagent container with a coating in it
@@ -206,9 +205,6 @@
 	taste_description = "meat"
 
 /datum/reagent/nutriment/protein/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien && alien == IS_SKRELL)
-		M.adjustToxLoss(0.5 * removed)
-		return
 	if(alien && alien == IS_UNATHI)
 		digest(M,removed)
 		return
@@ -220,29 +216,11 @@
 	color = "#fdffa8"
 	taste_description = "tofu"
 
-/datum/reagent/nutriment/protein/tofu/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien && alien == IS_SKRELL)
-		digest(M,removed) //Skrell are allowed to eat tofu, but not most animal proteins
-		return
-	..()
-
 /datum/reagent/nutriment/protein/seafood // Good for Skrell!
 	name = "seafood protein"
 	id = "seafood"
 	color = "#f5f4e9"
 	taste_description = "fish"
-
-/datum/reagent/nutriment/protein/seafood/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien && alien == IS_SKRELL)
-		digest(M,removed)//Skrell are allowed to eat fish, but not other proteins
-		return
-	..()
-
-/datum/reagent/nutriment/protein/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien && alien == IS_SKRELL)
-		M.adjustToxLoss(2 * removed)
-		return
-	..()
 
 /datum/reagent/nutriment/protein/egg // Also bad for skrell.
 	name = "egg yolk"
@@ -251,9 +229,6 @@
 	taste_description = "egg"
 
 /datum/reagent/nutriment/egg/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien && alien == IS_SKRELL)
-		M.adjustToxLoss(0.5 * removed)
-		return
 	if(alien && alien == IS_UNATHI)
 		digest(M,removed)
 		return
@@ -496,6 +471,24 @@
 	if(M.nutrition < 0)
 		M.nutrition = 0
 
+/datum/reagent/nutriment/barbecue
+	name = "Barbecue Sauce"
+	id = "barbecue"
+	description = "Barbecue sauce for barbecues and long shifts."
+	taste_description = "barbecue"
+	reagent_state = LIQUID
+	nutriment_factor = 5
+	color = "#4F330F"
+
+/datum/reagent/nutriment/garlicsauce
+	name = "Garlic Sauce"
+	id = "garlicsauce"
+	description = "Garlic sauce, perfect for spicing up a plate of garlic."
+	taste_description = "garlic"
+	reagent_state = LIQUID
+	nutriment_factor = 4
+	color = "#d8c045"
+
 /* Non-food stuff like condiments */
 
 /datum/reagent/sodiumchloride
@@ -506,6 +499,10 @@
 	color = "#FFFFFF"
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "salt"
+
+/datum/reagent/sodiumchloride/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
+	M.intoxication -= min(M.intoxication,removed*2) //Salt absorbs alcohol
 
 /datum/reagent/blackpepper
 	name = "Black Pepper"
@@ -644,8 +641,8 @@
 		message = "<span class='danger'>Your face and throat burn!</span>"
 		if(prob(25))
 			M.custom_emote(2, "[pick("coughs!","coughs hysterically!","splutters!")]")
-		M.Stun(5)
-		M.Weaken(5)
+		M.apply_effect(40, AGONY, 0)
+
 #undef EYES_PROTECTED
 #undef EYES_MECH
 
@@ -861,6 +858,50 @@
 	glass_name = "glass of watermelon juice"
 	glass_desc = "Delicious juice made from watermelon."
 
+/datum/reagent/drink/pineapplejuice
+	name = "Pineapple Juice"
+	id = "pineapplejuice"
+	description = "From freshly canned pineapples."
+	color = "#FFFF00"
+	taste_description = "pineapple"
+
+	glass_icon_state = "lemonjuice"
+	glass_name = "glass of pineapple juice"
+	glass_desc = "What the hell is this?"
+
+/datum/reagent/drink/earthenrootjuice
+	name = "Earthen-Root Juice"
+	id = "earthenrootjuice"
+	description = "Juice extracted from earthen-root, a plant native to Adhomai."
+	color = "#4D8F53"
+	taste_description = "sweetness"
+
+	glass_icon_state = "bluelagoon"
+	glass_name = "glass of earthen-root juice"
+	glass_desc = "Juice extracted from earthen-root, a plant native to Adhomai."
+
+/datum/reagent/drink/juice/garlic
+	name = "Garlic Juice"
+	id = "garlicjuice"
+	description = "Who would even drink this?"
+	taste_description = "garlic"
+	nutrition = 1
+	color = "#eeddcc"
+
+	glass_name = "glass of garlic juice"
+	glass_desc = "Who would even drink juice from garlic?"
+
+/datum/reagent/drink/juice/onion
+	name = "Onion Juice"
+	id = "onionjuice"
+	description = "Juice from an onion, for when you need to cry."
+	taste_description = "onion"
+	nutrition = 1
+	color = "#ffeedd"
+
+	glass_name = "glass of onion juice"
+	glass_desc = "Juice from an onion, for when you need to cry."
+
 // Everything else
 
 /datum/reagent/drink/milk
@@ -974,7 +1015,7 @@
 	color = "#102838"
 	adj_temp = -5
 
-	glass_icon_state = "icedcoffeeglass"
+	glass_icon_state = "frappe"
 	glass_name = "glass of frappe coffee"
 	glass_desc = "A drink to perk you up and refresh you!"
 
@@ -3347,6 +3388,32 @@
 	glass_desc = "A very classy looking drink."
 	glass_center_of_mass = list("x"=15, "y"=7)
 
+/datum/reagent/alcohol/messa_mead
+	name = "Messa's Mead"
+	id = "messa_mead"
+	description = "A sweet alcoholic adhomian drink. Produced with Messa's tears and earthen-root."
+	color = "#664300"
+	strength = 25
+	taste_description = "honey"
+
+	glass_icon_state = "messa_mead_glass"
+	glass_name = "glass of Messa's Mead"
+	glass_desc = "A sweet alcoholic adhomian drink. Produced with Messa's tears."
+
+/datum/reagent/alcohol/winter_offensive
+	name = "Winter Offensive"
+	id = "winter_offensive"
+	description = "An alcoholic tajaran cocktail, named after a less than successful military campaign."
+	color = "#664300"
+	strength = 15
+	taste_description = "cold oily gin"
+	adj_temp = -15
+	targ_temp = 270
+
+	glass_icon_state = "winter_offensive"
+	glass_name = "glass of Winter Offensive"
+	glass_desc = "Proven to be more successful than the campaign."
+
 // Butanol-based alcoholic drinks
 //=====================================
 //These are mainly for unathi, and have very little (but still some) effect on other species
@@ -3410,7 +3477,7 @@
 	description = "A tropical cocktail containing cactus juice from Moghes, but no actual alcohol."
 	color = "#FF7F3B"
 	strength = 15
-	taste_description = "lime and orange"
+	taste_description = "sweet lemons"
 
 	glass_icon_state = "bahamalizard"
 	glass_name = "glass of Bahama Lizard"
@@ -3556,3 +3623,4 @@
 	glass_icon_state = "crocodile_glass"
 	glass_name = "glass of Crocodile Guwan"
 	glass_desc = "The smell says no, but the pretty colors say yes."
+

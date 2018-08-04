@@ -93,27 +93,29 @@ There are several things that need to be remembered:
 #define SHOES_LAYER       7
 #define GLOVES_LAYER      8
 #define BELT_LAYER        9
-#define SUIT_LAYER       10
-#define TAIL_LAYER       11
-#define GLASSES_LAYER    12
-#define BELT_LAYER_ALT   13
-#define SUIT_STORE_LAYER 14
-#define BACK_LAYER       15
-#define HAIR_LAYER       16
-#define EARS_LAYER       17
-#define FACEMASK_LAYER   18
-#define HEAD_LAYER       19
-#define COLLAR_LAYER     20
-#define HANDCUFF_LAYER   21
-#define LEGCUFF_LAYER    22
-#define L_HAND_LAYER     23
-#define R_HAND_LAYER     24
-#define FIRE_LAYER       25		//If you're on fire
-#define TOTAL_LAYERS     25
+#define TAIL_SOUTH_LAYER 10
+#define SUIT_LAYER       11
+#define TAIL_NORTH_LAYER 12
+#define GLASSES_LAYER    13
+#define BELT_LAYER_ALT   14
+#define SUIT_STORE_LAYER 15
+#define BACK_LAYER       16
+#define HAIR_LAYER       17
+#define EARS_LAYER       18
+#define FACEMASK_LAYER   19
+#define HEAD_LAYER       20
+#define COLLAR_LAYER     21
+#define HANDCUFF_LAYER   22
+#define LEGCUFF_LAYER    23
+#define L_HAND_LAYER     24
+#define R_HAND_LAYER     25
+#define FIRE_LAYER       26		//If you're on fire
+#define TOTAL_LAYERS     26
 //////////////////////////////////
 
 #define UNDERSCORE_OR_NULL(target) "[target ? "[target]_" : ""]"
 #define GET_BODY_TYPE (cached_bodytype || (cached_bodytype = species.get_bodytype()))
+#define GET_TAIL_LAYER (dir == NORTH ? TAIL_NORTH_LAYER : TAIL_SOUTH_LAYER)
 
 /mob/living/carbon/human
 	var/list/overlays_raw[TOTAL_LAYERS] // Our set of "raw" overlays that can be modified, but cannot be directly applied to the mob without preprocessing.
@@ -277,7 +279,7 @@ There are several things that need to be remembered:
 			else
 				base_icon.Blend(temp, ICON_OVERLAY)
 
-		if(!skeleton)
+		if(!(species.flags & NO_SCAN))
 			if(husk)
 				base_icon.ColorTone(husk_color_mod)
 			else if(hulk)
@@ -297,11 +299,11 @@ There are several things that need to be remembered:
 	//END CACHED ICON GENERATION.
 	stand_icon.Blend(base_icon,ICON_OVERLAY)
 
-	if(update_icons)
-		update_icons()
-
 	//tail
 	update_tail_showing(0)
+
+	if(update_icons)
+		update_icons()
 
 /mob/living/carbon/human/proc/update_underwear(update_icons = TRUE)
 	var/list/ovr
@@ -1129,14 +1131,18 @@ There are several things that need to be remembered:
 		update_icons()
 
 /mob/living/carbon/human/proc/update_tail_showing(var/update_icons=1)
+
 	if (QDELING(src))
 		return
 
-	overlays_raw[TAIL_LAYER] = null
+	overlays_raw[TAIL_NORTH_LAYER] = null
+	overlays_raw[TAIL_SOUTH_LAYER] = null
+
+	var/tail_layer = GET_TAIL_LAYER
 
 	if(species.tail && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
 		var/icon/tail_s = get_tail_icon()
-		overlays_raw[TAIL_LAYER] = image(tail_s, icon_state = "[species.tail]_s")
+		overlays_raw[tail_layer] = image(tail_s, icon_state = "[species.tail]_s")
 		animate_tail_reset(0)
 
 	if(update_icons)
@@ -1165,7 +1171,9 @@ There are several things that need to be remembered:
 	if (!species.tail)
 		return
 
-	var/image/tail_overlay = overlays_raw[TAIL_LAYER]
+	var/tail_layer = GET_TAIL_LAYER
+
+	var/image/tail_overlay = overlays_raw[tail_layer]
 
 	if(tail_overlay && species.tail_animation)
 		if (tail_overlay.icon_state != t_state)
@@ -1179,7 +1187,9 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/proc/animate_tail_once()
 	var/t_state = "[species.tail]_once"
 
-	var/image/tail_overlay = overlays_raw[TAIL_LAYER]
+	var/tail_layer = GET_TAIL_LAYER
+
+	var/image/tail_overlay = overlays_raw[tail_layer]
 	if(tail_overlay && tail_overlay.icon_state == t_state)
 		return //let the existing animation finish
 
@@ -1189,7 +1199,8 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/proc/end_animate_tail_once(image/tail_overlay)
 	//check that the animation hasn't changed in the meantime
-	if(overlays_raw[TAIL_LAYER] == tail_overlay && tail_overlay.icon_state == "[species.tail]_once")
+	var/tail_layer = GET_TAIL_LAYER
+	if(overlays_raw[tail_layer] == tail_overlay && tail_overlay.icon_state == "[species.tail]_once")
 		animate_tail_stop()
 
 /mob/living/carbon/human/proc/animate_tail_start()
@@ -1321,7 +1332,8 @@ There are several things that need to be remembered:
 #undef GLOVES_LAYER
 #undef BELT_LAYER
 #undef SUIT_LAYER
-#undef TAIL_LAYER
+#undef TAIL_NORTH_LAYER
+#undef TAIL_SOUTH_LAYER
 #undef GLASSES_LAYER
 #undef BELT_LAYER_ALT
 #undef SUIT_STORE_LAYER
@@ -1340,3 +1352,4 @@ There are several things that need to be remembered:
 
 #undef UNDERSCORE_OR_NULL
 #undef GET_BODY_TYPE
+#undef GET_TAIL_LAYER

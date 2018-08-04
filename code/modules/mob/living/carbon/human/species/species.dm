@@ -28,6 +28,7 @@
 	var/icon_x_offset = 0
 	var/icon_y_offset = 0
 	var/eyes = "eyes_s"                                  // Icon for eyes.
+	var/eyes_icons = 'icons/mob/human_face/eyes.dmi'     // DMI file for eyes, mostly for none 32x32 species.
 	var/has_floating_eyes                                // Eyes will overlay over darkness (glow)
 	var/eyes_icon_blend = ICON_ADD                       // The icon blending mode to use for eyes.
 	var/blood_color = "#A10808"                          // Red.
@@ -70,11 +71,12 @@
 	var/radiation_mod = 1                    // Radiation modifier
 	var/flash_mod =     1                    // Stun from blindness modifier.
 	var/fall_mod =      1                    // Fall damage modifier, further modified by brute damage modifier
-	var/vision_flags = DEFAULT_SIGHT              // Same flags as glasses.
+	var/vision_flags = DEFAULT_SIGHT         // Same flags as glasses.
 	var/inherent_eye_protection              // If set, this species has this level of inherent eye protection.
 	var/eyes_are_impermeable = FALSE         // If TRUE, this species' eyes are not damaged by phoron.
-	var/list/breakcuffs = list()                      //used in resist.dm to check if they can break hand/leg cuffs
-
+	var/list/breakcuffs = list()             //used in resist.dm to check if they can break hand/leg cuffs
+	var/natural_climbing = FALSE             //If true, the species always succeeds at climbing.
+	var/climb_coeff = 1.25                   //The coefficient to the climbing speed of the individual = 60 SECONDS * climb_coeff
 	// Death vars.
 	var/meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/human
 	var/gibber_type = /obj/effect/gibspawner/human
@@ -450,16 +452,30 @@
 	else
 		remainder = cost
 
-	H.adjustOxyLoss(remainder*0.25)
+	if(H.disabilities & ASTHMA)
+		H.adjustOxyLoss(remainder*0.15)
+
+	if(H.disabilities & COUGHING)
+		H.adjustHalLoss(remainder*0.1)
+
+	if (breathing_organ && has_organ[breathing_organ])
+		var/obj/item/organ/O = H.internal_organs_by_name[breathing_organ]
+		if(O.is_bruised())
+			H.adjustOxyLoss(remainder*0.15)
+			H.adjustHalLoss(remainder*0.25)
+
 	H.adjustHalLoss(remainder*0.25)
 	H.updatehealth()
-	H.update_oxy_overlay()
+	if((H.halloss >= 10) && prob(H.halloss*2))
+		H.flash_pain()
 
-	if (H.oxyloss >= (exhaust_threshold * 0.8))
+	if ((H.halloss + H.oxyloss) >= (exhaust_threshold * 0.8))
 		H.m_intent = "walk"
 		H.hud_used.move_intent.update_move_icon(H)
 		H << span("danger", "You're too exhausted to run anymore!")
+		H.flash_pain()
 		return 0
+
 	H.hud_used.move_intent.update_move_icon(H)
 	return 1
 

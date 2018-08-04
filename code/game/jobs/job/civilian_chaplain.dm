@@ -19,7 +19,8 @@
 			return FALSE
 
 		var/obj/item/weapon/storage/bible/B = new /obj/item/weapon/storage/bible(H) //BS12 EDIT
-		H.equip_to_slot_or_del(B, slot_l_hand)
+		H.equip_to_slot_or_del(B, slot_r_hand)
+		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_service(H), slot_l_ear)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/chaplain(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/chaplain(H), slot_belt)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
@@ -52,6 +53,8 @@
 					B.name = "Toolbox Manifesto"
 				if("homosexuality")
 					B.name = "Guys Gone Wild"
+				if("moroz holy tribunal","moroz","holy tribunal")
+					B.name = "Tribunal Codex"
 				//if("lol", "wtf", "gay", "penis", "ass", "poo", "badmin", "shitmin", "deadmin", "cock", "cocks")
 				//	B.name = pick("Woodys Got Wood: The Aftermath", "War of the Cocks", "Sweet Bro and Hella Jef: Expanded Edition")
 				//	H.setBrainLoss(100) // starts off retarded as fuck

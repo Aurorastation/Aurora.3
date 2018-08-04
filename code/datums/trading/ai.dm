@@ -112,12 +112,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/target                    = TRADER_ALL,
 		/obj/structure/dispenser            = TRADER_SUBTYPES_ONLY,
 		/obj/structure/filingcabinet        = TRADER_THIS_TYPE,
-		/obj/structure/safe                 = TRADER_THIS_TYPE,
-		/obj/structure/plushie              = TRADER_SUBTYPES_ONLY,
-		/obj/structure/sign                 = TRADER_SUBTYPES_ONLY,
-		/obj/structure/sign/double          = TRADER_BLACKLIST_ALL,
-		/obj/structure/sign/goldenplaque    = TRADER_BLACKLIST_ALL,
-		/obj/structure/sign/poster          = TRADER_BLACKLIST
+		/obj/structure/plushie              = TRADER_SUBTYPES_ONLY
 	)
 
 /datum/trader/trading_beacon/medical
@@ -128,6 +123,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/weapon/storage/pill_bottle                            = TRADER_SUBTYPES_ONLY,
 		/obj/item/weapon/reagent_containers/hypospray                   = TRADER_ALL,
 		/obj/item/device/healthanalyzer                                 = TRADER_THIS_TYPE,
+		/obj/item/device/breath_analyzer                                = TRADER_THIS_TYPE,
 		/obj/item/stack/medical/bruise_pack                             = TRADER_THIS_TYPE,
 		/obj/item/stack/medical/ointment                                = TRADER_THIS_TYPE,
 		/obj/item/stack/medical/advanced                                = TRADER_SUBTYPES_ONLY,

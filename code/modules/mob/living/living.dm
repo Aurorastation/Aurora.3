@@ -250,6 +250,7 @@ default behaviour is:
 
 /mob/living/proc/adjustBruteLoss(var/amount)
 	if(status_flags & GODMODE)	return 0	//godmode
+	amount *= brute_mod
 	bruteloss = min(max(bruteloss + amount, 0),(maxHealth*2))
 
 /mob/living/proc/getOxyLoss()
@@ -279,6 +280,7 @@ default behaviour is:
 
 /mob/living/proc/adjustFireLoss(var/amount)
 	if(status_flags & GODMODE)	return 0	//godmode
+	amount *= burn_mod
 	fireloss = min(max(fireloss + amount, 0),(maxHealth*2))
 
 /mob/living/proc/getCloneLoss()
@@ -677,7 +679,15 @@ default behaviour is:
 	if(buckled)
 		buckled.user_unbuckle_mob(src)
 
+/mob/living/var/last_resist
+
 /mob/living/proc/resist_grab()
+	if (last_resist + 4 > world.time)
+		return
+	last_resist = world.time
+	if(stunned > 10)
+		src << "<span class='notice'>You can't move...</span>"
+		return
 	var/resisting = 0
 	for(var/obj/O in requests)
 		requests.Remove(O)

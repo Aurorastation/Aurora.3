@@ -6,6 +6,11 @@
 	flags = RAD_SHIELDED
 	station_area = 1
 
+/area/sconference_room
+	name = "\improper Surface - Conference Room"
+	icon_state = "Sleep"
+	station_area = 1
+
 /area/crew_quarters/toilet
 	name = "\improper Dormitory Toilets"
 	icon_state = "toilet"
@@ -179,3 +184,8 @@
 	name = "\improper Station Store"
 	icon_state = "quartstorage"
 	station_area = 1
+
+/area/journalistoffice
+	name = "\improper Journalist's Office"
+	station_area = 1
+	sound_env = SMALL_SOFTFLOOR

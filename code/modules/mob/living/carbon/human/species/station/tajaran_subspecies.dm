@@ -9,13 +9,14 @@
 	from their fellow Tajara who cite their lackluster test scores, even among Tajara, and their higher \
 	crime rates."
 
-	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR)
+	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_DELVAHII, LANGUAGE_SIIK_TAU)
 
 	slowdown = -0.8 //As opposed to -1 for Base tajara
 	sprint_speed_factor = 0.55 // As opposed to 0.65
 	stamina = 100 // As opposed to 90
 	brute_mod = 1.1 // Less Brute Damage
 	ethanol_resistance = 1 // Default value
+	climb_coeff = 1.1
 
 	cold_level_1 = 160 //RaceDefault 200 Default 260
 	cold_level_2 = 100 //RaceDefault 140 Default 200
@@ -54,4 +55,4 @@
 
 	primitive_form = "M'sai Farwa"
 
-	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_SIGN_TAJARA)
+	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_SIGN_TAJARA, LANGUAGE_SIIK_TAU)

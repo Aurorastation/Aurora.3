@@ -202,6 +202,11 @@
 			spawn( 0 )
 				emote("cough")
 				return
+
+	if((disabilities & ASTHMA) && getOxyLoss() >= 10)
+		if(prob(5))
+			emote("cough")
+
 	if (disabilities & TOURETTES)
 		speech_problem_flag = 1
 		if ((prob(10) && paralysis <= 1))
@@ -549,7 +554,10 @@
 		failed_last_breath = 1
 	else
 		failed_last_breath = 0
-		adjustOxyLoss(-5)
+		if(disabilities & ASTHMA)
+			adjustOxyLoss(rand(-5,0))
+		else
+			adjustOxyLoss(-5)
 
 
 	// Hot air hurts :(
@@ -1287,7 +1295,7 @@
 	//0.1% chance of playing a scary sound to someone who's in complete darkness
 	if(isturf(loc) && rand(1,1000) == 1)
 		var/turf/T = loc
-		if(T.dynamic_lighting && T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
+		if(T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
 			playsound_local(src,pick(scarySounds),50, 1, -1)
 
 /mob/living/carbon/human/proc/handle_changeling()
@@ -1627,7 +1635,8 @@
 	if (!exhaust_threshold) // Also quit if there's no exhaust threshold specified, because division by 0 is amazing.
 		return
 
-	if (failed_last_breath || oxyloss > exhaust_threshold)//Can't catch our breath if we're suffocating
+	if (failed_last_breath || (oxyloss + halloss) > exhaust_threshold)//Can't catch our breath if we're suffocating
+		flash_pain()
 		return
 
 	if (nutrition <= 0)
@@ -1638,7 +1647,7 @@
 	if (stamina != max_stamina)
 		//Any suffocation damage slows stamina regen.
 		//This includes oxyloss from low blood levels
-		var/regen = stamina_recovery * (1 - min(((oxyloss*2) / exhaust_threshold), 1))
+		var/regen = stamina_recovery * (1 - min(((oxyloss) / exhaust_threshold) + ((halloss) / exhaust_threshold), 1))
 		if (regen > 0)
 			stamina = min(max_stamina, stamina+regen)
 			nutrition = max(0, nutrition - stamina_recovery*0.18)

@@ -1312,7 +1312,8 @@
 
 	else if(href_list["ac_submit_new_channel"])
 		var/check = 0
-		for(var/datum/feed_channel/FC in news_network.network_channels)
+		for(var/channel in SSnews.network_channels)
+			var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
 			if(FC.channel_name == src.admincaster_feed_channel.channel_name)
 				check = 1
 				break
@@ -1321,7 +1322,7 @@
 		else
 			var/choice = alert("Please confirm Feed channel creation","Network Channel Handler","Confirm","Cancel")
 			if(choice=="Confirm")
-				news_network.CreateFeedChannel(admincaster_feed_channel.channel_name, admincaster_signature, admincaster_feed_channel.locked, 1)
+				SSnews.CreateFeedChannel(admincaster_feed_channel.channel_name, admincaster_signature, admincaster_feed_channel.locked, 1)
 				feedback_inc("newscaster_channels",1)                  //Adding channel to the global network
 				log_admin("[key_name_admin(usr)] created command feed channel: [src.admincaster_feed_channel.channel_name]!",admin_key=key_name(usr))
 				src.admincaster_screen=5
@@ -1329,8 +1330,9 @@
 
 	else if(href_list["ac_set_channel_receiving"])
 		var/list/available_channels = list()
-		for(var/datum/feed_channel/F in news_network.network_channels)
-			available_channels += F.channel_name
+		for(var/channel in SSnews.network_channels)
+			var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
+			available_channels += FC.channel_name
 		src.admincaster_feed_channel.channel_name = sanitizeSafe(input(usr, "Choose receiving Feed Channel", "Network Channel Handler") in available_channels )
 		src.access_news_network()
 
@@ -1343,7 +1345,8 @@
 			src.admincaster_screen = 6
 		else
 			feedback_inc("newscaster_stories",1)
-			news_network.SubmitArticle(src.admincaster_feed_message.body, src.admincaster_signature, src.admincaster_feed_channel.channel_name, null, 1)
+			var/datum/feed_channel/ch =  SSnews.GetFeedChannel(src.admincaster_feed_channel.channel_name)
+			SSnews.SubmitArticle(src.admincaster_feed_message.body, src.admincaster_signature, ch, null, 1)
 			src.admincaster_screen=4
 
 		log_admin("[key_name_admin(usr)] submitted a feed story to channel: [src.admincaster_feed_channel.channel_name]!",admin_key=key_name(usr))
@@ -1367,12 +1370,12 @@
 
 	else if(href_list["ac_menu_wanted"])
 		var/already_wanted = 0
-		if(news_network.wanted_issue)
+		if(SSnews.wanted_issue)
 			already_wanted = 1
 
 		if(already_wanted)
-			src.admincaster_feed_message.author = news_network.wanted_issue.author
-			src.admincaster_feed_message.body = news_network.wanted_issue.body
+			src.admincaster_feed_message.author = SSnews.wanted_issue.author
+			src.admincaster_feed_message.body = SSnews.wanted_issue.body
 		src.admincaster_screen = 14
 		src.access_news_network()
 
@@ -1397,15 +1400,15 @@
 					WANTED.body = src.admincaster_feed_message.body                   //Wanted desc
 					WANTED.backup_author = src.admincaster_signature                  //Submitted by
 					WANTED.is_admin_message = 1
-					news_network.wanted_issue = WANTED
+					SSnews.wanted_issue = WANTED
 					for(var/obj/machinery/newscaster/NEWSCASTER in allCasters)
 						NEWSCASTER.newsAlert()
 						NEWSCASTER.update_icon()
 					src.admincaster_screen = 15
 				else
-					news_network.wanted_issue.author = src.admincaster_feed_message.author
-					news_network.wanted_issue.body = src.admincaster_feed_message.body
-					news_network.wanted_issue.backup_author = src.admincaster_feed_message.backup_author
+					SSnews.wanted_issue.author = src.admincaster_feed_message.author
+					SSnews.wanted_issue.body = src.admincaster_feed_message.body
+					SSnews.wanted_issue.backup_author = src.admincaster_feed_message.backup_author
 					src.admincaster_screen = 19
 				log_admin("[key_name_admin(usr)] issued a Station-wide Wanted Notification for [src.admincaster_feed_message.author]!",admin_key=key_name(usr))
 		src.access_news_network()
@@ -1413,7 +1416,7 @@
 	else if(href_list["ac_cancel_wanted"])
 		var/choice = alert("Please confirm Wanted Issue removal","Network Security Handler","Confirm","Cancel")
 		if(choice=="Confirm")
-			news_network.wanted_issue = null
+			SSnews.wanted_issue = null
 			for(var/obj/machinery/newscaster/NEWSCASTER in allCasters)
 				NEWSCASTER.update_icon()
 			src.admincaster_screen=17
@@ -1487,6 +1490,66 @@
 
 	else if(href_list["ac_set_signature"])
 		src.admincaster_signature = sanitize(input(usr, "Provide your desired signature", "Network Identity Handler", ""))
+		src.access_news_network()
+	
+	else if(href_list["ac_add_comment"])
+		var/com_msg = sanitize(input(usr, "Write your Comment", "Network Comment Handler", "") as message, encode = 0, trim = 0, extra = 0)
+		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
+		if(!istype(viewing_story))
+			return
+		var/datum/feed_comment/comment = new
+		comment.author = src.admincaster_signature
+		comment.message = com_msg
+		comment.posted = "[worldtime2text()]"
+		viewing_story.comments += comment
+		to_chat(usr, "Comment successfully added!")
+		src.admincaster_screen = 20
+		src.access_news_network()
+		
+	else if(href_list["ac_view_comments"])
+		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
+		if(!istype(viewing_story))
+			return
+		src.admincaster_screen = 20
+		src.admincaster_viewing_message = viewing_story
+		src.access_news_network()
+		
+	else if(href_list["ac_like"])
+		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
+		if((src.admincaster_signature in viewing_story.interacted) || !istype(viewing_story))
+			return
+		viewing_story.interacted += src.admincaster_signature
+		viewing_story.likes += 1
+		src.access_news_network()
+		
+	else if(href_list["ac_dislike"])
+		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
+		if((src.admincaster_signature in viewing_story.interacted) || !istype(viewing_story))
+			return
+		viewing_story.interacted += src.admincaster_signature
+		viewing_story.dislikes += 1
+		src.access_news_network()
+	
+	else if(href_list["ac_setlikes"])
+		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
+		if(!istype(viewing_story))
+			return
+		var/amount = input(usr, "Provide your desired number of likes", "Network Social Manager", "") as num
+		viewing_story.likes = amount
+		src.access_news_network()
+	else if(href_list["ac_setdislikes"])
+		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
+		if(!istype(viewing_story))
+			return
+		var/amount = input(usr, "Provide your desired number of dislikes", "Network Social Manager", "") as num
+		viewing_story.dislikes = amount
+		src.access_news_network()
+	else if(href_list["ac_censorcomment"])
+		var/datum/feed_comment/comment = locate(href_list["ac_comment"])
+		if(!istype(comment))
+			return
+		comment.message = "\[REDACTED\]"
+		src.admincaster_screen = 20
 		src.access_news_network()
 
 	else if(href_list["populate_inactive_customitems"])

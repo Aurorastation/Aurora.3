@@ -26,6 +26,7 @@
 	w_class = 3
 	max_w_class = 2
 	max_storage_space = 14
+	use_sound = 'sound/items/storage/briefcase.ogg'
 
 	examine(mob/user)
 		if(..(user, 1))

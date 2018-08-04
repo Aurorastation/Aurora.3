@@ -25,6 +25,10 @@
 	jackets["flannel jacket, grey"] = /obj/item/clothing/suit/storage/toggle/flannel/gray
 	jackets["flannel jacket, purple"] = /obj/item/clothing/suit/storage/toggle/flannel/purple
 	jackets["flannel jacket, yellow"] = /obj/item/clothing/suit/storage/toggle/flannel/yellow
+	jackets["black vest"] = /obj/item/clothing/suit/storage/toggle/leather_vest
+	jackets["brown vest"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/sleeveless
+	jackets["leather coat"] = /obj/item/clothing/suit/leathercoat
+
 	gear_tweaks += new/datum/gear_tweak/path(jackets)
 
 /datum/gear/suit/hazard_vest
@@ -105,6 +109,24 @@
 	display_name = "trenchcoat, grey"
 	path = /obj/item/clothing/suit/storage/toggle/trench/grey
 
+/datum/gear/suit/det_trenchcoat_brown
+	display_name = "brown trenchcoat (Detective)"
+	description = "A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. The coat is externally impact resistant - perfect for your next act of autodefenestration!"
+	path = /obj/item/clothing/suit/storage/toggle/det_trench
+	allowed_roles = list("Detective", "Head of Security")
+
+/datum/gear/suit/det_trenchcoat_black
+	display_name = "black trenchcoat (Detective)"
+	description = "A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. The coat is externally impact resistant - perfect for your next act of autodefenestration!"
+	path = /obj/item/clothing/suit/storage/toggle/det_trench/black
+	allowed_roles = list("Detective", "Head of Security")
+
+/datum/gear/suit/det_trenchcoat_techni
+	display_name = "technicolor trenchcoat (Detective)"
+	description = "A 23rd-century multi-purpose trenchcoat. It's fibres are hyper-absorbent. Can be painted into any color."
+	path = /obj/item/clothing/suit/storage/toggle/det_trench/technicolor
+	allowed_roles = list("Detective", "Head of Security")
+
 /datum/gear/suit/ian
 	display_name = "worn shirt"
 	description = "A worn out, curiously comfortable t-shirt with a picture of Ian."
@@ -173,3 +195,17 @@
 	display_name = "navy security jacket (Head of Security)"
 	path = /obj/item/clothing/suit/security/navyhos
 	allowed_roles = list("Head of Security")
+
+/datum/gear/suit/dominia
+	display_name = "dominia great coat selection"
+	path = /obj/item/clothing/suit/storage/toggle/dominia
+
+/datum/gear/suit/dominia/New()
+	..()
+	var/coat = list()
+	coat["dominia great coat"] = /obj/item/clothing/suit/storage/toggle/dominia
+	coat["dominia great coat, alternative"] = /obj/item/clothing/suit/storage/toggle/dominia/alt
+	coat["dominia cape"] = /obj/item/clothing/suit/storage/dominia
+	coat["dominia great coat, black"] = /obj/item/clothing/suit/storage/toggle/dominia/black
+	coat["dominia great coat, alternative black"] = /obj/item/clothing/suit/storage/toggle/dominia/black/alt
+	gear_tweaks += new/datum/gear_tweak/path(coat)
