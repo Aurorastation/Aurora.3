@@ -130,7 +130,7 @@
 	damage = 25
 
 /obj/item/projectile/bullet/pistol/strong //revolvers and matebas
-	damage = 60
+	damage = 42 //Revolvers are the answer of the universe.
 
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
