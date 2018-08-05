@@ -2870,6 +2870,11 @@
 /turf/simulated/floor/airless,
 /area/mine/explored)
 "fN" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 2;
@@ -2879,11 +2884,6 @@
 	icon_state = "1-2";
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/airless,
 /area/mine/explored)
 "fO" = (
@@ -28631,7 +28631,7 @@ ab
 ab
 ab
 ab
-fP
+fO
 ah
 ah
 ah
@@ -28888,7 +28888,7 @@ aa
 aa
 ab
 ab
-fQ
+fO
 ah
 ah
 ah
@@ -29145,7 +29145,7 @@ aa
 aa
 aa
 ab
-fR
+fO
 ah
 ah
 ah
@@ -29402,7 +29402,7 @@ aa
 aa
 aa
 aa
-fS
+fO
 ah
 ah
 ah
@@ -29659,7 +29659,7 @@ aa
 aa
 aa
 aa
-fT
+fO
 ah
 ah
 ah
@@ -29916,7 +29916,7 @@ aa
 aa
 aa
 aa
-fU
+fO
 ah
 ah
 ah
@@ -30173,7 +30173,7 @@ aa
 aa
 aa
 aa
-fV
+fO
 ah
 ah
 ah
