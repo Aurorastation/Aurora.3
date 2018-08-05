@@ -288,7 +288,7 @@
 	*/
 
 	if(volume >= 3)
-		T.wet_floor(2)
+		T.wet_floor(WET_TYPE_LUBE,volume)
 
 /datum/reagent/nutriment/triglyceride/oil/initialize_data(var/newdata) // Called when the reagent is created.
 	..()

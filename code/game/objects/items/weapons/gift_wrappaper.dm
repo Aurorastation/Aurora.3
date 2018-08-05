@@ -35,7 +35,7 @@
 	qdel(src)
 	return
 
-/obj/item/weapon/a_gift/ex_act()
+/obj/item/weapon/a_gift/ex_act(var/severity = 2.0)
 	qdel(src)
 	return
 
@@ -215,7 +215,7 @@
 
 	return
 
-/obj/item/weapon/xmasgift/ex_act()
+/obj/item/weapon/xmasgift/ex_act(var/severity = 2.0)
 	qdel(src)
 	return
 

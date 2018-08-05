@@ -91,7 +91,7 @@
 		desc = "It looks dead."
 		dead = 1
 //No complex interactions, just make them fragile
-/obj/structure/flora/pottedplant/ex_act()
+/obj/structure/flora/pottedplant/ex_act(var/severity = 2.0)
 	death()
 	return ..()
 
