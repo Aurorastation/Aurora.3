@@ -10,7 +10,7 @@
 	var/selected = -1
 
 /obj/item/weapon/board/MouseDrop(mob/user as mob)
-	if((user == usr && (!use_check(usr))) && (usr.contents.Find(src) || in_range(src, usr)))
+	if((user == usr && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
 		if(ishuman(usr))
 			forceMove(get_turf(usr))
 			usr.put_in_hands(src)
