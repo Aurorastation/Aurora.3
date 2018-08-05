@@ -190,7 +190,7 @@ Byond Vue UI framework's management subsystem
   *
   * @return 0 if failed, 1 if success
   */
-/datum/controller/subsystem/processing/vueui/proc/transfer_uis(var/old_object, var/new_object, var/new_activeui = null, var/new_data = null)
+/datum/controller/subsystem/processing/vueui/proc/transfer_uis(var/old_object, var/new_object, var/new_activeui = null, var/new_title = null, var/new_data = null)
 	var/old_object_key = SOFTREF(old_object)
 	var/new_object_key = SOFTREF(new_object)
 	LAZYINITLIST(open_uis[new_object_key])
@@ -198,6 +198,7 @@ Byond Vue UI framework's management subsystem
 	for(var/datum/vueui/ui in open_uis[old_object_key])
 		ui.object = new_object
 		if(new_activeui) ui.activeui = new_activeui
+		if(new_title) ui.title = new_title
 		ui.data = new_data
 		open_uis[old_object_key] -= ui
 		LAZYADD(open_uis[new_object_key], ui)

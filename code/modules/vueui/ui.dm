@@ -30,7 +30,7 @@ main ui datum.
 	// determines if ui state should be constantly be cheacked for updates
 	var/auto_update_content = FALSE
 
-
+#define UIDEBUG
 /**
   * Creates a new ui
   *
