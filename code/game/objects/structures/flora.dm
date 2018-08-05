@@ -91,7 +91,7 @@
 		desc = "It looks dead."
 		dead = 1
 //No complex interactions, just make them fragile
-/obj/structure/flora/pottedplant/ex_act()
+/obj/structure/flora/pottedplant/ex_act(var/severity = 2.0)
 	death()
 	return ..()
 
@@ -121,12 +121,14 @@
 	if(do_after(user, 40, act_target = src))
 		if(!stored_item)
 			to_chat(user,"<span class='notice'>There is nothing hidden in [src].</span>")
-			return
 		else
-			user.put_in_hands(stored_item)
-			to_chat(user,"<span class='notice'>You take \the [stored_item] from [src].</span>")
+			if(istype(stored_item, /obj/item/device/paicard))
+				stored_item.forceMove(src.loc)
+				to_chat(user,"<span class='notice'>You reveal \the [stored_item] from [src].</span>")
+			else
+				user.put_in_hands(stored_item)
+				to_chat(user,"<span class='notice'>You take \the [stored_item] from [src].</span>")
 			stored_item = null
-			return
 
 /obj/structure/flora/pottedplant/bullet_act(var/obj/item/projectile/Proj)
 	if (prob(Proj.damage*2))

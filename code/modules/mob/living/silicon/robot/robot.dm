@@ -71,7 +71,7 @@
 	var/obj/item/device/mmi/mmi = null
 
 	var/obj/item/device/pda/ai/rbPDA = null
-
+	var/no_pda = FALSE
 	var/obj/item/weapon/stock_parts/matter_bin/storage = null
 
 	var/opened = 0
@@ -234,6 +234,8 @@
 
 // setup the PDA and its name
 /mob/living/silicon/robot/proc/setup_PDA()
+	if (no_pda)
+		return
 	if (!rbPDA)
 		rbPDA = new/obj/item/device/pda/ai(src)
 	rbPDA.set_name_and_job(custom_name,"[modtype] [braintype]")
