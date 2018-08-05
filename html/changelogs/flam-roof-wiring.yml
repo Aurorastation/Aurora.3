@@ -1,5 +1,0 @@
-author: Flamingo
-delete-after: True
-
-changes: 
-  - bugfix: "Adjusted roof solar wiring to (hopefully) fix the roof solars power routing bug."
