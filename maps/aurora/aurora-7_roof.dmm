@@ -2864,8 +2864,9 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	icon_state = "1-8";
-	dir = 8
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/airless,
 /area/mine/explored)
