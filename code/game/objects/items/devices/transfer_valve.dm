@@ -25,13 +25,11 @@
 
 		if(!tank_one)
 			tank_one = item
-			user.drop_item()
-			item.loc = src
+			user.drop_from_inventory(item,src)
 			user << "<span class='notice'>You attach the tank to the transfer valve.</span>"
 		else if(!tank_two)
 			tank_two = item
-			user.drop_item()
-			item.loc = src
+			user.drop_from_inventory(item,src)
 			user << "<span class='notice'>You attach the tank to the transfer valve.</span>"
 			message_admins("[key_name_admin(user)] attached both tanks to a transfer valve. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
 			log_game("[key_name_admin(user)] attached both tanks to a transfer valve.",ckey=key_name(user))
@@ -49,7 +47,7 @@
 			return
 		user.remove_from_mob(item)
 		attached_device = A
-		A.loc = src
+		A.forceMove(src)
 		user << "<span class='notice'>You attach the [item] to the valve controls and secure it.</span>"
 		A.holder = src
 		A.toggle_secure()	//this calls update_icon(), which calls update_icon() on the holder (i.e. the bomb).
@@ -107,7 +105,7 @@
 		toggle_valve()
 	else if(attached_device)
 		if(href_list["rem_device"])
-			attached_device.loc = get_turf(src)
+			attached_device.forceMove(get_turf(src))
 			attached_device:holder = null
 			attached_device = null
 			update_icon()
@@ -151,7 +149,7 @@
 	else
 		return
 
-	T.loc = get_turf(src)
+	T.forceMove(get_turf(src))
 	update_icon()
 
 /obj/item/device/transfer_valve/proc/merge_gases()

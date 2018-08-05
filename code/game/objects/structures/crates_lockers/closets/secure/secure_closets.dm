@@ -104,9 +104,10 @@
 			return
 		else if(W.loc != user) // This should stop mounted modules ending up outside the module.
 			return
-		user.drop_item()
 		if(W)
-			W.forceMove(loc)
+			user.drop_from_inventory(W,loc)
+		else
+			user.drop_item()
 	else if(isscrewdriver(W) && canbemoved)
 		if(screwed)
 			user << "<span class='notice'>You start to unscrew the locker from the floor...</span>"

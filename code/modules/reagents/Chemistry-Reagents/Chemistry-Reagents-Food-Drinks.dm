@@ -288,7 +288,7 @@
 	*/
 
 	if(volume >= 3)
-		T.wet_floor(2)
+		T.wet_floor(WET_TYPE_LUBE,volume)
 
 /datum/reagent/nutriment/triglyceride/oil/initialize_data(var/newdata) // Called when the reagent is created.
 	..()
@@ -957,9 +957,23 @@
 	glass_name = "cup of tea"
 	glass_desc = "Tasty black tea, it has antioxidants, it's good for you!"
 
+	unaffected_species = IS_MACHINE
+	var/last_taste_time = -100
+
 /datum/reagent/drink/tea/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	M.adjustToxLoss(-0.5 * removed)
+
+
+/datum/reagent/drink/tea/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_DIONA)
+		if(last_taste_time + 800 < world.time) // Not to spam message
+			to_chat(M, "<span class='danger'>Your body withers as you feel slight pain throughout.</span>")
+			last_taste_time = world.time
+		metabolism = REM * 0.33
+		M.adjustToxLoss(1.5 * removed)
+	else
+		M.adjustToxLoss(-0.5 * removed)
 
 /datum/reagent/drink/tea/icetea
 	name = "Iced Tea"

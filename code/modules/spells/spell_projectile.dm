@@ -21,7 +21,7 @@
 	carried = null
 	return ..()
 
-/obj/item/projectile/spell_projectile/ex_act()
+/obj/item/projectile/spell_projectile/ex_act(var/severity = 2.0)
 	return
 
 /obj/item/projectile/spell_projectile/before_move()

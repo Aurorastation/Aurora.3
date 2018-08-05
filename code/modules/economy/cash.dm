@@ -23,8 +23,7 @@
 		var/obj/item/weapon/spacecash/bundle/bundle
 		if(!istype(W, /obj/item/weapon/spacecash/bundle))
 			var/obj/item/weapon/spacecash/cash = W
-			user.drop_from_inventory(cash)
-			bundle = new (src.loc)
+			bundle = new(src.loc)
 			bundle.worth += cash.worth
 			qdel(cash)
 		else //is bundle
@@ -33,6 +32,7 @@
 		bundle.update_icon()
 		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/h_user = user
+			//TODO: Find out a better way to do this
 			h_user.drop_from_inventory(src)
 			h_user.drop_from_inventory(bundle)
 			h_user.put_in_hands(bundle)
@@ -82,6 +82,7 @@
 	src.update_icon()
 	if(!worth)
 		usr.drop_from_inventory(src)
+		
 	if(amount in list(1000,500,200,100,50,20,1))
 		var/cashtype = text2path("/obj/item/weapon/spacecash/c[amount]")
 		var/obj/cash = new cashtype (usr.loc)
@@ -91,6 +92,7 @@
 		bundle.worth = amount
 		bundle.update_icon()
 		usr.put_in_hands(bundle)
+		
 	if(!worth)
 		qdel(src)
 

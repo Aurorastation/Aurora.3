@@ -203,6 +203,17 @@ var/list/asset_datums = list()
 		"changelog.js" = 'html/changelog.js'
 	)
 
+/datum/asset/simple/vueui_theming
+	assets = list(
+		"vueui.css" = 'vueui/dist/app.css'
+	)
+
+/datum/asset/simple/vueui
+	assets = list(
+		"vueui.js" = 'vueui/dist/app.js',
+		"vueui.css" = 'vueui/dist/app.css'
+	)
+
 /datum/asset/chem_master
 	var/list/bottle_sprites = list("bottle-1", "bottle-2", "bottle-3", "bottle-4")
 	var/max_pill_sprite = 20

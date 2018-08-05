@@ -424,7 +424,7 @@
 			var/obj/item/custom_ka_upgrade/cells/tempvar = I
 			installed_cell = tempvar
 			user.remove_from_mob(installed_cell)
-			installed_cell.loc = src
+			installed_cell.forceMove(src)
 			update_stats()
 			update_icon()
 			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
@@ -437,7 +437,7 @@
 			var/obj/item/custom_ka_upgrade/barrels/tempvar = I
 			installed_barrel = tempvar
 			user.remove_from_mob(installed_barrel)
-			installed_barrel.loc = src
+			installed_barrel.forceMove(src)
 			update_stats()
 			update_icon()
 			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
@@ -454,7 +454,7 @@
 			var/obj/item/custom_ka_upgrade/upgrade_chips/tempvar = I
 			installed_upgrade_chip = tempvar
 			user.remove_from_mob(installed_upgrade_chip)
-			installed_upgrade_chip.loc = src
+			installed_upgrade_chip.forceMove(src)
 			update_stats()
 			update_icon()
 			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
