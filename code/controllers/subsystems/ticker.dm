@@ -214,15 +214,8 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	else if (mode_finished)
 		post_game = 1
-
 		mode.cleanup()
-
-		//call a transfer shuttle vote
-		spawn(50)
-			if(!round_end_announced) // Spam Prevention. Now it should announce only once.
-				world << "<span class='danger'>The round has ended!</span>"
-				round_end_announced = 1
-			SSvote.autotransfer()
+		message_admins("<span class='warning'><b>Notice: The gamemode has finished.</b></span>")
 
 	return 1
 

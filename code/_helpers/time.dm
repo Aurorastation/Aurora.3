@@ -31,24 +31,30 @@ var/round_start_time
 
 var/next_duration_update = 0
 var/last_round_duration = 0
-/proc/round_duration()
-	if(last_round_duration && world.time < next_duration_update)
-		return last_round_duration
 
-	var/mills = round_duration_in_ticks // 1/10 of a second, not real milliseconds but whatever
-	//var/secs = ((mills % 36000) % 600) / 10 //Not really needed, but I'll leave it here for refrence.. or something
-	if (!mills)
-		last_round_duration = "00:00"
-		next_duration_update = world.time + 1 MINUTE
-		return last_round_duration
-
-	var/mins = round((mills % 36000) / 600)
-	var/hours = round(mills / 36000)
+/proc/format_time_lazy(var/input)
+	var/mins = round((input % 36000) / 600)
+	var/hours = round(input / 36000)
 
 	mins = mins < 10 ? add_zero(mins, 1) : mins
 	hours = hours < 10 ? add_zero(hours, 1) : hours
 
-	last_round_duration = "[hours]:[mins]"
+	return "[hours]:[mins]"
+
+/proc/round_duration()
+
+	if(last_round_duration && world.time < next_duration_update)
+		return last_round_duration
+	
+	var/time_passed = world.time - round_start_time
+
+	if (time_passed <= 0)
+		last_round_duration = "00:00"
+		next_duration_update = world.time + 1 MINUTE
+		return last_round_duration
+
+	last_round_duration = format_time_lazy(time_passed)
+
 	next_duration_update = world.time + 1 MINUTES
 	return last_round_duration
 

@@ -21,6 +21,7 @@ var/datum/controller/subsystem/vote/SSvote
 	var/list/additional_text = list()
 	var/auto_muted = 0
 	var/last_transfer_vote = null
+	var/next_allowed_time = 0
 
 	var/list/round_voters = list()
 
@@ -29,6 +30,7 @@ var/datum/controller/subsystem/vote/SSvote
 
 /datum/controller/subsystem/vote/Initialize(timeofday)
 	next_transfer_time = config.vote_autotransfer_initial
+	next_allowed_time = config.transfer_timeout
 
 /datum/controller/subsystem/vote/fire(resumed = FALSE)
 	if (mode)
@@ -232,7 +234,6 @@ var/datum/controller/subsystem/vote/SSvote
 	if(!mode)
 		if(started_time != null && !(check_rights(R_ADMIN|R_MOD) || automatic))
 			// Transfer votes are their own little special snowflake
-			var/next_allowed_time = 0
 			if (vote_type == "crew_transfer")
 				if (config.vote_no_dead && !usr.client.holder)
 					if (isnewplayer(usr))
