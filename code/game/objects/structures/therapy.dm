@@ -52,7 +52,7 @@
 		on = 1
 		shock()
 		icon_state = "echair1"
-	user << "<span class='notice'>You switch [on ? "on" : "off"] [src].</span>"
+	usr << "<span class='notice'>You switch [on ? "on" : "off"] [src].</span>"
 
 /obj/structure/bed/chair/e_chair/proc/shock()
 	if(!on)
@@ -154,7 +154,7 @@
 	if(!do_mob(user, H, 10 SECONDS))
 		return
 
-	if((!user in view(1,target)))
+	if(!(user in view(1, loc)))
 		return
 
 	var/response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
@@ -279,10 +279,10 @@
 		usr << "<span class='warning'>The subject cannot have abiotic items on.</span>"
 		return
 	if(locked)
-		user << "<span class='warning'>The pod is currently locked!</span>"
+		usr << "<span class='warning'>The pod is currently locked!</span>"
 		return
 	if(!ishuman(usr))
-		user << "<span class='warning'>The subject does not fit!</span>"
+		usr << "<span class='warning'>The subject does not fit!</span>"
 		return
 	usr.pulling = null
 	usr.client.perspective = EYE_PERSPECTIVE
@@ -334,7 +334,7 @@
 
 
 	var/mob/living/L = G.affecting
-	visible_message("[user] starts putting [L] into the pod bed.", 3)
+	user.visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
 
 	if (do_mob(user, L, 30, needhand = 0))
 		var/bucklestatus = L.bucklecheck(user)
@@ -378,9 +378,9 @@
 		return
 
 	if(H == user)
-		visible_message("[user] starts climbing into the pod bed.", 3)
+		user.visible_message("<span class='notice'>[user] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", range = 3)
 	else
-		visible_message("[user] starts putting [H.name] into the pod bed.", 3)
+		user.visible_message("<span class='notice'>[user] starts putting [H] into [src].</span>", "<span class='notice'>You start putting [H] into [src].</span>", range = 3)
 
 	if (do_mob(user, H, 30, needhand = 0))
 		if (bucklestatus == 2)

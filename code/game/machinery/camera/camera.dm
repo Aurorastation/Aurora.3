@@ -144,7 +144,7 @@
 	else if(iswelder(W) && (wires.CanDeconstruct() || (stat & BROKEN)))
 		if(weld(W, user))
 			if(assembly)
-				assembly.loc = src.loc
+				assembly.forceMove(src.loc)
 				assembly.anchored = 1
 				assembly.camera_name = c_tag
 				assembly.camera_network = english_list(network, "Station", ",", ",")

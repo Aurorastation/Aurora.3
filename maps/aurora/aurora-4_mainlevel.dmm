@@ -9622,7 +9622,7 @@
 	input_tag = "cooling_in";
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
-	pressure_setting = 100;
+	default_pressure_setting = 100;
 	sensors = list("engine_sensor" = "Engine Core")
 	},
 /obj/structure/sign/nosmoking_2{
@@ -13998,6 +13998,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Brig Lockdown";
+	name = "Brig Lockdown Door";
+	opacity = 0
+	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aAz" = (
@@ -14851,6 +14859,14 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Brig Lockdown";
+	name = "Brig Lockdown Door";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/security/warden)
 "aBP" = (
@@ -15994,6 +16010,14 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Brig Lockdown";
+	name = "Brig Lockdown Door";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/security/warden)
 "aDM" = (
@@ -17295,6 +17319,14 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Brig Lockdown";
+	name = "Brig Lockdown Door";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/security/warden)
 "aFI" = (
@@ -18566,6 +18598,14 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Brig Lockdown";
+	name = "Brig Lockdown Door";
+	opacity = 0
+	},
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "aHJ" = (
@@ -19437,6 +19477,14 @@
 	},
 /obj/structure/cable/green,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Brig Lockdown";
+	name = "Brig Lockdown Door";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/security/warden)
 "aJg" = (
@@ -38728,14 +38776,6 @@
 	dir = 8
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "Biohazard";
-	name = "Biohazard Shutter";
-	opacity = 0
-	},
 /turf/simulated/floor/plating,
 /area/assembly/robotics)
 "bqT" = (
@@ -38745,14 +38785,6 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "Biohazard";
-	name = "Biohazard Shutter";
-	opacity = 0
-	},
 /obj/structure/sign/flag/nanotrasen/left,
 /turf/simulated/floor/plating,
 /area/assembly/robotics)
@@ -38763,14 +38795,6 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "Biohazard";
-	name = "Biohazard Shutter";
-	opacity = 0
-	},
 /obj/structure/sign/flag/nanotrasen/right,
 /turf/simulated/floor/plating,
 /area/assembly/robotics)
@@ -38784,14 +38808,6 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "Biohazard";
-	name = "Biohazard Shutter";
-	opacity = 0
-	},
 /turf/simulated/floor/plating,
 /area/assembly/robotics)
 "bqW" = (
@@ -38804,14 +38820,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "Biohazard";
-	name = "Biohazard Shutter";
-	opacity = 0
-	},
 /obj/machinery/door/airlock/glass_research{
 	name = "Robotics Lab";
 	req_access = list(29)
@@ -49422,14 +49430,6 @@
 	name = "Research Division Maintenance";
 	req_access = list(47);
 	req_one_access = null
-	},
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 1;
-	icon_state = "pdoor0";
-	id = "Biohazard";
-	name = "Biohazard Shutter";
-	opacity = 0
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/sleep/research)

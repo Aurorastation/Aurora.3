@@ -83,9 +83,9 @@ var/const/NO_EMAG_ACT = -50
 
 	if(uses<1)
 		user.visible_message("<span class='warning'>\The [src] fizzles and sparks - it seems it's been used once too often, and is now spent.</span>")
-		user.drop_item()
 		var/obj/item/weapon/card/emag_broken/junk = new(user.loc)
 		junk.add_fingerprint(user)
+		user.drop_from_inventory(src,get_turf(junk))
 		qdel(src)
 
 	return 1

@@ -250,6 +250,7 @@ default behaviour is:
 
 /mob/living/proc/adjustBruteLoss(var/amount)
 	if(status_flags & GODMODE)	return 0	//godmode
+	amount *= brute_mod
 	bruteloss = min(max(bruteloss + amount, 0),(maxHealth*2))
 
 /mob/living/proc/getOxyLoss()
@@ -279,6 +280,7 @@ default behaviour is:
 
 /mob/living/proc/adjustFireLoss(var/amount)
 	if(status_flags & GODMODE)	return 0	//godmode
+	amount *= burn_mod
 	fireloss = min(max(fireloss + amount, 0),(maxHealth*2))
 
 /mob/living/proc/getCloneLoss()
@@ -734,7 +736,7 @@ default behaviour is:
 		layer = UNDERDOOR
 		underdoor = 1
 
-/mob/living/carbon/drop_from_inventory(var/obj/item/W, var/atom/Target = null)
+/mob/living/carbon/drop_from_inventory(var/obj/item/W, var/atom/target = null)
 	if(W in internal_organs)
 		return
 	..()

@@ -136,7 +136,7 @@ move an amendment</a> to the drawing.</p>
 /obj/item/blueprints/proc/move_turfs_to_area(var/list/turf/turfs, var/area/A)
 	A.contents.Add(turfs)
 		//oldarea.contents.Remove(usr.loc) // not needed
-		//T.loc = A //error: cannot change constant value
+		//T.forceMove(A) //error: cannot change constant value
 
 
 /obj/item/blueprints/proc/edit_area()

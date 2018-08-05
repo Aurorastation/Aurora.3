@@ -150,7 +150,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 			if(src.arcanecheckout)
 				new /obj/item/weapon/book/tome(src.loc)
 				user << "<span class='warning'>Your sanity barely endures the seconds spent in the vault's browsing window. The only thing to remind you of this when you stop browsing is a dusty old tome sitting on the desk. You don't really remember printing it.</span>"
-				user.visible_message("<span class='notice'>\The [user] stares at the blank screen for a few moments, \his expression frozen in fear. When \he finally awakens from it, \he looks a lot older.</span>", 2)
+				user.visible_message("<span class='notice'>\The [user] stares at the blank screen for a few moments, \his expression frozen in fear. When \he finally awakens from it, \he looks a lot older.</span>", range = 2)
 				src.arcanecheckout = 0
 		if(1)
 			// Inventory
@@ -410,8 +410,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 
 /obj/machinery/libraryscanner/attackby(var/obj/O as obj, var/mob/user as mob)
 	if(istype(O, /obj/item/weapon/book))
-		user.drop_item()
-		O.loc = src
+		user.drop_from_inventory(O,src)
 
 /obj/machinery/libraryscanner/attack_hand(var/mob/user as mob)
 	usr.set_machine(src)
@@ -442,7 +441,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 		cache = null
 	if(href_list["eject"])
 		for(var/obj/item/weapon/book/B in contents)
-			B.loc = src.loc
+			B.forceMove(src.loc)
 	src.add_fingerprint(usr)
 	src.updateUsrDialog()
 	return
@@ -460,8 +459,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 
 /obj/machinery/bookbinder/attackby(var/obj/O as obj, var/mob/user as mob)
 	if(istype(O, /obj/item/weapon/paper))
-		user.drop_item()
-		O.loc = src
+		user.drop_from_inventory(O,src)
 		user.visible_message("[user] loads some paper into [src].", "You load some paper into [src].")
 		src.visible_message("[src] begins to hum as it warms up its printing drums.")
 		sleep(rand(200,400))

@@ -513,7 +513,19 @@ var/list/mineral_can_smooth_with = list(
 	)
 	mineralChance = 75
 
+/turf/simulated/mineral/attack_hand(var/mob/user)
+	add_fingerprint(user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
+	if(ishuman(user))
+		var/mob/living/carbon/human/H
+		var/turf/destination = GetAbove(H)
+
+		if(destination)
+			var/turf/start = get_turf(H)
+			if(start.CanZPass(H, UP))
+				if(destination.CanZPass(H, UP))
+					H.climb(UP, src, 20)
 
 /**********************Asteroid**************************/
 
@@ -700,7 +712,7 @@ var/list/asteroid_floor_smooth = list(
 				else
 					user << "<span class='notice'>You dug a big hole.</span>"
 
-			gets_dug()
+			gets_dug(user)
 			digging = 0
 			return
 
@@ -721,7 +733,7 @@ var/list/asteroid_floor_smooth = list(
 		user << "<span class='notice'> You dug a hole.</span>"
 		digging = 0
 
-		gets_dug()
+		gets_dug(user)
 
 	else if(istype(W,/obj/item/weapon/storage/bag/ore))
 		var/obj/item/weapon/storage/bag/ore/S = W
@@ -740,7 +752,7 @@ var/list/asteroid_floor_smooth = list(
 		..(W,user)
 	return
 
-/turf/simulated/floor/asteroid/proc/gets_dug()
+/turf/simulated/floor/asteroid/proc/gets_dug(mob/user)
 
 	add_overlay("asteroid_dug", TRUE)
 
@@ -799,7 +811,8 @@ var/list/asteroid_floor_smooth = list(
 		if(below)
 			var/area/below_area = below.loc		// Let's just assume that the turf is not in nullspace.
 			if(below_area.station_area)
-				user << "<span class='alert'>You strike metal!</span>"
+				if (user)
+					user << "<span class='alert'>You strike metal!</span>"
 				below.spawn_roof(ROOF_FORCE_SPAWN)
 			else
 				ChangeTurf(/turf/space)

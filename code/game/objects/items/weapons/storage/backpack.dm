@@ -24,7 +24,7 @@
 	slot_flags = SLOT_BACK
 	max_w_class = 3
 	max_storage_space = 28
-	var/species_restricted = list("exclude","Vaurca Breeder")
+	var/species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
 
 /obj/item/weapon/storage/backpack/mob_can_equip(M as mob, slot)
 

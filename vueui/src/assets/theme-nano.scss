@@ -1,0 +1,271 @@
+// Theme that emulates nanoui look
+.theme-nano {
+    font-size: 12px;
+    line-height: 1.9em;
+    font-family: Verdana, Geneva, sans-serif;
+    background: #272727 url(resources/theme-nano/uiBackground-dark.svg) 50% 0 repeat-x;
+
+    hr {
+        background-color: #40628a;
+        height: 1px;
+    }
+
+    a, .button, button, input[type=submit], input[type=button], input[type=reset]{
+        display: inline-block;
+        min-width: 15px;
+        height: 16px;
+        text-align: center;
+        text-decoration: none;
+        background: #40628a;
+        border: 1px solid #161616;
+        cursor: default;
+        white-space: nowrap;
+        box-sizing: content-box;
+        color: inherit;
+        border-radius: 0px;
+        padding: 2px 4px 2px 4px;
+        line-height: 16px;
+        vertical-align: top;
+        margin: 0 2px 2px 0;
+        &:hover {
+            background: #507aac;
+        }
+        &:visited, &:active, &:link {
+            text-decoration: none;
+        }
+        &.on, &.selected {
+            background: #2f943c;
+            &:hover {
+                background: #5fc96d;
+            }
+        }
+        &.off, &[disabled], &.inactive{
+            background: #999999;
+            border-color: #666666;
+        }
+        &.danger, &.red {
+            background: #ff0000;
+            border-color: #aa0000;
+            &:hover {
+                background-color: #ff6666;
+            }
+        }
+        &.yellow {
+            color: #000000;
+            background: #cacc00;
+            &:hover {
+                background: #fcff5f;;
+            }
+        }
+
+    }
+    ul {
+        padding: 4px 0 0 10px;
+        margin: 0;
+        list-style-type: none;
+    }
+    li {
+        padding: 0 0 2px 0;
+    }
+    img {
+        border-style: none;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+        padding: 12px 0 6px 0;
+        clear: both;
+    }
+    h1 {
+        font-size: 18px;
+    }
+    
+    h2 {
+        font-size: 16px;
+    }
+    
+    h3 {
+        font-size: 14px;
+    }
+    
+    h4 {
+        font-size: 12px;
+    }
+    
+    .good {
+        color: #4f7529;
+        font-weight: bold;
+    }
+    
+    .average {
+        color: #cd6500;
+        font-weight: bold;
+    }
+    
+    .bad {
+        color: #ee0000;
+        font-weight: bold;
+    }
+
+    .idle, .dark{
+        color: #272727;
+        font-weight: bold;
+    }
+
+    .highlight {
+        color: #8BA5C4;
+    }
+
+    .itemLabelNarrow, .itemLabel, .itemLabelWide, .itemLabelWider, .itemLabelWidest {
+        color: #e9c183;
+    }
+
+    .notice {
+        background: url(resources/theme-nano/uiNoticeBackground.jpg) 50% 50%;
+        color: #000000;
+        font-size: 12px;
+        font-style: italic;
+        font-weight: bold;
+        padding: 3px 4px;
+        margin: 4px 0 4px 0;
+        border: 1px solid #c2a26f;
+    }
+    
+    .uiTitleWrapper {
+        background: url(resources/theme-nano/uiTitleBackground.png) repeat center;
+        color: #E9C183;
+        box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.5);
+    }
+
+    .uiTitleFluff {
+        display: block;
+        position: relative;
+        float: right;
+        top: 4px;
+        right: 10px;
+        width: 42px;
+        height: 24px;
+        background: url(resources/theme-nano/uiTitleFluff.png) 50% 50% no-repeat;
+    }
+
+    .uiStatusIcon {
+        &.uiStatusGood {
+            color: #4e7428;
+        }
+        &.uiStatusAverage {
+            color: #cb6400;
+        }
+        &.uiStatusBad {
+            color: #a70000;
+        }
+    }
+
+    .displayBar {
+        background: #000000;
+        border: 1px solid #666666;
+        .displayBarFill {
+            background: #40628a;
+            color: #ffffff;
+        }
+        &.good .displayBarFill {
+            background: #4f7529;
+        }
+        &.average .displayBarFill {
+            background: #cd6500;
+        }
+        &.bad .displayBarFill {
+            background: #ee0000;
+        }
+        &.highlight .displayBarFill {
+            background: #8BA5C4;
+        }
+    }
+}
+
+.theme-nano-light {
+    @extend .theme-nano;
+    color: black;
+    background: #c9c9c9 url(resources/theme-nano/uiBackground-light.svg) 50% 0 repeat-x;
+
+    .itemLabelNarrow, .itemLabel, .itemLabelWide, .itemLabelWider, .itemLabelWidest {
+        color: #4C401C
+    }
+    .uiTitleWrapper {
+        background: url(resources/theme-nano/uiTitleBackground-light.png) repeat center;
+        color: #4C401C
+    }
+    .uiTitleFluff {
+        background: url(resources/theme-nano/uiTitleFluff-light.png) 50% 50% no-repeat;
+    }
+
+    .good {
+        color: #5e9653;
+    }
+    
+    .average {
+        color: #cd6500;
+    }
+    
+    .bad {
+        color: #ee0000;
+    }
+
+    .idle, .dark{
+        color: #272727;
+    }
+
+    .displayBar {
+        background: #ffffff;
+        border: 1px solid #666666;
+        .displayBarFill {
+            background: #556d99;
+            color: #ffffff;
+        }
+        &.good .displayBarFill {
+            background: #5e9653;
+        }
+        &.average .displayBarFill {
+            background: #cd6500;
+        }
+        &.bad .displayBarFill {
+            background: #ee0000;
+        }
+        &.highlight .displayBarFill {
+            background: #8BA5C4;
+        }
+    }
+
+    a, .button, button, input[type=submit], input[type=button], input[type=reset], input[disabled] {
+        color: #ffffff;
+        background: #556d99;
+        &:hover {
+            background: #7C9EDE;
+        }
+        &:visited, &:active, &:link {
+            text-decoration: none;
+        }
+        &.on, &.selected {
+            background: #5e9653;
+            &:hover {
+                background: #7BC46C;
+            }
+        }
+        &.off, &[disabled], &.inactive{
+            background: #999999;
+            border-color: #444444;
+        }
+        &.danger, &.red {
+            background: #FF2222;
+            border-color: #aa0000;
+            &:hover {
+                background-color: #ff6666;
+            }
+        }
+        &.yellow {
+            color: #000000;
+            background: #cacc00;
+            &:hover {
+                background: #fcff5f;;
+            }
+        }
+    }
+}

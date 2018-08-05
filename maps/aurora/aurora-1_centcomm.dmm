@@ -13216,10 +13216,6 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding)
-"DA" = (
-/obj/machinery/hologram/holopad,
-/turf/simulated/shuttle/floor,
-/area/shuttle/escape/centcom)
 "DB" = (
 /obj/machinery/light/spot,
 /turf/simulated/shuttle/plating,
@@ -14210,7 +14206,7 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/weapon/reagent_containers/food/snacks/bigbiteburger,
+/obj/item/weapon/reagent_containers/food/snacks/burger/bigbite,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -14228,7 +14224,7 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/weapon/reagent_containers/food/snacks/carrotcakeslice/filled,
+/obj/item/weapon/reagent_containers/food/snacks/cakeslice/carrot/filled,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -14326,7 +14322,7 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/weapon/reagent_containers/food/snacks/beetsoup,
+/obj/item/weapon/reagent_containers/food/snacks/soup/beet,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -14356,12 +14352,6 @@
 /obj/machinery/status_display{
 	pixel_y = -32
 	},
-/obj/machinery/light,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
-"Ga" = (
 /obj/machinery/light,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
@@ -14586,7 +14576,7 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/weapon/reagent_containers/food/snacks/bloodsoup,
+/obj/item/weapon/reagent_containers/food/snacks/soup/blood,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -14613,7 +14603,7 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/weapon/reagent_containers/food/snacks/orangecakeslice/filled,
+/obj/item/weapon/reagent_containers/food/snacks/cakeslice/orange/filled,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -14798,7 +14788,7 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/weapon/reagent_containers/food/snacks/mushroomsoup,
+/obj/item/weapon/reagent_containers/food/snacks/soup/mushroom,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -15131,17 +15121,6 @@
 "HK" = (
 /turf/unsimulated/wall/riveted,
 /area/centcom/spawning)
-"HL" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/structure/closet/medical_wall{
-	pixel_x = -32
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
 "HM" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -17209,15 +17188,6 @@
 /obj/structure/sign/biohazard,
 /turf/unsimulated/wall/riveted,
 /area/centcom/spawning)
-"Ma" = (
-/obj/machinery/light{
-	dir = 4;
-	status = 0
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
 "Mb" = (
 /obj/structure/window/reinforced{
 	dir = 8
