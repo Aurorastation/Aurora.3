@@ -61,7 +61,6 @@ jobs:
   include:
     - stage: code check
       install:
-        - chmod +x ./vueui/install
         - ./vueui/install
       script:
         - (! grep 'step_[xy]' maps/**/*.dmm)
