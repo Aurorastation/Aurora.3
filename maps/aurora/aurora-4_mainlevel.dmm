@@ -9723,7 +9723,7 @@
 	input_tag = "cooling_in";
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
-	pressure_setting = 100;
+	default_pressure_setting = 100;
 	sensors = list("engine_sensor" = "Engine Core")
 	},
 /obj/structure/sign/nosmoking_2{

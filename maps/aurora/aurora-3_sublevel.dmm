@@ -1700,7 +1700,7 @@
 	input_tag = "air_in";
 	name = "Mixed Air Supply Control";
 	output_tag = "air_out";
-	pressure_setting = 2000;
+	default_pressure_setting = 2000;
 	sensors = list("air_sensor" = "Tank")
 	},
 /turf/simulated/floor/tiled,
@@ -4461,10 +4461,6 @@
 	icon_state = "plating"
 	},
 /area/outpost/engineering/storage)
-"jr" = (
-/obj/effect/landmark/dungeon_spawn,
-/turf/unsimulated/chasm_mask,
-/area/mine/unexplored)
 "js" = (
 /obj/machinery/power/grounding_rod,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -27234,6 +27230,10 @@
 	icon_state = "plating"
 	},
 /area/outpost/engineering/storage)
+"YI" = (
+/obj/effect/landmark/dungeon_spawn,
+/turf/unsimulated/chasm_mask,
+/area/mine/unexplored)
 
 (1,1,1) = {"
 aa
@@ -28431,7 +28431,7 @@ aa
 aa
 aa
 aa
-jr
+YI
 aa
 aa
 aa
@@ -39128,7 +39128,7 @@ aa
 aa
 aa
 aa
-jr
+YI
 aa
 aa
 aa
@@ -54205,7 +54205,7 @@ aa
 aa
 aa
 aa
-jr
+YI
 aa
 aa
 aa
@@ -63015,7 +63015,7 @@ aa
 aa
 aa
 aa
-jr
+YI
 aa
 aa
 aa
@@ -77045,7 +77045,7 @@ aa
 aa
 aa
 aa
-jr
+YI
 aa
 aa
 aa
