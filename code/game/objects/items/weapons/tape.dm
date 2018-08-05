@@ -4,6 +4,13 @@
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "taperoll"
 	w_class = 1
+	var/charge = 10
+
+/obj/item/weapon/tape_roll/proc/take_charge(var/mob/user,var/amount)
+	charge -= amount
+	if(charge <= 0)
+		to_chat(user,"<span class='notice'>You ran out of tape!</span>")
+		qdel(src)
 
 /obj/item/weapon/tape_roll/attack(var/mob/living/carbon/human/H, var/mob/user, var/target_zone)
 	if(istype(H))
@@ -31,6 +38,7 @@
 				return
 
 			playsound(src, 'sound/items/tape.ogg',25)
+			take_charge(user,1)
 			user.visible_message("<span class='danger'>\The [user] has taped up \the [H]'s eyes!</span>")
 			H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/blindfold/tape(H), slot_glasses)
 			H.update_inv_glasses()
@@ -50,6 +58,7 @@
 				return
 
 			playsound(src, 'sound/items/tape.ogg',25)
+			take_charge(user,1)
 			user.visible_message("<span class='danger'>\The [user] begins taping up \the [H]'s mouth!</span>")
 
 			if(!do_after(user, 30))
@@ -60,12 +69,14 @@
 				return
 
 			playsound(src, 'sound/items/tape.ogg',25)
+			take_charge(user,1)
 			user.visible_message("<span class='danger'>\The [user] has taped up \the [H]'s mouth!</span>")
 			H.equip_to_slot_or_del(new /obj/item/clothing/mask/muzzle/tape(H), slot_wear_mask)
 			H.update_inv_wear_mask()
 
 		else if(target_zone == "r_hand" || target_zone == "l_hand")
 			playsound(src, 'sound/items/tape.ogg',25)
+			take_charge(user,1)
 			var/obj/item/weapon/handcuffs/cable/tape/T = new(user)
 			if(!T.place_handcuffs(H, user))
 				user.unEquip(T)
