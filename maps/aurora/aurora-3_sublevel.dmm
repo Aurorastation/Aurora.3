@@ -18888,7 +18888,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/reagent_dispensers/watertank,
+/obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "Hr" = (
@@ -27806,6 +27806,10 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology/cells/delta)
+"Xg" = (
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor/plating,
+/area/maintenance/sublevel)
 "Xh" = (
 /obj/machinery/disposal/deliveryChute{
 	dir = 8;
@@ -29268,6 +29272,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_xenobiology)
+"ZE" = (
+/obj/structure/table/standard,
+/obj/item/weapon/reagent_containers/spray/chemsprayer/xenobiology,
+/obj/item/weapon/reagent_containers/spray/chemsprayer/xenobiology,
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenobiology)
 
 (1,1,1) = {"
 aa
@@ -51522,7 +51532,7 @@ CO
 DT
 ES
 BW
-Gz
+Xg
 Jp
 Im
 Fa
@@ -55388,7 +55398,7 @@ Pp
 It
 Vg
 VY
-VY
+ZE
 It
 It
 WV

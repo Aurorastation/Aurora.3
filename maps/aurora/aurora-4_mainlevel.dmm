@@ -648,7 +648,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "abn" = (
-/obj/structure/reagent_dispensers/watertank,
+/obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "abo" = (
@@ -4032,6 +4032,33 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"aih" = (
+/obj/item/stack/tile/floor,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/tiled,
+/area/maintenance/civ)
+"aii" = (
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"aij" = (
+/obj/structure/reagent_dispensers/extinguisher,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ai_monitored/storage/eva)
+"aik" = (
+/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/machinery/camera/network/prison{
+	c_tag = "Security - Communal Brig Aft";
+	dir = 1
+	},
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/tiled,
+/area/security/prison)
 "ail" = (
 /obj/structure/table/standard,
 /obj/item/weapon/paper_bin,
@@ -4414,9 +4441,22 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/brig)
+"aiZ" = (
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "aja" = (
 /turf/simulated/wall,
 /area/security/main)
+"ajb" = (
+/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/tiled/dark,
+/area/janitor)
 "ajc" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -4734,6 +4774,61 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"ajI" = (
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor/plating,
+/area/storage/emergency)
+"ajJ" = (
+/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/tiled/dark,
+/area/janitor)
+"ajK" = (
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
+"ajL" = (
+/obj/structure/reagent_dispensers/extinguisher,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"ajM" = (
+/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenobiology/xenoflora)
+"ajN" = (
+/obj/machinery/status_display{
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
+"ajO" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/device/radio/intercom{
+	pixel_x = 0;
+	pixel_y = 27
+	},
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
 "ajP" = (
 /obj/structure/closet/secure_closet/security,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4845,11 +4940,9 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/civ)
 "akb" = (
-/obj/item/stack/tile/floor,
-/obj/structure/reagent_dispensers/watertank,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/maintenance/civ)
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor/plating,
+/area/maintenance/library)
 "akc" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -5214,6 +5307,30 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"akF" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/grass,
+/area/hydroponics)
+"akG" = (
+/obj/structure/fireaxecabinet{
+	pixel_x = -32
+	},
+/obj/structure/closet/crate/extinguisher_catridges,
+/turf/simulated/floor/tiled,
+/area/engineering/atmos/storage)
+"akH" = (
+/obj/structure/table/standard,
+/obj/machinery/cell_charger,
+/obj/structure/sign/nosmoking_2{
+	pixel_x = -32
+	},
+/obj/item/device/multitool,
+/turf/simulated/floor/tiled,
+/area/engineering/atmos/storage)
 "akN" = (
 /obj/structure/morgue{
 	icon_state = "morgue1";
@@ -5419,14 +5536,6 @@
 /obj/structure/cable/green,
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
-"ali" = (
-/obj/structure/table/standard,
-/obj/item/device/multitool,
-/obj/structure/fireaxecabinet{
-	pixel_x = -32
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/atmos/storage)
 "alj" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -5811,14 +5920,6 @@
 /obj/machinery/shield_gen,
 /turf/simulated/floor/plating,
 /area/engineering/storage)
-"amf" = (
-/obj/structure/table/standard,
-/obj/machinery/cell_charger,
-/obj/structure/sign/nosmoking_2{
-	pixel_x = -32
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/atmos/storage)
 "amg" = (
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
@@ -12859,10 +12960,6 @@
 "ayE" = (
 /turf/simulated/wall,
 /area/maintenance/substation/engineering)
-"ayF" = (
-/obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/plating,
-/area/maintenance/engineering)
 "ayG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -24992,14 +25089,6 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
-"aSL" = (
-/obj/structure/reagent_dispensers/watertank,
-/obj/effect/floor_decal/corner/blue{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ai_monitored/storage/eva)
 "aSM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -25328,15 +25417,6 @@
 "aTo" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/machinery/light,
-/turf/simulated/floor/tiled,
-/area/security/prison)
-"aTp" = (
-/obj/structure/reagent_dispensers/watertank,
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/machinery/camera/network/prison{
-	c_tag = "Security - Communal Brig Aft";
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aTq" = (
@@ -26801,10 +26881,6 @@
 /obj/structure/sign/drop,
 /turf/simulated/wall,
 /area/outpost/mining_main/eva)
-"aWo" = (
-/obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
 "aWp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -30105,15 +30181,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
-"bcb" = (
-/obj/structure/reagent_dispensers/watertank,
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/janitor)
 "bcc" = (
 /turf/simulated/wall/r_wall,
 /area/storage/tech)
@@ -30354,10 +30421,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"bcA" = (
-/obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/plating,
-/area/storage/emergency)
 "bcB" = (
 /obj/machinery/space_heater,
 /obj/machinery/light/small,
@@ -30878,12 +30941,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
-/area/janitor)
-"bdw" = (
-/obj/structure/reagent_dispensers/watertank,
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "bdx" = (
@@ -35582,10 +35639,6 @@
 /obj/structure/ladder/up,
 /turf/simulated/floor/plating,
 /area/bridge/aibunker)
-"bly" = (
-/obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
 "blz" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -47487,14 +47540,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
-"bFg" = (
-/obj/structure/reagent_dispensers/watertank,
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenobiology/xenoflora)
 "bFh" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -53560,10 +53605,6 @@
 	temperature = 253.15
 	},
 /area/crew_quarters/kitchen)
-"bTi" = (
-/obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/plating,
-/area/maintenance/library)
 "bTj" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/machinery/door/firedoor,
@@ -59683,21 +59724,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"chD" = (
-/obj/structure/reagent_dispensers/watertank,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/medbay)
 "chE" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
 	icon_state = "up-scrubbers";
@@ -61306,24 +61332,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
-"coq" = (
-/obj/machinery/status_display{
-	pixel_x = 0;
-	pixel_y = 32
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"cor" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/reagent_dispensers/watertank,
-/obj/item/device/radio/intercom{
-	pixel_x = 0;
-	pixel_y = 27
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
 "cos" = (
 /obj/machinery/light{
 	dir = 1;
@@ -61736,14 +61744,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"cpl" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/grass,
 /area/hydroponics)
 "cpm" = (
@@ -79581,7 +79581,7 @@ aYc
 bhv
 biY
 aKj
-bly
+ajK
 aLT
 aKi
 aaa
@@ -80886,7 +80886,7 @@ baJ
 baJ
 bFV
 bGX
-bly
+ajK
 baJ
 baJ
 baJ
@@ -81373,8 +81373,8 @@ aWU
 aYe
 aZB
 aZC
-bcb
-bdw
+ajb
+ajJ
 beK
 cob
 bhy
@@ -83442,7 +83442,7 @@ aKl
 bpG
 bqP
 brV
-bly
+ajK
 aLT
 baJ
 baJ
@@ -84171,8 +84171,8 @@ ahY
 aiO
 agD
 akv
-ali
-amf
+akG
+akH
 anh
 aoh
 ctr
@@ -87534,7 +87534,7 @@ aFj
 aNZ
 aFj
 aFj
-aSL
+aij
 aUv
 aVz
 aXi
@@ -88336,7 +88336,7 @@ bBq
 bCq
 bDj
 bEk
-bFg
+ajM
 bGg
 bHn
 bIu
@@ -88807,7 +88807,7 @@ asf
 atO
 aos
 axb
-ayF
+aii
 afr
 aaa
 aDm
@@ -90157,7 +90157,7 @@ coo
 coB
 coO
 coZ
-cpl
+akF
 cpu
 cqa
 cqa
@@ -90667,7 +90667,7 @@ baK
 btm
 bAi
 bRL
-coq
+ajN
 coF
 coQ
 cpb
@@ -90924,7 +90924,7 @@ bMD
 bQB
 bMD
 bRL
-cor
+ajO
 coF
 coR
 bSO
@@ -91173,7 +91173,7 @@ baK
 baK
 bMC
 bCe
-bly
+ajK
 bMD
 bOW
 bPy
@@ -96022,7 +96022,7 @@ aLc
 aYK
 aZU
 bbc
-bcA
+ajI
 bdV
 bfo
 bgB
@@ -97607,7 +97607,7 @@ bPJ
 bPO
 bQQ
 bSt
-bTi
+akb
 bMi
 bMj
 bMj
@@ -98842,7 +98842,7 @@ aFK
 aOz
 aQe
 azb
-aTp
+aik
 aPU
 awc
 aLc
@@ -104498,7 +104498,7 @@ aQr
 aRU
 aTB
 aQt
-aWo
+aiZ
 aXD
 aYY
 bah
@@ -105037,7 +105037,7 @@ bub
 bub
 bub
 bub
-chD
+ajL
 bok
 bmK
 biL
@@ -106785,7 +106785,7 @@ aeO
 aeO
 aiy
 ael
-akb
+aih
 akW
 adl
 adI
@@ -107077,7 +107077,7 @@ bdg
 aOM
 bfP
 bds
-aWo
+aiZ
 biL
 blh
 bmK

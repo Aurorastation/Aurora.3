@@ -259,6 +259,51 @@
 	name = "Robust Harvest"
 	id = "robustharvest"
 
+/datum/reagent/toxin/fertilizer/monoammoniumphosphate
+	name = "Monoammonium Phosphate"
+	id = "monoammoniumphosphate"
+	strength = 0.25
+	description = "Commonly found in fire extinguishers, also works as a fertilizer."
+	reagent_state = SOLID
+	color = "#CCCCCC"
+	taste_description = "salty dirt"
+	metabolism = REM * 2
+
+/datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_turf(var/turf/simulated/T)
+
+	if(!istype(T))
+		return
+
+	var/hotspot = (locate(/obj/fire) in T)
+	if(hotspot && !istype(T, /turf/space))
+		var/datum/gas_mixture/lowertemp = T.return_air()
+		lowertemp.temperature = max(min(lowertemp.temperature-2000, lowertemp.temperature / 2), 0)
+		lowertemp.react()
+		qdel(hotspot)
+
+	var/amount_to_remove = max(1,round(volume * 0.5))
+
+	new /obj/effect/decal/cleanable/foam(T, amount_to_remove)
+	remove_self(amount_to_remove)
+	return
+
+
+/datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_mob(var/mob/living/L, var/amount)
+	if(istype(L))
+		L.adjust_fire_stacks(-amount)
+		if(L.fire_stacks <= 0 )
+			L.fire_stacks = 0
+			L.ExtinguishMob()
+
+/datum/reagent/toxin/fertilizer/monoammoniumphosphate/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed)
+	if(istype(S))
+		S.adjustToxLoss(8 * removed)
+		if(!S.client && S.Target)
+			S.Target = null
+			++S.Discipline
+		if(dose == removed)
+			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the liquid touches it!</span>", "<span class='danger'>Your flesh burns in the liquid!</span>")
+
 /datum/reagent/toxin/plantbgone
 	name = "Plant-B-Gone"
 	id = "plantbgone"
