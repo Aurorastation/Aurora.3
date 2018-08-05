@@ -40,6 +40,11 @@
 /obj/machinery/power/apc/high
 	cell_type = /obj/item/weapon/cell/high
 
+/obj/machinery/power/apc/isolation
+	cell_type = /obj/item/weapon/cell
+	req_access = null
+	req_one_access = list(access_engine_equip,access_research,access_xenobiology)
+
 // Construction site APC, starts turned off
 /obj/machinery/power/apc/high/inactive
 	cell_type = /obj/item/weapon/cell/high
@@ -456,7 +461,7 @@
 			return
 		else
 			opened = 1
-			panel_open = 1		
+			panel_open = 1
 			update_icon()
 	else if (istype(W, /obj/item/weapon/gripper))//Code for allowing cyborgs to use rechargers
 		var/obj/item/weapon/gripper/Gri = W

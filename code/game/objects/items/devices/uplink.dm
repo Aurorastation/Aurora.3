@@ -19,7 +19,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	var/datum/mind/uplink_owner = null
 	var/used_TC = 0
 
-/obj/item/device/uplink/nano_host()
+/obj/item/device/uplink/ui_host()
 	return loc
 
 /obj/item/device/uplink/New(var/location, var/datum/mind/owner, var/telecrystals = DEFAULT_TELECRYSTAL_AMOUNT)
