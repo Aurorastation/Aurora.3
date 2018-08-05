@@ -717,10 +717,10 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/device/assembly/prox_sensor,
 					/obj/item/device/assembly/prox_sensor,
 					/obj/item/weapon/storage/toolbox/electrical,
-					/obj/item/device/flash,
-					/obj/item/device/flash,
-					/obj/item/device/flash,
-					/obj/item/device/flash,
+					/obj/item/device/flash/weak,
+					/obj/item/device/flash/weak,
+					/obj/item/device/flash/weak,
+					/obj/item/device/flash/weak,
 					/obj/item/weapon/cell/high,
 					/obj/item/weapon/cell/high)
 	cost = 10

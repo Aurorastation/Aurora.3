@@ -220,6 +220,7 @@
 		/obj/item/robot_parts,
 		/obj/item/borg/upgrade,
 		/obj/item/device/flash, //to build borgs,
+		/obj/item/weapon/flash_bulb, //to build borgs,
 		/obj/item/organ/brain, //to insert into MMIs,
 		/obj/item/stack/cable_coil, //again, for borg building,
 		/obj/item/weapon/circuitboard,

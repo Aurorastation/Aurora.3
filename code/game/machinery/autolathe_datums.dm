@@ -259,7 +259,7 @@
 	name = "ammunition (9mm rubber top mounted)"
 	path = /obj/item/ammo_magazine/mc9mmt/rubber
 	category = "Arms and Ammunition"
-	
+
 /datum/autolathe/recipe/detective_revolver_rubber
 	name = "ammunition (.38, rubber)"
 	path = /obj/item/ammo_magazine/c38/rubber
@@ -303,6 +303,11 @@
 /datum/autolathe/recipe/bulb
 	name = "light bulb"
 	path = /obj/item/weapon/light/bulb
+	category = "General"
+
+/datum/autolathe/recipe/flash_bulb
+	name = "cheap flash bulb"
+	path = /obj/item/weapon/flash_bulb/weak
 	category = "General"
 
 /datum/autolathe/recipe/ashtray_glass
@@ -397,7 +402,7 @@
 	path = /obj/item/ammo_casing/shotgun/stunshell
 	hidden = 1
 	category = "Arms and Ammunition"
-	
+
 /datum/autolathe/recipe/clip_boltaction
 	name = "ammunition clip (7.62mm)"
 	path = /obj/item/ammo_magazine/boltaction

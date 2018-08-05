@@ -112,14 +112,14 @@ var/global/list/robot_modules = list(
 	return
 
 /obj/item/weapon/robot_module/proc/respawn_consumable(var/mob/living/silicon/robot/R, var/rate)
+
 	var/obj/item/device/flash/F = locate() in src.modules
 	if(F)
-		if(F.broken)
-			F.broken = 0
-			F.times_used = 0
-			F.icon_state = "flash"
-		else if(F.times_used)
-			F.times_used--
+		var/obj/item/weapon/flash_bulb/bulb = F.bulb
+		if(istype(bulb))
+			bulb.heat_damage = 0
+			bulb.is_burnt = FALSE
+			bulb.last_used = 0
 
 	if(!synths || !synths.len)
 		return
@@ -190,7 +190,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/standard/New()
 	..()
-	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/device/flash/cyborg(src)
 	src.modules += new /obj/item/weapon/melee/baton/loaded(src)
 	src.modules += new /obj/item/weapon/extinguisher(src)
 	src.modules += new /obj/item/weapon/wrench(src)
@@ -225,7 +225,7 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/medical/general/New()
 	..()
 	src.modules += new /obj/item/weapon/crowbar(src)
-	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/device/flash/cyborg(src)
 	src.modules += new /obj/item/borg/sight/hud/med(src)
 	src.modules += new /obj/item/device/healthanalyzer(src)
 	src.modules += new /obj/item/weapon/reagent_containers/borghypo/medical(src)
@@ -292,7 +292,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/medical/rescue/New()
 	..()
-	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/device/flash/cyborg(src)
 	src.modules += new /obj/item/borg/sight/hud/med(src)
 	src.modules += new /obj/item/device/healthanalyzer(src)
 	src.modules += new /obj/item/device/reagent_scanner/adv(src)
@@ -370,7 +370,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/engineering/construction/New()
 	..()
-	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/device/flash/cyborg(src)
 	src.modules += new /obj/item/borg/sight/meson(src)
 	src.modules += new /obj/item/weapon/extinguisher(src)
 	src.modules += new /obj/item/weapon/rcd/borg(src)
@@ -425,7 +425,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/engineering/general/New()
 	..()
-	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/device/flash/cyborg(src)
 	src.modules += new /obj/item/borg/sight/meson(src)
 	src.modules += new /obj/item/weapon/extinguisher(src)
 	src.modules += new /obj/item/weapon/weldingtool/largetank(src)
@@ -539,7 +539,7 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/security/general/New()
 	..()
 	src.modules += new /obj/item/weapon/crowbar(src)
-	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/device/flash/cyborg(src)
 	src.modules += new /obj/item/borg/sight/hud/sec(src)
 	src.modules += new /obj/item/weapon/handcuffs/cyborg(src)
 	src.modules += new /obj/item/weapon/melee/baton/robot(src)
@@ -578,7 +578,7 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/janitor/New()
 	..()
 	src.modules += new /obj/item/weapon/crowbar(src)
-	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/device/flash/cyborg(src)
 	src.modules += new /obj/item/weapon/soap/nanotrasen(src)
 	src.modules += new /obj/item/weapon/storage/bag/trash(src)
 	src.modules += new /obj/item/weapon/mop(src)
@@ -630,7 +630,7 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/clerical/butler/New()
 	..()
 	src.modules += new /obj/item/weapon/crowbar(src)
-	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/device/flash/cyborg(src)
 	src.modules += new /obj/item/weapon/gripper/service(src)
 	src.modules += new /obj/item/weapon/reagent_containers/glass/bucket(src)
 	src.modules += new /obj/item/weapon/material/minihoe(src)
@@ -669,7 +669,7 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/clerical/general/New()
 	..()
 	src.modules += new /obj/item/weapon/crowbar(src)
-	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/device/flash/cyborg(src)
 	src.modules += new /obj/item/weapon/pen/robopen(src)
 	src.modules += new /obj/item/weapon/form_printer(src)
 	src.modules += new /obj/item/weapon/gripper/paperwork(src)
@@ -706,7 +706,7 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/miner/New()
 	..()
 	src.modules += new /obj/item/weapon/crowbar(src)
-	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/device/flash/cyborg(src)
 	src.modules += new /obj/item/borg/sight/material(src)
 	src.modules += new /obj/item/weapon/wrench(src)
 	src.modules += new /obj/item/weapon/screwdriver(src)
@@ -733,7 +733,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/research/New()
 	..()
-	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/device/flash/cyborg(src)
 	src.modules += new /obj/item/weapon/portable_destructive_analyzer(src)
 	src.modules += new /obj/item/weapon/gripper/research(src)
 	src.modules += new /obj/item/weapon/gripper/no_use/loader(src)
@@ -786,7 +786,7 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/syndicate/New(var/mob/living/silicon/robot/R)
 	..()
 	loc = R
-	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/device/flash/cyborg(src)
 	src.modules += new /obj/item/borg/sight/thermal(src)
 	src.modules += new /obj/item/weapon/melee/energy/sword(src)
 	src.modules += new /obj/item/weapon/gun/energy/mountedsmg(src)
@@ -809,7 +809,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/combat/New()
 	..()
-	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/device/flash/cyborg(src)
 	src.modules += new /obj/item/borg/sight/hud/sec(src)
 	src.modules += new /obj/item/weapon/gun/energy/laser/mounted(src)
 	src.modules += new /obj/item/weapon/melee/hammer/powered(src)
@@ -920,7 +920,7 @@ var/global/list/robot_modules = list(
 	networks = list(NETWORK_MINE)
 
 /obj/item/weapon/robot_module/mining_drone/basic/New(var/mob/living/silicon/robot/robot)
-	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/device/flash/cyborg(src)
 	src.modules += new /obj/item/borg/sight/material(src)
 	src.modules += new /obj/item/weapon/storage/bag/ore(src)
 	src.modules += new /obj/item/weapon/pickaxe/drill(src)
@@ -934,7 +934,7 @@ var/global/list/robot_modules = list(
 	..()
 
 /obj/item/weapon/robot_module/mining_drone/drill/New(var/mob/living/silicon/robot/robot)
-	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/device/flash/cyborg(src)
 	src.modules += new /obj/item/borg/sight/material(src)
 	src.modules += new /obj/item/weapon/storage/bag/ore/drone(src)
 	src.modules += new /obj/item/weapon/pickaxe/jackhammer(src)
@@ -948,7 +948,7 @@ var/global/list/robot_modules = list(
 	..()
 
 /obj/item/weapon/robot_module/mining_drone/ka/New(var/mob/living/silicon/robot/robot)
-	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/device/flash/cyborg(src)
 	src.modules += new /obj/item/borg/sight/material(src)
 	src.modules += new /obj/item/weapon/storage/bag/ore/drone(src)
 	src.modules += new /obj/item/weapon/gun/custom_ka/cyborg(src)
@@ -962,7 +962,7 @@ var/global/list/robot_modules = list(
 	..()
 
 /obj/item/weapon/robot_module/mining_drone/drillandka/New(var/mob/living/silicon/robot/robot)
-	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/device/flash/cyborg(src)
 	src.modules += new /obj/item/borg/sight/material(src)
 	src.modules += new /obj/item/weapon/storage/bag/ore/drone(src)
 	src.modules += new /obj/item/weapon/gun/custom_ka/cyborg(src)

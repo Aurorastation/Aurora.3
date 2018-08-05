@@ -349,7 +349,7 @@
 	products = list(
 		/obj/item/weapon/handcuffs = 8,
 		/obj/item/weapon/grenade/chem_grenade/teargas = 4,
-		/obj/item/device/flash = 5,
+		/obj/item/device/flash/full = 5,
 		/obj/item/weapon/reagent_containers/spray/pepper = 5,
 		/obj/item/weapon/storage/box/evidence = 6,
 		/obj/item/device/holowarrant = 5
@@ -746,7 +746,7 @@
 		/obj/item/clothing/suit/storage/toggle/labcoat = 4,
 		/obj/item/clothing/under/rank/roboticist = 4,
 		/obj/item/stack/cable_coil = 4,
-		/obj/item/device/flash = 4,
+		/obj/item/device/flash/weak = 4,
 		/obj/item/weapon/cell/high = 12,
 		/obj/item/device/assembly/prox_sensor = 3,
 		/obj/item/device/assembly/signaler = 3,

@@ -14,11 +14,12 @@
 	var/obj/item/charging
 
 	var/list/allowed_devices = list(
-		/obj/item/weapon/gun/energy, 
+		/obj/item/weapon/gun/energy,
 		/obj/item/weapon/melee/baton,
 		/obj/item/weapon/cell,
 		/obj/item/modular_computer,
-		/obj/item/weapon/computer_hardware/battery_module
+		/obj/item/weapon/computer_hardware/battery_module,
+		/obj/item/device/flash
 	)
 	var/icon_state_charged = "recharger2"
 	var/icon_state_charging = "recharger1"

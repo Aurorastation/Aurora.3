@@ -661,15 +661,6 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 10000, "silver" = 500, "glass" = 1000)
 	build_path = /obj/item/mecha_parts/mecha_equipment/generator/nuclear
 
-/datum/design/item/synthetic_flash
-	name = "Synthetic flash"
-	id = "sflash"
-	req_tech = list(TECH_MAGNET = 3, TECH_COMBAT = 2)
-	build_type = MECHFAB
-	materials = list(DEFAULT_WALL_MATERIAL = 750, "glass" = 750)
-	build_path = /obj/item/device/flash/synthetic
-	category = "Misc"
-
 //hardsuits modules
 
 /datum/design/hardsuitmodules

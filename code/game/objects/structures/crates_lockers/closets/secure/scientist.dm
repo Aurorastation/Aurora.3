@@ -43,7 +43,7 @@
 		new /obj/item/device/radio/headset/heads/rd(src)
 		new /obj/item/weapon/tank/air(src)
 		new /obj/item/clothing/mask/gas(src)
-		new /obj/item/device/flash(src)
+		new /obj/item/device/flash/weak/full(src)
 
 /obj/structure/closet/secure_closet/RD2
 	name = "research director's attire"
