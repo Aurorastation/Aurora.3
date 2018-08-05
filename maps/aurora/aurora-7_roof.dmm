@@ -2881,8 +2881,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
 /area/mine/explored)
@@ -2890,11 +2891,12 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/airless,
 /area/mine/explored)
 "fP" = (
@@ -2979,24 +2981,26 @@
 	icon_state = "warningcorner";
 	dir = 1
 	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
 /area/mine/explored)
 "fX" = (
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
 /area/mine/explored)
