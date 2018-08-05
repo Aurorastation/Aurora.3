@@ -32,7 +32,7 @@
 	var/list/data = list()
 
 	if(program)
-		data = program.get_header_data()
+		data = list("_PC" = program.get_header_data())
 
 	var/list/hardware = movable.get_all_components()
 

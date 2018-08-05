@@ -31,9 +31,9 @@
  *
  * @param srcObject - Object that wanted to give away it's uis
  *
- * @return nothing
+ * @return 0 if failed, 1 if success
  */
 /datum/proc/vueui_transfer(var/srcObject)
-	return
+	return 0
 
 /mob/var/list/open_vueui_uis

@@ -88,13 +88,26 @@ Byond Vue UI framework's management subsystem
 	return open_uis[src_object_key]
 
 /**
+  * Closes open uis for that object
+  *
+  * @param src_object - object that hosts the uis that we want ot close
+  *
+  * @return number of uis closed
+  */
+/datum/controller/subsystem/processing/vueui/proc/close_uis(var/src_object)
+	. = 0
+	for (var/datum/vueui/ui in get_open_uis(src_object))
+		ui.close()
+		.++
+
+/**
   * Initiates check for data change of specified object
   *
   * @param src_object - object that hosts ui that should be updated
   */
 /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change(var/src_object)
 	for (var/datum/vueui/ui in get_open_uis(src_object))
-		ui.check_for_change()
+		ui.update_status(1)
 
 /**
   * Initiates check for data change of specified object

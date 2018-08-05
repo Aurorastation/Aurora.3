@@ -103,6 +103,19 @@ main ui datum.
 	status = null
 
 /**
+  * Resizes UI
+  *
+  * @param nwidth - width of this ui
+  * @param nheight - height of this ui
+  *
+  * @return nothing
+  */
+/datum/vueui/proc/resize(var/nwidth, var/nheight)
+	width = nwidth || width
+	height = nheight || height
+	winset(user, "windowid", "size=[width]x[height];")
+
+/**
   * Generates base html for this ui to be rendered.
   *
   * @return html code - text
@@ -281,23 +294,25 @@ main ui datum.
   *
   * @return nothing
   */
-/datum/vueui/proc/set_status(nstatus)
+/datum/vueui/proc/set_status(var/nstatus, var/forcepushupdate = 0)
 	if (nstatus != status) // Only update if it is different
 		status = nstatus
 		if(nstatus > STATUS_DISABLED)
 			check_for_change(1) // Gather data and update it
 		else if (nstatus == STATUS_DISABLED)
-			push_change(null) // Only update ui data
+			push_change() // Only update ui data
 		else
 			close()
+	else if (forcepushupdate && status > STATUS_DISABLED)
+		check_for_change(1)
 
 /**
   * Update the status (visibility) of this ui based on the user's status
   *
   * @return nothing
   */
-/datum/vueui/proc/update_status()
-	set_status(object.CanUseTopic(user, state))
+/datum/vueui/proc/update_status(var/check_for_change = 0)
+	set_status(object.CanUseTopic(user, state), check_for_change)
 
 /**
   * Process this ui

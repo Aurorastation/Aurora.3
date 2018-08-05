@@ -23,6 +23,7 @@
 
 	if (!ui)
 		ui = new(user, src, "mcomputer-system-main", 400, 500, "NTOS Main Menu")
+		ui.header = "modular-computer"
 	ui.open()
 
 // Gaters data for ui
@@ -82,7 +83,8 @@
 		to_chat(user, "<span class='notice'>Program [P.filename].[P.filetype] with PID [rand(100,999)] has been killed.</span>")
 
 	if( href_list["PC_runprogram"] )
-		return run_program(href_list["PC_runprogram"])
+		. = run_program(href_list["PC_runprogram"])
+		ui_interact(usr)
 
 	if( href_list["PC_setautorun"] )
 		if(!hard_drive)

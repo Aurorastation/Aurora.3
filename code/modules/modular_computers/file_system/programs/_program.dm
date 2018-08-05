@@ -1,5 +1,5 @@
 /obj/item/modular_computer/initial_data()
-	return get_header_data()
+	return list("_PC" = get_header_data())
 
 /obj/item/modular_computer/update_layout()
 	return TRUE

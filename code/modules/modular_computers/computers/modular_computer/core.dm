@@ -140,7 +140,7 @@
 		active_program.kill_program(forced)
 		active_program = null
 	var/mob/user = usr
-	if(user && istype(user))
+	if(user && istype(user) && !forced)
 		ui_interact(user) // Re-open the UI on this computer. It should show the main screen now.
 	update_icon()
 
@@ -185,6 +185,7 @@
 	idle_threads.Add(active_program)
 	active_program.program_state = PROGRAM_STATE_BACKGROUND // Should close any existing UIs
 	SSnanoui.close_uis(active_program.NM ? active_program.NM : active_program)
+	src.vueui_transfer(active_program)
 	active_program = null
 	update_icon()
 	if(istype(user))
@@ -210,6 +211,8 @@
 		active_program = P
 		idle_threads.Remove(P)
 		update_icon()
+		if(!P.vueui_transfer(src))
+			SSvueui.close_uis(src)
 		return
 
 	if(idle_threads.len >= processor_unit.max_idle_programs+1)
@@ -225,15 +228,19 @@
 
 	if(P.run_program(user))
 		active_program = P
+		if(!P.vueui_transfer(src))
+			SSvueui.close_uis(src)
 		update_icon()
 	return 1
 
 /obj/item/modular_computer/proc/update_uis()
 	if(active_program) //Should we update program ui or computer ui?
+		SSvueui.check_uis_for_change(active_program)
 		SSnanoui.update_uis(active_program)
 		if(active_program.NM)
 			SSnanoui.update_uis(active_program.NM)
 	else
+		SSvueui.check_uis_for_change(src)
 		SSnanoui.update_uis(src)
 
 /obj/item/modular_computer/proc/check_update_ui_need()

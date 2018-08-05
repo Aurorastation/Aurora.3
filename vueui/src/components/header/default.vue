@@ -1,9 +1,11 @@
 <template>
   <div class="uiTitleWrapper" unselectable="on">
     <slot/>
-    <div class="uiStatusIcon uiIcon24" :class="statusClass" unselectable="on"/>
-    <div class="uiTitleText" unselectable="on">{{ title }}</div>
-    <div class="uiTitleFluff" unselectable="on"/>
+    <div>
+      <div class="uiStatusIcon uiIcon24" :class="statusClass" unselectable="on"/>
+      <div class="uiTitleText" unselectable="on">{{ title }}</div>
+      <div class="uiTitleFluff" unselectable="on"/>
+    </div>
   </div>
 </template>
 

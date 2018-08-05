@@ -76,7 +76,7 @@
 	var/list/data = list()
 	if(program)
 		movable = program.computer
-		data = program.get_header_data()
+		data = list("_PC" = program.get_header_data())
 	if(!istype(movable))
 		movable = null
 
