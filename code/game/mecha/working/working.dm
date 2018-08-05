@@ -14,11 +14,11 @@
 	for(var/mob/M in src)
 		if(M==src.occupant)
 			continue
-		M.loc = get_turf(src)
+		M.forceMove(get_turf(src))
 		M.loc.Entered(M)
 		step_rand(M)
 	for(var/atom/movable/A in src.cargo)
-		A.loc = get_turf(src)
+		A.forceMove(get_turf(src))
 		var/turf/T = get_turf(A)
 		if(T)
 			T.Entered(A)
@@ -32,7 +32,7 @@
 		var/obj/O = locate(href_list["drop_from_cargo"])
 		if(O && O in src.cargo)
 			src.occupant_message("<span class='notice'>You unload [O].</span>")
-			O.loc = get_turf(src)
+			O.forceMove(get_turf(src))
 			src.cargo -= O
 			var/turf/T = get_turf(O)
 			if(T)

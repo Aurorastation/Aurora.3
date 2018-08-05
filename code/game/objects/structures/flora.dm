@@ -91,7 +91,7 @@
 		desc = "It looks dead."
 		dead = 1
 //No complex interactions, just make them fragile
-/obj/structure/flora/pottedplant/ex_act()
+/obj/structure/flora/pottedplant/ex_act(var/severity = 2.0)
 	death()
 	return ..()
 
@@ -104,8 +104,7 @@
 	if(do_after(user, 20, act_target = src))
 		if(!stored_item)
 			if(W.w_class <= ITEMSIZE_NORMAL)
-				user.drop_from_inventory(W)
-				W.forceMove(src)
+				user.drop_from_inventory(W,src)
 				stored_item = W
 				to_chat(user,"<span class='notice'>You hide \the [W] in [src].</span>")
 				return

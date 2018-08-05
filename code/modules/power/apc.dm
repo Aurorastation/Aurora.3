@@ -40,6 +40,11 @@
 /obj/machinery/power/apc/high
 	cell_type = /obj/item/weapon/cell/high
 
+/obj/machinery/power/apc/isolation
+	cell_type = /obj/item/weapon/cell
+	req_access = null
+	req_one_access = list(access_engine_equip,access_research,access_xenobiology)
+
 // Construction site APC, starts turned off
 /obj/machinery/power/apc/high/inactive
 	cell_type = /obj/item/weapon/cell/high
@@ -456,7 +461,7 @@
 			return
 		else
 			opened = 1
-			panel_open = 1		
+			panel_open = 1
 			update_icon()
 	else if (istype(W, /obj/item/weapon/gripper))//Code for allowing cyborgs to use rechargers
 		var/obj/item/weapon/gripper/Gri = W
@@ -482,12 +487,11 @@
 			user << "\The [W] is too [W.w_class < 3? "small" : "large"] to fit here."
 			return
 
-		user.drop_item(src)
-		W.forceMove(src)
+		user.drop_from_inventory(W,src)
 		cell = W
 		user.visible_message(\
-			"<span class='warning'>[user.name] has inserted the power cell to [src.name]!</span>",\
-			"<span class='notice'>You insert the power cell.</span>")
+			"<span class='warning'>[user.name] has inserted \the [cell] to [src.name]!</span>",\
+			"<span class='notice'>You insert \the [cell].</span>")
 		chargecount = 0
 		update_icon()
 	else if	(isscrewdriver(W))	// haxing

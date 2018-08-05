@@ -18,8 +18,7 @@
 		return
 
 	dish = O
-	user.drop_item()
-	O.loc = src
+	user.drop_from_inventory(O,src)
 
 	user.visible_message("[user] adds \a [O] to \the [src]!", "You add \a [O] to \the [src]!")
 
@@ -48,7 +47,7 @@
 			dish.info = r
 			dish.name = "[initial(dish.name)] ([dish.virus2.name()])"
 			dish.analysed = 1
-			dish.loc = src.loc
+			dish.forceMove(src.loc)
 			dish = null
 
 			icon_state = "analyser"
@@ -63,7 +62,7 @@
 		else
 			pause = 1
 			spawn(25)
-				dish.loc = src.loc
+				dish.forceMove(src.loc)
 				dish = null
 
 				src.state("\The [src] buzzes, \"Insufficient growth density to complete analysis.\"")

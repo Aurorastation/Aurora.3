@@ -134,6 +134,10 @@
 	name = "Research Maintenance - Port"
 	icon_state = "maint_research_port"
 
+/area/maintenance/research_xenobiology
+	name = "Research Maintenance - Xenobiology"
+	icon_state = "maint_research_port"
+
 /area/maintenance/research_starboard
 	name = "Research Maintenance - Starboard"
 	icon_state = "maint_research_starboard"

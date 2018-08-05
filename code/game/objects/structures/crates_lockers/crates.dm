@@ -105,8 +105,7 @@
 	else if(istype(W, /obj/item/device/radio/electropack))
 		if(rigged)
 			user  << "<span class='notice'>You attach [W] to [src].</span>"
-			user.drop_item()
-			W.forceMove(src)
+			user.drop_from_inventory(W,src)
 			return
 	else if(iswirecutter(W))
 		if(rigged)
@@ -702,3 +701,11 @@
 			return pickweight(random_stock_uncommon)
 		if ("3")
 			return pickweight(random_stock_common)
+
+/obj/structure/closet/crate/extinguisher_catridges
+	name = "crate of extinguisher cartridges"
+	desc = "Contains a dozen empty extinguisher cartridges."
+
+/obj/structure/closet/crate/extinguisher_catridges/fill()
+	for(var/a = 1 to 12)
+		new /obj/item/weapon/reagent_containers/extinguisher_refill(src)

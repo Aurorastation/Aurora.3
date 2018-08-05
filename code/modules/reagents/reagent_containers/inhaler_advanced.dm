@@ -163,7 +163,7 @@
 			return
 		user.remove_from_mob(cartridge)
 		src.stored_cartridge = cartridge
-		cartridge.loc = src
+		cartridge.forceMove(src)
 		update_icon()
 		return
 	. = ..()

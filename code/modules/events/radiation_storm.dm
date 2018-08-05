@@ -43,6 +43,14 @@
 
 		if(istype(C,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = C
+			if(H.is_diona())
+				var/damage = rand(15, 30)
+				H.adjustToxLoss(-damage)
+				if(prob(5))
+					damage = rand(20, 60)
+					H.adjustToxLoss(-damage)
+				to_chat(H, "<span class='notice'>You can feel flow of energy which makes you regenerate.</span>")
+
 			H.apply_effect((rand(15,30)),IRRADIATE,blocked = H.getarmor(null, "rad"))
 			if(prob(4))
 				H.apply_effect((rand(20,60)),IRRADIATE,blocked = H.getarmor(null, "rad"))

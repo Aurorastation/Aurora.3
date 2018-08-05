@@ -39,10 +39,15 @@ var/datum/controller/subsystem/cargo/SScargo
 
 	//shuttle movement
 	var/movetime = 1200
+	var/min_movetime = 1200
 	var/datum/shuttle/ferry/supply/shuttle
 
 	//Item vars
 	var/last_item_id = 0 //The ID of the last item that has been added
+
+	//Exports and bounties
+	var/list/exports_list = list()
+	var/list/bounties_list = list()
 
 /datum/controller/subsystem/cargo/Recover()
 	src.shuttle = SScargo.shuttle
@@ -54,6 +59,8 @@ var/datum/controller/subsystem/cargo/SScargo
 	src.cargo_handlingfee_change = SScargo.cargo_handlingfee_change
 	src.supply_account = SScargo.supply_account
 	src.last_item_id = SScargo.last_item_id
+	src.exports_list = SScargo.exports_list
+	src.bounties_list = SScargo.bounties_list
 
 /datum/controller/subsystem/cargo/Initialize(timeofday)
 	//Generate the ordernumber and shipmentnumber to start with
@@ -73,6 +80,10 @@ var/datum/controller/subsystem/cargo/SScargo
 	else
 		log_game("SScargo: invalid load option specified in config")
 
+	setupExports()
+	setupBounties()
+
+	//Spawn in the warehouse crap
 	var/datum/cargospawner/spawner = new
 	spawner.start()
 	qdel(spawner)
@@ -201,7 +212,6 @@ var/datum/controller/subsystem/cargo/SScargo
 					item_query.item[11])
 			catch(var/exception/ei)
 				log_debug("SScargo: Error when loading item from sql: [ei]")
-		return 1
 
 //Loads the cargo data from JSON
 /datum/controller/subsystem/cargo/proc/load_from_json()
@@ -555,7 +565,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		if (shuttle.forbidden_atoms_check())
 			. = "For safety reasons the automated supply shuttle cannot transport live organisms, classified nuclear weaponry or homing beacons."
 		else
-			movetime = 1200 //It always takes two minutes to get to centcom
+			movetime = min_movetime //It always takes two minutes to get to centcom
 			shuttle.launch(src)
 			. = "Initiating launch sequence"
 			current_shipment.shuttle_recalled_by = caller_name
@@ -573,9 +583,9 @@ var/datum/controller/subsystem/cargo/SScargo
 			current_shipment.shuttle_time = get_pending_shipment_time()
 			current_shipment.shuttle_fee = shipment_cost
 
-			if(current_shipment.shuttle_time < 1200)
-				log_debug("SScargo: Shuttle Time less than 1200: [current_shipment.shuttle_time] - Setting to 1200")
-				current_shipment.shuttle_time = 1200
+			if(current_shipment.shuttle_time < min_movetime)
+				log_debug("SScargo: Shuttle Time less than [min_movetime]: [current_shipment.shuttle_time] - Setting to [min_movetime]")
+				current_shipment.shuttle_time = min_movetime
 
 			movetime = current_shipment.shuttle_time
 			//Launch it
@@ -609,39 +619,39 @@ var/datum/controller/subsystem/cargo/SScargo
 
 //Sells stuff on the shuttle to centcom
 /datum/controller/subsystem/cargo/proc/sell()
-	//TODO-CARGO: Only pay for specific stuff on the shuttle and not for everything else - Charge a cleanup fee for the rest
 	var/area/area_shuttle = shuttle.get_location_area()
 	if(!area_shuttle)	return
 
-	var/phoron_count = 0
-	var/plat_count = 0
+	var/msg = ""
+	var/matched_bounty = FALSE
+	var/sold_atoms = ""
 
-	for(var/atom/movable/MA in area_shuttle)
-		if(MA.anchored)	continue
+	for(var/place in area_shuttle)
+		var/area/shuttle/shuttle_area = place
+		for(var/atom/movable/AM in shuttle_area)
+			if(bounty_ship_item_and_contents(AM, dry_run = FALSE))
+				matched_bounty = TRUE
+			if(!AM.anchored || istype(AM, /obj/mecha))
+				sold_atoms += export_item_and_contents(AM, FALSE, FALSE, dry_run = FALSE)
 
-		// Must be in a crate!
-		if(istype(MA,/obj/structure/closet/crate))
-			callHook("sell_crate", list(MA, area_shuttle))
+	if(sold_atoms)
+		sold_atoms += "."
 
-			current_shipment.shipment_cost_sell += credits_per_crate
+	if(matched_bounty)
+		msg += "Bounty items received. An update has been sent to all bounty consoles.\n"
 
-			for(var/atom in MA)
-				var/atom/A = atom
-				// Sell phoron and platinum
-				if(istype(A, /obj/item/stack))
-					var/obj/item/stack/P = A
-					switch(P.get_material_name())
-						if("phoron") phoron_count += P.get_amount()
-						if("platinum") plat_count += P.get_amount()
-		qdel(MA)
+	for(var/a in exports_list)
+		var/datum/export/E = a
+		var/export_text = E.total_printout()
+		if(!export_text)
+			continue
 
-	if(phoron_count)
-		current_shipment.shipment_cost_sell += phoron_count * credits_per_phoron
-
-	if(plat_count)
-		current_shipment.shipment_cost_sell += plat_count * credits_per_platinum
+		msg += export_text + "\n"
+		current_shipment.shipment_cost_sell += E.total_cost
+		E.export_end()
 
 	charge_cargo("Shipment #[current_shipment.shipment_num] - Income", -current_shipment.shipment_cost_sell)
+	current_shipment.message = msg
 	current_shipment.generate_invoice()
 	current_shipment = null //Null the current shipment because its completed
 

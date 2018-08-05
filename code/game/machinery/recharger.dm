@@ -77,8 +77,7 @@
 			user << "<span class='warning'>\The [name] blinks red as you try to insert the item!</span>"
 			return
 
-		user.drop_item()
-		G.forceMove(src)
+		user.drop_from_inventory(G,src)
 		charging = G
 		update_icon()
 
