@@ -230,13 +230,13 @@ main ui datum.
   */
 /datum/vueui/Topic(href, href_list)
 	update_status()
+	if(status < STATUS_INTERACTIVE || user != usr)
+		return
 	if(href_list["vueuiforceresource"])
 		if(user.client)
 			user.client << browse_rsc(file("vueui/dist/app.js"), "vueui.js")
 			user.client << browse_rsc(file("vueui/dist/app.css"), "vueui.css")
 		open()
-	if(status < STATUS_INTERACTIVE || user != usr)
-		return
 	if(href_list["vueuistateupdate"])
 		var/rdata = json_decode(href_list["vueuistateupdate"])
 		var/ndata = rdata["state"]
