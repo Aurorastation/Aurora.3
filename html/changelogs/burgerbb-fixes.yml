@@ -37,3 +37,4 @@ changes:
   - bugfix: "Fixes condiments, including salt and pepper, not being able to be poured."
   - bugfix: "Fixes objects getting stuck in xenobiology disposals."
   - bugfix: "Fixes autoinhalers and autoinjectors refusing to change their icons after use."
+  - bugfix: "Fixes Slime Batons not spawning without a power source."
