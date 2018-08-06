@@ -41,7 +41,7 @@ emp_act
 			var/obj/item/weapon/SP = new P.shrapnel_type()
 			SP.name = (P.name != "shrapnel")? "[P.name] shrapnel" : "shrapnel"
 			SP.desc = "[SP.desc] It looks like it was fired from [P.shot_from]."
-			SP.loc = organ
+			SP.forceMove(organ)
 			organ.embed(SP)
 
 	return (..(P , def_zone))
@@ -158,6 +158,21 @@ emp_act
 	return 0
 
 /mob/living/carbon/human/emp_act(severity)
+	if(isipc(src))
+		var/obj/item/organ/surge/s = src.internal_organs_by_name["surge"]
+		if(!isnull(s))
+			if(s.surge_left)
+				playsound(src.loc, 'sound/magic/LightningShock.ogg', 25, 1)
+				s.surge_left -= 1
+				if(s.surge_left)
+					to_chat(src, "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. There are [s.surge_left] preventions left.</span>")
+				else
+					s.broken = 1
+					s.icon_state = "surge_ipc_broken"
+					to_chat(src, "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended.</span>")
+				return 1
+			else
+				to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended.</span>")
 	for(var/obj/O in src)
 		if(!O)	continue
 		O.emp_act(severity)
@@ -400,7 +415,7 @@ emp_act
 				var/turf/T = near_wall(dir,2)
 
 				if(T)
-					src.loc = T
+					src.forceMove(T)
 					visible_message("<span class='warning'>[src] is pinned to the wall by [O]!</span>","<span class='warning'>You are pinned to the wall by [O]!</span>")
 					src.anchored = 1
 					src.pinned += O

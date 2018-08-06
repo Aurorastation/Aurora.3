@@ -67607,7 +67607,7 @@
 	input_tag = "air_in";
 	name = "Mixed Air Supply Control";
 	output_tag = "air_out";
-	pressure_setting = 2000;
+	default_pressure_setting = 2000;
 	sensors = list("air_sensor" = "Tank")
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -76945,7 +76945,7 @@
 	input_tag = "cooling_in";
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
-	pressure_setting = 100;
+	default_pressure_setting = 100;
 	sensors = list("engine_sensor" = "Engine Core")
 	},
 /obj/effect/floor_decal/industrial/warning,

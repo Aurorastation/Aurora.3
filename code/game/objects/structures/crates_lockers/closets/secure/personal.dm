@@ -48,8 +48,10 @@
 	if (opened)
 		if (istype(W, /obj/item/weapon/grab))
 			MouseDrop_T(W:affecting, user)      //act like they were dragged onto the closet
-		user.drop_item()
-		if (W) W.forceMove(loc)
+		if(W)
+			user.drop_from_inventory(W,loc)
+		else
+			user.drop_item()
 	else if(W.GetID())
 		var/obj/item/weapon/card/id/I = W.GetID()
 

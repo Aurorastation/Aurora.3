@@ -162,3 +162,23 @@
 	..()
 	recipes += new/datum/stack_recipe("monkey mask", /obj/item/clothing/mask/gas/monkeymask)
 	recipes += new/datum/stack_recipe("monkey suit", /obj/item/clothing/suit/monkeysuit, 2)
+
+/material/silver/generate_recipes()
+	..()
+	recipes += new/datum/stack_recipe("silver floor tile", /obj/item/stack/tile/silver, 1, 4, 20)
+
+/material/gold/generate_recipes()
+	..()
+	recipes += new/datum/stack_recipe("golden floor tile", /obj/item/stack/tile/gold, 1, 4, 20)
+
+/material/uranium/generate_recipes()
+	..()
+	recipes += new/datum/stack_recipe("uranium floor tile", /obj/item/stack/tile/uranium, 1, 4, 20)
+
+/material/phoron/generate_recipes()
+	..()
+	recipes += new/datum/stack_recipe("phoron floor tile", /turf/simulated/floor/phoron, 1, 4, 20)
+
+/material/diamond/generate_recipes()
+	..()
+	recipes += new/datum/stack_recipe("diamond floor tile", /turf/simulated/floor/diamond, 1, 4, 20)

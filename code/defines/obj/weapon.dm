@@ -269,7 +269,7 @@
 		user.visible_message("<span class='warning'>[user] has unsheathed \a [concealed_blade] from \his [src]!</span>", "You unsheathe \the [concealed_blade] from \the [src].")
 		// Calling drop/put in hands to properly call item drop/pickup procs
 		playsound(user.loc, 'sound/weapons/blade_unsheath.ogg', 50, 1)
-		user.drop_from_inventory(src)
+		user.drop_from_inventory(src,enable_animations = FALSE)
 		user.put_in_hands(concealed_blade)
 		user.put_in_hands(src)
 		user.update_inv_l_hand(0)
@@ -284,7 +284,7 @@
 		user.visible_message("<span class='warning'>[user] has sheathed \a [W] into \his [src]!</span>", "You sheathe \the [W] into \the [src].")
 		playsound(user.loc, 'sound/weapons/blade_sheath.ogg', 50, 1)
 		user.drop_from_inventory(W)
-		W.loc = src
+		W.forceMove(src)
 		src.concealed_blade = W
 		update_icon()
 	else

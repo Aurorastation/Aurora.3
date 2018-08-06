@@ -136,7 +136,7 @@
 			affected.owner.custom_pain("You feel something rip in your [affected.name]!", 1)
 		user.drop_item()
 		affected.implants += tool
-		tool.loc = affected
+		tool.forceMove(affected)
 		affected.cavity = 0
 
 //////////////////////////////////////////////////////////////////
@@ -197,7 +197,7 @@
 					worm.detatch()
 					worm.leave_host()
 				else
-					obj.loc = get_turf(target)
+					obj.forceMove(get_turf(target))
 					obj.add_blood(target)
 					obj.update_icon()
 					if(istype(obj,/obj/item/weapon/implant))

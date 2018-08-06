@@ -178,12 +178,11 @@
 	T.visible_message("<span class='danger'>\The [src] [material.destruction_desc]!</span>")
 	if(istype(loc, /mob/living))
 		var/mob/living/M = loc
-		M.drop_from_inventory(src)
 		if(material.shard_type == SHARD_SHARD) // Wearing glass armor is a bad idea.
 			var/obj/item/weapon/material/shard/S = material.place_shard(T)
 			M.embed(S)
 
-	playsound(src, "shatter", 70, 1)
+	playsound(src.loc, "shatter", 70, 1)
 	qdel(src)
 
 /obj/item/clothing/suit/armor/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
@@ -390,8 +389,7 @@
 				to_chat(user, "You are unable to wear \the [src] as \the [H.gloves] are in the way.")
 				ring = null
 				return 0
-			H.drop_from_inventory(ring)	//Remove the ring (or other under-glove item in the hand slot?) so you can put on the gloves.
-			ring.forceMove(src)
+			H.drop_from_inventory(ring,src)
 
 	if(!..())
 		if(ring) //Put the ring back on if the check fails.
@@ -550,6 +548,18 @@
 	var/voicechange = 0
 	var/list/say_messages
 	var/list/say_verbs
+	var/down_gas_transfer_coefficient = 0
+	var/down_body_parts_covered = 0
+	var/down_item_flags = 0
+	var/down_flags_inv = 0
+	var/adjustable = FALSE
+	var/hanging = 0
+
+/obj/item/clothing/mask/Initialize()
+	. = ..()
+	if(adjustable)
+		action_button_name = "Adjust Mask"
+		verbs += /obj/item/clothing/mask/proc/adjust_mask
 
 /obj/item/clothing/mask/update_clothing_icon()
 	if (ismob(src.loc))
@@ -558,6 +568,38 @@
 
 /obj/item/clothing/mask/proc/filter_air(datum/gas_mixture/air)
 	return
+
+/obj/item/clothing/mask/proc/adjust_mask(mob/user)
+	if(!adjustable)
+		return
+	if(use_check(user))
+		return
+
+	hanging = !hanging
+
+	if(hanging)
+		gas_transfer_coefficient = down_gas_transfer_coefficient
+		body_parts_covered = down_body_parts_covered
+		icon_state = "[icon_state]down"
+		item_flags = down_item_flags
+		flags_inv = down_flags_inv
+		user.visible_message("<span class='notice'>[user] adjust \his [src] to hang around \his neck.</span>", "<span class='notice'>Your [src] is now hanging around your neck.</span>")
+
+	else
+		gas_transfer_coefficient = initial(gas_transfer_coefficient)
+		body_parts_covered = initial(body_parts_covered)
+		icon_state = initial(icon_state)
+		item_state = initial(icon_state)
+		item_flags = initial(item_flags)
+		flags_inv = initial(flags_inv)
+		to_chat(user, "You pull [src] up to cover your face.")
+		user.visible_message("<span class='notice'>[user] puts \his [src] back up, to cover \his face.</span>", "<span class='notice'>Your put your [src] back on.</span>")
+
+	update_clothing_icon()
+
+/obj/item/clothing/mask/attack_self(mob/user)
+	if(adjustable)
+		adjust_mask(user)
 
 ///////////////////////////////////////////////////////////////////////
 //Shoes

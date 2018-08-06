@@ -288,7 +288,7 @@
 	*/
 
 	if(volume >= 3)
-		T.wet_floor(2)
+		T.wet_floor(WET_TYPE_LUBE,volume)
 
 /datum/reagent/nutriment/triglyceride/oil/initialize_data(var/newdata) // Called when the reagent is created.
 	..()
@@ -470,6 +470,24 @@
 	M.overeatduration = 0
 	if(M.nutrition < 0)
 		M.nutrition = 0
+
+/datum/reagent/nutriment/barbecue
+	name = "Barbecue Sauce"
+	id = "barbecue"
+	description = "Barbecue sauce for barbecues and long shifts."
+	taste_description = "barbecue"
+	reagent_state = LIQUID
+	nutriment_factor = 5
+	color = "#4F330F"
+
+/datum/reagent/nutriment/garlicsauce
+	name = "Garlic Sauce"
+	id = "garlicsauce"
+	description = "Garlic sauce, perfect for spicing up a plate of garlic."
+	taste_description = "garlic"
+	reagent_state = LIQUID
+	nutriment_factor = 4
+	color = "#d8c045"
 
 /* Non-food stuff like condiments */
 
@@ -862,6 +880,28 @@
 	glass_name = "glass of earthen-root juice"
 	glass_desc = "Juice extracted from earthen-root, a plant native to Adhomai."
 
+/datum/reagent/drink/juice/garlic
+	name = "Garlic Juice"
+	id = "garlicjuice"
+	description = "Who would even drink this?"
+	taste_description = "garlic"
+	nutrition = 1
+	color = "#eeddcc"
+
+	glass_name = "glass of garlic juice"
+	glass_desc = "Who would even drink juice from garlic?"
+
+/datum/reagent/drink/juice/onion
+	name = "Onion Juice"
+	id = "onionjuice"
+	description = "Juice from an onion, for when you need to cry."
+	taste_description = "onion"
+	nutrition = 1
+	color = "#ffeedd"
+
+	glass_name = "glass of onion juice"
+	glass_desc = "Juice from an onion, for when you need to cry."
+
 // Everything else
 
 /datum/reagent/drink/milk
@@ -917,9 +957,23 @@
 	glass_name = "cup of tea"
 	glass_desc = "Tasty black tea, it has antioxidants, it's good for you!"
 
+	unaffected_species = IS_MACHINE
+	var/last_taste_time = -100
+
 /datum/reagent/drink/tea/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	M.adjustToxLoss(-0.5 * removed)
+
+
+/datum/reagent/drink/tea/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_DIONA)
+		if(last_taste_time + 800 < world.time) // Not to spam message
+			to_chat(M, "<span class='danger'>Your body withers as you feel slight pain throughout.</span>")
+			last_taste_time = world.time
+		metabolism = REM * 0.33
+		M.adjustToxLoss(1.5 * removed)
+	else
+		M.adjustToxLoss(-0.5 * removed)
 
 /datum/reagent/drink/tea/icetea
 	name = "Iced Tea"

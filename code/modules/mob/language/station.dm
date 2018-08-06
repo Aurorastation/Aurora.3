@@ -130,6 +130,7 @@
 	speech_verb = "slurs"
 	ask_verb = "mrowmbles"
 	exclaim_verb = "exclaims"
+	colour = "siiktau"
 	key = "t"
 	flags = WHITELISTED
 	syllables = list("m'Rr","rr","tahjr","kir","rrahj","kii","mirr","krah","ahhk","nahl","vahh","khahz","jri","rahn","dahrr",
