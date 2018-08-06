@@ -1,0 +1,5 @@
+author: Karolis2011
+delete-after: True
+
+changes: 
+  - bugfix: Added a reliable way to manually force send resources to client if asset manager fails.
