@@ -26,6 +26,13 @@
 		ui.header = "modular-computer"
 	ui.open()
 
+/obj/item/modular_computer/vueui_transfer(oldobj)
+	var/uis = SSvueui.transfer_uis(oldobj, src, "mcomputer-system-main", 400, 500, "NTOS Main Menu")
+	for(var/tui in uis)
+		var/datum/vueui/ui = tui
+		ui.auto_update_content = FALSE
+		. = TRUE
+
 // Gaters data for ui
 /obj/item/modular_computer/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()

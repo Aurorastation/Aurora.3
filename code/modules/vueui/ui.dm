@@ -113,7 +113,7 @@ main ui datum.
 /datum/vueui/proc/resize(var/nwidth, var/nheight)
 	width = nwidth || width
 	height = nheight || height
-	winset(user, "windowid", "size=[width]x[height];")
+	winset(user, windowid, "size=[width]x[height];")
 
 /**
   * Generates base html for this ui to be rendered.
