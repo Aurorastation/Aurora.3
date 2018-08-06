@@ -126,7 +126,7 @@ main ui datum.
 			<header-[header]></header-[header]>
 		</div>
 		<div id="app">
-
+			Javascript file has failed to load. <a href="?src=\ref[src]&vueuiforceresource=1">Click here to force load resources</a>
 		</div>
 		[debugtxt]
 		<noscript>
@@ -230,6 +230,11 @@ main ui datum.
   */
 /datum/vueui/Topic(href, href_list)
 	update_status()
+	if(href_list["vueuiforceresource"])
+		if(user.client)
+			user.client << browse_rsc(file("vueui/dist/app.js"), "vueui.js")
+			user.client << browse_rsc(file("vueui/dist/app.css"), "vueui.css")
+		open()
 	if(status < STATUS_INTERACTIVE || user != usr)
 		return
 	if(href_list["vueuistateupdate"])
