@@ -28255,6 +28255,7 @@
 	name = "Containment Cell Echo"
 	},
 /obj/structure/cable/green,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/cells/echo)
 "XE" = (
