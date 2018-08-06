@@ -38,3 +38,4 @@ changes:
   - bugfix: "Fixes objects getting stuck in xenobiology disposals."
   - bugfix: "Fixes autoinhalers and autoinjectors refusing to change their icons after use."
   - bugfix: "Fixes Slime Batons not spawning without a power source."
+  - bugfix: "Fixes miscalculation in heat reduction for fire extinguishers."
