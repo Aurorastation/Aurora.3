@@ -105,6 +105,7 @@
 	var/list/loot = list()
 	var/ore_message = 0
 	var/target_ore
+	var/ore_count = 0
 
 /mob/living/simple_animal/hostile/retaliate/minedrone/Initialize()
 	. = ..()
@@ -121,6 +122,40 @@
 	for(var/obj/item/weapon/ore/O in loot)
 		O.forceMove(src.loc)
 	qdel(src)
+
+/mob/living/simple_animal/hostile/retaliate/minedrone/Life()
+	..()
+	if(ore_count<20)
+		FindOre()
+
+/mob/living/simple_animal/hostile/retaliate/minedrone/proc/FindOre()
+	if(!enemies.len)
+		setClickCooldown(attack_delay)
+		if(!target_ore in ListTargets(10))
+			target_ore = null
+		for(var/obj/item/weapon/ore/O in oview(1,src))
+			O.forceMove(src)
+			loot += O
+			ore_count ++
+			if(target_ore == O)
+				target_ore = null
+			if(!ore_message)
+				ore_message = 1
+		if(ore_message)
+			visible_message("<span class='notice'>\The [src] collects the ore into a metallic hopper.</span>")
+			ore_message = 0
+		for(var/obj/item/weapon/ore/O in oview(7,src))
+			target_ore = O
+			break
+		if(target_ore)
+			walk_to(src, target_ore, 1, move_to_delay)
+		else
+			for(var/turf/simulated/mineral/M in orange(7,src))
+				if(M.mineral)
+					rapid = 1
+					OpenFire(M)
+					rapid = 0
+					break
 
 /mob/living/simple_animal/hostile/retaliate/minedrone/adjustToxLoss(var/damage)
 	return
