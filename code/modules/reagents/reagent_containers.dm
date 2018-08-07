@@ -64,9 +64,11 @@
 		return
 	if(is_type_in_list(target,can_be_placed_into))
 		return
-	if(standard_splash_mob(user, target))
-		return
 	if(standard_feed_mob(user,target))
+		return
+	if(!can_pour_out())
+		return
+	if(standard_splash_mob(user, target))
 		return
 	if(standard_pour_into(user, target))
 		return
@@ -107,11 +109,12 @@
 	return
 
 /obj/item/weapon/reagent_containers/proc/standard_splash_mob(var/mob/user, var/mob/target) // This goes into afterattack
+
 	if(!istype(target))
 		return
 
 	if(user.a_intent != I_HURT)
-		return
+		return 0
 
 	if(!reagents || !reagents.total_volume)
 		user << "<span class='notice'>[src] is empty.</span>"
@@ -148,7 +151,11 @@
 	playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
 
 /obj/item/weapon/reagent_containers/proc/standard_feed_mob(var/mob/user, var/mob/target) // This goes into attack
+
 	if(!istype(target))
+		return 0
+		
+	if(user.a_intent == I_HURT)
 		return 0
 
 	if(!reagents || !reagents.total_volume)
