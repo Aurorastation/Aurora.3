@@ -15891,9 +15891,7 @@
 /obj/structure/ladder/up{
 	pixel_y = 16
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
+/obj/effect/decal/warning_stripes,
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "DC" = (
@@ -44680,7 +44678,7 @@ NK
 NL
 NM
 NN
-NO
+NM
 NR
 DW
 Eh
@@ -44688,7 +44686,7 @@ Ek
 EU
 Ek
 FK
-NU
+NT
 Gn
 GB
 DW
@@ -44945,7 +44943,7 @@ Ek
 EV
 Ek
 FK
-NV
+NT
 Ek
 GE
 DW
@@ -45202,7 +45200,7 @@ EC
 EU
 Ek
 FK
-NW
+NT
 Ek
 ER
 DW
@@ -45719,11 +45717,11 @@ FM
 Gd
 NY
 GG
-NZ
+NY
 Hf
-Oa
-Ob
-Oc
+NY
+NY
+NY
 Od
 Ig
 DW
