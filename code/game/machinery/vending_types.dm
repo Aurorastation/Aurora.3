@@ -566,12 +566,37 @@
 		/obj/item/weapon/reagent_containers/cooking_container/oven = 5,
 		/obj/item/weapon/reagent_containers/cooking_container/fryer = 4,
 		/obj/item/weapon/storage/toolbox/lunchbox/nt = 6,
-		/obj/item/weapon/reagent_containers/glass/beaker/bowl = 4
+		/obj/item/weapon/reagent_containers/glass/beaker/bowl = 4,
+		/obj/item/weapon/reagent_containers/glass/rag = 8
 	)
 	contraband = list(
 		/obj/item/weapon/storage/toolbox/lunchbox/syndicate = 2
 	)
 	restock_items = 1
+
+/obj/machinery/vending/dinnerware_public
+	name = "Public Dinnerware"
+	desc = "A kitchen and restaurant equipment vendor that dispenses less dangerous equipment meant for the public."
+	product_ads = "Mm, food stuffs!;Food and food accessories.;Get your plates!;You like forks?;I like forks.;Woo, utensils.;You don't really need these..."
+	icon_state = "dinnerware"
+	vend_id = "cutlery"
+	products = list(
+		/obj/item/weapon/tray = 8,
+		/obj/item/weapon/material/kitchen/utensil/fork/plastic = 20,
+		/obj/item/weapon/material/kitchen/utensil/knife/plastic = 20,
+		/obj/item/weapon/material/kitchen/utensil/spoon/plastic = 20,
+		/obj/item/weapon/material/ashtray/plastic = 4,
+		/obj/item/weapon/reagent_containers/food/drinks/drinkingglass = 8,
+		/obj/item/weapon/reagent_containers/glass/rag = 8 //Napkins!
+	)
+	premium = list(
+		/obj/item/weapon/material/kitchen/utensil/knife = 4,
+		/obj/item/weapon/material/kitchen/utensil/fork = 4,
+		/obj/item/weapon/material/kitchen/utensil/spoon = 4
+	)
+	contraband = list(
+		/obj/item/weapon/scalpel = 1
+	)
 
 /obj/machinery/vending/sovietsoda
 	name = "BODA"
