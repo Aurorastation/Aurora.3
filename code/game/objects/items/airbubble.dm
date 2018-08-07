@@ -331,7 +331,7 @@
 		update_icon()
 		STOP_PROCESSING(SSfast_process, src)
 	else
-		to_chat(user, "<span class='warning'>[src] already has no tank.</span>")
+		to_chat(usr, "<span class='warning'>[src] has no tank.</span>")
 
 // Handle most of things: restraining, cutting restrains, attaching tank.
 /obj/structure/closet/airbubble/attackby(W as obj, mob/user as mob)
@@ -349,8 +349,7 @@
 			)
 			var/obj/item/weapon/tank/T = W
 			internal_tank = T
-			user.drop_from_inventory(T)
-			T.forceMove(src)
+			user.drop_from_inventory(T,src)
 			use_internal_tank = 1
 			START_PROCESSING(SSfast_process, src)
 			return

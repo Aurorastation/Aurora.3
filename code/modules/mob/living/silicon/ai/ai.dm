@@ -616,10 +616,8 @@ var/list/ai_verbs_default = list(
 				var/mob/living/carbon/human/H = selection["mob"]
 				if (H.near_camera())
 					character_icon = new('icons/mob/human.dmi', "blank")
-					character_icon.Insert(getHologramIcon(getFlatIcon(H, SOUTH)), dir = SOUTH)
-					character_icon.Insert(getHologramIcon(getFlatIcon(H, NORTH)), dir = NORTH)
-					character_icon.Insert(getHologramIcon(getFlatIcon(H, EAST)), dir = EAST)
-					character_icon.Insert(getHologramIcon(getFlatIcon(H, WEST)), dir = WEST)
+					for(var/renderdir in cardinal)
+						character_icon.Insert(getHologramIcon(getFlatIcon(H, renderdir, always_use_defdir=1)), dir = renderdir)
 				else
 					character_icon = getHologramIcon(icon(selection["image"]))
 			if(selection && istype(selection, /icon))

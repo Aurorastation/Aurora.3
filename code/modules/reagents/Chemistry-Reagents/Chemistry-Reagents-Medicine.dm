@@ -27,7 +27,7 @@
 /datum/reagent/bicaridine
 	name = "Bicaridine"
 	id = "bicaridine"
-	description = "Bicaridine is an analgesic medication and can be used to treat blunt trauma. When inhaled, it treats minor damage to the lungs."
+	description = "Bicaridine is an analgesic medication and can be used to treat blunt trauma."
 	reagent_state = LIQUID
 	color = "#BF0000"
 	overdose = REAGENTS_OVERDOSE
@@ -41,13 +41,6 @@
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(5 * removed, 0)
-
-/datum/reagent/bicaridine/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
-	. = ..()
-	if(istype(H))
-		var/obj/item/organ/L = H.internal_organs_by_name["lungs"]
-		if(istype(L) && !L.robotic && !L.is_broken())
-			L.take_damage(-1*removed) //Every 10 units heals 1 lung damage.
 
 /datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien)
 	..()//Bicard overdose heals internal wounds
@@ -457,9 +450,18 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
+	unaffected_species = IS_MACHINE
+	var/last_taste_time = -100
 
 /datum/reagent/hyronalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.apply_radiation(-30 * removed)
+	if(alien == IS_DIONA)
+		if(last_taste_time + 500 < world.time) // Not to spam message
+			to_chat(M, "<span class='danger'>Your body withers as you feel a searing pain throughout.</span>")
+			last_taste_time = world.time
+		metabolism = REM * 0.33
+		M.adjustToxLoss(30 * removed) // Tested numbers myself
+	else
+		M.apply_radiation(-30 * removed)
 
 /datum/reagent/arithrazine
 	name = "Arithrazine"
@@ -471,12 +473,21 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
+	unaffected_species = IS_MACHINE
+	var/last_taste_time = -100
 
 /datum/reagent/arithrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.apply_radiation(-70 * removed)
-	M.adjustToxLoss(-10 * removed)
-	if(prob(60))
-		M.take_organ_damage(4 * removed, 0)
+	if(alien == IS_DIONA)
+		if(last_taste_time + 250 < world.time) // Not to spam message
+			to_chat(M, "<span class='danger'>Your body withers as you feel a searing pain throughout.</span>")
+			last_taste_time = world.time
+		metabolism = REM * 0.33
+		M.adjustToxLoss(120 * removed) // Tested numbers myself
+	else
+		M.apply_radiation(-70 * removed)
+		M.adjustToxLoss(-10 * removed)
+		if(prob(60))
+			M.take_organ_damage(4 * removed, 0)
 
 /datum/reagent/spaceacillin
 	name = "Spaceacillin"

@@ -47,7 +47,7 @@
 /mob/proc/update_client_color()
 	if(!client)
 		return
-	client.color = ""
+	client.color = null
 	if(!client_colors.len)
 		return
 	var/datum/client_color/CC = client_colors[1]

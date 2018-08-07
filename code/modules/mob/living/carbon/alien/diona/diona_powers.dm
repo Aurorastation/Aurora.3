@@ -137,7 +137,7 @@
 			src << "<span class='notice'>You feel your being twine with that of \the [D] as it merges with your biomass.</span>"
 			for(var/obj/O in D.contents)
 				D.drop_from_inventory(O)
-			D.loc = src
+			D.forceMove(src)
 
 			D.stat = CONSCIOUS
 			status_flags |= PASSEMOTES
@@ -175,7 +175,7 @@
 		gestalt.nutrition -= NYMPH_ABSORB_NUTRITION//Preventing an exploit with repeatedly absorbing and splitting
 
 	split_languages(gestalt)
-	src.loc = get_turf(src)
+	src.forceMove(get_turf(src))
 	stat = CONSCIOUS
 	gestalt = null
 	update_verbs()

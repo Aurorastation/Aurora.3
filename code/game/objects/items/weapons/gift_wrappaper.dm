@@ -35,7 +35,7 @@
 	qdel(src)
 	return
 
-/obj/item/weapon/a_gift/ex_act()
+/obj/item/weapon/a_gift/ex_act(var/severity = 2.0)
 	qdel(src)
 	return
 
@@ -54,7 +54,7 @@
 	user << "<span class='notice'>You cut open the present.</span>"
 
 	for(var/mob/M in src) //Should only be one but whatever.
-		M.loc = src.loc
+		M.forceMove(src.loc)
 		if (M.client)
 			M.client.eye = M.client.mob
 			M.client.perspective = MOB_PERSPECTIVE
@@ -146,7 +146,7 @@
 				G.w_class = G.size + 1
 				G.icon_state = text("gift[]", G.size)
 				G.gift = W
-				W.loc = G
+				W.forceMove(G)
 				G.add_fingerprint(user)
 				W.add_fingerprint(user)
 				src.add_fingerprint(user)
@@ -178,7 +178,7 @@
 				H.client.perspective = EYE_PERSPECTIVE
 				H.client.eye = present
 
-			H.loc = present
+			H.forceMove(present)
 
 			H.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been wrapped with [src.name]  by [user.name] ([user.ckey])</font>")
 			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to wrap [H.name] ([H.ckey])</font>")
@@ -215,7 +215,7 @@
 
 	return
 
-/obj/item/weapon/xmasgift/ex_act()
+/obj/item/weapon/xmasgift/ex_act(var/severity = 2.0)
 	qdel(src)
 	return
 

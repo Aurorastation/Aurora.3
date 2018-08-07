@@ -49,7 +49,7 @@
 	if(!all_predicates_true(list(holder, user), interact_predicates))
 		return STATUS_CLOSE
 
-	var/datum/host = holder.nano_host()
+	var/datum/host = holder.ui_host()
 	return user.default_can_use_topic(host)
 
 /datum/expansion/multitool/Topic(href, href_list)

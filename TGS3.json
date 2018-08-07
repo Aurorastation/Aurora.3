@@ -1,0 +1,22 @@
+{
+    "documentation": "aurorastation config for TGS3.",
+    "changelog": {
+      "script": "tools/GenerateChangelog/ss13_genchangelog.py",
+      "arguments": "html/changelog.html html/changelogs",
+      "pip_dependancies": [
+        "PyYaml",
+        "beautifulsoup4"
+      ]
+    },
+    "synchronize_paths": [
+      "html/changelog.html",
+      "html/changelogs/*"
+    ],
+    "static_directories": [
+      "config",
+      "data"
+    ],
+    "dlls": [
+      "libmysql.dll"
+    ]
+  }

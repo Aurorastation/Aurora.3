@@ -20,7 +20,7 @@
 	set name = "Hide"
 	set category = "Object"
 
-	if(use_check(user, USE_DISALLOW_SILICONS))
+	if(use_check(usr, USE_DISALLOW_SILICONS))
 		return
 
 	layer = TURF_LAYER+0.2
@@ -85,7 +85,7 @@
 	if(deployed)
 		trigger()
 
-/obj/item/weapon/landmine/ex_act()
+/obj/item/weapon/landmine/ex_act(var/severity = 2.0)
 	if(deployed)
 		trigger()
 

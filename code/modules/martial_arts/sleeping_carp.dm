@@ -38,8 +38,7 @@
 /datum/martial_art/the_sleeping_carp/proc/wristWrench(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(!D.stat && !D.stunned && !D.weakened)
 		A.do_attack_animation(D)
-		D.visible_message("<span class='warning'>[A] grabs [D]'s wrist and wrenches it sideways!</span>", \
-						  "<span class='userdanger'>[A] grabs your wrist and violently wrenches it to the side!</span>")
+		D.visible_message("<span class='warning'>[A] grabs [D]'s wrist and wrenches it sideways!</span>")
 		playsound(get_turf(A), 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 		D.drop_item()
 		D.apply_damage(5, BRUTE, pick("l_arm", "r_arm"))
@@ -50,8 +49,7 @@
 /datum/martial_art/the_sleeping_carp/proc/backKick(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(A.dir == D.dir && !D.stat && !D.weakened)
 		A.do_attack_animation(D)
-		D.visible_message("<span class='warning'>[A] kicks [D] in the back!</span>", \
-						  "<span class='danger'>[A] kicks you in the back, making you stumble and fall!</span>")
+		D.visible_message("<span class='warning'>[A] kicks [D] in the back!</span>")
 		step_to(D,get_step(D,D.dir),1)
 		D.Weaken(4)
 		playsound(get_turf(D), 'sound/weapons/punch1.ogg', 50, 1, -1)
@@ -88,8 +86,7 @@
 /datum/martial_art/the_sleeping_carp/proc/elbowDrop(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(D.weakened || D.resting || D.stat)
 		A.do_attack_animation(D)
-		D.visible_message("<span class='danger'>[A] elbow drops [D]!</span>", \
-						  "<span class='danger'>[A] piledrives you with their elbow!</span>")
+		D.visible_message("<span class='danger'>[A] elbow drops [D]!</span>")
 		if(D.stat)
 			D.death() //FINISH HIM!
 		D.apply_damage(50, BRUTE, "chest")
@@ -105,23 +102,6 @@
 	var/obj/item/weapon/grab/G = A.get_active_hand()
 	if(G)
 		G.state = GRAB_AGGRESSIVE //Instant aggressive grab
-
-/datum/martial_art/the_sleeping_carp/harm_act(mob/living/carbon/human/A, mob/living/carbon/human/D)
-	add_to_streak("H",D)
-	if(check_streak(A,D))
-		return 1
-	A.do_attack_animation(D)
-	var/atk_verb = pick("punches", "kicks", "chops", "hits", "slams")
-	D.visible_message("<span class='danger'>[A] [atk_verb] [D]!</span>", \
-					  "<span class='danger'>[A] [atk_verb] you!</span>")
-	D.apply_damage(rand(10,15), BRUTE)
-	playsound(get_turf(D), 'sound/weapons/punch1.ogg', 25, 1, -1)
-
-	if(prob(D.getBruteLoss()) && !D.lying)
-		D.visible_message("<span class='warning'>[D] stumbles and falls!</span>", "<span class='userdanger'>The blow sends you to the ground!</span>")
-		D.Weaken(4)
-	return 1
-
 
 /datum/martial_art/the_sleeping_carp/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	add_to_streak("D",D)
@@ -159,7 +139,7 @@
 
 	var/datum/martial_art/the_sleeping_carp/theSleepingCarp = new(null)
 	theSleepingCarp.teach(user)
-	user.drop_item()
 	visible_message("<span class='warning'>[src] lights up in fire and quickly burns to ash.</span>")
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
+	user.drop_from_inventory(src,get_turf(src))
 	qdel(src)

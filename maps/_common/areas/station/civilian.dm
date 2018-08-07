@@ -6,6 +6,11 @@
 	flags = RAD_SHIELDED
 	station_area = 1
 
+/area/sconference_room
+	name = "\improper Surface - Conference Room"
+	icon_state = "Sleep"
+	station_area = 1
+
 /area/crew_quarters/toilet
 	name = "\improper Dormitory Toilets"
 	icon_state = "toilet"

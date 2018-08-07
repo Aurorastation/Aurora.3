@@ -14,12 +14,14 @@
 	sprite_sheets_refit = list(
 		"Unathi" = 'icons/mob/species/unathi/helmet.dmi',
 		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
-		"Skrell" = 'icons/mob/species/skrell/helmet.dmi'
+		"Skrell" = 'icons/mob/species/skrell/helmet.dmi',
+		"Vaurca" = 'icons/mob/species/vaurca/helmet.dmi'
 		)
 	sprite_sheets_obj = list(
 		"Unathi" = 'icons/obj/clothing/species/unathi/hats.dmi',
 		"Tajara" = 'icons/obj/clothing/species/tajaran/hats.dmi',
-		"Skrell" = 'icons/obj/clothing/species/skrell/hats.dmi'
+		"Skrell" = 'icons/obj/clothing/species/skrell/hats.dmi',
+		"Vaurca" = 'icons/obj/clothing/species/vaurca/hats.dmi'
 		)
 
 	light_overlay = "helmet_light"
@@ -40,12 +42,14 @@
 	sprite_sheets_refit = list(
 		"Unathi" = 'icons/mob/species/unathi/suit.dmi',
 		"Tajara" = 'icons/mob/species/tajaran/suit.dmi',
-		"Skrell" = 'icons/mob/species/skrell/suit.dmi'
+		"Skrell" = 'icons/mob/species/skrell/suit.dmi',
+		"Vaurca" = 'icons/mob/species/vaurca/suit.dmi'
 		)
 	sprite_sheets_obj = list(
 		"Unathi" = 'icons/obj/clothing/species/unathi/suits.dmi',
 		"Tajara" = 'icons/obj/clothing/species/tajaran/suits.dmi',
-		"Skrell" = 'icons/obj/clothing/species/skrell/suits.dmi'
+		"Skrell" = 'icons/obj/clothing/species/skrell/suits.dmi',
+		"Vaurca" = 'icons/obj/clothing/species/vaurca/suits.dmi'
 		)
 
 	//Breach thresholds, should ideally be inherited by most (if not all) voidsuits.
@@ -110,16 +114,14 @@
 		H = helmet.loc
 		if(istype(H))
 			if(helmet && H.head == helmet)
-				H.drop_from_inventory(helmet)
-				helmet.forceMove(src)
+				H.drop_from_inventory(helmet,src)
 
 	if(boots)
 		boots.canremove = 1
 		H = boots.loc
 		if(istype(H))
 			if(boots && H.shoes == boots)
-				H.drop_from_inventory(boots)
-				boots.forceMove(src)
+				H.drop_from_inventory(boots,src)
 
 	if(tank)
 		tank.canremove = 1
@@ -154,8 +156,7 @@
 	if(H.head == helmet)
 		H << "<span class='notice'>You retract your suit helmet.</span>"
 		helmet.canremove = 1
-		H.drop_from_inventory(helmet)
-		helmet.forceMove(src)
+		H.drop_from_inventory(helmet,src)
 	else
 		if(H.head)
 			H << "<span class='danger'>You cannot deploy your helmet while wearing \the [H.head].</span>"
@@ -225,8 +226,7 @@
 			user << "\The [src] already has a helmet installed."
 		else
 			user << "You attach \the [W] to \the [src]'s helmet mount."
-			user.drop_item()
-			W.forceMove(src)
+			user.drop_from_inventory(W,src)
 			src.helmet = W
 		return
 	else if(istype(W,/obj/item/clothing/shoes/magboots))
@@ -234,8 +234,7 @@
 			user << "\The [src] already has magboots installed."
 		else
 			user << "You attach \the [W] to \the [src]'s boot mounts."
-			user.drop_item()
-			W.forceMove(src)
+			user.drop_from_inventory(W,src)
 			boots = W
 		return
 	else if(istype(W,/obj/item/weapon/tank))
@@ -245,8 +244,7 @@
 			user << "\The [W] cannot be inserted into \the [src]'s storage compartment."
 		else
 			user << "You insert \the [W] into \the [src]'s storage compartment."
-			user.drop_item()
-			W.forceMove(src)
+			user.drop_from_inventory(W,src)
 			tank = W
 		return
 
