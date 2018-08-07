@@ -65,9 +65,6 @@
 /atom/proc/is_open_container()
 	return flags & OPENCONTAINER
 
-/atom/proc/can_pour_out()
-	return !(flags & NOPOUROUT)
-
 /*//Convenience proc to see whether a container can be accessed in a certain way.
 
 	proc/can_subract_container()

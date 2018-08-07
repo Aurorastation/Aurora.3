@@ -31,7 +31,6 @@
 #define PHORONGUARD        0x20  // Does not get contaminated by phoron.
 #define NOREACT            0x40  // Reagents don't react inside this container.
 #define PROXMOVE           0x80  // Does this object require proximity checking in Enter()?
-#define NOPOUROUT          0x100 // Whether or not this container can pour it's reagents out. Similar to opencontainer, but it exclusively handles pouring reagents out. Useful for food.
 
 //Flags for items (equipment)
 #define THICKMATERIAL          0x1  // Prevents syringes, parapens and hyposprays if equiped to slot_suit or slot_head.

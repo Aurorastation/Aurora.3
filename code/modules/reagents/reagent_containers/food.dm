@@ -5,7 +5,7 @@
 /// Food.
 ////////////////////////////////////////////////////////////////////////////////
 /obj/item/weapon/reagent_containers/food
-	flags = OPENCONTAINER | NOPOUROUT
+	flags = OPENCONTAINER
 	possible_transfer_amounts = null
 	volume = 50 //Sets the default container amount for all food items.
 	var/filling_color = "#FFFFFF" //Used by sandwiches.
@@ -36,6 +36,9 @@
 		pixel_y = (CELLSIZE * (0.5 + cell_y)) - center_of_mass["y"]
 
 	. = ..()
+
+/obj/item/weapon/reagent_containers/food/standard_splash_mob(var/mob/user, var/mob/target)
+	return 1 //Returning 1 will cancel everything else in a long line of things it should do.
 
 #undef CELLS
 #undef CELLSIZE

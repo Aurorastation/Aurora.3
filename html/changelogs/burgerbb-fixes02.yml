@@ -36,3 +36,4 @@ delete-after: True
 changes: 
   - bugfix: "Fixes the kinetic uranium recharger from not functioning."
   - bugfix: "Fixes food/plants from being able to be poured into containers."
+  - bugfix: "Removes water dispersion, as it would hang the server during scrubber events."
