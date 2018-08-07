@@ -269,8 +269,6 @@
 	if(installed_upgrade_chip)
 		installed_upgrade_chip.on_update(src)
 
-	..()
-
 /obj/item/weapon/gun/custom_ka/update_icon()
 	. = ..()
 	cut_overlays()
