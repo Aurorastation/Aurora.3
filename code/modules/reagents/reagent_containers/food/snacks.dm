@@ -36,6 +36,9 @@
 	if (nutriment_amt)
 		reagents.add_reagent(nutriment_type, nutriment_amt, nutriment_desc)
 
+/obj/item/weapon/reagent_containers/food/snacks/standard_splash_mob(var/mob/user, var/mob/target)
+	return 1 //Returning 1 will cancel everything else in a long line of things it should do.
+
 /obj/item/weapon/reagent_containers/food/snacks/proc/On_Consume(var/mob/eater, var/mob/feeder = null)
 	if(!reagents.total_volume)
 		eater.visible_message("<span class='notice'>[eater] finishes eating \the [src].</span>","<span class='notice'>You finish eating \the [src].</span>")
