@@ -188,7 +188,7 @@
 
 /datum/gear/suit/secjacketwarden
 	display_name = "navy security jacket (Warden)"
-	path = /obj/item/clothing/suit/security/navyofficer
+	path = /obj/item/clothing/suit/security/navywarden
 	allowed_roles = list("Head of Security", "Warden")
 
 /datum/gear/suit/secjackethos
