@@ -37,8 +37,5 @@
 
 	. = ..()
 
-/obj/item/weapon/reagent_containers/food/standard_splash_mob(var/mob/user, var/mob/target)
-	return 1 //Returning 1 will cancel everything else in a long line of things it should do.
-
 #undef CELLS
 #undef CELLSIZE
