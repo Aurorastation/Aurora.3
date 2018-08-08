@@ -5,7 +5,7 @@
   <link rel="stylesheet" type="text/css" href="changelog.css">
   <base target="_blank" />
   <script type='text/javascript'>
-  
+
 	function changeText(tagID, newText, linkTagID){
 		var tag = document.getElementById(tagID);
 		tag.innerHTML = newText;
@@ -13,8 +13,8 @@
 		linkTag.removeAttribute("href");
 		linkTag.removeAttribute("onclick");
 	}
-	
-  </script>  
+
+  </script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 
@@ -24,7 +24,7 @@
 	<tr>
 		<td valign='top'>
 			<div align='center'><font size='3'><b>Space Station 13</b></font></div>
-			
+
 			<p><div align='center'><font size='3'><a href="https://aurorastation.org/wiki/index.php?title=Main_Page">Wiki</a> | <a href="https://github.com/Aurorastation/Aurora.3">Source code</a></font></div></p>
             <font size='2'>Code licensed under <a href="http://www.gnu.org/licenses/agpl.html">AGPLv3</a>. Content licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>.<br><br>
 			</td>
@@ -48,13 +48,141 @@
 </table>
 
 		<!--
-		
-		TO ADD AN ENTRY, ADD AND MAINTAIN YOUR OWN changelog/USERNAME.yml FILE. 
-		
+
+		TO ADD AN ENTRY, ADD AND MAINTAIN YOUR OWN changelog/USERNAME.yml FILE.
+
 		*** DO NOT MODIFY THIS FILE OR YOU WILL CAUSE MERGE CONFLICTS. ***
-		
+
 		-->
 		<div class="commit sansserif">
+
+			<h2 class="date">05 August 2018</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added checkers and chess game kits to the custom loadout.</li>
+				<li class="rscadd">Added some random asteroid dungeons.</li>
+				<li class="rscadd">You can now build floors using some materials, such as silver, gold and diamond.</li>
+				<li class="rscadd">Added tajaran flags and banners to the custom loadout.</li>
+				<li class="rscadd">Added tobacco, peppercorn, onion and garlic seeds.</li>
+				<li class="rscadd">Added new cooking recipes.</li>
+				<li class="tweak">Using arm blade or shield does not create gibs anymore.</li>
+				<li class="rscdel">Removed shotgun speed loaders.</li>
+				<li class="imageadd">Added unique sprites for shotgun shells boxes.</li>
+				<li class="imageadd">Added some loaded and unloaded sprites for some guns.</li>
+				<li class="rscadd">Sterile masks can now be adjusted, to either cover the face or hang on the neck.</li>
+				<li class="tweak">Cutting any gloves fingertips will now reduce the insulation of the gloves in question.</li>
+				<li class="rscadd">Added a pair of tajaran and unathi insulated gloves to the chief engineer and electrical supplies closets.</li>
+				<li class="rscadd">Added a new unathi clothing to the loadout.</li>
+			</ul>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Centcom now pays for certain products shipped to them. Use the export scanners to determine what they would like to have and how much they pay for it.</li>
+				<li class="rscadd">Sometimes central requests special products to be shipped to them. Make sure to pay attention to the cargo consoles.</li>
+				<li class="rscadd">Invoices for shipments and orders can now be printed using the cargo control console.</li>
+			</ul>
+			<h3 class="author">BurgerBB updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added Monoammonium Phosphate, a reagent that excels in extinguishing fires, and acts as a fertilizer. They are now found in fire extinguishers instead of water. Added Monoammonium Phosphate tanks around the station in place of some water tanks.</li>
+				<li class="rscadd">Added a new weak chem sprayer, 'Xenoblaster', which can be found in xenobiology for xenobiologists.</li>
+				<li class="tweak">Fire extinguishers can be filled with any reagent using an extinguisher cartridge. Extinguisher cartridges can be ordered by cargo, or found in atmospherics.</li>
+				<li class="tweak">Reagent dispensers, such as watertanks and beer kegs, can now be filled with any reagent. Fuel tanks are an exception.</li>
+				<li class="rscadd">Most mobile reagent dispensers can leak their contents if you use harm intent wrench on them. Changed how leaking works.</li>
+				<li class="tweak">Reworked how reagent containers (glass beakers, drinks) behave on interaction. You can splash anyone with any container on harm intent, and drink/use them on other intents.</li>
+				<li class="maptweak">Added a fire storage area in atmospherics that contains firefighting equipment and Monoammonium Phosphate containers.</li>
+				<li class="rscadd">Lube and water can be spread to other tiles if there is too much water or lube on one tile.</li>
+				<li class="rscadd">Adds several new and unique kinetic accelerator parts that can only be found in warehouse or in abandoned crates.</li>
+				<li class="tweak">Kinetic Accelerators can now be held with two hands for a recoil reduction, accuracy increase, and slight firerate increase. Some high-end kinetic accelerators require two hands to fire, and all kinetic accelerators require two hands to pump.</li>
+				<li class="rscadd">Adds a kinetic analyzer, a device that can be purchased from cargo that analyzes kinetic accelerators, displaying useful data about the assembly.</li>
+				<li class="maptweak">Remapped Xenobiology to be worthy of a research station.</li>
+				<li class="rscadd">Stunbatons have a 95% chance to pacify slimes. 5% chance to make them rabid.</li>
+			</ul>
+			<h3 class="author">Fire and Glory updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Vendor K'ois bar packaging has been changed to make it easier for new crew to understand its toxicity</li>
+			</ul>
+			<h3 class="author">Flamingo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Adjusted roof solar wiring to (hopefully) fix the roof solars power routing bug.</li>
+			</ul>
+			<h3 class="author">Karolis2011 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">Removes Topic() rate limiting. This should make HTML UIs more responsive.</li>
+				<li class="experiment">Added completely new Vueui HTML interface system. It should bring more responsive UIs.</li>
+				<li class="rscadd">Added user prefrence for UI theme. At this moment this applies only to Vueui interfaces.</li>
+				<li class="rscadd">Made photocopier and fax machines use Vueui.</li>
+				<li class="rscadd">Made Air control consoles use Vueui.</li>
+			</ul>
+			<h3 class="author">LordFowl updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Airlocks will now open when out of power and blast doors will close.</li>
+				<li class="tweak">Crowbars can no longer open unpowered blast doors.</li>
+			</ul>
+			<h3 class="author">ParadoxSpace updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds HUD aviators for each kind of HUD, also adding night/thermal versions to the uplink.</li>
+				<li class="rscadd">Adds civilian sunglasses to the loadout, they do not protect against flashes.</li>
+			</ul>
+			<h3 class="author">PoZe updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Hyronalin now causes Diona to receive toxin damage. For reference 10 units will get Diona into cirtical state within 3:30 minutes. 15 unit will kill.</li>
+				<li class="rscadd">Arithrazine now causes Diona to receive deadly toxin damage. Even 5u will kill Diona within 1:03 minutes</li>
+				<li class="rscadd">Tea now causes Diona to receive toxin damage. Tiny bit more then how it cures radiation for other species.</li>
+				<li class="rscadd">Radium now cures toxin damage for Diona. You would need at least 1/3 more of it to cure same amount of Hyronalin effect.</li>
+				<li class="rscadd">Adds cyborg surge prevention upgrade module. It is an upgrade that makes cyborg being immune to 1-3 EMP pulses. Can be constructed by robotics, but is expensive and high tech. After being fried, module can be replaced with new module</li>
+				<li class="rscadd">Adds IPC surge prevention module. Available only via traitor uplink, costs 14 telecrystals. Just like cyborg module it make user immune to 1-3 EMP pulses. Comes in from uplink as modified nanopaste that is one time use(doesn't heal user). Module can be repaired with another traitor nanopaste</li>
+			</ul>
+			<h3 class="author">TheDocOct updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a conference room to the public surface level, with a bridge-access bolt button.</li>
+				<li class="maptweak">Moved the surface level atmospherics equipment into the surface engineering storage room, and adjusted it accordingly.</li>
+				<li class="maptweak">Renovated the surface command 'Head of Staff Preparation' room into 'Command Dock Monitoring'.</li>
+			</ul>
+			<h3 class="author">ben10083 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a Medical Hud to the Medical Module</li>
+			</ul>
+
+			<h2 class="date">04 August 2018</h2>
+			<h3 class="author">Ron updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Corporate Reporters can now access security.</li>
+				<li class="bugfix">Removing a pAI from the potted plant no longer results in two being dropped.</li>
+			</ul>
+
+			<h2 class="date">29 July 2018</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">You now need to be in the grab intent to climb up walls and climb down open spaces.</li>
+			</ul>
+			<h3 class="author">BurgerBB updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed backpressure surges going through welded vents.</li>
+			</ul>
+			<h3 class="author">Karolis2011 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes holograms not having proper rotation state when copied subject is rotated.</li>
+			</ul>
+
+			<h2 class="date">24 July 2018</h2>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Increases the size of the new player window to ensure the player polls are always shown.</li>
+			</ul>
+			<h3 class="author">BurgerBB updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed inhalers for real now.</li>
+			</ul>
+			<h3 class="author">PoZe updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Mechs that were shot with ION guns and got into maintenance mode while having it forbidden to switch the mode can now be unlocked by their DNA owners. By being able to allow maintenance mode.</li>
+				<li class="bugfix">Cyborgs, AI, simple animals rejuvinate proc no longer crashes, making healing process to be complete.</li>
+				<li class="rscadd">Microwave now has a verb to eject its content even whe it is not powered on</li>
+				<li class="bugfix">Fixed service cyborg basic sprite eyes overlay</li>
+			</ul>
+			<h3 class="author">ben10083 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Removed the duplicate stamp and fixes the name of the camera in the journalists office.</li>
+			</ul>
 
 			<h2 class="date">22 July 2018</h2>
 			<h3 class="author">Alberyk updated:</h3>
@@ -5602,7 +5730,7 @@
 			<h2 class="date">09 March 2013</h2>
 			<h3 class="author">Cael Aislinn updated:</h3>
 			<ul class="changes bgimages16">
-				<li class="rscadd">Beekeeping is now possible. Construct an apiary of out wood and embed it into a hydroponics tray, then get a queen bee and bottle of BeezEez from cargo bay. 
+				<li class="rscadd">Beekeeping is now possible. Construct an apiary of out wood and embed it into a hydroponics tray, then get a queen bee and bottle of BeezEez from cargo bay.
 		Hives produce honey and honeycomb, but be wary if the bees start swarming.</li>
 			</ul>
 

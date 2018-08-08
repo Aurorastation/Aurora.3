@@ -1,7 +1,0 @@
-author: Karolis2011
-delete-after: True
-changes: 
-  - experiment: Added completely new Vueui HTML interface system. It should bring more responsive UIs.
-  - rscadd: Added user prefrence for UI theme. At this moment this applies only to Vueui interfaces.
-  - rscadd: Made photocopier and fax machines use Vueui.
-  - rscadd: Made Air control consoles use Vueui.

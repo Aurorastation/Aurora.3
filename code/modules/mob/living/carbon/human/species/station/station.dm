@@ -366,10 +366,6 @@
 		return 1
 	return 0
 
-/datum/species/diona/get_random_name(var/gender)
-	var/datum/language/species_language = all_languages[default_language]
-	return species_language.get_random_name()
-
 /datum/species/diona/equip_survival_gear(var/mob/living/carbon/human/H)
 	var/obj/item/device/flashlight/flare/F = new /obj/item/device/flashlight/flare(H)
 	if(H.backbag == 1)
@@ -732,5 +728,4 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
-	H.add_client_color(/datum/client_color/vaurca)
 	return ..()
