@@ -47,7 +47,7 @@ stages:
 
 
 script:
-  - $HOME/flyway-${FLYWAY_BUILD}/flyway migrate -user=root -password= -url=jdbc:mysql://localhost:3306/ss13_test
+  - $HOME/flyway-${FLYWAY_BUILD}/flyway migrate -user=root -password= -url=jdbc:mariadb://localhost:3306/ss13_test
   - source $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}/byond/bin/byondsetup
   - cp config/example/* config/
   - scripts/dm.sh -DUNIT_TEST -M$USE_MAP aurorastation.dme
