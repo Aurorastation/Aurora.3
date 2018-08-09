@@ -432,7 +432,7 @@
 	},
 /obj/machinery/power/smes/buildable{
 	charge = 0;
-	RCon_tag = "\[SOL.3] Solar - Fore TComms"
+	RCon_tag = "Solar - Fore TComms"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/foresolar)
@@ -3237,7 +3237,7 @@
 	},
 /obj/machinery/power/smes/buildable{
 	charge = 0;
-	RCon_tag = "\[SOL.2] Solar - Port TComms"
+	RCon_tag = "Solar - Port TComms"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/portsolar)
@@ -8644,7 +8644,7 @@
 	},
 /obj/machinery/power/smes/buildable{
 	charge = 0;
-	RCon_tag = "\[SOL.1] Solar - Aft TComms"
+	RCon_tag = "Solar - Aft TComms"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/starboardsolar)
@@ -17991,7 +17991,7 @@
 "Hr" = (
 /obj/machinery/power/smes/buildable{
 	charge = 0;
-	RCon_tag = "Substation - \[F.1] Civilian"
+	RCon_tag = "Substation - Civilian Surface"
 	},
 /obj/structure/cable/green,
 /obj/structure/cable/green{
@@ -18166,7 +18166,7 @@
 /area/maintenance/substation/civilian_east)
 "HD" = (
 /obj/machinery/power/breakerbox/activated{
-	RCon_tag = "\[F.1] Civilian Substation Bypass"
+	RCon_tag = "Civilian Surface Substation Bypass"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/civilian_east)
