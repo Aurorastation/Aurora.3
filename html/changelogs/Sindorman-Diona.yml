@@ -1,0 +1,7 @@
+author: PoZe
+
+delete-after: True
+
+changes:
+  - tweak: "Arithrazine was tweaked to kill Dionea with 5 units within 2 minutes, instead of original 1."
+  - tweak: "Hyronalin was teaked to kill Dionea with 15 units within 6 minutes, instead of original 3"
