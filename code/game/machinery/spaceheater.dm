@@ -3,8 +3,8 @@
 	density = 1
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "sheater0"
-	name = "Space A/C unit"
-	desc = "Made by Space Amish using traditional space techniques, this A/C unit can heat or cool a room to your liking."
+	name = "space A/C unit"
+	desc = "made by space amish using traditional space techniques, this A/C unit can heat or cool a room to your liking."
 	var/obj/item/weapon/cell/cell
 	var/on = 0
 	var/set_temperature = T0C + 50	//K
