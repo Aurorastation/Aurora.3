@@ -57,7 +57,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/attack_self(mob/user as mob)
 	return
 
-/obj/item/weapon/reagent_containers/food/snacks/attack(mob/M as mob, mob/user as mob, def_zone)
+/obj/item/weapon/reagent_containers/food/snacks/afterattack(mob/M as mob, mob/user as mob, def_zone)
 	if(!reagents.total_volume)
 		user << "<span class='danger'>None of [src] left!</span>"
 		qdel(src)
