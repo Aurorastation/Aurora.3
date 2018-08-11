@@ -188,7 +188,7 @@
 "aB" = (
 /obj/machinery/power/smes/buildable{
 	charge = 2e+006;
-	RCon_tag = "\[ENG.2] Tesla - Containment"
+	RCon_tag = "Tesla - Containment"
 	},
 /obj/structure/cable{
 	d2 = 8;
@@ -1848,7 +1848,7 @@
 /area/outpost/engineering/power)
 "dZ" = (
 /obj/machinery/power/smes/buildable/outpost_substation{
-	RCon_tag = "\[ENG.2] Tesla - Grid"
+	RCon_tag = "Tesla - Grid"
 	},
 /obj/structure/cable{
 	d2 = 8;
@@ -12496,13 +12496,13 @@
 /area/medical/virology)
 "wq" = (
 /obj/machinery/power/breakerbox/activated{
-	RCon_tag = "\[F.4] Medical Substation Bypass"
+	RCon_tag = "Medical Sublevel Substation Bypass"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
 "wr" = (
 /obj/machinery/power/smes/buildable{
-	RCon_tag = "Substation - \[F.4] Medical"
+	RCon_tag = "Substation - Medical Sublevel"
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -14986,7 +14986,7 @@
 /area/maintenance/sublevel)
 "AR" = (
 /obj/machinery/power/smes/buildable{
-	RCon_tag = "Substation - \[F.4] Research"
+	RCon_tag = "Substation - Research Sublevel"
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -15000,7 +15000,7 @@
 /area/maintenance/sublevel)
 "AS" = (
 /obj/machinery/power/breakerbox/activated{
-	RCon_tag = "\[F.4] Research Substation Bypass"
+	RCon_tag = "Research Sublevel Substation Bypass"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
