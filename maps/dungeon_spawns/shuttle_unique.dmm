@@ -318,6 +318,7 @@
 	lighting = 0;
 	locked = 0;
 	name = "north bump";
+	operating = 0;
 	pixel_x = 0;
 	pixel_y = 24
 	},
