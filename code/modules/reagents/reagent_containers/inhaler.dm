@@ -66,13 +66,14 @@
 		playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
 		to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
 
+	update_icon()
+
 	return
 
 /obj/item/weapon/reagent_containers/inhaler/attack(mob/M as mob, mob/user as mob)
 	..()
 	if(reagents.total_volume <= 0) //Prevents autoinjectors to be refilled.
 		flags &= ~OPENCONTAINER
-	update_icon()
 	return
 
 /obj/item/weapon/reagent_containers/inhaler/update_icon()

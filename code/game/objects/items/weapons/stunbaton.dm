@@ -282,6 +282,10 @@
 	force = 3
 	agonyforce = 60
 
+/obj/item/weapon/melee/baton/slime/Initialize()
+	bcell = new/obj/item/weapon/cell/high(src)
+	. = ..()
+
 /obj/item/weapon/melee/baton/slime/update_icon()
 	icon_state = initial(icon_state)
 	item_state = initial(item_state)
