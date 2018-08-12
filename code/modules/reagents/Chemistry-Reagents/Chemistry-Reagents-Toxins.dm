@@ -733,3 +733,17 @@
 	data = 0
 	taste_description = "quality tobacco"
 	strength = 0.002
+
+/datum/reagent/toxin/berserk
+	name = "Red Nightshade"
+	id = "berserk"
+	description = "An illegal chemical enhancer, may cause aggressive and violent behavior."
+	reagent_state = LIQUID
+	color = "#AA0000"
+	strength = 10
+	taste_description = "bitterness"
+	var/datum/modifier/modifier
+
+/datum/reagent/toxin/berserk/affect_blood(var/mob/living/carbon/M, var/removed)
+	if(!modifier)
+		modifier = M.add_modifier(/datum/modifier/berserk, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)

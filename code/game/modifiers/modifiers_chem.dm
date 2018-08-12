@@ -110,3 +110,21 @@
 		if(L.fire_stacks)
 			return 1
 	return 0
+
+//Berserk Modifier
+//Causes a hulk like effect
+
+/datum/modifier/berserk
+
+/datum/modifier/berserk/activate()
+	..()
+	if(ishuman(target))
+		var/mob/living/carbon/human/H = target
+		to_chat(H, "<span class='danger'>An uncontrollable rage overtakes your thoughts!</span>")
+		H.add_client_color(/datum/client_color/berserk)
+
+/datum/modifier/berserk/deactivate()
+	..()
+	if(ishuman(target))
+		var/mob/living/carbon/human/H = target
+		H.remove_client_color(/datum/client_color/berserk)
