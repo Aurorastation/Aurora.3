@@ -178,7 +178,7 @@ update_flag
 		update_icon()
 
 		if (src.holding)
-			src.holding.loc = src.loc
+			src.holding.forceMove(src.loc)
 			src.holding = null
 
 		return 1
@@ -354,7 +354,7 @@ update_flag
 				release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into the [holding]<br>"
 			if(istype(holding, /obj/item/weapon/tank))
 				holding.manipulated_by = usr.real_name
-			holding.loc = loc
+			holding.forceMove(loc)
 			holding = null
 
 	if (href_list["pressure_adj"])

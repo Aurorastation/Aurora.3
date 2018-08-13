@@ -214,7 +214,7 @@
 	return 1
 
 /obj/item/weapon/tray/AltClick(var/mob/user)
-	if (!use_check(user, show_messages = FALSE)) return
+	if (use_check(user, show_messages = FALSE)) return
 	unload(user)
 
 /obj/item/weapon/tray/proc/attempt_load_item(var/obj/item/I, var/mob/user, var/messages = 1)
@@ -257,7 +257,7 @@
 		var/turf/dropspot = loc
 
 		for(var/obj/item/I in carrying)
-			I.loc = dropspot
+			I.forceMove(dropspot)
 			carrying -= I
 
 		cut_overlays()
@@ -273,7 +273,7 @@
 			dropspot = loc
 
 		for(var/obj/item/I in carrying)
-			I.loc = dropspot
+			I.forceMove(dropspot)
 			carrying -= I
 
 		cut_overlays()
@@ -297,7 +297,7 @@
 
 
 		for(var/obj/item/I in carrying)
-			I.loc = dropspot
+			I.forceMove(dropspot)
 			carrying.Remove(I)
 			spawn()
 				for(var/i = 1, i <= rand(1,2), i++)

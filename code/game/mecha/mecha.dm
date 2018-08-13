@@ -754,7 +754,7 @@
 		var/obj/item/mecha_parts/mecha_equipment/E = W
 		spawn()
 			if(E.can_attach(src))
-				user.drop_item()
+				user.drop_item() //TODO: Look into attach
 				E.attach(src)
 				user.visible_message("[user] attaches [W] to [src]", "You attach [W] to [src]")
 			else
@@ -830,8 +830,7 @@
 		if(state==3)
 			if(!src.cell)
 				user << "You install the powercell"
-				user.drop_item()
-				W.forceMove(src)
+				user.drop_from_inventory(W,src)
 				src.cell = W
 				src.log_message("Powercell installed")
 			else
@@ -1278,7 +1277,7 @@
 		if(istype(mob_container, /obj/item/device/mmi))
 			var/obj/item/device/mmi/mmi = mob_container
 			if(mmi.brainmob)
-				occupant.loc = mmi
+				occupant.forceMove(mmi)
 			mmi.mecha = null
 			src.occupant.canmove = 0
 			src.verbs += /obj/mecha/verb/eject
@@ -1657,7 +1656,7 @@
 		return
 	if(href_list["toggle_maint_access"])
 		if(usr != src.occupant)	return
-		if(state)
+		if(state && src.dna != src.occupant.dna.unique_enzymes)
 			occupant_message("<font color='red'>Maintenance protocols in effect</font>")
 			return
 		maint_access = !maint_access

@@ -197,10 +197,52 @@ var/list/flooring_types
 
 /decl/flooring/reinforced/ramp/bottom
 	icon_base = "rampbot"
-	
+
 /decl/flooring/diona
 	name = "biomass"
-	desc = "a mass of small intertwined aliens forming a floor... Creepy."
+	desc = "A mass of small intertwined aliens forming a floor... Creepy."
 	icon = 'icons/turf/floors.dmi'
 	icon_base = "diona"
 	flags = TURF_ACID_IMMUNE | TURF_REMOVE_SHOVEL
+
+//material turfs
+
+/decl/flooring/silver
+	name = "silver floor"
+	desc = "A fancy floor with silver plating."
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_base = "silver"
+	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
+	build_type = /obj/item/stack/tile/silver
+
+/decl/flooring/gold
+	name = "golden floor"
+	desc = "A fancy floor with golden plating."
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_base = "gold"
+	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
+	build_type = /obj/item/stack/tile/gold
+
+/decl/flooring/uranium
+	name = "uranium floor"
+	desc = "An unsafe floor with uranium plating."
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_base = "uranium"
+	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
+	build_type = /obj/item/stack/tile/uranium
+
+/decl/flooring/phoron
+	name = "phoron floor"
+	desc = "A flammable floor with phoron plating."
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_base = "plasma"
+	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
+	build_type = /obj/item/stack/tile/phoron
+
+/decl/flooring/diamond
+	name = "diamond floor"
+	desc = "An expensive floor with diamond plating."
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_base = "diamond"
+	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
+	build_type = /obj/item/stack/tile/diamond

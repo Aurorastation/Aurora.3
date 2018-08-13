@@ -236,8 +236,7 @@
 		if("brute")
 			if(prob(30) && !issilicon(user))
 				visible_message("<span class='danger'>\The [W] gets caught in the gelatinous folds of \the [src]</span>")
-				user.drop_from_inventory(W)
-				W.forceMove(src.loc)
+				user.drop_from_inventory(W,get_turf(src))
 				return
 			damage = (W.force / brute_resist)
 

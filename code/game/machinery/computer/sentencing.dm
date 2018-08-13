@@ -29,8 +29,7 @@
 
 /obj/machinery/computer/sentencing/attackby(obj/item/O as obj, user as mob)
 	if( istype( O, /obj/item/weapon/paper/incident ) && menu_screen == "import_incident" )
-		usr.drop_item()
-		O.loc = src
+		usr.drop_from_inventory(O,src)
 
 		if( import( O ))
 			ping( "\The [src] pings, \"Successfully imported incident report!\"" )

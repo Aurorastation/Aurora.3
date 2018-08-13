@@ -1,0 +1,270 @@
+/*
+Icons are accessed using class "uiIcon16" and prefix "ic-" combined with icon name
+List of all icons is available at https://fontawesome.com/icons?d=gallery&s=solid&m=free
+*/
+
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+$fa-css-prefix: "ic";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+
+@font-face {
+    font-family: 'Font Awesome 5 Free';
+    font-style: normal;
+    font-weight: 900;
+    src: url('#{$fa-font-path}/fa-solid-900.woff') format('woff');
+}
+
+.fa,
+.fas {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+.uiIcon16 {
+    @include fa-icon;
+    @extend .fas;
+    font-size: 12px;
+    padding: 2px;
+}
+
+.uiIcon24
+{
+    font-size: 24px;
+    @extend .uiIcon16;
+    &.uiStatusIcon {
+        &::before {
+            content: fa-content($fa-var-eye);
+        }
+        &.uiStatusGood {
+            color: #008800;
+        }
+        &.uiStatusAverage {
+            color: #afa404;
+        }
+        &.uiStatusBad {
+            color: #c20000;
+        }
+    }
+}
+
+// NanoUI compatibility
+// Shouldn't be used in new uis
+.uiIcon16 {
+    $icons:
+    "carat-1-n" $fa-var-angle-up,
+    "carat-1-ne" $fa-var-angle-up 45,
+    "carat-1-e" $fa-var-angle-right,
+    "carat-1-se" $fa-var-angle-right 45,
+    "carat-1-s" $fa-var-angle-down,
+    "carat-1-sw" $fa-var-angle-down 45,
+    "carat-1-w" $fa-var-angle-left,
+    "carat-1-nw" $fa-var-angle-left 45,
+    "carat-2-n-s" $fa-var-angle-left+$fa-var-angle-right 90,
+    "carat-2-e-w" $fa-var-angle-left+$fa-var-angle-right,
+    "triangle-1-n" $fa-var-caret-up,
+    "triangle-1-ne" $fa-var-caret-up 45,
+    "triangle-1-e" $fa-var-caret-right,
+    "triangle-1-se" $fa-var-caret-right 45,
+    "triangle-1-s" $fa-var-caret-down,
+    "triangle-1-sw" $fa-var-caret-down  45,
+    "triangle-1-w" $fa-var-caret-left,
+    "triangle-1-nw" $fa-var-caret-left 45,
+    "triangle-2-n-s" $fa-var-sort,
+    "triangle-2-e-w" $fa-var-caret-left+" "+$fa-var-caret-right,
+    "arrow-1-n" $fa-var-arrow-up,
+    "arrow-1-ne" $fa-var-arrow-up 45,
+    "arrow-1-e" $fa-var-arrow-right,
+    "arrow-1-se" $fa-var-arrow-right 45,
+    "arrow-1-s" $fa-var-arrow-down,
+    "arrow-1-sw" $fa-var-arrow-down 45,
+    "arrow-1-w" $fa-var-arrow-left,
+    "arrow-1-nw" $fa-var-arrow-left 45,
+    "arrow-2-n-s" $fa-var-arrows-alt-v,
+    "arrow-2-ne-sw" $fa-var-arrows-alt-h -45,
+    "arrow-2-e-w" $fa-var-arrows-alt-h,
+    "arrow-2-se-nw" $fa-var-arrows-alt-h 45,
+    "arrowstop-1-n" ($fa-var-arrow-right+$fa-var-ellipsis-v) -90,
+    "arrowstop-1-e" ($fa-var-arrow-right+$fa-var-ellipsis-v),
+    "arrowstop-1-s" ($fa-var-arrow-right+$fa-var-ellipsis-v) 90,
+    "arrowstop-1-w" ($fa-var-arrow-right+$fa-var-ellipsis-v) 180,
+    "arrowthick-1-n" $fa-var-arrow-up,
+    "arrowthick-1-ne" $fa-var-arrow-up 45,
+    "arrowthick-1-e" $fa-var-arrow-right,
+    "arrowthick-1-se" $fa-var-arrow-right 45,
+    "arrowthick-1-s" $fa-var-arrow-down,
+    "arrowthick-1-sw" $fa-var-arrow-down 45,
+    "arrowthick-1-w" $fa-var-arrow-left,
+    "arrowthick-1-nw" $fa-var-arrow-left 45,
+    "arrowthick-2-n-s" $fa-var-arrows-alt-v,
+    "arrowthick-2-ne-sw" $fa-var-arrows-alt-h -45,
+    "arrowthick-2-e-w" $fa-var-arrows-alt-h,
+    "arrowthick-2-se-nw" $fa-var-arrows-alt-h 45,
+    "arrowthickstop-1-n" ($fa-var-arrow-right+$fa-var-ellipsis-v) -90,
+    "arrowthickstop-1-e" ($fa-var-arrow-right+$fa-var-ellipsis-v),
+    "arrowthickstop-1-s" ($fa-var-arrow-right+$fa-var-ellipsis-v) 90,
+    "arrowthickstop-1-w" ($fa-var-arrow-right+$fa-var-ellipsis-v) 180,
+    "arrowreturnthick-1-w" $fa-var-share 180,
+    "arrowreturnthick-1-n" $fa-var-share -90,
+    "arrowreturnthick-1-e" $fa-var-share,
+    "arrowreturnthick-1-s" $fa-var-share 90,
+    "arrowreturn-1-w" $fa-var-share 180,
+    "arrowreturn-1-n" $fa-var-share -90,
+    "arrowreturn-1-e" $fa-var-share,
+    "arrowreturn-1-s" $fa-var-share 90,
+    "arrowrefresh-1-w" $fa-var-redo 180,
+    "arrowrefresh-1-n" $fa-var-redo -90,
+    "arrowrefresh-1-e" $fa-var-redo,
+    "arrowrefresh-1-s" $fa-var-redo 90,
+    "arrow-4" $fa-var-arrows-alt,
+    "arrow-4-diag" $fa-var-arrows-alt 45,
+    "extlink" $fa-var-external-link-alt,
+    "newwin" $fa-var-window-restore,
+    "refresh" $fa-var-sync,
+    "shuffle" $fa-var-random,
+    "transfer-e-w" $fa-var-exchange-alt,
+    "transferthick-e-w" $fa-var-exchange-alt,
+    "radiation" $fa-var-exclamation,
+    "folder-collapsed" $fa-var-folder,
+    "folder-open" $fa-var-folder-open,
+    "document" $fa-var-file,
+    "document-b" $fa-var-sticky-note,
+    "note" $fa-var-list,
+    "mail-closed" $fa-var-envelope,
+    "mail-open" $fa-var-envelope-open,
+    "suitcase" $fa-var-suitcase,
+    "comment" $fa-var-comment-alt,
+    "person" $fa-var-user,
+    "print" $fa-var-print,
+    "trash" $fa-var-trash-alt,
+    "locked" $fa-var-lock,
+    "unlocked" $fa-var-lock-open,
+    "bookmark" $fa-var-bookmark,
+    "tag" $fa-var-tag,
+    "home" $fa-var-home,
+    "flag" $fa-var-flag,
+    "calendar" $fa-var-calendar,
+    "cart" $fa-var-shopping-cart,
+    "pencil" $fa-var-pen,
+    "clock" $fa-var-clock,
+    "disk" $fa-var-save,
+    "calculator" $fa-var-calculator,
+    "zoomin" $fa-var-search-plus,
+    "zoomout" $fa-var-search-minus,
+    "search" $fa-var-search,
+    "wrench" $fa-var-wrench,
+    "gear" $fa-var-cog,
+    "heart" $fa-var-heart,
+    "star" $fa-var-star,
+    "link" $fa-var-link,
+    "cancel" $fa-var-ban,
+    "plus" $fa-var-plus,
+    "plusthick" $fa-var-plus,
+    "minus" $fa-var-minus,
+    "minusthick" $fa-var-minus,
+    "close" $fa-var-times,
+    "closethick" $fa-var-times,
+    "key" $fa-var-key,
+    "lightbulb" $fa-var-lightbulb,
+    "scissors" $fa-var-cut,
+    "clipboard" $fa-var-clipboard-list,
+    "copy" $fa-var-clone,
+    "contact" $fa-var-address-card,
+    "image" $fa-var-image,
+    "video" $fa-var-film,
+    "script" $fa-var-file-code,
+    "alert" $fa-var-exclamation-triangle,
+    "info" $fa-var-info-circle,
+    "notice" $fa-var-exclamation,
+    "help" $fa-var-question,
+    "check" $fa-var-check,
+    "bullet" $fa-var-circle,
+    "pin-w" $fa-var-thumbtack 90,
+    "pin-s" $fa-var-thumbtack,
+    "night" $fa-var-moon,
+    "play" $fa-var-play,
+    "pause" $fa-var-pause,
+    "seek-next" $fa-var-forward,
+    "seek-prev" $fa-var-backward,
+    "seek-end" $fa-var-step-forward,
+    "seek-start" $fa-var-step-backward,
+    "seek-first" $fa-var-step-backward,
+    "stop" $fa-var-stop,
+    "eject" $fa-var-eject,
+    "volume-off" $fa-var-volume-off,
+    "volume-on" $fa-var-volume-up,
+    "power" $fa-var-power-off,
+    "signal-diag" $fa-var-signal,
+    "signal" $fa-var-signal,
+    "battery-0" $fa-var-battery-empty,
+    "battery-1" $fa-var-battery-quarter,
+    "battery-2" $fa-var-battery-three-quarters,
+    "battery-3" $fa-var-battery-full,
+    "circle-plus" $fa-var-plus-circle,
+    "circle-minus" $fa-var-minus-circle,
+    "circle-close" $fa-var-times-circle,
+    "circlesmall-plus" $fa-var-plus-square,
+    "circlesmall-minus" $fa-var-minus-square,
+    "squaresmall-plus" $fa-var-plus-square,
+    "squaresmall-minus" $fa-var-minus-square,
+    "grip-dotted-vertical" ($fa-var-ellipsis-v + $fa-var-ellipsis-v),
+    "grip-dotted-horizontal" ($fa-var-ellipsis-v + $fa-var-ellipsis-v) 90;
+
+    @each $i in $icons{
+        &.icon-#{nth($i, 1)} {
+            &::before {
+                content: fa-content(nth($i, 2));
+            }
+            @if length($i) == 3 {
+                transform: rotate(unquote(nth($i, 3) + 'deg'));
+            }
+        }
+    }
+}
+
+.mapIcon16 {
+    @extend .uiIcon16;
+    position: absolute;
+    color: #2fd02f;
+    &.red {
+        color: #cc0000;
+    }
+    $ranks:
+    /* Command Positions */
+    "captain" $fa-var-star,
+    "headofpersonnel" $fa-var-suitcase,
+    "headofsecurity" $fa-var-key,
+    "chiefengineer" $fa-var-wrench,
+    "researchdirector" $fa-var-lightbulb,
+    "chiefmedicalofficer" $fa-var-plus,
+    
+    /* Engineering Positions */
+    "stationengineer" $fa-var-wrench,
+    "atmospherictechnician" $fa-var-wrench,
+    
+    /* Medical Positions */
+    "medicaldoctor" $fa-var-plus,
+    "psychiatrist" $fa-var-plus,
+    "chemist" $fa-var-plus,
+    
+    /* Science Positions */
+    "scientist" $fa-var-lightbulb,
+    "geneticist" $fa-var-lightbulb,
+    "roboticist" $fa-var-lightbulb,
+    "xenobiologist" $fa-var-lightbulb,
+    
+    /* Security Positions */
+    "warden" $fa-var-key,
+    "detective" $fa-var-key,
+    "securityofficer" $fa-var-key;
+
+    @each $i in $ranks{
+        &.rank-#{nth($i, 1)} {
+            &::before {
+                content: fa-content(nth($i, 2));
+            }
+            @if length($i) == 3 {
+                transform: rotate(unquote(nth($i, 3) + 'deg'));
+            }
+        }
+    }
+}

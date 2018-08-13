@@ -151,22 +151,18 @@
 		return ..()
 	if(ismodifier(A) && gun_mods.len < modifier_cap)
 		gun_mods += A
-		user.drop_item()
-		A.forceMove(src)
+		user.drop_from_inventory(A,src)
 	else if(islasercapacitor(A) && stage == 1)
 		capacitor = A
-		user.drop_item()
-		A.forceMove(src)
+		user.drop_from_inventory(A,src)
 		stage = 2
 	else if(isfocusinglens(A) && stage == 2)
 		focusing_lens = A
-		user.drop_item()
-		A.forceMove(src)
+		user.drop_from_inventory(A,src)
 		stage = 3
 	else if(ismodulator(A) && stage == 3)
 		modulator = A
-		user.drop_item()
-		A.forceMove(src)
+		user.drop_from_inventory(A,src)
 	else
 		return ..()
 	user << "<span class='notice'>You insert \the [A] into the assembly.</span>"

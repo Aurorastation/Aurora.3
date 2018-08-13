@@ -30,7 +30,6 @@
 		/obj/item/weapon/gun/projectile/automatic/x9         = TRADER_THIS_TYPE,
 		/obj/item/ammo_magazine/c45m                         = TRADER_ALL,
 		/obj/item/ammo_magazine/c45m/empty                   = TRADER_BLACKLIST,
-		/obj/item/ammo_magazine/shotgun                      = TRADER_ALL,
 		/obj/item/ammo_magazine/t40                          = TRADER_ALL,
 		/obj/item/ammo_magazine/t40/empty                    = TRADER_BLACKLIST,
 		/obj/item/ammo_magazine/c38                          = TRADER_ALL,

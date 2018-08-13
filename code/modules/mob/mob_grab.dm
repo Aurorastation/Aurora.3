@@ -210,12 +210,12 @@
 			shift = -10
 			adir = assailant.dir
 			affecting.set_dir(assailant.dir)
-			affecting.loc = assailant.loc
+			affecting.forceMove(assailant.loc)
 		if(GRAB_KILL)
 			shift = 0
 			adir = 1
 			affecting.set_dir(SOUTH) //face up
-			affecting.loc = assailant.loc
+			affecting.forceMove(assailant.loc)
 
 	switch(adir)
 		if(NORTH)

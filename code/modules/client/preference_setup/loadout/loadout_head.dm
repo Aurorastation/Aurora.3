@@ -183,3 +183,19 @@
 /datum/gear/head/headbando/New()
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/head/beanie
+	display_name = "beanie"
+	path = /obj/item/clothing/head/beanie
+
+/datum/gear/head/beanie/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/head/loose_beanie
+	display_name = "loose beanie"
+	path = /obj/item/clothing/head/beanie_loose
+
+/datum/gear/head/loose_beanie/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)

@@ -74,13 +74,13 @@
 	if(iswrench(W) && !status)//Taking this apart
 		var/turf/T = get_turf(src)
 		if(weldtool)
-			weldtool.loc = T
+			weldtool.forceMove(T)
 			weldtool = null
 		if(igniter)
-			igniter.loc = T
+			igniter.forceMove(T)
 			igniter = null
 		if(ptank)
-			ptank.loc = T
+			ptank.forceMove(T)
 			ptank = null
 		new /obj/item/stack/rods(T)
 		qdel(src)
@@ -96,8 +96,7 @@
 		var/obj/item/device/assembly/igniter/I = W
 		if(I.secured)	return
 		if(igniter)		return
-		user.drop_item()
-		I.loc = src
+		user.drop_from_inventory(I,src)
 		igniter = I
 		update_icon()
 		return
@@ -106,9 +105,8 @@
 		if(ptank)
 			user << "<span class='notice'>There appears to already be a phoron tank loaded in [src]!</span>"
 			return
-		user.drop_item()
+		user.drop_from_inventory(W,src)
 		ptank = W
-		W.loc = src
 		update_icon()
 		return
 

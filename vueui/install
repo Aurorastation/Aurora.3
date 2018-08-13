@@ -1,0 +1,8 @@
+#!/bin/bash
+# curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+# . ~/.nvm/nvm.sh
+# nvm install node ${NODE_VERSION}
+# nvm use node ${NODE_VERSION}
+BASEDIR=$(dirname $0)
+cd $BASEDIR
+npm install

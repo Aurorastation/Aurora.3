@@ -990,7 +990,7 @@
 
 /obj/random/custom_ka
 	name = "random custom kinetic accelerator"
-	desc = "Wew."
+	desc = "Contains random assemblies. The parts may not always be compatible with eachother."
 	icon = 'icons/obj/kinetic_accelerators.dmi'
 	icon_state = "frame01"
 	spawnlist = list(
@@ -1037,3 +1037,22 @@
 		spawned_frame.update_stats()
 
 		qdel(thing)
+
+/obj/random/prebuilt_ka
+	name = "random prebuilt kinetic accelerator"
+	desc = "Contains working kinetic accelerators that were prebuilt in code."
+	icon = 'icons/obj/kinetic_accelerators.dmi'
+	icon_state = "frameA"
+	spawnlist = list(
+		/obj/item/weapon/gun/custom_ka/frame01/prebuilt = 2.5,
+		/obj/item/weapon/gun/custom_ka/frame02/prebuilt = 5,
+		/obj/item/weapon/gun/custom_ka/frame03/prebuilt = 10,
+		/obj/item/weapon/gun/custom_ka/frame04/prebuilt = 5,
+		/obj/item/weapon/gun/custom_ka/frame05/prebuilt = 2.5,
+		/obj/item/weapon/gun/custom_ka/frameA/prebuilt = 1,
+		/obj/item/weapon/gun/custom_ka/frameB/prebuilt = 1,
+		/obj/item/weapon/gun/custom_ka/frameC/prebuilt = 1,
+		/obj/item/weapon/gun/custom_ka/frameD/prebuilt = 1,
+		/obj/item/weapon/gun/custom_ka/frameF/prebuilt01 = 1,
+		/obj/item/weapon/gun/custom_ka/frameF/prebuilt02 = 1
+	)

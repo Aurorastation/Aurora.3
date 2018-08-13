@@ -34,7 +34,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	displayed_name = name
 	if(!size)
 		size = w_class
-	if(size == -1) 
+	if(size == -1)
 		size = 0
 	setup_io(inputs, /datum/integrated_io, inputs_default)
 	setup_io(outputs, /datum/integrated_io, outputs_default)
@@ -53,10 +53,10 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		qdel(A)
 	. = ..()
 
-/obj/item/integrated_circuit/nano_host()
+/obj/item/integrated_circuit/ui_host()
 	if(istype(src.loc, /obj/item/device/electronic_assembly))
 		var/obj/item/device/electronic_assembly/assembly = loc
-		return assembly.resolve_nano_host()
+		return assembly.resolve_ui_host()
 	return ..()
 
 /obj/item/integrated_circuit/emp_act(severity)
@@ -262,7 +262,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		if(!circuit)
 			return
 		circuit.loc = null
-		circuit.loc = assy
+		circuit.forceMove(assy)
 		. = 1
 		update_to_assembly = 1
 

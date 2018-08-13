@@ -228,8 +228,7 @@
 			attack_hand(user)
 		return
 	else if(istype(W, /obj/item/weapon/coin) && premium.len > 0)
-		user.drop_item()
-		W.loc = src
+		user.drop_from_inventory(W,src)
 		coin = W
 		categories |= CAT_COIN
 		user << "<span class='notice'>You insert \the [W] into \the [src].</span>"
@@ -308,7 +307,7 @@
 		cashmoney_bundle.worth -= currently_vending.price
 
 		if(cashmoney_bundle.worth <= 0)
-			usr.drop_from_inventory(cashmoney_bundle)
+			usr.drop_from_inventory(cashmoney_bundle,get_turf(src))
 			qdel(cashmoney_bundle)
 		else
 			cashmoney_bundle.update_icon()
@@ -320,7 +319,7 @@
 
 		visible_message("<span class='info'>\The [usr] inserts a bill into \the [src].</span>")
 		var/left = cashmoney.worth - currently_vending.price
-		usr.drop_from_inventory(cashmoney)
+		usr.drop_from_inventory(cashmoney,get_turf(src))
 		qdel(cashmoney)
 
 		if(left)
@@ -505,7 +504,7 @@
 			usr << "There is no coin in this machine."
 			return
 
-		coin.loc = src.loc
+		coin.forceMove(src.loc)
 		if(!usr.get_active_hand())
 			usr.put_in_hands(coin)
 		usr << "<span class='notice'>You remove the [coin] from the [src]</span>"
@@ -513,7 +512,7 @@
 		categories &= ~CAT_COIN
 
 	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))))
-		if ((href_list["vend"]) && (src.vend_ready) && (!currently_vending))
+		if (text2num(href_list["vend"]) && (src.vend_ready) && (!currently_vending))
 			if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
 				usr << "<span class='warning'>Access denied.</span>"	//Unless emagged of course
 				flick(icon_deny,src)

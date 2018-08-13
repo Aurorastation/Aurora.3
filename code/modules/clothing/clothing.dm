@@ -178,12 +178,11 @@
 	T.visible_message("<span class='danger'>\The [src] [material.destruction_desc]!</span>")
 	if(istype(loc, /mob/living))
 		var/mob/living/M = loc
-		M.drop_from_inventory(src)
 		if(material.shard_type == SHARD_SHARD) // Wearing glass armor is a bad idea.
 			var/obj/item/weapon/material/shard/S = material.place_shard(T)
 			M.embed(S)
 
-	playsound(src, "shatter", 70, 1)
+	playsound(src.loc, "shatter", 70, 1)
 	qdel(src)
 
 /obj/item/clothing/suit/armor/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
@@ -316,6 +315,33 @@
 	item_state = "earmuffs"
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
 
+/obj/item/clothing/ears/earmuffs/headphones
+	name = "headphones"
+	desc = "Unce unce unce unce."
+	var/headphones_on = 0
+	icon_state = "headphones_off"
+	item_state = "headphones"
+	slot_flags = SLOT_EARS | SLOT_TWOEARS
+
+/obj/item/clothing/ears/earmuffs/headphones/verb/togglemusic()
+	set name = "Toggle Headphone Music"
+	set category = "Object"
+	set src in usr
+	if(!istype(usr, /mob/living)) return
+	if(usr.stat) return
+
+	if(headphones_on)
+		icon_state = "headphones_off"
+		headphones_on = 0
+		usr << "<span class='notice'>You turn the music off.</span>"
+	else
+		icon_state = "headphones_on"
+		headphones_on = 1
+		usr << "<span class='notice'>You turn the music on.</span>"
+
+	update_clothing_icon()
+
+
 ///////////////////////////////////////////////////////////////////////
 //Gloves
 /obj/item/clothing/gloves
@@ -390,8 +416,7 @@
 				to_chat(user, "You are unable to wear \the [src] as \the [H.gloves] are in the way.")
 				ring = null
 				return 0
-			H.drop_from_inventory(ring)	//Remove the ring (or other under-glove item in the hand slot?) so you can put on the gloves.
-			ring.forceMove(src)
+			H.drop_from_inventory(ring,src)
 
 	if(!..())
 		if(ring) //Put the ring back on if the check fails.
@@ -703,6 +728,8 @@
 		"Resomi" = 'icons/mob/species/resomi/suit.dmi'
 		)
 
+	valid_accessory_slots = list("over")
+
 /obj/item/clothing/suit/update_clothing_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
@@ -741,7 +768,7 @@
 	//convenience var for defining the icon state for the overlay used when the clothing is worn.
 	//Also used by rolling/unrolling.
 	var/worn_state = null
-	valid_accessory_slots = list("utility","armband","decor")
+	valid_accessory_slots = list("utility","armband","decor", "over")
 	restricted_accessory_slots = list("utility", "armband")
 
 

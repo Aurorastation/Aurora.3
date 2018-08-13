@@ -62,9 +62,8 @@ var/global/list/rad_collectors = list()
 		if(src.P)
 			user << "<span class='warning'>There's already a phoron tank loaded.</span>"
 			return 1
-		user.drop_item()
+		user.drop_from_inventory(W,src)
 		src.P = W
-		W.loc = src
 		update_icons()
 		return 1
 	else if(iscrowbar(W))
@@ -115,7 +114,7 @@ var/global/list/rad_collectors = list()
 	var/obj/item/weapon/tank/phoron/Z = src.P
 	if (!Z)
 		return
-	Z.loc = get_turf(src)
+	Z.forceMove(get_turf(src))
 	Z.layer = initial(Z.layer)
 	src.P = null
 	if(active)
