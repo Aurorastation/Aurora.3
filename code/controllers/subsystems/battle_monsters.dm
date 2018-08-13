@@ -98,11 +98,12 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 	else
 		return "monster"
 
-/datum/controller/subsystem/battle_monsters/proc/GetWeapons(var/obj/item/battle_monsters/card/card_data, var/and_text = " and ")
-
+/datum/controller/subsystem/battle_monsters/proc/GetAttackType(var/obj/item/battle_monsters/card/card_data, var/and_text = " and ")
 	//This list looks odd to prevent runtime errors related to out of bounds indexes
 	var/list/translations = list(
-		"staff" = BATTLE_MONSTERS_ATTACKTYPE_SPELLCASTER,
+		"Spellcastser" = BATTLE_MONSTERS_ATTACKTYPE_SPELLCASTER,
+		"Swordsman" = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN,
+		"Commander" = BATTLE_MONSTERS_ATTACKTYPE_ARMY
 	)
 
 	var/list/included_elements = list()
@@ -112,22 +113,40 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 			continue
 		included_elements.Add(translation)
 
-	return english_list(included_elements, nothing_text = "body", and_text = and_text)
+	return english_list(included_elements, nothing_text = "Regular", and_text = and_text)
+
+/datum/controller/subsystem/battle_monsters/proc/GetWeapons(var/obj/item/battle_monsters/card/card_data, var/and_text = " and ")
+
+	//This list looks odd to prevent runtime errors related to out of bounds indexes
+	var/list/translations = list(
+		"staff" = BATTLE_MONSTERS_ATTACKTYPE_SPELLCASTER,
+		"sword" = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN,
+		"army" = BATTLE_MONSTERS_ATTACKTYPE_ARMY,
+	)
+
+	var/list/included_elements = list()
+
+	for(var/translation in translations)
+		if(!(translations[translation] & card_data.card_elements))
+			continue
+		included_elements.Add(translation)
+
+	return english_list(included_elements, nothing_text = "fists", and_text = and_text)
 
 /datum/controller/subsystem/battle_monsters/proc/GetElements(var/obj/item/battle_monsters/card/card_data,var/and_text = " and ")
 
 	//This list looks odd to prevent runtime errors related to out of bounds indexes
 	var/list/translations = list(
-		"normal" = BATTLE_MONSTERS_ELEMENT_NEUTRAL,
-		"fire" = BATTLE_MONSTERS_ELEMENT_FIRE,
-		"energy" = BATTLE_MONSTERS_ELEMENT_ENERGY,
-		"water" = BATTLE_MONSTERS_ELEMENT_WATER,
-		"ice" = BATTLE_MONSTERS_ELEMENT_ICE,
-		"earth" = BATTLE_MONSTERS_ELEMENT_EARTH,
-		"stone" = BATTLE_MONSTERS_ELEMENT_STONE,
-		"dark" = BATTLE_MONSTERS_ELEMENT_DARK,
-		"light" = BATTLE_MONSTERS_ELEMENT_LIGHT,
-		"god" = BATTLE_MONSTERS_ELEMENT_GOD
+		"Normal" = BATTLE_MONSTERS_ELEMENT_NEUTRAL,
+		"Fire" = BATTLE_MONSTERS_ELEMENT_FIRE,
+		"Energy" = BATTLE_MONSTERS_ELEMENT_ENERGY,
+		"Water" = BATTLE_MONSTERS_ELEMENT_WATER,
+		"Ice" = BATTLE_MONSTERS_ELEMENT_ICE,
+		"Earth" = BATTLE_MONSTERS_ELEMENT_EARTH,
+		"Stone" = BATTLE_MONSTERS_ELEMENT_STONE,
+		"Dark" = BATTLE_MONSTERS_ELEMENT_DARK,
+		"Light" = BATTLE_MONSTERS_ELEMENT_LIGHT,
+		"God" = BATTLE_MONSTERS_ELEMENT_GOD
 	)
 
 	var/list/included_elements = list()
@@ -143,12 +162,14 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 
 	var/list/replacements = list(
 		"%NAME" = card_data.card_name,
+		"%SPECIES_C" = capitalize(GetSpecies(card_data)),
 		"%SPECIES" = GetSpecies(card_data),
 		"%TYPE" = card_data.card_type,
 		"%ELEMENT_AND" = GetElements(card_data),
 		"%ELEMENT_OR" = GetElements(card_data, " or "),
-		"%ELEMENT_LIST" = GetElements(card_data,", "),
-		"%WEAPON_AND" = GetWeapons(card_data)
+		"%ELEMENT_LIST" = GetElements(card_data, ", "),
+		"%WEAPON_AND" = GetWeapons(card_data),
+		"%ATTACKTYPE_LIST" = GetAttackType(card_data, ", ")
 	)
 
 	for(var/word in replacements)

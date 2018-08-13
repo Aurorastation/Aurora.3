@@ -15,8 +15,6 @@ datum/battle_monsters/monster
 	//1 or lower means common, 2 means uncommon, 3 means rare, 4 or higher means legendary.
 	//Uncommon or higher rarities should be used sparringly, and only to cards that are super noteable.
 
-
-
 datum/battle_monsters/monster/human
 	name = "Human"
 	id = "human"
@@ -25,7 +23,7 @@ datum/battle_monsters/monster/human
 	defense_add = 1
 	attack_add = 1
 	rarity = 2
-	description = "a typical human citizen of the Great Kingdom."
+	description = "a typical human citizen of the Great Kingdom. While not a trained fighter, all humans are quick thinkers and know how to punch when it matters."
 	special_effects = ""
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_HUMAN
 	rarity_score = -2
@@ -77,7 +75,7 @@ datum/battle_monsters/monster/human/warrior
 	rarity = 0.25
 	description = "a strong and hardy %SPECIES wearing heavy armor and wielding a %WEAPON_AND."
 	special_effects = "%SPECIES Bond: %NAME gains <b>300</b> attack points if there is another %SPECIES on the same side of the field."
-	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SPELLCASTER
+	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN
 	rarity_score = 1
 
 datum/battle_monsters/monster/human/knight
@@ -88,7 +86,33 @@ datum/battle_monsters/monster/human/knight
 	defense_add = 4
 	attack_add = 1
 	rarity = 0.1
-	description = "a loyal %SPECIES knight dorned in heavy %ELEMENT_AND armor"
+	description = "a loyal %SPECIES knight dorned in heavy %ELEMENT_AND armor."
 	special_effects = "%SPECIES Protection: As long as %NAME is on the field, all other %SPECIES are attack immune."
-	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SPELLCASTER
+	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN
 	rarity_score = 1
+
+datum/battle_monsters/monster/human/king
+	name = "King"
+	id = "king"
+	icon_state = "king"
+	power_add = 2000
+	defense_add = 1
+	attack_add = 10
+	rarity = 0.05
+	description = "a fat %SPECIES king sitting atop a golden throne, with a small army on a gold chessboard. Their golden crown is quite large for their small head."
+	special_effects = "Selfish Protection: %NAME cannot be attacked if other monsters exist on the same side of the field."
+	attack_type = BATTLE_MONSTERS_ATTACKTYPE_ARMY
+	rarity_score = 2
+
+datum/battle_monsters/monster/human/queen
+	name = "Queen"
+	id = "queen"
+	icon_state = "king"
+	power_add = 2000
+	defense_add = 1
+	attack_add = 5
+	rarity = 0.05
+	description = "an incredibly voluptuous %SPECIES female adorned in a %ELEMENTS_AND robe. A tight-fitting crown sits atop her head."
+	special_effects = "Lustful Aurora: %NAME cannot be attacked by %SPECIES."
+	attack_type = BATTLE_MONSTERS_ATTACKTYPE_ARMY
+	rarity_score = 2

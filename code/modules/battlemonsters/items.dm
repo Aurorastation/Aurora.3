@@ -1,7 +1,10 @@
-/obj/item/battle_monsters/card
-	name = "battle monsters card"
+/obj/item/battle_monsters/
 	icon = 'icons/obj/battle_monsters/card.dmi'
 	icon_state = ""
+
+
+/obj/item/battle_monsters/card
+	name = "battle monsters card"
 	desc = "A battle monster's card."
 	var/datum/battle_monsters/element/prefix_datum
 	var/datum/battle_monsters/monster/root_datum
@@ -9,6 +12,9 @@
 
 	//Card information here
 	var/card_name = ""
+	var/card_prefix
+	var/card_root
+	var/card_suffix
 	var/card_description = ""
 	var/card_special_effects = ""
 	var/card_elements = BATTLE_MONSTERS_ELEMENT_NONE
@@ -37,15 +43,18 @@
 	else
 		root_datum = SSbattlemonsters.GetRandomRoot()
 
-
 	var/rarity_score = prefix_datum.rarity_score + root_datum.rarity_score
 
 	if(title)
 		suffix_datum = SSbattlemonsters.FindMatchingSuffix(title,TRUE)
-	else if (rarity_score >= 3)
+	else
 		suffix_datum = SSbattlemonsters.GetRandomSuffix()
 	else
 		suffix_datum = SSbattlemonsters.FindMatchingSuffix("no_title",TRUE)
+
+	card_prefix = prefix_datum.name
+	card_root = root_datum.name
+	card_suffix = suffix_datum.name
 
 	update_icon()
 
@@ -110,7 +119,48 @@
 
 /obj/item/battle_monsters/card/examine(mob/user)
 	..()
-	to_chat(user,SSbattlemonsters.FormatText(src,"<b>[card_name]</b> | Level [max(card_rarity_score,1)] %ELEMENT_LIST %TYPE."))
+	to_chat(user,SSbattlemonsters.FormatText(src,"<b>[card_name]</b> | Level [max(card_rarity_score,1)] %ELEMENT_LIST %TYPE | %SPECIES_C %ATTACKTYPE_LIST"))
 	to_chat(user,SSbattlemonsters.FormatText(src,"ATK: [card_attack_points] | DEF: [card_defense_points]"))
 	to_chat(user,SSbattlemonsters.FormatText(src,card_special_effects))
 	to_chat(user,SSbattlemonsters.FormatText(src,"The card depicts [card_description]"))
+
+/obj/item/battle_monsters/deck
+	name = "battle monsters deck"
+	icon_state = "stack"
+	var/list/stored_card_names = list()
+
+/obj/item/battle_monsters/deck/proc/get_top_card()
+	return stored_card_names[stored_card_names.len]
+
+/obj/item/battle_monsters/deck/proc/get_bottom_card()
+	return stored_card_names[1]
+
+/obj/item/battle_monsters/deck/proc/add_card(var/user, var/obj/item/battle_monsters/card/added_card)
+	stored_card_names += list( list(added_card.card_prefix,added_card.card_root,added_card.card_suffix) )
+	qdel(added_card)
+
+/obj/item/battle_monsters/deck/proc/take_card(var/mob/user, var/list/card_name)
+	if(card_name in stored_card_names)
+		var/obj/item/battle_monsters/card/new_card = new(src.loc,card_name[1],card_name[2],card_name[3])
+		user.put_in_active_hand(new_card)
+		stored_card_names -= card_name
+
+	if(stored_card_names.len <= 0)
+		qdel(src)
+
+/obj/item/battle_monsters/deck/attack_hand(var/mob/user)
+	take_card(user,get_top_card())
+
+/obj/item/battle_monsters/deck/attackby(var/obj/item/attacking, var/mob/user)
+	if(istype(attacking,/obj/item/battle_monsters/card))
+		var/obj/item/battle_monsters/card/adding_card = attacking
+		add_card(user,adding_card)
+
+/obj/item/battle_monsters/deck/proc/Generate_Deck()
+	for(var/i=1,i < 52,i++)
+		stored_card_names += list( list(SSbattlemonsters.GetRandomPrefix(),SSbattlemonsters.GetRandomRoot(),prob(5) ? SSbattlemonsters.GetRandomSuffix() : "no_title") )
+
+/obj/item/battle_monsters/deck/generated/New()
+	. = ..()
+	Generate_Deck()
+
