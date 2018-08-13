@@ -15,7 +15,22 @@ datum/battle_monsters/monster
 	//1 or lower means common, 2 means uncommon, 3 means rare, 4 or higher means legendary.
 	//Uncommon or higher rarities should be used sparringly, and only to cards that are super noteable.
 
-datum/battle_monsters/monster/mage
+
+
+datum/battle_monsters/monster/human
+	name = "Human"
+	id = "human"
+	icon_state = "human"
+	power_add = 500
+	defense_add = 1
+	attack_add = 1
+	rarity = 2
+	description = "a typical human citizen of the Great Kingdom."
+	special_effects = ""
+	defense_type = BATTLE_MONSTERS_DEFENSETYPE_HUMAN
+	rarity_score = -2
+
+datum/battle_monsters/monster/human/mage
 	name = "Apprentice Mage"
 	id = "mage"
 	icon_state = "staff"
@@ -26,9 +41,8 @@ datum/battle_monsters/monster/mage
 	description = "a young and eager-looking %SPECIES mage."
 	special_effects = "Tutor: %NAME temporarily gains <b>250</b> bonus attack points if a spellcaster with more attack points than %NAME is on your side of the field."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SPELLCASTER
-	defense_type = BATTLE_MONSTERS_DEFENSETYPE_HUMAN
 
-datum/battle_monsters/monster/sage
+datum/battle_monsters/monster/human/sage
 	name = "Wise Sage"
 	id = "sage"
 	icon_state = "staff"
@@ -39,9 +53,8 @@ datum/battle_monsters/monster/sage
 	description = "an elderly %SPECIES, dressed in typical wizard garb."
 	special_effects = "Elemental Defense: %NAME temporarily gains <b>500</b> bonus defense points when defending against another %ELEMENT_OR type monster."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SPELLCASTER
-	defense_type = BATTLE_MONSTERS_DEFENSETYPE_HUMAN
 
-datum/battle_monsters/monster/wizard
+datum/battle_monsters/monster/human/wizard
 	name = "Master Wizard"
 	id = "wizard"
 	icon_state = "staff"
@@ -52,5 +65,30 @@ datum/battle_monsters/monster/wizard
 	description = "an elderly %SPECIES, dressed in typical wizard garb."
 	special_effects = "Elemental Spell Immune: %NAME is immune to %ELEMENT_AND based spell cards."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SPELLCASTER
-	defense_type = BATTLE_MONSTERS_DEFENSETYPE_HUMAN
+	rarity_score = 1
+
+datum/battle_monsters/monster/human/warrior
+	name = "Warrior"
+	id = "warrior"
+	icon_state = "human"
+	power_add = 1000
+	defense_add = 2
+	attack_add = 1
+	rarity = 0.25
+	description = "a strong and hardy %SPECIES wearing heavy armor and wielding a %WEAPON_AND."
+	special_effects = "%SPECIES Bond: %NAME gains <b>300</b> attack points if there is another %SPECIES on the same side of the field."
+	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SPELLCASTER
+	rarity_score = 1
+
+datum/battle_monsters/monster/human/knight
+	name = "Knight"
+	id = "knight"
+	icon_state = "human_knight"
+	power_add = 1500
+	defense_add = 4
+	attack_add = 1
+	rarity = 0.1
+	description = "a loyal %SPECIES knight dorned in heavy %ELEMENT_AND armor"
+	special_effects = "%SPECIES Protection: As long as %NAME is on the field, all other %SPECIES are attack immune."
+	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SPELLCASTER
 	rarity_score = 1

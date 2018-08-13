@@ -11,6 +11,14 @@ datum/battle_monsters/element
 	//1 or lower means common, 2 means uncommon, 3 means rare, 4 or higher means legendary.
 	//Uncommon or higher rarities should be used sparringly, and only to cards that are super noteable.
 
+datum/battle_monsters/element/none
+	name = ""
+	id = "no_element"
+	icon_state = "no_element"
+	elements = BATTLE_MONSTERS_ELEMENT_NEUTRAL
+	description = ""
+	rarity = 10
+	rarity_score = -1
 
 datum/battle_monsters/element/fire
 	name = "Fire"
@@ -76,9 +84,9 @@ datum/battle_monsters/element/fire/burning_sun_god
 	name = "Burning Sun God"
 	id = "burning_sun_god"
 	icon_state = "burning_sun_god"
-	elements = BATTLE_MONSTERS_ELEMENT_FIRE | BATTLE_MONSTERS_CARD_GOD | BATTLE_MONSTERS_CARD_LIGHT
+	elements = BATTLE_MONSTERS_ELEMENT_FIRE | BATTLE_MONSTERS_ELEMENT_GOD | BATTLE_MONSTERS_ELEMENT_LIGHT
 	description = "They are of the many lesser Burning Sun Gods of the Burning Sun holy sect. It easily towers over lesser humans. Their burning %WEAPON_AND is a symbol of their power."
-	special_effects += "Godly Protection: %ELEMENTS_OR monsters cannot attack or be attacked by %NAME."
+	special_effects = "Godly Protection: %ELEMENTS_OR monsters cannot attack or be attacked by %NAME."
 	power_add = 2000
 	rarity = 0.01
 	rarity_score = 3
@@ -119,11 +127,20 @@ datum/battle_monsters/element/energy/dragonslayer
 	rarity = 0.1
 	rarity_score = 1
 
-datum/battle_monsters/element/energy/dragonslayer
+datum/battle_monsters/element/energy/dragoncult
 	name = "Dragoncult"
 	id = "dragoncult"
 	icon_state = "dragoncult"
-	description = "They're wearing a dragonscale cape, and dragon skull shoulderpads."
-	special_effects = "Dragonslayer: Upon summoning, %NAME can choose to send a dragon to the graveyard as long as the dragon's attack points does not exceed <2000>."
+	description = "They're painted with various symbols belonging to the secretive Dragoncult, an ancient organization that serves the dragons."
+	special_effects = "Dragon Protection: As long as %NAME is on the field, all allied Dragons are immune to spells."
+	elements = BATTLE_MONSTERS_ELEMENT_ENERGY | BATTLE_MONSTERS_ELEMENT_DARK
 	rarity = 0.1
 	rarity_score = 1
+
+datum/battle_monsters/element/water
+	name = "Water"
+	id = "water"
+	icon_state = "water"
+	description = "Their %WEAPON_AND seems to be imbuded with shifting water."
+	elements = BATTLE_MONSTERS_ELEMENT_WATER
+	rarity = 4
