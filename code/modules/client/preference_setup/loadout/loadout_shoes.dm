@@ -83,3 +83,20 @@
 /datum/gear/shoes/tongs/New()
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/shoes/hitops
+	display_name = "high-top selection"
+	description = "High-top sneakers, in a selection of colors."
+	path = /obj/item/clothing/shoes/hitops
+
+/datum/gear/shoes/hitops/New()
+	..()
+	var/shoes = list()
+	shoes["high-tops, white"] = /obj/item/clothing/shoes/hitops
+	shoes["high-tops, red"] = /obj/item/clothing/shoes/hitops/red
+	shoes["high-tops, black"] = /obj/item/clothing/shoes/hitops/black
+	shoes["high-tops, blue"] = /obj/item/clothing/shoes/hitops/blue
+	shoes["high-tops, green"] = /obj/item/clothing/shoes/hitops/green
+	shoes["high-tops, purple"] = /obj/item/clothing/shoes/hitops/purple
+	shoes["high-tops, yellow"] = /obj/item/clothing/shoes/hitops/yellow
+	gear_tweaks += new/datum/gear_tweak/path(shoes)

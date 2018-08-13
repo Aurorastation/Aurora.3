@@ -382,3 +382,15 @@
 /obj/item/clothing/head/fedora/grey
 	icon_state = "detective2"
 	desc = "A grey fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
+
+/obj/item/clothing/head/beanie
+	name = "beanie"
+	desc = "A head-hugging brimless winter cap. This one is tight."
+	icon_state = "beanie"
+	item_state = "beanie"
+
+/obj/item/clothing/head/beanie_loose
+	name = "loose beanie"
+	desc = "A head-hugging brimless winter cap. This one is loose."
+	icon_state = "beanie_hang"
+	item_state = "beanie"

@@ -2152,7 +2152,7 @@
 "es" = (
 /obj/machinery/power/smes/buildable{
 	charge = 0;
-	RCon_tag = "\[SOL.4] Solar - Roof"
+	RCon_tag = "Solar - Roof"
 	},
 /obj/structure/cable{
 	d2 = 8;
