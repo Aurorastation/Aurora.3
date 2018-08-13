@@ -43,21 +43,6 @@
 
 	wet_amount += amount
 
-	var/max_wetness = 10 //About 100 units per tile
-	if(wet_amount > max_wetness)
-		var/stored_wet = wet_amount - max_wetness
-		wet_amount -= max_wetness
-		var/wet_per_tile = stored_wet * 0.25
-		for(var/d in cardinal)
-			var/turf/simulated/target = get_step(src,d)
-			if(src.CanPass(null, target, 0, 0) && target.CanPass(null, src, 0, 0))
-				if(target.wet_amount)
-					var/edited_value = round(wet_per_tile * 0.5) //Prevent infinite loops
-					target.wet_floor(apply_type,edited_value)
-					wet_amount += edited_value
-				else
-					target.wet_floor(apply_type,wet_per_tile)
-
 	unwet_timer = addtimer(CALLBACK(src, .proc/unwet_floor), 120 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_STOPPABLE)
 
 /turf/simulated/proc/unwet_floor()
