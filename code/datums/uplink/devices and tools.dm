@@ -119,3 +119,15 @@
 	name = "HUDPatch, Night-Vision"
 	item_cost = 4
 	path = /obj/item/clothing/glasses/eyepatch/hud/night
+
+/datum/uplink_item/item/tools/aviatortherm
+	name = "Aviators, Thermal"
+	item_cost = 6
+	path = /obj/item/clothing/glasses/thermal/aviator
+	desc = "A pair of thermal-vision glasses disguised as aviator shades."
+
+/datum/uplink_item/item/tools/aviatornight
+	name = "Aviators, Night-Vision"
+	item_cost = 4
+	path = /obj/item/clothing/glasses/night/aviator
+	desc = "A pair of night-vision glasses disguised as aviator shades."

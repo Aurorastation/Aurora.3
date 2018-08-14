@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - rscadd: "Added some random asteroid dungeons."
-  - rscadd: "You can now build floors using some materials, such as silver, gold and diamond."

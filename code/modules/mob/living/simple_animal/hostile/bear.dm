@@ -289,7 +289,7 @@
 		if (health < healthbefore)
 			instant_aggro()
 
-/mob/living/simple_animal/hostile/bear/ex_act()
+/mob/living/simple_animal/hostile/bear/ex_act(var/severity = 2.0)
 	var/healthbefore = health
 	..()
 	spawn(1)

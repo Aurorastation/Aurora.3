@@ -48,3 +48,7 @@
 	ringtype["ring, wood"] = /obj/item/clothing/ring/material/wood
 	ringtype["ring, plastic"] = /obj/item/clothing/ring/material/plastic
 	gear_tweaks += new/datum/gear_tweak/path(ringtype)
+
+/datum/gear/gloves/fingerless
+	display_name = "fingerless gloves"
+	path = /obj/item/clothing/gloves/fingerless

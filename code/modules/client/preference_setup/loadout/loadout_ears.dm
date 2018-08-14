@@ -8,7 +8,7 @@
 /datum/gear/ears/bandanna
 	display_name = "neck bandanna selection"
 	path = /obj/item/clothing/ears/bandanna
-	
+
 /datum/gear/ears/bandanna/New()
 	..()
 	var/bandanna = list()
@@ -16,4 +16,7 @@
 	bandanna["blue bandanna"] = /obj/item/clothing/ears/bandanna/blue
 	bandanna["black bandanna"] = /obj/item/clothing/ears/bandanna/black
 	gear_tweaks += new/datum/gear_tweak/path(bandanna)
-	
+
+/datum/gear/ears/headphones
+	display_name = "headphones"
+	path = /obj/item/clothing/ears/earmuffs/headphones

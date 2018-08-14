@@ -109,7 +109,7 @@
 		M << "<span class='warning'>Your chameleon-projector deactivates.</span>"
 	master.disrupt()
 
-/obj/effect/dummy/chameleon/ex_act()
+/obj/effect/dummy/chameleon/ex_act(var/severity = 2.0)
 	for(var/mob/M in src)
 		M << "<span class='warning'>Your chameleon-projector deactivates.</span>"
 	master.disrupt()

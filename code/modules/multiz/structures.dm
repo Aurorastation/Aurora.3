@@ -166,7 +166,7 @@
 	icon_state = "ladder11"
 
 /obj/structure/stairs
-	name = "Stairs"
+	name = "stairs"
 	desc = "Stairs leading to another deck.  Not too useful if the gravity goes out."
 	icon = 'icons/obj/stairs.dmi'
 	density = 0
@@ -184,14 +184,27 @@
 		if(!istype(above))
 			above.ChangeToOpenturf()
 
-/obj/structure/stairs/Uncross(atom/movable/A)
-	if(A.dir == dir && A.loc == loc)
-		// This is hackish but whatever.
-		var/turf/target = get_step(GetAbove(A), dir)
-		if (target.Enter(A, A.loc))
-			A.forceMove(target)
+/obj/structure/stairs/CheckExit(atom/movable/mover as mob|obj, turf/target as turf)
+	if(get_dir(loc, target) == dir && upperStep(mover.loc))
 		return FALSE
-	return TRUE
+
+	if (mover.loc == loc && get_dir(mover, target) != reverse_dir[dir])
+		addtimer(CALLBACK(src, .proc/mob_fall, mover), 0)
+
+	return ..()
+
+/obj/structure/stairs/CollidedWith(atom/movable/A)
+	// This is hackish but whatever.
+	var/turf/target = get_step(GetAbove(A), dir)
+	if(target.Enter(A, src))
+		A.forceMove(target)
+		if(isliving(A))
+			var/mob/living/L = A
+			if(L.pulling)
+				L.pulling.forceMove(target)
+
+/obj/structure/stairs/proc/upperStep(var/turf/T)
+	return (T == loc)
 
 /obj/structure/stairs/CanPass(obj/mover, turf/source, height, airflow)
 	if (airflow)
@@ -203,27 +216,19 @@
 
 	return !density
 
-/obj/structure/stairs/CheckExit(mob/living/mover, turf/target)
-	if (!istype(mover) || target.z != z)
-		return ..()
-
-	if (mover.loc == loc && get_dir(mover, target) != reverse_dir[dir])
-		addtimer(CALLBACK(src, .proc/mob_fall, mover), 0)
-
-	return ..()
-
 /obj/structure/stairs/proc/mob_fall(mob/living/L)
-	if (isopenturf(L.loc))
+	if (isopenturf(L.loc) || L.loc == loc || !ishuman(L))
 		return
 
 	L.Weaken(2)
-	L.visible_message(
-		"<span class='alert'>\The [L] steps off of [src] and faceplants onto [L.loc].</span>",
-		"<span class='danger'>You step off [src] and faceplant onto [L.loc].</span>",
-		"<span class='alert'>You hear a thump.</span>"
-	)
-	var/snd = pick('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg')
-	playsound(L.loc, snd, 75, 1)
+	if (L.lying)
+		L.visible_message(
+			"<span class='alert'>\The [L] steps off of [src] and faceplants onto [L.loc].</span>",
+			"<span class='danger'>You step off [src] and faceplant onto [L.loc].</span>",
+			"<span class='alert'>You hear a thump.</span>"
+		)
+		var/snd = pick('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg')
+		playsound(L.loc, snd, 75, 1)
 
 // type paths to make mapping easier.
 /obj/structure/stairs/north

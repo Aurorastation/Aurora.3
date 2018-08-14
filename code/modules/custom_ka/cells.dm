@@ -181,7 +181,7 @@
 
 	origin_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 5,TECH_MAGNET = 4,TECH_POWER = 6)
 
-/obj/item/custom_ka_upgrade/cells/cell04/on_update(var/obj/item/weapon/gun/custom_ka/the_gun)
+/obj/item/custom_ka_upgrade/cells/kinetic_charging/on_update(var/obj/item/weapon/gun/custom_ka/the_gun)
 	stored_charge = min(stored_charge + round(stored_charge*0.2),cell_increase)
 
 

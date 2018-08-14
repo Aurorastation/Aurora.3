@@ -854,8 +854,7 @@
 	icon_state = "warning";
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
+/obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -2065,11 +2064,6 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
 "ek" = (
@@ -2119,11 +2113,11 @@
 /area/maintenance/solarmaint)
 "eo" = (
 /obj/structure/cable{
-	d1 = 1;
 	d2 = 2;
-	icon_state = "1-2"
+	icon_state = "11-2"
 	},
-/turf/simulated/floor/plating,
+/obj/structure/lattice/catwalk,
+/turf/simulated/open,
 /area/maintenance/solarmaint)
 "ep" = (
 /obj/random/loot,
@@ -2145,24 +2139,24 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
 	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+	d2 = 8;
+	icon_state = "1-8"
 	},
 /obj/structure/cable{
 	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
+	d2 = 4;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
 "es" = (
+/obj/machinery/power/smes/buildable{
+	charge = 0;
+	RCon_tag = "Solar - Roof"
+	},
 /obj/structure/cable{
 	d2 = 8;
 	icon_state = "0-8"
-	},
-/obj/machinery/power/smes/buildable{
-	charge = 0;
-	RCon_tag = "\[SOL.4] Solar - Roof"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
@@ -2487,21 +2481,18 @@
 /turf/simulated/floor/airless,
 /area/mine/explored)
 "eP" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 1
-	},
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning/corner,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
 /turf/simulated/floor/airless,
 /area/mine/explored)
 "eQ" = (
@@ -3126,6 +3117,14 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
+/area/mine/explored)
+"gc" = (
+/obj/random/glowstick,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gd" = (
+/obj/item/weapon/stool,
+/turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
 
 (1,1,1) = {"
@@ -26418,17 +26417,17 @@ ab
 ac
 ac
 ab
-fM
-fN
-fO
-fP
-fQ
-fR
-fS
-fT
-fU
-fV
-fW
+ad
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+fe
+ah
+ah
 ah
 ah
 ah
@@ -26675,7 +26674,7 @@ ab
 ab
 ab
 ab
-eO
+ae
 ei
 ei
 ei
@@ -26685,7 +26684,7 @@ ei
 ei
 ah
 ah
-fX
+ah
 ah
 ah
 ah
@@ -26932,7 +26931,7 @@ ab
 ab
 ab
 ab
-eO
+ae
 ei
 en
 eq
@@ -26942,7 +26941,7 @@ eC
 ex
 eG
 ah
-fY
+ah
 ah
 ah
 ah
@@ -27189,7 +27188,7 @@ ab
 ab
 ab
 ad
-ee
+fe
 ej
 eo
 er
@@ -27199,7 +27198,7 @@ eD
 eF
 eH
 eN
-fZ
+ah
 ah
 ah
 ah
@@ -27456,7 +27455,7 @@ eE
 ex
 eI
 eL
-ga
+ah
 ah
 ah
 ah
@@ -27713,7 +27712,7 @@ ei
 ei
 eJ
 eL
-gb
+ah
 ah
 ah
 ah
@@ -27970,7 +27969,7 @@ el
 el
 bS
 eP
-eX
+ah
 ah
 ah
 ah
@@ -28218,15 +28217,15 @@ ab
 ab
 ae
 eL
+fg
+ai
+ai
+ai
+ai
+ai
+ai
+ff
 ah
-ah
-ah
-ah
-ah
-ah
-ah
-eb
-eX
 ah
 ah
 ah
@@ -28482,7 +28481,7 @@ ab
 ab
 ab
 ab
-eK
+ae
 ah
 ah
 ah
@@ -28739,7 +28738,7 @@ ab
 ab
 ab
 ab
-eK
+ae
 ah
 ah
 ah
@@ -28996,7 +28995,7 @@ aa
 aa
 ab
 ab
-eK
+ae
 ah
 ah
 ah
@@ -29253,7 +29252,7 @@ aa
 aa
 aa
 ab
-eK
+ae
 ah
 ah
 ah
@@ -29510,7 +29509,7 @@ aa
 aa
 aa
 aa
-eK
+ae
 ah
 ah
 ah
@@ -29767,7 +29766,7 @@ aa
 aa
 aa
 aa
-eK
+ae
 ah
 ah
 ah
@@ -30024,7 +30023,7 @@ aa
 aa
 aa
 aa
-eK
+ae
 ah
 ah
 ah
@@ -30281,7 +30280,7 @@ aa
 aa
 aa
 aa
-eK
+ae
 ah
 ah
 ah
@@ -30538,7 +30537,7 @@ ad
 ag
 ag
 ag
-eO
+fe
 ah
 ah
 ah
@@ -30565,7 +30564,7 @@ ag
 fe
 ah
 ah
-ah
+gc
 al
 aa
 aa
@@ -30795,7 +30794,6 @@ ae
 ah
 ah
 ah
-eO
 ah
 ah
 ah
@@ -30821,8 +30819,9 @@ ah
 ah
 ah
 ah
-eU
 ah
+an
+gd
 al
 aa
 aa
@@ -31052,34 +31051,34 @@ ae
 ah
 ah
 ah
-eM
-eQ
-fn
-eQ
-eQ
-eQ
-eQ
-eQ
-eQ
-eQ
-eQ
-eQ
-eQ
-eQ
-eQ
-eQ
-eQ
-eQ
-eQ
-eQ
-eQ
-eQ
-eQ
-eS
-eQ
-eT
-eV
-fL
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+fg
+ai
+ff
+ah
+ah
+an
 al
 aa
 aa
@@ -31333,9 +31332,9 @@ ai
 ai
 am
 aa
-af
+ak
 ai
-eW
+ai
 ai
 am
 aa

@@ -188,7 +188,7 @@
 "aB" = (
 /obj/machinery/power/smes/buildable{
 	charge = 2e+006;
-	RCon_tag = "\[ENG.2] Tesla - Containment"
+	RCon_tag = "Tesla - Containment"
 	},
 /obj/structure/cable{
 	d2 = 8;
@@ -1848,7 +1848,7 @@
 /area/outpost/engineering/power)
 "dZ" = (
 /obj/machinery/power/smes/buildable/outpost_substation{
-	RCon_tag = "\[ENG.2] Tesla - Grid"
+	RCon_tag = "Tesla - Grid"
 	},
 /obj/structure/cable{
 	d2 = 8;
@@ -12496,13 +12496,13 @@
 /area/medical/virology)
 "wq" = (
 /obj/machinery/power/breakerbox/activated{
-	RCon_tag = "\[F.4] Medical Substation Bypass"
+	RCon_tag = "Medical Sublevel Substation Bypass"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
 "wr" = (
 /obj/machinery/power/smes/buildable{
-	RCon_tag = "Substation - \[F.4] Medical"
+	RCon_tag = "Substation - Medical Sublevel"
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -14986,7 +14986,7 @@
 /area/maintenance/sublevel)
 "AR" = (
 /obj/machinery/power/smes/buildable{
-	RCon_tag = "Substation - \[F.4] Research"
+	RCon_tag = "Substation - Research Sublevel"
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -15000,7 +15000,7 @@
 /area/maintenance/sublevel)
 "AS" = (
 /obj/machinery/power/breakerbox/activated{
-	RCon_tag = "\[F.4] Research Substation Bypass"
+	RCon_tag = "Research Sublevel Substation Bypass"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
@@ -18888,7 +18888,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/reagent_dispensers/watertank,
+/obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "Hr" = (
@@ -27806,6 +27806,10 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology/cells/delta)
+"Xg" = (
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor/plating,
+/area/maintenance/sublevel)
 "Xh" = (
 /obj/machinery/disposal/deliveryChute{
 	dir = 8;
@@ -28251,6 +28255,7 @@
 	name = "Containment Cell Echo"
 	},
 /obj/structure/cable/green,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/cells/echo)
 "XE" = (
@@ -29268,6 +29273,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_xenobiology)
+"ZE" = (
+/obj/structure/table/standard,
+/obj/item/weapon/reagent_containers/spray/chemsprayer/xenobiology,
+/obj/item/weapon/reagent_containers/spray/chemsprayer/xenobiology,
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenobiology)
 
 (1,1,1) = {"
 aa
@@ -51522,7 +51533,7 @@ CO
 DT
 ES
 BW
-Gz
+Xg
 Jp
 Im
 Fa
@@ -55388,7 +55399,7 @@ Pp
 It
 Vg
 VY
-VY
+ZE
 It
 It
 WV

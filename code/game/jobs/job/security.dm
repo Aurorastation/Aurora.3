@@ -42,7 +42,7 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
 		else
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
-		H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/sechud(H), slot_glasses)
+		H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/sechud/head(H), slot_glasses)
 		if(H.backbag == 1)
 			H.equip_to_slot_or_del(new /obj/item/weapon/handcuffs(H), slot_l_store)
 		else
