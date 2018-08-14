@@ -90,20 +90,56 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 	else
 		return
 
-/datum/controller/subsystem/battle_monsters/proc/GetSpecies(var/obj/item/battle_monsters/card/card_data)
-	if(card_data.card_defense_type == BATTLE_MONSTERS_DEFENSETYPE_HUMAN)
-		return "human"
-	else if(BATTLE_MONSTERS_DEFENSETYPE_HUMAN & card_data.card_defense_type)
-		return "humanoid"
-	else
-		return "monster"
+/datum/controller/subsystem/battle_monsters/proc/GetSpeciesGeneral(var/obj/item/battle_monsters/card/card_data)
+	switch(card_data.card_defense_type)
+		if(BATTLE_MONSTERS_DEFENSETYPE_NONE)
+			return "monster"
+		if(BATTLE_MONSTERS_DEFENSETYPE_DEMIGOD)
+			return "demi-god"
+		if(BATTLE_MONSTERS_DEFENSETYPE_CYBORG)
+			return "cyborg"
+		if(BATTLE_MONSTERS_DEFENSETYPE_HYBRID)
+			return "hybrid"
+		if(BATTLE_MONSTERS_DEFENSETYPE_FERALDRAGON)
+			return "feral dragon"
+		if(BATTLE_MONSTERS_DEFENSETYPE_DRAGONHYBRID)
+			return "human-dragon hybrid"
+		if(BATTLE_MONSTERS_DEFENSETYPE_HUMAN)
+			return "human"
+		if(BATTLE_MONSTERS_DEFENSETYPE_GOD)
+			return "god"
+		if(BATTLE_MONSTERS_DEFENSETYPE_MACHINE)
+			return "machine"
+		if(BATTLE_MONSTERS_DEFENSETYPE_CREATURE)
+			return "creature"
+		if(BATTLE_MONSTERS_DEFENSETYPE_DRAGON)
+			return "drake"
+
+/datum/controller/subsystem/battle_monsters/proc/GetSpecies(var/obj/item/battle_monsters/card/card_data, var/and_text = " and ")
+	//This list looks odd to prevent runtime errors related to out of bounds indexes
+	var/list/translations = list(
+		"Humanoid" = BATTLE_MONSTERS_DEFENSETYPE_HUMAN,
+		"God" = BATTLE_MONSTERS_DEFENSETYPE_GOD,
+		"Machine" = BATTLE_MONSTERS_DEFENSETYPE_MACHINE,
+		"Creature" = BATTLE_MONSTERS_DEFENSETYPE_CREATURE
+	)
+
+	var/list/included_elements = list()
+
+	for(var/translation in translations)
+		if(!(translations[translation] & card_data.card_elements))
+			continue
+		included_elements.Add(translation)
+
+	return english_list(included_elements, nothing_text = "Monster", and_text = and_text)
 
 /datum/controller/subsystem/battle_monsters/proc/GetAttackType(var/obj/item/battle_monsters/card/card_data, var/and_text = " and ")
 	//This list looks odd to prevent runtime errors related to out of bounds indexes
 	var/list/translations = list(
 		"Spellcastser" = BATTLE_MONSTERS_ATTACKTYPE_SPELLCASTER,
 		"Swordsman" = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN,
-		"Commander" = BATTLE_MONSTERS_ATTACKTYPE_ARMY
+		"Commander" = BATTLE_MONSTERS_ATTACKTYPE_ARMY,
+		"Brawler" = BATTLE_MONSTERS_ATTACKTYPE_CLAWS
 	)
 
 	var/list/included_elements = list()
@@ -122,6 +158,7 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 		"staff" = BATTLE_MONSTERS_ATTACKTYPE_SPELLCASTER,
 		"sword" = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN,
 		"army" = BATTLE_MONSTERS_ATTACKTYPE_ARMY,
+		"claws" = BATTLE_MONSTERS_ATTACKTYPE_CLAWS,
 	)
 
 	var/list/included_elements = list()
@@ -162,8 +199,9 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 
 	var/list/replacements = list(
 		"%NAME" = card_data.card_name,
-		"%SPECIES_C" = capitalize(GetSpecies(card_data)),
-		"%SPECIES" = GetSpecies(card_data),
+		"%SPECIES_C" = capitalize(GetSpeciesGeneral(card_data)),
+		"%SPECIES_LIST" = GetSpecies(card_data, ", "),
+		"%SPECIES" = GetSpeciesGeneral(card_data),
 		"%TYPE" = card_data.card_type,
 		"%ELEMENT_AND" = GetElements(card_data),
 		"%ELEMENT_OR" = GetElements(card_data, " or "),
