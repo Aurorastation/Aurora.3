@@ -104,6 +104,8 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 			return "feral dragon"
 		if(BATTLE_MONSTERS_DEFENSETYPE_DRAGONHYBRID)
 			return "human-dragon hybrid"
+		if(BATTLE_MONSTERS_DEFENSETYPE_GIANT)
+			return "colossus"
 		if(BATTLE_MONSTERS_DEFENSETYPE_HUMAN)
 			return "human"
 		if(BATTLE_MONSTERS_DEFENSETYPE_GOD)
@@ -113,21 +115,27 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 		if(BATTLE_MONSTERS_DEFENSETYPE_CREATURE)
 			return "creature"
 		if(BATTLE_MONSTERS_DEFENSETYPE_DRAGON)
-			return "drake"
+			return "dragon"
+		if(BATTLE_MONSTERS_DEFENSETYPE_COLOSSUS)
+			return "colossus"
+		if(BATTLE_MONSTERS_DEFENSETYPE_GIANT_DRAGON)
+			return "giant dragon"
 
 /datum/controller/subsystem/battle_monsters/proc/GetSpecies(var/obj/item/battle_monsters/card/card_data, var/and_text = " and ")
 	//This list looks odd to prevent runtime errors related to out of bounds indexes
 	var/list/translations = list(
-		"Humanoid" = BATTLE_MONSTERS_DEFENSETYPE_HUMAN,
+		"Human" = BATTLE_MONSTERS_DEFENSETYPE_HUMAN,
 		"God" = BATTLE_MONSTERS_DEFENSETYPE_GOD,
 		"Machine" = BATTLE_MONSTERS_DEFENSETYPE_MACHINE,
-		"Creature" = BATTLE_MONSTERS_DEFENSETYPE_CREATURE
+		"Creature" = BATTLE_MONSTERS_DEFENSETYPE_CREATURE,
+		"Dragon" = BATTLE_MONSTERS_DEFENSETYPE_DRAGON,
+		"Colossus" = BATTLE_MONSTERS_DEFENSETYPE_COLOSSUS
 	)
 
 	var/list/included_elements = list()
 
 	for(var/translation in translations)
-		if(!(translations[translation] & card_data.card_elements))
+		if(!(translations[translation] & card_data.card_defense_type))
 			continue
 		included_elements.Add(translation)
 
@@ -136,16 +144,17 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 /datum/controller/subsystem/battle_monsters/proc/GetAttackType(var/obj/item/battle_monsters/card/card_data, var/and_text = " and ")
 	//This list looks odd to prevent runtime errors related to out of bounds indexes
 	var/list/translations = list(
-		"Spellcastser" = BATTLE_MONSTERS_ATTACKTYPE_SPELLCASTER,
+		"Spellcaster" = BATTLE_MONSTERS_ATTACKTYPE_SPELLCASTER,
 		"Swordsman" = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN,
 		"Commander" = BATTLE_MONSTERS_ATTACKTYPE_ARMY,
-		"Brawler" = BATTLE_MONSTERS_ATTACKTYPE_CLAWS
+		"Brawler" = BATTLE_MONSTERS_ATTACKTYPE_CLAWS,
+		"Crusher" = BATTLE_MONSTERS_ATTACKTYPE_CLUB
 	)
 
 	var/list/included_elements = list()
 
 	for(var/translation in translations)
-		if(!(translations[translation] & card_data.card_elements))
+		if(!(translations[translation] & card_data.card_attack_type))
 			continue
 		included_elements.Add(translation)
 
@@ -159,12 +168,13 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 		"sword" = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN,
 		"army" = BATTLE_MONSTERS_ATTACKTYPE_ARMY,
 		"claws" = BATTLE_MONSTERS_ATTACKTYPE_CLAWS,
+		"club" = BATTLE_MONSTERS_ATTACKTYPE_CLUB
 	)
 
 	var/list/included_elements = list()
 
 	for(var/translation in translations)
-		if(!(translations[translation] & card_data.card_elements))
+		if(!(translations[translation] & card_data.card_attack_type))
 			continue
 		included_elements.Add(translation)
 
@@ -174,7 +184,7 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 
 	//This list looks odd to prevent runtime errors related to out of bounds indexes
 	var/list/translations = list(
-		"Normal" = BATTLE_MONSTERS_ELEMENT_NEUTRAL,
+		"Neutral" = BATTLE_MONSTERS_ELEMENT_NEUTRAL,
 		"Fire" = BATTLE_MONSTERS_ELEMENT_FIRE,
 		"Energy" = BATTLE_MONSTERS_ELEMENT_ENERGY,
 		"Water" = BATTLE_MONSTERS_ELEMENT_WATER,
@@ -183,7 +193,6 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 		"Stone" = BATTLE_MONSTERS_ELEMENT_STONE,
 		"Dark" = BATTLE_MONSTERS_ELEMENT_DARK,
 		"Light" = BATTLE_MONSTERS_ELEMENT_LIGHT,
-		"God" = BATTLE_MONSTERS_ELEMENT_GOD
 	)
 
 	var/list/included_elements = list()
@@ -193,12 +202,16 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 			continue
 		included_elements.Add(translation)
 
-	return english_list(included_elements, nothing_text = "normal", and_text = and_text)
+	return english_list(included_elements, nothing_text = "Neutral", and_text = and_text)
+
+/datum/controller/subsystem/battle_monsters/proc/GetStarLevel(var/obj/item/battle_monsters/card/card_data)
+	return min(10,1 + round( (card_data.card_power^1.25) * 0.00012))
 
 /datum/controller/subsystem/battle_monsters/proc/FormatText(var/obj/item/battle_monsters/card/card_data, var/text)
 
 	var/list/replacements = list(
 		"%NAME" = card_data.card_name,
+		"%STARLEVEL" = GetStarLevel(card_data),
 		"%SPECIES_C" = capitalize(GetSpeciesGeneral(card_data)),
 		"%SPECIES_LIST" = GetSpecies(card_data, ", "),
 		"%SPECIES" = GetSpeciesGeneral(card_data),

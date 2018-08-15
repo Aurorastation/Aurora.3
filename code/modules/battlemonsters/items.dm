@@ -9,6 +9,7 @@
 	var/datum/battle_monsters/element/prefix_datum
 	var/datum/battle_monsters/monster/root_datum
 	var/datum/battle_monsters/title/suffix_datum
+	w_class = ITEMSIZE_TINY
 
 	//Card information here
 	var/card_name = ""
@@ -21,6 +22,7 @@
 	var/card_defense_points = 0
 	var/card_rarity_score = 0
 	var/card_power = 0
+	var/card_starlevel = 0
 	var/card_type = "Monster Card"
 
 	var/facedown = FALSE
@@ -89,6 +91,8 @@
 	card_attack_points = round(card_power * card_attack_points,100)
 	card_defense_points = round(card_power * card_defense_points,100)
 
+	card_starlevel = SSbattlemonsters.GetStarLevel(src)
+
 	var/rounded_rarity_score = min(max(round(card_rarity_score,1),1),4)
 
 	if(facedown)
@@ -112,8 +116,17 @@
 
 /obj/item/battle_monsters/card/examine(mob/user)
 	..()
-	to_chat(user,SSbattlemonsters.FormatText(src,"<b>[card_name]</b> | Level [max(card_rarity_score,1)] %ELEMENT_LIST %TYPE | %SPECIES_C %ATTACKTYPE_LIST"))
-	to_chat(user,"Keywords: %SPECIES_LIST")
+
+	var/lol_formatting = "<b>[card_name]</b>"
+	for(var/i=1, i <= card_starlevel, i++)
+		lol_formatting += BATTLE_MONSTERS_FORMAT_STAR
+	lol_formatting += " | %ELEMENT_LIST %TYPE | %SPECIES_C %ATTACKTYPE_LIST"
+
+	//I don't know why but the above code just makes me want to eat ass
+
+
+	to_chat(user,SSbattlemonsters.FormatText(src,lol_formatting))
+	to_chat(user,SSbattlemonsters.FormatText(src,"Keywords: %SPECIES_LIST"))
 	to_chat(user,SSbattlemonsters.FormatText(src,"ATK: [card_attack_points] | DEF: [card_defense_points]"))
 	to_chat(user,SSbattlemonsters.FormatText(src,card_special_effects))
 	to_chat(user,SSbattlemonsters.FormatText(src,"The card depicts [card_description]"))
@@ -121,6 +134,7 @@
 /obj/item/battle_monsters/deck
 	name = "battle monsters deck"
 	icon_state = "stack"
+	w_class = ITEMSIZE_SMALL
 	var/list/stored_card_names = list()
 	var/deck_size = 52
 

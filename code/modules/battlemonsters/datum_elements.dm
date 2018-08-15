@@ -17,7 +17,7 @@ datum/battle_monsters/element/none
 	icon_state = "no_element"
 	elements = BATTLE_MONSTERS_ELEMENT_NEUTRAL
 	description = ""
-	rarity = 10
+	rarity = 5
 	rarity_score = -1
 
 datum/battle_monsters/element/fire
@@ -84,7 +84,7 @@ datum/battle_monsters/element/fire/burning_sun_god
 	name = "Burning Sun God"
 	id = "burning_sun_god"
 	icon_state = "burning_sun_god"
-	elements = BATTLE_MONSTERS_ELEMENT_FIRE | BATTLE_MONSTERS_ELEMENT_GOD | BATTLE_MONSTERS_ELEMENT_LIGHT
+	elements = BATTLE_MONSTERS_ELEMENT_FIRE | BATTLE_MONSTERS_ELEMENT_LIGHT
 	description = "Upon closer examination, various %ELEMENT_AND symbols are etched across their body, and a slightly visible shadow of The Burning Sun God Ra'Kan is cast behind them. It's clear that the god is using this %SPECIES as a vessel for it's bidding."
 	special_effects = "Godly Protection: %ELEMENT_OR monsters cannot attack or be attacked by %NAME."
 	power_add = 2000
@@ -144,7 +144,49 @@ datum/battle_monsters/element/water
 	name = "Morphing"
 	id = "water"
 	icon_state = "water"
-	description = "Upon closer examination, it appears that they can morph into various shapes using %ELEMENT_AND."
+	description = "Upon closer examination, it appears that they can morph into various shapes using the magic of %ELEMENT_AND."
 	special_effects = "Morph: %NAME is allowed to switch to defense mode after they attack."
 	elements = BATTLE_MONSTERS_ELEMENT_WATER
 	rarity = 2
+
+datum/battle_monsters/element/ice
+	name = "Ice"
+	id = "ice"
+	icon_state = "ice"
+	description = "They seem well equipped to deal with the harsh, icy weather on the Plains of Narbask."
+	elements = BATTLE_MONSTERS_ELEMENT_ICE
+	rarity = 2
+
+datum/battle_monsters/element/earth
+	name = "Earth"
+	id = "earth"
+	icon_state = "earth"
+	description = "Earthen roots shift around them with small flowers budding from it's branches, signifying a oneness with nature."
+	elements = BATTLE_MONSTERS_ELEMENT_EARTH
+	rarity = 2
+
+datum/battle_monsters/element/stone
+	name = "Stone"
+	id = "stone"
+	icon_state = "stone"
+	description = "They're rock hard. Made out of rock, that is."
+	elements = BATTLE_MONSTERS_ELEMENT_STONE
+	rarity = 2
+
+datum/battle_monsters/element/dark
+	name = "Dark"
+	id = "dark"
+	icon_state = "dark"
+	description = "A strange evil, shadowy aura embraces them and all those around it."
+	elements = BATTLE_MONSTERS_ELEMENT_DARK
+	rarity = 0.5
+	rarity_score = 1
+
+datum/battle_monsters/element/light
+	name = "Light"
+	id = "light"
+	icon_state = "light"
+	description = "A holy aura shapes around their beauty."
+	elements = BATTLE_MONSTERS_ELEMENT_LIGHT
+	rarity = 0.5
+	rarity_score = 1
