@@ -1,3 +1,9 @@
+/obj/item/clothing/mask/chewable/candy/gum
+	name = "chewing gum"
+	icon_state = "gum"
+	item_state = "gum"
+//	brand = "gum"
+
 //the gum
 /obj/item/clothing/mask/chewable/candy/gum
 	name = "chewing gum"
