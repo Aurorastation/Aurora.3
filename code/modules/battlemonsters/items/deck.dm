@@ -1,0 +1,77 @@
+/obj/item/battle_monsters/deck
+	name = "battle monsters deck"
+	icon_state = "stack"
+	w_class = ITEMSIZE_SMALL
+	var/list/stored_card_names = list()
+	var/deck_size = 52
+
+/obj/item/battle_monsters/deck/proc/get_top_card()
+	return stored_card_names[stored_card_names.len]
+
+/obj/item/battle_monsters/deck/proc/get_bottom_card()
+	return stored_card_names[1]
+
+/obj/item/battle_monsters/deck/proc/add_card(var/user, var/obj/item/battle_monsters/card/added_card)
+	stored_card_names += "[added_card.prefix_datum.id],[added_card.root_datum.id],[added_card.suffix_datum.id]"
+	qdel(added_card)
+
+/obj/item/battle_monsters/deck/proc/take_card(var/mob/user)
+	var/top_card = get_top_card()
+	var/list/splitstring = dd_text2List(top_card,",")
+	var/obj/item/battle_monsters/card/new_card = new(src.loc,splitstring[1],splitstring[2],splitstring[3])
+	user.put_in_active_hand(new_card)
+	stored_card_names -= top_card
+
+	if(stored_card_names.len <= 0)
+		qdel(src)
+/*
+/obj/item/battle_monsters/deck/proc/take_specific_card(var/mob/user, var/card_id)
+	if(card_id in stored_card_names)
+		var/list/splitstring = dd_text2List(card_id,",")
+		var/obj/item/battle_monsters/card/new_card = new(get_turf(src),splitstring[1],splitstring[2],splitstring[3])
+		user.put_in_active_hand(new_card)
+		stored_card_names -= card_id
+
+	if(stored_card_names.len <= 0)
+		qdel(src)
+*/
+
+/obj/item/battle_monsters/deck/MouseDrop_T(var/atom/movable/C, mob/user) //Dropping C onto the card
+	if(istype(C,/obj/item/battle_monsters/deck/) && C.loc == loc))
+		var/obj/item/battle_monsters/deck/added_deck = C
+		added_deck.stored_card_names += stored_card_names
+		qdel(src)
+		return
+
+	. = ..()
+
+/obj/item/battle_monsters/deck/verb/toggle_mode()
+	set category = "Object"
+	set name = "Change Deck Type"
+	set src in view(1)
+
+	if(icon_state == "hand")
+		icon_state = "stack"
+	else
+		icon_state = "hand"
+
+/obj/item/battle_monsters/deck/attack_hand(var/mob/user)
+	take_card(user)
+
+/obj/item/battle_monsters/deck/attackby(var/obj/item/attacking, var/mob/user)
+	if(istype(attacking,/obj/item/battle_monsters/card))
+		var/obj/item/battle_monsters/card/adding_card = attacking
+		add_card(user,adding_card)
+
+/obj/item/battle_monsters/deck/proc/Generate_Deck()
+	for(var/i=1,i < deck_size,i++)
+		CHECK_TICK //This stuff is a little intensive I think.
+		var/datum/battle_monsters/selected_root = SSbattlemonsters.GetRandomRoot()
+		var/datum/battle_monsters/selected_prefix = SSbattlemonsters.GetRandomPrefix()
+		var/datum/battle_monsters/selected_suffix = SSbattlemonsters.GetRandomPrefix()
+		stored_card_names += "[selected_root.id],[selected_prefix.id],[(selected_prefix.rarity_score + selected_root.rarity_score) >= 3 ? selected_suffix.id : "no_title"]"
+
+/obj/item/battle_monsters/deck/generated/New()
+	. = ..()
+	Generate_Deck()
+
