@@ -20,27 +20,59 @@
 	var/card_starlevel = 0
 	var/card_type = "Monster Card"
 
-/obj/item/battle_monsters/card/New(var/loc,var/prefix,var/root,var/title)
+/obj/item/battle_monsters/card/New(var/turf/loc,var/prefix,var/root,var/title)
+	. = ..()
 	Generate_Card(prefix, root, title)
 
 /obj/item/battle_monsters/card/attackby(var/obj/item/attacking, var/mob/user)
-	if(istype(attacking,/obj/item/battle_monsters/card))
-
+	if(istype(attacking,/obj/item/battle_monsters/card) && attacking != src)
 		var/obj/item/battle_monsters/card/adding_card = attacking
-		var/obj/item/battle_monsters/deck/new_deck = new(src.loc)
-
-		if(src.loc == user)
-			//Make a hand.
-			user.drop_from_inventory(src)
-			new_deck.icon_state = "hand"
-			user.put_in_inactive_hand(new_deck)
-		//else, make a deck
-
-		new_deck.add_card(user,src)
-		new_deck.add_card(user,adding_card)
+		make_deck(user,adding_card)
 
 /obj/item/battle_monsters/card/attack_self(mob/user as mob)
+	flip_card(user)
+
+/obj/item/battle_monsters/card/proc/make_deck(var/mob/user,var/obj/item/battle_monsters/card/adding_card)
+
+	var/obj/item/battle_monsters/deck/new_deck = new(src.loc)
+
+	if(src.loc == user)
+		//Make a hand.
+		user.drop_from_inventory(src)
+		new_deck.icon_state = "hand"
+		user.put_in_inactive_hand(new_deck)
+
+	if(src.loc == user)
+		to_chat(user,span("notice","You combine \the [src] and the [adding_card] to form a hand."))
+	else
+		user.visible_message(\
+			span("notice","\The [user] combines \the [src] and the [adding_card] to form a deck."),\
+			span("notice","You combine \the [src] and the [adding_card] to form a deck.")\
+		)
+
+	new_deck.add_card(user,src)
+	new_deck.add_card(user,adding_card)
+
+/obj/item/battle_monsters/card/proc/flip_card(var/mob/user)
 	facedown = !facedown
+
+	if(src.loc == user)
+		if(!facedown)
+			to_chat(user,span("notice","You reveal \the [card_name] to yourself, preparing to play it face up."))
+		else
+			to_chat(user,span("notice", "You prepare \the [card_name] to be played face down."))
+	else
+		if(!facedown)
+			user.visible_message(\
+				span("notice","\The [user] flip the card face up and reveals \the [card_name]."),\
+				span("notice","You flip the card face up and reveal \the [card_name].")\
+			)
+		else
+			user.visible_message(\
+				span("notice","\The [user] flips \the [card_name] face down."),\
+				span("notice","You flip \the [card_name] face down.")\
+			)
+
 	update_icon()
 
 /obj/item/battle_monsters/card/proc/Generate_Card(var/prefix,var/root,var/title)
@@ -146,7 +178,12 @@
 	transform = M
 
 /obj/item/battle_monsters/card/examine(mob/user)
+
 	..()
+
+	if(facedown)
+		to_chat(user,span("notice","You can't examine \the [src] while it's face down!"))
+		return
 
 	var/lol_formatting = "<b>[card_name]</b>"
 	for(var/i=1, i <= card_starlevel, i++)
@@ -154,7 +191,6 @@
 	lol_formatting += " | %ELEMENT_LIST %TYPE | %SPECIES_C %ATTACKTYPE_LIST"
 
 	//I don't know why but the above code just makes me want to eat ass
-
 
 	to_chat(user,SSbattlemonsters.FormatText(src,lol_formatting))
 	to_chat(user,SSbattlemonsters.FormatText(src,"Keywords: %SPECIES_LIST"))

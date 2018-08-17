@@ -1148,6 +1148,7 @@
 #include "code\modules\battlemonsters\items\card.dm"
 #include "code\modules\battlemonsters\items\core.dm"
 #include "code\modules\battlemonsters\items\deck.dm"
+#include "code\modules\battlemonsters\items\furniture\dueling_area.dm"
 #include "code\modules\blob\blob.dm"
 #include "code\modules\cargo\bounty.dm"
 #include "code\modules\cargo\export_scanner.dm"

@@ -5,37 +5,71 @@
 	var/facedown = TRUE
 	var/rotated = FALSE
 
-/obj/item/battle_monsters/MouseDrop(mob/user) //Dropping the card onto yourself.
-	user.put_in_active_hand(src)
+/obj/item/battle_monsters/New(var/mob/loc)
+	if(istype(loc))
+		dir = loc.dir
+	. = ..()
+
+/obj/item/battle_monsters/MouseDrop(mob/user) //Dropping the card onto something else.
+	if(istype(user))
+		user.put_in_active_hand(src)
+		return
+
+	. = ..()
 
 /obj/item/battle_monsters/MouseDrop_T(var/atom/movable/C, mob/user) //Dropping C onto the card
 	if(istype(C,/obj/item/battle_monsters))
 		src.attackby(C,user)
+		return
 
-/obj/item/battle_monsters/proc/RotateCard(var/mob/user,var/rotation)
-	dir = turn(dir,rotation)
-	update_icon()
+	. = ..()
 
 /obj/item/battle_monsters/AltClick(var/mob/user)
-	if(!rotated)
-		dir = user.dir
-		RotateCard(user,90)
-		rotated = TRUE
-	else
-		dir = user.dir
-		rotated = FALSE
+	RotateCard(user)
 
 /obj/item/battle_monsters/CtrlClick(var/mob/user)
 	attack_self(user)
 
-#define CELLS_X 4
+/obj/item/battle_monsters/proc/RotateCard(var/mob/user)
+
+	rotated = !rotated
+
+	if(rotated)
+		dir = turn(user.dir,90)
+		if(src.loc == user)
+			to_chat(user,span("notice", "You prepare \the [name] to be played horizontally."))
+		else
+			user.visible_message(\
+				span("notice","\The [user] adjusts the orientation of \the [src] horizontally."),\
+				span("notice","You adjust the orientation of \the [src] horizontally.")\
+			)
+	else
+		dir = user.dir
+		if(src.loc == user)
+			to_chat(user,span("notice", "You prepare \the [name] to be played vertically."))
+		else
+			user.visible_message(\
+				span("notice","\The [user] adjusts the orientation of \the [src] vertically."),\
+				span("notice","You adjust the orientation of \the [src] vertically.")\
+			)
+
+	update_icon()
+
+
+#define CELLS_X 6
 #define CELLSIZE_X (32/CELLS_X)
 
-#define CELLS_Y 2
+#define CELLS_Y 6
 #define CELLSIZE_Y (32/CELLS_Y)
 
 /obj/item/battle_monsters/afterattack(atom/A, mob/user, proximity, params) //Copy and pasted from foodcode.
-	if(proximity && params && istype(A, /obj/structure/table) && center_of_mass.len)
+	if(proximity && params && (istype(A, /obj/structure/table) || (istype(A,/obj/structure/dueling_table) && A.density)) && center_of_mass.len)
+
+		user.visible_message(\
+			span("notice","\The [user] plays \the [src]."),\
+			span("notice","You play \the [src].")\
+		)
+
 		//Places the item on a grid
 		var/list/mouse_control = params2list(params)
 
@@ -48,8 +82,8 @@
 		var/cell_x = max(0, min(CELLS_X-1, round(mouse_x/CELLSIZE_X)))
 		var/cell_y = max(0, min(CELLS_Y-1, round(mouse_y/CELLSIZE_Y)))
 
-		pixel_x = Ceiling((CELLSIZE_X * (0.5 + cell_x)) - center_of_mass["x"],1)
-		pixel_y = Ceiling((CELLSIZE_Y * (0.5 + cell_y)) - center_of_mass["y"],1)
+		pixel_x = (CELLSIZE_X * (0.5 + cell_x)) - center_of_mass["x"]
+		pixel_y = (CELLSIZE_Y * (0.5 + cell_y)) - center_of_mass["y"]
 
 	. = ..()
 

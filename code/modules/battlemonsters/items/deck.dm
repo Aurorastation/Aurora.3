@@ -16,6 +16,18 @@
 	qdel(added_card)
 
 /obj/item/battle_monsters/deck/proc/take_card(var/mob/user)
+
+	if(icon_state == "stack") //Deck form
+		user.visible_message(\
+			span("notice","\The [user] draws a card from their [src]."),\
+			span("notice","You draw a card from their [src].")\
+		)
+	else
+		user.visible_message(\
+			span("notice","\The [user] takes a card from their hand."),\
+			span("notice","You take a card from your hand.")\
+		)
+
 	var/top_card = get_top_card()
 	var/list/splitstring = dd_text2List(top_card,",")
 	var/obj/item/battle_monsters/card/new_card = new(src.loc,splitstring[1],splitstring[2],splitstring[3])
@@ -37,9 +49,15 @@
 */
 
 /obj/item/battle_monsters/deck/MouseDrop_T(var/atom/movable/C, mob/user) //Dropping C onto the card
-	if(istype(C,/obj/item/battle_monsters/deck/) && C.loc == loc))
+	if(istype(C,/obj/item/battle_monsters/deck/) && C.loc == loc)
 		var/obj/item/battle_monsters/deck/added_deck = C
 		added_deck.stored_card_names += stored_card_names
+
+		user.visible_message(\
+			span("notice","\The [user] combines two decks together."),\
+			span("notice","You combine too decks together.")\
+		)
+
 		qdel(src)
 		return
 
@@ -51,15 +69,35 @@
 	set src in view(1)
 
 	if(icon_state == "hand")
+		usr.visible_message(\
+			span("notice","\The [usr] turns their hand into a stack of cards."),\
+			span("notice","You turn your hand into a stack of cards.")\
+		)
 		icon_state = "stack"
 	else
+		usr.visible_message(\
+			span("notice","\The [usr] turns their stack of cards into a hand."),\
+			span("notice","You turn your stack of cards into a hand.")\
+		)
 		icon_state = "hand"
+
+/obj/item/battle_monsters/deck/verb/shuffle()
+	set category = "Object"
+	set name = "Shuffle Deck"
+	set src in view(1)
+
+	usr.visible_message(\
+		span("notice","\The [usr] shuffles \the [src]."),\
+		span("notice","You shuffle \the [src].")\
+	)
+
+	stored_card_names = shuffle(stored_card_names)
 
 /obj/item/battle_monsters/deck/attack_hand(var/mob/user)
 	take_card(user)
 
 /obj/item/battle_monsters/deck/attackby(var/obj/item/attacking, var/mob/user)
-	if(istype(attacking,/obj/item/battle_monsters/card))
+	if(istype(attacking,/obj/item/battle_monsters/card) && attacking != src)
 		var/obj/item/battle_monsters/card/adding_card = attacking
 		add_card(user,adding_card)
 
