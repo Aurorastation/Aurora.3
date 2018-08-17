@@ -24,11 +24,37 @@
 	var/card_power = 0
 	var/card_starlevel = 0
 	var/card_type = "Monster Card"
+	var/rotation
 
 	var/facedown = FALSE
 
 /obj/item/battle_monsters/card/New(var/loc,var/prefix,var/root,var/title)
 	Generate_Card(prefix, root, title)
+
+/obj/item/battle_monsters/card/attackby(var/obj/item/attacking, var/mob/user)
+	if(istype(attacking,/obj/item/battle_monsters/card))
+
+		var/obj/item/battle_monsters/card/adding_card = attacking
+		var/obj/item/battle_monsters/deck/new_deck = new(src.loc)
+
+		if(src.loc == user)
+			//Make a hand.
+			user.drop_from_inventory(src)
+			new_deck.icon_state = "hand"
+			user.put_in_inactive_hand(new_deck)
+		//else, make a deck
+
+		new_deck.add_card(user,adding_card)
+		new_deck.add_card(user,src)
+
+/obj/item/battle_monsters/card/MouseDrop_T(var/atom/movable/C, mob/user)
+	if(istype(C,/obj/item/battle_monsters/card))
+		src.attackby(C,user)
+
+/obj/item/battle_monsters/card/proc/RotateCard(var/mob/user,var/rotation)
+	turn(dir, rotation)
+
+/obj/item/battle_monsters/card/AltClick(var/mob/abstract/observer/admin)
 
 /obj/item/battle_monsters/card/proc/Generate_Card(var/prefix,var/root,var/title)
 
@@ -161,9 +187,6 @@
 /obj/item/battle_monsters/deck/proc/take_specific_card(var/mob/user, var/card_id)
 	if(card_id in stored_card_names)
 		var/list/splitstring = dd_text2List(card_id,",")
-			world << splitstring[1]
-			world << splitstring[2]
-			world << splitstring[3]
 		var/obj/item/battle_monsters/card/new_card = new(get_turf(src),splitstring[1],splitstring[2],splitstring[3])
 		user.put_in_active_hand(new_card)
 		stored_card_names -= card_id
@@ -171,6 +194,21 @@
 	if(stored_card_names.len <= 0)
 		qdel(src)
 */
+
+/obj/item/battle_monsters/deck/MouseDrop_T(mob/target, mob/user)
+	if(target == user)
+		user.put_in_active_hand(src)
+
+/obj/item/battle_monsters/deck/verb/toggle_mode()
+	set category = "Object"
+	set name = "Change Deck Type"
+	set src in view(1)
+
+	if(icon_state == "hand")
+		icon_state = "deck"
+	else
+		icon_state = "hand"
+
 /obj/item/battle_monsters/deck/attack_hand(var/mob/user)
 	take_card(user)
 

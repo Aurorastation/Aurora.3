@@ -99,7 +99,7 @@ datum/battle_monsters/monster/human/amazon_prime
 	attack_add = 1
 	rarity = 0.5
 	description = "a scantily clad %SPECIES %NAME dressed in leopard skin. They're one of the many queen guards of the Amazonian Kingdom."
-	pecial_effects = "Free Shipping: A trap or spell card can be played from the card owner's hand during their opponent's turn, as long as %NAME is in play."
+	special_effects = "Free Shipping: A trap or spell card can be played from the card owner's hand during their opponent's turn, as long as %NAME is in play."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLUB
 	rarity_score = 1
 
