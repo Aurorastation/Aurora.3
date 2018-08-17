@@ -23,7 +23,7 @@
 				/datum/reagent/drink/banana,
 				/datum/reagent/drink/berryjuice,
 				/datum/reagent/drink/space_cola,
-				/datum/reagent/drink/lemon_lime
+				/datum/reagent/drink/lemon_lime,
 				/datum/reagent/drink/watermelonjuice)), 3)
 	color = reagents.get_color()
 
