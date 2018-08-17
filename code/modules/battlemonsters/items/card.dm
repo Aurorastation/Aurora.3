@@ -7,18 +7,6 @@
 	w_class = ITEMSIZE_TINY
 
 	//Card information here
-	var/card_name = ""
-	var/card_description = ""
-	var/card_special_effects = ""
-	var/card_elements = BATTLE_MONSTERS_ELEMENT_NONE
-	var/card_attack_type = BATTLE_MONSTERS_ATTACKTYPE_NONE
-	var/card_defense_type = BATTLE_MONSTERS_DEFENSETYPE_NONE
-	var/card_attack_points = 0
-	var/card_defense_points = 0
-	var/card_rarity_score = 0
-	var/card_power = 0
-	var/card_starlevel = 0
-	var/card_type = "Monster Card"
 
 /obj/item/battle_monsters/card/New(var/turf/loc,var/prefix,var/root,var/title)
 	. = ..()
@@ -58,19 +46,19 @@
 
 	if(src.loc == user)
 		if(!facedown)
-			to_chat(user,span("notice","You reveal \the [card_name] to yourself, preparing to play it face up."))
+			to_chat(user,span("notice","You reveal \the [name] to yourself, preparing to play it face up."))
 		else
-			to_chat(user,span("notice", "You prepare \the [card_name] to be played face down."))
+			to_chat(user,span("notice", "You prepare \the [name] to be played face down."))
 	else
 		if(!facedown)
 			user.visible_message(\
-				span("notice","\The [user] flip the card face up and reveals \the [card_name]."),\
-				span("notice","You flip the card face up and reveal \the [card_name].")\
+				span("notice","\The [user] flip the card face up and reveals \the [name]."),\
+				span("notice","You flip the card face up and reveal \the [name].")\
 			)
 		else
 			user.visible_message(\
-				span("notice","\The [user] flips \the [card_name] face down."),\
-				span("notice","You flip \the [card_name] face down.")\
+				span("notice","\The [user] flips \the [name] face down."),\
+				span("notice","You flip \the [name] face down.")\
 			)
 
 	update_icon()
@@ -105,48 +93,10 @@
 	//Icon updating also updates it's information.
 
 	//Card Name
-	card_name = root_datum.name
-	if(prefix_datum.name)
-		card_name = "[prefix_datum.name] [card_name]"
-	if(suffix_datum.name)
-		card_name = "[card_name], [suffix_datum.name]"
 
-	//Card Description
-	card_description = root_datum.description
-	if(prefix_datum.description)
-		card_description += " [prefix_datum.description]"
-	if(suffix_datum.description)
-		card_description += "<br><i>[suffix_datum.description]</i>"
+	var/list/generated_stats = SSbattlemonsters.GenerateStats(prefix_datum,root_datum,suffix_datum,BATTLE_MONSTERS_GENERATION_STATS)
 
-	//Card Special Effects
-	card_special_effects = "" //This needs to reset every refresh.
-	if(prefix_datum.special_effects)
-		card_special_effects = trim("[card_special_effects][prefix_datum.special_effects]<br>")
-	if(root_datum.special_effects)
-		card_special_effects = trim("[card_special_effects][root_datum.special_effects]<br>")
-	if(suffix_datum.special_effects)
-		card_special_effects = trim("[card_special_effects][suffix_datum.special_effects]<br>")
-
-	//Card Statistics
-	card_elements = prefix_datum.elements | root_datum.elements | suffix_datum.elements
-	card_attack_type = prefix_datum.attack_type | root_datum.attack_type | suffix_datum.attack_type
-	card_defense_type = prefix_datum.defense_type | root_datum.defense_type | suffix_datum.defense_type
-	card_rarity_score = prefix_datum.rarity_score + root_datum.rarity_score + suffix_datum.rarity_score
-	card_attack_points = (prefix_datum.attack_add + root_datum.attack_add + suffix_datum.attack_add) * (prefix_datum.attack_mul * root_datum.attack_mul * suffix_datum.attack_mul)
-	card_defense_points = (prefix_datum.defense_add + root_datum.defense_add + suffix_datum.defense_add) * (prefix_datum.defense_mul * root_datum.defense_mul * suffix_datum.defense_mul)
-	card_power = (prefix_datum.power_add + root_datum.power_add + suffix_datum.power_add) * (prefix_datum.power_mul * root_datum.power_mul * suffix_datum.power_mul)
-	if(card_attack_points >= card_defense_points)
-		card_defense_points = card_defense_points/(card_attack_points + card_defense_points)
-		card_attack_points = 1 - card_defense_points
-	else
-		card_attack_points = card_attack_points/(card_attack_points + card_defense_points)
-		card_defense_points = 1 - card_attack_points
-	card_attack_points = round(card_power * card_attack_points,100)
-	card_defense_points = round(card_power * card_defense_points,100)
-
-	card_starlevel = SSbattlemonsters.GetStarLevel(src)
-
-	var/rounded_rarity_score = min(max(round(card_rarity_score,1),1),4)
+	var/rounded_rarity_score = min(max(round(generated_stats["card_rarity_score"],1),1),4)
 
 	if(facedown)
 		icon_state = "back"
@@ -185,15 +135,5 @@
 		to_chat(user,span("notice","You can't examine \the [src] while it's face down!"))
 		return
 
-	var/lol_formatting = "<b>[card_name]</b>"
-	for(var/i=1, i <= card_starlevel, i++)
-		lol_formatting += BATTLE_MONSTERS_FORMAT_STAR
-	lol_formatting += " | %ELEMENT_LIST %TYPE | %SPECIES_C %ATTACKTYPE_LIST"
+	SSbattlemonsters.ExamineCard(user,prefix_datum,root_datum,suffix_datum)
 
-	//I don't know why but the above code just makes me want to eat ass
-
-	to_chat(user,SSbattlemonsters.FormatText(src,lol_formatting))
-	to_chat(user,SSbattlemonsters.FormatText(src,"Keywords: %SPECIES_LIST"))
-	to_chat(user,SSbattlemonsters.FormatText(src,"ATK: [card_attack_points] | DEF: [card_defense_points]"))
-	to_chat(user,SSbattlemonsters.FormatText(src,card_special_effects))
-	to_chat(user,SSbattlemonsters.FormatText(src,"The card depicts [card_description]"))

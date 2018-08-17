@@ -5,10 +5,11 @@
 	var/facedown = TRUE
 	var/rotated = FALSE
 
-/obj/item/battle_monsters/New(var/mob/loc)
-	if(istype(loc))
-		dir = loc.dir
-	. = ..()
+/obj/item/battle_monsters/dropped(mob/user as mob)
+	dir = user.dir
+	if(rotated)
+		dir = turn(dir,90)
+	update_icon()
 
 /obj/item/battle_monsters/MouseDrop(mob/user) //Dropping the card onto something else.
 	if(istype(user))
@@ -35,19 +36,21 @@
 	rotated = !rotated
 
 	if(rotated)
-		dir = turn(user.dir,90)
 		if(src.loc == user)
 			to_chat(user,span("notice", "You prepare \the [name] to be played horizontally."))
+			dir = turn(NORTH,90)
 		else
+			dir = turn(user.dir,90)
 			user.visible_message(\
 				span("notice","\The [user] adjusts the orientation of \the [src] horizontally."),\
 				span("notice","You adjust the orientation of \the [src] horizontally.")\
 			)
 	else
-		dir = user.dir
 		if(src.loc == user)
 			to_chat(user,span("notice", "You prepare \the [name] to be played vertically."))
+			dir = NORTH
 		else
+			dir = user.dir
 			user.visible_message(\
 				span("notice","\The [user] adjusts the orientation of \the [src] vertically."),\
 				span("notice","You adjust the orientation of \the [src] vertically.")\
