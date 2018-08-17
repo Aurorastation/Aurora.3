@@ -16,15 +16,15 @@
 	..()
 	reagents.add_reagent(pick(list(
 				/datum/reagent/fuel,
-				/datum/reagent/drink/juice/grape,
-				/datum/reagent/drink/juice/orange,
-				/datum/reagent/drink/juice/lemon,
-				/datum/reagent/drink/juice/lime,
-				/datum/reagent/drink/juice/apple,
-				/datum/reagent/drink/juice/pear,
-				/datum/reagent/drink/juice/banana,
-				/datum/reagent/drink/juice/berry,
-				/datum/reagent/drink/juice/watermelon)), 3)
+				/datum/reagent/drink/grapejuice,
+				/datum/reagent/drink/orangejuice,
+				/datum/reagent/drink/lemonjuice,
+				/datum/reagent/drink/limejuice,
+				/datum/reagent/drink/banana,
+				/datum/reagent/drink/berryjuice,
+				/datum/reagent/drink/space_cola,
+				/datum/reagent/drink/lemon_lime
+				/datum/reagent/drink/watermelonjuice)), 3)
 	color = reagents.get_color()
 
 // The box for the gum
