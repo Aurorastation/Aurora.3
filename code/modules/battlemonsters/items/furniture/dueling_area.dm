@@ -20,7 +20,25 @@
 	density = 0
 	mouse_opacity = 0
 
-
 /obj/structure/dueling_table/attackby(obj/item/W as obj, mob/user as mob)
 	user.drop_item(src.loc)
 	return
+
+/obj/machinery/vending/battlemonsters
+	name = "\improper Battlemonsters vendor"
+	desc = "A good place to dump all your rent money."
+	icon_state = "battlemonsters"
+	vend_id = "battlemonsters"
+	products = list(
+		/obj/item/battle_monsters/wrapped = 20,
+		/obj/item/battle_monsters/wrapped/pro = 10
+	)
+	prices = list(
+		/obj/item/battle_monsters/wrapped = 150,
+		/obj/item/battle_monsters/wrapped/pro = 75
+	)
+	contraband = list(
+		/obj/item/battle_monsters/wrapped/rare = 2
+	)
+
+	restock_items = 0
