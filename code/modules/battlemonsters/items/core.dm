@@ -6,7 +6,17 @@
 	var/rotated = FALSE
 
 /obj/item/battle_monsters/dropped(mob/user as mob)
+	..()
+	user << "dropped"
 	dir = user.dir
+	if(rotated)
+		dir = turn(dir,90)
+	update_icon()
+
+/obj/item/battle_monsters/pickup(mob/user as mob)
+	..()
+	user << "pickup"
+	dir = NORTH
 	if(rotated)
 		dir = turn(dir,90)
 	update_icon()

@@ -36,7 +36,7 @@
 
 	if(stored_card_names.len <= 0)
 		qdel(src)
-/*
+
 /obj/item/battle_monsters/deck/proc/take_specific_card(var/mob/user, var/card_id)
 	if(card_id in stored_card_names)
 		var/list/splitstring = dd_text2List(card_id,",")
@@ -46,7 +46,6 @@
 
 	if(stored_card_names.len <= 0)
 		qdel(src)
-*/
 
 /obj/item/battle_monsters/deck/MouseDrop_T(var/atom/movable/C, mob/user) //Dropping C onto the card
 	if(istype(C,/obj/item/battle_monsters/deck/) && C.loc == loc)
@@ -113,3 +112,32 @@
 	. = ..()
 	Generate_Deck()
 
+/obj/item/battle_monsters/deck/examine(mob/user)
+
+	..()
+
+	if(icon_state != "hand")
+		to_chat(user,span("notice","You can't look at the cards in a deck!"))
+		return
+
+	if(user != src.loc)
+		to_chat(user,span("notice","You'll have to pick up \the [src] to examine the cards!"))
+
+	var/browse_data = ""
+
+	for(var/cardname in stored_card_names)
+		var/list/splitstring = dd_text2List(cardname,",")
+		var/datum/battle_monsters/selected_prefix = SSbattlemonsters.FindMatchingPrefix(splitstring[1])
+		var/datum/battle_monsters/selected_root = SSbattlemonsters.FindMatchingRoot(splitstring[2])
+		var/datum/battle_monsters/selected_suffix = SSbattlemonsters.FindMatchingSuffix(splitstring[3])
+		browse_data += SSbattlemonsters.FormatText(SSbattlemonsters.GetFormatting(),selected_prefix,selected_root,selected_suffix) + "<a href='?src=\ref[src];selection=[cardname]'>Draw Above Card</a>" + "<br><hr>"
+
+	user << browse(browse_data, "window=battlemonsters_hand")
+
+/obj/item/battle_monsters/deck/Topic(href,href_list)
+	if(..())
+		return 1
+
+	if(href_list["selection"])
+		take_specific_card(usr, href_list["selection"])
+		usr << browse(null, "window=battlemonsters_hand")

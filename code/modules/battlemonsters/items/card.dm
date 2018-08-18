@@ -90,13 +90,7 @@
 
 	cut_overlays()
 
-	//Icon updating also updates it's information.
-
-	//Card Name
-
-	var/list/generated_stats = SSbattlemonsters.GenerateStats(prefix_datum,root_datum,suffix_datum,BATTLE_MONSTERS_GENERATION_STATS)
-
-	var/rounded_rarity_score = min(max(round(generated_stats["card_rarity_score"],1),1),4)
+	var/rounded_rarity_score = min(max(round(prefix_datum.rarity_score + root_datum.rarity_score + suffix_datum.rarity_score,1),1),4)
 
 	if(facedown)
 		icon_state = "back"
@@ -118,6 +112,8 @@
 
 	var/matrix/M = matrix()
 	switch(dir)
+		if(NORTH)
+			M.Turn(0)
 		if(SOUTH)
 			M.Turn(180)
 		if(WEST)
