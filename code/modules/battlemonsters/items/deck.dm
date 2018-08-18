@@ -32,6 +32,7 @@
 	var/list/splitstring = dd_text2List(top_card,",")
 	var/obj/item/battle_monsters/card/new_card = new(src.loc,splitstring[1],splitstring[2],splitstring[3])
 	user.put_in_active_hand(new_card)
+	new_card.pickup(user)
 	stored_card_names -= top_card
 
 	if(stored_card_names.len <= 0)
@@ -42,6 +43,7 @@
 		var/list/splitstring = dd_text2List(card_id,",")
 		var/obj/item/battle_monsters/card/new_card = new(get_turf(src),splitstring[1],splitstring[2],splitstring[3])
 		user.put_in_active_hand(new_card)
+		new_card.pickup(user)
 		stored_card_names -= card_id
 
 	if(stored_card_names.len <= 0)
@@ -105,23 +107,29 @@
 		CHECK_TICK //This stuff is a little intensive I think.
 		var/datum/battle_monsters/selected_root = SSbattlemonsters.GetRandomRoot()
 		var/datum/battle_monsters/selected_prefix = SSbattlemonsters.GetRandomPrefix()
-		var/datum/battle_monsters/selected_suffix = SSbattlemonsters.GetRandomPrefix()
+		var/datum/battle_monsters/selected_suffix = SSbattlemonsters.GetRandomSuffix()
 		stored_card_names += "[selected_root.id],[selected_prefix.id],[(selected_prefix.rarity_score + selected_root.rarity_score) >= 3 ? selected_suffix.id : "no_title"]"
 
 /obj/item/battle_monsters/deck/generated/New()
 	. = ..()
 	Generate_Deck()
 
-/obj/item/battle_monsters/deck/examine(mob/user)
+/obj/item/battle_monsters/deck/attack_self(mob/user)
 
-	..()
+	if(user != src.loc) //Idk how this is possible but you never know.
+		to_chat(user,span("notice","You'll have to pick up \the [src] to examine the cards!"))
 
 	if(icon_state != "hand")
-		to_chat(user,span("notice","You can't look at the cards in a deck!"))
-		return
-
-	if(user != src.loc)
-		to_chat(user,span("notice","You'll have to pick up \the [src] to examine the cards!"))
+		user.visible_message(\
+			span("notice","\The [usr] begins searching through \the [src]..."),\
+			span("notice","You begin searching through your deck..")\
+		)
+		if(!do_after(user, 40, act_target = src))
+			user.visible_message(\
+				span("notice","\The [usr] stops and thinks better of it."),\
+				span("notice","You top and think better of it.")\
+			)
+			return
 
 	var/browse_data = ""
 
@@ -130,7 +138,7 @@
 		var/datum/battle_monsters/selected_prefix = SSbattlemonsters.FindMatchingPrefix(splitstring[1])
 		var/datum/battle_monsters/selected_root = SSbattlemonsters.FindMatchingRoot(splitstring[2])
 		var/datum/battle_monsters/selected_suffix = SSbattlemonsters.FindMatchingSuffix(splitstring[3])
-		browse_data += SSbattlemonsters.FormatText(SSbattlemonsters.GetFormatting(),selected_prefix,selected_root,selected_suffix) + "<a href='?src=\ref[src];selection=[cardname]'>Draw Above Card</a>" + "<br><hr>"
+		browse_data += SSbattlemonsters.FormatText(SSbattlemonsters.GetFormatting(),selected_prefix,selected_root,selected_suffix) + "<br><a href='?src=\ref[src];selection=[cardname]'>Draw Card</a><br><hr>"
 
 	user << browse(browse_data, "window=battlemonsters_hand")
 

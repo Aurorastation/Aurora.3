@@ -67,6 +67,40 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 /datum/controller/subsystem/battle_monsters/proc/GetRandomSuffix()
 	return FindMatchingSuffix(pickweight(monster_titles_rng))
 
+/datum/controller/subsystem/battle_monsters/proc/GetRandomPrefix_Filtered(var/rare_limit)
+	var/list/edited_list = list()
+
+	for(var/id in monster_elements_rng)
+		var/score = monster_elements_rng[id]
+		if(score > rare_limit)
+			continue
+		edited_list[id] = score
+
+	return FindMatchingPrefix(pickweight(edited_list))
+
+/datum/controller/subsystem/battle_monsters/proc/GetRandomRoot_Filtered(var/rare_limit)
+	var/list/edited_list = list()
+
+	for(var/id in monster_roots_rng)
+		var/score = monster_roots_rng[id]
+		if(score > rare_limit)
+			continue
+		edited_list[id] = score
+
+	return FindMatchingRoot(pickweight(edited_list))
+
+/datum/controller/subsystem/battle_monsters/proc/GetRandomSuffix_Filtered(var/rare_limit)
+	var/list/edited_list = list()
+
+	for(var/id in monster_titles_rng)
+		var/score = monster_titles_rng[id]
+		if(score > rare_limit)
+			continue
+		edited_list[id] = score
+
+	return FindMatchingSuffix(pickweight(edited_list))
+
+
 /datum/controller/subsystem/battle_monsters/proc/FindMatchingPrefix(var/text,var/failsafe = FALSE)
 	if(monster_elements[text])
 		return monster_elements[text]
@@ -214,43 +248,42 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 
 	var/list/generated_stats = SSbattlemonsters.GenerateStats(prefix_datum,root_datum,suffix_datum)
 
-	world << "PRINTING LIST:"
-	world << generated_stats
-
-	world << "MUH NAME"
-
-	world << generated_stats[BATTLE_MONSTERS_CARD_NAME]
-
 	var/list/replacements = list(
-		"%NAME" = generated_stats[BATTLE_MONSTERS_CARD_NAME],
+		"%NAME" = generated_stats["name"],
 
-		"%DESCRIPTION" = generated_stats[BATTLE_MONSTERS_CARD_DESCRIPTION],
-		"%STARLEVEL" = GetStarLevel(generated_stats[BATTLE_MONSTERS_CARD_POWER]),
-		"%SPECIAL_EFFECTS" = generated_stats[BATTLE_MONSTERS_CARD_SPECIALEFFECTS],
+		"%DESCRIPTION" = generated_stats["desc"],
+		"%SPECIAL_EFFECTS" = generated_stats["special_effects"],
 
-		"%SPECIES_C" = capitalize(GetSpeciesGeneral(generated_stats[BATTLE_MONSTERS_CARD_DEFENSETYPE])),
-		"%SPECIES_LIST" = GetSpecies(generated_stats[BATTLE_MONSTERS_CARD_DEFENSETYPE], ", "),
-		"%SPECIES" = GetSpeciesGeneral(generated_stats[BATTLE_MONSTERS_CARD_DEFENSETYPE]),
+		"%ELEMENT_AND" = GetElements(generated_stats["elements"]),
+		"%ELEMENT_OR" = GetElements(generated_stats["elements"], " or "),
+		"%ELEMENT_LIST" = GetElements(generated_stats["elements"], ", "),
 
-		"%TYPE" = GetAttackType(generated_stats[BATTLE_MONSTERS_CARD_ATTACKTYPE]),
-		"%ATTACKTYPE_LIST" = GetAttackType(generated_stats[BATTLE_MONSTERS_CARD_ATTACKTYPE], ", "),
-		"%WEAPON_AND" = GetWeapons(generated_stats[BATTLE_MONSTERS_CARD_ATTACKTYPE]),
+		"%TYPE" = GetAttackType(generated_stats["attack_type"]),
+		"%ATTACKTYPE_LIST" = GetAttackType(generated_stats["attack_type"], ", "),
+		"%WEAPON_AND" = GetWeapons(generated_stats["attack_type"]),
 
-		"%ELEMENT_AND" = GetElements(generated_stats[BATTLE_MONSTERS_CARD_ELEMENTS]),
-		"%ELEMENT_OR" = GetElements(generated_stats[BATTLE_MONSTERS_CARD_ELEMENTS], " or "),
-		"%ELEMENT_LIST" = GetElements(generated_stats[BATTLE_MONSTERS_CARD_ELEMENTS], ", "),
+		"%SPECIES_C" = capitalize(GetSpeciesGeneral(generated_stats["defense_type"])),
+		"%SPECIES_LIST" = GetSpecies(generated_stats["defense_type"], ", "),
+		"%SPECIES" = GetSpeciesGeneral(generated_stats["defense_type"]),
 
-		"%ATTACK_POINTS" = generated_stats[BATTLE_MONSTERS_CARD_ATTACKPOINTS],
-		"%DEFENSE_POINTS" = generated_stats[BATTLE_MONSTERS_CARD_DEFENSEPOINTS]
+		"%ATTACK_POINTS" = generated_stats["attack_points"],
+		"%DEFENSE_POINTS" = generated_stats["defense_points"],
+
+		"%STARLEVEL" = GetStarLevel(generated_stats["power"])
 	)
 
 	for(var/word in replacements)
 		text = replacetext(text,word,replacements[word])
 
+	for(var/word in replacements)//2 passes for good measure.
+		text = replacetext(text,word,replacements[word])
+
+
+
 	return text
 
 /datum/controller/subsystem/battle_monsters/proc/GetFormatting()
-	return "<b>%NAME</b> | %ELEMENT_LIST %TYPE | %SPECIES_C %ATTACKTYPE_LIST<br>\
+	return "<b>%NAME</b> | %ELEMENT_LIST %TYPE | %SPECIES_C <br>\
 			Keywords: %SPECIES_LIST<br>\
 			ATK: %ATTACK_POINTS | DEF: %DEFENSE_POINTS<br>\
 			%SPECIAL_EFFECTS<br>\
@@ -262,62 +295,46 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 
 /datum/controller/subsystem/battle_monsters/proc/GenerateStats(var/datum/battle_monsters/element/prefix_datum,var/datum/battle_monsters/monster/root_datum,var/datum/battle_monsters/title/suffix_datum,var/limiter = BATTLE_MONSTERS_GENERATION_ALL)
 
-	var/list/returning_list = list(
-		BATTLE_MONSTERS_CARD_NAME = "Unknown",
-		BATTLE_MONSTERS_GENERATION_DESCRIPTION = "",
-		BATTLE_MONSTERS_GENERATION_SPECIALEFFECTS = "",
-		BATTLE_MONSTERS_CARD_ELEMENTS = 0x0,
-		BATTLE_MONSTERS_CARD_ATTACKTYPE = 0x0,
-		BATTLE_MONSTERS_CARD_DEFENSETYPE = 0x0,
-		BATTLE_MONSTERS_CARD_RARITYSCORE = 0,
-		BATTLE_MONSTERS_CARD_ATTACKPOINTS = 0,
-		BATTLE_MONSTERS_CARD_DEFENSEPOINTS = 0,
-		BATTLE_MONSTERS_CARD_POWER = 0,
-		BATTLE_MONSTERS_CARD_STARLEVEL = 0,
-	)
+	var/returning_list[0] //Byond documentation told me this is how you make an assoc list.
 
-	if(1) // if(limiter & BATTLE_MONSTERS_GENERATION_NAME)
-		returning_list[BATTLE_MONSTERS_CARD_NAME] = root_datum.name
-		if(prefix_datum.name)
-			returning_list[BATTLE_MONSTERS_CARD_NAME] = "[prefix_datum.name] [returning_list[BATTLE_MONSTERS_CARD_NAME]]"
-		if(suffix_datum.name)
-			returning_list[BATTLE_MONSTERS_CARD_NAME] = "[returning_list[BATTLE_MONSTERS_CARD_NAME]], [suffix_datum.name]"
+	returning_list["name"] = root_datum.name
+	if(prefix_datum.name)
+		returning_list["name"] = "[prefix_datum.name] [returning_list["name"]]"
+	if(suffix_datum.name)
+		returning_list["name"] = "[returning_list["name"]], [suffix_datum.name]"
 
-	if(1) // if(limiter & BATTLE_MONSTERS_GENERATION_DESCRIPTION)
-		returning_list[BATTLE_MONSTERS_CARD_DESCRIPTION] = root_datum.description
-		if(prefix_datum.description)
-			returning_list[BATTLE_MONSTERS_CARD_DESCRIPTION] += " [prefix_datum.description]"
-		if(suffix_datum.description)
-			returning_list[BATTLE_MONSTERS_CARD_DESCRIPTION] += "<br><i>[suffix_datum.description]</i>"
+	returning_list["desc"] = root_datum.description
+	if(prefix_datum.description)
+		returning_list["desc"] += " [prefix_datum.description]"
+	if(suffix_datum.description)
+		returning_list["desc"] += "<br><i>[suffix_datum.description]</i>"
 
-	if(1) // if(limiter & BATTLE_MONSTERS_GENERATION_SPECIALEFFECTS)
-		if(prefix_datum.special_effects)
-			returning_list[BATTLE_MONSTERS_CARD_SPECIALEFFECTS] = trim("[returning_list[BATTLE_MONSTERS_CARD_SPECIALEFFECTS]][prefix_datum.special_effects]<br>")
-		if(root_datum.special_effects)
-			returning_list[BATTLE_MONSTERS_CARD_SPECIALEFFECTS] = trim("[returning_list[BATTLE_MONSTERS_CARD_SPECIALEFFECTS]][root_datum.special_effects]<br>")
-		if(suffix_datum.special_effects)
-			returning_list[BATTLE_MONSTERS_CARD_SPECIALEFFECTS] = trim("[returning_list[BATTLE_MONSTERS_CARD_SPECIALEFFECTS]][suffix_datum.special_effects]<br>")
+	returning_list["special_effects"] = ""
+	if(prefix_datum.special_effects)
+		returning_list["special_effects"] = trim("[returning_list["special_effects"]][prefix_datum.special_effects]<br>")
+	if(root_datum.special_effects)
+		returning_list["special_effects"] = trim("[returning_list["special_effects"]][root_datum.special_effects]<br>")
+	if(suffix_datum.special_effects)
+		returning_list["special_effects"] = trim("[returning_list["special_effects"]][suffix_datum.special_effects]<br>")
 
-	if(1) // if(limiter & BATTLE_MONSTERS_GENERATION_FORM)
-		returning_list[BATTLE_MONSTERS_CARD_ELEMENTS] = prefix_datum.elements | root_datum.elements | suffix_datum.elements
-		returning_list[BATTLE_MONSTERS_CARD_ATTACKTYPE] = prefix_datum.attack_type | root_datum.attack_type | suffix_datum.attack_type
-		returning_list[BATTLE_MONSTERS_CARD_DEFENSETYPE] = prefix_datum.defense_type | root_datum.defense_type | suffix_datum.defense_type
+	returning_list["elements"] = prefix_datum.elements | root_datum.elements | suffix_datum.elements
+	returning_list["attack_type"] = prefix_datum.attack_type | root_datum.attack_type | suffix_datum.attack_type
+	returning_list["defense_type"] = prefix_datum.defense_type | root_datum.defense_type | suffix_datum.defense_type
 
-	if(1) // if(limiter & BATTLE_MONSTERS_GENERATION_STATS)
-		returning_list[BATTLE_MONSTERS_CARD_RARITYSCORE] = prefix_datum.rarity_score + root_datum.rarity_score + suffix_datum.rarity_score
-		returning_list[BATTLE_MONSTERS_CARD_ATTACKPOINTS] = (prefix_datum.attack_add + root_datum.attack_add + suffix_datum.attack_add) * (prefix_datum.attack_mul * root_datum.attack_mul * suffix_datum.attack_mul)
-		returning_list[BATTLE_MONSTERS_CARD_DEFENSEPOINTS] = (prefix_datum.defense_add + root_datum.defense_add + suffix_datum.defense_add) * (prefix_datum.defense_mul * root_datum.defense_mul * suffix_datum.defense_mul)
-		returning_list[BATTLE_MONSTERS_CARD_POWER] = (prefix_datum.power_add + root_datum.power_add + suffix_datum.power_add) * (prefix_datum.power_mul * root_datum.power_mul * suffix_datum.power_mul)
-		if(returning_list[BATTLE_MONSTERS_CARD_ATTACKPOINTS] >= returning_list[BATTLE_MONSTERS_CARD_DEFENSEPOINTS])
-			returning_list[BATTLE_MONSTERS_CARD_DEFENSEPOINTS] = returning_list[BATTLE_MONSTERS_CARD_DEFENSEPOINTS]/(returning_list[BATTLE_MONSTERS_CARD_ATTACKPOINTS] + returning_list[BATTLE_MONSTERS_CARD_DEFENSEPOINTS])
-			returning_list[BATTLE_MONSTERS_CARD_ATTACKPOINTS] = 1 - returning_list[BATTLE_MONSTERS_CARD_DEFENSEPOINTS]
-		else
-			returning_list[BATTLE_MONSTERS_CARD_ATTACKPOINTS] = returning_list[BATTLE_MONSTERS_CARD_ATTACKPOINTS]/(returning_list[BATTLE_MONSTERS_CARD_ATTACKPOINTS] + returning_list[BATTLE_MONSTERS_CARD_DEFENSEPOINTS])
-			returning_list[BATTLE_MONSTERS_CARD_DEFENSEPOINTS] = 1 - returning_list[BATTLE_MONSTERS_CARD_ATTACKPOINTS]
+	returning_list["rarity_score"] = prefix_datum.rarity_score + root_datum.rarity_score + suffix_datum.rarity_score
+	returning_list["attack_points"] = (prefix_datum.attack_add + root_datum.attack_add + suffix_datum.attack_add) * (prefix_datum.attack_mul * root_datum.attack_mul * suffix_datum.attack_mul)
+	returning_list["defense_points"] = (prefix_datum.defense_add + root_datum.defense_add + suffix_datum.defense_add) * (prefix_datum.defense_mul * root_datum.defense_mul * suffix_datum.defense_mul)
+	returning_list["power"] = (prefix_datum.power_add + root_datum.power_add + suffix_datum.power_add) * (prefix_datum.power_mul * root_datum.power_mul * suffix_datum.power_mul)
+	if(returning_list["attack_points"] >= returning_list["defense_points"])
+		returning_list["defense_points"] = returning_list["defense_points"]/(returning_list["attack_points"] + returning_list["defense_points"])
+		returning_list["attack_points"] = 1 - returning_list["defense_points"]
+	else
+		returning_list["attack_points"] = returning_list["attack_points"]/(returning_list["attack_points"] + returning_list["defense_points"])
+		returning_list["defense_points"] = 1 - returning_list["attack_points"]
 
-		returning_list[BATTLE_MONSTERS_CARD_ATTACKPOINTS] = round(returning_list[BATTLE_MONSTERS_CARD_POWER] * returning_list[BATTLE_MONSTERS_CARD_ATTACKPOINTS],100)
-		returning_list[BATTLE_MONSTERS_CARD_DEFENSEPOINTS] = round(returning_list[BATTLE_MONSTERS_CARD_POWER] * returning_list[BATTLE_MONSTERS_CARD_DEFENSEPOINTS],100)
-		returning_list[BATTLE_MONSTERS_CARD_STARLEVEL] = GetStarLevel(returning_list[BATTLE_MONSTERS_CARD_POWER])
+	returning_list["attack_points"] = round(returning_list["power"] * returning_list["attack_points"],100)
+	returning_list["defense_points"] = round(returning_list["power"] * returning_list["defense_points"],100)
+	returning_list["star_level"] = GetStarLevel(returning_list["power"])
 
 	return returning_list
 
