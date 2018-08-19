@@ -76,6 +76,9 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 			continue
 		edited_list[id] = score
 
+	if(edited_list.len <= 0)
+		edited_list = monster_elements_rng
+
 	return FindMatchingPrefix(pickweight(edited_list))
 
 /datum/controller/subsystem/battle_monsters/proc/GetRandomRoot_Filtered(var/rare_limit)
@@ -87,6 +90,9 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 			continue
 		edited_list[id] = score
 
+	if(edited_list.len <= 0)
+		edited_list = monster_roots_rng
+
 	return FindMatchingRoot(pickweight(edited_list))
 
 /datum/controller/subsystem/battle_monsters/proc/GetRandomSuffix_Filtered(var/rare_limit)
@@ -97,6 +103,9 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 		if(score > rare_limit)
 			continue
 		edited_list[id] = score
+
+	if(edited_list.len <= 0)
+		edited_list = monster_titles_rng
 
 	return FindMatchingSuffix(pickweight(edited_list))
 

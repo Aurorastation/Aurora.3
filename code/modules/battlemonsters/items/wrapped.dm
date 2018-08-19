@@ -28,7 +28,7 @@
 	desc = "A pack of 10 rare battle monster cards."
 	icon_state = "pack2"
 	contained_cards = 10
-	rare_limiter = 0.25
+	rare_limiter = 0.1
 
 /obj/item/battle_monsters/wrapped/rare
 	name = "battle monsters rare booster pack"
