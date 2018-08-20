@@ -33478,6 +33478,7 @@
 	icon_state = "corner_white_full";
 	dir = 8
 	},
+/obj/machinery/vending/zora,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bhU" = (
@@ -64795,6 +64796,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
+"grq" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/vending/zora,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
+"grr" = (
+/obj/machinery/vending/zora,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 
 (1,1,1) = {"
 aaa
@@ -92736,7 +92746,7 @@ bXw
 bXV
 bYt
 bYN
-bLU
+grr
 cqw
 cqz
 cqI
@@ -95012,7 +95022,7 @@ bxs
 bxs
 bAC
 bxs
-aVI
+grq
 aXq
 bEu
 cuL
