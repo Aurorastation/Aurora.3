@@ -964,7 +964,7 @@
 "abY" = (
 /obj/machinery/power/smes/buildable{
 	charge = 0;
-	RCon_tag = "Substation - \[F.3] Security"
+	RCon_tag = "Substation - Security Main"
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -978,7 +978,7 @@
 /area/maintenance/substation/security)
 "abZ" = (
 /obj/machinery/power/breakerbox/activated{
-	RCon_tag = "\[F.3] Security Substation Bypass"
+	RCon_tag = "Security Main Substation Bypass"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/security)
@@ -5542,7 +5542,7 @@
 	charge = 2e+006;
 	input_attempt = 1;
 	output_attempt = 1;
-	RCon_tag = "Substation - \[ATM] Atmospherics"
+	RCon_tag = "Substation - Atmospherics"
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/plating,
@@ -6759,7 +6759,7 @@
 	input_level = 500000;
 	output_attempt = 1;
 	output_level = 500000;
-	RCon_tag = "\[ENG.1] Supermatter - Grid"
+	RCon_tag = "Supermatter - Grid"
 	},
 /obj/structure/cable{
 	icon_state = "0-4";
@@ -8655,7 +8655,7 @@
 	input_level = 100000;
 	output_attempt = 1;
 	output_level = 200000;
-	RCon_tag = "\[ENG.1] Supermatter - Containment"
+	RCon_tag = "Supermatter - Containment"
 	},
 /obj/structure/cable/orange{
 	icon_state = "0-2"
@@ -13846,7 +13846,7 @@
 "aAc" = (
 /obj/machinery/power/smes/buildable{
 	charge = 0;
-	RCon_tag = "Substation - \[F.3] Engineering"
+	RCon_tag = "Substation - Engineering Main"
 	},
 /obj/structure/cable{
 	icon_state = "0-4";
@@ -13860,7 +13860,7 @@
 /area/maintenance/substation/engineering)
 "aAd" = (
 /obj/machinery/power/breakerbox/activated{
-	RCon_tag = "\[F.3] Engineering Substation Bypass"
+	RCon_tag = "Engineering Main Substation Bypass"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering)
@@ -29299,7 +29299,7 @@
 "bao" = (
 /obj/machinery/power/smes/buildable{
 	charge = 0;
-	RCon_tag = "Substation - \[F.3] Command"
+	RCon_tag = "Substation - Command Main"
 	},
 /obj/structure/cable/green,
 /obj/structure/cable/green{
@@ -30011,7 +30011,7 @@
 /area/maintenance/substation/command)
 "bbH" = (
 /obj/machinery/power/breakerbox/activated{
-	RCon_tag = "\[F.3] Command Substation Bypass"
+	RCon_tag = "Command Main Substation Bypass"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/command)
@@ -37530,7 +37530,7 @@
 "boy" = (
 /obj/machinery/power/smes/buildable{
 	charge = 0;
-	RCon_tag = "Substation - \[F.3] Research"
+	RCon_tag = "Substation - Research Main"
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -38257,7 +38257,7 @@
 /area/maintenance/substation/research)
 "bpK" = (
 /obj/machinery/power/breakerbox/activated{
-	RCon_tag = "\[F.3] Research Substation Bypass"
+	RCon_tag = "Research Main Substation Bypass"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/research)
@@ -47346,14 +47346,14 @@
 /area/crew_quarters/heads/cmo)
 "bEN" = (
 /obj/machinery/power/breakerbox/activated{
-	RCon_tag = "\[F.3] Medical Substation Bypass"
+	RCon_tag = "Medical Main Substation Bypass"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/medical)
 "bEO" = (
 /obj/machinery/power/smes/buildable{
 	charge = 0;
-	RCon_tag = "Substation - \[F.3] Medical"
+	RCon_tag = "Substation - Medical Main"
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -55512,7 +55512,7 @@
 /area/maintenance/substation/civilian_west)
 "bYG" = (
 /obj/machinery/power/breakerbox/activated{
-	RCon_tag = "\[F.3] Civilian Substation Bypass"
+	RCon_tag = "Civilian Main Substation Bypass"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/civilian_west)
@@ -55684,7 +55684,7 @@
 "bYV" = (
 /obj/machinery/power/smes/buildable{
 	charge = 0;
-	RCon_tag = "Substation - \[F.3] Civilian"
+	RCon_tag = "Substation - Civilian Main"
 	},
 /obj/structure/cable/green{
 	d2 = 2;
