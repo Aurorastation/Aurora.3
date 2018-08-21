@@ -1,6 +1,7 @@
 /turf/simulated
 	name = "station"
-	var/wet = 0
+	var/wet_type = 0
+	var/wet_amount = 0
 	var/image/wet_overlay = null
 
 	//Mining resources (for the large drills).
@@ -18,26 +19,38 @@
 
 	roof_type = /turf/simulated/floor/airless/ceiling
 
-/turf/simulated/proc/wet_floor(var/wet_val = 1)
-	if(wet_val < wet)
-		return
+/turf/simulated/proc/wet_floor(var/apply_type = WET_TYPE_WATER, var/amount = 1)
 
-	if(!wet)
-		wet = wet_val
+	//Wet type:
+	//WET_TYPE_WATER = water
+	//WET_TYPE_LUBE = lube
+	//WET_TYPE_ICE = ice
+
+	if(!wet_type)
+		wet_type = apply_type
+	else if(apply_type != wet_type)
+		if(apply_type == WET_TYPE_WATER && wet_type == WET_TYPE_LUBE)
+			wet_type = WET_TYPE_WATER
+		else if(apply_type == WET_TYPE_ICE && (wet_type == WET_TYPE_WATER || wet_type == WET_TYPE_LUBE))
+			wet_type = apply_type
+
+	if(wet_amount <= 0)
+		wet_amount = 0 //Just in case
+
+	if(!wet_overlay)
 		wet_overlay = image('icons/effects/water.dmi',src,"wet_floor")
 		add_overlay(wet_overlay, TRUE)
+
+	wet_amount += amount
 
 	unwet_timer = addtimer(CALLBACK(src, .proc/unwet_floor), 120 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_STOPPABLE)
 
 /turf/simulated/proc/unwet_floor()
-	--wet
-	if (wet < 1)
-		wet = 0
-		if(wet_overlay)
-			cut_overlay(wet_overlay, TRUE)
-			wet_overlay = null
-	else
-		unwet_timer = addtimer(CALLBACK(src, .proc/unwet_floor), 120 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE)
+	wet_amount = 0
+	wet_type = 0
+	if(wet_overlay)
+		cut_overlay(wet_overlay, TRUE)
+		wet_overlay = null
 
 /turf/simulated/clean_blood()
 	for(var/obj/effect/decal/cleanable/blood/B in contents)
@@ -112,16 +125,17 @@
 
 				bloodDNA = null
 
-		if(src.wet)
+		if(src.wet_type && src.wet_amount)
 
-			if(M.buckled || (src.wet == 1 && M.m_intent == "walk"))
+			if(M.buckled || (src.wet_type == 1 && M.m_intent == "walk"))
 				return
 
+			//Water
 			var/slip_dist = 1
 			var/slip_stun = 6
 			var/floor_type = "wet"
 
-			switch(src.wet)
+			switch(src.wet_type)
 				if(2) // Lube
 					floor_type = "slippery"
 					slip_dist = 4

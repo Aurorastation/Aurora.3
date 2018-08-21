@@ -78,6 +78,8 @@
 	banners["banner, NanoTrasen"] = /obj/item/weapon/flag/nanotrasen
 	banners["banner, Eridani Fed"] = /obj/item/weapon/flag/eridani
 	banners["banner, Sedantis"] = /obj/item/weapon/flag/vaurca
+	banners["banner, People's Republic of Adhomai"] = /obj/item/weapon/flag/pra
+	banners["banner, Democratic People's Republic of Adhomai"] = /obj/item/weapon/flag/dpra
 	gear_tweaks += new/datum/gear_tweak/path(banners)
 
 /datum/gear/flag
@@ -96,6 +98,8 @@
 	flags["flag, NanoTrasen"] = /obj/item/weapon/flag/nanotrasen/l
 	flags["flag, Eridani Fed"] = /obj/item/weapon/flag/eridani/l
 	flags["flag, Sedantis"] = /obj/item/weapon/flag/vaurca/l
+	flags["flag, People's Republic of Adhomai"] = /obj/item/weapon/flag/pra/l
+	flags["flag, Democratic People's Republic of Adhomai"] = /obj/item/weapon/flag/dpra/l
 	gear_tweaks += new/datum/gear_tweak/path(flags)
 
 
@@ -106,3 +110,11 @@
 /datum/gear/towel/New()
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/checkers
+	display_name = "checkers game kit"
+	path = /obj/item/weapon/storage/box/checkers_kit
+
+/datum/gear/chess
+	display_name = "chess game kit"
+	path = /obj/item/weapon/storage/box/chess_kit

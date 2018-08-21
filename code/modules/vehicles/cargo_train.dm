@@ -72,8 +72,7 @@
 /obj/vehicle/train/cargo/engine/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/key/cargo_train))
 		if(!key)
-			user.drop_item()
-			W.forceMove(src)
+			user.drop_from_inventory(W,src)
 			key = W
 			verbs += /obj/vehicle/train/cargo/engine/verb/remove_key
 		return

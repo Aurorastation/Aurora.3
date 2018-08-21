@@ -41,8 +41,7 @@
 			to_chat(user, "<span class='warning'>\The [src] is too full to add [O].</span>")
 			return FALSE
 		items_contained += O
-		user.drop_item(O)
-		O.forceMove(src)
+		user.drop_from_inventory(O,src)
 		to_chat(user, "<span class='notice'>You add [O] to \the [src].</span>")
 		set_pin_data(IC_OUTPUT, 1, TRUE)
 		return TRUE

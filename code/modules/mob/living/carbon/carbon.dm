@@ -68,7 +68,7 @@
 
 				if(prob(src.getBruteLoss() - 50))
 					for(var/atom/movable/A in stomach_contents)
-						A.loc = loc
+						A.forceMove(loc)
 						LAZYREMOVE(stomach_contents, A)
 					src.gib()
 
@@ -76,7 +76,7 @@
 	for(var/mob/M in src)
 		if(M in src.stomach_contents)
 			LAZYREMOVE(src.stomach_contents, M)
-		M.loc = src.loc
+		M.forceMove(src.loc)
 		for(var/mob/N in viewers(src, null))
 			if(N.client)
 				N.show_message(text("<span class='danger'>[M] bursts out of [src]!</span>"), 2)

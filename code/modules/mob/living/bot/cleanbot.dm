@@ -379,13 +379,12 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 /obj/item/weapon/bucket_sensor/attackby(var/obj/item/O, var/mob/user)
 	..()
 	if(istype(O, /obj/item/robot_parts/l_arm) || istype(O, /obj/item/robot_parts/r_arm))
-		user.drop_item()
+		user.drop_from_inventory(O,get_turf(src))
 		qdel(O)
 		var/turf/T = get_turf(loc)
 		var/mob/living/bot/cleanbot/A = new /mob/living/bot/cleanbot(T)
 		A.name = created_name
 		user << "<span class='notice'>You add the robot arm to the bucket and sensor assembly. Beep boop!</span>"
-		user.drop_from_inventory(src)
 		qdel(src)
 
 	else if(istype(O, /obj/item/weapon/pen))

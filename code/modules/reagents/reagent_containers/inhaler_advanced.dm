@@ -139,7 +139,7 @@
 
 	if(M.reagents)
 		var/contained = stored_cartridge.reagentlist()
-		var/trans = stored_cartridge.reagents.trans_to_mob(M, transfer_amount, CHEM_BREATHE)
+		var/trans = stored_cartridge.reagents.trans_to_mob(M, transfer_amount, CHEM_BREATHE, bypass_checks = TRUE)
 		admin_inject_log(user, M, src, contained, trans)
 		playsound(M.loc, 'sound/items/stimpack.ogg', 50, 1)
 		if(eject_when_empty)
@@ -163,7 +163,7 @@
 			return
 		user.remove_from_mob(cartridge)
 		src.stored_cartridge = cartridge
-		cartridge.loc = src
+		cartridge.forceMove(src)
 		update_icon()
 		return
 	. = ..()
