@@ -27,8 +27,9 @@
 	// vars for verbal commands
 	var/short_name = null
 	var/list/command_buffer = list()
-	var/list/known_commands = list("stay", "stop", "attack", "follow")
+	var/list/known_commands = list("stay", "stop", "arrest", "detain", "follow")
 	var/list/allowed_targets = list() //WHO CAN I KILL D:
+	var/emote_hear = "states"
 
 /mob/living/bot/secbot/ed209/Initialize()
 	..()
@@ -87,7 +88,7 @@
 				if("stop")
 					if(stop_command(speaker,text))
 						break
-				if("attack")
+				if("arrest" || "detain")
 					if(attack_command(speaker,text))
 						break
 				if("follow")
@@ -112,7 +113,7 @@
 					found = 1
 					break
 		if(found)
-			return (M in view(7, src))
+			return M
 	return null
 
 /mob/living/bot/secbot/ed209/proc/attack_command(var/mob/speaker,var/text)
@@ -120,10 +121,19 @@
 	walk_to(src,0)
 
 	target = get_target_by_name(text)
-	if(isnull(target) || !target)
+	if(!(target in view(7, src)))
+		return 0
+
+	if(findtext(text,"detain"))
+		arrest_type = 1
+	else
+		arrest_type = 0
+
+	if(isnull(target))
 		return 0
 	else
 		mode = SECBOT_HUNT
+		audible_emote("[emote_hear] \"Roger that, [arrest_type ? ("Detaining") : ("Arresting")] [target]\"")
 
 /mob/living/bot/secbot/ed209/proc/stay_command(var/mob/speaker,var/text)
 	mode = SECBOT_IDLE
@@ -143,11 +153,14 @@
 		return 1
 
 	target = get_target_by_name(text)
+	if(!(target in view(7, src)))
+		return 0
 
 	if(!target)
 		return 0
 
 	mode = SECBOT_FOLLOW
+	audible_emote("[emote_hear] \"Roger that, following [target]\"")
 
 	return 1
 
