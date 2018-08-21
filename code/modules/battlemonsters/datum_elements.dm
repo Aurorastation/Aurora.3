@@ -26,6 +26,15 @@ datum/battle_monsters/element/none
 	rarity = 5
 	rarity_score = -1
 
+datum/battle_monsters/element/trap //Indicator for trap cards.
+	name = ""
+	id = "trap"
+	icon_state = "trap"
+	elements = BATTLE_MONSTERS_ELEMENT_NONE
+	description = ""
+	rarity = 5
+	rarity_score = -1
+
 datum/battle_monsters/element/fire
 	name = "Firebrand"
 	id = "fire"
@@ -39,7 +48,7 @@ datum/battle_monsters/element/fire/lava
 	name = "Fireborn"
 	id = "lava"
 	description = "These types of %SPECIES are born from of the magic %ELEMENT_AND of dark wizards and witches."
-	special_effects = "Element Spell Immune: %NAME is immune to all %ELEMENT_OR based spell and trap cards if another fire based monster is in play."
+	special_effects = "Element Spell Immune: %NAME is immune to all %ELEMENT_OR based spell and trap cards if another fire element monster is in play."
 	power_add = 100
 	rarity = 0.25
 
@@ -47,7 +56,8 @@ datum/battle_monsters/element/fire/molten
 	name = "Molten"
 	id = "molten"
 	description = "Liquid %ELEMENT_AND drips from their eyes and %WEAPON_AND."
-	special_effects = "Element Monster Immune: %NAME is immune to all %ELEMENT_OR based monster attacks if another fire based monster is in play."
+	special_effects = "Element Monster Immune: %NAME is immune to all %ELEMENT_OR based monster attacks if another fire element monster is in play."
+	tip = "%NAME can still be attacked, however the attacker's special effects will be nullified and the attack will be considered a draw if %NAME lost battle calculation."
 	power_add = 250
 	defense_add = 0.25
 	rarity = 0.1
@@ -71,7 +81,7 @@ datum/battle_monsters/element/fire/burned
 	icon_state = "burned"
 	elements = BATTLE_MONSTERS_ELEMENT_FIRE | BATTLE_MONSTERS_ELEMENT_DARK
 	description = "Visible scorch marks and bandages appear all over their body from centuries of using %ELEMENT_AND. This %SPECIES is clearly a veteran of using the magical arts."
-	special_effects = "Battle Reminder: If a %ELEMENT_OR type monster is sent to a graveyard, the card's owner can choose to reaveal and send one fire based monster from the owner's hand to the graveyard in it's place."
+	special_effects = "Battle Reminder: If a %ELEMENT_OR type monster is sent to a graveyard, the card's owner can choose to reveal and send one fire based monster from the owner's hand to the graveyard in it's place."
 	power_add = 500
 	rarity = 0.1
 	rarity_score = 1
@@ -83,6 +93,7 @@ datum/battle_monsters/element/fire/scorching_blade
 	elements = BATTLE_MONSTERS_ELEMENT_FIRE | BATTLE_MONSTERS_ELEMENT_STONE
 	description = "A giant, %ELEMENT_AND katana adorns their hip. The blade itself looks extremely unstable and pulsates with strange magic every now and then."
 	special_effects = "Revenge: If %NAME is sent to a graveyard, the card's owner can choose to send one non-%ELEMENTS_OR based monster on the field to the graveyard as well."
+	tip = "If you know what you're doing, you can also send one of your own monsters to the graveyard with it."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN
 	rarity = 0.1
 	rarity_score = 1
@@ -94,6 +105,7 @@ datum/battle_monsters/element/fire/burning_sun_god
 	elements = BATTLE_MONSTERS_ELEMENT_FIRE | BATTLE_MONSTERS_ELEMENT_LIGHT
 	description = "Upon closer examination, various %ELEMENT_AND symbols are etched across their body, and a slightly visible shadow of The Burning Sun God Ra'Kan is cast behind them. It's clear that the god is using this %SPECIES as a vessel for it's bidding."
 	special_effects = "Godly Protection: %ELEMENT_OR monsters cannot attack or be attacked by %NAME."
+	tip = "%NAME can still be affected by traps or spells."
 	power_add = 2000
 	rarity = 0.01
 	rarity_score = 3
@@ -114,7 +126,8 @@ datum/battle_monsters/element/energy/thunder
 	power_add = 500
 	attack_add = 0.25
 	description = "A symbol on their forehead indicates that they are a %SPECIES thunderchild, born of the incredibly horny god Bleus after coitus with a %SPECIES."
-	special_effects = "Charge: %NAME can attack as soon as it's played or revealed."
+	special_effects = "Charge: %NAME can attack as soon as it's played."
+	tip = "Remember that 'played' is not the same as 'revealed', a card is considered 'played' when it's put into the field from the owner's hand."
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_GOD
 	power_mul = 0.75
 	rarity = 0.1
@@ -167,7 +180,7 @@ datum/battle_monsters/element/water/raincloud
 	id = "rain"
 	description = "Depressing rainclouds hover above them."
 	special_effects = "Dark Rainclouds: %NAME is immune to all non %ELEMENT_OR based trap and spell cards as long as %NAME attacked on the owner's previous turn."
-	power_mull = 0.75
+	power_mul = 0.75
 	attack_add = 0.5
 	rarity = 0.25
 	rarity_score = 1
@@ -312,7 +325,7 @@ datum/battle_monsters/element/light/angel
 	name = "Guardian Angel"
 	id = "angel"
 	description = "A halo floats above them, and feathery white wings sprout from their back."
-	special_effects = "Sacrifice: If a friendly monster loses a battle, %NAME can be chosen by the card's owner to be sent to the graveyard instead."
+	special_effects = "Sacrifice: If a friendly monster loses a battle, %NAME can be sent to the graveyard instead."
 	rarity = 0.1
 	rarity_score = 2
 

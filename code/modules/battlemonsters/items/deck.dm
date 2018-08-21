@@ -102,18 +102,6 @@
 		var/obj/item/battle_monsters/card/adding_card = attacking
 		add_card(user,adding_card)
 
-/obj/item/battle_monsters/deck/proc/Generate_Deck()
-	for(var/i=1,i < deck_size,i++)
-		CHECK_TICK //This stuff is a little intensive I think.
-		var/datum/battle_monsters/selected_root = SSbattlemonsters.GetRandomRoot()
-		var/datum/battle_monsters/selected_prefix = SSbattlemonsters.GetRandomPrefix()
-		var/datum/battle_monsters/selected_suffix = SSbattlemonsters.GetRandomSuffix()
-		stored_card_names += "[selected_root.id],[selected_prefix.id],[(selected_prefix.rarity_score + selected_root.rarity_score) >= 3 ? selected_suffix.id : "no_title"]"
-
-/obj/item/battle_monsters/deck/generated/New()
-	. = ..()
-	Generate_Deck()
-
 /obj/item/battle_monsters/deck/attack_self(mob/user)
 
 	if(user != src.loc) //Idk how this is possible but you never know.
@@ -138,7 +126,7 @@
 		var/datum/battle_monsters/selected_prefix = SSbattlemonsters.FindMatchingPrefix(splitstring[1])
 		var/datum/battle_monsters/selected_root = SSbattlemonsters.FindMatchingRoot(splitstring[2])
 		var/datum/battle_monsters/selected_suffix = SSbattlemonsters.FindMatchingSuffix(splitstring[3])
-		browse_data += SSbattlemonsters.FormatText(SSbattlemonsters.GetFormatting(),selected_prefix,selected_root,selected_suffix) + "<br><a href='?src=\ref[src];selection=[cardname]'>Draw Card</a><br><hr>"
+		browse_data += SSbattlemonsters.FormatMonsterText(SSbattlemonsters.GetMonsterFormatting(),selected_prefix,selected_root,selected_suffix) + "<br><a href='?src=\ref[src];selection=[cardname]'>Draw Card</a><br><hr>"
 
 	user << browse(browse_data, "window=battlemonsters_hand")
 

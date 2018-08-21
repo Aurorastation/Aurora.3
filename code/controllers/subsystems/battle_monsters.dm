@@ -1,6 +1,8 @@
 #define BATTLE_MONSTERS_GEN_PREFIX 1
 #define BATTLE_MONSTERS_GEN_ROOT 2
 #define BATTLE_MONSTERS_GEN_SUFFIX 3
+#define BATTLE_MONSTERS_GEN_TRAP 4
+#define BATTLE_MONSTERS_GEN_SPELL 5
 
 var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 
@@ -17,6 +19,13 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 	var/list/monster_roots_rng
 	var/list/monster_titles_rng
 
+	var/list/traps
+	var/list/spells
+
+	var/list/traps_rng
+	var/list/spells_rng
+
+
 /datum/controller/subsystem/battle_monsters/New()
     NEW_SS_GLOBAL(SSbattlemonsters)
 
@@ -24,6 +33,8 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 	GenerateDatum(BATTLE_MONSTERS_GEN_PREFIX)
 	GenerateDatum(BATTLE_MONSTERS_GEN_ROOT)
 	GenerateDatum(BATTLE_MONSTERS_GEN_SUFFIX)
+	GenerateDatum(BATTLE_MONSTERS_GEN_TRAP)
+	GenerateDatum(BATTLE_MONSTERS_GEN_SPELL)
 
 /datum/controller/subsystem/battle_monsters/proc/GenerateDatum(var/generation_type)
 
@@ -36,6 +47,10 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 			datum_paths = subtypesof(/datum/battle_monsters/monster)
 		if(BATTLE_MONSTERS_GEN_SUFFIX)
 			datum_paths = subtypesof(/datum/battle_monsters/title)
+		if(BATTLE_MONSTERS_GEN_TRAP)
+			datum_paths = subtypesof(/datum/battle_monsters/trap)
+		if(BATTLE_MONSTERS_GEN_SPELL)
+			datum_paths = subtypesof(/datum/battle_monsters/spell)
 
 	var/list/id_datum_list = list()
 	var/list/id_rng_list = list()
@@ -57,6 +72,12 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 		if(BATTLE_MONSTERS_GEN_SUFFIX)
 			monster_titles = id_datum_list
 			monster_titles_rng = id_rng_list
+		if(BATTLE_MONSTERS_GEN_TRAP)
+			traps = id_datum_list
+			traps_rng = id_rng_list
+		if(BATTLE_MONSTERS_GEN_SPELL)
+			spells = id_datum_list
+			spells_rng = id_rng_list
 
 /datum/controller/subsystem/battle_monsters/proc/GetRandomPrefix()
 	return FindMatchingPrefix(pickweight(monster_elements_rng))
@@ -66,6 +87,12 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 
 /datum/controller/subsystem/battle_monsters/proc/GetRandomSuffix()
 	return FindMatchingSuffix(pickweight(monster_titles_rng))
+
+/datum/controller/subsystem/battle_monsters/proc/GetRandomTrap()
+	return FindMatchingTrap(pickweight(traps_rng))
+
+/datum/controller/subsystem/battle_monsters/proc/GetRandomSpell()
+	return FindMatchingSpell(pickweight(spells_rng))
 
 /datum/controller/subsystem/battle_monsters/proc/GetRandomPrefix_Filtered(var/rare_limit)
 	var/list/edited_list = list()
@@ -131,6 +158,22 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 		return monster_titles[text]
 	else if(failsafe)
 		return GetRandomSuffix()
+	else
+		return
+
+/datum/controller/subsystem/battle_monsters/proc/FindMatchingTrap(var/text,var/failsafe = FALSE)
+	if(traps[text])
+		return traps[text]
+	else if(failsafe)
+		return GetRandomTrap()
+	else
+		return
+
+/datum/controller/subsystem/battle_monsters/proc/FindMatchingSpell(var/text,var/failsafe = FALSE)
+	if(spells[text])
+		return spells[text]
+	else if(failsafe)
+		return GetRandomSpell()
 	else
 		return
 
@@ -253,9 +296,12 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 /datum/controller/subsystem/battle_monsters/proc/GetStarLevel(var/power_rating)
 	return min(10,1 + round( (power_rating^1.25) * 0.00012))
 
-/datum/controller/subsystem/battle_monsters/proc/FormatText(var/text,var/datum/battle_monsters/element/prefix_datum,var/datum/battle_monsters/monster/root_datum,var/datum/battle_monsters/title/suffix_datum)
+/datum/controller/subsystem/battle_monsters/proc/FormatSpellText(var/text,var/datum/battle_monsters/spell_datum)
 
-	var/list/generated_stats = SSbattlemonsters.GenerateStats(prefix_datum,root_datum,suffix_datum)
+
+/datum/controller/subsystem/battle_monsters/proc/FormatMonsterText(var/text,var/datum/battle_monsters/element/prefix_datum,var/datum/battle_monsters/monster/root_datum,var/datum/battle_monsters/title/suffix_datum)
+
+	var/list/generated_stats = SSbattlemonsters.GenerateMonsterStats(prefix_datum,root_datum,suffix_datum)
 
 	var/list/replacements = list(
 		"%NAME" = generated_stats["name"],
@@ -287,22 +333,30 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 	for(var/word in replacements)//2 passes for good measure.
 		text = replacetext(text,word,replacements[word])
 
-
-
 	return text
 
-/datum/controller/subsystem/battle_monsters/proc/GetFormatting()
+/datum/controller/subsystem/battle_monsters/proc/GetMonsterFormatting()
 	return "<b>%NAME</b> | %ELEMENT_LIST %TYPE | %SPECIES_C <br>\
 			Keywords: %SPECIES_LIST<br>\
 			ATK: %ATTACK_POINTS | DEF: %DEFENSE_POINTS<br>\
 			%SPECIAL_EFFECTS<br>\
 			The card depicts %DESCRIPTION"
 
+/datum/controller/subsystem/battle_monsters/proc/GetSpellFormatting()
+	return "Spell: <b>%NAME</b> | %ELEMENT_LIST<br>\
+			%SPECIAL_EFFECTS<br>\
+			The card depicts %DESCRIPTION"
 
-/datum/controller/subsystem/battle_monsters/proc/ExamineCard(var/mob/user,var/datum/battle_monsters/element/prefix_datum,var/datum/battle_monsters/monster/root_datum,var/datum/battle_monsters/title/suffix_datum)
-	to_chat(user,FormatText(GetFormatting(),prefix_datum,root_datum,suffix_datum))
+/datum/controller/subsystem/battle_monsters/proc/ExamineMonsterCard(var/mob/user,var/datum/battle_monsters/element/prefix_datum,var/datum/battle_monsters/monster/root_datum,var/datum/battle_monsters/title/suffix_datum)
+	to_chat(user,FormatMonsterText(GetMonsterFormatting(),prefix_datum,root_datum,suffix_datum))
 
-/datum/controller/subsystem/battle_monsters/proc/GenerateStats(var/datum/battle_monsters/element/prefix_datum,var/datum/battle_monsters/monster/root_datum,var/datum/battle_monsters/title/suffix_datum,var/limiter = BATTLE_MONSTERS_GENERATION_ALL)
+/datum/controller/subsystem/battle_monsters/proc/ExamineSpellCard(var/mob/user,var/datum/battle_monsters/spell/spell_datum)
+	to_chat(user,FormatSpellText(GetSpellFormatting(),spell_datum))
+
+/datum/controller/subsystem/battle_monsters/proc/ExamineTrapCard(var/mob/user,var/datum/battle_monsters/trap/trap_datum)
+	to_chat(user,FormatSpellText(GetSpellFormatting(),trap_datum))
+
+/datum/controller/subsystem/battle_monsters/proc/GenerateMonsterStats(var/datum/battle_monsters/element/prefix_datum,var/datum/battle_monsters/monster/root_datum,var/datum/battle_monsters/title/suffix_datum,var/limiter = BATTLE_MONSTERS_GENERATION_ALL)
 
 	var/returning_list[0] //Byond documentation told me this is how you make an assoc list.
 
@@ -347,6 +401,16 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 
 	return returning_list
 
+/datum/controller/subsystem/battle_monsters/proc/GenerateSpellStats(var/datum/battle_monsters/spell_datum)
+	var/returning_list[0] //Byond documentation told me this is how you make an assoc list.
+	returning_list["name"] = spell_datum.name
+	returning_list["desc"] = spell_datum.description
+	returning_list["special_effects"] = spell_datum.special_effects
+	returning_list["elements"] = spell_datum.elements
+	returning_list["rarity_score"] = spell_datum.rarity_score
+
 #undef BATTLE_MONSTERS_GEN_PREFIX
 #undef BATTLE_MONSTERS_GEN_ROOT
 #undef BATTLE_MONSTERS_GEN_SUFFIX
+#undef BATTLE_MONSTERS_GEN_TRAP
+#undef BATTLE_MONSTERS_GEN_SPELL

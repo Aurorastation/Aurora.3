@@ -1,16 +1,22 @@
 /obj/item/battle_monsters/card
 	name = "battle monsters card"
 	desc = "A battle monster's card."
+
+	var/card_type = BATTLE_MONSTERS_CARDTYPE_MONSTER
 	var/datum/battle_monsters/element/prefix_datum
 	var/datum/battle_monsters/monster/root_datum
 	var/datum/battle_monsters/title/suffix_datum
+
+	var/datum/battle_monsters/spell/spell_datum
+	var/datum/battle_monsters/trap/trap_datum
+
 	w_class = ITEMSIZE_TINY
 
 	//Card information here
 
-/obj/item/battle_monsters/card/New(var/turf/loc,var/prefix,var/root,var/title)
+/obj/item/battle_monsters/card/New(var/turf/loc,var/prefix,var/root,var/title,var/trap,var/spell)
 	. = ..()
-	Generate_Card(prefix, root, title)
+	Generate_Card(prefix, root, title, trap, spell)
 
 /obj/item/battle_monsters/card/attackby(var/obj/item/attacking, var/mob/user)
 	if(istype(attacking,/obj/item/battle_monsters/card) && attacking != src)
@@ -63,7 +69,18 @@
 
 	update_icon()
 
-/obj/item/battle_monsters/card/proc/Generate_Card(var/prefix,var/root,var/title)
+/obj/item/battle_monsters/card/proc/Generate_Card(var/prefix,var/root,var/title,var/trap,var/spell)
+
+
+	if(trap)
+		prefix_datum = SSbattlemonsters.FindMatchingTrap(trap,TRUE)
+		update_icon()
+		return
+
+	if(spell)
+		spell_datum = SSbattlemonsters.FindMatchingSpell(spell,TRUE)
+		update_icon()
+		return
 
 	if(prefix)
 		prefix_datum = SSbattlemonsters.FindMatchingPrefix(prefix,TRUE)
@@ -84,7 +101,7 @@
 	else
 		suffix_datum = SSbattlemonsters.FindMatchingSuffix("no_title",TRUE)
 
-	update_icon()
+
 
 /obj/item/battle_monsters/card/update_icon()
 
@@ -131,5 +148,10 @@
 		to_chat(user,span("notice","You can't examine \the [src] while it's face down!"))
 		return
 
-	SSbattlemonsters.ExamineCard(user,prefix_datum,root_datum,suffix_datum)
+	if(trap_datum)
+		SSbattlemonsters.ExamineTrapCard(user,trap_datum)
+	else if(spell_datum)
+		SSbattlemonsters.ExamineSpellCard(user,spell_datum)
+	else
+		SSbattlemonsters.ExamineMonsterCard(user,prefix_datum,root_datum,suffix_datum)
 

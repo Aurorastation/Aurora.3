@@ -4,6 +4,7 @@ datum/battle_monsters/
 	var/id
 	var/description = ""
 	var/special_effects = ""
+	var/tip = "" //A tip for the card.
 	var/elements = BATTLE_MONSTERS_ELEMENT_NONE
 	var/attack_type = BATTLE_MONSTERS_ATTACKTYPE_NONE
 	var/defense_type = BATTLE_MONSTERS_DEFENSETYPE_NONE

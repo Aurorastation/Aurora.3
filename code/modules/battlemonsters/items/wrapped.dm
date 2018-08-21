@@ -9,6 +9,15 @@
 	var/list/deck_data = list()
 	for(var/i=1,i < contained_cards,i++)
 		CHECK_TICK //This stuff is a little intensive I think.
+		if(prob(25))
+			if(prob(50))
+				var/datum/battle_monsters/selected_trap = SSbattlemonsters.GetRandomTrap()
+				deck_data += "trap,[selected_trap.id],no_title"
+			else
+				var/datum/battle_monsters/selected_spell = SSbattlemonsters.GetRandomSpell()
+				deck_data += "spell,[selected_spell.id],no_title"
+			return
+
 		var/datum/battle_monsters/selected_root = SSbattlemonsters.GetRandomRoot_Filtered(rare_limiter)
 		var/datum/battle_monsters/selected_prefix = SSbattlemonsters.GetRandomPrefix_Filtered(rare_limiter)
 		var/datum/battle_monsters/selected_suffix = SSbattlemonsters.GetRandomSuffix_Filtered(rare_limiter)
