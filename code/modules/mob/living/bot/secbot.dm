@@ -57,6 +57,7 @@
 	)
 
 	var/datum/callback/patrol_callback	// this is here so we don't constantly recreate this datum, it being identical each time.
+	var/move_to_delay = 4 //delay for the automated movement.
 
 /mob/living/bot/secbot/beepsky
 	name = "Officer Beepsky"
@@ -204,7 +205,7 @@
 					if(is_ranged)
 						RangedAttack(target)
 					else
-						step_towards(src, target) // Melee bots chase a bit faster
+						walk_to(src, target, 1, move_to_delay) // Melee bots chase a bit faster
 
 					var/cb = CALLBACK(src, .proc/step_nonadjacent, target)
 					addtimer(cb, 8)
@@ -278,7 +279,7 @@
 
 /mob/living/bot/secbot/proc/step_nonadjacent(target)
 	if (!Adjacent(target))
-		step_towards(src, target)
+		walk_to(src, target, 1, move_to_delay)
 
 /mob/living/bot/secbot/UnarmedAttack(var/mob/M, var/proximity)
 	if(!..())
@@ -395,14 +396,11 @@
 		if(loc == next)
 			path -= next
 			return
-		var/moved = step_towards(src, next)
-		if(moved)
-			path -= next
-			frustration = 0
-		else
-			++frustration
-			if(frustration > 5) // Make a new path
-				mode = SECBOT_START_PATROL
+		walk_to(src, next, 1, move_to_delay+2)
+		path -= next
+		frustration = 0
+		if(frustration > 5) // Make a new path
+			mode = SECBOT_START_PATROL
 		return
 	else
 		mode = SECBOT_START_PATROL
