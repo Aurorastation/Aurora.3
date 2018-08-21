@@ -739,11 +739,41 @@
 	id = "berserk"
 	description = "An illegal chemical enhancer, may cause aggressive and violent behavior."
 	reagent_state = LIQUID
-	color = "#AA0000"
-	strength = 10
+	color = "#AF111C"
+	strength = 5
 	taste_description = "bitterness"
+	metabolism = REM * 2
+	unaffected_species = IS_DIONA | IS_MACHINE
 	var/datum/modifier/modifier
 
 /datum/reagent/toxin/berserk/affect_blood(var/mob/living/carbon/M, var/removed)
+	..()
 	if(!modifier)
-		modifier = M.add_modifier(/datum/modifier/berserk, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
+		modifier = M.add_modifier(/datum/modifier/berserk, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+	M.make_jittery(20)
+	M.add_chemical_effect(CE_BERSERK, 1)
+	if(M.a_intent != I_HURT)
+		M.a_intent_change(I_HURT)
+	if(prob(20))
+		M.adjustBrainLoss(5 * removed)
+
+/datum/reagent/toxin/berserk/Destroy()
+	QDEL_NULL(modifier)
+	return ..()
+
+/datum/reagent/toxin/spectrocybin
+	name = "Spectrocybin"
+	id = "spectrocybin"
+	description = "A hallucinogen chemical, rumored to be used by mystics and religious figures in their rituals."
+	reagent_state = LIQUID
+	color = "#800080"
+	strength = 5
+	taste_description = "acid"
+	metabolism = REM
+	unaffected_species = IS_DIONA | IS_MACHINE
+
+/datum/reagent/toxin/spectrocybin/affect_blood(var/mob/living/carbon/M, var/removed)
+	..()
+	M.hallucination = max(M.hallucination, 50)
+	if(prob(10))
+		M.see_invisible = SEE_INVISIBLE_CULT

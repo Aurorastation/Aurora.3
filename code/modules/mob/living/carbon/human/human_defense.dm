@@ -503,7 +503,7 @@ emp_act
 /mob/living/carbon/human/proc/grabbedby(mob/living/carbon/human/user,var/supress_message = 0)
 	if(user == src || anchored)
 		return 0
-	if(user.disabilities & PACIFIST)
+	if(user.is_pacified())
 		to_chat(user, "<span class='notice'>You don't want to risk hurting [src]!</span>")
 		return 0
 

@@ -71,5 +71,5 @@
 	priority = 100
 
 /datum/client_color/berserk
-	client_color = list(1.5,0.3,0.3,1.5,0.3,0.3,1.5,0.3,0.3)
+	client_color = "#AF111C"
 	priority = 100
