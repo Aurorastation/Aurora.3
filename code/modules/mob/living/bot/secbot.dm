@@ -1,3 +1,11 @@
+#define SECBOT_IDLE 		0		// idle
+#define SECBOT_HUNT 		1		// found target, hunting
+#define SECBOT_ARREST		2		// arresting target
+#define SECBOT_START_PATROL	3		// start patrol
+#define SECBOT_WAIT_PATROL	4		// waiting for signals
+#define SECBOT_PATROL		5		// patrolling
+#define SECBOT_SUMMON		6		// summoned by PDA
+
 /mob/living/bot/secbot
 	name = "Securitron"
 	desc = "A little security robot.  He looks less than thrilled."
@@ -17,13 +25,7 @@
 	var/auto_patrol = 0 // If true, patrols on its own
 
 	var/mode = 0
-#define SECBOT_IDLE 		0		// idle
-#define SECBOT_HUNT 		1		// found target, hunting
-#define SECBOT_ARREST		2		// arresting target
-#define SECBOT_START_PATROL	3		// start patrol
-#define SECBOT_WAIT_PATROL	4		// waiting for signals
-#define SECBOT_PATROL		5		// patrolling
-#define SECBOT_SUMMON		6		// summoned by PDA
+
 	var/is_attacking = 0
 	var/is_ranged = 0
 	var/awaiting_surrender = 0
@@ -217,6 +219,7 @@
 				mode = SECBOT_HUNT
 				return
 			var/threat = check_threat(target)
+			walk_to(src, src, 0, move_to_delay)
 			if(threat < 4)
 				target = null
 				awaiting_surrender = 0
@@ -312,7 +315,7 @@
 					C.update_inv_handcuffed()
 				if(preparing_arrest_sounds.len)
 					playsound(loc, pick(preparing_arrest_sounds), 50, 0)
-	else if(istype(M, /mob/living/simple_animal) && !istype(M, /mob/living/simple_animal/hostile/commanded))
+	else if(istype(M, /mob/living/simple_animal) && !istype(M, /mob/living/bot/secbot))
 		var/mob/living/simple_animal/S = M
 		S.adjustBruteLoss(15)
 		do_attack_animation(M)
@@ -508,6 +511,110 @@
 			secbot.next_destination = signal.data["next_patrol"]
 			secbot.closest_dist = dist
 
+/mob/living/bot/secbot/attack_hand(mob/living/carbon/human/M as mob)
+	..()
+
+	if(M.a_intent == I_HURT ) //assume he wants to hurt us.
+		idcheck = TRUE
+		target = M
+		mode = SECBOT_HUNT
+		var/mob/living/carbon/human/H = M
+		var/perpname = H.name
+		var/obj/item/weapon/card/id/id = H.GetIdCard()
+		if(id)
+			perpname = id.registered_name
+
+		var/datum/data/record/R = find_security_record("name", perpname)
+		if(R)
+			R.fields["criminal"] = "*Arrest*"
+		else
+			check_records = TRUE
+		broadcast_security_hud_message("[src] is under attack by <b>[target]</b>, [arrest_type ? "detaining" : "arresting"] a level [check_threat(target)] suspect in <b>[get_area(src)]</b>. Requesting backup", src)
+
+/mob/living/bot/secbot/attack_generic(var/mob/user, var/damage, var/attack_message)
+	..()
+
+	target = user
+	mode = SECBOT_HUNT
+	if(ishuman(user))
+		idcheck = TRUE
+		var/mob/living/carbon/human/H = user
+		var/perpname = H.name
+		var/obj/item/weapon/card/id/id = H.GetIdCard()
+		if(id)
+			perpname = id.registered_name
+
+		var/datum/data/record/R = find_security_record("name", perpname)
+		if(R)
+			R.fields["criminal"] = "*Arrest*"
+		else
+			check_records = TRUE
+		broadcast_security_hud_message("[src] is under attack by <b>[target]</b>, [arrest_type ? "detaining" : "arresting"] a level [check_threat(target)] suspect in <b>[get_area(src)]</b>. Requesting backup", src)
+
+/mob/living/bot/secbot/bullet_act(var/obj/item/projectile/P, var/def_zone)
+	..()
+
+	if (ismob(P.firer))
+		target = P.firer
+		mode = SECBOT_HUNT
+		if(ishuman(P.firer))
+			idcheck = TRUE
+			var/mob/living/carbon/human/H = P.firer
+			var/perpname = H.name
+			var/obj/item/weapon/card/id/id = H.GetIdCard()
+			if(id)
+				perpname = id.registered_name
+
+			var/datum/data/record/R = find_security_record("name", perpname)
+			if(R)
+				R.fields["criminal"] = "*Arrest*"
+			else
+				check_records = TRUE
+			broadcast_security_hud_message("[src] was shot with <b>[P]</b>, projectile came from <b>[target]</b>, [arrest_type ? "detaining" : "arresting"] a level [check_threat(target)] suspect in <b>[get_area(src)]</b>. Requesting backup", src)
+
+/mob/living/bot/secbot/attackby(var/obj/item/O, var/mob/user)
+	..()
+
+	target = user
+	mode = SECBOT_HUNT
+	if(ishuman(user))
+		idcheck = TRUE
+		var/mob/living/carbon/human/H = user
+		var/perpname = H.name
+		var/obj/item/weapon/card/id/id = H.GetIdCard()
+		if(id)
+			perpname = id.registered_name
+
+		var/datum/data/record/R = find_security_record("name", perpname)
+		if(R)
+			R.fields["criminal"] = "*Arrest*"
+		else
+			check_records = TRUE
+		broadcast_security_hud_message("[src] is under attack by <b>[target]</b> with <b>[O]</b>, [arrest_type ? "detaining" : "arresting"] a level [check_threat(target)] suspect in <b>[get_area(src)]</b>. Requesting backup", src)
+
+/mob/living/bot/secbot/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)
+	..()
+
+	if(istype(AM,/obj/))
+		var/obj/O = AM
+		if(ismob(O.thrower))
+			target = O.thrower
+			mode = SECBOT_HUNT
+			if(ishuman(O.thrower))
+				idcheck = TRUE
+				var/mob/living/carbon/human/H = O.thrower
+				var/perpname = H.name
+				var/obj/item/weapon/card/id/id = H.GetIdCard()
+				if(id)
+					perpname = id.registered_name
+
+				var/datum/data/record/R = find_security_record("name", perpname)
+				if(R)
+					R.fields["criminal"] = "*Arrest*"
+				else
+					check_records = TRUE
+				broadcast_security_hud_message("[src] is under attack by <b>[target]</b> with <b>[O]</b>, [arrest_type ? "detaining" : "arresting"] a level [check_threat(target)] suspect in <b>[get_area(src)]</b>. Requesting backup", src)
+
 //Secbot Construction
 
 /obj/item/clothing/head/helmet/attackby(var/obj/item/device/assembly/signaler/S, mob/user as mob)
@@ -550,28 +657,28 @@
 			return 1
 
 	else if(isprox(O) && (build_step == 1))
-		user.drop_item()
 		build_step = 2
 		user << "You add \the [O] to [src]."
 		add_overlay("hs_eye")
 		name = "helmet/signaler/prox sensor assembly"
+		user.drop_from_inventory(O,get_turf(src))
 		qdel(O)
 		return 1
 
 	else if((istype(O, /obj/item/robot_parts/l_arm) || istype(O, /obj/item/robot_parts/r_arm)) && build_step == 2)
-		user.drop_item()
 		build_step = 3
 		user << "You add \the [O] to [src]."
 		name = "helmet/signaler/prox sensor/robot arm assembly"
 		add_overlay("hs_arm")
+		user.drop_from_inventory(O,get_turf(src))
 		qdel(O)
 		return 1
 
 	else if(istype(O, /obj/item/weapon/melee/baton) && build_step == 3)
-		user.drop_item()
 		user << "You complete the Securitron! Beep boop."
 		var/mob/living/bot/secbot/S = new /mob/living/bot/secbot(get_turf(src))
 		S.name = created_name
+		user.drop_from_inventory(O,get_turf(src))
 		qdel(O)
 		qdel(src)
 		return 1
