@@ -524,7 +524,7 @@
 	..()
 
 	if(M.a_intent == I_HURT ) //assume he wants to hurt us.
-		target = mob
+		target = M
 		mode = SECBOT_HUNT
 
 /mob/living/bot/secbot/attack_generic(var/mob/user, var/damage, var/attack_message)
@@ -536,7 +536,7 @@
 /mob/living/bot/secbot/bullet_act(var/obj/item/projectile/P, var/def_zone)
 	..()
 
-	if (ismob(P.firer) && P.firer == master)
+	if (ismob(P.firer))
 		target = P.firer
 		mode = SECBOT_HUNT
 

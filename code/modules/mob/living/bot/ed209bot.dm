@@ -1,3 +1,5 @@
+#define SECBOT_IDLE 		0		// idle
+#define SECBOT_HUNT 		1		// found target, hunting
 #define SECBOT_STOP			7		//basically 'do nothing'
 #define SECBOT_FOLLOW		8		//follows a target
 
@@ -91,8 +93,6 @@
 				if("follow")
 					if(follow_command(speaker,text))
 						break
-				else
-					misc_command(speaker,text) //for specific commands
 
 	return 1
 
@@ -113,11 +113,10 @@
 					break
 		if(found)
 			return (M in view(7, src))
-	return NULL
-
+	return null
 
 /mob/living/bot/secbot/ed209/proc/attack_command(var/mob/speaker,var/text)
-	target_mob = null //want me to attack something? Well I better forget my old target.
+	target = null //want me to attack something? Well I better forget my old target.
 	walk_to(src,0)
 
 	target = get_target_by_name(text)
