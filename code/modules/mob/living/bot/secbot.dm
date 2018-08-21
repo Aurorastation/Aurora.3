@@ -513,11 +513,19 @@
 
 
 /mob/living/bot/secbot/hit_with_weapon(obj/item/O, mob/living/user, var/effective_force, var/hit_zone)
-	//if they attack us, we want to kill them. None of that "you weren't given a command so free kill" bullshit.
-	. = ..()
-
+	..()
 	target = user
 	mode = SECBOT_HUNT
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/perpname = H.name
+		var/obj/item/weapon/card/id/id = H.GetIdCard()
+		if(id)
+			perpname = id.registered_name
+
+		var/datum/data/record/R = find_security_record("name", perpname)
+		if(R)
+			R.fields["criminal"] = "*Arrest*"
 
 
 /mob/living/bot/secbot/attack_hand(mob/living/carbon/human/M as mob)
@@ -526,12 +534,31 @@
 	if(M.a_intent == I_HURT ) //assume he wants to hurt us.
 		target = M
 		mode = SECBOT_HUNT
+		var/mob/living/carbon/human/H = M
+		var/perpname = H.name
+		var/obj/item/weapon/card/id/id = H.GetIdCard()
+		if(id)
+			perpname = id.registered_name
+
+		var/datum/data/record/R = find_security_record("name", perpname)
+		if(R)
+			R.fields["criminal"] = "*Arrest*"
 
 /mob/living/bot/secbot/attack_generic(var/mob/user, var/damage, var/attack_message)
 	..()
 
 	target = user
 	mode = SECBOT_HUNT
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/perpname = H.name
+		var/obj/item/weapon/card/id/id = H.GetIdCard()
+		if(id)
+			perpname = id.registered_name
+
+		var/datum/data/record/R = find_security_record("name", perpname)
+		if(R)
+			R.fields["criminal"] = "*Arrest*"
 
 /mob/living/bot/secbot/bullet_act(var/obj/item/projectile/P, var/def_zone)
 	..()
@@ -539,15 +566,34 @@
 	if (ismob(P.firer))
 		target = P.firer
 		mode = SECBOT_HUNT
+		if(ishuman(P.firer))
+			var/mob/living/carbon/human/H = P.firer
+			var/perpname = H.name
+			var/obj/item/weapon/card/id/id = H.GetIdCard()
+			if(id)
+				perpname = id.registered_name
+
+			var/datum/data/record/R = find_security_record("name", perpname)
+			if(R)
+				R.fields["criminal"] = "*Arrest*"
 
 /mob/living/bot/secbot/attackby(var/obj/item/O, var/mob/user)
 	..()
 
-	// We forgive our master
 	target = user
 	mode = SECBOT_HUNT
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/perpname = H.name
+		var/obj/item/weapon/card/id/id = H.GetIdCard()
+		if(id)
+			perpname = id.registered_name
 
-/mob/living/bot/secbot/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
+		var/datum/data/record/R = find_security_record("name", perpname)
+		if(R)
+			R.fields["criminal"] = "*Arrest*"
+
+/mob/living/bot/secbot/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)
 	..()
 
 	if(istype(AM,/obj/))
@@ -555,6 +601,16 @@
 		if(ismob(O.thrower))
 			target = O.thrower
 			mode = SECBOT_HUNT
+			if(ishuman(O.thrower))
+				var/mob/living/carbon/human/H = O.thrower
+				var/perpname = H.name
+				var/obj/item/weapon/card/id/id = H.GetIdCard()
+				if(id)
+					perpname = id.registered_name
+
+				var/datum/data/record/R = find_security_record("name", perpname)
+				if(R)
+					R.fields["criminal"] = "*Arrest*"
 
 //Secbot Construction
 

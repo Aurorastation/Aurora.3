@@ -133,7 +133,7 @@
 		return 0
 	else
 		mode = SECBOT_HUNT
-		audible_emote("[emote_hear] \"Roger that, [arrest_type ? ("Detaining") : ("Arresting")] [target]\"")
+		custom_emote(2, "[emote_hear] \"Roger that, [arrest_type ? ("Detaining") : ("Arresting")] [target]\"")
 
 /mob/living/bot/secbot/ed209/proc/stay_command(var/mob/speaker,var/text)
 	mode = SECBOT_IDLE
@@ -160,7 +160,7 @@
 		return 0
 
 	mode = SECBOT_FOLLOW
-	audible_emote("[emote_hear] \"Roger that, following [target]\"")
+	custom_emote(2, "[emote_hear] \"Roger that, following [target]\"")
 
 	return 1
 
@@ -172,14 +172,10 @@
 	var/mob/M = usr
 	if(!M.mind)	return 0
 
-	var/input = sanitizeSafe(input("What do you want [src] respond to?", ,""), MAX_NAME_LEN)
 	var/short_input = sanitizeSafe(input("What do you want [src] respond to?", , ""), MAX_NAME_LEN)
 
-	if(src && input && !M.stat && in_range(M,src))
-		name = input
-		real_name = input
-		if(short_input != "")
-			short_name = short_input
+	if(src && short_input && !M.stat && in_range(M,src))
+		short_name = short_input
 		return 1
 
 /mob/living/bot/secbot/ed209/update_icons()
