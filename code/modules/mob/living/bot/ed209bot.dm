@@ -1,3 +1,6 @@
+#define SECBOT_STOP			7		//basically 'do nothing'
+#define SECBOT_FOLLOW		8		//follows a target
+
 /mob/living/bot/secbot/ed209
 	name = "ED-209 Security Robot"
 	desc = "A security robot.  He looks less than thrilled."
@@ -18,6 +21,154 @@
 
 	var/shot_delay = 4
 	var/last_shot = 0
+
+	// vars for verbal commands
+	var/short_name = null
+	var/list/command_buffer = list()
+	var/list/known_commands = list("stay", "stop", "attack", "follow")
+	var/list/allowed_targets = list() //WHO CAN I KILL D:
+
+/mob/living/bot/secbot/ed209/Initialize()
+	..()
+	if(!short_name)
+		short_name = name
+
+/mob/living/bot/secbot/ed209/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
+	if(thinking_enabled && !stat && has_ui_access(speaker))
+		command_buffer.Add(speaker)
+		command_buffer.Add(lowertext(html_decode(message)))
+	return 0
+
+/mob/living/bot/secbot/ed209/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/part_c, var/mob/speaker = null, var/hard_to_hear = 0)
+	if(thinking_enabled && !stat && has_ui_access(speaker))
+		command_buffer.Add(speaker)
+		command_buffer.Add(lowertext(html_decode(message)))
+	return 0
+
+/mob/living/bot/secbot/ed209/think()
+	while(command_buffer.len > 0)
+		var/mob/speaker = command_buffer[1]
+		var/text = command_buffer[2]
+		var/filtered_name = lowertext(html_decode(name))
+		var/filtered_short = lowertext(html_decode(short_name))
+		if(dd_hasprefix(text,filtered_name) || dd_hasprefix(text,filtered_short) || dd_hasprefix(text,"everyone") || dd_hasprefix(text, "everybody")) //in case somebody wants to command 8 bears at once.
+			var/substring = copytext(text,length(filtered_name)+1) //get rid of the name.
+			listen(speaker,substring)
+		command_buffer.Remove(command_buffer[1],command_buffer[2])
+	..()
+	switch(mode)
+		if(SECBOT_FOLLOW)
+			follow_target()
+		if(SECBOT_STOP)
+			commanded_stop()
+
+/mob/living/bot/secbot/ed209/on_think_disabled()
+	..()
+	command_buffer.Cut()
+
+/mob/living/bot/secbot/ed209/proc/follow_target()
+	if(!target)
+		return
+	if(target in view(7, src))
+		walk_to(src,target,1,move_to_delay)
+
+/mob/living/bot/secbot/ed209/proc/commanded_stop() //basically a proc that runs whenever we are asked to stay put. Probably going to remain unused.
+	return
+
+/mob/living/bot/secbot/ed209/proc/listen(var/mob/speaker, var/text)
+	for(var/command in known_commands)
+		if(findtext(text,command))
+			switch(command)
+				if("stay")
+					if(stay_command(speaker,text)) //find a valid command? Stop. Dont try and find more.
+						break
+				if("stop")
+					if(stop_command(speaker,text))
+						break
+				if("attack")
+					if(attack_command(speaker,text))
+						break
+				if("follow")
+					if(follow_command(speaker,text))
+						break
+				else
+					misc_command(speaker,text) //for specific commands
+
+	return 1
+
+//returns a list of everybody we wanna do stuff with.
+/mob/living/bot/secbot/ed209/proc/get_target_by_name(var/text)
+	var/list/possible_targets = hearers(src,10)
+	for(var/mob/M in possible_targets)
+		var/found = 0
+		if(findtext(text, "[M]"))
+			found = 1
+		else
+			var/list/parsed_name = splittext(replace_characters(lowertext(html_decode("[M]")),list("-"=" ", "."=" ", "," = " ", "'" = " ")), " ") //this big MESS is basically 'turn this into words, no punctuation, lowercase so we can check first name/last name/etc'
+			for(var/a in parsed_name)
+				if(a == "the" || length(a) < 2) //get rid of shit words.
+					continue
+				if(findtext(text,"[a]"))
+					found = 1
+					break
+		if(found)
+			return (M in view(7, src))
+	return NULL
+
+
+/mob/living/bot/secbot/ed209/proc/attack_command(var/mob/speaker,var/text)
+	target_mob = null //want me to attack something? Well I better forget my old target.
+	walk_to(src,0)
+
+	target = get_target_by_name(text)
+	if(isnull(target) || !target)
+		return 0
+	else
+		mode = SECBOT_HUNT
+
+/mob/living/bot/secbot/ed209/proc/stay_command(var/mob/speaker,var/text)
+	mode = SECBOT_IDLE
+	auto_patrol = 0
+	return 1
+
+/mob/living/bot/secbot/ed209/proc/stop_command(var/mob/speaker,var/text)
+	mode = SECBOT_IDLE
+	target = null
+	return 1
+
+/mob/living/bot/secbot/ed209/proc/follow_command(var/mob/speaker,var/text)
+	//we can assume 'stop following' is handled by stop_command
+	if(findtext(text,"me"))
+		mode = SECBOT_FOLLOW
+		target = speaker //this wont bite me in the ass later.
+		return 1
+
+	target = get_target_by_name(text)
+
+	if(!target)
+		return 0
+
+	mode = SECBOT_FOLLOW
+
+	return 1
+
+/mob/living/bot/secbot/ed209/verb/change_name()
+	set name = "Change nickname"
+	set category = "IC"
+	set src in view(1)
+
+	var/mob/M = usr
+	if(!M.mind)	return 0
+
+	var/input = sanitizeSafe(input("What do you want [src] respond to?", ,""), MAX_NAME_LEN)
+	var/short_input = sanitizeSafe(input("What do you want [src] respond to?", , ""), MAX_NAME_LEN)
+
+	if(src && input && !M.stat && in_range(M,src))
+		name = input
+		real_name = input
+		if(short_input != "")
+			short_name = short_input
+		return 1
 
 /mob/living/bot/secbot/ed209/update_icons()
 	if(on && is_attacking)
