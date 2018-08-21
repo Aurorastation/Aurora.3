@@ -219,6 +219,7 @@
 				mode = SECBOT_HUNT
 				return
 			var/threat = check_threat(target)
+			walk_to(src, src, 0, move_to_delay)
 			if(threat < 4)
 				target = null
 				awaiting_surrender = 0
@@ -510,28 +511,11 @@
 			secbot.next_destination = signal.data["next_patrol"]
 			secbot.closest_dist = dist
 
-
-
-/mob/living/bot/secbot/hit_with_weapon(obj/item/O, mob/living/user, var/effective_force, var/hit_zone)
-	..()
-	target = user
-	mode = SECBOT_HUNT
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		var/perpname = H.name
-		var/obj/item/weapon/card/id/id = H.GetIdCard()
-		if(id)
-			perpname = id.registered_name
-
-		var/datum/data/record/R = find_security_record("name", perpname)
-		if(R)
-			R.fields["criminal"] = "*Arrest*"
-
-
 /mob/living/bot/secbot/attack_hand(mob/living/carbon/human/M as mob)
 	..()
 
 	if(M.a_intent == I_HURT ) //assume he wants to hurt us.
+		idcheck = TRUE
 		target = M
 		mode = SECBOT_HUNT
 		var/mob/living/carbon/human/H = M
@@ -543,6 +527,9 @@
 		var/datum/data/record/R = find_security_record("name", perpname)
 		if(R)
 			R.fields["criminal"] = "*Arrest*"
+		else
+			check_records = TRUE
+		broadcast_security_hud_message("[src] is under attack by <b>[target]</b>, [arrest_type ? "detaining" : "arresting"] a level [check_threat(target)] suspect in <b>[get_area(src)]</b>. Requesting backup", src)
 
 /mob/living/bot/secbot/attack_generic(var/mob/user, var/damage, var/attack_message)
 	..()
@@ -550,6 +537,7 @@
 	target = user
 	mode = SECBOT_HUNT
 	if(ishuman(user))
+		idcheck = TRUE
 		var/mob/living/carbon/human/H = user
 		var/perpname = H.name
 		var/obj/item/weapon/card/id/id = H.GetIdCard()
@@ -559,6 +547,9 @@
 		var/datum/data/record/R = find_security_record("name", perpname)
 		if(R)
 			R.fields["criminal"] = "*Arrest*"
+		else
+			check_records = TRUE
+		broadcast_security_hud_message("[src] is under attack by <b>[target]</b>, [arrest_type ? "detaining" : "arresting"] a level [check_threat(target)] suspect in <b>[get_area(src)]</b>. Requesting backup", src)
 
 /mob/living/bot/secbot/bullet_act(var/obj/item/projectile/P, var/def_zone)
 	..()
@@ -567,6 +558,7 @@
 		target = P.firer
 		mode = SECBOT_HUNT
 		if(ishuman(P.firer))
+			idcheck = TRUE
 			var/mob/living/carbon/human/H = P.firer
 			var/perpname = H.name
 			var/obj/item/weapon/card/id/id = H.GetIdCard()
@@ -576,6 +568,9 @@
 			var/datum/data/record/R = find_security_record("name", perpname)
 			if(R)
 				R.fields["criminal"] = "*Arrest*"
+			else
+				check_records = TRUE
+			broadcast_security_hud_message("[src] was shot with <b>[P]</b>, projectile came from <b>[target]</b>, [arrest_type ? "detaining" : "arresting"] a level [check_threat(target)] suspect in <b>[get_area(src)]</b>. Requesting backup", src)
 
 /mob/living/bot/secbot/attackby(var/obj/item/O, var/mob/user)
 	..()
@@ -583,6 +578,7 @@
 	target = user
 	mode = SECBOT_HUNT
 	if(ishuman(user))
+		idcheck = TRUE
 		var/mob/living/carbon/human/H = user
 		var/perpname = H.name
 		var/obj/item/weapon/card/id/id = H.GetIdCard()
@@ -592,6 +588,9 @@
 		var/datum/data/record/R = find_security_record("name", perpname)
 		if(R)
 			R.fields["criminal"] = "*Arrest*"
+		else
+			check_records = TRUE
+		broadcast_security_hud_message("[src] is under attack by <b>[target]</b> with <b>[O]</b>, [arrest_type ? "detaining" : "arresting"] a level [check_threat(target)] suspect in <b>[get_area(src)]</b>. Requesting backup", src)
 
 /mob/living/bot/secbot/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)
 	..()
@@ -602,6 +601,7 @@
 			target = O.thrower
 			mode = SECBOT_HUNT
 			if(ishuman(O.thrower))
+				idcheck = TRUE
 				var/mob/living/carbon/human/H = O.thrower
 				var/perpname = H.name
 				var/obj/item/weapon/card/id/id = H.GetIdCard()
@@ -611,6 +611,9 @@
 				var/datum/data/record/R = find_security_record("name", perpname)
 				if(R)
 					R.fields["criminal"] = "*Arrest*"
+				else
+					check_records = TRUE
+				broadcast_security_hud_message("[src] is under attack by <b>[target]</b> with <b>[O]</b>, [arrest_type ? "detaining" : "arresting"] a level [check_threat(target)] suspect in <b>[get_area(src)]</b>. Requesting backup", src)
 
 //Secbot Construction
 
