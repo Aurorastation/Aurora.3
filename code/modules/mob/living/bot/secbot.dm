@@ -311,7 +311,7 @@
 					C.update_inv_handcuffed()
 				if(preparing_arrest_sounds.len)
 					playsound(loc, pick(preparing_arrest_sounds), 50, 0)
-	else if(istype(M, /mob/living/simple_animal) && !istype(M, /mob/living/simple_animal/hostile/commanded))
+	else if(istype(M, /mob/living/simple_animal) && !istype(M, /mob/living/bot/secbot))
 		var/mob/living/simple_animal/S = M
 		S.adjustBruteLoss(15)
 		do_attack_animation(M)
@@ -509,6 +509,52 @@
 			secbot.patrol_target = secbot.nearest_beacon
 			secbot.next_destination = signal.data["next_patrol"]
 			secbot.closest_dist = dist
+
+
+
+/mob/living/bot/secbot/hit_with_weapon(obj/item/O, mob/living/user, var/effective_force, var/hit_zone)
+	//if they attack us, we want to kill them. None of that "you weren't given a command so free kill" bullshit.
+	. = ..()
+
+	target = user
+	mode = SECBOT_HUNT
+
+
+/mob/living/bot/secbot/attack_hand(mob/living/carbon/human/M as mob)
+	..()
+
+	if(M.a_intent == I_HURT ) //assume he wants to hurt us.
+		target = mob
+		mode = SECBOT_HUNT
+
+/mob/living/bot/secbot/attack_generic(var/mob/user, var/damage, var/attack_message)
+	..()
+
+	target = user
+	mode = SECBOT_HUNT
+
+/mob/living/bot/secbot/bullet_act(var/obj/item/projectile/P, var/def_zone)
+	..()
+
+	if (ismob(P.firer) && P.firer == master)
+		target = P.firer
+		mode = SECBOT_HUNT
+
+/mob/living/bot/secbot/attackby(var/obj/item/O, var/mob/user)
+	..()
+
+	// We forgive our master
+	target = user
+	mode = SECBOT_HUNT
+
+/mob/living/bot/secbot/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
+	..()
+
+	if(istype(AM,/obj/))
+		var/obj/O = AM
+		if(ismob(O.thrower))
+			target = O.thrower
+			mode = SECBOT_HUNT
 
 //Secbot Construction
 
