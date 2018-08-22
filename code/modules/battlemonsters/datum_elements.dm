@@ -2,7 +2,9 @@
 //Fire: Teamwork.
 //Energy: Can attack on the first turn or do things during the opponent's turn.
 //Water: After attack.
-//Defense: Benifits when defending.
+//Ice: Benifits when defending.
+//Earth: Elements against the opponent.
+//Stone: Alchemy Gimmick
 
 datum/battle_monsters/element
 	name = "neutral" //The name of the element
@@ -17,24 +19,6 @@ datum/battle_monsters/element
 	//1 or lower means common, 2 means uncommon, 3 means rare, 4 or higher means legendary.
 	//Uncommon or higher rarities should be used sparringly, and only to cards that are super noteable.
 
-datum/battle_monsters/element/none
-	name = ""
-	id = "no_element"
-	icon_state = "no_element"
-	elements = BATTLE_MONSTERS_ELEMENT_NEUTRAL
-	description = ""
-	rarity = 5
-	rarity_score = -1
-
-datum/battle_monsters/element/trap //Indicator for trap cards.
-	name = ""
-	id = "trap"
-	icon_state = "trap"
-	elements = BATTLE_MONSTERS_ELEMENT_NONE
-	description = ""
-	rarity = 5
-	rarity_score = -1
-
 datum/battle_monsters/element/fire
 	name = "Firebrand"
 	id = "fire"
@@ -48,7 +32,7 @@ datum/battle_monsters/element/fire/lava
 	name = "Fireborn"
 	id = "lava"
 	description = "These types of %SPECIES are born from of the magic %ELEMENT_AND of dark wizards and witches."
-	special_effects = "Element Spell Immune: %NAME is immune to all %ELEMENT_OR based spell and trap cards if another fire element monster is in play."
+	special_effects = "Element Spell Immune: %NAME is immune to all %ELEMENT_OR based spell and trap cards if another revealed fire element monster is on the same side of the field."
 	power_add = 100
 	rarity = 0.25
 
@@ -56,7 +40,7 @@ datum/battle_monsters/element/fire/molten
 	name = "Molten"
 	id = "molten"
 	description = "Liquid %ELEMENT_AND drips from their eyes and %WEAPON_AND."
-	special_effects = "Element Monster Immune: %NAME is immune to all %ELEMENT_OR based monster attacks if another fire element monster is in play."
+	special_effects = "Element Monster Immune: %NAME is immune to all %ELEMENT_OR based monster attacks if another revealed fire element monster is on the same side of the field."
 	tip = "%NAME can still be attacked, however the attacker's special effects will be nullified and the attack will be considered a draw if %NAME lost battle calculation."
 	power_add = 250
 	defense_add = 0.25
@@ -69,7 +53,7 @@ datum/battle_monsters/element/fire/candle
 	icon_state = "candle"
 	elements = BATTLE_MONSTERS_ELEMENT_FIRE | BATTLE_MONSTERS_ELEMENT_DARK
 	description = "They are covered entirely with dark burning wax, a telltale sign of the unholy Candle Wax Cult."
-	special_effects = "Waxing Power: %NAME gains <b>100</b> attack points for every other %ELEMENT_OR type monster on your side of the field."
+	special_effects = "Waxing Power: %NAME passively gains <b>100</b> attack points for every other revealed %ELEMENT_OR type monster on your side of the field."
 	power_add = 250
 	defense_add = 0.25
 	rarity = 0.1
@@ -81,7 +65,8 @@ datum/battle_monsters/element/fire/burned
 	icon_state = "burned"
 	elements = BATTLE_MONSTERS_ELEMENT_FIRE | BATTLE_MONSTERS_ELEMENT_DARK
 	description = "Visible scorch marks and bandages appear all over their body from centuries of using %ELEMENT_AND. This %SPECIES is clearly a veteran of using the magical arts."
-	special_effects = "Battle Reminder: If a %ELEMENT_OR type monster is sent to a graveyard, the card's owner can choose to reveal and send one fire based monster from the owner's hand to the graveyard in it's place."
+	special_effects = "Battle Reminder: If a %ELEMENT_OR type monster is sent to a graveyard, the card's owner can choose to reveal and send one fire element monster from the owner's hand to the graveyard in it's place."
+	tip = "The chosen monster card sent in the other person's place will have it's special effects triggered as if it was revealed on the field."
 	power_add = 500
 	rarity = 0.1
 	rarity_score = 1
@@ -126,18 +111,18 @@ datum/battle_monsters/element/energy/thunder
 	power_add = 500
 	attack_add = 0.25
 	description = "A symbol on their forehead indicates that they are a %SPECIES thunderchild, born of the incredibly horny god Bleus after coitus with a %SPECIES."
-	special_effects = "Charge: %NAME can attack as soon as it's played."
+	special_effects = "Charge: %NAME can attack as soon as it's revealed, regardless of other penalties."
 	tip = "Remember that 'played' is not the same as 'revealed', a card is considered 'played' when it's put into the field from the owner's hand."
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_GOD
 	power_mul = 0.75
-	rarity = 0.1
+	rarity = 0.25
 
 datum/battle_monsters/element/energy/powered
 	name = "Cybernetic"
 	id = "powered"
 	icon_state = "powered"
 	description = "Upon closer examination, it seems that they have advanced cybernetics."
-	special_effects = "Null Field: When %NAME is in play, all the opponent's special effects, besides 'Null Field', are nullified during the opponent's turn."
+	special_effects = "Null Field: When %NAME is visible, all the opponent's special effects are nullified during the opponent's turn."
 	rarity = 0.1
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_MACHINE
 
@@ -146,7 +131,7 @@ datum/battle_monsters/element/energy/dragonslayer
 	id = "dragonslayer"
 	icon_state = "dragonslayer"
 	description = "They're wearing a dragonscale cape, and dragon skull shoulderpads."
-	special_effects = "Dragonslayer: When %NAME is summoned, the card's owner can choose to send a dragon to the graveyard as long as the dragon's attack points does not exceed <2000>."
+	special_effects = "Dragonslayer: When %NAME is summoned, the card's owner can choose to send a dragon to the graveyard as long as the dragon's attack points does not exceed %NAME's attack points."
 	rarity = 0.1
 	rarity_score = 1
 
@@ -155,7 +140,7 @@ datum/battle_monsters/element/energy/dragoncult
 	id = "dragoncult"
 	icon_state = "dragoncult"
 	description = "They're painted with various symbols belonging to the secretive Dragoncult, an ancient organization that serves the dragons."
-	special_effects = "Dragon Protection: As long as %NAME is on the field, all allied Dragons are immune to spells."
+	special_effects = "Dragon Protection: As long as %NAME is visible, all allied Dragons are immune to spells."
 	elements = BATTLE_MONSTERS_ELEMENT_ENERGY | BATTLE_MONSTERS_ELEMENT_FIRE
 	rarity = 0.5
 	rarity_score = 1
@@ -172,7 +157,7 @@ datum/battle_monsters/element/water/morphing
 	name = "Morphling"
 	id = "morphling"
 	description = "Upon closer examination, it appears that they can morph into various shapes using the magic of %ELEMENT_AND."
-	special_effects = "Morph: %NAME is switched to defense mode if they attack, and switched to attack mode if they succesfully defend from an attack."
+	special_effects = "Morph: %NAME is automatically switched to defense mode if they attack, and automatically switched to attack mode if they succesfully defend from an attack. %NAME cannot be switched to attack mode or defense mode manually."
 	rarity = 0.25
 
 datum/battle_monsters/element/water/raincloud
@@ -204,17 +189,17 @@ datum/battle_monsters/element/ice
 	rarity = 4
 
 datum/battle_monsters/element/ice/defender
-	name = "Igloo Defending"
+	name = "Igloo Defender"
 	id = "igloo"
 	description = "Behind them is a giant igloo."
-	special_effects = "Master Defender: As long as %NAME is on the field, it's owner cannot be attacked by monsters. "
+	special_effects = "Master Defender: As long as %NAME is visible, it's owner cannot be attacked by monsters. "
 	rarity = 0.5
 
 datum/battle_monsters/element/ice/yeti
 	name = "Yeti"
 	id = "yeti"
 	description = "They're covered head to toe in white, absorbant magical fur."
-	special_effects = "Spell Absorbtion: As long as %NAME is on the field, it's owner cannot be affected by traps or spells."
+	special_effects = "Spell Absorbtion: As long as %NAME is visible, it's owner cannot be affected by traps or spells."
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_CREATURE
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLAWS
 	power_add = 200
@@ -229,6 +214,33 @@ datum/battle_monsters/element/earth
 	elements = BATTLE_MONSTERS_ELEMENT_EARTH
 	rarity = 2
 
+datum/battle_monsters/element/treant
+	name = "Treant"
+	id = "treant"
+	description = "They seem to be made out of living mystical wood."
+	special_effects = "Exploit Water: If there is a water monster on the opposing side of the field, %NAME gains <b>500</b> defense points."
+	defense_mul = 1.25
+	rarity = 0.25
+
+datum/battle_monsters/element/bonfire
+	name = "Bonfire"
+	id = "wood"
+	elements = BATTLE_MONSTERS_ELEMENT_EARTH | BATTLE_MONSTERS_ELEMENT_FIRE
+	description = "They seem to be made out of burning driftwood."
+	special_effects = "Exploit Fire: If there is a fire monster on the opposing side of the field, %NAME gains <b>500</b> attack points."
+	defense_mul = 1.25
+	rarity = 0.25
+
+datum/battle_monsters/element/fairy
+	name = "Fairy"
+	id = "fairy"
+	elements = BATTLE_MONSTERS_ELEMENT_EARTH | BATTLE_MONSTERS_ELEMENT_LIGHT
+	description = "They are quite tiny, and have little pixie wings growing out of their back."
+	special_effects = "Exploit Dark: If there is a dark monster on the opposing side of the field, all %ELEMENT_AND monsters gain <b>500</b> defense points for as long as %NAME is visible."
+	power_mul = 0.5
+	defense_mul = 0.5
+	rarity = 0.25
+
 datum/battle_monsters/element/stone
 	name = "Stone"
 	id = "stone"
@@ -241,7 +253,7 @@ datum/battle_monsters/element/stone/uranium
 	name = "Uranium"
 	id = "uranium"
 	description = "They're made out of pure uranium."
-	special_effects = "EMP: If an Iron prefixed monster exists on the field when this card is played, send this card and all energy-based monsters on the field to the graveyard."
+	special_effects = "EMP: If an Iron prefixed monster exists on the field when this card is played, send this card and all energy element monsters on the field to the graveyard."
 	rarity = 0.1
 	rarity_score = 1
 
@@ -249,15 +261,33 @@ datum/battle_monsters/element/stone/iron
 	name = "Iron"
 	id = "iron"
 	description = "They're made out of dense iron."
-	special_effects = "EMP: If an Uranium prefixed monster exists on the field when this card is played, send this card and all energy-based monsters on the field to the graveyard."
-	rarity = 0.1
+	rarity = 0.5
 	rarity_score = 1
+	defense_mul = 1.5
+	power_add = 300
+
+datum/battle_monsters/element/stone/steel
+	name = "Iron"
+	id = "steel"
+	description = "They're made out of sturdy steel."
+	rarity = 0.25
+	rarity_score = 1
+	power_add = 600
+
+datum/battle_monsters/element/stone/aluminium
+	name = "Aluminium"
+	id = "aluminium"
+	description = "They're made out of incredibly lightweight metal."
+	defense_mul = 0.25
+	rarity = 0.25
+	rarity_score = 1
+	power_add = 300
 
 datum/battle_monsters/element/stone/potassium
 	name = "Potassium"
 	id = "potassium"
 	description = "They're made entirely out of bananas, for some reason."
-	special_effects = "Explosion: If an water element monster exists on the field when this card is played, send this card and all monsters with under <1000> defense points on the field to the graveyard."
+	special_effects = "Explosion: If a visble water element monster exists on the field when this card is revealed, send this card and all monsters with under <1000> defense points on the field to the graveyard.<br>Flash: If a visible Potassium prefixed monster is on the field when this card is revealed, the opponent's turn is skipped and %NAME is sent to the graveyard."
 	rarity = 0.05
 	rarity_score = 2
 
@@ -268,6 +298,7 @@ datum/battle_monsters/element/dark
 	description = "A strange evil, shadowy aura embraces them and all those around it."
 	elements = BATTLE_MONSTERS_ELEMENT_DARK
 	power_add = 500
+	attack_mul = 1.25
 	rarity = 0.25
 	rarity_score = 1
 
@@ -317,6 +348,7 @@ datum/battle_monsters/element/light
 	icon_state = "light"
 	description = "A holy aura shapes around their beauty."
 	elements = BATTLE_MONSTERS_ELEMENT_LIGHT
+	defense_mul = 1.25
 	power_add = 500
 	rarity = 0.25
 	rarity_score = 1

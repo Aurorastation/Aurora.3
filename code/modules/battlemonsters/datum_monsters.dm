@@ -37,7 +37,7 @@ datum/battle_monsters/monster/human/mage
 	attack_add = 3
 	rarity = 1
 	description = "a young and eager-looking male %SPECIES mage from the mysterious and secluded Gautem Islands. They appear to be reading from a book, while their %WEAPON_AND hovers around them."
-	special_effects = "Tutor: %NAME temporarily gains <b>250</b> bonus attack points if a spellcaster with more attack points than %NAME is on your side of the field."
+	special_effects = "Tutor: %NAME temporarily gains <b>250</b> bonus attack points if a visible spellcaster with more attack points than %NAME is on your side of the field."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SPELLCASTER
 
 datum/battle_monsters/monster/human/sage
@@ -74,7 +74,7 @@ datum/battle_monsters/monster/human/warrior
 	attack_add = 1
 	rarity = 0.5
 	description = "a seductively buff male %SPECIES barbarian wearing a simple fur loincloth and a chest full of hair. They seem to be in possession of a giant %WEAPON_AND."
-	special_effects = "%SPECIES_C Bond: %NAME gains <b>300</b> attack points if there is another %SPECIES on the same side of the field."
+	special_effects = "%SPECIES_C Bond: %NAME gains <b>300</b> attack points if there is another visible %SPECIES on the same side of the field."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN
 	rarity_score = 1
 
@@ -99,7 +99,7 @@ datum/battle_monsters/monster/human/amazon_prime
 	attack_add = 1
 	rarity = 0.5
 	description = "a scantily clad %SPECIES %NAME dressed in leopard skin. They're one of the many queen guards of the Amazonian Kingdom."
-	special_effects = "Free Shipping: A trap or spell card can be played from the card owner's hand during their opponent's turn, as long as %NAME is in play."
+	special_effects = "Free Shipping: A trap or spell card can be played from the card owner's hand during their opponent's turn, as long as %NAME is visible."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLUB
 	rarity_score = 1
 
@@ -112,7 +112,7 @@ datum/battle_monsters/monster/human/knight
 	attack_add = 1
 	rarity = 0.25
 	description = "a proud male %SPECIES knight dorned in heavy %ELEMENT_AND armor and wielding a decorative %WEAPON_AND. They're sworn to protect the Great Kingdom of Garoosh from Barbarians."
-	special_effects = "%SPECIES Protection: As long as %NAME is on the field, all other %SPECIES are attack immune."
+	special_effects = "%SPECIES Protection: As long as %NAME is visible, all other %SPECIES are attack immune."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN
 	rarity_score = 1
 
@@ -138,7 +138,7 @@ datum/battle_monsters/monster/human/queen
 	attack_add = 5
 	rarity = 0.1
 	description = "an incredibly voluptuous %SPECIES female adorned in a %ELEMENTS_AND robe. An equally tight-fitting crown sits atop her head. She's known to trick kings into giving up their land through seduction."
-	special_effects = "Lustful Aurora: %NAME cannot be attacked by humans."
+	special_effects = "Lustful Aurora: %NAME cannot be attacked by %SPECIES."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_ARMY
 	rarity_score = 2
 
@@ -164,7 +164,7 @@ datum/battle_monsters/monster/dragon_giant
 	attack_add = 1
 	rarity = 0.1
 	description = "an incredibly rare female %SPECIES of the %ELEMENT_AND vairety. Female %SPECIES are exceptionally rare among their species, as they usually only show themselves every 1000 years."
-	special_effects = "Sweeping Strike: %NAME can attack two targets in one turn as long as the combined defense points of both targets does not exceed <b>600</b>."
+	special_effects = "Sweeping Strike: %NAME can attack up to two targets per turn as long as the combined defense points of both targets does not exceed <b>1000</b>."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLAWS
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_GIANT_DRAGON
 	rarity_score = 2
@@ -178,7 +178,7 @@ datum/battle_monsters/monster/dragon/hybrid
 	attack_add = 1
 	rarity = 0.1
 	description = "an unrealsticly busty feminine shaped %SPECIES. When not using their mammaries to confuse scientists, they usually stalk careless human climbers for a quick and easy meal using their %WEAPON_AND."
-	special_effects = "Lustful Aurora: %NAME cannot be attacked by humans."
+	special_effects = "Lustful Aurora: %NAME cannot be attacked by %SPECIES."
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_DRAGONHYBRID
 	rarity_score = 1
 
@@ -191,7 +191,7 @@ datum/battle_monsters/monster/dragon/drake
 	attack_add = 2
 	rarity = 0.1
 	description = "a skinny dark-scaled male %SPECIES bard warrior that rhymes with every strike with their %WEAPON_AND."
-	special_effects = "Hotline Bling: All fire-based monsters recieve an additional <b>200</b> attack points."
+	special_effects = "Hotline Bling: All fire element monsters recieve an additional <b>200</b> attack points."
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_DRAGONHYBRID
 	rarity_score = 1
 
@@ -204,21 +204,7 @@ datum/battle_monsters/monster/giant
 	attack_add = 1
 	rarity = 0.25
 	description = "a hulking, unintellgent bipedal beast that can commonly be seen roaming the hillside searching for horses to herd and eat. It is theorized that giants are failed biological experiments of wizards from an older age."
-	special_effects = "Devour: %NAME can send 1 creature type to the graveyard upon summoning."
-	defense_type = BATTLE_MONSTERS_DEFENSETYPE_GIANT
-	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLUB
-	rarity_score = 1
-
-datum/battle_monsters/monster/giant
-	name = "Giant"
-	id = "giant"
-	icon_state = "giant"
-	power_add = 1800
-	defense_add = 1
-	attack_add = 1
-	rarity = 0.25
-	description = "a hulking, unintellgent bipedal beast that can commonly be seen roaming the hillside searching for horses to herd and eat. It is theorized that giants are failed biological experiments of wizards from an older age."
-	special_effects = "Hotline Bling: All fire-based monsters recieve an additional <b>200</b> attack points."
+	special_effects = "Devour: %NAME can send 1 creature type to the graveyard when summoned."
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_GIANT
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLUB
 	rarity_score = 1

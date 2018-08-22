@@ -1,5 +1,5 @@
 datum/battle_monsters/
-	var/name = ""
+	var/name = "ERROR"
 	var/icon_state
 	var/id
 	var/description = ""

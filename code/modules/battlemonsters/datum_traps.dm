@@ -3,6 +3,8 @@
 
 datum/battle_monsters/trap
 	name = "oh no" //The name of the trap
+	id = "trap_error"
+	icon_state = "stop"
 	elements = BATTLE_MONSTERS_ELEMENT_NEUTRAL //Their general element.
 	rarity = 0 //Relative rarity multiplier. Use for whether or not this card is picked for generation.
 	description = "%THEYRE neutral." //Description to add.
@@ -11,6 +13,7 @@ datum/battle_monsters/trap
 
 datum/battle_monsters/trap/block_spell
 	name = "Block Spell"
+	id = "block_spell"
 	elements = BATTLE_MONSTERS_ELEMENT_NEUTRAL
 	rarity = 5
 	description = ""
@@ -19,6 +22,7 @@ datum/battle_monsters/trap/block_spell
 
 datum/battle_monsters/trap/block_trap
 	name = "Block Trap"
+	id = "block_trap"
 	elements = BATTLE_MONSTERS_ELEMENT_NEUTRAL
 	rarity = 5
 	description = ""
@@ -27,6 +31,7 @@ datum/battle_monsters/trap/block_trap
 
 datum/battle_monsters/trap/block_attack
 	name = "Block Attack"
+	id = "block_attack"
 	elements = BATTLE_MONSTERS_ELEMENT_NEUTRAL
 	rarity = 5
 	description = ""
@@ -35,6 +40,7 @@ datum/battle_monsters/trap/block_attack
 
 datum/battle_monsters/trap/reflect_spell
 	name = "Reflect Spell"
+	id = "reflect_spell"
 	elements = BATTLE_MONSTERS_ELEMENT_NEUTRAL
 	rarity = 1
 	description = ""
@@ -43,6 +49,7 @@ datum/battle_monsters/trap/reflect_spell
 
 datum/battle_monsters/trap/reflect_spell
 	name = "Reflect Trap"
+	id = "reflect_trap"
 	elements = BATTLE_MONSTERS_ELEMENT_NEUTRAL
 	rarity = 1
 	description = ""
@@ -51,6 +58,7 @@ datum/battle_monsters/trap/reflect_spell
 
 datum/battle_monsters/trap/reflect_attack
 	name = "Reflect Attack"
+	id = "reflect_attack"
 	elements = BATTLE_MONSTERS_ELEMENT_NEUTRAL
 	rarity = 1
 	description = ""

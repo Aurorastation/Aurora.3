@@ -73,7 +73,7 @@
 
 
 	if(trap)
-		prefix_datum = SSbattlemonsters.FindMatchingTrap(trap,TRUE)
+		trap_datum = SSbattlemonsters.FindMatchingTrap(trap,TRUE)
 		update_icon()
 		return
 
@@ -107,21 +107,37 @@
 
 	cut_overlays()
 
-	var/rounded_rarity_score = min(max(round(prefix_datum.rarity_score + root_datum.rarity_score + suffix_datum.rarity_score,1),1),4)
-
 	if(facedown)
 		icon_state = "back"
 	else
+
+		var/rounded_rarity_score
+
+		if(trap_datum)
+			rounded_rarity_score = trap_datum.rarity_score
+		else if(spell_datum)
+			rounded_rarity_score = spell_datum.rarity_score
+		else
+			rounded_rarity_score = prefix_datum.rarity_score + root_datum.rarity_score + suffix_datum.rarity_score
+
+		rounded_rarity_score = min(max(round(rounded_rarity_score,1),1),4)
+
 		icon_state = "front_r_[rounded_rarity_score]"
 		add_overlay("front_label")
 
-		if(prefix_datum.icon_state)
+		if(trap_datum && trap_datum.icon_state)
+			add_overlay(trap_datum.icon_state)
+
+		if(spell_datum && spell_datum.icon_state)
+			add_overlay(spell_datum.icon_state)
+
+		if(prefix_datum && prefix_datum.icon_state)
 			add_overlay(prefix_datum.icon_state)
 
-		if(root_datum.icon_state)
+		if(root_datum && root_datum.icon_state)
 			add_overlay(root_datum.icon_state)
 
-		if(suffix_datum.icon_state)
+		if(suffix_datum && suffix_datum.icon_state)
 			add_overlay(suffix_datum.icon_state)
 
 		if(rounded_rarity_score >= 2)

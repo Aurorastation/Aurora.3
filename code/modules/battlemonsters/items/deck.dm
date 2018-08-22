@@ -12,7 +12,14 @@
 	return stored_card_names[1]
 
 /obj/item/battle_monsters/deck/proc/add_card(var/user, var/obj/item/battle_monsters/card/added_card)
-	stored_card_names += "[added_card.prefix_datum.id],[added_card.root_datum.id],[added_card.suffix_datum.id]"
+
+	if(added_card.spell_datum)
+		stored_card_names += "spell_type,[added_card.spell_datum.id],no_title"
+	else if(added_card.trap_datum)
+		stored_card_names += "trap_type,[added_card.trap_datum.id],no_title"
+	else
+		stored_card_names += "[added_card.prefix_datum.id],[added_card.root_datum.id],[added_card.suffix_datum.id]"
+
 	qdel(added_card)
 
 /obj/item/battle_monsters/deck/proc/take_card(var/mob/user)
@@ -29,8 +36,7 @@
 		)
 
 	var/top_card = get_top_card()
-	var/list/splitstring = dd_text2List(top_card,",")
-	var/obj/item/battle_monsters/card/new_card = new(src.loc,splitstring[1],splitstring[2],splitstring[3])
+	var/obj/item/battle_monsters/card/new_card = SSbattlemonsters.CreateCard(top_card,src.loc)
 	user.put_in_active_hand(new_card)
 	new_card.pickup(user)
 	stored_card_names -= top_card
@@ -40,8 +46,7 @@
 
 /obj/item/battle_monsters/deck/proc/take_specific_card(var/mob/user, var/card_id)
 	if(card_id in stored_card_names)
-		var/list/splitstring = dd_text2List(card_id,",")
-		var/obj/item/battle_monsters/card/new_card = new(get_turf(src),splitstring[1],splitstring[2],splitstring[3])
+		var/obj/item/battle_monsters/card/new_card = SSbattlemonsters.CreateCard(card_id,src.loc)
 		user.put_in_active_hand(new_card)
 		new_card.pickup(user)
 		stored_card_names -= card_id
@@ -123,10 +128,23 @@
 
 	for(var/cardname in stored_card_names)
 		var/list/splitstring = dd_text2List(cardname,",")
-		var/datum/battle_monsters/selected_prefix = SSbattlemonsters.FindMatchingPrefix(splitstring[1])
-		var/datum/battle_monsters/selected_root = SSbattlemonsters.FindMatchingRoot(splitstring[2])
-		var/datum/battle_monsters/selected_suffix = SSbattlemonsters.FindMatchingSuffix(splitstring[3])
-		browse_data += SSbattlemonsters.FormatMonsterText(SSbattlemonsters.GetMonsterFormatting(),selected_prefix,selected_root,selected_suffix) + "<br><a href='?src=\ref[src];selection=[cardname]'>Draw Card</a><br><hr>"
+		var/formatted_data
+		if(splitstring[1] == "spell_type")
+			formatted_data = SSbattlemonsters.FormatSpellText(SSbattlemonsters.GetSpellFormatting(),SSbattlemonsters.FindMatchingSpell(splitstring[2]))
+		else if(splitstring[1] == "trap_type")
+			formatted_data = SSbattlemonsters.FormatSpellText(SSbattlemonsters.GetSpellFormatting(),SSbattlemonsters.FindMatchingTrap(splitstring[2]))
+		else
+			var/datum/battle_monsters/element/prefix_datum = SSbattlemonsters.FindMatchingPrefix(splitstring[1])
+			var/datum/battle_monsters/monster/root_datum = SSbattlemonsters.FindMatchingRoot(splitstring[2])
+			var/datum/battle_monsters/title/suffix_datum = SSbattlemonsters.FindMatchingSuffix(splitstring[3])
+
+			world << "NAME: [cardname]."
+			world << "ROOT DATUM ID: [splitstring[1]]"
+			world << "ROOT DATUM: [root_datum]."
+			world << "ROOT DATUM NAME: [root_datum.name]."
+			formatted_data = SSbattlemonsters.FormatMonsterText(SSbattlemonsters.GetMonsterFormatting(),prefix_datum,root_datum,suffix_datum)
+
+		browse_data += "[formatted_data]<br><a href='?src=\ref[src];selection=[cardname]'>Draw Card</a><br><hr>"
 
 	user << browse(browse_data, "window=battlemonsters_hand")
 
