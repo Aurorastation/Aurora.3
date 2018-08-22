@@ -85,7 +85,7 @@
 	if(deployed)
 		trigger()
 
-/obj/item/weapon/landmine/ex_act()
+/obj/item/weapon/landmine/ex_act(var/severity = 2.0)
 	if(deployed)
 		trigger()
 

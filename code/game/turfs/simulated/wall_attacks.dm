@@ -71,7 +71,7 @@
 			fail_smash(user, 2)
 			return 1
 
-	if(ishuman(user))
+	if(ishuman(user) && user.a_intent == I_GRAB)
 		var/mob/living/carbon/human/H = user
 		var/turf/destination = GetAbove(H)
 

@@ -63,7 +63,7 @@
 					M.state = 2
 					M.icon_state = "box_1"
 					for(var/obj/I in component_parts)
-						I.loc = src.loc
+						I.forceMove(src.loc)
 					qdel(src)
 					return 1
 				else
@@ -73,9 +73,8 @@
 		else if ((istype(W, /obj/item/weapon/stock_parts/capacitor) && (capacitors_amount < 5)) || (istype(W, /obj/item/weapon/cell) && (cells_amount < 5)))
 			if (charge < (capacity / 100))
 				if (!output_attempt && !input_attempt)
-					user.drop_item()
+					user.drop_from_inventory(W,src)
 					component_parts += W
-					W.loc = src
 					RefreshParts()
 					user << "<span class='notice'>You upgrade the [src] with [W.name].</span>"
 				else

@@ -34,6 +34,8 @@
 	var/_wifi_id
 	var/datum/wifi/receiver/button/door/wifi_receiver
 
+	var/securitylock = 0
+
 /obj/machinery/door/blast/Initialize()
 	. = ..()
 	if(_wifi_id)
@@ -105,7 +107,7 @@
 // This only works on broken doors or doors without power. Also allows repair with Plasteel.
 /obj/machinery/door/blast/attackby(obj/item/weapon/C as obj, mob/user as mob)
 	src.add_fingerprint(user)
-	if(iscrowbar(C) || (istype(C, /obj/item/weapon/material/twohanded/fireaxe) && C:wielded == 1) || (istype(C, /obj/item/weapon/melee/hammer)))
+	if((istype(C, /obj/item/weapon/material/twohanded/fireaxe) && C:wielded == 1) || (istype(C, /obj/item/weapon/melee/hammer)))
 		if (((stat & NOPOWER) || 	(stat & BROKEN)) && !( src.operating ))
 			force_toggle()
 		else
@@ -168,6 +170,17 @@
 	if(air_group) return 1
 	return ..()
 
+
+/obj/machinery/door/blast/power_change()
+	..()
+	if(src.operating || (stat & BROKEN))
+		return
+	if(stat & NOPOWER)
+		INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_close)
+		securitylock = 1
+	else if(securitylock)
+		INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_open)
+		securitylock = 0
 
 
 // SUBTYPE: Regular

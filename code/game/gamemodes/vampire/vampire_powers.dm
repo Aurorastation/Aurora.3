@@ -453,7 +453,7 @@
 	icon_state = "veil_ghost"
 
 	last_valid_turf = get_turf(owner.loc)
-	owner.loc = src
+	owner.forceMove(src)
 
 	desc += " Its features look faintly alike [owner.name]'s."
 

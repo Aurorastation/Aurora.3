@@ -47,8 +47,13 @@
 	throw_range = 5
 	matter = list(DEFAULT_WALL_MATERIAL = 75)
 	attack_verb = list("stabbed")
+	var/random_icon = TRUE
 
-/obj/item/weapon/screwdriver/New()
+/obj/item/weapon/screwdriver/Initialize()
+	. = ..()
+	if(!random_icon)
+		return
+
 	switch(pick("red","blue","purple","brown","green","cyan","yellow"))
 		if ("red")
 			icon_state = "screwdriver2"
@@ -74,7 +79,6 @@
 
 	if (prob(75))
 		src.pixel_y = rand(0, 16)
-	..()
 
 /obj/item/weapon/screwdriver/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(!istype(M) || user.a_intent == "help")
@@ -239,7 +243,7 @@
 		var/obj/item/stack/rods/R = W
 		R.use(1)
 		var/obj/item/weapon/flamethrower/F = new/obj/item/weapon/flamethrower(user.loc)
-		src.loc = F
+		src.forceMove(F)
 		F.weldtool = src
 		if (user.client)
 			user.client.screen -= src
@@ -252,7 +256,7 @@
 		user.remove_from_mob(src)
 		if (user.client)
 			user.client.screen -= src
-		src.loc = F
+		src.forceMove(F)
 		src.add_fingerprint(user)
 		return
 
@@ -338,7 +342,7 @@
 			message_admins("[key_name_admin(user)] triggered a fueltank explosion.")
 			log_game("[key_name(user)] triggered a fueltank explosion with a welding tool.",ckey=key_name(user))
 			user << span("alert", "That was stupid of you.")
-			tank.explode()
+			tank.ex_act(3.0)
 			return
 		else
 			tank.armed = 0

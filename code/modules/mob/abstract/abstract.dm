@@ -23,7 +23,7 @@
 /mob/abstract/conveyor_act()
 	return
 
-/mob/abstract/ex_act()
+/mob/abstract/ex_act(var/severity = 2.0)
 	return
 
 /mob/abstract/singularity_act()

@@ -66,8 +66,7 @@
 /obj/item/weapon/melee/baton/attackby(obj/item/weapon/W, mob/user)
 	if(istype(W, /obj/item/weapon/cell))
 		if(!bcell)
-			user.drop_item()
-			W.forceMove(src)
+			user.drop_from_inventory(W,src)
 			bcell = W
 			user << "<span class='notice'>You install a cell in [src].</span>"
 			update_icon()
@@ -158,6 +157,20 @@
 					H.visible_message("<span class='danger'>[L] has been prodded in the [affecting.name] with [src] by [user]!</span>")
 					if(!sheathed)
 						H.electrocute_act(force * 2, src, ground_zero = target_zone)
+
+		if(isslime(M))
+			var/mob/living/carbon/slime/S =  M
+			if(!status)
+				L.visible_message("<span class='warning'>[S] has been prodded with \the [src] by [user]. Too bad it was off.</span>")
+				return 1
+			else
+				L.visible_message("<span class='danger'>[S] has been prodded with \the [src] by [user]!</span>")
+
+			S.Discipline ++
+			if(prob(5))
+				S.Discipline = 0
+				S.rabid = 1 // heres that "or piss them off part"
+
 		else
 			if(!status)
 				L.visible_message("<span class='warning'>[L] has been prodded with [src] by [user]. Luckily it was off.</span>")
@@ -261,44 +274,18 @@
 
 /obj/item/weapon/melee/baton/slime // sprites
 	name = "Slime Baton"
-	desc = "A special baton used to help deal with agressive slimes. It is effective in making them less pissed off... Or more pissed off."
+	desc = "A special baton used to help deal with agressive slimes. Works 95% of the time!"
 	icon = 'icons/obj/stunrod.dmi'
 	icon_state = "stunrod"
 	item_state = "stunrod"
-	force = 10
 	baton_color = "#75ACFF"
-	agonyforce = 1
-	stunforce = 1
-	origin_tech = list(TECH_COMBAT = 1)
-	contained_sprite = 1
-	sheathed = 0
+	force = 3
+	agonyforce = 60
 
 /obj/item/weapon/melee/baton/slime/Initialize()
 	bcell = new/obj/item/weapon/cell/high(src)
 	. = ..()
 
-/obj/item/weapon/melee/baton/slime/attack(mob/M, mob/user, var/hit_zone)
-	if(isrobot(M) || ishuman(M))
-		..()
-		return
-
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(M)
-
-	if(isslime(M))
-		var/mob/living/carbon/slime/L =  M
-		if(!status)
-			L.visible_message("<span class='warning'>[L] has been prodded with \the [src] by [user]. Too bad it was off.</span>")
-			return 1
-		else
-			L.visible_message("<span class='danger'>[L] has been prodded with \the [src] by [user]!</span>")
-
-		L.Discipline ++
-		if(prob(5))
-			L.Discipline = 0
-			L.rabid = 1 // heres that "or piss them off part"
-	playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
-
-	if(status)
-		deductcharge(hitcost)
-	return 1
+/obj/item/weapon/melee/baton/slime/update_icon()
+	icon_state = initial(icon_state)
+	item_state = initial(item_state)

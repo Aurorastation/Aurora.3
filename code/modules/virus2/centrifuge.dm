@@ -19,8 +19,7 @@
 			return
 
 		sample = O
-		user.drop_item()
-		O.loc = src
+		user.drop_from_inventory(O,src)
 
 		user.visible_message("[user] adds \a [O] to \the [src]!", "You add \a [O] to \the [src]!")
 		SSnanoui.update_uis(src)
@@ -140,7 +139,7 @@
 
 		if("sample")
 			if(sample)
-				sample.loc = src.loc
+				sample.forceMove(src.loc)
 				sample = null
 			return 1
 

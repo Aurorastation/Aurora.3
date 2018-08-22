@@ -85,6 +85,43 @@ BLIND     // can't see anything
 	desc = "Optical Meson Scanner with prescription lenses."
 	prescription = 1
 
+/obj/item/clothing/glasses/meson/aviator
+	name = "engineering aviators"
+	desc = "Modified aviator glasses with a toggled meson interface. Comes with bonus prescription overlay."
+	icon_state = "aviator_eng"
+	off_state = "aviator"
+	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
+	action_button_name = "Toggle HUD"
+	activation_sound = 'sound/effects/pop.ogg'
+	prescription = 1
+
+/obj/item/clothing/glasses/meson/aviator/verb/toggle()
+	set category = "Object"
+	set name = "Toggle Aviators"
+	set src in usr
+
+	attack_self(usr)
+
+
+/obj/item/clothing/glasses/hud/health/aviator
+	name = "medical HUD aviators"
+	desc = "Modified aviator glasses with a toggled health HUD. Comes with bonus prescription overlay."
+	icon_state = "aviator_med"
+	off_state = "aviator"
+	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
+	action_button_name = "Toggle Mode"
+	toggleable = 1
+	activation_sound = 'sound/effects/pop.ogg'
+	prescription = 1
+
+/obj/item/clothing/glasses/hud/health/aviator/verb/toggle()
+	set category = "Object"
+	set name = "Toggle Aviators"
+	set src in usr
+
+	attack_self(usr)
+
+
 /obj/item/clothing/glasses/science
 	name = "science goggles"
 	desc = "Used to protect your eyes against harmful chemicals!"
@@ -113,6 +150,25 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/night/Initialize()
 	. = ..()
 	overlay = global_hud.nvg
+
+/obj/item/clothing/glasses/night/aviator
+	name = "aviators"
+	desc = "Modified aviator glasses with a toggled night vision interface. Comes with prescription overlay."
+	icon_state = "aviator_nv"
+	off_state = "aviator"
+	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
+	action_button_name = "Toggle Mode"
+	toggleable = 1
+	activation_sound = 'sound/effects/pop.ogg'
+	prescription = 1
+
+/obj/item/clothing/glasses/night/aviator/verb/toggle()
+	set category = "Object"
+	set name = "Toggle Aviators"
+	set src in usr
+
+	attack_self(usr)
+
 
 /obj/item/clothing/glasses/goggles
 	name = "goggles"
@@ -164,6 +220,23 @@ BLIND     // can't see anything
 	vision_flags = SEE_OBJS
 	item_flags = AIRTIGHT
 
+/obj/item/clothing/glasses/material/aviator
+	name = "material aviators"
+	desc = "Modified aviator glasses with a toggled ability to make your head ache. Comes with bonus prescription interface."
+	icon_state = "aviator_mat"
+	off_state = "aviator"
+	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
+	action_button_name = "Toggle Mode"
+	activation_sound = 'sound/effects/pop.ogg'
+	prescription = 1
+
+/obj/item/clothing/glasses/material/aviator/verb/toggle()
+	set category = "Object"
+	set name = "Toggle Aviators"
+	set src in usr
+
+	attack_self(usr)
+
 /obj/item/clothing/glasses/regular
 	name = "prescription glasses"
 	desc = "Made by Nerd. Co."
@@ -179,7 +252,6 @@ BLIND     // can't see anything
 		user << "<span class='notice'>You attach a set of medical HUDs to your glasses.</span>"
 		var/turf/T = get_turf(src)
 		new /obj/item/clothing/glasses/hud/health/prescription(T)
-		user.drop_from_inventory(src)
 		qdel(src)
 	if(istype(W, /obj/item/clothing/glasses/hud/security))
 		user.drop_item()
@@ -187,7 +259,6 @@ BLIND     // can't see anything
 		user << "<span class='notice'>You attach a set of security HUDs to your glasses.</span>"
 		var/turf/T = get_turf(src)
 		new /obj/item/clothing/glasses/hud/security/prescription(T)
-		user.drop_from_inventory(src)
 		qdel(src)
 
 /obj/item/clothing/glasses/regular/scanners
@@ -223,6 +294,13 @@ BLIND     // can't see anything
 	darkness_view = -1
 	flash_protection = FLASH_PROTECTION_MODERATE
 
+/obj/item/clothing/glasses/sunglasses/aviator
+	name = "aviators"
+	desc = "A pair of designer sunglasses. They should put HUDs in these."
+	icon_state = "aviator"
+	item_state = "aviator"
+	prescription = 1
+
 /obj/item/clothing/glasses/welding
 	name = "welding goggles"
 	desc = "Protects the eyes from welders, approved by the mad scientist association."
@@ -235,7 +313,6 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/welding/attack_self()
 	toggle()
-
 
 /obj/item/clothing/glasses/welding/verb/toggle()
 	set category = "Object"
@@ -278,7 +355,6 @@ BLIND     // can't see anything
 	item_state = "blindfold"
 	tint = TINT_BLIND
 
-
 /obj/item/clothing/glasses/sunglasses/blinders
 	name = "vaurcae blinders"
 	desc = "Specially designed Vaurca blindfold, designed to let in just enough light to see."
@@ -293,7 +369,6 @@ BLIND     // can't see anything
 	item_state = null
 	w_class = 1
 
-
 /obj/item/clothing/glasses/sunglasses/prescription
 	name = "prescription sunglasses"
 	prescription = 1
@@ -302,6 +377,23 @@ BLIND     // can't see anything
 	desc = "Strangely ancient technology used to help provide rudimentary eye cover. Larger than average enhanced shielding blocks many flashes."
 	icon_state = "bigsunglasses"
 	item_state = "bigsunglasses"
+
+/obj/item/clothing/glasses/fakesunglasses //Sunglasses without flash immunity
+	name = "stylish sunglasses"
+	desc = "A pair of designer sunglasses. Doesn't seem like it'll block flashes."
+	icon_state = "sun"
+	item_state = "sun"
+	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
+
+/obj/item/clothing/glasses/fakesunglasses/prescription
+	name = "stylish prescription sunglasses"
+	prescription = 1
+
+/obj/item/clothing/glasses/fakesunglasses/aviator
+	desc = "A pair of designer sunglasses. Doesn't seem like it'll block flashes. Comes with built-in prescription lenses."
+	icon_state = "aviator"
+	item_state = "aviator"
+	prescription = 1
 
 /obj/item/clothing/glasses/sunglasses/sechud
 	name = "HUDsunglasses"
@@ -318,6 +410,66 @@ BLIND     // can't see anything
 	desc = "Flash-resistant goggles with inbuilt combat and security information."
 	icon_state = "swatgoggles"
 	item_flags = AIRTIGHT
+
+/obj/item/clothing/glasses/sunglasses/sechud/head
+	name = "advanced aviators"
+	desc = "Snazzy, advanced aviators with inbuilt combat and security information."
+	item_state = "hosglasses"
+	icon_state = "hosglasses"
+	prescription = 1
+
+/obj/item/clothing/glasses/sunglasses/sechud/aviator
+	name = "HUD aviators"
+	desc = "Modified aviator glasses that can be switched between HUD and flash protection modes. Comes with bonus prescription overlay."
+	icon_state = "sec_hud"
+	off_state = "sec_flash"
+	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
+	action_button_name = "Toggle Mode"
+	var/on = TRUE
+	toggleable = TRUE
+	activation_sound = 'sound/effects/pop.ogg'
+	prescription = 1
+
+	var/hud_holder
+
+/obj/item/clothing/glasses/sunglasses/sechud/aviator/Initialize()
+	.=..()
+	hud_holder = hud
+
+/obj/item/clothing/glasses/sunglasses/sechud/aviator/Destroy()
+	qdel(hud_holder)
+	hud_holder = null
+	hud = null
+	.=..()
+
+/obj/item/clothing/glasses/sunglasses/sechud/aviator/attack_self(mob/user)
+	if(toggleable && !user.incapacitated())
+		on = !on
+		if(on)
+			flash_protection = FLASH_PROTECTION_NONE
+			src.hud = hud_holder
+			to_chat(user, "You switch \the [src] to HUD mode.")
+		else
+			flash_protection = initial(flash_protection)
+			src.hud = null
+			to_chat(user, "You switch \the [src] to flash protection mode.")
+		update_icon()
+		sound_to(user, activation_sound)
+		user.update_inv_glasses()
+		user.update_action_buttons()
+
+/obj/item/clothing/glasses/sunglasses/sechud/aviator/update_icon()
+	if(on)
+		icon_state = initial(icon_state)
+	else
+		icon_state = off_state
+
+/obj/item/clothing/glasses/sunglasses/sechud/aviator/verb/toggle()
+	set category = "Object"
+	set name = "Toggle Aviators"
+	set src in usr
+
+	attack_self(usr)
 
 /obj/item/clothing/glasses/thermal
 	name = "optical thermal scanner"
@@ -378,6 +530,23 @@ BLIND     // can't see anything
 	icon_state = "thermalimplants"
 	item_state = "syringe_kit"
 	item_flags = null
+
+/obj/item/clothing/glasses/thermal/aviator
+	name = "aviators"
+	desc = "Modified aviator glasses with a toggled thermal-vision mode. Comes with bonus prescription overlay."
+	icon_state = "aviator_thr"
+	off_state = "aviator"
+	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
+	action_button_name = "Toggle HUD"
+	activation_sound = 'sound/effects/pop.ogg'
+	prescription = 1
+
+/obj/item/clothing/glasses/thermal/aviator/verb/toggle()
+	set category = "Object"
+	set name = "Toggle Aviators"
+	set src in usr
+
+	attack_self(usr)
 
 /obj/item/clothing/glasses/eyepatch/hud
 	name = "iPatch"

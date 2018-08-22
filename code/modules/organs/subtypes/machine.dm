@@ -82,6 +82,25 @@
 		owner.Paralyse(emp_counter/6)
 		owner << "<span class='danger'>%#/ERR: Power leak detected!$%^/</span>"
 
+
+/obj/item/organ/surge
+	name = "surge preventor"
+	desc = "A small device that give immunity to EMP for few pulses."
+	icon = 'icons/obj/robot_component.dmi'
+	icon_state = "surge_ipc"
+	organ_tag = "surge"
+	parent_organ = "chest"
+	vital = 0
+	var/surge_left = 0
+	var/broken = 0
+
+/obj/item/organ/surge/Initialize()
+	if(!surge_left && !broken)
+		surge_left = rand(1, 3)
+	robotize()
+	. = ..()
+
+
 /obj/item/organ/eyes/optical_sensor
 	name = "optical sensor"
 	singular_name = "optical sensor"
@@ -125,7 +144,7 @@
 /obj/item/organ/mmi_holder/removed(var/mob/living/user)
 
 	if(stored_mmi)
-		stored_mmi.loc = get_turf(src)
+		stored_mmi.forceMove(get_turf(src))
 		if(owner.mind)
 			owner.mind.transfer_to(stored_mmi.brainmob)
 	. = ..()
@@ -149,7 +168,7 @@
 		stored_mmi.icon_state = "posibrain-occupied"
 		update_from_mmi()
 	else
-		stored_mmi.loc = get_turf(src)
+		stored_mmi.forceMove(get_turf(src))
 		qdel(src)
 
 //////////////

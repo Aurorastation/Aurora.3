@@ -95,7 +95,7 @@
 /obj/item/custom_ka_upgrade/cells/cell05
 	name = "recoil reloader KA cell"
 	build_name = "recoil-reloading"
-	desc = "A very experimental and well designed cell and pump assembly that converts some of the kinetic energy from the weapon's recoil into usable energy. Only works if the recoil is high enough. Contains a basic top-mounted pump just in case."
+	desc = "A very experimental and well designed cell and pump assembly that converts some of the kinetic energy from the weapon's recoil into usable energy. Only works if the recoil is high enough. Contains a basic top-mounted pump just in case, however it blocks the chip slot."
 	icon_state = "cell05"
 	firedelay_increase = 0.4 SECONDS
 	damage_increase = 0
@@ -109,6 +109,8 @@
 	pump_delay = 0.5 SECONDS
 
 	origin_tech = list(TECH_MATERIAL = 5,TECH_ENGINEERING = 6,TECH_MAGNET = 5,TECH_POWER = 5, TECH_PHORON = 5)
+
+	disallow_chip = TRUE
 
 /obj/item/custom_ka_upgrade/cells/cell05/on_fire(var/obj/item/weapon/gun/custom_ka/the_gun)
 	if(the_gun.recoil_increase > 0)
@@ -160,3 +162,99 @@
 	pump_delay = 0.3 SECONDS
 
 	origin_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 3,TECH_MAGNET = 3,TECH_POWER = 3, TECH_ILLEGAL = 4)
+
+/obj/item/custom_ka_upgrade/cells/kinetic_charging
+	name = "kinetic charging KA cell"
+	build_name = "kinetic recharging"
+	desc = "A curious cell and pump combo that automatically charges based on how much charge is already present in the cell."
+	icon_state = "cell_burst"
+	firedelay_increase = 0.1 SECONDS
+	damage_increase = 0
+	recoil_increase = 0
+	cost_increase = 0
+	cell_increase = 30
+	capacity_increase = -4
+	mod_limit_increase = 0
+
+	pump_restore = 3
+	pump_delay = 0.3 SECONDS
+
+	origin_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 5,TECH_MAGNET = 4,TECH_POWER = 6)
+
+/obj/item/custom_ka_upgrade/cells/kinetic_charging/on_update(var/obj/item/weapon/gun/custom_ka/the_gun)
+	stored_charge = min(stored_charge + round(stored_charge*0.2),cell_increase)
+
+
+/obj/item/custom_ka_upgrade/cells/loader
+	name = "phoron loading KA cell"
+	build_name = "phoron loading"
+	desc = "A bottom feeding mount that accepts sheets of phoron, and processes them into useable energy. Wildy ineffecient and expensive to maintain, however the charge lasts a while and the damage boost makes it worth it."
+	icon_state = "cell_phoronloader"
+	damage_increase = 10
+	recoil_increase = 2
+	cell_increase = 250
+	capacity_increase = -5
+
+	pump_restore = 0
+	pump_delay = 0
+
+	origin_tech = list(TECH_MATERIAL = 5,TECH_ENGINEERING = 6,TECH_MAGNET = 5,TECH_POWER = 6, TECH_PHORON = 5)
+
+	var/type_to_take = "phoron"
+	var/charge_per_sheet = 100
+
+/obj/item/custom_ka_upgrade/cells/loader/attackby(var/obj/item/I as obj, var/mob/user as mob)
+
+	var/obj/item/stack/material/the_sheet = I
+
+	if(istype(the_sheet) && the_sheet.default_type == type_to_take)
+
+		var/amount_to_take = 1
+		if(stored_charge + charge_per_sheet > cell_increase)
+			to_chat(user,"<span class='notice'>You can't put any more [I] into \the [src].</span>")
+			return
+
+		amount_to_take = min(amount_to_take,the_sheet.amount)
+		the_sheet.amount -= amount_to_take
+		stored_charge += amount_to_take*charge_per_sheet
+
+		user.visible_message("<span class='notice'>\The [user] inserts a sheet [I] into \the [src].</span>", \
+			"<span class='notice'>You insert a sheet of [I]s into \the [src].</span>", \
+			"<span class='notice'>You hear mechanical whirring.</span>")
+
+
+		if(the_sheet.amount <= 0)
+			qdel(I)
+
+/obj/item/custom_ka_upgrade/cells/loader/uranium
+	name = "uranium loading KA cell"
+	build_name = "uranium loading"
+	desc = "A bottom feeding mount that accepts sheets of uranium, and processes them into useable energy. Wildy ineffecient and expensive to maintain, however the charge lasts a while."
+	icon_state = "cell_uraniumloader"
+	cell_increase = 300
+	capacity_increase = -5
+
+	pump_restore = 0
+	pump_delay = 0
+
+	origin_tech = list(TECH_MATERIAL = 5,TECH_ENGINEERING = 6,TECH_MAGNET = 5,TECH_POWER = 6)
+
+	type_to_take = "uranium"
+	charge_per_sheet = 75
+
+/obj/item/custom_ka_upgrade/cells/loader/hydrogen
+	name = "hydrogen loading KA cell"
+	build_name = "hydrogen loading"
+	desc = "A bottom feeding mount that accepts sheets of hydrogen, and processes them into useable energy. Wildy ineffecient and expensive to maintain."
+	icon_state = "cell_hydrogenloader"
+
+	cell_increase = 100
+	capacity_increase = -4
+
+	pump_restore = 0
+	pump_delay = 0
+
+	origin_tech = list(TECH_MATERIAL = 4,TECH_ENGINEERING = 5,TECH_MAGNET = 4,TECH_POWER = 4)
+
+	type_to_take = "uranium"
+	charge_per_sheet = 50
