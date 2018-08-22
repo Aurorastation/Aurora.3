@@ -134,7 +134,7 @@
 		H.lying = 0
 		H.update_canmove()
 
-/datum/modifier/stimulant/process()
+/datum/modifier/berserk/process()
 	if(..())
 		if(ishuman(target))
 			var/mob/living/carbon/human/H = target
