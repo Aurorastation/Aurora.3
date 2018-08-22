@@ -22,9 +22,24 @@ datum/battle_monsters/monster/human
 	power_add = 300
 	defense_add = 1
 	attack_add = 1
-	rarity = 1
-	description = "a typical male %SPECIES inhabitant of Great Kingdom of Garoosh. While not a trained fighter, all humans are quick thinkers and know how to fight when it matters."
+	rarity = 0.5
+	description = "a typical male %SPECIES inhabitant of Great Kingdom of Garoosh. While not a trained fighter, all humans are quick thinkers and know how to fight when it matters with their %WEAPON_AND."
 	special_effects = ""
+	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN
+	defense_type = BATTLE_MONSTERS_DEFENSETYPE_HUMAN
+	rarity_score = -2
+
+datum/battle_monsters/monster/human/female
+	name = "Human"
+	id = "human"
+	icon_state = "human"
+	power_add = 300
+	defense_add = 1
+	attack_add = 1
+	rarity = 0.5
+	description = "a typical female %SPECIES inhabitant of Great Kingdom of Garoosh. While not a trained fighter, all humans are quick thinkers and know how to fight when it matters with their %WEAPON_AND."
+	special_effects = ""
+	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_HUMAN
 	rarity_score = -2
 
@@ -204,7 +219,66 @@ datum/battle_monsters/monster/giant
 	attack_add = 1
 	rarity = 0.25
 	description = "a hulking, unintellgent bipedal beast that can commonly be seen roaming the hillside searching for horses to herd and eat. It is theorized that giants are failed biological experiments of wizards from an older age."
-	special_effects = "Devour: %NAME can send 1 creature type to the graveyard when summoned."
+	special_effects = "Crush: %NAME can send 1 creature type to the graveyard when summoned."
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_GIANT
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLUB
 	rarity_score = 1
+
+datum/battle_monsters/lizard
+	name = "Lizardman"
+	id = "lizardman"
+	icon_state = "lizard"
+	power_add = 500
+	defense_add = 1
+	attack_add = 1.5
+	rarity = 0.35
+	description = "a well-built muscled bipedal male %SPECIES citizen of the marshes of Ka'best. They enjoy hunting for sport, and do so proudly with their %WEAPON_AND."
+	defense_type = BATTLE_MONSTERS_DEFENSETYPE_LIZARDMAN
+	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLAWS | BATTLE_MONSTERS_ATTACKTYPE_CLUB
+
+datum/battle_monsters/lizard/female
+	name = "Lizardwoman"
+	id = "lizardwoman"
+	attack_add = 1.75
+	description = "a well-built muscled bipedal female %SPECIES citizen of the marshes of Ka'best. They enjoy hunting for sport, and do so proudly with their %WEAPON_AND."
+
+datum/battle_monsters/catbeast
+	name = "Gentleman Feline"
+	id = "catman"
+	icon_state = "cat"
+	power_add = 400
+	defense_add = 1
+	attack_add = 1.50
+	rarity = 0.35
+	description = "a furred bipedal male %SPECIES citizen of the plains of Old Jargo. They ocassionally hunt small creatures with their %WEAPON_AND."
+	defense_type = BATTLE_MONSTERS_DEFENSETYPE_CATMAN
+	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLAWS | BATTLE_MONSTERS_ATTACKTYPE_TEETH
+
+datum/battle_monsters/catbeast/female
+	name = "Gentlewoman Feline"
+	id = "catwoman"
+	description = "a furred bipedal female %SPECIES citizen of the plains of Old Jargo. They ocassionally hunt small creatures with their %WEAPON_AND."
+
+datum/battle_monsters/antman
+	name = "Great Ant Patron"
+	id = "antman"
+	icon_state = "ant"
+	power_add = 400
+	defense_add = 1
+	attack_add = 1.50
+	rarity = 0.35
+	description = "a quadruped chitin male %SPECIES citizen of the hills of Kalakest. Despite being a peaceful race, they wield %WEAPON_AND to defend their nests from foolish raiders looking to steal from their valuable eggs."
+	defense_type = BATTLE_MONSTERS_DEFENSETYPE_ANTMAN
+	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLAWS | BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN
+
+datum/battle_monsters/antman/female
+	name = "Great Ant Matron"
+	id = "antwoman"
+	icon_state = "ant"
+	power_add = 800
+	defense_add = 1.50
+	attack_add = 1
+	rarity_score = 1
+	rarity = 0.1
+	description = "a quadruped chitin female %SPECIES citizen of the hills of Kalakest. Despite being a peaceful race, they wield %WEAPON_AND to defend their nests from foolish raiders looking to steal from their valuable eggs. The females make excellent defenders because of this."
+	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLAWS | BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN | BATTLE_MONSTERS_ATTACKTYPE_SHIELD

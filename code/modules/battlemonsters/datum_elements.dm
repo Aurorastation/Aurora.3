@@ -31,6 +31,7 @@ datum/battle_monsters/element/fire
 datum/battle_monsters/element/fire/lava
 	name = "Fireborn"
 	id = "lava"
+	icon_state = "fireborn"
 	description = "These types of %SPECIES are born from of the magic %ELEMENT_AND of dark wizards and witches."
 	special_effects = "Element Spell Immune: %NAME is immune to all %ELEMENT_OR based spell and trap cards if another revealed fire element monster is on the same side of the field."
 	power_add = 100
@@ -39,6 +40,7 @@ datum/battle_monsters/element/fire/lava
 datum/battle_monsters/element/fire/molten
 	name = "Molten"
 	id = "molten"
+	icon_state = "magma"
 	description = "Liquid %ELEMENT_AND drips from their eyes and %WEAPON_AND."
 	special_effects = "Element Monster Immune: %NAME is immune to all %ELEMENT_OR based monster attacks if another revealed fire element monster is on the same side of the field."
 	tip = "%NAME can still be attacked, however the attacker's special effects will be nullified and the attack will be considered a draw if %NAME lost battle calculation."
@@ -96,7 +98,7 @@ datum/battle_monsters/element/fire/burning_sun_god
 	rarity_score = 3
 
 datum/battle_monsters/element/energy
-	name = "Lighting Controller"
+	name = "Energy"
 	id = "energy"
 	icon_state = "energy"
 	elements = BATTLE_MONSTERS_ELEMENT_ENERGY
@@ -107,7 +109,7 @@ datum/battle_monsters/element/energy
 datum/battle_monsters/element/energy/thunder
 	name = "Thunderchild"
 	id = "thunder"
-	icon_state = "energy"
+	icon_state = "thunder"
 	power_add = 500
 	attack_add = 0.25
 	description = "A symbol on their forehead indicates that they are a %SPECIES thunderchild, born of the incredibly horny god Bleus after coitus with a %SPECIES."
@@ -156,6 +158,7 @@ datum/battle_monsters/element/water
 datum/battle_monsters/element/water/morphing
 	name = "Morphling"
 	id = "morphling"
+	icon_state = "water2"
 	description = "Upon closer examination, it appears that they can morph into various shapes using the magic of %ELEMENT_AND."
 	special_effects = "Morph: %NAME is automatically switched to defense mode if they attack, and automatically switched to attack mode if they succesfully defend from an attack. %NAME cannot be switched to attack mode or defense mode manually."
 	rarity = 0.25
@@ -163,6 +166,7 @@ datum/battle_monsters/element/water/morphing
 datum/battle_monsters/element/water/raincloud
 	name = "Rain"
 	id = "rain"
+	icon_state = "raincloud"
 	description = "Depressing rainclouds hover above them."
 	special_effects = "Dark Rainclouds: %NAME is immune to all non %ELEMENT_OR based trap and spell cards as long as %NAME attacked on the owner's previous turn."
 	power_mul = 0.75
@@ -170,7 +174,7 @@ datum/battle_monsters/element/water/raincloud
 	rarity = 0.25
 	rarity_score = 1
 
-datum/battle_monsters/element/water/lakeside
+datum/battle_monsters/element/water/trench_pirate
 	name = "Trench Pirate"
 	id = "trench_pirate"
 	description = "They're covered entirely with seaweed and barnacles."
@@ -191,6 +195,7 @@ datum/battle_monsters/element/ice
 datum/battle_monsters/element/ice/defender
 	name = "Igloo Defender"
 	id = "igloo"
+	icon_state = "igloo"
 	description = "Behind them is a giant igloo."
 	special_effects = "Master Defender: As long as %NAME is visible, it's owner cannot be attacked by monsters. "
 	rarity = 0.5
@@ -198,6 +203,7 @@ datum/battle_monsters/element/ice/defender
 datum/battle_monsters/element/ice/yeti
 	name = "Yeti"
 	id = "yeti"
+	icon_state = "white"
 	description = "They're covered head to toe in white, absorbant magical fur."
 	special_effects = "Spell Absorbtion: As long as %NAME is visible, it's owner cannot be affected by traps or spells."
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_CREATURE
@@ -217,6 +223,7 @@ datum/battle_monsters/element/earth
 datum/battle_monsters/element/treant
 	name = "Treant"
 	id = "treant"
+	icon_state = "treant"
 	description = "They seem to be made out of living mystical wood."
 	special_effects = "Exploit Water: If there is a water monster on the opposing side of the field, %NAME gains <b>500</b> defense points."
 	defense_mul = 1.25
@@ -224,7 +231,8 @@ datum/battle_monsters/element/treant
 
 datum/battle_monsters/element/bonfire
 	name = "Bonfire"
-	id = "wood"
+	id = "bonfire"
+	icon_state = "bonfire"
 	elements = BATTLE_MONSTERS_ELEMENT_EARTH | BATTLE_MONSTERS_ELEMENT_FIRE
 	description = "They seem to be made out of burning driftwood."
 	special_effects = "Exploit Fire: If there is a fire monster on the opposing side of the field, %NAME gains <b>500</b> attack points."
@@ -234,6 +242,7 @@ datum/battle_monsters/element/bonfire
 datum/battle_monsters/element/fairy
 	name = "Fairy"
 	id = "fairy"
+	icon_state = "fairy"
 	elements = BATTLE_MONSTERS_ELEMENT_EARTH | BATTLE_MONSTERS_ELEMENT_LIGHT
 	description = "They are quite tiny, and have little pixie wings growing out of their back."
 	special_effects = "Exploit Dark: If there is a dark monster on the opposing side of the field, all %ELEMENT_AND monsters gain <b>500</b> defense points for as long as %NAME is visible."
@@ -252,6 +261,7 @@ datum/battle_monsters/element/stone
 datum/battle_monsters/element/stone/uranium
 	name = "Uranium"
 	id = "uranium"
+	icon_state = "uranium"
 	description = "They're made out of pure uranium."
 	special_effects = "EMP: If an Iron prefixed monster exists on the field when this card is played, send this card and all energy element monsters on the field to the graveyard."
 	rarity = 0.1
@@ -260,6 +270,7 @@ datum/battle_monsters/element/stone/uranium
 datum/battle_monsters/element/stone/iron
 	name = "Iron"
 	id = "iron"
+	icon_state = "iron"
 	description = "They're made out of dense iron."
 	rarity = 0.5
 	rarity_score = 1
@@ -267,8 +278,9 @@ datum/battle_monsters/element/stone/iron
 	power_add = 300
 
 datum/battle_monsters/element/stone/steel
-	name = "Iron"
+	name = "Steel"
 	id = "steel"
+	icon_state = "steel"
 	description = "They're made out of sturdy steel."
 	rarity = 0.25
 	rarity_score = 1
@@ -277,6 +289,7 @@ datum/battle_monsters/element/stone/steel
 datum/battle_monsters/element/stone/aluminium
 	name = "Aluminium"
 	id = "aluminium"
+	icon_state = "alum"
 	description = "They're made out of incredibly lightweight metal."
 	defense_mul = 0.25
 	rarity = 0.25
@@ -286,6 +299,7 @@ datum/battle_monsters/element/stone/aluminium
 datum/battle_monsters/element/stone/potassium
 	name = "Potassium"
 	id = "potassium"
+	icon_state = "potas"
 	description = "They're made entirely out of bananas, for some reason."
 	special_effects = "Explosion: If a visble water element monster exists on the field when this card is revealed, send this card and all monsters with under <1000> defense points on the field to the graveyard.<br>Flash: If a visible Potassium prefixed monster is on the field when this card is revealed, the opponent's turn is skipped and %NAME is sent to the graveyard."
 	rarity = 0.05
@@ -305,6 +319,7 @@ datum/battle_monsters/element/dark
 datum/battle_monsters/element/dark/vampire
 	name = "Vampire"
 	id = "vampire"
+	icon_state = "vampire"
 	description = "They're incredibly pale and have two large snake-like fangs."
 	special_effects = "Leech: If %NAME attacks the opponent, the owner of the card gains 1 lifepoint as long as the owner's lifepoints are less than 5."
 	rarity = 0.1
@@ -313,6 +328,7 @@ datum/battle_monsters/element/dark/vampire
 datum/battle_monsters/element/dark/cultist
 	name = "Cultist"
 	id = "cultist"
+	icon_state = "cultist"
 	description = "They're wearing dark, mysterious robes."
 	special_effects = "Summoning: If 6 monsters with a cultist prefix exist on your side of the field at once when %NAME is played or revealed, you win the game."
 	rarity = 0.1
@@ -321,20 +337,22 @@ datum/battle_monsters/element/dark/cultist
 datum/battle_monsters/element/dark/demon
 	name = "Demon"
 	id = "demon"
+	icon_state = "demon"
 	description = "They have the head of a goat and hooved feet, with a menacing reptilian tail growing above their behind."
 	special_effects = "Sacrifice: %NAME can sacrifice a non-light element type monster on the same side of the field to attack again."
 	rarity = 0.1
 	rarity_score = 2
 
-datum/battle_monsters/element/dark/devil
+datum/battle_monsters/element/dark/devil //SPRITE NEEDED
 	name = "Devil"
 	id = "devil"
+	icon_state = "demon"
 	description = "Two boned horns sprout out of their forehead."
 	special_effects = "Bargain: When %NAME is played, the card's owner can choose to sacrifice 2 of their lifepoints to remove 1 lifepoint from their opponent."
 	rarity = 0.1
 	rarity_score = 2
 
-datum/battle_monsters/element/dark/unholy
+datum/battle_monsters/element/dark/unholy //SPRITE NEEDED
 	name = "Unholy"
 	id = "unholy"
 	description = "A dark, unholy aura shrouds their true shape and figure."
@@ -353,7 +371,7 @@ datum/battle_monsters/element/light
 	rarity = 0.25
 	rarity_score = 1
 
-datum/battle_monsters/element/light/angel
+datum/battle_monsters/element/light/angel //SPRITE NEEDED
 	name = "Guardian Angel"
 	id = "angel"
 	description = "A halo floats above them, and feathery white wings sprout from their back."
@@ -361,7 +379,7 @@ datum/battle_monsters/element/light/angel
 	rarity = 0.1
 	rarity_score = 2
 
-datum/battle_monsters/element/light/undying
+datum/battle_monsters/element/light/undying //SPRITE NEEDED
 	name = "Undying"
 	id = "undying"
 	description = "Various scars are scattered across their body. Each scar seems to glow distinctly with holy energy."
@@ -369,7 +387,7 @@ datum/battle_monsters/element/light/undying
 	rarity = 0.1
 	rarity_score = 2
 
-datum/battle_monsters/element/light/holy
+datum/battle_monsters/element/light/holy //SPRITE NEEDED
 	name = "Holy"
 	id = "holy"
 	description = "Their body seems to have an angelic glow."

@@ -11,6 +11,7 @@ datum/battle_monsters/spell
 datum/battle_monsters/spell/destroy_trap
 	name = "Creature's Revenge"
 	id = "destroy_trap"
+	icon_state = "pit"
 	elements = BATTLE_MONSTERS_ELEMENT_EARTH
 	rarity = 1
 	description = "a wolf grinning slying as a hunter falls head first into a pit of spikes. Gruesome."
@@ -21,6 +22,7 @@ datum/battle_monsters/spell/destroy_trap
 datum/battle_monsters/spell/destroy_spell
 	name = "Fireball Accident"
 	id = "destroy_spell"
+	icon_state = "wood_fire"
 	elements = BATTLE_MONSTERS_ELEMENT_FIRE
 	rarity = 1
 	description = "an apprentice casting a fireball, and accidentally hitting a bunch of important spell tomes, as the dismay of the nearby wizard."
@@ -31,7 +33,8 @@ datum/battle_monsters/spell/destroy_spell
 datum/battle_monsters/spell/destroy_monster
 	name = "Smite"
 	id = "destroy_monster"
-	elements = BATTLE_MONSTERS_ELEMENT_GOD
+	icon_state = "from_above"
+	elements = BATTLE_MONSTERS_ELEMENT_LIGHT | BATTLE_MONSTERS_ELEMENT_DARK
 	rarity = 1
 	description = "an incredibly angry bearded god pointing savagely at a very confused human villager."
 	special_effects = "TRIGGER: When activated. Single use.<br>EFFECT: The chosen monster is sent to the graveyard."
@@ -41,6 +44,7 @@ datum/battle_monsters/spell/destroy_monster
 datum/battle_monsters/spell/destroy_monster
 	name = "Guard's Stone Bludgeon"
 	id = "destroy_facedown"
+	icon_state = "stick"
 	elements = BATTLE_MONSTERS_ELEMENT_STONE
 	rarity = 1
 	description = "a violet king's guard blugenoning an unknown assassin-like figure in the shadow."
@@ -51,6 +55,7 @@ datum/battle_monsters/spell/destroy_monster
 datum/battle_monsters/spell/draw3
 	name = "Aces in the Boot"
 	id = "draw3"
+	icon_state = "boot"
 	elements = BATTLE_MONSTERS_ELEMENT_NEUTRAL
 	rarity = 1
 	description = "a guard playing some card game with his fellow men in the barracks. You can see them reaching down to their boot, where three aces hide."
@@ -60,11 +65,12 @@ datum/battle_monsters/spell/draw3
 datum/battle_monsters/spell/draw6
 	name = "Card of Sharing"
 	id = "draw6"
-	elements = BATTLE_MONSTERS_ELEMENT_NEUTRAL
-	rarity = 2
+	icon_state = "gay"
+	elements = BATTLE_MONSTERS_ELEMENT_LIGHT
+	rarity = 1
 	description = "rainbows, ponies, flowers, and cudly teddy bears. In other words, a world of filthy communism."
 	special_effects = "TRIGGER: When revealed. Single use.<br>EFFECT: Each player draws until they are holding 6 cards."
-	rarity_score = 0.5
+	rarity_score = 1
 
 datum/battle_monsters/spell/restore1
 	name = "Potion of Restore Health"
@@ -74,7 +80,7 @@ datum/battle_monsters/spell/restore1
 	rarity = 1
 	description = "a shiny glass potion, filled to the brim with glowing red liquid."
 	special_effects = "TRIGGER: When revealed. Single use.<br>EFFECT: Restore health by 1 point, if under 5."
-	rarity_score = 0.5
+	rarity_score = 1
 
 datum/battle_monsters/spell/damage1
 	name = "Potion of Damage Health"
@@ -84,7 +90,7 @@ datum/battle_monsters/spell/damage1
 	rarity = 1
 	description = "a shiny glass potion, filled to the brim with glowing blue liquid."
 	special_effects = "TRIGGER: When revealed. Single use.<br>EFFECT: Damage the opponent's health by one point, if over 1,."
-	rarity_score = 0.5
+	rarity_score = 1
 
 datum/battle_monsters/spell/polymerization
 	name = "Fuse"
@@ -95,6 +101,3 @@ datum/battle_monsters/spell/polymerization
 	description = "two monsters chasing eachother, eventually becoming one giant blur."
 	special_effects = "TRIGGER: When revealed. Single use.<br>EFFECT: Fuse the special effects of two monsters together, and reveal both cards. Fused monsters cannot attack on the turn they are fused."
 	rarity_score = 1
-
-
-

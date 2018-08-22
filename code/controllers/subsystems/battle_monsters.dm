@@ -200,22 +200,34 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 			return "cyborg"
 		if(BATTLE_MONSTERS_DEFENSETYPE_HYBRID)
 			return "hybrid"
+		if(BATTLE_MONSTERS_DEFENSETYPE_CATMAN)
+			return "catman"
+		if(BATTLE_MONSTERS_DEFENSETYPE_LIZARDMAN)
+			return "lizardman"
+		if(BATTLE_MONSTERS_DEFENSETYPE_ANTMAN)
+			return "antman"
 		if(BATTLE_MONSTERS_DEFENSETYPE_FERALDRAGON)
 			return "feral dragon"
 		if(BATTLE_MONSTERS_DEFENSETYPE_DRAGONHYBRID)
 			return "human-dragon hybrid"
+		if(BATTLE_MONSTERS_DEFENSETYPE_DRAGON)
+			return "dragon"
 		if(BATTLE_MONSTERS_DEFENSETYPE_GIANT)
 			return "colossus"
+		if(BATTLE_MONSTERS_DEFENSETYPE_REPTILE)
+			return "reptile"
 		if(BATTLE_MONSTERS_DEFENSETYPE_HUMAN)
 			return "human"
+		if(BATTLE_MONSTERS_DEFENSETYPE_INSECT)
+			return "insect"
 		if(BATTLE_MONSTERS_DEFENSETYPE_GOD)
 			return "god"
+		if(BATTLE_MONSTERS_DEFENSETYPE_FELINE)
+			return "feline"
 		if(BATTLE_MONSTERS_DEFENSETYPE_MACHINE)
 			return "machine"
 		if(BATTLE_MONSTERS_DEFENSETYPE_CREATURE)
 			return "creature"
-		if(BATTLE_MONSTERS_DEFENSETYPE_DRAGON)
-			return "dragon"
 		if(BATTLE_MONSTERS_DEFENSETYPE_COLOSSUS)
 			return "colossus"
 		if(BATTLE_MONSTERS_DEFENSETYPE_GIANT_DRAGON)
@@ -229,8 +241,11 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 		"God" = BATTLE_MONSTERS_DEFENSETYPE_GOD,
 		"Machine" = BATTLE_MONSTERS_DEFENSETYPE_MACHINE,
 		"Creature" = BATTLE_MONSTERS_DEFENSETYPE_CREATURE,
+		"Colossus" = BATTLE_MONSTERS_DEFENSETYPE_COLOSSUS,
 		"Dragon" = BATTLE_MONSTERS_DEFENSETYPE_DRAGON,
-		"Colossus" = BATTLE_MONSTERS_DEFENSETYPE_COLOSSUS
+		"Reptile" = BATTLE_MONSTERS_DEFENSETYPE_REPTILE,
+		"Feline" = BATTLE_MONSTERS_DEFENSETYPE_FELINE,
+		"Insect" = BATTLE_MONSTERS_DEFENSETYPE_INSECT
 	)
 
 	var/list/included_elements = list()
@@ -247,16 +262,20 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 	//This list looks odd to prevent runtime errors related to out of bounds indexes
 	var/list/translations = list(
 		"Spellcaster" = BATTLE_MONSTERS_ATTACKTYPE_SPELLCASTER,
-		"Swordsman" = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN,
+		"Warrior" = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN,
 		"Commander" = BATTLE_MONSTERS_ATTACKTYPE_ARMY,
-		"Brawler" = BATTLE_MONSTERS_ATTACKTYPE_CLAWS,
-		"Crusher" = BATTLE_MONSTERS_ATTACKTYPE_CLUB
+		"Warrior" = BATTLE_MONSTERS_ATTACKTYPE_CLAWS,
+		"Warrior" = BATTLE_MONSTERS_ATTACKTYPE_TEETH,
+		"Warrior" = BATTLE_MONSTERS_ATTACKTYPE_CLUB,
+		"Defender" = BATTLE_MONSTERS_ATTACKTYPE_SHIELD
 	)
 
 	var/list/included_elements = list()
 
 	for(var/translation in translations)
 		if(!(translations[translation] & card_attack_type))
+			continue
+		if(translation in included_elements)
 			continue
 		included_elements.Add(translation)
 
@@ -270,7 +289,9 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 		"sword" = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN,
 		"army" = BATTLE_MONSTERS_ATTACKTYPE_ARMY,
 		"claws" = BATTLE_MONSTERS_ATTACKTYPE_CLAWS,
-		"club" = BATTLE_MONSTERS_ATTACKTYPE_CLUB
+		"club" = BATTLE_MONSTERS_ATTACKTYPE_CLUB,
+		"fangs" = BATTLE_MONSTERS_ATTACKTYPE_TEETH,
+		"shield" = BATTLE_MONSTERS_ATTACKTYPE_SHIELD
 	)
 
 	var/list/included_elements = list()
