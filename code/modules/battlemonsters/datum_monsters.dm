@@ -1,4 +1,4 @@
-datum/battle_monsters/monster
+/datum/battle_monsters/monster
 	name = "monster" //The base name of the card. In the end it will look something like "dark monster, the great"
 	power_add = 500 //Their base power. Power is basically how strong the card in respect to it's defense and attack points.
 	defense_mul = 1 //Their defense point multiplier, or BDM
@@ -15,7 +15,7 @@ datum/battle_monsters/monster
 	//1 or lower means common, 2 means uncommon, 3 means rare, 4 or higher means legendary.
 	//Uncommon or higher rarities should be used sparringly, and only to cards that are super noteable.
 
-datum/battle_monsters/monster/human
+/datum/battle_monsters/monster/human
 	name = "Human"
 	id = "human"
 	icon_state = "human"
@@ -29,7 +29,7 @@ datum/battle_monsters/monster/human
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_HUMAN
 	rarity_score = -2
 
-datum/battle_monsters/monster/human/female
+/datum/battle_monsters/monster/human/female
 	name = "Human"
 	id = "human"
 	icon_state = "human"
@@ -43,7 +43,7 @@ datum/battle_monsters/monster/human/female
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_HUMAN
 	rarity_score = -2
 
-datum/battle_monsters/monster/human/mage
+/datum/battle_monsters/monster/human/mage
 	name = "Apprentice Mage"
 	id = "mage"
 	icon_state = "staff"
@@ -55,7 +55,7 @@ datum/battle_monsters/monster/human/mage
 	special_effects = "Tutor: %NAME temporarily gains <b>250</b> bonus attack points if a visible spellcaster with more attack points than %NAME is on your side of the field."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SPELLCASTER
 
-datum/battle_monsters/monster/human/sage
+/datum/battle_monsters/monster/human/sage
 	name = "Wise Sage"
 	id = "sage"
 	icon_state = "staff"
@@ -67,7 +67,7 @@ datum/battle_monsters/monster/human/sage
 	special_effects = "Elemental Defense: %NAME temporarily gains <b>500</b> bonus defense points when defending against another %ELEMENT_OR type monster."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SPELLCASTER
 
-datum/battle_monsters/monster/human/wizard
+/datum/battle_monsters/monster/human/wizard
 	name = "Wizard"
 	id = "wizard"
 	icon_state = "staff"
@@ -93,7 +93,7 @@ datum/battle_monsters/monster/human/warrior
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN
 	rarity_score = 1
 
-datum/battle_monsters/monster/human/amazon_warrior
+/datum/battle_monsters/monster/human/amazon_warrior
 	name = "Amazon Warrior"
 	id = "amazon_warrior"
 	icon_state = "human"
@@ -105,7 +105,7 @@ datum/battle_monsters/monster/human/amazon_warrior
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLUB
 	rarity_score = 1
 
-datum/battle_monsters/monster/human/amazon_prime
+/datum/battle_monsters/monster/human/amazon_prime
 	name = "Amazon Prime"
 	id = "amazon_warrior"
 	icon_state = "human"
@@ -118,7 +118,7 @@ datum/battle_monsters/monster/human/amazon_prime
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLUB
 	rarity_score = 1
 
-datum/battle_monsters/monster/human/knight
+/datum/battle_monsters/monster/human/knight
 	name = "Knight"
 	id = "knight"
 	icon_state = "human_knight"
@@ -131,7 +131,7 @@ datum/battle_monsters/monster/human/knight
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN
 	rarity_score = 1
 
-datum/battle_monsters/monster/human/king
+/datum/battle_monsters/monster/human/king
 	name = "King"
 	id = "king"
 	icon_state = "king"
@@ -144,7 +144,7 @@ datum/battle_monsters/monster/human/king
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_ARMY
 	rarity_score = 2
 
-datum/battle_monsters/monster/human/queen
+/datum/battle_monsters/monster/human/queen
 	name = "Queen"
 	id = "queen"
 	icon_state = "king"
@@ -157,7 +157,7 @@ datum/battle_monsters/monster/human/queen
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_ARMY
 	rarity_score = 2
 
-datum/battle_monsters/monster/dragon
+/datum/battle_monsters/monster/dragon
 	name = "Dragon"
 	id = "dragon"
 	icon_state = "dragon"
@@ -170,7 +170,7 @@ datum/battle_monsters/monster/dragon
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_FERALDRAGON
 	rarity_score = 1
 
-datum/battle_monsters/monster/dragon_giant
+/datum/battle_monsters/monster/dragon_giant
 	name = "Giant Dragon"
 	id = "dragon_giant"
 	icon_state = "dragon"
@@ -184,7 +184,7 @@ datum/battle_monsters/monster/dragon_giant
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_GIANT_DRAGON
 	rarity_score = 2
 
-datum/battle_monsters/monster/dragon/hybrid
+/datum/battle_monsters/monster/dragon/hybrid
 	name = "Dragoness"
 	id = "dragon_hybrid"
 	icon_state = "dragon"
@@ -197,7 +197,7 @@ datum/battle_monsters/monster/dragon/hybrid
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_DRAGONHYBRID
 	rarity_score = 1
 
-datum/battle_monsters/monster/dragon/drake
+/datum/battle_monsters/monster/dragon/drake
 	name = "Drake"
 	id = "drake"
 	icon_state = "dragon"
@@ -210,7 +210,7 @@ datum/battle_monsters/monster/dragon/drake
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_DRAGONHYBRID
 	rarity_score = 1
 
-datum/battle_monsters/monster/giant
+/datum/battle_monsters/monster/giant
 	name = "Giant"
 	id = "giant"
 	icon_state = "giant"
@@ -224,7 +224,7 @@ datum/battle_monsters/monster/giant
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLUB
 	rarity_score = 1
 
-datum/battle_monsters/lizard
+/datum/battle_monsters/lizard
 	name = "Lizardman"
 	id = "lizardman"
 	icon_state = "lizard"
@@ -236,13 +236,13 @@ datum/battle_monsters/lizard
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_LIZARDMAN
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLAWS | BATTLE_MONSTERS_ATTACKTYPE_CLUB
 
-datum/battle_monsters/lizard/female
+/datum/battle_monsters/lizard/female
 	name = "Lizardwoman"
 	id = "lizardwoman"
 	attack_add = 1.75
 	description = "a well-built muscled bipedal female %SPECIES citizen of the marshes of Ka'best. They enjoy hunting for sport, and do so proudly with their %WEAPON_AND."
 
-datum/battle_monsters/catbeast
+/datum/battle_monsters/catbeast
 	name = "Gentleman Feline"
 	id = "catman"
 	icon_state = "cat"
@@ -254,12 +254,12 @@ datum/battle_monsters/catbeast
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_CATMAN
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLAWS | BATTLE_MONSTERS_ATTACKTYPE_TEETH
 
-datum/battle_monsters/catbeast/female
+/datum/battle_monsters/catbeast/female
 	name = "Gentlewoman Feline"
 	id = "catwoman"
 	description = "a furred bipedal female %SPECIES citizen of the plains of Old Jargo. They ocassionally hunt small creatures with their %WEAPON_AND."
 
-datum/battle_monsters/antman
+/datum/battle_monsters/antman
 	name = "Great Ant Patron"
 	id = "antman"
 	icon_state = "ant"
@@ -271,7 +271,7 @@ datum/battle_monsters/antman
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_ANTMAN
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLAWS | BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN
 
-datum/battle_monsters/antman/female
+/datum/battle_monsters/antman/female
 	name = "Great Ant Matron"
 	id = "antwoman"
 	icon_state = "ant"

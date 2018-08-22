@@ -1,4 +1,4 @@
-datum/battle_monsters/title
+/datum/battle_monsters/title
 	name = "the Monster"
 	elements = 0 //Elements to add, if any.
 	rarity = 1 //Relative rarity multiplier. Use for whether or not this card is picked for generation.
@@ -9,13 +9,13 @@ datum/battle_monsters/title
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_NONE //The attack type flags added.
 	defense_type = BATTLE_MONSTERS_ATTACKTYPE_NONE //The defense type flags added.
 
-datum/battle_monsters/title/none
+/datum/battle_monsters/title/none
 	name = ""
 	id = "no_title"
 	description = ""
 	rarity = 0
 
-datum/battle_monsters/title/great
+/datum/battle_monsters/title/great
 	name = "the Great"
 	id = "great"
 	power_add = 200
@@ -25,7 +25,7 @@ datum/battle_monsters/title/great
 	rarity = 0.5
 	rarity_score = 1
 
-datum/battle_monsters/title/powerful
+/datum/battle_monsters/title/powerful
 	name = "the Powerful"
 	id = "powerful"
 	attack_mul = 1.25
@@ -36,7 +36,7 @@ datum/battle_monsters/title/powerful
 	rarity = 0.5
 	rarity_score = 1
 
-datum/battle_monsters/title/wise
+/datum/battle_monsters/title/wise
 	name = "the Wise"
 	id = "wise"
 	power_add = 200
@@ -46,7 +46,7 @@ datum/battle_monsters/title/wise
 	rarity = 0.5
 	rarity_score = 1
 
-datum/battle_monsters/title/elemental
+/datum/battle_monsters/title/elemental
 	name = "Master of Elements"
 	id = "master"
 	power_add = 200

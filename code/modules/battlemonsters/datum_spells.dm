@@ -1,4 +1,4 @@
-datum/battle_monsters/spell
+/datum/battle_monsters/spell
 	name = "oh no" //The name of the spell
 	id = "spell_error"
 	icon_state = "magic"
@@ -8,7 +8,7 @@ datum/battle_monsters/spell
 	special_effects = "" //The special effects this element has, if any.
 	rarity_score = 0 //Rarity score to add to this card.
 
-datum/battle_monsters/spell/destroy_trap
+/datum/battle_monsters/spell/destroy_trap
 	name = "Creature's Revenge"
 	id = "destroy_trap"
 	icon_state = "pit"
@@ -19,7 +19,7 @@ datum/battle_monsters/spell/destroy_trap
 	tip = "Can be used on facedown cards with an unknown card type. However, if you get the card type wrong, then the spell is wasted."
 	rarity_score = 1
 
-datum/battle_monsters/spell/destroy_spell
+/datum/battle_monsters/spell/destroy_spell
 	name = "Fireball Accident"
 	id = "destroy_spell"
 	icon_state = "wood_fire"
@@ -30,7 +30,7 @@ datum/battle_monsters/spell/destroy_spell
 	tip = "Can be used on facedown cards with an unknown card type. However, if you get the card type wrong, then the spell is wasted."
 	rarity_score = 1
 
-datum/battle_monsters/spell/destroy_monster
+/datum/battle_monsters/spell/destroy_monster
 	name = "Smite"
 	id = "destroy_monster"
 	icon_state = "from_above"
@@ -41,7 +41,7 @@ datum/battle_monsters/spell/destroy_monster
 	tip = "Can be used on facedown cards with an unknown card type. However, if you get the card type wrong, then the spell is wasted."
 	rarity_score = 1
 
-datum/battle_monsters/spell/destroy_monster
+/datum/battle_monsters/spell/destroy_monster
 	name = "Guard's Stone Bludgeon"
 	id = "destroy_facedown"
 	icon_state = "stick"
@@ -52,7 +52,7 @@ datum/battle_monsters/spell/destroy_monster
 	tip = "Beware that any cards with a reveal acitvation will be triggered when this card is revealed."
 	rarity_score = 1
 
-datum/battle_monsters/spell/draw3
+/datum/battle_monsters/spell/draw3
 	name = "Aces in the Boot"
 	id = "draw3"
 	icon_state = "boot"
@@ -62,7 +62,7 @@ datum/battle_monsters/spell/draw3
 	special_effects = "TRIGGER: When revealed. Single use.<br>EFFECT: Draw 3 cards."
 	rarity_score = 1
 
-datum/battle_monsters/spell/draw6
+/datum/battle_monsters/spell/draw6
 	name = "Card of Sharing"
 	id = "draw6"
 	icon_state = "gay"
@@ -72,7 +72,7 @@ datum/battle_monsters/spell/draw6
 	special_effects = "TRIGGER: When revealed. Single use.<br>EFFECT: Each player draws until they are holding 6 cards."
 	rarity_score = 1
 
-datum/battle_monsters/spell/restore1
+/datum/battle_monsters/spell/restore1
 	name = "Potion of Restore Health"
 	id = "restore1"
 	icon_state = "potion_red"
@@ -82,7 +82,7 @@ datum/battle_monsters/spell/restore1
 	special_effects = "TRIGGER: When revealed. Single use.<br>EFFECT: Restore health by 1 point, if under 5."
 	rarity_score = 1
 
-datum/battle_monsters/spell/damage1
+/datum/battle_monsters/spell/damage1
 	name = "Potion of Damage Health"
 	id = "damage1"
 	icon_state = "potion_blue"
@@ -92,7 +92,7 @@ datum/battle_monsters/spell/damage1
 	special_effects = "TRIGGER: When revealed. Single use.<br>EFFECT: Damage the opponent's health by one point, if over 1,."
 	rarity_score = 1
 
-datum/battle_monsters/spell/polymerization
+/datum/battle_monsters/spell/polymerization
 	name = "Fuse"
 	id = "fuse"
 	icon_state = "swap"

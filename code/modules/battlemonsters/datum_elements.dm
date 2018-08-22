@@ -6,7 +6,7 @@
 //Earth: Elements against the opponent.
 //Stone: Alchemy Gimmick
 
-datum/battle_monsters/element
+/datum/battle_monsters/element
 	name = "neutral" //The name of the element
 	elements = BATTLE_MONSTERS_ELEMENT_NEUTRAL //Their general element.
 	//Note, values are normalized at the end of generation.
@@ -19,7 +19,7 @@ datum/battle_monsters/element
 	//1 or lower means common, 2 means uncommon, 3 means rare, 4 or higher means legendary.
 	//Uncommon or higher rarities should be used sparringly, and only to cards that are super noteable.
 
-datum/battle_monsters/element/fire
+/datum/battle_monsters/element/fire
 	name = "Firebrand"
 	id = "fire"
 	icon_state = "fire"
@@ -28,7 +28,7 @@ datum/battle_monsters/element/fire
 	description = "Great balls of %ELEMENT_AND circles around them and their %WEAPON_AND."
 	rarity = 4
 
-datum/battle_monsters/element/fire/lava
+/datum/battle_monsters/element/fire/lava
 	name = "Fireborn"
 	id = "lava"
 	icon_state = "fireborn"
@@ -37,7 +37,7 @@ datum/battle_monsters/element/fire/lava
 	power_add = 100
 	rarity = 0.25
 
-datum/battle_monsters/element/fire/molten
+/datum/battle_monsters/element/fire/molten
 	name = "Molten"
 	id = "molten"
 	icon_state = "magma"
@@ -49,7 +49,7 @@ datum/battle_monsters/element/fire/molten
 	rarity = 0.1
 	rarity_score = 1
 
-datum/battle_monsters/element/fire/candle
+/datum/battle_monsters/element/fire/candle
 	name = "Candle Wax"
 	id = "wax"
 	icon_state = "candle"
@@ -61,7 +61,7 @@ datum/battle_monsters/element/fire/candle
 	rarity = 0.1
 	rarity_score = 1
 
-datum/battle_monsters/element/fire/burned
+/datum/battle_monsters/element/fire/burned
 	name = "Burned"
 	id = "burned"
 	icon_state = "burned"
@@ -73,7 +73,7 @@ datum/battle_monsters/element/fire/burned
 	rarity = 0.1
 	rarity_score = 1
 
-datum/battle_monsters/element/fire/scorching_blade
+/datum/battle_monsters/element/fire/scorching_blade
 	name = "Scorching Blade"
 	id = "scorching_blade"
 	icon_state = "scorching_blade"
@@ -85,7 +85,7 @@ datum/battle_monsters/element/fire/scorching_blade
 	rarity = 0.1
 	rarity_score = 1
 
-datum/battle_monsters/element/fire/burning_sun_god
+/datum/battle_monsters/element/fire/burning_sun_god
 	name = "Burning Sun God"
 	id = "burning_sun_god"
 	icon_state = "burning_sun_god"
@@ -97,7 +97,7 @@ datum/battle_monsters/element/fire/burning_sun_god
 	rarity = 0.01
 	rarity_score = 3
 
-datum/battle_monsters/element/energy
+/datum/battle_monsters/element/energy
 	name = "Energy"
 	id = "energy"
 	icon_state = "energy"
@@ -106,7 +106,7 @@ datum/battle_monsters/element/energy
 	description = "Magical lighting flickers in the background, each strike hitting their %WEAPON_AND with %ELEMENT_AND."
 	rarity = 4
 
-datum/battle_monsters/element/energy/thunder
+/datum/battle_monsters/element/energy/thunder
 	name = "Thunderchild"
 	id = "thunder"
 	icon_state = "thunder"
@@ -119,7 +119,7 @@ datum/battle_monsters/element/energy/thunder
 	power_mul = 0.75
 	rarity = 0.25
 
-datum/battle_monsters/element/energy/powered
+/datum/battle_monsters/element/energy/powered
 	name = "Cybernetic"
 	id = "powered"
 	icon_state = "powered"
@@ -128,7 +128,7 @@ datum/battle_monsters/element/energy/powered
 	rarity = 0.1
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_MACHINE
 
-datum/battle_monsters/element/energy/dragonslayer
+/datum/battle_monsters/element/energy/dragonslayer
 	name = "Dragonslayer"
 	id = "dragonslayer"
 	icon_state = "dragonslayer"
@@ -137,7 +137,7 @@ datum/battle_monsters/element/energy/dragonslayer
 	rarity = 0.1
 	rarity_score = 1
 
-datum/battle_monsters/element/energy/dragoncult
+/datum/battle_monsters/element/energy/dragoncult
 	name = "Dragoncult"
 	id = "dragoncult"
 	icon_state = "dragoncult"
@@ -147,7 +147,7 @@ datum/battle_monsters/element/energy/dragoncult
 	rarity = 0.5
 	rarity_score = 1
 
-datum/battle_monsters/element/water
+/datum/battle_monsters/element/water
 	name = "Water"
 	id = "water"
 	icon_state = "water"
@@ -155,7 +155,7 @@ datum/battle_monsters/element/water
 	elements = BATTLE_MONSTERS_ELEMENT_WATER
 	rarity = 4
 
-datum/battle_monsters/element/water/morphing
+/datum/battle_monsters/element/water/morphing
 	name = "Morphling"
 	id = "morphling"
 	icon_state = "water2"
@@ -163,7 +163,7 @@ datum/battle_monsters/element/water/morphing
 	special_effects = "Morph: %NAME is automatically switched to defense mode if they attack, and automatically switched to attack mode if they succesfully defend from an attack. %NAME cannot be switched to attack mode or defense mode manually."
 	rarity = 0.25
 
-datum/battle_monsters/element/water/raincloud
+/datum/battle_monsters/element/water/raincloud
 	name = "Rain"
 	id = "rain"
 	icon_state = "raincloud"
@@ -174,7 +174,7 @@ datum/battle_monsters/element/water/raincloud
 	rarity = 0.25
 	rarity_score = 1
 
-datum/battle_monsters/element/water/trench_pirate
+/datum/battle_monsters/element/water/trench_pirate
 	name = "Trench Pirate"
 	id = "trench_pirate"
 	description = "They're covered entirely with seaweed and barnacles."
@@ -183,7 +183,7 @@ datum/battle_monsters/element/water/trench_pirate
 	rarity = 0.1
 	rarity_score = 1
 
-datum/battle_monsters/element/ice
+/datum/battle_monsters/element/ice
 	name = "Ice"
 	id = "ice"
 	icon_state = "ice"
@@ -192,7 +192,7 @@ datum/battle_monsters/element/ice
 	defense_add = 1
 	rarity = 4
 
-datum/battle_monsters/element/ice/defender
+/datum/battle_monsters/element/ice/defender
 	name = "Igloo Defender"
 	id = "igloo"
 	icon_state = "igloo"
@@ -200,7 +200,7 @@ datum/battle_monsters/element/ice/defender
 	special_effects = "Master Defender: As long as %NAME is visible, it's owner cannot be attacked by monsters. "
 	rarity = 0.5
 
-datum/battle_monsters/element/ice/yeti
+/datum/battle_monsters/element/ice/yeti
 	name = "Yeti"
 	id = "yeti"
 	icon_state = "white"
@@ -212,7 +212,7 @@ datum/battle_monsters/element/ice/yeti
 	rarity = 0.1
 	rarity_score = 1
 
-datum/battle_monsters/element/earth
+/datum/battle_monsters/element/earth
 	name = "Earth"
 	id = "earth"
 	icon_state = "earth"
@@ -220,7 +220,7 @@ datum/battle_monsters/element/earth
 	elements = BATTLE_MONSTERS_ELEMENT_EARTH
 	rarity = 2
 
-datum/battle_monsters/element/treant
+/datum/battle_monsters/element/treant
 	name = "Treant"
 	id = "treant"
 	icon_state = "treant"
@@ -229,7 +229,7 @@ datum/battle_monsters/element/treant
 	defense_mul = 1.25
 	rarity = 0.25
 
-datum/battle_monsters/element/bonfire
+/datum/battle_monsters/element/bonfire
 	name = "Bonfire"
 	id = "bonfire"
 	icon_state = "bonfire"
@@ -239,7 +239,7 @@ datum/battle_monsters/element/bonfire
 	defense_mul = 1.25
 	rarity = 0.25
 
-datum/battle_monsters/element/fairy
+/datum/battle_monsters/element/fairy
 	name = "Fairy"
 	id = "fairy"
 	icon_state = "fairy"
@@ -250,7 +250,7 @@ datum/battle_monsters/element/fairy
 	defense_mul = 0.5
 	rarity = 0.25
 
-datum/battle_monsters/element/stone
+/datum/battle_monsters/element/stone
 	name = "Stone"
 	id = "stone"
 	icon_state = "stone"
@@ -258,7 +258,7 @@ datum/battle_monsters/element/stone
 	elements = BATTLE_MONSTERS_ELEMENT_STONE
 	rarity = 2
 
-datum/battle_monsters/element/stone/uranium
+/datum/battle_monsters/element/stone/uranium
 	name = "Uranium"
 	id = "uranium"
 	icon_state = "uranium"
@@ -267,7 +267,7 @@ datum/battle_monsters/element/stone/uranium
 	rarity = 0.1
 	rarity_score = 1
 
-datum/battle_monsters/element/stone/iron
+/datum/battle_monsters/element/stone/iron
 	name = "Iron"
 	id = "iron"
 	icon_state = "iron"
@@ -277,7 +277,7 @@ datum/battle_monsters/element/stone/iron
 	defense_mul = 1.5
 	power_add = 300
 
-datum/battle_monsters/element/stone/steel
+/datum/battle_monsters/element/stone/steel
 	name = "Steel"
 	id = "steel"
 	icon_state = "steel"
@@ -286,7 +286,7 @@ datum/battle_monsters/element/stone/steel
 	rarity_score = 1
 	power_add = 600
 
-datum/battle_monsters/element/stone/aluminium
+/datum/battle_monsters/element/stone/aluminium
 	name = "Aluminium"
 	id = "aluminium"
 	icon_state = "alum"
@@ -296,7 +296,7 @@ datum/battle_monsters/element/stone/aluminium
 	rarity_score = 1
 	power_add = 300
 
-datum/battle_monsters/element/stone/potassium
+/datum/battle_monsters/element/stone/potassium
 	name = "Potassium"
 	id = "potassium"
 	icon_state = "potas"
@@ -305,7 +305,7 @@ datum/battle_monsters/element/stone/potassium
 	rarity = 0.05
 	rarity_score = 2
 
-datum/battle_monsters/element/dark
+/datum/battle_monsters/element/dark
 	name = "Dark"
 	id = "dark"
 	icon_state = "dark"
@@ -316,7 +316,7 @@ datum/battle_monsters/element/dark
 	rarity = 0.25
 	rarity_score = 1
 
-datum/battle_monsters/element/dark/vampire
+/datum/battle_monsters/element/dark/vampire
 	name = "Vampire"
 	id = "vampire"
 	icon_state = "vampire"
@@ -325,7 +325,7 @@ datum/battle_monsters/element/dark/vampire
 	rarity = 0.1
 	rarity_score = 2
 
-datum/battle_monsters/element/dark/cultist
+/datum/battle_monsters/element/dark/cultist
 	name = "Cultist"
 	id = "cultist"
 	icon_state = "cultist"
@@ -334,7 +334,7 @@ datum/battle_monsters/element/dark/cultist
 	rarity = 0.1
 	rarity_score = 2
 
-datum/battle_monsters/element/dark/demon
+/datum/battle_monsters/element/dark/demon
 	name = "Demon"
 	id = "demon"
 	icon_state = "demon"
@@ -343,7 +343,7 @@ datum/battle_monsters/element/dark/demon
 	rarity = 0.1
 	rarity_score = 2
 
-datum/battle_monsters/element/dark/devil //SPRITE NEEDED
+/datum/battle_monsters/element/dark/devil //SPRITE NEEDED
 	name = "Devil"
 	id = "devil"
 	icon_state = "demon"
@@ -352,7 +352,7 @@ datum/battle_monsters/element/dark/devil //SPRITE NEEDED
 	rarity = 0.1
 	rarity_score = 2
 
-datum/battle_monsters/element/dark/unholy //SPRITE NEEDED
+/datum/battle_monsters/element/dark/unholy //SPRITE NEEDED
 	name = "Unholy"
 	id = "unholy"
 	description = "A dark, unholy aura shrouds their true shape and figure."
@@ -360,7 +360,7 @@ datum/battle_monsters/element/dark/unholy //SPRITE NEEDED
 	rarity = 0.1
 	rarity_score = 2
 
-datum/battle_monsters/element/light
+/datum/battle_monsters/element/light
 	name = "Light"
 	id = "light"
 	icon_state = "light"
@@ -371,7 +371,7 @@ datum/battle_monsters/element/light
 	rarity = 0.25
 	rarity_score = 1
 
-datum/battle_monsters/element/light/angel //SPRITE NEEDED
+/datum/battle_monsters/element/light/angel //SPRITE NEEDED
 	name = "Guardian Angel"
 	id = "angel"
 	description = "A halo floats above them, and feathery white wings sprout from their back."
@@ -379,7 +379,7 @@ datum/battle_monsters/element/light/angel //SPRITE NEEDED
 	rarity = 0.1
 	rarity_score = 2
 
-datum/battle_monsters/element/light/undying //SPRITE NEEDED
+/datum/battle_monsters/element/light/undying //SPRITE NEEDED
 	name = "Undying"
 	id = "undying"
 	description = "Various scars are scattered across their body. Each scar seems to glow distinctly with holy energy."
@@ -387,7 +387,7 @@ datum/battle_monsters/element/light/undying //SPRITE NEEDED
 	rarity = 0.1
 	rarity_score = 2
 
-datum/battle_monsters/element/light/holy //SPRITE NEEDED
+/datum/battle_monsters/element/light/holy //SPRITE NEEDED
 	name = "Holy"
 	id = "holy"
 	description = "Their body seems to have an angelic glow."
