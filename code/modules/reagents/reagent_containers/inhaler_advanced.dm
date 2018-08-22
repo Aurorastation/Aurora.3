@@ -16,6 +16,7 @@
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 250)
+	center_of_mass = null
 
 /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/examine(var/mob/user)
 	if(!..(user, 2))
