@@ -42,7 +42,7 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 
 	if(splitstring[1] == "spell_type")
 		new_card = new(cardloc,null,null,null,null,splitstring[2])
-	else if(splitstring[2] == "trap_type")
+	else if(splitstring[1] == "trap_type")
 		new_card = new(cardloc,null,null,null,splitstring[2],null)
 	else
 		new_card = new(cardloc,splitstring[1],splitstring[2],splitstring[3],null,null)
@@ -385,6 +385,11 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 			%SPECIAL_EFFECTS<br>\
 			The card depicts %DESCRIPTION"
 
+/datum/controller/subsystem/battle_monsters/proc/GetTrapFormatting()
+	return "<b>%NAME</b> | Trap | %ELEMENT_LIST<br>\
+			%SPECIAL_EFFECTS<br>\
+			The card depicts %DESCRIPTION"
+
 /datum/controller/subsystem/battle_monsters/proc/ExamineMonsterCard(var/mob/user,var/datum/battle_monsters/element/prefix_datum,var/datum/battle_monsters/monster/root_datum,var/datum/battle_monsters/title/suffix_datum)
 	to_chat(user,FormatMonsterText(GetMonsterFormatting(),prefix_datum,root_datum,suffix_datum))
 
@@ -392,7 +397,7 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 	to_chat(user,FormatSpellText(GetSpellFormatting(),spell_datum))
 
 /datum/controller/subsystem/battle_monsters/proc/ExamineTrapCard(var/mob/user,var/datum/battle_monsters/trap/trap_datum)
-	to_chat(user,FormatSpellText(GetSpellFormatting(),trap_datum))
+	to_chat(user,FormatSpellText(GetTrapFormatting(),trap_datum))
 
 /datum/controller/subsystem/battle_monsters/proc/GenerateMonsterStats(var/datum/battle_monsters/element/prefix_datum,var/datum/battle_monsters/monster/root_datum,var/datum/battle_monsters/title/suffix_datum, var/limiter = BATTLE_MONSTERS_GENERATION_ALL)
 

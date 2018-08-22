@@ -21,7 +21,7 @@
 		var/datum/battle_monsters/selected_prefix = SSbattlemonsters.GetRandomPrefix_Filtered(rare_limiter)
 		var/datum/battle_monsters/selected_root = SSbattlemonsters.GetRandomRoot_Filtered(rare_limiter)
 		var/datum/battle_monsters/selected_suffix = SSbattlemonsters.GetRandomSuffix_Filtered(rare_limiter)
-		deck_data += "[selected_prefix],[selected_root.id],[(selected_prefix.rarity_score + selected_root.rarity_score) >= 3 ? selected_suffix.id : "no_title"]"
+		deck_data += "[selected_prefix.id],[selected_root.id],[(selected_prefix.rarity_score + selected_root.rarity_score) >= 3 ? selected_suffix.id : "no_title"]"
 	user.visible_message(\
 		span("notice","\The [user] unwraps \the [src]."),\
 		span("notice","You unwrap \the [src].")\

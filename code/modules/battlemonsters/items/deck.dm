@@ -132,7 +132,7 @@
 		if(splitstring[1] == "spell_type")
 			formatted_data = SSbattlemonsters.FormatSpellText(SSbattlemonsters.GetSpellFormatting(),SSbattlemonsters.FindMatchingSpell(splitstring[2]))
 		else if(splitstring[1] == "trap_type")
-			formatted_data = SSbattlemonsters.FormatSpellText(SSbattlemonsters.GetSpellFormatting(),SSbattlemonsters.FindMatchingTrap(splitstring[2]))
+			formatted_data = SSbattlemonsters.FormatSpellText(SSbattlemonsters.GetTrapFormatting(),SSbattlemonsters.FindMatchingTrap(splitstring[2]))
 		else
 			var/datum/battle_monsters/element/prefix_datum = SSbattlemonsters.FindMatchingPrefix(splitstring[1])
 			var/datum/battle_monsters/monster/root_datum = SSbattlemonsters.FindMatchingRoot(splitstring[2])
