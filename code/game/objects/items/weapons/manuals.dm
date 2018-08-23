@@ -1419,7 +1419,7 @@
 			"}
 
 /obj/item/weapon/book/manual/battlemonsters
-	name = "/improper Guide to Battlemonsters"
+	name = "\improper Guide to Battlemonsters"
 	icon_state ="battlemonsters"
 	author = "Macro Toy Company"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Guide to Battlemonsters"

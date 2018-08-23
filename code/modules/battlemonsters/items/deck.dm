@@ -75,6 +75,9 @@
 	set name = "Change Deck Type"
 	set src in view(1)
 
+	if (use_check(user, USE_DISALLOW_SILICONS))
+		return
+
 	if(icon_state == "hand")
 		usr.visible_message(\
 			span("notice","\The [usr] turns their hand into a stack of cards."),\
@@ -93,7 +96,8 @@
 	set name = "Shuffle Deck"
 	set src in view(1)
 
-	if(usr.stat || !Adjacent(usr)) return
+	if (use_check(user, USE_DISALLOW_SILICONS))
+		return
 
 	usr.visible_message(\
 		span("notice","\The [usr] shuffles \the [src]."),\
@@ -133,8 +137,6 @@
 
 /obj/item/battle_monsters/deck/proc/BrowseDeck(var/mob/user)
 	var/browse_data = ""
-
-
 	for(var/cardname in stored_card_names)
 		var/list/splitstring = dd_text2List(cardname,",")
 		var/formatted_data

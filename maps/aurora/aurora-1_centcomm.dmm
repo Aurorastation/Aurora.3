@@ -13046,7 +13046,7 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_battlemonsters)
 "Dh" = (
-/obj/structure/dueling_table/no_colide/above_layer{
+/obj/structure/dueling_table/no_collide/above_layer{
 	icon_state = "top_left"
 	},
 /obj/effect/decal/battlemonsters_logo,
@@ -13127,7 +13127,7 @@
 	},
 /area/centcom/holding)
 "Dr" = (
-/obj/structure/dueling_table/no_colide/above_layer{
+/obj/structure/dueling_table/no_collide/above_layer{
 	icon_state = "top_center"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -13197,7 +13197,7 @@
 	},
 /area/centcom/holding)
 "DA" = (
-/obj/structure/dueling_table/no_colide/above_layer{
+/obj/structure/dueling_table/no_collide/above_layer{
 	icon_state = "top_right"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -13746,7 +13746,7 @@
 	},
 /area/centcom/holding)
 "ER" = (
-/obj/structure/dueling_table/no_colide{
+/obj/structure/dueling_table/no_collide{
 	icon_state = "bottom_leftt"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -13764,7 +13764,7 @@
 	},
 /area/centcom/holding)
 "ET" = (
-/obj/structure/dueling_table/no_colide{
+/obj/structure/dueling_table/no_collide{
 	icon_state = "bottom_center"
 	},
 /turf/simulated/floor/holofloor/wood,
@@ -13906,7 +13906,7 @@
 	},
 /area/centcom/holding)
 "Fl" = (
-/obj/structure/dueling_table/no_colide{
+/obj/structure/dueling_table/no_collide{
 	icon_state = "bottom_right"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -13916,7 +13916,7 @@
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_battlemonsters)
 "Fm" = (
-/obj/structure/dueling_table/no_colide/above_layer{
+/obj/structure/dueling_table/no_collide/above_layer{
 	icon_state = "top_left"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -21968,7 +21968,7 @@
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
 "WE" = (
-/obj/structure/dueling_table/no_colide/above_layer{
+/obj/structure/dueling_table/no_collide/above_layer{
 	icon_state = "top_center"
 	},
 /turf/simulated/floor/holofloor/wood,
@@ -22279,7 +22279,7 @@
 	},
 /area/centcom/spawning)
 "Xl" = (
-/obj/structure/dueling_table/no_colide/above_layer{
+/obj/structure/dueling_table/no_collide/above_layer{
 	icon_state = "top_right"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -22295,7 +22295,7 @@
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_battlemonsters)
 "Xn" = (
-/obj/structure/dueling_table/no_colide{
+/obj/structure/dueling_table/no_collide{
 	icon_state = "bottom_leftt"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -22305,7 +22305,7 @@
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_battlemonsters)
 "Xo" = (
-/obj/structure/dueling_table/no_colide{
+/obj/structure/dueling_table/no_collide{
 	icon_state = "bottom_center"
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -22328,7 +22328,7 @@
 /turf/simulated/floor/tiled/ramp,
 /area/shuttle/escape/centcom)
 "Xr" = (
-/obj/structure/dueling_table/no_colide{
+/obj/structure/dueling_table/no_collide{
 	icon_state = "bottom_right"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
