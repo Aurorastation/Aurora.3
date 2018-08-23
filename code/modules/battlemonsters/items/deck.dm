@@ -35,19 +35,20 @@
 			span("notice","You take a card from your hand.")\
 		)
 
-	var/top_card = get_top_card()
-	var/obj/item/battle_monsters/card/new_card = SSbattlemonsters.CreateCard(top_card,src.loc)
-	user.put_in_active_hand(new_card)
-	new_card.pickup(user)
-	stored_card_names -= top_card
-
-	if(stored_card_names.len <= 0)
-		qdel(src)
+	take_specific_card(user,get_top_card())
 
 /obj/item/battle_monsters/deck/proc/take_specific_card(var/mob/user, var/card_id)
 	if(card_id in stored_card_names)
 		var/obj/item/battle_monsters/card/new_card = SSbattlemonsters.CreateCard(card_id,src.loc)
-		user.put_in_active_hand(new_card)
+
+		if(!user.get_active_hand())
+			user.put_in_active_hand(new_card)
+		else if(!user.get_inactive_hand())
+			user.put_in_inactive_hand(new_card)
+		else
+			to_chat(user,span("notice","Your hands are full!"))
+			return
+
 		new_card.pickup(user)
 		stored_card_names -= card_id
 
@@ -124,6 +125,9 @@
 			)
 			return
 
+	BrowseDeck(user)
+
+/obj/item/battle_monsters/deck/proc/BrowseDeck(var/mob/user)
 	var/browse_data = ""
 
 	for(var/cardname in stored_card_names)
@@ -137,11 +141,6 @@
 			var/datum/battle_monsters/element/prefix_datum = SSbattlemonsters.FindMatchingPrefix(splitstring[1])
 			var/datum/battle_monsters/monster/root_datum = SSbattlemonsters.FindMatchingRoot(splitstring[2])
 			var/datum/battle_monsters/title/suffix_datum = SSbattlemonsters.FindMatchingSuffix(splitstring[3])
-
-			world << "NAME: [cardname]."
-			world << "ROOT DATUM ID: [splitstring[1]]"
-			world << "ROOT DATUM: [root_datum]."
-			world << "ROOT DATUM NAME: [root_datum.name]."
 			formatted_data = SSbattlemonsters.FormatMonsterText(SSbattlemonsters.GetMonsterFormatting(),prefix_datum,root_datum,suffix_datum)
 
 		browse_data += "[formatted_data]<br><a href='?src=\ref[src];selection=[cardname]'>Draw Card</a><br><hr>"
@@ -154,4 +153,5 @@
 
 	if(href_list["selection"])
 		take_specific_card(usr, href_list["selection"])
-		usr << browse(null, "window=battlemonsters_hand")
+		BrowseDeck(usr)
+
