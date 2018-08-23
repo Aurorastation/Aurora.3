@@ -13493,11 +13493,12 @@
 	},
 /area/centcom/ferry)
 "Eh" = (
-/obj/structure/dueling_table{
-	icon_state = "center_center"
+/turf/template_noop,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/shuttle/wall/dark{
+	icon_state = "swall_c"
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_battlemonsters)
+/area/template_noop)
 "Ei" = (
 /obj/item/clothing/head/collectable/paper,
 /turf/unsimulated/beach/sand,
@@ -22372,7 +22373,8 @@
 /turf/template_noop,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/wall/dark{
-	icon_state = "swall_c"
+	icon_state = "swall_c";
+	dir = 8
 	},
 /area/template_noop)
 "Xy" = (
@@ -22380,18 +22382,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/wall/dark{
 	icon_state = "swall_c";
-	dir = 8
-	},
-/area/template_noop)
-"Xz" = (
-/turf/template_noop,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/wall/dark{
-	icon_state = "swall_c";
 	dir = 4
 	},
 /area/template_noop)
-"XA" = (
+"Xz" = (
 /turf/unsimulated/floor{
 	icon_state = "gcircuit"
 	},
@@ -22407,7 +22401,7 @@
 	icon_state = "wood_siding10"
 	},
 /area/centcom/control)
-"XB" = (
+"XA" = (
 /turf/unsimulated/floor{
 	icon_state = "gcircuit"
 	},
@@ -22423,7 +22417,7 @@
 	dir = 6
 	},
 /area/centcom/control)
-"XC" = (
+"XB" = (
 /turf/unsimulated/floor{
 	icon_state = "gcircuit"
 	},
@@ -22435,7 +22429,7 @@
 	icon_state = "wood_siding6"
 	},
 /area/centcom/control)
-"XD" = (
+"XC" = (
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
@@ -22452,7 +22446,7 @@
 	icon_state = "wood_siding9"
 	},
 /area/centcom/control)
-"XE" = (
+"XD" = (
 /turf/unsimulated/floor{
 	icon_state = "gcircuit"
 	},
@@ -22468,7 +22462,7 @@
 	icon_state = "wood_siding10"
 	},
 /area/centcom/control)
-"XF" = (
+"XE" = (
 /turf/unsimulated/floor{
 	icon_state = "gcircuit"
 	},
@@ -22486,7 +22480,7 @@
 	icon_state = "wood_siding10"
 	},
 /area/centcom/control)
-"XG" = (
+"XF" = (
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
@@ -22496,7 +22490,7 @@
 	dir = 6
 	},
 /area/centcom/control)
-"XH" = (
+"XG" = (
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
@@ -22507,7 +22501,7 @@
 	dir = 6
 	},
 /area/centcom/control)
-"XI" = (
+"XH" = (
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
@@ -22518,7 +22512,7 @@
 	dir = 6
 	},
 /area/centcom/control)
-"XJ" = (
+"XI" = (
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
@@ -22536,7 +22530,7 @@
 	icon_state = "wood_siding9"
 	},
 /area/centcom/control)
-"XK" = (
+"XJ" = (
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -22546,7 +22540,7 @@
 	icon_state = "siding2"
 	},
 /area/centcom/holding)
-"XL" = (
+"XK" = (
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -22557,7 +22551,7 @@
 	icon_state = "wood_siding2"
 	},
 /area/centcom/spawning)
-"XM" = (
+"XL" = (
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -22569,7 +22563,7 @@
 	icon_state = "wood_siding4"
 	},
 /area/centcom/spawning)
-"XN" = (
+"XM" = (
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -22581,7 +22575,7 @@
 	icon_state = "wood_siding8"
 	},
 /area/centcom/spawning)
-"XO" = (
+"XN" = (
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -57219,7 +57213,7 @@ DM
 DM
 EP
 EP
-XK
+XJ
 Gq
 GE
 GF
@@ -57476,7 +57470,7 @@ Fi
 Fo
 EP
 EP
-XK
+XJ
 Gq
 GF
 GF
@@ -57733,7 +57727,7 @@ Fj
 Fp
 EP
 EP
-XK
+XJ
 Gq
 GF
 GF
@@ -57990,7 +57984,7 @@ Fk
 Fp
 EP
 EP
-XK
+XJ
 Gq
 GF
 GF
@@ -58247,7 +58241,7 @@ EP
 EP
 Fy
 EP
-XK
+XJ
 Gq
 GF
 GF
@@ -58504,7 +58498,7 @@ EP
 EP
 EP
 EP
-XK
+XJ
 Gq
 GF
 GF
@@ -64696,7 +64690,7 @@ Ms
 Id
 Id
 Id
-XM
+XL
 Id
 Id
 Id
@@ -64899,17 +64893,17 @@ wl
 xe
 xA
 yk
-XD
+XC
 wl
 xe
 xA
 yk
-XD
+XC
 wl
 xe
 xA
 Bp
-XJ
+XI
 uT
 Cq
 CG
@@ -64952,9 +64946,9 @@ KZ
 Ms
 Id
 Id
-XL
+XK
 OY
-XO
+XN
 Id
 Id
 OA
@@ -65209,9 +65203,9 @@ MN
 Ms
 Id
 Id
-XL
+XK
 OZ
-XO
+XN
 Id
 Id
 Qn
@@ -65668,18 +65662,18 @@ it
 uT
 wo
 xh
-XA
+Xz
+yl
+yE
+wo
+xh
+XD
 yl
 yE
 wo
 xh
 XE
-yl
-yE
-wo
-xh
 XF
-XG
 BT
 uT
 Cq
@@ -65723,9 +65717,9 @@ KZ
 Ms
 Id
 Id
-XL
+XK
 Pa
-XO
+XN
 Id
 Id
 OA
@@ -65925,18 +65919,18 @@ aM
 uT
 wp
 xi
-XB
+XA
 yl
 yE
 wp
 xi
-XB
+XA
 yl
 yE
 wp
 xi
-XB
-XH
+XA
+XG
 BT
 uT
 Cq
@@ -65980,9 +65974,9 @@ Nw
 Ms
 Id
 Id
-XL
+XK
 Pb
-XO
+XN
 Id
 Id
 OA
@@ -66182,18 +66176,18 @@ it
 uT
 wq
 xj
-XC
+XB
 yl
 yE
 wq
 xj
-XC
+XB
 yl
 yE
 wq
 xj
-XC
-XI
+XB
+XH
 BT
 uT
 Cq
@@ -66237,9 +66231,9 @@ KZ
 Ms
 Id
 Id
-XL
+XK
 Pc
-XO
+XN
 Id
 Id
 OA
@@ -66751,9 +66745,9 @@ MN
 Ms
 Id
 Id
-XL
+XK
 Pb
-XO
+XN
 Id
 Id
 OA
@@ -67008,9 +67002,9 @@ KZ
 Ms
 Id
 Id
-XL
+XK
 Pd
-XO
+XN
 Id
 Id
 OA
@@ -67266,7 +67260,7 @@ Ms
 Id
 Id
 Id
-XN
+XM
 Id
 Id
 Id
@@ -72208,7 +72202,7 @@ aO
 BS
 Xs
 Dr
-Eh
+Xm
 ET
 WE
 Xm
@@ -75064,7 +75058,7 @@ aM
 aM
 aM
 hV
-Xz
+Xy
 iw
 jb
 jh
@@ -76106,7 +76100,7 @@ aM
 aM
 aM
 aM
-Xz
+Xy
 it
 aM
 aM
@@ -79944,9 +79938,9 @@ aM
 aM
 aM
 aM
-Xx
+Eh
 iH
-Xy
+Xx
 aM
 aM
 aM

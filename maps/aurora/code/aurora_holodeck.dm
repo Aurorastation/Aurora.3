@@ -61,6 +61,7 @@
 			)
 		),
 		"gym" = new /datum/holodeck_program(/area/holodeck/source_gym),
+		"battlemonsters" = new /datum/holodeck_program(/area/holodeck/source_battlemonsters),
 		"turnoff" = new /datum/holodeck_program(/area/holodeck/source_plating, list())
 	)
 
@@ -78,7 +79,8 @@
 		"Meeting Hall"      = "meetinghall",
 		"Courtroom"         = "courtroom",
 		"Chapel"            = "chapel",
-		"Xavier Trasen Memorial Gymnasium" = "gym"
+		"Xavier Trasen Memorial Gymnasium" = "gym",
+		"Battle Monsters Duelling Arena" = "battlemonsters"
 	)
 	holodeck_restricted_programs = list(
 		"Atmospheric Burn Simulation" = "burntest",

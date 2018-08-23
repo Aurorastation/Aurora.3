@@ -88,15 +88,19 @@
 		)
 		icon_state = "hand"
 
-/obj/item/battle_monsters/deck/verb/shuffle()
+/obj/item/battle_monsters/deck/verb/shuffle_deck()
 	set category = "Object"
 	set name = "Shuffle Deck"
 	set src in view(1)
+
+	if(usr.stat || !Adjacent(usr)) return
 
 	usr.visible_message(\
 		span("notice","\The [usr] shuffles \the [src]."),\
 		span("notice","You shuffle \the [src].")\
 	)
+
+	playsound(src.loc, 'sound/items/cardshuffle.ogg', 100, 1, -4)
 
 	stored_card_names = shuffle(stored_card_names)
 

@@ -97,6 +97,8 @@
 		pixel_x = (CELLSIZE_X * (0.5 + cell_x)) - center_of_mass["x"]
 		pixel_y = (CELLSIZE_Y * (0.5 + cell_y)) - center_of_mass["y"]
 
+		layer = A.layer + 0.1
+
 	. = ..()
 
 #undef CELLS_X

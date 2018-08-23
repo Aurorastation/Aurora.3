@@ -71,7 +71,6 @@
 
 /obj/item/battle_monsters/card/proc/Generate_Card(var/prefix,var/root,var/title,var/trap,var/spell)
 
-
 	if(trap)
 		trap_datum = SSbattlemonsters.FindMatchingTrap(trap,TRUE)
 		update_icon()
@@ -100,8 +99,6 @@
 		suffix_datum = SSbattlemonsters.GetRandomSuffix()
 	else
 		suffix_datum = SSbattlemonsters.FindMatchingSuffix("no_title",TRUE)
-
-
 
 /obj/item/battle_monsters/card/update_icon()
 
