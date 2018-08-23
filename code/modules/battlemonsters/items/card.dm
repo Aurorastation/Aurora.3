@@ -157,7 +157,7 @@
 
 	..()
 
-	if(facedown)
+	if(facedown && src.loc != user)
 		to_chat(user,span("notice","You can't examine \the [src] while it's face down!"))
 		return
 

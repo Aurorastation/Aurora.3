@@ -107,12 +107,14 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 /datum/controller/subsystem/battle_monsters/proc/GetRandomSpell()
 	return FindMatchingSpell(pickweight(spells_rng))
 
-/datum/controller/subsystem/battle_monsters/proc/GetRandomPrefix_Filtered(var/rare_limit)
+/datum/controller/subsystem/battle_monsters/proc/GetRandomPrefix_Filtered(var/raremin,var/raremax)
 	var/list/edited_list = list()
 
 	for(var/id in monster_elements_rng)
 		var/score = monster_elements_rng[id]
-		if(score > rare_limit)
+		if(score > raremax)
+			continue
+		if(score < raremin)
 			continue
 		edited_list[id] = score
 
@@ -121,12 +123,14 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 
 	return FindMatchingPrefix(pickweight(edited_list))
 
-/datum/controller/subsystem/battle_monsters/proc/GetRandomRoot_Filtered(var/rare_limit)
+/datum/controller/subsystem/battle_monsters/proc/GetRandomRoot_Filtered(var/raremin,var/raremax)
 	var/list/edited_list = list()
 
 	for(var/id in monster_roots_rng)
 		var/score = monster_roots_rng[id]
-		if(score > rare_limit)
+		if(score > raremax)
+			continue
+		if(score < raremin)
 			continue
 		edited_list[id] = score
 
@@ -135,12 +139,14 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 
 	return FindMatchingRoot(pickweight(edited_list))
 
-/datum/controller/subsystem/battle_monsters/proc/GetRandomSuffix_Filtered(var/rare_limit)
+/datum/controller/subsystem/battle_monsters/proc/GetRandomSuffix_Filtered(var/raremin,var/raremax)
 	var/list/edited_list = list()
 
 	for(var/id in monster_titles_rng)
 		var/score = monster_titles_rng[id]
-		if(score > rare_limit)
+		if(score > raremax)
+			continue
+		if(score < raremin)
 			continue
 		edited_list[id] = score
 

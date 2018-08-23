@@ -134,6 +134,7 @@
 /obj/item/battle_monsters/deck/proc/BrowseDeck(var/mob/user)
 	var/browse_data = ""
 
+
 	for(var/cardname in stored_card_names)
 		var/list/splitstring = dd_text2List(cardname,",")
 		var/formatted_data
@@ -147,7 +148,7 @@
 			var/datum/battle_monsters/title/suffix_datum = SSbattlemonsters.FindMatchingSuffix(splitstring[3])
 			formatted_data = SSbattlemonsters.FormatMonsterText(SSbattlemonsters.GetMonsterFormatting(),prefix_datum,root_datum,suffix_datum)
 
-		browse_data += "[formatted_data]<br><a href='?src=\ref[src];selection=[cardname]'>Draw Card</a><br><hr>"
+		browse_data = "[formatted_data]<br><a href='?src=\ref[src];selection=[cardname]'>Draw Card</a><br><hr>[browse_data]"
 
 	user << browse(browse_data, "window=battlemonsters_hand")
 
