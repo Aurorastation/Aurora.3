@@ -75,7 +75,7 @@
 	set name = "Change Deck Type"
 	set src in view(1)
 
-	if (use_check(user, USE_DISALLOW_SILICONS))
+	if (use_check(usr, USE_DISALLOW_SILICONS))
 		return
 
 	if(icon_state == "hand")
@@ -96,7 +96,7 @@
 	set name = "Shuffle Deck"
 	set src in view(1)
 
-	if (use_check(user, USE_DISALLOW_SILICONS))
+	if (use_check(usr, USE_DISALLOW_SILICONS))
 		return
 
 	usr.visible_message(\
@@ -120,6 +120,7 @@
 
 	if(user != src.loc) //Idk how this is possible but you never know.
 		to_chat(user,span("notice","You'll have to pick up \the [src] to examine the cards!"))
+		return
 
 	if(icon_state != "hand")
 		user.visible_message(\
