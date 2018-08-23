@@ -85,6 +85,10 @@
 	name = "Bar Maintenance"
 	icon_state = "maint_bar"
 
+/area/maintenance/bar/above
+	name = "Bar Interstitial Maintenance"
+	icon_state = "red"
+
 /area/maintenance/cargo
 	name = "Cargo Maintenance"
 	icon_state = "maint_cargo"
