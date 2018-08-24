@@ -177,7 +177,7 @@
 
 	if(istype(W,/obj/item/weapon/pen))
 
-		var/selection = alert(user,"Which attribute do you wish to edit?","Cancel","Name","Description")
+		var/selection = alert(user,"Which attribute do you wish to edit?","Food Editor","Name","Description","Cancel")
 		if(selection == "Name")
 			var/input_clean_name = sanitize(input(user,"What is the name of this food?", "Set Food Name") as text|null)
 			if(input_clean_name)
