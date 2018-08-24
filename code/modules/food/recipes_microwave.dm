@@ -1207,3 +1207,11 @@ I said no!
 /datum/recipe/mashedpotato
 	fruit = list("potato" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/mashedpotato
+
+/datum/recipe/burrito_pathetic
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/tortilla,
+		/obj/item/weapon/reagent_containers/food/snacks/meatball
+	)
+	reagents = list("sodiumchloride" = 1) //there is always salt in prs like this
+	result = /obj/item/weapon/reagent_containers/food/snacks/burrito_pathetic

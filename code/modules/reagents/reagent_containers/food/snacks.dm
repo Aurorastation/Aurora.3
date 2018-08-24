@@ -4656,6 +4656,14 @@
 	. = ..()
 	reagents.add_reagent("protein", 6)
 
+/obj/item/weapon/reagent_containers/food/snacks/burrito_pathetic
+	name = "pathetic burrito"
+	desc = "A lousy amount of meat wrapped in too much tortilla. The flavor balance is way off because of the lack of meat, not to mention it looks incredibly unappealing. Honestly you should straight up space the chef if they present you with this item, not even joking; if a chef lays this out on the counter, they're fucking valid. After you stuff them in the gibber, use their pathetic remains to make yourself a god damn proper meat burrito."
+	icon_state = "pathetic"
+	bitesize = 6 //Easy to bite
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_desc = list("tortilla" = 6)
+	nutriment_amt = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_vegan
 	name = "vegan burrito"
