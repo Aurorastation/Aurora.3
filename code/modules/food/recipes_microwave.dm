@@ -1213,5 +1213,5 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/tortilla,
 		/obj/item/weapon/reagent_containers/food/snacks/meatball
 	)
-	reagents = list("sodiumchloride" = 1) //there is always salt in prs like this
+	reagents = list("water" = 5)
 	result = /obj/item/weapon/reagent_containers/food/snacks/burrito_pathetic
