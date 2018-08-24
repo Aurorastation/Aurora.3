@@ -1,5 +1,10 @@
 #define SECBOT_IDLE 		0		// idle
 #define SECBOT_HUNT 		1		// found target, hunting
+#define SECBOT_ARREST		2		// arresting target
+#define SECBOT_START_PATROL	3		// start patrol
+#define SECBOT_WAIT_PATROL	4		// waiting for signals
+#define SECBOT_PATROL		5		// patrolling
+#define SECBOT_SUMMON		6		// summoned by PDA
 #define SECBOT_STOP			7		//basically 'do nothing'
 #define SECBOT_FOLLOW		8		//follows a target
 
@@ -27,9 +32,9 @@
 	// vars for verbal commands
 	var/short_name = null
 	var/list/command_buffer = list()
-	var/list/known_commands = list("stay", "stop", "arrest", "detain", "follow")
-	var/list/allowed_targets = list() //WHO CAN I KILL D:
+	var/list/known_commands = list("stay", "stop", "arrest", "detain", "follow", "patrol")
 	var/emote_hear = "states"
+	move_to_delay = 3
 
 /mob/living/bot/secbot/ed209/Initialize()
 	..()
@@ -54,8 +59,11 @@
 		var/text = command_buffer[2]
 		var/filtered_name = lowertext(html_decode(name))
 		var/filtered_short = lowertext(html_decode(short_name))
-		if(dd_hasprefix(text,filtered_name) || dd_hasprefix(text,filtered_short) || dd_hasprefix(text,"everyone") || dd_hasprefix(text, "everybody")) //in case somebody wants to command 8 bears at once.
+		if(dd_hasprefix(text,filtered_name))
 			var/substring = copytext(text,length(filtered_name)+1) //get rid of the name.
+			listen(speaker,substring)
+		else if(dd_hasprefix(text,filtered_short))
+			var/substring = copytext(text,length(filtered_short)+1) //get rid of the name.
 			listen(speaker,substring)
 		command_buffer.Remove(command_buffer[1],command_buffer[2])
 	..()
@@ -88,11 +96,17 @@
 				if("stop")
 					if(stop_command(speaker,text))
 						break
-				if("arrest" || "detain")
-					if(attack_command(speaker,text))
+				if("arrest")
+					if(arrest_command(speaker,text))
+						break
+				if("detain")
+					if(arrest_command(speaker,text))
 						break
 				if("follow")
 					if(follow_command(speaker,text))
+						break
+				if("patrol")
+					if(patrol_command(speaker, text))
 						break
 
 	return 1
@@ -116,7 +130,7 @@
 			return M
 	return null
 
-/mob/living/bot/secbot/ed209/proc/attack_command(var/mob/speaker,var/text)
+/mob/living/bot/secbot/ed209/proc/arrest_command(var/mob/speaker,var/text)
 	target = null //want me to attack something? Well I better forget my old target.
 	walk_to(src,0)
 
@@ -130,26 +144,58 @@
 		arrest_type = 0
 
 	if(isnull(target))
+		custom_emote(2, "[emote_hear], \"Error, unit is unable to find target in view range!\"")
 		return 0
 	else
-		mode = SECBOT_HUNT
-		custom_emote(2, "[emote_hear] \"Roger that, [arrest_type ? ("Detaining") : ("Arresting")] [target]\"")
+		if(ishuman(target))
+			idcheck = TRUE
+			var/mob/living/carbon/human/H = target
+			var/perpname = H.name
+			var/obj/item/weapon/card/id/id = H.GetIdCard()
+			if(id)
+				perpname = id.registered_name
+
+			var/datum/data/record/R = find_security_record("name", perpname)
+			if(R)
+				R.fields["criminal"] = "*Arrest*"
+			else
+				custom_emote(2, "[emote_hear], \"Warning, [target] does not have Security records! Enabling security records check mode!\"")
+				check_records = TRUE
+			mode = SECBOT_HUNT
+			custom_emote(2, "[emote_hear], \"[arrest_type ? ("Detaining") : ("Arresting")] [target]\"")
 
 /mob/living/bot/secbot/ed209/proc/stay_command(var/mob/speaker,var/text)
+	walk_to(src, src, 0, move_to_delay)
 	mode = SECBOT_IDLE
 	auto_patrol = 0
+	target = null
+	check_records = FALSE
+	custom_emote(2, "[emote_hear], \"Roger that, going into idle mode. Auto patrol disabled [target]\"")
 	return 1
 
 /mob/living/bot/secbot/ed209/proc/stop_command(var/mob/speaker,var/text)
+	if(!on)
+		return
+	walk_to(src, src, 0, move_to_delay)
+	check_records = FALSE
+	custom_emote(2, "[emote_hear], \"Roger that, unit going offline. [target]\"")
+	turn_off()
+	return 1
+
+/mob/living/bot/secbot/ed209/proc/patrol_command(var/mob/speaker,var/text)
+	walk_to(src, src, 0, move_to_delay)
 	mode = SECBOT_IDLE
+	auto_patrol = 1
 	target = null
+	custom_emote(2, "[emote_hear], \"Roger that, starting patrol now [target]\"")
 	return 1
 
 /mob/living/bot/secbot/ed209/proc/follow_command(var/mob/speaker,var/text)
 	//we can assume 'stop following' is handled by stop_command
 	if(findtext(text,"me"))
 		mode = SECBOT_FOLLOW
-		target = speaker //this wont bite me in the ass later.
+		target = speaker
+		custom_emote(2, "[emote_hear], \"Roger that, following you\"")
 		return 1
 
 	target = get_target_by_name(text)
@@ -160,7 +206,7 @@
 		return 0
 
 	mode = SECBOT_FOLLOW
-	custom_emote(2, "[emote_hear] \"Roger that, following [target]\"")
+	custom_emote(2, "[emote_hear], \"Roger that, following [target]\"")
 
 	return 1
 
