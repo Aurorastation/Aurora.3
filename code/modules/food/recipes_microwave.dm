@@ -951,14 +951,12 @@ I said no!
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/tortilla,
 		/obj/item/weapon/reagent_containers/food/snacks/meatball,
-		/obj/item/weapon/reagent_containers/food/snacks/meatball,
 		/obj/item/weapon/reagent_containers/food/snacks/meatball
 	)
 	reagents = list("spacespice" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/burrito
 
 /datum/recipe/burrito_vegan
-	fruit = list("carrot" = 1, "cabbage" = 1)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/tortilla,
 		/obj/item/weapon/reagent_containers/food/snacks/tofu
@@ -966,7 +964,7 @@ I said no!
 	result = /obj/item/weapon/reagent_containers/food/snacks/burrito_vegan
 
 /datum/recipe/burrito_spicy
-	fruit = list("chili" = 2)
+	fruit = list("chili" = 1)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/burrito
 	)
@@ -980,7 +978,7 @@ I said no!
 	result = /obj/item/weapon/reagent_containers/food/snacks/burrito_cheese
 
 /datum/recipe/burrito_cheese_spicy
-	fruit = list("chili" = 2)
+	fruit = list("chili" = 1)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/burrito,
 		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
@@ -988,7 +986,7 @@ I said no!
 	result = /obj/item/weapon/reagent_containers/food/snacks/burrito_cheese_spicy
 
 /datum/recipe/burrito_hell
-	fruit = list("chili" = 10)
+	fruit = list("chili" = 5)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/burrito_spicy
 	)
