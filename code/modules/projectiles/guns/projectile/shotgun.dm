@@ -44,6 +44,8 @@
 	item_state = "shotgun"
 	max_shells = 4
 	w_class = ITEMSIZE_LARGE
+	recoil = 2
+	accuracy = -3
 	force = 10
 	flags = CONDUCT
 	slot_flags = SLOT_BACK
@@ -59,6 +61,8 @@
 	var/has_wield_state = TRUE
 
 	action_button_name = "Wield shotgun"
+
+	accuracy_wielded = -1
 
 /obj/item/weapon/gun/projectile/shotgun/pump/can_wield()
 	return 1
@@ -131,6 +135,8 @@
 	handle_casings = CYCLE_CASINGS
 	max_shells = 2
 	w_class = 4
+	recoil = 2
+	accuracy = -2
 	force = 10
 	flags =  CONDUCT
 	slot_flags = SLOT_BACK
