@@ -5,27 +5,47 @@
 
 	var/cmp_field = "id"
 	var/list/excluded_fields
+	var/list/all_fields
+
+/datum/record/New()
+	if(SSrecords)
+		if(SSrecords.record_fields)
+			if(SSrecords.record_fields[src.type])
+				all_fields = SSrecords.record_fields[src.type]
 
 /datum/record/proc/Copy(var/datum/copied)
 	if(!copied)
-		copied = new type()
+		copied = new src.type()
 	for(var/variable in src.vars)
-		if((variable in SSrecords.excluded_fields) || (variable in excluded_fields)) continue
+		if(variable in (SSrecords.excluded_fields || src.excluded_fields)) continue
 		if(istype(src.vars[variable], /datum/record) || istype(src.vars[variable], /list))
 			copied.vars[variable] = src.vars[variable].Copy()
 		else
 			copied.vars[variable] = src.vars[variable]
 	return copied
 
-/datum/record/proc/Listify(var/deep = 1) // Mostyl to support old things or to use with serialization
-	var/list/record = list()
+/datum/record/proc/Listify(var/deep = 1, var/list/excluded = list(), var/list/to_update) // Mostyl to support old things or to use with serialization
+	var/list/record
+	if(!to_update)
+		. = record = list()
+	else
+		record = to_update || list()
 	for(var/variable in src.vars)
-		if(!(variable in list(SSrecords.excluded_fields, excluded_fields)))
+		if(!(variable in (SSrecords.excluded_fields || src.excluded_fields || excluded)))
 			if(deep && (istype(src.vars[variable], /datum/record)))
-				record[variable] = src.vars[variable].Listify()
-			else if (istype(src.vars[variable], /list) || istext(src.vars[variable]) || isnum(src.vars[variable]))
-				record[variable] = src.vars[variable]
-	return record
+				if(to_update)
+					var/listified = src.vars[variable].Listify(to_update = to_update[variable])
+					if(listified)
+						record[variable] = listified
+						. = record
+				else
+					record[variable] = src.vars[variable].Listify()
+			else if(istype(src.vars[variable], /list) || istext(src.vars[variable]) || isnum(src.vars[variable]))
+				if(to_update && record[variable] != src.vars[variable])
+					record[variable] = src.vars[variable]
+					. = record
+				else if(!to_update)
+					record[variable] = src.vars[variable]
 
 // Record for storing general data, data tree top level datum
 /datum/record/general
@@ -48,10 +68,12 @@
 	var/ccia_actions = "No CCIA actions found"
 	var/icon/photo_front
 	var/icon/photo_side
+	var/list/advanced_fields = list("species", "home_system", "citizenship", "faction", "religion", "ccia_record", "ccia_actions")
 	cmp_field = "name"
-	excluded_fields = list("photo_front", "photo_side")
+	excluded_fields = list("photo_front", "photo_side", "advanced_fields")
 
 /datum/record/general/New(var/mob/living/carbon/human/H, var/nid)
+	..()
 	if (!H)
 		var/mob/living/carbon/human/dummy = SSmob.get_mannequin("New record")
 		photo_front = getFlatIcon(dummy, SOUTH, always_use_defdir = TRUE)
@@ -89,6 +111,7 @@
 	var/exploit_record = "No additional information acquired."
 
 /datum/record/general/locked/New(var/mob/living/carbon/human/H)
+	..()
 	// Only init things that aqre needed
 	if(H)
 		nid = md5("[H.real_name][H.mind.assigned_role]")
@@ -107,6 +130,7 @@
 	var/list/comments = list()
 
 /datum/record/medical/New(var/mob/living/carbon/human/H, var/nid)
+	..()
 	if(!nid) nid = generate_record_id()
 	id = nid
 	if(H)
@@ -115,7 +139,7 @@
 		if(H.med_record && !jobban_isbanned(H, "Records"))
 			notes = H.med_record
 
-// Record for storing medical data
+// Record for storing security data
 /datum/record/security
 	var/criminal = "None"
 	var/crimes = "There is no crime convictions."
@@ -141,9 +165,10 @@
 
 var/warrant_uid = 0
 /datum/record/warrant/New()
+	..()
 	id = warrant_uid++
 
-// Digital warrant
+// Virus record
 /datum/record/virus
 	var/name = "Unknown"
 	var/description = ""

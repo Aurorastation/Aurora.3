@@ -2517,11 +2517,11 @@
 /turf/simulated/floor/plating,
 /area/security/detectives_office)
 "eD" = (
-/obj/machinery/computer/records/medical,
+/obj/machinery/computer/med_data,
 /turf/simulated/floor/lino,
 /area/security/detectives_office)
 "eE" = (
-/obj/machinery/computer/records/security,
+/obj/machinery/computer/secure_data,
 /turf/simulated/floor/lino,
 /area/security/detectives_office)
 "eF" = (
@@ -3147,7 +3147,7 @@
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "fS" = (
-/obj/machinery/computer/records/security,
+/obj/machinery/computer/secure_data,
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 5
@@ -3155,7 +3155,7 @@
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "fT" = (
-/obj/machinery/computer/records/medical,
+/obj/machinery/computer/med_data,
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 5
@@ -5963,7 +5963,7 @@
 	pixel_y = 32
 	},
 /obj/structure/table/wood,
-/obj/machinery/computer/records/medical/laptop,
+/obj/machinery/computer/med_data/laptop,
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "kU" = (
@@ -6488,7 +6488,7 @@
 	pixel_y = -22
 	},
 /obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
+/obj/machinery/computer/med_data/laptop,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lR" = (

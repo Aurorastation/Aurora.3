@@ -1508,7 +1508,7 @@
 /turf/simulated/floor/plating,
 /area/security/main)
 "acK" = (
-/obj/item/weapon/circuitboard/secure_data,
+/obj/machinery/computer/secure_data,
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 8
@@ -4397,7 +4397,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/computer/records/employment{
+/obj/machinery/computer/skills{
 	pixel_y = 4
 	},
 /turf/simulated/floor/carpet,
@@ -4591,7 +4591,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "aiC" = (
-/obj/item/weapon/circuitboard/secure_data,
+/obj/machinery/computer/secure_data,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -4908,7 +4908,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "ajf" = (
-/obj/item/weapon/circuitboard/secure_data,
+/obj/machinery/computer/secure_data,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
@@ -5087,7 +5087,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "ajv" = (
-/obj/item/weapon/circuitboard/secure_data,
+/obj/machinery/computer/secure_data,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "ajw" = (
@@ -6593,7 +6593,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/weapon/circuitboard/secure_data,
+/obj/machinery/computer/secure_data,
 /obj/effect/floor_decal/corner/blue/full{
 	icon_state = "corner_white_full";
 	dir = 8
@@ -7946,7 +7946,7 @@
 	pixel_x = 4;
 	pixel_y = 6
 	},
-/obj/item/weapon/circuitboard/secure_data,
+/obj/machinery/computer/secure_data,
 /turf/simulated/floor/tiled/dark,
 /area/lawoffice)
 "anX" = (
@@ -9384,13 +9384,13 @@
 	pixel_x = 4;
 	pixel_y = 6
 	},
-/obj/machinery/computer/records/employment{
+/obj/machinery/computer/skills{
 	icon_state = "medlaptop"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/lawoffice)
 "aqu" = (
-/obj/machinery/computer/records/medical,
+/obj/machinery/computer/med_data,
 /turf/simulated/floor/tiled/white,
 /area/security/detectives_office)
 "aqv" = (
@@ -9792,7 +9792,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/lawoffice)
 "are" = (
-/obj/item/weapon/circuitboard/secure_data,
+/obj/machinery/computer/secure_data,
 /turf/simulated/floor/tiled/white,
 /area/security/detectives_office)
 "arf" = (
@@ -15883,7 +15883,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "aCA" = (
-/obj/item/weapon/cartridge/detective,
+/obj/machinery/computer/secure_data/detective_computer,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "aCB" = (
@@ -16413,7 +16413,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "aDD" = (
-/obj/item/weapon/circuitboard/secure_data,
+/obj/machinery/computer/secure_data,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
@@ -17987,7 +17987,7 @@
 /area/security/checkpoint2)
 "aGs" = (
 /obj/structure/table/reinforced,
-/obj/machinery/computer/records/employment{
+/obj/machinery/computer/skills{
 	icon_state = "medlaptop"
 	},
 /obj/effect/floor_decal/corner/blue{
@@ -25241,7 +25241,7 @@
 /turf/simulated/wall/r_wall,
 /area/bridge)
 "aTP" = (
-/obj/item/weapon/circuitboard/secure_data,
+/obj/machinery/computer/secure_data,
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -27019,7 +27019,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aXl" = (
-/obj/machinery/computer/records/medical,
+/obj/machinery/computer/med_data,
 /obj/effect/floor_decal/corner/white{
 	icon_state = "corner_white";
 	dir = 5
@@ -35149,7 +35149,7 @@
 /area/crew_quarters/captain)
 "blF" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/records/employment{
+/obj/machinery/computer/skills{
 	icon_state = "medlaptop"
 	},
 /obj/item/weapon/hand_tele,
@@ -39009,7 +39009,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/computer/records/medical/laptop,
+/obj/machinery/computer/med_data/laptop,
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
@@ -40086,7 +40086,7 @@
 /turf/simulated/floor/tiled,
 /area/medical/exam_room)
 "buu" = (
-/obj/machinery/computer/records/medical/laptop,
+/obj/machinery/computer/med_data/laptop,
 /obj/item/device/radio/intercom{
 	dir = 1;
 	name = "Station Intercom (General)";
@@ -40806,7 +40806,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_three)
 "bvB" = (
-/obj/machinery/computer/records/employment{
+/obj/machinery/computer/skills{
 	icon_state = "medlaptop"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -47715,7 +47715,7 @@
 /area/rnd/research)
 "bHt" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/records/employment{
+/obj/machinery/computer/skills{
 	icon_state = "medlaptop"
 	},
 /obj/effect/floor_decal/corner/white/diagonal{
@@ -52546,7 +52546,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "bPT" = (
-/obj/machinery/computer/records/employment{
+/obj/machinery/computer/skills{
 	pixel_y = 4
 	},
 /obj/item/device/megaphone,
@@ -52573,7 +52573,7 @@
 	icon_state = "alarm0";
 	pixel_x = 24
 	},
-/obj/machinery/computer/records/medical/laptop{
+/obj/machinery/computer/med_data/laptop{
 	pixel_x = 3;
 	pixel_y = 4
 	},
@@ -52642,7 +52642,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "bQc" = (
-/obj/machinery/computer/records/medical,
+/obj/machinery/computer/med_data,
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
@@ -55084,7 +55084,7 @@
 /area/medical/medbay4)
 "bUl" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
+/obj/machinery/computer/med_data/laptop,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
@@ -55126,7 +55126,7 @@
 /area/medical/patient_a)
 "bUo" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
+/obj/machinery/computer/med_data/laptop,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
@@ -58057,7 +58057,7 @@
 	pixel_x = 0;
 	pixel_y = 27
 	},
-/obj/machinery/computer/records/employment{
+/obj/machinery/computer/skills{
 	icon_state = "medlaptop"
 	},
 /turf/simulated/floor/tiled,
@@ -59100,7 +59100,7 @@
 /area/medical/psych)
 "cbi" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/records/medical/laptop,
+/obj/machinery/computer/med_data/laptop,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -59148,7 +59148,7 @@
 /area/medical/biostorage)
 "cbm" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
+/obj/machinery/computer/med_data/laptop,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
@@ -60860,7 +60860,7 @@
 	pixel_x = 30
 	},
 /obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop{
+/obj/machinery/computer/med_data/laptop{
 	pixel_x = 3;
 	pixel_y = 4
 	},
@@ -66717,7 +66717,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "cou" = (
-/obj/machinery/computer/records/medical,
+/obj/machinery/computer/med_data,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
@@ -66738,7 +66738,7 @@
 /turf/simulated/floor/tiled,
 /area/medical/surgeryprep)
 "cow" = (
-/obj/machinery/computer/records/medical,
+/obj/machinery/computer/med_data,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery2)
@@ -71940,7 +71940,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
 "cyk" = (
-/obj/machinery/computer/records/medical/laptop,
+/obj/machinery/computer/med_data/laptop,
 /obj/structure/disposalpipe/segment,
 /obj/structure/table/glass,
 /turf/simulated/floor/tiled/white,
