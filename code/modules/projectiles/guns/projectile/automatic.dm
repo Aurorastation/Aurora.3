@@ -115,7 +115,7 @@
 
 	//wielding information
 	fire_delay_wielded = 6
-	accuracy_wielded = 0
+	accuracy_wielded = 2
 
 	//action button for wielding
 	action_button_name = "Wield rifle"
@@ -373,8 +373,8 @@
 
 	//wielding information
 	fire_delay_wielded = 5
-	accuracy_wielded = 0
-	scoped_accuracy = 2
+	accuracy_wielded = 2
+	scoped_accuracy = 4 //This is a godly, synth terrorist-made weapon anyway. Let it be powerful.
 
 	action_button_name = "Wield rifle"
 
@@ -423,12 +423,12 @@
 	recoil = 3
 	fire_sound = 'sound/weapons/shotgun_shoot.ogg'
 
-	accuracy = -2
+	accuracy = -3
 	fire_delay = 10
 	recoil_wielded = 0
 
 	fire_delay_wielded = 6
-	accuracy_wielded = 0
+	accuracy_wielded = -1
 
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay= 10,    move_delay=null, burst_accuracy=null, dispersion=null),
