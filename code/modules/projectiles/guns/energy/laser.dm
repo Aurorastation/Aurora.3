@@ -111,13 +111,13 @@ obj/item/weapon/gun/energy/retro
 	fire_delay = 45
 	force = 10
 	w_class = 4
-	accuracy = -5 //shooting at the hip
-	scoped_accuracy = 0
+	accuracy = -3 // Unapologetic LWAP buffs.
+	scoped_accuracy = 3
 	can_turret = 1
 	turret_sprite_set = "sniper"
 
 	fire_delay_wielded = 35
-	accuracy_wielded = -3
+	accuracy_wielded = 0 // God have mercy on me if the LWAP returns to its previous state.
 
 	//action button for wielding
 	action_button_name = "Wield rifle"

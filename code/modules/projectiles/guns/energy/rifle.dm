@@ -18,7 +18,7 @@
 	turret_is_lethal = 0
 
 	fire_delay_wielded = 1
-	accuracy_wielded = 0
+	accuracy_wielded = 2
 	sel_mode = 1
 
 	projectile_type = /obj/item/projectile/beam/stun
@@ -78,7 +78,7 @@
 	charge_cost = 400
 	max_shots = 5
 	fire_delay = 40
-	accuracy = -2
+	accuracy = -3
 	secondary_projectile_type = null
 	secondary_fire_sound = null
 	can_switch_modes = 0
