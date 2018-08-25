@@ -231,10 +231,18 @@
 			return
 
 		if(SECBOT_START_PATROL)
-			if(patrol_target)
+			if(path.len && patrol_target)
 				mode = SECBOT_PATROL
 				return
-			else
+			else if(patrol_target)
+				spawn(0)
+					calc_path()
+					if(!path.len)
+						patrol_target = null
+						mode = SECBOT_IDLE
+					else
+						mode = SECBOT_PATROL
+			if(!patrol_target)
 				if(next_destination)
 					find_next_target()
 				else
@@ -351,18 +359,26 @@
 
 /mob/living/bot/secbot/proc/calc_path(var/turf/avoid = null)
 	path = AStar(loc, patrol_target, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 120, id=botcard, exclude=avoid)
-	var/turf/temp = loc
+	if(!path.len)
+		return
+	var/turf/temp = path[1]
 	var/list/path_new = list()
-	for(i=1, i < path.len, i++)
-		var/obj/machinery/door/D in path[x]
-		if(!isnull(D))
-			path_new.Add(path[x--])
-			path_new.Add(path[x++])
+	path_new.Add(path[1])
+	for(var/i=2, i < path.len - 1, i++)
+		var/obj/machinery/door/D = (/obj/machinery/door/ in path[i])
+		if(D)
+			path_new.Add(path[i--])
+			path_new.Add(path[i++])
+			say("adding [i--] and [i++]")
+			temp = path[i++]
+			continue
 		else if((path[i++].x != temp.x) && (path[i++].y != temp.y))
 			path_new.Add(path[i])
-		else
-			path_new.Add(temp)
-		temp = path[x]
+			say("adding [i]")
+		temp = path[i++]
+	path = list()
+	path = path_new.Copy()
+	path.Add(path_new[path_new.len])
 
 /mob/living/bot/secbot/proc/check_threat(var/mob/living/M)
 	if(!M || !istype(M) || M.stat || src == M)
@@ -374,14 +390,22 @@
 	return M.assess_perp(access_scanner, 0, idcheck, check_records, check_arrest)
 
 /mob/living/bot/secbot/proc/patrol_step()
-	if(get_dist(loc, patrol_target) == 1)
+	if(loc == patrol_target)
 		patrol_target = null
 		path = list()
 		mode = SECBOT_IDLE
 		walk_to(src, src, 0, move_to_delay)
 		return
-	if(!isnull(patrol_target))
-		walk_to(src, patrol_target, 1, move_to_delay)
+
+	if(path.len && patrol_target)
+		var/turf/next = path[1]
+		if(loc == next)
+			path -= next
+			return
+		walk_to(src, next, 0, move_to_delay)
+		return
+	else
+		mode = SECBOT_START_PATROL
 
 
 /mob/living/bot/secbot/proc/find_patrol_target()
