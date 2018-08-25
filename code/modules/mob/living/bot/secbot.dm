@@ -361,25 +361,30 @@
 	path = AStar(loc, patrol_target, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 120, id=botcard, exclude=avoid)
 	if(!path.len)
 		return
-	var/turf/temp = path[1]
 	var/list/path_new = list()
+	var/turf/last = path[path.len]
 	path_new.Add(path[1])
-	for(var/i=2, i < path.len - 1, i++)
-		var/obj/machinery/door/D = (/obj/machinery/door/ in path[i])
-		if(D)
-			path_new.Add(path[i--])
-			path_new.Add(path[i++])
-			say("adding [i--] and [i++]")
-		else if(((path[i++].x == temp.x) && (path[i--].y == temp.y)) || ((path[i--].x == temp.x) && (path[i++].y == temp.y))) // this is a corner.
+	for(var/i = 2, i < path.len, i++)
+		if((path[i + 1].x == path[i].x) || (path[i + 1].y == path[i].y)) // we have a straight line, scan for more to cut down
 			path_new.Add(path[i])
-			say("adding [i]")
-		else if((path[i++].x != temp.x) && (path[i++].y != temp.y))
+			say("adding start point [i]")
+			for(var/j = i + 1, j < path.len, j++)
+				if((path[j + 1].x != path[j - 1].x) && (path[j + 1].y != path[j - 1].y)) // This is a corner and end point of our line
+					path_new.Add(path[j])
+					say("adding end point [j]")
+					i = j + 1
+					break
+				else if(j == path.len - 1)
+					path = list()
+					path = path_new.Copy()
+					path.Add(last)
+					return
+		else
 			path_new.Add(path[i])
-			say("adding [i]")
-		temp = path[i++]
+			say("adding regular point [i]")
 	path = list()
 	path = path_new.Copy()
-	path.Add(path_new[path_new.len])
+	path.Add(last)
 
 /mob/living/bot/secbot/proc/check_threat(var/mob/living/M)
 	if(!M || !istype(M) || M.stat || src == M)
@@ -402,6 +407,7 @@
 		var/turf/next = path[1]
 		if(loc == next)
 			path -= next
+			walk_to(src, src, 0, move_to_delay)
 			return
 		walk_to(src, next, 0, move_to_delay)
 		return
