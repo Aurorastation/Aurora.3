@@ -370,8 +370,9 @@
 			path_new.Add(path[i--])
 			path_new.Add(path[i++])
 			say("adding [i--] and [i++]")
-			temp = path[i++]
-			continue
+		else if(((path[i++].x == temp.x) && (path[i--].y == temp.y)) || ((path[i--].x == temp.x) && (path[i++].y == temp.y))) // this is a corner.
+			path_new.Add(path[i])
+			say("adding [i]")
 		else if((path[i++].x != temp.x) && (path[i++].y != temp.y))
 			path_new.Add(path[i])
 			say("adding [i]")
