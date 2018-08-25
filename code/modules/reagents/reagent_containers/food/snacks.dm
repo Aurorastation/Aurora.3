@@ -4657,25 +4657,13 @@
 	reagents.add_reagent("protein", 6)
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_pathetic
-	name = "pathetic burrito"
-	desc = ""
+	name = "skinny burrito"
+	desc = "A more economical burrito for the masses."
 	icon_state = "pathetic"
 	bitesize = 6 //Easy to bite
 	center_of_mass = list("x"=16, "y"=16)
 	nutriment_desc = list("tortilla" = 6)
 	nutriment_amt = 6
-
-/obj/item/weapon/reagent_containers/food/snacks/burrito_pathetic/examine(mob/user)
-	. = ..()
-	var/list/possible_descriptions = list(
-		"A lousy amount of meat wrapped in too much tortilla. The flavor balance is way off because of the lack of meat, not to mention it looks incredibly unappealing. Honestly you should straight up space the chef if they present you with this item, not even joking; if a chef lays this out on the counter, fucking flip the table and start throwing shit at them until it kills them. Stuff their dead body in the gibber and use their pathetic remains to make yourself a god damn proper meat burrito.",
-		"What the fuck kind of pathetic excuse of a burrito is this? It genuinely looks pathetic, almost something you'd see at an 'Anorexic psuedovegans' buffet. this Burritolet probably couldn't fill the stomach of a rat who's been starved for food for 8 weeks. seriously, whoever made this pathetic trash sould be sent off to be rehabilitated for their inevitable anorexia if they thing this shit's a proper meal jesus space christ.",
-		"Honestly, what the fuck is this? Seriously? What the fuck is this? It's a fucking joke, that's what. The time and effort spent on this tiny monster is a fucking joke. Honestly you'd be better off eating crumbs off the kitchen floor than to seek any sustenance from this. I'm pretty fucking sure that tofu has more nutritional value than this micropenis of a burrito.",
-		"Okay, stop. You looked at it now, now it's your responsiblity to take action and deal with this joke. Throw it in the trash, <b>right now</b>. This isn't a joke, this is your brain telling you right now to dispose of this mess immediately and find yourself some actual fucking proper food.",
-		"Wait, does that have any meat? Wait, what the fuck? Where is the fucking meat? Where is the filling? At least vegans fucking attempt to put filling in burritos, such as carrots, but this fucking thing barely has any filling at all. You're pretty fucking sure that NanoTrasen paid good money for the chef, yet they're cutting corners like this. God fucking damn."
-	)
-
-	to_chat(user,pick(possible_descriptions))
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_vegan
 	name = "vegan burrito"
