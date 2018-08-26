@@ -73,9 +73,6 @@
 		SSradio.add_object(listener, control_freq, filter = RADIO_SECBOT)
 		SSradio.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
 
-	if (!patrol_callback)
-		patrol_callback = CALLBACK(src, .proc/patrol_step)
-
 /mob/living/bot/secbot/Destroy()
 	QDEL_NULL(listener)
 	target = null
@@ -207,10 +204,6 @@
 					else
 						walk_to(src, target, 1, move_to_delay) // Melee bots chase a bit faster
 
-					var/cb = CALLBACK(src, .proc/step_nonadjacent, target)
-					addtimer(cb, 8)
-					addtimer(cb, 16)
-
 		if(SECBOT_ARREST) // Target is next to us - attack it
 			if(!target)
 				mode = SECBOT_IDLE
@@ -269,18 +262,11 @@
 
 		if(SECBOT_PATROL)
 			patrol_step()
-			addtimer(patrol_callback, 10)
 			return
 
 		if(SECBOT_SUMMON)
 			patrol_step()
-			addtimer(patrol_callback, 8)
-			addtimer(patrol_callback, 16)
 			return
-
-/mob/living/bot/secbot/proc/step_nonadjacent(target)
-	if (!Adjacent(target))
-		walk_to(src, target, 1, move_to_delay)
 
 /mob/living/bot/secbot/UnarmedAttack(var/mob/M, var/proximity)
 	if(!..())
@@ -373,8 +359,29 @@
 
 /mob/living/bot/secbot/proc/calc_path(var/turf/avoid = null)
 	path = AStar(loc, patrol_target, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 120, id=botcard, exclude=avoid)
-	if(!path)
-		path = list()
+	if(!path.len)
+		return
+	var/list/path_new = list()
+	var/turf/last = path[path.len]
+	path_new.Add(path[1])
+	for(var/i = 2, i < path.len, i++)
+		if((path[i + 1].x == path[i].x) || (path[i + 1].y == path[i].y)) // we have a straight line, scan for more to cut down
+			path_new.Add(path[i])
+			for(var/j = i + 1, j < path.len, j++)
+				if((path[j + 1].x != path[j - 1].x) && (path[j + 1].y != path[j - 1].y)) // This is a corner and end point of our line
+					path_new.Add(path[j])
+					i = j + 1
+					break
+				else if(j == path.len - 1)
+					path = list()
+					path = path_new.Copy()
+					path.Add(last)
+					return
+		else
+			path_new.Add(path[i])
+	path = list()
+	path = path_new.Copy()
+	path.Add(last)
 
 /mob/living/bot/secbot/proc/check_threat(var/mob/living/M)
 	if(!M || !istype(M) || M.stat || src == M)
@@ -390,21 +397,20 @@
 		patrol_target = null
 		path = list()
 		mode = SECBOT_IDLE
+		walk_to(src, src, 0, move_to_delay + 2)
 		return
 
 	if(path.len && patrol_target)
 		var/turf/next = path[1]
 		if(loc == next)
 			path -= next
+			walk_to(src, src, 0, move_to_delay + 2)
 			return
-		walk_to(src, next, 1, move_to_delay+2)
-		path -= next
-		frustration = 0
-		if(frustration > 5) // Make a new path
-			mode = SECBOT_START_PATROL
+		walk_to(src, next, 0, move_to_delay + 2)
 		return
 	else
 		mode = SECBOT_START_PATROL
+
 
 /mob/living/bot/secbot/proc/find_patrol_target()
 	send_status()
@@ -574,6 +580,8 @@
 
 /mob/living/bot/secbot/attackby(var/obj/item/O, var/mob/user)
 	..()
+	if(istype(O, /obj/item/weapon/card/id))
+		return
 
 	target = user
 	mode = SECBOT_HUNT
