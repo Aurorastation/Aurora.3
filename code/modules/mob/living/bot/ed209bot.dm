@@ -170,7 +170,7 @@
 	auto_patrol = 0
 	target = null
 	check_records = FALSE
-	custom_emote(2, "[emote_hear], \"Roger that, going into idle mode. Auto patrol disabled [target]\"")
+	custom_emote(2, "[emote_hear], \"Roger that, going into idle mode. Auto patrol disabled.\"")
 	return 1
 
 /mob/living/bot/secbot/ed209/proc/stop_command(var/mob/speaker,var/text)
@@ -178,7 +178,7 @@
 		return
 	walk_to(src, src, 0, move_to_delay)
 	check_records = FALSE
-	custom_emote(2, "[emote_hear], \"Roger that, unit going offline. [target]\"")
+	custom_emote(2, "[emote_hear], \"Roger that, unit going offline.\"")
 	turn_off()
 	return 1
 
@@ -187,7 +187,7 @@
 	mode = SECBOT_IDLE
 	auto_patrol = 1
 	target = null
-	custom_emote(2, "[emote_hear], \"Roger that, starting patrol now [target]\"")
+	custom_emote(2, "[emote_hear], \"Roger that, starting patrol now.\"")
 	return 1
 
 /mob/living/bot/secbot/ed209/proc/follow_command(var/mob/speaker,var/text)
