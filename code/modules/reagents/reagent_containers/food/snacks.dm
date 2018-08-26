@@ -62,6 +62,8 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/afterattack(mob/M as mob, mob/user as mob, proximity)
 
+	. = ..()
+
 	if(!proximity)
 		return 0
 
@@ -731,7 +733,7 @@
 	if(istype(O,/obj/machinery/microwave))
 		return ..()
 	if(!(proximity && O.is_open_container()))
-		return
+		return ..()
 	user << "You crack \the [src] into \the [O]."
 	reagents.trans_to(O, reagents.total_volume)
 	qdel(src)
