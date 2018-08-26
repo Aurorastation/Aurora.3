@@ -367,11 +367,9 @@
 	for(var/i = 2, i < path.len, i++)
 		if((path[i + 1].x == path[i].x) || (path[i + 1].y == path[i].y)) // we have a straight line, scan for more to cut down
 			path_new.Add(path[i])
-			say("adding start point [i]")
 			for(var/j = i + 1, j < path.len, j++)
 				if((path[j + 1].x != path[j - 1].x) && (path[j + 1].y != path[j - 1].y)) // This is a corner and end point of our line
 					path_new.Add(path[j])
-					say("adding end point [j]")
 					i = j + 1
 					break
 				else if(j == path.len - 1)
@@ -381,7 +379,6 @@
 					return
 		else
 			path_new.Add(path[i])
-			say("adding regular point [i]")
 	path = list()
 	path = path_new.Copy()
 	path.Add(last)
@@ -400,16 +397,16 @@
 		patrol_target = null
 		path = list()
 		mode = SECBOT_IDLE
-		walk_to(src, src, 0, move_to_delay)
+		walk_to(src, src, 0, move_to_delay + 2)
 		return
 
 	if(path.len && patrol_target)
 		var/turf/next = path[1]
 		if(loc == next)
 			path -= next
-			walk_to(src, src, 0, move_to_delay)
+			walk_to(src, src, 0, move_to_delay + 2)
 			return
-		walk_to(src, next, 0, move_to_delay)
+		walk_to(src, next, 0, move_to_delay + 2)
 		return
 	else
 		mode = SECBOT_START_PATROL

@@ -5,15 +5,15 @@
 #define SECBOT_WAIT_PATROL	4		// waiting for signals
 #define SECBOT_PATROL		5		// patrolling
 #define SECBOT_SUMMON		6		// summoned by PDA
-#define SECBOT_STOP			7		//basically 'do nothing'
-#define SECBOT_FOLLOW		8		//follows a target
+#define SECBOT_STOP			7		// basically 'do nothing'
+#define SECBOT_FOLLOW		8		// follows a target
 
 /mob/living/bot/secbot/ed209
 	name = "ED-209 Security Robot"
 	desc = "A security robot.  He looks less than thrilled."
 	icon = 'icons/obj/aibots.dmi'
 	icon_state = "ed2090"
-	density = 1
+	density = 0
 	health = 100
 	maxHealth = 100
 
