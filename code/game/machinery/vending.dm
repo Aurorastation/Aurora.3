@@ -512,13 +512,13 @@
 		categories &= ~CAT_COIN
 
 	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))))
-		if (text2num(href_list["vend"]) && (src.vend_ready) && (!currently_vending))
+		if (href_list["vendItem"] && vend_ready && !currently_vending)
 			if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
 				usr << "<span class='warning'>Access denied.</span>"	//Unless emagged of course
 				flick(icon_deny,src)
 				return
 
-			var/key = text2num(href_list["vend"])
+			var/key = text2num(href_list["vendItem"])
 			var/datum/data/vending_product/R = product_records[key]
 
 			// This should not happen unless the request from NanoUI was bad
