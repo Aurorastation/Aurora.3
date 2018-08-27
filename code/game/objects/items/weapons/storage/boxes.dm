@@ -131,6 +131,7 @@
 	..()
 	new /obj/item/clothing/mask/breath( src )
 	new /obj/item/weapon/reagent_containers/inhaler/phoron_special(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/koisbar_clean(src)
 	for(var/obj/item/thing in contents)
 		thing.autodrobe_no_remove = 1
 

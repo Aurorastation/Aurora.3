@@ -13216,6 +13216,18 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding)
+"DA" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "29"
+	},
+/obj/machinery/porta_turret/crescent,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding6"
+	},
+/area/centcom/control)
 "DB" = (
 /obj/machinery/light/spot,
 /turf/simulated/shuttle/plating,
@@ -13292,24 +13304,6 @@
 /area/centcom/holding)
 "DJ" = (
 /turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "29"
-	},
-/obj/machinery/porta_turret/crescent,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding6"
-	},
-/area/centcom/control)
-"DK" = (
-/obj/item/modular_computer/console/preset/security,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
-"DL" = (
-/turf/unsimulated/floor{
 	icon_state = "engine"
 	},
 /obj/structure/window/phoronreinforced,
@@ -13323,6 +13317,28 @@
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_siding9"
+	},
+/area/centcom/control)
+"DK" = (
+/obj/item/modular_computer/console/preset/security,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"DL" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "27"
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	id = "battery2";
+	name = "Battery 2 Firing Control"
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_siding10"
 	},
 /area/centcom/control)
 "DM" = (
@@ -13523,9 +13539,11 @@
 	},
 /obj/structure/table/reinforced/steel,
 /obj/machinery/button/remote/blast_door{
-	id = "battery2";
-	name = "Battery 2 Firing Control"
+	id = "battery1";
+	name = "Battery 1 Firing Control"
 	},
+/obj/effect/decal/cleanable/cobweb,
+/obj/item/weapon/reagent_containers/glass/rag,
 /turf/unsimulated/floor{
 	icon_state = "wood_siding10"
 	},
@@ -13594,20 +13612,12 @@
 /area/centcom/holding)
 "Er" = (
 /turf/unsimulated/floor{
-	icon_state = "gcircuit"
+	icon_state = "engine"
 	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "27"
-	},
-/obj/structure/table/reinforced/steel,
-/obj/machinery/button/remote/blast_door{
-	id = "battery1";
-	name = "Battery 1 Firing Control"
-	},
-/obj/effect/decal/cleanable/cobweb,
-/obj/item/weapon/reagent_containers/glass/rag,
+/obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "wood_siding10"
+	icon_state = "wood_siding1";
+	dir = 6
 	},
 /area/centcom/control)
 "Es" = (
@@ -13789,6 +13799,7 @@
 	icon_state = "engine"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/stool,
 /turf/unsimulated/floor{
 	icon_state = "wood_siding1";
 	dir = 6
@@ -13807,7 +13818,7 @@
 	icon_state = "engine"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/stool,
+/obj/item/weapon/storage/toolbox/electrical,
 /turf/unsimulated/floor{
 	icon_state = "wood_siding1";
 	dir = 6
@@ -13953,17 +13964,6 @@
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/storage/toolbox/electrical,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding1";
-	dir = 6
-	},
-/area/centcom/control)
-"Fm" = (
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
 /obj/structure/window/phoronreinforced{
 	icon_state = "phoronrwindow";
 	dir = 8
@@ -13978,6 +13978,16 @@
 	icon_state = "wood_siding9"
 	},
 /area/centcom/control)
+"Fm" = (
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/obj/item/weapon/stool/padded,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "siding2"
+	},
+/area/centcom/holding)
 "Fn" = (
 /obj/machinery/computer/med_data,
 /obj/structure/window/reinforced{
@@ -14357,6 +14367,17 @@
 	icon_state = "floor3"
 	},
 /area/shuttle/escape/centcom)
+"Ga" = (
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/obj/structure/bed/chair/unmovable{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_siding2"
+	},
+/area/centcom/spawning)
 "Gb" = (
 /turf/unsimulated/floor{
 	icon_state = "greencorner";
@@ -15120,6 +15141,14 @@
 /area/centcom/spawning)
 "HK" = (
 /turf/unsimulated/wall/riveted,
+/area/centcom/spawning)
+"HL" = (
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_siding4"
+	},
 /area/centcom/spawning)
 "HM" = (
 /obj/structure/window/reinforced,
@@ -17187,6 +17216,14 @@
 "LZ" = (
 /obj/structure/sign/biohazard,
 /turf/unsimulated/wall/riveted,
+/area/centcom/spawning)
+"Ma" = (
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_siding8"
+	},
 /area/centcom/spawning)
 "Mb" = (
 /obj/structure/window/reinforced{
@@ -22004,14 +22041,13 @@
 /area/shuttle/escape/centcom)
 "WE" = (
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "floor"
 	},
-/obj/item/weapon/stool/padded,
+/obj/structure/bed/chair/unmovable,
 /turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "siding2"
+	icon_state = "wood_siding1"
 	},
-/area/centcom/holding)
+/area/centcom/spawning)
 "WF" = (
 /obj/machinery/status_display{
 	pixel_y = -32
@@ -22315,50 +22351,6 @@
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
-	},
-/area/centcom/spawning)
-"Xl" = (
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/obj/structure/bed/chair/unmovable{
-	dir = 1
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_siding2"
-	},
-/area/centcom/spawning)
-"Xm" = (
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/obj/machinery/vending/snack{
-	name = "Free Chocolate Corp";
-	prices = list()
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_siding4"
-	},
-/area/centcom/spawning)
-"Xn" = (
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/obj/machinery/vending/cola{
-	name = "Free Robust Softdrinks";
-	prices = list()
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_siding8"
-	},
-/area/centcom/spawning)
-"Xo" = (
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/obj/structure/bed/chair/unmovable,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding1"
 	},
 /area/centcom/spawning)
 "Xp" = (
@@ -57006,7 +56998,7 @@ DM
 DM
 EP
 EP
-WE
+Fm
 Gq
 GE
 GF
@@ -57263,7 +57255,7 @@ Fi
 Fo
 EP
 EP
-WE
+Fm
 Gq
 GF
 GF
@@ -57520,7 +57512,7 @@ Fj
 Fp
 EP
 EP
-WE
+Fm
 Gq
 GF
 GF
@@ -57777,7 +57769,7 @@ Fk
 Fp
 EP
 EP
-WE
+Fm
 Gq
 GF
 GF
@@ -58034,7 +58026,7 @@ EP
 EP
 Fy
 EP
-WE
+Fm
 Gq
 GF
 GF
@@ -58291,7 +58283,7 @@ EP
 EP
 EP
 EP
-WE
+Fm
 Gq
 GF
 GF
@@ -64483,7 +64475,7 @@ Ms
 Id
 Id
 Id
-Xm
+HL
 Id
 Id
 Id
@@ -64686,17 +64678,17 @@ wl
 xe
 xA
 yk
-DL
+DJ
 wl
 xe
 xA
 yk
-DL
+DJ
 wl
 xe
 xA
 Bp
-Fm
+Fl
 uT
 Cq
 CG
@@ -64739,9 +64731,9 @@ KZ
 Ms
 Id
 Id
-Xl
+Ga
 OY
-Xo
+WE
 Id
 Id
 OA
@@ -64996,9 +64988,9 @@ MN
 Ms
 Id
 Id
-Xl
+Ga
 OZ
-Xo
+WE
 Id
 Id
 Qn
@@ -65460,13 +65452,13 @@ yl
 yE
 wo
 xh
-Eh
+DL
 yl
 yE
 wo
 xh
+Eh
 Er
-ER
 BT
 uT
 Cq
@@ -65510,9 +65502,9 @@ KZ
 Ms
 Id
 Id
-Xl
+Ga
 Pa
-Xo
+WE
 Id
 Id
 OA
@@ -65723,7 +65715,7 @@ yE
 wp
 xi
 Dr
-ET
+ER
 BT
 uT
 Cq
@@ -65767,9 +65759,9 @@ Nw
 Ms
 Id
 Id
-Xl
+Ga
 Pb
-Xo
+WE
 Id
 Id
 OA
@@ -65969,18 +65961,18 @@ it
 uT
 wq
 xj
-DJ
+DA
 yl
 yE
 wq
 xj
-DJ
+DA
 yl
 yE
 wq
 xj
-DJ
-Fl
+DA
+ET
 BT
 uT
 Cq
@@ -66024,9 +66016,9 @@ KZ
 Ms
 Id
 Id
-Xl
+Ga
 Pc
-Xo
+WE
 Id
 Id
 OA
@@ -66538,9 +66530,9 @@ MN
 Ms
 Id
 Id
-Xl
+Ga
 Pb
-Xo
+WE
 Id
 Id
 OA
@@ -66795,9 +66787,9 @@ KZ
 Ms
 Id
 Id
-Xl
+Ga
 Pd
-Xo
+WE
 Id
 Id
 OA
@@ -67053,7 +67045,7 @@ Ms
 Id
 Id
 Id
-Xn
+Ma
 Id
 Id
 Id
