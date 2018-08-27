@@ -1,0 +1,1635 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/unsimulated/chasm_mask,
+/area/mine/unexplored)
+"ab" = (
+/turf/simulated/floor/asteroid/ash/rocky,
+/turf/simulated/shuttle/wall/dark{
+	dir = 8;
+	icon_state = "diagonalWall3"
+	},
+/area/crashed_ship)
+"ac" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/crashed_ship)
+"ad" = (
+/turf/simulated/floor/asteroid/ash/rocky,
+/turf/simulated/shuttle/wall/dark{
+	dir = 6;
+	icon_state = "diagonalWall3"
+	},
+/area/crashed_ship)
+"ae" = (
+/turf/simulated/wall/voxshuttle,
+/area/crashed_ship)
+"af" = (
+/obj/structure/computerframe,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"ag" = (
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
+	dir = 1
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "crashed";
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"ah" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = -32;
+	pixel_y = 2
+	},
+/obj/structure/table/reinforced,
+/obj/random/loot,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"ai" = (
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"aj" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 32;
+	pixel_y = 2
+	},
+/obj/structure/table/reinforced,
+/obj/item/device/binoculars,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"ak" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/gun/energy/retro,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"al" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/random/coin,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"am" = (
+/obj/machinery/door/airlock/hatch,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/crashed_ship)
+"an" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"ao" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"ap" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"aq" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"ar" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"as" = (
+/obj/machinery/door/airlock/hatch{
+	icon_state = "door_locked";
+	id_tag = "engine_access_hatch";
+	locked = 1;
+	req_access = list(11)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"at" = (
+/obj/machinery/door/airlock/hatch{
+	icon_state = "door_locked";
+	id_tag = "engine_access_hatch";
+	locked = 1;
+	req_access = list(11)
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/crashed_ship)
+"au" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"av" = (
+/obj/structure/closet/secure_closet/medical_wall{
+	pixel_x = -32;
+	pixel_y = 0;
+	req_access = list(150)
+	},
+/obj/item/stack/medical/splint,
+/obj/item/stack/medical/ointment,
+/obj/item/stack/medical/ointment,
+/obj/item/stack/medical/bruise_pack,
+/obj/item/stack/medical/bruise_pack,
+/obj/item/stack/medical/bruise_pack,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"aw" = (
+/obj/structure/closet/walllocker/emerglocker/east,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"ax" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"ay" = (
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"az" = (
+/obj/machinery/door/airlock/hatch,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"aA" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/syndicate/black,
+/obj/item/clothing/head/helmet/space/syndicate/black,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"aB" = (
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"aC" = (
+/obj/machinery/light/small,
+/obj/structure/table/rack,
+/obj/random/belt,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"aD" = (
+/obj/machinery/recharge_station,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"aE" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"aF" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/crashed_ship)
+"aG" = (
+/obj/machinery/sleeper,
+/turf/simulated/floor/tiled/white,
+/area/crashed_ship)
+"aH" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/white,
+/area/crashed_ship)
+"aI" = (
+/obj/structure/table/standard,
+/obj/item/robot_parts/chest/hephaestus,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"aJ" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/crashed_ship)
+"aK" = (
+/turf/simulated/floor/tiled/white,
+/area/crashed_ship)
+"aL" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/crashed_ship)
+"aM" = (
+/obj/structure/table/standard,
+/obj/random/firstaid,
+/turf/simulated/floor/tiled/white,
+/area/crashed_ship)
+"aN" = (
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"aO" = (
+/obj/structure/table/rack,
+/obj/random/backpack,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"aP" = (
+/obj/structure/table/standard,
+/obj/item/mecha_parts/part/phazon_head,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"aQ" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/crashed_ship)
+"aR" = (
+/obj/structure/table/standard,
+/obj/random/medical,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled/white,
+/area/crashed_ship)
+"aS" = (
+/obj/structure/table/rack,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/item/stack/material/phoron{
+	amount = 25
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"aT" = (
+/obj/machinery/power/apc{
+	coverlocked = 0;
+	dir = 1;
+	environ = 0;
+	equipment = 0;
+	is_critical = 0;
+	lighting = 0;
+	locked = 0;
+	name = "north bump";
+	operating = 0;
+	pixel_x = 0;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"aU" = (
+/obj/machinery/cryopod{
+	icon_state = "body_scanner_0";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"aV" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/crashed_ship)
+"aW" = (
+/obj/machinery/power/smes/buildable,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"aX" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/toolbox/electrical,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"aY" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/toolbox/syndicate,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"aZ" = (
+/obj/effect/decal/mecha_wreckage/ripley,
+/obj/machinery/mech_recharger,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"ba" = (
+/obj/machinery/mech_recharger,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"bb" = (
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"bc" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"bd" = (
+/obj/machinery/bodyscanner{
+	icon_state = "body_scanner_0";
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/crashed_ship)
+"be" = (
+/obj/machinery/body_scanconsole{
+	icon_state = "body_scannerconsole";
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/crashed_ship)
+"bf" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 2
+	},
+/turf/simulated/floor/tiled/white,
+/area/crashed_ship)
+"bg" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/closet/secure_closet/medical_wall{
+	name = "blood locker";
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/obj/item/weapon/reagent_containers/blood/ripped,
+/turf/simulated/floor/tiled/white,
+/area/crashed_ship)
+"bh" = (
+/obj/machinery/power/rtg/advanced,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"bi" = (
+/obj/structure/table/rack,
+/obj/item/clothing/head/helmet,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"bj" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"bk" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/suit/storage/vest/heavy,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"bl" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/random/projectile,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"bm" = (
+/obj/structure/closet/crate/secure/gear,
+/obj/item/weapon/anomaly_core,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"bn" = (
+/obj/structure/closet/excavation,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"bo" = (
+/obj/structure/closet/toolcloset,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"bp" = (
+/obj/structure/closet/crate/large,
+/obj/item/weapon/archaeological_find,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"bq" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"br" = (
+/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/blast/regular{
+	id = "crashed"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"bs" = (
+/obj/machinery/power/rtg/advanced,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"bt" = (
+/turf/simulated/floor/asteroid/ash/rocky,
+/turf/simulated/shuttle/wall/dark{
+	icon_state = "diagonalWall3"
+	},
+/area/crashed_ship)
+"bu" = (
+/turf/simulated/floor/asteroid/ash/rocky,
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/crashed_ship)
+"bv" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/random/energy,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"bw" = (
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"bx" = (
+/obj/machinery/porta_turret/xray{
+	emagged = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"by" = (
+/obj/structure/table/rack,
+/obj/item/weapon/melee/baton,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"bz" = (
+/obj/machinery/artifact,
+/obj/machinery/artifact_scanpad,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"bA" = (
+/obj/machinery/artifact_analyser,
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"bB" = (
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crashed_ship)
+"bC" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/turf/unsimulated/chasm_mask,
+/area/crashed_ship)
+"bD" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/unsimulated/chasm_mask,
+/area/crashed_ship)
+"bE" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
+	},
+/turf/unsimulated/chasm_mask,
+/area/crashed_ship)
+
+(1,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(2,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(3,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(4,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(5,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ae
+ae
+ae
+ae
+ae
+ae
+bt
+aa
+aa
+aa
+aa
+aa
+"}
+(6,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ae
+ae
+aU
+aU
+aU
+aU
+ae
+ae
+aa
+aa
+aa
+aa
+aa
+"}
+(7,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ae
+aN
+ai
+ai
+ai
+ai
+bq
+ae
+aa
+aa
+aa
+aa
+aa
+"}
+(8,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ae
+aO
+ai
+ai
+ai
+ai
+ai
+ae
+bt
+aa
+aa
+aa
+aa
+"}
+(9,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ae
+ae
+ae
+am
+ae
+ae
+ae
+br
+ae
+ae
+bt
+aa
+aa
+aa
+"}
+(10,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ae
+ae
+aI
+aP
+ai
+aX
+ae
+bi
+ai
+bc
+ae
+ae
+aa
+aa
+aa
+"}
+(11,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ae
+as
+as
+ae
+ae
+ae
+aD
+ai
+ai
+ai
+aY
+ae
+bj
+ai
+ai
+bv
+ae
+aa
+aa
+aa
+"}
+(12,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ae
+ae
+ai
+ai
+ay
+aA
+ae
+aD
+ai
+ai
+ai
+aZ
+ae
+bk
+ai
+ai
+bw
+ae
+aa
+aa
+aa
+"}
+(13,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ae
+ae
+ap
+ai
+au
+ai
+ai
+am
+ai
+au
+ai
+ai
+ba
+ae
+bl
+ai
+ai
+bx
+ae
+aa
+aa
+aa
+"}
+(14,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+ab
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+az
+ae
+ae
+ae
+ae
+az
+ae
+ae
+ae
+ae
+ae
+br
+ae
+ae
+bt
+aa
+aa
+"}
+(15,1,1) = {"
+aa
+aa
+aa
+aa
+ab
+ae
+ae
+ah
+ak
+af
+ae
+an
+aq
+an
+av
+ai
+aB
+ae
+ai
+ai
+ai
+ai
+bb
+ae
+ai
+ai
+ai
+ai
+bB
+bC
+aa
+aa
+"}
+(16,1,1) = {"
+aa
+aa
+aa
+aa
+ac
+af
+ag
+ai
+ai
+ai
+am
+ai
+ai
+ai
+ai
+ai
+aC
+ae
+aE
+ai
+ai
+ai
+bc
+ae
+aE
+ai
+ai
+ai
+bB
+bD
+aa
+aa
+"}
+(17,1,1) = {"
+aa
+aa
+aa
+aa
+ad
+ae
+ae
+aj
+al
+af
+ae
+ao
+ar
+ao
+aw
+ai
+aB
+ae
+ai
+ai
+ai
+ai
+bb
+ae
+ai
+ai
+ai
+ai
+bB
+bE
+aa
+aa
+"}
+(18,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+ad
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+az
+ae
+ae
+ae
+ae
+az
+ae
+ae
+ae
+ae
+ae
+br
+ae
+ae
+bu
+aa
+aa
+"}
+(19,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ad
+ae
+ae
+ap
+ai
+ax
+ai
+ai
+az
+aF
+aJ
+aQ
+aQ
+bd
+ae
+bm
+ai
+ai
+by
+ae
+aa
+aa
+aa
+"}
+(20,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ad
+ae
+ae
+ai
+ai
+ay
+aA
+ae
+aG
+aK
+aK
+aK
+be
+ae
+bn
+ai
+ai
+bz
+ae
+aa
+aa
+aa
+"}
+(21,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ad
+ae
+at
+at
+ae
+ae
+ae
+aH
+aL
+aK
+aK
+bf
+ae
+bo
+ai
+ai
+bA
+ae
+aa
+aa
+aa
+"}
+(22,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ad
+ae
+ae
+aM
+aR
+aV
+bg
+ae
+bp
+ai
+bc
+ae
+ae
+aa
+aa
+aa
+"}
+(23,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ad
+ae
+ae
+ae
+az
+ae
+ae
+ae
+br
+ae
+ae
+bu
+aa
+aa
+aa
+"}
+(24,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ad
+ae
+aS
+ai
+ai
+ai
+ai
+ai
+ae
+bu
+aa
+aa
+aa
+aa
+"}
+(25,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ae
+aT
+ai
+ai
+ai
+ai
+bs
+ae
+aa
+aa
+aa
+aa
+aa
+"}
+(26,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ae
+ae
+aW
+bh
+bh
+bh
+ae
+ae
+aa
+aa
+aa
+aa
+aa
+"}
+(27,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ad
+ae
+ae
+ae
+ae
+ae
+ae
+bu
+aa
+aa
+aa
+aa
+aa
+"}
+(28,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(29,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(30,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(31,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(32,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}

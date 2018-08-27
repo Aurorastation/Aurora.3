@@ -8,7 +8,7 @@
 	item_state = "kineticgun"
 	contained_sprite = 1
 	flags =  CONDUCT
-	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	slot_flags = SLOT_BELT
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	w_class = 3
 	origin_tech = list(TECH_MATERIAL = 2,TECH_ENGINEERING = 2)
@@ -28,6 +28,8 @@
 	dispersion = list(0)
 	reliability = 100
 
+	action_button_name = "Wield kinetic accelerator"
+
 	var/obj/item/projectile/projectile_type = /obj/item/projectile/kinetic
 
 	pin = /obj/item/device/firing_pin
@@ -41,6 +43,8 @@
 	accuracy_wielded = 0
 	wielded = 0
 	needspin = TRUE
+
+	var/require_wield = FALSE
 
 	var/build_name = ""
 
@@ -65,6 +69,20 @@
 	var/is_emped = 0
 
 	var/can_disassemble_cell = TRUE
+
+/obj/item/weapon/gun/custom_ka/verb/wield_accelerator()
+	set name = "Wield"
+	set category = "Object"
+	set src in usr
+
+	toggle_wield(usr)
+
+/obj/item/weapon/gun/custom_ka/ui_action_click()
+	if(src in usr)
+		toggle_wield(usr)
+
+/obj/item/weapon/gun/custom_ka/can_wield()
+	return 1
 
 /obj/item/weapon/gun/custom_ka/examine(var/mob/user)
 	. = ..()
@@ -95,6 +113,10 @@
 
 /obj/item/weapon/gun/custom_ka/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 
+	if(require_wield && !wielded)
+		to_chat(user,"<span class='warning'>\The [src] is too heavy to fire with one hand!</span>")
+		return
+
 	if(!fire_checks(target,user,clickparams,pointblank,reflex))
 		return
 
@@ -102,7 +124,7 @@
 	var/warning_message
 	var/disaster
 
-	if(is_emped && prob(10))
+	if( (is_emped && prob(10)) || prob(1))
 		var/list/warning_messages = list(
 			"ERROR CODE: ERROR CODE",
 			"ERROR CODE: PLEASE REPORT THIS",
@@ -114,8 +136,9 @@
 			"ERROR CODE: NO ERROR CODE FOUND",
 			"ERROR CODE: LOADING.."
 		)
-		warning_message = pick(warning_messages)
-		spark(src.loc, 3, alldirs)
+		if(is_emped)
+			warning_message = pick(warning_messages)
+			spark(src.loc, 3, alldirs)
 	else if(!installed_cell || !installed_barrel)
 		if(!is_emagged || (is_emped && prob(5)) )
 			warning_message = "ERROR CODE: 0"
@@ -221,6 +244,7 @@
 
 /obj/item/weapon/gun/custom_ka/Initialize()
 	. = ..()
+
 	START_PROCESSING(SSprocessing, src)
 
 	if(installed_cell)
@@ -244,8 +268,6 @@
 		installed_barrel.on_update(src)
 	if(installed_upgrade_chip)
 		installed_upgrade_chip.on_update(src)
-
-	..()
 
 /obj/item/weapon/gun/custom_ka/update_icon()
 	. = ..()
@@ -336,11 +358,21 @@
 
 	//Gun stats
 	recoil = recoil_increase*0.25
+	recoil = recoil*0.5
+
 	fire_delay = firedelay_increase
+	fire_delay_wielded = accuracy * 0.9
+
 	accuracy = round(recoil_increase*0.25)
+	accuracy_wielded = accuracy * 0.5
 
 /obj/item/weapon/gun/custom_ka/attack_self(mob/user as mob)
 	. = ..()
+
+	if(!wielded)
+		to_chat(user,"<span class='warning'>You must be holding \the [src] with two hands to do this!</span>")
+		return
+
 	if(installed_cell)
 		installed_cell.attack_self(user)
 	if(installed_barrel)
@@ -390,7 +422,7 @@
 			var/obj/item/custom_ka_upgrade/cells/tempvar = I
 			installed_cell = tempvar
 			user.remove_from_mob(installed_cell)
-			installed_cell.loc = src
+			installed_cell.forceMove(src)
 			update_stats()
 			update_icon()
 			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
@@ -403,7 +435,7 @@
 			var/obj/item/custom_ka_upgrade/barrels/tempvar = I
 			installed_barrel = tempvar
 			user.remove_from_mob(installed_barrel)
-			installed_barrel.loc = src
+			installed_barrel.forceMove(src)
 			update_stats()
 			update_icon()
 			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
@@ -412,14 +444,25 @@
 			to_chat(user,"A barrel and a cell need to be installed before you install \the [I].")
 		else if(installed_upgrade_chip)
 			to_chat(user,"There is already \an [installed_upgrade_chip] installed.")
+		else if(installed_cell.disallow_chip == TRUE)
+			to_chat(user,"\The [installed_cell] prevents you from installing \the [I]!")
+		else if(installed_barrel.disallow_chip == TRUE)
+			to_chat(user,"\The [installed_barrel] prevents you from installing \the [I]!")
 		else
 			var/obj/item/custom_ka_upgrade/upgrade_chips/tempvar = I
 			installed_upgrade_chip = tempvar
 			user.remove_from_mob(installed_upgrade_chip)
-			installed_upgrade_chip.loc = src
+			installed_upgrade_chip.forceMove(src)
 			update_stats()
 			update_icon()
 			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
+
+	if(installed_cell)
+		installed_cell.attackby(I,user)
+	if(installed_barrel)
+		installed_barrel.attackby(I,user)
+	if(installed_upgrade_chip)
+		installed_upgrade_chip.attackby(I,user)
 
 /obj/item/custom_ka_upgrade //base item
 	name = null //abstract
@@ -439,13 +482,13 @@
 	var/is_emagged = 0
 	var/is_emped = 0
 
+	var/disallow_chip = FALSE //Prevent installation of an upgrade chip.
+
 /obj/item/custom_ka_upgrade/proc/on_update(var/obj/item/weapon/gun/custom_ka)
 	//Do update related things here
-	return
 
 /obj/item/custom_ka_upgrade/proc/on_fire(var/obj/item/weapon/gun/custom_ka)
 	//Do fire related things here
-	return
 
 /obj/item/custom_ka_upgrade/cells
 	name = null //Abstract
@@ -482,7 +525,7 @@
 	origin_tech = list(TECH_MATERIAL = 2,TECH_ENGINEERING = 2,TECH_MAGNET = 2)
 
 /obj/item/custom_ka_upgrade/upgrade_chips
-	name = null
+	name = null //Abstract
 	icon = 'icons/obj/kinetic_accelerators.dmi'
 	damage_increase = 0
 	firedelay_increase = 0
@@ -494,3 +537,39 @@
 	mod_limit_increase = 0
 
 	origin_tech = list(TECH_POWER = 4,TECH_MAGNET = 4, TECH_DATA = 4)
+
+
+/obj/item/device/kinetic_analyzer
+	name = "kinetic analyzer"
+	desc = "Analyzes the kinetic accelerator and prints useful information on it's statistics."
+	icon = 'icons/obj/device.dmi'
+	icon_state = "kinetic_anal"
+
+
+/obj/item/device/kinetic_analyzer/afterattack(var/atom/target, var/mob/living/user, proximity, params)
+
+	user.visible_message(
+		"<span class='warning'>\The [user] scans \the [target] with \the [src].</span>",
+		"<span class='alert'>You scan \the [target] with \the [src].</span>")
+
+	if(istype(target,/obj/item/weapon/gun/custom_ka))
+		playsound(src, 'sound/machines/ping.ogg', 10, 1)
+
+		var/obj/item/weapon/gun/custom_ka/ka = target
+
+		var/total_message = "<b>Kinetic Accelerator Stats:</b><br>\
+		Damage Rating: [ka.damage_increase*0.1]MJ<br>\
+		Energy Rating: [ka.cost_increase]MJ<br>\
+		Cell Rating: [ka.cell_increase]MJ<br>\
+		Fire Delay: [ka.firedelay_increase]<br>\
+		Range: [ka.range_increase]<br>\
+		Recoil Rating: [ka.recoil_increase]kJ<br>\
+		<b>Software Stats:</b><br>\
+		Software Version: [ka.mod_limit_increase].[ka.mod_limit_increase*32 % 10].[ka.mod_limit_increase*64 % 324]<br>\
+		Available Power Flow: [ka.capacity_increase*10]kW<br>"
+
+		to_chat(user,"<span class='notice'>[total_message]</span>")
+	else
+		to_chat(user,"<span class='notice'>Nothing happens.</span>")
+
+	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)

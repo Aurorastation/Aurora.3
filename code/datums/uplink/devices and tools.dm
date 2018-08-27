@@ -21,6 +21,12 @@
 	path = /obj/item/device/firing_pin
 	desc = "A Syndicate-branded Firing pin - It should be compatible with nearly every weapon onboard."
 
+/datum/uplink_item/item/tools/surge
+	name = "IPC surge prevention module"
+	item_cost = 14
+	path = /obj/item/stack/nanopaste/surge
+	desc = "An internal module that allow operative IPC frames to be protected from EMP pulse. The device has limited use that varies between one to three pulses"
+
 /datum/uplink_item/item/tools/clerical
 	name = "Morphic Clerical Kit"
 	item_cost = 3
@@ -119,3 +125,15 @@
 	item_cost = 3
 	desc = "A belt-harness used to perform quick reloads with small arm weapons, such as the .45 or 9mm pistol."
 	path = /obj/item/weapon/storage/belt/tactical_harness
+
+/datum/uplink_item/item/tools/aviatortherm
+	name = "Aviators, Thermal"
+	item_cost = 6
+	path = /obj/item/clothing/glasses/thermal/aviator
+	desc = "A pair of thermal-vision glasses disguised as aviator shades."
+
+/datum/uplink_item/item/tools/aviatornight
+	name = "Aviators, Night-Vision"
+	item_cost = 4
+	path = /obj/item/clothing/glasses/night/aviator
+	desc = "A pair of night-vision glasses disguised as aviator shades."

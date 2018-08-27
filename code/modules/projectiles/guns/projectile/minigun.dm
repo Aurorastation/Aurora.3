@@ -31,7 +31,7 @@
 	ammo_magazine = new magazine_type(src)
 	gun.magazine_type = ammo_magazine
 	gun.ammo_magazine = ammo_magazine
-	gun.loc = src
+	gun.forceMove(src)
 
 /obj/item/minigunpack/proc/make_gun()
 	return new /obj/item/weapon/gun/projectile/automatic/rifle/minigun()

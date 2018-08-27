@@ -95,7 +95,7 @@
 		src.master = F
 		F.ptank = src
 		user.remove_from_mob(src)
-		src.loc = F
+		src.forceMove(F)
 	return
 
 /*

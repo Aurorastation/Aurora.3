@@ -133,7 +133,7 @@
 
 	I.loc = null
 
-	I.loc = T
+	I.forceMove(T)
 
 /obj/item/examine(mob/user, var/distance = -1)
 	var/size

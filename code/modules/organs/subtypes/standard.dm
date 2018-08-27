@@ -96,7 +96,8 @@
 	maim_bonus = 1
 
 /obj/item/organ/external/foot/removed()
-	if(owner) owner.drop_from_inventory(owner.shoes)
+	if(owner) 
+		owner.drop_from_inventory(owner.shoes)
 	..()
 
 /obj/item/organ/external/foot/right
