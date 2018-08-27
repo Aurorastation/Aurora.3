@@ -141,11 +141,11 @@
 			var/datum/data/vending_product/product = new/datum/data/vending_product(entry)
 
 			product.price = (entry in src.prices) ? src.prices[entry] : 0
-			if (src.random_itemcount && category == CAT_NORMAL) //Only the normal category is randomized.
-				product.amount = rand(1,(current_list[1][entry]) ? current_list[1][entry] : 1)
+			product.max_amount = product.amount = product.amount = (current_list[1][entry]) ? current_list[1][entry] : 1
+			if (random_itemcount == 1 && category == CAT_NORMAL) //Only the normal category is randomized.
+				product.amount = rand(1,product.max_amount)
 			else
-				product.amount = (current_list[1][entry]) ? current_list[1][entry] : 1
-			product.max_amount = product.amount
+				product.amount = product.max_amount
 			product.category = category
 
 			src.product_records.Add(product)

@@ -777,6 +777,7 @@
 		/obj/item/weapon/tank/anesthetic
 	)
 	restock_items = 1
+	random_itemcount = 0
 
 //RECURSION
 /obj/machinery/vending/vendors
