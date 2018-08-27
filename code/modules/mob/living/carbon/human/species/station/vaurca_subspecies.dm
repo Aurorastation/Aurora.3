@@ -59,9 +59,10 @@
 	speech_chance = 100
 
 	death_sound = 'sound/voice/hiss6.ogg'
-	damage_overlays = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
-	damage_mask = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
-	blood_mask = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
+	damage_overlays = 'icons/mob/human_races/masks/dam_breeder.dmi'
+	damage_mask = 'icons/mob/human_races/masks/dam_mask_breeder.dmi'
+	blood_mask = 'icons/mob/human_races/masks/blood_breeder.dmi'
+
 
 	stamina = 175
 	sprint_speed_factor = 1
@@ -104,6 +105,7 @@
 	eyes_icons = 'icons/mob/human_face/warform_eyes.dmi'
 	brute_mod = 0.5
 	burn_mod = 0.1
+	fall_mod = 0
 	toxins_mod = 1
 	total_health = 200
 	breakcuffs = list(MALE,FEMALE,NEUTER)
@@ -113,9 +115,10 @@
 	speech_chance = 100
 
 	death_sound = 'sound/voice/hiss6.ogg'
-	damage_overlays = 'icons/mob/human_races/masks/dam_breeder.dmi'
-	damage_mask = 'icons/mob/human_races/masks/dam_mask_breeder.dmi'
-	blood_mask = 'icons/mob/human_races/masks/blood_breeder.dmi'
+	damage_overlays = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
+	damage_mask = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
+	blood_mask = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
+
 
 	stamina = 200
 	stamina_recovery = 5

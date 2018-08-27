@@ -843,7 +843,7 @@
 	input_tag = "d_air_in";
 	name = "Mixed Air Supply Control";
 	output_tag = "d_air_out";
-	pressure_setting = 2000;
+	default_pressure_setting = 2000;
 	sensors = list("d_air_sensor" = "Tank")
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{

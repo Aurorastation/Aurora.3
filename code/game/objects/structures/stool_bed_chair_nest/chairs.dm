@@ -15,12 +15,11 @@
 		if(!SK.status)
 			user << "<span class='notice'>\The [SK] is not ready to be attached!</span>"
 			return
-		user.drop_item()
 		var/obj/structure/bed/chair/e_chair/E = new (src.loc, material.name)
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 		E.set_dir(dir)
 		E.part = SK
-		SK.loc = E
+		user.drop_from_inventory(SK,E)
 		SK.master = E
 		qdel(src)
 

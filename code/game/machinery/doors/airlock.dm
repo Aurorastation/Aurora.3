@@ -1245,7 +1245,7 @@ About the new airlock wires panel:
 		assembly_type = assembly.type
 
 		electronics = assembly.electronics
-		electronics.loc = src
+		electronics.forceMove(src)
 
 		//update the door's access to match the electronics'
 		secured_wires = electronics.secure
@@ -1320,10 +1320,10 @@ About the new airlock wires panel:
 		electrified_until = 0
 		//if we lost power open 'er up
 		if(insecure)
-			open(1)
+			INVOKE_ASYNC(src, /obj/machinery/door/.proc/open, 1)
 			securitylock = 1
 	else if(securitylock)
-		close(1)
+		INVOKE_ASYNC(src, /obj/machinery/door/.proc/close, 1)
 		securitylock = 0
 	update_icon()
 

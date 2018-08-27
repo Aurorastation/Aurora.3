@@ -143,9 +143,7 @@
 	if(!I)
 		return
 
-	user.drop_item()
-	if(I)
-		I.forceMove(src)
+	user.drop_from_inventory(I,src)
 
 	user << "You place \the [I] into the [src]."
 	for(var/mob/M in viewers(src))

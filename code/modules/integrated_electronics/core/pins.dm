@@ -41,8 +41,8 @@ D [1]/  ||
 	holder = null
 	. = ..()
 
-/datum/integrated_io/nano_host()
-	return holder.nano_host()
+/datum/integrated_io/ui_host()
+	return holder.ui_host()
 
 /datum/integrated_io/proc/data_as_type(var/as_type)
 	if(!isweakref(data))

@@ -174,6 +174,10 @@
 	pants["tan pants"] = /obj/item/clothing/under/pants/tan
 	pants["khaki pants"] = /obj/item/clothing/under/pants/khaki
 	pants["track pants"] = /obj/item/clothing/under/pants/track
+	pants["blue track pants"] = /obj/item/clothing/under/pants/track/blue
+	pants["green track pants"] = /obj/item/clothing/under/pants/track/green
+	pants["white track pants"] = /obj/item/clothing/under/pants/track/white
+	pants["red track pants"] = /obj/item/clothing/under/pants/track/blue
 	pants["camo pants"] = /obj/item/clothing/under/pants/camo
 	pants["athletic shorts, black"] = /obj/item/clothing/under/shorts
 	pants["athletic shorts, red"] = /obj/item/clothing/under/shorts/red
@@ -211,3 +215,15 @@
 	suit["dominia suit, black"] = /obj/item/clothing/under/dominia/black
 	suit["lyodsuit"] = /obj/item/clothing/under/dom_thermal
 	gear_tweaks += new/datum/gear_tweak/path(suit)
+
+/datum/gear/uniform/miscellaneous/kimono
+	display_name = "kimono"
+	path = /obj/item/clothing/under/kimono
+
+/datum/gear/uniform/miscellaneous/kimono/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/uniform/miscellaneous/greensuit
+	display_name = "green formal uniform"
+	path = /obj/item/clothing/under/gov

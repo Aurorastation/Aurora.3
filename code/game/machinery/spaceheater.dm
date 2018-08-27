@@ -3,8 +3,8 @@
 	density = 1
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "sheater0"
-	name = "space heater"
-	desc = "Made by Space Amish using traditional space techniques, this heater is guaranteed not to set the station on fire."
+	name = "space A/C"
+	desc = "Made by Space Amish using traditional space techniques, this A/C unit can heat or cool a room to your liking."
 	var/obj/item/weapon/cell/cell
 	var/on = 0
 	var/set_temperature = T0C + 50	//K
@@ -56,9 +56,8 @@
 				// insert cell
 				var/obj/item/weapon/cell/C = usr.get_active_hand()
 				if(istype(C))
-					user.drop_item()
+					user.drop_from_inventory(C,src)
 					cell = C
-					C.loc = src
 					C.add_fingerprint(usr)
 
 					user.visible_message("<span class='notice'>[user] inserts a power cell into [src].</span>", "<span class='notice'>You insert the power cell into [src].</span>")
@@ -139,9 +138,8 @@
 				if(panel_open && !cell)
 					var/obj/item/weapon/cell/C = usr.get_active_hand()
 					if(istype(C))
-						usr.drop_item()
+						usr.drop_from_inventory(C,src)
 						cell = C
-						C.loc = src
 						C.add_fingerprint(usr)
 						power_change()
 						usr.visible_message("<span class='notice'>[usr] inserts \the [C] into \the [src].</span>", "<span class='notice'>You insert \the [C] into \the [src].</span>")

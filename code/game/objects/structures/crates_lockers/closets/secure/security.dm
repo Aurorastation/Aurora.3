@@ -141,6 +141,7 @@
 		new /obj/item/device/radio/headset/heads/hos(src)
 		new /obj/item/ammo_magazine/tranq(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud(src)
+		new /obj/item/clothing/glasses/sunglasses/sechud/head(src)
 		new /obj/item/weapon/shield/riot/tact(src)
 		new /obj/item/weapon/melee/baton/loaded(src)
 		new /obj/item/weapon/melee/telebaton(src)
@@ -175,7 +176,7 @@
 		new /obj/item/clothing/head/beret/sec/hos(src)
 		new /obj/item/clothing/head/helmet/HoS(src)
 		//Tools
-		new /obj/item/clothing/glasses/sunglasses/sechud(src)
+		new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 		new /obj/item/device/radio/headset/heads/hos(src)
 		//Belts
 		new /obj/item/weapon/storage/belt/security(src)
@@ -218,6 +219,7 @@
 		//Tools
 		new /obj/item/weapon/cartridge/security(src)
 		new /obj/item/device/radio/headset/headset_sec(src)
+		new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud(src)
 		new /obj/item/taperoll/police(src)
 		new /obj/item/weapon/reagent_containers/spray/pepper(src)
@@ -280,6 +282,7 @@
 		new /obj/item/clothing/head/helmet(src)
 		//Tools
 		new /obj/item/device/radio/headset/headset_sec(src)
+		new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud(src)
 		new /obj/item/ammo_magazine/c45m/rubber(src)
 		new /obj/random/handgun(src)
@@ -366,9 +369,7 @@
 			return
 		else if(W.loc != user) // This should stop mounted modules ending up outside the module.
 			return
-		user.drop_item()
-		if(W)
-			W.forceMove(loc)
+		user.drop_from_inventory(W,loc)
 	else if(!opened)
 		if(istype(W, /obj/item/weapon/melee/energy/blade))//Attempt to cut open locker if locked
 			if(emag_act(INFINITY, user, "<span class='danger'>The locker has been sliced open by [user] with \an [W]</span>!", "<span class='danger'>You hear metal being sliced and sparks flying.</span>"))

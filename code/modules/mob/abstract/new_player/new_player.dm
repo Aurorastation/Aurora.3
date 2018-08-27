@@ -64,7 +64,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	output += "</div>"
 
-	src << browse(output,"window=playersetup;size=210x310;can_close=0")
+	src << browse(output,"window=playersetup;size=310x350;can_close=0")
 
 /mob/abstract/new_player/Stat()
 	..()
@@ -134,7 +134,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			var/obj/O = locate("landmark*Observer-Start")
 			if(istype(O))
 				src << "<span class='notice'>Now teleporting.</span>"
-				observer.loc = O.loc
+				observer.forceMove(O.loc)
 			else
 				src << "<span class='danger'>Could not locate an observer spawn point. Use the Teleport verb to jump to the station map.</span>"
 			observer.timeofdeath = world.time // Set the time of death so that the respawn timer works correctly.
@@ -305,8 +305,6 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	UpdateFactionList(character)
 
-	equip_custom_items(character)
-
 	// AIs don't need a spawnpoint, they must spawn at an empty core
 	if(character.mind.assigned_role == "AI")
 
@@ -316,7 +314,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		var/obj/structure/AIcore/deactivated/C = empty_playable_ai_cores[1]
 		empty_playable_ai_cores -= C
 
-		character.loc = C.loc
+		character.forceMove(C.loc)
 
 		AnnounceCyborg(character, rank, "has been downloaded to the empty core in \the [character.loc.loc]")
 		SSticker.mode.handle_latejoin(character)
@@ -328,10 +326,12 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	//Find our spawning point.
 	var/join_message = SSjobs.LateSpawn(character, rank)
 
+	equip_custom_items(character)
+
 	character.lastarea = get_area(loc)
 	// Moving wheelchair if they have one
 	if(character.buckled && istype(character.buckled, /obj/structure/bed/chair/wheelchair))
-		character.buckled.loc = character.loc
+		character.buckled.forceMove(character.loc)
 		character.buckled.set_dir(character.dir)
 
 	SSticker.mode.handle_latejoin(character)

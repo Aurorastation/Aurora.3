@@ -12,7 +12,7 @@
 
 	if(istype(loc,/obj/item/weapon/holder/diona))
 		var/obj/item/weapon/holder/diona/L = loc
-		src.loc = L.loc
+		src.forceMove(L.loc)
 		qdel(L)
 
 	return "Diona"
@@ -76,7 +76,6 @@
 	//Although we are still host, these nymphs become neighbors, not contents
 	for(var/mob/living/carbon/alien/diona/D in contents)
 		D.forceMove(adult)
-		D.loc = adult
 		D.gestalt = adult
 		D.stat = CONSCIOUS
 
@@ -84,7 +83,6 @@
 	//Our mind is already in the gestalt, this is really just transferring our empty body
 	src.nutrition = 0
 	src.forceMove(adult)
-	src.loc = adult
 	src.stat = CONSCIOUS
 	src.gestalt = adult
 

@@ -1,6 +1,0 @@
-author: Alberyk
-delete-after: True
-
-changes:
-  - tweak: "Cutting any gloves fingertips will now reduce the insulation of the gloves in question."
-  - rscadd: "Added a pair of tajaran and unathi insulated gloves to the chief engineer and electrical supplies closets."

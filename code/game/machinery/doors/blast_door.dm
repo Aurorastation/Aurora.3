@@ -176,10 +176,10 @@
 	if(src.operating || (stat & BROKEN))
 		return
 	if(stat & NOPOWER)
-		force_close()
+		INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_close)
 		securitylock = 1
 	else if(securitylock)
-		force_open()
+		INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_open)
 		securitylock = 0
 
 
