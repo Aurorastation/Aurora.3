@@ -279,6 +279,7 @@
 		/obj/item/weapon/reagent_containers/pill/stox = 4
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	random_itemcount = 0
 
 //This one's from bay12
 /obj/machinery/vending/phoronresearch
@@ -296,6 +297,7 @@
 		/obj/item/device/assembly/igniter = 6
 	)
 	restock_items = 1
+	random_itemcount = 0
 
 /obj/machinery/vending/wallmed1
 	name = "NanoMed"
@@ -318,6 +320,7 @@
 		/obj/item/weapon/reagent_containers/syringe/antiviral = 4,
 		/obj/item/weapon/reagent_containers/pill/tox = 1
 	)
+	random_itemcount = 0
 
 /obj/machinery/vending/wallmed2
 	name = "NanoMed"
@@ -337,6 +340,7 @@
 	contraband = list(
 		/obj/item/weapon/reagent_containers/pill/tox = 3
 	)
+	random_itemcount = 0
 
 /obj/machinery/vending/security
 	name = "SecTech"
@@ -368,6 +372,7 @@
 		/obj/item/weapon/reagent_containers/spray/pepper
 		)
 	restock_items = 1
+	random_itemcount = 0
 
 /obj/machinery/vending/hydronutrients
 	name = "NutriMax"
@@ -392,8 +397,8 @@
 	contraband = list(
 		/obj/item/weapon/reagent_containers/glass/bottle/mutagen = 2
 	)
-
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	random_itemcount = 0
 
 /obj/machinery/vending/hydroseeds
 	name = "MegaSeed Servitor"
@@ -501,6 +506,7 @@
 		/obj/item/seeds/whitebeetseed = 20
 	)
 	restock_items = 1
+	random_itemcount = 0
 
 /**
  *  Populate hydroseeds product_records
@@ -546,6 +552,7 @@
 		/obj/item/weapon/staff = 2
 	)
 	restock_items = 1
+	random_itemcount = 0
 
 /obj/machinery/vending/dinnerware
 	name = "Dinnerware"
@@ -591,6 +598,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/drinkingglass/cola = 20
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	random_itemcount = 0
 
 /obj/machinery/vending/tool
 	name = "YouTool"
@@ -666,6 +674,7 @@
 	contraband = list(
 		/obj/item/weapon/grenade/flashbang/clusterbang = 1 //this can only go well.
 	)
+	random_itemcount = 0
 
 /obj/machinery/vending/tacticool/ert //Slightly more !FUN!
 	name = "Nanosecurity Plus"
@@ -690,6 +699,7 @@
 		/obj/item/weapon/material/hatchet/tacknife = 4,
 		/obj/item/device/firing_pin = 12
 	)
+	random_itemcount = 0
 
 //This one's from bay12
 /obj/machinery/vending/engineering
@@ -790,3 +800,4 @@
 		/obj/item/weapon/vending_refill/cutlery = 1,
 		/obj/item/weapon/vending_refill/robo = 1
 	)
+	random_itemcount = 0

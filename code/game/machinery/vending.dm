@@ -101,6 +101,7 @@
 	var/vend_id = "generic"	//Id of the refill cartridge that has to be used
 	var/restock_items = 0	//If items can be restocked into the vending machine
 	var/list/restock_blocked_items = list() //Items that can not be restocked if restock_items is enabled
+	var/random_itemcount = 1 //If the number of items should be randomized
 
 /obj/machinery/vending/Initialize()
 	. = ..()
@@ -140,7 +141,10 @@
 			var/datum/data/vending_product/product = new/datum/data/vending_product(entry)
 
 			product.price = (entry in src.prices) ? src.prices[entry] : 0
-			product.amount = (current_list[1][entry]) ? current_list[1][entry] : 1
+			if (src.random_itemcount && category == CAT_NORMAL) //Only the normal category is randomized.
+				product.amount = rand(1,(current_list[1][entry]) ? current_list[1][entry] : 1)
+			else
+				product.amount = (current_list[1][entry]) ? current_list[1][entry] : 1
 			product.max_amount = product.amount
 			product.category = category
 
