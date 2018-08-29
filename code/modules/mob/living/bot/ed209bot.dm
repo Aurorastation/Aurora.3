@@ -117,17 +117,14 @@
 	for(var/mob/M in possible_targets)
 		var/found = 0
 		if(findtext(text, "[M]"))
-			found = 1
+			return M
 		else
 			var/list/parsed_name = splittext(replace_characters(lowertext(html_decode("[M]")),list("-"=" ", "."=" ", "," = " ", "'" = " ")), " ") //this big MESS is basically 'turn this into words, no punctuation, lowercase so we can check first name/last name/etc'
 			for(var/a in parsed_name)
 				if(a == "the" || length(a) < 2) //get rid of shit words.
 					continue
 				if(findtext(text,"[a]"))
-					found = 1
-					break
-		if(found)
-			return M
+					return M
 	return null
 
 /mob/living/bot/secbot/ed209/proc/arrest_command(var/mob/speaker,var/text)
@@ -218,6 +215,23 @@
 	var/mob/M = usr
 	if(!M.mind)	return 0
 
+	// Check if they are set to arrest
+	if(ishuman(usr))
+		var/mob/living/carbon/human/H = user
+		var/perpname = H.name
+		var/obj/item/weapon/card/id/id = H.GetIdCard()
+		if(id)
+			perpname = id.registered_name
+
+		var/datum/data/record/R = find_security_record("name", perpname)
+		if(R && R.fields["criminal"] == "*Arrest*")
+			visible_message(usr, "<span class='warning'>Warning, you do not have access!</span>")
+
+	// Check if they have access to the bot
+	if(!has_ui_access(usr))
+		visible_message(usr, "<span class='warning'>Warning, you do not have access!</span>")
+		return 0
+
 	var/short_input = sanitizeSafe(input("What do you want [src] respond to?", , ""), MAX_NAME_LEN)
 
 	if(src && short_input && !M.stat && in_range(M,src))
@@ -231,7 +245,7 @@
 		icon_state = "ed209[on]"
 
 /mob/living/bot/secbot/ed209/explode()
-	visible_message("<span class='warning'>[src] blows apart!</span>")
+	visible_message("<span class='danger'>[src] blows apart!</span>")
 	var/turf/Tsec = get_turf(src)
 
 	new /obj/item/weapon/secbot_assembly/ed209_assembly(Tsec)
