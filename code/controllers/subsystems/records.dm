@@ -11,7 +11,6 @@
 	var/list/viruses
 
 	var/list/excluded_fields
-	var/list/record_fields
 
 	var/manifest_json
 	var/list/manifest
@@ -29,14 +28,6 @@
 		excluded_fields += v
 	excluded_fields += "cmp_field"
 	excluded_fields += "excluded_fields"
-	excluded_fields += "all_fields"
-
-	record_fields = list()
-	for (var/path in subtypesof(/datum/record))
-		var/datum/record/tmpR = new path()
-		record_fields[path] = list()
-		for(var/variable in tmpR.vars)
-			record_fields[path] += variable
 
 /datum/controller/subsystem/records/proc/generate_record(var/mob/living/carbon/human/H)
 	if(H.mind && SSjobs.ShouldCreateRecords(H.mind))

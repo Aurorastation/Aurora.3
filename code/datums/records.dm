@@ -5,13 +5,6 @@
 
 	var/cmp_field = "id"
 	var/list/excluded_fields
-	var/list/all_fields
-
-/datum/record/New()
-	if(SSrecords)
-		if(SSrecords.record_fields)
-			if(SSrecords.record_fields[src.type])
-				all_fields = SSrecords.record_fields[src.type]
 
 /datum/record/proc/Copy(var/datum/copied)
 	if(!copied)

@@ -2,6 +2,7 @@
 	name = "records console"
 	desc = "Used to view, edit and maintain records."
 	var/records_type = RECORD_GENERAL | RECORD_MEDICAL | RECORD_SECURITY
+	var/datum/record/general/active
 
 /obj/machinery/computer/records/medical
 	name = "medical records console"
@@ -68,3 +69,22 @@
 			)
 	
 	LAZYINITLIST(data["allrecords"])
+	for(var/tR in SSrecords.records)
+		var/datum/record/general/R = tR
+		LAZYINITLIST(data["allrecords"][R.id])
+		VUEUI_SET_CHECK(data["allrecords"][R.id]["id"], R.id, ., data)
+		VUEUI_SET_CHECK(data["allrecords"][R.id]["name"], R.name, ., data)
+		VUEUI_SET_CHECK(data["allrecords"][R.id]["rank"], R.rank, ., data)
+
+	if(active)
+		var/returned = active.Listify(1, list(), data["active"])
+		if(returned)
+			data["active"] = returned
+			. = data
+	else
+		VUEUI_SET_CHECK(data["active"], 0, ., data)
+
+/obj/machinery/computer/records/Topic(href, href_list)
+	if(href_list["setactive"])
+		active = SSrecords.find_record("id", href_list["setactive"])
+		SSvueui.check_uis_for_change(src)
