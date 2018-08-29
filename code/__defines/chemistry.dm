@@ -5,6 +5,10 @@
 #define CHEM_BLOOD 3
 #define CHEM_BREATHE 4
 
+#define WET_TYPE_WATER 1
+#define WET_TYPE_LUBE 2
+#define WET_TYPE_ICE 3
+
 #define MINIMUM_CHEMICAL_VOLUME 0.01
 
 #define SOLID 1

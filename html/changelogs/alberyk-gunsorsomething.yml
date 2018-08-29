@@ -1,8 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - rscdel: "Removed shotgun speed loaders."
-  - imageadd: "Added unique sprites for shotgun shells boxes."
-  - imageadd: "Added some loaded and unloaded sprites for some guns."

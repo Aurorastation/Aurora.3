@@ -235,7 +235,7 @@
 	fruit = list("nifberries" = 1)
 	reagents = list("spacespice" = 1)
 	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough
+		/obj/item/weapon/reagent_containers/food/snacks/flatbread
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/tajaran_bread
 	reagent_mix = RECIPE_REAGENT_REPLACE
@@ -431,13 +431,13 @@
 /datum/recipe/cake
 	appliance = OVEN
 	reagents = list("milk" = 5, "flour" = 15, "sugar" = 15, "egg" = 9)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/plaincake
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/plain
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /datum/recipe/cake/carrot
 	appliance = OVEN
 	fruit = list("carrot" = 3)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/carrotcake
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/carrot
 
 /datum/recipe/cake/cheese
 	appliance = OVEN
@@ -445,46 +445,46 @@
 		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
 		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
 	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cheesecake
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/cheese
 
 /datum/recipe/cake/orange
 	appliance = OVEN
 	fruit = list("orange" = 1)
 	reagents = list("milk" = 5, "flour" = 15, "egg" = 9, "orangejuice" = 3, "sugar" = 5)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/orangecake
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/orange
 
 /datum/recipe/cake/lime
 	appliance = OVEN
 	fruit = list("lime" = 1)
 	reagents = list("milk" = 5, "flour" = 15, "egg" = 9, "limejuice" = 3, "sugar" = 5)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/limecake
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/lime
 
 /datum/recipe/cake/lemon
 	appliance = OVEN
 	fruit = list("lemon" = 1)
 	reagents = list("milk" = 5, "flour" = 15, "egg" = 9, "lemonjuice" = 3, "sugar" = 5)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/lemoncake
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/lemon
 
 /datum/recipe/cake/chocolate
 	appliance = OVEN
 	items = list(/obj/item/weapon/reagent_containers/food/snacks/chocolatebar)
 	reagents = list("milk" = 5, "flour" = 15, "egg" = 9, "coco" = 4, "sugar" = 5)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/chocolatecake
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/chocolate
 
 /datum/recipe/cake/birthday
 	appliance = OVEN
 	items = list(/obj/item/clothing/head/cakehat)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/birthdaycake
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/birthday
 
 /datum/recipe/cake/apple
 	appliance = OVEN
 	fruit = list("apple" = 2)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/applecake
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/apple
 
 /datum/recipe/cake/brain
 	appliance = OVEN
 	items = list(/obj/item/organ/brain)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/braincake
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/brain
 
 /datum/recipe/pancakes
 	appliance = OVEN

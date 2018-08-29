@@ -10082,7 +10082,7 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/weapon/reagent_containers/food/snacks/bigbiteburger,
+/obj/item/weapon/reagent_containers/food/snacks/burger/bigbite,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -10150,7 +10150,7 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/weapon/reagent_containers/food/snacks/beetsoup,
+/obj/item/weapon/reagent_containers/food/snacks/soup/beet,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -10281,7 +10281,7 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/weapon/reagent_containers/food/snacks/bloodsoup,
+/obj/item/weapon/reagent_containers/food/snacks/soup/blood,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -10453,7 +10453,7 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/weapon/reagent_containers/food/snacks/mushroomsoup,
+/obj/item/weapon/reagent_containers/food/snacks/soup/mushroom,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -12495,7 +12495,7 @@
 "aKz" = (
 /obj/structure/table/wood,
 /obj/structure/table/wood,
-/obj/item/weapon/reagent_containers/food/snacks/milosoup,
+/obj/item/weapon/reagent_containers/food/snacks/soup/milo,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -12713,7 +12713,7 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/weapon/reagent_containers/food/snacks/orangecakeslice/filled,
+/obj/item/weapon/reagent_containers/food/snacks/cakeslice/orange/filled,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -15240,7 +15240,7 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/weapon/reagent_containers/food/snacks/carrotcakeslice/filled,
+/obj/item/weapon/reagent_containers/food/snacks/cakeslice/carrot/filled,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},

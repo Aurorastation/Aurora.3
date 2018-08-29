@@ -304,6 +304,7 @@
 /mob/living/simple_animal/penguin
 	name = "penguin"
 	desc = "A king of the icy regions."
+	icon = 'icons/mob/penguins.dmi'
 	icon_state = "penguin"
 	icon_living = "penguin"
 	icon_dead = "penguin_dead"

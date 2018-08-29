@@ -108,3 +108,50 @@
 		if(sticky > 1)
 			L.adjust_fire_stacks(sticky)
 			amount = max(1, amount - sticky)
+
+/obj/effect/decal/cleanable/foam //Copied from liquid fuel
+	name = "foam"
+	desc = "Some kind of extinguishing foam."
+	gender = PLURAL
+	density = 0
+	anchored = 1
+	layer = 2
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "white_foam"
+	var/amount = 1
+
+/obj/effect/decal/cleanable/foam/Initialize(mapload, amt = 1, nologs = 0)
+	src.amount = amt
+
+	var/has_spread = 0
+	//Be absorbed by any other liquid fuel in the tile.
+	for(var/obj/effect/decal/cleanable/foam/other in loc)
+		if(other != src)
+			other.amount += src.amount
+			other.Spread()
+			has_spread = 1
+			break
+
+	if(!has_spread)
+		Spread()
+		QDEL_IN(src, 2 MINUTES)
+	else
+		qdel(src)
+
+/obj/effect/decal/cleanable/foam/proc/Spread(exclude=list())
+	if(amount < 15) return
+	var/turf/simulated/S = loc
+	if(!istype(S)) return
+	for(var/d in cardinal)
+		var/turf/simulated/target = get_step(src,d)
+		var/turf/simulated/origin = get_turf(src)
+		if(origin.CanPass(null, target, 0, 0) && target.CanPass(null, origin, 0, 0))
+			var/obj/effect/decal/cleanable/foam/other_foam = locate() in target
+			if(other_foam)
+				other_foam.amount += amount*0.25
+				if(!(other_foam in exclude))
+					exclude += src
+					other_foam.Spread(exclude)
+			else
+				new/obj/effect/decal/cleanable/foam(target, amount*0.25,1)
+			amount *= 0.75

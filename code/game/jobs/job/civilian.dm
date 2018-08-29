@@ -228,7 +228,7 @@
 	access = list(access_journalist, access_maint_tunnels)
 	minimal_access = list(access_journalist, access_maint_tunnels)
 	alt_titles = list("Freelance Journalist")
-	title_accesses = list("Corporate Reporter" = list(access_medical, access_security, access_research, access_engine))
+	title_accesses = list("Corporate Reporter" = list(access_medical, access_sec_doors, access_research, access_engine))
 
 /datum/job/journalist/equip(var/mob/living/carbon/human/H, var/alt_title)
 	if(!H)

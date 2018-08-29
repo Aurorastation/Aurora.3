@@ -566,7 +566,8 @@
 		/obj/item/weapon/reagent_containers/cooking_container/oven = 5,
 		/obj/item/weapon/reagent_containers/cooking_container/fryer = 4,
 		/obj/item/weapon/storage/toolbox/lunchbox/nt = 6,
-		/obj/item/weapon/reagent_containers/glass/beaker/bowl = 4
+		/obj/item/weapon/reagent_containers/glass/beaker/bowl = 4,
+		/obj/item/weapon/reagent_containers/glass/rag = 8
 	)
 	contraband = list(
 		/obj/item/weapon/storage/toolbox/lunchbox/syndicate = 2
