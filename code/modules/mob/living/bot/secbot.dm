@@ -561,7 +561,6 @@
 	..()
 
 	if (ismob(P.firer))
-
 		var/found = 0
 		// Check if we can see them.
 		for(var/mob/living/M in view(7, src))
@@ -576,7 +575,7 @@
 		if(!found)
 			broadcast_security_hud_message("[src] was shot with <b>[P]</b>, Unable to locate source! Requesting backup", src)
 			return
-
+      
 		target = P.firer
 		mode = SECBOT_HUNT
 		if(ishuman(P.firer))
