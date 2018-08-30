@@ -155,7 +155,7 @@
 	icon_state = "dragon_god"
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_GOD | BATTLE_MONSTERS_DEFENSETYPE_GIANT_DRAGON
 	elements = BATTLE_MONSTERS_ELEMENT_ENERGY
-	description = "Their %ELEMENT_AND wings are absolutely massive, and their breath constantly exhales deadly %ELEMENT_AND. This being is a common god among dragons, and it is theorized that one of the many breeds of dragons came from %NAME."
+	description = "Their %ELEMENT_AND wings are absolutely massive, and their massive snout exhales deadly %ELEMENT_AND. This being is a common god among dragons, and it is theorized that one of the many breeds of dragons came from %NAME."
 	special_effects = "Godly Protection: %ELEMENT_OR monsters cannot attack or be attacked by %NAME.<br>Wingspan: When %NAME is summoned, all non-flying monsters on the field are sent to the graveyard."
 	tip = "%NAME can still be affected by traps or spells.<br>%NAME can also send friendly units to the graveyard."
 	power_add = 2000
@@ -191,8 +191,8 @@
 /datum/battle_monsters/element/water/trench_pirate
 	name = "Trench"
 	id = "trench_pirate"
-	description = "They're covered entirely with seaweed and barnacles. They wear an eyepatch and a bandana, and wield a %WEAPON_AND fearsomely. Rumor has it that Trench beings were shipwrecked sailors whose bodies sunk into marine trenches into the hells below."
-	special_effects = "Cheating Tides: %NAME cannot be attack or be attacked by non %ELEMENT_OR based monster cards as long as %NAME attacked on the owner's previous turn."
+	description = "They're covered entirely with seaweed and barnacles, with an eyepatch and a bandana complimenting their monsterous shape. Rumor has it that Trench beings were shipwrecked sailors whose bodies sunk into marine trenches into the hells below."
+	special_effects = "Changing Tides: %NAME cannot be attack or be attacked by non %ELEMENT_OR based monster cards as long as %NAME attacked on the owner's previous turn."
 	elements = BATTLE_MONSTERS_ELEMENT_WATER | BATTLE_MONSTERS_ELEMENT_DARK
 	rarity = BATTLE_MONSTERS_RARITY_RARE
 	rarity_score = 1
@@ -241,7 +241,7 @@
 	name = "Frostlord"
 	id = "frostlord"
 	icon_state = "ice"
-	description = "They're wearing a large crown made out of ice and diamonds, and a royal cape made out magical yeti fur. Frostlords gain their title by defeating a yeti in combat by wrestling it to death."
+	description = "They're wearing a large crown made entirely out of ice and diamonds, and a royal cape made out magical yeti fur. Frostlords gain their title by defeating a yeti in combat by wrestling it to death."
 	special_effects = "Royal Decree: As long as there are 2 other frost element monsters on the same side of the field, %NAME cannot be sent to the graveyard.<br>Spell Immunity: %NAME cannot be affected by traps or spells."
 	elements = BATTLE_MONSTERS_ELEMENT_ICE
 	power_add = 1000
@@ -251,16 +251,16 @@
 	name = "Frost Guardian"
 	id = "frostguardian"
 	icon_state = "ice"
-	description = "They're wearing incredibly bulky armor, made entirely out of ice. Their still posture compliments the age-long growing of the iciles forming on their %WEAPON_AND."
+	description = "They're wearing incredibly bulky armor, made entirely out of ice. Their still posture compliments the age-long growing of the icicles forming on their %WEAPON_AND."
 	special_effects = "Best Defense: As long as %NAME is on the field, its owner cannot lose life points from monster battles."
 	attack_mul = 0
 	elements = BATTLE_MONSTERS_ELEMENT_ICE
 	power_add = 1000
 	rarity = BATTLE_MONSTERS_RARITY_RARE
 
-/datum/battle_monsters/element/ice/blizard_god
-	name = "Blizard God"
-	id = "blizard_god"
+/datum/battle_monsters/element/ice/blizzard_god
+	name = "Blizzard God"
+	id = "blizzard_god"
 	icon_state = "frost_god"
 	description = "Their general %SPECIES-like figure is clouded in a massive %ELEMENT_AND storm. All that come close to seeing it's true form usually perish from frostbite."
 	special_effects = "Godly Protection: As long as a frost element monster other than %NAME is on the field, %NAME cannot be attacked by monsters or spells."
@@ -315,8 +315,8 @@
 	id = "frost_god"
 	icon_state = "earth_god"
 	elements = BATTLE_MONSTERS_ELEMENT_EARTH | BATTLE_MONSTERS_ELEMENT_WATER | BATTLE_MONSTERS_ELEMENT_STONE
-	defense_type = BATTLE_MONSTERS_DEFENSETYPE_GOD | BATTLE_MONSTERS_DEFENSETYPE_GIANT
-	description = "They have roots for feet, and massive tree trunts for arms. Their overall size rivals those of the greatest manmade structures on earth. They carry around a giant %WEAPON_AND made sculpted entirely out of the largest trees of the Great Forest."
+	defense_type = BATTLE_MONSTERS_DEFENSETYPE_GOD | BATTLE_MONSTERS_DEFENSETYPE_COLOSSUS
+	description = "They have roots for feet and massive tree trunks for arms. Their overall size rivals those of the greatest manmade structures on earth, and as such, their %WEAPON_AND must match their size."
 	special_effects = "Revenge of the Earth: When a %ELEMENT_OR element is sent to the graveyard, the card responsible will also be sent to the graveyard."
 	power_mul = 2000
 	defense_mul = 2
