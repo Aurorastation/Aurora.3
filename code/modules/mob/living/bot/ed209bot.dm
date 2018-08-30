@@ -115,7 +115,6 @@
 /mob/living/bot/secbot/ed209/proc/get_target_by_name(var/text)
 	var/list/possible_targets = hearers(src,10)
 	for(var/mob/M in possible_targets)
-		var/found = 0
 		if(findtext(text, "[M]"))
 			return M
 		else
@@ -217,7 +216,7 @@
 
 	// Check if they are set to arrest
 	if(ishuman(usr))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/human/H = usr
 		var/perpname = H.name
 		var/obj/item/weapon/card/id/id = H.GetIdCard()
 		if(id)
