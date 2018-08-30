@@ -61,7 +61,7 @@
 	var/ccia_actions = "No CCIA actions found"
 	var/icon/photo_front
 	var/icon/photo_side
-	var/list/advanced_fields = list("species", "home_system", "citizenship", "faction", "religion", "ccia_record", "ccia_actions")
+	var/list/advanced_fields = list("species", "home_system", "citizenship", "faction", "religion", "ccia_record", "ccia_actions", "notes")
 	cmp_field = "name"
 	excluded_fields = list("photo_front", "photo_side", "advanced_fields")
 
