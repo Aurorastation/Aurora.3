@@ -32,39 +32,36 @@
 		return null
 
 	var/atom/T = null
+	var/mob/living/TL = null
 	var/lowest_health = INFINITY // Max you can get
 	stop_automated_movement = 0
-	for(var/mob/living/L in targets)
-		if((L.faction == src.faction) && !attack_same)
-			continue
-		if(L in friends)
+	for(var/atom/A in targets)
+		if(A == src)
 			continue
 
-		if(!L.stat && (L.health < lowest_health))
-			lowest_health = L.health
-			T = L
-	if(isnull(T))
-		for(var/atom/A in targets)
-
-			if(A == src)
+		if (TL)
+			var/mob/living/L = A
+			if((L.faction == src.faction) && !attack_same)
 				continue
+			if(L in friends)
+				continue
+			if(!L.stat && (L.health < lowest_health))
+				lowest_health = L.health
+				T = L
+		else if (isliving(A))
+			TL = A
 
-			var/atom/F = Found(A)
-			if(F)
-				T = F
+		else if(istype(A, /obj/mecha)) // Our line of sight stuff was already done in ListTargets().
+			var/obj/mecha/M = A
+			if (M.occupant)
+				T = M
 				break
 
-			else if(istype(A, /obj/mecha)) // Our line of sight stuff was already done in ListTargets().
-				var/obj/mecha/M = A
-				if (M.occupant)
-					T = M
-					break
-
-			if(istype(A, /obj/machinery/bot))
-				var/obj/machinery/bot/B = A
-				if (B.health > 0)
-					T = B
-					break
+		if(istype(A, /obj/machinery/bot))
+			var/obj/machinery/bot/B = A
+			if (B.health > 0)
+				T = B
+				break
 
 	if (T != target_mob)
 		target_mob = T
