@@ -62,7 +62,11 @@
 		),
 		"gym" = new /datum/holodeck_program(/area/holodeck/source_gym),
 		"battlemonsters" = new /datum/holodeck_program(/area/holodeck/source_battlemonsters),
-		"turnoff" = new /datum/holodeck_program(/area/holodeck/source_plating, list())
+		"turnoff" = new /datum/holodeck_program(/area/holodeck/source_plating, 
+			list(
+				'sound/music/battlemonsters_theme.ogg'
+			)
+		)
 	)
 
 	holodeck_supported_programs = list(

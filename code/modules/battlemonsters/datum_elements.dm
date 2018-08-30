@@ -25,14 +25,16 @@
 	icon_state = "fire"
 	elements = BATTLE_MONSTERS_ELEMENT_FIRE
 	attack_add = 0.25
-	description = "Great balls of %ELEMENT_AND circles around them and their %WEAPON_AND."
+	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN
+	description = "Great balls of %ELEMENT_AND circles around them and their %WEAPON_AND. Firebrands are vikings who hail from the North, who grew a dedication to mastering fire after countless harsh winters."
 	rarity = BATTLE_MONSTERS_RARITY_COMMON
 
 /datum/battle_monsters/element/fire/lava
 	name = "Fireborn"
 	id = "lava"
 	icon_state = "fireborn"
-	description = "These types of %SPECIES are born from of the magic %ELEMENT_AND of dark wizards and witches."
+	description = "They're covered head to toe in a firey blaze. These types of %SPECIES are born from magic %ELEMENT_AND of dark wizards and witches. They make excellent spellcasters."
+	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SPELLCASTER
 	special_effects = "Element Spell Immune: %NAME is immune to all %ELEMENT_OR based spell and trap cards if another revealed fire element monster is on the same side of the field."
 	power_add = 100
 	rarity = BATTLE_MONSTERS_RARITY_UNCOMMON
@@ -41,7 +43,7 @@
 	name = "Molten"
 	id = "molten"
 	icon_state = "magma"
-	description = "Liquid %ELEMENT_AND drips from their eyes and %WEAPON_AND."
+	description = "Liquid %ELEMENT_AND drips from their eyes and %WEAPON_AND. It is clear that %NAME came from the depths of below the earth."
 	special_effects = "Element Monster Immune: %NAME is immune to all %ELEMENT_OR based monster attacks if another revealed fire element monster is on the same side of the field."
 	tip = "%NAME can still be attacked, however the attacker's special effects will be nullified and the attack will be considered a draw if %NAME lost battle calculation."
 	power_add = 250
@@ -65,6 +67,7 @@
 	id = "burned"
 	icon_state = "burned"
 	elements = BATTLE_MONSTERS_ELEMENT_FIRE | BATTLE_MONSTERS_ELEMENT_DARK
+	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SPELLCASTER
 	description = "Visible scorch marks and bandages appear all over their body from centuries of using %ELEMENT_AND. This %SPECIES is clearly a veteran of using the magical arts."
 	special_effects = "Battle Reminder: If a %ELEMENT_OR type monster is sent to a graveyard, the card's owner can choose to reveal and send one fire element monster from the owner's hand to the graveyard in it's place."
 	tip = "The chosen monster card sent in the other person's place will have it's special effects triggered as if it was revealed on the field."
@@ -77,7 +80,7 @@
 	id = "scorching_blade"
 	icon_state = "scorching_blade"
 	elements = BATTLE_MONSTERS_ELEMENT_FIRE | BATTLE_MONSTERS_ELEMENT_STONE
-	description = "A giant, %ELEMENT_AND katana adorns their hip. The blade itself looks extremely unstable and pulsates with strange magic every now and then."
+	description = "A giant, %ELEMENT_AND katana adorns their hip. The blade itself looks extremely unstable and pulsates with strange magic every now and then. Warriors of the east looking to improve their mastery of fire usually look to perform the Scorching Blade ritual."
 	special_effects = "Revenge: If %NAME is sent to a graveyard, the card's owner can choose to send one non-%ELEMENTS_OR based monster on the field to the graveyard as well."
 	tip = "If you know what you're doing, you can also send one of your own monsters to the graveyard with it."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN
@@ -87,9 +90,9 @@
 	name = "Burning Sun God"
 	id = "burning_sun_god"
 	icon_state = "burning_sun_god"
-	elements = BATTLE_MONSTERS_ELEMENT_FIRE | BATTLE_MONSTERS_ELEMENT_LIGHT
-	description = "Upon closer examination, various %ELEMENT_AND symbols are etched across their body, and a slightly visible shadow of The Burning Sun God Ra'Kan is cast behind them. It's clear that the god is using this %SPECIES as a vessel for it's bidding."
+	description = "Upon closer examination, various %ELEMENT_AND symbols are etched across their body. A slightly visible shadow of The Burning Sun God Ra'Kan is cast behind them. It's clear that the god is using them as a vessel for it's bidding."
 	special_effects = "Godly Protection: %ELEMENT_OR monsters cannot attack or be attacked by %NAME."
+	defense_type = BATTLE_MONSTERS_DEFENSETYPE_GOD
 	tip = "%NAME can still be affected by traps or spells."
 	power_add = 2000
 	rarity = BATTLE_MONSTERS_RARITY_LEGENDARY
@@ -110,7 +113,7 @@
 	icon_state = "thunder"
 	power_add = 500
 	attack_add = 0.25
-	description = "A symbol on their forehead indicates that they are a %SPECIES thunderchild, born of the incredibly horny god Bleus after coitus with a %SPECIES."
+	description = "A symbol on their forehead indicates that they are a %SPECIES thunderchild, born of the incredibly horny god Bleus after coitus with a %SPECIES. Children born of Bleus tend to show a god-like control over energy elements, such as lightning."
 	special_effects = "Charge: %NAME can attack as soon as it's revealed, regardless of other penalties."
 	tip = "Remember that 'played' is not the same as 'revealed', a card is considered 'played' when it's put into the field from the owner's hand."
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_GOD
@@ -121,7 +124,7 @@
 	name = "Cybernetic"
 	id = "powered"
 	icon_state = "powered"
-	description = "Upon closer examination, it seems that they have advanced cybernetics."
+	description = "Upon closer examination, it seems that they have advanced cybernetics. It is unknown where these cybernetics came from, or when, for that matter."
 	special_effects = "Null Field: When %NAME is visible, all the opponent's special effects are nullified during the opponent's turn."
 	rarity = BATTLE_MONSTERS_RARITY_RARE
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_MACHINE
@@ -131,7 +134,7 @@
 	name = "Dragonslayer"
 	id = "dragonslayer"
 	icon_state = "dragonslayer"
-	description = "They're wearing a dragonscale cape, and dragon skull shoulderpads."
+	description = "They're wearing a dragonscale cape, and dragon skull shoulderpads. Dragonslayers can commonly be seen in the mountains hunting dragons for their prized bones and scales."
 	special_effects = "Dragonslayer: When %NAME is summoned, the card's owner can choose to send a dragon to the graveyard as long as the dragon's attack points does not exceed %NAME's attack points."
 	rarity = BATTLE_MONSTERS_RARITY_RARE
 	rarity_score = 1
@@ -146,11 +149,24 @@
 	rarity = BATTLE_MONSTERS_RARITY_RARE
 	rarity_score = 1
 
+/datum/battle_monsters/element/energy/dragongod
+	name = "Dragon God"
+	id = "dragon_god"
+	icon_state = "dragon_god"
+	defense_type = BATTLE_MONSTERS_DEFENSETYPE_GOD | BATTLE_MONSTERS_DEFENSETYPE_GIANT_DRAGON
+	elements = BATTLE_MONSTERS_ELEMENT_ENERGY
+	description = "Their %ELEMENT_AND wings are absolutely massive, and their breath constantly exhales deadly %ELEMENT_AND. This being is a common god among dragons, and it is theorized that one of the many breeds of dragons came from %NAME."
+	special_effects = "Godly Protection: %ELEMENT_OR monsters cannot attack or be attacked by %NAME.<br>Wingspan: When %NAME is summoned, all non-flying monsters on the field are sent to the graveyard."
+	tip = "%NAME can still be affected by traps or spells.<br>%NAME can also send friendly units to the graveyard."
+	power_add = 2000
+	rarity = BATTLE_MONSTERS_RARITY_LEGENDARY
+	rarity_score = 3
+
 /datum/battle_monsters/element/water
 	name = "Water"
 	id = "water"
 	icon_state = "water"
-	description = "Their %WEAPON_AND is coated with magical water."
+	description = "Their %WEAPON_AND is coated with magical shifting water."
 	elements = BATTLE_MONSTERS_ELEMENT_WATER
 	rarity = BATTLE_MONSTERS_RARITY_COMMON
 
@@ -158,7 +174,7 @@
 	name = "Morphling"
 	id = "morphling"
 	icon_state = "water2"
-	description = "Upon closer examination, it appears that they can morph into various shapes using the magic of %ELEMENT_AND."
+	description = "Upon closer examination, it appears that they can morph into various shapes using the magic of %ELEMENT_AND. Morphlings can common be seen near rivers, lakes, or streams harrassing travelers who dare to take a drink from the protected waters."
 	special_effects = "Morph: %NAME is automatically switched to defense mode if they attack, and automatically switched to attack mode if they succesfully defend from an attack. %NAME cannot be switched to attack mode or defense mode manually."
 	rarity = BATTLE_MONSTERS_RARITY_UNCOMMON
 
@@ -166,20 +182,29 @@
 	name = "Rain"
 	id = "rain"
 	icon_state = "raincloud"
-	description = "Depressing rainclouds hover above them."
+	description = "Depressing rainclouds hover above them. Such rainclouds are usually caused by a curse given by witches for the penalty of being too sad."
 	special_effects = "Dark Rainclouds: %NAME is immune to all non %ELEMENT_OR based trap and spell cards as long as %NAME attacked on the owner's previous turn."
 	power_mul = 0.75
 	attack_add = 0.5
 	rarity = BATTLE_MONSTERS_RARITY_UNCOMMON
 
 /datum/battle_monsters/element/water/trench_pirate
-	name = "Trench Pirate"
+	name = "Trench"
 	id = "trench_pirate"
-	description = "They're covered entirely with seaweed and barnacles."
+	description = "They're covered entirely with seaweed and barnacles. They wear an eyepatch and a bandana, and wield a %WEAPON_AND fearsomely. Rumor has it that Trench beings were shipwrecked sailors whose bodies sunk into marine trenches into the hells below."
 	special_effects = "Cheating Tides: %NAME cannot be attack or be attacked by non %ELEMENT based monster cards as long as %NAME attacked on the owner's previous turn."
 	elements = BATTLE_MONSTERS_ELEMENT_WATER | BATTLE_MONSTERS_ELEMENT_DARK
 	rarity = BATTLE_MONSTERS_RARITY_RARE
 	rarity_score = 1
+
+/datum/battle_monsters/element/water/typhoon_god
+	name = "Typhoon Lord"
+	id = "typhoon_lord"
+	description = "Their lower body resembles much of a fish, with massive tidal waves surging from under them. %NAME commonly sends typoons to villages near the waters that threaten the local sealife in the area."
+	special_effects = "Tidal Wave: When %NAME is summoned, all non water element monsters, traps, and spells on the field are sent to the graveyard."
+	elements = BATTLE_MONSTERS_ELEMENT_WATER
+	rarity = BATTLE_MONSTERS_RARITY_MYTHICAL
+	rarity_score = 2
 
 /datum/battle_monsters/element/ice
 	name = "Ice"
@@ -194,21 +219,55 @@
 	name = "Igloo Defender"
 	id = "igloo"
 	icon_state = "igloo"
-	description = "Behind them is a giant igloo."
-	special_effects = "Master Defender: As long as %NAME is visible, it's owner cannot be attacked by monsters. "
+	description = "They stand silently outside an igloo in a freezing blizzard with a sturdy grip on their %WEAPON_AND. They seem unbothered by the cold."
+	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SHIELD
+	power_add = 200
+	special_effects = "Master Defender: As long as %NAME is visible, its owner cannot be attacked by monsters. "
 	rarity = BATTLE_MONSTERS_RARITY_UNCOMMON
 
 /datum/battle_monsters/element/ice/yeti
 	name = "Yeti"
 	id = "yeti"
 	icon_state = "white"
-	description = "They're covered head to toe in white, absorbant magical fur."
+	description = "They're covered head to toe in white, absorbant magical fur. Their %WEAPON_AND is ferocious, especially for a %SPECIES."
 	special_effects = "Spell Absorbtion: As long as %NAME is visible, it's owner cannot be affected by traps or spells."
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_CREATURE
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLAWS
 	power_add = 200
 	rarity = BATTLE_MONSTERS_RARITY_RARE
 	rarity_score = 1
+
+/datum/battle_monsters/element/ice/frostlord
+	name = "Frostlord"
+	id = "frostlord"
+	icon_state = "ice"
+	description = "They're wearing a large crown made out of ice and diamonds, and a royal cape made out magical yeti fur. Frostlords gain their title by defeating a yeti in combat by wrestling it to death."
+	special_effects = "Royal Decree: As long as there are 2 other frost element monsters on the same side of the field, %NAME cannot be sent to the graveyard.<br>Spell Immunity: %NAME cannot be affected by traps or spells."
+	elements = BATTLE_MONSTERS_ELEMENT_ICE
+	power_add = 1000
+	rarity = BATTLE_MONSTERS_RARITY_RARE
+
+/datum/battle_monsters/element/ice/frost_guardian
+	name = "Frost Guardian"
+	id = "frostguardian"
+	icon_state = "ice"
+	description = "They're wearing incredibly bulky armor, made entirely out of ice. Their still posture compliments the age-long growing of the iciles forming on their %WEAPON_AND."
+	special_effects = "Best Defense: As long as %NAME is on the field, its owner cannot lose life points from monster battles."
+	attack_mul = 0
+	elements = BATTLE_MONSTERS_ELEMENT_ICE
+	power_add = 1000
+	rarity = BATTLE_MONSTERS_RARITY_RARE
+
+/datum/battle_monsters/element/ice/blizard_god
+	name = "Blizard God"
+	id = "blizard_god"
+	icon_state = "frost_god"
+	description = "Their general %SPECIES-like figure is clouded in a massive %ELEMENT_AND storm. All that come close to seeing it's true form usually perish from frostbite."
+	special_effects = "Godly Protection: As long as a frost element monster other than %NAME is on the field, %NAME cannot be attacked by monsters or spells."
+	defense_type = BATTLE_MONSTERS_DEFENSETYPE_GOD
+	power_add = 1000
+	rarity = BATTLE_MONSTERS_RARITY_LEGENDARY
+	rarity_score = 3
 
 /datum/battle_monsters/element/earth
 	name = "Earth"
@@ -218,7 +277,7 @@
 	elements = BATTLE_MONSTERS_ELEMENT_EARTH
 	rarity = BATTLE_MONSTERS_RARITY_COMMON
 
-/datum/battle_monsters/element/treant
+/datum/battle_monsters/element/earth/treant
 	name = "Treant"
 	id = "treant"
 	icon_state = "treant"
@@ -227,7 +286,7 @@
 	defense_mul = 1.25
 	rarity = BATTLE_MONSTERS_RARITY_UNCOMMON
 
-/datum/battle_monsters/element/bonfire
+/datum/battle_monsters/element/earth/bonfire
 	name = "Bonfire"
 	id = "bonfire"
 	icon_state = "bonfire"
@@ -237,7 +296,7 @@
 	defense_mul = 1.25
 	rarity = BATTLE_MONSTERS_RARITY_UNCOMMON
 
-/datum/battle_monsters/element/fairy
+/datum/battle_monsters/element/earth/fairy
 	name = "Fairy"
 	id = "fairy"
 	icon_state = "fairy"
@@ -250,6 +309,19 @@
 	defense_mul = 0.5
 	rarity = BATTLE_MONSTERS_RARITY_RARE
 	rarity_score = 1
+
+/datum/battle_monsters/element/earth/forest_god
+	name = "Forest God"
+	id = "frost_god"
+	icon_state = "earth_god"
+	elements = BATTLE_MONSTERS_ELEMENT_EARTH | BATTLE_MONSTERS_ELEMENT_WATER | BATTLE_MONSTERS_ELEMENT_STONE
+	defense_type = BATTLE_MONSTERS_DEFENSETYPE_GOD | BATTLE_MONSTERS_DEFENSETYPE_GIANT
+	description = "They have roots for feet, and massive tree trunts for arms. Their overall size rivals those of the greatest manmade structures on earth. They carry around a giant %WEAPON_AND made sculpted entirely out of the largest trees of the Great Forest."
+	special_effects = "Revenge of the Earth: When a %ELEMENT_OR element is sent to the graveyard, the card responsible will also be sent to the graveyard."
+	power_mul = 2000
+	defense_mul = 2
+	rarity = BATTLE_MONSTERS_RARITY_LEGENDARY
+	rarity_score = 3
 
 /datum/battle_monsters/element/stone
 	name = "Stone"
@@ -300,7 +372,7 @@
 	name = "Potassium"
 	id = "potassium"
 	icon_state = "potas"
-	description = "They're made entirely out of bananas, for some reason."
+	description = "They're made entirely out of bananas, for some reason. Even their %WEAPON_AND is a banana. Everything is bananas."
 	special_effects = "Explosion: If a visble water element monster exists on the field when this card is revealed, send this card and all monsters with under <1000> defense points on the field to the graveyard.<br>Flash: If a visible Potassium prefixed monster is on the field when this card is revealed, the opponent's turn is skipped and %NAME is sent to the graveyard."
 	rarity = BATTLE_MONSTERS_RARITY_MYTHICAL
 	rarity_score = 2
