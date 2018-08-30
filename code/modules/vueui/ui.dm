@@ -245,9 +245,14 @@ main ui datum.
 			. = TRUE
 			ndata = ret
 		src.data = ndata
-	href_list["vueui"] = src // Let's pass our UI object to object for it to do things.
 	var/topicReturn = 0
 	if(!href_list["vueuipushonly"])
+		if(href_list["vueuihrefjson"])
+			var/json_href = json_decode(href_list["vueuihrefjson"])
+			if(json_href)
+				for(var/hvar in json_href)
+					href_list[hvar] = json_href[hvar]
+		href_list["vueui"] = src // Let's pass our UI object to object for it to do things.
 		topicReturn = object.Topic(href, href_list)
 	if(. || topicReturn)
 		. = null

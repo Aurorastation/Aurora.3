@@ -41,12 +41,8 @@ export default {
         }
         return
       }
-      var sendparams = []
-      for(var val in this.params) {
-        sendparams.push(encodeURIComponent(val) + "=" + encodeURIComponent(this.params[val]))
-      }
       var r = new XMLHttpRequest()
-      var sendUrl = "?src=" + Store.state.uiref + "&" + sendparams.join("&")
+      var sendUrl = "?src=" + Store.state.uiref + "&vueuihrefjson=" + encodeURIComponent(JSON.stringify(this.params))
       if (this.pushState) {
         sendUrl += "&" + Store.getStatePushString()
       }
