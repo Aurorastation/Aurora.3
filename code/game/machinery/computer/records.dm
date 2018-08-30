@@ -93,5 +93,3 @@
 	if(href_list["setactive"])
 		active = SSrecords.find_record("id", href_list["setactive"])
 		SSvueui.check_uis_for_change(src)
-
-#define UIDEBUG
