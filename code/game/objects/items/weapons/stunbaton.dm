@@ -114,7 +114,7 @@
 	var/stun = stunforce
 	var/mob/living/L = M
 
-	if(user.disabilities & PACIFIST)
+	if(user.is_pacified())
 		to_chat(user, "<span class='notice'>You don't want to risk hurting [M]!</span>")
 		return 0
 
