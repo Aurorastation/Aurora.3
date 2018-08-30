@@ -1,10 +1,16 @@
 <template>
   <div>
-    Testing
-    <div v-for="record in allrecords" :key="record.id">
-      {{ record.id }}:{{ record.name }} <vui-button :params="{ setactive: record.id}">Activate</vui-button>
+    <div>
+      <vui-button :class="{ selected: activeview == 'list'}" @click="activeview = 'list'">List</vui-button>
+      <template v-if="active">
+        <vui-button :class="{ selected: activeview == 'general'}" @click="activeview = 'general'">General</vui-button>
+        <vui-button :class="{ selected: activeview == 'security'}" :disabled="!active.security" v-if="avaivabletypes & 4" @click="activeview = 'security'">Security</vui-button>
+        <vui-button :class="{ selected: activeview == 'medical'}" :disabled="!active.medical" v-if="avaivabletypes & 2" @click="activeview = 'medical'">Medical</vui-button>
+        <vui-button :params="{ setactive: 'null'}" @click="activeview = 'list'" push-state>Unload record</vui-button>
+      </template>
     </div>
-    <vui-button :params="{ setactive: 'null'}">Activate</vui-button>
+    <hr>
+    <component v-if="activeview" :is="&quot;view-records-&quot; + activeview"/>
   </div>
 </template>
 

@@ -68,6 +68,7 @@
 			"activeview" = "list" 
 			)
 	
+	VUEUI_SET_CHECK(data["avaivabletypes"], records_type, ., data)
 	LAZYINITLIST(data["allrecords"])
 	for(var/tR in SSrecords.records)
 		var/datum/record/general/R = tR
@@ -77,7 +78,11 @@
 		VUEUI_SET_CHECK(data["allrecords"][R.id]["rank"], R.rank, ., data)
 
 	if(active)
-		var/returned = active.Listify(1, list(), data["active"])
+		var/excluded = list()
+		if(!(records_type & RECORD_GENERAL)) excluded += active.advanced_fields
+		if(!(records_type & RECORD_SECURITY)) excluded += list("security")
+		if(!(records_type & RECORD_MEDICAL)) excluded += list("medical")
+		var/returned = active.Listify(1, excluded, data["active"])
 		if(returned)
 			data["active"] = returned
 			. = data
@@ -88,3 +93,5 @@
 	if(href_list["setactive"])
 		active = SSrecords.find_record("id", href_list["setactive"])
 		SSvueui.check_uis_for_change(src)
+
+#define UIDEBUG

@@ -335,7 +335,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		character.buckled.set_dir(character.dir)
 
 	SSticker.mode.handle_latejoin(character)
-	if(SSjobs.ShouldCreateRecords(rank))
+	if(SSjobs.ShouldCreateRecords(character.mind))
 		if(character.mind.assigned_role != "Cyborg")
 			SSrecords.generate_record(character)
 			SSticker.minds += character.mind//Cyborgs and AIs handle this in the transform proc.	//TODO!!!!! ~Carn

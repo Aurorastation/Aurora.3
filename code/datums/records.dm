@@ -10,7 +10,7 @@
 	if(!copied)
 		copied = new src.type()
 	for(var/variable in src.vars)
-		if(variable in (SSrecords.excluded_fields || src.excluded_fields)) continue
+		if(variable in (SSrecords.excluded_fields | src.excluded_fields)) continue
 		if(istype(src.vars[variable], /datum/record) || istype(src.vars[variable], /list))
 			copied.vars[variable] = src.vars[variable].Copy()
 		else
@@ -24,7 +24,7 @@
 	else
 		record = to_update || list()
 	for(var/variable in src.vars)
-		if(!(variable in (SSrecords.excluded_fields || src.excluded_fields || excluded)))
+		if(!(variable in (SSrecords.excluded_fields | src.excluded_fields | excluded)))
 			if(deep && (istype(src.vars[variable], /datum/record)))
 				if(to_update)
 					var/listified = src.vars[variable].Listify(to_update = to_update[variable])
