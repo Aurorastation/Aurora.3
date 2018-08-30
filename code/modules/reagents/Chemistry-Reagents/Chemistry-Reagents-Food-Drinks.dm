@@ -210,6 +210,16 @@
 		return
 	..()
 
+/datum/reagent/nutriment/protein/synthetic // Bad for Skrell!
+	name = "synthetic protein"
+	description = "A cheaper alternative to actual protein."
+	id = "synprotein"
+	color = "#441111"
+	blood_factor = 10
+	taste_description = "meat"
+	nutriment_factor = 10
+	attrition_factor = (REM * 2)/BASE_MAX_NUTRITION // Increases attrition rate.
+
 /datum/reagent/nutriment/protein/tofu //Good for Skrell!
 	name = "tofu protein"
 	id = "tofu"

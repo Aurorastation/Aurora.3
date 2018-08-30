@@ -37,6 +37,12 @@
 	name = "synthetic meat"
 	desc = "A synthetic slab of flesh."
 
+/obj/item/weapon/reagent_containers/food/snacks/meat/biogenerated/Initialize()
+	. = ..()
+	reagents.remove_reagent("protein", INFINITY)
+	reagents.remove_reagent("triglyceride", INFINITY)
+	reagents.add_reagent("synprotein",8)
+
 // TODO cancelled, subtypes are fine. recipes use istype checks
 /obj/item/weapon/reagent_containers/food/snacks/meat/human
 
@@ -63,14 +69,17 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/biogenerated
 	name = "bio meat"
-	desc = "Did this come from the Biogenerator, or is it a biohazard? Perhaps it is both."
+	desc = "Did this come from the biogenerator, or is it a biohazard?"
 	icon_state = "plantmeat"
 	filling_color = "#A8AA00"
+	nutriment_desc = list("plant matter" = 8)
+	nutriment_amt = 8
+	nutriment_type = "synnutriment"
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/biogenerated/Initialize()
 	. = ..()
-	reagents.clear_reagents()
-	reagents.add_reagent("nutriment",6)
+	reagents.remove_reagent("protein", 6)
+	reagents.remove_reagent("triglyceride", 2)
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/chicken/Initialize()
 	. = ..()
