@@ -38,10 +38,12 @@
 		user.drop_from_inventory(src)
 		new_deck.icon_state = "hand"
 		user.put_in_inactive_hand(new_deck)
-
-	if(src.loc == user)
 		to_chat(user,span("notice","You combine \the [src] and the [adding_card] to form a hand."))
 	else
+		new_deck.set_dir(dir)
+		new_deck.pixel_x = pixel_x
+		new_deck.pixel_y = pixel_y
+		new_deck.layer = max(layer,new_deck.layer)
 		user.visible_message(\
 			span("notice","\The [user] combines \the [src] and the [adding_card] to form a deck."),\
 			span("notice","You combine \the [src] and the [adding_card] to form a deck.")\

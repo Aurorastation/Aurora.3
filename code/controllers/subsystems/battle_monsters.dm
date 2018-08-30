@@ -256,10 +256,7 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 		"Reptile" = BATTLE_MONSTERS_DEFENSETYPE_REPTILE,
 		"Feline" = BATTLE_MONSTERS_DEFENSETYPE_FELINE,
 		"Insect" = BATTLE_MONSTERS_DEFENSETYPE_INSECT,
-		"Demon" = BATTLE_MONSTERS_DEFENSETYPE_DEMON,
-
-		"Dragon" = BATTLE_MONSTERS_DEFENSETYPE_DRAGON,
-		"Cyborg" = BATTLE_MONSTERS_DEFENSETYPE_CYBORG,
+		"Demon" = BATTLE_MONSTERS_DEFENSETYPE_DEMON
 	)
 
 	var/list/included_elements = list()

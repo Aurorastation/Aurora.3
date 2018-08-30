@@ -46,7 +46,7 @@
 	id = "reflect_spell"
 	icon_state = "reflect_spell"
 	elements = BATTLE_MONSTERS_ELEMENT_NEUTRAL
-	rarity = 0.5
+	rarity = 1
 	description = "a red laser beam being reflected by a blue shield."
 	special_effects = "TRIGGER: When the opponent plays a spell card. Single use.<br>EFFECT: The spell card's effect is instead applied to the chosen target, and sent to the graveyard."
-	rarity_score = 2
+	rarity_score = 1

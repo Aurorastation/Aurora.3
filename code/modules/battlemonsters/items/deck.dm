@@ -56,16 +56,18 @@
 		qdel(src)
 
 /obj/item/battle_monsters/deck/MouseDrop_T(var/atom/movable/C, mob/user) //Dropping C onto the card
-	if(istype(C,/obj/item/battle_monsters/deck/) && C.loc == loc)
+
+	if(istype(C,/obj/item/battle_monsters/deck/))
+
 		var/obj/item/battle_monsters/deck/added_deck = C
-		added_deck.stored_card_names += stored_card_names
+		stored_card_names += added_deck.stored_card_names
 
 		user.visible_message(\
 			span("notice","\The [user] combines two decks together."),\
 			span("notice","You combine too decks together.")\
 		)
 
-		qdel(src)
+		qdel(C)
 		return
 
 	. = ..()
