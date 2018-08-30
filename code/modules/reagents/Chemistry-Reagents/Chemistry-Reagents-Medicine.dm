@@ -451,15 +451,15 @@
 	scannable = 1
 	taste_description = "bitterness"
 	unaffected_species = IS_MACHINE
-	var/last_taste_time = -100
+	var/last_taste_time = -10000
 
 /datum/reagent/hyronalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
-		if(last_taste_time + 500 < world.time) // Not to spam message
+		if(last_taste_time + 950 < world.time) // Not to spam message
 			to_chat(M, "<span class='danger'>Your body withers as you feel a searing pain throughout.</span>")
 			last_taste_time = world.time
-		metabolism = REM * 0.33
-		M.adjustToxLoss(30 * removed) // Tested numbers myself
+		metabolism = REM * 0.22
+		M.adjustToxLoss(45 * removed) // Tested numbers myself
 	else
 		M.apply_radiation(-30 * removed)
 
@@ -474,15 +474,15 @@
 	scannable = 1
 	taste_description = "bitterness"
 	unaffected_species = IS_MACHINE
-	var/last_taste_time = -100
+	var/last_taste_time = -10000
 
 /datum/reagent/arithrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
-		if(last_taste_time + 250 < world.time) // Not to spam message
+		if(last_taste_time + 450 < world.time) // Not to spam message
 			to_chat(M, "<span class='danger'>Your body withers as you feel a searing pain throughout.</span>")
 			last_taste_time = world.time
-		metabolism = REM * 0.33
-		M.adjustToxLoss(120 * removed) // Tested numbers myself
+		metabolism = REM * 0.195
+		M.adjustToxLoss(115 * removed) // Tested numbers myself
 	else
 		M.apply_radiation(-70 * removed)
 		M.adjustToxLoss(-10 * removed)

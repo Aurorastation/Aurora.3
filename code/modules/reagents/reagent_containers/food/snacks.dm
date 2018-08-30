@@ -36,6 +36,9 @@
 	if (nutriment_amt)
 		reagents.add_reagent(nutriment_type, nutriment_amt, nutriment_desc)
 
+/obj/item/weapon/reagent_containers/food/snacks/standard_splash_mob(var/mob/user, var/mob/target)
+	return 1 //Returning 1 will cancel everything else in a long line of things it should do.
+
 /obj/item/weapon/reagent_containers/food/snacks/proc/On_Consume(var/mob/eater, var/mob/feeder = null)
 	if(!reagents.total_volume)
 		eater.visible_message("<span class='notice'>[eater] finishes eating \the [src].</span>","<span class='notice'>You finish eating \the [src].</span>")
@@ -57,7 +60,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/attack_self(mob/user as mob)
 	return
 
-/obj/item/weapon/reagent_containers/food/snacks/attack(mob/M as mob, mob/user as mob, def_zone)
+/obj/item/weapon/reagent_containers/food/snacks/afterattack(mob/M as mob, mob/user as mob, def_zone)
 	if(!reagents.total_volume)
 		user << "<span class='danger'>None of [src] left!</span>"
 		qdel(src)
@@ -157,6 +160,8 @@
 /obj/item/weapon/reagent_containers/food/snacks/examine(mob/user)
 	if(!..(user, 1))
 		return
+	if(name != initial(name))
+		user << "<span class='notice'>You know the item as [initial(name)], however a little piece of propped up paper indicates it's \a [name].</span>"
 	if (coating)
 		user << "<span class='notice'>It's coated in [coating.name]!</span>"
 	if (bitecount==0)
@@ -169,6 +174,26 @@
 		user << "<span class='notice'>\The [src] was bitten multiple times!</span>"
 
 /obj/item/weapon/reagent_containers/food/snacks/attackby(obj/item/weapon/W as obj, mob/user as mob)
+
+	if(istype(W,/obj/item/weapon/pen))
+
+		var/selection = alert(user,"Which attribute do you wish to edit?","Food Editor","Name","Description","Cancel")
+		if(selection == "Name")
+			var/input_clean_name = sanitize(input(user,"What is the name of this food?", "Set Food Name") as text|null)
+			if(input_clean_name)
+				user.visible_message("<span class='notice'>\The [user] labels \the [name] as \"[input_clean_name]\".</span>")
+				name = input_clean_name
+			else
+				name = initial(name)
+		else if(selection == "Description")
+			var/input_clean_desc = sanitize(input(user,"What is the description of this food?", "Set Food Description") as text|null)
+			if(input_clean_desc)
+				user.visible_message("<span class='notice'>\The [user] adds a note to \the [name].</span>")
+				desc = input_clean_desc
+			else
+				desc = initial(desc)
+		return
+
 	if(istype(W,/obj/item/weapon/storage))
 		..() // -> item/attackby()
 		return

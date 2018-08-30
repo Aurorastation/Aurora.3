@@ -235,7 +235,7 @@
 	fruit = list("nifberries" = 1)
 	reagents = list("spacespice" = 1)
 	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough
+		/obj/item/weapon/reagent_containers/food/snacks/flatbread
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/tajaran_bread
 	reagent_mix = RECIPE_REAGENT_REPLACE
