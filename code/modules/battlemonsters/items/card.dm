@@ -14,7 +14,10 @@
 
 	//Card information here
 
-/obj/item/battle_monsters/card/Initialize(var/mapload,var/turf/loc,var/prefix,var/root,var/title,var/trap,var/spell)
+/obj/item/battle_monsters/card/New(var/turf/loc,var/prefix,var/root,var/title,var/trap,var/spell)
+	. = ..()
+
+/obj/item/battle_monsters/card/Initialize(var/mapload,var/prefix,var/root,var/title,var/trap,var/spell)
 	. = ..()
 	Generate_Card(prefix, root, title, trap, spell)
 

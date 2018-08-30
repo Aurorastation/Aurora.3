@@ -200,6 +200,14 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 	switch(card_defense_type)
 		if(BATTLE_MONSTERS_DEFENSETYPE_NONE)
 			return "monster"
+		if(BATTLE_MONSTERS_DEFENSETYPE_GIANT_DRAGON)
+			return "giant dragon"
+		if(BATTLE_MONSTERS_DEFENSETYPE_FERALDRAGON)
+			return "feral dragon"
+		if(BATTLE_MONSTERS_DEFENSETYPE_DRAGONHYBRID)
+			return "human-dragon hybrid"
+		if(BATTLE_MONSTERS_DEFENSETYPE_DRAGON)
+			return "dragon"
 		if(BATTLE_MONSTERS_DEFENSETYPE_DEMIGOD)
 			return "demi-god"
 		if(BATTLE_MONSTERS_DEFENSETYPE_CYBORG)
@@ -212,12 +220,6 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 			return "lizardman"
 		if(BATTLE_MONSTERS_DEFENSETYPE_ANTMAN)
 			return "antman"
-		if(BATTLE_MONSTERS_DEFENSETYPE_FERALDRAGON)
-			return "feral dragon"
-		if(BATTLE_MONSTERS_DEFENSETYPE_DRAGONHYBRID)
-			return "human-dragon hybrid"
-		if(BATTLE_MONSTERS_DEFENSETYPE_DRAGON)
-			return "dragon"
 		if(BATTLE_MONSTERS_DEFENSETYPE_GIANT)
 			return "colossus"
 		if(BATTLE_MONSTERS_DEFENSETYPE_REPTILE)
@@ -236,8 +238,10 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 			return "creature"
 		if(BATTLE_MONSTERS_DEFENSETYPE_COLOSSUS)
 			return "colossus"
-		if(BATTLE_MONSTERS_DEFENSETYPE_GIANT_DRAGON)
-			return "giant dragon"
+		if(BATTLE_MONSTERS_DEFENSETYPE_FLYING)
+			return "winged monster"
+
+	return "unknown"
 
 /datum/controller/subsystem/battle_monsters/proc/GetSpecies(card_defense_type, var/and_text = " and ")
 
@@ -247,11 +251,15 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 		"God" = BATTLE_MONSTERS_DEFENSETYPE_GOD,
 		"Machine" = BATTLE_MONSTERS_DEFENSETYPE_MACHINE,
 		"Creature" = BATTLE_MONSTERS_DEFENSETYPE_CREATURE,
+		"Flying" = BATTLE_MONSTERS_DEFENSETYPE_FLYING,
 		"Colossus" = BATTLE_MONSTERS_DEFENSETYPE_COLOSSUS,
-		"Dragon" = BATTLE_MONSTERS_DEFENSETYPE_DRAGON,
 		"Reptile" = BATTLE_MONSTERS_DEFENSETYPE_REPTILE,
 		"Feline" = BATTLE_MONSTERS_DEFENSETYPE_FELINE,
-		"Insect" = BATTLE_MONSTERS_DEFENSETYPE_INSECT
+		"Insect" = BATTLE_MONSTERS_DEFENSETYPE_INSECT,
+		"Demon" = BATTLE_MONSTERS_DEFENSETYPE_DEMON,
+
+		"Dragon" = BATTLE_MONSTERS_DEFENSETYPE_DRAGON,
+		"Cyborg" = BATTLE_MONSTERS_DEFENSETYPE_CYBORG,
 	)
 
 	var/list/included_elements = list()

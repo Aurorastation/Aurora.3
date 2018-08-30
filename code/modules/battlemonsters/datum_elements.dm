@@ -192,7 +192,7 @@
 	name = "Trench"
 	id = "trench_pirate"
 	description = "They're covered entirely with seaweed and barnacles. They wear an eyepatch and a bandana, and wield a %WEAPON_AND fearsomely. Rumor has it that Trench beings were shipwrecked sailors whose bodies sunk into marine trenches into the hells below."
-	special_effects = "Cheating Tides: %NAME cannot be attack or be attacked by non %ELEMENT based monster cards as long as %NAME attacked on the owner's previous turn."
+	special_effects = "Cheating Tides: %NAME cannot be attack or be attacked by non %ELEMENT_OR based monster cards as long as %NAME attacked on the owner's previous turn."
 	elements = BATTLE_MONSTERS_ELEMENT_WATER | BATTLE_MONSTERS_ELEMENT_DARK
 	rarity = BATTLE_MONSTERS_RARITY_RARE
 	rarity_score = 1

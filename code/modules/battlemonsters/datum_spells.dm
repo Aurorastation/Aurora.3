@@ -41,7 +41,7 @@
 	tip = "Can be used on facedown cards with an unknown card type. However, if you get the card type wrong, then the spell is wasted."
 	rarity_score = 1
 
-/datum/battle_monsters/spell/destroy_monster
+/datum/battle_monsters/spell/destroy_facedown
 	name = "Guard's Stone Bludgeon"
 	id = "destroy_facedown"
 	icon_state = "stick"
