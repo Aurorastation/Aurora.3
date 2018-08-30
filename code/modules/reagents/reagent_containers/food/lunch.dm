@@ -1,55 +1,20 @@
 var/list/lunchables_lunches_ = list(
-	/obj/item/weapon/reagent_containers/food/snacks/sandwich,
-	/obj/item/weapon/reagent_containers/food/snacks/meatbreadslice/filled,
-	/obj/item/weapon/reagent_containers/food/snacks/tofubreadslice/filled,
-	/obj/item/weapon/reagent_containers/food/snacks/creamcheesebreadslice/filled,
-	/obj/item/weapon/reagent_containers/food/snacks/margheritaslice/filled,
-	/obj/item/weapon/reagent_containers/food/snacks/meatpizzaslice/filled,
-	/obj/item/weapon/reagent_containers/food/snacks/mushroompizzaslice/filled,
-	/obj/item/weapon/reagent_containers/food/snacks/vegetablepizzaslice/filled,
+	/obj/item/weapon/reagent_containers/food/drinks/dry_ramen,
 	/obj/item/weapon/reagent_containers/food/snacks/tastybread,
-	/obj/item/weapon/reagent_containers/food/snacks/liquidfood,
-	/obj/item/weapon/reagent_containers/food/snacks/jellysandwich/cherry,
-	/obj/item/weapon/reagent_containers/food/snacks/salad/tossedsalad,
-	/obj/item/weapon/reagent_containers/food/snacks/koiswaffles,
-	/obj/item/weapon/reagent_containers/food/snacks/funnelcake,
-	/obj/item/weapon/reagent_containers/food/snacks/hotdog,
-	/obj/item/weapon/reagent_containers/food/snacks/tajaran_bread
+	/obj/item/weapon/reagent_containers/food/snacks/meatsnack,
+	/obj/item/weapon/reagent_containers/food/snacks/maps,
+	/obj/item/weapon/reagent_containers/food/snacks/nathisnack,
+	/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean
 )
 
 var/list/lunchables_snacks_ = list(
-	/obj/item/weapon/reagent_containers/food/snacks/donut/jelly,
-	/obj/item/weapon/reagent_containers/food/snacks/donut/cherryjelly,
-	/obj/item/weapon/reagent_containers/food/snacks/muffin,
-	/obj/item/weapon/reagent_containers/food/snacks/popcorn,
+	/obj/item/weapon/reagent_containers/food/snacks/candy,
+	/obj/item/weapon/reagent_containers/food/snacks/chips,
 	/obj/item/weapon/reagent_containers/food/snacks/sosjerky,
 	/obj/item/weapon/reagent_containers/food/snacks/no_raisin,
 	/obj/item/weapon/reagent_containers/food/snacks/spacetwinkie,
 	/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers,
-	/obj/item/weapon/reagent_containers/food/snacks/poppypretzel,
-	/obj/item/weapon/reagent_containers/food/snacks/carrotfries,
-	/obj/item/weapon/reagent_containers/food/snacks/candiedapple,
-	/obj/item/weapon/reagent_containers/food/snacks/applepie,
-	/obj/item/weapon/reagent_containers/food/snacks/cherrypie,
-	/obj/item/weapon/reagent_containers/food/snacks/plumphelmetbiscuit,
-	/obj/item/weapon/reagent_containers/food/snacks/appletart,
-	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/carrot/filled,
-	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/cheese/filled,
-	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/plain/filled,
-	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/orange/filled,
-	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/lime/filled,
-	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/lemon/filled,
-	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/chocolate/filled,
-	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/birthday/filled,
-	/obj/item/weapon/reagent_containers/food/snacks/watermelonslice/filled,
-	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/apple/filled,
-	/obj/item/weapon/reagent_containers/food/snacks/pumpkinpieslice/filled,
 	/obj/item/weapon/reagent_containers/food/snacks/skrellsnacks,
-	/obj/item/weapon/reagent_containers/food/snacks/friedkois,
-	/obj/item/weapon/reagent_containers/food/snacks/meatsnack,
-	/obj/item/weapon/reagent_containers/food/snacks/maps,
-	/obj/item/weapon/reagent_containers/food/snacks/nathisnack,
-	/obj/item/weapon/reagent_containers/food/snacks/adhomian_can
 )
 
 var/list/lunchables_drinks_ = list(
@@ -63,7 +28,8 @@ var/list/lunchables_drinks_ = list(
 	/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea,
 	/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice,
 	/obj/item/weapon/reagent_containers/food/drinks/cans/tonic,
-	/obj/item/weapon/reagent_containers/food/drinks/cans/sodawater
+	/obj/item/weapon/reagent_containers/food/drinks/cans/sodawater,
+	/obj/item/weapon/reagent_containers/food/drinks/cans/koispunch
 )
 
 // This default list is a bit different, it contains items we don't want
