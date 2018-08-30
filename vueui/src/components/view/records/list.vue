@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="record in allrecords" :key="record.id">
-      <vui-button :params="{ setactive: record.id}" @click="activeview = 'general'" push-state>{{ record.id }}: {{ record.name }}</vui-button>
+      <vui-button :params="{ setactive: record.id}" @click="activeview = defaultview" push-state>{{ record.id }}: {{ record.name }}</vui-button>
     </div>
   </div>
 </template>
@@ -13,7 +13,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

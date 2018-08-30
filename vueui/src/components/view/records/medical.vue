@@ -1,5 +1,6 @@
 <template>
   <div>
+    <view-records-general hideAdvanced/>
     Medical shit goes here
   </div>
 </template>
