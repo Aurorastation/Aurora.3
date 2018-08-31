@@ -113,8 +113,8 @@
 	if(active)
 		var/excluded = list()
 		if(!(records_type & RECORD_GENERAL)) excluded += active.advanced_fields
-		if(!(records_type & RECORD_SECURITY)) excluded += list("security")
-		if(!(records_type & RECORD_MEDICAL)) excluded += list("medical")
+		if(!(records_type & RECORD_SECURITY)) excluded += "security"
+		if(!(records_type & RECORD_MEDICAL)) excluded += "medical"
 		var/returned = active.Listify(1, excluded, data["active"])
 		if(returned)
 			data["active"] = returned
@@ -132,3 +132,5 @@
 	if(href_list["setactive_virus"] && (records_type & RECORD_VIRUS))
 		active_virus = SSrecords.find_record("id", text2num(href_list["setactive_virus"]), RECORD_VIRUS)
 		SSvueui.check_uis_for_change(src)
+
+#define UIDEBUG
