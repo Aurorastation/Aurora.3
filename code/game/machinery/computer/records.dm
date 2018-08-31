@@ -133,4 +133,3 @@
 		active_virus = SSrecords.find_record("id", text2num(href_list["setactive_virus"]), RECORD_VIRUS)
 		SSvueui.check_uis_for_change(src)
 
-#define UIDEBUG
