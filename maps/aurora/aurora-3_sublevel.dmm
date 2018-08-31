@@ -712,15 +712,14 @@
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "abL" = (
-/obj/effect/floor_decal/corner/yellow/full{
-	icon_state = "corner_white_full";
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/camera/network/engineering_outpost{
+	c_tag = "Engineering Sublevel - Corridor Camera 4";
+	dir = 8;
+	icon_state = "camera"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	icon_state = "intact";
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/engineering/atmos)
 "abM" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -904,6 +903,22 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "acc" = (
+/obj/effect/floor_decal/corner/yellow/full{
+	icon_state = "corner_white_full";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	icon_state = "intact";
+	dir = 5
+	},
+/obj/machinery/camera/network/engineering_outpost{
+	c_tag = "Engineering Sublevel - Atmospherics West";
+	dir = 4;
+	icon_state = "camera"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
+"acd" = (
 /obj/effect/floor_decal/corner/black{
 	icon_state = "corner_white";
 	dir = 5
@@ -911,16 +926,10 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/omni/filter{
 	name = "CO2 Filter";
-	tag_east = 0;
-	tag_north = 5;
+	tag_east = 5;
+	tag_north = 0;
 	tag_south = 2;
 	tag_west = 1
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/atmos)
-"acd" = (
-/obj/effect/floor_decal/corner/black/full{
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
@@ -3443,21 +3452,13 @@
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
 "aht" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
+/obj/effect/floor_decal/corner/black/full{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "ahu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -29942,6 +29943,43 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
+"bbb" = (
+/obj/machinery/camera/network/engineering_outpost{
+	c_tag = "Engineering Sublevel - Corridor Camera 4";
+	dir = 8;
+	icon_state = "camera"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
+"bbc" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
+"bbd" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
 
 (1,1,1) = {"
 aaa
@@ -50336,10 +50374,10 @@ afv
 aeY
 aaO
 aaO
-aht
 aaO
-aaO
-aht
+bbc
+aei
+bbd
 aaO
 aaO
 akz
@@ -50583,7 +50621,7 @@ aaI
 aaP
 abb
 abb
-abL
+acc
 acq
 acS
 adv
@@ -55733,7 +55771,7 @@ abo
 abo
 abo
 agY
-abo
+bbb
 aih
 aiI
 ajn
@@ -55980,7 +56018,7 @@ aaJ
 aaQ
 abv
 abo
-acc
+acd
 acy
 acX
 adE
@@ -56236,8 +56274,8 @@ aaG
 aaN
 aaZ
 abw
-abw
-acd
+abL
+aht
 abo
 abo
 adF
