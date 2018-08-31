@@ -26822,10 +26822,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "Vq" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -25
-	},
+/obj/structure/ladder/up,
+/obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "Vr" = (
@@ -26835,9 +26833,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "Vs" = (
-/obj/machinery/door/airlock/engineering{
-	name = "Machinery Maintenance";
-	req_access = list(11)
+/obj/item/modular_computer/telescreen/preset/trashcompactor{
+	pixel_x = -32
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
@@ -26852,11 +26849,9 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology/cells/charlie)
 "Vw" = (
-/obj/structure/ladder/up,
-/obj/item/device/radio/intercom{
-	dir = 0;
-	name = "Station Intercom (General)";
-	pixel_x = -27
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Maintenance - Trash Compactor Crushers";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
@@ -26901,24 +26896,16 @@
 	},
 /area/rnd/test_area)
 "VC" = (
-/obj/item/modular_computer/telescreen/preset/trashcompactor{
-	pixel_x = -32
-	},
-/obj/structure/sign/securearea{
-	name = "\improper CAUTION: CRUSHER AHEAD";
-	pixel_x = 0;
-	pixel_y = -32
-	},
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Maintenance - Trash Compactor Crushers";
-	dir = 4
+/obj/machinery/door/airlock/maintenance_hatch{
+	id_tag = "crusher";
+	name = "Compactor Access";
+	req_access = list(12)
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "VD" = (
 /obj/machinery/light/small/emergency{
-	icon_state = "bulb1";
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
@@ -26943,23 +26930,15 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology/cells/alpha)
 "VG" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	id_tag = "crusher";
-	name = "Compactor Access";
-	req_access = list(12)
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/disposal)
-"VH" = (
-/turf/simulated/wall/r_wall,
-/area/rnd/xenobiology/cells/charlie)
-"VI" = (
 /obj/structure/sign/securearea{
 	name = "\improper CAUTION: TRASH COMPACTOR";
 	pixel_x = 0
 	},
 /turf/simulated/wall/r_wall,
 /area/maintenance/disposal)
+"VH" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/xenobiology/cells/charlie)
 "VJ" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/mauve{
@@ -57998,10 +57977,10 @@ aa
 aa
 aa
 aa
-Vo
-Vo
-Vo
-Vo
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -58253,15 +58232,15 @@ aa
 aa
 aa
 aa
-Vo
-Vo
-Vo
-Vw
-VC
-Vo
-Vo
 aa
-aa
+Vo
+Vo
+Vo
+Vo
+Vo
+Vo
+Vo
+Vo
 aa
 aa
 aa
@@ -58510,15 +58489,15 @@ aa
 aa
 aa
 aa
+aa
 Vo
 Vp
-Vs
 Vp
+Vp
+Vw
 VD
-Vp
+Vs
 Vo
-aa
-aa
 aa
 aa
 aa
@@ -58767,15 +58746,15 @@ aa
 aa
 aa
 aa
+aa
 Vo
 Vq
+Vp
 Vt
 Vx
 VE
-VG
+VC
 Vo
-aa
-aa
 aa
 aa
 aa
@@ -59024,15 +59003,15 @@ aa
 aa
 aa
 aa
+aa
 Vo
-Vr
+Vo
+Vp
 Vu
 Vy
 Vz
 Vy
-VI
-aa
-aa
+VG
 aa
 aa
 aa
@@ -59281,15 +59260,15 @@ aa
 aa
 aa
 aa
+aa
+aa
 Vo
-Vp
+Vr
 Vu
 Vz
 Vy
 Vz
 Vo
-aa
-aa
 aa
 aa
 aa
@@ -59538,15 +59517,15 @@ aa
 aa
 aa
 aa
+aa
+aa
 Vo
 Vp
 Vu
 Vy
 Vz
 Vz
-VI
-aa
-aa
+VG
 aa
 aa
 aa
@@ -59795,15 +59774,15 @@ aa
 aa
 aa
 aa
-Vo
-Vo
-Vo
-Vo
-Vo
-Vo
-Vo
 aa
 aa
+Vo
+Vo
+Vo
+Vo
+Vo
+Vo
+Vo
 aa
 aa
 aa

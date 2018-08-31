@@ -1501,18 +1501,16 @@
 /turf/simulated/floor/plating,
 /area/maintenance/library)
 "cN" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
-	},
-/obj/machinery/door/firedoor,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(50)
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/library)
+/area/mine/unexplored)
 "cO" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1539,14 +1537,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/library)
 "cR" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/library)
-"cS" = (
 /obj/effect/decal/warning_stripes,
 /obj/structure/ladder/up{
 	pixel_y = 16
@@ -1554,7 +1544,10 @@
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
-/area/maintenance/library)
+/area/mine/unexplored)
+"cS" = (
+/turf/simulated/floor/plating,
+/area/mine/unexplored)
 "cT" = (
 /obj/effect/decal/warning_stripes,
 /obj/structure/ladder{
@@ -1562,36 +1555,28 @@
 	pixel_y = 16
 	},
 /turf/simulated/open,
-/area/maintenance/library)
+/area/mine/unexplored)
 "cU" = (
-/obj/structure/disposalpipe/down{
-	icon_state = "pipe-d";
-	dir = 4
-	},
-/obj/structure/lattice/catwalk,
-/turf/simulated/open,
-/area/maintenance/library)
-"cV" = (
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/library)
-"cW" = (
-/obj/structure/disposalpipe/up{
-	icon_state = "pipe-u";
-	dir = 8
+/area/mine/unexplored)
+"cV" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
+/turf/simulated/floor/plating,
+/area/mine/unexplored)
+"cW" = (
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
-/area/maintenance/library)
+/area/mine/unexplored)
 "cX" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
 	icon_state = "up-scrubbers";
@@ -1615,7 +1600,7 @@
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
-/area/maintenance/library)
+/area/mine/unexplored)
 "cY" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -1638,7 +1623,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/library)
+/area/mine/unexplored)
 "cZ" = (
 /obj/structure/disposalpipe/down{
 	icon_state = "pipe-d";
@@ -1658,7 +1643,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/simulated/open,
-/area/maintenance/library)
+/area/mine/unexplored)
 "da" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(50)
@@ -2763,6 +2748,9 @@
 	},
 /turf/simulated/floor/carpet,
 /area/security/detectives_office)
+"ff" = (
+/turf/unsimulated/chasm_mask,
+/area/maintenance/library)
 "fh" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -5178,9 +5166,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
-"ju" = (
-/turf/simulated/wall,
-/area/maintenance/library)
 "jv" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -31506,10 +31491,10 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -31763,10 +31748,10 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -32006,6 +31991,7 @@ bU
 bU
 bU
 bU
+ad
 aa
 aa
 aa
@@ -32020,10 +32006,9 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
+aa
+aa
+aa
 aa
 aa
 aa
@@ -32261,8 +32246,9 @@ cO
 cO
 cO
 cO
+cO
 cP
-bU
+ad
 aa
 aa
 aa
@@ -32277,10 +32263,9 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
+aa
+aa
+aa
 aa
 aa
 aa
@@ -32518,8 +32503,9 @@ bU
 bU
 bU
 bU
-cQ
 bU
+cQ
+ad
 aa
 aa
 aa
@@ -32534,10 +32520,9 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
+aa
+aa
+aa
 aa
 aa
 aa
@@ -32771,12 +32756,13 @@ cG
 cG
 cM
 bU
-ab
-ab
-ab
+aa
+aa
+aa
+ff
 bU
 cQ
-bU
+ad
 aa
 aa
 aa
@@ -32790,11 +32776,10 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -33028,12 +33013,13 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
+aa
+aa
+aa
+ff
 bU
 cQ
-bU
+ad
 aa
 aa
 aa
@@ -33047,11 +33033,10 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -33285,12 +33270,13 @@ ab
 ab
 ab
 aa
-ab
-ab
-ab
+aa
+aa
+aa
+ff
 bU
 cQ
-bU
+ad
 aa
 aa
 aa
@@ -33304,10 +33290,9 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
+aa
+aa
+aa
 aa
 aa
 aa
@@ -33544,10 +33529,11 @@ aa
 aa
 aa
 aa
-ab
+aa
+ff
 bU
 cQ
-bU
+ad
 aa
 aa
 aa
@@ -33559,11 +33545,10 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -33801,10 +33786,11 @@ aa
 aa
 aa
 aa
-ab
+aa
+ff
 bU
 cQ
-bU
+ad
 aa
 aa
 aa
@@ -33815,11 +33801,10 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -34058,24 +34043,24 @@ aa
 aa
 aa
 aa
-ab
+aa
+ff
 bU
 cQ
 bU
-bU
-bU
-bU
-bU
+ff
+ff
+ff
 aa
 aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -34315,23 +34300,23 @@ aa
 aa
 aa
 aa
-ab
+aa
+ff
 bU
 cQ
-ju
-cS
-cU
-cX
 bU
+ff
+ff
+ff
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -34572,22 +34557,22 @@ aa
 aa
 aa
 aa
-ab
+aa
+ff
 bU
-cR
-cN
-cO
-cV
-cY
+cQ
 bU
+ff
+ff
+ff
 aa
 aa
-ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -34829,20 +34814,20 @@ aa
 aa
 aa
 aa
-ab
-bU
-bU
-bU
-cT
-cW
-cZ
-bU
 aa
-ab
-ab
-ab
-ab
-ab
+ff
+bU
+cQ
+bU
+ff
+ff
+ff
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -35086,18 +35071,18 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-bU
-bU
-bU
-bU
-bU
 aa
-ab
-ab
-ab
+aa
+ad
+cQ
+bU
+ff
+ff
+ff
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -35345,15 +35330,15 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ad
+cU
+ad
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -35602,14 +35587,14 @@ aa
 aa
 aa
 aa
+ad
+cU
+ad
 aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
+aa
 aa
 aa
 aa
@@ -35859,9 +35844,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ad
+cU
+ad
 aa
 aa
 aa
@@ -36116,9 +36101,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ad
+cU
+ad
 aa
 aa
 aa
@@ -36373,9 +36358,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ad
+cU
+ad
 aa
 aa
 aa
@@ -36630,9 +36615,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ad
+cU
+ad
 aa
 aa
 aa
@@ -36887,9 +36872,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ad
+cU
+ad
 aa
 aa
 aa
@@ -37144,9 +37129,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ad
+cU
+ad
 aa
 aa
 aa
@@ -37401,9 +37386,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ad
+cU
+ad
 aa
 aa
 aa
@@ -37657,11 +37642,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ad
+ad
+cN
+ad
+ad
 aa
 aa
 aa
@@ -37914,11 +37899,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ad
+cR
+cU
+cX
+ad
 aa
 aa
 aa
@@ -38171,11 +38156,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ad
+cS
+cV
+cY
+ad
 aa
 aa
 aa
@@ -38428,11 +38413,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ad
+cT
+cW
+cZ
+ad
 aa
 aa
 aa
@@ -38685,11 +38670,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ad
+ad
+ad
+ad
+ad
 aa
 aa
 aa
