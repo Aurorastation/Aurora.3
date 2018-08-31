@@ -1021,3 +1021,13 @@
 	new /obj/item/weapon/reagent_containers/food/snacks/clam(src)
 	new /obj/item/weapon/reagent_containers/food/snacks/clam(src)
 	new /obj/item/weapon/reagent_containers/food/snacks/clam(src)
+
+/obj/item/weapon/storage/box/produce
+	name = "produce box"
+	desc = "A large box of random, leftover produce. Thanks NanoTrasen."
+	icon_state = "largebox"
+
+/obj/item/weapon/storage/box/produce/fill()
+	for(var/i in 1 to 8)
+		new /obj/random_produce(src)
+	make_exact_fit()
