@@ -102,6 +102,7 @@
 /obj/item/ammo_magazine/mc10mm/leyon
 	name = "ammo clip (10mm)"
 	icon_state = "10mmclip"
+	mag_type = SPEEDLOADER
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	max_ammo = 5
 	multiple_sprites = 1

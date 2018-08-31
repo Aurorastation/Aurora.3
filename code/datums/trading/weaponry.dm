@@ -33,7 +33,7 @@
 		/obj/item/ammo_magazine/mc10mm                       = TRADER_ALL,
 		/obj/item/ammo_magazine/mc10mm/leyon                 = TRADER_BLACKLIST,
 		/obj/item/ammo_magazine/mc10mm/empty                 = TRADER_BLACKLIST,
-		/obj/item/weapon/storage/box/10mmammo                = TRADER_THIS_TYPE,
+		/obj/item/weapon/storage/box/ammo10mm                = TRADER_THIS_TYPE,
 		/obj/item/ammo_magazine/c38                          = TRADER_ALL,
 		/obj/item/ammo_magazine/c45x                         = TRADER_THIS_TYPE,
 		/obj/item/weapon/storage/box/beanbags                = TRADER_THIS_TYPE,
