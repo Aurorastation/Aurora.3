@@ -318,13 +318,17 @@
 
 /obj/item/weapon/storage/box/sniperammo/fill()
 	..()
-	new /obj/item/ammo_casing/a145(src)
-	new /obj/item/ammo_casing/a145(src)
-	new /obj/item/ammo_casing/a145(src)
-	new /obj/item/ammo_casing/a145(src)
-	new /obj/item/ammo_casing/a145(src)
-	new /obj/item/ammo_casing/a145(src)
-	new /obj/item/ammo_casing/a145(src)
+	for(var/i in 1 to 7)
+		new /obj/item/ammo_casing/a145(src)
+
+/obj/item/weapon/storage/box/10mmammo
+	name = "box of 10mm shells"
+	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+
+/obj/item/weapon/storage/box/sniperammo/fill()
+	..()
+	for(var/i in 1 to 10)
+		new /obj/item/ammo_casing/c10mm(src)
 
 /obj/item/weapon/storage/box/flashbangs
 	name = "box of flashbangs"

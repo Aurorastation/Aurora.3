@@ -95,8 +95,8 @@
 	desc = "A Necropolis Industries Tanto .40, designed to compete with the NT Mk58. Uses 10mm rounds."
 	name = "10mm pistol"
 	icon_state = "c05r"
-	magazine_type = /obj/item/ammo_magazine/t40
-	allowed_magazines = list(/obj/item/ammo_magazine/t40)
+	magazine_type = /obj/item/ammo_magazine/mc10mm
+	allowed_magazines = list(/obj/item/ammo_magazine/mc10mm)
 	caliber = "10mm"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
@@ -262,7 +262,7 @@
 		/obj/item/ammo_casing/shotgun/pellet    = "12 gauge",
 		/obj/item/ammo_casing/shotgun/pellet    = "12 gauge",
 		/obj/item/ammo_casing/shotgun/beanbag   = "12 gauge",
-		/obj/item/ammo_casing/shotgun/emp	= "12 gauge",
+		/obj/item/ammo_casing/shotgun/emp	    = "12 gauge",
 		/obj/item/ammo_casing/a762              = "7.62mm",
 		/obj/item/ammo_casing/a556              = "5.56mm"
 		)
@@ -276,16 +276,18 @@
 	. = ..()
 
 /obj/item/weapon/gun/projectile/leyon
-	name = "10mm pistol"
-	desc = "The Leyon LCC Everyman is a small pistol that holds five shots and is loaded with a stripper clip, popular for self-defense on Mars. Uses 10mm rounds."
+	name = "Leyon pistol"
+	desc = "The Leyon LCC Everyman is a small pistol that holds five shots and is loaded with a stripper clip, popular for self-defense on Mars. Uses 10mm-short rounds."
 	icon_state = "leyon"
 	caliber = "10mm"
 	w_class = 2
-	ammo_type = /obj/item/ammo_casing/t40
+	ammo_type = /obj/item/ammo_casing/c10mm
 	max_shells = 5
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
-	load_method = SINGLE_CASING|SPEEDLOADER
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/mc10mm/leyon
+	allowed_magazines = list(/obj/item/ammo_magazine/mc10mm/leyon)
 
 /obj/item/weapon/gun/projectile/leyon/update_icon()
 	..()
