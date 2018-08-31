@@ -220,7 +220,7 @@
 	icon_state = "deliveryPaper"
 	w_class = 3.0
 	var/amount = 25.0
-	var/wrapping_tag = "Untagged"
+	var/wrapping_tag = "Sorting Office"
 
 /obj/item/weapon/packageWrap/afterattack(var/obj/target as obj, mob/user as mob, proximity)
 	if(!proximity) return

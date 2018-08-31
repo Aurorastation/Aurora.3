@@ -6311,6 +6311,9 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
+/obj/machinery/status_display/supply_display{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "amF" = (
@@ -13523,7 +13526,7 @@
 "ayF" = (
 /obj/structure/disposaloutlet{
 	dir = 1;
-	spread = 1;
+	spread = 180;
 	spread_point = 2
 	},
 /obj/structure/disposalpipe/trunk,
@@ -25425,7 +25428,6 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/machinery/light,
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
@@ -25444,6 +25446,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
 "aRU" = (
@@ -31248,8 +31251,7 @@
 	dir = 8
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
-	pixel_y = -29
+	pixel_y = -26
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
@@ -50997,16 +50999,17 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
@@ -51423,10 +51426,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "bIF" = (
-/obj/structure/disposalpipe/sortjunction/wildcard/flipped{
-	icon_state = "pipe-j2s";
-	dir = 4
-	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -51438,13 +51437,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "bIG" = (
-/obj/structure/disposalpipe/junction/yjunction{
-	icon_state = "pipe-y";
-	dir = 1
-	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -51532,6 +51531,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bIP" = (
@@ -52002,6 +52002,11 @@
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
@@ -54156,12 +54161,14 @@
 	icon_state = "alarm0";
 	pixel_y = -22
 	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bNS" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -55141,6 +55148,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
+"bPP" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
 "bPQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
@@ -55377,6 +55401,46 @@
 /obj/item/weapon/reagent_containers/food/condiment/enzyme,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
+"bQm" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
+"bQn" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/conveyor_switch/oneway{
+	id = "mail_chute"
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/mail_room)
+"bQo" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/large_stock_marker,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/status_display/supply_display{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/storage)
 "bQp" = (
 /obj/structure/girder,
 /turf/simulated/floor/plating,
@@ -57546,16 +57610,6 @@
 	sort_tag = "Sorting Office"
 	},
 /turf/simulated/floor/plating,
-/area/quartermaster/storage)
-"caa" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/large_stock_marker,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "cab" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -89282,7 +89336,7 @@ bWF
 agu
 cie
 bZA
-caa
+bQo
 caq
 caJ
 cbb
@@ -92105,8 +92159,8 @@ anA
 aWk
 bgg
 bgg
-bgg
 bOF
+agu
 agu
 byf
 bKk
@@ -93914,7 +93968,7 @@ bIK
 alC
 alC
 bIy
-bON
+bQn
 bON
 bON
 bPK
@@ -94948,7 +95002,7 @@ biJ
 biJ
 biJ
 biJ
-aQo
+bIG
 gsp
 aab
 aab
@@ -95462,7 +95516,7 @@ arj
 bMe
 bOP
 biJ
-bMI
+bPP
 gsp
 aab
 aaa
@@ -95719,7 +95773,7 @@ arj
 arj
 ayF
 aTd
-bIG
+bQm
 gsp
 aab
 aab
