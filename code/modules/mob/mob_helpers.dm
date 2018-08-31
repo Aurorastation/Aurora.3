@@ -164,6 +164,12 @@ proc/getsensorlevel(A)
 	else
 		return mind && (mind.assigned_role == "Space Wizard" || mind.assigned_role == "Apprentice")
 
+/mob/proc/is_berserk()
+	return FALSE
+
+/mob/proc/is_pacified()
+	return FALSE
+
 /*
 	Miss Chance
 */

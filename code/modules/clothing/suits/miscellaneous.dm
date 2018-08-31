@@ -522,25 +522,25 @@
  * Department Jackets
  */
 /obj/item/clothing/suit/storage/toggle/engi_dep_jacket
-	name = "department jacket, engineering"
+	name = "engineering department jacket"
 	desc = "A cozy jacket in engineering's colors. Show your department pride!"
 	icon_state = "engi_dep_jacket"
 	item_state = "engi_dep_jacket"
 
 /obj/item/clothing/suit/storage/toggle/supply_dep_jacket
-	name = "department jacket, supply"
+	name = "supply department jacket"
 	desc = "A cozy jacket in supply's colors. Show your department pride!"
 	icon_state = "supply_dep_jacket"
 	item_state = "supply_dep_jacket"
 
 /obj/item/clothing/suit/storage/toggle/sci_dep_jacket
-	name = "department jacket, science"
+	name = "science department jacket"
 	desc = "A cozy jacket in science's colors. Show your department pride!"
 	icon_state = "sci_dep_jacket"
 	item_state = "sci_dep_jacket"
 
 /obj/item/clothing/suit/storage/toggle/med_dep_jacket
-	name = "department jacket, medical"
+	name = "medical department jacket"
 	desc = "A cozy jacket in medical's colors. Show your department pride!"
 	icon_state = "med_dep_jacket"
 	item_state = "med_dep_jacket"
