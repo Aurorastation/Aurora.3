@@ -449,7 +449,7 @@
 /obj/item/weapon/flag/america
 	name = "Old World flag"
 	desc = "The banner of an ancient nation, its glory old."
-	flag_path = "soldglory"
+	flag_path = "oldglory"
 
 /obj/item/weapon/flag/america/l
 	flag_size = 1

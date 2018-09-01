@@ -250,7 +250,6 @@
 		if(prob(35))
 			if(user)
 				user << "<span class='danger'>\The [src] has fallen to bits.</span>"
-				user.drop_from_inventory(src)
 			qdel(src)
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/attack_self(mob/user as mob)
@@ -321,14 +320,6 @@
 		reagents.remove_any(rand(1,3)) //Todo, make it actually remove the reagents the seed uses.
 		seed.do_thorns(H,src)
 		seed.do_sting(H,src,pick("r_hand","l_hand"))
-
-// Predefined types for placing on the map.
-
-/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/libertycap
-	plantname = "libertycap"
-
-/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris
-	plantname = "ambrosia"
 
 /obj/item/weapon/reagent_containers/food/snacks/fruit_slice
 	name = "fruit slice"

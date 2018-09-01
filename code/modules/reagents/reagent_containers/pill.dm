@@ -25,7 +25,6 @@
 				return
 
 			M << "<span class='notice'>You swallow \the [src].</span>"
-			M.drop_from_inventory(src) //icon update
 			if(reagents.total_volume)
 				reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
 			qdel(src)
@@ -41,7 +40,6 @@
 			if(!do_mob(user, M))
 				return
 
-			user.drop_from_inventory(src) //icon update
 			user.visible_message("<span class='warning'>[user] forces [M] to swallow \the [src].</span>")
 
 			var/contained = reagentlist()
@@ -58,9 +56,8 @@
 		return 0
 
 	afterattack(obj/target, mob/user, proximity)
-		if(!proximity) return
 
-		if(target.is_open_container() && target.reagents)
+		if(proximity && target.is_open_container() && target.reagents)
 			if(!target.reagents.total_volume)
 				user << "<span class='notice'>[target] is empty. Can't dissolve \the [src].</span>"
 				return
@@ -74,8 +71,9 @@
 				O.show_message("<span class='warning'>[user] puts something in \the [target].</span>", 1)
 
 			qdel(src)
+			return
 
-		return
+		. = ..()
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Pills. END
@@ -162,7 +160,7 @@
 	Initialize()
 		. = ..()
 		reagents.add_reagent("escitalopram", 15)
-	
+
 /obj/item/weapon/reagent_containers/pill/escitalopram
 	name = "Escitalopram pill"
 	desc = "Mild anti-depressant."

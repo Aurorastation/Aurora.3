@@ -78,6 +78,7 @@
 	product_slogans = "I hope nobody asks me for a bloody cup o' tea...;Alcohol is humanity's friend. Would you abandon a friend?;Quite delighted to serve you!;Is nobody thirsty on this station?"
 	product_ads = "Drink up!;Booze is good for you!;Alcohol is humanity's best friend.;Quite delighted to serve you!;Care for a nice, cold beer?;Nothing cures you like booze!;Have a sip!;Have a drink!;Have a beer!;Beer is good for you!;Only the finest alcohol!;Best quality booze since 2053!;Award-winning wine!;Maximum alcohol!;Man loves beer.;A toast for progress!"
 	req_access = list(access_bar)
+	random_itemcount = 0
 
 /obj/machinery/vending/assist
 	vend_id = "tools"
@@ -279,6 +280,7 @@
 		/obj/item/weapon/reagent_containers/pill/stox = 4
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	random_itemcount = 0
 
 //This one's from bay12
 /obj/machinery/vending/phoronresearch
@@ -296,6 +298,7 @@
 		/obj/item/device/assembly/igniter = 6
 	)
 	restock_items = 1
+	random_itemcount = 0
 
 /obj/machinery/vending/wallmed1
 	name = "NanoMed"
@@ -318,6 +321,7 @@
 		/obj/item/weapon/reagent_containers/syringe/antiviral = 4,
 		/obj/item/weapon/reagent_containers/pill/tox = 1
 	)
+	random_itemcount = 0
 
 /obj/machinery/vending/wallmed2
 	name = "NanoMed"
@@ -337,6 +341,7 @@
 	contraband = list(
 		/obj/item/weapon/reagent_containers/pill/tox = 3
 	)
+	random_itemcount = 0
 
 /obj/machinery/vending/security
 	name = "SecTech"
@@ -368,6 +373,7 @@
 		/obj/item/weapon/reagent_containers/spray/pepper
 		)
 	restock_items = 1
+	random_itemcount = 0
 
 /obj/machinery/vending/hydronutrients
 	name = "NutriMax"
@@ -392,8 +398,8 @@
 	contraband = list(
 		/obj/item/weapon/reagent_containers/glass/bottle/mutagen = 2
 	)
-
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	random_itemcount = 0
 
 /obj/machinery/vending/hydroseeds
 	name = "MegaSeed Servitor"
@@ -414,7 +420,9 @@
 		/obj/item/seeds/chiliseed = 3,
 		/obj/item/seeds/cocoapodseed = 3,
 		/obj/item/seeds/cornseed = 3,
+		/obj/item/seeds/earthenroot = 2,
 		/obj/item/seeds/eggplantseed = 3,
+		/obj/item/seeds/garlicseed = 3,
 		/obj/item/seeds/grapeseed = 3,
 		/obj/item/seeds/grassseed = 3,
 		/obj/item/seeds/greengrapeseed = 3,
@@ -422,8 +430,11 @@
 		/obj/item/seeds/lemonseed = 3,
 		/obj/item/seeds/limeseed = 3,
 		/obj/item/seeds/mtearseed = 3,
+		/obj/item/seeds/nifberries = 2,
+		/obj/item/seeds/onionseed = 3,
 		/obj/item/seeds/orangeseed = 3,
 		/obj/item/seeds/peanutseed = 3,
+		/obj/item/seeds/peppercornseed = 3,
 		/obj/item/seeds/plumpmycelium = 3,
 		/obj/item/seeds/poppyseed = 3,
 		/obj/item/seeds/potatoseed = 3,
@@ -434,13 +445,12 @@
 		/obj/item/seeds/soyaseed = 3,
 		/obj/item/seeds/sugarcaneseed = 3,
 		/obj/item/seeds/sunflowerseed = 3,
+		/obj/item/seeds/tobaccoseed = 3,
 		/obj/item/seeds/tomatoseed = 3,
 		/obj/item/seeds/towermycelium = 3,
 		/obj/item/seeds/watermelonseed = 3,
 		/obj/item/seeds/wheatseed = 3,
-		/obj/item/seeds/whitebeetseed = 3,
-		/obj/item/seeds/earthenroot = 2,
-		/obj/item/seeds/nifberries = 2
+		/obj/item/seeds/whitebeetseed = 3
 	)
 	contraband = list(
 		/obj/item/seeds/amanitamycelium = 3,
@@ -464,7 +474,9 @@
 		/obj/item/seeds/chiliseed = 50,
 		/obj/item/seeds/cocoapodseed = 50,
 		/obj/item/seeds/cornseed = 30,
+		/obj/item/seeds/earthenroot = 70,
 		/obj/item/seeds/eggplantseed = 30,
+		/obj/item/seeds/garlicseed = 30,
 		/obj/item/seeds/grapeseed = 40,
 		/obj/item/seeds/grassseed = 40,
 		/obj/item/seeds/greengrapeseed = 40,
@@ -472,8 +484,11 @@
 		/obj/item/seeds/lemonseed = 40,
 		/obj/item/seeds/limeseed = 50,
 		/obj/item/seeds/mtearseed = 60,
+		/obj/item/seeds/nifberries = 70,
+		/obj/item/seeds/onionseed = 30,
 		/obj/item/seeds/orangeseed = 40,
 		/obj/item/seeds/peanutseed = 30,
+		/obj/item/seeds/peppercornseed = 30,
 		/obj/item/seeds/plumpmycelium = 20,
 		/obj/item/seeds/poppyseed = 10,
 		/obj/item/seeds/potatoseed = 30,
@@ -484,15 +499,15 @@
 		/obj/item/seeds/soyaseed = 40,
 		/obj/item/seeds/sugarcaneseed = 20,
 		/obj/item/seeds/sunflowerseed = 20,
+		/obj/item/seeds/tobaccoseed = 40,
 		/obj/item/seeds/tomatoseed = 30,
 		/obj/item/seeds/towermycelium = 20,
 		/obj/item/seeds/watermelonseed = 30,
 		/obj/item/seeds/wheatseed = 20,
-		/obj/item/seeds/whitebeetseed = 20,
-		/obj/item/seeds/earthenroot = 70,
-		/obj/item/seeds/nifberries = 70
+		/obj/item/seeds/whitebeetseed = 20
 	)
 	restock_items = 1
+	random_itemcount = 0
 
 /**
  *  Populate hydroseeds product_records
@@ -538,6 +553,7 @@
 		/obj/item/weapon/staff = 2
 	)
 	restock_items = 1
+	random_itemcount = 0
 
 /obj/machinery/vending/dinnerware
 	name = "Dinnerware"
@@ -558,7 +574,8 @@
 		/obj/item/weapon/reagent_containers/cooking_container/oven = 5,
 		/obj/item/weapon/reagent_containers/cooking_container/fryer = 4,
 		/obj/item/weapon/storage/toolbox/lunchbox/nt = 6,
-		/obj/item/weapon/reagent_containers/glass/beaker/bowl = 4
+		/obj/item/weapon/reagent_containers/glass/beaker/bowl = 4,
+		/obj/item/weapon/reagent_containers/glass/rag = 8
 	)
 	contraband = list(
 		/obj/item/weapon/storage/toolbox/lunchbox/syndicate = 2
@@ -582,6 +599,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/drinkingglass/cola = 20
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	random_itemcount = 0
 
 /obj/machinery/vending/tool
 	name = "YouTool"
@@ -657,6 +675,7 @@
 	contraband = list(
 		/obj/item/weapon/grenade/flashbang/clusterbang = 1 //this can only go well.
 	)
+	random_itemcount = 0
 
 /obj/machinery/vending/tacticool/ert //Slightly more !FUN!
 	name = "Nanosecurity Plus"
@@ -681,6 +700,7 @@
 		/obj/item/weapon/material/hatchet/tacknife = 4,
 		/obj/item/device/firing_pin = 12
 	)
+	random_itemcount = 0
 
 //This one's from bay12
 /obj/machinery/vending/engineering
@@ -758,6 +778,7 @@
 		/obj/item/weapon/tank/anesthetic
 	)
 	restock_items = 1
+	random_itemcount = 0
 
 //RECURSION
 /obj/machinery/vending/vendors
@@ -781,3 +802,4 @@
 		/obj/item/weapon/vending_refill/cutlery = 1,
 		/obj/item/weapon/vending_refill/robo = 1
 	)
+	random_itemcount = 0

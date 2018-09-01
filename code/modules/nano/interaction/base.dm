@@ -1,11 +1,11 @@
-/datum/proc/nano_host()
+/datum/proc/ui_host()
 	return src
 
 /datum/proc/nano_container()
 	return src
 
 /datum/proc/CanUseTopic(var/mob/user, var/datum/topic_state/state = default_state)
-	var/datum/src_object = nano_host()
+	var/datum/src_object = ui_host()
 	return state.can_use_topic(src_object, user)
 
 /datum/topic_state/proc/href_list(var/mob/user)

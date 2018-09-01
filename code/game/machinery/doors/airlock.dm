@@ -51,6 +51,9 @@
 	var/datum/wifi/receiver/button/door/wifi_receiver
 	var/has_set_boltlight = FALSE
 
+	var/insecure = 1 //if the door is insecure it will open when power runs out
+	var/securitylock = 0
+
 /obj/machinery/door/airlock/attack_generic(var/mob/user, var/damage)
 	if(stat & (BROKEN|NOPOWER))
 		if(damage >= 10)
@@ -114,6 +117,7 @@
 	icon = 'icons/obj/doors/Doorext.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_ext
 	hashatch = 0
+	insecure = 0
 
 /obj/machinery/door/airlock/science
 	name = "Airlock"
@@ -180,6 +184,7 @@
 	hashatch = 0
 	maxhealth = 800
 	panel_visible_while_open = TRUE
+	insecure = 0
 
 /obj/machinery/door/airlock/vault/bolted
 	icon_state = "door_locked"
@@ -212,6 +217,7 @@
 	assembly_type = /obj/structure/door_assembly/door_assembly_hatch
 	hatch_colour = "#5b5b5b"
 	var/hatch_colour_bolted = "#695a5a"
+	insecure = 0
 
 /obj/machinery/door/airlock/hatch/update_icon()//Special hatch colour setting for this one snowflakey door that changes color when bolted
 	if (hashatch)
@@ -361,6 +367,7 @@
 	assembly_type = /obj/structure/door_assembly/door_assembly_highsecurity
 	hatch_colour = "#5a5a66"
 	maxhealth = 600
+	insecure = 0
 
 
 
@@ -1238,7 +1245,7 @@ About the new airlock wires panel:
 		assembly_type = assembly.type
 
 		electronics = assembly.electronics
-		electronics.loc = src
+		electronics.forceMove(src)
 
 		//update the door's access to match the electronics'
 		secured_wires = electronics.secure
@@ -1311,6 +1318,13 @@ About the new airlock wires panel:
 		// If we lost power, disable electrification
 		// Keeping door lights on, runs on internal battery or something.
 		electrified_until = 0
+		//if we lost power open 'er up
+		if(insecure)
+			INVOKE_ASYNC(src, /obj/machinery/door/.proc/open, 1)
+			securitylock = 1
+	else if(securitylock)
+		INVOKE_ASYNC(src, /obj/machinery/door/.proc/close, 1)
+		securitylock = 0
 	update_icon()
 
 /obj/machinery/door/airlock/proc/prison_open()

@@ -26,15 +26,20 @@
 		/obj/item/weapon/gun/projectile/tanto                = TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/projectile/revolver/detective   = TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/projectile/revolver/deckard     = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/leyon                = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/automatic/x9         = TRADER_THIS_TYPE,
 		/obj/item/ammo_magazine/c45m                         = TRADER_ALL,
 		/obj/item/ammo_magazine/c45m/empty                   = TRADER_BLACKLIST,
-		/obj/item/ammo_magazine/shotgun                      = TRADER_ALL,
 		/obj/item/ammo_magazine/t40                          = TRADER_ALL,
 		/obj/item/ammo_magazine/t40/empty                    = TRADER_BLACKLIST,
 		/obj/item/ammo_magazine/c38                          = TRADER_ALL,
+		/obj/item/ammo_magazine/leyon                        = TRADER_THIS_TYPE,
+		/obj/item/ammo_magazine/c45x                         = TRADER_THIS_TYPE,
 		/obj/item/weapon/storage/box/beanbags                = TRADER_THIS_TYPE,
 		/obj/item/weapon/storage/box/shotgunammo             = TRADER_THIS_TYPE,
 		/obj/item/weapon/storage/box/shotgunshells           = TRADER_THIS_TYPE,
+		/obj/item/weapon/storage/box/haywireshells           = TRADER_THIS_TYPE,
+		/obj/item/weapon/storage/box/incendiaryshells        = TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/holster                 = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/accessory/holster/thigh/fluff     = TRADER_BLACKLIST_ALL
 	)
@@ -145,5 +150,6 @@
 		/obj/item/clothing/under/tactical                         = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/gas/tactical                      = TRADER_THIS_TYPE,
 		/obj/item/weapon/shield/riot/tact                         = TRADER_THIS_TYPE,
-		/obj/item/weapon/storage/belt/security/tactical           = TRADER_THIS_TYPE
+		/obj/item/weapon/storage/belt/security/tactical           = TRADER_THIS_TYPE,
+		/obj/item/weapon/storage/belt/bandolier                   = TRADER_THIS_TYPE
 	)

@@ -323,46 +323,6 @@
 	caliber = ".45"
 	max_ammo = 50
 
-//shotguns boxes things from old code
-
-/obj/item/ammo_magazine/shotgun
-	name = "ammunition box (slug)"
-	icon_state = "lethalshellshot_box"
-	origin_tech = list(TECH_COMBAT = 2)
-	ammo_type = /obj/item/ammo_casing/shotgun
-	max_ammo = 8
-	caliber = "shotgun"
-	matter = list("metal" = 2880)
-
-/obj/item/ammo_magazine/shotgun/shell
-	name = "ammunition box (shell)"
-	icon_state = "lethalslug_box"
-	ammo_type = /obj/item/ammo_casing/shotgun/pellet
-
-/obj/item/ammo_magazine/shotgun/stun
-	name = "ammunition box (stun shells)"
-	icon_state = "stunshot_box"
-	ammo_type = /obj/item/ammo_casing/shotgun/stunshell
-	matter = list(DEFAULT_WALL_MATERIAL = 2880, "glass" = 5760)
-
-/obj/item/ammo_magazine/shotgun/beanbag
-	name = "ammunition box (beanbag shells)"
-	icon_state = "beanshot_box"
-	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
-	matter = list(DEFAULT_WALL_MATERIAL = 1440)
-
-/obj/item/ammo_magazine/shotgun/incendiary
-	name = "ammunition box (incendiary shells)"
-	icon_state = "incendiaryshot_box"
-	ammo_type = /obj/item/ammo_casing/shotgun/incendiary
-	matter = list(DEFAULT_WALL_MATERIAL = 3600)
-
-/obj/item/ammo_magazine/shotgun/emp
-	name = "ammunition box (haywire shells)"
-	icon_state = "empshot_box"
-	ammo_type = /obj/item/ammo_casing/shotgun/emp
-	matter = list(DEFAULT_WALL_MATERIAL = 3600, "uranium" = 1600)
-
 /obj/item/ammo_magazine/caps
 	name = "speed loader (caps)"
 	icon_state = "T38"
@@ -453,3 +413,12 @@
 	caliber = "a762"
 	ammo_type = /obj/item/ammo_casing/a762
 	max_ammo = 1000
+
+/obj/item/ammo_magazine/leyon
+	name = "ammo clip (10mm)"
+	icon_state = "10mmclip"
+	ammo_type = /obj/item/ammo_casing/t40
+	caliber = "10mm"
+	matter = list(DEFAULT_WALL_MATERIAL = 1800)
+	max_ammo = 5
+	multiple_sprites = 1

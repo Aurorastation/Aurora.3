@@ -366,7 +366,7 @@
 	if(!istype(T))
 		return
 	if(volume >= 1)
-		T.wet_floor(2)
+		T.wet_floor(WET_TYPE_LUBE,volume)
 
 /datum/reagent/silicate
 	name = "Silicate"
@@ -617,3 +617,19 @@
 	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
 	if(!H.has_trauma_type(/datum/brain_trauma/special/love))
 		B.gain_trauma(/datum/brain_trauma/special/love,FALSE)
+
+/datum/reagent/bottle_lightning
+	name = "Bottled Lightning"
+	id = "lightning"
+	description = "A mysterious compound capable of producing electrical discharges."
+	reagent_state = LIQUID
+	color = "#70838A"
+	taste_description = "metal"
+
+/datum/reagent/bottle_lightning/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(prob(25))
+		tesla_zap(M, 6, 1500)
+
+/datum/reagent/bottle_lightning/touch_turf(var/turf/T)
+	if(volume >= 5)
+		tesla_zap(T, 6, 1500)

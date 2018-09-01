@@ -13,27 +13,29 @@
 	possible_transfer_amounts = null
 	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
+	center_of_mass = null
 
-/obj/item/weapon/reagent_containers/inhaler/attack(mob/living/M as mob, mob/user as mob)
+/obj/item/weapon/reagent_containers/inhaler/afterattack(var/mob/living/carbon/human/H, var/mob/user, var/proximity)
+
+	if (!istype(H))
+		return ..()
+
+	if(!proximity)
+		return
 
 	if(!reagents.total_volume)
 		to_chat(user,"<span class='warning'>\The [src] is empty.</span>")
 		return
 
-	var/mob/living/carbon/human/H = M
-
-	if (!istype(H))
-		return
-
 	if ( ((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(10))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
-		eyestab(M,user)
-		if(M.reagents)
+		eyestab(H,user)
+		if(H.reagents)
 			var/contained = reagentlist()
-			var/trans = reagents.trans_to_mob(M, amount_per_transfer_from_this, CHEM_TOUCH)
-			admin_inject_log(user, M, src, contained, trans)
+			var/trans = reagents.trans_to_mob(H, amount_per_transfer_from_this, CHEM_TOUCH)
+			admin_inject_log(user, H, src, contained, trans)
 			playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
-			user.visible_message("<span class='notice'>[user] accidentally sticks the [src] in [M]'s eyes!</span>","<span class='notice'>You accidentally stick the [src] in [M]'s eyes!</span>")
+			user.visible_message("<span class='notice'>[user] accidentally sticks the [src] in [H]'s eyes!</span>","<span class='notice'>You accidentally stick the [src] in [H]'s eyes!</span>")
 			to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
 		return
 
@@ -41,45 +43,45 @@
 		to_chat(user,"<span class='warning'>You don't have the dexterity to do this!</span>")
 		return
 
-	if(user == M)
-		if(!M.can_eat(src))
+	if(user == H)
+		if(!H.can_eat(src))
 			return
 	else
-		if(!M.can_force_feed(user, src))
+		if(!H.can_force_feed(user, src))
 			return
 
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
-	user.do_attack_animation(M)
+	user.do_attack_animation(H)
 
-	if(user == M)
+	if(user == H)
 		user.visible_message("<span class='notice'>[user] injects themselves with the [src]</span>","<span class='notice'>You stick the [src] in your mouth and press the injection button.</span>")
 	else
-		user.visible_message("<span class='warning'>[user] attempts to administer \the [src] to [M]...</span>","<span class='notice'>You attempt to administer \the [src] to [M]...</span>")
-		if (!do_after(user, 1 SECONDS, act_target = M))
+		user.visible_message("<span class='warning'>[user] attempts to administer \the [src] to [H]...</span>","<span class='notice'>You attempt to administer \the [src] to [H]...</span>")
+		if (!do_after(user, 1 SECONDS, act_target = H))
 			to_chat(user,"<span class='notice'>You and the target need to be standing still in order to inject \the [src].</span>")
 			return
 
-		user.visible_message("<span class='notice'>[user] injects [M] with the [src].</span>","<span class='notice'>You stick the [src] in [M]'s mouth and press the injection button.</span>")
+		user.visible_message("<span class='notice'>[user] injects [H] with the [src].</span>","<span class='notice'>You stick \the [src] in [H]'s mouth and press the injection button.</span>")
 
-	if(M.reagents)
+	if(H.reagents)
 		var/contained = reagentlist()
-		var/trans = reagents.trans_to_mob(M, amount_per_transfer_from_this, CHEM_BREATHE, bypass_mask = TRUE)
-		admin_inject_log(user, M, src, contained, trans)
+		var/trans = reagents.trans_to_mob(H, amount_per_transfer_from_this, CHEM_BREATHE, bypass_checks = TRUE)
+		admin_inject_log(user, H, src, contained, trans)
 		playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
 		to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
+
+	update_icon()
 
 	return
 
 /obj/item/weapon/reagent_containers/inhaler/attack(mob/M as mob, mob/user as mob)
-	..()
-	if(reagents.total_volume <= 0) //Prevents autoinjectors to be refilled.
-		flags &= ~OPENCONTAINER
+	. = ..()
 	update_icon()
-	return
 
 /obj/item/weapon/reagent_containers/inhaler/update_icon()
 	if(reagents.total_volume > 0)
 		icon_state = "[initial(icon_state)]1"
+		flags &= ~OPENCONTAINER
 	else
 		icon_state = "[initial(icon_state)]0"
 

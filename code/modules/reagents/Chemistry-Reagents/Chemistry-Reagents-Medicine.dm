@@ -27,7 +27,7 @@
 /datum/reagent/bicaridine
 	name = "Bicaridine"
 	id = "bicaridine"
-	description = "Bicaridine is an analgesic medication and can be used to treat blunt trauma."
+	description = "Bicaridine is an analgesic medication and can be used to treat blunt trauma. Lasts twice as long when inhaled, however it is generally twice as weak."
 	reagent_state = LIQUID
 	color = "#BF0000"
 	overdose = REAGENTS_OVERDOSE
@@ -35,9 +35,8 @@
 	metabolism = REM * 1.5//Get to overdose state a bit faster
 	taste_description = "bitterness"
 	taste_mult = 3
-
-	breathe_met = 0.5
-	breathe_mul = 0.1
+	breathe_met = REM * 1.5 * 0.5
+	breathe_mul = 0.5
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(5 * removed, 0)
@@ -107,7 +106,8 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
-	breathe_met = 0.5
+	metabolism = REM
+	breathe_met = REM * 0.5
 	breathe_mul = 2
 
 /datum/reagent/dexalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -127,7 +127,8 @@
 	overdose = REAGENTS_OVERDOSE * 0.5
 	scannable = 1
 	taste_description = "bitterness"
-	breathe_met = 0.5
+	metabolism = REM
+	breathe_met = REM * 0.5
 	breathe_mul = 2
 
 /datum/reagent/dexalinp/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -376,7 +377,7 @@
 	var/datum/modifier = null
 	taste_description = "acid"
 	metabolism_min = REM * 0.025
-	breathe_met = 0.5
+	breathe_met = REM * 0.15 * 0.5
 
 /datum/reagent/hyperzine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(5))
@@ -450,9 +451,18 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
+	unaffected_species = IS_MACHINE
+	var/last_taste_time = -10000
 
 /datum/reagent/hyronalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.apply_radiation(-30 * removed)
+	if(alien == IS_DIONA)
+		if(last_taste_time + 950 < world.time) // Not to spam message
+			to_chat(M, "<span class='danger'>Your body withers as you feel a searing pain throughout.</span>")
+			last_taste_time = world.time
+		metabolism = REM * 0.22
+		M.adjustToxLoss(45 * removed) // Tested numbers myself
+	else
+		M.apply_radiation(-30 * removed)
 
 /datum/reagent/arithrazine
 	name = "Arithrazine"
@@ -464,12 +474,21 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
+	unaffected_species = IS_MACHINE
+	var/last_taste_time = -10000
 
 /datum/reagent/arithrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.apply_radiation(-70 * removed)
-	M.adjustToxLoss(-10 * removed)
-	if(prob(60))
-		M.take_organ_damage(4 * removed, 0)
+	if(alien == IS_DIONA)
+		if(last_taste_time + 450 < world.time) // Not to spam message
+			to_chat(M, "<span class='danger'>Your body withers as you feel a searing pain throughout.</span>")
+			last_taste_time = world.time
+		metabolism = REM * 0.195
+		M.adjustToxLoss(115 * removed) // Tested numbers myself
+	else
+		M.apply_radiation(-70 * removed)
+		M.adjustToxLoss(-10 * removed)
+		if(prob(60))
+			M.take_organ_damage(4 * removed, 0)
 
 /datum/reagent/spaceacillin
 	name = "Spaceacillin"
@@ -1135,3 +1154,14 @@
 			M.adjustOxyLoss(-rand(15,20))
 			M.visible_message("<span class='danger'>\The [M] shudders violently!</span>")
 			M.stat = 0
+
+/datum/reagent/pacifier
+	name = "Paxazide"
+	id = "paxazide"
+	description = "A mind altering chemical compound capable of suppressing violent tendencies."
+	reagent_state = LIQUID
+	color = "#1ca9c9"
+	taste_description = "numbness"
+
+/datum/reagent/pacifier/affect_blood(var/mob/living/carbon/H, var/alien, var/removed)
+	H.add_chemical_effect(CE_PACIFIED, 1)

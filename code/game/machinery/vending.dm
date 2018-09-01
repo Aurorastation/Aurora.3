@@ -101,6 +101,7 @@
 	var/vend_id = "generic"	//Id of the refill cartridge that has to be used
 	var/restock_items = 0	//If items can be restocked into the vending machine
 	var/list/restock_blocked_items = list() //Items that can not be restocked if restock_items is enabled
+	var/random_itemcount = 1 //If the number of items should be randomized
 
 /obj/machinery/vending/Initialize()
 	. = ..()
@@ -140,8 +141,11 @@
 			var/datum/data/vending_product/product = new/datum/data/vending_product(entry)
 
 			product.price = (entry in src.prices) ? src.prices[entry] : 0
-			product.amount = (current_list[1][entry]) ? current_list[1][entry] : 1
-			product.max_amount = product.amount
+			product.max_amount = product.amount = product.amount = (current_list[1][entry]) ? current_list[1][entry] : 1
+			if (random_itemcount == 1 && category == CAT_NORMAL) //Only the normal category is randomized.
+				product.amount = rand(1,product.max_amount)
+			else
+				product.amount = product.max_amount
 			product.category = category
 
 			src.product_records.Add(product)
@@ -228,8 +232,7 @@
 			attack_hand(user)
 		return
 	else if(istype(W, /obj/item/weapon/coin) && premium.len > 0)
-		user.drop_item()
-		W.loc = src
+		user.drop_from_inventory(W,src)
 		coin = W
 		categories |= CAT_COIN
 		user << "<span class='notice'>You insert \the [W] into \the [src].</span>"
@@ -308,7 +311,7 @@
 		cashmoney_bundle.worth -= currently_vending.price
 
 		if(cashmoney_bundle.worth <= 0)
-			usr.drop_from_inventory(cashmoney_bundle)
+			usr.drop_from_inventory(cashmoney_bundle,get_turf(src))
 			qdel(cashmoney_bundle)
 		else
 			cashmoney_bundle.update_icon()
@@ -320,7 +323,7 @@
 
 		visible_message("<span class='info'>\The [usr] inserts a bill into \the [src].</span>")
 		var/left = cashmoney.worth - currently_vending.price
-		usr.drop_from_inventory(cashmoney)
+		usr.drop_from_inventory(cashmoney,get_turf(src))
 		qdel(cashmoney)
 
 		if(left)
@@ -505,7 +508,7 @@
 			usr << "There is no coin in this machine."
 			return
 
-		coin.loc = src.loc
+		coin.forceMove(src.loc)
 		if(!usr.get_active_hand())
 			usr.put_in_hands(coin)
 		usr << "<span class='notice'>You remove the [coin] from the [src]</span>"
@@ -513,13 +516,13 @@
 		categories &= ~CAT_COIN
 
 	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))))
-		if ((href_list["vend"]) && (src.vend_ready) && (!currently_vending))
+		if (href_list["vendItem"] && vend_ready && !currently_vending)
 			if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
 				usr << "<span class='warning'>Access denied.</span>"	//Unless emagged of course
 				flick(icon_deny,src)
 				return
 
-			var/key = text2num(href_list["vend"])
+			var/key = text2num(href_list["vendItem"])
 			var/datum/data/vending_product/R = product_records[key]
 
 			// This should not happen unless the request from NanoUI was bad

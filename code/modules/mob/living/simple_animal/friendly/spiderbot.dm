@@ -84,11 +84,10 @@
 			positronic = 1
 			add_language("Robot Talk")
 
-		user.drop_item()
 		src.mmi = O
 		src.transfer_personality(O)
 
-		O.loc = src
+		user.drop_from_inventory(O,src)
 		src.update_icon()
 		return 1
 
@@ -123,7 +122,7 @@
 			user << "<span class='notice'>You swipe your access card and pop the brain out of \the [src].</span>"
 			eject_brain()
 			if(held_item)
-				held_item.loc = src.loc
+				held_item.forceMove(src.loc)
 				held_item = null
 			return 1
 		else
@@ -172,7 +171,7 @@
 	if(mmi)
 		var/turf/T = get_turf(loc)
 		if(T)
-			mmi.loc = T
+			mmi.forceMove(T)
 		if(mind)	mind.transfer_to(mmi.brainmob)
 		mmi = null
 		real_name = initial(real_name)
@@ -203,7 +202,7 @@
 		camera.status = 0
 
 	if (held_item)
-		held_item.loc = src.loc
+		held_item.forceMove(src.loc)
 		held_item = null
 
 	eject_brain()
@@ -229,7 +228,7 @@
 			"<span class='danger'>You launch \the [held_item]!</span>", \
 			"You hear a skittering noise and a thump!")
 		var/obj/item/weapon/grenade/G = held_item
-		G.loc = src.loc
+		G.forceMove(src.loc)
 		G.prime()
 		held_item = null
 		return 1
@@ -238,7 +237,7 @@
 		"<span class='notice'>You drop \the [held_item].</span>", \
 		"You hear a skittering noise and a soft thump.")
 
-	held_item.loc = src.loc
+	held_item.forceMove(src.loc)
 	held_item = null
 	return 1
 
@@ -267,7 +266,7 @@
 		for(var/obj/item/I in view(1, src))
 			if(selection == I)
 				held_item = selection
-				selection.loc = src
+				selection.forceMove(src)
 				visible_message("<span class='notice'>\The [src] scoops up \the [held_item].</span>", \
 					"<span class='notice'>You grab \the [held_item].</span>", \
 					"You hear a skittering noise and a clink.")

@@ -226,6 +226,7 @@ var/list/global/random_stock_rare = list(
 	"humanhide" = 0.5,
 	"modkit" = 1,
 	"contraband" = 0.8,
+	"prebuilt_ka" = 0.5,
 	"nothing" = 0)
 
 var/list/global/random_stock_large = list(
@@ -1095,7 +1096,7 @@ var/list/global/random_stock_large = list(
 		if("chempack")
 			var/total = rand(2,6)
 			var/list/chems = SSchemistry.chemical_reagents.Copy()
-			var/list/exclusion = list("drink", "reagent", "adminordrazine", "beer2", "azoth", "elixir_life", "liquid_fire", "philosopher_stone", "undead_ichor")
+			var/list/exclusion = list("drink", "reagent", "adminordrazine", "beer2", "azoth", "elixir_life", "liquid_fire", "philosopher_stone", "undead_ichor", "love", "shapesand", "usolve", "sglue", "black_matter")
 			chems -= exclusion
 			for (var/i=0,i<total,i++)
 				var/obj/item/weapon/reagent_containers/chem_disp_cartridge/C = new /obj/item/weapon/reagent_containers/chem_disp_cartridge(L)
@@ -1397,6 +1398,8 @@ var/list/global/random_stock_large = list(
 //=============================================================
 //=============================================================
 //=============================================================
+		if("prebuilt_ka")
+			new /obj/random/prebuilt_ka(L)
 		if("custom_ka")
 			new /obj/random/custom_ka(L)
 		if("gold")

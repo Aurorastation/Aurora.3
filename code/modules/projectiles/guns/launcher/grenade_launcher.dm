@@ -55,7 +55,7 @@
 		user << "<span class='warning'>[src] is full.</span>"
 		return
 	user.remove_from_mob(G)
-	G.loc = src
+	G.forceMove(src)
 	grenades.Insert(1, G) //add to the head of the list, so that it is loaded on the next pump
 	user.visible_message("[user] inserts \a [G] into [src].", "<span class='notice'>You insert \a [G] into [src].</span>")
 
@@ -117,7 +117,7 @@
 		user << "<span class='warning'>[src] is already loaded.</span>"
 		return
 	user.remove_from_mob(G)
-	G.loc = src
+	G.forceMove(src)
 	chambered = G
 	user.visible_message("[user] load \a [G] into [src].", "<span class='notice'>You load \a [G] into [src].</span>")
 

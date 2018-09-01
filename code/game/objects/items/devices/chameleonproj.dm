@@ -75,7 +75,7 @@
 
 /obj/item/device/chameleon/proc/eject_all()
 	for(var/atom/movable/A in active_dummy)
-		A.loc = active_dummy.loc
+		A.forceMove(active_dummy.loc)
 		if(ismob(A))
 			var/mob/M = A
 			M.reset_view(null)
@@ -95,7 +95,7 @@
 	icon_state = new_iconstate
 	overlays = new_overlays
 	set_dir(O.dir)
-	M.loc = src
+	M.forceMove(src)
 	master = C
 	master.active_dummy = src
 
@@ -109,7 +109,7 @@
 		M << "<span class='warning'>Your chameleon-projector deactivates.</span>"
 	master.disrupt()
 
-/obj/effect/dummy/chameleon/ex_act()
+/obj/effect/dummy/chameleon/ex_act(var/severity = 2.0)
 	for(var/mob/M in src)
 		M << "<span class='warning'>Your chameleon-projector deactivates.</span>"
 	master.disrupt()

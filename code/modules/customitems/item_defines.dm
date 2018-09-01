@@ -79,8 +79,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/glasses/fluff/nebula_glasses/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/disk/fluff/nebula_chip) && !chip)
 		//user.u_equip(W)
-		user.drop_from_inventory(W)
-		W.forceMove(src)
+		user.drop_from_inventory(W,src)
 		chip = W
 		W.add_fingerprint(user)
 		add_fingerprint(user)
@@ -816,9 +815,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/head/beret/engineering/fluff/ikrad_beret/attack_self(var/mob/user)
 	if(letter)
 		user << "<span class='notice'>You remove \the [letter] from inside the [src]'s flap.</span>"
-		user.drop_from_inventory(src)
 		user.put_in_hands(letter)
-		user.put_in_hands(src)
 		letter = null
 	else
 		..()
@@ -826,8 +823,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/head/beret/engineering/fluff/ikrad_beret/attackby(var/obj/item/fluff/ikrad_letter/W, var/mob/user)
 	if(!src.letter && istype(W))
 		user << "<span class='notice'>You place \the [W] back inside the [src]'s flap.</span>"
-		user.drop_from_inventory(W)
-		W.forceMove(src)
+		user.drop_from_inventory(W,src)
 		src.letter = W
 	else
 		..()
@@ -1006,7 +1002,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/suit/poncho/fluff/flaming_poncho //Stitched Heart White Poncho - Flaming Hearts Love Stars - sleepywolf
+/obj/item/clothing/accessory/poncho/fluff/flaming_poncho //Stitched Heart White Poncho - Flaming Hearts Love Stars - sleepywolf
 	name = "stitched heart white poncho"
 	desc = "A white poncho stitched together shoddily, with a pink heart made of flame patterned on the front. The fabric is rough, like chainmail."
 	icon = 'icons/obj/custom_items/flaming_poncho.dmi'
@@ -1533,14 +1529,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/suit/storage/toggle/det_trench/fluff/blessing_jacket //Armored Detective Jacket - Nelson Blessing - seniorscore
+/obj/item/clothing/suit/storage/toggle/det_trench/fluff/nelson_jacket //Armored Detective Jacket - Nelson Okafor - seniorscore
 	name = "armored detective jacket"
 	desc = "A white suit jacket, has a badge hanging out of a breast pocket. Touching it gives a feeling of working on a case for months."
-	icon = 'icons/obj/custom_items/blessing_jacket.dmi'
-	icon_state = "blessing_jacket"
-	item_state = "blessing_jacket"
-	icon_open = "blessing_jacket_open"
-	icon_closed = "blessing_jacket"
+	icon = 'icons/obj/custom_items/nelson_jacket.dmi'
+	icon_state = "nelson_jacket"
+	item_state = "nelson_jacket"
+	icon_open = "nelson_jacket_open"
+	icon_closed = "nelson_jacket"
 	contained_sprite = TRUE
 
 
@@ -2376,3 +2372,14 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 	icon_living = "faysaljr"
 	icon_dead = "faysaljr_dead"
 	can_nap = 0
+
+
+/obj/item/clothing/suit/storage/toggle/fluff/talon_coat //Embroidered Coat - Talon Hatfield - dronztheWolf
+	name = "embroidered coat"
+	desc = " Martian long coat, made to fend off dust storms and other unpleasantries. This one has a few patches sewn into it depicting: A Solarian flag, a Batallion number, and a large sun."
+	icon = 'icons/obj/custom_items/ryan_jacket.dmi'
+	icon_state = "talon_coat"
+	item_state = "talon_coat"
+	icon_open = "talon_coat_open"
+	icon_closed = "talon_coat"
+	contained_sprite = TRUE
