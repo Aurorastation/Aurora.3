@@ -1,3 +1,6 @@
+#define CHANGELING_GREATER_ABSORB_GP 5
+#define CHANGELING_LESSER_ABSORB_GP 1
+
 var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","Epsilon","Zeta","Eta","Theta","Iota","Kappa","Lambda","Mu","Nu","Xi","Omicron","Pi","Rho","Sigma","Tau","Upsilon","Phi","Chi","Psi","Omega")
 
 /datum/changeling //stores changeling powers, changeling recharge thingie, changeling absorbed DNA and changeling ID (for changeling hivemind)
@@ -136,11 +139,60 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	return
 
-//Absorbs the victim's DNA making them uncloneable. Requires a strong grip on the victim.
-//Doesn't cost anything as it's the most basic ability.
-/mob/proc/changeling_absorb_dna()
+/mob/proc/changeling_can_steal_dna(var/mob/living/carbon/human/T)
+
+	if(!istype(T))
+		src << "<span class='warning'>[T] is not compatible with our biology.</span>"
+		return 0
+
+	if(T.species.flags & NO_SCAN)
+		src << "<span class='warning'>We do not know how to parse this creature's DNA!</span>"
+		return 0
+
+	if(islesserform(T))
+		src << "<span class='warning'>This creature DNA is not compatible with our form!</span>"
+		return 0
+
+	if(HUSK in T.mutations)
+		src << "<span class='warning'>This creature's DNA is ruined beyond useability!</span>"
+		return 0
+
+	return 1
+
+/mob/proc/changeling_absorb_dna_lesser()
 	set category = "Changeling"
-	set name = "Absorb DNA"
+	set name = "Absorb DNA - Lesser"
+
+	var/datum/changeling/changeling = changeling_power(0,0,100)
+	if(!changeling)	return
+
+	var/obj/item/weapon/grab/G = src.get_active_hand()
+	if(!istype(G))
+		src << "<span class='warning'>We must be grabbing a creature in our active hand to steal their DNA.</span>"
+		return
+
+	var/mob/living/carbon/human/T = G.affecting
+	if(!changeling_can_steal_dna(T))
+		return
+
+	if(changeling.isabsorbing)
+		src << "<span class='warning'>We are already absorbing!</span>"
+		return
+
+	if(changeling.GetDNA(T))
+		src << "<span class='warning'>You already have this person's DNA!</span>"
+		return
+
+	T.custom_pain("You feel a tiny prick!.",0,TRUE)
+
+	src << "<span class='notice'>We have stolen the dna of \the [T]!</span>"
+	changeling.geneticpoints += CHANGELING_LESSER_ABSORB_GP
+	stealDNA(T,changeling,FALSE)
+
+//Absorbs the victim's DNA making them uncloneable. Requires a strong grip on the victim.
+/mob/proc/changeling_absorb_dna_greater()
+	set category = "Changeling"
+	set name = "Absorb DNA - Greater"
 
 	var/datum/changeling/changeling = changeling_power(0,0,100)
 	if(!changeling)	return
@@ -151,20 +203,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		return
 
 	var/mob/living/carbon/human/T = G.affecting
-	if(!istype(T))
-		src << "<span class='warning'>[T] is not compatible with our biology.</span>"
-		return
-
-	if(T.species.flags & NO_SCAN)
-		src << "<span class='warning'>We do not know how to parse this creature's DNA!</span>"
-		return
-
-	if(islesserform(T))
-		src << "<span class='warning'>This creature DNA is not compatible with our form!</span>"
-		return
-
-	if(HUSK in T.mutations)
-		src << "<span class='warning'>This creature's DNA is ruined beyond useability!</span>"
+	if(!changeling_can_steal_dna(T))
 		return
 
 	if(G.state != GRAB_KILL)
@@ -205,9 +244,14 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	T << "<span class='danger'>You have been absorbed by the changeling!</span>"
 	playsound(get_turf(src), 'sound/effects/lingabsorbs.ogg', 50, 1)
 
-	changeling.chem_charges += 10
-	changeling.geneticpoints += 2
+	changeling.chem_charges = changeling.chem_storage //Make it full
+	changeling.geneticpoints += CHANGELING_GREATER_ABSORB_GP
 
+	stealDNA(T,changeling,TRUE)
+
+	return 1
+
+/mob/proc/stealDNA(var/mob/living/carbon/human/T,var/datum/changeling/changeling,var/lethal = FALSE)
 	//Steal all of their languages!
 	for(var/language in T.languages)
 		if(!(language in changeling.absorbed_languages))
@@ -218,7 +262,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/datum/absorbed_dna/newDNA = new(T.real_name, T.dna, T.species.name, T.languages)
 	absorbDNA(newDNA)
 
-	if(T.mind && T.mind.changeling)
+	if(lethal && T.mind && T.mind.changeling)
 		if(T.mind.changeling.absorbed_dna)
 			for(var/datum/absorbed_dna/dna_data in T.mind.changeling.absorbed_dna)	//steal all their loot
 				if(changeling.GetDNA(dna_data.name))
@@ -239,7 +283,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 					else
 						src.make_changeling()
 
-		changeling.chem_charges += T.mind.changeling.chem_charges
+		changeling.chem_charges = min(changeling.chem_charges + T.mind.changeling.chem_charges,changeling.chem_storage)
 		changeling.geneticpoints += T.mind.changeling.geneticpoints
 		T.mind.changeling.chem_charges = 0
 		T.mind.changeling.geneticpoints = 0
@@ -248,10 +292,11 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	changeling.absorbedcount++
 	changeling.isabsorbing = 0
 
-	T.death(0)
-	T.Drain()
-	return 1
+	if(lethal)
+		T.death(0)
+		T.Drain()
 
+	return 1
 
 //Change our DNA to that of somebody we've absorbed.
 /mob/proc/changeling_transform()
@@ -681,9 +726,9 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	if(!changeling)								return
 
 	var/list/victims = list()
-	for(var/mob/living/carbon/C in oview(changeling.sting_range))
+	for(var/mob/living/carbon/human/C in oview(changeling.sting_range))
 		victims += C
-	var/mob/living/carbon/T = input(src, "Who will we sting?") as null|anything in victims
+	var/mob/living/carbon/human/T = input(src, "Who will we sting?") as null|anything in victims
 
 	if(!T) return
 	if(!(T in view(changeling.sting_range))) return
@@ -700,13 +745,11 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 
 	if(stealthy == 1)
 		src << "<span class='notice'>We stealthily sting [T].</span>"
-		T << "<span class='warning'>You feel a tiny prick.</span>"
+		T.custom_pain("You feel a tiny prick!",0,TRUE)
 	else
 		src.visible_message(pick("<span class='danger'>[src]'s eyes balloon and burst out in a welter of blood, burrowing into [T]!</span>",
 								"<span class='danger'>[src]'s arm rapidly shifts into a giant scorpion-stinger and stabs into [T]!</span>",
-								"<span class='danger'>[src]'s throat lengthens and twists before vomitting a chunky red spew all over [T]!</span>",
 								"<span class='danger'>[src]'s tongue stretches an impossible length and stabs into [T]!</span>",
-								"<span class='danger'>[src] sneezes a cloud of shrieking spiders at [T]!</span>",
 								"<span class='danger'>[src] erupts a grotesque tail and impales [T]!</span>",
 								"<span class='danger'>[src]'s chin skin bulges and tears, launching a bone-dart at [T]!</span>"))
 
@@ -843,26 +886,6 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	feedback_add_details("changeling_powers","DTHS")
 	return 1
 
-/mob/proc/changeling_extract_dna_sting()
-	set category = "Changeling"
-	set name = "Extract DNA Sting (40)"
-	set desc="Stealthily sting a target to extract their DNA."
-
-	var/datum/changeling/changeling = null
-	if(src.mind && src.mind.changeling)
-		changeling = src.mind.changeling
-	if(!changeling)
-		return 0
-
-	var/mob/living/carbon/human/T = changeling_sting(40, /mob/proc/changeling_extract_dna_sting,stealthy = 1)
-	if(!T)	return 0
-
-	var/datum/absorbed_dna/newDNA = new(T.real_name, T.dna, T.species.name, T.languages)
-	absorbDNA(newDNA)
-
-	feedback_add_details("changeling_powers","ED")
-	return 1
-
 /mob/proc/armblades()
 	set category = "Changeling"
 	set name = "Form Blades (20)"
@@ -979,3 +1002,6 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	dna = newDNA
 	speciesName = newSpecies
 	languages = newLanguages
+
+#undef CHANGELING_GREATER_ABSORB_GP
+#undef CHANGELING_LESSER_ABSORB_GP

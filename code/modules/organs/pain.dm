@@ -50,7 +50,7 @@ mob/living/carbon/proc/pain(var/partname, var/amount, var/force, var/burning = 0
 
 // message is the custom message to be displayed
 // flash_strength is 0 for weak pain flash, 1 for strong pain flash
-mob/living/carbon/human/proc/custom_pain(var/message, var/flash_strength)
+mob/living/carbon/human/proc/custom_pain(var/message, var/flash_strength,var/ignore_spam = FALSE)
 	if(stat >= 1)
 		return
 	if(species.flags & NO_PAIN)
@@ -66,10 +66,11 @@ mob/living/carbon/human/proc/custom_pain(var/message, var/flash_strength)
 		msg = "<span class='danger'><font size=3>[message]</font></span>"
 
 	// Anti message spam checks
-	if(msg && ((msg != last_pain_message) || (world.time >= next_pain_time)))
-		last_pain_message = msg
-		src << msg
-	next_pain_time = world.time + 100
+	if(!ignore_spam)
+		if(msg && ((msg != last_pain_message) || (world.time >= next_pain_time)))
+			last_pain_message = msg
+			src << msg
+		next_pain_time = world.time + 100
 
 mob/living/carbon/human/proc/handle_pain()
 	// not when sleeping
