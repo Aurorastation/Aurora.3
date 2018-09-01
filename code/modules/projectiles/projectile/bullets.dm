@@ -126,9 +126,6 @@
 /obj/item/projectile/bullet/pistol
 	damage = 20
 
-/obj/item/projectile/bullet/pistol/light
-	damage = 15
-
 /obj/item/projectile/bullet/pistol/medium
 	damage = 25
 
