@@ -177,6 +177,7 @@
 	center_of_mass = list("x"=16, "y"=10)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/zoraphoron/Initialize()
+	. = ..()
 	reagents.add_reagent("zora_phoron", 20)
 	reagents.add_reagent("vaam", 15)
 

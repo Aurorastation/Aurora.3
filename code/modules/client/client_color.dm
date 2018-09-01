@@ -69,3 +69,7 @@
 /datum/client_color/tritanopia
 	client_color = list(0.95,0.07,0, 0,0.44,0.52, 0.05,0.49,0.48)
 	priority = 100
+
+/datum/client_color/berserk
+	client_color = "#AF111C"
+	priority = 100
