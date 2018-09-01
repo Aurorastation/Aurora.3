@@ -972,7 +972,7 @@
 	description = "A mixture of several high-energy amino acids, based on the secretions and saliva of V'krexi larvae."
 	reagent_state = LIQUID
 	color = "#bcd827"
-	metabolism = 0.8
+	metabolism = 0.6
 	overdose = 5
 	data = 0
 	taste_description = "bitterness"
@@ -996,7 +996,7 @@
 	M.adjustOxyLoss(1 * removed * scale)
 	M.Weaken(10 * removed * scale)
 	M.make_jittery(20)
-	M.dizziness += 10
+	M.make_dizzy(10)
 
 	if (prob(10))
 		M << pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen")
@@ -1191,4 +1191,16 @@
 		if(M && M.stat == DEAD)
 			M.adjustOxyLoss(-rand(15,20))
 			M.visible_message("<span class='danger'>\The [M] shudders violently!</span>")
+			M.stat = 0
+
+/datum/reagent/pacifier
+	name = "Paxazide"
+	id = "paxazide"
+	description = "A mind altering chemical compound capable of suppressing violent tendencies."
+	reagent_state = LIQUID
+	color = "#1ca9c9"
+	taste_description = "numbness"
+
+/datum/reagent/pacifier/affect_blood(var/mob/living/carbon/H, var/alien, var/removed)
+	H.add_chemical_effect(CE_PACIFIED, 1)
 			M.stat = 0
