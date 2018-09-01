@@ -146,6 +146,7 @@
 		var/obj/item/ammo_casing/C = A
 		if(!(load_method & SINGLE_CASING))
 			to_chat(user,"<span class='warning'>[src] can not be loaded with single casings.</span>")
+			return //incompatible
 		if(caliber != C.caliber)
 			to_chat(user,"<span class='warning'>\The [C] does not fit.</span>")
 			return //incompatible

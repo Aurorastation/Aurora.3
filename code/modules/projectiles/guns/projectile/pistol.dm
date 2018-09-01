@@ -277,7 +277,7 @@
 
 /obj/item/weapon/gun/projectile/leyon
 	name = "10mm pistol"
-	desc = "The Leyon LCC Everyman is a small pistol that holds five shots and is loaded with a stripper clip, popular for self-defense on Mars. Uses 10mm-short rounds."
+	desc = "The Leyon LCC Everyman is a small pistol that holds five shots and is loaded with a stripper clip, popular for self-defense on Mars. Uses 10mm rounds."
 	icon_state = "leyon"
 	caliber = "10mm"
 	w_class = 2
