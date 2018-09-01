@@ -554,6 +554,7 @@
 		/obj/item/weapon/staff = 2
 	)
 	restock_items = 1
+	random_itemcount = 0
 
 /obj/machinery/vending/dinnerware
 	name = "Dinnerware"
@@ -574,8 +575,8 @@
 		/obj/item/weapon/reagent_containers/cooking_container/oven = 5,
 		/obj/item/weapon/reagent_containers/cooking_container/fryer = 4,
 		/obj/item/weapon/storage/toolbox/lunchbox/nt = 6,
-		/obj/item/weapon/reagent_containers/glass/beaker/bowl = 4
-		/obj/item/weapon/reagent_containers/glass/rag = 8
+		/obj/item/weapon/reagent_containers/glass/beaker/bowl = 4,
+		/obj/item/weapon/reagent_containers/glass/rag = 8,
 	)
 	contraband = list(
 		/obj/item/weapon/storage/toolbox/lunchbox/syndicate = 2

@@ -1203,4 +1203,3 @@
 
 /datum/reagent/pacifier/affect_blood(var/mob/living/carbon/H, var/alien, var/removed)
 	H.add_chemical_effect(CE_PACIFIED, 1)
-			M.stat = 0
