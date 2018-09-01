@@ -293,11 +293,12 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		var/newSpecies = chosen_dna.speciesName
 		H.set_species(newSpecies,1)
 
-	src.dna = chosen_dna.dna
-	src.real_name = chosen_dna.name
-	src.flavor_text = ""
-	domutcheck(src, null)
-	src.UpdateAppearance()
+		H.dna = chosen_dna.dna
+		H.real_name = chosen_dna.name
+		H.sync_organ_dna()
+		H.flavor_text = ""
+		domutcheck(H, null)
+		H.UpdateAppearance()
 
 
 //Transform into a monkey.

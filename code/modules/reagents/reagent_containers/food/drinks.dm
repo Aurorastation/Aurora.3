@@ -14,6 +14,12 @@
 /obj/item/weapon/reagent_containers/food/drinks/on_reagent_change()
 	return
 
+/obj/item/weapon/reagent_containers/food/drinks/feed_sound(var/mob/user)
+	playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
+
+/obj/item/weapon/reagent_containers/food/drinks/self_feed_message(var/mob/user)
+	user << "<span class='notice'>You drink from \the [src].</span>"
+
 /obj/item/weapon/reagent_containers/food/drinks/attack_self(mob/user as mob)
 	if(!is_open_container())
 		if(user.a_intent == I_HURT && !shaken)
