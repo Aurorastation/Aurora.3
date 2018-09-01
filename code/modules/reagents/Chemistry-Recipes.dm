@@ -638,11 +638,18 @@
 	required_reagents = list("mindbreaker" = 1, "synaptizine" = 1, "phoron" = 0.1)
 	result_amount = 2
 
-/datum/chemical_reaction/feartoxin
-	name = "Feartoxin"
-	id = "feartoxin"
-	result = "feartoxin"
-	required_reagents = list("mindbreaker" = 1, "synaptizine" = 1, "space_drugs" = 1)
+/datum/chemical_reaction/pacifier
+	name = "Paxazide"
+	id = "paxazide"
+	result = "paxazide"
+	required_reagents = list("truthserum" = 1, "sertraline" = 1)
+	result_amount = 1
+
+/datum/chemical_reaction/berserk
+	name = "Red Nightshade"
+	id = "berserk"
+	result = "berserk"
+	required_reagents = list("psilocybin" = 1, "moonshine" = 1)
 	result_amount = 1
 
 /* Solidification */
