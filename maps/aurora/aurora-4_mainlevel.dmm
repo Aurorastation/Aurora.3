@@ -53850,14 +53850,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"bUt" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Maintenance Access";
-	req_access = list(12)
-	},
-/obj/machinery/door/firedoor,
-/turf/space,
-/area/maintenance/bar)
 "bUy" = (
 /obj/machinery/status_display{
 	pixel_x = 32
@@ -63780,19 +63772,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
-"exl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/plating,
-/area/maintenance/bar)
-"eBl" = (
+"dMB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -63804,17 +63784,29 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"fab" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
+"fPQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
-/obj/structure/reagent_dispensers/extinguisher,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/table/rack,
+/obj/random/loot,
 /turf/simulated/floor/plating,
+/area/maintenance/bar)
+"fVf" = (
+/obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
+	req_access = list(12)
+	},
+/obj/machinery/door/firedoor,
+/turf/space,
 /area/maintenance/bar)
 "grp" = (
 /obj/structure/disposalpipe/segment{
@@ -64672,7 +64664,7 @@
 	dir = 2
 	},
 /obj/machinery/atm{
-	pixel_x = 5;
+	pixel_x = 0;
 	pixel_y = 26
 	},
 /turf/simulated/floor/wood,
@@ -65284,23 +65276,31 @@
 "gvD" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/bar)
-"qLs" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
+"gwu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
 	},
-/obj/structure/table/rack,
-/obj/random/loot,
+/obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"trI" = (
+"gKV" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/crew_quarters/kitchen)
+"gVD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -65311,6 +65311,50 @@
 	},
 /obj/structure/table/rack,
 /obj/random/loot,
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
+"ifX" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/crew_quarters/kitchen)
+"iGq" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/crew_quarters/kitchen)
+"pig" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/crew_quarters/kitchen)
+"tqa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 
@@ -98377,8 +98421,8 @@ bOJ
 bPI
 grC
 cxw
-bPI
-gsr
+ifX
+gKV
 gsA
 gsr
 bPI
@@ -98634,7 +98678,7 @@ cxm
 bPI
 bQQ
 cxx
-bPI
+pig
 bSu
 gsB
 gsP
@@ -98891,7 +98935,7 @@ bOC
 bPI
 bQQ
 grT
-bPI
+iGq
 gss
 gsC
 gsQ
@@ -101461,7 +101505,7 @@ aab
 aaa
 bSx
 bRy
-bUt
+fVf
 bSv
 bSv
 bTJ
@@ -101980,11 +102024,11 @@ bSx
 bSx
 bSx
 bSx
-qLs
-trI
-exl
-fab
-eBl
+fPQ
+gVD
+tqa
+gwu
+dMB
 gti
 bSx
 aab
