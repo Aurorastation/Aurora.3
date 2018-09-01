@@ -187,7 +187,7 @@ var/datum/controller/subsystem/vote/SSvote
 			if("crew_transfer")
 				if(. == "Initiate Crew Transfer")
 					init_shift_change(null, 1)
-				last_transfer_vote = world.time
+				last_transfer_vote = round_duration()
 			if("add_antagonist")
 				if(isnull(.) || . == "None")
 					antag_add_failed = 1
