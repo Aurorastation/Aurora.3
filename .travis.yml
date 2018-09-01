@@ -34,10 +34,6 @@ install:
   - pip install --user PyYaml -q
   - pip install --user beautifulsoup4 -q
   - mysql -e 'CREATE DATABASE ss13_test;'
-  - chmod +x ./install-byond.sh
-  - ./install-byond.sh
-  - chmod +x ./install-flyway.sh
-  - ./install-flyway.sh
   - export LD_LIBRARY_PATH=./:$LD_LIBRARY_PATH
   - shopt -s globstar
 
@@ -60,6 +56,10 @@ jobs:
   include:
     - stage: code check
       install:
+        - chmod +x ./install-byond.sh
+        - ./install-byond.sh
+        - chmod +x ./install-flyway.sh
+        - ./install-flyway.sh
         - chmod +x ./vueui/install
         - ./vueui/install
       script:
