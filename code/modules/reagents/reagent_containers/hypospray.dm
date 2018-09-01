@@ -14,20 +14,27 @@
 	possible_transfer_amounts = null
 	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
+	center_of_mass = null
+	var/armorcheck = 1
 
 /obj/item/weapon/reagent_containers/hypospray/attack(var/mob/M, var/mob/user, target_zone)
+
 	. = ..()
+
 	var/mob/living/carbon/human/H = M
 	if(istype(H))
 		user.visible_message("<span class='warning'>[user] is trying to inject \the [M] with \the [src]!</span>","<span class='notice'>You are trying to inject \the [M] with \the [src].</span>")
-		if(H.run_armor_check(target_zone,"melee",0,"Your armor slows down the injection!","Your armor slows down the injection!"))
+		if(armorcheck && H.run_armor_check(target_zone,"melee",0,"Your armor slows down the injection!","Your armor slows down the injection!"))
 			if(!do_mob(user, M, 60))
-				return
+				return 1
 
 /obj/item/weapon/reagent_containers/hypospray/afterattack(var/mob/M, var/mob/user, proximity)
 
 	if (!istype(M))
 		return ..()
+
+	if(!proximity)
+		return
 
 	if(!reagents.total_volume)
 		to_chat(user,"<span class='warning'>\The [src] is empty.</span>")
@@ -44,7 +51,7 @@
 		var/trans = reagents.trans_to_mob(M, amount_per_transfer_from_this, CHEM_BLOOD)
 		admin_inject_log(user, M, src, contained, trans)
 		to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
-		
+
 	update_icon()
 
 	return
@@ -64,14 +71,13 @@
 	return
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/attack(mob/M as mob, mob/user as mob)
-	..()
-	if(reagents.total_volume <= 0) //Prevents autoinjectors to be refilled.
-		flags &= ~OPENCONTAINER
-	return
+	. = ..()
+	update_icon()
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/update_icon()
 	if(reagents.total_volume > 0)
 		icon_state = "[initial(icon_state)]1"
+		flags &= ~OPENCONTAINER
 	else
 		icon_state = "[initial(icon_state)]0"
 
@@ -111,10 +117,11 @@
 
 /obj/item/weapon/reagent_containers/hypospray/combat
 	name = "combat hypospray"
-	desc = "A hypospray loaded with combat stimulants."
+	desc = "A hypospray loaded with combat stimulants. Its needle has the ability to bypass armor."
 	item_state = "combat_hypo"
 	icon_state = "combat_hypo"
 	volume = 20
+	armorcheck = 0
 
 /obj/item/weapon/reagent_containers/hypospray/combat/Initialize()
 	. = ..()
