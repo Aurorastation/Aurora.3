@@ -1205,10 +1205,3 @@ I said no!
 /datum/recipe/mashedpotato
 	fruit = list("potato" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/mashedpotato
-
-/datum/recipe/icecreamsandwich
-	reagents = list("milk" = 5, "ice" = 5)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/icecreamsandwich
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/porkbowl
