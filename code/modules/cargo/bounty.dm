@@ -1,9 +1,10 @@
 /datum/bounty
 	var/name
 	var/description
-	var/reward = 1000 // In credits.
+	var/reward = 1000 // In credits, if the reward id is "credits"
 	var/claimed = FALSE
 	var/high_priority = FALSE
+	var/reward_id = "credits"
 
 /datum/bounty/New()
 	description = replacetext(description, "%DOCKNAME",current_map.dock_name)
@@ -13,14 +14,13 @@
 	description = replacetext(description, "%COMPNAME",current_map.company_name)
 	description = replacetext(description, "%COMPSHORT",current_map.company_short)
 
-
 // Displayed on bounty UI screen.
 /datum/bounty/proc/completion_string()
 	return ""
 
 // Displayed on bounty UI screen.
 /datum/bounty/proc/reward_string()
-	return "[reward] Credits"
+	return (reward_id == "credits") ? "[reward] Credits" : SScargo.getRewardDescription(reward_id)
 
 /datum/bounty/proc/can_claim()
 	return !claimed
@@ -28,10 +28,13 @@
 // Called when the claim button is clicked. Override to provide fancy rewards.
 /datum/bounty/proc/claim()
 	if(can_claim())
-		SScargo.charge_cargo("Bounty Reward for: [name]", -reward)
+		if(reward_id == "credits")
+			SScargo.charge_cargo("Bounty Reward for: [name]", -reward)
+		else
+			SScargo.spawnReward(reward_id,high_priority)
 		claimed = TRUE
-		return TRUE
-	return FALSE
+
+	return claimed
 
 // If an item sent in the cargo shuttle can satisfy the bounty.
 /datum/bounty/proc/applies_to(obj/O)
@@ -158,46 +161,43 @@
 
 // Called lazily at startup to populate bounties_list with random bounties.
 /datum/controller/subsystem/cargo/proc/setupBounties()
-	for(var/i = 0; i < 3; ++i)
+
+	for(var/i = 0; i < 6; ++i)
 		CHECK_TICK
 		var/subtype = pick(subtypesof(/datum/bounty/item/assistant))
 		try_add_bounty(new subtype)
 
-	for(var/i = 0; i < 1; ++i)
+	for(var/i = 0; i < 4; ++i)
 		CHECK_TICK
 		var/list/subtype = pick(subtypesof(/datum/bounty/item/mech,/datum/bounty/item/bot))
 		try_add_bounty(new subtype)
 
-	for(var/i = 0; i < 2; ++i)
+	for(var/i = 0; i < 4; ++i)
 		CHECK_TICK
 		var/list/subtype = pick(subtypesof(/datum/bounty/item/chef))
 		try_add_bounty(new subtype)
 
-	for(var/i = 0; i < 1; ++i)
+	for(var/i = 0; i < 4; ++i)
 		CHECK_TICK
 		var/list/subtype = pick(subtypesof(/datum/bounty/item/security))
 		try_add_bounty(new subtype)
-	
-	for(var/i = 0; i < 5; ++i)
+
+	for(var/i = 0; i < 6; ++i)
 		CHECK_TICK
 		var/list/subtype = pick(subtypesof(/datum/bounty/weapon_prototype, /datum/bounty/item/science, /datum/bounty/item/slime))
 		try_add_bounty(new subtype)
 
-	try_add_bounty(new /datum/bounty/reagent/simple_drink)
-	try_add_bounty(new /datum/bounty/reagent/complex_drink)
-	try_add_bounty(new /datum/bounty/reagent/chemical)
-
-	/*for(var/i = 0; i < 1; ++i)
+	for(var/i = 1; i < 2; ++i)
 		CHECK_TICK
-		var/list/subtype = pick(subtypesof(/datum/bounty/virus))
-		try_add_bounty(new subtype)*/
+		try_add_bounty(new /datum/bounty/reagent/simple_drink)
+		try_add_bounty(new /datum/bounty/reagent/complex_drink)
+		try_add_bounty(new /datum/bounty/reagent/chemical)
 
-	var/datum/bounty/B = pick(bounties_list)
-	B.mark_high_priority()
+	for(var/i = 1; i < 4; ++i)
+		CHECK_TICK
+		var/datum/bounty/B = pick(bounties_list)
+		B.mark_high_priority()
 
-	// Generate these last so they can't be high priority.
-	//try_add_bounty(new /datum/bounty/item/alien_organs)
-	//try_add_bounty(new /datum/bounty/item/syndicate_documents)
 	try_add_bounty(new /datum/bounty/more_bounties)
 
 /datum/controller/subsystem/cargo/proc/completed_bounty_count()

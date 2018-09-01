@@ -39,7 +39,6 @@
 	var/datum/bounty/weapon_prototype/W = other_bounty
 	return type != W.type
 
-
 /datum/bounty/weapon_prototype/proc/accepts_weapon(var/obj/item/weapon/gun/energy/laser/prototype/P)
 	return TRUE
 

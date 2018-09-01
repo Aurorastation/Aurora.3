@@ -27,8 +27,9 @@
 
 /datum/bounty/item/assistant/statue
 	name = "Statue"
-	description = "%BOSSNAME would like to commision an artsy statue for the lobby. Ship one out, when possible."
-	reward = 2000
+	description = "%BOSSNAME would like to commision an artsy statue for the lobby. Ship one out, when possible. We'll send out some kinetic accelerators as compensation."
+	reward = 0
+	reward_id = "miner_ka"
 	wanted_types = list(/obj/structure/sculpting_block)
 
 /datum/bounty/item/assistant/statue/applies_to(obj/O)
@@ -47,7 +48,6 @@
 	wanted_types = list(/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers)
 
 /datum/bounty/item/assistant/baseball_bat
-
 	name = "Baseball Bat"
 	description = "Baseball fever is going on at %BOSSSHORT! Be a dear and ship them some baseball bats, so that management can live out their childhood dream."
 	reward = 2000
@@ -82,12 +82,6 @@
 	required_count = 2
 	wanted_types = list(/obj/item/clothing/glasses/sunglasses)
 
-/datum/bounty/item/assistant/monkey_hide
-	name = "Monkey Hide"
-	description = "One of the scientists at %BOSSSHORT is interested in testing products on monkey skin. Your mission is to acquire monkey's hide and ship it."
-	reward = 1500
-	wanted_types = list(/obj/item/stack/material/animalhide/monkey)
-
 /datum/bounty/item/assistant/heart
 	name = "Heart"
 	description = "Commander Johnson is in critical condition after suffering a heart attack. Doctors say he needs a new heart fast. Ship one, pronto!"
@@ -106,13 +100,6 @@
 	description = "Chef Gibb of %BOSSNAME wants to prepare a traditional Unathi meal using a very special delicacy: an appendix. If you ship one, he'll pay."
 	reward = 3000
 	wanted_types = list(/obj/item/organ/appendix)
-
-/datum/bounty/item/assistant/shard
-	name = "Shards"
-	description = "A killer clown has been stalking %BOSSSHORT, and staff have been unable to catch her because she's not wearing shoes. Please ship some shards so that a booby trap can be constructed."
-	reward = 1500
-	required_count = 15
-	wanted_types = list(/obj/item/weapon/material/shard)
 
 /datum/bounty/item/assistant/comfy_chair
 	name = "Comfy Chairs"
