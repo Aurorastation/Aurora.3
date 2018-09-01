@@ -39,7 +39,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/standard_splash_mob(var/mob/user, var/mob/target)
 	return 1 //Returning 1 will cancel everything else in a long line of things it should do.
 
-/obj/item/weapon/reagent_containers/food/snacks/proc/On_Consume(var/mob/eater, var/mob/feeder = null)
+/obj/item/weapon/reagent_containers/food/snacks/proc/on_consume(var/mob/eater, var/mob/feeder = null)
 	if(!reagents.total_volume)
 		eater.visible_message("<span class='notice'>[eater] finishes eating \the [src].</span>","<span class='notice'>You finish eating \the [src].</span>")
 
@@ -112,7 +112,7 @@
 			if(!user.can_eat(src))
 				return
 			if(is_full)
-				to_chat(user,span("warning","You  can't stomach any more food!"))
+				to_chat(user,span("warning","You can't stomach any more food!"))
 				return
 			reagents.trans_to_mob(target, min(reagents.total_volume,bitesize), CHEM_INGEST)
 			self_feed_message(user)
@@ -136,7 +136,7 @@
 
 	feed_sound(user)
 	bitecount++
-	On_Consume(target,user)
+	on_consume(target,user)
 
 	return 1
 
@@ -384,7 +384,7 @@
 			qdel(src)
 
 	if (reagents)
-		On_Consume(user)
+		on_consume(user)
 
 //////////////////////////////////////////////////
 ////////////////////////////////////////////Snacks
@@ -1481,7 +1481,7 @@
 	..()
 	unpopped = rand(1,10)
 
-/obj/item/weapon/reagent_containers/food/snacks/popcorn/On_Consume()
+/obj/item/weapon/reagent_containers/food/snacks/popcorn/on_consume()
 	if(prob(unpopped))	//lol ...what's the point? // IMPLEMENT DENTISTRY WHEN?
 		usr << "<span class='warning'>You bite down on an un-popped kernel!</span>"
 		unpopped = max(0, unpopped-1)
@@ -4474,7 +4474,7 @@
 	nutriment_desc = list("nacho chips" = 1)
 	nutriment_amt = 2
 
-/obj/item/weapon/reagent_containers/food/snacks/chip/On_Consume(mob/M as mob)
+/obj/item/weapon/reagent_containers/food/snacks/chip/on_consume(mob/M as mob)
 	if(reagents && reagents.total_volume)
 		icon_state = bitten_state
 	. = ..()
@@ -4532,11 +4532,11 @@
 	bitesize = 1
 	nutriment_amt = 10
 
-/obj/item/weapon/reagent_containers/food/snacks/chipplate/attack_self(mob/user as mob)
+/obj/item/weapon/reagent_containers/food/snacks/chipplate/attack_hand(mob/user as mob)
 	var/obj/item/weapon/reagent_containers/food/snacks/returningitem = new vendingobject(loc)
 	returningitem.reagents.clear_reagents()
 	reagents.trans_to(returningitem, bitesize)
-	returningitem.bitesize = bitesize
+	returningitem.bitesize = bitesize/2
 	user.put_in_hands(returningitem)
 	if (reagents && reagents.total_volume)
 		user << "You take a chip from the plate."
@@ -4546,6 +4546,13 @@
 		if (loc == user)
 			user.put_in_hands(waste)
 		qdel(src)
+
+/obj/item/weapon/reagent_containers/food/snacks/chipplate/MouseDrop(mob/user) //Dropping the chip onto the user
+	if(istype(user) && user == usr)
+		user.put_in_active_hand(src)
+		src.pickup(user)
+		return
+	. = ..()
 
 /obj/item/weapon/reagent_containers/food/snacks/chipplate/nachos
 	name = "plate of nachos"
@@ -4569,7 +4576,6 @@
 	nutriment_desc = list("queso" = 20)
 	center_of_mass = list("x"=16, "y"=16)
 	nutriment_amt = 20
-
 
 /obj/item/weapon/reagent_containers/food/snacks/dip/attackby(obj/item/weapon/reagent_containers/food/snacks/item as obj, mob/user as mob)
 	. = ..()
