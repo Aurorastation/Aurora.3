@@ -18,6 +18,7 @@ cache:
     - $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}
     - $HOME/flyway-${FLYWAY_BUILD}
     - vueui/dist
+    - _compile
 
 addons:
   mariadb: '10.1'
@@ -75,3 +76,7 @@ jobs:
         - md5sum -c - <<< "51704c822012212faa577079db2e11fd *vueui/template.html"
         - python tools/TagMatcher/tag-matcher.py ../..
         - python tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
+        - scripts/dm.sh -DUNIT_TEST -M$USE_MAP aurorastation.dme
+        - grep "0 warnings" build_log.txt
+        - chmod +x ./scripts/caching/cache-push.sh
+        - ./scripts/caching/cache-push.sh ./_compile
