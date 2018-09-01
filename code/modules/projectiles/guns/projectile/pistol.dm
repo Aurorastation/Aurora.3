@@ -285,9 +285,13 @@
 	max_shells = 5
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
-	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/mc10mm/leyon
-	allowed_magazines = list(/obj/item/ammo_magazine/mc10mm/leyon)
+	load_method = SPEEDLOADER
+
+/obj/item/weapon/gun/projectile/leyon/load_ammo(var/obj/item/A, mob/user)
+	user.visible_message("[user] begins reloading \the [src].", "You begin reloading \the [src].")
+	if(!do_after(user, 20, act_target = src))
+		return
+	..()
 
 /obj/item/weapon/gun/projectile/leyon/update_icon()
 	..()
