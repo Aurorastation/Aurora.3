@@ -119,6 +119,7 @@
 	description = "Cardox is an mildly toxic, expensive, NanoTrasen designed cleaner intended to eliminate liquid phoron stains from suits."
 	reagent_state = LIQUID
 	color = "#EEEEEE"
+	metabolism = 0.6 // 100 seconds for 30 units to metabolise.
 	taste_description = "cherry"
 	conflicting_reagent = /datum/reagent/toxin/phoron
 	strength = 1
