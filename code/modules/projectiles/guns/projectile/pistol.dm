@@ -93,7 +93,7 @@
 
 /obj/item/weapon/gun/projectile/tanto
 	desc = "A Necropolis Industries Tanto .40, designed to compete with the NT Mk58. Uses 10mm rounds."
-	name = "10mm pistol"
+	name = "10mm auto-pistol"
 	icon_state = "c05r"
 	magazine_type = /obj/item/ammo_magazine/mc10mm
 	allowed_magazines = list(/obj/item/ammo_magazine/mc10mm)
@@ -276,7 +276,7 @@
 	. = ..()
 
 /obj/item/weapon/gun/projectile/leyon
-	name = "Leyon pistol"
+	name = "10mm pistol"
 	desc = "The Leyon LCC Everyman is a small pistol that holds five shots and is loaded with a stripper clip, popular for self-defense on Mars. Uses 10mm-short rounds."
 	icon_state = "leyon"
 	caliber = "10mm"
