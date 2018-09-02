@@ -20,6 +20,14 @@
 	var/enroute = 0
 	var/list/targets = list()
 	var/attacked_times = 0
+	var/list/target_type_validator_map = list()
+	var/lowest_health = INFINITY // Max you can get
+
+/mob/living/bot/secbot/Initialize()
+	. = ..()
+	target_type_validator_map.add(/mob/living = CALLBACK(src, ./proc/living), /other/path = TRUE)
+	target_type_validator_map.add(/obj/mecha = CALLBACK(src, ./proc/mecha), /other/path = TRUE)
+	target_type_validator_map.add(/obj/machinery/bot = CALLBACK(src, ./proc/bot), /other/path = TRUE)
 
 /mob/living/simple_animal/hostile/Destroy()
 	friends = null
@@ -32,36 +40,19 @@
 		return null
 
 	var/atom/T = null
-	var/mob/living/TL = null
-	var/lowest_health = INFINITY // Max you can get
-	stop_automated_movement = 0
-	for(var/atom/A in targets)
+	for (var/atom/A in targets)
 		if(A == src)
 			continue
-
-		if (TL)
-			var/mob/living/L = A
-			if((L.faction == src.faction) && !attack_same)
-				continue
-			if(L in friends)
-				continue
-			if(!L.stat && (L.health < lowest_health))
-				lowest_health = L.health
-				T = L
-		else if (isliving(A))
-			TL = A
-
-		else if(istype(A, /obj/mecha)) // Our line of sight stuff was already done in ListTargets().
-			var/obj/mecha/M = A
-			if (M.occupant)
-				T = M
+		if (target_type_validator_map[A.type])
+			var/datum/callback/cb = target_type_validator_map[A.type]
+			if (!istype(cb))
+				T = A // if it's not a callback, then we don't have a validator, ergo, always prefer this target!
+			else if (cb.Invoke(A))
+				T = A // Validator returned TRUE, valid target, go nuts.
 				break
+	lowest_health = INFINITY
 
-		if(istype(A, /obj/machinery/bot))
-			var/obj/machinery/bot/B = A
-			if (B.health > 0)
-				T = B
-				break
+	stop_automated_movement = 0
 
 	if (T != target_mob)
 		target_mob = T
@@ -293,3 +284,29 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		spawn(10)
 			if(!src.stat)
 				horde()
+
+/mob/living/simple_animal/hostile/proc/living(var/atom/A)
+	if(isliving(A))
+		var/mob/living/L = A
+		if((L.faction == src.faction) && !attack_same)
+			return FALSE
+		if(L in friends)
+			return FALSE
+		if(!L.stat && (L.health < lowest_health))
+			lowest_health = L.health
+			return TRUE
+	return FALSE
+
+/mob/living/simple_animal/hostile/proc/mecha(var/atom/A)
+	if(istype(A, /obj/mecha))
+		var/obj/mecha/M = A
+		if (M.occupant)
+			return TRUE
+	return FALSE
+
+/mob/living/simple_animal/hostile/proc/bot(var/atom/A)
+	if(istype(A, /obj/machinery/bot))
+		var/obj/machinery/bot/B = A
+		if (B.health > 0)
+			return TRUE
+	return FALSE
