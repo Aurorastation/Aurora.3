@@ -592,3 +592,10 @@ var/list/holder_mob_icon_cache = list()
 	item_state = "corgi"
 	contained_sprite = 1
 	w_class = 3
+
+/obj/item/weapon/holder/fox
+	name = "fox"
+	icon_state = "fox"
+	item_state = "fox"
+	contained_sprite = 1
+	w_class = 3

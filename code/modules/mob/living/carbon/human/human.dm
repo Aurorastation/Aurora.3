@@ -827,14 +827,22 @@
 	return 1
 
 /mob/living/carbon/human/IsAdvancedToolUser(var/silent)
+
+	if(is_berserk())
+		if(!silent)
+			src << "<span class='warning'>You are in no state to use that!</span>"
+		return 0
+
 	if(!species.has_fine_manipulation)
 		if(!silent)
 			src << "<span class='warning'>You don't have the dexterity to use that!</span>"
 		return 0
+
 	if(disabilities & MONKEYLIKE)
 		if(!silent)
 			src << "<span class='warning'>You don't have the dexterity to use that!</span>"
 		return 0
+
 	return 1
 
 /mob/living/carbon/human/abiotic(var/full_body = 0)

@@ -131,5 +131,5 @@
 	cost = 2
 
 /datum/gear/eyes/spiffygogs
-	display_name = "Orange Goggles"
+	display_name = "orange goggles"
 	path = /obj/item/clothing/glasses/spiffygogs
