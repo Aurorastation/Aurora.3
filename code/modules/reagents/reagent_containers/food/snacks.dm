@@ -166,6 +166,8 @@
 /obj/item/weapon/reagent_containers/food/snacks/examine(mob/user)
 	if(!..(user, 1))
 		return
+	if(name != initial(name))
+		user << "<span class='notice'>You know the item as [initial(name)], however a little piece of propped up paper indicates it's \a [name].</span>"
 	if (coating)
 		user << "<span class='notice'>It's coated in [coating.name]!</span>"
 	if (bitecount==0)
@@ -178,6 +180,26 @@
 		user << "<span class='notice'>\The [src] was bitten multiple times!</span>"
 
 /obj/item/weapon/reagent_containers/food/snacks/attackby(obj/item/weapon/W as obj, mob/user as mob)
+
+	if(istype(W,/obj/item/weapon/pen))
+
+		var/selection = alert(user,"Which attribute do you wish to edit?","Food Editor","Name","Description","Cancel")
+		if(selection == "Name")
+			var/input_clean_name = sanitize(input(user,"What is the name of this food?", "Set Food Name") as text|null)
+			if(input_clean_name)
+				user.visible_message("<span class='notice'>\The [user] labels \the [name] as \"[input_clean_name]\".</span>")
+				name = input_clean_name
+			else
+				name = initial(name)
+		else if(selection == "Description")
+			var/input_clean_desc = sanitize(input(user,"What is the description of this food?", "Set Food Description") as text|null)
+			if(input_clean_desc)
+				user.visible_message("<span class='notice'>\The [user] adds a note to \the [name].</span>")
+				desc = input_clean_desc
+			else
+				desc = initial(desc)
+		return
+
 	if(istype(W,/obj/item/weapon/storage))
 		..() // -> item/attackby()
 		return
@@ -4660,12 +4682,12 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito/Initialize()
 	. = ..()
-	reagents.add_reagent("protein", 6)
+	reagents.add_reagent("protein", 4)
 
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_vegan
 	name = "vegan burrito"
-	desc = "Tofu, carrots, and cabbage wrapped in a flour tortilla. Those seen with this food object are Valid."
+	desc = "Tofu wrapped in a flour tortilla. Those seen with this food object are Valid."
 	icon_state = "burrito_vegan"
 	bitesize = 4
 	center_of_mass = list("x"=16, "y"=16)
@@ -4691,7 +4713,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_cheese
 	name = "meat cheese burrito"
-	desc = "Meat and melted cheese wrapped in a flour tortilla. Do not feed to Skrell."
+	desc = "Meat and melted cheese wrapped in a flour tortilla."
 	icon_state = "burrito_cheese"
 	bitesize = 4
 	center_of_mass = list("x"=16, "y"=16)

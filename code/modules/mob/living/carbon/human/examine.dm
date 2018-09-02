@@ -69,10 +69,16 @@
 
 	//suit/armour
 	if(wear_suit)
+		var/tie_msg
+		if(istype(wear_suit,/obj/item/clothing/suit))
+			var/obj/item/clothing/suit/U = wear_suit
+			if(LAZYLEN(U.accessories))
+				tie_msg += ". Attached to it is [lowertext(english_list(U.accessories))]"
+
 		if(wear_suit.blood_DNA)
 			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[wear_suit] [wear_suit.gender==PLURAL?"some":"a"] [(wear_suit.blood_color != "#030303") ? "blood" : "oil"]-stained [wear_suit.name]!</span>\n"
 		else
-			msg += "[T.He] [T.is] wearing \icon[wear_suit] \a [wear_suit].\n"
+			msg += "[T.He] [T.is] wearing \icon[wear_suit] \a [wear_suit][tie_msg].\n"
 
 		//suit/armour storage
 		if(s_store && !skipsuitstorage)

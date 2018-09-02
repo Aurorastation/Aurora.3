@@ -16327,6 +16327,7 @@
 /area/hallway/secondary/entry/aft)
 "Ev" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/vending/zora,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "Ew" = (
@@ -16707,6 +16708,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "Fg" = (

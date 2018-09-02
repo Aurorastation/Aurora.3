@@ -620,3 +620,28 @@
 	desc = "An oldfashioned red swimsuit."
 	icon_state = "swim_red"
 	siemens_coefficient = 1
+
+/obj/item/clothing/under/kimono
+	name = "kimono"
+	desc = "A traditional Japanese kimono."
+	icon_state = "kimono"
+	item_state = "kimono"
+
+/obj/item/clothing/under/kimono/ronin
+	name = "ronin kimono"
+	desc = "A non-traditional Japanese kimono, it appears to be very gothic. Like, totally gothic."
+	icon_state = "ronin_kimono"
+	item_state = "ronin_kimono"
+
+/obj/item/clothing/under/kimono/fancy
+	name = "fancy kimono"
+	desc = "A Japanese kimono, this one is very luxurious. It brings to mine iced tea cans."
+	icon_state = "fancy_kimono"
+	item_state = "fancy_kimono"
+
+/obj/item/clothing/under/gov
+	name = "green formal uniform"
+	desc = "A neat proper uniform of someone on offical business. Plain, professional attire. The collar is <i>immaculately</i> starched."
+	icon_state = "greensuit"
+	item_state = "greensuit"
+	worn_state = "greensuit"
