@@ -14618,6 +14618,8 @@
 	pixel_y = 6
 	},
 /obj/item/clothing/accessory/wcoat,
+/obj/item/weapon/reagent_containers/glass/rag,
+/obj/item/weapon/book/manual/barman_recipes,
 /turf/unsimulated/floor{
 	icon_state = "grimy"
 	},
@@ -15042,8 +15044,7 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/weapon/book/manual/barman_recipes,
-/obj/item/weapon/reagent_containers/glass/rag,
+/obj/machinery/chemical_dispenser/coffeemaster/full,
 /turf/unsimulated/floor{
 	icon_state = "grimy"
 	},
@@ -22377,6 +22378,12 @@
 	},
 /turf/simulated/floor/tiled/ramp,
 /area/shuttle/escape/centcom)
+"Xr" = (
+/obj/machinery/media/jukebox,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/holding)
 
 (1,1,1) = {"
 aa
@@ -57004,7 +57011,7 @@ DM
 DM
 DM
 DM
-EP
+Xr
 EP
 WE
 Gq
