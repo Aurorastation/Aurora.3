@@ -4684,6 +4684,14 @@
 	. = ..()
 	reagents.add_reagent("protein", 6)
 
+/obj/item/weapon/reagent_containers/food/snacks/burrito_pathetic
+	name = "skinny burrito"
+	desc = "A more economical burrito for the masses."
+	icon_state = "pathetic"
+	bitesize = 6 //Easy to bite
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_desc = list("tortilla" = 6)
+	nutriment_amt = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_vegan
 	name = "vegan burrito"
