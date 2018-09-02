@@ -1,5 +1,0 @@
-author: MoondancerPony
-delete-after: True
-changes: 
-  - bugfix: "Fixes calling transfer votes early."
-  - experiment: "Replaces all instances of world.time in SSVote with round_duration_in_ticks. This should result in more consistent behavior overall, but may result in unexpected issues. Please report any, if they occur."
