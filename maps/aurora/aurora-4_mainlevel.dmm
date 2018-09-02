@@ -28943,7 +28943,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aZH" = (
-/obj/structure/flora/pottedplant/random,
+/obj/machinery/vending/zora,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aZI" = (
