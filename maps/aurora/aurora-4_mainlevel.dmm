@@ -5342,6 +5342,14 @@
 /obj/item/device/multitool,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
+"akI" = (
+/obj/machinery/vending/battlemonsters,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
+"akJ" = (
+/obj/machinery/vending/coffee,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "akN" = (
 /obj/structure/morgue{
 	icon_state = "morgue1";
@@ -46065,14 +46073,6 @@
 	pixel_y = 27
 	},
 /obj/structure/disposalpipe/trunk,
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
-"bCC" = (
-/obj/machinery/vending/snack,
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
-"bCD" = (
-/obj/machinery/vending/cola,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bCE" = (
@@ -96602,7 +96602,7 @@ byx
 bzE
 bAG
 bxs
-bCC
+akI
 cuG
 cuI
 cuO
@@ -96859,7 +96859,7 @@ byy
 coh
 coi
 bxs
-bCD
+akJ
 bDx
 bEx
 cuP
