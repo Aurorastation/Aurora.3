@@ -119,6 +119,7 @@
 	description = "Cardox is an mildly toxic, expensive, NanoTrasen designed cleaner intended to eliminate liquid phoron stains from suits."
 	reagent_state = LIQUID
 	color = "#EEEEEE"
+	metabolism = 0.6 // 100 seconds for 30 units to metabolise.
 	taste_description = "cherry"
 	conflicting_reagent = /datum/reagent/toxin/phoron
 	strength = 1
@@ -419,7 +420,7 @@
 	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "bitterness"
-	breathe_met = 0.33
+	breathe_met = REM * 0.5 * 0.33
 	var/total_strength = 0
 
 /datum/reagent/soporific/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -442,13 +443,13 @@
 /datum/reagent/chloralhydrate
 	name = "Chloral Hydrate"
 	id = "chloralhydrate"
-	description = "A powerful sedative. Lasts three times longer when inhaled."
+	description = "A powerful sedative. Lasts two times longer when inhaled."
 	reagent_state = SOLID
 	color = "#000067"
 	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE * 0.5
 	taste_description = "bitterness"
-	breathe_met = 0.33
+	breathe_met = REM * 0.5 * 0.5
 
 /datum/reagent/chloralhydrate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
@@ -492,7 +493,7 @@
 	taste_description = "bitterness"
 	taste_mult = 0.4
 	breathe_mul = 2
-	breathe_met = REM * 0.25
+	breathe_met = REM * 0.5 * 0.5
 
 /datum/reagent/space_drugs/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
