@@ -281,6 +281,8 @@
 	for(var/obj/holo_obj in holographic_objs)
 		holo_obj.alpha *= 0.8 //give holodeck objs a slight transparency
 
+	linkedholodeck.loop_ambience = HP.loop_ambience
+
 	if(HP.ambience)
 		linkedholodeck.forced_ambience = HP.ambience
 	else

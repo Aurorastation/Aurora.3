@@ -27,7 +27,7 @@
 /datum/reagent/bicaridine
 	name = "Bicaridine"
 	id = "bicaridine"
-	description = "Bicaridine is an analgesic medication and can be used to treat blunt trauma."
+	description = "Bicaridine is an analgesic medication and can be used to treat blunt trauma. Lasts twice as long when inhaled, however it is generally twice as weak."
 	reagent_state = LIQUID
 	color = "#BF0000"
 	overdose = REAGENTS_OVERDOSE
@@ -35,9 +35,8 @@
 	metabolism = REM * 1.5//Get to overdose state a bit faster
 	taste_description = "bitterness"
 	taste_mult = 3
-
-	breathe_met = 0.5
-	breathe_mul = 0.1
+	breathe_met = REM * 1.5 * 0.5
+	breathe_mul = 0.5
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(5 * removed, 0)
@@ -107,7 +106,8 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
-	breathe_met = 0.5
+	metabolism = REM
+	breathe_met = REM * 0.5
 	breathe_mul = 2
 
 /datum/reagent/dexalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -127,7 +127,8 @@
 	overdose = REAGENTS_OVERDOSE * 0.5
 	scannable = 1
 	taste_description = "bitterness"
-	breathe_met = 0.5
+	metabolism = REM
+	breathe_met = REM * 0.5
 	breathe_mul = 2
 
 /datum/reagent/dexalinp/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -376,7 +377,7 @@
 	var/datum/modifier = null
 	taste_description = "acid"
 	metabolism_min = REM * 0.025
-	breathe_met = 0.5
+	breathe_met = REM * 0.15 * 0.5
 
 /datum/reagent/hyperzine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(5))
