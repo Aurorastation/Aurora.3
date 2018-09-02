@@ -53879,7 +53879,7 @@
 /area/crew_quarters/bar)
 "bUF" = (
 /obj/machinery/vending/boozeomat{
-	req_access = list(19)
+	req_access = list(25)
 	},
 /turf/simulated/wall,
 /area/crew_quarters/kitchen)
