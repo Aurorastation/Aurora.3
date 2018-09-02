@@ -40,7 +40,7 @@ var/datum/controller/subsystem/vote/SSvote
 
 		// Calculate how much time is remaining by comparing current time, to time of vote start,
 		// plus vote duration
-		time_remaining = round((started_time + config.vote_period - round_duration_in_ticks)/10)
+		time_remaining = round((started_time + config.vote_period - world.time)/10)
 
 		if(time_remaining < 0)
 			result()
@@ -303,7 +303,7 @@ var/datum/controller/subsystem/vote/SSvote
 				return 0
 		mode = vote_type
 		initiator = initiator_key
-		started_time = round_duration_in_ticks
+		started_time = world.time
 		var/text = "[capitalize(mode)] vote started by [initiator]."
 		if(mode == "custom")
 			text += "\n[question]"
