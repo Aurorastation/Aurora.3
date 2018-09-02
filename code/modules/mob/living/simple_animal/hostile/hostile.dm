@@ -23,11 +23,11 @@
 	var/list/target_type_validator_map = list()
 	var/lowest_health = INFINITY // Max you can get
 
-/mob/living/bot/secbot/Initialize()
-	. = ..()
-	target_type_validator_map.add(/mob/living = CALLBACK(src, ./proc/living), /other/path = TRUE)
-	target_type_validator_map.add(/obj/mecha = CALLBACK(src, ./proc/mecha), /other/path = TRUE)
-	target_type_validator_map.add(/obj/machinery/bot = CALLBACK(src, ./proc/bot), /other/path = TRUE)
+/mob/living/simple_animal/hostile/Initialize()
+	..()
+	target_type_validator_map[/mob/living] = CALLBACK(src, .proc/living)
+	target_type_validator_map[/obj/mecha] = CALLBACK(src, .proc/mecha)
+	target_type_validator_map[/obj/machinery/bot] = CALLBACK(src, .proc/bot)
 
 /mob/living/simple_animal/hostile/Destroy()
 	friends = null
@@ -43,13 +43,15 @@
 	for (var/atom/A in targets)
 		if(A == src)
 			continue
-		if (target_type_validator_map[A.type])
-			var/datum/callback/cb = target_type_validator_map[A.type]
-			if (!istype(cb))
-				T = A // if it's not a callback, then we don't have a validator, ergo, always prefer this target!
-			else if (cb.Invoke(A))
-				T = A // Validator returned TRUE, valid target, go nuts.
-				break
+		var/datum/callback/cb = null
+		for (var/type in target_type_validator_map)
+			if (istype(A, type))
+				cb= target_type_validator_map[type]
+
+		if (!cb)
+			continue
+		else if (!istype(cb) || cb.Invoke(A))
+			T = A
 	lowest_health = INFINITY
 
 	stop_automated_movement = 0
@@ -285,28 +287,23 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 			if(!src.stat)
 				horde()
 
-/mob/living/simple_animal/hostile/proc/living(var/atom/A)
-	if(isliving(A))
-		var/mob/living/L = A
-		if((L.faction == src.faction) && !attack_same)
-			return FALSE
-		if(L in friends)
-			return FALSE
-		if(!L.stat && (L.health < lowest_health))
-			lowest_health = L.health
-			return TRUE
-	return FALSE
+/mob/living/simple_animal/hostile/proc/living(var/mob/living/L)
+	if((L.faction == src.faction) && !attack_same)
+		return FALSE
+	if(L in friends)
+		return FALSE
+	if(!L.stat && (L.health < lowest_health))
+		lowest_health = L.health
+		return TRUE
 
-/mob/living/simple_animal/hostile/proc/mecha(var/atom/A)
-	if(istype(A, /obj/mecha))
-		var/obj/mecha/M = A
-		if (M.occupant)
-			return TRUE
-	return FALSE
+/mob/living/simple_animal/hostile/proc/mecha(var/obj/mecha/M)
+	if (M.occupant)
+		return TRUE
+	else
+		return FALSE
 
-/mob/living/simple_animal/hostile/proc/bot(var/atom/A)
-	if(istype(A, /obj/machinery/bot))
-		var/obj/machinery/bot/B = A
-		if (B.health > 0)
-			return TRUE
-	return FALSE
+/mob/living/simple_animal/hostile/proc/bot(var/obj/machinery/bot/B)
+	if (B.health > 0)
+		return TRUE
+	else
+		return FALSE

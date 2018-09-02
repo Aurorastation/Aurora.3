@@ -40,60 +40,19 @@
 	faction = "carp"
 
 	flying = TRUE
+	var/closest_distance = INFINITY
+
+/mob/living/simple_animal/hostile/carp/Initialize()
+	..()
+	target_type_validator_map[/obj/effect/energy_field] = CALLBACK(src, .proc/e_field)
 
 /mob/living/simple_animal/hostile/carp/Allow_Spacemove(var/check_drift = 0)
 	return 1	//No drifting in space for space carp!	//original comments do not steal
 
 /mob/living/simple_animal/hostile/carp/FindTarget()
-	if(!faction) //No faction, no reason to attack anybody.
-		return null
-
-	var/atom/T = null
-	var/lowest_health = INFINITY // Max you can get
-	stop_automated_movement = 0
-	for(var/mob/living/L in targets)
-		if((L.faction == src.faction) && !attack_same)
-			continue
-		if(L in friends)
-			continue
-
-		if(!L.stat && (L.health < lowest_health))
-			lowest_health = L.health
-			T = L
-	if(isnull(T))
-		for(var/atom/A in targets)
-
-			if(A == src)
-				continue
-
-			var/atom/F = Found(A)
-			if(F)
-				T = F
-				break
-
-			else if(istype(A, /obj/mecha)) // Our line of sight stuff was already done in ListTargets().
-				var/obj/mecha/M = A
-				if (M.occupant)
-					T = M
-					break
-
-			if(istype(A, /obj/machinery/bot))
-				var/obj/machinery/bot/B = A
-				if (B.health > 0)
-					T = B
-					break
-
-			if(istype(A, /obj/effect/energy_field))
-				T = A
-				break
-
-	if (T != target_mob)
-		target_mob = T
-		FoundTarget()
-		custom_emote(1,"nashes at [target_mob]")
-	if(!isnull(T))
-		stance = HOSTILE_STANCE_ATTACK
-	return T
+	. = ..()
+	closest_distance = INFINITY
+	return .
 
 /mob/living/simple_animal/hostile/carp/MoveToTarget()
 	stop_automated_movement = 1
@@ -114,7 +73,6 @@
 			walk_to(src, target_mob, 1, move_to_delay)
 
 /mob/living/simple_animal/hostile/carp/AttackTarget()
-
 	stop_automated_movement = 1
 	if(istype(target_mob, /obj/effect/energy_field) && !QDELETED(target_mob) && (get_dist(src, target_mob) <= 1))
 		AttackingTarget()
@@ -132,6 +90,9 @@
 		AttackingTarget()
 		attacked_times += 1
 		return 1
+	else
+		stance = HOSTILE_STANCE_ATTACK
+		return 0
 
 /mob/living/simple_animal/hostile/carp/AttackingTarget()
 	setClickCooldown(attack_delay)
@@ -176,6 +137,14 @@
 				obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 				return 1
 	return 0
+
+/mob/living/simple_animal/hostile/carp/proc/e_field(var/obj/effect/energy_field/E)
+	var/dist = get_dist(src, E)
+	if(dist < closest_distance)
+		closest_distance = dist
+		return TRUE
+	else
+		return FALSE
 
 /mob/living/simple_animal/hostile/carp/russian
 	name = "Ivan the carp"
