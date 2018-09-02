@@ -575,7 +575,7 @@
 		if(!found)
 			broadcast_security_hud_message("[src] was shot with <b>[P]</b>, Unable to locate source! Requesting backup", src)
 			return
-      
+
 		target = P.firer
 		mode = SECBOT_HUNT
 		if(ishuman(P.firer))
@@ -713,3 +713,11 @@
 		if(!in_range(src, usr) && loc != usr)
 			return
 		created_name = t
+
+#undef SECBOT_IDLE
+#undef SECBOT_HUNT
+#undef SECBOT_ARREST
+#undef SECBOT_START_PATROL
+#undef SECBOT_WAIT_PATROL
+#undef SECBOT_PATROL
+#undef SECBOT_SUMMON

@@ -211,8 +211,7 @@
 	set category = "IC"
 	set src in view(1)
 
-	var/mob/M = usr
-	if(!M.mind)	return 0
+	if(!usr.mind)	return 0
 
 	// Check if they are set to arrest
 	if(ishuman(usr))
@@ -224,16 +223,16 @@
 
 		var/datum/data/record/R = find_security_record("name", perpname)
 		if(R && R.fields["criminal"] == "*Arrest*")
-			visible_message(usr, "<span class='warning'>Warning, you do not have access!</span>")
+			to_chat(usr, "<span class='warning'>Warning, you do not have access!</span>")
 
 	// Check if they have access to the bot
 	if(!has_ui_access(usr))
-		visible_message(usr, "<span class='warning'>Warning, you do not have access!</span>")
+		to_chat(usr, "<span class='warning'>Warning, you do not have access!</span>")
 		return 0
 
 	var/short_input = sanitizeSafe(input("What do you want [src] respond to?", , ""), MAX_NAME_LEN)
 
-	if(src && short_input && !M.stat && in_range(M,src))
+	if(src && short_input && !usr.stat && in_range(usr,src))
 		short_name = short_input
 		return 1
 
@@ -406,3 +405,13 @@
 				qdel(W)
 				qdel(src)
 				return 1
+
+#undef SECBOT_IDLE
+#undef SECBOT_HUNT
+#undef SECBOT_ARREST
+#undef SECBOT_START_PATROL
+#undef SECBOT_WAIT_PATROL
+#undef SECBOT_PATROL
+#undef SECBOT_SUMMON
+#undef SECBOT_STOP
+#undef SECBOT_FOLLOW
