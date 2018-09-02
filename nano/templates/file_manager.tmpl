@@ -33,6 +33,9 @@
 					{{else}}
 						{{:helper.link('DECRYPT', null, { "PRG_decrypt" : value.name }, (value.undeletable) ? 'disabled' : null)}}
 					{{/if}}
+					{{if data.usbconnected}}
+						{{:helper.link('EXPORT', null, { "PRG_copytousb" : value.name }, value.undeletable ? 'disabled' : null)}}
+					
 			{{/for}}
 		</table>
 		{{if data.usbconnected}}
