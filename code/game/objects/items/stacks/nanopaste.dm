@@ -111,7 +111,7 @@
 				if (!do_mob(user, M, 2))
 					return 0
 
-				s.surge_left = rand(1, 3)
+				s.surge_left = rand(2, 5)
 				s.broken = 0
 				s.icon_state = "surge_ipc"
 
