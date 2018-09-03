@@ -412,3 +412,12 @@
 	if(!species)
 		return null
 	return species.default_language ? all_languages[species.default_language] : null
+
+/mob/living/carbon/is_berserk()
+	return (CE_BERSERK in chem_effects)
+
+/mob/living/carbon/is_pacified()
+	if(disabilities & PACIFIST)
+		return TRUE
+	if(CE_PACIFIED in chem_effects)
+		return TRUE

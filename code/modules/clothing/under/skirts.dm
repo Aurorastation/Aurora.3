@@ -65,3 +65,10 @@
 	icon_state = "blackjumpskirt"
 	item_state = "bl_suit"
 	worn_state = "blackjumpskirt"
+
+/obj/item/clothing/under/skirt/loincloth
+	name = "loincloth"
+	desc = "A piece of cloth wrapped around the waist."
+	icon_state = "loincloth"
+	item_state = "loincloth"
+	worn_state = "loincloth"
