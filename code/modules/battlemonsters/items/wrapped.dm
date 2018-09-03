@@ -7,7 +7,7 @@
 	var/rarity_max = BATTLE_MONSTERS_RARITY_COMMON
 	var/rarity_min = BATTLE_MONSTERS_RARITY_UNCOMMON
 
-/obj/item/battle_monsters/wrapped/attack_self(mob/user)
+/obj/item/battle_monsters/wrapped/proc/GenerateCards(mob/user,obj/item/battle_monsters/deck/generated_deck)
 	var/list/deck_data = list()
 	for(var/i=1,i <= contained_cards,i++)
 		CHECK_TICK //This stuff is a little intensive I think.
@@ -24,12 +24,17 @@
 		var/datum/battle_monsters/selected_root = SSbattlemonsters.GetRandomRoot_Filtered(rarity_min,rarity_max)
 		var/datum/battle_monsters/selected_suffix = SSbattlemonsters.GetRandomSuffix_Filtered(rarity_min,rarity_max)
 		deck_data += "[selected_prefix.id],[selected_root.id],[(selected_prefix.rarity_score + selected_root.rarity_score) >= 3 ? selected_suffix.id : "no_title"]"
+
+	generated_deck.stored_card_names = deck_data
+
+/obj/item/battle_monsters/wrapped/attack_self(mob/user)
+
 	user.visible_message(\
 		span("notice","\The [user] unwraps \the [src]."),\
 		span("notice","You unwrap \the [src].")\
 	)
 	var/obj/item/battle_monsters/deck/generated_deck = new(get_turf(src))
-	generated_deck.stored_card_names = deck_data
+	GenerateCards(user,generated_deck)
 	user.drop_from_inventory(src)
 	user.put_in_active_hand(generated_deck)
 	qdel(src)

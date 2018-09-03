@@ -30,15 +30,23 @@
 	icon_state = "battlemonsters"
 	vend_id = "battlemonsters"
 	products = list(
-		/obj/item/weapon/book/manual/battlemonsters = 5,
+		/obj/item/weapon/book/manual/battlemonsters = 10,
 		/obj/item/battle_monsters/wrapped = 20,
-		/obj/item/battle_monsters/wrapped/pro = 10,
-		/obj/item/battle_monsters/wrapped/rare = 2
+		/obj/item/battle_monsters/wrapped/pro = 20,
+		/obj/item/battle_monsters/wrapped/species = 4, //Human monsters
+		/obj/item/battle_monsters/wrapped/species/lizard = 4, //Reptile Monsters
+		/obj/item/battle_monsters/wrapped/species/cat = 4, //Feline Monsters
+		/obj/item/battle_monsters/wrapped/species/ant = 4, //Ant Monsters
+		/obj/item/battle_monsters/wrapped/rare = 4
 	)
 	prices = list(
-		/obj/item/weapon/book/manual/battlemonsters = 10,
+		/obj/item/weapon/book/manual/battlemonsters = 12,
 		/obj/item/battle_monsters/wrapped = 150,
-		/obj/item/battle_monsters/wrapped/pro = 75,
+		/obj/item/battle_monsters/wrapped/pro = 100,
+		/obj/item/battle_monsters/wrapped/species = 150,
+		/obj/item/battle_monsters/wrapped/species/lizard = 150,
+		/obj/item/battle_monsters/wrapped/species/cat = 150,
+		/obj/item/battle_monsters/wrapped/species/ant = 150,
 		/obj/item/battle_monsters/wrapped/rare = 200,
 		/obj/item/battle_monsters/wrapped/legendary = 400
 	)
