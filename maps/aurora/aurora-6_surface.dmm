@@ -15678,10 +15678,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
-"Df" = (
-/obj/machinery/firealarm,
-/turf/simulated/wall,
-/area/storage/tools)
 "Dg" = (
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/mime,
@@ -19120,13 +19116,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
-"Jb" = (
-/obj/structure/cable{
-	icon_state = "12-0"
-	},
-/obj/structure/cable,
-/turf/simulated/floor/plating,
-/area/maintenance/arrivals)
 "Jc" = (
 /turf/simulated/floor/asteroid/ash,
 /area/skipjack_station/surface)
@@ -20198,14 +20187,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
-"NO" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/arrivals)
 "NP" = (
 /obj/structure/cable{
 	d1 = 2;
@@ -20247,30 +20228,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
-"NU" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/loading)
-"NV" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/loading)
-"NW" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/loading)
 "NX" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -20281,46 +20238,6 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "NY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/loading)
-"NZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/loading)
-"Oa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/loading)
-"Ob" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/loading)
-"Oc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -20355,6 +20272,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
+"Vk" = (
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/tiled,
+/area/storage/tools)
 
 (1,1,1) = {"
 aa
@@ -50835,8 +50756,8 @@ CF
 Bs
 Bs
 Bs
-Bs
-Df
+Vk
+AZ
 tu
 JH
 JX

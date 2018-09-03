@@ -61341,21 +61341,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
-"cqM" = (
-/obj/machinery/cryopod{
-	icon_state = "body_scanner_0";
-	dir = 4
-	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -25
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/sleep/cryo)
 "cqN" = (
 /obj/machinery/computer/cryopod{
 	pixel_y = -32
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
 "cqO" = (
@@ -93059,7 +93049,7 @@ bXv
 bWm
 cqF
 cqF
-cqM
+cqF
 cqY
 cbi
 cbA
