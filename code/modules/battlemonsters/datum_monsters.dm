@@ -104,12 +104,11 @@ datum/battle_monsters/monster/human/warrior
 	description = "a scantily clad male %SPECIES %NAME dressed in leopard skin. They proudly wield a giant %WEAPON_AND."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLUB
 	rarity = BATTLE_MONSTERS_RARITY_UNCOMMON
-	rarity = BATTLE_MONSTERS_RARITY_UNCOMMON
 	rarity_score = 0
 
 /datum/battle_monsters/monster/human/amazon_prime
 	name = "Amazon Prime"
-	id = "amazon_warrior"
+	id = "amazon_prime"
 	icon_state = "human"
 	power_add = 1000
 	defense_add = 2
@@ -129,7 +128,7 @@ datum/battle_monsters/monster/human/warrior
 	attack_add = 1
 	rarity = 0.25
 	description = "a proud male %SPECIES %NAME dorned in heavy %ELEMENT_AND armor and wielding a decorative %WEAPON_AND. They're sworn to protect the Great Kingdom of Garoosh from Barbarians."
-	special_effects = "%SPECIES Protection: As long as %NAME is visible, all other %SPECIES are attack immune."
+	special_effects = "%SPECIES_C Protection: As long as %NAME is visible, all other %SPECIES monsters are attack immune."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN
 	rarity = BATTLE_MONSTERS_RARITY_UNCOMMON
 	rarity_score = 0
@@ -141,7 +140,7 @@ datum/battle_monsters/monster/human/warrior
 	power_add = 2000
 	defense_add = 1
 	attack_add = 10
-	description = "a fat %SPECIES %NAME sitting atop a %ELEMENT_AND throne, with a %WEAPON_AND spread out across a gold chessboard. Their equally golden crown is quite large for their small head."
+	description = "a fat %SPECIES King sitting atop a %ELEMENT_AND throne, with a %WEAPON_AND spread out across a gold chessboard. Their equally golden crown is quite large for their small head."
 	special_effects = "Selfish Protection: %NAME cannot be attacked if other monsters exist on the same side of the field."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_ARMY
 	rarity = BATTLE_MONSTERS_RARITY_MYTHICAL
@@ -154,8 +153,8 @@ datum/battle_monsters/monster/human/warrior
 	power_add = 2000
 	defense_add = 1
 	attack_add = 5
-	description = "an incredibly voluptuous %SPECIES female adorned in a %ELEMENTS_AND robe. An equally tight-fitting crown sits atop her head."
-	special_effects = "Lustful Aurora: %NAME cannot be attacked by %SPECIES."
+	description = "an incredibly voluptuous %SPECIES female adorned in a %ELEMENT_AND robe. An equally tight-fitting crown sits atop her head."
+	special_effects = "Lustful Aurora: %NAME cannot be attacked by %SPECIES monsters."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_ARMY
 	rarity = BATTLE_MONSTERS_RARITY_MYTHICAL
 	rarity_score = 1
@@ -185,7 +184,7 @@ datum/battle_monsters/monster/human/warrior
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLAWS
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_GIANT_DRAGON
 	rarity = BATTLE_MONSTERS_RARITY_MYTHICAL
-	rarity_score = 1
+	rarity_score = 2
 
 /datum/battle_monsters/monster/dragon/hybrid
 	name = "Dragoness"
@@ -195,7 +194,7 @@ datum/battle_monsters/monster/human/warrior
 	defense_add = 2
 	attack_add = 1
 	description = "an unrealsticly busty feminine shaped %SPECIES. When not using their mammaries to confuse scientists, %NAME usually stalks careless human climbers for a quick and easy meal using their deadly %WEAPON_AND."
-	special_effects = "Lustful Aurora: %NAME cannot be attacked by %SPECIES."
+	special_effects = "Lustful Aurora: %NAME cannot be attacked by %SPECIES monsters."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLAWS
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_DRAGONHYBRID
 	rarity = BATTLE_MONSTERS_RARITY_RARE
@@ -267,7 +266,7 @@ datum/battle_monsters/monster/human/warrior
 	description = "a furred bipedal female %SPECIES citizen of the plains of Old Jargo. %NAME ocassionally hunt small creatures with their %WEAPON_AND."
 
 /datum/battle_monsters/monster/antman
-	name = "Great Ant Patron"
+	name = "Ant Patron"
 	id = "antman"
 	icon_state = "ant"
 	power_add = 400
@@ -280,7 +279,7 @@ datum/battle_monsters/monster/human/warrior
 	rarity_score = 0
 
 /datum/battle_monsters/monster/antman/female
-	name = "Great Ant Matron"
+	name = "Ant Matron"
 	id = "antwoman"
 	icon_state = "ant"
 	power_add = 800

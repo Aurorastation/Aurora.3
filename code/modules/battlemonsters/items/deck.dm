@@ -5,6 +5,10 @@
 	var/list/stored_card_names = list()
 	var/deck_size = 52
 
+/obj/item/battle_monsters/deck/Initialize()
+	update_icon()
+	. = ..()
+
 /obj/item/battle_monsters/deck/proc/get_top_card()
 	return stored_card_names[stored_card_names.len]
 
@@ -21,6 +25,8 @@
 		stored_card_names += "[added_card.prefix_datum.id],[added_card.root_datum.id],[added_card.suffix_datum.id]"
 
 	qdel(added_card)
+
+	update_icon()
 
 /obj/item/battle_monsters/deck/proc/take_card(var/mob/user)
 
@@ -52,8 +58,12 @@
 		new_card.pickup(user)
 		stored_card_names -= card_id
 
+
 	if(stored_card_names.len <= 0)
 		qdel(src)
+		return
+
+	update_icon()
 
 /obj/item/battle_monsters/deck/MouseDrop_T(var/atom/movable/C, mob/user) //Dropping C onto the card
 
@@ -69,6 +79,14 @@
 
 		qdel(C)
 		return
+
+	. = ..()
+
+/obj/item/battle_monsters/deck/update_icon()
+	if(icon_state == "hand")
+		name = "hand of [stored_card_names.len] battlemonster cards"
+	else
+		name = "deck of [stored_card_names.len] battlemonster cards"
 
 	. = ..()
 
@@ -93,6 +111,8 @@
 		)
 		icon_state = "hand"
 
+	update_icon()
+
 /obj/item/battle_monsters/deck/verb/shuffle_deck()
 	set category = "Object"
 	set name = "Shuffle Deck"
@@ -111,7 +131,10 @@
 	stored_card_names = shuffle(stored_card_names)
 
 /obj/item/battle_monsters/deck/attack_hand(var/mob/user)
-	take_card(user)
+	if(isturf(src.loc))
+		take_card(user)
+	else
+		. = ..()
 
 /obj/item/battle_monsters/deck/attackby(var/obj/item/attacking, var/mob/user)
 	if(istype(attacking,/obj/item/battle_monsters/card) && attacking != src)

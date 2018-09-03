@@ -50,3 +50,13 @@
 	description = "a red laser beam being reflected by a blue shield."
 	special_effects = "TRIGGER: When the opponent plays a spell card. Single use.<br>EFFECT: The spell card's effect is instead applied to the chosen target, and sent to the graveyard."
 	rarity_score = 1
+
+/datum/battle_monsters/trap/slip
+	name = "Banana Slip"
+	id = "slip"
+	icon_state = "banana"
+	elements = BATTLE_MONSTERS_ELEMENT_NEUTRAL
+	rarity = 1
+	description = "a banana peel, and an unsuspecting foot about to step on it."
+	special_effects = "TRIGGER: When revealed. Single use.<br>EFFECT: If the opponent draws a card, it is sent to the graveyard."
+	rarity_score = 1

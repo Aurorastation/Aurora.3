@@ -33,7 +33,7 @@
 	name = "Fireborn"
 	id = "lava"
 	icon_state = "fireborn"
-	description = "They're covered head to toe in a firey blaze. These types of %SPECIES are born from magic %ELEMENT_AND of dark wizards and witches. They make excellent spellcasters."
+	description = "They're covered head to toe in a firey blaze. These types of %SPECIESs are born from magic %ELEMENT_AND of dark wizards and witches. They make excellent spellcasters."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SPELLCASTER
 	special_effects = "Element Spell Immune: %NAME is immune to all %ELEMENT_OR based spell and trap cards if another revealed fire element monster is on the same side of the field."
 	power_add = 100
@@ -81,7 +81,7 @@
 	icon_state = "scorching_blade"
 	elements = BATTLE_MONSTERS_ELEMENT_FIRE | BATTLE_MONSTERS_ELEMENT_STONE
 	description = "A giant, %ELEMENT_AND katana adorns their hip. The blade itself looks extremely unstable and pulsates with strange magic every now and then. Warriors of the east looking to improve their mastery of fire usually look to perform the Scorching Blade ritual."
-	special_effects = "Revenge: If %NAME is sent to a graveyard, the card's owner can choose to send one non-%ELEMENTS_OR based monster on the field to the graveyard as well."
+	special_effects = "Revenge: If %NAME is sent to a graveyard, the card's owner can choose to send one non-%ELEMENT_OR based monster on the field to the graveyard as well."
 	tip = "If you know what you're doing, you can also send one of your own monsters to the graveyard with it."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN
 	rarity = BATTLE_MONSTERS_RARITY_UNCOMMON
