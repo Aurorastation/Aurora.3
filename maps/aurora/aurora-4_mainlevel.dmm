@@ -5847,10 +5847,16 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/break_room)
 "alG" = (
-/obj/machinery/autolathe,
 /obj/machinery/light{
 	icon_state = "tube1";
 	dir = 1
+	},
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/machinery/status_display/supply_display{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
@@ -6076,10 +6082,9 @@
 /turf/simulated/floor/plating,
 /area/engineering/storage)
 "amf" = (
-/obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk,
-/obj/machinery/status_display/supply_display{
-	pixel_y = 32
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
@@ -6293,12 +6298,17 @@
 /turf/simulated/wall,
 /area/crew_quarters/sleep/cryo)
 "amC" = (
-/obj/machinery/ringer{
-	department = "Cargo";
-	id = "cargo_ringer";
+/obj/structure/table/rack,
+/obj/item/stack/material/steel{
+	amount = 50
+	},
+/obj/item/stack/material/glass{
+	amount = 50;
 	pixel_x = 0;
-	pixel_y = 30;
-	req_access = list(31)
+	pixel_y = 0
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
@@ -8072,16 +8082,20 @@
 /turf/simulated/floor/plating,
 /area/quartermaster/mail_room)
 "apV" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Cargo Maintenance";
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/glass_mining{
+	name = "Mail Sorting";
 	req_access = list(50)
 	},
-/obj/machinery/door/firedoor,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/cargo)
+/turf/simulated/floor/tiled,
+/area/quartermaster/mail_room)
 "apW" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -31551,14 +31565,7 @@
 	pixel_x = -30;
 	pixel_y = 0
 	},
-/obj/item/stack/material/steel{
-	amount = 50
-	},
-/obj/item/stack/material/glass{
-	amount = 50;
-	pixel_x = 0;
-	pixel_y = 0
-	},
+/obj/item/weapon/tape_roll,
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bcB" = (
@@ -34412,7 +34419,6 @@
 	pixel_x = -27;
 	pixel_y = 1
 	},
-/obj/item/weapon/tape_roll,
 /obj/item/weapon/storage/firstaid/regular{
 	pixel_x = 6;
 	pixel_y = -5
@@ -45869,20 +45875,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/medical/emt)
 "bzF" = (
-/obj/machinery/door/airlock/mining{
-	name = "Mail Room";
-	req_access = list(50)
-	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/mail_room)
+/obj/machinery/door/airlock/maintenance{
+	name = "Cargo Maintenance";
+	req_access = list(31)
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/cargo)
 "bzG" = (
 /obj/effect/floor_decal/corner/pink{
 	icon_state = "corner_white";
@@ -47304,7 +47306,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/glass_mining{
 	name = "Break Room";
-	req_access = list(50)
+	req_access = list(31)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -48002,7 +48004,7 @@
 "bDa" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/maintenance{
-	name = "Cargo Maintenance";
+	name = "Mail Maintenance";
 	req_access = list(50)
 	},
 /obj/machinery/door/firedoor,
@@ -50167,7 +50169,7 @@
 	},
 /obj/machinery/door/airlock/glass_mining{
 	name = "Break Room";
-	req_access = list(50)
+	req_access = list(31)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -51994,6 +51996,7 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
 "bJC" = (
@@ -52061,13 +52064,9 @@
 "bJI" = (
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
-	dir = 4
+	dir = 6
 	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
-	},
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bJJ" = (
@@ -52472,6 +52471,7 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
 "bKv" = (
@@ -52956,6 +52956,8 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
+/obj/structure/table/rack,
+/obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "bLp" = (
@@ -54631,6 +54633,7 @@
 /area/quartermaster/lobby)
 "bOH" = (
 /obj/machinery/firealarm/north,
+/obj/machinery/autolathe,
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bOI" = (
@@ -55461,21 +55464,8 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bQm" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
+/obj/structure/disposalpipe/segment,
+/obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "bQn" = (
@@ -55785,12 +55775,50 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
+"bQN" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/glass_mining{
+	name = "Break Room";
+	req_access = list(31)
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/refinery)
+"bQO" = (
+/obj/structure/table/rack,
+/obj/random/loot,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/cargo)
+"bQP" = (
+/obj/structure/closet/crate,
+/obj/random/loot,
+/turf/simulated/floor/plating,
+/area/maintenance/cargo)
 "bQQ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
+"bQR" = (
+/obj/structure/table/rack,
+/obj/item/stack/material/glass{
+	amount = 50;
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/bar)
 "bQS" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/recharger,
@@ -56042,6 +56070,49 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
+"bRq" = (
+/turf/simulated/wall/r_wall,
+/area/maintenance/bar)
+"bRr" = (
+/obj/machinery/door/airlock/sac{
+	name = "Spare Access Construction";
+	req_access = list(32)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/bar)
+"bRs" = (
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/bar)
+"bRt" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/bar)
+"bRu" = (
+/obj/structure/table/rack,
+/obj/item/stack/material/steel{
+	amount = 50;
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/bar)
+"bRv" = (
+/obj/structure/table/rack,
+/obj/item/stack/material/plasteel{
+	amount = 20
+	},
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/bar)
+"bRw" = (
+/obj/structure/table/rack,
+/obj/item/stack/material/wood{
+	amount = 50
+	},
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/bar)
 "bRx" = (
 /obj/structure/barricade,
 /turf/simulated/floor/plating,
@@ -56138,6 +56209,13 @@
 "bRL" = (
 /turf/simulated/wall,
 /area/hydroponics)
+"bRM" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/toolbox/electrical,
+/obj/item/weapon/storage/toolbox/electrical,
+/obj/item/weapon/storage/toolbox/electrical,
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/bar)
 "bRN" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -56180,6 +56258,28 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
+"bRR" = (
+/obj/structure/table/rack,
+/obj/item/stack/material/plastic{
+	amount = 50
+	},
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/bar)
+"bRS" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/machinery/light/small/emergency{
+	icon_state = "bulb1";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/bar)
+"bRT" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/weapon/storage/toolbox/mechanical,
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/bar)
 "bRU" = (
 /obj/structure/closet,
 /obj/random/loot,
@@ -56214,6 +56314,89 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
+"bRY" = (
+/obj/random/junk,
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/bar)
+"bRZ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/random/junk,
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
+"bSa" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/obj/random/junk,
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
+"bSb" = (
+/obj/machinery/alarm{
+	pixel_y = 22
+	},
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/bar)
+"bSd" = (
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/papershredder,
+/turf/simulated/floor/tiled,
+/area/quartermaster/lobby)
+"bSf" = (
+/obj/item/modular_computer/console/preset/supply,
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/ringer{
+	department = "Cargo";
+	id = "cargo_ringer";
+	pixel_x = 0;
+	pixel_y = 30;
+	req_access = list(31)
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/lobby)
+"bSg" = (
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/obj/structure/filingcabinet/filingcabinet,
+/turf/simulated/floor/tiled,
+/area/quartermaster/lobby)
 "bSk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -58063,14 +58246,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
-"cdj" = (
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/obj/structure/closet/crate,
-/obj/random/loot,
-/turf/simulated/floor/plating,
-/area/maintenance/cargo)
 "cdl" = (
 /obj/structure/cable{
 	d2 = 2;
@@ -58217,22 +58392,6 @@
 /area/outpost/mining_main/eva)
 "cdQ" = (
 /turf/simulated/wall,
-/area/outpost/mining_main/refinery)
-"cdR" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/glass_mining{
-	name = "Break Room";
-	req_access = list(50)
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cdS" = (
 /obj/structure/closet/secure_closet/miner,
@@ -87612,8 +87771,8 @@ bRJ
 bRJ
 bRJ
 cda
-cdj
-cdw
+bQO
+bQP
 bRJ
 aab
 aab
@@ -90948,7 +91107,7 @@ bZA
 brj
 bZA
 bZA
-apV
+bzF
 bEw
 bFg
 bFG
@@ -91470,7 +91629,7 @@ bGt
 bGx
 bGF
 bHJ
-cdR
+bQN
 cdX
 cef
 ceu
@@ -91963,14 +92122,14 @@ bSO
 cpT
 cqd
 agu
-bNL
+bSf
 anz
 aUG
-bJy
-bJy
-bJy
-bJy
 bJI
+bJI
+bJI
+bSd
+bSg
 amD
 bKj
 btQ
@@ -93002,7 +93161,7 @@ amD
 bpq
 bKC
 aRR
-bzF
+apV
 bFy
 bHN
 bJB
@@ -93268,7 +93427,7 @@ aoP
 bKy
 aRS
 alC
-aQo
+bRZ
 gth
 cdP
 avT
@@ -94805,7 +94964,7 @@ aCE
 aNb
 apt
 aNb
-aNb
+bQm
 bMJ
 aNb
 aNb
@@ -95839,7 +95998,7 @@ arj
 arj
 ayF
 aTd
-bQm
+bSa
 gsp
 aab
 aab
@@ -97116,16 +97275,16 @@ guX
 bUz
 aOI
 aQj
-aNb
+bQm
 aPQ
 aOH
-gsp
-gsp
-gsp
-gsp
-gsp
-gsp
-gsp
+bRq
+bRq
+bRq
+bRq
+bRq
+bRq
+bRq
 aab
 aab
 aaa
@@ -97376,13 +97535,13 @@ bkd
 bQp
 asD
 aQp
-gsp
-aab
-aab
-aab
-aab
-aab
-aab
+bRq
+bQR
+bRu
+bRv
+bRw
+bRR
+bRq
 aab
 aaa
 aaa
@@ -97633,13 +97792,13 @@ gsp
 gsp
 bOQ
 bNV
-gsp
-aaa
-aab
-aab
-aab
-aab
-aab
+bRq
+bSb
+bRY
+bRs
+bRs
+bRs
+bRq
 aab
 aaa
 aaa
@@ -97890,13 +98049,13 @@ gth
 bLc
 bPN
 bLe
-gsp
-aaa
-aaa
-aab
-aab
-aab
-aab
+bRr
+bRs
+bRs
+bRs
+bRs
+bRs
+bRq
 aab
 aaa
 aaa
@@ -98147,14 +98306,14 @@ gth
 bLd
 bLl
 bLk
-gsp
-aaa
-aaa
-aaa
-aaa
+bRq
+bRs
+bRs
+bRs
+bRs
+bRY
+bRq
 aab
-aab
-aaa
 aaa
 aaa
 aaa
@@ -98399,19 +98558,19 @@ bVa
 bVa
 guZ
 bUz
-gth
+gvA
 gth
 bLc
 bLn
 bLm
-gsp
-aaa
-aaa
-aaa
-aaa
+bRq
+bRt
+bRt
+bRS
+bRM
+bRT
+bRq
 aab
-aab
-aaa
 aaa
 aaa
 aaa
@@ -98661,14 +98820,14 @@ gsp
 bLd
 bPN
 bLp
-gsp
-gsp
-aaa
-aaa
-aaa
+bRq
+bRq
+bRq
+bRq
+bRq
+bRq
+bRq
 aab
-aab
-aaa
 aaa
 aaa
 aaa
@@ -98925,7 +99084,7 @@ aaa
 aab
 aab
 aab
-aaa
+aab
 aaa
 aaa
 aaa
