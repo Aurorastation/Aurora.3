@@ -34,6 +34,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Fixed Battlemonster decks from being stuck in backpacks and pockets."
-  - tweak: "Added significantly more booster packs to Battlemonster Vendors."
-  - tweak: "Added missing spell/trap cards."
+  - tweak: "Fixed Battlemonster decks from being stuck in backpacks and pockets. Fixed some id names and card descriptions."
+  - tweak: "Added significantly more booster packs to Battlemonster Vendors. Added missing spell/trap cards."
