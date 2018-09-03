@@ -398,6 +398,7 @@
 	contraband = list(
 		/obj/item/weapon/reagent_containers/glass/bottle/mutagen = 2
 	)
+
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	random_itemcount = 0
 
@@ -575,7 +576,7 @@
 		/obj/item/weapon/reagent_containers/cooking_container/fryer = 4,
 		/obj/item/weapon/storage/toolbox/lunchbox/nt = 6,
 		/obj/item/weapon/reagent_containers/glass/beaker/bowl = 4,
-		/obj/item/weapon/reagent_containers/glass/rag = 8
+		/obj/item/weapon/reagent_containers/glass/rag = 8,
 	)
 	contraband = list(
 		/obj/item/weapon/storage/toolbox/lunchbox/syndicate = 2
@@ -803,3 +804,36 @@
 		/obj/item/weapon/vending_refill/robo = 1
 	)
 	random_itemcount = 0
+
+/obj/machinery/vending/zora
+	name = "Zo'ra Soda"
+	desc = "An energy drink vendor provided by the Getmore Corporation in partnership with the brood of Ta'Akaix'Xakt'yagz'isk Zo'ra."
+	icon_state = "zoda"
+	product_slogans = "Safe for human consumption!;Made by hard-working bound drones!;The most refreshing taste in the sector!;A product of two thousand years!"
+	product_ads = "Refreshing!;Hope you're thirsty!;Thirsty? Why not Zora?;Please, have some!;Drink up!;ZZZOOODDDAAA!"
+	vend_id = "zora"
+	products = list(
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zorasoda = 5,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zorakois = 5,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zoraklax = 4,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zoraphoron = 5,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zoravenom = 5,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zorahozm = 2,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zoradrone = 5,
+	)
+	contraband = list(
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zoracthur = 2,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zorajelly = 2,
+	)
+	prices = list(
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zorasoda = 30,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zorakois = 27,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zoraklax = 30,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zoraphoron = 30,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zoravenom = 30,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zorahozm = 50,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zoraklax = 31,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zoradrone = 30,
+	)
+	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	random_itemcount = 1

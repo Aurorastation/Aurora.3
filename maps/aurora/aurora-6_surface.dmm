@@ -16327,6 +16327,7 @@
 /area/hallway/secondary/entry/aft)
 "Ev" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/vending/zora,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "Ew" = (
