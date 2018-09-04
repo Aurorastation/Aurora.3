@@ -1,0 +1,6 @@
+author: PoZe
+
+delete-after: True
+
+changes:
+  - bugfix: "Beepsky/ED209 will no longer arrest you for using pen or PDA on it"
