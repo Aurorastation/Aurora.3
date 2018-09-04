@@ -29489,9 +29489,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "aZZ" = (
-/obj/machinery/door/airlock/engineering{
-	name = "Machinery Maintenance";
-	req_access = list(11)
+/obj/item/modular_computer/telescreen/preset/trashcompactor{
+	pixel_x = -32
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
@@ -29504,11 +29503,6 @@
 /area/maintenance/disposal)
 "bac" = (
 /obj/structure/ladder/up,
-/obj/item/device/radio/intercom{
-	dir = 0;
-	name = "Station Intercom (General)";
-	pixel_x = -27
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "bad" = (
@@ -29538,24 +29532,16 @@
 	},
 /area/maintenance/disposal)
 "bag" = (
-/obj/item/modular_computer/telescreen/preset/trashcompactor{
-	pixel_x = -32
-	},
-/obj/structure/sign/securearea{
-	name = "\improper CAUTION: CRUSHER AHEAD";
-	pixel_x = 0;
-	pixel_y = -32
-	},
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Maintenance - Trash Compactor Crushers";
-	dir = 4
+/obj/machinery/door/airlock/maintenance_hatch{
+	id_tag = "crusher";
+	name = "Compactor Access";
+	req_access = list(12)
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "bah" = (
 /obj/machinery/light/small/emergency{
-	icon_state = "bulb1";
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
@@ -29572,19 +29558,22 @@
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "baj" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	id_tag = "crusher";
-	name = "Compactor Access";
-	req_access = list(12)
+/obj/item/device/radio/intercom{
+	dir = 0;
+	name = "Station Intercom (General)";
+	pixel_x = -27
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "bak" = (
-/obj/structure/sign/securearea{
-	name = "\improper CAUTION: TRASH COMPACTOR";
-	pixel_x = 0
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Maintenance - Trash Compactor Crushers";
+	dir = 4
 	},
-/turf/simulated/wall/r_wall,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "bal" = (
 /turf/simulated/wall/r_wall,
@@ -29980,6 +29969,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
+"bbe" = (
+/obj/structure/sign/securearea{
+	name = "\improper CAUTION: TRASH COMPACTOR";
+	pixel_x = 0
+	},
+/turf/simulated/wall/r_wall,
+/area/maintenance/disposal)
 
 (1,1,1) = {"
 aaa
@@ -58698,14 +58694,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
 aZV
 aZV
 aZV
 aZV
-aaa
-aaa
-aaa
+aZV
+aZV
+aZV
+aZV
 aaa
 aaa
 aaa
@@ -58954,15 +58950,15 @@ aaa
 aaa
 aaa
 aaa
-aZV
-aZV
-aZV
-bac
-bag
-aZV
-aZV
 aaa
-aaa
+aZV
+aZW
+bah
+aZW
+baj
+bak
+aZZ
+aZV
 aaa
 aaa
 aaa
@@ -59211,15 +59207,15 @@ aaa
 aaa
 aaa
 aaa
+aaa
 aZV
 aZW
-aZZ
 aZW
-bah
 aZW
-aZV
-aaa
-aaa
+aZW
+aZW
+aZW
+bbe
 aaa
 aaa
 aaa
@@ -59468,15 +59464,15 @@ aaa
 aaa
 aaa
 aaa
+aaa
 aZV
+bac
 aZX
 baa
 bad
 bai
-baj
+bag
 aZV
-aaa
-aaa
 aaa
 aaa
 aaa
@@ -59725,15 +59721,15 @@ aaa
 aaa
 aaa
 aaa
+aaa
 aZV
-aZY
+aZW
+aZW
 bab
 bae
 baf
 bae
-bak
-aaa
-aaa
+bbe
 aaa
 aaa
 aaa
@@ -59982,15 +59978,15 @@ aaa
 aaa
 aaa
 aaa
+aaa
 aZV
+aZY
 aZW
 bab
 baf
 bae
 baf
 aZV
-aaa
-aaa
 aaa
 aaa
 aaa
@@ -60239,15 +60235,15 @@ aaa
 aaa
 aaa
 aaa
+aaa
 aZV
+aZW
 aZW
 bab
 bae
 baf
 baf
-bak
-aaa
-aaa
+bbe
 aaa
 aaa
 aaa
@@ -60496,15 +60492,15 @@ aaa
 aaa
 aaa
 aaa
-aZV
-aZV
-aZV
-aZV
-aZV
-aZV
-aZV
 aaa
-aaa
+aZV
+aZV
+aZV
+aZV
+aZV
+aZV
+aZV
+aZV
 aaa
 aaa
 aaa
