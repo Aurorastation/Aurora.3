@@ -27,7 +27,7 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 
 
 /datum/controller/subsystem/battle_monsters/New()
-    NEW_SS_GLOBAL(SSbattlemonsters)
+	NEW_SS_GLOBAL(SSbattlemonsters)
 
 /datum/controller/subsystem/battle_monsters/Initialize()
 	GenerateDatum(BATTLE_MONSTERS_GEN_PREFIX)
@@ -431,7 +431,7 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 	return text
 
 /datum/controller/subsystem/battle_monsters/proc/GetMonsterFormatting()
-	return "<b>%NAME</b> | %STAR_LEVEL Star Monster  | %ELEMENT_LIST %TYPE | %SPECIES_C<br>\
+	return "<b>%NAME</b> | %STAR_LEVEL Star Monster | %ELEMENT_LIST %TYPE | %SPECIES_C<br>\
 			Keywords: %SPECIES_LIST<br>\
 			ATK: %ATTACK_POINTS | DEF: %DEFENSE_POINTS<br>\
 			Summoning Requirements: %SUMMON_REQUIREMENTS<br>\
