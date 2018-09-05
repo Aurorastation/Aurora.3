@@ -209,7 +209,7 @@ datum/battle_monsters/monster/human/warrior
 	attack_mul = 0.25
 	elements = BATTLE_MONSTERS_ELEMENT_FIRE
 	description = "a skinny dark-scaled male %SPECIES bard warrior that prefers to rhyme than to attack with their %WEAPON_AND."
-	special_effects = "Hotline Bling: All %ELEMENT_OR element monsters recieve an additional <b>200</b> attack points."
+	special_effects = "Hotline Bling: All %ELEMENT_OR element monsters receive an additional <b>200</b> attack points."
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_DRAGONHYBRID
 	rarity = BATTLE_MONSTERS_RARITY_RARE
 	rarity_score = 1

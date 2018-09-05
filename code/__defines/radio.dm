@@ -101,7 +101,7 @@ var/list/DEPT_FREQS_ASSOC = list(
 //Other devices can then choose to send signals to only those devices that belong to a particular filter.
 //This is done for performance, so we don't send signals to lots of machines unnecessarily.
 
-//This filter is special because devices belonging to default also recieve signals sent to any other filter.
+//This filter is special because devices belonging to default also receive signals sent to any other filter.
 #define RADIO_DEFAULT "radio_default"
 
 #define RADIO_TO_AIRALARM "radio_airalarm" //air alarms

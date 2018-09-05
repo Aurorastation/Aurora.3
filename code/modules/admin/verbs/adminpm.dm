@@ -46,14 +46,14 @@
 		else		src << "<font color='red'>Error: Private-Message: Client not found. They may have lost connection, so try using an adminhelp!</font>"
 		return
 
-	var/recieve_pm_type = "Player"
+	var/receive_pm_type = "Player"
 	//mod PMs are maroon
 	//PMs sent from admins and mods display their rank
 	if(holder)
 		if(!C.holder && holder.fakekey)
-			recieve_pm_type = "Admin"
+			receive_pm_type = "Admin"
 		else
-			recieve_pm_type = holder.rank
+			receive_pm_type = holder.rank
 
 	else if(!C.holder)
 		src << "<span class='warning'>Error: Admin-PM: Non-admin to non-admin PM communication is forbidden.</span>"
@@ -105,12 +105,12 @@
 		if(src.ckey != ticket.owner && !ticket.take(src))
 			return
 
-	var/recieve_message
+	var/receive_message
 
 	if(holder && !C.holder)
-		recieve_message = "<span class='pm'><span class='howto'><b>-- Click the [recieve_pm_type]'s name to reply --</b></span></span>\n"
+		receive_message = "<span class='pm'><span class='howto'><b>-- Click the [receive_pm_type]'s name to reply --</b></span></span>\n"
 		if(C.adminhelped)
-			C << recieve_message
+			C << receive_message
 			C.adminhelped = NOT_ADMINHELPED
 
 		//AdminPM popup for ApocStation and anybody else who wants to use it. Set it with POPUP_ADMIN_PM in config.txt ~Carn
@@ -118,7 +118,7 @@
 			spawn(0)	//so we don't hold the caller proc up
 				var/sender = src
 				var/sendername = key
-				var/reply = sanitize(input(C, msg,"[recieve_pm_type] PM from [sendername]", "") as text|null)		//show message and await a reply
+				var/reply = sanitize(input(C, msg,"[receive_pm_type] PM from [sendername]", "") as text|null)		//show message and await a reply
 				if(C && reply)
 					if(sender)
 						C.cmd_admin_pm(sender,reply)										//sender is still about, let's reply to them
@@ -135,7 +135,7 @@
 	sender_message += "</span></span>"
 	src << sender_message
 
-	var/receiver_message = "<span class='pm'><span class='in'>" + create_text_tag("pm_in", "", C) + " <b>\[[recieve_pm_type] PM\]</b> <span class='name'>[get_options_bar(src, C.holder ? 1 : 0, C.holder ? 1 : 0, 1)]</span>"
+	var/receiver_message = "<span class='pm'><span class='in'>" + create_text_tag("pm_in", "", C) + " <b>\[[receive_pm_type] PM\]</b> <span class='name'>[get_options_bar(src, C.holder ? 1 : 0, C.holder ? 1 : 0, 1)]</span>"
 	if(C.holder)
 		receiver_message += " (<a href='?_src_=holder;take_ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>)"
 		receiver_message += ": <span class='message'>[generate_ahelp_key_words(C.mob, msg)]</span>"

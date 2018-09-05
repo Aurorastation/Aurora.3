@@ -192,7 +192,7 @@ var/list/admin_departments
 	var/success = 0
 	for(var/obj/machinery/photocopier/faxmachine/F in allfaxes)
 		if( F.department == destination )
-			success = F.recievefax(copyitem)
+			success = F.receivefax(copyitem)
 
 	if (success)
 		set_cooldown(normalfax_cooldown)
@@ -205,7 +205,7 @@ var/list/admin_departments
 			visible_message("[src] beeps, \"Error transmitting message.\"")
 	return success
 
-/obj/machinery/photocopier/faxmachine/proc/recievefax(var/obj/item/incoming)
+/obj/machinery/photocopier/faxmachine/proc/receivefax(var/obj/item/incoming)
 	if(stat & (BROKEN|NOPOWER))
 		return 0
 
