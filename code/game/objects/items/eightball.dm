@@ -77,7 +77,7 @@
 	question = null
 
 /obj/item/eightball/haunted
-	shake_time = 300
+	shake_time = 200
 	cooldown_time = 1800
 	var/ghostly_reply
 	var/answered = FALSE
@@ -124,7 +124,7 @@
 	desc = "A black ball with a stenciled number eight in white on the side. It is cracked and seems empty."
 	var/fixed_answer
 
-/obj/item/eightball/broken/Initialize(mapload)
+/obj/item/eightball/broken/Initialize()
 	. = ..()
 	fixed_answer = pick(possible_answers)
 
