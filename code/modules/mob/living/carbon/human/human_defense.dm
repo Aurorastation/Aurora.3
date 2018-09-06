@@ -54,7 +54,8 @@ emp_act
 
 	switch (def_zone)
 		if("head")
-			agony_amount *= 1.50
+			eye_blurry += (rand(3,6) * siemens_coeff)
+			confused = max(confused, 5 * siemens_coeff)
 		if("l_hand", "r_hand")
 			var/c_hand
 			if (def_zone == "l_hand")
