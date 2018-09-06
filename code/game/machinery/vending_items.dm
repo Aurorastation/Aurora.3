@@ -47,7 +47,7 @@
 /obj/item/weapon/vending_refill/coffee
 	name = "coffee resupply canister"
 	vend_id = "coffee"
-	charges = 38
+	charges = 100
 
 /obj/item/weapon/vending_refill/snack
 	name = "snacks resupply canister"
