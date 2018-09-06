@@ -742,7 +742,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
-/area/mine/unexplored)
+/area/outpost/mining_main/eva)
 "abx" = (
 /obj/structure/bed/chair/office/dark,
 /obj/effect/floor_decal/corner/blue{
@@ -5790,7 +5790,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
-/area/mine/unexplored)
+/area/outpost/mining_main/eva)
 "alC" = (
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -5829,7 +5829,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
-/area/mine/unexplored)
+/area/outpost/mining_main/eva)
 "alG" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -5838,7 +5838,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
-/area/mine/unexplored)
+/area/outpost/mining_main/eva)
 "alH" = (
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled,
@@ -6702,15 +6702,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"any" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 4
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "anz" = (
 /obj/machinery/mineral/output,
 /obj/machinery/conveyor{
@@ -7473,15 +7464,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/eva)
-"aoK" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 6
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "aoL" = (
 /obj/machinery/door/firedoor{
 	dir = 2
@@ -93724,17 +93706,17 @@ gEw
 gET
 gEH
 gsp
-any
-any
-any
-any
-any
-any
-any
-any
-any
-any
-aoK
+avT
+avT
+avT
+avT
+avT
+avT
+avT
+avT
+avT
+avT
+aRP
 aab
 aab
 aab
