@@ -34,5 +34,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Carps now attack shields. If there are no other targets present they will attack sheilds non-stop. If there are any mobs present they will try to reach them, and if there is a shield in the way they will destroy it."
+  - rscadd: "Carps and giant spiders will now attack shields. If there are no other targets present they will target shields. If there are any mobs present they will try to reach them, and if there is a shield in the way they will destroy it."
   - tweak: "Hostile mobs now have better search systems. They will prioritize any living mobs over other targets."
