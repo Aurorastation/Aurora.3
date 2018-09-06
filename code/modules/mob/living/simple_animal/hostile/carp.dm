@@ -60,17 +60,7 @@
 		stance = HOSTILE_STANCE_ATTACKING
 		walk_to(src, target_mob, 1, move_to_delay)
 		return 1
-	if(QDELETED(target_mob) || SA_attackable(target_mob))
-		LoseTarget()
-	if(target_mob in targets)
-		if(ranged)
-			if(get_dist(src, target_mob) <= 6)
-				OpenFire(target_mob)
-			else
-				walk_to(src, target_mob, 1, move_to_delay)
-		else
-			stance = HOSTILE_STANCE_ATTACKING
-			walk_to(src, target_mob, 1, move_to_delay)
+	..()
 
 /mob/living/simple_animal/hostile/carp/AttackTarget()
 	stop_automated_movement = 1
@@ -78,21 +68,7 @@
 		AttackingTarget()
 		attacked_times += 1
 		return 1
-	if(QDELETED(target_mob) || SA_attackable(target_mob))
-		LoseTarget()
-		return 0
-	if(!(target_mob in targets))
-		LoseTarget()
-		return 0
-	if(next_move >= world.time)
-		return 0
-	if(get_dist(src, target_mob) <= 1)	//Attacking
-		AttackingTarget()
-		attacked_times += 1
-		return 1
-	else
-		stance = HOSTILE_STANCE_ATTACK
-		return 0
+	return ..()
 
 /mob/living/simple_animal/hostile/carp/AttackingTarget()
 	setClickCooldown(attack_delay)
@@ -122,11 +98,13 @@
 /mob/living/simple_animal/hostile/carp/DestroySurroundings()
 	if(prob(break_stuff_probability))
 		for(var/dir in cardinal) // North, South, East, West
-			var/obj/effect/energy_field/e = (/obj/effect/energy_field in get_step(src, dir))
+			var/obj/effect/energy_field/e = locate(/obj/effect/energy_field, get_step(src, dir))
 			if(e)
 				e.Stress(rand(1,2))
 				visible_message("<span class='danger'>\the [src] has attacked [e]!</span>")
 				src.do_attack_animation(e)
+				target_mob = e
+				stance = HOSTILE_STANCE_ATTACKING
 				return 1
 			for(var/obj/structure/window/obstacle in get_step(src, dir))
 				if(obstacle.dir == reverse_dir[dir]) // So that windows get smashed in the right order
@@ -139,6 +117,8 @@
 	return 0
 
 /mob/living/simple_animal/hostile/carp/proc/e_field(var/obj/effect/energy_field/E)
+	if(isliving(T)) // We prefer mobs over anything else
+		return FALSE
 	var/dist = get_dist(src, E)
 	if(dist < closest_distance)
 		closest_distance = dist

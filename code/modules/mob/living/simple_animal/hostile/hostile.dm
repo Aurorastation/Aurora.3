@@ -18,16 +18,20 @@
 	hunger_enabled = 0//Until automated eating mechanics are enabled, disable hunger for hostile mobs
 	var/shuttletarget = null
 	var/enroute = 0
+
+	// Vars to help find targets
 	var/list/targets = list()
 	var/attacked_times = 0
 	var/list/target_type_validator_map = list()
 	var/lowest_health = INFINITY // Max you can get
+	var/atom/T = null
 
 /mob/living/simple_animal/hostile/Initialize()
-	..()
+	. = ..()
 	target_type_validator_map[/mob/living] = CALLBACK(src, .proc/living)
 	target_type_validator_map[/obj/mecha] = CALLBACK(src, .proc/mecha)
 	target_type_validator_map[/obj/machinery/bot] = CALLBACK(src, .proc/bot)
+	return .
 
 /mob/living/simple_animal/hostile/Destroy()
 	friends = null
@@ -39,14 +43,14 @@
 	if(!faction) //No faction, no reason to attack anybody.
 		return null
 
-	var/atom/T = null
+	T = null
 	for (var/atom/A in targets)
 		if(A == src)
 			continue
 		var/datum/callback/cb = null
 		for (var/type in target_type_validator_map)
 			if (istype(A, type))
-				cb= target_type_validator_map[type]
+				cb = target_type_validator_map[type]
 
 		if (!cb)
 			continue
@@ -287,6 +291,10 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 			if(!src.stat)
 				horde()
 
+//////////////////////////////
+///////VALIDATOR PROCS////////
+//////////////////////////////
+
 /mob/living/simple_animal/hostile/proc/living(var/mob/living/L)
 	if((L.faction == src.faction) && !attack_same)
 		return FALSE
@@ -297,12 +305,16 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		return TRUE
 
 /mob/living/simple_animal/hostile/proc/mecha(var/obj/mecha/M)
+	if(isliving(T)) // We prefer mobs over anything else
+		return FALSE
 	if (M.occupant)
 		return TRUE
 	else
 		return FALSE
 
 /mob/living/simple_animal/hostile/proc/bot(var/obj/machinery/bot/B)
+	if(isliving(T)) // We prefer mobs over anything else
+		return FALSE
 	if (B.health > 0)
 		return TRUE
 	else
