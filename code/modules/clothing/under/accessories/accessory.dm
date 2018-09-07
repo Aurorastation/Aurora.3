@@ -352,6 +352,16 @@
 	siemens_coefficient = 0.9
 	w_class = 3
 	slot = "over"
+	var/allow_tail_hiding = TRUE //in case if you want to allow someone to switch the HIDETAIL var or not
+
+/obj/item/clothing/accessory/poncho/verb/toggle_hide_tail()
+	set name = "Toggle Tail Coverage"
+	set category = "Object"
+
+	if(allow_tail_hiding)
+		flags_inv ^= HIDETAIL
+		usr << "<span class='notice'>[src] will now [flags_inv & HIDETAIL ? "hide" : "show"] your tail.</span>"
+	..()
 
 /obj/item/clothing/accessory/poncho/green
 	name = "green poncho"
