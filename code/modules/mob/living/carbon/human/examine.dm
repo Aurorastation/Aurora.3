@@ -7,22 +7,32 @@
 	var/skipears = 0
 	var/skipeyes = 0
 	var/skipface = 0
+	var/skipbody = 0
 
 	//exosuits and helmets obscure our view and stuff.
 	if(wear_suit)
+		skipbody |= wear_suit.body_parts_covered
 		skipgloves = wear_suit.flags_inv & HIDEGLOVES
 		skipsuitstorage = wear_suit.flags_inv & HIDESUITSTORAGE
 		skipjumpsuit = wear_suit.flags_inv & HIDEJUMPSUIT
 		skipshoes = wear_suit.flags_inv & HIDESHOES
 
 	if(head)
+		skipbody |= head.body_parts_covered
 		skipmask = head.flags_inv & HIDEMASK
 		skipeyes = head.flags_inv & HIDEEYES
 		skipears = head.flags_inv & HIDEEARS
 		skipface = head.flags_inv & HIDEFACE
 
 	if(wear_mask)
+		skipbody |= wear_mask.body_parts_covered
 		skipface |= wear_mask.flags_inv & HIDEFACE
+	
+	if(w_uniform)
+		skipbody |= w_uniform.body_parts_covered
+	
+	if(gloves)
+		skipbody |= gloves.body_parts_covered
 
 	var/list/msg = list("<span class='info'>*---------*\nThis is ")
 
@@ -261,9 +271,11 @@
 			wound_flavor_text["[organ_descriptor]"] = "<span class='warning'><b>[T.He] [T.has] a stump where [T.his] [organ_descriptor] should be.</b></span>\n"
 		else
 			continue
-
+			
 	for(var/obj/item/organ/external/temp in organs)
 		if(temp)
+			if(skipbody & temp.body_part)
+				continue
 			if(temp.status & ORGAN_ROBOT)
 				if(!(temp.brute_dam + temp.burn_dam))
 					//wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] a robot [temp.name]!</span>\n"
