@@ -103,11 +103,12 @@
 /obj/machinery/computer/HolodeckControl/Topic(href, href_list)
 	if(..())
 		return 1
-	if((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
-		usr.set_machine(src)
 
 	if(locked && !allowed(usr))
 		return
+
+	if((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
+		usr.set_machine(src)
 
 		if(href_list["program"])
 			var/prog = href_list["program"]
