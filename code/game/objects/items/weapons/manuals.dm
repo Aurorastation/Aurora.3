@@ -1417,3 +1417,13 @@
 				</body>
 			</html>
 			"}
+
+/obj/item/weapon/book/manual/battlemonsters
+	name = "\improper Guide to Battlemonsters"
+	icon_state ="battlemonsters"
+	author = "Macro Toy Company"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
+	title = "Guide to Battlemonsters"
+
+/obj/item/weapon/book/manual/battlemonsters/New()
+	..()
+	dat = {"<html><head></head><body><iframe width='100%' height='100%' src="[config.wikiurl]Guide_to_Battlemonsters&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe></body></html>"}
