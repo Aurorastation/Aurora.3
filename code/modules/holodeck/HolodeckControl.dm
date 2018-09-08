@@ -106,6 +106,9 @@
 	if((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
 		usr.set_machine(src)
 
+	if(locked && !allowed(usr))
+		return
+
 		if(href_list["program"])
 			var/prog = href_list["program"]
 			if(prog in current_map.holodeck_programs)
@@ -143,6 +146,7 @@
 	if (!emagged)
 		emagged = 1
 		safety_disabled = 1
+		req_one_access = list()
 		update_projections()
 		user << "<span class='notice'>You vastly increase projector power and override the safety and security protocols.</span>"
 		user << "Warning.  Automatic shutoff and derezing protocols have been corrupted.  Please call [current_map.company_name] maintenance and do not use the simulator."
