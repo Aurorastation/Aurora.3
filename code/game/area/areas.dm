@@ -62,6 +62,7 @@
 	var/station_area = 0
 	var/centcomm_area = 0
 	var/has_weird_power = FALSE	// If TRUE, SSmachinery will not use the inlined power checks and will call powered() and use_power() on this area.
+	var/no_events = 1 //This area is not affected by station events.
 
 // Don't move this to Initialize(). Things in here need to run before SSatoms does.
 /area/New()
@@ -406,7 +407,7 @@ var/list/mob/living/forced_ambiance_list = new
 
 //A useful proc for events.
 //This returns a random area of the station which is meaningful. Ie, a room somewhere
-/proc/random_station_area()
+/proc/random_station_area(var/filter_players = FALSE)
 	var/list/possible = list()
 	for(var/Y in the_station_areas)
 		if(!Y)
@@ -420,11 +421,25 @@ var/list/mob/living/forced_ambiance_list = new
 			continue
 		if (istype(A, /area/constructionsite))
 			continue
+		if (istype(A, /area/turbolift))
+			continue
 
 		//Although hostile mobs instadying to turrets is fun
 		//If there's no AI they'll just be hit with stunbeams all day and spam the attack logs.
 		if (istype(A, /area/turret_protected) || LAZYLEN(A.turret_controls))
 			continue
+
+		var/should_continue = FALSE
+		if(filter_players)
+			for(var/mob/living/carbon/human/H in human_mob_list)
+				if(!H.client)
+					continue
+				if(A == get_area(H))
+					should_continue = TRUE
+					break
+
+			if(should_continue)
+				continue
 
 		possible += A
 
