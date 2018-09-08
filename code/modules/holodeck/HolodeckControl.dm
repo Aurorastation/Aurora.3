@@ -104,10 +104,11 @@
 	if(..())
 		return 1
 
-	if(locked && !allowed(usr))
-		return
-
 	if((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
+
+		if(locked && !allowed(usr))
+			return
+
 		usr.set_machine(src)
 
 		if(href_list["program"])
@@ -297,8 +298,6 @@
 	holographic_objs = A.copy_contents_to(linkedholodeck , 1)
 	for(var/obj/holo_obj in holographic_objs)
 		holo_obj.alpha *= 0.8 //give holodeck objs a slight transparency
-
-	linkedholodeck.loop_ambience = HP.loop_ambience
 
 	if(HP.ambience)
 		linkedholodeck.forced_ambience = HP.ambience
