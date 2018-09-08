@@ -23,7 +23,8 @@
 		"space bats" = 0,
 		"lizards" = 0,
 		"mice" = 0,
-		"baby slimes" = 0
+		"baby slimes" = 0,
+		"spiderling" = 0
 	)
 
 	switch(severity)
@@ -32,10 +33,11 @@
 			possible_mobs["lizards"] = 1
 		if(EVENT_LEVEL_MODERATE)
 			possible_mobs["space bats"] = 1
-			possible_mobs["baby slimes"] = 1
+			possible_mobs["spiderlings"] = 1
 		if(EVENT_LEVEL_MAJOR)
 			possible_mobs["bluespace bears"] = 1
 			possible_mobs["hivebots"] = 1
+			possible_mobs["baby slimes"] = 1
 
 	chosen_mob = pickweight(possible_mobs)
 
@@ -49,8 +51,6 @@
 			event_name = "Minor Hivebot Invasion"
 			chosen_verb = "have invaded"
 			chosen_mob_types += /mob/living/simple_animal/hostile/hivebot/tele
-			chosen_mob_types += /mob/living/simple_animal/hostile/hivebot
-			chosen_mob_types += /mob/living/simple_animal/hostile/hivebot/range
 		if("space bats")
 			event_name = "Space Bat Nest"
 			chosen_verb = "have been breeding in"
@@ -76,6 +76,12 @@
 			chosen_verb = "have leaked into"
 			for(var/i = 1, i < rand(2,4),i++)
 				chosen_mob_types += /mob/living/carbon/slime/
+		if("spiderlings")
+			event_name = "Spiderling Infestation"
+			chosen_verb = "have burrowed into"
+			for(var/i = 1, i < rand(3,6),i++)
+				chosen_mob_types += /obj/effect/spider/spiderling
+			chosen_mob_types += /obj/effect/spider/eggcluster
 
 /datum/event/infestation/proc/spawn_mobs()
 	for(var/spawned_mob in chosen_mob_types)
