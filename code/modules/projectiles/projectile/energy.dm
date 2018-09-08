@@ -55,6 +55,20 @@
 	taser_effect = 1
 	agony = 80
 
+/obj/item/projectile/energy/electrode/fireball
+	name = "fireball"
+	taser_effect = 1
+	agony = 10
+	icon_state = "fireball"
+	speed = 8
+
+/obj/item/projectile/energy/electrode/icebolt
+	name = "ice shot"
+	taser_effect = 1
+	agony = 20
+	icon_state = "ice_2"
+	speed = 4
+
 /obj/item/projectile/energy/declone
 	name = "decloner beam"
 	icon_state = "declone"

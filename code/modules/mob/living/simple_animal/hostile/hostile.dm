@@ -27,6 +27,12 @@
 	targets = null
 	return ..()
 
+/mob/living/simple_animal/hostile/proc/CanAquireTarget(var/atom/A)
+	return TRUE
+
+/mob/living/simple_animal/hostile/proc/GetTargetHealth(var/mob/living/L)
+	return L.health
+
 /mob/living/simple_animal/hostile/proc/FindTarget()
 
 	if(!faction) //No faction, no reason to attack anybody.
@@ -41,6 +47,9 @@
 		if(A == src)
 			continue
 
+		if(!CanAquireTarget(A))
+			continue
+
 		var/atom/F = Found(A)
 		if(F)
 			T = F
@@ -53,7 +62,7 @@
 			if(L in friends)
 				continue
 
-			if(!L.stat && (L.health < lowest_health))
+			if(!L.stat && (GetTargetHealth(L) < lowest_health))
 				lowest_health = L.health
 				T = L
 				break
