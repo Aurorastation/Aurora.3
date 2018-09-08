@@ -6,8 +6,8 @@
 	var/deck_size = 52
 
 /obj/item/battle_monsters/deck/Initialize()
-	update_icon()
 	. = ..()
+	update_icon()
 
 /obj/item/battle_monsters/deck/proc/get_top_card()
 	return stored_card_names[stored_card_names.len]
