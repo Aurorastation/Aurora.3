@@ -141,7 +141,7 @@
 			var/datum/data/vending_product/product = new/datum/data/vending_product(entry)
 
 			product.price = (entry in src.prices) ? src.prices[entry] : 0
-			product.max_amount = product.amount = product.amount = (current_list[1][entry]) ? current_list[1][entry] : 1
+			product.max_amount = (current_list[1][entry]) ? current_list[1][entry] : 1
 			if (random_itemcount == 1 && category == CAT_NORMAL) //Only the normal category is randomized.
 				product.amount = rand(1,product.max_amount)
 			else
@@ -149,6 +149,37 @@
 			product.category = category
 
 			src.product_records.Add(product)
+
+/**
+ * Returns the number of products in the vending machine if it is fully stocked
+ */
+/obj/machinery/vending/proc/get_default_product_number()
+	var/list/all_products = list(
+		list(src.products, CAT_NORMAL),
+		list(src.contraband, CAT_HIDDEN),
+		list(src.premium, CAT_COIN))
+	var/num = 0
+	for(var/current_list in all_products)
+		for(var/entry in current_list[1])
+			num += (current_list[1][entry]) ? current_list[1][entry] : 1
+	return num
+
+
+/**
+ * Returns the price of products in the vending machine if it is fully stocked
+ */
+/obj/machinery/vending/proc/get_default_product_price()
+	var/list/all_products = list(
+		list(src.products, CAT_NORMAL),
+		list(src.contraband, CAT_HIDDEN),
+		list(src.premium, CAT_COIN))
+	var/price = 0
+	for(var/current_list in all_products)
+		for(var/entry in current_list[1])
+			var/item_price = (entry in src.prices) ? src.prices[entry] : 0
+			var/item_num = (current_list[1][entry]) ? current_list[1][entry] : 1
+			price += item_price * item_num
+	return price
 
 /obj/machinery/vending/Destroy()
 	qdel(wires)
