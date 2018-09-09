@@ -40,7 +40,7 @@
 	// The thing itself isn't there anymore, but some fried remains are.
 	uninstall()
 	installed = -1
-  
+
 /datum/robot_component/proc/get_damage(var/type)
 	return Clamp(brute_damage + electronics_damage,0,max_damage)
 
@@ -104,7 +104,7 @@
 /datum/robot_component/surge/install()
 	..()
 	if(!surge_left)
-		surge_left = rand(1, 3)
+		surge_left = rand(2, 5)
 
 /datum/robot_component/jetpack/install()
 	..()

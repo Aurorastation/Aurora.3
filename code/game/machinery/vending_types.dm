@@ -78,6 +78,7 @@
 	product_slogans = "I hope nobody asks me for a bloody cup o' tea...;Alcohol is humanity's friend. Would you abandon a friend?;Quite delighted to serve you!;Is nobody thirsty on this station?"
 	product_ads = "Drink up!;Booze is good for you!;Alcohol is humanity's best friend.;Quite delighted to serve you!;Care for a nice, cold beer?;Nothing cures you like booze!;Have a sip!;Have a drink!;Have a beer!;Beer is good for you!;Only the finest alcohol!;Best quality booze since 2053!;Award-winning wine!;Maximum alcohol!;Man loves beer.;A toast for progress!"
 	req_access = list(access_bar)
+	random_itemcount = 0
 
 /obj/machinery/vending/assist
 	vend_id = "tools"
@@ -279,6 +280,7 @@
 		/obj/item/weapon/reagent_containers/pill/stox = 4
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	random_itemcount = 0
 
 //This one's from bay12
 /obj/machinery/vending/phoronresearch
@@ -296,6 +298,7 @@
 		/obj/item/device/assembly/igniter = 6
 	)
 	restock_items = 1
+	random_itemcount = 0
 
 /obj/machinery/vending/wallmed1
 	name = "NanoMed"
@@ -318,6 +321,7 @@
 		/obj/item/weapon/reagent_containers/syringe/antiviral = 4,
 		/obj/item/weapon/reagent_containers/pill/tox = 1
 	)
+	random_itemcount = 0
 
 /obj/machinery/vending/wallmed2
 	name = "NanoMed"
@@ -337,6 +341,7 @@
 	contraband = list(
 		/obj/item/weapon/reagent_containers/pill/tox = 3
 	)
+	random_itemcount = 0
 
 /obj/machinery/vending/security
 	name = "SecTech"
@@ -368,6 +373,7 @@
 		/obj/item/weapon/reagent_containers/spray/pepper
 		)
 	restock_items = 1
+	random_itemcount = 0
 
 /obj/machinery/vending/hydronutrients
 	name = "NutriMax"
@@ -394,6 +400,7 @@
 	)
 
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	random_itemcount = 0
 
 /obj/machinery/vending/hydroseeds
 	name = "MegaSeed Servitor"
@@ -501,6 +508,7 @@
 		/obj/item/seeds/whitebeetseed = 20
 	)
 	restock_items = 1
+	random_itemcount = 0
 
 /**
  *  Populate hydroseeds product_records
@@ -546,6 +554,7 @@
 		/obj/item/weapon/staff = 2
 	)
 	restock_items = 1
+	random_itemcount = 0
 
 /obj/machinery/vending/dinnerware
 	name = "Dinnerware"
@@ -567,7 +576,7 @@
 		/obj/item/weapon/reagent_containers/cooking_container/fryer = 4,
 		/obj/item/weapon/storage/toolbox/lunchbox/nt = 6,
 		/obj/item/weapon/reagent_containers/glass/beaker/bowl = 4,
-		/obj/item/weapon/reagent_containers/glass/rag = 8
+		/obj/item/weapon/reagent_containers/glass/rag = 8,
 	)
 	contraband = list(
 		/obj/item/weapon/storage/toolbox/lunchbox/syndicate = 2
@@ -591,6 +600,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/drinkingglass/cola = 20
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	random_itemcount = 0
 
 /obj/machinery/vending/tool
 	name = "YouTool"
@@ -666,6 +676,7 @@
 	contraband = list(
 		/obj/item/weapon/grenade/flashbang/clusterbang = 1 //this can only go well.
 	)
+	random_itemcount = 0
 
 /obj/machinery/vending/tacticool/ert //Slightly more !FUN!
 	name = "Nanosecurity Plus"
@@ -690,6 +701,7 @@
 		/obj/item/weapon/material/hatchet/tacknife = 4,
 		/obj/item/device/firing_pin = 12
 	)
+	random_itemcount = 0
 
 //This one's from bay12
 /obj/machinery/vending/engineering
@@ -767,6 +779,7 @@
 		/obj/item/weapon/tank/anesthetic
 	)
 	restock_items = 1
+	random_itemcount = 0
 
 //RECURSION
 /obj/machinery/vending/vendors
@@ -790,3 +803,37 @@
 		/obj/item/weapon/vending_refill/cutlery = 1,
 		/obj/item/weapon/vending_refill/robo = 1
 	)
+	random_itemcount = 0
+
+/obj/machinery/vending/zora
+	name = "Zo'ra Soda"
+	desc = "An energy drink vendor provided by the Getmore Corporation in partnership with the brood of Ta'Akaix'Xakt'yagz'isk Zo'ra."
+	icon_state = "zoda"
+	product_slogans = "Safe for human consumption!;Made by hard-working bound drones!;The most refreshing taste in the sector!;A product of two thousand years!"
+	product_ads = "Refreshing!;Hope you're thirsty!;Thirsty? Why not Zora?;Please, have some!;Drink up!;ZZZOOODDDAAA!"
+	vend_id = "zora"
+	products = list(
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zorasoda = 5,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zorakois = 5,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zoraklax = 4,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zoraphoron = 5,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zoravenom = 5,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zorahozm = 2,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zoradrone = 5,
+	)
+	contraband = list(
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zoracthur = 2,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zorajelly = 2,
+	)
+	prices = list(
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zorasoda = 30,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zorakois = 27,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zoraklax = 30,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zoraphoron = 30,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zoravenom = 30,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zorahozm = 50,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zoraklax = 31,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/zoradrone = 30,
+	)
+	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	random_itemcount = 1

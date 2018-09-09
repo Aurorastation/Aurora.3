@@ -13,11 +13,15 @@
 	possible_transfer_amounts = null
 	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
+	center_of_mass = null
 
-/obj/item/weapon/reagent_containers/inhaler/afterattack(var/mob/living/carbon/human/H, var/mob/user, proximity)
+/obj/item/weapon/reagent_containers/inhaler/afterattack(var/mob/living/carbon/human/H, var/mob/user, var/proximity)
 
 	if (!istype(H))
 		return ..()
+
+	if(!proximity)
+		return
 
 	if(!reagents.total_volume)
 		to_chat(user,"<span class='warning'>\The [src] is empty.</span>")
@@ -57,7 +61,7 @@
 			to_chat(user,"<span class='notice'>You and the target need to be standing still in order to inject \the [src].</span>")
 			return
 
-		user.visible_message("<span class='notice'>[user] injects [H] with the [src].</span>","<span class='notice'>You stick the [src] in [H]'s mouth and press the injection button.</span>")
+		user.visible_message("<span class='notice'>[user] injects [H] with the [src].</span>","<span class='notice'>You stick \the [src] in [H]'s mouth and press the injection button.</span>")
 
 	if(H.reagents)
 		var/contained = reagentlist()
@@ -71,14 +75,13 @@
 	return
 
 /obj/item/weapon/reagent_containers/inhaler/attack(mob/M as mob, mob/user as mob)
-	..()
-	if(reagents.total_volume <= 0) //Prevents autoinjectors to be refilled.
-		flags &= ~OPENCONTAINER
-	return
+	. = ..()
+	update_icon()
 
 /obj/item/weapon/reagent_containers/inhaler/update_icon()
 	if(reagents.total_volume > 0)
 		icon_state = "[initial(icon_state)]1"
+		flags &= ~OPENCONTAINER
 	else
 		icon_state = "[initial(icon_state)]0"
 
