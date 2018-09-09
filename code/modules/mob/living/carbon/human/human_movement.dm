@@ -21,6 +21,11 @@
 
 
 //Simpler hunger slowdown calculations, this should be a little faster due to no division, and more scaleable
+	if (thirst < (max_thirst * 0.4))
+		tally++
+		if (thirst < (max_thirst * 0.1))
+			tally++
+
 	if (nutrition < (max_nutrition * 0.4))
 		tally++
 		if (nutrition < (max_nutrition * 0.1))

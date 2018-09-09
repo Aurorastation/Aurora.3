@@ -470,6 +470,7 @@ default behaviour is:
 	// shut down ongoing problems
 	total_radiation = 0
 	nutrition = 400
+	thirst = 400
 	bodytemperature = T20C
 	sdisabilities = 0
 	disabilities = 0

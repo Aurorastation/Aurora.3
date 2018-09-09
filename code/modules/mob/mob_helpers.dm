@@ -714,6 +714,7 @@ proc/is_blind(A)
 		if (istype(location, /turf/simulated))
 			location.add_vomit_floor(src, 1)
 
+		thirst -= 30
 		nutrition -= 60
 		if (intoxication)//The pain and system shock of vomiting, sobers you up a little
 			intoxication *= 0.9

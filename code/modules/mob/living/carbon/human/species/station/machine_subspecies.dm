@@ -25,6 +25,7 @@
 	show_ssd = "completely quiescent"
 
 	max_nutrition_factor = 0.8
+	max_thirst_factor = 0.8
 
 	heat_level_1 = 400
 	heat_level_2 = 800
@@ -111,7 +112,9 @@
 	heat_discomfort_level = 800
 
 	max_nutrition_factor = 1.25
+	max_thirst_factor = 1.25
 	nutrition_loss_factor = 2
+	thirst_loss_factor = 2
 
 	sprint_speed_factor = 1.4
 	sprint_temperature_factor = 0.9
@@ -342,6 +345,8 @@
 	eyes_icon_blend = ICON_MULTIPLY
 	sprint_charge_factor = 0.25
 	max_nutrition_factor = 1.75
+	max_thirst_factor = 1.75
+	
 	brute_mod = 1.2
 
 	appearance_flags = HAS_EYE_COLOR

@@ -118,12 +118,16 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 				toxloss += 300 // just to be safe!
 				death()
 
-		// Without enough blood you slowly go hungry.
+		// Without enough blood you slowly go hungry and thirsty
 		if(blood_volume < BLOOD_VOLUME_SAFE)
 			if(nutrition >= 300)
 				nutrition -= 10
 			else if(nutrition >= 200)
 				nutrition -= 3
+			if(thirst >= 300)
+				thirst -= 10
+			else if(thirst >= 200)
+				thirst -= 3
 
 		//Bleeding out
 		var/blood_max = 0

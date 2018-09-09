@@ -291,6 +291,14 @@
 		mymob.nutrition_icon.name = "nutrition"
 		mymob.nutrition_icon.screen_loc = ui_nutrition
 		hud_elements |= mymob.nutrition_icon
+		
+	if(hud_data.has_thirst)
+		mymob.thirst_icon = new /obj/screen()
+		mymob.thirst_icon.icon = ui_style
+		mymob.thirst_icon.icon_state = "thirst0"
+		mymob.thirst_icon.name = "thirst"
+		mymob.thirst_icon.screen_loc = ui_thirst
+		hud_elements |= mymob.thirst_icon
 
 	if(hud_data.has_up_hint)
 		mymob.up_hint = new /obj/screen()

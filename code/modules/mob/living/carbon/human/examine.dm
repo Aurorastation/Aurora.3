@@ -224,12 +224,13 @@
 	msg += "<span class='warning'>"
 
 
-	if (!(src.species.flags & NO_CHUBBY))
+	if (!(src.species.flags & NO_CHUBBY)) //TODO: BURGER THIRST
 		if(nutrition < max(max_nutrition - 300, 0))
 			msg += "[T.He] [T.is] severely malnourished.\n"
 		else if(nutrition >= max_nutrition + 100)
 			msg += "[T.He] [T.is] quite chubby.\n"
-
+		if(thirst < max(max_thirst - 300, 0))
+			msg += "[T.He] [T.is] severely dehydrated.\n"
 
 	msg += "</span>"
 

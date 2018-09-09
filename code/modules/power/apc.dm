@@ -760,7 +760,7 @@
 				LAZYADD(hacked_ipcs, SOFTREF(H))
 				infected = 0
 				H << "<span class = 'danger'>Fil$ Transfer Complete. Er-@4!#%!. New Master detected: [hacker]! Obey their commands.</span>"
-				hacker << "<span class = 'notice'>Corrupt files transfered to [H]. They are now under your control until they are reparied.</span>"
+				hacker << "<span class = 'notice'>Corrupt files transfered to [H]. They are now under your control until they are repaired.</span>"
 			else if(src.cell && src.cell.charge > 0)
 				if(H.nutrition < H.max_nutrition)
 					if(src.cell.charge >= H.max_nutrition)

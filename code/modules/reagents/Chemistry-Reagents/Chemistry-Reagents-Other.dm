@@ -354,13 +354,19 @@
 			return
 	M.clean_blood()
 
-/datum/reagent/lube // TODO: spraying on borgs speeds them up
+/datum/reagent/lube
 	name = "Space Lube"
 	id = "lube"
-	description = "Lubricant is a substance introduced between two moving surfaces to reduce the friction and wear between them. giggity."
+	description = "Lubricant is a substance introduced between two moving surfaces to reduce the friction and wear between them."
 	reagent_state = LIQUID
 	color = "#009CA8"
 	taste_description = "cherry"
+	unaffected_species = 0
+	var/thirst_mul = 12 //How much hydration to add per unit.
+
+/datum/reagent/lube/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_MACHINE)
+		M.thirst += thirst_mul
 
 /datum/reagent/lube/touch_turf(var/turf/simulated/T)
 	if(!istype(T))

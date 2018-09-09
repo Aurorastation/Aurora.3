@@ -126,6 +126,9 @@
 #define BASE_MAX_NUTRITION	400
 #define HUNGER_FACTOR		0.05 // Factor of how fast mob nutrition decreases. Moved here from chemistry define
 
+#define BASE_MAX_THIRST	    400
+#define THIRST_FACTOR       0.05 // Factor of how fast mob nutrition decreases. Moved here from chemistry define
+
 #define TINT_NONE 0
 #define TINT_MODERATE 1
 #define TINT_HEAVY 2
@@ -178,6 +181,9 @@
 // Maximum number of chickens allowed at once.
 // If the number of chickens on the map exceeds this, laid eggs will not hatch.
 #define MAX_CHICKENS 50
+
+#define CREW_MINIMUM_THIRST 50	// The minimum amount of nutrition a crewmember will spawn with.
+#define CREW_MAXIMUM_THIRST 100	// Same as above, but maximum.
 
 #define CREW_MINIMUM_NUTRITION 50	// The minimum amount of nutrition a crewmember will spawn with.
 #define CREW_MAXIMUM_NUTRITION 100	// Same as above, but maximum.

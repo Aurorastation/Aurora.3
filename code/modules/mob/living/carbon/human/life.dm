@@ -949,7 +949,17 @@
 	else
 		if(overeatduration > 1)
 			overeatduration -= 2 //doubled the unfat rate
+			
+	// thirst decrease
+	if (thirst > 0 && stat != 2)
+		thirst = max(0, thirst - (thirst_loss * thirst_attrition_rate))
 
+	if (thirst > max_thirst)
+		if(overdrinkduration < 600) //capped so people don't take forever to undrink
+			overdrinkduration++
+	else
+		if(overdrinkduration > 1)
+			overdrinkduration -= 2 //doubled the undrink rate
 
 	// TODO: stomach and bloodstream organ.
 	if(!isSynthetic())
@@ -1178,24 +1188,20 @@
 
 		update_health_display()
 
-		//Update hunger UI less often, its not important
-		if((life_tick % 3 == 0) && nutrition_icon)
-			var/nut_factor = max(1,nutrition) / max_nutrition
-			var/new_val = ""
-			switch(nut_factor)
-				if(1 to INFINITY)
-					new_val = "nutrition0"
-				if(0.75 to 1)
-					new_val = "nutrition1"
-				if(0.5 to 0.75)
-					new_val = "nutrition2"
-				if(0.25 to 0.5)
-					new_val = "nutrition3"
-				else
-					new_val = "nutrition4"
-
-			if (nutrition_icon.icon_state != new_val)
-				nutrition_icon.icon_state = new_val
+		//Update hunger and thirst UI less often, its not important
+		if((life_tick % 3 == 0))
+			if(nutrition_icon)
+				var/nut_factor = max(0,min(nutrition / max_nutrition,1))
+				var/nutrition_icons = 5 //Misnomer, basically the highest nutrition icon value.
+				var/new_val = "nutrition_[nutrition_icons - round(nut_factor*nutrition_icons)]"
+				if (nutrition_icon.icon_state != new_val)
+					nutrition_icon.icon_state = new_val
+			if(thirst_icon)
+				var/thirst_factor = max(0,min(thirst / max_thirst,1))
+				var/thirst_icons = 5 //Misnomer, basically the highest thirst icon value.
+				var/new_val = "thirst_[thirst_icons - round(thirst_factor*thirst_icons)]"
+				if (thirst_icon.icon_state != new_val)
+					thirst_icon.icon_state = new_val		
 
 		if(pressure)
 			var/new_pressure = "pressure[pressure_alert]"
@@ -1643,6 +1649,11 @@
 		if (prob(1.5))
 			src << span("warning", "You feel hungry and exhausted, eat something to regain your energy!")
 		return
+		
+	if (thirst <= 0)
+		if (prob(1.5))
+			src << span("warning", "You feel thirsty and exhausted, drink something to regain your energy!")
+		return
 
 	if (stamina != max_stamina)
 		//Any suffocation damage slows stamina regen.
@@ -1651,6 +1662,7 @@
 		if (regen > 0)
 			stamina = min(max_stamina, stamina+regen)
 			nutrition = max(0, nutrition - stamina_recovery*0.18)
+			thirst = max(0, thirst - stamina_recovery*0.18)
 			if (client)
 				hud_used.move_intent.update_move_icon(src)
 
