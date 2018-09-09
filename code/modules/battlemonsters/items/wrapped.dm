@@ -37,6 +37,7 @@
 	GenerateCards(user,generated_deck)
 	user.drop_from_inventory(src)
 	user.put_in_active_hand(generated_deck)
+	generated_deck.update_icon()
 	qdel(src)
 
 /obj/item/battle_monsters/wrapped/pro

@@ -861,11 +861,10 @@
 		/obj/item/battle_monsters/wrapped/species/lizard = 150,
 		/obj/item/battle_monsters/wrapped/species/cat = 150,
 		/obj/item/battle_monsters/wrapped/species/ant = 150,
-		/obj/item/battle_monsters/wrapped/rare = 200,
-		/obj/item/battle_monsters/wrapped/legendary = 400
+		/obj/item/battle_monsters/wrapped/rare = 200
 	)
 	contraband = list(
-		/obj/item/battle_monsters/wrapped/legendary = 1
+		/obj/item/battle_monsters/wrapped/legendary = 2
 	)
 	premium = list(
 		/obj/item/weapon/coin/battlemonsters = 10
