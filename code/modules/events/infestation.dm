@@ -18,13 +18,14 @@
 /datum/event/infestation/proc/choose_mobs()
 
 	var/list/possible_mobs = list(
-		"space bears" = 0,
-		"hivebots" = 0,
-		"space bats" = 0,
-		"lizards" = 0,
 		"mice" = 0,
-		"baby slimes" = 0,
-		"spiderling" = 0
+		"lizards" = 0,
+
+		"space bats" = 0,
+		"spiderling" = 0,
+
+		"hivebots" = 0,
+		"baby slimes" = 0
 	)
 
 	switch(severity)
@@ -35,7 +36,6 @@
 			possible_mobs["space bats"] = 1
 			possible_mobs["spiderlings"] = 1
 		if(EVENT_LEVEL_MAJOR)
-			possible_mobs["bluespace bears"] = 1
 			possible_mobs["hivebots"] = 1
 			possible_mobs["baby slimes"] = 1
 
