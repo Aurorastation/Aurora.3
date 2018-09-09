@@ -5,8 +5,8 @@
 
 /datum/event/money_lotto/start()
 	winner_sum = pick(1, 50, 100, 500, 1000, 2000, 5000)
-	if(all_money_accounts.len)
-		var/datum/money_account/D = pick(all_money_accounts)
+	if(SSeconomy.all_money_accounts.len)
+		var/datum/money_account/D = pick(SSeconomy.all_money_accounts)
 		winner_name = D.owner_name
 		if(!D.suspended)
 			D.money += winner_sum
@@ -15,7 +15,7 @@
 			T.target_name = "Tau Ceti Daily Grand Slam -Stellar- Lottery"
 			T.purpose = "Winner!"
 			T.amount = winner_sum
-			T.date = current_date_string
+			T.date = worlddate2text()
 			T.time = worldtime2text()
 			T.source_terminal = "Biesel TCD Terminal #[rand(111,333)]"
 			D.transaction_log.Add(T)

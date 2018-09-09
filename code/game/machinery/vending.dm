@@ -184,6 +184,7 @@
 /obj/machinery/vending/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
 	var/obj/item/weapon/card/id/I = W.GetID()
+	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
 
 	if (currently_vending && vendor_account && !vendor_account.suspended)
 		var/paid = 0
@@ -361,7 +362,8 @@
 		visible_message("<span class='info'>\The [usr] swipes \the [I] through \the [src].</span>")
 	else
 		visible_message("<span class='info'>\The [usr] swipes \the [ID_container] through \the [src].</span>")
-	var/datum/money_account/customer_account = get_account(I.associated_account_number)
+	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
+	var/datum/money_account/customer_account = SSeconomy.get_account(I.associated_account_number)
 	if (!customer_account)
 		//Allow BSTs to take stuff from vendors, for debugging and adminbus purposes
 		if (istype(I, /obj/item/weapon/card/id/bst))
@@ -380,7 +382,7 @@
 	// empty at high security levels
 	if(customer_account.security_level != 0) //If card requires pin authentication (ie seclevel 1 or 2)
 		var/attempt_pin = input("Enter pin code", "Vendor transaction") as num
-		customer_account = attempt_account_access(I.associated_account_number, attempt_pin, 2)
+		customer_account = SSeconomy.attempt_account_access(I.associated_account_number, attempt_pin, 2)
 
 		if(!customer_account)
 			src.status_message = "Unable to access account: incorrect credentials."
@@ -406,7 +408,7 @@
 		else
 			T.amount = "[currently_vending.price]"
 		T.source_terminal = src.name
-		T.date = current_date_string
+		T.date = worlddate2text()
 		T.time = worldtime2text()
 		customer_account.transaction_log.Add(T)
 
@@ -422,6 +424,7 @@
  *  Called after the money has already been taken from the customer.
  */
 /obj/machinery/vending/proc/credit_purchase(var/target as text)
+	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
 	vendor_account.money += currently_vending.price
 
 	var/datum/transaction/T = new()
@@ -429,7 +432,7 @@
 	T.purpose = "Purchase of [currently_vending.product_name]"
 	T.amount = "[currently_vending.price]"
 	T.source_terminal = src.name
-	T.date = current_date_string
+	T.date = worlddate2text()
 	T.time = worldtime2text()
 	vendor_account.transaction_log.Add(T)
 
@@ -498,6 +501,7 @@
 		ui.open()
 
 /obj/machinery/vending/Topic(href, href_list)
+	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
 	if(stat & (BROKEN|NOPOWER))
 		return
 	if(usr.stat || usr.restrained())

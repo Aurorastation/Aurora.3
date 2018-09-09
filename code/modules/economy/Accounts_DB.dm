@@ -27,7 +27,7 @@
 		T.target_name = target
 		T.purpose = reason
 		T.amount = amount
-		T.date = current_date_string
+		T.date = worlddate2text()
 		T.time = worldtime2text()
 		T.source_terminal = machine_id
 		return T
@@ -42,7 +42,7 @@
 
 /obj/machinery/account_database/Initialize()
 	. = ..()
-	machine_id = "[station_name()] Acc. DB #[num_financial_terminals++]"
+	machine_id = "[station_name()] Acc. DB #[SSeconomy.num_financial_terminals++]"
 
 /obj/machinery/account_database/attackby(obj/O, mob/user)
 	if(!istype(O, /obj/item/weapon/card/id))
@@ -71,7 +71,7 @@
 	data["machine_id"] = machine_id
 	data["creating_new_account"] = creating_new_account
 	data["detailed_account_view"] = !!detailed_account_view
-	data["station_account_number"] = station_account.account_number
+	data["station_account_number"] = SSeconomy.station_account.account_number
 	data["transactions"] = null
 	data["accounts"] = null
 
@@ -95,8 +95,8 @@
 			data["transactions"] = trx
 
 	var/list/accounts[0]
-	for(var/i=1, i<=all_money_accounts.len, i++)
-		var/datum/money_account/D = all_money_accounts[i]
+	for(var/i=1, i<=SSeconomy.all_money_accounts.len, i++)
+		var/datum/money_account/D = SSeconomy.all_money_accounts[i]
 		accounts.Add(list(list(\
 			"account_number"=D.account_number,\
 			"owner_name"=D.owner_name,\
@@ -142,17 +142,17 @@
 				var/account_name = href_list["holder_name"]
 				var/starting_funds = max(text2num(href_list["starting_funds"]), 0)
 
-				starting_funds = Clamp(starting_funds, 0, station_account.money)	// Not authorized to put the station in debt.
+				starting_funds = Clamp(starting_funds, 0, SSeconomy.station_account.money)	// Not authorized to put the station in debt.
 				starting_funds = min(starting_funds, fund_cap)						// Not authorized to give more than the fund cap.
 
-				create_account(account_name, starting_funds, src)
+				SSeconomy.create_account(account_name, starting_funds, src)
 				if(starting_funds > 0)
 					//subtract the money
-					station_account.money -= starting_funds
+					SSeconomy.station_account.money -= starting_funds
 
 					//create a transaction log entry
 					var/trx = create_transation(account_name, "New account activation", "([starting_funds])")
-					station_account.transaction_log.Add(trx)
+					SSeconomy.station_account.transaction_log.Add(trx)
 
 					creating_new_account = 0
 					ui.close()
@@ -175,8 +175,8 @@
 
 			if("view_account_detail")
 				var/index = text2num(href_list["account_index"])
-				if(index && index <= all_money_accounts.len)
-					detailed_account_view = all_money_accounts[index]
+				if(index && index <= SSeconomy.all_money_accounts.len)
+					detailed_account_view = SSeconomy.all_money_accounts[index]
 
 			if("view_accounts_list")
 				detailed_account_view = null
@@ -184,14 +184,14 @@
 
 			if("revoke_payroll")
 				var/funds = detailed_account_view.money
-				var/account_trx = create_transation(station_account.owner_name, "Revoke payroll", "([funds])")
+				var/account_trx = create_transation(SSeconomy.station_account.owner_name, "Revoke payroll", "([funds])")
 				var/station_trx = create_transation(detailed_account_view.owner_name, "Revoke payroll", funds)
 
-				station_account.money += funds
+				SSeconomy.station_account.money += funds
 				detailed_account_view.money = 0
 
 				detailed_account_view.transaction_log.Add(account_trx)
-				station_account.transaction_log.Add(station_trx)
+				SSeconomy.station_account.transaction_log.Add(station_trx)
 
 				callHook("revoke_payroll", list(detailed_account_view))
 
@@ -254,8 +254,8 @@
 							<tbody>
 					"}
 
-					for(var/i=1, i<=all_money_accounts.len, i++)
-						var/datum/money_account/D = all_money_accounts[i]
+					for(var/i=1, i<=SSeconomy.all_money_accounts.len, i++)
+						var/datum/money_account/D = SSeconomy.all_money_accounts[i]
 						text += {"
 								<tr>
 									<td>#[D.account_number]</td>
