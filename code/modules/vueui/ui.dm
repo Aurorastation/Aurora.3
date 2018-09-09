@@ -267,6 +267,7 @@ main ui datum.
 		href_list["vueui"] = src // Let's pass our UI object to object for it to do things.
 		topicReturn = object.Topic(href, href_list)
 	if(. || topicReturn)
+		if(topicReturn) check_for_change(FALSE, TRUE)
 		. = null
 		push_change()
 
@@ -362,3 +363,6 @@ main ui datum.
   */
 /datum/vueui/proc/get_theme_class()
 	return SSvueui.get_html_theme_class(user)
+
+/datum/vueui/modularcomputer/get_theme_class()
+	return "theme-nano dark-theme"

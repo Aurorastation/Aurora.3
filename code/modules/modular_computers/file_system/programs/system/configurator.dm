@@ -17,7 +17,7 @@
 /datum/computer_file/program/computerconfig/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, "mcomputer-system-config", 575, 700, "NTOS Configuration Utility")
+		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-system-config", 575, 700, "NTOS Configuration Utility")
 		ui.header = "modular-computer"
 	ui.open()
 

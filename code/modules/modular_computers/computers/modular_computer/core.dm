@@ -158,12 +158,14 @@
 	return ntnet_global.add_log(text, network_card)
 
 /obj/item/modular_computer/proc/shutdown_computer(var/loud = 1)
+	SSvueui.close_uis(active_program)
 	kill_program(1)
 	for(var/datum/computer_file/program/P in idle_threads)
 		P.kill_program(1)
 		idle_threads.Remove(P)
 	if(loud)
 		visible_message("\The [src] shuts down.")
+	SSvueui.close_uis(active_program)
 	enabled = 0
 	update_icon()
 

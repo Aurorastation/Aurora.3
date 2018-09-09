@@ -22,7 +22,7 @@
 		return // No HDD, No HDD files list or no stored files. Something is very broken.
 
 	if (!ui)
-		ui = new(user, src, "mcomputer-system-main", 400, 500, "NTOS Main Menu")
+		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-system-main", 400, 500, "NTOS Main Menu")
 		ui.header = "modular-computer"
 	ui.open()
 
@@ -152,6 +152,7 @@
 		else
 			VUEUI_SET_CHECK(data["ntneticon"], "", ., data)
 
+	LAZYINITLIST(data["programheaders"])
 	if(idle_threads.len)
 		for(var/datum/computer_file/program/P in idle_threads)
 			if(!P.ui_header)
