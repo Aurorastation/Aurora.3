@@ -30,7 +30,6 @@ main ui datum.
 	// determines if ui state should be constantly be cheacked for updates
 	var/auto_update_content = FALSE
 
-#define UIDEBUG
 /**
   * Creates a new ui
   *
@@ -287,45 +286,60 @@ main ui datum.
   * Check for change and push that change of data
   *
   * @param force - determines should data be pushed even if no change is present
+  * @param nopush - determines new data be imediatly pushed.
   *
-  * @return nothing
+  * @return 1 if push happened, 0 if it didn't happen
   */
-/datum/vueui/proc/check_for_change(var/force = 0)
+/datum/vueui/proc/check_for_change(var/force = FALSE, var/nopush = FALSE)
+	. = 0
 	if(status > STATUS_DISABLED)
 		var/ret = object.vueui_data_change(data, user, src)
 		if(ret)
-			push_change(ret)
+			if(!nopush)
+				push_change(ret)
+			else
+				src.data = ret
+			return 1
 		else if (force)
-			push_change(null)
+			if(!nopush) push_change(null)
+			return 1
 	else if (force && status == STATUS_DISABLED)
-		push_change(null)
+		if(!nopush) push_change(null)
+		return 1
 
 /**
   * Set the current status (also known as visibility) of this ui.
   *
-  * @param state int The status to set, see the defines at the top of this file
+  * @param state - int The status to set, see the defines at the top of this file
+  * @param autopush - determines if data with new status should be automaticly pushed
+  * @param checkforchange - determines if check for change should be done, even if status didn't chnage.
   *
-  * @return nothing
+  * @return 1 if push should happen, 0 if shouldn't happen.
   */
-/datum/vueui/proc/set_status(var/nstatus, var/autopush = TRUE)
+/datum/vueui/proc/set_status(var/nstatus, var/autopush = TRUE, var/checkforchange = FALSE)
 	if (nstatus != status) // Only update if it is different
 		status = nstatus
 		if(nstatus > STATUS_DISABLED)
-			if(autopush) check_for_change(1) // Gather data and update it
-			return 1
+			return check_for_change(TRUE, !autopush) // Gather data and update it
 		else if (nstatus == STATUS_DISABLED && autopush)
 			if(autopush) push_change(null) // Only update ui data
 			return 1
 		else
 			close()
+	else if (status > STATUS_DISABLED && checkforchange)
+		return check_for_change(TRUE, !autopush)
+
 
 /**
   * Update the status (visibility) of this ui based on the user's status
   *
+  * @param autopush - determines if data with new status should be automaticly pushed
+  * @param checkforchange - determines if check for change should be done, even if status didn't chnage.
+  *
   * @return nothing
   */
-/datum/vueui/proc/update_status(var/autopush = TRUE)
-	. = set_status(object.CanUseTopic(user, state), autopush)
+/datum/vueui/proc/update_status(var/autopush = TRUE, var/checkforchange = FALSE)
+	. = set_status(object.CanUseTopic(user, state), autopush, checkforchange)
 
 /**
   * Process this ui
@@ -336,9 +350,10 @@ main ui datum.
 	if (!object || !user || status < 0)
 		close()
 		return
-	update_status()
 	if(auto_update_content)
-		check_for_change()
+		update_status(checkforchange = TRUE)
+	else
+		update_status()
 
 /**
   * Returns actuve theme on varous conditions
@@ -347,5 +362,3 @@ main ui datum.
   */
 /datum/vueui/proc/get_theme_class()
 	return SSvueui.get_html_theme_class(user)
-
-#undef UIDEBUG

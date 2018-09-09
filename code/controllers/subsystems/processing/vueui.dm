@@ -90,7 +90,7 @@ Byond Vue UI framework's management subsystem
 /**
   * Closes open uis for that object
   *
-  * @param src_object - object that hosts the uis that we want ot close
+  * @param src_object - object that hosts the uis that we want to close
   *
   * @return number of uis closed
   */
