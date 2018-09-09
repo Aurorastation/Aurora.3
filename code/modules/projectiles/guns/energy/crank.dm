@@ -12,6 +12,11 @@
 	secondary_projectile_type = null
 	secondary_fire_sound = null
 	charge_failure_message = "'s charging socket was removed to make room for a crank."
+
+	can_bayonet = TRUE
+	knife_x_offset = 23
+	knife_y_offset = 13
+
 	var/is_charging = FALSE
 
 	firemodes = list()

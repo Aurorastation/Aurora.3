@@ -60,7 +60,7 @@
 		if(2 to 25) user << "All craftsmanship is of high quality."
 		if(26 to 50) user << "All craftsmanship is of average quality."
 		if(51 to 75) user << "All craftsmanship is of low quality."
-		if(100) user << "All craftsmanship is of the lowest quality."
+		else user << "All craftsmanship is of the lowest quality."
 
 /obj/item/weapon/gun/projectile/shotgun/improvised/sawn
 	name = "sawn-off improvised shotgun"
@@ -161,7 +161,7 @@
 		if(2 to 25) user << "All craftsmanship is of high quality."
 		if(26 to 50) user << "All craftsmanship is of average quality."
 		if(51 to 75) user << "All craftsmanship is of low quality."
-		if(100) user << "All craftsmanship is of the lowest quality."
+		else user << "All craftsmanship is of the lowest quality."
 
 /obj/item/weapon/stock/update_icon()
 	icon_state = "ipistol[buildstate]"
