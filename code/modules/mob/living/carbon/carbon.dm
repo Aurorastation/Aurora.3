@@ -37,10 +37,10 @@
 	if(.)
 		if(src.nutrition && src.stat != 2)
 			src.nutrition -= nutrition_loss*0.1 //Multiplication is faster than division
-			src.thirst -= thirst_loss*0.1
+			src.hydration -= hydration_loss*0.1
 			if(src.m_intent == "run")
 				src.nutrition -= nutrition_loss*0.1
-				src.thirst -= thirst_loss*0.1
+				src.hydration -= hydration_loss*0.1
 		if((FAT in src.mutations) && src.m_intent == "run" && src.bodytemperature <= 360)
 			src.bodytemperature += 2
 

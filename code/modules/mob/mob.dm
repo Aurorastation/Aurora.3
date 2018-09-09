@@ -57,7 +57,7 @@
 	healths = null
 	throw_icon = null
 	nutrition_icon = null
-	thirst_icon = null
+	hydration_icon = null
 	pressure = null
 	damageoverlay = null
 	pain = null

@@ -950,11 +950,11 @@
 		if(overeatduration > 1)
 			overeatduration -= 2 //doubled the unfat rate
 			
-	// thirst decrease
-	if (thirst > 0 && stat != 2)
-		thirst = max(0, thirst - (thirst_loss * thirst_attrition_rate))
+	// hydration decrease
+	if (hydration > 0 && stat != 2)
+		hydration = max(0, hydration - (hydration_loss * hydration_attrition_rate))
 
-	if (thirst > max_thirst)
+	if (hydration > max_hydration)
 		if(overdrinkduration < 600) //capped so people don't take forever to undrink
 			overdrinkduration++
 	else
@@ -1196,12 +1196,12 @@
 				var/new_val = "nutrition_[nutrition_icons - round(nut_factor*nutrition_icons)]"
 				if (nutrition_icon.icon_state != new_val)
 					nutrition_icon.icon_state = new_val
-			if(thirst_icon)
-				var/thirst_factor = max(0,min(thirst / max_thirst,1))
-				var/thirst_icons = 5 //Misnomer, basically the highest thirst icon value.
-				var/new_val = "thirst_[thirst_icons - round(thirst_factor*thirst_icons)]"
-				if (thirst_icon.icon_state != new_val)
-					thirst_icon.icon_state = new_val		
+			if(hydration_icon)
+				var/hyd_factor = max(0,min(hydration / max_hydration,1))
+				var/hydration_icons = 5 //Misnomer, basically the highest thirst icon value.
+				var/new_val = "thirst_[hydration_icons - round(hyd_factor*hydration_icons)]"
+				if (hydration_icon.icon_state != new_val)
+					hydration_icon.icon_state = new_val		
 
 		if(pressure)
 			var/new_pressure = "pressure[pressure_alert]"
@@ -1650,7 +1650,7 @@
 			src << span("warning", "You feel hungry and exhausted, eat something to regain your energy!")
 		return
 		
-	if (thirst <= 0)
+	if (hydration <= 0)
 		if (prob(1.5))
 			src << span("warning", "You feel thirsty and exhausted, drink something to regain your energy!")
 		return
@@ -1662,7 +1662,7 @@
 		if (regen > 0)
 			stamina = min(max_stamina, stamina+regen)
 			nutrition = max(0, nutrition - stamina_recovery*0.18)
-			thirst = max(0, thirst - stamina_recovery*0.18)
+			hydration = max(0, hydration - stamina_recovery*0.18)
 			if (client)
 				hud_used.move_intent.update_move_icon(src)
 

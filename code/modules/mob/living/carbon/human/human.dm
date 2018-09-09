@@ -1315,10 +1315,10 @@
 
 	exhaust_threshold = species.exhaust_threshold
 	max_nutrition = BASE_MAX_NUTRITION * species.max_nutrition_factor
-	max_thirst = BASE_MAX_THIRST * species.max_thirst_factor
+	max_hydration = BASE_max_hydration * species.max_hydration_factor
 
 	nutrition_loss = HUNGER_FACTOR * species.nutrition_loss_factor
-	thirst_loss = THIRST_FACTOR * species.thirst_loss_factor
+	hydration_loss = THIRST_FACTOR * species.hydration_loss_factor
 	
 	if(species)
 		return 1

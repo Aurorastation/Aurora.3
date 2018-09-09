@@ -171,6 +171,13 @@
 	glass_name = "glass of water"
 	glass_desc = "The father of all refreshments."
 
+	unaffected_species = IS_MACHINE
+
+/datum/reagent/water/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(!istype(M))
+		return
+	M.hydration += 12*removed
+
 /datum/reagent/water/touch_turf(var/turf/simulated/T)
 	if(!istype(T))
 		return

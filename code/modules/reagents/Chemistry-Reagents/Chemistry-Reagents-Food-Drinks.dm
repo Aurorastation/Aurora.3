@@ -59,7 +59,7 @@
 	reagent_state = SOLID
 	metabolism = REM * 4
 	var/nutriment_factor = 12 // Per removed in digest.
-	var/thirst_factor = 0 // Per removed in digest.
+	var/hydration_factor = 0 // Per removed in digest.
 	var/blood_factor = 6
 	var/regen_factor = 0.8
 	var/injectable = 0
@@ -688,7 +688,7 @@
 	reagent_state = LIQUID
 	color = "#E78108"
 	var/nutrition = 0 // Per unit
-	var/thirst = 1 // Per unit
+	var/hydration = 8 // Per unit
 	var/adj_dizzy = 0 // Per tick
 	var/adj_drowsy = 0
 	var/adj_sleepy = 0
@@ -709,7 +709,7 @@
 	if (caffeine && !modifier)
 		modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = caffeine, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
-	M.thirst += thirst * removed
+	M.hydration += hydration * removed
 	M.nutrition += nutrition * removed
 	M.dizziness = max(0, M.dizziness + adj_dizzy)
 	M.drowsyness = max(0, M.drowsyness + adj_drowsy)

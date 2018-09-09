@@ -332,9 +332,9 @@
 		job.equip(H)
 		job.apply_fingerprints(H)
 
-		// Randomize nutrition and thirst. Defines are in __defines/mobs.dm
+		// Randomize nutrition and hydration. Defines are in __defines/mobs.dm
 		H.nutrition = (rand(CREW_MINIMUM_NUTRITION, CREW_MAXIMUM_NUTRITION) * 0.01) * H.max_nutrition
-		H.thirst = (rand(CREW_MINIMUM_THIRST, CREW_MAXIMUM_THIRST) * 0.01) * H.max_thirst
+		H.hydration = (rand(CREW_MINIMUM_HYDRATION, CREW_MAXIMUM_HYDRATION) * 0.01) * H.max_hydration
 
 		if (!megavend)
 			spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)

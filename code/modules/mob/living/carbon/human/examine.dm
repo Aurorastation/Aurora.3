@@ -222,16 +222,13 @@
 	if(on_fire)
 		msg += "<span class='danger'>[T.He] [T.is] on fire!</span>\n"
 	msg += "<span class='warning'>"
-
-
-	if (!(src.species.flags & NO_CHUBBY)) //TODO: BURGER THIRST
-		if(nutrition < max(max_nutrition - 300, 0))
+	if (!(src.species.flags & NO_CHUBBY))
+		if(nutrition/max_nutrition <= CREW_NUTRITION_VERYHUNGRY)
 			msg += "[T.He] [T.is] severely malnourished.\n"
-		else if(nutrition >= max_nutrition + 100)
+		else if(nutrition/max_nutrition >= CREW_NUTRITION_OVEREATEN)
 			msg += "[T.He] [T.is] quite chubby.\n"
-		if(thirst < max(max_thirst - 300, 0))
+		if(hydration/max_hydration <= CREW_HYDRATION_VERYTHIRSTY)
 			msg += "[T.He] [T.is] severely dehydrated.\n"
-
 	msg += "</span>"
 
 	if(getBrainLoss() >= 60)

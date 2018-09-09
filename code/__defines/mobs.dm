@@ -126,7 +126,7 @@
 #define BASE_MAX_NUTRITION	400
 #define HUNGER_FACTOR		0.05 // Factor of how fast mob nutrition decreases. Moved here from chemistry define
 
-#define BASE_MAX_THIRST	    400
+#define BASE_max_hydration	    400
 #define THIRST_FACTOR       0.05 // Factor of how fast mob nutrition decreases. Moved here from chemistry define
 
 #define TINT_NONE 0
@@ -182,11 +182,27 @@
 // If the number of chickens on the map exceeds this, laid eggs will not hatch.
 #define MAX_CHICKENS 50
 
-#define CREW_MINIMUM_THIRST 50	// The minimum amount of nutrition a crewmember will spawn with.
-#define CREW_MAXIMUM_THIRST 100	// Same as above, but maximum.
+#define CREW_MINIMUM_HYDRATION 50	// The minimum amount of nutrition a crewmember will spawn with.
+#define CREW_MAXIMUM_HYDRATION 100	// Same as above, but maximum.
 
 #define CREW_MINIMUM_NUTRITION 50	// The minimum amount of nutrition a crewmember will spawn with.
 #define CREW_MAXIMUM_NUTRITION 100	// Same as above, but maximum.
+
+//Note that all of this is relative to nutrition/max nutrition
+#define CREW_NUTRITION_OVEREATEN 1
+#define CREW_NUTRITION_FULL 0.75
+#define CREW_NUTRITION_SLIGHTLYHUNGRY 0.5
+#define CREW_NUTRITION_HUNGRY 0.25
+#define CREW_NUTRITION_VERYHUNGRY 0.1
+#define CREW_NUTRITION_STARVING 0
+
+//Note that all of this is relative to hydration/max hydration
+#define CREW_HYDRATION_OVERHYDRATED 1
+#define CREW_HYDRATION_HYDRATED 0.75
+#define CREW_HYDRATION_SLIGHTLYTHIRSTY 0.5
+#define CREW_HYDRATION_THIRSTY 0.25
+#define CREW_HYDRATION_VERYTHIRSTY 0.1
+#define CREW_HYDRATION_DEHYDRATED 0
 
 //carbon taste sensitivity defines, used in mob/living/carbon/proc/ingest
 #define TASTE_HYPERSENSITIVE 3 //anything below 5%

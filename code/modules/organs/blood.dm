@@ -124,10 +124,10 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 				nutrition -= 10
 			else if(nutrition >= 200)
 				nutrition -= 3
-			if(thirst >= 300)
-				thirst -= 10
-			else if(thirst >= 200)
-				thirst -= 3
+			if(hydration >= 300)
+				hydration -= 10
+			else if(hydration >= 200)
+				hydration -= 3
 
 		//Bleeding out
 		var/blood_max = 0

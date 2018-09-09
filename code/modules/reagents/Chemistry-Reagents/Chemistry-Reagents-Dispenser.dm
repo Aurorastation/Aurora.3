@@ -95,7 +95,7 @@
 	reagent_state = LIQUID
 	color = "#404030"
 
-	var/thirst_factor = 1 //How much hydration to add per unit.
+	var/hydration_factor = 1 //How much hydration to add per unit.
 	var/nutriment_factor = 0.5 //How much nutrition to add per unit.
 	var/strength = 100 // This is the Alcohol By Volume of the drink, value is in the range 0-100 unless you wanted to create some bizarre bluespace alcohol with <100
 
@@ -165,7 +165,7 @@
 		M.adjustToxLoss(1.5 * removed * (strength / 100))
 	else
 		M.nutrition += nutriment_factor * removed
-		M.thirst += thirst_factor * removed
+		M.hydration += hydration_factor * removed
 
 	if(alien == IS_DIONA)
 		return //Diona can gain nutrients, but don't get drunk or suffer other effects

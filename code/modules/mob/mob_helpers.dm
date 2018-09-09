@@ -714,7 +714,7 @@ proc/is_blind(A)
 		if (istype(location, /turf/simulated))
 			location.add_vomit_floor(src, 1)
 
-		thirst -= 30
+		hydration -= 30
 		nutrition -= 60
 		if (intoxication)//The pain and system shock of vomiting, sobers you up a little
 			intoxication *= 0.9
@@ -1168,3 +1168,39 @@ proc/is_blind(A)
 
 /mob/living/silicon/ai/get_multitool()
 	return ..(aiMulti)
+
+mob/proc/get_hydration_mul(var/minscale = 0, var/maxscale = 1)
+	var/hydration_mul = hydration/max_hydration
+
+	if(hydration_mul >= CREW_HYDRATION_OVERHYDRATED)
+		return minscale + ( (maxscale - minscale) * 0.75)
+
+	if(hydration_mul <= CREW_HYDRATION_DEHYDRATED)
+		return minscale + ( (maxscale - minscale) * 0.25)
+
+	if(hydration_mul <= CREW_HYDRATION_VERYTHIRSTY)
+		return minscale + ( (maxscale - minscale) * 0.5)
+
+	if(hydration_mul <= CREW_HYDRATION_THIRSTY)
+		return minscale + ( (maxscale - minscale) * 0.75)
+
+	return minscale + ( (maxscale - minscale) * 1)
+
+mob/proc/get_nutrition_mul(var/minscale = 0, var/maxscale = 1)
+	var/nutrition_mul = nutrition/max_nutrition
+
+	if(nutrition_mul >= CREW_NUTRITION_OVEREATEN)
+		return minscale + ( (maxscale - minscale) * 0.75)
+
+	if(nutrition_mul <= CREW_NUTRITION_STARVING)
+		return minscale + ( (maxscale - minscale) * 0.25)
+
+	if(nutrition_mul <= CREW_NUTRITION_VERYHUNGRY)
+		return minscale + ( (maxscale - minscale) * 0.5)
+
+	if(nutrition_mul <= CREW_NUTRITION_HUNGRY)
+		return minscale + ( (maxscale - minscale) * 0.75)
+
+	return minscale + ( (maxscale - minscale) * 1)
+
+

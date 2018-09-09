@@ -23,7 +23,7 @@
 	var/obj/screen/healths = null
 	var/obj/screen/throw_icon = null
 	var/obj/screen/nutrition_icon = null
-	var/obj/screen/thirst_icon = null
+	var/obj/screen/hydration_icon = null
 	var/obj/screen/pressure = null
 	var/obj/screen/damageoverlay = null
 	var/obj/screen/pain = null
@@ -113,13 +113,13 @@
 	var/charges = 0.0
 	var/nutrition = 400.0//Carbon
 	var/nutrition_loss = HUNGER_FACTOR //How much hunger is lost per tick. This is modified by species
-	var/nutrition_attrition_rate = 1   // A multiplier for how much this specific mob loses per tick.
+	var/nutrition_attrition_rate = 1   // A multiplier for how much nutrition this specific mob loses per tick.
 	var/max_nutrition = 400
 	
-	var/thirst = 400.0//Carbon
-	var/thirst_loss = THIRST_FACTOR //How much hunger is lost per tick. This is modified by species
-	var/thirst_attrition_rate = 1   // A multiplier for how much this specific mob loses per tick.
-	var/max_thirst = 400
+	var/hydration = 400.0//Carbon
+	var/hydration_loss = THIRST_FACTOR //How much hunger is lost per tick. This is modified by species
+	var/hydration_attrition_rate = 1   // A multiplier for how much hydration this specific mob loses per tick.
+	var/max_hydration = 400
 
 	var/overeatduration = 0		// How long this guy is overeating //Carbon
 	var/overdrinkduration = 0	// How long this guy is overdrinking //Carbon
