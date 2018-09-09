@@ -126,7 +126,7 @@
 	if(!user.IsAdvancedToolUser())
 		return 0
 
-	if(user.disabilities & PACIFIST)
+	if(user.is_pacified())
 		to_chat(user, "<span class='notice'>You don't want to risk harming anyone!</span>")
 		return 0
 

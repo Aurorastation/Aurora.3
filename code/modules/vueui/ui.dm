@@ -242,7 +242,7 @@ main ui datum.
   * @return nothing
   */
 /datum/vueui/Topic(href, href_list)
-	update_status()
+	. = update_status(FALSE)
 	if(status < STATUS_INTERACTIVE || user != usr)
 		return
 	if(href_list["vueuiforceresource"])
@@ -255,13 +255,21 @@ main ui datum.
 		var/ndata = rdata["state"]
 		var/ret = object.vueui_data_change(ndata, user, src)
 		if(ret)
+			. = TRUE
 			ndata = ret
-			push_change(ret)
 		src.data = ndata
-		if(href_list["vueuipushonly"])
-			return
-	href_list["vueui"] = src // Let's pass our UI object to object for it to do things.
-	object.Topic(href, href_list)
+	var/topicReturn = 0
+	if(!href_list["vueuipushonly"])
+		if(href_list["vueuihrefjson"])
+			var/json_href = json_decode(href_list["vueuihrefjson"])
+			if(json_href)
+				for(var/hvar in json_href)
+					href_list[hvar] = json_href[hvar]
+		href_list["vueui"] = src // Let's pass our UI object to object for it to do things.
+		topicReturn = object.Topic(href, href_list)
+	if(. || topicReturn)
+		. = null
+		push_change()
 
 /**
   * Pushes latest data to client (Including metadata such as: assets index, status, activeui)
@@ -299,25 +307,25 @@ main ui datum.
   *
   * @return nothing
   */
-/datum/vueui/proc/set_status(var/nstatus, var/forcepushupdate = 0)
+/datum/vueui/proc/set_status(var/nstatus, var/autopush = TRUE)
 	if (nstatus != status) // Only update if it is different
 		status = nstatus
 		if(nstatus > STATUS_DISABLED)
-			check_for_change(1) // Gather data and update it
-		else if (nstatus == STATUS_DISABLED)
-			push_change() // Only update ui data
+			if(autopush) check_for_change(1) // Gather data and update it
+			return 1
+		else if (nstatus == STATUS_DISABLED && autopush)
+			if(autopush) push_change(null) // Only update ui data
+			return 1
 		else
 			close()
-	else if (forcepushupdate && status > STATUS_DISABLED)
-		check_for_change(1)
 
 /**
   * Update the status (visibility) of this ui based on the user's status
   *
   * @return nothing
   */
-/datum/vueui/proc/update_status(var/check_for_change = 0)
-	set_status(object.CanUseTopic(user, state), check_for_change)
+/datum/vueui/proc/update_status(var/autopush = TRUE)
+	. = set_status(object.CanUseTopic(user, state), autopush)
 
 /**
   * Process this ui

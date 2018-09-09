@@ -47,6 +47,7 @@
 	desc = "A special suit that protects against hazardous, low pressure environments. Has reinforced plating."
 	item_state = "mining_voidsuit"
 	armor = list(melee = 50, bullet = 5, laser = 20,energy = 5, bomb = 55, bio = 100, rad = 20)
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/bag/ore,/obj/item/weapon/pickaxe, /obj/item/weapon/gun/custom_ka, /obj/item/weapon/gun/energy/vaurca/thermaldrill)
 
 //Medical Rig
 /obj/item/clothing/head/helmet/space/void/medical

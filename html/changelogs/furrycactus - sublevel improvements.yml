@@ -1,0 +1,40 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes: 
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#################################
+
+# Your name.  
+author: Furrycactus
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes: 
+  - maptweak: "Sublevel has received some quality of life improvements for Engineers, predominantly involving Atmospherics, but also with the Tesla and airlocks."
+  - maptweak: "Atmospherics was made larger, now has a large tank for N2O, and was also given a large tank for custom gas mixes. A gas heater was also added alongside the previous gas cooler, an engineering console with remote Air Alarm Control was added, Pipe Dispensers were added, and the overall roundstart efficiency of the setup was reduced in order to give Atmospheric Technicians more things to actually do."
+  - maptweak: "The Tesla Engine was given a few tweaks to make it equally roundstart viable as the Supermatter. The Tesla Bay APC was given a super-capacity power cell in place of a regular power cell, and the Particle Accelerator components now start already in-place and in correct order. Wires were also tidied up and made neater; this should make setting it up more time efficnent. Tesla Grid SMES was upgraded to match the roundstart Supermatter Grid SMES so that it can output power on-par with the Supermatter. It is fully capable of powering the station on its own, and then some."
+  - maptweak: "Sublevel airlocks have been connected to the station air supply line with a gas pump, like the airlocks in mining, solars, and the surface docks. They were very prone to becoming stuck due to a lack of air, this should help stop that and make using said airlocks more viable."

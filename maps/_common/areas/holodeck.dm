@@ -78,3 +78,7 @@
 	name = "\improper Holodeck - Space"
 	has_gravity = 0
 	sound_env = SPACE
+
+/area/holodeck/source_battlemonsters
+	name = "\improper Holodeck - Battlemonsters Arena"
+	sound_env = ARENA
