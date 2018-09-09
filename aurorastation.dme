@@ -1149,6 +1149,7 @@
 #include "code\modules\battlemonsters\datum_traps.dm"
 #include "code\modules\battlemonsters\items\card.dm"
 #include "code\modules\battlemonsters\items\core.dm"
+#include "code\modules\battlemonsters\items\custom_decks.dm"
 #include "code\modules\battlemonsters\items\deck.dm"
 #include "code\modules\battlemonsters\items\wrapped.dm"
 #include "code\modules\battlemonsters\items\furniture\dueling_area.dm"
