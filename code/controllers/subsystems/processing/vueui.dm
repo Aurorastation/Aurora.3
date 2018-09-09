@@ -96,7 +96,8 @@ Byond Vue UI framework's management subsystem
   */
 /datum/controller/subsystem/processing/vueui/proc/close_uis(var/src_object)
 	. = 0
-	for (var/datum/vueui/ui in get_open_uis(src_object))
+	for (var/tui in get_open_uis(src_object))
+		var/datum/vueui/ui = tui
 		ui.close()
 		.++
 
