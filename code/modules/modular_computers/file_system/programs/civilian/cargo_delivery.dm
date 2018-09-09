@@ -115,7 +115,7 @@
 							T.source_terminal = "Modular Computer #[program.computer.network_card.identification_id]"
 							T.date = worlddate2text()
 							T.time = worldtime2text()
-							D.transaction_log.Add(T)
+							SSeconomy.add_transaction_log(D,T)
 							//
 							T = new()
 							T.target_name = D.owner_name
@@ -124,7 +124,7 @@
 							T.source_terminal = "Modular Computer #[program.computer.network_card.identification_id]"
 							T.date = worlddate2text()
 							T.time = worldtime2text()
-							SScargo.supply_account.transaction_log.Add(T)
+							SSeconomy.add_transaction_log(SScargo.supply_account,T)
 
 							//Check if we have delivered it aswell or only paid
 							if(order_details["status"] == "shipped")

@@ -93,8 +93,8 @@
 		remembered_info += "<b>Your account pin is:</b> [M.remote_access_pin]<br>"
 		remembered_info += "<b>Your account funds are:</b> $[M.money]<br>"
 
-		if(M.transaction_log.len)
-			var/datum/transaction/T = M.transaction_log[1]
+		if(M.transactions.len)
+			var/datum/transaction/T = M.transactions[1]
 			remembered_info += "<b>Your account was created:</b> [T.time], [T.date] at [T.source_terminal]<br>"
 		H.mind.store_memory(remembered_info)
 

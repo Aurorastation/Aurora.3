@@ -410,7 +410,7 @@
 		T.source_terminal = src.name
 		T.date = worlddate2text()
 		T.time = worldtime2text()
-		customer_account.transaction_log.Add(T)
+		SSeconomy.add_transaction_log(customer_account,T)
 
 		// Give the vendor the money. We use the account owner name, which means
 		// that purchases made with stolen/borrowed card will look like the card
@@ -434,7 +434,7 @@
 	T.source_terminal = src.name
 	T.date = worlddate2text()
 	T.time = worldtime2text()
-	vendor_account.transaction_log.Add(T)
+	SSeconomy.add_transaction_log(vendor_account,T)
 
 /obj/machinery/vending/attack_ai(mob/user as mob)
 	return attack_hand(user)

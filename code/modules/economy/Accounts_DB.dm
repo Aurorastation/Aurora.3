@@ -82,7 +82,7 @@
 		data["suspended"] = detailed_account_view.suspended
 
 		var/list/trx[0]
-		for (var/datum/transaction/T in detailed_account_view.transaction_log)
+		for (var/datum/transaction/T in detailed_account_view.transactions)
 			trx.Add(list(list(\
 				"date" = T.date, \
 				"time" = T.time, \
@@ -151,8 +151,8 @@
 					SSeconomy.station_account.money -= starting_funds
 
 					//create a transaction log entry
-					var/trx = create_transation(account_name, "New account activation", "([starting_funds])")
-					SSeconomy.station_account.transaction_log.Add(trx)
+					var/datum/transaction/trx = create_transation(account_name, "New account activation", "([starting_funds])")
+					SSeconomy.add_transaction_log(SSeconomy.station_account,trx)
 
 					creating_new_account = 0
 					ui.close()
@@ -190,8 +190,8 @@
 				SSeconomy.station_account.money += funds
 				detailed_account_view.money = 0
 
-				detailed_account_view.transaction_log.Add(account_trx)
-				SSeconomy.station_account.transaction_log.Add(station_trx)
+				SSeconomy.add_transaction_log(detailed_account_view,account_trx)
+				SSeconomy.add_transaction_log(SSeconomy.station_account,station_trx)
 
 				callHook("revoke_payroll", list(detailed_account_view))
 
@@ -207,7 +207,7 @@
 						<u>Holder:</u> [detailed_account_view.owner_name]<br>
 						<u>Balance:</u> $[detailed_account_view.money]<br>
 						<u>Status:</u> [detailed_account_view.suspended ? "Suspended" : "Active"]<br>
-						<u>Transactions:</u> ([detailed_account_view.transaction_log.len])<br>
+						<u>Transactions:</u> ([detailed_account_view.transactions.len])<br>
 						<table>
 							<thead>
 								<tr>
@@ -221,7 +221,7 @@
 							<tbody>
 						"}
 
-					for (var/datum/transaction/T in detailed_account_view.transaction_log)
+					for (var/datum/transaction/T in detailed_account_view.transactions)
 						text += {"
 									<tr>
 										<td>[T.date] [T.time]</td>

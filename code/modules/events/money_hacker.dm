@@ -53,8 +53,7 @@
 		var/time2 = "[round(time1 / 36000)+12]:[(time1 / 600 % 60) < 10 ? add_zero(time1 / 600 % 60, 1) : time1 / 600 % 60]"
 		T.time = pick("", worldtime2text(), time2)
 		T.source_terminal = pick("","[pick("Biesel","New Gibson")] GalaxyNet Terminal #[rand(111,999)]","your mums place","nantrasen high CommanD")
-
-		affected_account.transaction_log.Add(T)
+		SSeconomy.add_transaction_log(affected_account,T)
 
 	else
 		//crew wins

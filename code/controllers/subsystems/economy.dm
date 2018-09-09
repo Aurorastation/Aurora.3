@@ -62,7 +62,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 	T.source_terminal = "Biesel GalaxyNet Terminal #277"
 
 	//add the account
-	station_account.transaction_log.Add(T)
+	add_transaction_log(station_account,T)
 	all_money_accounts.Add(station_account)
 	return TRUE
 
@@ -89,7 +89,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 	T.source_terminal = "Biesel GalaxyNet Terminal #277"
 
 	//add the account
-	department_account.transaction_log.Add(T)
+	add_transaction_log(department_account,T)
 	all_money_accounts.Add(department_account)
 
 	department_accounts[department] = department_account
@@ -150,7 +150,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 		R.stamps += "<HR><i>This paper has been stamped by the Accounts Database.</i>"
 
 	//add the account
-	M.transaction_log.Add(T)
+	add_transaction_log(M,T)
 	all_money_accounts.Add(M)
 
 	return M
@@ -173,8 +173,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 			T.date = worlddate2text()
 			T.time = worldtime2text()
 			T.source_terminal = terminal_id
-			D.transaction_log.Add(T)
-
+			add_transaction_log(D,T)
 			return 1
 
 	return 0
@@ -206,6 +205,11 @@ var/datum/controller/subsystem/economy/SSeconomy
 /**
  * Logging functions
  */
+//adds a transaction log to a specific account
+/datum/controller/subsystem/economy/proc/add_transaction_log(var/datum/money_account/bank_account, var/datum/transaction/T)
+	//Thats there as a place to hook the persistant transaction logs into
+	bank_account.transactions.Add(T)
+
 //log a failed access attempt
 /datum/controller/subsystem/economy/proc/bank_log_unauthorized(var/datum/money_account/bank_account, var/machine_id = "Unknown machine ID")
 	var/datum/transaction/T = new()
@@ -214,7 +218,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 	T.source_terminal = machine_id
 	T.date = worlddate2text()
 	T.time = worldtime2text()
-	bank_account.transaction_log.Add(T)
+	add_transaction_log(bank_account,T)
 	return
 
 //Log a successful access
@@ -225,7 +229,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 	T.source_terminal = machine_id
 	T.date = worlddate2text()
 	T.time = worldtime2text()
-	bank_account.transaction_log.Add(T)
+	add_transaction_log(bank_account,T)
 	return
 
 
@@ -234,7 +238,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 	var/account_number = 0
 	var/remote_access_pin = 0
 	var/money = 0
-	var/list/transaction_log = list()
+	var/list/transactions = list()
 	var/suspended = 0
 	var/security_level = 0	//0 - auto-identify from worn ID, require only account number
 							//1 - require manual login / account number and pin

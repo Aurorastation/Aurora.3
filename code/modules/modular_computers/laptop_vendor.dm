@@ -322,7 +322,7 @@ obj/machinery/lapvend/attackby(obj/item/weapon/W as obj, mob/user as mob)
 			T.source_terminal = src.name
 			T.date = worlddate2text()
 			T.time = worldtime2text()
-			customer_account.transaction_log.Add(T)
+			SSeconomy.add_transaction_log(customer_account,T)
 			return 1
 	else if(S)
 		if(total_price > S.worth)

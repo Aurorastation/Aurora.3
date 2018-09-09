@@ -18,7 +18,7 @@
 			T.date = worlddate2text()
 			T.time = worldtime2text()
 			T.source_terminal = "Biesel TCD Terminal #[rand(111,333)]"
-			D.transaction_log.Add(T)
+			SSeconomy.add_transaction_log(D,T)
 
 			deposit_success = 1
 

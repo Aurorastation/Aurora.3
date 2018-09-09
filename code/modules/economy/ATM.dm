@@ -116,7 +116,8 @@ log transactions
 			T.source_terminal = machine_id
 			T.date = worlddate2text()
 			T.time = worldtime2text()
-			authenticated_account.transaction_log.Add(T)
+			SSeconomy.add_transaction_log(authenticated_account,T)
+
 
 			user << "<span class='info'>You insert [I] into [src].</span>"
 			src.attack_hand(user)
@@ -174,7 +175,7 @@ log transactions
 							dat += "<td><b>Value</b></td>"
 							dat += "<td><b>Source terminal ID</b></td>"
 							dat += "</tr>"
-							for(var/datum/transaction/T in authenticated_account.transaction_log)
+							for(var/datum/transaction/T in authenticated_account.transactions)
 								dat += "<tr>"
 								dat += "<td>[T.date]</td>"
 								dat += "<td>[T.time]</td>"
@@ -247,7 +248,7 @@ log transactions
 							T.date = worlddate2text()
 							T.time = worldtime2text()
 							T.amount = "([transfer_amount])"
-							authenticated_account.transaction_log.Add(T)
+							SSeconomy.add_transaction_log(authenticated_account,T)
 						else
 							usr << "\icon[src]<span class='warning'>Funds transfer failed.</span>"
 
@@ -322,7 +323,7 @@ log transactions
 						T.source_terminal = machine_id
 						T.date = worlddate2text()
 						T.time = worldtime2text()
-						authenticated_account.transaction_log.Add(T)
+						SSeconomy.add_transaction_log(authenticated_account,T)
 					else
 						usr << "\icon[src]<span class='warning'>You don't have enough funds to do that!</span>"
 			if("withdrawal")
@@ -347,7 +348,7 @@ log transactions
 						T.source_terminal = machine_id
 						T.date = worlddate2text()
 						T.time = worldtime2text()
-						authenticated_account.transaction_log.Add(T)
+						SSeconomy.add_transaction_log(authenticated_account,T)
 					else
 						usr << "\icon[src]<span class='warning'>You don't have enough funds to do that!</span>"
 			if("balance_statement")
@@ -396,7 +397,7 @@ log transactions
 					info += "<td><b>Value</b></td>"
 					info += "<td><b>Source terminal ID</b></td>"
 					info += "</tr>"
-					for(var/datum/transaction/T in authenticated_account.transaction_log)
+					for(var/datum/transaction/T in authenticated_account.transactions)
 						info += "<tr>"
 						info += "<td>[T.date]</td>"
 						info += "<td>[T.time]</td>"
@@ -465,7 +466,7 @@ log transactions
 					T.source_terminal = machine_id
 					T.date = worlddate2text()
 					T.time = worldtime2text()
-					authenticated_account.transaction_log.Add(T)
+					SSeconomy.add_transaction_log(authenticated_account,T)
 
 					view_screen = NO_SCREEN
 

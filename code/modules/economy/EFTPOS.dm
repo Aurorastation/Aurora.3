@@ -142,7 +142,7 @@
 						T.source_terminal = machine_id
 						T.date = worlddate2text()
 						T.time = worldtime2text()
-						linked_account.transaction_log.Add(T)
+						SSeconomy.add_transaction_log(linked_account,T)
 					else
 						usr << "\icon[src]<span class='warning'>\The [O] doesn't have that much money!</span>"
 			else
@@ -266,7 +266,7 @@
 								T.source_terminal = machine_id
 								T.date = worlddate2text()
 								T.time = worldtime2text()
-								D.transaction_log.Add(T)
+								SSeconomy.add_transaction_log(D,T)
 								//
 								T = new()
 								T.target_name = D.owner_name
@@ -275,7 +275,7 @@
 								T.source_terminal = machine_id
 								T.date = worlddate2text()
 								T.time = worldtime2text()
-								linked_account.transaction_log.Add(T)
+								SSeconomy.add_transaction_log(linked_account,T)
 							else
 								usr << "\icon[src]<span class='warning'>You don't have that much money!</span>"
 						else
