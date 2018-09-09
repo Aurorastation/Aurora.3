@@ -215,7 +215,7 @@ emp_act
 	if(!affecting)
 		return //should be prevented by attacked_with_item() but for sanity.
 	var/use_name = affecting.name
-	if(LAZYLEN(get_clothing_list_organ(affecting)) > 0)
+	if(LAZYLEN(get_clothing_list_organ(affecting)))
 		use_name = affecting.limb_name
 
 	visible_message("<span class='danger'>[src] has been [LAZYPICK(I.attack_verb, "attacked")] in the [use_name] with [I] by [user]!</span>")

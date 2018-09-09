@@ -95,7 +95,7 @@ var/global/list/sparring_attack_cache = list()
 /datum/unarmed_attack/proc/show_attack(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone, var/attack_damage)
 	var/obj/item/organ/external/affecting = target.get_organ(zone)
 	var/organ = affecting.name
-	if(LAZYLEN(target.get_clothing_list_organ(affecting)) > 0)
+	if(LAZYLEN(target.get_clothing_list_organ(affecting)))
 		organ = affecting.limb_name
 	user.visible_message("<span class='warning'>[user] [pick(attack_verb)] [target] in the [organ]!</span>")
 	playsound(user.loc, attack_sound, 25, 1, -1)
@@ -135,7 +135,7 @@ var/global/list/sparring_attack_cache = list()
 /datum/unarmed_attack/punch/show_attack(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone, var/attack_damage)
 	var/obj/item/organ/external/affecting = target.get_organ(zone)
 	var/organ = affecting.name
-	if(LAZYLEN(target.get_clothing_list_organ(affecting)) > 0)
+	if(LAZYLEN(target.get_clothing_list_organ(affecting)))
 		organ = affecting.limb_name
 
 	attack_damage = Clamp(attack_damage, 1, 5) // We expect damage input of 1 to 5 for this proc. But we leave this check juuust in case.
@@ -209,7 +209,7 @@ var/global/list/sparring_attack_cache = list()
 /datum/unarmed_attack/kick/show_attack(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone, var/attack_damage)
 	var/obj/item/organ/external/affecting = target.get_organ(zone)
 	var/organ = affecting.name
-	if(LAZYLEN(target.get_clothing_list_organ(affecting)) > 0)
+	if(LAZYLEN(target.get_clothing_list_organ(affecting)))
 		organ = affecting.limb_name
 
 	attack_damage = Clamp(attack_damage, 1, 5)
@@ -254,7 +254,7 @@ var/global/list/sparring_attack_cache = list()
 /datum/unarmed_attack/stomp/show_attack(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone, var/attack_damage)
 	var/obj/item/organ/external/affecting = target.get_organ(zone)
 	var/organ = affecting.name
-	if(LAZYLEN(target.get_clothing_list_organ(affecting)) > 0)
+	if(LAZYLEN(target.get_clothing_list_organ(affecting)))
 		organ = affecting.limb_name
 	var/obj/item/clothing/shoes = user.shoes
 
