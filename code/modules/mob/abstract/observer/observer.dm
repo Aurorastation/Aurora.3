@@ -450,6 +450,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		src << "<span class='notice'>Temperature: [round(environment.temperature-T0C,0.1)]&deg;C ([round(environment.temperature,0.1)]K)</span>"
 		src << "<span class='notice'>Heat Capacity: [round(environment.heat_capacity(),0.1)]</span>"
 
+var/global/rat_king_already_spawned = FALSE	
+		
 /mob/abstract/observer/verb/become_mouse()
 	set name = "Become mouse"
 	set category = "Ghost"
@@ -478,18 +480,29 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	var/mob/living/simple_animal/mouse/host
 	var/obj/machinery/atmospherics/unary/vent_pump/spawnpoint = find_mouse_spawnpoint(T.z)
 
+	var/is_rat_king = FALSE
+	
 	if (spawnpoint)
-		host = new /mob/living/simple_animal/mouse(spawnpoint.loc)
+		if(!rat_king_already_spawned && prob(25))
+			host = new /mob/living/simple_animal/mouse/king(spawnpoint.loc)
+			rat_king_already_spawned = TRUE
+			is_rat_king = TRUE
+		else
+			host = new /mob/living/simple_animal/mouse(spawnpoint.loc)
 	else
 		src << "<span class='warning'>Unable to find any safe, unwelded vents to spawn mice at. The station must be quite a mess!  Trying again might work, if you think there's still a safe place. </span>"
 
 	if(host)
 		if(config.uneducated_mice)
 			host.universal_understand = 0
-		announce_ghost_joinleave(src, 0, "They are now a mouse.")
+		if(is_rat_king)
+			announce_ghost_joinleave(src, 0, "They are now the legendary Rat King.")
+			host << "<span class='info'>You are now the legendary rat king! Try to avoid interaction with players, and do not give hints away that you are more than a simple rodent. Keep in mind that this isn't an antagonist role, and misusing your powers for evil will result in administrative action.</span>"
+		else
+			announce_ghost_joinleave(src, 0, "They are now a mouse.")
+			host << "<span class='info'>You are now a mouse. Try to avoid interaction with players, and do not give hints away that you are more than a simple rodent.</span>"
 		host.ckey = src.ckey
-		host << "<span class='info'>You are now a mouse. Try to avoid interaction with players, and do not give hints away that you are more than a simple rodent.</span>"
-
+		
 /proc/find_mouse_spawnpoint(var/ZLevel)
 	//This function will attempt to find a good spawnpoint for mice, and prevent them from spawning in closed vent systems with no escape
 	//It does this by bruteforce: Picks a random vent, tests if it has enough connections, if not, repeat
