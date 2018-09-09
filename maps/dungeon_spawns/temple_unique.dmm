@@ -27,21 +27,12 @@
 /turf/simulated/floor/cult,
 /area/mine/unexplored)
 "h" = (
-/obj/item/device/flashlight/flare,
-/turf/simulated/floor/cult,
+/obj/structure/simple_door/gold,
+/turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
 "i" = (
 /obj/structure/simple_door/gold,
 /turf/simulated/floor/cult,
-/area/mine/unexplored)
-"j" = (
-/mob/living/simple_animal/hostile/alien,
-/turf/simulated/floor/cult,
-/area/mine/unexplored)
-"k" = (
-/obj/structure/simple_door/gold,
-/obj/item/weapon/landmine/phoron,
-/turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
 "l" = (
 /obj/effect/decal/remains,
@@ -208,13 +199,13 @@ b
 b
 d
 d
-j
 d
-j
 d
-j
 d
-j
+d
+d
+d
+d
 d
 d
 b
@@ -494,7 +485,7 @@ d
 d
 b
 d
-j
+d
 d
 b
 a
@@ -562,7 +553,7 @@ d
 d
 b
 d
-j
+d
 d
 b
 a
@@ -574,9 +565,9 @@ a
 a
 i
 d
-h
+d
 m
-k
+h
 d
 d
 b
@@ -630,7 +621,7 @@ d
 d
 b
 d
-j
+d
 d
 b
 a
@@ -698,7 +689,7 @@ d
 d
 b
 d
-j
+d
 d
 b
 a
@@ -956,13 +947,13 @@ b
 b
 d
 d
-j
 d
-j
 d
-j
 d
-j
+d
+d
+d
+d
 d
 d
 b
