@@ -37,74 +37,74 @@
 /obj/item/weapon/vending_refill/booze
 	name = "booze resupply canister"
 	vend_id = "booze"
-	charges = 100 //holy shit that's a lot of booze
+	charges = 123 //default-stock: 246
 
 /obj/item/weapon/vending_refill/tools
 	name = "tools resupply canister"
 	vend_id = "tools"
-	charges = 25
+	charges = 28 //default-stock: 62, 48
 
 /obj/item/weapon/vending_refill/coffee
 	name = "coffee resupply canister"
 	vend_id = "coffee"
-	charges = 38
+	charges = 52 //default-stock: 105
 
 /obj/item/weapon/vending_refill/snack
 	name = "snacks resupply canister"
 	vend_id = "snacks"
-	charges = 38
+	charges = 35 //default-stock: 71
 
 /obj/item/weapon/vending_refill/cola
 	name = "cola resupply canister"
 	vend_id = "cola"
-	charges = 50
+	charges = 53 //default-stock: 106
 
 /obj/item/weapon/vending_refill/pda
 	name = "pdas resupply canister"
 	vend_id = "pdas"
-	charges = 38
+	charges = 36 //default-stock: 73
 
 /obj/item/weapon/vending_refill/smokes
 	name = "smokes resupply canister"
 	vend_id = "smokes"
-	charges = 25
+	charges = 34 //default-stock: 68
 
 /obj/item/weapon/vending_refill/meds
 	name = "meds resupply canister"
 	vend_id = "meds"
-	charges = 38
+	charges = 33 //default-stock: 66 (NanoMed plus)
 
 /obj/item/weapon/vending_refill/robust
 	name = "security resupply canister"
 	vend_id = "security"
-	charges = 25
+	charges = 20 //default-stock: 41
 
 /obj/item/weapon/vending_refill/hydro
 	name = "hydro resupply canister"
 	vend_id = "hydro"
-	charges = 23
+	charges = 30 //default-stock: 61
 
 /obj/item/weapon/vending_refill/seeds
 	name = "resupply canister"
 	vend_id = "seeds"
-	charges = 175
+	charges = 74 //default-stock: 148
 
 /obj/item/weapon/vending_refill/cutlery
 	name = "cutlery resupply canister"
 	vend_id = "cutlery"
-	charges = 50
+	charges = 35 //default-stock: 71
 
 /obj/item/weapon/vending_refill/robo
 	name = "robo-tools resupply canister"
 	vend_id = "robo-tools"
-	charges = 38
+	charges = 32 //default-stock: 64
 
 /obj/item/weapon/vending_refill/zora
 	name = "Zo'ra Soda resupply canister"
 	vend_id = "zora"
-	charges = 40
+	charges = 17 //default-stock: 35
 
 /obj/item/weapon/vending_refill/battlemonsters
 	name = "Battlemonsters resupply canister"
 	vend_id = "battlemonsters"
-	charges = 40
+	charges = 24 //default-stock: 48
