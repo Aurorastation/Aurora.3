@@ -117,7 +117,6 @@
 	icon_state = "weldtank"
 	accept_any_reagent = FALSE
 	amount_per_transfer_from_this = 10
-	var/modded = 0
 	var/defuse = 0
 	var/armed = 0
 	var/obj/item/device/assembly_holder/rig = null
@@ -129,7 +128,7 @@
 /obj/structure/reagent_dispensers/fueltank/examine(mob/user)
 	if(!..(user, 2))
 		return
-	if (modded)
+	if (is_leaking)
 		user << "<span class='warning'>Fuel faucet is wrenched open, leaking the fuel!</span>"
 	if(rig)
 		user << "<span class='notice'>There is some kind of device rigged to the tank.</span>"
@@ -204,7 +203,7 @@
 	..()
 
 /obj/structure/reagent_dispensers/fueltank/fire_act(datum/gas_mixture/air, temperature, volume)
-	if (modded)
+	if (is_leaking)
 		ex_act(2.0)
 	else if (temperature > T0C+500)
 		ex_act(2.0)
@@ -257,6 +256,8 @@
 					user.visible_message("\The [user] unfastens the screws securing \the [src] to the floor.", "You unfasten the screws securing \the [src] to the floor.")
 					anchored = 0
 		return
+	else
+		..()
 
 /obj/structure/reagent_dispensers/beerkeg
 	name = "beer keg"
