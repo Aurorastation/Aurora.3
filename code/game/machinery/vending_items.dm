@@ -98,3 +98,13 @@
 	name = "robo-tools resupply canister"
 	vend_id = "robo-tools"
 	charges = 38
+
+/obj/item/weapon/vending_refill/zora
+	name = "Zo'ra Soda resupply canister"
+	vend_id = "zora"
+	charges = 40
+
+/obj/item/weapon/vending_refill/battlemonsters
+	name = "Battlemonsters resupply canister"
+	vend_id = "battlemonsters"
+	charges = 40

@@ -972,7 +972,7 @@ proc/api_update_command_database()
 	P.add_overlay(stampoverlay)
 	P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
 
-	if(F.recievefax(P))
+	if(F.receivefax(P))
 		log_and_message_admins("[senderkey] sent a fax message to the [F.department] fax machine via the api. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[F.x];Y=[F.y];Z=[F.z]'>JMP</a>)")
 		sent_faxes += P
 		return 1
