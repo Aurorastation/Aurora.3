@@ -19,6 +19,8 @@
 
 	if(head)
 		skipbody |= head.body_parts_covered
+		skipbody &= ~HEAD // head covering incorrectly hides 'face' damage
+		skipbody |= (skipbody & FACE) ? HEAD : 0 // if you hide face damage, however, then go ahead and hide head damage, since that's where face damage is
 		skipmask = head.flags_inv & HIDEMASK
 		skipeyes = head.flags_inv & HIDEEYES
 		skipears = head.flags_inv & HIDEEARS
@@ -26,6 +28,7 @@
 
 	if(wear_mask)
 		skipbody |= wear_mask.body_parts_covered
+		skipbody |= (wear_mask.body_parts_covered & FACE) ? HEAD : 0 // same as above
 		skipface |= wear_mask.flags_inv & HIDEFACE
 	
 	if(w_uniform)
