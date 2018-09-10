@@ -156,4 +156,4 @@
 	..()
 	if(prob(25))
 		if(target.reagents)
-			target.reagents.add_reagent("trioxin", 30)
+			target.reagents.add_reagent("trioxin", 10)
