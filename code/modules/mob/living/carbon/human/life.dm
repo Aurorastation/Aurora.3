@@ -1193,13 +1193,13 @@
 			if(nutrition_icon)
 				var/nut_factor = max(0,min(nutrition / max_nutrition,1))
 				var/nutrition_icons = 5 //Misnomer, basically the highest nutrition icon value.
-				var/new_val = "nutrition_[nutrition_icons - round(nut_factor*nutrition_icons)]"
+				var/new_val = "nutrition[nutrition_icons - round(nut_factor*nutrition_icons)]"
 				if (nutrition_icon.icon_state != new_val)
 					nutrition_icon.icon_state = new_val
 			if(hydration_icon)
 				var/hyd_factor = max(0,min(hydration / max_hydration,1))
 				var/hydration_icons = 5 //Misnomer, basically the highest thirst icon value.
-				var/new_val = "thirst_[hydration_icons - round(hyd_factor*hydration_icons)]"
+				var/new_val = "thirst[hydration_icons - round(hyd_factor*hydration_icons)]"
 				if (hydration_icon.icon_state != new_val)
 					hydration_icon.icon_state = new_val		
 

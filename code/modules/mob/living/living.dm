@@ -311,8 +311,8 @@ default behaviour is:
 		return 0
 
 	if(amount > 0)
-		amount *= 1/get_hydration_mul()
-		amount *= 1/get_nutrition_mul()
+		amount *= (1/get_hydration_mul(0.5,1))
+		amount *= (1/get_nutrition_mul(0.5,1))
 
 	halloss = min(max(halloss + amount, 0),(maxHealth*2))
 

@@ -232,6 +232,13 @@
 	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 2)
 	build_path = /obj/item/weapon/circuitboard/recharge_station
 	sort_string = "HACAC"
+	
+/datum/design/circuit/lubricator
+	name = "lubricator"
+	id = "lubricator"
+	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/lubricator
+	sort_string = "HACAD"
 
 /datum/design/circuit/atmosalerts
 	name = "atmosphere alert console"

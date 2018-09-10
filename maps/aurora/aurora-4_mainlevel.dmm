@@ -5350,6 +5350,27 @@
 /obj/machinery/vending/coffee,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"akK" = (
+/obj/machinery/recharge_station/lubricator,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
+"akL" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/reagent_dispensers/lube,
+/turf/simulated/floor/tiled,
+/area/assembly/robotics)
+"akM" = (
+/obj/structure/sign/nosmoking_1{
+	pixel_x = 32
+	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/table/standard,
+/obj/item/weapon/packageWrap,
+/obj/item/weapon/hand_labeler,
+/obj/item/weapon/reagent_containers/spray,
+/turf/simulated/floor/tiled/white,
+/area/assembly/robotics)
 "akN" = (
 /obj/structure/morgue{
 	icon_state = "morgue1";
@@ -33492,13 +33513,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/assembly/robotics)
-"bhT" = (
-/obj/effect/floor_decal/corner/mauve/full{
-	icon_state = "corner_white_full";
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
 "bhU" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -34998,16 +35012,6 @@
 /area/assembly/robotics)
 "bks" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/assembly/robotics)
-"bkt" = (
-/obj/structure/sign/nosmoking_1{
-	pixel_x = 32
-	},
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/hand_labeler,
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics)
 "bku" = (
@@ -38376,11 +38380,6 @@
 "bpW" = (
 /obj/structure/closet/firecloset,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/assembly/robotics)
-"bpX" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/firecloset,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bpY" = (
@@ -90933,11 +90932,11 @@ bco
 bgq
 bhR
 bjn
-bkt
+akM
 blR
 bjg
 boN
-bpX
+akL
 aZM
 bsq
 btE
@@ -91445,7 +91444,7 @@ bcq
 bdQ
 bfd
 aZM
-bhT
+akK
 aYx
 bku
 blT

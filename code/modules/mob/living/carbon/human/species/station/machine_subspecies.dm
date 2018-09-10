@@ -114,7 +114,7 @@
 	max_nutrition_factor = 1.25
 	max_hydration_factor = 1.25
 	nutrition_loss_factor = 2
-	hydration_loss_factor = 2
+	hydration_loss_factor = 0.125 //Shells are more advanced so they require less lube.
 
 	sprint_speed_factor = 1.4
 	sprint_temperature_factor = 0.9
@@ -346,7 +346,7 @@
 	sprint_charge_factor = 0.25
 	max_nutrition_factor = 1.75
 	max_hydration_factor = 1.75
-	
+
 	brute_mod = 1.2
 
 	appearance_flags = HAS_EYE_COLOR

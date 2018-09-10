@@ -483,6 +483,8 @@
 	stamina = -1	// Machines use power and generate heat, stamina is not a thing
 	sprint_speed_factor = 1  // About as capable of speed as a human
 
+	hydration_loss_factor = 0.25
+
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15
 	var/sprint_charge_factor = 0.65
@@ -496,7 +498,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	if (H.stat == CONSCIOUS)
 		H.bodytemperature += cost * sprint_temperature_factor
 		H.nutrition -= cost * sprint_charge_factor
-		H.hydration -= cost * sprint_charge_factor
+		H.hydration -= cost * sprint_charge_factor*0.5
 		if(H.nutrition <= 0)
 			H.Weaken(15)
 			H.m_intent = "walk"
@@ -508,10 +510,10 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 			H.m_intent = "walk"
 			H.hud_used.move_intent.update_move_icon(H)
 			H << span("danger", "ERROR: Insufficient lubrication, temporary disabling of motor functions engaged. Initiate lubrication.")
-			playsound(H.loc, 'sound/machines/buzz-sigh.ogg', 100, 0)	
+			playsound(H.loc, 'sound/machines/buzz-sigh.ogg', 100, 0)
 		else
 			return 1
-			
+
 	return 0
 
 /datum/species/machine/handle_death(var/mob/living/carbon/human/H)

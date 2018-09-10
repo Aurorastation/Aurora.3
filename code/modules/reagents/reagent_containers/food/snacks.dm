@@ -75,8 +75,9 @@
 	if(istype(M, /mob/living/carbon))
 		//TODO: replace with standard_feed_mob() call.
 
-		var/fullness = M.nutrition + (M.reagents.get_reagent_amount("nutriment") * 25)
-		if(M == user)								//If you're eating it yourself
+		
+		var/expected_fullness = (M.nutrition + (M.reagents.get_reagent_amount("nutriment") * 25))/M.nutrition_max
+		if(M == user) //If you're eating it yourself
 			if(istype(M,/mob/living/carbon/human))
 				var/mob/living/carbon/human/H = M
 				if(!H.check_has_mouth())
@@ -87,26 +88,30 @@
 					user << "<span class='warning'>\The [blocked] is in the way!</span>"
 					return
 
-			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //puts a limit on how fast people can eat/drink things
-			if (fullness <= 50)
-				M << "<span class='danger'>You hungrily chew out a piece of [src] and gobble it!</span>"
-			if (fullness > 50 && fullness <= 150)
-				M << "<span class='notice'>You hungrily begin to eat [src].</span>"
-			if (fullness > 150 && fullness <= 350)
-				M << "<span class='notice'>You take a bite of [src].</span>"
-			if (fullness > 350 && fullness <= 550)
-				M << "<span class='notice'>You unwillingly chew a bit of [src].</span>"
-			if (fullness > (550 * (1 + M.overeatduration / 2000)))	// The more you eat - the more you can eat
-				M << "<span class='danger'>You cannot force any more of [src] to go down your throat.</span>"
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN*2) //puts a limit on how fast people can eat/drink things
+			
+			if(expected_fullness <= CREW_NUTRITION_VERYHUNGRY)
+				to_chat(M,"<span class='danger'>You hungrily chew out a piece of \the [src] and gobble it!</span>")
+			else if(expected_fullness <= CREW_NUTRITION_HUNGRY)
+				to_chat(M,"<span class='notice'>You hungrily begin to eat \the [src].</span>")
+			else if(expected_fullness <= CREW_NUTRITION_SLIGHTLYHUNGRY)
+				to_chat(M,"<span class='notice'>You take a bite of \the [src].</span>")
+			else if(expected_fullness <= CREW_NUTRITION_FULL)
+				to_chat(M,"<span class='notice'>You take a bite of \the [src].</span>")
+			else if(expected_fullness <= CREW_NUTRITION_OVEREATEN)
+				to_chat(M,"<span class='notice'>You unwillingly chew a bit of \the [src].</span>")
+			else
+				to_chat(M,"<span class='danger'>You cannot force any more of \the [src] to go down your throat!</span>")
 				return 0
+
 		else
 			if(!M.can_force_feed(user, src))
 				return
 
-			if (fullness <= (550 * (1 + M.overeatduration / 1000)))
-				user.visible_message("<span class='danger'>[user] attempts to feed [M] [src].</span>")
+			if(expected_fullness <= CREW_NUTRITION_OVEREATEN)
+				user.visible_message("<span class='danger'>\The [user] attempts to feed \the [M] \the [src].</span>")
 			else
-				user.visible_message("<span class='danger'>[user] cannot force anymore of [src] down [M]'s throat.</span>")
+				user.visible_message("<span class='danger'>\The [user] cannot force anymore of \the [src] down \the [M]'s throat!</span>")
 				return 0
 
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

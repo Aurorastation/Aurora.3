@@ -128,24 +128,27 @@
 
 /datum/reagent/alcohol/affect_blood(mob/living/carbon/M, alien, removed)
 	M.adjustToxLoss(removed * 2)
+	affect_ingest(M,alien,removed * 2)
+	return
 
 /datum/reagent/alcohol/affect_ingest(mob/living/carbon/M, alien, removed)
 
-	M.intoxication += (strength / 100) * removed
+	if(alien != IS_DIONA)
+		M.intoxication += (strength / 100) * removed
 
-	if (druggy != 0)
-		M.druggy = max(M.druggy, druggy)
+		if (druggy != 0)
+			M.druggy = max(M.druggy, druggy)
+
+		if (halluci)
+			M.hallucination = max(M.hallucination, halluci)
+
+		if (caffeine && !caffeine_mod)
+			caffeine_mod = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = caffeine, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
 	if (adj_temp > 0 && M.bodytemperature < targ_temp) // 310 is the normal bodytemp. 310.055
 		M.bodytemperature = min(targ_temp, M.bodytemperature + (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
 	if (adj_temp < 0 && M.bodytemperature > targ_temp)
 		M.bodytemperature = min(targ_temp, M.bodytemperature - (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
-
-	if (halluci)
-		M.hallucination = max(M.hallucination, halluci)
-
-	if (caffeine && !caffeine_mod)
-		caffeine_mod = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = caffeine, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
 /datum/reagent/alcohol/ethanol
 	name = "Ethanol"
@@ -166,9 +169,6 @@
 	else
 		M.nutrition += nutriment_factor * removed
 		M.hydration += hydration_factor * removed
-
-	if(alien == IS_DIONA)
-		return //Diona can gain nutrients, but don't get drunk or suffer other effects
 
 	if (alien == IS_UNATHI)//unathi are poisoned by alcohol as well
 		M.adjustToxLoss(1.5 * removed * (strength / 100))
@@ -215,6 +215,7 @@
 		M.adjustToxLoss(removed * (strength / 100))
 	else
 		M.nutrition += nutriment_factor * removed
+		M.hydration += hydration_factor * removed
 
 	if (alien == IS_UNATHI)
 		ingest_met = initial(ingest_met)*3
