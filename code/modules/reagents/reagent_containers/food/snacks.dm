@@ -72,70 +72,6 @@
 		qdel(src)
 		return
 
-	if(istype(M, /mob/living/carbon))
-		//TODO: replace with standard_feed_mob() call.
-
-
-		var/expected_fullness = (M.nutrition + (M.reagents.get_reagent_amount("nutriment") * 25))/M.nutrition_max
-		expected_fullness += (M.overeatduration/600)*0.5
-
-		if(M == user) //If you're eating it yourself
-			if(istype(M,/mob/living/carbon/human))
-				var/mob/living/carbon/human/H = M
-				if(!H.check_has_mouth())
-					user << "Where do you intend to put \the [src]? You don't have a mouth!"
-					return
-				var/obj/item/blocked = H.check_mouth_coverage()
-				if(blocked)
-					user << "<span class='warning'>\The [blocked] is in the way!</span>"
-					return
-
-			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN*2) //puts a limit on how fast people can eat/drink things
-
-			if(expected_fullness <= CREW_NUTRITION_VERYHUNGRY)
-				to_chat(M,"<span class='danger'>You hungrily chew out a piece of \the [src] and gobble it!</span>")
-			else if(expected_fullness <= CREW_NUTRITION_HUNGRY)
-				to_chat(M,"<span class='notice'>You hungrily begin to eat \the [src].</span>")
-			else if(expected_fullness <= CREW_NUTRITION_SLIGHTLYHUNGRY)
-				to_chat(M,"<span class='notice'>You take a bite of \the [src].</span>")
-			else if(expected_fullness <= CREW_NUTRITION_FULL)
-				to_chat(M,"<span class='notice'>You take a bite of \the [src].</span>")
-			else if(expected_fullness <= CREW_NUTRITION_OVEREATEN)
-				to_chat(M,"<span class='notice'>You unwillingly chew a bit of \the [src].</span>")
-			else
-				to_chat(M,"<span class='danger'>You cannot force any more of \the [src] to go down your throat!</span>")
-				return 0
-
-		else
-			if(!M.can_force_feed(user, src))
-				return
-
-			if(expected_fullness <= CREW_NUTRITION_OVEREATEN)
-				user.visible_message("<span class='danger'>\The [user] attempts to feed \the [M] \the [src].</span>")
-			else
-				user.visible_message("<span class='danger'>\The [user] cannot force anymore of \the [src] down \the [M]'s throat!</span>")
-				return 0
-
-			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			if(!do_mob(user, M)) return
-
-			M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been fed [src.name] by [user.name] ([user.ckey]) Reagents: [reagentlist(src)]</font>")
-			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Fed [src.name] by [M.name] ([M.ckey]) Reagents: [reagentlist(src)]</font>")
-			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(M)] with [src.name] Reagents: [reagentlist(src)] (INTENT: [uppertext(user.a_intent)])",ckey=key_name(user),ckey_target=key_name(M))
-
-			user.visible_message("<span class='danger'>[user] feeds [M] [src].</span>")
-
-		if(reagents)								//Handle ingestion of the reagent.
-			playsound(M.loc,'sound/items/eatfood.ogg', rand(10,50), 1)
-			if(reagents.total_volume)
-				if(reagents.total_volume > bitesize)
-					reagents.trans_to_mob(M, bitesize, CHEM_INGEST)
-				else
-					reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
-				bitecount++
-				On_Consume(M, user)
-			return 1
-
 	if (isanimal(target))
 		var/mob/living/simple_animal/SA = target
 		if(!(reagents && SA.reagents))
@@ -165,21 +101,32 @@
 			return 1
 	else
 
-		var/is_full = 0
-		if(istype(target,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = target
-			var/limit = 550 * (1 + H.overeatduration / 2000)
-			var/current = H.nutrition + (H.reagents.get_reagent_amount("nutriment") * 25)
-			is_full = current >= limit
+		var/expected_fullness = (user.nutrition + (user.reagents.get_reagent_amount("nutriment") * 25))/user.max_nutrition
+		expected_fullness += (user.overeatduration/600)*0.5
+		var/feedback_message
+		var/is_full = (expected_fullness > CREW_NUTRITION_OVEREATEN)
 
 		if(user == target)
 			if(!user.can_eat(src))
 				return
+
+			if(expected_fullness <= CREW_NUTRITION_VERYHUNGRY)
+				feedback_message = "You hungrily chew out a piece of \the [src] and gobble it!"
+			else if(expected_fullness <= CREW_NUTRITION_HUNGRY)
+				feedback_message = "You hungrily begin to eat \the [src]."
+			else if(expected_fullness <= CREW_NUTRITION_SLIGHTLYHUNGRY)
+				feedback_message = "You take a bite of \the [src]."
+			else if(expected_fullness <= CREW_NUTRITION_FULL)
+				feedback_message = "You take a bite of \the [src]."
+			else if(expected_fullness <= CREW_NUTRITION_OVEREATEN)
+				feedback_message = "You unwillingly chew a bit of \the [src]."
+			else
+				feedback_message = "You cannot force any more of \the [src] to go down your throat!"
+
 			if(is_full)
-				to_chat(user,span("warning","You can't stomach any more food!"))
+				to_chat(user,span("danger",feedback_message))
 				return
 			reagents.trans_to_mob(target, min(reagents.total_volume,bitesize), CHEM_INGEST)
-			self_feed_message(user)
 		else
 			if(!user.can_force_feed(target, src))
 				return
