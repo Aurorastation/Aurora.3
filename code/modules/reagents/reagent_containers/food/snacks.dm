@@ -77,6 +77,8 @@
 
 		
 		var/expected_fullness = (M.nutrition + (M.reagents.get_reagent_amount("nutriment") * 25))/M.nutrition_max
+		expected_fullness += (M.overeatduration/600)*0.5
+
 		if(M == user) //If you're eating it yourself
 			if(istype(M,/mob/living/carbon/human))
 				var/mob/living/carbon/human/H = M

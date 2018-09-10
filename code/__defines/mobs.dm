@@ -197,7 +197,7 @@
 #define CREW_NUTRITION_STARVING 0
 
 //Note that all of this is relative to hydration/max hydration
-#define CREW_HYDRATION_OVERHYDRATED 2 //It's harder to get overhydrated
+#define CREW_HYDRATION_OVERHYDRATED 3 //It's harder to get overhydrated
 #define CREW_HYDRATION_HYDRATED 0.75
 #define CREW_HYDRATION_SLIGHTLYTHIRSTY 0.5
 #define CREW_HYDRATION_THIRSTY 0.25

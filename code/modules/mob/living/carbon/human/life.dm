@@ -944,6 +944,7 @@
 		nutrition = max(0, nutrition - (nutrition_loss * nutrition_attrition_rate))
 
 	if (nutrition > max_nutrition)
+		nutrition -= 1
 		if(overeatduration < 600) //capped so people don't take forever to unfat
 			overeatduration++
 	else
@@ -955,6 +956,7 @@
 		hydration = max(0, hydration - (hydration_loss * hydration_attrition_rate))
 
 	if (hydration > max_hydration)
+		hydration -= 1
 		if(overdrinkduration < 600) //capped so people don't take forever to undrink
 			overdrinkduration++
 	else
