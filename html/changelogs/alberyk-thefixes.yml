@@ -1,8 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - bugfix: "Water coolers are working as intended now."
-  - bugfix: "Emag interactions with the ATM should work as intended now."
-  - bugfix: "Welding fuel tanks should now explode when in contact with fire or rigged, as long they were open with a wrench."
