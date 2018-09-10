@@ -3122,20 +3122,6 @@
 /obj/machinery/light/small/emergency,
 /turf/simulated/open,
 /area/maintenance/disposal)
-"agu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/office)
 "agv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark{
@@ -5350,27 +5336,6 @@
 /obj/machinery/vending/coffee,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"akK" = (
-/obj/machinery/recharge_station/lubricator,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
-"akL" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/reagent_dispensers/lube,
-/turf/simulated/floor/tiled,
-/area/assembly/robotics)
-"akM" = (
-/obj/structure/sign/nosmoking_1{
-	pixel_x = 32
-	},
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/hand_labeler,
-/obj/item/weapon/reagent_containers/spray,
-/turf/simulated/floor/tiled/white,
-/area/assembly/robotics)
 "akN" = (
 /obj/structure/morgue{
 	icon_state = "morgue1";
@@ -53876,12 +53841,6 @@
 /obj/structure/table/reinforced,
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
-"bUF" = (
-/obj/machinery/vending/boozeomat{
-	req_access = list(19)
-	},
-/turf/simulated/wall,
-/area/crew_quarters/kitchen)
 "bUH" = (
 /obj/structure/device/piano,
 /turf/simulated/floor/wood,
@@ -54271,20 +54230,6 @@
 /area/crew_quarters/bar)
 "bWv" = (
 /obj/structure/bed/chair/wood,
-/turf/simulated/floor/wood,
-/area/crew_quarters/bar)
-"bWw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bWA" = (
@@ -61339,23 +61284,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
-"cqM" = (
-/obj/machinery/cryopod{
-	icon_state = "body_scanner_0";
-	dir = 4
-	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -25
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/sleep/cryo)
-"cqN" = (
-/obj/machinery/computer/cryopod{
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/sleep/cryo)
 "cqO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
@@ -63706,18 +63634,6 @@
 /obj/item/weapon/material/knife,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
-"cxI" = (
-/obj/effect/floor_decal/corner/brown{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/loading{
-	icon_state = "loadingarea";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/quartermaster/office)
 "cxJ" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -65356,6 +65272,93 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
+"xDA" = (
+/obj/machinery/recharge_station/lubricator,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
+"xDB" = (
+/obj/structure/sign/nosmoking_1{
+	pixel_x = 32
+	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/table/standard,
+/obj/item/weapon/packageWrap,
+/obj/item/weapon/hand_labeler,
+/obj/item/weapon/reagent_containers/spray,
+/turf/simulated/floor/tiled/white,
+/area/assembly/robotics)
+"xDC" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/reagent_dispensers/lube,
+/turf/simulated/floor/tiled,
+/area/assembly/robotics)
+"xDD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
+"xDE" = (
+/obj/machinery/vending/boozeomat{
+	req_access = list(25)
+	},
+/turf/simulated/wall,
+/area/crew_quarters/kitchen)
+"xDF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
+"xDG" = (
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/loading{
+	icon_state = "loadingarea";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/quartermaster/office)
+"xDH" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/quartermaster/office)
+"xDI" = (
+/obj/machinery/computer/cryopod{
+	pixel_y = -32
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/sleep/cryo)
 
 (1,1,1) = {"
 aaa
@@ -89959,8 +89962,8 @@ bWF
 bWm
 cih
 cim
-cxI
-agu
+xDG
+xDH
 cxJ
 bWm
 cbs
@@ -90932,11 +90935,11 @@ bco
 bgq
 bhR
 bjn
-akM
+xDB
 blR
 bjg
 boN
-akL
+xDC
 aZM
 bsq
 btE
@@ -91444,7 +91447,7 @@ bcq
 bdQ
 bfd
 aZM
-akK
+xDA
 aYx
 bku
 blT
@@ -93044,7 +93047,7 @@ bXv
 bWm
 cqF
 cqF
-cqM
+cqF
 cqY
 cbi
 cbA
@@ -93301,7 +93304,7 @@ bLU
 cqw
 cqz
 cqI
-cqN
+xDI
 cqY
 cbj
 bPL
@@ -96112,7 +96115,7 @@ bSp
 bTd
 bTF
 bQH
-bUF
+xDE
 bUB
 bXE
 gtD
@@ -96375,7 +96378,7 @@ bXE
 bVQ
 bWj
 bVa
-bWw
+xDF
 bWK
 bWK
 bVa
@@ -96878,7 +96881,7 @@ bGy
 bPI
 cxo
 bQH
-bRQ
+xDD
 bQH
 bQH
 bQH

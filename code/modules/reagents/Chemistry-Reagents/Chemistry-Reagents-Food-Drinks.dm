@@ -3638,13 +3638,7 @@
 	adj_temp = -5
 	adj_sleepy = -2
 	caffeine = 1
-	unaffected_species = IS_MACHINE
 	taste_description = "electric cherry"
-
-/datum/reagent/drink/zorasoda/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	..()
-	if(alien != IS_DIONA)
-		M.add_chemical_effect(CE_SPEEDBOOST, 0.01)
 
 /datum/reagent/drink/zorasoda/phoron
 	name = "Zo'ra Soda Phoron Passion"
@@ -3654,13 +3648,7 @@
 	adj_temp = -5
 	adj_sleepy = -2
 	caffeine = 1
-	unaffected_species = IS_MACHINE
 	taste_description = "electric grape"
-
-/datum/reagent/drink/zorasoda/phoron/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	..()
-	if(alien != IS_DIONA)
-		M.add_chemical_effect(CE_SPEEDBOOST, 0.01)
 
 /datum/reagent/drink/zorasoda/kois
 	name = "Zo'ra Soda K'ois Twist"
@@ -3670,13 +3658,11 @@
 	adj_temp = -5
 	adj_sleepy = -2
 	caffeine = 1
-	unaffected_species = IS_MACHINE
 	taste_description = "sugary cabbage"
 
 /datum/reagent/drink/zorasoda/kois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien != IS_DIONA)
-		M.add_chemical_effect(CE_SPEEDBOOST, 0.01)
 		M.make_jittery(5)
 
 /datum/reagent/drink/zorasoda/hozm
@@ -3687,13 +3673,11 @@
 	adj_temp = -5
 	adj_sleepy = -3
 	caffeine = 2
-	unaffected_species = IS_MACHINE
 	taste_description = "a full-body bite into an acidic lemon"
 
 /datum/reagent/drink/zorasoda/hozm/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien != IS_DIONA)
-		M.add_chemical_effect(CE_SPEEDBOOST, 0.08)
 		M.make_jittery(20)
 		M.dizziness += 5
 		M.drowsyness = 0
@@ -3706,13 +3690,11 @@
 	adj_temp = -5
 	adj_sleepy = -3
 	caffeine = 0.8
-	unaffected_species = IS_MACHINE
 	taste_description = "fizzy nettles"
 
 /datum/reagent/drink/zorasoda/venomgrass/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien != IS_DIONA)
-		M.add_chemical_effect(CE_SPEEDBOOST, 0.01)
 		M.make_jittery(5)
 
 /datum/reagent/drink/zorasoda/klax
@@ -3729,7 +3711,6 @@
 /datum/reagent/drink/zorasoda/klax/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien != IS_DIONA)
-		M.add_chemical_effect(CE_SPEEDBOOST, 0.01)
 		M.make_jittery(5)
 
 /datum/reagent/drink/zorasoda/cthur
@@ -3740,13 +3721,11 @@
 	adj_temp = -5
 	adj_sleepy = -3
 	caffeine = 1
-	unaffected_species = IS_MACHINE
 	taste_description = "flat raspberry"
 
 /datum/reagent/drink/zorasoda/cthur/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien != IS_DIONA)
-		M.add_chemical_effect(CE_SPEEDBOOST, 0.01)
 		M.make_jittery(15)
 
 /datum/reagent/drink/zorasoda/drone
@@ -3756,8 +3735,6 @@
 	color = "#31004A"
 	adj_temp = -5
 	adj_sleepy = -3
-	caffeine = 1
-	unaffected_species = IS_MACHINE
 	taste_description = "viscous cola"
 
 /datum/reagent/drink/zorasoda/drone/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
@@ -3780,7 +3757,6 @@
 	adj_temp = -5
 	adj_sleepy = -3
 	caffeine = 1
-	unaffected_species = IS_MACHINE
 	taste_description = "a reassuring spectrum of color"
 
 /datum/reagent/drink/zorasoda/jelly/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)

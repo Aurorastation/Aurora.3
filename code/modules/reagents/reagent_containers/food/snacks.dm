@@ -39,7 +39,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/standard_splash_mob(var/mob/user, var/mob/target)
 	return 1 //Returning 1 will cancel everything else in a long line of things it should do.
 
-/obj/item/weapon/reagent_containers/food/snacks/proc/On_Consume(var/mob/eater, var/mob/feeder = null)
+/obj/item/weapon/reagent_containers/food/snacks/proc/on_consume(var/mob/eater, var/mob/feeder = null)
 	if(!reagents.total_volume)
 		eater.visible_message("<span class='notice'>[eater] finishes eating \the [src].</span>","<span class='notice'>You finish eating \the [src].</span>")
 
@@ -60,22 +60,22 @@
 /obj/item/weapon/reagent_containers/food/snacks/attack_self(mob/user as mob)
 	return
 
-/obj/item/weapon/reagent_containers/food/snacks/afterattack(mob/M as mob, mob/user as mob, proximity)
+/obj/item/weapon/reagent_containers/food/snacks/standard_feed_mob(var/mob/user, var/mob/target)
 
-	. = ..()
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
-	if(!proximity)
-		return 0
+	if(!istype(target))
+		return
 
 	if(!reagents.total_volume)
-		user << "<span class='danger'>None of [src] left!</span>"
+		to_chat(user,span("warning","There is none of \the [src] left to eat!"))
 		qdel(src)
-		return 0
+		return
 
 	if(istype(M, /mob/living/carbon))
 		//TODO: replace with standard_feed_mob() call.
 
-		
+
 		var/expected_fullness = (M.nutrition + (M.reagents.get_reagent_amount("nutriment") * 25))/M.nutrition_max
 		expected_fullness += (M.overeatduration/600)*0.5
 
@@ -91,7 +91,7 @@
 					return
 
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN*2) //puts a limit on how fast people can eat/drink things
-			
+
 			if(expected_fullness <= CREW_NUTRITION_VERYHUNGRY)
 				to_chat(M,"<span class='danger'>You hungrily chew out a piece of \the [src] and gobble it!</span>")
 			else if(expected_fullness <= CREW_NUTRITION_HUNGRY)
@@ -136,39 +136,73 @@
 				On_Consume(M, user)
 			return 1
 
-	else if (isanimal(M))
-		var/mob/living/simple_animal/SA = M
-		SA.scan_interval = SA.min_scan_interval//Feeding an animal will make it suddenly care about food
+	if (isanimal(target))
+		var/mob/living/simple_animal/SA = target
+		if(!(reagents && SA.reagents))
+			return
 
 		var/m_bitesize = bitesize * SA.bite_factor//Modified bitesize based on creature size
 		var/amount_eaten = m_bitesize
+		SA.scan_interval = SA.min_scan_interval//Feeding an animal will make it suddenly care about food
+		m_bitesize = min(m_bitesize, reagents.total_volume)
 
-		if(reagents && SA.reagents)
-			m_bitesize = min(m_bitesize, reagents.total_volume)
-			//If the creature can't even stomach half a bite, then it eats nothing
-			if (!SA.can_eat() || ((user.reagents.maximum_volume - user.reagents.total_volume) < m_bitesize * 0.5))
-				amount_eaten = 0
-			else
-				amount_eaten = reagents.trans_to_mob(SA, m_bitesize, CHEM_INGEST)
-		else
-			return 0//The target creature can't eat
+		if (!SA.can_eat() || ((user.reagents.maximum_volume - user.reagents.total_volume) < m_bitesize * 0.5))
+			to_chat(user,span("danger","\The [target.name] can't stomach anymore food!"))
+			return
+
+		amount_eaten = reagents.trans_to_mob(SA, min(reagents.total_volume,m_bitesize), CHEM_INGEST)
 
 		if (amount_eaten)
 			bitecount++
 			if (amount_eaten >= m_bitesize)
-				user.visible_message("<span class='notice'>[user] feeds [M] [src].</span>")
-				if (!istype(M.loc, /turf))//held mobs don't see visible messages
-					M << "<span class='notice'>[user] feeds you [src].</span>"
+				user.visible_message(span("notice","\The [user] feeds \the [target] \the [src]."))
+				if (!istype(target.loc, /turf))//held mobs don't see visible messages
+					to_chat(target,span("notice","\The [user] feeds you \the [src]."))
 			else
-				user.visible_message("<span class='notice'>[user] feeds [M] a tiny bit of [src]. <b>It looks full.</b></span>")
-				if (!istype(M.loc, /turf))
-					M << "<span class='notice'>[user] feeds you a tiny bit of [src]. <b>You feel pretty full!</b></span>"
-			On_Consume(M, user)
+				user.visible_message(span("notice","\The [user] feeds \the [target] a tiny bit of \the [src]. <b>It looks full.</b>"))
+				if (!istype(target.loc, /turf))
+					to_chat(target,span("notice","\The [user] feeds you a tiny bit of \the [src]. <b>You feel pretty full!</b>"))
 			return 1
-		else
-			user << "<span class='danger'>[M.name] can't stomach anymore food!</span>"
+	else
 
-	return 0
+		var/is_full = 0
+		if(istype(target,/mob/living/carbon/human))
+			var/mob/living/carbon/human/H = target
+			var/limit = 550 * (1 + H.overeatduration / 2000)
+			var/current = H.nutrition + (H.reagents.get_reagent_amount("nutriment") * 25)
+			is_full = current >= limit
+
+		if(user == target)
+			if(!user.can_eat(src))
+				return
+			if(is_full)
+				to_chat(user,span("warning","You can't stomach any more food!"))
+				return
+			reagents.trans_to_mob(target, min(reagents.total_volume,bitesize), CHEM_INGEST)
+			self_feed_message(user)
+		else
+			if(!user.can_force_feed(target, src))
+				return
+			if(is_full)
+				to_chat(user,span("warning","\The [target] can't stomach any more food!"))
+				return
+
+			other_feed_message_start(user,target)
+			if(!do_mob(user, target))
+				return
+			other_feed_message_finish(user,target)
+
+			var/contained = reagentlist()
+			target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been fed [name] by [key_name(user)] Reagents: [contained]</font>")
+			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Fed [name] to [key_name(target)] Reagents: [contained]</font>")
+			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] with [name] Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
+			reagents.trans_to_mob(target, min(reagents.total_volume,bitesize), CHEM_INGEST)
+
+	feed_sound(user)
+	bitecount++
+	on_consume(target,user)
+
+	return 1
 
 /obj/item/weapon/reagent_containers/food/snacks/examine(mob/user)
 	if(!..(user, 1))
@@ -436,7 +470,7 @@
 			qdel(src)
 
 	if (reagents)
-		On_Consume(user)
+		on_consume(user)
 
 //////////////////////////////////////////////////
 ////////////////////////////////////////////Snacks
@@ -1533,7 +1567,7 @@
 	..()
 	unpopped = rand(1,10)
 
-/obj/item/weapon/reagent_containers/food/snacks/popcorn/On_Consume()
+/obj/item/weapon/reagent_containers/food/snacks/popcorn/on_consume()
 	if(prob(unpopped))	//lol ...what's the point? // IMPLEMENT DENTISTRY WHEN?
 		usr << "<span class='warning'>You bite down on an un-popped kernel!</span>"
 		unpopped = max(0, unpopped-1)
@@ -4526,7 +4560,7 @@
 	nutriment_desc = list("nacho chips" = 1)
 	nutriment_amt = 2
 
-/obj/item/weapon/reagent_containers/food/snacks/chip/On_Consume(mob/M as mob)
+/obj/item/weapon/reagent_containers/food/snacks/chip/on_consume(mob/M as mob)
 	if(reagents && reagents.total_volume)
 		icon_state = bitten_state
 	. = ..()
@@ -4584,11 +4618,11 @@
 	bitesize = 1
 	nutriment_amt = 10
 
-/obj/item/weapon/reagent_containers/food/snacks/chipplate/attack_self(mob/user as mob)
+/obj/item/weapon/reagent_containers/food/snacks/chipplate/attack_hand(mob/user as mob)
 	var/obj/item/weapon/reagent_containers/food/snacks/returningitem = new vendingobject(loc)
 	returningitem.reagents.clear_reagents()
 	reagents.trans_to(returningitem, bitesize)
-	returningitem.bitesize = bitesize
+	returningitem.bitesize = bitesize/2
 	user.put_in_hands(returningitem)
 	if (reagents && reagents.total_volume)
 		user << "You take a chip from the plate."
@@ -4598,6 +4632,13 @@
 		if (loc == user)
 			user.put_in_hands(waste)
 		qdel(src)
+
+/obj/item/weapon/reagent_containers/food/snacks/chipplate/MouseDrop(mob/user) //Dropping the chip onto the user
+	if(istype(user) && user == usr)
+		user.put_in_active_hand(src)
+		src.pickup(user)
+		return
+	. = ..()
 
 /obj/item/weapon/reagent_containers/food/snacks/chipplate/nachos
 	name = "plate of nachos"
@@ -4621,7 +4662,6 @@
 	nutriment_desc = list("queso" = 20)
 	center_of_mass = list("x"=16, "y"=16)
 	nutriment_amt = 20
-
 
 /obj/item/weapon/reagent_containers/food/snacks/dip/attackby(obj/item/weapon/reagent_containers/food/snacks/item as obj, mob/user as mob)
 	. = ..()

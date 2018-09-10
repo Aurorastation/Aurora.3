@@ -1356,7 +1356,7 @@
 				</ul><br>
 
 				<a name="Surgery"><h2>When You Alone Aren't Good Enough: Surgery and Drugs</h2><br></a>
-				Sometimes the therapy available to you just doesn't cut it. Don't get angry! Ensure the patient recieves fair treatment, and prescribe appropriate action to your colleagues.
+				Sometimes the therapy available to you just doesn't cut it. Don't get angry! Ensure the patient receives fair treatment, and prescribe appropriate action to your colleagues.
 				<ul>
 					<li>Surgery: Be advised, brain surgery is a complex and dangerous procedure and you should not prescribe unless drug therapy is simply not possible. Counsel the patient on the matter and send them down to the surgeon with a written report.</li><br>
 					<li>Drug Therapy: A more reasonable and far safer option. Counsel the patient and fill out a prescription for the relevant chemical suppressant. Ensure that the patient and the chemist are both aware that these suppressants are temporary and require periodic re-administration.</li><br>
