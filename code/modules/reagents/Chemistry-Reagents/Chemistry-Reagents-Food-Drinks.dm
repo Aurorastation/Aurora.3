@@ -709,11 +709,12 @@
 
 /datum/reagent/drink/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(removed) // Probably not a good idea; not very deadly though
-	affect_ingest(M,alien,removed * 2)
-	return
+	digest(M,alien,removed * 2, FALSE)
 
 /datum/reagent/drink/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	digest(M,alien,removed)
 
+/datum/reagent/drink/proc/digest(var/mob/living/carbon/M, var/alien, var/removed, var/add_nutrition = TRUE)
 	if(alien != IS_DIONA)
 		if (caffeine && !modifier)
 			modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = caffeine, override = MODIFIER_OVERRIDE_STRENGTHEN)
@@ -721,15 +722,16 @@
 		M.drowsyness = max(0, M.drowsyness + adj_drowsy)
 		M.sleeping = max(0, M.sleeping + adj_sleepy)
 
-	M.hydration += hydration * removed
-	M.nutrition += nutrition * removed
+	if(add_nutrition == TRUE)
+		M.hydration += hydration * removed
+		M.nutrition += nutrition * removed
+
 	if(adj_temp > 0 && M.bodytemperature < 310) // 310 is the normal bodytemp. 310.055
 		M.bodytemperature = min(310, M.bodytemperature + (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
 	if(adj_temp < 0 && M.bodytemperature > 310)
 		M.bodytemperature = min(310, M.bodytemperature - (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
 
 // Juices
-
 /datum/reagent/drink/banana
 	name = "Banana Juice"
 	id = "banana"
