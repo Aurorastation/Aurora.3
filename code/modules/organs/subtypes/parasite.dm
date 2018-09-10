@@ -221,7 +221,7 @@
 
 	if(prob(15) && !(owner.species.flags & NO_PAIN))
 		owner << "<span class='warning'>You feel a burning sensation on your skin!</span>"
-		owner.adjustHalLoss(25)
+		owner.adjustHalLoss(5)
 
 	else if(prob(15))
 		owner.emote("moan")
