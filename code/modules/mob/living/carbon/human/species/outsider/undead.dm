@@ -129,6 +129,7 @@
 
 	hide_name = TRUE
 
+	language = null
 	default_language = LANGUAGE_GIBBERING
 
 	unarmed_types = list(/datum/unarmed_attack/bite/infectious, /datum/unarmed_attack/claws/strong)
