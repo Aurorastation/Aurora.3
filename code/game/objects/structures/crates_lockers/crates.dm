@@ -491,7 +491,7 @@
 	desc = "A crate of emergency rations containing liquid food and some bottles of water."
 
 /obj/structure/closet/crate/freezer/rations/fill()
-	for(i=1,i<=6,i++)
+	for(var/i=1,i<=6,i++)
 		new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
 		new /obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle(src)
 

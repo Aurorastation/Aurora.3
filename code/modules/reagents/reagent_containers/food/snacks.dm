@@ -1533,6 +1533,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/sosjerky/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 4)
+	reagents.add_reagent("sodiumchloride",3)
 
 /obj/item/weapon/reagent_containers/food/snacks/no_raisin
 	name = "4no Raisins"
@@ -1576,6 +1577,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers/Initialize()
 	. = ..()
 	reagents.add_reagent("cheese", 3)
+	reagents.add_reagent("sodiumchloride",6)
 
 /obj/item/weapon/reagent_containers/food/snacks/syndicake
 	name = "Syndi-Cakes"
@@ -4220,7 +4222,11 @@
 	center_of_mass = list("x"=17, "y"=16)
 	nutriment_desc = list("stale bread" = 4)
 	nutriment_type = NUTRIMENT_BAD
-	nutriment_amt = 4
+	nutriment_amt = 6
+
+/obj/item/weapon/reagent_containers/food/snacks/tastybread/Initialize()
+	. = ..()
+	reagents.add_reagent("sodiumchloride",3)
 
 /obj/item/weapon/reagent_containers/food/snacks/skrellsnacks
 	name = "\improper SkrellSnax"
@@ -4364,6 +4370,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/meatsnack/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 12)
+	reagents.add_reagent("sodiumchloride",4)
 
 /obj/item/weapon/reagent_containers/food/snacks/maps
 	name = "maps salty ham"
@@ -4377,7 +4384,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/maps/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 6)
-	reagents.add_reagent("sodiumchloride", 3)
+	reagents.add_reagent("sodiumchloride", 6)
 
 /obj/item/weapon/reagent_containers/food/snacks/nathisnack
 	name = "razi-snack corned beef"
@@ -4392,6 +4399,7 @@
 	. = ..()
 	reagents.add_reagent("protein", 10)
 	reagents.add_reagent("iron", 3)
+	reagents.add_reagent("sodiumchloride",6)
 
 /obj/item/weapon/reagent_containers/food/snacks/pancakes
 	name = "pancakes"
@@ -4932,6 +4940,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/spreads/Initialize()
 	. = ..()
 	reagents.add_reagent("triglyceride", 20)
+	reagents.add_reagent("sodiumchloride",1)
 
 /obj/item/weapon/reagent_containers/food/snacks/bacon_stick
 	name = "eggpop"

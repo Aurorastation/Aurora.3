@@ -493,7 +493,7 @@
 /* Non-food stuff like condiments */
 
 /datum/reagent/sodiumchloride
-	name = "Table Salt"
+	name = "Salt"
 	id = "sodiumchloride"
 	description = "A salt made of sodium chloride. Commonly used to season food."
 	reagent_state = SOLID
@@ -502,8 +502,13 @@
 	taste_description = "salt"
 
 /datum/reagent/sodiumchloride/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	. = ..()
 	M.intoxication -= min(M.intoxication,removed*2) //Salt absorbs alcohol
+	M.hydration -= min(M.hydration,removed*2)
+
+/datum/reagent/sodiumchloride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.intoxication -= min(M.intoxication,removed*20)
+	M.hydration -= min(M.hydration,removed*20)
+	M.adjustToxLoss(removed*2)
 
 /datum/reagent/blackpepper
 	name = "Black Pepper"

@@ -1173,12 +1173,44 @@
 			F.take_damage(-removed*nutritionmod)
 	..()
 
-/datum/reagent/adipemcina/overdose(var/mob/living/carbon/human/M, var/alien)
+/datum/reagent/adipemcina/overdose(var/mob/living/carbon/M, var/alien)
 	if(istype(M))
 		if(prob(25))
 			M.add_chemical_effect(CE_ALCOHOL_TOXIC, 1)
 			M.vomit()
 
+/datum/reagent/potassium_hydrophoro
+	name = "Potassium Hydrophoride"
+	id = "potassium_hydrophoro"
+	description = "A liquid compound that can miraculously restores hydration when injected directly into the bloodstream. Excellent at solving severe hydration problems, however the effects of an overdose are to be noted."
+	reagent_state = LIQUID
+	color = "#1ca9c9"
+	taste_description = "numbness"
+	unaffected_species = IS_MACHINE
+
+/datum/reagent/potassium_hydrophoro/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_VAURCA)
+		if(M.hydration > M.max_hydration)
+			M.hydration = min(M.max_hydration,M.hydration + removed*10)
+		else if(M.hydration > M.max_hydration)
+			M.hydration = max(M.max_hydration,M.hydration - removed*10)
+	else
+		if(M.hydration > M.max_hydration)
+			overdose(M,alien,removed,0)
+			M.hydration += removed*2
+		else
+			M.hydration += removed*10
+
+/datum/reagent/potassium_hydrophoro/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
+	if(alien != IS_VAURCA) //Vaurca can't overdose on this
+		if(scale >= 1) //Overdose by too much of the chemical
+			M.adjustToxLoss(1*removed*scale)
+
+		if (ishuman(M) && prob(10))
+			var/mob/living/carbon/human/H = M
+			H.delayed_vomit()
+
+//Secret Chems
 /datum/reagent/elixir
 	name = "Elixir of Life"
 	id = "elixir_life"
@@ -1204,3 +1236,4 @@
 
 /datum/reagent/pacifier/affect_blood(var/mob/living/carbon/H, var/alien, var/removed)
 	H.add_chemical_effect(CE_PACIFIED, 1)
+
