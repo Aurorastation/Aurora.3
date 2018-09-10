@@ -219,33 +219,32 @@
 	if (!owner)
 		return
 
-	if(prob(15) && !(owner.species.flags & NO_PAIN))
+	if(prob(10) && !(owner.species.flags & NO_PAIN))
 		owner << "<span class='warning'>You feel a burning sensation on your skin!</span>"
 		owner.adjustHalLoss(5)
 
-	else if(prob(15))
+	else if(prob(10))
 		owner.emote("moan")
 
 	if(stage >= 2)
 		if(prob(15))
 			owner.emote("scream")
 			if(!isundead(owner))
-				if(!isundead(owner))
-					owner << "<span class='warning'>Your head hurts badly.</span>"
-					owner.adjustBrainLoss(2, 55)
+				owner.adjustBrainLoss(2, 55)
 
-				else if(prob(25))
-					owner << "<span class='warning'>You feel sick.</span>"
-					owner.adjustToxLoss(5)
-					owner.delayed_vomit()
+		else if(prob(10))
+			if(!isundead(owner))
+				owner << "<span class='warning'>You feel sick.</span>"
+				owner.adjustToxLoss(5)
+				owner.delayed_vomit()
 
 	if(stage >= 3)
-		if(prob(15))
+		if(prob(10))
 			if(isundead(owner))
 				owner.adjustBruteLoss(-30)
 				owner.adjustFireLoss(-30)
 			else
-				owner << "<span class='warning'>You feel a insatiable hunger.</span>"
+				owner << "<span class='cult'>You feel a insatiable hunger.</span>"
 				owner.nutrition -= 100
 
 	if(stage >= 4)
@@ -253,7 +252,7 @@
 			if(!isundead(owner))
 				if(ishuman_species(owner))
 					owner << "<span class='warning'>You feel life leaving your husk, but death rejects you...</span>"
-					owner.set_species("Zomie")
+					owner.set_species("Zombie")
 					owner << "<span class='warning'>All that is left is a cruel hunger for the flesh of the living, and the desire to spread this infection. You must consume them all!</span>"
 					playsound(src.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
 				else

@@ -127,12 +127,14 @@
 	icobase = 'icons/mob/human_races/r_zombie.dmi'
 	deform = 'icons/mob/human_races/r_zombie.dmi'
 
+	hide_name = TRUE
+
 	default_language = LANGUAGE_GIBBERING
 
 	unarmed_types = list(/datum/unarmed_attack/bite/infectious, /datum/unarmed_attack/claws/strong)
 	darksight = 8
 
-	has_fine_manipulation = 0
+	has_fine_manipulation = FALSE
 
 	speech_sounds = list('sound/hallucinations/growl1.ogg','sound/hallucinations/growl2.ogg','sound/hallucinations/growl3.ogg')
 	speech_chance = 50
