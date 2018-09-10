@@ -951,14 +951,12 @@ I said no!
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/tortilla,
 		/obj/item/weapon/reagent_containers/food/snacks/meatball,
-		/obj/item/weapon/reagent_containers/food/snacks/meatball,
 		/obj/item/weapon/reagent_containers/food/snacks/meatball
 	)
 	reagents = list("spacespice" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/burrito
 
 /datum/recipe/burrito_vegan
-	fruit = list("carrot" = 1, "cabbage" = 1)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/tortilla,
 		/obj/item/weapon/reagent_containers/food/snacks/tofu
@@ -1207,3 +1205,10 @@ I said no!
 /datum/recipe/mashedpotato
 	fruit = list("potato" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/mashedpotato
+
+/datum/recipe/icecreamsandwich
+	reagents = list("milk" = 5, "ice" = 5)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/icecream
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/icecreamsandwich

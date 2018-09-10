@@ -96,7 +96,7 @@
 
 /obj/item/organ/surge/Initialize()
 	if(!surge_left && !broken)
-		surge_left = rand(1, 3)
+		surge_left = rand(2, 5)
 	robotize()
 	. = ..()
 

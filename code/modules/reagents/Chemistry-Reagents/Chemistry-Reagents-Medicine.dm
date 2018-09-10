@@ -27,7 +27,7 @@
 /datum/reagent/bicaridine
 	name = "Bicaridine"
 	id = "bicaridine"
-	description = "Bicaridine is an analgesic medication and can be used to treat blunt trauma."
+	description = "Bicaridine is an analgesic medication and can be used to treat blunt trauma. Lasts twice as long when inhaled, however it is generally twice as weak."
 	reagent_state = LIQUID
 	color = "#BF0000"
 	overdose = REAGENTS_OVERDOSE
@@ -35,9 +35,8 @@
 	metabolism = REM * 1.5//Get to overdose state a bit faster
 	taste_description = "bitterness"
 	taste_mult = 3
-
-	breathe_met = 0.5
-	breathe_mul = 0.1
+	breathe_met = REM * 1.5 * 0.5
+	breathe_mul = 0.5
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(5 * removed, 0)
@@ -107,7 +106,8 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
-	breathe_met = 0.5
+	metabolism = REM
+	breathe_met = REM * 0.5
 	breathe_mul = 2
 
 /datum/reagent/dexalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -127,7 +127,8 @@
 	overdose = REAGENTS_OVERDOSE * 0.5
 	scannable = 1
 	taste_description = "bitterness"
-	breathe_met = 0.5
+	metabolism = REM
+	breathe_met = REM * 0.5
 	breathe_mul = 2
 
 /datum/reagent/dexalinp/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -376,7 +377,7 @@
 	var/datum/modifier = null
 	taste_description = "acid"
 	metabolism_min = REM * 0.025
-	breathe_met = 0.5
+	breathe_met = REM * 0.15 * 0.5
 
 /datum/reagent/hyperzine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(5))
@@ -966,6 +967,45 @@
 	messagedelay = 30
 	ingest_mul = 0 //Stomach acid will melt the nanobots
 
+/datum/reagent/mental/bugjuice
+	name = "V'krexi Amino Acid Mixture"
+	id = "vaam"
+	description = "A mixture of several high-energy amino acids, based on the secretions and saliva of V'krexi larvae."
+	reagent_state = LIQUID
+	color = "#bcd827"
+	metabolism = 0.6
+	overdose = 5
+	data = 0
+	taste_description = "bitterness"
+	metabolism_min = 0.5
+	breathe_mul = 0
+	goodmessage = list("You feel great.","You feel full of energy.","You feel alert and focused.")
+	badmessage = list("You can't think straight...","You're sweating heavily...","Your heart is racing...")
+	worstmessage = list("You feel incredibly lightheaded!","You feel incredibly dizzy!")
+	suppress_traumas  = list(
+		/datum/brain_trauma/mild/muscle_weakness/ = 0.01
+	)
+	var/datum/modifier/modifier
+
+/datum/reagent/mental/bugjuice/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
+	M.add_chemical_effect(CE_PAINKILLER, 5)
+	M.drowsyness = 0
+
+/datum/reagent/mental/bugjuice/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
+	. = ..()
+	M.adjustOxyLoss(1 * removed * scale)
+	M.Weaken(10 * removed * scale)
+	M.make_jittery(20)
+	M.make_dizzy(10)
+
+	if (prob(10))
+		M << pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen")
+
+	if (prob(dose))
+		M.vomit()
+
+
 //Things that are not cured by medication:
 //Dumbness
 //Gerstmann Syndrome
@@ -1153,3 +1193,14 @@
 			M.adjustOxyLoss(-rand(15,20))
 			M.visible_message("<span class='danger'>\The [M] shudders violently!</span>")
 			M.stat = 0
+
+/datum/reagent/pacifier
+	name = "Paxazide"
+	id = "paxazide"
+	description = "A mind altering chemical compound capable of suppressing violent tendencies."
+	reagent_state = LIQUID
+	color = "#1ca9c9"
+	taste_description = "numbness"
+
+/datum/reagent/pacifier/affect_blood(var/mob/living/carbon/H, var/alien, var/removed)
+	H.add_chemical_effect(CE_PACIFIED, 1)
