@@ -126,7 +126,7 @@
 #define BASE_MAX_NUTRITION	400
 #define HUNGER_FACTOR		0.05 // Factor of how fast mob nutrition decreases. Moved here from chemistry define
 
-#define BASE_max_hydration	    400
+#define BASE_MAX_HYDRATION  400
 #define THIRST_FACTOR       0.05 // Factor of how fast mob nutrition decreases. Moved here from chemistry define
 
 #define TINT_NONE 0
