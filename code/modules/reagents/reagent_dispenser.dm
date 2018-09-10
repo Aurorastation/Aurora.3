@@ -1,5 +1,5 @@
 /obj/structure/reagent_dispensers
-	name = "Strange dispenser"
+	name = "strange dispenser"
 	desc = "What the fuck is this?"
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "watertank"
@@ -214,7 +214,7 @@
 	ex_act(2.0)
 
 /obj/structure/reagent_dispensers/peppertank
-	name = "Pepper Spray Refiller"
+	name = "pepper spray refiller"
 	desc = "Refill pepper spray canisters."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "peppertank"
@@ -228,7 +228,7 @@
 	reagents.add_reagent("condensedcapsaicin",capacity)
 
 /obj/structure/reagent_dispensers/water_cooler
-	name = "Water-Cooler"
+	name = "water-cooler"
 	desc = "A machine that dispenses water to drink."
 	amount_per_transfer_from_this = 5
 	icon = 'icons/obj/vending.dmi'
@@ -282,7 +282,7 @@
 	reagents.add_reagent("xuizijuice",capacity)
 
 /obj/structure/reagent_dispensers/virusfood
-	name = "Virus Food Dispenser"
+	name = "virus food dispenser"
 	desc = "A dispenser of virus food."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "virusfoodtank"
@@ -296,7 +296,7 @@
 	reagents.add_reagent("virusfood", capacity)
 
 /obj/structure/reagent_dispensers/acid
-	name = "Sulphuric Acid Dispenser"
+	name = "sulphuric acid dispenser"
 	desc = "A dispenser of acid for industrial processes."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "acidtank"
