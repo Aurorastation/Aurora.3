@@ -797,6 +797,8 @@
 	..()
 	if(istype(M,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
+		if(M.reagents.has_reagent("spaceacillin", 15))
+			return
 		if(!H.internal_organs_by_name["zombie"] && prob(15))
 			var/obj/item/organ/external/affected = H.get_organ("chest")
 			var/obj/item/organ/parasite/zombie/infest = new()
