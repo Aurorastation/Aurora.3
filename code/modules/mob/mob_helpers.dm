@@ -1169,7 +1169,7 @@ proc/is_blind(A)
 /mob/living/silicon/ai/get_multitool()
 	return ..(aiMulti)
 
-mob/proc/get_hydration_mul(var/minscale = 0, var/maxscale = 1)
+/mob/proc/get_hydration_mul(var/minscale = 0, var/maxscale = 1)
 	var/hydration_mul = hydration/max_hydration
 
 	if(hydration_mul >= CREW_HYDRATION_OVERHYDRATED)
@@ -1186,7 +1186,7 @@ mob/proc/get_hydration_mul(var/minscale = 0, var/maxscale = 1)
 
 	return minscale + ( (maxscale - minscale) * 1)
 
-mob/proc/get_nutrition_mul(var/minscale = 0, var/maxscale = 1)
+/mob/proc/get_nutrition_mul(var/minscale = 0, var/maxscale = 1)
 	var/nutrition_mul = nutrition/max_nutrition
 
 	if(nutrition_mul >= CREW_NUTRITION_OVEREATEN)
