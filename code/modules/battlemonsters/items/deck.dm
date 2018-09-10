@@ -74,7 +74,7 @@
 
 		user.visible_message(\
 			span("notice","\The [user] combines two decks together."),\
-			span("notice","You combine too decks together.")\
+			span("notice","You combine two decks together.")\
 		)
 
 		qdel(C)
@@ -187,4 +187,3 @@
 	if(href_list["selection"])
 		take_specific_card(usr, href_list["selection"])
 		BrowseDeck(usr)
-
