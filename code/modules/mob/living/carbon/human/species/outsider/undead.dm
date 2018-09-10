@@ -129,6 +129,8 @@
 
 	hide_name = TRUE
 
+	name_language = null // Use the first-name last-name generator rather than a language scrambler
+
 	language = null
 	default_language = LANGUAGE_GIBBERING
 
