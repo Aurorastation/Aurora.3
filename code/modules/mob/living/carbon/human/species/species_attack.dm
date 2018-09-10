@@ -150,11 +150,10 @@
 	attack_name = "mandibles"
 
 /datum/unarmed_attack/bite/infectious
-	damage = 10
 	shredding = 1
 
 /datum/unarmed_attack/bite/infectious/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armour,var/attack_damage,var/zone)
 	..()
 	if(prob(25))
 		if(target.reagents)
-			target.reagents.add_reagent("trioxin", 5)
+			target.reagents.add_reagent("trioxin", 30)

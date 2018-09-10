@@ -788,7 +788,7 @@
 	description = "A hallucinogen chemical, rumored to be used by mystics and religious figures in their rituals."
 	reagent_state = LIQUID
 	color = "#E7E146"
-	strength = 3
+	strength = 1
 	taste_description = "acid"
 	metabolism = REM
 	unaffected_species = IS_DIONA | IS_MACHINE | IS_UNDEAD
@@ -797,7 +797,7 @@
 	..()
 	if(istype(M,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
-		if(!H.internal_organs_by_name["zombie"] && prob(5*removed))
+		if(!H.internal_organs_by_name["zombie"] && prob(15))
 			var/obj/item/organ/external/affected = H.get_organ("chest")
 			var/obj/item/organ/parasite/zombie/infest = new()
 			infest.replaced(H, affected)

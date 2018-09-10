@@ -219,15 +219,15 @@
 	if (!owner)
 		return
 
-	if(prob(25) && !(owner.species.flags & NO_PAIN))
+	if(prob(15) && !(owner.species.flags & NO_PAIN))
 		owner << "<span class='warning'>You feel a burning sensation on your skin!</span>"
 		owner.adjustHalLoss(25)
 
-	else if(prob(25))
+	else if(prob(15))
 		owner.emote("moan")
 
 	if(stage >= 2)
-		if(prob(25))
+		if(prob(15))
 			owner.emote("scream")
 			if(!isundead(owner))
 				if(!isundead(owner))
@@ -240,7 +240,7 @@
 					owner.delayed_vomit()
 
 	if(stage >= 3)
-		if(prob(25))
+		if(prob(15))
 			if(isundead(owner))
 				owner.adjustBruteLoss(-30)
 				owner.adjustFireLoss(-30)
