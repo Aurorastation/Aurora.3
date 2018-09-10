@@ -221,7 +221,7 @@
 
 	if(prob(10) && !(owner.species.flags & NO_PAIN))
 		owner << "<span class='warning'>You feel a burning sensation on your skin!</span>"
-		owner.make_jittery(5)
+		owner.make_jittery(10)
 
 	else if(prob(10))
 		owner.emote("moan")
@@ -245,7 +245,7 @@
 				owner.adjustFireLoss(-30)
 			else
 				owner << "<span class='cult'>You feel an insatiable hunger.</span>"
-				owner.nutrition -= 100
+				owner.nutrition = -1
 
 	if(stage >= 4)
 		if(prob(10))
@@ -253,7 +253,7 @@
 				if(ishuman_species(owner))
 					owner << "<span class='warning'>You feel life leaving your husk, but death rejects you...</span>"
 					playsound(src.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
-					owner << "<font size='3' <span class='cult'>All that is left is a cruel hunger for the flesh of the living, and the desire to spread this infection. You must consume all the living!</font></span>"
+					owner << "<font size='3'> <span class='cult'>All that is left is a cruel hunger for the flesh of the living, and the desire to spread this infection. You must consume all the living!</font></span>"
 					owner.set_species("Zombie")
 				else
 					owner.adjustToxLoss(50)

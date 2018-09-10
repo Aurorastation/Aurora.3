@@ -785,11 +785,11 @@
 /datum/reagent/toxin/trioxin
 	name = "Trioxin"
 	id = "trioxin"
-	description = "A hallucinogen chemical, rumored to be used by mystics and religious figures in their rituals."
+	description = "A synthetic compound of unknown origins, designated as a performance enhancing substance originally.."
 	reagent_state = LIQUID
 	color = "#E7E146"
 	strength = 1
-	taste_description = "acid"
+	taste_description = "old eggs"
 	metabolism = REM
 	unaffected_species = IS_DIONA | IS_MACHINE | IS_UNDEAD
 
