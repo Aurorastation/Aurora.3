@@ -859,6 +859,13 @@
 	dna.check_integrity(src)
 	return
 
+// For blinking
+/mob/living/carbon/human/proc/blink_eyes()
+	flick("e_flash", flash)
+	sleep(rand(3, 4))
+	handle_regular_hud_updates()
+	return
+
 /mob/living/carbon/human/get_species(var/reference = 0)
 	if(!species)
 		set_species()
