@@ -40,6 +40,7 @@
 		return
 
 	fire_alert = 0 //Reset this here, because both breathe() and handle_environment() have a chance to set it.
+	blink_eyes()
 
 	//TODO: seperate this out
 	// update the current life tick, can be used to e.g. only do something every 4 ticks
@@ -88,8 +89,6 @@
 			diona_handle_light(DS)
 
 	handle_stasis_bag()
-
-	blink_eyes()
 
 	if(!handle_some_updates())
 		return											//We go ahead and process them 5 times for HUD images and other stuff though.

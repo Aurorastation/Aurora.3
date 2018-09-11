@@ -9,6 +9,8 @@
 	var/embedded_flag	  //To check if we've need to roll for damage on movement while an item is imbedded in us.
 	var/obj/item/weapon/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
 	mob_size = 9//Based on average weight of a human
+	var/blinks = TRUE
+	var/blink_time = 0
 
 /mob/living/carbon/human/Initialize(mapload, var/new_species = null)
 	if(!dna)
@@ -861,9 +863,13 @@
 
 // For blinking
 /mob/living/carbon/human/proc/blink_eyes()
-	flick("e_flash", flash)
-	sleep(rand(3, 4))
-	handle_regular_hud_updates()
+	if(in_stasis || !blinks || (status_flags == GODMODE))
+		return 0
+	if((world.time - blink_time) > rand(30.5, 40.3))
+		flick("e_flash", flash)
+		sleep(rand(3, 4))
+		flick("blank", flash)
+		blink_time = world.time
 	return
 
 /mob/living/carbon/human/get_species(var/reference = 0)
