@@ -167,8 +167,8 @@
 	if(alien == IS_VAURCA)//Vaurca are damaged instead of getting nutrients, but they can still get drunk
 		M.adjustToxLoss(1.5 * removed * (strength / 100))
 	else
-		M.nutrition += nutriment_factor * removed
-		M.hydration += hydration_factor * removed
+		M.adjustNutritionLoss(-nutriment_factor * removed)
+		M.adjustHydrationLoss(-hydration_factor * removed)
 
 	if (alien == IS_UNATHI)//unathi are poisoned by alcohol as well
 		M.adjustToxLoss(1.5 * removed * (strength / 100))
@@ -214,8 +214,8 @@
 	if (alien == IS_VAURCA)
 		M.adjustToxLoss(removed * (strength / 100))
 	else
-		M.nutrition += nutriment_factor * removed
-		M.hydration += hydration_factor * removed
+		M.adjustNutritionLoss(-nutriment_factor * removed)
+		M.adjustHydrationLoss(-hydration_factor * removed)
 
 	if (alien == IS_UNATHI)
 		ingest_met = initial(ingest_met)*3
@@ -481,7 +481,7 @@
 	glass_desc = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
 
 /datum/reagent/sugar/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.nutrition += removed * 3
+	M.adjustNutritionLoss(-removed*3)
 
 /datum/reagent/sulfur
 	name = "Sulfur"

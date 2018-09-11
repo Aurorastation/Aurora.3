@@ -769,7 +769,7 @@
 
 	if(bodytemperature < species.cold_level_1) //260.15 is 310.15 - 50, the temperature where you start to feel effects.
 		if(nutrition >= 2) //If we are very, very cold we'll use up quite a bit of nutriment to heat us up.
-			nutrition -= 2
+			adjustNutritionLoss(2)
 		var/recovery_amt = max((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR), BODYTEMP_AUTORECOVERY_MINIMUM)
 		//world << "Cold. Difference = [body_temperature_difference]. Recovering [recovery_amt]"
 //				log_debug("Cold. Difference = [body_temperature_difference]. Recovering [recovery_amt]")
@@ -940,28 +940,30 @@
 			heal_overall_damage(5,5)
 
 	// nutrition decrease
-	if (nutrition > 0 && stat != 2)
-		nutrition = max(0, nutrition - (nutrition_loss * nutrition_attrition_rate))
+	if(max_nutrition > 0)
+		if (nutrition > 0 && stat != 2)
+			adjustNutritionLoss(nutrition_loss * nutrition_attrition_rate)
 
-	if (nutrition > max_nutrition)
-		nutrition -= 1
-		if(overeatduration < 600) //capped so people don't take forever to unfat
-			overeatduration++
-	else
-		if(overeatduration > 1)
-			overeatduration -= 2 //doubled the unfat rate
+		if (nutrition * max_nutrition > CREW_NUTRITION_OVEREATEN)
+			adjustNutritionLoss(1)
+			if(overeatduration < 600) //capped so people don't take forever to unfat
+				overeatduration++
+		else
+			if(overeatduration > 1)
+				overeatduration -= 2 //doubled the unfat rate
 			
 	// hydration decrease
-	if (hydration > 0 && stat != 2)
-		hydration = max(0, hydration - (hydration_loss * hydration_attrition_rate))
+	if(max_hydration > 0)
+		if (hydration > 0 && stat != 2)
+			adjustHydrationLoss(hydration_loss * hydration_attrition_rate)
 
-	if (hydration > max_hydration)
-		hydration -= 1
-		if(overdrinkduration < 600) //capped so people don't take forever to undrink
-			overdrinkduration++
-	else
-		if(overdrinkduration > 1)
-			overdrinkduration -= 2 //doubled the undrink rate
+		if (hydration * max_hydration > CREW_HYDRATION_OVERHYDRATED)
+			adjustHydrationLoss(1)
+			if(overdrinkduration < 600) //capped so people don't take forever to undrink
+				overdrinkduration++
+		else
+			if(overdrinkduration > 1)
+				overdrinkduration -= 2 //doubled the undrink rate
 
 	// TODO: stomach and bloodstream organ.
 	if(!isSynthetic())
@@ -1663,8 +1665,8 @@
 		var/regen = stamina_recovery * (1 - min(((oxyloss) / exhaust_threshold) + ((halloss) / exhaust_threshold), 1))
 		if (regen > 0)
 			stamina = min(max_stamina, stamina+regen)
-			nutrition = max(0, nutrition - stamina_recovery*0.18)
-			hydration = max(0, hydration - stamina_recovery*0.18)
+			adjustNutritionLoss(stamina_recovery*0.9)
+			adjustHydrationLoss(stamina_recovery*0.18)
 			if (client)
 				hud_used.move_intent.update_move_icon(src)
 

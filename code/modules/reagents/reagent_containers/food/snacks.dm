@@ -101,7 +101,7 @@
 			return 1
 	else
 
-		var/expected_fullness = (user.nutrition + (user.reagents.get_reagent_amount("nutriment") * 25))/user.max_nutrition
+		var/expected_fullness = user.max_nutrition > 0 ? (user.nutrition + (user.reagents.get_reagent_amount("nutriment") * 25))/user.max_nutrition : CREW_NUTRITION_OVEREATEN+1
 		expected_fullness += (user.overeatduration/600)*0.5
 		var/feedback_message
 		var/is_full = (expected_fullness > CREW_NUTRITION_OVEREATEN)

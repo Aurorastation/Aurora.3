@@ -1169,8 +1169,9 @@
 	if(istype(M))
 		var/obj/item/organ/F = M.internal_organs_by_name["heart"]
 		if(istype(F))
-			var/nutritionmod = max(0.25, (1 - M.nutrition) / M.max_nutrition * 0.5) //Less effective when your stomach is "full".
-			F.take_damage(-removed*nutritionmod)
+			if(M.max_nutrition > 0)
+				var/nutritionmod = max(0.25, (1 - M.nutrition) / M.max_nutrition * 0.5) //Less effective when your stomach is "full".
+				F.take_damage(-removed*nutritionmod)
 	..()
 
 /datum/reagent/adipemcina/overdose(var/mob/living/carbon/M, var/alien)
@@ -1190,16 +1191,16 @@
 
 /datum/reagent/potassium_hydrophoro/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VAURCA)
-		if(M.hydration > M.max_hydration)
-			M.hydration = min(M.max_hydration,M.hydration + removed*10)
-		else if(M.hydration > M.max_hydration)
-			M.hydration = max(M.max_hydration,M.hydration - removed*10)
-	else
-		if(M.hydration > M.max_hydration)
-			overdose(M,alien,removed,0)
-			M.hydration += removed*2
+		if( (M.hydration / M.max_hydration) > CREW_HYDRATION_OVERHYDRATED)
+			M.adjustHydrationLoss(removed*2)
 		else
-			M.hydration += removed*10
+			M.adjustHydrationLoss(-removed*5)
+	else
+		if( (M.hydration > M.max_hydration) > CREW_HYDRATION_OVERHYDRATED)
+			overdose(M,alien,removed,0)
+			M.adjustHydrationLoss(-removed*2)
+		else
+			M.adjustHydrationLoss(-removed*5)
 
 /datum/reagent/potassium_hydrophoro/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
 	if(alien != IS_VAURCA) //Vaurca can't overdose on this

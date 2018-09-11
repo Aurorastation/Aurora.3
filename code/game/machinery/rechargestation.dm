@@ -103,7 +103,7 @@
 	else if(ishuman(occupant))
 		var/mob/living/carbon/human/H = occupant
 		if(!isnull(H.internal_organs_by_name["cell"]) && H.nutrition < H.max_nutrition)
-			H.nutrition = min(H.nutrition+10, H.max_nutrition)
+			H.adjustNutritionLoss(-10)
 			cell.use(7000/H.max_nutrition*10)
 
 
@@ -276,52 +276,3 @@
 			user << span("danger","Cancelled loading [C] into the charger. You and [C] must stay still!")
 		return
 	return ..()
-
-/obj/machinery/recharge_station/lubricator
-	name = "\improper IPC lubricating station"
-	desc = "An IPC only self-service station that is designed to lubricate areas that you didn't even know existed."
-	icon = 'icons/obj/objects.dmi'
-	icon_state = "luber_0"
-	density = 1
-	anchored = 1
-	use_power = 1
-	idle_power_usage = 50
-	has_special_power_checks = TRUE
-	charging_efficiency = 0
-	weld_rate = 0			// How much brute damage is repaired per tick
-	wire_rate = 0			// How much burn damage is repaired per tick
-
-	component_types = list(
-		/obj/item/weapon/circuitboard/lubricator,
-		/obj/item/weapon/stock_parts/manipulator = 2,
-		/obj/item/weapon/stock_parts/capacitor = 2,
-		/obj/item/weapon/cell/high,
-		/obj/item/stack/cable_coil{amount = 5}
-	)
-
-/obj/machinery/recharge_station/lubricator/process_occupant()
-	if(ishuman(occupant))
-		var/mob/living/carbon/human/H = occupant
-		if(!isnull(H.internal_organs_by_name["cell"]))
-			if(H.hydration < H.max_hydration)
-				H.hydration = min(H.hydration+10, H.hydration)
-				cell.use(7000/H.hydration*10)
-			else
-				playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
-				go_out()
-
-/obj/machinery/recharge_station/lubricator/update_icon()
-
-	if(occupant)
-		if((stat & NOPOWER) && !has_cell_power())
-			icon_state = "luber_3"
-		else
-			icon_state = "luber_2"
-	else
-		if(stat & BROKEN || stat & NOPOWER)
-			icon_state = "luber_0"
-		else
-			icon_state = "luber_1"
-
-	if(icon_update_tick == 0)
-		build_overlays()

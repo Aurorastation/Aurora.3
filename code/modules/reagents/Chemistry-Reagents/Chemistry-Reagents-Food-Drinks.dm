@@ -15,7 +15,7 @@
 	if(alien == IS_VAURCA)
 		M.heal_organ_damage(1.2 * removed, 1.2 * removed)
 		M.adjustToxLoss(-1.2 * removed)
-		M.nutrition += nutriment_factor * removed // For hunger and fatness
+		M.adjustNutritionLoss(-nutriment_factor * removed)
 		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
 	else
 		M.adjustToxLoss(1 * removed)
@@ -111,7 +111,7 @@
 
 /datum/reagent/nutriment/proc/digest(var/mob/living/carbon/M, var/removed)
 	M.heal_organ_damage(regen_factor * removed, 0)
-	M.nutrition += nutriment_factor * removed // For hunger and fatness
+	M.adjustNutritionLoss(-nutriment_factor * removed)
 	M.nutrition_attrition_rate = Clamp(M.nutrition_attrition_rate + attrition_factor, 1, 2)
 	M.add_chemical_effect(CE_BLOODRESTORE, blood_factor * removed)
 	M.intoxication -= min(M.intoxication,nutriment_factor*removed*0.05) //Nutrients can absorb alcohol.
@@ -467,10 +467,8 @@
 	taste_description = "mothballs"
 
 /datum/reagent/lipozine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.nutrition = max(M.nutrition - 10 * removed, 0)
+	M.adjustNutritionLoss(10*removed)
 	M.overeatduration = 0
-	if(M.nutrition < 0)
-		M.nutrition = 0
 
 /datum/reagent/nutriment/barbecue
 	name = "Barbecue Sauce"
@@ -503,11 +501,11 @@
 
 /datum/reagent/sodiumchloride/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	M.intoxication -= min(M.intoxication,removed*2) //Salt absorbs alcohol
-	M.hydration -= min(M.hydration,removed*2)
+	M.adjustHydrationLoss(2*removed)
 
 /datum/reagent/sodiumchloride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.intoxication -= min(M.intoxication,removed*20)
-	M.hydration -= min(M.hydration,removed*20)
+	M.adjustHydrationLoss(20*removed)
 	M.adjustToxLoss(removed*2)
 
 /datum/reagent/blackpepper
@@ -723,8 +721,8 @@
 		M.sleeping = max(0, M.sleeping + adj_sleepy)
 
 	if(add_nutrition == TRUE)
-		M.hydration += hydration * removed
-		M.nutrition += nutrition * removed
+		M.adjustHydrationLoss(-hydration * removed)
+		M.adjustNutritionLoss(-nutrition * removed)
 
 	if(adj_temp > 0 && M.bodytemperature < 310) // 310 is the normal bodytemp. 310.055
 		M.bodytemperature = min(310, M.bodytemperature + (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))

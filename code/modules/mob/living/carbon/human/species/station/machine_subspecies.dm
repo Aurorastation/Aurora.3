@@ -25,7 +25,6 @@
 	show_ssd = "completely quiescent"
 
 	max_nutrition_factor = 0.8
-	max_hydration_factor = 0.8
 
 	heat_level_1 = 400
 	heat_level_2 = 800

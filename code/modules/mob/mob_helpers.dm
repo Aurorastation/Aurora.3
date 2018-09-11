@@ -713,9 +713,8 @@ proc/is_blind(A)
 		var/turf/location = loc
 		if (istype(location, /turf/simulated))
 			location.add_vomit_floor(src, 1)
-
-		hydration -= 30
-		nutrition -= 60
+		adjustNutritionLoss(60)
+		adjustHydrationLoss(30)
 		if (intoxication)//The pain and system shock of vomiting, sobers you up a little
 			intoxication *= 0.9
 
@@ -1170,6 +1169,10 @@ proc/is_blind(A)
 	return ..(aiMulti)
 
 /mob/proc/get_hydration_mul(var/minscale = 0, var/maxscale = 1)
+
+	if(max_hydration <= 0)
+		return 1
+
 	var/hydration_mul = hydration/max_hydration
 
 	if(hydration_mul >= CREW_HYDRATION_OVERHYDRATED)
@@ -1187,6 +1190,10 @@ proc/is_blind(A)
 	return minscale + ( (maxscale - minscale) * 1)
 
 /mob/proc/get_nutrition_mul(var/minscale = 0, var/maxscale = 1)
+
+	if(max_nutrition <= 0)
+		return 1
+
 	var/nutrition_mul = nutrition/max_nutrition
 
 	if(nutrition_mul >= CREW_NUTRITION_OVEREATEN)
@@ -1204,3 +1211,16 @@ proc/is_blind(A)
 	return minscale + ( (maxscale - minscale) * 1)
 
 
+/mob/proc/adjustNutritionLoss(var/amount)
+	if(max_nutrition <= 0)
+		return FALSE
+	nutrition = max(0,min(max_nutrition,nutrition - amount))
+
+	return TRUE
+
+/mob/proc/adjustHydrationLoss(var/amount)
+	if(max_nutrition <= 0)
+		return FALSE
+	hydration = max(0,min(max_hydration,hydration - amount))
+
+	return TRUE

@@ -361,12 +361,6 @@
 	reagent_state = LIQUID
 	color = "#009CA8"
 	taste_description = "cherry"
-	unaffected_species = 0
-	var/hydration_mul = 12 //How much hydration to add per unit.
-
-/datum/reagent/lube/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_MACHINE)
-		M.hydration += hydration_mul
 
 /datum/reagent/lube/touch_turf(var/turf/simulated/T)
 	if(!istype(T))

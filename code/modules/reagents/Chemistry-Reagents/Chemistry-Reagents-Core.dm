@@ -176,7 +176,7 @@
 /datum/reagent/water/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(!istype(M))
 		return
-	M.hydration += 1.5*removed
+	M.adjustHydrationLoss(-6*removed)
 
 /datum/reagent/water/touch_turf(var/turf/simulated/T)
 	if(!istype(T))

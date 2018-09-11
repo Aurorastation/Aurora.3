@@ -483,7 +483,7 @@
 	stamina = -1	// Machines use power and generate heat, stamina is not a thing
 	sprint_speed_factor = 1  // About as capable of speed as a human
 
-	hydration_loss_factor = 0.25
+	max_hydration_factor = -1
 
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15
@@ -497,8 +497,8 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 /datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
 	if (H.stat == CONSCIOUS)
 		H.bodytemperature += cost * sprint_temperature_factor
-		H.nutrition -= cost * sprint_charge_factor
-		H.hydration -= cost * sprint_charge_factor*0.5
+		H.adjustNutritionLoss(cost * sprint_charge_factor)
+		H.adjustHydrationLoss(cost * sprint_charge_factor*0.5)
 		if(H.nutrition <= 0)
 			H.Weaken(15)
 			H.m_intent = "walk"
