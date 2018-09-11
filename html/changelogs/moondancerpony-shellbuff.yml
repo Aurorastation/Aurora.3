@@ -1,6 +1,0 @@
-author: MoondancerPony
-delete-after: True
-changes: 
-  - bugfix: "Attack logs now show general regions if the limb itself is obscured by clothing."
-  - bugfix: "Wound flavortext is now hidden if the limb is obscured by clothing."
-  - bugfix: "AOOC is now re-added to antagonists who de-admin."
