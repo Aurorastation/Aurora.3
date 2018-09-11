@@ -135,7 +135,6 @@
 	universal_understand = 1
 	status_flags = GODMODE
 	var/fall_override = TRUE
-	blinks = FALSE
 
 /mob/living/carbon/human/bst/can_inject(var/mob/user, var/error_msg, var/target_zone)
 	user << span("alert", "The [src] disarms you before you can inject them.")
