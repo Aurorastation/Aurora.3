@@ -82,6 +82,8 @@
 // Parameters: None
 // Description: Closes the door. No checks are done inside this proc.
 /obj/machinery/door/blast/proc/force_close()
+	if(!density)
+		return 0
 	src.operating = 1
 	src.layer = closed_layer
 	flick(icon_state_closing, src)
@@ -175,10 +177,9 @@
 	..()
 	if(src.operating || (stat & BROKEN))
 		return
-	if(stat & NOPOWER)
-		if(!density)
-			INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_close)
-			securitylock = 1
+	if(stat & NOPOWER)		
+		INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_close)
+		securitylock = 1
 	else if(securitylock)
 		INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_open)
 		securitylock = 0
