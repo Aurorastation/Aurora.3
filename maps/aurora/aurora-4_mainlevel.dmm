@@ -30388,10 +30388,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_one)
-"bcv" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
 "bcw" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -65273,7 +65269,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "xDA" = (
-/obj/machinery/recharge_station/lubricator,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
@@ -92728,15 +92723,15 @@ aXr
 aYx
 aUB
 baY
-bcv
-bcv
-bcv
+xDA
+xDA
+xDA
 bgv
 bhW
 bjp
-bcv
-bcv
-bcv
+xDA
+xDA
+xDA
 boP
 aUB
 aYx
