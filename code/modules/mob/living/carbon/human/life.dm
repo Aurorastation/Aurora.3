@@ -40,6 +40,7 @@
 		return
 
 	fire_alert = 0 //Reset this here, because both breathe() and handle_environment() have a chance to set it.
+	blink_eyes()
 
 	//TODO: seperate this out
 	// update the current life tick, can be used to e.g. only do something every 4 ticks
@@ -99,6 +100,7 @@
 
 	if(mind && mind.vampire)
 		handle_vampire()
+
 
 /mob/living/carbon/human/think()
 	..()
