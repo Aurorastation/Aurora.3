@@ -420,6 +420,7 @@
 	radiation_mod = 0	// not affected by radiation
 	remains_type = /obj/effect/decal/remains/robot
 
+	hud_type = /datum/hud_data/ipc
 
 	brute_mod = 1.0
 	burn_mod = 1.2

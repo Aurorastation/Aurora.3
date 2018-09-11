@@ -77,3 +77,7 @@
 		"mask" =         list("loc" = ui_shoes,     "name" = "Mask", "slot" = slot_wear_mask, "state" = "mask",  "toggle" = 1),
 		"back" =         list("loc" = ui_sstore1,   "name" = "Back", "slot" = slot_back,      "state" = "back")
 		)
+		
+		
+/datum/hud_data/ipc	
+	has_hydration = 0
