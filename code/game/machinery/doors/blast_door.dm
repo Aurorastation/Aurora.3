@@ -82,7 +82,7 @@
 // Parameters: None
 // Description: Closes the door. No checks are done inside this proc.
 /obj/machinery/door/blast/proc/force_close()
-	if(!density)
+	if(density)
 		return 0
 	src.operating = 1
 	src.layer = closed_layer
