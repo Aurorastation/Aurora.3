@@ -624,7 +624,7 @@
 		if (!mouth_covered && (eyes_covered & EYES_PROTECTED))
 			message = "<span class='warning'>Your [eye_protection] protects your eyes from the pepperspray!</span>"
 		else if (eyes_covered & EYES_MECH)
-			message = "<span class='warning'>Your mechanical eyes are invulnurable pepperspray!</span>"
+			message = "<span class='warning'>Your mechanical eyes are invulnurable to pepperspray!</span>"
 	else
 		message = "<span class='warning'>The pepperspray gets in your eyes!</span>"
 		if(mouth_covered)
@@ -3638,3 +3638,134 @@
 	glass_name = "glass of Crocodile Guwan"
 	glass_desc = "The smell says no, but the pretty colors say yes."
 
+//ZZZZOOOODDDDAAAAA
+
+/datum/reagent/drink/zorasoda
+	name = "Zo'ra Soda Cherry"
+	id = "zora_cherry"
+	description = "Zo'ra Soda, cherry edition. All good drinks come in cherry."
+	color = "#102000"
+	adj_temp = -5
+	adj_sleepy = -2
+	caffeine = 1
+	taste_description = "electric cherry"
+
+/datum/reagent/drink/zorasoda/phoron
+	name = "Zo'ra Soda Phoron Passion"
+	id = "zora_phoron"
+	description = "Reported to taste nothing like phoron, but everything like grapes."
+	color = "#863333"
+	adj_temp = -5
+	adj_sleepy = -2
+	caffeine = 1
+	taste_description = "electric grape"
+
+/datum/reagent/drink/zorasoda/kois
+	name = "Zo'ra Soda K'ois Twist"
+	id = "zora_kois"
+	description = "Whoever approved this in marketing needs to be drawn and quartered."
+	color = "#dcd9cd"
+	adj_temp = -5
+	adj_sleepy = -2
+	caffeine = 1
+	taste_description = "sugary cabbage"
+
+/datum/reagent/drink/zorasoda/kois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.make_jittery(5)
+
+/datum/reagent/drink/zorasoda/hozm
+	name = "Zo'ra Soda High Octane Zorane Might"
+	id = "zora_hozm"
+	description = "It feels like someone is just driving a freezing cold spear through the bottom of your mouth."
+	color = "#365000"
+	adj_temp = -5
+	adj_sleepy = -3
+	caffeine = 2
+	taste_description = "a full-body bite into an acidic lemon"
+
+/datum/reagent/drink/zorasoda/hozm/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.make_jittery(20)
+	M.dizziness += 5
+	M.drowsyness = 0
+
+/datum/reagent/drink/zorasoda/venomgrass
+	name = "Zo'ra Soda Sour Venom Grass"
+	id = "zora_venom"
+	description = "The 'diet' version of High Energy Zorane Might, still tastes like a cloud of stinging polytrinic bees."
+	color = "#100800"
+	adj_temp = -5
+	adj_sleepy = -3
+	caffeine = 0.8
+	taste_description = "fizzy nettles"
+
+/datum/reagent/drink/zorasoda/venomgrass/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.make_jittery(5)
+
+/datum/reagent/drink/zorasoda/klax
+	name = "Klaxan Energy Crush"
+	id = "zora_klax"
+	description = "An orange, cream soda. It's a wonder it got here."
+	color = "#E78108"
+	adj_temp = -5
+	adj_sleepy = -3
+	caffeine = 1
+	unaffected_species = IS_MACHINE
+	taste_description = "orange cream"
+
+/datum/reagent/drink/zorasoda/klax/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.make_jittery(5)
+
+/datum/reagent/drink/zorasoda/cthur
+	name = "C'thur Rockin' Raspberry"
+	id = "zora_cthur"
+	description = "A raspberry concoction you're pretty sure is already on recall."
+	color = "#0000CD"
+	adj_temp = -5
+	adj_sleepy = -3
+	caffeine = 1
+	taste_description = "flat raspberry"
+
+/datum/reagent/drink/zorasoda/cthur/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.make_jittery(15)
+
+/datum/reagent/drink/zorasoda/drone
+	name = "Drone Fuel"
+	id = "zora_drone"
+	description = "It's thick as syrup and smells of gas. Why."
+	color = "#31004A"
+	adj_temp = -5
+	adj_sleepy = -3
+	taste_description = "viscous cola"
+
+/datum/reagent/drink/zorasoda/drone/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_VAURCA)
+		M.add_chemical_effect(CE_SPEEDBOOST, 1)
+		M.add_chemical_effect(CE_BLOODRESTORE, 2 * removed)
+		M.make_jittery(5)
+	else
+		if (prob(10+dose))
+			M << pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen")
+
+		if (prob(dose))
+			M.vomit()
+
+/datum/reagent/drink/zorasoda/jelly
+	name = "Royal Jelly"
+	id = "zora_jelly"
+	description = "It looks of mucus, but tastes like Heaven."
+	color = "#FFFF00"
+	adj_temp = -5
+	adj_sleepy = -3
+	caffeine = 1
+	taste_description = "a reassuring spectrum of color"
+
+/datum/reagent/drink/zorasoda/jelly/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.druggy = max(M.druggy, 30)
+	M.dizziness += 5
+	M.drowsyness = 0
