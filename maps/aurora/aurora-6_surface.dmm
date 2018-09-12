@@ -13518,7 +13518,9 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/machinery/photocopier/faxmachine,
+/obj/machinery/photocopier/faxmachine{
+	department = "Command-Surface"
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "yO" = (
