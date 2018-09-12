@@ -139,7 +139,7 @@
 /datum/gear/suit/roles/poncho/cloak/service
 	display_name = "cloak, service"
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/service
-	allowed_roles = list("Head of Personnel","Bartender","Botanist","Janitor","Chef","Librarian")
+	allowed_roles = list("Head of Personnel","Bartender","Gardener","Janitor","Chef","Librarian")
 
 /datum/gear/suit/roles/poncho/cloak/engineer
 	display_name = "cloak, engineer"
