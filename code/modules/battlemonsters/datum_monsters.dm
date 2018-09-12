@@ -19,7 +19,7 @@
 	name = "Human"
 	id = "human_male"
 	icon_state = "human"
-	power_add = 300
+	power_add = BATTLE_MONSTERS_POWER_PETTY
 	defense_add = 1
 	attack_add = 1
 	description = "a typical male %SPECIES inhabitant of Great Kingdom of Garoosh. While not a trained fighter, all %SPECIESs are quick thinkers and know how to fight when it matters with their %WEAPON_AND."
@@ -33,7 +33,7 @@
 	name = "Human"
 	id = "human_female"
 	icon_state = "human"
-	power_add = 300
+	power_add = BATTLE_MONSTERS_POWER_PETTY
 	defense_add = 1
 	attack_add = 0.75
 	description = "a typical female %SPECIES inhabitant of Great Kingdom of Garoosh. While not a trained fighter, all %SPECIESs are quick thinkers and know how to fight when it matters with their %WEAPON_AND."
@@ -46,7 +46,7 @@
 	name = "Apprentice Mage"
 	id = "mage"
 	icon_state = "staff"
-	power_add = 400
+	power_add = BATTLE_MONSTERS_POWER_LESSER
 	defense_add = 1
 	attack_add = 3
 	description = "a young and eager-looking male %SPECIES mage from the mysterious and secluded Gautem Islands. They appear to be reading from a book, while their %WEAPON_AND hovers around them."
@@ -59,7 +59,7 @@
 	name = "Wise Sage"
 	id = "sage"
 	icon_state = "staff"
-	power_add = 800
+	power_add = BATTLE_MONSTERS_POWER_LESSER
 	defense_add = 1
 	attack_add = 2
 	description = "an mysterious looking male %SPECIES, dressed in %ELEMENT_AND robes. A %WEAPON_AND seems to be holstered on their back, with a magic crystal ball hovering above their hands."
@@ -72,7 +72,7 @@
 	name = "Wizard"
 	id = "wizard"
 	icon_state = "staff"
-	power_add = 2000
+	power_add = BATTLE_MONSTERS_POWER_COMMON
 	defense_add = 1
 	attack_add = 2
 	description = "an elderly, long-bearded male %SPECIES, dressed in typical wizard garb. They hold a %WEAPON_AND proudly, and their beard humorously tangles around it."
@@ -85,7 +85,7 @@ datum/battle_monsters/monster/human/warrior
 	name = "Barbarian"
 	id = "warrior"
 	icon_state = "human"
-	power_add = 1000
+	power_add = BATTLE_MONSTERS_POWER_COMMON
 	defense_add = 2
 	attack_add = 1
 	description = "a seductively buff male %SPECIES barbarian wearing a simple fur loincloth and a chest full of hair. They seem to be in possession of a %WEAPON_AND."
@@ -98,20 +98,19 @@ datum/battle_monsters/monster/human/warrior
 	name = "Amazon Warrior"
 	id = "amazon_warrior"
 	icon_state = "human"
-	power_add = 1000
+	power_add = BATTLE_MONSTERS_POWER_COMMON
 	defense_add = 2
 	attack_add = 1
 	description = "a scantily clad male %SPECIES %NAME dressed in leopard skin. They proudly wield a giant %WEAPON_AND."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLUB
 	rarity = BATTLE_MONSTERS_RARITY_UNCOMMON
-	rarity = BATTLE_MONSTERS_RARITY_UNCOMMON
 	rarity_score = 0
 
 /datum/battle_monsters/monster/human/amazon_prime
 	name = "Amazon Prime"
-	id = "amazon_warrior"
+	id = "amazon_prime"
 	icon_state = "human"
-	power_add = 1000
+	power_add = BATTLE_MONSTERS_POWER_COMMON
 	defense_add = 2
 	attack_add = 1
 	description = "a scantily clad female %SPECIES %NAME dressed in leopard skin. They're one of the many queen guards of the Amazonian Kingdom."
@@ -124,12 +123,12 @@ datum/battle_monsters/monster/human/warrior
 	name = "Knight"
 	id = "knight"
 	icon_state = "human_knight"
-	power_add = 1000
+	power_add = BATTLE_MONSTERS_POWER_COMMON
 	defense_add = 4
 	attack_add = 1
 	rarity = 0.25
 	description = "a proud male %SPECIES %NAME dorned in heavy %ELEMENT_AND armor and wielding a decorative %WEAPON_AND. They're sworn to protect the Great Kingdom of Garoosh from Barbarians."
-	special_effects = "%SPECIES Protection: As long as %NAME is visible, all other %SPECIES are attack immune."
+	special_effects = "%SPECIES_C Protection: As long as %NAME is visible, all other %SPECIES monsters are attack immune."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN
 	rarity = BATTLE_MONSTERS_RARITY_UNCOMMON
 	rarity_score = 0
@@ -138,10 +137,10 @@ datum/battle_monsters/monster/human/warrior
 	name = "King"
 	id = "king"
 	icon_state = "king"
-	power_add = 2000
+	power_add = BATTLE_MONSTERS_POWER_GREATER
 	defense_add = 1
 	attack_add = 10
-	description = "a fat %SPECIES %NAME sitting atop a %ELEMENT_AND throne, with a %WEAPON_AND spread out across a gold chessboard. Their equally golden crown is quite large for their small head."
+	description = "a fat %SPECIES King sitting atop a %ELEMENT_AND throne, with a %WEAPON_AND spread out across a gold chessboard. Their equally golden crown is quite large for their small head."
 	special_effects = "Selfish Protection: %NAME cannot be attacked if other monsters exist on the same side of the field."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_ARMY
 	rarity = BATTLE_MONSTERS_RARITY_MYTHICAL
@@ -151,11 +150,11 @@ datum/battle_monsters/monster/human/warrior
 	name = "Queen"
 	id = "queen"
 	icon_state = "king"
-	power_add = 2000
+	power_add = BATTLE_MONSTERS_POWER_GREATER
 	defense_add = 1
 	attack_add = 5
-	description = "an incredibly voluptuous %SPECIES female adorned in a %ELEMENTS_AND robe. An equally tight-fitting crown sits atop her head."
-	special_effects = "Lustful Aurora: %NAME cannot be attacked by %SPECIES."
+	description = "an incredibly voluptuous %SPECIES female adorned in a %ELEMENT_AND robe. An equally tight-fitting crown sits atop her head."
+	special_effects = "Lustful Aurora: %NAME cannot be attacked by %SPECIES monsters."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_ARMY
 	rarity = BATTLE_MONSTERS_RARITY_MYTHICAL
 	rarity_score = 1
@@ -164,7 +163,7 @@ datum/battle_monsters/monster/human/warrior
 	name = "Dragon"
 	id = "dragon"
 	icon_state = "dragon"
-	power_add = 1500
+	power_add = BATTLE_MONSTERS_POWER_COMMON
 	defense_add = 2
 	attack_add = 1
 	description = "an adult male %SPECIES wielding %WEAPON_AND in each hand. %NAME such as these commonly inhabit the snowy mountains of the North."
@@ -177,7 +176,7 @@ datum/battle_monsters/monster/human/warrior
 	name = "Giant Dragon"
 	id = "dragon_giant"
 	icon_state = "dragon"
-	power_add = 3000
+	power_add = BATTLE_MONSTERS_POWER_GREATER
 	defense_add = 4
 	attack_add = 1
 	description = "an incredibly rare female %SPECIES of the %ELEMENT_AND vairety. Female %NAME are exceptionally rare among %SPECIESs, as they usually only show themselves every 1000 years."
@@ -185,17 +184,17 @@ datum/battle_monsters/monster/human/warrior
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLAWS
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_GIANT_DRAGON
 	rarity = BATTLE_MONSTERS_RARITY_MYTHICAL
-	rarity_score = 1
+	rarity_score = 2
 
 /datum/battle_monsters/monster/dragon/hybrid
 	name = "Dragoness"
 	id = "dragon_hybrid"
 	icon_state = "dragon"
-	power_add = 2000
+	power_add = BATTLE_MONSTERS_POWER_COMMON
 	defense_add = 2
 	attack_add = 1
 	description = "an unrealsticly busty feminine shaped %SPECIES. When not using their mammaries to confuse scientists, %NAME usually stalks careless human climbers for a quick and easy meal using their deadly %WEAPON_AND."
-	special_effects = "Lustful Aurora: %NAME cannot be attacked by %SPECIES."
+	special_effects = "Lustful Aurora: %NAME cannot be attacked by %SPECIES monsters."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLAWS
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_DRAGONHYBRID
 	rarity = BATTLE_MONSTERS_RARITY_RARE
@@ -205,12 +204,12 @@ datum/battle_monsters/monster/human/warrior
 	name = "Drake"
 	id = "drake"
 	icon_state = "dragon"
-	power_add = 2000
+	power_add = BATTLE_MONSTERS_POWER_COMMON
 	defense_add = 4
 	attack_mul = 0.25
 	elements = BATTLE_MONSTERS_ELEMENT_FIRE
 	description = "a skinny dark-scaled male %SPECIES bard warrior that prefers to rhyme than to attack with their %WEAPON_AND."
-	special_effects = "Hotline Bling: All %ELEMENT_OR element monsters recieve an additional <b>200</b> attack points."
+	special_effects = "Hotline Bling: All %ELEMENT_OR element monsters receive an additional <b>200</b> attack points."
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_DRAGONHYBRID
 	rarity = BATTLE_MONSTERS_RARITY_RARE
 	rarity_score = 1
@@ -219,7 +218,7 @@ datum/battle_monsters/monster/human/warrior
 	name = "Giant"
 	id = "giant"
 	icon_state = "giant"
-	power_add = 1800
+	power_add = BATTLE_MONSTERS_POWER_COMMON
 	defense_add = 1
 	attack_add = 1
 	description = "a hulking, unintellgent bipedal %SPECIES that can commonly be seen roaming the hillside searching for horses to herd and eat. It is theorized that %NAME are failed biological experiments of wizards from an older age."
@@ -233,7 +232,7 @@ datum/battle_monsters/monster/human/warrior
 	name = "Lizardman"
 	id = "lizardman"
 	icon_state = "lizard"
-	power_add = 500
+	power_add = BATTLE_MONSTERS_POWER_PETTY
 	defense_add = 1
 	attack_add = 1.5
 	description = "a well-built muscled bipedal male %SPECIES citizen of the marshes of Ka'best. %NAME enjoy hunting for sport, and do so proudly with their %WEAPON_AND."
@@ -252,9 +251,9 @@ datum/battle_monsters/monster/human/warrior
 	name = "Catbeast"
 	id = "catman"
 	icon_state = "cat"
-	power_add = 400
+	power_add = BATTLE_MONSTERS_POWER_PETTY
 	defense_add = 1
-	attack_add = 1.50
+	attack_add = 1.5
 	description = "a furred bipedal male %SPECIES citizen of the plains of Old Jargo. %NAME ocassionally hunt small creatures with their %WEAPON_AND."
 	defense_type = BATTLE_MONSTERS_DEFENSETYPE_CATMAN
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_CLAWS | BATTLE_MONSTERS_ATTACKTYPE_TEETH
@@ -267,10 +266,10 @@ datum/battle_monsters/monster/human/warrior
 	description = "a furred bipedal female %SPECIES citizen of the plains of Old Jargo. %NAME ocassionally hunt small creatures with their %WEAPON_AND."
 
 /datum/battle_monsters/monster/antman
-	name = "Great Ant Patron"
+	name = "Ant Patron"
 	id = "antman"
 	icon_state = "ant"
-	power_add = 400
+	power_add = BATTLE_MONSTERS_POWER_LESSER
 	defense_add = 1
 	attack_add = 1.50
 	description = "a quadruped chitin male %SPECIES citizen of the hills of Kalakest. Despite being a peaceful race, %NAME can be seen wielding %WEAPON_AND to defend their nests from foolish raiders looking to steal from their valuable eggs."
@@ -280,10 +279,10 @@ datum/battle_monsters/monster/human/warrior
 	rarity_score = 0
 
 /datum/battle_monsters/monster/antman/female
-	name = "Great Ant Matron"
+	name = "Ant Matron"
 	id = "antwoman"
 	icon_state = "ant"
-	power_add = 800
+	power_add = BATTLE_MONSTERS_POWER_LESSER
 	defense_add = 1.50
 	attack_add = 1
 	description = "a quadruped chitin female %SPECIES citizen of the hills of Kalakest. Despite being a peaceful race, %NAME can be seen wielding %WEAPON_AND to defend their nests from foolish raiders looking to steal from their valuable eggs. The females make excellent defenders because of this."

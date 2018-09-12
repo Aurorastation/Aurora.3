@@ -268,10 +268,10 @@
 	reagent_state = SOLID
 	color = "#CCCCCC"
 	taste_description = "salty dirt"
-	metabolism = REM * 2
-
+	metabolism = REM * 10
+	breathe_mul = 0
+		
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_turf(var/turf/simulated/T)
-
 	if(!istype(T))
 		return
 
@@ -288,13 +288,16 @@
 	remove_self(amount_to_remove)
 	return
 
-
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))
-		L.adjust_fire_stacks(-amount)
-		if(L.fire_stacks <= 0 )
+		var/needed = L.fire_stacks * 10
+		if(amount > needed)
 			L.fire_stacks = 0
 			L.ExtinguishMob()
+			remove_self(needed)
+		else
+			L.adjust_fire_stacks(-amount*0.5)
+			remove_self(amount)
 
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed)
 	if(istype(S))

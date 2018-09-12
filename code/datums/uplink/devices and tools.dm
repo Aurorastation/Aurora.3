@@ -25,7 +25,7 @@
 	name = "IPC surge prevention module"
 	item_cost = 12
 	path = /obj/item/stack/nanopaste/surge
-	desc = "An internal module that allow operative IPC frames to be protected from EMP pulse. The device has limited use that varies between one to three pulses"
+	desc = "An internal module that allow operative IPC frames to be protected from EMP pulse. The device has limited use that varies between two to five pulses"
 
 /datum/uplink_item/item/tools/clerical
 	name = "Morphic Clerical Kit"
