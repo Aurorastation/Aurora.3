@@ -17,6 +17,31 @@
 
 */
 
+//RECURSION
+/obj/machinery/vending/vendors
+	name = "Omni-Vendor"
+	desc = "The mother of all vendors, from which vending itself comes!"
+	icon_state = "engivend"
+	icon_deny = "engivend-deny"
+	vend_id = "admin"
+	req_access = list(access_janitor)
+	products = list(
+		/obj/item/weapon/vending_refill/booze = 1,
+		/obj/item/weapon/vending_refill/tools = 1,
+		/obj/item/weapon/vending_refill/coffee = 1,
+		/obj/item/weapon/vending_refill/snack = 1,
+		/obj/item/weapon/vending_refill/cola = 1,
+		/obj/item/weapon/vending_refill/pda = 1,
+		/obj/item/weapon/vending_refill/smokes = 1,
+		/obj/item/weapon/vending_refill/meds = 1,
+		/obj/item/weapon/vending_refill/robust = 1,
+		/obj/item/weapon/vending_refill/hydro = 1,
+		/obj/item/weapon/vending_refill/cutlery = 1,
+		/obj/item/weapon/vending_refill/robo = 1,
+		/obj/item/weapon/vending_refill/battlemonsters = 1,
+	)
+	random_itemcount = 0
+
 /obj/machinery/vending/boozeomat
 	name = "Booze-O-Mat"
 	desc = "A technological marvel, supposedly able to mix just the mixture you'd like to drink the moment you ask for one."
@@ -781,30 +806,6 @@
 	restock_items = 1
 	random_itemcount = 0
 
-//RECURSION
-/obj/machinery/vending/vendors
-	name = "Omni-Vendor"
-	desc = "The mother of all vendors, from which vending itself comes!"
-	icon_state = "engivend"
-	icon_deny = "engivend-deny"
-	vend_id = "admin"
-	req_access = list(access_janitor)
-	products = list(
-		/obj/item/weapon/vending_refill/booze = 1,
-		/obj/item/weapon/vending_refill/tools = 1,
-		/obj/item/weapon/vending_refill/coffee = 1,
-		/obj/item/weapon/vending_refill/snack = 1,
-		/obj/item/weapon/vending_refill/cola = 1,
-		/obj/item/weapon/vending_refill/pda = 1,
-		/obj/item/weapon/vending_refill/smokes = 1,
-		/obj/item/weapon/vending_refill/meds = 1,
-		/obj/item/weapon/vending_refill/robust = 1,
-		/obj/item/weapon/vending_refill/hydro = 1,
-		/obj/item/weapon/vending_refill/cutlery = 1,
-		/obj/item/weapon/vending_refill/robo = 1
-	)
-	random_itemcount = 0
-
 /obj/machinery/vending/zora
 	name = "Zo'ra Soda"
 	desc = "An energy drink vendor provided by the Getmore Corporation in partnership with the brood of Ta'Akaix'Xakt'yagz'isk Zo'ra."
@@ -836,4 +837,36 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/zoradrone = 30,
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
-	random_itemcount = 1
+
+/obj/machinery/vending/battlemonsters
+	name = "\improper Battlemonsters vendor"
+	desc = "A good place to dump all your rent money."
+	icon_state = "battlemonsters"
+	vend_id = "battlemonsters"
+	products = list(
+		/obj/item/weapon/book/manual/battlemonsters = 10,
+		/obj/item/battle_monsters/wrapped = 10,
+		/obj/item/battle_monsters/wrapped/pro = 10,
+		/obj/item/battle_monsters/wrapped/species = 4, //Human monsters
+		/obj/item/battle_monsters/wrapped/species/lizard = 4, //Reptile Monsters
+		/obj/item/battle_monsters/wrapped/species/cat = 4, //Feline Monsters
+		/obj/item/battle_monsters/wrapped/species/ant = 4, //Ant Monsters
+		/obj/item/battle_monsters/wrapped/rare = 4
+	)
+	prices = list(
+		/obj/item/weapon/book/manual/battlemonsters = 12,
+		/obj/item/battle_monsters/wrapped = 150,
+		/obj/item/battle_monsters/wrapped/pro = 100,
+		/obj/item/battle_monsters/wrapped/species = 150,
+		/obj/item/battle_monsters/wrapped/species/lizard = 150,
+		/obj/item/battle_monsters/wrapped/species/cat = 150,
+		/obj/item/battle_monsters/wrapped/species/ant = 150,
+		/obj/item/battle_monsters/wrapped/rare = 200
+	)
+	contraband = list(
+		/obj/item/battle_monsters/wrapped/legendary = 2
+	)
+	premium = list(
+		/obj/item/weapon/coin/battlemonsters = 10
+	)
+	restock_items = 0

@@ -421,7 +421,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/accessory/badge/fluff/dylan_tags //Dog Tags - Dylan Sutton - sircatnip
+/obj/item/clothing/accessory/badge/fluff/dylan_tags //Dog Tags - Dylan Wright - sircatnip
 	name = "dog tags"
 	desc = "Some black dog tags, engraved on them is the following: \"Wright, Dylan L, O POS, Pacific Union Special Forces\"."
 	icon = 'icons/obj/custom_items/dylan_tags.dmi'
@@ -2377,7 +2377,7 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 /obj/item/clothing/suit/storage/toggle/fluff/talon_coat //Embroidered Coat - Talon Hatfield - dronztheWolf
 	name = "embroidered coat"
 	desc = " Martian long coat, made to fend off dust storms and other unpleasantries. This one has a few patches sewn into it depicting: A Solarian flag, a Batallion number, and a large sun."
-	icon = 'icons/obj/custom_items/ryan_jacket.dmi'
+	icon = 'icons/obj/custom_items/talon_coat.dmi'
 	icon_state = "talon_coat"
 	item_state = "talon_coat"
 	icon_open = "talon_coat_open"
