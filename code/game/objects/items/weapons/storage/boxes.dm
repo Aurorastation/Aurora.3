@@ -1024,10 +1024,10 @@
 
 /obj/item/weapon/storage/box/produce
 	name = "produce box"
-	desc = "A large box of random, leftover produce. Thanks NanoTrasen."
+	desc = "A large box of random, leftover produce."
 	icon_state = "largebox"
 
 /obj/item/weapon/storage/box/produce/fill()
-	for(var/i in 1 to 8)
+	for(var/i in 1 to 12)
 		new /obj/random_produce(src)
 	make_exact_fit()
