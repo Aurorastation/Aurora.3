@@ -27,6 +27,7 @@
 /datum/reagent/bicaridine
 	name = "Bicaridine"
 	id = "bicaridine"
+	category = "brute"
 	description = "Bicaridine is an analgesic medication and can be used to treat blunt trauma. Lasts twice as long when inhaled, however it is generally twice as weak."
 	reagent_state = LIQUID
 	color = "#BF0000"
@@ -58,6 +59,7 @@
 /datum/reagent/kelotane
 	name = "Kelotane"
 	id = "kelotane"
+	category = "burn"
 	description = "Kelotane is a drug used to treat burns."
 	reagent_state = LIQUID
 	color = "#FFA800"
@@ -71,6 +73,7 @@
 /datum/reagent/dermaline
 	name = "Dermaline"
 	id = "dermaline"
+	category = "burn"
 	description = "Dermaline is the next step in burn medication. Works twice as good as kelotane and enables the body to restore even the direst heat-damaged tissue."
 	reagent_state = LIQUID
 	color = "#FF8000"
@@ -85,6 +88,7 @@
 /datum/reagent/dylovene
 	name = "Dylovene"
 	id = "anti_toxin"
+	category = "toxin"
 	description = "Dylovene is a broad-spectrum antitoxin."
 	reagent_state = LIQUID
 	color = "#00A000"
@@ -100,6 +104,7 @@
 /datum/reagent/dexalin
 	name = "Dexalin"
 	id = "dexalin"
+	category = "oxy"
 	description = "Dexalin is used in the treatment of oxygen deprivation. The medication is twice as powerful and lasts twice as long when inhaled."
 	reagent_state = LIQUID
 	color = "#0080FF"
@@ -121,6 +126,7 @@
 /datum/reagent/dexalinp
 	name = "Dexalin Plus"
 	id = "dexalinp"
+	category = "oxy"
 	description = "Dexalin Plus is used in the treatment of oxygen deprivation. It is highly effective, and is twice as powerful and lasts twice as long when inhaled."
 	reagent_state = LIQUID
 	color = "#0040FF"
@@ -157,6 +163,7 @@
 /datum/reagent/cryoxadone
 	name = "Cryoxadone"
 	id = "cryoxadone"
+	category = "cryo"
 	description = "A chemical mixture with almost magical healing powers. Its main limitation is that the targets body temperature must be under 170K for it to metabolise correctly."
 	reagent_state = LIQUID
 	color = "#8080FF"
@@ -174,6 +181,7 @@
 /datum/reagent/clonexadone
 	name = "Clonexadone"
 	id = "clonexadone"
+	category = "cryo"
 	description = "A liquid compound similar to that used in the cloning process. Can be used to 'finish' the cloning process when used in conjunction with a cryo tube."
 	reagent_state = LIQUID
 	color = "#80BFFF"

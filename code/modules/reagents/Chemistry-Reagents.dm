@@ -1,6 +1,7 @@
 /datum/reagent
 	var/name = "Reagent"
 	var/id = "reagent"
+	var/category
 	var/description = "A non-descript chemical."
 	var/taste_description = "old rotten bandaids"
 	var/taste_mult = 1 //how this taste compares to others. Higher values means it is more noticable
@@ -47,6 +48,29 @@
 /datum/reagent/proc/touch_turf(var/turf/T, var/amount) // Cleaner cleaning, lube lubbing, etc, all go here
 	return
 
+/datum/reagent/proc/get_metabolism(var/location,var/no_calc = FALSE)
+	var/removed = metabolism
+	if(ingest_met && (location == CHEM_INGEST))
+		removed = ingest_met
+	if(touch_met && (location == CHEM_TOUCH))
+		removed = touch_met
+	if(breathe_met && (location == CHEM_BREATHE))
+		removed = breathe_met
+
+	if(!category || no_calc || removed <= 0)
+		return removed
+
+	var/total_metabolism = 0
+
+	for(var/datum/reagent/other_reagent in holder)
+		if(other_reagent == src)
+			continue
+		if(other_reagent.category != category)
+			continue
+		total_metabolism += other_reagent.get_metabolism(location,TRUE)
+
+	return min(removed,(removed / total_metabolism) * removed)
+
 /datum/reagent/proc/on_mob_life(var/mob/living/carbon/M, var/alien, var/location) // Currently, on_mob_life is called on carbons. Any interaction with non-carbon mobs (lube) will need to be done in touch_mob.
 	if(!istype(M))
 		return
@@ -58,15 +82,7 @@
 	if(!dose && volume)//If dose is currently zero, we do the first effect
 		initial_effect(M, alien)
 
-	var/removed = metabolism
-	if(ingest_met && (location == CHEM_INGEST))
-		removed = ingest_met
-	if(touch_met && (location == CHEM_TOUCH))
-		removed = touch_met
-	if(breathe_met && (location == CHEM_BREATHE))
-		removed = breathe_met
-
-	removed = min(removed, volume)
+	var/removed = min(get_metabolism(location), volume)
 	max_dose = max(volume, max_dose)
 
 	if(overdose && (dose > overdose) && (location != CHEM_TOUCH))
@@ -87,6 +103,7 @@
 				affect_touch(M, alien, removed)
 			if(CHEM_BREATHE)
 				affect_breathe(M, alien, removed)
+
 	remove_self(removed)
 
 //Initial effect is called once when the reagent first starts affecting a mob.
@@ -101,15 +118,15 @@
 
 /datum/reagent/proc/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ingest_mul)
-		affect_blood(M, alien, removed * ingest_mul)
+		M.reagents.add_reagent(id, removed * ingest_mul, data, TRUE)
 
 /datum/reagent/proc/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	if(touch_mul)
-		affect_blood(M, alien, removed * touch_mul)
+		M.reagents.add_reagent(id, removed * touch_mul, data, TRUE)
 
 /datum/reagent/proc/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed)
 	if(breathe_mul)
-		affect_blood(M, alien, removed * breathe_mul)
+		M.reagents.add_reagent(id, removed * breathe_mul, data, TRUE)
 
 /datum/reagent/proc/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1) // Overdose effect. Doesn't happen instantly.
 	M.adjustToxLoss(REM)
