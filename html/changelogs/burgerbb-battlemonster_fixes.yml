@@ -36,3 +36,4 @@ delete-after: True
 changes: 
   - bugfix: "Fixed offline Battlemonster vending machine sprite having a white background."
   - tweak: "Adjusted battlemonster star calculation."
+  - tweak: "Slightly lowered the cost of battlemonster cards."
