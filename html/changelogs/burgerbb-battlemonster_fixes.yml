@@ -34,6 +34,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - bugfix: "Fixed offline Battlemonster vending machine sprite having a white background."
-  - tweak: "Adjusted battlemonster star calculation."
-  - tweak: "Slightly lowered the cost of battlemonster cards."
+  - bugfix: "Fixed offline Battlemonster vending machine sprite having a white background. Fixes card searching typo."
+  - tweak: "Adjusted battlemonster star calculation. Slightly lowered the cost of battlemonster cards. Deck searching speed is now based on the number of cards in the deck."
