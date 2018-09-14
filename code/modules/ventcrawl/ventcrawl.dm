@@ -1,7 +1,7 @@
 var/list/ventcrawl_machinery = list(
 	/obj/machinery/atmospherics/unary/vent_pump,
 	/obj/machinery/atmospherics/unary/vent_scrubber
-	)
+)
 
 // Vent crawling whitelisted items, whoo
 var/global/list/can_enter_vent_with = list(
@@ -12,7 +12,7 @@ var/global/list/can_enter_vent_with = list(
 	/obj/machinery/camera,
 	/mob/living/simple_animal/borer,
 	/mob/living/simple_animal/mouse
-	)
+)
 
 /mob/living/var/list/icon/pipes_shown = list()
 /mob/living/var/last_played_vent

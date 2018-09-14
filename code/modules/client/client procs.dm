@@ -95,7 +95,7 @@
 	if(href_list["warnacknowledge"])
 		var/queryid = text2num(href_list["warnacknowledge"])
 		warnings_acknowledge(queryid)
-	
+
 	if(href_list["notifacknowledge"])
 		var/queryid = text2num(href_list["notifacknowledge"])
 		notifications_acknowledge(queryid)

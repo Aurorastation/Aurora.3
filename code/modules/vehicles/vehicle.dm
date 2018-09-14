@@ -356,6 +356,7 @@
 /obj/vehicle/post_buckle_mob(var/mob/M)
 	if (M.client)
 		M.client.move_delay = M.movement_delay() + config.walk_speed
+		M.client.glide_size = 1 / (M.client.move_delay - world.time)
 
 //-------------------------------------------------------
 // Stat update procs

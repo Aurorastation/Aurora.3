@@ -2,6 +2,7 @@
 	density = 1
 	layer = 4.0
 	animate_movement = 2
+	glide_size = 6
 	flags = PROXMOVE
 	sight = DEFAULT_SIGHT
 	var/datum/mind/mind
