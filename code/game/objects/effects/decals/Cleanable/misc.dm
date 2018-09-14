@@ -144,3 +144,22 @@
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "mfloor1"
 	random_icon_states = list("mfloor1", "mfloor2", "mfloor3", "mfloor4", "mfloor5", "mfloor6", "mfloor7")
+
+/obj/effect/decal/cleanable/blood/holographic
+	name = "holoblood"
+	desc = "Thank goodness it's not real blood."
+	gender = PLURAL
+	alpha = 128
+	dries = FALSE
+
+/obj/effect/decal/cleanable/blood/holographic/reveal_blood()
+	return
+
+/obj/effect/decal/cleanable/blood/holographic/Crossed(mob/living/carbon/human/perp)
+	return
+
+/obj/effect/decal/cleanable/blood/holographic/dry()
+	return
+
+/obj/effect/decal/cleanable/blood/holographic/attack_hand(mob/living/carbon/human/user)
+	return

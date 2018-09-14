@@ -69,6 +69,19 @@
 	icon_state = "ice_2"
 	speed = 4
 
+/obj/item/projectile/energy/electrode/blood_bolt
+	name = "blood bolt"
+	icon = 'icons/obj/projectiles.dmi'
+	icon_state = "blood"
+	taser_effect = 1
+	agony = 20
+	speed = 2
+
+/obj/item/projectile/energy/electrode/blood_bolt/process()
+	if( locate(/obj/effect/decal/cleanable/blood/holographic, src.loc) || isopenturf(src.loc) )
+		return ..()
+	new /obj/effect/decal/cleanable/blood/holographic(src.loc)
+
 /obj/item/projectile/energy/declone
 	name = "decloner beam"
 	icon_state = "declone"

@@ -15,7 +15,7 @@
 	max_n2 = 0
 	minbodytemp = 0
 	environment_smash = 0
-	retribution = 0
+	retribution = TRUE
 
 	melee_damage_lower = 25
 	melee_damage_upper = 25
@@ -26,6 +26,8 @@
 	var/defense_mode = FALSE
 
 	var/death_message = "is defeated!"
+
+	tameable = FALSE
 
 /mob/living/simple_animal/hostile/commanded/battlemonster/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
 	if (!istype(AM,/obj/item/battle_monsters/card))

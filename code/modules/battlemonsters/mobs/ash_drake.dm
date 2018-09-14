@@ -18,6 +18,8 @@
 	icon_dead = "dragon_dead"
 	icon_gib = "dragon_dead"
 
+	attack_sound = 'sound/magic/demon_attack1.ogg'
+
 	projectilesound = 'sound/magic/Fireball.ogg'
 	projectiletype = /obj/item/projectile/energy/electrode/fireball
 
@@ -30,7 +32,9 @@
 	health = 1000
 	maxHealth = 1000
 
-	speed = 24
+	speed = 1 SECOND
+	move_to_delay = 1 SECOND
+	attack_delay = 0.25 SECONDS
 
 	var/swooping = 0
 	var/swoop_cooldown = 0
@@ -41,7 +45,7 @@
 	if(swoop_cooldown >= world.time)
 		to_chat(src, "<span class='warning'>You need to wait [DRAKE_SWOOP_COOLDOWN/10] seconds between swoop attacks!</span>")
 		return
-	swoop_attack(A)
+	INVOKE_ASYNC(src,.proc/swoop_attack_multi,A)
 
 /mob/living/simple_animal/hostile/commanded/battlemonster/ash_drake/CtrlClickOn(atom/movable/A)
 	if(!istype(A))
@@ -49,14 +53,15 @@
 	if(swoop_cooldown >= world.time)
 		to_chat(src, "<span class='warning'>You need to wait [ (DRAKE_SWOOP_COOLDOWN/10) * 3] seconds between swoop attacks!</span>")
 		return
-	swoop_attack(A)
-	swoop_attack(A)
-	swoop_attack(A)
+	INVOKE_ASYNC(src,.proc/swoop_attack,A)
 	swoop_cooldown = world.time + DRAKE_SWOOP_COOLDOWN*3
 
 /mob/living/simple_animal/hostile/commanded/battlemonster/ash_drake/AttackingTarget()
 	if(swooping)
 		return
+
+	if(!ckey && prob(20))
+		ranged = 1
 
 	..()
 
@@ -68,33 +73,38 @@
 /mob/living/simple_animal/hostile/commanded/battlemonster/ash_drake/DestroySurroundings()
 	if(swooping)
 		return
-
 	..()
 
 /mob/living/simple_animal/hostile/commanded/battlemonster/ash_drake/follow_target()
 	if(swooping)
 		return
-
 	..()
 
 /mob/living/simple_animal/hostile/commanded/battlemonster/ash_drake/MoveToTarget()
-	if(swooping || prob(10))
+	if(swooping)
 		return
-
 	. = ..()
+
+/mob/living/simple_animal/hostile/commanded/battlemonster/ash_drake/proc/swoop_attack_multi(atom/movable/manual_target, swoop_duration = 40)
+	swoop_attack(manual_target,swoop_duration)
+	swoop_attack(manual_target,swoop_duration)
+	swoop_attack(manual_target,swoop_duration)
 
 /mob/living/simple_animal/hostile/commanded/battlemonster/ash_drake/OpenFire(target_mob)
 
 	if(swooping)
 		return
 
-	if(!ckey && swoop_cooldown <= world.time && get_dist(., src) >= 6 )
+
+	face_atom(target_mob)
+
+	stop_automated_movement = TRUE
+
+	if(!ckey && swoop_cooldown <= world.time)
 		if(prob(10))
-			swoop_attack(.)
-			swoop_attack(.)
-			swoop_attack(.)
+			INVOKE_ASYNC(src, .proc/swoop_attack_multi,target_mob)
 		else
-			swoop_attack(.)
+			INVOKE_ASYNC(src, .proc/swoop_attack,target_mob)
 	else
 		. = ..()
 
@@ -181,8 +191,9 @@
 
 	density = TRUE
 	sleep(1)
-	swooping &= ~SWOOP_DAMAGEABLE
+	swooping = 0
 	setClickCooldown(MEGAFAUNA_DEFAULT_RECOVERY_TIME)
+	ranged = prob(50)
 
 /obj/effect/temp_visual/dragon_swoop
 	name = "certain death"
