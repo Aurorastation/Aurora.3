@@ -785,7 +785,7 @@
 /datum/reagent/toxin/trioxin
 	name = "Trioxin"
 	id = "trioxin"
-	description = "A synthetic compound of unknown origins, designated as a performance enhancing substance originally."
+	description = "A synthetic compound of unknown origins, designated originally as a performance enhancing substance."
 	reagent_state = LIQUID
 	color = "#E7E146"
 	strength = 1
