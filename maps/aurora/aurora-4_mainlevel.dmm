@@ -72,7 +72,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/mine/unexplored)
+/area/maintenance/security_starboard)
 "aam" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning{
@@ -42230,7 +42230,6 @@
 /area/maintenance/research_port)
 "bxV" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/binary/pump{
 	dir = 8;
 	use_power = 1
@@ -62191,7 +62190,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/mine/unexplored)
+/area/maintenance/security_starboard)
 "xDC" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
@@ -98875,7 +98874,7 @@ aab
 aab
 aab
 aab
-aaR
+aad
 aad
 aad
 aad
