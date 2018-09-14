@@ -106,7 +106,7 @@
 	var/answer = input("Choose the answer.", "Magic eightball question") as null|anything in possible_answers
 
 	if(answered)
-			return
+		return
 
 	if(answer)
 		ghostly_reply = answer
