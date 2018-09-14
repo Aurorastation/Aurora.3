@@ -32,7 +32,7 @@
 		"onion" = 0.5
 	)
 
-/obj/random_produce/Initialize(var/mapload = 1)
+/obj/random_produce/Initialize()
 	. = ..()
 
 	var/seed_chosen = pickweight(produce_list)
