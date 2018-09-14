@@ -5795,6 +5795,14 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 2;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/medical/psych)
 "kF" = (
@@ -7616,6 +7624,14 @@
 	icon_state = "rwindow";
 	dir = 1
 	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 8;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/medical/psych)
 "Hb" = (
@@ -7695,6 +7711,14 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 8
+	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 8;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
 	},
 /turf/simulated/floor/plating,
 /area/medical/psych)
@@ -7851,6 +7875,14 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 8;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/medical/psych)
 "HD" = (
@@ -46136,9 +46168,9 @@ kb
 kl
 jG
 GT
-kR
-kR
-kR
+GT
+GT
+GT
 kw
 aa
 aa
@@ -46391,11 +46423,11 @@ jM
 jV
 kc
 kc
-jH
+Gg
 GU
-Hk
-kV
-sN
+GU
+GV
+GU
 kw
 aa
 aa
@@ -46648,10 +46680,10 @@ jM
 jV
 kd
 km
-jJ
+Gh
 GV
-Hl
-kV
+GV
+GV
 lo
 kw
 aa
@@ -46906,10 +46938,10 @@ jV
 ke
 ke
 jG
-GW
-Hm
-kV
-sN
+GU
+GU
+GV
+GU
 kw
 kw
 kw
@@ -47163,12 +47195,12 @@ jV
 kf
 kl
 kE
-GX
-kV
-kV
-kV
-kV
-kR
+GV
+GV
+GV
+GV
+GV
+GT
 kw
 aa
 aa
@@ -47419,13 +47451,13 @@ jM
 jV
 kc
 kc
-jJ
-GY
-sN
-kV
-sN
-sN
-kR
+Gh
+GU
+GU
+GV
+GU
+GU
+GT
 kw
 aa
 jG
@@ -47678,11 +47710,11 @@ kg
 km
 jG
 kN
-kV
-kV
-kV
-kV
-kR
+GV
+GV
+GV
+GV
+GT
 kw
 aa
 jG
@@ -47934,12 +47966,12 @@ jX
 jG
 jG
 jG
-GZ
-sN
-kV
-sN
-sN
-kR
+GU
+GU
+GV
+GU
+GU
+GT
 kw
 aa
 jG
@@ -48193,15 +48225,15 @@ jG
 jG
 Ha
 Hn
-Hs
-lt
+Hn
+Hn
 HC
 jG
 jG
 jG
 jG
-Ie
-Ik
+Gi
+Gy
 jG
 jK
 jK
@@ -48460,15 +48492,15 @@ HZ
 If
 Il
 jG
-Is
+Hw
 Iz
-IA
-IB
-IC
-ID
-IE
-IF
-IG
+Iz
+Iz
+Iz
+Iz
+Iz
+Iz
+Iz
 lY
 jK
 aa
@@ -48700,24 +48732,24 @@ FR
 FV
 Gc
 Gj
-Gq
+Gj
 jZ
-Gz
+Gr
 GJ
-GN
+Gr
 Hb
-Hp
-Ht
-jR
-HD
-jR
+Gr
+Gr
+Gr
+FQ
+Gr
 HP
 HR
-Ia
-jR
+FQ
+Gr
 Im
 jG
-It
+GC
 jK
 jK
 jK
@@ -48961,11 +48993,11 @@ Gr
 Gw
 GA
 GK
-GO
+GK
 Hc
-Hq
-lj
-lj
+GK
+GK
+GK
 HE
 lS
 lS
@@ -48974,7 +49006,7 @@ Ib
 Ig
 In
 jG
-Iu
+GC
 jK
 aa
 aa
@@ -49227,11 +49259,11 @@ HF
 HK
 jG
 HT
-jR
+Gr
 Ih
-Io
+Il
 jG
-Iv
+GC
 jK
 aa
 aa
@@ -49485,10 +49517,10 @@ HL
 jG
 HU
 Ic
-Ii
+Ic
 Ip
 jG
-Iw
+GC
 jK
 aa
 aa
@@ -49745,7 +49777,7 @@ jG
 jG
 jG
 jG
-Ix
+GC
 jK
 aa
 aa
@@ -49987,10 +50019,10 @@ kc
 lH
 Gu
 jG
-GD
+GC
 jG
 kB
-Hf
+He
 jG
 Hv
 lc
@@ -49998,11 +50030,11 @@ ln
 lA
 jG
 HV
-Id
-Ij
-Iq
-Ir
-Iy
+GL
+GL
+GL
+GL
+Hx
 jK
 aa
 aa
@@ -50244,7 +50276,7 @@ Ge
 Gn
 Gv
 jG
-GE
+GC
 jG
 GR
 Hg
@@ -50501,17 +50533,17 @@ lw
 lI
 jG
 jG
-GF
+GC
 jG
 kD
-Hh
+He
 jG
 kT
 HA
 HI
 HN
 jG
-HX
+HW
 jK
 aa
 aa
@@ -50758,17 +50790,17 @@ Gf
 Go
 jG
 jG
-GG
+GC
 jG
 ka
-Hi
+He
 jG
 jG
 jG
 jG
 jG
 jG
-lX
+HW
 jK
 aa
 aa
@@ -51015,17 +51047,17 @@ ab
 ab
 ab
 jK
-GH
+GC
 jG
 jG
 jG
 jG
 Hw
-HB
-HJ
-HO
-HQ
-HY
+GL
+GL
+GL
+GL
+Hx
 jK
 aa
 aa
@@ -51274,9 +51306,9 @@ ab
 jK
 GI
 GL
-GS
-Hj
-Hr
+GL
+GL
+GL
 Hx
 jK
 jK
