@@ -15,13 +15,13 @@
 
 /obj/item/clothing/mask/breath/vaurca/expression
 	name = "human expression mask"
-	desc = "A mask that allows emotively challenged aliens  to convey facial expressions. This one depicts a human."
+	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a human."
 	icon_state = "human_mask"
 	item_state = "human_mask"
 
 /obj/item/clothing/mask/breath/vaurca/expression/skrell
 	name = "skrell expression mask"
-	desc = "A mask that allows emotively challenged aliens  to convey facial expressions. This one depicts a skrell."
+	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a skrell."
 	icon_state = "skrell_mask"
 	item_state = "skrell_mask"
 
