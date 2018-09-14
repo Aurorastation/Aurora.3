@@ -99,11 +99,19 @@
 	sort_category = "Xenowear"
 
 /datum/gear/mask/vaurca
-	display_name = "mandible garment (Vaurca)"
+	display_name = "mask selection (Vaurca)"
 	path = /obj/item/clothing/mask/breath/vaurca
 	cost = 1
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior",)
 	sort_category = "Xenowear"
+
+/datum/gear/mask/vaurca/New()
+	..()
+	var/masks = list()
+	masks["mandible garment"] = /obj/item/clothing/mask/breath/vaurca
+	masks["human expression mask"] = /obj/item/clothing/mask/breath/vaurca/expression
+	masks["vaurca expression mask"] = /obj/item/clothing/mask/breath/vaurca/expression/skrell
+	gear_tweaks += new/datum/gear_tweak/path(masks)
 
 /datum/gear/cape
 	display_name = "tunnel cloak (Vaurca)"
