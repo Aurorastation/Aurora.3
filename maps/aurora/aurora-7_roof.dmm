@@ -2759,96 +2759,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
-"gl" = (
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/airless,
-/area/solar/auxport)
-"gm" = (
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/airless,
-/area/solar/auxport)
-"gn" = (
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/airless,
-/area/solar/auxport)
-"go" = (
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/airless,
-/area/solar/auxport)
-"gp" = (
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/airless,
-/area/solar/auxport)
 "gq" = (
 /obj/structure/cable/yellow{
 	d1 = 2;
@@ -2930,96 +2840,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
-"gx" = (
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/airless,
-/area/solar/auxport)
-"gy" = (
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/airless,
-/area/solar/auxport)
-"gz" = (
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/airless,
-/area/solar/auxport)
-"gA" = (
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/airless,
-/area/solar/auxport)
-"gB" = (
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/airless,
-/area/solar/auxport)
 "gC" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -28150,7 +27970,7 @@ dK
 dK
 dK
 dK
-gl
+gq
 dK
 dK
 dK
@@ -28162,7 +27982,7 @@ dX
 dX
 dX
 dX
-gx
+gC
 dX
 dX
 dX
@@ -28965,10 +28785,10 @@ ah
 ah
 ah
 ah
-fg
-ai
-ai
-am
+ah
+ah
+ah
+al
 aa
 aa
 aa
@@ -29178,7 +28998,7 @@ dK
 dK
 dK
 dK
-gm
+gq
 dK
 dK
 dK
@@ -29190,7 +29010,7 @@ dX
 dX
 dX
 dX
-gy
+gC
 dX
 dX
 dX
@@ -29222,10 +29042,10 @@ ah
 ah
 ah
 ah
+ah
+ah
+ah
 al
-aa
-aa
-aa
 aa
 aa
 aa
@@ -29479,10 +29299,10 @@ ah
 ah
 ah
 ah
+ah
+ah
+ah
 al
-aa
-aa
-aa
 aa
 aa
 aa
@@ -29736,10 +29556,10 @@ ah
 ah
 ah
 ah
+ah
+ah
+ah
 al
-aa
-aa
-aa
 aa
 aa
 aa
@@ -29994,9 +29814,9 @@ ah
 ah
 ah
 ah
-aw
-aa
-aa
+ah
+ah
+al
 aa
 aa
 aa
@@ -30206,7 +30026,7 @@ dK
 dK
 dK
 dK
-gn
+gq
 dK
 dK
 dK
@@ -30218,7 +30038,7 @@ dX
 dX
 dX
 dX
-gz
+gC
 dX
 dX
 dX
@@ -30251,9 +30071,9 @@ ah
 ah
 ah
 ah
+ah
+ah
 al
-aa
-aa
 aa
 aa
 aa
@@ -30508,9 +30328,9 @@ ah
 ah
 ah
 ah
+ah
+ah
 al
-aa
-aa
 aa
 aa
 aa
@@ -30765,9 +30585,9 @@ ah
 ah
 ah
 ah
+ah
+ah
 al
-aa
-aa
 aa
 aa
 aa
@@ -31022,9 +30842,9 @@ ah
 ah
 ah
 ah
+ah
+ah
 al
-aa
-aa
 aa
 aa
 aa
@@ -31279,9 +31099,9 @@ ah
 ah
 ah
 ah
+ah
+ah
 fh
-ag
-ag
 ag
 ag
 ag
@@ -31748,7 +31568,7 @@ dK
 dK
 dK
 dK
-go
+gq
 dK
 dK
 dK
@@ -31760,7 +31580,7 @@ dX
 dX
 dX
 dX
-gA
+gC
 dX
 dX
 dX
@@ -32776,7 +32596,7 @@ dK
 dK
 dK
 dK
-gp
+gq
 dK
 dK
 dK
@@ -32788,7 +32608,7 @@ dX
 dX
 dX
 dX
-gB
+gC
 dX
 dX
 dX

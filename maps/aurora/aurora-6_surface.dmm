@@ -17416,6 +17416,13 @@
 "Gk" = (
 /turf/simulated/wall,
 /area/quartermaster/qm)
+"Gl" = (
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "Gm" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -17992,6 +17999,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/civilian_east)
+"Hs" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "Ht" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -45959,7 +45970,7 @@ GT
 Hh
 Ht
 DW
-sU
+Cg
 Fs
 sU
 aw
@@ -46216,7 +46227,7 @@ GU
 Hi
 Hu
 DW
-sU
+Gl
 Fs
 sU
 aw
@@ -46473,7 +46484,7 @@ GV
 Hj
 Hv
 DW
-sU
+Hs
 Fs
 sU
 aw

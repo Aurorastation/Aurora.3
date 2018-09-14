@@ -3112,7 +3112,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/quartermaster/office)
+/area/quartermaster/storage)
 "ags" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
@@ -3126,7 +3126,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/quartermaster/office)
+/area/quartermaster/storage)
 "agt" = (
 /obj/machinery/light/small/emergency,
 /turf/simulated/open,
@@ -5596,6 +5596,33 @@
 /obj/structure/cable/green,
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
+"ali" = (
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 2
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/lobby)
 "alj" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -5774,9 +5801,94 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"alA" = (
+/obj/item/modular_computer/console/preset/supply,
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/firealarm/north,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/lobby)
+"alB" = (
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/machinery/status_display/supply_display{
+	pixel_y = 32
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/lobby)
+"alC" = (
+/obj/item/weapon/folder/yellow,
+/obj/item/device/eftpos{
+	eftpos_name = "Cargo Bay EFTPOS scanner"
+	},
+/obj/structure/table/standard{
+	name = "plastic table frame"
+	},
+/obj/machinery/camera/network/supply{
+	c_tag = "Cargo - Main Desk";
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/item/device/multitool,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/lobby)
 "alD" = (
 /turf/simulated/floor/tiled,
 /area/security/main)
+"alE" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/quartermaster/lobby)
+"alF" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/item/device/radio/intercom{
+	name = "Station Intercom (General)";
+	pixel_y = -29
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/mail_room)
+"alG" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/table/standard,
+/obj/item/device/destTagger,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/quartermaster/mail_room)
 "alI" = (
 /obj/machinery/door/airlock/security{
 	name = "Evidence Storage";
@@ -62862,20 +62974,6 @@
 	},
 /turf/simulated/wall,
 /area/crew_quarters/kitchen)
-"xEm" = (
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
-	},
-/obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
-/obj/machinery/status_display/supply_display{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/lobby)
 "xEn" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -62956,15 +63054,6 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/lobby)
-"xEv" = (
-/obj/item/modular_computer/console/preset/supply,
-/obj/effect/floor_decal/corner/brown{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "xEx" = (
@@ -63249,28 +63338,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
-"xFD" = (
-/obj/item/weapon/folder/yellow,
-/obj/item/device/eftpos{
-	eftpos_name = "Cargo Bay EFTPOS scanner"
-	},
-/obj/structure/table/standard{
-	name = "plastic table frame"
-	},
-/obj/machinery/camera/network/supply{
-	c_tag = "Cargo - Main Desk";
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/brown{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/item/device/multitool,
-/obj/structure/sign/drop{
-	pixel_x = -32
-	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/lobby)
 "xFG" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
@@ -63970,16 +64037,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"xHp" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 10
-	},
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 2
-	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/lobby)
 "xHq" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -64007,29 +64064,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/quartermaster/lobby)
-"xHt" = (
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
-/obj/effect/floor_decal/corner/brown{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "xHy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -65301,32 +65335,6 @@
 /obj/structure/table/standard,
 /obj/item/weapon/wrapping_paper,
 /obj/effect/floor_decal/corner/brown/full,
-/turf/simulated/floor/tiled,
-/area/quartermaster/mail_room)
-"xLa" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/table/standard,
-/obj/effect/floor_decal/corner/brown{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/mail_room)
-"xLb" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/table/standard,
-/obj/item/device/destTagger,
-/obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
-	pixel_y = -29
-	},
-/obj/effect/floor_decal/corner/brown{
-	dir = 10
-	},
-/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
 "xLc" = (
@@ -91128,12 +91136,12 @@ cqa
 cqa
 cpZ
 xGA
-xEm
+alB
 xEA
 xFp
 xFp
 xFp
-xFD
+alC
 xFX
 xGq
 bZA
@@ -91909,7 +91917,7 @@ xGI
 xGI
 xGH
 xGY
-xHp
+alE
 xLr
 xIa
 xKz
@@ -92937,7 +92945,7 @@ xGe
 xGx
 xGL
 xHc
-xHt
+ali
 xLQ
 xLQ
 xJL
@@ -93441,7 +93449,7 @@ cpL
 cqh
 cqi
 xGA
-xEv
+alA
 xEJ
 xEW
 xFj
@@ -93459,7 +93467,7 @@ xJe
 xKH
 xKH
 xKF
-xLa
+alF
 xLQ
 xLL
 bSx
@@ -93716,7 +93724,7 @@ xJe
 xKH
 xKH
 xKH
-xLb
+alG
 xLQ
 xMi
 xLW
