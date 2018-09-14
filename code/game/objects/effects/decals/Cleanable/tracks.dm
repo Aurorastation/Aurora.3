@@ -171,8 +171,8 @@
 /obj/effect/decal/cleanable/blood/tracks/paw
 	name = "wet tracks"
 	dryname = "dried tracks"
-	desc = "They look like still wet tracks left by a mammal."
-	drydesc = "They look like dried tracks left by a mammal."
+	desc = "They look like still wet tracks left by paws."
+	drydesc = "They look like dried tracks left by paws."
 	coming_state = "paw1"
 	going_state  = "paw2"
 	random_icon_states = null
@@ -181,8 +181,8 @@
 /obj/effect/decal/cleanable/blood/tracks/claw
 	name = "wet tracks"
 	dryname = "dried tracks"
-	desc = "They look like still wet tracks left by a reptile."
-	drydesc = "They look like dried tracks left by a reptile."
+	desc = "They look like still wet tracks left by claws."
+	drydesc = "They look like dried tracks left by claws."
 	coming_state = "claw1"
 	going_state  = "claw2"
 	random_icon_states = null
