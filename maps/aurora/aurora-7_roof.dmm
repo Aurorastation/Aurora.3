@@ -2694,6 +2694,396 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
+"ge" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gf" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gg" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gh" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gi" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gj" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gk" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gl" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/solar/auxport)
+"gm" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/solar/auxport)
+"gn" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/solar/auxport)
+"go" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/solar/auxport)
+"gp" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/solar/auxport)
+"gq" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/solar/auxport)
+"gr" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gs" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gt" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gu" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/airless,
+/area/solar/auxport)
+"gv" = (
+/obj/structure/cable/yellow{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/airless,
+/area/solar/auxport)
+"gw" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gx" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/solar/auxport)
+"gy" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/solar/auxport)
+"gz" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/solar/auxport)
+"gA" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/solar/auxport)
+"gB" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/solar/auxport)
+"gC" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/solar/auxport)
+"gD" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gE" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gF" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gG" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gH" = (
+/obj/random/loot,
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
 
 (1,1,1) = {"
 aa
@@ -26218,19 +26608,19 @@ ab
 ab
 ab
 ab
-ad
-ag
-ag
-aw
-ab
-ab
-ae
-ah
-ah
-ah
-ah
-ah
-ah
+fk
+aP
+aP
+aP
+aP
+aP
+gs
+ai
+ai
+ai
+ai
+ai
+fi
 ah
 al
 ab
@@ -26475,19 +26865,19 @@ ab
 ab
 ac
 ab
+aJ
+dF
+dF
+dF
+dF
+dF
+gt
+dW
+dF
+dF
+dF
+dF
 ae
-ah
-ah
-fh
-ag
-ag
-fe
-ah
-ah
-ah
-ah
-ah
-ah
 ah
 fh
 aw
@@ -26732,19 +27122,19 @@ ab
 ab
 ab
 ab
+aJ
+dG
+dK
+dK
+dK
+dK
+gu
+dX
+dX
+dX
+dX
+dY
 ae
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
 ah
 ah
 al
@@ -26989,19 +27379,19 @@ ab
 ab
 ab
 ab
+aJ
+dH
+dH
+dH
+dH
+dH
+gv
+dH
+dH
+dH
+dH
+dH
 ae
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
 ah
 ah
 al
@@ -27240,31 +27630,31 @@ ag
 ag
 ag
 ag
-ag
-ag
-ag
-ag
-ag
 fy
+aP
+aP
+aP
+aP
+gi
+gk
+bb
+bb
+bb
+bb
+gr
+dP
+gw
+bb
+bb
+bb
+bb
 fz
+gD
 ai
-ai
-ai
-ai
-ai
-ai
-ai
-ai
-ai
-ai
-ai
-ai
-ff
-ah
-al
-ab
-ab
-ab
+gE
+bb
+bb
+gF
 ab
 ac
 ab
@@ -27497,12 +27887,12 @@ ah
 ah
 ah
 ah
-ah
-ah
-ah
-ah
-ah
 al
+dF
+dF
+dF
+dF
+dF
 dF
 dF
 dF
@@ -27516,12 +27906,12 @@ dF
 dF
 dF
 dF
-ae
-ah
-al
-ab
-ab
-ab
+dW
+dF
+dF
+dF
+dF
+aJ
 ab
 ab
 ab
@@ -27754,13 +28144,13 @@ ah
 ah
 ah
 ah
-ah
-ah
-ah
-ah
-ah
 al
 dG
+dK
+dK
+dK
+dK
+gl
 dK
 dK
 dK
@@ -27772,13 +28162,13 @@ dX
 dX
 dX
 dX
+gx
+dX
+dX
+dX
+dX
 dY
-ae
-ah
-fh
-ag
-aw
-ab
+aJ
 ab
 ab
 ab
@@ -28011,12 +28401,12 @@ ah
 ah
 ah
 ah
-ah
-ah
-ah
-ah
-ah
 al
+dH
+dH
+dH
+dH
+dH
 dH
 dH
 dH
@@ -28030,12 +28420,12 @@ dH
 dH
 dH
 dH
-ae
-ah
-ah
-ah
-al
-ab
+dH
+dH
+dH
+dH
+dH
+aJ
 ab
 ab
 ab
@@ -28268,12 +28658,12 @@ ah
 ah
 ah
 ah
-ah
-ah
-ah
-ah
-ah
 al
+ah
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -28287,12 +28677,12 @@ ah
 ah
 ah
 ah
-ae
 ah
 ah
 ah
-fh
-ag
+ah
+ah
+gG
 ag
 bG
 ag
@@ -28525,12 +28915,12 @@ ah
 ah
 ah
 ah
-ah
-ah
-ah
-ah
-ah
 al
+dF
+dF
+dF
+dF
+dF
 dF
 dF
 dF
@@ -28544,12 +28934,12 @@ dF
 dF
 dF
 dF
+dW
+dF
+dF
+dF
+dF
 ae
-ah
-ah
-ah
-ah
-ah
 ah
 dZ
 ec
@@ -28782,13 +29172,13 @@ ah
 ah
 ah
 ah
-ah
-ah
-ah
-ah
-ah
 al
 dG
+dK
+dK
+dK
+dK
+gm
 dK
 dK
 dK
@@ -28800,13 +29190,13 @@ dX
 dX
 dX
 dX
+gy
+dX
+dX
+dX
+dX
 dY
 ae
-ah
-ah
-ah
-ah
-ah
 ah
 ea
 ah
@@ -29039,12 +29429,12 @@ ah
 ah
 ah
 ah
-ah
-ah
-ah
-ah
-ah
 al
+dH
+dH
+dH
+dH
+dH
 dH
 dH
 dH
@@ -29058,12 +29448,12 @@ dH
 dH
 dH
 dH
+dH
+dH
+dH
+dH
+dH
 ae
-ah
-ah
-ah
-ah
-ah
 ah
 ea
 ah
@@ -29296,12 +29686,12 @@ ah
 ah
 ah
 ah
-ah
-ah
-ah
-ah
-ah
 al
+ah
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -29315,12 +29705,12 @@ ah
 ah
 ah
 ah
+ah
+ah
+ah
+ah
+ah
 ae
-ah
-ah
-ah
-ah
-ah
 ah
 ea
 ah
@@ -29553,12 +29943,12 @@ ah
 ah
 ah
 ah
-ah
-ah
-ah
-ah
-ah
 al
+dF
+dF
+dF
+dF
+dF
 dF
 dF
 dF
@@ -29572,12 +29962,12 @@ dF
 dF
 dF
 dF
+dW
+dF
+dF
+dF
+dF
 ae
-ah
-ah
-ah
-ah
-ah
 ah
 ea
 ah
@@ -29810,13 +30200,13 @@ ah
 ah
 ah
 ah
-ah
-ah
-an
-ah
-ah
 al
 dG
+dK
+dK
+dK
+dK
+gn
 dK
 dK
 dK
@@ -29828,13 +30218,13 @@ dX
 dX
 dX
 dX
+gz
+dX
+dX
+dX
+dX
 dY
 ae
-ah
-ah
-ah
-ah
-ah
 ah
 ea
 fg
@@ -30067,12 +30457,12 @@ ah
 ah
 ah
 ah
-ah
-ah
-bX
-ah
-ah
 al
+dH
+dH
+dH
+dH
+dH
 dH
 dH
 dH
@@ -30086,12 +30476,12 @@ dH
 dH
 dH
 dH
+dH
+dH
+dH
+dH
+dH
 ae
-ah
-ah
-ah
-ah
-ah
 ah
 ea
 al
@@ -30324,12 +30714,12 @@ ah
 ah
 ah
 ah
-ah
-ah
-ah
-ah
-ah
-al
+fh
+ag
+ag
+ag
+ag
+ag
 ag
 ag
 ag
@@ -30343,12 +30733,12 @@ ag
 ag
 ag
 ag
-ae
-ah
-ah
-ah
-ah
-ah
+ag
+ag
+ag
+ag
+ag
+fe
 ah
 ea
 al
@@ -30580,13 +30970,13 @@ ad
 ag
 ag
 ag
-dC
+aw
 ah
 ad
 ag
 ag
 ag
-dC
+aw
 ah
 ah
 ah
@@ -30838,12 +31228,12 @@ ah
 ah
 ah
 al
-ah
-ae
-ah
-ah
-ah
-al
+fg
+gg
+ai
+ai
+ai
+gj
 ai
 ai
 ai
@@ -30857,12 +31247,12 @@ ai
 ai
 ai
 ai
-ae
-ah
-ah
-ah
-ah
-ah
+ai
+ai
+ai
+ai
+ai
+fi
 ah
 ah
 al
@@ -31095,12 +31485,12 @@ ah
 ah
 ah
 al
-ah
-ae
-ah
-ah
-ah
 al
+dF
+dF
+dF
+dF
+dF
 dF
 dF
 dF
@@ -31114,12 +31504,12 @@ dF
 dF
 dF
 dF
+dF
+dF
+dF
+dF
+dF
 ae
-ah
-ah
-ah
-ah
-ah
 ah
 ah
 fh
@@ -31352,13 +31742,13 @@ ah
 ah
 ah
 al
-ah
-ae
-ah
-ah
-ah
 al
 dG
+dK
+dK
+dK
+dK
+go
 dK
 dK
 dK
@@ -31370,13 +31760,13 @@ dX
 dX
 dX
 dX
+gA
+dX
+dX
+dX
+dX
 dY
 ae
-ah
-ah
-ah
-ah
-ah
 ah
 ah
 ah
@@ -31609,12 +31999,12 @@ ai
 ai
 ai
 am
-ah
-af
-ai
-ai
-ai
-am
+al
+dH
+dH
+dH
+dH
+dH
 dH
 dH
 dH
@@ -31628,12 +32018,12 @@ dH
 dH
 dH
 dH
+dH
+dH
+dH
+dH
+dH
 ae
-ah
-ah
-ah
-ah
-ah
 ah
 ah
 ah
@@ -31866,12 +32256,12 @@ ai
 ai
 ai
 ai
-ff
+ge
 ah
 ah
 ah
 ah
-al
+ah
 ah
 ah
 ah
@@ -31885,12 +32275,12 @@ ah
 ah
 ah
 ah
+ah
+ah
+ah
+ah
+ah
 ae
-ah
-ah
-ah
-ah
-ah
 ah
 ah
 ah
@@ -32123,12 +32513,12 @@ ab
 ab
 ab
 ab
-ae
-ah
-ah
-ah
-ah
-al
+aJ
+dF
+dF
+dF
+dF
+dF
 dF
 dF
 dF
@@ -32142,12 +32532,12 @@ dF
 dF
 dF
 dF
+dF
+dF
+dF
+dF
+dF
 ae
-ah
-ah
-ah
-ah
-ah
 ah
 ah
 ah
@@ -32380,13 +32770,13 @@ ab
 ab
 ab
 ab
-af
-ai
-ff
-ah
-ah
-al
+cU
 dG
+dK
+dK
+dK
+dK
+gp
 dK
 dK
 dK
@@ -32398,13 +32788,13 @@ dX
 dX
 dX
 dX
+gB
+dX
+dX
+dX
+dX
 dY
 ae
-ah
-ah
-ah
-ah
-ah
 ah
 ah
 ah
@@ -32637,12 +33027,12 @@ ab
 ab
 ab
 ab
-ab
-ab
-ae
-ah
-ah
-al
+cU
+dH
+dH
+dH
+dH
+dH
 dH
 dH
 dH
@@ -32656,12 +33046,12 @@ dH
 dH
 dH
 dH
+dH
+dH
+dH
+dH
+dH
 ae
-ah
-ah
-ah
-ah
-ah
 ah
 ah
 ah
@@ -32894,12 +33284,12 @@ ab
 ab
 ab
 ab
-ab
-ab
-af
-ff
+cU
 ah
-al
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -32913,12 +33303,12 @@ ah
 ah
 ah
 ah
+ah
+ah
+ah
+ah
+ah
 ae
-ah
-ah
-ah
-ah
-ah
 ah
 ah
 ah
@@ -33151,12 +33541,12 @@ ac
 ab
 ab
 ab
-ab
-ab
-ab
-ae
-ah
-al
+cU
+dF
+dF
+dF
+dF
+dF
 dF
 dF
 dF
@@ -33170,12 +33560,12 @@ dF
 dF
 dF
 dF
+dF
+dF
+dF
+dF
+dF
 ae
-ah
-ah
-ah
-ah
-ah
 an
 ah
 ah
@@ -33408,13 +33798,13 @@ ac
 ab
 ab
 ab
-ab
-ab
-ab
-ae
-ah
-al
+cU
 dG
+dK
+dK
+dK
+dK
+gq
 dK
 dK
 dK
@@ -33426,13 +33816,13 @@ dX
 dX
 dX
 dX
+gC
+dX
+dX
+dX
+dX
 dY
 ae
-ah
-ah
-ah
-ah
-ah
 ah
 fF
 ai
@@ -33665,31 +34055,31 @@ ab
 ab
 ab
 ab
-ac
-ab
-ab
+cU
+dH
+dH
+dH
+dH
+dH
+dH
+dH
+dH
+dH
+dH
+ah
+ah
+ah
+dH
+dH
+dH
+dH
+dH
+dH
+dH
+dH
+dH
+dH
 ae
-ah
-al
-dH
-dH
-dH
-dH
-dH
-ah
-ah
-ah
-dH
-dH
-dH
-dH
-dH
-ae
-ah
-ah
-ah
-ah
-ah
 ah
 bm
 ab
@@ -33922,12 +34312,10 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ae
-ah
-fh
+gf
+aP
+aP
+gh
 ag
 ag
 ag
@@ -33941,12 +34329,14 @@ ag
 ag
 ag
 ag
-fe
-ah
-ah
-ah
-ah
-bX
+ag
+ag
+fJ
+ag
+ag
+ag
+ag
+gH
 ah
 al
 ab
