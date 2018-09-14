@@ -17149,14 +17149,6 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 2;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
 "aEn" = (
@@ -17169,14 +17161,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 2;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
 "aEo" = (
@@ -30361,7 +30345,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/medical/virology)
 "bbq" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -74718,7 +74702,7 @@ aba
 aba
 aba
 aba
-aaa
+aba
 aaa
 aaa
 aaa
@@ -74972,9 +74956,9 @@ aJy
 aKz
 bbC
 aba
-aaa
-aaa
-aaa
+aba
+aba
+aba
 aaa
 aaa
 aaa
@@ -75229,9 +75213,9 @@ aJy
 aKA
 bbD
 aba
-aaa
-aaa
-aaa
+aba
+aba
+aba
 aaa
 aaa
 aaa
@@ -75486,10 +75470,10 @@ aJz
 aEq
 aEq
 aEq
-aaa
-aaa
-aaa
-aaa
+aba
+aba
+aba
+aba
 aaa
 aaa
 aaa
@@ -75743,9 +75727,9 @@ aJA
 aKB
 aLw
 bbF
-aaa
-aaa
-aaa
+aba
+aba
+aba
 aaa
 aaa
 aaa
@@ -76000,9 +75984,9 @@ aJB
 aGv
 aLx
 bbG
-aaa
-aaa
-aaa
+aba
+aba
+aba
 aaa
 aaa
 aaa
@@ -76257,8 +76241,8 @@ aJC
 aKC
 aLy
 bbH
-aaa
-aaa
+aba
+aba
 aaa
 aaa
 aaa
@@ -76514,7 +76498,7 @@ aEq
 aEq
 aEq
 aEq
-aaa
+aba
 aaa
 aaa
 aaa
