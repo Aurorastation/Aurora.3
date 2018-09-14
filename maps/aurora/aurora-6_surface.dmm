@@ -14236,7 +14236,16 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "Ac" = (
-/turf/unsimulated/chasm_mask,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "Ad" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -18165,6 +18174,38 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/civilian_east)
+"HE" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
+"HF" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
+"HG" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/alarm{
+	pixel_y = 22
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "HI" = (
 /obj/structure/closet,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -46229,11 +46270,11 @@ Hu
 DW
 Gl
 Fs
-sU
+Ac
 aw
 aw
 aw
-aw
+Om
 aw
 aw
 aw
@@ -46486,7 +46527,7 @@ Hv
 DW
 Hs
 Fs
-sU
+HE
 aw
 aw
 aw
@@ -46743,13 +46784,13 @@ Hw
 Gk
 Gk
 Fs
-sU
+HE
 aw
 aw
-ag
-ag
-ag
-ag
+aw
+aw
+aw
+aw
 aw
 aw
 aw
@@ -47000,11 +47041,11 @@ Hx
 HI
 Gk
 Fs
-sU
-ag
-ag
-ag
-ag
+HE
+aw
+aw
+aw
+aw
 ag
 ag
 ag
@@ -47256,12 +47297,12 @@ Hm
 Hy
 HJ
 Gk
-Fs
-sU
-ag
-ag
-ag
-ag
+HG
+HE
+aw
+aw
+aw
+aw
 ag
 ag
 aa
@@ -47514,16 +47555,16 @@ Hy
 HK
 Gk
 Fs
-sU
-ag
-ag
-ag
-ag
+HF
+aw
+aw
+aw
+aw
 ag
 ag
 aa
 aa
-Ac
+aa
 aa
 aa
 aa
@@ -47772,7 +47813,7 @@ HL
 Gk
 Fs
 sU
-ag
+aw
 ag
 ag
 ag
