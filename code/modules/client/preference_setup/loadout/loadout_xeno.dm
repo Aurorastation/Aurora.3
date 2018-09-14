@@ -110,7 +110,7 @@
 	var/masks = list()
 	masks["mandible garment"] = /obj/item/clothing/mask/breath/vaurca
 	masks["human expression mask"] = /obj/item/clothing/mask/breath/vaurca/expression
-	masks["vaurca expression mask"] = /obj/item/clothing/mask/breath/vaurca/expression/skrell
+	masks["skrell expression mask"] = /obj/item/clothing/mask/breath/vaurca/expression/skrell
 	gear_tweaks += new/datum/gear_tweak/path(masks)
 
 /datum/gear/cape
