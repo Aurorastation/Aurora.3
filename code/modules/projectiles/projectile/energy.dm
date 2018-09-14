@@ -56,18 +56,25 @@
 	agony = 80
 
 /obj/item/projectile/energy/electrode/fireball
-	name = "fireball"
+	name = "fire wave"
+	icon_state = ""
 	taser_effect = 1
 	agony = 10
-	icon_state = "fireball"
 	speed = 8
+
+/obj/item/projectile/energy/electrode/fireball/process()
+	if( locate(/obj/effect/temp_visual/dragon_fire, get_turf(src)) || isopenturf(get_turf(src)) )
+		return ..()
+	new /obj/effect/temp_visual/dragon_fire(get_turf(src))
+	for(var/mob/living/L in get_turf(src))
+		L.adjustHalLoss(10)
 
 /obj/item/projectile/energy/electrode/icebolt
 	name = "ice shot"
 	taser_effect = 1
 	agony = 20
 	icon_state = "ice_2"
-	speed = 4
+	speed = 16
 
 /obj/item/projectile/energy/electrode/blood_bolt
 	name = "blood bolt"

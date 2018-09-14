@@ -32,8 +32,8 @@
 	health = 1000
 	maxHealth = 1000
 
-	speed = 1 SECOND
-	move_to_delay = 1 SECOND
+	speed = 0.75 SECONDS
+	move_to_delay = 0.75 SECONDS
 	attack_delay = 0.25 SECONDS
 
 	var/swooping = 0
@@ -60,8 +60,9 @@
 	if(swooping)
 		return
 
-	if(!ckey && prob(20))
+	if(!Adjacent(target_mob) && prob(25))
 		ranged = 1
+		return
 
 	..()
 
@@ -95,12 +96,11 @@
 	if(swooping)
 		return
 
-
 	face_atom(target_mob)
 
 	stop_automated_movement = TRUE
 
-	if(!ckey && swoop_cooldown <= world.time)
+	if(prob(40) && !ckey && swoop_cooldown <= world.time)
 		if(prob(10))
 			INVOKE_ASYNC(src, .proc/swoop_attack_multi,target_mob)
 		else
@@ -193,7 +193,8 @@
 	sleep(1)
 	swooping = 0
 	setClickCooldown(MEGAFAUNA_DEFAULT_RECOVERY_TIME)
-	ranged = prob(50)
+	if(!ckey)
+		ranged = prob(50)
 
 /obj/effect/temp_visual/dragon_swoop
 	name = "certain death"
@@ -247,4 +248,26 @@
 #undef SWOOP_DAMAGEABLE
 #undef SWOOP_INVULNERABLE
 
+/obj/effect/temp_visual/dragon_fire
+	name = "holofire"
+	icon = 'icons/effects/fire.dmi'
+	icon_state = "3"
+	duration = 4 SECONDS
+	randomdir = TRUE
+	color = "#F08C00"
+	alpha = 200
+
+/obj/effect/temp_visual/dragon_fire/Initialize()
+	. = ..()
+	animate(src, alpha = 0, time = duration)
+
+	if(prob(50))
+		var/turf/T = get_step(get_turf(src),pick(NORTH,EAST,SOUTH,WEST))
+		if(!locate(/obj/effect/temp_visual/dragon_fire) in T)
+			CHECK_TICK
+			new/obj/effect/temp_visual/dragon_fire(T.loc)
+
+/obj/effect/temp_visual/Crossed(var/mob/living/L as mob)
+	if(istype(L))
+		L.adjustHalLoss(10)
 

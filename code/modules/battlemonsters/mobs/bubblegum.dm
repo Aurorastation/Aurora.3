@@ -38,16 +38,14 @@
 	if(charging)
 		return
 
-
 	if(stance == HOSTILE_STANCE_ATTACK && next_blood <= world.time)
 		var/blood_view = world.view * 2
 		for (var/mob/living/scanned_mob in view(blood_view, get_turf(src)))
-			CHECK_TICK
 			if(scanned_mob == src)
 				continue
 			if(!CanAquireTarget(scanned_mob))
 				continue
-			if(!locate(/obj/effect/decal/cleanable/blood/holographic) in get_turf(src))
+			if(!locate(/obj/effect/decal/cleanable/blood/holographic) in get_turf(scanned_mob))
 				continue
 
 			new/obj/effect/tendril(get_turf(scanned_mob))
@@ -126,17 +124,12 @@
 		INVOKE_ASYNC(src, .proc/charge, target_mob)
 		if(prob(25))
 			INVOKE_ASYNC(src, .proc/charge_multi, target_mob)
-	else
-		return ..()
 
-
-	return TRUE
+	return ..()
 
 /mob/living/simple_animal/hostile/commanded/battlemonster/bubblegum/proc/charge_multi(var/target_mob)
 	charge(target_mob)
-	sleep(1 SECOND)
 	charge(target_mob)
-	sleep(1 SECOND)
 	charge(target_mob)
 
 /mob/living/simple_animal/hostile/commanded/battlemonster/bubblegum/proc/charge(var/target_mob)
@@ -156,8 +149,9 @@
 	throw_at(T, get_dist(src, T) + 4, 2, src)
 	sleep(1)
 	charging = FALSE
-	if(prob(25))
+	if(prob(25) && !ckey)
 		ranged = FALSE
+	next_shoot = world.time + 2 SECONDS
 
 /mob/living/simple_animal/hostile/commanded/battlemonster/bubblegum/Move()
 	if(!stat)
@@ -169,6 +163,7 @@
 		DestroySurroundings()
 		if(prob(25))
 			INVOKE_ASYNC(src, .proc/charge_multi, target_mob)
+			return
 	. = ..()
 
 /mob/living/simple_animal/hostile/commanded/battlemonster/bubblegum/throw_impact(atom/A)

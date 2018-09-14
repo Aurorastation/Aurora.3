@@ -12,8 +12,8 @@
 	health = 2000
 	maxHealth = 2000
 
-	speed = 1 SECOND
-	move_to_delay = 1 SECOND
+	speed = 5 SECONDS
+	move_to_delay = 5 SECONDS
 	attack_delay = 3 SECONDS
 
 	pixel_x = -16
@@ -22,7 +22,7 @@
 
 	var/ability_cooldown = 0
 
-	var/attacking = TRUE
+	var/attacking = FALSE
 
 /mob/living/simple_animal/hostile/commanded/battlemonster/colossus/AltClickOn(atom/movable/A)
 	if(!istype(A))
@@ -78,6 +78,8 @@
 		playsound(src, 'sound/magic/invoke_general.ogg', 100, 1)
 
 	for(var/i=1,i < projectiles_to_shoot,i++)
+		if(sleep_mod == 0 && i % 2 == 0)
+			continue
 		var/obj/item/projectile/energy/electrode/icebolt/spawned_projectile = new(src.loc)
 		spawned_projectile.launch_projectile(target_mob, get_exposed_defense_zone(target_mob), src, 0, Get_Angle(src, target_mob) + (i_mod+i)*spread_per_shot)
 		if(sleep_mod > 0 && projectiles >= 0)
