@@ -103,10 +103,11 @@
 		return 1
 
 /obj/item/eightball/haunted/proc/get_ghost_answer(mob/user)
+	var/answer = input("Choose the answer.", "Magic eightball question") as null|anything in possible_answers
+
 	if(answered)
 			return
 
-	var/answer = input("Choose the answer.", "Magic eightball question") as null|anything in possible_answers
 	if(answer)
 		ghostly_reply = answer
 		answered = TRUE
