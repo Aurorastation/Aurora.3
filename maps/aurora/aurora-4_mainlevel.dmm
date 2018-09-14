@@ -26030,7 +26030,7 @@
 	},
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/white,
-/area/medical/temp_morgue)
+/area/medical/main_storage)
 "aSt" = (
 /obj/item/modular_computer/console/preset/engineering,
 /obj/machinery/light_switch{
@@ -26274,7 +26274,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/temp_morgue)
+/area/medical/main_storage)
 "aSM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -26483,7 +26483,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/temp_morgue)
+/area/medical/main_storage)
 "aTe" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -26642,7 +26642,7 @@
 	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/temp_morgue)
+/area/medical/main_storage)
 "aTq" = (
 /obj/structure/closet/crate/trashcart,
 /obj/item/toy/figure/secofficer{
@@ -28230,7 +28230,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/temp_morgue)
+/area/medical/main_storage)
 "aWk" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -28241,13 +28241,13 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/temp_morgue)
+/area/medical/main_storage)
 "aWl" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/temp_morgue)
+/area/medical/main_storage)
 "aWm" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/toolbox/mechanical,
@@ -28266,7 +28266,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/temp_morgue)
+/area/medical/main_storage)
 "aWn" = (
 /obj/structure/sign/drop,
 /turf/simulated/wall,
@@ -30598,7 +30598,7 @@
 "bag" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
-/area/medical/temp_morgue)
+/area/medical/main_storage)
 "bah" = (
 /turf/simulated/wall,
 /area/medical/reception)
@@ -30610,7 +30610,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
-/area/medical/temp_morgue)
+/area/medical/main_storage)
 "baj" = (
 /turf/simulated/floor/tiled,
 /area/medical/med_office)
@@ -30631,7 +30631,7 @@
 /area/medical/med_office)
 "bal" = (
 /turf/simulated/floor/tiled/white,
-/area/medical/temp_morgue)
+/area/medical/main_storage)
 "bam" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
@@ -30879,7 +30879,7 @@
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/temp_morgue)
+/area/medical/main_storage)
 "baH" = (
 /turf/simulated/wall,
 /area/storage/tech)
@@ -31234,6 +31234,11 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bbq" = (
@@ -31275,6 +31280,11 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
@@ -31619,8 +31629,13 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/white,
-/area/medical/temp_morgue)
+/area/medical/main_storage)
 "bcc" = (
 /turf/simulated/wall/r_wall,
 /area/storage/tech)
@@ -31871,22 +31886,27 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/white,
-/area/medical/temp_morgue)
-"bcB" = (
 /obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
+/turf/simulated/floor/tiled/white,
+/area/medical/main_storage)
+"bcB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/white,
-/area/medical/temp_morgue)
+/area/medical/main_storage)
 "bcC" = (
 /obj/machinery/chem_master,
 /obj/effect/floor_decal/corner/mauve{
@@ -31953,7 +31973,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/temp_morgue)
+/area/medical/main_storage)
 "bcH" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
@@ -31971,7 +31991,7 @@
 	spread_point = 2
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/temp_morgue)
+/area/medical/main_storage)
 "bcI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -32888,6 +32908,11 @@
 /obj/structure/disposalpipe/segment{
 	dir = 2;
 	icon_state = "pipe-c"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
@@ -64362,6 +64387,54 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"xId" = (
+/turf/simulated/wall,
+/area/medical/main_storage)
+"xIe" = (
+/turf/simulated/wall,
+/area/medical/main_storage)
+"xIf" = (
+/turf/simulated/wall,
+/area/medical/main_storage)
+"xIg" = (
+/turf/simulated/wall,
+/area/medical/main_storage)
+"xIh" = (
+/turf/simulated/wall,
+/area/medical/main_storage)
+"xIi" = (
+/turf/simulated/wall,
+/area/medical/main_storage)
+"xIj" = (
+/turf/simulated/wall,
+/area/medical/main_storage)
+"xIk" = (
+/turf/simulated/wall,
+/area/medical/main_storage)
+"xIl" = (
+/turf/simulated/wall,
+/area/medical/main_storage)
+"xIm" = (
+/turf/simulated/wall,
+/area/medical/main_storage)
+"xIn" = (
+/turf/simulated/wall,
+/area/medical/main_storage)
+"xIo" = (
+/turf/simulated/wall,
+/area/medical/main_storage)
+"xIp" = (
+/turf/simulated/wall,
+/area/medical/main_storage)
+"xIq" = (
+/turf/simulated/wall,
+/area/medical/main_storage)
+"xIr" = (
+/turf/simulated/wall,
+/area/medical/main_storage)
+"xIs" = (
+/turf/simulated/wall,
+/area/medical/main_storage)
 
 (1,1,1) = {"
 aaa
@@ -105876,9 +105949,9 @@ bEH
 bEH
 bEH
 bEH
-btj
+xIk
 bcb
-btj
+xIn
 btj
 bvx
 btj
@@ -106130,17 +106203,17 @@ bhj
 biK
 biK
 aCE
-biL
+xId
 aSs
 aWj
 bag
 bcA
-btj
+xIo
 bul
 bvy
 xFY
 xGA
-biL
+btj
 byV
 bok
 bok
@@ -106387,17 +106460,17 @@ aQt
 aQt
 aQt
 byX
-biL
+xIe
 aSL
 aWk
 bai
 bcB
-btj
+xIp
 xFY
 xGb
 xFY
 xGy
-biL
+btj
 byW
 bAe
 bAe
@@ -106644,17 +106717,17 @@ bds
 aiZ
 aQt
 byY
-biL
+xIf
 aTd
 aWl
 bal
 bcG
-btj
+xIq
 bum
 bvz
 bwz
 xGz
-biL
+btj
 byX
 biL
 biL
@@ -106901,17 +106974,17 @@ aRV
 biM
 aQt
 bmK
-biL
+xIg
 aTp
 aWm
 baG
 bcH
-btj
+xIr
 xGc
 xGc
 xFY
 xGA
-biL
+btj
 byY
 byV
 biL
@@ -107158,17 +107231,17 @@ bhk
 biN
 aQt
 bmK
-biL
-biL
-biL
-biL
-biL
-biL
-biL
-biL
-biL
-biL
-biL
+xIh
+xIi
+xIj
+xIl
+xIm
+xIs
+btj
+btj
+btj
+btj
+btj
 bmK
 bAf
 biL
