@@ -988,7 +988,11 @@
 		/obj/item/clothing/mask/gas/mime				= 11,
 		/obj/item/weapon/gun/energy/wand/toy			= 5,
 		/obj/item/device/binoculars						= 11,
-		/obj/item/device/megaphone						= 11
+		/obj/item/device/megaphone						= 11,
+		/obj/item/eightball								= 11,
+		/obj/item/eightball/haunted						= 1,
+		/obj/item/eightball/broken						= 1,
+		/obj/item/weapon/spirit_board					= 5
 	)
 
 /obj/random/custom_ka
