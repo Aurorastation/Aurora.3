@@ -17,8 +17,10 @@
 	var/list/reagent_volumes = list()
 	var/list/reagent_names = list()
 
+	center_of_mass = null
+
 /obj/item/weapon/reagent_containers/borghypo/medical
-	reagent_ids = list("bicaridine", "inaprovaline", "dexalin", "tramadol", "spaceacillin", "anti_toxin")
+	reagent_ids = list("bicaridine", "kelotane", "anti_toxin", "dexalin", "inaprovaline", "tramadol", "spaceacillin")
 
 /obj/item/weapon/reagent_containers/borghypo/rescue
 	reagent_ids = list("tricordrazine", "inaprovaline", "tramadol")
@@ -74,7 +76,7 @@
 			return
 
 	if (M.can_inject(user, 1))
-		visible_message("<span class='notice'>[user] injects [M] with their hypospray!</span>", "<span class='notice'>You inject [M] with your hypospray!</span>")
+		user.visible_message("<span class='notice'>[user] injects [M] with their hypospray!</span>", "<span class='notice'>You inject [M] with your hypospray!</span>", "<span class='notice'>You hear a hissing noise.</span>")
 		to_chat(M,"<span class='notice'>You feel a tiny prick!</span>")
 
 		if(M.reagents)

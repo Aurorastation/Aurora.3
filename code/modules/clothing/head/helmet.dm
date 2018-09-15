@@ -7,7 +7,6 @@
 		slot_r_hand_str = "helmet"
 		)
 	item_flags = THICKMATERIAL
-	body_parts_covered = HEAD
 	armor = list(melee = 50, bullet = 15, laser = 50,energy = 10, bomb = 25, bio = 0, rad = 0)
 	flags_inv = HIDEEARS|BLOCKHEADHAIR
 	cold_protection = HEAD
@@ -32,7 +31,6 @@
 	desc = "It's a special helmet issued to the Warden of a securiy force. Protects the head from impacts."
 	icon_state = "policehelm"
 	flags_inv = 0
-	body_parts_covered = 0
 
 /obj/item/clothing/head/helmet/warden/commissar
 	name = "commissar's cap"
@@ -45,7 +43,6 @@
 	icon_state = "hoscap"
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	flags_inv = HIDEEARS
-	body_parts_covered = 0
 
 /obj/item/clothing/head/helmet/HoS/dermal
 	name = "dermal armour patch"
@@ -58,14 +55,12 @@
 	desc = "A stylish hat that both protects you from enraged former-crewmembers and gives you a false sense of authority."
 	icon_state = "hopcap"
 	flags_inv = 0
-	body_parts_covered = 0
 
 /obj/item/clothing/head/helmet/formalcaptain
 	name = "parade hat"
 	desc = "No one in a commanding position should be without a perfect, white hat of ultimate authority."
 	icon_state = "officercap"
 	flags_inv = 0
-	body_parts_covered = 0
 
 /obj/item/clothing/head/helmet/riot
 	name = "riot helmet"
@@ -124,6 +119,23 @@
 	desc = "A full helmet made of highly advanced ceramic materials, complete with a jetblack visor. Shines with a mirror sheen."
 	icon_state = "erthelmet_peacekeeper"
 	item_state = "erthelmet_peacekeeper"
+	body_parts_covered = HEAD|FACE|EYES //face shield
+	flags_inv = HIDEEARS
+	action_button_name = "Toggle Visor"
+
+/obj/item/clothing/head/helmet/swat/peacekeeper/attack_self(mob/user as mob)
+	if (use_check(user))
+		return
+
+	if(src.icon_state == initial(icon_state))
+		src.icon_state = "[icon_state]-up"
+		user << "You raise the visor on \the [src]."
+		body_parts_covered = HEAD
+	else
+		src.icon_state = initial(icon_state)
+		user << "You lower the visor on \the [src]."
+		body_parts_covered = HEAD|FACE|EYES
+	update_clothing_icon()
 
 /obj/item/clothing/head/helmet/thunderdome
 	name = "\improper Thunderdome helmet"
