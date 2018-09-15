@@ -38,12 +38,6 @@
 	icon_state = "zhan_scarf"
 	body_parts_covered = HEAD|FACE
 
-/obj/item/clothing/suit/storage/tajaran
-	name = "tajaran naval coat"
-	desc = "A thick wool coat from Adhomai."
-	icon_state = "naval_coat"
-	item_state = "naval_coat"
-
 /obj/item/clothing/suit/storage/toggle/labcoat/tajaran
 	name = "people's republic medical coat"
 	desc = "A sterile insulated coat made of leather stitched over fur."
@@ -51,6 +45,12 @@
 	item_state = "taj_jacket"
 	icon_open = "taj_jacket_open"
 	icon_closed = "taj_jacket"
+
+/obj/item/clothing/suit/storage/tajaran
+	name = "tajaran naval coat"
+	desc = "A thick wool coat from Adhomai."
+	icon_state = "naval_coat"
+	item_state = "naval_coat"
 
 /obj/item/clothing/suit/storage/tajaran/cloak
 	name = "commoner cloak"
@@ -77,6 +77,14 @@
 	flags_inv = HIDETAIL
 	hoodtype = /obj/item/clothing/head/winterhood
 
+/obj/item/clothing/suit/storage/tajaran/nomad
+	name = "adhomian wool coat"
+	desc = "An adhomian coat, this one is a design commonly found among the Rhazar'Hrujmagh people."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "zhan_coat"
+	item_state = "zhan_coat"
+	contained_sprite = TRUE
+
 /obj/item/clothing/head/tajaran/circlet
 	name = "golden dress circlet"
 	desc = "A golden circlet with a pearl in the middle of it."
@@ -84,13 +92,20 @@
 	icon_state = "taj_circlet"
 	item_state = "taj_circlet"
 	contained_sprite = TRUE
-	body_parts_covered = 0
 
 /obj/item/clothing/head/tajaran/circlet/silver
 	name = "silver dress circlet"
 	desc = "A silver circlet with a pearl in the middle of it."
 	icon_state = "taj_circlet_s"
 	item_state = "taj_circlet_s"
+
+/obj/item/clothing/head/tajaran/fur
+	name = "adhomian fur hat"
+	icon = 'icons/obj/tajara_items.dmi'
+	desc = "A typical tajaran hat, made with the fur of some adhomian animal."
+	icon_state = "fur_hat"
+	item_state = "fur_hat"
+	contained_sprite = TRUE
 
 //Vaurca clothing
 
