@@ -35,7 +35,7 @@
 					{{/if}}
 					{{if data.usbconnected}}
 						{{:helper.link('EXPORT', null, { "PRG_copytousb" : value.name }, value.undeletable ? 'disabled' : null)}}
-					
+					{{/if}}
 			{{/for}}
 		</table>
 		{{if data.usbconnected}}
