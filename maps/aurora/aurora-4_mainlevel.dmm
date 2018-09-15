@@ -17803,7 +17803,7 @@
 /area/crew_quarters/captain)
 "aGo" = (
 /obj/item/device/radio/intercom{
-	frequency = 1449;
+	frequency = 1459;
 	pixel_x = 0;
 	pixel_y = -27
 	},
@@ -23945,7 +23945,7 @@
 	icon_state = "4-8"
 	},
 /obj/item/device/radio/intercom{
-	frequency = 1449;
+	frequency = 1459;
 	pixel_x = 0;
 	pixel_y = -27
 	},
@@ -23959,7 +23959,7 @@
 	icon_state = "4-8"
 	},
 /obj/item/device/radio/intercom{
-	frequency = 1449;
+	frequency = 1459;
 	pixel_x = 0;
 	pixel_y = -27
 	},
@@ -32877,9 +32877,7 @@
 	dir = 5
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
-	frequency = 1449;
-	listening = 0;
+	frequency = 1459;
 	pixel_x = 0;
 	pixel_y = 25
 	},
@@ -39132,9 +39130,7 @@
 /area/medical/gen_treatment)
 "brv" = (
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
-	frequency = 1449;
-	listening = 0;
+	frequency = 1459;
 	pixel_x = 0;
 	pixel_y = 25
 	},
