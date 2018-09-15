@@ -115,6 +115,7 @@ var/list/worths = list(
 					/obj/item/weapon/gun/projectile/silenced = 1700,
 					/obj/item/weapon/gun/projectile/dragunov = 4500,
 					/obj/item/weapon/gun/projectile/contender = 1300,
+					/obj/item/weapon/gun/projectile/leyon = 500,
 					/obj/item/weapon/gun/projectile = 1500,
 //GUN,
 					/obj/item/weapon/gun/bang = 200,
