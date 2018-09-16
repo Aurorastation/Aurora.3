@@ -28,9 +28,9 @@
 
 /mob/living/simple_animal/hostile/Initialize()
 	. = ..()
-	target_type_validator_map[/mob/living] = CALLBACK(src, .proc/living)
-	target_type_validator_map[/obj/mecha] = CALLBACK(src, .proc/mecha)
-	target_type_validator_map[/obj/machinery/bot] = CALLBACK(src, .proc/bot)
+	target_type_validator_map[/mob/living] = CALLBACK(src, .proc/validator_living)
+	target_type_validator_map[/obj/mecha] = CALLBACK(src, .proc/validator_mecha)
+	target_type_validator_map[/obj/machinery/bot] = CALLBACK(src, .proc/validator_bot)
 	return .
 
 /mob/living/simple_animal/hostile/Destroy()
@@ -51,6 +51,7 @@
 		for (var/type in target_type_validator_map)
 			if (istype(A, type))
 				cb = target_type_validator_map[type]
+				break
 
 		if (!cb)
 			continue
@@ -295,7 +296,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 ///////VALIDATOR PROCS////////
 //////////////////////////////
 
-/mob/living/simple_animal/hostile/proc/living(var/mob/living/L)
+/mob/living/simple_animal/hostile/proc/validator_living(var/mob/living/L)
 	if((L.faction == src.faction) && !attack_same)
 		return FALSE
 	if(L in friends)
@@ -304,7 +305,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		lowest_health = L.health
 		return TRUE
 
-/mob/living/simple_animal/hostile/proc/mecha(var/obj/mecha/M)
+/mob/living/simple_animal/hostile/proc/validator_mecha(var/obj/mecha/M)
 	if(isliving(T)) // We prefer mobs over anything else
 		return FALSE
 	if (M.occupant)
@@ -312,7 +313,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	else
 		return FALSE
 
-/mob/living/simple_animal/hostile/proc/bot(var/obj/machinery/bot/B)
+/mob/living/simple_animal/hostile/proc/validator_bot(var/obj/machinery/bot/B)
 	if(isliving(T)) // We prefer mobs over anything else
 		return FALSE
 	if (B.health > 0)

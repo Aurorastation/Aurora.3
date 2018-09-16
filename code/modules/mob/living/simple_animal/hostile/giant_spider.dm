@@ -67,7 +67,7 @@
 
 /mob/living/simple_animal/hostile/giant_spider/Initialize(mapload, atom/parent)
 	get_light_and_color(parent)
-	target_type_validator_map[/obj/effect/energy_field] = CALLBACK(src, .proc/e_field)
+	target_type_validator_map[/obj/effect/energy_field] = CALLBACK(src, .proc/validator_e_field)
 	. = ..()
 
 /mob/living/simple_animal/hostile/giant_spider/AttackingTarget()
@@ -108,7 +108,7 @@
 	stop_automated_movement = 0
 	walk(src, 0)
 
-/mob/living/simple_animal/hostile/giant_spider/proc/e_field(var/obj/effect/energy_field/E)
+/mob/living/simple_animal/hostile/giant_spider/proc/validator_e_field(var/obj/effect/energy_field/E)
 	if(isliving(T)) // We prefer mobs over anything else
 		return FALSE
 	var/dist = get_dist(src, E)

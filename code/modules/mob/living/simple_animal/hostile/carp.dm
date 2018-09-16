@@ -44,7 +44,7 @@
 
 /mob/living/simple_animal/hostile/carp/Initialize()
 	..()
-	target_type_validator_map[/obj/effect/energy_field] = CALLBACK(src, .proc/e_field)
+	target_type_validator_map[/obj/effect/energy_field] = CALLBACK(src, .proc/validator_e_field)
 
 /mob/living/simple_animal/hostile/carp/Allow_Spacemove(var/check_drift = 0)
 	return 1	//No drifting in space for space carp!	//original comments do not steal
@@ -116,7 +116,7 @@
 				return 1
 	return 0
 
-/mob/living/simple_animal/hostile/carp/proc/e_field(var/obj/effect/energy_field/E)
+/mob/living/simple_animal/hostile/carp/proc/validator_e_field(var/obj/effect/energy_field/E)
 	if(isliving(T)) // We prefer mobs over anything else
 		return FALSE
 	var/dist = get_dist(src, E)
