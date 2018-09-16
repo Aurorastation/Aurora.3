@@ -1,0 +1,42 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes: 
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#################################
+
+# Your name.  
+author: BurgerBB
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - bugfix: "Fixed fuel tanks having the same properties as Napalm/Zo'rane Fire."
+  - balance: "Reduced the maximum amount of liquid you can have covering your character. Reduced the maximum amount of fire you could have on your character. Hugging people while on fire now properly sets the victim ablaze."
+  - balance: "Fixed an exploit that allowed towels to put out fires super easily. Reworked towels so they can put out flames as well as dry other people."
+  - balance: "Rebalanced liquid fire chemical so its effects are based on the amount metabolised to prevent exploits."
+  - balance: "Buffed the amount of fire fire extinguishers put out. Adjusted fire extinguishers so they can't set a room below 10 degrees Celsius."
+  - tweak: "Reading forbidden tombs no longer husk the user. Tweaked apprentice punish/reward spell to appropriately describe what it does."

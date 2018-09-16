@@ -123,7 +123,7 @@
 
 /datum/reagent/alcohol/touch_mob(mob/living/L, amount)
 	if (istype(L) && strength > 40)
-		L.adjust_fire_stacks((amount / (flammability_divisor || 1)) * (strength / 100))
+		L.adjust_fire_stacks((amount / (flammability_divisor || 1)) * (strength / 100),should_go_over = TRUE)
 
 /datum/reagent/alcohol/affect_blood(mob/living/carbon/M, alien, removed)
 	M.adjustToxLoss(removed * 2)
@@ -233,7 +233,7 @@
 	M.adjustToxLoss(4 * removed)
 
 /datum/reagent/hydrazine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed) // Hydrazine is both toxic and flammable.
-	M.adjust_fire_stacks(removed / 12)
+	M.adjust_fire_stacks(removed / 12,should_go_over = TRUE)
 	M.adjustToxLoss(0.2 * removed)
 
 /datum/reagent/hydrazine/touch_turf(var/turf/T)

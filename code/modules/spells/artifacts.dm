@@ -318,8 +318,7 @@
 /obj/item/poppet/fire_act()
 	var/mob/living/carbon/human/H = target.resolve()
 	if(H)
-		H.adjust_fire_stacks(2)
-		H.IgniteMob()
+		H.adjust_fire_stacks(2, should_ignite = TRUE, should_go_over = TRUE)
 		to_chat(H, "<span class='danger'>You suddenly burst into flames!!</span>")
 
 /obj/item/poppet/crush_act()

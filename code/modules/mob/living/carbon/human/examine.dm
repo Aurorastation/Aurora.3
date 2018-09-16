@@ -30,10 +30,10 @@
 		skipbody |= wear_mask.body_parts_covered
 		skipbody |= (wear_mask.body_parts_covered & FACE) ? HEAD : 0 // same as above
 		skipface |= wear_mask.flags_inv & HIDEFACE
-	
+
 	if(w_uniform)
 		skipbody |= w_uniform.body_parts_covered
-	
+
 	if(gloves)
 		skipbody |= gloves.body_parts_covered
 
@@ -230,20 +230,17 @@
 	else if (src.stat)
 		msg += span("warning", "[T.He] [T.is] not responding to anything around [T.him].\n")
 
-	if(fire_stacks)
-		msg += "[T.He] [T.is] covered in some liquid.\n"
 	if(on_fire)
 		msg += "<span class='danger'>[T.He] [T.is] on fire!</span>\n"
+	else if(fire_stacks)
+		msg += "[T.He] [T.is] covered in some liquid.\n"
+
 	msg += "<span class='warning'>"
-
-
 	if (!(src.species.flags & NO_CHUBBY))
 		if(nutrition < max(max_nutrition - 300, 0))
 			msg += "[T.He] [T.is] severely malnourished.\n"
 		else if(nutrition >= max_nutrition + 100)
 			msg += "[T.He] [T.is] quite chubby.\n"
-
-
 	msg += "</span>"
 
 	if(getBrainLoss() >= 60)
@@ -274,7 +271,7 @@
 			wound_flavor_text["[organ_descriptor]"] = "<span class='warning'><b>[T.He] [T.has] a stump where [T.his] [organ_descriptor] should be.</b></span>\n"
 		else
 			continue
-			
+
 	for(var/obj/item/organ/external/temp in organs)
 		if(temp)
 			if(skipbody & temp.body_part)

@@ -227,21 +227,20 @@
 			else
 				M.visible_message("<span class='warning'>[M] tries to pat out [src]'s flames!</span>",
 				"<span class='warning'>You try to pat out [src]'s flames! Hot!</span>")
-				if(do_mob(M, src, 15))
-					src.fire_stacks -= 0.5
+				if(do_mob(M, src, 1.5 SECONDS))
 					if (prob(10) && (M.fire_stacks <= 0))
-						M.fire_stacks += 1
-					M.IgniteMob()
+						M.adjust_fire_stacks(1,should_ignite = TRUE,should_go_over = TRUE)
+					else
+						M.IgniteMob() //Never try to put out someone while you're covered in fuel.
+
 					if (M.on_fire)
 						M.visible_message("<span class='danger'>The fire spreads from [src] to [M]!</span>",
 						"<span class='danger'>The fire spreads to you as well!</span>")
 					else
-						src.fire_stacks -= 0.5 //Less effective than stop, drop, and roll - also accounting for the fact that it takes half as long.
+						src.adjust_fire_stacks(-1,should_extinguish = TRUE)
 						if (src.fire_stacks <= 0)
 							M.visible_message("<span class='warning'>[M] successfully pats out [src]'s flames.</span>",
 							"<span class='warning'>You successfully pat out [src]'s flames.</span>")
-							src.ExtinguishMob()
-							src.fire_stacks = 0
 		else
 			var/t_him = "it"
 			if (src.gender == MALE)
@@ -271,11 +270,12 @@
 				else
 					M.visible_message("<span class='notice'>[M] hugs [src] to make [t_him] feel better!</span>", \
 								"<span class='notice'>You hug [src] to make [t_him] feel better!</span>")
-				if(M.fire_stacks >= (src.fire_stacks + 3))
-					src.fire_stacks += 1
-					M.fire_stacks -= 1
-				if(M.on_fire)
-					src.IgniteMob()
+
+				if(M.on_fire && M.fire_stacks > 0 && src.fire_stacks <= 0)
+					var/fire_stacks_to_transfer = max(1,M.fire_stacks / 2)
+					M.adjust_fire_stacks(-fire_stacks_to_transfer,should_extinguish = TRUE)
+					src.adjust_fire_stacks(fire_stacks_to_transfer,should_ignite = TRUE)
+
 			AdjustParalysis(-3)
 			AdjustStunned(-3)
 			AdjustWeakened(-3)

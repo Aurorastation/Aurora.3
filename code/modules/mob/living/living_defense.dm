@@ -265,16 +265,27 @@
 
 /mob/living/proc/ExtinguishMob()
 	if(on_fire)
+		fire_stacks = min(0,fire_stacks)
 		on_fire = 0
-		fire_stacks = 0
 		set_light(max(0, light_range - MOB_FIRE_LIGHT_RANGE), max(0, light_power - MOB_FIRE_LIGHT_POWER))
 		update_fire()
 
 /mob/living/proc/update_fire()
 	return
 
-/mob/living/proc/adjust_fire_stacks(add_fire_stacks) //Adjusting the amount of fire_stacks we have on person
-    fire_stacks = Clamp(fire_stacks + add_fire_stacks, FIRE_MIN_STACKS, FIRE_MAX_STACKS)
+/mob/living/proc/adjust_fire_stacks(var/add_fire_stacks, var/should_ignite = FALSE, var/should_extinguish = FALSE, var/should_go_over=FALSE)
+
+	// add_fire_stacks: Amount of fire stacks to add. Could be positive or negative.
+	// should_ignite: Whether or not this change should ignire the person, if fire stacks are above 0.
+	// should_extinguish: Whether or not this change should extinguish the person, if fire stacks are below 0.
+	// should_go_over: Whether or not the change is allowed to go pass 0, the threshold between on fire and not on fire.
+
+	fire_stacks = Clamp(fire_stacks + add_fire_stacks, (!should_go_over && fire_stacks > 0) ? 0 : FIRE_MIN_STACKS, (!should_go_over && fire_stacks < 0) ? 0 : FIRE_MAX_STACKS)
+
+	if(fire_stacks <= 0 && should_extinguish)
+		ExtinguishMob()
+	else if(fire_stacks <= 0 && should_ignite)
+		IgniteMob()
 
 /mob/living/proc/handle_fire()
 	if(fire_stacks < 0)
@@ -295,8 +306,7 @@
 	location.hotspot_expose(fire_burn_temperature(), 50, 1)
 
 /mob/living/fire_act()
-	adjust_fire_stacks(2)
-	IgniteMob()
+	adjust_fire_stacks(2,should_ignite = TRUE,should_go_over = TRUE)
 
 /mob/living/proc/get_cold_protection()
 	return 0

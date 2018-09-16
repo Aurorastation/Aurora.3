@@ -452,7 +452,6 @@ default behaviour is:
 	BITSET(hud_updateflag, STATUS_HUD)
 	BITSET(hud_updateflag, LIFE_HUD)
 	ExtinguishMob()
-	fire_stacks = 0
 
 /mob/living/proc/rejuvenate()
 	if(!isnull(reagents))

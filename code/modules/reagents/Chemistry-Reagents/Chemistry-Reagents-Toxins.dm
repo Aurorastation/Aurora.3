@@ -98,7 +98,7 @@
 
 /datum/reagent/toxin/phoron/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))
-		L.adjust_fire_stacks(amount / 5)
+		L.adjust_fire_stacks(amount / 5, should_go_over = TRUE)
 
 /datum/reagent/toxin/phoron/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VAURCA)
@@ -268,9 +268,10 @@
 	reagent_state = SOLID
 	color = "#CCCCCC"
 	taste_description = "salty dirt"
-	metabolism = REM * 10
 	breathe_mul = 0
-		
+	touch_mul = 1
+	touch_met = REM * 10
+
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_turf(var/turf/simulated/T)
 	if(!istype(T))
 		return
@@ -278,7 +279,7 @@
 	var/hotspot = (locate(/obj/fire) in T)
 	if(hotspot && !istype(T, /turf/space))
 		var/datum/gas_mixture/lowertemp = T.return_air()
-		lowertemp.temperature = max(lowertemp.temperature-2000, lowertemp.temperature / 2, T0C)
+		lowertemp.temperature = max(lowertemp.temperature-2000, lowertemp.temperature / 2, T0C + 10)
 		lowertemp.react()
 		qdel(hotspot)
 
@@ -290,13 +291,11 @@
 
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))
-		var/needed = L.fire_stacks * 10
-		if(amount > needed)
-			L.fire_stacks = 0
-			L.ExtinguishMob()
+		var/needed = L.fire_stacks
+		L.adjust_fire_stacks(-amount, should_extinguish = TRUE, should_go_over = TRUE)
+		if(amount >= needed)
 			remove_self(needed)
 		else
-			L.adjust_fire_stacks(-amount*0.5)
 			remove_self(amount)
 
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed)

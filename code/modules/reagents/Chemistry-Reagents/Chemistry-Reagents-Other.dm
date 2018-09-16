@@ -243,8 +243,7 @@
 		else if(M.mind && cult.is_antagonist(M.mind) && prob(10))
 			cult.remove_antagonist(M.mind)
 	if(alien && alien == IS_UNDEAD)
-		M.adjust_fire_stacks(10)
-		M.IgniteMob()
+		M.adjust_fire_stacks(10,should_ignite = TRUE,should_go_over = TRUE)
 
 /datum/reagent/water/holywater/touch_turf(var/turf/T)
 	if(volume >= 5)
@@ -253,8 +252,7 @@
 
 /datum/reagent/water/holywater/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien && alien == IS_UNDEAD)
-		M.adjust_fire_stacks(5)
-		M.IgniteMob()
+		M.adjust_fire_stacks(5, should_ignite = TRUE,should_go_over = TRUE)
 
 /datum/reagent/diethylamine
 	name = "Diethylamine"
@@ -300,7 +298,7 @@
 
 /datum/reagent/thermite/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))
-		L.adjust_fire_stacks(amount / 5)
+		L.adjust_fire_stacks(amount / 5,should_go_over = TRUE)
 
 /datum/reagent/thermite/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustFireLoss(3 * removed)
@@ -469,21 +467,21 @@
 /datum/reagent/liquid_fire
 	name = "Liquid Fire"
 	id = "liquid_fire"
-	description = "A dangerous flammable chemical, capable of causing fires when in contact with organic matter."
+	description = "An incredibly dangerous, flammable chemical capable of causing chemical fires when in contact with organic matter."
 	reagent_state = LIQUID
 	color = "#E25822"
-	touch_met = 5
+	metabolism = REM * 2
+	touch_met = 5 * REM
 	taste_description = "metal"
+	unaffected_species = IS_MACHINE
 
-/datum/reagent/liquid_fire/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(istype(M))
-		M.adjust_fire_stacks(10)
-		M.IgniteMob()
+/datum/reagent/liquid_fire/affect_blood(var/mob/living/L, var/alien, var/removed)
+	if(istype(L))
+		L.adjust_fire_stacks(10*removed, should_ignite = TRUE, should_go_over = TRUE)
 
 /datum/reagent/liquid_fire/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))
-		L.adjust_fire_stacks(10)
-		L.IgniteMob()
+		L.adjust_fire_stacks(10*amount, should_ignite = TRUE, should_go_over = TRUE)
 
 /datum/reagent/black_matter
 	name = "Unstable Black Matter"
