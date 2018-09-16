@@ -587,7 +587,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		var/not_fire = !M.on_fire
 		M.IgniteMob()
 		if(M.on_fire && not_fire)
-			M.visible_message(span("danger","\The [M] is ignited with \the [src]!"))
+			M.visible_message(span("danger","\The [M] is ignited by \the [src]!"))
 
 /obj/item/weapon/flame/lighter/process()
 	var/turf/location = get_turf(src)
@@ -599,7 +599,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		var/not_fire = !M.on_fire
 		M.IgniteMob()
 		if(M.on_fire && not_fire)
-			M.visible_message(span("danger","\The [M] is ignited with \the [src]!"))
+			M.visible_message(span("danger","\The [M] is ignited by \the [src]!"))
 
 	if (istype(loc, /obj/item/weapon/storage))//A lighter shouldn't stay lit inside a closed container
 		lit = 0
