@@ -2383,3 +2383,20 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 	icon_open = "talon_coat_open"
 	icon_closed = "talon_coat"
 	contained_sprite = TRUE
+
+
+/obj/item/weapon/storage/backpack/cloak/fluff/ryn_cloak //Security Tunnel Cloak - Za'Akaix'Ryn Zo'ra - Jamchop23334
+	name = "security tunnel cloak"
+	desc = "A blue, tailor-made tunnel cloak with paltry storage options. The fabric is smoother and less abrasive than regular tunnel cloaks, though it looks difficult to wear."
+	icon = 'icons/obj/custom_items/ryn_clothing.dmi'
+	icon_state = "ryn_cloak"
+	item_state = "ryn_cloak"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/fluff/ryn_hood //Security Tunnel Hood - Za'Akaix'Ryn Zo'ra - Jamchop23334
+	name = "security tunnel hood"
+	desc = "A silky smooth blue hood, though its more of a headwrap. You're having a hard time wrapping your head around how to wear this."
+	icon = 'icons/obj/custom_items/ryn_clothing.dmi'
+	icon_state = "ryn_hood"
+	item_state = "ryn_hood"
+	contained_sprite = TRUE
