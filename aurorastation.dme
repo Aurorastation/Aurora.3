@@ -976,6 +976,7 @@
 #include "code\game\objects\structures\crates_lockers\closets\secure\security.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\alien_nests.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\bed.dm"
+#include "code\game\objects\structures\stool_bed_chair_nest\booth.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\chairs.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\stools.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\wheelchair.dm"
