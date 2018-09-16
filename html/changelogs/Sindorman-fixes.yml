@@ -7,5 +7,6 @@ changes:
   - bugfix: "Red track pants now spawn the right item(instead of blue)"
   - bugfix: "Cybrogs can now interact with curtains to open and close them."
   - bugfix: "Newscaster no longer keep photos after you remove it."
-  - mapteak: "Bar now has full camera coverage and two emergency O2 wall lockers"
+  - maptweak: "Bar and kitchen have emergency O2 wall lockers."
+  - maptweak: "Bar theater and Kitchen Pantry now have security cameras"
   - bugfix: "ED209 no longer shoots far away, but gets closer into shooting range distance with its target"
