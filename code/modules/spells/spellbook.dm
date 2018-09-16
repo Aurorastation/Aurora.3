@@ -52,6 +52,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 			var/active_hand = H.hand
 			user <<"<span class='warning'>You feel unimaginable agony as your eyes pour over millenia of forbidden knowledge!</span>"
 			user.show_message("<b>[user]</b> screams in horror!",2)
+			H.ChangeToHusk()
 			H.fire_stacks = max(0,H.fire_stacks)
 			H.adjust_fire_stacks(2, should_ignite = TRUE, should_go_over = TRUE)
 			H.updatehealth()

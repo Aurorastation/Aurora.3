@@ -296,8 +296,8 @@
 		return trans_to_obj(target, amount, multiplier, copy)
 	return 0
 
-//Splashing reagents is messier than trans_to, the target's loc gets some of the reagents as well.
-/datum/reagents/proc/splash(var/atom/target, var/amount = 1, var/multiplier = 1, var/copy = 0, var/min_spill=0, var/max_spill=60)
+//NEVER USE SPLASH. ALWAYS USE trans_to.
+/datum/reagents/proc/splash(var/atom/target, var/amount = 1, var/multiplier = 1, var/copy = 0, var/min_spill=0, var/max_spill=60) //min_spill and max_spill are a percentage
 	var/spill = 0
 	if(!isturf(target) && target.loc)
 		spill = amount*(rand(min_spill, max_spill)/100)
@@ -381,9 +381,23 @@
 	if(isliving(target)) //will we ever even need to tranfer reagents to non-living mobs?
 		var/mob/living/L = target
 		perm = L.reagent_permeability()
-	multiplier *= perm
+	
+	var/breath_amount = 0
+	var/taste_amount = 0
+	var/splash_amount = trans_to_turf(get_turf(target),(1-(perm*0.5))*amount)
 
-	return trans_to_mob(target, amount*0.75, CHEM_TOUCH, multiplier, copy) + trans_to_mob(target, amount*0.25, CHEM_BREATHE, multiplier, copy)
+	if(prob(25))
+		taste_amount = trans_to_mob(target, amount*0.05, CHEM_INGEST, multiplier, copy)
+		if(taste_amount)
+			to_chat(target,span("danger","You get some of the chemicals in your mouth!"))
+			if(prob(25))
+				breath_amount = trans_to_mob(target, amount*0.1, CHEM_BREATHE, multiplier, copy)
+				if(breath_amount)
+					target.emote("cough")
+					to_chat(target,span("danger","You accidentally breath in some of the chemicals!"))
+					
+	var/returning = trans_to_mob(target, amount - taste_amount - breath_amount - splash_amount, CHEM_TOUCH, multiplier, copy)
+	return returning
 
 /datum/reagents/proc/trans_to_mob(var/mob/target, var/amount = 1, var/type = CHEM_BLOOD, var/multiplier = 1, var/copy = 0, var/bypass_checks = FALSE) // Transfer after checking into which holder...
 
@@ -403,7 +417,7 @@
 			return C.ingest(src, R, amount, multiplier, copy)
 		if(type == CHEM_TOUCH)
 			var/datum/reagents/R = C.touching
-			return trans_to_holder(R, amount, multiplier, copy)
+			return C.touch(src, R, amount, multiplier, copy)
 	else
 		//If the target has a reagent holder, we'll try to put it there instead. This allows feeding simple animals
 		if(target.reagents && type == CHEM_BLOOD || type == CHEM_INGEST)
@@ -457,7 +471,7 @@
 	for (var/turf/T in turfs)
 		var/datum/reagents/TR = new /datum/reagents(turfportion)
 		R.trans_to_holder(TR, turfportion, 1, 0)
-		TR.splash_turf(T)
+		TR.trans_to(T)
 
 	qdel(R)
 

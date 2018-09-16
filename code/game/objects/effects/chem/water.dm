@@ -53,7 +53,7 @@
 		var/portion = 1 / mobshere.len
 		var/total = reagents.total_volume
 		for (var/mob/living/L in mobshere)
-			reagents.splash(L, total * portion)
+			reagents.trans_to(L, total * portion)
 		return 1
 
 	return 0

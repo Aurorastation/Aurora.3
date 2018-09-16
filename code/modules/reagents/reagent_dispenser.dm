@@ -33,7 +33,7 @@
 		amount_per_transfer_from_this = N
 
 /obj/structure/reagent_dispensers/ex_act(severity)
-	reagents.splash_turf(get_turf(src), reagents.total_volume)
+	reagents.trans_to(get_turf(src), reagents.total_volume)
 	visible_message(span("danger", "\The [src] bursts open, spreading reagents all over the area!"))
 	qdel(src)
 

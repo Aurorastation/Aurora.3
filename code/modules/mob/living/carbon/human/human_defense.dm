@@ -478,7 +478,7 @@ emp_act
 		"feet" = THERMAL_PROTECTION_FOOT_LEFT + THERMAL_PROTECTION_FOOT_RIGHT,
 		"arms" = THERMAL_PROTECTION_ARM_LEFT + THERMAL_PROTECTION_ARM_RIGHT,
 		"hands" = THERMAL_PROTECTION_HAND_LEFT + THERMAL_PROTECTION_HAND_RIGHT
-		)
+	)
 
 	for(var/obj/item/clothing/C in src.get_equipped_items())
 		if(C.permeability_coefficient == 1 || !C.body_parts_covered)

@@ -39,4 +39,7 @@ changes:
   - balance: "Fixed an exploit that allowed towels to put out fires super easily. Reworked towels so they can put out flames as well as dry other people."
   - balance: "Rebalanced liquid fire chemical so its effects are based on the amount metabolised to prevent exploits."
   - balance: "Buffed the amount of fire fire extinguishers put out. Adjusted fire extinguishers so they can't set a room below 10 degrees Celsius."
-  - tweak: "Reading forbidden tombs no longer husk the user. Tweaked apprentice punish/reward spell to appropriately describe what it does."
+  - tweak: "Tweaked apprentice punish/reward spell to appropriately describe what it does."
+  - bugfix: "Fixed mobs/turfs/objects being unaffected by splashing by some methods."
+  - balance: "Being splashed now has a 25% chance to ingest 5% the reagents, and a 12.5% chance to inhale 10% the reagents."
+  - tweak: "Getting hit by lighters can ignite you if you're covered in flammable fuel."

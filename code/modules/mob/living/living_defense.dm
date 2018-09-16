@@ -279,12 +279,15 @@
 	// should_ignite: Whether or not this change should ignire the person, if fire stacks are above 0.
 	// should_extinguish: Whether or not this change should extinguish the person, if fire stacks are below 0.
 	// should_go_over: Whether or not the change is allowed to go pass 0, the threshold between on fire and not on fire.
+	
+	if(!fire_stacks)
+		fire_stacks = 0
 
 	fire_stacks = Clamp(fire_stacks + add_fire_stacks, (!should_go_over && fire_stacks > 0) ? 0 : FIRE_MIN_STACKS, (!should_go_over && fire_stacks < 0) ? 0 : FIRE_MAX_STACKS)
 
 	if(fire_stacks <= 0 && should_extinguish)
 		ExtinguishMob()
-	else if(fire_stacks <= 0 && should_ignite)
+	else if(fire_stacks >= 0 && should_ignite)
 		IgniteMob()
 
 /mob/living/proc/handle_fire()
