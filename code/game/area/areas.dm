@@ -62,7 +62,6 @@
 	var/station_area = 0
 	var/centcomm_area = 0
 	var/has_weird_power = FALSE	// If TRUE, SSmachinery will not use the inlined power checks and will call powered() and use_power() on this area.
-	var/no_events = 1 //This area is not affected by station events.
 
 // Don't move this to Initialize(). Things in here need to run before SSatoms does.
 /area/New()
@@ -429,8 +428,8 @@ var/list/mob/living/forced_ambiance_list = new
 		if (istype(A, /area/turret_protected) || LAZYLEN(A.turret_controls))
 			continue
 
-		var/should_continue = FALSE
 		if(filter_players)
+			var/should_continue = FALSE
 			for(var/mob/living/carbon/human/H in human_mob_list)
 				if(!H.client)
 					continue

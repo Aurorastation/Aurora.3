@@ -34,4 +34,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Significantly improved the infestation event to include more mobs and more locations."
+  - rscadd: "Event infestations can now target anywhere on the station, as long there are no occupents."
+  - tweak: "Removed yithians and diyaabs from infestation events and replaced them with slimes and hivebots."
+  

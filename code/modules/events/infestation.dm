@@ -1,10 +1,17 @@
+#define INFESTATION_MICE "mice"
+#define INFESTATION_LIZARDS "lizards"
+#define INFESTATION_SPACE_BATS "space bats"
+#define INFESTATION_SPIDERLINGS "spiderlings"
+#define INFESTATION_HIVEBOTS "hivebots"
+#define INFESTATION_SLIMES "slimes"
+
 /datum/event/infestation
 	announceWhen = 10
 	endWhen = 11
 	var/area/chosen_area
-	var/event_name = "Unregistered Teleportation"
-	var/chosen_mob = "bluespace bears"
-	var/chosen_verb = "have teleported to"
+	var/event_name = "Slime Leak"
+	var/chosen_mob = INFESTATION_SLIMES
+	var/chosen_verb = "have leaked into"
 	var/list/chosen_mob_types = list()
 
 /datum/event/infestation/start()
@@ -18,50 +25,32 @@
 /datum/event/infestation/proc/choose_mobs()
 
 	var/list/possible_mobs = list(
-		"mice" = 0,
-		"lizards" = 0,
-
-		"space bats" = 0,
-		"spiderling" = 0,
-
-		"hivebots" = 0,
-		"baby slimes" = 0
+		INFESTATION_MICE = (severity = EVENT_LEVEL_MUNDANE),
+		INFESTATION_LIZARDS = (severity = EVENT_LEVEL_MUNDANE),
+		INFESTATION_SPACE_BATS = (severity = EVENT_LEVEL_MODERATE),
+		INFESTATION_SPIDERLINGS = (severity = EVENT_LEVEL_MODERATE),
+		INFESTATION_HIVEBOTS = (severity = EVENT_LEVEL_MAJOR),
+		INFESTATION_SLIMES = (severity = EVENT_LEVEL_MAJOR)
 	)
-
-	switch(severity)
-		if(EVENT_LEVEL_MUNDANE)
-			possible_mobs["mice"] = 1
-			possible_mobs["lizards"] = 1
-		if(EVENT_LEVEL_MODERATE)
-			possible_mobs["space bats"] = 1
-			possible_mobs["spiderlings"] = 1
-		if(EVENT_LEVEL_MAJOR)
-			possible_mobs["hivebots"] = 1
-			possible_mobs["baby slimes"] = 1
 
 	chosen_mob = pickweight(possible_mobs)
 
 	switch(chosen_mob)
-		if("bluespace bears")
-			event_name = "Bluespace Bear Teleportation"
-			chosen_verb = "have teleported to"
-			chosen_mob_types +=	/mob/living/simple_animal/hostile/bear/spatial
-			chosen_mob_types +=	/mob/living/simple_animal/hostile/bear/spatial
-		if("hivebots")
+		if(INFESTATION_HIVEBOTS)
 			event_name = "Minor Hivebot Invasion"
 			chosen_verb = "have invaded"
 			chosen_mob_types += /mob/living/simple_animal/hostile/hivebot/tele
-		if("space bats")
+		if(INFESTATION_SPACE_BATS)
 			event_name = "Space Bat Nest"
 			chosen_verb = "have been breeding in"
 			for(var/i = 1, i < rand(3,5),i++)
 				chosen_mob_types += /mob/living/simple_animal/hostile/scarybat
-		if("lizards")
+		if(INFESTATION_LIZARDS)
 			event_name = "Lizard Nest"
 			chosen_verb = "have been breeding in"
 			for(var/i = 1, i < rand(6,8),i++)
 				chosen_mob_types += /mob/living/simple_animal/lizard
-		if("mice")
+		if(INFESTATION_MICE)
 			event_name = "Mouse Nest"
 			chosen_verb = "have been breeding in"
 			var/list/rat_breeds = list(
@@ -71,12 +60,12 @@
 			)
 			for(var/i = 1, i < rand(6,12),i++)
 				chosen_mob_types += pickweight(rat_breeds)
-		if("baby slimes")
+		if(INFESTATION_SLIMES)
 			event_name = "Slime Leak"
 			chosen_verb = "have leaked into"
 			for(var/i = 1, i < rand(2,4),i++)
 				chosen_mob_types += /mob/living/carbon/slime/
-		if("spiderlings")
+		if(INFESTATION_SPIDERLINGS)
 			event_name = "Spiderling Infestation"
 			chosen_verb = "have burrowed into"
 			for(var/i = 1, i < rand(3,6),i++)
