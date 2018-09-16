@@ -15018,10 +15018,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/camera/network/civilian_surface{
-	c_tag = "Surface - Restrooms";
-	dir = 8
-	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "BC" = (

@@ -51109,13 +51109,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/locker/locker_toilet)
-"bMH" = (
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Main Level - Restrooms";
-	dir = 8
-	},
-/turf/simulated/floor/tiled/freezer,
-/area/crew_quarters/locker/locker_toilet)
 "bML" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -61813,10 +61806,6 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -22
-	},
-/obj/machinery/camera/network/security{
-	c_tag = "Security - Bathroom";
-	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/freezer,
@@ -94817,7 +94806,7 @@ bJu
 bKq
 bLj
 bKq
-bMH
+bKq
 bKq
 bJu
 bOA

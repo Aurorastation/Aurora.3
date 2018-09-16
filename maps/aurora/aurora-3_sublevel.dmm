@@ -2533,11 +2533,6 @@
 	pixel_x = -4;
 	pixel_y = 3
 	},
-/obj/machinery/camera/network/engineering_outpost{
-	c_tag = "Engineering Sublevel - Restrooms";
-	dir = 4;
-	icon_state = "camera"
-	},
 /turf/simulated/floor/tiled/freezer,
 /area/outpost/engineering/meeting)
 "afu" = (
@@ -27714,11 +27709,6 @@
 "aWx" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
-	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Staff Hygiene Facilities";
-	dir = 4;
-	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/medbreak)
