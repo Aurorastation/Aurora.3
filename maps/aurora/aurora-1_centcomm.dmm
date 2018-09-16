@@ -9855,7 +9855,7 @@
 "wP" = (
 /obj/machinery/computer/security/telescreen{
 	name = "Spec. Ops. Monitor";
-	network = list("ERT")
+	network = list("ZeEmergencyResponseTeam")
 	},
 /obj/structure/table/wood{
 	dir = 5
@@ -12769,7 +12769,7 @@
 /obj/machinery/computer/security/telescreen{
 	desc = "";
 	name = "Spec. Ops. Monitor";
-	network = list("ERT");
+	network = list("ZeEmergencyResponseTeam");
 	pixel_y = 30
 	},
 /obj/machinery/computer/shuttle_control/specops,
