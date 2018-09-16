@@ -231,18 +231,14 @@
 
 		if (step_to(src, get_step(src, direction), 0))
 			break
-//This proc prevents blood on openspace tiles, by causing them to fall down until they hit the ground
 /obj/effect/decal/cleanable/blood/proc/fall_to_floor()
 	if (isopenturf(loc))
-		anchored = FALSE //Anchored things can't fall
-		while (isopenturf(loc))
-			var/turf/simulated/open/T = loc
-			ADD_FALLING_ATOM(src)
+		anchored = FALSE
+		ADD_FALLING_ATOM(src)
 
-			//A failsafe. If falling through the floor somehow fails to send us anywhere new, we break out to avoid an infinite loop
-			if (loc == T)
-				break
-	anchored = initial(anchored) //Reset it
+/obj/effect/decal/cleanable/blood/fall_impact()
+	. = ..()
+	anchored = initial(anchored)
 
 /obj/effect/decal/cleanable/mucus
 	name = "mucus"
