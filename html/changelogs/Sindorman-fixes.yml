@@ -1,0 +1,8 @@
+author: PoZe
+
+delete-after: True
+
+changes:
+  - bugfix: "Beepsky/ED209 no longer move around when turned off"
+  - bugfix: "Red track pants now spawn the right item(instead of blue)"
+  - bugfix: "Cybrogs can now interact with curtains to open and close them."
