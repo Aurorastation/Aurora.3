@@ -257,38 +257,45 @@
 	spawn(1) updatehealth()
 	return 1
 
-/mob/living/proc/IgniteMob()
+/mob/living/proc/IgniteMob(var/fire_stacks_to_add = 0)
+
+	if(fire_stacks_to_add)
+		adjust_fire_stacks(fire_stacks_to_add)
+
 	if(fire_stacks > 0 && !on_fire)
 		on_fire = 1
 		set_light(light_range + MOB_FIRE_LIGHT_RANGE, light_power + MOB_FIRE_LIGHT_POWER)
 		update_fire()
+		return TRUE
 
-/mob/living/proc/ExtinguishMob()
-	if(on_fire)
+
+/mob/living/proc/ExtinguishMob(var/fire_stacks_to_remove = 0)
+
+	if(fire_stacks_to_remove)
+		adjust_fire_stacks(-fire_stacks_to_remove)
+	else
 		fire_stacks = min(0,fire_stacks)
+
+	if(fire_stacks <= 0 && on_fire)
 		on_fire = 0
 		set_light(max(0, light_range - MOB_FIRE_LIGHT_RANGE), max(0, light_power - MOB_FIRE_LIGHT_POWER))
 		update_fire()
+		return TRUE
 
 /mob/living/proc/update_fire()
 	return
 
-/mob/living/proc/adjust_fire_stacks(var/add_fire_stacks, var/should_ignite = FALSE, var/should_extinguish = FALSE, var/should_go_over=FALSE)
+/mob/living/proc/adjust_fire_stacks(var/add_fire_stacks)
 
-	// add_fire_stacks: Amount of fire stacks to add. Could be positive or negative.
-	// should_ignite: Whether or not this change should ignire the person, if fire stacks are above 0.
-	// should_extinguish: Whether or not this change should extinguish the person, if fire stacks are below 0.
-	// should_go_over: Whether or not the change is allowed to go pass 0, the threshold between on fire and not on fire.
-	
 	if(!fire_stacks)
 		fire_stacks = 0
 
-	fire_stacks = Clamp(fire_stacks + add_fire_stacks, (!should_go_over && fire_stacks > 0) ? 0 : FIRE_MIN_STACKS, (!should_go_over && fire_stacks < 0) ? 0 : FIRE_MAX_STACKS)
+	fire_stacks = Clamp(fire_stacks + add_fire_stacks, FIRE_MIN_STACKS, FIRE_MAX_STACKS)
 
-	if(fire_stacks <= 0 && should_extinguish)
+	if(fire_stacks <= 0 && on_fire)
 		ExtinguishMob()
-	else if(fire_stacks >= 0 && should_ignite)
-		IgniteMob()
+
+	return fire_stacks
 
 /mob/living/proc/handle_fire()
 	if(fire_stacks < 0)

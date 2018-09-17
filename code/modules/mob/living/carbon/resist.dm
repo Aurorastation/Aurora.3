@@ -3,7 +3,7 @@
 
 	//drop && roll
 	if(on_fire && !buckled)
-		adjust_fire_stacks(-1.2,should_extinguish = TRUE)
+		ExtinguishMob(1.2)
 		Weaken(3)
 		spin(32,2)
 		visible_message(

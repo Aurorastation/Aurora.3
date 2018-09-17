@@ -287,7 +287,6 @@
 //call the appropriate trans_to_*() proc.
 /datum/reagents/proc/trans_to(var/atom/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
 	touch(target) //First, handle mere touch effects
-
 	if(ismob(target))
 		return splash_mob(target, amount, multiplier, copy)
 	if(isturf(target))
@@ -296,15 +295,11 @@
 		return trans_to_obj(target, amount, multiplier, copy)
 	return 0
 
-//NEVER USE SPLASH. ALWAYS USE trans_to.
+//Messy proc that should be used for beaker splashing and the such.
 /datum/reagents/proc/splash(var/atom/target, var/amount = 1, var/multiplier = 1, var/copy = 0, var/min_spill=0, var/max_spill=60) //min_spill and max_spill are a percentage
-	var/spill = 0
-	if(!isturf(target) && target.loc)
-		spill = amount*(rand(min_spill, max_spill)/100)
-		amount -= spill
-	if(spill)
-		splash(target.loc, spill, multiplier, copy, min_spill, max_spill)
-
+	if(!isturf(target) && target.loc && get_turf(target.loc))
+		var/spill_amount = amount * rand(min_spill, max_spill) * 0.01
+		amount -= trans_to(get_turf(target.loc), spill_amount, multiplier, copy)
 	trans_to(target, amount, multiplier, copy)
 
 /datum/reagents/proc/trans_id_to(var/target, var/id, var/amount = 1)
@@ -377,27 +372,24 @@
 // Reagents are not guaranteed to transfer to the target.
 // DO NOT CALL THIS DIRECTLY, call trans_to() instead.
 /datum/reagents/proc/splash_mob(var/mob/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
+
 	var/perm = 1
 	if(isliving(target)) //will we ever even need to tranfer reagents to non-living mobs?
 		var/mob/living/L = target
 		perm = L.reagent_permeability()
-	
-	var/breath_amount = 0
-	var/taste_amount = 0
+
+	var/taste_amount = prob(25) ? trans_to_mob(target, amount*0.05, CHEM_INGEST, multiplier, copy) : 0
+	var/breathe_amount = prob(25) ? trans_to_mob(target, amount*0.1, CHEM_BREATHE, multiplier, copy) : 0
 	var/splash_amount = trans_to_turf(get_turf(target),(1-(perm*0.5))*amount)
 
-	if(prob(25))
-		taste_amount = trans_to_mob(target, amount*0.05, CHEM_INGEST, multiplier, copy)
-		if(taste_amount)
-			to_chat(target,span("danger","You get some of the chemicals in your mouth!"))
-			if(prob(25))
-				breath_amount = trans_to_mob(target, amount*0.1, CHEM_BREATHE, multiplier, copy)
-				if(breath_amount)
-					target.emote("cough")
-					to_chat(target,span("danger","You accidentally breath in some of the chemicals!"))
-					
-	var/returning = trans_to_mob(target, amount - taste_amount - breath_amount - splash_amount, CHEM_TOUCH, multiplier, copy)
-	return returning
+	if(taste_amount)
+		to_chat(target,span("danger","You get some of the chemicals in your mouth!"))
+
+	if(breathe_amount)
+		target.emote("cough")
+		to_chat(target,span("danger","You accidentally breath in some of the chemicals!"))
+
+	return trans_to_mob(target, amount - taste_amount - breathe_amount - splash_amount, CHEM_TOUCH, multiplier, copy)
 
 /datum/reagents/proc/trans_to_mob(var/mob/target, var/amount = 1, var/type = CHEM_BLOOD, var/multiplier = 1, var/copy = 0, var/bypass_checks = FALSE) // Transfer after checking into which holder...
 
@@ -435,7 +427,7 @@
 	var/datum/reagents/R = new /datum/reagents(amount * multiplier)
 	. = trans_to_holder(R, amount, multiplier, copy)
 	R.touch_turf(target)
-	
+
 
 /datum/reagents/proc/trans_to_obj(var/turf/target, var/amount = 1, var/multiplier = 1, var/copy = 0) // Objects may or may not; if they do, it's probably a beaker or something and we need to transfer properly; otherwise, just touch.
 	if(!target || !target.simulated)
@@ -471,7 +463,7 @@
 	for (var/turf/T in turfs)
 		var/datum/reagents/TR = new /datum/reagents(turfportion)
 		R.trans_to_holder(TR, turfportion, 1, 0)
-		TR.trans_to(T)
+		TR.splash_turf(T)
 
 	qdel(R)
 

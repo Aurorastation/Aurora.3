@@ -216,7 +216,8 @@
 	if(istype(M) && isliving(M))
 		var/mob/living/L = M
 		var/needed = L.fire_stacks * 10
-		L.adjust_fire_stacks(-(amount / 10),should_extinguish = TRUE,should_go_over = TRUE)
+		if(amount)
+			L.ExtinguishMob((amount / 10))
 		if(amount > needed)
 			remove_self(needed)
 		else
@@ -259,7 +260,7 @@
 
 /datum/reagent/fuel/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))
-		L.adjust_fire_stacks(amount / 10,should_go_over = TRUE)
+		L.adjust_fire_stacks(amount / 10)
 
 /datum/reagent/fuel/napalm
 	name = "Zo'rane Fire"
@@ -273,7 +274,7 @@
 /datum/reagent/fuel/napalm/touch_turf(var/turf/T)
 	new /obj/effect/decal/cleanable/liquid_fuel/napalm(T, volume/3)
 	for(var/mob/living/L in T)
-		L.adjust_fire_stacks(volume / 10, should_go_over = TRUE)
+		L.adjust_fire_stacks(volume / 10)
 		L.add_modifier(/datum/modifier/napalm, MODIFIER_CUSTOM, _strength = 2)
 	remove_self(volume)
 	return

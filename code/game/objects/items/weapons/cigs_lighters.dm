@@ -529,9 +529,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 					user.visible_message("<span class='notice'>After a few attempts, [user] manages to light the [src].</span>")
 				else
 					user << "<span class='warning'>You burn yourself while lighting the lighter.</span>"
-					var/not_fire = !user.on_fire
-					user.IgniteMob()
-					if(not_fire && user.on_fire)
+					if(user.IgniteMob())
 						user.visible_message(span("danger","\The [user] accidentally sets themselves on fire!"))
 
 					if (user.l_hand == src)
@@ -563,11 +561,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(!istype(M, /mob))
 		return
 
-	if(lit)
-		var/not_fire = !M.on_fire
-		M.IgniteMob()
-		if(M.on_fire && not_fire)
-			M.visible_message(span("danger","\The [user] ignites \the [M] with \the [src]!"))
+	if(lit && M.IgniteMob())
+		M.visible_message(span("danger","\The [user] ignites \the [M] with \the [src]!"))
 
 	if(istype(M.wear_mask, /obj/item/clothing/mask/smokable/cigarette) && user.zone_sel.selecting == "mouth" && lit)
 		var/obj/item/clothing/mask/smokable/cigarette/cig = M.wear_mask
@@ -583,22 +578,17 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/weapon/flame/lighter/throw_impact(mob/living/carbon/M as mob)
 	. = ..()
-	if(istype(M) && lit)
-		var/not_fire = !M.on_fire
-		M.IgniteMob()
-		if(M.on_fire && not_fire)
-			M.visible_message(span("danger","\The [M] is ignited by \the [src]!"))
+	if(istype(M) && lit && M.IgniteMob())
+		M.visible_message(span("danger","\The [M] is ignited by \the [src]!"))
 
 /obj/item/weapon/flame/lighter/process()
 	var/turf/location = get_turf(src)
 	if(location)
 		location.hotspot_expose(700, 5)
 
-	if(istype(src.loc,/mob/living/) && lit && prob(10))
+	if(lit && prob(10) && istype(src.loc,/mob/living/))
 		var/mob/living/M = src.loc
-		var/not_fire = !M.on_fire
-		M.IgniteMob()
-		if(M.on_fire && not_fire)
+		if(M.IgniteMob())
 			M.visible_message(span("danger","\The [M] is ignited by \the [src]!"))
 
 	if (istype(loc, /obj/item/weapon/storage))//A lighter shouldn't stay lit inside a closed container

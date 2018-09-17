@@ -63,5 +63,5 @@
 		return
 
 	target << "<span class='danger'>Magical energies surround you, immolating you in a furious fashion!</span>"
-	target.adjust_fire_stacks(15,should_ignite = TRUE, should_go_over = TRUE)
+	target.IgniteMob(15)
 

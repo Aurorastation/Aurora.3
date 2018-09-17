@@ -40,7 +40,7 @@
 		for(var/turf/T in view(1, src) - oldlocs)
 			for(var/atom/movable/AM in T)
 				if(!istype(AM, /obj/effect/effect/smoke/chem))
-					reagents.trans_to(AM, splash_amount, copy = 1)
+					reagents.trans_to(AM, splash_amount, copy = 1) //This uses trans_to instead of splash as it is smoke and gets everywhere.
 		if(loc == destination)
 			bound_width = 96
 			bound_height = 96
@@ -48,13 +48,13 @@
 /obj/effect/effect/smoke/chem/Crossed(atom/movable/AM)
 	..()
 	if(!istype(AM, /obj/effect/effect/smoke/chem))
-		reagents.trans_to(AM, splash_amount, copy = 1)
+		reagents.trans_to(AM, splash_amount, copy = 1) //This uses trans_to instead of splash as it is smoke and gets everywhere.
 
 /obj/effect/effect/smoke/chem/proc/initial_splash()
 	for(var/turf/T in view(1, src))
 		for(var/atom/movable/AM in T)
 			if(!istype(AM, /obj/effect/effect/smoke/chem))
-				reagents.trans_to(AM, splash_amount, copy = 1)
+				reagents.trans_to(AM, splash_amount, copy = 1) //This uses trans_to instead of splash as it is smoke and gets everywhere.
 
 /////////////////////////////////////////////
 // Chem Smoke Effect System

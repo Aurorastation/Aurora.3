@@ -34,6 +34,7 @@
 
 /obj/structure/reagent_dispensers/ex_act(severity)
 	reagents.trans_to(get_turf(src), reagents.total_volume)
+	reagents.splash_area(get_turf(src),2 + severity)
 	visible_message(span("danger", "\The [src] bursts open, spreading reagents all over the area!"))
 	qdel(src)
 

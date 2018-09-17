@@ -106,7 +106,7 @@
 	for(var/mob/living/L in get_turf(src))
 		var/sticky = min(rand(5,25), amount)
 		if(sticky > 1)
-			L.adjust_fire_stacks(sticky, should_go_over = TRUE)
+			L.adjust_fire_stacks(sticky)
 			amount = max(1, amount - sticky)
 
 /obj/effect/decal/cleanable/foam //Copied from liquid fuel

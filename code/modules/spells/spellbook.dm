@@ -54,7 +54,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 			user.show_message("<b>[user]</b> screams in horror!",2)
 			H.ChangeToHusk()
 			H.fire_stacks = max(0,H.fire_stacks)
-			H.adjust_fire_stacks(2, should_ignite = TRUE, should_go_over = TRUE)
+			H.IgniteMob(2)
 			H.updatehealth()
 			user.drop_item()
 			playsound(user, 'sound/hallucinations/i_see_you2.ogg', 100, 1)

@@ -35,10 +35,9 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - bugfix: "Fixed fuel tanks having the same properties as Napalm/Zo'rane Fire."
-  - balance: "Reduced the maximum amount of liquid you can have covering your character. Reduced the maximum amount of fire you could have on your character. Hugging people while on fire now properly sets the victim ablaze."
-  - balance: "Fixed an exploit that allowed towels to put out fires super easily. Reworked towels so they can put out flames as well as dry other people."
-  - balance: "Rebalanced liquid fire chemical so its effects are based on the amount metabolised to prevent exploits."
-  - balance: "Buffed the amount of fire that fire extinguishers put out. Adjusted fire extinguishers so they can't set a room below 10 degrees Celsius."
+  - bugfix: "Hugging people while on fire now properly sets the victim ablaze."
+  - bugfix: "Fixed an exploit that allowed towels to put out fires super easily. Reworked towels so they can put out flames as well as dry other people."
+  - bugfix: "Fixed fire extinguishers cooling power so they can't set a room below 10 degrees Celsius."
   - tweak: "Tweaked apprentice punish/reward spell to appropriately describe what it does."
   - bugfix: "Fixed mobs/turfs/objects being unaffected by splashing by some methods."
   - balance: "Being splashed now has a 25% chance to ingest 5% the reagents, and a 12.5% chance to inhale 10% the reagents."

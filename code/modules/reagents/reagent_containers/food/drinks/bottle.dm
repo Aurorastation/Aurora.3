@@ -36,7 +36,7 @@
 		if(speed >= throw_speed && smash_check(throw_dist)) //not as reliable as smashing directly
 			if(reagents)
 				hit_atom.visible_message("<span class='notice'>The contents of \the [src] splash all over [hit_atom]!</span>")
-				reagents.trans_to(hit_atom, reagents.total_volume)
+				reagents.splash(hit_atom, reagents.total_volume)
 			src.smash(loc, hit_atom)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/proc/smash_check(var/distance)
@@ -142,7 +142,7 @@
 	//The reagents in the bottle splash all over the target, thanks for the idea Nodrak
 	if(reagents)
 		user.visible_message("<span class='notice'>The contents of \the [src] splash all over [target]!</span>")
-		reagents.trans_to(target, reagents.total_volume)
+		reagents.splash(target, reagents.total_volume)
 
 	//Finally, smash the bottle. This kills (qdel) the bottle.
 	var/obj/item/weapon/broken_bottle/B = smash(target.loc, target)

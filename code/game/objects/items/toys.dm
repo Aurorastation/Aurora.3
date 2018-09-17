@@ -61,7 +61,7 @@
 			else if(O.reagents.total_volume >= 1)
 				if(O.reagents.has_reagent("pacid", 1))
 					user << "The acid chews through the balloon!"
-					O.reagents.trans_to(user, reagents.total_volume)
+					O.reagents.splash(user, reagents.total_volume)
 					qdel(src)
 				else
 					src.desc = "A translucent balloon with some form of liquid sloshing around in it."
@@ -98,7 +98,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "syndballoon"
 	item_state = "syndballoon"
-	w_class = ITEMSIZE_LARGE  
+	w_class = ITEMSIZE_LARGE
 
 /obj/item/toy/nanotrasenballoon
 	name = "criminal balloon"
@@ -110,7 +110,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "ntballoon"
 	item_state = "ntballoon"
-	w_class = ITEMSIZE_LARGE  
+	w_class = ITEMSIZE_LARGE
 
 /*
  * Fake telebeacon
@@ -630,7 +630,7 @@
 	name = "Librarian action figure"
 	desc = "A \"Space Life\" brand Librarian action figure."
 	icon_state = "librarian"
-	
+
 /obj/item/toy/figure/journalist
 	name = "Journalist action figure"
 	desc = "A \"Space Life\" brand Librarian action figure. The word 'librarian' on the tag is scratched out with marker, and 'journalist' is written in its place."
@@ -872,7 +872,7 @@
 	name = "toddler"
 	desc = "This baby looks almost real. Wait, did it just burp?"
 	force = 5
-	w_class = ITEMSIZE_LARGE  
+	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 */
 

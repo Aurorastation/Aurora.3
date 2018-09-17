@@ -77,7 +77,7 @@
 /obj/item/weapon/reagent_containers/spray/proc/Spray_at(atom/A as mob|obj, mob/user as mob, proximity)
 	if (A.density && proximity)
 		A.visible_message("[user] sprays [A] with [src].")
-		reagents.trans_to(A, amount_per_transfer_from_this)
+		reagents.trans_to(A, amount_per_transfer_from_this) //Uses trans_to instead of splash because it is more direct.
 	else
 		spawn(0)
 			var/obj/effect/effect/water/chempuff/D = new/obj/effect/effect/water/chempuff(get_turf(src))
@@ -112,7 +112,7 @@
 		return
 	if(isturf(usr.loc))
 		usr << "<span class='notice'>You empty \the [src] onto the floor.</span>"
-		reagents.trans_to(usr.loc, reagents.total_volume)
+		reagents.splash(usr.loc, reagents.total_volume)
 
 //space cleaner
 /obj/item/weapon/reagent_containers/spray/cleaner

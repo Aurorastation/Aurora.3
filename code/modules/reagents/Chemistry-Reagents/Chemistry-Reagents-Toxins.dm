@@ -98,7 +98,7 @@
 
 /datum/reagent/toxin/phoron/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))
-		L.adjust_fire_stacks(amount / 5, should_go_over = TRUE)
+		L.adjust_fire_stacks(amount / 5)
 
 /datum/reagent/toxin/phoron/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VAURCA)
@@ -292,7 +292,7 @@
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))
 		var/needed = L.fire_stacks
-		L.adjust_fire_stacks(-amount, should_extinguish = TRUE, should_go_over = TRUE)
+		L.ExtinguishMob(amount*0.5)
 		if(amount >= needed)
 			remove_self(needed)
 		else

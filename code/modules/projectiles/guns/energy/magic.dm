@@ -231,7 +231,7 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
-			H.adjust_fire_stacks(15,should_ignite = TRUE,should_go_over = TRUE)
+			H.IgniteMob(15)
 			H.visible_message("<span class='danger'>\The [src] explodes in a shower of fire!</span>")
 			H.drop_item()
 			qdel(src)

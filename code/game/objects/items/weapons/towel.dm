@@ -18,7 +18,7 @@
 		if(user.on_fire)
 			user.visible_message("<span class='warning'>\The [user] uses \the [src] to pat out \the [M]'s flames with \the [src]!</span>")
 			playsound(M, 'sound/weapons/towelwhip.ogg', 25, 1)
-			M.adjust_fire_stacks(1, should_extinguish = TRUE)
+			M.ExtinguishMob(-1)
 		else
 			user.visible_message("<span class='notice'>\The [user] starts drying \the [M] off with \the [src]...</span>")
 			if(do_mob(user, M, 3 SECONDS))

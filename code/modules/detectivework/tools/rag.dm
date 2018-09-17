@@ -86,7 +86,7 @@
 
 		if(do_after(user, reagents.total_volume*5)) //50 for a fully soaked rag
 			if(trans_dest)
-				reagents.trans_to(trans_dest, reagents.total_volume)
+				reagents.trans_to(trans_dest, reagents.total_volume) //This uses trans_to instead of splash as it is a direct appliance
 			else
 				reagents.trans_to(user.loc, reagents.total_volume)
 			user.visible_message("<span class='danger'>\The [user] wrings out [src] over [target_text].</span>", "<span class='notice'>You finish to wringing out [src].</span>")
@@ -97,7 +97,7 @@
 		user << "<span class='warning'>The [initial(name)] is dry!</span>"
 	else
 		user.visible_message("\The [user] starts to wipe down [A] with [src]!")
-		reagents.trans_to(A, 1) //get a small amount of liquid on the thing we're wiping.
+		reagents.trans_to(A, 1) //get a small amount of liquid on the thing we're wiping. This uses trans_to instead of splash as it is a direct appliance
 		update_name()
 		if(do_after(user,30))
 			user.visible_message("\The [user] finishes wiping off \the [A]!")

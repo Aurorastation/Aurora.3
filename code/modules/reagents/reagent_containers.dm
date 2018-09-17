@@ -123,7 +123,7 @@
 		return
 
 	user.visible_message("<span class='danger'>\The [target] has been splashed with something by \the [user]!</span>", "<span class = 'warning'>You splash the solution onto \the [target].</span>")
-	reagents.trans_to(target, min(120,reagents.total_volume) ) //Splash Limit
+	reagents.splash(target, min(120,reagents.total_volume) ) //Splash Limit
 	return
 
 // This goes into afterattack
@@ -148,7 +148,7 @@
 	msg_admin_attack("[user.name] ([user.ckey]) splashed [target.name] ([target.key]) with [name]. Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 
 	user.visible_message("<span class='danger'>\The [target] has been splashed with something by \the [user]!</span>", "<span class = 'warning'>You splash the solution onto \the [target].</span>")
-	reagents.trans_to(target, min(120,reagents.total_volume) ) //Splash Limit
+	reagents.splash(target, min(120,reagents.total_volume) ) //Splash Limit
 
 	if (istype(target, /mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = target

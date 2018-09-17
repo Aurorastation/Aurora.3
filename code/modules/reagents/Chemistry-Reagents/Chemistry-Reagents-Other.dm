@@ -243,7 +243,7 @@
 		else if(M.mind && cult.is_antagonist(M.mind) && prob(10))
 			cult.remove_antagonist(M.mind)
 	if(alien && alien == IS_UNDEAD)
-		M.adjust_fire_stacks(10,should_ignite = TRUE,should_go_over = TRUE)
+		M.IgniteMob(10)
 
 /datum/reagent/water/holywater/touch_turf(var/turf/T)
 	if(volume >= 5)
@@ -252,7 +252,7 @@
 
 /datum/reagent/water/holywater/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien && alien == IS_UNDEAD)
-		M.adjust_fire_stacks(5, should_ignite = TRUE,should_go_over = TRUE)
+		M.IgniteMob(5)
 
 /datum/reagent/diethylamine
 	name = "Diethylamine"
@@ -298,7 +298,7 @@
 
 /datum/reagent/thermite/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))
-		L.adjust_fire_stacks(amount / 5,should_go_over = TRUE)
+		L.adjust_fire_stacks(amount / 5)
 
 /datum/reagent/thermite/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustFireLoss(3 * removed)
@@ -477,11 +477,11 @@
 
 /datum/reagent/liquid_fire/affect_blood(var/mob/living/L, var/alien, var/removed)
 	if(istype(L))
-		L.adjust_fire_stacks(10*removed, should_ignite = TRUE, should_go_over = TRUE)
+		L.IgniteMob(10)
 
 /datum/reagent/liquid_fire/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))
-		L.adjust_fire_stacks(10*amount, should_ignite = TRUE, should_go_over = TRUE)
+		L.IgniteMob(10)
 
 /datum/reagent/black_matter
 	name = "Unstable Black Matter"
