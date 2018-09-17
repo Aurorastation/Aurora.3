@@ -54,11 +54,11 @@
 	display_name = "camera"
 	path = 	/obj/item/device/camera
 
-/datum/gear/accessory/fannypack
+/datum/gear/utility/fannypack
 	display_name = "fannypack selection"
 	path = /obj/item/weapon/storage/belt/fannypack
 
-/datum/gear/accessory/fannypack/New()
+/datum/gear/utility/fannypack/New()
 	..()
 	var/list/fannys = list()
 	for(var/fanny in typesof(/obj/item/weapon/storage/belt/fannypack))
