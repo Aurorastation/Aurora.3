@@ -114,6 +114,13 @@
 	dress["dress, orange"] = /obj/item/clothing/under/dress/dress_orange
 	dress["dress, pink"] = /obj/item/clothing/under/dress/dress_pink
 	dress["dress, yellow"] = /obj/item/clothing/under/dress/dress_yellow
+	dress["dress, white"] = /obj/item/clothing/under/dress/white
+	dress["dress, stripped"] = /obj/item/clothing/under/dress/stripeddress
+	dress["dress, sailor"] = /obj/item/clothing/under/dress/sailordress
+	dress["dress, red swept"] = /obj/item/clothing/under/dress/red_swept_dress
+	dress["dress, western bustle"] = /obj/item/clothing/under/dress/westernbustle
+	dress["dress, black tango"] = /obj/item/clothing/under/dress/blacktango
+	dress["dress, black tango alternative"] = /obj/item/clothing/under/dress/blacktango/alt
 	dress["cheongsam, white"] = /obj/item/clothing/under/cheongsam
 	dress["cheongsam, red"] = /obj/item/clothing/under/cheongsam/red
 	dress["cheongsam, blue"] = /obj/item/clothing/under/cheongsam/blue
