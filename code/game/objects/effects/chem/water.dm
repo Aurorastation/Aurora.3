@@ -38,27 +38,9 @@
 	if (!reagents || reagents.total_volume <= 0)
 		return 1
 
-
-	reagents.touch_turf(T)
-	var/list/mobshere = list()
-	for (var/mob/living/L in T)
-		mobshere.Add(L)
-
-
-	for (var/atom/B in T)
-		if (!ismob(B))
-			reagents.touch(B)
-
-	if (mobshere.len)
-		var/portion = 1 / mobshere.len
-		var/total = reagents.total_volume
-		for (var/mob/living/L in mobshere)
-			reagents.splash(L, total * portion)
-		return 1
+	reagents.splash_turf(T)
 
 	return 0
-
-
 
 /obj/effect/effect/water/Move(turf/newloc)
 	if(newloc.density)

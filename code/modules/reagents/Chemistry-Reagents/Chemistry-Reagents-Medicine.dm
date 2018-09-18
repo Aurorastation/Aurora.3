@@ -523,12 +523,12 @@
 				if (W.germ_level <= 0)
 					W.disinfected = 1//The wound becomes disinfected if fully cleaned
 
-/datum/reagent/sterilizine/touch_obj(var/obj/O)
-	O.germ_level -= min(volume*20, O.germ_level)
+/datum/reagent/sterilizine/touch_obj(var/obj/O,var/amount)
+	O.germ_level -= min(amount*20, O.germ_level)
 	O.was_bloodied = null
 
-/datum/reagent/sterilizine/touch_turf(var/turf/T)
-	T.germ_level -= min(volume*20, T.germ_level)
+/datum/reagent/sterilizine/touch_turf(var/turf/T,var/amount)
+	T.germ_level -= min(amount*20, T.germ_level)
 	for(var/obj/item/I in T.contents)
 		I.was_bloodied = null
 	for(var/obj/effect/decal/cleanable/blood/B in T)

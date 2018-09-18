@@ -107,11 +107,10 @@
 	if(prob(50))
 		M.pl_effects()
 
-/datum/reagent/toxin/phoron/touch_turf(var/turf/simulated/T)
+/datum/reagent/toxin/phoron/touch_turf(var/turf/simulated/T,var/amount)
 	if(!istype(T))
 		return
-	T.assume_gas("phoron", volume, T20C)
-	remove_self(volume)
+	T.assume_gas("phoron", amount, T20C)
 
 /datum/reagent/toxin/cardox
 	name = "Cardox"
@@ -272,22 +271,18 @@
 	touch_mul = 1
 	touch_met = REM * 10
 
-/datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_turf(var/turf/simulated/T)
+/datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_turf(var/turf/simulated/T,var/amount)
 	if(!istype(T))
 		return
 
 	var/hotspot = (locate(/obj/fire) in T)
 	if(hotspot && !istype(T, /turf/space))
 		var/datum/gas_mixture/lowertemp = T.return_air()
-		lowertemp.temperature = max(lowertemp.temperature-2000, lowertemp.temperature / 2, T0C + 10)
+		lowertemp.temperature = max(lowertemp.temperature-1000*amount, lowertemp.temperature / 2, T0C + 10)
 		lowertemp.react()
 		qdel(hotspot)
 
-	var/amount_to_remove = max(1,round(volume * 0.5))
-
-	new /obj/effect/decal/cleanable/foam(T, amount_to_remove)
-	remove_self(amount_to_remove)
-	return
+	new /obj/effect/decal/cleanable/foam(T, amount)
 
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))

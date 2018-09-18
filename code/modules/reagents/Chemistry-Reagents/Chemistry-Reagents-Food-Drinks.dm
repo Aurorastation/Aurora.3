@@ -271,24 +271,12 @@
 	taste_description = "some short of oil"
 	taste_mult = 0.1
 
-/datum/reagent/nutriment/triglyceride/oil/touch_turf(var/turf/simulated/T)
+/datum/reagent/nutriment/triglyceride/oil/touch_turf(var/turf/simulated/T,var/amount)
 	if(!istype(T))
 		return
 
-	/*
-	//Why should oil put out fires? Pondering removing this
-
-	var/hotspot = (locate(/obj/fire) in T)
-	if(hotspot && !istype(T, /turf/space))
-		var/datum/gas_mixture/lowertemp = T.remove_air(T:air:total_moles)
-		lowertemp.temperature = max(min(lowertemp.temperature-2000, lowertemp.temperature / 2), 0)
-		lowertemp.react()
-		T.assume_air(lowertemp)
-		qdel(hotspot)
-	*/
-
-	if(volume >= 3)
-		T.wet_floor(WET_TYPE_LUBE,volume)
+	if(amount >= 3)
+		T.wet_floor(WET_TYPE_LUBE,amount)
 
 /datum/reagent/nutriment/triglyceride/oil/initialize_data(var/newdata) // Called when the reagent is created.
 	..()
@@ -367,11 +355,8 @@
 	color = "#FFFFFF"
 	taste_description = "chalky wheat"
 
-/datum/reagent/nutriment/flour/touch_turf(var/turf/simulated/T)
-	if(!istype(T, /turf/space))
-		if(locate(/obj/effect/decal/cleanable/flour) in T)
-			return
-
+/datum/reagent/nutriment/flour/touch_turf(var/turf/simulated/T,var/amount)
+	if(amount >= 5)
 		new /obj/effect/decal/cleanable/flour(T)
 
 /datum/reagent/nutriment/coco

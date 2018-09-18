@@ -286,7 +286,6 @@
 //If for some reason touch effects are bypassed (e.g. injecting stuff directly into a reagent container or person),
 //call the appropriate trans_to_*() proc.
 /datum/reagents/proc/trans_to(var/atom/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
-	touch(target) //First, handle mere touch effects
 	if(ismob(target))
 		return splash_mob(target, amount, multiplier, copy)
 	if(isturf(target))
@@ -297,9 +296,11 @@
 
 //Messy proc that should be used for beaker splashing and the such.
 /datum/reagents/proc/splash(var/atom/target, var/amount = 1, var/multiplier = 1, var/copy = 0, var/min_spill=0, var/max_spill=60) //min_spill and max_spill are a percentage
+
 	if(!isturf(target) && target.loc && get_turf(target.loc))
 		var/spill_amount = amount * rand(min_spill, max_spill) * 0.01
 		amount -= trans_to(get_turf(target.loc), spill_amount, multiplier, copy)
+
 	trans_to(target, amount, multiplier, copy)
 
 /datum/reagents/proc/trans_id_to(var/target, var/id, var/amount = 1)
@@ -316,39 +317,35 @@
 	if(!amount)
 		return
 
-
 	var/datum/reagents/F = new /datum/reagents(amount)
 	var/tmpdata = get_data(id)
 	F.add_reagent(id, amount, tmpdata)
 	remove_reagent(id, amount)
-
 
 	if (istype(target, /atom))
 		return F.trans_to(target, amount) // Let this proc check the atom's type
 	else if (istype(target, /datum/reagents))
 		return F.trans_to_holder(target, amount)
 
-// When applying reagents to an atom externally, touch() is called to trigger any on-touch effects of the reagent.
-// This does not handle transferring reagents to things.
-// For example, splashing someone with water will get them wet and extinguish them if they are on fire,
-// even if they are wearing an impermeable suit that prevents the reagents from contacting the skin.
-/datum/reagents/proc/touch(var/atom/target)
-	if(ismob(target))
-		touch_mob(target)
-	if(isturf(target))
-		touch_turf(target)
-	if(isobj(target))
-		touch_obj(target)
-	return
-
 /datum/reagents/proc/touch_mob(var/mob/target)
+
+	world << "TOUCH MOB THEN."
+	world << target.name
+	world << istype(target)
+	world << !target.simulated
+
 	if(!target || !istype(target) || !target.simulated)
 		return
 
+	world << "TOUCH MOB CHECK."
+
 	for(var/datum/reagent/current in reagent_list)
+		world << current.id
 		current.touch_mob(target, current.volume)
 
 	update_total()
+
+	return
 
 /datum/reagents/proc/touch_turf(var/turf/target)
 	if(!target || !istype(target) || !target.simulated)
@@ -389,7 +386,7 @@
 		target.emote("cough")
 		to_chat(target,span("danger","You accidentally breath in some of the chemicals!"))
 
-	return trans_to_mob(target, amount - taste_amount - breathe_amount - splash_amount, CHEM_TOUCH, multiplier, copy)
+	return trans_to_mob(target, amount - taste_amount - breathe_amount - splash_amount, CHEM_TOUCH, multiplier, copy) //Touching inside here.
 
 /datum/reagents/proc/trans_to_mob(var/mob/target, var/amount = 1, var/type = CHEM_BLOOD, var/multiplier = 1, var/copy = 0, var/bypass_checks = FALSE) // Transfer after checking into which holder...
 
@@ -415,9 +412,9 @@
 		if(target.reagents && type == CHEM_BLOOD || type == CHEM_INGEST)
 			return trans_to_holder(target.reagents, amount, multiplier, copy)
 		else
-			var/datum/reagents/R = new /datum/reagents(amount)
-			. = trans_to_holder(R, amount, multiplier, copy)
+			var/datum/reagents/R = new /datum/reagents(amount * multiplier)
 			R.touch_mob(target)
+			. = trans_to_holder(R, amount, multiplier, copy)
 			return
 
 /datum/reagents/proc/trans_to_turf(var/turf/target, var/amount = 1, var/multiplier = 1, var/copy = 0) // Turfs don't have any reagents (at least, for now). Just touch it.
@@ -428,7 +425,6 @@
 	. = trans_to_holder(R, amount, multiplier, copy)
 	R.touch_turf(target)
 
-
 /datum/reagents/proc/trans_to_obj(var/turf/target, var/amount = 1, var/multiplier = 1, var/copy = 0) // Objects may or may not; if they do, it's probably a beaker or something and we need to transfer properly; otherwise, just touch.
 	if(!target || !target.simulated)
 		return 0
@@ -437,10 +433,9 @@
 		var/datum/reagents/R = new /datum/reagents(amount * multiplier)
 		. = trans_to_holder(R, amount, multiplier, copy)
 		R.touch_obj(target)
-		return
+		return .
 
 	return trans_to_holder(target.reagents, amount, multiplier, copy)
-
 
 //Spreads the contents of this reagent holder all over the vicinity of the target turf.
 /datum/reagents/proc/splash_area(var/turf/epicentre, var/range = 3, var/portion = 1.0, var/multiplier = 1, var/copy = 0)
@@ -487,8 +482,6 @@
 		//Todo: Add some check here to not hit wires/pipes that are hidden under floor tiles.
 		//Maybe also not hit things under tables.
 		objs += O
-
-
 
 	if (objs.len)
 		var/objportion = (amount * 0.2) / objs.len

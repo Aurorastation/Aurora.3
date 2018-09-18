@@ -168,10 +168,7 @@
 		steam.set_up(10, 0, get_turf(src))
 		steam.attach(src)
 		steam.start()
-
-		for(var/atom/A in view(affected_area, src.loc))
-			if( A == src ) continue
-			src.reagents.touch(A)
+		src.reagents.splash_area(src.loc,affected_area)
 
 	if (iscarbon(loc))		//drop dat grenade if it goes off in your hand
 		var/mob/living/carbon/C = loc

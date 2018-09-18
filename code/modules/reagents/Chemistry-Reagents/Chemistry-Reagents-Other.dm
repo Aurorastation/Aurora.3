@@ -59,7 +59,7 @@
 	color_weight = 20
 	taste_description = "chalk"
 
-/datum/reagent/paint/touch_turf(var/turf/T)
+/datum/reagent/paint/touch_turf(var/turf/T,var/amount)
 	if(istype(T) && !istype(T, /turf/space))
 		T.color = color
 
@@ -195,13 +195,11 @@
 /datum/reagent/uranium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.apply_effect(5 * removed, IRRADIATE, blocked = 0)
 
-/datum/reagent/uranium/touch_turf(var/turf/T)
-	if(volume >= 3)
-		if(!istype(T, /turf/space))
-			var/obj/effect/decal/cleanable/greenglow/glow = locate(/obj/effect/decal/cleanable/greenglow, T)
-			if(!glow)
-				new /obj/effect/decal/cleanable/greenglow(T)
-			return
+/datum/reagent/uranium/touch_turf(var/turf/T,var/amount)
+	if(amount >= 3 && !istype(T, /turf/space))
+		var/obj/effect/decal/cleanable/greenglow/glow = locate(/obj/effect/decal/cleanable/greenglow, T)
+		if(!glow)
+			new /obj/effect/decal/cleanable/greenglow(T)
 
 /datum/reagent/platinum
 	name ="Platinum"
@@ -245,10 +243,9 @@
 	if(alien && alien == IS_UNDEAD)
 		M.IgniteMob(10)
 
-/datum/reagent/water/holywater/touch_turf(var/turf/T)
-	if(volume >= 5)
+/datum/reagent/water/holywater/touch_turf(var/turf/T,var/amount)
+	if(amount >= 5)
 		T.holy = 1
-	return
 
 /datum/reagent/water/holywater/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien && alien == IS_UNDEAD)
@@ -287,14 +284,12 @@
 	touch_met = 50
 	taste_description = "sweet tasting metal"
 
-/datum/reagent/thermite/touch_turf(var/turf/T)
-	if(volume >= 5)
+/datum/reagent/thermite/touch_turf(var/turf/T,var/amount)
+	if(amount >= 5)
 		if(istype(T, /turf/simulated/wall))
 			var/turf/simulated/wall/W = T
 			W.thermite = 1
 			W.add_overlay(image('icons/effects/effects.dmi',icon_state = "#673910"))
-			remove_self(5)
-	return
 
 /datum/reagent/thermite/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))
@@ -312,11 +307,12 @@
 	touch_met = 50
 	taste_description = "sourness"
 
-/datum/reagent/space_cleaner/touch_obj(var/obj/O)
-	O.clean_blood()
+/datum/reagent/space_cleaner/touch_obj(var/obj/O,var/amount)
+	if(amount >= 1)
+		O.clean_blood()
 
-/datum/reagent/space_cleaner/touch_turf(var/turf/T)
-	if(volume >= 1)
+/datum/reagent/space_cleaner/touch_turf(var/turf/T,var/amount)
+	if(amount >= 1)
 		if(istype(T, /turf/simulated))
 			var/turf/simulated/S = T
 			S.dirt = 0
@@ -360,11 +356,9 @@
 	color = "#009CA8"
 	taste_description = "cherry"
 
-/datum/reagent/lube/touch_turf(var/turf/simulated/T)
-	if(!istype(T))
-		return
-	if(volume >= 1)
-		T.wet_floor(WET_TYPE_LUBE,volume)
+/datum/reagent/lube/touch_turf(var/turf/simulated/T,var/amount)
+	if(istype(T) && amount >= 1)
+		T.wet_floor(WET_TYPE_LUBE,amount)
 
 /datum/reagent/silicate
 	name = "Silicate"
@@ -490,7 +484,7 @@
 	color = "#000000"
 	taste_description = "emptyness"
 
-/datum/reagent/black_matter/touch_turf(var/turf/T)
+/datum/reagent/black_matter/touch_turf(var/turf/T,var/amount)
 	var/obj/effect/portal/P = new /obj/effect/portal(T)
 	P.creator = null
 	P.icon = 'icons/obj/objects.dmi'
@@ -503,8 +497,6 @@
 			pick_turfs += exit
 	P.target = pick(pick_turfs)
 	QDEL_IN(P, rand(150,300))
-	remove_self(volume)
-	return
 
 /datum/reagent/bluespace_dust
 	name = "Bluespace Dust"
@@ -628,6 +620,6 @@
 	if(prob(25))
 		tesla_zap(M, 6, 1500)
 
-/datum/reagent/bottle_lightning/touch_turf(var/turf/T)
-	if(volume >= 5)
+/datum/reagent/bottle_lightning/touch_turf(var/turf/T,var/amount)
+	if(amount >= 5)
 		tesla_zap(T, 6, 1500)

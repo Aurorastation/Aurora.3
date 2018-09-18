@@ -267,7 +267,8 @@
 		set_light(light_range + MOB_FIRE_LIGHT_RANGE, light_power + MOB_FIRE_LIGHT_POWER)
 		update_fire()
 		return TRUE
-
+		
+	return FALSE
 
 /mob/living/proc/ExtinguishMob(var/fire_stacks_to_remove = 0)
 
@@ -282,18 +283,16 @@
 		update_fire()
 		return TRUE
 
+	return FALSE
+
 /mob/living/proc/update_fire()
 	return
 
 /mob/living/proc/adjust_fire_stacks(var/add_fire_stacks)
-
 	if(!fire_stacks)
 		fire_stacks = 0
 
 	fire_stacks = Clamp(fire_stacks + add_fire_stacks, FIRE_MIN_STACKS, FIRE_MAX_STACKS)
-
-	if(fire_stacks <= 0 && on_fire)
-		ExtinguishMob()
 
 	return fire_stacks
 
@@ -316,7 +315,7 @@
 	location.hotspot_expose(fire_burn_temperature(), 50, 1)
 
 /mob/living/fire_act()
-	adjust_fire_stacks(2,should_ignite = TRUE,should_go_over = TRUE)
+	IgniteMob(2)
 
 /mob/living/proc/get_cold_protection()
 	return 0

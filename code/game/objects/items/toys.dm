@@ -46,8 +46,7 @@
 
 /obj/item/toy/balloon/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
 	if(!proximity) return
-	if (istype(A, /obj/structure/reagent_dispensers/watertank) && get_dist(src,A) <= 1)
-		A.reagents.trans_to_obj(src, 10)
+	if (istype(A, /obj/structure/reagent_dispensers/watertank) && get_dist(src,A) <= 1 && A.reagents.trans_to_obj(src, 10))
 		user << "<span class='notice'>You fill the balloon with the contents of [A].</span>"
 		src.desc = "A translucent balloon with some form of liquid sloshing around in it."
 		src.update_icon()
@@ -73,9 +72,7 @@
 /obj/item/toy/balloon/throw_impact(atom/hit_atom)
 	if(src.reagents.total_volume >= 1)
 		src.visible_message("<span class='warning'>\The [src] bursts!</span>","You hear a pop and a splash.")
-		src.reagents.touch_turf(get_turf(hit_atom))
-		for(var/atom/A in get_turf(hit_atom))
-			src.reagents.touch(A)
+		src.reagents.splash_area(get_turf(hit_atom),2)
 		src.icon_state = "burst"
 		QDEL_IN(src, 5)
 	return
@@ -384,15 +381,12 @@
 		D.create_reagents(5)
 		src.reagents.trans_to_obj(D, 1)
 		playsound(src.loc, 'sound/effects/spray3.ogg', 50, 1, -6)
+		user.visible_message(span("warning","\The [user] sprays something from \the [src]!"))
 
 		spawn(0)
 			for(var/i=0, i<1, i++)
 				step_towards(D,A)
-				D.reagents.touch_turf(get_turf(D))
-				for(var/atom/T in get_turf(D))
-					D.reagents.touch(T)
-					if(ismob(T) && T:client)
-						T:client << "<span class='warning'>\The [user] has sprayed you with water!</span>"
+				D.reagents.splash_turf(get_turf(D))
 				sleep(4)
 			qdel(D)
 

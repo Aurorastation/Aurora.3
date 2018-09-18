@@ -10,14 +10,14 @@
 /datum/reagent/acetone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(removed * 3)
 
-/datum/reagent/acetone/touch_obj(var/obj/O)	//I copied this wholesale from ethanol and could likely be converted into a shared proc. ~Techhead
+/datum/reagent/acetone/touch_obj(var/obj/O,var/amount)	//I copied this wholesale from ethanol and could likely be converted into a shared proc. ~Techhead
 	if(istype(O, /obj/item/weapon/paper))
 		var/obj/item/weapon/paper/paperaffected = O
 		paperaffected.clearpaper()
 		usr << "The solution dissolves the ink on the paper."
 		return
 	if(istype(O, /obj/item/weapon/book))
-		if(volume < 5)
+		if(amount < 5)
 			return
 		if(istype(O, /obj/item/weapon/book/tome))
 			usr << "<span class='notice'>The solution does nothing. Whatever this is, it isn't normal ink.</span>"
@@ -72,14 +72,14 @@
 				continue
 			M.ingested.remove_reagent(R.id, removed * effect)
 
-/datum/reagent/carbon/touch_turf(var/turf/T)
+/datum/reagent/carbon/touch_turf(var/turf/T,var/amount)
 	if(!istype(T, /turf/space))
 		var/obj/effect/decal/cleanable/dirt/dirtoverlay = locate(/obj/effect/decal/cleanable/dirt, T)
 		if (!dirtoverlay)
 			dirtoverlay = new/obj/effect/decal/cleanable/dirt(T)
-			dirtoverlay.alpha = volume * 30
+			dirtoverlay.alpha = amount * 30
 		else
-			dirtoverlay.alpha = min(dirtoverlay.alpha + volume * 30, 255)
+			dirtoverlay.alpha = min(dirtoverlay.alpha + amount * 30, 255)
 
 /datum/reagent/copper
 	name = "Copper"
@@ -173,14 +173,14 @@
 
 	..()
 
-/datum/reagent/alcohol/ethanol/touch_obj(var/obj/O)
+/datum/reagent/alcohol/ethanol/touch_obj(var/obj/O,var/amount)
 	if(istype(O, /obj/item/weapon/paper))
 		var/obj/item/weapon/paper/paperaffected = O
 		paperaffected.clearpaper()
 		usr << "The solution dissolves the ink on the paper."
 		return
 	if(istype(O, /obj/item/weapon/book))
-		if(volume < 5)
+		if(amount < 5)
 			return
 		if(istype(O, /obj/item/weapon/book/tome))
 			usr << "<span class='notice'>The solution does nothing. Whatever this is, it isn't normal ink.</span>"
@@ -236,10 +236,8 @@
 	M.adjust_fire_stacks(removed / 12)
 	M.adjustToxLoss(0.2 * removed)
 
-/datum/reagent/hydrazine/touch_turf(var/turf/T)
-	new /obj/effect/decal/cleanable/liquid_fuel(T, volume)
-	remove_self(volume)
-	return
+/datum/reagent/hydrazine/touch_turf(var/turf/T,var/amount)
+	new /obj/effect/decal/cleanable/liquid_fuel(T, amount)
 
 /datum/reagent/iron
 	name = "Iron"
@@ -327,13 +325,11 @@
 					if(!absorbed)
 						M.adjustToxLoss(100)
 
-/datum/reagent/radium/touch_turf(var/turf/T)
-	if(volume >= 3)
-		if(!istype(T, /turf/space))
-			var/obj/effect/decal/cleanable/greenglow/glow = locate(/obj/effect/decal/cleanable/greenglow, T)
-			if(!glow)
-				new /obj/effect/decal/cleanable/greenglow(T)
-			return
+/datum/reagent/radium/touch_turf(var/turf/T,var/amount)
+	if(amount >= 3)
+		var/obj/effect/decal/cleanable/greenglow/glow = locate(/obj/effect/decal/cleanable/greenglow, T)
+		if(!glow)
+			new /obj/effect/decal/cleanable/greenglow(T)
 
 /datum/reagent/acid
 	name = "Sulphuric acid"

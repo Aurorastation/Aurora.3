@@ -52,8 +52,8 @@
 					preserve += D
 			data["viruses"] = preserve
 
-/datum/reagent/blood/touch_turf(var/turf/simulated/T)
-	if(!istype(T) || volume < 3)
+/datum/reagent/blood/touch_turf(var/turf/simulated/T,amount)
+	if(!istype(T) || amount < 3)
 		return
 	var/datum/weakref/W = data["donor"]
 	if (!W)
@@ -171,7 +171,7 @@
 	glass_name = "glass of water"
 	glass_desc = "The father of all refreshments."
 
-/datum/reagent/water/touch_turf(var/turf/simulated/T)
+/datum/reagent/water/touch_turf(var/turf/simulated/T,amount)
 	if(!istype(T))
 		return
 
@@ -182,19 +182,19 @@
 	var/hotspot = (locate(/obj/fire) in T)
 	if(hotspot && !istype(T, /turf/space))
 		var/datum/gas_mixture/lowertemp = T.remove_air(T:air:total_moles)
-		lowertemp.temperature = max(lowertemp.temperature-2000, lowertemp.temperature / 2, T0C)
+		lowertemp.temperature = max(lowertemp.temperature-500*amount, lowertemp.temperature / 2, T0C + 10)
 		lowertemp.react()
 		T.assume_air(lowertemp)
 		qdel(hotspot)
 
 	if (environment && environment.temperature > min_temperature) // Abstracted as steam or something
-		var/removed_heat = between(0, volume * WATER_LATENT_HEAT, -environment.get_thermal_energy_change(min_temperature))
+		var/removed_heat = between(0, amount * WATER_LATENT_HEAT, -environment.get_thermal_energy_change(min_temperature))
 		environment.add_thermal_energy(-removed_heat)
 		if (prob(5))
 			T.visible_message("<span class='warning'>The water sizzles as it lands on \the [T]!</span>")
 
-	else if(volume >= 10)
-		T.wet_floor(WET_TYPE_WATER,volume)
+	else if(amount >= 10)
+		T.wet_floor(WET_TYPE_WATER,amount)
 
 /datum/reagent/water/touch_obj(var/obj/O)
 	if(istype(O))
@@ -250,10 +250,8 @@
 	glass_name = "glass of welder fuel"
 	glass_desc = "Unless you are an industrial tool, this is probably not safe for consumption."
 
-/datum/reagent/fuel/touch_turf(var/turf/T)
-	new /obj/effect/decal/cleanable/liquid_fuel(T, volume)
-	remove_self(volume)
-	return
+/datum/reagent/fuel/touch_turf(var/turf/T,amount)
+	new /obj/effect/decal/cleanable/liquid_fuel(T, amount)
 
 /datum/reagent/fuel/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(2 * removed)
@@ -271,12 +269,11 @@
 	touch_met = 50
 	taste_description = "fiery death"
 
-/datum/reagent/fuel/napalm/touch_turf(var/turf/T)
-	new /obj/effect/decal/cleanable/liquid_fuel/napalm(T, volume/3)
+/datum/reagent/fuel/napalm/touch_turf(var/turf/T, var/amount)
+	new /obj/effect/decal/cleanable/liquid_fuel/napalm(T, amount/3)
 	for(var/mob/living/L in T)
-		L.adjust_fire_stacks(volume / 10)
+		L.adjust_fire_stacks(amount / 10)
 		L.add_modifier(/datum/modifier/napalm, MODIFIER_CUSTOM, _strength = 2)
-	remove_self(volume)
 	return
 
 /datum/reagent/fuel/napalm/touch_mob(var/mob/living/L, var/amount)
@@ -284,5 +281,4 @@
 	if(istype(L))
 		new /obj/effect/decal/cleanable/liquid_fuel/napalm(get_turf(L), amount/3)
 		L.adjustFireLoss(amount / 10)
-		remove_self(volume)
 		L.add_modifier(/datum/modifier/napalm, MODIFIER_CUSTOM, _strength = 2)
