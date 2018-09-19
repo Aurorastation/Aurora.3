@@ -9,4 +9,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "Branded IPCs now can wear voidsuits. Even Xion and industrial types. Xion still cannot go EVA with just cooling unit, it needs a suit."
+  - tweak: "Branded IPCs now can wear voidsuits. Even Xion and industrial types. Xion still cannot go EVA with just cooling unit, it needs a suit."
+  - bugfix: "Bishop and Zeng-Hu frames are able to wear voidsuits."
