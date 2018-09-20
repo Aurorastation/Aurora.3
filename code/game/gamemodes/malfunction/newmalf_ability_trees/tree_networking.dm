@@ -143,7 +143,7 @@
 
 			log_ability_use(user, "advanced encryption hack")
 
-			if(prob(50) && user.hack_can_fail)
+			if(prob(0) && user.hack_can_fail)
 				user << "Hack Failed."
 				if(prob(5))
 					user.hack_fails ++
