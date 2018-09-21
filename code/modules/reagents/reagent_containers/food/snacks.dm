@@ -2010,6 +2010,10 @@
 	name = "neaera cube"
 	monkey_type = "Neaera"
 
+/obj/item/weapon/reagent_containers/food/snacks/monkeycube/vkrexicube
+	name = "v'krexi cube"
+	monkey_type = "V'krexi"
+
 /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/vkrexicube
 	name = "v'krexi cube"
 	monkey_type = "V'krexi"
