@@ -118,3 +118,7 @@
 /datum/gear/chess
 	display_name = "chess game kit"
 	path = /obj/item/weapon/storage/box/chess_kit
+
+/datum/gear/battlemonsters
+	display_name = "battlemonsters starter deck"
+	path = /obj/item/battle_monsters/wrapped
