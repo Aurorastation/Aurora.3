@@ -9,8 +9,6 @@
 
 	attack_sound = 'sound/magic/demon_attack1.ogg'
 
-	attack_points = 1000
-	defense_points = 3000
 	health = 3000
 	maxHealth = 3000
 

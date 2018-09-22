@@ -7,8 +7,6 @@
 	icon_dead = ""
 	icon_gib = ""
 
-	attack_points = 1500
-	defense_points = 2000
 	health = 2000
 	maxHealth = 2000
 

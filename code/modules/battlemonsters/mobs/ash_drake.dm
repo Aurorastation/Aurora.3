@@ -27,8 +27,6 @@
 
 	ranged = 1
 
-	attack_points = 1000
-	defense_points = 1000
 	health = 1000
 	maxHealth = 1000
 

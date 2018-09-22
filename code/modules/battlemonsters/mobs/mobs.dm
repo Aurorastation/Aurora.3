@@ -20,44 +20,9 @@
 	melee_damage_lower = 25
 	melee_damage_upper = 25
 
-	var/attack_points = 100
-	var/defense_points = 100
-
-	var/defense_mode = FALSE
-
 	var/death_message = "is defeated!"
 
 	tameable = FALSE
-
-/mob/living/simple_animal/hostile/commanded/battlemonster/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
-	if (!istype(AM,/obj/item/battle_monsters/card))
-		return ..()
-	var/obj/item/battle_monsters/card/new_card = AM
-	DoBattleWithCard(new_card)
-
-/mob/living/simple_animal/hostile/commanded/battlemonster/attackby(var/obj/item/O, var/mob/user)
-	if (!istype(O,/obj/item/battle_monsters/card/))
-		return ..()
-	var/obj/item/battle_monsters/card/new_card = O
-	DoBattleWithCard(new_card)
-
-/mob/living/simple_animal/hostile/commanded/battlemonster/proc/DoBattleWithCard(var/obj/item/battle_monsters/card/battle_card)
-	var/list/monster_stats = SSbattlemonsters.GenerateMonsterStats(battle_card.prefix_datum,battle_card.root_datum,battle_card.suffix_datum)
-	if(!monster_stats)
-		return
-
-	var/card_attack_points = monster_stats["attack_points"]
-	//var/card_defense_points = monster_stats["defense_points"]
-
-	if( (defense_mode && card_attack_points > defense_points) || (!defense_mode && card_attack_points > attack_points)) //The card wins
-		qdel(battle_card)
-		DefeatCard()
-	else
-		DefeatSelf()
-
-/mob/living/simple_animal/hostile/commanded/battlemonster/proc/DefeatSelf() //What happens if the monster is defeated by a card
-
-/mob/living/simple_animal/hostile/commanded/battlemonster/proc/DefeatCard() //What happens if the monster defeats the card
 
 /mob/living/simple_animal/hostile/commanded/battlemonster/AttackingTarget() //Snowflake code
 	if(!Adjacent(target_mob))
