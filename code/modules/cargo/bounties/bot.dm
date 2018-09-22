@@ -3,7 +3,7 @@
 
 /datum/bounty/item/bot/cleanbot
 	name = "Cleanbot"
-	description = "There has been a incident out our crusher which resulted in the death of multiple janitors. Ship a replacement."
+	description = "There has been a incident out our crusher which resulted in the loss of several cleaning supplies. Ship a replacement."
 	reward = 2000
 	required_count = 3
 	wanted_types = list(/mob/living/bot/cleanbot)
@@ -35,7 +35,7 @@
 	reward = 5000
 	required_count = 4
 	wanted_types = list(/mob/living/bot/floorbot)
-	
+
 /datum/bounty/item/bot/medbot
 	name = "Medbot"
 	description = "We were unable to recruit a sufficient number of qualified medical professionals this month. Ship us a few medbots to fill the void."

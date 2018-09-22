@@ -8,9 +8,9 @@
 #define SS_INIT_HOLOMAP     15
 #define SS_INIT_ATOMS       14	// World initialization. Will trigger lighting updates. Observers can join after this loads.
 #define SS_INIT_POWER       13	// Initial powernet build.
-#define SS_INIT_CARGO       12	// Random warehouse generation. Runs after SSatoms because it assumes objects are initialized when it runs.
-#define SS_INIT_PIPENET     11	// Initial pipenet build.
-#define SS_INIT_MACHINERY   10	// Machinery prune and powernet build.
+#define SS_INIT_PIPENET     12	// Initial pipenet build.
+#define SS_INIT_MACHINERY   11	// Machinery prune and powernet build.
+#define SS_INIT_CARGO       10	// Random warehouse generation. Runs after SSatoms because it assumes objects are initialized when it runs. Runs after SSmachinery because some calls are needed.
 #define SS_INIT_AIR         9	// Air setup and pre-bake.
 #define SS_INIT_NIGHT       8	// Nightmode controller. Will trigger lighting updates.
 #define SS_INIT_SMOOTHING   7	// Object icon smoothing. Creates overlays.

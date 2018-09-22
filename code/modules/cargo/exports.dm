@@ -162,3 +162,8 @@ Credit dupes that require a lot of manual work shouldn't be removed, unless they
 		var/datum/export/E = new subtype
 		if(E.export_types && E.export_types.len) // Exports without a type are invalid/base types
 			exports_list += E
+
+/datum/controller/subsystem/cargo/proc/setupResearchables()
+	var/datum/research/possibleonly/start_datum = new
+	researchables_list = start_datum.possible_designs
+	qdel(start_datum)

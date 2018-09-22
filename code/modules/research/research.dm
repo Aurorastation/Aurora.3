@@ -63,6 +63,13 @@ research holder datum.
 		known_tech += new T(src)
 	RefreshResearch()
 
+/datum/research/possibleonly
+
+/datum/research/possibleonly/New()
+	for(var/D in typesof(/datum/design) - /datum/design)
+		possible_designs += new D(src)
+	RefreshResearch()
+
 //Checks to see if design has all the required pre-reqs.
 //Input: datum/design; Output: 0/1 (false/true)
 /datum/research/proc/DesignHasReqs(var/datum/design/D)

@@ -28,9 +28,8 @@
 			new chosen_item(spawn_loc)
 
 /datum/controller/subsystem/cargo/proc/setupRewards()
-	for(var/datum/bounty_reward/reward in subtypesof(/datum/bounty_reward/))
-		if(!reward.id)
-			continue
+	for(var/d in typesof(/datum/bounty_reward) - /datum/bounty_reward)
+		var/datum/bounty_reward/reward = new d
 		rewards_list[reward.id] = reward
 
 /datum/controller/subsystem/cargo/proc/spawnReward(var/reward_id)
@@ -69,7 +68,6 @@
 	var/datum/bounty_reward/selected_reward = rewards_list[reward_id]
 
 	if(!selected_reward)
-		//ERROR MESSAGE HERE
-		return
+		return "ERROR: NO SELECTED REWARD FOUND."
 
 	return replacetext(selected_reward.reward_description, "%COUNT", selected_reward.reward_count)

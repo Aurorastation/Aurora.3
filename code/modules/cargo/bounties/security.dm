@@ -13,7 +13,7 @@
 
 /datum/bounty/item/security/riotshotgun
 	name = "Pump Shotguns"
-	description = "%BOSSSHORT wishes to upgrade some of your pump shotguns as part of a weapons program. Send us 2 outdated pump shotguns and we'll send you some upgraded ones."
+	description = "%BOSSSHORT wishes to swap some of your pump shotguns as part of a weapons upgrading program. Send us 2 outdated pump shotguns and we'll send you some better ones."
 	reward = 0
 	required_count = 2
 	reward_id = "shotguns"
@@ -21,7 +21,7 @@
 
 /datum/bounty/item/security/pinpointer
 	name = "Pinpointer"
-	description = "Someone might or might not have misplaced a high-value item. Can your station spare a pinpointer to help out? We'll send you some OTHER high value items in return."
+	description = "Someone might or might not have misplaced a high-value item. Can your station spare a pinpointer to help out? We'll let you borrow some other high value items that recovered in return."
 	reward = 0
 	reward_id = "high_value"
 	wanted_types = list(/obj/item/weapon/pinpointer)
@@ -34,28 +34,21 @@
 	wanted_types = list(/obj/item/weapon/card/id/captains_spare)
 
 /datum/bounty/item/security/hardsuit
-	name = "Security Hardsuit"
-	description = "One of %BOSSSHORT security sectors accidentally ordered more guns instead of the requested hardsuits, however we cannot spare any additional funds! We'll trade you some of our spare guns for a single security hardsuit."
+	name = "Security Voidsuit"
+	description = "One of %BOSSSHORT security sectors accidentally ordered more guns instead of the requested voidsuits, however we cannot spare any additional funds! We'll trade you some of our spare guns for a single security hardsuit."
 	reward = 0
 	reward_id = "guns"
 	wanted_types = list(/obj/item/clothing/suit/space/void/security)
 
 /datum/bounty/item/security/forcegloves
 	name = "Force Gloves"
-	description = "%COMPNAME military academy is conducting close quarter combat exercises. They request that force gloves be shipped."
-	reward = 2000
+	description = "%COMPNAME military academy is conducting close quarter combat exercises. They request that force gloves be shipped. We'll send your security team some spare combat modules in return."
+	reward = 0
+	reward_id = "combat_manuals"
 	wanted_types = list(/obj/item/clothing/gloves/force)
-
-/datum/bounty/item/security/recharger
-	name = "Rechargers"
-	description = "%COMPNAME military academy is conducting marksmanship exercises. They request that rechargers be shipped."
-	reward = 2000
-	required_count = 3
-	wanted_types = list(/obj/machinery/recharger)
 
 /datum/bounty/item/security/telebaton
 	name = "Telebaton"
 	description = "Assistants are staging a \"peaceful protest\" on the Odin. Quickly ship a telebaton so we can ensure their swift return to work."
 	reward = 2500
 	wanted_types = list(/obj/item/weapon/melee/telebaton)
-

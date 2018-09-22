@@ -7,16 +7,9 @@
 /datum/bounty/item/assistant/soap
 	name = "Soap"
 	description = "Soap has gone missing from %BOSSSHORT's bathrooms and nobody knows who took it. Replace it and be the hero %BOSSSHORT needs."
-	reward = 2000
-	required_count = 3
+	reward = 4000
+	required_count = 12
 	wanted_types = list(/obj/item/weapon/soap)
-
-/datum/bounty/item/assistant/spear
-	name = "Spears"
-	description = "As part of our cultural appreciation programs, we require a bunch of spears to please a Unathi diplomat. Please send your best!"
-	reward = 2000
-	required_count = 5
-	wanted_types = list(/obj/item/weapon/material/twohanded/spear)
 
 /datum/bounty/item/assistant/toolbox
 	name = "Toolboxes"
@@ -43,7 +36,7 @@
 /datum/bounty/item/assistant/cheesiehonkers
 	name = "Cheesie Honkers"
 	description = "Apparently the company that makes Cheesie Honkers is going out of business soon. %BOSSSHORT wants to stock up before it happens!"
-	reward = 1200
+	reward = 2400
 	required_count = 30
 	wanted_types = list(/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers)
 
@@ -58,22 +51,15 @@
 	name = "Donuts"
 	description = "%BOSSSHORT's security forces are demoralized. Ship donuts to raise morale."
 	reward = 3000
-	required_count = 10
+	required_count = 12
 	wanted_types = list(/obj/item/weapon/reagent_containers/food/snacks/donut)
 
 /datum/bounty/item/assistant/donkpocket
 	name = "Donk-Pockets"
 	description = "Consumer safety recall: Warning. Donk-Pockets manufactured in the past year contain hazardous lizard biomatter. Return units to %BOSSSHORT immediately."
 	reward = 3000
-	required_count = 10
+	required_count = 12
 	wanted_types = list(/obj/item/weapon/reagent_containers/food/snacks/donkpocket)
-
-/datum/bounty/item/assistant/briefcase
-	name = "Briefcase"
-	description = "%BOSSNAME will be holding a business convention this year. Ship a few briefcases in support."
-	reward = 2500
-	required_count = 5
-	wanted_types = list(/obj/item/weapon/storage/briefcase)
 
 /datum/bounty/item/assistant/sunglasses
 	name = "Sunglasses"
@@ -84,15 +70,15 @@
 
 /datum/bounty/item/assistant/heart
 	name = "Heart"
-	description = "Commander Johnson is in critical condition after suffering a heart attack. Doctors say he needs a new heart fast. Ship one, pronto!"
+	description = "%BOSSSHORT requres a heart for a special science project. Please ship one when you have the chance."
 	reward = 3000
 	wanted_types = list(/obj/item/organ/heart)
 
 /datum/bounty/item/assistant/lung
 	name = "Lungs"
-	description = "A recent explosion at %BOSSNAME has left multiple staff with punctured lungs. Ship spare lungs to be rewarded."
-	reward = 3000
-	required_count = 1
+	description = "Instead of wasting money on valuable chemicals, %BOSSNAME wishes to stock up on spare lungs in case of an accident."
+	reward = 9000
+	required_count = 2
 	wanted_types = list(/obj/item/organ/lungs)
 
 /datum/bounty/item/assistant/appendix
@@ -129,15 +115,15 @@
 
 /datum/bounty/item/assistant/earmuffs
 	name = "Earmuffs"
-	description = "%BOSSNAME is getting tired of your station's messages. They've ordered that you ship some earmuffs to lessen the annoyance."
+	description = "The Head of Security of a sister station has trouble sleeping on the job. Please remedy this by sending them some earmuffs."
 	reward = 1000
 	wanted_types = list(/obj/item/clothing/ears/earmuffs)
 
 /datum/bounty/item/assistant/handcuffs
 	name = "Handcuffs"
-	description = "A large influx of escaped convicts have arrived at %BOSSNAME. Now is the perfect time to ship out spare handcuffs."
-	reward = 1000
-	required_count = 5
+	description = "A large influx of transfering convicts have arrived at %BOSSNAME. Please send us some of your spare handcuffs, as we may not have enough."
+	reward = 3000
+	required_count = 10
 	wanted_types = list(/obj/item/weapon/handcuffs)
 
 /datum/bounty/item/assistant/monkey_cubes
@@ -170,13 +156,7 @@
 		return T.air_contents.gas["phoron"] >= moles_required
 	return FALSE
 
-/datum/bounty/item/assistant/corgimeat
-	name = "Raw Corgi Meat"
-	description = "The Syndicate recently stole all of %BOSSSHORT's corgi meat. Ship out a replacement immediately."
-	reward = 3000
-	wanted_types = list(/obj/item/weapon/reagent_containers/food/snacks/meat/corgi)
-
-/datum/bounty/item/chef/action_figures
+/datum/bounty/item/assistant/action_figures
 	name = "Action Figures"
 	description = "The vice president's son saw an ad for action figures on the telescreen and now he won't shut up about them. Ship some to ease his complaints."
 	reward = 4000

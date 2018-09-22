@@ -141,9 +141,6 @@
 		if(10)
 			var/subtype = pick(subtypesof(/datum/bounty/item/bot))
 			return new subtype
-		if(11)
-			var/subtype = pick(subtypesof(/datum/bounty/weapon_prototype))
-			return new subtype
 
 //A abstraction to simplify adding new bounties
 /datum/controller/subsystem/cargo/proc/add_bounty_abstract(var/string,var/number)
@@ -162,38 +159,59 @@
 // Called lazily at startup to populate bounties_list with random bounties.
 /datum/controller/subsystem/cargo/proc/setupBounties()
 
-	for(var/i = 0; i < 6; ++i)
+	for(var/i = 1; i <= 4; ++i) //Science gets 4
+		CHECK_TICK
+		if(prob(25))
+			try_add_bounty(new /datum/bounty/item/random/random_research)
+		else
+			var/list/subtype = pick(subtypesof(/datum/bounty/item/science, /datum/bounty/item/slime))
+			try_add_bounty(new subtype)
+
+	for(var/i = 1; i <= 1; ++i) //Xenobiology gets 1
+		CHECK_TICK
+		var/list/subtype = pick(subtypesof(/datum/bounty/item/slime))
+		try_add_bounty(new subtype)
+
+	for(var/i = 1; i <= 2; ++i) //Cooking gets 2
+		CHECK_TICK
+		if(prob(25))
+			try_add_bounty(new/datum/bounty/item/random/random_cooking)
+		else
+			var/list/subtype = pick(subtypesof(/datum/bounty/item/chef))
+			try_add_bounty(new subtype)
+
+	for(var/i = 1; i <= 2; ++i) //Assistants get 2
 		CHECK_TICK
 		var/subtype = pick(subtypesof(/datum/bounty/item/assistant))
 		try_add_bounty(new subtype)
 
-	for(var/i = 0; i < 4; ++i)
+	for(var/i = 1; i <= 1; ++i) //Robotics gets 1 * 2
 		CHECK_TICK
-		var/list/subtype = pick(subtypesof(/datum/bounty/item/mech,/datum/bounty/item/bot))
-		try_add_bounty(new subtype)
+		var/list/subtype01 = pick(subtypesof(/datum/bounty/item/bot))
+		try_add_bounty(new subtype01)
+		var/list/subtype02 = pick(subtypesof(/datum/bounty/item/mech))
+		try_add_bounty(new subtype02)
 
-	for(var/i = 0; i < 4; ++i)
-		CHECK_TICK
-		var/list/subtype = pick(subtypesof(/datum/bounty/item/chef))
-		try_add_bounty(new subtype)
-
-	for(var/i = 0; i < 4; ++i)
+	for(var/i = 1; i <= 2; ++i) //Security gets 2
 		CHECK_TICK
 		var/list/subtype = pick(subtypesof(/datum/bounty/item/security))
 		try_add_bounty(new subtype)
 
-	for(var/i = 0; i < 6; ++i)
-		CHECK_TICK
-		var/list/subtype = pick(subtypesof(/datum/bounty/weapon_prototype, /datum/bounty/item/science, /datum/bounty/item/slime))
-		try_add_bounty(new subtype)
-
-	for(var/i = 1; i < 2; ++i)
+	for(var/i = 1; i <= 1; ++i) //Bartender gets 1 * 2
 		CHECK_TICK
 		try_add_bounty(new /datum/bounty/reagent/simple_drink)
 		try_add_bounty(new /datum/bounty/reagent/complex_drink)
+
+	for(var/i = 1; i <= 2; ++i) //Chemistry/Science gets 2
+		CHECK_TICK
 		try_add_bounty(new /datum/bounty/reagent/chemical)
 
-	for(var/i = 1; i < 4; ++i)
+	for(var/i = 1; i <= 1; ++i) //Virology gets 1
+		CHECK_TICK
+		var/list/subtype = pick(subtypesof(/datum/bounty/virus))
+		try_add_bounty(new subtype)
+
+	for(var/i = 1; i <= 2; ++i) //Make 2 high priority bounties
 		CHECK_TICK
 		var/datum/bounty/B = pick(bounties_list)
 		B.mark_high_priority()

@@ -49,6 +49,7 @@ var/datum/controller/subsystem/cargo/SScargo
 	var/list/exports_list = list()
 	var/list/bounties_list = list()
 	var/list/rewards_list = list()
+	var/list/researchables_list = list()
 
 /datum/controller/subsystem/cargo/Recover()
 	src.shuttle = SScargo.shuttle
@@ -63,6 +64,7 @@ var/datum/controller/subsystem/cargo/SScargo
 	src.exports_list = SScargo.exports_list
 	src.bounties_list = SScargo.bounties_list
 	src.rewards_list = SScargo.rewards_list
+	src.researchables_list = SScargo.researchables_list
 
 /datum/controller/subsystem/cargo/Initialize(timeofday)
 	//Generate the ordernumber and shipmentnumber to start with
@@ -82,6 +84,7 @@ var/datum/controller/subsystem/cargo/SScargo
 	else
 		log_game("SScargo: invalid load option specified in config")
 
+	setupResearchables()
 	setupRewards()
 	setupExports()
 	setupBounties()
