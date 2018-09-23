@@ -1,7 +1,7 @@
 <template>
   <div>
     <view-records-general hideAdvanced/>
-    Medical shit goes here
+    <vui-item label="Name:"><view-records-field :value="active.name"/></vui-item>
   </div>
 </template>
 

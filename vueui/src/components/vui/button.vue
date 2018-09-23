@@ -7,7 +7,7 @@
 
 <script>
 import Store from '../../store.js'
-
+import Utils from '../../utils.js'
 export default {
   props: {
     icon: {
@@ -41,13 +41,7 @@ export default {
         }
         return
       }
-      var r = new XMLHttpRequest()
-      var sendUrl = "?src=" + Store.state.uiref + "&vueuihrefjson=" + encodeURIComponent(JSON.stringify(this.params))
-      if (this.pushState) {
-        sendUrl += "&" + Store.getStatePushString()
-      }
-      r.open("GET", sendUrl, true);
-      r.send()
+      Utils.sendToTopic(this.params, this.pushState)
     }
   }
 }

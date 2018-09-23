@@ -6,6 +6,15 @@
 	var/datum/record/general/active
 	var/datum/record/virus/active_virus
 	var/default_screen = "general"
+	var/typechoices = list(
+		"general" = list(
+			"phisical_status" = list("Active", "*Deceased*", "*SSD*", "Physically Unfit", "Disabled"),
+			"mental_status" = list("Stable", "*Insane*", "*Unstable*", "*Watch*")
+		),
+		"medical" = list(
+			"blood_type" = list("A-", "B-", "AB-", "O-", "A+", "B+", "AB+", "O+")
+		)
+	)
 
 /obj/machinery/computer/records/medical
 	name = "medical records console"
@@ -133,3 +142,4 @@
 		active_virus = SSrecords.find_record("id", text2num(href_list["setactive_virus"]), RECORD_VIRUS)
 		SSvueui.check_uis_for_change(src)
 
+#define UIDEBUG
