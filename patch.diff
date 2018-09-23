@@ -1,12 +1,13 @@
-diff --git a/code/modules/mob/living/simple_animal/hostile/commanded/guard_dog.dm b/code/modules/mob/living/simple_animal/hostile/commanded/guard_dog.dm
-index 27bbf6416b..efac1eb5ea 100644
---- a/code/modules/mob/living/simple_animal/hostile/commanded/guard_dog.dm
-+++ b/code/modules/mob/living/simple_animal/hostile/commanded/guard_dog.dm
-@@ -148,6 +148,7 @@
- 	known_commands = list("stay", "stop", "attack", "follow")
- 	attacktext = "licked"
- 	attack_sound = 'sound/misc/dog_bark.ogg'
-+	faction = "syndicate"
+diff --git a/code/datums/uplink/devices and tools.dm b/code/datums/uplink/devices and tools.dm
+index 2759320506..d5b51fb404 100644
+--- a/code/datums/uplink/devices and tools.dm	
++++ b/code/datums/uplink/devices and tools.dm	
+@@ -10,7 +10,7 @@
+ 	path = /obj/item/weapon/storage/toolbox/syndicate
  
- /mob/living/simple_animal/hostile/commanded/dog/iangang/listen(var/mob/speaker, var/text)
-     for(var/command in known_commands)
+ 
+-/datum/uplink_item/item/tools/toolbox
++/datum/uplink_item/item/tools/hoodianinabox
+ 	name = "Hood Ian Supply Box"
+ 	item_cost = 4
+ 	path = /obj/item/weapon/hoodianinabox

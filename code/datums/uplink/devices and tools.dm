@@ -10,7 +10,7 @@
 	path = /obj/item/weapon/storage/toolbox/syndicate
 
 
-/datum/uplink_item/item/tools/toolbox
+/datum/uplink_item/item/tools/hoodianinabox
 	name = "Hood Ian Supply Box"
 	item_cost = 4
 	path = /obj/item/weapon/hoodianinabox
