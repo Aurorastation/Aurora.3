@@ -97,6 +97,7 @@
 	icon_living = "amaskan"
 	icon_dead = "amaskan_dead"
 
+
 /mob/living/simple_animal/hostile/commanded/dog/columbo
 	name = "Lt. Columbo"
 	short_name = "Columbo"
@@ -129,3 +130,43 @@
 	harm_intent_damage = 5
 	melee_damage_lower = 5
 	melee_damage_upper = 5
+
+
+
+
+
+/mob/living/simple_animal/hostile/commanded/dog/iangang
+	name = "Hood Rat Ian"
+	short_name = "hoodian"
+	desc = "Ian's Distant Cousin, however unlike Ian he only likes white girls and guns and money."
+	icon_state = "iangang"
+	icon_living = "iangang"
+	icon_dead = "iangang_dead"
+	melee_damage_lower=6
+	melee_damage_upper=14
+	name_changed = 1
+	known_commands = list("stay", "stop", "attack", "follow")
+	attacktext = "licked"
+	attack_sound = 'sound/misc/dog_bark.ogg'
+	faction = "syndicate"
+
+/mob/living/simple_animal/hostile/commanded/dog/iangang/listen(var/mob/speaker, var/text)
+    for(var/command in known_commands)
+        if(findtext(text,command))
+            switch(command)
+                if("stay")
+                    if(stay_command(speaker,text)) //find a valid command? Stop. Dont try and find more.
+                        break
+                if("stop")
+                    if(stop_command(speaker,text))
+                        break
+                if("lick")
+                    if(attack_command(speaker,text))
+                        break
+                if("follow")
+                    if(follow_command(speaker,text))
+                        break
+                else
+                    misc_command(speaker,text) //for specific commands
+
+    return 1
