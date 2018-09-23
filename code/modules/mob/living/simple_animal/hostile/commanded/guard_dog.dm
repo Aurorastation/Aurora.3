@@ -148,6 +148,7 @@
 	known_commands = list("stay", "stop", "attack", "follow")
 	attacktext = "licked"
 	attack_sound = 'sound/misc/dog_bark.ogg'
+	faction = "syndicate"
 
 /mob/living/simple_animal/hostile/commanded/dog/iangang/listen(var/mob/speaker, var/text)
     for(var/command in known_commands)
