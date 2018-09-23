@@ -167,6 +167,7 @@
 	flesh_color = "#76a05e"
 
 	flags = NO_BLOOD | NO_SCAN | NO_SLIP | NO_POISON | NO_PAIN | NO_BREATHE
+	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR | HAS_SOCKS
 	spawn_flags = IS_RESTRICTED
 
 	stamina	=	500			  //Tireless automatons
