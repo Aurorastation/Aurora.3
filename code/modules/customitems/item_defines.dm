@@ -109,6 +109,16 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "holobadge-cord"
 	slot_flags = SLOT_MASK | SLOT_TIE
 
+/obj/item/weapon/hoodianinabox //gang ian spawner
+	name = "Hood Rat Ian Package"
+	desc = "A large box that seems to keep yapping and stuff"
+	icon = 'icons/obj/items.dmi'
+	icon_state = "gift3"
+/obj/item/weapon/hoodianinabox/attack_hand(var/obj/item/weapon/W as obj, var/mob/user as mob)
+	new /mob/living/simple_animal/hostile/commanded/dog/iangang(src.loc)
+	src.forceMove(null)
+	qdel(src)
+
 
 /obj/item/weapon/fluff/kiara_altar //Pocket Altar - Kiara Branwen - nursiekitty
 	name = "pocket altar"
