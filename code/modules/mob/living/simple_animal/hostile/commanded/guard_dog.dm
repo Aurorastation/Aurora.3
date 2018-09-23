@@ -141,5 +141,4 @@
 	icon_dead = "iangang_dead"
 	health = 95
 	maxHealth = 95
-	melee_damage_lower=6
 	faction = "syndicate"
