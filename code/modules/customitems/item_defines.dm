@@ -421,6 +421,18 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
+
+/obj/item/weapon/hoodianinabox //gang ian spawner
+	name = "Hood Rat Ian Package"
+	desc = "A large box that seems to keep yapping and stuff"
+	icon = 'icons/obj/items.dmi'
+	icon_state = "gift3"
+/obj/item/weapon/hoodianinabox/attack_hand(var/obj/item/weapon/W as obj, var/mob/user as mob)
+	new /mob/living/simple_animal/hostile/commanded/dog/iangang(src.loc)
+	src.forceMove(null)
+	qdel(src)
+
+
 /obj/item/clothing/accessory/badge/fluff/dylan_tags //Dog Tags - Dylan Wright - sircatnip
 	name = "dog tags"
 	desc = "Some black dog tags, engraved on them is the following: \"Wright, Dylan L, O POS, Pacific Union Special Forces\"."
