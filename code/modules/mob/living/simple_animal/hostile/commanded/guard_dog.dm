@@ -139,6 +139,6 @@
 	icon_state = "iangang"
 	icon_living = "iangang"
 	icon_dead = "iangang_dead"
-	health = 95
-	maxHealth = 95
+	health = 90
+	maxHealth = 90
 	faction = "syndicate"
