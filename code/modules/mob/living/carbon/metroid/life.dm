@@ -281,6 +281,9 @@
 
 /mob/living/carbon/slime/proc/handle_AI()  // the master AI process
 
+	if(Victim && Victim.stat & DEAD)
+		Victim = null
+
 	if(stat == DEAD || client || Victim) return // If we're dead or have a client, we don't need AI, if we're feeding, we continue feeding
 	AIproc = 1
 
