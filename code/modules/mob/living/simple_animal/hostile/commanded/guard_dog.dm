@@ -132,10 +132,10 @@
 
 
 
-/mob/living/simple_animal/hostile/commanded/dog/iangang
-	name = "Hood Rat Ian"
-	short_name = "hoodian"
-	desc = "Ian's uncle, however unlike Ian he is not as docile looking. He is wearing a dirty green scout cap and a gold chain."
+/mob/living/simple_animal/hostile/commanded/dog/shadyian
+	name = "Shady Corgi"
+	short_name = "zoran"
+	desc = "What appears to look like Ian's dad, however unlike Ian he is not as docile looking. He is wearing a dirty green scout cap and a gold chain, inscribed on it is the name 'Zoran'."
 	icon_state = "iangang"
 	icon_living = "iangang"
 	icon_dead = "iangang_dead"

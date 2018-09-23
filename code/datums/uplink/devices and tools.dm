@@ -10,9 +10,9 @@
 	path = /obj/item/weapon/storage/toolbox/syndicate
 
 /datum/uplink_item/item/tools/iandroplink
-	name = "Hood Ian Supply Box"
+	name = "Shady Corgi Box"
 	item_cost = 4
-	path = /obj/item/weapon/hoodianinabox
+	path = /obj/item/weapon/shadyianbox
 
 /datum/uplink_item/item/tools/money
 	name = "Operations Funding"
