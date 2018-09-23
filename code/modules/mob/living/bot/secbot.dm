@@ -561,6 +561,21 @@
 	..()
 
 	if (ismob(P.firer))
+		var/found = 0
+		// Check if we can see them.
+		for(var/mob/living/M in view(7, src))
+			if(M.invisibility >= INVISIBILITY_LEVEL_ONE)
+				continue
+			if(M.stat)
+				continue
+			if(M == P.firer)
+				found = 1
+				break
+
+		if(!found)
+			broadcast_security_hud_message("[src] was shot with <b>[P]</b>, Unable to locate source! Requesting backup", src)
+			return
+
 		target = P.firer
 		mode = SECBOT_HUNT
 		if(ishuman(P.firer))
@@ -580,7 +595,7 @@
 
 /mob/living/bot/secbot/attackby(var/obj/item/O, var/mob/user)
 	..()
-	if(istype(O, /obj/item/weapon/card/id))
+	if(istype(O, /obj/item/weapon/card/id) || istype(O, /obj/item/weapon/pen) || istype(O, /obj/item/device/pda))
 		return
 
 	target = user
@@ -698,3 +713,11 @@
 		if(!in_range(src, usr) && loc != usr)
 			return
 		created_name = t
+
+#undef SECBOT_IDLE
+#undef SECBOT_HUNT
+#undef SECBOT_ARREST
+#undef SECBOT_START_PATROL
+#undef SECBOT_WAIT_PATROL
+#undef SECBOT_PATROL
+#undef SECBOT_SUMMON

@@ -38,8 +38,12 @@
 		/obj/item/toy/bosunwhistle            = TRADER_THIS_TYPE,
 		/obj/item/weapon/board                = TRADER_THIS_TYPE,
 		/obj/item/weapon/deck                 = TRADER_SUBTYPES_ONLY,
+		/obj/item/weapon/deck/tarot/fluff     = TRADER_BLACKLIST_ALL,
 		/obj/item/weapon/pack                 = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/dice                 = TRADER_ALL
+		/obj/item/weapon/dice                 = TRADER_ALL,
+		/obj/item/eightball                   = TRADER_ALL,
+		/obj/item/weapon/gun/energy/wand/toy  = TRADER_THIS_TYPE,
+		/obj/item/weapon/spirit_board         = TRADER_ALL
 	)
 
 /datum/trader/ship/electronics
@@ -121,27 +125,37 @@
 	)
 
 	possible_trading_items = list(
-		/obj/item/clothing/under                              = TRADER_SUBTYPES_ONLY,
-		/obj/item/clothing/under/acj                          = TRADER_BLACKLIST,
-		/obj/item/clothing/under/chameleon                    = TRADER_BLACKLIST,
-		/obj/item/clothing/under/color                        = TRADER_BLACKLIST,
-		/obj/item/clothing/under/dress                        = TRADER_BLACKLIST,
-		/obj/item/clothing/under/ert                          = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/under/gimmick                      = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/under/lawyer                       = TRADER_BLACKLIST,
-		/obj/item/clothing/under/pj                           = TRADER_BLACKLIST,
-		/obj/item/clothing/under/rank                         = TRADER_BLACKLIST,
-		/obj/item/clothing/under/shorts                       = TRADER_BLACKLIST,
-		/obj/item/clothing/under/stripper                     = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/under/swimsuit                     = TRADER_BLACKLIST,
-		/obj/item/clothing/under/syndicate                    = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/under/tactical                     = TRADER_BLACKLIST,
-		/obj/item/clothing/under/vox                          = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/under/wedding                      = TRADER_BLACKLIST,
-		/obj/item/clothing/under/punpun                       = TRADER_BLACKLIST,
-		/obj/item/clothing/under/fluff                        = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/under/dress/fluff                  = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/under/rank/centcom_officer/bst     = TRADER_BLACKLIST
+		/obj/item/clothing/under                                 = TRADER_SUBTYPES_ONLY,
+		/obj/item/clothing/under/acj                             = TRADER_BLACKLIST,
+		/obj/item/clothing/under/chameleon                       = TRADER_BLACKLIST,
+		/obj/item/clothing/under/color                           = TRADER_BLACKLIST,
+		/obj/item/clothing/under/dress                           = TRADER_BLACKLIST,
+		/obj/item/clothing/under/ert                             = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/under/gimmick                         = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/under/lawyer                          = TRADER_BLACKLIST,
+		/obj/item/clothing/under/pj                              = TRADER_BLACKLIST,
+		/obj/item/clothing/under/rank                            = TRADER_BLACKLIST,
+		/obj/item/clothing/under/shorts                          = TRADER_BLACKLIST,
+		/obj/item/clothing/under/stripper                        = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/under/swimsuit                        = TRADER_BLACKLIST,
+		/obj/item/clothing/under/syndicate                       = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/under/tactical                        = TRADER_BLACKLIST,
+		/obj/item/clothing/under/vox                             = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/under/wedding                         = TRADER_BLACKLIST,
+		/obj/item/clothing/under/punpun                          = TRADER_BLACKLIST,
+		/obj/item/clothing/under/fluff                           = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/under/dress/fluff                     = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/under/rank/centcom_officer/bst        = TRADER_BLACKLIST,
+		/obj/item/clothing/suit/storage/hooded                   = TRADER_SUBTYPES_ONLY,
+		/obj/item/clothing/suit/storage/hooded/fluff             = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/suit/storage/hooded/wintercoat/fluff  = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/suit/storage/toggle/labcoat           = TRADER_ALL,
+		/obj/item/clothing/suit/storage/toggle/labcoat/fluff     = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/suit/varsity                          = TRADER_ALL,
+		/obj/item/clothing/suit/storage/toggle/track             = TRADER_ALL,
+		/obj/item/clothing/suit/storage/miljacket                = TRADER_ALL,
+		/obj/item/clothing/suit/jacket/puffer                    = TRADER_ALL,
+		/obj/item/clothing/suit/storage/toggle/flannel           = TRADER_ALL
 	)
 
 /datum/trader/ship/clothingshop/shoes
@@ -181,6 +195,7 @@
 		/obj/item/clothing/gloves/yellow/typec          = TRADER_BLACKLIST,
 		/obj/item/clothing/gloves/swat/bst              = TRADER_BLACKLIST,
 		/obj/item/clothing/gloves/watch/fluff           = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/gloves/fluff                 = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head                         = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/head/beret/centcom           = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/bio_hood                = TRADER_BLACKLIST_ALL,
@@ -310,24 +325,25 @@ Sells devices, odds and ends, and medical stuff
 	possible_origins = list("Astrodia", "Slag. Co.", "Explosive Drills S.A.", "The Shaft Shop")
 
 	possible_wanted_items  = list(
-		/obj/item/weapon/ore                      = TRADER_SUBTYPES_ONLY,
-		/obj/item/stack/material/glass            = TRADER_ALL,
-		/obj/item/stack/material/iron             = TRADER_THIS_TYPE,
-		/obj/item/stack/material/sandstone        = TRADER_THIS_TYPE,
-		/obj/item/stack/material/marble           = TRADER_THIS_TYPE,
-		/obj/item/stack/material/diamond          = TRADER_THIS_TYPE,
-		/obj/item/stack/material/uranium          = TRADER_THIS_TYPE,
-		/obj/item/stack/material/phoron           = TRADER_THIS_TYPE,
-		/obj/item/stack/material/plastic          = TRADER_THIS_TYPE,
-		/obj/item/stack/material/gold             = TRADER_THIS_TYPE,
-		/obj/item/stack/material/silver           = TRADER_THIS_TYPE,
-		/obj/item/stack/material/platinum         = TRADER_THIS_TYPE,
-		/obj/item/stack/material/mhydrogen        = TRADER_THIS_TYPE,
-		/obj/item/stack/material/tritium          = TRADER_THIS_TYPE,
-		/obj/item/stack/material/osmium           = TRADER_THIS_TYPE,
-		/obj/item/stack/material/steel            = TRADER_THIS_TYPE,
-		/obj/item/stack/material/plasteel         = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/coin                     = TRADER_SUBTYPES_ONLY
+		/obj/item/weapon/ore                                    = TRADER_SUBTYPES_ONLY,
+		/obj/item/stack/material/glass                          = TRADER_ALL,
+		/obj/item/stack/material/iron                           = TRADER_THIS_TYPE,
+		/obj/item/stack/material/sandstone                      = TRADER_THIS_TYPE,
+		/obj/item/stack/material/marble                         = TRADER_THIS_TYPE,
+		/obj/item/stack/material/diamond                        = TRADER_THIS_TYPE,
+		/obj/item/stack/material/uranium                        = TRADER_THIS_TYPE,
+		/obj/item/stack/material/phoron                         = TRADER_THIS_TYPE,
+		/obj/item/stack/material/plastic                        = TRADER_THIS_TYPE,
+		/obj/item/stack/material/gold                           = TRADER_THIS_TYPE,
+		/obj/item/stack/material/silver                         = TRADER_THIS_TYPE,
+		/obj/item/stack/material/platinum                       = TRADER_THIS_TYPE,
+		/obj/item/stack/material/mhydrogen                      = TRADER_THIS_TYPE,
+		/obj/item/stack/material/tritium                        = TRADER_THIS_TYPE,
+		/obj/item/stack/material/osmium                         = TRADER_THIS_TYPE,
+		/obj/item/stack/material/steel                          = TRADER_THIS_TYPE,
+		/obj/item/stack/material/plasteel                       = TRADER_THIS_TYPE,
+		/obj/item/weapon/coin                                   = TRADER_SUBTYPES_ONLY,
+		/mob/living/simple_animal/hostile/retaliate/minedrone   = TRADER_THIS_TYPE
 	)
 
 	possible_trading_items = list(
@@ -354,7 +370,10 @@ Sells devices, odds and ends, and medical stuff
 		/obj/item/clothing/suit/space/void/mining        = TRADER_THIS_TYPE,
 		/obj/machinery/mining/drill                      = TRADER_THIS_TYPE,
 		/obj/machinery/mining/brace                      = TRADER_THIS_TYPE,
-		/obj/mecha/working/ripley                        = TRADER_THIS_TYPE
+		/obj/mecha/working/ripley                        = TRADER_THIS_TYPE,
+		/obj/item/custom_ka_upgrade/upgrade_chips        = TRADER_SUBTYPES_ONLY,
+		/obj/item/custom_ka_upgrade/barrels              = TRADER_SUBTYPES_ONLY,
+		/obj/item/custom_ka_upgrade/cells                = TRADER_SUBTYPES_ONLY
 	)
 
 	speech = list(

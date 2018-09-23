@@ -91,6 +91,7 @@
 	new /obj/item/weapon/storage/fancy/candle_box(src)
 	new /obj/item/weapon/deck/tarot(src)
 	new /obj/item/device/radio/headset/headset_service(src)
+	new /obj/item/weapon/spirit_board(src)
 	return
 
 

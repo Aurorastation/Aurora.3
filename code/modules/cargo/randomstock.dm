@@ -899,11 +899,14 @@ var/list/global/random_stock_large = list(
 	//This ensures the cargo bay will have a supply of food in an obtainable place for animals
 	//allows nymphs and mice to raid it for nutrients, and thus gives playermice more
 	//reason to infest the warehouse
+	//^fucking mouse main
 			if (CS && prob(65))
 				if (!istype(L, /turf))
 					L = get_turf(pick(CS.tables))
-
-			new /obj/item/weapon/storage/box/snack(L)
+			if(prob(50))
+				new /obj/item/weapon/storage/box/snack(L)
+			else
+				new /obj/item/weapon/storage/box/produce(L)
 
 		if ("oxytank")
 			new /obj/item/weapon/tank/oxygen(L)

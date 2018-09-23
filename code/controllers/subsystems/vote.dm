@@ -64,7 +64,7 @@ var/datum/controller/subsystem/vote/SSvote
 
 			voting.Cut()
 
-	if (world.time >= next_transfer_time - 600)
+	if (round_duration_in_ticks >= next_transfer_time - 600)
 		autotransfer()
 		next_transfer_time += config.vote_autotransfer_interval
 
@@ -111,7 +111,7 @@ var/datum/controller/subsystem/vote/SSvote
 						greatest_votes = choices[master_mode]
 			else if(mode == "crew_transfer")
 				var/factor = 0.5
-				switch(world.time / (10 * 60)) // minutes
+				switch(round_duration_in_ticks / (10 * 60)) // minutes
 					if(0 to 60)
 						factor = 0.5
 					if(61 to 120)
@@ -127,7 +127,7 @@ var/datum/controller/subsystem/vote/SSvote
 				greatest_votes = max(choices["Initiate Crew Transfer"], choices["Continue The Round"])
 
 	if(mode == "crew_transfer")
-		if(round(world.time / 36000)+12 <= 14)
+		if(round(round_duration_in_ticks / 36000)+12 <= 14)
 			// Credit to Scopes @ oldcode.
 			world << "<font color='purple'><b>Majority voting rule in effect. 2/3rds majority needed to initiate transfer.</b></font>"
 			choices["Initiate Crew Transfer"] = round(choices["Initiate Crew Transfer"] - round(total_votes / 3))
@@ -187,7 +187,7 @@ var/datum/controller/subsystem/vote/SSvote
 			if("crew_transfer")
 				if(. == "Initiate Crew Transfer")
 					init_shift_change(null, 1)
-				last_transfer_vote = world.time
+				last_transfer_vote = round_duration_in_ticks
 			if("add_antagonist")
 				if(isnull(.) || . == "None")
 					antag_add_failed = 1
@@ -251,7 +251,7 @@ var/datum/controller/subsystem/vote/SSvote
 			else
 				next_allowed_time = (started_time + config.vote_delay)
 
-			if(next_allowed_time > world.time)
+			if(next_allowed_time > round_duration_in_ticks)
 				return 0
 
 		reset()

@@ -193,6 +193,9 @@
 		/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/libertycap = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiadeus = 1,
+		/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/reishi = 1,
+		/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/destroyingangel = 1,
+		/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/ghostmushroom = 0.5,
 		/obj/item/seeds/ambrosiavulgarisseed = 2,
 		/obj/item/seeds/ambrosiadeusseed = 1,
 		/obj/item/clothing/mask/gas/voice = 1,
@@ -818,7 +821,9 @@
 		/obj/random/spacecash = 0.3,
 		/obj/item/device/firing_pin = 0.3,
 		/obj/item/weapon/reagent_containers/inhaler/hyperzine = 0.1,
-		/obj/item/weapon/storage/box/pineapple = 0.1
+		/obj/item/weapon/storage/box/pineapple = 0.1,
+		/obj/item/weapon/flag/america = 0.1,
+		/obj/item/weapon/flag/america/l = 0.1
 	)
 
 /obj/random/hoodie
@@ -907,9 +912,7 @@
 		/obj/item/ammo_casing/c45/rubber = 0.5,
 		/obj/item/ammo_casing/c9mm/rubber = 0.5,
 		/obj/item/ammo_casing/c45/flash = 0.5,
-		/obj/item/ammo_casing/shotgun/beanbag = 0.5,
-		/obj/item/weapon/flag/america = 1,
-		/obj/item/weapon/flag/america/l = 1
+		/obj/item/ammo_casing/shotgun/beanbag = 0.5
 	)
 
 //Sometimes the chef will have spare oil in storage.
@@ -985,7 +988,11 @@
 		/obj/item/clothing/mask/gas/mime				= 11,
 		/obj/item/weapon/gun/energy/wand/toy			= 5,
 		/obj/item/device/binoculars						= 11,
-		/obj/item/device/megaphone						= 11
+		/obj/item/device/megaphone						= 11,
+		/obj/item/eightball								= 11,
+		/obj/item/eightball/haunted						= 1,
+		/obj/item/eightball/broken						= 1,
+		/obj/item/weapon/spirit_board					= 5
 	)
 
 /obj/random/custom_ka
