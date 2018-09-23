@@ -30,6 +30,12 @@ var/list/sacrificed = list()
 		if (istype(user, /mob/living))
 			user.take_overall_damage(5, 0)
 		qdel(src)
+
+	var/turf/T = get_turf(user)
+	if (T.z in current_map.admin_levels)
+		to_chat(user, "<span class='warning'>You are too far from the station, Nar'sie is unable to reach you here.</span>")
+		return
+
 	if(allrunesloc && index != 0)
 		if(istype(src,/obj/effect/rune))
 			user.say("Sas[pick("'","`")]so c'arta forbici!")//Only you can stop auto-muting
