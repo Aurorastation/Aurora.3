@@ -335,7 +335,7 @@
 
 /obj/item/clothing/under/dress/dress_evening
 	name = "Evening Gown"
-	desc = "A silky red gown, leaves much to the imagination"
+	desc = "A silky gown, leaves much to the imagination"
 	icon_state = "red_evening_gown_s"
 	item_state = "red_evening_gown"
 
