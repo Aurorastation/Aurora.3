@@ -332,6 +332,13 @@
 	item_state = "p_suit"
 	worn_state = "dress_saloon"
 
+
+/obj/item/clothing/under/dress/dress_evening
+	name = "Evening Gown"
+	desc = "A silky red gown, leaves much to the imagination"
+	icon_state = "red_evening_gown_s"
+	item_state = "red_evening_gown"
+
 /obj/item/clothing/under/dress/dress_cap
 	name = "captain's dress uniform"
 	desc = "Feminine fashion for the style concious captain."
