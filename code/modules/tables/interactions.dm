@@ -57,6 +57,45 @@
 			return 1
 	return 1
 
+/obj/structure/table/proc/throw_things(var/mob/living/user = null)
+	var/list/targets = list(get_step(src,dir),get_step(src,turn(dir, 45)),get_step(src,turn(dir, -45)))
+	for (var/atom/movable/A in get_turf(src))
+		if(user && A == user)
+			continue
+		if (!A.anchored)
+			spawn(0)
+				A.throw_at(pick(targets),1,1)
+
+
+/obj/structure/table/structure_shaken()
+	..()
+	throw_things()
+
+
+/obj/structure/table/do_climb(var/mob/living/user)
+	if (!can_climb(user))
+		return
+
+	usr.visible_message("<span class='warning'>[user] starts climbing onto \the [src]!</span>")
+	LAZYADD(climbers, user)
+
+	if(!do_after(user,50))
+		LAZYREMOVE(climbers, user)
+		return
+
+	if (!can_climb(user, post_climb_check=1))
+		LAZYREMOVE(climbers, user)
+		return
+
+	usr.forceMove(get_turf(src))
+
+	if (get_turf(user) == get_turf(src))
+		usr.visible_message("<span class='warning'>[user] climbs onto \the [src]!</span>")
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			if(H.a_intent == I_HURT || H.a_intent == I_DISARM)
+				throw_things(user)
+	LAZYREMOVE(climbers, user)
 
 /obj/structure/table/MouseDrop_T(obj/O as obj, mob/user as mob)
 
