@@ -560,7 +560,7 @@
 	blood_color = "#5C4831"
 	flesh_color = "#FFC896"
 
-	death_message = ""
+	death_message = "collapses into a pile of flesh!"
 
 /datum/species/golem/handle_death(var/mob/living/carbon/human/H)
 	if(turn_into_materials)
