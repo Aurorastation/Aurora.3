@@ -607,6 +607,7 @@
 		/obj/item/weapon/storage/toolbox/lunchbox/syndicate = 2
 	)
 	restock_items = 1
+	random_itemcount = 0
 
 /obj/machinery/vending/sovietsoda
 	name = "BODA"
@@ -681,6 +682,7 @@
 		/obj/item/weapon/storage/belt/utility = 3
 	)
 	restock_items = 1
+	random_itemcount = 0
 
 /obj/machinery/vending/tacticool //Tried not to go overboard with the amount of fun security has access to.
 	name = "Tactical Express"
