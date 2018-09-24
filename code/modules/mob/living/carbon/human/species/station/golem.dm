@@ -1,23 +1,25 @@
 /datum/species/golem
-	name = "Golem"
-	name_plural = "golems"
+	name = "Coal Golem"
+	name_plural = "coal golems"
 
-	icobase = 'icons/mob/human_races/r_golem.dmi'
-	deform = 'icons/mob/human_races/r_golem.dmi'
+	icobase = 'icons/mob/human_races/golem/r_coal.dmi'
+	deform = 'icons/mob/human_races/golem/r_coal.dmi'
 	eyes = "blank_eyes"
 
 	language = "Ceti Basic"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch)
 	flags = NO_BREATHE | NO_PAIN | NO_BLOOD | NO_SCAN | NO_POISON | NO_EMBED
 	spawn_flags = IS_RESTRICTED
-	siemens_coefficient = 0
+	siemens_coefficient = 1
 	rarity_value = 5
 
 	ethanol_resistance = -1
 	taste_sensitivity = TASTE_NUMB
 
-	brute_mod = 0.5
-	slowdown = 1
+	meat_type = /obj/item/weapon/ore/coal
+
+	brute_mod = 2
+	burn_mod = 4
 	virus_immune = 1
 
 	warning_low_pressure = 50 //golems can into space now
@@ -30,8 +32,8 @@
 	breath_type = null
 	poison_type = null
 
-	blood_color = "#515573"
-	flesh_color = "#137E8F"
+	blood_color = "#5C5B5D"
+	flesh_color = "#5C5B5D"
 
 	has_organ = list(
 		"brain" = /obj/item/organ/brain/golem
@@ -44,10 +46,524 @@
 	sprint_speed_factor = 0.3
 	exhaust_threshold = 0 //No oxyloss, so zero threshold
 
+	remains_type = /obj/effect/decal/cleanable/ash
+
+	var/turn_into_materials = TRUE //the golem will turn into materials upon its death
+
 /datum/species/golem/handle_post_spawn(var/mob/living/carbon/human/H)
 	if(H.mind)
 		H.mind.assigned_role = "Golem"
 		H.mind.special_role = "Golem"
-	H.real_name = "adamantine golem ([rand(1, 1000)])"
+	H.real_name = "golem ([rand(1, 1000)])"
 	H.name = H.real_name
+	H.gender = NEUTER
 	..()
+
+/datum/species/golem/handle_death(var/mob/living/carbon/human/H)
+	if(turn_into_materials)
+		set waitfor = 0
+		sleep(1)
+		new H.species.meat_type(H.loc, rand(3,8))
+		qdel(H)
+
+/datum/species/golem/iron
+	name = "Iron Golem"
+	name_plural = "iron golems"
+
+	siemens_coefficient = 1.2
+
+	fall_mod = 2
+
+	appearance_flags = HAS_SKIN_COLOR
+
+	meat_type = /obj/item/stack/material/iron
+
+	brute_mod = 0.6
+	burn_mod = 0.7
+	slowdown = 1
+
+	blood_color = "#5C5454"
+	flesh_color = "#5C5454"
+
+/datum/species/golem/iron/handle_post_spawn(var/mob/living/carbon/human/H)
+	H.change_skin_color(92, 84, 84)
+	H.update_dna()
+	..()
+
+/datum/species/golem/bronze
+	name = "Bronze Golem"
+	name_plural = "bronze golems"
+
+	icobase = 'icons/mob/human_races/golem/r_bronze.dmi'
+	deform = 'icons/mob/human_races/golem/r_bronze.dmi'
+
+	meat_type = /obj/item/stack/material/bronze
+
+	siemens_coefficient = 1.5
+
+	brute_mod = 0.7
+	burn_mod = 0.8
+	slowdown = 1
+
+	blood_color = "#EDD12F"
+	flesh_color = "#EDD12F"
+
+/datum/species/golem/steel
+	name = "Steel Golem"
+	name_plural = "steel golems"
+
+	siemens_coefficient = 1.3
+
+	fall_mod = 2
+
+	appearance_flags = HAS_SKIN_COLOR
+
+	brute_mod = 0.5
+	burn_mod = 0.6
+	slowdown = 1.5
+
+	meat_type = /obj/item/stack/material/steel
+
+	blood_color = "#666666"
+	flesh_color = "#666666"
+
+/datum/species/golem/steel/handle_post_spawn(var/mob/living/carbon/human/H)
+	H.change_skin_color(102,102,102)
+	H.update_dna()
+	..()
+
+/datum/species/golem/plasteel
+	name = "Plasteel Golem"
+	name_plural = "plasteel golems"
+
+	siemens_coefficient = 1.2
+
+	fall_mod = 2
+
+	appearance_flags = HAS_SKIN_COLOR
+
+	brute_mod = 0.3
+	burn_mod = 0.5
+	slowdown = 2
+
+	meat_type = /obj/item/stack/material/plasteel
+
+	blood_color = "#777777"
+	flesh_color = "#777777"
+
+/datum/species/golem/plasteel/handle_post_spawn(var/mob/living/carbon/human/H)
+	H.change_skin_color(80,80,80)
+	H.update_dna()
+	..()
+
+/datum/species/golem/titanium
+	name = "Titanium Golem"
+	name_plural = "titanium golems"
+
+	siemens_coefficient = 0.5
+
+	fall_mod = 2
+
+	appearance_flags = HAS_SKIN_COLOR
+
+	slowdown = 3
+
+	brute_mod = 0.2
+	burn_mod = 0.3
+
+	meat_type = /obj/item/stack/material/titanium
+
+	blood_color = "#D1E6E3"
+	flesh_color = "#D1E6E3"
+
+/datum/species/golem/titanium/handle_post_spawn(var/mob/living/carbon/human/H)
+	H.change_skin_color(50,95,88)
+	H.update_dna()
+	..()
+
+/datum/species/golem/cloth
+	name = "Cloth Golem"
+	name_plural = "cloth golems"
+
+	icobase = 'icons/mob/human_races/golem/r_cloth.dmi'
+	deform = 'icons/mob/human_races/golem/r_cloth.dmi'
+
+	slowdown = -1
+
+	brute_mod = 1.5
+	burn_mod = 3
+
+	fall_mod = 0
+
+	meat_type = /obj/item/stack/material/cloth
+
+	blood_color = "#FFFFFF"
+	flesh_color = "#FFFFFF"
+
+/datum/species/golem/cardboard
+	name = "Cardboard Golem"
+	name_plural = "cardboard golems"
+
+	icobase = 'icons/mob/human_races/golem/r_cardboard.dmi'
+	deform = 'icons/mob/human_races/golem/r_cardboard.dmi'
+
+	slowdown = -1
+
+	brute_mod = 1.5
+	burn_mod = 3
+
+	fall_mod = 0
+
+	meat_type = /obj/item/stack/material/cardboard
+
+	blood_color = "#AAAAAA"
+	flesh_color = "#AAAAAA"
+
+/datum/species/golem/glass
+	name = "Glass Golem"
+	name_plural = "glass golems"
+
+	fall_mod = 2
+
+	appearance_flags = HAS_SKIN_COLOR
+
+	siemens_coefficient = 0
+
+	brute_mod = 3
+	burn_mod = 0.3
+
+	meat_type = /obj/item/weapon/material/shard
+
+	blood_color = "#00E1FF"
+	flesh_color = "#00E1FF"
+
+	death_message = "shatters into many shards!"
+
+	death_sound = 'sound/effects/Glassbr1.ogg'
+
+/datum/species/golem/glass/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
+	if(istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam))
+		var/reflectchance = 50 - round(P.damage/3)
+		if(prob(reflectchance))
+			H.visible_message("<span class='danger'>The [P.name] gets reflected by [H]!</span>", \
+							"<span class='danger'>The [P.name] gets reflected by [H]!</span>")
+
+			// Find a turf near or on the original location to bounce to
+			if(P.starting)
+				var/new_x = P.starting.x + pick(0, 0, -1, 1, -2, 2, -2, 2, -2, 2, -3, 3, -3, 3)
+				var/new_y = P.starting.y + pick(0, 0, -1, 1, -2, 2, -2, 2, -2, 2, -3, 3, -3, 3)
+
+				// redirect the projectile
+				P.firer = H
+				P.old_style_target(locate(new_x, new_y, P.z))
+
+			return -1 // complete projectile permutation
+
+/datum/species/golem/glass/handle_death(var/mob/living/carbon/human/H)
+	set waitfor = 0
+	sleep(1)
+	for(var/i in 1 to 5)
+		var/obj/item/weapon/material/shard/T = new meat_type(H.loc)
+		var/turf/landing = get_step(H, pick(alldirs))
+		addtimer(CALLBACK(T, /atom/movable/.proc/throw_at, landing, 30, 5), 0)
+	qdel(H)
+
+/datum/species/golem/glass/handle_post_spawn(var/mob/living/carbon/human/H)
+	H.change_skin_color(0,132,150)
+	H.alpha = 150
+	H.update_dna()
+	..()
+
+
+/datum/species/golem/phoron
+	name = "Phoron Golem"
+	name_plural = "phoron golems"
+
+	brute_mod = 1
+	burn_mod = 2
+
+	appearance_flags = HAS_SKIN_COLOR
+
+	meat_type = /obj/item/stack/material/phoron
+
+	blood_color = "#FC2BC5"
+	flesh_color = "#FC2BC5"
+
+	death_message = "burst into flames!"
+
+/datum/species/golem/phoron/handle_death(var/mob/living/carbon/human/H)
+	set waitfor = 0
+	sleep(1)
+	var/turf/location = get_turf(H)
+	for(var/turf/simulated/floor/target_tile in range(0,location))
+		target_tile.assume_gas("phoron", 500, 400+T0C)
+		spawn (0) target_tile.hotspot_expose(700, 400)
+	qdel(H)
+
+/datum/species/golem/phoron/handle_post_spawn(var/mob/living/carbon/human/H)
+	H.change_skin_color(99,6,83)
+	H.update_dna()
+	..()
+
+/datum/species/golem/silver
+	name = "Silver Golem"
+	name_plural = "silver golems"
+
+	siemens_coefficient = 2.5
+
+	appearance_flags = HAS_SKIN_COLOR
+
+	brute_mod = 0.8
+	burn_mod = 2
+
+	meat_type = /obj/item/stack/material/silver
+
+	blood_color = "#D1E6E3"
+	flesh_color = "#D1E6E3"
+
+/datum/species/golem/silver/handle_post_spawn(var/mob/living/carbon/human/H)
+	H.change_skin_color(120,120,120)
+	H.update_dna()
+	..()
+
+/datum/species/golem/gold
+	name = "Gold Golem"
+	name_plural = "gold golems"
+
+	siemens_coefficient = 2
+
+	appearance_flags = HAS_SKIN_COLOR
+
+	brute_mod = 1
+	burn_mod = 2
+
+	meat_type = /obj/item/stack/material/gold
+
+	blood_color = "#EDD12F"
+	flesh_color = "#EDD12F"
+
+/datum/species/golem/gold/handle_post_spawn(var/mob/living/carbon/human/H)
+	H.change_skin_color(176,152,14)
+	H.update_dna()
+	..()
+
+/datum/species/golem/mhydrogen
+	name = "Metallic Hydrogen Golem"
+	name_plural = "metallic hydrogen golems"
+
+	siemens_coefficient = 3
+
+	appearance_flags = HAS_SKIN_COLOR
+
+	slowdown = 1.5
+
+	brute_mod = 0.5
+	burn_mod = 1
+
+	meat_type = /obj/item/stack/material/mhydrogen
+
+	blood_color = "#E6C5DE"
+	flesh_color = "#E6C5DE"
+
+/datum/species/golem/mhydrogen/handle_post_spawn(var/mob/living/carbon/human/H)
+	H.change_skin_color(199,127,181)
+	H.update_dna()
+	..()
+
+/datum/species/golem/wood
+	name = "Wood Golem"
+	name_plural = "wood golems"
+
+	icobase = 'icons/mob/human_races/golem/r_wood.dmi'
+	deform = 'icons/mob/human_races/golem/r_wood.dmi'
+
+	siemens_coefficient = 0.3
+
+	brute_mod = 0.8
+	burn_mod = 2
+
+	meat_type = /obj/item/weapon/material/shard/wood
+
+	blood_color = "#824B28"
+	flesh_color = "#824B28"
+
+/datum/species/golem/diamond
+	name = "Diamond Golem"
+	name_plural = "diamond golems"
+
+	siemens_coefficient = 0
+
+	appearance_flags = HAS_SKIN_COLOR
+
+	brute_mod = 0.7
+	burn_mod = 0.2
+
+	meat_type = /obj/item/stack/material/diamond
+
+	blood_color = "#00FFE1"
+	flesh_color = "#00FFE1"
+
+/datum/species/golem/diamond/handle_post_spawn(var/mob/living/carbon/human/H)
+	H.change_skin_color(0,197,172)
+	H.alpha = 150
+	H.update_dna()
+	..()
+
+/datum/species/golem/diamond/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
+	if(istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam))
+		var/reflectchance = 80 - round(P.damage/3)
+		if(prob(reflectchance))
+			H.visible_message("<span class='danger'>The [P.name] gets reflected by [H]!</span>", \
+							"<span class='danger'>The [P.name] gets reflected by [H]!</span>")
+
+			// Find a turf near or on the original location to bounce to
+			if(P.starting)
+				var/new_x = P.starting.x + pick(0, 0, -1, 1, -2, 2, -2, 2, -2, 2, -3, 3, -3, 3)
+				var/new_y = P.starting.y + pick(0, 0, -1, 1, -2, 2, -2, 2, -2, 2, -3, 3, -3, 3)
+
+				// redirect the projectile
+				P.firer = H
+				P.old_style_target(locate(new_x, new_y, P.z))
+
+			return -1 // complete projectile permutation
+
+/datum/species/golem/marble
+	name = "Marble Golem"
+	name_plural = "marble golems"
+
+	siemens_coefficient = 0.3
+
+	appearance_flags = HAS_SKIN_COLOR
+
+	brute_mod = 0.4
+	burn_mod = 0.5
+	slowdown = 2
+
+	meat_type = /obj/item/stack/material/marble
+
+	blood_color = "#AAAAAA"
+	flesh_color = "#AAAAAA"
+
+/datum/species/golem/marble/handle_post_spawn(var/mob/living/carbon/human/H)
+	H.change_skin_color(170,170,170)
+	H.update_dna()
+	..()
+
+/datum/species/golem/sandstone
+	name = "Sandstone Golem"
+	name_plural = "sandstone golems"
+
+	siemens_coefficient = 0.2
+
+	appearance_flags = HAS_SKIN_COLOR
+
+	brute_mod = 0.7
+	burn_mod = 0.6
+	slowdown = 1.5
+
+	meat_type = /obj/item/stack/material/sandstone
+
+	blood_color = "#D9C179"
+	flesh_color = "#D9C179"
+
+/datum/species/golem/sandstone/handle_post_spawn(var/mob/living/carbon/human/H)
+	H.change_skin_color(201,166,64)
+	H.update_dna()
+	..()
+
+/datum/species/golem/plastic
+	name = "Plastic Golem"
+	name_plural = "plastic golems"
+
+	siemens_coefficient = 0.4
+
+	appearance_flags = HAS_SKIN_COLOR
+
+	fall_mod = 0.5
+
+	brute_mod = 1.2
+	burn_mod = 1.3
+	slowdown = -1
+
+	meat_type = /obj/item/stack/material/plastic
+
+	blood_color = "#CCCCCC"
+	flesh_color = "#CCCCCC"
+
+/datum/species/golem/plastic/handle_post_spawn(var/mob/living/carbon/human/H)
+	H.change_skin_color(171,171,171)
+	H.update_dna()
+	..()
+
+/datum/species/golem/uranium
+	name = "Uranium Golem"
+	name_plural = "uranium golems"
+
+	siemens_coefficient = 1.3
+
+	fall_mod = 2
+
+	appearance_flags = HAS_SKIN_COLOR
+
+	brute_mod = 0.5
+	burn_mod = 0.6
+	slowdown = 1.5
+
+	meat_type = /obj/item/stack/material/uranium
+
+	blood_color = "#007A00"
+	flesh_color = "#007A00"
+
+/datum/species/golem/uranium/handle_post_spawn(var/mob/living/carbon/human/H)
+	H.change_skin_color(0,80,0)
+	H.update_dna()
+	..()
+
+/datum/species/golem/uranium/handle_environment_special(var/mob/living/carbon/human/H)
+	if(prob(25))
+		for(var/mob/living/L in view(7, H))
+			L.apply_effect(150, IRRADIATE, blocked = L.getarmor(null, "rad"))
+
+/datum/species/golem/homunculus
+	name = "Homunculus"
+	name_plural = "homunculus"
+
+	flags = NO_PAIN | NO_SCAN
+
+	unarmed_types = list(
+		/datum/unarmed_attack/claws,
+		/datum/unarmed_attack/bite/sharp
+	)
+
+	icobase = 'icons/mob/human_races/golem/r_flesh.dmi'
+	deform = 'icons/mob/human_races/golem/r_flesh.dmi'
+
+	breath_pressure = 16
+	breath_type = "oxygen"
+	poison_type = "phoron"
+	exhale_type = "carbon_dioxide"
+
+	cold_level_1 = 260
+	cold_level_2 = 200
+	cold_level_3 = 120
+	heat_level_1 = 360
+	heat_level_2 = 400.
+	heat_level_3 = 1000
+
+	hazard_high_pressure = HAZARD_HIGH_PRESSURE
+	warning_high_pressure = WARNING_HIGH_PRESSURE
+	warning_low_pressure = WARNING_LOW_PRESSURE
+	hazard_low_pressure = HAZARD_LOW_PRESSURE
+
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+
+	blood_color = "#5C4831"
+	flesh_color = "#FFC896"
+
+	death_message = ""
+
+/datum/species/golem/handle_death(var/mob/living/carbon/human/H)
+	if(turn_into_materials)
+		set waitfor = 0
+		sleep(1)
+		H.gib()
