@@ -34,7 +34,7 @@ var/list/sacrificed = list()
 	var/turf/T = get_turf(user)
 	if (T.z in current_map.admin_levels)
 		to_chat(user, "<span class='warning'>You are too far from the station, Nar'sie is unable to reach you here.</span>")
-		return
+		return fizzle(user)
 
 	if(allrunesloc && index != 0)
 		if(istype(src,/obj/effect/rune))
@@ -233,6 +233,11 @@ var/list/sacrificed = list()
 
 /obj/effect/rune/proc/tearreality(var/mob/living/user)
 	if(!cult.allow_narsie)
+		return fizzle(user)
+
+	var/turf/T = get_turf(src)
+	if (!T.z in current_map.station_levels)
+		to_chat(user, "<span class='warning'>You are too far from the station, Nar'sie can not be summoned here.</span>")
 		return fizzle(user)
 
 	var/list/cultists = new()
