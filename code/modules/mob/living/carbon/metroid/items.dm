@@ -238,6 +238,7 @@
 	icon_state = "golem"
 	unacidable = 1
 	layer = TURF_LAYER
+	var/wizardy = FALSE //if this rune can only be used by a wizard or not
 
 /obj/effect/golemrune/Initialize()
 	. = ..()
@@ -263,12 +264,18 @@
 		if(O.mind && O.mind.current && O.mind.current.stat != DEAD)	continue
 		ghost = O
 		break
+
+	if(wizardy)
+		if(!user.is_wizard())
+			to_chat(user, "<span class='notice'>The rune lies silent.</span>")
+			return
+
 	if(!ghost)
-		user << "The rune fizzles uselessly. There is no spirit nearby."
+		to_chat(user, "<span class='warning'>The rune fizzles uselessly. There is no spirit nearby</span>")
 		return
 	if(ghost.has_enabled_antagHUD && config.antag_hud_restricted)
-		ghost <<"You can not join as a golem with antagHUD on!"
-		user << "The rune fizzles uselessly. There is no spirit nearby."
+		to_chat(ghost, "<span class='warning'>You can not join as a golem with antagHUD on!</span>")
+		to_chat(user, "<span class='warning'>The rune fizzles uselessly. There is no spirit nearby</span>")"
 		return
 
 	var/golem_type = "Adamantine Golem"
@@ -283,13 +290,13 @@
 
 	G.key = ghost.key
 	addtimer(CALLBACK(G, /mob/living/carbon/human.proc/set_species, golem_type), 0)
-	G << "You are a golem. Serve [user], and assist them in completing their goals at any cost."
+	to_chat(G, "<span class='notice'>You are a golem. Serve [user], and assist them in completing their goals at any cost.</span>")
 	qdel(src)
 
 /obj/effect/golemrune/proc/announce_to_ghosts()
 	var/area/A = get_area(src)
-		if(A)
-			say_dead_direct("Golem rune created in [A.name]."")
+	if(A)
+		say_dead_direct("Golem rune created in [A.name]")
 
 /mob/living/carbon/slime/has_eyes()
 	return 0
