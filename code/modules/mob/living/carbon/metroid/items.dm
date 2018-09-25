@@ -275,10 +275,10 @@
 	var/golem_type = "Adamantine Gole"
 
 	var/obj/item/stack/material/O = (locate(/obj/item/stack/material) in src.loc)
-		if(O && O.amount>=10)
-			if(O.material.golem)
-				golem_type = O.material.golem
-				qdel(O)
+	if(O && O.amount>=10)
+		if(O.material.golem)
+			golem_type = O.material.golem
+			qdel(O)
 
 	G.set_species(golem_type)
 	G.key = ghost.key
