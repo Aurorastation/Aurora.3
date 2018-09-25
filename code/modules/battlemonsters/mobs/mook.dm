@@ -5,7 +5,7 @@
 	name = "Mook"
 	short_name = "mook"
 
-	pixel_x = -32
+	pixel_x = -16
 
 	icon = 'icons/mob/mook.dmi'
 	icon_state = "mook"
@@ -37,7 +37,7 @@
 
 	sleep(leap_duration * 0.5)
 	face_atom(target_mob)
-	animate(src, pixel_x = -32, pixel_y = 0, pixel_z = 0, time = 2)
+	animate(src, pixel_x = -16, pixel_y = 0, pixel_z = 0, time = 2)
 	throw_at(T, get_dist(src, T) + 4, 2, src)
 	leap_state = 3
 	update_icon()
@@ -54,8 +54,8 @@
 	var/list/list_of_decoys = list()
 	var/list/circle_turfs = getcircle(T, 3)
 	for(var/i=1,i <= 4,i++)
-		var/obj/effect/temp_visual/decoy/D = new /obj/effect/temp_visual/decoy(loc,src.loc)
-		D.duration = leap_duration
+		var/obj/effect/temp_visual/decoy/D = new /obj/effect/temp_visual/decoy(loc,src)
+		D.duration = leap_duration * 2
 		var/turf/chosen_turf = pick(circle_turfs)
 		var/x_offset = (chosen_turf.x - x)*32
 		var/y_offset = (chosen_turf.y - y)*32
@@ -65,7 +65,8 @@
 	sleep(leap_duration - 1)
 	face_atom(target_mob)
 	leap_state = 3
-	forceMove(pick(list_of_decoys))
+	forceMove(get_turf(pick(list_of_decoys)))
+	animate(src, pixel_x = -16, pixel_y = 0, pixel_z = 0, time = 2)
 	throw_at(T, get_dist(src, T) + 4, 2, src)
 
 	sleep(2)
@@ -90,10 +91,7 @@
 	if(leap_state)
 		return
 
-	if(prob(50))
-		INVOKE_ASYNC(src, .proc/leap_attack, target_mob, rand(1,3) SECONDS)
-	else
-		INVOKE_ASYNC(src, .proc/side_attack, target_mob, rand(5,5) SECONDS)
+	INVOKE_ASYNC(src, .proc/leap_attack, target_mob, rand(1,3) SECONDS)
 
 /mob/living/simple_animal/hostile/commanded/battlemonster/mook/AttackingTarget()
 	if(leap_state)
