@@ -271,8 +271,7 @@
 		user << "The rune fizzles uselessly. There is no spirit nearby."
 		return
 
-	var/mob/living/carbon/human/G = new(src.loc)
-	var/golem_type = "Adamantine Gole"
+	var/golem_type = "Adamantine Golem"
 
 	var/obj/item/stack/material/O = (locate(/obj/item/stack/material) in src.loc)
 	if(O && O.amount>=10)
@@ -280,7 +279,8 @@
 			golem_type = O.material.golem
 			qdel(O)
 
-	G.set_species(golem_type)
+	var/mob/living/carbon/human/G = new(src.loc, golem_type)
+
 	G.key = ghost.key
 	G << "You are a golem. Serve [user], and assist them in completing their goals at any cost."
 	qdel(src)
