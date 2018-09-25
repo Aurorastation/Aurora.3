@@ -275,7 +275,7 @@
 		return
 	if(ghost.has_enabled_antagHUD && config.antag_hud_restricted)
 		to_chat(ghost, "<span class='warning'>You can not join as a golem with antagHUD on!</span>")
-		to_chat(user, "<span class='warning'>The rune fizzles uselessly. There is no spirit nearby</span>")"
+		to_chat(user, "<span class='warning'>The rune fizzles uselessly. There is no spirit nearby</span>")
 		return
 
 	var/golem_type = "Adamantine Golem"
