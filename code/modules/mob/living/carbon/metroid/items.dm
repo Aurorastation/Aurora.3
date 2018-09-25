@@ -279,18 +279,17 @@
 			golem_type = O.material.golem
 			qdel(O)
 
-	var/mob/living/carbon/human/G = new(src.loc, golem_type)
+	var/mob/living/carbon/human/G = new(src.loc)
 
 	G.key = ghost.key
+	addtimer(CALLBACK(G, /mob/living/carbon/human.proc/set_species, golem_type), 0)
 	G << "You are a golem. Serve [user], and assist them in completing their goals at any cost."
 	qdel(src)
 
 /obj/effect/golemrune/proc/announce_to_ghosts()
-	for(var/mob/abstract/observer/G in player_list)
-		if(G.client)
-			var/area/A = get_area(src)
-			if(A)
-				G << "Golem rune created in [A.name]."
+	var/area/A = get_area(src)
+		if(A)
+			say_dead_direct("Golem rune created in [A.name]."")
 
 /mob/living/carbon/slime/has_eyes()
 	return 0
