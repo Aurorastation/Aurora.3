@@ -360,7 +360,7 @@ var/list/name_to_material
 	door_icon_base = "stone"
 	sheet_singular_name = "brick"
 	sheet_plural_name = "bricks"
-	golem = "Sandstone Golem"
+	golem = "Sand Golem"
 
 /material/stone/marble
 	name = "marble"

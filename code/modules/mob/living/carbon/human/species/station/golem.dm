@@ -570,17 +570,17 @@
 	H.update_dna()
 	..()
 
-/datum/species/golem/sandstone
-	name = "Sandstone Golem"
-	name_plural = "sandstone golems"
+/datum/species/golem/sand
+	name = "Sand Golem"
+	name_plural = "sand golems"
 
 	siemens_coefficient = 0.2
 
 	appearance_flags = HAS_SKIN_COLOR
 
-	brute_mod = 0.7
-	burn_mod = 0.6
-	slowdown = 1.5
+	brute_mod = 1.2
+	burn_mod = 1
+	slowdown = -2
 
 	meat_type = /obj/item/stack/material/sandstone
 
@@ -591,7 +591,9 @@
 	heat_level_2 = T0C+1000
 	heat_level_3 = T0C+1200
 
-/datum/species/golem/sandstone/handle_post_spawn(var/mob/living/carbon/human/H)
+	inherent_verbs = list(/mob/living/proc/ventcrawl)
+
+/datum/species/golem/sand/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(201,166,64)
 	H.update_dna()
 	..()
