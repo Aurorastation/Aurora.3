@@ -57,6 +57,18 @@
 			return 1
 	return 1
 
+/obj/structure/table/Entered(var/atom/movable/am, atom/old_loc)
+	..()
+	if(ishuman(am))
+		var/mob/living/carbon/human/H = am
+		if(H.a_intent != I_HELP || H.m_intent == "run")
+			throw_things(H)
+			usr.visible_message("<span class='warning'>[H] throws away things from \the [src]!</span>")
+		else if(H.is_diona(H) || H.species.bodytype == "Heavy machine")
+			throw_things(H)
+			usr.visible_message("<span class='warning'>[H] throws away things from \the [src]!</span>")
+	else(islesser(am))
+
 /obj/structure/table/proc/throw_things(var/mob/living/user = null)
 	var/list/targets = list(get_step(src,dir),get_step(src,turn(dir, 45)),get_step(src,turn(dir, -45)))
 	for (var/atom/movable/A in get_turf(src))
@@ -93,8 +105,9 @@
 		usr.visible_message("<span class='warning'>[user] climbs onto \the [src]!</span>")
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
-			if(H.a_intent == I_HURT || H.a_intent == I_DISARM)
+			if(H.a_intent != I_HELP)
 				throw_things(user)
+				usr.visible_message("<span class='warning'>[user] throws away things from \the [src]!</span>")
 	LAZYREMOVE(climbers, user)
 
 /obj/structure/table/MouseDrop_T(obj/O as obj, mob/user as mob)
