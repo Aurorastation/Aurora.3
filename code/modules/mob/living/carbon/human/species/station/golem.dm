@@ -6,6 +6,8 @@
 	deform = 'icons/mob/human_races/golem/r_coal.dmi'
 	eyes = "blank_eyes"
 
+	bodytype = "Golem"
+
 	language = "Ceti Basic"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch)
 	flags = NO_BREATHE | NO_PAIN | NO_BLOOD | NO_SCAN | NO_POISON | NO_EMBED
@@ -37,6 +39,20 @@
 
 	has_organ = list(
 		"brain" = /obj/item/organ/brain/golem
+		)
+
+	has_limbs = list(
+		"chest" =  list("path" = /obj/item/organ/external/chest/unbreakable),
+		"groin" =  list("path" = /obj/item/organ/external/groin/unbreakable),
+		"head" =   list("path" = /obj/item/organ/external/head/unbreakable),
+		"l_arm" =  list("path" = /obj/item/organ/external/arm/unbreakable),
+		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/unbreakable),
+		"l_leg" =  list("path" = /obj/item/organ/external/leg/unbreakable),
+		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/unbreakable),
+		"l_hand" = list("path" = /obj/item/organ/external/hand/unbreakable),
+		"r_hand" = list("path" = /obj/item/organ/external/hand/right/unbreakable),
+		"l_foot" = list("path" = /obj/item/organ/external/foot/unbreakable),
+		"r_foot" = list("path" = /obj/item/organ/external/foot/right/unbreakable)
 		)
 
 	death_message = "becomes completely motionless..."
@@ -85,6 +101,10 @@
 	blood_color = "#5C5454"
 	flesh_color = "#5C5454"
 
+	heat_level_1 = T0C+1138
+	heat_level_2 = T0C+1338
+	heat_level_3 = T0C+1538
+
 /datum/species/golem/iron/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(92, 84, 84)
 	H.update_dna()
@@ -108,6 +128,12 @@
 	blood_color = "#EDD12F"
 	flesh_color = "#EDD12F"
 
+	death_sound = 'sound/magic/anima_fragment_death.ogg'
+
+	heat_level_1 = T0C+550
+	heat_level_2 = T0C+750
+	heat_level_3 = T0C+950
+
 /datum/species/golem/steel
 	name = "Steel Golem"
 	name_plural = "steel golems"
@@ -127,6 +153,11 @@
 	blood_color = "#666666"
 	flesh_color = "#666666"
 
+
+	heat_level_1 = T0C+1100
+	heat_level_2 = T0C+1310
+	heat_level_3 = T0C+1510
+
 /datum/species/golem/steel/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(102,102,102)
 	H.update_dna()
@@ -140,6 +171,8 @@
 
 	fall_mod = 2
 
+	unarmed_types = list(/datum/unarmed_attack/golem)
+
 	appearance_flags = HAS_SKIN_COLOR
 
 	brute_mod = 0.3
@@ -150,6 +183,10 @@
 
 	blood_color = "#777777"
 	flesh_color = "#777777"
+
+	heat_level_1 = T0C+1200
+	heat_level_2 = T0C+1400
+	heat_level_3 = T0C+1600
 
 /datum/species/golem/plasteel/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(80,80,80)
@@ -164,6 +201,8 @@
 
 	fall_mod = 2
 
+	unarmed_types = list(/datum/unarmed_attack/golem)
+
 	appearance_flags = HAS_SKIN_COLOR
 
 	slowdown = 3
@@ -175,6 +214,10 @@
 
 	blood_color = "#D1E6E3"
 	flesh_color = "#D1E6E3"
+
+	heat_level_1 = T0C+1268
+	heat_level_2 = T0C+1468
+	heat_level_3 = T0C+1668 //bronze melts at around 1668 celsius
 
 /datum/species/golem/titanium/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(50,95,88)
@@ -188,7 +231,7 @@
 	icobase = 'icons/mob/human_races/golem/r_cloth.dmi'
 	deform = 'icons/mob/human_races/golem/r_cloth.dmi'
 
-	slowdown = -1
+	slowdown = -2
 
 	brute_mod = 1.5
 	burn_mod = 3
@@ -199,6 +242,10 @@
 
 	blood_color = "#FFFFFF"
 	flesh_color = "#FFFFFF"
+
+	heat_level_1 = T0C+232
+	heat_level_2 = T0C+250
+	heat_level_3 = T0C+300
 
 /datum/species/golem/cardboard
 	name = "Cardboard Golem"
@@ -218,6 +265,10 @@
 
 	blood_color = "#AAAAAA"
 	flesh_color = "#AAAAAA"
+
+	heat_level_1 = T0C+232
+	heat_level_2 = T0C+250
+	heat_level_3 = T0C+300
 
 /datum/species/golem/glass
 	name = "Glass Golem"
@@ -240,6 +291,10 @@
 	death_message = "shatters into many shards!"
 
 	death_sound = 'sound/effects/Glassbr1.ogg'
+
+	heat_level_1 = T0C+350
+	heat_level_2 = T0C+550
+	heat_level_3 = T0C+750
 
 /datum/species/golem/glass/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
 	if(istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam))
@@ -274,13 +329,14 @@
 	H.update_dna()
 	..()
 
-
 /datum/species/golem/phoron
 	name = "Phoron Golem"
 	name_plural = "phoron golems"
 
 	brute_mod = 1
 	burn_mod = 2
+
+	unarmed_types = list(/datum/unarmed_attack/flame)
 
 	appearance_flags = HAS_SKIN_COLOR
 
@@ -290,6 +346,10 @@
 	flesh_color = "#FC2BC5"
 
 	death_message = "burst into flames!"
+
+	heat_level_1 = PHORON_MINIMUM_BURN_TEMPERATURE
+	heat_level_2 = T0C+200
+	heat_level_3 = PHORON_FLASHPOINT
 
 /datum/species/golem/phoron/handle_death(var/mob/living/carbon/human/H)
 	set waitfor = 0
@@ -321,6 +381,10 @@
 	blood_color = "#D1E6E3"
 	flesh_color = "#D1E6E3"
 
+	heat_level_1 = T0C+561
+	heat_level_2 = T0C+761
+	heat_level_3 = T0C+961 //silver melts at around 961 celsius
+
 /datum/species/golem/silver/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(120,120,120)
 	H.update_dna()
@@ -342,6 +406,10 @@
 	blood_color = "#EDD12F"
 	flesh_color = "#EDD12F"
 
+	heat_level_1 = T0C+664
+	heat_level_2 = T0C+864
+	heat_level_3 = T0C+1064
+
 /datum/species/golem/gold/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(176,152,14)
 	H.update_dna()
@@ -355,12 +423,18 @@
 
 	appearance_flags = HAS_SKIN_COLOR
 
+	unarmed_types = list(/datum/unarmed_attack/shocking)
+
 	slowdown = 1.5
 
 	brute_mod = 0.5
-	burn_mod = 1
+	burn_mod = 2
 
 	meat_type = /obj/item/stack/material/mhydrogen
+
+	inherent_verbs = list(/mob/living/carbon/human/proc/thunder)
+
+	inherent_spells = list(/spell/aoe_turf/charge)
 
 	blood_color = "#E6C5DE"
 	flesh_color = "#E6C5DE"
@@ -387,6 +461,12 @@
 	blood_color = "#824B28"
 	flesh_color = "#824B28"
 
+	death_sound = 'sound/effects/woodcutting.ogg'
+
+	heat_level_1 = T0C+188
+	heat_level_2 = T0C+288
+	heat_level_3 = T0C+300
+
 /datum/species/golem/diamond
 	name = "Diamond Golem"
 	name_plural = "diamond golems"
@@ -402,6 +482,10 @@
 
 	blood_color = "#00FFE1"
 	flesh_color = "#00FFE1"
+
+	heat_level_1 = T0C+4326
+	heat_level_2 = T0C+4526
+	heat_level_3 = T0C+4726
 
 /datum/species/golem/diamond/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(0,197,172)
@@ -444,6 +528,10 @@
 	blood_color = "#AAAAAA"
 	flesh_color = "#AAAAAA"
 
+	heat_level_1 = T0C+425
+	heat_level_2 = T0C+625
+	heat_level_3 = T0C+825
+
 /datum/species/golem/marble/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(170,170,170)
 	H.update_dna()
@@ -465,6 +553,10 @@
 
 	blood_color = "#D9C179"
 	flesh_color = "#D9C179"
+
+	heat_level_1 = T0C+800
+	heat_level_2 = T0C+1000
+	heat_level_3 = T0C+1200
 
 /datum/species/golem/sandstone/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(201,166,64)
@@ -490,6 +582,10 @@
 	blood_color = "#CCCCCC"
 	flesh_color = "#CCCCCC"
 
+	heat_level_1 = T0C+60
+	heat_level_2 = T0C+80
+	heat_level_3 = T0C+100
+
 /datum/species/golem/plastic/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(171,171,171)
 	H.update_dna()
@@ -513,6 +609,10 @@
 
 	blood_color = "#007A00"
 	flesh_color = "#007A00"
+
+	heat_level_1 = T0C+732
+	heat_level_2 = T0C+932
+	heat_level_3 = T0C+1132
 
 /datum/species/golem/uranium/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(0,80,0)
@@ -546,8 +646,9 @@
 	cold_level_1 = 260
 	cold_level_2 = 200
 	cold_level_3 = 120
+
 	heat_level_1 = 360
-	heat_level_2 = 400.
+	heat_level_2 = 400
 	heat_level_3 = 1000
 
 	hazard_high_pressure = HAZARD_HIGH_PRESSURE
@@ -562,8 +663,66 @@
 
 	death_message = "collapses into a pile of flesh!"
 
+	death_sound = 'sound/magic/disintegrate.ogg'
+
 /datum/species/golem/handle_death(var/mob/living/carbon/human/H)
 	if(turn_into_materials)
 		set waitfor = 0
 		sleep(1)
 		H.gib()
+
+/datum/species/golem/adamantine
+	name = "Adamantine Golem"
+	name_plural = "adamantine golems"
+
+	icobase = 'icons/mob/human_races/r_golem.dmi'
+	deform = 'icons/mob/human_races/r_golem.dmi'
+
+	siemens_coefficient = 0
+
+	brute_mod = 0.5
+	slowdown = 1
+
+	blood_color = "#515573"
+	flesh_color = "#137E8F"
+
+	turn_into_materials = FALSE
+
+	heat_level_1 = T0C+1138
+	heat_level_2 = T0C+1338
+	heat_level_3 = T0C+1538
+
+////////////////
+
+/datum/unarmed_attack/golem
+	attack_verb = list("smashed", "crushed", "rammed")
+	attack_noun = list("fist")
+	damage = 15
+	attack_sound = 'sound/weapons/heavysmash.ogg'
+	attack_name = "crushing fist"
+	shredding = 1
+
+/datum/unarmed_attack/shocking
+	attack_verb = list("prodded", "touched")
+	attack_noun = list("electrifying fist")
+	damage = 5
+	attack_sound = 'sound/effects/sparks4.ogg'
+	attack_name = "electrifying touch"
+
+/datum/unarmed_attack/shocking/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armour,var/attack_damage,var/zone)
+	..()
+	if(prob(25))
+		target.electrocute_act(20, user, def_zone = zone)
+
+/datum/unarmed_attack/flame
+	attack_verb = list("scorched", "burned")
+	attack_noun = list("flaming fist")
+	damage = 10
+	attack_sound = 'sound/items/Welder.ogg'
+	attack_name = "flaming touch"
+	damage_type = BURN
+
+/datum/unarmed_attack/flame/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armour,var/attack_damage,var/zone)
+	..()
+	if(prob(25))
+		target.apply_effect(1, INCINERATE, 0)

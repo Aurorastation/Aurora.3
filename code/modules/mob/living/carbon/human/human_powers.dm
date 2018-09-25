@@ -749,3 +749,24 @@
 			D.set_color()
 			D.set_up(my_target, rand(6,8), 1, 50)
 	return
+
+/mob/living/carbon/human/proc/thunder()
+	set category = "Abilities"
+	set name = "Thunderbolt"
+	set desc = "Release your inner electricity, creating a powerful discharge of lightning."
+
+	if(last_special > world.time)
+		return
+
+	if(stat || paralysis || stunned || weakened || lying)
+		src << "<span class='warning'>You cannot do that in your current state.</span>"
+		return
+
+	visible_message("<span class='danger'>\The [src] crackles with energy!</span>")
+
+	playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
+
+	tesla_zap(src, 7, 1500)
+
+	last_special = world.time + 50
+
