@@ -9521,9 +9521,8 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 10;
-	icon_state = "intact"
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
@@ -9541,6 +9540,10 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 10;
+	icon_state = "intact"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
@@ -9848,22 +9851,23 @@
 /turf/simulated/wall,
 /area/maintenance/sublevel)
 "arE" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
-	dir = 5
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1379;
+	id_tag = "sl1p"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
 "arF" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1379;
-	id_tag = "sl1p"
-	},
 /obj/machinery/airlock_sensor{
 	id_tag = "sl1s";
 	master_tag = "sl1";
 	pixel_y = -26
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1379;
+	id_tag = "sl1p"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
@@ -11547,6 +11551,10 @@
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - AI Maint EVA"
 	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	icon_state = "intact";
+	dir = 6
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
 "auP" = (
@@ -11569,6 +11577,9 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
@@ -11903,15 +11914,17 @@
 	pixel_y = -26
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
+	dir = 1;
 	frequency = 1379;
 	id_tag = "sl3p"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
 "avv" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1379;
+	id_tag = "sl3p"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
@@ -12562,8 +12575,7 @@
 	req_access = list(13)
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
-	dir = 6
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
@@ -13946,7 +13958,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/medical/virology)
+/area/medical/patient_wing)
 "aze" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -13963,7 +13975,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/medical/virology)
+/area/medical/patient_wing)
 "azf" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -13983,7 +13995,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/medical/virology)
+/area/medical/patient_wing)
 "azg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -14169,7 +14181,7 @@
 	},
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled/white,
-/area/medical/virology)
+/area/medical/patient_wing)
 "azB" = (
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
@@ -14177,7 +14189,7 @@
 	},
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/white,
-/area/medical/virology)
+/area/medical/patient_wing)
 "azC" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/lime{
@@ -14189,7 +14201,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/virology)
+/area/medical/patient_wing)
 "azD" = (
 /obj/structure/bed/chair,
 /obj/effect/floor_decal/corner/lime{
@@ -14197,7 +14209,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/virology)
+/area/medical/patient_wing)
 "azE" = (
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
@@ -14205,7 +14217,7 @@
 	},
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled/white,
-/area/medical/virology)
+/area/medical/patient_wing)
 "azF" = (
 /turf/simulated/floor/tiled,
 /area/turbolift/medical_sub)
@@ -14508,14 +14520,14 @@
 	},
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/white,
-/area/medical/virology)
+/area/medical/patient_wing)
 "aAi" = (
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
 "aAj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
-/area/medical/virology)
+/area/medical/patient_wing)
 "aAk" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -14974,7 +14986,7 @@
 	},
 /obj/effect/floor_decal/sign/v,
 /turf/simulated/floor/tiled/white,
-/area/medical/virology)
+/area/medical/patient_wing)
 "aAV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -14988,7 +15000,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/virology)
+/area/medical/patient_wing)
 "aAW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -15000,7 +15012,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
-/area/medical/virology)
+/area/medical/patient_wing)
 "aAX" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -15014,7 +15026,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/virology)
+/area/medical/patient_wing)
 "aAY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -15362,7 +15374,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/virology)
+/area/medical/patient_wing)
 "aBx" = (
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
@@ -15375,13 +15387,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/virology)
+/area/medical/patient_wing)
 "aBy" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/virology)
+/area/medical/patient_wing)
 "aBz" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -15395,7 +15407,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/virology)
+/area/medical/patient_wing)
 "aBA" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled,
@@ -15606,7 +15618,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
-/area/medical/virology)
+/area/medical/patient_wing)
 "aBS" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -15618,7 +15630,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
-/area/medical/virology)
+/area/medical/patient_wing)
 "aBT" = (
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
@@ -15626,7 +15638,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
-/area/medical/virology)
+/area/medical/patient_wing)
 "aBU" = (
 /obj/turbolift_map_holder/aurora/medical,
 /turf/simulated/floor/tiled,
@@ -16886,15 +16898,19 @@
 	tag_exterior_door = "sl2o";
 	tag_interior_door = "sl2i"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
-	dir = 6
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 2;
+	frequency = 1379;
+	id_tag = "sl2p"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
 "aDR" = (
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
+	dir = 2;
 	frequency = 1379;
 	id_tag = "sl2p"
 	},
@@ -17482,12 +17498,10 @@
 	icon_state = "intact";
 	dir = 9
 	},
+/obj/machinery/atmospherics/pipe/manifold/visible,
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
 "aEV" = (
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -17503,6 +17517,10 @@
 /obj/machinery/airlock_sensor{
 	id_tag = "sl2s";
 	pixel_y = -26
+	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	icon_state = "intact";
+	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
@@ -30083,10 +30101,6 @@
 	locked = 1;
 	req_access = list(13)
 	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
-	dir = 9
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
 "baQ" = (
@@ -30345,7 +30359,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/medical/virology)
+/area/medical/patient_wing)
 "bbq" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -50721,8 +50735,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+aac
+aac
 aac
 aae
 ads
@@ -50976,9 +50990,9 @@ aac
 aac
 aac
 aac
-aaa
-aaa
-aaa
+aac
+aac
+aac
 aaO
 aaO
 aaO
@@ -68000,7 +68014,7 @@ aaa
 aaa
 aaa
 aaa
-awP
+aCG
 awP
 awP
 aAT
@@ -68262,7 +68276,7 @@ azA
 aAh
 aAU
 aBw
-awP
+aCG
 aba
 aba
 aba
@@ -68516,10 +68530,10 @@ aba
 aba
 aze
 azB
-aAi
+aJn
 aAV
 aBx
-awP
+aCG
 aCC
 bbs
 bbv
@@ -68775,7 +68789,7 @@ aze
 azC
 aAj
 aAW
-bbj
+aDm
 aBR
 aCD
 aDk
@@ -69030,7 +69044,7 @@ ayi
 aba
 bbp
 azD
-aAi
+aJn
 aAX
 aBz
 aBS
@@ -69287,8 +69301,8 @@ arH
 aba
 azf
 azE
-aAi
-aAi
+aJn
+aJn
 aBy
 aBT
 aCF
@@ -69542,12 +69556,12 @@ aba
 axJ
 aba
 aba
-awP
-awP
-awP
-awP
-awP
-awP
+aCG
+aCG
+aCG
+aCG
+aCG
+aCG
 aCG
 aDm
 aEi
@@ -69799,7 +69813,7 @@ akx
 axK
 akx
 bbe
-awP
+aCG
 azF
 azF
 azF
@@ -70056,7 +70070,7 @@ axk
 axL
 akx
 ayE
-awP
+akx
 azF
 azF
 azF
