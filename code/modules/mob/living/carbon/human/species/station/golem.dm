@@ -15,6 +15,8 @@
 	siemens_coefficient = 1
 	rarity_value = 5
 
+	mob_size = 12
+
 	ethanol_resistance = -1
 	taste_sensitivity = TASTE_NUMB
 
@@ -90,6 +92,8 @@
 
 	fall_mod = 2
 
+	has_fine_manipulation = FALSE
+
 	appearance_flags = HAS_SKIN_COLOR
 
 	meat_type = /obj/item/stack/material/iron
@@ -104,6 +108,10 @@
 	heat_level_1 = T0C+1138
 	heat_level_2 = T0C+1338
 	heat_level_3 = T0C+1538
+
+	bump_flag = HEAVY
+	swap_flags = ~HEAVY
+	push_flags = (~HEAVY) ^ ROBOT
 
 /datum/species/golem/iron/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(92, 84, 84)
@@ -122,7 +130,7 @@
 	siemens_coefficient = 1.5
 
 	brute_mod = 0.7
-	burn_mod = 0.8
+	burn_mod = 0.7
 	slowdown = 1
 
 	blood_color = "#EDD12F"
@@ -140,6 +148,10 @@
 
 	siemens_coefficient = 1.3
 
+	has_fine_manipulation = FALSE
+
+	mob_size = 13
+
 	fall_mod = 2
 
 	appearance_flags = HAS_SKIN_COLOR
@@ -153,10 +165,13 @@
 	blood_color = "#666666"
 	flesh_color = "#666666"
 
-
 	heat_level_1 = T0C+1100
 	heat_level_2 = T0C+1310
 	heat_level_3 = T0C+1510
+
+	bump_flag = HEAVY
+	swap_flags = ~HEAVY
+	push_flags = (~HEAVY) ^ ROBOT
 
 /datum/species/golem/steel/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(102,102,102)
@@ -170,6 +185,10 @@
 	siemens_coefficient = 1.2
 
 	fall_mod = 2
+
+	has_fine_manipulation = FALSE
+
+	mob_size = 14
 
 	unarmed_types = list(/datum/unarmed_attack/golem)
 
@@ -188,6 +207,10 @@
 	heat_level_2 = T0C+1400
 	heat_level_3 = T0C+1600
 
+	bump_flag = HEAVY
+	swap_flags = ~HEAVY
+	push_flags = (~HEAVY) ^ ROBOT
+
 /datum/species/golem/plasteel/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(80,80,80)
 	H.update_dna()
@@ -199,7 +222,11 @@
 
 	siemens_coefficient = 0.5
 
+	mob_size = 15
+
 	fall_mod = 2
+
+	has_fine_manipulation = FALSE
 
 	unarmed_types = list(/datum/unarmed_attack/golem)
 
@@ -218,6 +245,10 @@
 	heat_level_1 = T0C+1268
 	heat_level_2 = T0C+1468
 	heat_level_3 = T0C+1668 //bronze melts at around 1668 celsius
+
+	bump_flag = HEAVY
+	swap_flags = ~HEAVY
+	push_flags = (~HEAVY) ^ ROBOT
 
 /datum/species/golem/titanium/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(50,95,88)
@@ -523,6 +554,8 @@
 	burn_mod = 0.5
 	slowdown = 2
 
+	has_fine_manipulation = FALSE
+
 	meat_type = /obj/item/stack/material/marble
 
 	blood_color = "#AAAAAA"
@@ -598,6 +631,8 @@
 	siemens_coefficient = 1.3
 
 	fall_mod = 2
+
+	has_fine_manipulation = FALSE
 
 	appearance_flags = HAS_SKIN_COLOR
 
@@ -680,6 +715,8 @@
 
 	siemens_coefficient = 0
 
+	has_fine_manipulation = FALSE
+
 	brute_mod = 0.5
 	slowdown = 1
 
@@ -692,7 +729,7 @@
 	heat_level_2 = T0C+1338
 	heat_level_3 = T0C+1538
 
-////////////////
+///////golem attacks/////////
 
 /datum/unarmed_attack/golem
 	attack_verb = list("smashed", "crushed", "rammed")
