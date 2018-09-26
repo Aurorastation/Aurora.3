@@ -615,7 +615,7 @@
 	burn_mod = 1
 	slowdown = -2
 
-	meat_type = /obj/item/stack/material/sandstone
+	meat_type = /obj/item/weapon/ore/glass
 
 	blood_color = "#D9C179"
 	flesh_color = "#D9C179"
@@ -625,6 +625,8 @@
 	heat_level_3 = T0C+1200
 
 	inherent_verbs = list(/mob/living/proc/ventcrawl)
+
+	death_message = "collapses into a pile of sand!"
 
 	golem_designation = "sand"
 

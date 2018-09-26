@@ -298,6 +298,9 @@
 	if(A)
 		say_dead_direct("Golem rune created in [A.name]")
 
+/obj/effect/golemrune/wizard
+	wizardy = TRUE
+
 /mob/living/carbon/slime/has_eyes()
 	return 0
 
