@@ -142,3 +142,13 @@
 	health = 90
 	maxHealth = 90
 	faction = "syndicate"
+
+/mob/living/simple_animal/hostile/commanded/dog/shadyian/death()
+	..(null,"is blown to smithereens, oh the humanity!")
+	var/T = get_turf(src)
+	new /obj/effect/gibspawner/robot(T)
+	new /obj/item/weapon/circuitboard/mecha/ianbot/controlboard(loc)
+	new /obj/item/organ/external/head/terminator(loc)
+	new /obj/effect/gibspawner/human(loc)
+	spark(T, 6, alldirs)
+	qdel(src)
