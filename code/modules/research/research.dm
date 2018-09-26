@@ -66,7 +66,10 @@ research holder datum.
 /datum/research/possibleonly
 
 /datum/research/possibleonly/New()
-	for(var/D in typesof(/datum/design) - /datum/design)
+	for(var/T in typesof(/datum/design))
+		var/datum/design/D = T
+		if(!D.build_path)
+			continue
 		possible_designs += new D(src)
 	RefreshResearch()
 
