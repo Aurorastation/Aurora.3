@@ -10,8 +10,8 @@
 	path = /obj/item/weapon/storage/toolbox/syndicate
 
 /datum/uplink_item/item/tools/iandroplink
-	name = "Shady Corgi Box"
-	item_cost = 4
+	name = "Commander Jackboot Deployment"
+	item_cost = 6
 	path = /obj/item/weapon/shadyianbox
 
 /datum/uplink_item/item/tools/money

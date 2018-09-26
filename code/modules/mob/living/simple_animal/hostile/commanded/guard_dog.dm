@@ -133,14 +133,14 @@
 
 
 /mob/living/simple_animal/hostile/commanded/dog/shadyian
-	name = "Shady Corgi"
-	short_name = "zoran"
-	desc = "What appears to look like Ian's dad, however unlike Ian he is not as docile looking. He is wearing a dirty green scout cap and a gold chain, inscribed on it is the name 'Zoran'."
+	name = "Commander Jackboot"
+	short_name = "jackboot"
+	desc = "A uncanny looking corgi, from the looks of him he is quite in high fashion, his clothing displaying elegence and power."
 	icon_state = "iangang"
 	icon_living = "iangang"
 	icon_dead = "iangang_dead"
-	health = 90
-	maxHealth = 90
+	health = 100
+	maxHealth = 100
 	faction = "syndicate"
 
 /mob/living/simple_animal/hostile/commanded/dog/shadyian/death()
