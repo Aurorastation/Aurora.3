@@ -101,15 +101,15 @@
 			return 1
 	else
 
-		var/expected_fullness = user.max_nutrition > 0 ? (user.nutrition + (user.reagents.get_reagent_amount("nutriment") * 25))/user.max_nutrition : CREW_NUTRITION_OVEREATEN+1
+		var/expected_fullness = user.max_nutrition > 0 ? (user.nutrition + (user.reagents.get_reagent_amount("nutriment") * 25)) / user.max_nutrition : CREW_NUTRITION_OVEREATEN + 0.01
 		expected_fullness += (user.overeatduration/600)*0.5
-		var/feedback_message
 		var/is_full = (expected_fullness > CREW_NUTRITION_OVEREATEN)
 
 		if(user == target)
 			if(!user.can_eat(src))
 				return
-
+				
+			var/feedback_message
 			if(expected_fullness <= CREW_NUTRITION_VERYHUNGRY)
 				feedback_message = "You hungrily chew out a piece of \the [src] and gobble it!"
 			else if(expected_fullness <= CREW_NUTRITION_HUNGRY)

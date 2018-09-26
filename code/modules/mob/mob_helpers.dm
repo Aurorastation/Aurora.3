@@ -1218,6 +1218,7 @@ proc/is_blind(A)
 
 
 /mob/proc/adjustNutritionLoss(var/amount)
+
 	if(max_nutrition <= 0)
 		return FALSE
 	nutrition = max(0,min(max_nutrition,nutrition - amount))

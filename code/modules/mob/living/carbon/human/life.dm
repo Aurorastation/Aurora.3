@@ -944,7 +944,7 @@
 		if (nutrition > 0 && stat != 2)
 			adjustNutritionLoss(nutrition_loss * nutrition_attrition_rate)
 
-		if (nutrition * max_nutrition > CREW_NUTRITION_OVEREATEN)
+		if (nutrition / max_nutrition > CREW_NUTRITION_OVEREATEN)
 			adjustNutritionLoss(1)
 			if(overeatduration < 600) //capped so people don't take forever to unfat
 				overeatduration++
@@ -957,7 +957,7 @@
 		if (hydration > 0 && stat != 2)
 			adjustHydrationLoss(hydration_loss * hydration_attrition_rate)
 
-		if (hydration * max_hydration > CREW_HYDRATION_OVERHYDRATED)
+		if (hydration / max_hydration > CREW_HYDRATION_OVERHYDRATED)
 			adjustHydrationLoss(1)
 			if(overdrinkduration < 600) //capped so people don't take forever to undrink
 				overdrinkduration++
