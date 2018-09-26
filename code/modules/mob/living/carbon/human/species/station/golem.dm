@@ -15,6 +15,8 @@
 	siemens_coefficient = 1
 	rarity_value = 5
 
+	inherent_verbs = list(/mob/living/carbon/human/proc/consume_material)
+
 	mob_size = 12
 
 	ethanol_resistance = -1
@@ -486,7 +488,7 @@
 
 	meat_type = /obj/item/stack/material/mhydrogen
 
-	inherent_verbs = list(/mob/living/carbon/human/proc/thunder)
+	inherent_verbs = list(/mob/living/carbon/human/proc/consume_material, /mob/living/carbon/human/proc/thunder)
 
 	inherent_spells = list(/spell/aoe_turf/charge)
 
@@ -631,6 +633,27 @@
 	H.update_dna()
 	..()
 
+/datum/species/golem/sand/handle_environment_special(var/mob/living/carbon/human/H)
+	var/turf/simulated/location = H.loc
+
+	if(!istype(location))
+		return
+
+	var/datum/gas_mixture/environment = location.return_air()
+
+	if(environment.temperature >= heat_level_3) //if the temperature is high enough, the sand golem turns into a glass one
+		glassify(H)
+		return
+
+	var/glass = H.getFireLoss()
+	if(glass >= (H.health >= config.health_threshold_crit))	//if the sand golem suffered enough burn damage it turns into a glass one
+		glassify(H)
+		return
+
+/datum/species/golem/sand/proc/glassify(var/mob/living/carbon/human/H)
+	H.visible_message("<span class='warning'>\The [H] vitrifies into a glass construct!</span>")
+	H.set_species("Glass Golem")
+
 /datum/species/golem/plastic
 	name = "Plastic Golem"
 	name_plural = "plastic golems"
@@ -711,6 +734,8 @@
 
 	icobase = 'icons/mob/human_races/golem/r_flesh.dmi'
 	deform = 'icons/mob/human_races/golem/r_flesh.dmi'
+
+	inherent_verbs = list(/mob/living/carbon/human/proc/consume_material, /mob/living/carbon/human/proc/breath_of_life)
 
 	breath_pressure = 16
 	breath_type = "oxygen"
