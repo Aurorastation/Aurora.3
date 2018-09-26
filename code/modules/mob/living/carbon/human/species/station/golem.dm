@@ -73,7 +73,7 @@
 	if(H.mind)
 		H.mind.assigned_role = "Golem"
 		H.mind.special_role = "Golem"
-	H.real_name = "[H.species.golem_designation]golem ([rand(1, 1000)])"
+	H.real_name = "[golem_designation] golem ([rand(1, 1000)])"
 	H.name = H.real_name
 	H.gender = NEUTER
 	..()
