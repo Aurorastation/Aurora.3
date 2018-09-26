@@ -75,10 +75,11 @@
 	if(H.mind)
 		H.mind.assigned_role = "Golem"
 		H.mind.special_role = "Golem"
-	H.real_name = "[golem_designation] golem ([rand(1, 1000)])"
-	H.name = H.real_name
 	H.gender = NEUTER
 	..()
+
+/datum/species/golem/get_random_name()
+	return "[golem_designation] golem ([rand(1, 1000)])"
 
 /datum/species/golem/handle_death(var/mob/living/carbon/human/H)
 	if(turn_into_materials)
@@ -774,8 +775,8 @@
 		H.gib()
 
 /datum/species/golem/homunculus/handle_environment_special(var/mob/living/carbon/human/H)
-	if(prob(10))
-		H.drip(25)
+	if(prob(25))
+		H.drip(1)
 
 /datum/species/golem/adamantine
 	name = "Adamantine Golem"
