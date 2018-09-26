@@ -86,6 +86,8 @@
 	swap_flags = ~HEAVY
 	push_flags = (~HEAVY) ^ ROBOT
 
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
+
 	var/alien_number = 0
 	var/caste_name = "creature" // Used to update alien name.
 	var/weeds_heal_rate = 1     // Health regen on weeds.

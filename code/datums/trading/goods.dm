@@ -38,8 +38,12 @@
 		/obj/item/toy/bosunwhistle            = TRADER_THIS_TYPE,
 		/obj/item/weapon/board                = TRADER_THIS_TYPE,
 		/obj/item/weapon/deck                 = TRADER_SUBTYPES_ONLY,
+		/obj/item/weapon/deck/tarot/fluff     = TRADER_BLACKLIST_ALL,
 		/obj/item/weapon/pack                 = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/dice                 = TRADER_ALL
+		/obj/item/weapon/dice                 = TRADER_ALL,
+		/obj/item/eightball                   = TRADER_ALL,
+		/obj/item/weapon/gun/energy/wand/toy  = TRADER_THIS_TYPE,
+		/obj/item/weapon/spirit_board         = TRADER_ALL
 	)
 
 /datum/trader/ship/electronics
