@@ -332,7 +332,7 @@
 
 	if(inherent_spells)
 		for(var/spell_path in inherent_spells)
-			H.add_spell(new spell_path)
+			H.remove_spell(spell_path)
 	return
 
 /datum/species/proc/add_inherent_verbs(var/mob/living/carbon/human/H)
@@ -342,7 +342,7 @@
 
 	if(inherent_spells)
 		for(var/spell_path in inherent_spells)
-			H.remove_spell(spell_path)
+			H.add_spell(new spell_path, "const_spell_ready")
 
 	return
 
