@@ -5385,6 +5385,11 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
+/obj/machinery/light{
+	dir = 2;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "akM" = (
@@ -6392,6 +6397,10 @@
 	pixel_y = -14;
 	req_access = list(5)
 	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Examination Room 2";
+	dir = 4
+	},
 /turf/simulated/floor/carpet/blue,
 /area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
@@ -6796,6 +6805,9 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -22
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/carpet/blue,
 /area/medical/exam_room{
@@ -9999,14 +10011,16 @@
 	},
 /obj/structure/table/standard,
 /obj/item/weapon/reagent_containers/spray/cleaner{
-	pixel_x = 8;
+	pixel_x = 6;
 	pixel_y = 8
 	},
 /obj/item/weapon/reagent_containers/spray/cleaner{
-	pixel_x = 4;
+	pixel_x = 2;
 	pixel_y = 4
 	},
-/obj/item/weapon/reagent_containers/spray/cleaner,
+/obj/item/weapon/reagent_containers/spray/cleaner{
+	pixel_x = -2
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "asE" = (
@@ -13768,6 +13782,7 @@
 /area/maintenance/substation/engineering)
 "ayF" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/hologram/holopad,
 /mob/living/simple_animal/cat/fluff/Runtime{
 	name = "Bones"
 	},
@@ -24593,7 +24608,7 @@
 	pixel_y = -4
 	},
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Examination Office";
+	c_tag = "Medical - Examination Office 1";
 	dir = 4;
 	icon_state = "camera"
 	},
@@ -25742,6 +25757,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "aRS" = (
@@ -29988,6 +30004,11 @@
 	c_tag = "Starboard Corridor - Medbay Entrance";
 	dir = 1
 	},
+/obj/machinery/light{
+	dir = 2;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aYV" = (
@@ -30010,7 +30031,8 @@
 /area/hallway/primary/starboard)
 "aYW" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = null;
+	req_one_access = list(12,66)
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -31337,7 +31359,7 @@
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Psych Waiting Room"
+	c_tag = "Medical - Psych Waiting Room 1"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/med_office)
@@ -32234,7 +32256,8 @@
 	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance Access";
-	req_access = list(12)
+	req_access = null;
+	req_one_access = list(12,66)
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/med_office)
@@ -33110,6 +33133,7 @@
 	dir = 10
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/medical/med_office)
 "bet" = (
@@ -33795,11 +33819,6 @@
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
-	},
-/obj/machinery/light{
-	dir = 2;
-	icon_state = "tube1";
-	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/med_office)
@@ -34632,6 +34651,7 @@
 	dir = 8;
 	icon_state = "pipe-c"
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgeryobs)
 "bgT" = (
@@ -35309,6 +35329,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Pre-Op 2";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgeryprep)
 "bid" = (
@@ -35493,6 +35517,10 @@
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 4
 	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Psych Waiting Room 2";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/med_office)
 "biE" = (
@@ -35531,6 +35559,9 @@
 	dir = 5
 	},
 /obj/structure/closet/secure_closet/CMO,
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - CMO's Office"
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "biH" = (
@@ -36977,6 +37008,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/medical/reception)
 "blY" = (
@@ -42539,6 +42571,9 @@
 	dir = 2;
 	icon_state = "freezer"
 	},
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/medical/cryo)
 "byF" = (
@@ -43113,11 +43148,6 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
-	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/emt)
 "bzJ" = (
@@ -43582,7 +43612,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_medical{
 	name = "Break Room";
-	req_access = list(66)
+	req_access = list(5)
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/disposalpipe/segment,
@@ -44300,6 +44330,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
 "bCM" = (
@@ -44321,6 +44352,11 @@
 	dir = 5
 	},
 /obj/structure/cable/green,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
 "bCQ" = (
@@ -55834,6 +55870,9 @@
 	dir = 1
 	},
 /obj/structure/flora/pottedplant/random,
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Psych Stairway"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/med_office)
 "chf" = (
@@ -55977,13 +56016,6 @@
 /obj/machinery/power/sensor{
 	name = "Powernet Sensor - Medbay Subgrid";
 	name_tag = "Medbay Subgrid"
-	},
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Medical Substation";
-	dir = 2
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -62573,6 +62605,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "xEk" = (
@@ -63306,6 +63339,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "xFK" = (
@@ -63483,6 +63517,11 @@
 /obj/item/weapon/storage/firstaid/o2,
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Paramedic Quarters 2";
+	dir = 2;
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/emt)
@@ -63942,7 +63981,7 @@
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Paramedic Quarters";
+	c_tag = "Medical - Paramedic Quarters 1";
 	dir = 1;
 	icon_state = "camera"
 	},
@@ -64066,6 +64105,14 @@
 	icon_state = "0-2";
 	pixel_y = 0
 	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Medical Substation";
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_y = 0
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/medical)
 "xHj" = (
@@ -64097,7 +64144,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance Access";
-	req_access = list(12)
+	req_access = null;
+	req_one_access = list(12,66)
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
@@ -64388,17 +64436,34 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "xId" = (
-/turf/simulated/wall,
-/area/medical/main_storage)
+/obj/machinery/newscaster{
+	pixel_y = 32
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "xIe" = (
-/turf/simulated/wall,
-/area/medical/main_storage)
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "xIf" = (
-/turf/simulated/wall,
-/area/medical/main_storage)
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/med_office)
 "xIg" = (
-/turf/simulated/wall,
-/area/medical/main_storage)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/white,
+/area/medical/chemistry)
 "xIh" = (
 /turf/simulated/wall,
 /area/medical/main_storage)
@@ -64435,6 +64500,22 @@
 "xIs" = (
 /turf/simulated/wall,
 /area/medical/main_storage)
+"xIt" = (
+/turf/simulated/wall,
+/area/medical/main_storage)
+"xIu" = (
+/turf/simulated/wall,
+/area/medical/main_storage)
+"xIv" = (
+/turf/simulated/wall,
+/area/medical/main_storage)
+"xIw" = (
+/turf/simulated/wall,
+/area/medical/main_storage)
+"xIx" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/dark,
+/area/medical/emt)
 
 (1,1,1) = {"
 aaa
@@ -95661,7 +95742,7 @@ bfJ
 bbc
 ajI
 xDX
-bfo
+xIg
 bgB
 bfJ
 bjv
@@ -96189,7 +96270,7 @@ bsB
 xFP
 bxs
 bvX
-bvW
+xIx
 bvW
 bvW
 byv
@@ -96427,7 +96508,7 @@ aTj
 aPU
 axP
 aLc
-aYM
+aYO
 bfJ
 xDK
 xDR
@@ -96939,7 +97020,7 @@ aPZ
 aRI
 aTj
 aPU
-aJr
+xId
 aLc
 aYN
 bfJ
@@ -99252,7 +99333,7 @@ aBX
 aRK
 aBX
 aPU
-axP
+xIe
 aLc
 aCj
 bad
@@ -101313,7 +101394,7 @@ aXA
 aYU
 bak
 bbt
-bcS
+xIf
 bcS
 bcS
 aoK
@@ -105949,9 +106030,9 @@ bEH
 bEH
 bEH
 bEH
-xIk
+xIo
 bcb
-xIn
+xIr
 btj
 bvx
 btj
@@ -106203,12 +106284,12 @@ bhj
 biK
 biK
 aCE
-xId
+xIh
 aSs
 aWj
 bag
 bcA
-xIo
+xIs
 bul
 bvy
 xFY
@@ -106460,12 +106541,12 @@ aQt
 aQt
 aQt
 byX
-xIe
+xIi
 aSL
 aWk
 bai
 bcB
-xIp
+xIt
 xFY
 xGb
 xFY
@@ -106717,12 +106798,12 @@ bds
 aiZ
 aQt
 byY
-xIf
+xIj
 aTd
 aWl
 bal
 bcG
-xIq
+xIu
 bum
 bvz
 bwz
@@ -106974,12 +107055,12 @@ aRV
 biM
 aQt
 bmK
-xIg
+xIk
 aTp
 aWm
 baG
 bcH
-xIr
+xIv
 xGc
 xGc
 xFY
@@ -107231,12 +107312,12 @@ bhk
 biN
 aQt
 bmK
-xIh
-xIi
-xIj
 xIl
 xIm
-xIs
+xIn
+xIp
+xIq
+xIw
 btj
 btj
 btj
