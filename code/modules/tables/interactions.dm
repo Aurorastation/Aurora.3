@@ -57,7 +57,7 @@
 			return 1
 	return 1
 
-/obj/structure/table/Entered(var/atom/movable/am, atom/old_loc)
+/obj/structure/table/Crossed(var/atom/movable/am as mob|obj)
 	..()
 	if(ishuman(am))
 		var/mob/living/carbon/human/H = am
@@ -67,7 +67,6 @@
 		else if(H.is_diona(H) || H.species.bodytype == "Heavy machine")
 			throw_things(H)
 			usr.visible_message("<span class='warning'>[H] throws away things from \the [src]!</span>")
-	else(islesser(am))
 
 /obj/structure/table/proc/throw_things(var/mob/living/user = null)
 	var/list/targets = list(get_step(src,dir),get_step(src,turn(dir, 45)),get_step(src,turn(dir, -45)))
