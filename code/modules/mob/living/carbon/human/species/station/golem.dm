@@ -645,8 +645,7 @@
 		glassify(H)
 		return
 
-	var/glass = H.getFireLoss()
-	if(glass >= (H.health >= config.health_threshold_crit))	//if the sand golem suffered enough burn damage it turns into a glass one
+	if(H.getFireLoss() >= (H.health - config.health_threshold_crit))	//if the sand golem suffered enough burn damage it turns into a glass one
 		glassify(H)
 		return
 
