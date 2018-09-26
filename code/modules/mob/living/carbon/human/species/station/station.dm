@@ -503,19 +503,12 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	if (H.stat == CONSCIOUS)
 		H.bodytemperature += cost * sprint_temperature_factor
 		H.adjustNutritionLoss(cost * sprint_charge_factor)
-		H.adjustHydrationLoss(cost * sprint_charge_factor*0.5)
 		if(H.nutrition <= 0 && H.max_nutrition > 0)
 			H.Weaken(15)
 			H.m_intent = "walk"
 			H.hud_used.move_intent.update_move_icon(H)
 			H << span("danger", "ERROR: Power reserves depleted, emergency shutdown engaged. Backup power will come online in approximately 30 seconds, initiate charging as primary directive.")
 			playsound(H.loc, 'sound/machines/buzz-two.ogg', 100, 0)
-		else if(H.hydration <= 0 && H.max_hydration > 0)
-			H.Weaken(5)
-			H.m_intent = "walk"
-			H.hud_used.move_intent.update_move_icon(H)
-			H << span("danger", "ERROR: Insufficient lubrication, temporary disabling of motor functions engaged. Initiate lubrication.")
-			playsound(H.loc, 'sound/machines/buzz-sigh.ogg', 100, 0)
 		else
 			return 1
 
