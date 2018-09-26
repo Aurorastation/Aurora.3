@@ -34,12 +34,12 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Added hydration mechanics. Hydrate yourself by drinking beverages and water. IPCs can increase their hydration by spraying themselves with space lube or using the lubing station near robotics. Salt reduces hydration."
+  - rscadd: "Added hydration mechanics. Hydrate yourself by drinking beverages and water. IPCs do not have hydration mechanics, as they are machines."
+  - rscadd: "Adds salt to various junkfood items. Salt reduces hydration."
   - maptweak: "Added various sources of lube and water for off-station antags."
   - rscadd: "Added a new chemical, Potassium Hydrophoride, which hydrates the person directly through the bloodstream. These exist in most antag rig chem dispensers an can be made in chemistry."
   - rscadd: "Injecting yourself with beverages such as coffee or alcohol have their effects increased by 4, with the exception of nutrition and hydration gains. Enjoy IV drips filled with vodka."
   - balance: "Removed healing mechanics from tea, milk, and soy."
-  - balance: "When thirsty, hungry, overweight, or overhydrated, you have a lower pain tolerance, and move slower."
-  - balance: "Hunger factor from moving reduced by half. Removed hunger from sprinting."
-  - balance: "Adds salt to various junkfood items."
+  - balance: "When thirsty, hungry, overweight, or overhydrated, you have a lower pain tolerance, and move slower. Maximum slow is 33%, and maximum pain increase is 100% at 0 nutrition and 0 hydration."
+  - balance: "Hunger factor from moving reduced by half. Removed nutrition loss from sprinting."
 

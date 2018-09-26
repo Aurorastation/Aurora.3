@@ -1170,7 +1170,10 @@ proc/is_blind(A)
 
 /mob/proc/get_hydration_mul(var/minscale = 0, var/maxscale = 1)
 
-	if(max_hydration <= 0)
+	if(status_flags & GODMODE) //Godmode
+		return 1
+
+	if(max_hydration <= 0) //Has no hydration
 		return 1
 
 	var/hydration_mul = hydration/max_hydration
@@ -1191,7 +1194,10 @@ proc/is_blind(A)
 
 /mob/proc/get_nutrition_mul(var/minscale = 0, var/maxscale = 1)
 
-	if(max_nutrition <= 0)
+	if(status_flags & GODMODE) //Godmode
+		return 1
+
+	if(max_nutrition <= 0) //Has no nutrition
 		return 1
 
 	var/nutrition_mul = nutrition/max_nutrition
