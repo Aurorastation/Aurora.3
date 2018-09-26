@@ -767,11 +767,15 @@
 
 	golem_designation = "flesh"
 
-/datum/species/golem/handle_death(var/mob/living/carbon/human/H)
+/datum/species/golem/homunculus/handle_death(var/mob/living/carbon/human/H)
 	if(turn_into_materials)
 		set waitfor = 0
 		sleep(1)
 		H.gib()
+
+/datum/species/golem/homunculus/handle_environment_special(var/mob/living/carbon/human/H)
+	if(prob(10))
+		H.drip(25)
 
 /datum/species/golem/adamantine
 	name = "Adamantine Golem"
