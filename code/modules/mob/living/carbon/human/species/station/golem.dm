@@ -408,7 +408,7 @@
 	sleep(1)
 	var/turf/location = get_turf(H)
 	for(var/turf/simulated/floor/target_tile in range(0,location))
-		target_tile.assume_gas("phoron", 500, 400+T0C)
+		target_tile.assume_gas("phoron", 200, 100+T0C)
 		spawn (0) target_tile.hotspot_expose(700, 400)
 	qdel(H)
 
