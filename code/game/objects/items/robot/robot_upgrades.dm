@@ -56,6 +56,12 @@
 
 	return 1
 
+
+/obj/item/borg/upgrade/corgibyborgmodule
+	origin_tech = list(TECH_DATA = 3, TECH_ILLEGAL = 5)
+	name = "Cyborg Dog Control Panel"
+	icon_state = "mcontroller"
+
 /obj/item/borg/upgrade/floodlight
 	name = "robot floodlight module"
 	desc = "Used to boost cyborg's light intensity."

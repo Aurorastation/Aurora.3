@@ -101,13 +101,6 @@
 	icon_state = "mainboard"
 
 
-/obj/item/weapon/circuitboard/mecha/ianbot
-	origin_tech = list(TECH_DATA = 3, TECH_ILLEGAL = 5)
-
-
-/obj/item/weapon/circuitboard/mecha/ianbot/controlboard
-	name = T_BOARD_MECHA("Cyborg Dog Control Panel")
-	icon_state = "mcontroller"
 
 //Undef the macro, shouldn't be needed anywhere else
 #undef T_BOARD_MECHA
