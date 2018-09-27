@@ -62,24 +62,27 @@
 	if(ishuman(am))
 		var/mob/living/carbon/human/H = am
 		if(H.a_intent != I_HELP || H.m_intent == "run")
-			throw_things(H)
-			usr.visible_message("<span class='warning'>[H] knocks everything things from \the [src]!</span>")
+			if(throw_things(H))
+				usr.visible_message("<span class='warning'>[H] knocks everything from \the [src]!</span>")
 		else if(H.is_diona() || H.species.bodytype == "Heavy machine")
-			throw_things(H)
-			usr.visible_message("<span class='warning'>[H] knocks everything things from \the [src]!</span>")
+			if(throw_things(H))
+				usr.visible_message("<span class='warning'>[H] knocks everything from \the [src]!</span>")
 	else if((isliving(am) && !issmall(am)) || isslime(am))
 		var/mob/living/L = am
-		throw_things(L)
-		usr.visible_message("<span class='warning'>[L] knocks everything things from \the [src]!</span>")
+		if(throw_things(L))
+			usr.visible_message("<span class='warning'>[L] knocks everything from \the [src]!</span>")
 
 /obj/structure/table/proc/throw_things(var/mob/living/user = null)
 	var/list/targets = list(get_step(src,dir),get_step(src,turn(dir, 45)),get_step(src,turn(dir, -45)))
-	for (var/atom/movable/A in get_turf(src))
-		if(user && A == user)
-			continue
-		if (!A.anchored)
-			spawn(0)
-				A.throw_at(pick(targets),1,1)
+	var/turf/T = get_turf(src)
+	var/list/things = T.contents
+	var/obj/item/I = (/obj/item in things)
+	if(!I)
+		return FALSE
+	for (I in things)
+		spawn(0)
+			I.throw_at(pick(targets),1,1)
+	return TRUE
 
 
 /obj/structure/table/structure_shaken()
@@ -109,14 +112,14 @@
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			if(H.a_intent != I_HELP || H.m_intent == "run")
-				throw_things(H)
-				usr.visible_message("<span class='warning'>[H] knocks everything things from \the [src]!</span>")
+				if(throw_things(H))
+					usr.visible_message("<span class='warning'>[H] knocks everything from \the [src]!</span>")
 			else if(H.is_diona() || H.species.bodytype == "Heavy machine")
-				throw_things(H)
-				usr.visible_message("<span class='warning'>[H] knocks everything things from \the [src]!</span>")
+				if(throw_things(H))
+					usr.visible_message("<span class='warning'>[H] knocks everything from \the [src]!</span>")
 		else if(!issmall(user) || isslime(user))
-			throw_things(user)
-			usr.visible_message("<span class='warning'>[user] knocks everything things from \the [src]!</span>")
+			if(throw_things(user))
+				usr.visible_message("<span class='warning'>[user] knocks everything from \the [src]!</span>")
 	LAZYREMOVE(climbers, user)
 
 /obj/structure/table/MouseDrop_T(obj/O as obj, mob/user as mob)
