@@ -1066,7 +1066,7 @@
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
 /datum/seed/cocoa
-	name = "cocoa"
+	name = "cacao"
 	seed_name = "cacao"
 	display_name = "cacao tree"
 	chems = list("nutriment" = list(1,10), "coco" = list(4,5))
