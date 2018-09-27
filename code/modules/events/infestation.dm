@@ -6,6 +6,7 @@
 #define INFESTATION_SLIMES "slimes"
 
 /datum/event/infestation
+	startWhen = 1
 	announceWhen = 10
 	endWhen = 11
 	var/area/chosen_area
@@ -13,25 +14,33 @@
 	var/chosen_mob = INFESTATION_SLIMES
 	var/chosen_verb = "have leaked into"
 	var/list/chosen_mob_types = list()
+	var/list/possible_mobs = list(
+		INFESTATION_MICE = 1,
+		INFESTATION_LIZARDS = 1
+	)
 
-/datum/event/infestation/start()
+/datum/event/infestation/moderate
+	possible_mobs = list(
+		INFESTATION_SPACE_BATS = 1,
+		INFESTATION_SPIDERLINGS = 1
+	)
+/datum/event/infestation/major
+	possible_mobs = list(
+		INFESTATION_HIVEBOTS = 1,
+		INFESTATION_SLIMES = 1
+	)
+
+/datum/event/infestation/setup()
 	choose_area()
 	choose_mobs()
+
+/datum/event/infestation/start()
 	spawn_mobs()
 
 /datum/event/infestation/proc/choose_area()
 	chosen_area = random_station_area(TRUE)
 
 /datum/event/infestation/proc/choose_mobs()
-
-	var/list/possible_mobs = list(
-		INFESTATION_MICE = (severity = EVENT_LEVEL_MUNDANE),
-		INFESTATION_LIZARDS = (severity = EVENT_LEVEL_MUNDANE),
-		INFESTATION_SPACE_BATS = (severity = EVENT_LEVEL_MODERATE),
-		INFESTATION_SPIDERLINGS = (severity = EVENT_LEVEL_MODERATE),
-		INFESTATION_HIVEBOTS = (severity = EVENT_LEVEL_MAJOR),
-		INFESTATION_SLIMES = (severity = EVENT_LEVEL_MAJOR)
-	)
 
 	chosen_mob = pickweight(possible_mobs)
 
