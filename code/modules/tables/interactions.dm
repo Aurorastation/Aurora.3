@@ -62,15 +62,12 @@
 	if(ishuman(am))
 		var/mob/living/carbon/human/H = am
 		if(H.a_intent != I_HELP || H.m_intent == "run")
-			if(throw_things(H))
-				usr.visible_message("<span class='warning'>[H] knocks everything from \the [src]!</span>")
+			throw_things(H)
 		else if(H.is_diona() || H.species.bodytype == "Heavy machine")
-			if(throw_things(H))
-				usr.visible_message("<span class='warning'>[H] knocks everything from \the [src]!</span>")
+			throw_things(H)
 	else if((isliving(am) && !issmall(am)) || isslime(am))
 		var/mob/living/L = am
-		if(throw_things(L))
-			usr.visible_message("<span class='warning'>[L] knocks everything from \the [src]!</span>")
+		throw_things(L)
 
 /obj/structure/table/proc/throw_things(var/mob/living/user = null)
 	var/list/targets = list(get_step(src,dir),get_step(src,turn(dir, 45)),get_step(src,turn(dir, -45)))
@@ -78,11 +75,12 @@
 	var/list/things = T.contents
 	var/obj/item/I = (/obj/item in things)
 	if(!I)
-		return FALSE
+		return
 	for (I in things)
 		spawn(0)
 			I.throw_at(pick(targets),1,1)
-	return TRUE
+	if(user)
+		usr.visible_message("<span class='warning'>[user] knocks everything from \the [src]!</span>")
 
 
 /obj/structure/table/structure_shaken()
@@ -112,14 +110,11 @@
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			if(H.a_intent != I_HELP || H.m_intent == "run")
-				if(throw_things(H))
-					usr.visible_message("<span class='warning'>[H] knocks everything from \the [src]!</span>")
+				throw_things(H)
 			else if(H.is_diona() || H.species.bodytype == "Heavy machine")
-				if(throw_things(H))
-					usr.visible_message("<span class='warning'>[H] knocks everything from \the [src]!</span>")
+				throw_things(H)
 		else if(!issmall(user) || isslime(user))
-			if(throw_things(user))
-				usr.visible_message("<span class='warning'>[user] knocks everything from \the [src]!</span>")
+			throw_things(user)
 	LAZYREMOVE(climbers, user)
 
 /obj/structure/table/MouseDrop_T(obj/O as obj, mob/user as mob)
