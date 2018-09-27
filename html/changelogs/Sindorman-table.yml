@@ -10,4 +10,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "Shaking table now knocks things off"
-  - rscadd: "Big mobs now knock things off table if they walk or climb on it, this includes industrail IPC frames, Dionea, cows, etc. Other species will knock things off if they are not in help intent."
+  - rscadd: "Big mobs now knock things off table if they walk or climb on it, this includes industrail IPC frames, Dionea, cows, etc. Other species will knock things off if they are not in help intent or if they are running."
