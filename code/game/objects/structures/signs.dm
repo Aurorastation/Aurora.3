@@ -567,14 +567,14 @@
 		playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, 1)
 		icon_state = "poster_ripped"
 		name = "ripped poster"
-		desc = "You can't make out anything from the poster's original print. It's ruined."
+		desc = "You can't make out anything from the flags's original print. It's ruined."
 		add_fingerprint(user)
 
 /obj/structure/sign/flag/attackby(obj/item/weapon/W as obj, mob/user as mob)
     ..()
 
     if(istype(W, /obj/item/weapon/flame/lighter))
-    
+
         visible_message("<span class='warning'>\The [user] starts to burn \the flag down!</span>")
 
         if(!do_after(user, 2 SECONDS, act_target = src))
