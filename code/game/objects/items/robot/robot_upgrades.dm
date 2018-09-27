@@ -59,8 +59,9 @@
 
 /obj/item/borg/upgrade/corgibyborgmodule
 	origin_tech = list(TECH_DATA = 3, TECH_ILLEGAL = 5)
-	name = "Cyborg Dog Control Panel"
+	name = "Animal Cyborgification Kit"
 	icon_state = "mcontroller"
+	desc = "A small kit used for cyborgification of animals, highly illegal on most planets"
 
 /obj/item/borg/upgrade/floodlight
 	name = "robot floodlight module"
