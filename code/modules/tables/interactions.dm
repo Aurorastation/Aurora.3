@@ -72,15 +72,15 @@
 /obj/structure/table/proc/throw_things(var/mob/living/user = null)
 	var/list/targets = list(get_step(src,dir),get_step(src,turn(dir, 45)),get_step(src,turn(dir, -45)))
 	var/turf/T = get_turf(src)
-	var/list/things = T.contents
-	var/obj/item/I = (/obj/item in things)
-	if(!I)
-		return
-	for (I in things)
-		spawn(0)
-			I.throw_at(pick(targets),1,1)
-	if(user)
-		usr.visible_message("<span class='warning'>[user] knocks everything from \the [src]!</span>")
+	var/anything_moved = FALSE
+	for (var/obj/item/I in T)
+		if (I.simulated && !I.anchored)
+			INVOKE_ASYNC(I, /atom/movable/.proc/throw_at, pick(targets), 1, 1)
+			anything_moved = TRUE
+		CHECK_TICK
+
+	if (anything_moved)
+		visible_message("[user] kicks everything off [src], what an asshole.")
 
 
 /obj/structure/table/structure_shaken()
