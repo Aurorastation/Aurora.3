@@ -63,13 +63,12 @@
 		var/mob/living/carbon/human/H = am
 		if(H.a_intent != I_HELP || H.m_intent == "run")
 			throw_things(H)
-		else if(H.is_diona() || H.species.bodytype == "Heavy machine")
+		else if(H.is_diona() || H.species.get_bodytype() == "Heavy Machine")
 			throw_things(H)
 	else if((isliving(am) && !issmall(am)) || isslime(am))
-		var/mob/living/L = am
-		throw_things(L)
+		throw_things(am)
 
-/obj/structure/table/proc/throw_things(var/mob/living/user = null)
+/obj/structure/table/proc/throw_things(var/mob/living/user)
 	var/list/targets = list(get_step(src,dir),get_step(src,turn(dir, 45)),get_step(src,turn(dir, -45)))
 	var/turf/T = get_turf(src)
 	var/anything_moved = FALSE
@@ -80,7 +79,7 @@
 		CHECK_TICK
 
 	if (anything_moved)
-		visible_message("[user] kicks everything off [src], what an asshole.")
+		visible_message("[user] kicks everything off [src].")
 
 
 /obj/structure/table/structure_shaken()
@@ -92,7 +91,7 @@
 	if (!can_climb(user))
 		return
 
-	usr.visible_message("<span class='warning'>[user] starts climbing onto \the [src]!</span>")
+	visible_message("<span class='warning'>[user] starts climbing onto \the [src]!</span>")
 	LAZYADD(climbers, user)
 
 	if(!do_after(user,50))
@@ -103,15 +102,15 @@
 		LAZYREMOVE(climbers, user)
 		return
 
-	usr.forceMove(get_turf(src))
+	user.forceMove(get_turf(src))
 
 	if (get_turf(user) == get_turf(src))
-		usr.visible_message("<span class='warning'>[user] climbs onto \the [src]!</span>")
+		visible_message("<span class='warning'>[user] climbs onto \the [src]!</span>")
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			if(H.a_intent != I_HELP || H.m_intent == "run")
 				throw_things(H)
-			else if(H.is_diona() || H.species.bodytype == "Heavy machine")
+			else if(H.is_diona() || H.species.get_bodytype() == "Heavy Machine")
 				throw_things(H)
 		else if(!issmall(user) || isslime(user))
 			throw_things(user)
