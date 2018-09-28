@@ -65,7 +65,6 @@
 	var/list/cached_markings	// The two above lists cached for perf. reasons.
 	var/maim_bonus = 0.75 //For special projectile gibbing calculation, dubbed "maiming"
 	var/can_be_maimed = TRUE //Can this limb be 'maimed'?
-	var/temp_gib_immunity = 1 //How many hits can this limb take before it can be gibbed. A cheesy way of preventing insta-gibbing limbs.
 
 /obj/item/organ/external/proc/invalidate_marking_cache()
 	cached_markings = null
@@ -331,25 +330,13 @@
 				edge_eligible = 1
 
 			if(edge_eligible && brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus) && brute >= brute_armor_value)
-				if(temp_gib_immunity > 0)
-					temp_gib_immunity -= 1
-				else
-					droplimb(0, DROPLIMB_EDGE)
+				droplimb(0, DROPLIMB_EDGE)
 			else if(burn >= max_damage / (DROPLIMB_THRESHOLD_DESTROY + maim_bonus) && burn >= burn_armor_value)
-				if(temp_gib_immunity > 0)
-					temp_gib_immunity -= 1
-				else
-					droplimb(0, DROPLIMB_BURN)
+				droplimb(0, DROPLIMB_BURN)
 			else if(brute >= max_damage / (DROPLIMB_THRESHOLD_DESTROY + maim_bonus) && brute >= brute_armor_value)
-				if(temp_gib_immunity > 0)
-					temp_gib_immunity -= 1
-				else
-					droplimb(0, DROPLIMB_BLUNT)
+				droplimb(0, DROPLIMB_BLUNT)
 			else if(brute >= max_damage / (DROPLIMB_THRESHOLD_TEAROFF + maim_bonus) && brute >= brute_armor_value)
-				if(temp_gib_immunity > 0)
-					temp_gib_immunity -= 1
-				else
-					droplimb(0, DROPLIMB_EDGE)
+				droplimb(0, DROPLIMB_EDGE)
 
 
 /obj/item/organ/external/proc/heal_damage(brute, burn, internal = 0, robo_repair = 0)
@@ -370,12 +357,9 @@
 	if(internal)
 		status &= ~ORGAN_BROKEN
 		perma_injury = 0
-		temp_gib_immunity = initial(temp_gib_immunity)
 
 	update_damages()
 	owner.updatehealth()
-
-
 
 	return update_icon()
 
