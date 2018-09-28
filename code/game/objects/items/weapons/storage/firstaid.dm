@@ -319,3 +319,32 @@
 		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
 		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
 		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
+
+/obj/item/weapon/storage/pill_bottle/fluvoxamine
+	name = "bottle of Fluvoxamine pills"
+	desc = "Contains pills used to stabilize a patient's mood."
+
+	fill()
+		..()
+		new /obj/item/weapon/reagent_containers/pill/fluvoxamine( src )
+		new /obj/item/weapon/reagent_containers/pill/fluvoxamine( src )
+		new /obj/item/weapon/reagent_containers/pill/fluvoxamine( src )
+		new /obj/item/weapon/reagent_containers/pill/fluvoxamine( src )
+		new /obj/item/weapon/reagent_containers/pill/fluvoxamine( src )
+		new /obj/item/weapon/reagent_containers/pill/fluvoxamine( src )
+		new /obj/item/weapon/reagent_containers/pill/fluvoxamine( src )
+
+/obj/item/weapon/storage/pill_bottle/methylphenidate
+	name = "bottle of Methylphenidate pills"
+	desc = "Contains pills used to stabilize a patient's mood."
+
+	fill()
+		..()
+		new /obj/item/weapon/reagent_containers/pill/methylphenidate( src )
+		new /obj/item/weapon/reagent_containers/pill/methylphenidate( src )
+		new /obj/item/weapon/reagent_containers/pill/methylphenidate( src )
+		new /obj/item/weapon/reagent_containers/pill/methylphenidate( src )
+		new /obj/item/weapon/reagent_containers/pill/methylphenidate( src )
+		new /obj/item/weapon/reagent_containers/pill/methylphenidate( src )
+		new /obj/item/weapon/reagent_containers/pill/methylphenidate( src )
+

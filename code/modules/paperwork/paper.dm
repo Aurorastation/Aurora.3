@@ -560,3 +560,29 @@ Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident f
 
 /obj/item/weapon/paper/sentencing/update_icon()
 	return
+
+/obj/item/weapon/paper/snowflake
+	name = "Proof of Medication"
+
+/obj/item/weapon/paper/snowflake/New(loc,medication_owner,medication_name)
+
+	var/start_date = worldtime2text(world.time - (1 HOUR), "YYYY-MM-DD hh:00")
+	var/end_date = worldtime2text(world.time + ( (1 DAY) - (1 HOUR) ), "YYYY-MM-DD hh:00")
+
+	info = {"\[center\]\[logo\]\[/center\]
+\[h1\]Certificate of Medication Authenticity\[/h1\]
+Expires: [end_date]\[br\]
+This paper certifies that [medication_owner] is permitted to hold [medication_name] on all locations on \the [station_name()] between the dates of [start_date] and [end_date].
+\[center\]\[barcode\]\[/center\]"}
+
+	..()
+
+
+
+
+
+
+
+
+
+

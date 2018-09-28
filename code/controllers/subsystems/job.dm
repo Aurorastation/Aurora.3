@@ -786,7 +786,7 @@
 				// This is a miserable way to fix the loadout overwrite bug, but the alternative requires
 				// adding an arg to a bunch of different procs. Will look into it after this merge. ~ Z
 				var/metadata = prefs.gear[G.display_name]
-				var/obj/item/CI = G.spawn_item(H,metadata)
+				var/obj/item/CI = G.spawn_item(H,H,metadata)
 				if (G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head)
 					if (leftovers)
 						leftovers += thing
@@ -819,7 +819,7 @@
 			. += thing
 		else
 			var/metadata = prefs.gear[G.display_name]
-			var/obj/item/CI = G.spawn_item(H, metadata)
+			var/obj/item/CI = G.spawn_item(H, H, metadata)
 			if (H.equip_to_slot_or_del(CI, G.slot))
 				to_chat(H, "<span class='notice'>Equipping you with \a [thing]!</span>")
 				used_slots += G.slot
@@ -845,7 +845,7 @@
 				to_chat(H, "<span class='notice'>Placing \the [thing] in your [B.name]!</span>")
 				var/datum/gear/G = gear_datums[thing]
 				var/metadata = prefs.gear[G.display_name]
-				G.spawn_item(B, metadata)
+				G.spawn_item(B, H, metadata)
 				Debug("EIS/([H]): placed [thing] in [B].")
 
 		else

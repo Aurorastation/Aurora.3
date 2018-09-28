@@ -313,3 +313,24 @@ var/list/admin_departments
 
 		var/message = "New fax has arrived at [src.department] fax machine."
 		pda.new_info(pda.message_silent, pda.ttone, "\icon[pda] <b>[message]</b>")
+
+
+var/list/obj/machinery/minifax/all_minifaxes = list()
+
+/obj/machinery/minifax
+	name = "mini fax machine"
+	var/preset = "chemistry"
+	icon = 'icons/obj/library.dmi'
+	icon_state = "minifax"
+	density = 0
+	use_power = 1
+	idle_power_usage = 10
+	active_power_usage = 200
+
+/obj/machinery/minifax/Initialize()
+	all_minifaxes += src
+	desc = "A small fax machine that can only recieve faxes. This one is for the [preset] department."
+	. = ..()
+
+/obj/machinery/minifax/proc/can_recieve_fax()
+	return !(stat & (BROKEN|NOPOWER))

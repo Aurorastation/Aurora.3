@@ -5361,6 +5361,35 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
+"akL" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
+/obj/machinery/minifax,
+/turf/simulated/floor/tiled/white,
+/area/medical/chemistry)
+"akM" = (
+/obj/structure/closet/secure_closet/chemical,
+/obj/item/device/radio/headset/headset_med,
+/obj/item/device/radio/headset/headset_med,
+/obj/item/weapon/storage/box/pillbottles,
+/obj/item/weapon/storage/box/pillbottles,
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/item/weapon/packageWrap,
+/obj/item/weapon/hand_labeler,
+/turf/simulated/floor/tiled/white,
+/area/medical/chemistry)
 "akN" = (
 /obj/structure/morgue{
 	icon_state = "morgue1";
@@ -34729,22 +34758,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/outpost/mining_main/eva)
-"bjS" = (
-/obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/hand_labeler,
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/machinery/alarm{
-	dir = 4;
-	icon_state = "alarm0";
-	pixel_x = -22;
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
 "bjT" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/disposalpipe/segment,
@@ -35433,18 +35446,6 @@
 "blc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
-"bld" = (
-/obj/structure/closet/secure_closet/chemical,
-/obj/item/device/radio/headset/headset_med,
-/obj/item/device/radio/headset/headset_med,
-/obj/item/weapon/storage/box/pillbottles,
-/obj/item/weapon/storage/box/pillbottles,
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 10
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
 "ble" = (
@@ -105327,7 +105328,7 @@ beu
 bfJ
 bhg
 biE
-bjS
+akL
 blb
 chg
 bof
@@ -106099,7 +106100,7 @@ bfM
 bfJ
 biH
 bjV
-bld
+akM
 bmG
 boi
 bpu

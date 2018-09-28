@@ -151,7 +151,7 @@
 	icon_state = "pill8"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("methylphenidate", 15)
+		reagents.add_reagent("methylphenidate", 5)
 
 /obj/item/weapon/reagent_containers/pill/escitalopram
 	name = "Escitalopram pill"
@@ -159,15 +159,15 @@
 	icon_state = "pill8"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("escitalopram", 15)
+		reagents.add_reagent("escitalopram", 5)
 
-/obj/item/weapon/reagent_containers/pill/escitalopram
-	name = "Escitalopram pill"
+/obj/item/weapon/reagent_containers/pill/fluvoxamine
+	name = "Fluvoxamine pill"
 	desc = "Mild anti-depressant."
 	icon_state = "pill8"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("escitalopram", 15)
+		reagents.add_reagent("fluvoxamine", 10)
 
 /obj/item/weapon/reagent_containers/pill/inaprovaline
 	name = "Inaprovaline pill"
