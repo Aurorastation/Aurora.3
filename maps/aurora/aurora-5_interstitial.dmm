@@ -2763,6 +2763,32 @@
 	},
 /turf/simulated/floor/carpet,
 /area/security/detectives_office)
+"ff" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"fg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
 "fh" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -4397,6 +4423,25 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/training)
+"hN" = (
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
+	icon_state = "down-scrubbers";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/supply{
+	icon_state = "down-supply";
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "11-8"
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/sign/drop{
+	pixel_y = 32
+	},
+/turf/simulated/open,
+/area/maintenance/medbay)
 "hO" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -4404,6 +4449,24 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/training)
+"hP" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/open,
+/area/maintenance/medbay)
 "hQ" = (
 /turf/simulated/open,
 /area/security/investigations)
@@ -4467,6 +4530,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
+"hY" = (
+/obj/structure/lattice/catwalk,
+/turf/simulated/open,
+/area/maintenance/medbay)
+"hZ" = (
+/obj/structure/ladder,
+/obj/structure/lattice/catwalk,
+/turf/simulated/open,
+/area/maintenance/medbay)
+"ia" = (
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
 "ib" = (
 /obj/item/clothing/head/fedora/brown,
 /obj/item/ammo_casing/c38{
@@ -6581,59 +6656,6 @@
 	dir = 9
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/medbay)
-"lY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/medbay)
-"lZ" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/medbay)
-"ma" = (
-/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 8
-	},
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "11-8"
-	},
-/obj/structure/disposalpipe/down{
-	icon_state = "pipe-d";
-	dir = 8
-	},
-/obj/structure/lattice/catwalk,
-/obj/structure/sign/drop{
-	pixel_y = 32
-	},
-/turf/simulated/open,
 /area/maintenance/medbay)
 "mb" = (
 /obj/effect/decal/cleanable/dirt,
@@ -46611,7 +46633,7 @@ jK
 jK
 jK
 jK
-aa
+jK
 aa
 aa
 aa
@@ -46865,10 +46887,10 @@ kk
 kk
 kk
 kk
-kk
-lY
+ff
+fg
+ia
 jK
-aa
 aa
 aa
 aa
@@ -47123,9 +47145,9 @@ jK
 jK
 jK
 jK
-lZ
+hP
+hZ
 jK
-aa
 aa
 aa
 aa
@@ -47380,9 +47402,9 @@ aa
 aa
 aa
 jK
-ma
+hN
+hY
 jK
-aa
 aa
 aa
 aa
@@ -47639,7 +47661,7 @@ aa
 jK
 jK
 jK
-aa
+jK
 aa
 aa
 aa
