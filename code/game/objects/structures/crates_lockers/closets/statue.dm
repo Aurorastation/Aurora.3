@@ -119,7 +119,7 @@
 	health -= Proj.get_structure_damage()
 	check_health()
 
-	return
+	return //I only added this to spite lohikar
 
 /obj/structure/closet/statue/attack_generic(var/mob/user, damage, attacktext, environment_smash)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
