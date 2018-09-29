@@ -81,7 +81,7 @@
 
 /spell/targeted/shapeshift/baleful_polymorph
 	name = "Baleful Polymorth"
-	desc = "This spell transforms its target into a small, furry animal."
+	desc = "This spell transforms its target into a small, furry animal. Those practiced in the high arcane arts can block this spell with ease, however."
 	feedback = "BP"
 	possible_transformations = list(/mob/living/simple_animal/lizard,/mob/living/simple_animal/mouse,/mob/living/simple_animal/corgi, /mob/living/simple_animal/cat)
 
