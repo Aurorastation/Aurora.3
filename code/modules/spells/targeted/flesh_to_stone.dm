@@ -1,11 +1,11 @@
 /spell/targeted/flesh_to_stone
 	name = "Flesh to Stone"
-	desc = "This spell turns a single person into an inert statue for a long period of time."
+	desc = "This spell turns a single person into an inert statue for a short period of time."
 	feedback = "FS"
 	school = "transmutation"
 	charge_max = 600
 	spell_flags = NEEDSCLOTHES | SELECTABLE
-	range = 3
+	range = 5
 	max_targets = 1
 	invocation = "STAUN EI"
 	invocation_type = SpI_SHOUT

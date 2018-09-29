@@ -97,7 +97,7 @@
 
 	newVars = list("health" = 50, "maxHealth" = 50)
 
-	protected_roles = list("Wizard","Changeling","Cultist","Vampire")
+	protected_roles = list("Wizard")
 
 	hud_state = "wiz_poly"
 
