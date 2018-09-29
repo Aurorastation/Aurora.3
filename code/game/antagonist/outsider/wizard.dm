@@ -142,9 +142,6 @@ Made a proc so this is not repeated 14 (or more) times.*/
 	if(!is_wiz_garb(src.wear_suit) && (!src.species.hud || (slot_wear_suit in src.species.hud.equip_slots)))
 		src << "<span class='warning'>I don't feel strong enough without my robe.</span>"
 		return 0
-	if(!is_wiz_garb(src.shoes) && (!species.hud || (slot_shoes in src.species.hud.equip_slots)))
-		src << "<span class='warning'>I don't feel strong enough without my sandals.</span>"
-		return 0
 	if(!is_wiz_garb(src.head) && (!species.hud || (slot_head in src.species.hud.equip_slots)))
 		src << "<span class='warning'>I don't feel strong enough without my hat.</span>"
 		return 0
