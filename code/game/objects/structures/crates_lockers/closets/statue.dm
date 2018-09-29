@@ -75,7 +75,7 @@
 /obj/structure/closet/statue/process()
 	timer -= 2
 
-	if (timer == 50)
+	if (timer == 10)
 		visible_message("<span class='notice'>\The [src]'s surface begins cracking and dissolving!</span>")
 
 	if (timer <= 0)
