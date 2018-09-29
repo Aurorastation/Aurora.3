@@ -117,6 +117,8 @@
 		"Your scales bristle against the cold."
 		)
 
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
+
 /datum/species/unathi/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
@@ -184,6 +186,8 @@
 		"Your overheated skin itches."
 	)
 	cold_discomfort_level = 275
+
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
 
 /datum/species/tajaran/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()
@@ -713,6 +717,8 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		"brain"               = /obj/item/organ/brain/vaurca,
 		"eyes"                = /obj/item/organ/eyes/vaurca
 	)
+
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
 /datum/species/bug/equip_survival_gear(var/mob/living/carbon/human/H)
 	if(H.backbag == 1)

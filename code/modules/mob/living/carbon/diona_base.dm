@@ -529,7 +529,7 @@ var/list/diona_banned_languages = list(
 	var/restrictedlight_factor = 0.8 //A value between 0 and 1 that determines how much we nerf the strength of certain worn lights
 		//1 means flashlights work normally., 0 means they do nothing
 
-	var/obj/item/organ/diona/node/light_organ = null //The organ this gestalt uses to recieve light. This is left null for nymphs
+	var/obj/item/organ/diona/node/light_organ = null //The organ this gestalt uses to receive light. This is left null for nymphs
 	var/obj/item/organ/diona/nutrients/nutrient_organ = null //Organ
 	var/LMS = 1 //Lightmessage state. Switching between states gives the user a message
 	var/dionatype //1 = nymph, 2 = worker gestalt
