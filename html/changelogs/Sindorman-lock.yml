@@ -9,4 +9,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - tweak: "Due to recent law suit from Nanotrasen employee being locked inside of secure locker by his coworker, Nanotrasen upgraded all secure locker sensors to being able to scan ID cards or PDAs."
+  - bugfix: "Personal closets can no longer be locked/unlocked from the inside."
