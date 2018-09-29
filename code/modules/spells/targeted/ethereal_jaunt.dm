@@ -30,7 +30,7 @@
 			animation.icon = 'icons/mob/mob.dmi'
 			animation.layer = 5
 			animation.master = holder
-			target.ExtinguishMob()
+			target.ExtinguishMobCompletely()
 			if(target.buckled)
 				target.buckled = null
 			jaunt_disappear(animation, target)

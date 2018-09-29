@@ -451,7 +451,7 @@ default behaviour is:
 	BITSET(hud_updateflag, HEALTH_HUD)
 	BITSET(hud_updateflag, STATUS_HUD)
 	BITSET(hud_updateflag, LIFE_HUD)
-	ExtinguishMob()
+	ExtinguishMobCompletely()
 
 /mob/living/proc/rejuvenate()
 	if(!isnull(reagents))

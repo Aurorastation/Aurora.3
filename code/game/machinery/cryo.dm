@@ -355,7 +355,7 @@
 		M.client.eye = src
 	M.stop_pulling()
 	M.forceMove(src)
-	M.ExtinguishMob()
+	M.ExtinguishMobCompletely()
 	if(M.health > -100 && (M.health < 0 || M.sleeping))
 		M << "<span class='notice'><b>You feel a cold liquid surround you. Your skin starts to freeze up.</b></span>"
 	occupant = M

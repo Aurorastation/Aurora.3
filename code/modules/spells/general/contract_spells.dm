@@ -46,7 +46,7 @@
 
 	if(target.on_fire && target.fire_stacks > 0)
 		target << "<span class='notice'>Magical energies surround you, putting out all your flames.</span>"
-		target.ExtinguishMob()
+		target.ExtinguishMobCompletely()
 
 /spell/contract/punish
 	name = "Punish Contractee"
