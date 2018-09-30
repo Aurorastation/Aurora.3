@@ -4787,7 +4787,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "ajL" = (
-/obj/structure/reagent_dispensers/extinguisher,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -4799,7 +4798,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/obj/structure/lattice/catwalk,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/open,
 /area/maintenance/medbay)
 "ajM" = (
 /obj/item/weapon/reagent_containers/glass/bucket,
@@ -5361,6 +5364,30 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
+"akL" = (
+/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
+	icon_state = "up-scrubbers";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/zpipe/up/supply{
+	icon_state = "up-supply";
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "12-0"
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/structure/lattice/catwalk,
+/turf/simulated/open,
+/area/maintenance/medbay)
+"akM" = (
+/obj/structure/ladder/up,
+/obj/structure/lattice/catwalk,
+/turf/simulated/open,
+/area/maintenance/medbay)
 "akN" = (
 /obj/structure/morgue{
 	icon_state = "morgue1";
@@ -5566,6 +5593,11 @@
 /obj/structure/cable/green,
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
+"ali" = (
+/obj/structure/ladder,
+/obj/structure/lattice/catwalk,
+/turf/simulated/open,
+/area/maintenance/medbay)
 "alj" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -5744,9 +5776,85 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"alA" = (
+/obj/structure/ladder,
+/turf/simulated/open,
+/area/maintenance/research_port)
+"alB" = (
+/obj/structure/lattice/catwalk,
+/turf/simulated/open,
+/area/maintenance/research_port)
+"alC" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/open,
+/area/maintenance/research_port)
 "alD" = (
 /turf/simulated/floor/tiled,
 /area/security/main)
+"alE" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/light/small/emergency{
+	icon_state = "bulb1";
+	dir = 4
+	},
+/turf/simulated/open,
+/area/maintenance/research_port)
+"alF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
+"alG" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"alH" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -25
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "alI" = (
 /obj/machinery/door/airlock/security{
 	name = "Evidence Storage";
@@ -5950,6 +6058,25 @@
 /obj/machinery/shield_gen,
 /turf/simulated/floor/plating,
 /area/engineering/storage)
+"amf" = (
+/obj/machinery/alarm{
+	pixel_y = 23
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
 "amg" = (
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
@@ -42504,18 +42631,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"bwB" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/medbay)
 "bwC" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -43947,24 +44062,6 @@
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/medbay)
-"byX" = (
-/obj/machinery/alarm{
-	pixel_y = 23
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
@@ -52438,10 +52535,6 @@
 	},
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/maintenance/medbay)
-"bPT" = (
-/obj/item/stack/tile/floor,
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
 "bPU" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
@@ -58959,43 +59052,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/medbay)
-"chC" = (
-/obj/structure/reagent_dispensers/fueltank,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/medbay)
-"chE" = (
-/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 8
-	},
-/obj/structure/disposalpipe/up{
-	icon_state = "pipe-u";
-	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "12-0"
-	},
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
@@ -83004,7 +83060,7 @@ baJ
 baJ
 baJ
 baJ
-aaa
+baJ
 aaa
 aaa
 aaa
@@ -83258,9 +83314,9 @@ aKl
 aKl
 aKl
 aKl
+aKl
 bpG
 bFV
-baJ
 baJ
 baJ
 baJ
@@ -83514,10 +83570,10 @@ baJ
 baJ
 baJ
 baJ
+baJ
 aKl
 aKl
 bdF
-aKl
 aKl
 aKl
 aKl
@@ -83766,11 +83822,11 @@ baJ
 bdJ
 baJ
 anR
+anR
 baJ
 bMV
 bNC
 bOe
-baJ
 baJ
 baJ
 baJ
@@ -84024,12 +84080,12 @@ bdJ
 baJ
 baJ
 baJ
+baJ
 bMW
 bND
 aKl
 baJ
 bPj
-bPp
 bPp
 bPU
 bRB
@@ -84279,6 +84335,7 @@ bCZ
 bCZ
 bdJ
 aKl
+aKl
 bLx
 baJ
 baJ
@@ -84286,7 +84343,6 @@ bNE
 baJ
 baJ
 bPk
-bPT
 aKl
 baJ
 bRC
@@ -84537,13 +84593,13 @@ bIY
 bJR
 bgm
 bLy
-bMt
+bgm
 blz
+bgm
 bgm
 bOf
 baJ
 bPl
-bPp
 bQs
 bQS
 bRD
@@ -84797,10 +84853,10 @@ bIZ
 bIZ
 bIZ
 bIZ
-bOg
+aKi
+alF
 baJ
 bPm
-bPU
 bQt
 bPp
 bRE
@@ -85054,10 +85110,10 @@ bJS
 bJS
 bJS
 bIZ
+alC
 beR
 baJ
 bPn
-bPV
 bQu
 bQT
 bPU
@@ -85311,10 +85367,10 @@ bJS
 bJS
 bJS
 bIZ
+alB
 beR
 baJ
 bPo
-bxW
 bPU
 bQU
 bPU
@@ -85568,9 +85624,9 @@ bJS
 bJS
 bJS
 bIZ
-beR
+alA
+alH
 baJ
-bPp
 bPp
 bPp
 bQV
@@ -85825,10 +85881,10 @@ bJS
 bJS
 bJS
 bIZ
+alB
 beR
 baJ
 bPq
-baJ
 baJ
 baJ
 baJ
@@ -86082,10 +86138,10 @@ bJS
 bJS
 bJS
 bIZ
+alE
 bOh
-blz
+bMt
 bPr
-blz
 bQv
 aKl
 aKl
@@ -88656,7 +88712,7 @@ bKh
 bMz
 bPt
 baJ
-aKi
+aKl
 bOg
 bRI
 bRW
@@ -88912,7 +88968,7 @@ bKh
 bOn
 bIu
 bIu
-bIu
+aKi
 aKi
 bOg
 baJ
@@ -104574,7 +104630,7 @@ bAZ
 chz
 bCV
 bDM
-bEQ
+alG
 bEQ
 bEQ
 bIg
@@ -105342,7 +105398,7 @@ bvs
 bvs
 bvs
 bBb
-chC
+chB
 bok
 bDO
 biL
@@ -105600,7 +105656,7 @@ bub
 bub
 bub
 ajL
-bok
+akM
 bmK
 biL
 bFU
@@ -105856,8 +105912,8 @@ bxG
 byR
 bAa
 byU
-chE
-bok
+akL
+ali
 byY
 biL
 byV
@@ -107652,7 +107708,7 @@ bum
 bvz
 bwz
 btj
-byX
+amf
 biL
 biL
 biL
@@ -108164,7 +108220,7 @@ bok
 bok
 bok
 bok
-bwA
+bok
 bok
 bmK
 bAf
@@ -108421,7 +108477,7 @@ biK
 biK
 biK
 bvA
-bwB
+biK
 biK
 byZ
 blg
