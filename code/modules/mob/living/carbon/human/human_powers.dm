@@ -782,17 +782,15 @@
 		to_chat(src,"<span class='warning'>You cannot do that in your current state!</span>")
 		return
 
-	var/obj/item/I = src.get_active_hand()
+	var/obj/item/stack/material/O = src.get_active_hand()
 
-	if(I)
-		if(istype(I, /obj/item/stack/material))
-			var/obj/item/stack/material/O = I
-			if(O.material.golem == src.species.name)
-				to_chat(src,"<span class='danger'>You incorporate \the [O] into your mass, repairing damage to your structure.</span>")
-				adjustBruteLoss(-10*O.amount)
-				adjustFireLoss(-10*O.amount)
-				qdel(O)
-				last_special = world.time + 50
+	if(istype(O, /obj/item/stack/material))
+		if(O.material.golem == src.species.name)
+			to_chat(src,"<span class='danger'>You incorporate \the [O] into your mass, repairing damage to your structure.</span>")
+			adjustBruteLoss(-10*O.amount)
+			adjustFireLoss(-10*O.amount)
+			qdel(O)
+			last_special = world.time + 50
 
 /mob/living/carbon/human/proc/breath_of_life()
 	set category = "Abilities"
@@ -806,26 +804,24 @@
 		to_chat(src,"<span class='warning'>You cannot do that in your current state!</span>")
 		return
 
-	var/obj/item/I = src.get_active_hand()
+	var/obj/item/organ/brain/golem/O = src.get_active_hand()
 
-	if(I)
-		if(istype(I, /obj/item/organ/brain/golem))
-			var/obj/item/organ/brain/golem/O = I
+	if(istype(O))
 
-			if(O.health <= 0)
-				to_chat(src,"<span class='warning'>The spark of life already left \the [O]!</span>")
-				return
+		if(O.health <= 0)
+			to_chat(src,"<span class='warning'>The spark of life already left \the [O]!</span>")
+			return
 
-			if(!O.brainmob)
-				to_chat(src,"<span class='warning'>\The [O] remains silent.</span>")
-				return
+		if(!O.brainmob)
+			to_chat(src,"<span class='warning'>\The [O] remains silent.</span>")
+			return
 
-			if(!O.dna)
-				to_chat(src,"<span class='warning'>\The [O] is blank, you can not bring it back to life.</span>")
+		if(!O.dna)
+			to_chat(src,"<span class='warning'>\The [O] is blank, you can not bring it back to life.</span>")
 
-			var/mob/living/carbon/human/G = new(src.loc)
-			G.key = O.brainmob.key
-			addtimer(CALLBACK(G, /mob/living/carbon/human.proc/set_species, O.dna.species), 0)
-			to_chat(src,"<span class='notice'>You blow life back in \the [O], returning its past owner to life!</span>")
-			qdel(O)
-			last_special = world.time + 200
+		var/mob/living/carbon/human/G = new(src.loc)
+		G.key = O.brainmob.key
+		addtimer(CALLBACK(G, /mob/living/carbon/human.proc/set_species, O.dna.species), 0)
+		to_chat(src,"<span class='notice'>You blow life back in \the [O], returning its past owner to life!</span>")
+		qdel(O)
+		last_special = world.time + 200
