@@ -126,6 +126,14 @@
 	path = /obj/item/clothing/under/dress/dress_cap
 	allowed_roles = list("Captain")
 
+/datum/gear/uniform/customdress
+	display_name = "Evening gown"
+	path = /obj/item/clothing/under/dress/dress_evening
+
+/datum/gear/uniform/customdress/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
 /datum/gear/uniform/corpsecsuit
 	display_name = "uniform, corporate (Security)"
 	path = /obj/item/clothing/under/rank/security/corp
