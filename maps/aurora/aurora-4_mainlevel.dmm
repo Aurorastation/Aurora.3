@@ -19828,9 +19828,6 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aJC" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 10
