@@ -403,6 +403,11 @@
 		icon_state = "hair_hbraid"
 		gender = FEMALE
 
+	braidalt
+		name = "Long Braid 2"
+		icon_state = "hair_hbraidalt"
+		gender = FEMALE
+
 	odango
 		name = "Odango"
 		icon_state = "hair_odango"

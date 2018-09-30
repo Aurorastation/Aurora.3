@@ -91,7 +91,7 @@
 			user << "This spell can't affect the living."
 			return 0
 
-		if(isskeleton(target))
+		if(isundead(target))
 			user << "This spell can't affect the undead."
 			return 0
 
@@ -146,7 +146,7 @@
 
 /spell/targeted/lichdom/cast(mob/target,var/mob/living/carbon/human/user as mob)
 	..()
-	if(isskeleton(user))
+	if(isundead(user))
 		user << "You have no soul or life to offer."
 		return 0
 
