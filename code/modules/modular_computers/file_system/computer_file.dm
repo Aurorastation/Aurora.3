@@ -6,7 +6,8 @@ var/global/file_uid = 0
 	var/size = 1											// File size in GQ. Integers only!
 	var/obj/item/weapon/computer_hardware/hard_drive/holder	// Holder that contains this file.
 	var/unsendable = 0										// Whether the file may be sent to someone via NTNet transfer or other means.
-	var/undeletable = 0										// Whether the file may be deleted. Setting to 1 prevents deletion/renaming/etc.
+	var/undeletable = 0                                     // Whether the file may be deleted. Setting to 1 prevents deletion/renaming/etc.
+	var/password = ""                                       // Placeholder for password protected files.
 	var/uid													// UID of this file
 
 /datum/computer_file/New()
@@ -31,9 +32,21 @@ var/global/file_uid = 0
 	temp.unsendable = unsendable
 	temp.undeletable = undeletable
 	temp.size = size
+	temp.password = password
 	if(rename)
 		temp.filename = filename + "(Copy)"
 	else
 		temp.filename = filename
 	temp.filetype = filetype
 	return temp
+
+/datum/computer_file/proc/can_access_file(var/mob/user, input_password = "")
+	if(!password)
+		return TRUE
+	else
+		if (!input_password)
+			input_password = sanitize(input(user, "Please enter a password to access file '[filename]':"))
+		if (input_password == password)
+			return TRUE
+		else
+			return FALSE
