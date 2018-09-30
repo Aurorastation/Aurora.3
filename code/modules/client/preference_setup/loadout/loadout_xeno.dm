@@ -105,6 +105,21 @@
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior",)
 	sort_category = "Xenowear"
 
+/datum/gear/mask/vaurca_expression
+	display_name = "human expression mask (Vaurca)"
+	path = /obj/item/clothing/mask/breath/vaurca/expression
+	cost = 1
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior",)
+	sort_category = "Xenowear"
+
+/datum/gear/mask/vaurca_expression/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/mask/vaurca_expression/skrell
+	display_name = "skrell expression mask (Vaurca)"
+	path = /obj/item/clothing/mask/breath/vaurca/expression/skrell
+
 /datum/gear/cape
 	display_name = "tunnel cloak (Vaurca)"
 	path = /obj/item/weapon/storage/backpack/cloak
