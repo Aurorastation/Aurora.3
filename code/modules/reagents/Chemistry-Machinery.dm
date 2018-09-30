@@ -809,3 +809,17 @@
 			target.say("*scream")
 			spawn(10)
 			user.visible_message("<span class='warning'>[user] stops the [src] and leaves [target] resting as they are.</span>", "<span class='warning'>You turn the [src] off and let go of [target].</span>")
+
+/obj/machinery/reagentgrinder/verb/Eject()
+	set src in oview(1)
+	set category = "Object"
+	set name = "Eject contents"
+
+	usr.visible_message(
+	"<span class='notice'>[usr] open's [src] and has removed [english_list(contents)].</span>"
+	)
+	if (!do_after(usr, 1 SECONDS, act_target = src))
+		return
+
+	eject()
+	detach()
