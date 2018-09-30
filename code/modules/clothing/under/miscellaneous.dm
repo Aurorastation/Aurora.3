@@ -332,11 +332,10 @@
 	item_state = "p_suit"
 	worn_state = "dress_saloon"
 
-
 /obj/item/clothing/under/dress/dress_evening
-	name = "Evening Gown"
+	name = "evening gown"
 	desc = "A silky gown, leaves much to the imagination"
-	icon_state = "red_evening_gown_s"
+	icon_state = "red_evening_gown"
 	item_state = "red_evening_gown"
 
 /obj/item/clothing/under/dress/dress_cap
