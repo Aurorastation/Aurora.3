@@ -246,6 +246,18 @@
 		if(dose == removed)
 			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the water touches it!</span>", "<span class='danger'>Your flesh burns in the water!</span>")
 
+
+/datum/reagent/water/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(istype(M, /mob/living/carbon/slime))
+		var/mob/living/carbon/slime/S = M
+		S.adjustToxLoss(20 * removed) // A slime having water forced down its throat would cause much more damage then being splashed on it
+		if(!S.client)
+			if(S.Target) // Like cats
+				S.Target = null
+				++S.Discipline
+		if(dose == removed)
+			S.visible_message("<span class='warning'>[S]'s screams in pain as you force water down its throat!</span>", "<span class='danger'>Your insides burn!</span>")
+
 /datum/reagent/fuel
 	name = "Welding fuel"
 	id = "fuel"
