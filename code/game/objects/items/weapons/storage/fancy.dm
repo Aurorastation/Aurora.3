@@ -303,10 +303,10 @@
 	name = "chocolate box"
 	storage_slots = 8
 	can_hold = list(
-		/obj/item/weapon/reagent_containers/food/snacks
+		/obj/item/weapon/reagent_containers/food/snacks/truffle/random
 	)
 
 /obj/item/weapon/storage/fancy/chocolate_box/fill()
 	for(var/i=1; i <= storage_slots; i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/random(src)
+		new /obj/item/weapon/reagent_containers/food/snacks/truffle/random(src)
 
