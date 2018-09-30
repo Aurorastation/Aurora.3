@@ -11,6 +11,7 @@ var/list/worths = list(
 					/obj/item/weapon/toolbox_tiles_sensor = 180,
 					/obj/item/weapon/firstaid_arm_assembly = 150,
 					/obj/item/weapon/bucket_sensor = 40,
+					/obj/item/borg/upgrade/corgibyborgmodule = 640,
 //REAGENT CONTAINERS,
 					/obj/item/weapon/reagent_containers/hypospray/combat = -200,
 					/obj/item/weapon/reagent_containers/hypospray = -90,

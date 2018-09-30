@@ -9,10 +9,10 @@
 	item_cost = 2
 	path = /obj/item/weapon/storage/toolbox/syndicate
 
-/datum/uplink_item/item/tools/commanderjackbootlink
-	name = "Commander Jackboot Deployment"
+/datum/uplink_item/item/tools/cyberdogdeployment
+	name = "Cyber Dog"
 	item_cost = 6
-	path = /obj/item/weapon/commanderjackbootbox
+	path = /obj/item/weapon/cyberdogdeployment
 
 /datum/uplink_item/item/tools/money
 	name = "Operations Funding"
