@@ -635,6 +635,15 @@
 	for(var/i = 1; i <= 5; i++)
 		new /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/neaeracube(src)
 
+/obj/item/weapon/storage/box/monkeycubes/vkrexicubes
+	name = "vkrexi cube box"
+	desc = "Drymate brand vkrexi cubes. Just add water!"
+
+/obj/item/weapon/storage/box/monkeycubes/vkrexicubes/fill()
+	..()
+	for(var/i = 1; i <= 5; i++)
+		new /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/vkrexicube(src)
+
 /obj/item/weapon/storage/box/ids
 	name = "box of spare IDs"
 	desc = "Has so many empty IDs."
