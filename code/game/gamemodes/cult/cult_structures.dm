@@ -8,13 +8,13 @@
 	return
 
 /obj/structure/cult/talisman
-	name = "Altar"
+	name = "altar"
 	desc = "A bloodstained altar dedicated to Nar-Sie"
 	icon_state = "talismanaltar"
 
 
 /obj/structure/cult/forge
-	name = "Daemon forge"
+	name = "daemon forge"
 	desc = "A forge used in crafting the unholy weapons used by the armies of Nar-Sie"
 	icon_state = "forge"
 
@@ -50,7 +50,7 @@
 */
 
 /obj/structure/cult/pylon
-	name = "Pylon"
+	name = "pylon"
 	desc = "A floating crystal that hums with an unearthly energy"
 	description_antag  = "A pylon can be upgraded into a magical defensive turret that shoots anyone opposing the cult\
 	</br>Upgrading a pylon requires a sacrifice. Bring it a small organic creature, like a monkey or mouse. Use the creature on the pylon, or drag and drop to present it.\
@@ -577,19 +577,9 @@
 
 //============================================
 /obj/structure/cult/tome
-	name = "Desk"
+	name = "desk"
 	desc = "A desk covered in arcane manuscripts and tomes in unknown languages. Looking at the text makes your skin crawl"
 	icon_state = "tomealtar"
-
-//sprites for this no longer exist	-Pete
-//(they were stolen from another game anyway)
-/*
-/obj/structure/cult/pillar
-	name = "Pillar"
-	desc = "This should not exist"
-	icon_state = "pillar"
-	icon = 'magic_pillar.dmi'
-*/
 
 /obj/effect/gateway
 	name = "gateway"
