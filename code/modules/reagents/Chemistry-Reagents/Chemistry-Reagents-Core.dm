@@ -250,7 +250,7 @@
 /datum/reagent/water/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(istype(M, /mob/living/carbon/slime))
 		var/mob/living/carbon/slime/S = M
-		S.adjustToxLoss(20 * removed) // A slime having water forced down its throat would cause much more damage then being splashed on it
+		S.adjustToxLoss(12 * removed) // A slime having water forced down its throat would cause much more damage then being splashed on it
 		if(!S.client)
 			if(S.Target) // Like cats
 				S.Target = null
