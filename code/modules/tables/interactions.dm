@@ -78,8 +78,8 @@
 			anything_moved = TRUE
 		CHECK_TICK
 
-	if (anything_moved)
-		visible_message("[user] kicks everything off [src].")
+	if (user && anything_moved)
+		visible_message("<span class='notice'>[user] kicks everything off [src].</span>")
 
 
 /obj/structure/table/structure_shaken()
