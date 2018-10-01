@@ -79,7 +79,10 @@
 		CHECK_TICK
 
 	if (user && anything_moved)
-		visible_message("<span class='notice'>[user] kicks everything off [src].</span>")
+		user.visible_message(
+		"<span class='notice'>[user] kicks everything off [src].</span>",
+		"<span class='notice'>You kick everything off [src].</span>"
+		)
 
 
 /obj/structure/table/structure_shaken()
@@ -91,7 +94,10 @@
 	if (!can_climb(user))
 		return
 
-	visible_message("<span class='warning'>[user] starts climbing onto \the [src]!</span>")
+	user.visible_message(
+	"<span class='warning'>[user] starts climbing onto \the [src]!</span>",
+	"<span class='warning'>You start climbing onto \the [src]!</span>"
+	)
 	LAZYADD(climbers, user)
 
 	if(!do_after(user,50))
@@ -105,7 +111,10 @@
 	user.forceMove(get_turf(src))
 
 	if (get_turf(user) == get_turf(src))
-		visible_message("<span class='warning'>[user] climbs onto \the [src]!</span>")
+		user.visible_message(
+		"<span class='warning'>[user] climbs onto \the [src]!</span>",
+		"<span class='warning'>You climb onto \the [src]!</span>"
+		)
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			if(H.a_intent != I_HELP || H.m_intent == "run")
@@ -138,7 +147,7 @@
 			var/mob/living/M = G.affecting
 			var/obj/occupied = turf_is_crowded()
 			if(occupied)
-				user << "<span class='danger'>There's \a [occupied] in the way.</span>"
+				to_chat(user, "<span class='danger'>There's \a [occupied] in the way.</span>")
 				return
 			if(!user.Adjacent(M))
 				return
@@ -162,7 +171,7 @@
 							M.apply_damage(10, BRUTE, "head", blocked)
 							M.standard_weapon_hit_effects(S, G.assailant, 10, blocked, "head")
 				else
-					user << "<span class='danger'>You need a better grip to do that!</span>"
+					to_chat(user, "<span class='danger'>You need a better grip to do that!</span>")
 					return
 			else
 				G.affecting.forceMove(src.loc)
@@ -183,7 +192,7 @@
 		return
 
 	if(can_plate && !material)
-		user << "<span class='warning'>There's nothing to put \the [W] on! Try adding plating to \the [src] first.</span>"
+		to_chat(user, "<span class='warning'>There's nothing to put \the [W] on! Try adding plating to \the [src] first.</span>")
 		return
 
 	user.drop_item(src.loc)
