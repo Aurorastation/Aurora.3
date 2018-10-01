@@ -167,17 +167,3 @@
 	if (!stat && !resting && !buckled && prob(1))
 		visible_emote(pick("dances around","chases her tail"),0)
 		INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
-
-
-
-/mob/living/simple_animal/corgi/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	..()
-	if(istype(W, /obj/item/borg/upgrade/corgibyborgmodule))
-		visible_message("<span class='warning'>\The [user] starts to install the cyborg kit into the corgi!</span>")
-		if(!do_after(user, 6 SECONDS, act_target = src))
-			return 0
-		visible_message("<span class='warning'>\The [user] creates a cyborg corgi!</span>")
-		playsound(src.loc, 'sound/mecha/nominalsyndi.ogg', 100, 1)
-		new /mob/living/simple_animal/hostile/commanded/dog/commanderjackboot(src.loc)
-		qdel(src)
-		qdel(W)

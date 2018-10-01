@@ -95,7 +95,6 @@
 		/obj/item/weapon/cell/high                        = TRADER_THIS_TYPE,
 		/obj/item/weapon/cell/super                       = TRADER_THIS_TYPE,
 		/obj/item/weapon/cell/hyper                       = TRADER_THIS_TYPE,
-		/obj/item/borg/upgrade/corgibyborgmodule          = TRADER_THIS_TYPE,
 		/obj/item/weapon/module                           = TRADER_SUBTYPES_ONLY,
 		/obj/item/weapon/tracker_electronics              = TRADER_THIS_TYPE
 	)

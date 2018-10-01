@@ -49,7 +49,7 @@
 		/mob/living/simple_animal/hostile/retaliate/malf_drone = TRUE,
 		/mob/living/simple_animal/hostile/viscerator = TRUE,
 		/mob/living/simple_animal/spiderbot = TRUE,
-		/mob/living/simple_animal/hostile/commanded/dog/commanderjackboot = TRUE
+		/mob/living/simple_animal/hostile/commanded/dog/cyberhound = TRUE
 	)
 
 	mtl_weird = typecacheof(mtl_weird) + list(
