@@ -1969,14 +1969,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/airless,
 /area/mine/explored)
-"eb" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
 "ec" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -1998,24 +1990,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
-"ee" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
-"ef" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
 "eg" = (
 /obj/structure/cable/yellow{
 	d1 = 2;
@@ -2028,15 +2002,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/airless,
-/area/mine/explored)
-"eh" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
 "ei" = (
 /turf/simulated/wall/r_wall,
@@ -2078,16 +2043,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/mine/explored)
-"em" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning/corner,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
 "en" = (
 /obj/structure/ladder{
@@ -2389,13 +2344,6 @@
 /obj/structure/closet/crate/solar,
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
-"eK" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
 "eL" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -2407,19 +2355,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/mine/explored)
-"eM" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
 "eN" = (
 /obj/machinery/access_button{
@@ -2446,24 +2381,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/mine/explored)
-"eO" = (
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/airless,
-/area/solar/auxport)
 "eP" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -2479,95 +2396,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/mine/explored)
-"eQ" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
-"eR" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 10
-	},
-/obj/random/loot,
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
-"eS" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning/corner,
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
-"eT" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
-"eU" = (
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/airless,
-/area/solar/auxport)
-"eV" = (
-/obj/structure/cable/yellow{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/airless,
-/area/solar/auxport)
-"eW" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
-"eX" = (
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/airless,
-/area/solar/auxport)
 "eY" = (
 /obj/effect/landmark/map_data{
 	height = 6
@@ -2679,44 +2507,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
-"fn" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
-"fo" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
-"fp" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
-"fq" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
@@ -2904,20 +2694,214 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
-"fL" = (
+"ge" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gf" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gg" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gh" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gi" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gj" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gk" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gq" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/solar/auxport)
+"gr" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gs" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gt" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gu" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/airless,
+/area/solar/auxport)
+"gv" = (
+/obj/structure/cable/yellow{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/airless,
+/area/solar/auxport)
+"gw" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gC" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/solar/auxport)
+"gD" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gE" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gF" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gG" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gH" = (
 /obj/random/loot,
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
 	dir = 1
 	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
-"gc" = (
-/obj/random/glowstick,
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
-"gd" = (
-/obj/item/weapon/stool,
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
 
@@ -26450,7 +26434,7 @@ aP
 aP
 aP
 aP
-eS
+gs
 ai
 ai
 ai
@@ -26707,7 +26691,7 @@ dF
 dF
 dF
 dF
-eT
+gt
 dW
 dF
 dF
@@ -26964,7 +26948,7 @@ dK
 dK
 dK
 dK
-eU
+gu
 dX
 dX
 dX
@@ -27221,7 +27205,7 @@ dH
 dH
 dH
 dH
-eV
+gv
 dH
 dH
 dH
@@ -27471,26 +27455,26 @@ aP
 aP
 aP
 aP
-em
-eM
+gi
+gk
 bb
 bb
 bb
 bb
-eQ
+gr
 dP
-eW
+gw
 bb
 bb
 bb
 bb
 fz
-fn
+gD
 ai
-fo
+gE
 bb
 bb
-fp
+gF
 ab
 ac
 ab
@@ -27986,7 +27970,7 @@ dK
 dK
 dK
 dK
-eO
+gq
 dK
 dK
 dK
@@ -27998,7 +27982,7 @@ dX
 dX
 dX
 dX
-eX
+gC
 dX
 dX
 dX
@@ -28518,7 +28502,7 @@ ah
 ah
 ah
 ah
-fq
+gG
 ag
 bG
 ag
@@ -28547,13 +28531,13 @@ ah
 ah
 ah
 ah
-ah
-al
-ab
-ab
-ab
-ab
-ab
+fg
+am
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -28804,13 +28788,13 @@ ah
 ah
 ah
 ah
-ah
-fh
-bG
-ag
-ag
-eR
-ab
+al
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aC
@@ -29014,7 +28998,7 @@ dK
 dK
 dK
 dK
-eO
+gq
 dK
 dK
 dK
@@ -29026,7 +29010,7 @@ dX
 dX
 dX
 dX
-eX
+gC
 dX
 dX
 dX
@@ -29061,14 +29045,14 @@ ah
 ah
 ah
 ah
-ah
-ah
-ah
-bX
-an
 al
-ab
-ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -29318,14 +29302,14 @@ ah
 ah
 ah
 ah
-ah
-ah
-ah
-an
-bX
 al
-ab
-ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -29575,14 +29559,14 @@ ah
 ah
 ah
 ah
-ah
-ah
-ah
-ah
-ah
 al
-ab
-ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -29832,14 +29816,14 @@ ah
 ah
 ah
 ah
-ah
-ah
-ah
-ah
-ah
 al
-ab
-ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -30042,7 +30026,7 @@ dK
 dK
 dK
 dK
-eO
+gq
 dK
 dK
 dK
@@ -30054,7 +30038,7 @@ dX
 dX
 dX
 dX
-eX
+gC
 dX
 dX
 dX
@@ -30089,20 +30073,20 @@ ah
 ah
 ah
 ah
-ah
-ah
-ah
-ah
-ah
 al
-ab
-ab
 aa
-ad
-ag
-ag
-ag
-aw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -30346,20 +30330,20 @@ ah
 ah
 ah
 ah
-ah
-ah
-ah
-ah
-ah
-fh
-ag
-ag
-ag
-fe
-ah
-ah
-gc
 al
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -30603,20 +30587,20 @@ ah
 ah
 ah
 ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-an
-gd
 al
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -30860,20 +30844,20 @@ ah
 ah
 ah
 ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-fg
-ai
-ff
-ah
-ah
-an
 al
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -31065,11 +31049,11 @@ ah
 ah
 al
 fg
-ef
+gg
 ai
 ai
 ai
-eK
+gj
 ai
 ai
 ai
@@ -31117,20 +31101,20 @@ ah
 ah
 ah
 ah
-fg
-ai
-ai
-ai
-ai
-ai
-ai
-am
+fh
+ag
+ag
+ag
+ag
+ag
+aw
 aa
-ak
-ai
-ai
-ai
-am
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -31374,13 +31358,13 @@ ah
 ah
 ah
 ah
+ah
+ah
+ah
+ah
+ah
+ah
 al
-ab
-ab
-ab
-ab
-ab
-aa
 aa
 aa
 aa
@@ -31584,7 +31568,7 @@ dK
 dK
 dK
 dK
-eO
+gq
 dK
 dK
 dK
@@ -31596,7 +31580,7 @@ dX
 dX
 dX
 dX
-eX
+gC
 dX
 dX
 dX
@@ -31631,13 +31615,13 @@ ah
 fg
 ai
 ai
-am
-ab
-ab
-ab
-ab
-aa
-aa
+fi
+ah
+ah
+ah
+ah
+ah
+al
 aa
 aa
 aa
@@ -31888,13 +31872,13 @@ ah
 al
 ab
 ab
-ab
-ab
-ac
-ab
-aa
-aa
-aa
+ae
+ah
+ah
+ah
+ah
+ah
+al
 aa
 aa
 aa
@@ -32092,7 +32076,7 @@ ai
 ai
 ai
 ai
-eb
+ge
 ah
 ah
 ah
@@ -32145,13 +32129,13 @@ ah
 al
 ab
 ab
-ab
-ab
-aa
-aa
-aa
-aa
-aa
+ed
+ai
+ai
+ai
+fi
+ah
+al
 aa
 aa
 aa
@@ -32406,9 +32390,9 @@ ab
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+ah
+al
 aa
 aa
 aa
@@ -32612,7 +32596,7 @@ dK
 dK
 dK
 dK
-eO
+gq
 dK
 dK
 dK
@@ -32624,7 +32608,7 @@ dX
 dX
 dX
 dX
-eX
+gC
 dX
 dX
 dX
@@ -32663,9 +32647,9 @@ ab
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+ah
+al
 aa
 aa
 aa
@@ -32920,9 +32904,9 @@ ac
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+ah
+al
 aa
 aa
 aa
@@ -33177,9 +33161,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+ah
+al
 aa
 aa
 aa
@@ -33434,9 +33418,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+ah
+al
 aa
 aa
 aa
@@ -33640,7 +33624,7 @@ dK
 dK
 dK
 dK
-eO
+gq
 dK
 dK
 dK
@@ -33652,7 +33636,7 @@ dX
 dX
 dX
 dX
-eX
+gC
 dX
 dX
 dX
@@ -33691,13 +33675,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ae
+ah
+fh
+ag
+ag
+ag
+aw
 aa
 aa
 aa
@@ -33948,13 +33932,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ae
+ah
+ah
+ah
+ah
+ah
+al
 aa
 aa
 aa
@@ -34148,10 +34132,10 @@ ab
 ab
 ab
 ab
-ee
+gf
 aP
 aP
-eh
+gh
 ag
 ag
 ag
@@ -34172,7 +34156,7 @@ ag
 ag
 ag
 ag
-fL
+gH
 ah
 al
 ab
@@ -34205,13 +34189,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ae
+ah
+ah
+ah
+ah
+ah
+al
 aa
 aa
 aa
@@ -34462,13 +34446,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ae
+ah
+ah
+ah
+ah
+ah
+al
 aa
 aa
 aa
@@ -34719,13 +34703,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ed
+ai
+ai
+ai
+ai
+ai
+am
 aa
 aa
 aa
