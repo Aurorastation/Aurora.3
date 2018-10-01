@@ -34,6 +34,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Added the ability to install cybernetics into dogs."
-  - rscadd: "Added a cyber hound to antag uplink."
+  - rscadd: "Added a buyable Antag Version of Ian, one that is the definition of cool."
 

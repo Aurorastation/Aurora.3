@@ -133,9 +133,9 @@
 
 
 /mob/living/simple_animal/hostile/commanded/dog/commanderjackboot
-	name = "cyber corgi"
+	name = "Commander Jackboot"
 	short_name = "jackboot"
-	desc = "A uncanny looking corgi, from the looks of him he is quite in high fashion."
+	desc = "A uncanny looking corgi, from the looks of him he is quite in high fashion, his clothing displaying elegence and power."
 	icon_state = "iangang"
 	icon_living = "iangang"
 	icon_dead = "iangang_dead"
@@ -155,9 +155,9 @@
 
 
 /mob/living/simple_animal/hostile/commanded/dog/cyberhound
-	name = "cyber hound"
+	name = "Cyber Hound"
 	short_name = "cyberhound"
-	desc = "An uncanny looking robotic dog."
+	desc = "A uncanny looking robotic dog, from the looks of him he looks quite fierce."
 	icon_state = "bladewolf"
 	icon_living = "bladewolf"
 	icon_dead = "bladewolfdead"
