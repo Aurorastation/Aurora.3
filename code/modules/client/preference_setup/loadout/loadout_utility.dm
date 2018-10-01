@@ -2,7 +2,7 @@
 	display_name = "briefcase"
 	path = /obj/item/weapon/storage/briefcase
 	sort_category = "Utility"
-	
+
 /datum/gear/utility/secure
 	display_name = "secure briefcase"
 	path = /obj/item/weapon/storage/secure/briefcase
@@ -53,3 +53,16 @@
 /datum/gear/utility/camera
 	display_name = "camera"
 	path = 	/obj/item/device/camera
+
+/datum/gear/utility/fannypack
+	display_name = "fannypack selection"
+	cost = 2
+	path = /obj/item/weapon/storage/belt/fannypack
+
+/datum/gear/utility/fannypack/New()
+	..()
+	var/list/fannys = list()
+	for(var/fanny in typesof(/obj/item/weapon/storage/belt/fannypack))
+		var/obj/item/weapon/storage/belt/fannypack/fanny_type = fanny
+		fannys[initial(fanny_type.name)] = fanny_type
+	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(fannys))
