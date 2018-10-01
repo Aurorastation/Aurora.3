@@ -3126,8 +3126,12 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "agt" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/emergency,
-/turf/simulated/open,
+/turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
 "agu" = (
 /obj/structure/disposalpipe/segment{
@@ -39443,12 +39447,22 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bpq" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/light/small/emergency{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/maintenance/disposal)
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
 "bpr" = (
 /obj/structure/sink{
 	icon_state = "sink";
@@ -40119,26 +40133,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
-"bqz" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
-	},
-/area/maintenance/bar)
 "bqA" = (
 /obj/structure/sign/drop,
 /turf/simulated/wall/r_wall,
@@ -95954,10 +95948,10 @@ aTA
 aUJ
 ccf
 ccf
+ccf
 agt
-bpq
 cbE
-bqz
+bpq
 bSx
 aab
 aaa
@@ -96468,8 +96462,8 @@ aUH
 aWh
 ccf
 ccf
+ccf
 agt
-bpq
 cbE
 xMg
 bSx
