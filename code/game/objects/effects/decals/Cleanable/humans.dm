@@ -41,6 +41,7 @@
 
 /obj/effect/decal/cleanable/blood/Initialize(mapload)
 	. = ..()
+	fall_to_floor()
 	update_icon()
 	if(istype(src, /obj/effect/decal/cleanable/blood/gibs))
 		return
@@ -230,6 +231,14 @@
 
 		if (step_to(src, get_step(src, direction), 0))
 			break
+/obj/effect/decal/cleanable/blood/proc/fall_to_floor()
+	if (isopenturf(loc))
+		anchored = FALSE
+		ADD_FALLING_ATOM(src)
+
+/obj/effect/decal/cleanable/blood/fall_impact()
+	. = ..()
+	anchored = initial(anchored)
 
 /obj/effect/decal/cleanable/mucus
 	name = "mucus"
