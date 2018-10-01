@@ -1501,17 +1501,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/library)
 "cN" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+/obj/effect/decal/warning_stripes,
+/obj/structure/ladder/up{
+	pixel_y = 16
 	},
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
+/turf/simulated/floor/plating{
+	roof_type = null
 	},
-/turf/simulated/floor/plating,
 /area/maintenance/library)
 "cO" = (
 /obj/structure/cable{
@@ -1539,23 +1535,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/library)
 "cR" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
 "cS" = (
-/obj/effect/decal/warning_stripes,
-/obj/structure/ladder/up{
-	pixel_y = 16
-	},
-/turf/simulated/floor/plating{
-	roof_type = null
-	},
-/area/maintenance/library)
-"cT" = (
 /obj/effect/decal/warning_stripes,
 /obj/structure/ladder{
 	icon_state = "ladder01";
@@ -1563,36 +1545,31 @@
 	},
 /turf/simulated/open,
 /area/maintenance/library)
-"cU" = (
-/obj/structure/disposalpipe/down{
-	icon_state = "pipe-d";
-	dir = 4
-	},
-/obj/structure/lattice/catwalk,
-/turf/simulated/open,
-/area/maintenance/library)
-"cV" = (
+"cT" = (
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(50)
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
-"cW" = (
-/obj/structure/disposalpipe/up{
-	icon_state = "pipe-u";
-	dir = 8
+"cU" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
+/turf/simulated/floor/plating,
+/area/maintenance/library)
+"cV" = (
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
 /area/maintenance/library)
-"cX" = (
+"cW" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
 	icon_state = "up-scrubbers";
 	dir = 4
@@ -1616,7 +1593,7 @@
 	roof_type = null
 	},
 /area/maintenance/library)
-"cY" = (
+"cX" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -1639,7 +1616,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
-"cZ" = (
+"cY" = (
 /obj/structure/disposalpipe/down{
 	icon_state = "pipe-d";
 	dir = 8
@@ -5178,9 +5155,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
-"ju" = (
-/turf/simulated/wall,
-/area/maintenance/library)
 "jv" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -33185,10 +33159,10 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -33442,10 +33416,10 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -33685,6 +33659,7 @@ bU
 bU
 bU
 bU
+bU
 aa
 aa
 aa
@@ -33699,10 +33674,9 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
+aa
+aa
+aa
 aa
 aa
 aa
@@ -33940,6 +33914,7 @@ cO
 cO
 cO
 cO
+cO
 cP
 bU
 aa
@@ -33956,10 +33931,9 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
+aa
+aa
+aa
 aa
 aa
 aa
@@ -34197,6 +34171,7 @@ bU
 bU
 bU
 bU
+bU
 cQ
 bU
 aa
@@ -34213,10 +34188,9 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
+aa
+aa
+aa
 aa
 aa
 aa
@@ -34450,9 +34424,10 @@ cG
 cG
 cM
 bU
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 bU
 cQ
 bU
@@ -34469,11 +34444,10 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -34707,9 +34681,10 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 bU
 cQ
 bU
@@ -34726,11 +34701,10 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -34964,9 +34938,10 @@ ab
 ab
 ab
 aa
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 bU
 cQ
 bU
@@ -34983,10 +34958,9 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
+aa
+aa
+aa
 aa
 aa
 aa
@@ -35223,7 +35197,8 @@ aa
 aa
 aa
 aa
-ab
+aa
+aa
 bU
 cQ
 bU
@@ -35238,11 +35213,10 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -35480,7 +35454,8 @@ aa
 aa
 aa
 aa
-ab
+aa
+aa
 bU
 cQ
 bU
@@ -35494,11 +35469,10 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -35737,24 +35711,24 @@ aa
 aa
 aa
 aa
-ab
+aa
+aa
 bU
 cQ
 bU
-bU
-bU
-bU
-bU
 aa
 aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -35994,23 +35968,23 @@ aa
 aa
 aa
 aa
-ab
+aa
+aa
 bU
 cQ
-ju
-cS
-cU
-cX
 bU
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -36251,22 +36225,22 @@ aa
 aa
 aa
 aa
-ab
+aa
+aa
 bU
-cR
-cN
-cO
-cV
-cY
+cQ
 bU
 aa
 aa
-ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -36508,20 +36482,20 @@ aa
 aa
 aa
 aa
-ab
+aa
+aa
 bU
-bU
-bU
-cT
-cW
-cZ
+cQ
 bU
 aa
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -36765,18 +36739,18 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
+aa
+aa
 bU
-bU
-bU
-bU
+cQ
 bU
 aa
-ab
-ab
-ab
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -37024,15 +36998,15 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+bU
+cQ
+bU
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -37281,14 +37255,14 @@ aa
 aa
 aa
 aa
+bU
+cQ
+bU
 aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
+aa
 aa
 aa
 aa
@@ -37538,9 +37512,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+bU
+cQ
+bU
 aa
 aa
 aa
@@ -37795,9 +37769,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+bU
+cQ
+bU
 aa
 aa
 aa
@@ -38052,9 +38026,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+bU
+cQ
+bU
 aa
 aa
 aa
@@ -38309,9 +38283,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+bU
+cQ
+bU
 aa
 aa
 aa
@@ -38566,9 +38540,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+bU
+cQ
+bU
 aa
 aa
 aa
@@ -38823,9 +38797,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+bU
+cQ
+bU
 aa
 aa
 aa
@@ -39080,9 +39054,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+bU
+cQ
+bU
 aa
 aa
 aa
@@ -39336,11 +39310,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+bU
+bU
+cT
+bU
+bU
 aa
 aa
 aa
@@ -39593,11 +39567,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+bU
+cN
+cQ
+cW
+bU
 aa
 aa
 aa
@@ -39850,11 +39824,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+bU
+cR
+cU
+cX
+bU
 aa
 aa
 aa
@@ -40107,11 +40081,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+bU
+cS
+cV
+cY
+bU
 aa
 aa
 aa
@@ -40364,11 +40338,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+bU
+bU
+bU
+bU
+bU
 aa
 aa
 aa
