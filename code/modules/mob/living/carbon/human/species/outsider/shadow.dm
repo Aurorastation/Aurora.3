@@ -87,6 +87,8 @@
 	/mob/living/carbon/human/proc/shadow_step
 	)
 
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
+
 /datum/species/shadow/handle_death(var/mob/living/carbon/human/H)
 	spawn(1)
 		new /obj/effect/decal/cleanable/ash(H.loc)
