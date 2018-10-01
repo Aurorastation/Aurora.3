@@ -791,9 +791,11 @@ var/list/worths = list(
 					/mob/living/simple_animal/borer = 10000,
 					/mob/living/simple_animal/corgi/Ian = 1000, //Ian is valuable,
 					/mob/living/simple_animal/spiderbot = 3000,
+					/mob/living/simple_animal/hostile/commanded/dog/cyberhound = 3400,
 					/mob/living/simple_animal/cow = 2000, //Cow expensive,
 					/mob/living/simple_animal = 500,
 					/mob/living = 100,
+					
 //MECHAS,
 					/obj/mecha/combat/phazon = -100000,
 					/obj/mecha/combat/marauder/mauler = -80000,

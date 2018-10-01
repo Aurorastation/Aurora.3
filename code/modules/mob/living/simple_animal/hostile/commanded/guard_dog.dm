@@ -132,27 +132,6 @@
 
 
 
-/mob/living/simple_animal/hostile/commanded/dog/commanderjackboot
-	name = "cyber corgi"
-	short_name = "jackboot"
-	desc = "A uncanny looking corgi."
-	icon_state = "iangang"
-	icon_living = "iangang"
-	icon_dead = "iangang_dead"
-	health = 100
-	maxHealth = 100
-	faction = "syndicate"
-
-/mob/living/simple_animal/hostile/commanded/dog/commanderjackboot/death()
-	..(null,"is blown to smithereens, oh the humanity!")
-	var/T = get_turf(src)
-	new /obj/effect/gibspawner/robot(T)
-	new /obj/item/borg/upgrade/corgibyborgmodule(loc)
-	new /obj/item/organ/external/head/terminator(loc)
-	new /obj/effect/gibspawner/human(loc)
-	spark(T, 6, alldirs)
-	qdel(src)
-
 
 /mob/living/simple_animal/hostile/commanded/dog/cyberhound
 	name = "cyber hound"
@@ -161,28 +140,15 @@
 	icon_state = "bladewolf"
 	icon_living = "bladewolf"
 	icon_dead = "bladewolfdead"
-	health = 150
-	maxHealth = 150
+	health = 250
+	maxHealth = 250
 	faction = "syndicate"
 
 /mob/living/simple_animal/hostile/commanded/dog/cyberhound/death()
 	..(null,"is blown to bits!")
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
-	new /obj/item/borg/upgrade/corgibyborgmodule(loc)
 	new /obj/item/organ/external/head/terminator(loc)
 	new /obj/effect/gibspawner/human(loc)
 	spark(T, 6, alldirs)
 	qdel(src)
-
-/mob/living/simple_animal/hostile/commanded/dog/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	..()
-	if(istype(W, /obj/item/borg/upgrade/corgibyborgmodule))
-		visible_message("<span class='warning'>\The [user] starts to install the cyborg kit into the dog, this will take about 20 seconds</span>")
-		if(!do_after(user, 20 SECONDS, act_target = src))
-			return 0
-		visible_message("<span class='warning'>\The [user] creates a cyborg dog!</span>")
-		playsound(src.loc, 'sound/mecha/nominalsyndi.ogg', 100, 1)
-		new /mob/living/simple_animal/hostile/commanded/dog/cyberhound(src.loc)
-		qdel(src)
-		qdel(W)

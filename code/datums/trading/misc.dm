@@ -43,6 +43,7 @@
 		/mob/living/simple_animal/cat                    = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/cat/kitten             = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/crab                   = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/hostile/commanded/dog/cyberhound = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/lizard                 = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/mouse                  = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/parrot                 = TRADER_THIS_TYPE,
