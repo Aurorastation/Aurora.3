@@ -1642,7 +1642,7 @@
 	id = "gin"
 	description = "It's gin. In space. I say, good sir."
 	color = "#664300"
-	strength = 20
+	strength = 30
 	taste_description = "an alcoholic christmas tree"
 
 	glass_icon_state = "ginvodkaglass"

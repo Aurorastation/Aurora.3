@@ -815,11 +815,14 @@
 	set category = "Object"
 	set name = "Eject contents"
 
-	usr.visible_message(
-	"<span class='notice'>[usr] open's [src] and has removed [english_list(contents)].</span>"
-	)
-	if (!do_after(usr, 1 SECONDS, act_target = src))
+	if (!ishuman(usr))
 		return
 
-	eject()
-	detach()
+	if (!do_after(usr, 1 SECONDS, act_target = src))
+		return
+		usr.visible_message(
+		"<span class='notice'>[usr] opens [src] and has removed [english_list(contents)].</span>"
+		)
+
+		eject()
+		detach()
