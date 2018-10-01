@@ -12518,8 +12518,12 @@
 	},
 /area/centcom/control)
 "BS" = (
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_battlemonsters)
+/turf/template_noop,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/shuttle/wall/dark{
+	icon_state = "swall_c"
+	},
+/area/template_noop)
 "BT" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
@@ -13035,27 +13039,37 @@
 	},
 /area/centcom/holding)
 "Df" = (
-/obj/structure/holostool,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_battlemonsters)
+/turf/template_noop,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/shuttle/wall/dark{
+	icon_state = "swall_c";
+	dir = 8
+	},
+/area/template_noop)
 "Dg" = (
-/obj/structure/window/reinforced/holowindow{
+/turf/template_noop,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/shuttle/wall/dark{
+	icon_state = "swall_c";
 	dir = 4
 	},
-/obj/structure/holostool,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_battlemonsters)
+/area/template_noop)
 "Dh" = (
-/obj/structure/dueling_table/no_collide/above_layer{
-	icon_state = "top_left"
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
 	},
-/obj/effect/decal/battlemonsters_logo,
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 9
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "27"
 	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	id = "battery3";
+	name = "Battery 3 Firing Control"
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_siding10"
+	},
+/area/centcom/control)
 "Di" = (
 /obj/machinery/light/spot{
 	icon_state = "tube1";
@@ -13127,15 +13141,21 @@
 	},
 /area/centcom/holding)
 "Dr" = (
-/obj/structure/dueling_table/no_collide/above_layer{
-	icon_state = "top_center"
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 1
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "28"
 	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/obj/machinery/artillerycontrol{
+	desc = "Bluespace Artillery; the thinking man's solution."
+	},
+/obj/effect/decal/warning_stripes,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding2";
+	dir = 6
+	},
+/area/centcom/control)
 "Ds" = (
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
@@ -13196,16 +13216,6 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding)
-"DA" = (
-/obj/structure/dueling_table/no_collide/above_layer{
-	icon_state = "top_right"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 5
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
 "DB" = (
 /obj/machinery/light/spot,
 /turf/simulated/shuttle/plating,
@@ -13281,12 +13291,17 @@
 	},
 /area/centcom/holding)
 "DJ" = (
-/obj/structure/window/reinforced/holowindow{
-	dir = 8
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
 	},
-/obj/structure/holostool,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_battlemonsters)
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "29"
+	},
+/obj/machinery/porta_turret/crescent,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding6"
+	},
+/area/centcom/control)
 "DK" = (
 /obj/item/modular_computer/console/preset/security,
 /turf/simulated/shuttle/floor{
@@ -13294,15 +13309,22 @@
 	},
 /area/shuttle/escape/centcom)
 "DL" = (
-/obj/structure/dueling_table{
-	icon_state = "center_left"
+/turf/unsimulated/floor{
+	icon_state = "engine"
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
+/obj/structure/window/phoronreinforced,
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/turf/unsimulated/floor{
+	icon_state = "wood_siding9"
+	},
+/area/centcom/control)
 "DM" = (
 /turf/unsimulated/wall/riveted,
 /area/centcom/ferry)
@@ -13493,12 +13515,21 @@
 	},
 /area/centcom/ferry)
 "Eh" = (
-/turf/template_noop,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/wall/dark{
-	icon_state = "swall_c"
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
 	},
-/area/template_noop)
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "27"
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	id = "battery2";
+	name = "Battery 2 Firing Control"
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_siding10"
+	},
+/area/centcom/control)
 "Ei" = (
 /obj/item/clothing/head/collectable/paper,
 /turf/unsimulated/beach/sand,
@@ -13562,15 +13593,23 @@
 	},
 /area/centcom/holding)
 "Er" = (
-/obj/structure/dueling_table{
-	icon_state = "center_right"
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 4
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "27"
 	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	id = "battery1";
+	name = "Battery 1 Firing Control"
+	},
+/obj/effect/decal/cleanable/cobweb,
+/obj/item/weapon/reagent_containers/glass/rag,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding10"
+	},
+/area/centcom/control)
 "Es" = (
 /turf/unsimulated/floor{
 	icon_state = "sandwater"
@@ -13746,15 +13785,15 @@
 	},
 /area/centcom/holding)
 "ER" = (
-/obj/structure/dueling_table/no_collide{
-	icon_state = "bottom_leftt"
+/turf/unsimulated/floor{
+	icon_state = "engine"
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 8
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding1";
+	dir = 6
 	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/area/centcom/control)
 "ES" = (
 /obj/machinery/camera/network/crescent{
 	c_tag = "Crescent Arrivals East"
@@ -13764,11 +13803,16 @@
 	},
 /area/centcom/holding)
 "ET" = (
-/obj/structure/dueling_table/no_collide{
-	icon_state = "bottom_center"
+/turf/unsimulated/floor{
+	icon_state = "engine"
 	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/stool,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding1";
+	dir = 6
+	},
+/area/centcom/control)
 "EU" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -13906,25 +13950,34 @@
 	},
 /area/centcom/holding)
 "Fl" = (
-/obj/structure/dueling_table/no_collide{
-	icon_state = "bottom_right"
+/turf/unsimulated/floor{
+	icon_state = "engine"
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 4
+/obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/storage/toolbox/electrical,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding1";
+	dir = 6
 	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/area/centcom/control)
 "Fm" = (
-/obj/structure/dueling_table/no_collide/above_layer{
-	icon_state = "top_left"
+/turf/unsimulated/floor{
+	icon_state = "engine"
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding9"
+	},
+/area/centcom/control)
 "Fn" = (
 /obj/machinery/computer/med_data,
 /obj/structure/window/reinforced{
@@ -14304,13 +14357,6 @@
 	icon_state = "floor3"
 	},
 /area/shuttle/escape/centcom)
-"Ga" = (
-/obj/effect/decal/battlemonsters_logo{
-	icon_state = "logo";
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_battlemonsters)
 "Gb" = (
 /turf/unsimulated/floor{
 	icon_state = "greencorner";
@@ -15075,13 +15121,6 @@
 "HK" = (
 /turf/unsimulated/wall/riveted,
 /area/centcom/spawning)
-"HL" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 9
-	},
-/turf/simulated/floor/holofloor/reinforced,
-/area/holodeck/source_battlemonsters)
 "HM" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -17149,10 +17188,6 @@
 /obj/structure/sign/biohazard,
 /turf/unsimulated/wall/riveted,
 /area/centcom/spawning)
-"Ma" = (
-/obj/structure/banner,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_battlemonsters)
 "Mb" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -21968,11 +22003,15 @@
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
 "WE" = (
-/obj/structure/dueling_table/no_collide/above_layer{
-	icon_state = "top_center"
+/turf/unsimulated/floor{
+	icon_state = "wood"
 	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/obj/item/weapon/stool/padded,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "siding2"
+	},
+/area/centcom/holding)
 "WF" = (
 /obj/machinery/status_display{
 	pixel_y = -32
@@ -22279,38 +22318,25 @@
 	},
 /area/centcom/spawning)
 "Xl" = (
-/obj/structure/dueling_table/no_collide/above_layer{
-	icon_state = "top_right"
+/turf/unsimulated/floor{
+	icon_state = "floor"
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 4
+/obj/structure/bed/chair/unmovable{
+	dir = 1
 	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
-"Xm" = (
-/obj/structure/dueling_table{
-	icon_state = "center_center"
+/turf/unsimulated/floor{
+	icon_state = "wood_siding2"
 	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
-"Xn" = (
-/obj/structure/dueling_table/no_collide{
-	icon_state = "bottom_leftt"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 10
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/area/centcom/spawning)
 "Xo" = (
-/obj/structure/dueling_table/no_collide{
-	icon_state = "bottom_center"
+/turf/unsimulated/floor{
+	icon_state = "floor"
 	},
-/obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/obj/structure/bed/chair/unmovable,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding1"
+	},
+/area/centcom/spawning)
 "Xp" = (
 /obj/machinery/light{
 	dir = 8
@@ -22328,6 +22354,335 @@
 /turf/simulated/floor/tiled/ramp,
 /area/shuttle/escape/centcom)
 "Xr" = (
+/obj/structure/banner,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"Xs" = (
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"Xt" = (
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"Xu" = (
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"Xv" = (
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"Xw" = (
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"Xx" = (
+/obj/structure/banner,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"Xy" = (
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"Xz" = (
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"XA" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 9
+	},
+/turf/simulated/floor/holofloor/reinforced,
+/area/holodeck/source_battlemonsters)
+"XB" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/reinforced,
+/area/holodeck/source_battlemonsters)
+"XC" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 5
+	},
+/turf/simulated/floor/holofloor/reinforced,
+/area/holodeck/source_battlemonsters)
+"XD" = (
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"XE" = (
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"XF" = (
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"XG" = (
+/obj/structure/window/reinforced/holowindow{
+	dir = 4
+	},
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"XH" = (
+/obj/structure/dueling_table/no_collide/above_layer{
+	icon_state = "top_left"
+	},
+/obj/effect/decal/battlemonsters_logo,
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 9
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_battlemonsters)
+"XI" = (
+/obj/structure/dueling_table/no_collide/above_layer{
+	icon_state = "top_center"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_battlemonsters)
+"XJ" = (
+/obj/structure/dueling_table/no_collide/above_layer{
+	icon_state = "top_right"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 5
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_battlemonsters)
+"XK" = (
+/obj/structure/window/reinforced/holowindow{
+	dir = 8
+	},
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"XL" = (
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"XM" = (
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"XN" = (
+/obj/structure/window/reinforced/holowindow{
+	dir = 4
+	},
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"XO" = (
+/obj/structure/dueling_table{
+	icon_state = "center_left"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_battlemonsters)
+"XP" = (
+/obj/structure/dueling_table{
+	icon_state = "center_center"
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_battlemonsters)
+"XQ" = (
+/obj/structure/dueling_table{
+	icon_state = "center_right"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_battlemonsters)
+"XR" = (
+/obj/structure/window/reinforced/holowindow{
+	dir = 8
+	},
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"XS" = (
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"XT" = (
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"XU" = (
+/obj/structure/window/reinforced/holowindow{
+	dir = 4
+	},
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"XV" = (
+/obj/structure/dueling_table/no_collide{
+	icon_state = "bottom_leftt"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_battlemonsters)
+"XW" = (
+/obj/structure/dueling_table/no_collide{
+	icon_state = "bottom_center"
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_battlemonsters)
+"XX" = (
+/obj/structure/dueling_table/no_collide{
+	icon_state = "bottom_right"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_battlemonsters)
+"XY" = (
+/obj/structure/window/reinforced/holowindow{
+	dir = 8
+	},
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"XZ" = (
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"Ya" = (
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"Yb" = (
+/obj/structure/window/reinforced/holowindow{
+	dir = 4
+	},
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"Yc" = (
+/obj/structure/dueling_table/no_collide/above_layer{
+	icon_state = "top_left"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_battlemonsters)
+"Yd" = (
+/obj/structure/dueling_table/no_collide/above_layer{
+	icon_state = "top_center"
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_battlemonsters)
+"Ye" = (
+/obj/structure/dueling_table/no_collide/above_layer{
+	icon_state = "top_right"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_battlemonsters)
+"Yf" = (
+/obj/structure/window/reinforced/holowindow{
+	dir = 8
+	},
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"Yg" = (
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"Yh" = (
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"Yi" = (
+/obj/structure/window/reinforced/holowindow{
+	dir = 4
+	},
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"Yj" = (
+/obj/structure/dueling_table{
+	icon_state = "center_left"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_battlemonsters)
+"Yk" = (
+/obj/structure/dueling_table{
+	icon_state = "center_center"
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_battlemonsters)
+"Yl" = (
+/obj/structure/dueling_table{
+	icon_state = "center_right"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_battlemonsters)
+"Ym" = (
+/obj/structure/window/reinforced/holowindow{
+	dir = 8
+	},
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"Yn" = (
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"Yo" = (
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"Yp" = (
+/obj/structure/window/reinforced/holowindow{
+	dir = 4
+	},
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"Yq" = (
+/obj/structure/dueling_table/no_collide{
+	icon_state = "bottom_leftt"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 10
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_battlemonsters)
+"Yr" = (
+/obj/structure/dueling_table/no_collide{
+	icon_state = "bottom_center"
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_battlemonsters)
+"Ys" = (
 /obj/structure/dueling_table/no_collide{
 	icon_state = "bottom_right"
 	},
@@ -22337,251 +22692,88 @@
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_battlemonsters)
-"Xs" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 1
+"Yt" = (
+/obj/structure/window/reinforced/holowindow{
+	dir = 8
 	},
-/turf/simulated/floor/holofloor/reinforced,
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_battlemonsters)
-"Xt" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 5
-	},
-/turf/simulated/floor/holofloor/reinforced,
+"Yu" = (
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_battlemonsters)
-"Xu" = (
+"Yv" = (
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"Yw" = (
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"Yx" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 10
 	},
 /turf/simulated/floor/holofloor/reinforced,
 /area/holodeck/source_battlemonsters)
-"Xv" = (
+"Yy" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/holofloor/reinforced,
 /area/holodeck/source_battlemonsters)
-"Xw" = (
+"Yz" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 6
 	},
 /turf/simulated/floor/holofloor/reinforced,
 /area/holodeck/source_battlemonsters)
-"Xx" = (
-/turf/template_noop,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/wall/dark{
-	icon_state = "swall_c";
-	dir = 8
-	},
-/area/template_noop)
-"Xy" = (
-/turf/template_noop,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/wall/dark{
-	icon_state = "swall_c";
-	dir = 4
-	},
-/area/template_noop)
-"Xz" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "27"
-	},
-/obj/structure/table/reinforced/steel,
-/obj/machinery/button/remote/blast_door{
-	id = "battery3";
-	name = "Battery 3 Firing Control"
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_siding10"
-	},
-/area/centcom/control)
-"XA" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "28"
-	},
-/obj/machinery/artillerycontrol{
-	desc = "Bluespace Artillery; the thinking man's solution."
-	},
-/obj/effect/decal/warning_stripes,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding2";
-	dir = 6
-	},
-/area/centcom/control)
-"XB" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "29"
-	},
-/obj/machinery/porta_turret/crescent,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding6"
-	},
-/area/centcom/control)
-"XC" = (
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/obj/structure/window/phoronreinforced,
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
+"YA" = (
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"YB" = (
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"YC" = (
+/obj/structure/banner,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"YD" = (
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"YE" = (
+/obj/effect/decal/battlemonsters_logo{
+	icon_state = "logo";
 	dir = 1
 	},
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 8
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_siding9"
-	},
-/area/centcom/control)
-"XD" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "27"
-	},
-/obj/structure/table/reinforced/steel,
-/obj/machinery/button/remote/blast_door{
-	id = "battery2";
-	name = "Battery 2 Firing Control"
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_siding10"
-	},
-/area/centcom/control)
-"XE" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "27"
-	},
-/obj/structure/table/reinforced/steel,
-/obj/machinery/button/remote/blast_door{
-	id = "battery1";
-	name = "Battery 1 Firing Control"
-	},
-/obj/effect/decal/cleanable/cobweb,
-/obj/item/weapon/reagent_containers/glass/rag,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding10"
-	},
-/area/centcom/control)
-"XF" = (
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding1";
-	dir = 6
-	},
-/area/centcom/control)
-"XG" = (
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/stool,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding1";
-	dir = 6
-	},
-/area/centcom/control)
-"XH" = (
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/storage/toolbox/electrical,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding1";
-	dir = 6
-	},
-/area/centcom/control)
-"XI" = (
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 8
-	},
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding9"
-	},
-/area/centcom/control)
-"XJ" = (
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/obj/item/weapon/stool/padded,
-/turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "siding2"
-	},
-/area/centcom/holding)
-"XK" = (
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"YF" = (
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"YG" = (
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"YH" = (
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"YI" = (
+/obj/structure/banner,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
+"YJ" = (
 /turf/unsimulated/floor{
 	icon_state = "floor"
-	},
-/obj/structure/bed/chair/unmovable{
-	dir = 1
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_siding2"
-	},
-/area/centcom/spawning)
-"XL" = (
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/obj/machinery/vending/snack{
-	name = "Free Chocolate Corp";
-	prices = list()
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_siding4"
 	},
 /area/centcom/spawning)
-"XM" = (
+"YK" = (
 /turf/unsimulated/floor{
 	icon_state = "floor"
-	},
-/obj/machinery/vending/cola{
-	name = "Free Robust Softdrinks";
-	prices = list()
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_siding8"
-	},
-/area/centcom/spawning)
-"XN" = (
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/obj/structure/bed/chair/unmovable,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding1"
 	},
 /area/centcom/spawning)
 
@@ -57213,7 +57405,7 @@ DM
 DM
 EP
 EP
-XJ
+WE
 Gq
 GE
 GF
@@ -57470,7 +57662,7 @@ Fi
 Fo
 EP
 EP
-XJ
+WE
 Gq
 GF
 GF
@@ -57727,7 +57919,7 @@ Fj
 Fp
 EP
 EP
-XJ
+WE
 Gq
 GF
 GF
@@ -57984,7 +58176,7 @@ Fk
 Fp
 EP
 EP
-XJ
+WE
 Gq
 GF
 GF
@@ -58241,7 +58433,7 @@ EP
 EP
 Fy
 EP
-XJ
+WE
 Gq
 GF
 GF
@@ -58498,7 +58690,7 @@ EP
 EP
 EP
 EP
-XJ
+WE
 Gq
 GF
 GF
@@ -64690,7 +64882,7 @@ Ms
 Id
 Id
 Id
-XL
+YJ
 Id
 Id
 Id
@@ -64893,17 +65085,17 @@ wl
 xe
 xA
 yk
-XC
+DL
 wl
 xe
 xA
 yk
-XC
+DL
 wl
 xe
 xA
 Bp
-XI
+Fm
 uT
 Cq
 CG
@@ -64946,9 +65138,9 @@ KZ
 Ms
 Id
 Id
-XK
+Xl
 OY
-XN
+Xo
 Id
 Id
 OA
@@ -65203,9 +65395,9 @@ MN
 Ms
 Id
 Id
-XK
+Xl
 OZ
-XN
+Xo
 Id
 Id
 Qn
@@ -65662,18 +65854,18 @@ it
 uT
 wo
 xh
-Xz
+Dh
 yl
 yE
 wo
 xh
-XD
+Eh
 yl
 yE
 wo
 xh
-XE
-XF
+Er
+ER
 BT
 uT
 Cq
@@ -65717,9 +65909,9 @@ KZ
 Ms
 Id
 Id
-XK
+Xl
 Pa
-XN
+Xo
 Id
 Id
 OA
@@ -65919,18 +66111,18 @@ aM
 uT
 wp
 xi
-XA
+Dr
 yl
 yE
 wp
 xi
-XA
+Dr
 yl
 yE
 wp
 xi
-XA
-XG
+Dr
+ET
 BT
 uT
 Cq
@@ -65974,9 +66166,9 @@ Nw
 Ms
 Id
 Id
-XK
+Xl
 Pb
-XN
+Xo
 Id
 Id
 OA
@@ -66176,18 +66368,18 @@ it
 uT
 wq
 xj
-XB
+DJ
 yl
 yE
 wq
 xj
-XB
+DJ
 yl
 yE
 wq
 xj
-XB
-XH
+DJ
+Fl
 BT
 uT
 Cq
@@ -66231,9 +66423,9 @@ KZ
 Ms
 Id
 Id
-XK
+Xl
 Pc
-XN
+Xo
 Id
 Id
 OA
@@ -66745,9 +66937,9 @@ MN
 Ms
 Id
 Id
-XK
+Xl
 Pb
-XN
+Xo
 Id
 Id
 OA
@@ -67002,9 +67194,9 @@ KZ
 Ms
 Id
 Id
-XK
+Xl
 Pd
-XN
+Xo
 Id
 Id
 OA
@@ -67260,7 +67452,7 @@ Ms
 Id
 Id
 Id
-XM
+YK
 Id
 Id
 Id
@@ -71428,16 +71620,16 @@ dl
 cP
 dl
 aO
-Ma
-BS
-Df
-Df
-Df
-Df
-Df
-Df
-BS
-Ma
+Xr
+Xy
+XF
+XM
+XT
+Ya
+Yh
+Yo
+Yv
+YC
 eO
 aM
 aM
@@ -71685,16 +71877,16 @@ dm
 cQ
 cP
 aO
-BS
-BS
-Dg
-Dg
-Dg
-Dg
-Dg
-Dg
-BS
-BS
+Xs
+Xz
+XG
+XN
+XU
+Yb
+Yi
+Yp
+Yw
+YD
 eO
 aM
 aM
@@ -71942,16 +72134,16 @@ cQ
 dm
 dl
 aO
-BS
-HL
-Dh
-DL
-ER
-Fm
-DL
-Xn
-Xu
-Ga
+Xt
+XA
+XH
+XO
+XV
+Yc
+Yj
+Yq
+Yx
+YE
 eO
 aM
 aM
@@ -72199,16 +72391,16 @@ dn
 dn
 eA
 aO
-BS
-Xs
-Dr
-Xm
-ET
-WE
-Xm
-Xo
-Xv
-BS
+Xu
+XB
+XI
+XP
+XW
+Yd
+Yk
+Yr
+Yy
+YF
 eO
 aM
 aM
@@ -72456,16 +72648,16 @@ cU
 do
 dp
 aO
-BS
-Xt
-DA
-Er
-Fl
-Xl
-Er
-Xr
-Xw
-BS
+Xv
+XC
+XJ
+XQ
+XX
+Ye
+Yl
+Ys
+Yz
+YG
 eO
 aM
 aM
@@ -72713,16 +72905,16 @@ do
 cU
 cV
 aO
-BS
-BS
-DJ
-DJ
-DJ
-DJ
-DJ
-DJ
-BS
-BS
+Xw
+XD
+XK
+XR
+XY
+Yf
+Ym
+Yt
+YA
+YH
 eO
 aM
 aM
@@ -72970,16 +73162,16 @@ dp
 cV
 dp
 aO
-Ma
-BS
-Df
-Df
-Df
-Df
-Df
-Df
-BS
-Ma
+Xx
+XE
+XL
+XS
+XZ
+Yg
+Yn
+Yu
+YB
+YI
 eO
 aM
 aM
@@ -75058,7 +75250,7 @@ aM
 aM
 aM
 hV
-Xy
+Dg
 iw
 jb
 jh
@@ -76100,7 +76292,7 @@ aM
 aM
 aM
 aM
-Xy
+Dg
 it
 aM
 aM
@@ -79938,9 +80130,9 @@ aM
 aM
 aM
 aM
-Eh
+BS
 iH
-Xx
+Df
 aM
 aM
 aM
