@@ -59863,14 +59863,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/medical/icu)
-"eoX" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	name = "Mining Processing Hatch";
-	req_access = list(48)
-	},
-/obj/machinery/door/firedoor,
-/turf/space,
-/area/outpost/mining_main/refinery)
 "epT" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Medbay Substation";
@@ -92992,7 +92984,7 @@ kyC
 hcb
 kyC
 kyC
-eoX
+ciW
 lQg
 lQg
 lQg
