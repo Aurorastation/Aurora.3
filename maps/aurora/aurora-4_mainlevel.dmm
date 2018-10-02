@@ -22105,7 +22105,7 @@
 	req_access = list(56)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/mob/living/bot/floorbot/floorbob,
+/mob/living/simple_animal/parrot/Poly,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/chief)
 "aLY" = (
@@ -106030,9 +106030,9 @@ bEH
 bEH
 bEH
 bEH
-xIo
+xIh
 bcb
-xIr
+xIh
 btj
 bvx
 btj
@@ -106289,7 +106289,7 @@ aSs
 aWj
 bag
 bcA
-xIs
+xIh
 bul
 bvy
 xFY
@@ -106541,12 +106541,12 @@ aQt
 aQt
 aQt
 byX
-xIi
+xIh
 aSL
 aWk
 bai
 bcB
-xIt
+xIh
 xFY
 xGb
 xFY
@@ -106798,12 +106798,12 @@ bds
 aiZ
 aQt
 byY
-xIj
+xIh
 aTd
 aWl
 bal
 bcG
-xIu
+xIh
 bum
 bvz
 bwz
@@ -107055,12 +107055,12 @@ aRV
 biM
 aQt
 bmK
-xIk
+xIh
 aTp
 aWm
 baG
 bcH
-xIv
+xIh
 xGc
 xGc
 xFY
@@ -107312,12 +107312,12 @@ bhk
 biN
 aQt
 bmK
-xIl
-xIm
-xIn
-xIp
-xIq
-xIw
+xIh
+xIh
+xIh
+xIh
+xIh
+xIh
 btj
 btj
 btj
