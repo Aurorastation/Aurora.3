@@ -3095,6 +3095,18 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/wood,
 /area/library)
+"agr" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/window/brigdoor/southright{
+	req_access = list(56)
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/mob/living/simple_animal/parrot/Poly,
+/turf/simulated/floor/tiled,
+/area/crew_quarters/heads/chief)
 "agv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark{
@@ -21192,18 +21204,6 @@
 /obj/machinery/light_switch{
 	pixel_y = 24
 	},
-/turf/simulated/floor/tiled,
-/area/crew_quarters/heads/chief)
-"aLX" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/machinery/door/window/brigdoor/southright{
-	req_access = list(56)
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/mob/living/bot/floorbot/floorbob,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/chief)
 "aLY" = (
@@ -82113,7 +82113,7 @@ aEO
 aGN
 aIs
 alY
-aLX
+agr
 aNL
 aPp
 aRd
