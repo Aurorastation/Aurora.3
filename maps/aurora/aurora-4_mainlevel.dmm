@@ -33803,6 +33803,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
@@ -42912,7 +42914,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/space,
+/turf/simulated/floor/plating,
 /area/medical/medbay)
 "bBF" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -48887,7 +48889,7 @@
 	c_tag = "Engineering - Aft Maint EVA";
 	dir = 4
 	},
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "bPT" = (
 /obj/item/stack/tile/floor,
@@ -49092,7 +49094,7 @@
 	name = "Engineering External Access";
 	req_access = list(13)
 	},
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "bQs" = (
 /obj/effect/decal/cleanable/generic,
@@ -58308,7 +58310,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/security/security_office)
 "cth" = (
@@ -59867,7 +59869,7 @@
 	req_access = list(48)
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/wall,
+/turf/space,
 /area/outpost/mining_main/refinery)
 "epT" = (
 /obj/machinery/door/airlock/engineering{
@@ -60755,6 +60757,9 @@
 	req_access = list(28)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -64873,6 +64878,7 @@
 	name = "Mail Sorting";
 	req_access = list(50)
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
 "wxQ" = (

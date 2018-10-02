@@ -3207,10 +3207,6 @@
 	icon_state = "rwindow";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	icon_state = "intact";
-	dir = 5
-	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "agS" = (
@@ -3222,10 +3218,6 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	icon_state = "intact";
-	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
