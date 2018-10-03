@@ -108,8 +108,8 @@
 	stop_automated_movement = 0
 	walk(src, 0)
 
-/mob/living/simple_animal/hostile/giant_spider/proc/validator_e_field(var/obj/effect/energy_field/E)
-	if(isliving(T)) // We prefer mobs over anything else
+/mob/living/simple_animal/hostile/giant_spider/proc/validator_e_field(var/obj/effect/energy_field/E, var/atom/current)
+	if(isliving(current)) // We prefer mobs over anything else
 		return FALSE
 	var/dist = get_dist(src, E)
 	if(dist < closest_distance)
