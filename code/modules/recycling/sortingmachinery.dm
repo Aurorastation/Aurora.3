@@ -220,7 +220,7 @@
 	icon_state = "deliveryPaper"
 	w_class = 3.0
 	var/amount = 25.0
-
+	var/wrapping_tag = "Sorting Office"
 
 /obj/item/weapon/packageWrap/afterattack(var/obj/target as obj, mob/user as mob, proximity)
 	if(!proximity) return
@@ -263,6 +263,7 @@
 			if(i > 5)
 				P.icon_state = "deliverycrate5"
 				P.name = "huge parcel"
+			P.sortTag = wrapping_tag
 			P.add_fingerprint(usr)
 			O.add_fingerprint(usr)
 			src.add_fingerprint(usr)
@@ -276,6 +277,7 @@
 			var/obj/structure/bigDelivery/P = new /obj/structure/bigDelivery(get_turf(O.loc))
 			P.icon_state = "deliverycrate"
 			P.wrapped = O
+			P.sortTag = wrapping_tag
 			O.forceMove(P)
 			src.amount -= 3
 			user.visible_message("\The [user] wraps \a [target] with \a [src].",\
@@ -289,6 +291,7 @@
 			var/obj/structure/bigDelivery/P = new /obj/structure/bigDelivery(get_turf(O.loc))
 			P.wrapped = O
 			O.welded = 1
+			P.sortTag = wrapping_tag
 			O.forceMove(P)
 			src.amount -= 3
 			user.visible_message("\The [user] wraps \a [target] with \a [src].",\
