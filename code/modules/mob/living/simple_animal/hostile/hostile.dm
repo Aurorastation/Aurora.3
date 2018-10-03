@@ -55,7 +55,7 @@
 			continue
 		else if (!istype(cb) || cb.Invoke(A, T))
 			T = A
-	var/lowest_health = INFINITY
+	lowest_health = INFINITY
 
 	stop_automated_movement = 0
 
