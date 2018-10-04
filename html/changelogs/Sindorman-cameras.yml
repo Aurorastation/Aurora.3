@@ -9,6 +9,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - tweak: "Beepsky/ED209 now uses different method of movement. Making it waay faster at moving"
-  - rscadd: "Beepsky/ED209 now arrests/detains person who attacks them. Reporting arrest/detaintion, who attacked them, what weapon was used and location"
-  - tweak: "Beepsky/ED209 uses better paths between beacons, so it moves faster. But it still moved between mostly two beacons, I will change it next dev cycle"
+  - maptweak: "As per privacy update all bathrooms on the station no longer have cameras installed in them, with the exception of the brig bathroom for prisoners."

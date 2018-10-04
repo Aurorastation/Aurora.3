@@ -22555,10 +22555,6 @@
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
-/obj/machinery/vending/snack{
-	name = "Free Chocolate Corp";
-	prices = list()
-	},
 /turf/unsimulated/floor{
 	icon_state = "wood_siding4"
 	},
@@ -22566,10 +22562,6 @@
 "XM" = (
 /turf/unsimulated/floor{
 	icon_state = "floor"
-	},
-/obj/machinery/vending/cola{
-	name = "Free Robust Softdrinks";
-	prices = list()
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_siding8"

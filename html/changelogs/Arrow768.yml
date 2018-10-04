@@ -34,4 +34,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "By adding a secret additive to the food, NanoTrasen has increased the time it takes until food is burned in the cooking machines."
+  - tweak: "The Leyon Gunsmithing LLC has reworked the \"Everyman\" to be targeted more towards civilians and was able to reduce the market-price of it."

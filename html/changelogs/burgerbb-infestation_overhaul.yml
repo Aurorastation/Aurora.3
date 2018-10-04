@@ -6,7 +6,7 @@
 # Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
 # When it is, any changes listed below will disappear.
 #
-# Valid Prefixes:
+# Valid Prefixes: 
 #   bugfix
 #   wip (For works in progress)
 #   tweak
@@ -22,8 +22,8 @@
 #   balance
 #################################
 
-# Your name.
-author: PoZe
+# Your name.  
+author: BurgerBB
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -33,7 +33,7 @@ delete-after: True
 # SCREW THIS UP AND IT WON'T WORK.
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
-changes:
-  - balance: "IPC and Cyborgs surge prevention modules(EMP immunity) now give you 2-5 EMP protections which determined by RNG during installation of it."
-  - balance: "IPC uplink surge prevention module(EMP immunity) cost reduced to 12 telecrystals."
-  - balance: "Cyborgs surge prevention module(EMP immunity) gold and silver cost reduced by 50%. It is now 5000 gold and 7500 silver."
+changes: 
+  - rscadd: "Event infestations can now target anywhere on the station, as long there are no occupents."
+  - tweak: "Removed yithians and diyaabs from infestation events and replaced them with slimes and hivebots."
+  

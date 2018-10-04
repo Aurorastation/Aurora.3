@@ -34,5 +34,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Added a fun new card game; Battle Monsters. A vending machine that dispenses these cards and the rulebook can be found in the library."
-  - rscadd: "Added a new holodeck preset: Battlemonsters Arena. Now you can duel it out like manchildren in the holodeck."
+  - rscadd: "Added various menu settings for the general interface to allow more space."

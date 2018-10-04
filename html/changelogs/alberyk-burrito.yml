@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - tweak: "Burritos should now only require two meatballs to make."
-  - tweak: "Vegan burrits do not require cabbage and carrot anymore."

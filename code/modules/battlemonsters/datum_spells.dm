@@ -101,3 +101,23 @@
 	description = "two monsters chasing eachother, eventually becoming one giant blur."
 	special_effects = "TRIGGER: When revealed. Single use.<br>EFFECT: Fuse the special effects of two monsters together, and reveal both cards. Fused monsters cannot attack on the turn they are fused."
 	rarity_score = 1
+
+/datum/battle_monsters/spell/darkness
+	name = "Summon Darkness"
+	id = "narsie"
+	icon_state = "narsie"
+	elements = BATTLE_MONSTERS_ELEMENT_DARK
+	rarity = 1
+	description = "some strange and otherwordly being."
+	special_effects = "TRIGGER: When revealed. Single use.<br>EFFECT: The summoner draws 1 chosen dark element monster to the field from their graveyard or supply deck, and then shuffles the chosen deck."
+	rarity_score = 1
+
+/datum/battle_monsters/spell/prank
+	name = "Clown Prank"
+	id = "prank"
+	icon_state = "clown"
+	elements = BATTLE_MONSTERS_ELEMENT_NEUTRAL
+	rarity = 1
+	description = "an incredibly overjoyed clown. Honk."
+	special_effects = "TRIGGER: When revealed. Single use.<br>EFFECT: If the opponent has more cards on the field than in their hand, the opponent must discard their entire hand."
+	rarity_score = 1

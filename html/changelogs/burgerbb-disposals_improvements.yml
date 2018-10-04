@@ -34,5 +34,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Added the ability to rename food and edit its description with a pen. Please don't make me regret this."
-
+  - maptweak: "Remapped the cargo lobby. Remapped disposals/the crusher. Added a mail disposals room. Relocated main level cryo to the main level dorms."
