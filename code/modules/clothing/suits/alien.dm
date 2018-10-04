@@ -124,7 +124,7 @@
 	item_state = "fur_hat"
 	contained_sprite = TRUE
 
-/obj/item/clothing/mask/vaurca
+/obj/item/clothing/mask/tajara
 	name = "sun sister veil"
 	desc = "A veil worn by the female Priests of the S'rand'Marr religion."
 	icon = 'icons/obj/tajara_items.dmi'
