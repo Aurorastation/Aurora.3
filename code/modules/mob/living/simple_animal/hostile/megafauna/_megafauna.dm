@@ -1,3 +1,7 @@
+#define MEGAFAUNA_DEFAULT_RECOVERY_TIME 3 SECONDS
+
+#define ISINRANGE(VALUE,MIN,MAX) (VALUE <= MAX && VALUE >= MIN)
+
 /mob/living/simple_animal/hostile/megafauna/
 	name = "megafauna"
 	icon_state = ""
@@ -68,6 +72,10 @@
 		return (L.health - L.halloss) > 0
 
 	return TRUE
+
+/mob/living/simple_animal/hostile/megafauna/proc/derez()
+	visible_message("<span class='notice'>\The [src] fades away!</span>")
+	qdel(src)
 
 
 

@@ -82,3 +82,7 @@
 /area/holodeck/source_battlemonsters
 	name = "\improper Holodeck - Battlemonsters Arena"
 	sound_env = ARENA
+
+/area/holodeck/source_lavaland
+	name = "\improper Holodeck - Lavaland Simulation"
+	sound_env = ARENA

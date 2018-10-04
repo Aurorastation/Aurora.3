@@ -138,6 +138,45 @@
 	if(prob(10))
 		add_overlay("asteroid[rand(0,9)]")
 
+/turf/simulated/floor/holofloor/basalt
+	name = "basalt"
+	base_name = "basalt"
+	desc = "Dark volcanic rock."
+	base_desc = "Dark volcanic rock."
+	icon = 'icons/turf/basalt.dmi'
+	base_icon = 'icons/turf/basalt.dmi'
+	icon_state = "basalt"
+	base_icon_state = "basalt"
+
+	initial_flooring = null
+
+	light_color = LIGHT_COLOR_LAVA
+	smooth = SMOOTH_FALSE
+	canSmoothWith = null
+
+	footstep_sound = "concretestep"
+
+/turf/simulated/floor/holofloor/basalt/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
+	underlay_appearance.icon = icon
+	underlay_appearance.icon_state = "basalt"
+	if (prob(20))
+		underlay_appearance.icon_state += "[rand(0,12)]"
+	return TRUE
+
+/turf/simulated/floor/holofloor/basalt/Initialize(mapload)
+	if (prob(20))
+		var/variant = rand(0,12)
+		icon_state = "basalt[variant]"
+		base_icon_state = "basalt[variant]"
+		switch (variant)
+			if (1, 2, 3)	// fair bit of lava visible, less weak light
+				light_power = 0.75
+				light_range = 2
+			if (5, 9)	// Not much lava visible, weak light
+				light_power = 0.5
+				light_range = 2
+	. = ..()
+
 /obj/structure/holostool
 	name = "stool"
 	desc = "Apply butt."

@@ -55,10 +55,15 @@
 				continue
 			if(!CanAquireTarget(scanned_mob))
 				continue
-			if(!locate(/obj/effect/decal/cleanable/blood/holographic) in get_turf(scanned_mob))
-				continue
+			if(holographic)
+				if(!locate(/obj/effect/decal/cleanable/blood/holographic) in get_turf(scanned_mob))
+					continue
+			else
+				if(!locate(/obj/effect/decal/cleanable/blood) in get_turf(scanned_mob))
+					continue
 
-			new/obj/effect/tendril(get_turf(scanned_mob))
+			var/obj/effect/tendril/spawned_tendril = new(get_turf(scanned_mob))
+			spawned_tendril.holographic = holographic
 
 		next_blood = world.time + 1 SECONDS
 

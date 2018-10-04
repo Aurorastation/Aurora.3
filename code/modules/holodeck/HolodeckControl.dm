@@ -198,10 +198,26 @@
 			if (get_area(C.loc) != linkedholodeck)
 				holographic_mobs -= C
 				C.derez()
+
 		for(var/mob/living/simple_animal/penguin/holodeck/P in holographic_mobs)
 			if (get_area(P.loc) != linkedholodeck)
 				holographic_mobs -= P
 				P.derez()
+
+		for(var/mob/living/simple_animal/hostile/megafauna/bubblegum/B in holographic_mobs)
+			if (get_area(B.loc) != linkedholodeck)
+				holographic_mobs -= B
+				B.derez()
+
+		for(var/mob/living/simple_animal/hostile/megafauna/colossus/C in holographic_mobs)
+			if (get_area(C.loc) != linkedholodeck)
+				holographic_mobs -= C
+				C.derez()
+
+		for(var/mob/living/simple_animal/hostile/megafauna/ash_drake/AD in holographic_mobs)
+			if (get_area(AD.loc) != linkedholodeck)
+				holographic_mobs -= AD
+				AD.derez()
 
 	if(inoperable())
 		return
@@ -292,7 +308,22 @@
 		holographic_mobs -= P
 		P.derez()
 
+	for(var/mob/living/simple_animal/hostile/megafauna/bubblegum/B in holographic_mobs)
+		holographic_mobs -= B
+		B.derez()
+
+	for(var/mob/living/simple_animal/hostile/megafauna/colossus/C in holographic_mobs)
+		holographic_mobs -= C
+		C.derez()
+
+	for(var/mob/living/simple_animal/hostile/megafauna/ash_drake/AD in holographic_mobs)
+		holographic_mobs -= AD
+		AD.derez()
+
 	for(var/obj/effect/decal/cleanable/blood/B in linkedholodeck)
+		qdel(B)
+
+	for(var/obj/effect/decal/cleanable/blood/holographic/B in linkedholodeck)
 		qdel(B)
 
 	holographic_objs = A.copy_contents_to(linkedholodeck , 1)
@@ -321,6 +352,16 @@
 						T.hotspot_expose(50000,50000,1)
 			if(L.name=="Holocarp Spawn")
 				holographic_mobs += new /mob/living/simple_animal/hostile/carp/holodeck(L.loc)
+			if(L.name=="Holofauna Spawn")
+				var/possible_mobs = list(
+					/mob/living/simple_animal/hostile/megafauna/ash_drake = 3,
+					/mob/living/simple_animal/hostile/megafauna/bubblegum = 2,
+					/mob/living/simple_animal/hostile/megafauna/colossus = 1
+				)
+
+				var/mob/living/simple_animal/hostile/picked_mob = pick(possible_mobs)
+
+				holographic_mobs += new picked_mob(L.loc)
 
 			if(L.name=="Penguin Spawn Random")
 				if (prob(50))

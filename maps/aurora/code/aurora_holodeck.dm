@@ -46,7 +46,7 @@
 		),
 		"theatre" = new /datum/holodeck_program(/area/holodeck/source_theatre),
 		"meetinghall" = new /datum/holodeck_program(/area/holodeck/source_meetinghall),
-		"courtroom" = new /datum/holodeck_program(/area/holodeck/source_courtroom, 
+		"courtroom" = new /datum/holodeck_program(/area/holodeck/source_courtroom,
 			list('sound/music/traitor.ogg')
 		),
 		"burntest" = new /datum/holodeck_program(/area/holodeck/source_burntest, list()),
@@ -61,12 +61,13 @@
 			)
 		),
 		"gym" = new /datum/holodeck_program(/area/holodeck/source_gym),
-		"battlemonsters" = new /datum/holodeck_program(/area/holodeck/source_battlemonsters, 
+		"battlemonsters" = new /datum/holodeck_program(/area/holodeck/source_battlemonsters,
 			list(
 				'sound/music/battlemonsters_theme.ogg'
 			),
 			FALSE
 		),
+		"lavaland" = new /datum/holodeck_program(/area/holodeck/source_lavaland, list()),
 		"turnoff" = new /datum/holodeck_program(/area/holodeck/source_plating)
 	)
 
@@ -89,5 +90,6 @@
 	)
 	holodeck_restricted_programs = list(
 		"Atmospheric Burn Simulation" = "burntest",
-		"Wildlife Simulation" = "wildlifecarp"
+		"Wildlife Simulation" = "wildlifecarp",
+		"Lavaland Simulation" = "lavaland"
 	)

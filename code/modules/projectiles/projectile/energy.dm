@@ -61,11 +61,14 @@
 	taser_effect = 1
 	agony = 10
 	speed = 8
+	on_penetrate = 10
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 
 /obj/item/projectile/energy/electrode/firewave/process()
 	if( locate(/obj/effect/temp_visual/dragon_fire, get_turf(src)) || isopenturf(get_turf(src)) )
 		return ..()
-	new /obj/effect/temp_visual/dragon_fire(get_turf(src))
+	var/obj/effect/temp_visual/dragon_fire = new(get_turf(src))
+	dragon_fire.holographic = TRUE
 	for(var/mob/living/L in get_turf(src))
 		L.adjustHalLoss(10)
 
@@ -74,7 +77,8 @@
 	taser_effect = 1
 	agony = 20
 	icon_state = "ice_2"
-	speed = 16
+	speed = 10
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 
 /obj/item/projectile/energy/electrode/blood_bolt
 	name = "blood bolt"
@@ -83,6 +87,7 @@
 	taser_effect = 1
 	agony = 20
 	speed = 2
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 
 /obj/item/projectile/energy/electrode/blood_bolt/process()
 	if( locate(/obj/effect/decal/cleanable/blood/holographic, src.loc) || isopenturf(src.loc) )
@@ -258,7 +263,7 @@
 	icon_state = "blood"
 	taser_effect = 1
 	damage = 15
-	damage_type = BURN
+	damage_type = BRUTE
 	speed = 2
 	embed = 0
 
@@ -274,11 +279,15 @@
 	damage_type = BURN
 	speed = 8
 	incinerate = 2
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+	on_penetrate = 10
 
 /obj/item/projectile/energy/firewave/process()
 	if( locate(/obj/effect/temp_visual/dragon_fire, get_turf(src)) || isopenturf(get_turf(src)) )
 		return ..()
-	new /obj/effect/temp_visual/dragon_fire(get_turf(src))
+
+	var/obj/effect/temp_visual/dragon_fire = new(get_turf(src))
+	dragon_fire.holographic = FALSE
 	for(var/mob/living/L in get_turf(src))
 		L.fire_stacks += 4
 		L.IgniteMob()

@@ -5,10 +5,6 @@
 #define SWOOP_DAMAGEABLE 1
 #define SWOOP_INVULNERABLE 2
 
-#define MEGAFAUNA_DEFAULT_RECOVERY_TIME 3 SECONDS
-
-#define ISINRANGE(VALUE,MIN,MAX) (VALUE <= MAX && VALUE >= MIN)
-
 /mob/living/simple_animal/hostile/megafauna/ash_drake
 	name = "\improper Ash Drake"
 	icon = 'icons/mob/64x64megafauna.dmi'
@@ -43,7 +39,7 @@
 	holographic = TRUE
 	projectiletype = /obj/item/projectile/energy/electrode/firewave
 
-/mob/living/simple_animal/hostile/megafauna/ash_drake/holographic/boss
+/mob/living/simple_animal/hostile/megafauna/ash_drake/boss
 	health = 2500
 	maxHealth = 2500
 	melee_damage_lower = 20
@@ -198,8 +194,6 @@
 	sleep(1)
 	swooping = 0
 	setClickCooldown(MEGAFAUNA_DEFAULT_RECOVERY_TIME)
-	if(!ckey)
-		ranged = prob(50)
 
 /obj/effect/temp_visual/dragon_swoop
 	name = "certain death"
@@ -261,18 +255,23 @@
 	randomdir = TRUE
 	color = "#F08C00"
 	alpha = 200
+	var/holographic = FALSE
 
 /obj/effect/temp_visual/dragon_fire/Initialize()
 	. = ..()
 	animate(src, alpha = 0, time = duration)
 
 	if(prob(50))
-		var/turf/T = get_step(get_turf(src),pick(NORTH,EAST,SOUTH,WEST))
-		if(!locate(/obj/effect/temp_visual/dragon_fire) in T)
+		var/turf/T = get_step(src,pick(NORTH,EAST,SOUTH,WEST))
+		if(T && !locate(/obj/effect/temp_visual/dragon_fire) in T)
 			CHECK_TICK
 			new/obj/effect/temp_visual/dragon_fire(T.loc)
 
 /obj/effect/temp_visual/Crossed(var/mob/living/L as mob)
 	if(istype(L))
-		L.adjustHalLoss(10)
+		if(holographic)
+			L.adjustHalLoss(10)
+		else
+			L.fire_stacks += 4
+			L.IgniteMob()
 
