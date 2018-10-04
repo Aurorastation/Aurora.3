@@ -67,6 +67,22 @@
 	icon_state = "taj_fancycloak"
 	item_state = "taj_fancycloak"
 
+/obj/item/clothing/suit/storage/tajaran/nomad
+	name = "adhomian wool coat"
+	desc = "An adhomian coat, this one is a design commonly found among the Rhazar'Hrujmagh people."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "zhan_coat"
+	item_state = "zhan_coat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/tajaran/messa
+	name = "sun sister robe"
+	desc = "A robe worn by the female priests of the S'rand'Marr religion"
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "messarobes"
+	item_state = "messarobes"
+	contained_sprite = TRUE
+
 /obj/item/clothing/suit/storage/hooded/tajaran
 	name = "gruff cloak"
 	desc = "A cloak designated for the lowest classes."
@@ -77,13 +93,14 @@
 	flags_inv = HIDETAIL
 	hoodtype = /obj/item/clothing/head/winterhood
 
-/obj/item/clothing/suit/storage/tajaran/nomad
-	name = "adhomian wool coat"
-	desc = "An adhomian coat, this one is a design commonly found among the Rhazar'Hrujmagh people."
+/obj/item/clothing/suit/storage/hooded/tajaran/priest
+	name = "sun priest robe"
+	desc = "A robe worn by male priests of the S'rand'marr religion."
 	icon = 'icons/obj/tajara_items.dmi'
-	icon_state = "zhan_coat"
-	item_state = "zhan_coat"
+	icon_state = "priestrobe"
+	item_state = "priestrobe"
 	contained_sprite = TRUE
+	flags_inv = 0
 
 /obj/item/clothing/head/tajaran/circlet
 	name = "golden dress circlet"
@@ -105,6 +122,14 @@
 	desc = "A typical tajaran hat, made with the fur of some adhomian animal."
 	icon_state = "fur_hat"
 	item_state = "fur_hat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/mask/vaurca
+	name = "sun sister veil"
+	desc = "A veil worn by the female Priests of the S'rand'Marr religion."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "veil"
+	item_state = "veil"
 	contained_sprite = TRUE
 
 //Vaurca clothing
