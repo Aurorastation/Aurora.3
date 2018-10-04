@@ -1,6 +1,5 @@
-/mob/living/simple_animal/hostile/commanded/battlemonster/bubblegum
+/mob/living/simple_animal/hostile/megafauna/bubblegum
 	name = "Bubblegum"
-	short_name = "bubblegum"
 	icon = 'icons/mob/96x96megafauna.dmi'
 	icon_state = "bubblegum"
 	icon_living = "bubblegum"
@@ -9,8 +8,8 @@
 
 	attack_sound = 'sound/magic/demon_attack1.ogg'
 
-	health = 3000
-	maxHealth = 3000
+	health = 1250
+	maxHealth = 1250
 
 	rapid = 1
 
@@ -19,7 +18,10 @@
 	attack_delay = 0.25 SECONDS
 
 	projectilesound = 'sound/magic/enter_blood.ogg'
-	projectiletype = /obj/item/projectile/energy/electrode/blood_bolt
+	projectiletype = /obj/item/projectile/energy/blood_bolt
+
+	melee_damage_lower = 15
+	melee_damage_upper = 20
 
 	pixel_x = -32
 
@@ -31,7 +33,17 @@
 
 	var/charging = FALSE
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/bubblegum/think()
+/mob/living/simple_animal/hostile/megafauna/bubblegum/holographic
+	holographic = TRUE
+	projectiletype = /obj/item/projectile/energy/electrode/blood_bolt
+
+/mob/living/simple_animal/hostile/megafauna/bubblegum/boss
+	melee_damage_lower = 30
+	melee_damage_upper = 40
+	health = 2500
+	maxHealth = 2500
+
+/mob/living/simple_animal/hostile/megafauna/bubblegum/think()
 
 	if(charging)
 		return
@@ -88,30 +100,24 @@
 
 	. = ..()
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/bubblegum/AttackingTarget()
+/mob/living/simple_animal/hostile/megafauna/bubblegum/AttackingTarget()
 	if(charging)
 		return
 	..()
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/bubblegum/DestroySurroundings()
-	if(charging)
-		return
-
-	..()
-
-/mob/living/simple_animal/hostile/commanded/battlemonster/bubblegum/follow_target()
+/mob/living/simple_animal/hostile/megafauna/bubblegum/DestroySurroundings()
 	if(charging)
 		return
 
 	..()
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/bubblegum/MoveToTarget()
+/mob/living/simple_animal/hostile/megafauna/bubblegum/MoveToTarget()
 	if(charging)
 		return
 
 	. = ..()
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/bubblegum/OpenFire(target_mob)
+/mob/living/simple_animal/hostile/megafauna/bubblegum/OpenFire(target_mob)
 
 	if(charging)
 		return
@@ -125,12 +131,12 @@
 
 	return ..()
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/bubblegum/proc/charge_multi(var/target_mob)
+/mob/living/simple_animal/hostile/megafauna/bubblegum/proc/charge_multi(var/target_mob)
 	charge(target_mob)
 	charge(target_mob)
 	charge(target_mob)
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/bubblegum/proc/charge(var/target_mob)
+/mob/living/simple_animal/hostile/megafauna/bubblegum/proc/charge(var/target_mob)
 	if(charging)
 		return
 	var/turf/T = get_turf(target_mob)
@@ -151,7 +157,7 @@
 		ranged = FALSE
 	next_shoot = world.time + 2 SECONDS
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/bubblegum/Move()
+/mob/living/simple_animal/hostile/megafauna/bubblegum/Move()
 	if(!stat)
 		playsound(src.loc, 'sound/effects/meteorimpact.ogg', 200, 1, 2, 1)
 	if(charging)
@@ -164,19 +170,26 @@
 			return
 	. = ..()
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/bubblegum/throw_impact(atom/A)
+/mob/living/simple_animal/hostile/megafauna/bubblegum/throw_impact(atom/A)
 	if(!charging)
 		return ..()
 
 	else if(isliving(A))
 		var/mob/living/L = A
 		L.visible_message("<span class='danger'>[src] slams into [L]!</span>", "<span class='danger'>[src] slams into you!</span>")
-		L.adjustHalLoss(rand(melee_damage_lower,melee_damage_upper)*2)
+		if(holographic)
+			L.adjustHalLoss(rand(melee_damage_lower,melee_damage_upper)*2)
+		else
+			L.adjustBruteLoss(rand(melee_damage_lower,melee_damage_upper)*2)
 		playsound(get_turf(L), 'sound/effects/meteorimpact.ogg', 100, 1)
 		shake_camera(L, 4, 3)
 		shake_camera(src, 2, 3)
 		var/throwtarget = get_edge_target_turf(src, get_dir(src, get_step_away(L, src)))
 		L.throw_at(throwtarget, 3)
+
+/mob/living/simple_animal/hostile/megafauna/bubblegum/death()
+	..(null,death_message)
+	qdel(src)
 
 /obj/effect/temp_visual/decoy
 	desc = "It's a decoy!"
@@ -199,6 +212,7 @@
 	name = "tendril"
 	icon = 'icons/mob/lavaland_monsters.dmi'
 	desc = "This is just like one of my japanese animes!"
+	var/holographic = FALSE
 
 /obj/effect/tendril/Initialize()
 	. = ..()
@@ -209,7 +223,10 @@
 	update_icon()
 	sleep(7)
 	for(var/mob/living/L in get_turf(src))
-		L.adjustHalLoss(10)
+		if(holographic)
+			L.adjustHalLoss(10)
+		else
+			L.adjustBruteLoss(10)
 	icon_state = "Goliath_tentacle_retract"
 	update_icon()
 	sleep(7)

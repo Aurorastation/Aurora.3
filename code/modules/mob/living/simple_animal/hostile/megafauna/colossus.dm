@@ -1,18 +1,23 @@
-/mob/living/simple_animal/hostile/commanded/battlemonster/colossus
+/mob/living/simple_animal/hostile/megafauna/colossus
 	name = "Colossus"
-	short_name = "colossus"
 	icon = 'icons/mob/96x96megafauna.dmi'
 	icon_state = "eva"
 	icon_living = "eva"
 	icon_dead = ""
 	icon_gib = ""
 
-	health = 2000
-	maxHealth = 2000
+	health = 1500
+	maxHealth = 1500
 
 	speed = 5 SECONDS
 	move_to_delay = 5 SECONDS
 	attack_delay = 3 SECONDS
+
+	projectilesound = 'sound/magic/invoke_short.ogg'
+	projectiletype = /obj/item/projectile/energy/icebolt
+
+	melee_damage_lower = 0
+	melee_damage_upper = 0
 
 	pixel_x = -16
 
@@ -22,7 +27,15 @@
 
 	var/attacking = FALSE
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/colossus/AltClickOn(atom/movable/A)
+/mob/living/simple_animal/hostile/megafauna/colossus/holographic
+	holographic = TRUE
+	projectiletype = /obj/item/projectile/energy/electrode/icebolt
+
+/mob/living/simple_animal/hostile/megafauna/colossus/boss
+	health = 3000
+	maxHealth = 3000
+
+/mob/living/simple_animal/hostile/megafauna/colossus/AltClickOn(atom/movable/A)
 	if(!istype(A))
 		return
 	else
@@ -32,7 +45,7 @@
 		INVOKE_ASYNC(src,.proc/SpamAttack,A,6,1)
 		ability_cooldown = world.time + 10 SECONDS
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/colossus/CtrlClickOn(atom/movable/A)
+/mob/living/simple_animal/hostile/megafauna/colossus/CtrlClickOn(atom/movable/A)
 	if(!istype(A))
 		return
 	else
@@ -42,7 +55,7 @@
 		INVOKE_ASYNC(src,.proc/SpamAttack,A,24,3,360)
 		ability_cooldown = world.time + 10 SECONDS
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/colossus/OpenFire(target_mob)
+/mob/living/simple_animal/hostile/megafauna/colossus/OpenFire(target_mob)
 	if(attacking)
 		return ..()
 
@@ -58,7 +71,7 @@
 				INVOKE_ASYNC(src,.proc/SpamAttack, target_mob, 24, rand(1,2), 180)
 	return TRUE
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/colossus/proc/SpamAttack(var/target_mob,var/projectiles = -1, var/delay = -1, var/spread = -1)
+/mob/living/simple_animal/hostile/megafauna/colossus/proc/SpamAttack(var/target_mob,var/projectiles = -1, var/delay = -1, var/spread = -1)
 	if(attacking)
 		return
 
@@ -78,7 +91,7 @@
 	for(var/i=1,i < projectiles_to_shoot,i++)
 		if(sleep_mod == 0 && i % 2 == 0)
 			continue
-		var/obj/item/projectile/energy/electrode/icebolt/spawned_projectile = new(src.loc)
+		var/obj/item/projectile/spawned_projectile = new projectiletype(src.loc)
 		spawned_projectile.launch_projectile(target_mob, get_exposed_defense_zone(target_mob), src, 0, Get_Angle(src, target_mob) + (i_mod+i)*spread_per_shot)
 		if(sleep_mod > 0 && projectiles >= 0)
 			playsound(src, 'sound/magic/invoke_short.ogg', 100, 1)
@@ -86,17 +99,16 @@
 
 	attacking = FALSE
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/colossus/DestroySurroundings()
+/mob/living/simple_animal/hostile/megafauna/bubblegum/death()
+	..(null,death_message)
+	qdel(src)
+
+/mob/living/simple_animal/hostile/megafauna/colossus/DestroySurroundings()
 	if(attacking)
 		return
 	..()
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/colossus/follow_target()
-	if(attacking)
-		return
-	..()
-
-/mob/living/simple_animal/hostile/commanded/battlemonster/colossus/MoveToTarget()
+/mob/living/simple_animal/hostile/megafauna/colossus/MoveToTarget()
 	if(attacking)
 		return
 	. = ..()

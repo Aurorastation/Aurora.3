@@ -1,7 +1,6 @@
-/mob/living/simple_animal/hostile/commanded/battlemonster
-	name = "battlemonsters monster"
-	icon = 'icons/mob/eye.dmi'
-	icon_state = "default-eye"
+/mob/living/simple_animal/hostile/megafauna/
+	name = "megafauna"
+	icon_state = ""
 
 	health = 1000
 	maxHealth = 1000
@@ -15,7 +14,6 @@
 	max_n2 = 0
 	minbodytemp = 0
 	environment_smash = 0
-	retribution = TRUE
 
 	melee_damage_lower = 25
 	melee_damage_upper = 25
@@ -24,7 +22,11 @@
 
 	tameable = FALSE
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/AttackingTarget() //Snowflake code
+	var/holographic = FALSE
+
+/mob/living/simple_animal/hostile/megafauna/AttackingTarget() //Snowflake code
+	if(!holographic)
+		return ..()
 	if(!Adjacent(target_mob))
 		return
 	setClickCooldown(attack_delay)
@@ -46,15 +48,21 @@
 		B.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 		return B
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/death()
+/mob/living/simple_animal/hostile/megafauna/death()
 	..(null,death_message)
 	playsound(src, 'sound/magic/demon_dies.ogg', 100, 1)
-	qdel(src)
+	if(holographic)
+		qdel(src)
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/GetTargetHealth(var/mob/living/L)
+/mob/living/simple_animal/hostile/megafauna/GetTargetHealth(var/mob/living/L)
+	if(!holographic)
+		return ..()
 	return L.health - L.halloss
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/CanAquireTarget(var/atom/A)
+/mob/living/simple_animal/hostile/megafauna/CanAquireTarget(var/atom/A)
+	if(!holographic)
+		return ..()
+
 	if(isliving(A))
 		var/mob/living/L = A
 		return (L.health - L.halloss) > 0

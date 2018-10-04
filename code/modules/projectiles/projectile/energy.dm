@@ -55,14 +55,14 @@
 	taser_effect = 1
 	agony = 80
 
-/obj/item/projectile/energy/electrode/fireball
+/obj/item/projectile/energy/electrode/firewave
 	name = "fire wave"
 	icon_state = ""
 	taser_effect = 1
 	agony = 10
 	speed = 8
 
-/obj/item/projectile/energy/electrode/fireball/process()
+/obj/item/projectile/energy/electrode/firewave/process()
 	if( locate(/obj/effect/temp_visual/dragon_fire, get_turf(src)) || isopenturf(get_turf(src)) )
 		return ..()
 	new /obj/effect/temp_visual/dragon_fire(get_turf(src))
@@ -251,6 +251,51 @@
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	embed = 0
 	incinerate = 2
+
+/obj/item/projectile/energy/blood_bolt
+	name = "blood bolt"
+	icon = 'icons/obj/projectiles.dmi'
+	icon_state = "blood"
+	taser_effect = 1
+	damage = 15
+	damage_type = BURN
+	speed = 2
+	embed = 0
+
+/obj/item/projectile/energy/electrode/blood_bolt/process()
+	if( locate(/obj/effect/decal/cleanable/blood, src.loc) || isopenturf(src.loc) )
+		return ..()
+	new /obj/effect/decal/cleanable/blood(src.loc)
+
+/obj/item/projectile/energy/firewave
+	name = "fire wave"
+	icon_state = ""
+	damage = 10
+	damage_type = BURN
+	speed = 8
+	incinerate = 2
+
+/obj/item/projectile/energy/firewave/process()
+	if( locate(/obj/effect/temp_visual/dragon_fire, get_turf(src)) || isopenturf(get_turf(src)) )
+		return ..()
+	new /obj/effect/temp_visual/dragon_fire(get_turf(src))
+	for(var/mob/living/L in get_turf(src))
+		L.fire_stacks += 4
+		L.IgniteMob()
+
+/obj/item/projectile/energy/icebolt
+	name = "ice shot"
+	damage = 20
+	icon_state = "ice_2"
+	speed = 16
+
+/obj/item/projectile/energy/icebolt/on_hit(var/atom/target, var/blocked = 0)
+	if(istype(target, /mob/living))
+		var/mob/M = target
+		M.bodytemperature = min(M.bodytemperature,-273)
+
+	return ..()
+
 
 /*/obj/item/projectile/energy/flamer
 	name = "promethium"

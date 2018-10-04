@@ -9,9 +9,8 @@
 
 #define ISINRANGE(VALUE,MIN,MAX) (VALUE <= MAX && VALUE >= MIN)
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/ash_drake
+/mob/living/simple_animal/hostile/megafauna/ash_drake
 	name = "\improper Ash Drake"
-	short_name = "ash drake"
 	icon = 'icons/mob/64x64megafauna.dmi'
 	icon_state = "dragon"
 	icon_living = "dragon"
@@ -21,14 +20,17 @@
 	attack_sound = 'sound/magic/demon_attack1.ogg'
 
 	projectilesound = 'sound/magic/Fireball.ogg'
-	projectiletype = /obj/item/projectile/energy/electrode/fireball
+	projectiletype = /obj/item/projectile/energy/firewave
+
+	melee_damage_lower = 10
+	melee_damage_upper = 15
 
 	pixel_x = -16
 
 	ranged = 1
 
-	health = 1000
-	maxHealth = 1000
+	health = 1250
+	maxHealth = 1250
 
 	speed = 0.75 SECONDS
 	move_to_delay = 0.75 SECONDS
@@ -37,7 +39,17 @@
 	var/swooping = 0
 	var/swoop_cooldown = 0
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/ash_drake/AltClickOn(atom/movable/A)
+/mob/living/simple_animal/hostile/megafauna/ash_drake/holographic
+	holographic = TRUE
+	projectiletype = /obj/item/projectile/energy/electrode/firewave
+
+/mob/living/simple_animal/hostile/megafauna/ash_drake/holographic/boss
+	health = 2500
+	maxHealth = 2500
+	melee_damage_lower = 20
+	melee_damage_upper = 25
+
+/mob/living/simple_animal/hostile/megafauna/ash_drake/AltClickOn(atom/movable/A)
 	if(!istype(A))
 		return
 	if(swoop_cooldown >= world.time)
@@ -45,7 +57,7 @@
 		return
 	INVOKE_ASYNC(src,.proc/swoop_attack_multi,A)
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/ash_drake/CtrlClickOn(atom/movable/A)
+/mob/living/simple_animal/hostile/megafauna/ash_drake/CtrlClickOn(atom/movable/A)
 	if(!istype(A))
 		return
 	if(swoop_cooldown >= world.time)
@@ -54,7 +66,7 @@
 	INVOKE_ASYNC(src,.proc/swoop_attack,A)
 	swoop_cooldown = world.time + DRAKE_SWOOP_COOLDOWN*3
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/ash_drake/AttackingTarget()
+/mob/living/simple_animal/hostile/megafauna/ash_drake/AttackingTarget()
 	if(swooping)
 		return
 
@@ -64,32 +76,27 @@
 
 	..()
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/ash_drake/visible_message()
+/mob/living/simple_animal/hostile/megafauna/ash_drake/visible_message()
 	if(swooping & SWOOP_INVULNERABLE) //to suppress attack messages without overriding every single proc that could send a message saying we got hit
 		return
 	return ..()
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/ash_drake/DestroySurroundings()
+/mob/living/simple_animal/hostile/megafauna/ash_drake/DestroySurroundings()
 	if(swooping)
 		return
 	..()
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/ash_drake/follow_target()
-	if(swooping)
-		return
-	..()
-
-/mob/living/simple_animal/hostile/commanded/battlemonster/ash_drake/MoveToTarget()
+/mob/living/simple_animal/hostile/megafauna/ash_drake/MoveToTarget()
 	if(swooping)
 		return
 	. = ..()
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/ash_drake/proc/swoop_attack_multi(atom/movable/manual_target, swoop_duration = 40)
+/mob/living/simple_animal/hostile/megafauna/ash_drake/proc/swoop_attack_multi(atom/movable/manual_target, swoop_duration = 40)
 	swoop_attack(manual_target,swoop_duration)
 	swoop_attack(manual_target,swoop_duration)
 	swoop_attack(manual_target,swoop_duration)
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/ash_drake/OpenFire(target_mob)
+/mob/living/simple_animal/hostile/megafauna/ash_drake/OpenFire(target_mob)
 
 	if(swooping)
 		return
@@ -106,7 +113,7 @@
 	else
 		. = ..()
 
-/mob/living/simple_animal/hostile/commanded/battlemonster/ash_drake/proc/swoop_attack(atom/movable/manual_target, swoop_duration = 40)
+/mob/living/simple_animal/hostile/megafauna/ash_drake/proc/swoop_attack(atom/movable/manual_target, swoop_duration = 40)
 	if(stat || swooping)
 		return
 	if(manual_target)
