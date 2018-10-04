@@ -40,19 +40,13 @@
 	faction = "carp"
 
 	flying = TRUE
-	var/closest_distance = INFINITY
 
 /mob/living/simple_animal/hostile/carp/Initialize()
-	..()
+	. = ..()
 	target_type_validator_map[/obj/effect/energy_field] = CALLBACK(src, .proc/validator_e_field)
 
 /mob/living/simple_animal/hostile/carp/Allow_Spacemove(var/check_drift = 0)
 	return 1	//No drifting in space for space carp!	//original comments do not steal
-
-/mob/living/simple_animal/hostile/carp/FindTarget()
-	. = ..()
-	closest_distance = INFINITY
-	return .
 
 /mob/living/simple_animal/hostile/carp/MoveToTarget()
 	stop_automated_movement = 1
@@ -119,9 +113,7 @@
 /mob/living/simple_animal/hostile/carp/proc/validator_e_field(var/obj/effect/energy_field/E, var/atom/current)
 	if(isliving(current)) // We prefer mobs over anything else
 		return FALSE
-	var/dist = get_dist(src, E)
-	if(dist < closest_distance)
-		closest_distance = dist
+	if(get_dist(src, E) < get_dist(src, current))
 		return TRUE
 	else
 		return FALSE

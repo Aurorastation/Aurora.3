@@ -35,7 +35,6 @@
 	move_to_delay = 6
 	speed = 3
 	mob_size = 6
-	var/closest_distance = INFINITY
 
 //nursemaids - these create webs and eggs
 /mob/living/simple_animal/hostile/giant_spider/nurse
@@ -111,9 +110,7 @@
 /mob/living/simple_animal/hostile/giant_spider/proc/validator_e_field(var/obj/effect/energy_field/E, var/atom/current)
 	if(isliving(current)) // We prefer mobs over anything else
 		return FALSE
-	var/dist = get_dist(src, E)
-	if(dist < closest_distance)
-		closest_distance = dist
+	if(get_dist(src, E) < get_dist(src, current))
 		return TRUE
 	else
 		return FALSE

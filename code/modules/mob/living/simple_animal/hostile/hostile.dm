@@ -23,10 +23,9 @@
 	var/list/targets = list()
 	var/attacked_times = 0
 	var/list/target_type_validator_map = list()
-	var/lowest_health = INFINITY // Max you can get
 
 /mob/living/simple_animal/hostile/Initialize()
-	..()
+	. = ..()
 	target_type_validator_map[/mob/living] = CALLBACK(src, .proc/validator_living)
 	target_type_validator_map[/obj/mecha] = CALLBACK(src, .proc/validator_mecha)
 	target_type_validator_map[/obj/machinery/bot] = CALLBACK(src, .proc/validator_bot)
@@ -55,7 +54,6 @@
 			continue
 		else if (!istype(cb) || cb.Invoke(A, T))
 			T = A
-	lowest_health = INFINITY
 
 	stop_automated_movement = 0
 
@@ -299,9 +297,13 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		return FALSE
 	if(L in friends)
 		return FALSE
-	if(!L.stat && (L.health < lowest_health))
-		lowest_health = L.health
-		return TRUE
+	if(!L.stat)
+		var/current_health = INFINITY
+		if (isliving(current))
+			var/mob/living/M = current
+			current_health = M.health
+			if(L.health < current_health)
+				return TRUE
 
 /mob/living/simple_animal/hostile/proc/validator_mecha(var/obj/mecha/M, var/atom/current)
 	if(isliving(current)) // We prefer mobs over anything else
