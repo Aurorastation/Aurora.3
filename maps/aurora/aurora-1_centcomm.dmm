@@ -22582,7 +22582,6 @@
 	},
 /area/centcom/living)
 "YS" = (
-/obj/structure/bed/chair,
 /obj/structure/bed/chair/office/bridge,
 /turf/unsimulated/floor{
 	dir = 1;
