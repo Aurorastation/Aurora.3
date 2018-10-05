@@ -7922,7 +7922,8 @@
 	},
 /area/centcom/living)
 "sE" = (
-/obj/structure/filingcabinet,
+/obj/structure/table/wood,
+/obj/machinery/chemical_dispenser/coffee/full,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -7971,45 +7972,6 @@
 	icon_state = "warnplate"
 	},
 /area/centcom/living)
-"sK" = (
-/obj/structure/table/wood,
-/obj/item/device/radio/phone,
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/unsimulated/floor{
-	dir = 9;
-	icon_state = "carpetside"
-	},
-/area/centcom/living)
-"sL" = (
-/obj/structure/bed/chair,
-/turf/unsimulated/floor{
-	dir = 1;
-	icon_state = "carpetside"
-	},
-/area/centcom/living)
-"sM" = (
-/obj/structure/table/wood,
-/obj/item/weapon/paper_bin{
-	pixel_x = 1;
-	pixel_y = 9
-	},
-/obj/item/weapon/pen,
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "carpetside"
-	},
-/area/centcom/living)
-"sN" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/centcom/living)
 "sO" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -8051,24 +8013,15 @@
 	},
 /area/centcom/living)
 "sS" = (
-/obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/structure/flora/pottedplant/random,
 /turf/unsimulated/floor{
-	dir = 10;
-	icon_state = "carpetside"
+	icon_state = "floor"
 	},
 /area/centcom/living)
 "sT" = (
 /obj/structure/table/wood,
 /turf/unsimulated/floor{
 	dir = 2;
-	icon_state = "carpetside"
-	},
-/area/centcom/living)
-"sU" = (
-/obj/structure/table/wood,
-/turf/unsimulated/floor{
-	dir = 6;
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
@@ -8141,15 +8094,6 @@
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
-	},
-/area/centcom/living)
-"td" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
 	},
 /area/centcom/living)
 "te" = (
@@ -9512,7 +9456,7 @@
 	},
 /area/centcom/creed)
 "wb" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/chair/office/bridge{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -9898,6 +9842,12 @@
 	dir = 1;
 	icon_state = "tube1";
 	pixel_y = 0
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "CREED";
+	name = "Administration Shuttle";
+	req_access = list(101);
+	step_y = 31
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -11104,7 +11054,8 @@
 	},
 /area/centcom/control)
 "zn" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -11148,7 +11099,7 @@
 	},
 /area/centcom/control)
 "zr" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/chair/office/bridge{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -11350,7 +11301,7 @@
 	},
 /area/centcom/control)
 "zJ" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/chair/office/bridge,
 /obj/effect/landmark{
 	name = "CCIAAgent"
 	},
@@ -11621,7 +11572,7 @@
 	},
 /area/centcom/control)
 "Ao" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/chair/office/bridge,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -22576,6 +22527,134 @@
 	icon_state = "wood_siding1"
 	},
 /area/centcom/spawning)
+"XQ" = (
+/obj/structure/table/wood,
+/obj/item/weapon/paper_bin{
+	pixel_x = 1;
+	pixel_y = 9
+	},
+/obj/item/weapon/pen,
+/turf/unsimulated/floor{
+	dir = 10;
+	icon_state = "carpetside"
+	},
+/area/centcom/living)
+"Yc" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp,
+/turf/unsimulated/floor{
+	dir = 6;
+	icon_state = "carpetside"
+	},
+/area/centcom/living)
+"Yl" = (
+/obj/structure/bed/chair/comfy/blue{
+	icon_state = "comfychair_preview";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/living)
+"Yp" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/living)
+"Yr" = (
+/obj/structure/banner,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/living)
+"Yy" = (
+/obj/structure/bed/chair/comfy/red{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/living)
+"YS" = (
+/obj/structure/bed/chair,
+/obj/structure/bed/chair/office/bridge,
+/turf/unsimulated/floor{
+	dir = 1;
+	icon_state = "carpetside"
+	},
+/area/centcom/living)
+"YV" = (
+/obj/structure/banner,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/living)
+"YX" = (
+/obj/structure/table/wood,
+/obj/item/device/radio/phone,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	dir = 5;
+	icon_state = "carpetside"
+	},
+/area/centcom/living)
+"Zh" = (
+/obj/structure/filingcabinet,
+/turf/unsimulated/floor{
+	dir = 9;
+	icon_state = "carpetside"
+	},
+/area/centcom/living)
+"Zk" = (
+/obj/structure/flora/pottedplant/random,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/living)
+"ZG" = (
+/obj/structure/bed/chair/office/dark,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/control)
+"ZI" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 8
+	},
+/obj/structure/bed/chair/comfy/red{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/living)
+"ZU" = (
+/obj/machinery/photocopier,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/living)
+"ZV" = (
+/obj/structure/bed/chair/comfy/blue{
+	icon_state = "comfychair_preview";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/living)
 
 (1,1,1) = {"
 aa
@@ -58711,7 +58790,7 @@ pW
 pW
 uX
 vh
-vh
+ZG
 vO
 uT
 wV
@@ -62285,8 +62364,8 @@ aM
 aM
 aM
 aM
-aM
-aM
+pW
+pW
 pW
 pW
 pW
@@ -62542,17 +62621,17 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
 pW
-sE
-sK
-sS
+Zk
+Yp
 sF
+sF
+Yp
+sE
 pW
+sS
+ZI
+Yy
 rI
 pW
 it
@@ -62799,18 +62878,18 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
 sq
 sF
-sL
-sT
-td
+Zh
+XQ
+sF
+sF
+Yr
 pW
-tA
+YV
+rI
+rI
+rI
 sq
 aM
 aM
@@ -63056,17 +63135,17 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
 sq
 sF
-sM
-sU
+YS
+sT
+ZV
+sF
 sF
 tp
+rI
+rI
+rI
 rI
 sq
 aM
@@ -63313,17 +63392,17 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
+sq
+sF
+YX
+Yc
+sF
+sF
+Yr
 pW
-sF
-sN
-sF
-sF
-pW
+YV
+rI
+rI
 rI
 sq
 aM
@@ -63570,17 +63649,17 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
 pW
+Zk
+sF
+sF
+sF
+sF
+ZU
 pW
-pW
-pW
-pW
-pW
+sS
+Yl
+Yl
 rI
 sq
 aM
@@ -63827,16 +63906,16 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+pW
+pW
+sq
+sq
+sq
+sq
+pW
+pW
+pW
+pW
 pW
 tA
 sq
