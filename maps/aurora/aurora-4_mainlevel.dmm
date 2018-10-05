@@ -24461,11 +24461,6 @@
 "aQo" = (
 /obj/structure/table/glass,
 /obj/item/weapon/material/ashtray/bronze,
-/obj/machinery/button/windowtint{
-	id = "medlounge";
-	pixel_x = -4;
-	step_x = 0
-	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
 "aQp" = (
