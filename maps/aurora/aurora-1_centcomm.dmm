@@ -9480,7 +9480,7 @@
 /obj/machinery/door/blast/regular{
 	dir = 1;
 	icon_state = "pdoor1";
-	id = "CREED";
+	id = "ADMIN_SHUTTLE";
 	name = "Ready Room";
 	p_open = 0
 	},
@@ -9844,7 +9844,7 @@
 	pixel_y = 0
 	},
 /obj/machinery/button/remote/blast_door{
-	id = "CREED";
+	id = "ADMIN_SHUTTLE";
 	name = "Administration Shuttle";
 	req_access = list(101);
 	step_y = 31
