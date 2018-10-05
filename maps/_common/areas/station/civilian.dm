@@ -150,8 +150,20 @@
 	holomap_color = HOLOMAP_AREACOLOR_CARGO
 
 /area/quartermaster/office
-	name = "\improper Cargo Lobby"
+	name = "\improper Cargo Office"
 	icon_state = "quartoffice"
+
+/area/quartermaster/lobby
+	name = "\improper Cargo Lobby"
+	icon_state = "green"
+
+/area/quartermaster/break_room
+	name = "\improper Cargo Break Room"
+	icon_state = "blue"
+
+/area/quartermaster/mail_room
+	name = "\improper Cargo Mail Room"
+	icon_state = "red"
 
 /area/quartermaster/storage
 	name = "\improper Cargo Warehouse"

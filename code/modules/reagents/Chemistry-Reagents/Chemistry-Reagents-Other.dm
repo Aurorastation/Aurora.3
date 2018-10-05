@@ -451,19 +451,19 @@
 /datum/reagent/estus/affect_blood(var/mob/living/carbon/M, var/removed)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
-	if(isskeleton(M))
+	if(isundead(M))
 		M.heal_organ_damage(10 * removed, 15 * removed)
 
 /datum/reagent/estus/affect_ingest(var/mob/living/carbon/M, var/removed)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
-	if(isskeleton(M))
+	if(isundead(M))
 		M.heal_organ_damage(10 * removed, 15 * removed)
 
 /datum/reagent/estus/affect_touch(var/mob/living/carbon/M, var/removed)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
-	if(isskeleton(M))
+	if(isundead(M))
 		M.heal_organ_damage(10 * removed, 15 * removed)
 
 /datum/reagent/liquid_fire
