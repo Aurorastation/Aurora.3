@@ -9846,7 +9846,6 @@
 	pixel_x = 0;
 	pixel_y = 26;
 	req_access = list(101);
-	step_y = 0
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
