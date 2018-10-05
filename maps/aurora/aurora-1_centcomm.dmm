@@ -8258,7 +8258,9 @@
 	locked = 1;
 	name = "To: Administration Level"
 	},
-/turf/unsimulated/wall/riveted,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
 /area/centcom/suppy)
 "tC" = (
 /turf/simulated/shuttle/floor,
@@ -9838,11 +9840,6 @@
 	},
 /area/centcom/specops)
 "wT" = (
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
 /obj/machinery/button/remote/blast_door{
 	id = "ADMIN_SHUTTLE";
 	name = "Administration Shuttle";
@@ -20200,7 +20197,9 @@
 	name = "Traditional Vaurcesian Cuisine";
 	opacity = 1
 	},
-/turf/unsimulated/wall/riveted,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
 /area/centcom/spawning)
 "SH" = (
 /obj/structure/cult/tome,
@@ -22573,6 +22572,22 @@
 	icon_state = "wood"
 	},
 /area/centcom/living)
+"Ys" = (
+/obj/machinery/light/small,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
+"Yw" = (
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/specops)
 "Yy" = (
 /obj/structure/bed/chair/comfy/red{
 	dir = 4
@@ -56739,7 +56754,7 @@ pU
 vf
 vf
 wS
-wS
+Ys
 ve
 ve
 zG
@@ -57764,7 +57779,7 @@ uT
 uT
 uT
 uT
-wS
+Yw
 xu
 yd
 ve
@@ -60922,7 +60937,7 @@ Id
 Om
 Id
 SG
-aM
+aP
 aM
 aM
 aM
