@@ -299,7 +299,7 @@
 /obj/item/weapon/storage/fancy/chocolate_box
 	icon = 'icons/obj/chocolate.dmi'
 	icon_state = "chocolatebox"
-	icon_type = "chocolatebox"
+	icon_type = "chocolate"
 	name = "chocolate box"
 	storage_slots = 8
 	can_hold = list(
