@@ -138,6 +138,7 @@
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "adhomai_shoes"
 	item_state = "adhomai_shoes"
+	body_parts_covered = FEET|LEGS
 	species_restricted = list("Tajara")
 	contained_sprite = TRUE
 
