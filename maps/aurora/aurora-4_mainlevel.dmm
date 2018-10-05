@@ -5834,9 +5834,7 @@
 /area/security/main)
 "alE" = (
 /turf/simulated/wall,
-/area/medical/med_office{
-	name = "\improper Medical - Psych Waiting Room"
-	})
+/area/crew_quarters/medbreak)
 "alF" = (
 /turf/simulated/floor/tiled/ramp{
 	icon_state = "ramptop";
@@ -7582,11 +7580,10 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "aoP" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/medical/med_office{
-	name = "\improper Medical - Psych Waiting Room"
-	})
+/obj/effect/floor_decal/corner/white/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/crew_quarters/medbreak)
 "aoQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -8083,8 +8080,25 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "apO" = (
-/turf/simulated/wall,
-/area/crew_quarters/medbreak)
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 4;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
+/obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
+	req_access = null;
+	req_one_access = list(12,66)
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/med_office{
+	name = "\improper Medical - Psych Waiting Room"
+	})
 "apP" = (
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Port 1";
@@ -24461,6 +24475,10 @@
 "aQo" = (
 /obj/structure/table/glass,
 /obj/item/weapon/material/ashtray/bronze,
+/obj/machinery/button/windowtint{
+	id = "medlounge";
+	pixel_x = -4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
 "aQp" = (
@@ -31246,9 +31264,14 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/med_office{
-	name = "\improper Medical - Psych Waiting Room"
+	name = "\improper Medical - Psych Stairway"
 	})
 "bbD" = (
 /obj/effect/floor_decal/corner/lime{
@@ -31262,9 +31285,19 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_x = 0;
+	pixel_y = 24
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/med_office{
-	name = "\improper Medical - Psych Waiting Room"
+	name = "\improper Medical - Psych Stairway"
 	})
 "bbE" = (
 /obj/structure/cable{
@@ -32012,7 +32045,7 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/med_office{
-	name = "\improper Medical - Psych Waiting Room"
+	name = "\improper Medical - Psych Stairway"
 	})
 "bcS" = (
 /obj/machinery/door/firedoor,
@@ -32145,7 +32178,7 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/med_office{
-	name = "\improper Medical - Psych Waiting Room"
+	name = "\improper Medical - Psych Stairway"
 	})
 "bda" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -32163,7 +32196,7 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/med_office{
-	name = "\improper Medical - Psych Waiting Room"
+	name = "\improper Medical - Psych Stairway"
 	})
 "bdb" = (
 /obj/structure/cable{
@@ -32958,7 +32991,7 @@
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/white,
 /area/medical/med_office{
-	name = "\improper Medical - Psych Waiting Room"
+	name = "\improper Medical - Psych Stairway"
 	})
 "bel" = (
 /obj/structure/grille,
@@ -33801,7 +33834,7 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/med_office{
-	name = "\improper Medical - Psych Waiting Room"
+	name = "\improper Medical - Psych Stairway"
 	})
 "bfC" = (
 /obj/effect/floor_decal/corner/lime{
@@ -33826,7 +33859,7 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/med_office{
-	name = "\improper Medical - Psych Waiting Room"
+	name = "\improper Medical - Psych Stairway"
 	})
 "bfD" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -33847,7 +33880,7 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/med_office{
-	name = "\improper Medical - Psych Waiting Room"
+	name = "\improper Medical - Psych Stairway"
 	})
 "bfE" = (
 /obj/structure/window/reinforced{
@@ -33855,7 +33888,7 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/med_office{
-	name = "\improper Medical - Psych Waiting Room"
+	name = "\improper Medical - Psych Stairway"
 	})
 "bfF" = (
 /obj/structure/stairs/east,
@@ -33864,7 +33897,7 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/med_office{
-	name = "\improper Medical - Psych Waiting Room"
+	name = "\improper Medical - Psych Stairway"
 	})
 "bfG" = (
 /obj/structure/disposalpipe/segment,
@@ -35543,7 +35576,7 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/medical/med_office{
-	name = "\improper Medical - Psych Waiting Room"
+	name = "\improper Medical - Psych Stairway"
 	})
 "bis" = (
 /obj/effect/floor_decal/corner/lime{
@@ -35553,18 +35586,18 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/medical/med_office{
-	name = "\improper Medical - Psych Waiting Room"
+	name = "\improper Medical - Psych Stairway"
 	})
 "bit" = (
 /turf/simulated/floor/tiled/white,
 /area/medical/med_office{
-	name = "\improper Medical - Psych Waiting Room"
+	name = "\improper Medical - Psych Stairway"
 	})
 "biu" = (
 /obj/structure/stairs/east,
 /turf/simulated/floor/tiled/white,
 /area/medical/med_office{
-	name = "\improper Medical - Psych Waiting Room"
+	name = "\improper Medical - Psych Stairway"
 	})
 "biv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -35661,7 +35694,7 @@
 	},
 /turf/simulated/wall,
 /area/medical/med_office{
-	name = "\improper Medical - Psych Waiting Room"
+	name = "\improper Medical - Psych Stairway"
 	})
 "biC" = (
 /obj/machinery/door/firedoor,
@@ -35679,7 +35712,7 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/medical/med_office{
-	name = "\improper Medical - Psych Waiting Room"
+	name = "\improper Medical - Psych Stairway"
 	})
 "biD" = (
 /obj/machinery/door/firedoor,
@@ -35694,7 +35727,7 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/medical/med_office{
-	name = "\improper Medical - Psych Waiting Room"
+	name = "\improper Medical - Psych Stairway"
 	})
 "biE" = (
 /obj/structure/table/glass,
@@ -35737,7 +35770,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/med_office{
-	name = "\improper Medical - Psych Waiting Room"
+	name = "\improper Medical - Psych Stairway"
 	})
 "biH" = (
 /obj/item/modular_computer/console/preset/medical,
@@ -64547,27 +64580,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/medical/emt)
 "xIy" = (
-/turf/simulated/wall,
-/area/crew_quarters/medbreak)
-"xIz" = (
-/turf/simulated/wall,
-/area/crew_quarters/medbreak)
-"xIA" = (
-/turf/simulated/wall,
-/area/crew_quarters/medbreak)
-"xIB" = (
-/turf/simulated/wall,
-/area/crew_quarters/medbreak)
-"xIC" = (
-/turf/simulated/wall,
-/area/crew_quarters/medbreak)
-"xID" = (
-/turf/simulated/wall,
-/area/crew_quarters/medbreak)
-"xIE" = (
-/turf/simulated/wall,
-/area/crew_quarters/medbreak)
-"xIF" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/door/airlock/maintenance{
@@ -64585,16 +64597,7 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/medbreak)
-"xIG" = (
-/turf/simulated/wall,
-/area/crew_quarters/medbreak)
-"xIH" = (
-/turf/simulated/wall,
-/area/crew_quarters/medbreak)
-"xII" = (
-/turf/simulated/wall,
-/area/crew_quarters/medbreak)
-"xIJ" = (
+"xIz" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
@@ -64604,7 +64607,7 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
-"xIK" = (
+"xIA" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -64619,7 +64622,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/medbreak)
-"xIL" = (
+"xIB" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/glass,
 /obj/structure/disposalpipe/segment{
@@ -64627,19 +64630,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
-"xIM" = (
-/obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled,
-/area/crew_quarters/medbreak)
-"xIN" = (
+"xIC" = (
 /obj/structure/bed/chair/comfy/beige,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
-"xIO" = (
+"xID" = (
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
-"xIP" = (
+"xIE" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -64649,7 +64647,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
-"xIQ" = (
+"xIF" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
@@ -64657,7 +64655,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
-"xIR" = (
+"xIG" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized{
@@ -64681,29 +64679,29 @@
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/medbreak)
-"xIS" = (
+"xIH" = (
 /turf/simulated/wall,
 /area/medical/exam_room{
 	name = "\improper Medical - Exam Room 1"
 	})
-"xIT" = (
+"xII" = (
 /turf/simulated/wall,
 /area/medical/exam_room{
 	name = "\improper Medical - Exam Room 1"
 	})
-"xIU" = (
+"xIJ" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
-"xIV" = (
+"xIK" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/vending/snack,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
-"xIW" = (
+"xIL" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/closet/secure_closet/medical_wall{
 	name = "Medication Closet";
@@ -64722,17 +64720,17 @@
 /area/medical/biostorage{
 	name = "\improper Medical - Exam Room 2"
 	})
-"xIX" = (
+"xIM" = (
 /turf/simulated/wall,
 /area/medical/exam_room{
 	name = "\improper Medical - Exam Room 1"
 	})
-"xIY" = (
+"xIN" = (
 /turf/simulated/wall,
 /area/medical/exam_room{
 	name = "\improper Medical - Exam Room 1"
 	})
-"xIZ" = (
+"xIO" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/alarm{
 	dir = 4;
@@ -64745,7 +64743,7 @@
 /obj/machinery/disposal,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
-"xJa" = (
+"xIP" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/cable/green{
 	d1 = 2;
@@ -64757,22 +64755,22 @@
 /obj/structure/disposalpipe/junction,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
-"xJb" = (
+"xIQ" = (
 /turf/simulated/wall,
 /area/medical/exam_room{
 	name = "\improper Medical - Exam Room 1"
 	})
-"xJc" = (
+"xIR" = (
 /turf/simulated/wall,
 /area/medical/exam_room{
 	name = "\improper Medical - Exam Room 1"
 	})
-"xJd" = (
+"xIS" = (
 /turf/simulated/wall,
 /area/medical/exam_room{
 	name = "\improper Medical - Exam Room 1"
 	})
-"xJe" = (
+"xIT" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_medical{
@@ -64789,19 +64787,24 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
-"xJf" = (
+"xIU" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
 /area/medical/exam_room{
 	name = "\improper Medical - Exam Room 1"
 	})
-"xJg" = (
+"xIV" = (
 /turf/simulated/wall,
 /area/medical/exam_room{
 	name = "\improper Medical - Exam Room 1"
 	})
-"xJh" = (
+"xIW" = (
+/turf/simulated/wall,
+/area/medical/med_office{
+	name = "\improper Medical - Psych Stairway"
+	})
+"xIX" = (
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/lime/full{
 	icon_state = "corner_white_full";
@@ -64809,64 +64812,80 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/med_office{
-	name = "\improper Medical - Psych Waiting Room"
+	name = "\improper Medical - Psych Stairway"
 	})
-"xJi" = (
+"xIY" = (
 /turf/simulated/wall,
 /area/medical/exam_room{
 	name = "\improper Medical - Exam Room 1"
 	})
-"xJj" = (
+"xIZ" = (
+/turf/simulated/wall,
+/area/medical/med_office{
+	name = "\improper Medical - Psych Stairway"
+	})
+"xJa" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/medical/med_office{
+	name = "\improper Medical - Psych Stairway"
+	})
+"xJb" = (
 /turf/simulated/wall,
 /area/medical/exam_room{
 	name = "\improper Medical - Exam Room 1"
 	})
-"xJk" = (
+"xJc" = (
+/turf/simulated/wall,
+/area/medical/med_office{
+	name = "\improper Medical - Psych Stairway"
+	})
+"xJd" = (
 /turf/simulated/wall,
 /area/medical/exam_room{
 	name = "\improper Medical - Exam Room 1"
 	})
-"xJl" = (
+"xJe" = (
 /turf/simulated/wall,
 /area/medical/exam_room{
 	name = "\improper Medical - Exam Room 1"
 	})
-"xJm" = (
+"xJf" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/substation/medical)
-"xJn" = (
+"xJg" = (
 /obj/structure/cryofeed{
 	icon_state = "cryo_rear";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
-"xJo" = (
+"xJh" = (
 /obj/structure/cryofeed{
 	icon_state = "cryo_rear";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
-"xJp" = (
+"xJi" = (
 /obj/structure/cryofeed{
 	icon_state = "cryo_rear";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
-"xJq" = (
+"xJj" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atm{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"xJr" = (
+"xJk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"xJs" = (
+"xJl" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -64891,21 +64910,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/quartermaster/lobby)
-"xJt" = (
+"xJm" = (
 /obj/effect/floor_decal/industrial/loading,
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"xJu" = (
+"xJn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"xJv" = (
+"xJo" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"xJw" = (
+"xJp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -64922,24 +64941,24 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"xJx" = (
+"xJq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"xJy" = (
+"xJr" = (
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"xJz" = (
+"xJs" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"xJA" = (
+"xJt" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -64962,14 +64981,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/quartermaster/lobby)
-"xJB" = (
+"xJu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
-"xJC" = (
+"xJv" = (
 /obj/machinery/door/firedoor/multi_tile,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
@@ -64981,7 +65000,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"xJD" = (
+"xJw" = (
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 6
@@ -64991,7 +65010,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"xJE" = (
+"xJx" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -65009,13 +65028,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"xJF" = (
+"xJy" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"xJG" = (
+"xJz" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -65038,13 +65057,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"xJH" = (
+"xJA" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"xJI" = (
+"xJB" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
 	dir = 4;
@@ -65053,7 +65072,7 @@
 /obj/effect/large_stock_marker,
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"xJJ" = (
+"xJC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -65071,14 +65090,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"xJK" = (
+"xJD" = (
 /obj/effect/floor_decal/corner/brown/full{
 	icon_state = "corner_white_full";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"xJL" = (
+"xJE" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
@@ -65105,7 +65124,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"xJM" = (
+"xJF" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
 	icon_state = "pipe-c"
@@ -65123,18 +65142,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"xJN" = (
+"xJG" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/large_stock_marker,
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"xJO" = (
+"xJH" = (
 /turf/simulated/wall,
 /area/quartermaster/break_room)
-"xJP" = (
+"xJI" = (
 /turf/simulated/wall,
 /area/quartermaster/break_room)
-"xJQ" = (
+"xJJ" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
@@ -65150,13 +65169,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
-"xJR" = (
+"xJK" = (
 /turf/simulated/wall,
 /area/quartermaster/mail_room)
-"xJS" = (
+"xJL" = (
 /turf/simulated/wall,
 /area/quartermaster/mail_room)
-"xJT" = (
+"xJM" = (
 /obj/machinery/disposal{
 	name = "mailing disposal unit"
 	},
@@ -65165,7 +65184,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
-"xJU" = (
+"xJN" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
@@ -65175,21 +65194,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
-"xJV" = (
+"xJO" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/maintenance/bar)
-"xJW" = (
+"xJP" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xJX" = (
+"xJQ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -65207,7 +65226,7 @@
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xJY" = (
+"xJR" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -65224,7 +65243,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xJZ" = (
+"xJS" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -65241,11 +65260,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKa" = (
+"xJT" = (
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKb" = (
+"xJU" = (
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
@@ -65253,14 +65272,14 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKc" = (
+"xJV" = (
 /obj/structure/sign/securearea{
 	name = "\improper CAUTION: TRASH COMPACTOR";
 	pixel_x = 0
 	},
 /turf/simulated/wall/r_wall,
 /area/maintenance/disposal)
-"xKd" = (
+"xJW" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Disposals Maintenance";
 	req_one_access = list(11,50)
@@ -65277,14 +65296,14 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
-"xKe" = (
+"xJX" = (
 /obj/structure/sign/securearea{
 	name = "\improper CAUTION: TRASH COMPACTOR";
 	pixel_x = 0
 	},
 /turf/simulated/wall/r_wall,
 /area/maintenance/disposal)
-"xKf" = (
+"xJY" = (
 /obj/structure/disposalpipe/junction{
 	icon_state = "pipe-j2";
 	dir = 2
@@ -65299,15 +65318,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKg" = (
+"xJZ" = (
 /obj/structure/disposalpipe/sortjunction/untagged,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKh" = (
+"xKa" = (
 /obj/structure/ladder/up,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKi" = (
+"xKb" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -65321,7 +65340,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/quartermaster/break_room)
-"xKj" = (
+"xKc" = (
 /obj/structure/table/standard,
 /obj/item/weapon/paper_bin{
 	pixel_x = -3;
@@ -65337,18 +65356,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
-"xKk" = (
+"xKd" = (
 /obj/structure/disposalpipe/junction{
 	dir = 1;
 	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKl" = (
+"xKe" = (
 /obj/structure/ladder,
 /turf/simulated/open,
 /area/maintenance/disposal)
-"xKm" = (
+"xKf" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
@@ -65362,7 +65381,7 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
-"xKn" = (
+"xKg" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -65378,14 +65397,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
-"xKo" = (
+"xKh" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
 /obj/machinery/disposal,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
-"xKp" = (
+"xKi" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -65400,26 +65419,26 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKq" = (
+"xKj" = (
 /obj/structure/disposalpipe/segment,
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKr" = (
+"xKk" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	icon_state = "intact";
 	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKs" = (
+"xKl" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	icon_state = "intact";
 	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKt" = (
+"xKm" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
 	dir = 1
@@ -65427,15 +65446,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
-"xKu" = (
+"xKn" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
-"xKv" = (
+"xKo" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
-"xKw" = (
+"xKp" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -65447,14 +65466,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKx" = (
+"xKq" = (
 /obj/structure/disposalpipe/junction{
 	icon_state = "pipe-j2";
 	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKy" = (
+"xKr" = (
 /obj/structure/disposalpipe/up{
 	icon_state = "pipe-u";
 	dir = 8
@@ -65471,33 +65490,33 @@
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKz" = (
+"xKs" = (
 /obj/structure/sign/electricshock,
 /turf/simulated/wall,
 /area/maintenance/bar)
-"xKA" = (
+"xKt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKB" = (
+"xKu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/machinery/meter{
 	name = "Scrubbers"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKC" = (
+"xKv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/machinery/meter{
 	name = "Air supply"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKD" = (
+"xKw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKE" = (
+"xKx" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -65506,14 +65525,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
-"xKF" = (
+"xKy" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
-"xKG" = (
+"xKz" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
@@ -65525,7 +65544,7 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
-"xKH" = (
+"xKA" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -65533,7 +65552,7 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
-"xKI" = (
+"xKB" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
@@ -65551,7 +65570,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKJ" = (
+"xKC" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -65569,7 +65588,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKK" = (
+"xKD" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -65587,7 +65606,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKL" = (
+"xKE" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -65605,7 +65624,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKM" = (
+"xKF" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -65623,20 +65642,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKN" = (
+"xKG" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
-"xKO" = (
+"xKH" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
-"xKP" = (
+"xKI" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
 	d1 = 1;
@@ -65648,13 +65667,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKQ" = (
+"xKJ" = (
 /obj/structure/table/rack,
 /obj/random/loot,
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKR" = (
+"xKK" = (
 /obj/machinery/alarm{
 	dir = 1;
 	icon_state = "alarm0";
@@ -65664,7 +65683,7 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xKS" = (
+"xKL" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -65675,7 +65694,7 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/quartermaster/break_room)
-"xKT" = (
+"xKM" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/table/standard,
 /obj/item/weapon/packageWrap,
@@ -65688,19 +65707,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
-"xKU" = (
+"xKN" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
-"xKV" = (
+"xKO" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
-"xKW" = (
+"xKP" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -65711,11 +65730,11 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/quartermaster/mail_room)
-"xKX" = (
+"xKQ" = (
 /obj/structure/sign/drop,
 /turf/simulated/wall/r_wall,
 /area/maintenance/disposal)
-"xKY" = (
+"xKR" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -65728,7 +65747,7 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
-"xKZ" = (
+"xKS" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
 	d1 = 1;
@@ -65740,7 +65759,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xLa" = (
+"xKT" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
@@ -65750,7 +65769,7 @@
 /obj/effect/floor_decal/corner/brown/full,
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
-"xLb" = (
+"xKU" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -65764,7 +65783,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
-"xLc" = (
+"xKV" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -65779,14 +65798,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
-"xLd" = (
+"xKW" = (
 /obj/structure/disposalpipe/junction/yjunction,
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
-"xLe" = (
+"xKX" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -65800,18 +65819,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
-"xLf" = (
+"xKY" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
-"xLg" = (
+"xKZ" = (
 /obj/structure/closet/crate,
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
-"xLh" = (
+"xLa" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/maintenance{
 	name = "Mail Maintenance";
@@ -65820,7 +65839,7 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xLi" = (
+"xLb" = (
 /obj/structure/disposaloutlet{
 	dir = 1;
 	name = "mail outlet";
@@ -65831,7 +65850,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/quartermaster/mail_room)
-"xLj" = (
+"xLc" = (
 /obj/structure/disposalpipe/sortjunction/flipped{
 	dir = 1;
 	name = "Sorting Office";
@@ -65839,7 +65858,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xLk" = (
+"xLd" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
@@ -65847,7 +65866,7 @@
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
-"xLl" = (
+"xLe" = (
 /obj/structure/disposaloutlet{
 	dir = 1;
 	spread = 360;
@@ -65860,7 +65879,7 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
-"xLm" = (
+"xLf" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
@@ -65868,7 +65887,7 @@
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
-"xLn" = (
+"xLg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -65888,7 +65907,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xLo" = (
+"xLh" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -65906,7 +65925,7 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xLp" = (
+"xLi" = (
 /obj/structure/disposalpipe/junction,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -65916,25 +65935,25 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xLq" = (
+"xLj" = (
 /obj/structure/sign/securearea{
 	name = "\improper CAUTION: TRASH COMPACTOR";
 	pixel_x = 0
 	},
 /turf/simulated/wall/r_wall,
 /area/maintenance/disposal)
-"xLr" = (
+"xLk" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/wall,
 /area/maintenance/disposal)
-"xLs" = (
+"xLl" = (
 /obj/structure/sign/securearea{
 	name = "\improper CAUTION: TRASH COMPACTOR";
 	pixel_x = 0
 	},
 /turf/simulated/wall/r_wall,
 /area/maintenance/disposal)
-"xLt" = (
+"xLm" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
@@ -65948,7 +65967,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xLu" = (
+"xLn" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -65966,7 +65985,7 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xLv" = (
+"xLo" = (
 /obj/structure/disposalpipe/tagger/partial{
 	dir = 8;
 	icon_state = "pipe-tagger-partial";
@@ -65985,7 +66004,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xLw" = (
+"xLp" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -66003,7 +66022,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xLx" = (
+"xLq" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -66020,7 +66039,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xLy" = (
+"xLr" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -66034,7 +66053,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xLz" = (
+"xLs" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -66051,7 +66070,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xLA" = (
+"xLt" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -66070,7 +66089,7 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xLB" = (
+"xLu" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -66090,7 +66109,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xLC" = (
+"xLv" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
@@ -66110,7 +66129,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"xLD" = (
+"xLw" = (
 /obj/structure/closet/secure_closet/miner,
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -66122,7 +66141,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
-"xLE" = (
+"xLx" = (
 /obj/machinery/conveyor{
 	dir = 9;
 	icon_state = "conveyor0";
@@ -66131,10 +66150,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
-"xLF" = (
+"xLy" = (
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
-"xLG" = (
+"xLz" = (
 /obj/structure/closet/secure_closet/miner,
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -66149,7 +66168,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
-"xLH" = (
+"xLA" = (
 /obj/machinery/mineral/output,
 /obj/machinery/conveyor{
 	dir = 9;
@@ -66159,7 +66178,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
-"xLI" = (
+"xLB" = (
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "mining_internal"
@@ -66167,13 +66186,13 @@
 /obj/machinery/mineral/output,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
-"xLJ" = (
+"xLC" = (
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
-"xLK" = (
+"xLD" = (
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
-"xLL" = (
+"xLE" = (
 /obj/structure/closet/secure_closet/miner,
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -66188,7 +66207,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
-"xLM" = (
+"xLF" = (
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
@@ -66199,7 +66218,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
-"xLN" = (
+"xLG" = (
 /obj/structure/closet/secure_closet/miner,
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/brown{
@@ -66212,19 +66231,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
-"xLO" = (
+"xLH" = (
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
-"xLP" = (
+"xLI" = (
 /obj/machinery/alarm{
 	pixel_y = 22
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"xLQ" = (
+"xLJ" = (
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
-"xLR" = (
+"xLK" = (
 /obj/machinery/mineral/processing_unit_console{
 	pixel_y = 32
 	},
@@ -66238,7 +66257,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"xLS" = (
+"xLL" = (
 /obj/machinery/mineral/processing_unit_console{
 	pixel_y = 32
 	},
@@ -66252,12 +66271,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"xLT" = (
+"xLM" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/ore_box,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"xLU" = (
+"xLN" = (
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 9
@@ -66268,12 +66287,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"xLV" = (
+"xLO" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/ore_box,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"xLW" = (
+"xLP" = (
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 9
@@ -66284,12 +66303,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"xLX" = (
+"xLQ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/ore_box,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"xLY" = (
+"xLR" = (
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 9
@@ -66300,7 +66319,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"xLZ" = (
+"xLS" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/ore_box,
 /turf/simulated/floor/tiled,
@@ -88091,7 +88110,7 @@ bRJ
 bRJ
 cda
 cdj
-xLg
+xKZ
 bRJ
 ciP
 ciY
@@ -90150,10 +90169,10 @@ bZA
 cdA
 cdG
 cdP
-xLD
+xLw
+xLz
+xLE
 xLG
-xLL
-xLN
 ceM
 cfb
 cfp
@@ -91166,7 +91185,7 @@ bWm
 bWm
 bWm
 cae
-xJJ
+xJC
 caN
 bWm
 cbt
@@ -91681,7 +91700,7 @@ cii
 bZC
 caf
 caw
-xJO
+xJH
 ciA
 cbv
 cbN
@@ -91929,9 +91948,9 @@ cqb
 bWm
 bWX
 bXo
-xJr
-xJu
-xJx
+xJk
+xJn
+xJq
 bYJ
 bYJ
 bYJ
@@ -92187,7 +92206,7 @@ bWm
 cql
 bXp
 cqs
-xJv
+xJo
 bYo
 cqs
 bXp
@@ -92195,7 +92214,7 @@ bXp
 bXt
 ciq
 cit
-xJP
+xJI
 ciC
 cbx
 cbx
@@ -92210,7 +92229,7 @@ cdY
 cjx
 cdQ
 cdQ
-xLP
+xLI
 cfv
 ceS
 ceS
@@ -92700,15 +92719,15 @@ cqe
 bWm
 bWm
 cqp
-xJs
+xJl
 bXP
 bXP
 bXP
-xJA
+xJt
 bWm
-xJD
+xJw
 cir
-xJK
+xJD
 cbe
 ciE
 cby
@@ -92983,7 +93002,7 @@ cej
 cez
 cfl
 cdQ
-xLR
+xLK
 cfL
 cfL
 cge
@@ -93192,7 +93211,7 @@ bJr
 bKj
 bLc
 bLQ
-xJn
+xJg
 bMD
 bNh
 bOs
@@ -93213,29 +93232,29 @@ bSQ
 cqg
 bWm
 bWm
-xJq
-xJt
+xJj
+xJm
 bXR
 bYr
 bYL
 bYr
-xJC
+xJv
+xJx
+xJz
 xJE
-xJG
-xJL
 cbf
 cbf
-xKi
+xKb
 cbS
 cbS
 cbS
-xKS
+xKL
 cbf
 cbf
-xLn
+xLg
 cdQ
 cjh
-xLH
+xLA
 cfk
 cfy
 cey
@@ -93449,7 +93468,7 @@ bJs
 bKk
 bLd
 bLQ
-xJo
+xJh
 bMD
 bNi
 bOt
@@ -93474,25 +93493,25 @@ cqq
 bXt
 bXS
 bXp
-xJz
+xJs
 bXp
 bXp
+xJy
+xJA
 xJF
-xJH
-xJM
-xJQ
+xJJ
 cbg
 bQO
 cbT
 ccs
 ccN
+xKM
 xKT
-xLa
 cbi
 cdO
 cdQ
-xLE
-xLI
+xLx
+xLB
 cfk
 cfy
 cey
@@ -93706,7 +93725,7 @@ bJr
 bKl
 bLe
 bLQ
-xJp
+xJi
 bMD
 bNj
 bOu
@@ -93730,34 +93749,34 @@ bXd
 cqq
 bXu
 bXT
-xJy
+xJr
 bYM
 bZb
 bWm
 cqL
-xJI
-xJN
-xJR
+xJB
+xJG
+xJK
 cbh
 cbz
 cbU
 cct
 cct
+xKN
 xKU
-xLb
 cbi
-xLo
+xLh
 ciW
-xLF
-xLJ
+xLy
+xLC
 cdQ
 ciW
 cdQ
 cdQ
-xLS
-xLU
-xLW
-xLY
+xLL
+xLN
+xLP
+xLR
 cjy
 aQk
 aab
@@ -93986,7 +94005,7 @@ bWm
 bWm
 cqr
 bXv
-xJw
+xJp
 bYs
 cqr
 bXv
@@ -93994,27 +94013,27 @@ bWm
 bWm
 bWm
 bWm
-xJS
+xJL
 cbi
 cbA
 cbU
 cct
 cct
 cct
-xLc
+xKV
 cbi
 cdO
 cdQ
 cdQ
-xLK
+xLD
+xLF
+xLH
+xLJ
+ciW
 xLM
 xLO
 xLQ
-ciW
-xLT
-xLV
-xLX
-xLZ
+xLS
 ckI
 aQk
 aab
@@ -94251,17 +94270,17 @@ cqw
 cqz
 cqI
 cqN
-xJT
+xJM
 cbi
-xKj
+xKc
 cbW
 cct
 cct
 cct
-xLd
-xLh
-xLp
-xLt
+xKW
+xLa
+xLi
+xLm
 bSx
 cdQ
 cdQ
@@ -94503,7 +94522,7 @@ bQd
 bXW
 bYu
 cib
-xJB
+xJu
 cqv
 cqA
 cqA
@@ -94512,10 +94531,10 @@ cqV
 cbi
 cbi
 cbX
-xKE
-xKN
-xKV
-xLe
+xKx
+xKG
+xKO
+xKX
 cbi
 cbi
 cdO
@@ -94765,7 +94784,7 @@ bLU
 cqB
 guP
 bYO
-xJU
+xJN
 cbi
 cbB
 cbY
@@ -94773,9 +94792,9 @@ ccv
 ccv
 ccv
 cbY
-xLi
+xLb
 cbi
-xLu
+xLn
 bSx
 aab
 aab
@@ -95022,17 +95041,17 @@ bUz
 bUz
 bUz
 bUz
-xJV
+xJO
 cbi
 cbC
 cbi
 ccw
 ccS
-xKW
+xKP
 cbi
 cbC
 cbi
-xLv
+xLo
 bSx
 aab
 aab
@@ -95281,15 +95300,15 @@ guQ
 bUz
 bPK
 cbF
-xKk
+xKd
 cbF
 ccx
 ccT
 cbF
 cbF
-xLj
+xLc
 cbF
-xLw
+xLp
 bSx
 aab
 aab
@@ -95542,11 +95561,11 @@ cbE
 cbE
 cbE
 cbE
-xKX
+xKQ
 cbE
 cbE
 cbE
-xLx
+xLq
 bSx
 aab
 aab
@@ -95794,16 +95813,16 @@ bZM
 guS
 bUz
 bPL
-xKc
-xKl
+xJV
+xKe
 ccc
 ccz
 ccV
 cdh
-xLf
+xKY
 cdC
-xLq
-xLy
+xLj
+xLr
 bSx
 aab
 aab
@@ -96050,17 +96069,17 @@ bWC
 bZN
 cak
 gvc
-xJW
+xJP
 cbE
 cbD
-xKt
-xKF
+xKm
+xKy
 ccf
 ccf
 ccf
-xLk
+xLd
 cbE
-xLz
+xLs
 bSx
 aab
 aaa
@@ -96308,16 +96327,16 @@ bUz
 bUz
 bUz
 caW
-xKd
-xKm
+xJW
+xKf
 ags
-xKG
+xKz
 ccf
 ccf
 ccf
-xLl
-xLr
-xLA
+xLe
+xLk
+xLt
 bSx
 aab
 aab
@@ -96564,17 +96583,17 @@ bVa
 gtH
 guT
 bUz
-xJX
+xJQ
 cbE
+xKg
 xKn
-xKu
-xKH
+xKA
 ccf
 ccf
 ccf
-xLm
+xLf
 cbE
-xLB
+xLu
 bSx
 aab
 aab
@@ -96821,16 +96840,16 @@ bXB
 bVa
 cal
 bUz
-xJY
-xKe
+xJR
+xJX
+xKh
 xKo
-xKv
 agr
-xKO
-xKY
+xKH
+xKR
 cdt
 cdD
-xLs
+xLl
 cdO
 bSx
 aab
@@ -97078,7 +97097,7 @@ bWL
 bVa
 bZO
 bUz
-xJZ
+xJS
 cbE
 cbE
 cbE
@@ -97336,16 +97355,16 @@ bVa
 guU
 bUz
 caX
-xKf
+xJY
+xKi
 xKp
-xKw
 ccB
-xKP
-xKZ
+xKI
+xKS
 cdv
 cdv
 cdv
-xLC
+xLv
 bSx
 aab
 aab
@@ -97593,10 +97612,10 @@ bVa
 guV
 bUz
 gvo
-xKg
+xJZ
+xKj
 xKq
-xKx
-xKI
+xKB
 bSv
 bSx
 bSx
@@ -97850,10 +97869,10 @@ bVa
 bZO
 bUz
 bSv
-xKh
+xKa
 bQp
-xKy
-xKJ
+xKr
+xKC
 bSv
 bSx
 aaa
@@ -98106,10 +98125,10 @@ bXB
 bVa
 guU
 bUz
-xKa
+xJT
 bSx
 bSx
-xKz
+xKs
 gvw
 bSx
 bSx
@@ -98366,8 +98385,8 @@ bUz
 bSv
 bSv
 cbG
-xKA
-xKK
+xKt
+xKD
 gul
 bSx
 aaa
@@ -98620,12 +98639,12 @@ bXg
 bVa
 guY
 bUz
-xKb
+xJU
 bSv
-xKr
-xKB
-xKL
-xKQ
+xKk
+xKu
+xKE
+xKJ
 bSx
 aaa
 aaa
@@ -98880,9 +98899,9 @@ bUz
 gul
 bSv
 cbG
-xKC
-xKM
-xKR
+xKv
+xKF
+xKK
 bSx
 aaa
 aaa
@@ -99136,8 +99155,8 @@ gva
 bUz
 bSx
 bSx
-xKs
-xKD
+xKl
+xKw
 gvm
 gul
 bSx
@@ -101645,7 +101664,7 @@ alA
 apQ
 aLW
 aTA
-xIW
+xIL
 bbs
 aqb
 bml
@@ -102417,12 +102436,12 @@ apU
 apU
 aUI
 aZV
-xJb
+xIQ
 bbz
 bcS
 bem
 bfH
-xJk
+xJd
 brs
 bmf
 beh
@@ -102672,9 +102691,9 @@ auy
 alA
 aqH
 aPQ
-xIS
-xIX
-xJc
+xIH
+xIM
+xIR
 bbA
 bcT
 ben
@@ -103189,7 +103208,7 @@ ari
 aOH
 aZY
 bbw
-xJf
+xIU
 bcV
 ber
 bhd
@@ -103695,19 +103714,19 @@ cue
 cuE
 cuE
 aYW
-xIy
+alE
 amf
 aoK
 aoK
-xIR
-xIT
+xIG
+xII
+xIN
+xIS
+xIV
 xIY
-xJd
-xJg
-xJi
 bet
-xJj
-xJl
+xJb
+xJe
 brw
 bme
 xFV
@@ -103952,12 +103971,12 @@ cuf
 cuo
 cuE
 aYX
-xIz
+alE
 amz
 aoL
-xIN
+xIC
 aQo
-apO
+alE
 aaa
 boj
 arn
@@ -104209,12 +104228,12 @@ cug
 cup
 cuE
 aYY
-xIA
+alE
 amA
-xIJ
-xIO
+xIz
+xID
 aQp
-apO
+alE
 aaa
 boj
 asD
@@ -104466,12 +104485,12 @@ cuh
 cuq
 cuE
 aYY
-xIB
+alE
 amB
 aoN
 arl
 aQq
-apO
+alE
 aaa
 boj
 avz
@@ -104723,18 +104742,18 @@ cui
 cur
 cuE
 aYY
-xIC
+alE
 amC
-xIK
+xIA
 aNb
 aRO
-apO
-apO
-apO
 alE
 alE
+alE
+xIW
+xIZ
 bfB
-alE
+xJc
 biB
 bbi
 bcW
@@ -104980,15 +104999,15 @@ cuj
 cus
 cuE
 aYZ
-xID
+alE
 amD
-xIL
-xIP
+xIB
+xIE
 aRS
 aXx
-xIZ
-apO
-xJh
+xIO
+alE
+xIX
 bcZ
 bfC
 bir
@@ -105001,7 +105020,7 @@ bub
 bub
 bub
 bub
-xJm
+xJf
 chC
 bDK
 xHw
@@ -105237,14 +105256,14 @@ cut
 cut
 cuC
 aYY
-xIE
+alE
 amE
 aoO
 aOF
 aRT
 aXC
-xJa
-xJe
+xIP
+xIT
 bbC
 bda
 bfD
@@ -105494,16 +105513,16 @@ cul
 cuu
 cuE
 aZa
+xIy
+anv
+aoP
 xIF
 anv
-xIM
-xIQ
-anv
-xIU
+xIJ
 baa
-apO
+alE
 bbD
-aoP
+xJa
 bfE
 bit
 biD
@@ -105751,14 +105770,14 @@ cuE
 cuE
 cuE
 aZb
-xIG
+alE
 anw
 apt
 aOG
 aTz
-xIV
+xIK
 aYg
-apO
+alE
 bcR
 bek
 bfF
@@ -106008,11 +106027,11 @@ aQt
 aiZ
 aXD
 aYY
-xIH
-xII
-apO
-apO
-apO
+alE
+alE
+alE
+alE
+alE
 bEH
 bEH
 bEH
