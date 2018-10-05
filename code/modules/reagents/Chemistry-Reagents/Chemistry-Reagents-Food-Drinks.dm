@@ -11,12 +11,16 @@
 	unaffected_species = IS_MACHINE
 	var/kois_type = 1
 
-/datum/reagent/kois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VAURCA)
+/datum/reagent/kois/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
+	if(!istype(M))
+		return
+	var/obj/item/organ/parasite/P = M.internal_organs_by_name["blackkois"]
+	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 		M.heal_organ_damage(1.2 * removed, 1.2 * removed)
 		M.adjustToxLoss(-1.2 * removed)
 		M.nutrition += nutriment_factor * removed // For hunger and fatness
 		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
+
 	else
 		M.adjustToxLoss(1 * removed)
 		if(istype(M,/mob/living/carbon/human))
@@ -102,8 +106,11 @@
 		return
 	affect_ingest(M, alien, removed)
 
-/datum/reagent/nutriment/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VAURCA)
+/datum/reagent/nutriment/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
+	if(!istype(M))
+		return
+	var/obj/item/organ/parasite/P = M.internal_organs_by_name["blackkois"]
+	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 		M.adjustToxLoss(1.5 * removed)
 	else if(alien != IS_UNATHI)
 		digest(M,removed)
@@ -3742,8 +3749,12 @@
 	adj_sleepy = -3
 	taste_description = "viscous cola"
 
-/datum/reagent/drink/zorasoda/drone/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VAURCA)
+/datum/reagent/drink/zorasoda/drone/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
+	if(!istype(M))
+		return
+
+	var/obj/item/organ/parasite/P = M.internal_organs_by_name["blackkois"]
+	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 		M.add_chemical_effect(CE_SPEEDBOOST, 1)
 		M.add_chemical_effect(CE_BLOODRESTORE, 2 * removed)
 		M.make_jittery(5)
