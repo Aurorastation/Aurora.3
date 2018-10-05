@@ -9843,8 +9843,10 @@
 /obj/machinery/button/remote/blast_door{
 	id = "ADMIN_SHUTTLE";
 	name = "Administration Shuttle";
+	pixel_x = 0;
+	pixel_y = 26;
 	req_access = list(101);
-	step_y = 31
+	step_y = 0
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
