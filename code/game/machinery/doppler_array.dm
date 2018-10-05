@@ -3,6 +3,11 @@ var/list/doppler_arrays = list()
 /obj/machinery/doppler_array
 	name = "tachyon-doppler array"
 	desc = "A highly precise directional sensor array which measures the release of quants from decaying tachyons. The doppler shifting of the mirror-image formed by these quants can reveal the size, location and temporal affects of energetic disturbances within a large radius ahead of the array."
+	icon = 'icons/obj/computer.dmi'
+	icon_state = "old_cons"
+
+	anchored = 1
+	density = 1
 
 
 /obj/machinery/doppler_array/Initialize()
@@ -31,14 +36,14 @@ var/list/doppler_arrays = list()
 		if(y0 > y)	direct = NORTH
 		else		direct = SOUTH
 
-	if(distance > 100)		return
-	if(!(direct & dir))	return
+	if(distance > 100)
+		return
 
-	var/message = "Explosive disturbance detected - Epicenter at: grid ([x0],[y0]). Epicenter radius: [devastation_range]. Outer radius: [heavy_impact_range]. Shockwave radius: [light_impact_range]. Temporal displacement of tachyons: [took]seconds."
+	if(!(direct & dir))
+		return
 
-	for(var/mob/O in hearers(src, null))
-		O.show_message("<span class='game say'><span class='name'>[src]</span> states coldly, \"[message]\"</span>",2)
-
+	var/message = "Explosive disturbance detected - Epicenter at: grid ([x0],[y0]). Epicenter radius: [devastation_range]. Outer radius: [heavy_impact_range]. Shockwave radius: [light_impact_range]. Temporal displacement of tachyons: [took] seconds."
+	global_announcer.autosay(message, src.name)
 
 /obj/machinery/doppler_array/power_change()
 	..()

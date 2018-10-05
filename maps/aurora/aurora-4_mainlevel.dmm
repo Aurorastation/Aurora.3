@@ -61,6 +61,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"aal" = (
+/obj/effect/landmark/dungeon_spawn,
+/turf/unsimulated/chasm_mask,
+/area/mine/unexplored)
 "aam" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning{
@@ -67772,7 +67776,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aal
 aaa
 aaa
 aaa
@@ -72110,8 +72114,8 @@ aab
 aab
 aab
 aab
-aab
-aab
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -72367,10 +72371,10 @@ aab
 aab
 aab
 aab
-aab
-aab
-aab
-aab
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -72625,12 +72629,12 @@ aab
 aab
 aaa
 aaa
-aab
-aab
-aab
-aab
-aab
-aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
