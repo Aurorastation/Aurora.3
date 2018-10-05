@@ -132,6 +132,15 @@
 	item_state = "veil"
 	contained_sprite = TRUE
 
+/obj/item/clothing/shoes/tajara
+	name = "native tajaran foot-wear"
+	desc = "Native foot and leg wear worn by Tajara, completely covering the legs in wraps and the feet in adhomian fabric."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "adhomai_shoes"
+	item_state = "adhomai_shoes"
+	species_restricted = list("Tajara")
+	contained_sprite = TRUE
+
 //Vaurca clothing
 
 /obj/item/clothing/suit/vaurca
