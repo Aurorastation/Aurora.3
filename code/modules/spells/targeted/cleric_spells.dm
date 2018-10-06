@@ -135,7 +135,7 @@
 /spell/targeted/mend/cast(list/targets, mob/user)
 	..()
 	for(var/mob/living/target in targets)
-		if(isskeleton(target))
+		if(isundead(target))
 			user << "This spell can't affect the undead."
 			return 0
 
@@ -217,7 +217,7 @@
 			user << "<span class='warning'>\The [target] is still alive!</span>"
 			return 0
 
-		if(isskeleton(target))
+		if(isundead(target))
 			user << "This spell can't affect the undead."
 			return 0
 
