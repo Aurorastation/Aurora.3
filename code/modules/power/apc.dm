@@ -767,7 +767,7 @@
 						H.adjustNutritionLoss(-50)
 						src.cell.charge -= 500
 					else
-						H.adjustNutritionLoss(src.cell.charge / 10)
+						H.adjustNutritionLoss( -src.cell.charge / 10)
 						src.cell.charge = 0
 
 					user << "<span class='notice'>You slot your fingers into the APC interface and siphon off some of the stored charge for your own use.</span>"
