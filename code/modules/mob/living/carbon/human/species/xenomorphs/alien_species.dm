@@ -340,6 +340,7 @@
 	has_resist =    1
 	has_pressure =  0
 	has_nutrition = 0
+	has_hydration = 0
 	has_bodytemp =  0
 	has_internals = 0
 

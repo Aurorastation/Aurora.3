@@ -95,7 +95,8 @@
 	reagent_state = LIQUID
 	color = "#404030"
 
-	var/nutriment_factor = 0.5
+	var/hydration_factor = 1 //How much hydration to add per unit.
+	var/nutriment_factor = 0.5 //How much nutrition to add per unit.
 	var/strength = 100 // This is the Alcohol By Volume of the drink, value is in the range 0-100 unless you wanted to create some bizarre bluespace alcohol with <100
 
 	var/druggy = 0
@@ -127,24 +128,27 @@
 
 /datum/reagent/alcohol/affect_blood(mob/living/carbon/M, alien, removed)
 	M.adjustToxLoss(removed * 2)
+	affect_ingest(M,alien,removed * 2)
+	return
 
 /datum/reagent/alcohol/affect_ingest(mob/living/carbon/M, alien, removed)
 
-	M.intoxication += (strength / 100) * removed
+	if(alien != IS_DIONA)
+		M.intoxication += (strength / 100) * removed
 
-	if (druggy != 0)
-		M.druggy = max(M.druggy, druggy)
+		if (druggy != 0)
+			M.druggy = max(M.druggy, druggy)
+
+		if (halluci)
+			M.hallucination = max(M.hallucination, halluci)
+
+		if (caffeine && !caffeine_mod)
+			caffeine_mod = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = caffeine, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
 	if (adj_temp > 0 && M.bodytemperature < targ_temp) // 310 is the normal bodytemp. 310.055
 		M.bodytemperature = min(targ_temp, M.bodytemperature + (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
 	if (adj_temp < 0 && M.bodytemperature > targ_temp)
 		M.bodytemperature = min(targ_temp, M.bodytemperature - (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
-
-	if (halluci)
-		M.hallucination = max(M.hallucination, halluci)
-
-	if (caffeine && !caffeine_mod)
-		caffeine_mod = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = caffeine, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
 /datum/reagent/alcohol/ethanol
 	name = "Ethanol"
@@ -163,10 +167,8 @@
 	if(alien == IS_VAURCA)//Vaurca are damaged instead of getting nutrients, but they can still get drunk
 		M.adjustToxLoss(1.5 * removed * (strength / 100))
 	else
-		M.nutrition += nutriment_factor * removed
-
-	if(alien == IS_DIONA)
-		return //Diona can gain nutrients, but don't get drunk or suffer other effects
+		M.adjustNutritionLoss(-nutriment_factor * removed)
+		M.adjustHydrationLoss(-hydration_factor * removed)
 
 	if (alien == IS_UNATHI)//unathi are poisoned by alcohol as well
 		M.adjustToxLoss(1.5 * removed * (strength / 100))
@@ -212,7 +214,8 @@
 	if (alien == IS_VAURCA)
 		M.adjustToxLoss(removed * (strength / 100))
 	else
-		M.nutrition += nutriment_factor * removed
+		M.adjustNutritionLoss(-nutriment_factor * removed)
+		M.adjustHydrationLoss(-hydration_factor * removed)
 
 	if (alien == IS_UNATHI)
 		ingest_met = initial(ingest_met)*3
@@ -478,7 +481,7 @@
 	glass_desc = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
 
 /datum/reagent/sugar/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.nutrition += removed * 3
+	M.adjustNutritionLoss(-removed*3)
 
 /datum/reagent/sulfur
 	name = "Sulfur"

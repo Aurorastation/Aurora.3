@@ -16855,6 +16855,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
+"Fq" = (
+/obj/random/junk,
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "Fs" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -44164,7 +44169,7 @@ ag
 ag
 ag
 sU
-tu
+Fq
 uh
 uO
 uO
@@ -45206,7 +45211,7 @@ Ar
 AP
 uO
 tt
-tt
+HR
 Cg
 sU
 ag
