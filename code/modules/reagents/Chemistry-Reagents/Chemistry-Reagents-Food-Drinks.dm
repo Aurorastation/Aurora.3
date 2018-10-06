@@ -3642,7 +3642,7 @@
 	color = "#102000"
 	adj_temp = -5
 	adj_sleepy = -2
-	caffeine = 1
+	caffeine = 0.2
 	taste_description = "electric cherry"
 
 /datum/reagent/drink/zorasoda/phoron
@@ -3652,7 +3652,7 @@
 	color = "#863333"
 	adj_temp = -5
 	adj_sleepy = -2
-	caffeine = 1
+	caffeine = 0.2
 	taste_description = "electric grape"
 
 /datum/reagent/drink/zorasoda/kois
@@ -3662,7 +3662,7 @@
 	color = "#dcd9cd"
 	adj_temp = -5
 	adj_sleepy = -2
-	caffeine = 1
+	caffeine = 0.2
 	taste_description = "sugary cabbage"
 
 /datum/reagent/drink/zorasoda/kois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
@@ -3677,7 +3677,7 @@
 	color = "#365000"
 	adj_temp = -5
 	adj_sleepy = -3
-	caffeine = 2
+	caffeine = 0.3
 	taste_description = "a full-body bite into an acidic lemon"
 
 /datum/reagent/drink/zorasoda/hozm/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
@@ -3694,7 +3694,7 @@
 	color = "#100800"
 	adj_temp = -5
 	adj_sleepy = -3
-	caffeine = 0.8
+	caffeine = 0.1
 	taste_description = "fizzy nettles"
 
 /datum/reagent/drink/zorasoda/venomgrass/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
@@ -3709,7 +3709,7 @@
 	color = "#E78108"
 	adj_temp = -5
 	adj_sleepy = -3
-	caffeine = 1
+	caffeine = 0.2
 	unaffected_species = IS_MACHINE
 	taste_description = "orange cream"
 
@@ -3725,7 +3725,7 @@
 	color = "#0000CD"
 	adj_temp = -5
 	adj_sleepy = -3
-	caffeine = 1
+	caffeine = 0.2
 	taste_description = "flat raspberry"
 
 /datum/reagent/drink/zorasoda/cthur/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
@@ -3761,7 +3761,7 @@
 	color = "#FFFF00"
 	adj_temp = -5
 	adj_sleepy = -3
-	caffeine = 1
+	caffeine = 0.2
 	taste_description = "a reassuring spectrum of color"
 
 /datum/reagent/drink/zorasoda/jelly/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)

@@ -351,6 +351,7 @@
 		var/obj/S = get_roundstart_spawnpoint(rank)
 		if(istype(S, /obj/effect/landmark/start) && istype(S.loc, /turf))
 			H.forceMove(S.loc)
+			H.lastarea = get_area(H.loc)
 		else
 			LateSpawn(H, rank)
 

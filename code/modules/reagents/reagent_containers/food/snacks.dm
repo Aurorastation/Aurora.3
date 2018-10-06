@@ -5016,7 +5016,7 @@
 	name = "mystery chocolate truffle"
 	desc = "Rich bite-sized chocolate with a mystery filling!"
 
-/obj/item/weapon/reagent_containers/food/snacks/random/Initialize()
+/obj/item/weapon/reagent_containers/food/snacks/truffle/random/Initialize()
 	. = ..()
 	var/reagent_string = pick(list("cream","cherryjelly","mint","frostoil","capsaicin","cream","coffee","milkshake"))
 	reagents.add_reagent(reagent_string, 4)
@@ -5105,7 +5105,7 @@
 	nutriment_desc = list("pizza crust" = 5, "tomato" = 5)
 	nutriment_amt = 5
 
-/obj/item/weapon/reagent_containers/food/snacks/baconburger
+/obj/item/weapon/reagent_containers/food/snacks/burger/bacon
 	name = "bacon burger"
 	desc = "The cornerstone of every nutritious breakfast, now with bacon!"
 	icon_state = "hburger"
