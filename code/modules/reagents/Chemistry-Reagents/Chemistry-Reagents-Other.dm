@@ -354,10 +354,10 @@
 			return
 	M.clean_blood()
 
-/datum/reagent/lube // TODO: spraying on borgs speeds them up
+/datum/reagent/lube
 	name = "Space Lube"
 	id = "lube"
-	description = "Lubricant is a substance introduced between two moving surfaces to reduce the friction and wear between them. giggity."
+	description = "Lubricant is a substance introduced between two moving surfaces to reduce the friction and wear between them."
 	reagent_state = LIQUID
 	color = "#009CA8"
 	taste_description = "cherry"
@@ -451,19 +451,19 @@
 /datum/reagent/estus/affect_blood(var/mob/living/carbon/M, var/removed)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
-	if(isskeleton(M))
+	if(isundead(M))
 		M.heal_organ_damage(10 * removed, 15 * removed)
 
 /datum/reagent/estus/affect_ingest(var/mob/living/carbon/M, var/removed)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
-	if(isskeleton(M))
+	if(isundead(M))
 		M.heal_organ_damage(10 * removed, 15 * removed)
 
 /datum/reagent/estus/affect_touch(var/mob/living/carbon/M, var/removed)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
-	if(isskeleton(M))
+	if(isundead(M))
 		M.heal_organ_damage(10 * removed, 15 * removed)
 
 /datum/reagent/liquid_fire
