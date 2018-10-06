@@ -5,6 +5,7 @@
 	var/has_warnings = 1  // Set to draw environment warnings.
 	var/has_pressure = 1  // Draw the pressure indicator.
 	var/has_nutrition = 1 // Draw the nutrition indicator.
+	var/has_hydration = 1 // Draw the hydration indicator.
 	var/has_bodytemp = 1  // Draw the bodytemp indicator.
 	var/has_hands = 1     // Set to draw hands.
 	var/has_drop = 1      // Set to draw drop button.
@@ -76,3 +77,7 @@
 		"mask" =         list("loc" = ui_shoes,     "name" = "Mask", "slot" = slot_wear_mask, "state" = "mask",  "toggle" = 1),
 		"back" =         list("loc" = ui_sstore1,   "name" = "Back", "slot" = slot_back,      "state" = "back")
 		)
+		
+		
+/datum/hud_data/ipc	
+	has_hydration = 0
