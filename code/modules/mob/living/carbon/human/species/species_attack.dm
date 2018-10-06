@@ -157,3 +157,37 @@
 	if(prob(25))
 		if(target.reagents)
 			target.reagents.add_reagent("trioxin", 10)
+
+
+/datum/unarmed_attack/golem
+	attack_verb = list("smashed", "crushed", "rammed")
+	attack_noun = list("fist")
+	damage = 15
+	attack_sound = 'sound/weapons/heavysmash.ogg'
+	attack_name = "crushing fist"
+	shredding = 1
+
+/datum/unarmed_attack/shocking
+	attack_verb = list("prodded", "touched")
+	attack_noun = list("electrifying fist")
+	damage = 5
+	attack_sound = 'sound/effects/sparks4.ogg'
+	attack_name = "electrifying touch"
+
+/datum/unarmed_attack/shocking/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armour,var/attack_damage,var/zone)
+	..()
+	if(prob(25))
+		target.electrocute_act(20, user, def_zone = zone)
+
+/datum/unarmed_attack/flame
+	attack_verb = list("scorched", "burned")
+	attack_noun = list("flaming fist")
+	damage = 10
+	attack_sound = 'sound/items/Welder.ogg'
+	attack_name = "flaming touch"
+	damage_type = BURN
+
+/datum/unarmed_attack/flame/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armour,var/attack_damage,var/zone)
+	..()
+	if(prob(25))
+		target.apply_effect(1, INCINERATE, 0)
