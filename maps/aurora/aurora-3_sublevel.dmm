@@ -11832,7 +11832,7 @@
 /obj/structure/table/rack,
 /obj/item/weapon/storage/briefcase/inflatable,
 /obj/structure/extinguisher_cabinet{
-	pixel_y = 32
+	pixel_y = 30
 	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
@@ -18488,7 +18488,7 @@
 /area/rnd/xenobiology)
 "aGM" = (
 /obj/structure/extinguisher_cabinet{
-	pixel_y = 32
+	pixel_y = 30
 	},
 /obj/structure/cable/green{
 	d1 = 2;
@@ -19590,6 +19590,7 @@
 	name = "Isolation Ward Access";
 	req_access = list(66)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_c)
 "aIz" = (
@@ -20149,6 +20150,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing)
 "aJy" = (
@@ -20173,6 +20175,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_c)
 "aJA" = (
@@ -21673,7 +21676,7 @@
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
 /obj/structure/extinguisher_cabinet{
-	pixel_y = 32
+	pixel_y = 30
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
@@ -23241,7 +23244,7 @@
 "aOu" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/structure/extinguisher_cabinet{
-	pixel_y = 32
+	pixel_y = 30
 	},
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -25481,10 +25484,6 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/medbreak)
 "aSx" = (
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Staff Dormitories";
-	dir = 8
-	},
 /obj/item/device/radio/intercom{
 	dir = 0;
 	name = "Station Intercom (General)";
@@ -26508,32 +26507,16 @@
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "aUk" = (
-/obj/structure/closet/crate{
-	icon_state = "crateopen";
-	name = "Grenade Crate";
-	opened = 1
-	},
-/obj/item/weapon/grenade/chem_grenade,
-/obj/item/weapon/grenade/chem_grenade,
-/obj/item/weapon/grenade/chem_grenade,
-/obj/item/weapon/grenade/chem_grenade,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/timer,
-/obj/item/device/assembly/timer,
-/obj/item/device/assembly/timer,
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/firealarm/south,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/medical/medbay4)
 "aUl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/medical/medbay4)
 "aUm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -27033,27 +27016,20 @@
 /area/crew_quarters/sleep/medical)
 "aVa" = (
 /obj/machinery/door/airlock/medical{
-	name = "Staff Dormitories";
+	name = "Staff Showers";
 	req_access = list(66)
 	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/sleep/medical)
 "aVb" = (
 /obj/machinery/door/airlock/medical{
 	name = "Staff Hygiene Facilities";
 	req_access = list(66)
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/sleep/medical)
 "aVc" = (
@@ -27512,31 +27488,15 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/cells/echo)
 "aVH" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/lime{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/sleep/medical)
+/turf/simulated/floor/tiled/freezer,
+/area/mine/unexplored)
 "aVI" = (
-/obj/structure/table/standard,
-/obj/structure/bedsheetbin,
 /obj/machinery/light{
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
-/obj/effect/floor_decal/corner/lime{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/sleep/medical)
+/turf/simulated/floor/tiled/freezer,
+/area/mine/unexplored)
 "aVJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -27558,7 +27518,12 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/sleep/medical)
 "aVL" = (
-/obj/machinery/washing_machine,
+/obj/structure/sink{
+	pixel_y = 16
+	},
+/obj/structure/mirror{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/sleep/medical)
 "aVM" = (
@@ -27895,16 +27860,14 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/medical)
 "aWt" = (
-/obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
-	pixel_y = 22
+/obj/structure/curtain/open/shower,
+/obj/machinery/shower{
+	dir = 4;
+	icon_state = "shower";
+	pixel_y = -8
 	},
-/obj/effect/floor_decal/corner/lime{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/sleep/medical)
+/turf/simulated/floor/tiled/freezer,
+/area/mine/unexplored)
 "aWu" = (
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
@@ -27979,9 +27942,10 @@
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "aWB" = (
-/obj/structure/table/standard,
-/obj/structure/bedsheetbin,
-/obj/effect/floor_decal/corner/green,
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "aWC" = (
@@ -30893,19 +30857,74 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/medical)
 "bbS" = (
+/obj/structure/closet/crate{
+	icon_state = "crateopen";
+	name = "Grenade Crate";
+	opened = 1
+	},
+/obj/item/weapon/grenade/chem_grenade,
+/obj/item/weapon/grenade/chem_grenade,
+/obj/item/weapon/grenade/chem_grenade,
+/obj/item/weapon/grenade/chem_grenade,
+/obj/item/device/assembly/igniter,
+/obj/item/device/assembly/igniter,
+/obj/item/device/assembly/igniter,
+/obj/item/device/assembly/timer,
+/obj/item/device/assembly/timer,
+/obj/item/device/assembly/timer,
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/tiled,
+/area/medical/medbay4)
+"bbT" = (
+/obj/structure/curtain/open/shower,
+/obj/machinery/shower{
+	dir = 4;
+	icon_state = "shower";
+	pixel_y = -8
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/mine/unexplored)
+"bbU" = (
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/mine/unexplored)
+"bbV" = (
+/obj/structure/closet/secure_closet/personal,
+/turf/simulated/floor/tiled/freezer,
+/area/mine/unexplored)
+"bbW" = (
+/obj/structure/closet/secure_closet/personal,
+/turf/simulated/floor/tiled/freezer,
+/area/mine/unexplored)
+"bbX" = (
+/obj/structure/closet/secure_closet/personal,
+/turf/simulated/floor/tiled/freezer,
+/area/mine/unexplored)
+"bbY" = (
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Briefing Room";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
+"bbZ" = (
 /obj/structure/ladder/up,
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
-"bbT" = (
+"bca" = (
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
-"bbU" = (
+"bcb" = (
 /obj/item/device/radio/intercom{
 	dir = 0;
 	name = "Station Intercom (General)";
@@ -30913,7 +30932,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
-"bbV" = (
+"bcc" = (
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Maintenance - Trash Compactor Crushers";
 	dir = 4
@@ -30923,7 +30942,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
-"bbW" = (
+"bcd" = (
 /obj/item/modular_computer/telescreen/preset/trashcompactor{
 	pixel_x = -32
 	},
@@ -60163,11 +60182,11 @@ aaa
 aaa
 aZV
 aZW
-bbT
+bca
 aZW
-bbU
-bbV
-bbW
+bcb
+bcc
+bcd
 aZV
 aaa
 aaa
@@ -60419,7 +60438,7 @@ aaa
 aaa
 aaa
 aZV
-bbS
+bbZ
 aZX
 baa
 bad
@@ -67591,10 +67610,10 @@ aUZ
 aUZ
 aUZ
 aUZ
-aaa
-aaa
-aaa
-aaa
+ate
+ate
+ate
+ate
 aaa
 aaa
 aaa
@@ -67848,11 +67867,11 @@ aUZ
 aTn
 aTn
 aUZ
-aaa
-aaa
-aaa
-aaa
-aaa
+bbT
+aWt
+aWt
+ate
+ate
 aaa
 aaa
 aaa
@@ -68105,11 +68124,11 @@ bbP
 bbQ
 aUb
 aUZ
-aaa
-aaa
-aaa
-aaa
-aaa
+bbU
+aVH
+aVH
+bbV
+ate
 aaa
 aaa
 aaa
@@ -68361,12 +68380,12 @@ aQL
 aSx
 aTo
 aQK
-aUZ
-aaa
-aaa
-aaa
-aaa
-aaa
+aVa
+aVH
+aVH
+aVH
+bbW
+ate
 aaa
 aaa
 aaa
@@ -68619,11 +68638,11 @@ aUZ
 aSy
 aQK
 aUZ
-aaa
-aaa
-aaa
-aaa
-aaa
+aVI
+aVH
+aVH
+bbX
+ate
 aaa
 aaa
 aaa
@@ -68877,7 +68896,7 @@ bbR
 aUZ
 aUZ
 aUZ
-aUZ
+aVa
 aUZ
 aUZ
 aUZ
@@ -70675,7 +70694,7 @@ aSF
 aTt
 aSF
 aLk
-aVN
+aLk
 aWB
 aXk
 aSM
@@ -70931,7 +70950,7 @@ aLm
 aSG
 aTu
 aUk
-aLk
+bbS
 aLk
 aVO
 aXl
@@ -72220,7 +72239,7 @@ aLk
 aLk
 aWG
 aXq
-aXM
+bbY
 aYn
 aYC
 aYQ

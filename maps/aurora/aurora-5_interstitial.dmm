@@ -5595,6 +5595,7 @@
 	name = "Therapy Ward";
 	req_access = list(64)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "jZ" = (
@@ -5970,6 +5971,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "kG" = (
@@ -6314,6 +6316,7 @@
 	name = "Psychiatry Closet";
 	req_access = list(64)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lk" = (
@@ -6633,6 +6636,9 @@
 /obj/machinery/firealarm/west,
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Psych Entry"
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 30
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
@@ -7177,6 +7183,9 @@
 	},
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Psych Hall 1"
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 30
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
