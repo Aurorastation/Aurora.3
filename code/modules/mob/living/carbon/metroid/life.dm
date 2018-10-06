@@ -159,7 +159,7 @@
 /mob/living/carbon/slime/proc/handle_nutrition()
 
 	if (prob(15))
-		nutrition -= 1 + is_adult
+		adjustNutritionLoss(1 + is_adult)
 
 	if(nutrition <= 0)
 		nutrition = 0
@@ -168,7 +168,7 @@
 			src << "<span class='danger'>You are starving!</span>"
 
 	else if (nutrition >= get_grow_nutrition() && amount_grown < 10)
-		nutrition -= 20
+		adjustNutritionLoss(20)
 		amount_grown++
 
 /mob/living/carbon/slime/proc/handle_targets()

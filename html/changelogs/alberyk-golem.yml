@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added several material based golems, they can be created via xenobiology or by magic using ten units of any material stack."

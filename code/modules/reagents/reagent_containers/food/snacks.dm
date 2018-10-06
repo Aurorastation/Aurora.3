@@ -101,21 +101,32 @@
 			return 1
 	else
 
-		var/is_full = 0
-		if(istype(target,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = target
-			var/limit = 550 * (1 + H.overeatduration / 2000)
-			var/current = H.nutrition + (H.reagents.get_reagent_amount("nutriment") * 25)
-			is_full = current >= limit
+		var/expected_fullness = user.max_nutrition > 0 ? (user.nutrition + (user.reagents.get_reagent_amount("nutriment") * 25)) / user.max_nutrition : CREW_NUTRITION_OVEREATEN + 0.01
+		expected_fullness += (user.overeatduration/600)*0.5
+		var/is_full = (expected_fullness > CREW_NUTRITION_OVEREATEN)
 
 		if(user == target)
 			if(!user.can_eat(src))
 				return
+				
+			var/feedback_message
+			if(expected_fullness <= CREW_NUTRITION_VERYHUNGRY)
+				feedback_message = "You hungrily chew out a piece of \the [src] and gobble it!"
+			else if(expected_fullness <= CREW_NUTRITION_HUNGRY)
+				feedback_message = "You hungrily begin to eat \the [src]."
+			else if(expected_fullness <= CREW_NUTRITION_SLIGHTLYHUNGRY)
+				feedback_message = "You take a bite of \the [src]."
+			else if(expected_fullness <= CREW_NUTRITION_FULL)
+				feedback_message = "You take a bite of \the [src]."
+			else if(expected_fullness <= CREW_NUTRITION_OVEREATEN)
+				feedback_message = "You unwillingly chew a bit of \the [src]."
+			else
+				feedback_message = "You cannot force any more of \the [src] to go down your throat!"
+
 			if(is_full)
-				to_chat(user,span("warning","You can't stomach any more food!"))
+				to_chat(user,span("danger",feedback_message))
 				return
 			reagents.trans_to_mob(target, min(reagents.total_volume,bitesize), CHEM_INGEST)
-			self_feed_message(user)
 		else
 			if(!user.can_force_feed(target, src))
 				return
@@ -1522,6 +1533,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/sosjerky/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 4)
+	reagents.add_reagent("sodiumchloride",3)
 
 /obj/item/weapon/reagent_containers/food/snacks/no_raisin
 	name = "4no Raisins"
@@ -1565,6 +1577,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers/Initialize()
 	. = ..()
 	reagents.add_reagent("cheese", 3)
+	reagents.add_reagent("sodiumchloride",6)
 
 /obj/item/weapon/reagent_containers/food/snacks/syndicake
 	name = "Syndi-Cakes"
@@ -2009,6 +2022,14 @@
 /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/neaeracube
 	name = "neaera cube"
 	monkey_type = "Neaera"
+
+/obj/item/weapon/reagent_containers/food/snacks/monkeycube/vkrexicube
+	name = "v'krexi cube"
+	monkey_type = "V'krexi"
+
+/obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/vkrexicube
+	name = "v'krexi cube"
+	monkey_type = "V'krexi"
 
 
 /obj/item/weapon/reagent_containers/food/snacks/burger/spell
@@ -4209,7 +4230,11 @@
 	center_of_mass = list("x"=17, "y"=16)
 	nutriment_desc = list("stale bread" = 4)
 	nutriment_type = NUTRIMENT_BAD
-	nutriment_amt = 4
+	nutriment_amt = 6
+
+/obj/item/weapon/reagent_containers/food/snacks/tastybread/Initialize()
+	. = ..()
+	reagents.add_reagent("sodiumchloride",3)
 
 /obj/item/weapon/reagent_containers/food/snacks/skrellsnacks
 	name = "\improper SkrellSnax"
@@ -4353,6 +4378,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/meatsnack/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 12)
+	reagents.add_reagent("sodiumchloride",4)
 
 /obj/item/weapon/reagent_containers/food/snacks/maps
 	name = "maps salty ham"
@@ -4366,7 +4392,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/maps/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 6)
-	reagents.add_reagent("sodiumchloride", 3)
+	reagents.add_reagent("sodiumchloride", 6)
 
 /obj/item/weapon/reagent_containers/food/snacks/nathisnack
 	name = "razi-snack corned beef"
@@ -4381,6 +4407,7 @@
 	. = ..()
 	reagents.add_reagent("protein", 10)
 	reagents.add_reagent("iron", 3)
+	reagents.add_reagent("sodiumchloride",6)
 
 /obj/item/weapon/reagent_containers/food/snacks/pancakes
 	name = "pancakes"
@@ -4921,6 +4948,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/spreads/Initialize()
 	. = ..()
 	reagents.add_reagent("triglyceride", 20)
+	reagents.add_reagent("sodiumchloride",1)
 
 /obj/item/weapon/reagent_containers/food/snacks/bacon_stick
 	name = "eggpop"
@@ -5233,6 +5261,157 @@
 	nutriment_amt = 4
 	nutriment_desc = list("french bread" = 4)
 	bitesize = 2
+
+//Snacks
+/obj/item/weapon/reagent_containers/food/snacks/cb01
+	name = "tau ceti bar"
+	desc = "A dark chocolate caramel and nougat bar made famous in biesel."
+	filling_color = "#552200"
+	icon_state = "cb01"
+	nutriment_amt = 4
+	nutriment_desc = list("chocolate" = 2, "nougat" = 1, "caramel" = 1)
+	bitesize = 2
+	nutriment_type = NUTRIMENT_BAD
+	w_class = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/cb01/Initialize()
+	. = ..()
+	reagents.add_reagent("sugar", 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/cb02
+	name = "hundred thousand credit bar"
+	desc = "An ironically cheap puffed rice caramel milk chocolate bar."
+	filling_color = "#552200"
+	icon_state = "cb02"
+	nutriment_amt = 4
+	nutriment_desc = list("chocolate" = 2, "caramel" = 1, "puffed rice" = 1)
+	bitesize = 2
+	nutriment_type = NUTRIMENT_BAD
+	w_class = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/cb02/Initialize()
+	. = ..()
+	reagents.add_reagent("sugar", 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/cb03
+	name = "spacewind bar"
+	desc = "Bubbly milk chocolate."
+	filling_color = "#552200"
+	icon_state = "cb03"
+	nutriment_amt = 4
+	nutriment_desc = list("chocolate" = 4)
+	bitesize = 2
+	nutriment_type = NUTRIMENT_BAD
+	w_class = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/cb03/Initialize()
+	. = ..()
+	reagents.add_reagent("sugar", 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/cb04
+	name = "crunchy crisp"
+	desc = "An almond flake bar covered in milk chocolate."
+	filling_color = "#552200"
+	icon_state = "cb04"
+	nutriment_amt = 4
+	nutriment_desc = list("chocolate" = 3, "almonds" = 1)
+	bitesize = 2
+	nutriment_type = NUTRIMENT_BAD
+	w_class = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/cb04/Initialize()
+	. = ..()
+	reagents.add_reagent("sugar", 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/cb05
+	name = "hearsay bar"
+	desc = "A cheap milk chocolate bar loaded with sugar."
+	filling_color = "#552200"
+	icon_state = "cb05"
+	nutriment_amt = 3
+	nutriment_desc = list("chocolate" = 2, "vomit" = 1)
+	bitesize = 3
+	nutriment_type = NUTRIMENT_BAD
+	w_class = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/cb05/Initialize()
+	. = ..()
+	reagents.add_reagent("sugar", 3)
+
+/obj/item/weapon/reagent_containers/food/snacks/cb06
+	name = "latte crunch"
+	desc = "A large latte flavored wafer chocolate bar."
+	filling_color = "#552200"
+	icon_state = "cb06"
+	nutriment_amt = 4
+	nutriment_desc = list("chocolate" = 2, "coffee" = 1, "vanilla wafer" = 1)
+	bitesize = 3
+	nutriment_type = NUTRIMENT_BAD
+	w_class = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/cb06/Initialize()
+	. = ..()
+	reagents.add_reagent("sugar", 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/cb07
+	name = "martain bar"
+	desc = "Dark chocolate with a nougat and caramel center. Known as the first chocolate bar grown and produced on Mars."
+	filling_color = "#552200"
+	icon_state = "cb07"
+	nutriment_amt = 4
+	nutriment_desc = list("chocolate" = 2, "caramel" = 1, "nougat" = 1)
+	bitesize = 3
+	nutriment_type = NUTRIMENT_BAD
+	w_class = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/cb07/Initialize()
+	. = ..()
+	reagents.add_reagent("sugar", 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/cb08
+	name = "crisp bar"
+	desc = "A large puffed rice milk chocolate bar."
+	filling_color = "#552200"
+	icon_state = "cb08"
+	nutriment_amt = 3
+	nutriment_desc = list("chocolate" = 2, "puffed rice" = 1)
+	bitesize = 3
+	nutriment_type = NUTRIMENT_BAD
+	w_class = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/cb08/Initialize()
+	. = ..()
+	reagents.add_reagent("sugar", 2)
+
+/obj/item/weapon/reagent_containers/food/snacks/cb09
+	name = "owo daddy bar"
+	desc = "A massive cluster of peanuts covered in caramel and chocolate."
+	filling_color = "#552200"
+	icon_state = "cb09"
+	nutriment_amt = 6
+	nutriment_desc = list("chocolate" = 3, "caramel" = 1, "peanuts" = 2)
+	bitesize = 3
+	nutriment_type = NUTRIMENT_BAD
+	w_class = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/cb09/Initialize()
+	. = ..()
+	reagents.add_reagent("sugar", 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/cb10
+	name = "laughter bar"
+	desc = "Nuts, nougat, peanuts, and caramel covered in chocolate."
+	filling_color = "#552200"
+	icon_state = "cb10"
+	nutriment_amt = 5
+	nutriment_desc = list("chocolate" = 2, "caramel" = 1, "peanuts" = 1, "nougat" = 1)
+	bitesize = 3
+	nutriment_type = NUTRIMENT_BAD
+	w_class = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/cb10/Initialize()
+	. = ..()
+	reagents.add_reagent("sugar", 1)
 
 #undef NUTRIMENT_GOOD
 #undef NUTRIMENT_BAD

@@ -342,6 +342,7 @@
 	eyes_icon_blend = ICON_MULTIPLY
 	sprint_charge_factor = 0.25
 	max_nutrition_factor = 1.75
+
 	brute_mod = 1.2
 
 	appearance_flags = HAS_EYE_COLOR

@@ -749,3 +749,79 @@
 			D.set_color()
 			D.set_up(my_target, rand(6,8), 1, 50)
 	return
+
+/mob/living/carbon/human/proc/thunder()
+	set category = "Abilities"
+	set name = "Thunderbolt"
+	set desc = "Release your inner electricity, creating a powerful discharge of lightning."
+
+	if(last_special > world.time)
+		return
+
+	if(stat || paralysis || stunned || weakened || lying)
+		to_chat(src,"<span class='warning'>You cannot do that in your current state!</span>")
+		return
+
+	visible_message("<span class='danger'>\The [src] crackles with energy!</span>")
+
+	playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
+
+	tesla_zap(src, 7, 1500)
+
+	last_special = world.time + 50
+
+/mob/living/carbon/human/proc/consume_material()
+	set category = "Abilities"
+	set name = "Incorporate Matter"
+	set desc = "Repair your damage body by using the same materials you were made from."
+
+	if(last_special > world.time)
+		return
+
+	if(stat || paralysis || stunned || weakened || lying)
+		to_chat(src,"<span class='warning'>You cannot do that in your current state!</span>")
+		return
+
+	var/obj/item/stack/material/O = src.get_active_hand()
+
+	if(istype(O, /obj/item/stack/material))
+		if(O.material.golem == src.species.name)
+			to_chat(src,"<span class='danger'>You incorporate \the [O] into your mass, repairing damage to your structure.</span>")
+			adjustBruteLoss(-10*O.amount)
+			adjustFireLoss(-10*O.amount)
+			qdel(O)
+			last_special = world.time + 50
+
+/mob/living/carbon/human/proc/breath_of_life()
+	set category = "Abilities"
+	set name = "Breath of Life"
+	set desc = "Bring back a fallen golem back into this world using their chelm."
+
+	if(last_special > world.time)
+		return
+
+	if(stat || paralysis || stunned || weakened || lying)
+		to_chat(src,"<span class='warning'>You cannot do that in your current state!</span>")
+		return
+
+	var/obj/item/organ/brain/golem/O = src.get_active_hand()
+
+	if(istype(O))
+
+		if(O.health <= 0)
+			to_chat(src,"<span class='warning'>The spark of life already left \the [O]!</span>")
+			return
+
+		if(!O.brainmob)
+			to_chat(src,"<span class='warning'>\The [O] remains silent.</span>")
+			return
+
+		if(!O.dna)
+			to_chat(src,"<span class='warning'>\The [O] is blank, you can not bring it back to life.</span>")
+
+		var/mob/living/carbon/human/G = new(src.loc)
+		G.key = O.brainmob.key
+		addtimer(CALLBACK(G, /mob/living/carbon/human.proc/set_species, O.dna.species), 0)
+		to_chat(src,"<span class='notice'>You blow life back in \the [O], returning its past owner to life!</span>")
+		qdel(O)
+		last_special = world.time + 200

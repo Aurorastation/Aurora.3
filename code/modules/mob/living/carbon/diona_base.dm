@@ -92,7 +92,9 @@ var/list/diona_banned_languages = list(
 		if(DS.nutrient_organ.is_bruised())
 			plus *= 0.5
 	plus = min(plus, max_nutrition - nutrition)
-	nutrition += plus
+	
+	adjustNutritionLoss(-plus)
+
 	return plus*7 //The return value is the number of moles to remove from the local environment
 
 /mob/living/carbon/proc/diona_handle_temperature(var/datum/dionastats/DS)
@@ -291,7 +293,7 @@ var/list/diona_banned_languages = list(
 				to_chat(src, "<span class='danger'>You try to regrow a lost limb, but you lack the biomass. Find some food!</span>")
 				return
 			DS.stored_energy -= REGROW_ENERGY_REQ
-			nutrition -= REGROW_FOOD_REQ
+			adjustNutritionLoss(REGROW_FOOD_REQ)
 			playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, 1)
 			visible_message("<span class='warning'>[src] begins to shift and quiver.</span>",
 				"<span class='warning'>You begin to shift and quiver, feeling a stirring within your trunk</span>")
@@ -325,7 +327,7 @@ var/list/diona_banned_languages = list(
 				return
 
 			DS.stored_energy -= REGROW_ENERGY_REQ
-			nutrition -= REGROW_FOOD_REQ
+			adjustNutritionLoss(REGROW_FOOD_REQ)
 			var/obj/item/organ/O = new path(src)
 			internal_organs_by_name[O.organ_tag] = O
 			internal_organs.Add(O)
@@ -351,7 +353,7 @@ var/list/diona_banned_languages = list(
 		//If we have less than six nymphs, we add one each proc
 		if (topup_nymphs(1))
 			DS.stored_energy -= REGROW_ENERGY_REQ
-			nutrition -= REGROW_FOOD_REQ
+			adjustNutritionLoss(REGROW_FOOD_REQ)
 			to_chat(src, "<span class='danger'>You feel a stirring inside you as a new nymph is born within your trunk!</span>")
 
 	updatehealth()
