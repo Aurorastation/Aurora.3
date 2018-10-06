@@ -1472,7 +1472,7 @@
 	..()
 	var/obj/effect/golemrune/Z = new /obj/effect/golemrune
 	Z.forceMove(get_turf(holder.my_atom))
-	Z.announce_to_ghosts()
+
 
 /*
 ====================
