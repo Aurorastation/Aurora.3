@@ -1059,6 +1059,10 @@
 			name = "Tajara Finger Curls"
 			icon_state = "hair_fingerwave"
 
+		taj_ears_pompadour
+			name = "Tajara Greaser"
+			icon_state = "hair_greaser"
+
 //vox hair
 
 	vox_quills_short
