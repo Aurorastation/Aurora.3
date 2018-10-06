@@ -119,6 +119,7 @@
 	description = "Cardox is an mildly toxic, expensive, NanoTrasen designed cleaner intended to eliminate liquid phoron stains from suits."
 	reagent_state = LIQUID
 	color = "#EEEEEE"
+	metabolism = 0.6 // 100 seconds for 30 units to metabolise.
 	taste_description = "cherry"
 	conflicting_reagent = /datum/reagent/toxin/phoron
 	strength = 1
@@ -267,10 +268,10 @@
 	reagent_state = SOLID
 	color = "#CCCCCC"
 	taste_description = "salty dirt"
-	metabolism = REM * 2
+	metabolism = REM * 10
+	breathe_mul = 0
 
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_turf(var/turf/simulated/T)
-
 	if(!istype(T))
 		return
 
@@ -287,13 +288,16 @@
 	remove_self(amount_to_remove)
 	return
 
-
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))
-		L.adjust_fire_stacks(-amount)
-		if(L.fire_stacks <= 0 )
+		var/needed = L.fire_stacks * 10
+		if(amount > needed)
 			L.fire_stacks = 0
 			L.ExtinguishMob()
+			remove_self(needed)
+		else
+			L.adjust_fire_stacks(-amount*0.5)
+			remove_self(amount)
 
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed)
 	if(istype(S))
@@ -419,7 +423,7 @@
 	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "bitterness"
-	breathe_met = 0.33
+	breathe_met = REM * 0.5 * 0.33
 	var/total_strength = 0
 
 /datum/reagent/soporific/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -442,13 +446,13 @@
 /datum/reagent/chloralhydrate
 	name = "Chloral Hydrate"
 	id = "chloralhydrate"
-	description = "A powerful sedative. Lasts three times longer when inhaled."
+	description = "A powerful sedative. Lasts two times longer when inhaled."
 	reagent_state = SOLID
 	color = "#000067"
 	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE * 0.5
 	taste_description = "bitterness"
-	breathe_met = 0.33
+	breathe_met = REM * 0.5 * 0.5
 
 /datum/reagent/chloralhydrate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
@@ -492,7 +496,7 @@
 	taste_description = "bitterness"
 	taste_mult = 0.4
 	breathe_mul = 2
-	breathe_met = REM * 0.25
+	breathe_met = REM * 0.5 * 0.5
 
 /datum/reagent/space_drugs/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
@@ -733,3 +737,69 @@
 	data = 0
 	taste_description = "quality tobacco"
 	strength = 0.002
+
+/datum/reagent/toxin/berserk
+	name = "Red Nightshade"
+	id = "berserk"
+	description = "An illegal chemical enhancer, may cause aggressive and violent behavior."
+	reagent_state = LIQUID
+	color = "#AF111C"
+	strength = 5
+	taste_description = "bitterness"
+	metabolism = REM * 2
+	unaffected_species = IS_DIONA | IS_MACHINE
+	var/datum/modifier/modifier
+
+/datum/reagent/toxin/berserk/affect_blood(var/mob/living/carbon/M, var/removed)
+	..()
+	if(!modifier)
+		modifier = M.add_modifier(/datum/modifier/berserk, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+	M.make_jittery(20)
+	M.add_chemical_effect(CE_BERSERK, 1)
+	if(M.a_intent != I_HURT)
+		M.a_intent_change(I_HURT)
+	if(prob(20))
+		M.adjustBrainLoss(5 * removed)
+
+/datum/reagent/toxin/berserk/Destroy()
+	QDEL_NULL(modifier)
+	return ..()
+
+/datum/reagent/toxin/spectrocybin
+	name = "Spectrocybin"
+	id = "spectrocybin"
+	description = "A hallucinogen chemical, rumored to be used by mystics and religious figures in their rituals."
+	reagent_state = LIQUID
+	color = "#800080"
+	strength = 5
+	taste_description = "acid"
+	metabolism = REM
+	unaffected_species = IS_DIONA | IS_MACHINE
+
+/datum/reagent/toxin/spectrocybin/affect_blood(var/mob/living/carbon/M, var/removed)
+	..()
+	M.hallucination = max(M.hallucination, 50)
+	if(prob(10))
+		M.see_invisible = SEE_INVISIBLE_CULT
+
+/datum/reagent/toxin/trioxin
+	name = "Trioxin"
+	id = "trioxin"
+	description = "A synthetic compound of unknown origins, designated originally as a performance enhancing substance."
+	reagent_state = LIQUID
+	color = "#E7E146"
+	strength = 1
+	taste_description = "old eggs"
+	metabolism = REM
+	unaffected_species = IS_DIONA | IS_MACHINE | IS_UNDEAD
+
+/datum/reagent/toxin/trioxin/affect_blood(var/mob/living/carbon/M, var/removed)
+	..()
+	if(istype(M,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = M
+		if(M.reagents.has_reagent("spaceacillin", 15))
+			return
+		if(!H.internal_organs_by_name["zombie"] && prob(15))
+			var/obj/item/organ/external/affected = H.get_organ("chest")
+			var/obj/item/organ/parasite/zombie/infest = new()
+			infest.replaced(H, affected)

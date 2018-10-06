@@ -61,6 +61,15 @@
 	desc = "A 9mm practice bullet casing."
 	projectile_type = /obj/item/projectile/bullet/pistol/practice
 
+/obj/item/ammo_casing/c10mm
+	desc = "A 10mm bullet casing."
+	caliber = "10mm"
+	projectile_type = /obj/item/projectile/bullet/pistol
+
+/obj/item/ammo_casing/c10mm/rubber
+	desc = "A 10mm rubber bullet casing."
+	projectile_type = /obj/item/projectile/bullet/pistol/rubber
+
 /obj/item/ammo_casing/c45
 	desc = "A .45 bullet casing."
 	caliber = ".45"
@@ -79,15 +88,6 @@
 /obj/item/ammo_casing/c45/flash
 	desc = "A .45 flash shell casing."
 	projectile_type = /obj/item/projectile/energy/flash
-
-/obj/item/ammo_casing/t40
-	desc = "A 10mm bullet casing."
-	caliber = "10mm"
-	projectile_type = /obj/item/projectile/bullet/pistol
-
-/obj/item/ammo_casing/t40/rubber
-	desc = "A 10mm rubber bullet casing."
-	projectile_type = /obj/item/projectile/bullet/pistol/rubber
 
 /obj/item/ammo_casing/a12mm
 	desc = "A 12mm bullet casing."

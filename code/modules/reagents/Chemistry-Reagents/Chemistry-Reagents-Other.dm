@@ -451,19 +451,19 @@
 /datum/reagent/estus/affect_blood(var/mob/living/carbon/M, var/removed)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
-	if(isskeleton(M))
+	if(isundead(M))
 		M.heal_organ_damage(10 * removed, 15 * removed)
 
 /datum/reagent/estus/affect_ingest(var/mob/living/carbon/M, var/removed)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
-	if(isskeleton(M))
+	if(isundead(M))
 		M.heal_organ_damage(10 * removed, 15 * removed)
 
 /datum/reagent/estus/affect_touch(var/mob/living/carbon/M, var/removed)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
-	if(isskeleton(M))
+	if(isundead(M))
 		M.heal_organ_damage(10 * removed, 15 * removed)
 
 /datum/reagent/liquid_fire
@@ -617,3 +617,19 @@
 	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
 	if(!H.has_trauma_type(/datum/brain_trauma/special/love))
 		B.gain_trauma(/datum/brain_trauma/special/love,FALSE)
+
+/datum/reagent/bottle_lightning
+	name = "Bottled Lightning"
+	id = "lightning"
+	description = "A mysterious compound capable of producing electrical discharges."
+	reagent_state = LIQUID
+	color = "#70838A"
+	taste_description = "metal"
+
+/datum/reagent/bottle_lightning/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(prob(25))
+		tesla_zap(M, 6, 1500)
+
+/datum/reagent/bottle_lightning/touch_turf(var/turf/T)
+	if(volume >= 5)
+		tesla_zap(T, 6, 1500)

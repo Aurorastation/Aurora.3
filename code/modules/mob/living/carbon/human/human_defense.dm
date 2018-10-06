@@ -54,7 +54,8 @@ emp_act
 
 	switch (def_zone)
 		if("head")
-			agony_amount *= 1.50
+			eye_blurry += min((rand(1,3) * (agony_amount/40)), 12)
+			confused = min(max(confused, 2 * (agony_amount/40)), 8)
 		if("l_hand", "r_hand")
 			var/c_hand
 			if (def_zone == "l_hand")
@@ -503,7 +504,7 @@ emp_act
 /mob/living/carbon/human/proc/grabbedby(mob/living/carbon/human/user,var/supress_message = 0)
 	if(user == src || anchored)
 		return 0
-	if(user.disabilities & PACIFIST)
+	if(user.is_pacified())
 		to_chat(user, "<span class='notice'>You don't want to risk hurting [src]!</span>")
 		return 0
 
