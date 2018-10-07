@@ -161,8 +161,8 @@
 
 	var/infection_chance = 80
 	var/armor = target.run_armor_check(zone,"melee")
-	stun_chance -= armor
-	if(prob(stun_chance))
+	infection_chance -= armor
+	if(prob(infection_chance))
 		if(target.reagents)
 			target.reagents.add_reagent("trioxin", 10)
 
