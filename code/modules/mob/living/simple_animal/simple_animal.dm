@@ -668,8 +668,8 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 /mob/living/simple_animal/can_fall()
 	if (stat != DEAD && flying)
 		return FALSE
-	else
-		return TRUE
+
+	return ..()
 
 /mob/living/simple_animal/can_ztravel()
 	if (stat != DEAD && flying)

@@ -798,7 +798,7 @@ About the new airlock wires panel:
 			src.do_animate("spark")
 			src.stat |= BROKEN
 			var/check = src.open(1)
-			src.visible_message("\The [H] slices \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You slice \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You hear something sparking.")
+			H.visible_message("\The [H] slices \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You slice \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You hear something sparking.")
 			return
 	if(src.p_open)
 		user.set_machine(src)
