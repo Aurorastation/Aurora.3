@@ -119,7 +119,7 @@
 	description = "Cardox is an mildly toxic, expensive, NanoTrasen designed cleaner intended to eliminate liquid phoron stains from suits."
 	reagent_state = LIQUID
 	color = "#EEEEEE"
-	metabolism = 0.6 // 100 seconds for 30 units to metabolise.
+	metabolism = 0.3 // 100 seconds for 30 units to metabolise.
 	taste_description = "cherry"
 	conflicting_reagent = /datum/reagent/toxin/phoron
 	strength = 1
@@ -268,7 +268,7 @@
 	reagent_state = SOLID
 	color = "#CCCCCC"
 	taste_description = "salty dirt"
-	metabolism = REM * 10
+	touch_met = REM * 10
 	breathe_mul = 0
 
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_turf(var/turf/simulated/T)
@@ -301,12 +301,16 @@
 
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed)
 	if(istype(S))
-		S.adjustToxLoss(8 * removed)
-		if(!S.client && S.Target)
-			S.Target = null
-			++S.Discipline
+		//Adult slimes have 200 HP, baby slimes have 100 HP.
+		//30u of extinguisher should kill a baby slime in 10 seconds.
+		//Wiki: Deals volume * 0.66 damage to slimes per second.
+		S.adjustToxLoss( (volume/30) * (removed/REM) * 100 * (1/10) )
+		if(!S.client)
+			if(S.Target) // Like cats
+				S.Target = null
+				++S.Discipline
 		if(dose == removed)
-			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the liquid touches it!</span>", "<span class='danger'>Your flesh burns in the liquid!</span>")
+			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the foam touches it!</span>", "<span class='danger'>Your flesh burns in the foam!</span>")
 
 /datum/reagent/toxin/plantbgone
 	name = "Plant-B-Gone"

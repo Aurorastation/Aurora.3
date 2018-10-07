@@ -166,6 +166,7 @@
 	color = "#0064C877"
 	metabolism = REM * 2
 	ingest_met = REM * 10
+	touch_met = REM * 30
 	taste_description = "water"
 
 	glass_icon_state = "glass_clear"
@@ -235,10 +236,12 @@
 	if(istype(M) && !istype(M, /mob/abstract))
 		M.color = initial(M.color)
 
-/datum/reagent/water/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	if(istype(M, /mob/living/carbon/slime))
-		var/mob/living/carbon/slime/S = M
-		S.adjustToxLoss(8 * removed) // Babies have 150 health, adults have 200; So, 10 units and 13.5
+/datum/reagent/water/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed)
+	if(istype(S))
+		//Adult slimes have 200 HP, baby slimes have 100 HP.
+		//45u of water should kill a baby slime in 10 seconds.
+		//Wiki: Deals volume * 0.44 damage to slimes per second.
+		S.adjustToxLoss((volume/45) * (removed/REM) * 100 * (1/10))
 		if(!S.client)
 			if(S.Target) // Like cats
 				S.Target = null
