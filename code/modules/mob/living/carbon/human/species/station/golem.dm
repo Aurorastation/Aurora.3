@@ -68,6 +68,14 @@
 
 	remains_type = /obj/effect/decal/cleanable/ash
 
+	radiation_mod = 0
+
+	max_nutrition_factor = -1
+
+	max_hydration_factor = -1
+
+	hud_type = /datum/hud_data/construct
+
 	var/turn_into_materials = TRUE //the golem will turn into materials upon its death
 	var/golem_designation = "coal" //used in the creation of the name
 
@@ -767,6 +775,8 @@
 	death_sound = 'sound/magic/disintegrate.ogg'
 
 	golem_designation = "flesh"
+
+	radiation_mod = 1
 
 /datum/species/golem/homunculus/handle_death(var/mob/living/carbon/human/H)
 	if(turn_into_materials)

@@ -88,6 +88,10 @@
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
+	max_nutrition_factor = -1
+
+	max_hydration_factor = -1
+
 	var/alien_number = 0
 	var/caste_name = "creature" // Used to update alien name.
 	var/weeds_heal_rate = 1     // Health regen on weeds.
