@@ -951,7 +951,7 @@
 		else
 			if(overeatduration > 1)
 				overeatduration -= 2 //doubled the unfat rate
-			
+
 	// hydration decrease
 	if(max_hydration > 0)
 		if (hydration > 0 && stat != 2)
@@ -1196,16 +1196,36 @@
 		if((life_tick % 3 == 0))
 			if(nutrition_icon)
 				var/nut_factor = max(0,min(nutrition / max_nutrition,1))
-				var/nutrition_icons = 5 //Misnomer, basically the highest nutrition icon value.
-				var/new_val = "nutrition[nutrition_icons - round(nut_factor*nutrition_icons)]"
+				var/nut_icon = 5 //5 to 0, with 5 being lowest, 0 being highest
+				if(nut_factor >= CREW_NUTRITION_OVEREATEN)
+					nut_icon = 0
+				else if (nut_factor >= CREW_NUTRITION_FULL)
+					nut_icon = 1
+				else if (nut_factor >= CREW_NUTRITION_SLIGHTLYHUNGRY)
+					nut_icon = 2
+				else if (nut_factor >= CREW_NUTRITION_HUNGRY)
+					nut_icon = 3
+				else if (nut_factor >= CREW_NUTRITION_VERYHUNGRY )
+					nut_icon = 4
+				var/new_val = "nutrition[nut_icon]"
 				if (nutrition_icon.icon_state != new_val)
 					nutrition_icon.icon_state = new_val
 			if(hydration_icon)
 				var/hyd_factor = max(0,min(hydration / max_hydration,1))
-				var/hydration_icons = 5 //Misnomer, basically the highest thirst icon value.
-				var/new_val = "thirst[hydration_icons - round(hyd_factor*hydration_icons)]"
+				var/hyd_icon = 5
+				if(hyd_factor >= CREW_HYDRATION_OVERHYDRATED)
+					hyd_icon = 0
+				else if(hyd_factor >= CREW_HYDRATION_HYDRATED)
+					hyd_icon = 1
+				else if(hyd_factor >= CREW_HYDRATION_SLIGHTLYTHIRSTY)
+					hyd_icon = 2
+				else if(hyd_factor >= CREW_HYDRATION_THIRSTY)
+					hyd_icon = 3
+				else if(hyd_factor >= CREW_HYDRATION_VERYTHIRSTY)
+					hyd_icon = 4
+				var/new_val = "thirst[hyd_icon]"
 				if (hydration_icon.icon_state != new_val)
-					hydration_icon.icon_state = new_val		
+					hydration_icon.icon_state = new_val
 
 		if(pressure)
 			var/new_pressure = "pressure[pressure_alert]"
@@ -1653,7 +1673,7 @@
 		if (prob(1.5))
 			src << span("warning", "You feel hungry and exhausted, eat something to regain your energy!")
 		return
-		
+
 	if (hydration <= 0)
 		if (prob(1.5))
 			src << span("warning", "You feel thirsty and exhausted, drink something to regain your energy!")
