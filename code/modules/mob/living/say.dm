@@ -232,6 +232,15 @@ proc/get_radio_key_from_channel(var/channel)
 	var/italics = 0
 	var/message_range = world.view
 
+	// Diona without head can live, but they cannot talk as loud anymore.
+	if(is_diona(src))
+		var/mob/living/carbon/human/h = src
+		var/obj/item/organ/O = h.organs_by_name["head"]
+		if(istype(O, /obj/item/organ/external/stump))
+			message_range = 3
+			visible_message("<span class='notice'>[src] says something very quietly.</span>")
+
+
 	//speaking into radios
 	if(used_radios.len)
 		italics = 1
