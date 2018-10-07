@@ -94,7 +94,7 @@
 	description = "An abstract type you shouldn't be able to see."
 	reagent_state = LIQUID
 	color = "#404030"
-	ingest_met = REM * 4
+	ingest_met = REM * 5
 
 	var/hydration_factor = 1 //How much hydration to add per unit.
 	var/nutriment_factor = 0.5 //How much nutrition to add per unit.
@@ -135,7 +135,7 @@
 /datum/reagent/alcohol/affect_ingest(mob/living/carbon/M, alien, removed)
 
 	if(alien != IS_DIONA)
-		M.intoxication += (strength / 100) * removed
+		M.intoxication += (strength / 100) * removed * 3.5
 
 		if (druggy != 0)
 			M.druggy = max(M.druggy, druggy)
@@ -155,7 +155,6 @@
 	name = "Ethanol"
 	id = "ethanol"
 	description = "A well-known alcohol with a variety of applications."
-	ingest_met = REM * 0.5
 	flammability_divisor = 10
 
 	taste_description = "pure alcohol"
@@ -202,7 +201,7 @@
 	description = "A fairly harmless alcohol that has intoxicating effects on certain species."
 	reagent_state = LIQUID
 	color = "#404030"
-	ingest_met = REM * 0.17 //Extremely slow metabolic rate means the liver will generally purge it faster than it can intoxicate you
+	ingest_met = REM * 0.5 //Extremely slow metabolic rate means the liver will generally purge it faster than it can intoxicate you
 	flammability_divisor = 7	//Butanol is a bit less flammable than ethanol
 
 	taste_description = "alcohol"
