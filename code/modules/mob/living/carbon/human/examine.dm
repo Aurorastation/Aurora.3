@@ -30,12 +30,15 @@
 		skipbody |= wear_mask.body_parts_covered
 		skipbody |= (wear_mask.body_parts_covered & FACE) ? HEAD : 0 // same as above
 		skipface |= wear_mask.flags_inv & HIDEFACE
-	
+
 	if(w_uniform)
 		skipbody |= w_uniform.body_parts_covered
-	
+
 	if(gloves)
 		skipbody |= gloves.body_parts_covered
+
+	if(shoes)
+		skipbody |= shoes.body_parts_covered
 
 	var/list/msg = list("<span class='info'>*---------*\nThis is ")
 
@@ -274,7 +277,7 @@
 			wound_flavor_text["[organ_descriptor]"] = "<span class='warning'><b>[T.He] [T.has] a stump where [T.his] [organ_descriptor] should be.</b></span>\n"
 		else
 			continue
-			
+
 	for(var/obj/item/organ/external/temp in organs)
 		if(temp)
 			if(skipbody & temp.body_part)
