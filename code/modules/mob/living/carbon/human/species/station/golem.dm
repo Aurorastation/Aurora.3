@@ -782,6 +782,10 @@
 
 	hud_type = /datum/hud_data
 
+	max_nutrition_factor = 1
+
+	max_hydration_factor = 1
+
 /datum/species/golem/homunculus/handle_death(var/mob/living/carbon/human/H)
 	if(turn_into_materials)
 		set waitfor = 0
