@@ -164,7 +164,8 @@
 	description = "A ubiquitous chemical substance that is composed of hydrogen and oxygen."
 	reagent_state = LIQUID
 	color = "#0064C877"
-	metabolism = REM * 10
+	metabolism = REM * 2
+	ingest_met = REM * 10
 	taste_description = "water"
 
 	glass_icon_state = "glass_clear"

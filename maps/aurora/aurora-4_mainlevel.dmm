@@ -5779,6 +5779,41 @@
 /obj/item/weapon/reagent_containers/spray/cleaner,
 /turf/simulated/floor/carpet,
 /area/chapel/office)
+"alG" = (
+/obj/machinery/door/airlock/glass_mining{
+	name = "Cargo Bay";
+	req_access = list(31,48)
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/quartermaster/lobby)
+"alH" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/door/airlock/glass_mining{
+	name = "Break Room";
+	req_access = list(31,48)
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/quartermaster/break_room)
 "alI" = (
 /obj/machinery/door/airlock/security{
 	name = "Evidence Storage";
@@ -5982,6 +6017,19 @@
 /obj/machinery/shield_gen,
 /turf/simulated/floor/plating,
 /area/engineering/storage)
+"amf" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/glass_mining{
+	name = "Break Room";
+	req_access = list(31,48)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/quartermaster/break_room)
 "amg" = (
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
@@ -6171,6 +6219,50 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall/r_wall,
 /area/maintenance/security_starboard)
+"amz" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/glass_mining{
+	name = "Mining";
+	req_access = list(31,48)
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/refinery)
+"amA" = (
+/obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance{
+	name = "Cargo Maintenance";
+	req_access = list(31,48)
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/cargo)
+"amB" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Disposals Maintenance";
+	req_one_access = list(12,50)
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/disposal)
 "amF" = (
 /obj/structure/stairs/north,
 /turf/simulated/floor/tiled,
@@ -50568,25 +50660,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"cah" = (
-/obj/machinery/door/airlock/glass_mining{
-	name = "Cargo Bay";
-	req_access = list(31)
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/quartermaster/lobby)
 "cak" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
@@ -50941,22 +51014,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
-"cbc" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/door/airlock/glass_mining{
-	name = "Break Room";
-	req_access = list(31)
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
-/area/quartermaster/break_room)
 "cbd" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -51073,17 +51130,6 @@
 "cbt" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/cargo)
-"cbu" = (
-/obj/machinery/door/firedoor,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/door/airlock/maintenance{
-	name = "Cargo Maintenance";
-	req_access = list(31)
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
@@ -51754,19 +51800,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
-"cdB" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/door/airlock/glass_mining{
-	name = "Break Room";
-	req_access = list(31)
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/quartermaster/break_room)
 "cdC" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -51968,22 +52001,6 @@
 /area/outpost/mining_main/eva)
 "cdQ" = (
 /turf/simulated/wall,
-/area/outpost/mining_main/refinery)
-"cdR" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/glass_mining{
-	name = "Break Room";
-	req_access = list(31)
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cdS" = (
 /obj/effect/floor_decal/corner/brown{
@@ -62915,23 +62932,6 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
-"vZi" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Disposals Maintenance";
-	req_one_access = list(11,50)
-	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/disposal)
 "wbn" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -90491,7 +90491,7 @@ bWm
 cav
 bWm
 bWm
-cbu
+amA
 pjW
 ykj
 ccH
@@ -91003,7 +91003,7 @@ mEE
 bZD
 cip
 cax
-cbc
+alH
 ciB
 cbw
 cbO
@@ -91011,9 +91011,9 @@ cco
 ccJ
 cde
 cdo
-cdB
+amf
 cdK
-cdR
+amz
 cdX
 cef
 ceu
@@ -92029,7 +92029,7 @@ bXQ
 cia
 bWm
 bZG
-cah
+alG
 bZG
 pjW
 ciF
@@ -95373,7 +95373,7 @@ bUz
 bUz
 bUz
 caW
-vZi
+amB
 nYV
 ags
 coD

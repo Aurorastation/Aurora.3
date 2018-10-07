@@ -57,7 +57,8 @@
 	description = "All the vitamins, minerals, and carbohydrates the body needs in pure form."
 	taste_mult = 4
 	reagent_state = SOLID
-	metabolism = REM * 4
+	metabolism = REM * 2
+	ingest_met = REM * 4
 	var/nutriment_factor = 12 // Per removed in digest.
 	var/hydration_factor = 0 // Per removed in digest.
 	var/blood_factor = 6
@@ -689,6 +690,7 @@
 	id = "drink"
 	description = "Uh, some kind of drink."
 	reagent_state = LIQUID
+	metabolism = REM * 10
 	color = "#E78108"
 	var/nutrition = 0 // Per unit
 	var/hydration = 8 // Per unit
