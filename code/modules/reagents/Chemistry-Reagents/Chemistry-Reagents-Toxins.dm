@@ -301,10 +301,7 @@
 
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed)
 	if(istype(S))
-		//Adult slimes have 200 HP, baby slimes have 100 HP.
-		//30u of extinguisher should kill a baby slime in 10 seconds.
-		//Wiki: Deals volume * 0.66 damage to slimes per second.
-		S.adjustToxLoss( (volume/30) * (removed/REM) * 100 * (1/10) )
+		S.adjustToxLoss( volume * (removed/REM) * 0.23 )
 		if(!S.client)
 			if(S.Target) // Like cats
 				S.Target = null

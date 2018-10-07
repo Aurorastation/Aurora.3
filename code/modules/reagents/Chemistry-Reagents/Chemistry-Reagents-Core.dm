@@ -238,10 +238,7 @@
 
 /datum/reagent/water/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed)
 	if(istype(S))
-		//Adult slimes have 200 HP, baby slimes have 100 HP.
-		//45u of water should kill a baby slime in 10 seconds.
-		//Wiki: Deals volume * 0.44 damage to slimes per second.
-		S.adjustToxLoss((volume/45) * (removed/REM) * 100 * (1/10))
+		S.adjustToxLoss( volume * (removed/REM) * 0.23 )
 		if(!S.client)
 			if(S.Target) // Like cats
 				S.Target = null

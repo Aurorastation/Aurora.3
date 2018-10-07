@@ -354,10 +354,7 @@
 
 	if(istype(M,/mob/living/carbon/slime))
 		var/mob/living/carbon/slime/S = M
-		//Adult slimes have 200 HP, baby slimes have 100 HP.
-		//20u of cleaner should kill a baby slime in 10 seconds.
-		//Wiki: Deals volume damage to slimes per second.
-		S.adjustToxLoss( (volume/20) * (removed/REM) * 100 * (1/10) )
+		S.adjustToxLoss( volume * (removed/REM) * 0.5 )
 		if(!S.client)
 			if(S.Target) // Like cats
 				S.Target = null
