@@ -101,21 +101,32 @@
 			return 1
 	else
 
-		var/is_full = 0
-		if(istype(target,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = target
-			var/limit = 550 * (1 + H.overeatduration / 2000)
-			var/current = H.nutrition + (H.reagents.get_reagent_amount("nutriment") * 25)
-			is_full = current >= limit
+		var/expected_fullness = user.max_nutrition > 0 ? (user.nutrition + (user.reagents.get_reagent_amount("nutriment") * 25)) / user.max_nutrition : CREW_NUTRITION_OVEREATEN + 0.01
+		expected_fullness += (user.overeatduration/600)*0.5
+		var/is_full = (expected_fullness > CREW_NUTRITION_OVEREATEN)
 
 		if(user == target)
 			if(!user.can_eat(src))
 				return
+				
+			var/feedback_message
+			if(expected_fullness <= CREW_NUTRITION_VERYHUNGRY)
+				feedback_message = "You hungrily chew out a piece of \the [src] and gobble it!"
+			else if(expected_fullness <= CREW_NUTRITION_HUNGRY)
+				feedback_message = "You hungrily begin to eat \the [src]."
+			else if(expected_fullness <= CREW_NUTRITION_SLIGHTLYHUNGRY)
+				feedback_message = "You take a bite of \the [src]."
+			else if(expected_fullness <= CREW_NUTRITION_FULL)
+				feedback_message = "You take a bite of \the [src]."
+			else if(expected_fullness <= CREW_NUTRITION_OVEREATEN)
+				feedback_message = "You unwillingly chew a bit of \the [src]."
+			else
+				feedback_message = "You cannot force any more of \the [src] to go down your throat!"
+
 			if(is_full)
-				to_chat(user,span("warning","You can't stomach any more food!"))
+				to_chat(user,span("danger",feedback_message))
 				return
 			reagents.trans_to_mob(target, min(reagents.total_volume,bitesize), CHEM_INGEST)
-			self_feed_message(user)
 		else
 			if(!user.can_force_feed(target, src))
 				return
@@ -1522,6 +1533,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/sosjerky/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 4)
+	reagents.add_reagent("sodiumchloride",3)
 
 /obj/item/weapon/reagent_containers/food/snacks/no_raisin
 	name = "4no Raisins"
@@ -1565,6 +1577,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers/Initialize()
 	. = ..()
 	reagents.add_reagent("cheese", 3)
+	reagents.add_reagent("sodiumchloride",6)
 
 /obj/item/weapon/reagent_containers/food/snacks/syndicake
 	name = "Syndi-Cakes"
@@ -4217,7 +4230,11 @@
 	center_of_mass = list("x"=17, "y"=16)
 	nutriment_desc = list("stale bread" = 4)
 	nutriment_type = NUTRIMENT_BAD
-	nutriment_amt = 4
+	nutriment_amt = 6
+
+/obj/item/weapon/reagent_containers/food/snacks/tastybread/Initialize()
+	. = ..()
+	reagents.add_reagent("sodiumchloride",3)
 
 /obj/item/weapon/reagent_containers/food/snacks/skrellsnacks
 	name = "\improper SkrellSnax"
@@ -4361,6 +4378,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/meatsnack/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 12)
+	reagents.add_reagent("sodiumchloride",4)
 
 /obj/item/weapon/reagent_containers/food/snacks/maps
 	name = "maps salty ham"
@@ -4374,7 +4392,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/maps/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 6)
-	reagents.add_reagent("sodiumchloride", 3)
+	reagents.add_reagent("sodiumchloride", 6)
 
 /obj/item/weapon/reagent_containers/food/snacks/nathisnack
 	name = "razi-snack corned beef"
@@ -4389,6 +4407,7 @@
 	. = ..()
 	reagents.add_reagent("protein", 10)
 	reagents.add_reagent("iron", 3)
+	reagents.add_reagent("sodiumchloride",6)
 
 /obj/item/weapon/reagent_containers/food/snacks/pancakes
 	name = "pancakes"
@@ -4929,6 +4948,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/spreads/Initialize()
 	. = ..()
 	reagents.add_reagent("triglyceride", 20)
+	reagents.add_reagent("sodiumchloride",1)
 
 /obj/item/weapon/reagent_containers/food/snacks/bacon_stick
 	name = "eggpop"
@@ -4996,7 +5016,7 @@
 	name = "mystery chocolate truffle"
 	desc = "Rich bite-sized chocolate with a mystery filling!"
 
-/obj/item/weapon/reagent_containers/food/snacks/random/Initialize()
+/obj/item/weapon/reagent_containers/food/snacks/truffle/random/Initialize()
 	. = ..()
 	var/reagent_string = pick(list("cream","cherryjelly","mint","frostoil","capsaicin","cream","coffee","milkshake"))
 	reagents.add_reagent(reagent_string, 4)
@@ -5085,7 +5105,7 @@
 	nutriment_desc = list("pizza crust" = 5, "tomato" = 5)
 	nutriment_amt = 5
 
-/obj/item/weapon/reagent_containers/food/snacks/baconburger
+/obj/item/weapon/reagent_containers/food/snacks/burger/bacon
 	name = "bacon burger"
 	desc = "The cornerstone of every nutritious breakfast, now with bacon!"
 	icon_state = "hburger"
