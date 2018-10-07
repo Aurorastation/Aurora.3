@@ -73,6 +73,12 @@
 	sprint_speed_factor = 0.3
 	exhaust_threshold = 0 //No oxyloss, so zero threshold
 
+	max_nutrition_factor = -1
+
+	max_hydration_factor = -1
+
+	hud_type = /datum/hud_data/construct
+
 /mob/living/carbon/human/apparition/Initialize(mapload)
 	. = ..(mapload, "Apparition")
 
@@ -109,6 +115,12 @@
 	stamina_recovery = 1
 	sprint_speed_factor = 0.3
 	exhaust_threshold = 0 //No oxyloss, so zero threshold
+
+	max_nutrition_factor = -1
+
+	max_hydration_factor = -1
+
+	hud_type = /datum/hud_data/construct
 
 /datum/species/apparition/handle_death(var/mob/living/carbon/human/H)
 	set waitfor = 0
