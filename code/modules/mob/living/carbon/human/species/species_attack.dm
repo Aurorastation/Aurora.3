@@ -154,6 +154,10 @@
 
 /datum/unarmed_attack/bite/infectious/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armour,var/attack_damage,var/zone)
 	..()
+	if(target && target.stat == DEAD)
+		return
+	if(target.internal_organs_by_name["zombie"])
+		to_chat(user, "<span class='danger'>You feel that \the [target] has been already infected!</span>")
 	if(prob(25))
 		if(target.reagents)
 			target.reagents.add_reagent("trioxin", 10)

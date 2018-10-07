@@ -187,7 +187,11 @@
 	sprint_speed_factor = 0.3
 	exhaust_threshold = 0 //No oxyloss, so zero threshold
 
-	inherent_verbs = list(/mob/living/carbon/human/proc/darkness_eyes)
+	inherent_verbs = list(/mob/living/carbon/human/proc/darkness_eyes, /mob/living/proc/devour)
+
+	allowed_eat_types = TYPE_ORGANIC | TYPE_HUMANOID
+
+	gluttonous = TRUE
 
 /datum/species/zombie/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.mutations.Add(CLUMSY)

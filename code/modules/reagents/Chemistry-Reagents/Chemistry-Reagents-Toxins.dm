@@ -793,14 +793,29 @@
 	taste_description = "old eggs"
 	metabolism = REM
 	unaffected_species = IS_DIONA | IS_MACHINE | IS_UNDEAD
+	affects_dead = TRUE
 
 /datum/reagent/toxin/trioxin/affect_blood(var/mob/living/carbon/M, var/removed)
 	..()
 	if(istype(M,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
-		if(M.reagents.has_reagent("spaceacillin", 15))
+
+		if(H.reagents.has_reagent("spaceacillin", 15))
 			return
+
 		if(!H.internal_organs_by_name["zombie"] && prob(15))
 			var/obj/item/organ/external/affected = H.get_organ("chest")
 			var/obj/item/organ/parasite/zombie/infest = new()
 			infest.replaced(H, affected)
+
+		if(ishuman_species(H))
+			if(!H.internal_organs_by_name["brain"])	//destroying the brain stops trioxin from bringing the dead back to life
+				return
+
+			for(var/datum/language/L in H.languages)
+				H.remove_language(L.name)
+
+			H.set_species("Zombie")
+			H.revive()
+			playsound(H.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
+			to_chat(H,"<font size='3'><span class='cult'>You return back to life as the undead, all that is left is the hunger to consume the living and the will to spread the infection.</font></span>")
