@@ -808,7 +808,7 @@
 			infest.replaced(H, affected)
 
 		if(ishuman_species(H))
-			if(H && H.stat == DEAD)
+
 				if(!H.internal_organs_by_name["brain"])	//destroying the brain stops trioxin from bringing the dead back to life
 					return
 				for(var/datum/language/L in H.languages)
@@ -816,4 +816,4 @@
 				H.set_species("Zombie")
 				H.revive()
 				playsound(H.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
-				to_chat(H,"<font size='3'> <span class='cult'>You return back to life as the undead, all that is left is the hunger to consume the living and the will to spread the infection.</font></span>")
+				to_chat(H,"<font size='3'><span class='cult'>You return back to life as the undead, all that is left is the hunger to consume the living and the will to spread the infection.</font></span>")
