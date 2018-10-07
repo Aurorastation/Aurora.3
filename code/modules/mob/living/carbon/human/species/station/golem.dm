@@ -747,6 +747,8 @@
 
 	inherent_verbs = list(/mob/living/carbon/human/proc/consume_material, /mob/living/carbon/human/proc/breath_of_life)
 
+	bodytype = "Human"
+
 	breath_pressure = 16
 	breath_type = "oxygen"
 	poison_type = "phoron"
@@ -777,6 +779,12 @@
 	golem_designation = "flesh"
 
 	radiation_mod = 1
+
+	hud_type = /datum/hud_data
+
+	max_nutrition_factor = 1
+
+	max_hydration_factor = 1
 
 /datum/species/golem/homunculus/handle_death(var/mob/living/carbon/human/H)
 	if(turn_into_materials)

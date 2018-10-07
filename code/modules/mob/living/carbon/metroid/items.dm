@@ -289,7 +289,7 @@
 	var/mob/living/carbon/human/G = new(src.loc)
 
 	G.key = ghost.key
-	addtimer(CALLBACK(G, /mob/living/carbon/human.proc/set_species, golem_type), 0)
+	G.set_species(golem_type)
 	G.name = G.species.get_random_name()
 	G.real_name = G.species.get_random_name()
 	to_chat(G, "<span class='notice'>You are a golem. Serve [user], and assist them in completing their goals at any cost.</span>")
