@@ -18,5 +18,6 @@
     ],
     "dlls": [
       "libmysql.dll"
+	  "rust_g.dll"
     ]
   }
