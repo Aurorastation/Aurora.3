@@ -158,7 +158,11 @@
 		return
 	if(target.internal_organs_by_name["zombie"])
 		to_chat(user, "<span class='danger'>You feel that \the [target] has been already infected!</span>")
-	if(prob(25))
+
+	var/infection_chance = 80
+	var/armor = target.run_armor_check(zone,"melee")
+	infection_chance -= armor
+	if(prob(infection_chance))
 		if(target.reagents)
 			target.reagents.add_reagent("trioxin", 10)
 

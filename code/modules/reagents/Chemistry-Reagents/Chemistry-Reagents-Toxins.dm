@@ -812,6 +812,9 @@
 			if(!H.internal_organs_by_name["brain"])	//destroying the brain stops trioxin from bringing the dead back to life
 				return
 
+			if(H && H.stat != DEAD)
+				return
+
 			for(var/datum/language/L in H.languages)
 				H.remove_language(L.name)
 
