@@ -1,0 +1,15 @@
+author: PoZe
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - bugfix: "Deleted wrong pipe below medical break room, it shouldn't shoot trash anymore."
+  - maptweak: "Added one cryostatis bag into medica storage. And added a sink to the chemistry. Added disposal unit to EMT room."
+  - bugfix: "Chemistry windoors access is fixed."
+  - bugfix: "Regular ERT members no longer has access to Admin Shuttle(HAP) blast door remote button. ERT commander and CCIA are the only people whose ID has access to it."

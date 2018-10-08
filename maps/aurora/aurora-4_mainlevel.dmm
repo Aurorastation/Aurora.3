@@ -30973,7 +30973,8 @@
 	},
 /obj/machinery/door/window/brigdoor/northright{
 	dir = 8;
-	name = "Chemistry Desk"
+	name = "Chemistry Desk";
+	req_access = list(33)
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
@@ -39216,7 +39217,8 @@
 	pixel_y = 23
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 4
+	dir = 2;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/emt)
@@ -39224,15 +39226,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/medical/emt)
 "bvX" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/light_switch{
 	pixel_x = 7;
 	pixel_y = 28
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/emt)
@@ -40092,6 +40095,9 @@
 /area/hallway/primary/central_one)
 "bxq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/junction{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/emt)
 "bxr" = (
@@ -58284,6 +58290,10 @@
 /area/quartermaster/lobby)
 "dvg" = (
 /obj/machinery/hologram/holopad,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/emt)
 "dzP" = (
@@ -60891,7 +60901,8 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/brigdoor/northright{
-	name = "Chemistry Desk"
+	name = "Chemistry Desk";
+	req_access = list(33)
 	},
 /obj/machinery/ringer_button{
 	id = "chemistry_ringer";
@@ -61339,15 +61350,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/library)
 "nEE" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
 	},
+/obj/structure/disposalpipe/trunk,
+/obj/machinery/disposal,
 /turf/simulated/floor/tiled/dark,
 /area/medical/emt)
 "nGb" = (
@@ -61743,6 +61753,7 @@
 	pixel_x = 24;
 	req_one_access = list(24,11,55)
 	},
+/obj/item/bodybag/cryobag,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "oSF" = (
@@ -63053,6 +63064,13 @@
 /obj/effect/large_stock_marker,
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
+"wJR" = (
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/medical/emt)
 "wKI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -63420,12 +63438,13 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
-/obj/structure/sign/nosmoking_1{
-	pixel_y = 32
-	},
 /obj/machinery/light{
 	icon_state = "tube1";
 	dir = 1
+	},
+/obj/structure/sink/kitchen{
+	name = "chemistry sink";
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
@@ -64564,7 +64583,6 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
@@ -96630,7 +96648,7 @@ bsx
 bbr
 bxs
 bvV
-bvW
+wJR
 bxs
 bzE
 bAG
