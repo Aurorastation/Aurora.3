@@ -192,6 +192,7 @@ var/list/world_api_rate_limit = list()
 	world.TgsReboot()
 
 	Master.Shutdown()
+	shutdown_logging()
 
 	if(config.server)	//if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
 		for(var/client/C in clients)

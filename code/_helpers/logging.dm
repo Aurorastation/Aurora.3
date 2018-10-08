@@ -31,6 +31,9 @@
 /proc/error(msg)
 	world.log << "## ERROR: [msg][log_end]"
 
+/proc/shutdown_logging()
+	call(RUST_G, "log_close_all")()
+
 #define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [src] usr: [usr].")
 //print a warning message to world.log
 /proc/warning(msg)
@@ -273,3 +276,6 @@
 
 /proc/key_name_admin(var/whom, var/include_name = 1)
 	return key_name(whom, 1, include_name, 1)
+
+#undef RUST_G
+#undef WRITE_LOG
