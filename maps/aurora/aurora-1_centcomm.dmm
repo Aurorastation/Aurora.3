@@ -22653,7 +22653,7 @@
 	name = "Administration Shuttle";
 	pixel_x = 0;
 	pixel_y = 26;
-	req_access = list(101)
+	req_access = list(108)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
