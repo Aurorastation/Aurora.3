@@ -21,9 +21,6 @@
 	var/icon_state_closed = null
 	var/icon_state_closing = null
 	var/damage = BLAST_DOOR_CRUSH_DAMAGE
-
-	layer = 3.3
-	open_layer = 3.3
 	closed_layer = 3.4 // Above airlocks when closed
 	var/id = 1.0
 	dir = 1

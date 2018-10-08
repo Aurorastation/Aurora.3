@@ -1190,16 +1190,16 @@ proc/is_blind(A)
 	var/hydration_mul = hydration/max_hydration
 
 	if(hydration_mul >= CREW_HYDRATION_OVERHYDRATED)
-		return minscale + ( (maxscale - minscale) * 0.75)
+		return minscale + ( (maxscale - minscale) * 0.66)
 
 	if(hydration_mul <= CREW_HYDRATION_DEHYDRATED)
-		return minscale + ( (maxscale - minscale) * 0.25)
+		return minscale
 
 	if(hydration_mul <= CREW_HYDRATION_VERYTHIRSTY)
-		return minscale + ( (maxscale - minscale) * 0.5)
+		return minscale + ( (maxscale - minscale) * 0.33)
 
 	if(hydration_mul <= CREW_HYDRATION_THIRSTY)
-		return minscale + ( (maxscale - minscale) * 0.75)
+		return minscale + ( (maxscale - minscale) * 0.66)
 
 	return minscale + ( (maxscale - minscale) * 1)
 
@@ -1214,16 +1214,16 @@ proc/is_blind(A)
 	var/nutrition_mul = nutrition/max_nutrition
 
 	if(nutrition_mul >= CREW_NUTRITION_OVEREATEN)
-		return minscale + ( (maxscale - minscale) * 0.75)
+		return minscale + ( (maxscale - minscale) * 0.66)
 
 	if(nutrition_mul <= CREW_NUTRITION_STARVING)
-		return minscale + ( (maxscale - minscale) * 0.25)
+		return minscale
 
 	if(nutrition_mul <= CREW_NUTRITION_VERYHUNGRY)
-		return minscale + ( (maxscale - minscale) * 0.5)
+		return minscale + ( (maxscale - minscale) * 0.33)
 
 	if(nutrition_mul <= CREW_NUTRITION_HUNGRY)
-		return minscale + ( (maxscale - minscale) * 0.75)
+		return minscale + ( (maxscale - minscale) * 0.66)
 
 	return minscale + ( (maxscale - minscale) * 1)
 

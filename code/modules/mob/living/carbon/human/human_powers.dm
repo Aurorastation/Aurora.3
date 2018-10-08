@@ -789,6 +789,8 @@
 			to_chat(src,"<span class='danger'>You incorporate \the [O] into your mass, repairing damage to your structure.</span>")
 			adjustBruteLoss(-10*O.amount)
 			adjustFireLoss(-10*O.amount)
+			if(!(species.flags & NO_BLOOD))
+				vessel.add_reagent("blood",20*O.amount)
 			qdel(O)
 			last_special = world.time + 50
 
