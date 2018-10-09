@@ -37,4 +37,5 @@ changes:
   - bugfix: "Fixed a typo that caused hunger related hell to be unleashed upon players when sprinting a lot."
   - bugfix: "Diona are no longer affected by thirst."
   - tweak: "Adjusted starting hunger values so that people don't come to the station starving."
-  - tweak: "Increased the metabolism rate of Neurotoxin so it doesn't stun for 30 seconds when injected."
+  - tweak: "Increased the metabolism rate of Neurotoxin so it doesn't stun for 30 seconds when injected. Adjusted the injection strength of Doctor's Delight when injected."
+  - tweak: "Adjusted ramen and ice nutrition and hydration stats."
