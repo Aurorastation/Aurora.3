@@ -61,10 +61,10 @@ jobs:
   include:
     - stage: code check
       install:
-          git clone https://github.com/tgstation/rust-g
-          cd rust-g
-          cargo build --release
-          cd ..
+        - git clone https://github.com/tgstation/rust-g
+        - cd rust-g
+        - cargo build --release
+        - cd ..
         - chmod +x ./vueui/install
         - ./vueui/install
       script:
