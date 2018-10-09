@@ -67,7 +67,7 @@ jobs:
         - chmod +x ./vueui/install
         - ./vueui/install
         - chmod +x ./scripts/rust_g.sh
-        - ./rust_g.sh
+        - ./scripts/rust_g.sh
 
       script:
         - (! grep 'step_[xy]' maps/**/*.dmm)
