@@ -128,7 +128,7 @@
 				return
 			reagents.trans_to_mob(target, min(reagents.total_volume,bitesize), CHEM_INGEST)
 		else
-			if(!user.can_force_feed(target, src))
+			if(!target.can_force_feed(user, src))
 				return
 			if(is_full)
 				to_chat(user,span("warning","\The [target] can't stomach any more food!"))
