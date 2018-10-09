@@ -701,6 +701,7 @@
 	var/caffeine = 0 // strength of stimulant effect, since so many drinks use it
 	var/datum/modifier/modifier = null
 	unaffected_species = IS_MACHINE
+	var/blood_to_ingest_scale = 2
 
 /datum/reagent/drink/Destroy()
 	if (modifier)
@@ -708,8 +709,8 @@
 	return ..()
 
 /datum/reagent/drink/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.adjustToxLoss(removed) // Probably not a good idea; not very deadly though
-	digest(M,alien,removed * 2, FALSE)
+	M.adjustToxLoss(removed * blood_to_ingest_scale) // Probably not a good idea; not very deadly though
+	digest(M,alien,removed * blood_to_ingest_scale, FALSE)
 
 /datum/reagent/drink/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	digest(M,alien,removed)
