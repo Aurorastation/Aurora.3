@@ -329,18 +329,10 @@
 
 /datum/reagents/proc/touch_mob(var/mob/target)
 
-	world << "TOUCH MOB THEN."
-	world << target.name
-	world << istype(target)
-	world << !target.simulated
-
 	if(!target || !istype(target) || !target.simulated)
 		return
 
-	world << "TOUCH MOB CHECK."
-
 	for(var/datum/reagent/current in reagent_list)
-		world << current.id
 		current.touch_mob(target, current.volume)
 
 	update_total()
