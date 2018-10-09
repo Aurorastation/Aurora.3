@@ -1,4 +1,4 @@
-language: rust
+language: generic
 sudo: false
 
 env:
@@ -8,6 +8,7 @@ env:
     MACRO_COUNT=77
     FLYWAY_BUILD="5.1.4"
     NODE_VERSION=10
+    RUST_G_VERSION="0.4.1"
   matrix:
     - USE_MAP=aurora
     - USE_MAP=runtime
@@ -17,6 +18,7 @@ cache:
   directories:
     - $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}
     - $HOME/flyway-${FLYWAY_BUILD}
+    - $HOME/rust_g-${RUST_G_VERSION}
     - vueui/dist
 
 addons:
@@ -26,6 +28,7 @@ addons:
       - libc6-i386
       - libgcc1:i386
       - libstdc++6:i386
+      - gcc-multilib
 
 node_js:
   - "10"
@@ -38,7 +41,7 @@ install:
   - ./install-byond.sh
   - chmod +x ./install-flyway.sh
   - ./install-flyway.sh
-  - export LD_LIBRARY_PATH=./:$LD_LIBRARY_PATH
+  - export LD_LIBRARY_PATH=./:$HOME/rust_g-$RUST_G_VERSION:$LD_LIBRARY_PATH
   - shopt -s globstar
 
 stages:
@@ -61,12 +64,11 @@ jobs:
   include:
     - stage: code check
       install:
-        - git clone https://github.com/tgstation/rust-g
-        - cd rust-g
-        - cargo build --release
-        - cd ..
         - chmod +x ./vueui/install
         - ./vueui/install
+        - chmod +x ./scripts/rust_g.sh
+        - ./rust_g.sh
+
       script:
         - (! grep 'step_[xy]' maps/**/*.dmm)
         - (! find nano/templates/ -type f -exec md5sum {} + | sort | uniq -D -w 32 | grep nano)
