@@ -1169,16 +1169,49 @@
 	if(istype(M))
 		var/obj/item/organ/F = M.internal_organs_by_name["heart"]
 		if(istype(F))
-			var/nutritionmod = max(0.25, (1 - M.nutrition) / M.max_nutrition * 0.5) //Less effective when your stomach is "full".
-			F.take_damage(-removed*nutritionmod)
+			if(M.max_nutrition > 0)
+				var/nutritionmod = max(0.25, (1 - M.nutrition) / M.max_nutrition * 0.5) //Less effective when your stomach is "full".
+				F.take_damage(-removed*nutritionmod)
 	..()
 
-/datum/reagent/adipemcina/overdose(var/mob/living/carbon/human/M, var/alien)
+/datum/reagent/adipemcina/overdose(var/mob/living/carbon/M, var/alien)
 	if(istype(M))
 		if(prob(25))
 			M.add_chemical_effect(CE_ALCOHOL_TOXIC, 1)
 			M.vomit()
 
+/datum/reagent/potassium_hydrophoro
+	name = "Potassium Hydrophoride"
+	id = "potassium_hydrophoro"
+	description = "A liquid compound that can miraculously restores hydration when injected directly into the bloodstream. Excellent at solving severe hydration problems, however the effects of an overdose are to be noted."
+	reagent_state = LIQUID
+	color = "#1ca9c9"
+	taste_description = "numbness"
+	unaffected_species = IS_MACHINE
+
+/datum/reagent/potassium_hydrophoro/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_VAURCA)
+		if( (M.hydration / M.max_hydration) > CREW_HYDRATION_OVERHYDRATED)
+			M.adjustHydrationLoss(removed*2)
+		else
+			M.adjustHydrationLoss(-removed*5)
+	else
+		if( (M.hydration > M.max_hydration) > CREW_HYDRATION_OVERHYDRATED)
+			overdose(M,alien,removed,0)
+			M.adjustHydrationLoss(-removed*2)
+		else
+			M.adjustHydrationLoss(-removed*5)
+
+/datum/reagent/potassium_hydrophoro/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
+	if(alien != IS_VAURCA) //Vaurca can't overdose on this
+		if(scale >= 1) //Overdose by too much of the chemical
+			M.adjustToxLoss(1*removed*scale)
+
+		if (ishuman(M) && prob(10))
+			var/mob/living/carbon/human/H = M
+			H.delayed_vomit()
+
+//Secret Chems
 /datum/reagent/elixir
 	name = "Elixir of Life"
 	id = "elixir_life"
@@ -1204,3 +1237,4 @@
 
 /datum/reagent/pacifier/affect_blood(var/mob/living/carbon/H, var/alien, var/removed)
 	H.add_chemical_effect(CE_PACIFIED, 1)
+

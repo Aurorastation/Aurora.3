@@ -824,7 +824,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	var/mob/living/carbon/T = changeling_sting(5,/mob/proc/changeling_unfat_sting,stealthy = 1)
 	if(!T)	return 0
 	T << "<span class='danger'>you feel a small prick as stomach churns violently and you become to feel skinnier.</span>"
-	T.nutrition -= 100
+	T.adjustNutritionLoss(100)
 	feedback_add_details("changeling_powers","US")
 	return 1
 

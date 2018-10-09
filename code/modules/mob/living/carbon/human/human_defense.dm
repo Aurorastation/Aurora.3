@@ -9,6 +9,12 @@ emp_act
 */
 
 /mob/living/carbon/human/bullet_act(var/obj/item/projectile/P, var/def_zone)
+
+	var/species_check = src.species.bullet_act(P, def_zone, src)
+
+	if(species_check)
+		return species_check
+
 	if(martial_art && martial_art.deflection_chance)
 		if(prob(martial_art.deflection_chance))
 			src.visible_message("<span class='danger'>\The [src] deflects \the [P]!</span>")
@@ -54,7 +60,8 @@ emp_act
 
 	switch (def_zone)
 		if("head")
-			agony_amount *= 1.50
+			eye_blurry += min((rand(1,3) * (agony_amount/40)), 12)
+			confused = min(max(confused, 2 * (agony_amount/40)), 8)
 		if("l_hand", "r_hand")
 			var/c_hand
 			if (def_zone == "l_hand")
@@ -214,13 +221,10 @@ emp_act
 	var/obj/item/organ/external/affecting = get_organ(hit_zone)
 	if(!affecting)
 		return //should be prevented by attacked_with_item() but for sanity.
-	var/use_name = affecting.name
-	if(LAZYLEN(get_clothing_list_organ(affecting)))
-		use_name = affecting.limb_name
 
-	visible_message("<span class='danger'>[src] has been [LAZYPICK(I.attack_verb, "attacked")] in the [use_name] with [I] by [user]!</span>")
+	visible_message("<span class='danger'>[src] has been [LAZYPICK(I.attack_verb, "attacked")] in the [affecting.name] with [I] by [user]!</span>")
 
-	var/blocked = run_armor_check(hit_zone, "melee", I.armor_penetration, "Your armor has protected your [use_name].", "Your armor has softened the blow to your [use_name].")
+	var/blocked = run_armor_check(hit_zone, "melee", I.armor_penetration, "Your armor has protected your [affecting.name].", "Your armor has softened the blow to your [affecting.name].")
 	standard_weapon_hit_effects(I, user, effective_force, blocked, hit_zone)
 
 	return blocked

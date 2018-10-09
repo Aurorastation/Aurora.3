@@ -111,6 +111,17 @@
 	. = ..()
 	reagents.add_reagent("monoammoniumphosphate",capacity)
 
+/obj/structure/reagent_dispensers/lube
+	name = "lube tank"
+	desc = "A tank filled with a silly amount of lube."
+	icon = 'icons/obj/objects.dmi'
+	icon_state = "lubetank"
+	amount_per_transfer_from_this = 10
+
+/obj/structure/reagent_dispensers/lube/Initialize()
+	. = ..()
+	reagents.add_reagent("lube",capacity)
+
 /obj/structure/reagent_dispensers/fueltank
 	name = "fuel tank"
 	desc = "A tank filled with welding fuel."

@@ -21,7 +21,6 @@
 	var/icon_state_closed = null
 	var/icon_state_closing = null
 	var/damage = BLAST_DOOR_CRUSH_DAMAGE
-
 	closed_layer = 3.4 // Above airlocks when closed
 	var/id = 1.0
 	dir = 1
@@ -40,6 +39,10 @@
 	. = ..()
 	if(_wifi_id)
 		wifi_receiver = new(_wifi_id, src)
+	if(density)
+		layer = closed_layer
+	else
+		layer = open_layer
 
 /obj/machinery/door/airlock/Destroy()
 	qdel(wifi_receiver)
