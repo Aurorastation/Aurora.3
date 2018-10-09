@@ -47,10 +47,6 @@ stages:
 
 
 script:
-    git clone https://github.com/tgstation/rust-g
-    cd rust-g
-    cargo build --release
-    cd ..
   - $HOME/flyway-${FLYWAY_BUILD}/flyway migrate -user=root -password= -url=jdbc:mysql://localhost:3306/ss13_test
   - python tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
   - source $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}/byond/bin/byondsetup
@@ -65,6 +61,10 @@ jobs:
   include:
     - stage: code check
       install:
+          git clone https://github.com/tgstation/rust-g
+          cd rust-g
+          cargo build --release
+          cd ..
         - chmod +x ./vueui/install
         - ./vueui/install
       script:
