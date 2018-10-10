@@ -20,6 +20,8 @@ cache:
     - $HOME/flyway-${FLYWAY_BUILD}
     - vueui/dist
     - $HOME/rust_g-${RUST_G_VERSION}
+    - $HOME/.rustup
+    - $HOME/.cargo
 
 addons:
   mariadb: '10.1'
