@@ -44,7 +44,6 @@ var/list/lunchables_snacks_ = list(
 	/obj/item/weapon/reagent_containers/food/snacks/watermelonslice/filled,
 	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/apple/filled,
 	/obj/item/weapon/reagent_containers/food/snacks/pumpkinpieslice/filled,
-	/obj/item/weapon/reagent_containers/food/snacks/skrellsnacks,
 	/obj/item/weapon/reagent_containers/food/snacks/friedkois,
 	/obj/item/weapon/reagent_containers/food/snacks/meatsnack,
 	/obj/item/weapon/reagent_containers/food/snacks/maps,

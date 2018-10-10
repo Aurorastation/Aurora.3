@@ -24663,12 +24663,12 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/item/clothing/suit/space/void/skrell/black,
-/obj/item/clothing/suit/space/void/skrell/white,
-/obj/item/clothing/head/helmet/space/void/skrell/black,
-/obj/item/clothing/head/helmet/space/void/skrell/white,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
+/obj/item/clothing/head/helmet/space/void,
+/obj/item/clothing/head/helmet/space/void,
+/obj/item/clothing/suit/space/void,
+/obj/item/clothing/suit/space/void,
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
 "aRx" = (

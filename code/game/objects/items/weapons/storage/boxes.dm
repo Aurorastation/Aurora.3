@@ -979,7 +979,6 @@
 			/obj/item/weapon/reagent_containers/food/snacks/poppypretzel,
 			/obj/item/weapon/reagent_containers/food/snacks/cracker,
 			/obj/item/weapon/reagent_containers/food/snacks/liquidfood,
-			/obj/item/weapon/reagent_containers/food/snacks/skrellsnacks,
 			/obj/item/weapon/reagent_containers/food/snacks/tastybread,
 			/obj/item/weapon/reagent_containers/food/snacks/meatsnack,
 			/obj/item/weapon/reagent_containers/food/snacks/maps,
