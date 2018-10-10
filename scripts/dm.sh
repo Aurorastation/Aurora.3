@@ -46,7 +46,7 @@ if [[ $DM == "" ]]; then
     exit 3
 fi
 
-"$DM" $dmepath.mdme | grep -E --invert_match "^included.*\.dmm?$" | tee build_log.txt
+"$DM" $dmepath.mdme | grep -E --invert-match "^included.*\.dmm?$" | tee build_log.txt
 retval=$?
 
 if [[ $retval == 0 ]]; then
