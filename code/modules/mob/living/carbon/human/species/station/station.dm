@@ -335,6 +335,8 @@
 	sprint_cost_factor = 0.8
 	climb_coeff = 1.3
 
+	max_hydration_factor = -1
+
 /datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
 	var/datum/dionastats/DS = H.get_dionastats()
 
