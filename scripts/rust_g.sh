@@ -11,4 +11,4 @@ cd rust-g
 cargo build --release
 
 mkdir -p ~/.byond/bin
-cp $PWD/target/release/librust_g.so $HOME/rust_g-$RUST_G_VERSION
+cp $PWD/target/release/librust_g.so $HOME/rust_g-$RUST_G_VERSION/rust_g
