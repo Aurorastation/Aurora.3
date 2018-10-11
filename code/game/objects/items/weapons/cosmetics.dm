@@ -21,7 +21,7 @@
 /obj/item/weapon/lipstick/black
 	name = "black lipstick"
 	colour = "black"
-	
+
 /obj/item/weapon/lipstick/pink
 	name = "pink lipstick"
 	colour = "pink"
@@ -82,3 +82,84 @@
 
 /obj/item/weapon/haircomb/attack_self(mob/user)
 	user.visible_message("<span class='notice'>[user] uses [src] to comb their hair with incredible style and sophistication. What a [user.gender == FEMALE ? "lady" : "guy"].</span>")
+
+/obj/item/weapon/razor
+	name = "electric razor"
+	desc = "The latest and greatest power razor born from the science of shaving."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "razor"
+	w_class = 2
+
+/obj/item/weapon/razor/proc/shave(mob/living/carbon/human/H, location)
+	if(location == "head")
+		H.h_style = H.species.default_h_style
+	else
+		H.f_style = H.species.default_f_style
+
+	H.update_hair()
+	playsound(H, 'sound/items/welder2.ogg', 20, 1)
+
+
+/obj/item/weapon/razor/attack(mob/M, mob/user, var/target_zone)
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		var/obj/item/organ/external/E = H.get_organ(target_zone)
+		world << "<font size='15' color='red'><b>[target_zone]</b></font>"
+		if(!E || E.is_stump())
+			to_chat(user, "<span class='danger'>They are missing that limb!</span>")
+			return FALSE
+
+		if(!ishuman_species(H))	//you can only shave humans and tajara for obvious reasons
+			return FALSE
+
+		if(!istajara(H))
+			return FALSE
+
+		if(target_zone == "head")
+			if(H.head && (H.head.body_parts_covered & HEAD))
+				to_chat(user, "<span class='warning'>\The [H.head] is in the way!</span>")
+				return FALSE
+
+			if(H.h_style == "Bald" || H.h_style == "Balding Hair" || H.h_style == "Skinhead")
+				to_chat(user, "<span class='warning'>There is not enough hair left to shave!</span>")
+				return FALSE
+
+		if(target_zone == "mouth")
+
+			if(H.head && (H.head.body_parts_covered & FACE))
+				to_chat(user, "<span class='warning'>\The [H.head] is in the way!</span>")
+				return FALSE
+
+			if(H.wear_mask && (H.wear_mask.body_parts_covered & FACE))
+				to_chat(user, "<span class='warning'>\The [H.wear_mask] is in the way!</span>")
+				return FALSE
+
+			if(H.h_style == "Shaved")
+				to_chat(user, "<span class='warning'>There is not enough facial hair left to shave!</span>")
+				return	FALSE
+
+		else
+			return ..()
+
+		if(H == user) //shaving yourself
+			user.visible_message("[user] starts to shave [user]'s  head with \the [src].", \
+									 "<span class='notice'>You start to shave your head with zthe [src].</span>")
+			if(do_after(user, 5, target = H))
+				user.visible_message("[user] shaves [user] head with \the [src].", \
+									 "<span class='notice'>You finish shaving with \the [src].</span>")
+				shave(H, target_zone)
+
+				return TRUE
+		else
+
+			user.visible_message("<span class='warning'>[user] tries to shave [H]'s head with \the [src]!</span>", \
+									 "<span class='notice'>You start shaving [H]'s head.</span>")
+			if(do_after(user, 50, target = H))
+				user.visible_message("<span class='warning'>[user] shaves [H]'s head bald with \the [src]!</span>", \
+											 "<span class='notice'>You shave [H]'s head bald.</span>")
+				shave(H, target_zone)
+
+				return TRUE
+
+	else
+		..()
