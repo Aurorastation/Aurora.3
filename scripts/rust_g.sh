@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-test_rust=$(ls $HOME/rust_g-$RUST_G_VERSION | grep "rust_g")
-if [[ $test_rust != "" ]]; then
+if [ -f $HOME/rust_g-$RUST_G_VERSION/rust_g ]; then
     echo "rust_g already cached."
     exit 0
 fi
