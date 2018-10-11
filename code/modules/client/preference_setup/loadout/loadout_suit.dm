@@ -77,6 +77,11 @@
 	cost = 1
 	allowed_roles = list("Scientist", "Chief Medical Officer", "Medical Doctor", "Chemist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
+/datum/gear/suit/iacvest
+	display_name = "IAC vest"
+	path = /obj/item/clothing/suit/iacvest
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Medical Doctor", "Geneticist", "Chemist", "Paramedic", "Medical Resident")
+
 /datum/gear/suit/poncho
 	display_name = "poncho selection"
 	path = /obj/item/clothing/accessory/poncho

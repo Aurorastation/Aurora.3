@@ -78,8 +78,8 @@
 /obj/item/clothing/under/rank/iacjumpsuit
 	desc = "It's a and white jumpsuit, the IAC logo plastered across the back."
 	name = "IAC uniform"
-	icon_state = "iac_uniform"
-	worn_state = "iac_uniform"
+	icon_state = "iacuniform"
+	item_state = "iacuniform"
 	permeability_coefficient = 0.50
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 15, rad = 5)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO

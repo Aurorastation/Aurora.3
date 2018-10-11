@@ -199,3 +199,20 @@
 /datum/gear/head/loose_beanie/New()
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/head/iachelmet
+	display_name = "IAC helmet"
+	path = /obj/item/clothing/head/helmet/iachelmet
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Paramedic")
+	cost = 2
+
+/datum/gear/head/iacberet
+	display_name = "IAC soft cap"
+	path = /obj/item/clothing/head/soft/iacberet
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Medical Doctor", "Geneticist", "Chemist", "Paramedic", "Medical Resident")
+
+/datum/gear/iacmask
+	display_name = "IAC EMT Mask"
+	path = /obj/item/clothing/mask/balaclava/iacmask
+	cost = 2
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Paramedic")

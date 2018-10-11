@@ -83,4 +83,4 @@
 /obj/item/clothing/head/soft/iacberet
 	name = "IAC soft cap"
 	desc = "It's field cap in IAC colors."
-	icon_state = "iac_hat"
+	icon_state = "iachat"
