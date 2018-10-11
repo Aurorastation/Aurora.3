@@ -206,11 +206,11 @@
 /datum/reagent/toxin/zombiepowder
 	name = "Zombie Powder"
 	id = "zombiepowder"
-	description = "A strong neurotoxin that puts the subject into a death-like state."
+	description = "A strong neurotoxin that puts the subject into a death-like state after a short period."
 	reagent_state = SOLID
 	color = "#669900"
 	metabolism = REM
-	strength = 3
+	strength = 1
 	taste_description = "death"
 
 /datum/reagent/toxin/zombiepowder/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -218,11 +218,18 @@
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_SCAN))
 		return
-	M.status_flags |= FAKEDEATH
-	M.adjustOxyLoss(3 * removed)
-	M.Weaken(10)
-	M.silent = max(M.silent, 10)
-	M.tod = worldtime2text()
+
+	if(!dose && volume)
+		M.emote("deathgasp")
+
+	if(dose <= 5)
+		M.adjustHalLoss(removed*20)
+	else
+		M.status_flags |= FAKEDEATH
+		M.adjustOxyLoss(1 * removed)
+		M.Weaken(10)
+		M.silent = max(M.silent, 10)
+		M.tod = worldtime2text()
 
 /datum/reagent/toxin/zombiepowder/Destroy()
 	if(holder && holder.my_atom && ismob(holder.my_atom))

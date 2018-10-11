@@ -62,7 +62,6 @@
 	if(!ismob(M))
 		return
 	user << "<span class='warning'>You stab [M] with the pen.</span>"
-//	M << "\red You feel a tiny prick!" //That's a whole lot of meta!
 	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been stabbed with [name]  by [user.name] ([user.ckey])</font>")
 	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [name] to stab [M.name] ([M.ckey])</font>")
 	msg_admin_attack("[user.name] ([user.ckey]) Used the [name] to stab [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
@@ -88,12 +87,13 @@
 
 	. = ..()
 
-	if(M.can_inject(user,1))
-		if(reagents.total_volume)
-			if(M.reagents)
-				var/contained_reagents = reagents.get_reagents()
-				var/trans = reagents.trans_to_mob(M, 30, CHEM_BLOOD)
-				admin_inject_log(user, M, src, contained_reagents, trans)
+	if(M.can_inject(user,1) && reagents.total_volume && M.reagents)
+		var/contained_reagents = reagents.get_reagents()
+		var/trans = reagents.trans_to_mob(M, 30, CHEM_BLOOD)
+		admin_inject_log(user, M, src, contained_reagents, trans)
+		if(ishuman(M))
+			var/mob/living/carbon/human/H = M
+			H.custom_pain("You feel a tiny prick.")
 
 /*
  * Sleepy Pens
