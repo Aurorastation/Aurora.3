@@ -34,4 +34,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Pumpkins are now full of pumpkin pulp, instead of generic nutriment! This pulp can be mixed with spices to make a delicious seasoning, which can be put in coffee or mixed with more pulp to make a pie (no longer shall we have to shove a whole pumpkin into the oven to make pie). Relatedly, Robust Coffee has released a limited edition Pumpkin Spice Coffee Drink and Donut series for the season!"
+  - rscadd: "Pumpkins are now full of pumpkin pulp, instead of generic nutriment! This pulp can be mixed with spices to make a delicious seasoning, which can be put in coffee or mixed with more pulp to make a pie. No longer shall we have to shove a whole pumpkin into the oven to make pie."
+  - rscadd: "Relatedly, Robust Coffee has released a limited edition Pumpkin Spice Coffee Drink and Donut series for the season!"
