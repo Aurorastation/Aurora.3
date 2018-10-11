@@ -35,7 +35,7 @@
 	desc = "Designed to keep the user warm and sterile in hostile enviroments."
 	icon_state = "iacmask"
 	germ_level = 0
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 15, rad = 0)
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
 
 /obj/item/clothing/mask/luchador
 	name = "luchador mask"
