@@ -1184,6 +1184,39 @@
 	glass_desc = "Espresso with hot milk and chocolate."
 	glass_center_of_mass = list("x"=15, "y"=9)
 
+/datum/reagent/drink/coffee/icecoffee/psfrappe
+	name = "Pumpkin Spice Frappe"
+	id = "psfrappe"
+	description = "A seasonal treat popular around the autumn times."
+	color = "#9C6B19"
+	taste_description = "autumn bliss and coffee"
+
+	glass_icon_state = "frappe_psl"
+	glass_name = "glass of pumpkin spice frappe"
+	glass_desc = "A seasonal treat popular around the autumn times."
+
+/datum/reagent/drink/coffee/pslatte
+	name = "Pumpkin Spice Latte"
+	id = "pslatte"
+	description = "A seasonal drink favored in autumn."
+	color = "#9C6B19"
+	taste_description = "hot creamy coffee and autumn bliss"
+
+	glass_icon_state = "psl_cheap"
+	glass_name = "cup of pumpkin spice latte"
+	glass_desc = "A hot cup of pumpkin spiced coffee. Autumn really is the best season!"
+
+	/datum/reagent/drink/coffee/sadpslatte
+	name = "Processed Pumpkin Latte"
+	id = "sadpslatte"
+	description = "A processed drink vaguely reminicent of autumn bliss."
+	color = "#9C6B19"
+	taste_description = "a disappointing approximation of autumn bliss"
+
+	glass_icon_state = "psl_cheap"
+	glass_name = "cup of cheap pumpkin latte"
+	glass_desc = "Maybe you should just go ask the barista for something more authentic..."
+
 /datum/reagent/drink/hot_coco
 	name = "Hot Chocolate"
 	id = "hot_coco"
@@ -3769,3 +3802,17 @@
 	M.druggy = max(M.druggy, 30)
 	M.dizziness += 5
 	M.drowsyness = 0
+
+	/datum/reagent/nutriment/pumpkinpulp
+	name = "Pumpkin Pulp"
+	id = "pumpkinpulp"
+	description = "The gooey insides of a slain pumpkin"
+	color = "#f9ab28"
+	taste_description = "gooey pumpkin"
+
+	/datum/reagent/spacespice/pumpkinspice
+	name = "Pumpkin Spice"
+	id = "pumpkinspice"
+	description = "A delicious seasonal flavoring."
+	color = "#AE771C"
+	taste_description = "autumn bliss"
