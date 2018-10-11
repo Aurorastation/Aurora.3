@@ -589,6 +589,13 @@
 	nutriment_amt = 3
 	bitesize = 3
 
+/obj/item/weapon/reagent_containers/food/snacks/donut/psdonut
+	name = "pumpkin spice donut"
+	desc = "A limited edition seasonal pastry."
+	icon_state = "donut_ps"
+	center_of_mass = list("x"=13, "y"=16)
+	nutriment_desc = list("pumpkin spice" = 1, "donut" = 2)
+
 /obj/item/weapon/reagent_containers/food/snacks/donut/normal/Initialize()
 	. = ..()
 	reagents.add_reagent("sprinkles", 1)
