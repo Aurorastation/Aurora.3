@@ -61,6 +61,7 @@ script:
   - DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
   - grep "All Unit Tests Passed" log.txt
   - (! grep "runtime error:" log.txt)
+  - cp rust_g $HOME/rust_g-$RUST_G_VERSIONS
 
 jobs:
   include:
