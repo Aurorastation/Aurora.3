@@ -1206,7 +1206,7 @@
 	glass_name = "cup of pumpkin spice latte"
 	glass_desc = "A hot cup of pumpkin spiced coffee. Autumn really is the best season!"
 
-	/datum/reagent/drink/coffee/sadpslatte
+/datum/reagent/drink/coffee/sadpslatte
 	name = "Processed Pumpkin Latte"
 	id = "sadpslatte"
 	description = "A processed drink vaguely reminicent of autumn bliss."
@@ -3803,14 +3803,14 @@
 	M.dizziness += 5
 	M.drowsyness = 0
 
-	/datum/reagent/nutriment/pumpkinpulp
+/datum/reagent/nutriment/pumpkinpulp
 	name = "Pumpkin Pulp"
 	id = "pumpkinpulp"
 	description = "The gooey insides of a slain pumpkin"
 	color = "#f9ab28"
 	taste_description = "gooey pumpkin"
 
-	/datum/reagent/spacespice/pumpkinspice
+/datum/reagent/spacespice/pumpkinspice
 	name = "Pumpkin Spice"
 	id = "pumpkinspice"
 	description = "A delicious seasonal flavoring."
