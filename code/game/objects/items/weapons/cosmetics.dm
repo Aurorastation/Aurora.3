@@ -109,11 +109,9 @@
 			to_chat(user, "<span class='danger'>They are missing that limb!</span>")
 			return FALSE
 
-		if(!ishuman_species(H))	//you can only shave humans and tajara for obvious reasons
-			return FALSE
+//		if(!ishuman_species(H) || !istajara(H))	//you can only shave humans and tajara for obvious reasons
+//			return FALSE
 
-		if(!istajara(H))
-			return FALSE
 
 		if(target_zone == "head")
 			if(H.head && (H.head.body_parts_covered & HEAD))
@@ -143,8 +141,8 @@
 
 		if(H == user) //shaving yourself
 			user.visible_message("[user] starts to shave [user]'s  head with \the [src].", \
-									 "<span class='notice'>You start to shave your head with zthe [src].</span>")
-			if(do_after(user, 5, target = H))
+									 "<span class='notice'>You start to shave your head with the [src].</span>")
+			if(do_after(user, 20))
 				user.visible_message("[user] shaves [user] head with \the [src].", \
 									 "<span class='notice'>You finish shaving with \the [src].</span>")
 				shave(H, target_zone)
@@ -154,7 +152,7 @@
 
 			user.visible_message("<span class='warning'>[user] tries to shave [H]'s head with \the [src]!</span>", \
 									 "<span class='notice'>You start shaving [H]'s head.</span>")
-			if(do_after(user, 50, target = H))
+			if(do_after(user, 20))
 				user.visible_message("<span class='warning'>[user] shaves [H]'s head bald with \the [src]!</span>", \
 											 "<span class='notice'>You shave [H]'s head bald.</span>")
 				shave(H, target_zone)
