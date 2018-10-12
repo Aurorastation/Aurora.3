@@ -170,8 +170,10 @@ datum/unit_test/wire_test/start_test()
 	var/checks = 0
 	var/failed_checks = 0
 	for(var/obj/machinery/door/airlock/A in world)
-		checks++
 		var/turf/T = get_turf(A)
+		if(!(T.z in current_map.station_levels))
+			continue
+		checks++
 		if(istype(T, /turf/space) || istype(T, /turf/simulated/floor/asteroid) || isopenturf(T) || T.density)
 			failed_checks++
 			log_unit_test("Airlock [A] with bad turf at ([A.x],[A.y],[A.z]) in [T.loc].")
@@ -180,6 +182,8 @@ datum/unit_test/wire_test/start_test()
 		fail("\[[failed_checks] / [checks]\] Some doors had improper turfs below them.")
 	else
 		pass("All \[[checks]\] doors have proper turfs below them.")
+	
+	return 1
 
 /datum/unit_test/bad_firedoors
 	name = "MAP: Check for bad firedoors"
@@ -188,8 +192,10 @@ datum/unit_test/wire_test/start_test()
 	var/checks = 0
 	var/failed_checks = 0
 	for(var/obj/machinery/door/firedoor/F in world)
-		checks++
 		var/turf/T = get_turf(F)
+		if(!(T.z in current_map.station_levels))
+			continue
+		checks++
 		var/firelock_increment = 0
 		for(var/obj/machinery/door/firedoor/FD in T)
 			firelock_increment += 1
@@ -205,15 +211,20 @@ datum/unit_test/wire_test/start_test()
 	else
 		pass("All \[[checks]\] firedoors have proper turfs below them and are not doubled up.")
 
+	return 1
+
 /datum/unit_test/bad_piping
 	name = "MAP: Check for bad piping"
 
 /datum/unit_test/bad_piping/start_test()
+	set background = 1
 	var/checks = 0
 	var/failed_checks = 0
 
 	//all plumbing - yes, some things might get stated twice, doesn't matter.
 	for (var/obj/machinery/atmospherics/plumbing in world)
+		if(!(plumbing.z in current_map.station_levels))
+			continue
 		checks++
 		if (plumbing.nodealert)
 			failed_checks++
@@ -221,12 +232,17 @@ datum/unit_test/wire_test/start_test()
 
 	//Manifolds
 	for (var/obj/machinery/atmospherics/pipe/manifold/pipe in world)
+		if(!(pipe.z in current_map.station_levels))
+			continue
+		checks++
 		if (!pipe.node1 || !pipe.node2 || !pipe.node3)
 			failed_checks++
 			log_unit_test("Unconnected [pipe.name] located at [pipe.x],[pipe.y],[pipe.z] ([get_area(pipe.loc)])")
 
 	//Pipes
 	for (var/obj/machinery/atmospherics/pipe/simple/pipe in world)
+		if(!(pipe.z in current_map.station_levels))
+			continue
 		checks++
 		if (!pipe.node1 || !pipe.node2)
 			failed_checks++
@@ -248,6 +264,8 @@ datum/unit_test/wire_test/start_test()
 		fail("\[[failed_checks] / [checks]\] Some pipes are not properly connected or doubled up.")
 	else
 		pass("All \[[checks]\] pipes are properly connected and not doubled up.")
+
+	return 1
 
 #undef SUCCESS
 #undef FAILURE
