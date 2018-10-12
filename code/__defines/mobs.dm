@@ -123,16 +123,16 @@
 #define MOB_MINISCULE	1
 
 #define BASE_MAX_NUTRITION	400
-#define HUNGER_FACTOR		0.025 // Factor of how fast mob nutrition decreases. Moved here from chemistry define
+#define HUNGER_FACTOR		0.04 // Factor of how fast mob nutrition decreases over time.
 
 #define BASE_MAX_HYDRATION  600
-#define THIRST_FACTOR       0.05 // Factor of how fast mob hydration decreases. Moved here from chemistry define
+#define THIRST_FACTOR       0.02 // Factor of how fast mob hydration decreases over time.
 
-#define CREW_MINIMUM_HYDRATION 50	// The minimum amount of nutrition a crewmember will spawn with.
-#define CREW_MAXIMUM_HYDRATION 100	// Same as above, but maximum.
+#define CREW_MINIMUM_HYDRATION BASE_MAX_HYDRATION * CREW_HYDRATION_SLIGHTLYTHIRSTY	// The minimum amount of nutrition a crewmember will spawn with.
+#define CREW_MAXIMUM_HYDRATION BASE_MAX_HYDRATION * CREW_HYDRATION_HYDRATED	// Same as above, but maximum.
 
-#define CREW_MINIMUM_NUTRITION 50	// The minimum amount of nutrition a crewmember will spawn with.
-#define CREW_MAXIMUM_NUTRITION 100	// Same as above, but maximum.
+#define CREW_MINIMUM_NUTRITION BASE_MAX_NUTRITION * CREW_NUTRITION_SLIGHTLYHUNGRY	// The minimum amount of nutrition a crewmember will spawn with.
+#define CREW_MAXIMUM_NUTRITION BASE_MAX_NUTRITION * CREW_NUTRITION_FULL	// Same as above, but maximum.
 
 //Note that all of this is relative to nutrition/max nutrition
 #define CREW_NUTRITION_OVEREATEN 0.95
