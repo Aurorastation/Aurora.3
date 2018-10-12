@@ -30,7 +30,7 @@
 /proc/game_log(category, text)
 	diary << "\[[time_stamp()]] [game_id] [category]: [text][log_end]"
 
-/proc/log_admin(text,level=5,ckey="",admin_key="",ckey_target="")
+/proc/log_admin(text,level=SEVERITY_NOTICE,ckey="",admin_key="",ckey_target="")
 	admin_log.Add(text)
 	if (config.log_admin)
 		game_log("ADMIN", text)

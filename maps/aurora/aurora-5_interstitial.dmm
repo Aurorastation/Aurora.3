@@ -1500,19 +1500,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
-"cN" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/library)
 "cO" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1562,35 +1549,6 @@
 	pixel_y = 16
 	},
 /turf/simulated/open,
-/area/maintenance/library)
-"cU" = (
-/obj/structure/disposalpipe/down{
-	icon_state = "pipe-d";
-	dir = 4
-	},
-/obj/structure/lattice/catwalk,
-/turf/simulated/open,
-/area/maintenance/library)
-"cV" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/library)
-"cW" = (
-/obj/structure/disposalpipe/up{
-	icon_state = "pipe-u";
-	dir = 8
-	},
-/turf/simulated/floor/plating{
-	roof_type = null
-	},
 /area/maintenance/library)
 "cX" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
@@ -5265,9 +5223,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
-"ju" = (
-/turf/simulated/wall,
-/area/maintenance/library)
 "jv" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -5864,9 +5819,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
-"kw" = (
-/turf/simulated/wall,
-/area/medical/med_office)
 "kx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6043,14 +5995,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
-"kN" = (
-/obj/structure/lattice,
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
-	},
-/turf/simulated/open,
-/area/medical/med_office)
 "kO" = (
 /obj/structure/curtain,
 /turf/simulated/floor/tiled/white,
@@ -6357,14 +6301,6 @@
 /obj/structure/bed/chair,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
-"lo" = (
-/obj/structure/lattice,
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 2
-	},
-/turf/simulated/open,
-/area/medical/med_office)
 "lp" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -7033,6 +6969,10 @@
 /obj/effect/decal/remains,
 /turf/simulated/floor/plating,
 /area/security/training)
+"zY" = (
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/medical/psych)
 "FK" = (
 /obj/effect/landmark/dungeon_spawn,
 /turf/unsimulated/chasm_mask,
@@ -7055,17 +6995,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"GT" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open,
-/area/medical/med_office)
-"Hl" = (
-/obj/structure/lattice,
-/turf/simulated/open,
-/area/medical/med_office)
-"Hm" = (
-/turf/simulated/open,
-/area/medical/med_office)
 "HV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -7208,6 +7137,16 @@
 	roof_type = null
 	},
 /area/maintenance/library)
+"PT" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/newscaster{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
 
 (1,1,1) = {"
 aa
@@ -44599,11 +44538,11 @@ hZ
 hZ
 hZ
 hZ
-ab
-ab
-aa
-aa
-aa
+hZ
+hZ
+hZ
+hZ
+hZ
 aa
 aa
 aa
@@ -44856,11 +44795,11 @@ kA
 kK
 kU
 hZ
-ab
-ab
-ab
-ab
-aa
+mr
+mr
+mr
+mr
+hZ
 aa
 aa
 aa
@@ -45113,11 +45052,11 @@ kB
 kL
 kL
 ke
-ab
-ab
-ab
-ab
-aa
+mr
+mr
+mr
+mr
+hZ
 aa
 aa
 aa
@@ -45370,11 +45309,11 @@ kB
 kM
 kV
 kg
-ab
-ab
-ab
-ab
-ab
+mr
+mr
+mr
+mr
+hZ
 aa
 aa
 aa
@@ -45627,13 +45566,13 @@ kC
 kO
 kO
 hZ
-ab
-ab
-ab
-ab
-ab
-ab
-aa
+zY
+zY
+zY
+zY
+hZ
+hZ
+hZ
 aa
 aa
 aa
@@ -45884,13 +45823,13 @@ kB
 kP
 kU
 kY
-ab
-ab
-ab
-ab
-ab
-ab
-aa
+mr
+mr
+mr
+mr
+zY
+mr
+hZ
 aa
 aa
 aa
@@ -46141,14 +46080,14 @@ kB
 kL
 kL
 kg
+mr
+mr
+mr
+mr
+zY
+mr
+hZ
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-aa
 hZ
 hZ
 hZ
@@ -46393,19 +46332,19 @@ ab
 ab
 ab
 hZ
-jA
+PT
 kD
 kQ
 kV
 hZ
+mr
+mr
+mr
+mr
+zY
+mr
+hZ
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-aa
 hZ
 mr
 mr
@@ -46655,14 +46594,14 @@ kE
 hZ
 hZ
 hZ
+mr
+mr
+mr
+mr
+zY
+mr
+hZ
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-aa
 hZ
 mr
 mr
