@@ -111,7 +111,7 @@
 		to_chat(user, "<span class='danger'>They are missing that limb!</span>")
 		return FALSE
 
-	if(!ishuman_species(H) || !istajara(H))	//you can only shave humans and tajara for obvious reasons
+	if(!ishuman_species(H) && !istajara(H))	//you can only shave humans and tajara for obvious reasons
 		return FALSE
 
 
