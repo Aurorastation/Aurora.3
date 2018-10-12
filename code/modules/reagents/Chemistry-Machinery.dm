@@ -817,12 +817,9 @@
 
 	if (!ishuman(usr))
 		return
-
-	if (!do_after(usr, 1 SECONDS, act_target = src))
-		return
 		usr.visible_message(
 		"<span class='notice'>[usr] opens [src] and has removed [english_list(contents)].</span>"
 		)
 
-		eject()
-		detach()
+	eject()
+	detach()

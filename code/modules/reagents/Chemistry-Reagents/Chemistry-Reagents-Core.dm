@@ -252,9 +252,9 @@
 		var/mob/living/carbon/slime/S = M
 		S.adjustToxLoss(12 * removed) // A slime having water forced down its throat would cause much more damage then being splashed on it
 		if (!S.client && S.Target)
-			if(S.Target) // Like cats
-				S.Target = null
-				++S.Discipline
+		
+			S.Target = null
+			++S.Discipline
 
 
 /datum/reagent/fuel
