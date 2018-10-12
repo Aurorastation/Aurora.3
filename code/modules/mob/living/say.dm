@@ -122,9 +122,9 @@ proc/get_radio_key_from_channel(var/channel)
 		verb = pick("slobbers","slurs")
 		speech_problem_flag = 1
 		if(prob(50))
-			src << "<span class='danger'>You struggle to speak with your dislocated jaw!</span>"
+			to_chat(src, "<span class='danger'>You struggle to speak with your dislocated jaw!</span>")
 		if(prob(10))
-			src << "<span class='danger'>You feel a sharp pain from your jaw as you speak!</span>"
+			to_chat(src, "<span class='danger'>You feel a sharp pain from your jaw as you speak!</span>")
 			src.Weaken(3)
 	returns[1] = message
 	returns[2] = verb
@@ -155,7 +155,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	if(client)
 		if(client.prefs.muted & MUTE_IC)
-			src << "<span class='warning'>You cannot speak in IC (Muted).</span>"
+			to_chat(src, "<span class='warning'>You cannot speak in IC (Muted).</span>")
 			return
 
 	if(stat)
@@ -197,7 +197,7 @@ proc/get_radio_key_from_channel(var/channel)
 	verb = say_quote(message, speaking)
 
 	if(is_muzzled())
-		src << "<span class='danger'>You're muzzled and cannot speak!</span>"
+		to_chat(src, "<span class='danger'>You're muzzled and cannot speak!</span>")
 		return
 
 	message = trim_left(message)
@@ -238,6 +238,7 @@ proc/get_radio_key_from_channel(var/channel)
 		var/obj/item/organ/O = h.organs_by_name["head"]
 		if(istype(O, /obj/item/organ/external/stump))
 			message_range = 3
+			sound_vol *= 0.5 //muffle speech
 			visible_message("<span class='notice'>[src] says something very quietly.</span>")
 
 
