@@ -106,13 +106,13 @@
 
 	var/mob/living/carbon/human/H = M
 	var/obj/item/organ/external/E = H.get_organ(target_zone)
-	world << "<font size='15' color='red'><b>[target_zone]</b></font>"
+
 	if(!E || E.is_stump())
 		to_chat(user, "<span class='danger'>They are missing that limb!</span>")
 		return FALSE
 
-//		if(!ishuman_species(H) || !istajara(H))	//you can only shave humans and tajara for obvious reasons
-//			return FALSE
+	if(!ishuman_species(H) || !istajara(H))	//you can only shave humans and tajara for obvious reasons
+		return FALSE
 
 
 	if(target_zone == "head")
@@ -124,7 +124,27 @@
 			to_chat(user, "<span class='warning'>There is not enough hair left to shave!</span>")
 			return FALSE
 
-	if(target_zone == "mouth")
+		if(H == user) //shaving yourself
+			user.visible_message("[user] starts to shave \his head with \the [src].", \
+									 "<span class='notice'>You start to shave your head with \the [src].</span>")
+			if(do_after(user, 20))
+				user.visible_message("[user] shaves \his head with \the [src].", \
+										 "<span class='notice'>You finish shaving with \the [src].</span>")
+				shave(H, target_zone)
+
+			return TRUE
+
+		else
+			user.visible_message("<span class='warning'>[user] tries to shave [H]'s head with \the [src]!</span>", \
+									 "<span class='notice'>You start shaving [H]'s head.</span>")
+			if(do_after(user, 20))
+				user.visible_message("<span class='warning'>[user] shaves [H]'s head bald with \the [src]!</span>", \
+											 "<span class='notice'>You shave [H]'s head bald.</span>")
+				shave(H, target_zone)
+
+				return TRUE
+
+	else if(target_zone == "mouth")
 
 		if(H.head && (H.head.body_parts_covered & FACE))
 			to_chat(user, "<span class='warning'>\The [H.head] is in the way!</span>")
@@ -138,25 +158,28 @@
 			to_chat(user, "<span class='warning'>There is not enough facial hair left to shave!</span>")
 			return	FALSE
 
+		if(H == user) //shaving yourself
+			user.visible_message("<span class='warning'>[user] starts to shave \his facial hair with \the [src].</span>", \
+									 "<span class='notice'>You take a moment to shave your facial hair with \the [src].</span>")
+			if(do_after(user, 20))
+				user.visible_message("<span class='warning'>[user] shaves \his facial hair clean with \the [src].</span>", \
+										 "<span class='notice'>You finish shaving with \the [src].</span>")
+				shave(H, target_zone)
+
+			return TRUE
+
+		else
+			user.visible_message("<span class='warning'>[user] tries to shave [H]'s facial hair with \the [src].</span>", \
+									 "<span class='notice'>You start shaving [H]'s facial hair.</span>")
+			if(do_after(user, 20))
+				user.visible_message("<span class='warning'>[user] shaves off [H]'s facial hair with \the [src].</span>", \
+											 "<span class='notice'>You shave [H]'s facial hair clean off.</span>")
+				shave(H, target_zone)
+
+				return TRUE
+
+
 	else
 		return ..()
 
-	if(H == user) //shaving yourself
-		user.visible_message("[user] starts to shave [user]'s  head with \the [src].", \
-								 "<span class='notice'>You start to shave your head with the [src].</span>")
-		if(do_after(user, 20))
-			user.visible_message("[user] shaves [user] head with \the [src].", \
-								 "<span class='notice'>You finish shaving with \the [src].</span>")
-			shave(H, target_zone)
 
-			return TRUE
-	else
-
-		user.visible_message("<span class='warning'>[user] tries to shave [H]'s head with \the [src]!</span>", \
-									 "<span class='notice'>You start shaving [H]'s head.</span>")
-		if(do_after(user, 20))
-			user.visible_message("<span class='warning'>[user] shaves [H]'s head bald with \the [src]!</span>", \
-											 "<span class='notice'>You shave [H]'s head bald.</span>")
-			shave(H, target_zone)
-
-			return TRUE
