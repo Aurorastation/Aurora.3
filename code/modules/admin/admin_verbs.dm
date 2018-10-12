@@ -431,6 +431,7 @@ var/list/admin_verbs_cciaa = list(
 		admin_verbs_spawn,
 		debug_verbs
 		)
+	add_aooc_if_necessary()
 
 /client/proc/hide_most_verbs()//Allows you to keep some functionality while hiding some verbs
 	set name = "Adminverbs - Hide Most"

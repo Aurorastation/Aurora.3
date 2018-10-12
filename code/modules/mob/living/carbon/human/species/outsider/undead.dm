@@ -73,6 +73,12 @@
 	sprint_speed_factor = 0.3
 	exhaust_threshold = 0 //No oxyloss, so zero threshold
 
+	max_nutrition_factor = -1
+
+	max_hydration_factor = -1
+
+	hud_type = /datum/hud_data/construct
+
 /mob/living/carbon/human/apparition/Initialize(mapload)
 	. = ..(mapload, "Apparition")
 
@@ -109,6 +115,12 @@
 	stamina_recovery = 1
 	sprint_speed_factor = 0.3
 	exhaust_threshold = 0 //No oxyloss, so zero threshold
+
+	max_nutrition_factor = -1
+
+	max_hydration_factor = -1
+
+	hud_type = /datum/hud_data/construct
 
 /datum/species/apparition/handle_death(var/mob/living/carbon/human/H)
 	set waitfor = 0
@@ -175,7 +187,11 @@
 	sprint_speed_factor = 0.3
 	exhaust_threshold = 0 //No oxyloss, so zero threshold
 
-	inherent_verbs = list(/mob/living/carbon/human/proc/darkness_eyes)
+	inherent_verbs = list(/mob/living/carbon/human/proc/darkness_eyes, /mob/living/proc/devour)
+
+	allowed_eat_types = TYPE_ORGANIC | TYPE_HUMANOID
+
+	gluttonous = TRUE
 
 /datum/species/zombie/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.mutations.Add(CLUMSY)

@@ -131,7 +131,7 @@
 	description = "Cardox is an mildly toxic, expensive, NanoTrasen designed cleaner intended to eliminate liquid phoron stains from suits."
 	reagent_state = LIQUID
 	color = "#EEEEEE"
-	metabolism = 0.6 // 100 seconds for 30 units to metabolise.
+	metabolism = 0.3 // 100 seconds for 30 units to metabolise.
 	taste_description = "cherry"
 	conflicting_reagent = /datum/reagent/toxin/phoron
 	strength = 1
@@ -259,7 +259,7 @@
 
 /datum/reagent/toxin/fertilizer/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
-		M.nutrition += removed*3
+		M.adjustNutritionLoss(-removed*3)
 		//Fertilizer is good for plants
 	else
 		..()
@@ -284,7 +284,7 @@
 	reagent_state = SOLID
 	color = "#CCCCCC"
 	taste_description = "salty dirt"
-	metabolism = REM * 10
+	touch_met = REM * 10
 	breathe_mul = 0
 
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_turf(var/turf/simulated/T)
@@ -317,12 +317,13 @@
 
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed)
 	if(istype(S))
-		S.adjustToxLoss(8 * removed)
-		if(!S.client && S.Target)
-			S.Target = null
-			++S.Discipline
+		S.adjustToxLoss( volume * (removed/REM) * 0.23 )
+		if(!S.client)
+			if(S.Target) // Like cats
+				S.Target = null
+				++S.Discipline
 		if(dose == removed)
-			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the liquid touches it!</span>", "<span class='danger'>Your flesh burns in the liquid!</span>")
+			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the foam touches it!</span>", "<span class='danger'>Your flesh burns in the foam!</span>")
 
 /datum/reagent/toxin/plantbgone
 	name = "Plant-B-Gone"
@@ -808,14 +809,32 @@
 	taste_description = "old eggs"
 	metabolism = REM
 	unaffected_species = IS_DIONA | IS_MACHINE | IS_UNDEAD
+	affects_dead = TRUE
 
 /datum/reagent/toxin/trioxin/affect_blood(var/mob/living/carbon/M, var/removed)
 	..()
 	if(istype(M,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
-		if(M.reagents.has_reagent("spaceacillin", 15))
+
+		if(H.reagents.has_reagent("spaceacillin", 15))
 			return
+
 		if(!H.internal_organs_by_name["zombie"] && prob(15))
 			var/obj/item/organ/external/affected = H.get_organ("chest")
 			var/obj/item/organ/parasite/zombie/infest = new()
 			infest.replaced(H, affected)
+
+		if(ishuman_species(H))
+			if(!H.internal_organs_by_name["brain"])	//destroying the brain stops trioxin from bringing the dead back to life
+				return
+
+			if(H && H.stat != DEAD)
+				return
+
+			for(var/datum/language/L in H.languages)
+				H.remove_language(L.name)
+
+			H.set_species("Zombie")
+			H.revive()
+			playsound(H.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
+			to_chat(H,"<font size='3'><span class='cult'>You return back to life as the undead, all that is left is the hunger to consume the living and the will to spread the infection.</font></span>")
