@@ -31,8 +31,8 @@
 	reagent_state = LIQUID
 	color = "#FFFFFF"
 	overdose = REAGENTS_OVERDOSE
-	metabolism = REM * 0.25
-	metabolism_min = REM * 0.0625
+	metabolism = REM * 2
+	metabolism_min = REM * 0.25
 	breathe_mul = 0.25
 	ingest_mul = 0.25
 	scannable = 1
@@ -40,9 +40,6 @@
 	var/datum/modifier/modifier
 
 /datum/reagent/epinephrine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-
-	if(alien == IS_DIONA)
-		return
 
 	if(M.health <= config.health_threshold_crit)
 		var/damage_stats = list(BRUTE = M.getBruteLoss(), BURN = M.getFireLoss(), TOX = M.getToxLoss(), OXY = M.getOxyLoss())
@@ -204,6 +201,7 @@
 	description = "Omnizine is a low strength over-the-counter stimulant designed and marketed as a 'treat all' pill. Ingesting or inhaling the substance has the same strength as directly injecting it."
 	reagent_state = SOLID
 	color = "#8080AA"
+	metabolism = REM
 	ingest_mul = 1
 	breathe_mul = 1
 	scannable = 1
@@ -220,6 +218,7 @@
 	id = "atropine"
 	description = "Atropine is an emergency stabilizing reagent designed to heal suffocation, blunt trauma, and burns at critical patient health. Side effects include toxin increase."
 	reagent_state = LIQUID
+	metabolism = REM * 4
 	color = "#8040FF"
 	scannable = 1
 	taste_description = "bitterness"
