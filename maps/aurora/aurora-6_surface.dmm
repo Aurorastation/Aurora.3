@@ -13862,6 +13862,7 @@
 	icon_state = "corner_white_diagonal";
 	dir = 4
 	},
+/obj/item/weapon/razor,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "zs" = (
