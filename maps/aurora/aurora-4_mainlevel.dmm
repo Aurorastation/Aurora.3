@@ -36957,6 +36957,9 @@
 	icon_state = "corner_white";
 	dir = 4
 	},
+/obj/machinery/newscaster{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "brx" = (
@@ -39381,6 +39384,9 @@
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
 	dir = 5
+	},
+/obj/machinery/newscaster{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgeryobs)
@@ -51417,6 +51423,7 @@
 	icon_state = "warning";
 	dir = 1
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
 "ccf" = (
@@ -51502,10 +51509,10 @@
 /area/quartermaster/mail_room)
 "ccz" = (
 /obj/effect/floor_decal/industrial/warning/corner,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
 "ccB" = (
@@ -51700,7 +51707,11 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
+	dir = 1;
+	external_pressure_bound = 102;
+	external_pressure_bound_default = 102;
+	icon_state = "map_vent_in";
+	pump_direction = 0
 	},
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -58798,6 +58809,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
+"gnU" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "gql" = (
 /obj/structure/disposalpipe/segment,
 /obj/random/junk,
@@ -58945,8 +58962,8 @@
 	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Kitchen Maintenance";
-	req_access = null;
-	req_one_access = list(12,28)
+	req_access = list(28);
+	req_one_access = null
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
@@ -61115,6 +61132,11 @@
 /obj/structure/ore_box,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
+"lUb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/quartermaster/lobby)
 "maz" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment{
@@ -63187,6 +63209,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
+"xCL" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/quartermaster/mail_room)
 "xDz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -63531,6 +63557,9 @@
 /obj/structure/table/glass,
 /obj/item/weapon/storage/box/donut,
 /obj/effect/floor_decal/corner/white/diagonal,
+/obj/machinery/newscaster{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "ygU" = (
@@ -64346,6 +64375,9 @@
 /obj/machinery/light{
 	icon_state = "tube1";
 	dir = 1
+	},
+/obj/machinery/newscaster{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
@@ -91034,7 +91066,7 @@ ykg
 bXo
 mEE
 mEE
-mEE
+lUb
 mEE
 mEE
 mEE
@@ -93101,7 +93133,7 @@ xIJ
 xIJ
 cbA
 cbU
-cct
+xCL
 cct
 cct
 amD
@@ -93609,7 +93641,7 @@ cib
 pDO
 cqv
 cqA
-cqA
+gnU
 cqO
 cqV
 xIJ
