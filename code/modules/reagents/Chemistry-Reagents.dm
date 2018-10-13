@@ -30,6 +30,9 @@
 	var/metabolism_min = 0.01 //How much for the medicine to be present in the system to actually have an effect.
 	var/conflicting_reagent //Reagents that conflict with this medicine, and cause adverse effects when in the blood.
 
+	var/heat_coeffecient = 1
+	var/heat_energy = 0
+
 /datum/reagent/proc/remove_self(var/amount) // Shortcut
 	if (!holder)
 		//PROCLOG_WEIRD("Null holder found. Name: [name], id: [id]")
@@ -57,6 +60,8 @@
 
 	if(!dose && volume)//If dose is currently zero, we do the first effect
 		initial_effect(M, alien)
+		var/value_to_add = heat_energy * TEMPERATURE_DAMAGE_COEFFICIENT * 0.1
+		M.bodytemperature += value_to_add
 
 	var/removed = metabolism
 	if(ingest_met && (location == CHEM_INGEST))
@@ -87,6 +92,7 @@
 				affect_touch(M, alien, removed)
 			if(CHEM_BREATHE)
 				affect_breathe(M, alien, removed)
+
 	remove_self(removed)
 
 //Initial effect is called once when the reagent first starts affecting a mob.
@@ -141,3 +147,13 @@
 
 /datum/reagent/proc/reaction_mob(var/mob/target)
 	touch_mob(target)
+
+/datum/reagent/proc/adjust_heat_energy(var/to_add)
+	heat_energy += to_add
+
+/datum/reagent/proc/get_temperature()
+	return T0C + 20 + (heat_energy / (volume * heat_coeffecient))
+
+
+
+

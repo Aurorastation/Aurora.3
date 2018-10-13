@@ -28,6 +28,13 @@
 /datum/reagents/proc/get_free_space() // Returns free space.
 	return maximum_volume - total_volume
 
+/datum/reagents/proc/gettemperature()
+	var/returning_value = T0C + 20
+	for(var/datum/reagent/A in reagent_list)
+		returning_value += A.heat_energy / (A.volume * A.heat_coeffecient)
+
+	return returning_value
+
 /datum/reagents/proc/get_master_reagent() // Returns reference to the reagent with the biggest volume.
 	var/the_reagent = null
 	var/the_volume = 0
@@ -67,13 +74,21 @@
 
 	return the_id
 
-/datum/reagents/proc/update_total() // Updates volume.
+/datum/reagents/proc/update_total() // Updates volume and temperature
 	total_volume = 0
+	var/total_heat_energy = 0
+
 	for(var/datum/reagent/R in reagent_list)
 		if(R.volume < MINIMUM_CHEMICAL_VOLUME)
 			del_reagent(R.id)
 		else
 			total_volume += R.volume
+			total_heat_energy += R.heat_energy
+
+	if(total_volume > 0)
+		for(var/datum/reagent/R in reagent_list)
+			R.adjust_heat_energy((total_heat_energy * (R.volume / total_volume)) - R.heat_energy)
+
 	return
 
 /datum/reagents/proc/delete()
@@ -123,7 +138,7 @@
 
 /* Holder-to-chemical */
 
-/datum/reagents/proc/add_reagent(var/id, var/amount, var/data = null, var/safety = 0)
+/datum/reagents/proc/add_reagent(var/id, var/amount, var/data = null, var/safety = 0, var/heat_energy_to_add = 0)
 	if(!isnum(amount) || amount <= 0)
 		return 0
 
@@ -133,6 +148,7 @@
 	for(var/datum/reagent/current in reagent_list)
 		if(current.id == id)
 			current.volume += amount
+			current.adjust_heat_energy(heat_energy_to_add)
 			if(!isnull(data)) // For all we know, it could be zero or empty string and meaningful
 				current.mix_data(data, amount)
 			update_total()
@@ -148,6 +164,7 @@
 		reagent_list += R
 		R.holder = src
 		R.volume = amount
+		R.heat_energy = heat_energy_to_add
 		R.initialize_data(data)
 		update_total()
 		if(!safety)
@@ -165,6 +182,8 @@
 	for(var/datum/reagent/current in reagent_list)
 		if(current.id == id)
 			current.volume -= amount // It can go negative, but it doesn't matter
+			if(current.volume > 0 && amount > 0)
+				current.adjust_heat_energy( -current.heat_energy * (amount / current.volume) )
 			update_total() // Because this proc will delete it then
 			if(!safety)
 				handle_reactions()
@@ -209,6 +228,21 @@
 			if(current.volume >= check_reagents[current.id])
 				missing--
 	return !missing
+
+/datum/reagents/proc/has_all_temperatures(var/list/required_temperatures_min, var/list/required_temperatures_max)
+
+	for(var/datum/reagent/current in reagent_list)
+		if(current.id in required_temperatures_min)
+			var/value = required_temperatures_min[current.id]
+			if(value > current.get_temperature())
+				return FALSE
+
+		if(current.id in required_temperatures_max)
+			var/value = required_temperatures_max[current.id]
+			if(value < current.get_temperature())
+				return FALSE
+
+	return TRUE
 
 /datum/reagents/proc/clear_reagents()
 	for(var/datum/reagent/current in reagent_list)
@@ -268,7 +302,8 @@
 
 	for(var/datum/reagent/current in reagent_list)
 		var/amount_to_transfer = current.volume * part
-		target.add_reagent(current.id, amount_to_transfer * multiplier, current.get_data(), 1) // We don't react until everything is in place
+		var/heat_energy_to_add = current.heat_energy * (amount_to_transfer / current.volume)
+		target.add_reagent(current.id, amount_to_transfer * multiplier, current.get_data(), 1, heat_energy_to_add = heat_energy_to_add) // We don't react until everything is in place
 		if(!copy)
 			remove_reagent(current.id, amount_to_transfer, 1)
 
@@ -421,7 +456,7 @@
 	var/datum/reagents/R = new /datum/reagents(amount * multiplier)
 	. = trans_to_holder(R, amount, multiplier, copy)
 	R.touch_turf(target)
-	
+
 
 /datum/reagents/proc/trans_to_obj(var/turf/target, var/amount = 1, var/multiplier = 1, var/copy = 0) // Objects may or may not; if they do, it's probably a beaker or something and we need to transfer properly; otherwise, just touch.
 	if(!target || !target.simulated)

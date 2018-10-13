@@ -93,6 +93,11 @@
 		return
 
 
+/obj/item/weapon/reagent_containers/proc/gettemperature()
+	if(reagents)
+		return reagents.gettemperature()
+	return T0C + 20
+
 /obj/item/weapon/reagent_containers/proc/reagentlist() // For attack logs
 	if(reagents)
 		return reagents.get_reagents()

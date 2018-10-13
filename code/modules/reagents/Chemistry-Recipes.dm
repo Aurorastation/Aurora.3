@@ -7,7 +7,7 @@
 //HALF_LIFE(0) -> Reaction completes immediately (default chems)
 //HALF_LIFE(1) -> Half of the reagents react immediately, the rest over the following ticks.
 //HALF_LIFE(2) -> Half of the reagents are consumed after 2 chemistry ticks.
-//HALF_LIFE(3) -> Half of the reagents are consumed after 3 chemistry ticks.
+//HALF_LIFE(3) -> Half of the reagents are consumed after 3 chemistry ticks. HALF LIFE 3 CONFIRMED?
 #define HALF_LIFE(ticks) (ticks? 1.0 - (0.5)**(1.0/(ticks*PROCESS_REACTION_ITER)) : 1.0)
 
 /datum/chemical_reaction
@@ -15,6 +15,8 @@
 	var/id = null
 	var/result = null
 	var/list/required_reagents = list()
+	var/list/required_temperatures_min = list() //Format: reagent name = required_kelvin
+	var/list/required_temperatures_max = list() //Format: reagent name = required_kelvin
 	var/list/catalysts = list()
 	var/list/inhibitors = list()
 	var/result_amount = 0
@@ -45,6 +47,9 @@
 
 	//check that none of the inhibitors are present in the required amount
 	if(holder.has_any_reagent(inhibitors))
+		return 0
+
+	if(!holder.has_all_temperatures(required_temperatures_min, required_temperatures_max))
 		return 0
 
 	return 1
@@ -93,14 +98,17 @@
 	var/data = send_data(holder, reaction_progress)
 
 	//remove the reactants
+	var/total_heat_energy = 0
 	for(var/reactant in required_reagents)
 		var/amt_used = required_reagents[reactant] * reaction_progress
+		var/datum/reagent/removing_reagent = holder.get_reagent(reactant)
+		total_heat_energy += removing_reagent.heat_energy * (amt_used / removing_reagent.volume)
 		holder.remove_reagent(reactant, amt_used, safety = 1)
 
 	//add the product
 	var/amt_produced = result_amount * reaction_progress
 	if(result)
-		holder.add_reagent(result, amt_produced, data, safety = 1)
+		holder.add_reagent(result, amt_produced, data, safety = 1, heat_energy_to_add = total_heat_energy)
 
 	on_reaction(holder, amt_produced)
 
@@ -2846,3 +2854,28 @@
 	for(var/i = 1, i <= created_volume, i++)
 		new /obj/item/stack/material/diamond(location)
 	return
+
+//Temperature Specific
+/datum/chemical_reaction/water_vapor
+	name = "Water Vapor"
+	id = "water_vapor"
+	result = "water"
+	required_reagents = list("water" = 1)
+	required_temperatures_min = list("water" = T0C + 100)
+	result_amount = 0
+
+/datum/chemical_reaction/water_to_ice
+	name = "Water to Ice"
+	id = "water_to_ice"
+	result = "ice"
+	required_reagents = list("water" = 1)
+	required_temperatures_max = list("water" = T0C)
+	result_amount = 1
+
+/datum/chemical_reaction/ice_to_water
+	name = "Ice to Water"
+	id = "ice_to_water"
+	result = "water"
+	required_reagents = list("ice" = 1)
+	required_temperatures_min = list("ice" = T0C + 3)
+	result_amount = 1
