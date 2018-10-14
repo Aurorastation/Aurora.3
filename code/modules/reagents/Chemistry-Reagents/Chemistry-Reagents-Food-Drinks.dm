@@ -1455,6 +1455,9 @@
 	glass_name = "glass of ice"
 	glass_desc = "Generally, you're supposed to put something else in there too..."
 
+	specific_heat = 16 //YES I KNOW IT'S NOT LIKE IN REAL LIFE BUT ICE NEEDS TO STAY COLD.
+	default_temperature = T0C - 10
+
 /datum/reagent/drink/nothing
 	name = "Nothing"
 	id = "nothing"

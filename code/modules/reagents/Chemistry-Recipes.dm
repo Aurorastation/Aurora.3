@@ -2855,21 +2855,13 @@
 		new /obj/item/stack/material/diamond(location)
 	return
 
-//Temperature Specific
-/datum/chemical_reaction/water_vapor
-	name = "Water Vapor"
-	id = "water_vapor"
-	result = "water"
-	required_reagents = list("water" = 1)
-	required_temperatures_min = list("water" = T0C + 100)
-	result_amount = 0
-
+//Temperature Additions
 /datum/chemical_reaction/water_to_ice
 	name = "Water to Ice"
 	id = "water_to_ice"
 	result = "ice"
 	required_reagents = list("water" = 1)
-	required_temperatures_max = list("water" = T0C)
+	required_temperatures_max = list("water" = T0C - 5)
 	result_amount = 1
 
 /datum/chemical_reaction/ice_to_water
@@ -2878,4 +2870,55 @@
 	result = "water"
 	required_reagents = list("ice" = 1)
 	required_temperatures_min = list("ice" = T0C + 3)
+	result_amount = 0.2
+
+/datum/chemical_reaction/phoron_salts
+	name = "Phoron Salts"
+	id = "phoron_salts"
+	result = "phoron_salt"
+	required_reagents = list("sodiumchloride" = 1, "phoron" = 2)
+	required_temperatures_min = list("sodiumchloride" = T0C + 200, "phoron" = T0C - 200)
+	required_temperatures_max = list("phoron" = T0C - 5)
 	result_amount = 1
+
+/datum/chemical_reaction/phoron_salts_fire
+	name = "Phoron Salt Fire"
+	id = "phoron_salt_fire"
+	result = "carbon"
+	result_amount = 1
+	required_reagents = list("phoron_salt" = 1)
+	required_temperatures_min = list("phoron_salt" = T0C + 200)
+
+/datum/chemical_reaction/phoron_salts_fire/on_reaction(var/datum/reagents/holder, var/created_volume)
+	var/turf/location = get_turf(holder.my_atom.loc)
+	for(var/turf/simulated/floor/target_tile in range(0,location))
+		var/fire_mod = created_volume * (1 + ((holder.get_temperature() - T0C + 200)/100) )
+		target_tile.assume_gas("phoron", fire_mod, 400+T0C)
+		spawn (0)
+			target_tile.hotspot_expose(700, 400)
+	holder.del_reagent("phoron_salt")
+	return
+
+/datum/chemical_reaction/phoron_salts_coldfire
+	name = "Phoron Salt Coldfire"
+	id = "phoron_salt_coldfire"
+	result = "hydrazine"
+	result_amount = 1
+	required_reagents = list("phoron_salt" = 1)
+	required_temperatures_max = list("phoron_salt" = T0C + 0)
+
+/datum/chemical_reaction/phoron_salts_coldfire/on_reaction(var/datum/reagents/holder, var/created_volume)
+	var/datum/effect/effect/system/reagents_explosion/e = new()
+
+	var/explosion_mod = volume * 0.5 + (T0C - get_temperature())*0.1
+	target_tile.assume_gas("oxygen", explosion_mod*2, get_temperature())
+
+	e.set_up(round (explosion_mod, 1), holder.my_atom, 0, 0)
+	if(isliving(holder.my_atom))
+		e.amount *= 0.5
+		var/mob/living/L = holder.my_atom
+		if(L.stat != DEAD)
+			e.amount *= 0.5
+	e.start()
+	holder.clear_reagents()
+	return

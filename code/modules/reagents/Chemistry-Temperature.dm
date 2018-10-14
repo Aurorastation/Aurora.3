@@ -39,11 +39,6 @@
 /datum/reagent/proc/get_thermal_energy_change(var/old_temperature, var/new_temperature)
 	return get_heat_capacity()*(max(new_temperature, TCMB) - old_temperature)
 
-
-
-
-
-
 /datum/reagent/proc/get_thermal_energy_per_unit()
 	return get_thermal_energy() / volume
 
@@ -51,22 +46,25 @@
 
 /datum/reagent/proc/add_thermal_energy(var/added_energy)
 	thermal_energy += added_energy
+	return added_energy
 
 /datum/reagent/proc/set_temperature(var/new_temperature)
-	add_thermal_energy(-get_thermal_energy() + get_thermal_energy_change(0,new_temperature) )
+	return add_thermal_energy(-get_thermal_energy() + get_thermal_energy_change(0,new_temperature) )
 
 /datum/reagents/proc/set_temperature(var/new_temperature)
-	add_thermal_energy(-get_thermal_energy() + get_thermal_energy_change(0,new_temperature) )
+	return add_thermal_energy(-get_thermal_energy() + get_thermal_energy_change(0,new_temperature) )
 
 /datum/reagents/proc/equalize_thermal_energy()
 	var/thermal_energy_to_add = get_thermal_energy()
 	for(var/datum/reagent/R in reagent_list)
-		R.add_thermal_energy(thermal_energy_to_add - R.get_thermal_energy())
+		R.add_thermal_energy(-R.get_thermal_energy() + (thermal_energy_to_add * (1/reagent_list.len)) )
 
 /datum/reagents/proc/add_thermal_energy(var/thermal_energy_to_add)
 
 	if (total_volume == 0)
 		return 0
+
+	var/returning_energy_used = 0
 
 	for(var/datum/reagent/R in reagent_list)
 		var/local_thermal_energy = thermal_energy_to_add / reagent_list.len
@@ -75,4 +73,21 @@
 				return 0
 			var/thermal_energy_limit = -(R.get_temperature() - TCMB) * R.get_heat_capacity()	//ensure temperature does not go below TCMB
 			local_thermal_energy = max( local_thermal_energy, thermal_energy_limit )	//thermal_energy and thermal_energy_limit are negative here.
-		R.add_thermal_energy(local_thermal_energy)
+		returning_energy_used += R.add_thermal_energy(local_thermal_energy)
+
+	return returning_energy_used
+
+/datum/reagents/proc/has_all_temperatures(var/list/required_temperatures_min, var/list/required_temperatures_max)
+
+	for(var/datum/reagent/current in reagent_list)
+		if(current.id in required_temperatures_min)
+			var/value = required_temperatures_min[current.id]
+			if(value > current.get_temperature())
+				return FALSE
+
+		if(current.id in required_temperatures_max)
+			var/value = required_temperatures_max[current.id]
+			if(value < current.get_temperature())
+				return FALSE
+
+	return TRUE

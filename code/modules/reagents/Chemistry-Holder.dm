@@ -216,21 +216,6 @@
 				missing--
 	return !missing
 
-/datum/reagents/proc/has_all_temperatures(var/list/required_temperatures_min, var/list/required_temperatures_max)
-
-	for(var/datum/reagent/current in reagent_list)
-		if(current.id in required_temperatures_min)
-			var/value = required_temperatures_min[current.id]
-			if(value > current.get_temperature())
-				return FALSE
-
-		if(current.id in required_temperatures_max)
-			var/value = required_temperatures_max[current.id]
-			if(value < current.get_temperature())
-				return FALSE
-
-	return TRUE
-
 /datum/reagents/proc/clear_reagents()
 	for(var/datum/reagent/current in reagent_list)
 		del_reagent(current.id)

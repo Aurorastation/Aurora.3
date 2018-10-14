@@ -93,9 +93,6 @@
 	else
 		..()
 
-
-
-
 /datum/reagent/toxin/phoron/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 5)
@@ -112,6 +109,14 @@
 		return
 	T.assume_gas("phoron", volume, T20C)
 	remove_self(volume)
+
+/datum/reagent/toxin/phoron_salts //Remember to exclude in RNG chems.
+	name = "Phoron Salts"
+	id = "phoron_salt"
+	description = "A mysterious superheated molten mixture with strange chemical properties. Incredibly dangerous and should only be handled by professionals."
+	reagent_state = SOLID
+	color = "#7C4876"
+	strength = 60
 
 /datum/reagent/toxin/cardox
 	name = "Cardox"

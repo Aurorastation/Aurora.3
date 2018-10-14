@@ -103,6 +103,12 @@
 	var/list/restock_blocked_items = list() //Items that can not be restocked if restock_items is enabled
 	var/random_itemcount = 1 //If the number of items should be randomized
 
+	var/cooling = 0 //Whether or not to vend products at the cooling temperature
+	var/heating = 0 //Whether or not to vend products at the heating temperature
+
+	var/cooling_temperature = T0C + 5 //Best temp for soda.
+	var/heating_temperature = T0C + 57 //Best temp for coffee.
+
 /obj/machinery/vending/Initialize()
 	. = ..()
 	wires = new(src)
@@ -565,8 +571,6 @@
 	src.status_error = 0
 	SSnanoui.update_uis(src)
 
-
-
 	if (R.category & CAT_COIN)
 		if(!coin)
 			user << "<span class='notice'>You need to insert a coin to get this item.</span>"
@@ -602,12 +606,21 @@
 		flick(src.icon_vend,src)
 	spawn(src.vend_delay)
 		playsound(src.loc, 'sound/machines/vending.ogg', 35, 1)
-		new R.product_path(get_turf(src))
+		var/obj/vended = new R.product_path(get_turf(src))
 		src.status_message = ""
 		src.status_error = 0
 		src.vend_ready = 1
 		currently_vending = null
 		SSnanoui.update_uis(src)
+		if(istype(vended,/obj/item/weapon/reagent_containers/))
+			var/obj/item/weapon/reagent_containers/RC = vended
+			if(RC.reagents)
+				if(heating)
+					use_power(RC.reagents.set_temperature(heating_temperature))
+					cooling = 0 //Safety
+				if(cooling)
+					use_power(RC.reagents.set_temperature(cooling_temperature))
+					heating = 0	//Safety
 
 /obj/machinery/vending/proc/stock(var/datum/data/vending_product/R, var/mob/user)
 	user << "<span class='notice'>You insert \the [R.product_name] in the product receptor.</span>"
