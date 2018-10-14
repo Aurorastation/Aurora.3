@@ -3799,9 +3799,10 @@
 
 /datum/reagent/drink/zorasoda/jelly/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	M.druggy = max(M.druggy, 30)
-	M.dizziness += 5
-	M.drowsyness = 0
+	if(alien != IS_DIONA)
+		M.druggy = max(M.druggy, 30)
+		M.dizziness += 5
+		M.drowsyness = 0
 
 /datum/reagent/nutriment/pumpkinpulp
 	name = "Pumpkin Pulp"
