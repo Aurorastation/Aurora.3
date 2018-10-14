@@ -52,17 +52,17 @@
 		return T0C + 20
 
 //Returns the thermal energy change required to get to a new temperature
-/datum/reagent/proc/get_thermal_energy_change(var/new_temperature)
-	return get_heat_capacity()*(max(new_temperature, 0) - get_temperature())*volume
+/datum/reagent/proc/get_thermal_energy_change(var/old_temperature, var/new_temperature)
+	return get_heat_capacity()*(max(new_temperature, TCMB) - old_temperature)*volume
+
+/datum/reagents/proc/get_thermal_energy_change(var/old_temperature, var/new_temperature)
+	return get_heat_capacity()*(max(new_temperature, TCMB) - old_temperature)*total_volume
 
 /datum/reagent/proc/set_temperature(var/new_temperature)
-	add_thermal_energy(-get_thermal_energy() + ( get_heat_capacity() * new_temperature  * volume))
+	add_thermal_energy(-get_thermal_energy() + get_thermal_energy_change(0,new_temperature) )
 
 /datum/reagents/proc/set_temperature(var/new_temperature)
-	add_thermal_energy(-get_thermal_energy() + ( get_heat_capacity() * new_temperature  * total_volume))
-
-/datum/reagents/proc/get_thermal_energy_change(var/new_temperature)
-	return get_heat_capacity()*(max(new_temperature, 0) - get_temperature())*total_volume
+	add_thermal_energy(-get_thermal_energy() + get_thermal_energy_change(0,new_temperature) )
 
 /datum/reagents/proc/equalize_thermal_energy()
 	var/thermal_energy_to_add = get_thermal_energy()

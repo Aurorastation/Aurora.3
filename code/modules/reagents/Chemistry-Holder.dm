@@ -163,7 +163,8 @@
 			if(temperature <= 0)
 				temperature = R.default_temperature
 			R.set_temperature(temperature)
-			world << "TEMP: [temperature], ENERGY: [R.thermal_energy ]"
+			world << "TEMP: [temperature], ENERGY: [R.thermal_energy]."
+			world << "TEMP CALLBACK: [R.get_temperature()]"
 		R.initialize_data(data)
 		update_holder(!safety)
 		return 1
@@ -178,7 +179,7 @@
 		if(current.id == id)
 			var/old_volume = current.volume
 			current.volume -= amount // It can go negative, but it doesn't matter
-			current.add_thermal_energy(current.thermal_energy * amount/old_volume)
+			current.add_thermal_energy( -(current.thermal_energy * (amount/old_volume)) )
 			update_holder(!safety)
 			return 1
 	return 0
@@ -290,8 +291,10 @@
 
 	for(var/datum/reagent/current in reagent_list)
 		var/amount_to_transfer = current.volume * part
-		var/energy_to_transfer = current.get_thermal_energy() * part
-		target.add_reagent(current.id, amount_to_transfer * multiplier, current.get_data(), 1, thermal_energy = energy_to_transfer) // We don't react until everything is in place
+		var/energy_to_transfer = current.get_thermal_energy() * (amount_to_transfer / current.volume)
+
+		world << "I WANT TO GIVE YOU [energy_to_transfer]"
+		target.add_reagent(current.id, amount_to_transfer * multiplier, current.get_data(), 1, thermal_energy = energy_to_transfer * multiplier) // We don't react until everything is in place
 		if(!copy)
 			remove_reagent(current.id, amount_to_transfer, 1)
 
