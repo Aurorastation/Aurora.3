@@ -28812,7 +28812,13 @@
 "aYt" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /obj/machinery/meter,
-/obj/effect/floor_decal/industrial/warning/cee,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/rnd/mixing)
 "aYu" = (
@@ -29223,7 +29229,14 @@
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
 /area/rnd/mixing)
 "aZh" = (
 /obj/structure/cable/green{
@@ -29437,7 +29450,7 @@
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
 "aZC" = (
-/mob/living/simple_animal/hostile/bear/spatial,
+/mob/living/simple_animal/hostile/bear,
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "aZD" = (
@@ -29447,11 +29460,8 @@
 	pixel_x = 0;
 	pixel_y = -32
 	},
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/warning/cee,
+/turf/simulated/floor/plating,
 /area/rnd/mixing)
 "aZE" = (
 /obj/effect/floor_decal/corner/mauve{
@@ -30245,6 +30255,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
 "bbk" = (
@@ -30381,12 +30392,10 @@
 /area/mine/unexplored)
 "bbB" = (
 /obj/structure/barricade,
-/obj/item/tape/engineering,
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "bbC" = (
-/obj/structure/girder,
-/obj/item/tape/engineering,
+/obj/item/weapon/beartrap,
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "bbD" = (
@@ -30501,6 +30510,20 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
+/area/rnd/mixing)
+"bbN" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "door_locked";
+	id_tag = "toxins_external_inner";
+	locked = 1;
+	name = "Toxins External Access"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	icon_state = "intact";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/rnd/mixing)
 "dUV" = (
 /obj/structure/grille,
@@ -40982,7 +41005,7 @@ aba
 aYF
 aba
 aba
-aba
+bbC
 bbB
 aba
 aba
@@ -41497,7 +41520,7 @@ aYF
 aba
 aba
 aba
-bbC
+bbB
 aba
 ale
 aba
@@ -46910,7 +46933,7 @@ ale
 ale
 aaa
 aaa
-aaa
+aba
 aaa
 aaa
 aaa
@@ -47167,8 +47190,8 @@ ale
 ale
 aba
 aba
-aaa
-aaa
+aba
+aba
 aaa
 aaa
 aaa
@@ -47425,9 +47448,9 @@ aba
 aba
 aba
 aba
-aaa
-aaa
-aaa
+aba
+aba
+aba
 aaa
 aaa
 aaa
@@ -47683,9 +47706,9 @@ aba
 aba
 aba
 aba
-aaa
-aaa
-aaa
+aba
+aba
+aba
 aba
 aaa
 aaa
@@ -48200,8 +48223,8 @@ aQq
 aba
 aba
 aba
-aaa
-aaa
+aba
+aba
 aaa
 aaa
 aaa
@@ -48457,8 +48480,8 @@ aQq
 aba
 aba
 aba
-aaa
-aaa
+aba
+aba
 aaa
 aaa
 aaa
@@ -48714,8 +48737,8 @@ aQq
 aba
 aba
 aba
-aaa
-aaa
+aba
+aba
 aaa
 aaa
 aaa
@@ -48971,8 +48994,8 @@ aQq
 aba
 aba
 aba
-aaa
-aaa
+aba
+aba
 aaa
 aaa
 aaa
@@ -49229,7 +49252,7 @@ aba
 aba
 aba
 aba
-aaa
+aba
 aaa
 aaa
 aaa
@@ -49486,8 +49509,8 @@ aba
 aba
 aba
 aba
-aaa
-aaa
+aba
+aba
 aaa
 aaa
 aaa
@@ -49744,8 +49767,8 @@ aba
 aba
 aba
 aba
-aaa
-aaa
+aba
+aba
 aaa
 aaa
 aaa
@@ -51534,7 +51557,7 @@ aYZ
 aQq
 aQq
 aQq
-bbe
+bbN
 bbe
 aQq
 aQq
