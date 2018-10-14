@@ -453,26 +453,17 @@
 			add_overlay("palert")
 			do_set_light = 1
 		if(dir_alerts)
-
-			var/dmod = 0
-			if(SOUTH)
-				dmod = 0
-			if(NORTH)
-				dmod = 2
-			if(EAST)
-				dmod = 1
-			if(WEST)
-				dmod = 3
-
 			for (var/d = 1; d <= 4; d++)
-				var/fixed_d = (d + dmod)  % 4
-
-				var/cdir = cardinal[fixed_d]
-				if (!dir_alerts[fixed_d])
+				//1 = NORTH
+				//2 = SOUTH
+				//3 = EAST
+				//4 = WEST
+				var/cdir = cardinal[d]
+				if (!dir_alerts[d])
 					continue
-				if (dir_alerts[fixed_d] & FIREDOOR_ALERT_COLD)
+				if (dir_alerts[d] & FIREDOOR_ALERT_COLD)
 					add_overlay("alert_cold_[cdir]")
-				if (dir_alerts[fixed_d] & FIREDOOR_ALERT_HOT)
+				if (dir_alerts[d] & FIREDOOR_ALERT_HOT)
 					add_overlay("alert_hot_[cdir]")
 
 				do_set_light = TRUE
