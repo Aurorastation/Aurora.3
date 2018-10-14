@@ -559,6 +559,13 @@
 	required_reagents = list("calomel" = 1, "lexorin" = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/potassium_hydrophoro
+	name = "Potassium Hydrophoride"
+	id = "potassium_hydrophoro"
+	result = "potassium_hydrophoro"
+	required_reagents = list("phoron" = 0.1, "water" = 1, "potassium_chloride" = 0.2)
+	result_amount = 1
+
 //Mental Medication
 
 /datum/chemical_reaction/methylphenidate
@@ -1465,7 +1472,7 @@
 	..()
 	var/obj/effect/golemrune/Z = new /obj/effect/golemrune
 	Z.forceMove(get_turf(holder.my_atom))
-	Z.announce_to_ghosts()
+
 
 /*
 ====================

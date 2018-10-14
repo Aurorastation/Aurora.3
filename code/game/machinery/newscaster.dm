@@ -755,7 +755,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			photo_data.photo.forceMove(src.loc)
 			if(!issilicon(user))
 				user.put_in_inactive_hand(photo_data.photo)
-		qdel(photo_data)
+		QDEL_NULL(photo_data)
 
 	if(istype(user.get_active_hand(), /obj/item/weapon/photo))
 		var/obj/item/photo = user.get_active_hand()

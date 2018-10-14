@@ -164,12 +164,21 @@
 	description = "A ubiquitous chemical substance that is composed of hydrogen and oxygen."
 	reagent_state = LIQUID
 	color = "#0064C877"
-	metabolism = REM * 10
+	metabolism = REM * 2
+	ingest_met = REM * 10
+	touch_met = REM * 30
 	taste_description = "water"
 
 	glass_icon_state = "glass_clear"
 	glass_name = "glass of water"
 	glass_desc = "The father of all refreshments."
+
+	unaffected_species = IS_MACHINE
+
+/datum/reagent/water/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(!istype(M))
+		return
+	M.adjustHydrationLoss(-6*removed)
 
 /datum/reagent/water/touch_turf(var/turf/simulated/T)
 	if(!istype(T))
@@ -227,10 +236,9 @@
 	if(istype(M) && !istype(M, /mob/abstract))
 		M.color = initial(M.color)
 
-/datum/reagent/water/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	if(istype(M, /mob/living/carbon/slime))
-		var/mob/living/carbon/slime/S = M
-		S.adjustToxLoss(8 * removed) // Babies have 150 health, adults have 200; So, 10 units and 13.5
+/datum/reagent/water/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed)
+	if(istype(S))
+		S.adjustToxLoss( volume * (removed/REM) * 0.23 )
 		if(!S.client)
 			if(S.Target) // Like cats
 				S.Target = null

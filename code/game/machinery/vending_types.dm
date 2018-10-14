@@ -169,7 +169,17 @@
 		/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 2,
-		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 4
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 4,
+		/obj/item/weapon/reagent_containers/food/snacks/cb01 = 4,
+		/obj/item/weapon/reagent_containers/food/snacks/cb02 = 4,
+		/obj/item/weapon/reagent_containers/food/snacks/cb03 = 4,
+		/obj/item/weapon/reagent_containers/food/snacks/cb04 = 4,
+		/obj/item/weapon/reagent_containers/food/snacks/cb05 = 4,
+		/obj/item/weapon/reagent_containers/food/snacks/cb06 = 4,
+		/obj/item/weapon/reagent_containers/food/snacks/cb07 = 4,
+		/obj/item/weapon/reagent_containers/food/snacks/cb08 = 4,
+		/obj/item/weapon/reagent_containers/food/snacks/cb09 = 4,
+		/obj/item/weapon/reagent_containers/food/snacks/cb10 = 4
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/snacks/syndicake = 6,
@@ -188,7 +198,17 @@
 		/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 22,
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 23,
 		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 24,
-		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 60
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 60,
+		/obj/item/weapon/reagent_containers/food/snacks/cb01 = 10,
+		/obj/item/weapon/reagent_containers/food/snacks/cb02 = 12,
+		/obj/item/weapon/reagent_containers/food/snacks/cb03 = 14,
+		/obj/item/weapon/reagent_containers/food/snacks/cb04 = 12,
+		/obj/item/weapon/reagent_containers/food/snacks/cb05 = 13,
+		/obj/item/weapon/reagent_containers/food/snacks/cb06 = 14,
+		/obj/item/weapon/reagent_containers/food/snacks/cb07 = 12,
+		/obj/item/weapon/reagent_containers/food/snacks/cb08 = 14,
+		/obj/item/weapon/reagent_containers/food/snacks/cb09 = 12,
+		/obj/item/weapon/reagent_containers/food/snacks/cb10 = 11
 	)
 
 /obj/machinery/vending/cola
@@ -609,6 +629,7 @@
 		/obj/item/weapon/storage/toolbox/lunchbox/syndicate = 2
 	)
 	restock_items = 1
+	random_itemcount = 0
 
 /obj/machinery/vending/sovietsoda
 	name = "BODA"
@@ -683,6 +704,7 @@
 		/obj/item/weapon/storage/belt/utility = 3
 	)
 	restock_items = 1
+	random_itemcount = 0
 
 /obj/machinery/vending/tacticool //Tried not to go overboard with the amount of fun security has access to.
 	name = "Tactical Express"
@@ -857,16 +879,16 @@
 	)
 	prices = list(
 		/obj/item/weapon/book/manual/battlemonsters = 12,
-		/obj/item/battle_monsters/wrapped = 150,
-		/obj/item/battle_monsters/wrapped/pro = 100,
-		/obj/item/battle_monsters/wrapped/species = 150,
-		/obj/item/battle_monsters/wrapped/species/lizard = 150,
-		/obj/item/battle_monsters/wrapped/species/cat = 150,
-		/obj/item/battle_monsters/wrapped/species/ant = 150,
+		/obj/item/battle_monsters/wrapped = 100,
+		/obj/item/battle_monsters/wrapped/pro = 75,
+		/obj/item/battle_monsters/wrapped/species = 100,
+		/obj/item/battle_monsters/wrapped/species/lizard = 125,
+		/obj/item/battle_monsters/wrapped/species/cat = 125,
+		/obj/item/battle_monsters/wrapped/species/ant = 125,
 		/obj/item/battle_monsters/wrapped/rare = 200
 	)
 	contraband = list(
-		/obj/item/battle_monsters/wrapped/legendary = 2
+		/obj/item/battle_monsters/wrapped/legendary = 4
 	)
 	premium = list(
 		/obj/item/weapon/coin/battlemonsters = 10
