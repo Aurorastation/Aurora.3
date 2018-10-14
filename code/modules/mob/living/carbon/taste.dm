@@ -62,7 +62,7 @@ calculate text size per text.
 
 	var/temp_text = ""
 
-	switch(gettemperature())
+	switch(get_temperature())
 		if(-INFINITY to T0C - 50)
 			temp_text = "lethally freezing"
 		if(T0C - 50 to T0C - 25)

@@ -28,13 +28,6 @@
 /datum/reagents/proc/get_free_space() // Returns free space.
 	return maximum_volume - total_volume
 
-/datum/reagents/proc/gettemperature()
-	var/returning_value = T0C + 20
-	for(var/datum/reagent/A in reagent_list)
-		returning_value += A.heat_energy / (A.volume * A.heat_coeffecient)
-
-	return returning_value
-
 /datum/reagents/proc/get_master_reagent() // Returns reference to the reagent with the biggest volume.
 	var/the_reagent = null
 	var/the_volume = 0
@@ -45,7 +38,6 @@
 			the_reagent = A
 
 	return the_reagent
-
 
 /datum/reagents/proc/get_reagent(var/id) // Returns reference to reagent matching passed ID
 	for(var/datum/reagent/A in reagent_list)
@@ -74,22 +66,25 @@
 
 	return the_id
 
-/datum/reagents/proc/update_total() // Updates volume and temperature
+/datum/reagents/proc/update_total() // Updates volume and temperature. 3 passes.
+
 	total_volume = 0
-	var/total_heat_energy = 0
 
 	for(var/datum/reagent/R in reagent_list)
 		if(R.volume < MINIMUM_CHEMICAL_VOLUME)
 			del_reagent(R.id)
 		else
 			total_volume += R.volume
-			total_heat_energy += R.heat_energy
 
-	if(total_volume > 0)
-		for(var/datum/reagent/R in reagent_list)
-			R.adjust_heat_energy((total_heat_energy * (R.volume / total_volume)) - R.heat_energy)
+	return total_volume > 0
 
-	return
+/datum/reagents/proc/update_holder(var/reactions = TRUE)
+	if(update_total())
+		if(reactions)
+			handle_reactions()
+		equalize_thermal_energy()
+		if(my_atom)
+			my_atom.on_reagent_change()
 
 /datum/reagents/proc/delete()
 	for(var/datum/reagent/R in reagent_list)
@@ -133,30 +128,26 @@
 	for(var/datum/chemical_reaction/C in effect_reactions)
 		C.post_reaction(src)
 
-	update_total()
+	update_holder(FALSE)
 	return reaction_occured
 
 /* Holder-to-chemical */
 
-/datum/reagents/proc/add_reagent(var/id, var/amount, var/data = null, var/safety = 0, var/heat_energy_to_add = 0)
+/datum/reagents/proc/add_reagent(var/id, var/amount, var/data = null, var/safety = 0, var/temperature = T0C + 20, var/thermal_energy = 0)
 	if(!isnum(amount) || amount <= 0)
 		return 0
 
-	update_total()
+	update_total() //Does this need to be here? It's called in update_holder.
 	amount = min(amount, get_free_space())
 
 	for(var/datum/reagent/current in reagent_list)
 		if(current.id == id)
 			current.volume += amount
-			current.adjust_heat_energy(heat_energy_to_add)
+			var/thermal_energy_to_add = thermal_energy ? thermal_energy : current.specific_heat * amount * temperature
+			add_thermal_energy(thermal_energy_to_add)
 			if(!isnull(data)) // For all we know, it could be zero or empty string and meaningful
 				current.mix_data(data, amount)
-			update_total()
-
-			if(!safety)
-				handle_reactions()
-			if(my_atom)
-				my_atom.on_reagent_change()
+			update_holder(!safety)
 			return 1
 	var/datum/reagent/D = SSchemistry.chemical_reagents[id]
 	if(D)
@@ -164,13 +155,10 @@
 		reagent_list += R
 		R.holder = src
 		R.volume = amount
-		R.heat_energy = heat_energy_to_add
 		R.initialize_data(data)
-		update_total()
-		if(!safety)
-			handle_reactions()
-		if(my_atom)
-			my_atom.on_reagent_change()
+		if(thermal_energy > 0)
+			R.thermal_energy = thermal_energy
+		update_holder(!safety)
 		return 1
 	else
 		warning("[my_atom] attempted to add a reagent called '[id]' which doesn't exist. ([usr])")
@@ -182,13 +170,7 @@
 	for(var/datum/reagent/current in reagent_list)
 		if(current.id == id)
 			current.volume -= amount // It can go negative, but it doesn't matter
-			if(current.volume > 0 && amount > 0)
-				current.adjust_heat_energy( -current.heat_energy * (amount / current.volume) )
-			update_total() // Because this proc will delete it then
-			if(!safety)
-				handle_reactions()
-			if(my_atom)
-				my_atom.on_reagent_change()
+			update_holder(!safety)
 			return 1
 	return 0
 
@@ -197,9 +179,7 @@
 		if (current.id == id)
 			reagent_list -= current
 			qdel(current)
-			update_total()
-			if(my_atom)
-				my_atom.on_reagent_change()
+			update_holder(FALSE)
 			return 0
 
 /datum/reagents/proc/has_reagent(var/id, var/amount = 0)
@@ -281,8 +261,7 @@
 		var/amount_to_remove = current.volume * part
 		remove_reagent(current.id, amount_to_remove, 1)
 
-	update_total()
-	handle_reactions()
+	update_holder()
 	return amount
 
 /datum/reagents/proc/trans_to_holder(var/datum/reagents/target, var/amount = 1, var/multiplier = 1, var/copy = 0) // Transfers [amount] reagents from [src] to [target], multiplying them by [multiplier]. Returns actual amount removed from [src] (not amount transferred to [target]).
@@ -302,8 +281,7 @@
 
 	for(var/datum/reagent/current in reagent_list)
 		var/amount_to_transfer = current.volume * part
-		var/heat_energy_to_add = current.heat_energy * (amount_to_transfer / current.volume)
-		target.add_reagent(current.id, amount_to_transfer * multiplier, current.get_data(), 1, heat_energy_to_add = heat_energy_to_add) // We don't react until everything is in place
+		target.add_reagent(current.id, amount_to_transfer * multiplier, current.get_data(), 1, thermal_energy = current.get_thermal_energy()) // We don't react until everything is in place
 		if(!copy)
 			remove_reagent(current.id, amount_to_transfer, 1)
 
@@ -346,12 +324,14 @@
 	if (!target)
 		return
 
+	var/datum/reagent/transfering_reagent = get_reagent(id)
+
 	if (istype(target, /atom))
 		var/atom/A = target
 		if (!A.reagents || !A.simulated)
 			return
 
-	amount = min(amount, get_reagent_amount(id))
+	amount = min(amount, transfering_reagent.volume)
 
 	if(!amount)
 		return
@@ -359,7 +339,8 @@
 
 	var/datum/reagents/F = new /datum/reagents(amount)
 	var/tmpdata = get_data(id)
-	F.add_reagent(id, amount, tmpdata)
+	var/transfering_thermal_energy = transfering_reagent.get_thermal_energy() * (amount/transfering_reagent.volume)
+	F.add_reagent(id, amount, tmpdata, thermal_energy = transfering_thermal_energy)
 	remove_reagent(id, amount)
 
 
@@ -388,7 +369,7 @@
 	for(var/datum/reagent/current in reagent_list)
 		current.touch_mob(target, current.volume)
 
-	update_total()
+	update_holder()
 
 /datum/reagents/proc/touch_turf(var/turf/target)
 	if(!target || !istype(target) || !target.simulated)
@@ -397,7 +378,7 @@
 	for(var/datum/reagent/current in reagent_list)
 		current.touch_turf(target, current.volume)
 
-	update_total()
+	update_holder()
 
 /datum/reagents/proc/touch_obj(var/obj/target)
 	if(!target || !istype(target) || !target.simulated)
@@ -406,7 +387,7 @@
 	for(var/datum/reagent/current in reagent_list)
 		current.touch_obj(target, current.volume)
 
-	update_total()
+	update_holder()
 
 // Attempts to place a reagent on the mob's skin.
 // Reagents are not guaranteed to transfer to the target.

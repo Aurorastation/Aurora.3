@@ -30,8 +30,17 @@
 	var/metabolism_min = 0.01 //How much for the medicine to be present in the system to actually have an effect.
 	var/conflicting_reagent //Reagents that conflict with this medicine, and cause adverse effects when in the blood.
 
-	var/heat_coeffecient = 1
-	var/heat_energy = 0
+	var/default_temp = T0C + 20
+	var/thermal_energy = 0
+	var/specific_heat = 4.18
+
+/datum/reagent/proc/initialize_data(var/newdata) // Called when the reagent is created.
+	if(!isnull(newdata))
+		data = newdata
+
+	if(!thermal_energy)
+		thermal_energy = get_thermal_energy_change(default_temp)
+		world << "[id]: THERMAL ENERGY: [thermal_energy]."
 
 /datum/reagent/proc/remove_self(var/amount) // Shortcut
 	if (!holder)
@@ -57,11 +66,6 @@
 		return
 	if(alien & unaffected_species && location != CHEM_TOUCH)
 		return
-
-	if(!dose && volume)//If dose is currently zero, we do the first effect
-		initial_effect(M, alien)
-		var/value_to_add = heat_energy * TEMPERATURE_DAMAGE_COEFFICIENT * 0.1
-		M.bodytemperature += value_to_add
 
 	var/removed = metabolism
 	if(ingest_met && (location == CHEM_INGEST))
@@ -120,10 +124,6 @@
 /datum/reagent/proc/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1) // Overdose effect. Doesn't happen instantly.
 	M.adjustToxLoss(REM)
 
-/datum/reagent/proc/initialize_data(var/newdata) // Called when the reagent is created.
-	if(!isnull(newdata))
-		data = newdata
-
 /datum/reagent/proc/mix_data(var/newdata, var/newamount) // You have a reagent with data, and new reagent with its own data get added, how do you deal with that?
 	return
 
@@ -147,12 +147,6 @@
 
 /datum/reagent/proc/reaction_mob(var/mob/target)
 	touch_mob(target)
-
-/datum/reagent/proc/adjust_heat_energy(var/to_add)
-	heat_energy += to_add
-
-/datum/reagent/proc/get_temperature()
-	return T0C + 20 + (heat_energy / (volume * heat_coeffecient))
 
 
 

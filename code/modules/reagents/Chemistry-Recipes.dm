@@ -98,17 +98,17 @@
 	var/data = send_data(holder, reaction_progress)
 
 	//remove the reactants
-	var/total_heat_energy = 0
+	var/total_thermal_energy = 0
 	for(var/reactant in required_reagents)
 		var/amt_used = required_reagents[reactant] * reaction_progress
 		var/datum/reagent/removing_reagent = holder.get_reagent(reactant)
-		total_heat_energy += removing_reagent.heat_energy * (amt_used / removing_reagent.volume)
+		total_thermal_energy += removing_reagent.get_thermal_energy()
 		holder.remove_reagent(reactant, amt_used, safety = 1)
 
 	//add the product
 	var/amt_produced = result_amount * reaction_progress
 	if(result)
-		holder.add_reagent(result, amt_produced, data, safety = 1, heat_energy_to_add = total_heat_energy)
+		holder.add_reagent(result, amt_produced, data, safety = 1, thermal_energy = total_thermal_energy)
 
 	on_reaction(holder, amt_produced)
 

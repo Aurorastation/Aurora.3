@@ -7,9 +7,11 @@
 	density = 1
 	anchored = 1
 	var/obj/item/weapon/reagent_containers/container
-	var/target_temp = 300
+	var/target_temperature = 300 //Measured in kelvin.
 	var/accept_drinking = FALSE
-	var/machine_strength = 20 //How much Kelvin to add per process. Chances with the addition of manipulators.
+	var/machine_strength = 0 //How much joules to add per process. Controlled by manipulators.
+	var/should_heat = TRUE
+
 	component_types = list(
 		/obj/item/weapon/circuitboard/chem_heater,
 		/obj/item/weapon/stock_parts/manipulator,
@@ -58,7 +60,7 @@
 	dat += "<body><H1>Chem Heater MKI</H1>"
 
 	dat += "<p>Power: <a href='?src=\ref[src];action=togglepower'>[use_power ? "On" : "Off"]</a></p>"
-	dat += "<p>Target Temp: [target_temp]K / [target_temp - T0C]C"
+	dat += "<p>Target Temp: [round(target_temperature)]K / [round(target_temperature - T0C)]C"
 	dat += "(<a href='?src=\ref[src];action=adjusttemp;power=-25'>---</a>|"
 	dat += "<a href='?src=\ref[src];action=adjusttemp;power=-10'>--</a>|"
 	dat += "<a href='?src=\ref[src];action=adjusttemp;power=-5'>-</a>|"
@@ -67,7 +69,7 @@
 	dat += "<a href='?src=\ref[src];action=adjusttemp;power=25'>+++</a>)</p>"
 
 	if(container)
-		dat += "<p>Beaker Temp: [round(container.gettemperature(),0.01)]K / [round(container.gettemperature() - T0C,0.01)]C (<a href='?src=\ref[src];action=removebeaker'>Remove</a>)</p>"
+		dat += "<p>Beaker Temp: [round(container.get_temperature(),0.01)]K / [round(container.get_temperature() - T0C,0.1)]C (<a href='?src=\ref[src];action=removebeaker'>Remove</a>)</p>"
 	else
 		dat += "<p>No container loaded!</p>"
 
@@ -87,13 +89,17 @@
 	switch(href_list["action"])
 		if("togglepower")
 			use_power = !use_power
+			if(container)
+				should_heat = target_temperature >= container.get_temperature()
 		if("removebeaker")
 			if(container)
 				container.forceMove(src.loc)
 				container = null
 				update_icon()
 		if("adjusttemp")
-			target_temp = max(100,min(target_temp + text2num(href_list["power"]),400))
+			target_temperature = max(100,min(target_temperature + text2num(href_list["power"]),400))
+			if(container)
+				should_heat = target_temperature >= container.get_temperature()
 
 	updateUsrDialog()
 
@@ -104,16 +110,29 @@
 	if(!use_power)
 		return
 
-	if(container)
-		var/datum/reagents/Rs = container.reagents
-		for(var/datum/reagent/R in Rs.reagent_list)
-			var/heat_to_add = machine_strength * (R.volume / Rs.total_volume) * (target_temp < Rs.gettemperature() ? -1 : 1)
-			R.adjust_heat_energy(heat_to_add)
-		Rs.handle_reactions()
+	if(container && container.reagents)
+
+		var/joules_to_use = machine_strength
+		var/mod = should_heat ? 1 : -1
+
+		container.reagents.add_thermal_energy(mod * joules_to_use)
+		container.reagents.handle_reactions()
+		use_power(joules_to_use)
+
+		if(should_heat && container.reagents.get_temperature() >= target_temperature)
+			use_power = 0
+			updateUsrDialog()
+			return
+		else if(!should_heat && container.reagents.get_temperature() <= target_temperature)
+			use_power = 0
+			updateUsrDialog()
+			return
+
 		updateUsrDialog()
 
 	else
 		use_power = 0
+		updateUsrDialog()
 		return
 
 	return 1
@@ -122,7 +141,7 @@
 	machine_strength = initial(machine_strength)
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
 		if(ismanipulator(P))
-			machine_strength += P.rating * 3
+			machine_strength += P.rating * 1000
 
 
 
