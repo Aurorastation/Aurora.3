@@ -3804,7 +3804,6 @@
 		M.dizziness += 5
 		M.drowsyness = 0
 
-
 /datum/reagent/nutriment/pumpkinpulp
 	name = "Pumpkin Pulp"
 	id = "pumpkinpulp"
