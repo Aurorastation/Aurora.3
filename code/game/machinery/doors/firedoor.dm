@@ -40,6 +40,9 @@
 	power_channel = ENVIRON
 	use_power = 1
 	idle_power_usage = 5
+	dir = SOUTH
+
+	var/enable_smart_generation = TRUE
 
 	var/list/tile_info[4]
 	var/list/dir_alerts[4] // 4 dirs, bitflags
@@ -50,7 +53,11 @@
 		"cold"
 	)
 
-/obj/machinery/door/firedoor/Initialize()
+	var/door_directions = 0
+	var/noair_directions = 0
+	var/diffarea_directions = 0
+
+/obj/machinery/door/firedoor/Initialize(var/mapload)
 	. = ..()
 	for(var/obj/machinery/door/firedoor/F in loc)
 		if(F != src)
@@ -63,10 +70,51 @@
 	areas_added = list(A)
 
 	for(var/direction in cardinal)
-		A = get_area(get_step(src,direction))
+
+		var/turf/T = get_step(src,direction)
+
+		if(enable_smart_generation)
+			if(locate(src.type) in T)
+				door_directions |= direction
+
+			if(T.oxygen <= 0)
+				noair_directions |= direction
+
+			if(get_area(src.loc) != get_area(T))
+				diffarea_directions |= direction
+
+		A = get_area(T)
 		if(istype(A) && !(A in areas_added))
 			A.all_doors.Add(src)
 			areas_added += A
+
+	if(enable_smart_generation)
+
+		var/turf/T = get_turf(src)
+		if(locate(/obj/structure/grille,T))
+			hashatch = 0
+
+		if(locate(/obj/machinery/door/airlock,T))
+			dir = SOUTH
+		else
+			if(door_directions & EAST || door_directions & WEST)
+				if(noair_directions & NORTH)
+					dir = SOUTH
+				else if(noair_directions & SOUTH)
+					dir = NORTH
+				else if(diffarea_directions & NORTH)
+					dir = NORTH
+				else if(diffarea_directions & SOUTH)
+					dir = SOUTH
+			else if(door_directions & NORTH || door_directions & SOUTH)
+				if(noair_directions & EAST)
+					dir = WEST
+				else if(noair_directions & WEST)
+					dir = EAST
+				else if(diffarea_directions & EAST)
+					dir = EAST
+				else if(diffarea_directions & WEST)
+					dir = WEST
 
 	if (!density)
 		cut_overlay(hatch_image)	// Parent call adds this, but we don't want it just yet.
@@ -405,13 +453,26 @@
 			add_overlay("palert")
 			do_set_light = 1
 		if(dir_alerts)
+
+			var/dmod = 0
+			if(SOUTH)
+				dmod = 0
+			if(NORTH)
+				dmod = 2
+			if(EAST)
+				dmod = 1
+			if(WEST)
+				dmod = 3
+
 			for (var/d = 1; d <= 4; d++)
-				var/cdir = cardinal[d]
-				if (!dir_alerts[d])
+				var/fixed_d = (d + dmod)  % 4
+
+				var/cdir = cardinal[fixed_d]
+				if (!dir_alerts[fixed_d])
 					continue
-				if (dir_alerts[d] & FIREDOOR_ALERT_COLD)
+				if (dir_alerts[fixed_d] & FIREDOOR_ALERT_COLD)
 					add_overlay("alert_cold_[cdir]")
-				if (dir_alerts[d] & FIREDOOR_ALERT_HOT)
+				if (dir_alerts[fixed_d] & FIREDOOR_ALERT_HOT)
 					add_overlay("alert_hot_[cdir]")
 
 				do_set_light = TRUE
@@ -475,3 +536,5 @@
 /obj/machinery/door/firedoor/multi_tile
 	icon = 'icons/obj/doors/DoorHazard2x1.dmi'
 	width = 2
+	dir = EAST
+	enable_smart_generation = FALSE

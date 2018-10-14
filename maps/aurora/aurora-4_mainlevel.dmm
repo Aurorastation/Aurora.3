@@ -5007,10 +5007,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
-	dir = 1;
-	name = "Engineering Firelock"
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "aki" = (
@@ -5099,10 +5096,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
-	dir = 1;
-	name = "Engineering Firelock"
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "ako" = (
@@ -6697,6 +6691,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
+"anB" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/engineering/atmos/storage)
 "anC" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -7162,22 +7171,24 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "aom" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "SMES Access";
+	req_access = list(11)
 	},
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/obj/structure/window/reinforced{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 2
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/turf/simulated/floor/plating,
-/area/engineering/atmos/storage)
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/engineering/engine_smes)
 "aon" = (
 /obj/machinery/requests_console{
 	department = "Atmospherics";
@@ -7416,6 +7427,117 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"aoI" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/engineering/locker_room)
+"aoJ" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
+"aoK" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
+"aoL" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/engineering/engine_monitoring)
+"aoM" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/engineering/locker_room)
+"aoN" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/engineering/engine_monitoring)
+"aoO" = (
+/obj/machinery/door/firedoor,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/glass_engineering{
+	name = "Engineering Hallway";
+	req_one_access = list(11)
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/engine_monitoring)
+"aoP" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass_engineering{
+	name = "Engineering Locker Room";
+	req_access = list(11)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/locker_room)
 "aoQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -7699,6 +7821,25 @@
 /obj/machinery/shield_gen/external,
 /turf/simulated/floor/plating,
 /area/engineering/storage)
+"apt" = (
+/obj/machinery/door/airlock/glass_engineering{
+	name = "Engine Monitoring Room";
+	req_access = list(11)
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/engine_monitoring)
 "apu" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -7902,6 +8043,154 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
+"apO" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/glass_engineering{
+	name = "Engineering Hallway";
+	req_one_access = list(11)
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/engine_monitoring)
+"apP" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/engineering/locker_room)
+"apQ" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/engineering/engine_monitoring)
+"apR" = (
+/obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/airlock/glass_engineering{
+	name = "Engineering Hallway";
+	req_one_access = list(11)
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/engine_monitoring)
+"apS" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/engineering/storage)
+"apT" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/engineering/storage)
+"apU" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/engineering/storage)
+"apV" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/engineering/storage)
+"apW" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/glass_engineering{
+	name = "Engineering Hallway";
+	req_one_access = list(10)
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/engine_monitoring)
+"apX" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/engineering/storage)
 "apY" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -7918,6 +8207,34 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"aqa" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/engineering/engine_airlock)
+"aqb" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/engineering/storage)
 "aqc" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -8186,13 +8503,10 @@
 /area/engineering/engine_smes)
 "aqA" = (
 /obj/machinery/door/airlock/maintenance_hatch{
-	name = "SMES Access";
-	req_access = list(11)
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	icon_state = "door_closed";
+	locked = 0;
+	name = "Engine Access";
+	req_one_access = list(11)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -8200,12 +8514,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
-	dir = 1;
-	name = "Engineering Firelock"
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/engineering/engine_smes)
+/area/engineering/engine_airlock)
 "aqB" = (
 /obj/structure/cable{
 	d1 = 2;
@@ -8265,6 +8581,20 @@
 /area/engineering/storage)
 "aqG" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
+/turf/simulated/floor/plating,
+/area/engineering/storage)
+"aqH" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/storage)
 "aqI" = (
@@ -8564,6 +8894,66 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"ari" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/ai_monitored/storage/eva)
+"arj" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/ai_monitored/storage/eva)
+"ark" = (
+/obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/door/airlock/glass_security{
+	id_tag = "BrigFoyer";
+	layer = 2.7;
+	name = "Security Wing";
+	req_access = list(63)
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Security Lockdown";
+	name = "Security Blast Door";
+	opacity = 0
+	},
+/turf/simulated/floor/tiled,
+/area/security/lobby)
+"arl" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/ai_monitored/storage/eva)
 "arm" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -8580,6 +8970,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/security/brig)
+"arn" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/dark,
+/area/ai_monitored/storage/eva)
 "aro" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -9033,24 +9438,19 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "asb" = (
+/obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	dir = 4
+	dir = 8
 	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
-/area/engineering/locker_room)
+/area/ai_monitored/storage/eva)
 "asc" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/locker_room)
@@ -9473,6 +9873,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"asD" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ai_monitored/storage/eva)
 "asE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -9639,19 +10050,19 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "asO" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/structure/table/reinforced/steel,
+/obj/machinery/door/window/brigdoor/northleft{
+	name = "Engineering Desk";
+	req_access = list(32)
 	},
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/machinery/door/firedoor,
+/obj/machinery/ringer_button{
+	id = "engie_ringer";
+	pixel_x = 5;
+	pixel_y = 5
 	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
+/turf/simulated/floor/tiled,
+/area/engineering/foyer)
 "asP" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -9662,19 +10073,17 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "asQ" = (
+/obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 8
 	},
+/obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
 /turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
+/area/ai_monitored/storage/eva)
 "asR" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -10038,22 +10447,21 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
 "ats" = (
+/obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/firedoor{
-	dir = 1;
-	name = "Engineering Firelock"
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/obj/structure/cable{
+	icon_state = "0-4";
+	d2 = 4
 	},
 /turf/simulated/floor/plating,
-/area/engineering/engine_monitoring)
+/area/ai_monitored/storage/eva)
 "att" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -10223,20 +10631,24 @@
 "atJ" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
 	dir = 1
 	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 2
+/obj/structure/sign/securearea,
+/obj/machinery/door/firedoor,
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/structure/cable{
+	icon_state = "0-4";
+	d2 = 4
 	},
 /turf/simulated/floor/plating,
-/area/engineering/locker_room)
+/area/ai_monitored/storage/eva)
 "atK" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/secure_closet/engineering_personal,
@@ -10906,20 +11318,26 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
 "auX" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/grille,
 /obj/structure/window/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 1;
-	name = "Engineering Firelock"
+/obj/structure/sign/securearea,
+/obj/machinery/door/firedoor,
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/structure/cable{
+	icon_state = "0-4";
+	d2 = 4
 	},
 /turf/simulated/floor/plating,
-/area/engineering/engine_monitoring)
+/area/ai_monitored/storage/eva)
 "auY" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -10984,21 +11402,21 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
 "avd" = (
-/obj/machinery/door/firedoor{
-	dir = 1;
-	name = "Engineering Firelock"
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
 	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
 /obj/structure/cable{
-	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8"
+	icon_state = "0-8"
 	},
-/obj/machinery/door/airlock/glass_engineering{
-	name = "Engineering Hallway";
-	req_one_access = list(11)
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/engine_monitoring)
+/turf/simulated/floor/plating,
+/area/ai_monitored/storage/eva)
 "ave" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -11160,24 +11578,19 @@
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "avq" = (
-/obj/machinery/door/firedoor{
-	dir = 1;
-	name = "Engineering Firelock"
+/obj/machinery/door/firedoor,
+/obj/machinery/door/window/westleft{
+	dir = 8;
+	name = "Server Room";
+	opacity = 1;
+	req_access = list(30)
 	},
-/obj/machinery/door/airlock/glass_engineering{
-	name = "Engineering Locker Room";
-	req_access = list(11)
+/obj/machinery/door/window/eastleft{
+	name = "Server Room"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/locker_room)
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/tiled/dark,
+/area/server)
 "avr" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -11261,6 +11674,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"avz" = (
+/obj/machinery/door/airlock/glass{
+	name = "Holodeck"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/dark,
+/area/hallway/primary/central_one)
 "avA" = (
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/blue{
@@ -11592,6 +12012,20 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
+"awc" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
 "awd" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced,
@@ -11946,27 +12380,32 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
 "awE" = (
-/obj/machinery/door/airlock/glass_engineering{
-	name = "Engine Monitoring Room";
-	req_access = list(11)
+/obj/machinery/door/firedoor,
+/obj/machinery/door/window/westleft{
+	name = "Cargo Desk";
+	req_access = list(50)
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/structure/table/standard{
+	name = "plastic table frame"
 	},
-/obj/machinery/door/firedoor{
-	dir = 1;
-	name = "Engineering Firelock"
+/obj/machinery/ringer_button{
+	id = "cargo_ringer";
+	pixel_x = 5;
+	pixel_y = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/door/blast/shutters{
+	density = 1;
+	dir = 4;
+	icon_state = "shutter1";
+	id = "cargo_cockblock";
+	name = "Cargo";
+	opacity = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/structure/noticeboard{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
-/area/engineering/engine_monitoring)
+/area/quartermaster/lobby)
 "awF" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -12054,27 +12493,19 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
 "awK" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/door/firedoor{
-	dir = 1;
-	name = "Engineering Firelock"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/grille,
+/obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/structure/window/reinforced{
+	dir = 8
 	},
-/obj/machinery/door/airlock/glass_engineering{
-	name = "Engineering Hallway";
-	req_one_access = list(11)
+/obj/structure/window/reinforced{
+	dir = 1
 	},
-/turf/simulated/floor/tiled,
-/area/engineering/engine_monitoring)
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/quartermaster/lobby)
 "awL" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -12225,23 +12656,25 @@
 "awW" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	dir = 4
+	dir = 8
 	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters{
+	density = 1;
+	dir = 4;
+	icon_state = "shutter1";
+	id = "cargo_cockblock";
+	name = "Cargo";
+	opacity = 1
 	},
 /turf/simulated/floor/plating,
-/area/engineering/locker_room)
+/area/quartermaster/lobby)
 "awX" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/light_switch{
@@ -12968,25 +13401,17 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
 "ayk" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/door/firedoor{
-	dir = 1;
-	name = "Engineering Firelock"
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/engineering/engine_monitoring)
+/area/quartermaster/lobby)
 "ayl" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -13051,19 +13476,24 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
 "ayq" = (
-/obj/machinery/door/firedoor{
-	dir = 1;
-	name = "Engineering Firelock"
-	},
-/obj/structure/disposalpipe/segment{
+/obj/structure/grille,
+/obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/airlock/glass_engineering{
-	name = "Engineering Hallway";
-	req_one_access = list(11)
+/obj/structure/window/reinforced{
+	dir = 8
 	},
-/turf/simulated/floor/tiled,
-/area/engineering/engine_monitoring)
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters{
+	density = 1;
+	dir = 4;
+	icon_state = "shutter1";
+	id = "cargo_cockblock";
+	name = "Cargo";
+	opacity = 1
+	},
+/turf/simulated/floor/plating,
+/area/quartermaster/lobby)
 "ayr" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -13213,6 +13643,26 @@
 "ayE" = (
 /turf/simulated/wall,
 /area/maintenance/substation/engineering)
+"ayF" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters{
+	density = 1;
+	dir = 4;
+	icon_state = "shutter1";
+	id = "cargo_cockblock";
+	name = "Cargo";
+	opacity = 1
+	},
+/turf/simulated/floor/plating,
+/area/quartermaster/lobby)
 "ayG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -13850,24 +14300,17 @@
 /area/engineering/engine_monitoring)
 "azL" = (
 /obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
+	dir = 1
 	},
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 8
 	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor{
-	dir = 1;
-	name = "Engineering Firelock"
-	},
 /turf/simulated/floor/plating,
-/area/engineering/storage)
+/area/outpost/mining_main/refinery)
 "azM" = (
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering EVA Storage";
@@ -13879,48 +14322,39 @@
 /area/engineering/storage)
 "azN" = (
 /obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
-	dir = 8
+	dir = 1
 	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 1;
-	name = "Engineering Firelock"
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/engineering/storage)
+/area/outpost/mining_main/refinery)
 "azO" = (
 /obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 1;
-	name = "Engineering Firelock"
-	},
-/turf/simulated/floor/plating,
-/area/engineering/storage)
-"azP" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
 	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 1;
-	name = "Engineering Firelock"
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/engineering/storage)
+/area/outpost/mining_main/refinery)
+"azP" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/refinery)
 "azQ" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -13939,23 +14373,18 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_monitoring)
 "azR" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
 	},
-/obj/machinery/door/firedoor{
-	dir = 1;
-	name = "Engineering Firelock"
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/glass_engineering{
-	name = "Engineering Hallway";
-	req_one_access = list(10)
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/engine_monitoring)
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/refinery)
 "azS" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -14695,24 +15124,16 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
 "aBa" = (
+/obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor{
-	dir = 1;
-	name = "Engineering Firelock"
-	},
 /turf/simulated/floor/plating,
-/area/engineering/storage)
+/area/outpost/mining_main/refinery)
 "aBb" = (
 /obj/item/stack/material/steel{
 	amount = 50
@@ -15634,6 +16055,18 @@
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
+"aCE" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/eva)
 "aCF" = (
 /obj/machinery/atm{
 	pixel_y = 32
@@ -15850,23 +16283,17 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engine_airlock)
 "aCX" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor{
-	dir = 1;
-	name = "Engineering Firelock"
+	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/engineering/engine_airlock)
+/area/outpost/mining_main/refinery)
 "aCY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -15880,19 +16307,18 @@
 "aCZ" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
-/obj/machinery/door/firedoor{
-	dir = 1;
-	name = "Engineering Firelock"
-	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/engineering/storage)
+/area/outpost/mining_main/eva)
 "aDa" = (
 /obj/item/stack/material/plasteel{
 	amount = 10
@@ -16924,29 +17350,20 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engine_airlock)
 "aEK" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	icon_state = "door_closed";
-	locked = 0;
-	name = "Engine Access";
-	req_one_access = list(11)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/structure/window/reinforced{
+	dir = 1
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/structure/window/reinforced{
+	dir = 8
 	},
-/obj/machinery/door/firedoor{
-	dir = 1;
-	name = "Engineering Firelock"
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/engine_airlock)
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/eva)
 "aEL" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -18268,22 +18685,28 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
 "aGK" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 1;
-	name = "Engineering Firelock"
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
-/area/engineering/storage)
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/eva)
 "aGL" = (
 /obj/structure/table/standard,
 /obj/item/device/radio/off,
@@ -18476,22 +18899,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
 "aHe" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 2
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "door_locked";
+	id_tag = "mining_east_outer";
+	locked = 1;
+	name = "Mining External Access";
+	req_access = list(10,13)
 	},
 /turf/simulated/floor/plating,
-/area/ai_monitored/storage/eva)
+/area/outpost/mining_main/eva)
 "aHf" = (
 /obj/structure/table/reinforced,
 /obj/item/clothing/head/welding,
@@ -18526,21 +18944,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
 "aHj" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "door_locked";
+	id_tag = "mining_east_inner";
+	locked = 1;
+	name = "Mining External Access"
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
+/obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/turf/simulated/floor/plating,
-/area/ai_monitored/storage/eva)
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/eva)
 "aHk" = (
 /obj/structure/table/rack,
 /obj/item/clothing/mask/breath,
@@ -18716,26 +19132,22 @@
 /turf/simulated/wall/r_wall,
 /area/security/lobby)
 "aHu" = (
-/obj/machinery/door/firedoor{
-	layer = 2.4
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
 	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/door/airlock/glass_security{
-	id_tag = "BrigFoyer";
-	layer = 2.7;
-	name = "Security Wing";
-	req_access = list(63)
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
 	},
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "Security Lockdown";
-	name = "Security Blast Door";
-	opacity = 0
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
 	},
-/turf/simulated/floor/tiled,
-/area/security/lobby)
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/refinery)
 "aHv" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -19488,17 +19900,19 @@
 "aIF" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	dir = 8
+	dir = 1
 	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 2
+/obj/structure/window/reinforced{
+	dir = 8
 	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/obj/structure/sign/drop,
 /turf/simulated/floor/plating,
-/area/ai_monitored/storage/eva)
+/area/outpost/mining_main/eva)
 "aIG" = (
 /obj/machinery/suit_cycler/security,
 /obj/effect/floor_decal/corner/blue/full{
@@ -21485,6 +21899,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/chief)
+"aLW" = (
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/structure/noticeboard{
+	pixel_y = 27
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/eva)
 "aLX" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -21645,20 +22074,16 @@
 "aMm" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 4
 	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ai_monitored/storage/eva)
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/refinery)
 "aMn" = (
 /obj/structure/table/rack{
 	dir = 8;
@@ -22088,6 +22513,20 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
+"aNb" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/eva)
 "aNc" = (
 /obj/machinery/status_display{
 	pixel_x = 0;
@@ -22961,6 +23400,74 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
+"aOF" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/refinery)
+"aOG" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/eva)
+"aOH" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/refinery)
+"aOI" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/refinery)
+"aOJ" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/eva)
 "aOK" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12)
@@ -23575,21 +24082,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
 "aPI" = (
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
+/obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
 /turf/simulated/floor/plating,
-/area/ai_monitored/storage/eva)
+/area/outpost/mining_main/refinery)
 "aPJ" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /obj/effect/floor_decal/corner/blue{
@@ -23650,6 +24156,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
+"aPQ" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/eva)
 "aPR" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -23834,11 +24352,35 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"aQj" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/refinery)
 "aQk" = (
 /obj/effect/floor_decal/industrial/warning/dust,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
+/area/outpost/mining_main/eva)
+"aQl" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
 /area/outpost/mining_main/eva)
 "aQm" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner,
@@ -23846,6 +24388,39 @@
 	icon_state = "asteroidplating"
 	},
 /area/outpost/mining_main/eva)
+"aQn" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/eva)
+"aQo" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/eva)
+"aQp" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/refinery)
 "aQr" = (
 /obj/item/device/t_scanner,
 /obj/structure/table/steel,
@@ -24636,19 +25211,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
-"aRv" = (
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/ai_monitored/storage/eva)
 "aRw" = (
 /obj/structure/table/rack{
 	dir = 8;
@@ -25284,23 +25846,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/foyer)
-"aSG" = (
-/obj/structure/table/reinforced/steel,
-/obj/machinery/door/window/brigdoor/northleft{
-	name = "Engineering Desk";
-	req_access = list(32)
-	},
-/obj/machinery/door/firedoor{
-	dir = 1;
-	name = "Engineering Firelock"
-	},
-/obj/machinery/ringer_button{
-	id = "engie_ringer";
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/foyer)
 "aSH" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -25357,20 +25902,6 @@
 "aSO" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark,
-/area/ai_monitored/storage/eva)
-"aSP" = (
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
 /area/ai_monitored/storage/eva)
 "aSQ" = (
 /obj/structure/table/rack{
@@ -26292,47 +26823,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
-"aUu" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/turf/simulated/floor/plating,
-/area/ai_monitored/storage/eva)
-"aUv" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/sign/securearea,
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/turf/simulated/floor/plating,
-/area/ai_monitored/storage/eva)
 "aUw" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_command{
@@ -26352,47 +26842,6 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ai_monitored/storage/eva)
-"aUx" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/sign/securearea,
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/turf/simulated/floor/plating,
-/area/ai_monitored/storage/eva)
-"aUy" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/plating,
 /area/ai_monitored/storage/eva)
 "aUz" = (
 /turf/simulated/wall,
@@ -37917,23 +38366,6 @@
 	temperature = 80
 	},
 /area/server)
-"btq" = (
-/obj/machinery/door/firedoor{
-	dir = 8;
-	name = "Firelock West"
-	},
-/obj/machinery/door/window/westleft{
-	dir = 8;
-	name = "Server Room";
-	opacity = 1;
-	req_access = list(30)
-	},
-/obj/machinery/door/window/eastleft{
-	name = "Server Room"
-	},
-/obj/structure/plasticflaps/airtight,
-/turf/simulated/floor/tiled/dark,
-/area/server)
 "btr" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
@@ -43610,15 +44042,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"bFr" = (
-/obj/machinery/door/airlock/glass{
-	name = "Holodeck"
-	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_one)
 "bFs" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -47455,22 +47878,6 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/locker/locker_toilet)
-"bPg" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/medbay)
 "bPh" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
@@ -49923,21 +50330,6 @@
 /obj/effect/floor_decal/corner/brown,
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"bXv" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock East"
-	},
-/turf/simulated/floor/plating,
-/area/quartermaster/lobby)
 "bXw" = (
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -50023,28 +50415,6 @@
 	req_access = list(31)
 	},
 /turf/simulated/floor/tiled,
-/area/quartermaster/lobby)
-"bXP" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock East"
-	},
-/obj/machinery/door/blast/shutters{
-	density = 1;
-	dir = 4;
-	icon_state = "shutter1";
-	id = "cargo_cockblock";
-	name = "Cargo";
-	opacity = 1
-	},
-/turf/simulated/floor/plating,
 /area/quartermaster/lobby)
 "bXQ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -52212,22 +52582,6 @@
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
-"ced" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/eva)
 "cee" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -52257,36 +52611,6 @@
 /area/outpost/mining_main/refinery)
 "cei" = (
 /obj/machinery/mineral/stacking_machine,
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
-"cej" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
-"cel" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "ceq" = (
@@ -52342,19 +52666,6 @@
 /obj/structure/plasticflaps,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
-"cez" = (
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
 "ceE" = (
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled,
@@ -52389,21 +52700,6 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
-"ceI" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
 "ceJ" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -52448,20 +52744,6 @@
 /obj/item/weapon/ladder_mobile,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
-"ceP" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/grille,
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/eva)
 "ceQ" = (
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -52483,23 +52765,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"ceX" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/eva)
 "ceY" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -52526,23 +52791,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
-/area/outpost/mining_main/eva)
-"cfa" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/turf/simulated/floor/plating,
 /area/outpost/mining_main/eva)
 "cfb" = (
 /obj/effect/floor_decal/corner/brown/full{
@@ -52602,31 +52850,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
-"cfg" = (
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/effect/floor_decal/corner/brown{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/brown{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/outpost/mining_main/eva)
 "cfh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -52658,72 +52881,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"cfj" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
 "cfk" = (
 /obj/machinery/mineral/processing_unit,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
-"cfl" = (
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
-"cfm" = (
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "mining_east_outer";
-	locked = 1;
-	name = "Mining External Access";
-	req_access = list(10,13)
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/eva)
 "cfn" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/outpost/mining_main/eva)
-"cfo" = (
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "mining_east_inner";
-	locked = 1;
-	name = "Mining External Access"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cfp" = (
@@ -52797,24 +52961,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
-"cfz" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/sign/drop,
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/eva)
 "cfA" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	tag_airpump = "mining_east_pump";
@@ -52899,23 +53045,6 @@
 /obj/effect/floor_decal/corner/brown,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/outpost/mining_main/eva)
-"cfH" = (
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/effect/floor_decal/corner/brown{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/brown{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/structure/noticeboard{
-	pixel_y = 27
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
@@ -53237,20 +53366,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
-"cgy" = (
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
 "cgz" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/brown{
@@ -53269,45 +53384,6 @@
 /obj/item/weapon/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"cgB" = (
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/eva)
-"cgC" = (
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/eva)
-"cgD" = (
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/eva)
 "cgE" = (
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/skipjack_station/cavern)
@@ -54147,32 +54223,6 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"cjy" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
-"cjG" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
 "cjH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -54210,25 +54260,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"cjQ" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
 "cjT" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
@@ -54241,39 +54272,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"ckf" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
-"ckn" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/eva)
 "cko" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
@@ -54286,37 +54284,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"ckq" = (
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
-"ckw" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/eva)
 "ckx" = (
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -54363,50 +54330,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"ckB" = (
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
-"ckH" = (
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
-"ckI" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
 "ckP" = (
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -54420,21 +54343,6 @@
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
-/area/outpost/mining_main/eva)
-"clv" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/turf/simulated/floor/plating,
 /area/outpost/mining_main/eva)
 "clw" = (
 /obj/machinery/cell_charger,
@@ -55690,56 +55598,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"cqp" = (
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock East"
-	},
-/obj/machinery/door/window/westleft{
-	name = "Cargo Desk";
-	req_access = list(50)
-	},
-/obj/structure/table/standard{
-	name = "plastic table frame"
-	},
-/obj/machinery/ringer_button{
-	id = "cargo_ringer";
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/obj/machinery/door/blast/shutters{
-	density = 1;
-	dir = 4;
-	icon_state = "shutter1";
-	id = "cargo_cockblock";
-	name = "Cargo";
-	opacity = 1
-	},
-/obj/structure/noticeboard{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/lobby)
 "cqq" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled,
-/area/quartermaster/lobby)
-"cqr" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock East"
-	},
-/turf/simulated/floor/plating,
 /area/quartermaster/lobby)
 "cqs" = (
 /obj/structure/table/standard,
@@ -61211,29 +61072,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
-"mIF" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock East"
-	},
-/obj/machinery/door/blast/shutters{
-	density = 1;
-	dir = 4;
-	icon_state = "shutter1";
-	id = "cargo_cockblock";
-	name = "Cargo";
-	opacity = 1
-	},
-/turf/simulated/floor/plating,
-/area/quartermaster/lobby)
 "mRk" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/bed/chair/office/light{
@@ -63266,31 +63104,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
-"xTf" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock East"
-	},
-/obj/machinery/door/blast/shutters{
-	density = 1;
-	dir = 4;
-	icon_state = "shutter1";
-	id = "cargo_cockblock";
-	name = "Cargo";
-	opacity = 1
-	},
-/turf/simulated/floor/plating,
-/area/quartermaster/lobby)
 "xUH" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -80192,17 +80005,17 @@ aha
 amZ
 aob
 amZ
+aom
+arQ
+aoL
+aoN
+apt
+apQ
+aoN
+arQ
+aqa
 aqA
-arQ
-ats
-auX
-awE
-ayk
-auX
-arQ
-aCX
-aEK
-aCX
+aqa
 aIl
 aKj
 aLS
@@ -80970,10 +80783,10 @@ ava
 awD
 ayn
 alY
-aBa
-aCZ
-aCZ
-aGK
+apX
+aqb
+aqb
+aqH
 alY
 alY
 aKi
@@ -81226,7 +81039,7 @@ atu
 ava
 awD
 ayn
-azL
+apS
 aBb
 aDa
 aEN
@@ -81740,7 +81553,7 @@ atw
 ava
 awD
 ayn
-azN
+apT
 aBd
 aBc
 aBc
@@ -81997,7 +81810,7 @@ atx
 ava
 awI
 ayo
-azO
+apU
 aBd
 aBc
 aBc
@@ -82254,7 +82067,7 @@ aty
 ava
 awD
 ayn
-azO
+apU
 aBe
 aBc
 aEO
@@ -82511,7 +82324,7 @@ atz
 avc
 awJ
 ayp
-azP
+apV
 aBe
 aDb
 aEP
@@ -82765,9 +82578,9 @@ anf
 anf
 anf
 anf
-avd
-awK
-ayq
+aoO
+apO
+apR
 alY
 aBf
 aBc
@@ -83025,7 +82838,7 @@ anf
 ave
 awL
 ayr
-azN
+apT
 aBg
 aBc
 aBc
@@ -83282,7 +83095,7 @@ anf
 avf
 awD
 ays
-azP
+apV
 aBh
 aDc
 aEQ
@@ -84053,7 +83866,7 @@ anf
 avg
 awM
 ayv
-azR
+apW
 aBj
 aDe
 aET
@@ -85626,7 +85439,7 @@ aKi
 aab
 bqQ
 bsa
-btq
+avq
 bur
 bvH
 bwO
@@ -85863,7 +85676,7 @@ aDi
 aNV
 aDk
 aRp
-aSG
+asO
 aUs
 aDk
 aXc
@@ -86872,13 +86685,13 @@ ajD
 ajD
 amm
 ajD
-aom
+anB
 apA
-aom
+anB
 ajD
-atJ
-avq
-awW
+aoM
+aoP
+apP
 ayD
 ayD
 aBt
@@ -87132,7 +86945,7 @@ ajD
 aon
 apB
 aqO
-asb
+aoI
 atK
 avr
 awX
@@ -87655,14 +87468,14 @@ aAc
 aBw
 aDm
 aFe
-aHe
+ari
 aDm
-aHe
+ari
 aMj
 aDm
-aHe
+ari
 aRu
-aHe
+ari
 aDm
 aVy
 aXi
@@ -87920,7 +87733,7 @@ aNY
 aPG
 aHh
 aSK
-aUu
+ats
 aVz
 aXi
 aVz
@@ -88177,7 +87990,7 @@ aNZ
 aFj
 aFj
 aij
-aUv
+atJ
 aVz
 aXi
 aVz
@@ -88262,9 +88075,9 @@ cju
 bkZ
 ajU
 cdP
-ceX
-cfm
-cfz
+aCZ
+aHe
+aIF
 cdP
 avT
 bjO
@@ -88691,7 +88504,7 @@ aHh
 aHh
 aHh
 aSN
-aUx
+auX
 aVz
 aXk
 aYt
@@ -88948,7 +88761,7 @@ aFj
 aPH
 aFl
 aSO
-aUy
+avd
 aVB
 aXi
 aVz
@@ -89033,9 +88846,9 @@ cdP
 cdP
 cdP
 cdP
-cfa
-cfo
-cfa
+aEK
+aHj
+aEK
 cdP
 aWn
 cgf
@@ -89197,14 +89010,14 @@ afr
 aaa
 aDm
 aFk
-aHj
-aIF
+arj
+arl
 aDm
-aMm
+arn
 aOb
-aPI
-aRv
-aSP
+asb
+asD
+asQ
 aDm
 ygv
 aXl
@@ -89295,9 +89108,9 @@ cfp
 cfC
 cfN
 cdP
-ckn
-clv
-ckw
+aOG
+aOJ
+aPQ
 cdP
 aQk
 aab
@@ -89555,7 +89368,7 @@ cfY
 cgg
 cgp
 cgv
-cgB
+aQl
 aQk
 aab
 aab
@@ -89812,7 +89625,7 @@ cfZ
 cfP
 cfP
 cgw
-cgC
+aQn
 aQk
 aab
 aab
@@ -90069,7 +89882,7 @@ cga
 cko
 cko
 ckx
-cgC
+aQn
 aQk
 aab
 aab
@@ -90326,7 +90139,7 @@ cgb
 cgh
 cgq
 cgx
-cgD
+aQo
 aQk
 aab
 aab
@@ -90573,16 +90386,16 @@ cdQ
 cdQ
 cdQ
 cdQ
-cjG
-ceP
-cfg
+azP
+aCE
+aGK
 cdP
-cfH
-ced
-ceP
+aLW
+aNb
+aCE
 cdP
-ced
-ceP
+aNb
+aCE
 cdP
 aQk
 aab
@@ -90830,7 +90643,7 @@ cdQ
 cdW
 cee
 cet
-ceI
+azR
 ceQ
 cfh
 cft
@@ -90840,7 +90653,7 @@ cgc
 cgi
 cgr
 cky
-cgy
+aOH
 aQk
 aab
 aab
@@ -91097,7 +90910,7 @@ cfu
 cgj
 cgs
 cgz
-ckH
+aQp
 aQk
 aab
 aab
@@ -91600,7 +91413,7 @@ cdM
 cdQ
 cjf
 cjf
-cfj
+azL
 ceK
 ceS
 cjN
@@ -91611,7 +91424,7 @@ ceS
 ceS
 cgu
 cgA
-cgy
+aOH
 aQk
 aab
 aab
@@ -91834,12 +91647,12 @@ bSQ
 cqe
 bWm
 bWm
-cqp
-xTf
-bXP
-bXP
-bXP
-mIF
+awE
+awW
+ayq
+ayq
+ayq
+ayF
 bWm
 ykh
 cir
@@ -91857,7 +91670,7 @@ cdN
 cdQ
 cei
 cei
-cjy
+azN
 ceL
 ceT
 cfL
@@ -91868,7 +91681,7 @@ cfT
 cgm
 ckp
 ckA
-ckI
+aOI
 aQk
 aab
 aab
@@ -92114,17 +91927,17 @@ cdN
 cdQ
 cjg
 cjg
-cej
-cez
-cfl
+azO
+aBa
+aCX
 cdQ
 mmG
 cfL
 cfL
 cge
 cdQ
-ckq
-ckB
+aPI
+aQj
 cdQ
 aQk
 aab
@@ -92379,7 +92192,7 @@ cjP
 cke
 cke
 cke
-cgy
+aOH
 aQm
 avT
 avT
@@ -92636,7 +92449,7 @@ cjP
 cke
 cke
 cke
-cjy
+azN
 aQk
 aab
 aab
@@ -92893,7 +92706,7 @@ tWi
 mtB
 vAr
 ghF
-cjy
+azN
 aQk
 aab
 aab
@@ -93119,12 +92932,12 @@ cpX
 cqj
 bWm
 bWm
-cqr
-bXv
+awK
+ayk
 rcr
 bYs
-cqr
-bXv
+awK
+ayk
 bWm
 bWm
 bWm
@@ -93150,7 +92963,7 @@ lQg
 lQg
 lQg
 lQg
-ckI
+aOI
 aQk
 aab
 aab
@@ -93309,7 +93122,7 @@ aAl
 aBF
 aDx
 aFu
-aHu
+ark
 aIP
 aIP
 aIP
@@ -93347,7 +93160,7 @@ buK
 buK
 buK
 buK
-bFr
+avz
 aYx
 bHC
 aYx
@@ -93403,10 +93216,10 @@ cdQ
 cdQ
 cdQ
 cdQ
-cjQ
-cel
-cel
-ckf
+aHu
+aMm
+aMm
+aOF
 cdQ
 aQk
 aab
@@ -103382,7 +103195,7 @@ bok
 bok
 bOc
 biL
-bPg
+awc
 bPR
 bQq
 aab
@@ -105636,7 +105449,7 @@ acC
 aah
 aad
 aae
-asO
+aoJ
 aab
 awd
 axR
@@ -106664,7 +106477,7 @@ aaa
 aaa
 aad
 aae
-asQ
+aoK
 aab
 awd
 axR

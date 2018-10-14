@@ -3399,10 +3399,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
 "aho" = (
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock"
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
 "ahp" = (
@@ -3708,10 +3705,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock"
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
 "ahR" = (
@@ -11406,10 +11400,7 @@
 /turf/simulated/wall,
 /area/outpost/research/analysis)
 "auH" = (
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock"
-	},
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/research{
 	name = "Spectrometry Lab";
 	req_access = list(65)
@@ -12051,10 +12042,7 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/anomaly_analysis)
 "avK" = (
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock"
-	},
+/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -12152,10 +12140,7 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/anomaly_analysis)
 "avR" = (
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock"
-	},
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/research{
 	name = "Anomalous Materials";
 	req_access = list(65)
@@ -12619,10 +12604,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "awI" = (
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock"
-	},
+/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -12637,10 +12619,7 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/anomaly_analysis)
 "awJ" = (
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock"
-	},
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/research{
 	name = "Anomalous Materials";
 	req_access = list(65)
@@ -13125,10 +13104,7 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "axB" = (
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock"
-	},
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/external{
 	name = "Harvesting Room";
 	req_access = list(65)
@@ -13542,10 +13518,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock"
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/outpost/research/isolation_monitoring)
 "ayq" = (
@@ -13557,10 +13530,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock"
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/outpost/research/isolation_monitoring)
 "ayr" = (
@@ -13573,10 +13543,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock"
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/outpost/research/isolation_monitoring)
 "ays" = (
@@ -13590,10 +13557,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock"
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/outpost/research/isolation_monitoring)
 "ayt" = (
@@ -13602,10 +13566,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock"
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/outpost/research/isolation_monitoring)
 "ayu" = (
@@ -13617,10 +13578,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock"
-	},
+/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/plating,
 /area/outpost/research/isolation_monitoring)
@@ -13902,6 +13860,25 @@
 /obj/structure/filingcabinet/filingcabinet,
 /turf/simulated/floor/tiled,
 /area/outpost/research/isolation_monitoring)
+"ayZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/glass_research{
+	name = "EVA Preparatory Room";
+	req_access = list(7)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/outpost/research/eva)
 "aza" = (
 /obj/structure/table/standard,
 /obj/item/weapon/scalpel,
@@ -15582,6 +15559,26 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
+"aBQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/airlock/glass_research{
+	name = "EVA Storage";
+	req_access = list(7)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/outpost/research/eva)
 "aBR" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
@@ -15703,28 +15700,6 @@
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled,
-/area/outpost/research/eva)
-"aCe" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/door/airlock/glass_research{
-	name = "EVA Preparatory Room";
-	req_access = list(7)
-	},
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
@@ -16629,29 +16604,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/outpost/research/eva)
-"aDx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/door/airlock/glass_research{
-	name = "EVA Storage";
-	req_access = list(7)
-	},
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
@@ -49200,7 +49152,7 @@ azj
 azj
 aBY
 aCJ
-aDx
+aBQ
 aEu
 aFD
 aCO
@@ -50740,7 +50692,7 @@ azm
 azm
 azm
 azj
-aCe
+ayZ
 aCO
 aDD
 aEA

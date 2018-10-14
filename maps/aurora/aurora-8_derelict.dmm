@@ -3053,10 +3053,7 @@
 /turf/template_noop,
 /area/template_noop)
 "jL" = (
-/obj/machinery/door/firedoor{
-	dir = 8;
-	name = "Firelock West"
-	},
+/obj/machinery/door/firedoor,
 /obj/machinery/door/window{
 	base_state = "right";
 	dir = 8;
@@ -3604,10 +3601,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "lt" = (
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock East"
-	},
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_mining{
 	name = "Cargo Bay";
 	req_access = list(31)
@@ -3862,10 +3856,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "me" = (
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock East"
-	},
+/obj/machinery/door/firedoor,
 /obj/machinery/door/window/westleft{
 	name = "Cargo Desk";
 	req_access = list(50)
@@ -4016,10 +4007,7 @@
 /turf/template_noop,
 /area/derelict/hallway/southwest)
 "my" = (
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock East"
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "mz" = (
@@ -4196,10 +4184,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "mX" = (
-/obj/machinery/door/firedoor{
-	dir = 4;
-	name = "Firelock East"
-	},
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_mining{
 	id_tag = "cargodoor";
 	name = "Cargo Office";
@@ -4478,10 +4463,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
 "nK" = (
-/obj/machinery/door/firedoor{
-	dir = 1;
-	name = "Firelock North"
-	},
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/mining{
 	id_tag = "cargodoor";
 	name = "Mining Dock";
