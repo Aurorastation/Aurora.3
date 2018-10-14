@@ -80,7 +80,7 @@
 /datum/gear/suit/iacvest
 	display_name = "IAC vest"
 	path = /obj/item/clothing/suit/iacvest
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Medical Doctor", "Geneticist", "Chemist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Chemist", "Paramedic", "Medical Resident")
 
 /datum/gear/suit/poncho
 	display_name = "poncho selection"
