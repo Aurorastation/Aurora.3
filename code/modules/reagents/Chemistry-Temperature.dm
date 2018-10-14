@@ -8,7 +8,7 @@
 	return returning
 
 /datum/reagent/proc/get_heat_capacity()
-	return specific_heat
+	return specific_heat * volume
 
 //Adds or removes thermal energy. Returns the actual thermal energy change, as in the case of removing energy we can't go below TCMB.
 /datum/reagents/proc/add_thermal_energy(var/thermal_energy_to_add)
@@ -54,6 +54,12 @@
 //Returns the thermal energy change required to get to a new temperature
 /datum/reagent/proc/get_thermal_energy_change(var/new_temperature)
 	return get_heat_capacity()*(max(new_temperature, 0) - get_temperature())*volume
+
+/datum/reagent/proc/set_temperature(var/new_temperature)
+	add_thermal_energy(-get_thermal_energy() + ( get_heat_capacity() * new_temperature  * volume))
+
+/datum/reagents/proc/set_temperature(var/new_temperature)
+	add_thermal_energy(-get_thermal_energy() + ( get_heat_capacity() * new_temperature  * total_volume))
 
 /datum/reagents/proc/get_thermal_energy_change(var/new_temperature)
 	return get_heat_capacity()*(max(new_temperature, 0) - get_temperature())*total_volume

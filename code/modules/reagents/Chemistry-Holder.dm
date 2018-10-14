@@ -79,12 +79,13 @@
 	return total_volume > 0
 
 /datum/reagents/proc/update_holder(var/reactions = TRUE)
-	if(update_total())
-		if(reactions)
-			handle_reactions()
-		equalize_thermal_energy()
-		if(my_atom)
-			my_atom.on_reagent_change()
+	if(update_total() && reactions)
+		handle_reactions()
+
+	equalize_thermal_energy()
+
+	if(my_atom)
+		my_atom.on_reagent_change()
 
 /datum/reagents/proc/delete()
 	for(var/datum/reagent/R in reagent_list)
@@ -133,7 +134,7 @@
 
 /* Holder-to-chemical */
 
-/datum/reagents/proc/add_reagent(var/id, var/amount, var/data = null, var/safety = 0, var/temperature = T0C + 20, var/thermal_energy = 0)
+/datum/reagents/proc/add_reagent(var/id, var/amount, var/data = null, var/safety = 0, var/temperature = 0, var/thermal_energy = 0)
 	if(!isnum(amount) || amount <= 0)
 		return 0
 
@@ -143,21 +144,27 @@
 	for(var/datum/reagent/current in reagent_list)
 		if(current.id == id)
 			current.volume += amount
-			var/thermal_energy_to_add = thermal_energy ? thermal_energy : current.specific_heat * amount * temperature
-			add_thermal_energy(thermal_energy_to_add)
+			current.add_thermal_energy(thermal_energy)
 			if(!isnull(data)) // For all we know, it could be zero or empty string and meaningful
 				current.mix_data(data, amount)
 			update_holder(!safety)
 			return 1
+
 	var/datum/reagent/D = SSchemistry.chemical_reagents[id]
 	if(D)
 		var/datum/reagent/R = new D.type()
 		reagent_list += R
 		R.holder = src
 		R.volume = amount
-		R.initialize_data(data)
 		if(thermal_energy > 0)
 			R.thermal_energy = thermal_energy
+			world << "CUSTOM SET. ENERGY: [R.thermal_energy ]"
+		else
+			if(temperature <= 0)
+				temperature = R.default_temperature
+			R.set_temperature(temperature)
+			world << "TEMP: [temperature], ENERGY: [R.thermal_energy ]"
+		R.initialize_data(data)
 		update_holder(!safety)
 		return 1
 	else
@@ -169,7 +176,9 @@
 		return 0
 	for(var/datum/reagent/current in reagent_list)
 		if(current.id == id)
+			var/old_volume = current.volume
 			current.volume -= amount // It can go negative, but it doesn't matter
+			current.add_thermal_energy(current.thermal_energy * amount/old_volume)
 			update_holder(!safety)
 			return 1
 	return 0
@@ -281,7 +290,8 @@
 
 	for(var/datum/reagent/current in reagent_list)
 		var/amount_to_transfer = current.volume * part
-		target.add_reagent(current.id, amount_to_transfer * multiplier, current.get_data(), 1, thermal_energy = current.get_thermal_energy()) // We don't react until everything is in place
+		var/energy_to_transfer = current.get_thermal_energy() * part
+		target.add_reagent(current.id, amount_to_transfer * multiplier, current.get_data(), 1, thermal_energy = energy_to_transfer) // We don't react until everything is in place
 		if(!copy)
 			remove_reagent(current.id, amount_to_transfer, 1)
 

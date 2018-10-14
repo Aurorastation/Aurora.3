@@ -30,17 +30,13 @@
 	var/metabolism_min = 0.01 //How much for the medicine to be present in the system to actually have an effect.
 	var/conflicting_reagent //Reagents that conflict with this medicine, and cause adverse effects when in the blood.
 
-	var/default_temp = T0C + 20
+	var/default_temperature = T0C + 20
 	var/thermal_energy = 0
 	var/specific_heat = 4.18
 
 /datum/reagent/proc/initialize_data(var/newdata) // Called when the reagent is created.
 	if(!isnull(newdata))
 		data = newdata
-
-	if(!thermal_energy)
-		thermal_energy = get_thermal_energy_change(default_temp)
-		world << "[id]: THERMAL ENERGY: [thermal_energy]."
 
 /datum/reagent/proc/remove_self(var/amount) // Shortcut
 	if (!holder)
