@@ -10,18 +10,11 @@
 	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
-	var/obj/machinery/mineral/input = null
-	var/obj/machinery/mineral/output = null
 
 
 /obj/machinery/mineral/unloading_machine/Initialize()
 	. = ..()
-	for (var/dir in cardinal)
-		src.input = locate(/obj/machinery/mineral/input, get_step(src, dir))
-		if(src.input) break
-	for (var/dir in cardinal)
-		src.output = locate(/obj/machinery/mineral/output, get_step(src, dir))
-		if(src.output) break
+	FindInOut()
 
 /obj/machinery/mineral/unloading_machine/machinery_process()
 	..()

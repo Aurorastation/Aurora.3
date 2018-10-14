@@ -23,7 +23,9 @@
 		/obj/item/weapon/circuitboard,
 		/obj/item/weapon/smes_coil,
 		/obj/item/device/assembly,//Primarily for making improved cameras, but opens many possibilities
-		/obj/item/weapon/computer_hardware
+		/obj/item/weapon/computer_hardware,
+		/obj/item/conveyor_construct,//for when people need to rebuild Cargo
+		/obj/item/conveyor_switch_construct//ditto
 		)
 
 	var/obj/item/wrapped = null // Item currently being held.

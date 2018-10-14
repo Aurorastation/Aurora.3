@@ -59,7 +59,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment("Thermal Drill",				/obj/item/weapon/gun/energy/vaurca/thermaldrill,			5,					3750)
 	)
 
-/obj/machinery/mineral/equipment_vendor
+/obj/machinery/mining_equipment_vendor
 	name = "mining equipment vendor"
 	desc = "An equipment vendor for miners, points collected at an ore redemption machine can be spent here."
 	icon = 'icons/obj/machines/mining_machines.dmi'
@@ -84,29 +84,29 @@ var/global/list/minevendor_list = list( //keep in order of price
 
 /obj/item/weapon/circuitboard/machine/mining_equipment_vendor
 	name = "circuit board (Mining Equipment Vendor)"
-	build_path = /obj/machinery/mineral/equipment_vendor
+	build_path = /obj/machinery/mining_equipment_vendor
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	req_components = list(
 							/obj/item/weapon/stock_parts/console_screen = 1,
 							/obj/item/weapon/stock_parts/matter_bin = 3)
 
-/obj/machinery/mineral/equipment_vendor/power_change()
+/obj/machinery/mining_equipment_vendor/power_change()
 	..()
 	update_icon()
 
-/obj/machinery/mineral/equipment_vendor/update_icon()
+/obj/machinery/mining_equipment_vendor/update_icon()
 	if(powered())
 		icon_state = initial(icon_state)
 	else
 		icon_state = "[initial(icon_state)]-off"
 	return
 
-/obj/machinery/mineral/equipment_vendor/attack_hand(mob/user)
+/obj/machinery/mining_equipment_vendor/attack_hand(mob/user)
 	if(..())
 		return
 	interact(user)
 
-/obj/machinery/mineral/equipment_vendor/interact(mob/user)
+/obj/machinery/mining_equipment_vendor/interact(mob/user)
 	var/dat
 	dat +="<div class='statusDisplay'>"
 	if(istype(inserted_id))
@@ -129,7 +129,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	popup.open()
 	return
 
-/obj/machinery/mineral/equipment_vendor/Topic(href, href_list)
+/obj/machinery/mining_equipment_vendor/Topic(href, href_list)
 	if(..())
 		return
 	if(href_list["choice"])
@@ -205,7 +205,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	updateUsrDialog()
 	return
 
-/obj/machinery/mineral/equipment_vendor/attackby(obj/item/I, mob/user, params)
+/obj/machinery/mining_equipment_vendor/attackby(obj/item/I, mob/user, params)
 	if(istype(I,/obj/item/weapon/card/id))
 		var/obj/item/weapon/card/id/C = usr.get_active_hand()
 		if(istype(C) && !istype(inserted_id))

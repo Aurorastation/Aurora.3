@@ -26,6 +26,28 @@
 			D = "Requires [english_list(component_list)]."
 		desc = D
 
+/obj/machinery/constructable_frame/verb/rotate()
+	set name = "Rotate Window Counter-Clockwise"
+	set category = "Object"
+	set src in oview(1)
+
+	if(usr.incapacitated())
+		return 0
+
+	set_dir(turn(dir, 90))
+	return
+
+/obj/machinery/constructable_frame/verb/revrotate()
+	set name = "Rotate Window Clockwise"
+	set category = "Object"
+	set src in oview(1)
+
+	if(usr.incapacitated())
+		return 0
+
+	set_dir(turn(dir, 270))
+	return
+
 /obj/machinery/constructable_frame/machine_frame
 	attackby(obj/item/P as obj, mob/user as mob)
 		switch(state)

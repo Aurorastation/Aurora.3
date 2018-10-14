@@ -7,8 +7,6 @@
 	icon_state = "coinpress0"
 	density = 1
 	anchored = 1.0
-	var/obj/machinery/mineral/input = null
-	var/obj/machinery/mineral/output = null
 	var/amt_silver = 0 //amount of silver
 	var/amt_gold = 0   //amount of gold
 	var/amt_diamond = 0
@@ -22,12 +20,7 @@
 
 /obj/machinery/mineral/mint/Initialize()
 	. = ..()
-	for (var/dir in cardinal)
-		src.input = locate(/obj/machinery/mineral/input, get_step(src, dir))
-		if(src.input) break
-	for (var/dir in cardinal)
-		src.output = locate(/obj/machinery/mineral/output, get_step(src, dir))
-		if(src.output) break
+	FindInOut()
 	START_PROCESSING(SSprocessing, src)
 
 /obj/machinery/mineral/mint/machinery_process()

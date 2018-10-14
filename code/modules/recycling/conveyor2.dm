@@ -16,17 +16,20 @@
 
 	var/list/affecting	// the list of all items that will be moved this ptick
 	var/id = ""			// the control ID	- must match controller ID
-	
+
 	var/listener/antenna
 
 /obj/machinery/conveyor/centcom_auto
 	id = "round_end_belt"
 
 	// create a conveyor
-/obj/machinery/conveyor/Initialize(mapload, newdir, on = 0)
+/obj/machinery/conveyor/Initialize(mapload, newdir, on = 0, newid = "")
 	. = ..()
 	if(newdir)
 		set_dir(newdir)
+
+	if(newid)
+		id = newid
 
 	if(dir & (dir-1)) // Diagonal. Forwards is *away* from dir, curving to the right.
 		forwards = turn(dir, 135)
@@ -310,10 +313,10 @@
 	for(var/obj/machinery/conveyor/CB in A)
 		if(CB.dir == cdir || CB.dir == turn(cdir,180))
 			return
-		cdir |= CB.dir
-		qdel(CB)
-	var/obj/machinery/conveyor/C = new/obj/machinery/conveyor(A,cdir)
-	C.id = id
+		CB.dir |= cdir
+		transfer_fingerprints_to(CB)
+		return
+	var/obj/machinery/conveyor/C = new/obj/machinery/conveyor(A,cdir,0,id)
 	transfer_fingerprints_to(C)
 	qdel(src)
 
@@ -325,9 +328,9 @@
 	w_class = 4
 	var/id = "" //inherited by the switch
 
-/obj/item/conveyor_switch_construct/New()
+/obj/item/conveyor_switch_construct/Initialize()
 	..()
-	id = rand() //this couldn't possibly go wrong
+	id = "\ref[src]"
 
 /obj/item/conveyor_switch_construct/afterattack(atom/A, mob/user, proximity)
 	if(!proximity || !istype(A, /turf/simulated/floor) || istype(A, /area/shuttle) || user.incapacitated())

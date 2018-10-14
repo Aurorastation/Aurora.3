@@ -91,6 +91,10 @@
 	recipes += new/datum/stack_recipe("modular laptop frame", /obj/item/modular_computer/laptop, 10, time = 25)
 	recipes += new/datum/stack_recipe("modular tablet frame", /obj/item/modular_computer/tablet, 5, time = 25)
 	recipes += new/datum/stack_recipe("shield fittings", /obj/item/weapon/material/shieldbits, 10, time = 25)
+	recipes += new/datum/stack_recipe_list("mining hoppers", list( \
+		new/datum/stack_recipe("input hopper", /obj/machinery/hopper/input, 5, time = 25, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("output hopper", /obj/machinery/hopper/output, 5, time = 25, one_per_turf = 1, on_floor = 1)
+		))
 
 /material/plasteel/generate_recipes()
 	..()
@@ -113,7 +117,10 @@
 	recipes += new/datum/stack_recipe("reagent dispenser cartridge (small)", /obj/item/weapon/reagent_containers/chem_disp_cartridge/small,  1, on_floor=0) // 100u
 	recipes += new/datum/stack_recipe("white floor tile", /obj/item/stack/tile/floor_white, 1, 4, 20)
 	recipes += new/datum/stack_recipe("freezer floor tile", /obj/item/stack/tile/floor_freezer, 1, 4, 20)
-
+	recipes += new/datum/stack_recipe_list("conveyor parts", list( \
+		new/datum/stack_recipe("conveyor belt construct", /obj/item/conveyor_construct, 4, 4, time = 5), \
+		new/datum/stack_recipe("conveyor switch construct", /obj/item/conveyor_switch_construct, 1, time = 10)
+		))
 /material/wood/generate_recipes()
 	..()
 	recipes += new/datum/stack_recipe("wooden sandals", /obj/item/clothing/shoes/sandal, 1)

@@ -1,49 +1,52 @@
 /**********************Mineral stacking unit console**************************/
 
-/obj/machinery/mineral/stacking_unit_console
+/obj/machinery/mineralconsole/stacking_unit
 	name = "stacking machine console"
 	icon = 'icons/obj/machines/mining_machines.dmi'
 	icon_state = "console"
 	density = 0
 	anchored = 1
-	var/obj/machinery/mineral/stacking_machine/machine = null
 	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
+	component_types = list(
+		/obj/item/weapon/circuitboard/stackerconsole
+		)
 
-/obj/machinery/mineral/stacking_unit_console/proc/setup_machine(mob/user)
+/obj/machinery/mineralconsole/stacking_unit/proc/setup_machine(mob/user)
 	if(!machine)
-		var/area/A = get_area(src)
-		for(var/obj/machinery/mineral/stacking_machine/checked_machine in SSmachinery.all_machines)
-			if(A == get_area(checked_machine))
-				machine = checked_machine
-				break
-		if (machine)
-			machine.console = src
+		var/obj/machinery/mineral/M
+		for(var/obj/machinery/mineral/stacking_unit/checked_machine in orange(src))
+			if(!M || get_dist_euclidian(src, checked_machine) < get_dist_euclidian(src, M))
+				M = checked_machine
+		if (M)
+			LinkTo(M)
 		else
 			user << "<span class='warning'>ERROR: Linked machine not found!</span>"
 
 	return machine
 
-/obj/machinery/mineral/stacking_unit_console/attack_hand(mob/user)
+/obj/machinery/mineralconsole/stacking_unit/attack_hand(mob/user)
 	add_fingerprint(user)
 	ui_interact(user)
 
-/obj/machinery/mineral/stacking_unit_console/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/topic_state/state = default_state)
+/obj/machinery/mineralconsole/stacking_unit/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/topic_state/state = default_state)
 
 	if(!setup_machine(user))
 		return
 
+	var/obj/machinery/mineral/stacking_machine/S = machine
+
 	var/list/data = list(
-		"stack_amt" = machine.stack_amt,
+		"stack_amt" = S.stack_amt,
 		"contents" = list()
 	)
-	for (var/stacktype in machine.stack_storage)
-		if (machine.stack_storage[stacktype] > 0)
+	for (var/stacktype in S.stack_storage)
+		if (S.stack_storage[stacktype] > 0)
 			data["contents"] += list(list(
 				"path" = stacktype,
-				"name" = machine.stack_paths[stacktype],
-				"amount" = machine.stack_storage[stacktype]
+				"name" = S.stack_paths[stacktype],
+				"amount" = S.stack_storage[stacktype]
 			))
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
@@ -53,26 +56,28 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/machinery/mineral/stacking_unit_console/Topic(href, href_list)
+/obj/machinery/mineralconsole/stacking_unit/Topic(href, href_list)
 	if(..())
 		return
+
+	var/obj/machinery/mineral/stacking_machine/SM = machine
 
 	if(href_list["change_stack"])
 		var/choice = input("What would you like to set the stack amount to?") as null|anything in list(1,5,10,20,50)
 		if(!choice)
 			return TRUE
-		machine.stack_amt = choice
+		SM.stack_amt = choice
 		return TRUE
 
 	if(href_list["release_stack"])
 		var/stacktype = text2path(href_list["release_stack"])
-		if (!stacktype || !machine.stack_paths[stacktype])
+		if (!stacktype || !SM.stack_paths[stacktype])
 			return
 
-		if(machine.stack_storage[stacktype] > 0)
-			var/obj/item/stack/material/S = new stacktype(get_turf(machine.output))
-			S.amount = machine.stack_storage[stacktype]
-			machine.stack_storage[stacktype] = 0
+		if(SM.stack_storage[stacktype] > 0)
+			var/obj/item/stack/material/S = new stacktype(get_turf(SM.output))
+			S.amount = SM.stack_storage[stacktype]
+			SM.stack_storage[stacktype] = 0
 			return TRUE
 
 	add_fingerprint(usr)
@@ -86,15 +91,15 @@
 	icon_state = "stacker"
 	density = 1
 	anchored = 1.0
-	var/obj/machinery/mineral/stacking_unit_console/console
-	var/obj/machinery/mineral/input = null
-	var/obj/machinery/mineral/output = null
 	var/list/stack_storage = list()
 	var/list/stack_paths = list()
 	var/stack_amt = 50; // Amount to stack before releassing
 	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
+	component_types = list(
+		/obj/item/weapon/circuitboard/stacker
+		)
 
 /obj/machinery/mineral/stacking_machine/Initialize()
 	. = ..()
@@ -104,15 +109,7 @@
 		stack_storage[stacktype] = 0
 		stack_paths[stacktype] = capitalize(initial(S.name))
 
-	for (var/dir in cardinal)
-		input = locate(/obj/machinery/mineral/input, get_step(src, dir))
-		if(input)
-			break
-
-	for (var/dir in cardinal)
-		output = locate(/obj/machinery/mineral/output, get_step(src, dir))
-		if(output)
-			break
+	FindInOut()
 
 /obj/machinery/mineral/stacking_machine/machinery_process()
 	..()
@@ -135,3 +132,9 @@
 		if(stack_storage[sheet] >= stack_amt)
 			new sheet(get_turf(output), stack_amt)
 			stack_storage[sheet] -= stack_amt
+
+/obj/machinery/mineral/stacking_machine/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(default_deconstruction_screwdriver(user, W))
+		return
+	else if(default_deconstruction_crowbar(user, W))
+		return

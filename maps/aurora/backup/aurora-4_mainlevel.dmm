@@ -57305,7 +57305,7 @@
 	icon_state = "loadingarea";
 	dir = 8
 	},
-/obj/machinery/mineralconsole/stacking_unit{
+/obj/machinery/mineral/stacking_unit_console{
 	pixel_y = 32
 	},
 /obj/machinery/light{
@@ -57530,7 +57530,7 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "cex" = (
-/obj/machinery/rigpress,
+/obj/machinery/mineral/rigpress,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cey" = (
@@ -57538,7 +57538,7 @@
 	dir = 1;
 	id = "mining_internal"
 	},
-/obj/machinery/hopper/output,
+/obj/machinery/mineral/output,
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps,
 /turf/simulated/floor/plating,
@@ -57872,7 +57872,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/machinery/mining_equipment_vendor,
+/obj/machinery/mineral/equipment_vendor,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cfk" = (
@@ -57992,7 +57992,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cfy" = (
-/obj/machinery/hopper/input,
+/obj/machinery/mineral/input,
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "mining_internal"
@@ -59568,7 +59568,7 @@
 	id = "mining_internal"
 	},
 /obj/structure/plasticflaps,
-/obj/machinery/hopper/output,
+/obj/machinery/mineral/output,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
@@ -59577,7 +59577,7 @@
 	dir = 8;
 	id = "mining_internal"
 	},
-/obj/machinery/hopper/input,
+/obj/machinery/mineral/input,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "cjh" = (
@@ -59585,7 +59585,7 @@
 	dir = 8;
 	id = "mining_internal"
 	},
-/obj/machinery/hopper/output,
+/obj/machinery/mineral/output,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "cjl" = (
@@ -59711,13 +59711,13 @@
 	icon_state = "corner_white";
 	dir = 1
 	},
-/obj/machinery/mineralconsole/processing_unit{
+/obj/machinery/mineral/processing_unit_console{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cjP" = (
-/obj/machinery/hopper/input,
+/obj/machinery/mineral/input,
 /obj/effect/floor_decal/industrial/loading{
 	icon_state = "loadingarea";
 	dir = 1

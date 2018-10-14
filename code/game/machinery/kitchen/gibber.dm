@@ -17,7 +17,7 @@
 	use_power = 1
 	idle_power_usage = 2
 	active_power_usage = 500
-
+/*
 //auto-gibs anything that bumps into it
 /obj/machinery/gibber/autogibber
 	var/turf/input_plate
@@ -47,7 +47,7 @@
 		)
 			M.forceMove(src)
 			M.gib()
-
+*/
 
 /obj/machinery/gibber/Initialize()
 	. = ..()
