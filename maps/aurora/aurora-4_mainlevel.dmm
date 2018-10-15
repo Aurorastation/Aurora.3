@@ -7650,6 +7650,8 @@
 	req_access = list(47);
 	req_one_access = null
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/rnd/misc_lab)
 "aoQ" = (
@@ -37090,8 +37092,11 @@
 	name = "\improper Medical - Exam Room 1"
 	})
 "bmt" = (
-/obj/effect/landmark/start{
-	name = "Bartender"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
@@ -37117,23 +37122,37 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bmx" = (
-/obj/machinery/hologram/holopad,
+/obj/effect/landmark/start{
+	name = "Bartender"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bmy" = (
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
+/obj/machinery/hologram/holopad,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bmz" = (
 /obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock/glass{
-	name = "Bar";
-	req_access = list(25)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
@@ -37146,6 +37165,12 @@
 	dir = 1;
 	name = "Bar";
 	sortType = "Bar"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
@@ -37865,12 +37890,20 @@
 /turf/simulated/floor/tiled,
 /area/medical/reception)
 "bnF" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 8
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/wood,
+/obj/machinery/door/airlock/glass{
+	name = "Bar";
+	req_access = list(25)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bnG" = (
 /obj/structure/table/standard,
@@ -38170,9 +38203,11 @@
 "bob" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
-	dir = 10
+	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "boc" = (
@@ -38748,19 +38783,14 @@
 /turf/simulated/floor/tiled,
 /area/medical/reception)
 "boW" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 10
+	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/carpet,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "boX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -46097,10 +46127,12 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
@@ -46109,11 +46141,17 @@
 	icon_state = "corner_white";
 	dir = 10
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
 "bBw" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -46784,7 +46822,7 @@
 	name = "Engineering External Access";
 	req_access = list(13)
 	},
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "bCE" = (
 /obj/structure/table/stone/marble,
@@ -50494,6 +50532,26 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
+"bJk" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/carpet,
+/area/crew_quarters/bar)
+"bJl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/simulated/floor/lino,
+/area/crew_quarters/bar)
 "bJm" = (
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Aft Corridor - Camera 1";
@@ -50611,6 +50669,7 @@
 	name = "Mail Sorting";
 	req_access = list(50)
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
 "bJx" = (
@@ -50695,6 +50754,15 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/quartermaster/break_room)
+"bJD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/turf/simulated/floor/lino,
+/area/crew_quarters/bar)
 "bJE" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
@@ -50703,6 +50771,18 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
+"bJG" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/lino,
+/area/crew_quarters/bar)
+"bJH" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/lino,
+/area/crew_quarters/bar)
 "bJI" = (
 /obj/machinery/computer/guestpass{
 	pixel_x = -32
@@ -94119,7 +94199,7 @@ bfw
 biB
 bjG
 bkB
-bUB
+bmt
 bmJ
 bUE
 bWj
@@ -94376,8 +94456,8 @@ bfw
 biB
 bjH
 bkC
-bUB
-bUB
+bJl
+bJG
 gtC
 bWj
 bVa
@@ -94633,7 +94713,7 @@ bfw
 biC
 bUz
 bkE
-bUB
+bmt
 bUB
 gtD
 bWj
@@ -94890,7 +94970,7 @@ bfw
 biB
 bUz
 bkO
-bUB
+bmt
 bUB
 bVQ
 bWj
@@ -95147,7 +95227,7 @@ bfw
 biB
 bjI
 bUB
-bmt
+bmx
 bUB
 gtE
 bWj
@@ -95404,7 +95484,7 @@ bfw
 biB
 bjN
 bUB
-bmx
+bmy
 bUB
 gtF
 bWj
@@ -95661,7 +95741,7 @@ bio
 biD
 bjT
 bUB
-bUB
+bmt
 bUB
 bUE
 bWj
@@ -95918,7 +95998,7 @@ bip
 biF
 bUz
 bkQ
-bUB
+bmt
 bUB
 bUE
 bWj
@@ -96175,8 +96255,8 @@ biq
 biJ
 bjG
 bkT
-bUB
-bUB
+bJD
+bJH
 gtG
 gtL
 chS
@@ -96432,7 +96512,7 @@ bfw
 bhh
 bjH
 bkX
-bmy
+bmz
 bUB
 gtB
 boR
@@ -96689,7 +96769,7 @@ bfw
 bhh
 bUz
 bnB
-bmz
+bnF
 bnB
 bUz
 boS
@@ -96947,9 +97027,9 @@ bjs
 bkd
 bld
 bmA
-bnF
 bob
 boW
+bJk
 bpq
 bqc
 bqx
