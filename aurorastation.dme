@@ -2357,6 +2357,7 @@
 #include "code\modules\vehicles\pussywagon.dm"
 #include "code\modules\vehicles\train.dm"
 #include "code\modules\vehicles\vehicle.dm"
+#include "code\modules\vehicles\wheelchair.dm"
 #include "code\modules\ventcrawl\ventcrawl.dm"
 #include "code\modules\ventcrawl\ventcrawl_atmospherics.dm"
 #include "code\modules\ventcrawl\ventcrawl_verb.dm"

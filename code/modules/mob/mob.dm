@@ -884,7 +884,7 @@
 	if(buckled && buckled.buckle_movable)
 		buckled.set_dir(ndir)
 	if (client)//Fixing a ton of runtime errors that came from checking client vars on an NPC
-		client.move_delay += movement_delay()
+		client.move_delay += movement_delay() //What does this do?
 	return 1
 
 
