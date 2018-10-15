@@ -12,10 +12,10 @@
 
 /obj/item/weapon/computer_hardware/battery_module/advanced
 	name = "advanced battery"
-	desc = "An advanced power cell, often used in most laptops. It is too large to be fitted into smaller devices. It's rating is 1200."
+	desc = "An advanced power cell, often used in most laptops. It is too large to be fitted into smaller devices. It's rating is 1100."
 	icon_state = "battery_advanced"
 	origin_tech = list(TECH_POWER = 2, TECH_ENGINEERING = 2)
-	battery_rating = 1200
+	battery_rating = 1100
 
 /obj/item/weapon/computer_hardware/battery_module/super
 	name = "super battery"
