@@ -188,7 +188,7 @@
 
 /obj/item/clothing/gloves/force/syndicate  //for syndies.  pda, *maybe* nuke team or ert.  up to you.  maybe just use the amp 2 variant.
 	name = "enhanced force gloves"
-	amplification = 2.5 //because *2.5 is kind of scary okay.  sometimes you want the scary effect.  sometimes not.
+	amplification = 1.5 // Nerfed, used to be 2.5. Sorry, duck, your legacy of terror ends.
 
 
 /obj/item/clothing/gloves/brassknuckles

@@ -91,7 +91,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	var/power = force
 	if(HULK in user.mutations)
 		power *= 2
-	if(istype(user, /mob/living/carbon/human))
+	if(istype(user, /mob/living/carbon/human)) 
 		var/mob/living/carbon/human/X = user
 		if(X.gloves && istype(X.gloves,/obj/item/clothing/gloves/force))
 			var/obj/item/clothing/gloves/force/G = X.gloves
