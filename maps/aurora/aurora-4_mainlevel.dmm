@@ -35463,7 +35463,6 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
@@ -50789,6 +50788,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
+"bJJ" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/crew_quarters/bar)
 "bJK" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -96510,7 +96522,7 @@ bhi
 bPI
 bfw
 bhh
-bjH
+bJJ
 bkX
 bmz
 bUB
