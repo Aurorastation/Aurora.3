@@ -21,9 +21,6 @@
 	var/icon_state_closed = null
 	var/icon_state_closing = null
 	var/damage = BLAST_DOOR_CRUSH_DAMAGE
-
-	layer = 3.3
-	open_layer = 3.3
 	closed_layer = 3.4 // Above airlocks when closed
 	var/id = 1.0
 	dir = 1
@@ -88,6 +85,8 @@
 // Parameters: None
 // Description: Closes the door. No checks are done inside this proc.
 /obj/machinery/door/blast/proc/force_close()
+	if(density)
+		return 0
 	src.operating = 1
 	src.layer = closed_layer
 	flick(icon_state_closing, src)
