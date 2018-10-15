@@ -14,6 +14,7 @@
 	ideal_character_age = 30
 	create_record = 0
 	account_allowed = 0
+	alt_titles = list("Trader", "Materials Seller", "Arms Dealer", "Retail Food Delivery")
 
 	access = list(access_merchant)
 	minimal_access = list(access_merchant)

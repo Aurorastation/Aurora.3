@@ -199,6 +199,7 @@
 	selection_color = "#dddddd"
 	access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_medical)
 	minimal_access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_medical)
+	alt_titles = list("Custodial Technician")
 
 	bag_type = /obj/item/weapon/storage/backpack
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_norm
@@ -255,7 +256,7 @@
 	selection_color = "#dddddd"
 	access = list(access_library, access_maint_tunnels)
 	minimal_access = list(access_library)
-
+	alt_titles = list("Curator", "Archivist")
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
@@ -284,7 +285,7 @@
 	economic_modifier = 7
 	access = list(access_lawyer, access_sec_doors, access_maint_tunnels, access_heads)
 	minimal_access = list(access_lawyer, access_sec_doors, access_heads)
-
+	alt_titles = list("Human Resources Representative", "Corporate Lawyer")
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
