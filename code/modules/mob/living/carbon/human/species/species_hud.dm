@@ -55,6 +55,7 @@
 	equip_slots |= slot_legcuffed
 
 /datum/hud_data/diona
+	has_hydration = 0
 	has_internals = 0
 	gear = list(
 		"i_clothing" =   list("loc" = ui_iclothing, "name" = "Uniform",      "slot" = slot_w_uniform, "state" = "center", "toggle" = 1),

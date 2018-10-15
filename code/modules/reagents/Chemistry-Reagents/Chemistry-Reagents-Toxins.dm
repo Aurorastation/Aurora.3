@@ -73,6 +73,13 @@
 /datum/reagent/toxin/phoron/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
+
+		var/obj/item/organ/parasite/PA = H.internal_organs_by_name["blackkois"]
+		if((istype(PA) && PA.stage >= 3))
+			H.heal_organ_damage(2 * removed, 2 * removed)
+			H.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
+			H.adjustToxLoss(-2 * removed)
+
 		if(alien == IS_VAURCA && H.species.has_organ["filtration bit"])
 			metabolism = REM * 20 //vaurcae metabolise phoron faster than other species - good for them if their filter isn't broken.
 			var/obj/item/organ/vaurca/filtrationbit/F = H.internal_organs_by_name["filtration bit"]
@@ -88,6 +95,7 @@
 					return
 				else
 					P.air_contents.adjust_gas("phoron", (0.5*removed))
+
 		else
 			..()
 	else
@@ -98,8 +106,12 @@
 		L.adjust_fire_stacks(amount / 5)
 
 /datum/reagent/toxin/phoron/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VAURCA)
-		return
+	if(istype(M, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = M
+		var/obj/item/organ/parasite/P = H.internal_organs_by_name["blackkois"]
+		if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
+			return
+
 	M.take_organ_damage(0, removed * 0.1) //being splashed directly with phoron causes minor chemical burns
 	if(prob(50))
 		M.pl_effects()
@@ -129,8 +141,12 @@
 	conflicting_reagent = /datum/reagent/toxin/phoron
 	strength = 1
 
-/datum/reagent/toxin/cardox/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VAURCA)
+/datum/reagent/toxin/cardox/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+	if(!istype(M))
+		return
+
+	var/obj/item/organ/parasite/P = M.internal_organs_by_name["blackkois"]
+	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 		M.adjustToxLoss(removed * strength*2)
 	else
 		M.adjustToxLoss(removed * strength)

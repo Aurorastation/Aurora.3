@@ -11,12 +11,16 @@
 	unaffected_species = IS_MACHINE
 	var/kois_type = 1
 
-/datum/reagent/kois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VAURCA)
+/datum/reagent/kois/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
+	if(!istype(M))
+		return
+	var/obj/item/organ/parasite/P = M.internal_organs_by_name["blackkois"]
+	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 		M.heal_organ_damage(1.2 * removed, 1.2 * removed)
 		M.adjustToxLoss(-1.2 * removed)
 		M.adjustNutritionLoss(-nutriment_factor * removed)
 		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
+
 	else
 		M.adjustToxLoss(1 * removed)
 		if(istype(M,/mob/living/carbon/human))
@@ -104,8 +108,11 @@
 		return
 	affect_ingest(M, alien, removed)
 
-/datum/reagent/nutriment/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VAURCA)
+/datum/reagent/nutriment/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
+	if(!istype(M))
+		return
+	var/obj/item/organ/parasite/P = M.internal_organs_by_name["blackkois"]
+	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 		M.adjustToxLoss(1.5 * removed)
 	else if(alien != IS_UNATHI)
 		digest(M,removed)
@@ -701,6 +708,7 @@
 	var/caffeine = 0 // strength of stimulant effect, since so many drinks use it
 	var/datum/modifier/modifier = null
 	unaffected_species = IS_MACHINE
+	var/blood_to_ingest_scale = 2
 
 /datum/reagent/drink/Destroy()
 	if (modifier)
@@ -708,8 +716,8 @@
 	return ..()
 
 /datum/reagent/drink/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.adjustToxLoss(removed) // Probably not a good idea; not very deadly though
-	digest(M,alien,removed * 2, FALSE)
+	M.adjustToxLoss(removed * blood_to_ingest_scale) // Probably not a good idea; not very deadly though
+	digest(M,alien,removed * blood_to_ingest_scale, FALSE)
 
 /datum/reagent/drink/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	digest(M,alien,removed)
@@ -1404,6 +1412,8 @@
 	glass_desc = "A healthy mixture of juices, guaranteed to keep you healthy until the next toolboxing takes place."
 	glass_center_of_mass = list("x"=16, "y"=8)
 
+	blood_to_ingest_scale = 1
+
 /datum/reagent/drink/doctor_delight/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien != IS_DIONA)
@@ -1420,6 +1430,7 @@
 	description = "Space age food, since August 25, 1958. Contains dried noodles, vegetables, and chemicals that boil in contact with water."
 	reagent_state = SOLID
 	nutrition = 1
+	hydration = 0
 	color = "#302000"
 	taste_description = "dry and cheap noodles"
 
@@ -1430,6 +1441,8 @@
 	reagent_state = LIQUID
 	color = "#302000"
 	nutrition = 5
+	hydration = 5
+	adj_temp = 5
 	taste_description = "wet and cheap noodles"
 
 /datum/reagent/drink/hell_ramen
@@ -1439,6 +1452,7 @@
 	reagent_state = LIQUID
 	color = "#302000"
 	nutrition = 5
+	hydration = 5
 	taste_description = "wet and cheap noodles on fire"
 	adj_temp = 20
 
@@ -1450,6 +1464,7 @@
 	color = "#619494"
 	taste_description = "ice"
 	taste_mult = 1.5
+	hydration = 8
 
 	glass_icon_state = "iceglass"
 	glass_name = "glass of ice"
@@ -2429,6 +2444,9 @@
 	glass_name = "glass of Neurotoxin"
 	glass_desc = "A drink that is guaranteed to knock you silly."
 	glass_center_of_mass = list("x"=16, "y"=8)
+
+	blood_to_ingest_scale = 1
+	metabolism = REM * 5
 
 /datum/reagent/alcohol/ethanol/neurotoxin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
@@ -3699,8 +3717,12 @@
 	adj_sleepy = -3
 	taste_description = "viscous cola"
 
-/datum/reagent/drink/zorasoda/drone/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VAURCA)
+/datum/reagent/drink/zorasoda/drone/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
+	if(!istype(M))
+		return
+
+	var/obj/item/organ/parasite/P = M.internal_organs_by_name["blackkois"]
+	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 		M.add_chemical_effect(CE_SPEEDBOOST, 1)
 		M.add_chemical_effect(CE_BLOODRESTORE, 2 * removed)
 		M.make_jittery(5)

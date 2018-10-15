@@ -478,8 +478,9 @@ var/list/admin_verbs_cciaa = list(
 		var/mob/abstract/observer/ghost = mob
 		if(ghost.can_reenter_corpse)
 			ghost.reenter_corpse()
+			log_admin("[src] reentered their corpose using aghost.",admin_key=key_name(src))
 		else
-			ghost << "<font color='red'>Error:  Aghost:  Can't reenter corpse, mentors that use adminHUD while aghosting are not permitted to enter their corpse again</font>"
+			ghost << "<font color='red'>Error: Aghost: Can't reenter corpse.</font>"
 			return
 
 		feedback_add_details("admin_verb","P") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -496,7 +497,7 @@ var/list/admin_verbs_cciaa = list(
 			if(!body.key)
 				body.key = "@[key]"	//Haaaaaaaack. But the people have spoken. If it breaks; blame adminbus
 		feedback_add_details("admin_verb","O") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
+		log_admin("[src] aghosted.",admin_key=key_name(src))
 
 /client/proc/invisimin()
 	set name = "Invisimin"
@@ -660,6 +661,7 @@ var/list/admin_verbs_cciaa = list(
 
 	var/list/traumas = subtypesof(/datum/brain_trauma)
 	var/result = input(usr, "Choose the brain trauma to apply","Traumatize") as null|anything in traumas
+	if(!result) return
 	var/permanent = alert("Do you want to make the trauma unhealable?", "Permanently Traumatize", "Yes", "No")
 	if(permanent == "Yes")
 		permanent = TRUE
