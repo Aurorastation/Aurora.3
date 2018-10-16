@@ -627,6 +627,7 @@
 		/obj/item/weapon/storage/toolbox/lunchbox/syndicate = 2
 	)
 	restock_items = 1
+	random_itemcount = 0
 
 /obj/machinery/vending/sovietsoda
 	name = "BODA"
@@ -701,6 +702,7 @@
 		/obj/item/weapon/storage/belt/utility = 3
 	)
 	restock_items = 1
+	random_itemcount = 0
 
 /obj/machinery/vending/tacticool //Tried not to go overboard with the amount of fun security has access to.
 	name = "Tactical Express"
@@ -875,16 +877,16 @@
 	)
 	prices = list(
 		/obj/item/weapon/book/manual/battlemonsters = 12,
-		/obj/item/battle_monsters/wrapped = 150,
-		/obj/item/battle_monsters/wrapped/pro = 100,
-		/obj/item/battle_monsters/wrapped/species = 150,
-		/obj/item/battle_monsters/wrapped/species/lizard = 150,
-		/obj/item/battle_monsters/wrapped/species/cat = 150,
-		/obj/item/battle_monsters/wrapped/species/ant = 150,
+		/obj/item/battle_monsters/wrapped = 100,
+		/obj/item/battle_monsters/wrapped/pro = 75,
+		/obj/item/battle_monsters/wrapped/species = 100,
+		/obj/item/battle_monsters/wrapped/species/lizard = 125,
+		/obj/item/battle_monsters/wrapped/species/cat = 125,
+		/obj/item/battle_monsters/wrapped/species/ant = 125,
 		/obj/item/battle_monsters/wrapped/rare = 200
 	)
 	contraband = list(
-		/obj/item/battle_monsters/wrapped/legendary = 2
+		/obj/item/battle_monsters/wrapped/legendary = 4
 	)
 	premium = list(
 		/obj/item/weapon/coin/battlemonsters = 10

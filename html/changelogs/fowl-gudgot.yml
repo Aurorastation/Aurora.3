@@ -1,7 +1,0 @@
-author: Lord Fowl
-
-delete-after: True
-
-changes: 
-  - tweak: "Baton strikes directed to the head now disorientate instead of just causing 1.5x agony."
-  - tweak: "Most hats now cover the head and provide appropriate protections."
