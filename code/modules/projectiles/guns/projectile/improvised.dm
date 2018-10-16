@@ -217,7 +217,7 @@
 	max_shells = 16
 	caliber = ".45"
 	sel_mode = 1
-	accuracy = -3
+	accuracy = -1
 	fire_delay = 5
 	burst = 3
 	burst_delay = 3
