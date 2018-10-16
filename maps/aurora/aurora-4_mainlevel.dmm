@@ -1495,10 +1495,7 @@
 /obj/machinery/newscaster{
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/industrial/outline/yellow{
-	step_x = 0;
-	step_y = 0
-	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
 /obj/vehicle/segway,
 /obj/effect/floor_decal/corner/red{
@@ -1512,10 +1509,7 @@
 /area/security/brig)
 "acU" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/effect/floor_decal/industrial/outline/yellow{
-	step_x = 0;
-	step_y = 0
-	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
 /obj/vehicle/segway,
 /obj/effect/floor_decal/corner/red{
@@ -1634,10 +1628,7 @@
 	},
 /area/security/brig)
 "adf" = (
-/obj/effect/floor_decal/industrial/outline/yellow{
-	step_x = 0;
-	step_y = 0
-	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
 /obj/vehicle/segway,
 /obj/effect/decal/cleanable/liquid_fuel,
