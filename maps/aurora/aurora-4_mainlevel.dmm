@@ -36302,20 +36302,14 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "bld" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 9
-	},
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/crew_quarters/bar)
 "ble" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 5
-	},
 /obj/machinery/firealarm/east,
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/crew_quarters/bar)
 "blf" = (
 /obj/structure/table/glass,
@@ -37156,10 +37150,6 @@
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bmA" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 8
-	},
 /obj/structure/disposalpipe/sortjunction/flipped{
 	dir = 1;
 	name = "Bar";
@@ -37171,18 +37161,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/crew_quarters/bar)
 "bmB" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 4
-	},
 /obj/machinery/light{
 	icon_state = "tube1";
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/crew_quarters/bar)
 "bmC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -38200,14 +38188,11 @@
 /turf/simulated/wall,
 /area/crew_quarters/bar)
 "bob" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 8
-	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/crew_quarters/bar)
 "boc" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -38734,19 +38719,9 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "boS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atm{
-	pixel_y = 32
+/obj/effect/floor_decal/spline/plain{
+	dir = 9;
+	icon_state = "spline_plain"
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
@@ -38782,28 +38757,20 @@
 /turf/simulated/floor/tiled,
 /area/medical/reception)
 "boW" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 10
-	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/crew_quarters/bar)
 "boX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
+/obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/carpet,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/crew_quarters/bar)
 "boY" = (
 /obj/machinery/door/firedoor,
@@ -39010,16 +38977,22 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bpq" = (
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/carpet,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/crew_quarters/bar)
 "bpr" = (
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 25;
-	pixel_y = 0
-	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "bps" = (
 /obj/machinery/door/firedoor,
@@ -39477,17 +39450,21 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bqc" = (
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 25;
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/bar)
+"bqd" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/carpet,
-/area/crew_quarters/bar)
-"bqd" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/carpet,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/crew_quarters/bar)
 "bqe" = (
 /obj/effect/floor_decal/corner/lime,
@@ -39700,18 +39677,17 @@
 /turf/simulated/floor/tiled/ramp,
 /area/medical/medbay2)
 "bqx" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 9;
-	icon_state = "spline_plain"
+/obj/effect/landmark/start{
+	name = "Bartender"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "bqy" = (
 /obj/effect/floor_decal/spline/plain{
 	icon_state = "spline_plain";
 	dir = 1
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "bqz" = (
 /obj/structure/curtain/black,
@@ -40068,11 +40044,8 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "brj" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 8;
-	icon_state = "spline_plain"
-	},
-/turf/simulated/floor/wood,
+/obj/machinery/computer/arcade/battle,
+/turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "brk" = (
 /obj/effect/floor_decal/corner/lime{
@@ -40147,11 +40120,11 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "brr" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+/obj/effect/floor_decal/spline/plain{
+	dir = 8;
+	icon_state = "spline_plain"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "brs" = (
 /obj/machinery/ringer{
@@ -40183,7 +40156,7 @@
 "brv" = (
 /obj/structure/table/rack,
 /obj/random/arcade,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "brw" = (
 /obj/machinery/door/firedoor,
@@ -40288,7 +40261,7 @@
 /area/medical/medbay2)
 "brG" = (
 /obj/structure/curtain/black,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "brH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -40851,15 +40824,13 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bsz" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 10;
-	icon_state = "spline_plain"
-	},
-/turf/simulated/floor/wood,
+/obj/machinery/computer/arcade/battle,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "bsA" = (
-/obj/effect/floor_decal/spline/plain,
-/turf/simulated/floor/wood,
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "bsB" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -40998,11 +40969,11 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bsP" = (
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 1
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/turf/simulated/floor/carpet,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/crew_quarters/bar)
 "bsQ" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -41251,12 +41222,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
-"btg" = (
-/obj/effect/landmark/start{
-	name = "Bartender"
-	},
-/turf/simulated/floor/carpet,
-/area/crew_quarters/bar)
 "bth" = (
 /obj/structure/table/rack,
 /obj/random/loot,
@@ -41644,7 +41609,10 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "btL" = (
-/obj/machinery/computer/arcade/battle,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "btM" = (
@@ -41662,12 +41630,13 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "btN" = (
-/obj/machinery/computer/arcade/battle,
-/obj/machinery/light,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "btO" = (
-/obj/machinery/computer/arcade/orion_trail,
+/obj/effect/floor_decal/spline/plain{
+	dir = 10;
+	icon_state = "spline_plain"
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "btP" = (
@@ -50532,14 +50501,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
 "bJk" = (
-/obj/structure/disposalpipe/segment,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "bJl" = (
@@ -50871,6 +50833,9 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"bJR" = (
+/turf/simulated/floor/wood,
+/area/hallway/primary/aft)
 "bJS" = (
 /turf/simulated/open,
 /area/turbolift/research_station)
@@ -50888,6 +50853,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
+"bJW" = (
+/obj/machinery/computer/arcade/orion_trail,
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/bar)
 "bJX" = (
 /obj/machinery/gibber,
 /obj/machinery/firealarm/east,
@@ -52056,9 +52025,6 @@
 "bWm" = (
 /turf/simulated/wall,
 /area/quartermaster/lobby)
-"bWC" = (
-/turf/simulated/floor/carpet,
-/area/crew_quarters/bar)
 "bWF" = (
 /turf/simulated/floor/tiled/dark,
 /area/turbolift/cargo_station)
@@ -57056,17 +57022,6 @@
 	no_override = 1;
 	sort_tag = "Sorting Office"
 	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/aft)
-"cqV" = (
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "cqZ" = (
@@ -92429,7 +92384,7 @@ cqv
 cqA
 cqA
 cqO
-cqV
+bJR
 xIJ
 xIJ
 bJy
@@ -96527,19 +96482,19 @@ bkX
 bmz
 bUB
 gtB
-boR
-bpp
-bqb
-bZV
-bZV
-bZV
-bZV
-bZV
-bZV
-boc
-bWC
-bWC
-btL
+gtL
+bVa
+bWh
+bVa
+bVa
+bVa
+bVa
+bVa
+bVa
+bsM
+bpr
+bpr
+brj
 bUz
 kqA
 bSv
@@ -96784,19 +96739,19 @@ bnB
 bnF
 bnB
 bUz
-boS
-bWC
-bWC
-bWC
-bWC
-bWC
-bWC
-bWC
-bWC
-bWC
-bWC
-bWC
-btL
+boR
+bpp
+bqb
+bZV
+bZV
+bZV
+bZV
+bZV
+bZV
+boc
+bpr
+bpr
+brj
 bUz
 btZ
 bSv
@@ -97040,20 +96995,20 @@ bkd
 bld
 bmA
 bob
-boW
-bJk
-bpq
-bqc
+bob
+boX
+bld
+bqd
+boS
+brr
+brr
+brr
+brr
+brr
+btO
 bqx
-brj
-brj
-brj
-brj
+bpr
 bsz
-bsP
-btg
-bWC
-btN
 bUz
 bSx
 bSx
@@ -97296,21 +97251,21 @@ bfw
 bke
 ble
 bmB
-bZV
-boc
-boX
-bpr
-bqd
-bqy
-brl
-bVa
-bVa
-bVa
-bsA
+boW
+boW
+bpq
+bqc
 bsP
-bWC
-bWC
-btO
+bqy
+bsA
+btN
+btN
+btN
+btN
+bJk
+bpr
+bpr
+bJW
 bUz
 bSv
 bRz
@@ -97557,17 +97512,17 @@ bJu
 bJu
 bpc
 bJu
-bqd
+bsP
 bqy
-brr
-bVa
-bVa
-brr
+btL
+btN
+btN
+btL
+btN
 guz
-bWC
-bWC
-bWC
-bWC
+bpr
+bpr
+bpr
 btQ
 caE
 bQp
@@ -97814,7 +97769,7 @@ bnH
 bnH
 bpe
 bJu
-bqd
+bsP
 bUz
 bUz
 brG
@@ -98071,12 +98026,12 @@ blZ
 blZ
 bpg
 bJu
-bqd
+bsP
 bqz
-bVa
-bVa
-bVa
-bVa
+btN
+btN
+btN
+btN
 bUz
 gul
 bth
@@ -98328,7 +98283,7 @@ bnJ
 bJu
 bpj
 bJu
-bqd
+bsP
 bUz
 brv
 brv
