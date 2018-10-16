@@ -44,7 +44,7 @@
 	world.log << "## TESTING: [msg][log_end]"
 
 /proc/game_log(category, text)
-	WRITE_LOG(diary, "\ [game_id] [category]: [text][log_end]")
+	WRITE_LOG(diary, "[game_id] [category]: [text][log_end]")
 
 /proc/log_admin(text,level=SEVERITY_NOTICE,ckey="",admin_key="",ckey_target="")
 	admin_log.Add(text)
