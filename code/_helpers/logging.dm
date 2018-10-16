@@ -20,7 +20,7 @@
 /proc/log_startup()
 	var/static/already_logged = FALSE
 	if (!already_logged)
-		WRITE_LOG(diary, "[log_end]\n[log_end]\nStarting up. (ID: [game_id]) [time2text(world.timeofday, "hh:mm.ss")][log_end]\n---------------------[log_end]")
+		WRITE_LOG(diary, "[log_end]\n[log_end]\nStarting up. (ID: [game_id]) [log_end]\n---------------------[log_end]")
 		already_logged = TRUE
 	else
 		crash_with("log_startup() was called more then once")
@@ -44,7 +44,7 @@
 	world.log << "## TESTING: [msg][log_end]"
 
 /proc/game_log(category, text)
-	WRITE_LOG(diary, "\[[time_stamp()]] [game_id] [category]: [text][log_end]")
+	WRITE_LOG(diary, "\ [game_id] [category]: [text][log_end]")
 
 /proc/log_admin(text,level=SEVERITY_NOTICE,ckey="",admin_key="",ckey_target="")
 	admin_log.Add(text)
