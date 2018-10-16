@@ -467,6 +467,11 @@ STOCK_ITEM_COMMON(snacks, 4)
 		if (!isturf(L))
 			L = get_turf(pick(CS.tables))
 
+	if(prob(50))
+		new /obj/item/weapon/storage/box/snack(L)
+	else
+		new /obj/item/weapon/storage/box/produce(L)
+
 STOCK_ITEM_COMMON(oxytank, 2.5)
 	new /obj/item/weapon/tank/oxygen(L)
 	new /obj/item/weapon/tank/oxygen(L)
