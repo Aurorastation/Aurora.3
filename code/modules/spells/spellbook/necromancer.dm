@@ -23,6 +23,7 @@
 				/spell/targeted/life_steal =				    	1,
 				/spell/targeted/raise_dead =			     		2,
 				/spell/shadow_shroud = 					        	1,
+				/spell/targeted/mindcontrol =					    2,
 				/spell/noclothes = 					                1,
 				/obj/structure/closet/wizard/armor = 				1,
 				/obj/structure/closet/wizard/scrying = 				2,
