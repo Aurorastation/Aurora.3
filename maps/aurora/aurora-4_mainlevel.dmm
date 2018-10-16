@@ -2141,6 +2141,20 @@
 	req_access = list(63)
 	},
 /obj/structure/plasticflaps/airtight,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "aef" = (
@@ -100819,7 +100833,7 @@ aaV
 aaV
 aaV
 aaV
-ade
+aeJ
 ykp
 aeK
 air
