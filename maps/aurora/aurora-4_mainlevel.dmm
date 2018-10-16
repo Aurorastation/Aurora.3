@@ -181,9 +181,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "aav" = (
@@ -1075,6 +1072,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/cable/green,
+/obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/plating,
 /area/maintenance/substation/security)
 "acn" = (
@@ -1221,13 +1219,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/engineering{
-	name = "Security Substation";
-	req_one_access = list(11,24)
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/substation/security)
+/turf/simulated/wall,
+/area/security/brig)
 "acz" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
@@ -1481,32 +1474,68 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "acS" = (
-/obj/item/stack/tile/floor,
-/obj/item/weapon/autopsy_scanner,
-/obj/machinery/light_construct{
-	icon_state = "tube-construct-stage1";
+/obj/machinery/light{
 	dir = 8
+	},
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 5
 	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/security/brig)
 "acT" = (
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/tiled,
-/area/maintenance/security_starboard)
+/obj/machinery/newscaster{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/industrial/outline/yellow{
+	step_x = 0;
+	step_y = 0
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/vehicle/segway,
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/security/brig)
 "acU" = (
-/obj/item/weapon/wrench,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled,
-/area/maintenance/security_starboard)
+/obj/effect/floor_decal/industrial/outline/yellow{
+	step_x = 0;
+	step_y = 0
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/vehicle/segway,
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/security/brig)
 "acV" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Firefighting equipment";
@@ -1608,27 +1637,52 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/security_starboard)
 "ade" = (
-/obj/structure/morgue,
-/turf/simulated/floor/tiled,
-/area/maintenance/security_starboard)
-"adf" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
+/area/security/brig)
+"adf" = (
+/obj/effect/floor_decal/industrial/outline/yellow{
+	step_x = 0;
+	step_y = 0
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/vehicle/segway,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/security/brig)
 "adg" = (
-/obj/item/bodybag,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
-/area/maintenance/security_starboard)
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/security/brig)
 "adh" = (
-/obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/security/brig)
 "adi" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1761,21 +1815,23 @@
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "adA" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/security/brig)
 "adB" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/security/brig)
 "adC" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1935,22 +1991,18 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "adS" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Motor Pool";
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 6
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
 	},
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
 /area/security/brig)
 "adT" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -2076,48 +2128,74 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "aec" = (
-/obj/item/bodybag,
-/turf/simulated/floor/tiled,
-/area/maintenance/security_starboard)
-"aed" = (
-/obj/item/stack/tile/floor,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
-"aee" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
-"aef" = (
-/obj/item/stack/tile/floor,
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
-"aeg" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Security Maintenance";
-	req_access = list(1)
-	},
+/area/security/brig)
+"aed" = (
 /obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/structure/sign/directions/security{
+	desc = "A direction sign, pointing out which way the Security department motor pool is.";
+	dir = 4;
+	icon_state = "direction_sec";
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/security/brig)
+"aee" = (
+/obj/machinery/door/airlock/glass_security{
+	name = "Security Motor Pool";
+	req_access = list(63)
+	},
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/tiled,
+/area/security/brig)
+"aef" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
+/turf/simulated/wall,
+/area/security/brig)
+"aeg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/security/brig)
 "aeh" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -2369,42 +2447,6 @@
 /area/library)
 "aeH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/maintenance/security_starboard)
-"aeI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
-"aeJ" = (
-/obj/item/weapon/reagent_containers/food/snacks/donkpocket,
-/obj/effect/decal/cleanable/generic,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2418,10 +2460,12 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
-"aeK" = (
-/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/security/brig)
+"aeI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
@@ -2429,20 +2473,35 @@
 	dir = 8;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/tiled,
-/area/maintenance/security_starboard)
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/security/brig)
+"aeJ" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/security/brig)
+"aeK" = (
+/obj/structure/closet/secure_closet/security_cadet,
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/security/brig)
 "aeL" = (
-/obj/structure/morgue{
-	icon_state = "morgue1";
-	dir = 8
+/obj/structure/closet/secure_closet/security,
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
 	},
-/obj/machinery/light_construct{
-	icon_state = "tube-construct-stage1";
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/maintenance/security_starboard)
+/area/security/brig)
 "aeM" = (
 /obj/machinery/power/apc{
 	dir = 8;
@@ -2621,26 +2680,53 @@
 	},
 /area/security/investigations)
 "afg" = (
-/obj/random/toolbox,
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/security/brig)
 "afh" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 0
+	},
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/security/brig)
+"afi" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
-"afi" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/maintenance/security_starboard)
-"afj" = (
-/obj/structure/morgue{
-	icon_state = "morgue1";
-	dir = 8
+/obj/structure/table/standard,
+/obj/item/weapon/storage/toolbox/electrical,
+/obj/item/weapon/storage/toolbox/mechanical,
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
 	},
-/turf/simulated/floor/tiled,
-/area/maintenance/security_starboard)
+/area/security/brig)
+"afj" = (
+/obj/structure/table/standard,
+/obj/item/weapon/key/segwaykey,
+/obj/item/weapon/key/segwaykey,
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/security/brig)
 "afk" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
@@ -6697,6 +6783,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
+"anB" = (
+/obj/structure/table/standard,
+/obj/item/weapon/key/segwaykey,
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/red,
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/security/brig)
 "anC" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -54483,28 +54582,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
-"clD" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Security Maintenance";
-	req_access = list(63)
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/security/brig)
 "clL" = (
 /obj/machinery/door/airlock/security{
 	name = "Interrogation";
@@ -97651,7 +97728,7 @@ aaV
 aaV
 aaV
 aaV
-adS
+aed
 aey
 aja
 crc
@@ -97896,7 +97973,7 @@ aah
 aak
 aan
 aaq
-aav
+aah
 aad
 aaI
 aah
@@ -100479,9 +100556,9 @@ acl
 aaD
 aaV
 aaV
-clD
-afe
-afe
+aee
+air
+air
 afY
 afD
 afY
@@ -100731,14 +100808,14 @@ aaI
 abI
 abI
 abI
-abI
-aad
-aad
-aad
-aec
-aeH
-aah
-afe
+aaV
+aaV
+aaV
+aaV
+aeJ
+aeg
+aeK
+air
 afC
 afD
 afC
@@ -100990,12 +101067,12 @@ abX
 acm
 acy
 acS
+adg
+adg
 ade
-ade
-acl
-aeI
-afg
-afe
+aeg
+aeL
+air
 cgG
 afD
 afC
@@ -101245,14 +101322,14 @@ aaI
 abI
 abY
 acn
-abI
+aaV
 acT
-adf
 adA
-aed
-aeJ
-afh
-afe
+adA
+adA
+aeH
+afi
+air
 afC
 agw
 afC
@@ -101502,14 +101579,14 @@ aaI
 abI
 abZ
 aco
-abI
+aaV
 acU
-adg
 adB
-aee
-aeK
-afi
-afe
+adB
+aec
+aeI
+afj
+air
 afe
 afe
 afe
@@ -101759,14 +101836,14 @@ aaI
 abI
 abI
 acp
-abI
-aah
+aaV
+adf
 adh
-aah
-aef
-aeL
-afj
-aad
+adS
+afg
+afh
+anB
+aaV
 aah
 agx
 agU
@@ -102016,14 +102093,14 @@ abm
 abJ
 abJ
 acq
-aad
-aad
-aad
-aad
-aeg
-aad
-aad
-aad
+aaV
+aaV
+aaV
+aaV
+aef
+aaV
+aaV
+aaV
 afZ
 agy
 agy
