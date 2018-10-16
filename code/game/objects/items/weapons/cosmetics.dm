@@ -102,7 +102,7 @@
 
 /obj/item/weapon/razor/attack(mob/M, mob/user, var/target_zone)
 	if(!ishuman(M))
-		return
+		return ..()
 
 	var/mob/living/carbon/human/H = M
 	var/obj/item/organ/external/E = H.get_organ(target_zone)
@@ -180,6 +180,7 @@
 
 
 	else
-		return ..()
+		to_chat(user, "<span class='warning'>You need to target the mouth or head to shave \the [H]!</span>")
+		return
 
 
