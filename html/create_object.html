@@ -48,7 +48,7 @@
 		<br><br>
 		
 		<div id="selector_hs"> 
-			<select name="type" id="object_list" multiple size="20">
+			<select name="object_list" id="object_list" multiple size="20">
 			</select>
 		</div>
 		
@@ -75,9 +75,9 @@
 				newOpts += '<option value="' + from_list[i] + '">'
 					+ from_list[i] + '</option>';
 			}
-			object_list_container.innerHTML = '<select name="type" id="object_list" multiple size="20">' + 
+			object_list_container.innerHTML = '<select name="object_list" id="object_list" multiple size="20">' + 
 			newOpts + '</select>';
-			document.getElementById("number").value = object_list.options.length;
+			document.getElementById("number").value = from_list.length;
 		}
 		
 		function updateSearch()
