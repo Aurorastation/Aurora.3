@@ -17,6 +17,7 @@
 
 	access = list(access_merchant)
 	minimal_access = list(access_merchant)
+	alt_titles = list("Arms Dealer", "Trader", "Materials Shipper")
 
 	latejoin_at_spawnpoints = TRUE
 

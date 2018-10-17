@@ -110,7 +110,7 @@
 	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_detective, access_weapons)
 	minimal_access = list(access_security, access_sec_doors, access_morgue, access_maint_tunnels, access_detective, access_weapons)
 	minimal_player_age = 7
-
+	alt_titles = list("Sleuth")
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
