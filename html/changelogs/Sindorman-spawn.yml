@@ -35,5 +35,5 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - tweak: "Admins quick create object function how has more spefic pre-defined paths like device, gun, weapon/melee, storage, stack, reagent containers. This will help reduce freezes while looking for specific things."
-  - tweak: "Both regular and quick create object function now do not show list of paths righ away - making spawn not freeze two times, only one."
+  - tweak: "Both regular and quick create object function now do not show list of paths righ away - making spawn not freeze two times, only one. To see list of all objects just type obj in search."
   - tweak: "Optimized search inside of create object a bit, it is almost 2 times faster which still long enough. IE6-11 and EDGE suck with their JS engine, Chrome's Javascript does not make search freeze, thanks byond for using IE."
