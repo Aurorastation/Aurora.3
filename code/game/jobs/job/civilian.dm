@@ -131,7 +131,6 @@
 	selection_color = "#dddddd"
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 	minimal_access = list(access_maint_tunnels, access_cargo, access_cargo_bot, access_mailsorting)
-	alt_titles = list("Deliveryman", "Deliverywoman")
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
@@ -224,7 +223,7 @@
 	selection_color = "#dddddd"
 	access = list(access_journalist, access_maint_tunnels)
 	minimal_access = list(access_journalist, access_maint_tunnels)
-	alt_titles = list("Freelance Journalist", "News Publisher")
+	alt_titles = list("Freelance Journalist", "Newscaster Maintainer")
 	title_accesses = list("Corporate Reporter" = list(access_medical, access_sec_doors, access_research, access_engine))
 
 /datum/job/journalist/equip(var/mob/living/carbon/human/H, var/alt_title)
