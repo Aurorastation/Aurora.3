@@ -251,7 +251,7 @@
 	selection_color = "#dddddd"
 	access = list(access_library, access_maint_tunnels)
 	minimal_access = list(access_library)
-	alt_titles = list("Curator", "Archivist")
+	alt_titles = list("Curator")
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
