@@ -54,21 +54,6 @@
 		var objects = object_paths == null ? new Array() : object_paths.split(";");
 		
 		document.spawner.filter.focus();
-		populateList(objects);
-		
-		function populateList(from_list)
-		{
-			object_list.options.length = 0;
-			
-			var i;
-			for (i in from_list)
-			{
-				var new_option = document.createElement("option");
-				new_option.value = from_list[i];
-				new_option.text = from_list[i];
-				object_list.options.add(new_option);
-			}
-		}
 		
 		function updateSearch()
 		{
@@ -78,9 +63,8 @@
 			}
 			
 			old_search = document.spawner.filter.value;
+			object_list.options.length = 0;
 			
-			
-			var filtered = new Array();
 			var i;
 			for (i in objects)
 			{
@@ -89,10 +73,11 @@
 					continue;
 				}
 				
-				filtered.push(objects[i]);
+				var new_option = document.createElement("option");
+				new_option.value = objects[i];
+				new_option.text = objects[i];
+				object_list.options.add(new_option);
 			}
-			
-			populateList(filtered);
 		}
 		
 		function submitFirst(event)

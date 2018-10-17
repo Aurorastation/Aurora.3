@@ -15,7 +15,7 @@
 	var/quick_create_object_html = null
 	var/pathtext = null
 
-	var/list/paths = list(
+	var/static/list/paths = list(
 	"/obj", "/obj/structure", "/obj/item", "/obj/item/device", "/obj/item/stack", "/obj/item/weapon",
 	"/obj/item/weapon/gun","/obj/item/weapon/melee", "/obj/item/weapon/storage", "/obj/item/weapon/reagent_containers",
 	"/obj/item/clothing","/obj/machinery","/obj/mecha"
