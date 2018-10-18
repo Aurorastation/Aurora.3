@@ -240,7 +240,6 @@ proc/get_radio_key_from_channel(var/channel)
 			message_range = 3
 			sound_vol *= 0.5 //muffle speech
 			italics = 1
-			visible_message("<span class='notice'>[src] says something very quietly.</span>")
 
 
 	//speaking into radios
