@@ -333,8 +333,13 @@
 		job.equip(H)
 		job.apply_fingerprints(H)
 
-		// Randomize nutrition. Defines are in __defines/mobs.dm
-		H.nutrition = (rand(CREW_MINIMUM_NUTRITION, CREW_MAXIMUM_NUTRITION) * 0.01) * H.max_nutrition
+		// Randomize nutrition and hydration. Defines are in __defines/mobs.dm
+		
+		if(H.max_nutrition > 0)
+			H.nutrition = (rand(CREW_MINIMUM_NUTRITION, CREW_MAXIMUM_NUTRITION) * 0.01) * H.max_nutrition
+
+		if(H.max_hydration > 0)
+			H.hydration = (rand(CREW_MINIMUM_HYDRATION, CREW_MAXIMUM_HYDRATION) * 0.01) * H.max_hydration
 
 		if (!megavend)
 			spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
@@ -347,6 +352,7 @@
 		var/obj/S = get_roundstart_spawnpoint(rank)
 		if(istype(S, /obj/effect/landmark/start) && istype(S.loc, /turf))
 			H.forceMove(S.loc)
+			H.lastarea = get_area(H.loc)
 		else
 			LateSpawn(H, rank)
 

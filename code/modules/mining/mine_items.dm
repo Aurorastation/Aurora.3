@@ -1316,7 +1316,8 @@ var/list/total_extraction_beacons = list()
 		icon_state = "fitnessweight"
 		cut_overlay(W)
 		user << "[finishmessage]"
-		user.nutrition = user.nutrition - 10
+		user.adjustNutritionLoss(5)
+		user.adjustHydrationLoss(5)
 
 /******************************Seismic Charge*******************************/
 

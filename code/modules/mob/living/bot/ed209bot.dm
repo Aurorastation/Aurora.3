@@ -266,6 +266,9 @@
 	qdel(src)
 
 /mob/living/bot/secbot/ed209/RangedAttack(var/atom/A)
+	if(!(target in view(7, src)))
+		walk_to(src, target, 6, move_to_delay)
+		return
 	if(last_shot + shot_delay > world.time)
 		src << "You are not ready to fire yet!"
 		return
