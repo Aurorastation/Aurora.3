@@ -172,10 +172,18 @@
 	allowed_roles = list("Head of Security")
 
 /datum/gear/uniform/pants
-	display_name = "pants selection"
-	path = /obj/item/clothing/under/pants
+	display_name = "pants"
+	path = /obj/item/clothing/under/pants/white
 
 /datum/gear/uniform/pants/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/uniform/jeans
+	display_name = "informal jeans selection"
+	path = /obj/item/clothing/under/pants
+
+/datum/gear/uniform/jeans/New()
 	..()
 	var/pants = list()
 	pants["jeans"] = /obj/item/clothing/under/pants
@@ -183,7 +191,6 @@
 	pants["must hang jeans"] = /obj/item/clothing/under/pants/musthang
 	pants["black jeans"] = /obj/item/clothing/under/pants/jeansblack
 	pants["young folks jeans"] = /obj/item/clothing/under/pants/youngfolksjeans
-	pants["white pants"] = /obj/item/clothing/under/pants/white
 	pants["black pants"] = /obj/item/clothing/under/pants/black
 	pants["red pants"] = /obj/item/clothing/under/pants/red
 	pants["tan pants"] = /obj/item/clothing/under/pants/tan
