@@ -1088,18 +1088,18 @@
 	taste_description = "cold lightning"
 
 /datum/reagent/magustears/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-    M.heal_organ_damage(5 * removed)
-    M.adjustToxLoss(-5 * removed)
-    M.adjustOxyLoss(-20 * removed)
-    M.adjustBruteLoss(-5 * removed)
-    M.adjustBrainLoss(-3 * removed)
-    M.adjustCloneLoss(-5 * removed)
+	M.adjustToxLoss(-5 * removed)
+	M.adjustFireLoss(-5 * removed)
+	M.adjustBruteLoss(-5 * removed)
+	M.adjustOxyLoss(-20 * removed)
+	M.adjustBrainLoss(-3 * removed)
+	M.adjustCloneLoss(-5 * removed)
 
-    if (ishuman(M))
-        var/mob/living/carbon/human/H = M
-        if (prob(20))
-            H.cure_all_traumas()
+	if (ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if (prob(20))
+			H.cure_all_traumas()
 
-        for(var/obj/item/organ/I in H.internal_organs)
-            if((I.damage > 0) && (I.robotic != 2)) 
-                I.damage = max(I.damage - removed * 5)
+		for(var/obj/item/organ/I in H.internal_organs)
+			if((I.damage > 0) && (I.robotic != 2)) 
+				I.damage = max(I.damage - removed * 5)

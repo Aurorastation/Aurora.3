@@ -58,7 +58,7 @@
 	name = "Magus Tears"
 	seed_name = "Magus Tears"
 	display_name = "Magus Tears"
-	chems = list("magustears" = list(7,9))
+	chems = list("magustears" = list(5,7,9))
 	kitchen_tag = "berries"
 
 /datum/seed/magustear/setup_traits()
