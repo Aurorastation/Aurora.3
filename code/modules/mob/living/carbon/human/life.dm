@@ -202,6 +202,11 @@
 			spawn( 0 )
 				emote("cough")
 				return
+
+	if((disabilities & ASTHMA) && getOxyLoss() >= 10)
+		if(prob(5))
+			emote("cough")
+
 	if (disabilities & TOURETTES)
 		speech_problem_flag = 1
 		if ((prob(10) && paralysis <= 1))
@@ -549,7 +554,10 @@
 		failed_last_breath = 1
 	else
 		failed_last_breath = 0
-		adjustOxyLoss(-5)
+		if(disabilities & ASTHMA)
+			adjustOxyLoss(rand(-5,0))
+		else
+			adjustOxyLoss(-5)
 
 
 	// Hot air hurts :(
@@ -761,7 +769,7 @@
 
 	if(bodytemperature < species.cold_level_1) //260.15 is 310.15 - 50, the temperature where you start to feel effects.
 		if(nutrition >= 2) //If we are very, very cold we'll use up quite a bit of nutriment to heat us up.
-			nutrition -= 2
+			adjustNutritionLoss(2)
 		var/recovery_amt = max((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR), BODYTEMP_AUTORECOVERY_MINIMUM)
 		//world << "Cold. Difference = [body_temperature_difference]. Recovering [recovery_amt]"
 //				log_debug("Cold. Difference = [body_temperature_difference]. Recovering [recovery_amt]")
@@ -932,16 +940,30 @@
 			heal_overall_damage(5,5)
 
 	// nutrition decrease
-	if (nutrition > 0 && stat != 2)
-		nutrition = max(0, nutrition - (nutrition_loss * nutrition_attrition_rate))
+	if(max_nutrition > 0)
+		if (nutrition > 0 && stat != 2)
+			adjustNutritionLoss(nutrition_loss * nutrition_attrition_rate)
 
-	if (nutrition > max_nutrition)
-		if(overeatduration < 600) //capped so people don't take forever to unfat
-			overeatduration++
-	else
-		if(overeatduration > 1)
-			overeatduration -= 2 //doubled the unfat rate
+		if (nutrition / max_nutrition > CREW_NUTRITION_OVEREATEN)
+			adjustNutritionLoss(1)
+			if(overeatduration < 600) //capped so people don't take forever to unfat
+				overeatduration++
+		else
+			if(overeatduration > 1)
+				overeatduration -= 2 //doubled the unfat rate
 
+	// hydration decrease
+	if(max_hydration > 0)
+		if (hydration > 0 && stat != 2)
+			adjustHydrationLoss(hydration_loss * hydration_attrition_rate)
+
+		if (hydration / max_hydration > CREW_HYDRATION_OVERHYDRATED)
+			adjustHydrationLoss(1)
+			if(overdrinkduration < 600) //capped so people don't take forever to undrink
+				overdrinkduration++
+		else
+			if(overdrinkduration > 1)
+				overdrinkduration -= 2 //doubled the undrink rate
 
 	// TODO: stomach and bloodstream organ.
 	if(!isSynthetic())
@@ -1170,24 +1192,40 @@
 
 		update_health_display()
 
-		//Update hunger UI less often, its not important
-		if((life_tick % 3 == 0) && nutrition_icon)
-			var/nut_factor = max(1,nutrition) / max_nutrition
-			var/new_val = ""
-			switch(nut_factor)
-				if(1 to INFINITY)
-					new_val = "nutrition0"
-				if(0.75 to 1)
-					new_val = "nutrition1"
-				if(0.5 to 0.75)
-					new_val = "nutrition2"
-				if(0.25 to 0.5)
-					new_val = "nutrition3"
-				else
-					new_val = "nutrition4"
-
-			if (nutrition_icon.icon_state != new_val)
-				nutrition_icon.icon_state = new_val
+		//Update hunger and thirst UI less often, its not important
+		if((life_tick % 3 == 0))
+			if(nutrition_icon)
+				var/nut_factor = max(0,min(nutrition / max_nutrition,1))
+				var/nut_icon = 5 //5 to 0, with 5 being lowest, 0 being highest
+				if(nut_factor >= CREW_NUTRITION_OVEREATEN)
+					nut_icon = 0
+				else if (nut_factor >= CREW_NUTRITION_FULL)
+					nut_icon = 1
+				else if (nut_factor >= CREW_NUTRITION_SLIGHTLYHUNGRY)
+					nut_icon = 2
+				else if (nut_factor >= CREW_NUTRITION_HUNGRY)
+					nut_icon = 3
+				else if (nut_factor >= CREW_NUTRITION_VERYHUNGRY )
+					nut_icon = 4
+				var/new_val = "nutrition[nut_icon]"
+				if (nutrition_icon.icon_state != new_val)
+					nutrition_icon.icon_state = new_val
+			if(hydration_icon)
+				var/hyd_factor = max(0,min(hydration / max_hydration,1))
+				var/hyd_icon = 5
+				if(hyd_factor >= CREW_HYDRATION_OVERHYDRATED)
+					hyd_icon = 0
+				else if(hyd_factor >= CREW_HYDRATION_HYDRATED)
+					hyd_icon = 1
+				else if(hyd_factor >= CREW_HYDRATION_SLIGHTLYTHIRSTY)
+					hyd_icon = 2
+				else if(hyd_factor >= CREW_HYDRATION_THIRSTY)
+					hyd_icon = 3
+				else if(hyd_factor >= CREW_HYDRATION_VERYTHIRSTY)
+					hyd_icon = 4
+				var/new_val = "thirst[hyd_icon]"
+				if (hydration_icon.icon_state != new_val)
+					hydration_icon.icon_state = new_val
 
 		if(pressure)
 			var/new_pressure = "pressure[pressure_alert]"
@@ -1287,7 +1325,7 @@
 	//0.1% chance of playing a scary sound to someone who's in complete darkness
 	if(isturf(loc) && rand(1,1000) == 1)
 		var/turf/T = loc
-		if(T.dynamic_lighting && T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
+		if(T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
 			playsound_local(src,pick(scarySounds),50, 1, -1)
 
 /mob/living/carbon/human/proc/handle_changeling()
@@ -1627,7 +1665,8 @@
 	if (!exhaust_threshold) // Also quit if there's no exhaust threshold specified, because division by 0 is amazing.
 		return
 
-	if (failed_last_breath || oxyloss > exhaust_threshold)//Can't catch our breath if we're suffocating
+	if (failed_last_breath || (oxyloss + halloss) > exhaust_threshold)//Can't catch our breath if we're suffocating
+		flash_pain()
 		return
 
 	if (nutrition <= 0)
@@ -1635,13 +1674,19 @@
 			src << span("warning", "You feel hungry and exhausted, eat something to regain your energy!")
 		return
 
+	if (hydration <= 0)
+		if (prob(1.5))
+			src << span("warning", "You feel thirsty and exhausted, drink something to regain your energy!")
+		return
+
 	if (stamina != max_stamina)
 		//Any suffocation damage slows stamina regen.
 		//This includes oxyloss from low blood levels
-		var/regen = stamina_recovery * (1 - min(((oxyloss*2) / exhaust_threshold), 1))
+		var/regen = stamina_recovery * (1 - min(((oxyloss) / exhaust_threshold) + ((halloss) / exhaust_threshold), 1))
 		if (regen > 0)
 			stamina = min(max_stamina, stamina+regen)
-			nutrition = max(0, nutrition - stamina_recovery*0.18)
+			adjustNutritionLoss(stamina_recovery*0.09)
+			adjustHydrationLoss(stamina_recovery*0.18)
 			if (client)
 				hud_used.move_intent.update_move_icon(src)
 

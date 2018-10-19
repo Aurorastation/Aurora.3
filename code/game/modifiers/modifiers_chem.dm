@@ -83,3 +83,72 @@
 	if (isliving(target))
 		var/mob/living/L = target
 		L.set_light(0)
+
+//Doubleburn napalm modifier. Applied by Zo'rane Fire
+//Increases damage dealt by burn sources
+/datum/modifier/napalm
+	var/added_burn_mod
+	var/delta
+
+/datum/modifier/napalm/activate()
+	..()
+	delta = strength
+	if (isliving(target))
+		var/mob/living/L = target
+		added_burn_mod = L.burn_mod * delta - L.burn_mod
+		L.burn_mod += added_burn_mod
+
+/datum/modifier/napalm/deactivate()
+	..()
+	if (isliving(target))
+		var/mob/living/L = target
+		L.burn_mod -= added_burn_mod
+
+/datum/modifier/napalm/custom_validity()
+	if(istype(target, /mob/living))
+		var/mob/living/L = target
+		if(L.fire_stacks)
+			return 1
+	return 0
+
+//Berserk Modifier
+//Causes a hulk like effect
+
+/datum/modifier/berserk
+	var/last_shock_stage = 0
+
+/datum/modifier/berserk/activate()
+	..()
+	if(ishuman(target))
+		var/mob/living/carbon/human/H = target
+		to_chat(H, "<span class='danger'>An uncontrollable rage overtakes your thoughts!</span>")
+		H.add_client_color(/datum/client_color/berserk)
+
+		last_shock_stage = H.shock_stage
+		H.shock_stage = 0
+
+		H.SetParalysis(0)
+		H.SetStunned(0)
+		H.SetWeakened(0)
+		H.setHalLoss(0)
+		H.lying = 0
+		H.update_canmove()
+
+/datum/modifier/berserk/process()
+	if(..())
+		if(ishuman(target))
+			var/mob/living/carbon/human/H = target
+			H.drowsyness = max(H.drowsyness - 5, 0)
+			H.AdjustParalysis(-1)
+			H.AdjustStunned(-1)
+			H.AdjustWeakened(-1)
+			H.adjustHalLoss(-1)
+
+/datum/modifier/berserk/deactivate()
+	..()
+	if(ishuman(target))
+		var/mob/living/carbon/human/H = target
+		to_chat(H, "<span class='danger'>Your rage fades away, your thoughts are clear once more!</span>")
+		H.remove_client_color(/datum/client_color/berserk)
+
+		H.shock_stage = last_shock_stage

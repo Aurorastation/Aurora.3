@@ -146,7 +146,7 @@
 		if(I_GRAB)
 			if(M == src || anchored)
 				return 0
-			if(M.disabilities & PACIFIST)
+			if(M.is_pacified())
 				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
 				return 0
 
@@ -184,7 +184,7 @@
 			return 1
 
 		if(I_HURT)
-			if(M.disabilities & PACIFIST)
+			if(M.is_pacified())
 				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
 				return 0
 
@@ -305,7 +305,7 @@
 					real_damage += G.punch_force
 					hit_dam_type = G.punch_damtype
 					if(H.pulling_punches)
-						hit_dam_type = AGONY
+						hit_dam_type = HALLOSS
 
 					if(G.sharp)
 						is_sharp = 1
@@ -331,7 +331,7 @@
 			apply_damage(real_damage, hit_dam_type, hit_zone, armour, sharp=is_sharp, edge=is_edge)
 
 		if(I_DISARM)
-			if(M.disabilities & PACIFIST)
+			if(M.is_pacified())
 				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
 				return 0
 

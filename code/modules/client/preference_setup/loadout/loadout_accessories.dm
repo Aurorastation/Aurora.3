@@ -137,3 +137,12 @@
 	scarfs["zebra scarf"] = /obj/item/clothing/accessory/scarf/zebra
 	gear_tweaks += new/datum/gear_tweak/path(scarfs)
 
+/datum/gear/accessory/chaps
+	display_name = "chaps, brown"
+	path = /obj/item/clothing/accessory/chaps
+
+/datum/gear/accessory/chaps/black
+	display_name = "chaps, black"
+	path = /obj/item/clothing/accessory/chaps/black
+
+

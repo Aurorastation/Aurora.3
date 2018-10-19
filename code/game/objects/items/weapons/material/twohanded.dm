@@ -100,6 +100,10 @@
 	else
 		return
 
+	if(!istype(user.get_active_hand(), src))
+		user << "<span class='warning'>You need to be holding the [name] in your active hand.</span>"
+		return
+
 	if(wielded) //Trying to unwield it
 		unwield()
 		user << "<span class='notice'>You are now carrying the [name] with one hand.</span>"
@@ -113,7 +117,7 @@
 
 	else //Trying to wield it
 		if(user.get_inactive_hand())
-			user << "<span class='warning'>You need your other hand to be empty</span>"
+			user << "<span class='warning'>You need your other hand to be empty.</span>"
 			return
 		wield()
 		user << "<span class='notice'>You grab the [base_name] with both hands.</span>"
@@ -239,8 +243,7 @@
 		var/obj/structure/headspear/HS = new /obj/structure/headspear(user.loc)
 		var/matrix/M = matrix()
 		I.transform = M
-		usr.drop_item()
-		I.forceMove(HS)
+		usr.drop_from_inventory(I,HS)
 		var/mutable_appearance/MA = new(I)
 		MA.layer = FLOAT_LAYER
 		HS.add_overlay(MA)
@@ -306,7 +309,7 @@
 	user.visible_message("<span class='warning'>[user] kicks over \the [src]!</span>", "<span class='danger'>You kick down \the [src]!</span>")
 	new /obj/item/weapon/material/twohanded/spear(user.loc, material)
 	for(var/obj/item/organ/external/head/H in src)
-		H.loc = user.loc
+		H.forceMove(user.loc)
 	qdel(src)
 
 // Chainsaws!
@@ -317,6 +320,7 @@
 	base_icon = "chainsaw_off"
 	flags = CONDUCT
 	force = 10
+	force_unwielded = 10
 	force_wielded = 20
 	throwforce = 5
 	w_class = ITEMSIZE_LARGE
@@ -361,8 +365,9 @@
 	var/turf/T = get_turf(src)
 	T.audible_message(span("notice", "\The [src] rumbles to life."))
 	playsound(src, "sound/weapons/chainsawstart.ogg", 25, 0, 30)
-	force = 20
-	force_wielded = 40
+	force = 15
+	force_unwielded = 30
+	force_wielded = 60
 	throwforce = 20
 	icon_state = "chainsaw_on"
 	base_icon = "chainsaw_on"

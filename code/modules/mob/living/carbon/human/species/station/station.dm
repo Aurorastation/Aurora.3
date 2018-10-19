@@ -21,7 +21,7 @@
 	megacorporations have sparked secretive factions to fight their influence, while there is always the risk of someone digging too \
 	deep into the secrets of the galaxy..."
 	num_alternate_languages = 2
-	secondary_langs = list("Sol Common")
+	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_SIIK_TAU)
 	name_language = null // Use the first-name last-name generator rather than a language scrambler
 	mob_size = 9
 	spawn_flags = CAN_JOIN
@@ -32,6 +32,8 @@
 	stamina_recovery = 5
 	sprint_speed_factor = 0.9
 	sprint_cost_factor = 0.5
+
+	climb_coeff = 1
 
 /datum/species/unathi
 	name = "Unathi"
@@ -69,6 +71,7 @@
 	rarity_value = 3
 	breakcuffs = list(MALE)
 	mob_size = 10
+	climb_coeff = 1.35
 
 	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the Uuosa-Eso \
 	system, which roughly translates to 'burning mother'. A relatively recent addition to the galactic stage, they \
@@ -114,6 +117,8 @@
 		"Your scales bristle against the cold."
 		)
 
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
+
 /datum/species/unathi/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
@@ -140,7 +145,7 @@
 	brute_mod = 1.2
 	fall_mod = 0.5
 	num_alternate_languages = 2
-	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_YA_SSA)
+	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_YA_SSA, LANGUAGE_SIIK_TAU)
 	name_language = LANGUAGE_SIIK_MAAS
 	ethanol_resistance = 0.8//Gets drunk a little faster
 	rarity_value = 2
@@ -182,6 +187,8 @@
 	)
 	cold_discomfort_level = 275
 
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
+
 /datum/species/tajaran/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
@@ -208,9 +215,10 @@
 	forever scarred the species and left them with a deep rooted suspicion of artificial intelligence. As \
 	such an ancient and venerable species, they often hold patronizing attitudes towards the younger races."
 
-	num_alternate_languages = 2
-	secondary_langs = list(LANGUAGE_SKRELLIAN)
-	name_language = null
+	num_alternate_languages = 3
+	language = LANGUAGE_SKRELLIAN
+	secondary_langs = list(LANGUAGE_SIIK_TAU)
+	name_language = LANGUAGE_SKRELLIAN
 	rarity_value = 3
 
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
@@ -250,8 +258,7 @@
 	economic_modifier = 3
 	icobase = 'icons/mob/human_races/r_diona.dmi'
 	deform = 'icons/mob/human_races/r_def_plant.dmi'
-	language = "Ceti Basic"
-	default_language = LANGUAGE_ROOTSONG
+	language = LANGUAGE_ROOTSONG
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
@@ -265,7 +272,7 @@
 	eyes = "blank_eyes"
 	show_ssd = "completely quiescent"
 	num_alternate_languages = 1
-	name_language = "Rootsong"
+	name_language = LANGUAGE_ROOTSONG
 	ethanol_resistance = -1	//Can't get drunk
 	taste_sensitivity = TASTE_DULL
 	mob_size = 12	//Worker gestalts are 150kg
@@ -326,6 +333,9 @@
 	stamina = -1	// Diona sprinting uses energy instead of stamina
 	sprint_speed_factor = 0.5	//Speed gained is minor
 	sprint_cost_factor = 0.8
+	climb_coeff = 1.3
+
+	max_hydration_factor = -1
 
 /datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
 	var/datum/dionastats/DS = H.get_dionastats()
@@ -361,10 +371,6 @@
 	if(istype(D))
 		return 1
 	return 0
-
-/datum/species/diona/get_random_name(var/gender)
-	var/datum/language/species_language = all_languages[default_language]
-	return species_language.get_random_name()
 
 /datum/species/diona/equip_survival_gear(var/mob/living/carbon/human/H)
 	var/obj/item/device/flashlight/flare/F = new /obj/item/device/flashlight/flare(H)
@@ -420,6 +426,7 @@
 	radiation_mod = 0	// not affected by radiation
 	remains_type = /obj/effect/decal/remains/robot
 
+	hud_type = /datum/hud_data/ipc
 
 	brute_mod = 1.0
 	burn_mod = 1.2
@@ -483,6 +490,8 @@
 	stamina = -1	// Machines use power and generate heat, stamina is not a thing
 	sprint_speed_factor = 1  // About as capable of speed as a human
 
+	max_hydration_factor = -1
+
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15
 	var/sprint_charge_factor = 0.65
@@ -495,15 +504,16 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 /datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
 	if (H.stat == CONSCIOUS)
 		H.bodytemperature += cost * sprint_temperature_factor
-		H.nutrition -= cost * sprint_charge_factor
-		if (H.nutrition > 0)
-			return 1
-		else
+		H.adjustNutritionLoss(cost * sprint_charge_factor)
+		if(H.nutrition <= 0 && H.max_nutrition > 0)
 			H.Weaken(15)
 			H.m_intent = "walk"
 			H.hud_used.move_intent.update_move_icon(H)
 			H << span("danger", "ERROR: Power reserves depleted, emergency shutdown engaged. Backup power will come online in approximately 30 seconds, initiate charging as primary directive.")
 			playsound(H.loc, 'sound/machines/buzz-two.ogg', 100, 0)
+		else
+			return 1
+
 	return 0
 
 /datum/species/machine/handle_death(var/mob/living/carbon/human/H)
@@ -624,7 +634,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	bodytype = "Vaurca"
 	age_min = 1
 	age_max = 20
-	economic_modifier = 1
+	economic_modifier = 2
 	language = LANGUAGE_VAURCA
 	primitive_form = "V'krexi"
 	greater_form = "Vaurca Warrior"
@@ -657,6 +667,8 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	breath_type = "phoron"
 	poison_type = "nitrogen" //a species that breathes plasma shouldn't be poisoned by it.
 	mob_size = 13 //their half an inch thick exoskeleton and impressive height, plus all of their mechanical organs.
+	natural_climbing = TRUE
+	climb_coeff = 0.75
 
 	blurb = "Type A are the most common type of Vaurca and can be seen as the 'backbone' of Vaurcae societies. Their most prevalent feature is their hardened exoskeleton, varying in colors \
 	in accordance to their hive. It is approximately half an inch thick among all Type A Vaurca. The carapace provides protection against harsh radiation, solar \
@@ -701,26 +713,30 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 
 	has_organ = list(
 		"neural socket"       = /obj/item/organ/vaurca/neuralsocket,
-		"lungs"               = /obj/item/organ/lungs,
+		"lungs"               = /obj/item/organ/lungs/vaurca,
 		"filtration bit"      = /obj/item/organ/vaurca/filtrationbit,
 		"right heart"         = /obj/item/organ/heart/right,
 		"left heart"          = /obj/item/organ/heart/left,
 		"phoron reserve tank" = /obj/item/organ/vaurca/preserve,
-		"liver"               = /obj/item/organ/liver,
-		"kidneys"             = /obj/item/organ/kidneys,
-		"brain"               = /obj/item/organ/brain,
-		"eyes"                = /obj/item/organ/eyes
+		"liver"               = /obj/item/organ/liver/vaurca,
+		"kidneys"             = /obj/item/organ/kidneys/vaurca,
+		"brain"               = /obj/item/organ/brain/vaurca,
+		"eyes"                = /obj/item/organ/eyes/vaurca
 	)
 
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
+
 /datum/species/bug/equip_survival_gear(var/mob/living/carbon/human/H)
-	..()
+	if(H.backbag == 1)
+		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vaurca(H), slot_r_hand)
+	else
+		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vaurca(H.back), slot_in_backpack)
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
 	if(H.equip_to_slot_or_del(S,slot_shoes))
 		S.autodrobe_no_remove = 1
 	var/obj/item/clothing/mask/breath/M = new /obj/item/clothing/mask/breath(H)
 	if(H.equip_to_slot_or_del(M, slot_wear_mask))
 		M.autodrobe_no_remove = 1
-	H.gender = NEUTER
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER

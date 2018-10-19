@@ -8,6 +8,9 @@
 	icon = 'icons/obj/playing_cards.dmi'
 	var/list/cards = list()
 
+/obj/item/weapon/deck/proc/generate_deck() //the procs that creates the cards
+	return
+
 /obj/item/weapon/deck/holder
 	name = "card box"
 	desc = "A small leather case to show how classy you are compared to everyone else."
@@ -18,9 +21,11 @@
 	desc = "A simple deck of playing cards."
 	icon_state = "deck"
 
-/obj/item/weapon/deck/cards/New()
-	..()
+/obj/item/weapon/deck/Initialize()
+	. = ..()
+	generate_deck()
 
+/obj/item/weapon/deck/cards/generate_deck()
 	var/datum/playingcard/P
 	for(var/suit in list("spades","clubs","diamonds","hearts"))
 
@@ -140,7 +145,6 @@
 		for(var/datum/playingcard/P in cards)
 			H.cards += P
 		H.concealed = src.concealed
-		user.drop_from_inventory(src,user.loc)
 		qdel(src)
 		H.update_icon()
 		return
@@ -185,11 +189,10 @@
 
 	H.cards += cards
 	cards.Cut();
-	user.drop_item()
-	qdel(src)
-
+	user.drop_from_inventory(src,get_turf(src))
 	H.update_icon()
 	user.put_in_active_hand(H)
+	qdel(src)
 
 /obj/item/weapon/hand
 	name = "hand of cards"
@@ -224,7 +227,7 @@
 	H.update_icon()
 	src.update_icon()
 	usr.visible_message("\The [usr] plays \the [discarding].")
-	H.loc = get_step(usr,usr.dir)
+	H.forceMove(get_step(usr,usr.dir))
 
 	if(!cards.len)
 		qdel(src)

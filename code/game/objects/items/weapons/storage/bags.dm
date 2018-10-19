@@ -205,7 +205,7 @@
 		if(!S.amount)
 			qdel(S)
 		else
-			S.loc = src
+			S.forceMove(src)
 
 	orient2hud(usr)
 	if(usr.s_active)
@@ -260,7 +260,7 @@
 	if(!istype(S)) return 0
 
 	//I would prefer to drop a new stack, but the item/attack_hand code
-	// that calls this can't recieve a different object than you clicked on.
+	// that calls this can't receive a different object than you clicked on.
 	//Therefore, make a new stack internally that has the remainder.
 	// -Sayu
 

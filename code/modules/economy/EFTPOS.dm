@@ -26,7 +26,7 @@
 		R.info += "<b>When first setting up your EFTPOS device:</b>"
 		R.info += "1. Memorise your EFTPOS command code (provided with all EFTPOS devices).<br>"
 		R.info += "2. Confirm that your EFTPOS device is connected to your local accounts database. For additional assistance with this step, contact NanoTrasen IT Support<br>"
-		R.info += "3. Confirm that your EFTPOS device has been linked to the account that you wish to recieve funds for all transactions processed on this device.<br>"
+		R.info += "3. Confirm that your EFTPOS device has been linked to the account that you wish to receive funds for all transactions processed on this device.<br>"
 		R.info += "<b>When starting a new transaction with your EFTPOS device:</b>"
 		R.info += "1. Ensure the device is UNLOCKED so that new data may be entered.<br>"
 		R.info += "2. Enter a sum of money and reference message for the new transaction.<br>"
@@ -79,7 +79,7 @@
 	R.add_overlay(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the EFTPOS device.</i>"
 	var/obj/item/smallDelivery/D = new(R.loc)
-	R.loc = D
+	R.forceMove(D)
 	D.wrapped = R
 	D.name = "small parcel - 'EFTPOS access code'"
 

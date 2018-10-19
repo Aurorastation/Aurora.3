@@ -11,10 +11,11 @@
 	flags =  CONDUCT
 	slot_flags = SLOT_BACK
 	w_class = 4.0
-	max_shots = 5
+	max_shots = 1
 	projectile_type = /obj/item/projectile/change
 	origin_tech = list(TECH_COMBAT = 7, TECH_MAGNET = 5, TECH_BLUESPACE = 7)
 	self_recharge = 1
+	recharge_time = 15
 	charge_meter = 0
 	pin = /obj/item/device/firing_pin/magic
 
@@ -45,8 +46,8 @@ obj/item/weapon/gun/energy/staff/special_check(var/mob/living/user)
 			LL.droplimb(0,DROPLIMB_BLUNT)
 			RL.droplimb(0,DROPLIMB_BLUNT)
 			playsound(user, 'sound/effects/splat.ogg', 50, 1)
-			user.visible_message("<span class = 'danger'> With a sickening series of crunches, [user]'s body shrinks, and they begin to sprout feathers!</span>")
-			user.visible_message("<b>[user]</b> screams!",2)
+			user.visible_message("<span class = 'danger'>With a sickening series of crunches, [user]'s body shrinks, and they begin to sprout feathers!</span>")
+			user.visible_message("<b>[user]</b> screams!")
 			new_mob = new /mob/living/simple_animal/parrot(H.loc)
 			new_mob.universal_speak = 1
 			new_mob.key = H.key
@@ -84,7 +85,7 @@ obj/item/weapon/gun/energy/staff/animate/special_check(var/mob/living/user)
 			var/active_hand = H.hand
 			playsound(user, 'sound/effects/blobattack.ogg', 40, 1)
 			user.visible_message("<span class = 'danger'> With a sickening crunch, [user]'s hand rips itself off, and begins crawling away!</span>")
-			user.visible_message("<b>[user]</b> screams!",2)
+			user.visible_message("<b>[user]</b> screams!")
 			user.drop_item()
 			if(active_hand)
 				LA.droplimb(0,DROPLIMB_EDGE)

@@ -84,6 +84,7 @@
 		new /obj/item/clothing/suit/storage/toggle/fr_jacket(src)
 		new /obj/item/clothing/shoes/white(src)
 		new /obj/item/device/radio/headset/headset_med(src)
+		new /obj/item/clothing/glasses/hud/health/aviator(src)
 
 
 /obj/structure/closet/secure_closet/CMO
@@ -111,6 +112,8 @@
 		new /obj/item/weapon/reagent_containers/hypospray(src)
 		new /obj/item/clothing/suit/storage/toggle/labcoat/cmo(src)
 		new /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt(src)
+		new /obj/item/weapon/storage/box/inhalers(src)
+		new /obj/item/clothing/glasses/hud/health/aviator(src)
 
 /obj/structure/closet/secure_closet/CMO2
 	name = "chief medical officer's attire"
@@ -168,7 +171,8 @@
 		new /obj/item/weapon/storage/box/pillbottles(src)
 		new /obj/item/weapon/storage/box/spraybottles(src)
 		new /obj/item/weapon/storage/box/spraybottles(src)
-
+		new /obj/item/weapon/storage/box/inhalers(src)
+		new /obj/item/weapon/storage/box/inhalers(src)
 
 /obj/structure/closet/secure_closet/medical_wall
 	name = "first aid closet"

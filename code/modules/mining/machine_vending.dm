@@ -17,12 +17,11 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment("Lantern",						/obj/item/device/flashlight/lantern,						10,					75),
 	new /datum/data/mining_equipment("Shovel",						/obj/item/weapon/shovel,									15,					100),
 	new /datum/data/mining_equipment("Pickaxe",						/obj/item/weapon/pickaxe,									10,					100),
-	new /datum/data/mining_equipment("KA White Tracer Rounds",		/obj/item/borg/upgrade/modkit/tracer,						40,					100),
 	new /datum/data/mining_equipment("Compressed rail cartridge",	/obj/item/weapon/rrf_ammo,									50,					100),
+	new /datum/data/mining_equipment("Class E Kinetic Accelerator",	/obj/item/weapon/gun/custom_ka/frame01/prebuilt,			12,					200),
 	new /datum/data/mining_equipment("Ore Box",						/obj/structure/ore_box,										-1,					150,	1),
 	new /datum/data/mining_equipment("Emergency Floodlight",		/obj/item/weapon/floodlight_diy, 							-1,					150,	1),
 	new /datum/data/mining_equipment("Premium Cigar",				/obj/item/clothing/mask/smokable/cigarette/cigar/havana, 	30,					150),
-	new /datum/data/mining_equipment("KA Adjustable Tracer Rounds",	/obj/item/borg/upgrade/modkit/tracer/adjustable,			30,					150),
 	new /datum/data/mining_equipment("Seismic Charge",				/obj/item/weapon/plastique/seismic,							25,					150),
 	new /datum/data/mining_equipment("Lottery Chip",				/obj/item/weapon/spacecash/ewallet/lotto,					50,					200),
 	new /datum/data/mining_equipment("Ripley Paint Kit",			/obj/item/device/kit/paint/ripley/random,					15,					200),
@@ -30,6 +29,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment("Mining Drill",				/obj/item/weapon/pickaxe/drill,								10,					200),
 	new /datum/data/mining_equipment("Deep Ore Scanner",			/obj/item/weapon/mining_scanner,							10,					250),
 	new /datum/data/mining_equipment("Magboots",					/obj/item/clothing/shoes/magboots,							10,					300),
+	new /datum/data/mining_equipment("Class D Kinetic Accelerator", /obj/item/weapon/gun/custom_ka/frame02/prebuilt,			12,					400),
 	new /datum/data/mining_equipment("Autochisel",					/obj/item/weapon/autochisel,								10,					400),
 	new /datum/data/mining_equipment("Jetpack",						/obj/item/weapon/tank/jetpack,								10,					400),
 	new /datum/data/mining_equipment("Drone Drill Upgrade",			/obj/item/device/mine_bot_ugprade,							10,					400),
@@ -45,20 +45,16 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment("Minecart",					/obj/vehicle/train/cargo/trolley/mining,					-1,					600,	1),
 	new /datum/data/mining_equipment("Resonator",					/obj/item/weapon/resonator,									10,					700),
 	new /datum/data/mining_equipment("Mining RIG",					/obj/item/weapon/rig/industrial,							5,					750),
-	new /datum/data/mining_equipment("KA Range Increase",			/obj/item/borg/upgrade/modkit/range,						10,					750),
 	new /datum/data/mining_equipment("Jaunter",						/obj/item/device/wormhole_jaunter,							20,					750),
-	new /datum/data/mining_equipment("Kinetic Accelerator",			/obj/item/weapon/gun/energy/kinetic_accelerator,			10,					750),
 	new /datum/data/mining_equipment("100 credits",					/obj/item/weapon/spacecash/c100,							-1,					1000),
 	new /datum/data/mining_equipment("Mass Driver",					/obj/item/weapon/mass_driver_diy,							5,					800),
 	new /datum/data/mining_equipment("Mining Drone",				/mob/living/silicon/robot/drone/mining,						15,					800),
 	new /datum/data/mining_equipment("Minecart Engine",				/obj/vehicle/train/cargo/engine/mining,						-1,					800,	1),
-	new /datum/data/mining_equipment("Drone Kinetic Accelerator Upgrade",	/obj/item/device/mine_bot_ugprade/ka,				10,					800),
+	new /datum/data/mining_equipment("Drone KA Upgrade",			/obj/item/device/mine_bot_ugprade/ka,						10,					800),
 	new /datum/data/mining_equipment("Ore Summoner",				/obj/item/weapon/oreportal,									35,					800),
-	new /datum/data/mining_equipment("KA Cooldown Decrease",		/obj/item/borg/upgrade/modkit/cooldown,						15,					1000),
 	new /datum/data/mining_equipment("Lazarus Injector",			/obj/item/weapon/lazarus_injector,							25,					1000),
 	new /datum/data/mining_equipment("Industrial Drill Head",		/obj/machinery/mining/drill,								-1,					1000,	1),
 	new /datum/data/mining_equipment("Super Resonator",				/obj/item/weapon/resonator/upgraded,						10,					1250),
-	new /datum/data/mining_equipment("KA AoE Damage",				/obj/item/borg/upgrade/modkit/aoe/turfs,					15,					1500),
 	new /datum/data/mining_equipment("Diamond Pickaxe",				/obj/item/weapon/pickaxe/diamond,							10,					1500),
 	new /datum/data/mining_equipment("Thermal Drill",				/obj/item/weapon/gun/energy/vaurca/thermaldrill,			5,					3750)
 	)
@@ -139,15 +135,17 @@ var/global/list/minevendor_list = list( //keep in order of price
 	if(href_list["choice"])
 		if(istype(inserted_id))
 			if(href_list["choice"] == "eject")
-				inserted_id.loc = loc
-				if(!usr.get_active_hand())
-					usr.put_in_hands(inserted_id)
+				inserted_id.forceMove(loc)
+				if(ishuman(usr))
+					if(!usr.get_active_hand())
+						usr.put_in_hands(inserted_id)
+				else
+					inserted_id.forceMove(get_turf(src))
 				inserted_id = null
 		else if(href_list["choice"] == "insert")
 			var/obj/item/weapon/card/id/I = usr.get_active_hand()
 			if(istype(I))
-				usr.drop_item()
-				I.loc = src
+				usr.drop_from_inventory(I,src)
 				inserted_id = I
 			else usr << "<span class='danger'>No valid ID.</span>"
 	if(href_list["purchase"])
@@ -211,8 +209,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	if(istype(I,/obj/item/weapon/card/id))
 		var/obj/item/weapon/card/id/C = usr.get_active_hand()
 		if(istype(C) && !istype(inserted_id))
-			usr.drop_item()
-			C.loc = src
+			usr.drop_from_inventory(C,src)
 			inserted_id = C
 			interact(user)
 		return

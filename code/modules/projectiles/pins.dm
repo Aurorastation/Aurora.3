@@ -52,8 +52,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 
 /obj/item/device/firing_pin/proc/gun_insert(mob/living/user, obj/item/weapon/gun/G)
 	gun = G
-	user.drop_from_inventory(src)
-	forceMove(gun)
+	user.drop_from_inventory(src,gun)
 	gun.pin = src
 	return
 
@@ -70,7 +69,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	user.show_message(fail_message, 1)
 	if(selfdestruct)//sound stolen from the lawgiver. todo, remove this from the lawgiver. there can only be one.
 		user.show_message("<span class='danger'>SELF-DESTRUCTING...</span><br>", 1)
-		visible_message("<span class='danger'>[gun] explodes!</span>")
+		visible_message("<span class='danger'>\The [gun] explodes!</span>")
 		playsound(user, 'sound/weapons/lawgiver_idfail.ogg', 40, 1)
 		var/obj/item/organ/external/E = user.organs_by_name[user.hand ? "l_hand" : "r_hand"]
 		E.droplimb(0,DROPLIMB_BLUNT)
@@ -122,7 +121,7 @@ Pins Below.
 	desc = "This implant-locked firing pin authorizes the weapon for only loyalty-implanted users."
 	icon_state = "firing_pin_loyalty"
 	req_implant = /obj/item/weapon/implant/loyalty
-	
+
 // Honk pin, clown joke item.
 // Can replace other pins. Replace a pin in cap's laser for extra fun! This is generally adminbus only unless someone thinks of a use for it.
 /obj/item/device/firing_pin/clown
@@ -205,3 +204,16 @@ Pins Below.
 	if(gun)
 		gun.pin = null
 	return ..()
+
+//this firing pin checks for access
+/obj/item/device/firing_pin/access
+	name = "access-keyed firing pin"
+	desc = "This access locked firing pin allows weapons to be fired only when the user has the required access."
+	fail_message = "<span class='warning'>ACCESS CHECK FAILED.</span>"
+	req_access = list(access_weapons)
+
+/obj/item/device/firing_pin/access/pin_auth(mob/living/user)
+	if(!allowed(user))
+		return 0
+	else
+		return 1

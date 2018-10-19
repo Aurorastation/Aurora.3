@@ -26,6 +26,7 @@ datum/preferences
 	var/asfx_togs = ASFX_DEFAULT
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
+	var/html_UI_style = "Nano"
 	var/motd_hash = ""					//Hashes for the new server greeting window.
 	var/memo_hash = ""
 

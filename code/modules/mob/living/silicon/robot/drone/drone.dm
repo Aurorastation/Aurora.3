@@ -89,7 +89,7 @@
 
 /mob/living/silicon/robot/drone/Destroy()
 	if(hat)
-		hat.loc = get_turf(src)
+		hat.forceMove(get_turf(src))
 	return ..()
 
 /mob/living/silicon/robot/drone/construction

@@ -6,7 +6,8 @@ var/list/admin_verbs_default = list(
 	/client/proc/deadmin_self,			/*destroys our own admin datum so we can play as a regular player*/
 	/client/proc/hide_verbs,			/*hides all our adminverbs*/
 	/client/proc/hide_most_verbs,		/*hides all our hideable adminverbs*/
-	/client/proc/cmd_mentor_check_new_players
+	/client/proc/cmd_mentor_check_new_players,
+	/client/proc/notification_add		/*allows everyone to set up player notifications*/
 	)
 var/list/admin_verbs_admin = list(
 	/client/proc/debug_variables,		/*allows us to -see- the variables of any instance in the game.*/
@@ -99,8 +100,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/clear_toxins,
 	/client/proc/wipe_ai,	// allow admins to force-wipe AIs
 	/client/proc/fix_player_list,
-	/client/proc/reset_openturf,
-	/client/proc/create_poll //Allows to create polls
+	/client/proc/reset_openturf
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -121,6 +121,7 @@ var/list/admin_verbs_fun = list(
 	/client/proc/cinematic,
 	/datum/admins/proc/toggle_aliens,
 	/datum/admins/proc/toggle_space_ninja,
+	/datum/admins/proc/toggle_round_spookyness,
 	/client/proc/cmd_admin_add_freeform_ai_law,
 	/client/proc/cmd_admin_add_random_ai_law,
 	/client/proc/make_sound,
@@ -164,6 +165,7 @@ var/list/admin_verbs_server = list(
 	/datum/admins/proc/adspawn,
 	/datum/admins/proc/adjump,
 	/datum/admins/proc/toggle_aliens,
+	/datum/admins/proc/toggle_round_spookyness,
 	/datum/admins/proc/toggle_space_ninja,
 	/client/proc/toggle_random_events,
 	/client/proc/check_customitem_activity,
@@ -218,7 +220,8 @@ var/list/admin_verbs_debug = list(
 	/client/proc/cmd_ss_panic,
 	/client/proc/reset_openturf,
 	/datum/admins/proc/capture_map,
-	/client/proc/global_ao_regenerate
+	/client/proc/global_ao_regenerate,
+	/client/proc/add_client_color
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
@@ -270,6 +273,7 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/drop_bomb,
 	/client/proc/cinematic,
 	/datum/admins/proc/toggle_aliens,
+	/datum/admins/proc/toggle_round_spookyness,
 	/datum/admins/proc/toggle_space_ninja,
 	/client/proc/cmd_admin_add_freeform_ai_law,
 	/client/proc/cmd_admin_add_random_ai_law,
@@ -371,7 +375,8 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/cmd_dev_bst,
 	/client/proc/lighting_show_verbs,
 	/client/proc/cmd_display_del_log,
-	/client/proc/cmd_display_init_log
+	/client/proc/cmd_display_init_log,
+	/client/proc/create_poll //Allows to create polls
 )
 var/list/admin_verbs_cciaa = list(
 	/client/proc/cmd_admin_pm_panel,	/*admin-pm list*/
@@ -426,6 +431,7 @@ var/list/admin_verbs_cciaa = list(
 		admin_verbs_spawn,
 		debug_verbs
 		)
+	add_aooc_if_necessary()
 
 /client/proc/hide_most_verbs()//Allows you to keep some functionality while hiding some verbs
 	set name = "Adminverbs - Hide Most"
@@ -472,8 +478,9 @@ var/list/admin_verbs_cciaa = list(
 		var/mob/abstract/observer/ghost = mob
 		if(ghost.can_reenter_corpse)
 			ghost.reenter_corpse()
+			log_admin("[src] reentered their corpose using aghost.",admin_key=key_name(src))
 		else
-			ghost << "<font color='red'>Error:  Aghost:  Can't reenter corpse, mentors that use adminHUD while aghosting are not permitted to enter their corpse again</font>"
+			ghost << "<font color='red'>Error: Aghost: Can't reenter corpse.</font>"
 			return
 
 		feedback_add_details("admin_verb","P") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -490,7 +497,7 @@ var/list/admin_verbs_cciaa = list(
 			if(!body.key)
 				body.key = "@[key]"	//Haaaaaaaack. But the people have spoken. If it breaks; blame adminbus
 		feedback_add_details("admin_verb","O") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
+		log_admin("[src] aghosted.",admin_key=key_name(src))
 
 /client/proc/invisimin()
 	set name = "Invisimin"
@@ -654,6 +661,7 @@ var/list/admin_verbs_cciaa = list(
 
 	var/list/traumas = subtypesof(/datum/brain_trauma)
 	var/result = input(usr, "Choose the brain trauma to apply","Traumatize") as null|anything in traumas
+	if(!result) return
 	var/permanent = alert("Do you want to make the trauma unhealable?", "Permanently Traumatize", "Yes", "No")
 	if(permanent == "Yes")
 		permanent = TRUE
@@ -1158,6 +1166,47 @@ var/list/admin_verbs_cciaa = list(
 	log_and_message_admins("has regenerated all openturfs.")
 
 	SSzcopy.hard_reset()
+
+/client/proc/add_client_color(mob/T as mob in mob_list)
+	set category = "Debug"
+	set name = "Add Client Color"
+	set desc = "Adds a client color to a given mob"
+
+	if(!check_rights(R_DEV))
+		return
+
+	if(!ishuman(T))
+		to_chat(usr, "This can only be done to instances of type /mob/living/carbon/human")
+		return
+
+	var/mob/living/carbon/human/C = T
+
+	var/rr = input("Enter color value", "Red-Red") as num|null
+	var/rg = input("Enter color value", "Red-Green") as num|null
+	var/rb = input("Enter color value", "Red-Blue") as num|null
+	var/gr = input("Enter color value", "Green-Red") as num|null
+	var/gg = input("Enter color value", "Green-Green") as num|null
+	var/gb = input("Enter color value", "Green-Blue") as num|null
+	var/br = input("Enter color value", "Blue-Red") as num|null
+	var/bg = input("Enter color value", "Blue-Green") as num|null
+	var/bb = input("Enter color value", "Blue-Blue") as num|null
+	var/priority = input("Enter priority value.", "Priority") as num|null
+	if(!usr)
+		return
+	if(!C)
+		to_chat(usr, "Mob doesn't exist anymore")
+		return
+
+	if(priority)
+		var/datum/client_color/CC = new /datum/client_color()
+		CC.client_color = list(rr,rg,rb, gr,gg,gb, br,bg,bb)
+		CC.priority = priority
+		C.client_colors |= CC
+		sortTim(C.client_colors, /proc/cmp_clientcolor_priority)
+		C.update_client_color()
+
+	log_and_message_admins("<span class='notice'>gave [key_name(C)] a new client color.</span>")
+	feedback_add_details("admin_verb","CR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 #ifdef ENABLE_SUNLIGHT
 /client/proc/apply_sunstate()

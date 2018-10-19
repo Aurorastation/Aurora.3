@@ -45,7 +45,7 @@ var/const/VENDING_WIRE_IDSCAN = 8
 		if(VENDING_WIRE_THROW)
 			V.shoot_inventory = !mended
 		if(VENDING_WIRE_CONTRABAND)
-			V.categories &= ~CAT_HIDDEN  
+			V.categories &= ~CAT_HIDDEN
 		if(VENDING_WIRE_ELECTRIFY)
 			if(mended)
 				V.seconds_electrified = 0

@@ -250,16 +250,10 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define CAPTURE_MODE_ALL 1 //Admin camera mode
 #define CAPTURE_MODE_PARTIAL 3 //Simular to regular mode, but does not do dummy check
 
-//Sound effects toggles
-#define ASFX_AMBIENCE	1
-#define ASFX_FOOTSTEPS	2
-#define ASFX_VOTE		4
-
 //Cargo random stock vars
 //These are used in randomstock.dm
 //And also for generating random loot crates in crates.dm
-#define TOTAL_STOCK 	80//The total number of items we'll spawn in cargo stock
-
+#define TOTAL_STOCK 	100//The total number of items we'll spawn in cargo stock
 
 #define STOCK_UNCOMMON_PROB	23
 //The probability, as a percentage for each item, that we'll choose from the uncommon spawns list
@@ -270,7 +264,6 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 //If an item is not rare or uncommon, it will be chosen from the common spawns list.
 //So the probability of a common item is 100 - (uncommon + rare)
 
-
 #define STOCK_LARGE_PROB	75
 //Large items are spawned on predetermined locations.
 //For each large spawn marker, this is the chance that we will spawn there
@@ -278,8 +271,6 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 
 // Law settings
 #define PERMABRIG_SENTENCE 90 // Measured in minutes
-//#define PERMAPRISON_SENTENCE 60 // Measured in IC days
-#define FELONY_LEVEL 2.0 // What is the minimum law severity that counts as a felony?
 
 #define LAYER_TABLE	2.8
 #define LAYER_UNDER_TABLE	2.79
@@ -456,3 +447,15 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define MAX_SOUND_Z_TRAVERSAL 2
 
 #define Z_ALL_TURFS(Z) block(locate(1, 1, Z), locate(world.maxx, world.maxy, Z))
+
+
+// Z-controller stuff - see basic.dm to see why the fuck this is the way it is.
+#define IS_VALID_ZINDEX(z) !((z) > world.maxz || (z) > 17)
+
+#define HAS_ABOVE(z) (IS_VALID_ZINDEX(z) && SSatlas.z_levels & (1 << (z - 1)))
+#define HAS_BELOW(z) (IS_VALID_ZINDEX(z) && (z) != 1 && SSatlas.z_levels & (1 << (z - 2)))
+
+#define GET_ABOVE(A) (HAS_ABOVE(A:z) ? get_step(A, UP) : null)
+#define GET_BELOW(A) (HAS_BELOW(A:z) ? get_step(A, DOWN) : null)
+
+#define NULL_OR_EQUAL(self,other) (!(self) || (self) == (other))
