@@ -37123,7 +37123,6 @@
 	icon_state = "rwindow";
 	dir = 8
 	},
-/obj/structure/table/standard,
 /obj/machinery/door/window{
 	base_state = "left";
 	dir = 1;
