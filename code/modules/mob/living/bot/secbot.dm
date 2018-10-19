@@ -80,6 +80,7 @@
 
 /mob/living/bot/secbot/turn_off()
 	..()
+	walk_to(src, src, 0, move_to_delay)
 	target = null
 	frustration = 0
 	mode = SECBOT_IDLE
@@ -595,7 +596,7 @@
 
 /mob/living/bot/secbot/attackby(var/obj/item/O, var/mob/user)
 	..()
-	if(istype(O, /obj/item/weapon/card/id))
+	if(istype(O, /obj/item/weapon/card/id) || istype(O, /obj/item/weapon/pen) || istype(O, /obj/item/device/pda))
 		return
 
 	target = user

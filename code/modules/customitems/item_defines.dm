@@ -421,7 +421,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/accessory/badge/fluff/dylan_tags //Dog Tags - Dylan Sutton - sircatnip
+/obj/item/clothing/accessory/badge/fluff/dylan_tags //Dog Tags - Dylan Wright - sircatnip
 	name = "dog tags"
 	desc = "Some black dog tags, engraved on them is the following: \"Wright, Dylan L, O POS, Pacific Union Special Forces\"."
 	icon = 'icons/obj/custom_items/dylan_tags.dmi'
@@ -2374,12 +2374,29 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 	can_nap = 0
 
 
-/obj/item/clothing/suit/storage/toggle/fluff/talon_coat //Embroidered Coat - Talon Hatfield - dronztheWolf
+/obj/item/clothing/suit/storage/toggle/fluff/talon_coat //Embroidered Coat - Talon Hatfield - dronzthewolf
 	name = "embroidered coat"
 	desc = " Martian long coat, made to fend off dust storms and other unpleasantries. This one has a few patches sewn into it depicting: A Solarian flag, a Batallion number, and a large sun."
-	icon = 'icons/obj/custom_items/ryan_jacket.dmi'
+	icon = 'icons/obj/custom_items/talon_coat.dmi'
 	icon_state = "talon_coat"
 	item_state = "talon_coat"
 	icon_open = "talon_coat_open"
 	icon_closed = "talon_coat"
+	contained_sprite = TRUE
+
+
+/obj/item/weapon/storage/backpack/cloak/fluff/ryn_cloak //Security Tunnel Cloak - Za'Akaix'Ryn Zo'ra - jamchop23334
+	name = "security tunnel cloak"
+	desc = "A blue, tailor-made tunnel cloak with paltry storage options. The fabric is smoother and less abrasive than regular tunnel cloaks, though it looks difficult to wear."
+	icon = 'icons/obj/custom_items/ryn_clothing.dmi'
+	icon_state = "ryn_cloak"
+	item_state = "ryn_cloak"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/fluff/ryn_hood //Security Tunnel Hood - Za'Akaix'Ryn Zo'ra - jamchop23334
+	name = "security tunnel hood"
+	desc = "A silky smooth blue hood, though its more of a headwrap. You're having a hard time wrapping your head around how to wear this."
+	icon = 'icons/obj/custom_items/ryn_clothing.dmi'
+	icon_state = "ryn_hood"
+	item_state = "ryn_hood"
 	contained_sprite = TRUE

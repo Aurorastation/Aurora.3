@@ -130,6 +130,7 @@
 
 	// Body/form vars.
 	var/list/inherent_verbs 	  // Species-specific verbs.
+	var/list/inherent_spells 	  // Species-specific spells.
 	var/has_fine_manipulation = 1 // Can use small items.
 	var/siemens_coefficient = 1   // The lower, the thicker the skin and better the insulation.
 	var/darksight = 2             // Native darksight distance.
@@ -155,6 +156,9 @@
 	var/allowed_eat_types = TYPE_ORGANIC
 	var/max_nutrition_factor = 1	//Multiplier on maximum nutrition
 	var/nutrition_loss_factor = 1	//Multiplier on passive nutrition losses
+
+	var/max_hydration_factor = 1	//Multiplier on maximum thirst
+	var/hydration_loss_factor = 1	//Multiplier on passive thirst losses
 
 	                              // Determines the organs that the species spawns with and
 	var/list/has_organ = list(    // which required-organ checks are conducted.
@@ -189,6 +193,8 @@
 	var/swap_flags = ~HEAVY	// What can we swap place with?
 
 	var/pass_flags = 0
+
+	var/obj/effect/decal/cleanable/blood/tracks/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints // What marks are left when walking
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
@@ -326,12 +332,21 @@
 	if(inherent_verbs)
 		for(var/verb_path in inherent_verbs)
 			H.verbs -= verb_path
+
+	if(inherent_spells)
+		for(var/spell_path in inherent_spells)
+			H.remove_spell(spell_path)
 	return
 
 /datum/species/proc/add_inherent_verbs(var/mob/living/carbon/human/H)
 	if(inherent_verbs)
 		for(var/verb_path in inherent_verbs)
 			H.verbs |= verb_path
+
+	if(inherent_spells)
+		for(var/spell_path in inherent_spells)
+			H.add_spell(new spell_path, "const_spell_ready")
+
 	return
 
 /datum/species/proc/handle_post_spawn(var/mob/living/carbon/human/H,var/kpg = 0) //Handles anything not already covered by basic species assignment. Keepgene value should only be used by genetics.
@@ -484,3 +499,12 @@
 
 /datum/species/proc/can_breathe_water()
 	return FALSE
+
+/datum/species/proc/get_move_trail(var/mob/living/carbon/human/H)
+	if( H.shoes || ( H.wear_suit && (H.wear_suit.body_parts_covered & FEET) ) )
+		return /obj/effect/decal/cleanable/blood/tracks/footprints
+	else
+		return move_trail
+
+/datum/species/proc/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
+	return 0

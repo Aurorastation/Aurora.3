@@ -1,5 +1,6 @@
 //print an error message to world.log
-
+#define RUST_G "rust_g" // Using Rust g dll to log faster with less CPU usage.
+#define WRITE_LOG(log, text) call(RUST_G, "log_write")(log, text)
 
 // On Linux/Unix systems the line endings are LF, on windows it's CRLF, admins that don't use notepad++
 // will get logs that are one big line if the system is Linux and they are using notepad.  This solves it by adding CR to every line ending
@@ -15,8 +16,23 @@
 
 /var/global/log_end = world.system_type == UNIX ? ascii2text(13) : ""
 
+// logging.dm
+/proc/log_startup()
+	var/static/already_logged = FALSE
+	if (!already_logged)
+		WRITE_LOG(diary, "[log_end]\n[log_end]\nStarting up. (ID: [game_id]) [log_end]\n---------------------[log_end]")
+		already_logged = TRUE
+	else
+		crash_with("log_startup() was called more then once")
+
+/proc/log_topic(T, addr, master, key, var/list/queryparams)
+	WRITE_LOG(diary, "TOPIC: \"[T]\", from:[addr], master:[master], key:[key], auth:[queryparams["auth"] ? queryparams["auth"] : "null"] [log_end]")
+
 /proc/error(msg)
 	world.log << "## ERROR: [msg][log_end]"
+
+/proc/shutdown_logging()
+	call(RUST_G, "log_close_all")()
 
 #define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [src] usr: [usr].")
 //print a warning message to world.log
@@ -28,9 +44,9 @@
 	world.log << "## TESTING: [msg][log_end]"
 
 /proc/game_log(category, text)
-	diary << "\[[time_stamp()]] [game_id] [category]: [text][log_end]"
+	WRITE_LOG(diary, "[game_id] [category]: [text][log_end]")
 
-/proc/log_admin(text,level=5,ckey="",admin_key="",ckey_target="")
+/proc/log_admin(text,level=SEVERITY_NOTICE,ckey="",admin_key="",ckey_target="")
 	admin_log.Add(text)
 	if (config.log_admin)
 		game_log("ADMIN", text)
@@ -260,3 +276,6 @@
 
 /proc/key_name_admin(var/whom, var/include_name = 1)
 	return key_name(whom, 1, include_name, 1)
+
+#undef RUST_G
+#undef WRITE_LOG

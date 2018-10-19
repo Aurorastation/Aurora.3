@@ -19,7 +19,14 @@
 
 	if(href_list["PRG_openfile"])
 		. = 1
-		open_file = href_list["PRG_openfile"]
+		var/obj/item/weapon/computer_hardware/hard_drive/HDD = computer.hard_drive
+		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_openfile"])
+		if (!F)
+			return
+		if (F.can_access_file(usr))
+			open_file = href_list["PRG_openfile"]
+		else
+			return
 	if(href_list["PRG_newtextfile"])
 		. = 1
 		var/newname = sanitize(input(usr, "Enter file name or leave blank to cancel:", "File rename"))
@@ -144,6 +151,29 @@
 			return 1
 		var/datum/computer_file/C = F.clone(0)
 		HDD.store_file(C)
+	if(href_list["PRG_encrypt"])
+		. = 1
+		var/obj/item/weapon/computer_hardware/hard_drive/HDD = computer.hard_drive
+		if (!HDD)
+			return
+		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_encrypt"])
+		if(!F || F.undeletable)
+			return
+		if(F.password)
+			return
+		F.password = sanitize(input(usr, "Enter an encryption key:", "Encrypt File"))
+	if(href_list["PRG_decrypt"])
+		. = 1
+		var/obj/item/weapon/computer_hardware/hard_drive/HDD = computer.hard_drive
+		if (!HDD)
+			return
+		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_encrypt"])
+		if(!F || F.undeletable)
+			return
+		if (F.can_access_file(usr))
+			F.password = ""
+		else
+			return
 	if(.)
 		SSnanoui.update_uis(NM)
 
@@ -185,7 +215,8 @@
 					"name" = F.filename,
 					"type" = F.filetype,
 					"size" = F.size,
-					"undeletable" = F.undeletable
+					"undeletable" = F.undeletable,
+					"encrypted" = !!F.password
 				)))
 			data["files"] = files
 			if(RHDD)
@@ -196,7 +227,8 @@
 						"name" = F.filename,
 						"type" = F.filetype,
 						"size" = F.size,
-						"undeletable" = F.undeletable
+						"undeletable" = F.undeletable,
+						"encrypted" = !!F.password
 					)))
 				data["usbfiles"] = usbfiles
 

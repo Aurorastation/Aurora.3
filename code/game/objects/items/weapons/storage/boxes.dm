@@ -318,13 +318,17 @@
 
 /obj/item/weapon/storage/box/sniperammo/fill()
 	..()
-	new /obj/item/ammo_casing/a145(src)
-	new /obj/item/ammo_casing/a145(src)
-	new /obj/item/ammo_casing/a145(src)
-	new /obj/item/ammo_casing/a145(src)
-	new /obj/item/ammo_casing/a145(src)
-	new /obj/item/ammo_casing/a145(src)
-	new /obj/item/ammo_casing/a145(src)
+	for(var/i in 1 to 7)
+		new /obj/item/ammo_casing/a145(src)
+
+/obj/item/weapon/storage/box/ammo10mm
+	name = "box of 10mm shells"
+	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+
+/obj/item/weapon/storage/box/ammo10mm/fill()
+	..()
+	for(var/i in 1 to 10)
+		new /obj/item/ammo_casing/c10mm(src)
 
 /obj/item/weapon/storage/box/flashbangs
 	name = "box of flashbangs"
@@ -630,6 +634,15 @@
 	..()
 	for(var/i = 1; i <= 5; i++)
 		new /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/neaeracube(src)
+
+/obj/item/weapon/storage/box/monkeycubes/vkrexicubes
+	name = "vkrexi cube box"
+	desc = "Drymate brand vkrexi cubes. Just add water!"
+
+/obj/item/weapon/storage/box/monkeycubes/vkrexicubes/fill()
+	..()
+	for(var/i = 1; i <= 5; i++)
+		new /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/vkrexicube(src)
 
 /obj/item/weapon/storage/box/ids
 	name = "box of spare IDs"
@@ -1021,3 +1034,39 @@
 	new /obj/item/weapon/reagent_containers/food/snacks/clam(src)
 	new /obj/item/weapon/reagent_containers/food/snacks/clam(src)
 	new /obj/item/weapon/reagent_containers/food/snacks/clam(src)
+
+/obj/item/weapon/storage/box/produce
+	name = "produce box"
+	desc = "A large box of random, leftover produce."
+	icon_state = "largebox"
+
+/obj/item/weapon/storage/box/produce/fill()
+	for(var/i in 1 to 12)
+		new /obj/random_produce(src)
+	make_exact_fit()
+
+
+/obj/item/weapon/storage/box/candy
+	name = "candy box"
+	desc = "A large box of assorted small candy."
+	icon_state = "largebox"
+
+/obj/item/weapon/storage/box/candy/fill()
+	var/list/assorted_list = list(
+		/obj/item/weapon/reagent_containers/food/snacks/cb01 = 1,
+		/obj/item/weapon/reagent_containers/food/snacks/cb02 = 1,
+		/obj/item/weapon/reagent_containers/food/snacks/cb03 = 1,
+		/obj/item/weapon/reagent_containers/food/snacks/cb04 = 1,
+		/obj/item/weapon/reagent_containers/food/snacks/cb05 = 1,
+		/obj/item/weapon/reagent_containers/food/snacks/cb06 = 1,
+		/obj/item/weapon/reagent_containers/food/snacks/cb07 = 1,
+		/obj/item/weapon/reagent_containers/food/snacks/cb08 = 1,
+		/obj/item/weapon/reagent_containers/food/snacks/cb09 = 1,
+		/obj/item/weapon/reagent_containers/food/snacks/cb10 = 1
+	)
+
+	for(var/i in 1 to 24)
+		var/chosen_candy = pickweight(assorted_list)
+		new chosen_candy(src)
+
+	make_exact_fit()
