@@ -16,6 +16,7 @@
 	icon_state = "battery_advanced"
 	origin_tech = list(TECH_POWER = 2, TECH_ENGINEERING = 2)
 	battery_rating = 1100
+	hardware_size = 2
 
 /obj/item/weapon/computer_hardware/battery_module/super
 	name = "super battery"
