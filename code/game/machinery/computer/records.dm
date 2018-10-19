@@ -141,5 +141,7 @@
 	if(href_list["setactive_virus"] && (records_type & RECORD_VIRUS))
 		active_virus = SSrecords.find_record("id", text2num(href_list["setactive_virus"]), RECORD_VIRUS)
 		SSvueui.check_uis_for_change(src)
+	
+/obj/machinery/computer/records/proc/ApplyRecordEdit(var/key, var/value)
+	
 
-#define UIDEBUG
