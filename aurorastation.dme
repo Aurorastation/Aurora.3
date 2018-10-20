@@ -2328,6 +2328,7 @@
 #include "code\modules\surgery\limb_reattach.dm"
 #include "code\modules\surgery\organs_internal.dm"
 #include "code\modules\surgery\other.dm"
+#include "code\modules\surgery\plasticsurgery.1.dm"
 #include "code\modules\surgery\robotics.dm"
 #include "code\modules\surgery\slimes.dm"
 #include "code\modules\surgery\surgery.dm"
