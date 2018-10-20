@@ -37,7 +37,7 @@ changes:
   - rscadd: "Fixed Hand Teleporter Price being 5 credits, it is now 1800."
   - rscdel: "Made the grinder be able to eject its contents and beaker without power."
   - rscdel: "Slimes that drink water now get major toxin damage, far more then a shower."
-  - rscdel: IPC's No longer vomit with seismic charge's
+  - rscdel: IPCs No longer vomit with seismic charges
   - rscdel: Fixed Briefcase missing hand sprites
   - rscdel: Hydrogen KA now loads properly
   - rscdel: NTOS cannot be pirated anymore
