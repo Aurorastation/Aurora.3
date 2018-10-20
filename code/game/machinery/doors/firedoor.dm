@@ -69,6 +69,8 @@
 	A.all_doors.Add(src)
 	areas_added = list(A)
 
+	enable_smart_generation *= mapload //If one of these are 0, don't do smart generation.
+
 	for(var/direction in cardinal)
 
 		var/turf/T = get_step(src,direction)
@@ -97,7 +99,7 @@
 		if(locate(/obj/machinery/door/airlock,T))
 			dir = SOUTH
 		else
-			if(door_directions & EAST || door_directions & WEST)
+			if(door_directions & (EAST | WEST))
 				if(noair_directions & NORTH)
 					dir = SOUTH
 				else if(noair_directions & SOUTH)
@@ -106,7 +108,7 @@
 					dir = NORTH
 				else if(diffarea_directions & SOUTH)
 					dir = SOUTH
-			else if(door_directions & NORTH || door_directions & SOUTH)
+			else if(door_directions & (NORTH | SOUTH) )
 				if(noair_directions & EAST)
 					dir = WEST
 				else if(noair_directions & WEST)
