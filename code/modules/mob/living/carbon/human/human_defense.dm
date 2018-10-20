@@ -9,6 +9,12 @@ emp_act
 */
 
 /mob/living/carbon/human/bullet_act(var/obj/item/projectile/P, var/def_zone)
+
+	var/species_check = src.species.bullet_act(P, def_zone, src)
+
+	if(species_check)
+		return species_check
+
 	if(martial_art && martial_art.deflection_chance)
 		if(prob(martial_art.deflection_chance))
 			src.visible_message("<span class='danger'>\The [src] deflects \the [P]!</span>")
