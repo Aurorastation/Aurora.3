@@ -42,8 +42,6 @@
 /datum/reagent/proc/get_thermal_energy_per_unit()
 	return get_thermal_energy() / volume
 
-//Settings and adding. Everything should be a var or based on an above proc.
-
 /datum/reagent/proc/add_thermal_energy(var/added_energy)
 	thermal_energy += added_energy
 	return added_energy
@@ -80,14 +78,16 @@
 /datum/reagents/proc/has_all_temperatures(var/list/required_temperatures_min, var/list/required_temperatures_max)
 
 	for(var/datum/reagent/current in reagent_list)
-		if(current.id in required_temperatures_min)
-			var/value = required_temperatures_min[current.id]
-			if(value > current.get_temperature())
+		if(current.id in required_temperatures_min) //The current temperature must be greater than this temperature
+			var/current_temperature = current.get_temperature()
+			var/required_temperature = required_temperatures_min[current.id]
+			if(current_temperature < required_temperature) //Current temperature is less than the required temperature,
 				return FALSE
 
-		if(current.id in required_temperatures_max)
-			var/value = required_temperatures_max[current.id]
-			if(value < current.get_temperature())
+		if(current.id in required_temperatures_max) //The current temperature must be less than this temperature.
+			var/current_temperature = current.get_temperature()
+			var/required_temperature = required_temperatures_max[current.id]
+			if(current_temperature > required_temperature) //Current temperature is greater than the required temperature.
 				return FALSE
 
 	return TRUE

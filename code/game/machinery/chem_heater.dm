@@ -11,6 +11,8 @@
 	var/accept_drinking = FALSE
 	var/machine_strength = 0 //How much joules to add per process. Controlled by manipulators.
 	var/should_heat = TRUE
+	var/min_temperature = 50
+	var/max_temperature = 1000
 
 	component_types = list(
 		/obj/item/weapon/circuitboard/chem_heater,
@@ -60,13 +62,18 @@
 	dat += "<body><H1>Chem Heater MKI</H1>"
 
 	dat += "<p>Power: <a href='?src=\ref[src];action=togglepower'>[use_power ? "On" : "Off"]</a></p>"
-	dat += "<p>Target Temp: [round(target_temperature)]K / [round(target_temperature - T0C)]C"
-	dat += "(<a href='?src=\ref[src];action=adjusttemp;power=-25'>---</a>|"
-	dat += "<a href='?src=\ref[src];action=adjusttemp;power=-10'>--</a>|"
-	dat += "<a href='?src=\ref[src];action=adjusttemp;power=-5'>-</a>|"
-	dat += "<a href='?src=\ref[src];action=adjusttemp;power=5'>+</a>|"
-	dat += "<a href='?src=\ref[src];action=adjusttemp;power=10'>++</a>|"
-	dat += "<a href='?src=\ref[src];action=adjusttemp;power=25'>+++</a>)</p>"
+	dat += "<p>Target Temp: [round(target_temperature)]K / [round(target_temperature - T0C,0.1)]C<br> "
+
+	dat += "("
+	dat += "<a href='?src=\ref[src];action=adjusttemp;power=-100'>----</a>|"
+	dat += "<a href='?src=\ref[src];action=adjusttemp;power=-25'>---</a>|"
+	dat += "<a href='?src=\ref[src];action=adjusttemp;power=-5'>--</a>|"
+	dat += "<a href='?src=\ref[src];action=adjusttemp;power=-1'>-</a>|"
+	dat += "<a href='?src=\ref[src];action=adjusttemp;power=1'>+</a>|"
+	dat += "<a href='?src=\ref[src];action=adjusttemp;power=5'>++</a>|"
+	dat += "<a href='?src=\ref[src];action=adjusttemp;power=25'>+++</a>|"
+	dat += "<a href='?src=\ref[src];action=adjusttemp;power=100'>++++</a>"
+	dat += ")</p>"
 
 	if(container)
 		dat += "<p>Beaker Temp: [round(container.get_temperature(),0.01)]K / [round(container.get_temperature() - T0C,0.1)]C (<a href='?src=\ref[src];action=removebeaker'>Remove</a>)</p>"
@@ -97,7 +104,7 @@
 				container = null
 				update_icon()
 		if("adjusttemp")
-			target_temperature = max(100,min(target_temperature + text2num(href_list["power"]),400))
+			target_temperature = max(min_temperature,min(target_temperature + text2num(href_list["power"]),max_temperature))
 			if(container)
 				should_heat = target_temperature >= container.get_temperature()
 
@@ -112,13 +119,6 @@
 
 	if(container && container.reagents)
 
-		var/joules_to_use = machine_strength
-		var/mod = should_heat ? 1 : -1
-
-		container.reagents.add_thermal_energy(mod * joules_to_use)
-		container.reagents.handle_reactions()
-		use_power(joules_to_use)
-
 		if(should_heat && container.reagents.get_temperature() >= target_temperature)
 			use_power = 0
 			updateUsrDialog()
@@ -128,6 +128,18 @@
 			updateUsrDialog()
 			return
 
+		var/joules_to_use = machine_strength
+		var/mod = should_heat ? 1 : -1
+		var/thermal_energy_change = 0
+
+		if(mod > 0) //GOING UP
+			thermal_energy_change = min(joules_to_use,container.reagents.get_thermal_energy_change(container.reagents.get_temperature(),target_temperature))
+		else //GOING DOWN
+			thermal_energy_change = max(-joules_to_use,container.reagents.get_thermal_energy_change(container.reagents.get_temperature(),target_temperature))
+
+		container.reagents.add_thermal_energy(thermal_energy_change)
+		container.reagents.handle_reactions()
+		use_power(joules_to_use)
 		updateUsrDialog()
 
 	else

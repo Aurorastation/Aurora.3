@@ -6,6 +6,7 @@
 	color = "#808080"
 	metabolism = REM * 0.2
 	taste_description = "acid"
+	specific_heat = SPECIFIC_HEAT_ACETONE
 
 /datum/reagent/acetone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(removed * 3)
@@ -35,6 +36,7 @@
 	color = "#A8A8A8"
 	taste_description = "metal"
 	taste_mult = 1.1
+	specific_heat = SPECIFIC_HEAT_ALUMINUM
 
 /datum/reagent/ammonia
 	name = "Ammonia"
@@ -47,6 +49,7 @@
 	taste_mult = 2
 	breathe_mul = 2
 	breathe_met = REM * 0.25
+	specific_heat = SPECIFIC_HEAT_AMMONIA
 
 /datum/reagent/ammonia/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VOX)
@@ -63,6 +66,7 @@
 	ingest_met = REM * 5
 	taste_description = "sour chalk"
 	taste_mult = 1.5
+	specific_heat = SPECIFIC_HEAT_CARBON
 
 /datum/reagent/carbon/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.ingested && M.ingested.reagent_list.len > 1) // Need to have at least 2 reagents - cabon and something to remove
@@ -87,6 +91,7 @@
 	description = "A highly ductile metal."
 	color = "#6E3B08"
 	taste_description = "copper"
+	specific_heat = SPECIFIC_HEAT_COPPER
 
 /datum/reagent/alcohol //Parent class for all alcoholic reagents, though this one shouldn't be used anywhere.
 	name = null	// This null name should prevent alcohol from being added to global lists.
@@ -118,6 +123,8 @@
 	glass_desc = "A glass of distilled maintainer tears."
 
 	var/blood_to_ingest_scale = 2
+
+	specific_heat = SPECIFIC_HEAT_ALCOHOL
 
 /datum/reagent/alcohol/Destroy()
 	if (caffeine_mod)
@@ -164,6 +171,8 @@
 	glass_icon_state = "glass_clear"
 	glass_name = "glass of ethanol"
 	glass_desc = "A well-known alcohol with a variety of applications."
+
+	specific_heat = SPECIFIC_HEAT_ETHANOL
 
 /datum/reagent/alcohol/ethanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
@@ -215,6 +224,8 @@
 	glass_name = "glass of butanol"
 	glass_desc = "A fairly harmless alcohol that has intoxicating effects on certain species."
 
+	specific_heat = SPECIFIC_HEAT_BUTANOL
+
 /datum/reagent/alcohol/butanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
 		return
@@ -240,6 +251,8 @@
 	touch_met = 5
 	taste_description = "sweet tasting metal"
 
+	specific_heat = SPECIFIC_HEAT_HYDRAZINE
+
 /datum/reagent/hydrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(4 * removed)
 
@@ -260,6 +273,8 @@
 	color = "#353535"
 	taste_description = "metal"
 
+	specific_heat = SPECIFIC_HEAT_IRON
+
 /datum/reagent/iron/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
 
@@ -270,6 +285,8 @@
 	reagent_state = SOLID
 	color = "#808080"
 	taste_description = "metal"
+
+	specific_heat = SPECIFIC_HEAT_LITHIUM
 
 /datum/reagent/lithium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
@@ -285,6 +302,8 @@
 	color = "#484848"
 	ingest_met = REM*0.2
 	taste_mult = 0 //mercury apparently is tasteless
+
+	specific_heat = SPECIFIC_HEAT_MERCURY
 
 /datum/reagent/mercury/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
@@ -302,6 +321,8 @@
 	color = "#832828"
 	taste_description = "vinegar"
 
+	specific_heat = SPECIFIC_HEAT_PHOSPHORUS
+
 /datum/reagent/potassium
 	name = "Potassium"
 	id = "potassium"
@@ -309,6 +330,8 @@
 	reagent_state = SOLID
 	color = "#A0A0A0"
 	taste_description = "sweetness" //potassium is bitter in higher doses but sweet in lower ones.
+
+	specific_heat = SPECIFIC_HEAT_POTASSIUM
 
 /datum/reagent/radium
 	name = "Radium"
@@ -318,6 +341,8 @@
 	color = "#C7C7C7"
 	taste_description = "the color blue, and regret"
 	unaffected_species = IS_MACHINE
+
+	specific_heat = SPECIFIC_HEAT_RADIUM
 
 /datum/reagent/radium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.apply_effect(10 * removed, IRRADIATE, blocked = 0) // Radium may increase your chances to cure a disease
@@ -357,6 +382,8 @@
 	var/power = 4
 	var/meltdose = 10 // How much is needed to melt
 	taste_description = "acid"
+
+	specific_heat = SPECIFIC_HEAT_SULPHURIC_ACID
 
 /datum/reagent/acid/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.take_organ_damage(0, removed * power)
@@ -448,6 +475,9 @@
 	power = 3
 	meltdose = 8
 	taste_description = "stomach acid"
+	specific_heat = 8
+
+	specific_heat = SPECIFIC_HEAT_HYDROCHLORIC_ACID
 
 /datum/reagent/acid/polyacid //Not in dispensers, but it should be here
 	name = "Polytrinic acid"
@@ -458,6 +488,9 @@
 	power = 6
 	meltdose = 4
 	taste_description = "acid"
+	specific_heat = 8
+
+	specific_heat = SPECIFIC_HEAT_POLYTRINIC_ACID
 
 /datum/reagent/silicon
 	name = "Silicon"
@@ -467,6 +500,8 @@
 	color = "#A8A8A8"
 	taste_description = "metal"
 
+	specific_heat = SPECIFIC_HEAT_SILICON
+
 /datum/reagent/sodium
 	name = "Sodium"
 	id = "sodium"
@@ -474,6 +509,8 @@
 	reagent_state = SOLID
 	color = "#808080"
 	taste_description = "salty metal"
+
+	specific_heat = SPECIFIC_HEAT_SODIUM
 
 /datum/reagent/sugar
 	name = "Sugar"
@@ -488,6 +525,8 @@
 	glass_name = "glass of sugar"
 	glass_desc = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
 
+	specific_heat = SPECIFIC_HEAT_SUGAR
+
 /datum/reagent/sugar/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustNutritionLoss(-removed*3)
 
@@ -497,7 +536,9 @@
 	description = "A chemical element with a pungent smell."
 	reagent_state = SOLID
 	color = "#BF8C00"
-	taste_description = "old eggs"
+	taste_description = "rotten eggs"
+
+	specific_heat = SPECIFIC_HEAT_SULFUR
 
 /datum/reagent/tungsten
 	name = "Tungsten"
@@ -506,3 +547,6 @@
 	reagent_state = SOLID
 	color = "#DCDCDC"
 	taste_mult = 0 //no taste
+	specific_heat = 18
+
+	specific_heat = SPECIFIC_HEAT_TUNGSTEN

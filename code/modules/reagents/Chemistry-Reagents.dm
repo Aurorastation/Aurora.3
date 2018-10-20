@@ -31,8 +31,8 @@
 	var/conflicting_reagent //Reagents that conflict with this medicine, and cause adverse effects when in the blood.
 
 	var/default_temperature = T0C + 20
-	var/thermal_energy = 0
-	var/specific_heat = 4.18
+	var/thermal_energy = 0 //Internal value, should never change.
+	var/specific_heat = 4.18 //The higher, the more difficult it is to change its difficult.
 
 /datum/reagent/proc/initialize_data(var/newdata) // Called when the reagent is created.
 	if(!isnull(newdata))

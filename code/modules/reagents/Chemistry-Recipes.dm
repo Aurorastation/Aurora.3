@@ -15,8 +15,8 @@
 	var/id = null
 	var/result = null
 	var/list/required_reagents = list()
-	var/list/required_temperatures_min = list() //Format: reagent name = required_kelvin
-	var/list/required_temperatures_max = list() //Format: reagent name = required_kelvin
+	var/list/required_temperatures_min = list() //Format: reagent name = required_kelvin. Temperatures must exceed this value to trigger.
+	var/list/required_temperatures_max = list() //Format: reagent name = required_kelvin. Temperatures must be less than this value to trigger.
 	var/list/catalysts = list()
 	var/list/inhibitors = list()
 	var/result_amount = 0
@@ -260,9 +260,9 @@
 	name = "Peridaxon"
 	id = "peridaxon"
 	result = "peridaxon"
-	required_reagents = list("bicaridine" = 2, "clonexadone" = 2)
+	required_reagents = list("bicaridine" = 1, "clonexadone" = 1)
 	catalysts = list("phoron" = 5)
-	result_amount = 2
+	result_amount = 1
 
 /datum/chemical_reaction/virus_food
 	name = "Virus Food"
@@ -2872,16 +2872,16 @@
 	required_temperatures_min = list("ice" = T0C + 3)
 	result_amount = 0.2
 
-/datum/chemical_reaction/phoron_salts
-	name = "Phoron Salts"
-	id = "phoron_salts"
+/datum/chemical_reaction/phoron_salt
+	name = "Phoron Salt"
+	id = "phoron_salt"
 	result = "phoron_salt"
 	required_reagents = list("sodiumchloride" = 1, "phoron" = 2)
 	required_temperatures_min = list("sodiumchloride" = T0C + 200, "phoron" = T0C - 200)
 	required_temperatures_max = list("phoron" = T0C - 5)
 	result_amount = 1
 
-/datum/chemical_reaction/phoron_salts_fire
+/datum/chemical_reaction/phoron_salt_fire
 	name = "Phoron Salt Fire"
 	id = "phoron_salt_fire"
 	result = "carbon"
@@ -2889,7 +2889,7 @@
 	required_reagents = list("phoron_salt" = 1)
 	required_temperatures_min = list("phoron_salt" = T0C + 200)
 
-/datum/chemical_reaction/phoron_salts_fire/on_reaction(var/datum/reagents/holder, var/created_volume)
+/datum/chemical_reaction/phoron_salt_fire/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/turf/location = get_turf(holder.my_atom.loc)
 	for(var/turf/simulated/floor/target_tile in range(0,location))
 		var/fire_mod = created_volume * (1 + ((holder.get_temperature() - T0C + 200)/100) )
@@ -2899,7 +2899,7 @@
 	holder.del_reagent("phoron_salt")
 	return
 
-/datum/chemical_reaction/phoron_salts_coldfire
+/datum/chemical_reaction/phoron_salt_coldfire
 	name = "Phoron Salt Coldfire"
 	id = "phoron_salt_coldfire"
 	result = "hydrazine"
@@ -2907,11 +2907,12 @@
 	required_reagents = list("phoron_salt" = 1)
 	required_temperatures_max = list("phoron_salt" = T0C + 0)
 
-/datum/chemical_reaction/phoron_salts_coldfire/on_reaction(var/datum/reagents/holder, var/created_volume)
+/datum/chemical_reaction/phoron_salt_coldfire/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/datum/effect/effect/system/reagents_explosion/e = new()
+	var/turf/location = get_turf(holder.my_atom.loc)
 
-	var/explosion_mod = volume * 0.5 + (T0C - get_temperature())*0.1
-	target_tile.assume_gas("oxygen", explosion_mod*2, get_temperature())
+	var/explosion_mod = created_volume * 0.5 + (T0C - holder.get_temperature())*0.1
+	location.assume_gas("oxygen", explosion_mod*2, holder.get_temperature())
 
 	e.set_up(round (explosion_mod, 1), holder.my_atom, 0, 0)
 	if(isliving(holder.my_atom))

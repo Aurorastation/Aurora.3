@@ -122,13 +122,13 @@
 	T.assume_gas("phoron", volume, T20C)
 	remove_self(volume)
 
-/datum/reagent/toxin/phoron_salts //Remember to exclude in RNG chems.
+/datum/reagent/toxin/phoron_salt //Remember to exclude in RNG chems.
 	name = "Phoron Salts"
 	id = "phoron_salt"
-	description = "A mysterious superheated molten mixture with strange chemical properties. Incredibly dangerous and should only be handled by professionals."
+	description = "A mysterious molten mixture with strange chemical properties."
 	reagent_state = SOLID
 	color = "#7C4876"
-	strength = 60
+	strength = 30
 
 /datum/reagent/toxin/cardox
 	name = "Cardox"

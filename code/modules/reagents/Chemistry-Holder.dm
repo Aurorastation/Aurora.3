@@ -82,8 +82,6 @@
 	if(update_total() && reactions)
 		handle_reactions()
 
-	equalize_thermal_energy()
-
 	if(my_atom)
 		my_atom.on_reagent_change()
 
@@ -99,11 +97,8 @@
 
 //returns 1 if the holder should continue reactiong, 0 otherwise.
 /datum/reagents/proc/process_reactions()
-	if(!my_atom) // No reactions in temporary holders
-		return 0
-	if(!my_atom.loc) //No reactions inside GC'd containers
-		return 0
-	if(my_atom.flags & NOREACT) // No reactions here
+	if(!my_atom || !my_atom.loc || my_atom.flags & NOREACT)
+		equalize_thermal_energy()
 		return 0
 
 	var/reaction_occured
@@ -129,6 +124,7 @@
 	for(var/datum/chemical_reaction/C in effect_reactions)
 		C.post_reaction(src)
 
+	equalize_thermal_energy()
 	update_holder(FALSE)
 	return reaction_occured
 
