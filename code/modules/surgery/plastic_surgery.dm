@@ -99,13 +99,14 @@
 		if(head.disfigured)
 			head.disfigured = FALSE
 			user.visible_message("[user] successfully restores [target]'s appearance!", "<span class='notice'>You successfully restore [target]'s appearance.</span>")
-		
-			var/chosen_name = input(user, "Choose a new name to assign.", "Plastic Surgery") as null
 
-			var/oldname = target.real_name
-			target.real_name = chosen_name
-			var/newname = target.real_name	//something about how the code handles names required that I use this instead of target.real_name
-			user.visible_message("[user] alters [oldname]'s appearance completely,  now [newname]!", "<span class='notice'>You alter [oldname]'s appearance completely,  now [newname].</span>")
+		var/getName = sanitize(input(target, "Would you like to change your name to something else?", "Name change") as null|text, MAX_NAME_LEN)
+		if(getName)
+			target.real_name = getName
+			target.name = getName
+			target.dna.real_name = getName
+			if(target.mind)
+				target.mind.name = target.name
 			target.op_stage.face = 0
 
 	fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
