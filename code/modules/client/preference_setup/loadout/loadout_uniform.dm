@@ -10,20 +10,28 @@
 	path = /obj/item/clothing/under/kilt
 
 /datum/gear/uniform/jumpsuit
+	display_name = "jumpsuit"
+	path = /obj/item/clothing/under/color/white
+
+/datum/gear/uniform/jumpsuit/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/uniform/jumpsuitlegacy
 	display_name = "generic jumpsuits"
 	path = /obj/item/clothing/under/color/grey
 
-/datum/gear/uniform/jumpsuit/New()
+/datum/gear/uniform/jumpsuitlegacy/New()
 	..()
 	var/jumpsuit = list()
 	jumpsuit["grey jumpsuit"] = /obj/item/clothing/under/color/grey
 	jumpsuit["black jumpsuit"] = /obj/item/clothing/under/color/black
+	jumpsuit["white jumpsuit"] = /obj/item/clothing/under/color/white
 	jumpsuit["blue jumpsuit"] = /obj/item/clothing/under/color/blue
 	jumpsuit["green jumpsuit"] = /obj/item/clothing/under/color/green
 	jumpsuit["orange jumpsuit"] = /obj/item/clothing/under/color/orange
 	jumpsuit["pink jumpsuit"] = /obj/item/clothing/under/color/pink
 	jumpsuit["red jumpsuit"] = /obj/item/clothing/under/color/red
-	jumpsuit["white jumpsuit"] = /obj/item/clothing/under/color/white
 	jumpsuit["yellow jumpsuit"] = /obj/item/clothing/under/color/yellow
 	jumpsuit["light blue jumpsuit"] = /obj/item/clothing/under/lightblue
 	jumpsuit["aqua jumpsuit"] = /obj/item/clothing/under/aqua
