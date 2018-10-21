@@ -53,3 +53,7 @@
 	requires_power = 0
 	name = "\improper Test Room"
 	icon_state = "storage"
+	
+/area/storage/shields
+	name = "Station Shield Control"
+	icon_state = "eva"	
