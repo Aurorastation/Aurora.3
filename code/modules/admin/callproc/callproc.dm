@@ -90,7 +90,7 @@
 				if(isnull(current)) return
 
 			if("type")
-				current = input("Select type for [arguments.len+1]\th argument") as null|anything in typesof(/obj, /mob, /area, /turf)
+				current = text2path(input("Enter a typepath for [arguments.len+1]\th argument") as null|text)
 				if(isnull(current)) return
 
 			if("obj reference")
