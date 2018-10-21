@@ -186,7 +186,6 @@
 		owner.sdisabilities &= ~BLIND
 
 /obj/item/organ/external/head/diona/Destroy()
-	..()
 	if(owner)
 		owner.sdisabilities |= BLIND
 
