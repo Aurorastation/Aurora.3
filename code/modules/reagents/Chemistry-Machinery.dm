@@ -818,7 +818,7 @@
 	if(use_check(usr))
 		return
 	usr.visible_message(
-	"<span class='notice'>[usr] opens [src] and has removed [english_list(contents)].</span>"
+	"<span class='notice'>[usr] opens [src] and has removed [english_list(holdingitems)].</span>"
 		)
 
 	eject()
