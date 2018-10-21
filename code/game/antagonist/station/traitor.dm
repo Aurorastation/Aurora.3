@@ -13,6 +13,13 @@ var/datum/antagonist/traitor/traitors
 	..()
 	traitors = src
 
+/datum/antagonist/traitor/build_candidate_list()
+	..()
+	for(var/datum/mind/player in candidates)
+		if(player.assigned_role && player.assigned_role == "AI")
+			candidates -= player
+	return candidates
+
 /datum/antagonist/traitor/get_extra_panel_options(var/datum/mind/player)
 	return "<a href='?src=\ref[player];common=crystals'>\[set crystals\]</a><a href='?src=\ref[src];spawn_uplink=\ref[player.current]'>\[spawn uplink\]</a>"
 
