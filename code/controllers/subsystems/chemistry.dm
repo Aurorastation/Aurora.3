@@ -12,7 +12,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 
 	var/tmp/list/processing_holders = list()
 
-/datum/controller/subsystem/chemistry/proc/check_specific_heat(var/datum/reagent/R)
+/datum/controller/subsystem/chemistry/proc/check_specific_heat(var/datum/reagent/R,var/unit_test = FALSE)
 
 	if(R.specific_heat > 0)
 		return R.specific_heat
@@ -26,15 +26,26 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		var/result_amount = recipe.result_amount
 		for(var/chem in recipe.required_reagents)
 			var/cost = recipe.required_reagents[chem]
-			final_heat += check_specific_heat(chemical_reagents[chem]) * (cost/result_amount)
+			if(unit_test)
+				var/layers = check_specific_heat(chemical_reagents[chem])
+				if(layers == FALSE)
+					final_heat += (cost/result_amount)
+				else
+					final_heat += layers  * (cost/result_amount)
+			else
+				final_heat += check_specific_heat(chemical_reagents[chem]) * (cost/result_amount)
 		if(final_heat > 0)
 			chemical_reagents[R.id].specific_heat = final_heat
 		else
 			log_ss("chemistry", "ERROR: [R.type] has a weird recipe set which cannot determine an appropriate specific heat value! Please fix this by giving it a specific_heat value!")
 			chemical_reagents[R.id].specific_heat = 1
+			if(unit_test)
+				return FALSE
 	else
 		log_ss("chemistry", "ERROR: [R.type] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
 		chemical_reagents[R.id].specific_heat = 1
+		if(unit_test)
+			return FALSE
 
 	return chemical_reagents[R.id].specific_heat
 
