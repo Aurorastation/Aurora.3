@@ -37,15 +37,17 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		if(final_heat > 0)
 			chemical_reagents[R.id].specific_heat = final_heat
 		else
-			log_ss("chemistry", "ERROR: [R.type] has a weird recipe set which cannot determine an appropriate specific heat value! Please fix this by giving it a specific_heat value!")
 			chemical_reagents[R.id].specific_heat = 1
 			if(unit_test)
 				return FALSE
+			else
+				log_ss("chemistry", "ERROR: [R.type] has a weird recipe set which cannot determine an appropriate specific heat value! Please fix this by giving it a specific_heat value!")
 	else
-		log_ss("chemistry", "ERROR: [R.type] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
 		chemical_reagents[R.id].specific_heat = 1
 		if(unit_test)
 			return FALSE
+		else
+			log_ss("chemistry", "ERROR: [R.type] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
 
 	return chemical_reagents[R.id].specific_heat
 
