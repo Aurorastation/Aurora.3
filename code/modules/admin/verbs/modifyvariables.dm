@@ -58,7 +58,24 @@ var/list/VVdynamic_lock = list(
 			var_value = input("Enter new number:","Num") as null|num
 
 		if("type")
-			var_value = text2path(input("Enter typepath:","Typepath") as null|text)
+			var/object = input("Enter typepath:","Typepath") as null|text
+			if(!object)
+				return
+			
+			var/list/types = typesof(/atom)
+			var/list/matches = new()
+
+			for(var/path in types)
+				if(findtext("[path]", object))
+					matches += path
+
+			if(matches.len==0)
+				return
+
+			if(matches.len==1)
+				var_value = matches[1]
+			else
+				var_value = input("Select an atom type", "Spawn Atom", matches[1]) as null|anything in matches
 
 		if("reference")
 			var_value = input("Select reference:","Reference") as null|mob|obj|turf|area in world
@@ -107,7 +124,24 @@ var/list/VVdynamic_lock = list(
 			var_value = input("Enter new number:","Num") as num
 
 		if("type")
-			var_value = text2path(input("Enter typepath:","Typepath") as null|text)
+			var/object = input("Enter typepath:","Typepath") as null|text
+			if(!object)
+				return
+			
+			var/list/types = typesof(/atom)
+			var/list/matches = new()
+
+			for(var/path in types)
+				if(findtext("[path]", object))
+					matches += path
+
+			if(matches.len==0)
+				return
+
+			if(matches.len==1)
+				var_value = matches[1]
+			else
+				var_value = input("Select an atom type", "Spawn Atom", matches[1]) as null|anything in matches
 
 		if("reference")
 			var_value = input("Select reference:","Reference") as mob|obj|turf|area in world
@@ -307,7 +341,25 @@ var/list/VVdynamic_lock = list(
 				L[L.Find(variable)] = new_var
 
 		if("type")
-			new_var = text2path(input("Enter typepath:","Typepath") as null|text)
+			var/object = input("Enter typepath:","Typepath") as null|text
+			if(!object)
+				return
+			
+			var/list/types = typesof(/atom)
+			var/list/matches = new()
+
+			for(var/path in types)
+				if(findtext("[path]", object))
+					matches += path
+
+			if(matches.len==0)
+				return
+
+			if(matches.len==1)
+				new_var = matches[1]
+			else
+				new_var = input("Select an atom type", "Spawn Atom", matches[1]) as null|anything in matches
+
 			if(assoc)
 				L[assoc_key] = new_var
 			else
@@ -569,7 +621,27 @@ var/list/VVdynamic_lock = list(
 				O.vars[variable] = var_new
 
 		if("type")
-			var/var_new = text2path(input("Enter typepath:","Type",O.vars[variable]) as null|text)
+			var/object = input("Enter typepath:","Type",O.vars[variable]) as null|text
+			if(!object)
+				return
+			
+			var/list/types = typesof(/atom)
+			var/list/matches = new()
+
+			for(var/path in types)
+				if(findtext("[path]", object))
+					matches += path
+
+			if(matches.len==0)
+				return
+
+			var/var_new = null
+
+			if(matches.len==1)
+				var_new = matches[1]
+			else
+				var_new = input("Select an atom type", "Spawn Atom", matches[1]) as null|anything in matches
+			
 			if(var_new==null) return
 			O.vars[variable] = var_new
 
