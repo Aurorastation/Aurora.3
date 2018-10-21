@@ -7,9 +7,46 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 
 	var/list/active_holders = list()
 	var/list/chemical_reactions
+	var/list/chemical_reactions_clean = list()
 	var/list/chemical_reagents
 
 	var/tmp/list/processing_holders = list()
+
+/datum/controller/subsystem/chemistry/proc/check_specific_heat(var/datum/reagent/R)
+
+	if(R.specific_heat > 0)
+		return R.specific_heat
+
+	if(chemical_reagents[R.id].specific_heat > 0) //Don't think this will happen but you never know.
+		return chemical_reagents[R.id].specific_heat
+
+	var/datum/chemical_reaction/recipe = find_recipe_by_result(R.id)
+	if(recipe)
+		var/final_heat = 0
+		var/result_amount = recipe.result_amount
+		for(var/chem in recipe.required_reagents)
+			var/cost = recipe.required_reagents[chem]
+			final_heat += check_specific_heat(chemical_reagents[chem]) * (cost/result_amount)
+		if(final_heat > 0)
+			chemical_reagents[R.id].specific_heat = final_heat
+		else
+			log_ss("chemistry", "ERROR: [R.type] has a weird recipe set which cannot determine an appropriate specific heat value! Please fix this by giving it a specific_heat value!")
+			chemical_reagents[R.id].specific_heat = 1
+	else
+		log_ss("chemistry", "ERROR: [R.type] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
+		chemical_reagents[R.id].specific_heat = 1
+
+	return chemical_reagents[R.id].specific_heat
+
+/datum/controller/subsystem/chemistry/proc/find_recipe_by_result(var/result_id,var/debug = FALSE)
+	for(var/key in chemical_reactions_clean)
+		var/datum/chemical_reaction/CR = chemical_reactions_clean[key]
+		if(debug)
+			log_ss("chemistry", "Scanning [key]... comparing [CR.result] to [result_id]... ")
+		if(CR.result == result_id && CR.result_amount > 0)
+			if(debug)
+				log_ss("chemistry", "IT'S A MATCH!")
+			return CR
 
 /datum/controller/subsystem/chemistry/stat_entry()
 	..("AH:[active_holders.len]")
@@ -122,3 +159,5 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 			if(!chemical_reactions[reagent_id])
 				chemical_reactions[reagent_id] = list()
 			chemical_reactions[reagent_id] += D
+		if(D.id)
+			chemical_reactions_clean[D.id] = D

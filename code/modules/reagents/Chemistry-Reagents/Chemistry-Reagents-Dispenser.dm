@@ -6,7 +6,7 @@
 	color = "#808080"
 	metabolism = REM * 0.2
 	taste_description = "acid"
-	specific_heat = SPECIFIC_HEAT_ACETONE
+	specific_heat = 0.567
 
 /datum/reagent/acetone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(removed * 3)
@@ -36,7 +36,7 @@
 	color = "#A8A8A8"
 	taste_description = "metal"
 	taste_mult = 1.1
-	specific_heat = SPECIFIC_HEAT_ALUMINUM
+	specific_heat = 0.811
 
 /datum/reagent/ammonia
 	name = "Ammonia"
@@ -49,7 +49,7 @@
 	taste_mult = 2
 	breathe_mul = 2
 	breathe_met = REM * 0.25
-	specific_heat = SPECIFIC_HEAT_AMMONIA
+	specific_heat = 1.048
 
 /datum/reagent/ammonia/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VOX)
@@ -66,7 +66,7 @@
 	ingest_met = REM * 5
 	taste_description = "sour chalk"
 	taste_mult = 1.5
-	specific_heat = SPECIFIC_HEAT_CARBON
+	specific_heat = 0.018
 
 /datum/reagent/carbon/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.ingested && M.ingested.reagent_list.len > 1) // Need to have at least 2 reagents - cabon and something to remove
@@ -91,7 +91,7 @@
 	description = "A highly ductile metal."
 	color = "#6E3B08"
 	taste_description = "copper"
-	specific_heat = SPECIFIC_HEAT_COPPER
+	specific_heat = 1.148
 
 /datum/reagent/alcohol //Parent class for all alcoholic reagents, though this one shouldn't be used anywhere.
 	name = null	// This null name should prevent alcohol from being added to global lists.
@@ -123,8 +123,6 @@
 	glass_desc = "A glass of distilled maintainer tears."
 
 	var/blood_to_ingest_scale = 2
-
-	specific_heat = SPECIFIC_HEAT_ALCOHOL
 
 /datum/reagent/alcohol/Destroy()
 	if (caffeine_mod)
@@ -172,7 +170,7 @@
 	glass_name = "glass of ethanol"
 	glass_desc = "A well-known alcohol with a variety of applications."
 
-	specific_heat = SPECIFIC_HEAT_ETHANOL
+	specific_heat = 0.605
 
 /datum/reagent/alcohol/ethanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
@@ -224,7 +222,7 @@
 	glass_name = "glass of butanol"
 	glass_desc = "A fairly harmless alcohol that has intoxicating effects on certain species."
 
-	specific_heat = SPECIFIC_HEAT_BUTANOL
+	specific_heat = 0.549
 
 /datum/reagent/alcohol/butanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
@@ -251,7 +249,7 @@
 	touch_met = 5
 	taste_description = "sweet tasting metal"
 
-	specific_heat = SPECIFIC_HEAT_HYDRAZINE
+	specific_heat = 0.549 //Unknown
 
 /datum/reagent/hydrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(4 * removed)
@@ -273,7 +271,7 @@
 	color = "#353535"
 	taste_description = "metal"
 
-	specific_heat = SPECIFIC_HEAT_IRON
+	specific_heat = 1.181
 
 /datum/reagent/iron/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
@@ -286,7 +284,7 @@
 	color = "#808080"
 	taste_description = "metal"
 
-	specific_heat = SPECIFIC_HEAT_LITHIUM
+	specific_heat = 0.633
 
 /datum/reagent/lithium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
@@ -303,7 +301,7 @@
 	ingest_met = REM*0.2
 	taste_mult = 0 //mercury apparently is tasteless
 
-	specific_heat = SPECIFIC_HEAT_MERCURY
+	specific_heat = 0.631
 
 /datum/reagent/mercury/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
@@ -321,7 +319,7 @@
 	color = "#832828"
 	taste_description = "vinegar"
 
-	specific_heat = SPECIFIC_HEAT_PHOSPHORUS
+	specific_heat = 0.569
 
 /datum/reagent/potassium
 	name = "Potassium"
@@ -331,7 +329,7 @@
 	color = "#A0A0A0"
 	taste_description = "sweetness" //potassium is bitter in higher doses but sweet in lower ones.
 
-	specific_heat = SPECIFIC_HEAT_POTASSIUM
+	specific_heat = 0.214
 
 /datum/reagent/radium
 	name = "Radium"
@@ -342,7 +340,7 @@
 	taste_description = "the color blue, and regret"
 	unaffected_species = IS_MACHINE
 
-	specific_heat = SPECIFIC_HEAT_RADIUM
+	specific_heat = 0.220
 
 /datum/reagent/radium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.apply_effect(10 * removed, IRRADIATE, blocked = 0) // Radium may increase your chances to cure a disease
@@ -383,7 +381,7 @@
 	var/meltdose = 10 // How much is needed to melt
 	taste_description = "acid"
 
-	specific_heat = SPECIFIC_HEAT_SULPHURIC_ACID
+	specific_heat = 0.815
 
 /datum/reagent/acid/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.take_organ_damage(0, removed * power)
@@ -475,9 +473,8 @@
 	power = 3
 	meltdose = 8
 	taste_description = "stomach acid"
-	specific_heat = 8
 
-	specific_heat = SPECIFIC_HEAT_HYDROCHLORIC_ACID
+	specific_heat = 1.710
 
 /datum/reagent/acid/polyacid //Not in dispensers, but it should be here
 	name = "Polytrinic acid"
@@ -488,9 +485,6 @@
 	power = 6
 	meltdose = 4
 	taste_description = "acid"
-	specific_heat = 8
-
-	specific_heat = SPECIFIC_HEAT_POLYTRINIC_ACID
 
 /datum/reagent/silicon
 	name = "Silicon"
@@ -499,8 +493,7 @@
 	reagent_state = SOLID
 	color = "#A8A8A8"
 	taste_description = "metal"
-
-	specific_heat = SPECIFIC_HEAT_SILICON
+	specific_heat = 2.650
 
 /datum/reagent/sodium
 	name = "Sodium"
@@ -509,8 +502,7 @@
 	reagent_state = SOLID
 	color = "#808080"
 	taste_description = "salty metal"
-
-	specific_heat = SPECIFIC_HEAT_SODIUM
+	specific_heat = 0.483
 
 /datum/reagent/sugar
 	name = "Sugar"
@@ -525,7 +517,7 @@
 	glass_name = "glass of sugar"
 	glass_desc = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
 
-	specific_heat = SPECIFIC_HEAT_SUGAR
+	specific_heat = 0.332
 
 /datum/reagent/sugar/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustNutritionLoss(-removed*3)
@@ -538,7 +530,7 @@
 	color = "#BF8C00"
 	taste_description = "rotten eggs"
 
-	specific_heat = SPECIFIC_HEAT_SULFUR
+	specific_heat = 0.503
 
 /datum/reagent/tungsten
 	name = "Tungsten"
@@ -549,4 +541,4 @@
 	taste_mult = 0 //no taste
 	specific_heat = 18
 
-	specific_heat = SPECIFIC_HEAT_TUNGSTEN
+	specific_heat = 0.859

@@ -22,8 +22,6 @@
 	glass_name = "glass of tomato juice"
 	glass_desc = "Are you sure this is tomato juice?"
 
-	specific_heat = SPECIFIC_HEAT_BLOOD
-
 /datum/reagent/blood/initialize_data(var/newdata)
 	..()
 	if(data && data["blood_colour"])
@@ -177,7 +175,7 @@
 
 	unaffected_species = IS_MACHINE
 
-	specific_heat = SPECIFIC_HEAT_WATER
+	specific_heat = 1.541
 
 /datum/reagent/water/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(!istype(M))
@@ -263,7 +261,7 @@
 	glass_name = "glass of welder fuel"
 	glass_desc = "Unless you are an industrial tool, this is probably not safe for consumption."
 
-	specific_heat = SPECIFIC_HEAT_FUEL
+	specific_heat = 0.605
 
 /datum/reagent/fuel/touch_turf(var/turf/T)
 	new /obj/effect/decal/cleanable/liquid_fuel(T, volume)

@@ -32,7 +32,7 @@
 
 	var/default_temperature = T0C + 20
 	var/thermal_energy = 0 //Internal value, should never change.
-	var/specific_heat = 4.18 //The higher, the more difficult it is to change its difficult.
+	var/specific_heat = -1 //The higher, the more difficult it is to change its difficult. 0 or lower values indicate that the specific heat has yet to be assigned.
 
 /datum/reagent/proc/initialize_data(var/newdata) // Called when the reagent is created.
 	if(!isnull(newdata))

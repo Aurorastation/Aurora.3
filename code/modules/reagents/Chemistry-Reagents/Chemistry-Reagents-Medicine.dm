@@ -13,8 +13,6 @@
 	scannable = 1
 	taste_description = "bitterness"
 	var/datum/modifier/modifier
-	specific_heat = SPECIFIC_HEAT_INAPROVALINE
-
 
 /datum/reagent/inaprovaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_STABLE)
@@ -39,7 +37,6 @@
 	taste_mult = 3
 	breathe_met = REM * 1.5 * 0.5
 	breathe_mul = 0.5
-	specific_heat = SPECIFIC_HEAT_BICARIDINE
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(5 * removed, 0)
@@ -67,7 +64,6 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
-	specific_heat = SPECIFIC_HEAT_KELOTANE
 
 /datum/reagent/kelotane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(0, 6 * removed)

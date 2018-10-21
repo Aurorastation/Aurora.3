@@ -10,7 +10,7 @@
 	taste_description = "boiled cabbage"
 	unaffected_species = IS_MACHINE
 	var/kois_type = 1
-	specific_heat = SPECIFIC_HEAT_KOIS
+	specific_heat = 0.75
 
 /datum/reagent/kois/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
@@ -46,7 +46,7 @@
 	color = "#ece9dd"
 	taste_description = "cabbage soup"
 	kois_type = 0
-	specific_heat = SPECIFIC_HEAT_KOIS * 0.5
+	specific_heat = 1
 
 /datum/reagent/kois/black
 	name = "Modified K'ois"
@@ -55,7 +55,7 @@
 	color = "#31004A"
 	taste_description = "tar"
 	kois_type = 2
-	specific_heat = SPECIFIC_HEAT_KOIS * 2
+	specific_heat = 0.5
 
 /* Food */
 /datum/reagent/nutriment
@@ -75,7 +75,6 @@
 	color = "#664330"
 	unaffected_species = IS_MACHINE
 	taste_description = "food"
-	specific_heat = SPECIFIC_HEAT_NUTRIMENT
 
 /datum/reagent/nutriment/synthetic
 	name = "Synthetic Nutriment"
@@ -84,7 +83,6 @@
 	taste_description = "cheap food"
 	nutriment_factor = 10
 	attrition_factor = (REM * 4)/BASE_MAX_NUTRITION // Increases attrition rate.
-	specific_heat = SPECIFIC_HEAT_NUTRIMENT * 0.5
 
 /datum/reagent/nutriment/mix_data(var/list/newdata, var/newamount)
 	if(!islist(newdata) || !newdata.len)
@@ -714,7 +712,6 @@
 	var/datum/modifier/modifier = null
 	unaffected_species = IS_MACHINE
 	var/blood_to_ingest_scale = 2
-	specific_heat = SPECIFIC_HEAT_DRINK
 
 /datum/reagent/drink/Destroy()
 	if (modifier)

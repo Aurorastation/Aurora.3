@@ -1,4 +1,9 @@
 //Everything to do with reagents having temperature. Override reagent procs to make your own snowflake special reagent with mystical properties.
+// https://www.aqua-calc.com/calculate/volume-to-weight/substance/
+// https://www.engineeringtoolbox.com/specific-heat-fluids-d_151.html USE THE TABLE ON THE LEFT
+// https://www.engineeringtoolbox.com/specific-heat-solids-d_154.html USE THE TABLE ON THE RIGHT
+// http://www2.ucdsb.on.ca/tiss/stretton/database/specific_heat_capacity_table.html
+// https://www.nuclear-power.net/radium-specific-heat-latent-heat-vaporization-fusion/
 
 /datum/reagents/proc/get_thermal_energy()
 	var/returning = 0

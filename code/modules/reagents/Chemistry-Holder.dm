@@ -152,6 +152,7 @@
 		reagent_list += R
 		R.holder = src
 		R.volume = amount
+		R.specific_heat = SSchemistry.check_specific_heat(R)
 		if(thermal_energy > 0)
 			R.thermal_energy = thermal_energy
 		else
