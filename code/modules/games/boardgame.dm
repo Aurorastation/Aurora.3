@@ -30,8 +30,25 @@
 	else
 		src.examine(M)
 
-obj/item/weapon/board/attackby(obj/item/I as obj, mob/user as mob)
-	if(!addPiece(I,user))
+/obj/item/weapon/board/attack_self(mob/user)
+	var/choice = alert("Do you want to throw everything off the [src]",,"No","Yes")
+	if(choice == "Yes")
+		for(var/obj/item/weapon/checker/c in src.contents)
+			c.forceMove(get_turf(src.loc))
+			num = 0
+		board_icons = list()
+		board = list()
+		selected = -1
+		src.updateDialog()
+		interact(user)
+	..()
+
+/obj/item/weapon/board/attackby(obj/item/I as obj, mob/user as mob)
+	if(istype(I, /obj/item/weapon/storage/box/chess))
+		var/obj/item/weapon/storage/box/chess/h = I
+		for(var/obj/item/weapon/checker/c in h.contents)
+			addPiece(c,user)
+	else if(!addPiece(I,user))
 		..()
 
 /obj/item/weapon/board/proc/addPiece(obj/item/I as obj, mob/user as mob, var/tile = 0)
