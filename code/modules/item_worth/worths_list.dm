@@ -609,6 +609,7 @@ var/list/worths = list(
 					/obj/item/device/chameleon = 4000,
 					/obj/item/device/paicard = 120,
 					/obj/item/device/powersink = 1800,
+					/obj/item/weapon/hand_tele = 1800,
 					/obj/item/device/mass_spectrometer/adv = 400,
 					/obj/item/device/mass_spectrometer = 300,
 					/obj/item/device/reagent_scanner/adv = 600,
