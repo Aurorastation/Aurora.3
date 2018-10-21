@@ -108,7 +108,7 @@
 		if(user == target)
 			if(!user.can_eat(src))
 				return
-				
+
 			var/feedback_message
 			if(expected_fullness <= CREW_NUTRITION_VERYHUNGRY)
 				feedback_message = "You hungrily chew out a piece of \the [src] and gobble it!"
@@ -5384,7 +5384,7 @@
 	reagents.add_reagent("sugar", 2)
 
 /obj/item/weapon/reagent_containers/food/snacks/cb09
-	name = "owo daddy bar"
+	name = "oh daddy bar"
 	desc = "A massive cluster of peanuts covered in caramel and chocolate."
 	filling_color = "#552200"
 	icon_state = "cb09"
