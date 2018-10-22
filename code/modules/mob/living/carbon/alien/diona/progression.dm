@@ -1,11 +1,9 @@
 /mob/living/carbon/alien/diona/confirm_evolution()
 
 	//Whitelist requirement for evolution experimentally removed
-	/*
 	if(!is_alien_whitelisted(src, "Diona") && config.usealienwhitelist)
 		src << alert("You are currently not whitelisted to play as a full diona.")
 		return null
-	*/
 
 	var/response = alert(src, "A worker gestalt is a large, slow, and durable humanoid form. You will lose the ability to ventcrawl and devour animals, but you will gain hand-like tendrils and the ability to wear things.You have enough biomass, are you certain you're ready to form a new gestalt?","Confirm Gestalt","Growth!","Patience...")
 	if(response != "Growth!") return  //Hit the wrong key...again.
