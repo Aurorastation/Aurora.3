@@ -75,6 +75,7 @@
 	color = "#664330"
 	unaffected_species = IS_MACHINE
 	taste_description = "food"
+	fallback_specific_heat = 1.25
 
 /datum/reagent/nutriment/synthetic
 	name = "Synthetic Nutriment"
@@ -712,6 +713,7 @@
 	var/datum/modifier/modifier = null
 	unaffected_species = IS_MACHINE
 	var/blood_to_ingest_scale = 2
+	fallback_specific_heat = 1.75
 
 /datum/reagent/drink/Destroy()
 	if (modifier)

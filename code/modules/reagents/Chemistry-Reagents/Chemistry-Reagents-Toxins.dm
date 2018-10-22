@@ -10,6 +10,7 @@
 	var/strength = 4 // How much damage it deals per unit
 	taste_description = "bitterness"
 	taste_mult = 1.2
+	fallback_specific_heat = 0.75
 
 /datum/reagent/toxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(strength)
@@ -69,6 +70,7 @@
 	touch_met = 5
 	taste_mult = 1.5
 	breathe_mul = 2
+	specific_heat = 2 //Phoron is very dense and can hold a lot of energy.
 
 /datum/reagent/toxin/phoron/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))

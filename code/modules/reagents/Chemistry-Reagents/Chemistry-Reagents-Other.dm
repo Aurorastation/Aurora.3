@@ -8,6 +8,7 @@
 	color = "#888888"
 	overdose = 5
 	taste_description = "the back of class"
+	specific_heat = 0.2
 
 /datum/reagent/crayon_dust/red
 	name = "Red crayon dust"
@@ -58,6 +59,7 @@
 	overdose = REAGENTS_OVERDOSE * 0.5
 	color_weight = 20
 	taste_description = "chalk"
+	specific_heat = 0.2
 
 /datum/reagent/paint/touch_turf(var/turf/T)
 	if(istype(T) && !istype(T, /turf/space))
@@ -123,7 +125,7 @@
 /datum/reagent/adminordrazine //An OP chemical for admins
 	name = "Adminordrazine"
 	id = "adminordrazine"
-	description = "It's magic. We don't have to explain it."
+	description = "It's magic, I ain't gotta explain shit."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	affects_dead = 1 //This can even heal dead people.
@@ -131,7 +133,10 @@
 
 	glass_icon_state = "golden_cup"
 	glass_name = "golden cup"
-	glass_desc = "It's magic. We don't have to explain it."
+	glass_desc = "It's magic, I ain't gotta explain shit."
+
+	specific_heat = 10 //Magical.
+
 
 /datum/reagent/adminordrazine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	affect_blood(M, alien, removed)
@@ -172,6 +177,7 @@
 	reagent_state = SOLID
 	color = "#F7C430"
 	taste_description = "expensive metal"
+	specific_heat = 2.511
 
 /datum/reagent/silver
 	name = "Silver"
@@ -180,6 +186,7 @@
 	reagent_state = SOLID
 	color = "#D0D0D0"
 	taste_description = "expensive yet reasonable metal"
+	specific_heat = 0.241
 
 /datum/reagent/uranium
 	name ="Uranium"
@@ -188,6 +195,7 @@
 	reagent_state = SOLID
 	color = "#B8B8C0"
 	taste_description = "the inside of a reactor"
+	specific_heat = 2.286
 
 /datum/reagent/uranium/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	affect_ingest(M, alien, removed)
@@ -210,6 +218,7 @@
 	reagent_state = SOLID
 	color = "#E0E0E0"
 	taste_description = "salty metalic miner tears"
+	specific_heat = 0.2971
 
 /datum/reagent/adrenaline
 	name = "Adrenaline"
@@ -218,6 +227,7 @@
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	taste_description = "bitterness"
+	specific_heat = 0.75
 
 /datum/reagent/adrenaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.SetParalysis(0)
