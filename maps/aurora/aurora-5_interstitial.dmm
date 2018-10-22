@@ -3063,20 +3063,15 @@
 /turf/simulated/wall,
 /area/security/forensics_office)
 "fx" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
 /obj/structure/window/reinforced/polarized{
 	dir = 1;
 	id = "FT Op"
 	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "FT Op"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "FT Op"
-	},
-/turf/simulated/floor/plating,
+/obj/structure/grille,
+/turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "fy" = (
 /obj/machinery/door/firedoor,
@@ -3217,22 +3212,19 @@
 /turf/simulated/floor/plating,
 /area/security/detectives_office)
 "fL" = (
-/obj/machinery/papershredder,
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
 	},
+/obj/machinery/vending/snack,
 /turf/simulated/floor/tiled,
 /area/security/investigations)
 "fM" = (
-/obj/structure/table/standard,
-/obj/item/weapon/folder/sec,
-/obj/item/weapon/folder/sec,
-/obj/item/weapon/folder/sec,
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 6
 	},
+/obj/machinery/vending/coffee,
 /turf/simulated/floor/tiled,
 /area/security/investigations)
 "fN" = (
@@ -3253,13 +3245,23 @@
 /turf/simulated/floor/plating,
 /area/security/forensics_office)
 "fO" = (
-/obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/hand_labeler,
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 5
 	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/obj/structure/disposalpipe/trunk,
+/obj/machinery/disposal,
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "fP" = (
@@ -3275,16 +3277,9 @@
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "fQ" = (
-/obj/structure/table/standard,
-/obj/item/device/camera_film,
-/obj/item/device/camera,
-/obj/effect/floor_decal/corner/blue{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/machinery/alarm{
-	pixel_y = 23
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/coatrack,
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "fR" = (
@@ -3307,19 +3302,23 @@
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "fS" = (
-/obj/machinery/computer/secure_data,
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 5
 	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "fT" = (
-/obj/machinery/computer/med_data,
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 5
 	},
+/obj/structure/table/standard,
+/obj/machinery/chemical_dispenser/coffeemaster,
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "fU" = (
@@ -3529,14 +3528,17 @@
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "gm" = (
-/obj/structure/bed/chair/office/light{
-	dir = 4
+/obj/item/weapon/pen/red,
+/obj/item/weapon/pen{
+	pixel_x = 5;
+	pixel_y = 5
 	},
-/obj/machinery/button/windowtint{
-	id = "FT Op";
-	pixel_x = 28;
-	pixel_y = 12
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "gn" = (
@@ -3685,81 +3687,57 @@
 /area/security/forensics_office)
 "gy" = (
 /obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "gz" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "gA" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "gB" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "gC" = (
-/obj/structure/disposalpipe/segment{
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/power/apc{
 	dir = 2;
-	icon_state = "pipe-c"
+	name = "south bump";
+	pixel_y = -24
 	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "gD" = (
@@ -4264,18 +4242,7 @@
 /turf/simulated/floor/tiled,
 /area/security/investigations)
 "hm" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/security/forensics_office)
 "hn" = (
 /obj/structure/grille,
@@ -8864,6 +8831,541 @@
 /obj/structure/lattice/catwalk,
 /turf/simulated/open,
 /area/maintenance/interstitial_cargo)
+"LA" = (
+/obj/machinery/requests_console{
+	department = "Forensic Technician";
+	departmentType = 5
+	},
+/turf/simulated/wall,
+/area/security/forensics_office)
+"LB" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"LC" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"LD" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"LE" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"LF" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"LG" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "FT Op"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_office)
+"LH" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/machinery/optable,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"LI" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"LJ" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"LK" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/structure/morgue{
+	icon_state = "morgue1";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"LL" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/structure/closet{
+	name = "Evidence Closet"
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"LM" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"LN" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/structure/table/glass,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"LO" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/structure/table/glass,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/item/weapon/storage/box/slides,
+/obj/item/weapon/storage/box/swabs,
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"LP" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/structure/table/glass,
+/obj/item/weapon/storage/briefcase/crimekit,
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"LQ" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/computer/med_data,
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"LR" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/computer/secure_data,
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"LS" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/filingcabinet/chestdrawer,
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"LT" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/structure/morgue{
+	icon_state = "morgue1";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"LU" = (
+/obj/structure/closet{
+	name = "Evidence Closet"
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"LV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"LW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"LX" = (
+/obj/structure/bed/chair/office/light,
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"LY" = (
+/obj/structure/bed/chair/office/light,
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"LZ" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"Ma" = (
+/obj/structure/curtain/medical,
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"Mb" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "FT Op"
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "FT Op"
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"Mc" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "FT Op"
+	},
+/obj/structure/grille,
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"Md" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "FT Op"
+	},
+/obj/structure/grille,
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"Me" = (
+/obj/structure/closet/secure_closet/csi,
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"Mf" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"Mg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"Mh" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"Mi" = (
+/obj/structure/table/glass,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/item/weapon/storage/briefcase/crimekit,
+/obj/item/weapon/storage/box/slides,
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"Mj" = (
+/obj/machinery/microscope,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"Mk" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/dnaforensics,
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"Ml" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"Mm" = (
+/obj/effect/floor_decal/corner/beige{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"Mn" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/beige{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"Mo" = (
+/obj/effect/floor_decal/corner/beige{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"Mp" = (
+/obj/structure/table/glass,
+/obj/item/weapon/storage/box/gloves,
+/obj/item/weapon/storage/box/bodybags,
+/obj/item/weapon/reagent_containers/spray/cleaner,
+/obj/item/weapon/reagent_containers/spray/cleaner,
+/obj/item/weapon/storage/box/syringes,
+/obj/effect/floor_decal/corner/beige/full{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"Mq" = (
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "FT Op"
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "FT Op"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"Mr" = (
+/obj/machinery/door/airlock/glass{
+	name = "Forensic Technician Evidence Processing"
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"Ms" = (
+/obj/structure/window/reinforced/polarized{
+	id = "FT Op"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "FT Op"
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "FT Op"
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"Mt" = (
+/obj/effect/floor_decal/corner/beige{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"Mu" = (
+/obj/effect/floor_decal/corner/beige{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"Mv" = (
+/obj/effect/floor_decal/corner/beige{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"Mw" = (
+/obj/structure/table/glass,
+/obj/item/weapon/storage/box/masks{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/beige/full{
+	icon_state = "corner_white_full";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
+"Mx" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/light_switch{
+	pixel_x = -24;
+	pixel_y = 0
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"My" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"Mz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"MA" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"MB" = (
+/obj/structure/bed/chair/office/light{
+	dir = 4
+	},
+/obj/machinery/button/windowtint{
+	id = "FT Op";
+	pixel_x = 28;
+	pixel_y = 12
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"MC" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/firealarm/south,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
+"MD" = (
+/turf/space,
+/area/mine/unexplored)
+"ME" = (
+/turf/space,
+/area/mine/unexplored)
 
 (1,1,1) = {"
 aa
@@ -31658,14 +32160,14 @@ aa
 aa
 aa
 aa
-KB
+Ks
 aa
-co
+Ks
 aa
 aa
-co
+Ks
 aa
-co
+Ks
 aa
 aa
 aa
@@ -31915,15 +32417,15 @@ aa
 aa
 aa
 Ks
-KC
-co
-co
-co
-co
-co
-co
-co
-co
+Ks
+Ks
+Ks
+Ks
+Ks
+Ks
+Ks
+Ks
+Ks
 aa
 aa
 aa
@@ -32172,14 +32674,14 @@ aa
 aa
 aa
 aa
-KD
+Ks
 cp
 cp
 cp
 cp
 cp
 cp
-co
+Ks
 aa
 aa
 aa
@@ -32428,16 +32930,16 @@ aa
 aa
 aa
 aa
-Kt
-KE
+Ks
+Ks
 cp
 cp
 cp
 cp
 cp
 cp
-co
-co
+Ks
+Ks
 aa
 aa
 aa
@@ -32686,14 +33188,14 @@ aa
 aa
 aa
 aa
-KF
+Ks
 cp
 cp
 cp
 cp
 cp
 cp
-co
+Ks
 aa
 aa
 aa
@@ -32943,14 +33445,14 @@ aa
 aa
 aa
 aa
-KG
+Ks
 cp
 cp
 cp
 cp
 cp
 cp
-co
+Ks
 aa
 aa
 aa
@@ -33199,16 +33701,16 @@ aa
 aa
 aa
 aa
-Ku
-KH
+Ks
+Ks
 cp
 cp
 cp
 cp
 cp
 cp
-co
-co
+Ks
+Ks
 aa
 aa
 aa
@@ -33457,14 +33959,14 @@ aa
 aa
 aa
 aa
-KI
+Ks
 cp
 cp
 cp
 cp
 cp
 cp
-co
+Ks
 aa
 aa
 aa
@@ -33713,16 +34215,16 @@ aa
 aa
 aa
 aa
-Kv
-KJ
-co
-co
-co
-co
-co
-co
-co
-co
+Ks
+Ks
+Ks
+Ks
+Ks
+Ks
+Ks
+Ks
+Ks
+Ks
 aa
 aa
 aa
@@ -33970,7 +34472,7 @@ aa
 aa
 aa
 aa
-Kw
+Ks
 cl
 cq
 cw
@@ -33979,14 +34481,14 @@ cy
 Ld
 cH
 cJ
-co
-co
-co
-co
-co
-co
-co
-co
+Ks
+Ks
+Ks
+Ks
+Ks
+Ks
+Ks
+Ks
 aa
 aa
 aa
@@ -34227,7 +34729,7 @@ aa
 aa
 aa
 aa
-Kx
+Ks
 cm
 cr
 cx
@@ -34243,7 +34745,7 @@ cO
 cO
 cO
 Lm
-co
+Ks
 aa
 aa
 aa
@@ -34484,7 +34986,7 @@ aa
 aa
 aa
 aa
-Ky
+Ks
 cn
 cs
 cy
@@ -34493,14 +34995,14 @@ KY
 Lf
 cI
 cL
-co
-co
-co
-co
-co
-co
+Ks
+Ks
+Ks
+Ks
+Ks
+Ks
 Ln
-co
+Ks
 aa
 aa
 aa
@@ -34741,23 +35243,23 @@ aa
 aa
 aa
 aa
-Kz
-co
-co
+Ks
+Ks
+Ks
 cz
 cD
 cC
-co
+Ks
 cG
 cM
-co
+Ks
 aa
 aa
 aa
 aa
-co
-Lo
-co
+Ks
+Ln
+Ks
 aa
 aa
 aa
@@ -35012,9 +35514,9 @@ aa
 aa
 aa
 aa
-co
-Lp
-co
+Ks
+Ln
+Ks
 aa
 aa
 aa
@@ -35269,9 +35771,9 @@ aa
 aa
 aa
 aa
-co
-Lq
-co
+Ks
+Ln
+Ks
 aa
 aa
 aa
@@ -35514,11 +36016,11 @@ aa
 aa
 ab
 ab
-co
+Ks
 cC
 KP
 cC
-co
+Ks
 ab
 ab
 aa
@@ -35526,9 +36028,9 @@ aa
 aa
 aa
 aa
-co
-Lr
-co
+Ks
+Ln
+Ks
 aa
 aa
 aa
@@ -35774,7 +36276,7 @@ ab
 ab
 md
 KQ
-Lb
+JM
 ab
 ab
 aa
@@ -35783,9 +36285,9 @@ aa
 aa
 aa
 aa
-co
-Ls
-co
+Ks
+Ln
+Ks
 aa
 aa
 aa
@@ -35979,15 +36481,15 @@ aw
 aw
 IK
 IL
-IM
-IN
-IO
-IP
+IL
+IL
+IL
+IL
 IQ
 IR
-IS
-IT
-IU
+IR
+IR
+IR
 IW
 Jf
 ar
@@ -36040,9 +36542,9 @@ aa
 aa
 aa
 aa
-co
-Lt
-co
+Ks
+Ln
+Ks
 aa
 aa
 aa
@@ -36297,9 +36799,9 @@ aa
 aa
 aa
 aa
-co
-ju
-co
+Ks
+Ln
+Ks
 aa
 aa
 aa
@@ -36502,7 +37004,7 @@ iD
 iD
 ar
 aN
-IY
+IX
 aw
 iD
 bi
@@ -36554,9 +37056,9 @@ aa
 aa
 aa
 aa
-co
-ju
-co
+Ks
+Ln
+Ks
 aa
 aa
 aa
@@ -36801,7 +37303,7 @@ ab
 ab
 ab
 ab
-KU
+KT
 ab
 ab
 ab
@@ -36811,9 +37313,9 @@ aa
 aa
 aa
 aa
-co
-ju
-co
+Ks
+Ln
+Ks
 aa
 aa
 aa
@@ -37016,11 +37518,11 @@ aG
 aG
 iD
 aw
-Ja
+IX
 aw
 iD
 aw
-bt
+IJ
 Jx
 bP
 bV
@@ -37059,7 +37561,7 @@ ab
 ab
 md
 KV
-Lc
+JM
 ab
 ab
 ab
@@ -37068,9 +37570,9 @@ aa
 aa
 aa
 aa
-co
-ju
-co
+Ks
+Ln
+Ks
 aa
 aa
 aa
@@ -37286,34 +37788,34 @@ ca
 JL
 JN
 JO
-JP
-JQ
-JT
-JU
-JV
-JW
-JX
-JY
-JZ
-Ka
-Kb
-Ke
-Kf
-Kg
-Kh
-Ki
-Kj
-Kk
-Kl
-Km
-Kn
-Ko
-Kp
-Kq
-Kr
-KA
-KK
-KL
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
+JO
 KM
 KW
 mi
@@ -37325,9 +37827,9 @@ aa
 aa
 aa
 aa
-co
-ju
-co
+Ks
+Ln
+Ks
 aa
 aa
 aa
@@ -37582,9 +38084,9 @@ aa
 aa
 aa
 aa
-co
-ju
-co
+Ks
+Ln
+Ks
 aa
 aa
 aa
@@ -37787,15 +38289,15 @@ aG
 aG
 iD
 aM
-Jd
+Jc
 aW
 iD
 bk
 aw
 bH
 ar
-JH
-JK
+JF
+JI
 ar
 ab
 ab
@@ -37839,9 +38341,9 @@ aa
 aa
 aa
 aa
-co
-ju
-co
+Ks
+Ln
+Ks
 aa
 aa
 aa
@@ -38096,9 +38598,9 @@ aa
 aa
 aa
 aa
-co
-ju
-co
+Ks
+Ln
+Ks
 aa
 aa
 aa
@@ -38353,9 +38855,9 @@ aa
 aa
 aa
 aa
-co
-ju
-co
+Ks
+Ln
+Ks
 aa
 aa
 aa
@@ -38610,9 +39112,9 @@ aa
 aa
 aa
 aa
-co
-ju
-co
+Ks
+Ln
+Ks
 aa
 aa
 aa
@@ -38867,9 +39369,9 @@ aa
 aa
 aa
 aa
-co
-ju
-co
+Ks
+Ln
+Ks
 aa
 aa
 aa
@@ -39124,9 +39626,9 @@ aa
 aa
 aa
 aa
-co
-ju
-co
+Ks
+Ln
+Ks
 aa
 aa
 aa
@@ -39381,9 +39883,9 @@ aa
 aa
 aa
 aa
-co
-ju
-co
+Ks
+Ln
+Ks
 aa
 aa
 aa
@@ -39637,11 +40139,11 @@ aa
 aa
 aa
 aa
-co
-co
+Ks
+Ks
 Lu
-co
-co
+Ks
+Ks
 aa
 aa
 aa
@@ -39894,11 +40396,11 @@ aa
 aa
 aa
 aa
-co
+Ks
 Lj
-ju
+Ln
 Lx
-co
+Ks
 aa
 aa
 aa
@@ -40151,11 +40653,11 @@ aa
 aa
 aa
 aa
-co
+Ks
 Lk
 Lv
 Ly
-co
+Ks
 aa
 aa
 aa
@@ -40408,11 +40910,11 @@ aa
 aa
 aa
 aa
-co
+Ks
 Ll
 Lw
 Lz
-co
+Ks
 aa
 aa
 aa
@@ -40665,11 +41167,11 @@ aa
 aa
 aa
 aa
-co
-co
-co
-co
-co
+Ks
+Ks
+Ks
+Ks
+Ks
 aa
 aa
 aa
@@ -42376,7 +42878,7 @@ dc
 aa
 aa
 aa
-aa
+MD
 aa
 aa
 aa
@@ -42633,7 +43135,7 @@ dc
 aa
 aa
 aa
-aa
+ME
 aa
 aa
 aa
@@ -44930,10 +45432,10 @@ dc
 dc
 dc
 et
-eC
-eO
-eO
-eZ
+et
+et
+et
+et
 et
 fK
 gg
@@ -45183,8 +45685,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+ab
+ab
 ab
 ab
 ab
@@ -45439,10 +45941,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -45696,26 +46198,26 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-ab
 ab
 ab
 ab
 ab
 ab
 fw
-fN
-gj
+fw
+fw
+fw
+fw
+fw
+fw
 gx
 fw
 fw
 fw
 fw
 fw
-ij
-fw
+ab
+ab
 ab
 ab
 aa
@@ -45954,25 +46456,25 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
 ab
 ab
 ab
+ab
+fw
+LL
+LU
+Me
 fx
 fO
-gk
+Mx
 gy
-gR
+fw
 hm
-hA
-hT
-ie
-ik
-fx
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 aa
@@ -46211,25 +46713,25 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
 ab
 ab
-fy
-fP
+ab
+ab
+LB
+LM
+LV
+Mf
+fx
 gl
+My
 gz
-gS
-hn
-hB
-hU
-hB
-il
-in
+fw
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 aa
@@ -46468,25 +46970,25 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
 ab
 ab
 ab
-fw
+ab
+LC
+LN
+LW
+Mg
+Mq
 fQ
-gk
+Mz
 gA
-gT
-ho
-hC
-hV
-if
-im
-fy
+fw
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 aa
@@ -46725,25 +47227,25 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
 ab
 ab
-fw
-fR
+ab
+ab
+LD
+LO
 gk
+Mh
+Mr
+gk
+MA
 gB
-gU
-hp
-hD
-hW
-ig
 fw
-fw
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 aa
@@ -46981,25 +47483,25 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 ab
 ab
-fw
+ab
+ab
+ab
+LE
+LP
+LX
+Mi
+Ms
 fS
-gk
-gB
-gV
+MB
+MC
 fw
-hE
-hW
-hW
-fx
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -47238,25 +47740,25 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
 ab
 ab
 ab
+ab
+ab
+LF
+LQ
+gk
+Mj
 fx
 fT
 gm
 gC
-gW
 fw
-hF
-hX
-mn
-fy
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -47496,24 +47998,24 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
 ab
 ab
-fy
-fU
-gn
-gD
-gX
+ab
+ab
+LG
+LR
+LY
+Mk
+fx
 fw
-fN
-go
-gj
 fw
+fw
+fw
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -47753,20 +48255,20 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
 ab
 ab
 fw
-fN
-go
-go
-gj
+LS
+LZ
+Ml
 fw
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -48010,16 +48512,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
 ab
 ab
 ab
-ab
+fw
+fw
+fw
+hW
+fw
+fw
+fw
 ab
 ab
 ab
@@ -48267,16 +48769,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
 ab
 ab
 ab
-ab
+fw
+LH
+hW
+Ma
+Mm
+Mt
+fw
 ab
 ab
 ab
@@ -48525,15 +49027,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
 ab
 ab
-ab
-ab
+fw
+hF
+hW
+Mb
+Mn
+Mu
+fw
 ab
 ab
 ab
@@ -48782,17 +49284,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
 ab
 ab
+fw
+LI
+hW
+Mc
+Mo
+Mv
+fw
 ab
 ab
-aa
 ab
 ab
 ab
@@ -49039,17 +49541,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+LA
+hW
+hW
+Md
+Mp
+Mw
+fw
+ab
+ab
 aa
 aa
 aa
@@ -49296,17 +49798,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+fw
+LJ
+hW
+fw
+fw
+fw
+fw
+ab
+ab
 aa
 aa
 aa
@@ -49553,16 +50055,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+fw
+LK
+LT
+fw
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -49810,16 +50312,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+fw
+fw
+fw
+fw
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -53210,16 +53712,16 @@ mo
 mo
 mo
 Ji
-Jp
-Jt
-JA
-bU
+Ji
+Ji
+Ji
+Ji
 aa
 aa
-bU
+Ji
 aa
 aa
-bU
+Ji
 aa
 aa
 aa
@@ -53466,18 +53968,18 @@ mo
 mo
 ab
 ab
-Jj
+Ji
 bl
 bw
 bI
-bU
-bU
-bU
-bU
-bU
-bU
-bU
-bU
+Ji
+Ji
+Ji
+Ji
+Ji
+Ji
+Ji
+Ji
 aa
 aa
 aa
@@ -53727,13 +54229,13 @@ bd
 bm
 bx
 bJ
-bU
+Ji
 bX
 bX
 bX
 bX
 bX
-bU
+Ji
 aa
 aa
 aa
@@ -53984,13 +54486,13 @@ be
 bn
 by
 JB
-bU
+Ji
 bX
 bX
 bX
 bX
 bX
-bU
+Ji
 aa
 aa
 aa
@@ -54240,15 +54742,15 @@ ba
 bf
 bo
 bz
-JC
-bU
+JB
+Ji
 bX
 bX
 bX
 bX
 bX
-bU
-bU
+Ji
+Ji
 aa
 aa
 aa
@@ -54498,13 +55000,13 @@ bg
 Jq
 Ju
 JD
-bU
+Ji
 bX
 bX
 bX
 bX
 bX
-bU
+Ji
 aa
 aa
 aa
@@ -54515,7 +55017,7 @@ bc
 cf
 ci
 bc
-Kc
+Jw
 bc
 aa
 aa
@@ -54755,13 +55257,13 @@ bh
 bp
 Jv
 bK
-bU
+Ji
 bX
 bX
 bX
 bX
 bX
-bU
+Ji
 bc
 bc
 bc
@@ -54772,7 +55274,7 @@ bc
 bc
 bc
 bc
-Kd
+Jw
 bc
 aa
 aa
@@ -55008,17 +55510,17 @@ ou
 ab
 ab
 ab
-Jk
+Ji
 bq
 bA
 bL
-bU
-bU
-bU
-bU
-bU
-bU
-bU
+Ji
+Ji
+Ji
+Ji
+Ji
+Ji
+Ji
 bc
 cb
 bM
@@ -55265,19 +55767,19 @@ ab
 ab
 ab
 ab
-Jl
-Jr
+Ji
+Ji
 bB
-JE
-bU
+Ji
+Ji
 aa
 aa
-bU
+Ji
 aa
 aa
-bU
+Ji
 bc
-JR
+Jw
 bc
 bc
 bc
@@ -55534,7 +56036,7 @@ bc
 bc
 bc
 bc
-JS
+Jw
 bc
 aa
 aa
