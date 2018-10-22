@@ -21,19 +21,13 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		return chemical_reagents[R.id].specific_heat
 
 	var/datum/chemical_reaction/recipe = find_recipe_by_result(R.id)
+
 	if(recipe)
 		var/final_heat = 0
 		var/result_amount = recipe.result_amount
 		for(var/chem in recipe.required_reagents)
-			var/cost = recipe.required_reagents[chem]
-			if(unit_test)
-				var/layers = check_specific_heat(chemical_reagents[chem])
-				if(layers == FALSE)
-					final_heat += (cost/result_amount)
-				else
-					final_heat += layers  * (cost/result_amount)
-			else
-				final_heat += check_specific_heat(chemical_reagents[chem]) * (cost/result_amount)
+			final_heat += check_specific_heat(chemical_reagents[chem],unit_test) * (recipe.required_reagents[chem]/result_amount)
+
 		if(final_heat > 0)
 			chemical_reagents[R.id].specific_heat = final_heat
 		else
@@ -42,6 +36,8 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 				return FALSE
 			else
 				log_ss("chemistry", "ERROR: [R.type] has a weird recipe set which cannot determine an appropriate specific heat value! Please fix this by giving it a specific_heat value!")
+	else if(R.fallback_specific_heat)
+		chemical_reagents[R.id].specific_heat = R.fallback_specific_heat
 	else
 		chemical_reagents[R.id].specific_heat = 1
 		if(unit_test)
@@ -51,14 +47,10 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 
 	return chemical_reagents[R.id].specific_heat
 
-/datum/controller/subsystem/chemistry/proc/find_recipe_by_result(var/result_id,var/debug = FALSE)
+/datum/controller/subsystem/chemistry/proc/find_recipe_by_result(var/result_id)
 	for(var/key in chemical_reactions_clean)
 		var/datum/chemical_reaction/CR = chemical_reactions_clean[key]
-		if(debug)
-			log_ss("chemistry", "Scanning [key]... comparing [CR.result] to [result_id]... ")
 		if(CR.result == result_id && CR.result_amount > 0)
-			if(debug)
-				log_ss("chemistry", "IT'S A MATCH!")
 			return CR
 
 /datum/controller/subsystem/chemistry/stat_entry()
