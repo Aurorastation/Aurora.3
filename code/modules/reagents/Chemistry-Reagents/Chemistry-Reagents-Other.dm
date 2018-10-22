@@ -432,6 +432,7 @@
 	description = "An extremely powerful bonding agent."
 	color = "#FFFFCC"
 	taste_description = "a special education class"
+	fallback_specific_heat = 1.5
 
 /datum/reagent/woodpulp
 	name = "Wood Pulp"
@@ -440,6 +441,7 @@
 	reagent_state = LIQUID
 	color = "#B97A57"
 	taste_description = "wood"
+	fallback_specific_heat = 1.9
 
 /datum/reagent/luminol
 	name = "Luminol"
@@ -465,6 +467,7 @@
 	metabolism = REM * 0.25
 	taste_description = "bottled fire"
 	var/datum/modifier/modifier
+	fallback_specific_heat = 2.75
 
 /datum/reagent/estus/affect_blood(var/mob/living/carbon/M, var/removed)
 	if (!modifier)
@@ -492,6 +495,7 @@
 	color = "#E25822"
 	touch_met = 5
 	taste_description = "metal"
+	fallback_specific_heat = 20 //This holds a ton of heat.
 
 /datum/reagent/liquid_fire/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(istype(M))
@@ -509,6 +513,7 @@
 	description = "A pitch black blend of cosmic origins, handle with care."
 	color = "#000000"
 	taste_description = "emptyness"
+	fallback_specific_heat = 100 //Yeah...
 
 /datum/reagent/black_matter/touch_turf(var/turf/T)
 	var/obj/effect/portal/P = new /obj/effect/portal(T)
@@ -532,6 +537,7 @@
 	description = "A dust composed of microscopic bluespace crystals."
 	color = "#1f8999"
 	taste_description = "fizzling blue"
+	fallback_specific_heat = 0.1
 
 /datum/reagent/bluespace_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(25))
@@ -550,6 +556,7 @@
 	description = "A mythical compound, rumored to be the catalyst of fantastic reactions."
 	color = "#f4c430"
 	taste_description = "heavenly knowledge"
+	fallback_specific_heat = 1.25
 
 /datum/reagent/sglue
 	name = "Sovereign Glue"
@@ -558,6 +565,7 @@
 	reagent_state = LIQUID
 	color = "#EDE8E2"
 	taste_description = "horses"
+	fallback_specific_heat = 1.25
 
 /datum/reagent/sglue/touch_obj(var/obj/O)
 	if((istype(O, /obj/item) && !istype(O, /obj/item/weapon/reagent_containers)) && (volume > 10*O.w_class))
@@ -574,6 +582,7 @@
 	reagent_state = LIQUID
 	color = "#EDE8E2"
 	taste_description = "alcohol"
+	fallback_specific_heat = 1.75
 
 /datum/reagent/usolve/touch_obj(var/obj/O)
 	if((istype(O, /obj/item) && !istype(O, /obj/item/weapon/reagent_containers)) && (volume > 10*O.w_class))
@@ -590,6 +599,7 @@
 	reagent_state = SOLID
 	color = "#c2b280"
 	taste_description = "sand"
+	fallback_specific_heat = 0.75
 
 /datum/reagent/shapesand/touch_obj(var/obj/O)
 	if((istype(O, /obj/item) && !istype(O, /obj/item/weapon/reagent_containers)) && (volume > 10*O.w_class))
@@ -626,6 +636,7 @@
 	reagent_state = LIQUID
 	color = "#ff69b4"
 	taste_description = "sickly sweet candy"
+	fallback_specific_heat = 2 //Thicc
 
 /datum/reagent/love_potion/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
 
@@ -643,6 +654,7 @@
 	reagent_state = LIQUID
 	color = "#70838A"
 	taste_description = "metal"
+	fallback_specific_heat = 10
 
 /datum/reagent/bottle_lightning/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(25))
