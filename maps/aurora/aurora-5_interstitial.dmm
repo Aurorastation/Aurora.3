@@ -975,7 +975,7 @@
 	departmentType = 5
 	},
 /turf/simulated/wall,
-/area/mine/unexplored)
+/area/security/forensics_office)
 "bO" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/machinery/optable,
@@ -984,7 +984,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/forensics_office)
 "bP" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -1041,7 +1041,7 @@
 	name = "shiny scalpel"
 	},
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/forensics_office)
 "bT" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/machinery/light{
@@ -1049,7 +1049,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/forensics_office)
 "bU" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/morgue{
@@ -45084,7 +45084,7 @@ fO
 Mx
 gy
 fw
-hm
+ab
 ab
 ab
 ab
@@ -47128,15 +47128,15 @@ aa
 aa
 aa
 ab
-bt
-bt
+fw
+fw
 fw
 ct
 fw
 cX
 fy
 fw
-hm
+ab
 ab
 ab
 ab
@@ -47385,7 +47385,7 @@ aa
 aa
 aa
 ab
-bt
+fw
 bO
 hW
 cN
@@ -47393,7 +47393,7 @@ cU
 Mo
 Mv
 fw
-hm
+ab
 ab
 ab
 ab
@@ -47642,7 +47642,7 @@ aa
 aa
 aa
 aa
-bt
+fw
 bS
 hW
 hW
@@ -47650,7 +47650,7 @@ cV
 Mo
 Mv
 fw
-hm
+ab
 ab
 ab
 ab
@@ -47899,7 +47899,7 @@ aa
 aa
 aa
 aa
-bt
+fw
 bT
 hW
 hW
@@ -47907,7 +47907,7 @@ Mb
 cY
 Mv
 fw
-hm
+ab
 ab
 ab
 ab
@@ -48157,14 +48157,14 @@ aa
 aa
 aa
 bN
-bU
+LT
 hW
 LT
 cW
 Mp
 Mw
 fw
-hm
+ab
 ab
 ab
 aa
@@ -48413,15 +48413,15 @@ aa
 aa
 aa
 aa
-bt
-bt
 fw
 fw
 fw
 fw
 fw
 fw
-hm
+fw
+fw
+ab
 ab
 ab
 aa
@@ -48672,10 +48672,10 @@ aa
 aa
 ab
 ab
-hm
-hm
-hm
-hm
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -48929,10 +48929,10 @@ aa
 aa
 ab
 ab
-hm
-hm
-hm
-hm
+ab
+ab
+ab
+ab
 ab
 ab
 ab
