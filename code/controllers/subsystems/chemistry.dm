@@ -26,16 +26,23 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		var/final_heat = 0
 		var/result_amount = recipe.result_amount
 		for(var/chem in recipe.required_reagents)
-			final_heat += check_specific_heat(chemical_reagents[chem],unit_test) * (recipe.required_reagents[chem]/result_amount)
-
+			var/chem_specific_heat = check_specific_heat(chemical_reagents[chem],unit_test)
+			if(unit_test && chem_specific_heat)
+				log_ss("chemistry", "ERROR: [R.type] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
+				return FALSE
+			else
+				final_heat += chem_specific_heat * (recipe.required_reagents[chem]/result_amount)
 		if(final_heat > 0)
 			chemical_reagents[R.id].specific_heat = final_heat
 		else
-			chemical_reagents[R.id].specific_heat = 1
-			if(unit_test)
-				return FALSE
+			if(R.fallback_specific_heat)
+				chemical_reagents[R.id].specific_heat = R.fallback_specific_heat
 			else
-				log_ss("chemistry", "ERROR: [R.type] has a weird recipe set which cannot determine an appropriate specific heat value! Please fix this by giving it a specific_heat value!")
+				chemical_reagents[R.id].specific_heat = 1
+				if(unit_test)
+					return FALSE
+				else
+					log_ss("chemistry", "ERROR: [R.type] has a weird recipe set which cannot determine an appropriate specific heat value! Please fix this by giving it a specific_heat value!")
 	else if(R.fallback_specific_heat)
 		chemical_reagents[R.id].specific_heat = R.fallback_specific_heat
 	else
