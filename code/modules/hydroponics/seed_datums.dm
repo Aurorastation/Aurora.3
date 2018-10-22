@@ -1127,8 +1127,8 @@
 /datum/seed/diona
 	name = "diona"
 	seed_name = "diona"
-	seed_noun = "nodes"
-	display_name = "replicant pods"
+	seed_noun = "node"
+	display_name = "diona pod"
 	can_self_harvest = 1
 	has_mob_product = /mob/living/carbon/alien/diona
 
