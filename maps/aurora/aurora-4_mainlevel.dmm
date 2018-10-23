@@ -55830,8 +55830,6 @@
 /obj/structure/table/rack,
 /obj/item/clothing/mask/breath,
 /obj/item/stack/flag/purple,
-/obj/item/clothing/suit/space/void/mining,
-/obj/item/clothing/head/helmet/space/void/mining,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 1
@@ -55844,6 +55842,9 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/head/helmet/space/void/mining,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cgc" = (
@@ -55890,8 +55891,6 @@
 /obj/structure/table/rack,
 /obj/item/clothing/mask/breath,
 /obj/item/stack/flag/red,
-/obj/item/clothing/suit/space/void/mining,
-/obj/item/clothing/head/helmet/space/void/mining,
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 6
@@ -55905,6 +55904,9 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/head/helmet/space/void/mining,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cgi" = (
@@ -55970,8 +55972,6 @@
 /obj/structure/table/rack,
 /obj/item/clothing/mask/breath,
 /obj/item/stack/flag/green,
-/obj/item/clothing/suit/space/void/mining,
-/obj/item/clothing/head/helmet/space/void/mining,
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 6
@@ -55980,6 +55980,9 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/head/helmet/space/void/mining,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cgr" = (
@@ -56023,8 +56026,6 @@
 /obj/structure/table/rack,
 /obj/item/clothing/mask/breath,
 /obj/item/stack/flag/yellow,
-/obj/item/clothing/suit/space/void/mining,
-/obj/item/clothing/head/helmet/space/void/mining,
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 6
@@ -56033,6 +56034,9 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/head/helmet/space/void/mining,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cgy" = (
