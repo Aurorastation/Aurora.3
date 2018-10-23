@@ -108,7 +108,7 @@
 		if(user == target)
 			if(!user.can_eat(src))
 				return
-				
+
 			var/feedback_message
 			
 			if(is_full)
@@ -5386,7 +5386,7 @@
 	reagents.add_reagent("sugar", 2)
 
 /obj/item/weapon/reagent_containers/food/snacks/cb09
-	name = "owo daddy bar"
+	name = "oh daddy bar"
 	desc = "A massive cluster of peanuts covered in caramel and chocolate."
 	filling_color = "#552200"
 	icon_state = "cb09"
