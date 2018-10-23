@@ -21036,11 +21036,11 @@
 	},
 /obj/structure/cable/cyan{
 	icon_state = "0-1";
-	dir = 4
-	},
-/obj/structure/cable/cyan{
-	icon_state = "0-1";
 	dir = 8
+	},
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
 /area/storage/shields)
