@@ -83,6 +83,24 @@
 /datum/language/vox/get_random_name()
 	return ..(FEMALE,1,6)
 
+
+
+/datum/language/proy
+	name = LANGUAGE_PROY
+	desc = "The common tongue of the garbage rodents fo the universe."
+	speech_verb = "switters"
+	ask_verb = "wabbles"
+	exclaim_verb = "SHRIEKS"
+	colour = "rough"
+	key = "p"
+	flags = WHITELISTED
+	syllables = list("PIPPP","TEEE TEEE","raaawwwtaaahh","Penluslio","kah kahnaaurriiiii!", \
+	"RAAUGH","AHHHHHHH","ElooK","RAWtaung","Saauntaau","Kaloisssisss")
+
+/datum/language/proy/get_random_name()
+	return "Offspirit Of [pick(list("Pip","Loaungtier","Pouropyyie","Bithlet","Gannonob"))]-[rand(100, 999)]"
+
+
 /datum/language/cultcommon
 	name = LANGUAGE_CULT
 	desc = "The chants of the occult, the incomprehensible."

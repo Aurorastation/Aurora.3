@@ -48,6 +48,13 @@
 	reagents.add_reagent("phoron", 27)
 	src.bitesize = 1.5
 
+
+/obj/item/weapon/reagent_containers/food/snacks/meat/proy
+
+/obj/item/weapon/reagent_containers/food/snacks/meat/proy/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 6)
+
 /obj/item/weapon/reagent_containers/food/snacks/meat/monkey
 	//same as plain meat
 

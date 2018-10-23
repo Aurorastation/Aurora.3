@@ -78,10 +78,11 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/type_c
 	layer = 5
 
-/mob/living/carbon/human/type_big/Initialize(mapload)
-	. = ..(mapload, "Vaurca Warform")
+/mob/living/carbon/human/proycyn
+
+/mob/living/carbon/human/proycyn/Initialize(mapload)
+	. = ..(mapload, "Proycyn Warrior")
 	src.gender = NEUTER
-	src.mutations.Add(HULK)
 
 /mob/living/carbon/human/type_big
 	layer = 5
