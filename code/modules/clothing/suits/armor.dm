@@ -448,7 +448,7 @@
 	desc = "A high-quality armor vest in a fetching tan. It is surprisingly flexible and light, even with the added webbing and armor plating."
 	icon_state = "mercwebvest"
 	item_state = "mercwebvest"
-	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
+	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 25, rad = 25)
 
 //ert related armor
 
@@ -458,8 +458,8 @@
 	icon_state = "ert_soldier"
 	item_state = "ert_soldier"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 20, bio = 0, rad = 0)
-	slowdown = 0
+	armor = list(melee = 65, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 25, rad = 25)
+	slowdown = 1
 
 /obj/item/clothing/suit/storage/vest/heavy/ert/commander
 	name = "ERT commander's plate carrier"

@@ -9174,7 +9174,6 @@
 /obj/item/ammo_magazine/mc9mmt/rubber,
 /obj/item/weapon/gun/projectile/automatic/wt550,
 /obj/item/weapon/gun/projectile/automatic/wt550,
-/obj/item/weapon/gun/projectile/automatic/wt550,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -9182,6 +9181,7 @@
 /area/centcom/specops)
 "vm" = (
 /obj/structure/table/rack,
+/obj/item/weapon/gun/energy/ionrifle,
 /obj/item/weapon/gun/energy/ionrifle,
 /turf/unsimulated/floor{
 	icon_state = "vault";
@@ -9216,10 +9216,10 @@
 "vp" = (
 /obj/structure/table/rack,
 /obj/item/weapon/storage/box/flashbangs,
-/obj/item/weapon/storage/box/flashbangs,
 /obj/item/weapon/storage/box/emps,
 /obj/item/weapon/storage/box/frags,
 /obj/item/weapon/storage/box/smokebombs,
+/obj/item/weapon/storage/box/teargas,
 /obj/item/weapon/gun/launcher/grenade,
 /turf/unsimulated/floor{
 	icon_state = "vault";
@@ -10355,6 +10355,8 @@
 /obj/item/weapon/storage/belt/security/tactical,
 /obj/item/weapon/storage/belt/security/tactical,
 /obj/item/taperoll/police,
+/obj/item/weapon/legcuffs,
+/obj/item/weapon/legcuffs,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -10916,6 +10918,7 @@
 /obj/item/clothing/glasses/welding/superior,
 /obj/item/clothing/glasses/welding/superior,
 /obj/structure/table/reinforced/steel,
+/obj/item/weapon/ladder_mobile,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -11290,8 +11293,6 @@
 /obj/item/rig_module/device/rcd,
 /obj/item/rig_module/chem_dispenser/injector,
 /obj/item/rig_module/chem_dispenser/injector,
-/obj/item/rig_module/chem_dispenser/combat,
-/obj/item/rig_module/chem_dispenser/combat,
 /obj/item/rig_module/mounted/egun,
 /obj/item/rig_module/mounted/egun,
 /obj/machinery/light{
@@ -11542,7 +11543,6 @@
 /obj/item/clothing/mask/balaclava,
 /obj/item/clothing/mask/balaclava,
 /obj/item/clothing/mask/balaclava,
-/obj/item/clothing/accessory/holster/waist,
 /obj/item/clothing/accessory/holster/waist,
 /obj/item/clothing/accessory/holster/waist,
 /turf/unsimulated/floor{
@@ -11935,6 +11935,10 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/chemdart,
+/obj/item/ammo_magazine/chemdart,
+/obj/item/weapon/gun/projectile/dartgun,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 8
@@ -12435,6 +12439,8 @@
 /obj/item/clothing/accessory/storage/white_vest,
 /obj/item/clothing/accessory/storage/white_vest,
 /obj/item/clothing/accessory/storage/white_vest,
+/obj/item/weapon/gun/energy/net,
+/obj/item/weapon/gun/energy/net,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -22763,6 +22769,20 @@
 	icon_state = "cult"
 	},
 /area/wizard_station)
+"YV" = (
+/obj/structure/table/rack,
+/obj/item/weapon/gun/energy/gravity_gun,
+/turf/unsimulated/floor{
+	icon_state = "vault";
+	dir = 8
+	},
+/area/centcom/specops)
+"YW" = (
+/turf/unsimulated/floor{
+	icon_state = "vault";
+	dir = 8
+	},
+/area)
 
 (1,1,1) = {"
 aa
@@ -53244,7 +53264,7 @@ qt
 qt
 qt
 ve
-vs
+YV
 vs
 vH
 vs

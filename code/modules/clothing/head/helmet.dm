@@ -195,7 +195,7 @@
 		slot_l_hand_str = "syndicate-helm-green",
 		slot_r_hand_str = "syndicate-helm-green"
 		)
-	armor = list(melee = 62, bullet = 50, laser = 50,energy = 35, bomb = 10, bio = 2, rad = 0)
+	armor = list(melee = 65, bullet = 60, laser = 60, energy = 40, bomb = 20, bio = 50, rad = 25)
 
 //Commander
 /obj/item/clothing/head/helmet/ert/command

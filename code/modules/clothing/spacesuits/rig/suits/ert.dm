@@ -7,13 +7,14 @@
 	desc = "A suit worn by the commander of an Emergency Response Team. Has blue highlights. Armoured and space ready."
 	suit_type = "ERT commander"
 	icon_state = "ert_commander_rig"
-	emp_protection = 35
+	emp_protection = 30
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ert
 
 	req_access = list(access_cent_specops)
 
-	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 100, rad = 100)
+	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 40, bio = 100, rad = 100)
+	slowdown = 1
 	allowed = list(/obj/item/device/flashlight, /obj/item/weapon/tank, /obj/item/device/t_scanner, /obj/item/weapon/rcd, /obj/item/weapon/crowbar, \
 	/obj/item/weapon/screwdriver, /obj/item/weapon/weldingtool, /obj/item/weapon/wirecutters, /obj/item/weapon/wrench, /obj/item/device/multitool, \
 	/obj/item/device/radio, /obj/item/device/analyzer,/obj/item/weapon/storage/briefcase/inflatable, /obj/item/weapon/melee/baton, /obj/item/weapon/gun, \
@@ -32,8 +33,9 @@
 	desc = "A suit worn by the engineering division of an Emergency Response Team. Has orange highlights. Armoured and space ready."
 	suit_type = "ERT engineer"
 	icon_state = "ert_engineer_rig"
-	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 100, rad = 100)
-	emp_protection = 30
+	armor = list(melee = 50, bullet = 40, laser = 20, energy = 15, bomb = 40, bio = 100, rad = 100)
+	slowdown = 0
+	emp_protection = 20
 
 	glove_type = /obj/item/clothing/gloves/rig/eva
 
@@ -51,7 +53,9 @@
 	desc = "A suit worn by the medical division of an Emergency Response Team. Has white highlights. Armoured and space ready."
 	suit_type = "ERT medic"
 	icon_state = "ert_medical_rig"
-	emp_protection = 30
+	armor = list(melee = 50, bullet = 40, laser = 20, energy = 15, bomb = 30, bio = 100, rad = 100)
+	slowdown = 0
+	emp_protection = 20
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
@@ -59,7 +63,7 @@
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/healthscanner,
 		/obj/item/rig_module/chem_dispenser/injector,
-		/obj/item/rig_module/actuators
+		/obj/item/rig_module/actuators/combat
 		)
 
 /obj/item/weapon/rig/ert/security
@@ -67,7 +71,7 @@
 	desc = "A suit worn by the security division of an Emergency Response Team. Has red highlights. Armoured and space ready."
 	suit_type = "ERT security"
 	icon_state = "ert_security_rig"
-	emp_protection = 30
+	emp_protection = 25
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
@@ -75,7 +79,7 @@
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/grenade_launcher,
 		/obj/item/rig_module/mounted/egun,
-		/obj/item/rig_module/actuators
+		/obj/item/rig_module/actuators/combat
 		)
 
 /obj/item/weapon/rig/ert/janitor
@@ -83,6 +87,9 @@
 	desc = "A suit worn by the janitoral division of an Emergency Response Team. Has purple highlights. Armoured and space ready."
 	suit_type = "ERT janitor"
 	icon_state = "ert_janitor_rig"
+	armor = list(melee = 50, bullet = 40, laser = 20, energy = 15, bomb = 30, bio = 100, rad = 100)
+	emp_protection = 20
+	slowdown = 0
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
@@ -90,7 +97,7 @@
 		/obj/item/rig_module/fabricator/sign,
 		/obj/item/rig_module/grenade_launcher/cleaner,
 		/obj/item/rig_module/device/decompiler,
-		/obj/item/rig_module/actuators
+		/obj/item/rig_module/actuators/combat
 		)
 
 /obj/item/weapon/rig/ert/assetprotection
@@ -99,6 +106,7 @@
 	suit_type = "heavy asset protection"
 	icon_state = "asset_protection_rig"
 	armor = list(melee = 60, bullet = 60, laser = 60,energy = 40, bomb = 50, bio = 100, rad = 100)
+	slowdown = 0
 	siemens_coefficient = 0
 	emp_protection = 50
 
