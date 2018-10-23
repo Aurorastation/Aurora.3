@@ -37,3 +37,4 @@ changes:
   - maptweak: "Added additional gas canisters to engineering hard storage, so engineers don't need to break into atmospherics to set up the engine. New canisters include Phoron, Carbon Dioxide, and Nitrogen. Four of each."
   - maptweak: "Replaced the incomplete three-airlock way into the engine room with a proper cycling airlock, like the ones leading into Virology and Xenobiology."
   - maptweak: "Added a room on the surface level where the shields already start. They still need to be wrenched down and configured however, but no longer do engineers need to carry them up to the surface and build some space for them. Comes with its own substation and bypass."
+  - maptweak: "Miners finally get magboots at roundstart now, since their whole job is going EVA, and they were the only job that didn't have roundstart access to them, despite needing them the most."
