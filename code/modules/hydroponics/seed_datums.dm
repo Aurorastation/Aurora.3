@@ -1065,13 +1065,13 @@
 	set_trait(TRAIT_WATER_CONSUMPTION, 0.5)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
-/datum/seed/cocoa
+/datum/seed/cacao
 	name = "cacao"
 	seed_name = "cacao"
 	display_name = "cacao tree"
 	chems = list("nutriment" = list(1,10), "coco" = list(4,5))
 
-/datum/seed/cocoa/setup_traits()
+/datum/seed/cacao/setup_traits()
 	..()
 	set_trait(TRAIT_HARVEST_REPEAT,1)
 	set_trait(TRAIT_MATURATION,5)
