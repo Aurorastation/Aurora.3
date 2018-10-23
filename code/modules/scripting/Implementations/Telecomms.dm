@@ -72,12 +72,13 @@
 
 		// Signal data
 
-		interpreter.SetVar("$content", 	signal.data["message"])
-		interpreter.SetVar("$freq"   , 	signal.frequency)
-		interpreter.SetVar("$source" , 	signal.data["name"])
-		interpreter.SetVar("$job"    , 	signal.data["job"])
-		interpreter.SetVar("$sign"   ,	signal)
-		interpreter.SetVar("$pass"	 ,  !(signal.data["reject"])) // if the signal isn't rejected, pass = 1; if the signal IS rejected, pass = 0
+		interpreter.SetVar("$content"  , signal.data["message"])
+		interpreter.SetVar("$freq"     , signal.frequency)
+		interpreter.SetVar("$source"   , signal.data["name"])
+		interpreter.SetVar("$job"      , signal.data["job"])
+		interpreter.SetVar("$language" , signal.data["language"])
+		interpreter.SetVar("$sign"     , signal)
+		interpreter.SetVar("$pass"     , !(signal.data["reject"])) // if the signal isn't rejected, pass = 1; if the signal IS rejected, pass = 0
 
 		// Set up the script procs
 
