@@ -77,6 +77,11 @@
 	var/process_ticks = 0
 	var/syndie = FALSE
 	var/last_shake = 0
+	var/cooling = FALSE
+	var/obj/item/weapon/cell/cell = null
+	var/max_cooling = 12				//in degrees per second - probably don't need to mess with heat capacity here
+	var/charge_consumption = 8.3		//charge per second at max_cooling
+	var/thermostat = T20C
 
 // Examine to see tank pressure
 /obj/structure/closet/airbubble/examine(mob/user)
@@ -333,6 +338,29 @@
 	else
 		to_chat(usr, "<span class='warning'>[src] has no tank.</span>")
 
+// Remove tank from bubble
+/obj/structure/closet/airbubble/verb/take_cell()
+	set src in oview(1)
+	set category = "Object"
+	set name = "Detach Power Cell"
+	if(!isnull(cell))
+		usr.visible_message(
+		"<span class='warning'>[usr] is removing [cell] from [src].</span>",
+		"<span class='notice'>You are removing [cell] from [src].</span>"
+		)
+		if (!do_after(usr, 2 SECONDS, act_target = src))
+			return
+		usr.visible_message(
+		"<span class='warning'>[usr] has removed [cell] from [src].</span>",
+		"<span class='notice'>You removed [cell] from [src].</span>"
+		)
+		cell.forceMove(usr.loc)
+		cell = null
+		cooling = FALSE
+		update_icon()
+	else
+		to_chat(usr, "<span class='warning'>[src] has no power cell.</span>")
+
 // Handle most of things: restraining, cutting restrains, attaching tank.
 /obj/structure/closet/airbubble/attackby(W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/tank))
@@ -405,6 +433,23 @@
 		)
 		new/obj/item/weapon/handcuffs/cable(src.loc)
 		update_icon()
+	else if(istype(W, /obj/item/weapon/cell))
+		if(!isnull(cell))
+			to_chat(user, "<span class='warning'>[src] already has [cell] attached to it.</span>")
+			attack_hand(user)
+			return
+		user.visible_message(
+		"<span class='warning'>[user] is attaching [W] to [src].</span>",
+		"<span class='notice'>You are attaching [W] to [src].</span>"
+		)
+		if (!do_after(user, 2 SECONDS, act_target = src))
+			return
+		user.visible_message(
+		"<span class='warning'>[user] has attached [W] to [src].</span>",
+		"<span class='notice'>You attached [W] to [src].</span>"
+		)
+		cell = W
+		cooling = TRUE
 	else
 		attack_hand(user)
 	return
@@ -478,7 +523,27 @@
 					qdel(removed)
 
 /obj/structure/closet/airbubble/proc/process_preserve_temp()
-	if (inside_air && inside_air.volume > 0)
+	if (!cooling || !cell)
+		return
+	var/mob/living/carbon/human/H = (/mob/living/carbon/human in contents)
+	if(!isnull(H))
+		var/efficiency = !!(H.species.flags & ACCEPTS_COOLER) || 1 - H.get_pressure_weakness()
+		var/env_temp = return_temperature()
+		var/temp_adj = min(H.bodytemperature - max(thermostat, env_temp), max_cooling)
+
+		if (temp_adj < 0.5)	//only cools, doesn't heat, also we don't need extreme precision
+			return
+
+		var/charge_usage = (temp_adj/max_cooling)*charge_consumption
+
+		H.bodytemperature -= temp_adj*efficiency
+
+		cell.use(charge_usage)
+
+		if(cell.charge <= 0)
+			cooling = FALSE
+
+	else if (inside_air && inside_air.volume > 0)
 		var/delta = inside_air.temperature - T20C
 		inside_air.temperature -= max(-10, min(10, round(delta/4,0.1)))
 
