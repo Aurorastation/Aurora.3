@@ -7,7 +7,7 @@
 //HALF_LIFE(0) -> Reaction completes immediately (default chems)
 //HALF_LIFE(1) -> Half of the reagents react immediately, the rest over the following ticks.
 //HALF_LIFE(2) -> Half of the reagents are consumed after 2 chemistry ticks.
-//HALF_LIFE(3) -> Half of the reagents are consumed after 3 chemistry ticks. HALF LIFE 3 CONFIRMED?
+//HALF_LIFE(2.2) -> Half of the reagents are consumed after 2.2 chemistry ticks.
 #define HALF_LIFE(ticks) (ticks? 1.0 - (0.5)**(1.0/(ticks*PROCESS_REACTION_ITER)) : 1.0)
 
 /datum/chemical_reaction
