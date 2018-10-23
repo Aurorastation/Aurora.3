@@ -81,7 +81,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/proycyn
 
 /mob/living/carbon/human/proycyn/Initialize(mapload)
-	. = ..(mapload, "Proycyn Warrior")
+	. = ..(mapload, "Procyn")
 	src.gender = NEUTER
 
 /mob/living/carbon/human/type_big

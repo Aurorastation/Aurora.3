@@ -87,10 +87,10 @@
 
 /datum/language/proy
 	name = LANGUAGE_PROY
-	desc = "The common tongue of the garbage rodents fo the universe."
+	desc = "The common tongue of the garbage rodents of the universe."
 	speech_verb = "switters"
 	ask_verb = "wabbles"
-	exclaim_verb = "SHRIEKS"
+	exclaim_verb = "ASATAAUGH!"
 	colour = "rough"
 	key = "p"
 	flags = WHITELISTED
