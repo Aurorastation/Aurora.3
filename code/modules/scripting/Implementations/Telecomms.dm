@@ -61,6 +61,11 @@
 		interpreter.SetVar("EAST" 	, 	EAST)			// EAST  (4)
 		interpreter.SetVar("WEST" 	, 	WEST)			// WEST  (8)
 
+		//Language macros
+		interpreter.SetVar("L_BASIC",	LANGUAGE_TCB)
+		interpreter.SetVar("L_TRADE",	LANGUAGE_TRADEBAND)
+		interpreter.SetVar("L_GUTTER",	LANGUAGE_GUTTER)
+
 		// Channel macros
 		interpreter.SetVar("$common",	PUB_FREQ)
 		interpreter.SetVar("$science",	SCI_FREQ)
