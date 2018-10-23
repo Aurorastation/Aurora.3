@@ -8,7 +8,7 @@
 	color = "#888888"
 	overdose = 5
 	taste_description = "the back of class"
-	specific_heat = 0.2
+	specific_heat = 0.4
 
 /datum/reagent/crayon_dust/red
 	name = "Red crayon dust"
