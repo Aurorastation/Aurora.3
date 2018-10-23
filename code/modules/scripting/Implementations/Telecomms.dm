@@ -90,8 +90,9 @@
 					@param frequency:	Frequency to broadcast to
 					@param source:		The name of the source you wish to imitate. Must be stored in stored_names list.
 					@param job:			The name of the job.
+					@param language:	The language used for the broadcast
 		*/
-		interpreter.SetProc("broadcast", "tcombroadcast", signal, list("message", "freq", "source", "job"))
+		interpreter.SetProc("broadcast", "tcombroadcast", signal, list("message", "freq", "source", "job", "language"))
 
 		/*
 			-> Store a value permanently to the server machine (not the actual game hosting machine, the ingame machine)
@@ -221,7 +222,7 @@ datum/signal
 				S.memory[address] = value
 
 
-	proc/tcombroadcast(var/message, var/freq, var/source, var/job)
+	proc/tcombroadcast(var/message, var/freq, var/source, var/job, var/language)
 
 		var/datum/signal/newsign = new
 		var/obj/machinery/telecomms/server/S = data["server"]
@@ -244,6 +245,13 @@ datum/signal
 		if(!job)
 			job = "?"
 
+		if(!language || language == "" || !(language in language_keys))
+			language = LANGUAGE_TCB
+		
+		var/datum/language/L = all_languages[language]
+		if(!L || !(L.flags & TCOMSSIM))
+			language = LANGUAGE_TCB
+
 		newsign.data["mob"] = null
 		newsign.data["mobtype"] = /mob/living/carbon/human
 		if(source in S.stored_names)
@@ -254,6 +262,7 @@ datum/signal
 		newsign.data["job"] = job
 		newsign.data["compression"] = 0
 		newsign.data["message"] = message
+		newsign.data["language"] = language
 		newsign.data["type"] = 2 // artificial broadcast
 		if(!isnum(freq))
 			freq = text2num(freq)
