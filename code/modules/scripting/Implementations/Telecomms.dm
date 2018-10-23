@@ -65,6 +65,9 @@
 		interpreter.SetVar("L_BASIC",	LANGUAGE_TCB)
 		interpreter.SetVar("L_TRADE",	LANGUAGE_TRADEBAND)
 		interpreter.SetVar("L_GUTTER",	LANGUAGE_GUTTER)
+		interpreter.SetVar("L_MAAS",	LANGUAGE_SIIK_MAAS)
+		interpreter.SetVar("L_YASSA",	LANGUAGE_YA_SSA)
+		interpreter.SetVar("L_DELVAHII",LANGUAGE_DELVAHII)
 
 		// Channel macros
 		interpreter.SetVar("$common",	PUB_FREQ)
