@@ -23,7 +23,7 @@
 #################################
 
 # Your name.  
-author: Furrycactus
+author: BurgerBB
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -34,4 +34,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - maptweak: "Drastically increased the size of each Solar Array on the station so that they're actually useful. Enough to serve as backup power on high intensity rounds, or primary power on low intensity. A useful entry point for anyone that wants to learn Engineering."
+  - experiment: "Renamed the owo daddy bar."

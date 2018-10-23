@@ -34,4 +34,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Added several new random dungeon spawns."
+  - balance: "Increased maximum hunger pool from 600 to 800. Nutrition reduction from blood loss significantly reduced."
+  - balance: "Removed overhydration and overhydration penalties. Increased ydration loss from stamina regen. Hydration reduction from blood loss significantly reduced."
+  - bugfix: "You can now stuff your face with food and become chubby again."
