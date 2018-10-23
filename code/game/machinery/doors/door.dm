@@ -541,6 +541,11 @@
 		else
 			source.thermal_conductivity = initial(source.thermal_conductivity)
 
+/obj/machinery/door/proc/is_open(var/invert=0)
+	if(invert)
+		return src.density
+	return !src.density
+
 /obj/machinery/door/Move(new_loc, new_dir)
 	//update_nearby_tiles()
 	. = ..()

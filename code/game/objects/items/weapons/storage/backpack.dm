@@ -175,20 +175,7 @@
 	desc = "It's a Vaurca cloak, with paltry storage options."
 	icon_state = "cape"
 	max_storage_space = 12
-
-/obj/item/weapon/storage/backpack/cloak/mob_can_equip(mob/user)
-
-	if (!..())
-		return 0
-
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if (H.species.get_bodytype() == "Vaurca")
-			item_state = "vaurcacape"
-	else
-		item_state = "cape"
-
-	return 1
+	sprite_sheets = list("Vaurca" = 'icons/mob/species/vaurca/back.dmi')
 
 /obj/item/weapon/storage/backpack/syndie
 	name = "syndicate rucksack"
