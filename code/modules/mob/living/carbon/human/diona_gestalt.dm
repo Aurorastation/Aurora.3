@@ -287,6 +287,23 @@
 	visible_message("<span class='warning'>\The [src] quivers slightly, then splits apart with a wet slithering noise.</span>")
 	qdel(src)
 
+/mob/living/carbon/human/handle_speech_problems(var/message, var/verb, var/message_mode)
+// Diona without head can live, but they cannot talk as loud anymore.
+	var/list/returns = ..()
+	var/obj/item/organ/external/O = src.organs_by_name["head"]
+	if(O.is_stump())
+		returns[4] = 3 //range at which people can hear our message
+	else
+		returns[4] = world.view
+	return returns
+
+/mob/living/carbon/human/handle_speech_sound()
+	var/list/returns = ..()
+	if(!isnull(returns[2]))
+		returns[2] *= 0.5 //muffle speech
+	returns[3] = 1 //make it italic
+	return returns
+
 #undef COLD_DAMAGE_LEVEL_1
 #undef COLD_DAMAGE_LEVEL_2
 #undef COLD_DAMAGE_LEVEL_3

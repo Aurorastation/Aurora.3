@@ -99,7 +99,7 @@ proc/get_radio_key_from_channel(var/channel)
 	return 0
 
 /mob/living/proc/handle_speech_problems(var/message, var/verb, var/message_mode)
-	var/list/returns[3]
+	var/list/returns[4]
 	var/speech_problem_flag = 0
 	if((HULK in mutations) && health >= 25 && length(message))
 		message = "[uppertext(message)]!!!"
@@ -129,6 +129,7 @@ proc/get_radio_key_from_channel(var/channel)
 	returns[1] = message
 	returns[2] = verb
 	returns[3] = speech_problem_flag
+	returns[4] = world.view
 	return returns
 
 /mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
@@ -139,9 +140,10 @@ proc/get_radio_key_from_channel(var/channel)
 	return 0
 
 /mob/living/proc/handle_speech_sound()
-	var/list/returns[2]
+	var/list/returns[3]
 	returns[1] = null
 	returns[2] = null
+	returns[3] = 0
 	return returns
 
 /mob/living/proc/get_speech_ending(verb, var/ending)
@@ -201,13 +203,14 @@ proc/get_radio_key_from_channel(var/channel)
 		return
 
 	message = trim_left(message)
-
+	var/message_range
 	if(!(speaking && (speaking.flags & NO_STUTTER)))
 		message = handle_autohiss(message, speaking)
 
 		var/list/handle_s = handle_speech_problems(message, verb, message_mode)
 		message = handle_s[1]
 		verb = handle_s[2]
+		message_range = handle_s[4]
 
 	if(!message || message == "")
 		return 0
@@ -229,17 +232,7 @@ proc/get_radio_key_from_channel(var/channel)
 	var/sound/speech_sound = handle_v[1]
 	var/sound_vol = handle_v[2]
 
-	var/italics = 0
-	var/message_range = world.view
-
-	// Diona without head can live, but they cannot talk as loud anymore.
-	if(src.is_diona())
-		var/mob/living/carbon/human/h = src
-		var/obj/item/organ/O = h.organs_by_name["head"]
-		if(istype(O, /obj/item/organ/external/stump))
-			message_range = 3
-			sound_vol *= 0.5 //muffle speech
-			italics = 1
+	var/italics = handle_v[3]
 
 
 	//speaking into radios

@@ -180,21 +180,6 @@
 	amputation_point = "branch"
 	vital = FALSE // Lore team requested this, not vital organ. We can still live without it.
 
-/obj/item/organ/external/head/diona/New(loc, ...)
-	..()
-	if(owner)
-		owner.sdisabilities &= ~BLIND
-
-/obj/item/organ/external/head/diona/Destroy()
-	if(owner)
-		owner.sdisabilities |= BLIND
-	. = ..()
-
-/obj/item/organ/external/head/diona/removed(var/mob/living/user)
-	..()
-	if(owner)
-		owner.sdisabilities |= BLIND
-
 /obj/item/organ/diona/process()
 	return
 
