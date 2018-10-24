@@ -1001,24 +1001,24 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift3"
 	spawnlist = list(
-		/obj/item/clothing/under/syndicate/tacticool	= 5,
+		/obj/item/clothing/under/syndicate/tacticool	= 7,
 		/obj/item/toy/sword								= 22,
 		/obj/item/weapon/gun/projectile/revolver/capgun	= 11,
-		/obj/item/weapon/gun/bang						= 11,
+		/obj/item/weapon/gun/bang						= 22,
 		/obj/item/toy/crossbow							= 11,
 		/obj/random/action_figure						= 11,
-		/obj/item/toy/cultsword							= 5,
-		/obj/item/toy/syndicateballoon					= 5,
+		/obj/item/toy/cultsword							= 7,
+			/obj/item/toy/syndicateballoon					= 10,
 		/obj/item/toy/nanotrasenballoon					= 5,
 		/obj/item/toy/katana							= 11,
 		/obj/item/weapon/storage/belt/champion			= 11,
-		/obj/item/weapon/pen/invisible					= 5,
-		/obj/item/weapon/grenade/fake					= 1,
-		/obj/item/weapon/gun/energy/wand/toy			= 5,
+		/obj/item/weapon/pen/invisible					= 10,
+		/obj/item/weapon/grenade/fake					= 7,
+		/obj/item/weapon/gun/energy/wand/toy			= 7,
 		/obj/item/device/binoculars						= 11,
 		/obj/item/device/megaphone						= 11,
 		/obj/item/eightball								= 11,
-		/obj/item/eightball/haunted						= 1,
+		/obj/item/eightball/haunted						= 5,
 		/obj/item/weapon/spirit_board					= 5
 	)
 
