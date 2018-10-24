@@ -353,6 +353,18 @@ datum/ghosttrap/pai/transfer_personality(var/mob/candidate, var/mob/living/silic
 /datum/ghosttrap/ert/welcome_candidate(var/mob/target)
 	return 0
 
+
+/datum/ghosttrap/proy
+	object = "Procyoni Warrior"
+	pref_check = MODE_PROY
+	ghost_trap_message = "They are occupying an Procyoni warrior."
+	ghost_trap_role = "Proy member"
+	ban_checks = list(MODE_PROY)
+	can_set_own_name = FALSE
+	list_as_special_role = FALSE
+
+/datum/ghosttrap/proy/welcome_candidate(var/mob/target)
+	return 0
 /datum/ghosttrap/changeling
 	object = "Changeling"
 	pref_check = MODE_CHANGELING

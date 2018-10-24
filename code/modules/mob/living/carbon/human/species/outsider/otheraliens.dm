@@ -47,8 +47,11 @@
 	slowdown = -1
 	has_fine_manipulation = 1
 	natural_climbing = 1
+	flags = NO_SLIP | NO_BREATHE
 	mob_size = 7
-	climb_coeff = 0.35
+	natural_climbing = 1
+	climb_coeff = 0.1
 	breakcuffs = list(MALE)
-	hazard_low_pressure = -100
+	warning_low_pressure = 20
+	hazard_low_pressure = 0
 	spawn_flags = CAN_JOIN | IS_WHITELISTED

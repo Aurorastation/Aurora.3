@@ -822,7 +822,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	return 1
 
 /mob/proc/can_admin_interact()
-    return 0
+	return 0
 
 /mob/abstract/observer/can_admin_interact()
 	return check_rights(R_ADMIN, 0, src)
@@ -909,3 +909,18 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 	if((!target) || (!ghost)) return
 	. = "<a href='byond://?src=\ref[ghost];track=\ref[target]'>\[F\]</a>"
 	. += target.extra_ghost_link(ghost)
+
+
+/mob/abstract/observer/verb/become_proy()
+	set name = "Become Proy"
+	set category = "Ghost"
+
+	if(istype(usr,/mob/abstract/observer) || istype(usr,/mob/abstract/new_player))
+		var/choice = input("Do you wish to become a Procyn? This is not reversible.") as null|anything in list("No","Yes")
+		if(choice == "Yes")
+			proy.create_default(usr)
+
+
+	
+
+	

@@ -270,3 +270,9 @@
 	name = "\improper Burial Chamber"
 	icon_state = "yellow"
 	flags = SPAWN_ROOF
+
+/area/proyoutpost
+	name = "\improper Proy Outpost"
+	icon_state = "yellow"
+	requires_power = 0
+	flags = RAD_SHIELDED | SPAWN_ROOF

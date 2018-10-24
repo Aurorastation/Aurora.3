@@ -1,0 +1,80 @@
+"aa" = (/turf/unsimulated/chasm_mask,/area/space)
+"ab" = (/turf/simulated/wall/sandstone,/area/proyoutpost)
+"ac" = (/obj/machinery/door/airlock/glass,/turf/simulated/floor/asteroid/ash,/area/proyoutpost)
+"ae" = (/turf/simulated/floor/asteroid/ash/rocky,/area/proyoutpost)
+"af" = (/turf/simulated/floor/asteroid/ash,/area/proyoutpost)
+"ag" = (/turf/simulated/floor/tiled/steel,/area/proyoutpost)
+"ah" = (/obj/structure/closet/gimmick/tacticool,/turf/simulated/floor/wood,/area/proyoutpost)
+"ai" = (/turf/simulated/wall/r_wall,/area/proyoutpost)
+"aj" = (/obj/machinery/light{icon_state = "tube1"; dir = 1},/turf/simulated/floor/wood,/area/proyoutpost)
+"ak" = (/turf/simulated/floor/wood,/area/proyoutpost)
+"al" = (/obj/structure/table/rack,/obj/item/weapon/gun/projectile/silenced,/obj/item/weapon/gun/projectile/silenced,/obj/item/weapon/gun/projectile/colt,/obj/item/weapon/gun/projectile/revolver,/turf/simulated/floor/wood,/area/proyoutpost)
+"am" = (/obj/machinery/autolathe{desc = "Your typical Autolathe. It appears to have much more options than your regular one, however..."; hacked = 1; name = "Unlocked Autolathe"},/turf/simulated/floor/wood,/area/proyoutpost)
+"an" = (/obj/item/stack/material/steel{amount = 50},/obj/item/stack/material/steel{amount = 50},/obj/item/stack/material/cyborg/glass,/obj/item/stack/material/cyborg/glass,/turf/simulated/floor/wood,/area/proyoutpost)
+"ao" = (/obj/machinery/door/airlock/glass,/turf/simulated/floor/tiled/steel,/area/proyoutpost)
+"ap" = (/obj/mecha/working/ripley,/turf/simulated/floor/wood,/area/proyoutpost)
+"aq" = (/obj/structure/table/rack,/obj/item/clothing/under/syndicate/combat,/obj/item/clothing/under/syndicate/combat,/obj/item/clothing/mask/gas/syndicate,/turf/simulated/floor/wood,/area/proyoutpost)
+"ar" = (/obj/machinery/light{icon_state = "tube1"; dir = 8},/turf/simulated/floor/wood,/area/proyoutpost)
+"as" = (/obj/structure/table/rack,/obj/item/clothing/suit/space/syndicate/black,/obj/item/clothing/suit/space/syndicate/black,/obj/item/clothing/suit/space/syndicate/black,/obj/item/clothing/mask/gas/syndicate,/obj/item/clothing/head/helmet/space/syndicate/black,/obj/machinery/light{dir = 4; icon_state = "tube1"; pixel_x = 0},/turf/simulated/floor/wood,/area/proyoutpost)
+"at" = (/obj/structure/table/rack,/obj/item/clothing/suit/space/syndicate/green/dark,/obj/item/clothing/shoes/magboots,/obj/item/clothing/shoes/magboots,/obj/item/clothing/head/helmet/space/syndicate/green/dark,/obj/item/weapon/card/emag,/turf/simulated/floor/wood,/area/proyoutpost)
+"au" = (/obj/structure/table/rack,/obj/item/weapon/gun/projectile/tanto,/obj/item/weapon/gun/projectile/tanto,/obj/item/weapon/gun/projectile/pistol,/obj/item/weapon/gun/projectile/sec/wood,/turf/simulated/floor/wood,/area/proyoutpost)
+"av" = (/obj/machinery/light{dir = 4; icon_state = "tube1"; pixel_x = 0},/turf/simulated/floor/wood,/area/proyoutpost)
+"aw" = (/obj/structure/bed,/turf/simulated/floor/wood,/area/proyoutpost)
+"ax" = (/turf/simulated/floor/lino,/area/proyoutpost)
+"ay" = (/obj/machinery/computer/rdconsole,/turf/simulated/floor/tiled/steel,/area/proyoutpost)
+"az" = (/obj/machinery/r_n_d/protolathe,/turf/simulated/floor/tiled/steel,/area/proyoutpost)
+"aA" = (/obj/structure/table/wood,/obj/random/melee,/turf/simulated/floor/tiled/steel,/area/proyoutpost)
+"aB" = (/obj/machinery/light{icon_state = "tube1"; dir = 1},/turf/simulated/floor/tiled/steel,/area/proyoutpost)
+"aC" = (/obj/machinery/light{icon_state = "tube1"; dir = 1},/turf/simulated/floor/lino,/area/proyoutpost)
+"aD" = (/obj/machinery/light{icon_state = "tube1"; dir = 8},/turf/simulated/floor/tiled/steel,/area/proyoutpost)
+"aE" = (/obj/machinery/light{dir = 4; icon_state = "tube1"; pixel_x = 0},/turf/simulated/floor/tiled/steel,/area/proyoutpost)
+"aF" = (/obj/structure/table/wood,/obj/item/weapon/card/id/syndicate,/turf/simulated/floor/wood,/area/proyoutpost)
+"aG" = (/obj/structure/table/wood,/obj/random/melee,/obj/random/sword,/turf/simulated/floor/wood,/area/proyoutpost)
+"aH" = (/obj/structure/window/basic{dir = 8},/obj/structure/window/basic{icon_state = "window"; dir = 1},/turf/simulated/floor/tiled/steel,/area/proyoutpost)
+"aI" = (/obj/structure/window/basic{icon_state = "window"; dir = 1},/turf/simulated/floor/tiled/steel,/area/proyoutpost)
+"aJ" = (/obj/structure/window/basic{dir = 4},/obj/structure/window/basic{icon_state = "window"; dir = 1},/turf/simulated/floor/tiled/steel,/area/proyoutpost)
+"aK" = (/obj/structure/bed/chair,/obj/effect/landmark{name = "Procyoni Tribal"},/turf/simulated/floor/wood,/area/proyoutpost)
+"aL" = (/turf/simulated/floor/airless/lava,/area/proyoutpost)
+"aM" = (/obj/structure/window/basic{dir = 8},/turf/simulated/floor/tiled/steel,/area/proyoutpost)
+"aN" = (/obj/structure/window/basic{dir = 4},/turf/simulated/floor/tiled/steel,/area/proyoutpost)
+"aO" = (/obj/effect/landmark{name = "Procyoni Tribal"},/turf/simulated/floor/wood,/area/proyoutpost)
+"aP" = (/obj/machinery/vending/tacticool,/turf/simulated/floor/wood,/area/proyoutpost)
+"aQ" = (/mob/living/carbon/human/proycyn,/turf/simulated/floor/airless/lava,/area/proyoutpost)
+"aR" = (/obj/structure/table/wood/gamblingtable,/obj/random/booze,/turf/simulated/floor/wood,/area/proyoutpost)
+"aS" = (/obj/structure/bed/chair{dir = 8},/obj/effect/landmark{name = "Procyoni Tribal"},/turf/simulated/floor/wood,/area/proyoutpost)
+"aT" = (/obj/structure/window/basic,/obj/structure/window/basic{dir = 8},/turf/simulated/floor/tiled/steel,/area/proyoutpost)
+"aU" = (/obj/structure/window/basic,/turf/simulated/floor/tiled/steel,/area/proyoutpost)
+"aV" = (/obj/structure/window/basic,/obj/structure/window/basic{dir = 4},/turf/simulated/floor/tiled/steel,/area/proyoutpost)
+"aW" = (/obj/machinery/light{dir = 2; icon_state = "tube1"; pixel_y = 0},/turf/simulated/floor/wood,/area/proyoutpost)
+"aX" = (/mob/living/simple_animal/corgi/puppy,/turf/simulated/floor/wood,/area/proyoutpost)
+"aY" = (/obj/structure/table/wood/gamblingtable,/obj/random/booze,/obj/random/booze,/obj/random/handgun,/turf/simulated/floor/wood,/area/proyoutpost)
+"aZ" = (/obj/structure/table/wood/gamblingtable,/obj/item/weapon/card/id/syndicate,/obj/random/booze,/turf/simulated/floor/wood,/area/proyoutpost)
+"ba" = (/obj/structure/table/wood/gamblingtable,/obj/random/booze,/obj/random/booze,/turf/simulated/floor/wood,/area/proyoutpost)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababacababab
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaeafafafafab
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafafafafab
+aaaaaaaaaaababababababababababababababagagafafafab
+aaaaaaaaababahahaiajakakalamanajaiakabaoaoabafaeab
+aaaaaaaaabakakakaiapakakakakakaqaiakakagagagabafab
+aaaaaaababakakakaiarakakakakakasaiakakakakagabafab
+aaaaaaabakakakakaiarakakakakakataiakakakakakababaa
+aaaaababakakakakaiauakakakakakavaiakakakakakakabaa
+aaaaabawakawakakakaiakakakakakaiakakakakakakakabab
+aaaaabakakakakakakakaiaiaxaiaiakakakakakakakakakab
+aaaaabawakawakakakakaxaxaxaxaiakakakakakakakakakab
+aaababaiaiaiaiaiaiaiaiaxaxaxaxakakakakakakakakakab
+aaabayazaAaBagagaxaxaCaxaxaxaiaiaiaiaiaiaiakaiaiab
+aaabaDagagagaEaiaxaxaxaxaxaxaCaxaxaxaxaiakakakakab
+aaabagagagagagaiaxaxaxaxaxaxaxaxaxaxaxaiakakakakab
+aaabaDagagagaEaiaiaiaiaiaiaiaiaiaiaiaiaiakakakabab
+aaabaiaiagagaiaiaFaGaHaIaIaIaJaPakaKaKakakakakabab
+aaababaLaLaLaLaiarakaMagagagaNakaOaRaYakakakakabaa
+aaaaababaLaQaLaiakakaMagagagaNakaOaZbaaSakavababaa
+aaaaabababaLaLaiakakaTaUagaUaVakakakakakakababaaaa
+aaaaaaaaabababaiarakaWakakakaWakaXakavabababaaaaaa
+aaaaaaaaaaaaababababababababababababababaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+"}

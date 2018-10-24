@@ -36,6 +36,7 @@
 #define MODE_COMMANDO "commando"
 #define MODE_DEATHSQUAD "deathsquad"
 #define MODE_ERT "ert"
+#define MODE_PROY "proy"
 #define MODE_MERCENARY "mercenary"
 #define MODE_NINJA "ninja"
 #define MODE_RAIDER "raider"
