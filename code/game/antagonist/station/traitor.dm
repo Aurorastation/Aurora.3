@@ -3,7 +3,7 @@ var/datum/antagonist/traitor/traitors
 // Inherits most of its vars from the base datum.
 /datum/antagonist/traitor
 	id = MODE_TRAITOR
-	restricted_jobs = list("Internal Affairs Agent", "Head of Security", "Captain")
+	restricted_jobs = list("Internal Affairs Agent", "Head of Security", "Captain", "AI")
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 
@@ -12,13 +12,6 @@ var/datum/antagonist/traitor/traitors
 /datum/antagonist/traitor/New()
 	..()
 	traitors = src
-
-/datum/antagonist/traitor/build_candidate_list()
-	..()
-	for(var/datum/mind/player in candidates)
-		if(player.assigned_role && player.assigned_role == "AI")
-			candidates -= player
-	return candidates
 
 /datum/antagonist/traitor/get_extra_panel_options(var/datum/mind/player)
 	return "<a href='?src=\ref[player];common=crystals'>\[set crystals\]</a><a href='?src=\ref[src];spawn_uplink=\ref[player.current]'>\[spawn uplink\]</a>"
