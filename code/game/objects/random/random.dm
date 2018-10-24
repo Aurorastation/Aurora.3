@@ -1008,7 +1008,7 @@
 		/obj/item/toy/crossbow							= 11,
 		/obj/random/action_figure						= 11,
 		/obj/item/toy/cultsword							= 7,
-			/obj/item/toy/syndicateballoon					= 10,
+		/obj/item/toy/syndicateballoon					= 10,
 		/obj/item/toy/nanotrasenballoon					= 5,
 		/obj/item/toy/katana							= 11,
 		/obj/item/weapon/storage/belt/champion			= 11,
