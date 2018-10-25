@@ -179,7 +179,7 @@
 		return
 	M.adjustHydrationLoss(-6*removed)
 
-/datum/reagent/water/touch_turf(var/turf/simulated/T)
+/datum/reagent/water/touch_turf(var/turf/simulated/T,var/amount)
 	if(!istype(T))
 		return
 
