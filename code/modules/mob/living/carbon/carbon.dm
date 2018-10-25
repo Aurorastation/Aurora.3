@@ -34,8 +34,8 @@
 
 /mob/living/carbon/Move(NewLoc, direct)
 	. = ..()
-	if(.)
 
+	if(.)
 		if(src.stat != 2)
 			if(src.nutrition)
 				adjustNutritionLoss(nutrition_loss*0.1)

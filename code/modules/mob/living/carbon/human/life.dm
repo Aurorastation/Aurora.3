@@ -1685,7 +1685,7 @@
 		var/regen = stamina_recovery * (1 - min(((oxyloss) / exhaust_threshold) + ((halloss) / exhaust_threshold), 1))
 		if (regen > 0)
 			stamina = min(max_stamina, stamina+regen)
-			adjustNutritionLoss(stamina_recovery*0.9)
+			adjustNutritionLoss(stamina_recovery*0.09)
 			adjustHydrationLoss(stamina_recovery*0.18)
 			if (client)
 				hud_used.move_intent.update_move_icon(src)

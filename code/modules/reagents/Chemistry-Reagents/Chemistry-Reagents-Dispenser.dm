@@ -117,6 +117,8 @@
 	glass_name = "glass of coder fuckups"
 	glass_desc = "A glass of distilled maintainer tears."
 
+	var/blood_to_ingest_scale = 2
+
 /datum/reagent/alcohol/Destroy()
 	if (caffeine_mod)
 		QDEL_NULL(caffeine_mod)
@@ -128,8 +130,8 @@
 		L.adjust_fire_stacks((amount / (flammability_divisor || 1)) * (strength / 100))
 
 /datum/reagent/alcohol/affect_blood(mob/living/carbon/M, alien, removed)
-	M.adjustToxLoss(removed * 2)
-	affect_ingest(M,alien,removed * 2)
+	M.adjustToxLoss(removed * blood_to_ingest_scale * (strength/100) )
+	affect_ingest(M,alien,removed * blood_to_ingest_scale)
 	return
 
 /datum/reagent/alcohol/affect_ingest(mob/living/carbon/M, alien, removed)
