@@ -396,6 +396,7 @@
 #include "code\game\antagonist\station\vampire.dm"
 #include "code\game\area\ai_monitored.dm"
 #include "code\game\area\areas.dm"
+#include "code\game\area\proyoutpost.dm"
 #include "code\game\dna\dna2.dm"
 #include "code\game\dna\dna2_domutcheck.dm"
 #include "code\game\dna\dna2_helpers.dm"

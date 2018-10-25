@@ -276,3 +276,4 @@
 	icon_state = "yellow"
 	requires_power = 0
 	flags = RAD_SHIELDED | SPAWN_ROOF
+	ambience = list('sound/ambience/ambimalf.ogg')
