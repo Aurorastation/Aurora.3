@@ -912,14 +912,28 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 
 
 /mob/abstract/observer/verb/become_proy()
+    set name = "Become Proy"
+    set category = "Ghost"
+
+
+    if(!locate(/obj/structure/proycrystal))
+        to_chat(src, "Proy do not have a colony.")
+        return
+    var/choice = input("Do you wish to become a Procyn? This is not reversible.") as null|anything in list("No","Yes")
+    if(choice == "Yes")
+        proy.create_default(usr)
+
+
+
+/mob/abstract/observer/verb/become_proy()
 	set name = "Become Proy"
 	set category = "Ghost"
 
-	if(istype(usr,/mob/abstract/observer) || istype(usr,/mob/abstract/new_player))
-		if(!allowproyspawn)
-			usr << "Proy do not have a colony."
-			return
 
+	if(!locate(/obj/structure/proycrystal))
+		to_chat(src, "Proy do not have a colony.")
+		return
+	if(locate(/obj/structure/proycrystal))
 		var/choice = input("Do you wish to become a Procyn? This is not reversible.") as null|anything in list("No","Yes")
 		if(choice == "Yes")
 			proy.create_default(usr)

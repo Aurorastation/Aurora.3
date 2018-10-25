@@ -18,12 +18,12 @@
 "ar" = (/obj/machinery/light{icon_state = "tube1"; dir = 8},/turf/simulated/floor/wood,/area/proyoutpost)
 "as" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 10},/turf/simulated/wall,/area/proyoutpost)
 "at" = (/obj/structure/closet/syndicate/resources,/turf/simulated/floor/wood,/area/proyoutpost)
-"au" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 5},/turf/simulated/floor/tiled/steel,/area/proyoutpost)
+"au" = (/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{icon_state = "map-scrubbers"; dir = 8},/turf/simulated/floor/tiled/steel,/area/proyoutpost)
 "av" = (/obj/machinery/light{dir = 4; icon_state = "tube1"; pixel_x = 0},/turf/simulated/floor/wood,/area/proyoutpost)
 "aw" = (/obj/structure/bed,/turf/simulated/floor/wood,/area/proyoutpost)
 "ax" = (/turf/simulated/floor/lino,/area/proyoutpost)
-"ay" = (/obj/machinery/computer/rdconsole,/turf/simulated/floor/tiled/steel,/area/proyoutpost)
-"az" = (/obj/machinery/r_n_d/protolathe,/turf/simulated/floor/tiled/steel,/area/proyoutpost)
+"ay" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/floor/wood,/area/proyoutpost)
+"az" = (/obj/machinery/light{dir = 4; icon_state = "tube1"; pixel_x = 0},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/floor/wood,/area/proyoutpost)
 "aA" = (/obj/structure/table/wood,/obj/random/melee,/turf/simulated/floor/tiled/steel,/area/proyoutpost)
 "aB" = (/obj/machinery/light{icon_state = "tube1"; dir = 1},/turf/simulated/floor/tiled/steel,/area/proyoutpost)
 "aC" = (/obj/machinery/light{icon_state = "tube1"; dir = 1},/turf/simulated/floor/lino,/area/proyoutpost)
@@ -42,14 +42,14 @@
 "aP" = (/obj/machinery/vending/tacticool,/turf/simulated/floor/wood,/area/proyoutpost)
 "aQ" = (/turf/simulated/floor/asteroid/ash,/area/mine/unexplored)
 "aR" = (/obj/structure/table/wood/gamblingtable,/obj/random/booze,/turf/simulated/floor/wood,/area/proyoutpost)
-"aS" = (/obj/structure/bed/chair{dir = 8},/obj/effect/landmark{name = "Procyoni Tribal"},/turf/simulated/floor/wood,/area/proyoutpost)
+"aS" = (/obj/machinery/disposal,/obj/structure/disposalpipe/trunk,/turf/simulated/floor/lino,/area/proyoutpost)
 "aT" = (/obj/structure/window/basic,/obj/structure/window/basic{dir = 8},/turf/simulated/floor/tiled/steel,/area/proyoutpost)
 "aU" = (/obj/structure/window/basic,/turf/simulated/floor/tiled/steel,/area/proyoutpost)
 "aV" = (/obj/structure/window/basic,/obj/structure/window/basic{dir = 4},/turf/simulated/floor/tiled/steel,/area/proyoutpost)
 "aW" = (/obj/machinery/light{dir = 2; icon_state = "tube1"; pixel_y = 0},/turf/simulated/floor/wood,/area/proyoutpost)
 "aX" = (/mob/living/simple_animal/corgi/puppy,/turf/simulated/floor/wood,/area/proyoutpost)
 "aY" = (/obj/structure/curtain/medical,/turf/simulated/floor/tiled/steel,/area/proyoutpost)
-"aZ" = (/obj/structure/table/wood/gamblingtable,/obj/item/weapon/card/id/syndicate,/obj/random/booze,/turf/simulated/floor/wood,/area/proyoutpost)
+"aZ" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 5},/turf/simulated/floor/lino,/area/proyoutpost)
 "ba" = (/obj/structure/table/wood/gamblingtable,/obj/random/booze,/obj/random/booze,/turf/simulated/floor/wood,/area/proyoutpost)
 "bb" = (/obj/machinery/power/apc,/turf/simulated/wall/r_wall,/area/proyoutpost)
 "bc" = (/obj/item/weapon/handcuffs/ziptie,/turf/simulated/floor/asteroid/ash,/area/space)
@@ -72,6 +72,32 @@
 "bt" = (/obj/machinery/optable,/mob/living/carbon/human/proycyn,/turf/simulated/floor/tiled/steel,/area/proyoutpost)
 "bu" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 5},/turf/simulated/wall,/area/proyoutpost)
 "bv" = (/obj/effect/landmark/costume/highlander,/turf/simulated/floor/wood,/area/proyoutpost)
+"bw" = (/obj/structure/proycrystal,/turf/simulated/floor/lino,/area/proyoutpost)
+"bx" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 8},/turf/simulated/floor/lino,/area/proyoutpost)
+"by" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 8},/obj/structure/disposalpipe/segment,/turf/simulated/floor/lino,/area/proyoutpost)
+"bz" = (/obj/machinery/light{dir = 2; icon_state = "tube1"; pixel_y = 0},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 8},/turf/simulated/floor/wood,/area/proyoutpost)
+"bA" = (/obj/machinery/light{dir = 2; icon_state = "tube1"; pixel_y = 0},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,/turf/simulated/floor/wood,/area/proyoutpost)
+"bB" = (/obj/machinery/light{dir = 2; icon_state = "tube1"; pixel_y = 0},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 10},/turf/simulated/floor/wood,/area/proyoutpost)
+"bC" = (/obj/structure/disposalpipe/segment,/turf/simulated/floor/lino,/area/proyoutpost)
+"bD" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/wall/r_wall,/area/proyoutpost)
+"bE" = (/obj/structure/disposalpipe/segment,/turf/simulated/wall/r_wall,/area/proyoutpost)
+"bF" = (/obj/structure/window/basic{icon_state = "window"; dir = 1},/obj/structure/disposalpipe/segment,/turf/simulated/floor/tiled/steel,/area/proyoutpost)
+"bG" = (/obj/structure/disposalpipe/segment,/turf/simulated/floor/tiled/steel,/area/proyoutpost)
+"bH" = (/obj/structure/disposalpipe/trunk,/obj/structure/disposaloutlet{dir = 1},/turf/simulated/floor/asteroid/ash,/area/space)
+"bI" = (/obj/structure/disposalpipe/segment{icon_state = "pipe-c"; dir = 1},/turf/simulated/floor/tiled/steel,/area/proyoutpost)
+"bJ" = (/obj/structure/window/basic{dir = 4},/obj/structure/disposalpipe/segment{icon_state = "pipe-s"; dir = 4},/turf/simulated/floor/tiled/steel,/area/proyoutpost)
+"bK" = (/obj/structure/disposalpipe/segment{icon_state = "pipe-s"; dir = 4},/turf/simulated/floor/wood,/area/proyoutpost)
+"bL" = (/obj/effect/landmark{name = "Procyoni Tribal"},/obj/structure/disposalpipe/segment{icon_state = "pipe-s"; dir = 4},/turf/simulated/floor/wood,/area/proyoutpost)
+"bM" = (/obj/structure/table/wood/gamblingtable,/obj/item/weapon/card/id/syndicate,/obj/random/booze,/obj/structure/disposalpipe/segment{icon_state = "pipe-s"; dir = 4},/turf/simulated/floor/wood,/area/proyoutpost)
+"bN" = (/obj/structure/table/wood/gamblingtable,/obj/random/booze,/obj/random/booze,/obj/structure/disposalpipe/segment{icon_state = "pipe-s"; dir = 4},/turf/simulated/floor/wood,/area/proyoutpost)
+"bO" = (/obj/structure/bed/chair{dir = 8},/obj/effect/landmark{name = "Procyoni Tribal"},/obj/structure/disposalpipe/segment{icon_state = "pipe-s"; dir = 4},/turf/simulated/floor/wood,/area/proyoutpost)
+"bP" = (/obj/machinery/light{dir = 4; icon_state = "tube1"; pixel_x = 0},/obj/structure/disposalpipe/segment{icon_state = "pipe-s"; dir = 4},/turf/simulated/floor/wood,/area/proyoutpost)
+"bQ" = (/obj/structure/disposalpipe/segment{icon_state = "pipe-s"; dir = 4},/turf/simulated/wall,/area/proyoutpost)
+"bR" = (/obj/structure/disposalpipe/segment{icon_state = "pipe-s"; dir = 4},/turf/unsimulated/chasm_mask,/area/mine/unexplored)
+"bS" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/disposalpipe/segment{icon_state = "pipe-s"; dir = 4},/turf/simulated/wall,/area/proyoutpost)
+"bT" = (/obj/structure/disposalpipe/segment{dir = 8; icon_state = "pipe-c"},/turf/simulated/wall,/area/proyoutpost)
+"bU" = (/obj/machinery/atmospherics/unary/vent_scrubber/on,/turf/simulated/floor/lino,/area/proyoutpost)
+"bV" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1},/turf/simulated/floor/wood,/area/proyoutpost)
 
 (1,1,1) = {"
 alalalalalalalalalalalalalalalalalalabababafabababalalalalalalalalalalalalalalal
@@ -79,21 +105,21 @@ alalalalalalalalalalalalalalalalalalabagagagagagabalalalalalalalalalalalalalalal
 alalalalalalalalalalalalalalalalalalabaDagagadaEabalalalalalalalalalalalalalalal
 alalalalalababababababababababababababagagagaeapaqaqaqasalalalalalalalalalalalal
 alalalalababahahaiajatakbhamanajaiakabaoaoabauaGabalalaLalalalalalalalalalalalal
-alalalalabarakavaiakakakakakakbgaiakakagagagabagabalalaLalalalalalalalalalalalal
-alalalababakakakaiarakakakakakbiaibjakbjakaEabagabalalaLalalalalalalalalalalalal
-alalalabarakakakaiarakakakakakbmaiakakakakavababalalalaLalalalalalalalalalalalal
-alalababakakakakaibkakakakakakavaibjakbjakakakabalalalaLalalalalalalalalalalalal
-alalabbdakawakakajaiakakakakakaiakakakakakakavababalalaLalalalalalalaQaQalalalal
-alalabarakakakakakajaiaiaxaiaiakakakakakakakakakabalalaLalalalalalaQaQaQblblalal
-alalabawakawakakakakaxaxaxaxaiakakakakakakakakakabalalaLalalalalaQaQblblblblblbl
-alababaiaiaiaiaiaiaiaiaxaxaxaxakaWakaWakaWakaWaWabalalaLalalalaQaQblblblblblblbl
-alabayazaAaBagaYaxaxaCaxaxaxaibbaiaiaiaiaiakaiaiabalalaLalalaQaQaQblblblblblbcbl
-alabaDagagagaEaiaxaxaxaxaxaxaCaxaxaxaxaiakakakakabalalaLalalaQblblblblblblbeblbl
-alabagagagagagaiaxaxaxaxaxaxaxaxaxaxaxaiakakakakabalalaLalalblblblblblblblblblal
-alabaDagagagaEaiaiaiaiaiaiaiaiaiaiaiaiaiakakakababalalaLalblblblblblblblblblblal
-alabaiagagagbfaiaFbnaHaIaIaIaJaPakaKaKakakakakababalalaLblblblblblblblblblblblbl
-alababagagagbraiarakaMagagagaNakaOaRbaakakakakabalalalaLblblblblblblblblblblblbl
-alalababagagagaiakakaMagagagaNakaOaZbaaSakavababalalalaLababacacababblblblblblbl
+alalalalabarakavaiakakakakakakbgaiakakagagagaLagabalalaLalalalalalalalalalalalal
+alalalababakakakaiarakakakakakbiaibjakbjakaEaLagabalalaLalalalalalalalalalalalal
+alalalabarakakakaiarakakakakakbmaiakakakakavaLabalalalaLalalalalalalalalalalalal
+alalababakakakakaibkakakakakakavaibjakbjakakayabalalalaLalalalalalalalalalalalal
+alalabbdakawakakajaiakakakakakaiakakakakakakazababalalaLalalalalalalaQaQalalalal
+alalabarakakakakakajaiaiaxaiaiakakakakakakakayakabalalaLalalalalalaQaQaQblblalal
+alalabawakawakakakakaxbUaxaSaiakakakakakakakayakabalalaLalalalalaQaQblblblblblbl
+alababaiaiaiaiaiaiaiaiaZbxbybxbpbzbpbzbpbzbpbAbBabalalaLalalalaQaQblblblblblblbl
+alabagabaAaBagaYaxaxaCaxaxbCaibbaiaiaiaiaiakaibDabalalaLalalaQaQaQblblblblblbcbl
+alabaDabagagaEaiaxaxaxaxbwbCaCaxaxaxaxaiakakakayabalalaLalalaQblblblblblblbeblbl
+alabaoabagagagaiaxaxaxaxaxbCaxaxaxaxaxaiakakakbVabalalaLalalblblblblblblblblblal
+alabaDagagagaEaiaiaiaiaiaibEaiaiaiaiaiaiakakakababalalaLalblblblblblblblblblblal
+alabaiagagagbfaiaFbnaHaIaIbFaJaPakaKaKakakakakababalalaLblblblblblblblblblblblbl
+alababagagagbraiarakaMagagbGaNakaOaRbaakakakakabalalalaLblbHblblblblblblblblblbl
+alalababagagagaiakakaMagagbIbJbKbLbMbNbObKbPbQbQbRbRbRbSbQbTacacababblblblblblbl
 alalabababbsbtaiakakaTaUagaUaVakakakakakakababalalblblaLabboakakboabblblalalalal
 alalalalabababaiarakaWakakakaWakaXakavabababalalalblblaLabakakakavabblblalalalal
 alalalalalalababababababababababababababalalalalalblblbuaqbpbqbvboabblblalalalal
