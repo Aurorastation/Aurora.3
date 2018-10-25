@@ -118,7 +118,7 @@
 
 		if ("golfclap")
 			if (!src.restrained())
-				message "claps, clearly unimpressed."
+				message = "claps, clearly unimpressed."
 				playsound(loc, 'sound/effects/golfclap.ogg', 50, 1)
 				m_type = 2
 				if(miming)
