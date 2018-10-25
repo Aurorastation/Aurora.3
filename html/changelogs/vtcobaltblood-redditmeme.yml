@@ -35,4 +35,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - rscadd: "Added the cheap lighter to loadout."
-  - tweak: "Zippo messages are no longer red."
+  - tweak: "Zippo messages are no longer red. The description has been updated to make it more clear that it has flavor messages."
