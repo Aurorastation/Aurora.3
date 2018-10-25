@@ -217,7 +217,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	burn_rate = 0.006 //Lasts ~166 seconds)
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
 	lightermes = "<span class='notice'>USER manages to light their NAME with FLAME.</span>"
-	zippomes = "<span class='rose'>With a flick of their wrist, USER lights their NAME with their FLAME.</span>"
+	zippomes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
 	weldermes = "<span class='notice'>USER casually lights the NAME with FLAME.</span>"
 	ignitermes = "<span class='notice'>USER fiddles with FLAME, and manages to light their NAME.</span>"
 
@@ -522,17 +522,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			icon_state = "[base_state]on"
 			item_state = "[base_state]on"
 			playsound(src.loc, activation_sound, 75, 1)
-			if(istype(src, /obj/item/weapon/flame/lighter/zippo) )
-				user.visible_message("<span class='rose'>Without even breaking stride, [user] flips open and lights [src] in one smooth movement.</span>")
-			else
-				if(prob(95))
-					user.visible_message("<span class='notice'>After a few attempts, [user] manages to light the [src].</span>")
+			if(prob(5))
+				user << "<span class='warning'>You burn yourself while lighting the lighter.</span>"
+				if (user.l_hand == src)
+					user.apply_damage(2,BURN,"l_hand")
 				else
-					user << "<span class='warning'>You burn yourself while lighting the lighter.</span>"
-					if (user.l_hand == src)
-						user.apply_damage(2,BURN,"l_hand")
-					else
-						user.apply_damage(2,BURN,"r_hand")
+					user.apply_damage(2,BURN,"r_hand")
 					user.visible_message("<span class='notice'>After a few attempts, [user] manages to light the [src], they however burn their finger in the process.</span>")
 
 			set_light(2)
@@ -542,11 +537,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			icon_state = "[base_state]"
 			item_state = "[base_state]"
 			playsound(src.loc, desactivation_sound, 75, 1)
-			if(istype(src, /obj/item/weapon/flame/lighter/zippo) )
-				user.visible_message("<span class='rose'>You hear a quiet click, as [user] shuts off [src] without even looking at what they're doing.</span>")
-			else
-				user.visible_message("<span class='notice'>[user] quietly shuts off the [src].</span>")
-
 			set_light(0)
 			STOP_PROCESSING(SSprocessing, src)
 	else
