@@ -93,7 +93,7 @@
 		if(user.zone_sel.selecting == "eyes")
 			var/mob/living/carbon/C = target
 
-			C.eye_blind = 1
+			C.eye_blind = 3
 			outmsg = "<span class='notice'>You hit the eyes of [C] with [src], temporarily blinding them!</span>"
 
 	if(istype(target, /obj/item/weapon/paper))
