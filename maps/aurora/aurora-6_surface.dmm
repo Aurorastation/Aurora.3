@@ -15179,6 +15179,7 @@
 /obj/item/weapon/beach_ball,
 /obj/item/weapon/bikehorn/rubberducky,
 /obj/item/device/violin,
+/obj/item/device/boombox,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness)
 "Ce" = (
@@ -20072,6 +20073,26 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
+"XV" = (
+/turf/simulated/floor/plating,
+/area/mine/unexplored)
+"XW" = (
+/turf/simulated/floor/plating,
+/area/mine/unexplored)
+"XX" = (
+/obj/item/clothing/ears/earmuffs/headphones,
+/turf/simulated/floor/plating,
+/area/mine/unexplored)
+"XY" = (
+/turf/simulated/floor/plating,
+/area/mine/unexplored)
+"XZ" = (
+/turf/simulated/floor/plating,
+/area/mine/unexplored)
+"Ya" = (
+/obj/item/device/boombox,
+/turf/simulated/floor/plating,
+/area/mine/unexplored)
 
 (1,1,1) = {"
 aa
@@ -45164,9 +45185,9 @@ ag
 sU
 tt
 sU
-ag
-ag
-ag
+qb
+qb
+qb
 ag
 ag
 ag
@@ -45421,10 +45442,10 @@ ag
 sU
 tt
 sU
-ag
-ag
-ag
-ag
+XV
+XX
+XZ
+qb
 ag
 ag
 DW
@@ -45678,10 +45699,10 @@ sU
 sU
 tt
 sU
-ag
-ag
-ag
-ag
+XW
+XY
+Ya
+qb
 ag
 ag
 DW
@@ -45935,9 +45956,9 @@ tu
 Bw
 tt
 sU
-ag
-ag
-aa
+qb
+qb
+ab
 aa
 ag
 ag
