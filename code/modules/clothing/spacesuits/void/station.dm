@@ -120,3 +120,27 @@
 	)
 	armor = list(melee = 40, bullet = 5, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 50)
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
+
+//Head of Security
+/obj/item/clothing/head/helmet/space/void/hos
+	name = "heavy security voidsuit helmet"
+	desc = "A special helmet designed for work in a hazardous, low pressure environment. Has an additional layer of armor, and gold trim."
+	icon_state = "rig0-hos"
+	item_state_slots = list(
+		slot_l_hand_str = "sec_helm",
+		slot_r_hand_str = "sec_helm"
+		)
+	armor = list(melee = 60, bullet = 10, laser = 30, energy = 5, bomb = 45, bio = 100, rad = 10)
+	light_overlay = "helmet_light_dual"
+
+/obj/item/clothing/suit/space/void/hos
+	icon_state = "rig-hos"
+	name = "heavy security voidsuit"
+	desc = "A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor, and gold trim."
+	item_state = "sec_voidsuit"
+	item_state_slots = list(
+			slot_l_hand_str = "sec_hardsuit",
+			slot_r_hand_str = "sec_hardsuit"
+	)
+	armor = list(melee = 60, bullet = 10, laser = 30, energy = 5, bomb = 45, bio = 100, rad = 10)
+	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/melee/baton)
