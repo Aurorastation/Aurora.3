@@ -103,14 +103,17 @@
 
 		var/expected_fullness = user.max_nutrition > 0 ? (user.nutrition + (user.reagents.get_reagent_amount("nutriment") * 25)) / user.max_nutrition : CREW_NUTRITION_OVEREATEN + 0.01
 		expected_fullness += (user.overeatduration/600)*0.5
-		var/is_full = (expected_fullness > CREW_NUTRITION_OVEREATEN)
+		var/is_full = (expected_fullness >= 1)
 
 		if(user == target)
 			if(!user.can_eat(src))
 				return
-				
+
 			var/feedback_message
-			if(expected_fullness <= CREW_NUTRITION_VERYHUNGRY)
+			
+			if(is_full)
+				feedback_message = "You cannot force any more of \the [src] to go down your throat!"
+			else if(expected_fullness <= CREW_NUTRITION_VERYHUNGRY)
 				feedback_message = "You hungrily chew out a piece of \the [src] and gobble it!"
 			else if(expected_fullness <= CREW_NUTRITION_HUNGRY)
 				feedback_message = "You hungrily begin to eat \the [src]."
@@ -120,8 +123,7 @@
 				feedback_message = "You take a bite of \the [src]."
 			else if(expected_fullness <= CREW_NUTRITION_OVEREATEN)
 				feedback_message = "You unwillingly chew a bit of \the [src]."
-			else
-				feedback_message = "You cannot force any more of \the [src] to go down your throat!"
+				
 
 			if(is_full)
 				to_chat(user,span("danger",feedback_message))
@@ -5384,7 +5386,7 @@
 	reagents.add_reagent("sugar", 2)
 
 /obj/item/weapon/reagent_containers/food/snacks/cb09
-	name = "owo daddy bar"
+	name = "oh daddy bar"
 	desc = "A massive cluster of peanuts covered in caramel and chocolate."
 	filling_color = "#552200"
 	icon_state = "cb09"
