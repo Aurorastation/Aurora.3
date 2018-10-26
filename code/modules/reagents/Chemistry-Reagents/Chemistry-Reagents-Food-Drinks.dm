@@ -541,11 +541,14 @@
 /datum/reagent/frostoil
 	name = "Frost Oil"
 	id = "frostoil"
-	description = "A special oil that noticably chills the body. Extracted from Ice Peppers."
+	description = "A special oil that chemically chills the body. Extracted from Ice Peppers."
 	reagent_state = LIQUID
 	color = "#B31008"
 	taste_description = "mint"
 	taste_mult = 1.5
+
+	specific_heat = 15
+	default_temperature = T0C - 20
 
 /datum/reagent/frostoil/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.bodytemperature = max(M.bodytemperature - 10 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
@@ -934,6 +937,8 @@
 	glass_icon_state = "glass_white"
 	glass_name = "glass of milk"
 	glass_desc = "White and nutritious goodness!"
+
+	default_temperature = T0C + 5
 
 /datum/reagent/drink/milk/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
