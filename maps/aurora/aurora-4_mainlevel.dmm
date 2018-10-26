@@ -31599,6 +31599,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/hydroponics)
 "bcU" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/ramp,
 /area/crew_quarters/sleep/main)
 "bcV" = (
@@ -32437,22 +32440,11 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
 "bem" = (
+/obj/item/weapon/stool/padded,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/light,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
-	pixel_y = -28
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
@@ -34638,8 +34630,17 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "bin" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/reinforced,
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/door/blast/shutters{
+	dir = 8;
+	id = "kitchenshutters01";
+	name = "Kitchen Shutters"
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bio" = (
@@ -34762,25 +34763,10 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "biz" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/disposalpipe/segment{
 	dir = 4
-	},
-/obj/machinery/ringer{
-	department = "Kitchen";
-	id = "kitchen_ringer";
-	pixel_x = 0;
-	pixel_y = -30;
-	req_access = list(28)
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -41222,6 +41208,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
+"btg" = (
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 4
+	},
+/obj/structure/table/wood,
+/obj/item/weapon/storage/bible,
+/turf/simulated/floor/carpet,
+/area/chapel/main)
 "bth" = (
 /obj/structure/table/rack,
 /obj/random/loot,
@@ -48684,13 +48679,10 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bGl" = (
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 4
-	},
-/obj/structure/table/wood,
-/turf/simulated/floor/carpet,
-/area/chapel/main)
+/obj/machinery/computer/arcade/orion_trail,
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/bar)
 "bGm" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -50834,11 +50826,26 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bJR" = (
-/turf/simulated/floor/wood,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bJS" = (
 /turf/simulated/open,
 /area/turbolift/research_station)
+"bJT" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/bar)
 "bJU" = (
 /obj/structure/closet/secure_closet/freezer/meat,
 /turf/simulated/floor/tiled/freezer{
@@ -50854,7 +50861,9 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
 "bJW" = (
-/obj/machinery/computer/arcade/orion_trail,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "bJX" = (
@@ -50864,6 +50873,63 @@
 	name = "cold storage tiles";
 	temperature = 278
 	},
+/area/crew_quarters/kitchen)
+"bJY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
+"bJZ" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/light,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/item/device/radio/intercom{
+	name = "Station Intercom (General)";
+	pixel_y = -28
+	},
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/hallway/primary/aft)
+"bKa" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/ringer{
+	department = "Kitchen";
+	id = "kitchen_ringer";
+	pixel_x = 0;
+	pixel_y = -30;
+	req_access = list(28)
+	},
+/obj/structure/disposalpipe/junction{
+	icon_state = "pipe-j2";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bKm" = (
 /obj/machinery/door/airlock/glass,
@@ -90055,7 +90121,7 @@ bEq
 bEz
 bFk
 bFx
-bGl
+btg
 bFx
 bGK
 bHv
@@ -92877,8 +92943,8 @@ bfG
 bfG
 bfG
 bfG
-bfG
 bem
+bJZ
 bUz
 bUz
 bUz
@@ -93134,7 +93200,7 @@ bfH
 bfH
 bfH
 bfH
-bfH
+bin
 bix
 bUz
 bkf
@@ -93391,7 +93457,7 @@ bfI
 bfw
 bfw
 bfw
-bin
+biz
 biy
 bUz
 bkt
@@ -93648,8 +93714,8 @@ bfK
 bgW
 bhc
 bgW
-bgW
-biz
+bJY
+bKa
 bUz
 bkz
 bmn
@@ -97265,7 +97331,7 @@ btN
 bJk
 bpr
 bpr
-bJW
+bGl
 bUz
 bSv
 bRz
@@ -97522,7 +97588,7 @@ btN
 guz
 bpr
 bpr
-bpr
+bJW
 btQ
 caE
 bQp
@@ -98283,7 +98349,7 @@ bnJ
 bJu
 bpj
 bJu
-bsP
+bJT
 bUz
 brv
 brv
