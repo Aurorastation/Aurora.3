@@ -1,7 +1,3 @@
-// Updated Jukebox Music aswell, All songs are used are in Fair Use and credit is due to all authors
-
-
-datum/track
 
 datum/track/New(var/title_name, var/audio)
 	title = title_name
@@ -9,7 +5,7 @@ datum/track/New(var/title_name, var/audio)
 
 /obj/item/device/boombox
 	name = "TuneMaster 5000"
-	desc = "A boombox, the annoyance of the jukebox in you're hands"
+	desc = "The TuneMaster 5000, a medium sized boombox"
 	icon = 'icons/obj/jukebox.dmi'
 	anchored = 0
 	icon_state = "boombox-nopower"
@@ -34,22 +30,11 @@ datum/track/New(var/title_name, var/audio)
 		new/datum/track("Thunderdome", 'sound/music/THUNDERDOME.ogg'),
 		new/datum/track("Space Oddity", 'sound/music/space_oddity.ogg'),
 		new/datum/track("Space Asshole", 'sound/music/space_asshole.ogg'),
-		new/datum/track("Don't Fear The Reaper", 'sound/music/reaper.ogg'),
 		new/datum/track("War Time Jive", 'sound/music/jazzjive.ogg'),
 		new/datum/track("Somebody To Love", 'sound/music/love.ogg'),
 		new/datum/track("Hotel Cubano", 'sound/music/nicarguia.ogg'),
-		new/datum/track("Aint I Right", 'sound/music/right.ogg'),
 		new/datum/track("Silent Night", 'sound/music/silentnight.ogg'),
-		new/datum/track("Mighty Wings", 'sound/music/wings.ogg'),
 		new/datum/track("What A Thrill", 'sound/music/eater.ogg'),
-		new/datum/track("Power Age", 'sound/music/powerage.ogg'),
-		new/datum/track("Outcast", 'sound/music/garbage.ogg'),
-		new/datum/track("Danger!", 'sound/music/danger.ogg'),
-		new/datum/track("Thriller", 'sound/music/thrill.ogg'),
-		new/datum/track("Hound Dog", 'sound/music/hound.ogg'),
-		new/datum/track("Suspicious Minds", 'sound/music/minds.ogg'),
-		new/datum/track("Long Tall Sally", 'sound/music/sally.ogg'),
-		new/datum/track("Don't Worry Baby", 'sound/music/baby.ogg')
 	)
 
 /obj/item/device/boombox/Destroy()
@@ -133,20 +118,6 @@ datum/track/New(var/title_name, var/audio)
 	if(anchored)
 		interact(user)
 
-/obj/item/device/boombox/proc/explode()
-	walk_to(src,0)
-	visible_message("<span class='danger'>\the [src] blows apart!</span>")
-
-	explosion(src.loc, 0, 0, 1, rand(1,2), 1)
-
-	spark(src, 3, alldirs)
-
-	new /obj/effect/decal/cleanable/blood/oil(src.loc)
-	qdel(src)
-
-/obj/item/device/boombox/attackby(obj/item/W as obj, mob/user as mob)
-	src.add_fingerprint(user)
-
 /obj/item/device/boombox/proc/StopPlaying()
 	var/area/main_area = get_area(src)
 	// Always kill the current sound
@@ -188,6 +159,8 @@ datum/track/New(var/title_name, var/audio)
 	set src in oview(1)
 	set category = "Object"
 	set name = "Set Boombox Up"
+	if(use_check(usr))
+		return
 	anchored = 1
 	usr.visible_message("<span class='notice'>\the [src] is setup to play music now.</span>")
 	
@@ -197,6 +170,8 @@ datum/track/New(var/title_name, var/audio)
 	set src in oview(1)
 	set category = "Object"
 	set name = "Pick Boombox Up"
+	if(use_check(usr))
+		return
 	anchored = 0
 	StopPlaying()
 	usr.visible_message("<span class='notice'>\the [src] can now be carried.</span>")
