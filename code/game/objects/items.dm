@@ -454,6 +454,9 @@ var/list/global/slot_flags_enumeration = list(
 	if(I.anchored) //Object isn't anchored
 		usr << "<span class='warning'>You can't pick that up!</span>"
 		return
+	if(anchored)
+		usr << "<span class='warning'>You must secure \the item first.</span>"
+		return
 	if(!usr.hand && usr.r_hand) //Right hand is not full
 		usr << "<span class='warning'>Your right hand is full.</span>"
 		return
