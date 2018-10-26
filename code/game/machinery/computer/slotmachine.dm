@@ -92,11 +92,11 @@
 		return ..()
 
 /obj/machinery/computer/slot_machine/emag_act()
-	if(emagged)
-		return
-	emmaged = TRUE
-	spark(src, 3)
-	playsound(src, "sparks", 50, 1)
+	if(!emagged)
+		emmaged = TRUE
+		spark(src, 3)
+		playsound(src, "sparks", 50, 1)
+		return TRUE
 
 /obj/machinery/computer/slot_machine/ui_interact(mob/living/user)
 	. = ..()
@@ -191,11 +191,11 @@
 		to_chat(user, "<span class='warning'>The slot machine is broken!</span>")
 	if(working)
 		to_chat(user, "<span class='warning'>You need to wait until the machine stops spinning before you can play again!</span>")
-		return 0
+		return FALSE
 	if(balance < SPIN_PRICE)
 		to_chat(user, "<span class='warning'>Insufficient money to play!</span>")
-		return 0
-	return 1
+		return FALSE
+	return TRUE
 
 /obj/machinery/computer/slot_machine/proc/toggle_reel_spin(value, delay = 0) //value is 1 or 0 aka on or off
 	for(var/list/reel in reels)
