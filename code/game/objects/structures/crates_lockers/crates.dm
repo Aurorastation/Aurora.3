@@ -685,10 +685,9 @@
 	icon_closed = pick(iconchoices)
 	icon_opened = iconchoices[icon_closed]
 	update_icon()
-	while (quantity > 0)
-		quantity --
+	for (var/i in 1 to quantity)
 		var/newtype = get_spawntype()
-		spawn_stock(newtype,src)
+		call(newtype)(src)
 
 /obj/structure/closet/crate/loot/proc/get_spawntype()
 	var/stocktype = pickweight(spawntypes)

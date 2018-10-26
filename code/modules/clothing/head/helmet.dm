@@ -176,6 +176,13 @@
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 
+/obj/item/clothing/head/helmet/iachelmet
+	name = "IAC helmet"
+	desc = "This helmet is meant to protect the wearer from light debris, scrapes and bumps in a disaster situation, this lightweight helmet doesn't offer any significant protection from attacks or severe accidents. It's not recommended for use as armor and it's definitely not spaceworthy."
+	icon_state = "iac_helmet"
+	armor = list(melee = 6, bullet = 10, laser = 10, energy = 3, bomb = 5, bio = 15, rad = 0)
+	flags_inv = HIDEEARS
+
 /obj/item/clothing/head/helmet/unathi
 	name = "unathi helmet"
 	desc = "A helmet designated to be worn by an unathi, used commonly by the hegemony levies."
