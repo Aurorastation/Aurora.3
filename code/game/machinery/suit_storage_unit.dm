@@ -655,6 +655,14 @@
 	species = list("Human","Tajara","Skrell","Unathi", "Machine")
 	can_repair = 1
 
+/obj/machinery/suit_cycler/hos
+	name = "Head of Security suit cycler"
+	model_text = "Head of Security"
+	req_access = list(access_hos)
+	departments = list("Head of Security")
+	species = list("Human","Tajara","Skrell","Unathi", "Machine")
+	can_repair = 1
+
 /obj/machinery/suit_cycler/captain
 	name = "Captain suit cycler"
 	model_text = "Captain"
