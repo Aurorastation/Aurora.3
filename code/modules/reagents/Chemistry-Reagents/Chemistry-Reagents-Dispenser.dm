@@ -131,6 +131,7 @@
 	return ..()
 
 /datum/reagent/alcohol/touch_mob(mob/living/L, amount)
+	. = ..()
 	if (istype(L) && strength > 40)
 		L.adjust_fire_stacks((amount / (flammability_divisor || 1)) * (strength / 100))
 

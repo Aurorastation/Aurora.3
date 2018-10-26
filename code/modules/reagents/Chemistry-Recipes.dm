@@ -2881,6 +2881,56 @@
 	required_temperatures_max = list("phoron" = T0C - 5)
 	result_amount = 1
 
+/datum/chemical_reaction/pyrosilicate
+	name = "Pyrosilicate"
+	id = "pyrosilicate"
+	result = "pyrosilicate"
+	result_amount = 4
+	required_reagents = list("silicate" = 1, "sacid" = 1, "hydrazine" = 1, "iron" = 1)
+	//inhibitors = list("cryosurfactant" = 1)
+
+/datum/chemical_reaction/cryosurfactant
+	name = "Cryosurfactant"
+	id = "cryosurfactant"
+	result = "cryosurfactant"
+	result_amount = 3
+	required_reagents = list("surfactant" = 1, "ice" = 1, "sodium" = 1)
+	//inhibitors = list("pyrosilicate" = 1)
+
+/datum/chemical_reaction/cryosurfactant_cooling
+	name = "Cryosurfactant Cooling"
+	id = "cryosurfactant_cooling"
+	result = null
+	result_amount = 0
+	required_reagents = list("cryosurfactant" = 1, "water" = 1)
+	//inhibitors = list("pyrosilicate" = 1)
+
+/datum/chemical_reaction/cryosurfactant_cooling/on_reaction(var/datum/reagents/holder, var/created_volume)
+	holder.add_thermal_energy(-created_volume*100)
+
+/datum/chemical_reaction/pyrosilicate_heating
+	name = "Pyrosilicate Heating"
+	id = "pyrosilicate_heating"
+	result = null
+	result_amount = 0
+	required_reagents = list("pyrosilicate" = 1, "sodiumchloride" = 1)
+
+/datum/chemical_reaction/pyrosilicate_heating/on_reaction(var/datum/reagents/holder, var/created_volume)
+	holder.add_thermal_energy(created_volume*200)
+
+/datum/chemical_reaction/pyrosilicate_cryosurfactant
+	name = "Pyrosilicate Cryosurfactant Reaction"
+	id = "pyrosilicate_cryosurfactant"
+	result = null
+	result_amount = 0
+	required_reagents = list("pyrosilicate" = 1, "cryosurfactant" = 1)
+	required_temperatures_min = list("pyrosilicate" = T0C, "cryosurfactant" = T0C) //Does not react when below these temperatures.
+
+/datum/chemical_reaction/pyrosilicate_cryosurfactant/on_reaction(var/datum/reagents/holder, var/created_volume)
+	var/turf/simulated/floor/T = get_turf(holder.my_atom.loc)
+	if(istype(T))
+		T.assume_gas("oxygen", created_volume, holder.get_temperature())
+
 /datum/chemical_reaction/phoron_salt_fire
 	name = "Phoron Salt Fire"
 	id = "phoron_salt_fire"

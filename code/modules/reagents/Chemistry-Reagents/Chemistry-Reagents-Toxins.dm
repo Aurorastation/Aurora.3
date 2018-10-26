@@ -104,6 +104,7 @@
 		..()
 
 /datum/reagent/toxin/phoron/touch_mob(var/mob/living/L, var/amount)
+	. = ..()
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 5)
 
@@ -312,6 +313,7 @@
 	return
 
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_mob(var/mob/living/L, var/amount)
+	. = ..()
 	if(istype(L))
 		var/needed = L.fire_stacks * 10
 		if(amount > needed)

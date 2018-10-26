@@ -224,6 +224,7 @@
 				cube.Expand()
 
 /datum/reagent/water/touch_mob(var/mob/M, var/amount)
+	. = ..()
 	if(istype(M) && isliving(M))
 		var/mob/living/L = M
 		var/needed = L.fire_stacks * 10
@@ -272,6 +273,7 @@
 	M.adjustToxLoss(2 * removed)
 
 /datum/reagent/fuel/touch_mob(var/mob/living/L, var/amount)
+	. = ..()
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!
 
@@ -293,6 +295,7 @@
 	return
 
 /datum/reagent/fuel/touch_mob(var/mob/living/L, var/amount)
+	. = ..()
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!
 		new /obj/effect/decal/cleanable/liquid_fuel/napalm(get_turf(L), amount/3)

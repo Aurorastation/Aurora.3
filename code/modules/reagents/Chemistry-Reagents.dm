@@ -34,7 +34,7 @@
 	var/thermal_energy = 0 //Internal value, should never change.
 	var/specific_heat = -1 //The higher, the more difficult it is to change its difficult. 0 or lower values indicate that the specific heat has yet to be assigned.
 	var/fallback_specific_heat = -1 //Setting this value above 0 will set the specific heat to this value only if the system could not find an appropriate specific heat to assign using the recipe system.
-	//Never ever ever ever change this value for datum/reagent. This should only be used for things like drinks or food.
+	//Never ever ever ever change this value for datum/reagent. This should only be used for massive, yet specific things like drinks or food where it is infeasible to assign a specific heat value.
 
 /datum/reagent/proc/initialize_data(var/newdata) // Called when the reagent is created.
 	if(!isnull(newdata))
@@ -48,8 +48,14 @@
 	holder.remove_reagent(id, amount)
 
 // This doesn't apply to skin contact - this is for, e.g. extinguishers and sprays. The difference is that reagent is not directly on the mob's skin - it might just be on their clothing.
-/datum/reagent/proc/touch_mob(var/mob/M, var/amount)
-	return
+/datum/reagent/proc/touch_mob(var/mob/living/M, var/amount)
+	var/temperature = src.get_temperature()
+	if(temperature >= REAGENTS_BURNING_TEMP_HIGH)
+		var/burn_damage = amount*(temperature - REAGENTS_BURNING_TEMP_HIGH)*REAGENTS_BURNING_TEMP_HIGH_DAMAGE
+		M.adjustFireLoss(burn_damage)
+	else if(temperature <= REAGENTS_BURNING_TEMP_LOW)
+		var/burn_damage = amount*(REAGENTS_BURNING_TEMP_LOW - temperature)*REAGENTS_BURNING_TEMP_LOW_DAMAGE
+		M.adjustFireLoss(burn_damage)
 
 /datum/reagent/proc/touch_obj(var/obj/O, var/amount) // Acid melting, cleaner cleaning, etc
 	return

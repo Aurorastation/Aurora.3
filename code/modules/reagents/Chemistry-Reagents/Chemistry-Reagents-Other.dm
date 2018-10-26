@@ -84,6 +84,7 @@
 		O.color = color
 
 /datum/reagent/paint/touch_mob(var/mob/M)
+	. = ..()
 	if(istype(M) && !istype(M, /mob/abstract)) //painting ghosts: not allowed
 		M.color = color //maybe someday change this to paint only clothes and exposed body parts for human mobs.
 
@@ -300,6 +301,7 @@
 	taste_description = "sweet tasting metal"
 
 /datum/reagent/thermite/touch_turf(var/turf/T)
+	. = ..()
 	if(volume >= 5)
 		if(istype(T, /turf/simulated/wall))
 			var/turf/simulated/wall/W = T
@@ -451,10 +453,27 @@
 	color = "#F2F3F4"
 	taste_description = "metal"
 
+/datum/reagent/pyrosilicate
+	name = "Pyrosilicate"
+	id = "pyrosilicate"
+	description = "A bright orange powder consisting of strange self-heating properties that reacts when exposed to sodium chloride."
+	reagent_state = SOLID
+	color = "#FFFF00"
+	taste_description = "chalk"
+
+/datum/reagent/cryosurfactant
+	name = "Cryosurfactant"
+	id = "cryosurfactant"
+	description = "A bright cyan liquid consisting of strange self-cooling properties that reacts when exposed to water."
+	reagent_state = LIQUID
+	color = "#00FFF"
+	taste_description = "needles"
+
 /datum/reagent/luminol/touch_obj(var/obj/O)
 	O.reveal_blood()
 
 /datum/reagent/luminol/touch_mob(var/mob/living/L)
+	. = ..()
 	L.reveal_blood()
 
 /datum/reagent/estus
@@ -498,6 +517,7 @@
 	fallback_specific_heat = 20 //This holds a ton of heat.
 
 /datum/reagent/liquid_fire/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
 	if(istype(M))
 		M.adjust_fire_stacks(10)
 		M.IgniteMob()
@@ -548,6 +568,7 @@
 		do_teleport(M, get_turf(M), 5, asoundin = 'sound/effects/phasein.ogg')
 
 /datum/reagent/bluespace_dust/touch_mob(var/mob/living/L, var/amount)
+	. = ..()
 	do_teleport(L, get_turf(L), amount, asoundin = 'sound/effects/phasein.ogg')
 
 /datum/reagent/philosopher_stone
