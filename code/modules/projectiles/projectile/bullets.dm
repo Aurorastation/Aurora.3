@@ -295,21 +295,15 @@
 	sharp = 0
 
 /obj/item/projectile/bullet/pistol/papadov
-	name = "380"
+	name = "bullet"
 	damage = 20
 	agony = 0
-	embed = 0
-	sharp = 0
 	weaken = 0
 
 
 /obj/item/projectile/bullet/pistol/papadov/tranq
-	name = "380 T"
+	name = "tranquilizer"
 	damage = 1
-	stun = 0
-	weaken = 0
-	drowsy = 4
-	eyeblur = 1
 	damage_type = BRUTE
 	speed = 0.3
 
@@ -318,7 +312,7 @@
 	if(!(isanimal(target)))
 		if(!(isipc(target)))
 			if(!isrobot(target))
-				L.apply_effect(5, DROWSY, 0)
+				L.apply_effect(6, DROWSY, 0)
 				if(def_zone == "torso")
 					if(blocked < 100 && !(blocked < 20))
 						L.emote("yawns")
