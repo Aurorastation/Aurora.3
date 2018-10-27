@@ -36,3 +36,5 @@ delete-after: True
 changes: 
   - rscadd: "Adds flower crowns. Make a wood circlet out of wood, then apply sunflower/poppy/harebell seeds to make a flower crown."
   - rscadd: "Adds hair pins and bows, as well as three new flower pins."
+  - rscadd: "Adds a Security cloak (for plebs and the HoS), and a department jacket."
+  - bugfix: "Crafty NanoTrasen employees have finally located the buttons on their department jackets."
