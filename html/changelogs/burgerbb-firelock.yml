@@ -34,4 +34,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Chefs now spawn with a box of 12 randomly spawned fruit/vegetables."
+  - imageadd: "Changed the emergency firedoor airlock sprites to something more arousing."
+  - imageadd: "Adjusted drone hatch sprites to be directional."

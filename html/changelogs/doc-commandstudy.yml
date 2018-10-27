@@ -23,15 +23,14 @@
 #################################
 
 # Your name.  
-author: BurgerBB
-
+author: TheDocOct
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
-
 # Any changes you've made.  See valid prefix list above.
 # INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
 # SCREW THIS UP AND IT WON'T WORK.
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Added several new random dungeon spawns."
+  - maptweak: "Slightly adjusted the command surface lobby and attached a study to it, for relaxing star-gazing isolation."
+  - maptweak: "Removed the roof covering the asteroid between the departures airlocks, preventing circumventing the airlocks onto the ecsape shuttle without appropriate precautions." 

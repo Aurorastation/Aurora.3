@@ -32,7 +32,7 @@
 	power_add = BATTLE_MONSTERS_POWER_UPGRADE
 	power_mul = 1.25
 	description = "%NAME is feared upon by most lesser beings, and with good reason. A single stroke of their %WEAPON_AND is known to destroy the very souls of those unlucky enough to even witness it's power over %ELEMENT_AND."
-	special_effects = "Absolute Power: %NAME cannot be attacked by monsters with a base attack rating less than <b>2000</b>."
+	special_effects = "Absolute Power: %NAME cannot be attacked by monsters with 4 or lower stars."
 	rarity = 0.5
 	rarity_score = 1
 
