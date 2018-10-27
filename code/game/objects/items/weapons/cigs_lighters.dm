@@ -507,6 +507,15 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	activation_sound = 'sound/items/zippo_on.ogg'
 	desactivation_sound = 'sound/items/zippo_off.ogg'
 
+
+/obj/item/weapon/flame/lighter/zippo/syndielighter
+	name = "\improper Fancy Zippo lighter"
+	desc = "A very fancy zippo lighter."
+	icon_state = "superzippo"
+	item_state = "zippo"
+	activation_sound = 'sound/items/zippo_on.ogg'
+	desactivation_sound = 'sound/items/zippo_off.ogg'
+
 /obj/item/weapon/flame/lighter/random
 	New()
 		icon_state = "lighter-[pick("r","c","y","g")]"

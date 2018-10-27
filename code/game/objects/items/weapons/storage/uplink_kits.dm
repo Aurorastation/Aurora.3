@@ -287,3 +287,4 @@
 	new /obj/item/weapon/material/hatchet/tacknife(src)
 	new /obj/item/device/chameleon(src)
 	new /obj/item/sol_combat_manual(src)
+	new /obj/item/weapon/flame/lighter/zippo/syndielighter(src)
