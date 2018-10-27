@@ -1611,22 +1611,9 @@
 /obj/structure/morgue,
 /turf/simulated/floor/tiled,
 /area/maintenance/security_starboard)
-"adf" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/maintenance/security_starboard)
 "adg" = (
 /obj/item/bodybag,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
-/area/maintenance/security_starboard)
-"adh" = (
-/obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled,
 /area/maintenance/security_starboard)
 "adi" = (
@@ -1760,22 +1747,6 @@
 /obj/item/weapon/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
-"adA" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/maintenance/security_starboard)
-"adB" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
-/area/maintenance/security_starboard)
 "adC" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -2075,38 +2046,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
-"aec" = (
-/obj/item/bodybag,
-/turf/simulated/floor/tiled,
-/area/maintenance/security_starboard)
-"aed" = (
-/obj/item/stack/tile/floor,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/maintenance/security_starboard)
-"aee" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/tiled,
-/area/maintenance/security_starboard)
-"aef" = (
-/obj/item/stack/tile/floor,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/maintenance/security_starboard)
 "aeg" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Security Maintenance";
@@ -2384,42 +2323,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/security_starboard)
-"aeI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
-"aeJ" = (
-/obj/item/weapon/reagent_containers/food/snacks/donkpocket,
-/obj/effect/decal/cleanable/generic,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/maintenance/security_starboard)
 "aeK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2620,16 +2523,6 @@
 	temperature = 278
 	},
 /area/security/investigations)
-"afg" = (
-/obj/random/toolbox,
-/turf/simulated/floor/tiled,
-/area/maintenance/security_starboard)
-"afh" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/maintenance/security_starboard)
 "afi" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -5671,25 +5564,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
-"alu" = (
-/obj/structure/table/rack,
-/obj/item/device/magnetic_lock/security{
-	pixel_x = -3;
-	pixel_y = 4
-	},
-/obj/item/device/magnetic_lock/security{
-	pixel_x = -3;
-	pixel_y = 4
-	},
-/obj/item/device/magnetic_lock/security{
-	pixel_x = -3;
-	pixel_y = 4
-	},
-/obj/item/weapon/key/segwaykey,
-/obj/item/weapon/key/segwaykey,
-/obj/item/weapon/key/segwaykey,
-/turf/simulated/floor/tiled/dark,
-/area/security/armoury)
 "alv" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/armor/riot,
@@ -7936,14 +7810,6 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"apH" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/obj/machinery/firealarm/west,
-/obj/vehicle/segway,
-/turf/simulated/floor/tiled/dark,
-/area/security/armoury)
 "apI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -20738,13 +20604,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
-"aKK" = (
-/obj/vehicle/segway{
-	icon_state = "segway";
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
 "aKL" = (
 /obj/machinery/newscaster{
 	pixel_x = -27
@@ -21825,41 +21684,11 @@
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hos)
-"aMr" = (
-/obj/structure/table/wood,
-/obj/item/weapon/folder/sec,
-/obj/item/weapon/pen/blue{
-	pixel_x = -5
-	},
-/obj/item/weapon/pen/red,
-/obj/item/weapon/stamp/hos{
-	pixel_x = -5;
-	pixel_y = 7
-	},
-/obj/item/weapon/key/segwaykey,
-/turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
 "aMt" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "aMu" = (
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
-"aMv" = (
-/obj/structure/table/wood,
-/obj/item/device/megaphone,
-/obj/item/device/radio,
-/obj/item/device/taperecorder,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
-	},
-/obj/structure/tranqcabinet{
-	pixel_x = 32
-	},
-/obj/item/device/flashlight/heavy,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "aMw" = (
@@ -22746,19 +22575,6 @@
 /obj/structure/table/wood,
 /obj/machinery/computer/skills,
 /turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
-"aOf" = (
-/obj/machinery/alarm{
-	dir = 8;
-	icon_state = "alarm0";
-	pixel_x = 24
-	},
-/obj/structure/table/wood,
-/obj/machinery/photocopier/faxmachine{
-	department = "Head of Security's Office"
-	},
-/obj/item/weapon/reagent_containers/food/drinks/flask/barflask,
-/turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "aOg" = (
 /obj/structure/bed/chair{
@@ -27267,16 +27083,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/hop)
-"aWw" = (
-/obj/structure/table/reinforced,
-/obj/item/device/eftpos{
-	eftpos_name = "HoP EFTPOS scanner"
-	},
-/obj/item/toy/figure/corgi,
-/obj/item/device/megaphone,
-/obj/item/weapon/key/segwaykey,
-/turf/simulated/floor/wood,
-/area/crew_quarters/heads/hop)
 "aWx" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -29385,18 +29191,6 @@
 /area/crew_quarters/heads/hop)
 "bat" = (
 /turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hop)
-"bau" = (
-/obj/machinery/light_switch{
-	pixel_x = 32
-	},
-/obj/vehicle/segway{
-	desc = "For the slow HoP";
-	dir = 8;
-	icon_state = "segway";
-	name = "HR segway"
-	},
-/turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "bav" = (
 /turf/simulated/wall,
@@ -65480,12 +65274,201 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "yko" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/maintenance/security_starboard)
+"ykp" = (
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled,
+/area/maintenance/security_starboard)
+"ykq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/maintenance/security_starboard)
+"ykr" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/maintenance/security_starboard)
+"yks" = (
+/obj/item/stack/tile/floor,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/maintenance/security_starboard)
+"ykt" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled,
+/area/maintenance/security_starboard)
+"yku" = (
+/obj/item/stack/tile/floor,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/maintenance/security_starboard)
+"ykv" = (
+/obj/item/weapon/reagent_containers/food/snacks/donkpocket,
+/obj/effect/decal/cleanable/generic,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/maintenance/security_starboard)
+"ykw" = (
+/obj/random/toolbox,
+/turf/simulated/floor/tiled,
+/area/maintenance/security_starboard)
+"ykx" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/maintenance/security_starboard)
+"yky" = (
+/obj/structure/table/rack,
+/obj/item/device/magnetic_lock/security{
+	pixel_x = -3;
+	pixel_y = 4
+	},
+/obj/item/device/magnetic_lock/security{
+	pixel_x = -3;
+	pixel_y = 4
+	},
+/obj/item/device/magnetic_lock/security{
+	pixel_x = -3;
+	pixel_y = 4
+	},
+/obj/item/weapon/key/segwaykey,
+/obj/item/weapon/key/segwaykey,
+/obj/item/weapon/key/segwaykey,
+/turf/simulated/floor/tiled/dark,
+/area/security/armoury)
+"ykz" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/firealarm/west,
+/obj/vehicle/segway,
+/turf/simulated/floor/tiled/dark,
+/area/security/armoury)
+"ykA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/vehicle/segway,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
+"ykB" = (
+/obj/vehicle/segway{
+	icon_state = "segway";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/heads/hos)
+"ykC" = (
+/obj/structure/table/wood,
+/obj/item/weapon/folder/sec,
+/obj/item/weapon/pen/blue{
+	pixel_x = -5
+	},
+/obj/item/weapon/pen/red,
+/obj/item/weapon/stamp/hos{
+	pixel_x = -5;
+	pixel_y = 7
+	},
+/obj/item/weapon/key/segwaykey,
+/turf/simulated/floor/carpet,
+/area/crew_quarters/heads/hos)
+"ykD" = (
+/obj/structure/table/wood,
+/obj/item/device/megaphone,
+/obj/item/device/radio,
+/obj/item/device/taperecorder,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/obj/structure/tranqcabinet{
+	pixel_x = 32
+	},
+/obj/item/device/flashlight/heavy,
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/heads/hos)
+"ykE" = (
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
+/obj/structure/table/wood,
+/obj/machinery/photocopier/faxmachine{
+	department = "Head of Security's Office"
+	},
+/obj/item/weapon/reagent_containers/food/drinks/flask/barflask,
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/heads/hos)
+"ykF" = (
+/obj/structure/table/reinforced,
+/obj/item/device/eftpos{
+	eftpos_name = "HoP EFTPOS scanner"
+	},
+/obj/item/toy/figure/corgi,
+/obj/item/device/megaphone,
+/obj/item/weapon/key/segwaykey,
+/turf/simulated/floor/wood,
+/area/crew_quarters/heads/hop)
+"ykG" = (
+/obj/machinery/light_switch{
+	pixel_x = 32
+	},
+/obj/vehicle/segway{
+	desc = "For the slow HoP";
+	dir = 8;
+	icon_state = "segway";
+	name = "HR segway"
+	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/heads/hop)
+"ykH" = (
+/obj/effect/landmark/dungeon_spawn,
+/turf/unsimulated/chasm_mask,
+/area/mine/unexplored)
 
 (1,1,1) = {"
 aaa
@@ -67979,7 +67962,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+ykH
 aaa
 aaa
 aaa
@@ -72317,8 +72300,8 @@ aab
 aab
 aab
 aab
-aab
-aab
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -72574,10 +72557,10 @@ aab
 aab
 aab
 aab
-aab
-aab
-aab
-aab
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -72832,12 +72815,12 @@ aab
 aab
 aaa
 aaa
-aab
-aab
-aab
-aab
-aab
-aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -90517,7 +90500,7 @@ alr
 amv
 anp
 aow
-apH
+ykz
 aqU
 aqU
 aqU
@@ -90774,7 +90757,7 @@ als
 amv
 anq
 aox
-yko
+ykA
 aqU
 aqU
 aqU
@@ -91284,7 +91267,7 @@ agK
 aab
 ajE
 ajE
-alu
+yky
 amv
 anr
 aoy
@@ -91302,7 +91285,7 @@ aFp
 aHo
 aII
 aKG
-aMr
+ykC
 aOd
 aPM
 aHl
@@ -92329,9 +92312,9 @@ aDu
 aFs
 aHs
 aoL
-aKK
-aMv
-aOf
+ykB
+ykD
+ykE
 apP
 aHl
 amr
@@ -101040,7 +101023,7 @@ ade
 ade
 acl
 aeH
-afg
+ykw
 afe
 cgG
 afD
@@ -101293,11 +101276,11 @@ abY
 acn
 abI
 acT
-adf
-adA
-aed
-aeJ
-afh
+yko
+ykq
+yks
+ykv
+ykx
 afe
 afC
 agw
@@ -101551,8 +101534,8 @@ aco
 abI
 acU
 adg
-adB
-aee
+ykr
+ykt
 aeK
 afi
 afe
@@ -101807,9 +101790,9 @@ abI
 acp
 abI
 acl
-adh
+ykp
 acl
-aef
+yku
 aeL
 afj
 aad
@@ -107499,7 +107482,7 @@ aQy
 aSb
 aTH
 aUN
-aWw
+ykF
 aXJ
 aXK
 bas
@@ -108273,7 +108256,7 @@ aUQ
 aWy
 aXL
 aZi
-bau
+ykG
 bbM
 bdh
 aOM

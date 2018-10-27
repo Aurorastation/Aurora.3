@@ -823,7 +823,8 @@
 		/obj/item/weapon/reagent_containers/inhaler/hyperzine = 0.1,
 		/obj/item/weapon/storage/box/pineapple = 0.1,
 		/obj/item/weapon/flag/america = 0.1,
-		/obj/item/weapon/flag/america/l = 0.1
+		/obj/item/weapon/flag/america/l = 0.1,
+		/obj/item/weapon/razor = 0.5
 	)
 
 /obj/random/hoodie
