@@ -34,22 +34,17 @@
 		return
 	if(istype(O, /obj/item/weapon/reagent_containers/glass) || istype(O, /obj/item/weapon/reagent_containers/food))
 		if(container)
-			user << "<span class='warning'>There is already \a [container] on \the [src]!</span>"
+			to_chat(user,span("warning","There is already \a [container] on \the [src]!"))
 			return
 
 		var/obj/item/weapon/reagent_containers/RC = O
-
-		if(!accept_drinking && istype(RC,/obj/item/weapon/reagent_containers/food))
-			user << "<span class='warning'>This machine only accepts beakers!</span>"
-			return
-
 		if(!RC.is_open_container())
-			user << "<span class='warning'>You don't see how \the [src] could heat up the reagents in \the [RC].</span>"
+			to_chat(user,span("warning","You don't see how \the [src] could heat up the reagents in \the [RC]."))
 			return
 
 		container =  RC
 		user.drop_from_inventory(RC,src)
-		user << "<span class='notice'>You set \the [RC] in \the [src].</span>"
+		to_chat(user,span("notice","You set \the [RC] in \the [src]."))
 		updateUsrDialog()
 		return
 
