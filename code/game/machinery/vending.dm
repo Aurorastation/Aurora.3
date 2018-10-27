@@ -103,8 +103,7 @@
 	var/list/restock_blocked_items = list() //Items that can not be restocked if restock_items is enabled
 	var/random_itemcount = 1 //If the number of items should be randomized
 
-	var/cooling = 0 //Whether or not to vend products at the cooling temperature
-	var/heating = 0 //Whether or not to vend products at the heating temperature
+	var/temperature_setting = 0 //-1 means cooling, 1 means heating, 0 means doing nothing.
 
 	var/cooling_temperature = T0C + 5 //Best temp for soda.
 	var/heating_temperature = T0C + 57 //Best temp for coffee.
@@ -615,12 +614,11 @@
 		if(istype(vended,/obj/item/weapon/reagent_containers/))
 			var/obj/item/weapon/reagent_containers/RC = vended
 			if(RC.reagents)
-				if(heating)
-					use_power(RC.reagents.set_temperature(heating_temperature))
-					cooling = 0 //Safety
-				if(cooling)
-					use_power(RC.reagents.set_temperature(cooling_temperature))
-					heating = 0	//Safety
+				switch(temperature_setting)
+					if(-1)
+						use_power(RC.reagents.set_temperature(cooling_temperature))
+					if(1)
+						use_power(RC.reagents.set_temperature(heating_temperature))
 
 /obj/machinery/vending/proc/stock(var/datum/data/vending_product/R, var/mob/user)
 	user << "<span class='notice'>You insert \the [R.product_name] in the product receptor.</span>"

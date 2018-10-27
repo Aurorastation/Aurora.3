@@ -11,8 +11,26 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	var/list/chemical_reagents
 
 	var/tmp/list/processing_holders = list()
+	
+/datum/controller/subsystem/chemistry/proc/has_valid_specific_heat(var/datum/reagent/R) //Used for unit tests
 
-/datum/controller/subsystem/chemistry/proc/check_specific_heat(var/datum/reagent/R,var/unit_test = FALSE)
+	if(R.specific_heat > 0)
+		return TRUE	
+	if(chemical_reagents[R.id].specific_heat > 0) //Don't think this will happen but you never know.
+		return TRUE
+		
+	var/datum/chemical_reaction/recipe = find_recipe_by_result(R.id)
+	if(recipe)
+		for(var/chem in recipe.required_reagents)
+			if(!has_valid_specific_heat(chemical_reagents[chem]))
+				return FALSE
+
+	if(R.fallback_specific_heat)
+		return TRUE
+
+	return FALSE
+
+/datum/controller/subsystem/chemistry/proc/check_specific_heat(var/datum/reagent/R)
 
 	if(R.specific_heat > 0)
 		return R.specific_heat
@@ -21,15 +39,12 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		return chemical_reagents[R.id].specific_heat
 
 	var/datum/chemical_reaction/recipe = find_recipe_by_result(R.id)
-
 	if(recipe)
 		var/final_heat = 0
 		var/result_amount = recipe.result_amount
-
 		for(var/chem in recipe.required_reagents)
-			var/chem_specific_heat = check_specific_heat(chemical_reagents[chem],unit_test)
+			var/chem_specific_heat = check_specific_heat(chemical_reagents[chem])
 			if(!chem_specific_heat)
-				if(unit_test) return FALSE
 				log_ss("chemistry", "ERROR: [R.type] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
 			final_heat += chem_specific_heat * (recipe.required_reagents[chem]/result_amount)
 
@@ -41,7 +56,6 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		chemical_reagents[R.id].specific_heat = R.fallback_specific_heat
 		return R.fallback_specific_heat
 
-	if(unit_test) return FALSE
 	log_ss("chemistry", "ERROR: [R.type] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
 	chemical_reagents[R.id].specific_heat = 1
 	return 1

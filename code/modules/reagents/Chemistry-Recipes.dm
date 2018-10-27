@@ -2887,7 +2887,6 @@
 	result = "pyrosilicate"
 	result_amount = 4
 	required_reagents = list("silicate" = 1, "sacid" = 1, "hydrazine" = 1, "iron" = 1)
-	//inhibitors = list("cryosurfactant" = 1)
 
 /datum/chemical_reaction/cryosurfactant
 	name = "Cryosurfactant"
@@ -2895,7 +2894,6 @@
 	result = "cryosurfactant"
 	result_amount = 3
 	required_reagents = list("surfactant" = 1, "ice" = 1, "sodium" = 1)
-	//inhibitors = list("pyrosilicate" = 1)
 
 /datum/chemical_reaction/cryosurfactant_cooling
 	name = "Cryosurfactant Cooling"
@@ -2903,7 +2901,6 @@
 	result = null
 	result_amount = 0
 	required_reagents = list("cryosurfactant" = 1, "water" = 1)
-	//inhibitors = list("pyrosilicate" = 1)
 
 /datum/chemical_reaction/cryosurfactant_cooling/on_reaction(var/datum/reagents/holder, var/created_volume)
 	holder.add_thermal_energy(-created_volume*100)
@@ -2944,8 +2941,7 @@
 	for(var/turf/simulated/floor/target_tile in range(0,location))
 		var/fire_mod = created_volume * (1 + ((holder.get_temperature() - T0C + 200)/100) )
 		target_tile.assume_gas("phoron", fire_mod, 400+T0C)
-		spawn (0)
-			target_tile.hotspot_expose(700, 400)
+		addtimer(CALLBACK(target_tile, /turf/simulated/floor/.proc/hotspot_expose, 700, 400), 1)
 	holder.del_reagent("phoron_salt")
 	return
 

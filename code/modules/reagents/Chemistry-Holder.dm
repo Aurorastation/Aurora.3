@@ -66,7 +66,7 @@
 
 	return the_id
 
-/datum/reagents/proc/update_total() // Updates volume and temperature. 3 passes.
+/datum/reagents/proc/update_total() // Updates volume and temperature.
 
 	total_volume = 0
 
@@ -76,7 +76,7 @@
 		else
 			total_volume += R.volume
 
-	return total_volume > 0
+	return max(total_volume,0)
 
 /datum/reagents/proc/update_holder(var/reactions = TRUE)
 	if(update_total() && reactions)

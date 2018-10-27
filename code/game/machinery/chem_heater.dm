@@ -84,7 +84,6 @@
 
 	user << browse(dat, "window=chem_heater")
 	onclose(user, "chem_heater")
-	return
 
 /obj/machinery/chem_heater/Topic(href, href_list)
 	if(stat & BROKEN) return
