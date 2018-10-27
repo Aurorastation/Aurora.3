@@ -11,6 +11,9 @@
 	panel_visible_while_open = TRUE
 	insecure = 0
 
+	aiControlDisabled = 1
+	hackProof = 0
+
 	var/datum/turbolift/lift
 	var/datum/turbolift_floor/floor
 
@@ -22,10 +25,10 @@
 	return ..()
 
 /obj/machinery/door/airlock/lift/bumpopen(var/mob/user)
-	return // No accidental sprinting into open elevator shafts.
+	return !safe // No accidental sprinting into open elevator shafts, unless the safety wire is cut.
 
 /obj/machinery/door/airlock/lift/allowed(mob/M)
-	return FALSE //only the lift machinery is allowed to operate this door
+	return aiDisabledIdScanner //only the lift machinery is allowed to operate this door, unless the ID scanner is disabled
 
 /obj/machinery/door/airlock/lift/close(var/forced=0)
 	for(var/turf/turf in locs)
@@ -41,7 +44,7 @@
 							break
 				if(!moved) // nowhere to go....
 					LM.gib()
-			else // the mob is too big to just move, so we need to give up what we're doing
+			else if(safe) // the mob is too big to just move, so we need to give up what we're doing
 				audible_message("\The [src]'s motors grind as they quickly reverse direction, unable to safely close.")
 				cur_command = null // the door will just keep trying otherwise
 				return 0
