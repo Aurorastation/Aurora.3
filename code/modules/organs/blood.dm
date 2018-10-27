@@ -120,8 +120,8 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 
 		// Without enough blood you slowly go hungry and thirsty
 		if(blood_volume <= BLOOD_VOLUME_SAFE)
-			adjustNutritionLoss(get_nutrition_mul(1,5))
-			adjustHydrationLoss(get_hydration_mul(1,13))
+			adjustNutritionLoss(7)
+			adjustHydrationLoss(3)
 
 		//Bleeding out
 		var/blood_max = 0
