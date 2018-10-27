@@ -39662,12 +39662,6 @@
 	},
 /turf/simulated/floor/tiled/ramp,
 /area/medical/medbay2)
-"bqx" = (
-/obj/effect/landmark/start{
-	name = "Bartender"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/bar)
 "bqy" = (
 /obj/effect/floor_decal/spline/plain{
 	icon_state = "spline_plain";
@@ -40810,8 +40804,8 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bsz" = (
-/obj/machinery/computer/arcade/battle,
 /obj/machinery/light,
+/obj/machinery/computer/arcade,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "bsA" = (
@@ -50931,6 +50925,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
+"bKb" = (
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/bar)
+"bKc" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
 "bKm" = (
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled,
@@ -97072,7 +97077,7 @@ brr
 brr
 brr
 btO
-bqx
+bKb
 bpr
 bsz
 bUz
@@ -97298,7 +97303,7 @@ bHR
 bIw
 apV
 aoN
-aoN
+bKc
 aOH
 bei
 bSv
@@ -97329,7 +97334,7 @@ btN
 btN
 btN
 bJk
-bpr
+bKb
 bpr
 bGl
 bUz
@@ -98068,7 +98073,7 @@ bjE
 cbj
 bSv
 bSx
-aoN
+bKc
 aqb
 aOI
 bSv
