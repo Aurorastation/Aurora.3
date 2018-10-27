@@ -123,6 +123,13 @@
 	desc = "The height of fashion, and they're pre-polished!"
 	icon_state = "laceups"
 
+/obj/item/clothing/shoes/laceup/syndie
+	name = "snazzy shoes"
+	desc = "The height of fashion, and they're pre-polished!"
+	icon_state = "laceups"
+	siemens_coefficient = 0.7
+	can_hold_knife = 1
+
 /obj/item/clothing/shoes/swimmingfins
 	desc = "Help you swim good."
 	name = "swimming fins"

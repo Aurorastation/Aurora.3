@@ -31,6 +31,20 @@
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
 
+
+/obj/item/clothing/gloves/black/syndie
+	desc = "These black gloves are of a high standard of fashion."
+	name = "black gloves"
+	icon_state = "black"
+	item_state = "bgloves"
+	siemens_coefficient = 0
+	permeability_coefficient = 0.05
+
+	cold_protection = HANDS
+	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection = HANDS
+	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
+
 /obj/item/clothing/gloves/orange
 	name = "orange gloves"
 	desc = "A pair of gloves, they don't look special in any way."

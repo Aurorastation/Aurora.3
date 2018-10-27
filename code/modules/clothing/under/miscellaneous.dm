@@ -492,6 +492,15 @@
 	item_state = "bl_suit"
 	worn_state = "charcoal_suit"
 
+/obj/item/clothing/under/suit_jacket/charcoal/syndie
+	name = "charcoal suit"
+	desc = "A charcoal suit and red tie. Very professional."
+	icon_state = "charcoal_suit"
+	item_state = "bl_suit"
+	worn_state = "charcoal_suit"
+	armor = list(melee = 20, bullet = 20, laser = 5,energy = 0, bomb = 0, bio = 0, rad = 0)
+
+
 /obj/item/clothing/under/suit_jacket/navy
 	name = "navy suit"
 	desc = "A navy suit and red tie, intended for the station's finest."

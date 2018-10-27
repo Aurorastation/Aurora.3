@@ -13,6 +13,13 @@
 	name = "For showing that you love NT SOO much (Useless Balloon)"
 	path = /obj/item/toy/nanotrasenballoon
 
+
+/datum/uplink_item/item/badassery/agentkit
+	name = "Secret Agent Kit"
+	item_cost = 17
+	path = /obj/item/weapon/storage/box/syndie_kit/liscensetokill
+	desc = "A kit with all the tools needed for a special operation."
+
 /**************
 * Random Item *
 **************/

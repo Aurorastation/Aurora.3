@@ -269,3 +269,21 @@
 	new /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large/hyperzine( src )
 	new /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large/inaprovaline( src )
 	new /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large( src )
+
+
+/obj/item/weapon/storage/box/syndie_kit/liscensetokill
+	name = "Agent Of Intrigue"
+	desc = "The kit used to complete any infiltration mission."
+
+/obj/item/weapon/storage/box/syndie_kit/liscensetokill/fill()
+	..()
+	new /obj/item/weapon/gun/projectile/papadov(src)
+	new /obj/item/weapon/silencer(src)
+	new /obj/item/clothing/gloves/black/syndie(src)
+	new /obj/item/clothing/shoes/laceup/syndie(src)
+	new /obj/item/clothing/under/suit_jacket/charcoal/syndie(src)
+	new /obj/item/ammo_magazine/c380m(src)
+	new /obj/item/weapon/syndie/c4explosive/heavy(src)
+	new /obj/item/weapon/material/hatchet/tacknife(src)
+	new /obj/item/device/chameleon(src)
+	new /obj/item/sol_combat_manual(src)
