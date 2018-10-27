@@ -44,6 +44,12 @@
 	item_cost = 12
 	path = /obj/item/weapon/gun/projectile/revolver
 
+
+/datum/uplink_item/item/visible_weapons/380
+	name = ".380 Pistol"
+	item_cost = 12
+	path = /obj/item/weapon/storage/box/syndie_kit/papadov
+
 /datum/uplink_item/item/visible_weapons/submachinegun
 	name = "Tommy Gun"
 	item_cost = 14
@@ -53,6 +59,12 @@
 	name = "Land Mine"
 	item_cost = 5
 	path = /obj/item/weapon/landmine
+
+/datum/uplink_item/item/visible_weapons/remoteexplosive
+	name = "C4 Remote Explosive"
+	item_cost = 10
+	path = /obj/item/weapon/storage/box/syndie_kit/remoteexplosive
+
 
 /datum/uplink_item/item/visible_weapons/emplandmine
 	name = "EMP Land Mine"

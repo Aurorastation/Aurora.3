@@ -297,17 +297,17 @@
 /obj/item/projectile/bullet/pistol/papadov
 	name = "380"
 	damage = 20
-	agony = 1
+	agony = 0
 	embed = 0
-	sharp = 2
-	weaken = 1
+	sharp = 0
+	weaken = 0
 
 
 /obj/item/projectile/bullet/pistol/papadov/tranq
 	name = "380 T"
 	damage = 1
 	stun = 0
-	weaken = 3
+	weaken = 0
 	drowsy = 4
 	eyeblur = 1
 	damage_type = BRUTE

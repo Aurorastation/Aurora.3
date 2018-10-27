@@ -277,14 +277,29 @@
 
 /obj/item/weapon/storage/box/syndie_kit/liscensetokill/fill()
 	..()
-	new /obj/item/weapon/gun/projectile/papadov(src)
-	new /obj/item/weapon/silencer(src)
-	new /obj/item/clothing/gloves/black/syndie(src)
+	new /obj/item/clothing/gloves/combat(src)
 	new /obj/item/clothing/shoes/laceup/syndie(src)
 	new /obj/item/clothing/under/suit_jacket/charcoal/syndie(src)
-	new /obj/item/ammo_magazine/c380m(src)
-	new /obj/item/weapon/syndie/c4explosive/heavy(src)
-	new /obj/item/weapon/material/hatchet/tacknife(src)
-	new /obj/item/device/chameleon(src)
-	new /obj/item/sol_combat_manual(src)
 	new /obj/item/weapon/flame/lighter/zippo/syndielighter(src)
+
+
+/obj/item/weapon/storage/box/syndie_kit/papadov
+	name = ".380 Pistol"
+	desc = "A box containing a small pistol with a suppressor."
+
+/obj/item/weapon/storage/box/syndie_kit/papadov/fill()
+	..()
+	new /obj/item/weapon/gun/projectile/papadov(src)
+	new /obj/item/weapon/silencer(src)
+	new /obj/item/ammo_magazine/c380m(src)
+	new /obj/item/ammo_magazine/c380m(src)
+
+
+/obj/item/weapon/storage/box/syndie_kit/remoteexplosive
+	name = "Remote Explosives"
+	desc = "A box containing a high yield explosive and a detonator disguised as a zippo."
+
+/obj/item/weapon/storage/box/syndie_kit/remoteexplosive/fill()
+	..()
+	new /obj/item/weapon/syndie/c4explosive/heavy(src)(src)
+	new /obj/item/weapon/syndie/c4explosive/heavy(src)(src)

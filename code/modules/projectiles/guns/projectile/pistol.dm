@@ -302,7 +302,7 @@
 
 
 /obj/item/weapon/gun/projectile/papadov
-	name = " Waltzer .380 pistol"
+	name = ".380 pistol"
 	desc = "A pistol fit to carry to the opera or for Sol agents with a licence to kill."
 	icon_state = "papadov"
 	item_state = null

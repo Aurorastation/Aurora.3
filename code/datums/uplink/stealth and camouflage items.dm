@@ -29,6 +29,12 @@
 	item_cost = 5
 	path = /obj/item/clothing/mask/gas/voice
 
+/datum/uplink_item/item/stealth_items/agentkit
+	name = "Fancy Attire"
+	item_cost = 4
+	path = /obj/item/weapon/storage/box/syndie_kit/liscensetokill
+	desc = "A kit with all the attire required to be the life or death of the party."
+
 /datum/uplink_item/item/stealth_items/chameleon_projector
 	name = "Chameleon-Projector"
 	item_cost = 8
