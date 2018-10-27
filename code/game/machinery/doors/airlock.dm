@@ -533,7 +533,7 @@ About the new airlock wires panel:
 	if(usr && issilicon(usr))
 		var/area/temp_area = get_area(get_turf(src))
 		var/obj/machinery/power/apc/temp_apc = temp_area.get_apc()
-		if(temp_apc && temp_apc.aidisabled)
+		if(!temp_apc || temp_apc.aidisabled)
 			if(duration)
 				message = text("APC AI access disabled - Cannot electrify the door.")
 			else if(electrified_until != 0)
