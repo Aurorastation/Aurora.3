@@ -45,7 +45,7 @@
 	path = /obj/item/weapon/gun/projectile/revolver
 
 
-/datum/uplink_item/item/visible_weapons/380
+/datum/uplink_item/item/visible_weapons/papadov
 	name = ".380 Pistol"
 	item_cost = 12
 	path = /obj/item/weapon/storage/box/syndie_kit/papadov

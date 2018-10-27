@@ -301,5 +301,5 @@
 
 /obj/item/weapon/storage/box/syndie_kit/remoteexplosive/fill()
 	..()
-	new /obj/item/weapon/syndie/c4explosive/heavy(src)(src)
-	new /obj/item/weapon/syndie/c4explosive/heavy(src)(src)
+	new /obj/item/weapon/syndie/c4explosive/heavy(src)
+	new /obj/item/weapon/syndie/c4explosive/heavy(src)
