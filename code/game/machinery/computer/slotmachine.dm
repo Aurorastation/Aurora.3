@@ -122,7 +122,7 @@
 		<BR>
 		[reeltext]
 		<BR>
-		<font size='1'><A href='?src=\ref[src];refund=1'>Refund balance</A><BR>"}
+		<font size='1'><A href='?src=\ref[src];refund=1'>Refund balance</font></A><BR>"}
 
 	var/datum/browser/popup = new(user, "slotmachine", "Slot Machine")
 	popup.set_content(dat)
