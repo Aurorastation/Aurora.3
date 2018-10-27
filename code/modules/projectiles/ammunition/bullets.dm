@@ -3,6 +3,17 @@
 	caliber = "357"
 	projectile_type = /obj/item/projectile/bullet/pistol/strong
 
+/obj/item/ammo_casing/a380
+	desc = "A .380 bullet casing."
+	caliber = ".380"
+	projectile_type = /obj/item/projectile/bullet/pistol/papadov
+
+
+/obj/item/ammo_casing/a380t
+	desc = "A .380 bullet dart casing."
+	caliber = ".380"
+	projectile_type = /obj/item/projectile/bullet/pistol/papadov/tranq
+
 /obj/item/ammo_casing/a454
 	desc = "A .454 bullet casing."
 	caliber = "454"

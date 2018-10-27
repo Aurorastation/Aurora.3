@@ -299,3 +299,82 @@
 		icon_state = "leyon"
 	else
 		icon_state = "leyon-e"
+
+
+/obj/item/weapon/gun/projectile/papadov
+	name = " Waltzer .380 pistol"
+	desc = "A pistol fit to carry to the opera or for Sol agents with a licence to kill."
+	icon_state = "papadov"
+	item_state = null
+	w_class = 1
+	caliber = ".380"
+	silenced = 0
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 4)
+	fire_sound = 'sound/weapons/gunshot_pistol.ogg'
+	load_method = MAGAZINE
+	allowed_magazines = list(/obj/item/ammo_magazine/c380m)
+	magazine_type = /obj/item/ammo_magazine/c380m/t
+
+/obj/item/weapon/gun/projectile/papadov/attack_hand(mob/user as mob)
+	if(user.get_inactive_hand() == src)
+		if(silenced)
+			if(user.l_hand != src && user.r_hand != src)
+				..()
+				return
+			user << "<span class='notice'>You unscrew [silenced] from [src].</span>"
+			user.put_in_hands(silenced)
+			silenced = 0
+			w_class = 1
+			fire_sound = 'sound/weapons/gunshot_pistol.ogg'
+			update_icon()
+			return
+	..()
+
+/obj/item/weapon/gun/projectile/papadov/attackby(obj/item/I as obj, mob/user as mob)
+	if(istype(I, /obj/item/weapon/silencer))
+		if(user.l_hand != src && user.r_hand != src)	//if we're not in his hands
+			user << "<span class='notice'>You'll need [src] in your hands to do that.</span>"
+			return
+		user.drop_from_inventory(I,src)
+		user << "<span class='notice'>You screw [I] onto [src].</span>"
+		silenced = I	//dodgy?
+		w_class = 2
+		fire_sound = 'sound/weapons/gunshot_spistol.ogg'
+		update_icon()
+		return
+	..()
+
+
+
+
+/obj/item/weapon/gun/projectile/papadov/update_icon()
+	..()
+	if(silenced)
+		icon_state = "papadov-silencer"
+	else
+		icon_state = "papadov"
+
+/obj/item/weapon/gun/projectile/papadov/update_icon()
+	..()
+	if(silenced)
+		icon_state = "papadov-silencer"
+	else
+		icon_state = "papadov"
+	if(!(ammo_magazine && ammo_magazine.stored_ammo.len))
+		icon_state = "papadov-e"
+
+
+/obj/item/weapon/gun/projectile/papadov/verb/rename_gun()
+	set name = "Name Gun"
+	set category = "Object"
+	set desc = "Rename your gun."
+
+	var/mob/M = usr
+	if(!M.mind)	return 0
+
+	var/input = sanitizeSafe(input("What do you want to name the gun?", ,""), MAX_NAME_LEN)
+
+	if(src && input && !M.stat && in_range(M,src))
+		name = input
+		M << "You name the gun [input]. Say hello to your new friend."
+		return 1

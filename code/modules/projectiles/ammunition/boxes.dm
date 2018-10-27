@@ -46,6 +46,47 @@
 	ammo_type = /obj/item/ammo_casing/c45
 	max_ammo = 30
 
+
+/obj/item/ammo_magazine/c380
+	name = "ammunition Box (.380)"
+	icon_state = "9mm"
+	origin_tech = list(TECH_COMBAT = 2)
+	caliber = ".380"
+	matter = list(DEFAULT_WALL_MATERIAL = 2250)
+	ammo_type = /obj/item/ammo_casing/a380
+	max_ammo = 30
+
+
+/obj/item/ammo_magazine/c380t
+	name = "ammunition Box (.380 T)"
+	icon_state = "9mm"
+	origin_tech = list(TECH_COMBAT = 2)
+	caliber = ".380"
+	matter = list(DEFAULT_WALL_MATERIAL = 2250)
+	ammo_type = /obj/item/ammo_casing/a380t
+	max_ammo = 12
+
+
+/obj/item/ammo_magazine/c380m
+	name = "magazine (.380)"
+	icon_state = "380"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a380
+	matter = list(DEFAULT_WALL_MATERIAL = 525) //metal costs are very roughly based around 1 .45 casing = 75 metal
+	caliber = ".380"
+	max_ammo = 12
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/c380m/t
+	name = "magazine (.380 T)"
+	icon_state = "380T"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a380t
+	matter = list(DEFAULT_WALL_MATERIAL = 525) //metal costs are very roughly based around 1 .45 casing = 75 metal
+	caliber = ".380"
+	max_ammo = 8
+	multiple_sprites = 1
+
 /obj/item/ammo_magazine/c45x
 	name = "magazine (.45)"
 	icon_state = "45x"

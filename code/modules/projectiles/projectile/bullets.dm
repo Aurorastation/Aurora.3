@@ -294,6 +294,53 @@
 	embed = 0
 	sharp = 0
 
+/obj/item/projectile/bullet/pistol/papadov
+	name = "380"
+	damage = 20
+	agony = 1
+	embed = 0
+	sharp = 2
+	weaken = 1
+
+
+/obj/item/projectile/bullet/pistol/papadov/tranq
+	name = "380 T"
+	damage = 1
+	stun = 0
+	weaken = 3
+	drowsy = 4
+	eyeblur = 1
+	damage_type = BRUTE
+	speed = 0.3
+
+/obj/item/projectile/bullet/pistol/papadov/tranq/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
+	var/mob/living/L = target
+	if(!(isanimal(target)))
+		if(!(isipc(target)))
+			if(!isrobot(target))
+				L.apply_effect(5, DROWSY, 0)
+				if(def_zone == "torso")
+					if(blocked < 100 && !(blocked < 20))
+						L.emote("yawns")
+					if(blocked < 20)
+						if(L.reagents)	L.reagents.add_reagent("chloralhydrate", 4)
+				if(def_zone == "head" && blocked < 100)
+					if(L.reagents)	L.reagents.add_reagent("chloralhydrate", 4)
+				if(def_zone != "torso" && def_zone != "head")
+					if(blocked < 100 && !(blocked < 20))
+						L.emote("yawns")
+					if(blocked < 20)
+						if(L.reagents)	L.reagents.add_reagent("chloralhydrate", 5)
+
+	if(isanimal(target))
+		target.visible_message("<b>[target]</b> twitches, foaming at the mouth.")
+		L.apply_damage(35, TOX) //temporary until simple_mob paralysis actually works.
+	/*	var/mob/living/simple_animal/M = target
+		spawn(60)
+			target.visible_message("<b>[target]</b> collapses.")
+			M.Sleeping(1200)*/ //commented out until simple_mob paralysis actually works.
+	..()
+
 /obj/item/projectile/bullet/pistol/cap/process()
 	loc = null
 	qdel(src)
