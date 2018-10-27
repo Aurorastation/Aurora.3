@@ -528,29 +528,41 @@ About the new airlock wires panel:
 		backup_power_lost_until = main_power_lost_until == 0 ? -1 : 0
 
 /obj/machinery/door/airlock/proc/electrify(var/duration, var/feedback = 0)
-	var/message = ""
-	if(src.isWireCut(AIRLOCK_WIRE_ELECTRIFY) && arePowerSystemsOn())
+	var/message
+
+	if(usr && issilicon(usr))
+		var/area/temp_area = get_area(get_turf(src))
+		var/obj/machinery/power/apc/temp_apc = temp_area.get_apc()
+		if(temp_apc && temp_apc.aidisabled)
+			if(duration)
+				message = text("APC AI access disabled - Cannot electrify the door.")
+			else if(electrified_until != 0)
+				message = text("APC AI access disabled - Cannot unelectrify the door.")
+	else if(src.isWireCut(AIRLOCK_WIRE_ELECTRIFY) && arePowerSystemsOn())
 		message = text("The electrification wire is cut - Door permanently electrified.")
 		src.electrified_until = -1
 	else if(duration && !arePowerSystemsOn())
 		message = text("The door is unpowered - Cannot electrify the door.")
 		src.electrified_until = 0
 	else if(!duration && electrified_until != 0)
-		message = "The door is now un-electrified."
+		message = text("The door is now un-electrified.")
 		src.electrified_until = 0
-	else if(duration)	//electrify door for the given duration seconds
+
+	if(feedback && message)
+		to_chat(usr,message)
+		return
+
+	if(duration)	//electrify door for the given duration seconds
 		if(usr)
 			LAZYADD(shockedby, "\[[time_stamp()]\] - [usr](ckey:[usr.ckey])")
 			usr.attack_log += text("\[[time_stamp()]\] <font color='red'>Electrified the [name] at [x] [y] [z]</font>")
 		else
 			LAZYADD(shockedby, "\[[time_stamp()]\] - EMP)")
-		message = "The door is now electrified [duration == -1 ? "permanently" : "for [duration] second\s"]."
+		if(feedback)
+			usr << "The door is now electrified [duration == -1 ? "permanently" : "for [duration] second\s"]."
 		src.electrified_until = duration == -1 ? -1 : world.time + SecondsToTicks(duration)
 		if (electrified_until > 0)
 			addtimer(CALLBACK(src, .proc/electrify, 0), duration SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
-
-	if(feedback && message)
-		usr << message
 
 /obj/machinery/door/airlock/proc/set_idscan(var/activate, var/feedback = 0)
 	var/message = ""
