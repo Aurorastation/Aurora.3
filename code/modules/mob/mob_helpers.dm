@@ -1237,7 +1237,8 @@ proc/is_blind(A)
 	return TRUE
 
 /mob/proc/adjustHydrationLoss(var/amount)
-	if(max_nutrition <= 0)
+
+	if(max_hydration <= 0)
 		return FALSE
 	hydration = max(0,min(max_hydration,hydration - amount))
 

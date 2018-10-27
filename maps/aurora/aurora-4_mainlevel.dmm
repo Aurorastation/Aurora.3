@@ -6697,6 +6697,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
+"anB" = (
+/obj/structure/closet/secure_closet/hos,
+/obj/item/device/multitool,
+/obj/item/weapon/reagent_containers/spray/pepper,
+/obj/item/clothing/suit/space/void/hos,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/head/helmet/space/void/hos,
+/obj/item/clothing/mask/breath,
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/heads/hos)
 "anC" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -7416,6 +7426,77 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"aoI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/heads/hos)
+"aoJ" = (
+/obj/machinery/papershredder,
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/heads/hos)
+"aoK" = (
+/obj/machinery/suit_cycler/hos,
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/heads/hos)
+"aoL" = (
+/obj/structure/banner,
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/heads/hos)
+"aoM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/carpet,
+/area/crew_quarters/heads/hos)
+"aoN" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/carpet,
+/area/crew_quarters/heads/hos)
+"aoO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/carpet,
+/area/crew_quarters/heads/hos)
+"aoP" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/machinery/firealarm/south,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/heads/hos)
 "aoQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -7699,6 +7780,26 @@
 /obj/machinery/shield_gen/external,
 /turf/simulated/floor/plating,
 /area/engineering/storage)
+"apt" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/window/brigdoor/northleft{
+	req_access = list(58)
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/mob/living/simple_animal/hostile/commanded/dog/columbo,
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/heads/hos)
 "apu" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -7902,6 +8003,46 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
+"apO" = (
+/obj/machinery/photocopier,
+/obj/machinery/requests_console{
+	announcementConsole = 1;
+	department = "Head of Security's Desk";
+	departmentType = 5;
+	name = "Head of Security RC";
+	pixel_x = 0;
+	pixel_y = -30
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/heads/hos)
+"apP" = (
+/obj/structure/table/wood,
+/obj/item/weapon/paper_bin,
+/obj/item/weapon/pen,
+/obj/item/device/flashlight/lamp/green{
+	pixel_x = -6;
+	pixel_y = 10
+	},
+/obj/item/weapon/storage/secure/safe{
+	pixel_x = 5;
+	pixel_y = -30
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/heads/hos)
 "apY" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -19520,51 +19661,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
-"aIJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
-"aIK" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/papershredder,
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
-"aIL" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/banner,
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
-"aIM" = (
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
-/obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
 "aIN" = (
 /obj/structure/bookcase/manuals,
 /obj/item/weapon/book/manual/security_space_law,
@@ -20624,13 +20720,6 @@
 /area/crew_quarters/heads/hos)
 "aKG" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
-"aKH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hos)
 "aKI" = (
@@ -21744,13 +21833,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hos)
-"aMs" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
 "aMt" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
@@ -22656,10 +22738,6 @@
 "aOd" = (
 /obj/structure/table/wood,
 /obj/machinery/computer/skills,
-/turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
-"aOe" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hos)
 "aOf" = (
@@ -23598,12 +23676,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
-"aPK" = (
-/obj/structure/closet/secure_closet/hos,
-/obj/item/device/multitool,
-/obj/item/weapon/reagent_containers/spray/pepper,
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
 "aPL" = (
 /obj/item/device/radio/intercom{
 	pixel_y = -28
@@ -23612,40 +23684,6 @@
 /area/crew_quarters/heads/hos)
 "aPM" = (
 /obj/machinery/newscaster/security_unit{
-	pixel_y = -30
-	},
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
-"aPN" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/obj/machinery/firealarm/south,
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
-"aPO" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/machinery/door/window/brigdoor/northleft{
-	req_access = list(58)
-	},
-/mob/living/simple_animal/hostile/commanded/dog/columbo,
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
-"aPP" = (
-/obj/machinery/photocopier,
-/obj/machinery/requests_console{
-	announcementConsole = 1;
-	department = "Head of Security's Desk";
-	departmentType = 5;
-	name = "Head of Security RC";
-	pixel_x = 0;
 	pixel_y = -30
 	},
 /turf/simulated/floor/tiled/dark,
@@ -36957,6 +36995,9 @@
 	icon_state = "corner_white";
 	dir = 4
 	},
+/obj/machinery/newscaster{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "brx" = (
@@ -39381,6 +39422,9 @@
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
 	dir = 5
+	},
+/obj/machinery/newscaster{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgeryobs)
@@ -51417,6 +51461,7 @@
 	icon_state = "warning";
 	dir = 1
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
 "ccf" = (
@@ -51502,10 +51547,10 @@
 /area/quartermaster/mail_room)
 "ccz" = (
 /obj/effect/floor_decal/industrial/warning/corner,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
 "ccB" = (
@@ -51700,7 +51745,11 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
+	dir = 1;
+	external_pressure_bound = 102;
+	external_pressure_bound_default = 102;
+	icon_state = "map_vent_in";
+	pump_direction = 0
 	},
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -54771,20 +54820,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/chief)
-"cnV" = (
-/obj/structure/table/wood,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
-/obj/item/device/flashlight/lamp/green{
-	pixel_x = -6;
-	pixel_y = 10
-	},
-/obj/item/weapon/storage/secure/safe{
-	pixel_x = 5;
-	pixel_y = -30
-	},
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
 "cnW" = (
 /obj/structure/closet/secure_closet/engineering_chief,
 /obj/item/weapon/tank/emergency_oxygen/engi,
@@ -58798,6 +58833,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
+"gnU" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "gql" = (
 /obj/structure/disposalpipe/segment,
 /obj/random/junk,
@@ -58945,8 +58986,8 @@
 	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Kitchen Maintenance";
-	req_access = null;
-	req_one_access = list(12,28)
+	req_access = list(28);
+	req_one_access = null
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
@@ -61115,6 +61156,11 @@
 /obj/structure/ore_box,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
+"lUb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/quartermaster/lobby)
 "maz" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment{
@@ -63187,6 +63233,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
+"xCL" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/quartermaster/mail_room)
 "xDz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -63531,6 +63581,9 @@
 /obj/structure/table/glass,
 /obj/item/weapon/storage/box/donut,
 /obj/effect/floor_decal/corner/white/diagonal,
+/obj/machinery/newscaster{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "ygU" = (
@@ -64346,6 +64399,9 @@
 /obj/machinery/light{
 	icon_state = "tube1";
 	dir = 1
+	},
+/obj/machinery/newscaster{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
@@ -90712,7 +90768,7 @@ aIH
 aKE
 aMp
 aOc
-aPK
+anB
 aHl
 aST
 aUA
@@ -91034,7 +91090,7 @@ ykg
 bXo
 mEE
 mEE
-mEE
+lUb
 mEE
 mEE
 mEE
@@ -91479,11 +91535,11 @@ ajE
 aDt
 aFq
 aHp
-aIJ
-aKH
-aMs
-aOe
-aPN
+aoI
+aoM
+aoN
+aoO
+aoP
 aHl
 aSU
 aUB
@@ -91736,11 +91792,11 @@ ajE
 atX
 aFr
 aHq
-aIK
+aoJ
 aKI
 aMt
 aMu
-aPO
+apt
 aHl
 aSU
 aUB
@@ -91993,11 +92049,11 @@ aBD
 aDr
 aFr
 aHr
-aIL
+aoK
 aKJ
 aMu
 aMu
-aPP
+apO
 aHl
 amr
 aUB
@@ -92250,11 +92306,11 @@ aBE
 aDu
 aFs
 aHs
-aIM
+aoL
 aKK
 aMv
 aOf
-cnV
+apP
 aHl
 amr
 aUB
@@ -93101,7 +93157,7 @@ xIJ
 xIJ
 cbA
 cbU
-cct
+xCL
 cct
 cct
 amD
@@ -93609,7 +93665,7 @@ cib
 pDO
 cqv
 cqA
-cqA
+gnU
 cqO
 cqV
 xIJ

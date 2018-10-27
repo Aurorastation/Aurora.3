@@ -3567,7 +3567,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "lo" = (
 /obj/machinery/status_display{
@@ -3633,7 +3633,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "lw" = (
 /obj/machinery/door/firedoor,
@@ -3725,7 +3725,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "lK" = (
 /obj/vehicle/train/cargo/trolley,
@@ -3843,7 +3843,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "mb" = (
 /obj/machinery/conveyor_switch/oneway{
@@ -3982,7 +3982,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "mu" = (
 /obj/machinery/light_switch{
@@ -4181,7 +4181,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "mW" = (
 /obj/machinery/navbeacon{
@@ -4849,7 +4849,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "oJ" = (
 /obj/machinery/door/firedoor,
@@ -5263,7 +5263,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "pT" = (
 /obj/structure/grille,
@@ -5274,7 +5274,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "pU" = (
 /obj/structure/grille,
@@ -5288,7 +5288,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "pV" = (
 /obj/item/weapon/material/shard/phoron{
@@ -6034,7 +6034,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "sb" = (
 /obj/structure/cable/yellow{
@@ -7935,6 +7935,20 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
 /turf/simulated/floor/tiled/dark,
+/area/derelict/hallway/southwest)
+"Da" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 
 (1,1,1) = {"
@@ -28892,7 +28906,7 @@ aa
 im
 iH
 kc
-ke
+Da
 aa
 lv
 lN

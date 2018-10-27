@@ -939,7 +939,7 @@
 		else //heal in the dark
 			heal_overall_damage(5,5)
 
-	// nutrition decrease
+	// nutrition decrease over time
 	if(max_nutrition > 0)
 		if (nutrition > 0 && stat != 2)
 			adjustNutritionLoss(nutrition_loss * nutrition_attrition_rate)
@@ -952,13 +952,13 @@
 			if(overeatduration > 1)
 				overeatduration -= 2 //doubled the unfat rate
 
-	// hydration decrease
+	// hydration decrease over time
 	if(max_hydration > 0)
 		if (hydration > 0 && stat != 2)
 			adjustHydrationLoss(hydration_loss * hydration_attrition_rate)
 
 		if (hydration / max_hydration > CREW_HYDRATION_OVERHYDRATED)
-			adjustHydrationLoss(1)
+			adjustHydrationLoss(2)
 			if(overdrinkduration < 600) //capped so people don't take forever to undrink
 				overdrinkduration++
 		else
@@ -1685,8 +1685,8 @@
 		var/regen = stamina_recovery * (1 - min(((oxyloss) / exhaust_threshold) + ((halloss) / exhaust_threshold), 1))
 		if (regen > 0)
 			stamina = min(max_stamina, stamina+regen)
-			adjustNutritionLoss(stamina_recovery*0.9)
-			adjustHydrationLoss(stamina_recovery*0.18)
+			adjustNutritionLoss(stamina_recovery*0.09)
+			adjustHydrationLoss(stamina_recovery*0.32)
 			if (client)
 				hud_used.move_intent.update_move_icon(src)
 
