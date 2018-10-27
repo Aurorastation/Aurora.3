@@ -63,11 +63,18 @@
 
 		//Language macros
 		interpreter.SetVar("L_BASIC",	LANGUAGE_TCB)
+		interpreter.SetVar("L_SOL",	    LANGUAGE_SOL_COMMON)
 		interpreter.SetVar("L_TRADE",	LANGUAGE_TRADEBAND)
 		interpreter.SetVar("L_GUTTER",	LANGUAGE_GUTTER)
+		interpreter.SetVar("L_SIIKTAU", LANGUAGE_SIIK_TAU)
 		interpreter.SetVar("L_MAAS",	LANGUAGE_SIIK_MAAS)
 		interpreter.SetVar("L_YASSA",	LANGUAGE_YA_SSA)
 		interpreter.SetVar("L_DELVAHII",LANGUAGE_DELVAHII)
+		interpreter.SetVar("L_DIONAEA", LANGUAGE_ROOTSONG)
+		interpreter.SetVar("L_UNATHI",  LANGUAGE_UNATHI)
+		interpreter.SetVar("L_SKRELL",  LANGUAGE_SKRELLIAN)
+		interpreter.SetVar("L_VAURCA",  LANGUAGE_VAURCA)
+		interpreter.SetVar("L_MACHINE", LANGUAGE_EAL)
 
 		// Channel macros
 		interpreter.SetVar("$common",	PUB_FREQ)
