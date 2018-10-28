@@ -55,6 +55,6 @@
 	icon_state = "storage"
 
 /area/storage/shields
-	name = "Station Shield Control"
+	name = "\improper Station Shield Control"
 	icon_state = "eva" 
 	
