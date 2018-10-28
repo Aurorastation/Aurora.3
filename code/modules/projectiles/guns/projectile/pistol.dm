@@ -99,7 +99,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/mc10mm)
 	caliber = "10mm"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 	sel_mode = 1
 
@@ -284,7 +284,7 @@
 	ammo_type = /obj/item/ammo_casing/c10mm
 	max_shells = 5
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot_pistol.ogg'
 	load_method = SINGLE_CASING|SPEEDLOADER
 
 /obj/item/weapon/gun/projectile/leyon/load_ammo(var/obj/item/A, mob/user)

@@ -202,6 +202,7 @@
 	else
 		use_power = 1
 		set_light(0)
+		playsound(src, 'sound/effects/lightson.ogg', 75)
 
 	update_icon()
 

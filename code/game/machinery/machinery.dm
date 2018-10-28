@@ -229,6 +229,8 @@ Class Procs:
 
 /obj/machinery/CouldUseTopic(var/mob/user)
 	..()
+	if(istype (user, /mob/living/carbon))
+		playsound(src, 'sound/machines/switch1', 40)
 	user.set_machine(src)
 
 /obj/machinery/CouldNotUseTopic(var/mob/user)

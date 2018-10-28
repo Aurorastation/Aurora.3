@@ -39,7 +39,7 @@
 		user << "A light switch. It is [on? "on" : "off"]."
 
 /obj/machinery/light_switch/attack_hand(mob/user)
-	playsound(src, "switch", 30)
+	playsound(src, 'sound/effects/switch1.ogg', 30)
 	on = !on
 
 	area.lightswitch = on
