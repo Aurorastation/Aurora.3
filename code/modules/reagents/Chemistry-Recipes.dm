@@ -2811,6 +2811,27 @@
 	required_reagents = list("blood" = 2, "sarezhiwine" = 3)
 	result_amount = 5
 
+/datum/chemical_reaction/pumpkinspice
+	name = "Pumpkin Spice"
+	id = "pumpkinspce"
+	result = "pumpkinspice"
+	required_reagents = list("spacespice" = 8, "pumpkinpulp" = 2)
+	result_amount = 10
+
+/datum/chemical_reaction/psfrappe
+	name = "Pumpkin Spice Frappe"
+	id = "psfrappe"
+	result = "psfrappe"
+	required_reagents = list("icecoffee" = 6, "pumpkinspice" = 2, "cream" = 2)
+	result_amount = 10	
+
+/datum/chemical_reaction/pslatte
+	name = "Pumpkin Spice Latte"
+	id = "pslatte"
+	result = "pslatte"
+	required_reagents = list("coffee" = 6, "pumpkinspice" = 2, "cream" = 2)
+	result_amount = 10	
+
 //transmutation
 
 /datum/chemical_reaction/transmutation_silver

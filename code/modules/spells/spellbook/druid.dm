@@ -24,7 +24,6 @@
 				/spell/targeted/flesh_to_stone =                        1,
 				/spell/aoe_turf/conjure/grove/sanctuary = 			1,
 				/spell/aoe_turf/knock = 					1,
-				/spell/targeted/shapeshift/avian = 			1,
 				/spell/targeted/shapeshift/baleful_polymorph = 			1,
 				/spell/targeted/flesh_to_stone =                        1,
 				/spell/aoe_turf/conjure/golem =						1,
