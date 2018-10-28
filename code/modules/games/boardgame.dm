@@ -35,7 +35,7 @@
 	if(choice == "Yes")
 		for(var/obj/item/weapon/checker/c in src.contents)
 			c.forceMove(get_turf(src.loc))
-			num = 0
+		num = 0
 		board_icons = list()
 		board = list()
 		selected = -1
