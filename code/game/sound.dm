@@ -155,7 +155,7 @@ var/list/keyboardsounds = list(
 	'sound/machines/keyboard/keystroke1.ogg',
 	'sound/machines/keyboard/keystroke2.ogg',
 	'sound/machines/keyboard/keystroke3.ogg',
-	'sound/machines/keyboard/keystroke4.ogg',
+	'sound/machines/keyboard/keystroke4.ogg'
 	)
 
 var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","waterstep","sandstep", "gravelstep")
