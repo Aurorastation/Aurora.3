@@ -8,9 +8,9 @@
 	item_state = "pen"
 	var/pointer_icon_state
 	slot_flags = SLOT_BELT
-	w_class = 2 //Increased to 2, because diodes are w_class 2. Conservation of matter.
+	w_class = 1
 	var/turf/pointer_loc
-	var/obj/item/weapon/stock_parts/micro_laser/diode //used for upgrading!
+	var/obj/item/weapon/stock_parts/micro_laser/diode //cant use the laser without it
 
 
 
@@ -100,15 +100,6 @@
 				C.eye_blind = 3
 			else
 				outmsg = "<span class='notice'>You fail to blind [C] with [src]</span>"
-
-	if(istype(target, /obj/item/weapon/paper))
-		var/obj/item/weapon/paper/C = target
-		new /obj/effect/decal/cleanable/ash(C.loc)
-		qdel(C)
-		outmsg = "<span class='notice'>You burn [C] with [src], turning it to ash!</span>"
-
-		msg_admin_attack("\[[time_stamp()]\] [user.name] ([user.ckey]) burned a paper with a laser pointer")
-		user.attack_log += text("\[[time_stamp()]\] [user.name] ([user.ckey]) burned a paper with a laser pointer")
 	
 	//laser pointer image
 	icon_state = "pointer_[pointer_icon_state]"
