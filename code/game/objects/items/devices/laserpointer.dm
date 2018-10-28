@@ -1,4 +1,6 @@
-/obj/item/weapon/gun/energy/laser_pointer
+
+
+/obj/item/device/laser_pointer
 	name = "laser pointer"
 	desc = "Don't shine it in your eyes!"
 	icon = 'icons/obj/device.dmi'
@@ -7,41 +9,42 @@
 	var/pointer_icon_state
 	slot_flags = SLOT_BELT
 	w_class = 2 //Increased to 2, because diodes are w_class 2. Conservation of matter.
-	origin_tech = "combat=1"
-	origin_tech = "magnets=2"
 	var/turf/pointer_loc
-	var/energy = 15
-	var/max_energy = 15
-	self_recharge = 1
-	recharge_time = 5
 	var/obj/item/weapon/stock_parts/micro_laser/diode //used for upgrading!
 
 
-/obj/item/weapon/gun/energy/laser_pointer/red
+
+
+/obj/item/device/laser_pointer/red
 	pointer_icon_state = "red_laser"
-/obj/item/weapon/gun/energy/laser_pointer/green
+/obj/item/device/laser_pointer/green
 	pointer_icon_state = "green_laser"
-/obj/item/weapon/gun/energy/laser_pointer/blue
+/obj/item/device/laser_pointer/blue
 	pointer_icon_state = "blue_laser"
-/obj/item/weapon/gun/energy/laser_pointer/purple
+/obj/item/device/laser_pointer/purple
 	pointer_icon_state = "purple_laser"
 
-/obj/item/weapon/gun/energy/laser_pointer/New()
+
+/obj/item/device/laser_pointer/Initialize()
+	icon_state = "pointer"
+
+/obj/item/device/laser_pointer/New()
 	..()
 	diode = new(src)
+	icon_state = "pointer"
 	if(!pointer_icon_state)
 		pointer_icon_state = pick("red_laser","green_laser","blue_laser","purple_laser")
 
-/obj/item/weapon/gun/energy/laser_pointer/upgraded/New()
+/obj/item/device/laser_pointer/upgraded/New()
 	..()
 	diode = new /obj/item/weapon/stock_parts/micro_laser/ultra
 
 
 
-/obj/item/weapon/gun/energy/laser_pointer/attack(mob/living/M, mob/user)
+/obj/item/device/laser_pointer/attack(mob/living/M, mob/user)
 	laser_act(M, user)
 
-/obj/item/weapon/gun/energy/laser_pointer/attackby(obj/item/W, mob/user)
+/obj/item/device/laser_pointer/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/weapon/stock_parts/micro_laser))
 		if(!diode)
 			user.drop_item()
@@ -60,12 +63,12 @@
 		..()
 	return
 
-/obj/item/weapon/gun/energy/laser_pointer/afterattack(var/atom/target, var/mob/living/user, flag, params)
+/obj/item/device/laser_pointer/afterattack(var/atom/target, var/mob/living/user, flag, params)
 	if(flag)	//we're placing the object on a table or in backpack
 		return
 	laser_act(target, user)
 
-/obj/item/weapon/gun/energy/laser_pointer/proc/laser_act(var/atom/target, var/mob/living/user)
+/obj/item/device/laser_pointer/proc/laser_act(var/atom/target, var/mob/living/user)
 	if( !(user in (viewers(7,target))) )
 		return
 	if (!diode)
@@ -83,7 +86,7 @@
 
 	if(istype(target, /obj/machinery/camera))
 		var/obj/machinery/camera/C = target
-		C.emp_act(1)
+		C.emp_act(2)
 		outmsg = "<span class='notice'>You hit the lens of [C] with [src], temporarily disabling the camera!</span>"
 
 		msg_admin_attack("\[[time_stamp()]\] [user.name] ([user.ckey]) EMPd a camera with a laser pointer")
@@ -92,9 +95,11 @@
 	if(iscarbon(target))
 		if(user.zone_sel.selecting == "eyes")
 			var/mob/living/carbon/C = target
-
-			C.eye_blind = 3
-			outmsg = "<span class='notice'>You hit the eyes of [C] with [src], temporarily blinding them!</span>"
+			if(C.eyecheck() <= 0)
+				outmsg = "<span class='notice'>You blind [C] with [src]</span>"
+				C.eye_blind = 3
+			else
+				outmsg = "<span class='notice'>You fail to blind [C] with [src]</span>"
 
 	if(istype(target, /obj/item/weapon/paper))
 		var/obj/item/weapon/paper/C = target
@@ -120,7 +125,6 @@
 	else
 		user << "<span class='info'>You point [src] at [target].</span>"
 
-	energy -= 1
 
 	flick_overlay(I, showto, 10)
 	icon_state = "pointer"
