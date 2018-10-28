@@ -129,6 +129,7 @@ Class Procs:
 	var/tmp/machinery_processing = FALSE	// Are we process()ing in SSmachinery?
 	var/has_special_power_checks = FALSE	// If true, call auto_use_power instead of doing it all in SSmachinery.
 	var/clicksound //played sound on usage
+	var/clickvol = 40 //volume
 
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE)
 	. = ..()
