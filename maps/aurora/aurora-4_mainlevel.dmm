@@ -27151,9 +27151,6 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/camera/network/service{
-	c_tag = "Library - Backroom"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/library)
 "aUJ" = (
@@ -30854,6 +30851,10 @@
 "bbv" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/standard,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Hydroponics - East";
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bbw" = (
@@ -34788,6 +34789,10 @@
 /obj/machinery/newscaster{
 	pixel_y = -32
 	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Kitchen - West";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "biB" = (
@@ -35994,6 +35999,9 @@
 	pixel_y = 5
 	},
 /obj/structure/table/wood,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Bar - Counter"
+	},
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bkD" = (
@@ -36508,6 +36516,9 @@
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Bar - Bathroom"
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/locker/locker_toilet)
@@ -38700,6 +38711,9 @@
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
+	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Bar - Northeast"
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
@@ -43887,6 +43901,10 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = -32
 	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Hydroponics - West";
+	dir = 1
+	},
 /turf/simulated/floor/grass,
 /area/hydroponics)
 "bxE" = (
@@ -47738,6 +47756,9 @@
 	pixel_y = 27
 	},
 /obj/machinery/vending/cola,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Central Coridor - Camera 4"
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bEy" = (
@@ -50945,6 +50966,11 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/item/weapon/material/knife/hook,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Kitchen - East";
+	dir = 8;
+	network = list("Civilian Main","Capt_Office")
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bKm" = (
@@ -59385,6 +59411,10 @@
 	pixel_x = 11;
 	pixel_y = 0
 	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Bar - Backroom";
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "gtB" = (
@@ -64263,6 +64293,93 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
+"ykl" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Cryogenics - Main Level";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/sleep/main)
+"ykm" = (
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Library - North"
+	},
+/turf/simulated/floor/carpet,
+/area/library)
+"ykn" = (
+/obj/structure/bookcase/libraryspawn/reference,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Library - South";
+	dir = 1
+	},
+/turf/simulated/floor/carpet,
+/area/library)
+"yko" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Chapel - Main";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/chapel/main)
+"ykp" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 8
+	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Bar - West";
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
+"ykq" = (
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Bar -Theatre";
+	dir = 8
+	},
+/turf/simulated/floor/carpet,
+/area/crew_quarters/bar)
+"ykr" = (
+/obj/structure/table/wood,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Bar - Booth 1";
+	dir = 1
+	},
+/turf/simulated/floor/carpet,
+/area/crew_quarters/bar)
+"yks" = (
+/obj/structure/table/wood,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Bar - Booth 2";
+	dir = 1
+	},
+/turf/simulated/floor/carpet,
+/area/crew_quarters/bar)
+"ykt" = (
+/obj/structure/table/wood,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Bar - Booth 3";
+	dir = 1
+	},
+/turf/simulated/floor/carpet,
+/area/crew_quarters/bar)
+"yku" = (
+/obj/machinery/computer/arcade/battle,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Bar - Arcade";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/bar)
 
 (1,1,1) = {"
 aaa
@@ -90379,7 +90496,7 @@ bFv
 aVS
 baG
 bcJ
-aWh
+ykm
 bod
 aWk
 aWk
@@ -90387,7 +90504,7 @@ bBa
 aWh
 bCo
 aWh
-bDH
+ykn
 bFv
 arj
 bEq
@@ -90911,7 +91028,7 @@ bFm
 bFm
 bFm
 bFm
-bHv
+yko
 bWm
 bXa
 bXs
@@ -93483,7 +93600,7 @@ boa
 boe
 gtH
 bpv
-gtH
+ykp
 brf
 gtH
 gtH
@@ -93749,7 +93866,7 @@ bVa
 bsM
 bsZ
 bsZ
-bsZ
+ykr
 bUz
 bPL
 cwf
@@ -94246,7 +94363,7 @@ bhe
 bid
 bfw
 biB
-bjG
+bUz
 bkB
 bmt
 bmJ
@@ -94503,7 +94620,7 @@ bhf
 bfw
 bfw
 biB
-bjH
+bUz
 bkC
 bJl
 bJG
@@ -94777,7 +94894,7 @@ bVa
 bsM
 bsZ
 bsZ
-btk
+yks
 bUz
 pRK
 cwf
@@ -95034,7 +95151,7 @@ bVa
 bsM
 bsZ
 bsZ
-bsZ
+btk
 bUz
 pRK
 cbE
@@ -95805,7 +95922,7 @@ bVa
 bsM
 bsZ
 bsZ
-bsZ
+ykt
 bUz
 bSv
 jnz
@@ -96797,7 +96914,7 @@ aUw
 bcW
 biw
 bHQ
-bHW
+ykl
 apV
 aoM
 aqa
@@ -96833,7 +96950,7 @@ bZV
 boc
 bpr
 bpr
-brj
+yku
 bUz
 btZ
 bSv
@@ -97600,7 +97717,7 @@ btL
 btN
 btN
 btL
-btN
+ykq
 guz
 bpr
 bpr
