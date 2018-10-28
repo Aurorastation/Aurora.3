@@ -196,6 +196,9 @@
 
 	var/obj/effect/decal/cleanable/blood/tracks/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints // What marks are left when walking
 
+	var/default_h_style = "Bald"
+	var/default_f_style = "Shaved"
+
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
 
@@ -508,3 +511,8 @@
 
 /datum/species/proc/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
 	return 0
+
+/datum/species/proc/set_default_hair(var/mob/living/carbon/human/H)
+	H.h_style = H.species.default_h_style
+	H.f_style = H.species.default_f_style
+	H.update_hair()
