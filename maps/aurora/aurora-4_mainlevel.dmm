@@ -32478,16 +32478,8 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bep" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/button/remote/blast_door{
-	id = "kitchenshutters01";
-	name = "Kitchen Shutters Control";
-	pixel_x = 0;
-	pixel_y = 32;
-	req_access = list(28)
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
+/turf/simulated/wall,
+/area/hallway/primary/aft)
 "beq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -33203,6 +33195,13 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/button/remote/blast_door{
+	id = "kitchenshutters01";
+	name = "Kitchen Shutters Control";
+	pixel_x = -32;
+	pixel_y = 0;
+	req_access = list(28)
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bfJ" = (
@@ -33849,8 +33848,8 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "bgO" = (
-/obj/structure/closet/secure_closet/freezer/kitchen,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/closet/secure_closet/freezer/kitchen,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bgP" = (
@@ -33944,8 +33943,8 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bgZ" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/closet/secure_closet/freezer/fridge,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bha" = (
@@ -39662,6 +39661,12 @@
 	},
 /turf/simulated/floor/tiled/ramp,
 /area/medical/medbay2)
+"bqx" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/obj/item/weapon/material/knife/butch,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "bqy" = (
 /obj/effect/floor_decal/spline/plain{
 	icon_state = "spline_plain";
@@ -50936,6 +50941,12 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
+"bKd" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/obj/item/weapon/material/knife/hook,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "bKm" = (
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled,
@@ -92942,10 +92953,10 @@ aWl
 aWl
 bxu
 bRL
+bep
+bep
+bep
 bel
-bfG
-bfG
-bfG
 bfG
 bfG
 bem
@@ -93199,11 +93210,11 @@ aTd
 aTd
 aWo
 bRL
+bgO
+bgZ
+bPI
 beo
 bfq
-bfH
-bfH
-bfH
 bfH
 bin
 bix
@@ -93456,7 +93467,7 @@ amA
 buf
 bxD
 bRL
-bep
+bfw
 bfv
 bfI
 bfw
@@ -96285,8 +96296,8 @@ byN
 bRL
 bgX
 bFB
-bgO
-bgZ
+bqx
+bKd
 bhh
 bih
 biq
