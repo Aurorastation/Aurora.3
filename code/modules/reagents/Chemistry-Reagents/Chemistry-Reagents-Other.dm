@@ -466,7 +466,7 @@
 	id = "cryosurfactant"
 	description = "A bright cyan liquid consisting of strange self-cooling properties that reacts when exposed to water."
 	reagent_state = LIQUID
-	color = "#00FFF"
+	color = "#00FFFF"
 	taste_description = "needles"
 
 /datum/reagent/luminol/touch_obj(var/obj/O)

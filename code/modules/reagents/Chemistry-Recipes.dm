@@ -102,7 +102,7 @@
 	for(var/reactant in required_reagents)
 		var/amt_used = required_reagents[reactant] * reaction_progress
 		var/datum/reagent/removing_reagent = holder.get_reagent(reactant)
-		total_thermal_energy += removing_reagent.get_thermal_energy()
+		total_thermal_energy += removing_reagent.get_thermal_energy() * (amt_used / removing_reagent.volume)
 		holder.remove_reagent(reactant, amt_used, safety = 1)
 
 	//add the product
@@ -2862,7 +2862,7 @@
 	result = "ice"
 	required_reagents = list("water" = 1)
 	required_temperatures_max = list("water" = T0C - 5)
-	result_amount = 1
+	result_amount = 0.5
 
 /datum/chemical_reaction/ice_to_water
 	name = "Ice to Water"
@@ -2870,7 +2870,7 @@
 	result = "water"
 	required_reagents = list("ice" = 1)
 	required_temperatures_min = list("ice" = T0C + 3)
-	result_amount = 0.2
+	result_amount = 2
 
 /datum/chemical_reaction/phoron_salt
 	name = "Phoron Salt"

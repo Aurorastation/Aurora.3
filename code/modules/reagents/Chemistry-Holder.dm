@@ -98,7 +98,7 @@
 //returns 1 if the holder should continue reactiong, 0 otherwise.
 /datum/reagents/proc/process_reactions()
 	if(!my_atom || !my_atom.loc || my_atom.flags & NOREACT)
-		equalize_thermal_energy()
+		equalize_temperature()
 		return 0
 
 	var/reaction_occured
@@ -124,7 +124,7 @@
 	for(var/datum/chemical_reaction/C in effect_reactions)
 		C.post_reaction(src)
 
-	equalize_thermal_energy()
+	equalize_temperature()
 	update_holder(FALSE)
 	return reaction_occured
 
