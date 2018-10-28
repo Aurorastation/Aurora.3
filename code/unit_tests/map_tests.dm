@@ -171,8 +171,6 @@ datum/unit_test/wire_test/start_test()
 	var/failed_checks = 0
 	for(var/obj/machinery/door/airlock/A in world)
 		var/turf/T = get_turf(A)
-		if(!(T.z in current_map.station_levels))
-			continue
 		checks++
 		if(istype(T, /turf/space) || istype(T, /turf/simulated/floor/asteroid) || isopenturf(T) || T.density)
 			failed_checks++
@@ -193,8 +191,6 @@ datum/unit_test/wire_test/start_test()
 	var/failed_checks = 0
 	for(var/obj/machinery/door/firedoor/F in world)
 		var/turf/T = get_turf(F)
-		if(!(T.z in current_map.station_levels))
-			continue
 		checks++
 		var/firelock_increment = 0
 		for(var/obj/machinery/door/firedoor/FD in T)
