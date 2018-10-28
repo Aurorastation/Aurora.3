@@ -69,7 +69,8 @@
 	A.all_doors.Add(src)
 	areas_added = list(A)
 
-	enable_smart_generation *= mapload //If one of these are 0, don't do smart generation.
+	if(!mapload)
+		enable_smart_generation = 0
 
 	for(var/direction in cardinal)
 
