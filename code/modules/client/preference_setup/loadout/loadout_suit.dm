@@ -350,3 +350,10 @@
 /datum/gear/suit/greenjacket
 	display_name = "green suit jacket"
 	path = /obj/item/clothing/suit/storage/toggle/greengov
+
+/datum/gear/suit/svest
+	display_name = "sweater vest"
+	path = /obj/item/clothing/suit/sweatervest
+/datum/gear/suit/svest/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)

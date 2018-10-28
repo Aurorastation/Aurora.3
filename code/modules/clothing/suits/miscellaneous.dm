@@ -97,6 +97,15 @@
 	blood_overlay_type = "armor"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
+/obj/item/clothing/suit/sweatervest
+	name = "sweater vest"
+	desc = "Classy. Makes you look kinda like a teacher. Or a nerd."
+	icon_state = "svest"
+	item_state = "svest"
+	blood_overlay_type = "armor"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+
+
 /obj/item/clothing/suit/syndicatefake
 	name = "red space suit replica"
 	icon_state = "syndicate"
