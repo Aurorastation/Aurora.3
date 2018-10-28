@@ -171,18 +171,22 @@
 	update_icon()
 	updateUsrDialog()
 
-	spawn(0)
-		while(working)
-			randomize_reels()
-			updateUsrDialog()
-			sleep(2)
+	addtimer(CALLBACK(src, .proc/do_reels), 0)
 
-	spawn(SPIN_TIME - (REEL_DEACTIVATE_DELAY * reels.len)) //WARNING: no sanity checking for user since it's not needed and would complicate things (machine should still spin even if user is gone), be wary of this if you're changing this code.
-		toggle_reel_spin(0, REEL_DEACTIVATE_DELAY)
-		working = 0
-		give_prizes(the_name, user)
-		update_icon()
+	addtimer(CALLBACK(src, .proc/finish_spin, user, the_name), SPIN_TIME - (REEL_DEACTIVATE_DELAY * reels.len)) //WARNING: no sanity checking for user since it's not needed and would complicate things (machine should still spin even if user is gone), be wary of this if you're changing this code.
+
+/obj/machinery/computer/slot_machine/proc/finish_spin(mob/user, var/the_name)
+	toggle_reel_spin(0, REEL_DEACTIVATE_DELAY)
+	working = 0
+	give_prizes(the_name, user)
+	update_icon()
+	updateUsrDialog()
+
+/obj/machinery/computer/slot_machine/proc/do_reels()
+	while(working)
+		randomize_reels()
 		updateUsrDialog()
+		sleep(2)
 
 /obj/machinery/computer/slot_machine/proc/can_spin(mob/user)
 	if(stat & NOPOWER)
