@@ -128,6 +128,7 @@ Class Procs:
 	var/printing = 0 // Is this machine currently printing anything?
 	var/tmp/machinery_processing = FALSE	// Are we process()ing in SSmachinery?
 	var/has_special_power_checks = FALSE	// If true, call auto_use_power instead of doing it all in SSmachinery.
+	var/clicksound //played sound on usage
 
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE)
 	. = ..()
@@ -230,7 +231,7 @@ Class Procs:
 /obj/machinery/CouldUseTopic(var/mob/user)
 	..()
 	if(istype (user, /mob/living/carbon))
-		playsound(src, 'sound/machines/switch1', 40)
+		playsound(src, clicksound, clickvol)
 	user.set_machine(src)
 
 /obj/machinery/CouldNotUseTopic(var/mob/user)
