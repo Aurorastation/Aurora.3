@@ -349,6 +349,7 @@
 					var/answer = alert(selected,"Do you want to return to life?","Cloning","Yes","No")
 					if(answer != "No" && pod.growclone(C))
 						temp = "Initiating cloning cycle..."
+						playsound(src.loc, 'sound/machines/medbayscanner1.ogg', 100, 1)
 						records.Remove(C)
 						qdel(C)
 						menu = 1
