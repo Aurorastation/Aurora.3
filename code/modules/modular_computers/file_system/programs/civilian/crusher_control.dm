@@ -84,6 +84,7 @@
 		message = "Crushing"
 		airlock_close()
 		crush_start()
+		playsound(src.loc, 'sound/effects/crusheralarm.ogg', 100, 1)
 
 	if(href_list["abort"])
 		message = "Aborting"
