@@ -86,7 +86,7 @@
 	aiControlDisabled = 1
 	hackProof = 1
 	electrified_until = -1
-	open_sound_powered = 'sound/machines/airlock_creaking.ogg'
+	open_sound_powered = 'sound/machines/airlock_open_force.ogg'
 
 /obj/machinery/door/airlock/security
 	name = "Airlock"
