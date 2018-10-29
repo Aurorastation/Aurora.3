@@ -91,7 +91,7 @@
 	else
 		to_chat(user, "<span class='notice'>\The [src] has no tank attached.</span>")
 	if (cell)
-		to_chat(user, "The charge meter reads [round(cell.percent())]%.")
+		to_chat(user, "\The [src] has [cell] attached, and the charge meter reads [round(cell.percent())]%.")
 	else
 		to_chat(user, "<span class='warning'> It doesn't have a power cell installed.</span>")
 
@@ -118,7 +118,7 @@
 /obj/structure/closet/airbubble/dump_contents()
 
 	for(var/obj/I in src)
-		if (I != internal_tank)
+		if (I != internal_tank && I != cell)
 			I.forceMove(loc)
 
 	for(var/mob/M in src)
@@ -381,7 +381,7 @@
 			)
 			var/obj/item/weapon/tank/T = W
 			internal_tank = T
-			user.drop_from_inventory(T,src)
+			user.drop_from_inventory(T, src)
 			use_internal_tank = 1
 			START_PROCESSING(SSfast_process, src)
 			return
@@ -452,8 +452,10 @@
 		"<span class='warning'>[user] has attached [W] to [src].</span>",
 		"<span class='notice'>You attached [W] to [src].</span>"
 		)
-		cell = W
+		var/obj/item/weapon/cell/c = W
+		cell = c
 		cooling = TRUE
+		user.drop_from_inventory(c, src)
 	else
 		attack_hand(user)
 	return
@@ -529,8 +531,7 @@
 /obj/structure/closet/airbubble/proc/process_preserve_temp()
 	if (!cooling || !cell)
 		return
-	var/mob/living/carbon/human/H = (/mob/living/carbon/human in contents)
-	if(!isnull(H))
+	for(var/mob/living/carbon/human/H in src)
 		var/efficiency = !!(H.species.flags & ACCEPTS_COOLER) || 1 - H.get_pressure_weakness()
 		var/env_temp = return_temperature()
 		var/temp_adj = min(H.bodytemperature - max(thermostat, env_temp), max_cooling)
@@ -547,7 +548,7 @@
 		if(cell.charge <= 0)
 			cooling = FALSE
 
-	else if (inside_air && inside_air.volume > 0)
+	if (inside_air && inside_air.volume > 0)
 		var/delta = inside_air.temperature - T20C
 		inside_air.temperature -= max(-10, min(10, round(delta/4,0.1)))
 
