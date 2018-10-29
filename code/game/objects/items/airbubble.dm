@@ -1,7 +1,7 @@
 // Regular airbubble - folded
 /obj/item/airbubble
 	name = "air bubble"
-	desc = "Special air bubble designed to protect people inside of it from decompressed enviroments."
+	desc = "Special air bubble designed to protect people inside of it from decompressed enviroments. Has an integrated cooling unit to preserve stable temperature inside, require power cell to operate."
 	icon = 'icons/obj/airbubble.dmi'
 	icon_state = "airbubble_fact_folded"
 	w_class = ITEMSIZE_NORMAL
@@ -54,7 +54,7 @@
 // Deployed bubble
 /obj/structure/closet/airbubble
 	name = "air bubble"
-	desc = "Special air bubble designed to protect people inside of it from decompressed enviroments."
+	desc = "Special air bubble designed to protect people inside of it from decompressed enviroments. Has an integrated cooling unit to preserve stable temperature inside, require power cell to operate."
 	icon = 'icons/obj/airbubble.dmi'
 	icon_state = "airbubble"
 	icon_closed = "airbubble"
@@ -90,6 +90,10 @@
 		to_chat(user, "<span class='notice'>\The [src] has [internal_tank] attached, that displays [round(internal_tank.air_contents.return_pressure() ? internal_tank.air_contents.return_pressure() : 0)] KPa.</span>")
 	else
 		to_chat(user, "<span class='notice'>\The [src] has no tank attached.</span>")
+	if (cell)
+		to_chat(user, "The charge meter reads [round(cell.percent())]%.")
+	else
+		to_chat(user, "<span class='warning'> It doesn't have a power cell installed.</span>")
 
 /obj/structure/closet/airbubble/can_open()
 	if(zipped)
@@ -598,13 +602,13 @@
 // Syndicate airbubble
 /obj/item/airbubble/syndie
 	name = "air bubble"
-	desc = "Special air bubble designed to protect people inside of it from decompressed enviroments. This does not seem like a regular color scheme"
+	desc = "Special air bubble designed to protect people inside of it from decompressed enviroments. Has an integrated cooling unit to preserve stable temperature inside, require power cell to operate. This does not seem like a regular color scheme"
 	icon_state = "airbubble_syndie_fact_folded"
 	syndie = TRUE
 
 /obj/structure/closet/airbubble/syndie
 	name = "air bubble"
-	desc = "Special air bubble designed to protect people inside of it from decompressed enviroments. This does not seem like a regular color scheme"
+	desc = "Special air bubble designed to protect people inside of it from decompressed enviroments. Has an integrated cooling unit to preserve stable temperature inside, require power cell to operate. This does not seem like a regular color scheme"
 	icon_state = "airbubble_syndie"
 	icon_closed = "airbubble_syndie"
 	icon_closed = "airbubble_syndie"
