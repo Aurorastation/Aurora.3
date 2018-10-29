@@ -14,10 +14,12 @@
 
 	verbs += new/datum/game_mode/vampire/verb/vampire_help
 
-	for (var/datum/power/vampire/P in vampirepowers)
-		if (!P.blood_cost)
-			if (!(P in mind.vampire.purchased_powers))
+	for(var/datum/power/vampire/P in vampirepowers)
+		if(!(P in mind.vampire.purchased_powers))
+			if(!P.blood_cost)
 				mind.vampire.add_power(mind, P, 0)
+		else if(P.isVerb && P.verbpath)
+			verbs += P.verbpath
 
 	return 1
 
