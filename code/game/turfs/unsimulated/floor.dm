@@ -19,7 +19,7 @@
 		return
 
 	new N(src)
-	
+
 /turf/unsimulated/chasm_mask
 	name = "chasm mask"
 	icon = 'icons/turf/walls.dmi'
@@ -40,3 +40,18 @@
 
 /turf/unsimulated/chasm_mask/New()
 	return
+
+/turf/unsimulated/mask/red
+	icon_state = "red"
+
+/turf/unsimulated/mask/orange
+	icon_state = "orange"
+
+/turf/unsimulated/mask/yellow
+	icon_state = "yellow"
+
+/turf/unsimulated/mask/green
+	icon_state = "green"
+
+/turf/unsimulated/mask/blue
+	icon_state = "blue"

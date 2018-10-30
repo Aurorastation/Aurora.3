@@ -2426,6 +2426,8 @@
 #include "maps\aurora\code\aurora_lifts.dm"
 #include "maps\aurora\code\aurora_shuttles.dm"
 #include "maps\aurora\code\aurora_unittest.dm"
+#include "maps\colony_general\code\automata.dm"
+#include "maps\colony_general\code\general.dm"
 #include "maps\exodus\code\exodus.dm"
 #include "maps\exodus\code\exodus_areas.dm"
 #include "maps\exodus\code\exodus_holodeck.dm"
