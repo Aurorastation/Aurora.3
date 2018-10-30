@@ -74,7 +74,6 @@
 	var/datum/gas_mixture/inside_air
 	var/internal_tank_valve = 45 // arbitrary for now
 	var/obj/item/weapon/tank/internal_tank
-	var/process_ticks = 0
 	var/syndie = FALSE
 	var/last_shake = 0
 	var/cooling = FALSE
@@ -541,16 +540,17 @@
 
 		var/charge_usage = (temp_adj/max_cooling)*charge_consumption
 
-		H.bodytemperature -= temp_adj*efficiency
+		//We are gonna try and cool air inside air bubble, if it doesn't exist then we cool the person inside.
+		if (inside_air && inside_air.volume > 0)
+			var/delta = inside_air.temperature - T20C
+			inside_air.temperature -= min(delta, temp_adj*efficiency)
+		else
+			H.bodytemperature -= temp_adj*efficiency
 
 		cell.use(charge_usage)
 
 		if(cell.charge <= 0)
 			cooling = FALSE
-
-	if (inside_air && inside_air.volume > 0)
-		var/delta = inside_air.temperature - T20C
-		inside_air.temperature -= max(-10, min(10, round(delta/4,0.1)))
 
 /obj/structure/closet/airbubble/return_air()
 	if(use_internal_tank)
@@ -585,13 +585,8 @@
 	return
 
 /obj/structure/closet/airbubble/process()
-	if (!(process_ticks % 4))
-		process_preserve_temp()
-
-	if (!(process_ticks % 3))
-		process_tank_give_air()
-
-	process_ticks = (process_ticks + 1) % 17
+	process_preserve_temp()
+	process_tank_give_air()
 
 /obj/structure/closet/airbubble/proc/add_inside()
 	inside_air = new
