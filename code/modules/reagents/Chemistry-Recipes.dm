@@ -2895,7 +2895,7 @@
 	required_temperatures_min = list("ice" = T0C + 3)
 	result_amount = 2
 
-/datum/chemical_reaction/phoron_salt
+/datum/chemical_reaction/phoron_salt //Safe temperatures for phoron salt is between 0 degress celcius and 200 celcius.
 	name = "Phoron Salt"
 	id = "phoron_salt"
 	result = "phoron_salt"
@@ -2924,6 +2924,7 @@
 	result = null
 	result_amount = 1
 	required_reagents = list("cryosurfactant" = 1)
+	inhibitors = list("pyrosilicate" = 1)
 	catalysts = list("water" = 1)
 
 /datum/chemical_reaction/cryosurfactant_cooling/on_reaction(var/datum/reagents/holder, var/created_volume)
@@ -2935,6 +2936,7 @@
 	result = null
 	result_amount = 1
 	required_reagents = list("pyrosilicate" = 1)
+	inhibitors = list("cryosurfactant" = 1)
 	catalysts = list("sodiumchloride" = 1)
 
 /datum/chemical_reaction/pyrosilicate_heating/on_reaction(var/datum/reagents/holder, var/created_volume)
@@ -2952,7 +2954,7 @@
 	if(created_volume)
 		var/turf/simulated/floor/T = get_turf(holder.my_atom.loc)
 		if(istype(T))
-			T.assume_gas("oxygen", created_volume, (created_thermal_energy/created_volume) )
+			T.assume_gas("oxygen", created_volume*10, (created_thermal_energy/created_volume) )
 
 /datum/chemical_reaction/phoron_salt_fire
 	name = "Phoron Salt Fire"
@@ -2962,11 +2964,11 @@
 	required_reagents = list("phoron_salt" = 1)
 	required_temperatures_min = list("phoron_salt" = T0C + 200)
 
-/datum/chemical_reaction/phoron_salt_fire/on_reaction(var/datum/reagents/holder, var/created_volume)
+/datum/chemical_reaction/phoron_salt_fire/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
 	var/turf/location = get_turf(holder.my_atom.loc)
 	for(var/turf/simulated/floor/target_tile in range(0,location))
-		var/fire_mod = created_volume * (1 + ((holder.get_temperature() - T0C + 200)/100) )
-		target_tile.assume_gas("phoron", fire_mod, 400+T0C)
+		target_tile.assume_gas("phoron", created_volume*0.5, created_thermal_energy/created_volume) //The goal here is to hold as much thermal energy as possible with a large amount of volume.
+		target_tile.assume_gas("carbon_dioxide", created_volume*0.5, (created_thermal_energy/created_volume) )
 		addtimer(CALLBACK(target_tile, /turf/simulated/floor/.proc/hotspot_expose, 700, 400), 1)
 	holder.del_reagent("phoron_salt")
 	return
@@ -2979,13 +2981,10 @@
 	required_reagents = list("phoron_salt" = 1)
 	required_temperatures_max = list("phoron_salt" = T0C + 0)
 
-/datum/chemical_reaction/phoron_salt_coldfire/on_reaction(var/datum/reagents/holder, var/created_volume)
+/datum/chemical_reaction/phoron_salt_coldfire/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
 	var/datum/effect/effect/system/reagents_explosion/e = new()
-	var/turf/location = get_turf(holder.my_atom.loc)
-
-	var/explosion_mod = created_volume * 0.5 + (T0C - holder.get_temperature())*0.1
-	location.assume_gas("oxygen", explosion_mod*2, holder.get_temperature())
-
+	var/explosion_mod = created_thermal_energy * (created_volume/300) * 0.001 //The goal here is to get to 0 degrees celcius.
+	explosion_mod = Clamp(explosion_mod,1,32) //Let it be known that not even the dev who made this knows the full destuctive potential of this fuckery, so a maxcap of 32 is implemented.
 	e.set_up(round (explosion_mod, 1), holder.my_atom, 0, 0)
 	if(isliving(holder.my_atom))
 		e.amount *= 0.5
