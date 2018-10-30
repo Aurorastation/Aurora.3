@@ -87,6 +87,12 @@
 
 	dose = min(dose + removed, max_dose)
 
+	//There is no science here. It's just pure gameplay balance.
+	//Every degree above/below room temp increases/decreases body temperature by 0.1 * removed.
+	//Drinking 1u of a 100 celcius mix will increase your body temperature by 8 celcius.
+	//Drinking 1u of a 1000 celcius mix will increase your body temperature by 80 celcius.
+	M.bodytemperature += (get_temperature() - (T0C + 20)) * removed * 0.1
+
 	for(var/datum/reagent/R in M.bloodstr.reagent_list)
 		if(istype(R, conflicting_reagent))
 			affect_conflicting(M,alien,removed,R)

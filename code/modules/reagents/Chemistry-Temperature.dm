@@ -72,14 +72,13 @@
 
 	var/total_thermal_energy = 0
 	var/total_heat_capacity = 0
-	var/count = reagent_list.len
 
 	for(var/datum/reagent/R in reagent_list)
 		total_thermal_energy += R.get_thermal_energy()
 		total_heat_capacity += R.get_heat_capacity()
 
 	for(var/datum/reagent/R in reagent_list)
-		R.set_thermal_energy( total_thermal_energy * (R.get_heat_capacity()/total_heat_capacity) * (1/count) )
+		R.set_thermal_energy( total_thermal_energy * (R.get_heat_capacity()/total_heat_capacity) )
 
 /datum/reagents/proc/add_thermal_energy(var/thermal_energy_to_add)
 	var/total_energy_added = 0

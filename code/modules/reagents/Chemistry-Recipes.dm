@@ -110,23 +110,25 @@
 	if(result)
 		holder.add_reagent(result, amt_produced, data, safety = 1, thermal_energy = total_thermal_energy)
 
-	on_reaction(holder, amt_produced)
+	on_reaction(holder, amt_produced, total_thermal_energy)
 
 	return reaction_progress
 
 //called when a reaction processes
-/datum/chemical_reaction/proc/on_reaction(var/datum/reagents/holder, var/created_volume)
+/datum/chemical_reaction/proc/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
 	return
 
 //called after processing reactions, if they occurred
 /datum/chemical_reaction/proc/post_reaction(var/datum/reagents/holder)
 	var/atom/container = holder.my_atom
-	if(mix_message && container && !ismob(container))
+	if(container && !ismob(container))
 		var/turf/T = get_turf(container)
-		var/list/seen = viewers(4, T)
-		for(var/mob/M in seen)
-			M.show_message("<span class='notice'>\icon[container] [mix_message]</span>", 1)
-		playsound(T, reaction_sound, 80, 1)
+		if(mix_message)
+			var/list/seen = viewers(4, T)
+			for(var/mob/M in seen)
+				M.show_message("<span class='notice'>\icon[container] [mix_message]</span>", 1)
+		if(reaction_sound)
+			playsound(T, reaction_sound, 80, 1)
 
 //obtains any special data that will be provided to the reaction products
 //this is called just before reactants are removed.
@@ -2823,14 +2825,14 @@
 	id = "psfrappe"
 	result = "psfrappe"
 	required_reagents = list("icecoffee" = 6, "pumpkinspice" = 2, "cream" = 2)
-	result_amount = 10	
+	result_amount = 10
 
 /datum/chemical_reaction/pslatte
 	name = "Pumpkin Spice Latte"
 	id = "pslatte"
 	result = "pslatte"
 	required_reagents = list("coffee" = 6, "pumpkinspice" = 2, "cream" = 2)
-	result_amount = 10	
+	result_amount = 10
 
 //transmutation
 
@@ -2920,34 +2922,37 @@
 	name = "Cryosurfactant Cooling"
 	id = "cryosurfactant_cooling"
 	result = null
-	result_amount = 0
-	required_reagents = list("cryosurfactant" = 1, "water" = 1)
+	result_amount = 1
+	required_reagents = list("cryosurfactant" = 1)
+	catalysts = list("water" = 1)
 
 /datum/chemical_reaction/cryosurfactant_cooling/on_reaction(var/datum/reagents/holder, var/created_volume)
-	holder.add_thermal_energy(-created_volume*100)
+	holder.add_thermal_energy(-created_volume*500)
 
 /datum/chemical_reaction/pyrosilicate_heating
 	name = "Pyrosilicate Heating"
 	id = "pyrosilicate_heating"
 	result = null
-	result_amount = 0
-	required_reagents = list("pyrosilicate" = 1, "sodiumchloride" = 1)
+	result_amount = 1
+	required_reagents = list("pyrosilicate" = 1)
+	catalysts = list("sodiumchloride" = 1)
 
 /datum/chemical_reaction/pyrosilicate_heating/on_reaction(var/datum/reagents/holder, var/created_volume)
-	holder.add_thermal_energy(created_volume*200)
+	holder.add_thermal_energy(created_volume*1000)
 
 /datum/chemical_reaction/pyrosilicate_cryosurfactant
 	name = "Pyrosilicate Cryosurfactant Reaction"
 	id = "pyrosilicate_cryosurfactant"
 	result = null
-	result_amount = 0
 	required_reagents = list("pyrosilicate" = 1, "cryosurfactant" = 1)
 	required_temperatures_min = list("pyrosilicate" = T0C, "cryosurfactant" = T0C) //Does not react when below these temperatures.
+	result_amount = 1
 
-/datum/chemical_reaction/pyrosilicate_cryosurfactant/on_reaction(var/datum/reagents/holder, var/created_volume)
-	var/turf/simulated/floor/T = get_turf(holder.my_atom.loc)
-	if(istype(T))
-		T.assume_gas("oxygen", created_volume, holder.get_temperature())
+/datum/chemical_reaction/pyrosilicate_cryosurfactant/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
+	if(created_volume)
+		var/turf/simulated/floor/T = get_turf(holder.my_atom.loc)
+		if(istype(T))
+			T.assume_gas("oxygen", created_volume, (created_thermal_energy/created_volume) )
 
 /datum/chemical_reaction/phoron_salt_fire
 	name = "Phoron Salt Fire"

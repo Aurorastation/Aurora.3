@@ -138,9 +138,14 @@
 	amount = min(amount, get_free_space())
 
 	for(var/datum/reagent/current in reagent_list)
-		if(current.id == id)
+		if(current.id == id) //Existing reagent
 			current.volume += amount
-			current.add_thermal_energy(thermal_energy)
+			if(thermal_energy > 0)
+				current.add_thermal_energy(thermal_energy)
+			else
+				if(temperature <= 0)
+					temperature = current.default_temperature
+				current.add_thermal_energy(temperature * current.specific_heat * amount)
 			if(!isnull(data)) // For all we know, it could be zero or empty string and meaningful
 				current.mix_data(data, amount)
 			update_holder(!safety)
