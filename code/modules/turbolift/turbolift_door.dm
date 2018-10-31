@@ -25,10 +25,14 @@
 	return ..()
 
 /obj/machinery/door/airlock/lift/bumpopen(var/mob/user)
-	return !safe // No accidental sprinting into open elevator shafts, unless the safety wire is cut.
+	if(safe) // No accidental sprinting into open elevator shafts, unless the safety wire is cut.
+		return FALSE
+	return ..()
 
 /obj/machinery/door/airlock/lift/allowed(mob/M)
-	return aiDisabledIdScanner //only the lift machinery is allowed to operate this door, unless the ID scanner is disabled
+	if(aiDisabledIdScanner) //only the lift machinery is allowed to operate this door, unless the ID scanner is disabled
+		return FALSE
+	return ..()
 
 /obj/machinery/door/airlock/lift/close(var/forced=0)
 	for(var/turf/turf in locs)
