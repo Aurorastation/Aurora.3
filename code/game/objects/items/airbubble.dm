@@ -542,15 +542,6 @@
 			return
 
 		var/charge_usage = (temp_adj/max_cooling)*charge_consumption
-
-		//We are gonna try and cool air inside air bubble, if it doesn't exist then we cool the person inside.
-		/*
-		if (inside_air && inside_air.volume > 0)
-			var/delta = inside_air.temperature - T20C
-			inside_air.temperature -= min(delta, temp_adj*efficiency)
-		else
-			H.bodytemperature -= temp_adj*efficiency
-		*/
 		H.bodytemperature -= temp_adj
 
 		cell.use(charge_usage)
