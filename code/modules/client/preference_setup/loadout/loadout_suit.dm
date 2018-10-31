@@ -161,13 +161,13 @@
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/medical
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Paramedic", "Medical Resident", "Psychiatrist", "Chemist")
 
-/datum/gear/suit/blue_lawyer_jacket
-	display_name = "suit jacket, blue"
-	path = /obj/item/clothing/suit/storage/toggle/lawyer/bluejacket
+/datum/gear/suit/lawyer_jacket
+	display_name = "suit jacket"
+	path = /obj/item/clothing/suit/storage/lawyer/genjacket
 
-/datum/gear/suit/purple_lawyer_jacket
-	display_name = "suit jacket, purple"
-	path = /obj/item/clothing/suit/storage/lawyer/purpjacket
+/datum/gear/suit/lawyer_jacket/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
 
 /datum/gear/suit/trenchcoat
 	display_name = "trenchcoat, brown"

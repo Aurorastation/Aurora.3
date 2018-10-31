@@ -242,6 +242,14 @@
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
 
+/obj/item/clothing/suit/storage/lawyer/genjacket
+	name = "suit jacket"
+	desc = "A snappy dress jacket."
+	icon_state = "suitjacket_gen"
+	item_state = "suitjacket_gen"
+	blood_overlay_type = "coat"
+	body_parts_covered = UPPER_TORSO|ARMS
+
 //Internal Affairs
 /obj/item/clothing/suit/storage/toggle/internalaffairs
 	name = "internal affairs jacket"
