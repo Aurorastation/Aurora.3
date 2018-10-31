@@ -1165,10 +1165,6 @@
 		if(!check_rights(R_SPAWN))	return
 		return create_object(usr)
 
-	else if(href_list["quick_create_object"])
-		if(!check_rights(R_SPAWN))	return
-		return quick_create_object(usr)
-
 	else if(href_list["create_turf"])
 		if(!check_rights(R_SPAWN))	return
 		return create_turf(usr)
@@ -1491,7 +1487,7 @@
 	else if(href_list["ac_set_signature"])
 		src.admincaster_signature = sanitize(input(usr, "Provide your desired signature", "Network Identity Handler", ""))
 		src.access_news_network()
-	
+
 	else if(href_list["ac_add_comment"])
 		var/com_msg = sanitize(input(usr, "Write your Comment", "Network Comment Handler", "") as message, encode = 0, trim = 0, extra = 0)
 		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
@@ -1505,7 +1501,7 @@
 		to_chat(usr, "Comment successfully added!")
 		src.admincaster_screen = 20
 		src.access_news_network()
-		
+
 	else if(href_list["ac_view_comments"])
 		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
 		if(!istype(viewing_story))
@@ -1513,7 +1509,7 @@
 		src.admincaster_screen = 20
 		src.admincaster_viewing_message = viewing_story
 		src.access_news_network()
-		
+
 	else if(href_list["ac_like"])
 		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
 		if((src.admincaster_signature in viewing_story.interacted) || !istype(viewing_story))
@@ -1521,7 +1517,7 @@
 		viewing_story.interacted += src.admincaster_signature
 		viewing_story.likes += 1
 		src.access_news_network()
-		
+
 	else if(href_list["ac_dislike"])
 		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
 		if((src.admincaster_signature in viewing_story.interacted) || !istype(viewing_story))
@@ -1529,7 +1525,7 @@
 		viewing_story.interacted += src.admincaster_signature
 		viewing_story.dislikes += 1
 		src.access_news_network()
-	
+
 	else if(href_list["ac_setlikes"])
 		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
 		if(!istype(viewing_story))

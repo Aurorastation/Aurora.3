@@ -210,12 +210,6 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	//You need to press the DebugGame verb to see these now....they were getting annoying and we've collected a fair bit of data. Just -test- changes  to explosion code using this please so we can compare
 	if(Debug2)	world.log << "## DEBUG: Explosion([x0],[y0],[z0])(d[devastation_range],h[heavy_impact_range],l[light_impact_range]): Took [took] seconds."
 
-	//Machines which report explosions.
-	for(var/i,i<=doppler_arrays.len,i++)
-		var/obj/machinery/doppler_array/Array = doppler_arrays[i]
-		if(Array)
-			Array.sense_explosion(x0,y0,z0,devastation_range,heavy_impact_range,light_impact_range,took)
-
 // All the vars used on the turf should be on unsimulated turfs too, we just don't care about those generally.
 #define SEARCH_DIR(dir) \
 	search_direction = dir;\
