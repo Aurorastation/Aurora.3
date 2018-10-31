@@ -1412,7 +1412,7 @@
 	var/mode = 0
 
 	var/spread = 0
-	var/spread_point = 10
+	var/spread_point = 3
 
 
 /obj/structure/disposaloutlet/Initialize()
@@ -1442,9 +1442,9 @@
 				spawn(5)
 					if(spread)
 						var/turf/new_turf_target = get_step(target,turn(src.dir, rand(-spread,spread)))
-						AM.throw_at(new_turf_target, 3, 1)
+						AM.throw_at(new_turf_target, spread_point, 1)
 					else
-						AM.throw_at(target, 3, 1)
+						AM.throw_at(target, spread_point, 1)
 
 		H.vent_gas(src.loc)
 		qdel(H)
