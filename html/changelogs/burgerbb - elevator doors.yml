@@ -36,4 +36,3 @@ delete-after: True
 changes: 
   - balance: "AIs can no longer control elevator doors individually (shocking/bolting) without hacking it first, or an engineer re-enabling AI access."
   - balance: "Elevator doors with safeties disabled can crush mobs. Elevator doors with idscan disabled can be opened like a normal airlock."
-  - balance: "Disabling AI access on an APC will prevent them from shocking all doors connected to that APC."
