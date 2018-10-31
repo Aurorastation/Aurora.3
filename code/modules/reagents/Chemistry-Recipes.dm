@@ -2983,7 +2983,7 @@
 
 /datum/chemical_reaction/phoron_salt_coldfire/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
 	var/datum/effect/effect/system/reagents_explosion/e = new()
-	var/explosion_mod = created_thermal_energy * (created_volume/300) * 0.001 //The goal here is to get to 0 degrees celcius.
+	var/explosion_mod = (holder.get_thermal_energy() + created_thermal_energy) * 0.001 //The more thermal energy inside a container, the bigger the explosion.
 	explosion_mod = Clamp(explosion_mod,1,32) //Let it be known that not even the dev who made this knows the full destuctive potential of this fuckery, so a maxcap of 32 is implemented.
 	e.set_up(round (explosion_mod, 1), holder.my_atom, 0, 0)
 	if(isliving(holder.my_atom))
