@@ -191,6 +191,9 @@
 		if(!ishuman(usr))	return
 		if(opened)	return 0
 		if(contents.len > 1)	return 0
+		if(cell)
+			to_chat(usr, "<span class='warning'>[src] still has [cell] attached to it, please remove it before folding \the [src].</span>")
+			return
 		usr.visible_message(
 		"<span class='warning'>[usr] begins folding up the [src.name].</span>",
 		"<span class='notice'>You begin folding up the [src.name].</span>"
@@ -215,10 +218,10 @@
 			internal_tank = null
 		bag.w_class = ITEMSIZE_LARGE
 
-		bag.desc = "Special air bubble designed to protect people inside of it from decompressed enviroments."
+		bag.desc = "Special air bubble designed to protect people inside of it from decompressed enviroments. Has an integrated cooling unit to preserve stable temperature inside, require power cell to operate."
 		if(syndie)
 			bag.desc += " This does not seem like a regular color scheme"
-		bag.desc += " It appears to be poorly hand folded."
+		bag.desc += " <span class='notice'>It appears to be poorly hand folded.</span>"
 
 		if(ripped)
 			bag.icon_state = "[icon_closed]_man_folded_ripped"
@@ -378,9 +381,8 @@
 			"<span class='warning'>[user] has attached [W] to [src].</span>",
 			"<span class='notice'>You attached [W] to [src].</span>"
 			)
-			var/obj/item/weapon/tank/T = W
-			internal_tank = T
-			user.drop_from_inventory(T, src)
+			internal_tank = W
+			user.drop_from_inventory(W, src)
 			use_internal_tank = 1
 			START_PROCESSING(SSfast_process, src)
 			return
@@ -451,10 +453,9 @@
 		"<span class='warning'>[user] has attached [W] to [src].</span>",
 		"<span class='notice'>You attached [W] to [src].</span>"
 		)
-		var/obj/item/weapon/cell/c = W
-		cell = c
+		cell = W
 		cooling = TRUE
-		user.drop_from_inventory(c, src)
+		user.drop_from_inventory(W, src)
 	else
 		attack_hand(user)
 	return
@@ -531,8 +532,10 @@
 	if (!cooling || !cell)
 		return
 	for(var/mob/living/carbon/human/H in src)
-		var/efficiency = !!(H.species.flags & ACCEPTS_COOLER) || 1 - H.get_pressure_weakness()
-		var/env_temp = return_temperature()
+		var/datum/gas_mixture/t_air = get_turf_air()
+		if(!t_air)
+			return
+		var/env_temp = t_air.temperature
 		var/temp_adj = min(H.bodytemperature - max(thermostat, env_temp), max_cooling)
 
 		if (temp_adj < 0.5)	//only cools, doesn't heat, also we don't need extreme precision
@@ -541,11 +544,14 @@
 		var/charge_usage = (temp_adj/max_cooling)*charge_consumption
 
 		//We are gonna try and cool air inside air bubble, if it doesn't exist then we cool the person inside.
+		/*
 		if (inside_air && inside_air.volume > 0)
 			var/delta = inside_air.temperature - T20C
 			inside_air.temperature -= min(delta, temp_adj*efficiency)
 		else
 			H.bodytemperature -= temp_adj*efficiency
+		*/
+		H.bodytemperature -= temp_adj
 
 		cell.use(charge_usage)
 
