@@ -30,8 +30,11 @@
 	return ..()
 
 /obj/machinery/door/airlock/lift/allowed(mob/M)
-	if(aiDisabledIdScanner && !safe) //only the lift machinery is allowed to operate this door, unless the ID scanner is disabled or the safety wire is cut
+	if(aiDisabledIdScanner && is_silicon(M)) //only the lift machinery is allowed to operate this door, unless the ID scanner is disabled and the mob is a silicon
 		return FALSE
+	else if(safe)
+		return FALSE //or the safety wire is cut and the mob is not a silicon
+
 	return ..()
 
 /obj/machinery/door/airlock/lift/close(var/forced=0)
