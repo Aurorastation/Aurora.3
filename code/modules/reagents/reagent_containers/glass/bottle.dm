@@ -373,17 +373,6 @@
 		reagents.add_reagent("frostoil", 60)
 		update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bottle/inaprovaline
-	name = "inaprovaline bottle"
-	desc = "A small bottle. Contains inaprovaline - used to stabilize patients."
-	icon = 'icons/obj/chemical.dmi'
-	icon_state = "bottle-4"
-
-	Initialize()
-		. = ..()
-		reagents.add_reagent("inaprovaline", 60)
-		update_icon()
-
 /obj/item/weapon/reagent_containers/glass/bottle/pyrosilicate
 	name = "pyrosilicate bottle"
 	desc = "A small bottle. Contains pyrosilicate - used to heat up reagents."
