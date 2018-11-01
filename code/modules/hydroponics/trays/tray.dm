@@ -565,7 +565,7 @@
 		qdel(O)
 		check_health()
 
-	else if(iswrench(O))
+	else if(mechanical == 1 && iswrench(O))
 
 		//If there's a connector here, the portable_atmospherics setup can handle it.
 		if(locate(/obj/machinery/atmospherics/portables_connector/) in loc)
@@ -574,6 +574,12 @@
 		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 		anchored = !anchored
 		user << "You [anchored ? "wrench" : "unwrench"] \the [src]."
+
+	else if (mechanical == 0 && istype(O, /obj/item/weapon/shovel) )
+		new /obj/item/stack/material/sandstone{amount = 3}(loc)
+		user << "<span class='notice'>You remove the soil from the bed and dismantle the sandstone base.</span>"
+		playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
+		qdel(src)
 
 	else if(O.force && seed)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
