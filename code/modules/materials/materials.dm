@@ -346,7 +346,7 @@ var/list/name_to_material
 	return round(totalPhoron/100)
 */
 
-/material/stone
+/material/sandstone
 	name = "sandstone"
 	stack_type = /obj/item/stack/material/sandstone
 	icon_base = "stone"

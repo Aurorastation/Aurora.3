@@ -565,7 +565,7 @@
 		qdel(O)
 		check_health()
 
-	else if(mechanical && iswrench(O))
+	else if(iswrench(O))
 
 		//If there's a connector here, the portable_atmospherics setup can handle it.
 		if(locate(/obj/machinery/atmospherics/portables_connector/) in loc)
