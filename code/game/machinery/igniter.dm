@@ -65,6 +65,7 @@
 	var/disable = 0
 	var/last_spark = 0
 	var/base_state = "migniter"
+	layer = 3.3
 	anchored = 1
 	use_power = 1
 	idle_power_usage = 2

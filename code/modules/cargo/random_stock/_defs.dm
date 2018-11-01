@@ -1,0 +1,4 @@
+#define STOCK_ITEM_COMMON(id,prob) /datum/cargo_master/setup_cargo_stock() { global.random_stock_common[/proc/cargo_spawn_t1_##id] = prob; ..(); }; /proc/cargo_spawn_t1_##id(atom/L, datum/cargospawner/CS)
+#define STOCK_ITEM_UNCOMMON(id,prob) /datum/cargo_master/setup_cargo_stock() { global.random_stock_uncommon[/proc/cargo_spawn_t2_##id] = prob; ..(); }; /proc/cargo_spawn_t2_##id(atom/L, datum/cargospawner/CS)
+#define STOCK_ITEM_RARE(id,prob) /datum/cargo_master/setup_cargo_stock() { global.random_stock_rare[/proc/cargo_spawn_t3_##id] = prob; ..(); }; /proc/cargo_spawn_t3_##id(atom/L, datum/cargospawner/CS)
+#define STOCK_ITEM_LARGE(id,prob) /datum/cargo_master/setup_cargo_stock() { global.random_stock_large[/proc/cargo_spawn_xl_##id] = prob; ..(); }; /proc/cargo_spawn_xl_##id(atom/L, datum/cargospawner/CS)

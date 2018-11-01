@@ -133,6 +133,15 @@
 		. = ..()
 		reagents.add_reagent("coffee", 30)
 
+/obj/item/weapon/reagent_containers/food/drinks/coffee/pslatte
+	name = "Seasonal Pumpkin Spice Latte"
+	desc = "A limited edition pumpkin spice coffee drink!"
+	icon_state = "psl_vended"
+	center_of_mass = list("x"=15, "y"=10)
+	Initialize()
+		. = ..()
+		reagents.add_reagent("sadpslatte", 30)
+
 /obj/item/weapon/reagent_containers/food/drinks/tea
 	name = "Duke purple tea"
 	desc = "An insult to Duke Purple is an insult to the Space Queen! Any proper gentleman will fight you, if you sully this tea."
