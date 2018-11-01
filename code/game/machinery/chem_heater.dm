@@ -113,23 +113,26 @@
 
 	if(container && container.reagents)
 
-		if(should_heat && container.reagents.get_temperature() >= target_temperature)
+		var/current_temperature = container.reagents.get_temperature()
+
+		if(should_heat && current_temperature >= target_temperature)
 			use_power = 0
 			updateUsrDialog()
 			return
-		else if(!should_heat && container.reagents.get_temperature() <= target_temperature)
+		else if(!should_heat && current_temperature <= target_temperature)
 			use_power = 0
 			updateUsrDialog()
 			return
 
-		var/joules_to_use = machine_strength
+		var/joules_to_use = machine_strength * 1000
 		var/mod = should_heat ? 1 : -1
 		var/thermal_energy_change = 0
-
+		var/thermal_energy_limit = container.reagents.get_thermal_energy_change(current_temperature,target_temperature) //Don't go over the target temperature
+		var/thermal_energy_limit2 = container.reagents.get_thermal_energy_change(current_temperature,current_temperature + machine_strength*mod*5) //So small reagents don't go from 0 to 1000 in a few seconds.
 		if(mod > 0) //GOING UP
-			thermal_energy_change = min(joules_to_use,container.reagents.get_thermal_energy_change(container.reagents.get_temperature(),target_temperature))
+			thermal_energy_change = min(joules_to_use,thermal_energy_limit,thermal_energy_limit2)
 		else //GOING DOWN
-			thermal_energy_change = max(-joules_to_use,container.reagents.get_thermal_energy_change(container.reagents.get_temperature(),target_temperature))
+			thermal_energy_change = max(-joules_to_use,thermal_energy_limit,thermal_energy_limit2)
 
 		container.reagents.add_thermal_energy(thermal_energy_change)
 		container.reagents.handle_reactions()
@@ -147,7 +150,7 @@
 	machine_strength = initial(machine_strength)
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
 		if(ismanipulator(P))
-			machine_strength += P.rating * 1000
+			machine_strength += P.rating
 
 
 

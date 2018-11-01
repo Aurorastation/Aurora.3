@@ -2884,16 +2884,21 @@
 	id = "water_to_ice"
 	result = "ice"
 	required_reagents = list("water" = 1)
-	required_temperatures_max = list("water" = T0C - 5)
+	required_temperatures_max = list("water" = T0C - 1)
 	result_amount = 0.5
+	mix_message = ""
+	reaction_sound = ""
 
 /datum/chemical_reaction/ice_to_water
 	name = "Ice to Water"
 	id = "ice_to_water"
 	result = "water"
 	required_reagents = list("ice" = 1)
-	required_temperatures_min = list("ice" = T0C + 3)
+	required_temperatures_min = list("ice" = T0C + 1)
 	result_amount = 2
+	reaction_rate = HALF_LIFE(4) //CONFIRMED?
+	mix_message = ""
+	reaction_sound = ""
 
 /datum/chemical_reaction/phoron_salt //Safe temperatures for phoron salt is between 0 degress celcius and 200 celcius.
 	name = "Phoron Salt"

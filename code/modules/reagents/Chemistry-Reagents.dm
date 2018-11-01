@@ -49,13 +49,7 @@
 
 // This doesn't apply to skin contact - this is for, e.g. extinguishers and sprays. The difference is that reagent is not directly on the mob's skin - it might just be on their clothing.
 /datum/reagent/proc/touch_mob(var/mob/living/M, var/amount)
-	var/temperature = src.get_temperature()
-	if(temperature >= REAGENTS_BURNING_TEMP_HIGH)
-		var/burn_damage = amount*(temperature - REAGENTS_BURNING_TEMP_HIGH)*REAGENTS_BURNING_TEMP_HIGH_DAMAGE
-		M.adjustFireLoss(burn_damage)
-	else if(temperature <= REAGENTS_BURNING_TEMP_LOW)
-		var/burn_damage = amount*(REAGENTS_BURNING_TEMP_LOW - temperature)*REAGENTS_BURNING_TEMP_LOW_DAMAGE
-		M.adjustFireLoss(burn_damage)
+	return
 
 /datum/reagent/proc/touch_obj(var/obj/O, var/amount) // Acid melting, cleaner cleaning, etc
 	return
@@ -88,10 +82,10 @@
 	dose = min(dose + removed, max_dose)
 
 	//There is no science here. It's just pure gameplay balance.
-	//Every degree above/below room temp increases/decreases body temperature by 0.1 * removed.
-	//Drinking 1u of a 100 celcius mix will increase your body temperature by 8 celcius.
-	//Drinking 1u of a 1000 celcius mix will increase your body temperature by 80 celcius.
-	M.bodytemperature += (get_temperature() - (T0C + 20)) * removed * 0.1
+	//Every degree above/below room temp increases/decreases body temperature by 0.2 * removed.
+	//Drinking 1u of a 100 celcius mix will increase your body temperature by 16 celcius.
+	//Drinking 1u of a 1000 celcius mix will increase your body temperature by 160 celcius.
+	M.bodytemperature += (get_temperature() - (T0C + 20)) * removed * 0.2
 
 	for(var/datum/reagent/R in M.bloodstr.reagent_list)
 		if(istype(R, conflicting_reagent))
