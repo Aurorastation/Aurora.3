@@ -161,6 +161,18 @@
 /area/maintenance/storage
 	name = "Atmospherics"
 	icon_state = "green"
+	
+/area/maintenance/interstitial_main
+	name = "\improper Construction Level"
+	icon_state = "maintcentral"
+	
+/area/maintenance/interstitial_cargo
+	name = "\improper Cargo - Interstitial"
+	icon_state = "maint_cargo"
+	
+/area/maintenance/interstitial_bridge
+	name = "\improper Bridge - Interstitial"
+	icon_state = "maintcentral"
 
 // SUBSTATIONS (Subtype of maint, that should let them serve as shielded area during radstorm)
 

@@ -117,6 +117,8 @@
 		"Your scales bristle against the cold."
 		)
 
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
+
 /datum/species/unathi/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
@@ -185,6 +187,10 @@
 	)
 	cold_discomfort_level = 275
 
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
+
+	default_h_style = "Tajaran Ears"
+
 /datum/species/tajaran/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
@@ -244,6 +250,13 @@
 
 /datum/species/skrell/can_breathe_water()
 	return TRUE
+
+/datum/species/skrell/set_default_hair(var/mob/living/carbon/human/H)
+	if(H.gender == MALE)
+		H.h_style = "Skrell Male Tentacles"
+	else
+		H.h_style = "Skrell Female Tentacles"
+	H.update_hair()
 
 /datum/species/diona
 	name = "Diona"
@@ -330,6 +343,8 @@
 	sprint_speed_factor = 0.5	//Speed gained is minor
 	sprint_cost_factor = 0.8
 	climb_coeff = 1.3
+
+	max_hydration_factor = -1
 
 /datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
 	var/datum/dionastats/DS = H.get_dionastats()
@@ -420,6 +435,7 @@
 	radiation_mod = 0	// not affected by radiation
 	remains_type = /obj/effect/decal/remains/robot
 
+	hud_type = /datum/hud_data/ipc
 
 	brute_mod = 1.0
 	burn_mod = 1.2
@@ -483,6 +499,8 @@
 	stamina = -1	// Machines use power and generate heat, stamina is not a thing
 	sprint_speed_factor = 1  // About as capable of speed as a human
 
+	max_hydration_factor = -1
+
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15
 	var/sprint_charge_factor = 0.65
@@ -495,15 +513,16 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 /datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
 	if (H.stat == CONSCIOUS)
 		H.bodytemperature += cost * sprint_temperature_factor
-		H.nutrition -= cost * sprint_charge_factor
-		if (H.nutrition > 0)
-			return 1
-		else
+		H.adjustNutritionLoss(cost * sprint_charge_factor)
+		if(H.nutrition <= 0 && H.max_nutrition > 0)
 			H.Weaken(15)
 			H.m_intent = "walk"
 			H.hud_used.move_intent.update_move_icon(H)
 			H << span("danger", "ERROR: Power reserves depleted, emergency shutdown engaged. Backup power will come online in approximately 30 seconds, initiate charging as primary directive.")
 			playsound(H.loc, 'sound/machines/buzz-two.ogg', 100, 0)
+		else
+			return 1
+
 	return 0
 
 /datum/species/machine/handle_death(var/mob/living/carbon/human/H)
@@ -713,6 +732,8 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		"brain"               = /obj/item/organ/brain/vaurca,
 		"eyes"                = /obj/item/organ/eyes/vaurca
 	)
+
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
 /datum/species/bug/equip_survival_gear(var/mob/living/carbon/human/H)
 	if(H.backbag == 1)

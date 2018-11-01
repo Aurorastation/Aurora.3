@@ -7,7 +7,6 @@
 		slot_r_hand_str = "helmet"
 		)
 	item_flags = THICKMATERIAL
-	body_parts_covered = HEAD
 	armor = list(melee = 50, bullet = 15, laser = 50,energy = 10, bomb = 25, bio = 0, rad = 0)
 	flags_inv = HIDEEARS|BLOCKHEADHAIR
 	cold_protection = HEAD
@@ -32,7 +31,6 @@
 	desc = "It's a special helmet issued to the Warden of a securiy force. Protects the head from impacts."
 	icon_state = "policehelm"
 	flags_inv = 0
-	body_parts_covered = 0
 
 /obj/item/clothing/head/helmet/warden/commissar
 	name = "commissar's cap"
@@ -45,7 +43,6 @@
 	icon_state = "hoscap"
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	flags_inv = HIDEEARS
-	body_parts_covered = 0
 
 /obj/item/clothing/head/helmet/HoS/dermal
 	name = "dermal armour patch"
@@ -58,14 +55,12 @@
 	desc = "A stylish hat that both protects you from enraged former-crewmembers and gives you a false sense of authority."
 	icon_state = "hopcap"
 	flags_inv = 0
-	body_parts_covered = 0
 
 /obj/item/clothing/head/helmet/formalcaptain
 	name = "parade hat"
 	desc = "No one in a commanding position should be without a perfect, white hat of ultimate authority."
 	icon_state = "officercap"
 	flags_inv = 0
-	body_parts_covered = 0
 
 /obj/item/clothing/head/helmet/riot
 	name = "riot helmet"
@@ -180,6 +175,13 @@
 	body_parts_covered = HEAD|EYES
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
+
+/obj/item/clothing/head/helmet/iachelmet
+	name = "IAC helmet"
+	desc = "This helmet is meant to protect the wearer from light debris, scrapes and bumps in a disaster situation, this lightweight helmet doesn't offer any significant protection from attacks or severe accidents. It's not recommended for use as armor and it's definitely not spaceworthy."
+	icon_state = "iac_helmet"
+	armor = list(melee = 6, bullet = 10, laser = 10, energy = 3, bomb = 5, bio = 15, rad = 0)
+	flags_inv = HIDEEARS
 
 /obj/item/clothing/head/helmet/unathi
 	name = "unathi helmet"

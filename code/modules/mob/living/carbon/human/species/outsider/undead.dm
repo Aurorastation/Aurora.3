@@ -73,6 +73,12 @@
 	sprint_speed_factor = 0.3
 	exhaust_threshold = 0 //No oxyloss, so zero threshold
 
+	max_nutrition_factor = -1
+
+	max_hydration_factor = -1
+
+	hud_type = /datum/hud_data/construct
+
 /mob/living/carbon/human/apparition/Initialize(mapload)
 	. = ..(mapload, "Apparition")
 
@@ -110,8 +116,83 @@
 	sprint_speed_factor = 0.3
 	exhaust_threshold = 0 //No oxyloss, so zero threshold
 
+	max_nutrition_factor = -1
+
+	max_hydration_factor = -1
+
+	hud_type = /datum/hud_data/construct
+
 /datum/species/apparition/handle_death(var/mob/living/carbon/human/H)
 	set waitfor = 0
 	sleep(1)
 	new /obj/effect/decal/cleanable/ash(H.loc)
 	qdel(H)
+
+
+/mob/living/carbon/human/zombie/Initialize(mapload)
+	. = ..(mapload, "Zombie")
+
+/datum/species/zombie
+	name = "Zombie"
+	name_plural = "Zombies"
+	bodytype = "Zombie"
+	icobase = 'icons/mob/human_races/r_zombie.dmi'
+	deform = 'icons/mob/human_races/r_zombie.dmi'
+
+	hide_name = TRUE
+
+	name_language = null // Use the first-name last-name generator rather than a language scrambler
+
+	language = null
+	default_language = LANGUAGE_GIBBERING
+
+	unarmed_types = list(/datum/unarmed_attack/bite/infectious, /datum/unarmed_attack/claws/strong)
+	darksight = 8
+
+	has_fine_manipulation = FALSE
+
+	speech_sounds = list('sound/hallucinations/growl1.ogg','sound/hallucinations/growl2.ogg','sound/hallucinations/growl3.ogg')
+	speech_chance = 50
+
+	ethanol_resistance = -1
+	taste_sensitivity = TASTE_NUMB
+	breakcuffs = list(MALE,FEMALE,NEUTER)
+
+	has_organ = list(
+		"zombie" =    /obj/item/organ/parasite/zombie,
+		"brain" =    /obj/item/organ/brain
+		)
+
+	virus_immune = 1
+
+	vision_flags = DEFAULT_SIGHT | SEE_MOBS
+
+	reagent_tag = IS_UNDEAD
+
+	rarity_value = 10
+	blurb = "Once a living person, this unholy creature was created either by the power of science or necromancy."
+
+	remains_type = /obj/effect/decal/remains/human
+
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/undead
+
+	flesh_color = "#76a05e"
+
+	flags = NO_BLOOD | NO_SCAN | NO_SLIP | NO_POISON | NO_PAIN | NO_BREATHE
+	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR | HAS_SOCKS
+	spawn_flags = IS_RESTRICTED
+
+	stamina	=	500			  //Tireless automatons
+	stamina_recovery = 1
+	sprint_speed_factor = 0.3
+	exhaust_threshold = 0 //No oxyloss, so zero threshold
+
+	inherent_verbs = list(/mob/living/carbon/human/proc/darkness_eyes, /mob/living/proc/devour)
+
+	allowed_eat_types = TYPE_ORGANIC | TYPE_HUMANOID
+
+	gluttonous = TRUE
+
+/datum/species/zombie/handle_post_spawn(var/mob/living/carbon/human/H)
+	H.mutations.Add(CLUMSY)
+	return ..()
