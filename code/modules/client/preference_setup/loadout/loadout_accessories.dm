@@ -51,6 +51,15 @@
 	ties["blue tie"] = /obj/item/clothing/accessory/blue
 	ties["red tie"] = /obj/item/clothing/accessory/red
 	ties["horrible tie"] = /obj/item/clothing/accessory/horrible
+	ties["blue tie with a clip"] = /obj/item/clothing/accessory/tie/blue_clip
+	ties["blue long tie"] = /obj/item/clothing/accessory/tie/blue_long
+	ties["red tie with a clip"] = /obj/item/clothing/accessory/tie/red_clip
+	ties["red long tie"] = /obj/item/clothing/accessory/tie/red_long
+	ties["black tie"] = /obj/item/clothing/accessory/tie/black
+	ties["dark green tie"] = /obj/item/clothing/accessory/tie/darkgreen
+	ties["yellow tie"] = /obj/item/clothing/accessory/tie/yellow
+	ties["navy tie"] = /obj/item/clothing/accessory/tie/navy
+	ties["white tie"] = /obj/item/clothing/accessory/tie/white
 	gear_tweaks += new/datum/gear_tweak/path(ties)
 
 /datum/gear/accessory/brown_vest
@@ -97,6 +106,18 @@
 	display_name = "silver locket"
 	path = /obj/item/clothing/accessory/locket
 
+/datum/gear/accessory/locket
+	display_name = "silver locket"
+	path = /obj/item/clothing/accessory/locket
+
+/datum/gear/accessory/sweater
+	display_name = "sweater"
+	path = /obj/item/clothing/accessory/sweater
+
+/datum/gear/accessory/sweater/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
 /datum/gear/accessory/scarf
 	display_name = "scarf selection"
 	path = /obj/item/clothing/accessory/scarf
@@ -115,4 +136,13 @@
 	scarfs["dark blue scarf"] = /obj/item/clothing/accessory/scarf/dark_blue
 	scarfs["zebra scarf"] = /obj/item/clothing/accessory/scarf/zebra
 	gear_tweaks += new/datum/gear_tweak/path(scarfs)
+
+/datum/gear/accessory/chaps
+	display_name = "chaps, brown"
+	path = /obj/item/clothing/accessory/chaps
+
+/datum/gear/accessory/chaps/black
+	display_name = "chaps, black"
+	path = /obj/item/clothing/accessory/chaps/black
+
 

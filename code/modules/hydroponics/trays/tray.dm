@@ -137,7 +137,7 @@
 			return
 		var/mob/living/carbon/alien/diona/nymph = usr
 		if(nymph.nutrition > 100 && nutrilevel < 10)
-			nymph.nutrition -= ((10-nutrilevel)*5)
+			nymph.adjustNutritionLoss((10-nutrilevel)*5)
 			nutrilevel = 10
 			nymph.visible_message("<font color='blue'><b>[nymph]</b> secretes a trickle of green liquid, refilling [src].</font>","<font color='blue'>You secrete a trickle of green liquid, refilling [src].</font>")
 		return//Nymphs cant open and close lids
@@ -647,10 +647,11 @@
 			light_string = "that the internal lights are set to [tray_light] lumens"
 		else
 			var/light_available
-			if(T.dynamic_lighting)
+			if(TURF_IS_DYNAMICALLY_LIT(T))
 				light_available = T.get_lumcount(0, 3) * 10
 			else
-				light_available =  5
+				light_available = 5
+
 			light_string = "a light level of [light_available] lumens"
 
 		usr << "The tray's sensor suite is reporting [light_string] and a temperature of [environment.temperature]K."

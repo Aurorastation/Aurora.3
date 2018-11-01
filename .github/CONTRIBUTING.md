@@ -7,6 +7,36 @@ All commits whose authorship dates are not prior to `1420675200 +0000` are assum
 
 All assets including icons and sound are under a [Creative Commons 3.0 BY-SA](https://creativecommons.org/licenses/by-sa/3.0/) license unless otherwise indicated.
 
+# Github Standards
+
+### Prefer Atomic Pull-Requests
+Pull requests should do **one** thing.
+
+This means that a series of small, dependant pull requests is preferred over one large, monolithic one.
+Developers and maintainers may request that you break up a pull request into multiple smaller pull requests
+to enforce this standard at their discretion.
+
+Small pull requests allow for easier reverting, easier (and faster!) reviewing and deliberation, and enable
+developers in the future to more easily locate all changes relevant to a potential issue.
+
+### Master & Development Branch Model
+This community operates with two active branches: **master** and **development**.
+The former represents what is being currently hosted on the main server, and the
+latter is used as a staging area for new features and updates. Whenever the master
+branch is updated directly, the changes in question will be pulled to the development
+branch as soon as possible. So it can be expected that the development branch contains
+every commit that's in the master branch, but not vice-versa.
+
+All branches containing features, refactors, minor adjustments, etcetera, should be
+based off of the **development** branch. Consequently, all such PRs should be targetted
+and merged into the development branch. Where they will then be pulled into master
+with the next feature update.
+
+PRs targeting **master** should only contain bugfixes, security vulnerability patches,
+and important adjustments to recently implemented features. Due to the fact that the
+development branch can contain commits which are not in the master branch yet, it is
+important that all branches targeting master be based off of the master branch.
+
 # Coding Standards
 
 ### Absolute Pathing

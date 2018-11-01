@@ -14,10 +14,11 @@
 /obj/machinery/mineral/stacking_unit_console/proc/setup_machine(mob/user)
 	if(!machine)
 		var/area/A = get_area(src)
+		var/best_distance = INFINITY
 		for(var/obj/machinery/mineral/stacking_machine/checked_machine in SSmachinery.all_machines)
-			if(A == get_area(checked_machine))
+			if(A == get_area(checked_machine) && get_dist_euclidian(checked_machine,src) < best_distance)
 				machine = checked_machine
-				break
+				best_distance = get_dist_euclidian(checked_machine,src)
 		if (machine)
 			machine.console = src
 		else
@@ -123,9 +124,10 @@
 		var/turf/T = get_turf(input)
 		for(var/obj/item/O in T)
 			if(!O) return
-			if(istype(O, /obj/item/stack) && stack_storage[O.type] != null)
-				stack_storage[O.type]++
-				qdel(O)
+			var/obj/item/stack/S = O
+			if(istype(S) && stack_storage[S.type] != null)
+				stack_storage[S.type] += S.amount
+				qdel(S)
 			else
 				O.forceMove(output.loc)
 

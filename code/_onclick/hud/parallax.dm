@@ -21,7 +21,7 @@
 	var/parallax_speed = 0
 
 /obj/screen/plane_master
-	appearance_flags = PLANE_MASTER
+	appearance_flags = PLANE_MASTER | NO_CLIENT_COLOR
 	screen_loc = "CENTER,CENTER"
 
 /obj/screen/plane_master/parallax_master
@@ -259,6 +259,7 @@
 	LAZYCLEARLIST(parallax)
 	LAZYCLEARLIST(parallax_movable)
 
+#undef GRID_WIDTH
 #undef PARALLAX4_ICON_NUMBER
 #undef PARALLAX3_ICON_NUMBER
 #undef PARALLAX2_ICON_NUMBER

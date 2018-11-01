@@ -55,7 +55,6 @@
 		return 0
 
 	user << "<font color='blue'><b>You slot \the [input_device] into the suit module.</b></font>"
-	user.drop_from_inventory(input_device)
 	qdel(input_device)
 	accepted_item.charges++
 	return 1
@@ -232,15 +231,6 @@
 
 	gun_type = /obj/item/weapon/gun/energy/plasmacutter/mounted
 
-/obj/item/rig_module/mounted/kinetic_accelerator
-	name = "hardsuit kinetic accelerator"
-	desc = "A lethal-looking industrial cutter."
-	icon_state = "kineticgun"
-	interface_name = "kinetic accelerator"
-	interface_desc = "A ranged mining tool that does increased damage in low pressure."
-
-	gun_type = /obj/item/weapon/gun/energy/kinetic_accelerator/cyborg
-
 /obj/item/rig_module/mounted/thermalldrill
 	name = "hardsuit thermal drill"
 	desc = "An incredibly lethal looking thermal drill."
@@ -306,7 +296,6 @@
 		return
 
 	for(var/obj/item/weapon/melee/energy/blade/blade in M.contents)
-		M.drop_from_inventory(blade)
 		qdel(blade)
 
 /obj/item/rig_module/fabricator

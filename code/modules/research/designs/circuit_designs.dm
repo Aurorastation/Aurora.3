@@ -79,12 +79,6 @@
 	build_path = /obj/item/weapon/circuitboard/pandemic
 	sort_string = "FAEAA"
 
-/datum/design/circuit/scan_console
-	name = "DNA machine"
-	id = "scan_console"
-	build_path = /obj/item/weapon/circuitboard/scan_consolenew
-	sort_string = "FAGAA"
-
 /datum/design/circuit/clonecontrol
 	name = "cloning control console"
 	id = "clonecontrol"
@@ -509,3 +503,10 @@
 	req_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_POWER = 3, TECH_MATERIAL = 4, TECH_PHORON = 2)
 	build_path = /obj/item/weapon/circuitboard/rtg/advanced
 	sort_string = "WAAAD"
+
+/datum/design/circuit/slot_machine
+	name = "slot machine"
+	id = "slot_machine"
+	req_tech = list(TECH_DATA = 2)
+	build_path = /obj/item/weapon/circuitboard/slot_machine
+	sort_string = "WAAAE"

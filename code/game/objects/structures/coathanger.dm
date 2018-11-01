@@ -21,7 +21,7 @@
 		coat = null
 		update_icon()
 
-/obj/structure/coatrack/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/coatrack/attackby(obj/item/W as obj, mob/user as mob)
 	var/can_hang = 0
 	if(is_type_in_list(W, allowed))
 		can_hang = 1
@@ -42,7 +42,7 @@
 	if (can_hang && !coat)
 		src.visible_message("[mover] lands on \the [src].")
 		coat = mover
-		coat.loc = src
+		coat.forceMove(src)
 		update_icon()
 		return 0
 	else
@@ -51,4 +51,9 @@
 /obj/structure/coatrack/update_icon()
 	cut_overlays()
 	if (coat)
+		if(istype(coat, /obj/item/clothing/suit/storage/toggle))
+			var/obj/item/clothing/suit/storage/toggle/T = coat
+			if(T.icon_state == T.icon_open) // avoid icon conflicts
+				T.icon_state = T.icon_closed
+				T.item_state = T.icon_closed
 		add_overlay("coat_[coat.icon_state]")

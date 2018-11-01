@@ -63,7 +63,7 @@
 			if(istype(I,typepath))
 				if (feedback)
 					user << "You collect \the [I]."
-				I.loc = src
+				I.forceMove(src)
 				wrapped = I
 				update_icon()
 				return 1
@@ -183,15 +183,16 @@
 	//Definitions of gripper subtypes
 */
 
-// VEEEEERY limited version for mining borgs. Basically only for swapping cells and upgrading the drills.
+// VEEEEERY limited version for mining borgs. Basically only for swapping cells, upgrading the drills, and upgrading custom KAs.
 /obj/item/weapon/gripper/miner
 	name = "drill maintenance gripper"
 	desc = "A simple grasping tool for the maintenance of heavy drilling machines."
 	icon_state = "gripper-mining"
 
 	can_hold = list(
-	/obj/item/weapon/cell,
-	/obj/item/weapon/stock_parts
+		/obj/item/weapon/cell,
+		/obj/item/weapon/stock_parts,
+		/obj/item/custom_ka_upgrade
 	)
 
 /obj/item/weapon/gripper/paperwork

@@ -89,6 +89,11 @@
 	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
 	path = /obj/item/weapon/gun/projectile/heavysniper
 
+/datum/uplink_item/item/visible_weapons/gatling
+	name = "Gatling Machine Gun"
+	item_cost = DEFAULT_TELECRYSTAL_AMOUNT*2
+	path = /obj/item/minigunpack
+
 /datum/uplink_item/item/visible_weapons/chainsaw
 	name = "Chainsaw"
 	item_cost = 10
@@ -98,3 +103,13 @@
 	name = "Steel Throwing Star"
 	item_cost = 2
 	path = /obj/item/weapon/material/star
+
+/datum/uplink_item/item/visible_weapons/icelance
+	name = "Icelance Rifle"
+	item_cost = 6
+	path = /obj/item/weapon/gun/energy/rifle/icelance
+
+/datum/uplink_item/item/visible_weapons/custom_ka
+	name = "Kinetic Laser Assembly"
+	item_cost = 12
+	path = /obj/item/weapon/gun/custom_ka/frame01/illegal

@@ -29,7 +29,7 @@
 			log_debug("Organ [DEBUG_REF(src)] was not properly removed from its parent!")
 			internal_organs -= I
 			continue
-			
+
 		I.process()
 
 	handle_stance()
@@ -173,3 +173,7 @@
 	var/list/all_bits = internal_organs|organs
 	for(var/obj/item/organ/O in all_bits)
 		O.set_dna(dna)
+
+/mob/living/carbon/human/proc/get_blood_alcohol()
+	return round(intoxication/max(vessel.get_reagent_amount("blood"),1),0.01)
+

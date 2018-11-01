@@ -149,6 +149,15 @@
 	icon_state = initial(icon_state)
 	user << "<span class='notice'>\The [src] is de-energised.</span>"
 
+/obj/item/weapon/melee/energy/glaive/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+	user.setClickCooldown(16)
+	..()
+
+/obj/item/weapon/melee/energy/glaive/pre_attack(var/mob/living/target, var/mob/living/user)
+	if(istype(target))
+		cleave(user, target)
+	..()
+
 /*
  * Energy Axe
  */

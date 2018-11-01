@@ -1,5 +1,9 @@
 #define LOBBY_TIME 180
 
+#define SETUP_OK 0
+#define SETUP_REVOTE 1
+#define SETUP_REATTEMPT 2
+
 var/datum/controller/subsystem/ticker/SSticker
 
 /datum/controller/subsystem/ticker
@@ -137,11 +141,14 @@ var/datum/controller/subsystem/ticker/SSticker
 	if (pregame_timeleft <= 0 || current_state == GAME_STATE_SETTING_UP)
 		current_state = GAME_STATE_SETTING_UP
 		wait = 2 SECONDS
-		if (!setup())
-			// Something fucked up.
-			wait = 1 SECOND
-			is_revote = TRUE
-			pregame()
+		switch (setup())
+			if (SETUP_REVOTE)
+				wait = 1 SECOND
+				is_revote = TRUE
+				pregame()
+			if (SETUP_REATTEMPT)
+				pregame_timeleft = 1 SECOND
+				to_world("Reattempting gamemode selection.")
 
 /datum/controller/subsystem/ticker/proc/game_tick()
 	if(current_state != GAME_STATE_PLAYING)
@@ -354,7 +361,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		if(!runnable_modes.len)
 			current_state = GAME_STATE_PREGAME
 			world << "<B>Unable to choose playable game mode.</B> Reverting to pre-game lobby."
-			return 0
+			return SETUP_REVOTE
 		if(secret_force_mode != ROUNDTYPE_STR_SECRET && secret_force_mode != ROUNDTYPE_STR_MIXED_SECRET)
 			src.mode = config.pick_mode(secret_force_mode)
 		if(!src.mode)
@@ -379,7 +386,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	if(!src.mode)
 		current_state = GAME_STATE_PREGAME
 		world << "<span class='danger'>Serious error in mode setup!</span> Reverting to pre-game lobby."
-		return 0
+		return SETUP_REVOTE
 
 	SSjobs.ResetOccupations()
 	src.mode.create_antagonists()
@@ -387,12 +394,21 @@ var/datum/controller/subsystem/ticker/SSticker
 	SSjobs.DivideOccupations() // Apparently important for new antagonist system to register specific job antags properly.
 
 	if(!src.mode.can_start())
+		var/list/voted_not_ready = list()
+		for(var/mob/abstract/new_player/player in player_list)
+			if((player.client)&&(!player.ready))
+				voted_not_ready += player.ckey
+		message_admins("The following players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")
+		log_game("Ticker: Players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")
 		world << "<B>Unable to start [mode.name].</B> Not enough players, [mode.required_players] players needed. Reverting to pre-game lobby."
 		current_state = GAME_STATE_PREGAME
 		mode.fail_setup()
 		mode = null
 		SSjobs.ResetOccupations()
-		return 0
+		if(master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
+			return SETUP_REATTEMPT
+		else
+			return SETUP_REVOTE
 
 	var/starttime = REALTIMEOFDAY
 
@@ -438,7 +454,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	log_debug("SSticker: Round-start setup took [(REALTIMEOFDAY - starttime)/10] seconds.")
 
-	return 1
+	return SETUP_OK
 
 /datum/controller/subsystem/ticker/proc/run_callback_list(list/callbacklist)
 	set waitfor = FALSE
@@ -507,7 +523,6 @@ var/datum/controller/subsystem/ticker/SSticker
 					sleep(35)
 					world << sound('sound/effects/explosionfar.ogg')
 					//flick("end",cinematic)
-
 
 		if(2)	//nuke was nowhere nearby	//TODO: a really distant explosion animation
 			sleep(50)
@@ -596,4 +611,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	LAZYADD(roundstart_callbacks, callback)
 
 
+#undef SETUP_OK
+#undef SETUP_REVOTE
+#undef SETUP_REATTEMPT
 #undef LOBBY_TIME

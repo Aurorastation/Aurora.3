@@ -80,10 +80,10 @@
 		switch(over_object.name)
 			if("r_hand")
 				usr.u_equip(src)
-				usr.put_in_r_hand(src)
+				usr.put_in_r_hand(src,FALSE)
 			if("l_hand")
 				usr.u_equip(src)
-				usr.put_in_l_hand(src)
+				usr.put_in_l_hand(src,FALSE)
 		src.add_fingerprint(usr)
 
 
@@ -139,7 +139,7 @@
 
 /obj/item/weapon/storage/proc/open(mob/user as mob)
 	if (use_sound)
-		playsound(src.loc, src.use_sound, 50, 1, -5)
+		playsound(src.loc, src.use_sound, 50, 0, -5)
 
 	orient2hud(user)
 	if (user.s_active)
@@ -422,9 +422,9 @@
 			W.layer = 20
 		else
 			W.layer = initial(W.layer)
-		W.loc = new_location
+		W.forceMove(new_location)
 	else
-		W.loc = get_turf(src)
+		W.forceMove(get_turf(src))
 
 	if(usr)
 		src.orient2hud(usr)

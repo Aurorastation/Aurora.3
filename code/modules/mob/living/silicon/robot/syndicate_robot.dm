@@ -17,6 +17,7 @@
 	req_access = list(access_syndicate)
 	faction = "syndicate"
 	braintype = "Cyborg"
+	no_pda = TRUE
 
 /mob/living/silicon/robot/syndicate/init()
 	..()
@@ -60,11 +61,13 @@
 //syndicate borg gear
 
 /obj/item/weapon/gun/energy/mountedsmg
-	name = "mounted SMG"
-	desc = "A cyborg mounted sub machine gun, it can print more bullets over time."
-	icon_state = "lawgiver" //placeholder for now
-	item_state = "lawgiver"
+	name = "mounted submachine gun"
+	desc = "A cyborg mounted submachine gun, it can print more bullets over time."
+	icon = 'icons/obj/robot_items.dmi'
+	icon_state = "smg"
+	item_state = "smg"
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	charge_meter = 0
 	max_shots = 20
 	charge_cost = 100
 	projectile_type = /obj/item/projectile/bullet/pistol
@@ -72,6 +75,7 @@
 	use_external_power = 1
 	recharge_time = 5
 	sel_mode = 1
+	needspin = FALSE
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=list(0)),
 		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1),       dispersion=list(0, 15, 15)),

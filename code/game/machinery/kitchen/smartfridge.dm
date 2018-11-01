@@ -54,12 +54,12 @@
 	return 0
 
 /obj/machinery/smartfridge/seeds
-	name = "\improper MegaSeed Servitor"
+	name = "\improper MegaSeed Storage"
 	desc = "When you need seeds fast!"
 	icon = 'icons/obj/vending.dmi'
-	icon_state = "seeds"
-	icon_on = "seeds"
-	icon_off = "seeds-off"
+	icon_state = "nutrimat"
+	icon_on = "nutrimat"
+	icon_off = "nutrimat-off"
 
 /obj/machinery/smartfridge/seeds/accept_check(var/obj/item/O as obj)
 	if(istype(O,/obj/item/seeds/))
@@ -157,7 +157,7 @@
 			item_quants[S.name]--
 			S.name = "dried [S.name]"
 			S.color = "#AAAAAA"
-			S.loc = loc
+			S.forceMove(loc)
 		else
 			var/D = S.dried_type
 			new D(loc)
@@ -215,7 +215,7 @@
 			return 1
 		else
 			user.remove_from_mob(O)
-			O.loc = src
+			O.forceMove(src)
 			if(item_quants[O.name])
 				item_quants[O.name]++
 			else
@@ -310,8 +310,8 @@
 		ui.close()
 		return 0
 
-	if(href_list["vend"])
-		var/index = text2num(href_list["vend"])
+	if(href_list["vendItem"])
+		var/index = text2num(href_list["vendItem"])
 		var/amount = text2num(href_list["amount"])
 		var/K = item_quants[index]
 		var/count = item_quants[K]
@@ -323,7 +323,7 @@
 			var/i = amount
 			for(var/obj/O in contents)
 				if(O.name == K)
-					O.loc = loc
+					O.forceMove(loc)
 					i--
 					if(i <= 0)
 						return 1
@@ -344,7 +344,7 @@
 		item_quants[O]--
 		for(var/obj/T in contents)
 			if(T.name == O)
-				T.loc = src.loc
+				T.forceMove(src.loc)
 				throw_item = T
 				break
 		break
@@ -362,7 +362,7 @@
 /obj/machinery/smartfridge/secure/Topic(href, href_list)
 	if(stat & (NOPOWER|BROKEN)) return 0
 	if(usr.contents.Find(src) || (in_range(src, usr) && istype(loc, /turf)))
-		if(!allowed(usr) && !emagged && locked != -1 && href_list["vend"])
+		if(!allowed(usr) && !emagged && locked != -1 && href_list["vendItem"])
 			usr << "<span class='warning'>Access denied.</span>"
 			return 0
 	return ..()

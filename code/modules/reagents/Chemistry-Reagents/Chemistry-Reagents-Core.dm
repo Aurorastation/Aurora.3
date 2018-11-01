@@ -67,6 +67,13 @@
 			B.blood_DNA["UNKNOWN DNA STRUCTURE"] = "X*"
 
 /datum/reagent/blood/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(ishuman(M))
+		if (M.mind && M.mind.vampire)
+			if(M.dna.unique_enzymes == data["blood_DNA"]) //so vampires can't drink their own blood
+				return
+			M.mind.vampire.blood_usable += removed
+			M<< "<span class='notice'>You have accumulated [M.mind.vampire.blood_usable] [M.mind.vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>"
+			return
 	if(dose > 5)
 		M.adjustToxLoss(removed)
 	if(dose > 15)
@@ -107,6 +114,13 @@
 /datum/reagent/blood/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.inject_blood(src, volume)
 	remove_self(volume)
+
+/datum/reagent/blood/proc/get_diseases()
+	. = list()
+	if(data && data["viruses"])
+		for(var/thing in data["viruses"])
+			var/datum/disease/D = thing
+			. += D
 
 /datum/reagent/vaccine
 	name = "Vaccine"
@@ -150,12 +164,21 @@
 	description = "A ubiquitous chemical substance that is composed of hydrogen and oxygen."
 	reagent_state = LIQUID
 	color = "#0064C877"
-	metabolism = REM * 10
+	metabolism = REM * 2
+	ingest_met = REM * 10
+	touch_met = REM * 30
 	taste_description = "water"
 
 	glass_icon_state = "glass_clear"
 	glass_name = "glass of water"
 	glass_desc = "The father of all refreshments."
+
+	unaffected_species = IS_MACHINE
+
+/datum/reagent/water/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(!istype(M))
+		return
+	M.adjustHydrationLoss(-6*removed)
 
 /datum/reagent/water/touch_turf(var/turf/simulated/T)
 	if(!istype(T))
@@ -168,7 +191,7 @@
 	var/hotspot = (locate(/obj/fire) in T)
 	if(hotspot && !istype(T, /turf/space))
 		var/datum/gas_mixture/lowertemp = T.remove_air(T:air:total_moles)
-		lowertemp.temperature = max(min(lowertemp.temperature-2000, lowertemp.temperature / 2), 0)
+		lowertemp.temperature = max(lowertemp.temperature-2000, lowertemp.temperature / 2, T0C)
 		lowertemp.react()
 		T.assume_air(lowertemp)
 		qdel(hotspot)
@@ -180,7 +203,7 @@
 			T.visible_message("<span class='warning'>The water sizzles as it lands on \the [T]!</span>")
 
 	else if(volume >= 10)
-		T.wet_floor(1)
+		T.wet_floor(WET_TYPE_WATER,volume)
 
 /datum/reagent/water/touch_obj(var/obj/O)
 	if(istype(O))
@@ -213,10 +236,9 @@
 	if(istype(M) && !istype(M, /mob/abstract))
 		M.color = initial(M.color)
 
-/datum/reagent/water/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	if(istype(M, /mob/living/carbon/slime))
-		var/mob/living/carbon/slime/S = M
-		S.adjustToxLoss(8 * removed) // Babies have 150 health, adults have 200; So, 10 units and 13.5
+/datum/reagent/water/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed)
+	if(istype(S))
+		S.adjustToxLoss( volume * (removed/REM) * 0.23 )
 		if(!S.client)
 			if(S.Target) // Like cats
 				S.Target = null
@@ -227,7 +249,7 @@
 /datum/reagent/fuel
 	name = "Welding fuel"
 	id = "fuel"
-	description = "Required for welders. Flamable."
+	description = "Required for welders. Flammable."
 	reagent_state = LIQUID
 	color = "#660000"
 	touch_met = 5
@@ -249,3 +271,27 @@
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!
 
+/datum/reagent/fuel/napalm
+	name = "Zo'rane Fire"
+	id = "greekfire"
+	description = "A highly flammable and cohesive gel once used commonly in the tunnels of Sedantis. Napalm sticks to kids."
+	reagent_state = LIQUID
+	color = "#D35908"
+	touch_met = 50
+	taste_description = "fiery death"
+
+/datum/reagent/fuel/napalm/touch_turf(var/turf/T)
+	new /obj/effect/decal/cleanable/liquid_fuel/napalm(T, volume/3)
+	for(var/mob/living/L in T)
+		L.adjust_fire_stacks(volume / 10)
+		L.add_modifier(/datum/modifier/napalm, MODIFIER_CUSTOM, _strength = 2)
+	remove_self(volume)
+	return
+
+/datum/reagent/fuel/touch_mob(var/mob/living/L, var/amount)
+	if(istype(L))
+		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!
+		new /obj/effect/decal/cleanable/liquid_fuel/napalm(get_turf(L), amount/3)
+		L.adjustFireLoss(amount / 10)
+		remove_self(volume)
+		L.add_modifier(/datum/modifier/napalm, MODIFIER_CUSTOM, _strength = 2)

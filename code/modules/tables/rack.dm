@@ -6,11 +6,15 @@
 	can_plate = 0
 	can_reinforce = 0
 	flipped = -1
+	table_mat = DEFAULT_TABLE_MATERIAL
 
 /obj/structure/table/rack/New()
 	..()
 	verbs -= /obj/structure/table/verb/do_flip
 	verbs -= /obj/structure/table/proc/do_put
+
+/obj/structure/table/rack/remove_material(obj/item/weapon/wrench/W, mob/user)
+	src.dismantle(W, user)
 
 /obj/structure/table/rack/update_connections()
 	return

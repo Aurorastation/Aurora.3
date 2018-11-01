@@ -24,7 +24,7 @@
 	slot_flags = SLOT_BACK
 	max_w_class = 3
 	max_storage_space = 28
-	var/species_restricted = list("exclude","Vaurca Breeder")
+	var/species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
 
 /obj/item/weapon/storage/backpack/mob_can_equip(M as mob, slot)
 
@@ -175,20 +175,7 @@
 	desc = "It's a Vaurca cloak, with paltry storage options."
 	icon_state = "cape"
 	max_storage_space = 12
-
-/obj/item/weapon/storage/backpack/cloak/mob_can_equip(mob/user)
-
-	if (!..())
-		return 0
-
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if (H.species.get_bodytype() == "Vaurca")
-			item_state = "vaurcacape"
-	else
-		item_state = "cape"
-
-	return 1
+	sprite_sheets = list("Vaurca" = 'icons/mob/species/vaurca/back.dmi')
 
 /obj/item/weapon/storage/backpack/syndie
 	name = "syndicate rucksack"

@@ -94,6 +94,10 @@ var/global/list/sparring_attack_cache = list()
 
 /datum/unarmed_attack/proc/show_attack(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone, var/attack_damage)
 	var/obj/item/organ/external/affecting = target.get_organ(zone)
+
+	if(!affecting)
+		return
+
 	user.visible_message("<span class='warning'>[user] [pick(attack_verb)] [target] in the [affecting.name]!</span>")
 	playsound(user.loc, attack_sound, 25, 1, -1)
 
@@ -131,6 +135,10 @@ var/global/list/sparring_attack_cache = list()
 
 /datum/unarmed_attack/punch/show_attack(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone, var/attack_damage)
 	var/obj/item/organ/external/affecting = target.get_organ(zone)
+
+	if(!affecting)
+		return
+
 	var/organ = affecting.name
 
 	attack_damage = Clamp(attack_damage, 1, 5) // We expect damage input of 1 to 5 for this proc. But we leave this check juuust in case.
@@ -203,6 +211,10 @@ var/global/list/sparring_attack_cache = list()
 
 /datum/unarmed_attack/kick/show_attack(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone, var/attack_damage)
 	var/obj/item/organ/external/affecting = target.get_organ(zone)
+
+	if(!affecting)
+		return
+
 	var/organ = affecting.name
 
 	attack_damage = Clamp(attack_damage, 1, 5)
@@ -246,7 +258,12 @@ var/global/list/sparring_attack_cache = list()
 
 /datum/unarmed_attack/stomp/show_attack(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone, var/attack_damage)
 	var/obj/item/organ/external/affecting = target.get_organ(zone)
+
+	if(!affecting)
+		return
+
 	var/organ = affecting.name
+
 	var/obj/item/clothing/shoes = user.shoes
 
 	attack_damage = Clamp(attack_damage, 1, 5)
@@ -256,7 +273,7 @@ var/global/list/sparring_attack_cache = list()
 		if(5)		user.visible_message("<span class='danger'>[pick("[user] landed a powerful stomp on", "[user] stomped down hard on", "[user] slammed \his [shoes ? copytext(shoes.name, 1, -1) : "foot"] down hard onto")] [target]'s [organ]!</span>") //Devastated lol. No. We want to say that the stomp was powerful or forceful, not that it /wrought devastation/
 
 /datum/unarmed_attack/light_strike
-	damage_type = AGONY
+	damage_type = HALLOSS
 	attack_noun = list("tap","light strike")
 	attack_verb = list("tapped", "lightly struck")
 	damage = 2

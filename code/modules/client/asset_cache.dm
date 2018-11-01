@@ -168,7 +168,8 @@ var/list/asset_datums = list()
 		"bootstrap.min.js" = 'html/bootstrap/js/bootstrap.min.js',
 		"jquery-2.0.0.min.js" = 'html/jquery/jquery-2.0.0.min.js',
 		"ie-truth.min.js" = 'html/iestats/ie-truth.min.js',
-		"conninfo.min.js" = 'html/iestats/conninfo.min.js'
+		"conninfo.min.js" = 'html/iestats/conninfo.min.js',
+		"copyright_infrigement.png" = 'html/copyright_infrigement.png'
 	)
 
 /datum/asset/simple/paper
@@ -201,6 +202,17 @@ var/list/asset_datums = list()
 		"chevron-expand.png" = 'html/chevron-expand.png',
 		"changelog.css" = 'html/changelog.css',
 		"changelog.js" = 'html/changelog.js'
+	)
+
+/datum/asset/simple/vueui_theming
+	assets = list(
+		"vueui.css" = 'vueui/dist/app.css'
+	)
+
+/datum/asset/simple/vueui
+	assets = list(
+		"vueui.js" = 'vueui/dist/app.js',
+		"vueui.css" = 'vueui/dist/app.css'
 	)
 
 /datum/asset/chem_master

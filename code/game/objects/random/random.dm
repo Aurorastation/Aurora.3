@@ -193,10 +193,14 @@
 		/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/libertycap = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiadeus = 1,
+		/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/reishi = 1,
+		/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/destroyingangel = 1,
+		/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/ghostmushroom = 0.5,
 		/obj/item/seeds/ambrosiavulgarisseed = 2,
 		/obj/item/seeds/ambrosiadeusseed = 1,
 		/obj/item/clothing/mask/gas/voice = 1,
-		/obj/item/clothing/gloves/brassknuckles = 2
+		/obj/item/clothing/gloves/brassknuckles = 2,
+		/obj/item/weapon/reagent_containers/inhaler/space_drugs = 2
 	)
 
 /obj/random/energy
@@ -569,7 +573,8 @@
 		/obj/item/weapon/material/twohanded/pike,
 		/obj/item/weapon/material/twohanded/pike/halberd,
 		/obj/item/weapon/material/twohanded/pike/pitchfork,
-		/obj/item/weapon/melee/whip
+		/obj/item/weapon/melee/whip,
+		/obj/item/clothing/accessory/storage/bayonet
 	)
 
 /obj/random/coin
@@ -674,7 +679,6 @@
 		/obj/item/clothing/under/overalls = 1,
 		/obj/item/clothing/under/redcoat = 0.5,
 		/obj/item/clothing/under/serviceoveralls = 1,
-		/obj/item/clothing/under/psyche = 0.5,
 		/obj/item/clothing/under/rank/dispatch = 0.8,
 		/obj/item/clothing/under/syndicate/tacticool = 1,
 		/obj/item/clothing/under/syndicate/tracksuit = 0.2,
@@ -815,7 +819,12 @@
 		/obj/random/junk = 0.9,
 		/obj/item/weapon/spacecash/ewallet/lotto = 0.3,
 		/obj/random/spacecash = 0.3,
-		/obj/item/device/firing_pin = 0.3
+		/obj/item/device/firing_pin = 0.3,
+		/obj/item/weapon/reagent_containers/inhaler/hyperzine = 0.1,
+		/obj/item/weapon/storage/box/pineapple = 0.1,
+		/obj/item/weapon/flag/america = 0.1,
+		/obj/item/weapon/flag/america/l = 0.1,
+		/obj/item/weapon/razor = 0.5
 	)
 
 /obj/random/hoodie
@@ -939,3 +948,146 @@
 		/obj/item/weapon/material/sword/gladius
 	)
 
+/obj/random/arcade
+	name = "random arcade loot"
+	desc = "Arcade loot!"
+	icon = 'icons/obj/items.dmi'
+	icon_state = "gift3"
+	spawnlist = list(
+		/obj/item/weapon/storage/box/snappops			= 11,
+		/obj/item/clothing/under/syndicate/tacticool	= 5,
+		/obj/item/toy/sword								= 22,
+		/obj/item/weapon/gun/projectile/revolver/capgun	= 11,
+		/obj/item/toy/crossbow							= 11,
+		/obj/item/weapon/storage/fancy/crayons			= 11,
+		/obj/item/toy/spinningtoy						= 11,
+		/obj/item/toy/prize/ripley						= 1,
+		/obj/item/toy/prize/fireripley					= 1,
+		/obj/item/toy/prize/deathripley					= 1,
+		/obj/item/toy/prize/gygax						= 1,
+		/obj/item/toy/prize/durand						= 1,
+		/obj/item/toy/prize/honk						= 1,
+		/obj/item/toy/prize/marauder					= 1,
+		/obj/item/toy/prize/seraph						= 1,
+		/obj/item/toy/prize/mauler						= 1,
+		/obj/item/toy/prize/odysseus					= 1,
+		/obj/item/toy/prize/phazon						= 1,
+		/obj/item/toy/waterflower						= 5,
+		/obj/random/action_figure						= 11,
+		/obj/random/plushie								= 44,
+		/obj/item/toy/cultsword							= 5,
+		/obj/item/toy/syndicateballoon					= 5,
+		/obj/item/toy/nanotrasenballoon					= 5,
+		/obj/item/toy/katana							= 11,
+		/obj/item/toy/bosunwhistle						= 5,
+		/obj/item/weapon/storage/belt/champion			= 11,
+		/obj/item/weapon/pen/invisible					= 5,
+		/obj/item/weapon/grenade/fake					= 1,
+		/obj/item/weapon/bikehorn						= 11,
+		/obj/item/clothing/mask/fakemoustache			= 11,
+		/obj/item/clothing/mask/gas/clown_hat			= 11,
+		/obj/item/clothing/mask/gas/mime				= 11,
+		/obj/item/weapon/gun/energy/wand/toy			= 5,
+		/obj/item/device/binoculars						= 11,
+		/obj/item/device/megaphone						= 11,
+		/obj/item/eightball								= 11,
+		/obj/item/eightball/haunted						= 1,
+		/obj/item/eightball/broken						= 1,
+		/obj/item/weapon/spirit_board					= 5
+	)
+
+/obj/random/arcade/orion
+	name = "random arcade loot for orion trails"
+	desc = "Arcade loot for orion trails aracde machine!"
+	icon = 'icons/obj/items.dmi'
+	icon_state = "gift3"
+	spawnlist = list(
+		/obj/item/clothing/under/syndicate/tacticool	= 7,
+		/obj/item/toy/sword								= 22,
+		/obj/item/weapon/gun/projectile/revolver/capgun	= 11,
+		/obj/item/weapon/gun/bang						= 22,
+		/obj/item/toy/crossbow							= 11,
+		/obj/random/action_figure						= 11,
+		/obj/item/toy/cultsword							= 7,
+		/obj/item/toy/syndicateballoon					= 10,
+		/obj/item/toy/nanotrasenballoon					= 5,
+		/obj/item/toy/katana							= 11,
+		/obj/item/weapon/storage/belt/champion			= 11,
+		/obj/item/weapon/pen/invisible					= 10,
+		/obj/item/weapon/grenade/fake					= 7,
+		/obj/item/weapon/gun/energy/wand/toy			= 7,
+		/obj/item/device/binoculars						= 11,
+		/obj/item/device/megaphone						= 11,
+		/obj/item/eightball								= 11,
+		/obj/item/eightball/haunted						= 5,
+		/obj/item/weapon/spirit_board					= 5
+	)
+
+/obj/random/custom_ka
+	name = "random custom kinetic accelerator"
+	desc = "Contains random assemblies. The parts may not always be compatible with eachother."
+	icon = 'icons/obj/kinetic_accelerators.dmi'
+	icon_state = "frame01"
+	spawnlist = list(
+		/obj/item/toy/prize/honk
+	)
+	has_postspawn = TRUE
+	post_spawn(obj/thing)
+		var/list/frames = list(
+			/obj/item/weapon/gun/custom_ka/frame01 = 1,
+			/obj/item/weapon/gun/custom_ka/frame02 = 2,
+			/obj/item/weapon/gun/custom_ka/frame03 = 3,
+			/obj/item/weapon/gun/custom_ka/frame04 = 2,
+			/obj/item/weapon/gun/custom_ka/frame05 = 1
+		)
+
+		var/list/cells = list(
+			/obj/item/custom_ka_upgrade/cells/cell01 = 2,
+			/obj/item/custom_ka_upgrade/cells/cell02 = 3,
+			/obj/item/custom_ka_upgrade/cells/cell03 = 2,
+			/obj/item/custom_ka_upgrade/cells/cell04 = 1,
+			/obj/item/custom_ka_upgrade/cells/cell05 = 1
+		)
+
+		var/list/barrels = list(
+			/obj/item/custom_ka_upgrade/barrels/barrel01 = 2,
+			/obj/item/custom_ka_upgrade/barrels/barrel02 = 3,
+			/obj/item/custom_ka_upgrade/barrels/barrel03 = 2,
+			/obj/item/custom_ka_upgrade/barrels/barrel04 = 1,
+			/obj/item/custom_ka_upgrade/barrels/barrel05 = 1
+		)
+
+		var/frame_type = pickweight(frames)
+		var/obj/item/weapon/gun/custom_ka/spawned_frame = new frame_type(thing.loc)
+
+		var/cell_type = pickweight(cells)
+		spawned_frame.installed_cell = new cell_type(spawned_frame)
+
+		var/barrel_type = pickweight(barrels)
+		spawned_frame.installed_barrel = new barrel_type(spawned_frame)
+
+		spawned_frame.installed_upgrade_chip = new /obj/item/custom_ka_upgrade/upgrade_chips/capacity(spawned_frame)
+
+		spawned_frame.update_icon()
+		spawned_frame.update_stats()
+
+		qdel(thing)
+
+/obj/random/prebuilt_ka
+	name = "random prebuilt kinetic accelerator"
+	desc = "Contains working kinetic accelerators that were prebuilt in code."
+	icon = 'icons/obj/kinetic_accelerators.dmi'
+	icon_state = "frameA"
+	spawnlist = list(
+		/obj/item/weapon/gun/custom_ka/frame01/prebuilt = 2.5,
+		/obj/item/weapon/gun/custom_ka/frame02/prebuilt = 5,
+		/obj/item/weapon/gun/custom_ka/frame03/prebuilt = 10,
+		/obj/item/weapon/gun/custom_ka/frame04/prebuilt = 5,
+		/obj/item/weapon/gun/custom_ka/frame05/prebuilt = 2.5,
+		/obj/item/weapon/gun/custom_ka/frameA/prebuilt = 1,
+		/obj/item/weapon/gun/custom_ka/frameB/prebuilt = 1,
+		/obj/item/weapon/gun/custom_ka/frameC/prebuilt = 1,
+		/obj/item/weapon/gun/custom_ka/frameD/prebuilt = 1,
+		/obj/item/weapon/gun/custom_ka/frameF/prebuilt01 = 1,
+		/obj/item/weapon/gun/custom_ka/frameF/prebuilt02 = 1
+	)

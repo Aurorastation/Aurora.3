@@ -42,7 +42,8 @@ var/datum/antagonist/raider/raiders
 	var/list/raider_glasses = list(
 		/obj/item/clothing/glasses/thermal,
 		/obj/item/clothing/glasses/eyepatch/hud/thermal,
-		/obj/item/clothing/glasses/thermal/plain/monocle
+		/obj/item/clothing/glasses/thermal/plain/monocle,
+		/obj/item/clothing/glasses/thermal/aviator
 		)
 
 	var/list/raider_helmets = list(
@@ -62,12 +63,13 @@ var/datum/antagonist/raider/raiders
 		/obj/item/clothing/suit/storage/toggle/hoodie,
 		/obj/item/clothing/suit/storage/toggle/hoodie/black,
 		/obj/item/clothing/suit/unathi/mantle,
-		/obj/item/clothing/suit/poncho
+		/obj/item/clothing/accessory/poncho
 		)
 
 	var/list/raider_guns = list(
 		/obj/item/weapon/gun/energy/rifle/laser,
 		/obj/item/weapon/gun/energy/rifle/laser/xray,
+		/obj/item/weapon/gun/energy/rifle/icelance,
 		/obj/item/weapon/gun/energy/retro,
 		/obj/item/weapon/gun/energy/xray,
 		/obj/item/weapon/gun/energy/mindflayer,
@@ -91,7 +93,7 @@ var/datum/antagonist/raider/raiders
 		/obj/item/weapon/gun/projectile/shotgun/doublebarrel,
 		/obj/item/weapon/gun/projectile/shotgun/doublebarrel/pellet,
 		/obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn,
-		/obj/item/weapon/gun/projectile/boltaction,
+		/obj/item/weapon/gun/projectile/shotgun/pump/rifle,
 		/obj/item/weapon/gun/projectile/colt,
 		/obj/item/weapon/gun/projectile/sec,
 		/obj/item/weapon/gun/projectile/pistol,
@@ -103,7 +105,7 @@ var/datum/antagonist/raider/raiders
 		/obj/item/weapon/gun/projectile/contender,
 		/obj/item/weapon/gun/projectile/pirate,
 		/obj/item/weapon/gun/projectile/tanto,
-		/obj/item/weapon/gun/projectile/boltaction/vintage
+		/obj/item/weapon/gun/projectile/shotgun/pump/rifle/vintage
 		)
 
 
@@ -266,14 +268,14 @@ var/datum/antagonist/raider/raiders
 		if(!(primary.slot_flags & SLOT_HOLSTER))
 			holster = new new_holster(T)
 			holster.holstered = secondary
-			secondary.loc = holster
+			secondary.forceMove(holster)
 		else
 			player.equip_to_slot_or_del(secondary, slot_belt)
 
 	if(primary.slot_flags & SLOT_HOLSTER)
 		holster = new new_holster(T)
 		holster.holstered = primary
-		primary.loc = holster
+		primary.forceMove(holster)
 	else if(!player.belt && (primary.slot_flags & SLOT_BELT))
 		player.equip_to_slot_or_del(primary, slot_belt)
 	else if(!player.back && (primary.slot_flags & SLOT_BACK))

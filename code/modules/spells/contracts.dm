@@ -34,7 +34,6 @@
 			for(var/spell_type in contract_spells)
 				M.add_spell(new spell_type(user), "const_spell_ready")
 		log_and_message_admins("signed their soul over to \the [contract_master] using \the [src].", user)
-		user.drop_from_inventory(src)
 		qdel(src)
 
 /obj/item/weapon/contract/proc/contract_effect(mob/user as mob)
@@ -55,7 +54,11 @@
 		user << "<span class='notice'>With the signing of this paper you agree to become \the [contract_master]'s apprentice in the art of wizardry.</span>"
 		user.faction = "Space Wizard"
 		wizards.add_antagonist_mind(user.mind,1)
-		new /obj/item/weapon/spellbook/student(get_turf(user))
+		var/obj/item/I = new /obj/item/weapon/spellbook/student(get_turf(user))
+		user.put_in_hands(I)
+		new /obj/item/clothing/shoes/sandal(get_turf(user))
+		new /obj/item/clothing/suit/wizrobe(get_turf(user))
+		new /obj/item/clothing/head/wizard(get_turf(user))
 		return 1
 	return 0
 

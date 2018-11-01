@@ -289,7 +289,7 @@
 		if (health < healthbefore)
 			instant_aggro()
 
-/mob/living/simple_animal/hostile/bear/ex_act()
+/mob/living/simple_animal/hostile/bear/ex_act(var/severity = 2.0)
 	var/healthbefore = health
 	..()
 	spawn(1)
@@ -489,7 +489,7 @@
 //Used to move to a new part of the station when it sees another bear, or it hasnt found any prey
 /mob/living/simple_animal/hostile/bear/spatial/proc/teleport()
 	if (stat == CONSCIOUS)
-		var/area/A = random_station_area()
+		var/area/A = random_station_area(TRUE) //Don't teleport to areas with players in them.
 		var/turf/target = A.random_space()
 
 		teleport_to(target)

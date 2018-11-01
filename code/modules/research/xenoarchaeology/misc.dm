@@ -114,3 +114,5 @@
 
 /obj/machinery/alarm/monitor/isolation
 	req_one_access = list(access_research, access_atmospherics, access_engine_equip)
+	locked = 0
+	remote_control = 1

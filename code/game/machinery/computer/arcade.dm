@@ -2,45 +2,8 @@
 	name = "random arcade"
 	desc = "random arcade machine"
 	icon_state = "arcade"
-
 	icon_screen = "invaders"
-	var/list/prizes = list(	/obj/item/weapon/storage/box/snappops			= 11,
-							/obj/item/clothing/under/syndicate/tacticool	= 5,
-							/obj/item/toy/sword								= 22,
-							/obj/item/weapon/gun/projectile/revolver/capgun	= 11,
-							/obj/item/toy/crossbow							= 11,
-							/obj/item/weapon/storage/fancy/crayons			= 11,
-							/obj/item/toy/spinningtoy						= 11,
-							/obj/item/toy/prize/ripley						= 1,
-							/obj/item/toy/prize/fireripley					= 1,
-							/obj/item/toy/prize/deathripley					= 1,
-							/obj/item/toy/prize/gygax						= 1,
-							/obj/item/toy/prize/durand						= 1,
-							/obj/item/toy/prize/honk						= 1,
-							/obj/item/toy/prize/marauder					= 1,
-							/obj/item/toy/prize/seraph						= 1,
-							/obj/item/toy/prize/mauler						= 1,
-							/obj/item/toy/prize/odysseus					= 1,
-							/obj/item/toy/prize/phazon						= 1,
-							/obj/item/toy/waterflower						= 5,
-							/obj/random/action_figure						= 11,
-							/obj/random/plushie								= 44,
-							/obj/item/toy/cultsword							= 5,
-							/obj/item/toy/syndicateballoon					= 5,
-							/obj/item/toy/nanotrasenballoon					= 5,
-							/obj/item/toy/katana							= 11,
-							/obj/item/toy/bosunwhistle						= 5,
-							/obj/item/weapon/storage/belt/champion			= 11,
-							/obj/item/weapon/pen/invisible					= 5,
-							/obj/item/weapon/grenade/fake					= 1,
-							/obj/item/weapon/bikehorn						= 11,
-							/obj/item/clothing/mask/fakemoustache			= 11,
-							/obj/item/clothing/mask/gas/clown_hat			= 11,
-							/obj/item/clothing/mask/gas/mime				= 11,
-							/obj/item/weapon/gun/energy/wand/toy			= 5,
-							/obj/item/device/binoculars						= 11,
-							/obj/item/device/megaphone						= 11
-						)
+	var/prize = /obj/random/arcade
 
 /obj/machinery/computer/arcade/Initialize()
 	. = ..()
@@ -55,21 +18,18 @@
 
 /obj/machinery/computer/arcade/proc/prizevend()
 	if(!contents.len)
-		var/prizeselect = pickweight(prizes)
-		new prizeselect(src.loc)
+		new prize(src.loc)
 	else
-		var/atom/movable/prize = pick(contents)
-		prize.loc = src.loc
+		var/atom/movable/chosen_prize = pick(contents)
+		chosen_prize.forceMove(src.loc)
 
 /obj/machinery/computer/arcade/attack_ai(mob/user as mob)
 	return src.attack_hand(user)
-
 
 /obj/machinery/computer/arcade/emp_act(severity)
 	if(stat & (NOPOWER|BROKEN))
 		..(severity)
 		return
-	var/empprize = null
 	var/num_of_prizes = 0
 	switch(severity)
 		if(1)
@@ -77,8 +37,7 @@
 		if(2)
 			num_of_prizes = rand(0,2)
 	for(num_of_prizes; num_of_prizes > 0; num_of_prizes--)
-		empprize = pickweight(prizes)
-		new empprize(src.loc)
+		new prize(src.loc)
 
 	..(severity)
 
@@ -219,10 +178,6 @@
 				log_game("[key_name_admin(usr)] has outbombed Cuban Pete and been awarded a bomb.",ckey=key_name(usr))
 				src.New()
 				emagged = 0
-			else if(!contents.len)
-				feedback_inc("arcade_win_normal")
-				src.prizevend()
-
 			else
 				feedback_inc("arcade_win_normal")
 				src.prizevend()
