@@ -14,14 +14,13 @@
 	var/datum/dionastats/DS
 
 
-
 /mob/living/carbon/human/proc/setup_gestalt()
 	composition_reagent = "nutriment"//Dionae are plants, so eating them doesn't give animal protein
 	setup_dionastats()
 	verbs += /mob/living/carbon/human/proc/check_light
 	verbs += /mob/living/carbon/human/proc/diona_split_nymph
 	verbs += /mob/living/proc/devour
-
+	species.vision_organ = "head"
 
 	spawn(10)
 	//This is delayed after a gestalt is spawned, to allow nymphs to be added to it before extras are created
@@ -291,7 +290,7 @@
 	visible_message("<span class='warning'>\The [src] quivers slightly, then splits apart with a wet slithering noise.</span>")
 	qdel(src)
 
-/mob/living/carbon/human/handle_speech_problems(var/message, var/verb, var/message_mode)
+/mob/living/carbon/human/diona/handle_speech_problems(var/message, var/verb, var/message_mode)
 // Diona without head can live, but they cannot talk as loud anymore.
 	var/list/returns = ..()
 	var/obj/item/organ/external/O = src.organs_by_name["head"]
@@ -301,7 +300,7 @@
 		returns[4] = world.view
 	return returns
 
-/mob/living/carbon/human/handle_speech_sound()
+/mob/living/carbon/human/diona/handle_speech_sound()
 	var/list/returns = ..()
 	if(!isnull(returns[2]))
 		returns[2] *= 0.5 //muffle speech

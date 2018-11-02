@@ -157,10 +157,11 @@
 				message = uppertext(message)
 				verb = "yells loudly"
 
-	var/list/returns[3]
+	var/list/returns[4]
 	returns[1] = message
 	returns[2] = verb
 	returns[3] = speech_problem_flag
+	returns[4] = world.view
 	return returns
 
 /mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
