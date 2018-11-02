@@ -996,6 +996,33 @@
 		/obj/item/weapon/spirit_board					= 5
 	)
 
+/obj/random/arcade/orion
+	name = "random arcade loot for orion trails"
+	desc = "Arcade loot for orion trails aracde machine!"
+	icon = 'icons/obj/items.dmi'
+	icon_state = "gift3"
+	spawnlist = list(
+		/obj/item/clothing/under/syndicate/tacticool	= 7,
+		/obj/item/toy/sword								= 22,
+		/obj/item/weapon/gun/projectile/revolver/capgun	= 11,
+		/obj/item/weapon/gun/bang						= 22,
+		/obj/item/toy/crossbow							= 11,
+		/obj/random/action_figure						= 11,
+		/obj/item/toy/cultsword							= 7,
+		/obj/item/toy/syndicateballoon					= 10,
+		/obj/item/toy/nanotrasenballoon					= 5,
+		/obj/item/toy/katana							= 11,
+		/obj/item/weapon/storage/belt/champion			= 11,
+		/obj/item/weapon/pen/invisible					= 10,
+		/obj/item/weapon/grenade/fake					= 7,
+		/obj/item/weapon/gun/energy/wand/toy			= 7,
+		/obj/item/device/binoculars						= 11,
+		/obj/item/device/megaphone						= 11,
+		/obj/item/eightball								= 11,
+		/obj/item/eightball/haunted						= 5,
+		/obj/item/weapon/spirit_board					= 5
+	)
+
 /obj/random/custom_ka
 	name = "random custom kinetic accelerator"
 	desc = "Contains random assemblies. The parts may not always be compatible with eachother."
