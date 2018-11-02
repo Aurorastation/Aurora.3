@@ -44,6 +44,18 @@
 		return 1
 	return 0
 
+/obj/machinery/smartfridge/foodheater
+	name = "\improper SmartHeater"
+	desc = "To keep the food warm!"
+	icon_state = "smartfridge_food"
+	icon_on = "smartfridge_food"
+	icon_off = "smartfridge_food-off"
+
+/obj/machinery/smartfridge/foodheater/accept_check(var/obj/item/O as obj)
+	if(istype(O,/obj/item/weapon/reagent_containers/food/snacks))
+		return 1
+	return 0
+
 /obj/machinery/smartfridge/seeds
 	name = "\improper MegaSeed Storage"
 	desc = "When you need seeds fast!"
