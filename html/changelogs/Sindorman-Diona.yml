@@ -10,4 +10,7 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - tweak: "Diona no longer splits after loosing head. However without head their speech range is reduced to 3 tiles and is muffled, and they go blind."
+  - tweak: "When Diona Gestalt splits all their reagents are transfered equally among nymphs. Meaning if you had some reagents that killed you, your nymphs might die as well."
+  - tweak: "Diona nymph is not affected same way by Arithrazine, Hyronalin, Radium."
+  - tweak: "Radium now heals brute, burn, and toxin damage for Diona Gestalt and numphs."
   - tweak: "Time to regrow a limb for Diona was increased from 1 minutes to 10 minutes, if all requirements are met."

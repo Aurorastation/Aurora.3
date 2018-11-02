@@ -455,7 +455,7 @@
 	var/last_taste_time = -10000
 
 /datum/reagent/hyronalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
+	if(M.is_diona())
 		if(last_taste_time + 950 < world.time) // Not to spam message
 			to_chat(M, "<span class='danger'>Your body withers as you feel a searing pain throughout.</span>")
 			last_taste_time = world.time
@@ -478,7 +478,7 @@
 	var/last_taste_time = -10000
 
 /datum/reagent/arithrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
+	if(M.is_diona())
 		if(last_taste_time + 450 < world.time) // Not to spam message
 			to_chat(M, "<span class='danger'>Your body withers as you feel a searing pain throughout.</span>")
 			last_taste_time = world.time
