@@ -206,7 +206,9 @@
 		hud = new()
 
 	//If the species has eyes, they are the default vision organ
-	if(!vision_organ && has_organ["eyes"])
+	if(name == "Diona")
+		vision_organ = "head"
+	else if(!vision_organ && has_organ["eyes"])
 		vision_organ = "eyes"
 
 	// Same, but for lungs.

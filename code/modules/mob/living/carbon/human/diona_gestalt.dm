@@ -20,7 +20,6 @@
 	verbs += /mob/living/carbon/human/proc/check_light
 	verbs += /mob/living/carbon/human/proc/diona_split_nymph
 	verbs += /mob/living/proc/devour
-	species.vision_organ = "head"
 
 	spawn(10)
 	//This is delayed after a gestalt is spawned, to allow nymphs to be added to it before extras are created
