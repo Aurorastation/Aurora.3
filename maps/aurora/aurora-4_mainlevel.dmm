@@ -32463,7 +32463,6 @@
 /turf/simulated/floor/tiled/ramp,
 /area/medical/cryo)
 "beo" = (
-/obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/door/blast/shutters{
 	dir = 8;
@@ -32471,11 +32470,7 @@
 	name = "Kitchen Shutters"
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/ringer_button{
-	id = "kitchen_ringer";
-	pixel_x = -5;
-	pixel_y = 5
-	},
+/obj/machinery/smartfridge/foodheater,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bep" = (
@@ -33045,6 +33040,11 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/item/toy/figure/chef,
+/obj/machinery/ringer_button{
+	id = "kitchen_ringer";
+	pixel_x = -5;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bfr" = (
