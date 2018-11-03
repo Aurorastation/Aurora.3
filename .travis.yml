@@ -4,7 +4,7 @@ sudo: false
 env:
   global:
     BYOND_MAJOR="512"
-    BYOND_MINOR="1446"
+    BYOND_MINOR="1454"
     MACRO_COUNT=77
     FLYWAY_BUILD="5.1.4"
     NODE_VERSION=10
@@ -18,7 +18,6 @@ cache:
     - $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}
     - $HOME/flyway-${FLYWAY_BUILD}
     - vueui/dist
-    - _compile
 
 addons:
   mariadb: '10.1'
@@ -32,9 +31,11 @@ node_js:
   - "10"
 
 install:
-  - pip install --user PyYaml -q
-  - pip install --user beautifulsoup4 -q
   - mysql -e 'CREATE DATABASE ss13_test;'
+  - chmod +x ./install-byond.sh
+  - ./install-byond.sh
+  - chmod +x ./install-flyway.sh
+  - ./install-flyway.sh
   - export LD_LIBRARY_PATH=./:$LD_LIBRARY_PATH
   - shopt -s globstar
 
@@ -57,10 +58,8 @@ jobs:
   include:
     - stage: code check
       install:
-        - chmod +x ./install-byond.sh
-        - ./install-byond.sh
-        - chmod +x ./install-flyway.sh
-        - ./install-flyway.sh
+        - pip install --user PyYaml -q
+        - pip install --user beautifulsoup4 -q
         - chmod +x ./vueui/install
         - ./vueui/install
       script:
@@ -76,7 +75,3 @@ jobs:
         - md5sum -c - <<< "51704c822012212faa577079db2e11fd *vueui/template.html"
         - python tools/TagMatcher/tag-matcher.py ../..
         - python tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
-        - scripts/dm.sh -DUNIT_TEST -M$USE_MAP aurorastation.dme
-        - grep "0 warnings" build_log.txt
-        - chmod +x ./scripts/caching/cache-push.sh
-        - ./scripts/caching/cache-push.sh ./_compile
