@@ -161,7 +161,7 @@
 	returns[1] = message
 	returns[2] = verb
 	returns[3] = speech_problem_flag
-	returns[4] = world.view
+	returns[4] = (species.handle_speech_problems(src)) ? (3) : (world.view)
 	return returns
 
 /mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
@@ -218,6 +218,10 @@
 					used_radios += r_ear
 
 /mob/living/carbon/human/handle_speech_sound()
+	if(species.handle_speech_problems(src))
+		var/list/returns = ..()
+		returns[3] = TRUE
+		return returns
 	if(species.speech_sounds && prob(species.speech_chance))
 		var/list/returns[2]
 		returns[1] = sound(pick(species.speech_sounds))

@@ -508,3 +508,6 @@
 
 /datum/species/proc/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
 	return 0
+
+/datum/species/proc/handle_speech_problems(var/mob/living/carbon/human/H)
+	return FALSE
