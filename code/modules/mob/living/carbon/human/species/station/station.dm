@@ -189,6 +189,8 @@
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
 
+	default_h_style = "Tajaran Ears"
+
 /datum/species/tajaran/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
@@ -248,6 +250,13 @@
 
 /datum/species/skrell/can_breathe_water()
 	return TRUE
+
+/datum/species/skrell/set_default_hair(var/mob/living/carbon/human/H)
+	if(H.gender == MALE)
+		H.h_style = "Skrell Male Tentacles"
+	else
+		H.h_style = "Skrell Female Tentacles"
+	H.update_hair()
 
 /datum/species/diona
 	name = "Diona"
@@ -335,6 +344,8 @@
 	sprint_cost_factor = 0.8
 	climb_coeff = 1.3
 	vision_organ = "head"
+
+	max_hydration_factor = -1
 
 /datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
 	var/datum/dionastats/DS = H.get_dionastats()

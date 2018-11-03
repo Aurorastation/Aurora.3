@@ -11,12 +11,16 @@
 	unaffected_species = IS_MACHINE
 	var/kois_type = 1
 
-/datum/reagent/kois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VAURCA)
+/datum/reagent/kois/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
+	if(!istype(M))
+		return
+	var/obj/item/organ/parasite/P = M.internal_organs_by_name["blackkois"]
+	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 		M.heal_organ_damage(1.2 * removed, 1.2 * removed)
 		M.adjustToxLoss(-1.2 * removed)
 		M.adjustNutritionLoss(-nutriment_factor * removed)
 		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
+
 	else
 		M.adjustToxLoss(1 * removed)
 		if(istype(M,/mob/living/carbon/human))
@@ -104,8 +108,11 @@
 		return
 	affect_ingest(M, alien, removed)
 
-/datum/reagent/nutriment/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VAURCA)
+/datum/reagent/nutriment/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
+	if(!istype(M))
+		return
+	var/obj/item/organ/parasite/P = M.internal_organs_by_name["blackkois"]
+	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 		M.adjustToxLoss(1.5 * removed)
 	else if(alien != IS_UNATHI)
 		digest(M,removed)
@@ -701,6 +708,7 @@
 	var/caffeine = 0 // strength of stimulant effect, since so many drinks use it
 	var/datum/modifier/modifier = null
 	unaffected_species = IS_MACHINE
+	var/blood_to_ingest_scale = 2
 
 /datum/reagent/drink/Destroy()
 	if (modifier)
@@ -708,8 +716,8 @@
 	return ..()
 
 /datum/reagent/drink/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.adjustToxLoss(removed) // Probably not a good idea; not very deadly though
-	digest(M,alien,removed * 2, FALSE)
+	M.adjustToxLoss(removed * blood_to_ingest_scale) // Probably not a good idea; not very deadly though
+	digest(M,alien,removed * blood_to_ingest_scale, FALSE)
 
 /datum/reagent/drink/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	digest(M,alien,removed)
@@ -1170,6 +1178,39 @@
 	glass_desc = "Espresso with hot milk and chocolate."
 	glass_center_of_mass = list("x"=15, "y"=9)
 
+/datum/reagent/drink/coffee/icecoffee/psfrappe
+	name = "Pumpkin Spice Frappe"
+	id = "psfrappe"
+	description = "A seasonal treat popular around the autumn times."
+	color = "#9C6B19"
+	taste_description = "autumn bliss and coffee"
+
+	glass_icon_state = "frappe_psl"
+	glass_name = "glass of pumpkin spice frappe"
+	glass_desc = "A seasonal treat popular around the autumn times."
+
+/datum/reagent/drink/coffee/pslatte
+	name = "Pumpkin Spice Latte"
+	id = "pslatte"
+	description = "A seasonal drink favored in autumn."
+	color = "#9C6B19"
+	taste_description = "hot creamy coffee and autumn bliss"
+
+	glass_icon_state = "psl_cheap"
+	glass_name = "cup of pumpkin spice latte"
+	glass_desc = "A hot cup of pumpkin spiced coffee. Autumn really is the best season!"
+
+/datum/reagent/drink/coffee/sadpslatte
+	name = "Processed Pumpkin Latte"
+	id = "sadpslatte"
+	description = "A processed drink vaguely reminicent of autumn bliss."
+	color = "#9C6B19"
+	taste_description = "a disappointing approximation of autumn bliss"
+
+	glass_icon_state = "psl_cheap"
+	glass_name = "cup of cheap pumpkin latte"
+	glass_desc = "Maybe you should just go ask the barista for something more authentic..."
+
 /datum/reagent/drink/hot_coco
 	name = "Hot Chocolate"
 	id = "hot_coco"
@@ -1434,6 +1475,8 @@
 	glass_desc = "A healthy mixture of juices, guaranteed to keep you healthy until the next toolboxing takes place."
 	glass_center_of_mass = list("x"=16, "y"=8)
 
+	blood_to_ingest_scale = 1
+
 /datum/reagent/drink/doctor_delight/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien != IS_DIONA)
@@ -1450,6 +1493,7 @@
 	description = "Space age food, since August 25, 1958. Contains dried noodles, vegetables, and chemicals that boil in contact with water."
 	reagent_state = SOLID
 	nutrition = 1
+	hydration = 0
 	color = "#302000"
 	taste_description = "dry and cheap noodles"
 
@@ -1460,6 +1504,7 @@
 	reagent_state = LIQUID
 	color = "#302000"
 	nutrition = 5
+	hydration = 5
 	adj_temp = 5
 	taste_description = "wet and cheap noodles"
 
@@ -1470,6 +1515,7 @@
 	reagent_state = LIQUID
 	color = "#302000"
 	nutrition = 5
+	hydration = 5
 	taste_description = "wet and cheap noodles on fire"
 
 /datum/reagent/drink/hell_ramen/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
@@ -1485,6 +1531,7 @@
 	adj_temp = -5
 	taste_description = "ice"
 	taste_mult = 1.5
+	hydration = 8
 
 	glass_icon_state = "iceglass"
 	glass_name = "glass of ice"
@@ -2462,6 +2509,9 @@
 	glass_name = "glass of Neurotoxin"
 	glass_desc = "A drink that is guaranteed to knock you silly."
 	glass_center_of_mass = list("x"=16, "y"=8)
+
+	blood_to_ingest_scale = 1
+	metabolism = REM * 5
 
 /datum/reagent/alcohol/ethanol/neurotoxin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
@@ -3744,8 +3794,12 @@
 	adj_sleepy = -3
 	taste_description = "viscous cola"
 
-/datum/reagent/drink/zorasoda/drone/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VAURCA)
+/datum/reagent/drink/zorasoda/drone/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
+	if(!istype(M))
+		return
+
+	var/obj/item/organ/parasite/P = M.internal_organs_by_name["blackkois"]
+	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 		M.add_chemical_effect(CE_SPEEDBOOST, 1)
 		M.add_chemical_effect(CE_BLOODRESTORE, 2 * removed)
 		M.make_jittery(5)
@@ -3772,3 +3826,18 @@
 		M.druggy = max(M.druggy, 30)
 		M.dizziness += 5
 		M.drowsyness = 0
+
+/datum/reagent/nutriment/pumpkinpulp
+	name = "Pumpkin Pulp"
+	id = "pumpkinpulp"
+	description = "The gooey insides of a slain pumpkin"
+	color = "#f9ab28"
+	taste_description = "gooey pumpkin"
+
+/datum/reagent/spacespice/pumpkinspice
+	name = "Pumpkin Spice"
+	id = "pumpkinspice"
+	description = "A delicious seasonal flavoring."
+	color = "#AE771C"
+	taste_description = "autumn bliss"
+	
