@@ -482,8 +482,6 @@
 	var/sql_admin_rank = sql_sanitize_text(admin_rank)
 	var/sql_byond_version = text2num(byond_version)
 	var/sql_byond_build = text2num(byond_build)
-	var/sql_byond_build = 0
-
 
 	if(found)
 		//Player already identified previously, we need to just update the 'lastseen', 'ip', 'computer_id', 'byond_version' and 'byond_build' variables
