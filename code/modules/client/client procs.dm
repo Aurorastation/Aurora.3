@@ -95,7 +95,7 @@
 	if(href_list["warnacknowledge"])
 		var/queryid = text2num(href_list["warnacknowledge"])
 		warnings_acknowledge(queryid)
-	
+
 	if(href_list["notifacknowledge"])
 		var/queryid = text2num(href_list["notifacknowledge"])
 		notifications_acknowledge(queryid)
@@ -347,7 +347,6 @@
 			del(src)
 			return 0
 
-#if DM_VERSION > 511
 	if (LAZYLEN(config.client_blacklist_version))
 		var/client_version = "[byond_version].[byond_build]"
 		if (client_version in config.client_blacklist_version)
@@ -357,7 +356,6 @@
 			log_access("Failed Login: [key] [computer_id] [address] - Blacklisted BYOND version: [client_version].")
 			del(src)
 			return 0
-#endif
 
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
 	prefs = preferences_datums[ckey]
@@ -483,11 +481,8 @@
 	var/sql_computerid = sql_sanitize_text(src.computer_id)
 	var/sql_admin_rank = sql_sanitize_text(admin_rank)
 	var/sql_byond_version = text2num(byond_version)
-	#if DM_VERSION >= 512
 	var/sql_byond_build = text2num(byond_build)
-	#else
 	var/sql_byond_build = 0
-	#endif
 
 
 	if(found)
