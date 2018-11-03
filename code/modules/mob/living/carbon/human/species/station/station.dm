@@ -334,6 +334,7 @@
 	sprint_speed_factor = 0.5	//Speed gained is minor
 	sprint_cost_factor = 0.8
 	climb_coeff = 1.3
+	vision_organ = "head"
 
 /datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
 	var/datum/dionastats/DS = H.get_dionastats()
@@ -392,6 +393,10 @@
 		// This proc sleeps. Async it.
 		INVOKE_ASYNC(H, /mob/living/carbon/human/proc/diona_split_into_nymphs)
 
+/datum/species/diona/proc/handle_speech_problems(var/mob/living/carbon/human/H)
+// Diona without head can live, but they cannot talk as loud anymore.
+	var/obj/item/organ/external/O = H.organs_by_name["head"]
+	return O.is_stump()
 
 /datum/species/machine
 	name = "Baseline Frame"

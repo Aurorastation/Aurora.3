@@ -99,7 +99,7 @@ proc/get_radio_key_from_channel(var/channel)
 	return 0
 
 /mob/living/proc/handle_speech_problems(var/message, var/verb, var/message_mode)
-	var/list/returns[4]
+	var/list/returns[3]
 	var/speech_problem_flag = 0
 	if((HULK in mutations) && health >= 25 && length(message))
 		message = "[uppertext(message)]!!!"
@@ -129,7 +129,6 @@ proc/get_radio_key_from_channel(var/channel)
 	returns[1] = message
 	returns[2] = verb
 	returns[3] = speech_problem_flag
-	returns[4] = world.view
 	return returns
 
 /mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
@@ -140,10 +139,9 @@ proc/get_radio_key_from_channel(var/channel)
 	return 0
 
 /mob/living/proc/handle_speech_sound()
-	var/list/returns[3]
+	var/list/returns[2]
 	returns[1] = null
 	returns[2] = null
-	returns[3] = 0
 	return returns
 
 /mob/living/proc/get_speech_ending(verb, var/ending)
@@ -210,7 +208,6 @@ proc/get_radio_key_from_channel(var/channel)
 		var/list/handle_s = handle_speech_problems(message, verb, message_mode)
 		message = handle_s[1]
 		verb = handle_s[2]
-		message_range = handle_s[4]
 
 	if(!message || message == "")
 		return 0
@@ -231,8 +228,13 @@ proc/get_radio_key_from_channel(var/channel)
 	var/list/handle_v = handle_speech_sound()
 	var/sound/speech_sound = handle_v[1]
 	var/sound_vol = handle_v[2]
+	var/italics
 
-	var/italics = handle_v[3]
+	if(src.is_diona())
+		var/mob/living/carbon/human/H = src
+		if(species.handle_speech_problems(H))
+			return
+
 
 
 	//speaking into radios
