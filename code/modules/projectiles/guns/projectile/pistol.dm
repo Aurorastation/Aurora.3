@@ -370,7 +370,8 @@
 	set desc = "Rename your gun."
 
 	var/mob/M = usr
-	if(!M.mind)	return 0
+	if(!use_check(usr, USE_FORCE_SRC_IN_USER))
+		return
 
 	var/input = sanitizeSafe(input("What do you want to name the gun?", ,""), MAX_NAME_LEN)
 
