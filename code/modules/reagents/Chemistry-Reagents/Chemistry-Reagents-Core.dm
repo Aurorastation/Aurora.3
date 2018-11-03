@@ -175,6 +175,8 @@
 
 	unaffected_species = IS_MACHINE
 
+	specific_heat = 1.541
+
 /datum/reagent/water/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(!istype(M))
 		return
@@ -222,6 +224,7 @@
 				cube.Expand()
 
 /datum/reagent/water/touch_mob(var/mob/M, var/amount)
+	. = ..()
 	if(istype(M) && isliving(M))
 		var/mob/living/L = M
 		var/needed = L.fire_stacks * 10
@@ -259,6 +262,8 @@
 	glass_name = "glass of welder fuel"
 	glass_desc = "Unless you are an industrial tool, this is probably not safe for consumption."
 
+	specific_heat = 0.605
+
 /datum/reagent/fuel/touch_turf(var/turf/T)
 	new /obj/effect/decal/cleanable/liquid_fuel(T, volume)
 	remove_self(volume)
@@ -268,6 +273,7 @@
 	M.adjustToxLoss(2 * removed)
 
 /datum/reagent/fuel/touch_mob(var/mob/living/L, var/amount)
+	. = ..()
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!
 
@@ -289,6 +295,7 @@
 	return
 
 /datum/reagent/fuel/touch_mob(var/mob/living/L, var/amount)
+	. = ..()
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!
 		new /obj/effect/decal/cleanable/liquid_fuel/napalm(get_turf(L), amount/3)

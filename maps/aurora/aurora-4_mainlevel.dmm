@@ -5959,10 +5959,20 @@
 "alF" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
-	dir = 5
+	dir = 10
 	},
+/obj/structure/table/standard,
+/obj/item/weapon/packageWrap,
+/obj/item/weapon/packageWrap,
+/obj/item/device/destTagger,
+/obj/machinery/light{
+	dir = 2;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/obj/item/weapon/hand_labeler,
 /turf/simulated/floor/tiled/white,
-/area/rnd/misc_lab)
+/area/medical/chemistry)
 "alG" = (
 /obj/structure/table/standard,
 /obj/structure/cable/green,
@@ -33680,26 +33690,17 @@
 	icon_state = "corner_white";
 	dir = 10
 	},
-/obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/packageWrap,
-/obj/item/device/destTagger,
-/obj/machinery/light{
-	dir = 2;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
+/obj/machinery/chem_heater,
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
 "bgD" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
-	dir = 10
+	dir = 5
 	},
-/obj/structure/table/standard,
-/obj/item/weapon/hand_labeler,
+/obj/machinery/chem_heater,
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/rnd/misc_lab)
 "bgE" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	icon_state = "corner_white_full";
@@ -89467,7 +89468,7 @@ bBv
 bCv
 bDo
 aeD
-alF
+bgD
 afW
 akL
 aoP
@@ -95872,7 +95873,7 @@ bbd
 kqR
 bjV
 bfp
-bgC
+alF
 bfJ
 xIT
 mRk
@@ -96129,7 +96130,7 @@ bbe
 bcC
 pyh
 bfp
-bgD
+bgC
 bfJ
 bjw
 bcL
