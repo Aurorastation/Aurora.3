@@ -14,7 +14,7 @@
 
 /obj/item/device/eftpos/New()
 	..()
-	machine_id = "[station_name()] EFTPOS #[num_financial_terminals++]"
+	machine_id = "[station_name()] EFTPOS #[SSeconomy.num_financial_terminals++]"
 	access_code = rand(1111,111111)
 	spawn(0)
 		print_reference()
@@ -60,7 +60,7 @@
 
 	//by default, connect to the station account
 	//the user of the EFTPOS device can change the target account though, and no-one will be the wiser (except whoever's being charged)
-	linked_account = station_account
+	linked_account = SSeconomy.station_account
 
 /obj/item/device/eftpos/proc/print_reference()
 	var/obj/item/weapon/paper/R = new(src.loc)
@@ -140,9 +140,9 @@
 						T.purpose = (transaction_purpose ? transaction_purpose : "None supplied.")
 						T.amount = transaction_amount
 						T.source_terminal = machine_id
-						T.date = current_date_string
+						T.date = worlddate2text()
 						T.time = worldtime2text()
-						linked_account.transaction_log.Add(T)
+						SSeconomy.add_transaction_log(linked_account,T)
 					else
 						usr << "\icon[src]<span class='warning'>\The [O] doesn't have that much money!</span>"
 			else
@@ -177,7 +177,7 @@
 			if("link_account")
 				var/attempt_account_num = input("Enter account number to pay EFTPOS charges into", "New account number") as num
 				var/attempt_pin = input("Enter pin code", "Account pin") as num
-				linked_account = attempt_account_access(attempt_account_num, attempt_pin, 1)
+				linked_account = SSeconomy.attempt_account_access(attempt_account_num, attempt_pin, 1)
 				if(linked_account)
 					if(linked_account.suspended)
 						linked_account = null
@@ -239,11 +239,11 @@
 			if(linked_account)
 				if(!linked_account.suspended)
 					var/attempt_pin = ""
-					var/datum/money_account/D = get_account(C.associated_account_number)
+					var/datum/money_account/D = SSeconomy.get_account(C.associated_account_number)
 					if(D.security_level)
 						attempt_pin = input("Enter pin code", "EFTPOS transaction") as num
 						D = null
-					D = attempt_account_access(C.associated_account_number, attempt_pin, 2)
+					D = SSeconomy.attempt_account_access(C.associated_account_number, attempt_pin, 2)
 					if(D)
 						if(!D.suspended)
 							if(transaction_amount <= D.money)
@@ -264,18 +264,18 @@
 								else
 									T.amount = "[transaction_amount]"
 								T.source_terminal = machine_id
-								T.date = current_date_string
+								T.date = worlddate2text()
 								T.time = worldtime2text()
-								D.transaction_log.Add(T)
+								SSeconomy.add_transaction_log(D,T)
 								//
 								T = new()
 								T.target_name = D.owner_name
 								T.purpose = transaction_purpose
 								T.amount = "[transaction_amount]"
 								T.source_terminal = machine_id
-								T.date = current_date_string
+								T.date = worlddate2text()
 								T.time = worldtime2text()
-								linked_account.transaction_log.Add(T)
+								SSeconomy.add_transaction_log(linked_account,T)
 							else
 								usr << "\icon[src]<span class='warning'>You don't have that much money!</span>"
 						else
