@@ -171,7 +171,7 @@
 			eye_blind = 1
 			blinded = 1
 			eye_blurry = 1
-		else
+		else // if they're not supposed to have a vision organ, then they must see by some other means
 			eye_blind = 0
 			blinded = 0
 			eye_blurry = 0
