@@ -363,7 +363,7 @@
 	// If they're head, give them the account info for their department
 	if(H.mind && job.head_position)
 		var/remembered_info = ""
-		var/datum/money_account/department_account = department_accounts[job.department]
+		var/datum/money_account/department_account = SSeconomy.get_department_account(job.department)
 
 		if(department_account)
 			remembered_info += "<b>Your department's account number is:</b> #[department_account.account_number]<br>"
