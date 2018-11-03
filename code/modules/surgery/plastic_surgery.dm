@@ -70,7 +70,7 @@
 			head.disfigured = FALSE
 			user.visible_message("[user] successfully restores [target]'s appearance!", "<span class='notice'>You successfully restore [target]'s appearance.</span>")
 
-		var/getName = sanitize(input(user, "What is your patients new identity?", "Name change") as null|text, MAX_NAME_LEN)
+		var/getName = sanitize(input(user, "What is your patient's new identity?", "Name change") as null|text, MAX_NAME_LEN)
 		if(getName)
 			target.real_name = getName
 			target.name = getName
