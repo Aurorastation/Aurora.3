@@ -37,10 +37,10 @@ node_js:
 
 install:
   - mysql -e 'CREATE DATABASE ss13_test;'
-  - chmod +x ./install-byond.sh
-  - ./install-byond.sh
-  - chmod +x ./install-flyway.sh
-  - ./install-flyway.sh
+  - chmod +x ./scripts/install-byond.sh
+  - ./scripts/install-byond.sh
+  - chmod +x ./scripts/install-flyway.sh
+  - ./scripts/install-flyway.sh
   - export LD_LIBRARY_PATH=./:$HOME/rust_g-$RUST_G_VERSION:$LD_LIBRARY_PATH
   - shopt -s globstar
   - chmod +x ./scripts/rust_g.sh
