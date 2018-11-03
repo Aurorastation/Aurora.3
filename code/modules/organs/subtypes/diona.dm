@@ -178,8 +178,7 @@
 	dislocated = -1
 	joint = "structural ligament"
 	amputation_point = "branch"
-
-
+	vital = FALSE // Lore team requested this, not vital organ. We can still live without it.
 
 /obj/item/organ/diona/process()
 	return

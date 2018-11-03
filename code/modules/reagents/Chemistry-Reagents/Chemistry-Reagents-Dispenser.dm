@@ -321,8 +321,11 @@
 
 /datum/reagent/radium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.apply_effect(10 * removed, IRRADIATE, blocked = 0) // Radium may increase your chances to cure a disease
-	if(alien == IS_DIONA)
+	if(M.is_diona())
 		M.adjustToxLoss(-20 * removed)
+		M.adjustBruteLoss(-20 * removed)
+		M.adjustFireLoss(-20 * removed)
+		to_chat(M, "<span class='notice'>You feel an extreme energy as your body regenerates faster.</span>")
 		return
 	if(M.virus2.len)
 		for(var/ID in M.virus2)
