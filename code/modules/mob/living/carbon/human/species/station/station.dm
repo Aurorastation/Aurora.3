@@ -399,6 +399,12 @@
 	current_flags[4] = O.is_stump() ? 3 : world.view
 	return current_flags
 
+/datum/species/diona/handle_speech_sound(mob/living/carbon/human/H, list/current_flags)
+	current_flags = ..()
+	var/obj/item/organ/external/O = H.organs_by_name["head"]
+	current_flags[3] = O.is_stump()
+	return current_flags
+
 /datum/species/machine
 	name = "Baseline Frame"
 	short_name = "ipc"

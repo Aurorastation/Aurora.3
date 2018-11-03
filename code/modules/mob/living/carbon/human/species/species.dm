@@ -511,3 +511,9 @@
 
 /datum/species/proc/handle_speech_problems(mob/living/carbon/human/H, list/current_flags, message, message_verb, message_mode)
 	return current_flags
+
+/datum/species/proc/handle_speech_sound(mob/living/carbon/human/H, list/current_flags)
+	if(speech_sounds && prob(speech_chance))
+		current_flags[1] = sound(pick(speech_sounds))
+		current_flags[2] = 50
+	return current_flags
