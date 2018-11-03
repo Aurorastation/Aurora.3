@@ -509,5 +509,5 @@
 /datum/species/proc/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
 	return 0
 
-/datum/species/proc/handle_speech_problems(var/mob/living/carbon/human/H)
-	return FALSE
+/datum/species/proc/handle_speech_problems(mob/living/carbon/human/H, list/current_flags, message, message_verb, message_mode)
+	return current_flags
