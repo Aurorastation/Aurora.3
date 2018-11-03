@@ -124,8 +124,8 @@
 	department = "Cargo"
 	department_flag = CIVILIAN
 	faction = "Station"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 3
+	spawn_positions = 3
 	supervisors = "the quartermaster and the head of personnel"
 	selection_color = "#dddddd"
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)

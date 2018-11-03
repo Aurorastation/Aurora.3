@@ -205,8 +205,7 @@
 
 /datum/recipe/pumpkinpie
 	appliance = OVEN
-	fruit = list("pumpkin" = 1)
-	reagents = list("milk" = 5, "sugar" = 5, "egg" = 3, "flour" = 10)
+	reagents = list("milk" = 5, "sugar" = 5, "egg" = 3, "flour" = 10, "pumpkinpulp"= 5, "pumpkinspice"= 2)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/pumpkinpie
 	reagent_mix = RECIPE_REAGENT_REPLACE //We dont want raw egg in the result
 

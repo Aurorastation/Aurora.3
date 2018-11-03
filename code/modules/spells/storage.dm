@@ -22,7 +22,7 @@
 	..()
 	new /obj/item/clothing/suit/space/void/wizard(src)
 	new /obj/item/clothing/head/helmet/space/void/wizard(src)
-
+ 
 /obj/structure/closet/wizard/scrying
 	name = "scrying orb"
 	desc = "An incandescent orb of crackling energy, using it will allow you to ghost while alive, allowing you to spy upon the station with ease. In addition, buying it will permanently grant you x-ray vision."
