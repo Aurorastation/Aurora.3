@@ -2,7 +2,7 @@
 #define NO_BLOOD             1    // Vessel var is not filled with blood, cannot bleed out.
 #define NO_BREATHE           2    // Cannot suffocate or take oxygen loss.
 #define NO_SCAN              4    // Cannot be scanned in a DNA machine/genome-stolen.
-#define NO_PAIN              8    // Cannot suffer halloss/recieves deceptive health indicator.
+#define NO_PAIN              8    // Cannot suffer halloss/receives deceptive health indicator.
 #define NO_SLIP             16    // Cannot fall over.
 #define NO_POISON           32    // Cannot not suffer toxloss.
 #define IS_PLANT            64    // Is a treeperson.
@@ -84,3 +84,4 @@
 #define INNATE       64  // All mobs can be assumed to speak and understand this language. (audible emotes)
 #define NO_TALK_MSG  128 // Do not show the "\The [speaker] talks into \the [radio]" message
 #define NO_STUTTER   256 // No stuttering, slurring, or other speech problems
+#define TCOMSSIM     512 // Can be synthesized in tcoms

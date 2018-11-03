@@ -126,7 +126,7 @@ main ui datum.
 			<header-[header]></header-[header]>
 		</div>
 		<div id="app">
-
+			Javascript file has failed to load. <a href="?src=\ref[src]&vueuiforceresource=1">Click here to force load resources</a>
 		</div>
 		[debugtxt]
 		<noscript>
@@ -229,21 +229,34 @@ main ui datum.
   * @return nothing
   */
 /datum/vueui/Topic(href, href_list)
-	update_status()
+	. = update_status(FALSE)
 	if(status < STATUS_INTERACTIVE || user != usr)
 		return
+	if(href_list["vueuiforceresource"])
+		if(user.client)
+			user.client << browse_rsc(file("vueui/dist/app.js"), "vueui.js")
+			user.client << browse_rsc(file("vueui/dist/app.css"), "vueui.css")
+		open()
 	if(href_list["vueuistateupdate"])
 		var/rdata = json_decode(href_list["vueuistateupdate"])
 		var/ndata = rdata["state"]
 		var/ret = object.vueui_data_change(ndata, user, src)
 		if(ret)
+			. = TRUE
 			ndata = ret
-			push_change(ret)
 		src.data = ndata
-		if(href_list["vueuipushonly"])
-			return
-	href_list["vueui"] = src // Let's pass our UI object to object for it to do things.
-	object.Topic(href, href_list)
+	var/topicReturn = 0
+	if(!href_list["vueuipushonly"])
+		if(href_list["vueuihrefjson"])
+			var/json_href = json_decode(href_list["vueuihrefjson"])
+			if(json_href)
+				for(var/hvar in json_href)
+					href_list[hvar] = json_href[hvar]
+		href_list["vueui"] = src // Let's pass our UI object to object for it to do things.
+		topicReturn = object.Topic(href, href_list)
+	if(. || topicReturn)
+		. = null
+		push_change()
 
 /**
   * Pushes latest data to client (Including metadata such as: assets index, status, activeui)
@@ -281,13 +294,15 @@ main ui datum.
   *
   * @return nothing
   */
-/datum/vueui/proc/set_status(nstatus)
+/datum/vueui/proc/set_status(var/nstatus, var/autopush = TRUE)
 	if (nstatus != status) // Only update if it is different
 		status = nstatus
 		if(nstatus > STATUS_DISABLED)
-			check_for_change(1) // Gather data and update it
-		else if (nstatus == STATUS_DISABLED)
-			push_change(null) // Only update ui data
+			if(autopush) check_for_change(1) // Gather data and update it
+			return 1
+		else if (nstatus == STATUS_DISABLED && autopush)
+			if(autopush) push_change(null) // Only update ui data
+			return 1
 		else
 			close()
 
@@ -296,8 +311,8 @@ main ui datum.
   *
   * @return nothing
   */
-/datum/vueui/proc/update_status()
-	set_status(object.CanUseTopic(user, state))
+/datum/vueui/proc/update_status(var/autopush = TRUE)
+	. = set_status(object.CanUseTopic(user, state), autopush)
 
 /**
   * Process this ui

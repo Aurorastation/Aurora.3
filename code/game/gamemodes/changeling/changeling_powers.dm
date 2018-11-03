@@ -293,11 +293,12 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		var/newSpecies = chosen_dna.speciesName
 		H.set_species(newSpecies,1)
 
-	src.dna = chosen_dna.dna
-	src.real_name = chosen_dna.name
-	src.flavor_text = ""
-	domutcheck(src, null)
-	src.UpdateAppearance()
+		H.dna = chosen_dna.dna
+		H.real_name = chosen_dna.name
+		H.sync_organ_dna()
+		H.flavor_text = ""
+		domutcheck(H, null)
+		H.UpdateAppearance()
 
 
 //Transform into a monkey.
@@ -823,7 +824,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	var/mob/living/carbon/T = changeling_sting(5,/mob/proc/changeling_unfat_sting,stealthy = 1)
 	if(!T)	return 0
 	T << "<span class='danger'>you feel a small prick as stomach churns violently and you become to feel skinnier.</span>"
-	T.nutrition -= 100
+	T.adjustNutritionLoss(100)
 	feedback_add_details("changeling_powers","US")
 	return 1
 

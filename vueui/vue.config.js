@@ -42,16 +42,14 @@ module.exports = {
         .end()
         
     config.plugins
-        .delete("html")
-        .delete("preload")
-        .delete("prefetch")
-        .delete("hmr")
+      .delete("html")
+      .delete("preload")
+      .delete("prefetch")
+      .delete("hmr")
 
-    config.when(process.env.NODE_ENV === 'production', config => {
-      config.plugin('extract-css')
-        .tap(args => {
-          args[0].filename = '[name].css'
-        })
-    });
+    config.plugin('extract-css')
+      .tap(args => {
+        args[0].filename = '[name].css'
+      })
   }
 }

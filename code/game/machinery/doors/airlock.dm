@@ -798,7 +798,7 @@ About the new airlock wires panel:
 			src.do_animate("spark")
 			src.stat |= BROKEN
 			var/check = src.open(1)
-			src.visible_message("\The [H] slices \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You slice \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You hear something sparking.")
+			H.visible_message("\The [H] slices \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You slice \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You hear something sparking.")
 			return
 	if(src.p_open)
 		user.set_machine(src)
@@ -926,13 +926,23 @@ About the new airlock wires panel:
 		newbracer.attachto(src, user)
 		return
 	if(!repairing && (iswelder(C) && !( src.operating > 0 ) && src.density))
-		var/obj/item/weapon/weldingtool/W = C
-		if(W.remove_fuel(0,user))
+		var/obj/item/weapon/weldingtool/WT = C
+		if(WT.isOn())
+			user.visible_message(
+				"<span class='warning'>[user] begins welding [src] [welded ? "open" : "shut"].</span>",
+				"<span class='notice'>You begin welding [src] [welded ? "open" : "shut"].</span>",
+				"You hear a welding torch on metal."
+			)
+			playsound(loc, 'sound/items/Welder.ogg', 50, 1)
+			if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open, src.density)))
+				return
+			if(!WT.remove_fuel(0,user))
+				user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
+				return
 			if(!src.welded)
 				src.welded = 1
 			else
 				src.welded = null
-			playsound(src, 'sound/items/Welder.ogg', 100, 1)
 			src.update_icon()
 			return
 		else
@@ -1320,10 +1330,10 @@ About the new airlock wires panel:
 		electrified_until = 0
 		//if we lost power open 'er up
 		if(insecure)
-			open(1)
+			INVOKE_ASYNC(src, /obj/machinery/door/.proc/open, 1)
 			securitylock = 1
 	else if(securitylock)
-		close(1)
+		INVOKE_ASYNC(src, /obj/machinery/door/.proc/close, 1)
 		securitylock = 0
 	update_icon()
 

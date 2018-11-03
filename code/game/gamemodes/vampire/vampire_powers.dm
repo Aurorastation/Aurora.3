@@ -73,7 +73,7 @@
 
 		// Alive and not of empty mind.
 		if (T.stat < 2 && T.client)
-			blood = min(10, T.vessel.get_reagent_amount("blood"))
+			blood = min(15, T.vessel.get_reagent_amount("blood"))
 			vampire.blood_total += blood
 			vampire.blood_usable += blood
 

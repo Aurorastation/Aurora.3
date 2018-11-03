@@ -15,19 +15,8 @@
 	center_of_mass = list("x"=16, "y"=6)
 	volume = 50
 
-/obj/item/weapon/reagent_containers/food/condiment/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	return
-
-/obj/item/weapon/reagent_containers/food/condiment/attack_self(var/mob/user as mob)
-	return
-
-/obj/item/weapon/reagent_containers/food/condiment/attack(var/mob/M as mob, var/mob/user as mob, var/def_zone)
-	if(standard_feed_mob(user, M))
-		return
-
-/obj/item/weapon/reagent_containers/food/condiment/afterattack(var/obj/target, var/mob/user, var/proximity)
-	if(!proximity)
-		return
+/obj/item/weapon/reagent_containers/food/condiment/feed_sound(var/mob/user)
+	playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
 
 /obj/item/weapon/reagent_containers/food/condiment/self_feed_message(var/mob/user)
 	user << "<span class='notice'>You swallow some of contents of \the [src].</span>"

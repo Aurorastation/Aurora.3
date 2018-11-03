@@ -43,21 +43,6 @@
 
 	wet_amount += amount
 
-	var/max_wetness = 10 //About 100 units per tile
-	if(wet_amount > max_wetness)
-		var/stored_wet = wet_amount - max_wetness
-		wet_amount -= max_wetness
-		var/wet_per_tile = stored_wet * 0.25
-		for(var/d in cardinal)
-			var/turf/simulated/target = get_step(src,d)
-			if(src.CanPass(null, target, 0, 0) && target.CanPass(null, src, 0, 0))
-				if(target.wet_amount)
-					var/edited_value = round(wet_per_tile * 0.5) //Prevent infinite loops
-					target.wet_floor(apply_type,edited_value)
-					wet_amount += edited_value
-				else
-					target.wet_floor(apply_type,wet_per_tile)
-
 	unwet_timer = addtimer(CALLBACK(src, .proc/unwet_floor), 120 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_STOPPABLE)
 
 /turf/simulated/proc/unwet_floor()
@@ -133,10 +118,10 @@
 					H.track_blood--
 
 			if(bloodDNA)
-				src.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints,bloodDNA,H.dir,0,bloodcolor) // Coming
+				src.AddTracks(H.species.get_move_trail(H),bloodDNA,H.dir,0,bloodcolor) // Coming
 				var/turf/simulated/from = get_step(H,reverse_direction(H.dir))
 				if(istype(from) && from)
-					from.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints,bloodDNA,0,H.dir,bloodcolor) // Going
+					from.AddTracks(H.species.get_move_trail(H),bloodDNA,0,H.dir,bloodcolor) // Going
 
 				bloodDNA = null
 

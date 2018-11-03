@@ -559,6 +559,13 @@
 	required_reagents = list("calomel" = 1, "lexorin" = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/potassium_hydrophoro
+	name = "Potassium Hydrophoride"
+	id = "potassium_hydrophoro"
+	result = "potassium_hydrophoro"
+	required_reagents = list("phoron" = 0.1, "water" = 1, "potassium_chloride" = 0.2)
+	result_amount = 1
+
 //Mental Medication
 
 /datum/chemical_reaction/methylphenidate
@@ -638,11 +645,18 @@
 	required_reagents = list("mindbreaker" = 1, "synaptizine" = 1, "phoron" = 0.1)
 	result_amount = 2
 
-/datum/chemical_reaction/feartoxin
-	name = "Feartoxin"
-	id = "feartoxin"
-	result = "feartoxin"
-	required_reagents = list("mindbreaker" = 1, "synaptizine" = 1, "space_drugs" = 1)
+/datum/chemical_reaction/pacifier
+	name = "Paxazide"
+	id = "paxazide"
+	result = "paxazide"
+	required_reagents = list("truthserum" = 1, "sertraline" = 1)
+	result_amount = 1
+
+/datum/chemical_reaction/berserk
+	name = "Red Nightshade"
+	id = "berserk"
+	result = "berserk"
+	required_reagents = list("psilocybin" = 1, "moonshine" = 1)
 	result_amount = 1
 
 /* Solidification */
@@ -1458,7 +1472,7 @@
 	..()
 	var/obj/effect/golemrune/Z = new /obj/effect/golemrune
 	Z.forceMove(get_turf(holder.my_atom))
-	Z.announce_to_ghosts()
+
 
 /*
 ====================
@@ -2788,6 +2802,27 @@
 	result = "bloodwine"
 	required_reagents = list("blood" = 2, "sarezhiwine" = 3)
 	result_amount = 5
+
+/datum/chemical_reaction/pumpkinspice
+	name = "Pumpkin Spice"
+	id = "pumpkinspce"
+	result = "pumpkinspice"
+	required_reagents = list("spacespice" = 8, "pumpkinpulp" = 2)
+	result_amount = 10
+
+/datum/chemical_reaction/psfrappe
+	name = "Pumpkin Spice Frappe"
+	id = "psfrappe"
+	result = "psfrappe"
+	required_reagents = list("icecoffee" = 6, "pumpkinspice" = 2, "cream" = 2)
+	result_amount = 10	
+
+/datum/chemical_reaction/pslatte
+	name = "Pumpkin Spice Latte"
+	id = "pslatte"
+	result = "pslatte"
+	required_reagents = list("coffee" = 6, "pumpkinspice" = 2, "cream" = 2)
+	result_amount = 10	
 
 //transmutation
 

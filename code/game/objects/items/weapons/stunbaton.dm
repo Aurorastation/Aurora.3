@@ -114,7 +114,7 @@
 	var/stun = stunforce
 	var/mob/living/L = M
 
-	if(user.disabilities & PACIFIST)
+	if(user.is_pacified())
 		to_chat(user, "<span class='notice'>You don't want to risk hurting [M]!</span>")
 		return 0
 
@@ -281,6 +281,10 @@
 	baton_color = "#75ACFF"
 	force = 3
 	agonyforce = 60
+
+/obj/item/weapon/melee/baton/slime/Initialize()
+	bcell = new/obj/item/weapon/cell/high(src)
+	. = ..()
 
 /obj/item/weapon/melee/baton/slime/update_icon()
 	icon_state = initial(icon_state)

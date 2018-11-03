@@ -274,7 +274,7 @@
 
 	examine_color = "#bc4b00"
 
-	blurb = "The Xion Manufacturing Group, being a subsidiary of Hephaestus Industries, saw the original Industrial models and wanted to develop their own chassis based off of the original design. The result is the Xion Industrial model. Sturdy and strong, this chassis is quite powerful and equally durable, with an ample power cell and improved actuators for carrying the increased weight of the body. The Xion model also retains sturdiness without covering the chassis in plating, allowing for the cooling systems to vent heat much easier than the Hephaestus-brand model. This unit cannot perform EVA"
+	blurb = "The Xion Manufacturing Group, being a subsidiary of Hephaestus Industries, saw the original Industrial models and wanted to develop their own chassis based off of the original design. The result is the Xion Industrial model. Sturdy and strong, this chassis is quite powerful and equally durable, with an ample power cell and improved actuators for carrying the increased weight of the body. The Xion model also retains sturdiness without covering the chassis in plating, allowing for the cooling systems to vent heat much easier than the Hephaestus-brand model. This unit cannot perform EVA without a suit."
 
 	has_limbs = list(
 		"chest"  = list("path" = /obj/item/organ/external/chest/industrial/xion),
@@ -342,6 +342,7 @@
 	eyes_icon_blend = ICON_MULTIPLY
 	sprint_charge_factor = 0.25
 	max_nutrition_factor = 1.75
+
 	brute_mod = 1.2
 
 	appearance_flags = HAS_EYE_COLOR

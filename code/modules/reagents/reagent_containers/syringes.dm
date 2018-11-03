@@ -24,6 +24,7 @@
 	var/image/filling //holds a reference to the current filling overlay
 	var/visible_name = "a syringe"
 	var/time = 30
+	center_of_mass = null
 
 /obj/item/weapon/reagent_containers/syringe/on_reagent_change()
 	update_icon()
