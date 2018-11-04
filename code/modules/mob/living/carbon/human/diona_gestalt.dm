@@ -14,14 +14,12 @@
 	var/datum/dionastats/DS
 
 
-
 /mob/living/carbon/human/proc/setup_gestalt()
 	composition_reagent = "nutriment"//Dionae are plants, so eating them doesn't give animal protein
 	setup_dionastats()
 	verbs += /mob/living/carbon/human/proc/check_light
 	verbs += /mob/living/carbon/human/proc/diona_split_nymph
 	verbs += /mob/living/proc/devour
-
 
 	spawn(10)
 	//This is delayed after a gestalt is spawned, to allow nymphs to be added to it before extras are created
@@ -236,6 +234,7 @@
 		if(!O || O.is_stump())
 			nymphs_to_kill_off += 1
 
+	var/total_nymph = 0
 	for(var/mob/living/carbon/alien/diona/D in src)
 		if(nymphs_to_kill_off > 0)
 			D.stat = DEAD
@@ -252,6 +251,7 @@
 		D.set_dir(pick(NORTH, SOUTH, EAST, WEST))
 		D.gestalt = null
 		if (D.stat != DEAD && D.health > (D.maxHealth*0.1))//If a nymph is alive and has enough health, it will emerge from the gestalt
+			total_nymph += 1
 			D.stat = CONSCIOUS
 			D.stunned = 0
 			D.update_verbs()
@@ -267,7 +267,9 @@
 		drop_from_inventory(W)
 
 	if (bestNymph)
+		var/split_reag_volume = src.reagents.total_volume /  total_nymph // All nymps needs to get reagents of Gestal split between.
 		for(var/mob/living/carbon/alien/diona/D in nymphos)
+			src.reagents.trans_to_mob(D, split_reag_volume, CHEM_BLOOD)
 			D.master_nymph = bestNymph
 			D.birds_of_feather += nymphos
 			D.pixel_y += rand(-10,10)
