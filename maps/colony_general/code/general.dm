@@ -59,5 +59,10 @@
 	emergency_shuttle_called_message = "An emergency evacuation shuttle has been called. It will arrive in approximately %ETA% minutes."
 
 /datum/map/colony_general/generate_asteroid()
-	new /datum/terrain_map/mountains(3,1,1,255,255)
+	//new /datum/random_map/automata/cave_system(null,0,0,4,255,255)
+	new /datum/terrain_map/mountains(4, 1, 255, 1, 255, world.timeofday, 50)
+	/*new /datum/terrain_map/mountains(4, 1, 5, 1, 5, world.timeofday, 15)
+	new /datum/terrain_map/mountains(4, 50, 55, 25, 30, world.timeofday, 15)
+	new /datum/terrain_map/mountains(4, 175, 180, 175, 180, world.timeofday, 15)
+	new /datum/terrain_map/mountains(4, 250, 255, 5, 10, world.timeofday, 15)*/
 	return

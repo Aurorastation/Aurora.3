@@ -41,17 +41,9 @@
 /turf/unsimulated/chasm_mask/New()
 	return
 
-/turf/unsimulated/mask/red
-	icon_state = "red"
+/turf/unsimulated/marker
+	name = "marker"
+	icon = 'icons/turf/walls.dmi'
+	icon_state = "blank"
 
-/turf/unsimulated/mask/orange
-	icon_state = "orange"
-
-/turf/unsimulated/mask/yellow
-	icon_state = "yellow"
-
-/turf/unsimulated/mask/green
-	icon_state = "green"
-
-/turf/unsimulated/mask/blue
-	icon_state = "blue"
+	var/value
