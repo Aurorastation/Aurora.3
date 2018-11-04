@@ -30919,13 +30919,13 @@
 /turf/simulated/floor/plating,
 /area/hydroponics)
 "bbB" = (
-/obj/machinery/light{
+/obj/machinery/alarm{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	icon_state = "alarm0";
+	pixel_x = 24
 	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/telesci)
+/turf/simulated/floor/plating,
+/area/maintenance/library)
 "bbC" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
@@ -35494,12 +35494,12 @@
 /area/hydroponics)
 "bjM" = (
 /obj/structure/table/standard,
-/obj/machinery/reagentgrinder{
-	pixel_y = 16
-	},
 /obj/effect/floor_decal/corner/green/full{
 	icon_state = "corner_white_full";
 	dir = 1
+	},
+/obj/machinery/reagentgrinder{
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
@@ -36198,6 +36198,9 @@
 	})
 "bkT" = (
 /obj/structure/table/wood,
+/obj/machinery/reagentgrinder{
+	pixel_y = 12
+	},
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bkU" = (
@@ -39680,8 +39683,9 @@
 /turf/simulated/floor/tiled/ramp,
 /area/medical/medbay2)
 "bqx" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
+/obj/item/weapon/reagent_containers/glass/beaker,
+/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/item/weapon/material/knife/butch,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -41167,6 +41171,27 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
+"btb" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 2;
+	icon_state = "door_closed";
+	name = "Hydroponics";
+	req_access = list(35)
+	},
+/obj/machinery/door/firedoor/multi_tile{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
 "btc" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -44547,23 +44572,25 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgeryobs)
 "byJ" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	autoclose = 1;
-	dir = 2;
-	id_tag = "RobMechBay";
-	req_access = list(29)
+/obj/machinery/door/airlock/glass_mining{
+	name = "Cargo Bay";
+	req_access = null;
+	req_one_access = list(31,48)
 	},
-/obj/structure/disposalpipe/segment{
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/hydroponics)
+/area/quartermaster/lobby)
 "byK" = (
 /obj/effect/floor_decal/corner/green/full,
 /obj/structure/disposalpipe/junction{
@@ -47708,18 +47735,20 @@
 /turf/simulated/floor/plating,
 /area/maintenance/library)
 "bEo" = (
-/obj/machinery/door/firedoor,
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Kitchen - East";
+	dir = 8;
+	network = list("Civilian Main","Capt_Office")
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
+/obj/structure/sink/kitchen{
+	dir = 8;
+	icon_state = "sink_alt";
+	name = "kitchen sink";
+	pixel_x = 20
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/library)
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "bEp" = (
 /obj/item/weapon/bedsheet/clown,
 /obj/structure/bed,
@@ -48310,9 +48339,8 @@
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
 "bFB" = (
-/obj/structure/table/stone/marble,
-/obj/item/weapon/reagent_containers/glass/beaker,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bFC" = (
@@ -48721,12 +48749,15 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bGl" = (
-/obj/structure/table/wood,
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Bar - Booths";
-	dir = 1
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "barshutters01";
+	name = "Bar Shutters"
 	},
-/turf/simulated/floor/carpet,
+/obj/machinery/door/firedoor,
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/box/matches,
+/turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bGm" = (
 /obj/structure/cable/green{
@@ -50575,6 +50606,16 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bJp" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Civilian (Main Level) Substation";
+	req_one_access = list(11,24)
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
 /turf/simulated/floor/tiled,
 /area/maintenance/substation/civilian_west)
 "bJq" = (
@@ -50588,24 +50629,22 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bJr" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/glass_mining{
-	name = "Cargo Bay";
-	req_access = list(31)
+	name = "Break Room";
+	req_access = null;
+	req_one_access = list(31,48)
 	},
 /obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/quartermaster/lobby)
+/area/quartermaster/break_room)
 "bJs" = (
 /obj/machinery/door/airlock/glass_mining{
 	name = "Equipment Storage";
@@ -50642,19 +50681,17 @@
 /turf/simulated/wall,
 /area/crew_quarters/locker/locker_toilet)
 "bJv" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/door/airlock/glass_mining{
-	name = "Break Room";
-	req_access = list(31)
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/glass_mining{
+	name = "Break Room";
+	req_access = null;
+	req_one_access = list(31,48)
+	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/quartermaster/break_room)
 "bJw" = (
@@ -50743,18 +50780,20 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
 "bJC" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/structure/disposalpipe/junction,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
-/obj/machinery/door/airlock/glass_mining{
-	name = "Break Room";
-	req_access = list(31)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/quartermaster/break_room)
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
 "bJD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -50991,16 +51030,24 @@
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "bKd" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/item/weapon/material/knife/hook,
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Kitchen - East";
-	dir = 8;
-	network = list("Civilian Main","Capt_Office")
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
 "bKe" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 10;
@@ -51027,10 +51074,34 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
+"bKj" = (
+/obj/structure/table/wood,
+/obj/item/weapon/flame/candle,
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
+"bKk" = (
+/obj/structure/table/wood,
+/obj/item/weapon/storage/box/matches,
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
+"bKl" = (
+/obj/structure/table/wood,
+/obj/item/weapon/flame/candle,
+/turf/simulated/floor/carpet,
+/area/crew_quarters/bar)
 "bKm" = (
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
+"bKn" = (
+/obj/structure/table/wood,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Bar - Booths";
+	dir = 1
+	},
+/obj/item/weapon/flame/candle,
+/turf/simulated/floor/carpet,
+/area/crew_quarters/bar)
 "bKF" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -59161,20 +59232,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"fCk" = (
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 5
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/bar)
 "fDN" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -60959,16 +61016,6 @@
 "pjW" = (
 /turf/simulated/wall,
 /area/quartermaster/break_room)
-"ppQ" = (
-/obj/structure/disposalpipe/junction,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/bar)
 "pqr" = (
 /obj/structure/disposalpipe/sortjunction/untagged,
 /turf/simulated/floor/plating,
@@ -87162,7 +87209,7 @@ aqH
 aOJ
 aTz
 aZX
-bbB
+bLD
 bgR
 bmD
 bvk
@@ -88199,7 +88246,7 @@ arj
 arj
 arj
 arj
-arj
+bbB
 arj
 bEn
 arj
@@ -88458,7 +88505,7 @@ bFv
 bFv
 bFv
 bFv
-bEo
+bEn
 bMD
 bMD
 bMD
@@ -90021,7 +90068,7 @@ mEE
 bZD
 cip
 cax
-bJv
+bJr
 ciB
 cbw
 cbO
@@ -90029,7 +90076,7 @@ cco
 ccJ
 cde
 cdo
-bJC
+bJv
 cdK
 amz
 cdX
@@ -91047,7 +91094,7 @@ bXQ
 cia
 bWm
 bZG
-bJr
+byJ
 bZG
 pjW
 ciF
@@ -92343,8 +92390,8 @@ cct
 cct
 rKm
 nif
-ppQ
-fCk
+bJC
+bKd
 cdQ
 cdQ
 cdQ
@@ -93872,7 +93919,7 @@ bqt
 bsy
 bVa
 bsM
-bsZ
+bKl
 bsZ
 bsZ
 bUz
@@ -94379,7 +94426,7 @@ bUE
 bWj
 bVa
 bWh
-bWK
+bKj
 bWK
 bVa
 bWK
@@ -94636,11 +94683,11 @@ gtC
 bWj
 bVa
 bWh
-bWK
+bKk
 bWK
 bVa
 bWK
-bWK
+bKj
 bVa
 bKi
 bUz
@@ -95159,7 +95206,7 @@ bVa
 bsM
 bsZ
 bsZ
-bGl
+bKn
 bUz
 pRK
 cbE
@@ -95646,7 +95693,7 @@ aWl
 aWl
 bij
 aSs
-byJ
+btb
 bdw
 bCF
 bfw
@@ -95668,7 +95715,7 @@ bWK
 bWK
 bVa
 bWK
-bWK
+bKj
 bVa
 bsM
 bsz
@@ -95921,11 +95968,11 @@ bUE
 bWj
 bVa
 bWh
-bWK
+bKj
 bWK
 bVa
 bWK
-bWK
+bKj
 bVa
 bKi
 bUz
@@ -96174,7 +96221,7 @@ bUz
 bkQ
 bmt
 bUB
-bUE
+bGl
 bWj
 bVa
 bWh
@@ -96420,9 +96467,9 @@ buZ
 byN
 bRL
 bgX
-bFB
 bqx
-bKd
+bFB
+bEo
 bhh
 bih
 biq
@@ -96700,7 +96747,7 @@ bVa
 bVa
 bsM
 bsZ
-bsZ
+bKl
 btk
 bUz
 kqA
