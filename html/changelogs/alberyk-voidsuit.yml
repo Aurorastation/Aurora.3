@@ -1,7 +1,0 @@
-author: Alberyk, Kyres1
-
-delete-after: True
-
-changes: 
-  - tweak: "Baseline frames can not wear regular voidsuits anymore, they now need to refit them using the suit cycler machine."
-  - imageadd: "Added unique ipc voidsuit and hardsuit sprites."
