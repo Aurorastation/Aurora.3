@@ -34300,7 +34300,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/weapon/storage/belt,
 /obj/item/weapon/storage/toolbox/electrical,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/device/multitool,
@@ -34309,6 +34308,7 @@
 /obj/item/clothing/glasses/welding,
 /obj/item/clothing/head/welding,
 /obj/item/clothing/head/welding,
+/obj/item/weapon/storage/belt/utility,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bhL" = (
@@ -40404,7 +40404,6 @@
 	icon_state = "rwindow";
 	dir = 8
 	},
-/obj/structure/table/standard,
 /obj/machinery/door/window{
 	base_state = "left";
 	dir = 1;
