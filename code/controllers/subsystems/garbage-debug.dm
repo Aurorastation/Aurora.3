@@ -337,6 +337,7 @@
 	SearchVar(syndicate_code_response)
 	SearchVar(roundstart_hour)
 	SearchVar(round_start_time)
+	SearchVar(real_round_start_time)
 	SearchVar(next_duration_update)
 	SearchVar(last_round_duration)
 	SearchVar(common_tools)
