@@ -24,7 +24,7 @@
 	if(!is_open_container())
 		if(user.a_intent == I_HURT && !shaken)
 			shaken = 1
-			user.visible_message("[user] shakes the [src]!", "You shake the [src]!")
+			user.visible_message("[user] shakes \the [src]!", "You shake \the [src]!")
 			playsound(loc,'sound/items/Shaking_Soda_Can.ogg', rand(10,50), 1)
 			return
 		if(shaken)
@@ -34,11 +34,11 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/proc/open(mob/user as mob)
 	playsound(loc,'sound/effects/canopen.ogg', rand(10,50), 1)
-	user.visible_message("[user] opens the [src].", "You open the [src] with an audible pop!", "You can hear a pop,")
+	user.visible_message("[user] opens the [src].", "You open \the [src] with an audible pop!", "You can hear a pop,")
 	flags |= OPENCONTAINER
 
 /obj/item/weapon/reagent_containers/food/drinks/proc/boom(mob/user as mob)
-	user.visible_message("<span class='danger'>The [src] explodes all over [user] as they open it!</span>","<span class='danger'>The [src] explodes all over you as you open it!</span>","You can hear a soda can explode.")
+	user.visible_message("<span class='danger'>\The [src] explodes all over [user] as they open it!</span>","<span class='danger'>\The [src] explodes all over you as you open it!</span>","You can hear a soda can explode.")
 	playsound(loc,'sound/items/Soda_Burst.ogg', rand(20,50), 1)
 	QDEL_NULL(reagents)
 	flags |= OPENCONTAINER
@@ -51,19 +51,19 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/standard_feed_mob(var/mob/user, var/mob/target)
 	if(!is_open_container())
-		user << "<span class='notice'>You need to open [src]!</span>"
+		user << "<span class='notice'>You need to open \the [src]!</span>"
 		return 1
 	return ..()
 
 /obj/item/weapon/reagent_containers/food/drinks/standard_dispenser_refill(var/mob/user, var/obj/structure/reagent_dispensers/target)
 	if(!is_open_container())
-		user << "<span class='notice'>You need to open [src]!</span>"
+		user << "<span class='notice'>You need to open \the [src]!</span>"
 		return 1
 	return ..()
 
 /obj/item/weapon/reagent_containers/food/drinks/standard_pour_into(var/mob/user, var/atom/target)
 	if(!is_open_container())
-		user << "<span class='notice'>You need to open [src]!</span>"
+		user << "<span class='notice'>You need to open \the [src]!</span>"
 		return 1
 	return ..()
 
@@ -132,6 +132,15 @@
 	Initialize()
 		. = ..()
 		reagents.add_reagent("coffee", 30)
+
+/obj/item/weapon/reagent_containers/food/drinks/coffee/pslatte
+	name = "Seasonal Pumpkin Spice Latte"
+	desc = "A limited edition pumpkin spice coffee drink!"
+	icon_state = "psl_vended"
+	center_of_mass = list("x"=15, "y"=10)
+	Initialize()
+		. = ..()
+		reagents.add_reagent("sadpslatte", 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/tea
 	name = "Duke purple tea"

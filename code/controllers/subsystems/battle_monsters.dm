@@ -27,7 +27,7 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 
 
 /datum/controller/subsystem/battle_monsters/New()
-    NEW_SS_GLOBAL(SSbattlemonsters)
+	NEW_SS_GLOBAL(SSbattlemonsters)
 
 /datum/controller/subsystem/battle_monsters/Initialize()
 	GenerateDatum(BATTLE_MONSTERS_GEN_PREFIX)
@@ -240,6 +240,8 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 			return "colossus"
 		if(BATTLE_MONSTERS_DEFENSETYPE_FLYING)
 			return "winged monster"
+		else
+			return GetSpecies(card_defense_type," mixed with ")
 
 	return "unknown"
 
@@ -338,8 +340,34 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 
 	return english_list(included_elements, nothing_text = "Neutral", and_text = and_text)
 
-/datum/controller/subsystem/battle_monsters/proc/GetStarLevel(var/power_rating)
-	return min(10,1 + round( (power_rating^1.25) * 0.00012))
+/datum/controller/subsystem/battle_monsters/proc/GetStarLevel(var/power_rating,var/attack_points,var/defense_points)
+
+	var/power_mod = (power_rating / 2) + (max(attack_points,defense_points)/2)
+
+	if(power_mod <= BATTLE_MONSTERS_POWER_PETTY)
+		return 1
+	if(power_mod <= BATTLE_MONSTERS_POWER_LESSER)
+		return 2
+	if(power_mod <= BATTLE_MONSTERS_POWER_COMMON)
+		return 3
+	if(power_mod <= BATTLE_MONSTERS_POWER_GREATER)
+		return 4
+	if(power_mod <= BATTLE_MONSTERS_POWER_GRAND)
+		return 5
+	else
+		return 5 + round((power_mod - BATTLE_MONSTERS_POWER_GRAND)/BATTLE_MONSTERS_POWER_UPGRADE)
+
+/datum/controller/subsystem/battle_monsters/proc/GetSummonRequirements(var/starlevel)
+	if(starlevel <= 2)
+		return "None."
+	else if(starlevel <= 4)
+		return "Must sacrifice one monster on your side of the field to summon."
+	else if(starlevel <= 6)
+		return "Must sacrifice two monsters on your side of the field to summon."
+	else if(starlevel <= 8)
+		return "Must sacrifice three monsters on your side of the field to summon."
+	else
+		return "Must sacrifice four monsters on your side of the field to summon."
 
 /datum/controller/subsystem/battle_monsters/proc/FormatMonsterText(var/text,var/datum/battle_monsters/element/prefix_datum,var/datum/battle_monsters/monster/root_datum,var/datum/battle_monsters/title/suffix_datum)
 
@@ -369,7 +397,9 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 		"%ATTACK_POINTS" = generated_stats["attack_points"],
 		"%DEFENSE_POINTS" = generated_stats["defense_points"],
 
-		"%STARLEVEL" = GetStarLevel(generated_stats["power"])
+		"%STAR_LEVEL" = generated_stats["star_level"],
+
+		"%SUMMON_REQUIREMENTS" = GetSummonRequirements(generated_stats["star_level"])
 	)
 
 	for(var/word in replacements)
@@ -406,9 +436,10 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 	return text
 
 /datum/controller/subsystem/battle_monsters/proc/GetMonsterFormatting()
-	return "<b>%NAME</b> | %ELEMENT_LIST %TYPE | %SPECIES_C <br>\
+	return "<b>%NAME</b> | %STAR_LEVEL Star Monster | %ELEMENT_LIST %TYPE | %SPECIES_C<br>\
 			Keywords: %SPECIES_LIST<br>\
 			ATK: %ATTACK_POINTS | DEF: %DEFENSE_POINTS<br>\
+			Summoning Requirements: %SUMMON_REQUIREMENTS<br>\
 			%SPECIAL_EFFECTS<br>\
 			The card depicts %DESCRIPTION"
 
@@ -472,7 +503,7 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 
 	returning_list["attack_points"] = round(returning_list["power"] * returning_list["attack_points"],100)
 	returning_list["defense_points"] = round(returning_list["power"] * returning_list["defense_points"],100)
-	returning_list["star_level"] = GetStarLevel(returning_list["power"])
+	returning_list["star_level"] = GetStarLevel(returning_list["power"],returning_list["attack_points"],returning_list["defense_points"])
 
 	return returning_list
 

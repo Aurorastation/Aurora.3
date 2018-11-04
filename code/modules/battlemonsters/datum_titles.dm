@@ -18,7 +18,7 @@
 /datum/battle_monsters/title/great
 	name = "the Great"
 	id = "great"
-	power_add = 200
+	power_add = BATTLE_MONSTERS_POWER_UPGRADE
 	defense_mul = 1.1
 	power_mul = 1.1
 	description = "%NAME is known for their extensive adventuring exploits in the Great Kingdom of Al'Karbaro. Rumor has it that their trusty %WEAPON_AND was discovered in a secret underground cave that held the secrets to %ELEMENT_AND."
@@ -29,17 +29,17 @@
 	name = "the Powerful"
 	id = "powerful"
 	attack_mul = 1.25
-	power_add = 200
+	power_add = BATTLE_MONSTERS_POWER_UPGRADE
 	power_mul = 1.25
 	description = "%NAME is feared upon by most lesser beings, and with good reason. A single stroke of their %WEAPON_AND is known to destroy the very souls of those unlucky enough to even witness it's power over %ELEMENT_AND."
-	special_effects = "Absolute Power: %NAME cannot be attacked by monsters with a base attack rating less than <b>2000</b>."
+	special_effects = "Absolute Power: %NAME cannot be attacked by monsters with 4 or lower stars."
 	rarity = 0.5
 	rarity_score = 1
 
 /datum/battle_monsters/title/wise
 	name = "the Wise"
 	id = "wise"
-	power_add = 200
+	power_add = BATTLE_MONSTERS_POWER_UPGRADE
 	power_mul = 1.1
 	description = "Kings and philopshers all around the Kingdom send their servants to seek out %NAME for their sagely advice on %ELEMENT_AND. Their knowledge of such magic rivals even the greatest of the Old Wizards."
 	special_effects = "Elemental Defense: %NAME temporarily gains <b>800</b> bonus defense points when defending against another %ELEMENT_OR type monster."
@@ -49,7 +49,7 @@
 /datum/battle_monsters/title/elemental
 	name = "Master of Elements"
 	id = "master"
-	power_add = 200
+	power_add = BATTLE_MONSTERS_POWER_UPGRADE
 	power_mul = 1.1
 	attack_mul = 0.25
 	description = "To master one element takes decades of work, to master all 8 takes several lifetimes of constant dedication. It is no doubt that %NAME is old enough to have the time to study all elements, or is powerful enough to manipulate time itself."

@@ -205,8 +205,7 @@
 
 /datum/recipe/pumpkinpie
 	appliance = OVEN
-	fruit = list("pumpkin" = 1)
-	reagents = list("milk" = 5, "sugar" = 5, "egg" = 3, "flour" = 10)
+	reagents = list("milk" = 5, "sugar" = 5, "egg" = 3, "flour" = 10, "pumpkinpulp"= 5, "pumpkinspice"= 2)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/pumpkinpie
 	reagent_mix = RECIPE_REAGENT_REPLACE //We dont want raw egg in the result
 
@@ -232,6 +231,7 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE //No raw egg in finished product, protein after cooking causes magic meatballs otherwise
 
 /datum/recipe/tajaran_bread
+	appliance = OVEN
 	fruit = list("nifberries" = 1)
 	reagents = list("spacespice" = 1)
 	items = list(
@@ -489,7 +489,11 @@
 /datum/recipe/pancakes
 	appliance = OVEN
 	fruit = list("blueberries" = 2)
-	reagents = list("milk" = 5, "flour" = 15, "egg" = 9, "coco" = 4, "sugar" = 5)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/pancakes
 	result = /obj/item/weapon/reagent_containers/food/snacks/pancakes
 
 /datum/recipe/lasagna

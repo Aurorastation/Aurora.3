@@ -194,7 +194,7 @@
 			if(ismob(target))
 				var/contained = reagentlist()
 				trans = reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_BLOOD)
-				admin_inject_log(user, target, src, contained, trans)
+				admin_inject_log(user, target, src, contained, reagents.get_temperature(), trans)
 			else
 				trans = reagents.trans_to(target, amount_per_transfer_from_this)
 			user << "<span class='notice'>You inject [trans] units of the solution. The syringe now contains [src.reagents.total_volume] units.</span>"
@@ -269,13 +269,11 @@
 		user.visible_message("<span class='danger'>[user] stabs [target] with [src.name]!</span>")
 		target.take_organ_damage(3)// 7 is the same as crowbar punch
 
-
-
 	var/syringestab_amount_transferred = rand(0, (reagents.total_volume - 5)) //nerfed by popular demand
 	var/contained_reagents = reagents.get_reagents()
 	var/trans = reagents.trans_to_mob(target, syringestab_amount_transferred, CHEM_BLOOD)
 	if(isnull(trans)) trans = 0
-	admin_inject_log(user, target, src, contained_reagents, trans, violent=1)
+	admin_inject_log(user, target, src, contained_reagents, reagents.get_temperature(), trans, violent=1)
 	break_syringe(target, user)
 
 /obj/item/weapon/reagent_containers/syringe/proc/break_syringe(mob/living/carbon/target, mob/living/carbon/user)
