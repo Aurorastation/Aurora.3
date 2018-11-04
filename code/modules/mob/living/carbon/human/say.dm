@@ -157,10 +157,13 @@
 				message = uppertext(message)
 				verb = "yells loudly"
 
-	var/list/returns[3]
+	var/list/returns[4]
 	returns[1] = message
 	returns[2] = verb
 	returns[3] = speech_problem_flag
+	returns[4] = world.view
+
+	returns = species.handle_speech_problems(src, returns, message, verb, message_mode)
 	return returns
 
 /mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
@@ -217,12 +220,9 @@
 					used_radios += r_ear
 
 /mob/living/carbon/human/handle_speech_sound()
-	if(species.speech_sounds && prob(species.speech_chance))
-		var/list/returns[2]
-		returns[1] = sound(pick(species.speech_sounds))
-		returns[2] = 50
-		return returns
-	return ..()
+	var/list/returns = ..()
+	returns = species.handle_speech_sound(src, returns)
+	return returns
 
 /mob/living/carbon/human/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null)
 	for(var/T in get_traumas())
