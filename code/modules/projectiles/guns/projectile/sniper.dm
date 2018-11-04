@@ -15,7 +15,7 @@
 	ammo_type = /obj/item/ammo_casing/a145
 	//+2 accuracy over the LWAP because only one shot
 	accuracy = -3
-	scoped_accuracy = 2
+	scoped_accuracy = 4
 	var/bolt_open = 0
 
 	fire_sound = 'sound/weapons/Gunshot_DMR.ogg'
@@ -118,7 +118,7 @@
 	max_shells = 4
 	ammo_type = null
 	accuracy = -3
-	scoped_accuracy = 3
+	scoped_accuracy = 4
 	bolt_open = 0
 	muzzle_flash = 1
 
@@ -155,10 +155,10 @@
 	magazine_type = /obj/item/ammo_magazine/d762
 	allowed_magazines = list(/obj/item/ammo_magazine/d762)
 	accuracy = -4
-	scoped_accuracy = 2
+	scoped_accuracy = 3
 
 	recoil_wielded = 1
-	accuracy_wielded = 0
+	accuracy_wielded = 1
 
 	//action button for wielding
 	action_button_name = "Wield rifle"
@@ -220,7 +220,7 @@
 	accuracy = -4
 	scoped_accuracy = 3
 	recoil_wielded = 2
-	accuracy_wielded = 0
+	accuracy_wielded = 1
 	multi_aim = 0 //Definitely a fuck no. Being able to target one person at this range is plenty.
 
 	firemodes = list(

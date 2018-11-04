@@ -17,9 +17,10 @@
 	var/help = 0
 	var/edit = 1
 	var/repeat = 0
+	var/force_piano = FALSE
 
 /obj/structure/device/piano/New()
-	if(prob(50))
+	if(prob(50) && !force_piano)
 		name = "space minimoog"
 		desc = "This is a minimoog, like a space piano, but more spacey!"
 		icon_state = "minimoog"

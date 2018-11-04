@@ -9,6 +9,11 @@
 	display_name = "kilt"
 	path = /obj/item/clothing/under/kilt
 
+/datum/gear/uniform/iacjumpsuit
+	display_name = "IAC Jumpsuit"
+	path = /obj/item/clothing/under/rank/iacjumpsuit
+	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Chemist", "Paramedic", "Medical Resident")
+
 /datum/gear/uniform/jumpsuit
 	display_name = "generic jumpsuits"
 	path = /obj/item/clothing/under/color/grey
