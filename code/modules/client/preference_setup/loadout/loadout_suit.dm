@@ -166,6 +166,11 @@
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/medical
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Paramedic", "Medical Resident", "Psychiatrist", "Chemist")
 
+/datum/gear/suit/roles/poncho/cloak/security
+	display_name = "cloak, security"
+	path = /obj/item/clothing/accessory/poncho/roles/cloak/security
+	allowed_roles = list("Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet")
+
 /datum/gear/suit/blue_lawyer_jacket
 	display_name = "suit jacket, blue"
 	path = /obj/item/clothing/suit/storage/toggle/lawyer/bluejacket
@@ -311,6 +316,10 @@
 /datum/gear/suit/miscellaneous/med_dep_jacket
 	display_name = "department jacket, medical"
 	path = /obj/item/clothing/suit/storage/toggle/med_dep_jacket
+
+/datum/gear/suit/miscellaneous/sec_dep_jacket
+	display_name = "department jacket, security"
+	path = /obj/item/clothing/suit/storage/toggle/sec_dep_jacket
 
 /datum/gear/suit/miscellaneous/peacoat
 	display_name = "peacoat"

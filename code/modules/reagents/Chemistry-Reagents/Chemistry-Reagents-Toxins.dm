@@ -10,6 +10,7 @@
 	var/strength = 4 // How much damage it deals per unit
 	taste_description = "bitterness"
 	taste_mult = 1.2
+	fallback_specific_heat = 0.75
 
 /datum/reagent/toxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(strength)
@@ -69,6 +70,7 @@
 	touch_met = 5
 	taste_mult = 1.5
 	breathe_mul = 2
+	specific_heat = 2 //Phoron is very dense and can hold a lot of energy.
 
 /datum/reagent/toxin/phoron/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
@@ -101,10 +103,8 @@
 	else
 		..()
 
-
-
-
 /datum/reagent/toxin/phoron/touch_mob(var/mob/living/L, var/amount)
+	. = ..()
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 5)
 
@@ -124,6 +124,14 @@
 		return
 	T.assume_gas("phoron", volume, T20C)
 	remove_self(volume)
+
+/datum/reagent/toxin/phoron_salt //Remember to exclude in RNG chems.
+	name = "Phoron Salts"
+	id = "phoron_salt"
+	description = "A mysterious molten mixture with strange chemical properties."
+	reagent_state = SOLID
+	color = "#7C4876"
+	strength = 30
 
 /datum/reagent/toxin/cardox
 	name = "Cardox"
@@ -305,6 +313,7 @@
 	return
 
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_mob(var/mob/living/L, var/amount)
+	. = ..()
 	if(istype(L))
 		var/needed = L.fire_stacks * 10
 		if(amount > needed)

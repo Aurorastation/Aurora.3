@@ -10,6 +10,7 @@
 	taste_description = "boiled cabbage"
 	unaffected_species = IS_MACHINE
 	var/kois_type = 1
+	specific_heat = 0.75
 
 /datum/reagent/kois/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
@@ -45,6 +46,7 @@
 	color = "#ece9dd"
 	taste_description = "cabbage soup"
 	kois_type = 0
+	specific_heat = 1
 
 /datum/reagent/kois/black
 	name = "Modified K'ois"
@@ -53,6 +55,7 @@
 	color = "#31004A"
 	taste_description = "tar"
 	kois_type = 2
+	specific_heat = 0.5
 
 /* Food */
 /datum/reagent/nutriment
@@ -72,6 +75,7 @@
 	color = "#664330"
 	unaffected_species = IS_MACHINE
 	taste_description = "food"
+	fallback_specific_heat = 1.25
 
 /datum/reagent/nutriment/synthetic
 	name = "Synthetic Nutriment"
@@ -537,11 +541,14 @@
 /datum/reagent/frostoil
 	name = "Frost Oil"
 	id = "frostoil"
-	description = "A special oil that noticably chills the body. Extracted from Ice Peppers."
+	description = "A special oil that chemically chills the body. Extracted from Ice Peppers."
 	reagent_state = LIQUID
 	color = "#B31008"
 	taste_description = "mint"
 	taste_mult = 1.5
+
+	specific_heat = 15
+	default_temperature = T0C - 20
 
 /datum/reagent/frostoil/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.bodytemperature = max(M.bodytemperature - 10 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
@@ -704,11 +711,12 @@
 	var/adj_dizzy = 0 // Per tick
 	var/adj_drowsy = 0
 	var/adj_sleepy = 0
-	var/adj_temp = 0
+	var/adj_temp = 0 //do NOT use for temp changes based on the temperature of the drinks, only for things such as spices.
 	var/caffeine = 0 // strength of stimulant effect, since so many drinks use it
 	var/datum/modifier/modifier = null
 	unaffected_species = IS_MACHINE
 	var/blood_to_ingest_scale = 2
+	fallback_specific_heat = 1.75
 
 /datum/reagent/drink/Destroy()
 	if (modifier)
@@ -930,6 +938,8 @@
 	glass_name = "glass of milk"
 	glass_desc = "White and nutritious goodness!"
 
+	default_temperature = T0C + 5
+
 /datum/reagent/drink/milk/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien != IS_DIONA)
@@ -965,7 +975,6 @@
 	adj_dizzy = -2
 	adj_drowsy = -1
 	adj_sleepy = -3
-	adj_temp = 20
 	taste_description = "tart black tea"
 
 	glass_icon_state = "bigteacup"
@@ -979,7 +988,6 @@
 	id = "icetea"
 	description = "No relation to a certain rap artist/ actor."
 	color = "#104038" // rgb: 16, 64, 56
-	adj_temp = -5
 	taste_description = "sweet tea"
 
 	glass_icon_state = "icedteaglass"
@@ -996,7 +1004,6 @@
 	adj_dizzy = -5
 	adj_drowsy = -3
 	adj_sleepy = -2
-	adj_temp = 25
 	overdose = 45
 	caffeine = 0.3
 	taste_description = "coffee"
@@ -1029,7 +1036,6 @@
 	id = "icecoffee"
 	description = "Coffee and ice, refreshing and cool."
 	color = "#102838"
-	adj_temp = -5
 
 	glass_icon_state = "frappe"
 	glass_name = "glass of frappe coffee"
@@ -1040,7 +1046,6 @@
 	id = "soy_latte"
 	description = "A nice and tasty beverage while you are reading your hippie books."
 	color = "#664300"
-	adj_temp = 5
 	taste_description = "creamy coffee"
 
 	glass_icon_state = "soy_latte"
@@ -1053,7 +1058,6 @@
 	id = "cafe_latte"
 	description = "A nice, strong and tasty beverage while you are reading."
 	color = "#664300" // rgb: 102, 67, 0
-	adj_temp = 5
 	taste_description = "bitter cream"
 
 	glass_icon_state = "cafe_latte"
@@ -1066,7 +1070,6 @@
 	id = "espresso"
 	description = "A strong coffee made by passing nearly boiling water through coffee seeds at high pressure."
 	color = "#664300" // rgb: 102, 67, 0
-	adj_temp = 5
 	taste_description = "bitter coffee"
 
 	glass_icon_state = "hot_coffee"
@@ -1079,7 +1082,6 @@
 	id = "freddo_espresso"
 	description = "Espresso with ice cubes poured over ice."
 	color = "#664300" // rgb: 102, 67, 0
-	adj_temp = 5
 	taste_description = "cold and bitter coffee"
 
 	glass_icon_state = "hot_coffee"
@@ -1092,7 +1094,6 @@
 	id = "caffe_americano"
 	description = "Espresso diluted with hot water."
 	color = "#664300" // rgb: 102, 67, 0
-	adj_temp = 5
 	taste_description = "delicious coffee"
 
 	glass_icon_state = "hot_coffee"
@@ -1105,7 +1106,6 @@
 	id = "flat_white"
 	description = "Espresso with a bit of steamy hot milk."
 	color = "#664300" // rgb: 102, 67, 0
-	adj_temp = 5
 	taste_description = "bitter coffee and milk"
 
 	glass_icon_state = "cafe_latte"
@@ -1118,7 +1118,6 @@
 	id = "latte"
 	description = "A nice, strong and refreshing beverage while you are reading."
 	color = "#664300" // rgb: 102, 67, 0
-	adj_temp = 5
 	taste_description = "bitter cream"
 
 	glass_icon_state = "cafe_latte"
@@ -1131,7 +1130,6 @@
 	id = "cappuccino"
 	description = "Espresso with steamed milk foam."
 	color = "#664300" // rgb: 102, 67, 0
-	adj_temp = 5
 	taste_description = "bitter milk foam"
 
 	glass_icon_state = "hot_coffee"
@@ -1144,7 +1142,6 @@
 	id = "freddo_cappuccino"
 	description = "Espresso with steamed milk foam, on ice."
 	color = "#664300" // rgb: 102, 67, 0
-	adj_temp = 5
 	taste_description = "cold and bitter milk foam"
 
 	glass_icon_state = "hot_coffee"
@@ -1157,7 +1154,6 @@
 	id = "macchiato"
 	description = "Espresso with milk foam."
 	color = "#664300" // rgb: 102, 67, 0
-	adj_temp = 5
 	taste_description = "bitter milk foam"
 
 	glass_icon_state = "hot_coffee"
@@ -1170,13 +1166,45 @@
 	id = "mocacchino"
 	description = "Espresso with hot milk and chocolate."
 	color = "#664300" // rgb: 102, 67, 0
-	adj_temp = 5
 	taste_description = "sweet milk and bitter coffee"
 
 	glass_icon_state = "cafe_latte"
 	glass_name = "glass of mocacchino"
 	glass_desc = "Espresso with hot milk and chocolate."
 	glass_center_of_mass = list("x"=15, "y"=9)
+
+/datum/reagent/drink/coffee/icecoffee/psfrappe
+	name = "Pumpkin Spice Frappe"
+	id = "psfrappe"
+	description = "A seasonal treat popular around the autumn times."
+	color = "#9C6B19"
+	taste_description = "autumn bliss and coffee"
+
+	glass_icon_state = "frappe_psl"
+	glass_name = "glass of pumpkin spice frappe"
+	glass_desc = "A seasonal treat popular around the autumn times."
+
+/datum/reagent/drink/coffee/pslatte
+	name = "Pumpkin Spice Latte"
+	id = "pslatte"
+	description = "A seasonal drink favored in autumn."
+	color = "#9C6B19"
+	taste_description = "hot creamy coffee and autumn bliss"
+
+	glass_icon_state = "psl_cheap"
+	glass_name = "cup of pumpkin spice latte"
+	glass_desc = "A hot cup of pumpkin spiced coffee. Autumn really is the best season!"
+
+/datum/reagent/drink/coffee/sadpslatte
+	name = "Processed Pumpkin Latte"
+	id = "sadpslatte"
+	description = "A processed drink vaguely reminicent of autumn bliss."
+	color = "#9C6B19"
+	taste_description = "a disappointing approximation of autumn bliss"
+
+	glass_icon_state = "psl_cheap"
+	glass_name = "cup of cheap pumpkin latte"
+	glass_desc = "Maybe you should just go ask the barista for something more authentic..."
 
 /datum/reagent/drink/hot_coco
 	name = "Hot Chocolate"
@@ -1185,7 +1213,6 @@
 	reagent_state = LIQUID
 	color = "#403010"
 	nutrition = 2
-	adj_temp = 5
 	taste_description = "creamy chocolate"
 
 	glass_icon_state = "chocolateglass"
@@ -1199,7 +1226,6 @@
 	color = "#619494"
 	adj_dizzy = -5
 	adj_drowsy = -3
-	adj_temp = -5
 	taste_description = "carbonated water"
 
 	glass_icon_state = "glass_clear"
@@ -1226,7 +1252,6 @@
 	adj_dizzy = -5
 	adj_drowsy = -3
 	adj_sleepy = -2
-	adj_temp = -5
 	taste_description = "tart and fresh"
 
 	glass_icon_state = "glass_clear"
@@ -1238,7 +1263,6 @@
 	description = "Oh the nostalgia..."
 	id = "lemonade"
 	color = "#FFFF00"
-	adj_temp = -5
 	taste_description = "tartness"
 
 	glass_icon_state = "lemonadeglass"
@@ -1250,7 +1274,6 @@
 	description = "Long live the guy who everyone had mistaken for a girl. Baka!"
 	id = "kiraspecial"
 	color = "#CCCC99"
-	adj_temp = -5
 	taste_description = "fruity sweetness"
 
 	glass_icon_state = "kiraspecial"
@@ -1263,7 +1286,6 @@
 	description = "It's not what it sounds like..."
 	id = "brownstar"
 	color = "#9F3400"
-	adj_temp = -2
 	taste_description = "orange and cola soda"
 
 	glass_icon_state = "brownstar"
@@ -1287,7 +1309,6 @@
 	description = "Glorious brainfreezing mixture."
 	id = "milkshake"
 	color = "#AEE5E4"
-	adj_temp = -9
 	taste_description = "creamy vanilla"
 
 	glass_icon_state = "milkshake"
@@ -1300,7 +1321,6 @@
 	description = "The secret of the sanctuary of the Libarian..."
 	id = "rewriter"
 	color = "#485000"
-	adj_temp = -5
 	caffeine = 0.4
 	taste_description = "soda and coffee"
 
@@ -1319,7 +1339,6 @@
 	id = "nuka_cola"
 	description = "Cola, cola never changes."
 	color = "#100800"
-	adj_temp = -5
 	adj_sleepy = -2
 	caffeine = 1
 	taste_description = "cola"
@@ -1357,7 +1376,6 @@
 	reagent_state = LIQUID
 	color = "#100800"
 	adj_drowsy = -3
-	adj_temp = -5
 	taste_description = "cola"
 
 	glass_icon_state  = "glass_brown"
@@ -1371,7 +1389,6 @@
 	color = "#102000"
 	adj_drowsy = -7
 	adj_sleepy = -1
-	adj_temp = -5
 	taste_description = "sweet citrus soda"
 
 	glass_icon_state = "Space_mountain_wind_glass"
@@ -1384,7 +1401,6 @@
 	description = "A delicious blend of 42 different flavours"
 	color = "#102000"
 	adj_drowsy = -6
-	adj_temp = -5
 	taste_description = "cherry soda"
 
 	glass_icon_state = "dr_gibb_glass"
@@ -1397,7 +1413,6 @@
 	description = "A classic Earth drink from the United Americas province."
 	color = "#211100"
 	adj_drowsy = -6
-	adj_temp = -5
 	taste_description = "sassafras and anise soda"
 
 	glass_icon_state = "root_beer_glass"
@@ -1409,7 +1424,6 @@
 	id = "space_up"
 	description = "Tastes like a hull breach in your mouth."
 	color = "#202800"
-	adj_temp = -8
 	taste_description = "a hull breach"
 
 	glass_icon_state = "space-up_glass"
@@ -1421,7 +1435,6 @@
 	description = "A tangy substance made of 0.5% natural citrus!"
 	id = "lemon_lime"
 	color = "#878F00"
-	adj_temp = -8
 	taste_description = "tangy lime and lemon soda"
 
 	glass_icon_state = "lemonlime"
@@ -1484,10 +1497,7 @@
 	nutrition = 5
 	hydration = 5
 	taste_description = "wet and cheap noodles on fire"
-
-/datum/reagent/drink/hell_ramen/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	..()
-	M.bodytemperature += 10 * TEMPERATURE_DAMAGE_COEFFICIENT
+	adj_temp = 20
 
 /datum/reagent/drink/ice
 	name = "Ice"
@@ -1495,7 +1505,6 @@
 	description = "Frozen water, your dentist wouldn't like you chewing this."
 	reagent_state = SOLID
 	color = "#619494"
-	adj_temp = -5
 	taste_description = "ice"
 	taste_mult = 1.5
 	hydration = 8
@@ -1503,6 +1512,8 @@
 	glass_icon_state = "iceglass"
 	glass_name = "glass of ice"
 	glass_desc = "Generally, you're supposed to put something else in there too..."
+
+	default_temperature = T0C - 10
 
 /datum/reagent/drink/nothing
 	name = "Nothing"
@@ -2309,7 +2320,6 @@
 	description = "A beer which is so cold the air around it freezes."
 	color = "#664300"
 	strength = 5
-	adj_temp = -20
 	targ_temp = 270
 	taste_description = "refreshingly cold"
 
@@ -2835,8 +2845,6 @@
 	id = "dr_gibb_diet"
 	description = "A delicious blend of 42 different flavours, one of which is water."
 	color = "#102000"
-
-	adj_temp = -5
 	taste_description = "watered down liquid sunshine"
 
 	glass_icon_state = "dr_gibb_glass"
@@ -2848,7 +2856,6 @@
 	id = "dr_daniels"
 	description = "A limited edition tallboy of Dr. Gibb's Infusions."
 	color = "#8e6227"
-	adj_temp = -5
 	caffeine = 0.2
 	overdose = 80
 	strength = 20
@@ -3435,7 +3442,6 @@
 	color = "#664300"
 	strength = 15
 	taste_description = "cold oily gin"
-	adj_temp = -15
 	targ_temp = 270
 
 	glass_icon_state = "winter_offensive"
@@ -3659,7 +3665,6 @@
 	id = "zora_cherry"
 	description = "Zo'ra Soda, cherry edition. All good drinks come in cherry."
 	color = "#102000"
-	adj_temp = -5
 	adj_sleepy = -2
 	caffeine = 0.2
 	taste_description = "electric cherry"
@@ -3669,7 +3674,6 @@
 	id = "zora_phoron"
 	description = "Reported to taste nothing like phoron, but everything like grapes."
 	color = "#863333"
-	adj_temp = -5
 	adj_sleepy = -2
 	caffeine = 0.2
 	taste_description = "electric grape"
@@ -3679,7 +3683,6 @@
 	id = "zora_kois"
 	description = "Whoever approved this in marketing needs to be drawn and quartered."
 	color = "#dcd9cd"
-	adj_temp = -5
 	adj_sleepy = -2
 	caffeine = 0.2
 	taste_description = "sugary cabbage"
@@ -3694,7 +3697,6 @@
 	id = "zora_hozm"
 	description = "It feels like someone is just driving a freezing cold spear through the bottom of your mouth."
 	color = "#365000"
-	adj_temp = -5
 	adj_sleepy = -3
 	caffeine = 0.3
 	taste_description = "a full-body bite into an acidic lemon"
@@ -3711,7 +3713,6 @@
 	id = "zora_venom"
 	description = "The 'diet' version of High Energy Zorane Might, still tastes like a cloud of stinging polytrinic bees."
 	color = "#100800"
-	adj_temp = -5
 	adj_sleepy = -3
 	caffeine = 0.1
 	taste_description = "fizzy nettles"
@@ -3726,7 +3727,6 @@
 	id = "zora_klax"
 	description = "An orange, cream soda. It's a wonder it got here."
 	color = "#E78108"
-	adj_temp = -5
 	adj_sleepy = -3
 	caffeine = 0.2
 	unaffected_species = IS_MACHINE
@@ -3742,7 +3742,6 @@
 	id = "zora_cthur"
 	description = "A raspberry concoction you're pretty sure is already on recall."
 	color = "#0000CD"
-	adj_temp = -5
 	adj_sleepy = -3
 	caffeine = 0.2
 	taste_description = "flat raspberry"
@@ -3757,7 +3756,6 @@
 	id = "zora_drone"
 	description = "It's thick as syrup and smells of gas. Why."
 	color = "#31004A"
-	adj_temp = -5
 	adj_sleepy = -3
 	taste_description = "viscous cola"
 
@@ -3782,7 +3780,6 @@
 	id = "zora_jelly"
 	description = "It looks of mucus, but tastes like Heaven."
 	color = "#FFFF00"
-	adj_temp = -5
 	adj_sleepy = -3
 	caffeine = 0.2
 	taste_description = "a reassuring spectrum of color"
@@ -3793,3 +3790,18 @@
 		M.druggy = max(M.druggy, 30)
 		M.dizziness += 5
 		M.drowsyness = 0
+
+/datum/reagent/nutriment/pumpkinpulp
+	name = "Pumpkin Pulp"
+	id = "pumpkinpulp"
+	description = "The gooey insides of a slain pumpkin"
+	color = "#f9ab28"
+	taste_description = "gooey pumpkin"
+
+/datum/reagent/spacespice/pumpkinspice
+	name = "Pumpkin Spice"
+	id = "pumpkinspice"
+	description = "A delicious seasonal flavoring."
+	color = "#AE771C"
+	taste_description = "autumn bliss"
+	
