@@ -515,3 +515,9 @@ FORCE_MAP aurora
 
 # Reminds ticket handlers/all admin staff of not-closed tickets after this many SECONDS.
 #TICKET_REMINDER_PERIOD 600
+
+# If using TGS, counts how many regularly TGS hard restarts the server process.
+# -1 - never do this.
+# 0 - do this after every round.
+# n - do this every n rounds.
+#ROUNDS_UNTIL_HARD_RESTART -1
