@@ -280,6 +280,8 @@ var/list/gamemode_cache = list()
 
 	var/ticket_reminder_period = 0
 
+	var/rounds_until_hard_restart = -1 // Changes how often a hard restart will be executed.
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -859,6 +861,9 @@ var/list/gamemode_cache = list()
 					ticket_reminder_period = text2num(value)
 					if (ticket_reminder_period < 1)
 						ticket_reminder_period = 0
+
+				if ("rounds_until_hard_restart")
+					rounds_until_hard_restart = text2num(value)
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
