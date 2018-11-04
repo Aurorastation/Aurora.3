@@ -19942,7 +19942,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/banner,
+/obj/machinery/suit_cycler/hos,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "aIM" = (
@@ -24065,6 +24065,8 @@
 /obj/structure/closet/secure_closet/hos,
 /obj/item/device/multitool,
 /obj/item/weapon/reagent_containers/spray/pepper,
+/obj/item/clothing/suit/space/void/hos,
+/obj/item/clothing/head/helmet/space/void/hos,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "aPL" = (
@@ -31433,6 +31435,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/vending/medical{
+	density = 0;
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
@@ -45228,6 +45231,7 @@
 	dir = 8
 	},
 /obj/machinery/vending/medical{
+	density = 0;
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/white,
