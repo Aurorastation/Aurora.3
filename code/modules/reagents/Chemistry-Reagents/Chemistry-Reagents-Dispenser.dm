@@ -385,7 +385,7 @@
 	var/meltdose = 10 // How much is needed to melt
 	taste_description = "acid"
 
-	specific_heat = 0.815
+	fallback_specific_heat = 0.815
 
 /datum/reagent/acid/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.take_organ_damage(0, removed * power)
@@ -477,7 +477,6 @@
 	power = 3
 	meltdose = 8
 	taste_description = "stomach acid"
-
 	specific_heat = 1.710
 
 /datum/reagent/acid/polyacid //Not in dispensers, but it should be here

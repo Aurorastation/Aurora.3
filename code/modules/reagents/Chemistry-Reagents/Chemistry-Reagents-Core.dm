@@ -22,6 +22,8 @@
 	glass_name = "glass of tomato juice"
 	glass_desc = "Are you sure this is tomato juice?"
 
+	specific_heat = 3.617
+
 /datum/reagent/blood/initialize_data(var/newdata)
 	..()
 	if(data && data["blood_colour"])

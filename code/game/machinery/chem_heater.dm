@@ -11,8 +11,8 @@
 	var/accept_drinking = FALSE
 	var/machine_strength = 0 //How much joules to add per process. Controlled by manipulators.
 	var/should_heat = TRUE
-	var/min_temperature = 50
-	var/max_temperature = 1000
+	var/min_temperature = 100
+	var/max_temperature = 600
 
 	component_types = list(
 		/obj/item/weapon/circuitboard/chem_heater,
