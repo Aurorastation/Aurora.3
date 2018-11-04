@@ -129,7 +129,6 @@
 	icon_vend = "coffee-vend"
 	vend_delay = 34
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
-	vend_power_usage = 85000 //85 kJ to heat a 250 mL cup of coffee
 	vend_id = "coffee"
 	products = list(
 		/obj/item/weapon/reagent_containers/food/drinks/coffee = 25,
@@ -148,6 +147,9 @@
 		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 22,
 		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 6
 	)
+	cooling_temperature = T0C + 57 //Optimal coffee temperature
+	heating_temperature = T0C + 100 //ULTRA HOT COFFEE
+	temperature_setting = -1
 
 /obj/machinery/vending/snack
 	name = "Getmore Chocolate Corp"
@@ -247,6 +249,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/koispunch = 50
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	temperature_setting = -1
 
 //This one's from bay12
 /obj/machinery/vending/cart
@@ -328,6 +331,7 @@
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	random_itemcount = 0
+	temperature_setting = -1
 
 //This one's from bay12
 /obj/machinery/vending/phoronresearch
@@ -369,6 +373,7 @@
 		/obj/item/weapon/reagent_containers/pill/tox = 1
 	)
 	random_itemcount = 0
+	temperature_setting = -1
 
 /obj/machinery/vending/wallmed2
 	name = "NanoMed"
@@ -389,6 +394,7 @@
 		/obj/item/weapon/reagent_containers/pill/tox = 3
 	)
 	random_itemcount = 0
+	temperature_setting = -1
 
 /obj/machinery/vending/security
 	name = "SecTech"
@@ -649,6 +655,7 @@
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	random_itemcount = 0
+	temperature_setting = -1
 
 /obj/machinery/vending/tool
 	name = "YouTool"
@@ -861,6 +868,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/zoradrone = 30,
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	temperature_setting = -1
 
 /obj/machinery/vending/battlemonsters
 	name = "\improper Battlemonsters vendor"

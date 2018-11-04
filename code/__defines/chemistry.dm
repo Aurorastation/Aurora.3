@@ -17,6 +17,12 @@
 
 #define REAGENTS_OVERDOSE 30
 
+#define REAGENTS_BURNING_TEMP_HIGH T0C + 65 //Temperature at which high temperature burns occur
+#define REAGENTS_BURNING_TEMP_HIGH_DAMAGE 0.001 //Damage per celcius per unit above the REAGENTS_BURNING_TEMP_HIGH define per unit.
+
+#define REAGENTS_BURNING_TEMP_LOW T0C - 80 //Temperature at which low temperature burns occur
+#define REAGENTS_BURNING_TEMP_LOW_DAMAGE 0.0005 //Damage per celcius per unit below the REAGENTS_BURNING_TEMP_LOW define per unit.
+
 #define CHEM_SYNTH_ENERGY 500 // How much energy does it take to synthesize 1 unit of chemical, in Joules.
 
 // Some on_mob_life() procs check for alien races.

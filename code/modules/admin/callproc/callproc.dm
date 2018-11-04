@@ -90,7 +90,25 @@
 				if(isnull(current)) return
 
 			if("type")
-				current = input("Select type for [arguments.len+1]\th argument") as null|anything in typesof(/obj, /mob, /area, /turf)
+				var/object = input("Enter a typepath for [arguments.len+1]\th argument") as null|text
+				if(!object)
+					return
+				
+				var/list/types = typesof(/atom)
+				var/list/matches = new()
+
+				for(var/path in types)
+					if(findtext("[path]", object))
+						matches += path
+
+				if(matches.len==0)
+					return
+
+				if(matches.len==1)
+					current = matches[1]
+				else
+					current = input("Select an atom type", "Spawn Atom", matches[1]) as null|anything in matches
+				
 				if(isnull(current)) return
 
 			if("obj reference")
