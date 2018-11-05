@@ -342,6 +342,7 @@
 	unaffected_species = IS_MACHINE
 
 	specific_heat = 0.220
+	var/last_taste_time = -10000
 
 /datum/reagent/radium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.apply_effect(10 * removed, IRRADIATE, blocked = 0) // Radium may increase your chances to cure a disease
@@ -349,7 +350,9 @@
 		M.adjustToxLoss(-20 * removed)
 		M.adjustBruteLoss(-20 * removed)
 		M.adjustFireLoss(-20 * removed)
-		to_chat(M, "<span class='notice'>You feel an extreme energy as your body regenerates faster.</span>")
+		if(last_taste_time + 950 < world.time) // Not to spam message
+			to_chat(M, "<span class='notice'>You feel an extreme energy as your body regenerates faster.</span>")
+			last_taste_time = world.time
 		return
 	if(M.virus2.len)
 		for(var/ID in M.virus2)
