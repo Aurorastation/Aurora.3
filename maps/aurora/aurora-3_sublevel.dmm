@@ -23997,6 +23997,8 @@
 "aQa" = (
 /obj/structure/table/standard,
 /obj/item/weapon/reagent_containers/spray/cleaner,
+/obj/item/weapon/storage/box/monkeycubes,
+/obj/item/weapon/storage/box/monkeycubes,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aQb" = (
