@@ -51208,6 +51208,13 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
+"bKx" = (
+/obj/machinery/icecream_vat,
+/turf/simulated/floor/tiled/freezer{
+	name = "cold storage tiles";
+	temperature = 278
+	},
+/area/crew_quarters/kitchen)
 "bKF" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -96906,7 +96913,7 @@ bPI
 bDl
 bJU
 bmi
-bgP
+bKx
 bhx
 bPI
 bfw
