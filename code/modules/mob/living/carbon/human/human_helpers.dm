@@ -149,7 +149,9 @@
 		return null
 
 	var/obj/item/organ/O = internal_organs_by_name[species.vision_organ]
-	if (no_synthetic && O.status & ORGAN_ROBOT)
+	if (!O && no_synthetic && O.status & ORGAN_ROBOT)
+		return null
+	if(!istype(O, /obj/item/organ/eyes))
 		return null
 
 	return O
