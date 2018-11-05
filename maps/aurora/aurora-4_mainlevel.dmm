@@ -30840,7 +30840,8 @@
 /obj/structure/table/standard,
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Hydroponics - East";
-	dir = 8
+	dir = 8;
+	network = list("Service")
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
@@ -33846,6 +33847,9 @@
 	pixel_x = 25;
 	pixel_y = 0
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -33929,6 +33933,9 @@
 /area/crew_quarters/kitchen)
 "bha" = (
 /obj/structure/kitchenspike,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -33968,13 +33975,18 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bhg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/sortjunction{
 	dir = 1;
 	name = "Kitchen";
 	sortType = "Kitchen"
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bhh" = (
@@ -33993,6 +34005,12 @@
 /obj/machinery/door/airlock/freezer{
 	name = "Kitchen Freezer";
 	req_access = list(28)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/kitchen)
@@ -34120,6 +34138,12 @@
 /area/janitor)
 "bhx" = (
 /obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer{
@@ -34624,11 +34648,11 @@
 /area/crew_quarters/kitchen)
 "bio" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bip" = (
@@ -34770,7 +34794,8 @@
 	},
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Kitchen - West";
-	dir = 1
+	dir = 1;
+	network = list("Service")
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -35974,9 +35999,6 @@
 	pixel_y = 5
 	},
 /obj/structure/table/wood,
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Bar - Counter"
-	},
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bkD" = (
@@ -36142,6 +36164,10 @@
 	pixel_x = -6;
 	pixel_y = 0;
 	req_access = list(25)
+	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Bar - Counter";
+	network = list("Service")
 	},
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
@@ -38682,6 +38708,13 @@
 	dir = 4
 	},
 /obj/machinery/light/small,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -38739,7 +38772,8 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/camera/network/civilian_main{
-	c_tag = "Bar - Northeast"
+	c_tag = "Bar - Northeast";
+	network = list("Service")
 	},
 /obj/machinery/light{
 	dir = 1
@@ -46311,12 +46345,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"bBG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/carpet,
-/area/library)
 "bBH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood,
@@ -47501,6 +47529,11 @@
 	dir = 1;
 	pixel_y = -25
 	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Library - East";
+	dir = 1;
+	network = list("Service")
+	},
 /turf/simulated/floor/wood,
 /area/library)
 "bDN" = (
@@ -47737,7 +47770,7 @@
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Kitchen - East";
 	dir = 8;
-	network = list("Civilian Main","Capt_Office")
+	network = list("Service")
 	},
 /obj/structure/sink/kitchen{
 	dir = 8;
@@ -48143,7 +48176,8 @@
 	},
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Chapel - Office";
-	dir = 8
+	dir = 8;
+	network = list("Service")
 	},
 /turf/simulated/floor/wood,
 /area/chapel/office)
@@ -50540,7 +50574,8 @@
 "bJk" = (
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Bar -Theatre";
-	dir = 8
+	dir = 8;
+	network = list("Service")
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
@@ -58961,6 +58996,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"dMP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "dTQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating,
@@ -59816,6 +59858,17 @@
 /obj/machinery/vending/cola,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
+"hlL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Library - West";
+	dir = 4;
+	network = list("Service")
+	},
+/turf/simulated/floor/carpet,
+/area/library)
 "hmA" = (
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Temporary Morgue";
@@ -60026,6 +60079,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
+"jba" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "jhE" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -60132,6 +60198,16 @@
 /obj/machinery/chem_master,
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
+"kwG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/freezer{
+	name = "cold storage tiles";
+	temperature = 278
+	},
+/area/crew_quarters/kitchen)
 "kyC" = (
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
@@ -60332,6 +60408,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
+"lpJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/freezer{
+	name = "cold storage tiles";
+	temperature = 278
+	},
+/area/crew_quarters/kitchen)
 "lqM" = (
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -64320,15 +64405,8 @@
 /area/crew_quarters/sleep/main)
 "ykm" = (
 /obj/machinery/camera/network/civilian_main{
-	c_tag = "Library - North"
-	},
-/turf/simulated/floor/carpet,
-/area/library)
-"ykn" = (
-/obj/structure/bookcase/libraryspawn/reference,
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Library - South";
-	dir = 1
+	c_tag = "Library - North";
+	network = list("Service")
 	},
 /turf/simulated/floor/carpet,
 /area/library)
@@ -64343,7 +64421,8 @@
 	},
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Chapel - Main";
-	dir = 1
+	dir = 1;
+	network = list("Service")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/chapel/main)
@@ -64354,7 +64433,8 @@
 	},
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Bar - West";
-	dir = 4
+	dir = 4;
+	network = list("Service")
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
@@ -89708,8 +89788,8 @@ bnQ
 bvn
 bvn
 bAU
-bBG
 bBY
+hlL
 bCP
 bDc
 bEl
@@ -90482,7 +90562,7 @@ bBa
 aWh
 bCo
 aWh
-ykn
+bDH
 bFv
 arj
 bEq
@@ -95880,7 +95960,7 @@ bEA
 bgI
 bgI
 bhg
-bgI
+dMP
 bio
 biD
 bjT
@@ -96136,7 +96216,7 @@ bfw
 bEC
 bfw
 bfw
-bhh
+jba
 bfw
 bip
 biF
@@ -96393,7 +96473,7 @@ bgX
 bqx
 bFB
 bEo
-bhh
+jba
 bih
 biq
 biJ
@@ -97162,8 +97242,8 @@ bzL
 bPI
 bjH
 bgP
-bgP
-bgP
+lpJ
+kwG
 boS
 bPI
 bir
