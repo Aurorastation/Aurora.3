@@ -27669,6 +27669,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"aVS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/sink/kitchen{
+	dir = 4;
+	icon_state = "sink_alt";
+	name = "hydroponics sink";
+	pixel_x = -20
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
 "aVT" = (
 /obj/machinery/station_map{
 	pixel_y = 32
@@ -94958,7 +94969,7 @@ apP
 aht
 asg
 aST
-aRT
+aVS
 aRT
 bbu
 beq
