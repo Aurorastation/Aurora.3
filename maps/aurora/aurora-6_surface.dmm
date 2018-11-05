@@ -14779,8 +14779,8 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/cyan{
-	icon_state = "0-1";
-	dir = 1
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating,
 /area/storage/shields)
@@ -15085,10 +15085,9 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
 /area/storage/shields)
@@ -15111,11 +15110,17 @@
 /turf/simulated/floor/tiled,
 /area/storage/shields)
 "BT" = (
-/obj/machinery/door/airlock{
-	name = "Unit 2"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/freezer,
-/area/crew_quarters/toilet)
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/turf/simulated/floor/tiled,
+/area/storage/shields)
 "BU" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -15312,6 +15317,11 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/terminal,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled,
 /area/storage/shields)
 "Cm" = (
@@ -20696,10 +20706,9 @@
 	icon_state = "2-4"
 	},
 /obj/structure/cable/green{
-	icon_state = "1-4";
-	dir = 1;
-	d1 = 1;
-	d2 = 8
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
@@ -20781,8 +20790,8 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/cyan{
-	icon_state = "0-1";
-	dir = 1
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating,
 /area/storage/shields)
@@ -20823,11 +20832,6 @@
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
-	},
-/obj/structure/cable/cyan{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
 /area/storage/shields)
@@ -20892,15 +20896,14 @@
 	name = "west bump";
 	pixel_x = -24
 	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/cable/cyan,
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2";
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/storage/shields)
 "Wt" = (
@@ -20955,11 +20958,6 @@
 "Ww" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/firealarm/west,
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -21019,9 +21017,7 @@
 /area/crew_quarters/sleep/bedrooms)
 "WB" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/power/breakerbox/activated{
-	RCon_tag = "Shielding Substation Bypass"
-	},
+/obj/item/modular_computer/console/preset/engineering,
 /turf/simulated/floor/plating,
 /area/storage/shields)
 "WC" = (
@@ -21029,19 +21025,16 @@
 /obj/machinery/power/smes/buildable{
 	charge = 1e+007;
 	cur_coils = 4;
-	input_attempt = 0;
+	input_attempt = 1;
 	input_level = 500000;
-	output_attempt = 0;
+	output_attempt = 1;
 	output_level = 500000;
 	RCon_tag = "Surface - Shield Substation"
 	},
 /obj/structure/cable/cyan{
-	icon_state = "0-1";
-	dir = 8
-	},
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
+	d2 = 4;
+	dir = 2;
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
 /area/storage/shields)
@@ -21212,10 +21205,9 @@
 	dir = 4
 	},
 /obj/structure/cable/green{
-	icon_state = "1-4";
-	dir = 1;
-	d1 = 1;
-	d2 = 8
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
@@ -49661,7 +49653,7 @@ Aw
 AV
 Bj
 BA
-BR
+BT
 Wx
 CA
 AV
