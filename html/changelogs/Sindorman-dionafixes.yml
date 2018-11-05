@@ -36,3 +36,4 @@ delete-after: True
 changes:
   - bugfix: "Diona are no longer blind all the time."
   - bugfix: "Radium no longer spams messages to Diona."
+  - bugfix: "Cyborgs/AI/PAI can now talk."
