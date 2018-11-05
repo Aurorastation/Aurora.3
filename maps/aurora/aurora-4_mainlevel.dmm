@@ -4929,12 +4929,19 @@
 /area/maintenance/medbay)
 "ajM" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/maintenance{
-	name = "Research Division Maintenance";
-	req_access = list(47);
-	req_one_access = null
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/door/airlock/research{
+	name = "Xenoflora Research";
+	req_access = list(55)
+	},
+/turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "ajN" = (
 /obj/machinery/door/firedoor,
@@ -42756,20 +42763,13 @@
 /turf/simulated/wall/r_wall,
 /area/rnd/xenobiology/xenoflora)
 "bvM" = (
-/obj/machinery/door/airlock/research{
-	name = "Xenoflora Research";
-	req_access = list(55)
-	},
 /obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/machinery/door/airlock/maintenance{
+	name = "Xenobotany Maintenance";
+	req_access = list(55);
+	req_one_access = null
 	},
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)
 "bvN" = (
 /turf/simulated/wall/r_wall,
@@ -87626,7 +87626,7 @@ bqU
 bsf
 btz
 buA
-bvM
+ajM
 bxa
 byk
 bzs
@@ -88408,7 +88408,7 @@ bzr
 bzr
 bzr
 bzr
-ajM
+bvM
 arj
 arj
 arj

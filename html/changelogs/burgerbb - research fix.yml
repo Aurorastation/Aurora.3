@@ -34,5 +34,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - bugfix: "Readds missing materials to research."
-  - bugfix: "Fixed infestation event false alarm announcement."
+  - bugfix: "Readds missing materials to research. Fixed infestation event false alarm announcement. Fixes xenobio + xenobot access issues. Fixes toxins external airlock missing an air sensor."
