@@ -45050,6 +45050,16 @@
 	pixel_x = -30;
 	req_access = list(7)
 	},
+/obj/item/stack/material/steel{
+	amount = 50;
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/stack/material/glass{
+	amount = 50;
+	pixel_x = 0;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
 "bzw" = (
@@ -45086,10 +45096,10 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/item/stack/material/glass{
+/obj/item/stack/material/steel{
 	amount = 50;
-	pixel_x = 0;
-	pixel_y = 0
+	pixel_x = 5;
+	pixel_y = 5
 	},
 /obj/item/stack/material/glass{
 	amount = 50;
