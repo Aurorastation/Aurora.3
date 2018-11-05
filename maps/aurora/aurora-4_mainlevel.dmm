@@ -25450,7 +25450,6 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/main)
 "aRS" = (
-/obj/effect/debugging/marker,
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Library - North";
 	network = list("Service")
