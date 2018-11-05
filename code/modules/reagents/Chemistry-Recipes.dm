@@ -2987,7 +2987,7 @@
 
 /datum/chemical_reaction/phoron_salt_coldfire/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
 	var/datum/effect/effect/system/reagents_explosion/e = new()
-	var/explosion_mod = 1 + 32*(1 - (created_thermal_energy/28000))*min(1,created_volume/120) //The colder you can get it to absolute 0 in a short amount of time, the bigger the explosion.
+	var/explosion_mod = 1 + max(0,32*(1 - (created_thermal_energy/28000))*min(1,created_volume/120)) //The colder you can get it to absolute 0 in a short amount of time, the bigger the explosion.
 	e.set_up(round(explosion_mod, 1), holder.my_atom, 0, 0)
 	if(isliving(holder.my_atom))
 		e.amount *= 0.5
