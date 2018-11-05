@@ -36,6 +36,6 @@ delete-after: True
 changes: 
   - bugfix: "NanoTrasen Engineers have reevaluated their design and changed the networks of the cams in the bar/kitchen/hydro/library to service."
   - bugfix: "NanoTrasen Scientists have updated the L6-Saw to enalbe user to better determine how much ammunition remains."
-  - bugfix: "CCIA has provided additional monkey cubes to xenobio in the hopes of reducing incidents where xenobiologists feed themselfs to the slimes."
+  - bugfix: "CCIA has provided additional monkey cubes to xenobio in the hopes of reducing incidents where xenobiologists feed themselvs to the slimes."
   - tweak: "NanoTrasen Scientists have found a way to increase the burn duration of the flamethrower."
 
