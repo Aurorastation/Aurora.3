@@ -420,6 +420,9 @@
 	current_flags[3] = O.is_stump()
 	return current_flags
 
+/datum/species/diona/get_vision_organ(mob/living/carbon/human/H)
+	return H.organs_by_name[vision_organ]
+
 /datum/species/machine
 	name = "Baseline Frame"
 	short_name = "ipc"

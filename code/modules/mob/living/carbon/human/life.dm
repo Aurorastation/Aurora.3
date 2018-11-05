@@ -164,7 +164,7 @@
 	//Vision
 	var/obj/item/organ/vision
 	if(species.vision_organ)
-		vision =  internal_organs_by_name[species.vision_organ] || organs_by_name[species.vision_organ]
+		vision = species.get_vision_organ(src)
 
 	if (!vision)
 		if (species.vision_organ) // if they should have eyes but don't, they can't see

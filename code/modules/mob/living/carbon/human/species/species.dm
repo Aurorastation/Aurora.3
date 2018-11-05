@@ -521,6 +521,9 @@
 		current_flags[2] = 50
 	return current_flags
 
+/datum/species/proc/get_vision_organ(mob/living/carbon/human/H)
+	return H.internal_organs_by_name[vision_organ]
+
 /datum/species/proc/set_default_hair(var/mob/living/carbon/human/H)
 	H.h_style = H.species.default_h_style
 	H.f_style = H.species.default_f_style
