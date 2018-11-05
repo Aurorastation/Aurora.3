@@ -15355,6 +15355,11 @@
 	icon_state = "4-8";
 	pixel_x = 0
 	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
 /turf/simulated/wall/r_wall,
 /area/storage/shields)
 "Cl" = (
@@ -15364,6 +15369,11 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/terminal,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled,
 /area/storage/shields)
 "Cm" = (
@@ -19358,6 +19368,22 @@
 	},
 /turf/unsimulated/chasm_mask,
 /area/solar/starboard)
+"Nl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/cyan{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled,
+/area/storage/shields)
 "NI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -19471,6 +19497,30 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
+"RL" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/wall/r_wall,
+/area/storage/shields)
+"SL" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/cable/cyan{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/cyan{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled,
+/area/storage/shields)
 "Vk" = (
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
@@ -19956,11 +20006,6 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/structure/cable/cyan{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
 /turf/simulated/floor/tiled,
 /area/storage/shields)
 "Wo" = (
@@ -20024,15 +20069,13 @@
 	name = "west bump";
 	pixel_x = -24
 	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/cable/cyan,
+/obj/structure/cable/cyan{
+	d2 = 4;
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled,
 /area/storage/shields)
 "Wt" = (
@@ -20088,20 +20131,10 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/firealarm/west,
 /obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
 	pixel_x = 0
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled,
 /area/storage/shields)
@@ -47460,7 +47493,7 @@ Wi
 Wi
 Wi
 Ck
-Wi
+RL
 Wi
 AU
 WL
@@ -47971,8 +48004,8 @@ iK
 oS
 Wi
 Bh
-BA
-BR
+SL
+Nl
 Cl
 WC
 Wi
