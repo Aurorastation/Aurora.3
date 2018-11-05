@@ -502,6 +502,30 @@
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
+"abi" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1379;
+	id_tag = "toxins_external_pump"
+	},
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1379;
+	master_tag = "toxins_external_airlock";
+	name = "exterior access button";
+	pixel_x = 25;
+	pixel_y = 25;
+	req_one_access = list(8)
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1379;
+	id_tag = "toxins_external_sensor";
+	master_tag = "toxins_external_airlock";
+	pixel_x = 0;
+	pixel_y = 25
+	},
+/turf/simulated/floor/plating,
+/area/rnd/mixing)
 "abj" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/manifold/visible/red{
@@ -547,6 +571,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
+"abq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/maintenance{
+	req_access = null;
+	req_one_access = list(55)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/rnd/xenobiology)
 "abr" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /obj/structure/lattice/catwalk/indoor,
@@ -678,6 +716,14 @@
 /obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
+"abL" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	req_access = null;
+	req_one_access = list(55)
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_xenobiology)
 "abM" = (
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
@@ -859,6 +905,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
+"acc" = (
+/obj/item/toy/plushie/farwa,
+/turf/simulated/floor/plating,
+/area/mine/unexplored)
 "acd" = (
 /obj/effect/floor_decal/corner/black{
 	icon_state = "corner_white";
@@ -23947,6 +23997,8 @@
 "aQa" = (
 /obj/structure/table/standard,
 /obj/item/weapon/reagent_containers/spray/cleaner,
+/obj/item/weapon/storage/box/monkeycubes,
+/obj/item/weapon/storage/box/monkeycubes,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aQb" = (
@@ -24860,19 +24912,6 @@
 /obj/item/weapon/folder/purple,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/hallway)
-"aSi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
-/obj/machinery/door/airlock/maintenance{
-	req_access = null;
-	req_one_access = list(47,55)
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/rnd/xenobiology)
 "aSj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /obj/structure/sink{
@@ -28066,25 +28105,6 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
-"bcr" = (
-/turf/simulated/floor/plating,
-/area/mine/unexplored)
-"bcs" = (
-/obj/structure/window/phoronreinforced,
-/obj/machinery/light/spot/weak{
-	icon_state = "tube_empty";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bct" = (
-/obj/structure/window/phoronreinforced,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
 "bcu" = (
 /obj/structure/window/phoronreinforced,
 /obj/machinery/camera/network/research_outpost{
@@ -28110,159 +28130,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/rnd/test_area)
-"bcx" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bcy" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bcz" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bcA" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bcB" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bcC" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bcD" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bcE" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/machinery/light/spot/weak{
-	icon_state = "tube_empty";
-	dir = 4
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bcF" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bcG" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bcH" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bcI" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bcJ" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bcK" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bcL" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bcM" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 4
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bcN" = (
-/obj/machinery/light/spot/weak{
-	icon_state = "tube_empty";
-	dir = 4
-	},
-/turf/simulated/floor/asteroid/ash/rocky,
-/area/rnd/test_area)
-"bcO" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 4
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bcP" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 8
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
 "bcQ" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -28274,71 +28141,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
-"bcR" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/rnd/storage)
-"bcS" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/rnd/storage)
-"bcT" = (
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 4
-	},
-/obj/machinery/light/spot/weak{
-	icon_state = "tube_empty";
-	dir = 8
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bcU" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bcV" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bcW" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bcX" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
 "bcY" = (
 /obj/effect/landmark{
 	name = "cavernspawn"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bcZ" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bda" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bdb" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 4
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -28358,15 +28163,6 @@
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bdd" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 4
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -28534,11 +28330,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
-"bdn" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/rnd/storage)
 "bdo" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -28558,59 +28349,6 @@
 /obj/item/clothing/head/collectable/petehat,
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
-"bds" = (
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 4
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bdt" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bdu" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bdv" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bdw" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bdx" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bdy" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bdz" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bdA" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 4
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
 "bdB" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -28620,15 +28358,6 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bdC" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 4
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -28649,42 +28378,8 @@
 	icon_state = "asteroidplating"
 	},
 /area/rnd/test_area)
-"bdE" = (
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 4
-	},
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 8
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor{
-	icon_state = "plating"
-	},
-/area/rnd/storage)
-"bdF" = (
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/storage)
 "bdG" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/storage)
-"bdH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/storage)
-"bdI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -28743,320 +28438,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/rnd/test_area)
-"bdP" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bdQ" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bdR" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bdS" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bdT" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bdU" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bdV" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bdW" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 4
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bdX" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bdY" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bdZ" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bea" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"beb" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bec" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bed" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bee" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bef" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"beg" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"beh" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bei" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bej" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bek" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bel" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bem" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"ben" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"beo" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bep" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"beq" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"ber" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bes" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bet" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"beu" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bev" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bew" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bex" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
 "bey" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -29091,96 +28472,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning/dust/corner,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"beB" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"beC" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"beD" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"beE" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"beF" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"beG" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -29251,40 +28542,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/rnd/test_area)
-"beK" = (
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 4
-	},
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 8
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor{
-	icon_state = "plating"
-	},
-/area/rnd/storage)
-"beL" = (
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/storage)
-"beM" = (
-/turf/simulated/floor/tiled/dark,
-/area/rnd/storage)
-"beN" = (
-/turf/simulated/floor/tiled/dark,
-/area/rnd/storage)
-"beO" = (
-/turf/simulated/floor/tiled/dark,
-/area/rnd/storage)
-"beP" = (
-/turf/simulated/floor/tiled/dark,
-/area/rnd/storage)
 "beQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -29322,21 +28579,6 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
-"beT" = (
-/obj/machinery/portable_atmospherics/canister/empty,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/rnd/storage)
-"beU" = (
-/obj/machinery/portable_atmospherics/canister/empty,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/rnd/storage)
-"beV" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/rnd/storage)
 "beW" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -29355,105 +28597,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/rnd/test_area)
-"beY" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"beZ" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfa" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfb" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfc" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfd" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfe" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bff" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 4
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfg" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 8
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfh" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 4
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfi" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 8
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfj" = (
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 4
-	},
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 8
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor{
-	icon_state = "plating"
-	},
-/area/rnd/storage)
-"bfk" = (
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/storage)
-"bfl" = (
-/turf/simulated/floor/tiled/dark,
-/area/rnd/storage)
-"bfm" = (
-/turf/simulated/floor/tiled/dark,
-/area/rnd/storage)
 "bfn" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
@@ -29486,11 +28629,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
-"bfr" = (
-/obj/machinery/portable_atmospherics/canister/empty,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/rnd/storage)
 "bfs" = (
 /obj/machinery/portable_atmospherics/canister/empty,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -29500,11 +28638,6 @@
 /obj/machinery/portable_atmospherics/canister/empty,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light,
-/turf/simulated/floor/tiled,
-/area/rnd/storage)
-"bfu" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
 "bfv" = (
@@ -29519,77 +28652,6 @@
 	},
 /obj/machinery/light/spot/weak{
 	icon_state = "tube_empty";
-	dir = 8
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfx" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfy" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfz" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfA" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfB" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfC" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfD" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfE" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 4
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfF" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 8
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfG" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 4
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfH" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
 	dir = 8
 	},
 /turf/simulated/floor/airless{
@@ -29624,18 +28686,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/storage)
-"bfL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/storage)
-"bfM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/storage)
 "bfN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -29663,64 +28713,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
-"bfQ" = (
-/obj/structure/table/rack,
-/obj/random/loot,
-/turf/simulated/floor/plating,
-/area/maintenance/research_xenobiology)
-"bfR" = (
-/obj/structure/table/rack,
-/obj/random/loot,
-/turf/simulated/floor/plating,
-/area/maintenance/research_xenobiology)
-"bfS" = (
-/obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/plating,
-/area/maintenance/research_xenobiology)
 "bfT" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
 /area/maintenance/research_xenobiology)
-"bfU" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfV" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfW" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfX" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfY" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bfZ" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
 "bga" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bgb" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 4
-	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -29872,33 +28869,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_xenobiology)
-"bgq" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/maintenance{
-	req_access = null;
-	req_one_access = list(8)
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/research_xenobiology)
-"bgr" = (
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 1
-	},
-/obj/machinery/light/spot/weak,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bgs" = (
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
 "bgt" = (
 /obj/structure/window/phoronreinforced{
 	icon_state = "phoronrwindow";
@@ -29931,78 +28901,10 @@
 	icon_state = "asteroidplating"
 	},
 /area/rnd/test_area)
-"bgw" = (
-/obj/structure/barricade,
-/turf/simulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
-"bgx" = (
-/obj/structure/barricade,
-/turf/simulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
 "bgy" = (
 /obj/structure/barricade,
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
-"bgz" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bgA" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bgB" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bgC" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bgD" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bgE" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
 "bgF" = (
 /obj/effect/floor_decal/industrial/warning/dust,
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -30055,24 +28957,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/rnd/storage)
-"bgJ" = (
-/obj/structure/grille,
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 1
-	},
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 8
-	},
-/obj/structure/window/phoronreinforced,
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/rnd/storage)
 "bgK" = (
 /obj/machinery/door/airlock/research{
 	name = "Toxins Processing";
@@ -30111,11 +28995,6 @@
 /area/maintenance/research_xenobiology)
 "bgN" = (
 /obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/plating,
-/area/maintenance/research_xenobiology)
-"bgO" = (
-/obj/structure/table/rack,
-/obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/research_xenobiology)
 "bgP" = (
@@ -30211,117 +29090,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
-"bgW" = (
-/obj/structure/sign/fire{
-	pixel_x = -32
-	},
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bgX" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bgY" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bgZ" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bha" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bhb" = (
-/obj/machinery/light/small/emergency{
-	icon_state = "bulb1";
-	dir = 4
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bhc" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
-/obj/machinery/alarm{
-	dir = 4;
-	icon_state = "alarm0";
-	pixel_x = -22
-	},
-/obj/effect/floor_decal/corner/blue{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/mixing)
-"bhd" = (
-/obj/machinery/atmospherics/pipe/manifold4w/visible,
-/obj/machinery/meter,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/mixing)
-"bhe" = (
-/obj/machinery/atmospherics/valve{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/mixing)
-"bhf" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/mixing)
-"bhg" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/obj/machinery/meter,
-/obj/effect/floor_decal/corner/blue{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/mixing)
-"bhh" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 4
-	},
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 8
-	},
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 1
-	},
-/obj/structure/grille,
-/turf/simulated/floor{
-	icon_state = "plating"
-	},
-/area/rnd/mixing)
 "bhi" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -30344,53 +29112,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/rnd/mixing)
-"bhk" = (
-/turf/simulated/floor/reinforced/airless,
-/area/rnd/mixing)
-"bhl" = (
-/turf/simulated/floor/reinforced/airless,
-/area/rnd/mixing)
-"bhm" = (
-/obj/machinery/door/blast/regular{
-	id = "toxins_blastdoor01"
-	},
-/turf/simulated/floor/airless,
-/area/rnd/mixing)
-"bhn" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bho" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bhp" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bhq" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bhr" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bhs" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bht" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
-/obj/machinery/firealarm/west,
-/obj/effect/floor_decal/corner/blue{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/mixing)
 "bhu" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	icon_state = "intact";
@@ -30398,115 +29119,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/mixing)
-"bhv" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/obj/machinery/meter,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/mixing)
-"bhw" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/mixing)
-"bhx" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	icon_state = "map_off";
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/mixing)
-"bhy" = (
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 4
-	},
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 8
-	},
-/obj/structure/grille,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/turf/simulated/floor{
-	icon_state = "plating"
-	},
-/area/rnd/mixing)
-"bhz" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
-	icon_state = "intact";
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/rnd/mixing)
-"bhA" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	icon_state = "intact";
-	dir = 10
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/rnd/mixing)
-"bhB" = (
-/obj/machinery/door/blast/regular{
-	id = "toxins_blastdoor01"
-	},
-/turf/simulated/floor/airless,
-/area/rnd/mixing)
-"bhC" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bhD" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bhE" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bhF" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bhG" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bhH" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bhI" = (
-/obj/structure/sign/fire{
-	pixel_x = 32
-	},
-/turf/simulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
-"bhJ" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
-	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
 "bhK" = (
@@ -30518,47 +29130,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
-"bhL" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/mixing)
-"bhM" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/mixing)
-"bhN" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/mixing)
-"bhO" = (
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 4
-	},
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 8
-	},
-/obj/structure/grille,
-/turf/simulated/floor{
-	icon_state = "plating"
-	},
-/area/rnd/mixing)
-"bhP" = (
-/turf/simulated/floor/reinforced/airless,
-/area/rnd/mixing)
 "bhQ" = (
 /obj/machinery/air_sensor{
 	frequency = 1441;
@@ -30566,61 +29137,10 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/rnd/mixing)
-"bhR" = (
-/turf/simulated/floor/reinforced/airless,
-/area/rnd/mixing)
-"bhS" = (
-/obj/machinery/door/blast/regular{
-	id = "toxins_blastdoor01"
-	},
-/turf/simulated/floor/airless,
-/area/rnd/mixing)
-"bhT" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bhU" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bhV" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bhW" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bhX" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bhY" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
 "bhZ" = (
 /mob/living/simple_animal/hostile/bear,
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
-"bia" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 9
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bib" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
 "bic" = (
 /obj/structure/window/phoronreinforced{
 	icon_state = "phoronrwindow";
@@ -30647,39 +29167,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
-"bie" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/binary/pump{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/mixing)
 "bif" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/manifold/visible,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/mixing)
-"big" = (
-/obj/machinery/atmospherics/valve{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/mixing)
-"bih" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/obj/machinery/meter,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
 "bii" = (
@@ -30711,51 +29201,11 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/rnd/mixing)
-"bik" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	icon_state = "intact";
-	dir = 9
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/rnd/mixing)
 "bil" = (
 /obj/machinery/door/blast/regular{
 	id = "toxins_blastdoor01"
 	},
 /turf/simulated/floor/airless,
-/area/rnd/mixing)
-"bim" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bin" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bio" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bip" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"biq" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bir" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bis" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 8
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
 /area/rnd/mixing)
 "bit" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
@@ -30800,10 +29250,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
-"bix" = (
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/mixing)
 "biy" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -30833,26 +29279,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/rnd/mixing)
-"biB" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"biC" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"biD" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"biE" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
 "biF" = (
 /obj/machinery/light/small/emergency{
 	icon_state = "bulb1";
@@ -30872,12 +29298,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/rnd/mixing)
-"biH" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
 "biI" = (
 /obj/structure/window/phoronreinforced{
 	icon_state = "phoronrwindow";
@@ -30893,13 +29313,6 @@
 /turf/simulated/floor{
 	icon_state = "plating"
 	},
-/area/rnd/mixing)
-"biJ" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
 "biK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -30977,36 +29390,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/rnd/mixing)
-"biR" = (
-/obj/machinery/door/blast/regular{
-	id = "toxins_blastdoor02"
-	},
-/turf/simulated/floor/airless,
-/area/rnd/mixing)
-"biS" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"biT" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"biU" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"biV" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"biW" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"biX" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
 "biY" = (
 /obj/structure/sign/fire{
 	pixel_x = 32
@@ -31042,23 +29425,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
-"bjc" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/mixing)
-"bjd" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/mixing)
 "bje" = (
 /obj/structure/window/phoronreinforced{
 	icon_state = "phoronrwindow";
@@ -31073,48 +29439,12 @@
 	icon_state = "plating"
 	},
 /area/rnd/mixing)
-"bjf" = (
-/turf/simulated/floor/reinforced/airless,
-/area/rnd/mixing)
 "bjg" = (
 /obj/machinery/air_sensor{
 	frequency = 1441;
 	id_tag = "toxins_sensor02"
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/rnd/mixing)
-"bjh" = (
-/turf/simulated/floor/reinforced/airless,
-/area/rnd/mixing)
-"bji" = (
-/obj/machinery/door/blast/regular{
-	id = "toxins_blastdoor02"
-	},
-/turf/simulated/floor/airless,
-/area/rnd/mixing)
-"bjj" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bjk" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bjl" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bjm" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bjn" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bjo" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
 /area/rnd/mixing)
 "bjp" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -31148,17 +29478,6 @@
 	dir = 4
 	},
 /obj/machinery/meter,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/mixing)
-"bjt" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
 "bju" = (
@@ -31202,36 +29521,6 @@
 	dir = 9
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/rnd/mixing)
-"bjy" = (
-/obj/machinery/door/blast/regular{
-	id = "toxins_blastdoor02"
-	},
-/turf/simulated/floor/airless,
-/area/rnd/mixing)
-"bjz" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bjA" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bjB" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bjC" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bjD" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bjE" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
 /area/rnd/mixing)
 "bjF" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -31323,9 +29612,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/rnd/mixing)
-"bjN" = (
-/turf/simulated/floor/reinforced/airless,
-/area/rnd/mixing)
 "bjO" = (
 /turf/simulated/floor/reinforced/airless,
 /area/rnd/mixing)
@@ -31334,30 +29620,6 @@
 	id = "toxins_blastdoor02"
 	},
 /turf/simulated/floor/airless,
-/area/rnd/mixing)
-"bjQ" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bjR" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bjS" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bjT" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bjU" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bjV" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
 /area/rnd/mixing)
 "bjW" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -31438,24 +29700,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/rnd/mixing)
-"bkd" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bke" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bkf" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
 "bkg" = (
 /obj/effect/floor_decal/industrial/warning/dust,
 /turf/simulated/floor/airless{
@@ -31477,14 +29721,6 @@
 /obj/effect/floor_decal/corner/mauve/full{
 	icon_state = "corner_white_full";
 	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/mixing)
-"bkj" = (
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
@@ -31535,14 +29771,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
-"bkp" = (
-/obj/machinery/atmospherics/unary/freezer,
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/mixing)
 "bkq" = (
 /obj/machinery/atmospherics/unary/freezer,
 /obj/effect/floor_decal/corner/mauve{
@@ -31558,30 +29786,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/rnd/mixing)
-"bks" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bkt" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bku" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bkv" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bkw" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bkx" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
 /area/rnd/mixing)
 "bky" = (
 /obj/structure/sign/fire{
@@ -31689,18 +29893,6 @@
 	},
 /turf/simulated/open/airless,
 /area/rnd/mixing)
-"bkJ" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bkK" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bkL" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
 "bkM" = (
 /obj/machinery/atmospherics/trinary/filter/m_filter,
 /obj/machinery/light{
@@ -31749,12 +29941,6 @@
 /area/rnd/mixing)
 "bkS" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/mixing)
-"bkT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
 "bkU" = (
@@ -31818,33 +30004,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/mixing)
-"bkX" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1379;
-	id_tag = "toxins_external_pump"
-	},
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1379;
-	master_tag = "toxins_external_airlock";
-	name = "exterior access button";
-	pixel_x = 25;
-	pixel_y = 25;
-	req_one_access = list(8)
-	},
-/turf/simulated/floor/plating,
-/area/rnd/mixing)
-"bkY" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "toxins_external_outer";
-	locked = 1;
-	name = "Toxins External Access"
-	},
-/turf/simulated/floor/plating,
-/area/rnd/mixing)
 "bkZ" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/access_button{
@@ -31856,18 +30015,6 @@
 	pixel_y = 25;
 	req_one_access = list(8)
 	},
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"bla" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"blb" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"blc" = (
-/obj/structure/lattice/catwalk,
 /turf/simulated/open/airless,
 /area/rnd/mixing)
 "bld" = (
@@ -31927,17 +30074,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
-"blj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/mixing)
 "blk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -31965,10 +30101,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/mixing)
-"bln" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
 "blo" = (
@@ -32016,22 +30148,6 @@
 	name = "Toxins External Access"
 	},
 /turf/simulated/floor/plating,
-/area/rnd/mixing)
-"blt" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"blu" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"blv" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"blw" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
 /area/rnd/mixing)
 "blx" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -32152,18 +30268,6 @@
 	},
 /turf/simulated/open/airless,
 /area/rnd/mixing)
-"blJ" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"blK" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"blL" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
 "blM" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -32202,30 +30306,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
-"blQ" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"blR" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"blS" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"blT" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"blU" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
-"blV" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/mixing)
 "blW" = (
 /obj/structure/lattice/catwalk,
 /turf/simulated/open/airless,
@@ -32263,33 +30343,6 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
 	dir = 9
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmb" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmc" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmd" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -32352,138 +30405,11 @@
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
-"bmk" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 8
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bml" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmm" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmn" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmo" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmp" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmq" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 8
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmr" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bms" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmt" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmu" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmv" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmw" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 8
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmx" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmy" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmz" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmA" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmB" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
 "bmC" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
 	dir = 8
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmD" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmE" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmF" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmG" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmH" = (
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -32494,26 +30420,6 @@
 	dir = 8
 	},
 /obj/machinery/light/small/emergency,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmJ" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmK" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmL" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmM" = (
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -37569,8 +35475,8 @@ ale
 bal
 bal
 bal
-bcT
-bds
+bfw
+beX
 bdO
 beX
 bfw
@@ -37825,13 +35731,13 @@ ale
 bal
 bal
 bal
-bcF
-bcU
-bdt
-bdP
-beY
-bfx
-bfU
+bga
+bga
+bga
+bga
+bga
+bga
+bga
 bal
 bal
 bal
@@ -38081,15 +35987,15 @@ ale
 ale
 bal
 bal
-bcs
-bcG
-bcV
-bdu
-bdQ
-beZ
-bfy
-bfV
-bgr
+bcw
+bga
+bga
+bga
+bga
+bga
+bga
+bga
+bgv
 bal
 bal
 ale
@@ -38338,15 +36244,15 @@ ale
 ale
 bal
 bal
-bct
-bcH
-bcW
-bdv
-bdR
-bfa
-bfz
-bfW
-bgs
+bcv
+bga
+bga
+bga
+bga
+bga
+bga
+bga
+bgu
 bal
 bal
 ale
@@ -38596,13 +36502,13 @@ ale
 bal
 bal
 bcu
-bcI
-bcX
-bdw
-bdS
-bfb
-bfA
-bfX
+bga
+bga
+bga
+bga
+bga
+bga
+bga
 bgt
 bal
 bal
@@ -38853,13 +36759,13 @@ ale
 bal
 bal
 bcv
-bcJ
+bga
 bcY
-bdx
-bdT
-bfc
-bfB
-bfY
+bga
+bga
+bga
+bga
+bga
 bgu
 bal
 bal
@@ -39110,13 +37016,13 @@ ale
 bal
 bal
 bcw
-bcK
-bcZ
-bdy
-bdU
-bfd
-bfC
-bfZ
+bga
+bga
+bga
+bga
+bga
+bga
+bga
 bgv
 bal
 bal
@@ -39367,12 +37273,12 @@ ale
 bal
 bal
 bal
-bcL
-bda
-bdz
-bdV
-bfe
-bfD
+bga
+bga
+bga
+bga
+bga
+bga
 bga
 bal
 bal
@@ -39624,13 +37530,13 @@ ale
 bal
 bal
 bal
-bcM
-bdb
-bdA
-bdW
-bff
-bfE
-bgb
+bge
+bge
+bge
+bge
+bge
+bge
+bge
 bal
 bal
 bal
@@ -39884,7 +37790,7 @@ bal
 aba
 aba
 aba
-bdX
+bey
 aba
 aba
 aba
@@ -40141,7 +38047,7 @@ bal
 aba
 aba
 aba
-bdY
+bey
 aba
 aba
 aba
@@ -40398,7 +38304,7 @@ ale
 aba
 aba
 aba
-bdZ
+bey
 aba
 aba
 aba
@@ -40655,7 +38561,7 @@ ale
 aba
 aba
 aba
-bea
+bey
 aba
 aba
 aba
@@ -40912,7 +38818,7 @@ ale
 aba
 aba
 aba
-beb
+bey
 aba
 aba
 aba
@@ -41169,7 +39075,7 @@ ale
 aba
 aba
 aba
-bec
+bey
 aba
 aba
 aba
@@ -41426,7 +39332,7 @@ ale
 aba
 aba
 aba
-bed
+bey
 aba
 aba
 aba
@@ -41683,7 +39589,7 @@ ale
 aba
 anh
 aba
-bee
+bey
 aba
 aba
 aba
@@ -41940,7 +39846,7 @@ ale
 aba
 aba
 aba
-bef
+bey
 aba
 aba
 aba
@@ -42197,7 +40103,7 @@ ale
 aba
 aba
 aba
-beg
+bey
 aba
 aba
 aba
@@ -42454,7 +40360,7 @@ ale
 aba
 aba
 aba
-beh
+bey
 aba
 aba
 aba
@@ -42711,11 +40617,11 @@ ale
 aba
 aba
 aba
-bei
+bey
 aba
 aba
 bgc
-bgw
+bgy
 aba
 aba
 aba
@@ -42968,11 +40874,11 @@ ale
 aba
 aba
 aba
-bej
+bey
 aba
 aba
 aba
-bgx
+bgy
 aba
 aba
 aba
@@ -43225,7 +41131,7 @@ ale
 aba
 aba
 aba
-bek
+bey
 aba
 aba
 aba
@@ -43482,7 +41388,7 @@ ale
 aba
 aba
 aba
-bel
+bey
 aba
 aba
 aba
@@ -43739,7 +41645,7 @@ ale
 aba
 aba
 aba
-bem
+bey
 aba
 aba
 aba
@@ -43996,7 +41902,7 @@ ale
 aba
 aba
 aba
-ben
+bey
 aba
 aba
 aba
@@ -44253,7 +42159,7 @@ ale
 aba
 aba
 aba
-beo
+bey
 aba
 aba
 aba
@@ -44510,7 +42416,7 @@ ale
 aba
 aba
 aba
-bep
+bey
 aba
 aba
 aba
@@ -44767,7 +42673,7 @@ ale
 aba
 aba
 aba
-beq
+bey
 aba
 aba
 aba
@@ -45024,7 +42930,7 @@ ale
 aba
 aba
 aba
-ber
+bey
 aba
 aba
 aba
@@ -45281,7 +43187,7 @@ ale
 aba
 aba
 aba
-bes
+bey
 aba
 aba
 aba
@@ -45538,7 +43444,7 @@ ale
 aba
 aba
 aba
-bet
+bey
 aba
 aba
 aba
@@ -45795,7 +43701,7 @@ ale
 aba
 aba
 aba
-beu
+bey
 aba
 aba
 aba
@@ -46052,7 +43958,7 @@ ale
 aba
 aba
 aba
-bev
+bey
 aba
 aba
 aba
@@ -46309,7 +44215,7 @@ ale
 aba
 aba
 aba
-bew
+bey
 aba
 aba
 aba
@@ -46566,7 +44472,7 @@ ale
 aba
 aba
 aba
-bex
+bey
 aba
 aba
 aba
@@ -46820,7 +44726,7 @@ ale
 ale
 ale
 ale
-bcN
+bgd
 aba
 aba
 bey
@@ -47081,8 +44987,8 @@ bal
 bdc
 bdB
 bez
-bfg
-bfF
+bgf
+bgf
 bal
 bal
 ale
@@ -47334,12 +45240,12 @@ aba
 ale
 ale
 bam
-bcO
-bdd
-bdC
+bge
+bge
+bge
 beA
-bfh
-bfG
+bge
+bge
 bge
 bam
 ale
@@ -47590,15 +45496,15 @@ aba
 aba
 aba
 ale
-bcx
+bgF
 aba
 aba
 aba
-beB
+beH
 aba
 aba
 aba
-bgz
+bgF
 ale
 ale
 ale
@@ -47847,15 +45753,15 @@ aba
 aba
 aba
 aba
-bcy
+bgF
 aba
 aba
 aba
-beC
+beH
 aba
 aba
 aba
-bgA
+bgF
 aba
 aba
 aba
@@ -48104,15 +46010,15 @@ aba
 aba
 aba
 aba
-bcz
+bgF
 aba
 aba
 aba
-beD
+beH
 aba
 aba
 aba
-bgB
+bgF
 aba
 aba
 aba
@@ -48361,15 +46267,15 @@ aba
 aba
 aba
 aba
-bcA
+bgF
 aba
 aba
 aba
-beE
+beH
 aba
 aba
 aba
-bgC
+bgF
 aba
 aba
 aba
@@ -48618,15 +46524,15 @@ aaa
 aaa
 aba
 aba
-bcB
+bgF
 aba
 aba
 aba
-beF
+beH
 aba
 aba
 aba
-bgD
+bgF
 aba
 aba
 aba
@@ -48875,15 +46781,15 @@ aaa
 aaa
 aba
 aba
-bcC
+bgF
 aba
 aba
 aba
-beG
+beH
 aba
 aba
 aba
-bgE
+bgF
 aba
 aba
 aba
@@ -49132,7 +47038,7 @@ aba
 aba
 aba
 aba
-bcD
+bgF
 aba
 aba
 aba
@@ -49389,7 +47295,7 @@ aba
 aba
 aba
 aba
-bcE
+bgG
 aba
 aba
 aba
@@ -49647,12 +47553,12 @@ aGy
 aba
 anh
 bam
-bcP
+bgf
 bde
 bdD
 beJ
-bfi
-bfH
+bgf
+bgf
 bgf
 bam
 aba
@@ -49906,18 +47812,18 @@ aGy
 aGy
 aQr
 bdf
-bdE
-beK
-bfj
+bfI
+bfI
+bfI
 bfI
 bgg
 aQr
 aba
 aba
 aba
-bhI
-bia
-bis
+biY
+bma
+bmC
 biG
 biY
 aba
@@ -50163,9 +48069,9 @@ aPb
 aPL
 aQr
 bdg
-bdF
-beL
-bfk
+bfJ
+bfJ
+bfJ
 bfJ
 bgh
 aQr
@@ -50173,9 +48079,9 @@ aQq
 aQq
 aQq
 aQq
-bib
+bme
 bit
-biH
+bkg
 aQq
 aQq
 aQq
@@ -50421,14 +48327,14 @@ aPM
 aQr
 bdh
 bdG
-beM
-bfl
+bfo
+bfo
 bfK
 bgi
 bgH
 bgQ
-bhc
-bht
+bjF
+bjp
 aQq
 bic
 biu
@@ -50677,24 +48583,24 @@ aMB
 aMB
 aQr
 bdi
-bdH
-beN
-bfm
-bfL
+bdJ
+bfo
+bfo
+bfN
 bgj
 bgI
 bgR
-bhd
+bjG
 aSO
-bhJ
+biZ
 bid
 biv
-biJ
+bjb
 biZ
 bjq
 bjG
 bjX
-bkj
+bkl
 aVi
 aVi
 blf
@@ -50934,17 +48840,17 @@ aGy
 aGy
 aQr
 bdj
-bdI
-beO
+bdJ
+bfo
 bfn
-bfM
+bfN
 bgk
 aQr
 bgS
-bhe
+bjH
 bhu
 bhK
-bie
+biK
 biw
 biK
 bja
@@ -51192,17 +49098,17 @@ aPN
 aQr
 bdk
 bdJ
-beP
+bfo
 bfo
 bfN
 bgl
-bgJ
+bgL
 bgT
 aTB
-bhv
-bhL
+bjs
+bid
 bif
-bix
+bkR
 biL
 bjb
 bjs
@@ -51455,14 +49361,14 @@ bfO
 bgm
 bgK
 bgU
-bhf
-bhw
-bhM
-big
+bjI
+bjI
+bjI
+biM
 biy
 biM
-bjc
-bjt
+bjI
+bjI
 bjI
 bka
 bkm
@@ -51712,20 +49618,20 @@ bfP
 bgn
 bgL
 bgV
-bhg
-bhx
-bhN
-bih
+bjJ
+bju
+bkN
+biN
 biz
 biN
-bjd
+bkN
 bju
 bjJ
 bkb
 bkn
 bkE
 aVi
-blj
+blk
 blD
 aQq
 aba
@@ -51969,9 +49875,9 @@ aQr
 bgo
 aQr
 aQq
-bhh
-bhy
-bhO
+biO
+bjv
+bje
 bii
 aQq
 biO
@@ -52221,18 +50127,18 @@ aVt
 aVt
 aVp
 beS
-bfr
+bfs
 aQr
 aJW
 bgM
 aQq
 bhi
-bhz
-bhP
+bjw
+bjO
 bij
 aQq
 biP
-bjf
+bjO
 bjw
 bjL
 aQq
@@ -52477,7 +50383,7 @@ aQr
 aVt
 aVt
 aVp
-beT
+bfs
 bfs
 aQr
 aJW
@@ -52493,7 +50399,7 @@ bjg
 aXQ
 bjM
 aQq
-bkp
+bkq
 aVm
 aVi
 blm
@@ -52732,28 +50638,28 @@ aLH
 aLH
 aQr
 bcQ
-bdn
+bdo
 aVp
-beU
+bfs
 bft
 aQr
 aJW
-bgO
+bgP
 aQq
-bhk
+bjO
 aXQ
-bhR
+bjO
 aXQ
 aQq
 aXQ
-bjh
+bjO
 aXQ
-bjN
+bjO
 aQq
 bkq
 aVm
-bkT
-bln
+blN
+blG
 blG
 blO
 aVi
@@ -52988,19 +50894,19 @@ aNF
 aLH
 aLH
 aQr
-bcR
+bdo
 bdo
 aVp
-beV
-bfu
+bfv
+bfv
 aQr
 aJW
 bgP
 aQq
-bhl
-bhA
+bjO
+biQ
 aWI
-bik
+bjx
 aQq
 biQ
 aWI
@@ -53245,7 +51151,7 @@ aLH
 aLH
 aLH
 aQr
-bcS
+bdp
 bdp
 bdN
 beW
@@ -53254,14 +51160,14 @@ aQr
 aJW
 aQq
 aQq
-bhm
-bhB
-bhS
+bil
+bil
+bil
 bil
 aQq
-biR
-bji
-bjy
+bjP
+bjP
+bjP
 bjP
 aQq
 aQq
@@ -53510,27 +51416,27 @@ aQr
 aQr
 aJW
 aQq
-bgW
-bhn
-bhC
-bhT
-bim
 biA
-biS
-bjj
-bjz
-bjQ
+blW
+blW
+blW
+blW
+biA
+blW
+blW
+blW
+blW
 bkc
-bks
+blW
 aQq
 bkW
 blq
 aQq
-blQ
+blW
 bma
-bmk
-bmq
-bmw
+bmC
+bmC
+bmC
 bmC
 bmI
 aQq
@@ -53764,32 +51670,32 @@ aRm
 aSe
 aSY
 azm
-bfQ
+bgP
 aJW
 aQq
-bgX
-bho
-bhD
-bhU
-bin
-biB
-biT
-bjk
-bjA
-bjR
-bkd
-bkt
+bmN
+blW
+blW
+blW
+blW
+bmN
+blW
+blW
+blW
+blW
+bkg
+blW
 aQq
-bkX
+abi
 blr
 aQq
-blR
-bmb
-bml
-bmr
-bmx
-bmD
-bmJ
+blW
+bme
+bmN
+bmN
+bmN
+bmN
+bmN
 aQq
 aaa
 aba
@@ -54021,32 +51927,32 @@ aRn
 aSf
 aSZ
 azm
-bfR
+bgP
 aJW
 aQq
-bgY
-bhp
-bhE
-bhV
-bio
-biC
-biU
-bjl
-bjB
-bjS
-bke
-bku
+bmN
+blW
+blW
+blW
+blW
+bmN
+blW
+blW
+blW
+blW
+bkg
+blW
 aQq
-bkY
+bls
 bls
 aQq
-blS
-bmc
-bmm
-bms
-bmy
-bmE
-bmK
+blW
+bme
+bmN
+bmN
+bmN
+bmN
+bmN
 aQq
 aaa
 aaa
@@ -54281,29 +52187,29 @@ azm
 aJW
 bgp
 aQq
-bgZ
-bhq
-bhF
-bhW
-bip
-biD
-biV
-bjm
-bjC
-bjT
-bkf
-bkv
+bmN
+blW
+blW
+blW
+blW
+bmN
+blW
+blW
+blW
+blW
+bkg
+blW
 bkI
 bkZ
-blt
+blW
 blI
-blT
-bmd
-bmn
-bmt
-bmz
-bmF
-bmL
+blW
+bme
+bmN
+bmN
+bmN
+bmN
+bmN
 aQq
 aaa
 aaa
@@ -54535,32 +52441,32 @@ aRp
 aSg
 aRp
 azm
-bfS
+bfT
 aJW
 aQq
-bha
-bhr
-bhG
-bhX
-biq
-biE
-biW
-bjn
-bjD
-bjU
+bmN
+blW
+blW
+blW
+blW
+bmN
+blW
+blW
+blW
+blW
 bkg
-bkw
-bkJ
-bla
-blu
-blJ
-blU
+blW
+blW
+blW
+blW
+blW
+blW
 bme
-bmo
-bmu
-bmA
-bmG
-bmM
+bmN
+bmN
+bmN
+bmN
+bmN
 aQq
 aaa
 aaa
@@ -54785,7 +52691,7 @@ aLJ
 aMK
 aNI
 aFV
-bcr
+acc
 azm
 aQw
 aRq
@@ -54795,28 +52701,28 @@ azm
 bfT
 aJW
 aQq
-bhb
-bhs
-bhH
-bhY
-bir
 biF
-biX
-bjo
-bjE
-bjV
+blW
+blW
+blW
+blW
+biF
+blW
+blW
+blW
+blW
 bkh
-bkx
-bkK
-blb
-blv
-blK
-blV
+blW
+blW
+blW
+blW
+blW
+blW
 bmf
-bmp
-bmv
-bmB
-bmH
+bmN
+bmN
+bmN
+bmN
 bmN
 aQq
 aaa
@@ -55050,7 +52956,7 @@ azm
 azm
 azm
 aFW
-bgq
+abL
 aFW
 aFW
 aFW
@@ -55064,10 +52970,10 @@ aQq
 aQq
 aQq
 bky
-bkL
-blc
-blw
-blL
+blW
+blW
+blW
+blW
 blW
 aQq
 aQq
@@ -55303,7 +53209,7 @@ aPj
 aPR
 aQx
 aRr
-aSi
+abq
 aTb
 aTJ
 aHY
