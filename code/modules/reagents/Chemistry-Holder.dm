@@ -135,7 +135,10 @@
 		return 0
 
 	update_total() //Does this need to be here? It's called in update_holder.
+	
+	var/old_amount = amount
 	amount = min(amount, get_free_space())
+	thermal_energy *= (amount/old_amount)
 
 	for(var/datum/reagent/current in reagent_list)
 		if(current.id == id) //Existing reagent
