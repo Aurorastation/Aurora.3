@@ -19,7 +19,7 @@
 			speech_problem_flag = 1
 			message = Gibberish(message,damaged-10)
 
-	var/list/returns[3]
+	var/list/returns[4]
 	returns[1] = message
 	returns[2] = verb
 	returns[3] = speech_problem_flag
