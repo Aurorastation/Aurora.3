@@ -45,7 +45,7 @@ proc/admin_inject_log(mob/attacker, mob/victim, obj/item/weapon, reagents, tempe
 	else
 		violent = ""
 
-	var/temperature_text = "Temperature: ([temperature]K/[temperature]C)"
+	var/temperature_text = "([temperature - (T0C + 20)]C)"
 	admin_attack_log(attacker,
 	                 victim,
 	                 "used \the [weapon] to [violent]inject - [reagents] [temperature_text] - [amount_transferred]u transferred",

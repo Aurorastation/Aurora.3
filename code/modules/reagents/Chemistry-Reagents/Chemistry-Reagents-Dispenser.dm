@@ -342,6 +342,7 @@
 	unaffected_species = IS_MACHINE
 
 	specific_heat = 0.220
+	var/message_shown = FALSE
 
 /datum/reagent/radium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.apply_effect(10 * removed, IRRADIATE, blocked = 0) // Radium may increase your chances to cure a disease
@@ -349,7 +350,9 @@
 		M.adjustToxLoss(-20 * removed)
 		M.adjustBruteLoss(-20 * removed)
 		M.adjustFireLoss(-20 * removed)
-		to_chat(M, "<span class='notice'>You feel an extreme energy as your body regenerates faster.</span>")
+		if(!message_shown) // Not to spam message
+			to_chat(M, "<span class='notice'>You feel an extreme energy as your body regenerates faster.</span>")
+			message_shown = TRUE
 		return
 	if(M.virus2.len)
 		for(var/ID in M.virus2)
@@ -385,7 +388,7 @@
 	var/meltdose = 10 // How much is needed to melt
 	taste_description = "acid"
 
-	specific_heat = 0.815
+	fallback_specific_heat = 0.815
 
 /datum/reagent/acid/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.take_organ_damage(0, removed * power)
@@ -477,7 +480,6 @@
 	power = 3
 	meltdose = 8
 	taste_description = "stomach acid"
-
 	specific_heat = 1.710
 
 /datum/reagent/acid/polyacid //Not in dispensers, but it should be here

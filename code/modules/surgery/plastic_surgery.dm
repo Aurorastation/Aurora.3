@@ -68,7 +68,7 @@
 		var/obj/item/organ/external/head/head = target.get_organ(target_zone)
 		if(head.disfigured)
 			head.disfigured = FALSE
-			user.visible_message("[user] successfully restores [target]'s appearance!", "<span class='notice'>You successfully restore [target]'s appearance.</span>")
+			user.visible_message("[user] successfully restores [target]'s appearance!", "<span class='notice'>Closing the incision with the included suture kit, you successfully restore [target]'s appearance.</span>")
 
 		var/getName = sanitize(input(user, "What is your patient's new identity?", "Name change") as null|text, MAX_NAME_LEN)
 		if(getName)

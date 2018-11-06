@@ -5,6 +5,7 @@
 	item_state = "laser"
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
+	accuracy = 1
 	w_class = 3
 	force = 10
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
@@ -111,13 +112,13 @@ obj/item/weapon/gun/energy/retro
 	fire_delay = 45
 	force = 10
 	w_class = 4
-	accuracy = -5 //shooting at the hip
-	scoped_accuracy = 0
+	accuracy = -3 //shooting at the hip
+	scoped_accuracy = 4
 	can_turret = 1
 	turret_sprite_set = "sniper"
 
 	fire_delay_wielded = 35
-	accuracy_wielded = -3
+	accuracy_wielded = 0
 
 	//action button for wielding
 	action_button_name = "Wield rifle"
@@ -147,6 +148,7 @@ obj/item/weapon/gun/energy/retro
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = 3
+	accuracy = 0
 	force = 10
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 2)
