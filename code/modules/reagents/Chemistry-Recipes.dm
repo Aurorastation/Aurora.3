@@ -2905,8 +2905,9 @@
 	id = "phoron_salt"
 	result = "phoron_salt"
 	required_reagents = list("sodiumchloride" = 1, "phoron" = 2)
-	required_temperatures_min = list("sodiumchloride" = 678, "phoron" = 261)
-	required_temperatures_max = list("phoron" = 73)
+	required_temperatures_min = list("sodiumchloride" = 678, "phoron" = 73)
+	required_temperatures_max = list("phoron" = 261)
+	
 	result_amount = 1
 
 /datum/chemical_reaction/pyrosilicate
