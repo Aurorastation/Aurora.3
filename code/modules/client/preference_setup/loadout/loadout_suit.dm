@@ -131,6 +131,11 @@
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/hop
 	allowed_roles = list("Head of Personnel")
 
+/datum/gear/suit/roles/poncho/cloak/hos
+	display_name = "cloak, head of security"
+	path = /obj/item/clothing/accessory/poncho/roles/cloak/hos
+	allowed_roles = list("Head of Security")
+
 /datum/gear/suit/roles/poncho/cloak/cargo
 	display_name = "cloak, cargo"
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/cargo
