@@ -8021,7 +8021,9 @@
 	locked = 1;
 	name = "To: Administration Level"
 	},
-/turf/unsimulated/wall/riveted,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
 /area/centcom/suppy)
 "axw" = (
 /obj/machinery/light/spot{
@@ -19846,7 +19848,9 @@
 	name = "Traditional Vaurcesian Cuisine";
 	opacity = 1
 	},
-/turf/unsimulated/wall/riveted,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
 /area/centcom/spawning)
 "eYC" = (
 /obj/machinery/light,
@@ -56724,7 +56728,7 @@ aXm
 pCY
 aXm
 eWW
-aaM
+aVL
 aaM
 aaM
 aaM
@@ -60489,7 +60493,7 @@ aaM
 avQ
 aLQ
 aLQ
-aLQ
+avQ
 axw
 aSs
 aSs

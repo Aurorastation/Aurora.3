@@ -189,6 +189,8 @@
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
 
+	default_h_style = "Tajaran Ears"
+
 /datum/species/tajaran/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
@@ -248,6 +250,13 @@
 
 /datum/species/skrell/can_breathe_water()
 	return TRUE
+
+/datum/species/skrell/set_default_hair(var/mob/living/carbon/human/H)
+	if(H.gender == MALE)
+		H.h_style = "Skrell Male Tentacles"
+	else
+		H.h_style = "Skrell Female Tentacles"
+	H.update_hair()
 
 /datum/species/diona
 	name = "Diona"
@@ -334,6 +343,9 @@
 	sprint_speed_factor = 0.5	//Speed gained is minor
 	sprint_cost_factor = 0.8
 	climb_coeff = 1.3
+	vision_organ = "head"
+
+	max_hydration_factor = -1
 
 /datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
 	var/datum/dionastats/DS = H.get_dionastats()
@@ -392,6 +404,17 @@
 		// This proc sleeps. Async it.
 		INVOKE_ASYNC(H, /mob/living/carbon/human/proc/diona_split_into_nymphs)
 
+/datum/species/diona/handle_speech_problems(mob/living/carbon/human/H, list/current_flags, message, message_verb, message_mode)
+// Diona without head can live, but they cannot talk as loud anymore.
+	var/obj/item/organ/external/O = H.organs_by_name["head"]
+	current_flags[4] = O.is_stump() ? 3 : world.view
+	return current_flags
+
+/datum/species/diona/handle_speech_sound(mob/living/carbon/human/H, list/current_flags)
+	current_flags = ..()
+	var/obj/item/organ/external/O = H.organs_by_name["head"]
+	current_flags[3] = O.is_stump()
+	return current_flags
 
 /datum/species/machine
 	name = "Baseline Frame"

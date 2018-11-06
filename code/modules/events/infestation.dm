@@ -18,6 +18,7 @@
 		INFESTATION_MICE = 1,
 		INFESTATION_LIZARDS = 1
 	)
+	no_fake = 1
 
 /datum/event/infestation/moderate
 	possible_mobs = list(

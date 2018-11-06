@@ -453,9 +453,15 @@
 
 /obj/item/clothing/accessory/poncho/roles/cloak/captain
 	name = "captain's cloak"
-	desc = "An elaborate cloak meant to be worn by the colony director."
+	desc = "An elaborate cloak meant to be worn by the Captain."
 	icon_state = "capcloak"
 	item_state = "capcloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/hos
+	name = "head of security's cloak"
+	desc = "An elaborate cloak meant to be worn by the Head of Security."
+	icon_state = "hoscloak"
+	item_state = "hoscloak"
 
 /obj/item/clothing/accessory/poncho/roles/cloak/cargo
 	name = "brown cloak"
@@ -498,3 +504,9 @@
 	desc = "A simple blue and white cloak worn by suit sensor activists."
 	icon_state = "medcloak"
 	item_state = "medcloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/security
+	name = "dark blue cloak"
+	desc = "A simple dark blue cloak awarded by NanoTrasen for failing the introductory literacy test."
+	icon_state = "seccloak"
+	item_state = "seccloak"

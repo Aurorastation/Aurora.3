@@ -179,7 +179,7 @@ var/datum/controller/subsystem/vote/SSvote
 					restart = 1
 			if("gamemode")
 				if(master_mode != .)
-					world.save_mode(.)
+					SSpersist_config.last_gamemode = .
 					if(SSticker.mode)
 						restart = 1
 					else
