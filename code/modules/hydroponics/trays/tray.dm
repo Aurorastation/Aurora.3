@@ -575,7 +575,7 @@
 		anchored = !anchored
 		user << "You [anchored ? "wrench" : "unwrench"] \the [src]."
 
-	else if (mechanical == 0 && istype(O, /obj/item/weapon/shovel) )
+	else if (!mechanical && istype(O, /obj/item/weapon/shovel) )
 		if(do_after(user, 50))
 			new /obj/item/stack/material/sandstone{amount = 3}(loc)
 			user << "<span class='notice'>You remove the soil from the bed and dismantle the sandstone base.</span>"
