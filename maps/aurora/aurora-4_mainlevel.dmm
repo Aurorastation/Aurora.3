@@ -54185,6 +54185,10 @@
 	pixel_x = -32;
 	pixel_y = 0
 	},
+/obj/machinery/camera/network/supply{
+	c_tag = "Cargo - Break Room";
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/break_room)
 "ccI" = (
@@ -61231,6 +61235,10 @@
 /obj/effect/floor_decal/corner/brown/full{
 	icon_state = "corner_white_full";
 	dir = 4
+	},
+/obj/machinery/camera/network/supply{
+	c_tag = "Cargo - Mail Sorting";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
