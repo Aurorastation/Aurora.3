@@ -110,7 +110,6 @@
 		/datum/reagent/clonexadone,\
 		/datum/reagent/rezadone,\
 		/datum/reagent/space_drugs,\
-		/datum/reagent/nitroglycerin,\
 		/datum/reagent/thermite,\
 		/datum/reagent/nutriment/honey,\
 		/datum/reagent/frostoil,\
