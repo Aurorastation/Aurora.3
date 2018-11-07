@@ -30,7 +30,7 @@
 			if(H.reagents)
 				var/contained_reagents = reagents.get_reagents()
 				var/trans = reagents.trans_to_mob(H, 15, CHEM_BLOOD)
-				admin_inject_log(usr, H, src, contained_reagents, trans)
+				admin_inject_log(usr, H, src, contained_reagents, reagents.get_temperature(), trans)
 	return
 
 //Sleepy Ring
