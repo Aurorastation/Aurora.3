@@ -1003,7 +1003,7 @@
 		mechstep(dir)
 		sleep(2)
 		mechstep(dir)
-		src.visible_message("<span class='danger'>[src.name] lunges forward clumsily!</span>")
+		src.visible_message("<span class='danger'>\The [src] lunges forward clumsily!</span>")
 		done = 1
 		return
 

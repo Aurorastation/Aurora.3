@@ -99,7 +99,7 @@
 		if(isanimal(H))
 			var/mob/living/simple_animal/C = H
 			if(issmall(C) || (C.stat == DEAD))
-				src.visible_message("<span class='danger'>\The [src] tramples \the [C]!</span>")
+				src.visible_message("<span class='danger'>\The [src] runs over \the [C]!</span>")
 				C.gib()
 				return TRUE
 
