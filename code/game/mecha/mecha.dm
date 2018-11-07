@@ -108,6 +108,9 @@
 	// Process() iterator count.
 	var/process_ticks = 0
 
+	var/stepsound = 'sound/mecha/mechstep.ogg'
+	var/turnsound = 'sound/mecha/mechturn.ogg'
+
 /obj/mecha/drain_power(var/drain_check)
 
 	if(drain_check)
@@ -446,20 +449,21 @@
 
 /obj/mecha/proc/mechturn(direction)
 	set_dir(direction)
-	playsound(src,'sound/mecha/mechturn.ogg',40,1)
+	if(turnsound)
+		playsound(src,turnsound,40,1)
 	return 1
 
 /obj/mecha/proc/mechstep(direction)
 	var/result = step(src,direction)
-	if(result)
-		playsound(src,'sound/mecha/mechstep.ogg',40,1)
+	if(result && stepsound)
+		playsound(src,stepsound,40,1)
 	return result
 
 
 /obj/mecha/proc/mechsteprand()
 	var/result = step_rand(src)
-	if(result)
-		playsound(src,'sound/mecha/mechstep.ogg',40,1)
+	if(result && stepsound)
+		playsound(src,stepsound,40,1)
 	return result
 
 /obj/mecha/Collide(var/atom/obstacle)
@@ -2108,7 +2112,8 @@
 	return
 
 
-
+/obj/mecha/proc/trample(var/mob/living/H)
+	return
 
 /////////////
 
