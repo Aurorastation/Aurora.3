@@ -601,7 +601,7 @@
 
 /obj/structure/closet/airbubble/syndie
 	name = "air bubble"
-	desc = "Special air bubble designed to protect people inside of it from decompressed enviroments. Has an integrated cooling unit to preserve stable temperature inside, require power cell to operate. This does not seem like a regular color scheme"
+	desc = "Special air bubble designed to protect people inside of it from decompressed environments. Has an integrated cooling unit to preserve a stable temperature inside. Requires a power cell to operate. This does not seem like a regular color scheme"
 	icon_state = "airbubble_syndie"
 	icon_closed = "airbubble_syndie"
 	icon_closed = "airbubble_syndie"

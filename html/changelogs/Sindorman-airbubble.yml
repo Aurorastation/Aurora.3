@@ -34,5 +34,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Aribbubble now has intergrated cooling unit. It require a power cell. to be attached either externally or internally by clicking on the bubble with power cell. Bubble cools down as fast as suit cooling unit and cosumes 2 times slower charge then suit cooling unit."
-  - tweak: "Airbubble now shows what kind of cell is attached to it and what is the charge of it when examined."
+  - rscadd: "Aribbubbles now have a intergrated cooling unit. It require a power cell to be attached either externally or internally by clicking on the bubble with power cell. The bubble cools down as fast as suit cooling unit and consumes 2 times less charge than a suit cooling unit."
+  - tweak: "Airbubbles now show the attached cell type and its charge when examined."
