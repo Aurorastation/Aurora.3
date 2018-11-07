@@ -1,7 +1,7 @@
 // Regular airbubble - folded
 /obj/item/airbubble
 	name = "air bubble"
-	desc = "Special air bubble designed to protect people inside of it from decompressed enviroments. Has an integrated cooling unit to preserve stable temperature inside, require power cell to operate."
+	desc = "Special air bubble designed to protect people inside of it from decompressed environments. Has an integrated cooling unit to preserve a stable temperature inside. Requires a power cell to operate."
 	icon = 'icons/obj/airbubble.dmi'
 	icon_state = "airbubble_fact_folded"
 	w_class = ITEMSIZE_NORMAL
@@ -54,7 +54,7 @@
 // Deployed bubble
 /obj/structure/closet/airbubble
 	name = "air bubble"
-	desc = "Special air bubble designed to protect people inside of it from decompressed enviroments. Has an integrated cooling unit to preserve stable temperature inside, require power cell to operate."
+	desc = "Special air bubble designed to protect people inside of it from decompressed environments. Has an integrated cooling unit to preserve a stable temperature inside. Requires a power cell to operate."
 	icon = 'icons/obj/airbubble.dmi'
 	icon_state = "airbubble"
 	icon_closed = "airbubble"
@@ -90,9 +90,9 @@
 	else
 		to_chat(user, "<span class='notice'>\The [src] has no tank attached.</span>")
 	if (cell)
-		to_chat(user, "\The [src] has [cell] attached, and the charge meter reads [round(cell.percent())]%.")
+		to_chat(user, "\The [src] has [cell] attached, the charge meter reads [round(cell.percent())]%.")
 	else
-		to_chat(user, "<span class='warning'> It doesn't have a power cell installed.</span>")
+		to_chat(user, "<span class='warning'>[src] has no power cell installed.</span>")
 
 /obj/structure/closet/airbubble/can_open()
 	if(zipped)
@@ -192,7 +192,7 @@
 		if(opened)	return 0
 		if(contents.len > 1)	return 0
 		if(cell)
-			to_chat(usr, "<span class='warning'>[src] still has [cell] attached to it, please remove it before folding \the [src].</span>")
+			to_chat(usr, "<span class='warning'>[src] can not be folded with [cell] attached to it.</span>")
 			return
 		usr.visible_message(
 		"<span class='warning'>[usr] begins folding up the [src.name].</span>",
@@ -218,7 +218,7 @@
 			internal_tank = null
 		bag.w_class = ITEMSIZE_LARGE
 
-		bag.desc = "Special air bubble designed to protect people inside of it from decompressed enviroments. Has an integrated cooling unit to preserve stable temperature inside, require power cell to operate."
+		bag.desc = "Special air bubble designed to protect people inside of it from decompressed environments. Has an integrated cooling unit to preserve a stable temperature inside. Requires a power cell to operate.
 		if(syndie)
 			bag.desc += " This does not seem like a regular color scheme"
 		bag.desc += " <span class='notice'>It appears to be poorly hand folded.</span>"
@@ -595,7 +595,7 @@
 // Syndicate airbubble
 /obj/item/airbubble/syndie
 	name = "air bubble"
-	desc = "Special air bubble designed to protect people inside of it from decompressed enviroments. Has an integrated cooling unit to preserve stable temperature inside, require power cell to operate. This does not seem like a regular color scheme"
+	desc = "Special air bubble designed to protect people inside of it from decompressed environments. Has an integrated cooling unit to preserve a stable temperature inside. Requires a power cell to operate. This does not seem like a regular color scheme"
 	icon_state = "airbubble_syndie_fact_folded"
 	syndie = TRUE
 
