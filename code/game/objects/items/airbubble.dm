@@ -218,7 +218,7 @@
 			internal_tank = null
 		bag.w_class = ITEMSIZE_LARGE
 
-		bag.desc = "Special air bubble designed to protect people inside of it from decompressed environments. Has an integrated cooling unit to preserve a stable temperature inside. Requires a power cell to operate.
+		bag.desc = "Special air bubble designed to protect people inside of it from decompressed environments. Has an integrated cooling unit to preserve a stable temperature inside. Requires a power cell to operate."
 		if(syndie)
 			bag.desc += " This does not seem like a regular color scheme"
 		bag.desc += " <span class='notice'>It appears to be poorly hand folded.</span>"
