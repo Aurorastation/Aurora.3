@@ -2242,9 +2242,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
+"aeU" = (
+/turf/simulated/mineral,
+/area/rnd/test_area)
 "aeV" = (
 /turf/simulated/wall,
 /area/engineering/atmos)
+"aeW" = (
+/obj/structure/window/phoronreinforced,
+/obj/machinery/light/spot/weak{
+	icon_state = "tube_empty";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/rnd/test_area)
 "aeX" = (
 /obj/machinery/atmospherics/binary/pump{
 	name = "Mix to Connectors"
@@ -3183,6 +3194,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
+"agT" = (
+/obj/structure/window/phoronreinforced,
+/turf/simulated/floor/reinforced/airless,
+/area/rnd/test_area)
 "agU" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 6
@@ -3209,6 +3224,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
+"agY" = (
+/obj/structure/window/phoronreinforced,
+/obj/machinery/camera/network/research_outpost{
+	c_tag = "Research Sublevel - Bomb Range North"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/rnd/test_area)
 "agZ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -3379,6 +3401,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"aht" = (
+/turf/simulated/floor/reinforced/airless,
+/area/rnd/test_area)
 "ahu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/modular_computer/console/preset/engineering,
@@ -4043,6 +4068,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
+"aiG" = (
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 4
+	},
+/obj/machinery/light/spot/weak{
+	icon_state = "tube_empty";
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/rnd/test_area)
 "aiH" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light{
@@ -4956,6 +4992,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
+"akD" = (
+/obj/effect/landmark{
+	name = "cavernspawn"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/rnd/test_area)
 "akE" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -13817,6 +13859,13 @@
 /obj/structure/filingcabinet/filingcabinet,
 /turf/simulated/floor/tiled,
 /area/outpost/research/isolation_monitoring)
+"ayZ" = (
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/rnd/test_area)
 "aza" = (
 /obj/structure/table/standard,
 /obj/item/weapon/scalpel,
@@ -15497,6 +15546,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
+"aBQ" = (
+/obj/effect/floor_decal/industrial/warning/dust/corner,
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	icon_state = "warningcorner_dust";
+	dir = 4
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/rnd/test_area)
 "aBR" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
@@ -22170,6 +22229,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
+"aMP" = (
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 4
+	},
+/obj/machinery/camera/network/research_outpost{
+	c_tag = "Research Sublevel - Bomb Range West";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/rnd/test_area)
 "aMQ" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -23778,6 +23848,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/medical)
+"aPC" = (
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
+/obj/machinery/light/spot/weak,
+/turf/simulated/floor/reinforced/airless,
+/area/rnd/test_area)
 "aPD" = (
 /turf/unsimulated/chasm_mask,
 /area/crew_quarters/sleep/medical)
@@ -24118,6 +24196,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/medical)
+"aQk" = (
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/rnd/test_area)
 "aQl" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk,
@@ -24389,6 +24474,17 @@
 /obj/item/weapon/reagent_containers/food/drinks/jar,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
+"aQK" = (
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
+/obj/machinery/camera/network/research_outpost{
+	c_tag = "Research Sublevel - Bomb Range South";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/rnd/test_area)
 "aQL" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -24531,6 +24627,37 @@
 	},
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
+"aQZ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/reinforced/airless,
+/area/rnd/test_area)
+"aRa" = (
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 8
+	},
+/obj/structure/window/phoronreinforced,
+/obj/machinery/light/spot/weak{
+	icon_state = "tube_empty";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/rnd/test_area)
+"aRb" = (
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 8
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
+/obj/machinery/light/spot/weak{
+	icon_state = "tube_empty";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/rnd/test_area)
 "aRm" = (
 /obj/structure/table/standard,
 /obj/machinery/newscaster{
@@ -28105,31 +28232,6 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
-"bcu" = (
-/obj/structure/window/phoronreinforced,
-/obj/machinery/camera/network/research_outpost{
-	c_tag = "Research Sublevel - Bomb Range North"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bcv" = (
-/obj/structure/window/phoronreinforced,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bcw" = (
-/obj/structure/window/phoronreinforced,
-/obj/machinery/light/spot/weak{
-	icon_state = "tube_empty";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
 "bcQ" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -28141,14 +28243,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
-"bcY" = (
-/obj/effect/landmark{
-	name = "cavernspawn"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
 "bdc" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -28425,19 +28519,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
-"bdO" = (
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 4
-	},
-/obj/machinery/camera/network/research_outpost{
-	c_tag = "Research Sublevel - Bomb Range West";
-	dir = 4
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
 "bey" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -28588,15 +28669,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
-"beX" = (
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 4
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
 "bfn" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
@@ -28645,19 +28717,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
-"bfw" = (
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 4
-	},
-/obj/machinery/light/spot/weak{
-	icon_state = "tube_empty";
-	dir = 8
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
 "bfI" = (
 /obj/structure/window/phoronreinforced{
 	icon_state = "phoronrwindow";
@@ -28717,11 +28776,6 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
 /area/maintenance/research_xenobiology)
-"bga" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
 "bgc" = (
 /obj/item/weapon/beartrap,
 /turf/simulated/floor/asteroid/ash/rocky,
@@ -28869,38 +28923,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_xenobiology)
-"bgt" = (
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 1
-	},
-/obj/machinery/camera/network/research_outpost{
-	c_tag = "Research Sublevel - Bomb Range South";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bgu" = (
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
-"bgv" = (
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 1
-	},
-/obj/machinery/light/spot/weak,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/test_area)
 "bgy" = (
 /obj/structure/barricade,
 /turf/simulated/floor/asteroid/ash/rocky,
@@ -30357,19 +30379,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/rnd/mixing)
-"bmf" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/machinery/light/small/emergency{
-	icon_state = "bulb1";
-	dir = 4
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
 "bmg" = (
 /obj/effect/floor_decal/corner/mauve/full,
 /obj/machinery/atmospherics/portables_connector{
@@ -30410,16 +30419,6 @@
 	icon_state = "warning_dust";
 	dir = 8
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/mixing)
-"bmI" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 8
-	},
-/obj/machinery/light/small/emergency,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -34966,7 +34965,7 @@ bal
 bal
 bal
 bal
-akG
+bal
 ale
 ale
 ale
@@ -35224,7 +35223,7 @@ bal
 bal
 bal
 bal
-akG
+bal
 ale
 ale
 ale
@@ -35475,14 +35474,14 @@ ale
 bal
 bal
 bal
-bfw
-beX
-bdO
-beX
-bfw
+aiG
+ayZ
+aMP
+ayZ
+aiG
 bal
 bal
-akG
+bal
 ale
 ale
 ale
@@ -35731,13 +35730,13 @@ ale
 bal
 bal
 bal
-bga
-bga
-bga
-bga
-bga
-bga
-bga
+aht
+aht
+aht
+aht
+aht
+aht
+aht
 bal
 bal
 bal
@@ -35987,15 +35986,15 @@ ale
 ale
 bal
 bal
-bcw
-bga
-bga
-bga
-bga
-bga
-bga
-bga
-bgv
+aeW
+aht
+aht
+aht
+aht
+aht
+aht
+aht
+aPC
 bal
 bal
 ale
@@ -36244,15 +36243,15 @@ ale
 ale
 bal
 bal
-bcv
-bga
-bga
-bga
-bga
-bga
-bga
-bga
-bgu
+agT
+aht
+aht
+aht
+aht
+aht
+aht
+aht
+aQk
 bal
 bal
 ale
@@ -36501,15 +36500,15 @@ ale
 ale
 bal
 bal
-bcu
-bga
-bga
-bga
-bga
-bga
-bga
-bga
-bgt
+agY
+aht
+aht
+aht
+aQZ
+aht
+aht
+aht
+aQK
 bal
 bal
 ale
@@ -36758,15 +36757,15 @@ ale
 ale
 bal
 bal
-bcv
-bga
-bcY
-bga
-bga
-bga
-bga
-bga
-bgu
+agT
+aht
+akD
+aht
+aht
+aht
+aht
+aht
+aQk
 bal
 bal
 ale
@@ -37015,15 +37014,15 @@ ale
 ale
 bal
 bal
-bcw
-bga
-bga
-bga
-bga
-bga
-bga
-bga
-bgv
+aeW
+aht
+aht
+aht
+aht
+aht
+aht
+aht
+aPC
 bal
 bal
 ale
@@ -37273,17 +37272,17 @@ ale
 bal
 bal
 bal
-bga
-bga
-bga
-bga
-bga
-bga
-bga
+aht
+aht
+aht
+aht
+aht
+aht
+aht
 bal
 bal
 bal
-aba
+ale
 aba
 bhZ
 aba
@@ -37527,20 +37526,20 @@ aaa
 aaa
 ale
 ale
+aeU
 bal
 bal
 bal
-bge
-bge
-bge
-bge
-bge
-bge
-bge
+aRa
+aht
+aht
+aht
+aRb
 bal
 bal
 bal
-aba
+aeU
+ale
 aba
 aba
 aba
@@ -37785,19 +37784,19 @@ aaa
 ale
 ale
 ale
+aeU
 bal
 bal
-aba
-aba
-aba
-bey
-aba
-aba
-aba
+bal
+aht
+aht
+aht
 bal
 bal
+bal
+aeU
 ale
-aba
+ale
 aba
 aba
 aba
@@ -38043,18 +38042,18 @@ aaa
 ale
 ale
 ale
+aeU
 bal
-aba
-aba
-aba
-bey
-aba
-aba
-aba
 bal
+bge
+aBQ
+bge
+bal
+bal
+aeU
 ale
 ale
-aba
+ale
 aba
 aba
 aba
@@ -51433,13 +51432,13 @@ bkW
 blq
 aQq
 blW
-bma
-bmC
-bmC
-bmC
-bmC
-bmI
-aQq
+aba
+aba
+aba
+aba
+aba
+aba
+aba
 aba
 aba
 aba
@@ -51690,13 +51689,13 @@ abi
 blr
 aQq
 blW
-bme
-bmN
-bmN
-bmN
-bmN
-bmN
-aQq
+aba
+aba
+aba
+aba
+aba
+aba
+aba
 aaa
 aba
 aba
@@ -51947,13 +51946,13 @@ bls
 bls
 aQq
 blW
-bme
-bmN
-bmN
-bmN
-bmN
-bmN
-aQq
+aba
+aba
+aba
+aba
+aba
+aaa
+aaa
 aaa
 aaa
 aba
@@ -52204,13 +52203,13 @@ bkZ
 blW
 blI
 blW
-bme
-bmN
-bmN
-bmN
-bmN
-bmN
-aQq
+aba
+aba
+aba
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -52461,13 +52460,13 @@ blW
 blW
 blW
 blW
-bme
-bmN
-bmN
-bmN
-bmN
-bmN
-aQq
+aba
+aba
+aba
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -52718,13 +52717,13 @@ blW
 blW
 blW
 blW
-bmf
-bmN
-bmN
-bmN
-bmN
-bmN
-aQq
+aba
+aba
+aba
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -52975,13 +52974,13 @@ blW
 blW
 blW
 blW
-aQq
-aQq
-aQq
-aQq
-aQq
-aQq
-aQq
+aba
+aba
+aba
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -53232,8 +53231,8 @@ aba
 aba
 aba
 aba
-aaa
-aaa
+aba
+aba
 aaa
 aaa
 aaa
@@ -53489,8 +53488,8 @@ aba
 aba
 aba
 aba
-aaa
-aaa
+aba
+aba
 aaa
 aaa
 aaa
@@ -53746,7 +53745,7 @@ aba
 aba
 aba
 aba
-aaa
+aba
 aaa
 aaa
 aaa
