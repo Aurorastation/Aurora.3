@@ -61,7 +61,7 @@
 		if(isanimal(AM))
 			var/mob/living/simple_animal/C = AM
 			if(issmall(C))
-				src.visible_message("<span class='danger'>\The [src] tramples \the [C]!</span>")
+				src.visible_message("<span class='danger'>\The [src] runs over \the [C]!</span>")
 				C.gib()
 				return TRUE
 			else
@@ -91,7 +91,7 @@
 				D.attack_log += "\[[time_stamp()]\]<font color='orange'> Was trampled by [src]</font>"
 				occupant.attack_log += text("\[[time_stamp()]\] <font color='red'>rammed[occupant.name] ([occupant.ckey]) trampled [D.name] ([D.ckey]) with the [src].</font>")
 				msg_admin_attack("[src] trampled [key_name(D)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[D.x];Y=[D.y];Z=[D.z]'>JMP</a>)" )
-				src.visible_message("<span class='danger'>\The [src] tramples \the [D]!</span>")
+				src.visible_message("<span class='danger'>\The [src] runs over \the [D]!</span>")
 				D.apply_effect(8, WEAKEN)
 				D.apply_damage(60, BRUTE)
 				return TRUE
@@ -105,7 +105,7 @@
 
 		else
 			var/mob/living/L = H
-			src.visible_message("<span class='danger'>\The [src] tramples \the [L]!</span>")
+			src.visible_message("<span class='danger'>\The [src] runs over \the [L]!</span>")
 			L.apply_damage(60, BRUTE)
 			return TRUE
 
