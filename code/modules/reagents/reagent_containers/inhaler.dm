@@ -33,7 +33,7 @@
 		if(H.reagents)
 			var/contained = reagentlist()
 			var/trans = reagents.trans_to_mob(H, amount_per_transfer_from_this, CHEM_TOUCH)
-			admin_inject_log(user, H, src, contained, trans)
+			admin_inject_log(user, H, src, contained, reagents.get_temperature(), trans)
 			playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
 			user.visible_message("<span class='notice'>[user] accidentally sticks the [src] in [H]'s eyes!</span>","<span class='notice'>You accidentally stick the [src] in [H]'s eyes!</span>")
 			to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
@@ -66,7 +66,7 @@
 	if(H.reagents)
 		var/contained = reagentlist()
 		var/trans = reagents.trans_to_mob(H, amount_per_transfer_from_this, CHEM_BREATHE, bypass_checks = TRUE)
-		admin_inject_log(user, H, src, contained, trans)
+		admin_inject_log(user, H, src, contained, reagents.get_temperature(), trans)
 		playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
 		to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
 

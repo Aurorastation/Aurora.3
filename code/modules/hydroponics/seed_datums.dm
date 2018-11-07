@@ -983,7 +983,7 @@
 	name = "pumpkin"
 	seed_name = "pumpkin"
 	display_name = "pumpkin vine"
-	chems = list("nutriment" = list(1,6))
+	chems = list("pumpkinpulp" = list(5,6))
 	kitchen_tag = "pumpkin"
 
 /datum/seed/pumpkin/setup_traits()
@@ -1066,7 +1066,7 @@
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
 /datum/seed/cocoa
-	name = "cocoa"
+	name = "cacao"
 	seed_name = "cacao"
 	display_name = "cacao tree"
 	chems = list("nutriment" = list(1,10), "coco" = list(4,5))
@@ -1127,8 +1127,8 @@
 /datum/seed/diona
 	name = "diona"
 	seed_name = "diona"
-	seed_noun = "nodes"
-	display_name = "replicant pods"
+	seed_noun = "node"
+	display_name = "diona pod"
 	can_self_harvest = 1
 	has_mob_product = /mob/living/carbon/alien/diona
 

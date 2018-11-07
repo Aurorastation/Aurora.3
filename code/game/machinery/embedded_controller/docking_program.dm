@@ -69,7 +69,7 @@
 	var/resend_counter = 0		//for periodically resending confirmation messages in case they are missed
 	
 	var/override_enabled = 0	//when enabled, do not open/close doors or cycle airlocks and wait for the player to do it manually
-	var/received_confirm = 0	//for undocking, whether the server has recieved a confirmation from the client
+	var/received_confirm = 0	//for undocking, whether the server has received a confirmation from the client
 
 /datum/computer/file/embedded_program/docking/New()
 	..()
