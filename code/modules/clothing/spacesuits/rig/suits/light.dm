@@ -92,7 +92,8 @@
 		/obj/item/rig_module/voice,
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/datajack,
-		/obj/item/rig_module/self_destruct
+		/obj/item/rig_module/self_destruct,
+		/obj/item/rig_module/actuators
 	)
 
 /obj/item/weapon/rig/light/ninja/equipped
@@ -124,9 +125,9 @@
 	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
 	sprite_sheets = list(
 		"Tajara" = 'icons/mob/species/tajaran/suit.dmi',
-		"Skrell" = 'icons/mob/species/skrell/suit.dmi',
 		"Unathi" = 'icons/mob/species/unathi/suit.dmi',
-		"Vaurca" = "icons/mob/species/vaurca/suit.dmi"
+		"Vaurca" = "icons/mob/species/vaurca/suit.dmi",
+		"Machine" = 'icons/mob/species/machine/suit.dmi'
 		)
 	breach_threshold = 38 //comparable to regular hardsuits
 
@@ -136,7 +137,8 @@
 		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
 		"Skrell" = 'icons/mob/species/skrell/helmet.dmi',
 		"Unathi" = 'icons/mob/species/unathi/helmet.dmi',
-		"Vaurca" = "icons/mob/species/vaurca/helmet.dmi"
+		"Vaurca" = "icons/mob/species/vaurca/helmet.dmi",
+		"Machine" = 'icons/mob/species/machine/helmet.dmi'
 	)
 
 /obj/item/weapon/rig/light/stealth
