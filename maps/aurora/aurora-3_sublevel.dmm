@@ -21141,7 +21141,6 @@
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/machinery/vending/wallmed1{
 	pixel_y = 32;
-	req_access = null;
 	req_one_access = list(47,55)
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -25212,7 +25211,6 @@
 "aSi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
 	req_one_access = list(47,55)
 	},
 /obj/structure/cable/green{
