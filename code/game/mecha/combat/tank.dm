@@ -25,8 +25,8 @@
 	stepsound = 'sound/mecha/tanktread.ogg'
 	turnsound = 'sound/mecha/tanktread.ogg'
 
-/obj/mecha/combat/tank/New()
-	..()
+/obj/mecha/combat/tank/Initialize()
+	.= ..()
 	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg
 	ME.attach(src)
 	ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/cannon

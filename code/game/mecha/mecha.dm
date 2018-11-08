@@ -121,8 +121,11 @@
 
 	return cell.drain_power(drain_check)
 
-/obj/mecha/New()
-	..()
+/obj/mecha/Initialize()
+	.= ..()
+
+	START_PROCESSING(SSfast_process, src)
+
 	events = new
 
 	icon_state += "-open"
@@ -138,10 +141,6 @@
 
 	spark_system = bind_spark(src, 2)
 
-/obj/mecha/Initialize()
-	. = ..()
-
-	START_PROCESSING(SSfast_process, src)
 
 /obj/mecha/Destroy()
 	STOP_PROCESSING(SSfast_process, src)
