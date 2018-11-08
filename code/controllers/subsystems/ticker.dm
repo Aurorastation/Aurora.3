@@ -431,6 +431,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	data_core.manifest()
 
 	Master.RoundStart()
+	real_round_start_time = REALTIMEOFDAY
 	round_start_time = world.time
 
 	callHook("roundstart")
