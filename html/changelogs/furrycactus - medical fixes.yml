@@ -34,10 +34,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - maptweak: "Chemistry was made less cramped and a bit nicer to work in."
-  - maptweak: "EMT Bay layout was tweaked."
-  - maptweak: "Changed the tile colours in Surgery."
-  - maptweak: "Death Alarms have been returned to Medical Storage."
-  - maptweak: "A couple more sinks and disposals outlets have been put around Medbay."
-  - maptweak: "Surgery was made less cramped."
+  - maptweak: "Surgery and Chemistry were made less cramped. EMT Bay layout was tweaked."
+  - maptweak: "Death Alarms have been returned to Medical Storage, and more sinks and disposals outlets have been added."
   - bugfix: "Missing Air Alarm in Chemistry has been fixed."
