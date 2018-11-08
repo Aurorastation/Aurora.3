@@ -356,13 +356,13 @@
 		return
 	var/temperature = src.get_temperature()
 	if(temperature >= REAGENTS_BURNING_TEMP_HIGH)
-		var/burn_damage = Clamp(total_volume*(temperature - REAGENTS_BURNING_TEMP_HIGH)*REAGENTS_BURNING_TEMP_HIGH_DAMAGE,0,20)
+		var/burn_damage = Clamp(total_volume*(temperature - REAGENTS_BURNING_TEMP_HIGH)*REAGENTS_BURNING_TEMP_HIGH_DAMAGE,0,REAGENTS_BURNING_TEMP_HIGH_DAMAGE_CAP)
 		target.adjustFireLoss(burn_damage)
 		target.visible_message(span("danger","The hot liquid burns \the [target]!"))
 	else if(temperature <= REAGENTS_BURNING_TEMP_LOW)
-		var/burn_damage = Clamp(total_volume*(REAGENTS_BURNING_TEMP_LOW - temperature)*REAGENTS_BURNING_TEMP_LOW_DAMAGE,0,20)
+		var/burn_damage = Clamp(total_volume*(REAGENTS_BURNING_TEMP_LOW - temperature)*REAGENTS_BURNING_TEMP_LOW_DAMAGE,0,REAGENTS_BURNING_TEMP_LOW_DAMAGE_CAP)
 		target.adjustFireLoss(burn_damage)
-		target.visible_message(span("danger","The freezing cold liquid burns \the [target]!"))
+		target.visible_message(span("danger","The freezing liquid burns \the [target]!"))
 
 	for(var/datum/reagent/current in reagent_list)
 		current.touch_mob(target, current.volume)

@@ -2905,8 +2905,9 @@
 	id = "phoron_salt"
 	result = "phoron_salt"
 	required_reagents = list("sodiumchloride" = 1, "phoron" = 2)
-	required_temperatures_min = list("sodiumchloride" = T0C + 200, "phoron" = T0C - 200)
-	required_temperatures_max = list("phoron" = T0C - 5)
+	required_temperatures_min = list("sodiumchloride" = 678, "phoron" = 73)
+	required_temperatures_max = list("phoron" = 261)
+	
 	result_amount = 1
 
 /datum/chemical_reaction/pyrosilicate
@@ -2964,16 +2965,15 @@
 /datum/chemical_reaction/phoron_salt_fire
 	name = "Phoron Salt Fire"
 	id = "phoron_salt_fire"
-	result = "carbon"
+	result = null
 	result_amount = 1
 	required_reagents = list("phoron_salt" = 1)
-	required_temperatures_min = list("phoron_salt" = T0C + 200)
+	required_temperatures_min = list("phoron_salt" = 134) //If it's above this temperature, then cause hellfire.
 
 /datum/chemical_reaction/phoron_salt_fire/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
 	var/turf/location = get_turf(holder.my_atom.loc)
 	for(var/turf/simulated/floor/target_tile in range(0,location))
-		target_tile.assume_gas("phoron", created_volume*0.5, created_thermal_energy/created_volume) //The goal here is to hold as much thermal energy as possible with a large amount of volume.
-		target_tile.assume_gas("carbon_dioxide", created_volume*0.5, (created_thermal_energy/created_volume) )
+		target_tile.assume_gas("phoron", created_volume*2, created_thermal_energy / 25) //2 because there is 2 phoron in 1u of phoron salts
 		addtimer(CALLBACK(target_tile, /turf/simulated/floor/.proc/hotspot_expose, 700, 400), 1)
 	holder.del_reagent("phoron_salt")
 	return
@@ -2981,16 +2981,15 @@
 /datum/chemical_reaction/phoron_salt_coldfire
 	name = "Phoron Salt Coldfire"
 	id = "phoron_salt_coldfire"
-	result = "hydrazine"
+	result = null
 	result_amount = 1
 	required_reagents = list("phoron_salt" = 1)
-	required_temperatures_max = list("phoron_salt" = T0C + 0)
+	required_temperatures_max = list("phoron_salt" = 113) //if it's below this temperature, then make a boom
 
 /datum/chemical_reaction/phoron_salt_coldfire/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
 	var/datum/effect/effect/system/reagents_explosion/e = new()
-	var/explosion_mod = (holder.get_thermal_energy() + created_thermal_energy) * 0.001 //The more thermal energy inside a container, the bigger the explosion.
-	explosion_mod = Clamp(explosion_mod,1,32) //Let it be known that not even the dev who made this knows the full destuctive potential of this fuckery, so a maxcap of 32 is implemented.
-	e.set_up(round (explosion_mod, 1), holder.my_atom, 0, 0)
+	var/explosion_mod = 1 + max(0,32*(1 - (created_thermal_energy/28000))*min(1,created_volume/120)) * 7 //The colder you can get it to absolute 0 in a short amount of time, the bigger the explosion.
+	e.set_up(round(explosion_mod, 1), holder.my_atom, 0, 0)
 	if(isliving(holder.my_atom))
 		e.amount *= 0.5
 		var/mob/living/L = holder.my_atom
