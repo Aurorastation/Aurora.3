@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "You can now only upload AI and cyborgs laws if the console is located at a station's z-level."
