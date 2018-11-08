@@ -506,7 +506,7 @@
 	metabolism = REM * 2
 	touch_met = 5 * REM
 	taste_description = "metal"
-  fallback_specific_heat = 20 //This holds a ton of heat.
+	fallback_specific_heat = 20 //This holds a ton of heat.
 	unaffected_species = IS_MACHINE
 
 /datum/reagent/liquid_fire/affect_blood(var/mob/living/L, var/alien, var/removed)

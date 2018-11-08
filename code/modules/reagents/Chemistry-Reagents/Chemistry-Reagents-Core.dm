@@ -255,7 +255,7 @@
 		var/mob/living/carbon/slime/S = M
 		S.adjustToxLoss(12 * removed) // A slime having water forced down its throat would cause much more damage then being splashed on it
 		if (!S.client && S.Target)
-		
+
 			S.Target = null
 			++S.Discipline
 
@@ -272,7 +272,7 @@
 	glass_icon_state = "dr_gibb_glass"
 	glass_name = "glass of welder fuel"
 	glass_desc = "Unless you are an industrial tool, this is probably not safe for consumption."
-  specific_heat = 0.605
+	specific_heat = 0.605
 
 /datum/reagent/fuel/touch_turf(var/turf/T,amount)
 	new /obj/effect/decal/cleanable/liquid_fuel(T, amount)
