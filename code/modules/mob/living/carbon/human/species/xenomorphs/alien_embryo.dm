@@ -6,6 +6,7 @@
 	parent_organ = "chest"
 	organ_tag = "alien embryo"
 	origin_tech = list(TECH_BIO = 5)
+	stage_interval = 200
 
 
 /obj/item/organ/parasite/alien_embryo/Destroy()
