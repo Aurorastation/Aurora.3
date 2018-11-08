@@ -183,7 +183,7 @@
 	name ="armor-piercing shell"
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "shell"
-	damage = 60
+	damage = 90
 	armor_penetration = 80
 	penetrating = 1
 

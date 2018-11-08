@@ -15,7 +15,7 @@
 	step_in = 5
 	dir_in = 1
 	health = 800
-	deflect_chance = 60
+	deflect_chance = 20
 	damage_absorption = list("brute"=0.4,"fire"=1.1,"bullet"=0.5,"laser"=0.8,"energy"=0.8,"bomb"=0.7)
 	max_temperature = 30000
 	force = 40
