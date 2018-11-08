@@ -53,7 +53,7 @@
 		user << "[src.current.name] selected for law changes."
 	return
 
-/obj/machinery/computer/aiuploadattack_ghost(user as mob)
+/obj/machinery/computer/aiupload/attack_ghost(user as mob)
 	return 1
 
 
