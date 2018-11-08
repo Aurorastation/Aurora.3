@@ -179,16 +179,11 @@
 	last_chrg = inputting
 	last_onln = outputting
 
-
 	if(output_history.size() == 50)
-		time_depleted = 0
-
-		for(var/x in output_history.contents)
-			time_depleted += x
-
-		if(time_depleted)
-			time_depleted = 2 * (charge / (time_depleted / output_history.size())) // how long will it take to deplete SMES given current charge and average of drain(input - output).
-		time_depleted = time_depleted / 60 //converting to minutes
+		var/list/sorted = output_history.as_list()
+		sorted = sortTim(sorted)
+		time_depleted = 2 * (charge / (sorted[sorted.len/2] * SMESRATE)) // how long will it take to deplete SMES given current charge and average of drain(input - output).
+		time_depleted /= 60 //converting to minutes
 		output_history.dequeue()
 	output_history.enqueue(((input_taken - round(output_used)) < 0) ? (round(output_used) - input_taken) : 0)
 
