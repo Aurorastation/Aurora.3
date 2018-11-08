@@ -36,16 +36,13 @@ var/real_round_start_time
 /proc/get_round_duration_formatted()
 	var/duration = get_round_duration()
 	var/hour = "[ round(duration / ( 1 HOUR) ) ]"
-	var/minute = "[ round(duration / (1 MINUTE) ) % (1 HOUR) ]"
-	var/second = "[ round(duration / (1 SECOND) ) % (1 MINUTE) ]"
+	var/minute = "[ round(duration / (1 MINUTE) ) % 60 ]"
 	if(length(hour) == 1)
 		hour = "0" + hour
 	if(length(minute) == 1)
 		minute = "0" + minute
-	if(length(second) == 1)
-		second = "0" + second
 
-	return "[hour]:[minute]:[second]"
+	return "[hour]:[minute]"
 
 /var/midnight_rollovers = 0
 /var/rollovercheck_last_timeofday = 0
