@@ -22,6 +22,7 @@
 
 	if(stage_ticker >= stage*stage_interval)
 		stage = min(stage+1,max_stage)
+		stage_effect()
 
 /obj/item/organ/parasite/handle_rejection()
 	if(subtle)
@@ -30,6 +31,9 @@
 		if(rejecting)
 			rejecting = 0
 		return
+
+/obj/item/organ/parasite/proc/stage_effect()
+	return
 
 ///////////////////
 ///K'ois Mycosis///

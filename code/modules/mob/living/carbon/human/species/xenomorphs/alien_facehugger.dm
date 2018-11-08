@@ -117,7 +117,7 @@ var/const/MAX_ACTIVE_TIME = 400
 		return
 
 	var/mob/living/carbon/human/C = M
-	if(istype(C) && locate(/obj/item/organ/xenos/alien_embryo) in C.internal_organs)
+	if(istype(C) && locate(/obj/item/organ/parasite/alien_embryo) in C.internal_organs)
 		return
 
 	if(locate(/obj/item/organ/xenos/hivenode) in C.internal_organs)
@@ -177,7 +177,7 @@ var/const/MAX_ACTIVE_TIME = 400
 	if(!sterile)
 		//target.contract_disease(new /datum/disease/alien_embryo(0)) //so infection chance is same as virus infection chance
 		var/obj/item/organ/affecting = target.get_organ("chest")
-		var/obj/item/organ/xenos/alien_embryo/kid = new(affecting)
+		var/obj/item/organ/parasite/alien_embryo/kid = new(affecting)
 		kid.replaced(target,affecting)
 		target.status_flags |= XENO_HOST
 
