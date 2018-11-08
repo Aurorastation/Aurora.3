@@ -129,13 +129,14 @@
 	icon_vend = "coffee-vend"
 	vend_delay = 34
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
-	vend_power_usage = 85000 //85 kJ to heat a 250 mL cup of coffee
 	vend_id = "coffee"
 	products = list(
 		/obj/item/weapon/reagent_containers/food/drinks/coffee = 25,
+		/obj/item/weapon/reagent_containers/food/drinks/coffee/pslatte = 15,
 		/obj/item/weapon/reagent_containers/food/drinks/tea = 25,
 		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 25,
-		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 20
+		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 20,
+		/obj/item/weapon/reagent_containers/food/snacks/donut/psdonut = 10
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/drinks/ice = 10
@@ -146,6 +147,9 @@
 		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 22,
 		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 6
 	)
+	cooling_temperature = T0C + 57 //Optimal coffee temperature
+	heating_temperature = T0C + 100 //ULTRA HOT COFFEE
+	temperature_setting = -1
 
 /obj/machinery/vending/snack
 	name = "Getmore Chocolate Corp"
@@ -167,7 +171,17 @@
 		/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 2,
-		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 4
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 4,
+		/obj/item/weapon/reagent_containers/food/snacks/cb01 = 4,
+		/obj/item/weapon/reagent_containers/food/snacks/cb02 = 4,
+		/obj/item/weapon/reagent_containers/food/snacks/cb03 = 4,
+		/obj/item/weapon/reagent_containers/food/snacks/cb04 = 4,
+		/obj/item/weapon/reagent_containers/food/snacks/cb05 = 4,
+		/obj/item/weapon/reagent_containers/food/snacks/cb06 = 4,
+		/obj/item/weapon/reagent_containers/food/snacks/cb07 = 4,
+		/obj/item/weapon/reagent_containers/food/snacks/cb08 = 4,
+		/obj/item/weapon/reagent_containers/food/snacks/cb09 = 4,
+		/obj/item/weapon/reagent_containers/food/snacks/cb10 = 4
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/snacks/syndicake = 6,
@@ -186,7 +200,17 @@
 		/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 22,
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 23,
 		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 24,
-		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 60
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 60,
+		/obj/item/weapon/reagent_containers/food/snacks/cb01 = 10,
+		/obj/item/weapon/reagent_containers/food/snacks/cb02 = 12,
+		/obj/item/weapon/reagent_containers/food/snacks/cb03 = 14,
+		/obj/item/weapon/reagent_containers/food/snacks/cb04 = 12,
+		/obj/item/weapon/reagent_containers/food/snacks/cb05 = 13,
+		/obj/item/weapon/reagent_containers/food/snacks/cb06 = 14,
+		/obj/item/weapon/reagent_containers/food/snacks/cb07 = 12,
+		/obj/item/weapon/reagent_containers/food/snacks/cb08 = 14,
+		/obj/item/weapon/reagent_containers/food/snacks/cb09 = 12,
+		/obj/item/weapon/reagent_containers/food/snacks/cb10 = 11
 	)
 
 /obj/machinery/vending/cola
@@ -225,6 +249,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/koispunch = 50
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	temperature_setting = -1
 
 //This one's from bay12
 /obj/machinery/vending/cart
@@ -306,6 +331,7 @@
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	random_itemcount = 0
+	temperature_setting = -1
 
 //This one's from bay12
 /obj/machinery/vending/phoronresearch
@@ -347,6 +373,7 @@
 		/obj/item/weapon/reagent_containers/pill/tox = 1
 	)
 	random_itemcount = 0
+	temperature_setting = -1
 
 /obj/machinery/vending/wallmed2
 	name = "NanoMed"
@@ -367,6 +394,7 @@
 		/obj/item/weapon/reagent_containers/pill/tox = 3
 	)
 	random_itemcount = 0
+	temperature_setting = -1
 
 /obj/machinery/vending/security
 	name = "SecTech"
@@ -607,6 +635,7 @@
 		/obj/item/weapon/storage/toolbox/lunchbox/syndicate = 2
 	)
 	restock_items = 1
+	random_itemcount = 0
 
 /obj/machinery/vending/sovietsoda
 	name = "BODA"
@@ -626,6 +655,7 @@
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	random_itemcount = 0
+	temperature_setting = -1
 
 /obj/machinery/vending/tool
 	name = "YouTool"
@@ -681,6 +711,7 @@
 		/obj/item/weapon/storage/belt/utility = 3
 	)
 	restock_items = 1
+	random_itemcount = 0
 
 /obj/machinery/vending/tacticool //Tried not to go overboard with the amount of fun security has access to.
 	name = "Tactical Express"
@@ -837,6 +868,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/zoradrone = 30,
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	temperature_setting = -1
 
 /obj/machinery/vending/battlemonsters
 	name = "\improper Battlemonsters vendor"
@@ -855,16 +887,16 @@
 	)
 	prices = list(
 		/obj/item/weapon/book/manual/battlemonsters = 12,
-		/obj/item/battle_monsters/wrapped = 150,
-		/obj/item/battle_monsters/wrapped/pro = 100,
-		/obj/item/battle_monsters/wrapped/species = 150,
-		/obj/item/battle_monsters/wrapped/species/lizard = 150,
-		/obj/item/battle_monsters/wrapped/species/cat = 150,
-		/obj/item/battle_monsters/wrapped/species/ant = 150,
+		/obj/item/battle_monsters/wrapped = 100,
+		/obj/item/battle_monsters/wrapped/pro = 75,
+		/obj/item/battle_monsters/wrapped/species = 100,
+		/obj/item/battle_monsters/wrapped/species/lizard = 125,
+		/obj/item/battle_monsters/wrapped/species/cat = 125,
+		/obj/item/battle_monsters/wrapped/species/ant = 125,
 		/obj/item/battle_monsters/wrapped/rare = 200
 	)
 	contraband = list(
-		/obj/item/battle_monsters/wrapped/legendary = 2
+		/obj/item/battle_monsters/wrapped/legendary = 4
 	)
 	premium = list(
 		/obj/item/weapon/coin/battlemonsters = 10

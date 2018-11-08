@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - rscadd: "Added new options to the custom loadout; dresses and fannypacks."
-  - rscadd: "Added medical gowns to medbay."

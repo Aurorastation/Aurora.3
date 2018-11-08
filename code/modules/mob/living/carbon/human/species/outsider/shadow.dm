@@ -89,6 +89,12 @@
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
+	max_nutrition_factor = -1
+
+	max_hydration_factor = -1
+
+	hud_type = /datum/hud_data/construct
+
 /datum/species/shadow/handle_death(var/mob/living/carbon/human/H)
 	spawn(1)
 		new /obj/effect/decal/cleanable/ash(H.loc)

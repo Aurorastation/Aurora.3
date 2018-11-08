@@ -9,6 +9,11 @@
 	display_name = "kilt"
 	path = /obj/item/clothing/under/kilt
 
+/datum/gear/uniform/iacjumpsuit
+	display_name = "IAC Jumpsuit"
+	path = /obj/item/clothing/under/rank/iacjumpsuit
+	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Chemist", "Paramedic", "Medical Resident")
+
 /datum/gear/uniform/jumpsuit
 	display_name = "generic jumpsuits"
 	path = /obj/item/clothing/under/color/grey
@@ -192,7 +197,7 @@
 	pants["blue track pants"] = /obj/item/clothing/under/pants/track/blue
 	pants["green track pants"] = /obj/item/clothing/under/pants/track/green
 	pants["white track pants"] = /obj/item/clothing/under/pants/track/white
-	pants["red track pants"] = /obj/item/clothing/under/pants/track/blue
+	pants["red track pants"] = /obj/item/clothing/under/pants/track/red
 	pants["camo pants"] = /obj/item/clothing/under/pants/camo
 	pants["athletic shorts, black"] = /obj/item/clothing/under/shorts
 	pants["athletic shorts, red"] = /obj/item/clothing/under/shorts/red

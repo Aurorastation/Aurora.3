@@ -33,7 +33,7 @@
 
 /obj/machinery/chem_master/Initialize()
 	. = ..()
-	create_reagents(120)
+	create_reagents(300)
 
 /obj/machinery/chem_master/ex_act(severity)
 	switch(severity)
@@ -809,3 +809,17 @@
 			target.say("*scream")
 			spawn(10)
 			user.visible_message("<span class='warning'>[user] stops the [src] and leaves [target] resting as they are.</span>", "<span class='warning'>You turn the [src] off and let go of [target].</span>")
+
+/obj/machinery/reagentgrinder/verb/Eject()
+	set src in oview(1)
+	set category = "Object"
+	set name = "Eject contents"
+
+	if(use_check(usr))
+		return
+	usr.visible_message(
+	"<span class='notice'>[usr] opens [src] and has removed [english_list(holdingitems)].</span>"
+		)
+
+	eject()
+	detach()

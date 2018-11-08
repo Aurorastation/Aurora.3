@@ -130,6 +130,7 @@
 
 	// Body/form vars.
 	var/list/inherent_verbs 	  // Species-specific verbs.
+	var/list/inherent_spells 	  // Species-specific spells.
 	var/has_fine_manipulation = 1 // Can use small items.
 	var/siemens_coefficient = 1   // The lower, the thicker the skin and better the insulation.
 	var/darksight = 2             // Native darksight distance.
@@ -155,6 +156,9 @@
 	var/allowed_eat_types = TYPE_ORGANIC
 	var/max_nutrition_factor = 1	//Multiplier on maximum nutrition
 	var/nutrition_loss_factor = 1	//Multiplier on passive nutrition losses
+
+	var/max_hydration_factor = 1	//Multiplier on maximum thirst
+	var/hydration_loss_factor = 1	//Multiplier on passive thirst losses
 
 	                              // Determines the organs that the species spawns with and
 	var/list/has_organ = list(    // which required-organ checks are conducted.
@@ -191,6 +195,9 @@
 	var/pass_flags = 0
 
 	var/obj/effect/decal/cleanable/blood/tracks/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints // What marks are left when walking
+
+	var/default_h_style = "Bald"
+	var/default_f_style = "Shaved"
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
@@ -328,12 +335,21 @@
 	if(inherent_verbs)
 		for(var/verb_path in inherent_verbs)
 			H.verbs -= verb_path
+
+	if(inherent_spells)
+		for(var/spell_path in inherent_spells)
+			H.remove_spell(spell_path)
 	return
 
 /datum/species/proc/add_inherent_verbs(var/mob/living/carbon/human/H)
 	if(inherent_verbs)
 		for(var/verb_path in inherent_verbs)
 			H.verbs |= verb_path
+
+	if(inherent_spells)
+		for(var/spell_path in inherent_spells)
+			H.add_spell(new spell_path, "const_spell_ready")
+
 	return
 
 /datum/species/proc/handle_post_spawn(var/mob/living/carbon/human/H,var/kpg = 0) //Handles anything not already covered by basic species assignment. Keepgene value should only be used by genetics.
@@ -492,3 +508,20 @@
 		return /obj/effect/decal/cleanable/blood/tracks/footprints
 	else
 		return move_trail
+
+/datum/species/proc/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
+	return 0
+
+/datum/species/proc/handle_speech_problems(mob/living/carbon/human/H, list/current_flags, message, message_verb, message_mode)
+	return current_flags
+
+/datum/species/proc/handle_speech_sound(mob/living/carbon/human/H, list/current_flags)
+	if(speech_sounds && prob(speech_chance))
+		current_flags[1] = sound(pick(speech_sounds))
+		current_flags[2] = 50
+	return current_flags
+
+/datum/species/proc/set_default_hair(var/mob/living/carbon/human/H)
+	H.h_style = H.species.default_h_style
+	H.f_style = H.species.default_f_style
+	H.update_hair()
