@@ -108,6 +108,9 @@
 	// Process() iterator count.
 	var/process_ticks = 0
 
+	var/stepsound = 'sound/mecha/mechstep.ogg'
+	var/turnsound = 'sound/mecha/mechturn.ogg'
+
 /obj/mecha/drain_power(var/drain_check)
 
 	if(drain_check)
@@ -118,8 +121,11 @@
 
 	return cell.drain_power(drain_check)
 
-/obj/mecha/New()
-	..()
+/obj/mecha/Initialize()
+	.= ..()
+
+	START_PROCESSING(SSfast_process, src)
+
 	events = new
 
 	icon_state += "-open"
@@ -135,10 +141,6 @@
 
 	spark_system = bind_spark(src, 2)
 
-/obj/mecha/Initialize()
-	. = ..()
-
-	START_PROCESSING(SSfast_process, src)
 
 /obj/mecha/Destroy()
 	STOP_PROCESSING(SSfast_process, src)
@@ -446,20 +448,21 @@
 
 /obj/mecha/proc/mechturn(direction)
 	set_dir(direction)
-	playsound(src,'sound/mecha/mechturn.ogg',40,1)
+	if(turnsound)
+		playsound(src,turnsound,40,1)
 	return 1
 
 /obj/mecha/proc/mechstep(direction)
 	var/result = step(src,direction)
-	if(result)
-		playsound(src,'sound/mecha/mechstep.ogg',40,1)
+	if(result && stepsound)
+		playsound(src,stepsound,40,1)
 	return result
 
 
 /obj/mecha/proc/mechsteprand()
 	var/result = step_rand(src)
-	if(result)
-		playsound(src,'sound/mecha/mechstep.ogg',40,1)
+	if(result && stepsound)
+		playsound(src,stepsound,40,1)
 	return result
 
 /obj/mecha/Collide(var/atom/obstacle)
@@ -999,7 +1002,7 @@
 		mechstep(dir)
 		sleep(2)
 		mechstep(dir)
-		src.visible_message("<span class='danger'>[src.name] lunges forward clumsily!</span>")
+		src.visible_message("<span class='danger'>\The [src] lunges forward clumsily!</span>")
 		done = 1
 		return
 
@@ -2108,7 +2111,8 @@
 	return
 
 
-
+/obj/mecha/proc/trample(var/mob/living/H)
+	return
 
 /////////////
 

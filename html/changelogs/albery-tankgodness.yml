@@ -1,0 +1,7 @@
+author: Alberyk, Kyres1
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added the Ha'rron MK.IV light tank."
+  - soundadd: "Added some sounds to certain mecha actions."

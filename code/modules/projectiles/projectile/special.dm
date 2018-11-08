@@ -188,7 +188,7 @@
 	penetrating = 1
 
 /obj/item/projectile/bullet/cannon/on_impact(var/atom/A)
-	explosion(A, 2, 3, 4, 4)
+	explosion(A, 1, 2, 3, 3)
 	..()
 
 //magic

@@ -193,6 +193,20 @@
 	species_restricted = list("Unathi")
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 
+/obj/item/clothing/head/helmet/tank
+	name = "padded cap"
+	desc = "A padded skullcup for those prone to bumping their heads against hard surfaces."
+	icon_state = "tank"
+	flags_inv = BLOCKHEADHAIR
+	color = "#5f5f5f"
+	armor = list(melee = 25, bullet = 5, laser = 5, energy = 10, bomb = 5, bio = 0, rad = 0)
+
+/obj/item/clothing/head/helmet/tank/olive
+	color = "#727c58"
+
+/obj/item/clothing/head/helmet/tank/tan
+	color = "#ae9f79"
+
 //Non-hardsuit ERT helmets.
 /obj/item/clothing/head/helmet/ert
 	name = "emergency response team helmet"
