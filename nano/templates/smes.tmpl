@@ -48,6 +48,17 @@
 			{{:helper.link('MAX', null, {'input' : 'max'}, (data.chargeLevel < data.chargeMax) ? null : 'disabled')}}
 			<div style="float: left; width: 100px; text-align: center;">&nbsp;{{:data.chargeLevel}} W&nbsp;</div>
 		</div>
+</div>
+
+<div class="item">
+	<div class="itemLabel">
+		Input Load:
+	</div>
+	<div class="itemContent">
+		{{:helper.displayBar(data.charge_taken, 0, data.chargeMax, (data.charge_taken < data.chargeLevel) ? 'good' : 'average')}}
+		<div class="statusValue">
+			{{:data.charge_taken}} W
+		</div>
 	</div>
 </div>
 
@@ -92,6 +103,16 @@
 		{{:helper.displayBar(data.outputLoad, 0, data.outputMax, (data.outputLoad < data.outputLevel) ? 'good' : 'average')}}
 		<div class="statusValue">
 			{{:data.outputLoad}} W
+		</div>
+	</div>
+</div>
+<div class="item">
+	<div class="itemLabel">
+		ETA until depleted:
+	</div>
+	<div class="itemContent">
+		<div class="statusValue">
+			{{:helper.round(data.time)}} minutes
 		</div>
 	</div>
 </div>

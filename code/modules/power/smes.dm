@@ -33,7 +33,7 @@
 	var/inputting = 0 				// 1 = actually inputting, 0 = not inputting
 	var/input_level = 50000 		// amount of power the SMES attempts to charge by
 	var/input_level_max = 200000 	// cap on input_level
-	var/input_available = 0 		// amount of charge available from input last tick
+	var/input_taken = 0 			// amount that we received from powernet last tick
 
 	var/output_attempt = 0 			// 1 = attempting to output, 0 = not attempting to output
 	var/outputting = 0 				// 1 = actually outputting, 0 = not outputting
@@ -64,6 +64,10 @@
 	var/should_be_mapped = 0 // If this is set to 0 it will send out warning on New()
 	var/datum/effect_system/sparks/big_spark
 	var/datum/effect_system/sparks/small_spark
+
+	var/time_depleted = 0
+	var/Queue/output_history = new /Queue()
+	var/counter = 1
 
 /obj/machinery/power/smes/drain_power(var/drain_check, var/surge, var/amount = 0)
 
@@ -123,7 +127,7 @@
 
 /obj/machinery/power/smes/update_icon()
 	cut_overlays()
-	if(stat & BROKEN)	
+	if(stat & BROKEN)
 		return
 
 	if(inputting == 2)
@@ -153,6 +157,7 @@
 	if(terminal && terminal.powernet)
 		inputted_power = terminal.powernet.draw_power(inputted_power)
 		charge += inputted_power * SMESRATE
+		input_taken = inputted_power
 		if(percentage == 100)
 			inputting = 2
 		else if(percentage)
@@ -173,6 +178,20 @@
 	last_disp = chargedisplay()
 	last_chrg = inputting
 	last_onln = outputting
+
+
+	if(output_history.size() == 50)
+		time_depleted = 0
+
+		for(var/x in output_history.contents)
+			time_depleted += x
+
+		if(time_depleted)
+			time_depleted = 2 * (charge / (time_depleted / output_history.size())) // how long will it take to deplete SMES given current charge and average of drain(input - output).
+		time_depleted = time_depleted / 60 //converting to minutes
+		output_history.dequeue()
+	output_history.enqueue(((input_taken - round(output_used)) < 0) ? (round(output_used) - input_taken) : 0)
+
 
 	//inputting
 	if(input_attempt && (!input_pulsed && !input_cut))
@@ -341,12 +360,14 @@
 	data["chargeMode"] = input_attempt
 	data["chargeLevel"] = input_level
 	data["chargeMax"] = input_level_max
+	data["charge_taken"] = input_taken
 	data["outputOnline"] = output_attempt
 	data["outputLevel"] = output_level
 	data["outputMax"] = output_level_max
 	data["outputLoad"] = round(output_used)
 	data["failTime"] = failure_timer * 2
 	data["outputting"] = outputting
+	data["time"] = time_depleted
 
 
 	// update the ui if it exists, returns null if no ui is passed/found
