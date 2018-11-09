@@ -17,9 +17,7 @@
 
 /obj/item/weapon/grenade/chem_grenade/Initialize()
 	. = ..()
-	var/datum/reagents/R = new/datum/reagents(1000)
-	reagents = R
-	R.my_atom = src
+	create_reagents(1000)
 
 /obj/item/weapon/grenade/chem_grenade/attack_self(mob/user as mob)
 	if(!stage || stage==1)
@@ -143,7 +141,8 @@
 
 	var/has_reagents = 0
 	for(var/obj/item/weapon/reagent_containers/glass/G in beakers)
-		if(G.reagents.total_volume) has_reagents = 1
+		if(G.reagents.total_volume)
+			has_reagents = 1
 
 	active = 0
 	if(!has_reagents)
@@ -160,8 +159,10 @@
 
 	playsound(src.loc, 'sound/effects/bamf.ogg', 50, 1)
 
+	world << istype(reagents)
 	for(var/obj/item/weapon/reagent_containers/glass/G in beakers)
 		G.reagents.trans_to_obj(src, G.reagents.total_volume)
+	world << (reagents)
 
 	if(src.reagents.total_volume) //The possible reactions didnt use up all reagents.
 		var/datum/effect/effect/system/steam_spread/steam = new /datum/effect/effect/system/steam_spread()
@@ -324,7 +325,7 @@
 	beakers += B2
 	icon_state = initial(icon_state) +"_locked"
 
-/obj/item/weapon/grenade/chem_grenade/large/phoron_salt/Initialize() //Note that these grenades aren't perfect. If you're smart enough, you can make grenades that are much better than these.
+/obj/item/weapon/grenade/chem_grenade/large/phoron_salt //Note that these grenades aren't perfect. If you're smart enough, you can make grenades that are much better than these.
 	name = "large phoron salt grenade"
 	desc = "A large chemical grenade containing a heavy amount of phoron salt and cooling mixture. Used when you want to create massive explosions."
 	stage = 2
@@ -345,7 +346,7 @@
 	beakers += B2
 	icon_state = initial(icon_state) +"_locked"
 
-/obj/item/weapon/grenade/chem_grenade/large/phoron_salt_bluespace/Initialize()
+/obj/item/weapon/grenade/chem_grenade/large/phoron_salt_bluespace
 	name = "bluespace phoron salt grenade"
 	desc = "A large chemical grenade containing an absurd amount of phoron salt and cooling mixture. Used when you want to create stupidly large explosions."
 	stage = 2
