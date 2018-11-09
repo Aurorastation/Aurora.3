@@ -31,7 +31,7 @@ var/round_start_time
 
 var/real_round_start_time
 /proc/get_round_duration() //Real time since round has started, in ticks.
-	return real_round_start_time ? REALTIMEOFDAY - real_round_start_time : 0
+	return real_round_start_time ? (REALTIMEOFDAY - real_round_start_time) : 0
 
 /proc/get_round_duration_formatted()
 	var/duration = get_round_duration()
@@ -48,7 +48,8 @@ var/real_round_start_time
 /var/rollovercheck_last_timeofday = 0
 /proc/update_midnight_rollover()
 	if (world.timeofday < rollovercheck_last_timeofday) //TIME IS GOING BACKWARDS!
-		return midnight_rollovers++
+		midnight_rollovers += 1
+	rollovercheck_last_timeofday = world.timeofday
 	return midnight_rollovers
 
 //returns timestamp in a sql and ISO 8601 friendly format
