@@ -108,14 +108,14 @@
 </div>
 <div class="item">
 	<div class="itemLabel">
-		Charge left for:
+		Discharge status:
 	</div>
 	<div class="itemContent">
 		<div class="statusValue">
 		{{if data.outputting == 0}}
-			input is greater then output
+			input is greater than output.
 		{{else}}
-			{{:helper.round(data.time)}} minutes
+			SMES will deplete charge in {{:helper.round(data.time)}} minutes
 		{{/if}}
 			
 		</div>
