@@ -45929,7 +45929,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/wall/r_wall,
+/turf/simulated/floor/plating,
 /area/rnd/misc_lab)
 "bAH" = (
 /obj/effect/floor_decal/corner/mauve{
