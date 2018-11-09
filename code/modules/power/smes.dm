@@ -66,8 +66,8 @@
 	var/datum/effect_system/sparks/small_spark
 
 	var/time_depleted = 0
-	var/Queue/output_history = new /Queue()
-	var/counter = 1
+	var/charge_mode = 0
+	var/Queue/diff_history = new /Queue()
 
 /obj/machinery/power/smes/drain_power(var/drain_check, var/surge, var/amount = 0)
 
@@ -179,13 +179,18 @@
 	last_chrg = inputting
 	last_onln = outputting
 
-	if(output_history.size() == 50)
-		var/list/sorted = output_history.as_list()
+	if(diff_history.size() == 5)
+		var/list/sorted = diff_history.as_list()
 		sorted = sortTim(sorted)
-		time_depleted = 2 * (charge / (sorted[sorted.len/2] * SMESRATE)) // how long will it take to deplete SMES given current charge and average of drain(input - output).
+		if(sorted[sorted.len/2] < 0)
+			time_depleted = 2 * ((capacity - charge) / (sorted[sorted.len/2] * SMESRATE)) // how long will it take to fully charge SMES
+			time_depleted = abs(time_depleted)
+		if(sorted[sorted.len/2] != 0)
+			time_depleted = 2 * (charge / (sorted[sorted.len/2] * SMESRATE)) // how long will it take to deplete SMES given current charge and average of drain(input - output).
 		time_depleted /= 60 //converting to minutes
-		output_history.dequeue()
-	output_history.enqueue(((input_taken - round(output_used)) < 0) ? (round(output_used) - input_taken) : 0)
+		charge_mode = (sorted[sorted.len/2] < 0)
+		diff_history.dequeue()
+	diff_history.enqueue(output_used - input_taken)
 
 
 	//inputting
@@ -363,6 +368,7 @@
 	data["failTime"] = failure_timer * 2
 	data["outputting"] = outputting
 	data["time"] = time_depleted
+	data["charge_mode"] = charge_mode
 
 
 	// update the ui if it exists, returns null if no ui is passed/found
