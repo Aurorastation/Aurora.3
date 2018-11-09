@@ -108,11 +108,16 @@
 </div>
 <div class="item">
 	<div class="itemLabel">
-		ETA until depleted:
+		Charge left for:
 	</div>
 	<div class="itemContent">
 		<div class="statusValue">
+		{{if data.outputting == 0}}
+			input is greater then output
+		{{else}}
 			{{:helper.round(data.time)}} minutes
+		{{/if}}
+			
 		</div>
 	</div>
 </div>
