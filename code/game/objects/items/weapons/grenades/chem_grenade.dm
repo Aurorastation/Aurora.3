@@ -158,30 +158,30 @@
 				det_time = 10*T.time
 		return
 
+	if (iscarbon(loc))//drop dat grenade if it goes off in your hand
+		var/mob/living/carbon/C = loc
+		C.drop_from_inventory(src)
+		C.throw_mode_off()
+
 	playsound(src.loc, 'sound/effects/bamf.ogg', 50, 1)
 
 	for(var/obj/item/weapon/reagent_containers/glass/G in beakers)
 		G.reagents.trans_to_obj(src, G.reagents.total_volume)
 
-	if(src.reagents.total_volume) //The possible reactions didnt use up all reagents.
+	addtimer(CALLBACK(src, .proc/splash), 3)
+
+/obj/item/weapon/grenade/chem_grenade/proc/splash()
+	if(src.reagents && src.reagents.total_volume) //The possible reactions didnt use up all reagents.
 		var/datum/effect/effect/system/steam_spread/steam = new /datum/effect/effect/system/steam_spread()
 		steam.set_up(10, 0, get_turf(src))
 		steam.attach(src)
 		steam.start()
-
-		for(var/atom/A in view(affected_area, src.loc))
-			if( A == src ) continue
-			src.reagents.touch(A)
-
-	if (iscarbon(loc))		//drop dat grenade if it goes off in your hand
-		var/mob/living/carbon/C = loc
-		C.drop_from_inventory(src)
-		C.throw_mode_off()
+		src.reagents.splash_area(get_turf(src), affected_area)
 
 	invisibility = INVISIBILITY_MAXIMUM //Why am i doing this?
 	//To make sure all reagents can work
 	//correctly before deleting the grenade.
-	QDEL_IN(src, 50)
+	QDEL_IN(src, 5 SECONDS)
 
 /obj/item/weapon/grenade/chem_grenade/large
 	name = "large chem grenade"
@@ -323,6 +323,50 @@
 	beakers += B1
 	beakers += B2
 	icon_state = initial(icon_state) +"_locked"
+
+/obj/item/weapon/grenade/chem_grenade/large/phoron_salt/Initialize() //Note that these grenades aren't perfect. If you're smart enough, you can make grenades that are much better than these.
+	name = "large phoron salt grenade"
+	desc = "A large chemical grenade containing a heavy amount of phoron salt and cooling mixture. Used when you want to create massive explosions."
+	stage = 2
+	path = 1
+
+/obj/item/weapon/grenade/chem_grenade/large/phoron_salt/Initialize()
+	. = ..()
+	var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
+	var/obj/item/weapon/reagent_containers/glass/beaker/large/B2 = new(src)
+
+	B1.reagents.add_reagent("phoron_salt", 59, temperature = 130)
+	B1.reagents.add_reagent("ice", 1, temperature = 130)
+	B2.reagents.add_reagent("cryosurfactant", 120, temperature = 130)
+
+	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
+
+	beakers += B1
+	beakers += B2
+	icon_state = initial(icon_state) +"_locked"
+
+/obj/item/weapon/grenade/chem_grenade/large/phoron_salt_bluespace/Initialize()
+	name = "bluespace phoron salt grenade"
+	desc = "A large chemical grenade containing an absurd amount of phoron salt and cooling mixture. Used when you want to create stupidly large explosions."
+	stage = 2
+	path = 1
+
+/obj/item/weapon/grenade/chem_grenade/large/phoron_salt_bluespace/Initialize()
+	. = ..()
+	var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
+	var/obj/item/weapon/reagent_containers/glass/beaker/bluespace/B2 = new(src)
+
+	B1.reagents.add_reagent("phoron_salt", 59, temperature = 130)
+	B1.reagents.add_reagent("ice", 1, temperature = 130)
+
+	B2.reagents.add_reagent("cryosurfactant", 300, temperature = 130)
+
+	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
+
+	beakers += B1
+	beakers += B2
+	icon_state = initial(icon_state) +"_locked"
+
 
 /obj/item/weapon/grenade/chem_grenade/teargas
 	name = "tear gas grenade"

@@ -128,10 +128,11 @@
 /datum/reagent/toxin/phoron_salt //Remember to exclude in RNG chems.
 	name = "Phoron Salts"
 	id = "phoron_salt"
-	description = "A mysterious molten mixture with strange chemical properties."
+	description = "A mysterious molten mixture with strange chemical properties. Incredibly deadly to all lifeforms, especially Vaurca."
 	reagent_state = SOLID
 	color = "#7C4876"
 	strength = 30
+	default_temperature = 130 //Kelvin
 
 /datum/reagent/toxin/cardox
 	name = "Cardox"
