@@ -158,30 +158,30 @@
 				det_time = 10*T.time
 		return
 
-	if (iscarbon(loc))//drop dat grenade if it goes off in your hand
-		var/mob/living/carbon/C = loc
-		C.drop_from_inventory(src)
-		C.throw_mode_off()
-
 	playsound(src.loc, 'sound/effects/bamf.ogg', 50, 1)
 
 	for(var/obj/item/weapon/reagent_containers/glass/G in beakers)
 		G.reagents.trans_to_obj(src, G.reagents.total_volume)
 
-	addtimer(CALLBACK(src, .proc/splash), 3)
-
-/obj/item/weapon/grenade/chem_grenade/proc/splash()
-	if(src.reagents && src.reagents.total_volume) //The possible reactions didnt use up all reagents.
+	if(src.reagents.total_volume) //The possible reactions didnt use up all reagents.
 		var/datum/effect/effect/system/steam_spread/steam = new /datum/effect/effect/system/steam_spread()
 		steam.set_up(10, 0, get_turf(src))
 		steam.attach(src)
 		steam.start()
-		src.reagents.splash_area(get_turf(src), affected_area)
+
+		for(var/atom/A in view(affected_area, src.loc))
+			if( A == src ) continue
+			src.reagents.touch(A)
+
+	if (iscarbon(loc))		//drop dat grenade if it goes off in your hand
+		var/mob/living/carbon/C = loc
+		C.drop_from_inventory(src)
+		C.throw_mode_off()
 
 	invisibility = INVISIBILITY_MAXIMUM //Why am i doing this?
 	//To make sure all reagents can work
 	//correctly before deleting the grenade.
-	QDEL_IN(src, 5 SECONDS)
+	QDEL_IN(src, 50)
 
 /obj/item/weapon/grenade/chem_grenade/large
 	name = "large chem grenade"
