@@ -648,7 +648,7 @@ proc/api_update_command_database()
 	s["host"] = host ? host : null
 	s["players"] = 0
 	s["stationtime"] = worldtime2text()
-	s["roundduration"] = get_round_duration()
+	s["roundduration"] = get_round_duration_formatted()
 	s["gameid"] = game_id
 
 	if(queryparams["status"] == "2")
