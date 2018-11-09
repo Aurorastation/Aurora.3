@@ -2924,14 +2924,23 @@
 	result_amount = 3
 	required_reagents = list("surfactant" = 1, "ice" = 1, "sodium" = 1)
 
-/datum/chemical_reaction/cryosurfactant_cooling
-	name = "Cryosurfactant Cooling"
-	id = "cryosurfactant_cooling"
+/datum/chemical_reaction/cryosurfactant_cooling_water
+	name = "Cryosurfactant Cooling - Water"
+	id = "cryosurfactant_cooling_water"
 	result = null
 	result_amount = 1
 	required_reagents = list("cryosurfactant" = 1)
 	inhibitors = list("pyrosilicate" = 1)
 	catalysts = list("water" = 1)
+	
+/datum/chemical_reaction/cryosurfactant_cooling_ice
+	name = "Cryosurfactant Cooling - Ice"
+	id = "cryosurfactant_cooling_ice"
+	result = null
+	result_amount = 1
+	required_reagents = list("cryosurfactant" = 1)
+	inhibitors = list("pyrosilicate" = 1)
+	catalysts = list("ice" = 1)
 
 /datum/chemical_reaction/cryosurfactant_cooling/on_reaction(var/datum/reagents/holder, var/created_volume)
 	holder.add_thermal_energy(-created_volume*500)
