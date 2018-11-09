@@ -39,25 +39,19 @@
 
 /Queue
 	var/list/contents
-	var/next
 
 /Queue/New()
 	contents = list()
-	next = null
 
 /Queue/proc/enqueue(var/element)
-	if(!next)
-		next = element
 	contents += element
 
 /Queue/proc/dequeue()
-	. = next
-	if(contents.len > 0)
-		contents.Cut(1,2)
-		if(contents.len == 0)
-			next = null
-		else
-			next = contents[1]
+	if(!contents.len)
+		return null
+	var/item = contents[1]
+	contents.Cut(1, 2)
+	return item
 
 /Queue/proc/size()
 	return contents.len
