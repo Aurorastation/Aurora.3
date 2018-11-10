@@ -38,12 +38,12 @@
 	var/panel_visible_while_open = FALSE
 
 	var/open_sound_powered = 'sound/machines/airlock.ogg'
-	var/close_sound_powered = 'sound/machines/AirlockClose.ogg'
-	var/open_sound_unpowered = 'sound/machines/airlock_creaking.ogg'
-	var/close_sound_unpowered = 'sound/machines/airlock_creaking.ogg'
+	var/close_sound_powered = 'sound/machines/airlockclose.ogg'
+	var/open_sound_unpowered = 'sound/machines/airlock_open_force.ogg'
+	var/close_sound_unpowered = 'sound/machines/airlock_close_force.ogg'
 
-	var/bolts_dropping = 'sound/machines/BoltsDown.ogg'
-	var/bolts_rising = 'sound/machines/BoltsUp.ogg'
+	var/bolts_dropping = 'sound/machines/boltsdown.ogg'
+	var/bolts_rising = 'sound/machines/boltsup.ogg'
 
 	hashatch = 1
 
@@ -86,7 +86,7 @@
 	aiControlDisabled = 1
 	hackProof = 1
 	electrified_until = -1
-	open_sound_powered = 'sound/machines/airlock_creaking.ogg'
+	open_sound_powered = 'sound/machines/airlock_open_force.ogg'
 
 /obj/machinery/door/airlock/security
 	name = "Airlock"
