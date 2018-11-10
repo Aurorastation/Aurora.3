@@ -576,8 +576,15 @@
 	required_reagents = list("phoron" = 0.1, "water" = 1, "potassium_chloride" = 0.2)
 	result_amount = 1
 
-//Mental Medication
+/datum/chemical_reaction/raskara_dust
+	name = "Potassium Hydrophoride"
+	id = "raskara_dust"
+	result = "raskara_dust"
+	required_reagents = list("monoammoniumphosphate" = 1, "cleaner" = 1, "sodiumchloride" = 2)
+	required_temperatures_min = list("monoammoniumphosphate" = 400, "cleaner" = 400, "sodiumchloride" = 400)
+	result_amount = 2
 
+//Mental Medication
 /datum/chemical_reaction/methylphenidate
 	name = "Methylphenidate"
 	id = "methylphenidate"
@@ -2907,7 +2914,7 @@
 	required_reagents = list("sodiumchloride" = 1, "phoron" = 2)
 	required_temperatures_min = list("sodiumchloride" = 678, "phoron" = 73)
 	required_temperatures_max = list("phoron" = 261)
-	
+
 	result_amount = 1
 
 /datum/chemical_reaction/pyrosilicate
