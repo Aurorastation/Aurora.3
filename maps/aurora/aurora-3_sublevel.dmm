@@ -158,7 +158,7 @@
 "aaz" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
-	id = "o2_in";
+	id = "co2_in";
 	use_power = 1
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -1260,7 +1260,9 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "acU" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "acV" = (
@@ -1268,8 +1270,9 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "acW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
@@ -2185,19 +2188,13 @@
 /turf/simulated/floor/tiled/freezer,
 /area/outpost/engineering/meeting)
 "aeP" = (
-/obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 4;
-	frequency = 1441;
-	icon_state = "map_injector";
-	id = "waste_in";
-	pixel_y = 1;
-	use_power = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
-/turf/simulated/floor/reinforced{
-	name = "vacuum floor";
-	nitrogen = 0.01;
-	oxygen = 0.01
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
+/turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "aeQ" = (
 /obj/machinery/door/firedoor,
@@ -2282,16 +2279,9 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "afa" = (
-/obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 8;
-	frequency = 1441;
-	icon_state = "map_injector";
-	id = "n2o_in";
-	initialize_directions = 8;
-	pixel_y = 1;
-	use_power = 1
-	},
-/turf/simulated/floor/reinforced/n20,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "afb" = (
 /obj/structure/cable{
@@ -3775,10 +3765,11 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "aia" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "aib" = (
@@ -3788,18 +3779,38 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "aic" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 4;
+	frequency = 1441;
+	icon_state = "map_injector";
+	id = "waste_in";
+	pixel_y = 0;
+	use_power = 1
+	},
+/turf/simulated/floor/reinforced{
+	name = "vacuum floor";
+	nitrogen = 0.01;
+	oxygen = 0.01
+	},
 /area/engineering/atmos)
 "aid" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 8;
+	frequency = 1441;
+	icon_state = "map_injector";
+	id = "n2o_in";
+	initialize_directions = 8;
+	pixel_y = 0;
+	use_power = 1
+	},
+/turf/simulated/floor/reinforced/n20,
 /area/engineering/atmos)
 "aie" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	icon_state = "intact";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "aif" = (
@@ -3807,19 +3818,13 @@
 	icon_state = "intact";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "aig" = (
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	icon_state = "intact";
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
@@ -25589,6 +25594,63 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/cells/echo)
+"aRV" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
+"aRW" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
+"aRX" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow,
+/obj/machinery/meter,
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
+"aRY" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
+"aRZ" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 1;
+	name = "Waste to Mix"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
+"aSa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
+"aSb" = (
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	icon_state = "intact";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
 "aSe" = (
 /obj/machinery/photocopier,
 /obj/effect/floor_decal/corner/mauve{
@@ -27683,73 +27745,9 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
-"bay" = (
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	icon_state = "intact";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
-/area/engineering/atmos)
-"baz" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
-/area/engineering/atmos)
 "baA" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/atmos)
-"baB" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/atmos)
-"baC" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/atmos)
-"baD" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/yellow,
-/obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
-/area/engineering/atmos)
-"baE" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
-/area/engineering/atmos)
-"baF" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 1;
-	name = "Waste to Mix"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
-/area/engineering/atmos)
-"baG" = (
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	icon_state = "intact";
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
@@ -50094,7 +50092,7 @@ aac
 aad
 adq
 adp
-aeP
+aic
 aad
 aac
 aba
@@ -52148,10 +52146,10 @@ abz
 abO
 abo
 acU
-aic
-aic
-aic
-aif
+abo
+abo
+abo
+afx
 adD
 baA
 agU
@@ -52404,16 +52402,16 @@ abf
 abA
 abP
 acs
-acT
+acW
 acT
 ael
 acT
+aie
 aig
-baz
-baB
-baD
-aic
-aia
+aRV
+aRX
+abo
+aSa
 aiB
 aeV
 aeV
@@ -52661,16 +52659,16 @@ abg
 abo
 abQ
 abo
-acW
-aid
-aie
-aid
-bay
-aid
-baC
-baE
-baF
-baG
+aeP
+afa
+aia
+afa
+aif
+afa
+aRW
+aRY
+aRZ
+aSb
 aiC
 aja
 ahY
@@ -58318,7 +58316,7 @@ aac
 aad
 adG
 adH
-afa
+aid
 aad
 aac
 aaa
