@@ -453,6 +453,13 @@
 	color = "#F2F3F4"
 	taste_description = "metal"
 
+/datum/reagent/luminol/touch_obj(var/obj/O)
+	O.reveal_blood()
+
+/datum/reagent/luminol/touch_mob(var/mob/living/L)
+	. = ..()
+	L.reveal_blood()
+
 /datum/reagent/pyrosilicate
 	name = "Pyrosilicate"
 	id = "pyrosilicate"
@@ -469,13 +476,79 @@
 	color = "#00FFFF"
 	taste_description = "needles"
 
-/datum/reagent/luminol/touch_obj(var/obj/O)
-	O.reveal_blood()
+/datum/reagent/mutone
+	name = "Mutone"
+	id = "mutone"
+	description = "A strange green powder with even stranger properties."
+	reagent_state = SOLID
+	color = "#11AA11"
+	taste_description = "a slot machine"
+	var/stored_value = 0 //Internal value. Every 10 units equals a dosage.
 
-/datum/reagent/luminol/touch_mob(var/mob/living/L)
-	. = ..()
-	L.reveal_blood()
+/datum/reagent/mutone/affect_blood(var/mob/living/carbon/M, var/removed)
+	stored_value += removed
+	if(stored_value >= 10)
+		to_chat(M,span("notice","You feel strange..."))
+		if(prob(25))
+			randmutb(M)
+		else
+			randmutg(M)
+		stored_value -= 10
 
+/datum/reagent/plexium
+	name = "Plexium"
+	id = "plexium"
+	description = "A yellow, fowl smelling liquid that seems to affect the brain in strange ways."
+	reagent_state = LIQUID
+	color = "#888822"
+	taste_description = "brain freeze"
+	var/stored_value = 0 //Internal value. Every 10 units equals a dosage.
+
+/datum/reagent/plexium/affect_blood(var/mob/living/carbon/human/H, var/removed)
+	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
+	if(B && H.species && H.species.has_organ["brain"] && !isipc(H))
+		stored_value += removed
+		if(stored_value >= 10)
+			if(prob(50) && !B.has_trauma_type(BRAIN_TRAUMA_MILD))
+				B.gain_trauma_type(BRAIN_TRAUMA_MILD)
+			else if(prob(50) && !B.has_trauma_type(BRAIN_TRAUMA_SEVERE))
+				B.gain_trauma_type(BRAIN_TRAUMA_SEVERE)
+			else if(prob(50) && !B.has_trauma_type(BRAIN_TRAUMA_SPECIAL))
+				B.gain_trauma_type(BRAIN_TRAUMA_SPECIAL)
+			stored_value -= 10
+
+/datum/reagent/venenum
+	name = "Venenum"
+	id = "venenum"
+	description = "A thick tar like liquid that seems to move around on it's own every now and then. Limited date shows it only works when injected."
+	reagent_state = LIQUID
+	color = "#000000"
+	taste_description = "instant regret"
+	metabolism = REM * (1/60) //1 Unit = 1 minute, and 1 transformation.
+	ingest_mul = 0
+	breathe_mul = 0
+	touch_mul = 0
+	var/stored_value
+	var/list/stored_dna[DNA_UI_LENGTH]
+
+/datum/reagent/venenum/initial_effect(var/mob/living/carbon/M, var/alien)
+	stored_dna = M.dna.UI
+
+/datum/reagent/venenum/affect_blood(var/mob/living/carbon/M, var/removed)
+	stored_value += removed
+	if(stored_value >= 1)
+		scramble(TRUE, M, 100)
+		M.UpdateAppearance()
+		stored_value -= 1
+
+/datum/reagent/venenum/final_effect(var/mob/living/carbon/M, var/alien)
+	if(stored_dna)
+		M.dna.UI = stored_dna
+		M.dna.UpdateUI()
+		M.UpdateAppearance()
+
+//Secret chems.
+//Shhh don't tell no one.
 /datum/reagent/estus
 	name = "Liquid Light"
 	id = "estus"

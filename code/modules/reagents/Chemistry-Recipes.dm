@@ -2907,7 +2907,7 @@
 	required_reagents = list("sodiumchloride" = 1, "phoron" = 2)
 	required_temperatures_min = list("sodiumchloride" = 678, "phoron" = 73)
 	required_temperatures_max = list("phoron" = 261)
-	
+
 	result_amount = 1
 
 /datum/chemical_reaction/pyrosilicate
@@ -2998,3 +2998,24 @@
 	e.start()
 	holder.clear_reagents()
 	return
+
+/datum/chemical_reaction/mutone
+	name = "Mutone"
+	id = "mutone"
+	result = "mutone"
+	result_amount = 1
+	required_reagents = list("phoron_salt" = 1, "mutagen" = 1)
+
+/datum/chemical_reaction/plexium
+	name = "Plexium"
+	id = "plexium"
+	result = "plexium"
+	result_amount = 1
+	required_reagents = list("phoron_salt" = 1, "alkysine" = 1)
+
+/datum/chemical_reaction/venenum
+	name = "Venenum"
+	id = "venenum"
+	result = "venenum"
+	result_amount = 1
+	required_reagents = list("phoron_salt" = 1, "ryetalyn" = 1)
