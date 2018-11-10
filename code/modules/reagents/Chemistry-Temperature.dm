@@ -48,7 +48,7 @@
 	return get_thermal_energy() / volume
 
 /datum/reagent/proc/add_thermal_energy(var/added_energy)
-	thermal_energy += added_energy
+	thermal_energy = max(0,thermal_energy + added_energy)
 	return added_energy
 
 /datum/reagent/proc/set_thermal_energy(var/set_energy)
@@ -110,10 +110,8 @@
 /datum/reagents/proc/has_all_temperatures(var/list/required_temperatures_min, var/list/required_temperatures_max)
 
 	for(var/datum/reagent/current in reagent_list)
-	
+
 		var/current_temperature = current.get_temperature()
-		
-		world << "[current.id]: [current_temperature]"
 
 		if(current.id in required_temperatures_min) //The current temperature must be greater than this temperature
 			var/required_temperature = required_temperatures_min[current.id]

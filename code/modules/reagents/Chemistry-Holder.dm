@@ -134,7 +134,7 @@
 	if(!isnum(amount) || amount <= 0)
 		return 0
 
-	update_total()
+	update_total() //Does this need to be here? It's called in update_holder.
 	amount = min(amount, get_free_space())
 
 	for(var/datum/reagent/current in reagent_list)
@@ -276,14 +276,14 @@
 	for(var/datum/reagent/current in reagent_list)
 		var/amount_to_transfer = current.volume * part
 		var/energy_to_transfer = amount_to_transfer * current.get_thermal_energy_per_unit()
-		target.add_reagent(current.id, amount_to_transfer * multiplier, current.get_data(), TRUE, thermal_energy = energy_to_transfer * multiplier) // We don't react until everything is in place
+		target.add_reagent(current.id, amount_to_transfer * multiplier, current.get_data(), 1, thermal_energy = energy_to_transfer * multiplier) // We don't react until everything is in place
 		if(!copy)
 			remove_reagent(current.id, amount_to_transfer, 1)
 
 	if(!copy)
-		update_holder(TRUE)
+		handle_reactions()
 
-	target.update_holder(TRUE)
+	target.handle_reactions()
 
 	return amount
 
