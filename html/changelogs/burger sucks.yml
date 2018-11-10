@@ -34,4 +34,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Added an alternative cryosurfactant reaction that can be triggered with ice instead of water."
+  - rscadd: "Added an alternative cryosurfactant reaction that can be triggered with ice instead of water. "
+  - rscadd: "Updated phoron salts description to let people know it's harmful to Vaurca. Phoron salt default temperature is its stable temperature for easy admin spawning. Added different phoron salt mixture reaction messages."
+  - bugfix: "Fixes a bug that made cryo/pyro reagents only half as effective."
