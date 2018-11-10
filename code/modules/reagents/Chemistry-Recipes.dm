@@ -102,7 +102,8 @@
 	for(var/reactant in required_reagents)
 		var/amt_used = required_reagents[reactant] * reaction_progress
 		var/datum/reagent/removing_reagent = holder.get_reagent(reactant)
-		total_thermal_energy += removing_reagent.get_thermal_energy() * (amt_used / removing_reagent.volume)
+		var/energy_transfered = removing_reagent.get_thermal_energy() * (amt_used / removing_reagent.volume)
+		total_thermal_energy += energy_transfered
 		holder.remove_reagent(reactant, amt_used, safety = 1)
 
 	//add the product
@@ -705,7 +706,8 @@
 
 /datum/chemical_reaction/explosion_potassium/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/datum/effect/effect/system/reagents_explosion/e = new()
-	e.set_up(round (created_volume/10, 1), holder.my_atom, 0, 0)
+	var/turf/location = get_turf(holder.my_atom)
+	e.set_up(round (created_volume/10, 1), location, 0, 0)
 	if(isliving(holder.my_atom))
 		e.amount *= 0.5
 		var/mob/living/L = holder.my_atom
@@ -2907,7 +2909,7 @@
 	required_reagents = list("sodiumchloride" = 1, "phoron" = 2)
 	required_temperatures_min = list("sodiumchloride" = 678, "phoron" = 73)
 	required_temperatures_max = list("phoron" = 261)
-	
+
 	result_amount = 1
 
 /datum/chemical_reaction/pyrosilicate
@@ -2924,16 +2926,34 @@
 	result_amount = 3
 	required_reagents = list("surfactant" = 1, "ice" = 1, "sodium" = 1)
 
-/datum/chemical_reaction/cryosurfactant_cooling
-	name = "Cryosurfactant Cooling"
-	id = "cryosurfactant_cooling"
+//WATER
+/datum/chemical_reaction/cryosurfactant_cooling_water
+	name = "Cryosurfactant Cooling Water"
+	id = "cryosurfactant_cooling_water"
 	result = null
 	result_amount = 1
 	required_reagents = list("cryosurfactant" = 1)
 	inhibitors = list("pyrosilicate" = 1)
 	catalysts = list("water" = 1)
+	mix_message = "The solution begins to freeze."
 
-/datum/chemical_reaction/cryosurfactant_cooling/on_reaction(var/datum/reagents/holder, var/created_volume)
+/datum/chemical_reaction/cryosurfactant_cooling_water/on_reaction(var/datum/reagents/holder, var/created_volume)
+	holder.del_reagent("cryosurfactant")
+	holder.add_thermal_energy(-created_volume*500)
+
+//ICE
+/datum/chemical_reaction/cryosurfactant_cooling_ice
+	name = "Cryosurfactant Cooling Ice"
+	id = "cryosurfactant_cooling_ice"
+	result = null
+	result_amount = 1
+	required_reagents = list("cryosurfactant" = 1)
+	inhibitors = list("pyrosilicate" = 1)
+	catalysts = list("ice" = 1)
+	mix_message = "The solution begins to freeze."
+
+/datum/chemical_reaction/cryosurfactant_cooling_ice/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
+	holder.del_reagent("cryosurfactant")
 	holder.add_thermal_energy(-created_volume*500)
 
 /datum/chemical_reaction/pyrosilicate_heating
@@ -2946,6 +2966,7 @@
 	catalysts = list("sodiumchloride" = 1)
 
 /datum/chemical_reaction/pyrosilicate_heating/on_reaction(var/datum/reagents/holder, var/created_volume)
+	holder.del_reagent("pyrosilicate")
 	holder.add_thermal_energy(created_volume*1000)
 
 /datum/chemical_reaction/pyrosilicate_cryosurfactant
@@ -2969,9 +2990,10 @@
 	result_amount = 1
 	required_reagents = list("phoron_salt" = 1)
 	required_temperatures_min = list("phoron_salt" = 134) //If it's above this temperature, then cause hellfire.
+	mix_message = "The solution begins to vibrate!"
 
 /datum/chemical_reaction/phoron_salt_fire/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
-	var/turf/location = get_turf(holder.my_atom.loc)
+	var/turf/location = get_turf(holder.my_atom)
 	for(var/turf/simulated/floor/target_tile in range(0,location))
 		target_tile.assume_gas("phoron", created_volume*2, created_thermal_energy / 25) //2 because there is 2 phoron in 1u of phoron salts
 		addtimer(CALLBACK(target_tile, /turf/simulated/floor/.proc/hotspot_expose, 700, 400), 1)
@@ -2985,16 +3007,13 @@
 	result_amount = 1
 	required_reagents = list("phoron_salt" = 1)
 	required_temperatures_max = list("phoron_salt" = 113) //if it's below this temperature, then make a boom
+	mix_message = "The solution begins to shrink!"
 
 /datum/chemical_reaction/phoron_salt_coldfire/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
+	var/turf/location = get_turf(holder.my_atom)
+	var/explosion_mod = 1 + max(0,32*(1 - (created_thermal_energy/28000))*min(1,created_volume/120)) * 10
 	var/datum/effect/effect/system/reagents_explosion/e = new()
-	var/explosion_mod = 1 + max(0,32*(1 - (created_thermal_energy/28000))*min(1,created_volume/120)) * 7 //The colder you can get it to absolute 0 in a short amount of time, the bigger the explosion.
-	e.set_up(round(explosion_mod, 1), holder.my_atom, 0, 0)
-	if(isliving(holder.my_atom))
-		e.amount *= 0.5
-		var/mob/living/L = holder.my_atom
-		if(L.stat != DEAD)
-			e.amount *= 0.5
+	e.set_up(explosion_mod, location, 0, 0)
 	e.start()
 	holder.clear_reagents()
 	return
