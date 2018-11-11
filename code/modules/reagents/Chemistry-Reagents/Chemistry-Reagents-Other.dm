@@ -538,14 +538,14 @@
 /datum/reagent/venenum/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	stored_value += removed
 	if(stored_value >= 1)
-		user.visible_message(\
-			"<span class='warning'>/The [m]'s body shifts and contorts!</span>",\
+		M.visible_message(\
+			"<span class='warning'>/The [M]'s body shifts and contorts!</span>",\
 			"<span class='danger'>Your body painfully shifts and contorts!</span>",\
 			"<span class='notice'>You hear strange flesh-like noises.</span>"\
 		)
 		scramble(TRUE, M, 100)
 		M.adjustHalLoss(10)
-		M.dna.real_name = random_name(H.gender, M.dna.species)
+		M.dna.real_name = random_name(M.gender, M.dna.species)
 		M.UpdateAppearance()
 		stored_value -= 1
 
