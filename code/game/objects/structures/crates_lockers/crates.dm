@@ -488,14 +488,12 @@
 
 /obj/structure/closet/crate/freezer/rations //For use in the escape shuttle
 	name = "emergency rations"
-	desc = "A crate of emergency rations."
-
+	desc = "A crate of emergency rations containing liquid food and some bottles of water."
 
 /obj/structure/closet/crate/freezer/rations/fill()
-	new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
-	new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
-	new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
-	new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
+	for(var/i=1,i<=6,i++)
+		new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
+		new /obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle(src)
 
 /obj/structure/closet/crate/bin
 	name = "large bin"
@@ -687,10 +685,9 @@
 	icon_closed = pick(iconchoices)
 	icon_opened = iconchoices[icon_closed]
 	update_icon()
-	while (quantity > 0)
-		quantity --
+	for (var/i in 1 to quantity)
 		var/newtype = get_spawntype()
-		spawn_stock(newtype,src)
+		call(newtype)(src)
 
 /obj/structure/closet/crate/loot/proc/get_spawntype()
 	var/stocktype = pickweight(spawntypes)

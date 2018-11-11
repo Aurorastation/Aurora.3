@@ -360,7 +360,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	var/dat = "<html><body><center>"
 	dat += "<b>Welcome, [name].<br></b>"
-	dat += "Round Duration: [round_duration()]<br>"
+	dat += "Round Duration: [get_round_duration_formatted()]<br>"
 
 	if(emergency_shuttle) //In case Nanotrasen decides reposess CentComm's shuttles.
 		if(emergency_shuttle.going_to_centcom()) //Shuttle is going to centcomm, not recalled

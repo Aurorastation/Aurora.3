@@ -77,12 +77,12 @@
 					else
 						return
 				M.updatehealth()
-			src.occupant_message("You hit [target].")
-			src.visible_message("<font color='red'><b>[src.name] hits [target].</b></font>")
+			src.occupant_message("You hit \the [target].")
+			src.visible_message("<span class='danger'>\The [src] hits \the [target]!</span>")
 		else
 			step_away(M,src)
-			src.occupant_message("You push [target] out of the way.")
-			src.visible_message("[src] pushes [target] out of the way.")
+			src.occupant_message("You push \the [target] out of the way.")
+			src.visible_message("\The [src] pushes \the [target] out of the way.")
 
 		melee_can_hit = 0
 		if(do_after_mecha(melee_cooldown))
@@ -93,8 +93,8 @@
 		if(damtype == "brute")
 			for(var/target_type in src.destroyable_obj)
 				if(istype(target, target_type) && hascall(target, "attackby"))
-					src.occupant_message("You hit [target].")
-					src.visible_message("<font color='red'><b>[src.name] hits [target]</b></font>")
+					src.occupant_message("You hit \the [target].")
+					src.visible_message("<span class='danger'>\The [src] hits \the [target]!</span>")
 					if(!istype(target, /turf/simulated/wall))
 						target:attackby(src,src.occupant)
 					else if(prob(5))

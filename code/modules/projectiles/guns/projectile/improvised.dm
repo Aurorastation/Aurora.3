@@ -11,7 +11,7 @@
 	w_class = 4.0
 	force = 5
 	recoil = 2
-	accuracy = -2
+	accuracy = -1
 	slot_flags = SLOT_BACK
 	caliber = "shotgun"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -141,7 +141,7 @@
 	desc = "A common sight in an amateur's workshop, a simple yet effective assembly made to chamber and fire .45 Rounds."
 	max_shells = 7
 	recoil = 2
-	accuracy = -2
+	accuracy = -1
 	fire_delay = 9
 	icon = 'icons/obj/improvised.dmi'
 	icon_state = "ipistol"
@@ -217,7 +217,7 @@
 	max_shells = 16
 	caliber = ".45"
 	sel_mode = 1
-	accuracy = -5
+	accuracy = -1
 	fire_delay = 5
 	burst = 3
 	burst_delay = 3

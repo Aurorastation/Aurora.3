@@ -147,7 +147,7 @@ proc/api_update_command_database()
 	var/versionstring = null
 	//The Version Number follows SemVer http://semver.org/
 	version["major"] = 2 //Major Version Number --> Increment when implementing breaking changes
-	version["minor"] = 2 //Minor Version Number --> Increment when adding features
+	version["minor"] = 3 //Minor Version Number --> Increment when adding features
 	version["patch"] = 0 //Patchlevel --> Increment when fixing bugs
 
 	versionstring = "[version["major"]].[version["minor"]].[version["patch"]]"
@@ -648,7 +648,7 @@ proc/api_update_command_database()
 	s["host"] = host ? host : null
 	s["players"] = 0
 	s["stationtime"] = worldtime2text()
-	s["roundduration"] = round_duration()
+	s["roundduration"] = get_round_duration_formatted()
 	s["gameid"] = game_id
 
 	if(queryparams["status"] == "2")
@@ -921,7 +921,7 @@ proc/api_update_command_database()
 	var/senderkey = sanitize(queryparams["senderkey"]) //Identifier of the sender (Ckey / Userid / ...)
 	var/faxtitle = sanitizeSafe(queryparams["title"]) //Title of the report
 	var/faxbody = sanitize(queryparams["body"],max_length=0) //Body of the report
-	var/faxannounce = text2num(queryparams["announce"]) //Announce the contents report to the public: 1 / 0
+	var/faxannounce = text2num(queryparams["announce"]) //Announce the contents report to the public: 0 - Dont announce, 1 - Announce, 2 - Only if pda not linked
 
 	if(!targetlist || targetlist.len < 1)
 		statuscode = 400
@@ -930,6 +930,7 @@ proc/api_update_command_database()
 		return 1
 
 	var/sendresult = 0
+	var/notifyresult = 1
 
 	//Send the fax
 	for (var/obj/machinery/photocopier/faxmachine/F in allfaxes)
@@ -937,14 +938,18 @@ proc/api_update_command_database()
 			sendresult = send_fax(F, faxtitle, faxbody, senderkey)
 			if (sendresult == 1)
 				sendsuccess.Add(F.department)
-				responselist[F.department] = "success"
+				if(!LAZYLEN(F.alert_pdas))
+					notifyresult = 0
+					responselist[F.department] = "notlinked"
+				else
+					responselist[F.department] = "success"
 			else
 				responselist[F.department] = "failed"
 
 	//Announce that the fax has been sent
-	if(faxannounce == 1)
+	if(faxannounce == 1 || (faxannounce==2 && notifyresult==0))
 		if(sendsuccess.len < 1)
-			command_announcement.Announce("A fax message from Central Command could not be delivered because all of the following fax machines are inoperational: <br>"+jointext(targetlist, ", "), "Fax Received", new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+			command_announcement.Announce("A fax message from Central Command could not be delivered because all of the following fax machines are inoperational: <br>"+jointext(targetlist, ", "), "Fax Delivery Failure", new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 		else
 			command_announcement.Announce("A fax message from Central Command has been sent to the following fax machines: <br>"+jointext(sendsuccess, ", "), "Fax Received", new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 
@@ -978,7 +983,7 @@ proc/api_update_command_database()
 		return 1
 	else
 		qdel(P)
-		return 2
+		return 0
 
 // Update discord_bot's channels.
 /datum/topic_command/update_bot_channels
@@ -1059,7 +1064,7 @@ proc/api_update_command_database()
 /datum/topic_command/get_polls/run_command(queryparams)
 	var/current_only = text2num(queryparams["current_only"])
 	var/admin_only = text2num(queryparams["admin_only"])
-	
+
 	if(!establish_db_connection(dbcon))
 		statuscode = 500
 		response = "DB-Connection unavailable"
@@ -1196,7 +1201,7 @@ proc/api_update_command_database()
 		response = "Unknown Poll Type"
 		data = poll_data
 		return 1
-	
+
 
 	poll_data["results"] = result_data
 

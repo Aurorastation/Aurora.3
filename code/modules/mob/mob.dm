@@ -57,6 +57,7 @@
 	healths = null
 	throw_icon = null
 	nutrition_icon = null
+	hydration_icon = null
 	pressure = null
 	damageoverlay = null
 	pain = null
@@ -755,7 +756,7 @@
 			stat("Game ID", game_id)
 			stat("Map", current_map.full_name)
 			stat("Station Time", worldtime2text())
-			stat("Round Duration", round_duration())
+			stat("Round Duration", get_round_duration_formatted())
 			stat("Last Transfer Vote", SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never")
 
 		if(client.holder)

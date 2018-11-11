@@ -77,6 +77,11 @@
 	cost = 1
 	allowed_roles = list("Scientist", "Chief Medical Officer", "Medical Doctor", "Chemist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
+/datum/gear/suit/iacvest
+	display_name = "IAC vest"
+	path = /obj/item/clothing/suit/iacvest
+	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Chemist", "Paramedic", "Medical Resident")
+
 /datum/gear/suit/poncho
 	display_name = "poncho selection"
 	path = /obj/item/clothing/accessory/poncho
@@ -126,6 +131,11 @@
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/hop
 	allowed_roles = list("Head of Personnel")
 
+/datum/gear/suit/roles/poncho/cloak/hos
+	display_name = "cloak, head of security"
+	path = /obj/item/clothing/accessory/poncho/roles/cloak/hos
+	allowed_roles = list("Head of Security")
+
 /datum/gear/suit/roles/poncho/cloak/cargo
 	display_name = "cloak, cargo"
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/cargo
@@ -160,6 +170,11 @@
 	display_name = "cloak, medical"
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/medical
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Paramedic", "Medical Resident", "Psychiatrist", "Chemist")
+
+/datum/gear/suit/roles/poncho/cloak/security
+	display_name = "cloak, security"
+	path = /obj/item/clothing/accessory/poncho/roles/cloak/security
+	allowed_roles = list("Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet")
 
 /datum/gear/suit/blue_lawyer_jacket
 	display_name = "suit jacket, blue"
@@ -306,6 +321,10 @@
 /datum/gear/suit/miscellaneous/med_dep_jacket
 	display_name = "department jacket, medical"
 	path = /obj/item/clothing/suit/storage/toggle/med_dep_jacket
+
+/datum/gear/suit/miscellaneous/sec_dep_jacket
+	display_name = "department jacket, security"
+	path = /obj/item/clothing/suit/storage/toggle/sec_dep_jacket
 
 /datum/gear/suit/miscellaneous/peacoat
 	display_name = "peacoat"

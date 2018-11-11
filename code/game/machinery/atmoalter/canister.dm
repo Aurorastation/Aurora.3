@@ -458,3 +458,8 @@ update_flag
 	. = ..()
 	src.air_contents.adjust_gas("phoron", MolesForPressure())
 	src.update_icon()
+
+/obj/machinery/portable_atmospherics/canister/air/cold/Initialize()
+	. = ..()
+	src.air_contents.temperature = 283
+	src.update_icon()

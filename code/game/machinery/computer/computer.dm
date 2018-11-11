@@ -15,6 +15,7 @@
 	var/light_power_on = 1
 	var/overlay_layer
 	var/is_holographic = TRUE
+	clicksound = "keyboard"
 
 /obj/machinery/computer/Initialize()
 	. = ..()

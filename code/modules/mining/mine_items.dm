@@ -1316,7 +1316,8 @@ var/list/total_extraction_beacons = list()
 		icon_state = "fitnessweight"
 		cut_overlay(W)
 		user << "[finishmessage]"
-		user.nutrition = user.nutrition - 10
+		user.adjustNutritionLoss(5)
+		user.adjustHydrationLoss(5)
 
 /******************************Seismic Charge*******************************/
 
@@ -1350,8 +1351,8 @@ var/list/total_extraction_beacons = list()
 				if(iscarbon(LI))
 					var/mob/living/carbon/L = A
 					L.Weaken(3)
-					if(ishuman(L))
-						shake_camera(L, 20, 1)
+					shake_camera(L, 20, 1)
+					if(!isipc(L))
 						addtimer(CALLBACK(L, /mob/living/carbon/.proc/vomit), 20)
 
 		spawn(2)
