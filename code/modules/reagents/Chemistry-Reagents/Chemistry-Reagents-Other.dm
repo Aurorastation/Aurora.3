@@ -485,7 +485,7 @@
 	taste_description = "a slot machine"
 	var/stored_value = 0 //Internal value. Every 10 units equals a dosage.
 
-/datum/reagent/mutone/affect_blood(var/mob/living/carbon/M, var/removed)
+/datum/reagent/mutone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	stored_value += removed
 	if(stored_value >= 10)
 		to_chat(M,span("notice","You feel strange..."))
@@ -493,6 +493,7 @@
 			randmutb(M)
 		else
 			randmutg(M)
+		M.UpdateAppearance()
 		stored_value -= 10
 
 /datum/reagent/plexium
@@ -504,7 +505,7 @@
 	taste_description = "brain freeze"
 	var/stored_value = 0 //Internal value. Every 10 units equals a dosage.
 
-/datum/reagent/plexium/affect_blood(var/mob/living/carbon/human/H, var/removed)
+/datum/reagent/plexium/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
 	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
 	if(B && H.species && H.species.has_organ["brain"] && !isipc(H))
 		stored_value += removed
@@ -520,32 +521,37 @@
 /datum/reagent/venenum
 	name = "Venenum"
 	id = "venenum"
-	description = "A thick tar like liquid that seems to move around on it's own every now and then. Limited date shows it only works when injected."
+	description = "A thick tar like liquid that seems to move around on it's own every now and then. Limited data shows it only works when injected into the bloodstream."
 	reagent_state = LIQUID
 	color = "#000000"
-	taste_description = "instant regret"
-	metabolism = REM * (1/60) //1 Unit = 1 minute, and 1 transformation.
+	taste_description = "tar"
+	metabolism = REM * (1/60)
 	ingest_mul = 0
 	breathe_mul = 0
 	touch_mul = 0
-	var/stored_value
-	var/list/stored_dna[DNA_UI_LENGTH]
+	var/stored_value = 0
+	var/datum/dna/stored_dna
 
 /datum/reagent/venenum/initial_effect(var/mob/living/carbon/M, var/alien)
-	stored_dna = M.dna.UI
+	stored_dna = M.dna.Clone()
 
-/datum/reagent/venenum/affect_blood(var/mob/living/carbon/M, var/removed)
+/datum/reagent/venenum/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	stored_value += removed
 	if(stored_value >= 1)
+		user.visible_message(\
+			"<span class='warning'>/The [m]'s body shifts and contorts!</span>",\
+			"<span class='danger'>Your body painfully shifts and contorts!</span>",\
+			"<span class='notice'>You hear strange flesh-like noises.</span>"\
+		)
 		scramble(TRUE, M, 100)
+		M.adjustHalLoss(10)
+		M.dna.real_name = random_name(H.gender, M.dna.species)
 		M.UpdateAppearance()
 		stored_value -= 1
 
-/datum/reagent/venenum/final_effect(var/mob/living/carbon/M, var/alien)
+/datum/reagent/venenum/final_effect(var/mob/living/carbon/M, var/alien, var/removed)
 	if(stored_dna)
-		M.dna.UI = stored_dna
-		M.dna.UpdateUI()
-		M.UpdateAppearance()
+		M.dna = stored_dna.Clone()
 
 //Secret chems.
 //Shhh don't tell no one.
