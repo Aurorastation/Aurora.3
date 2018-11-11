@@ -256,5 +256,5 @@
 
 	origin_tech = list(TECH_MATERIAL = 4,TECH_ENGINEERING = 5,TECH_MAGNET = 4,TECH_POWER = 4)
 
-	type_to_take = "uranium"
-	charge_per_sheet = 50
+	type_to_take = "mhydrogen"
+	charge_per_sheet = 90

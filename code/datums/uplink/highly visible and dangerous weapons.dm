@@ -104,6 +104,11 @@
 	item_cost = 2
 	path = /obj/item/weapon/material/star
 
+/datum/uplink_item/item/visible_weapons/icelance
+	name = "Icelance Rifle"
+	item_cost = 6
+	path = /obj/item/weapon/gun/energy/rifle/icelance
+
 /datum/uplink_item/item/visible_weapons/custom_ka
 	name = "Kinetic Laser Assembly"
 	item_cost = 12

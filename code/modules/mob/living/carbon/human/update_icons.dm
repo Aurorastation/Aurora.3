@@ -890,6 +890,7 @@ There are several things that need to be remembered:
 		update_inv_shoes(0)
 
 	update_collar(0)
+	update_inv_w_uniform(0)
 
 	if(update_icons)
 		update_icons()

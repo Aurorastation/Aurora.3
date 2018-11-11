@@ -5,6 +5,7 @@
 	icobase = 'icons/mob/human_races/r_vox.dmi'
 	deform = 'icons/mob/human_races/r_def_vox.dmi'
 	language = LANGUAGE_VOX
+	name_language = LANGUAGE_VOX
 	num_alternate_languages = 1
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/strong)
 	rarity_value = 4
@@ -65,9 +66,9 @@
 		"stack" =    /obj/item/organ/stack/vox
 		)
 
-/datum/species/vox/get_random_name(var/gender)
-	var/datum/language/species_language = all_languages[default_language]
-	return species_language.get_random_name(gender)
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
+
+	default_h_style = "Short Vox Quills"
 
 /datum/species/vox/equip_survival_gear(var/mob/living/carbon/human/H)
 	H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath(H), slot_wear_mask)

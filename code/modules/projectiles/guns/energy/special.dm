@@ -6,6 +6,7 @@
 	fire_sound = 'sound/weapons/Laser.ogg'
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4)
 	w_class = 4
+	accuracy = 1
 	force = 10
 	flags =  CONDUCT
 	slot_flags = SLOT_BACK
@@ -281,6 +282,7 @@
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
 	w_class = 3
+	accuracy = 1
 	force = 10
 	projectile_type = /obj/item/projectile/energy/blaster
 	max_shots = 6
@@ -310,6 +312,7 @@
 	attack_verb = list("sundered", "annihilated", "sliced", "cleaved", "slashed", "pulverized")
 	slot_flags = SLOT_BACK
 	w_class = 5
+	accuracy = 3 // It's a massive beam, okay.
 	force = 60
 	projectile_type = /obj/item/projectile/beam/megaglaive
 	max_shots = 36
@@ -408,6 +411,7 @@
 	fire_sound = 'sound/magic/lightningbolt.ogg'
 	slot_flags = SLOT_BACK
 	w_class = 4
+	accuracy = 0 // Overwrite just in case.
 	force = 15
 	projectile_type = /obj/item/projectile/beam/thermaldrill
 	max_shots = 90
@@ -519,6 +523,7 @@
 	projectile_type = /obj/item/projectile/beam/tachyon
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	max_shots = 10
+	accuracy = 1
 	fire_delay = 1
 	can_turret = 0
 

@@ -13,28 +13,28 @@
 	step_energy_drain = 6
 	var/obj/item/clothing/glasses/hud/health/mech/hud
 
-	New()
-		..()
-		hud = new /obj/item/clothing/glasses/hud/health/mech(src)
-		return
+/obj/mecha/medical/odysseus/Initialize()
+	.= ..()
+	hud = new /obj/item/clothing/glasses/hud/health/mech(src)
+	return
 
-	moved_inside(var/mob/living/carbon/human/H as mob)
-		if(..())
-			if(H.glasses)
-				occupant_message("<font color='red'>[H.glasses] prevent you from using [src] [hud]</font>")
-			else
-				H.glasses = hud
-			return 1
+/obj/mecha/medical/odysseus/moved_inside(var/mob/living/carbon/human/H as mob)
+	if(..())
+		if(H.glasses)
+			occupant_message("<font color='red'>[H.glasses] prevent you from using [src] [hud]</font>")
 		else
-			return 0
+			H.glasses = hud
+		return 1
+	else
+		return 0
 
-	go_out()
-		if(ishuman(occupant))
-			var/mob/living/carbon/human/H = occupant
-			if(H.glasses == hud)
-				H.glasses = null
-		..()
-		return
+/obj/mecha/medical/odysseus/go_out()
+	if(ishuman(occupant))
+		var/mob/living/carbon/human/H = occupant
+		if(H.glasses == hud)
+			H.glasses = null
+	..()
+	return
 /*
 	verb/set_perspective()
 		set name = "Set client perspective."
@@ -120,8 +120,8 @@
 
 			C.images += holder
 
-/obj/mecha/medical/odysseus/loaded/New()
-	..()
+/obj/mecha/medical/odysseus/loaded/Initialize()
+	.= ..()
 	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/tool/sleeper
 	ME.attach(src)
 	ME = new /obj/item/mecha_parts/mecha_equipment/tool/sleeper

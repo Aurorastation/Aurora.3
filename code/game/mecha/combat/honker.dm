@@ -17,8 +17,8 @@
 	var/squeak = 0
 
 
-/obj/mecha/combat/honker/New()
-	..()
+/obj/mecha/combat/honker/Initialize()
+	.= ..()
 	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/weapon/honker
 	ME.attach(src)
 	ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/banana_mortar
