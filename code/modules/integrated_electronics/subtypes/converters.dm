@@ -236,3 +236,22 @@
 
 	push_data()
 	activate_pin(2)
+
+/obj/item/integrated_circuit/converter/refencode
+	name = "reference encoder"
+	desc = "This circuit can convert a reference to an encoded form, often used in signal processing."
+	icon_state = "ref-string"
+	inputs = list("input" = IC_PINTYPE_REF)
+	outputs = list("output" = IC_PINTYPE_STRING)
+	spawn_flags = IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/converter/refencode/do_work()
+	var/result = null
+	pull_data()
+	var/atom/A = get_pin_data_as_type(IC_INPUT, 1, /atom)
+	if(A)
+		result = "\ref[A]"
+
+	set_pin_data(IC_OUTPUT, 1, result)
+	push_data()
+	activate_pin(2)

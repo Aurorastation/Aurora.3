@@ -1,9 +1,9 @@
 #define AIRLOCK_CONTROL_RANGE 22
 
-// This code allows for airlocks to be controlled externally by setting an id_tag and comm frequency (disables ID access)
+// This code allows for airlocks to be controlled externally by setting an id_tag and comm frequency (disables ID access) // doesn't actually disable ID access
 /obj/machinery/door/airlock
 	var/id_tag
-	var/frequency
+	var/frequency = 1411
 	var/tmp/shockedby
 	var/tmp/datum/radio_frequency/radio_connection
 	var/tmp/cur_command = null	//the command the door is currently attempting to complete
@@ -119,14 +119,14 @@
 		radio_connection.post_signal(src, signal, range = AIRLOCK_CONTROL_RANGE, filter = RADIO_AIRLOCK)
 
 
-/obj/machinery/door/airlock/open(surpress_send)
+/obj/machinery/door/airlock/open(suppress_send)
 	. = ..()
-	if(!surpress_send) send_status()
+	if(!suppress_send) send_status()
 
 
-/obj/machinery/door/airlock/close(surpress_send)
+/obj/machinery/door/airlock/close(suppress_send)
 	. = ..()
-	if(!surpress_send) send_status()
+	if(!suppress_send) send_status()
 
 
 /obj/machinery/door/airlock/CollidedWith(atom/AM)
@@ -146,6 +146,9 @@
 	. = ..()
 	if(frequency)
 		set_frequency(frequency)
+
+	if(!id_tag)
+		id_tag = "\ref[src]"
 
 	//wireless connection
 	if(_wifi_id)

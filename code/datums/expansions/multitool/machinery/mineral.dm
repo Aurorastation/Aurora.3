@@ -10,7 +10,7 @@
 	var/obj/machinery/mineralconsole/C = holder
 
 	if(!istype(M))
-		to_chat(user, span("warning", "No valid connection data in \the [M] buffer."
+		to_chat(user, span("warning", "No valid connection data in \the [M] buffer."))
 		return MT_NOACTION
 
 	if(C.machine)
@@ -32,5 +32,5 @@
 	if(C.Unlink())
 		to_chat(user, span("notice", "You disconnect \the [MM] from \the [C]."))
 	else
-		to_chat(user, span("notice", "You failed to disconnect \the [MM] from \the [C]."
+		to_chat(user, span("notice", "You failed to disconnect \the [MM] from \the [C]."))
 	return MT_REFRESH

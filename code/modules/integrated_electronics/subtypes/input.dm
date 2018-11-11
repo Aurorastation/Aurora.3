@@ -548,3 +548,71 @@
 /obj/item/integrated_circuit/input/gas_sensor/phoron
 	gas_name = "phoron"
 	gas_display_name = "phoron"
+
+/obj/item/integrated_circuit/input/signaler/advanced
+	name = "advanced integrated signaler"
+	desc = "Signals from a signaler can be received with this, allowing for remote control.  Additionally, it can send signals as well."
+	extended_desc = "When a signal is received from another signaler, the 'on signal received' activator pin will be pulsed.  \
+	The two input pins are to configure the integrated signaler's settings.  Note that the frequency should not have a decimal in it.  \
+	Meaning the default frequency is expressed as 1457, not 145.7.  To send a signal, pulse the 'send signal' activator pin."
+	icon_state = "signal"
+	complexity = 4
+	inputs = list(
+		"frequency" = IC_PINTYPE_NUMBER,
+		"tag" = IC_PINTYPE_STRING,
+		"command" = IC_PINTYPE_STRING
+	)
+	outputs = list(
+		"source ID" = IC_PINTYPE_STRING,
+		"data" = IC_PINTYPE_STRING
+	)
+	activators = list(
+		"send signal" = IC_PINTYPE_PULSE_IN,
+		"on signal sent" = IC_PINTYPE_PULSE_OUT,
+		"on signal received" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_RESEARCH
+	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 3, TECH_MAGNET = 2)
+
+/obj/item/integrated_circuit/input/signaler/advanced/Initialize()
+	..()
+	set_frequency(frequency)
+	// Set the pins so when someone sees them, they won't show as null
+	set_pin_data(IC_INPUT, 1, frequency)
+	set_pin_data(IC_INPUT, 2, tag)
+
+/obj/item/integrated_circuit/input/signaler/advanced/on_data_written()
+	var/new_freq = get_pin_data(IC_INPUT, 1)
+	if(isnum(new_freq) && new_freq > 0)
+		set_frequency(new_freq)
+
+/obj/item/integrated_circuit/input/signaler/advanced/do_work() // Sends a signal.
+	if(!radio_connection)
+		return
+
+	var/datum/signal/signal = new()
+	signal.source = src
+	signal.data["tag"] = get_pin_data(IC_INPUT, 2)
+	signal.data["command"] = get_pin_data(IC_INPUT, 3)
+	radio_connection.post_signal(src, signal)
+	activate_pin(2)
+
+/obj/item/integrated_circuit/input/signaler/advanced/set_frequency(new_frequency)
+	if(!frequency)
+		return
+	SSradio.remove_object(src, frequency)
+	frequency = new_frequency
+	radio_connection = SSradio.add_object(src, frequency) // I HEAR ALL
+
+/obj/item/integrated_circuit/input/signaler/advanced/receive_signal(datum/signal/signal)
+	if(!signal)
+		return 0
+	if(signal.encryption) // no encryption for us
+		return 0
+	if(signal.source == src) // Don't trigger ourselves.
+		return 0
+
+	set_pin_data(IC_OUTPUT, 1, istype(signal.source, /atom/) ? "\ref[signal.source]" : signal.source)
+	set_pin_data(IC_OUTPUT, 2, signal.data)
+	push_data()
+	activate_pin(3)

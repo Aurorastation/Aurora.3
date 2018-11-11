@@ -950,6 +950,13 @@ About the new airlock wires panel:
 		return src.attack_hand(user)
 	else if(ismultitool(C))
 		return src.attack_hand(user)
+	else if(istype(C,/obj/item/device/debugger) & src.p_open)
+		var/newid = input(user, "Enter a new wireless ID.", "Door Wireless Control") as null|text
+		if(wifi_receiver)
+			QDEL_NULL(wifi_receiver)
+		_wifi_id = newid
+		wifi_receiver = new(newid, src)
+		return
 	else if(istype(C, /obj/item/device/assembly/signaler))
 		return src.attack_hand(user)
 	else if(istype(C, /obj/item/weapon/pai_cable))	// -- TLE

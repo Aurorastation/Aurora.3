@@ -16,7 +16,7 @@
 /obj/machinery/mineralconsole/stacking_unit/proc/setup_machine(mob/user)
 	if(!machine)
 		var/obj/machinery/mineral/M
-		for(var/obj/machinery/mineral/stacking_unit/checked_machine in orange(src))
+		for(var/obj/machinery/mineral/stacking_machine/checked_machine in orange(src))
 			if(!M || get_dist_euclidian(src, checked_machine) < get_dist_euclidian(src, M))
 				M = checked_machine
 		if (M)

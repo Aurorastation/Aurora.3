@@ -378,7 +378,7 @@ Class Procs:
 						B.forceMove(src)
 						user << "<span class='notice'>[A.name] replaced with [B.name].</span>"
 						break
-		RefreshParts()  
+		RefreshParts()
 		update_icon()
 	else
 		user << "<span class='notice'>Following parts detected in the machine:</span>"

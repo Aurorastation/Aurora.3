@@ -12,9 +12,12 @@
 	active_power_usage = 4
 	var/_wifi_id
 	var/datum/wifi/sender/wifi_sender
+	var/obj/item/device/assembly/trigger
 
 /obj/machinery/button/Initialize()
 	. = ..()
+	pixel_x = -DIR2PIXEL_X(dir)
+	pixel_y = -DIR2PIXEL_Y(dir)
 	update_icon()
 	if(_wifi_id && !wifi_sender)
 		wifi_sender = new/datum/wifi/sender/button(_wifi_id, src)
@@ -22,12 +25,46 @@
 /obj/machinery/button/Destroy()
 	qdel(wifi_sender)
 	wifi_sender = null
-	return..()
+	if(trigger)
+		trigger.forceMove(loc)
+	return ..()
 
 /obj/machinery/button/attack_ai(mob/user as mob)
 	return attack_hand(user)
 
-/obj/machinery/button/attackby(obj/item/weapon/W, mob/user as mob)
+/obj/machinery/button/dismantle()
+	playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+	new/obj/item/frame/button(loc)
+	qdel(src)
+	return 1
+
+/obj/machinery/button/attackby(obj/item/weapon/W, mob/user)
+	if(isscrewdriver(W))
+		default_deconstruction_screwdriver(user, W)
+		return
+	if(iscrowbar(W))
+		if(trigger)
+			to_chat(user, span("notice", "You remove \the [trigger] from \the [src]."))
+			trigger.forceMove(loc)
+			trigger = null
+			return
+		default_deconstruction_crowbar(user, W)
+		return
+	if(istype(W, /obj/item/device/debugger) & panel_open)
+		var/newid = input(user, "Enter a new wireless ID.", "Button Radio") as null|text
+		if(wifi_sender)
+			QDEL_NULL(wifi_sender)
+		_wifi_id = newid
+		wifi_sender = new/datum/wifi/sender/button(newid, src)
+		return
+	if(istype(W, /obj/item/device/assembly))
+		if(trigger)
+			to_chat(user, span("notice", "There is already a device in \the [src]."))
+			return
+		to_chat(user, span("notice", "You put \the [W] in \the [src]."))
+		trigger = W
+		trigger.forceMove(src)
+		return
 	return attack_hand(user)
 
 /obj/machinery/button/attack_hand(mob/living/user)
@@ -38,12 +75,17 @@
 	if(operating || !istype(wifi_sender))
 		return
 
+	if(istype(trigger))
+		trigger.pulsed()
+
 	operating = 1
 	active = 1
 	use_power(5)
 	update_icon()
 	wifi_sender.activate(user)
 	sleep(10)
+
+/obj/machinery/button/proc/deactivate()
 	active = 0
 	update_icon()
 	operating = 0
@@ -77,6 +119,9 @@
 /obj/machinery/button/toggle/activate(mob/living/user)
 	if(operating || !istype(wifi_sender))
 		return
+
+	if(istype(trigger))
+		trigger.pulsed()
 
 	operating = 1
 	active = !active
@@ -123,6 +168,9 @@
 	if(active || !istype(wifi_sender))
 		return
 
+	if(istype(trigger))
+		trigger.pulsed()
+
 	active = 1
 	if(use_power)
 		use_power(active_power_usage)
@@ -130,6 +178,35 @@
 	wifi_sender.activate()
 	active = 0
 	update_icon()
+
+/obj/machinery/button/mass_driver/attackby(obj/item/weapon/W, mob/user)
+	if(isscrewdriver(W))
+		default_deconstruction_screwdriver(user, W)
+		return
+	if(iscrowbar(W))
+		if(trigger)
+			to_chat(user, span("notice", "You remove \the [trigger] from \the [src]."))
+			trigger.forceMove(loc)
+			trigger = null
+			return
+		default_deconstruction_crowbar(user, W)
+		return
+	if(istype(W,/obj/item/device/debugger) & panel_open)
+		var/newid = input(user, "Enter a new wireless ID.", "Button Radio") as null|text
+		if(wifi_sender)
+			QDEL_NULL(wifi_sender)
+		_wifi_id = newid
+		wifi_sender = new/datum/wifi/sender/mass_driver(newid, src)
+		return
+	if(istype(W, /obj/item/device/assembly))
+		if(trigger)
+			to_chat(user, span("notice", "There is already a device in \the [src]."))
+			return
+		to_chat(user, span("notice", "You put \the [W] in \the [src]."))
+		trigger = W
+		trigger.forceMove(src)
+		return
+	return attack_hand(user)
 
 
 //-------------------------------
@@ -169,6 +246,9 @@
 	if(operating || !istype(wifi_sender))
 		return
 
+	if(istype(trigger))
+		trigger.pulsed()
+
 	operating = 1
 	active = !active
 	use_power(5)
@@ -196,6 +276,35 @@
 		if(_door_functions & BOLTS)
 			wifi_sender.activate("lock")
 	operating = 0
+
+/obj/machinery/button/toggle/door/attackby(obj/item/weapon/W, mob/user)
+	if(isscrewdriver(W))
+		default_deconstruction_screwdriver(user, W)
+		return
+	if(iscrowbar(W))
+		if(trigger)
+			to_chat(user, span("notice", "You remove \the [trigger] from \the [src]."))
+			trigger.forceMove(loc)
+			trigger = null
+			return
+		default_deconstruction_crowbar(user, W)
+		return
+	if(istype(W,/obj/item/device/debugger) & panel_open)
+		var/newid = input(user, "Enter a new wireless ID.", "Button Radio") as null|text
+		if(wifi_sender)
+			QDEL_NULL(wifi_sender)
+		_wifi_id = newid
+		wifi_sender = new/datum/wifi/sender/door(newid, src)
+		return
+	if(istype(W, /obj/item/device/assembly))
+		if(trigger)
+			to_chat(user, span("notice", "There is already a device in \the [src]."))
+			return
+		to_chat(user, span("notice", "You put \the [W] in \the [src]."))
+		trigger = W
+		trigger.forceMove(src)
+		return
+	return attack_hand(user)
 
 #undef OPEN
 #undef IDSCAN
