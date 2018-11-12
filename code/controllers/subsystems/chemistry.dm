@@ -52,7 +52,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 			chemical_reagents[R.id].specific_heat = final_heat
 			return final_heat
 
-	if(R.fallback_specific_heat)
+	if(R.fallback_specific_heat > 0)
 		chemical_reagents[R.id].specific_heat = R.fallback_specific_heat
 		return R.fallback_specific_heat
 

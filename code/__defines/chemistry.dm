@@ -25,6 +25,10 @@
 #define REAGENTS_BURNING_TEMP_LOW_DAMAGE 0.00005 //Damage per celcius per unit below the REAGENTS_BURNING_TEMP_LOW define per unit.
 #define REAGENTS_BURNING_TEMP_LOW_DAMAGE_CAP 20 //Maximum amount of burn damage to deal due to low temperature reagents.
 
+#define REAGENTS_BODYTEMP 0.002 //Increase in body temperature per unit per celcius above current body temperature.
+#define REAGENTS_BODYTEMP_MIN 0.25 //Minimum amount of increase to actually increase body temperature. The increase is also rounded to this value.
+#define REAGENTS_BODYTEMP_MAX 10 //Maximum allowed increase in body temperature (K) per unit.
+
 #define CHEM_SYNTH_ENERGY 500 // How much energy does it take to synthesize 1 unit of chemical, in Joules.
 
 // Some on_mob_life() procs check for alien races.

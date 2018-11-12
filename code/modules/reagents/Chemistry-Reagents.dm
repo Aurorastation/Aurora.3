@@ -81,19 +81,9 @@
 
 	dose = min(dose + removed, max_dose)
 
-	//Not based on science, based on balance.
-
-	world << "VOLUME: [volume]"
-	world << "REMOVED: [removed]"
-	world << "SPECIFIC HEAT: [specific_heat]"
-	world << "THERMAL ENERGY: [thermal_energy]"
-
-	/*
-	var/body_temp = M.bodytemperature
-	var/removed_var = removed
-	world << "OKAY: [chem_temp] [body_temp] [removed_var]"
-	world << "CHANGE: [Clamp((get_temperature() - M.bodytemperature) * removed * 0.002,-10 * removed, 10 * removed)]"
-	*/
+	var/bodytempchange = Clamp((get_temperature() - M.bodytemperature) * removed * REAGENTS_BODYTEMP,-REAGENTS_BODYTEMP_MAX * removed, REAGENTS_BODYTEMP_MAX * removed)
+	if(abs(bodytempchange) >= REAGENTS_BODYTEMP_MIN)
+		M.bodytemperature += round(bodytempchange,REAGENTS_BODYTEMP_MIN)
 
 	for(var/datum/reagent/R in M.bloodstr.reagent_list)
 		if(istype(R, conflicting_reagent))
