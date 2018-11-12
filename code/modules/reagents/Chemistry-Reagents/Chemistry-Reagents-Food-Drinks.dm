@@ -568,11 +568,13 @@
 	color = "#B31008"
 	taste_description = "hot peppers"
 	taste_mult = 1.5
+	fallback_specific_heat = 2
+
 	var/agony_dose = 5
 	var/agony_amount = 1
 	var/discomfort_message = "<span class='danger'>Your insides feel uncomfortably hot!</span>"
 	var/slime_temp_adj = 10
-	fallback_specific_heat = 2
+
 
 /datum/reagent/capsaicin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(0.5 * removed)
@@ -594,6 +596,9 @@
 		M.bodytemperature += rand(0, 15) + slime_temp_adj
 	holder.remove_reagent("frostoil", 5)
 
+#define EYES_PROTECTED 1
+#define EYES_MECH 2
+
 /datum/reagent/capsaicin/condensed
 	name = "Condensed Capsaicin"
 	id = "condensedcapsaicin"
@@ -609,8 +614,6 @@
 	fallback_specific_heat = 4
 
 /datum/reagent/capsaicin/condensed/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-#define EYES_PROTECTED 1
-#define EYES_MECH 2
 	var/eyes_covered = 0
 	var/mouth_covered = 0
 	var/no_pain = 0
@@ -666,9 +669,6 @@
 			M.custom_emote(2, "[pick("coughs!","coughs hysterically!","splutters!")]")
 		M.apply_effect(40, AGONY, 0)
 
-#undef EYES_PROTECTED
-#undef EYES_MECH
-
 /datum/reagent/condensedcapsaicin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -683,6 +683,9 @@
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(15, 30)
 	holder.remove_reagent("frostoil", 5)
+
+#undef EYES_PROTECTED
+#undef EYES_MECH
 
 /datum/reagent/spacespice
 	name = "Space Spice"

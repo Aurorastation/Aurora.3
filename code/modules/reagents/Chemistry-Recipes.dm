@@ -506,7 +506,6 @@
 	required_reagents = list("capsaicin" = 2)
 	catalysts = list("phoron" = 5)
 	result_amount = 1
-	ignore_specific_heat = TRUE
 
 /datum/chemical_reaction/coolant
 	name = "Coolant"
