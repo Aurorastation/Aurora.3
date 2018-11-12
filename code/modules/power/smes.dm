@@ -65,9 +65,9 @@
 	var/datum/effect_system/sparks/big_spark
 	var/datum/effect_system/sparks/small_spark
 
-	var/time_depleted = 0
+	var/time = 0
 	var/charge_mode = 0
-	var/Queue/diff_history = new /Queue()
+	var/Queue/diff_history
 
 /obj/machinery/power/smes/drain_power(var/drain_check, var/surge, var/amount = 0)
 
@@ -87,6 +87,7 @@
 
 /obj/machinery/power/smes/Initialize()
 	. = ..()
+	diff_history = new/Queue()
 	SSpower.smes_units += src
 	big_spark = bind_spark(src, 5, alldirs)
 	small_spark = bind_spark(src, 3)
@@ -183,11 +184,11 @@
 		var/list/sorted = diff_history.as_list()
 		sorted = sortTim(sorted)
 		if(sorted[sorted.len/2] < 0)
-			time_depleted = 2 * ((capacity - charge) / (sorted[sorted.len/2] * SMESRATE)) // how long will it take to fully charge SMES
-			time_depleted = abs(time_depleted)
+			time = 2 * ((capacity - charge) / (sorted[sorted.len/2] * SMESRATE)) // how long will it take to fully charge SMES
+			time = abs(time)
 		if(sorted[sorted.len/2] != 0)
-			time_depleted = 2 * (charge / (sorted[sorted.len/2] * SMESRATE)) // how long will it take to deplete SMES given current charge and average of drain(input - output).
-		time_depleted /= 60 //converting to minutes
+			time = 2 * (charge / (sorted[sorted.len/2] * SMESRATE)) // how long will it take to deplete SMES given current charge and average of drain(input - output).
+		time /= 60 //converting to minutes
 		charge_mode = (sorted[sorted.len/2] < 0)
 		diff_history.dequeue()
 	diff_history.enqueue(output_used - input_taken)
@@ -367,7 +368,7 @@
 	data["outputLoad"] = round(output_used)
 	data["failTime"] = failure_timer * 2
 	data["outputting"] = outputting
-	data["time"] = time_depleted
+	data["time"] = time
 	data["charge_mode"] = charge_mode
 
 
