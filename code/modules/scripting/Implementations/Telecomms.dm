@@ -260,12 +260,12 @@ datum/signal
 		if(!job)
 			job = "?"
 
-		if(!language || language == "" || !(language in language_keys))
+		if(!language || language == "")
 			language = LANGUAGE_TCB
 		
 		var/datum/language/L = all_languages[language]
 		if(!L || !(L.flags & TCOMSSIM))
-			language = LANGUAGE_TCB
+			L = all_languages[LANGUAGE_TCB]
 
 		newsign.data["mob"] = null
 		newsign.data["mobtype"] = /mob/living/carbon/human
@@ -277,7 +277,7 @@ datum/signal
 		newsign.data["job"] = job
 		newsign.data["compression"] = 0
 		newsign.data["message"] = message
-		newsign.data["language"] = language
+		newsign.data["language"] = L
 		newsign.data["type"] = 2 // artificial broadcast
 		if(!isnum(freq))
 			freq = text2num(freq)
