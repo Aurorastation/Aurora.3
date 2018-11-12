@@ -130,6 +130,7 @@
 	reagent_state = LIQUID
 	color = "#C81040"
 	taste_description = "slime"
+	fallback_specific_heat = 1.2
 
 /datum/reagent/vaccine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(data)
@@ -153,6 +154,7 @@
 	reagent_state = LIQUID
 	color = "#0050F0"
 	taste_description = "slime"
+	fallback_specific_heat = 1.5
 
 /datum/reagent/antibodies/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(src.data)

@@ -26,15 +26,17 @@
 
 /datum/reagents/proc/get_temperature()
 	var/HC = get_heat_capacity()
-	if(HC)
-		return get_thermal_energy() / (HC)
+	var/TE = get_thermal_energy()
+	if(HC && TE)
+		return TE / HC
 	else
 		return T0C + 20
 
 /datum/reagent/proc/get_temperature()
 	var/HC = get_heat_capacity()
-	if(HC)
-		return get_thermal_energy() / (HC)
+	var/TE = get_thermal_energy()
+	if(HC && TE)
+		return TE / HC
 	else
 		return T0C + 20
 
