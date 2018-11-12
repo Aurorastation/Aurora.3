@@ -156,6 +156,11 @@
 			if(prob(braindam))
 				message = uppertext(message)
 				verb = "yells loudly"
+		
+		if (istype(loc, /turf/simulated/floor/beach/water) && lying)
+			speech_problem_flag = 1
+			message = pick("Blurble burble!", "Glub blurb!", "Borble glurb!", "Blub glub!")
+			verb = pick("burbles", "glubs")
 
 	var/list/returns[4]
 	returns[1] = message
