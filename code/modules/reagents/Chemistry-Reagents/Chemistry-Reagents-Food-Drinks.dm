@@ -527,6 +527,7 @@
 	reagent_state = SOLID
 	color = "#000000"
 	taste_description = "pepper"
+	fallback_specific_heat = 1.25
 
 /datum/reagent/enzyme
 	name = "Universal Enzyme"
@@ -537,6 +538,7 @@
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "sweetness"
 	taste_mult = 0.7
+	fallback_specific_heat = 1
 
 /datum/reagent/frostoil
 	name = "Frost Oil"
@@ -603,6 +605,7 @@
 	agony_amount = 4
 	discomfort_message = "<span class='danger'>You feel like your insides are burning!</span>"
 	slime_temp_adj = 15
+	fallback_specific_heat = 2
 
 /datum/reagent/capsaicin/condensed/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 #define EYES_PROTECTED 1
@@ -688,6 +691,7 @@
 	color = "#e08702"
 	taste_description = "spices"
 	taste_mult = 1.5
+	fallback_specific_heat = 2
 
 /datum/reagent/browniemix
 	name = "Brownie Mix"
