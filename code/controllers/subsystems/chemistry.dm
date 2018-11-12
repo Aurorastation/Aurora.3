@@ -49,8 +49,10 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		var/result_amount = recipe.result_amount
 		for(var/chem in recipe.required_reagents)
 			var/chem_specific_heat = check_specific_heat(chemical_reagents[chem])
-			if(!chem_specific_heat)
+			if(chem_specific_heat <= 0)
 				log_ss("chemistry", "ERROR: [R.type] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
+				final_heat = 0
+				break
 			final_heat += chem_specific_heat * (recipe.required_reagents[chem]/result_amount)
 
 		if(final_heat > 0)
