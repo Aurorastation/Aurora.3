@@ -1304,6 +1304,7 @@
 	required_reagents = list("blood" = 1)
 	result_amount = 10
 	required = /obj/item/slime_extract/orange
+	ignore_specific_heat = TRUE
 
 /datum/chemical_reaction/slime/fire
 	name = "Slime fire"

@@ -24,7 +24,8 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	if(recipe)
 		for(var/chem in recipe.required_reagents)
 			if(!has_valid_specific_heat(chemical_reagents[chem]))
-				return FALSE
+				log_ss("chemistry", "ERROR: [recipe.type] has an improper recipe!")
+				return R.fallback_specific_heat > 0
 
 		return TRUE
 	else
