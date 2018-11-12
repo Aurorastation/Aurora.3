@@ -106,7 +106,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/process()
 
-	if(reagents && reagents.total_volume)
+	if(reagents && reagents.total_volume && burn_rate)
 		if(!initial_volume)
 			initial_volume = reagents.total_volume
 		var/mob/living/carbon/human/C = loc

@@ -25,7 +25,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 			if(!has_valid_specific_heat(chemical_reagents[chem]))
 				return FALSE
 
-	if(R.fallback_specific_heat)
+	if(R.fallback_specific_heat > 0)
 		return TRUE
 
 	return FALSE
