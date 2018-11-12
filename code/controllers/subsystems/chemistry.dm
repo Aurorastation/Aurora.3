@@ -63,7 +63,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 /datum/controller/subsystem/chemistry/proc/find_recipe_by_result(var/result_id)
 	for(var/key in chemical_reactions_clean)
 		var/datum/chemical_reaction/CR = chemical_reactions_clean[key]
-		if(CR.result == result_id && CR.result_amount > 0 && !ignore_specific_heat)
+		if(CR.result == result_id && CR.result_amount > 0 && !CR.ignore_specific_heat)
 			return CR
 
 /datum/controller/subsystem/chemistry/stat_entry()
