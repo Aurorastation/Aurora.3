@@ -35,8 +35,6 @@
 	var/mix_message = "The solution begins to bubble."
 	var/reaction_sound = 'sound/effects/bubbles.ogg'
 
-	var/ignore_specific_heat = FALSE
-
 	var/log_is_important = 0 // If this reaction should be considered important for logging. Important recipes message admins when mixed, non-important ones just log to file.
 /datum/chemical_reaction/proc/can_happen(var/datum/reagents/holder)
 	//check that all the required reagents are present
@@ -1303,7 +1301,6 @@
 	required_reagents = list("blood" = 1)
 	result_amount = 10
 	required = /obj/item/slime_extract/orange
-	ignore_specific_heat = TRUE
 
 /datum/chemical_reaction/slime/fire
 	name = "Slime fire"
