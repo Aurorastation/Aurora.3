@@ -11,21 +11,21 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	var/list/chemical_reagents
 
 	var/tmp/list/processing_holders = list()
-	
+
 /datum/controller/subsystem/chemistry/proc/has_valid_specific_heat(var/datum/reagent/R) //Used for unit tests. Same as check_specific_heat but returns a boolean instead.
 
 	if(R.specific_heat > 0)
-		return TRUE	
+		return TRUE
 
 	if(chemical_reagents[R.id].specific_heat > 0) //Don't think this will happen but you never know.
 		return TRUE
-		
+
 	var/datum/chemical_reaction/recipe = find_recipe_by_result(R.id)
 	if(recipe)
 		for(var/chem in recipe.required_reagents)
 			if(!has_valid_specific_heat(chemical_reagents[chem]))
 				return FALSE
-				
+
 		return TRUE
 	else
 		return R.fallback_specific_heat > 0
@@ -63,7 +63,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 /datum/controller/subsystem/chemistry/proc/find_recipe_by_result(var/result_id)
 	for(var/key in chemical_reactions_clean)
 		var/datum/chemical_reaction/CR = chemical_reactions_clean[key]
-		if(CR.result == result_id && CR.result_amount > 0)
+		if(CR.result == result_id && CR.result_amount > 0 && !ignore_specific_heat)
 			return CR
 
 /datum/controller/subsystem/chemistry/stat_entry()
