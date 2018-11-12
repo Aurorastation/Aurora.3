@@ -29,7 +29,11 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 
 		return TRUE
 	else
-		return R.fallback_specific_heat > 0
+		if(R.fallback_specific_heat > 0)
+			return TRUE
+		else
+			log_ss("chemistry", "ERROR: [R.type] does not have a valid specific heat ([R.specific_heat]) or a valid fallback specific heat ([R.fallback_specific_heat]) assigned!")
+			return FALSE
 
 /datum/controller/subsystem/chemistry/proc/check_specific_heat(var/datum/reagent/R)
 
