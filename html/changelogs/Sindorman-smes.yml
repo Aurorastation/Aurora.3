@@ -35,4 +35,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "SMES now shows in their UI how much input they taken."
-  - rscadd: "SMES now estimate how many minutes will it take for it to be depleted based on how much energy we gave away 100 seconds ago(50 times)."
+  - rscadd: "SMES and APC now show in UI how long it will take to charge/discharge it based on history of last 15 data points of input vs output. It can be off by seconds and sometimes minutes due to input/output spikes."
