@@ -67,7 +67,7 @@
 
 	var/time = 0
 	var/charge_mode = 0
-	var/list/charge_history
+	var/list/diff_history
 	var/history_index = 1
 
 /obj/machinery/power/smes/drain_power(var/drain_check, var/surge, var/amount = 0)
@@ -88,7 +88,7 @@
 
 /obj/machinery/power/smes/Initialize()
 	. = ..()
-	charge_history = list()
+	diff_history = list()
 	SSpower.smes_units += src
 	big_spark = bind_spark(src, 5, alldirs)
 	small_spark = bind_spark(src, 3)
@@ -169,38 +169,38 @@
 /obj/machinery/power/smes/proc/update_time()
 
 	// check if our list is still not initialized, if it is not - add data and not calculate
-	if(charge_history.len != 70)
-		charge_history += charge
+	if(diff_history.len != 15)
+		diff_history += output_used - input_taken
 		charge_mode = 2
-		time = (70 - charge_history.len) * 2
+		time = (15 - diff_history.len) * 2
 		return
 
-	if(history_index > charge_history.len)
+	if(history_index > diff_history.len)
 		history_index = 1
 
-	var/diff = 0
-	var/i = 1
-	while(i < charge_history.len)
-		diff += (charge_history[i + 1] - charge_history[i])
-		i++
+	var/average = 0
+	for(var/x in diff_history)
+		average += x
 
-	diff /= (charge_history.len - 1)
+	average = round(average) // to get rid of 0
+	average /= diff_history.len // take average
+	average *= SMESRATE // convert to same units as charge
 
 	// If it is negative - we are discharging
-	if(diff > 0)
-		time = (capacity - charge) / diff // how long will it take to fully charge SMES
-		time /= 2 // Since machinery_process only occurs each 2 seconds
-		charge_mode = 1
-	else if(diff != 0) // no division by 0
-		time = charge / diff // how long will it take to deplete SMES
+	if(average < 0)
+		time = (capacity - charge) / average // how long will it take to fully charge SMES
 		time /= -2 // Since machinery_process only occurs each 2 seconds
+		charge_mode = 1
+	else if(average != 0) // no division by 0
+		time = charge / average // how long will it take to deplete SMES
+		time *= 2 // Since machinery_process only occurs each 2 seconds but is backwards to charging
 		charge_mode = 0
 	else
 		time = 0
 		charge_mode = 3
 
-	time = ((time / 360) > 1) ? ("[round(time / 360)] hours, [round(((time / 360) - round(time / 360)) * 60)] minutes") : ("[round(time / 60)] minutes")
-	charge_history[history_index] = charge
+	time = ((time / 3600) > 1) ? ("[round(time / 3600)] hours, [round((time % 3600) / 60)] minutes") : ("[round(time / 60)] minutes, [round(time % 60)] seconds")
+	diff_history[history_index] = output_used - input_taken
 	history_index++
 
 /obj/machinery/power/smes/machinery_process()
