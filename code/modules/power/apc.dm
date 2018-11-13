@@ -76,6 +76,7 @@
 	var/areastring = null
 	var/obj/item/weapon/cell/cell
 	var/chargelevel = 0.0005  // Cap for how fast APC cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
+	var/cellused = 0
 	var/initalchargelevel = 0.0005  // Cap for how fast APC cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
 	var/start_charge = 90				// initial cell charge %
 	var/cell_type = /obj/item/weapon/cell/apc
@@ -125,6 +126,11 @@
 
 	var/emergency_lights = FALSE
 
+	var/time = 0
+	var/charge_mode = 0
+	var/list/diff_history
+	var/history_index = 1
+
 /obj/machinery/power/apc/updateDialog()
 	if (stat & (BROKEN|MAINT))
 		return
@@ -161,6 +167,7 @@
 /obj/machinery/power/apc/Initialize(mapload, var/ndir, var/building=0)
 	. = ..(mapload)
 	wires = new(src)
+	diff_history = list()
 
 	// offset 28 pixels in direction of dir
 	// this allows the APC to be embedded in a wall, yet still inside an area
@@ -854,6 +861,8 @@
 		"failTime" = failure_timer * 2,
 		"siliconUser" = istype(user, /mob/living/silicon),
 		"emergencyMode" = !emergency_lights,
+		"time" = time,
+		"charge_mode" = charge_mode,
 
 		"powerChannels" = list(
 			list(
@@ -894,7 +903,7 @@
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
         // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "apc.tmpl", "[area.name] - APC", 520, data["siliconUser"] ? 465 : 440)
+		ui = new(user, src, ui_key, "apc.tmpl", "[area.name] - APC", 665, data["siliconUser"] ? 485 : 460)
 		// when the ui is first opened this is the data it will use
 		ui.set_initial_data(data)
 		// open the new ui window
@@ -1132,8 +1141,9 @@
 		log_debug("Status: [main_status] - Excess: [excess] - Last Equip: [lastused_equip] - Last Light: [lastused_light] - Longterm: [longtermpower]")
 
 	if(cell && !shorted)
+		update_time()
 		// draw power from cell as before to power the area
-		var/cellused = min(cell.charge, CELLRATE * lastused_total)	// clamp deduction to a max, amount left in cell
+		cellused = min(cell.charge, CELLRATE * lastused_total)	// clamp deduction to a max, amount left in cell
 		cell.use(cellused)
 
 		if(excess > lastused_total)		// if power excess recharge the cell
@@ -1379,3 +1389,40 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 	locked = 1
 	update_icon()
 	return 1
+
+/obj/machinery/power/apc/proc/update_time()
+
+	// check if our list is still not initialized, if it is not - add data and not calculate
+	if(diff_history.len != 15)
+		diff_history += (lastused_charging) ? (-lastused_charging) : (lastused_total)
+		charge_mode = 2
+		time = (15 - diff_history.len) * 2
+		return
+
+	if(history_index > diff_history.len)
+		history_index = 1
+
+	var/average = 0
+	for(var/x in diff_history)
+		average += x
+
+	average = round(average) // to get rid of 0
+	average /= diff_history.len // take average
+	average *= 0.0005 // convert to same units as charge
+
+	// If it is negative - we are discharging
+	if(average < 0)
+		time = (cell.maxcharge - cell.charge) / average // how long will it take to fully charge APC
+		time /= -2 // Since machinery_process only occurs each 2 seconds
+		charge_mode = 1
+	else if(average != 0) // no division by 0
+		time = cell.charge / average // how long will it take to deplete APC
+		time *= 2 // Since machinery_process only occurs each 2 seconds but is backwards to charging
+		charge_mode = 0
+	else
+		time = 0
+		charge_mode = 3
+
+	time = ((time / 3600) > 1) ? ("[round(time / 3600)] hours, [round((time % 3600) / 60)] minutes") : ("[round(time / 60)] minutes, [round(time % 60)] seconds")
+	diff_history[history_index] = (lastused_charging) ? (-lastused_charging) : (lastused_total)
+	history_index++
