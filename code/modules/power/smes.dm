@@ -67,7 +67,8 @@
 
 	var/time = 0
 	var/charge_mode = 0
-	var/Queue/diff_history
+	var/list/charge_history
+	var/history_index = 1
 
 /obj/machinery/power/smes/drain_power(var/drain_check, var/surge, var/amount = 0)
 
@@ -87,7 +88,7 @@
 
 /obj/machinery/power/smes/Initialize()
 	. = ..()
-	diff_history = new/Queue()
+	charge_history = list()
 	SSpower.smes_units += src
 	big_spark = bind_spark(src, 5, alldirs)
 	small_spark = bind_spark(src, 3)
@@ -165,6 +166,43 @@
 			inputting = 1
 		// else inputting = 0, as set in process()
 
+/obj/machinery/power/smes/proc/update_time()
+
+	// check if our list is still not initialized, if it is not - add data and not calculate
+	if(charge_history.len != 70)
+		charge_history += charge
+		charge_mode = 2
+		time = (70 - charge_history.len) * 2
+		return
+
+	if(history_index > charge_history.len)
+		history_index = 1
+
+	var/diff = 0
+	var/i = 1
+	while(i < charge_history.len)
+		diff += (charge_history[i + 1] - charge_history[i])
+		i++
+
+	diff /= (charge_history.len - 1)
+
+	// If it is negative - we are discharging
+	if(diff > 0)
+		time = (capacity - charge) / diff // how long will it take to fully charge SMES
+		time /= 2 // Since machinery_process only occurs each 2 seconds
+		charge_mode = 1
+	else if(diff != 0) // no division by 0
+		time = charge / diff // how long will it take to deplete SMES
+		time /= -2 // Since machinery_process only occurs each 2 seconds
+		charge_mode = 0
+	else
+		time = 0
+		charge_mode = 3
+
+	time = ((time / 360) > 1) ? ("[round(time / 360)] hours, [round(((time / 360) - round(time / 360)) * 60)] minutes") : ("[round(time / 60)] minutes")
+	charge_history[history_index] = charge
+	history_index++
+
 /obj/machinery/power/smes/machinery_process()
 	if(stat & BROKEN)	return
 	if(failure_timer)	// Disabled by gridcheck.
@@ -180,19 +218,7 @@
 	last_chrg = inputting
 	last_onln = outputting
 
-	if(diff_history.size() == 5)
-		var/list/sorted = diff_history.as_list()
-		sorted = sortTim(sorted)
-		if(sorted[sorted.len/2] < 0)
-			time = 2 * ((capacity - charge) / (sorted[sorted.len/2] * SMESRATE)) // how long will it take to fully charge SMES
-			time = abs(time)
-		if(sorted[sorted.len/2] != 0)
-			time = 2 * (charge / (sorted[sorted.len/2] * SMESRATE)) // how long will it take to deplete SMES given current charge and average of drain(input - output).
-		time /= 60 //converting to minutes
-		charge_mode = (sorted[sorted.len/2] < 0)
-		diff_history.dequeue()
-	diff_history.enqueue(output_used - input_taken)
-
+	update_time()
 
 	//inputting
 	if(input_attempt && (!input_pulsed && !input_cut))
@@ -377,7 +403,7 @@
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
         // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "smes.tmpl", "SMES Unit", 540, 380)
+		ui = new(user, src, ui_key, "smes.tmpl", "SMES Unit", 540, 420)
 		// when the ui is first opened this is the data it will use
 		ui.set_initial_data(data)
 		// open the new ui window
