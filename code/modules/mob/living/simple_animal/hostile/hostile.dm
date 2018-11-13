@@ -302,8 +302,9 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		if (isliving(current))
 			var/mob/living/M = current
 			current_health = M.health
-			if(L.health < current_health)
-				return TRUE
+		if(L.health < current_health)
+			return TRUE
+	return FALSE
 
 /mob/living/simple_animal/hostile/proc/validator_mecha(var/obj/mecha/M, var/atom/current)
 	if(isliving(current)) // We prefer mobs over anything else
