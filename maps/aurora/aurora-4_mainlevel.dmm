@@ -2839,10 +2839,22 @@
 /turf/simulated/floor/plating,
 /area/maintenance/civ)
 "afH" = (
-/obj/effect/decal/cleanable/generic,
-/obj/random/junk,
-/turf/simulated/floor/tiled,
-/area/maintenance/civ)
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
 "afI" = (
 /obj/structure/barricade,
 /obj/structure/grille,
@@ -3030,6 +3042,18 @@
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
@@ -3265,9 +3289,14 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/civ)
 "agC" = (
-/obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/tiled,
-/area/maintenance/civ)
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
 "agD" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/security_starboard)
@@ -3549,16 +3578,24 @@
 /turf/simulated/floor/plating,
 /area/maintenance/civ)
 "ahg" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/random/junk,
-/turf/simulated/floor/tiled,
-/area/maintenance/civ)
+/obj/machinery/power/apc{
+	dir = 2;
+	name = "south bump";
+	pixel_y = -24
+	},
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
 "ahh" = (
 /obj/machinery/door/airlock/command{
 	id_tag = null;
 	name = "Unlabeled Airlock";
 	req_access = list(19)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "ahi" = (
@@ -3940,9 +3977,9 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "ahQ" = (
@@ -3969,12 +4006,16 @@
 /turf/simulated/floor/plating,
 /area/maintenance/civ)
 "ahS" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Maintenance Access";
-	req_access = list(12)
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/alarm{
+	pixel_y = 23
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/civ)
+/area/maintenance/security_starboard)
 "ahT" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/civ)
@@ -6275,18 +6316,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "ami" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/machinery/alarm{
+	pixel_y = 23
 	},
-/obj/structure/table/reinforced/steel,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/item/weapon/hand_tele,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
 "amj" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -10543,10 +10577,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "atu" = (
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
@@ -13632,12 +13666,10 @@
 /turf/simulated/floor/plating,
 /area/lawoffice)
 "ayv" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 30
 	},
-/obj/structure/bed/chair{
-	dir = 4
-	},
+/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "ayw" = (
@@ -14471,7 +14503,7 @@
 /turf/simulated/floor/wood,
 /area/lawoffice)
 "azV" = (
-/obj/structure/bed/chair{
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -15385,12 +15417,9 @@
 /turf/simulated/floor/plating,
 /area/lawoffice)
 "aBs" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
+/obj/structure/bed/chair{
+	dir = 8
 	},
-/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aBt" = (
@@ -16404,10 +16433,9 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aCZ" = (
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 25;
-	pixel_y = 0
+/obj/machinery/firealarm/east,
+/obj/structure/bed/chair{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
@@ -17513,9 +17541,10 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aEQ" = (
-/obj/machinery/computer/guestpass{
-	pixel_x = 32;
-	pixel_y = 0
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_x = 0
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
@@ -18882,10 +18911,13 @@
 /turf/simulated/floor/wood,
 /area/lawoffice)
 "aGN" = (
-/obj/item/device/radio/intercom{
+/obj/machinery/alarm{
 	dir = 8;
-	name = "Station Intercom (General)";
-	pixel_x = 24
+	pixel_x = 25;
+	pixel_y = 0
+	},
+/obj/structure/bed/chair{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
@@ -24133,7 +24165,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/wall,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/heads/hop)
 "aPF" = (
 /obj/machinery/door/firedoor,
@@ -65244,6 +65276,52 @@
 "cio" = (
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/skipjack_station/cavern)
+"cip" = (
+/obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
+	req_access = list(12)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/civ)
+"ciq" = (
+/obj/structure/table/reinforced/steel,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/nuke_storage)
+"cir" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/table/reinforced/steel,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/nuke_storage)
+"cis" = (
+/obj/machinery/computer/guestpass{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
+"cit" = (
+/obj/item/device/radio/intercom{
+	dir = 8;
+	name = "Station Intercom (General)";
+	pixel_x = 24
+	},
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 
 (1,1,1) = {"
 aaa
@@ -102077,7 +102155,7 @@ abp
 abM
 abI
 act
-acB
+afH
 aaT
 adg
 acB
@@ -102334,7 +102412,7 @@ aad
 aad
 aad
 aad
-aah
+agC
 acU
 acU
 acU
@@ -102591,7 +102669,7 @@ aab
 aaa
 aaa
 aad
-aah
+ahg
 acU
 adh
 ady
@@ -103644,9 +103722,9 @@ asa
 aah
 avd
 awI
-ayv
 azV
-aBs
+awK
+aEQ
 aCX
 aEP
 awK
@@ -103887,7 +103965,7 @@ adn
 acV
 adA
 adl
-ahS
+cip
 adi
 adi
 adk
@@ -104390,7 +104468,7 @@ aaa
 aaa
 aaa
 aad
-aah
+ami
 acU
 acV
 adD
@@ -104414,13 +104492,13 @@ agD
 agD
 acn
 avd
-awL
-awK
-azX
-awK
+ayv
+aBs
 aCZ
-aEQ
+aBs
 aGN
+cis
+cit
 avd
 aKg
 aLT
@@ -106447,22 +106525,22 @@ aaa
 aaa
 aad
 aah
-acV
+cip
 adn
 adI
 adi
 aej
 aej
 afG
-adi
-agC
-ahg
+adk
+adl
+adJ
 ahT
 aiO
 aiO
 aiO
-alj
-ami
+ciq
+cir
 anq
 alj
 alj
@@ -106959,19 +107037,19 @@ aaa
 aaa
 aaa
 aaa
-aad
-aad
-acU
+agD
+ahh
+ahT
 adk
 adk
 acV
 adm
 acV
-afH
+adF
 acV
-agD
-ahh
-agD
+acV
+acV
+ahT
 aiN
 aiN
 aiN
@@ -107216,19 +107294,19 @@ aaa
 aaa
 aaa
 aab
-aab
-aab
-acU
-acU
-acU
-acU
-acU
-acU
-acU
-acU
 agD
 aah
-agD
+ahT
+ahT
+ahT
+ahT
+ahT
+ahT
+ahT
+ahT
+ahT
+ahT
+ahT
 aiN
 aiN
 aiN
@@ -107473,17 +107551,17 @@ aaa
 aaa
 aaa
 aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
 agD
+aah
+aah
+aah
+aah
+aah
+aah
+atu
+aah
+aah
+aah
 aah
 agD
 agD
@@ -107496,7 +107574,7 @@ agD
 agD
 agD
 agD
-atu
+ahS
 anr
 anr
 anr
@@ -107730,19 +107808,19 @@ aaa
 aaa
 aaa
 aaa
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
 agD
 aah
 aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+aah
+ahO
 aah
 aah
 aah
@@ -107987,16 +108065,16 @@ aaa
 aaa
 aaa
 aaa
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+agD
+agD
+agD
+agD
+agD
+agD
+agD
+agD
+agD
+agD
 agD
 agD
 agD
