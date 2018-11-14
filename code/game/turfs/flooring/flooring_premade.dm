@@ -260,6 +260,6 @@
 	initial_flooring = /decl/flooring/diamond
 
 /turf/simulated/floor/vaurca
-	name = "alien floor floor"
+	name = "alien floor"
 	icon = 'icons/turf/flooring/misc.dmi'
 	icon_state = "vaurca"
