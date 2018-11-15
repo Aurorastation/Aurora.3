@@ -1,5 +1,9 @@
-language: generic
+language: python
 sudo: false
+
+python:
+    - "2.7"
+    - "3.7"
 
 env:
   global:
@@ -31,7 +35,6 @@ addons:
       - libssl-dev:i386
       - pkg-config:i386
       - gcc-multilib
-      - python3.6
 
 node_js:
   - "10"
@@ -66,8 +69,8 @@ jobs:
   include:
     - stage: code check
       install:
-        - pip install --user PyYaml -q
-        - pip install --user beautifulsoup4 -q
+        - pip install PyYaml -q
+        - pip install beautifulsoup4 -q
         - chmod +x ./vueui/install
         - ./vueui/install
         - chmod +x ./scripts/rust_g.sh
@@ -87,5 +90,4 @@ jobs:
         - python tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
         - export MAPROOT="/maps/"
         - export TGM=1
-        - python3 -V
         - python3 tools/mapmerge2/mapmerge_travis.py
