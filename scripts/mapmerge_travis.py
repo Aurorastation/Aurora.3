@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import sys
+from collections import defaultdict
+import shutil
 sys.path.insert(0, '/../tools/mapmerge2')
 import frontend
-import shutil
 import mapmerge
 from dmm import *
-from collections import defaultdict
 
 if __name__ == '__main__':
 

@@ -67,6 +67,7 @@ jobs:
       install:
         - pip install --user PyYaml -q
         - pip install --user beautifulsoup4 -q
+        - pip install --user collections -q
         - chmod +x ./vueui/install
         - ./vueui/install
         - chmod +x ./scripts/rust_g.sh
