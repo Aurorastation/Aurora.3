@@ -140,7 +140,7 @@
 		/obj/item/clothing/head/helmet/gladiator        = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/plaguedoctorhat         = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/unathi           = TRADER_THIS_TYPE,
-		/obj/item/clothing/head/helmet/tank				= TRADER_ALL,
+		/obj/item/clothing/head/helmet/tank             = TRADER_ALL,
 		/obj/item/clothing/glasses/monocle              = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/smokable/pipe           = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/gas/plaguedoctor        = TRADER_THIS_TYPE,
