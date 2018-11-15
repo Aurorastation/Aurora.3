@@ -70,6 +70,7 @@ jobs:
       install:
         - pip install PyYaml -q
         - pip install beautifulsoup4 -q
+        - pip install bidict
         - chmod +x ./vueui/install
         - ./vueui/install
         - chmod +x ./scripts/rust_g.sh

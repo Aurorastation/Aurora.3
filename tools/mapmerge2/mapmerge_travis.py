@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
+import os
 from collections import defaultdict
+import frontend
 import shutil
 import mapmerge
 from dmm import *
@@ -7,6 +9,7 @@ from dmm import *
 if __name__ == '__main__':
 
     list_of_files = list()
+    settings = frontend.read_settings()
     for root, directories, filenames in os.walk(settings.map_folder):
         for filename in [f for f in filenames if f.endswith(".dmm")]:
             list_of_files.append(pathlib.Path(root, filename))
