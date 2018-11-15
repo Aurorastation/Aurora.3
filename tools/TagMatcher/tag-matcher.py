@@ -19,6 +19,7 @@ THE SOFTWARE.
 '''
 import argparse, re, sys
 from os import path, walk
+import io
 
 opt = argparse.ArgumentParser()
 opt.add_argument('dir', help='The directory to scan for *.dm files with non-matching spans')
@@ -60,7 +61,7 @@ def get_tag_matches(match_list, line):
 # Support def that simply checks if a given dictionary in the format given by populate_match_list() contains any value that is non-zero.
 # That is, a tag which had a non-equal amount of open/closing tags.
 def has_mismatch(match_list):
-    for tag, match_number in match_list.iteritems():
+    for tag, match_number in match_list.items():
         if(match_number != 0):
             return 1
     return 0
@@ -70,11 +71,10 @@ for root, subdirs, files in walk(args.dir):
     for filename in files:
         if filename.endswith('.dm'):
             file_path = path.join(root, filename)
-            with open(file_path, 'r') as f:
-                contents = f.read()
+            with io.open(file_path, 'r') as f:
                 # For each file, generate the match dictionary.
                 matches[file_path] = populate_match_list()
-                for x in contents:
+                for x in f:
                     # Then for each line in the file, conduct the tuple open/close matching.
                     get_tag_matches(matches[file_path], x)
 
@@ -82,10 +82,10 @@ for root, subdirs, files in walk(args.dir):
 # Loops over all matches and checks if there is a mismatch of tags.
 # If so, then and only then is the corresponding file path printed along with the number of unmatched open/close tags.
 total_mismatch = 0
-for file, match_list in matches.iteritems():
+for file, match_list in matches.items():
     if(has_mismatch(match_list)):
         print(file)
-        for tag, match_number in match_list.iteritems():
+        for tag, match_number in match_list.items():
             # A positive number means an excess of opening tag, a negative number means an excess of closing tags.
             if(match_number > 0):
                 total_mismatch += match_number
