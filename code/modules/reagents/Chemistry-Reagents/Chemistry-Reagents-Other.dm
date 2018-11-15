@@ -527,7 +527,8 @@
 	reagent_state = LIQUID
 	color = "#000000"
 	taste_description = "tar"
-	metabolism = REM * (1/60)
+	metabolism = (1/30) //1u = 30 seconds, 1 transform.
+	metabolism_min = (1/30)*0.5
 	ingest_mul = 0
 	breathe_mul = 0
 	touch_mul = 0
@@ -536,24 +537,30 @@
 
 /datum/reagent/venenum/initial_effect(var/mob/living/carbon/M, var/alien)
 	stored_dna = M.dna.Clone()
+	to_chat(M,span("warning","Your skin starts crawling..."))
 
 /datum/reagent/venenum/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	stored_value += removed
 	if(stored_value >= 1)
 		M.visible_message(\
 			"<span class='warning'>/The [M]'s body shifts and contorts!</span>",\
-			"<span class='danger'>Your body painfully shifts and contorts!</span>",\
+			"<span class='danger'>Your body shifts and contorts!</span>",\
 			"<span class='notice'>You hear strange flesh-like noises.</span>"\
 		)
 		scramble(TRUE, M, 100)
-		M.adjustHalLoss(10)
-		M.dna.real_name = random_name(M.gender, M.dna.species)
+		M.adjustHalLoss(50)
 		M.UpdateAppearance()
+		M.dna.real_name = random_name(M.gender, M.dna.species)
+		M.real_name = M.dna.real_name
 		stored_value -= 1
 
-/datum/reagent/venenum/final_effect(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/venenum/final_effect(var/mob/living/carbon/M)
 	if(stored_dna)
 		M.dna = stored_dna.Clone()
+		M.real_name = M.dna.real_name
+		M.UpdateAppearance()
+		M.adjustHalLoss(25)
+		to_chat(M,span("warning","You seem back to your normal self."))
 
 //Secret chems.
 //Shhh don't tell no one.
