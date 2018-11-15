@@ -84,3 +84,6 @@ jobs:
         - md5sum -c - <<< "51704c822012212faa577079db2e11fd *vueui/template.html"
         - python tools/TagMatcher/tag-matcher.py ../..
         - python tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
+        - export MAPROOT= /maps/
+        - export TGM=1
+        - python scripts/mapmerge_travis.py
