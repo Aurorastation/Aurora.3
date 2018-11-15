@@ -1,8 +1,5 @@
-language: python
+language: generic
 sudo: false
-
-python:
-    - "3.6"
 
 env:
   global:
@@ -34,6 +31,7 @@ addons:
       - libssl-dev:i386
       - pkg-config:i386
       - gcc-multilib
+      - python3
 
 node_js:
   - "10"
@@ -88,6 +86,4 @@ jobs:
         - md5sum -c - <<< "51704c822012212faa577079db2e11fd *vueui/template.html"
         - python tools/TagMatcher/tag-matcher.py ../..
         - python tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
-        - export MAPROOT="/maps/"
-        - export TGM=1
         - python3 tools/mapmerge2/mapmerge_travis.py
