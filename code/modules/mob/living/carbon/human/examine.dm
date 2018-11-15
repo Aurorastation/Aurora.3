@@ -233,20 +233,16 @@
 	else if (src.stat)
 		msg += span("warning", "[T.He] [T.is] not responding to anything around [T.him].\n")
 
+	if(fire_stacks)
+		msg += "[T.He] [T.is] covered in some liquid.\n"
 	if(on_fire)
 		msg += "<span class='danger'>[T.He] [T.is] on fire!</span>\n"
-
-	else if(fire_stacks)
-		msg += "[T.He] [T.is] covered in some liquid.\n"
-
 	msg += "<span class='warning'>"
 	if (!(src.species.flags & NO_CHUBBY) && max_nutrition > 0)
 		if(nutrition / max_nutrition <= CREW_NUTRITION_VERYHUNGRY)
-
 			msg += "[T.He] [T.is] severely malnourished.\n"
 		else if(nutrition / max_nutrition >= CREW_NUTRITION_OVEREATEN)
 			msg += "[T.He] [T.is] quite chubby.\n"
-
 	if(max_hydration > 0)
 		if(hydration / max_hydration <= CREW_HYDRATION_VERYTHIRSTY)
 			msg += "[T.He] [T.is] severely dehydrated.\n"
