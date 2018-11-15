@@ -31,7 +31,7 @@ addons:
       - libssl-dev:i386
       - pkg-config:i386
       - gcc-multilib
-      - python3.7
+      - python3.6
 
 node_js:
   - "10"
