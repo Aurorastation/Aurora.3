@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
-import sys
 from collections import defaultdict
 import shutil
-sys.path.insert(0, '/../tools/mapmerge2')
-import frontend
 import mapmerge
 from dmm import *
 
@@ -19,4 +16,4 @@ if __name__ == '__main__':
         old_map = DMM.from_file(fname + ".backup")
         new_map = DMM.from_file(fname)
         mapmerge.merge_map(new_map, old_map).to_file(fname, 1)
-    print("Maps checked, no issues found.")
+    print("Maps scanning complete, no issues were found.")
