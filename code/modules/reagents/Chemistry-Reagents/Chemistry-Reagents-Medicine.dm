@@ -27,7 +27,7 @@
 /datum/reagent/epinephrine
 	name = "Epinephrine"
 	id = "epinephrine"
-	description = "Epinephrine, also known as adrenaline, is a super strength stimulant and painkiller intended to keep a patient alive while in critical health."
+	description = "Epinephrine, also known as adrenaline, is a super strength stimulant and painkiller intended to keep a patient alive while in critical condition."
 	reagent_state = LIQUID
 	color = "#FFFFFF"
 	overdose = REAGENTS_OVERDOSE
@@ -219,7 +219,7 @@
 /datum/reagent/atropine
 	name = "Atropine"
 	id = "atropine"
-	description = "Atropine is an emergency stabilizing reagent designed to heal suffocation, blunt trauma, and burns at critical patient health. Side effects include toxin increase."
+	description = "Atropine is an emergency stabilizing reagent designed to heal suffocation, blunt trauma, and burns in critical condition. Side effects include toxin increase."
 	reagent_state = LIQUID
 	metabolism = REM * 4
 	color = "#8040FF"
