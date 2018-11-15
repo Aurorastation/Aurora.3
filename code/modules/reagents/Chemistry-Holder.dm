@@ -408,7 +408,7 @@
 
 	if(breathe_amount)
 		target.emote("cough")
-		to_chat(target,span("danger","You accidentally breath in some of the chemicals!"))
+		to_chat(target,span("danger","You accidentally breathe in some of the chemicals!"))
 
 	return trans_to_mob(target, amount - taste_amount - breathe_amount - splash_amount, CHEM_TOUCH, multiplier, copy) //Touching inside here.
 
