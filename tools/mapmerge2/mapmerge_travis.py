@@ -5,6 +5,21 @@ import frontend
 import shutil
 from dmm import *
 
+def read_settings():
+    # discover map folder if needed
+    try:
+        map_folder = "/maps/"
+    except KeyError:
+        map_folder = '_maps/'
+        for _ in range(8):
+            if os.path.exists(map_folder):
+                break
+            map_folder = os.path.join('..', map_folder)
+        else:
+            map_folder = None
+
+    return Settings(map_folder, 1)
+
 class DMM_TRAVIS(DMM):
     def _presave_checks(self):
         # last-second handling of bogus keys to help prevent and fix broken maps
@@ -102,7 +117,6 @@ if __name__ == '__main__':
             list_of_files.append(pathlib.Path(root, filename))
 
     for fname in list_of_files:
-        shutil.copyfile(fname, fname + ".before")
         shutil.copyfile(fname, fname + ".backup")
         old_map = DMM.from_file(fname + ".backup")
         new_map = DMM.from_file(fname)

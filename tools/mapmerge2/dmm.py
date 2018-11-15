@@ -64,7 +64,7 @@ class DMM:
         max_key = max_key_for(self.key_length)
         bad_keys = {key: 0 for key in self.dictionary.keys() if key > max_key}
         if bad_keys:
-            print(f"Warning: fixing {len(bad_keys)} overflowing keys")
+            print("Warning: fixing {} overflowing keys".format(len(bad_keys)))
             for k in bad_keys:
                 # create a new non-bogus key and transfer that value to it
                 new_key = bad_keys[k] = self.generate_new_key()
@@ -79,7 +79,7 @@ class DMM:
         free_keys = max_key_for(self.key_length) - len(self.dictionary)
         while free_keys < desired:
             if self.key_length >= MAX_KEY_LENGTH:
-                raise KeyTooLarge(f"can't expand beyond key length {MAX_KEY_LENGTH} ({len(self.dictionary)} keys)")
+                raise KeyTooLarge("can't expand beyond key length {} ({} keys)".format(MAX_KEY_LENGTH, len(self.dictionary)))
             self.key_length += 1
             free_keys = max_key_for(self.key_length) - len(self.dictionary)
         return free_keys
@@ -119,7 +119,7 @@ def key_to_num(key):
 
 def num_to_key(num, key_length, allow_overflow=False):
     if num >= (BASE ** key_length if allow_overflow else max_key_for(key_length)):
-        raise KeyTooLarge(f"num={num} does not fit in key_length={key_length}")
+        raise KeyTooLarge("num={} does not fit in key_length={}".format(num, key_length))
 
     result = ''
     while num:
@@ -183,13 +183,13 @@ def parse_map_atom(atom):
 # TGM writer
 
 def save_tgm(dmm, output):
-    output.write(f"{TGM_HEADER}\n")
+    output.write("{}\n".format(TGM_HEADER))
     if dmm.header:
-        output.write(f"{dmm.header}\n")
+        output.write("{}\n".format(dmm.header))
 
     # write dictionary in tgm format
     for key, value in sorted(dmm.dictionary.items()):
-        output.write(f'"{num_to_key(key, dmm.key_length)}" = (\n')
+        output.write('"{}" = (\n'.format(num_to_key(key, dmm.key_length)))
         for idx, thing in enumerate(value):
             in_quote_block = False
             in_varedit_block = False
@@ -223,9 +223,9 @@ def save_tgm(dmm, output):
     for z in range(1, max_z + 1):
         output.write("\n")
         for x in range(1, max_x + 1):
-            output.write(f"({x},{1},{z}) = {{\"\n")
+            output.write("({},{},{}) = {{\"\n".format(x, 1, z))
             for y in range(1, max_y + 1):
-                output.write(f"{num_to_key(dmm.grid[x, y, z], dmm.key_length)}\n")
+                output.write("{}\n".format(num_to_key(dmm.grid[x, y, z], dmm.key_length)))
             output.write("\"}\n")
 
 # ----------
@@ -233,25 +233,25 @@ def save_tgm(dmm, output):
 
 def save_dmm(dmm, output):
     if dmm.header:
-        output.write(f"{dmm.header}\n")
+        output.write("{}\n".format(dmm.header))
 
     # writes a tile dictionary the same way Dreammaker does
     for key, value in sorted(dmm.dictionary.items()):
-        output.write(f'"{num_to_key(key, dmm.key_length)}" = ({",".join(value)})\n')
+        output.write('"{}" = ({})\n'.format(num_to_key(key, dmm.key_length), ",".join(value)))
 
     output.write("\n")
 
     # writes a map grid the same way Dreammaker does
     max_x, max_y, max_z = dmm.size
     for z in range(1, max_z + 1):
-        output.write(f"(1,1,{z}) = {{\"\n")
+        output.write("(1,1,{}) = {{\"\n".format(z))
 
         for y in range(1, max_y + 1):
             for x in range(1, max_x + 1):
                 try:
                     output.write(num_to_key(dmm.grid[x, y, z], dmm.key_length))
                 except KeyError:
-                    print(f"Key error: ({x}, {y}, {z})")
+                    print("Key error: ({}, {}, {})".format(x, y, z))
             output.write("\n")
         output.write("\"}\n")
 

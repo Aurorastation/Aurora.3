@@ -7,14 +7,14 @@ from collections import defaultdict
 def merge_map(new_map, old_map, delete_unused=False):
     if new_map.key_length != old_map.key_length:
         print("Warning: Key lengths differ, taking new map")
-        print(f"  Old: {old_map.key_length}")
-        print(f"  New: {new_map.key_length}")
+        print("  Old: {}".format(old_map.key_length))
+        print("  New: {}".format(new_map.key_length))
         return new_map
 
     if new_map.size != old_map.size:
         print("Warning: Map dimensions differ, taking new map")
-        print(f"  Old: {old_map.size}")
-        print(f"  New: {new_map.size}")
+        print("  Old: {}".format(old_map.size))
+        print("  New: {}".format(new_map.size))
         return new_map
 
     key_length, size = old_map.key_length, old_map.size
@@ -66,7 +66,7 @@ def merge_map(new_map, old_map, delete_unused=False):
 
     # step two: delete unused keys
     if unused_keys:
-        print(f"Notice: Trimming {len(unused_keys)} unused dictionary keys.")
+        print("Notice: Trimming {} unused dictionary keys.".format(len(unused_keys)))
         for key in unused_keys:
             del merged.dictionary[key]
 
@@ -75,10 +75,10 @@ def merge_map(new_map, old_map, delete_unused=False):
         new_tile = new_map.dictionary[new_map.grid[x, y, z]]
         merged_tile = merged.dictionary[merged.grid[x, y, z]]
         if new_tile != merged_tile:
-            print(f"Error: the map has been mangled! This is a mapmerge bug!")
-            print(f"At {x},{y},{z}.")
-            print(f"Should be {new_tile}")
-            print(f"Instead is {merged_tile}")
+            print("Error: the map has been mangled! This is a mapmerge bug!")
+            print("At {},{},{}.".format(x, y, z))
+            print("Should be {}".format(new_tile))
+            print("Instead is {}".format(merged_tile))
             raise RuntimeError()
 
     return merged

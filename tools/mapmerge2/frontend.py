@@ -93,26 +93,26 @@ def process(settings, verb, *, modify=True, backup=None):
         return
 
     if modify:
-        print(f"Maps WILL{'' if settings.tgm else ' NOT'} be converted to tgm.")
+        print("Maps WILL{} be converted to tgm.".format('' if settings.tgm else ' NOT'))
         if backup:
             print("Backups will be created with a \".before\" extension.")
         else:
             print("Warning: backups are NOT being taken.")
 
-    print(f"\nWill {verb} these maps:")
+    print("\nWill {} these maps:".format(verb))
     for path_str in maps:
         print(pretty_path(settings, path_str))
 
     try:
-        confirm = input(f"\nPress Enter to {verb}...\n")
+        confirm = input("\nPress Enter to {}...\n".format(verb))
     except KeyboardInterrupt:
         confirm = "^C"
     if confirm != "":
-        print(f"\nAborted.")
+        print("\nAborted.")
         return
 
     for path_str in maps:
-        print(f' - {pretty_path(settings, path_str)}')
+        print(" - {}".format(pretty_path(settings, path_str)))
 
         if backup:
             shutil.copyfile(path_str, path_str + ".before")
@@ -120,7 +120,7 @@ def process(settings, verb, *, modify=True, backup=None):
         try:
             yield path_str
         except Exception as e:
-            print(f"Error: {e}")
+            print("Error: {}".format(e))
         else:
             print("Succeeded.")
 
