@@ -1,31 +1,36 @@
 #!/usr/bin/env python3
 import os
 from collections import defaultdict
-import frontend
 import shutil
 from dmm import *
 
 class DMM_TRAVIS(DMM):
-    def _presave_checks(self):
+
+    def to_file(self, fname, tgm = True):
+        self._presave_checks(fname)
+        with open(fname, 'w', newline='\n', encoding=ENCODING) as f:
+            (save_tgm if tgm else save_dmm)(self, f)
+
+    def _presave_checks(self, fname):
         # last-second handling of bogus keys to help prevent and fix broken maps
         self._ensure_free_keys(0)
         max_key = max_key_for(self.key_length)
         bad_keys = {key: 0 for key in self.dictionary.keys() if key > max_key}
         if bad_keys:
-            raise RuntimeError("Bad keys detected, please run mapmerge2 locally and fix errors.")
+            raise RuntimeError("Bad keys detected, please run mapmerge2 on {} locally and fix errors.".format(fname))
 
-def merge_map(new_map, old_map, delete_unused=False):
+def merge_map(new_map, old_map, name):
     if new_map.key_length != old_map.key_length:
         print("Warning: Key lengths differ, taking new map")
-        print(f"  Old: {old_map.key_length}")
-        print(f"  New: {new_map.key_length}")
-        raise RuntimeError()
+        print("  Old: {}".format(old_map.key_length))
+        print("  New: {}".format(new_map.key_length))
+        raise RuntimeError("\nIn file {}".format(name))
 
     if new_map.size != old_map.size:
         print("Warning: Map dimensions differ, taking new map")
-        print(f"  Old: {old_map.size}")
-        print(f"  New: {new_map.size}")
-        raise RuntimeError()
+        print("  Old: {}".format(old_map.size))
+        print("  New: {}".format(new_map.size))
+        raise RuntimeError("\nIn file {}".format(name))
 
     key_length, size = old_map.key_length, old_map.size
     merged = DMM(key_length, size)
@@ -78,18 +83,18 @@ def merge_map(new_map, old_map, delete_unused=False):
     if unused_keys:
         for key in unused_keys:
             del merged.dictionary[key]
-        raise RuntimeError("Notice: Trimming" + {len(unused_keys)} + "unused dictionary keys. Please run mapmerge2 locally to trim them.")
+        raise RuntimeError("Error: {} unused dictionary keys. Please run mapmerge2 on {} locally to trim them.".format(len(unused_keys), name))
 
     # sanity check: that the merged map equals the new map
     for z, y, x in new_map.coords_zyx:
         new_tile = new_map.dictionary[new_map.grid[x, y, z]]
         merged_tile = merged.dictionary[merged.grid[x, y, z]]
         if new_tile != merged_tile:
-            print(f"Error: the map has been mangled! This is a mapmerge bug!")
-            print(f"At {x},{y},{z}.")
-            print(f"Should be {new_tile}")
-            print(f"Instead is {merged_tile}")
-            raise RuntimeError()
+            print("Error: the map has been mangled! This is a mapmerge bug!")
+            print("At {},{},{}.".format(x, y, z))
+            print("Should be {}".format(new_tile))
+            print("Instead is {}".format(merged_tile))
+            raise RuntimeError("map name: {}".format(name))
 
     return merged
 
@@ -102,7 +107,7 @@ if __name__ == '__main__':
 
     for fname in list_of_files:
         shutil.copyfile(fname, fname + ".backup")
-        old_map = DMM.from_file(fname + ".backup")
-        new_map = DMM.from_file(fname)
-        merge_map(new_map, old_map).to_file(fname, 1)
+        old_map = DMM_TRAVIS.from_file(fname + ".backup")
+        new_map = DMM_TRAVIS.from_file(fname)
+        merge_map(new_map, old_map, fname).to_file(fname, 1)
     print("Maps scanning complete, no issues were found.")
