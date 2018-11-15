@@ -8,9 +8,14 @@ from dmm import *
 class DMM_TRAVIS(DMM):
 
     def to_file(self, fname, tgm = True):
-        self._presave_checks(fname)
-        with open(fname, 'w', newline='\n', encoding=ENCODING) as f:
-            (save_tgm if tgm else save_dmm)(self, f)
+        try:
+            self._presave_checks(fname)
+            with open(fname, 'w', newline='\n', encoding=ENCODING) as f:
+                (save_tgm if tgm else save_dmm)(self, f)
+        except KeyTooLarge:
+            print(KeyTooLarge)
+            print("\nKey is too large, run mapmerge2 on {} locally and fix errors.".format(fname))
+            raise RuntimeError()
 
     def _presave_checks(self, fname):
         # last-second handling of bogus keys to help prevent and fix broken maps
