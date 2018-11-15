@@ -512,6 +512,7 @@
 	reagent_state = SOLID
 	color = "#000000"
 	taste_description = "pepper"
+	fallback_specific_heat = 1.25
 
 /datum/reagent/enzyme
 	name = "Universal Enzyme"
@@ -522,6 +523,7 @@
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "sweetness"
 	taste_mult = 0.7
+	fallback_specific_heat = 1
 
 /datum/reagent/frostoil
 	name = "Frost Oil"
@@ -551,10 +553,13 @@
 	color = "#B31008"
 	taste_description = "hot peppers"
 	taste_mult = 1.5
+	fallback_specific_heat = 2
+
 	var/agony_dose = 5
 	var/agony_amount = 1
 	var/discomfort_message = "<span class='danger'>Your insides feel uncomfortably hot!</span>"
 	var/slime_temp_adj = 10
+
 
 /datum/reagent/capsaicin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(0.5 * removed)
@@ -576,6 +581,9 @@
 		M.bodytemperature += rand(0, 15) + slime_temp_adj
 	holder.remove_reagent("frostoil", 5)
 
+#define EYES_PROTECTED 1
+#define EYES_MECH 2
+
 /datum/reagent/capsaicin/condensed
 	name = "Condensed Capsaicin"
 	id = "condensedcapsaicin"
@@ -588,10 +596,9 @@
 	agony_amount = 4
 	discomfort_message = "<span class='danger'>You feel like your insides are burning!</span>"
 	slime_temp_adj = 15
+	fallback_specific_heat = 4
 
 /datum/reagent/capsaicin/condensed/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-#define EYES_PROTECTED 1
-#define EYES_MECH 2
 	var/eyes_covered = 0
 	var/mouth_covered = 0
 	var/no_pain = 0
@@ -647,10 +654,7 @@
 			M.custom_emote(2, "[pick("coughs!","coughs hysterically!","splutters!")]")
 		M.apply_effect(40, AGONY, 0)
 
-#undef EYES_PROTECTED
-#undef EYES_MECH
-
-/datum/reagent/condensedcapsaicin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/capsaicin/condensed/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(H.species && (H.species.flags & NO_PAIN))
@@ -665,6 +669,9 @@
 		M.bodytemperature += rand(15, 30)
 	holder.remove_reagent("frostoil", 5)
 
+#undef EYES_PROTECTED
+#undef EYES_MECH
+
 /datum/reagent/spacespice
 	name = "Space Spice"
 	id = "spacespice"
@@ -673,6 +680,7 @@
 	color = "#e08702"
 	taste_description = "spices"
 	taste_mult = 1.5
+	fallback_specific_heat = 2
 
 /datum/reagent/browniemix
 	name = "Brownie Mix"
@@ -3789,4 +3797,4 @@
 	description = "A delicious seasonal flavoring."
 	color = "#AE771C"
 	taste_description = "autumn bliss"
-	
+

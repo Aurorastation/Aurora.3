@@ -666,6 +666,7 @@
 #include "code\game\mecha\combat\honker.dm"
 #include "code\game\mecha\combat\marauder.dm"
 #include "code\game\mecha\combat\phazon.dm"
+#include "code\game\mecha\combat\tank.dm"
 #include "code\game\mecha\equipment\mecha_equipment.dm"
 #include "code\game\mecha\equipment\tracking_beacon.dm"
 #include "code\game\mecha\equipment\tools\medical_tools.dm"

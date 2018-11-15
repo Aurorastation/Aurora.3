@@ -451,6 +451,7 @@
 	reagent_state = SOLID
 	color = "#FFFF00"
 	taste_description = "chalk"
+	default_temperature = 600 //Kelvin
 
 /datum/reagent/cryosurfactant
 	name = "Cryosurfactant"
@@ -459,6 +460,7 @@
 	reagent_state = LIQUID
 	color = "#00FFFF"
 	taste_description = "needles"
+	default_temperature = 100 //Kelvin
 
 /datum/reagent/luminol/touch_obj(var/obj/O)
 	O.reveal_blood()

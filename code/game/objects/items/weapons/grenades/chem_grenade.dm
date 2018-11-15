@@ -17,9 +17,7 @@
 
 /obj/item/weapon/grenade/chem_grenade/Initialize()
 	. = ..()
-	var/datum/reagents/R = new/datum/reagents(1000)
-	reagents = R
-	R.my_atom = src
+	create_reagents(1000)
 
 /obj/item/weapon/grenade/chem_grenade/attack_self(mob/user as mob)
 	if(!stage || stage==1)
@@ -143,7 +141,8 @@
 
 	var/has_reagents = 0
 	for(var/obj/item/weapon/reagent_containers/glass/G in beakers)
-		if(G.reagents.total_volume) has_reagents = 1
+		if(G.reagents.total_volume)
+			has_reagents = 1
 
 	active = 0
 	if(!has_reagents)
@@ -159,7 +158,6 @@
 		return
 
 	playsound(src.loc, 'sound/effects/bamf.ogg', 50, 1)
-
 	for(var/obj/item/weapon/reagent_containers/glass/G in beakers)
 		G.reagents.trans_to_obj(src, G.reagents.total_volume)
 
@@ -320,6 +318,7 @@
 	beakers += B1
 	beakers += B2
 	icon_state = initial(icon_state) +"_locked"
+
 
 /obj/item/weapon/grenade/chem_grenade/teargas
 	name = "tear gas grenade"
