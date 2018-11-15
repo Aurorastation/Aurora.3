@@ -17,20 +17,23 @@ class DMM_TRAVIS(DMM):
         max_key = max_key_for(self.key_length)
         bad_keys = {key: 0 for key in self.dictionary.keys() if key > max_key}
         if bad_keys:
-            raise RuntimeError("Bad keys detected, please run mapmerge2 on {} locally and fix errors.".format(fname))
+            print("Bad keys detected, please run mapmerge2 on {} locally and fix errors.".format(fname))
+            raise RuntimeError()
 
 def merge_map(new_map, old_map, name):
     if new_map.key_length != old_map.key_length:
         print("Warning: Key lengths differ, taking new map")
         print("  Old: {}".format(old_map.key_length))
         print("  New: {}".format(new_map.key_length))
-        raise RuntimeError("\nIn file {}".format(name))
+        print("\nIn file {}".format(name))
+        raise RuntimeError()
 
     if new_map.size != old_map.size:
         print("Warning: Map dimensions differ, taking new map")
         print("  Old: {}".format(old_map.size))
         print("  New: {}".format(new_map.size))
-        raise RuntimeError("\nIn file {}".format(name))
+        print("\nIn file {}".format(name))
+        raise RuntimeError()
 
     key_length, size = old_map.key_length, old_map.size
     merged = DMM(key_length, size)
@@ -83,7 +86,8 @@ def merge_map(new_map, old_map, name):
     if unused_keys:
         for key in unused_keys:
             del merged.dictionary[key]
-        raise RuntimeError("Error: {} unused dictionary keys. Please run mapmerge2 on {} locally to trim them.".format(len(unused_keys), name))
+        print("Error: {} unused dictionary keys. Please run mapmerge2 on {} locally to trim them.".format(len(unused_keys), name))
+        raise RuntimeError()
 
     # sanity check: that the merged map equals the new map
     for z, y, x in new_map.coords_zyx:
@@ -94,7 +98,8 @@ def merge_map(new_map, old_map, name):
             print("At {},{},{}.".format(x, y, z))
             print("Should be {}".format(new_tile))
             print("Instead is {}".format(merged_tile))
-            raise RuntimeError("map name: {}".format(name))
+            print("map name: {}".format(name))
+            raise RuntimeError()
 
     return merged
 
