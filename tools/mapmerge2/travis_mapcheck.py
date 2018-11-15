@@ -7,6 +7,7 @@ from dmm import *
 
 class DMM_TRAVIS(DMM):
 
+    @staticmethod
     def to_file(self, fname, tgm = True):
         try:
             self._presave_checks(fname)
