@@ -100,7 +100,7 @@
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		mob.apply_effect(2*multiplier, IRRADIATE, blocked = 0)
 
-/datum/disease2/effect/deaf
+/datum/disease2/effect/deaf_major
 	name = "Deafness"
 	stage = 4
 	badness = 2
@@ -350,17 +350,17 @@
 					H.h_style = "Balding Hair"
 					H.update_hair()
 
+////////////////////////STAGE 1/////////////////////////////////
+
 /datum/disease2/effect/stimulant
 	name = "Hyperactivity"
-	stage = 2
+	stage = 1
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		mob << "<span class='notice'>You feel a rush of energy inside you!</span>"
 		if (mob.reagents.get_reagent_amount("hyperzine") < 10)
 			mob.reagents.add_reagent("hyperzine", 4)
 		if (prob(30))
 			mob.jitteriness += 10
-
-////////////////////////STAGE 1/////////////////////////////////
 
 /datum/disease2/effect/sneeze
 	name = "Sneezing"
@@ -369,7 +369,6 @@
 		if (prob(30))
 			mob << "<span class='warning'>You feel like you are about to sneeze!</span>"
 		addtimer(CALLBACK(src, .proc/do_sneeze, mob, multiplier), 5)
-
 
 	proc/do_sneeze(mob/living/carbon/mob, multiplier)
 		if (QDELETED(mob))
