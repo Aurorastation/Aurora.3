@@ -110,7 +110,6 @@ if __name__ == '__main__':
     for root, directories, filenames in os.walk("/home/travis/build/Aurorastation/Aurora.3/maps/"):
         for filename in [f for f in filenames if f.endswith(".dmm")]:
             list_of_files.append(str(pathlib.Path(root, filename)))
-            print(str(pathlib.Path(root, filename)))
 
     for fname in list_of_files:
         shutil.copyfile(fname, fname + ".backup")

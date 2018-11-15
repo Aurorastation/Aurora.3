@@ -67,8 +67,7 @@ jobs:
       install:
         - pip install --user PyYaml -q
         - pip install --user beautifulsoup4 -q
-        - pip install --user bidict -q
-        - pip install --user pathlib -q
+        - python3 -m pip install --user bidict -q
         - chmod +x ./vueui/install
         - ./vueui/install
         - chmod +x ./scripts/rust_g.sh
@@ -86,4 +85,4 @@ jobs:
         - md5sum -c - <<< "51704c822012212faa577079db2e11fd *vueui/template.html"
         - python tools/TagMatcher/tag-matcher.py ../..
         - python tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
-        - python tools/mapmerge2/travis_mapcheck.py
+        - python3 tools/mapmerge2/travis_mapcheck.py
