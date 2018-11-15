@@ -394,3 +394,14 @@
 		. = ..()
 		reagents.add_reagent("cryosurfactant", 60)
 		update_icon()
+
+/obj/item/weapon/reagent_containers/glass/bottle/phoron_salt
+	name = "phoron salt bottle"
+	desc = "A small bottle. Contains phoron salt - a mysterious and unstable chemical."
+	icon = 'icons/obj/chemical.dmi'
+	icon_state = "bottle-4"
+
+	Initialize()
+		. = ..()
+		reagents.add_reagent("phoron_salt", 60)
+		update_icon()

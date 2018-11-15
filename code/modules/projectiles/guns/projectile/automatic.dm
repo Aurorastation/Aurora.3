@@ -49,7 +49,7 @@
 	caliber = "10mm"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	slot_flags = SLOT_BELT|SLOT_BACK
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a10mm
 	allowed_magazines = list(/obj/item/ammo_magazine/a10mm)
@@ -74,7 +74,7 @@
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	slot_flags = SLOT_BELT
 	ammo_type = "/obj/item/ammo_casing/c9mmr"
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mmt/rubber
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mmt)
@@ -165,7 +165,7 @@
 	caliber = "a556"
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3)
 	ammo_type = "/obj/item/ammo_casing/a556"
-	fire_sound = 'sound/weapons/Gunshot.ogg'
+	fire_sound = 'sound/weapons/rifleshot.ogg'
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a556

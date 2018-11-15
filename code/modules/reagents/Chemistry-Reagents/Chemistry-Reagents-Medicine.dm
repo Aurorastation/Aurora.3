@@ -581,6 +581,8 @@
 	var/list/withdrawal_traumas //List of withdrawl effects that the medication permanently adds during withdrawl, with the key being the brain trauma, and the value being the base percent chance to add.
 	var/list/suppressing_reagents = list() // List of reagents that suppress the withdrawal effects, with the key being the reagent and the vlue being the minimum dosage required to suppress.
 
+	fallback_specific_heat = 1.5
+	
 /datum/reagent/mental/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
 
 	if(!istype(H) || max_dose < min_dose || (world.time < data && volume > removed) || messagedelay == -1)
@@ -1136,6 +1138,7 @@
 	color = "#BF0000"
 	taste_description = "bitter metal"
 	overdose = 5
+	fallback_specific_heat = 1.2
 
 /datum/reagent/azoth/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
@@ -1222,6 +1225,7 @@
 	color = "#ffd700"
 	affects_dead = 1
 	taste_description = "eternal blissfulness"
+	fallback_specific_heat = 2
 
 /datum/reagent/elixir/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))

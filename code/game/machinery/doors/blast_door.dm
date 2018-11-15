@@ -20,6 +20,8 @@
 	var/icon_state_opening = null
 	var/icon_state_closed = null
 	var/icon_state_closing = null
+	var/open_sound = 'sound/machines/blastdooropen.ogg'
+	var/close_sound = 'sound/machines/blastdoorclose.ogg'
 	var/damage = BLAST_DOOR_CRUSH_DAMAGE
 	closed_layer = 3.4 // Above airlocks when closed
 	var/id = 1.0
@@ -72,6 +74,7 @@
 // Description: Opens the door. No checks are done inside this proc.
 /obj/machinery/door/blast/proc/force_open()
 	src.operating = 1
+	playsound(src.loc, open_sound, 100, 1)
 	flick(icon_state_opening, src)
 	src.density = 0
 	update_nearby_tiles()
@@ -88,6 +91,7 @@
 	if(density)
 		return 0
 	src.operating = 1
+	playsound(src.loc, close_sound, 100, 1)
 	src.layer = closed_layer
 	flick(icon_state_closing, src)
 	src.density = 1

@@ -81,8 +81,9 @@
 
 	dose = min(dose + removed, max_dose)
 
-	//Not based on science, based on balance.
-	M.bodytemperature += Clamp( ((get_temperature() - (T0C + 20)) * removed * 0.002),-5*removed,5*removed)
+	var/bodytempchange = Clamp((get_temperature() - M.bodytemperature) * removed * REAGENTS_BODYTEMP,-REAGENTS_BODYTEMP_MAX * removed, REAGENTS_BODYTEMP_MAX * removed)
+	if(abs(bodytempchange) >= REAGENTS_BODYTEMP_MIN)
+		M.bodytemperature += round(bodytempchange,REAGENTS_BODYTEMP_MIN)
 
 	for(var/datum/reagent/R in M.bloodstr.reagent_list)
 		if(istype(R, conflicting_reagent))
