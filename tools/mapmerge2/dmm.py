@@ -69,7 +69,7 @@ class DMM:
                 # create a new non-bogus key and transfer that value to it
                 new_key = bad_keys[k] = self.generate_new_key()
                 self.dictionary.forceput(new_key, self.dictionary[k])
-                print(f"    {num_to_key(k, self.key_length, True)} -> {num_to_key(new_key, self.key_length)}")
+                print("    {} -> {}".format(num_to_key(k, self.key_length, True), num_to_key(new_key, self.key_length)))
             for k, v in self.grid.items():
                 # reassign the grid entries which used the old key
                 self.grid[k] = bad_keys.get(v, v)
