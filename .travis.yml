@@ -66,9 +66,9 @@ jobs:
   include:
     - stage: code check
       install:
-        - pip install PyYaml -q
-        - pip install beautifulsoup4 -q
-        - pip install bidict
+        - pip install --user PyYaml -q
+        - pip install --user beautifulsoup4 -q
+        - pip install --user bidict -q
         - chmod +x ./vueui/install
         - ./vueui/install
         - chmod +x ./scripts/rust_g.sh
