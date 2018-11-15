@@ -182,7 +182,7 @@
 
 /datum/gear/suit/tajara_priest
 	display_name = "tajara priest robe selection (Tajara)"
-	path = /obj/item/clothing/suit/storage/tajaran
+	path = /obj/item/clothing/suit/storage/hooded/tajaran/priest
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear"
 
