@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # Common code for the frontend interface of map tools
 import sys
 import os

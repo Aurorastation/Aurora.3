@@ -108,7 +108,7 @@ if __name__ == '__main__':
     list_of_files = list()
     for root, directories, filenames in os.walk("/maps/"):
         for filename in [f for f in filenames if f.endswith(".dmm")]:
-            list_of_files.append(pathlib.Path(root, filename))
+            list_of_files.append(str(pathlib.Path(root, filename)))
 
     for fname in list_of_files:
         shutil.copyfile(fname, fname + ".backup")
