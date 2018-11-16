@@ -33,3 +33,9 @@
 	name = "Chameleon-Projector"
 	item_cost = 8
 	path = /obj/item/device/chameleon
+
+/datum/uplink_item/item/stealth_items/venenum
+	name = "Vial of Venenum"
+	desc = "A vial that contains 15u of venemum. Changes DNA structure randomly, effectively masking your appearance until it wears off."
+	item_cost = 2
+	path = /obj/item/weapon/reagent_containers/glass/beaker/vial/venenum

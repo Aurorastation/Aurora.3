@@ -179,9 +179,6 @@
 			var/old_volume = current.volume
 			current.volume -= amount // It can go negative, but it doesn't matter
 			current.add_thermal_energy( -(current.thermal_energy * (amount/old_volume)) )
-			if(current.volume <= 0 && ismob(my_atom))
-				current.final_effect(my_atom)
-
 			update_holder(!safety)
 			return 1
 	return 0
@@ -189,6 +186,8 @@
 /datum/reagents/proc/del_reagent(var/id)
 	for(var/datum/reagent/current in reagent_list)
 		if (current.id == id)
+			if(ismob(my_atom))
+				current.final_effect(my_atom)
 			reagent_list -= current
 			qdel(current)
 			update_holder(FALSE)

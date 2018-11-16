@@ -484,19 +484,23 @@
 	description = "A strange green powder with even stranger properties."
 	reagent_state = SOLID
 	color = "#11AA11"
+	metabolism = (5/60) //5u every 60 seconds.
 	taste_description = "a slot machine"
 	var/stored_value = 0 //Internal value. Every 10 units equals a dosage.
 
+/datum/reagent/mutone/initial_effect(var/mob/living/carbon/M, var/alien)
+	stored_value = metabolism
+
 /datum/reagent/mutone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	stored_value += removed
-	if(stored_value >= 10)
+	if(stored_value >= 5)
 		to_chat(M,span("notice","You feel strange..."))
 		if(prob(25))
 			randmutb(M)
 		else
 			randmutg(M)
 		M.UpdateAppearance()
-		stored_value -= 10
+		stored_value -= 5
 
 /datum/reagent/plexium
 	name = "Plexium"
@@ -504,21 +508,25 @@
 	description = "A yellow, fowl smelling liquid that seems to affect the brain in strange ways."
 	reagent_state = LIQUID
 	color = "#888822"
+	metabolism = 1 //1u every second
 	taste_description = "brain freeze"
-	var/stored_value = 0 //Internal value. Every 10 units equals a dosage.
+	var/stored_value = 0 //Internal value. Every 5 units equals a dosage.
+
+/datum/reagent/plexium/initial_effect(var/mob/living/carbon/M, var/alien)
+	stored_value = metabolism
 
 /datum/reagent/plexium/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
 	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
 	if(B && H.species && H.species.has_organ["brain"] && !isipc(H))
 		stored_value += removed
-		if(stored_value >= 10)
+		if(stored_value >= 5)
 			if(prob(50) && !B.has_trauma_type(BRAIN_TRAUMA_MILD))
 				B.gain_trauma_type(BRAIN_TRAUMA_MILD)
 			else if(prob(50) && !B.has_trauma_type(BRAIN_TRAUMA_SEVERE))
 				B.gain_trauma_type(BRAIN_TRAUMA_SEVERE)
 			else if(prob(50) && !B.has_trauma_type(BRAIN_TRAUMA_SPECIAL))
 				B.gain_trauma_type(BRAIN_TRAUMA_SPECIAL)
-			stored_value -= 10
+			stored_value -= 5
 
 /datum/reagent/venenum
 	name = "Venenum"
@@ -536,6 +544,7 @@
 	var/datum/dna/stored_dna
 
 /datum/reagent/venenum/initial_effect(var/mob/living/carbon/M, var/alien)
+	stored_value = metabolism
 	stored_dna = M.dna.Clone()
 	to_chat(M,span("warning","Your skin starts crawling..."))
 
@@ -548,7 +557,7 @@
 			"<span class='notice'>You hear strange flesh-like noises.</span>"\
 		)
 		scramble(TRUE, M, 100)
-		M.adjustHalLoss(50)
+		M.adjustHalLoss(25)
 		M.UpdateAppearance()
 		M.dna.real_name = random_name(M.gender, M.dna.species)
 		M.real_name = M.dna.real_name
@@ -559,8 +568,8 @@
 		M.dna = stored_dna.Clone()
 		M.real_name = M.dna.real_name
 		M.UpdateAppearance()
-		M.adjustHalLoss(25)
-		to_chat(M,span("warning","You seem back to your normal self."))
+
+	to_chat(M,span("warning","You seem back to your normal self."))
 
 //Secret chems.
 //Shhh don't tell no one.
