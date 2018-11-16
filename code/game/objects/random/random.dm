@@ -1135,11 +1135,9 @@
 		/obj/item/weapon/aiModule/asimov = 1,
 		/obj/item/weapon/aiModule/purge = 1,
 		/obj/item/weapon/aiModule/quarantine = 1,
-		/obj/item/weapon/aiModule/freeform = 2,
-		/obj/item/weapon/aiModule/freeformcore = 1,
+		/obj/item/weapon/aiModule/freeform = 1,
 		/obj/item/weapon/aiModule/oneHuman = 0.5,
-		/obj/item/weapon/aiModule/oxygen = 1,
-		/obj/item/weapon/aiModule/syndicate = 1
+		/obj/item/weapon/aiModule/oxygen = 1
 	)
 
 /obj/random/rig_module

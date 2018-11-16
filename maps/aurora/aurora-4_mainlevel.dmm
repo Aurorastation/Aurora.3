@@ -6300,6 +6300,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "amg" = (
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "amh" = (
@@ -13717,6 +13718,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "ayA" = (
@@ -106026,8 +106028,8 @@ aiO
 aiO
 akj
 alh
-amg
 ano
+amg
 aoo
 apD
 aqM
