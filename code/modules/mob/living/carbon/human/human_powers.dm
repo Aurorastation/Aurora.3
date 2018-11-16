@@ -180,16 +180,16 @@
 	var/obj/item/organ/external/rhand = src.get_organ("r_hand")
 	var/obj/item/organ/external/lhand = src.get_organ("l_hand")
 	if((!rhand || !rhand.is_usable()) && (!lhand || !lhand.is_usable()))
-		src <<"<span class='warning'>You can't communicate without the ability to use your hands!</span>"
+		to_chat(src,"<span class='warning'>You can't communicate without the ability to use your hands!</span>")
 		return FALSE
 	if(stat || paralysis || stunned || weakened ||  restrained())
-		src <<"<span class='warning'>You can't communicate while unable to move your hands to your head!</span>"
+		to_chat(src,"<span class='warning'>You can't communicate while unable to move your hands to your head!</span>")
 		return FALSE
 	if(last_special > world.time)
-		src << "<span class='notice'>Your mind requires rest!</span>"
+		to_chat(src,"<span class='notice'>Your mind requires rest!</span>")
 		return FALSE
 
-	last_special = world.time + 40
+	last_special = world.time + 100
 
 	visible_message("<span class='notice'>[src] touches their fingers to their temple.</span>")
 
@@ -236,12 +236,18 @@
 	else if(prob(25) && (target.mind && target.mind.assigned_role=="Chaplain"))
 		target<< "<span class='changeling'>You sense [src]'s thoughts enter your mind, whispering quietly:</span> [text]"
 	else
-		target << "<span class='alium'>You feel an ache behind your eyes as alien thoughts enter your mind:</span> [text]"
+		target << "<span class='alium'>You feel pressure behind your eyes as alien thoughts enter your mind:</span> [text]"
 		if(istype(target,/mob/living/carbon/human))
 			if (/mob/living/carbon/human/proc/commune in target.verbs)
 				return
-			H << "<span class='warning'>Your nose begins to bleed...</span>"
-			H.drip(3)
+			if(prob(10) && (H.species.flags & NO_BLOOD))
+				H << "<span class='warning'>Your nose begins to bleed...</span>"
+				H.drip(3)
+			else if(prob(25) && (H.species.flags & NO_PAIN))
+				H << "<span class='warning'>Your head hurts...</span>"
+			else if(prob(50))
+				H << "<span class='warning'>Your mind buzzes...</span>"
+
 
 /mob/living/carbon/human/proc/regurgitate()
 	set name = "Regurgitate"
