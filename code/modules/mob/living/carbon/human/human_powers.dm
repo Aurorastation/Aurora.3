@@ -182,6 +182,12 @@
 	if((!rhand || !rhand.is_usable()) && (!lhand || !lhand.is_usable()))
 		to_chat(src,"<span class='warning'>You can't communicate without the ability to use your hands!</span>")
 		return FALSE
+	if((lhand.is_stump()) && (rhand.is_stump()))
+		to_chat(src,"<span class='warning'>You can't communicate without functioning hands!</span>")
+		return FALSE
+	if(src.r_hand != null && src.l_hand != null)
+		to_chat(src,"<span class='warning'>You can't communicate while your hands are full!</span>")
+		return FALSE
 	if(stat || paralysis || stunned || weakened ||  restrained())
 		to_chat(src,"<span class='warning'>You can't communicate while unable to move your hands to your head!</span>")
 		return FALSE
@@ -212,41 +218,41 @@
 		return
 
 	if(istype(target, /mob/abstract/observer) || target.stat == DEAD)
-		to_chat(src, "<span class='warning'>Not even a [src.species.name] can speak to the dead.</span>")
+		to_chat(src,"<span class='warning'>Not even a [src.species.name] can speak to the dead.</span>")
 		return
 
 	if (target.isSynthetic())
-		to_chat(src, "<span class='warning'>This can only be used on living organisms.</span>")
+		to_chat(src,"<span class='warning'>This can only be used on living organisms.</span>")
 		return
 
 
 	if (target.is_diona())
-		to_chat(src, "<span class='alium'>The creature's mind is not solid enough and slips through like sand.</span>")
+		to_chat(src,"<span class='alium'>The creature's mind is not solid enough and slips through like sand.</span>")
 		return
 
 	if(!(target in view(client.view, client.eye)))
-		to_chat(src, "<span class='warning'>[target] is too far for your mind to grasp!</span>")
+		to_chat(src,"<span class='warning'>[target] is too far for your mind to grasp!</span>")
 		return
 
 	log_say("[key_name(src)] communed to [key_name(target)]: [text]",ckey=key_name(src))
 
 	var/mob/living/carbon/human/H = target
 	if (/mob/living/carbon/human/proc/commune in target.verbs)
-		target << "<span class='psychic'>You instinctively sense [src] sending their thoughts into your mind, hearing:</span> [text]"
+		to_chat(H,"<span class='psychic'>You instinctively sense [src] sending their thoughts into your mind, hearing:</span> [text]")
 	else if(prob(25) && (target.mind && target.mind.assigned_role=="Chaplain"))
-		target<< "<span class='changeling'>You sense [src]'s thoughts enter your mind, whispering quietly:</span> [text]"
+		to_chat(H,"<span class='changeling'>You sense [src]'s thoughts enter your mind, whispering quietly:</span> [text]")
 	else
-		target << "<span class='alium'>You feel pressure behind your eyes as alien thoughts enter your mind:</span> [text]"
-		if(istype(target,/mob/living/carbon/human))
+		to_chat(H,"<span class='alium'>You feel pressure behind your eyes as alien thoughts enter your mind:</span> [text]")
+		if(H)
 			if (/mob/living/carbon/human/proc/commune in target.verbs)
 				return
 			if(prob(10) && (H.species.flags & NO_BLOOD))
-				H << "<span class='warning'>Your nose begins to bleed...</span>"
+				to_chat(H,"<span class='warning'>Your nose begins to bleed...</span>")
 				H.drip(3)
 			else if(prob(25) && (H.species.flags & NO_PAIN))
-				H << "<span class='warning'>Your head hurts...</span>"
+				to_chat(H,"<span class='warning'>Your head hurts...</span>")
 			else if(prob(50))
-				H << "<span class='warning'>Your mind buzzes...</span>"
+				to_chat(H,"<span class='warning'>Your mind buzzes...</span>")
 
 
 /mob/living/carbon/human/proc/regurgitate()
