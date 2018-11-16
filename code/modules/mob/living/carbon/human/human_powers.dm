@@ -232,11 +232,11 @@
 
 	var/mob/living/carbon/human/H = target
 	if (/mob/living/carbon/human/proc/commune in target.verbs)
-		target << "<span class='psychic'>You instinctively sense [src] whispering into your mind, hearing:</span> [text]."
+		target << "<span class='psychic'>You instinctively sense [src] sending their thoughts into your mind, hearing:</span> [text]"
 	else if(prob(25) && (target.mind && target.mind.assigned_role=="Chaplain"))
-		target<< "<span class='changeling'>You sense [src]'s thoughts enter your mind, whispering:</span> [text]..."
+		target<< "<span class='changeling'>You sense [src]'s thoughts enter your mind, whispering quietly:</span> [text]"
 	else
-		target << "<span class='alium'>You feel an ache behind your eyes as alien thoughts enter your mind:</span> [text]."
+		target << "<span class='alium'>You feel an ache behind your eyes as alien thoughts enter your mind:</span> [text]"
 		if(istype(target,/mob/living/carbon/human))
 			if (/mob/living/carbon/human/proc/commune in target.verbs)
 				return
