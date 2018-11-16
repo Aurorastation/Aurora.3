@@ -31,14 +31,14 @@ def merge_map(new_map, old_map, name):
         print("  Old: {}".format(old_map.key_length))
         print("  New: {}".format(new_map.key_length))
         print("\nIn file {}".format(name))
-        raise RuntimeError()
+        exit(1)
 
     if new_map.size != old_map.size:
         print("Warning: Map dimensions differ, taking new map")
         print("  Old: {}".format(old_map.size))
         print("  New: {}".format(new_map.size))
         print("\nIn file {}".format(name))
-        raise RuntimeError()
+        exit(1)
 
     key_length, size = old_map.key_length, old_map.size
     merged = DMM_TRAVIS(key_length, size)
@@ -92,7 +92,7 @@ def merge_map(new_map, old_map, name):
         for key in unused_keys:
             del merged.dictionary[key]
         print("Error: {} unused dictionary keys. Please run mapmerge2 on {} locally to trim them.".format(len(unused_keys), name))
-        raise RuntimeError()
+        exit(1)
 
     # sanity check: that the merged map equals the new map
     for z, y, x in new_map.coords_zyx:
@@ -104,7 +104,7 @@ def merge_map(new_map, old_map, name):
             print("Should be {}".format(new_tile))
             print("Instead is {}".format(merged_tile))
             print("map name: {}".format(name))
-            raise RuntimeError()
+            exit(1)
 
     return merged
 
