@@ -3,14 +3,14 @@ datum/event/viral_infection
 	ic_name = "a viral outbreak"
 
 datum/event/viral_infection/setup()
-	announceWhen = rand(0, 3000)
+	announceWhen = rand(3 MINUTES, 5 MINUTES)
 	endWhen = announceWhen + 1
 
 	var/has_virologist = FALSE
 	var/list/valid_diseases = list()
 
-	for(var/mob/living/carbon/human/M in mob_list)
-		if(M.get_assignment() == "Virologist")
+	for(var/mob/living/carbon/human/H in mob_list)
+		if(H.mind && H.stat != DEAD && H.is_client_active(5) && H.get_assignment() == "Virologist")
 			has_virologist = TRUE
 			break
 
@@ -42,11 +42,11 @@ datum/event/viral_infection/announce()
 
 datum/event/viral_infection/start()
 	var/list/candidates = list()
-	for(var/mob/living/carbon/human/G in player_list)
-		if(G.mind && G.stat != DEAD && G.is_client_active(5) && !player_is_antag(G.mind))
-			var/turf/T = get_turf(G)
+	for(var/mob/living/carbon/human/H in player_list)
+		if(H.mind && H.stat != DEAD && H.is_client_active(5) && !player_is_antag(H.mind))
+			var/turf/T = get_turf(H)
 			if(T.z in current_map.station_levels)
-				candidates += G
+				candidates += H
 	if(!candidates.len)	return
 	candidates = shuffle(candidates)
 

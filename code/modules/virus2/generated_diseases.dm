@@ -78,15 +78,15 @@
 		/datum/disease2/effect/radian
 	)
 
-/datum/disease2/disease/generated/snowflake
-	generated_name = "Snowflake Syndrome"
+/datum/disease2/disease/generated/hyper
+	generated_name = "Hormonal Infectious Disease"
 	dangerous = TRUE
 	uniqueID = 10006
 	effect_datums = list(
+		/datum/disease2/effect/twitch,
 		/datum/disease2/effect/stimulant,
-		/datum/disease2/effect/blind,
-		/datum/disease2/effect/deaf,
-		/datum/disease2/effect/deaf_major
+		/datum/disease2/effect/chem_synthesis,
+		/datum/disease2/effect/killertoxins
 	)
 
 /datum/disease2/disease/generated/telepathy

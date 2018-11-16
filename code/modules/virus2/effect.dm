@@ -350,17 +350,17 @@
 					H.h_style = "Balding Hair"
 					H.update_hair()
 
-////////////////////////STAGE 1/////////////////////////////////
-
 /datum/disease2/effect/stimulant
 	name = "Hyperactivity"
-	stage = 1
+	stage = 2
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		mob << "<span class='notice'>You feel a rush of energy inside you!</span>"
 		if (mob.reagents.get_reagent_amount("hyperzine") < 10)
 			mob.reagents.add_reagent("hyperzine", 4)
 		if (prob(30))
 			mob.jitteriness += 10
+
+////////////////////////STAGE 1/////////////////////////////////
 
 /datum/disease2/effect/sneeze
 	name = "Sneezing"
