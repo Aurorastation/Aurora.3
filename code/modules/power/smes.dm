@@ -68,7 +68,6 @@
 	var/time = 0
 	var/charge_mode = 0
 	var/last_diff = null
-	var/history_index = 1
 
 /obj/machinery/power/smes/drain_power(var/drain_check, var/surge, var/amount = 0)
 
@@ -374,7 +373,7 @@
 	data["chargeMode"] = input_attempt
 	data["chargeLevel"] = input_level
 	data["chargeMax"] = input_level_max
-	data["charge_taken"] = input_taken
+	data["charge_taken"] = round(input_taken)
 	data["outputOnline"] = output_attempt
 	data["outputLevel"] = output_level
 	data["outputMax"] = output_level_max

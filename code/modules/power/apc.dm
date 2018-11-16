@@ -128,8 +128,7 @@
 
 	var/time = 0
 	var/charge_mode = 0
-	var/list/diff_history
-	var/history_index = 1
+	var/last_diff = null
 
 /obj/machinery/power/apc/updateDialog()
 	if (stat & (BROKEN|MAINT))
@@ -167,7 +166,6 @@
 /obj/machinery/power/apc/Initialize(mapload, var/ndir, var/building=0)
 	. = ..(mapload)
 	wires = new(src)
-	diff_history = list()
 
 	// offset 28 pixels in direction of dir
 	// this allows the APC to be embedded in a wall, yet still inside an area
@@ -1392,37 +1390,25 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 
 /obj/machinery/power/apc/proc/update_time()
 
-	// check if our list is still not initialized, if it is not - add data and not calculate
-	if(diff_history.len != 15)
-		diff_history += (lastused_charging) ? (-lastused_charging) : (lastused_total)
-		charge_mode = 2
-		time = (15 - diff_history.len) * 2
+	if(!last_diff)
+		last_diff = (lastused_charging) ? (-lastused_charging) : (lastused_total)
 		return
 
-	if(history_index > diff_history.len)
-		history_index = 1
-
-	var/average = 0
-	for(var/x in diff_history)
-		average += x
-
-	average = round(average) // to get rid of 0
-	average /= diff_history.len // take average
-	average *= 0.0005 // convert to same units as charge
+	var/main_diff = ((lastused_charging) ? (-lastused_charging) : (lastused_total)) / 2
+	main_diff *= 0.0005 // convert to same units as charge
 
 	// If it is negative - we are discharging
-	if(average < 0)
-		time = (cell.maxcharge - cell.charge) / average // how long will it take to fully charge APC
+	if(main_diff < 0)
+		time = (cell.maxcharge - cell.charge) / main_diff // how long will it take to fully charge APC
 		time /= -2 // Since machinery_process only occurs each 2 seconds
 		charge_mode = 1
-	else if(average != 0) // no division by 0
-		time = cell.charge / average // how long will it take to deplete APC
+	else if(main_diff != 0) // no division by 0
+		time = cell.charge / main_diff // how long will it take to deplete APC
 		time *= 2 // Since machinery_process only occurs each 2 seconds but is backwards to charging
 		charge_mode = 0
 	else
 		time = 0
-		charge_mode = 3
+		charge_mode = 2
 
 	time = ((time / 3600) > 1) ? ("[round(time / 3600)] hours, [round((time % 3600) / 60)] minutes") : ("[round(time / 60)] minutes, [round(time % 60)] seconds")
-	diff_history[history_index] = (lastused_charging) ? (-lastused_charging) : (lastused_total)
-	history_index++
+	last_diff = (lastused_charging) ? (-lastused_charging) : (lastused_total)

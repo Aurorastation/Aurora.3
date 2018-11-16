@@ -83,11 +83,9 @@
 		</div>
 		<div class="itemContent">
 			<div class="statusValue">
-			{{if data.charge_mode == 2}}
-				APC is gathering data to calculate the estimates, {{:data.time}} seconds remaining
-			{{else data.charge_mode == 1}}
+			{{if data.charge_mode == 1}}
 				APC's power cell will be fully charged in {{:data.time}}
-			{{else data.charge_mode == 3}}
+			{{else data.charge_mode == 2}}
 				APC's power cell inputts same amount as it outputts
 			{{else}}
 				APC's power cell will run out of charge in {{:data.time}}

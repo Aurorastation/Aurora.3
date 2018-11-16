@@ -24,7 +24,7 @@
 	</div>
 	<div class="itemContent">
 		<div class="statusValue">
-		{{else data.charge_mode == 1}}
+		{{if data.charge_mode == 1}}
 			SMES will be fully charged in {{:data.time}}
 		{{else data.charge_mode == 2}}
 			SMES inputts same amount as outputts
