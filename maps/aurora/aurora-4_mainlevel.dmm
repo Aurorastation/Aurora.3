@@ -3590,12 +3590,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "ahh" = (
-/obj/machinery/door/airlock/command{
-	id_tag = null;
-	name = "Unlabeled Airlock";
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/highsecurity{
+	id_tag = "bunker1";
+	name = "Unlabeled Secure Airlock";
 	req_access = list(19)
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "ahi" = (
@@ -6317,9 +6317,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "ami" = (
-/obj/machinery/alarm{
-	pixel_y = 23
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
 	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "amj" = (
@@ -6328,22 +6334,23 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/wall,
-/area/security/nuke_storage)
-"amk" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/wall,
+/turf/simulated/wall/r_wall,
 /area/maintenance/security_starboard)
-"aml" = (
+"amk" = (
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
+"aml" = (
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22
+	},
+/obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "amm" = (
@@ -10578,11 +10585,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "atu" = (
-/obj/machinery/alarm{
-	dir = 4;
-	icon_state = "alarm0";
-	pixel_x = -22
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "atv" = (
@@ -65291,6 +65299,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/item/weapon/hand_tele,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "cir" = (
@@ -65324,6 +65333,33 @@
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
+"ciu" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/wall/r_wall,
+/area/security/nuke_storage)
+"civ" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
+"ciw" = (
+/obj/random/junk,
+/obj/machinery/alarm{
+	pixel_y = 23
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
 
 (1,1,1) = {"
 aaa
@@ -102668,8 +102704,8 @@ aaa
 aab
 aab
 aab
-aaa
-aaa
+aab
+aab
 aad
 ahg
 acU
@@ -102926,7 +102962,7 @@ aab
 aab
 aab
 aaa
-aaa
+aab
 aad
 aah
 acU
@@ -103183,7 +103219,7 @@ aab
 aab
 aaa
 aaa
-aaa
+aab
 aad
 aah
 acU
@@ -103440,7 +103476,7 @@ aab
 aab
 aaa
 aaa
-aaa
+aab
 aad
 aah
 acU
@@ -103696,8 +103732,8 @@ aaa
 aab
 aab
 aaa
-aaa
-aaa
+aab
+aab
 aad
 aah
 acU
@@ -103953,9 +103989,9 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aad
+aab
+aab
+ami
 aah
 acU
 adi
@@ -104209,10 +104245,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aad
+aab
+aab
+aab
+atu
 aah
 acU
 acV
@@ -104466,11 +104502,11 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aad
-ami
+aab
+aab
+aab
+civ
+aah
 acU
 acV
 adD
@@ -104724,8 +104760,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+aab
+aab
 aad
 aah
 acU
@@ -104982,7 +105018,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aab
 aad
 aah
 acU
@@ -105239,9 +105275,9 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aab
 aad
-abI
+ciw
 acU
 acV
 adF
@@ -105496,7 +105532,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aab
 aad
 aah
 acU
@@ -105752,8 +105788,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+aab
+aab
 aad
 aah
 acU
@@ -106009,9 +106045,9 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aad
+aab
+aab
+ami
 aah
 acU
 adk
@@ -106265,10 +106301,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aad
+aab
+aab
+aab
+atu
 aah
 acU
 adk
@@ -106522,10 +106558,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aad
+aab
+aab
+aab
+civ
 aah
 cip
 adn
@@ -106780,8 +106816,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+aab
+aab
 aad
 aah
 acU
@@ -106799,7 +106835,7 @@ aiN
 aiN
 aiO
 aiO
-amj
+ciu
 aiO
 aiO
 aiO
@@ -107038,10 +107074,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-agD
-ahh
-ahT
+aab
+aad
+aah
+acU
 adk
 adk
 acV
@@ -107056,7 +107092,7 @@ aiN
 aiN
 aiN
 aiN
-amj
+ciu
 aiN
 aiN
 aiN
@@ -107296,24 +107332,24 @@ aaa
 aaa
 aaa
 aab
-agD
-aah
-ahT
-ahT
-ahT
-ahT
-ahT
-ahT
-ahT
-ahT
-ahT
-ahT
+aad
+ahO
+acU
+acU
+acU
+acU
+acU
+acU
+acU
+acU
+acU
+acU
 ahT
 aiN
 aiN
 aiN
 aiN
-amj
+ciu
 aiN
 aiN
 aiN
@@ -107553,24 +107589,24 @@ aaa
 aaa
 aaa
 aab
-agD
+aad
 aah
 aah
 aah
 aah
 aah
-aah
-atu
-aah
-aah
-aah
-aah
-agD
-agD
+abW
+aml
+abM
+abV
+aaD
+aaD
 agD
 agD
 agD
-amk
+agD
+agD
+amj
 agD
 agD
 agD
@@ -107810,7 +107846,7 @@ aaa
 aaa
 aaa
 aaa
-agD
+aad
 aah
 aah
 aah
@@ -107822,12 +107858,12 @@ aah
 aah
 aah
 aah
-ahO
+ahh
 aah
 aah
 aah
 aah
-aml
+amk
 anr
 anr
 anr
@@ -108067,18 +108103,18 @@ aaa
 aaa
 aaa
 aaa
-agD
-agD
-agD
-agD
-agD
-agD
-agD
-agD
-agD
-agD
-agD
-agD
+aad
+aad
+aad
+aad
+aad
+aad
+aad
+aad
+aad
+aad
+aad
+aad
 agD
 agD
 agD
