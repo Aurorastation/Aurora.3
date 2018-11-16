@@ -5796,128 +5796,26 @@
 "amc" = (
 /turf/simulated/open,
 /area/mine/unexplored)
-"amd" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
-/area/mine/unexplored)
-"ame" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/plating,
-/area/mine/unexplored)
-"amf" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/wall/r_wall,
-/area/mine/unexplored)
 "amg" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/plating,
-/area/mine/unexplored)
-"amh" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/turf/simulated/floor/plating,
-/area/mine/unexplored)
-"ami" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
 	},
 /obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
 /area/mine/unexplored)
 "amj" = (
 /obj/machinery/door/window{
@@ -6054,57 +5952,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
-"amu" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
-/area/mine/unexplored)
-"amv" = (
-/turf/simulated/floor{
-	icon_state = "plating"
-	},
-/area/turbolift/vault_sub)
-"amw" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
-/area/mine/unexplored)
 "amx" = (
 /obj/machinery/computer/aiupload,
 /obj/item/device/radio/intercom/locked{
@@ -6185,30 +6032,6 @@
 	temperature = 278
 	},
 /area/turret_protected/ai)
-"amG" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/wall/r_wall,
-/area/mine/unexplored)
-"amH" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor{
-	icon_state = "plating"
-	},
-/area/turbolift/vault_sub)
-"amI" = (
-/obj/structure/sign/securearea{
-	pixel_y = 32
-	},
-/turf/simulated/floor{
-	icon_state = "plating"
-	},
-/area/turbolift/vault_sub)
 "amJ" = (
 /obj/structure/cable/cyan{
 	d1 = 2;
@@ -6482,60 +6305,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
-"anf" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
-/area/mine/unexplored)
-"ang" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
-/area/mine/unexplored)
 "anh" = (
 /obj/effect/landmark{
 	name = "cavernspawn"
@@ -7133,66 +6902,6 @@
 	temperature = 278
 	},
 /area/turret_protected/ai)
-"anX" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
-/area/mine/unexplored)
-"anY" = (
-/obj/turbolift_map_holder/aurora/vault,
-/turf/simulated/floor{
-	icon_state = "plating"
-	},
-/area/turbolift/vault_sub)
-"anZ" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
-/area/mine/unexplored)
 "aoa" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -7729,20 +7438,6 @@
 	},
 /turf/simulated/wall,
 /area/turret_protected/ai)
-"aoD" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/wall/r_wall,
-/area/hallway/primary/starboard)
-"aoE" = (
-/turf/simulated/wall/r_wall,
-/area/hallway/primary/starboard)
-"aoF" = (
-/turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
 "aoG" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Cyborg Station";
@@ -8017,76 +7712,6 @@
 	},
 /turf/simulated/wall,
 /area/turret_protected/ai)
-"apa" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/plating,
-/area/hallway/primary/starboard)
-"apb" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
-"apc" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
-"apd" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/plating,
-/area/hallway/primary/starboard)
 "ape" = (
 /turf/simulated/wall/r_wall,
 /area/turret_protected/ai_server_room)
@@ -8300,128 +7925,6 @@
 	temperature = 278
 	},
 /area/turret_protected/ai)
-"apu" = (
-/turf/simulated/wall/r_wall,
-/area/security/nuke_storage)
-"apv" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/turf/simulated/floor/plating,
-/area/hallway/primary/starboard)
-"apw" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/hallway/primary/starboard)
-"apx" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
-"apy" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
-"apz" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/light/small/emergency{
-	icon_state = "bulb1";
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
-"apA" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/plating,
-/area/hallway/primary/starboard)
-"apB" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/plating,
-/area/hallway/primary/starboard)
 "apC" = (
 /obj/machinery/computer/message_monitor,
 /obj/machinery/firealarm/west,
@@ -8714,117 +8217,6 @@
 	roof_type = null
 	},
 /area/maintenance/sublevel)
-"aqa" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/obj/structure/sign/securearea{
-	pixel_y = -32
-	},
-/turf/simulated/floor/plating,
-/area/hallway/primary/starboard)
-"aqb" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/turretid/lethal{
-	ailock = 1;
-	check_synth = 1;
-	control_area = "\improper Vault";
-	desc = "A firewall prevents AIs from interacting with this device.";
-	name = "Vault lethal turret control";
-	pixel_y = -28;
-	req_access = list(20)
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
-"aqc" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
-"aqd" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -22
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/camera/network/command{
-	c_tag = "Command - Vault Sublevel Elevator Access";
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
-"aqe" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/structure/sign/securearea{
-	pixel_y = -32
-	},
-/turf/simulated/floor/plating,
-/area/hallway/primary/starboard)
 "aqf" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -9114,71 +8506,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
-"aqB" = (
-/obj/item/weapon/hand_tele,
-/obj/structure/table/reinforced,
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/security/nuke_storage)
-"aqC" = (
-/obj/item/weapon/aiModule/freeformcore{
-	pixel_x = -4;
-	pixel_y = -8
-	},
-/obj/item/weapon/aiModule/purge,
-/obj/item/weapon/aiModule/oneHuman{
-	pixel_x = 4;
-	pixel_y = 8
-	},
-/obj/structure/table/reinforced,
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/security/nuke_storage)
-"aqD" = (
-/obj/item/weapon/rig/hazmat,
-/obj/structure/table/reinforced,
-/obj/structure/window/reinforced,
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/security/nuke_storage)
-"aqE" = (
-/obj/item/rig_module/device/rcd,
-/obj/structure/table/reinforced,
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/security/nuke_storage)
-"aqF" = (
-/obj/structure/table/reinforced,
-/obj/structure/window/reinforced,
-/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner,
-/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner,
-/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner,
-/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner,
-/turf/simulated/floor/plating,
-/area/security/nuke_storage)
-"aqG" = (
-/obj/machinery/porta_turret/stationary,
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/security/nuke_storage)
-"aqH" = (
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/door/airlock/highsecurity{
-	id_tag = "bunker1";
-	name = "Vault Access";
-	req_access = list(19)
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
 "aqI" = (
 /obj/machinery/message_server,
 /turf/simulated/floor/bluegrid,
@@ -9593,82 +8920,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
-"ari" = (
-/obj/structure/closet/secure_closet/freezer/money,
-/obj/item/weapon/storage/belt/champion,
-/obj/item/stack/material/gold,
-/obj/item/stack/material/gold,
-/obj/item/stack/material/gold,
-/obj/item/stack/material/gold,
-/obj/item/stack/material/gold,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/security/nuke_storage)
-"arj" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 9
-	},
-/obj/machinery/camera/motion{
-	c_tag = "Secure Vault - Motion";
-	dir = 4;
-	network = list("Command")
-	},
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"ark" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"arl" = (
-/obj/machinery/porta_turret/stationary,
-/obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"arm" = (
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 25;
-	pixel_y = 0
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"arn" = (
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/security/nuke_storage)
-"aro" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"arp" = (
-/obj/machinery/light/small/emergency{
-	icon_state = "bulb1";
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
 "arq" = (
 /obj/machinery/shieldwallgen,
 /obj/structure/cable/cyan,
@@ -9868,120 +9119,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
-"arK" = (
-/turf/simulated/floor/reinforced,
-/area/security/nuke_storage)
-"arL" = (
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"arM" = (
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"arN" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"arO" = (
-/obj/machinery/door/airlock/vault/bolted{
-	req_access = list(20)
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"arP" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"arQ" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/machinery/camera/motion{
-	c_tag = "Vault Secure Entrance West - Motion";
-	dir = 1;
-	icon_state = "camera";
-	network = list("Command")
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"arR" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"arS" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/light/small/emergency,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"arT" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"arU" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -22
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/machinery/camera/motion{
-	c_tag = "Vault Secure Entrance East - Motion";
-	dir = 1;
-	icon_state = "camera";
-	network = list("Command")
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
 "arV" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "AI Upload Access";
@@ -10089,57 +9226,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
-"asf" = (
-/obj/structure/safe/station,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/security/nuke_storage)
-"asg" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 10
-	},
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"ash" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"asi" = (
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
-/obj/structure/cable,
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"asj" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/security/nuke_storage)
-"ask" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/security/nuke_storage)
 "asl" = (
 /obj/item/device/radio/intercom/locked{
 	frequency = 1343;
@@ -10183,74 +9269,6 @@
 /obj/structure/ladder,
 /turf/simulated/open,
 /area/maintenance/sublevel)
-"asp" = (
-/obj/structure/table/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/item/rig_module/vision/nvg,
-/turf/simulated/floor/plating,
-/area/security/nuke_storage)
-"asq" = (
-/obj/item/rig_module/mounted/egun{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/rig_module/mounted/egun{
-	pixel_x = -4;
-	pixel_y = -4
-	},
-/obj/structure/table/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/security/nuke_storage)
-"asr" = (
-/obj/item/weapon/rig/hazard{
-	pixel_x = -8;
-	pixel_y = 0
-	},
-/obj/item/weapon/rig/hazard{
-	pixel_x = 8;
-	pixel_y = 0
-	},
-/obj/structure/table/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/item/weapon/rig/unathi{
-	pixel_y = -6
-	},
-/obj/machinery/light/small/emergency,
-/turf/simulated/floor/plating,
-/area/security/nuke_storage)
-"ass" = (
-/obj/structure/table/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/item/rig_module/chem_dispenser/injector,
-/turf/simulated/floor/plating,
-/area/security/nuke_storage)
-"ast" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/table/reinforced,
-/turf/simulated/floor/plating,
-/area/security/nuke_storage)
-"asu" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/porta_turret/stationary,
-/obj/machinery/light/small/emergency,
-/turf/simulated/floor/plating,
-/area/security/nuke_storage)
 "asv" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -10282,14 +9300,6 @@
 	},
 /turf/simulated/wall,
 /area/mine/unexplored)
-"asz" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/wall/r_wall,
-/area/security/nuke_storage)
 "asA" = (
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -10758,14 +9768,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/analysis)
-"atD" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
 "atE" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -11108,21 +10110,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
-"auh" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "aui" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -11409,32 +10396,6 @@
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
-"auL" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -66024,8 +64985,8 @@ aaa
 aaa
 aaa
 aaa
-aba
-aba
+aaa
+aaa
 aba
 aba
 ard
@@ -66262,27 +65223,27 @@ aaa
 aaa
 aaa
 aaa
-ale
-ale
 aaa
 aaa
 aaa
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
 aaa
-ale
-ale
-ale
 aaa
-aba
-aba
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aba
 aba
 ard
@@ -66515,31 +65476,31 @@ aaa
 aaa
 aaa
 aaa
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-aba
-aba
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aba
 aba
 ard
@@ -66771,32 +65732,32 @@ aaa
 aaa
 aaa
 aaa
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-akG
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-akG
-ale
-ale
-ale
-ale
-aba
-aba
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aba
 anh
 ard
@@ -67028,32 +65989,32 @@ aaa
 aaa
 aaa
 aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 ale
 ale
 ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-akG
-apu
-apu
-apu
-apu
-apu
-apu
-apu
-apu
-apu
-akG
-ale
-ale
-ale
-ale
-aba
 aba
 aba
 ard
@@ -67285,31 +66246,31 @@ aaa
 aaa
 aaa
 aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 ale
 ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-apu
-apu
-apu
-apu
-apu
-apu
-apu
-apu
-apu
-ale
-ale
-ale
-ale
-ale
+aba
 aba
 aba
 aba
@@ -67542,31 +66503,31 @@ aaa
 aaa
 aaa
 aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-apu
-apu
-apu
-ari
-arK
-asf
-apu
-apu
-apu
-ale
-ale
-ale
-ale
-ale
+aba
+aba
 aba
 aba
 aba
@@ -67799,31 +66760,31 @@ aaa
 aaa
 aaa
 aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 ale
 ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-apu
-apu
-aqB
-arj
-arl
-asg
-asp
-apu
-apu
-ale
-ale
-ale
-ale
-ale
+aba
+aba
 aba
 aba
 aba
@@ -68056,31 +67017,31 @@ aaa
 aaa
 aaa
 aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 ale
 ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-apu
-apu
-aqC
-ark
-arL
-ash
-asq
-apu
-apu
-ale
-ale
-ale
-ale
-ale
+aba
+aba
+aba
 aba
 aba
 aba
@@ -68306,39 +67267,39 @@ aaa
 aaa
 aaa
 aaa
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
 aaa
 aaa
 aaa
 aaa
 aaa
 aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 ale
 ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-apu
-apu
-aqD
-ark
-arM
-ash
-asr
-apu
-apu
-ale
-ale
-ale
-ale
-ale
-ale
+aba
+aba
+aba
+aaa
+aba
 aba
 aqy
 arf
@@ -68561,6 +67522,9 @@ aaa
 aaa
 aaa
 aaa
+ale
+ale
+ale
 aaa
 aaa
 aaa
@@ -68573,32 +67537,29 @@ ale
 ale
 ale
 ale
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 ale
 ale
 ale
-ale
-ale
-ale
-ale
-ale
-apu
-apu
-aqE
-arl
-arL
-arl
-ass
-apu
-apu
-arx
-asy
-asy
-asy
-asy
-asy
-atD
-auh
-auL
+aba
+aba
+aba
+aaa
+aaa
+aba
+aba
+aqA
+amg
 avs
 awb
 awb
@@ -68817,6 +67778,23 @@ aaa
 aaa
 aaa
 aaa
+ale
+ale
+aaa
+aaa
+aaa
+aaa
+aba
+aba
+aba
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+ale
+ale
 aaa
 aaa
 aaa
@@ -68824,35 +67802,18 @@ aaa
 aaa
 aaa
 aaa
+ale
+ale
+ale
+ale
+aba
+aba
+aba
+aba
 aaa
 aaa
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-apu
-apu
-aqF
-arm
-arN
-asi
-ast
-apu
-apu
-arZ
-ale
-ale
-ale
-ale
-ale
+aba
+aba
 aba
 aui
 auM
@@ -69073,43 +68034,43 @@ aaa
 aaa
 aaa
 aaa
+ale
+ale
 aaa
 aaa
 aaa
 aaa
 aaa
+aba
+aba
+aba
+aba
+aba
+aba
 aaa
 aaa
 aaa
 aaa
+ale
+ale
+ale
+aaa
+aaa
 aaa
 ale
 ale
 ale
 ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-apu
-apu
-apu
-apu
-arO
-apu
-apu
-apu
-apu
-arZ
-ale
-ale
-ale
-ale
-ale
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
 ale
 akx
 auN
@@ -69329,43 +68290,43 @@ aaa
 aaa
 aaa
 aaa
+ale
+ale
 aaa
 aaa
 aaa
 aaa
+aba
+aba
+aba
+aaa
+aaa
+aba
+aba
+aba
+aba
+aba
 aaa
 aaa
 aaa
 aaa
+ale
+ale
+ale
+ale
+ale
+aba
+aba
+aba
+aba
+aba
+aba
 aaa
-aaa
-aaa
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-akG
-apu
-apu
-apu
-arn
-arP
-asj
-apu
-apu
-apu
-arZ
-ale
-ale
-ale
-ale
+aba
+aba
+aba
+aba
+aba
 ale
 ale
 akx
@@ -69585,46 +68546,46 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 ale
 ale
-ale
-ale
-ale
-ale
-ale
+aaa
+aaa
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aaa
+aaa
+aaa
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aaa
+aaa
 ale
 aba
 aba
 aba
-ale
-apu
-apu
-aqG
-arn
-arQ
-ask
-asu
-asz
-asz
-ary
-ale
+aba
+aba
+aba
+aaa
+aaa
+aaa
+aba
+aba
+aba
+aba
 ale
 ale
-ale
-ale
-ale
+aaa
 akx
 auP
 avv
@@ -69842,46 +68803,46 @@ aaa
 aaa
 aaa
 aaa
+ale
 aaa
 aaa
 aaa
+aba
+aba
 aaa
 aaa
 aaa
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aba
+aba
+aba
+aba
+aba
 ale
 ale
-ale
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-apu
-apu
-arn
-arP
-asj
-apu
-apu
-ale
-ale
-aba
-aba
-ale
-ale
-ale
-ale
+aaa
+aaa
 akx
 awA
 baP
@@ -70098,47 +69059,47 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 ale
 ale
+aaa
+aaa
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
 ale
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-apu
-apu
-arR
-apu
-apu
 ale
-ale
-ale
-aba
-aba
-ale
-ale
-ale
-ale
+aaa
+aaa
+aaa
 akx
 aER
 baQ
@@ -70355,47 +69316,47 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 ale
-ale
+aaa
+aaa
+aaa
 aba
 aba
 aba
-amd
-amu
-amG
-anf
-amG
-anX
-aoD
-apa
-apv
+akG
+akG
 aba
-ale
-apu
-arS
-apu
-ale
-ale
-ale
-ale
+aaa
+aba
+akG
+akG
+aba
+akG
+akG
+aba
+aba
+aba
+akG
+akG
+aba
+aba
+aba
+aaa
+aaa
+aba
+aaa
+aba
+aba
+aba
 aba
 aba
 ale
 ale
 ale
-ale
+aaa
+aaa
+aaa
+aaa
 akx
 aES
 baR
@@ -70611,48 +69572,48 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 ale
 ale
+aaa
+aaa
+aaa
 aba
 aba
 aba
-ame
-amv
-amv
-amv
-amv
-anY
-aoE
-apb
-apw
-aqa
-apu
-apu
-arT
-apu
-ale
-ale
-ale
-ale
+akG
 aba
 aba
 aba
 aba
+aba
+akG
+aba
+akG
+aba
+aba
+aaa
+aba
+aba
+akG
+aba
+aba
+aba
+aba
+aaa
+aaa
+aaa
+aba
+aba
+aba
+aaa
 ale
 ale
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 akx
 auS
 auS
@@ -70868,48 +69829,48 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 ale
-ale
-ale
+aaa
+aaa
+aaa
 aba
 aba
 aba
-amf
-amv
-amH
-amv
-amv
-amv
-aoF
-apb
-apx
-aqb
-apu
-ark
-arT
-apu
-ale
-ale
-ale
-ale
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aaa
+aaa
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
 aba
 aba
 aba
 ale
 ale
 ale
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 akx
 akx
 akx
@@ -71125,47 +70086,47 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 ale
-ale
-ale
+aaa
+aaa
+aaa
+aba
+aba
+aaa
 aba
 aba
 aba
-amg
-amv
-amv
-amv
-amv
-amv
-aoF
-apc
-apy
-aqc
-aqH
-aro
-arU
-apu
-ale
-ale
-ale
+aba
+akG
+aba
+aba
+aba
+aba
+aba
+aba
+aaa
+akG
+aba
+aba
+aba
+aba
+aba
+aba
 aba
 aba
 aba
 aba
 ale
 ale
+ale
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -71382,40 +70343,29 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 ale
-ale
-ale
-ale
+aaa
+aaa
 aba
 aba
-amf
-amv
-amI
-amv
-amv
-amv
-aoF
-apb
-apz
-aqd
-apu
-arp
-arL
-apu
-ale
-ale
+aaa
+aaa
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
 aba
 aba
 aba
@@ -71423,6 +70373,17 @@ aba
 aba
 ale
 ale
+ale
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -71639,47 +70600,47 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 ale
-ale
-ale
-aba
-aba
-amh
-amv
-amv
-amv
-amv
-amv
-aoE
-apb
-apA
-aqe
-apu
-apu
-apu
-apu
-ale
+aaa
+aaa
 aba
 aba
 aba
 aba
+aba
+akG
+aba
+aba
+aba
+aba
+aba
+akG
+aba
+akG
+aba
+aba
+aba
+aba
+aba
+akG
+aba
+aba
+aaa
+aaa
+aaa
 ale
-ale
-ale
-ale
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -71896,46 +70857,46 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 ale
-ale
-ale
-aba
-aba
-ami
-amw
-amG
-ang
-amG
-anZ
-aoD
-apd
-apB
-ale
-ale
-ale
-ale
-ale
-ale
+aaa
+aaa
+aaa
+aaa
 aba
 aba
 aba
+akG
+akG
 aba
+aba
+aba
+akG
+akG
+aba
+akG
+akG
+aba
+aba
+aba
+akG
+akG
+aba
+aba
+aaa
+aaa
+aaa
 ale
-ale
-ale
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -72153,46 +71114,46 @@ aaa
 aaa
 aaa
 aaa
+ale
+ale
 aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
+aba
 aaa
 aaa
 ale
 ale
-ale
-ale
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-ale
-ale
-ale
-ale
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -72411,43 +71372,43 @@ aaa
 aaa
 aaa
 aaa
+ale
 aaa
 aaa
 aaa
 aaa
+aba
+aba
+aba
+aba
+aba
+aba
 aaa
 aaa
+aba
+aba
+aba
+aba
 aaa
-aaa
-aaa
-aaa
+aba
+aba
+aba
+aba
+aba
+aba
 aaa
 aaa
 ale
-ale
-ale
-ale
-ale
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-aba
-ale
-ale
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -72668,43 +71629,43 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 ale
-ale
-ale
-ale
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aba
 aba
-anh
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
+aba
+aaa
+aaa
 aba
 aba
 aba
 aba
+aba
+aba
+aba
+aaa
+aaa
+aaa
+aaa
+aaa
 ale
-ale
-ale
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -72925,6 +71886,8 @@ aaa
 aaa
 aaa
 aaa
+ale
+ale
 aaa
 aaa
 aaa
@@ -72933,35 +71896,33 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
 aba
 aba
+aba
+aaa
+aba
+aba
+aba
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 ale
 ale
-ale
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -73183,6 +72144,31 @@ aaa
 aaa
 aaa
 aaa
+ale
+ale
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aba
+aba
+aba
+aba
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+ale
+ale
 aaa
 aaa
 aaa
@@ -73193,31 +72179,6 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
 aaa
 aaa
 aaa
@@ -73441,29 +72402,19 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 ale
 ale
 aaa
 aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aba
+aba
+aba
+aba
 aaa
 aaa
 aaa
@@ -73474,6 +72425,16 @@ aaa
 ale
 ale
 ale
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -73699,26 +72660,26 @@ aaa
 aaa
 aaa
 aaa
+ale
+ale
+ale
 aaa
 aaa
 aaa
 aaa
+aba
+aba
+aba
+aba
+aba
 aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+ale
+ale
+ale
+ale
 aaa
 aaa
 aaa
@@ -73958,21 +72919,21 @@ aaa
 aaa
 aaa
 aaa
+ale
+ale
+ale
+ale
+aaa
+aba
+aba
 aaa
 aaa
+aba
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+ale
+ale
+ale
+ale
 aaa
 aaa
 aaa
@@ -74218,15 +73179,15 @@ aaa
 aaa
 aaa
 aaa
+ale
+ale
+aba
+aba
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aba
+aba
+ale
+ale
 aaa
 aaa
 aaa
@@ -74476,13 +73437,13 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+ale
+aba
+aba
+aba
+aba
+aba
+ale
 aaa
 aaa
 aaa
