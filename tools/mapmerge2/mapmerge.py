@@ -4,6 +4,28 @@ import shutil
 from dmm import *
 from collections import defaultdict
 
+class DMM_TRAVIS(DMM):
+
+    @staticmethod
+    def to_file(self, fname, tgm = True):
+        try:
+            self._presave_checks(self, fname)
+            with open(fname, 'w', newline='\n', encoding=ENCODING) as f:
+                (save_tgm if tgm else save_dmm)(self, f)
+        except KeyTooLarge:
+            print(KeyTooLarge)
+            print("\nKey is too large, run mapmerge2 on {} locally and fix errors.".format(fname))
+            raise RuntimeError()
+
+    def _presave_checks(self, fname):
+        # last-second handling of bogus keys to help prevent and fix broken maps
+        self._ensure_free_keys(0)
+        max_key = max_key_for(self.key_length)
+        bad_keys = {key: 0 for key in self.dictionary.keys() if key > max_key}
+        if bad_keys:
+            print("Bad keys detected, please run mapmerge2 on {} locally and fix errors.".format(fname))
+            raise RuntimeError()
+
 def merge_map(new_map, old_map, delete_unused=False):
     if new_map.key_length != old_map.key_length:
         print("Warning: Key lengths differ, taking new map")
@@ -18,7 +40,7 @@ def merge_map(new_map, old_map, delete_unused=False):
         return new_map
 
     key_length, size = old_map.key_length, old_map.size
-    merged = DMM(key_length, size)
+    merged = DMM_TRAVIS(key_length, size)
     merged.dictionary = old_map.dictionary.copy()
 
     known_keys = dict()  # mapping fron 'new' key to 'merged' key
@@ -86,8 +108,8 @@ def merge_map(new_map, old_map, delete_unused=False):
 def main(settings):
     for fname in frontend.process(settings, "merge", backup=True):
         shutil.copyfile(fname, fname + ".before")
-        old_map = DMM.from_file(fname + ".backup")
-        new_map = DMM.from_file(fname)
+        old_map = DMM_TRAVIS.from_file(fname + ".backup")
+        new_map = DMM_TRAVIS.from_file(fname)
         merge_map(new_map, old_map).to_file(fname, settings.tgm)
 
 if __name__ == '__main__':

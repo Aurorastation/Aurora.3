@@ -122,4 +122,5 @@ if __name__ == '__main__':
         old_map = DMM_TRAVIS.from_file(fname + ".backup")
         new_map = DMM_TRAVIS.from_file(fname)
         merge_map(new_map, old_map, fname).to_file(fname, 1)
+        os.remove(fname + ".backup")
     print("Maps scanning complete, no issues were found.")
