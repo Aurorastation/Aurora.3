@@ -34,4 +34,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Adds a basic telepathic ability to Skrell. Targets must be able to be seen, and the Skrell in question needs atleast one hand. Does not work on machines, or the dead."
+  - rscadd: "Adds a basic telepathic ability to Skrell."
