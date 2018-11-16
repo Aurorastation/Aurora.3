@@ -7,16 +7,14 @@ from dmm import *
 
 class DMM_TRAVIS(DMM):
 
-    @staticmethod
     def to_file(self, fname, tgm = True):
         try:
             self._presave_checks(fname)
             with open(fname, 'w', newline='\n', encoding=ENCODING) as f:
                 (save_tgm if tgm else save_dmm)(self, f)
         except KeyTooLarge:
-            print(KeyTooLarge)
             print("\nKey is too large, run mapmerge2 on {} locally and fix errors.".format(fname))
-            raise RuntimeError()
+            exit(1)
 
     def _presave_checks(self, fname):
         # last-second handling of bogus keys to help prevent and fix broken maps
@@ -25,7 +23,7 @@ class DMM_TRAVIS(DMM):
         bad_keys = {key: 0 for key in self.dictionary.keys() if key > max_key}
         if bad_keys:
             print("Bad keys detected, please run mapmerge2 on {} locally and fix errors.".format(fname))
-            raise RuntimeError()
+            exit(1)
 
 def merge_map(new_map, old_map, name):
     if new_map.key_length != old_map.key_length:
@@ -43,7 +41,7 @@ def merge_map(new_map, old_map, name):
         raise RuntimeError()
 
     key_length, size = old_map.key_length, old_map.size
-    merged = DMM(key_length, size)
+    merged = DMM_TRAVIS(key_length, size)
     merged.dictionary = old_map.dictionary.copy()
 
     known_keys = dict()  # mapping fron 'new' key to 'merged' key
