@@ -21114,7 +21114,8 @@
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/machinery/vending/wallmed1{
-	pixel_y = 32
+	pixel_y = 32;
+	req_access = null
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
@@ -21643,7 +21644,8 @@
 /area/rnd/xenobiology)
 "aLO" = (
 /obj/machinery/vending/wallmed1{
-	pixel_y = 32
+	pixel_y = 32;
+	req_access = null
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
@@ -24658,6 +24660,24 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/rnd/test_area)
+"aRc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/structure/sink{
+	icon_state = "sink";
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 2
+	},
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/vending/wallmed1{
+	pixel_x = -32;
+	req_access = null
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology)
 "aRm" = (
 /obj/structure/table/standard,
 /obj/machinery/newscaster{
@@ -25039,23 +25059,6 @@
 /obj/item/weapon/folder/purple,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/hallway)
-"aSj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
-/obj/structure/sink{
-	icon_state = "sink";
-	dir = 8;
-	pixel_x = -12;
-	pixel_y = 2
-	},
-/obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/vending/wallmed1{
-	pixel_x = -32
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenobiology)
 "aSk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -54750,7 +54753,7 @@ aPn
 aPV
 aQC
 aOD
-aSj
+aRc
 aOD
 aTO
 aUH
