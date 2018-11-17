@@ -236,6 +236,12 @@
 
 	log_say("[key_name(src)] communed to [key_name(target)]: [text]",ckey=key_name(src))
 
+	for (var/mob/M in player_list)
+		if (istype(M, /mob/abstract/new_player))
+			continue
+		else if(M.stat == DEAD &&  M.client.prefs.toggles & CHAT_GHOSTEARS)
+			to_chat(M,"<span class='notice'>[src] telepathically says to [target], [text]")
+
 	var/mob/living/carbon/human/H = target
 	if (/mob/living/carbon/human/proc/commune in target.verbs)
 		to_chat(H,"<span class='psychic'>You instinctively sense [src] sending their thoughts into your mind, hearing:</span> [text]")
