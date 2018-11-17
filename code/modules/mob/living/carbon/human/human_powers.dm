@@ -181,19 +181,19 @@
 	var/obj/item/organ/external/lhand = src.get_organ("l_hand")
 	if((!rhand || !rhand.is_usable()) && (!lhand || !lhand.is_usable()))
 		to_chat(src,"<span class='warning'>You can't communicate without the ability to use your hands!</span>")
-		return FALSE
+		return
 	if((lhand.is_stump()) && (rhand.is_stump()))
 		to_chat(src,"<span class='warning'>You can't communicate without functioning hands!</span>")
-		return FALSE
+		return
 	if(src.r_hand != null && src.l_hand != null)
 		to_chat(src,"<span class='warning'>You can't communicate while your hands are full!</span>")
-		return FALSE
+		return
 	if(stat || paralysis || stunned || weakened ||  restrained())
 		to_chat(src,"<span class='warning'>You can't communicate while unable to move your hands to your head!</span>")
-		return FALSE
+		return
 	if(last_special > world.time)
 		to_chat(src,"<span class='notice'>Your mind requires rest!</span>")
-		return FALSE
+		return
 
 	last_special = world.time + 100
 
@@ -249,7 +249,7 @@
 		to_chat(H,"<span class='changeling'>You sense [src]'s thoughts enter your mind, whispering quietly:</span> [text]")
 	else
 		to_chat(H,"<span class='alium'>You feel pressure behind your eyes as alien thoughts enter your mind:</span> [text]")
-		if(H)
+		if(istype(H))
 			if (/mob/living/carbon/human/proc/commune in target.verbs)
 				return
 			if(prob(10) && (H.species.flags & NO_BLOOD))
