@@ -5228,6 +5228,7 @@
 /obj/machinery/alarm{
 	pixel_y = 23
 	},
+/obj/structure/closet/secure_closet/freezer/money,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "akk" = (
@@ -5756,33 +5757,36 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "alg" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 9
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "alh" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 1
-	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "ali" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
+/obj/structure/table/reinforced/steel,
+/obj/structure/window/reinforced{
+	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/item/weapon/hand_tele,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "alj" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced{
-	dir = 8
+	icon_state = "rwindow";
+	dir = 4
 	},
-/obj/random/finances,
+/obj/random/rig_module{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/random/rig_module,
+/obj/random/rig_module{
+	pixel_x = 4;
+	pixel_y = -4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "alk" = (
@@ -6276,44 +6280,48 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/civ)
 "ame" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/porta_turret/stationary,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/tiled/dark,
+/area/security/nuke_storage)
+"amf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/porta_turret/stationary,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/tiled/dark,
+/area/security/nuke_storage)
+"amg" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/table/reinforced/steel,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/random/vault_weapon,
+/turf/simulated/floor/tiled/dark,
+/area/security/nuke_storage)
+"amh" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
 	},
-/obj/random/rig_module{
+/obj/random/vault_rig{
 	pixel_x = -4;
 	pixel_y = 4
 	},
-/obj/random/rig_module,
-/obj/random/rig_module{
+/obj/random/vault_rig,
+/obj/random/vault_rig{
 	pixel_x = 4;
 	pixel_y = -4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"amf" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"amg" = (
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"amh" = (
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "ami" = (
@@ -6854,40 +6862,26 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/civ)
 "ann" = (
-/obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
+	dir = 1
 	},
-/obj/random/vault_rig{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/random/vault_rig,
-/obj/random/vault_rig{
-	pixel_x = 4;
-	pixel_y = -4
-	},
-/obj/machinery/light/small/emergency{
+/obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/obj/structure/device/piano{
+	broken = 1;
+	force_piano = 1;
+	pixel_x = 6;
+	pixel_y = -6
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 9;
+	icon_state = "spline_plain"
+	},
+/turf/simulated/floor/carpet,
+/area/crew_quarters/bar)
 "ano" = (
-/obj/machinery/porta_turret/stationary,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"anp" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "anq" = (
@@ -7314,37 +7308,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "aon" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "aoo" = (
+/turf/simulated/floor/tiled/dark,
+/area/security/nuke_storage)
+"aop" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"aop" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
@@ -8110,51 +8088,38 @@
 /turf/simulated/floor/plating,
 /area/maintenance/civ)
 "apB" = (
-/obj/structure/table/reinforced/steel,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/random/telecrystals{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/random/telecrystals{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/random/telecrystals,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"apC" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 10
-	},
-/obj/machinery/light/small/emergency,
-/obj/machinery/camera/motion/security{
-	c_tag = "Vault - Vault";
-	dir = 1;
-	icon_state = "camera"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"apD" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"apE" = (
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
 	},
-/obj/machinery/light/small/emergency,
+/turf/simulated/floor/tiled/dark,
+/area/security/nuke_storage)
+"apC" = (
+/obj/structure/table/reinforced/steel,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/random/finances,
+/turf/simulated/floor/tiled/dark,
+/area/security/nuke_storage)
+"apD" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/dark,
+/area/security/nuke_storage)
+"apE" = (
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "apF" = (
@@ -9636,30 +9601,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "asd" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/obj/machinery/alarm{
-	dir = 4;
-	icon_state = "alarm0";
-	pixel_x = -22
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"ase" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"asf" = (
 /obj/structure/cable/green,
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
-	},
 /obj/machinery/power/apc/vault{
 	dir = 4;
 	name = "east bump";
@@ -9669,6 +9611,19 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
+/turf/simulated/floor/tiled/dark,
+/area/security/nuke_storage)
+"ase" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/security/nuke_storage)
+"asf" = (
+/obj/machinery/porta_turret/stationary,
+/obj/structure/sign/securearea{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "asg" = (
@@ -10572,14 +10527,13 @@
 /turf/simulated/wall,
 /area/lawoffice)
 "ats" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "att" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -11592,9 +11546,7 @@
 /area/hallway/primary/starboard)
 "avg" = (
 /obj/machinery/porta_turret/stationary,
-/obj/structure/sign/securearea{
-	pixel_y = 32
-	},
+/obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "avh" = (
@@ -13711,11 +13663,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "ayy" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/machinery/light/small/emergency{
+	icon_state = "bulb1";
 	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
@@ -13730,23 +13683,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "ayA" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "ayB" = (
-/obj/machinery/light/small/emergency{
-	icon_state = "bulb1";
-	dir = 4
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "ayC" = (
@@ -14535,7 +14478,20 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "azY" = (
-/obj/effect/floor_decal/industrial/warning,
+/obj/structure/table/reinforced/steel,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/random/telecrystals{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/random/telecrystals{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/random/telecrystals,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "azZ" = (
@@ -16450,16 +16406,19 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aDa" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
 /obj/machinery/light/small/emergency,
+/obj/machinery/camera/motion/security{
+	c_tag = "Vault - Vault";
+	dir = 1;
+	icon_state = "camera"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "aDb" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/tiled/dark,
@@ -58887,24 +58846,6 @@
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"bWJ" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/device/piano{
-	force_piano = 1;
-	pixel_x = 6;
-	pixel_y = -6
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 9;
-	icon_state = "spline_plain"
-	},
-/turf/simulated/floor/carpet,
-/area/crew_quarters/bar)
 "bWK" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -65295,25 +65236,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/civ)
 "ciq" = (
-/obj/structure/table/reinforced/steel,
-/obj/structure/window/reinforced{
+/obj/structure/table/rack,
+/obj/random/loot,
+/obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/item/weapon/hand_tele,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"cir" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/table/reinforced/steel,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
 "cis" = (
 /obj/machinery/computer/guestpass{
 	pixel_x = 32;
@@ -94066,7 +93995,7 @@ bSM
 bSM
 bVV
 bWj
-bWJ
+ann
 bXl
 bXC
 bVV
@@ -105550,18 +105479,18 @@ aiO
 aiO
 aiO
 alf
-ame
-ann
+alj
+amh
 aom
-apB
-aiO
-aiO
-aiO
-avg
-alh
-ayx
 azY
-ano
+aiO
+aiO
+aiO
+asf
+aoo
+ayx
+aoo
+avg
 aiO
 aiO
 aiO
@@ -105806,23 +105735,23 @@ ahT
 aiO
 aiO
 aki
+aoo
+ame
 alg
-amf
-amf
 aon
-apC
-aiO
-asd
-ats
-ats
-ats
-ayy
-ats
-ats
 aDa
 aiO
+apE
+aoo
+aoo
+aoo
+ats
+aoo
+aoo
+ayA
+aiO
 aGO
-azY
+apD
 awK
 aLW
 aNQ
@@ -106063,11 +105992,11 @@ ahT
 aiO
 aiO
 akj
-alh
-ano
-amg
 aoo
-apD
+aoo
+ano
+aop
+ase
 aqM
 ase
 ase
@@ -106079,7 +106008,7 @@ ase
 ase
 aER
 aGP
-apD
+ayB
 aKi
 aLX
 aNR
@@ -106320,23 +106249,23 @@ ahT
 aiO
 aiO
 aki
-ali
-amh
-anp
-aop
-apE
-aqN
-asf
-att
-att
-att
-ayA
-att
-att
+aoo
+amf
+alh
+apB
 aDb
+aqN
+asd
+aoo
+aoo
+aoo
+att
+aoo
+aoo
+ayA
 aiO
 aGQ
-azY
+apD
 awK
 aLY
 aNS
@@ -106577,19 +106506,19 @@ ahT
 aiO
 aiO
 aiO
-ciq
-cir
+ali
+amg
 anq
-alj
-alj
+apC
+apC
 aiO
 aiO
 aiO
+asf
+aoo
+ayy
+aoo
 avg
-alh
-ayB
-azY
-ano
 aiO
 aiO
 aiO
@@ -107591,7 +107520,7 @@ aaa
 aab
 aad
 aah
-aah
+abI
 aah
 aah
 aah
@@ -107599,7 +107528,7 @@ abW
 aml
 abM
 abV
-aaD
+ciq
 aaD
 agD
 agD
@@ -107850,7 +107779,7 @@ aad
 aah
 aah
 aah
-aah
+abI
 aah
 aah
 aah
