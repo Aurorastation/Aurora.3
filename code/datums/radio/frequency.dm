@@ -21,7 +21,7 @@
 /datum/radio_frequency/proc/send_to_filter(obj/source, datum/signal/signal, filter, turf/start_point = null, range = null)
 	if (range && !start_point)
 		return
-
+	signal.source = source
 	for(var/obj/device in devices[filter])
 		if(device == source)
 			continue

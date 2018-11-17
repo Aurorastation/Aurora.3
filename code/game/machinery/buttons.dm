@@ -164,6 +164,12 @@
 	if(_wifi_id)
 		wifi_sender = new/datum/wifi/sender/mass_driver(_wifi_id, src)
 
+/obj/machinery/button/mass_driver/dismantle()
+	playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+	new/obj/item/frame/button/mass_driver(loc)
+	qdel(src)
+	return 1
+
 /obj/machinery/button/mass_driver/activate(mob/living/user)
 	if(active || !istype(wifi_sender))
 		return
@@ -241,6 +247,12 @@
 	if(_wifi_id)
 		wifi_sender = new/datum/wifi/sender/door(_wifi_id, src)
 	. = ..()
+
+/obj/machinery/button/toggle/door/dismantle()
+	playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+	new/obj/item/frame/button/door(loc)
+	qdel(src)
+	return 1
 
 /obj/machinery/button/toggle/door/activate(mob/living/user)
 	if(operating || !istype(wifi_sender))
