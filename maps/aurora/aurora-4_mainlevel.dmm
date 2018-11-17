@@ -5761,7 +5761,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "alh" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/porta_turret/stationary,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "ali" = (
@@ -6286,9 +6293,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "amf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/porta_turret/stationary,
-/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "amg" = (
@@ -106250,8 +106260,8 @@ aiO
 aiO
 aki
 aoo
-amf
 alh
+amf
 apB
 aDb
 aqN
