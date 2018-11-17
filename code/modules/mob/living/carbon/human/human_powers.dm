@@ -240,7 +240,7 @@
 		if (istype(M, /mob/abstract/new_player))
 			continue
 		else if(M.stat == DEAD &&  M.client.prefs.toggles & CHAT_GHOSTEARS)
-			to_chat(M,"<span class='notice'>[src] telepathically says to [target], [text]")
+			to_chat(M,"<span class='notice'>[src] telepathically says to [target]:</span> [text]")
 
 	var/mob/living/carbon/human/H = target
 	if (/mob/living/carbon/human/proc/commune in target.verbs)
