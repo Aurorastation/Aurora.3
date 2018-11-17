@@ -85,14 +85,14 @@
 					"This staff assistant is making mad credits and basically, you're fucking stupid. How? ...Just Watch The Free Video >")
 
 				if(4)
-					sender = pick("Buy Dr. Maxman",\
-					"Having dysfuctional troubles?")
-					message = pick("DR MAXMAN: REAL Doctors, REAL Science, REAL Results!",\
-					"Dr. Maxman was created by George Acuilar, M.D, a [current_map.boss_short] Certified Urologist who has treated over 70,000 patients sector wide with 'male problems'.",\
-					"After seven years of research, Dr Acuilar and his team came up with this simple breakthrough male enhancement formula.",\
-					"Men of all species report AMAZING increases in length, width and stamina.",
-					"Discovery of this ONE Vaurca pheremone has led to years of genital growth progress! Sign on now!",\
-					"Is your sexlife growing dull? Your late-night sessions growing short? Have you considered Unathi testicle transplants? Greater stamina, greater virility, greater fun.")
+					sender = pick("Buy Dr. Augbaus",\
+					"Having biological troubles?")
+					message = pick("DR AUGBAUS: REAL Doctors, REAL Science, REAL Results!",\
+					"Dr. Augbaus was created by George Acuilar, M.D, a [current_map.boss_short] Certified Bio-mechanical Engineer who has treated over 70,000 patients sector wide with 'human problems'.",\
+					"After seven years of research, Dr Acuilar and his team came up with this simple breakthrough bio-aug enhancement formula.",\
+					"Men and women of all species report AMAZING increases in stamina, willpower and transcendent potential!",
+					"Discovery of this ONE Vaurca pheremone has led Eridans to have charge for their augs for weeks! Sign on now!",\
+					"Buy bio-augs. Get rid of that ridiculous skin. Insert a network chip into your frontal cortex. Become one with the machine. All are one who are with the machine. Dr. Augbaus.")
 
 				if(5)
 					sender = pick("Dr","Crown prince","King Regent","Professor","Captain")
