@@ -104,7 +104,7 @@
 
 /obj/item/weapon/storage/box/survival/fill()
 	..()
-	new /obj/item/clothing/mask/breath( src )
+	new /obj/item/clothing/mask/gas/alt( src )
 	new /obj/item/weapon/tank/emergency_oxygen(src)
 	for(var/obj/item/thing in contents)
 		thing.autodrobe_no_remove = 1
@@ -119,7 +119,7 @@
 
 /obj/item/weapon/storage/box/engineer/fill()
 	..()
-	new /obj/item/clothing/mask/breath( src )
+	new /obj/item/clothing/mask/gas/alt( src )
 	new /obj/item/weapon/tank/emergency_oxygen/engi( src )
 	for(var/obj/item/thing in contents)
 		thing.autodrobe_no_remove = 1
