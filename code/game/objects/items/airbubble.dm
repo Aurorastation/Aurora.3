@@ -262,7 +262,7 @@
 
 	escapee.next_move = world.time + 100
 	escapee.last_special = world.time + 100
-	escapee << "<span class='warning'>You lean on the back of \the [src] and start punching internal wall with your legs. (this will take about [breakout_time] minutes)</span>"
+	to_chat(escapee, "<span class='warning'>You lean on the back of \the [src] and start punching internal wall with your legs. (this will take about [breakout_time] minutes)</span>")
 	visible_message("<span class='danger'>\The [src] begins to shake violently! Something is terring it from the inside!</span>")
 
 	var/time = 360 * breakout_time * 2
@@ -273,7 +273,7 @@
 		return
 
 	breakout = FALSE
-	escapee << "<span class='warning'>You successfully break out! Tearing the bubble's walls!</span>"
+	to_chat(escapee, "<span class='warning'>You successfully break out! Tearing the bubble's walls!</span>")
 	visible_message("<span class='danger'>\the [escapee] successfully broke out of \the [src]! Tearing the bubble's walls!</span>")
 	playsound(loc, "sound/items/[pick("rip1","rip2")].ogg", 100, 1)
 	break_open()
@@ -299,6 +299,14 @@
 	set src in oview(1)
 	set category = "Object"
 	set name = "Set Internals"
+
+	if(!usr.canmove || usr.stat || usr.restrained())
+		return
+
+	if(!ishuman(usr))
+		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
+		return
+
 	if(!isnull(internal_tank))
 		usr.visible_message(
 		"<span class='warning'>[usr] is setting [src] internals.</span>",
@@ -324,6 +332,14 @@
 	set src in oview(1)
 	set category = "Object"
 	set name = "Remove Air Tank"
+
+	if(!usr.canmove || usr.stat || usr.restrained())
+		return
+
+	if(!ishuman(usr))
+		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
+		return
+
 	if(!isnull(internal_tank))
 		usr.visible_message(
 		"<span class='warning'>[usr] is removing [internal_tank] from [src].</span>",
@@ -349,6 +365,14 @@
 	set src in oview(1)
 	set category = "Object"
 	set name = "Detach Power Cell"
+
+	if(!usr.canmove || usr.stat || usr.restrained())
+		return
+
+	if(!ishuman(usr))
+		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
+		return
+
 	if(!isnull(cell))
 		usr.visible_message(
 		"<span class='warning'>[usr] is removing [cell] from [src].</span>",
