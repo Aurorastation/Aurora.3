@@ -1208,6 +1208,7 @@ I said no!
 
 /datum/recipe/icecreamsandwich
 	reagents = list("milk" = 5, "ice" = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/icecream
 	)

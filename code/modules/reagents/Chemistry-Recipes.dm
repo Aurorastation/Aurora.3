@@ -577,6 +577,34 @@
 	required_reagents = list("phoron" = 0.1, "water" = 1, "potassium_chloride" = 0.2)
 	result_amount = 1
 
+/datum/chemical_reaction/mannitol
+	name = "Mannitol"
+	id = "mannitol"
+	result = "mannitol"
+	required_reagents = list("phoron" = 0.1, "alkysine" = 1, "cryoxadone" = 0.1)
+	result_amount = 1
+
+/datum/chemical_reaction/omnizine
+	name = "Omnizine"
+	id = "omnizine"
+	result = "omnizine"
+	required_reagents = list("tricordrazine" = 1, "sugar" = 1, "carbon" = 1 )
+	result_amount = 3
+
+/datum/chemical_reaction/atropine
+	name = "Atropine"
+	id = "atropine"
+	result = "atropine"
+	required_reagents = list("tricordrazine" = 1, "phoron" = 0.1, "hydrazine" = 1 )
+	result_amount = 2
+
+/datum/chemical_reaction/epinephrine
+	name = "Epinephrine"
+	id = "epinephrine"
+	result = "epinephrine"
+	required_reagents = list("atropine" = 1, "phoron" = 0.1, "inaprovaline" = 1 )
+	result_amount = 2
+
 //Mental Medication
 
 /datum/chemical_reaction/methylphenidate
