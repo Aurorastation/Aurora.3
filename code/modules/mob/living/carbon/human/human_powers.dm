@@ -217,8 +217,8 @@
 	if(!text)
 		return
 
-	if(istype(target, /mob/abstract/observer) || target.stat == DEAD)
-		to_chat(src,"<span class='warning'>Not even a [src.species.name] can speak to the dead.</span>")
+	if(target.stat == DEAD)
+		to_chat(src,"<span class='cult'>Not even a [src.species.name] can speak to the dead.</span>")
 		return
 
 	if (target.isSynthetic())
