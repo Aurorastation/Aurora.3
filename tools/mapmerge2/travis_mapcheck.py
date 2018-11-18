@@ -13,11 +13,11 @@ class DMM_TRAVIS(DMM):
             self._ensure_free_keys(0)
             max_key = max_key_for(self.key_length)
         except KeyTooLarge:
-            print("\nKey is too large, run mapmerge2 on {} locally and fix errors.".format(fname))
+            print("\nKey is too large, run mapmerge2 on {} locally and fix errors.".format(fname[42:len(fname)]))
             exit(1)
         bad_keys = {key: 0 for key in self.dictionary.keys() if key > max_key}
         if bad_keys:
-            print("\nBad keys detected, please run mapmerge2 on {} locally and fix errors.".format(fname))
+            print("\nBad keys detected, please run mapmerge2 on {} locally and fix errors.".format(fname[42:len(fname)]))
             exit(1)
 
 def map_check(map, name):
@@ -71,14 +71,12 @@ def map_check(map, name):
 
     # step two: delete unused keys
     if unused_keys:
-        print("Error: {} unused dictionary keys. Please run mapmerge2 on {} locally to trim them.".format(len(unused_keys), name))
+        print("Error: {} unused dictionary keys. Please run mapmerge2 on {} locally to trim them.".format(len(unused_keys), name[42:len(name)]))
         exit(1)
-
 
     return merged
 
 if __name__ == '__main__':
-
     list_of_files = list()
     for root, directories, filenames in os.walk("/home/travis/build/Aurorastation/Aurora.3/maps/"):
         for filename in [f for f in filenames if f.endswith(".dmm")]:
