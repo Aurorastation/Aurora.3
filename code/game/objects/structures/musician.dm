@@ -18,6 +18,7 @@
 	var/edit = 1
 	var/repeat = 0
 	var/force_piano = FALSE
+	var/broken = 0 //Whether or not the piano can actually be played.
 
 /obj/structure/device/piano/New()
 	if(prob(50) && !force_piano)
@@ -258,6 +259,10 @@
 
 /obj/structure/device/piano/attack_hand(var/mob/user as mob)
 	if(!anchored)
+		return
+
+	if(broken)
+		to_chat(user,span("notice","\The [src] seems to be broken after so many years of misuse, perhaps due to reckless hooligans breaking into the display case and carelessly bashing keys."))
 		return
 
 	usr.machine = src
