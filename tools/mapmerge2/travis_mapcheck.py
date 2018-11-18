@@ -74,6 +74,9 @@ def map_check(map, name):
         print("Error: {} unused dictionary keys. Please run mapmerge2 on {} locally to trim them.".format(len(unused_keys), name))
         exit(1)
 
+
+    return merged
+
 if __name__ == '__main__':
 
     list_of_files = list()
