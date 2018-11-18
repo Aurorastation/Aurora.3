@@ -67,7 +67,7 @@
 
 	var/time = 0
 	var/charge_mode = 0
-	var/last_diff = null
+	var/last_time = 1
 
 /obj/machinery/power/smes/drain_power(var/drain_check, var/surge, var/amount = 0)
 
@@ -166,28 +166,21 @@
 
 /obj/machinery/power/smes/proc/update_time()
 
-	if(!last_diff)
-		last_diff = output_used - input_taken
-		return
+	var/delta_power = input_taken - output_used
+	delta_power *= SMESRATE
 
-	var/main_diff = ((output_used - input_taken) + last_diff) / 2
-	main_diff *= SMESRATE // convert to same units as charge
+	var/goal = (delta_power < 0) ? (charge) : (capacity - charge)
 
+	var/time_secs = (delta_power) ? ((goal / abs(delta_power)) * (round(world.time - last_time) / 10)) : (0)
 	// If it is negative - we are discharging
-	if(main_diff < 0)
-		time = (capacity - charge) / main_diff // how long will it take to fully charge SMES
-		time /= -2 // Since machinery_process only occurs each 2 seconds
-		charge_mode = 1
-	else if(main_diff != 0) // no division by 0
-		time = charge / main_diff // how long will it take to deplete SMES
-		time *= 2 // Since machinery_process only occurs each 2 seconds but is backwards to charging
+	if(delta_power < 0)
 		charge_mode = 0
+	else if(delta_power != 0)
+		charge_mode = 1
 	else
-		time = 0
 		charge_mode = 2
-
-	time = ((time / 3600) > 1) ? ("[round(time / 3600)] hours, [round((time % 3600) / 60)] minutes") : ("[round(time / 60)] minutes, [round(time % 60)] seconds")
-	last_diff = output_used - input_taken
+	last_time = world.time
+	time = ((time_secs / 3600) > 1) ? ("[round(time_secs / 3600)] hours, [round((time_secs % 3600) / 60)] minutes") : ("[round(time_secs / 60)] minutes, [round(time_secs % 60)] seconds")
 
 /obj/machinery/power/smes/machinery_process()
 	if(stat & BROKEN)	return

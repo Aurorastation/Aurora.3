@@ -128,7 +128,7 @@
 
 	var/time = 0
 	var/charge_mode = 0
-	var/last_diff = null
+	var/last_time = 1
 
 /obj/machinery/power/apc/updateDialog()
 	if (stat & (BROKEN|MAINT))
@@ -1390,25 +1390,18 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 
 /obj/machinery/power/apc/proc/update_time()
 
-	if(!last_diff)
-		last_diff = (lastused_charging) ? (-lastused_charging) : (lastused_total)
-		return
+	var/delta_power = (lastused_charging) ? (-lastused_charging) : (lastused_total)
+	delta_power *= 0.0005
 
-	var/main_diff = ((lastused_charging) ? (-lastused_charging) : (lastused_total)) / 2
-	main_diff *= 0.0005 // convert to same units as charge
+	var/goal = (delta_power > 0) ? (cell.charge) : (cell.maxcharge - cell.charge)
 
+	var/time_secs = (delta_power) ? ((goal / abs(delta_power)) / (round(world.time - last_time) / 10)) : (0)
 	// If it is negative - we are discharging
-	if(main_diff < 0)
-		time = (cell.maxcharge - cell.charge) / main_diff // how long will it take to fully charge APC
-		time /= -2 // Since machinery_process only occurs each 2 seconds
+	if(delta_power < 0)
 		charge_mode = 1
-	else if(main_diff != 0) // no division by 0
-		time = cell.charge / main_diff // how long will it take to deplete APC
-		time *= 2 // Since machinery_process only occurs each 2 seconds but is backwards to charging
+	else if(delta_power != 0)
 		charge_mode = 0
 	else
-		time = 0
 		charge_mode = 2
-
-	time = ((time / 3600) > 1) ? ("[round(time / 3600)] hours, [round((time % 3600) / 60)] minutes") : ("[round(time / 60)] minutes, [round(time % 60)] seconds")
-	last_diff = (lastused_charging) ? (-lastused_charging) : (lastused_total)
+	last_time = world.time
+	time = ((time_secs / 3600) > 1) ? ("[round(time_secs / 3600)] hours, [round((time_secs % 3600) / 60)] minutes") : ("[round(time_secs / 60)] minutes, [round(time_secs % 60)] seconds")
