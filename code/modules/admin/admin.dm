@@ -154,14 +154,18 @@ proc/admin_notice(var/message, var/rights)
 				<A href='?src=\ref[src];simplemake=human;species=Xenomorph Queen;mob=\ref[M]'>Queen</A> \] |
 				\[ Crew: <A href='?src=\ref[src];simplemake=human;mob=\ref[M]'>Human</A>
 				<A href='?src=\ref[src];simplemake=human;species=Unathi;mob=\ref[M]'>Unathi</A>
-				<A href='?src=\ref[src];simplemake=human;species=Tajaran;mob=\ref[M]'>Tajaran</A>
+				<A href='?src=\ref[src];simplemake=human;species=Tajara;mob=\ref[M]'>Tajaran</A>
 				<A href='?src=\ref[src];simplemake=human;species=Skrell;mob=\ref[M]'>Skrell</A>
+				<A href='?src=\ref[src];simplemake=machine;mob=\ref[M]'>Machine</A>
+				<A href='?src=\ref[src];simplemake=human;species=Vaurca Worker;mob=\ref[M]'>Vaurca Worker</A>
+				<A href='?src=\ref[src];simplemake=human;species=Vaurca Warrior;mob=\ref[M]'>Vaurca Warrior</A>
 				<A href='?src=\ref[src];simplemake=human;species=Vox;mob=\ref[M]'>Vox</A> \] | \[
 				<A href='?src=\ref[src];simplemake=nymph;mob=\ref[M]'>Nymph</A>
 				<A href='?src=\ref[src];simplemake=human;species='Diona';mob=\ref[M]'>Diona</A> \] |
 				\[ slime: <A href='?src=\ref[src];simplemake=slime;mob=\ref[M]'>Baby</A>,
 				<A href='?src=\ref[src];simplemake=adultslime;mob=\ref[M]'>Adult</A> \]
 				<A href='?src=\ref[src];simplemake=monkey;mob=\ref[M]'>Monkey</A> |
+				<A href='?src=\ref[src];simplemake=ai;mob=\ref[M]'>AI</A> |
 				<A href='?src=\ref[src];simplemake=robot;mob=\ref[M]'>Cyborg</A> |
 				<A href='?src=\ref[src];simplemake=cat;mob=\ref[M]'>Cat</A> |
 				<A href='?src=\ref[src];simplemake=runtime;mob=\ref[M]'>Runtime</A> |
