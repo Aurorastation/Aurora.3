@@ -561,7 +561,6 @@
 /obj/item/clothing/mask
 	name = "mask"
 	icon = 'icons/obj/clothing/masks.dmi'
-	body_parts_covered = HEAD
 	slot_flags = SLOT_MASK
 	body_parts_covered = FACE|EYES
 	sprite_sheets = list(
