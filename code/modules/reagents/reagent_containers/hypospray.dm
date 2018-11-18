@@ -59,27 +59,41 @@
 /obj/item/weapon/reagent_containers/hypospray/autoinjector
 	name = "autoinjector"
 	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel."
-	icon_state = "autoinjector"
+	icon_state = "autoinjector1"
+	var/empty_state = "autoinjector0"
 	item_state = "autoinjector"
+	flags = OPENCONTAINER
 	amount_per_transfer_from_this = 5
 	volume = 5
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/Initialize()
 	. =..()
-	reagents.add_reagent("inaprovaline", 5)
-	update_icon()
+	icon_state = empty_state
+
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/attack(var/mob/M, var/mob/user, target_zone)
+	if(is_open_container())
+		to_chat(user,"<span class='notice'>You must secure the reagents inside \the [src] before using it!</span>")
+		return FALSE
+
+	. = ..()
+
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/attack_self(mob/user as mob)
+	if(is_open_container())
+		if(reagents && reagents.reagent_list.len)
+			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
+			update_icon()
+		else
+			to_chat(user,"<span class='notice'>You can't secure \the [src] without putting reagents in!</span>")
+	else
+		to_chat(user,"<span class='notice'>The reagents inside \the [src] are already secured.</span>")
 	return
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/attack(mob/M as mob, mob/user as mob)
-	. = ..()
-	update_icon()
-
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/update_icon()
-	if(reagents.total_volume > 0)
-		icon_state = "[initial(icon_state)]1"
+	if(reagents.total_volume > 0 && !is_open_container())
+		icon_state = initial(icon_state)
 		flags &= ~OPENCONTAINER
 	else
-		icon_state = "[initial(icon_state)]0"
+		icon_state = empty_state
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/examine(mob/user)
 	..(user)
@@ -87,6 +101,19 @@
 		user << "<span class='notice'>It is currently loaded.</span>"
 	else
 		user << "<span class='notice'>It is spent.</span>"
+
+
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline
+	name = "autoinjector (inaprovaline)"
+	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel."
+	volume = 5
+	amount_per_transfer_from_this = 20
+
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline/Initialize()
+	. =..()
+	reagents.add_reagent("inaprovaline", 5)
+	update_icon()
+	return
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/stimpack
 	name = "stimpack"

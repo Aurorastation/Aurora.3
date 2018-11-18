@@ -5,7 +5,8 @@
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel."
 	icon = 'icons/obj/syringe.dmi'
 	item_state = "autoinjector"
-	icon_state = "inhaler"
+	icon_state = "inhaler1"
+	var/empty_state = "inhaler0"
 	unacidable = 1
 	amount_per_transfer_from_this = 5
 	volume = 5
@@ -75,15 +76,18 @@
 	return
 
 /obj/item/weapon/reagent_containers/inhaler/attack(mob/M as mob, mob/user as mob)
+	if(is_open_container())
+		to_chat(user,"<span class='notice'>You must secure the reagents inside \the [src] before using it!</span>")
+		return FALSE
+
 	. = ..()
-	update_icon()
 
 /obj/item/weapon/reagent_containers/inhaler/update_icon()
-	if(reagents.total_volume > 0)
-		icon_state = "[initial(icon_state)]1"
+	if(reagents.total_volume > 0 && !is_open_container())
+		icon_state = initial(icon_state)
 		flags &= ~OPENCONTAINER
 	else
-		icon_state = "[initial(icon_state)]0"
+		icon_state = empty_state
 
 /obj/item/weapon/reagent_containers/inhaler/examine(mob/user)
 	..(user)
@@ -135,7 +139,8 @@
 /obj/item/weapon/reagent_containers/inhaler/phoron_special
 	name = "vaurca autoinhaler (phoron)"
 	desc = "A strange device that contains some sort of heavy-duty bag and mouthpiece combo."
-	icon_state = "anthaler"
+	icon_state = "anthaler1"
+	empty_state = "anthaler0"
 	volume = 10
 	Initialize()
 		. =..()
@@ -146,7 +151,8 @@
 /obj/item/weapon/reagent_containers/inhaler/soporific
 	name = "autoinhaler (soporific)"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains soporific."
-	icon_state = "so_inhaler"
+	icon_state = "so_inhaler1"
+	empty_state = "so_inhaler0"
 	volume = 10
 
 	Initialize()
