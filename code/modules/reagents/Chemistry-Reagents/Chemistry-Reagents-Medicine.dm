@@ -24,6 +24,47 @@
 	QDEL_NULL(modifier)
 	return ..()
 
+/datum/reagent/epinephrine
+	name = "Epinephrine"
+	id = "epinephrine"
+	description = "Epinephrine, also known as adrenaline, is a super strength stimulant and painkiller intended to keep a patient alive while in critical condition."
+	reagent_state = LIQUID
+	color = "#FFFFFF"
+	overdose = REAGENTS_OVERDOSE
+	metabolism = REM * 2
+	metabolism_min = REM * 0.25
+	breathe_mul = 0.25
+	ingest_mul = 0.25
+	scannable = 1
+	taste_description = "salty sugar"
+	var/datum/modifier/modifier
+
+/datum/reagent/epinephrine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+
+	if(M.health <= config.health_threshold_crit)
+		var/damage_stats = list(BRUTE = M.getBruteLoss(), BURN = M.getFireLoss(), TOX = M.getToxLoss(), OXY = M.getOxyLoss())
+		damage_stats = sortByKey(damage_stats)
+		var/best_stat = get_key_by_index(damage_stats,1)
+		switch(best_stat)
+			if(BRUTE)
+				M.adjustBruteLoss(-removed*5)
+			if(BURN)
+				M.adjustFireLoss(-removed*5)
+			if(TOX)
+				M.adjustToxLoss(-removed*5)
+			if(OXY)
+				M.adjustOxyLoss(-removed*5)
+
+	M.make_jittery(removed)
+	M.add_chemical_effect(CE_STABLE)
+	M.add_chemical_effect(CE_PAINKILLER, 25)
+	if (!modifier)
+		modifier = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+
+/datum/reagent/epinephrine/Destroy()
+	QDEL_NULL(modifier)
+	return ..()
+
 /datum/reagent/bicaridine
 	name = "Bicaridine"
 	id = "bicaridine"
@@ -156,6 +197,46 @@
 	M.adjustOxyLoss(-6 * removed)
 	M.heal_organ_damage(3 * removed * power,3 * removed * power)
 	M.adjustToxLoss(-3 * removed)
+
+/datum/reagent/omnizine
+	name = "Omnizine"
+	id = "omnizine"
+	description = "Omnizine is a low strength over-the-counter stimulant designed and marketed as a 'treat all' pill. Ingesting or inhaling the substance has the same strength as directly injecting it."
+	reagent_state = SOLID
+	color = "#8080AA"
+	metabolism = REM
+	ingest_mul = 1
+	breathe_mul = 1
+	scannable = 1
+	taste_description = "bittersweet chalk"
+
+/datum/reagent/omnizine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.adjustOxyLoss(-1 * removed)
+	M.adjustBruteLoss(-1 * removed)
+	M.adjustFireLoss(-1 * removed)
+	M.adjustToxLoss(-1 * removed)
+
+/datum/reagent/atropine
+	name = "Atropine"
+	id = "atropine"
+	description = "Atropine is an emergency stabilizing reagent designed to heal suffocation, blunt trauma, and burns in critical condition. Side effects include toxin increase."
+	reagent_state = LIQUID
+	metabolism = REM * 4
+	color = "#8040FF"
+	scannable = 1
+	taste_description = "bitterness"
+	breathe_mul = 0
+
+/datum/reagent/atropine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	var/reagent_strength = 0.25
+	if(M.health <= config.health_threshold_crit)
+		reagent_strength = 1
+
+	M.adjustOxyLoss(-10 * removed * reagent_strength)
+	M.adjustBruteLoss(-4 * removed * reagent_strength)
+	M.adjustFireLoss(-4 * removed * reagent_strength)
+
+	M.adjustToxLoss(1 * removed)
 
 /datum/reagent/cryoxadone
 	name = "Cryoxadone"
@@ -582,7 +663,7 @@
 	var/list/suppressing_reagents = list() // List of reagents that suppress the withdrawal effects, with the key being the reagent and the vlue being the minimum dosage required to suppress.
 
 	fallback_specific_heat = 1.5
-	
+
 /datum/reagent/mental/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
 
 	if(!istype(H) || max_dose < min_dose || (world.time < data && volume > removed) || messagedelay == -1)
@@ -1010,17 +1091,47 @@
 	if (prob(dose))
 		M.vomit()
 
+/datum/reagent/mannitol
+	name = "Mannitol"
+	id = "mannitol"
+	description = "Mannitol is a super strength chemical that heals brain tissue damage and cures dumbness, cerebral blindness, cerebral paralysis, colorblindness, and aphasia. More effective when the patient's body temperature is less than 170K."
+	reagent_state = LIQUID
+	color = "#FFFF00"
+	metabolism = REM * 2 //0.4
+	overdose = REAGENTS_OVERDOSE
+	scannable = 1
+	taste_description = "bitterness"
+	metabolism_min = REM * 0.25
+	var/list/curable_traumas = list(
+		/datum/brain_trauma/mild/dumbness/,
+		/datum/brain_trauma/severe/blindness/,
+		/datum/brain_trauma/severe/paralysis/,
+		/datum/brain_trauma/severe/total_colorblind/,
+		/datum/brain_trauma/severe/aphasia/
+	)
 
-//Things that are not cured by medication:
-//Dumbness
+/datum/reagent/mannitol/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+
+	M.add_chemical_effect(CE_PAINKILLER, 10)
+	var/chance = dose*removed
+	if(M.bodytemperature < 170)
+		chance = (chance*4) + 5
+		M.adjustBrainLoss(-30 * removed)
+	else
+		M.adjustBrainLoss(-10 * removed)
+
+	if(prob(chance))
+		M.cure_trauma_type(pick(curable_traumas))
+
+
+
+//Things that are not cured/treated by medication:
 //Gerstmann Syndrome
 //Cerebral Near-Blindness
 //Mutism
 //Cerebral Blindness
-//Paralysis
 //Narcolepsy
 //Discoordination
-//Aphasia
 
 /datum/reagent/calomel
 	name = "Calomel"

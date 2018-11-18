@@ -253,7 +253,7 @@ var/global/list/plant_seed_sprites = list()
 	seed_type = "grass"
 
 /obj/item/seeds/cocoapodseed
-	seed_type = "cocoa"
+	seed_type = "cacao"
 
 /obj/item/seeds/cherryseed
 	seed_type = "cherry"
