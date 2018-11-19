@@ -282,10 +282,8 @@
 			if("observer")			M.change_mob_type( /mob/abstract/observer , null, null, delmob )
 			if("larva")				M.change_mob_type( /mob/living/carbon/alien/larva , null, null, delmob )
 			if("nymph")				M.change_mob_type( /mob/living/carbon/alien/diona , null, null, delmob )
-			if("human")				M.change_mob_type( /mob/living/carbon/human , null, null, delmob, href_list["species"])
-			if("machine")			M.change_mob_type( /mob/living/carbon/human/machine , null, null, delmob, input("Select a crew member:") as null|anything in list("Baseline Frame", "Shell Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame"))
+			if("human")				spawn_humanoid_species_admin(M, delmob)
 			if("slime")				M.change_mob_type( /mob/living/carbon/slime , null, null, delmob )
-			if("monkey")			M.change_mob_type( /mob/living/carbon/human/monkey , null, null, delmob )
 			if("ai")				M.change_mob_type( /mob/living/silicon/ai , null, null, delmob )
 			if("robot")				M.change_mob_type( /mob/living/silicon/robot , null, null, delmob )
 			if("cat")				M.change_mob_type( /mob/living/simple_animal/cat , null, null, delmob )
@@ -1693,3 +1691,9 @@ mob/living/silicon/ai/can_centcom_reply()
 
 	. = "<A HREF='?[source];adminplayerobservejump=\ref[target]'>JMP</A>"
 	. += target.extra_admin_link(source)
+
+/proc/spawn_humanoid_species_admin(var/mob/M, var/delmob)
+	var/input = input("Select a crew member:") as null|anything in all_species
+	if(!input)
+		return
+	M.change_mob_type( /mob/living/carbon/human , null, null, delmob, input)
