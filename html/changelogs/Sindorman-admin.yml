@@ -34,6 +34,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "Show Player Panel mob trasnformation properly transforms mobs into Tajaran."
-  - rscadd: "Show Player Panel was added new choices of transformation: Vaurca Warrior, Vaurca Worker, IPC, AI. IPC is called machine and once clicked it will prompt user for a specific frame."
+  - tweak: "Show Player Panel transformation was reworked. Monkey, Xenos, humanoid races were all put into one button \"Select Species\", the button has all station races plus xenos, plus slime people an other adminbus mobs like zombies, etc."
   - rscadd: "Developers are granted access to Game Panel(which is used to spawn things quickly)"
