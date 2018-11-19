@@ -24,7 +24,8 @@ STOCK_ITEM_LARGE(exosuit, 1.2)//A randomly generated exosuit in a very variable 
 		/obj/mecha/combat/marauder/seraph = 0.3,
 		/obj/mecha/combat/marauder/mauler = 0.4,
 		/obj/mecha/combat/phazon = 0.1,
-		/obj/mecha/combat/honker = 0.01
+		/obj/mecha/combat/honker = 0.01,
+		/obj/mecha/combat/tank = 0.01
 	)
 	var/type = pickweight(randsuits)
 	var/obj/mecha/exosuit = new type(get_turf(L))

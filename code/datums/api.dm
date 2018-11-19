@@ -648,7 +648,7 @@ proc/api_update_command_database()
 	s["host"] = host ? host : null
 	s["players"] = 0
 	s["stationtime"] = worldtime2text()
-	s["roundduration"] = round_duration()
+	s["roundduration"] = get_round_duration_formatted()
 	s["gameid"] = game_id
 
 	if(queryparams["status"] == "2")
@@ -1064,7 +1064,7 @@ proc/api_update_command_database()
 /datum/topic_command/get_polls/run_command(queryparams)
 	var/current_only = text2num(queryparams["current_only"])
 	var/admin_only = text2num(queryparams["admin_only"])
-	
+
 	if(!establish_db_connection(dbcon))
 		statuscode = 500
 		response = "DB-Connection unavailable"
@@ -1201,7 +1201,7 @@ proc/api_update_command_database()
 		response = "Unknown Poll Type"
 		data = poll_data
 		return 1
-	
+
 
 	poll_data["results"] = result_data
 

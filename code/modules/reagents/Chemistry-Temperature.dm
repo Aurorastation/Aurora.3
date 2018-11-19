@@ -26,15 +26,17 @@
 
 /datum/reagents/proc/get_temperature()
 	var/HC = get_heat_capacity()
-	if(HC)
-		return get_thermal_energy() / (HC)
+	var/TE = get_thermal_energy()
+	if(HC && TE)
+		return TE / HC
 	else
 		return T0C + 20
 
 /datum/reagent/proc/get_temperature()
 	var/HC = get_heat_capacity()
-	if(HC)
-		return get_thermal_energy() / (HC)
+	var/TE = get_thermal_energy()
+	if(HC && TE)
+		return TE / HC
 	else
 		return T0C + 20
 
@@ -48,7 +50,7 @@
 	return get_thermal_energy() / volume
 
 /datum/reagent/proc/add_thermal_energy(var/added_energy)
-	thermal_energy += added_energy
+	thermal_energy = max(0,thermal_energy + added_energy)
 	return added_energy
 
 /datum/reagent/proc/set_thermal_energy(var/set_energy)
@@ -110,14 +112,15 @@
 /datum/reagents/proc/has_all_temperatures(var/list/required_temperatures_min, var/list/required_temperatures_max)
 
 	for(var/datum/reagent/current in reagent_list)
+
+		var/current_temperature = current.get_temperature()
+
 		if(current.id in required_temperatures_min) //The current temperature must be greater than this temperature
-			var/current_temperature = current.get_temperature()
 			var/required_temperature = required_temperatures_min[current.id]
 			if(current_temperature < required_temperature) //Current temperature is less than the required temperature,
 				return FALSE
 
 		if(current.id in required_temperatures_max) //The current temperature must be less than this temperature.
-			var/current_temperature = current.get_temperature()
 			var/required_temperature = required_temperatures_max[current.id]
 			if(current_temperature > required_temperature) //Current temperature is greater than the required temperature.
 				return FALSE
