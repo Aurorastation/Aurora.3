@@ -86,7 +86,7 @@
 
 				if(4)
 					sender = pick("Buy Dr. Augbaus",\
-					"Having biological troubles?")
+					"Become the new you: the transhumanist you!")
 					message = pick("DR AUGBAUS: REAL Doctors, REAL Science, REAL Results!",\
 					"Dr. Augbaus was created by George Acuilar, M.D, a [current_map.boss_short] Certified Bio-mechanical Engineer who has treated over 70,000 patients sector wide with 'human problems'.",\
 					"After seven years of research, Dr Acuilar and his team came up with this simple breakthrough bio-aug enhancement formula.",\
