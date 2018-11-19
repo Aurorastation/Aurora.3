@@ -1685,6 +1685,13 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/bridge/selfdestruct)
+"cX" = (
+/obj/structure/sign/vacuum{
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/maintenance/interstitial_main)
 "da" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(50)
@@ -34610,7 +34617,7 @@ ar
 ar
 ar
 ar
-aw
+cX
 aE
 aw
 ar
