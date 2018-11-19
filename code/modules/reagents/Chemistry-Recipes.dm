@@ -2981,10 +2981,8 @@
 	mix_message = "The solution begins to freeze."
 
 /datum/chemical_reaction/cryosurfactant_cooling_ice/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
-	world << "OLD THERMAL: [holder.get_thermal_energy()]"
 	holder.del_reagent("cryosurfactant")
 	holder.add_thermal_energy(-created_volume*500)
-	world << "NEW THERMAL: [holder.get_thermal_energy()], TEMP: [holder.get_temperature()]"
 
 /datum/chemical_reaction/pyrosilicate_heating
 	name = "Pyrosilicate Heating"
