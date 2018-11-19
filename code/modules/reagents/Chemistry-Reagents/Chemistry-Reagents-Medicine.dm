@@ -47,13 +47,13 @@
 		var/best_stat = get_key_by_index(damage_stats,1)
 		switch(best_stat)
 			if(BRUTE)
-				M.adjustBruteLoss(removed*5)
+				M.adjustBruteLoss(-removed*5)
 			if(BURN)
-				M.adjustFireLoss(removed*5)
+				M.adjustFireLoss(-removed*5)
 			if(TOX)
-				M.adjustToxLoss(removed*5)
+				M.adjustToxLoss(-removed*5)
 			if(OXY)
-				M.adjustOxyLoss(removed*5)
+				M.adjustOxyLoss(-removed*5)
 
 	M.make_jittery(removed)
 	M.add_chemical_effect(CE_STABLE)
@@ -663,7 +663,7 @@
 	var/list/suppressing_reagents = list() // List of reagents that suppress the withdrawal effects, with the key being the reagent and the vlue being the minimum dosage required to suppress.
 
 	fallback_specific_heat = 1.5
-	
+
 /datum/reagent/mental/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
 
 	if(!istype(H) || max_dose < min_dose || (world.time < data && volume > removed) || messagedelay == -1)
@@ -1116,10 +1116,14 @@
 	var/chance = dose*removed
 	if(M.bodytemperature < 170)
 		chance = (chance*4) + 5
+		M.adjustBrainLoss(-30 * removed)
+	else
+		M.adjustBrainLoss(-10 * removed)
+
 	if(prob(chance))
 		M.cure_trauma_type(pick(curable_traumas))
 
-	M.adjustBrainLoss(10*removed)
+
 
 //Things that are not cured/treated by medication:
 //Gerstmann Syndrome

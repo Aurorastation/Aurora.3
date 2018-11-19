@@ -258,6 +258,10 @@
 		H.h_style = "Skrell Female Tentacles"
 	H.update_hair()
 
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/commune
+		)
+
 /datum/species/diona
 	name = "Diona"
 	short_name = "dio"
