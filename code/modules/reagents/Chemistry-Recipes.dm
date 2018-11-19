@@ -2965,7 +2965,7 @@
 	catalysts = list("water" = 1)
 	mix_message = "The solution begins to freeze."
 
-/datum/chemical_reaction/cryosurfactant_cooling_water/on_reaction(var/datum/reagents/holder, var/created_volume)
+/datum/chemical_reaction/cryosurfactant_cooling_water/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
 	holder.del_reagent("cryosurfactant")
 	holder.add_thermal_energy(-created_volume*500)
 
@@ -2981,8 +2981,10 @@
 	mix_message = "The solution begins to freeze."
 
 /datum/chemical_reaction/cryosurfactant_cooling_ice/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
+	world << "OLD THERMAL: [holder.get_thermal_energy()]"
 	holder.del_reagent("cryosurfactant")
 	holder.add_thermal_energy(-created_volume*500)
+	world << "NEW THERMAL: [holder.get_thermal_energy()], TEMP: [holder.get_temperature()]"
 
 /datum/chemical_reaction/pyrosilicate_heating
 	name = "Pyrosilicate Heating"
@@ -3039,9 +3041,11 @@
 
 /datum/chemical_reaction/phoron_salt_coldfire/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
 	var/turf/location = get_turf(holder.my_atom)
-	var/explosion_mod = 1 + max(0,32*(1 - (created_thermal_energy/28000))*min(1,created_volume/120)) * 10
+	var/thermal_energy_mod = max(0,1 - (max(0,created_thermal_energy)/28000))
+	var/volume_mod = min(1,created_volume/120)
+	var/explosion_mod = 3 + (thermal_energy_mod*volume_mod*320)
 	var/datum/effect/effect/system/reagents_explosion/e = new()
 	e.set_up(explosion_mod, location, 0, 0)
 	e.start()
-	holder.clear_reagents()
+	holder.del_reagent("phoron_salt")
 	return
