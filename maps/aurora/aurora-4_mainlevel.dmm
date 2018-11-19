@@ -34569,7 +34569,6 @@
 	},
 /obj/item/weapon/circuitboard/clonescanner,
 /obj/item/weapon/circuitboard/clonepod,
-/obj/item/weapon/circuitboard/scan_consolenew,
 /obj/item/weapon/circuitboard/med_data{
 	pixel_x = 3;
 	pixel_y = -3
