@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixed cutlery allowing unrestricted food consumption."
