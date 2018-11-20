@@ -123,19 +123,19 @@
 			impediment = destturf
 
 		else
-			for(var/obj/O in destturf)
-				if(O.anchored && O.density)
-					impediment = O
+			for(var/atom/A in destturf)
+				if(A.density)
+					impediment = A
 					break
 
 		if(impediment)
 			var/turf/newdest
 			var/boominess = 0
-			for(var/turf/T in orange(1, destturf))
+			for(var/turf/T in range(1, destturf))
 				if(!T.density)
-					for(var/obj/O in T)
+					for(var/atom/A in T)
 						var/blocked = 0
-						if(O.anchored && (O.density || O.opacity))
+						if(A.density && A.opacity)
 							blocked = 1
 							break
 						if(!blocked)
