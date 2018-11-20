@@ -5,25 +5,10 @@ import shutil
 import pathlib
 from dmm import *
 
-class DMM_TRAVIS(DMM):
-
-    def _presave_checks(self, fname):
-        # last-second handling of bogus keys to help prevent and fix broken maps
-        try:
-            self._ensure_free_keys(0)
-            max_key = max_key_for(self.key_length)
-        except KeyTooLarge:
-            print("\nKey is too large, run mapmerge2 on {} locally and fix errors.".format(fname[42:len(fname)]))
-            exit(1)
-        bad_keys = {key: 0 for key in self.dictionary.keys() if key > max_key}
-        if bad_keys:
-            print("\nBad keys detected, please run mapmerge2 on {} locally and fix errors.".format(fname[42:len(fname)]))
-            exit(1)
-
 def map_check(map, name):
 
     key_length, size = map.key_length, map.size
-    merged = DMM_TRAVIS(key_length, size)
+    merged = DMM(key_length, size)
     merged.dictionary = map.dictionary.copy()
 
     known_keys = dict()  # mapping fron 'new' key to 'merged' key
@@ -73,8 +58,16 @@ def map_check(map, name):
     if unused_keys:
         print("Error: {} unused dictionary keys. Please run mapmerge2 on {} locally to trim them.".format(len(unused_keys), name[42:len(name)]))
         exit(1)
-
-    return merged
+    try:
+        merged._ensure_free_keys(0)
+        max_key = max_key_for(merged.key_length)
+    except KeyTooLarge:
+        print("\nKey is too large, run mapmerge2 on {} locally and fix errors.".format(fname[42:len(fname)]))
+        exit(1)
+    bad_keys = {key: 0 for key in merged.dictionary.keys() if key > max_key}
+    if bad_keys:
+        print("\nBad keys detected, please run mapmerge2 on {} locally and fix errors.".format(fname[42:len(fname)]))
+        exit(1)
 
 if __name__ == '__main__':
     list_of_files = list()
@@ -83,6 +76,6 @@ if __name__ == '__main__':
             list_of_files.append(str(pathlib.Path(root, filename)))
 
     for fname in list_of_files:
-        map = DMM_TRAVIS.from_file(fname)
-        map_check(map, fname)._presave_checks(fname)
+        map = DMM.from_file(fname)
+        map_check(map, fname)
     print("Maps scanning complete, no issues were found.")
