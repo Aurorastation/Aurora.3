@@ -489,6 +489,7 @@
 	taste_description = "bottled fire"
 	var/datum/modifier/modifier
 	fallback_specific_heat = 2.75
+	unaffected_species = IS_MACHINE
 
 /datum/reagent/estus/affect_blood(var/mob/living/carbon/M, var/removed)
 	if (!modifier)
@@ -517,6 +518,7 @@
 	touch_met = 5
 	taste_description = "metal"
 	fallback_specific_heat = 20 //This holds a ton of heat.
+	unaffected_species = IS_MACHINE
 
 /datum/reagent/liquid_fire/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	. = ..()
@@ -536,6 +538,7 @@
 	color = "#000000"
 	taste_description = "emptyness"
 	fallback_specific_heat = 100 //Yeah...
+	unaffected_species = IS_MACHINE
 
 /datum/reagent/black_matter/touch_turf(var/turf/T)
 	var/obj/effect/portal/P = new /obj/effect/portal(T)
@@ -560,6 +563,7 @@
 	color = "#1f8999"
 	taste_description = "fizzling blue"
 	fallback_specific_heat = 0.1
+	unaffected_species = IS_MACHINE
 
 /datum/reagent/bluespace_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(25))
@@ -678,6 +682,7 @@
 	color = "#70838A"
 	taste_description = "metal"
 	fallback_specific_heat = 10
+	unaffected_species = IS_MACHINE
 
 /datum/reagent/bottle_lightning/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(25))
