@@ -113,7 +113,7 @@ var/datum/controller/subsystem/docs/SSdocs
 	var/name = "document" // internal name of the document
 	var/title = "paper" // player-facing title of the document
 	var/chance = 0
-	var/content = "" // Can contain pencode.
+	var/content = "" // Can contain html, but pencode is not processed.
 
 /obj/random/document
 	name = "random document"
