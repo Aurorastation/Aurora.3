@@ -113,9 +113,76 @@
 		var/mob/living/L = teleatom
 		if(L.buckled)
 			C = L.buckled
+
 	if(force_teleport)
 		teleatom.forceMove(destturf)
 		playSpecials(destturf,effectout,soundout)
+		var/atom/impediment
+
+		if(destturf.density)
+			impediment = destturf
+
+		else
+			for(var/obj/O in destturf)
+				if(O.anchored && O.density)
+					impediment = O
+					break
+
+		if(impediment)
+			var/turf/newdest
+			var/boominess = 0
+			for(var/turf/T in orange(1, destturf))
+				if(!T.density)
+					for(var/obj/O in T)
+						var/blocked = 0
+						if(O.anchored && (O.density || O.opacity))
+							blocked = 1
+							break
+						if(!blocked)
+							newdest = T
+							break
+
+			if(istype(teleatom, /obj))
+				var/obj/O = teleatom
+				if(newdest)
+					O.forceMove(newdest)
+					O.ex_act(3)
+				else
+					O.crush_act()
+				boominess += O.w_class
+				if(O.density)
+					boominess += 5
+				if(O.opacity)
+					boominess += 10
+
+			if(istype(teleatom, /mob/living))
+				var/mob/living/L = teleatom
+				boominess += L.mob_size/4
+				if(istype(L, /mob/living/carbon/human))
+					var/mob/living/carbon/human/H = L
+					if(newdest)
+						var/obj/item/organ/external/E = pick(H.organs)
+						to_chat(H, "<span class='danger'>You partially phase into \the [impediment], causing your \the [E] to bloodily dematerialize!</span>")
+						E.droplimb(0,DROPLIMB_BLUNT)
+						H.forceMove(newdest)
+					else
+						to_chat(H, "<span class='danger'>Your life flashes before your eyes as you phase into \the [impediment] before the universe suddenly and violently corrects itself!</span>")
+						H.gib()
+				else
+					if(newdest)
+						to_chat(L, "<span class='danger'>You partially phase into \the [impediment], causing a chunk of you to bloodily dematerialize!</span>")
+						L.adjustBruteLoss(40)
+						L.forceMove(newdest)
+					else
+						to_chat(L, "<span class='danger'>Your life flashes before your eyes as you phase into \the [impediment] before the universe suddenly and violently corrects itself!</span>")
+						L.gib()
+
+			if(!newdest)
+				boominess += 10
+
+			destturf.visible_message("<span class ='danger'>There is a sizable emission of energy as \the [teleatom] phases into \the [impediment]!</span>")
+			explosion(destturf, ((boominess > 10) ? 1 : 0), ((boominess > 5) ? (boominess/5) : 0), boominess/5, boominess/2)
+
 	else
 		if(teleatom.Move(destturf))
 			playSpecials(destturf,effectout,soundout)
