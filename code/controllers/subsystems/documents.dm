@@ -127,6 +127,9 @@ var/datum/controller/subsystem/docs/SSdocs
 
 /obj/random/document/post_spawn(var/obj/item/spawned)
 	var/datum/docs_document/doc = SSdocs.pick_document()
-	if(istype(spawned, /obj/item/weapon/paper))
-		var/obj/item/weapon/paper/P = spawned
-		P.set_content_unsafe(doc.title, doc.content)
+	if(!istype(doc))
+		return
+	if(!istype(spawned, /obj/item/weapon/paper))
+		return
+	var/obj/item/weapon/paper/P = spawned
+	P.set_content_unsafe(doc.title, doc.content)
