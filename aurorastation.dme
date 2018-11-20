@@ -157,6 +157,7 @@
 #include "code\controllers\subsystems\battle_monsters.dm"
 #include "code\controllers\subsystems\cargo.dm"
 #include "code\controllers\subsystems\chemistry.dm"
+#include "code\controllers\subsystems\documents.dm"
 #include "code\controllers\subsystems\economy.dm"
 #include "code\controllers\subsystems\effects.dm"
 #include "code\controllers\subsystems\emergency_shuttle.dm"

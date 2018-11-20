@@ -282,6 +282,8 @@ var/list/gamemode_cache = list()
 
 	var/rounds_until_hard_restart = -1 // Changes how often a hard restart will be executed.
 
+	var/docs_load_docs_from
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -864,6 +866,9 @@ var/list/gamemode_cache = list()
 
 				if ("rounds_until_hard_restart")
 					rounds_until_hard_restart = text2num(value)
+
+				if ("docs_load_docs_from")
+					docs_load_docs_from = value
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
