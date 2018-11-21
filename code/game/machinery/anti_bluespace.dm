@@ -4,6 +4,7 @@
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "nopad"
 	anchored = 1
+	density = 1
 	use_power = 1
 	idle_power_usage = 500
 
@@ -43,16 +44,16 @@
 			if(prob(75))
 				qdel(src)
 			else
-				stat =| BROKEN
+				stat |= BROKEN
 		if(2.0)
 			if (prob(50))
 				qdel(src)
 			else
-				stat =| BROKEN
+				stat |= BROKEN
 		if(3.0)
 			if (prob(25))
 				qdel(src)
 			else
-				stat =| BROKEN
+				stat |= BROKEN
 
 	return
