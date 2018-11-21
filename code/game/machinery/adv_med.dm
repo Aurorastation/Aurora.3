@@ -166,6 +166,7 @@
 		src.occupant = M
 		update_use_power(2)
 		src.icon_state = "body_scanner_1"
+		playsound(src.loc, 'sound/machines/medbayscanner1.ogg', 50)
 		for(var/obj/Obj in src)
 			Obj.forceMove(src.loc)
 			//Foreach goto(154)

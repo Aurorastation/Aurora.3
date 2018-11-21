@@ -9,6 +9,7 @@
 	startWhen = 1
 	announceWhen = 10
 	endWhen = 11
+	no_fake = 1
 	var/area/chosen_area
 	var/event_name = "Slime Leak"
 	var/chosen_mob = INFESTATION_SLIMES

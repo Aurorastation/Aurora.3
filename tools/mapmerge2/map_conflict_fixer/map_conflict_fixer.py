@@ -12,7 +12,7 @@ def main(relative_root):
     print("--- DISCLAIMER ---")
     print("This script is in a testing phase. Verify all the results yourself to make sure you got what you expected. Make sure to read the readme to learn how to use this.")
     input("Press Enter to GO\n")
-    
+
     file_conflicts = map_helpers.run_shell_command("git diff --name-only --diff-filter=U").split("\n")
     map_conflicts = [path for path in file_conflicts if path[len(path)-3::] == "dmm"]
 
@@ -78,11 +78,11 @@ def main(relative_root):
     if mode == map_helpers.MAP_FIX_FULL:
         print("After editing the marked maps, run them through the map merger!")
     input("Press Enter to start.")
-    
+
     print(".")
     time.sleep(0.3)
     print(".")
-    
+
     for i in valid_indices:
         path = map_conflicts[i]
         print("{}: {}".format(ing, path))
@@ -97,7 +97,7 @@ def main(relative_root):
         base_map = map_helpers.parse_map(base_map_raw_text)
 
         if map_helpers.fix_map_git_conflicts(base_map, ours_map, theirs_map, mode, marker, priority, relative_root+path):
-            print("{}: {}".format(ed, path))
+            print("{}: {}".format(ed, path + ".fixed.dmm"))
         print(".")
 
 main(sys.argv[1])

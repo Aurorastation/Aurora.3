@@ -45,6 +45,11 @@
 	req_access = null
 	req_one_access = list(access_engine_equip,access_research,access_xenobiology)
 
+
+/obj/machinery/power/apc/vault
+	cell_type = /obj/item/weapon/cell
+	req_access = list(access_captain)
+
 // Construction site APC, starts turned off
 /obj/machinery/power/apc/high/inactive
 	cell_type = /obj/item/weapon/cell/high

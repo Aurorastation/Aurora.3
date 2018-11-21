@@ -1,7 +1,7 @@
 // Regular airbubble - folded
 /obj/item/airbubble
 	name = "air bubble"
-	desc = "Special air bubble designed to protect people inside of it from decompressed enviroments."
+	desc = "Special air bubble designed to protect people inside of it from decompressed environments. Has an integrated cooling unit to preserve a stable temperature inside. Requires a power cell to operate."
 	icon = 'icons/obj/airbubble.dmi'
 	icon_state = "airbubble_fact_folded"
 	w_class = ITEMSIZE_NORMAL
@@ -54,7 +54,7 @@
 // Deployed bubble
 /obj/structure/closet/airbubble
 	name = "air bubble"
-	desc = "Special air bubble designed to protect people inside of it from decompressed enviroments."
+	desc = "Special air bubble designed to protect people inside of it from decompressed environments. Has an integrated cooling unit to preserve a stable temperature inside. Requires a power cell to operate."
 	icon = 'icons/obj/airbubble.dmi'
 	icon_state = "airbubble"
 	icon_closed = "airbubble"
@@ -74,9 +74,13 @@
 	var/datum/gas_mixture/inside_air
 	var/internal_tank_valve = 45 // arbitrary for now
 	var/obj/item/weapon/tank/internal_tank
-	var/process_ticks = 0
 	var/syndie = FALSE
 	var/last_shake = 0
+	var/cooling = FALSE
+	var/obj/item/weapon/cell/cell = null
+	var/max_cooling = 12				//in degrees per second - probably don't need to mess with heat capacity here
+	var/charge_consumption = 8.3		//charge per second at max_cooling
+	var/thermostat = T20C
 
 // Examine to see tank pressure
 /obj/structure/closet/airbubble/examine(mob/user)
@@ -85,6 +89,10 @@
 		to_chat(user, "<span class='notice'>\The [src] has [internal_tank] attached, that displays [round(internal_tank.air_contents.return_pressure() ? internal_tank.air_contents.return_pressure() : 0)] KPa.</span>")
 	else
 		to_chat(user, "<span class='notice'>\The [src] has no tank attached.</span>")
+	if (cell)
+		to_chat(user, "\The [src] has [cell] attached, the charge meter reads [round(cell.percent())]%.")
+	else
+		to_chat(user, "<span class='warning'>[src] has no power cell installed.</span>")
 
 /obj/structure/closet/airbubble/can_open()
 	if(zipped)
@@ -109,7 +117,7 @@
 /obj/structure/closet/airbubble/dump_contents()
 
 	for(var/obj/I in src)
-		if (I != internal_tank)
+		if (I != internal_tank && I != cell)
 			I.forceMove(loc)
 
 	for(var/mob/M in src)
@@ -183,6 +191,9 @@
 		if(!ishuman(usr))	return
 		if(opened)	return 0
 		if(contents.len > 1)	return 0
+		if(cell)
+			to_chat(usr, "<span class='warning'>[src] can not be folded with [cell] attached to it.</span>")
+			return
 		usr.visible_message(
 		"<span class='warning'>[usr] begins folding up the [src.name].</span>",
 		"<span class='notice'>You begin folding up the [src.name].</span>"
@@ -207,10 +218,10 @@
 			internal_tank = null
 		bag.w_class = ITEMSIZE_LARGE
 
-		bag.desc = "Special air bubble designed to protect people inside of it from decompressed enviroments."
+		bag.desc = "Special air bubble designed to protect people inside of it from decompressed environments. Has an integrated cooling unit to preserve a stable temperature inside. Requires a power cell to operate."
 		if(syndie)
 			bag.desc += " This does not seem like a regular color scheme"
-		bag.desc += " It appears to be poorly hand folded."
+		bag.desc += " <span class='notice'>It appears to be poorly hand folded.</span>"
 
 		if(ripped)
 			bag.icon_state = "[icon_closed]_man_folded_ripped"
@@ -251,7 +262,7 @@
 
 	escapee.next_move = world.time + 100
 	escapee.last_special = world.time + 100
-	escapee << "<span class='warning'>You lean on the back of \the [src] and start punching internal wall with your legs. (this will take about [breakout_time] minutes)</span>"
+	to_chat(escapee, "<span class='warning'>You lean on the back of \the [src] and start punching internal wall with your legs. (this will take about [breakout_time] minutes)</span>")
 	visible_message("<span class='danger'>\The [src] begins to shake violently! Something is terring it from the inside!</span>")
 
 	var/time = 360 * breakout_time * 2
@@ -262,7 +273,7 @@
 		return
 
 	breakout = FALSE
-	escapee << "<span class='warning'>You successfully break out! Tearing the bubble's walls!</span>"
+	to_chat(escapee, "<span class='warning'>You successfully break out! Tearing the bubble's walls!</span>")
 	visible_message("<span class='danger'>\the [escapee] successfully broke out of \the [src]! Tearing the bubble's walls!</span>")
 	playsound(loc, "sound/items/[pick("rip1","rip2")].ogg", 100, 1)
 	break_open()
@@ -288,6 +299,14 @@
 	set src in oview(1)
 	set category = "Object"
 	set name = "Set Internals"
+
+	if(!usr.canmove || usr.stat || usr.restrained())
+		return
+
+	if(!ishuman(usr))
+		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
+		return
+
 	if(!isnull(internal_tank))
 		usr.visible_message(
 		"<span class='warning'>[usr] is setting [src] internals.</span>",
@@ -313,6 +332,14 @@
 	set src in oview(1)
 	set category = "Object"
 	set name = "Remove Air Tank"
+
+	if(!usr.canmove || usr.stat || usr.restrained())
+		return
+
+	if(!ishuman(usr))
+		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
+		return
+
 	if(!isnull(internal_tank))
 		usr.visible_message(
 		"<span class='warning'>[usr] is removing [internal_tank] from [src].</span>",
@@ -333,6 +360,37 @@
 	else
 		to_chat(usr, "<span class='warning'>[src] has no tank.</span>")
 
+// Remove tank from bubble
+/obj/structure/closet/airbubble/verb/take_cell()
+	set src in oview(1)
+	set category = "Object"
+	set name = "Detach Power Cell"
+
+	if(!usr.canmove || usr.stat || usr.restrained())
+		return
+
+	if(!ishuman(usr))
+		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
+		return
+
+	if(!isnull(cell))
+		usr.visible_message(
+		"<span class='warning'>[usr] is removing [cell] from [src].</span>",
+		"<span class='notice'>You are removing [cell] from [src].</span>"
+		)
+		if (!do_after(usr, 2 SECONDS, act_target = src))
+			return
+		usr.visible_message(
+		"<span class='warning'>[usr] has removed [cell] from [src].</span>",
+		"<span class='notice'>You removed [cell] from [src].</span>"
+		)
+		cell.forceMove(usr.loc)
+		cell = null
+		cooling = FALSE
+		update_icon()
+	else
+		to_chat(usr, "<span class='warning'>[src] has no power cell.</span>")
+
 // Handle most of things: restraining, cutting restrains, attaching tank.
 /obj/structure/closet/airbubble/attackby(W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/tank))
@@ -347,9 +405,8 @@
 			"<span class='warning'>[user] has attached [W] to [src].</span>",
 			"<span class='notice'>You attached [W] to [src].</span>"
 			)
-			var/obj/item/weapon/tank/T = W
-			internal_tank = T
-			user.drop_from_inventory(T,src)
+			internal_tank = W
+			user.drop_from_inventory(W, src)
 			use_internal_tank = 1
 			START_PROCESSING(SSfast_process, src)
 			return
@@ -405,6 +462,24 @@
 		)
 		new/obj/item/weapon/handcuffs/cable(src.loc)
 		update_icon()
+	else if(istype(W, /obj/item/weapon/cell))
+		if(!isnull(cell))
+			to_chat(user, "<span class='warning'>[src] already has [cell] attached to it.</span>")
+			attack_hand(user)
+			return
+		user.visible_message(
+		"<span class='warning'>[user] is attaching [W] to [src].</span>",
+		"<span class='notice'>You are attaching [W] to [src].</span>"
+		)
+		if (!do_after(user, 2 SECONDS, act_target = src))
+			return
+		user.visible_message(
+		"<span class='warning'>[user] has attached [W] to [src].</span>",
+		"<span class='notice'>You attached [W] to [src].</span>"
+		)
+		cell = W
+		cooling = TRUE
+		user.drop_from_inventory(W, src)
 	else
 		attack_hand(user)
 	return
@@ -478,9 +553,25 @@
 					qdel(removed)
 
 /obj/structure/closet/airbubble/proc/process_preserve_temp()
-	if (inside_air && inside_air.volume > 0)
-		var/delta = inside_air.temperature - T20C
-		inside_air.temperature -= max(-10, min(10, round(delta/4,0.1)))
+	if (!cooling || !cell)
+		return
+	for(var/mob/living/carbon/human/H in src)
+		var/datum/gas_mixture/t_air = get_turf_air()
+		if(!t_air)
+			return
+		var/env_temp = t_air.temperature
+		var/temp_adj = min(H.bodytemperature - max(thermostat, env_temp), max_cooling)
+
+		if (temp_adj < 0.5)	//only cools, doesn't heat, also we don't need extreme precision
+			return
+
+		var/charge_usage = (temp_adj/max_cooling)*charge_consumption
+		H.bodytemperature -= temp_adj
+
+		cell.use(charge_usage)
+
+		if(cell.charge <= 0)
+			cooling = FALSE
 
 /obj/structure/closet/airbubble/return_air()
 	if(use_internal_tank)
@@ -515,13 +606,8 @@
 	return
 
 /obj/structure/closet/airbubble/process()
-	if (!(process_ticks % 4))
-		process_preserve_temp()
-
-	if (!(process_ticks % 3))
-		process_tank_give_air()
-
-	process_ticks = (process_ticks + 1) % 17
+	process_preserve_temp()
+	process_tank_give_air()
 
 /obj/structure/closet/airbubble/proc/add_inside()
 	inside_air = new
@@ -533,13 +619,13 @@
 // Syndicate airbubble
 /obj/item/airbubble/syndie
 	name = "air bubble"
-	desc = "Special air bubble designed to protect people inside of it from decompressed enviroments. This does not seem like a regular color scheme"
+	desc = "Special air bubble designed to protect people inside of it from decompressed environments. Has an integrated cooling unit to preserve a stable temperature inside. Requires a power cell to operate. This does not seem like a regular color scheme."
 	icon_state = "airbubble_syndie_fact_folded"
 	syndie = TRUE
 
 /obj/structure/closet/airbubble/syndie
 	name = "air bubble"
-	desc = "Special air bubble designed to protect people inside of it from decompressed enviroments. This does not seem like a regular color scheme"
+	desc = "Special air bubble designed to protect people inside of it from decompressed environments. Has an integrated cooling unit to preserve a stable temperature inside. Requires a power cell to operate. This does not seem like a regular color scheme."
 	icon_state = "airbubble_syndie"
 	icon_closed = "airbubble_syndie"
 	icon_closed = "airbubble_syndie"
