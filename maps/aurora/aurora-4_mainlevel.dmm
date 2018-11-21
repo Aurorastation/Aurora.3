@@ -5228,7 +5228,7 @@
 /obj/machinery/alarm{
 	pixel_y = 23
 	},
-/obj/structure/closet/secure_closet/freezer/money,
+/obj/machinery/anti_bluespace,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "akk" = (
@@ -6659,6 +6659,13 @@
 "amO" = (
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
+"amP" = (
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/structure/closet/secure_closet/freezer/money,
+/turf/simulated/floor/tiled/dark,
+/area/security/nuke_storage)
 "amQ" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (Ion Rifle)";
@@ -6874,6 +6881,17 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
+"anp" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/reagent_dispensers/peppertank{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/armoury)
 "anq" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced{
@@ -10003,11 +10021,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "asO" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
+/obj/machinery/anti_bluespace,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "asP" = (
@@ -11189,12 +11203,6 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/armoury)
-"aux" = (
-/obj/structure/reagent_dispensers/peppertank{
-	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
@@ -91593,8 +91601,8 @@ anV
 apf
 aqt
 arD
+anp
 asO
-aux
 awd
 axR
 azv
@@ -106234,7 +106242,7 @@ acV
 ahT
 aiO
 aiO
-aki
+amP
 aoo
 alh
 amf

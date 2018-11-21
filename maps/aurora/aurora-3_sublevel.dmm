@@ -5796,6 +5796,43 @@
 "amc" = (
 /turf/simulated/open,
 /area/mine/unexplored)
+"amd" = (
+/obj/item/modular_computer/console/preset/ai,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"ame" = (
+/obj/machinery/camera/network/command{
+	c_tag = "AI Core - Beta Core 2";
+	dir = 1
+	},
+/obj/machinery/light/small,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	icon_state = "intact";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"amf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	icon_state = "intact";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
 "amg" = (
 /obj/structure/cable{
 	d1 = 2;
@@ -5817,6 +5854,13 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"amh" = (
+/obj/machinery/anti_bluespace,
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
 "amj" = (
 /obj/machinery/door/window{
 	base_state = "right";
@@ -6016,13 +6060,6 @@
 	temperature = 278
 	},
 /area/turret_protected/ai)
-"amE" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
-/area/turret_protected/ai)
 "amF" = (
 /obj/machinery/door/window/southleft,
 /obj/machinery/atmospherics/portables_connector,
@@ -6191,35 +6228,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
-/area/turret_protected/ai)
-"amX" = (
-/obj/machinery/camera/network/command{
-	c_tag = "AI Core - Beta Core 2";
-	dir = 1
-	},
-/obj/machinery/light/small,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
-/area/turret_protected/ai)
-"amY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/bluegrid{
 	name = "cooled mainframe floor";
 	temperature = 278
@@ -8420,12 +8428,6 @@
 	dir = 1
 	},
 /obj/item/modular_computer/console/preset/ai,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
-/area/turret_protected/ai)
-"aqt" = (
 /turf/simulated/floor/bluegrid{
 	name = "cooled mainframe floor";
 	temperature = 278
@@ -82441,8 +82443,8 @@ ale
 alY
 alY
 alY
-amD
-amX
+amd
+ame
 alY
 anT
 aov
@@ -82698,15 +82700,15 @@ ale
 alY
 alY
 alY
-amE
-amY
+amh
+amf
 anx
 anU
 aow
 aoV
 aps
 apT
-aqt
+amh
 alY
 alY
 alY
