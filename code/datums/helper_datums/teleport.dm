@@ -123,8 +123,8 @@
 			impediment = destturf
 
 		else
-			for(var/atom/A in destturf)
-				if(A.density)
+			for(var/atom/movable/A in destturf)
+				if(A.density && A.anchored)
 					impediment = A
 					break
 
@@ -133,9 +133,9 @@
 			var/boominess = 0
 			for(var/turf/T in range(1, destturf))
 				if(!T.density)
-					for(var/atom/A in T)
+					for(var/atom/movable/A in T)
 						var/blocked = 0
-						if(A.density && A.opacity)
+						if(A.density && A.opacity && A.anchored)
 							blocked = 1
 							break
 						if(!blocked)
@@ -149,7 +149,7 @@
 					O.ex_act(3)
 				else
 					O.crush_act()
-				boominess += O.w_class
+				boominess += max(0, O.w_class - 1)
 				if(O.density)
 					boominess += 5
 				if(O.opacity)
@@ -161,9 +161,16 @@
 				if(istype(L, /mob/living/carbon/human))
 					var/mob/living/carbon/human/H = L
 					if(newdest)
-						var/obj/item/organ/external/E = pick(H.organs)
-						to_chat(H, "<span class='danger'>You partially phase into \the [impediment], causing your \the [E] to bloodily dematerialize!</span>")
-						E.droplimb(0,DROPLIMB_BLUNT)
+						var/list/organs_to_gib = list()
+						for(var/obj/item/organ/external/ext in H.organs)
+							if(!ext.vital) //ensures someone doesn't instantly die, allowing them to slowly die instead
+								organs_to_gib.Add(ext)
+
+						if(organs_to_gib.len)
+							var/obj/item/organ/external/E = pick(organs_to_gib)
+							to_chat(H, "<span class='danger'>You partially phase into \the [impediment], causing \a [E] to bloodily dematerialize!</span>")
+							E.droplimb(0,DROPLIMB_BLUNT)
+
 						H.forceMove(newdest)
 					else
 						to_chat(H, "<span class='danger'>Your life flashes before your eyes as you phase into \the [impediment] before the universe suddenly and violently corrects itself!</span>")
@@ -181,7 +188,7 @@
 				boominess += 5
 
 			destturf.visible_message("<span class ='danger'>There is a sizable emission of energy as \the [teleatom] phases into \the [impediment]!</span>")
-			explosion(destturf, ((boominess > 10) ? 1 : 0), ((boominess > 5) ? (boominess/5) : 0), boominess/5, boominess/2)
+			explosion(destturf, ((boominess > 10) ? 1 : 0), ((boominess > 5) ? (boominess/10) : 0), boominess/5, boominess/2)
 
 	else
 		if(teleatom.Move(destturf))
