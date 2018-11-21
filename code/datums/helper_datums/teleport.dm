@@ -178,7 +178,7 @@
 						L.gib()
 
 			if(!newdest)
-				boominess += 10
+				boominess += 5
 
 			destturf.visible_message("<span class ='danger'>There is a sizable emission of energy as \the [teleatom] phases into \the [impediment]!</span>")
 			explosion(destturf, ((boominess > 10) ? 1 : 0), ((boominess > 5) ? (boominess/5) : 0), boominess/5, boominess/2)
