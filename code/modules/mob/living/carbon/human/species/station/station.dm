@@ -258,6 +258,10 @@
 		H.h_style = "Skrell Female Tentacles"
 	H.update_hair()
 
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/commune
+		)
+
 /datum/species/diona
 	name = "Diona"
 	short_name = "dio"
@@ -696,7 +700,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	and otherwise, and acts as a pressure-suit to seal their soft inner core from the outside world. This allows most Type A Vaurca to have extended EVA \
 	expeditions, assuming they have internals. They are bipedal, and compared to warriors they are better suited for EVA and environments, and more resistant to brute force thanks to their \
 	thicker carapace, but also a fair bit slower and less agile. \
-	<b>Type A comfortable in any department except security. There will almost never be a Worker in a security position, as they are as a type disposed against combat.</b>"
+	<b>Type A are comfortable in any department except security. There will almost never be a Worker in a security position, as they are as a type disposed against combat.</b>"
 
 	cold_level_1 = 50
 	cold_level_2 = -1
@@ -707,7 +711,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	heat_level_3 = 600 //Default 1000
 	flags = NO_SLIP | NO_CHUBBY
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
-	appearance_flags = HAS_SKIN_COLOR
+	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
 	blood_color = "#E6E600" // dark yellow
 	flesh_color = "#E6E600"
 	base_color = "#575757"
@@ -744,6 +748,8 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		"brain"               = /obj/item/organ/brain/vaurca,
 		"eyes"                = /obj/item/organ/eyes/vaurca
 	)
+
+	default_h_style = "Classic Antennae"
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
