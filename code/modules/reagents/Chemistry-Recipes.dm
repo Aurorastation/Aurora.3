@@ -2343,6 +2343,14 @@
 	required_reagents = list("lemonjuice" = 1, "sugar" = 1, "water" = 1)
 	result_amount = 3
 
+/datum/chemical_reaction/lemonade/pink
+	name = "Pink Lemonade"
+	id = "pinklemonade"
+	result = "pinklemonade"
+	required_reagents = list("lemonade" = 8, "grenadine" = 2)
+	result_amount = 10
+
+
 /datum/chemical_reaction/kiraspecial
 	name = "Kira Special"
 	id = "kiraspecial"
