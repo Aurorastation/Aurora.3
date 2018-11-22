@@ -168,7 +168,7 @@
 
 						if(organs_to_gib.len)
 							var/obj/item/organ/external/E = pick(organs_to_gib)
-							to_chat(H, "<span class='danger'>You partially phase into \the [impediment], causing \a [E] to bloodily dematerialize!</span>")
+							to_chat(H, "<span class='danger'>You partially phase into \the [impediment], causing your [E.name] to violently dematerialize!</span>")
 							E.droplimb(0,DROPLIMB_BLUNT)
 
 						H.forceMove(newdest)
@@ -177,7 +177,7 @@
 						H.gib()
 				else
 					if(newdest)
-						to_chat(L, "<span class='danger'>You partially phase into \the [impediment], causing a chunk of you to bloodily dematerialize!</span>")
+						to_chat(L, "<span class='danger'>You partially phase into \the [impediment], causing a chunk of you to violently dematerialize!</span>")
 						L.adjustBruteLoss(40)
 						L.forceMove(newdest)
 					else
