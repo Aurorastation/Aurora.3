@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/energy/ionrifle
 	name = "ion rifle"
-	desc = "The NT Mk60 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT."
+	desc = "The NT Mk70 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT."
 	icon_state = "ionriflestun100"
 	item_state = null // so the human update icon uses the icon_state instead.
 	modifystate = "ionriflestun"
@@ -22,7 +22,7 @@
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/ion/stun, modifystate="ionriflestun", fire_sound='sound/weapons/Laser.ogg', charge_cost = 300),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/ion, modifystate="ionriflekill", fire_sound='sound/weapons/Laser.ogg', charge_cost = 400)
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/ion, modifystate="ionriflekill", fire_sound='sound/weapons/Laser.ogg', charge_cost = 450)
 		)
 
 /obj/item/weapon/gun/energy/ionrifle/emp_act(severity)
