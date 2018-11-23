@@ -713,6 +713,13 @@ obj/item/weapon/gun/Destroy()
 		to_chat(user, "<span class='notice'>You attach \the [I] to the front of \the [src].</span>")
 		update_icon()
 
+	if(iscrowbar(I))
+		if(bayonet)
+			to_chat(user, "<span class='notice'>You detach \the [I] from \the [src].</span>")
+			bayonet.forceMove(get_turf(src))
+			bayonet = null
+			update_icon()
+
 	if(!pin)
 		return ..()
 
