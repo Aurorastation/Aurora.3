@@ -19610,10 +19610,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
-"PE" = (
-/turf/simulated/floor/tiled,
-/area/space)
-"QM" = (
+"Sg" = (
 /obj/structure/table/standard,
 /obj/machinery/reagentgrinder{
 	pixel_y = 8
@@ -49245,12 +49242,12 @@ rv
 rv
 rv
 te
-QM
+Sg
 up
 up
 uT
 up
-PE
+wy
 up
 yY
 jv
