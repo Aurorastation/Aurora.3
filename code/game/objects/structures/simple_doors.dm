@@ -11,6 +11,10 @@
 	var/isSwitchingStates = 0
 	var/hardness = 1
 	var/oreAmount = 7
+	var/datum/lock/lock
+	var/initial_lock_value //for mapping purposes. Basically if this value is set, it sets the lock to this value.
+	var/health = 100
+	var/maxhealth = 100
 
 /obj/structure/simple_door/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	TemperatureAct(exposed_temperature)
@@ -19,7 +23,7 @@
 	hardness -= material.combustion_effect(get_turf(src),temperature, 0.3)
 	CheckHardness()
 
-/obj/structure/simple_door/New(var/newloc, var/material_name)
+/obj/structure/simple_door/New(var/newloc, var/material_name, var/locked)
 	..()
 	if(!material_name)
 		material_name = DEFAULT_WALL_MATERIAL
@@ -31,6 +35,16 @@
 	icon_state = material.door_icon_base
 	name = "[material.display_name] door"
 	color = material.icon_colour
+
+	maxhealth = material.integrity
+	health = maxhealth
+
+	if(initial_lock_value)
+		locked = initial_lock_value
+
+	if(locked)
+		lock = new(src,locked)
+
 	if(material.opacity < 0.5)
 		opacity = 0
 	else
@@ -42,7 +56,14 @@
 /obj/structure/simple_door/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	update_nearby_tiles()
+	qdel(lock)
+	lock = null
 	return ..()
+
+/obj/structure/simple_door/examine(mob/user)
+	..(user)
+	if(lock)
+		to_chat(user, "<span class='notice'>It appears to have a lock.</span>")
 
 /obj/structure/simple_door/get_material()
 	return material
@@ -81,19 +102,25 @@
 			if(iscarbon(M))
 				var/mob/living/carbon/C = M
 				if(!C.handcuffed)
-					SwitchState()
+					SwitchState(user)
 			else
-				SwitchState()
+				SwitchState(user)
 	else if(istype(user, /obj/mecha))
 		SwitchState()
 
-/obj/structure/simple_door/proc/SwitchState()
+/obj/structure/simple_door/proc/SwitchState(mob/user)
 	if(state)
 		Close()
 	else
-		Open()
+		Open(user)
 
-/obj/structure/simple_door/proc/Open()
+/obj/structure/simple_door/proc/Open(mob/user)
+
+	if(lock && lock.isLocked())
+		if(user)
+			to_chat(user, "<span class='warning'>\The [src] is locked!</span>")
+		return
+
 	isSwitchingStates = 1
 	playsound(loc, material.dooropen_noise, 100, 1)
 	flick("[material.door_icon_base]opening",src)
@@ -124,26 +151,37 @@
 		icon_state = material.door_icon_base
 
 /obj/structure/simple_door/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/pickaxe))
-		var/obj/item/weapon/pickaxe/digTool = W
-		user << "You start digging the [name]."
-		if(do_after(user,digTool.digspeed*hardness) && src)
-			user << "You finished digging."
-			Dismantle()
-	else if(istype(W,/obj/item/weapon)) //not sure, can't not just weapons get passed to this proc?
-		hardness -= W.force/100
-		user << "You hit the [name] with your [W.name]!"
+	if(istype(W, /obj/item/weapon/key) && lock)
+		var/obj/item/weapon/key/K = W
+		if(!lock.toggle(W))
+			to_chat(user, "<span class='warning'>\The [K] does not fit in the lock!</span>")
+		return
+
+	if(lock && lock.pick_lock(W,user))
+		return
+
+	if(istype(W,/obj/item/weapon/material/lock_construct))
+		if(lock)
+			to_chat(user, "<span class='warning'>\The [src] already has a lock.</span>")
+		else
+			var/obj/item/weapon/material/lock_construct/L = W
+			lock = L.create_lock(src,user)
+		return
+
+	else if(istype(W,/obj/item/weapon))
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		user.do_attack_animation(src)
+		animate_shake()
+		user.visible_message("<span class='danger'>\The [user] forcefully strikes \the [src] with \the [W]!</span>")
+		src.health -= W.force * 1
 		CheckHardness()
-	else if(iswelder(W))
-		var/obj/item/weapon/weldingtool/WT = W
-		if(material.ignition_point && WT.remove_fuel(0, user))
-			TemperatureAct(150)
+
 	else
 		attack_hand(user)
 	return
 
 /obj/structure/simple_door/proc/CheckHardness()
-	if(hardness <= 0)
+	if(health <= 0)
 		Dismantle(1)
 
 /obj/structure/simple_door/proc/Dismantle(devastated = 0)
@@ -171,26 +209,26 @@
 	for(var/mob/living/L in range(1,src))
 		L.apply_effect(round(material.radioactivity/3),IRRADIATE,0)
 
-/obj/structure/simple_door/iron/New(var/newloc,var/material_name)
-	..(newloc, "iron")
+/obj/structure/simple_door/iron/New(var/newloc,var/material_name, var/complexity)
+	..(newloc, "iron", complexity)
 
-/obj/structure/simple_door/silver/New(var/newloc,var/material_name)
-	..(newloc, "silver")
+/obj/structure/simple_door/silver/New(var/newloc,var/material_name, var/complexity)
+	..(newloc, "silver", complexity)
 
-/obj/structure/simple_door/gold/New(var/newloc,var/material_name)
-	..(newloc, "gold")
+/obj/structure/simple_door/gold/New(var/newloc,var/material_name, var/complexity)
+	..(newloc, "gold", complexity)
 
-/obj/structure/simple_door/uranium/New(var/newloc,var/material_name)
-	..(newloc, "uranium")
+/obj/structure/simple_door/uranium/New(var/newloc,var/material_name, var/complexity)
+	..(newloc, "uranium", complexity)
 
-/obj/structure/simple_door/sandstone/New(var/newloc,var/material_name)
-	..(newloc, "sandstone")
+/obj/structure/simple_door/sandstone/New(var/newloc,var/material_name, var/complexity)
+	..(newloc, "sandstone", complexity)
 
-/obj/structure/simple_door/phoron/New(var/newloc,var/material_name)
-	..(newloc, "phoron")
+/obj/structure/simple_door/phoron/New(var/newloc,var/material_name, var/complexity)
+	..(newloc, "phoron", complexity)
 
-/obj/structure/simple_door/diamond/New(var/newloc,var/material_name)
-	..(newloc, "diamond")
+/obj/structure/simple_door/diamond/New(var/newloc,var/material_name, var/complexity)
+	..(newloc, "diamond", complexity)
 
 /obj/structure/simple_door/wood/New(var/newloc,var/material_name)
 	..(newloc, "wood")
