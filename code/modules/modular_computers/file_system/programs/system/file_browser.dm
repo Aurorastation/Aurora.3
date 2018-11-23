@@ -98,7 +98,7 @@
 		var/oldtext = html_decode(F.stored_data)
 		oldtext = replacetext(oldtext, "\[editorbr\]", "\n")
 
-		var/newtext = sanitize(replacetext(input(usr, "Editing file [open_file]. You may use most tags used in paper formatting:", "Text Editor", oldtext) as message|null, "\n", "\[editorbr\]"), MAX_TEXTFILE_LENGTH)
+		var/newtext = pencode2html(sanitize(replacetext(input(usr, "Editing file [open_file]. You may use most tags used in paper formatting:", "Text Editor", oldtext) as message|null, "\n", "\[editorbr\]"), MAX_TEXTFILE_LENGTH))
 		if(!newtext)
 			return
 
@@ -126,7 +126,7 @@
 		if(!computer.nano_printer)
 			error = "Missing Hardware: Your computer does not have required hardware to complete this operation."
 			return 1
-		if(!computer.nano_printer.print_text(pencode2html(F.stored_data)))
+		if(!computer.nano_printer.print_text(F.stored_data))
 			error = "Hardware error: Printer was unable to print the file. It may be out of paper."
 			return 1
 	if(href_list["PRG_copytousb"])
@@ -201,7 +201,7 @@
 			if(!istype(file))
 				data["error"] = "I/O ERROR: Unable to open file."
 			else
-				data["filedata"] = pencode2html(file.stored_data)
+				data["filedata"] = file.stored_data
 				data["filename"] = "[file.filename].[file.filetype]"
 	else
 		if(!PRG.computer || !PRG.computer.hard_drive)

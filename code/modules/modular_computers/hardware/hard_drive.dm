@@ -164,6 +164,13 @@
 	stored_files = null
 	return ..()
 
-/obj/item/weapon/computer_hardware/hard_drive/New()
+/obj/item/weapon/computer_hardware/hard_drive/Initialize(mapload)
 	install_default_programs()
+	if(mapload)
+		var/datum/docs_document/file = SSdocs.pick_document(SSDOCS_MEDIUM_FILE)
+		if(!istype(file))
+			..()
+			return
+		var/datum/computer_file/data/F = SSdocs.create_file(file)
+		store_file(F)
 	..()
