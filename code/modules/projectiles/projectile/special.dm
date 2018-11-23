@@ -11,6 +11,15 @@
 	empulse(A, pulse_range, pulse_range)
 	return 1
 
+
+/obj/item/projectile/ion/stun/on_impact(var/atom/A)
+	if(istype(A, /mob/living/carbon))
+		var/mob/living/carbon/C = A
+		C.Stun(3)
+	else
+		..()
+	return 1
+
 /obj/item/projectile/ion/small
 	name = "ion pulse"
 	pulse_range = 0
