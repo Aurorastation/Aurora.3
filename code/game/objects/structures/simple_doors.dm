@@ -20,8 +20,8 @@
 	TemperatureAct(exposed_temperature)
 
 /obj/structure/simple_door/proc/TemperatureAct(temperature)
-	hardness -= material.combustion_effect(get_turf(src),temperature, 0.3)
-	CheckHardness()
+	health -= material.combustion_effect(get_turf(src),temperature, 0.3)
+	CheckHealth()
 
 /obj/structure/simple_door/New(var/newloc, var/material_name, var/locked)
 	..()
@@ -174,13 +174,18 @@
 		animate_shake()
 		user.visible_message("<span class='danger'>\The [user] forcefully strikes \the [src] with \the [W]!</span>")
 		src.health -= W.force * 1
-		CheckHardness()
+		CheckHealth()
 
 	else
 		attack_hand(user)
 	return
 
-/obj/structure/simple_door/proc/CheckHardness()
+/obj/structure/simple_door/bullet_act(var/obj/item/projectile/Proj)
+	health -= Proj.damage
+	CheckHealth()
+	return
+
+/obj/structure/simple_door/proc/CheckHealth()
 	if(health <= 0)
 		Dismantle(1)
 
@@ -196,11 +201,11 @@
 			if(prob(20))
 				Dismantle(1)
 			else
-				hardness--
-				CheckHardness()
+				health--
+				CheckHealth()
 		if(3)
-			hardness -= 0.1
-			CheckHardness()
+			health -= 0.1
+			CheckHealth()
 	return
 
 /obj/structure/simple_door/process()
