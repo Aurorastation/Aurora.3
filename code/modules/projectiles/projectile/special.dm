@@ -13,11 +13,11 @@
 
 
 /obj/item/projectile/ion/stun/on_impact(var/atom/A)
-	if(istype(A, /mob/living/carbon))
-		var/mob/living/carbon/C = A
-		C.Stun(3)
+	if(isipc(A))
+		var/mob/living/carbon/human/H = A
+		H.Weaken(5)
 	else
-		..()
+		A.emp_act(2) // Deals less EMP damage then lethal setting, and not areal pulse
 	return 1
 
 /obj/item/projectile/ion/small
