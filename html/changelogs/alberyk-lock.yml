@@ -2,5 +2,6 @@ author: Alberyk
 
 delete-after: True
 
- - rscadd: "Ported key and lock from baystation, you can place them in regular material doors to lock them."
- - bugfix: "Fixed material doors being nearly indestructible."
+changes: 
+  - rscadd: "Ported key and lock from baystation, you can place them in regular material doors to lock them."
+  - bugfix: "Fixed material doors being nearly indestructible."
