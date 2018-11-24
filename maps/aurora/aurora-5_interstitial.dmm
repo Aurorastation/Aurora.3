@@ -267,22 +267,12 @@
 	locked = 1;
 	name = "Construction Site"
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
 "aE" = (
 /obj/effect/floor_decal/corner/pink{
 	icon_state = "corner_white";
 	dir = 9
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
@@ -310,11 +300,6 @@
 	pixel_x = -22;
 	pixel_y = 0
 	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
 "aI" = (
@@ -327,20 +312,10 @@
 	icon_state = "map_scrubber_on";
 	dir = 4
 	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
 "aJ" = (
 /obj/effect/floor_decal/corner/paleblue/full,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
 "aK" = (
@@ -354,11 +329,6 @@
 /obj/effect/floor_decal/corner/yellow/full{
 	icon_state = "corner_white_full";
 	dir = 8
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
@@ -467,11 +437,6 @@
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
@@ -1682,6 +1647,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
+"cY" = (
+/obj/structure/table/rack,
+/obj/item/weapon/pickaxe,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/maintenance/interstitial_construction_site)
 "da" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(50)
@@ -6671,11 +6642,6 @@
 /obj/machinery/door/firedoor/multi_tile,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
-"lT" = (
-/obj/structure/grille/broken,
-/obj/item/weapon/material/shard,
-/turf/simulated/floor/airless,
-/area/maintenance/interstitial_construction_site)
 "lU" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/cable/green{
@@ -6991,7 +6957,54 @@
 /obj/structure/flora/pottedplant,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
-"nZ" = (
+"ou" = (
+/obj/effect/landmark{
+	name = "cavernspawn"
+	},
+/turf/simulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
+"pg" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/maintenance/interstitial_construction_site)
+"pO" = (
+/obj/structure/grille/broken,
+/obj/item/weapon/material/shard,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/maintenance/interstitial_construction_site)
+"qt" = (
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/interstitial_main)
+"ra" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/engineering{
+	name = "Construction Level Substation";
+	req_one_access = list(11,24)
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/interstitial)
+"rs" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/interstitial_main)
+"rx" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -6999,41 +7012,27 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_main)
-"ou" = (
-/obj/effect/landmark{
-	name = "cavernspawn"
-	},
-/turf/simulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
-"te" = (
-/obj/structure/grille,
-/turf/simulated/floor/airless,
-/area/maintenance/interstitial_construction_site)
-"tr" = (
-/obj/structure/table/rack,
-/obj/item/weapon/pickaxe,
+"uw" = (
+/obj/machinery/floodlight,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)
-"tM" = (
-/turf/simulated/wall,
-/area/maintenance/interstitial_construction_site)
-"tN" = (
-/obj/structure/bed/chair{
-	dir = 4
+"uD" = (
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
 	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/airless,
-/area/maintenance/interstitial_construction_site)
-"uE" = (
-/turf/simulated/wall/r_wall,
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/sensor{
+	long_range = 1;
+	name = "Powernet Sensor - Construction Level";
+	name_tag = "Construction Level"
+	},
+/turf/simulated/floor/plating,
 /area/maintenance/substation/interstitial)
-"uO" = (
-/obj/structure/closet,
-/obj/random/loot,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/airless,
-/area/maintenance/interstitial_construction_site)
 "va" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -7071,61 +7070,39 @@
 /obj/effect/decal/remains,
 /turf/simulated/floor/plating,
 /area/security/training)
-"vq" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/window/eastright,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
-/area/maintenance/interstitial_main)
-"xB" = (
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 9
+"vg" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Construction Level Substation";
+	req_one_access = list(11,24)
 	},
 /obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/maintenance/interstitial_main)
-"xM" = (
-/obj/structure/table/steel,
-/obj/random/loot,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/airless,
-/area/maintenance/interstitial_construction_site)
-"yi" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/interstitial_main)
-"ys" = (
-/obj/structure/grille/broken,
+/area/maintenance/substation/interstitial)
+"vQ" = (
+/obj/structure/table/steel,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)
-"yX" = (
-/obj/item/weapon/material/shard{
-	icon_state = "small"
+"wA" = (
+/obj/structure/table/rack,
+/obj/item/stack/material/steel{
+	amount = 10
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)
-"zn" = (
+"wG" = (
+/turf/simulated/floor/plating,
+/area/maintenance/interstitial_main)
+"wO" = (
+/obj/structure/girder/displaced,
+/turf/simulated/floor/airless,
+/area/maintenance/interstitial_construction_site)
+"wW" = (
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 4;
@@ -7138,13 +7115,127 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_main)
-"Am" = (
-/obj/structure/table/rack,
-/obj/item/weapon/ladder_mobile,
+"xO" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/interstitial_main)
+"yh" = (
+/obj/machinery/power/breakerbox/activated{
+	RCon_tag = "Construction Level Substation Bypass"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/interstitial)
+"zP" = (
+/obj/item/weapon/material/shard{
+	icon_state = "small"
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)
-"AC" = (
+"Ah" = (
+/obj/structure/lattice,
+/turf/simulated/floor/asteroid/ash/rocky,
+/area/maintenance/interstitial_construction_site)
+"Ak" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/window/eastright,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
+/area/maintenance/interstitial_main)
+"Bh" = (
+/obj/structure/grille/broken,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/maintenance/interstitial_construction_site)
+"Co" = (
+/turf/simulated/wall,
+/area/maintenance/substation/interstitial)
+"CA" = (
+/obj/structure/grille,
+/turf/simulated/floor/airless,
+/area/maintenance/interstitial_construction_site)
+"CY" = (
+/turf/simulated/floor/asteroid/ash/rocky,
+/area/maintenance/interstitial_construction_site)
+"Dm" = (
+/obj/item/weapon/material/shard{
+	icon_state = "medium"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/maintenance/interstitial_construction_site)
+"Dt" = (
+/obj/structure/table/steel,
+/obj/random/loot,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/maintenance/interstitial_construction_site)
+"DC" = (
+/turf/simulated/wall,
+/area/maintenance/interstitial_construction_site)
+"DR" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/interstitial_main)
+"EH" = (
+/obj/structure/grille/broken,
+/obj/item/weapon/material/shard,
+/turf/simulated/floor/airless,
+/area/maintenance/interstitial_construction_site)
+"EU" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/power/apc{
+	cell_type = /obj/item/weapon/cell/super;
+	dir = 1;
+	is_critical = 1;
+	name = "north bump";
+	pixel_x = 0;
+	pixel_y = 24
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/interstitial)
+"Fb" = (
+/obj/structure/closet,
+/obj/random/loot,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/maintenance/interstitial_construction_site)
+"FK" = (
+/obj/effect/landmark/dungeon_spawn,
+/turf/unsimulated/chasm_mask,
+/area/mine/unexplored)
+"Gm" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -7154,91 +7245,6 @@
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/substation/interstitial)
-"Bd" = (
-/obj/structure/table/rack,
-/obj/item/weapon/storage/toolbox/mechanical,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/airless,
-/area/maintenance/interstitial_construction_site)
-"Ct" = (
-/turf/simulated/floor/asteroid/ash/rocky,
-/area/maintenance/interstitial_construction_site)
-"CW" = (
-/obj/item/weapon/material/shard{
-	icon_state = "medium"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/airless,
-/area/maintenance/interstitial_construction_site)
-"Dt" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/interstitial_main)
-"Ef" = (
-/obj/machinery/light/small/emergency{
-	icon_state = "bulb1";
-	dir = 4
-	},
-/obj/machinery/power/terminal{
-	dir = 8
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/substation/interstitial)
-"Ei" = (
-/obj/structure/closet,
-/obj/random/loot,
-/turf/simulated/floor/plating,
-/area/maintenance/interstitial_main)
-"Fq" = (
-/obj/structure/closet/crate,
-/obj/random/loot,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/airless,
-/area/maintenance/interstitial_construction_site)
-"FH" = (
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled,
-/area/maintenance/interstitial_main)
-"FK" = (
-/obj/effect/landmark/dungeon_spawn,
-/turf/unsimulated/chasm_mask,
-/area/mine/unexplored)
-"Gm" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/interstitial_main)
-"GA" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/door/airlock/engineering{
-	name = "Construction Level Substation";
-	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/interstitial)
@@ -7260,14 +7266,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"GN" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/interstitial_main)
+"GK" = (
+/turf/simulated/wall/r_wall,
+/area/maintenance/substation/interstitial)
 "GT" = (
 /turf/simulated/open,
 /area/medical/psych)
@@ -7310,9 +7311,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"Ik" = (
-/turf/simulated/floor/plating,
-/area/maintenance/interstitial_main)
 "Ir" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8204,47 +8202,74 @@
 /obj/structure/lattice/catwalk,
 /turf/simulated/open,
 /area/maintenance/interstitial_cargo)
-"Mi" = (
+"Qn" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/toolbox/mechanical,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/maintenance/interstitial_construction_site)
+"Qx" = (
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/maintenance/interstitial_main)
-"Nb" = (
-/obj/structure/lattice,
-/turf/simulated/floor/asteroid/ash/rocky,
+"QA" = (
+/obj/machinery/light/small/emergency{
+	icon_state = "bulb1";
+	dir = 4
+	},
+/obj/machinery/power/terminal{
+	dir = 8
+	},
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2";
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/interstitial)
+"RE" = (
+/obj/structure/table/rack,
+/obj/item/weapon/ladder_mobile,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)
-"NJ" = (
+"RQ" = (
+/obj/structure/closet/crate,
+/obj/random/loot,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/maintenance/interstitial_construction_site)
+"Ss" = (
+/obj/structure/closet,
+/obj/random/loot,
+/turf/simulated/floor/plating,
+/area/maintenance/interstitial_main)
+"Ti" = (
+/obj/machinery/power/smes/buildable{
+	RCon_tag = "Substation - Construction Level"
+	},
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/machinery/power/sensor{
-	long_range = 1;
-	name = "Powernet Sensor - Construction Level";
-	name_tag = "Construction Level"
-	},
+/obj/structure/cable/green,
 /turf/simulated/floor/plating,
 /area/maintenance/substation/interstitial)
-"NO" = (
-/obj/structure/table/steel,
+"Xj" = (
+/obj/structure/girder,
+/turf/simulated/floor/airless,
+/area/maintenance/interstitial_construction_site)
+"XC" = (
+/obj/structure/table/rack,
+/obj/item/hoist_kit,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)
-"Ov" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/airless,
-/area/maintenance/interstitial_construction_site)
-"OJ" = (
+"Yg" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -8252,72 +8277,7 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/maintenance/interstitial_main)
-"PR" = (
-/turf/simulated/wall,
-/area/maintenance/substation/interstitial)
-"PW" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/airless,
-/area/maintenance/interstitial_construction_site)
-"Qh" = (
-/obj/structure/table/rack,
-/obj/item/stack/material/steel{
-	amount = 10
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/airless,
-/area/maintenance/interstitial_construction_site)
-"QK" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/power/apc{
-	cell_type = /obj/item/weapon/cell/super;
-	dir = 1;
-	is_critical = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24
-	},
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/substation/interstitial)
-"RR" = (
-/obj/machinery/door/airlock/engineering{
-	name = "Construction Level Substation";
-	req_one_access = list(11,24)
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/substation/interstitial)
-"Sa" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/airless,
-/area/maintenance/interstitial_construction_site)
-"SH" = (
+"Zc" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -8330,79 +8290,25 @@
 	dir = 1
 	},
 /obj/machinery/door/window/eastright,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
-"SL" = (
-/obj/structure/girder/displaced,
-/turf/simulated/floor/airless,
-/area/maintenance/interstitial_construction_site)
-"SS" = (
-/obj/machinery/floodlight,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/airless,
-/area/maintenance/interstitial_construction_site)
-"TN" = (
-/obj/machinery/power/smes/buildable{
-	RCon_tag = "Substation - Construction Level"
-	},
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/structure/cable/green,
-/turf/simulated/floor/plating,
-/area/maintenance/substation/interstitial)
-"TY" = (
-/obj/machinery/power/breakerbox/activated{
-	RCon_tag = "Construction Level Substation Bypass"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/substation/interstitial)
-"Vd" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/airless,
-/area/maintenance/interstitial_construction_site)
-"Vt" = (
-/obj/structure/table/rack,
-/obj/item/hoist_kit,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/airless,
-/area/maintenance/interstitial_construction_site)
-"VB" = (
+"Zk" = (
 /obj/structure/table/rack,
 /obj/item/weapon/shovel,
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/maintenance/interstitial_construction_site)
-"Xt" = (
-/obj/structure/grille/broken,
-/obj/item/weapon/material/shard,
+"ZL" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)
-"Yt" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
+"ZR" = (
+/obj/structure/bed/chair{
+	dir = 4
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/interstitial_main)
-"YS" = (
-/obj/structure/girder,
-/turf/simulated/floor/airless,
-/area/maintenance/interstitial_construction_site)
-"ZA" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)
@@ -31919,17 +31825,17 @@ aa
 ab
 ab
 ab
-tM
-YS
-YS
-yX
-Ct
-ys
-te
-te
-tM
-Nb
-tM
+DC
+Xj
+Xj
+zP
+CY
+Bh
+CA
+CA
+DC
+Ah
+DC
 ab
 ab
 aa
@@ -32176,17 +32082,17 @@ aa
 ab
 ab
 ab
-YS
-tN
-ZA
-ZA
-Nb
-ZA
-uO
-NO
-xM
-ZA
-tM
+Xj
+ZR
+pg
+pg
+Ah
+pg
+Fb
+vQ
+Dt
+pg
+DC
 ab
 ab
 aa
@@ -32433,17 +32339,17 @@ aa
 aa
 ab
 ab
-te
-xM
-NO
-Fq
-ZA
-ZA
-Ct
-Ov
-ZA
-Ct
-SL
+CA
+Dt
+vQ
+RQ
+pg
+pg
+CY
+ZL
+pg
+CY
+wO
 ab
 ab
 aa
@@ -32690,17 +32596,17 @@ aa
 aa
 ab
 ab
-Ct
-Am
-Vt
-SS
-Nb
-Nb
-Nb
-ZA
-Nb
-Nb
-Xt
+CY
+RE
+XC
+uw
+Ah
+Ah
+Ah
+pg
+Ah
+Ah
+pO
 ab
 ab
 aa
@@ -32947,17 +32853,17 @@ aa
 aa
 ab
 ab
-SL
-Nb
-ZA
-ZA
-ZA
-ZA
-ZA
-YS
-Ct
-Bd
-ZA
+wO
+Ah
+pg
+pg
+pg
+pg
+pg
+Xj
+CY
+Qn
+pg
 ab
 aa
 aa
@@ -33204,17 +33110,17 @@ aa
 aa
 aa
 ab
-tM
-Nb
-Nb
-Ct
-ZA
-ZA
-ZA
-ZA
-ZA
-tr
-YS
+DC
+Ah
+Ah
+CY
+pg
+pg
+pg
+pg
+pg
+cY
+Xj
 ab
 aa
 aa
@@ -33461,17 +33367,17 @@ aa
 aa
 aa
 ab
-tM
-Nb
-ZA
-ZA
-Nb
-ZA
-Nb
-Nb
-ZA
-Qh
-YS
+DC
+Ah
+pg
+pg
+Ah
+pg
+Ah
+Ah
+pg
+wA
+Xj
 ab
 ab
 aa
@@ -33718,17 +33624,17 @@ aa
 aa
 aa
 ab
-lT
-Ct
-Nb
-YS
-ZA
-ZA
-Nb
-Nb
-Ct
-VB
-te
+EH
+CY
+Ah
+Xj
+pg
+pg
+Ah
+Ah
+CY
+Zk
+CA
 ab
 ab
 aa
@@ -33975,28 +33881,28 @@ aa
 aa
 aa
 ab
-YS
-ZA
-CW
-Ct
-Ct
-ZA
-Nb
-ZA
-ZA
-SS
-tM
+Xj
+pg
+Dm
+CY
+CY
+pg
+Ah
+pg
+pg
+uw
+DC
 ab
 ab
 aa
 aa
 aa
 aa
-uE
-uE
-uE
-uE
-uE
+GK
+GK
+GK
+GK
+GK
 aa
 aa
 aa
@@ -34232,28 +34138,28 @@ aa
 aa
 aa
 ab
-YS
-ZA
-Nb
-Ct
-ZA
-ZA
-YS
-ZA
-Nb
-ZA
-tM
+Xj
+pg
+Ah
+CY
+pg
+pg
+Xj
+pg
+Ah
+pg
+DC
 ab
 ab
 ab
 aa
 aa
 aa
-uE
-NJ
-TN
-TY
-uE
+GK
+uD
+Ti
+yh
+GK
 aa
 aa
 aa
@@ -34489,28 +34395,28 @@ aa
 aa
 ab
 ab
-SL
-ZA
-ZA
-PW
-Vd
-Sa
-ZA
-ZA
-ZA
-ZA
-tM
+wO
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+DC
 ab
 ab
 aa
 aa
 aa
 aa
-uE
-QK
-Ef
-AC
-uE
+GK
+EU
+QA
+Gm
+GK
 aa
 aa
 aa
@@ -34746,28 +34652,28 @@ aa
 ab
 ab
 ab
-tM
-Nb
-ZA
+DC
+Ah
+pg
 ar
 ar
 aD
 ar
 ar
-Ct
-Nb
-Nb
+CY
+Ah
+Ah
 ab
 ab
 aa
 aa
 ar
 ar
-uE
-RR
-PR
-GA
-uE
+GK
+vg
+Co
+ra
+GK
 aa
 aa
 aa
@@ -35019,11 +34925,11 @@ ar
 ar
 ar
 ar
-Ei
-Ei
-GN
-Ik
-nZ
+Ss
+Ss
+DR
+wG
+rx
 ar
 aa
 aa
@@ -35265,22 +35171,22 @@ az
 IJ
 aC
 aw
-FH
-Mi
+aw
+aw
 aH
 aI
-xB
-Mi
+aC
+aw
 aJ
 aL
-Mi
+aw
 aV
-Dt
-yi
-yi
-zn
-Gm
-Yt
+qt
+Qx
+Qx
+wW
+xO
+rs
 ar
 aa
 aa
@@ -35535,7 +35441,7 @@ Jf
 ar
 ar
 ar
-OJ
+Yg
 ar
 ar
 ar
@@ -35790,9 +35696,9 @@ aM
 Ja
 aW
 iD
-vq
-vq
-SH
+Zc
+Zc
+Ak
 ar
 ab
 aa
