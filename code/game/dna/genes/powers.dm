@@ -166,14 +166,22 @@
 			return "hulk_[g]_s"
 		return 0
 
-	OnMobLife(var/mob/living/carbon/human/M)
-		if(!istype(M)) return
-		if(M.health <= 25)
-			M.mutations.Remove(HULK)
-			M.update_mutations()		//update our mutation overlays
-			M << "<span class='warning'>You suddenly feel very weak.</span>"
-			M.Weaken(3)
-			M.emote("collapse")
+/datum/dna/gene/basic/hulk/OnMobLife(var/mob/living/carbon/human/M)
+	if(!istype(M)) 
+		return
+
+	if(PREHULK in M.mutations) 
+		return // We do not need to add hulk again.
+
+	if(M.health >= 65)
+		M.mutations.Remove(HULK)
+		M.mutations.Add(PREHULK)
+		M.update_mutations()        //update our mutation overlays
+		M.update_icon()
+		M << "<span class='warning'>You suddenly feel big mean and green.</span>"
+		M.Weaken(1)
+		M.emote("collapse")
+
 
 /datum/dna/gene/basic/xray
 	name="X-Ray Vision"
@@ -193,3 +201,58 @@
 		block=TELEBLOCK
 	OnDrawUnderlays(var/mob/M,var/g,var/fat)
 		return "telekinesishead[fat]_s"
+
+
+/datum/dna/gene/basic/apex
+	name="Apex Predator"
+	activation_messages=list("You feel a enlightenment in your reflex's and senses.")
+	mutation=APEXPRED
+
+	New()
+		block=APEXPREDATOR
+
+	activate(var/mob/M)
+		..(M)
+		M.verbs += /mob/living/carbon/human/proc/leap
+		M.verbs += /mob/living/carbon/human/proc/regurgitate
+
+	deactivate(var/mob/M)
+		..(M)
+		M.verbs -= /mob/living/carbon/human/proc/leap
+		M.verbs -= /mob/living/carbon/human/proc/regurgitate
+		M << "<span class='warning'>You suddenly feel very weak.</span>"
+		M.Weaken(3)
+		M.emote("collapse")
+
+
+
+/datum/dna/gene/basic/hulkprecursor
+	name="PRECUR"
+	activation_messages=list("You feel humble")
+	mutation=PREHULK
+
+	New()
+		block=PREHULKBLOCK
+
+	can_activate(var/mob/M,var/flags)
+		// Can't be big and small.
+		if(mSmallsize in M.mutations)
+			return 0
+		return ..(M,flags)
+
+
+/datum/dna/gene/basic/hulkprecursor/OnMobLife(var/mob/living/carbon/human/M)
+	if(!istype(M)) 
+		return
+
+	if(HULK in M.mutations) 
+		return // We do not need to add hulk again.
+
+	if(M.health <= 65)
+		M.mutations.Add(HULK)
+		M.mutations.Remove(PREHULK)
+		M.update_mutations()        //update our mutation overlays
+		M.update_icon()
+		M << "<span class='warning'>You suddenly feel big mean and green.</span>"
+		M.Weaken(1)
+		M.emote("collapse")

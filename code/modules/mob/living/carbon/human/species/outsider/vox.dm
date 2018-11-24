@@ -82,9 +82,12 @@
 		H.internal = H.r_hand
 	H.internals.icon_state = "internal1"
 	H.gender = NEUTER
+	H.mutations.Add(APEXPRED)
 
 /datum/species/vox/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
+	H.mutations.Add(APEXPRED)
+	H.dna.SetSEState(APEXPREDATOR,1)
 	return ..()
 
 /datum/species/vox/get_station_variant()
@@ -122,6 +125,7 @@
 // No combat skills for you.
 /datum/species/vox/pariah/can_shred(var/mob/living/carbon/human/H, var/ignore_intent)
 	return 0
+
 
 // Pariahs are really gross.
 /datum/species/vox/pariah/handle_environment_special(var/mob/living/carbon/human/H)

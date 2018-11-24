@@ -113,6 +113,11 @@
 	name = "\improper Research - Miscellaneous Research"
 	icon_state = "toxmisc"
 
+/area/rnd/misc_geneticslab
+	name = "\improper Research - Genetics Research"
+	icon_state = "toxmisc"
+	flags = RAD_SHIELDED | SPAWN_ROOF
+
 /area/rnd/test_range
 	name = "\improper Research - Weapons Testing Range"
 	flags = FIRING_RANGE

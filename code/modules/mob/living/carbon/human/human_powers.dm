@@ -108,6 +108,14 @@
 
 	T.Weaken(3)
 
+
+	// Only Apex Predators may leap
+	if(APEXPRED in src.mutations)
+		src.verbs += /mob/living/carbon/human/proc/leap
+
+	if(!APEXPRED in src.mutations)
+		src.verbs -= /mob/living/carbon/human/proc/leap
+
 	// Pariahs are not good at leaping. This is snowflakey, pls fix.
 	if(species.name == "Vox Pariah")
 		src.Weaken(5)

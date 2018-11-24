@@ -29,6 +29,8 @@
 #define mFingerprints  108 // No fingerprints.
 #define mShock         109 // Insulated hands.
 #define mSmallsize     110 // Table climbing.
+#define APEXPRED    111 // Predator
+#define PREHULK    112 // Hulk Pre-Cursor
 
 // disabilities
 #define NEARSIGHTED 1
@@ -80,3 +82,5 @@ var/HALLUCINATIONBLOCK = 0
 var/NOPRINTSBLOCK      = 0
 var/SHOCKIMMUNITYBLOCK = 0
 var/SMALLSIZEBLOCK     = 0
+var/APEXPREDATOR     = 0
+var/PREHULKBLOCK    = 0
