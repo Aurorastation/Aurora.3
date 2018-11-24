@@ -6042,8 +6042,8 @@
 	name = "Riot Gear Storage";
 	req_access = list(3)
 	},
-/obj/item/weapon/shield/riot,
-/obj/item/weapon/shield/riot,
+/obj/item/clothing/shoes/leg_guard/riot,
+/obj/item/clothing/gloves/arm_guard/riot,
 /obj/item/clothing/suit/armor/riot,
 /obj/item/clothing/head/helmet/riot,
 /turf/simulated/floor/tiled/dark,
@@ -7116,8 +7116,8 @@
 	name = "Riot Gear Storage";
 	req_access = list(3)
 	},
-/obj/item/weapon/shield/riot,
-/obj/item/weapon/shield/riot,
+/obj/item/clothing/shoes/leg_guard/riot,
+/obj/item/clothing/gloves/arm_guard/riot,
 /obj/item/clothing/suit/armor/riot,
 /obj/item/clothing/head/helmet/riot,
 /obj/machinery/light/small/emergency{
@@ -13269,10 +13269,10 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/item/clothing/suit/armor/laserproof,
-/obj/item/clothing/suit/armor/laserproof,
-/obj/item/clothing/suit/armor/laserproof,
-/obj/item/clothing/suit/armor/laserproof,
+/obj/item/clothing/shoes/leg_guard/laserproof,
+/obj/item/clothing/shoes/leg_guard/laserproof,
+/obj/item/clothing/gloves/arm_guard/laserproof,
+/obj/item/clothing/gloves/arm_guard/laserproof,
 /obj/item/clothing/suit/armor/laserproof,
 /obj/item/clothing/suit/armor/laserproof,
 /obj/item/clothing/head/helmet/ablative,
@@ -14212,10 +14212,10 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/clothing/suit/armor/bulletproof,
-/obj/item/clothing/suit/armor/bulletproof,
-/obj/item/clothing/suit/armor/bulletproof,
-/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/shoes/leg_guard/bulletproof,
+/obj/item/clothing/shoes/leg_guard/bulletproof,
+/obj/item/clothing/gloves/arm_guard/bulletproof,
+/obj/item/clothing/gloves/arm_guard/bulletproof,
 /obj/item/clothing/suit/armor/bulletproof,
 /obj/item/clothing/suit/armor/bulletproof,
 /obj/item/clothing/head/helmet/ballistic,
@@ -20993,10 +20993,6 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 6
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aKk" = (
@@ -23088,16 +23084,24 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aNJ" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
 /obj/machinery/station_map{
 	dir = 1;
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
+"aNK" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "aNL" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/industrial/warning,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -23105,9 +23109,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
+"aNM" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "aNN" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
@@ -23161,10 +23172,6 @@
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
@@ -24257,10 +24264,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -28707,16 +28710,12 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aXo" = (
@@ -30731,8 +30730,6 @@
 	pixel_x = 0;
 	pixel_y = -27
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/vending/snack,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "baw" = (
@@ -30766,7 +30763,6 @@
 /area/engineering/foyer)
 "baz" = (
 /obj/machinery/vending/zora,
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "baA" = (
@@ -33773,8 +33769,6 @@
 	pixel_x = 1;
 	pixel_y = -1
 	},
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/gloves/yellow,
 /obj/item/device/t_scanner,
 /obj/item/clothing/glasses/meson,
@@ -51742,10 +51736,15 @@
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "bIs" = (
+/obj/structure/table/standard,
+/obj/random/loot,
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/hydroponics,
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
+"bIt" = (
+/obj/structure/table/standard,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "bIu" = (
@@ -65448,28 +65447,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
-"fuO" = (
-/obj/structure/largecrate/animal/cow,
-/turf/simulated/floor/plating,
-/area/maintenance/bar)
-"uSU" = (
-/obj/structure/table/rack,
-/obj/item/weapon/storage/toolbox/mechanical{
-	desc = "A blue toolbox containing mechanic-related tools."
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
-"wEH" = (
-/obj/structure/table/rack,
-/obj/random/loot,
-/turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
-"xbz" = (
-/obj/structure/closet,
-/obj/item/weapon/pickaxe,
-/obj/random/loot,
-/turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
 
 (1,1,1) = {"
 aaa
@@ -98521,9 +98498,9 @@ bFC
 bGA
 bBP
 bIr
-bIr
+bIt
 bKd
-fuO
+bKX
 bGC
 bMp
 bMU
@@ -99034,7 +99011,7 @@ bBP
 bFE
 bBP
 bBP
-bMp
+bIr
 bGC
 bGC
 bGC
@@ -99291,7 +99268,7 @@ bEK
 bFF
 bGC
 bEK
-bIr
+bIt
 bJl
 bKe
 bGC
@@ -103879,7 +103856,7 @@ awK
 aIH
 awK
 aLP
-awK
+aNK
 aPw
 aRc
 aSH
@@ -104393,7 +104370,7 @@ awK
 aIH
 awK
 aLT
-awK
+aNM
 aPy
 aRe
 aRb
@@ -104650,7 +104627,7 @@ cit
 avd
 aKg
 aLT
-awK
+aNM
 aPz
 aRf
 aSJ
@@ -112888,7 +112865,7 @@ bal
 bal
 bal
 aTf
-uSU
+aSL
 bih
 bkB
 blY
@@ -113145,7 +113122,7 @@ bal
 bal
 bal
 aTf
-wEH
+aSL
 bih
 bam
 aab
@@ -113402,7 +113379,7 @@ bal
 bal
 bal
 aTf
-xbz
+aSL
 bih
 bam
 aab
