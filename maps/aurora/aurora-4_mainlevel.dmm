@@ -20993,6 +20993,10 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aKk" = (
@@ -23084,24 +23088,16 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aNJ" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 10
-	},
 /obj/machinery/station_map{
 	dir = 1;
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
-"aNK" = (
-/obj/effect/floor_decal/industrial/warning/corner,
-/turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
 "aNL" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/industrial/warning,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -23109,16 +23105,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
-"aNM" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
 "aNN" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
@@ -23172,6 +23161,10 @@
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
@@ -24264,6 +24257,10 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -32947,13 +32944,14 @@
 	pixel_x = 2;
 	pixel_y = -2
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/storage/tech)
 "bev" = (
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Secure Technical Storage"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/storage/tech)
 "bew" = (
 /obj/structure/sign/securearea{
@@ -33719,10 +33717,11 @@
 	dir = 8
 	},
 /obj/structure/closet/crate/software_backup,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/storage/tech)
 "bfL" = (
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/storage/tech)
 "bfM" = (
 /obj/machinery/door/airlock/highsecurity{
@@ -33730,7 +33729,7 @@
 	req_access = list(19,23)
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/storage/tech)
 "bfN" = (
 /obj/structure/table/rack{
@@ -33770,6 +33769,8 @@
 	pixel_y = -1
 	},
 /obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialt,
 /obj/item/device/t_scanner,
 /obj/item/clothing/glasses/meson,
 /obj/item/device/multitool,
@@ -34556,7 +34557,8 @@
 	pixel_x = 1;
 	pixel_y = -1
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/storage/tech)
 "bhh" = (
 /obj/structure/sign/securearea,
@@ -51736,15 +51738,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "bIs" = (
-/obj/structure/table/standard,
-/obj/random/loot,
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/bar)
-"bIt" = (
-/obj/structure/table/standard,
+/obj/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "bIu" = (
@@ -65447,6 +65444,28 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
+"lfX" = (
+/obj/structure/table/rack,
+/obj/random/loot,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"pMl" = (
+/obj/structure/closet,
+/obj/item/weapon/pickaxe{
+	pixel_x = 5
+	},
+/obj/random/loot,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"sVq" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/toolbox/mechanical,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"xeB" = (
+/obj/structure/largecrate/animal/cow,
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
 
 (1,1,1) = {"
 aaa
@@ -98498,9 +98517,9 @@ bFC
 bGA
 bBP
 bIr
-bIt
+bIr
 bKd
-bKX
+xeB
 bGC
 bMp
 bMU
@@ -99011,7 +99030,7 @@ bBP
 bFE
 bBP
 bBP
-bIr
+bMp
 bGC
 bGC
 bGC
@@ -99268,7 +99287,7 @@ bEK
 bFF
 bGC
 bEK
-bIt
+bIr
 bJl
 bKe
 bGC
@@ -103856,7 +103875,7 @@ awK
 aIH
 awK
 aLP
-aNK
+awK
 aPw
 aRc
 aSH
@@ -104370,7 +104389,7 @@ awK
 aIH
 awK
 aLT
-aNM
+awK
 aPy
 aRe
 aRb
@@ -104627,7 +104646,7 @@ cit
 avd
 aKg
 aLT
-aNM
+awK
 aPz
 aRf
 aSJ
@@ -112865,7 +112884,7 @@ bal
 bal
 bal
 aTf
-aSL
+sVq
 bih
 bkB
 blY
@@ -113122,7 +113141,7 @@ bal
 bal
 bal
 aTf
-aSL
+lfX
 bih
 bam
 aab
@@ -113379,7 +113398,7 @@ bal
 bal
 bal
 aTf
-aSL
+pMl
 bih
 bam
 aab
