@@ -1693,7 +1693,7 @@ mob/living/silicon/ai/can_centcom_reply()
 	. += target.extra_admin_link(source)
 
 /proc/spawn_humanoid_species_admin(var/mob/user, var/mob/M, var/delmob)
-	var/input = input(user, "Select a crew member:") as null|anything in all_species
+	var/input = input(user, "Select a species:") as null|anything in all_species
 	if(!input)
 		return
 	M.change_mob_type( /mob/living/carbon/human , null, null, delmob, input)
