@@ -4,6 +4,7 @@
 	throw_range = 1
 	gender = PLURAL
 	icon = 'icons/obj/items.dmi'
+	var/icon_base = "beartrap"
 	icon_state = "beartrap0"
 	desc = "A mechanically activated leg trap. Low-tech, but reliable. Looks like it could really hurt if you set it off."
 	throwforce = 0
@@ -124,21 +125,17 @@
 
 
 /obj/item/weapon/trap/update_icon()
-	..()
+	icon_state = "[icon_base][deployed]"
 
-	if(!deployed)
-		icon_state = "beartrap0"
-	else
-		icon_state = "beartrap1"
-
-/obj/item/weapon/trap/small
+/obj/item/weapon/trap/animal
 	name = "small trap"
 	throw_speed = 2
 	throw_range = 1
 	gender = PLURAL
 	icon = 'icons/obj/items.dmi'
-	icon_state = "beartrap0"
-	desc = "A mechanically activated leg trap. Low-tech, but reliable. Looks like it could really hurt if you set it off."
+	icon_base = "small"
+	icon_state = "small0"
+	desc = "A small mechanical trap thas is used to catch small animals like mice and spiderlings."
 	throwforce = 2
 	force = 1
 	w_class = 2
@@ -146,10 +143,29 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1750)
 	deployed = 0
 	time_to_escape = 60
-	var/allowed_mobs = list(/mob/living/simple_animal/mouse)
+	var/list/allowed_mobs = list(/mob/living/simple_animal/mouse)
 
-/obj/item/weapon/trap/small/Crossed(AM as mob|obj)
-	if(contents.len >= 1) // It is full
+/obj/item/weapon/trap/animal/examine(mob/user)
+	..()
+	if(contents.len && isliving(contents[1]))
+		var/message = "<span class='notice'>\The [src] has [contents[1].name] and it is "
+		if(contents[1].stat == DEAD)
+			message += "<span class='danger'>dead</span>"
+		else if(contents[1].stat == UNCONSCIOUS)
+			message += "<span class='warning'>unconscious</span>"
+		else if((contents[1].maxHealth / contents[1].health) == 1)
+			message += "<span class='good'>healthy</span>"
+		else
+			message += "<span class='warning'>wounded</span>"
+		message += ".</span>"
+		to_chat(user, message)
+	else if(contents.len) // spiderling
+		to_chat(user, "<span class='notice'>\The [src] has [contents[1].name] and it is alive.</span>")
+	else
+		to_chat(user, "<span class='notice'>\The [src] is empty.</span>")
+
+/obj/item/weapon/trap/animal/Crossed(AM as mob|obj)
+	if(contents.len) // It is full
 		return
 
 	if(isliving(AM))
@@ -157,28 +173,80 @@
 		for(var/f in allowed_mobs)
 			if(istype(AM, f))
 				L.visible_message(
-					"<span class='danger'>[L] steps inside of \the [src], as the trap closes after!</span>",
-					"<span class='danger'>You inside of \the [src], as the trap closes after.!</span>",
+					"<span class='danger'>[L] enters \the [src], and it snaps shut with a clatter!</span>",
+					"<span class='danger'>You enters \the [src], and it snaps shut with a clatter!</span>",
 					"<b>You hear a loud metallic snap!</b>"
 					)
 				L.forceMove(src)
 				playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
+				animate_shake()
+				deployed = 1
 				update_icon()
+	else if(istype(AM, /obj/effect/spider/spiderling)) // for spiderlings
+		var/obj/effect/spider/spiderling/S = AM
+		S.forceMove(src)
+		STOP_PROCESSING(SSprocessing, S)
+		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
+		animate_shake()
+		deployed = 1
+		update_icon()
 
-/obj/item/weapon/trap/small/attack_self(mob/user as mob)
-	if(!can_use(user))
-		to_chat(user, "<span class='warning'>You cannot user [src].</span>")
+
+/obj/item/weapon/trap/animal/attack_hand(mob/user as mob)
+	if (!user) return
+	if (hasorgans(user))
+		var/mob/living/carbon/human/H = user
+		var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]
+		if (user.hand)
+			temp = H.organs_by_name["l_hand"]
+		if(temp && !temp.is_usable())
+			user << "<span class='notice'>You try to move your [temp.name], but cannot!</span>"
+			return
+		if(!temp)
+			user << "<span class='notice'>You try to use your hand, but realize it is no longer attached!</span>"
+			return
+	src.pickup(user)
+	if (istype(src.loc, /obj/item/weapon/storage))
+		var/obj/item/weapon/storage/S = src.loc
+		S.remove_from_storage(src)
+
+	src.throwing = 0
+	if (src.loc == user)
+		if(!user.prepare_for_slotmove(src))
+			return
+	else if(isliving(src.loc))
 		return
-	if(contents.len < 1) // It is full
+
+	// If equipping onto active hand fails, drop it on the floor.
+	if (!user.put_in_active_hand(src))
+		forceMove(user.loc)
+	return
+
+/obj/item/weapon/trap/animal/attack_self(mob/user as mob)
+	if(!can_use(user))
+		to_chat(user, "<span class='warning'>You cannot use \the [src].</span>")
+		return
+	if(!contents.len)
 		return
 
 	visible_message("<span class='notice'>[user] opens \the [src].</span>")
 	for(var/mob/living/L in contents)
 		L.forceMove(user.loc)
 		visible_message("<span class='warning'>[L] runs out of \the [src].</span>")
+		animate_shake()
+		deployed = 0
+		update_icon()
 
-/obj/item/weapon/trap/small/attack(mob/living/M, mob/living/user)
-	if(contents.len >= 1) // It is full
+	for(var/obj/effect/spider/spiderling/S in contents) // for spiderlings
+		S.forceMove(user.loc)
+		START_PROCESSING(SSprocessing, S)
+		visible_message("<span class='warning'>[S] jumps out of \the [src].</span>")
+		animate_shake()
+		deployed = 0
+		update_icon()
+
+/obj/item/weapon/trap/animal/attack(mob/living/M, mob/living/user)
+	if(contents.len) // It is full
 		return
 	user.visible_message(
 					"<span class='warning'>[user] traps [M] inside of \the [src].</span>",
@@ -186,3 +254,34 @@
 					"<b>You hear a loud metallic snap!</b>"
 					)
 	M.forceMove(src)
+	playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
+	animate_shake()
+	deployed = 1
+	update_icon()
+
+/obj/item/weapon/trap/animal/medium
+	name = "medium trap"
+	icon_base = "small"
+	desc = "A medium mechanical trap thas is used to catch small animals like "
+	icon_base = "beartrap"
+	icon_state = "beartrap0"
+	throwforce = 3
+	force = 2
+	w_class = 4
+	origin_tech = list(TECH_MATERIAL = 2)
+	matter = list(DEFAULT_WALL_MATERIAL = 5750)
+	deployed = 0
+	time_to_escape = 60
+
+/obj/item/weapon/trap/animal/medium/Initialize()
+	allowed_mobs = list(
+						/mob/living/simple_animal/cat, /mob/living/simple_animal/hostile/diyaab, /mob/living/carbon/human/monkey, /mob/living/simple_animal/yithian,
+						/mob/living/carbon/alien/diona, /mob/living/silicon/robot/drone, /mob/living/silicon/pai)
+	var/i = 1
+	var/mob/living/L
+	while(i != allowed_mobs.len)
+		L = new (allowed_mobs[i])
+		desc += "[L.name] "
+		i++
+	L = allowed_mobs[i + 1]
+	desc += "[L.name]."
