@@ -27741,7 +27741,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_xenobiology)
 "bgc" = (
-/obj/item/weapon/beartrap,
+/obj/item/weapon/trap,
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "bgd" = (
