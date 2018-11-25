@@ -9,7 +9,6 @@
 	var/material/material
 	var/state = 0 //closed, 1 == open
 	var/isSwitchingStates = 0
-	var/hardness = 1
 	var/oreAmount = 7
 	var/datum/lock/lock
 	var/initial_lock_value //for mapping purposes. Basically if this value is set, it sets the lock to this value.
@@ -31,12 +30,11 @@
 	if(!material)
 		qdel(src)
 		return
-	hardness = max(1,round(material.integrity/10))
 	icon_state = material.door_icon_base
 	name = "[material.display_name] door"
 	color = material.icon_colour
 
-	maxhealth = material.integrity
+	maxhealth = max(1,round(material.integrity/10))
 	health = maxhealth
 
 	if(initial_lock_value)
@@ -169,12 +167,18 @@
 		return
 
 	else if(istype(W,/obj/item/weapon))
+		var/obj/item/weapon/I = W
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		user.do_attack_animation(src)
-		animate_shake()
-		user.visible_message("<span class='danger'>\The [user] forcefully strikes \the [src] with \the [W]!</span>")
-		src.health -= W.force * 1
-		CheckHealth()
+		if(I.damtype == BRUTE || I.damtype == BURN)
+			if(I.force < 10)
+				user.visible_message("<span class='danger'>\The [user] hits \the [src] with \the [I] with no visible effect.</span>")
+			else
+				user.do_attack_animation(src)
+				animate_shake()
+				user.visible_message("<span class='danger'>\The [user] forcefully strikes \the [src] with \the [I]!</span>")
+				playsound(src.loc, material.hitsound, 100, 1)
+				src.health -= W.force * 1
+				CheckHealth()
 
 	else
 		attack_hand(user)

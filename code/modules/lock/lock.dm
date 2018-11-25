@@ -24,6 +24,7 @@
 		return 2
 	key = get_key_data(key, user)
 	if(cmptext(lock_data,key) && (status ^ LOCK_BROKEN))
+		to_chat(user, "<span class='warning'>You unlock the lock.</span>")
 		status &= ~LOCK_LOCKED
 		return 1
 	return 0
@@ -34,6 +35,7 @@
 		return 2
 	key = get_key_data(key, user)
 	if(cmptext(lock_data,key) && (status ^ LOCK_BROKEN))
+		to_chat(user, "<span class='warning'>You close the lock.</span>")
 		status |= LOCK_LOCKED
 		return 1
 	return 0
@@ -72,7 +74,7 @@
 		unlock(lock_data)
 		return 1
 	else if(prob(5 * unlock_power))
-		to_chat(user, "<span class='warning'>You accidently break \the [holder]'s lock with your [I]!</span>")
+		to_chat(user, "<span class='warning'>You accidently break \the [holder]'s lock with \the [I]!</span>")
 		status |= LOCK_BROKEN
 	else
 		to_chat(user, "<span class='warning'>You fail to pick open \the [holder].</span>")
