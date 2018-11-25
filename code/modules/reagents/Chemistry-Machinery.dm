@@ -592,9 +592,9 @@
 	if(!istype(O))
 		return
 
-	if(istype(O,/obj/item/weapon/storage/bag/plants))
+	if(istype(O,/obj/item/weapon/storage/bag/plants) || istype(O,/obj/item/weapon/storage/pill_bottle))
 		var/failed = 1
-		var/obj/item/weapon/storage/bag/P = O
+		var/obj/item/weapon/storage/P = O
 		for(var/obj/item/G in P.contents)
 			if(!G.reagents || !G.reagents.total_volume)
 				continue

@@ -110,7 +110,7 @@
 				return
 
 			var/feedback_message
-			
+
 			if(is_full)
 				feedback_message = "You cannot force any more of \the [src] to go down your throat!"
 			else if(expected_fullness <= CREW_NUTRITION_VERYHUNGRY)
@@ -123,7 +123,7 @@
 				feedback_message = "You take a bite of \the [src]."
 			else if(expected_fullness <= CREW_NUTRITION_OVEREATEN)
 				feedback_message = "You unwillingly chew a bit of \the [src]."
-				
+
 
 			if(is_full)
 				to_chat(user,span("danger",feedback_message))
@@ -602,7 +602,7 @@
 	nutriment_amt = 3
 	bitesize = 3
 
-/obj/item/weapon/reagent_containers/food/snacks/donut/psdonut
+/obj/item/weapon/reagent_containers/food/snacks/donut/normal/psdonut
 	name = "pumpkin spice donut"
 	desc = "A limited edition seasonal pastry."
 	icon_state = "donut_ps"
@@ -1826,7 +1826,7 @@
 	reagents.add_reagent("banana", 5)
 	reagents.add_reagent("water", 10)
 
-/obj/item/weapon/reagent_containers/food/snacks/soup/vegetables
+/obj/item/weapon/reagent_containers/food/snacks/soup/vegetable
 	name = "vegetable soup"
 	desc = "A true vegan meal" //TODO
 	icon_state = "vegetablesoup"
@@ -3081,7 +3081,7 @@
 	nutriment_amt = 6
 	bitesize = 2
 
-/obj/item/weapon/reagent_containers/food/snacks/sliceable/cakecarrot
+/obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/carrot
 	name = "carrot cake"
 	desc = "A favorite desert of a certain wascally wabbit. Not a lie."
 	icon_state = "carrotcake"
