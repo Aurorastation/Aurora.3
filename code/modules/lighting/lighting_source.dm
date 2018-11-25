@@ -371,7 +371,7 @@
 			if (!T.lighting_corners_initialised)
 				T.lighting_corners_initialised = TRUE
 
-				if (!Tcorners)
+				if (!Tcorners || !Tcorners.len)
 					T.corners = list(null, null, null, null)
 					Tcorners = T.corners
 
