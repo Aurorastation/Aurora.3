@@ -179,6 +179,9 @@ var/list/name_to_material
 		if ("biomass")
 			wall_icon = 'icons/turf/smooth/diona_wall.dmi'
 			skip_blend = TRUE
+		if ("vaurca")
+			wall_icon = 'icons/turf/smooth/vaurca_wall.dmi'
+			skip_blend = TRUE
 		else
 			world.log << "materials: [src] has unknown icon_base [icon_base]."
 
@@ -937,3 +940,17 @@ var/list/name_to_material
 	integrity = 150
 	hardness = 60
 	protectiveness = 20 // 50%
+
+/material/vaurca
+	name = "alien biomass"
+	display_name = "alien biomass"
+	stack_type = null
+	icon_colour = "#1C7400"
+	icon_base = "vaurca"
+	integrity = 400
+	melting_point = 6000
+	explosion_resistance = 25
+	hardness = 80
+	weight = 23
+	protectiveness = 20 // 50%
+	conductivity = 10

@@ -31,6 +31,8 @@ addons:
       - libssl-dev:i386
       - pkg-config:i386
       - gcc-multilib
+      - "python3"
+      - "python3-pip"
 
 node_js:
   - "10"
@@ -67,6 +69,7 @@ jobs:
       install:
         - pip install --user PyYaml -q
         - pip install --user beautifulsoup4 -q
+        - pip3 install --user bidict -q
         - chmod +x ./vueui/install
         - ./vueui/install
         - chmod +x ./scripts/rust_g.sh
@@ -84,3 +87,4 @@ jobs:
         - md5sum -c - <<< "51704c822012212faa577079db2e11fd *vueui/template.html"
         - python tools/TagMatcher/tag-matcher.py ../..
         - python tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
+        - python3 tools/mapmerge2/travis_mapcheck.py
