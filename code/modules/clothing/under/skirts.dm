@@ -72,3 +72,9 @@
 	icon_state = "loincloth"
 	item_state = "loincloth"
 	worn_state = "loincloth"
+
+/obj/item/clothing/under/skirt/pencil
+	name = "pencil skirt"
+	desc = "A pencil skirt. Very professional."
+	icon_state = "skirt_pencil"
+	worn_state = "skirt_pencil"
