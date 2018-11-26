@@ -1073,14 +1073,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "make_beret"
 	contained_sprite = TRUE
 
-/obj/item/device/radio/headset/fluff/make_antenna //Antenna - M.A.K.E - toasterstrudes
-	name = "antenna"
-	desc = "An antenna attachment that can be screwed into the side of an IPC's head. It looks to have radio functions."
-	icon = 'icons/obj/custom_items/make_items.dmi'
-	icon_state = "make_antenna"
-	item_state = "make_antenna"
-	contained_sprite = TRUE
-
 
 /obj/item/clothing/mask/fluff/corvo_cigarette //Vaporizer Pen - Nathan Corvo - jkjudgex
 	name = "vaporizer pen"
@@ -1852,18 +1844,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 	light_color = LIGHT_COLOR_BLUE
 
 
-obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.K.E - toasterstrudes
+/obj/item/clothing/accessory/poncho/fluff/make_poncho //Raincoat Poncho - M.A.K.E - toasterstrudes
 	name = "raincoat poncho"
 	desc = "A tough brown hooded poncho that looks to be good at protecting someone from the rain."
 	icon = 'icons/obj/custom_items/make_items.dmi'
 	icon_state = "make_poncho"
 	item_state = "make_poncho"
 	contained_sprite = TRUE
-	hoodtype = /obj/item/clothing/head/winterhood/fluff/make_hood
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-
-/obj/item/clothing/head/winterhood/fluff/make_hood
-	flags_inv = HIDEEARS
 
 
 /obj/item/clothing/under/fluff/aegis_uniform //Hephaestus Experimental Projector - Sovereign Aegis - itanimulli
@@ -2400,3 +2387,30 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 	icon_state = "ryn_hood"
 	item_state = "ryn_hood"
 	contained_sprite = TRUE
+
+
+/obj/item/weapon/material/kitchen/utensil/fork/fluff/vedai_fork //Stainless Steel Fork - Vedai’Kwia Xizal - conspiir
+	name = "stainless steel fork"
+	desc = "A stainless steel fork. The word \"Kwia\" is engraved on the back of the handle."
+	icon = 'icons/obj/custom_items/vedai_fork.dmi'
+	icon_state = "vedai_fork"
+	applies_material_colour = FALSE
+
+/obj/item/weapon/material/kitchen/utensil/fork/fluff/vedai_fork/Initialize()
+	. = ..()
+	name = "stainless [material.display_name] [initial(name)]"
+
+
+/obj/item/sign/fluff/tokash_sign //Tokash Ancestral Spear - Suvek Tokash - evandorf
+	name = "ancestral spear"
+	desc = "This spear is clearly very old but well cared for."
+	icon_state = "tokash_sign"
+	sign_state = "tokash_sign"
+	w_class = 2
+
+
+/obj/item/weapon/spirit_board/fluff/klavdiya_board	//Ghostly Board - Klavdiya Tikhomirov - alberyk
+	name = "ghostly board"
+	desc = "An adhomian ghostly board, used in divination rituals. This one is blue and has the symbol of a moon on it."
+	icon = 'icons/obj/custom_items/klavdiya_amulet.dmi'
+	icon_state = "klavdiya_board"
