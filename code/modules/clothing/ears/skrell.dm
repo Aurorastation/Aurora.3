@@ -7,61 +7,61 @@
 	species_restricted = list("Skrell")
 
 /obj/item/clothing/ears/skrell/chain
-	name = "Gold headtail chains"
+	name = "gold headtail chains"
 	desc = "A delicate golden chain worn by skrell to decorate their head tails."
 	icon_state = "skrell_chain"
 	item_state = "skrell_chain"
 
 /obj/item/clothing/ears/skrell/chain/silver
-	name = "Silver headtail chains"
+	name = "silver headtail chains"
 	desc = "A delicate silver chain worn by skrell to decorate their head tails."
 	icon_state = "skrell_chain_sil"
 	item_state = "skrell_chain_sil"
 
 /obj/item/clothing/ears/skrell/chain/bluejewels
-	name = "Blue jeweled golden headtail chains"
+	name = "blue jeweled golden headtail chains"
 	desc = "A delicate golden chain adorned with blue jewels worn by skrell to decorate their head tails."
 	icon_state = "skrell_chain_bjewel"
 	item_state = "skrell_chain_bjewel"
 
 /obj/item/clothing/ears/skrell/chain/redjewels
-	name = "Red jeweled golden headtail chains"
+	name = "red jeweled golden headtail chains"
 	desc = "A delicate golden chain adorned with red jewels worn by skrell to decorate their head tails."
 	icon_state = "skrell_chain_rjewel"
 	item_state = "skrell_chain_rjewel"
 
 /obj/item/clothing/ears/skrell/chain/ebony
-	name = "Ebony headtail chains"
+	name = "ebony headtail chains"
 	desc = "A delicate ebony chain worn by skrell to decorate their head tails."
 	icon_state = "skrell_chain_ebony"
 	item_state = "skrell_chain_ebony"
 
 /obj/item/clothing/ears/skrell/band
-	name = "Gold headtail bands"
+	name = "gold headtail bands"
 	desc = "Golden metallic bands worn by skrell to adorn their head tails."
 	icon_state = "skrell_band"
 	item_state = "skrell_band"
 
 /obj/item/clothing/ears/skrell/band/silver
-	name = "Silver headtail bands"
+	name = "silver headtail bands"
 	desc = "Silver metallic bands worn by skrell to adorn their head tails."
 	icon_state = "skrell_band_sil"
 	item_state = "skrell_band_sil"
 
 /obj/item/clothing/ears/skrell/band/bluejewels
-	name = "Blue jeweled golden headtail bands"
+	name = "blue jeweled golden headtail bands"
 	desc = "Golden metallic bands adorned with blue jewels worn by skrell to adorn their head tails."
 	icon_state = "skrell_band_bjewel"
 	item_state = "skrell_band_bjewel"
 
 /obj/item/clothing/ears/skrell/band/redjewels
-	name = "Red jeweled golden headtail bands"
+	name = "red jeweled golden headtail bands"
 	desc = "Golden metallic bands adorned with red jewels worn by skrell to adorn their head tails."
 	icon_state = "skrell_band_rjewel"
 	item_state = "skrell_band_rjewel"
 
 /obj/item/clothing/ears/skrell/band/ebony
-	name = "Ebony headtail bands"
+	name = "ebony headtail bands"
 	desc = "Ebony bands worn by skrell to adorn their head tails."
 	icon_state = "skrell_band_ebony"
 	item_state = "skrell_band_ebony"
