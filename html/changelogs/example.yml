@@ -23,7 +23,7 @@
 #################################
 
 # Your name.  
-author: N3X15
+author: ParadoxSpace
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -34,5 +34,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Added a changelog editing system that should cause fewer conflicts and more accurate timestamps."
-  - rscdel: "Killed innocent kittens."
+  - rscadd: "Adds two more headtail variants for Skrell, three chains, and a bunch of cloths/bands."
+  - bugfix: "Darkens the Skrell sprite to match every other species. Colors will be more accurate."
