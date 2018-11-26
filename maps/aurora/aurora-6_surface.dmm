@@ -16895,7 +16895,8 @@
 "Fx" = (
 /obj/machinery/door/airlock/glass_mining{
 	name = "Cargo Bay";
-	req_access = list(31)
+	req_access = null;
+	req_one_access = list(31,48)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -19444,53 +19445,24 @@
 	},
 /turf/unsimulated/chasm_mask,
 /area/solar/starboard)
-"Lr" = (
+"Ll" = (
 /obj/machinery/atmospherics/pipe/manifold/visible,
 /turf/simulated/floor/plating,
 /area/bridge/levela)
-"Mr" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 5
-	},
-/obj/machinery/atmospherics/binary/pump/on{
-	dir = 1;
-	name = "Distro to Canisters";
-	target_pressure = 150
-	},
-/turf/simulated/floor/plating,
-/area/hallway/secondary/entry/fore)
-"Ms" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
-	dir = 9
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
-"MH" = (
+"LO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
-"MU" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 10;
-	icon_state = "intact"
-	},
+"Mn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating,
 /area/bridge/levela)
-"Nd" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1380;
-	id_tag = "command_surface_airlock";
-	pixel_x = 0;
-	pixel_y = 30;
-	req_one_access = list(13);
-	tag_airpump = "command_surface_pump";
-	tag_chamber_sensor = "command_surface_sensor";
-	tag_exterior_door = "command_surface_outer";
-	tag_interior_door = "command_surface_inner"
+"Mx" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	icon_state = "intact";
+	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
@@ -19607,23 +19579,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
-"Oq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
-"Pq" = (
-/obj/machinery/access_button{
-	command = "cycle_exterior";
+"PB" = (
+/obj/machinery/door/airlock/external{
 	frequency = 1380;
-	master_tag = "command_surface_airlock";
-	name = "exterior access button";
-	pixel_x = 23;
-	pixel_y = 25;
+	icon_state = "door_locked";
+	id_tag = "command_surface_inner";
+	locked = 1;
+	name = "Command Docking Exterior Access";
 	req_access = list(13)
 	},
-/turf/unsimulated/chasm_mask,
-/area/mine/explored)
-"Pt" = (
+/obj/machinery/atmospherics/pipe/manifold/visible,
+/turf/simulated/floor/plating,
+/area/bridge/levela)
+"SR" = (
 /obj/structure/closet/crate/hydroponics,
 /obj/item/weapon/material/minihoe,
 /obj/item/weapon/material/minihoe,
@@ -19636,28 +19604,51 @@
 /obj/item/weapon/reagent_containers/glass/bucket,
 /turf/simulated/floor/grass,
 /area/hydroponics/garden)
-"Rg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
+"ST" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 10;
+	icon_state = "intact"
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
-"SJ" = (
-/obj/machinery/door/airlock/external{
+"Up" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 5
+	},
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 1;
+	name = "Distro to Canisters";
+	target_pressure = 150
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/fore)
+"UQ" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "command_surface_inner";
-	locked = 1;
-	name = "Command Docking Exterior Access";
+	id_tag = "command_surface_airlock";
+	pixel_x = 0;
+	pixel_y = 30;
+	req_one_access = list(13);
+	tag_airpump = "command_surface_pump";
+	tag_chamber_sensor = "command_surface_sensor";
+	tag_exterior_door = "command_surface_outer";
+	tag_interior_door = "command_surface_inner"
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
+"Vg" = (
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1380;
+	master_tag = "command_surface_airlock";
+	name = "exterior access button";
+	pixel_x = 23;
+	pixel_y = 25;
 	req_access = list(13)
 	},
-/obj/machinery/atmospherics/pipe/manifold/visible,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
-"Tu" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
+/turf/unsimulated/chasm_mask,
+/area/mine/explored)
 "Vk" = (
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
@@ -20493,6 +20484,12 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
+"Xk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "Xm" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -20589,7 +20586,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
-"Zg" = (
+"YZ" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 1;
@@ -20606,6 +20603,10 @@
 	name = "Command Docking Exterior Access";
 	req_access = list(13)
 	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
+"ZC" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/plating,
 /area/bridge/levela)
 
@@ -49273,7 +49274,7 @@ rv
 rv
 rv
 te
-Pt
+SR
 up
 up
 uT
@@ -50042,9 +50043,9 @@ rw
 rI
 rR
 sf
-Mr
+Up
 tf
-MH
+LO
 mT
 jv
 jv
@@ -62902,7 +62903,7 @@ aa
 aa
 aa
 aa
-Pq
+Vg
 aa
 aa
 aa
@@ -63159,8 +63160,8 @@ aa
 aa
 aa
 rV
-Zg
-Zg
+YZ
+YZ
 rV
 aa
 aa
@@ -63416,7 +63417,7 @@ aa
 aa
 aa
 rV
-Nd
+UQ
 VW
 rV
 aa
@@ -63931,7 +63932,7 @@ rV
 VT
 rV
 VX
-SJ
+PB
 rV
 aa
 aa
@@ -64185,10 +64186,10 @@ VD
 VJ
 VQ
 rV
-MU
-Tu
+ST
+ZC
 wN
-Lr
+Ll
 rV
 aa
 aa
@@ -64442,10 +64443,10 @@ VE
 VQ
 wL
 rV
-Rg
-Oq
+Xk
+Mn
 VY
-Ms
+Mx
 rV
 ag
 ag
