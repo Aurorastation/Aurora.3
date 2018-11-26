@@ -50,44 +50,63 @@
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
-//skrell items
+//skrell
 
-/datum/gear/ears/f_skrell
-	display_name = "headtail-wear, female (Skrell)"
+/datum/gear/ears/skrell/chains	//Chains
+	display_name = "headtail chain selection (Skrell)"
 	path = /obj/item/clothing/ears/skrell/chain
 	sort_category = "Xenowear"
 	whitelisted = list("Skrell")
 
-/datum/gear/ears/f_skrell/New()
+/datum/gear/ears/skrell/chains/New()
 	..()
-	var/f_chains = list()
-	f_chains["headtail chains"] = /obj/item/clothing/ears/skrell/chain
-	f_chains["headtail cloth"] = /obj/item/clothing/ears/skrell/cloth_female
-	f_chains["red-jeweled chain"] = /obj/item/clothing/ears/skrell/redjewel_chain
-	f_chains["ebony chain"] = /obj/item/clothing/ears/skrell/ebony_chain
-	f_chains["blue-jeweled chain"] = /obj/item/clothing/ears/skrell/bluejeweled_chain
-	f_chains["silver chain"] = /obj/item/clothing/ears/skrell/silver_chain
-	f_chains["blue cloth"] = /obj/item/clothing/ears/skrell/blue_skrell_cloth_band_female
-	gear_tweaks += new/datum/gear_tweak/path(f_chains)
+	var/list/chaintypes = list()
+	for(var/chain_style in typesof(/obj/item/clothing/ears/skrell/chain))
+		var/obj/item/clothing/ears/skrell/chain/chain = chain_style
+		chaintypes[initial(chain.name)] = chain
+	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(chaintypes))
 
-/datum/gear/ears/m_skrell
-	display_name = "headtail-wear, male (Skrell)"
+/datum/gear/ears/skrell/bands
+	display_name = "headtail band selection (Skrell)"
 	path = /obj/item/clothing/ears/skrell/band
 	sort_category = "Xenowear"
 	whitelisted = list("Skrell")
 
-/datum/gear/ears/m_skrell/New()
+/datum/gear/ears/skrell/bands/New()
 	..()
-	var/m_chains = list()
-	m_chains["headtail bands"] = /obj/item/clothing/ears/skrell/band
-	m_chains["headtail cloth"] = /obj/item/clothing/ears/skrell/cloth_male
-	m_chains["red-jeweled bands"] = /obj/item/clothing/ears/skrell/redjeweled_band
-	m_chains["ebony bands"] = /obj/item/clothing/ears/skrell/ebony_band
-	m_chains["blue-jeweled bands"] = /obj/item/clothing/ears/skrell/bluejeweled_band
-	m_chains["silver bands"] = /obj/item/clothing/ears/skrell/silver_band
-	m_chains["blue cloth"] = /obj/item/clothing/ears/skrell/blue_skrell_cloth_band_male
-	m_chains["purple cloth"] = /obj/item/clothing/ears/skrell/purple_skrell_cloth_male
-	gear_tweaks += new/datum/gear_tweak/path(m_chains)
+	var/list/bandtypes = list()
+	for(var/band_style in typesof(/obj/item/clothing/ears/skrell/band))
+		var/obj/item/clothing/ears/skrell/band/band = band_style
+		bandtypes[initial(band.name)] = band
+	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(bandtypes))
+
+/datum/gear/ears/skrell/cloth/short
+	display_name = "short headtail cloth (Skrell)"
+	path = /obj/item/clothing/ears/skrell/cloth_male/black
+	sort_category = "Xenowear"
+	whitelisted = list("Skrell")
+
+/datum/gear/ears/skrell/cloth/short/New()
+	..()
+	var/list/shorttypes = list()
+	for(var/short_style in typesof(/obj/item/clothing/ears/skrell/cloth_male))
+		var/obj/item/clothing/ears/skrell/cloth_male/short = short_style
+		shorttypes[initial(short.name)] = short
+	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(shorttypes))
+
+/datum/gear/ears/skrell/cloth/long
+	display_name = "average headtail cloth (Skrell)"
+	path = /obj/item/clothing/ears/skrell/cloth_female/black
+	sort_category = "Xenowear"
+	whitelisted = list("Skrell")
+
+/datum/gear/ears/skrell/cloth/long/New()
+	..()
+	var/list/longtypes = list()
+	for(var/long_style in typesof(/obj/item/clothing/ears/skrell/cloth_female))
+		var/obj/item/clothing/ears/skrell/cloth_female/long = long_style
+		longtypes[initial(long.name)] = long
+	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(longtypes))
 
 //vaurca items
 

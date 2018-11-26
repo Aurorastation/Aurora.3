@@ -977,15 +977,22 @@
 
 	skr_tentacle_m
 		icon = 'icons/mob/human_face/skrell_hair.dmi'
-		name = "Skrell Male Tentacles"
+		name = "Skrell Short Tentacles"
 		icon_state = "skrell_hair_m"
 		species_allowed = list("Skrell")
-		gender = MALE
 
 		skr_tentacle_f
-			name = "Skrell Female Tentacles"
+			name = "Skrell Average Tentacles"
 			icon_state = "skrell_hair_f"
-			gender = FEMALE
+
+		skr_tentacle_short
+			name = "Skrell Very Short Tentacles"
+			icon_state = "veryshort_s"
+
+		skr_tentacle_long
+			name = "Skrell Very Long Tentacles"
+			icon_state = "verylong_s"
+
 
 //tajaran hair
 
