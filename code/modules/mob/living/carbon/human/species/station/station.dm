@@ -248,6 +248,8 @@
 	stamina = 90
 	sprint_speed_factor = 1.25 //Evolved for rapid escapes from predators
 
+	inherent_verbs = list(/mob/living/carbon/human/proc/commune)
+
 /datum/species/skrell/can_breathe_water()
 	return TRUE
 
@@ -257,10 +259,6 @@
 	else
 		H.h_style = "Skrell Female Tentacles"
 	H.update_hair()
-
-	inherent_verbs = list(
-		/mob/living/carbon/human/proc/commune
-		)
 
 /datum/species/diona
 	name = "Diona"
