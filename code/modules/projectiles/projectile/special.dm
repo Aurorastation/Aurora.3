@@ -16,8 +16,9 @@
 	if(isipc(A))
 		var/mob/living/carbon/human/H = A
 		H.Weaken(5)
+		to_chat(H, "<span class='danger'>ERROR: detected low setting EMP, acutators experience temporary power loss. Attempting to restore power.</span>")
 	else
-		A.emp_act(2) // Deals less EMP damage then lethal setting, and not areal pulse
+		empulse(A, pulse_range - 1, pulse_range - 1)
 	return 1
 
 /obj/item/projectile/ion/small
