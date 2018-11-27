@@ -6625,14 +6625,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"amL" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/engineering)
 "amM" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -35413,6 +35405,8 @@
 /obj/item/clothing/head/welding,
 /obj/item/clothing/head/welding,
 /obj/item/weapon/storage/belt/utility,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "biB" = (
@@ -46539,6 +46533,8 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
 "bzR" = (
@@ -65444,12 +65440,241 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
-"lfX" = (
+"doj" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/maintenance/engineering)
+"dDj" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"dOR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	icon_state = "intact";
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"ehX" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/maintenance/engineering)
+"ems" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"eAF" = (
 /obj/structure/table/rack,
-/obj/random/loot,
+/obj/item/weapon/storage/toolbox/mechanical,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
-"pMl" = (
+"fFo" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/maintenance/engineering)
+"gIC" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/random/junk,
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"hJg" = (
+/obj/structure/table/standard,
+/obj/item/weapon/storage/toolbox/mechanical,
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"iRq" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/maintenance/engineering)
+"iRV" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"jMx" = (
+/obj/structure/largecrate/animal/cow,
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
+"jZA" = (
+/obj/structure/table/standard,
+/obj/random/loot,
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"keR" = (
+/obj/machinery/power/smes/buildable{
+	charge = 0;
+	RCon = 0;
+	RCon_tag = "NO_TAG"
+	},
+/obj/structure/cable/green,
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"ldM" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/engineering{
+	name = "Airlock";
+	req_one_access = list(11,24)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"lnZ" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty,
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"mbf" = (
+/obj/machinery/power/terminal{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "0-4";
+	d2 = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"nES" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled,
+/area/maintenance/engineering)
+"nGX" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled,
+/area/maintenance/engineering)
+"okB" = (
+/obj/structure/table/standard,
+/obj/item/weapon/storage/box/lights/mixed,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"osY" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/tiled,
+/area/maintenance/engineering)
+"pDd" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"pJZ" = (
+/obj/machinery/power/port_gen/pacman,
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"pKO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"pUL" = (
+/obj/machinery/atmospherics/omni/filter{
+	tag_east = 1;
+	tag_south = 5;
+	tag_west = 2
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"qwr" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+	icon_state = "map";
+	dir = 1
+	},
+/obj/random/junk,
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"qyK" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"qJO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/maintenance/engineering)
+"qTX" = (
+/obj/structure/table/standard,
+/obj/effect/decal/cleanable/cobweb,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"roZ" = (
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"rsb" = (
 /obj/structure/closet,
 /obj/item/weapon/pickaxe{
 	pixel_x = 5
@@ -65457,15 +65682,84 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
-"sVq" = (
+"suR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 5;
+	icon_state = "intact"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"uRN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/maintenance/engineering)
+"uWQ" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"vXK" = (
+/obj/machinery/atmospherics/omni/filter{
+	tag_east = 1;
+	tag_north = 3;
+	tag_south = 0;
+	tag_west = 2
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/maintenance/engineering)
+"vZe" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector,
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"vZg" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"whW" = (
+/obj/structure/table/standard,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/random/loot,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/maintenance/engineering)
+"wpL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"wIM" = (
+/obj/structure/table/standard,
+/obj/item/weapon/storage/toolbox/electrical,
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
+"yfo" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
-"xeB" = (
-/obj/structure/largecrate/animal/cow,
-/turf/simulated/floor/plating,
-/area/maintenance/bar)
 
 (1,1,1) = {"
 aaa
@@ -86632,10 +86926,10 @@ aab
 aab
 aab
 aab
-aab
-aab
-aab
-aab
+afo
+qTX
+whW
+keR
 ajQ
 akK
 alB
@@ -86889,10 +87183,10 @@ aab
 aab
 aab
 aab
-aab
-aab
-aab
-aab
+afo
+nGX
+roZ
+mbf
 ajQ
 ajQ
 ajQ
@@ -87146,12 +87440,12 @@ aab
 aab
 aab
 aab
-aab
-aab
-aab
-aab
-aab
-aaa
+afo
+nES
+gIC
+ehX
+jZA
+hJg
 afo
 amG
 ajQ
@@ -87403,12 +87697,12 @@ aab
 acu
 aab
 aab
-aab
-aab
-aab
-aab
-aab
-aab
+afo
+pJZ
+aut
+ehX
+nGX
+vZg
 afo
 amH
 ajQ
@@ -87660,12 +87954,12 @@ aab
 aab
 aab
 aab
-aab
-aab
-aab
-aab
-aab
-aab
+afo
+doj
+suR
+uWQ
+dOR
+qyK
 afo
 amI
 ajQ
@@ -87917,12 +88211,12 @@ aab
 aab
 aab
 aab
-aab
-aab
-aab
-aab
-aab
-aaa
+afo
+vZe
+vXK
+uWQ
+pUL
+fFo
 afo
 amJ
 ajQ
@@ -88174,12 +88468,12 @@ aab
 aab
 aab
 aab
-aab
-aab
-aab
-aab
-aab
-aaa
+afo
+vZe
+iRq
+ehX
+qwr
+lnZ
 afo
 amJ
 ajQ
@@ -88431,12 +88725,12 @@ aab
 aab
 aab
 aab
-aab
-aab
-aab
-aab
-aab
-aaa
+afo
+wIM
+ems
+dDj
+ems
+osY
 afo
 amJ
 afo
@@ -88688,12 +88982,12 @@ aab
 aab
 aab
 aab
-aab
-aab
-aab
-aab
-aab
-aaa
+afo
+okB
+wpL
+uRN
+qJO
+jZA
 afo
 amK
 anQ
@@ -88945,14 +89239,14 @@ aab
 aab
 aab
 aab
-aab
-aab
-aab
-aaa
-aaa
-aaa
 afo
-amJ
+afo
+afo
+ldM
+afo
+afo
+afo
+pDd
 afo
 aoY
 aqn
@@ -89203,13 +89497,13 @@ aab
 aab
 afo
 afo
-afo
-afo
-afo
-afo
-afo
-afo
-amL
+aoX
+aoX
+pKO
+aoX
+aoX
+aoX
+amK
 afo
 afo
 afo
@@ -89462,7 +89756,7 @@ afo
 agI
 aht
 ais
-ajl
+iRV
 ajl
 akL
 alC
@@ -98519,7 +98813,7 @@ bBP
 bIr
 bIr
 bKd
-xeB
+jMx
 bGC
 bMp
 bMU
@@ -99546,8 +99840,8 @@ bGC
 bEK
 bEK
 bEK
+bEK
 bKf
-bGD
 bLI
 bGD
 bGD
@@ -99803,8 +100097,8 @@ bGD
 bHx
 bIu
 bGD
-bKg
 bGD
+bKg
 bLJ
 bEK
 bMV
@@ -112884,7 +113178,7 @@ bal
 bal
 bal
 aTf
-sVq
+eAF
 bih
 bkB
 blY
@@ -113141,7 +113435,7 @@ bal
 bal
 bal
 aTf
-lfX
+yfo
 bih
 bam
 aab
@@ -113398,7 +113692,7 @@ bal
 bal
 bal
 aTf
-pMl
+rsb
 bih
 bam
 aab
