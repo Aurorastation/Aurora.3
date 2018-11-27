@@ -366,6 +366,9 @@
 		"Resomi" = 'icons/mob/species/resomi/gloves.dmi'
 		)
 
+	var/transfer_blood = 0
+	var/mob/living/bloody_hands_mob = null
+
 /obj/item/clothing/gloves/update_clothing_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
@@ -651,6 +654,8 @@
 		"Vox" = 'icons/mob/species/vox/shoes.dmi',
 		"Resomi" = 'icons/mob/species/resomi/shoes.dmi'
 		)
+
+	var/track_blood = 0
 
 /obj/item/clothing/shoes/proc/draw_knife()
 	set name = "Draw Boot Knife"
@@ -971,3 +976,6 @@
 	slot_flags = SLOT_GLOVES
 	gender = NEUTER
 	var/undergloves = 1
+
+	var/transfer_blood = 0
+	var/mob/living/bloody_hands_mob = null
