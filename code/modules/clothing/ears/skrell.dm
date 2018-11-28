@@ -36,19 +36,19 @@
 	icon_state = "skrell_chain_ebony"
 	item_state = "skrell_chain_ebony"
 
-/obj/item/clothing/ears/skrell/chain/gold_short
+/obj/item/clothing/ears/skrell/chain/goldshort
 	name = "skrell short gold headdress"
 	desc = "An elaborate golden headdress worn by skrell around their head tails."
 	icon_state = "male_golddia"
 	item_state = "male_golddia"
 
-/obj/item/clothing/ears/skrell/chain/gold_average
+/obj/item/clothing/ears/skrell/chain/goldaverage
 	name = "skrell average gold headdress"
 	desc = "An elaborate golden headdress worn by skrell around their head tails."
 	icon_state = "female_golddia"
 	item_state = "female_golddia"
 
-/obj/item/clothing/ears/skrell/chain/skr_goldlong
+/obj/item/clothing/ears/skrell/chain/goldlong
 	name = "skrell very long gold headdress"
 	desc = "An elaborate golden headdress worn by skrell around their head tails."
 	icon_state = "verylong_golddia"
@@ -60,13 +60,13 @@
 	icon_state = "veryshort_golddia"
 	item_state = "veryshort_golddia"
 
-/obj/item/clothing/ears/skrell/chain/silver_short
+/obj/item/clothing/ears/skrell/chain/silvershort
 	name = "skrell short silver headdress"
 	desc = "A jeweled silver headdress worn by skrell around their head tails."
 	icon_state = "male_silvdia"
 	item_state = "male_silvdia"
 
-/obj/item/clothing/ears/skrell/chain/silver_average
+/obj/item/clothing/ears/skrell/chain/silveraverage
 	name = "skrell average silver headdress"
 	desc = "A jeweled silver headdress worn by skrell around their head tails."
 	icon_state = "female_silvdia"
@@ -78,7 +78,7 @@
 	icon_state = "verylong_silvdia"
 	item_state = "verylong_silvdia"
 
-/obj/item/clothing/ears/skrell/chain/festivetentacle_average
+/obj/item/clothing/ears/skrell/chain/festiveaverage
 	name = "skrell average festive headdress"
 	desc = "An elaborate golden headdress worn by skrell around their head tails."
 	icon_state = "female_fest"
@@ -102,19 +102,19 @@
 	icon_state = "veryshort_fest"
 	item_state = "veryshort_fest"
 
-/obj/item/clothing/ears/skrell/chain/black_short
+/obj/item/clothing/ears/skrell/chain/blackshort
 	name = "skrell short ebony headdress"
 	desc = "An elaborate ebony jeweled headdress worn by skrell around their head tails."
 	icon_state = "male_blackdia"
 	item_state = "male_blackdia"
 
-/obj/item/clothing/ears/skrell/chain/black_average
+/obj/item/clothing/ears/skrell/chain/blackaverage
 	name = "skrell average ebony headdress"
 	desc = "An elaborate ebony jeweled headdress worn by skrell around their head tails."
 	icon_state = "female_blackdia"
 	item_state = "skrell_chain_ebony"
 
-/obj/item/clothing/ears/skrell/chain/black_long
+/obj/item/clothing/ears/skrell/chain/blacklong
 	name = "skrell long ebony headdress"
 	desc = "An elaborate ebony jeweled headdress worn by skrell around their head tails."
 	icon_state = "verylong_blackdia"

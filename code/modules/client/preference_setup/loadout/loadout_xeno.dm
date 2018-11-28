@@ -94,19 +94,19 @@
 		shorttypes[initial(short.name)] = short
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(shorttypes))
 
-/datum/gear/ears/skrell/cloth/long
+/datum/gear/ears/skrell/cloth/average
 	display_name = "average headtail cloth (Skrell)"
 	path = /obj/item/clothing/ears/skrell/cloth_average/black
 	sort_category = "Xenowear"
 	whitelisted = list("Skrell")
 
-/datum/gear/ears/skrell/cloth/long/New()
+/datum/gear/ears/skrell/cloth/average/New()
 	..()
-	var/list/longtypes = list()
-	for(var/long_style in typesof(/obj/item/clothing/ears/skrell/cloth_average))
-		var/obj/item/clothing/ears/skrell/cloth_average/long = long_style
-		longtypes[initial(long.name)] = long
-	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(longtypes))
+	var/list/averagetypes = list()
+	for(var/average_style in typesof(/obj/item/clothing/ears/skrell/cloth_average))
+		var/obj/item/clothing/ears/skrell/cloth_average/average = average_style
+		averagetypes[initial(average.name)] = average
+	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(averagetypes))
 
 //vaurca items
 
