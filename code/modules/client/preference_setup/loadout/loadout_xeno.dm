@@ -82,29 +82,29 @@
 
 /datum/gear/ears/skrell/cloth/short
 	display_name = "short headtail cloth (Skrell)"
-	path = /obj/item/clothing/ears/skrell/cloth_male/black
+	path = /obj/item/clothing/ears/skrell/cloth_short/black
 	sort_category = "Xenowear"
 	whitelisted = list("Skrell")
 
 /datum/gear/ears/skrell/cloth/short/New()
 	..()
 	var/list/shorttypes = list()
-	for(var/short_style in typesof(/obj/item/clothing/ears/skrell/cloth_male))
-		var/obj/item/clothing/ears/skrell/cloth_male/short = short_style
+	for(var/short_style in typesof(/obj/item/clothing/ears/skrell/cloth_short))
+		var/obj/item/clothing/ears/skrell/cloth_short/short = short_style
 		shorttypes[initial(short.name)] = short
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(shorttypes))
 
 /datum/gear/ears/skrell/cloth/long
 	display_name = "average headtail cloth (Skrell)"
-	path = /obj/item/clothing/ears/skrell/cloth_female/black
+	path = /obj/item/clothing/ears/skrell/cloth_average/black
 	sort_category = "Xenowear"
 	whitelisted = list("Skrell")
 
 /datum/gear/ears/skrell/cloth/long/New()
 	..()
 	var/list/longtypes = list()
-	for(var/long_style in typesof(/obj/item/clothing/ears/skrell/cloth_female))
-		var/obj/item/clothing/ears/skrell/cloth_female/long = long_style
+	for(var/long_style in typesof(/obj/item/clothing/ears/skrell/cloth_average))
+		var/obj/item/clothing/ears/skrell/cloth_average/long = long_style
 		longtypes[initial(long.name)] = long
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(longtypes))
 
