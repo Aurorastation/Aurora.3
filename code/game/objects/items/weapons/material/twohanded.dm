@@ -188,9 +188,11 @@
 	force_wielded = 30
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	applies_material_colour = 0
+	can_embed = 0
 
-/obj/item/weapon/material/twohanded/fireaxe/afterattack(atom/A as mob|obj|turf|area, mob/user as mob, proximity)
+/obj/item/weapon/material/twohanded/fireaxe/afterattack(atom/A, mob/user, proximity)
 	if(!proximity) return
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN * 2.5)
 	..()
 	if(A && wielded)
 		if(istype(A,/obj/structure/window))
@@ -201,11 +203,6 @@
 		else if(istype(A,/obj/effect/plant))
 			var/obj/effect/plant/P = A
 			P.die_off()
-
-/obj/item/weapon/material/twohanded/fireaxe/pre_attack(var/mob/living/target, var/mob/living/user)
-	if(istype(target))
-		cleave(user, target)
-	..()
 
 //spears, bay edition
 /obj/item/weapon/material/twohanded/spear
