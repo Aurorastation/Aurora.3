@@ -147,6 +147,16 @@ var/list/switchsounds = list(
 	'sound/machines/switch3.ogg',
 	'sound/machines/switch4.ogg'
 )
+var/list/keyboardsounds = list(
+	'sound/machines/keyboard/keypress1.ogg',
+	'sound/machines/keyboard/keypress2.ogg',
+	'sound/machines/keyboard/keypress3.ogg',
+	'sound/machines/keyboard/keypress4.ogg',
+	'sound/machines/keyboard/keystroke1.ogg',
+	'sound/machines/keyboard/keystroke2.ogg',
+	'sound/machines/keyboard/keystroke3.ogg',
+	'sound/machines/keyboard/keystroke4.ogg'
+	)
 
 var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","waterstep","sandstep", "gravelstep")
 
@@ -308,4 +318,5 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 			if ("gravelstep") soundin = pick(gravelfootsteps)
 			if ("computerbeep") soundin = pick(computerbeeps)
 			if ("switch") soundin = pick(switchsounds)
+			if ("keyboard") soundin = pick(keyboardsounds)
 	return soundin
