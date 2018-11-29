@@ -3055,3 +3055,24 @@
 	e.start()
 	holder.del_reagent("phoron_salt")
 	return
+
+/datum/chemical_reaction/mutone
+	name = "Mutone"
+	id = "mutone"
+	result = "mutone"
+	result_amount = 1
+	required_reagents = list("phoron_salt" = 1, "mutagen" = 1)
+
+/datum/chemical_reaction/plexium
+	name = "Plexium"
+	id = "plexium"
+	result = "plexium"
+	result_amount = 1
+	required_reagents = list("phoron_salt" = 1, "alkysine" = 1)
+
+/datum/chemical_reaction/venenum
+	name = "Venenum"
+	id = "venenum"
+	result = "venenum"
+	result_amount = 1
+	required_reagents = list("phoron_salt" = 1, "ryetalyn" = 1)
