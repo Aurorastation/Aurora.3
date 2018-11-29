@@ -34,4 +34,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Fireaxes have stopped being weapons of mass destruction - they no longer cleave during attacks. You also attack slower and no longer embed the weapon during attacks."
+  - tweak: "Fireaxes now attack much slower, but also no longer embed constantly in everyone you attack, or everyone nearby the general vicinity of your attack."
