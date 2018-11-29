@@ -118,6 +118,14 @@
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
+/datum/gear/accessory/dressshirt
+	display_name = "dress shirt"
+	path = /obj/item/clothing/accessory/dressshirt
+
+/datum/gear/accessory/dressshirt/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
 /datum/gear/accessory/scarf
 	display_name = "scarf selection"
 	path = /obj/item/clothing/accessory/scarf

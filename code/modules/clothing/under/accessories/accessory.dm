@@ -271,6 +271,12 @@
 	icon_state = "sweater"
 	item_state = "sweater"
 
+/obj/item/clothing/accessory/dressshirt
+	name = "dress shirt"
+	desc = "A snappy dress shirt."
+	icon_state = "dressshirt"
+	item_state = "dressshirt"
+
 /obj/item/clothing/accessory/scarf
 	name = "white scarf"
 	desc = "A simple scarf, to protect your neck from the cold of space."
