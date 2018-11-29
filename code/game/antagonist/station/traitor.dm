@@ -21,6 +21,13 @@ var/datum/antagonist/traitor/traitors
 		return
 	if(href_list["spawn_uplink"]) spawn_uplink(locate(href_list["spawn_uplink"]))
 
+/datum/antagonist/traitor/can_become_antag(var/datum/mind/player)
+	if(!..())
+		return 0
+	if(istype(player.current, /mob/living/silicon/robot/drone))
+		return 0
+	return 1
+
 /datum/antagonist/traitor/create_objectives(var/datum/mind/traitor)
 	if(!..())
 		return

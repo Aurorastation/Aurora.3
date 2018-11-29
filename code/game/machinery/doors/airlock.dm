@@ -153,6 +153,13 @@
 	hatch_colour = "#606061"
 	hashatch = FALSE
 
+/obj/machinery/door/airlock/vaurca
+	name = "Alien Biomass Airlock"
+	icon = 'icons/obj/doors/Doorvaurca.dmi'
+	opacity = 0
+	hatch_colour = "#606061"
+	hashatch = FALSE
+
 /obj/machinery/door/airlock/centcom/attackby(obj/item/I, mob/user)
 	if (operating)
 		return

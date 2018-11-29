@@ -2343,6 +2343,14 @@
 	required_reagents = list("lemonjuice" = 1, "sugar" = 1, "water" = 1)
 	result_amount = 3
 
+/datum/chemical_reaction/lemonade/pink
+	name = "Pink Lemonade"
+	id = "pinklemonade"
+	result = "pinklemonade"
+	required_reagents = list("lemonade" = 8, "grenadine" = 2)
+	result_amount = 10
+
+
 /datum/chemical_reaction/kiraspecial
 	name = "Kira Special"
 	id = "kiraspecial"
@@ -2965,7 +2973,7 @@
 	catalysts = list("water" = 1)
 	mix_message = "The solution begins to freeze."
 
-/datum/chemical_reaction/cryosurfactant_cooling_water/on_reaction(var/datum/reagents/holder, var/created_volume)
+/datum/chemical_reaction/cryosurfactant_cooling_water/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
 	holder.del_reagent("cryosurfactant")
 	holder.add_thermal_energy(-created_volume*500)
 
@@ -3039,11 +3047,13 @@
 
 /datum/chemical_reaction/phoron_salt_coldfire/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
 	var/turf/location = get_turf(holder.my_atom)
-	var/explosion_mod = 1 + max(0,32*(1 - (created_thermal_energy/28000))*min(1,created_volume/120)) * 10
+	var/thermal_energy_mod = max(0,1 - (max(0,created_thermal_energy)/28000))
+	var/volume_mod = min(1,created_volume/120)
+	var/explosion_mod = 3 + (thermal_energy_mod*volume_mod*320)
 	var/datum/effect/effect/system/reagents_explosion/e = new()
 	e.set_up(explosion_mod, location, 0, 0)
 	e.start()
-	holder.clear_reagents()
+	holder.del_reagent("phoron_salt")
 	return
 
 /datum/chemical_reaction/mutone

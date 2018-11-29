@@ -65,11 +65,6 @@
 /datum/reagents/proc/set_temperature(var/new_temperature)
 	return add_thermal_energy(-get_thermal_energy() + get_thermal_energy_change(0,new_temperature) )
 
-/datum/reagents/proc/equalize_thermal_energy()
-	var/thermal_energy_to_add = get_thermal_energy()
-	for(var/datum/reagent/R in reagent_list)
-		R.add_thermal_energy(-R.get_thermal_energy() + (thermal_energy_to_add * (1/reagent_list.len)) )
-
 /datum/reagents/proc/equalize_temperature()
 
 	var/total_thermal_energy = 0
@@ -83,9 +78,15 @@
 		R.set_thermal_energy( total_thermal_energy * (R.get_heat_capacity()/total_heat_capacity) )
 
 /datum/reagents/proc/add_thermal_energy(var/thermal_energy_to_add)
+
 	var/total_energy_added = 0
+	var/total_heat_capacity = 0
+
 	for(var/datum/reagent/R in reagent_list)
-		total_energy_added += R.add_thermal_energy(thermal_energy_to_add * (1/reagent_list.len))
+		total_heat_capacity += R.get_heat_capacity()
+
+	for(var/datum/reagent/R in reagent_list)
+		total_energy_added += R.add_thermal_energy(thermal_energy_to_add * (R.get_heat_capacity()/total_heat_capacity) )
 
 	return total_energy_added
 
