@@ -10,4 +10,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Fixed the sweater sprite, allowing it to be recolored correctly. Enjoy your hot pink turtlenecks."
+  - tweak: "Fixed the sweater sprite, allowing it to be recolored correctly. Enjoy your hot pink turtlenecks. Don't forget to update your loadout if you want a darker color!"
