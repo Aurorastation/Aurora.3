@@ -205,8 +205,8 @@
 			P.die_off()
 
 /obj/item/weapon/material/twohanded/fireaxe/pre_attack(var/mob/living/target, var/mob/living/user)	
-	if(istype(target))	
-		cleave(user, target)	
+	if(istype(target))
+		cleave(user, target)
 	..()
 
 //spears, bay edition
