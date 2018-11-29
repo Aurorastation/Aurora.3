@@ -485,7 +485,7 @@
 	reagent_state = SOLID
 	color = "#11AA11"
 	metabolism = (5/60) //5u every 60 seconds.
-	taste_description = "a slot machine"
+	taste_description = "sweet metal"
 	var/stored_value = 0 //Internal value. Every 10 units equals a dosage.
 
 /datum/reagent/mutone/initial_effect(var/mob/living/carbon/M, var/alien)
