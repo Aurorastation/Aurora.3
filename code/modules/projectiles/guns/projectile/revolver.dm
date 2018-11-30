@@ -55,6 +55,7 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot_strong.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
+	pin = /obj/item/device/firing_pin/blacklist
 
 /obj/item/weapon/gun/projectile/revolver/detective/verb/rename_gun()
 	set name = "Name Gun"
@@ -105,7 +106,7 @@
 	desc = "A small pocket pistol, easily concealed. Uses .357 rounds."
 	icon_state = "derringer"
 	item_state = "concealed"
-	accuracy = -1 
+	accuracy = -1
 	w_class = 2
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 3)
 	handle_casings = CYCLE_CASINGS

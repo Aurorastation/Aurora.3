@@ -309,6 +309,9 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define CANDYMAKER			0x8
 #define CEREALMAKER			0x10
 
+//IAA Lawgiver defines. Currently only one for weapons access.
+#define NO_WEAPONS			0x1
+
 // MultiZAS directions.
 #define NORTHUP (NORTH|UP)
 #define EASTUP (EAST|UP)

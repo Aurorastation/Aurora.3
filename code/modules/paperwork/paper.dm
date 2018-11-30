@@ -532,10 +532,10 @@
 	var/sentence = 1 // Is this form contain a sentence of guilty?
 
 /obj/item/weapon/paper/incident/New()
-	info = {"\[center\]\[logo\]\[/center\]
-\[center\]\[b\]\[i\]Encoded NanoTrasen Security Incident Report\[/b\]\[/i\]\[hr\]
-\[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]
-\[barcode\]\[/center\]"}
+	info = {"<center><img src = ntlogo.png></center>
+<center><b><i>Encoded NanoTrasen Security Incident Report</b></i><hr>
+<small>FOR USE BY SECURITY ONLY</small><br>
+<img src = bardcode[pick(0,1,2,3)].png></center>"}
 
 	..()
 
@@ -544,19 +544,43 @@
 	icon_state = "pamphlet"
 
 /obj/item/weapon/paper/sentencing/New()
-	info = {"\[center\]\[logo\]\[/center\]
-\[center\]\[b\]\[i\]Operation of Criminal Sentencing Computers\[/b\]\[/i\]\[hr\]
-\[small\]In compliance with new NanoTrasen criminal regulations, the \[b\][station_name()]\[/b\] has been equipped with state of the art sentencing computers. The operation of these terminals is quite simple:\[br\]
-\[br\]
-While preparing a convicted individual, remove their ID and have the terminal scan it.\[br\]
-Next, select all applicable charges from the menu available. The computer will calculate the sentence based on the minimum recommended sentence - any variables such as repeat offense will need to be manually accounted for.\[br\]
-After all the charges have been applied, the processing officer is invited to add a short description of the incident, any related evidence, and any witness testimonies.\[br\]
-Simply press the option "Render Guilty", and the sentence is complete! The convict's records will be automatically updated to reflect their crimes. You should now insert the printed receipt into the cell timer, and begin processing.\[br\]
-\[hr\]
-Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident form receipt inserted into them.
-\[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]"}
+	info = {"<center><img src = ntlogo.png></center>
+<center><b><i>Operation of Criminal Sentencing Computers</b></i><hr>
+<small>In compliance with new NanoTrasen criminal regulations, the <b><station_name()></b> has been equipped with state of the art sentencing computers. The operation of these terminals is quite simple:<br>
+<br>
+While preparing a convicted individual, remove their ID and have the terminal scan it.<br>
+Next, select all applicable charges from the menu available. The computer will calculate the sentence based on the minimum recommended sentence - any variables such as repeat offense will need to be manually accounted for.<br>
+After all the charges have been applied, the processing officer is invited to add a short description of the incident, any related evidence, and any witness testimonies.<br>
+Simply press the option "Render Guilty", and the sentence is complete! The convict's records will be automatically updated to reflect their crimes. You should now insert the printed receipt into the cell timer, and begin processing.<br>
+<hr>
+Please note: Cell timers will <b>NOT</b> function without a valid incident form receipt inserted into them.
+<small>FOR USE BY SECURITY ONLY</small><br>"}
 
 	..()
 
 /obj/item/weapon/paper/sentencing/update_icon()
+	return
+
+/obj/item/weapon/paper/lawgiver
+	name = "Lawgiver MkI User Manual"
+	icon_state = "pamphlet"
+
+/obj/item/weapon/paper/lawgiver/New()
+	info = {"<center><img src = ntlogo.png></center>
+<center><b><i>Operation of Lawgiver MkI</b></i><hr>
+<small>The Lawgiver MkI is a powerful tool that facilitates effective methods of administrative oversight. These command words are simple and powerful:<br>
+<br>
+1: \"Flash\". A simple command that loads the Lawgiver MkI with a chemical shell similar to a flash round, for self-defense only.<br>
+2: \"Weapons Access\". This firemode will blacklist the target's ID from interfacing with any weapon possessing a blacklist-auth firing pin, including most security armaments.<br>
+3: \"Fine Target\". This firemode allows you to remotely deduct a set amount from the account linked to the target's ID. A small dial will emerge on the weapon allowing you to set the fine amount.<br>
+4: \"Approval Scan\". This firemode will report the subject's dispostion regarding NanoTrasen based on data available and will recommend a course of action.<br>
+5: \"Megaphone\". This command will cause the device to amplify the user's message.<br>
+
+<hr>
+Please note: The Lawgiver MkI has  <b>NO</b> DNA or access restrictions. Aim responsibly.
+<small>FOR AUTHORIZED EYES ONLY</small><br>"}
+
+	..()
+
+/obj/item/weapon/paper/lawgiver/update_icon()
 	return

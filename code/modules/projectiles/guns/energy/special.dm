@@ -15,6 +15,7 @@
 	projectile_type = /obj/item/projectile/ion
 	can_turret = 1
 	turret_sprite_set = "ion"
+	pin = /obj/item/device/firing_pin/blacklist
 
 /obj/item/weapon/gun/energy/ionrifle/emp_act(severity)
 	..(max(severity, 2)) //so it doesn't EMP itself, I guess
@@ -32,6 +33,144 @@
 	use_external_power = 1
 	recharge_time = 10
 	can_turret = 0
+
+/obj/item/weapon/gun/energy/deauth
+	name = "\improper Lawgiver Mk I"
+	desc = "A somewhat advanced firearm for the modern bureaucracy. It has multiple voice-activated firing modes."
+	icon_state = "lawgiver"
+	item_state = "gun"
+	fire_sound = 'sound/weapons/Taser.ogg'
+	projectile_type = /obj/item/projectile/energy/flash
+	max_shots = 8
+	var/blacklist = 0
+	var/fine = 0
+	var/scan = 0
+
+	firemodes = list(
+		list(mode_name="flash", projectile_type=/obj/item/projectile/energy/flash, fire_sound='sound/weapons/gunshot_pistol.ogg'),
+		list(mode_name="deauthenticate", projectile_type=/obj/item/projectile/energy/deauth, fire_sound='sound/weapons/Laser.ogg'),
+		list(mode_name="fine", projectile_type=/obj/item/projectile/energy/deauth, fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="scan", projectile_type=/obj/item/projectile/energy/deauth, fire_sound='sound/weapons/Taser.ogg')
+		)
+
+/obj/item/weapon/gun/energy/deauth/Initialize()
+	. = ..()
+	listening_objects += src
+	power_supply = new /obj/item/weapon/cell/device/variable(src, 2000)
+	var/datum/firemode/new_mode = firemodes[sel_mode]
+	new_mode.apply_to(src)
+
+/obj/item/weapon/gun/energy/deauth/Destroy()
+	listening_objects -= src
+	return ..()
+
+/obj/item/weapon/gun/energy/deauth/attack_self(mob/living/carbon/user as mob)
+	switch(sel_mode)
+		if(3)
+			var/increment = 0
+			if(fine >= 15000)
+				fine = 0
+
+			switch(fine)
+				if(0 to 500)
+					increment = 50
+				if(501 to 1000)
+					increment = 100
+				if(1000 to 15000)
+					increment = 1000
+
+			fine += increment
+
+		else
+			var/obj/item/weapon/spacecash/ewallet/E
+			for(var/obj/item/weapon/spacecash/ewallet/EE in src)
+				E = EE
+				break
+			if(E)
+				if(ishuman(user) && !user.get_inactive_hand())
+					user.put_in_inactive_hand(E)
+				else
+					E.forceMove(get_turf(src))
+				playsound(src, 'sound/weapons/Genhit.ogg', 25, 1)
+
+/obj/item/weapon/gun/energy/deauth/consume_next_projectile()
+	if(!power_supply) return null
+	if(!ispath(projectile_type)) return null
+	if(!power_supply.checked_use(charge_cost)) return null
+	if (self_recharge) addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
+
+	if(istype(projectile_type, /obj/item/projectile/energy/deauth))
+		var/obj/item/projectile/energy/deauth/D = new projectile_type(src)
+		D.blacklist = blacklist
+		D.fine = fine
+
+		D.scan = scan
+		D.lawgiver = src
+		return D
+
+	else
+		return new projectile_type(src)
+
+/obj/item/weapon/gun/energy/deauth/hear_talk(mob/living/M in range(0,src), msg)
+	var/mob/living/carbon/human/H = M
+	if (!H || !istype(H))
+		return
+	if((src in H.contents))
+		hear(msg)
+	return
+
+/obj/item/weapon/gun/energy/deauth/proc/hear(var/msg)
+	var/list/replacechars = list("'" = "","\"" = "",">" = "","<" = "","(" = "",")" = "")
+	msg = sanitize_old(msg, replacechars)
+	/* Firing Modes*/
+	if(findtext(msg,"flash"))
+		sel_mode = 1
+		visible_message("<span class='warning'>\icon[src] [src.name] states: <b>\"[src.name] is now set to flash shell.\"</b></span>")
+		playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 1)
+		blacklist = 0
+		scan = 0
+		fine = 0
+
+	else if(findtext(msg,"weapons access"))
+		sel_mode = 2
+		blacklist = NO_WEAPONS
+		visible_message("<span class='warning'>\icon[src] [src.name] states: <b>\"[src.name] is now set to deauthentice weapons access.\"</b></span>")
+		playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 1)
+		scan = 0
+		fine = 0
+
+	else if(findtext(msg,"fine target"))
+		sel_mode = 3
+		visible_message("<span class='warning'>\icon[src] [src.name] states: <b>\"[src.name] is now set to administrative fines. Please manually set fine amount.\"</b></span>")
+		playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 1)
+		blacklist = 0
+		scan = 0
+
+	else if(findtext(msg,"approval scan"))
+		sel_mode = 4
+		scan = 1
+		visible_message("<span class='warning'>\icon[src] [src.name] states: <b>\"[src.name] is now set to approval scan.\"</b></span>")
+		playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 1)
+		blacklist = 0
+		fine = 0
+
+	else if(findtext(msg,"megaphone"))
+		visible_message("<span class='warning'>\icon[src] [src.name] states: <FONT size=3>\"[msg]\"</FONT></span>")
+		playsound(src.loc, 'sound/machines/warning-buzzer.ogg', 100, 1)
+
+	else if(findtext(msg,"joke"))
+		var/jokes = pick("I was going to attend the clairvoyants meeting, but it was cancelled due to unforeseen events.", "Two cannibals are eating a clown. One cannibal turns to the other and asks, \'Does this taste funnysto you?\'", \
+					"Two atoms are in a bar. One says, \'I think I lost an electron.\' The other says, \'Are you sure?\' To which the first replies, \'I'm positive.\'", "A neutron walks into a bar. \'How much for a drink here, anyway?\' To which the bartender responds, \'For you, no charge.\'", \
+					"I once visited a crematorium that gave discounts for burn victims.", "Photons have mass? I didn't even know they were Catholic.", "War doesn't determine who is right, only who is left", "The past, the present and the future walked into a bar, it was tense.", \
+					"What has 4 letters, sometimes has 9 letters, and always has 6 letters, but never has 5 letters.", "Two fish swim into a concrete wall. One turns to the other and says, \'Dam\'.", "I’ve decided to sell the vacuum. It’s just collecting dust", \
+					"A blind man walks into a bar. And a table. And a chair.", "There is a band called one thousand and twenty three megabytes. They haven’t had any gigs yet.", "What do you call two crows on a branch? Attempted Murder.", "Chemically speaking, alcohol IS a solution.", \
+					"How do you kill a circus clown? Go for the juggler.", "The bartender says, \'We don’t serve faster than light particles in here.\' A tachyon walks into a bar.", "If 4 out of 5 people suffer from phoron poisoning... Does that mean the fifth guy enjoys it?", \
+					"How about a pizza joke? Nevermind it’s just too cheesy", "What is the best way to start a parade in Phoenixport? Roll a 40 down the street.", "What did the Democratic People's Republic of Adhomai light their houses with before they used candles? Electricity.", \
+					"A photon checks into a hotel and the bellhop asks if she has any luggage. The photon replies, \'No, I’m traveling light.\'", "What do people from Mars have in common with a bottle of beer? They’re both empty from the neck up.", "An assassin, a terrorist, and a Vaurca walk into a bar. It orders a drink", \
+					"Relationships are a lot like algebra. You always look at your X and try to figure out Y.")
+
+		visible_message("<span class='warning'>\icon[src] [src.name] states: \"[jokes]\"</span>")
+		playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 1)
 
 /obj/item/weapon/gun/energy/decloner
 	name = "biological demolecularisor"

@@ -119,6 +119,7 @@
 	max_shells = 7 //match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
 	ammo_type = /obj/item/ammo_casing/shotgun
 	fire_sound = 'sound/weapons/shotgun_shoot.ogg'
+	pin = /obj/item/device/firing_pin/blacklist
 
 /obj/item/weapon/gun/projectile/shotgun/doublebarrel
 	name = "double-barreled shotgun"

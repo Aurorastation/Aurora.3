@@ -13,6 +13,7 @@
 	projectile_type = /obj/item/projectile/beam/midlaser
 	can_turret = 1
 	turret_sprite_set = "laser"
+	pin = /obj/item/device/firing_pin/blacklist
 
 /obj/item/weapon/gun/energy/laser/mounted
 	name = "mounted laser carbine"
@@ -24,6 +25,7 @@
 	name = "practice laser carbine"
 	desc = "A modified version of the HI G40E, this one fires less concentrated energy bolts designed for target practice."
 	projectile_type = /obj/item/projectile/beam/practice
+	pin = /obj/item/device/firing_pin/blacklist
 
 obj/item/weapon/gun/energy/retro
 	name = "retro laser"
@@ -53,6 +55,7 @@ obj/item/weapon/gun/energy/retro
 	self_recharge = 1
 	can_turret = 1
 	turret_sprite_set = "captain"
+	pin = /obj/item/device/firing_pin/blacklist
 
 /obj/item/weapon/gun/energy/lasercannon
 	name = "laser cannon"

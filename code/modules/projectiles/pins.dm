@@ -217,3 +217,17 @@ Pins Below.
 		return 0
 	else
 		return 1
+
+//like above, but not at all
+/obj/item/device/firing_pin/blacklist
+	name = "blacklist-auth firing pin"
+	desc = "This firing pin prevents weapons to be fired only for specified users."
+	fail_message = "<span class='warning'>USER BLACKLISTED.</span>"
+
+/obj/item/device/firing_pin/blacklist/pin_auth(mob/living/user)
+	if(!isrobot(user))
+		var/obj/item/weapon/card/id/id = user.GetIdCard()
+		if(!id || (id.blacklist & NO_WEAPONS))
+			return 0
+
+	return 1

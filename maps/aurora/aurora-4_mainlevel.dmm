@@ -6659,6 +6659,24 @@
 "amO" = (
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
+"amP" = (
+/obj/structure/closet/lawcloset,
+/obj/item/weapon/storage/briefcase{
+	pixel_x = 3;
+	pixel_y = 2
+	},
+/obj/item/weapon/storage/briefcase,
+/obj/machinery/button/windowtint{
+	id = "iaa";
+	pixel_x = 24;
+	pixel_y = 0
+	},
+/obj/item/device/flash,
+/obj/item/device/flash,
+/obj/item/weapon/gun/energy/deauth,
+/obj/item/weapon/gun/energy/deauth,
+/turf/simulated/floor/wood,
+/area/lawoffice)
 "amQ" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (Ion Rifle)";
@@ -6874,6 +6892,18 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
+"anp" = (
+/obj/structure/table/wood,
+/obj/item/weapon/folder/red{
+	desc = "A red folder. You can make out a small scribble in the top right corner. It reads Top Secret.";
+	pixel_x = -3
+	},
+/obj/item/device/eftpos{
+	eftpos_name = "Internal Affairs EFTPOS scanner"
+	},
+/obj/item/weapon/paper/lawgiver,
+/turf/simulated/floor/wood,
+/area/lawoffice)
 "anq" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced{
@@ -11497,21 +11527,17 @@
 /turf/simulated/floor/wood,
 /area/lawoffice)
 "avc" = (
-/obj/structure/closet/lawcloset,
-/obj/item/weapon/storage/briefcase{
-	pixel_x = 3;
-	pixel_y = 2
+/obj/structure/table/rack,
+/obj/item/weapon/storage/box/flashbangs{
+	pixel_x = 2;
+	pixel_y = -2
 	},
-/obj/item/weapon/storage/briefcase,
-/obj/machinery/button/windowtint{
-	id = "iaa";
-	pixel_x = 24;
-	pixel_y = 0
-	},
-/obj/item/device/flash,
-/obj/item/device/flash,
-/turf/simulated/floor/wood,
-/area/lawoffice)
+/obj/item/weapon/storage/box/teargas,
+/obj/item/weapon/storage/box/firingpins,
+/obj/item/weapon/gun/energy/deauth,
+/obj/item/weapon/paper/lawgiver,
+/turf/simulated/floor/tiled/dark,
+/area/security/armoury)
 "avd" = (
 /turf/simulated/wall,
 /area/hallway/primary/starboard)
@@ -12440,16 +12466,15 @@
 /turf/simulated/floor/wood,
 /area/lawoffice)
 "awG" = (
-/obj/structure/table/wood,
-/obj/item/weapon/folder/red{
-	desc = "A red folder. You can make out a small scribble in the top right corner. It reads Top Secret.";
-	pixel_x = -3
-	},
-/obj/item/device/eftpos{
-	eftpos_name = "Internal Affairs EFTPOS scanner"
-	},
-/turf/simulated/floor/wood,
-/area/lawoffice)
+/obj/structure/closet/secure_closet/hos,
+/obj/item/device/multitool,
+/obj/item/weapon/reagent_containers/spray/pepper,
+/obj/item/clothing/suit/space/void/hos,
+/obj/item/clothing/head/helmet/space/void/hos,
+/obj/item/weapon/gun/energy/deauth,
+/obj/item/weapon/paper/lawgiver,
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/heads/hos)
 "awH" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -15075,16 +15100,6 @@
 	dir = 4
 	},
 /obj/machinery/firealarm/east,
-/turf/simulated/floor/tiled/dark,
-/area/security/armoury)
-"aAV" = (
-/obj/structure/table/rack,
-/obj/item/weapon/storage/box/flashbangs{
-	pixel_x = 2;
-	pixel_y = -2
-	},
-/obj/item/weapon/storage/box/teargas,
-/obj/item/weapon/storage/box/firingpins,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "aAW" = (
@@ -24721,14 +24736,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
-"aQB" = (
-/obj/structure/closet/secure_closet/hos,
-/obj/item/device/multitool,
-/obj/item/weapon/reagent_containers/spray/pepper,
-/obj/item/clothing/suit/space/void/hos,
-/obj/item/clothing/head/helmet/space/void/hos,
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
 "aQC" = (
 /obj/item/device/radio/intercom{
 	pixel_y = -28
@@ -90579,7 +90586,7 @@ aJs
 aLp
 aNe
 aOR
-aQB
+awG
 aIa
 aTK
 aVr
@@ -91598,7 +91605,7 @@ aux
 awd
 axR
 azv
-aAV
+avc
 ajR
 auC
 aGe
@@ -103159,8 +103166,8 @@ apz
 acU
 asa
 atr
-avc
-awG
+amP
+anp
 ayt
 azU
 aBq

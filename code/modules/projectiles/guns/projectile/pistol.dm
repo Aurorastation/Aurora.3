@@ -19,6 +19,7 @@
 
 /obj/item/weapon/gun/projectile/colt/detective
 	magazine_type = /obj/item/ammo_magazine/c45m/rubber
+	pin = /obj/item/device/firing_pin/blacklist
 
 /obj/item/weapon/gun/projectile/colt/detective/verb/rename_gun()
 	set name = "Name Gun"
@@ -49,6 +50,7 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot_pistol.ogg'
 	load_method = MAGAZINE
+	pin = /obj/item/device/firing_pin/blacklist
 
 /obj/item/weapon/gun/projectile/sec/update_icon()
 	..()

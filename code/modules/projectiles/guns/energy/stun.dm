@@ -10,6 +10,7 @@
 	can_turret = 1
 	turret_sprite_set = "carbine"
 	turret_is_lethal = 0
+	pin = /obj/item/device/firing_pin/blacklist
 
 /obj/item/weapon/gun/energy/taser/mounted
 	name = "mounted taser gun"

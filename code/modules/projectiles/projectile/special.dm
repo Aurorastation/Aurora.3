@@ -228,3 +228,64 @@
 
 /obj/item/projectile/magic/teleport/proc/blink_mob(mob/living/L)
 	do_teleport(L, get_turf(L), blink_range, asoundin = 'sound/effects/phasein.ogg')
+
+/obj/item/projectile/energy/deauth
+	name = "electrode"
+	icon_state = "energy2"
+	nodamage = 1
+	var/datum/weakref/lawgiver
+	var/blacklist = 0
+	var/fine = 0
+	var/scan = 0
+
+/obj/item/projectile/energy/deauth/on_impact(var/atom/A)
+	if(lawgiver)
+		if(istype(A, /mob/living))
+			var/mob/living/L = A
+			if(!isrobot(A))
+				var/obj/item/weapon/card/id/id = L.GetIdCard()
+				if(id)
+					if(blacklist)
+						if(!(id.blacklist & blacklist))
+							id.blacklist |= blacklist
+						else
+							id.blacklist &= ~blacklist
+
+					if(fine)
+						var/datum/money_account/authenticated_account = SSeconomy.attempt_account_access(id.associated_account_number)
+						authenticated_account.money -= fine
+
+						var/obj/item/weapon/spacecash/ewallet/E = new /obj/item/weapon/spacecash/ewallet(lawgiver)
+						E.worth = fine
+						E.owner_name = "NanoTrasen Internal Affairs"
+
+						//create an entry in the account transaction log
+						var/datum/transaction/T = new()
+						T.target_name = authenticated_account.owner_name
+						T.purpose = "Administrative fine"
+						T.amount = "([fine])"
+						T.source_terminal = lawgiver
+						T.date = worlddate2text()
+						T.time = worldtime2text()
+						SSeconomy.add_transaction_log(authenticated_account,T)
+
+				if(scan)
+					var/message = "404 ERROR ANTIPATHY NOT FOUND."
+					if(ishuman(L))
+						var/mob/living/carbon/human/H = L
+						if(H.client)
+							switch(H.client.prefs.nanotrasen_relation)
+								if(COMPANY_LOYAL)
+									message = "White. Commendation for loyalty recommended."
+								if(COMPANY_SUPPORTATIVE)
+									message = "Cyan-blue. No further action recommended."
+								if(COMPANY_NEUTRAL)
+									message = "Forest-green. Recommend incentivizing improvement."
+								if(COMPANY_SKEPTICAL)
+									message = "Red-yellow. Affairs counseling recommended."
+								if(COMPANY_OPPOSED)
+									message = "Black. Employment review recommended."
+
+						visible_message("<span class='warning'>\icon[lawgiver] [lawgiver] states: <b>\"[A.name]'s loyalty hue reads: \'[message]\'</b>.</span>")
+						playsound(src.loc, 'sound/machines/warning-buzzer.ogg', 100, 1)
+	..()

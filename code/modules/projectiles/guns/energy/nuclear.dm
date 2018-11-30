@@ -12,6 +12,7 @@
 	secondary_fire_sound = 'sound/weapons/Laser.ogg'
 	can_switch_modes = 1
 	turret_is_lethal = 0
+	pin = /obj/item/device/firing_pin/blacklist
 
 	projectile_type = /obj/item/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
@@ -131,6 +132,7 @@
 	can_switch_modes = 1
 	turret_sprite_set = "carbine"
 	turret_is_lethal = 0
+	pin = /obj/item/device/firing_pin/blacklist
 
 	projectile_type = /obj/item/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)

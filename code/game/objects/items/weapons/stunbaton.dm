@@ -86,6 +86,14 @@
 	return
 
 /obj/item/weapon/melee/baton/attack_self(mob/user)
+	add_fingerprint(user)
+
+	if(!isrobot(user) && status == 0 && !sheathed)
+		var/obj/item/weapon/card/id/id = user.GetIdCard()
+		if(!id || (id.blacklist & NO_WEAPONS))
+			user << "<span class='warning'>USER BLACKLISTED.</span>"
+			return
+
 	if(bcell && bcell.charge > hitcost)
 		status = !status
 		user << "<span class='notice'>[src] is now [status ? "on" : "off"].</span>"
@@ -97,17 +105,21 @@
 			user << "<span class='warning'>[src] does not have a power source!</span>"
 		else
 			user << "<span class='warning'>[src] is out of charge.</span>"
-	add_fingerprint(user)
 
 /obj/item/weapon/melee/baton/attack(mob/M, mob/user, var/hit_zone)
+	if(isrobot(M))
+		..()
+		return
+
+	var/obj/item/weapon/card/id/id = user.GetIdCard()
+	if(!id || (id.blacklist & NO_WEAPONS))
+		user << "<span class='warning'>USER BLACKLISTED.</span>"
+		return
+
 	if(status && (CLUMSY in user.mutations) && prob(50))
 		user << "<span class='danger'>You accidentally hit yourself with the [src]!</span>"
 		user.Weaken(30)
 		deductcharge(hitcost)
-		return
-
-	if(isrobot(M))
-		..()
 		return
 
 	var/agony = agonyforce

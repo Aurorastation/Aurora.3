@@ -115,6 +115,7 @@ var/const/NO_EMAG_ACT = -50
 	var/icon/front
 	var/icon/side
 	var/mining_points //miners gotta eat
+	var/blacklist = 0 //blacklisted from specifics, currently only sec weapons. unrelated to access.
 
 	//alt titles are handled a bit weirdly in order to unobtrusively integrate into existing ID system
 	var/assignment = null	//can be alt title or the actual job

@@ -16,6 +16,7 @@
 	can_switch_modes = 1
 	turret_sprite_set = "carbine"
 	turret_is_lethal = 0
+	pin = /obj/item/device/firing_pin/blacklist
 
 	fire_delay_wielded = 1
 	accuracy_wielded = 2
@@ -62,6 +63,7 @@
 	can_switch_modes = 0
 	turret_sprite_set = "laser"
 	turret_is_lethal = 1
+	pin = /obj/item/device/firing_pin/blacklist
 
 	firemodes = list()
 	modifystate = null
