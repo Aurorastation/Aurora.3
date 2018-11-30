@@ -34,4 +34,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "NT weapons division is proud to announce the release of new The NT Mk70 EW Halicon ion rifle. Compared to the predecessor Mk60, new MK70 now has two firing modes: stun and lethal. Unfortunately due to new module that allows to regulate the intensity of EMP pulse, lethal mode draws more power than stun mode. NT representatives suggest security try and use stun mode on IPCs and avoid using lethal force unless absolutely necessary."
+  - rscadd: "Ion rifle now has two firing modes: stun and lethal."
