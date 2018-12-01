@@ -22,7 +22,7 @@
 	heard = (message) ? (TRUE) : (FALSE)
 
 datum/unit_test/mob_hear
-	name = "MOB: Template for mob hearing"
+	name = "MOB: Living mobs test for mob's speech"
 	var/mob_type = /mob/living/test
 
 
