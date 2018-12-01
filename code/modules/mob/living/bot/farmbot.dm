@@ -187,7 +187,7 @@
 			if(0)
 				return
 			if(FARMBOT_COLLECT)
-				action = "water" // Needs a better one
+				action = "collect"
 				update_icons()
 				visible_message("<span class='notice'>[src] starts [T.dead? "removing the plant from" : "harvesting"] \the [A].</span>")
 				attacking = 1
@@ -211,6 +211,7 @@
 				if(do_after(src, 30))
 					visible_message("<span class='notice'>[src] uproots the weeds in \the [A].</span>")
 					T.weedlevel = 0
+					T.update_icon()
 			if(FARMBOT_NUTRIMENT)
 				action = "fertile"
 				update_icons()
@@ -288,7 +289,7 @@
 	else if(refills_water && tray.waterlevel < 40 && !tray.reagents.has_reagent("water"))
 		return FARMBOT_WATER
 
-	else if(uproots_weeds && tray.weedlevel > 3)
+	else if(uproots_weeds && tray.weedlevel >= 5)
 		return FARMBOT_UPROOT
 
 	else if(replaces_nutriment && tray.nutrilevel < 1 && tray.reagents.total_volume < 1)
