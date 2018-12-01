@@ -15,7 +15,59 @@
 // Tests Life() and mob breathing in space.
 //
 
+/mob/living/test
+	var/heard = FALSE
 
+/mob/living/test/on_hear_say(var/message)
+	heard = (message) ? (TRUE) : (FALSE)
+
+datum/unit_test/mob_hear
+	name = "MOB: Template for mob hearing"
+	var/mob_type = /mob/living/test
+
+
+datum/unit_test/mob_hear/start_test()
+	var/list/test_speaker = create_test_mob_with_mind(null, mob_type)
+	var/list/test_listener = create_test_mob_with_mind(null, mob_type)
+
+	if(isnull(test_speaker) || isnull(test_listener))
+		fail("Check Runtimed in Mob creation")
+		return 0
+
+	if(test_speaker["result"] == FAILURE )
+		fail(test_speaker["msg"])
+		return 0
+	else if(test_listener ["result"] == FAILURE)
+		fail(test_listener["msg"])
+		return 0
+
+	var/mob/living/test/test_speaker_mob = locate(test_speaker["mobref"])
+	var/mob/living/test/test_listener_mob = locate(test_listener["mobref"])
+
+	if(isnull(test_speaker_mob) || isnull(test_listener_mob))
+		fail("Test unable to set test mob from reference")
+		return 0
+
+	if(test_speaker_mob.stat)
+		fail("Test needs to be re-written, mob has a stat = [test_speaker_mob.stat]")
+		return 0
+	else if(test_listener_mob.stat)
+		fail("Test needs to be re-written, mob has a stat = [test_speaker_mob.stat]")
+		return 0
+
+	if(test_speaker_mob.sleeping || test_listener_mob.sleeping)
+		fail("Test needs to be re-written, mob is sleeping for some unknown reason")
+		return 0
+
+	var/message = "Test, can you hear me?"
+	var/said = test_speaker_mob.say(message)
+
+	if(said && test_listener_mob.heard)
+		pass("speech test complete, speaker said \"[message]\" and listener received it.")
+	else if(said)
+		fail("speaker said the words, but listener did not hear it. message was \"[message]\"")
+	else
+		fail("speaker did not say the words \"[message]\"")
 
 datum/unit_test/human_breath
 	name = "MOB: Human Suffocates in Space"
@@ -70,13 +122,13 @@ proc/create_test_mob_with_mind(var/turf/mobloc = null, var/mobtype = /mob/living
 		test_result["msg"] = "Unable to find a location to create test mob"
 		return test_result
 
-	var/mob/living/carbon/human/H = new mobtype(mobloc)
+	var/mob/living/L = new mobtype(mobloc)
 
-	H.mind_initialize("TestKey[rand(0,10000)]")
+	L.mind_initialize("TestKey[rand(0,10000)]")
 
 	test_result["result"] = SUCCESS
 	test_result["msg"] = "Mob created"
-	test_result["mobref"] = "\ref[H]"
+	test_result["mobref"] = "\ref[L]"
 
 	return test_result
 
