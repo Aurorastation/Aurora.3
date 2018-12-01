@@ -18,7 +18,7 @@
 		H.Weaken(5)
 		to_chat(H, "<span class='danger'>ERROR: detected low setting EMP, acutators experience temporary power loss. Attempting to restore power.</span>")
 	else
-		empulse(A, pulse_range - 1, pulse_range - 1)
+		A.emp_act(2) // Deals less EMP damage then lethal setting, and not areal pulse
 	return 1
 
 /obj/item/projectile/ion/small
