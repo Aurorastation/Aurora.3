@@ -36,3 +36,4 @@ delete-after: True
 changes:
   - imageadd: "Farmbot now have their own harvest animation."
   - bugfix: "Farmbots now only have one water and use it(they had two because of stupid old code)."
+  - bugfix: "Merchant now can buy Ultra AC 2 and LBX AC 10 scatterbox instead of generic mech weapon(which doesn't exist)"
