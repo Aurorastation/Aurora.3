@@ -1968,7 +1968,7 @@
 	name = "Hooch"
 	id = "hooch"
 	result = "hooch"
-	required_reagents = list ("sugar" = 1, "ethanol" = 2, "fuel" = 1)
+	required_reagents = list ("sugar" = 1, "moonshine" = 1, "fuel" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/irish_coffee
@@ -2604,7 +2604,7 @@
 
 /datum/chemical_reaction/cherrytreefireball
 	name = "Cherry Tree Fireball"
-	id = "cherrytreefirebal		l"
+	id = "cherrytreefireball"
 	result = "cherrytreefireball"
 	required_reagents = list("lemonade" = 3, "fireball" = 1, "cherryjelly" = 1, "ice" = 1)
 	result_amount = 6
