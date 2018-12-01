@@ -192,7 +192,6 @@
 
 /obj/item/weapon/material/twohanded/fireaxe/afterattack(atom/A, mob/user, proximity)
 	if(!proximity) return
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN * 2.5)
 	..()
 	if(A && wielded)
 		if(istype(A,/obj/structure/window))
@@ -205,6 +204,7 @@
 			P.die_off()
 
 /obj/item/weapon/material/twohanded/fireaxe/pre_attack(var/mob/living/target, var/mob/living/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN * 2.5)
 	if(istype(target))
 		cleave(user, target)
 	..()
