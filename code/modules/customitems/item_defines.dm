@@ -2389,7 +2389,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/weapon/material/kitchen/utensil/fork/fluff/vedai_fork //Stainless Steel Fork - Vedai’Kwia Xizal - conspiir
+/obj/item/weapon/material/kitchen/utensil/fork/fluff/vedai_fork //Stainless Steel Fork - Vedai'Kwia Xizal - conspiir
 	desc = "A stainless steel fork. The word \"Kwia\" is engraved on the back of the handle."
 	icon = 'icons/obj/custom_items/vedai_fork.dmi'
 	icon_state = "vedai_fork"
