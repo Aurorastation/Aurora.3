@@ -554,7 +554,7 @@
 		message_admins("<span class='notice'>[key_name_admin(usr)] set the mode as [master_mode].</span>", 1)
 		world << "<span class='notice'><b>The mode is now: [master_mode]</b></span>"
 		Game() // updates the main game menu
-		SSpersist_config = master_mode
+		SSpersist_config.last_gamemode = master_mode
 		.(href, list("c_mode"=1))
 
 	else if(href_list["f_secret2"])

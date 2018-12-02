@@ -3460,7 +3460,7 @@
 	description = "An alcoholic tajaran cocktail, named after a less than successful military campaign."
 	color = "#664300"
 	strength = 15
-	taste_description = "cold oily gin"
+	taste_description = "oily gin"
 	targ_temp = 270
 
 	glass_icon_state = "winter_offensive"
