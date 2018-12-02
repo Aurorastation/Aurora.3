@@ -2408,7 +2408,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = 2
 
 
-/obj/item/weapon/spirit_board/fluff/klavdiya_board	//Ghostly Board - Klavdiya Tikhomirov - alberyk
+/obj/item/weapon/spirit_board/fluff/klavdiya_board //Ghostly Board - Klavdiya Tikhomirov - alberyk
 	name = "ghostly board"
 	desc = "An adhomian ghostly board, used in divination rituals. This one is blue and has the symbol of a moon on it."
 	icon = 'icons/obj/custom_items/klavdiya_amulet.dmi'
