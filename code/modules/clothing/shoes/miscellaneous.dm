@@ -164,3 +164,8 @@
 	name = "high heels"
 	desc = "A pair of high-heeled shoes. Fancy!"
 	icon_state = "heels"
+
+/obj/item/clothing/shoes/golden_shoes
+	name = "gold shoes"
+	desc = "Like its jumpsuit companion, these fancy golden boots are simply boots. However, they go great with the rest of the outfit, and are quite comfortable."
+	icon_state = "goldtron_shoes"

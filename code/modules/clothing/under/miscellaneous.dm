@@ -697,3 +697,10 @@
 /obj/item/clothing/under/medical_gown/white
 	icon_state = "whitemedicalgown"
 	worn_state = "whitemedicalgown"
+
+/obj/item/clothing/under/golden_suit
+	name = "gold suit"
+	desc = "A tight jumpsuit, seemingly intended for a thinner chassis. Though it has no extra features, it looks <i>quite</i> luxurious."
+	icon_state = "goldtron"
+	item_state = "goldtron"
+	worn_state = "goldtron"
