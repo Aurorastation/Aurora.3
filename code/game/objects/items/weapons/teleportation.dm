@@ -149,28 +149,10 @@ Frequency:
 			else
 				L["[com.id] (Inactive)"] = com.locked
 	var/list/turfs = list(	)
-
 	for(var/turf/T in orange(10))
-		if(T.x>world.maxx-8 || T.x<8)
-			continue	//putting them at the edge is dumb
-
-		if(T.y>world.maxy-8 || T.y<8)
-			continue
-
-		if(T.density)
-			continue
-
-		var/breakcheck = 0
-		for(var/atom/movable/A in T)
-			if(A.density && A.opacity && A.anchored)
-				breakcheck = 1
-				break
-
-		if(breakcheck)
-			continue
-
+		if(T.x>world.maxx-8 || T.x<8)	continue	//putting them at the edge is dumb
+		if(T.y>world.maxy-8 || T.y<8)	continue
 		turfs += T
-
 	if(turfs.len)
 		L["None (Dangerous)"] = pick(turfs)
 	var/t1 = input(user, "Please select a teleporter to lock in on.", "Hand Teleporter") in L
