@@ -766,10 +766,12 @@ var/list/admin_verbs_cciaa = list(
 	set desc = "Toggle Air Processing"
 	if(!SSair.can_fire)
 		SSair.enable()
-		usr << "<b>Enabled air processing.</b>"
+		to_chat(usr, "<b>Enabled air processing.</b>")
 	else
+		if(alert("Confirm disabling air processing?",,"Yes","No") == "No")
+			return
 		SSair.disable()
-		usr << "<b>Disabled air processing.</b>"
+		to_chat(usr, "<b>Disabled air processing.</b>")
 	feedback_add_details("admin_verb","KA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(usr)] used 'kill air'.",admin_key=key_name(usr))
 	message_admins("<span class='notice'>[key_name_admin(usr)] used 'kill air'.</span>", 1)
