@@ -699,8 +699,22 @@
 	worn_state = "whitemedicalgown"
 
 /obj/item/clothing/under/golden_suit
-	name = "gold suit"
-	desc = "A tight jumpsuit, seemingly intended for a thinner chassis. Though it has no extra features, it looks <i>quite</i> luxurious."
-	icon_state = "goldtron"
-	item_state = "goldtron"
-	worn_state = "goldtron"
+	name = "cobalt gold suit"
+	desc = "A tight jumpsuit decorated with cobalt, seemingly intended for a thinner chassis. Though it has no extra features, it looks <i>quite</i> luxurious."
+	icon_state = "goldsuit_cobalt"
+	item_state = "goldsuit_cobalt"
+	worn_state = "goldsuit_cobalt"
+
+/obj/item/clothing/under/golden_suit/emerald
+	name = "emerald gold suit"
+	desc = "A tight jumpsuit decorated with emerald, seemingly intended for a thinner chassis. Though it has no extra features, it looks <i>quite</i> luxurious."
+	icon_state = "goldsuit_emerald"
+	item_state = "goldsuit_emerald"
+	worn_state = "goldsuit_emerald"
+
+/obj/item/clothing/under/golden_suit/ruby
+	name = "ruby gold suit"
+	desc = "A tight jumpsuit decorated with ruby, seemingly intended for a thinner chassis. Though it has no extra features, it looks <i>quite</i> luxurious."
+	icon_state = "goldsuit_ruby"
+	item_state = "goldsuit_ruby"
+	worn_state = "goldsuit_ruby"

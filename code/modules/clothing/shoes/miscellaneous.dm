@@ -165,7 +165,17 @@
 	desc = "A pair of high-heeled shoes. Fancy!"
 	icon_state = "heels"
 
-/obj/item/clothing/shoes/golden_shoes
-	name = "gold shoes"
-	desc = "Like its jumpsuit companion, these fancy golden boots are simply boots. However, they go great with the rest of the outfit, and are quite comfortable."
-	icon_state = "goldtron_shoes"
+/obj/item/clothing/shoes/goldshoes
+	name = "cobalt gold shoes"
+	desc = "Like its jumpsuit companion, these fancy golden and cobalt boots are simply boots. However, they go great with the rest of the outfit."
+	icon_state = "goldsuit_shoes_cobalt"
+
+/obj/item/clothing/shoes/goldshoes/emerald
+	name = "emerald gold shoes"
+	desc = "Like its jumpsuit companion, these fancy golden and emerald boots are simply boots. However, they go great with the rest of the outfit."
+	icon_state = "goldsuit_shoes_emerald"
+
+/obj/item/clothing/shoes/goldshoes/ruby
+	name = "ruby gold shoes"
+	desc = "Like its jumpsuit companion, these fancy golden and ruby boots are simply boots. However, they go great with the rest of the outfit."
+	icon_state = "goldsuit_shoes_ruby"
