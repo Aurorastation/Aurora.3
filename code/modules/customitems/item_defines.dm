@@ -1009,6 +1009,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "flaming_poncho"
 	item_state = "flaming_poncho"
 	contained_sprite = TRUE
+	icon_override = FALSE
 
 
 /obj/item/clothing/accessory/badge/fluff/jane_badge //Tarnished Badge - Jane Pyre - somethingvile
@@ -1851,6 +1852,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "make_poncho"
 	item_state = "make_poncho"
 	contained_sprite = TRUE
+	icon_override = FALSE
 
 
 /obj/item/clothing/under/fluff/aegis_uniform //Hephaestus Experimental Projector - Sovereign Aegis - itanimulli
