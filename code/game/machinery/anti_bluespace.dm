@@ -48,15 +48,33 @@
 	anchored = 0
 	update_icon()
 
+/obj/machinery/anti_bluespace/attack_hand(mob/user as mob)
+	if(iscarbon(user)) //Carbons are big enough to damage this.
+		if(user.a_intent == I_HURT)
+			visible_message(span("warning","\The [user] hits \the [src]!"))
+		else
+			visible_message(span("notice","\The [user] [pick("touches","pokes","prods")] \the [src]."))
+			if(prob(66))
+				return
+
+		do_break()
+	else
+		. = ..()
+
 /obj/machinery/anti_bluespace/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(user.a_intent == I_HURT)
-		visible_message(span("notice","\The [user] touches \the [src] with \the [W]."))
-	else
 		visible_message(span("warning","\The [user] hits \the [src] with \the [W]!"))
+	else
+		visible_message(span("notice","\The [user] [pick("touches","pokes","prods")] \the [src] with \the [W]."))
+		if(prob(66))
+			return
 
 	do_break()
 
-/obj/machinery/anti_bluespace/bullet_act(severity)
+/obj/machinery/anti_bluespace/bullet_act(var/obj/item/projectile/Proj)
+	if(!(Proj.damage_type == BRUTE || Proj.damage_type == BURN))
+		return
+
 	do_break()
 
 /obj/machinery/anti_bluespace/ex_act(severity)
