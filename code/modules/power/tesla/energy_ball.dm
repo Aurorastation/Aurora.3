@@ -19,6 +19,7 @@
 	dissipate_strength = 1
 	layer = LIGHTING_LAYER + 0.1
 	blend_mode = BLEND_ADD
+	var/failed_direction = 0
 	var/list/orbiting_balls = list()
 	var/produced_power
 	var/energy_to_raise = 32
@@ -42,7 +43,7 @@
 	if(!orbiting)
 		handle_energy()
 
-		move_the_basket_ball(4 + orbiting_balls.len * 1.5)
+		move_the_basket_ball(rand(1,4 + orbiting_balls.len * 1.5))
 
 		playsound(src.loc, 'sound/magic/lightningbolt.ogg', 100, 1, extrarange = 30)
 
@@ -64,23 +65,82 @@
 /obj/singularity/energy_ball/examine(mob/user)
 	..()
 	if(orbiting_balls.len)
-		user << "The amount of orbiting mini-balls is [orbiting_balls.len]."
+		user << "There are [orbiting_balls.len] energy balls orbiting \the [src]."
 
 
 /obj/singularity/energy_ball/proc/move_the_basket_ball(var/move_amount)
-	//we face the last thing we zapped, so this lets us favor that direction a bit
-	var/first_move = dir
-	for(var/i in 0 to move_amount)
-		var/move_dir = pick(alldirs + first_move) //give the first move direction a bit of favoring.
-		if(target && prob(60))
-			move_dir = get_dir(src,target)
-		var/turf/T = get_step(src, move_dir)
-		if(can_move(T))
-			forceMove(T)
-			dir = move_dir
-			for(var/mob/living/carbon/C in loc)
-				dust_mobs(C)
 
+	var/list/valid_directions = alldirs.Copy()
+
+	var/can_zmove = !(locate(/obj/machinery/containment_field) in view(12,src))
+	if(can_zmove && prob(10))
+		valid_directions.Add(UP)
+		valid_directions.Add(DOWN)
+
+	valid_directions.Remove(failed_direction)
+
+	var/move_dir = 0
+	if(target && prob(75))
+		move_dir = get_dir(src,target)
+	else
+		valid_directions.Remove(dir)
+		move_dir = (prob(50) && (dir != failed_direction)) ? dir : pick(valid_directions)
+
+	if(move_dir & (UP | DOWN) )
+		move_amount = 0
+
+	for(var/i in 0 to move_amount)
+		do_single_move(move_dir)
+
+/obj/singularity/energy_ball/proc/do_single_move(var/move_dir)
+	var/z_move = 0
+	var/turf/T
+	switch(move_dir)
+		if(UP)
+			T = GetAbove(src)
+			z_move = 1
+		if(DOWN)
+			T = GetBelow(src)
+			z_move = -1
+		else
+			T = get_step(src, move_dir)
+
+	if(can_move(T) && can_dunk(get_turf(src),T,move_dir))
+		switch(z_move)
+			if(1)
+				visible_message(span("danger","\The [src] gravitates upwards!"))
+				forceMove(T)
+				visible_message(span("danger","\The [src] gravitates from below!"))
+			if(0)
+				forceMove(T)
+			if(-1)
+				visible_message(span("danger","\The [src] gravitates downwards!"))
+				forceMove(T)
+				visible_message(span("danger","\The [src] gravitates from above!"))
+
+		if(dir in alldirs)
+			dir = move_dir
+		else
+			dir = pick(alldirs)
+
+		for(var/mob/living/carbon/C in loc)
+			dust_mobs(C)
+		failed_direction = 0
+	else
+		failed_direction = move_dir
+
+/obj/singularity/energy_ball/proc/can_dunk(var/turf/old_turf,var/turf/new_turf,var/move_direction)
+
+	if(istype(new_turf,/turf/simulated/wall/r_wall))
+		return FALSE
+
+	if(istype(old_turf,/turf/simulated/floor/reinforced) && (move_direction & DOWN))
+		return FALSE
+
+	if(istype(new_turf,/turf/simulated/floor/reinforced) && (move_direction & UP))
+		return FALSE
+
+	return TRUE
 
 /obj/singularity/energy_ball/proc/handle_energy()
 	if(energy >= energy_to_raise)
