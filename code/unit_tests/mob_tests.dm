@@ -19,7 +19,9 @@
 	var/heard = FALSE
 
 /mob/living/test/on_hear_say(var/message)
-	heard = (message) ? (TRUE) : (FALSE)
+	..()
+	heard = (!isnull(message)) ? (TRUE) : (FALSE)
+	return
 
 datum/unit_test/mob_hear
 	name = "MOB: Living mobs test for mob's speech"
@@ -65,7 +67,7 @@ datum/unit_test/mob_hear/start_test()
 	if(said && test_listener_mob.heard)
 		pass("speech test complete, speaker said \"[message]\" and listener received it.")
 	else if(said)
-		fail("speaker said the words, but listener did not hear it. message was \"[message]\"")
+		fail("speaker said the words, but listener did not hear it. The message was \"[message]\"")
 	else
 		fail("speaker did not say the words \"[message]\"")
 

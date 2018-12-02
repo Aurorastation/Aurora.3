@@ -50,6 +50,7 @@
 #include "code\__defines\tgs.dm"
 #include "code\__defines\time.dm"
 #include "code\__defines\turfs.dm"
+#include "code\__defines\unit_testing.dm"
 #include "code\__defines\vueui.dm"
 #include "code\__defines\webhook.dm"
 #include "code\__defines\ZAS.dm"
