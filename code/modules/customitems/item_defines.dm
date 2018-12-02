@@ -2396,8 +2396,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "vedai_fork"
 	applies_material_colour = FALSE
 
-/obj/item/weapon/material/kitchen/utensil/fork/fluff/vedai_fork/Initialize()
-	. = ..()
+/obj/item/weapon/material/kitchen/utensil/fork/fluff/vedai_fork/set_material(var/new_material)
+	..()
 	name = "stainless [material.display_name] [initial(name)]"
 
 
@@ -2413,7 +2413,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "ghostly board"
 	desc = "An adhomian ghostly board, used in divination rituals. This one is blue and has the symbol of a moon on it."
 	icon = 'icons/obj/custom_items/klavdiya_amulet.dmi'
-	icon_state = "klavdiya_board"
+	icon_state = "klavdiya_board" //thanks to kyres1 for the sprites
 
 
 /obj/item/clothing/suit/storage/fluff/diamond_jacket //Clawed Arm & Jacket - Diamond with Flaw - burgerb
