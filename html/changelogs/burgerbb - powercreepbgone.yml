@@ -34,6 +34,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Added bluespace inhibitors, unique powered destructible machines that scramble bluespace outgoing and incoming signals in an 8 radius range. They can only be found in the vault, the armory, and the AI core. This affects features that involve bluespace, including wizard (not jaunt!) and ninja teleport."
+  - rscadd: "Added bluespace inhibitors, unique powered incredible fragile (destructible) machines that scramble bluespace outgoing and incoming signals in an 8 radius range. They can only be found in the vault, the armory, and the AI core. This affects features that involve bluespace, including wizard (not jaunt!) and ninja teleport."
+  - balance: "EMPing a bluespace inhibitor can have some fun effects."
   - balance: "Wizards can no longer randomly teleport on openspace tiles."
 
