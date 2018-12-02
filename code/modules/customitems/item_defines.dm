@@ -2415,7 +2415,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "klavdiya_board" //thanks to kyres1 for the sprites
 
 
-/obj/item/clothing/suit/storage/fluff/diamond_jacket //Clawed Arm & Jacket - Diamond with Flaw - burgerb
+/obj/item/clothing/suit/storage/fluff/diamond_jacket //Clawed Arm & Jacket - Diamond with Flaw - burgerbb
 	name = "torn chemistry jacket"
 	desc = "The entire left side of this perfectly good jacket was torn to shreds."
 	icon = 'icons/obj/custom_items/diamond_cloak.dmi'
