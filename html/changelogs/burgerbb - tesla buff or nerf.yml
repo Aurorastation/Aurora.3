@@ -35,4 +35,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - rscadd: "The Tesla can now go up and down z-levels if there isn't an containment in range."
-  - rscadd: "The Tesla can not phase throw reinforced floors or reinforced walls.
+  - rscadd: "The Tesla can not phase throw reinforced floors or reinforced walls."
