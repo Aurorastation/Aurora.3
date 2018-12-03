@@ -1517,7 +1517,7 @@
 	name = "Soap Key"
 	id = "skey"
 	result = null
-	required_reagents = list("frostoil" = 2, "cleaner" = 5)
+	required_reagents = list("triglyceride" = 2, "water" = 2, "cleaner" = 3)
 	var/strength = 3
 
 /datum/chemical_reaction/soap_key/can_happen(var/datum/reagents/holder)

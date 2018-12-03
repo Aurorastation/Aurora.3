@@ -21,9 +21,7 @@
 
 /obj/item/weapon/key/soap/get_data(var/mob/user)
 	uses--
-	if(uses == 1)
-		to_chat(user, "<span class='warning'>\The [src] is going to break soon!</span>")
-	else if(uses <= 0)
+	if(uses <= 0)
 		user.drop_from_inventory(src,user)
 		to_chat(user, "<span class='warning'>\The [src] crumbles in your hands!</span>")
 		qdel(src)
