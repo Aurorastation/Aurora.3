@@ -176,13 +176,13 @@
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/security
 	allowed_roles = list("Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet")
 
-/datum/gear/suit/blue_lawyer_jacket
-	display_name = "suit jacket, blue"
-	path = /obj/item/clothing/suit/storage/toggle/lawyer/bluejacket
+/datum/gear/suit/suitjacket
+	display_name = "suit jacket"
+	path = /obj/item/clothing/suit/storage/toggle/suitjacket
 
-/datum/gear/suit/purple_lawyer_jacket
-	display_name = "suit jacket, purple"
-	path = /obj/item/clothing/suit/storage/lawyer/purpjacket
+/datum/gear/suit/suitjacket/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
 
 /datum/gear/suit/trenchcoat
 	display_name = "trenchcoat, brown"
