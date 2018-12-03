@@ -6664,7 +6664,7 @@
 	name = "Weaponry (Ion Rifle)";
 	req_access = list(3)
 	},
-/obj/item/weapon/gun/energy/ionrifle,
+/obj/item/weapon/gun/energy/rifle/ionrifle,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "amR" = (
