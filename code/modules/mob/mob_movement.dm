@@ -398,6 +398,12 @@
 			anim(mobloc,mob,'icons/mob/mob.dmi',,"shadow",,mob.dir)
 			mob.forceMove(get_step(mob, direct))
 			mob.dir = direct
+
+		if(3)
+			move_delay += mob.movement_delay() + config.walk_speed
+			anim(mobloc,mob,'icons/obj/projectiles.dmi',,"ice_1",,mob.dir)
+			mob.forceMove(get_step(mob, direct))
+			mob.dir = direct
 	// Crossed is always a bit iffy
 	for(var/obj/S in mob.loc)
 		if(istype(S,/obj/effect/step_trigger) || istype(S,/obj/effect/beam))
