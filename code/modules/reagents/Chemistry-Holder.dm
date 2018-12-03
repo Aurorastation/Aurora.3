@@ -124,8 +124,7 @@
 	for(var/datum/chemical_reaction/C in effect_reactions)
 		C.post_reaction(src)
 
-	equalize_temperature()
-	update_holder(FALSE)
+	update_holder(equalize_temperature()) //If the thermal energy of the reagents is different after a reaction, then run process_reactions again.
 	return reaction_occured
 
 /* Holder-to-chemical */
@@ -135,19 +134,20 @@
 		return 0
 
 	update_total() //Does this need to be here? It's called in update_holder.
+	var/old_amount = amount
 	amount = min(amount, get_free_space())
 
-	for(var/datum/reagent/current in reagent_list)
-		if(current.id == id) //Existing reagent
-			current.volume += amount
-			if(thermal_energy > 0)
-				current.add_thermal_energy(thermal_energy)
+	for(var/datum/reagent/R in reagent_list)
+		if(R.id == id) //Existing reagent
+			R.volume += amount
+			if(thermal_energy > 0 && old_amount > 0)
+				R.add_thermal_energy(thermal_energy * (amount/old_amount) )
 			else
 				if(temperature <= 0)
-					temperature = current.default_temperature
-				current.add_thermal_energy(temperature * current.specific_heat * amount)
+					temperature = R.default_temperature
+				R.set_temperature(temperature)
 			if(!isnull(data)) // For all we know, it could be zero or empty string and meaningful
-				current.mix_data(data, amount)
+				R.mix_data(data, amount)
 			update_holder(!safety)
 			return 1
 
@@ -158,8 +158,9 @@
 		R.holder = src
 		R.volume = amount
 		R.specific_heat = SSchemistry.check_specific_heat(R)
-		if(thermal_energy > 0)
-			R.thermal_energy = thermal_energy
+		R.thermal_energy = 0
+		if(thermal_energy > 0 && old_amount > 0)
+			R.add_thermal_energy(thermal_energy * (amount/old_amount) )
 		else
 			if(temperature <= 0)
 				temperature = R.default_temperature
@@ -174,10 +175,12 @@
 /datum/reagents/proc/remove_reagent(var/id, var/amount, var/safety = 0)
 	if(!isnum(amount))
 		return 0
+
 	for(var/datum/reagent/current in reagent_list)
 		if(current.id == id)
+			amount = min(amount,current.volume)
 			var/old_volume = current.volume
-			current.volume -= amount // It can go negative, but it doesn't matter
+			current.volume -= amount
 			current.add_thermal_energy( -(current.thermal_energy * (amount/old_volume)) )
 			update_holder(!safety)
 			return 1
@@ -186,6 +189,8 @@
 /datum/reagents/proc/del_reagent(var/id)
 	for(var/datum/reagent/current in reagent_list)
 		if (current.id == id)
+			if(ismob(my_atom))
+				current.final_effect(my_atom)
 			reagent_list -= current
 			qdel(current)
 			update_holder(FALSE)
@@ -275,15 +280,15 @@
 
 	for(var/datum/reagent/current in reagent_list)
 		var/amount_to_transfer = current.volume * part
-		var/energy_to_transfer = amount_to_transfer * current.get_thermal_energy_per_unit()
-		target.add_reagent(current.id, amount_to_transfer * multiplier, current.get_data(), 1, thermal_energy = energy_to_transfer * multiplier) // We don't react until everything is in place
+		var/energy_to_transfer = current.get_thermal_energy() * (amount_to_transfer / current.volume)
+		target.add_reagent(current.id, amount_to_transfer * multiplier, current.get_data(), TRUE, thermal_energy = energy_to_transfer * multiplier) // We don't react until everything is in place
 		if(!copy)
-			remove_reagent(current.id, amount_to_transfer, 1)
+			remove_reagent(current.id, amount_to_transfer, TRUE)
 
 	if(!copy)
-		handle_reactions()
+		update_holder()
 
-	target.handle_reactions()
+	target.update_holder()
 
 	return amount
 
