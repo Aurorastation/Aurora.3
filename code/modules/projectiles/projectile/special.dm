@@ -47,6 +47,8 @@
 				return
 			else
 				to_chat(src, "<span class='notice'>Warning: Power surge detected, source - EMP. Surge prevention module is depleted and requires replacement</span>")
+		else
+			R.emp_act(3) // Deals less EMP damage then lethal setting, and not areal pulse
 	else
 		A.emp_act(3) // Deals less EMP damage then lethal setting, and not areal pulse
 	return 1
