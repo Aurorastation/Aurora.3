@@ -1,6 +1,6 @@
-/obj/item/weapon/gun/energy/ionrifle
+/obj/item/weapon/gun/energy/rifle/ionrifle
 	name = "ion rifle"
-	desc = "The NT Mk70 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT."
+	desc = "The NT Mk70 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT. Has two settings: stun and kill"
 	icon_state = "ionriflestun100"
 	item_state = null // so the human update icon uses the icon_state instead.
 	modifystate = "ionriflestun"
@@ -25,10 +25,10 @@
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/ion, modifystate="ionriflekill", fire_sound='sound/weapons/Laser.ogg', charge_cost = 450)
 		)
 
-/obj/item/weapon/gun/energy/ionrifle/emp_act(severity)
+/obj/item/weapon/gun/energy/rifle/ionrifle/emp_act(severity)
 	..(max(severity, 2)) //so it doesn't EMP itself, I guess
 
-/obj/item/weapon/gun/energy/ionrifle/mounted
+/obj/item/weapon/gun/energy/rifle/ionrifle/mounted
 	name = "mounted ion rifle"
 	self_recharge = 1
 	use_external_power = 1
