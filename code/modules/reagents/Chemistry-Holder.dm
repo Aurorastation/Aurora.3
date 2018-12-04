@@ -98,7 +98,6 @@
 //returns 1 if the holder should continue reactiong, 0 otherwise.
 /datum/reagents/proc/process_reactions()
 	if(!my_atom || !my_atom.loc || my_atom.flags & NOREACT)
-		equalize_temperature()
 		return 0
 
 	var/reaction_occured
