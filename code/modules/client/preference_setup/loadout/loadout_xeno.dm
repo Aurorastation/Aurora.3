@@ -402,36 +402,6 @@
 	bracers["arm chains, ruby"] = /obj/item/clothing/gloves/goldbracer/ruby
 	gear_tweaks += new/datum/gear_tweak/path(bracers)
 
-/datum/gear/under/goldtron
-	display_name = "golden deep jumpsuit"
-	path = /obj/item/clothing/under/golden_suit
-	cost = 1
-	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
-	sort_category = "Xenowear"
-
-/datum/gear/under/goldtron/New()
-	..()
-	var/goldsuit = list()
-	goldsuit["golden deep suit, cobalt"] = /obj/item/clothing/under/golden_suit
-	goldsuit["golden deep suit, emerald"] = /obj/item/clothing/under/golden_suit/emerald
-	goldsuit["golden deep suit, ruby"] = /obj/item/clothing/under/golden_suit/ruby
-	gear_tweaks += new/datum/gear_tweak/path(goldsuit)
-
-/datum/gear/shoes/goldtron_shoes
-	display_name = "golden deep boots"
-	path = /obj/item/clothing/shoes/goldshoes
-	cost = 1
-	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
-	sort_category = "Xenowear"
-
-/datum/gear/under/goldtron_shoes/New()
-	..()
-	var/goldshoes = list()
-	goldshoes["golden deep shoes, cobalt"] = /obj/item/clothing/shoes/goldshoes
-	goldshoes["golden deep shoes, emerald"] = /obj/item/clothing/shoes/goldshoes/emerald
-	goldshoes["golden deep shoes, ruby"] = /obj/item/clothing/shoes/goldshoes/ruby
-	gear_tweaks += new/datum/gear_tweak/path(goldshoes)
-
 /datum/gear/ears/antennae
 	display_name = "antennae (Machine)"
 	path = /obj/item/clothing/head/antenna
