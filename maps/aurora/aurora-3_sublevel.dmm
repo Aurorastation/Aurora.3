@@ -7850,26 +7850,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/cells/charlie)
-"aoE" = (
-/obj/machinery/button/remote/blast_door{
-	desc = "A remote control-switch for shutters.";
-	id = "virologyquar";
-	name = "Virology Emergency Lockdown Control";
-	pixel_x = -25;
-	pixel_y = -5;
-	req_access = list(40)
-	},
-/obj/effect/floor_decal/corner/lime/full,
-/obj/machinery/alarm{
-	dir = 1;
-	icon_state = "alarm0";
-	pixel_y = -22
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
 "aoF" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -60197,7 +60177,7 @@ aaa
 aaa
 aaa
 aaa
-aoE
+aaa
 aaa
 aaa
 aaa

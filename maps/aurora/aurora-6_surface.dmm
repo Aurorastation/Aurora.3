@@ -5715,12 +5715,6 @@
 	},
 /area/security/checkpoint2)
 "kn" = (
-/obj/machinery/requests_console{
-	department = "Security";
-	departmentType = 5;
-	pixel_x = 30;
-	pixel_y = 0
-	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
@@ -5730,6 +5724,7 @@
 	pixel_y = 7
 	},
 /obj/item/weapon/pen,
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "ko" = (
@@ -6716,6 +6711,11 @@
 /obj/effect/floor_decal/corner/blue/full{
 	icon_state = "corner_white_full";
 	dir = 4
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 25;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
@@ -18173,6 +18173,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
+"HN" = (
+/obj/structure/closet/crate/hydroponics,
+/obj/item/weapon/material/minihoe,
+/obj/item/weapon/material/minihoe,
+/obj/item/weapon/material/minihoe,
+/obj/item/weapon/material/hatchet,
+/obj/item/weapon/material/hatchet,
+/obj/item/weapon/material/hatchet,
+/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/item/weapon/reagent_containers/glass/bucket,
+/turf/simulated/floor/grass,
+/area/hydroponics/garden)
 "HQ" = (
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -19445,21 +19458,17 @@
 	},
 /turf/unsimulated/chasm_mask,
 /area/solar/starboard)
-"Ll" = (
-/obj/machinery/atmospherics/pipe/manifold/visible,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
-"LO" = (
+"LZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
-"Mn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+"Md" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/plating,
 /area/bridge/levela)
-"Mx" = (
+"Np" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	icon_state = "intact";
 	dir = 9
@@ -19579,39 +19588,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
-"PB" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "command_surface_inner";
-	locked = 1;
-	name = "Command Docking Exterior Access";
-	req_access = list(13)
-	},
-/obj/machinery/atmospherics/pipe/manifold/visible,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
-"SR" = (
-/obj/structure/closet/crate/hydroponics,
-/obj/item/weapon/material/minihoe,
-/obj/item/weapon/material/minihoe,
-/obj/item/weapon/material/minihoe,
-/obj/item/weapon/material/hatchet,
-/obj/item/weapon/material/hatchet,
-/obj/item/weapon/material/hatchet,
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/item/weapon/reagent_containers/glass/bucket,
-/turf/simulated/floor/grass,
-/area/hydroponics/garden)
-"ST" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 10;
-	icon_state = "intact"
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
-"Up" = (
+"Od" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 5
@@ -19623,7 +19600,37 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/fore)
-"UQ" = (
+"Pg" = (
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 1;
+	icon_state = "pdoor0";
+	id = "bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "command_surface_outer";
+	locked = 1;
+	name = "Command Docking Exterior Access";
+	req_access = list(13)
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
+"Pp" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 10;
+	icon_state = "intact"
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
+"PP" = (
+/obj/machinery/atmospherics/pipe/manifold/visible,
+/turf/simulated/floor/plating,
+/area/bridge/levela)
+"Rn" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "command_surface_airlock";
@@ -19637,18 +19644,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
-"Vg" = (
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1380;
-	master_tag = "command_surface_airlock";
-	name = "exterior access button";
-	pixel_x = 23;
-	pixel_y = 25;
-	req_access = list(13)
+"TS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
 	},
-/turf/unsimulated/chasm_mask,
-/area/mine/explored)
+/turf/simulated/floor/plating,
+/area/bridge/levela)
+"TU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "Vk" = (
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
@@ -20484,12 +20489,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
-"Xk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "Xm" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -20586,27 +20585,28 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
-"YZ" = (
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 1;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
+"Yg" = (
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1380;
+	master_tag = "command_surface_airlock";
+	name = "exterior access button";
+	pixel_x = 23;
+	pixel_y = 25;
+	req_access = list(13)
 	},
+/turf/unsimulated/chasm_mask,
+/area/mine/explored)
+"Zc" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "command_surface_outer";
+	id_tag = "command_surface_inner";
 	locked = 1;
 	name = "Command Docking Exterior Access";
 	req_access = list(13)
 	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
-"ZC" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/atmospherics/pipe/manifold/visible,
 /turf/simulated/floor/plating,
 /area/bridge/levela)
 
@@ -49274,7 +49274,7 @@ rv
 rv
 rv
 te
-SR
+HN
 up
 up
 uT
@@ -50043,9 +50043,9 @@ rw
 rI
 rR
 sf
-Up
+Od
 tf
-LO
+LZ
 mT
 jv
 jv
@@ -62903,7 +62903,7 @@ aa
 aa
 aa
 aa
-Vg
+Yg
 aa
 aa
 aa
@@ -63160,8 +63160,8 @@ aa
 aa
 aa
 rV
-YZ
-YZ
+Pg
+Pg
 rV
 aa
 aa
@@ -63417,7 +63417,7 @@ aa
 aa
 aa
 rV
-UQ
+Rn
 VW
 rV
 aa
@@ -63932,7 +63932,7 @@ rV
 VT
 rV
 VX
-PB
+Zc
 rV
 aa
 aa
@@ -64186,10 +64186,10 @@ VD
 VJ
 VQ
 rV
-ST
-ZC
+Pp
+Md
 wN
-Ll
+PP
 rV
 aa
 aa
@@ -64443,10 +64443,10 @@ VE
 VQ
 wL
 rV
-Xk
-Mn
+TS
+TU
 VY
-Mx
+Np
 rV
 ag
 ag
