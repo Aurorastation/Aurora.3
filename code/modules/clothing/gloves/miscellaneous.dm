@@ -157,6 +157,46 @@
 		wired = 0
 	..()
 
+/obj/item/clothing/gloves/armchain
+	name = "cobalt arm chains"
+	desc = "A set of luxurious chains intended to be wrapped around long, lanky arms. They don't seem particularly comfortable. They're encrusted with cobalt-blue gems, and made of <b>REAL</b> faux gold."
+	icon_state = "cobalt_armchains"
+	item_state = "cobalt_armchains"
+	siemens_coefficient = 1.0
+	fingerprint_chance = 100
+
+/obj/item/clothing/gloves/armchain/emerald
+	name = "emerald arm chains"
+	desc = "A set of luxurious chains intended to be wrapped around long, lanky arms. They don't seem particularly comfortable. They're encrusted with emerald-green gems, and made of <b>REAL</b> faux gold."
+	icon_state = "emerald_armchains"
+	item_state = "emerald_armchains"
+
+/obj/item/clothing/gloves/armchain/ruby
+	name = "ruby arm chains"
+	desc = "A set of luxurious chains intended to be wrapped around long, lanky arms. They don't seem particularly comfortable. They're encrusted with ruby-red gems, and made of <b>REAL</b> faux gold."
+	icon_state = "ruby_armchains"
+	item_state = "ruby_armchains"
+
+/obj/item/clothing/gloves/goldbracer
+	name = "cobalt bracers"
+	desc = "A pair of sturdy and thick decorative bracers, seeming better for fashion than protection. They're encrusted with cobalt-blue gems, and made of <b>REAL</b> faux gold."
+	icon_state = "cobalt_bracers"
+	item_state = "cobalt_bracers"
+	siemens_coefficient = 1.0
+	fingerprint_chance = 100
+
+/obj/item/clothing/gloves/goldbracer/emerald
+	name = "emerald bracers"
+	desc = "A pair of sturdy and thick decorative bracers, seeming better for fashion than protection. They're encrusted with emerald-green gems, and made of <b>REAL</b> faux gold."
+	icon_state = "emerald_bracers"
+	item_state = "emerald_bracers"
+
+/obj/item/clothing/gloves/goldbracer/ruby
+	name = "ruby bracers"
+	desc = "A pair of sturdy and thick decorative bracers, seeming better for fashion than protection. They're encrusted with ruby-red gems, and made of <b>REAL</b> faux gold."
+	icon_state = "ruby_bracers"
+	item_state = "ruby_bracers"
+
 	/*
 	Forcegloves.  They amplify force from melee hits as well as muck up disarm and stuff a little.
 	Has bits of code in item_attack.dm, stungloves.dm, human_attackhand, human_defense
