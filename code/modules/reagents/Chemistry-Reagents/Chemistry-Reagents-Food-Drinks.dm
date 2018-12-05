@@ -1277,6 +1277,17 @@
 	glass_name = "glass of lemonade"
 	glass_desc = "Oh the nostalgia..."
 
+/datum/reagent/drink/lemonade/pink
+	name = "Pink Lemonade"
+	description = "A fruity pink citrus drink."
+	id = "pinklemonade"
+	color = "#FFC0CB"
+	taste_description = "girly tartness"
+
+	glass_icon_state = "pinklemonade"
+	glass_name = "glass of pink lemonade"
+	glass_desc = "You feel girlier just looking at this."
+
 /datum/reagent/drink/kiraspecial
 	name = "Kira Special"
 	description = "Long live the guy who everyone had mistaken for a girl. Baka!"
@@ -3449,7 +3460,7 @@
 	description = "An alcoholic tajaran cocktail, named after a less than successful military campaign."
 	color = "#664300"
 	strength = 15
-	taste_description = "cold oily gin"
+	taste_description = "oily gin"
 	targ_temp = 270
 
 	glass_icon_state = "winter_offensive"
