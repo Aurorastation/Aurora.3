@@ -30,4 +30,4 @@ var/list/dream_entries = list()
 			animate(old_bg, alpha=0, time = 200)
 			spawn(20)
 				qdel(old_bg)
-			src << "<span class='warning'>You are ripped from the Srom as your body awakens.<span>"
+			src << "<span class='warning'>You are ripped from the Srom as your body awakens.</span>"
