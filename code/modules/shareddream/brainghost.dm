@@ -9,6 +9,9 @@
 
 
 	New(var/mob/living/carbon/human/form)
+		if(!istype(form))
+			qdel(src)
+			return
 		..()
 		overlays += image(form.icon,form,form.icon_state)
 		overlays += form.overlays

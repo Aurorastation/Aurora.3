@@ -7,7 +7,7 @@ var/list/dream_entries = list()
 	// If they're an Unconsious person with the abillity to do Skrellepathy.
 	// If either changes, they should be nocked back to the real world.
 	if(can_commune() && stat == UNCONSCIOUS && sleeping > 1)
-		if(!istype(bg))
+		if(!istype(bg) && client) // Don't spawn a brainghost if we're not logged in.
 			bg = new(src) // Generate a new brainghost.
 			bg.ckey = ckey
 			bg.client = client
