@@ -251,37 +251,11 @@
 	desc = "An extremely rare golden medal awarded only by company officials. To receive such a medal is the highest honor and as such, very few exist. This medal is almost never awarded to anybody but commanders."
 	icon_state = "gold_crest"
 
-//clothing-like acessories
-
-/obj/item/clothing/accessory/wcoat
-	name = "waistcoat"
-	desc = "For some classy, murderous fun."
-	icon_state = "wcoat"
-	item_state = "wcoat"
-
 /obj/item/clothing/accessory/suspenders
 	name = "suspenders"
 	desc = "They suspend the illusion of the mime's play."
 	icon_state = "suspenders"
 	item_state = "suspenders"
-
-/obj/item/clothing/accessory/sweater
-	name = "sweater"
-	desc = "A warm knit sweater."
-	icon_state = "sweater"
-	item_state = "sweater"
-
-/obj/item/clothing/accessory/dressshirt
-	name = "dress shirt"
-	desc = "A casual dress shirt."
-	icon_state = "dressshirt"
-	item_state = "dressshirt"
-
-/obj/item/clothing/accessory/dressshirt_r
-	name = "dress shirt"
-	desc = "A casual dress shirt. This one has its sleeves rolled up."
-	icon_state = "dressshirt_r"
-	item_state = "dressshirt_r"
 
 /obj/item/clothing/accessory/scarf
 	name = "white scarf"

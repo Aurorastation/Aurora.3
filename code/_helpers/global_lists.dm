@@ -65,8 +65,7 @@ var/global/list/undershirt_t = list(
 	"Polo" = "polo", "Blue polo" = "bluepolo_s", "Red polo" = "redpolo_s", "Yellow polo" = "grayyellowpolo_s",
 	"Striped shirt" = "shirt_stripes_s", "NanoTrasen shirt" = "shirt_nano_s", "Tiedye shirt" = "shirt_tiedye_s",
 	"Green sport shirt" = "greenshirtsport_s", "Red sport shirt" = "redshirtsport_s", "Blue sport shirt" = "blueshirtsport_s",
-	"Striped tank top " = "tank_stripes_s", "Rainbow tank top" = "tank_rainbow_s", "Longsleeve shirt" = "undershirt_long",
-	"Striped longsleve shirt" = "longstripe", "Blue striped longsleve shirt" = "longstripe_blue", "None")
+	"Striped tank top " = "tank_stripes_s", "Rainbow tank top" = "tank_rainbow_s")
 
 	//socks
 var/global/list/socks_f = list(
