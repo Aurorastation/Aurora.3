@@ -62,6 +62,14 @@
 	ties["white tie"] = /obj/item/clothing/accessory/tie/white
 	gear_tweaks += new/datum/gear_tweak/path(ties)
 
+/datum/gear/accessory/bowtie
+	display_name = "bowtie"
+	path = /obj/item/clothing/accessory/tie/bowtie
+
+/datum/gear/accessory/bowtie/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
 /datum/gear/accessory/brown_vest
 	display_name = "webbing, engineering"
 	path = /obj/item/clothing/accessory/storage/brown_vest
