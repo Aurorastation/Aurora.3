@@ -144,13 +144,13 @@
 			else
 				if(temperature <= 0)
 					temperature = R.default_temperature
-				R.set_temperature(temperature)
+				R.add_thermal_energy(temperature * R.specific_heat * amount)
 			if(!isnull(data)) // For all we know, it could be zero or empty string and meaningful
 				R.mix_data(data, amount)
 			update_holder(!safety)
 			return 1
 
-	var/datum/reagent/D = SSchemistry.chemical_reagents[id]
+	var/datum/reagent/D = SSchemistry.chemical_reagents[id] //New reagent
 	if(D)
 		var/datum/reagent/R = new D.type()
 		reagent_list += R
@@ -159,7 +159,7 @@
 		R.specific_heat = SSchemistry.check_specific_heat(R)
 		R.thermal_energy = 0
 		if(thermal_energy > 0 && old_amount > 0)
-			R.add_thermal_energy(thermal_energy * (amount/old_amount) )
+			R.set_thermal_energy(thermal_energy * (amount/old_amount) )
 		else
 			if(temperature <= 0)
 				temperature = R.default_temperature
