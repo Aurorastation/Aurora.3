@@ -348,6 +348,7 @@
 		user << "You complete the Farmbot! Beep boop."
 		var/mob/living/bot/farmbot/S = new /mob/living/bot/farmbot(get_turf(src))
 		for(var/obj/structure/reagent_dispensers/watertank/wTank in contents)
+			qdel(S.tank)
 			wTank.forceMove(S)
 			S.tank = wTank
 		S.name = created_name
