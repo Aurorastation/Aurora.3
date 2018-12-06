@@ -7974,27 +7974,27 @@
 	icon_state = "snow";
 	name = "snow"
 	},
-/area/template_noop)
+/area/centcom/shared_dream)
 "sL" = (
 /turf/unsimulated/floor{
 	icon_state = "snow";
 	name = "snow"
 	},
-/area/template_noop)
+/area/centcom/shared_dream)
 "sM" = (
 /obj/structure/flora/grass/brown,
 /turf/unsimulated/floor{
 	icon_state = "snow";
 	name = "snow"
 	},
-/area/template_noop)
+/area/centcom/shared_dream)
 "sN" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/unsimulated/floor{
 	icon_state = "snow";
 	name = "snow"
 	},
-/area/template_noop)
+/area/centcom/shared_dream)
 "sO" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -8041,7 +8041,7 @@
 	icon_state = "snow";
 	name = "snow"
 	},
-/area/template_noop)
+/area/centcom/shared_dream)
 "sT" = (
 /obj/structure/table/wood,
 /turf/unsimulated/floor{
@@ -8050,12 +8050,12 @@
 	},
 /area/centcom/living)
 "sU" = (
-/obj/structure/flora/tree/pine,
+/obj/structure/flora/ausbushes/sparsegrass,
 /turf/unsimulated/floor{
 	icon_state = "snow";
 	name = "snow"
 	},
-/area/space)
+/area/centcom/shared_dream)
 "sV" = (
 /turf/unsimulated/wall/riveted,
 /area/centcom/suppy)
@@ -8128,11 +8128,12 @@
 	},
 /area/centcom/living)
 "td" = (
+/obj/structure/flora/ausbushes/brflowers,
 /turf/unsimulated/floor{
 	icon_state = "snow";
 	name = "snow"
 	},
-/area/space)
+/area/centcom/shared_dream)
 "te" = (
 /turf/unsimulated/floor{
 	icon_state = "warnplate";
@@ -8290,12 +8291,12 @@
 	},
 /area/centcom/living)
 "tB" = (
-/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/ppflowers,
 /turf/unsimulated/floor{
 	icon_state = "snow";
 	name = "snow"
 	},
-/area/template_noop)
+/area/centcom/shared_dream)
 "tC" = (
 /turf/simulated/shuttle/floor,
 /area/supply/dock)
@@ -8587,19 +8588,14 @@
 	},
 /area/shuttle/administration/centcom)
 "uk" = (
-/obj/structure/flora/ausbushes/brflowers,
-/turf/unsimulated/floor{
-	icon_state = "snow";
-	name = "snow"
-	},
-/area/template_noop)
+/turf/simulated/wall/wood,
+/area/centcom/shared_dream)
 "ul" = (
-/obj/structure/flora/ausbushes/ppflowers,
-/turf/unsimulated/floor{
-	icon_state = "snow";
-	name = "snow"
+/turf/unsimulated/wall/fakeglass{
+	dir = 8;
+	icon_state = "fakewindows"
 	},
-/area/template_noop)
+/area/centcom/shared_dream)
 "um" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	icon_state = "intact";
@@ -9491,8 +9487,11 @@
 	},
 /area/centcom/creed)
 "wb" = (
-/turf/simulated/wall/wood,
-/area/template_noop)
+/turf/unsimulated/wall/fakeglass{
+	icon_state = "fakewindows2";
+	dir = 8
+	},
+/area/centcom/shared_dream)
 "wc" = (
 /obj/structure/table/wood{
 	dir = 5
@@ -9503,10 +9502,10 @@
 /area/centcom/creed)
 "wd" = (
 /turf/unsimulated/wall/fakeglass{
-	dir = 8;
+	dir = 4;
 	icon_state = "fakewindows"
 	},
-/area/template_noop)
+/area/centcom/shared_dream)
 "we" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Communications Control";
@@ -11310,11 +11309,9 @@
 	},
 /area/centcom/control)
 "zJ" = (
-/turf/unsimulated/wall/fakeglass{
-	icon_state = "fakewindows2";
-	dir = 8
-	},
-/area/template_noop)
+/obj/structure/sign/flag/jargon/left,
+/turf/simulated/wall/wood,
+/area/centcom/shared_dream)
 "zK" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Bluespace Artillery Deck";
@@ -11578,11 +11575,9 @@
 	},
 /area/centcom/control)
 "Ao" = (
-/turf/unsimulated/wall/fakeglass{
-	dir = 4;
-	icon_state = "fakewindows"
-	},
-/area/template_noop)
+/obj/structure/sign/flag/jargon/right,
+/turf/simulated/wall/wood,
+/area/centcom/shared_dream)
 "Ap" = (
 /obj/machinery/button/remote/blast_door{
 	id = "crescent_checkpoint_access";
@@ -13450,9 +13445,12 @@
 	},
 /area/centcom/ferry)
 "Eh" = (
-/obj/structure/sign/flag/jargon/left,
-/turf/simulated/wall/wood,
-/area/template_noop)
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/centcom/shared_dream)
 "Ei" = (
 /obj/item/clothing/head/collectable/paper,
 /turf/unsimulated/beach/sand,
@@ -20199,9 +20197,13 @@
 	},
 /area/tdome)
 "SG" = (
-/obj/structure/sign/flag/jargon/right,
-/turf/simulated/wall/wood,
-/area/template_noop)
+/obj/structure/table/steel,
+/obj/machinery/chemical_dispenser/coffee/full,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/centcom/shared_dream)
 "SH" = (
 /obj/structure/cult/tome,
 /obj/effect/decal/cleanable/cobweb,
@@ -20220,11 +20222,12 @@
 /area/wizard_station)
 "SJ" = (
 /obj/structure/table/steel,
+/obj/machinery/microwave,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/template_noop)
+/area/centcom/shared_dream)
 "SK" = (
 /obj/machinery/vending/magivend,
 /turf/unsimulated/floor{
@@ -21331,13 +21334,12 @@
 	},
 /area/space)
 "Vo" = (
-/obj/structure/table/steel,
-/obj/machinery/chemical_dispenser/coffee/full,
+/obj/structure/reagent_dispensers/water_cooler,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/template_noop)
+/area/centcom/shared_dream)
 "Vp" = (
 /turf/space,
 /turf/simulated/shuttle/wall/dark{
@@ -22319,40 +22321,25 @@
 /turf/simulated/floor/holofloor/reinforced,
 /area/holodeck/source_battlemonsters)
 "Xx" = (
-/obj/structure/table/steel,
-/obj/machinery/microwave,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/template_noop)
+/area/centcom/shared_dream)
 "Xy" = (
-/obj/structure/reagent_dispensers/water_cooler,
-/obj/effect/floor_decal/corner/grey/diagonal,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/template_noop)
-"Xz" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/template_noop)
-"XA" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "grimy"
 	},
-/area/template_noop)
-"XB" = (
+/area/centcom/shared_dream)
+"Xz" = (
 /turf/unsimulated/floor{
 	icon_state = "grimy"
 	},
-/area/template_noop)
-"XC" = (
+/area/centcom/shared_dream)
+"XA" = (
 /obj/effect/landmark{
 	name = "skrell_entry"
 	},
@@ -22360,8 +22347,8 @@
 /turf/unsimulated/floor{
 	icon_state = "grimy"
 	},
-/area/template_noop)
-"XD" = (
+/area/centcom/shared_dream)
+"XB" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -22370,8 +22357,8 @@
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/template_noop)
-"XE" = (
+/area/centcom/shared_dream)
+"XC" = (
 /obj/effect/landmark{
 	name = "skrell_entry"
 	},
@@ -22382,8 +22369,8 @@
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/template_noop)
-"XF" = (
+/area/centcom/shared_dream)
+"XD" = (
 /obj/effect/landmark{
 	name = "skrell_entry"
 	},
@@ -22391,15 +22378,15 @@
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/template_noop)
-"XG" = (
+/area/centcom/shared_dream)
+"XE" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green,
 /turf/unsimulated/floor{
 	icon_state = "grimy"
 	},
-/area/template_noop)
-"XH" = (
+/area/centcom/shared_dream)
+"XF" = (
 /obj/effect/landmark{
 	name = "skrell_entry"
 	},
@@ -22409,21 +22396,21 @@
 /turf/unsimulated/floor{
 	icon_state = "grimy"
 	},
-/area/template_noop)
-"XI" = (
+/area/centcom/shared_dream)
+"XG" = (
 /turf/unsimulated/wall/fakeglass{
 	dir = 1;
 	icon_state = "fakewindows"
 	},
-/area/template_noop)
-"XJ" = (
+/area/centcom/shared_dream)
+"XH" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/template_noop)
-"XK" = (
+/area/centcom/shared_dream)
+"XI" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain{
 	dir = 6;
@@ -22432,7 +22419,22 @@
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/template_noop)
+/area/centcom/shared_dream)
+"XJ" = (
+/turf/unsimulated/floor{
+	icon_state = "ramptop";
+	dir = 2
+	},
+/area/centcom/shared_dream)
+"XK" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 10;
+	icon_state = "spline_plain"
+	},
+/turf/unsimulated/floor{
+	icon_state = "grimy"
+	},
+/area/centcom/shared_dream)
 "XL" = (
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -22450,11 +22452,11 @@
 	},
 /area/centcom/spawning)
 "XN" = (
+/obj/effect/floor_decal/spline/plain,
 /turf/unsimulated/floor{
-	icon_state = "ramptop";
-	dir = 2
+	icon_state = "grimy"
 	},
-/area/template_noop)
+/area/centcom/shared_dream)
 "XO" = (
 /obj/structure/table/rack,
 /obj/item/weapon/storage/toolbox/syndicate,
@@ -22511,14 +22513,8 @@
 	},
 /area/syndicate_station/start)
 "XT" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 10;
-	icon_state = "spline_plain"
-	},
-/turf/unsimulated/floor{
-	icon_state = "grimy"
-	},
-/area/template_noop)
+/turf/unsimulated/wall/fakeglass,
+/area/centcom/shared_dream)
 "XU" = (
 /obj/structure/reagent_dispensers/lube,
 /turf/simulated/floor/tiled,
@@ -22539,11 +22535,18 @@
 /turf/simulated/floor/carpet,
 /area/merchant_station)
 "XY" = (
-/obj/effect/floor_decal/spline/plain,
-/turf/unsimulated/floor{
-	icon_state = "grimy"
+/obj/effect/decal{
+	desc = "A standard newsfeed handler for use on commercial space stations. All the news you absolutely have no use for, in one place!";
+	icon = 'icons/obj/terminals.dmi';
+	icon_state = "newscaster_normal";
+	name = "newscaster";
+	pixel_x = -28;
+	pixel_y = 0
 	},
-/area/template_noop)
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/shared_dream)
 "XZ" = (
 /obj/structure/flora/pottedplant/random,
 /turf/unsimulated/floor{
@@ -22552,8 +22555,10 @@
 	},
 /area/centcom/living)
 "Ya" = (
-/turf/unsimulated/wall/fakeglass,
-/area/template_noop)
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/shared_dream)
 "Yb" = (
 /obj/structure/filingcabinet,
 /turf/unsimulated/floor{
@@ -22628,18 +22633,14 @@
 	},
 /area/centcom/living)
 "Yj" = (
-/obj/effect/decal{
-	desc = "A standard newsfeed handler for use on commercial space stations. All the news you absolutely have no use for, in one place!";
-	icon = 'icons/obj/terminals.dmi';
-	icon_state = "newscaster_normal";
-	name = "newscaster";
-	pixel_x = -28;
-	pixel_y = 0
+/obj/structure/bed/chair/comfy/brown,
+/obj/effect/landmark{
+	name = "skrell_entry"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
-/area/template_noop)
+/area/centcom/shared_dream)
 "Yk" = (
 /obj/structure/banner,
 /turf/unsimulated/floor{
@@ -22655,19 +22656,19 @@
 	},
 /area/centcom/living)
 "Ym" = (
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/area/template_noop)
-"Yn" = (
-/obj/structure/bed/chair/comfy/brown,
 /obj/effect/landmark{
 	name = "skrell_entry"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
-/area/template_noop)
+/area/centcom/shared_dream)
+"Yn" = (
+/obj/structure/simple_door/wood,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/shared_dream)
 "Yo" = (
 /obj/structure/banner,
 /turf/unsimulated/floor{
@@ -22693,13 +22694,9 @@
 	},
 /area/centcom/living)
 "Yr" = (
-/obj/effect/landmark{
-	name = "skrell_entry"
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/area/template_noop)
+/obj/structure/sign/poster,
+/turf/simulated/wall/wood,
+/area/centcom/shared_dream)
 "Ys" = (
 /obj/structure/bed/chair/comfy/red{
 	dir = 4
@@ -22777,21 +22774,39 @@
 	},
 /area/centcom/specops)
 "YA" = (
-/obj/structure/simple_door/wood,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/area/template_noop)
-"YB" = (
-/obj/structure/sign/poster,
-/turf/simulated/wall/wood,
-/area/template_noop)
-"YC" = (
 /obj/structure/cult/tome,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
-/area/template_noop)
+/area/centcom/shared_dream)
+"YB" = (
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 9
+	},
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	dir = 2
+	},
+/area/centcom/shared_dream)
+"YC" = (
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	dir = 2
+	},
+/area/centcom/shared_dream)
 "YD" = (
 /obj/structure/bed/chair/office/bridge,
 /obj/effect/landmark{
@@ -22825,17 +22840,17 @@
 	},
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
-	dir = 8
+	dir = 4
 	},
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
-	dir = 9
+	dir = 5
 	},
 /turf/unsimulated/floor{
 	icon_state = "carpet";
 	dir = 2
 	},
-/area/template_noop)
+/area/centcom/shared_dream)
 "YH" = (
 /obj/structure/bed/chair/office/bridge,
 /turf/unsimulated/floor{
@@ -22843,15 +22858,14 @@
 	},
 /area/centcom/control)
 "YI" = (
-/obj/effect/floor_decal/carpet{
-	icon_state = "carpet_edges";
-	dir = 1
+/obj/structure/bed/chair/wood,
+/obj/effect/landmark{
+	name = "skrell_entry"
 	},
 /turf/unsimulated/floor{
-	icon_state = "carpet";
-	dir = 2
+	icon_state = "wood"
 	},
-/area/template_noop)
+/area/centcom/shared_dream)
 "YJ" = (
 /turf/simulated/mineral,
 /area/space)
@@ -22883,23 +22897,11 @@
 	},
 /area/skipjack_station/start)
 "YO" = (
-/obj/effect/floor_decal/carpet{
-	icon_state = "carpet_edges";
-	dir = 1
-	},
-/obj/effect/floor_decal/carpet{
-	icon_state = "carpet_edges";
-	dir = 4
-	},
-/obj/effect/floor_decal/carpet{
-	icon_state = "carpet_edges";
-	dir = 5
-	},
+/obj/structure/coatrack,
 /turf/unsimulated/floor{
-	icon_state = "carpet";
-	dir = 2
+	icon_state = "wood"
 	},
-/area/template_noop)
+/area/centcom/shared_dream)
 "YP" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/shuttle/floor{
@@ -22919,14 +22921,13 @@
 	},
 /area/skipjack_station/start)
 "YS" = (
-/obj/structure/bed/chair/wood,
-/obj/effect/landmark{
-	name = "skrell_entry"
+/obj/machinery/light/small{
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
-/area/template_noop)
+/area/centcom/shared_dream)
 "YT" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Traditional Vaurcesian Cuisine";
@@ -22946,20 +22947,6 @@
 	},
 /area/wizard_station)
 "YV" = (
-/obj/structure/coatrack,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/area/template_noop)
-"YW" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/area/template_noop)
-"YX" = (
 /obj/effect/floor_decal/carpet,
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
@@ -22976,8 +22963,8 @@
 	icon_state = "carpet";
 	dir = 2
 	},
-/area/template_noop)
-"YY" = (
+/area/centcom/shared_dream)
+"YW" = (
 /obj/effect/floor_decal/carpet,
 /obj/effect/landmark{
 	name = "skrell_entry"
@@ -22986,15 +22973,15 @@
 	icon_state = "carpet";
 	dir = 2
 	},
-/area/template_noop)
-"YZ" = (
+/area/centcom/shared_dream)
+"YX" = (
 /obj/effect/floor_decal/carpet,
 /turf/unsimulated/floor{
 	icon_state = "carpet";
 	dir = 2
 	},
-/area/template_noop)
-"Za" = (
+/area/centcom/shared_dream)
+"YY" = (
 /obj/effect/floor_decal/carpet,
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
@@ -23008,21 +22995,21 @@
 	icon_state = "carpet";
 	dir = 2
 	},
-/area/template_noop)
-"Zb" = (
+/area/centcom/shared_dream)
+"YZ" = (
 /obj/structure/table/wood,
 /obj/item/weapon/newspaper,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
-/area/template_noop)
-"Zc" = (
+/area/centcom/shared_dream)
+"Za" = (
 /obj/structure/table/wood,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
-/area/template_noop)
-"Zd" = (
+/area/centcom/shared_dream)
+"Zb" = (
 /obj/structure/bookcase/libraryspawn/reference{
 	opacity = 0
 	},
@@ -23030,16 +23017,16 @@
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
-/area/template_noop)
-"Ze" = (
+/area/centcom/shared_dream)
+"Zc" = (
 /obj/structure/bookcase/libraryspawn/reference{
 	opacity = 0
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
-/area/template_noop)
-"Zf" = (
+/area/centcom/shared_dream)
+"Zd" = (
 /obj/structure/closet{
 	icon_closed = "cabinet_closed";
 	icon_opened = "cabinet_open";
@@ -23048,28 +23035,28 @@
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
-/area/template_noop)
-"Zg" = (
+/area/centcom/shared_dream)
+"Ze" = (
 /obj/machinery/light/small,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
-/area/template_noop)
-"Zh" = (
+/area/centcom/shared_dream)
+"Zf" = (
 /obj/structure/bed/chair/wood{
 	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
-/area/template_noop)
-"Zi" = (
+/area/centcom/shared_dream)
+"Zg" = (
 /obj/structure/flora/pottedplant/random,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
-/area/template_noop)
-"Zj" = (
+/area/centcom/shared_dream)
+"Zh" = (
 /turf/unsimulated/floor{
 	icon_state = "gcircuit"
 	},
@@ -23085,7 +23072,7 @@
 	icon_state = "wood_siding10"
 	},
 /area/centcom/control)
-"Zk" = (
+"Zi" = (
 /turf/unsimulated/floor{
 	icon_state = "gcircuit"
 	},
@@ -23101,7 +23088,7 @@
 	dir = 6
 	},
 /area/centcom/control)
-"Zl" = (
+"Zj" = (
 /turf/unsimulated/floor{
 	icon_state = "gcircuit"
 	},
@@ -23113,7 +23100,7 @@
 	icon_state = "wood_siding6"
 	},
 /area/centcom/control)
-"Zm" = (
+"Zk" = (
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
@@ -23130,7 +23117,7 @@
 	icon_state = "wood_siding9"
 	},
 /area/centcom/control)
-"Zn" = (
+"Zl" = (
 /turf/unsimulated/floor{
 	icon_state = "gcircuit"
 	},
@@ -23146,7 +23133,7 @@
 	icon_state = "wood_siding10"
 	},
 /area/centcom/control)
-"Zo" = (
+"Zm" = (
 /turf/unsimulated/floor{
 	icon_state = "gcircuit"
 	},
@@ -23164,7 +23151,7 @@
 	icon_state = "wood_siding10"
 	},
 /area/centcom/control)
-"Zp" = (
+"Zn" = (
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
@@ -23174,7 +23161,7 @@
 	dir = 6
 	},
 /area/centcom/control)
-"Zq" = (
+"Zo" = (
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
@@ -23185,7 +23172,7 @@
 	dir = 6
 	},
 /area/centcom/control)
-"Zr" = (
+"Zp" = (
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
@@ -23196,7 +23183,7 @@
 	dir = 6
 	},
 /area/centcom/control)
-"Zs" = (
+"Zq" = (
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
@@ -23214,7 +23201,7 @@
 	icon_state = "wood_siding9"
 	},
 /area/centcom/control)
-"Zt" = (
+"Zr" = (
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -23224,7 +23211,7 @@
 	icon_state = "siding2"
 	},
 /area/centcom/holding)
-"Zu" = (
+"Zs" = (
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -23235,7 +23222,7 @@
 	icon_state = "wood_siding2"
 	},
 /area/centcom/spawning)
-"Zv" = (
+"Zt" = (
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -50828,32 +50815,32 @@ aM
 aM
 aM
 sK
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
 sK
 sK
 sK
@@ -51085,32 +51072,32 @@ aM
 aM
 aM
 sK
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
-sU
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+sK
 sK
 sK
 sK
@@ -51342,32 +51329,32 @@ aM
 aM
 aM
 sK
-sU
-td
-td
-td
-sU
-sU
-sU
-sU
-sU
-sU
-td
-td
-sU
-sU
-sU
-sU
-sU
-sU
-td
-td
-sU
-sU
-sU
-sU
-sU
-sU
+sK
+sL
+sL
+sL
+sK
+sK
+sK
+sK
+sK
+sK
+sL
+sL
+sK
+sK
+sK
+sK
+sK
+sK
+sL
+sL
+sK
+sK
+sK
+sK
+sK
+sK
 sK
 sK
 sK
@@ -51624,7 +51611,7 @@ sL
 sL
 sK
 sK
-sU
+sK
 sL
 sL
 sK
@@ -52637,15 +52624,15 @@ sL
 sK
 sK
 sL
-ul
-sL
-sL
-sK
-sL
-sK
-sL
-sK
 tB
+sL
+sL
+sK
+sL
+sK
+sL
+sK
+sU
 sL
 sL
 sK
@@ -52891,13 +52878,13 @@ sK
 sK
 sK
 sK
-uk
+td
 sL
 sS
 sL
 sK
-ul
-uk
+tB
+td
 sL
 sL
 sS
@@ -53147,10 +53134,10 @@ sK
 sK
 sK
 sK
-tB
+sU
 sK
 sL
-ul
+tB
 sL
 sL
 sL
@@ -53162,7 +53149,7 @@ sL
 sL
 sL
 sL
-uk
+td
 sL
 sL
 sK
@@ -53664,15 +53651,15 @@ sK
 sL
 sL
 sL
-wb
-wb
-wb
-wb
-wb
-YB
-wb
-wb
-wb
+uk
+uk
+uk
+uk
+uk
+Yr
+uk
+uk
+uk
 sL
 sL
 sL
@@ -53921,15 +53908,15 @@ sK
 sK
 sL
 sL
-wd
-SJ
-XD
-XJ
-Yj
-YC
-YW
-Zd
-wb
+ul
+Eh
+XB
+XH
+XY
+YA
+YS
+Zb
+uk
 sL
 sL
 sL
@@ -54178,15 +54165,15 @@ sK
 sL
 sL
 sL
-zJ
-SJ
-XE
-XJ
-Ym
-YG
-YX
-Ze
 wb
+Eh
+XC
+XH
+Ya
+YB
+YV
+Zc
+uk
 sL
 sL
 sL
@@ -54433,20 +54420,20 @@ sL
 sK
 sK
 sK
+td
+sL
+wb
+SG
+XD
+XH
+Yj
+YC
+YW
+Zc
 uk
 sL
-zJ
-Vo
-XF
-XJ
-Yn
-YI
-YY
-Ze
-wb
 sL
-sL
-tB
+sU
 sL
 sL
 sK
@@ -54692,19 +54679,19 @@ sK
 sL
 sK
 sL
-zJ
-Xx
-Xz
-XJ
-Yn
-YI
-YZ
-Ze
 wb
-sL
-sL
-tB
+SJ
+Xx
+XH
+Yj
+YC
+YX
+Zc
 uk
+sL
+sL
+sU
+td
 sL
 sL
 sK
@@ -54949,15 +54936,15 @@ sK
 sK
 sL
 sL
-Ao
-Xy
-Xz
-XK
-Ym
-YO
-Za
-Zf
-YB
+wd
+Vo
+Xx
+XI
+Ya
+YG
+YY
+Zd
+Yr
 sL
 sL
 sL
@@ -55206,15 +55193,15 @@ sK
 sL
 sL
 sL
-wb
-Xz
-Xz
-XN
-Ym
-Ym
-Ym
-Zg
-wb
+uk
+Xx
+Xx
+XJ
+Ya
+Ya
+Ya
+Ze
+uk
 sL
 sL
 sL
@@ -55463,15 +55450,15 @@ sK
 sL
 sL
 sL
-wb
-XA
-XB
-XN
-Ym
-YS
-Zb
-Zh
-wd
+uk
+Xy
+Xz
+XJ
+Ya
+YI
+YZ
+Zf
+ul
 sL
 sL
 sL
@@ -55720,19 +55707,19 @@ sK
 sL
 sK
 sL
-Eh
-XB
-XB
-XT
-Ym
-YS
-Zc
-Zh
 zJ
+Xz
+Xz
+XK
+Ya
+YI
+Za
+Zf
+wb
 sL
 sL
-tB
-uk
+sU
+td
 sL
 sL
 sK
@@ -55977,21 +55964,21 @@ sK
 sL
 sL
 sL
-SG
-XC
-XG
-XY
-Ym
-YS
-Zc
-Zh
 Ao
+XA
+XE
+XN
+Ya
+YI
+Za
+Zf
+wd
 sL
 sL
 sL
 sL
 sL
-ul
+tB
 sK
 sL
 sK
@@ -56234,15 +56221,15 @@ sK
 sL
 sL
 sL
-wb
-XB
-XH
-XY
-Yr
-YV
+uk
+Xz
+XF
+XN
 Ym
-Zi
-YB
+YO
+Ya
+Zg
+Yr
 sL
 sL
 sL
@@ -56491,15 +56478,15 @@ sK
 sL
 sK
 sL
-wb
-wb
-XI
-Ya
-YA
-XI
-Ya
-wb
-wb
+uk
+uk
+XG
+XT
+Yn
+XG
+XT
+uk
+uk
 sL
 sL
 sL
@@ -56761,7 +56748,7 @@ sL
 sL
 sL
 sS
-uk
+td
 sL
 sK
 sK
@@ -57017,7 +57004,7 @@ sL
 sL
 sL
 sL
-ul
+tB
 sL
 sL
 sK
@@ -57517,19 +57504,19 @@ sK
 sK
 sK
 sL
-tB
+sU
 sL
-uk
+td
 sL
 sL
-sL
-ul
 sL
 tB
 sL
-ul
+sU
+sL
 tB
-uk
+sU
+td
 sL
 sK
 sK
@@ -57774,21 +57761,21 @@ sK
 sK
 sK
 sK
-uk
-tB
+td
+sU
 sL
 sL
 sK
 sL
 sL
 sL
+sU
 tB
-ul
 sL
 sL
 sL
 sL
-uk
+td
 sL
 sL
 sK
@@ -57873,7 +57860,7 @@ DM
 DM
 EP
 EP
-Zt
+Zr
 Gq
 GE
 GF
@@ -58038,10 +58025,10 @@ sL
 sL
 sS
 sL
-uk
+td
 sK
 sL
-uk
+td
 sK
 sK
 sL
@@ -58130,7 +58117,7 @@ Fi
 Fo
 EP
 EP
-Zt
+Zr
 Gq
 GF
 GF
@@ -58289,10 +58276,10 @@ sK
 sK
 sK
 sK
-uk
+td
 sK
 sL
-tB
+sU
 sL
 sL
 sL
@@ -58302,7 +58289,7 @@ sK
 sS
 sL
 sL
-tB
+sU
 sK
 sK
 sK
@@ -58387,7 +58374,7 @@ Fj
 Fp
 EP
 EP
-Zt
+Zr
 Gq
 GF
 GF
@@ -58644,7 +58631,7 @@ Fk
 Fp
 EP
 EP
-Zt
+Zr
 Gq
 GF
 GF
@@ -58901,7 +58888,7 @@ EP
 EP
 Fy
 EP
-Zt
+Zr
 Gq
 GF
 GF
@@ -59158,7 +59145,7 @@ EP
 EP
 EP
 EP
-Zt
+Zr
 Gq
 GF
 GF
@@ -65553,17 +65540,17 @@ wl
 xe
 xA
 yk
-Zm
+Zk
 wl
 xe
 xA
 yk
-Zm
+Zk
 wl
 xe
 xA
 Bp
-Zs
+Zq
 uT
 Cq
 CG
@@ -65606,9 +65593,9 @@ KZ
 Ms
 Id
 Id
-Zu
+Zs
 OY
-Zv
+Zt
 Id
 Id
 OA
@@ -65863,9 +65850,9 @@ MN
 Ms
 Id
 Id
-Zu
+Zs
 OZ
-Zv
+Zt
 Id
 Id
 Qn
@@ -66322,18 +66309,18 @@ it
 uT
 wo
 xh
-Zj
+Zh
 yl
 yE
 wo
 xh
+Zl
+yl
+yE
+wo
+xh
+Zm
 Zn
-yl
-yE
-wo
-xh
-Zo
-Zp
 BT
 uT
 Cq
@@ -66377,9 +66364,9 @@ KZ
 Ms
 Id
 Id
-Zu
+Zs
 Pa
-Zv
+Zt
 Id
 Id
 OA
@@ -66579,18 +66566,18 @@ aM
 uT
 wp
 xi
-Zk
+Zi
 yl
 yE
 wp
 xi
-Zk
+Zi
 yl
 yE
 wp
 xi
-Zk
-Zq
+Zi
+Zo
 BT
 uT
 Cq
@@ -66634,9 +66621,9 @@ Nw
 Ms
 Id
 Id
-Zu
+Zs
 Pb
-Zv
+Zt
 Id
 Id
 OA
@@ -66836,18 +66823,18 @@ it
 uT
 wq
 xj
-Zl
+Zj
 yl
 yE
 wq
 xj
-Zl
+Zj
 yl
 yE
 wq
 xj
-Zl
-Zr
+Zj
+Zp
 BT
 uT
 Cq
@@ -66891,9 +66878,9 @@ KZ
 Ms
 Id
 Id
-Zu
+Zs
 Pc
-Zv
+Zt
 Id
 Id
 OA
@@ -67405,9 +67392,9 @@ MN
 Ms
 Id
 Id
-Zu
+Zs
 Pb
-Zv
+Zt
 Id
 Id
 OA
@@ -67662,9 +67649,9 @@ KZ
 Ms
 Id
 Id
-Zu
+Zs
 Pd
-Zv
+Zt
 Id
 Id
 OA
