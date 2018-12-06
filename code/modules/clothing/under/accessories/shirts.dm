@@ -39,3 +39,9 @@
 	desc = "A long-sleeved shirt made of light fabric. This one is striped."
 	icon_state = "longshirt_sb"
 	item_state = "longshirt_sb"
+
+/obj/item/clothing/accessory/tshirt
+	name = "t-shirt"
+	desc = "A simple, cheap t-shirt."
+	icon_state = "tshirt"
+	item_state = "tshirt"

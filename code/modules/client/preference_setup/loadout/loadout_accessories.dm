@@ -153,6 +153,14 @@
 	lshirt["blue-striped"] = /obj/item/clothing/accessory/longsleeve_sb
 	gear_tweaks += new/datum/gear_tweak/path(lshirt)
 
+/datum/gear/accessory/tshirt
+	display_name = "t-shirt"
+	path = /obj/item/clothing/accessory/tshirt
+
+/datum/gear/accessory/tshirt/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
 /datum/gear/accessory/scarf
 	display_name = "scarf selection"
 	path = /obj/item/clothing/accessory/scarf
