@@ -9,11 +9,11 @@
 
 
 /mob/living/brain_ghost/Initialize()
+	..()
 	var/mob/living/carbon/human/form = loc
 	if(!istype(form))
 		qdel(src)
 		return
-	..()
 	overlays += image(form.icon,form,form.icon_state)
 	overlays += form.overlays
 	name = form.real_name
@@ -43,3 +43,22 @@
 
 	if(body.stat == DEAD) // Body is dead, and won't get a life tick.
 		body.handle_shared_dreaming()
+
+/mob/living/brain_ghost/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="")
+	if(!istype(body) || body.stat!=UNCONSCIOUS)
+		return
+	if(prob(20)) // 1/5 chance to mumble out anything you say in the dream.
+		var/list/words = text2list(replacetext(message, "\[^a-zA-Z]*$", ""), " ")
+		var/word_count = rand(1, words.len) // How many words to mumble out from within the sentance
+		var/words_start = rand(1, words.len - (word_count - 1)) // Where the chunk of said words should start.
+
+		var/mumble_into = words_start == 1 ? "" : "..." // Text to show if we start mumbling after the start of a sentance
+
+		words = words.Copy(words_start, word_count + words_start) // Copy the chunk of the message we mumbled.
+		var/mumble_message = "[mumble_into][words.Join(" ")]..."
+
+		body.stat = CONSCIOUS // FILTHY hack to get the sleeping person to say something.
+		body.say(mumble_message) // Mumble in Nral Malic
+		body.stat = UNCONSCIOUS // Toggled before anything else can happen. Ideally.
+
+	..(message, speaking, verb="says", alt_name="")
