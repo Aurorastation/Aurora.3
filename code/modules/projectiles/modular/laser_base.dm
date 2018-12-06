@@ -134,7 +134,7 @@
 	icon_state = "small"
 	var/stage = 1
 	var/size = CHASSIS_SMALL
-	var/modifier_cap = 1
+	var/modifier_cap = 3
 
 	var/list/gun_mods = list()
 	var/obj/item/laser_components/capacitor/capacitor

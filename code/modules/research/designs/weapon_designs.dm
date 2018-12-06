@@ -199,28 +199,28 @@
 	req_tech = list(TECH_POWER = 5, TECH_ENGINEERING = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000, "uranium" = 1000)
 	build_path = /obj/item/laser_components/capacitor/nuclear
-	sort_string = "TZZBC"
+	sort_string = "TZZBD"
 
 /datum/design/item/weapon/modular_teranium
 	id = "stock_teranium"
 	req_tech = list(TECH_POWER = 6, TECH_ENGINEERING = 4, TECH_MAGNET = 6)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000, "glass" = 1000, "uranium" = 500)
 	build_path = /obj/item/laser_components/capacitor/teranium
-	sort_string = "TZZBD"
+	sort_string = "TZZBE"
 
 /datum/design/item/weapon/modular_phoron
 	id = "stock_phoron"
-	req_tech = list(TECH_POWER = 7, TECH_ENGINEERING = 5, TECH_PHORON = 6)
+	req_tech = list(TECH_POWER = 7, TECH_ENGINEERING = 5, TECH_PHORON = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000, "phoron" = 3000, "uranium" = 500)
 	build_path = /obj/item/laser_components/capacitor/phoron
-	sort_string = "TZZBE"
+	sort_string = "TZZBF"
 
 /datum/design/item/weapon/modular_bs
 	id = "stock_bs"
-	req_tech = list(TECH_POWER = 7, TECH_ENGINEERING = 7, TECH_PHORON = 7, TECH_BLUESPACE = 7)
+	req_tech = list(TECH_POWER = 7, TECH_ENGINEERING = 7, TECH_PHORON = 6, TECH_BLUESPACE = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000, "phoron" = 3000, "uranium" = 500, "diamond" = 1000)
 	build_path = /obj/item/laser_components/capacitor/bluespace
-	sort_string = "TZZBF"
+	sort_string = "TZZBG"
 
 /datum/design/item/weapon/modular_lens
 	id = "stock_lens"
@@ -595,4 +595,4 @@
 	req_tech = list(TECH_POWER = 4,TECH_MAGNET = 4, TECH_DATA = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 2000, "gold" = 1000)
 	build_path = /obj/item/custom_ka_upgrade/upgrade_chips/explosive
-	sort_string = "TZZIF"
+	sort_string = "TZZIG"

@@ -175,38 +175,91 @@
 /mob/living/carbon/human/proc/commune()
 	set category = "Abilities"
 	set name = "Commune with creature"
-	set desc = "Send a telepathic message to an unlucky recipient."
+	set desc = "Send a telepathic message to a recipient."
+
+	var/obj/item/organ/external/rhand = src.get_organ("r_hand")
+	var/obj/item/organ/external/lhand = src.get_organ("l_hand")
+	if((!rhand || !rhand.is_usable()) && (!lhand || !lhand.is_usable()))
+		to_chat(src,"<span class='warning'>You can't communicate without the ability to use your hands!</span>")
+		return
+	if((lhand.is_stump()) && (rhand.is_stump()))
+		to_chat(src,"<span class='warning'>You can't communicate without functioning hands!</span>")
+		return
+	if(src.r_hand != null && src.l_hand != null)
+		to_chat(src,"<span class='warning'>You can't communicate while your hands are full!</span>")
+		return
+	if(stat || paralysis || stunned || weakened ||  restrained())
+		to_chat(src,"<span class='warning'>You can't communicate while unable to move your hands to your head!</span>")
+		return
+	if(last_special > world.time)
+		to_chat(src,"<span class='notice'>Your mind requires rest!</span>")
+		return
+
+	last_special = world.time + 100
+
+	visible_message("<span class='notice'>[src] touches their fingers to their temple.</span>")
 
 	var/list/targets = list()
-	var/target = null
+	for(var/mob/living/M in view(client.view, client.eye))
+		targets += M
+	var/mob/living/target = null
 	var/text = null
 
-	targets += getmobs() //Fill list, prompt user with list
 	target = input("Select a creature!", "Speak to creature", null, null) as null|anything in targets
 
-	if(!target) return
+	if(!target)
+		return
 
 	text = input("What would you like to say?", "Speak to creature", null, null)
 
 	text = sanitize(text)
 
-	if(!text) return
-
-	var/mob/M = targets[target]
-
-	if(istype(M, /mob/abstract/observer) || M.stat == DEAD)
-		src << "Not even a [src.species.name] can speak to the dead."
+	if(!text)
 		return
 
-	log_say("[key_name(src)] communed to [key_name(M)]: [text]",ckey=key_name(src))
+	if(target.stat == DEAD)
+		to_chat(src,"<span class='cult'>Not even a [src.species.name] can speak to the dead.</span>")
+		return
 
-	M << "<span class='notice'>Like lead slabs crashing into the ocean, alien thoughts drop into your mind: [text]</span>"
-	if(istype(M,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
-		if(H.species.name == src.species.name)
-			return
-		H << "<span class='warning'>Your nose begins to bleed...</span>"
-		H.drip(1)
+	if (target.isSynthetic())
+		to_chat(src,"<span class='warning'>This can only be used on living organisms.</span>")
+		return
+
+
+	if (target.is_diona())
+		to_chat(src,"<span class='alium'>The creature's mind is not solid enough and slips through like sand.</span>")
+		return
+
+	if(!(target in view(client.view, client.eye)))
+		to_chat(src,"<span class='warning'>[target] is too far for your mind to grasp!</span>")
+		return
+
+	log_say("[key_name(src)] communed to [key_name(target)]: [text]",ckey=key_name(src))
+
+	for (var/mob/M in player_list)
+		if (istype(M, /mob/abstract/new_player))
+			continue
+		else if(M.stat == DEAD &&  M.client.prefs.toggles & CHAT_GHOSTEARS)
+			to_chat(M,"<span class='notice'>[src] telepathically says to [target]:</span> [text]")
+
+	var/mob/living/carbon/human/H = target
+	if (/mob/living/carbon/human/proc/commune in target.verbs)
+		to_chat(H,"<span class='psychic'>You instinctively sense [src] sending their thoughts into your mind, hearing:</span> [text]")
+	else if(prob(25) && (target.mind && target.mind.assigned_role=="Chaplain"))
+		to_chat(H,"<span class='changeling'>You sense [src]'s thoughts enter your mind, whispering quietly:</span> [text]")
+	else
+		to_chat(H,"<span class='alium'>You feel pressure behind your eyes as alien thoughts enter your mind:</span> [text]")
+		if(istype(H))
+			if (/mob/living/carbon/human/proc/commune in target.verbs)
+				return
+			if(prob(10) && (H.species.flags & NO_BLOOD))
+				to_chat(H,"<span class='warning'>Your nose begins to bleed...</span>")
+				H.drip(3)
+			else if(prob(25) && (H.species.flags & NO_PAIN))
+				to_chat(H,"<span class='warning'>Your head hurts...</span>")
+			else if(prob(50))
+				to_chat(H,"<span class='warning'>Your mind buzzes...</span>")
+
 
 /mob/living/carbon/human/proc/regurgitate()
 	set name = "Regurgitate"

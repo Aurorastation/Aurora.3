@@ -577,6 +577,34 @@
 	required_reagents = list("phoron" = 0.1, "water" = 1, "potassium_chloride" = 0.2)
 	result_amount = 1
 
+/datum/chemical_reaction/mannitol
+	name = "Mannitol"
+	id = "mannitol"
+	result = "mannitol"
+	required_reagents = list("phoron" = 0.1, "alkysine" = 1, "cryoxadone" = 0.1)
+	result_amount = 1
+
+/datum/chemical_reaction/omnizine
+	name = "Omnizine"
+	id = "omnizine"
+	result = "omnizine"
+	required_reagents = list("tricordrazine" = 1, "sugar" = 1, "carbon" = 1 )
+	result_amount = 3
+
+/datum/chemical_reaction/atropine
+	name = "Atropine"
+	id = "atropine"
+	result = "atropine"
+	required_reagents = list("tricordrazine" = 1, "phoron" = 0.1, "hydrazine" = 1 )
+	result_amount = 2
+
+/datum/chemical_reaction/epinephrine
+	name = "Epinephrine"
+	id = "epinephrine"
+	result = "epinephrine"
+	required_reagents = list("atropine" = 1, "phoron" = 0.1, "inaprovaline" = 1 )
+	result_amount = 2
+
 //Mental Medication
 
 /datum/chemical_reaction/methylphenidate
@@ -1940,7 +1968,7 @@
 	name = "Hooch"
 	id = "hooch"
 	result = "hooch"
-	required_reagents = list ("sugar" = 1, "ethanol" = 2, "fuel" = 1)
+	required_reagents = list ("sugar" = 1, "moonshine" = 1, "fuel" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/irish_coffee
@@ -2315,6 +2343,14 @@
 	required_reagents = list("lemonjuice" = 1, "sugar" = 1, "water" = 1)
 	result_amount = 3
 
+/datum/chemical_reaction/lemonade/pink
+	name = "Pink Lemonade"
+	id = "pinklemonade"
+	result = "pinklemonade"
+	required_reagents = list("lemonade" = 8, "grenadine" = 2)
+	result_amount = 10
+
+
 /datum/chemical_reaction/kiraspecial
 	name = "Kira Special"
 	id = "kiraspecial"
@@ -2568,7 +2604,7 @@
 
 /datum/chemical_reaction/cherrytreefireball
 	name = "Cherry Tree Fireball"
-	id = "cherrytreefirebal		l"
+	id = "cherrytreefireball"
 	result = "cherrytreefireball"
 	required_reagents = list("lemonade" = 3, "fireball" = 1, "cherryjelly" = 1, "ice" = 1)
 	result_amount = 6
@@ -2886,9 +2922,9 @@
 	id = "water_to_ice"
 	result = "ice"
 	required_reagents = list("water" = 1)
-	required_temperatures_max = list("water" = T0C - 1)
-	result_amount = 0.5
-	mix_message = ""
+	required_temperatures_max = list("water" = T0C)
+	result_amount = 1
+	mix_message = "The water freezes."
 	reaction_sound = ""
 
 /datum/chemical_reaction/ice_to_water
@@ -2897,9 +2933,8 @@
 	result = "water"
 	required_reagents = list("ice" = 1)
 	required_temperatures_min = list("ice" = T0C + 1)
-	result_amount = 2
-	reaction_rate = HALF_LIFE(4) //CONFIRMED?
-	mix_message = ""
+	result_amount = 1
+	mix_message = "The ice melts."
 	reaction_sound = ""
 
 /datum/chemical_reaction/phoron_salt //Safe temperatures for phoron salt is between 0 degress celcius and 200 celcius.
@@ -2937,7 +2972,7 @@
 	catalysts = list("water" = 1)
 	mix_message = "The solution begins to freeze."
 
-/datum/chemical_reaction/cryosurfactant_cooling_water/on_reaction(var/datum/reagents/holder, var/created_volume)
+/datum/chemical_reaction/cryosurfactant_cooling_water/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
 	holder.del_reagent("cryosurfactant")
 	holder.add_thermal_energy(-created_volume*500)
 
@@ -3011,9 +3046,32 @@
 
 /datum/chemical_reaction/phoron_salt_coldfire/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
 	var/turf/location = get_turf(holder.my_atom)
-	var/explosion_mod = 1 + max(0,32*(1 - (created_thermal_energy/28000))*min(1,created_volume/120)) * 10
+	var/thermal_energy_mod = max(0,1 - (max(0,created_thermal_energy)/28000))
+	var/volume_mod = min(1,created_volume/120)
+	var/explosion_mod = 3 + (thermal_energy_mod*volume_mod*320)
 	var/datum/effect/effect/system/reagents_explosion/e = new()
 	e.set_up(explosion_mod, location, 0, 0)
 	e.start()
-	holder.clear_reagents()
+	holder.del_reagent("phoron_salt")
 	return
+
+/datum/chemical_reaction/mutone
+	name = "Mutone"
+	id = "mutone"
+	result = "mutone"
+	result_amount = 1
+	required_reagents = list("phoron_salt" = 1, "mutagen" = 1)
+
+/datum/chemical_reaction/plexium
+	name = "Plexium"
+	id = "plexium"
+	result = "plexium"
+	result_amount = 1
+	required_reagents = list("phoron_salt" = 1, "alkysine" = 1)
+
+/datum/chemical_reaction/venenum
+	name = "Venenum"
+	id = "venenum"
+	result = "venenum"
+	result_amount = 1
+	required_reagents = list("phoron_salt" = 1, "ryetalyn" = 1)

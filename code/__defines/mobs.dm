@@ -223,6 +223,7 @@
 #define PROSTHETIC_ZH "Zeng-Hu Pharmaceuticals"
 #define PROSTHETIC_HI "Hephaestus Industries"
 #define PROSTHETIC_XMG "Xion Manufacturing Group"
+#define PROSTHETIC_DIONA "Unknown Model"
 
 //Brain Damage defines
 #define BRAIN_DAMAGE_MILD 10

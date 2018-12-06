@@ -602,7 +602,7 @@
 	nutriment_amt = 3
 	bitesize = 3
 
-/obj/item/weapon/reagent_containers/food/snacks/donut/psdonut
+/obj/item/weapon/reagent_containers/food/snacks/donut/normal/psdonut
 	name = "pumpkin spice donut"
 	desc = "A limited edition seasonal pastry."
 	icon_state = "donut_ps"
