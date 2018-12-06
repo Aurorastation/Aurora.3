@@ -341,8 +341,6 @@ var/list/admin_verbs_mod = list(
 
 var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	///datum/admins/proc/restart,
-	/datum/admins/proc/spawn_atom,		//allows us to spawn instances,
-	/client/proc/game_panel,			// GUI spawn
 	/client/proc/Jump,
 	/client/proc/jumptokey,				/*allows us to jump to the location of a mob with a certain ckey*/
 	/client/proc/jumptomob,				/*allows us to jump to a specific mob*/
