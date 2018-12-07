@@ -34,4 +34,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "Farmbot can finally be refilled properly."
+  - tweak: "Farmbots now prioritize refilling their tank over attending to trays if their tanks are below 30%."
+  - maptweak: "Moved hydroponics sink to a spot where farmbots will still see it while attending to trays. Remember that sinks must be in field of view for farmbots to use them."
+  - bugfixes: "Option to stop watering trays in farmbots interface now actually works."
