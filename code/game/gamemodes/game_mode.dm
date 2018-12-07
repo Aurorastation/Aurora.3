@@ -10,6 +10,7 @@ var/global/list/additional_antag_types = list()
 	var/probability = 0
 
 	var/required_players = 0                 // Minimum players for round to start if voted in.
+	var/required_players_max = 0			 // Maximum players for round to start for secret voting. 0 means "doesn't matter"
 	var/required_enemies = 0                 // Minimum antagonists for round to start.
 	var/newscaster_announcements = null
 	var/end_on_antag_death = 0               // Round will end when all antagonists are dead.
@@ -152,10 +153,13 @@ var/global/list/additional_antag_types = list()
 			playerC++
 
 	if(playerC < required_players)
-		return 0
+		return GAME_FAILURE_NO_PLAYERS
+
+	if(playerC > required_players_max && required_players_max != 0)
+		return GAME_FAILURE_TOO_MANY_PLAYERS
 
 	if(!(antag_templates && antag_templates.len))
-		return 1
+		return GAME_FAILURE_NONE
 
 	var/enemy_count = 0
 	if(antag_tags && antag_tags.len)
@@ -170,11 +174,12 @@ var/global/list/additional_antag_types = list()
 				potential = antag.candidates
 			if(islist(potential))
 				if(require_all_templates && potential.len < antag.initial_spawn_req)
-					return 0
+					return GAME_FAILURE_NO_ANTAGS
 				enemy_count += potential.len
 				if(enemy_count >= required_enemies)
-					return 1
-	return 0
+					return GAME_FAILURE_NONE
+
+	return GAME_FAILURE_NO_PLAYERS
 
 /datum/game_mode/proc/refresh_event_modifiers()
 	if(event_delay_mod_moderate || event_delay_mod_major)

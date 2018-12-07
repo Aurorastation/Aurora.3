@@ -393,21 +393,34 @@ var/datum/controller/subsystem/ticker/SSticker
 	src.mode.pre_setup()
 	SSjobs.DivideOccupations() // Apparently important for new antagonist system to register specific job antags properly.
 
-	if(!src.mode.can_start())
+	var/fail_reasons = list()
+
+	var/can_start = src.mode.can_start()
+
+	if(can_start & GAME_FAILURE_NO_PLAYERS)
 		var/list/voted_not_ready = list()
 		for(var/mob/abstract/new_player/player in player_list)
 			if((player.client)&&(!player.ready))
 				voted_not_ready += player.ckey
 		message_admins("The following players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")
 		log_game("Ticker: Players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")
-		world << "<B>Unable to start [mode.name].</B> Not enough players, [mode.required_players] players needed. Reverting to pre-game lobby."
+		fail_reasons += "Not enough players, [mode.required_players] player(s) needed"
+	if(can_start & GAME_FAILURE_NO_ANTAGS)
+		fail_reasons += "Not enough antagonists, [mode.required_enemies] antagonist(s) needed"
+	if(can_start & GAME_FAILURE_TOO_MANY_PLAYERS)
+		fail_reasons +=  "Too many players, less than [mode.required_players_max] antagonist(s) needed"
+
+	if(can_start != GAME_FAILURE_NONE)
+		world << "<B>Unable to start [mode.name].</B> [english_list(fail_reasons," "," "," ")]"
 		current_state = GAME_STATE_PREGAME
 		mode.fail_setup()
 		mode = null
 		SSjobs.ResetOccupations()
 		if(master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
+			world << "Reverting to pre-game lobby."
 			return SETUP_REATTEMPT
 		else
+			world << "Restarting vote..."
 			return SETUP_REVOTE
 
 	var/starttime = REALTIMEOFDAY
