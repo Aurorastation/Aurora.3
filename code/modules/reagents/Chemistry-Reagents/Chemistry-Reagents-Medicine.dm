@@ -74,18 +74,19 @@
 	if (!modifier1)
 		modifier1 = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
-/datum/reagent/epinephrine/overdose(var/mob/living/carbon/M, var/alien)
-	if(istype(M))
-		var/obj/item/organ/F = M.internal_organs_by_name["heart"]
+/datum/reagent/epinephrine/overdose(var/mob/living/carbon/human/H, var/alien, removed )
+	if(istype(H))
+		var/obj/item/organ/F = H.internal_organs_by_name["heart"]
 		if(istype(F))
 			F.take_damage(-removed*0.1)
-			M.make_jittery(removed*10)
-			M.add_chemical_effect(CE_SPEEDBOOST, 1)
+			H.make_jittery(removed*10)
+			H.add_chemical_effect(CE_SPEEDBOOST, 1)
 			if (!modifier2)
-				modifier2 = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+				modifier2 = H.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
 /datum/reagent/epinephrine/Destroy()
-	QDEL_NULL(modifier)
+	QDEL_NULL(modifier1)
+	QDEL_NULL(modifier2)
 	return ..()
 
 /datum/reagent/bicaridine
