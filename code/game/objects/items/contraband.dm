@@ -55,3 +55,15 @@
 
 	desc = "Contains [english_list(names)]."
 	update_icon()
+
+
+/obj/item/weapon/reagent_containers/glass/beaker/vial/venenum
+	flags = 0
+
+/obj/item/weapon/reagent_containers/glass/beaker/vial/venenum/Initialize()
+	. = ..()
+	if(is_open_container())
+		flags ^= OPENCONTAINER
+	reagents.add_reagent("venenum",volume)
+	desc = "Contains venenum."
+	update_icon()

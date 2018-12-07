@@ -2,7 +2,7 @@
 	name = "energy carbine"
 	desc = "An energy-based carbine with two settings: Stun and kill."
 	icon_state = "energystun100"
-	item_state = null	//so the human update icon uses the icon_state instead.
+	item_state = null	// so the human update icon uses the icon_state instead.
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT
 	accuracy = 1
