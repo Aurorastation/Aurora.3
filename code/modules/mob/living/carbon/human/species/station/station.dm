@@ -766,3 +766,57 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
 	return ..()
+
+
+/datum/species/getmorean
+	name = "Getmorean"
+	hide_name = FALSE
+	short_name = "get"
+	name_plural = "Getmoreans"
+	bodytype = "Getmorean"
+	age_max = 20
+	economic_modifier = 4 // Getmorean don't get paid much money at all, as they're technically a hired corperate entity.
+	icobase = 'icons/mob/human_races/r_getmore.dmi'
+	deform = 'icons/mob/human_races/r_getmore.dmi'
+
+	primitive_form = "Sodette"
+	unarmed_types = list(
+		/datum/unarmed_attack/stomp,
+		/datum/unarmed_attack/kick,
+		/datum/unarmed_attack/punch
+	)
+	blurb = "When the Getmore Chocolate Corperation was experimenting with creating a cool and refreshing drink series to rival Robust Industries, LLC's line or products, \
+	their experimentation with fantastic flavour combinations went too far. They had created a species of can/human hybrids, that quickly forced their way into \
+	independance."
+	num_alternate_languages = 1
+	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_SIIK_TAU)
+	mob_size = 9
+	spawn_flags = CAN_JOIN | IS_WHITELISTED
+	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
+	remains_type = /obj/effect/decal/remains/human
+
+	// Getmorean are cans, and so sprinting is clunky.
+	stamina = 90
+	stamina_recovery = 5
+	sprint_speed_factor = 0.7
+	sprint_cost_factor = 0.5
+
+	climb_coeff = 0.2
+
+	has_organ = list(
+
+	)
+
+	// Getmoreans don't need heads. Heads are for species that aren't part can.
+	has_limbs = list(
+		"chest" =  list("path" = /obj/item/organ/external/chest),
+		"groin" =  list("path" = /obj/item/organ/external/groin),
+		"l_arm" =  list("path" = /obj/item/organ/external/arm),
+		"r_arm" =  list("path" = /obj/item/organ/external/arm/right),
+		"l_leg" =  list("path" = /obj/item/organ/external/leg),
+		"r_leg" =  list("path" = /obj/item/organ/external/leg/right),
+		"l_hand" = list("path" = /obj/item/organ/external/hand),
+		"r_hand" = list("path" = /obj/item/organ/external/hand/right),
+		"l_foot" = list("path" = /obj/item/organ/external/foot),
+		"r_foot" = list("path" = /obj/item/organ/external/foot/right)
+	)
