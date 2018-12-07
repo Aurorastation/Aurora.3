@@ -138,7 +138,7 @@
 	if (!establish_db_connection(dbcon))
 		return 0
 
-	var/DBQuery/first_char = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey: LIMIT 1")
+	var/DBQuery/first_char = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey: AND deleted_at IS NULL LIMIT 1")
 	first_char.Execute(list("ckey" = pref.client.ckey))
 
 	if (!first_char.NextRow())
