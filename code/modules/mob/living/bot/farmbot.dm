@@ -187,7 +187,7 @@
 			if(0)
 				return
 			if(FARMBOT_COLLECT)
-				action = "water" // Needs a better one
+				action = "collect"
 				update_icons()
 				visible_message("<span class='notice'>[src] starts [T.dead? "removing the plant from" : "harvesting"] \the [A].</span>")
 				attacking = 1
@@ -211,6 +211,7 @@
 				if(do_after(src, 30))
 					visible_message("<span class='notice'>[src] uproots the weeds in \the [A].</span>")
 					T.weedlevel = 0
+					T.update_icon()
 			if(FARMBOT_NUTRIMENT)
 				action = "fertile"
 				update_icons()
@@ -288,7 +289,7 @@
 	else if(refills_water && tray.waterlevel < 40 && !tray.reagents.has_reagent("water"))
 		return FARMBOT_WATER
 
-	else if(uproots_weeds && tray.weedlevel > 3)
+	else if(uproots_weeds && tray.weedlevel >= 5)
 		return FARMBOT_UPROOT
 
 	else if(replaces_nutriment && tray.nutrilevel < 1 && tray.reagents.total_volume < 1)
@@ -306,14 +307,6 @@
 	var/build_step = 0
 	var/created_name = "Farmbot"
 	w_class = 3.0
-
-	New()
-		..()
-		spawn(4) // If an admin spawned it, it won't have a watertank it, so lets make one for em!
-			var tank = locate(/obj/structure/reagent_dispensers/watertank) in contents
-			if(!tank)
-				new /obj/structure/reagent_dispensers/watertank(src)
-
 
 /obj/structure/reagent_dispensers/watertank/attackby(var/obj/item/robot_parts/S, mob/user as mob)
 	if ((!istype(S, /obj/item/robot_parts/l_arm)) && (!istype(S, /obj/item/robot_parts/r_arm)))
@@ -355,6 +348,7 @@
 		user << "You complete the Farmbot! Beep boop."
 		var/mob/living/bot/farmbot/S = new /mob/living/bot/farmbot(get_turf(src))
 		for(var/obj/structure/reagent_dispensers/watertank/wTank in contents)
+			qdel(S.tank)
 			wTank.forceMove(S)
 			S.tank = wTank
 		S.name = created_name

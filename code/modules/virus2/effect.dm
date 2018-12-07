@@ -100,7 +100,7 @@
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		mob.apply_effect(2*multiplier, IRRADIATE, blocked = 0)
 
-/datum/disease2/effect/deaf
+/datum/disease2/effect/deaf_major
 	name = "Deafness"
 	stage = 4
 	badness = 2
@@ -369,7 +369,6 @@
 		if (prob(30))
 			mob << "<span class='warning'>You feel like you are about to sneeze!</span>"
 		addtimer(CALLBACK(src, .proc/do_sneeze, mob, multiplier), 5)
-
 
 	proc/do_sneeze(mob/living/carbon/mob, multiplier)
 		if (QDELETED(mob))
