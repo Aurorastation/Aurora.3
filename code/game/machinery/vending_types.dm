@@ -173,17 +173,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 2,
-		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb01 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb02 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb03 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb04 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb05 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb06 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb07 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb08 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb09 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb10 = 4
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 4
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/snacks/syndicake = 6,
