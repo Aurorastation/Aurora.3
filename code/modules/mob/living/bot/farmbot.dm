@@ -163,7 +163,7 @@
 					target = tray
 					frustration = 0
 					break
-			if((!target && refills_water && tank && tank.reagents.total_volume < tank.reagents.maximum_volume) || ((tank.reagents.maximum_volume - tank.reagents.total_volume ) / reagents.maximum_volume) <= 0.3)
+			if(check_tank())
 				for(var/obj/structure/sink/source in view(7, src))
 					target = source
 					frustration = 0
@@ -299,6 +299,9 @@
 
 // Assembly
 
+/mob/living/bot/farmbot/proc/check_tank()
+	return ((!target && refills_water && tank && tank.reagents.total_volume < tank.reagents.maximum_volume) || ((tank.reagents.maximum_volume - tank.reagents.total_volume ) / reagents.maximum_volume) <= 0.3)
+
 /obj/item/weapon/farmbot_arm_assembly
 	name = "water tank/robot arm assembly"
 	desc = "A water tank with a robot arm permanently grafted to it."
@@ -348,7 +351,7 @@
 		user << "You complete the Farmbot! Beep boop."
 		var/mob/living/bot/farmbot/S = new /mob/living/bot/farmbot(get_turf(src))
 		for(var/obj/structure/reagent_dispensers/watertank/wTank in contents)
-			QDEL_NULL(S.tank)
+			qdel(S.tank)
 			wTank.forceMove(S)
 			S.tank = wTank
 		S.name = created_name
