@@ -121,7 +121,7 @@
 	if (!establish_db_connection(dbcon))
 		return pref.current_character
 
-	var/DBQuery/is_ours = dbcon.NewQuery("SELECT COUNT(*) as valid_id FROM ss13_characters WHERE ckey = :ckey: AND id = :curr_char:")
+	var/DBQuery/is_ours = dbcon.NewQuery("SELECT COUNT(*) as valid_id FROM ss13_characters WHERE ckey = :ckey: AND id = :curr_char: AND deleted_at IS NULL")
 	is_ours.Execute(list("ckey" = pref.client.ckey, "curr_char" = pref.current_character))
 
 	if (!is_ours.NextRow())
