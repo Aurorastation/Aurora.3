@@ -14,12 +14,20 @@
 	var/spawn_reagent = null
 	var/label = ""
 
-/obj/item/weapon/reagent_containers/chem_disp_cartridge/Initialize()
+	var/temperature_override = 0 //A non-zero value with set the temperature of the reagents inside to this value, in kelvin.
+
+
+/obj/item/weapon/reagent_containers/chem_disp_cartridge/Initialize(mapload,temperature_override)
 	. = ..()
+	if(temperature_override)
+		src.temperature_override = temperature_override
 	if(spawn_reagent)
-		reagents.add_reagent(spawn_reagent, volume)
+		reagents.add_reagent(spawn_reagent, volume, temperature = src.temperature_override)
 		var/datum/reagent/R = SSchemistry.chemical_reagents[spawn_reagent]
-		setLabel(R.name)
+		if(label)
+			setLabel(label)
+		else
+			setLabel(R.name)
 
 /obj/item/weapon/reagent_containers/chem_disp_cartridge/examine(mob/user)
 	..()
