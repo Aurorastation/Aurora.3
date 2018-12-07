@@ -36,4 +36,4 @@ delete-after: True
 changes:
   - tweak: "Farmbots now prioritize refilling their tank over attending to trays if their tanks are below 30%."
   - maptweak: "Moved hydroponics sink to a spot where farmbots will still see it while attending to trays. Remember that sinks must be in field of view for farmbots to use them."
-  - bugfixes: "Option to stop watering trays in farmbots interface now actually works."
+  - bugfix: "Option to stop watering trays in farmbots interface now actually works."
