@@ -779,6 +779,10 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	icobase = 'icons/mob/human_races/r_getmore.dmi'
 	deform = 'icons/mob/human_races/r_getmore.dmi'
 
+	// No need to eat or drink. They are drink.
+	max_hydration_factor = -1
+	max_nutrition_factor = -1
+
 	flesh_color = "#333333"
 
 	mob_size = MOB_SMALL
@@ -805,6 +809,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	heat_level_2 = 1000
 	heat_level_3 = 2000
 
+	// Always looks like pepsi, regardless of the flavour.
 	blood_color = "#654321"
 
 	flags = NO_CHUBBY | NO_BLOOD | NO_BREATHE | NO_SCAN | NO_PAIN | NO_POISON | NO_HEAD
