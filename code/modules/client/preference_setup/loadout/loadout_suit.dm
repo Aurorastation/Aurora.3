@@ -362,3 +362,12 @@
 /datum/gear/suit/greenjacket
 	display_name = "green suit jacket"
 	path = /obj/item/clothing/suit/storage/toggle/greengov
+
+/datum/gear/suit/cardigan
+	display_name = "cardigan"
+	path = /obj/item/clothing/suit/cardigan
+	cost = 1 // has no pockets or any use whatsoever anyway
+
+/datum/gear/suit/cardigan/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
