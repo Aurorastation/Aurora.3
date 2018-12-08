@@ -74,7 +74,6 @@
 		/obj/machinery/power/supermatter = TRADER_ALL,
 		/obj/item/weapon/aiModule        = TRADER_SUBTYPES_ONLY
 	)
-	want_multiplier = 10
 
 	speech = list(
 		"hail_generic"         = "Blub am MERCHANT. Blub hunger for things. Boo bring them to blub, yes?",
