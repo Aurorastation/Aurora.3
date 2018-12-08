@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "Changed the possible contents of the random vault hardsuits."
