@@ -11,6 +11,48 @@
 	empulse(A, pulse_range, pulse_range)
 	return 1
 
+
+/obj/item/projectile/ion/stun/on_impact(var/atom/A)
+	if(isipc(A))
+		var/mob/living/carbon/human/H = A
+		var/obj/item/organ/surge/s = H.internal_organs_by_name["surge"]
+		if(!isnull(s))
+			if(s.surge_left >= 0.5)
+				playsound(src.loc, 'sound/magic/LightningShock.ogg', 25, 1)
+				s.surge_left -= 0.5
+				if(s.surge_left)
+					H.visible_message("<span class='warning'>[H] was not affected by EMP pulse.</span>", "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. There are [s.surge_left] preventions left.</span>")
+				else
+					s.broken = 1
+					s.icon_state = "surge_ipc_broken"
+					to_chat(H, "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended.</span>")
+				return 1
+			else
+				to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended.</span>")
+		H.Weaken(5)
+		to_chat(H, "<span class='danger'>ERROR: detected low setting EMP, acutators experience temporary power loss. Attempting to restore power.</span>")
+	else if (isrobot(A))
+		var/mob/living/silicon/robot/R = A
+		var/datum/robot_component/surge/C = R.components["surge"]
+		if(C && C.installed)
+			if(C.surge_left >= 0.5)
+				playsound(src.loc, 'sound/magic/LightningShock.ogg', 25, 1)
+				C.surge_left -= 0.5
+				R.visible_message("<span class='warning'>[R] was not affected by EMP pulse.</span>", "<span class='warning'>Warning: Power surge detected, source - EMP. Surge prevention module re-routed surge to prevent damage to vital electronics.</span>")
+				if(C.surge_left)
+					to_chat(R, "<span class='notice'>Surge module has [C.surge_left] preventions left!</span>")
+				else
+					C.destroy()
+					to_chat(R, "<span class='danger'>Module is entirely fried, replacement is recommended.</span>")
+				return
+			else
+				to_chat(src, "<span class='notice'>Warning: Power surge detected, source - EMP. Surge prevention module is depleted and requires replacement</span>")
+
+		R.emp_act(2) // Borgs emp_act is 1-2
+	else
+		A.emp_act(3) // Deals less EMP damage then lethal setting, and not areal pulse
+	return 1
+
 /obj/item/projectile/ion/small
 	name = "ion pulse"
 	pulse_range = 0

@@ -242,6 +242,7 @@
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
 
+
 //Internal Affairs
 /obj/item/clothing/suit/storage/toggle/internalaffairs
 	name = "internal affairs jacket"
@@ -252,6 +253,18 @@
 	icon_closed = "ia_jacket"
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
+
+//Resprited from IAA jacket
+/obj/item/clothing/suit/storage/toggle/suitjacket
+	name = "suit jacket"
+	desc = "A snappy dress jacket."
+	icon_state = "suitjacket_open"
+	item_state = "suitjacket_open"
+	icon_open = "suitjacket_open"
+	icon_closed = "suitjacket"
+	blood_overlay_type = "coat"
+	body_parts_covered = UPPER_TORSO|ARMS
+
 
 //Medical
 /obj/item/clothing/suit/storage/toggle/fr_jacket
