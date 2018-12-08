@@ -360,7 +360,7 @@
 
 /mob/living/bot/secbot/proc/calc_path(var/turf/avoid = null)
 	path = AStar(loc, patrol_target, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 120, id=botcard, exclude=avoid)
-	if(!path.len)
+	if(isnull(path))
 		path = list()
 		return
 	var/list/path_new = list()
