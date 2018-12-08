@@ -39,6 +39,7 @@
 /datum/reagent/proc/initialize_data(var/newdata) // Called when the reagent is created.
 	if(!isnull(newdata))
 		data = newdata
+	metabolism = round(metabolism,0.001)
 
 /datum/reagent/proc/remove_self(var/amount) // Shortcut
 	if (!holder)
