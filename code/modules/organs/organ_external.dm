@@ -190,6 +190,10 @@
 
 /obj/item/organ/external/replaced(var/mob/living/carbon/human/target)
 	owner = target
+	if(!species)
+		species = owner.species
+	if(!dna)
+		dna = owner.dna
 	forceMove(owner)
 	if(istype(owner))
 		owner.organs_by_name[limb_name] = src
