@@ -46,9 +46,6 @@
 /datum/reagent/proc/get_thermal_energy_change(var/old_temperature, var/new_temperature)
 	return get_heat_capacity()*(max(new_temperature, TCMB) - old_temperature)
 
-/datum/reagent/proc/get_thermal_energy_per_unit()
-	return get_thermal_energy() / volume
-
 /datum/reagent/proc/add_thermal_energy(var/added_energy)
 	thermal_energy = max(0,thermal_energy + added_energy)
 	return added_energy
@@ -65,27 +62,35 @@
 /datum/reagents/proc/set_temperature(var/new_temperature)
 	return add_thermal_energy(-get_thermal_energy() + get_thermal_energy_change(0,new_temperature) )
 
-/datum/reagents/proc/equalize_thermal_energy()
-	var/thermal_energy_to_add = get_thermal_energy()
-	for(var/datum/reagent/R in reagent_list)
-		R.add_thermal_energy(-R.get_thermal_energy() + (thermal_energy_to_add * (1/reagent_list.len)) )
-
 /datum/reagents/proc/equalize_temperature()
 
 	var/total_thermal_energy = 0
 	var/total_heat_capacity = 0
+	var/was_changed = FALSE
 
 	for(var/datum/reagent/R in reagent_list)
 		total_thermal_energy += R.get_thermal_energy()
 		total_heat_capacity += R.get_heat_capacity()
 
 	for(var/datum/reagent/R in reagent_list)
-		R.set_thermal_energy( total_thermal_energy * (R.get_heat_capacity()/total_heat_capacity) )
+		var/old_thermal_energy = R.get_thermal_energy()
+		var/new_thermal_energy = total_thermal_energy * (R.get_heat_capacity()/total_heat_capacity)
+		if(round(old_thermal_energy,1) != round(new_thermal_energy,1))
+			R.set_thermal_energy( new_thermal_energy )
+			was_changed = TRUE
+
+	return was_changed
 
 /datum/reagents/proc/add_thermal_energy(var/thermal_energy_to_add)
+
 	var/total_energy_added = 0
+	var/total_heat_capacity = 0
+
 	for(var/datum/reagent/R in reagent_list)
-		total_energy_added += R.add_thermal_energy(thermal_energy_to_add * (1/reagent_list.len))
+		total_heat_capacity += R.get_heat_capacity()
+
+	for(var/datum/reagent/R in reagent_list)
+		total_energy_added += R.add_thermal_energy(thermal_energy_to_add * (R.get_heat_capacity()/total_heat_capacity) )
 
 	return total_energy_added
 

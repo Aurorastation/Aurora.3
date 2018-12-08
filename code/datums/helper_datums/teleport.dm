@@ -113,9 +113,83 @@
 		var/mob/living/L = teleatom
 		if(L.buckled)
 			C = L.buckled
+
 	if(force_teleport)
 		teleatom.forceMove(destturf)
 		playSpecials(destturf,effectout,soundout)
+		var/atom/impediment
+
+		if(destturf.density)
+			impediment = destturf
+
+		else
+			for(var/atom/movable/A in destturf)
+				if(A.density && A.anchored)
+					impediment = A
+					break
+
+		if(impediment)
+			var/turf/newdest
+			var/boominess = 0
+			for(var/turf/T in range(1, destturf))
+				if(!T.density)
+					for(var/atom/movable/A in T)
+						var/blocked = 0
+						if(A.density && A.opacity && A.anchored)
+							blocked = 1
+							break
+						if(!blocked)
+							newdest = T
+							break
+
+			if(istype(teleatom, /obj))
+				var/obj/O = teleatom
+				if(newdest)
+					O.forceMove(newdest)
+					O.ex_act(3)
+				else
+					O.crush_act()
+				boominess += max(0, O.w_class - 1)
+				if(O.density)
+					boominess += 5
+				if(O.opacity)
+					boominess += 10
+
+			if(istype(teleatom, /mob/living))
+				var/mob/living/L = teleatom
+				boominess += L.mob_size/4
+				if(istype(L, /mob/living/carbon/human))
+					var/mob/living/carbon/human/H = L
+					if(newdest)
+						var/list/organs_to_gib = list()
+						for(var/obj/item/organ/external/ext in H.organs)
+							if(!ext.vital) //ensures someone doesn't instantly die, allowing them to slowly die instead
+								organs_to_gib.Add(ext)
+
+						if(organs_to_gib.len)
+							var/obj/item/organ/external/E = pick(organs_to_gib)
+							to_chat(H, "<span class='danger'>You partially phase into \the [impediment], causing your [E.name] to violently dematerialize!</span>")
+							E.droplimb(0,DROPLIMB_BLUNT)
+
+						H.forceMove(newdest)
+					else
+						to_chat(H, "<span class='danger'>Your life flashes before your eyes as you phase into \the [impediment] before the universe suddenly and violently corrects itself!</span>")
+						H.gib()
+				else
+					if(newdest)
+						to_chat(L, "<span class='danger'>You partially phase into \the [impediment], causing a chunk of you to violently dematerialize!</span>")
+						L.adjustBruteLoss(40)
+						L.forceMove(newdest)
+					else
+						to_chat(L, "<span class='danger'>Your life flashes before your eyes as you phase into \the [impediment] before the universe suddenly and violently corrects itself!</span>")
+						L.gib()
+
+			if(!newdest)
+				boominess += 5
+
+			destturf.visible_message("<span class ='danger'>There is a sizable emission of energy as \the [teleatom] phases into \the [impediment]!</span>")
+			explosion(destturf, ((boominess > 10) ? 1 : 0), ((boominess > 5) ? (boominess/10) : 0), boominess/5, boominess/2)
+
 	else
 		if(teleatom.Move(destturf))
 			playSpecials(destturf,effectout,soundout)
@@ -164,6 +238,9 @@
 /datum/teleport/instant/science/teleportChecks()
 	if(istype(teleatom, /obj/item/weapon/disk/nuclear)) // Don't let nuke disks get teleported --NeoFite
 		teleatom.visible_message("<span class='danger'>\The [teleatom] bounces off of the portal!</span>")
+		return 0
+
+	if(isobserver(teleatom)) // do not teleport ghosts
 		return 0
 
 	if(!isemptylist(teleatom.search_contents_for(/obj/item/weapon/disk/nuclear)))
