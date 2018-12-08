@@ -79,6 +79,7 @@
 
 	var/cleaving = FALSE
 	var/reach = 1 // Length of tiles it can reach, 1 is adjacent.
+	var/lock_picking_level = 0 //used to determine whether something can pick a lock, and how well.
 
 /obj/item/Destroy()
 	if(ismob(loc))
