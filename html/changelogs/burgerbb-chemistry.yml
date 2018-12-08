@@ -36,3 +36,4 @@ delete-after: True
 changes: 
   - rscadd: "Added autoinjectors and autoinhalers to the chemistry closet. Autoinhalers, autoinjectors, inhalers, and inhaler cartridges can now be stored inside medical fridges and belts."
   - maptweak: "Tweaked chemistry to be a more spacious area."
+  - spellcheck: "Fixed various typos in injecting/inhaling messages."
