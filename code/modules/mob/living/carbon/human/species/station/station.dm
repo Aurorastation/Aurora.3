@@ -782,7 +782,6 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	flesh_color = "#333333"
 
 	mob_size = MOB_SMALL
-	holder_type = /obj/item/weapon/holder/human
 
 	hud_type = /datum/hud_data/getmorean // Doesn't have a head. No head slots.
 
@@ -826,7 +825,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	corperate double speak, and generally being creepy. Instead of organs, they have a sweet tasting yet fizzy \
 	syrup that seems to serve the same functions. Because of this, things like temperature and radation have little \
 	effect on the cans, but being made of thin aluminum makes them extra weak to punches."
-	num_alternate_languages = 1
+	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_SIIK_TAU)
 	name_language = LANGUAGE_GETMORE
 
@@ -861,3 +860,13 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		"l_foot" = list("path" = /obj/item/organ/external/foot),
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right)
 	)
+
+/datum/species/getmorean/equip_survival_gear(var/mob/living/carbon/human/H)
+	H.gender = MALE // Only Pepsi MEN
+	var/obj/item/device/radio/R = new /obj/item/device/radio(H)
+	if(H.backbag == 1)
+		H.equip_to_slot_or_del(R, slot_r_hand)
+	else
+		H.equip_to_slot_or_del(R, slot_in_backpack)
+	if(!QDELETED(R))
+		R.autodrobe_no_remove = 1
