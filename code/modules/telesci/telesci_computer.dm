@@ -114,12 +114,12 @@
 		t += "<A href='?src=\ref[src];setz=1'>Set Sector</A>"
 		t += "<div class='statusDisplay'>[z_co ? z_co : "NULL"]</div>"
 
+		t += " <A href='?src=\ref[src];scalar=1'>Recalibrate Warp-Funnel</A>"
+		t += "<div class='statusDisplay'>[potency]</div>"
+
 		t += "<BR><A href='?src=\ref[src];send=1'>Send</A>"
 		t += " <A href='?src=\ref[src];receive=1'>Receive</A>"
 		t += "<BR><A href='?src=\ref[src];recal=1'>Recalibrate Crystals</A> <A href='?src=\ref[src];eject=1'>Eject Crystals</A>"
-
-		t += " <A href='?src=\ref[src];scalar=1'>Recalibrate Warp-Funnel</A>"
-		t += "<div class='statusDisplay'>[potency]</div>"
 
 		// Information about the last teleport
 		t += "<BR><div class='statusDisplay'>"
@@ -249,8 +249,9 @@
 							log_msg = dd_limittext(log_msg, length(log_msg) - 2)
 							log_msg += ")"
 					log_msg += ", "
-				var/x_offset = ROI.x - dest.x
-				var/y_offset = ROI.y - ROI.x
+				var/x_offset = ROI.x - source.x
+				var/y_offset = ROI.y - source.y
+
 				do_teleport(ROI, locate(dest.x + x_offset, dest.y + y_offset, dest.z))
 
 			if (dd_hassuffix(log_msg, ", "))

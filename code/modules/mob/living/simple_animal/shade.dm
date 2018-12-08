@@ -34,9 +34,10 @@
 	return
 
 /mob/living/simple_animal/shade/death()
+	. = ..()
 	visible_message("<span class='warning'>[src] lets out a contented sigh as their form unwinds.</span>")
 	new /obj/item/weapon/ectoplasm(loc)
-	. = ..()
+	qdel(src)
 
 /mob/living/simple_animal/shade/attackby(var/obj/item/O as obj, var/mob/user as mob)  //Marker -Agouri
 	if(istype(O, /obj/item/device/soulstone))
@@ -73,7 +74,6 @@
 	attacktext = "brushes against"
 	melee_damage_lower = 0
 	melee_damage_upper = 0
-	speed = 1
 	status_flags = CANPUSH
 	heat_damage_per_tick = 0
 	cold_damage_per_tick = 0
@@ -81,6 +81,7 @@
 	incorporeal_move = 3
 	mob_size = 0
 	density = 0
+	speed = 1
 	var/last_message_heard
 	var/message_countdown = 300
 	var/heard_dying_message = 0
@@ -100,14 +101,21 @@
 /mob/living/simple_animal/shade/bluespace/adjustOxyLoss()
 	return 0
 
-/mob/living/simple_animal/shade/bluespace/adjustCloneLoss()
-	return 0
-
 /mob/living/simple_animal/shade/bluespace/adjustHalLoss()
 	return 0
 
 /mob/living/simple_animal/shade/bluespace/attempt_grab()
 	return 0
+
+/mob/living/simple_animal/shade/bluespace/ex_act()
+	return 0
+
+/mob/living/simple_animal/shade/bluespace/crush_act()
+	return 0
+
+/mob/living/simple_animal/shade/bluespace/Initialize()
+	. = ..()
+	set_light(2, 1, l_color = LIGHT_COLOR_CYAN)
 
 /mob/living/simple_animal/shade/bluespace/Stat()
 	..()
@@ -115,40 +123,39 @@
 	if(statpanel("Status"))
 		stat(null, "Strength of Echoes: [message_countdown]")
 
-/mob/living/simple_animal/shade/bluespace/Life()
-	message_countdown = min(0, message_countdown--)
+/mob/living/simple_animal/shade/bluespace/updatehealth()
+	message_countdown = max(0, message_countdown - 1)
 	if(message_countdown <= 0)
-		health = max(0, health - rand(2, 10))
+		adjustCloneLoss(1)
 		if(!heard_dying_message)
 			heard_dying_message = 1
 			to_chat(src, "<span class='danger'>You feel yourself begin to fade away!</span>")
 	..()
 
-/mob/living/simple_animal/shade/bluespace/hear_say(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/part_c, var/mob/speaker = null, var/hard_to_hear = 0)
-	if(speaker != src)
+/mob/living/simple_animal/shade/bluespace/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
+	..()
+	if(speaker && speaker != src)
 		last_message_heard = message
 		message_countdown = min(300, message_countdown + 50)
 		health = min(maxHealth, health + 5)
 		if(heard_dying_message)
 			heard_dying_message = 0
 			to_chat(src, "<span class='notice'>The soothing echoes of life reinvigorate you.</span>")
-	..()
 
 /mob/living/simple_animal/shade/bluespace/say(var/message)
-	var/list/words = list()
-	for(var/word in last_message_heard)
-		words += word
-	for(var/word1 in message)
+	var/list/words_in_memory = dd_text2List(last_message_heard, " ")
+	var/list/words_in_message = dd_text2List(message, " ")
+	for(var/word1 in words_in_message)
 		var/valid = 0
-		for(var/word2 in last_message_heard)
+		for(var/word2 in words_in_memory)
 			if(lowertext(word1) != lowertext(word2))
 				continue
 			else
 				valid = 1
 				break
 		if(!valid)
-			message = replacetext(message, word1, pick(words))
-	message = slur(message,rand(20,80))
+			message = replacetext(message, word1, pick(words_in_memory))
+	message = slur(message,rand(10, 20))
 	..()
 
 /mob/living/simple_animal/shade/bluespace/verb/show_last_message()
@@ -161,6 +168,7 @@
 /mob/living/simple_animal/shade/bluespace/verb/flicker()
 	set name = "Flicker Lights"
 	set category = "Bluespace Echo"
+	set desc = "Oh, Nosferatu!"
 
 	visible_message("<span class ='notice'>\The [src] pulses.</span>")
 	for(var/obj/machinery/light/L in view(5, src))
