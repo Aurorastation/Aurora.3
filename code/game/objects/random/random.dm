@@ -865,6 +865,7 @@
 		/obj/item/weapon/gun/projectile/automatic/terminator = 0.5,
 		/obj/item/weapon/rig/military = 0.5,
 		/obj/item/weapon/rig/unathi/fancy = 0.5,
+		/obj/item/weapon/rig/vaurca/minima = 0.5,
 		/obj/item/weapon/anomaly_core = 0.5
 	)
 
@@ -1102,12 +1103,10 @@
 	icon_state = "breacher_rig"
 	spawnlist = list(
 		/obj/item/weapon/rig/ce/equipped = 1,
-		/obj/item/weapon/rig/ert/janitor = 0.1,
-		/obj/item/weapon/rig/eva/equipped = 0.5,
-		/obj/item/weapon/rig/hazard = 1,
-		/obj/item/weapon/rig/hazmat = 1,
-		/obj/item/weapon/rig/unathi = 1,
-		/obj/item/weapon/rig/vaurca/minimal = 0.1
+		/obj/item/weapon/rig/eva/equipped = 1,
+		/obj/item/weapon/rig/hazard/equipped = 1,
+		/obj/item/weapon/rig/hazmat/equipped = 1,
+		/obj/item/weapon/rig/medical/equipped = 1
 	)
 
 /obj/random/telecrystals
