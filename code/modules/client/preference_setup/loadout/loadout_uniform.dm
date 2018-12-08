@@ -55,12 +55,7 @@
 	skirts["plaid skirt, red"] = /obj/item/clothing/under/skirt/plaid_red
 	skirts["jumpskirt, black"] = /obj/item/clothing/under/skirt/blackjumpskirt
 	skirts["skirt, black"] = /obj/item/clothing/under/skirt/
-	skirts["short skirt, black"] = /obj/item/clothing/under/skirt/short_black
-	skirts["short skirt, blue"] = /obj/item/clothing/under/skirt/blue
-	skirts["short skirt, red"] = /obj/item/clothing/under/skirt/red
 	skirts["skirt, swept"] = /obj/item/clothing/under/skirt/swept
-
-
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
 
 /datum/gear/uniform/skirt/casual
@@ -78,6 +73,15 @@
 /datum/gear/uniform/skirt/long/New()
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/uniform/skirt/pencil
+	display_name = "pencil skirt"
+	path = /obj/item/clothing/under/skirt/pencil
+
+/datum/gear/uniform/skirt/pencil/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
 
 /datum/gear/uniform/suit
 	display_name = "suit selection"
