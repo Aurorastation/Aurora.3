@@ -784,6 +784,8 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	mob_size = MOB_SMALL
 	holder_type = /obj/item/weapon/holder/human
 
+	hud_type = /datum/hud_data/getmorean // Doesn't have a head. No head slots.
+
 	brute_mod =     3.0                  // Physical damage multiplier.
 	burn_mod =      0.3                  // Burn damage multiplier.
 	oxy_mod =       0                    // Oxyloss modifier
