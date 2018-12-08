@@ -865,7 +865,7 @@
 		/obj/item/weapon/gun/projectile/automatic/terminator = 0.5,
 		/obj/item/weapon/rig/military = 0.5,
 		/obj/item/weapon/rig/unathi/fancy = 0.5,
-		/obj/item/weapon/rig/vaurca/minima = 0.5,
+		/obj/item/weapon/rig/vaurca/minimal = 0.5,
 		/obj/item/weapon/anomaly_core = 0.5
 	)
 
@@ -1106,7 +1106,8 @@
 		/obj/item/weapon/rig/eva/equipped = 1,
 		/obj/item/weapon/rig/hazard/equipped = 1,
 		/obj/item/weapon/rig/hazmat/equipped = 1,
-		/obj/item/weapon/rig/medical/equipped = 1
+		/obj/item/weapon/rig/medical/equipped = 1,
+		/obj/item/weapon/rig/industrial/equipped = 1
 	)
 
 /obj/random/telecrystals
