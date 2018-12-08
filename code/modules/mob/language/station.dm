@@ -301,3 +301,12 @@
 	syllables = list("azs","zis","zau","azua","skiu","zuakz","izo","aei","ki","kut","zo")
 	partial_understanding = list(LANGUAGE_UNATHI = 50)
 
+
+/datum/language/getmore
+	name = LANGUAGE_GETMORE
+	desc = "It sounsd like basic, but, nothing seems to actually be said? Corperate Proessionals claim to understand it perfectly."
+	key = "b"
+	syllables = list (
+		"nanotrasen", "getmore", "contract", "progress", "robust", "chocolate", "synergy", "promotion", "effective", "quadrant", "finance", "profit", "margin", "product", "finance"
+	)
+	partial_understanding = list(LANGUAGE_TCB = 60)

@@ -779,20 +779,58 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	icobase = 'icons/mob/human_races/r_getmore.dmi'
 	deform = 'icons/mob/human_races/r_getmore.dmi'
 
-	primitive_form = "Sodette"
+	flesh_color = "#333333"
+
+	mob_size = MOB_SMALL
+	holder_type = /obj/item/weapon/holder/human
+
+	brute_mod =     3.0                  // Physical damage multiplier.
+	burn_mod =      0.3                  // Burn damage multiplier.
+	oxy_mod =       0                    // Oxyloss modifier
+	toxins_mod =    0                    // Toxloss modifier
+	radiation_mod = 0                    // Radiation modifier
+	flash_mod =     0                    // Stun from blindness modifier.
+	fall_mod =      0                    // Fall damage modifier, further modified by brute damage modifier
+	inherent_eye_protection = 1          // If set, this species has this level of inherent eye protection.
+
+	warning_low_pressure = 50
+	hazard_low_pressure = -1
+
+	cold_level_1 = 50
+	cold_level_2 = -1
+	cold_level_3 = -1
+
+	heat_level_1 = 500		// Gives them about 25 seconds in space before taking damage
+	heat_level_2 = 1000
+	heat_level_3 = 2000
+
+	blood_color = "#654321"
+
+	flags = NO_CHUBBY | NO_BLOOD | NO_BREATHE | NO_SCAN | NO_PAIN | NO_POISON | NO_HEAD
+
+
+	primitive_form = null
+
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
 		/datum/unarmed_attack/punch
 	)
-	blurb = "When the Getmore Chocolate Corperation was experimenting with creating a cool and refreshing drink series to rival Robust Industries, LLC's line or products, \
-	their experimentation with fantastic flavour combinations went too far. They had created a species of can/human hybrids, that quickly forced their way into \
-	independance."
+	// Getmore Chocolate Corperation
+	// Robust Industries, LLC
+	blurb = "In cooperation with Robust Industries, LLC, the Getmore Chocolate Corperation attempted to produce a \
+	genetically modified line of sodas in order to dynamically appeal to customers. The Result? Getmoreans. \
+	A sentient line of soda products with human features, these human-can hybrides are famous for speaking \
+	corperate double speak, and generally being creepy. Instead of organs, they have a sweet tasting yet fizzy \
+	syrup that seems to serve the same functions. Because of this, things like temperature and radation have little \
+	effect on the cans, but being made of thin aluminum makes them extra weak to punches."
 	num_alternate_languages = 1
 	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_SIIK_TAU)
+	name_language = LANGUAGE_GETMORE
+
 	mob_size = 9
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
-	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
+	appearance_flags = 0
 	remains_type = /obj/effect/decal/remains/human
 
 	// Getmorean are cans, and so sprinting is clunky.
@@ -802,6 +840,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	sprint_cost_factor = 0.5
 
 	climb_coeff = 0.2
+
 
 	has_organ = list(
 
