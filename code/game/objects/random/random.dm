@@ -1103,14 +1103,10 @@
 	icon_state = "breacher_rig"
 	spawnlist = list(
 		/obj/item/weapon/rig/ce/equipped = 1,
-		/obj/item/weapon/rig/combat = 0.5,
-		/obj/item/weapon/rig/diving = 0.1,
-		/obj/item/weapon/rig/ert/assetprotection/empty = 0.1,
 		/obj/item/weapon/rig/ert/janitor = 0.1,
 		/obj/item/weapon/rig/eva/equipped = 0.5,
 		/obj/item/weapon/rig/hazard = 1,
 		/obj/item/weapon/rig/hazmat = 1,
-		/obj/item/weapon/rig/military = 0.1,
 		/obj/item/weapon/rig/unathi = 1,
 		/obj/item/weapon/rig/vaurca/minimal = 0.1
 	)
@@ -1121,9 +1117,9 @@
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "telecrystal"
 	spawnlist = list(
-		/obj/item/stack/telecrystal{amount = 10} = 0.7,
-		/obj/item/stack/telecrystal{amount = 25} = 0.2,
-		/obj/item/stack/telecrystal{amount = 5} = 0.1
+		/obj/item/stack/telecrystal{amount = 5} = 0.7,
+		/obj/item/stack/telecrystal{amount = 10} = 0.1,
+		/obj/item/stack/telecrystal{amount = 15} = 0.2,
 	)
 
 /obj/random/bad_ai
@@ -1170,7 +1166,6 @@
 		/obj/item/weapon/spacecash/bundle{worth = 5000} = 0.25,
 		/obj/item/weapon/spacecash/bundle{worth = 10000} = 0.5,
 		/obj/item/weapon/spacecash/bundle{worth = 25000} = 0.25,
-		/obj/item/stack/material/diamond{amount = 20} = 0.5,
 		/obj/item/stack/material/phoron{amount = 50} = 1,
 		/obj/item/stack/material/gold{amount = 50} = 1
 	)
@@ -1179,3 +1174,36 @@
 
 /obj/random/finances/post_spawn(var/obj/item/spawned)
 	spawned.update_icon()
+
+/obj/random/vault_weapon
+	name = "random vault weapon"
+	desc = "This is a random vault weapon."
+	icon = 'icons/obj/gun.dmi'
+	icon_state = "retro100"
+	spawnlist = list(
+		/obj/item/weapon/gun/custom_ka/frameA/prebuilt = 1,
+		/obj/item/weapon/gun/custom_ka/frameB/prebuilt = 0.5,
+		/obj/item/weapon/gun/custom_ka/frameC/prebuilt = 0.25,
+		/obj/item/weapon/gun/custom_ka/frameD/prebuilt = 0.125,
+		/obj/item/weapon/gun/custom_ka/frameF/prebuilt01 = 0.03125,
+		/obj/item/weapon/gun/custom_ka/frameF/prebuilt02 = 0.03125,
+		/obj/item/weapon/gun/custom_ka/frameE/prebuilt = 0.03125,
+		/obj/item/weapon/gun/energy/captain/xenoarch = 0.5,
+		/obj/item/weapon/gun/energy/laser/xenoarch = 0.5,
+		/obj/item/weapon/gun/energy/laser/practice/xenoarch = 0.25,
+		/obj/item/weapon/gun/energy/xray/xenoarch = 0.25,
+		/obj/item/weapon/gun/energy/net = 1
+	)
+
+/obj/random/vault_weapon/post_spawn(var/obj/item/weapon/gun/spawned)
+	spawned.name = "prototype [spawned.name]"
+	if(istype(spawned,/obj/item/weapon/gun/custom_ka/))
+		var/obj/item/weapon/gun/custom_ka/KA = spawned
+		KA.can_disassemble_barrel = FALSE
+		KA.can_disassemble_cell = FALSE
+
+	if(istype(spawned,/obj/item/weapon/gun/energy/))
+		var/obj/item/weapon/gun/energy/E = spawned
+		E.charge_cost *= 2
+		E.self_recharge = 0
+		E.reliability = 90

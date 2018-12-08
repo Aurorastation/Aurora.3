@@ -65,7 +65,7 @@ var/datum/controller/subsystem/events/SSevents
 		var/list/datum/event_container/EC = event_containers[pos]
 		EC.process()
 		pos++
-		
+
 		if (MC_TICK_CHECK)
 			return
 
