@@ -2,8 +2,8 @@
 	name = "firing pin extractor"
 	desc = "A device that is capable of removing firing pin without damaging it."
 	icon = 'icons/obj/device.dmi'
-	icon_state = "firing_pin"
-	item_state = "firing_pin"
+	icon_state = "pin_extractor"
+	item_state = "pin_extractor"
 	w_class = 2
 	flags = CONDUCT
 	action_button_name = "Toggle extractor"
