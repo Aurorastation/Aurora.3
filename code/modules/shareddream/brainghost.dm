@@ -2,7 +2,7 @@
 	name = "Brain Ghost"
 	desc = "A Telepathic connection."
 
-	alpha = 127
+	alpha = 200
 
 	var/image/ghostimage = null
 	var/mob/living/carbon/human/body = null
