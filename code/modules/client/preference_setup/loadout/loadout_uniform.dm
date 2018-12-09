@@ -53,6 +53,7 @@
 	skirts["casual skirt"] = /obj/item/clothing/under/skirt/casual
 	skirts["long skirt"] = /obj/item/clothing/under/skirt/long
 	skirts["pencil skirt"] = /obj/item/clothing/under/skirt/pencil
+	skirts["swept skirt"] = /obj/item/clothing/under/skirt/swept
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
 	gear_tweaks += list(gear_tweak_free_color_choice)
 
