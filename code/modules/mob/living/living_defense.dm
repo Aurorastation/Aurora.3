@@ -115,7 +115,7 @@
 		apply_effect(STUTTER, agony_amount/10)
 		apply_effect(EYE_BLUR, agony_amount/10)
 
-/mob/living/proc/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/tesla_shock = 0)
+/mob/living/proc/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/tesla_shock = 0, var/ground_zero)
 	  return 0 //only carbon liveforms have this proc
 
 /mob/living/emp_act(severity)
