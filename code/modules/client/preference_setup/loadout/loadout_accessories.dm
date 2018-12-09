@@ -6,7 +6,7 @@
 
 /datum/gear/accessory/waistcoat
 	display_name = "waistcoat"
-	path = /obj/item/clothing/accessory/wcoat
+	path = /obj/item/clothing/accessory/wcoat_rec
 
 /datum/gear/accessory/armband
 	display_name = "armband selection"

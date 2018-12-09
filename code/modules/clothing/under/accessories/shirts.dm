@@ -16,11 +16,19 @@
 	icon_state = "dressshirt_r"
 	item_state = "dressshirt_r"
 
+//Legacy
 /obj/item/clothing/accessory/wcoat
 	name = "waistcoat"
 	desc = "For some classy, murderous fun."
 	icon_state = "wcoat"
 	item_state = "wcoat"
+
+//New one that will actually be in the loadout
+/obj/item/clothing/accessory/wcoat_rec
+	name = "waistcoat"
+	desc = "For some classy, murderous fun."
+	icon_state = "wcoat_rec"
+	item_state = "wcoat_rec"
 
 /obj/item/clothing/accessory/longsleeve
 	name = "long-sleeved shirt"
