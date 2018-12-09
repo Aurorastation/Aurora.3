@@ -75,6 +75,9 @@
 
 /datum/hud_data/getmorean
 	has_internals = 0
+	has_nutrition = 0
+	has_hydration = 0
+	has_bodytemp  = 0
 	gear = list(
 		"i_clothing" =   list("loc" = ui_iclothing, "name" = "Uniform",      "slot" = slot_w_uniform, "state" = "center", "toggle" = 1),
 		"o_clothing" =   list("loc" = ui_oclothing, "name" = "Suit",         "slot" = slot_wear_suit, "state" = "suit",   "toggle" = 1),

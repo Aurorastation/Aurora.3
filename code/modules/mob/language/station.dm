@@ -305,8 +305,14 @@
 /datum/language/getmore
 	name = LANGUAGE_GETMORE
 	desc = "It sounsd like basic, but, nothing seems to actually be said? Corperate Proessionals claim to understand it perfectly."
-	key = "b"
+	key = "$"
+	speech_verb = "advertises"
+	ask_verb = "advertises"
+	exclaim_verb = "proclaims"
 	syllables = list (
 		"nanotrasen", "getmore", "contract", "progress", "robust", "chocolate", "synergy", "promotion", "effective", "quadrant", "finance", "profit", "margin", "product", "finance"
 	)
 	partial_understanding = list(LANGUAGE_TCB = 60)
+
+/datum/language/getmore/get_random_name(var/gender)
+	return capitalize(pick(first_names_flavour)) + " " + capitalize(pick(last_names_verb))
