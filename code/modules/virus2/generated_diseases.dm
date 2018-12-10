@@ -22,7 +22,7 @@
 	..()
 
 /datum/disease2/disease/generated/cold
-	generated_name = "Spacecold"
+	generated_name = "Sugonditis"
 	spreadtype = "Airborne"
 	uniqueID = 10001
 	speed = 5
@@ -34,7 +34,7 @@
 	)
 
 /datum/disease2/disease/generated/cough
-	generated_name = "Moghes Cough"
+	generated_name = "Bofatitis"
 	spreadtype = "Airborne"
 	uniqueID = 10002
 	speed = 5
@@ -46,7 +46,7 @@
 	)
 
 /datum/disease2/disease/generated/zombie
-	generated_name = "Cannibal Fever"
+	generated_name = "Candice Disease"
 	dangerous = TRUE
 	uniqueID = 10003
 	effect_datums = list(
@@ -57,7 +57,7 @@
 	)
 
 /datum/disease2/disease/generated/madness
-	generated_name = "Sensory Madness Syndrome"
+	generated_name = "Bophides"
 	dangerous = TRUE
 	uniqueID = 10004
 	effect_datums = list(
@@ -68,7 +68,7 @@
 	)
 
 /datum/disease2/disease/generated/clone
-	generated_name = "Cloning Tube Disorder"
+	generated_name = "Sugmatitis"
 	dangerous = TRUE
 	uniqueID = 10005
 	effect_datums = list(
@@ -79,7 +79,7 @@
 	)
 
 /datum/disease2/disease/generated/hyper
-	generated_name = "Hormonal Infectious Disease"
+	generated_name = "Fondalmatosis"
 	dangerous = TRUE
 	uniqueID = 10006
 	effect_datums = list(
@@ -90,7 +90,7 @@
 	)
 
 /datum/disease2/disease/generated/telepathy
-	generated_name = "Skrell Syndrome"
+	generated_name = "Sawnconlepsis"
 	dangerous = TRUE
 	uniqueID = 10007
 	effect_datums = list(
@@ -101,7 +101,7 @@
 	)
 
 /datum/disease2/disease/generated/laughter
-	generated_name = "Ligma"
+	generated_name = "Updog"
 	spreadtype = "Airborne"
 	speed = 10
 	stageprob = 20
@@ -114,7 +114,7 @@
 	)
 
 /datum/disease2/disease/generated/dna
-	generated_name = "DNA Disease"
+	generated_name = "Tipodisis"
 	dangerous = TRUE
 	uniqueID = 10012
 	effect_datums = list(
@@ -125,7 +125,7 @@
 	)
 
 /datum/disease2/disease/generated/fever
-	generated_name = "Worker's Fever"
+	generated_name = "Cupmalepsy"
 	uniqueID = 10013
 	speed = 5
 	stageprob = 15
@@ -137,7 +137,7 @@
 	)
 
 /datum/disease2/disease/generated/spaceflu
-	generated_name = "Space Flu"
+	generated_name = "Icupsis"
 	spreadtype = "Airborne"
 	dangerous = TRUE
 	uniqueID = 10014
