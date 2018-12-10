@@ -49,6 +49,7 @@
 			var/obj/machinery/anti_bluespace/AB = found_inhibitor
 			if(AB.stat & (NOPOWER | BROKEN) )
 				continue
+			AB.use_power(AB.active_power_usage)
 			bad_turfs += circlerangeturfs(get_turf(AB),8)
 			good_turfs += circlerangeturfs(get_turf(AB),9)
 		if(good_turfs.len && bad_turfs.len)

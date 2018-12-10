@@ -6,7 +6,8 @@
 	anchored = 1
 	density = 1
 	use_power = 1
-	idle_power_usage = 500
+	active_power_usage = 5000
+	idle_power_usage = 1000
 
 /obj/machinery/anti_bluespace/update_icon()
 	. = ..()
@@ -98,12 +99,25 @@
 	if(stat & BROKEN)
 		return 0
 
+	var/area/temp_area = get_area(src)
+	if(temp_area)
+		var/obj/machinery/power/apc/temp_apc = temp_area.get_apc()
+		if(temp_apc)
+			temp_apc.flicker_all()
+
 	playsound(src.loc, 'sound/magic/lightning_chargeup.ogg', 100, 1, extrarange = 20)
 	visible_message(span("danger","\The [src] goes haywire!"))
 	do_break()
 	addtimer(CALLBACK(src, .proc/haywire_teleport), 10 SECONDS)
 
 /obj/machinery/anti_bluespace/proc/haywire_teleport()
+
+	var/area/temp_area = get_area(src)
+	if(temp_area)
+		var/obj/machinery/power/apc/temp_apc = temp_area.get_apc()
+		if(temp_apc)
+			temp_apc.drain_power(0,TRUE,100000)
+
 	for(var/atom/movable/AM in circlerange(get_turf(src),20))
 		if(AM.anchored)
 			continue
@@ -112,4 +126,5 @@
 		to_chat(AM,span("warning","Bluespace energy teleports you somewhere else!"))
 		do_teleport(AM, target)
 		AM.visible_message("\The [AM] phases in!")
+
 
