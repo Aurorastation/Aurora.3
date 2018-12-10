@@ -405,22 +405,24 @@ var/datum/controller/subsystem/ticker/SSticker
 		message_admins("The following players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")
 		log_game("Ticker: Players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")
 		fail_reasons += "Not enough players, [mode.required_players] player(s) needed"
+
 	if(can_start & GAME_FAILURE_NO_ANTAGS)
 		fail_reasons += "Not enough antagonists, [mode.required_enemies] antagonist(s) needed"
+
 	if(can_start & GAME_FAILURE_TOO_MANY_PLAYERS)
-		fail_reasons +=  "Too many players, less than [mode.required_players_max] antagonist(s) needed"
+		fail_reasons +=  "Too many players, less than [mode.max_players] antagonist(s) needed"
 
 	if(can_start != GAME_FAILURE_NONE)
-		world << "<B>Unable to start [mode.name].</B> [english_list(fail_reasons," "," "," ")]"
+		world << "<B>Unable to start [mode.name].</B> [english_list(fail_reasons,"No reason specified",". ",". ")]"
 		current_state = GAME_STATE_PREGAME
 		mode.fail_setup()
 		mode = null
 		SSjobs.ResetOccupations()
 		if(master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
-			world << "Reverting to pre-game lobby."
+			world << "<B>Reselecting gamemode...</B>"
 			return SETUP_REATTEMPT
 		else
-			world << "Restarting vote..."
+			world << "<B>Reverting to pre-game lobby.</B>"
 			return SETUP_REVOTE
 
 	var/starttime = REALTIMEOFDAY
