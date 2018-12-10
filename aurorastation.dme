@@ -1829,6 +1829,7 @@
 #include "code\modules\mob\living\simple_animal\hostile\giant_spider.dm"
 #include "code\modules\mob\living\simple_animal\hostile\hivebot.dm"
 #include "code\modules\mob\living\simple_animal\hostile\hostile.dm"
+#include "code\modules\mob\living\simple_animal\hostile\krampus.dm"
 #include "code\modules\mob\living\simple_animal\hostile\mimic.dm"
 #include "code\modules\mob\living\simple_animal\hostile\moghesfauna.dm"
 #include "code\modules\mob\living\simple_animal\hostile\pirate.dm"
