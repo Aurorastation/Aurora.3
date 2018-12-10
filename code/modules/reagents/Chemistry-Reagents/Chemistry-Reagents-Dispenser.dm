@@ -94,7 +94,7 @@
 	specific_heat = 1.148
 
 /datum/reagent/copper/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if (alien == IS_SKRELL)
+	if (alien & IS_SKRELL)
 		M.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
 
 /datum/reagent/alcohol //Parent class for all alcoholic reagents, though this one shouldn't be used anywhere.
@@ -279,7 +279,7 @@
 	specific_heat = 1.181
 
 /datum/reagent/iron/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if (alien != IS_SKRELL)
+	if (!(alien & IS_SKRELL))
 		M.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
 
 /datum/reagent/lithium
