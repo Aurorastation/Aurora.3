@@ -6,7 +6,6 @@
 		var/text_output = temp.generate_taste_message(src)
 		if(text_output != last_taste_text || last_taste_time + 100 < world.time) //We dont want to spam the same message over and over again at the person. Give it a bit of a buffer.
 			to_chat(src, "<span class='notice'>You can taste [text_output]</span>")//no taste means there are too many tastes and not enough flavor.
-
 			last_taste_time = world.time
 			last_taste_text = text_output
 	return from.trans_to_holder(target,amount,multiplier,copy) //complete transfer
@@ -61,7 +60,6 @@ calculate text size per text.
 				out += "[intensity_desc] [taste_desc]"
 
 	var/temp_text = ""
-
 	switch(get_temperature())
 		if(-INFINITY to T0C - 50)
 			temp_text = "lethally freezing"
@@ -77,15 +75,13 @@ calculate text size per text.
 			temp_text = "lukewarm"
 		if(T0C + 25 to T0C + 40)
 			temp_text = "warm"
-		if(T0C + 40 to T0C + 70)
+		if(T0C + 40 to T0C + 100)
 			temp_text = "hot"
-		if(T0C + 70 to T0C + 90)
+		if(T0C + 100 to T0C + 120)
 			temp_text = "scolding hot"
-		if(T0C + 90 to T0C + 120)
-			temp_text = "burning hot"
-		if(T0C + 120 to T0C + 150)
+		if(T0C + 120 to T0C + 200)
 			temp_text = "molten hot"
-		if(T0C + 150 to INFINITY)
+		if(T0C + 200 to INFINITY)
 			temp_text = "lethally hot"
 
 	return "[temp_text] [english_list(out, "something indescribable")]."

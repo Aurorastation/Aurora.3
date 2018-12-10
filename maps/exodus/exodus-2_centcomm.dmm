@@ -5018,7 +5018,7 @@
 /area/template_noop)
 "anO" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/energy/ionrifle,
+/obj/item/weapon/gun/energy/rifle/ionrifle,
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 5;
 	pixel_y = 32
@@ -6892,7 +6892,7 @@
 /area/centcom/specops)
 "asY" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/energy/ionrifle,
+/obj/item/weapon/gun/energy/rifle/ionrifle,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -11002,7 +11002,7 @@
 /area/skipjack_station/start)
 "aFU" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/energy/ionrifle,
+/obj/item/weapon/gun/energy/rifle/ionrifle,
 /obj/item/weapon/material/harpoon,
 /obj/item/clothing/suit/space/void/merc,
 /obj/item/clothing/head/helmet/space/void/merc,

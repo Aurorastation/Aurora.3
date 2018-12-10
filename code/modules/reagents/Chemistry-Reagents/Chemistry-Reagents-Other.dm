@@ -453,6 +453,13 @@
 	color = "#F2F3F4"
 	taste_description = "metal"
 
+/datum/reagent/luminol/touch_obj(var/obj/O)
+	O.reveal_blood()
+
+/datum/reagent/luminol/touch_mob(var/mob/living/L)
+	. = ..()
+	L.reveal_blood()
+
 /datum/reagent/pyrosilicate
 	name = "Pyrosilicate"
 	id = "pyrosilicate"
@@ -471,13 +478,101 @@
 	taste_description = "needles"
 	default_temperature = 100 //Kelvin
 
-/datum/reagent/luminol/touch_obj(var/obj/O)
-	O.reveal_blood()
+/datum/reagent/mutone
+	name = "Mutone"
+	id = "mutone"
+	description = "A strange green powder with even stranger properties."
+	reagent_state = SOLID
+	color = "#11AA11"
+	metabolism = (5/60) //5u every 60 seconds.
+	taste_description = "sweet metal"
+	var/stored_value = 0 //Internal value. Every 10 units equals a dosage.
 
-/datum/reagent/luminol/touch_mob(var/mob/living/L)
-	. = ..()
-	L.reveal_blood()
+/datum/reagent/mutone/initial_effect(var/mob/living/carbon/M, var/alien)
+	stored_value = metabolism
 
+/datum/reagent/mutone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	stored_value += removed
+	if(stored_value >= 5)
+		to_chat(M,span("notice","You feel strange..."))
+		if(prob(25))
+			randmutb(M)
+		else
+			randmutg(M)
+		M.UpdateAppearance()
+		stored_value -= 5
+
+/datum/reagent/plexium
+	name = "Plexium"
+	id = "plexium"
+	description = "A yellow, fowl smelling liquid that seems to affect the brain in strange ways."
+	reagent_state = LIQUID
+	color = "#888822"
+	metabolism = 1 //1u every second
+	taste_description = "brain freeze"
+	var/stored_value = 0 //Internal value. Every 5 units equals a dosage.
+
+/datum/reagent/plexium/initial_effect(var/mob/living/carbon/M, var/alien)
+	stored_value = metabolism
+
+/datum/reagent/plexium/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
+	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
+	if(B && H.species && H.species.has_organ["brain"] && !isipc(H))
+		stored_value += removed
+		if(stored_value >= 5)
+			if(prob(50) && !B.has_trauma_type(BRAIN_TRAUMA_MILD))
+				B.gain_trauma_type(BRAIN_TRAUMA_MILD)
+			else if(prob(50) && !B.has_trauma_type(BRAIN_TRAUMA_SEVERE))
+				B.gain_trauma_type(BRAIN_TRAUMA_SEVERE)
+			else if(prob(50) && !B.has_trauma_type(BRAIN_TRAUMA_SPECIAL))
+				B.gain_trauma_type(BRAIN_TRAUMA_SPECIAL)
+			stored_value -= 5
+
+/datum/reagent/venenum
+	name = "Venenum"
+	id = "venenum"
+	description = "A thick tar like liquid that seems to move around on it's own every now and then. Limited data shows it only works when injected into the bloodstream."
+	reagent_state = LIQUID
+	color = "#000000"
+	taste_description = "tar"
+	metabolism = (1/30) //1u = 30 seconds, 1 transform.
+	metabolism_min = (1/30)*0.5
+	ingest_mul = 0
+	breathe_mul = 0
+	touch_mul = 0
+	var/stored_value = 0
+	var/datum/dna/stored_dna
+
+/datum/reagent/venenum/initial_effect(var/mob/living/carbon/M, var/alien)
+	stored_value = metabolism
+	stored_dna = M.dna.Clone()
+	to_chat(M,span("warning","Your skin starts crawling..."))
+
+/datum/reagent/venenum/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	stored_value += removed
+	if(stored_value >= 1)
+		M.visible_message(\
+			"<span class='warning'>/The [M]'s body shifts and contorts!</span>",\
+			"<span class='danger'>Your body shifts and contorts!</span>",\
+			"<span class='notice'>You hear strange flesh-like noises.</span>"\
+		)
+		scramble(TRUE, M, 100)
+		M.adjustHalLoss(25)
+		M.UpdateAppearance()
+		M.dna.real_name = random_name(M.gender, M.dna.species)
+		M.real_name = M.dna.real_name
+		stored_value -= 1
+
+/datum/reagent/venenum/final_effect(var/mob/living/carbon/M)
+	if(stored_dna)
+		M.dna = stored_dna.Clone()
+		M.real_name = M.dna.real_name
+		M.UpdateAppearance()
+
+	to_chat(M,span("warning","You seem back to your normal self."))
+
+//Secret chems.
+//Shhh don't tell no one.
 /datum/reagent/estus
 	name = "Liquid Light"
 	id = "estus"
@@ -489,6 +584,7 @@
 	taste_description = "bottled fire"
 	var/datum/modifier/modifier
 	fallback_specific_heat = 2.75
+	unaffected_species = IS_MACHINE
 
 /datum/reagent/estus/affect_blood(var/mob/living/carbon/M, var/removed)
 	if (!modifier)
@@ -517,6 +613,7 @@
 	touch_met = 5
 	taste_description = "metal"
 	fallback_specific_heat = 20 //This holds a ton of heat.
+	unaffected_species = IS_MACHINE
 
 /datum/reagent/liquid_fire/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	. = ..()
@@ -536,6 +633,7 @@
 	color = "#000000"
 	taste_description = "emptyness"
 	fallback_specific_heat = 100 //Yeah...
+	unaffected_species = IS_MACHINE
 
 /datum/reagent/black_matter/touch_turf(var/turf/T)
 	var/obj/effect/portal/P = new /obj/effect/portal(T)
@@ -560,6 +658,7 @@
 	color = "#1f8999"
 	taste_description = "fizzling blue"
 	fallback_specific_heat = 0.1
+	unaffected_species = IS_MACHINE
 
 /datum/reagent/bluespace_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(25))
@@ -678,6 +777,7 @@
 	color = "#70838A"
 	taste_description = "metal"
 	fallback_specific_heat = 10
+	unaffected_species = IS_MACHINE
 
 /datum/reagent/bottle_lightning/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(25))

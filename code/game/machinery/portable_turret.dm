@@ -909,7 +909,7 @@
 	eshot_sound	= 'sound/weapons/laser3.ogg'
 
 /obj/machinery/porta_turret/ion
-	installation = /obj/item/weapon/gun/energy/ionrifle
+	installation = /obj/item/weapon/gun/energy/rifle/ionrifle
 	lethal = 1
 	lethal_icon = 1
 	egun = 0
