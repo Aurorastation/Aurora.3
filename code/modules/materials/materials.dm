@@ -114,6 +114,8 @@ var/list/name_to_material
 	var/tableslam_noise = 'sound/weapons/tablehit1.ogg'
 	// Noise made when a simple door made of this material opens or closes.
 	var/dooropen_noise = 'sound/effects/stonedoor_openclose.ogg'
+	// Noise made when you hit structure made of this material.
+	var/hitsound = 'sound/weapons/genhit.ogg'
 	// Path to resulting stacktype. Todo remove need for this.
 	var/stack_type
 	// Wallrot crumble message.
@@ -280,6 +282,7 @@ var/list/name_to_material
 	conductivity = 1
 	shard_type = SHARD_SHARD
 	tableslam_noise = 'sound/effects/Glasshit.ogg'
+	hitsound = 'sound/effects/Glasshit.ogg'
 	hardness = 100
 	stack_origin_tech = list(TECH_MATERIAL = 6)
 	golem = "Diamond Golem"
@@ -384,6 +387,7 @@ var/list/name_to_material
 	icon_reinf = "reinf_over"
 	icon_colour = "#666666"
 	golem = "Steel Golem"
+	hitsound = 'sound/weapons/smash.ogg'
 
 /material/diona
 	name = "biomass"
@@ -420,6 +424,7 @@ var/list/name_to_material
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	composite_material = list(DEFAULT_WALL_MATERIAL = 3750, "platinum" = 3750) //todo
 	golem = "Plasteel Golem"
+	hitsound = 'sound/weapons/smash.ogg'
 
 /material/plasteel/titanium
 	name = "titanium"
@@ -636,6 +641,7 @@ var/list/name_to_material
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 	golem = "Iron Golem"
+	hitsound = 'sound/weapons/smash.ogg'
 
 // Adminspawn only, do not let anyone get this.
 /material/voxalloy
@@ -677,6 +683,7 @@ var/list/name_to_material
 	sheet_singular_name = "plank"
 	sheet_plural_name = "planks"
 	golem = "Wood Golem"
+	hitsound = 'sound/effects/woodhit.ogg'
 
 /material/rust
 	name = "rust"

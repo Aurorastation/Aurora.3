@@ -17441,6 +17441,7 @@
 /area/centcom/holding)
 "MF" = (
 /obj/machinery/door/window/holowindoor{
+	dir = 4;
 	name = "Red Team"
 	},
 /turf/unsimulated/floor{
@@ -18124,6 +18125,7 @@
 "Oj" = (
 /obj/machinery/door/window/holowindoor{
 	base_state = "right";
+	dir = 4;
 	icon_state = "right";
 	name = "Green Team"
 	},

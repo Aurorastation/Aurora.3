@@ -104,7 +104,7 @@
 
 /obj/item/weapon/storage/box/survival/fill()
 	..()
-	new /obj/item/clothing/mask/breath( src )
+	new /obj/item/clothing/mask/gas/alt( src )
 	new /obj/item/weapon/tank/emergency_oxygen(src)
 	for(var/obj/item/thing in contents)
 		thing.autodrobe_no_remove = 1
@@ -119,7 +119,7 @@
 
 /obj/item/weapon/storage/box/engineer/fill()
 	..()
-	new /obj/item/clothing/mask/breath( src )
+	new /obj/item/clothing/mask/gas/alt( src )
 	new /obj/item/weapon/tank/emergency_oxygen/engi( src )
 	for(var/obj/item/thing in contents)
 		thing.autodrobe_no_remove = 1
@@ -384,6 +384,21 @@
 	new /obj/item/device/firing_pin/implant/loyalty(src)
 	new /obj/item/device/firing_pin/implant/loyalty(src)
 	new /obj/item/device/firing_pin/implant/loyalty(src)
+
+/obj/item/weapon/storage/box/firingpinsRD
+	name = "box of assorted firing pins"
+	desc = "A box of varied assortment of firing pins. Appears to have R&D stickers on all sides of the box. Also seems to have a smiley face sticker on the top of it."
+
+/obj/item/weapon/storage/box/firingpins/fill()
+	..()
+	new /obj/item/device/firing_pin(src)
+	new /obj/item/device/firing_pin(src)
+	new /obj/item/device/firing_pin/access(src)
+	new /obj/item/device/firing_pin/access(src)
+	new /obj/item/device/firing_pin/implant/loyalty(src)
+	new /obj/item/device/firing_pin/implant/loyalty(src)
+	new /obj/item/device/firing_pin/clown(src)
+	new /obj/item/device/firing_pin/dna(src)
 
 /obj/item/weapon/storage/box/teargas
 	name = "box of pepperspray grenades"
