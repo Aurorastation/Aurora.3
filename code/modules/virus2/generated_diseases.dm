@@ -100,18 +100,6 @@
 		/datum/disease2/effect/bones
 	)
 
-/datum/disease2/disease/generated/laughter
-	generated_name = "Ligma"
-	spreadtype = "Airborne"
-	speed = 10
-	stageprob = 20
-	uniqueID = 10011
-	effect_datums = list(
-		/datum/disease2/effect/giggle,
-		/datum/disease2/effect/giggle,
-		/datum/disease2/effect/giggle,
-		/datum/disease2/effect/giggle
-	)
 
 /datum/disease2/disease/generated/dna
 	generated_name = "DNA Disease"
