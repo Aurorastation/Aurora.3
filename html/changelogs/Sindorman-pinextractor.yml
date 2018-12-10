@@ -34,4 +34,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added firing pin extraction device that can extract pins safely. It is inside of RD's locker."
+  - rscadd: "Added firing pin extraction device that can extract pins safely. The device will spawn inside the RD's locker."
