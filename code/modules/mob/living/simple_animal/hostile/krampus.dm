@@ -45,9 +45,11 @@
 /mob/living/simple_animal/hostile/krampus/death(gibbed)
 	..()
 	if(!gibbed)
+		for (var/mob/living/A in contents)
+			A.forceMove(get_turf(src))
 		visible_message("<span class='warning'>\The [src] vanishes!</span>")
 		dust()
-		return
+		return TRUE
 
 /mob/living/simple_animal/hostile/krampus/verb/punish(mob/living/target as mob in oview())
 	set name = "Punish"
@@ -77,10 +79,9 @@
 		return
 
 	src.visible_message("<span class='warning'>\The [target] vanishes into \the [src]'s bag!</span>")
-	to_chat(target, "<span class='warning'>You are dragged to the depths of hell to be eternally punished for your misdeeds!</span>")
-	qdel(target)
-	rejuvenate()
-	updatehealth()
+	target.forceMove(src)
+	to_chat(target, "<span class='warning'>You have been captured by \the [src], you will soon be punished due to your misdeeds!</span>")
+	addtimer(CALLBACK(src, .proc/send_to_hell, target), 5 MINUTES)
 	last_special = world.time + 100
 	src.is_punishing = FALSE
 	return
@@ -109,6 +110,14 @@
 		var/mob/living/simple_animal/hostile/gift/T = new /mob/living/simple_animal/hostile/gift(get_turf(src))
 		var/turf/landing = get_step(src, pick(alldirs))
 		addtimer(CALLBACK(T, /atom/movable/.proc/throw_at, landing, 30, 5), 0)
+
+/mob/living/simple_animal/hostile/krampus/proc/send_to_hell(mob/living/M)
+	if(!M)
+		return
+	to_chat(M, "<span class='warning'>You are dragged to the depths of hell to be eternally punished for your misdeeds!</span>")
+	qdel(M)
+	rejuvenate()
+	updatehealth()
 
 /mob/living/simple_animal/hostile/gift
 	name = "christmas gift"
