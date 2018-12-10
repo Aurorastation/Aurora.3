@@ -58,10 +58,10 @@
 	name = "space echo"
 	real_name = "space echo"
 	desc = "A figment of the imagination, a bluespace anomaly, or proof of God? You decide."
-	icon = 'icons/obj/projectiles.dmi'
-	icon_state = "bluespace"
-	icon_living = "bluespace"
-	icon_dead = "bluespace"
+	icon = 'icons/mob/mob.dmi'
+	icon_state = "blank"
+	icon_living = "blank"
+	icon_dead = "blank"
 	maxHealth = 100
 	health = 100
 	universal_speak = 1
@@ -115,7 +115,7 @@
 
 /mob/living/simple_animal/shade/bluespace/Initialize()
 	. = ..()
-	set_light(2, 1, l_color = LIGHT_COLOR_CYAN)
+	set_light(3, 1, l_color = LIGHT_COLOR_CYAN)
 
 /mob/living/simple_animal/shade/bluespace/Stat()
 	..()
@@ -143,8 +143,15 @@
 			to_chat(src, "<span class='notice'>The soothing echoes of life reinvigorate you.</span>")
 
 /mob/living/simple_animal/shade/bluespace/say(var/message)
-	var/list/words_in_memory = dd_text2List(last_message_heard, " ")
-	var/list/words_in_message = dd_text2List(message, " ")
+	var/new_last_message_heard
+	var/new_message
+	var/list/punctuation = list(".",",","'","\"","\\",";",":","!","?","-","(",")","\[","\]","*","#","$","%","^","@","&","=","+","`","~","<",">","{","}","|","/")
+	for(var/x in punctuation)
+		new_last_message_heard = replacetext(last_message_heard, x, "")
+		new_message = replacetext(message, x, "")
+
+	var/list/words_in_memory = dd_text2List(new_last_message_heard, " ")
+	var/list/words_in_message = dd_text2List(new_message, " ")
 	for(var/word1 in words_in_message)
 		var/valid = 0
 		for(var/word2 in words_in_memory)
@@ -221,18 +228,3 @@
 			if(!M.anchored)
 				do_teleport(M, pick(liable_turfs))
 				message_countdown = max(0, message_countdown - 20)
-
-/mob/living/simple_animal/shade/bluespace/verb/force_message()
-	set category = "Bluespace Echo"
-	set name = "Force Message"
-	set desc = "Force a coherent message of your own choosing."
-
-	if(message_countdown < 300)
-		to_chat(src, "<span class='warning'>You are too faded to force a message out.</span>")
-		return
-
-	var/message = input("Write out a message", "Forceful Message")
-
-	if(message)
-		visible_message("<span class ='danger'>\The [src] screeches, [message]!</span>")
-		message_countdown = max(0, message_countdown - 300)
