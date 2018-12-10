@@ -36,6 +36,8 @@
 	speed = 3
 	mob_size = 6
 
+	attack_emote = "skitters toward"
+
 //nursemaids - these create webs and eggs
 /mob/living/simple_animal/hostile/giant_spider/nurse
 	desc = "Furry and beige, it makes you shudder to look at it. This one has brilliant green eyes."

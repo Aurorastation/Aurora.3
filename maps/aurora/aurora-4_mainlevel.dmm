@@ -51037,17 +51037,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hydroponics)
-"bJd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/sink/kitchen{
-	dir = 4;
-	icon_state = "sink_alt";
-	name = "hydroponics sink";
-	pixel_x = -20
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
 "bJe" = (
 /turf/simulated/floor/tiled,
 /area/hydroponics)
@@ -52423,20 +52412,13 @@
 /area/hydroponics)
 "bMi" = (
 /obj/effect/floor_decal/corner/green,
-/obj/structure/table/standard,
+/obj/structure/sink/kitchen{
+	dir = 8;
+	icon_state = "sink_alt";
+	name = "hydroponics sink";
+	pixel_x = 20
+	},
 /turf/simulated/floor/tiled,
-/area/hydroponics)
-"bMj" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
 /area/hydroponics)
 "bMk" = (
 /obj/structure/table/standard,
@@ -96408,7 +96390,7 @@ bFs
 bGs
 bHu
 bIj
-bJd
+bJW
 bJW
 bKR
 bLB
@@ -97182,8 +97164,8 @@ bGr
 bGr
 bJY
 bJR
-bJR
-bMj
+bNz
+bGr
 bJe
 bNH
 bOq

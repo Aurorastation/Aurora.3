@@ -706,6 +706,7 @@
 		/obj/item/clothing/head/helmet/augment = 0.1,
 		/obj/item/clothing/mask/balaclava = 1,
 		/obj/item/clothing/mask/gas = 1.5,
+		/obj/item/clothing/mask/gas/old = 1.0,
 		/obj/item/clothing/mask/gas/cyborg = 0.7,
 		/obj/item/clothing/mask/gas/owl_mask = 0.5,
 		/obj/item/clothing/mask/gas/syndicate = 0.4,
