@@ -1,0 +1,5 @@
+author: MoondancerPony
+delete-after: True
+changes: 
+  - rscdel: "Removes Ligma."
+  - tweak: "Renames some diseases."
