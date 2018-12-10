@@ -398,6 +398,12 @@
 			anim(mobloc,mob,'icons/mob/mob.dmi',,"shadow",,mob.dir)
 			mob.forceMove(get_step(mob, direct))
 			mob.dir = direct
+
+		if(3)
+			move_delay = 1 + world.time
+			mob.forceMove(get_step(mob, direct))
+			mob.dir = direct
+
 	// Crossed is always a bit iffy
 	for(var/obj/S in mob.loc)
 		if(istype(S,/obj/effect/step_trigger) || istype(S,/obj/effect/beam))

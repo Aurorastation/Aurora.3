@@ -660,8 +660,10 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	update_icons()
 
 //Todo: add snowflakey shit to it.
-/mob/living/simple_animal/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0)
+/mob/living/simple_animal/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	apply_damage(shock_damage, BURN)
+	playsound(loc, "sparks", 50, 1, -1)
+	spark(loc, 5, alldirs)
 	visible_message("<span class='warning'>[src] was shocked by [source]!</span>", "<span class='danger'>You are shocked by [source]!</span>", "<span class='notice'>You hear an electrical crack.</span>")
 
 
