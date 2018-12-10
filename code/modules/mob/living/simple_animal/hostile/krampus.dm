@@ -69,18 +69,18 @@
 		to_chat(src, "<span class='warning'>You must wait a little while before you can use this ability again!</span>")
 		return
 
-	src.visible_message("<span class='warning'>\The [src] starts stuffing \the [target] inside his bag!</span>", \
+	src.visible_message("<span class='danger'>\The [src] starts stuffing \the [target] inside his bag!</span>", \
 						"<span class='danger'>You begin to drag \the [target] to the depths of hell!</span>")
 	src.is_punishing = TRUE
 
 	if(!do_mob(src, target, 60))
-		to_chat(src, "<span class='warning'>\The [target] has managed to escape!</span>")
+		to_chat(src, "<span class='danger'>\The [target] has managed to escape!</span>")
 		src.is_punishing = FALSE
 		return
 
-	src.visible_message("<span class='warning'>\The [target] vanishes into \the [src]'s bag!</span>")
+	src.visible_message("<span class='danger'>\The [target] vanishes into \the [src]'s bag!</span>")
 	target.forceMove(src)
-	to_chat(target, "<span class='warning'>You have been captured by \the [src], you will soon be punished due to your misdeeds!</span>")
+	to_chat(target, "<span class='danger'>You have been captured by \the [src], you will soon be punished due to your misdeeds!</span>")
 	addtimer(CALLBACK(src, .proc/send_to_hell, target), 5 MINUTES)
 	last_special = world.time + 100
 	src.is_punishing = FALSE
@@ -114,7 +114,7 @@
 /mob/living/simple_animal/hostile/krampus/proc/send_to_hell(mob/living/M)
 	if(!M)
 		return
-	to_chat(M, "<span class='warning'>You are dragged to the depths of hell to be eternally punished for your misdeeds!</span>")
+	to_chat(M, "<span class='danger'>You are dragged to the depths of hell to be eternally punished for your misdeeds!</span>")
 	qdel(M)
 	rejuvenate()
 	updatehealth()
