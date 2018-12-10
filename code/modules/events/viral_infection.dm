@@ -3,7 +3,7 @@ datum/event/viral_infection
 	ic_name = "a viral outbreak"
 
 datum/event/viral_infection/setup()
-	announceWhen = rand(40, 60)
+	announceWhen = rand(60, 300)
 	endWhen = announceWhen + 1
 
 	var/has_virologist = FALSE
