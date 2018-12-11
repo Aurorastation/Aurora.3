@@ -380,6 +380,7 @@
 		usr << "<span class='warning'>You are already sleeping</span>"
 		return
 	if(alert(src,"You sure you want to sleep for a while?","Sleep","Yes","No") == "Yes")
+		willfully_sleeping = 1
 		usr.sleeping = 20 //Short nap
 
 /mob/living/carbon/Collide(atom/A)
