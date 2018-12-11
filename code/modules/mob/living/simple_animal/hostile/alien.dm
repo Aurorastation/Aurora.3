@@ -36,6 +36,7 @@
 	mob_size = 10
 
 	tameable = FALSE
+	attack_emote = "growls at"
 
 /mob/living/simple_animal/hostile/alien/drone
 	name = "alien drone"

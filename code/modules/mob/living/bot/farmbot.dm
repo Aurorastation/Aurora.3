@@ -163,7 +163,7 @@
 					target = tray
 					frustration = 0
 					break
-			if(!target && refills_water && tank && tank.reagents.total_volume < tank.reagents.maximum_volume)
+			if(check_tank())
 				for(var/obj/structure/sink/source in view(7, src))
 					target = source
 					frustration = 0
@@ -286,7 +286,7 @@
 	if(tray.dead && removes_dead || tray.harvest && collects_produce)
 		return FARMBOT_COLLECT
 
-	else if(refills_water && tray.waterlevel < 40 && !tray.reagents.has_reagent("water"))
+	else if(waters_trays && tray.waterlevel < 40 && !tray.reagents.has_reagent("water"))
 		return FARMBOT_WATER
 
 	else if(uproots_weeds && tray.weedlevel >= 5)
@@ -298,6 +298,9 @@
 	return 0
 
 // Assembly
+
+/mob/living/bot/farmbot/proc/check_tank()
+	return ((!target && refills_water && tank && tank.reagents.total_volume < tank.reagents.maximum_volume) || ((tank.reagents.maximum_volume - tank.reagents.total_volume ) / reagents.maximum_volume) <= 0.3)
 
 /obj/item/weapon/farmbot_arm_assembly
 	name = "water tank/robot arm assembly"

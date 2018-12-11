@@ -32,3 +32,5 @@
 	var/last_smell_text = ""
 
 	var/coughedtime = null // should only be useful for carbons as the only thing using it has a carbon arg.
+
+	var/willfully_sleeping = 0

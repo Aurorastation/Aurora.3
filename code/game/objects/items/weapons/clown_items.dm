@@ -24,6 +24,21 @@
 	playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 	reagents.add_reagent("cleaner", 10)
 
+/obj/item/weapon/soap/attackby(var/obj/item/I, var/mob/user)
+	if(istype(I, /obj/item/weapon/key))
+		if(!key_data)
+			to_chat(user, "<span class='notice'>You imprint \the [I] into \the [src].</span>")
+			var/obj/item/weapon/key/K = I
+			key_data = K.key_data
+			update_icon()
+		return
+	..()
+
+/obj/item/weapon/soap/update_icon()
+	overlays.Cut()
+	if(key_data)
+		overlays += image('icons/obj/items.dmi', icon_state = "soap_key_overlay")
+
 /obj/item/weapon/soap/Crossed(AM as mob|obj)
 	if (istype(AM, /mob/living))
 		var/mob/living/M =	AM
