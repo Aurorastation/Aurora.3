@@ -250,15 +250,10 @@
 
 	inherent_verbs = list(/mob/living/carbon/human/proc/commune)
 
+	default_h_style = "Skrell Short Tentacles"
+
 /datum/species/skrell/can_breathe_water()
 	return TRUE
-
-/datum/species/skrell/set_default_hair(var/mob/living/carbon/human/H)
-	if(H.gender == MALE)
-		H.h_style = "Skrell Male Tentacles"
-	else
-		H.h_style = "Skrell Female Tentacles"
-	H.update_hair()
 
 /datum/species/diona
 	name = "Diona"
