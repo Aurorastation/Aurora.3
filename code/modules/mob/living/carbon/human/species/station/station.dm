@@ -747,6 +747,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
 /datum/species/bug/equip_survival_gear(var/mob/living/carbon/human/H)
+	H.gender = NEUTER
 	if(H.backbag == 1)
 		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vaurca(H), slot_r_hand)
 	else
