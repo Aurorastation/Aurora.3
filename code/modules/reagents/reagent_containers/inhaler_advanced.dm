@@ -36,12 +36,12 @@
 /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/attack_self(mob/user as mob)
 	if(is_open_container())
 		if(reagents && reagents.reagent_list.len)
-			to_chat(user,"<span class='notice'>With a quick twist of the cartridge's lid, you secure the reagents inside \the [src].</span>")
+			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
 			flags ^= OPENCONTAINER
 		else
-			to_chat(user,"<span class='notice'>You can't secure the cartridge without putting reagents in!</span>")
+			to_chat(user,"<span class='notice'>You can't secure \the [src] without putting reagents in!</span>")
 	else
-		to_chat(user,"<span class='notice'>\The reagents inside [src] are already secured.</span>")
+		to_chat(user,"<span class='notice'>The reagents inside \the [src] are already secured.</span>")
 	return
 
 /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large

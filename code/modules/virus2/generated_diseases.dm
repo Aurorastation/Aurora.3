@@ -22,7 +22,7 @@
 	..()
 
 /datum/disease2/disease/generated/cold
-	generated_name = "Spacecold"
+	generated_name = "Rhinovirus"
 	spreadtype = "Airborne"
 	uniqueID = 10001
 	speed = 5
@@ -57,7 +57,7 @@
 	)
 
 /datum/disease2/disease/generated/madness
-	generated_name = "Sensory Madness Syndrome"
+	generated_name = "Sensory Delusion Syndrome"
 	dangerous = TRUE
 	uniqueID = 10004
 	effect_datums = list(
@@ -100,19 +100,6 @@
 		/datum/disease2/effect/bones
 	)
 
-/datum/disease2/disease/generated/laughter
-	generated_name = "Ligma"
-	spreadtype = "Airborne"
-	speed = 10
-	stageprob = 20
-	uniqueID = 10011
-	effect_datums = list(
-		/datum/disease2/effect/giggle,
-		/datum/disease2/effect/giggle,
-		/datum/disease2/effect/giggle,
-		/datum/disease2/effect/giggle
-	)
-
 /datum/disease2/disease/generated/dna
 	generated_name = "DNA Disease"
 	dangerous = TRUE
@@ -137,7 +124,7 @@
 	)
 
 /datum/disease2/disease/generated/spaceflu
-	generated_name = "Space Flu"
+	generated_name = "Influenza"
 	spreadtype = "Airborne"
 	dangerous = TRUE
 	uniqueID = 10014

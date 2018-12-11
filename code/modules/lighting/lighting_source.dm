@@ -382,10 +382,12 @@
 					Tcorners[i] = new /datum/lighting_corner(T, LIGHTING_CORNER_DIAGONAL[i])
 
 			if (!T.has_opaque_atom)
-				corners[Tcorners[1]] = 0
-				corners[Tcorners[2]] = 0
-				corners[Tcorners[3]] = 0
-				corners[Tcorners[4]] = 0
+				for(var/v = 1 to 4)
+					var/val = Tcorners[v]
+					if(val)
+						corners[val] = 0
+
+
 
 		turfs += T
 

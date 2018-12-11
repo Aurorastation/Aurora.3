@@ -164,6 +164,7 @@
 	tameable = FALSE
 
 	flying = TRUE
+	attack_emote = "buzzes at"
 
 /mob/living/simple_animal/hostile/viscerator/death()
 	..(null,"is smashed into pieces!")
