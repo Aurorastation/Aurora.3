@@ -1,4 +1,4 @@
-//mob verbs are faster than object verbs. See mob/verb/examine.
+k//mob verbs are faster than object verbs. See mob/verb/examine.
 /mob/living/verb/pulled(atom/movable/AM as mob|obj in oview(1))
 	set name = "Pull"
 	set category = "Object"
@@ -661,9 +661,12 @@ default behaviour is:
 		spawn() escape_buckle()
 
 	//Breaking out of a locker?
-	if( src.loc && (istype(src.loc, /obj/structure/closet)) )
+	if( src.loc && istype(src.loc, /obj/structure/closet) )
 		var/obj/structure/closet/C = loc
 		spawn() C.mob_breakout(src)
+	else if(src.loc && istype(src.loc, /obj/item/weapon/trap/animal))
+		var/obj/item/weapon/trap/animal/A = loc
+		spawn() A.mob_breakout(src)
 
 /mob/living/proc/escape_inventory(obj/item/weapon/holder/H)
 	if(H != src.loc) return

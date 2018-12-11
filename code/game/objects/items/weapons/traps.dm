@@ -142,7 +142,9 @@
 	origin_tech = list(TECH_MATERIAL = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 1750)
 	deployed = 0
-	time_to_escape = 60
+	time_to_escape = 0.5 // Minutes
+	var/breakout = FALSE
+	var/last_shake = 0
 	var/list/allowed_mobs = list(/mob/living/simple_animal/mouse)
 
 /obj/item/weapon/trap/animal/examine(mob/user)
@@ -170,6 +172,20 @@
 
 	if(isliving(AM))
 		var/mob/living/L = AM
+		if(L.isMonkey()) // Because monkeys can be of type of just human.
+			L.visible_message(
+				"<span class='danger'>[L] enters \the [src], and it snaps shut with a clatter!</span>",
+				"<span class='danger'>You enters \the [src], and it snaps shut with a clatter!</span>",
+				"<b>You hear a loud metallic snap!</b>"
+				)
+			L.forceMove(src)
+			playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
+			animate_shake()
+			deployed = 1
+			update_icon()
+			src.animate_shake()
+			return
+
 		for(var/f in allowed_mobs)
 			if(istype(AM, f))
 				L.visible_message(
@@ -182,6 +198,9 @@
 				animate_shake()
 				deployed = 1
 				update_icon()
+				src.animate_shake()
+
+
 	else if(istype(AM, /obj/effect/spider/spiderling)) // for spiderlings
 		var/obj/effect/spider/spiderling/S = AM
 		S.forceMove(src)
@@ -190,10 +209,72 @@
 		animate_shake()
 		deployed = 1
 		update_icon()
+		src.animate_shake()
 
+/obj/item/weapon/trap/animal/proc/req_breakout()
+	if(!deployed)
+		return 0 // Cage is open... wait, why are you in it's contents then?
+	if(breakout)
+		return -1 //Already breaking out.
+	return 1
+
+/obj/item/weapon/trap/animal/proc/breakout_callback(var/mob/living/escapee)
+	if (QDELETED(escapee))
+		return FALSE
+
+	if ((world.time - last_shake) > 5 SECONDS)
+		playsound(loc, "sound/effects/grillehit.ogg", 100, 1)
+		animate_shake()
+		last_shake = world.time
+
+	return TRUE
+
+// If we are stuck, and need to get out
+/obj/item/weapon/trap/animal/proc/mob_breakout(var/mob/living/escapee)
+	if (req_breakout() < 1)
+		return
+
+	escapee.next_move = world.time + 100
+	escapee.last_special = world.time + 100
+	to_chat(escapee, "<span class='warning'>You to shake and bump the lock of \the [src]. (this will take about [(time_to_escape == 0.5) ? ("[time_to_escape * 60] seconds") : ("[time_to_escape] minute")])</span>")
+	visible_message("<span class='danger'>\The [src] begins to shake violently! Something is attempting to escape it!</span>")
+
+	var/time = 360 * time_to_escape * 2
+	breakout = TRUE
+
+	if (!do_after(escapee, time, act_target = src, extra_checks = CALLBACK(src, .proc/breakout_callback, escapee)))
+		breakout = FALSE
+		return
+
+	breakout = FALSE
+	to_chat(escapee, "<span class='warning'>You successfully break out!</span>")
+	visible_message("<span class='danger'>\the [escapee] successfully broke out of \the [src]!</span>")
+	playsound(loc, "sound/effects/grillehit.ogg", 100, 1)
+	if(!contents.len)
+		return
+
+	for(var/mob/living/L in contents)
+		L.forceMove(src.loc)
+		visible_message("<span class='warning'>[L] runs out of \the [src].</span>")
+		animate_shake()
+		deployed = 0
+		update_icon()
+		src.animate_shake()
+
+	for(var/obj/effect/spider/spiderling/S in contents) // for spiderlings
+		S.forceMove(src.loc)
+		START_PROCESSING(SSprocessing, S)
+		visible_message("<span class='warning'>[S] jumps out of \the [src].</span>")
+		animate_shake()
+		deployed = 0
+		update_icon()
+		src.animate_shake()
+	animate_shake()
 
 /obj/item/weapon/trap/animal/attack_hand(mob/user as mob)
 	if (!user) return
+	if(user.loc == src) // not to pick ourselves
+		return
 	if (hasorgans(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]
@@ -236,6 +317,7 @@
 		animate_shake()
 		deployed = 0
 		update_icon()
+		src.animate_shake()
 
 	for(var/obj/effect/spider/spiderling/S in contents) // for spiderlings
 		S.forceMove(user.loc)
@@ -244,6 +326,7 @@
 		animate_shake()
 		deployed = 0
 		update_icon()
+		src.animate_shake()
 
 /obj/item/weapon/trap/animal/attack(mob/living/M, mob/living/user)
 	if(contents.len) // It is full
@@ -258,30 +341,23 @@
 	animate_shake()
 	deployed = 1
 	update_icon()
+	src.animate_shake()
 
 /obj/item/weapon/trap/animal/medium
 	name = "medium trap"
 	icon_base = "small"
-	desc = "A medium mechanical trap thas is used to catch small animals like "
-	icon_base = "beartrap"
-	icon_state = "beartrap0"
+	desc = "A medium mechanical trap thas is used to catch medium size animals like cat, diyaab, monkey, yithian, nymph. Sometimes even maintainence drones and PAi."
+	icon_base = "medium"
+	icon_state = "medium0"
 	throwforce = 3
 	force = 2
 	w_class = 4
 	origin_tech = list(TECH_MATERIAL = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 5750)
 	deployed = 0
-	time_to_escape = 60
+	time_to_escape = 1 // Minute
 
 /obj/item/weapon/trap/animal/medium/Initialize()
 	allowed_mobs = list(
 						/mob/living/simple_animal/cat, /mob/living/simple_animal/hostile/diyaab, /mob/living/carbon/human/monkey, /mob/living/simple_animal/yithian,
 						/mob/living/carbon/alien/diona, /mob/living/silicon/robot/drone, /mob/living/silicon/pai)
-	var/i = 1
-	var/mob/living/L
-	while(i != allowed_mobs.len)
-		L = new (allowed_mobs[i])
-		desc += "[L.name] "
-		i++
-	L = allowed_mobs[i + 1]
-	desc += "[L.name]."
