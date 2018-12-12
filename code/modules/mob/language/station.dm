@@ -304,7 +304,7 @@
 
 /datum/language/getmore
 	name = LANGUAGE_GETMORE
-	desc = "It sounsd like basic, but, nothing seems to actually be said? Corperate Proessionals claim to understand it perfectly."
+	desc = "It sounds like basic, but, nothing seems to actually be said? Corporate Proessionals claim to understand it perfectly."
 	key = "$"
 	speech_verb = "advertises"
 	ask_verb = "advertises"
