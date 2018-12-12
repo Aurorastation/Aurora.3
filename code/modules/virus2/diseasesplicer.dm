@@ -103,20 +103,12 @@
 		if(!burning)
 			var/obj/item/weapon/diseasedisk/d = new /obj/item/weapon/diseasedisk(src.loc)
 			d.analysed = analysed
-			if(analysed)
-				if (memorybank)
-					d.name = "[memorybank.effect.name] GNA disk (Stage: [memorybank.effect.stage])"
-					d.effect = memorybank
-				else if (species_buffer)
-					d.name = "[jointext(species_buffer, ", ")] GNA disk"
-					d.species = species_buffer
-			else
-				if (memorybank)
-					d.name = "Unknown GNA disk (Stage: [memorybank.effect.stage])"
-					d.effect = memorybank
-				else if (species_buffer)
-					d.name = "Unknown Species GNA disk"
-					d.species = species_buffer
+			if (memorybank)
+				d.name = "[analysed ? memorybank.effect.name : "Unknown"] GNA disk (Stage: [memorybank.effect.stage])"
+				d.effect = memorybank
+			else if (species_buffer)
+				d.name = "[analysed ? jointext(species_buffer, ", ") : "Unknown"] GNA disk"
+				d.species = species_buffer
 
 			ping("\The [src] pings, \"Backup disk saved.\"")
 			SSnanoui.update_uis(src)

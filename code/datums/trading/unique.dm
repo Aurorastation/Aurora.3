@@ -50,10 +50,10 @@
 		"hail_deny"            = "--CONNECTION SEVERED--",
 		"trade_complete"       = "Hahahahahahaha! Thankyouthankyouthankyou!",
 		"trade_no_money"       = "I d-don't NEED cash.",
-		"trade_not_enough"     = "N-no, no no no. M-more than that.... more...",
+		"trade_not_enough"     = "N-no, no no no. M-more than that... more...",
 		"trade_found_unwanted" = "I d-don't think you GET what I want, from your offer.",
-		"how_much"             = "Meat. I want meat. The kind they don't serve i-in teh mess hall.",
-		"what_want"            = "Long p-pork. Yes... thats what I want...",
+		"how_much"             = "Meat. I want meat. The kind they don't serve i-in the mess hall.",
+		"what_want"            = "Long p-pork. Yes... that's what I want...",
 		"compliment_deny"      = "Your lies won't c-change what I did.",
 		"compliment_accept"    = "Yes... I suppose you're right.",
 		"insult_good"          = "I... probably deserve that.",
@@ -65,7 +65,7 @@
 
 /datum/trader/ship/unique/rock
 	name = "Bobo"
-	origin = "Floating Rock"
+	origin = "Floating rock"
 
 	possible_wanted_items = list(
 		/obj/item/weapon/ore = TRADER_ALL
@@ -74,7 +74,6 @@
 		/obj/machinery/power/supermatter = TRADER_ALL,
 		/obj/item/weapon/aiModule        = TRADER_SUBTYPES_ONLY
 	)
-	want_multiplier = 5000
 
 	speech = list(
 		"hail_generic"         = "Blub am MERCHANT. Blub hunger for things. Boo bring them to blub, yes?",
@@ -136,7 +135,7 @@
 
 	speech = list(
 		"hail_generic"         = "Hello! Are you here on pleasure or business?",
-		"hail_Golem"           = "Interesting... how incredibly interesting.... come! Let us do business!",
+		"hail_Golem"           = "Interesting... how incredibly interesting... come! Let us do business!",
 		"hail_deny"            = "I'm sorry, but I REALLY don't want to speak to you.",
 		"trade_complete"       = "Pleasure doing business with you! Just don't feed it after midnight!",
 		"trade_no_money"       = "Cash? Ha! What's cash to a man like me?",
@@ -154,7 +153,6 @@
 /datum/trader/ship/unique/vaurca
 	origin = "The Hive Shop"
 	name_language = LANGUAGE_VAURCA
-	want_multiplier = 1
 
 	possible_wanted_items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/koisbar          = TRADER_THIS_TYPE,

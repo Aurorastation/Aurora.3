@@ -25,7 +25,7 @@
 	speech_verb = "says"
 	whisper_verb = "whispers"
 	key = "0"
-	flags = RESTRICTED
+	flags = RESTRICTED|TCOMSSIM
 	syllables = list("a", "ado", "ago", "aj", "ajn", "al", "alt", "am", "amas", "an", "ang", "ante", "ap", "ard", "arma", "aro", "as", "aur", "aut", "aw", "ba", "bal", "bao", "be", "beau", "bel", "bi", "bit", "blu", "bo", "bod", "boj", "bojn", "bu", "but", "ca", "caj", "ce", "cer", "chun",
 	"ci", "cion", "coj", "cor", "da", "daj", "dan", "de", "den", "dis", "do", "dor", "dorm", "eco", "ego", "ek", "eks", "en", "ero", "es", "est", "et", "eve", "fa", "fe", "fel", "fla", "foj", "fra", "fraz", "fros", "ful", "fut", "ga", "gan", "gar", "gi", "gis", "go", "gran", "ha", "han", "hav",
 	"hom", "hong", "hu", "hum", "hushi", "ia", "iaj", "ica", "id", "idon", "il", "in", "ing", "io", "is", "iton", "iza", "ja", "ji", "jirou", "joj", "ka", "kaj", "kajo", "kan", "ke", "ket", "ki", "kna", "krio", "ku", "kui", "kuk", "kun", "kur", "la", "laca", "leng", "les", "li", "liao", "lib",
@@ -50,6 +50,7 @@
 	speech_verb = "enunciates"
 	colour = "say_quote"
 	key = "2"
+	flags = TCOMSSIM
 	syllables = list("a", "acc", "ai", "al", "ali", "am", "ama", "ami", "amo", "an", "ang", "arme", "ave", "ba", "bai", "bar", "bat", "bi", "blie", "bris", "ca", "can", "cant", "car", "care", "ce", "ci", "cis", "cit", "cla", "co", "cul", "cur", "curt", "da", "dam", "dans", "de",
 	"di", "dier", "dim", "dins", "dorm", "du", "duro", "e", "eaux", "ec", "ecto", "ees", "ego", "el", "en", "ent", "er", "ere", "eres", "eri", "ero", "es", "et", "ex", "far", "fi", "fic", "fine", "fol", "foll", "fri", "fro", "gen", "gil", "go", "gran", "hab", "ho", "huc", "ia",
 	"iam", "ibus", "idor", "ie", "iens", "ier", "ieur", "iis", "il", "in", "ine", "int", "ir", "is", "ise", "it", "itt", "jar", "je", "jo", "jor", "la", "lar", "lav", "le", "lees", "ler", "les", "li", "lib", "lie", "lo", "lu", "ma", "man", "manu", "mar", "mari", "mas", "me", "mea",
@@ -65,6 +66,7 @@
 	speech_verb = "growls"
 	colour = "rough"
 	key = "3"
+	flags = TCOMSSIM
 	syllables = list("a", "aan", "aas", "ab", "aba", "ad", "aee", "aft", "ag", "ai", "aise", "ak", "akee", "aq", "ar", "ata", "aur", "aus", "ba", "baat", "bach", "bad", "bahe", "band", "be", "ben", "ber", "bhaa", "bhu", "bra", "burt", "cap", "cer", "ch", "cha", "chaar", "chale", "chalo", "chil",
 	"com", "da", "daa", "daaj", "dat", "de", "dee", "dhaa", "di", "die", "dik", "din", "diz", "do", "dos", "dosh", "durch", "eer", "ek", "er", "es", "fal", "fang", "fra", "fun", "ga", "gan", "gao", "gee", "geet", "gern", "gir", "gon", "gren", "gri", "gu", "guda", "ha", "haa", "hai", "hain", "har",
 	"hat", "he", "hee", "heer", "hekt", "heu", "hit", "hn", "ho", "hua", "huk", "hul", "ich", "ig", "in", "isch", "ja", "jaa", "jad", "jan", "jao", "jar", "jas", "jee", "jiao", "jin", "jing ", "un", "ka", "kaha", "kana", "kar", "kara", "karo", "ke ", "kee", "keln", "kha", "khada", "khe", "khi", "ko",

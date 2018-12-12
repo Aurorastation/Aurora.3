@@ -30,8 +30,25 @@
 	else
 		src.examine(M)
 
-obj/item/weapon/board/attackby(obj/item/I as obj, mob/user as mob)
-	if(!addPiece(I,user))
+/obj/item/weapon/board/attack_self(mob/user)
+	var/choice = alert("Do you want to throw everything off the [src]?", null, "No", "Yes")
+	if(choice == "Yes")
+		for(var/obj/item/weapon/checker/c in src.contents)
+			c.forceMove(get_turf(src.loc))
+		num = 0
+		board_icons = list()
+		board = list()
+		selected = -1
+		src.updateDialog()
+		interact(user)
+	..()
+
+/obj/item/weapon/board/attackby(obj/item/I as obj, mob/user as mob)
+	if(istype(I, /obj/item/weapon/storage/box))
+		var/obj/item/weapon/storage/box/h = I
+		for(var/obj/item/weapon/checker/c in h.contents)
+			addPiece(c,user)
+	else if(!addPiece(I,user))
 		..()
 
 /obj/item/weapon/board/proc/addPiece(obj/item/I as obj, mob/user as mob, var/tile = 0)
@@ -238,6 +255,23 @@ obj/item/weapon/board/attackby(obj/item/I as obj, mob/user as mob)
 
 /obj/item/weapon/checker/king/red
 	piece_color ="red"
+
+/obj/item/weapon/checker/attackby(obj/item/I as obj, mob/user as mob)
+	if(istype(I, /obj/item/weapon/storage/box/chess))
+		var/obj/item/weapon/storage/box/chess/b = I
+		var/turf/T = get_turf(src)
+		if(T)
+			for(var/obj/item/weapon/checker/c in T.contents)
+				if(istype(I, /obj/item/weapon/storage/box/chess/red))
+					if(c.piece_color == "red")
+						c.forceMove(b)
+					else
+						continue
+				else if(c.piece_color != "red")
+					c.forceMove(b)
+			to_chat(user, "<span class='notice'>You put all checker pieces into [b].</span>")
+	else
+		..()
 
 /obj/item/weapon/storage/box/chess
 	name = "black chess box"

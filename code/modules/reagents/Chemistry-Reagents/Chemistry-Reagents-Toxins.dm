@@ -10,6 +10,7 @@
 	var/strength = 4 // How much damage it deals per unit
 	taste_description = "bitterness"
 	taste_mult = 1.2
+	fallback_specific_heat = 0.75
 
 /datum/reagent/toxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(strength)
@@ -69,10 +70,18 @@
 	touch_met = 5
 	taste_mult = 1.5
 	breathe_mul = 2
+	specific_heat = 12 //Phoron is very dense and can hold a lot of energy.
 
 /datum/reagent/toxin/phoron/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
+
+		var/obj/item/organ/parasite/PA = H.internal_organs_by_name["blackkois"]
+		if((istype(PA) && PA.stage >= 3))
+			H.heal_organ_damage(2 * removed, 2 * removed)
+			H.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
+			H.adjustToxLoss(-2 * removed)
+
 		if(alien == IS_VAURCA && H.species.has_organ["filtration bit"])
 			metabolism = REM * 20 //vaurcae metabolise phoron faster than other species - good for them if their filter isn't broken.
 			var/obj/item/organ/vaurca/filtrationbit/F = H.internal_organs_by_name["filtration bit"]
@@ -88,21 +97,24 @@
 					return
 				else
 					P.air_contents.adjust_gas("phoron", (0.5*removed))
+
 		else
 			..()
 	else
 		..()
 
-
-
-
 /datum/reagent/toxin/phoron/touch_mob(var/mob/living/L, var/amount)
+	. = ..()
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 5)
 
 /datum/reagent/toxin/phoron/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VAURCA)
-		return
+	if(istype(M, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = M
+		var/obj/item/organ/parasite/P = H.internal_organs_by_name["blackkois"]
+		if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
+			return
+
 	M.take_organ_damage(0, removed * 0.1) //being splashed directly with phoron causes minor chemical burns
 	if(prob(50))
 		M.pl_effects()
@@ -112,6 +124,15 @@
 		return
 	T.assume_gas("phoron", volume, T20C)
 	remove_self(volume)
+
+/datum/reagent/toxin/phoron_salt //Remember to exclude in RNG chems.
+	name = "Phoron Salts"
+	id = "phoron_salt"
+	description = "A mysterious molten mixture with strange chemical properties. Incredibly deadly to all lifeforms, especially Vaurca."
+	reagent_state = SOLID
+	color = "#7C4876"
+	strength = 30
+	default_temperature = 130 //Kelvin
 
 /datum/reagent/toxin/cardox
 	name = "Cardox"
@@ -124,8 +145,12 @@
 	conflicting_reagent = /datum/reagent/toxin/phoron
 	strength = 1
 
-/datum/reagent/toxin/cardox/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VAURCA)
+/datum/reagent/toxin/cardox/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+	if(!istype(M))
+		return
+
+	var/obj/item/organ/parasite/P = M.internal_organs_by_name["blackkois"]
+	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 		M.adjustToxLoss(removed * strength*2)
 	else
 		M.adjustToxLoss(removed * strength)
@@ -289,6 +314,7 @@
 	return
 
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_mob(var/mob/living/L, var/amount)
+	. = ..()
 	if(istype(L))
 		var/needed = L.fire_stacks * 10
 		if(amount > needed)
@@ -483,6 +509,8 @@
 	glass_name = "glass of beer"
 	glass_desc = "A freezing pint of beer"
 	glass_center_of_mass = list("x"=16, "y"=8)
+	
+	fallback_specific_heat = 1.2
 
 /* Drugs */
 
@@ -518,6 +546,7 @@
 	metabolism = REM * 0.25
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "bitterness"
+	fallback_specific_heat = 1.2
 
 /datum/reagent/serotrotium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
@@ -585,6 +614,7 @@
 	overdose = REAGENTS_OVERDOSE
 	metabolism = REM * 0.5
 	taste_description = "mushroom"
+	fallback_specific_heat = 1.2
 
 /datum/reagent/psilocybin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
@@ -670,6 +700,7 @@
 	reagent_state = LIQUID
 	color = "#535E66"
 	taste_description = "slimey metal"
+	fallback_specific_heat = 3
 
 /datum/reagent/nanites/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(10))
@@ -685,6 +716,7 @@
 	reagent_state = LIQUID
 	color = "#535E66"
 	taste_description = "sludge"
+	fallback_specific_heat = 2
 
 /datum/reagent/xenomicrobes/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(10))

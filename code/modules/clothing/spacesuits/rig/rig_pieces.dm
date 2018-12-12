@@ -14,7 +14,8 @@
 	sprite_sheets = list(
 		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
 		"Skrell" = 'icons/mob/species/skrell/helmet.dmi',
-		"Unathi" = 'icons/mob/species/unathi/helmet.dmi'
+		"Unathi" = 'icons/mob/species/unathi/helmet.dmi',
+		"Machine" = 'icons/mob/species/machine/helmet.dmi'
 		)
 	species_restricted = list("exclude","Diona","Xenomorph","Vaurca","Golem", "Vox")
 
@@ -50,7 +51,11 @@
 	breach_threshold = 38
 	resilience = 0.2
 	can_breach = 1
-	sprite_sheets = list("Tajara" = 'icons/mob/species/tajaran/suit.dmi',"Unathi" = 'icons/mob/species/unathi/suit.dmi')
+	sprite_sheets = list(
+		"Tajara" = 'icons/mob/species/tajaran/suit.dmi',
+		"Unathi" = 'icons/mob/species/unathi/suit.dmi',
+		"Machine" = 'icons/mob/species/machine/suit.dmi'
+		)
 	species_restricted = list("exclude","Diona","Xenomorph","Golem","Vaurca","Vox")
 
 	supporting_limbs = list()

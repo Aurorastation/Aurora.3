@@ -176,6 +176,13 @@
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 
+/obj/item/clothing/head/helmet/iachelmet
+	name = "IAC helmet"
+	desc = "This helmet is meant to protect the wearer from light debris, scrapes and bumps in a disaster situation, this lightweight helmet doesn't offer any significant protection from attacks or severe accidents. It's not recommended for use as armor and it's definitely not spaceworthy."
+	icon_state = "iac_helmet"
+	armor = list(melee = 6, bullet = 10, laser = 10, energy = 3, bomb = 5, bio = 15, rad = 0)
+	flags_inv = HIDEEARS
+
 /obj/item/clothing/head/helmet/unathi
 	name = "unathi helmet"
 	desc = "A helmet designated to be worn by an unathi, used commonly by the hegemony levies."
@@ -185,6 +192,20 @@
 	contained_sprite = 1
 	species_restricted = list("Unathi")
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+
+/obj/item/clothing/head/helmet/tank
+	name = "padded cap"
+	desc = "A padded skullcup for those prone to bumping their heads against hard surfaces."
+	icon_state = "tank"
+	flags_inv = BLOCKHEADHAIR
+	color = "#5f5f5f"
+	armor = list(melee = 25, bullet = 5, laser = 5, energy = 10, bomb = 5, bio = 0, rad = 0)
+
+/obj/item/clothing/head/helmet/tank/olive
+	color = "#727c58"
+
+/obj/item/clothing/head/helmet/tank/tan
+	color = "#ae9f79"
 
 //Non-hardsuit ERT helmets.
 /obj/item/clothing/head/helmet/ert
