@@ -1,0 +1,15 @@
+# Your name.  
+author: VTCobaltblood
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes: 
+  - rscadd: "Various clothing additions, including bowties, cardigans and layerable t-shirts."
+  - rscadd: "Evening gloves, waistcoats, swept skirts, short skirts (renamed to pencil skirts) and labcoats are now recolorable in the loadout."
+  - tweak: "Winter boots have been reworked and added to the loadout, designed to match the winter coats. They also now have a super secret and probably useless advantage over other boot choices."
