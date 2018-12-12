@@ -27,6 +27,11 @@
 	icon_state = "skirt_long"
 	worn_state = "skirt_long"
 
+/obj/item/clothing/under/skirt/pencil
+	name = "pencil skirt"
+	desc = "A professional-looking pencil skirt."
+	icon_state = "skirt_pencil"
+	worn_state = "skirt_pencil"
 
 /obj/item/clothing/under/skirt/short_black
 	name = "short black skirt"
