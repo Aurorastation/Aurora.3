@@ -3,6 +3,11 @@
 #define GAME_STATE_PLAYING		3
 #define GAME_STATE_FINISHED		4
 
+#define GAME_FAILURE_NONE                  0x0 //WHAT'S THIS????
+#define GAME_FAILURE_NO_ANTAGS             0x1
+#define GAME_FAILURE_NO_PLAYERS            0x2
+#define GAME_FAILURE_TOO_MANY_PLAYERS      0x4
+
 // Security levels.
 #define SEC_LEVEL_GREEN 0
 #define SEC_LEVEL_YELLOW 1
