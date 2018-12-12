@@ -698,6 +698,18 @@
 		name = "Right Sidecut"
 		icon_state = "hair_rightside"
 
+	gentle2
+		name = "Gentle 2"
+		icon_state = "hair_gentle2"
+
+	gentle2long
+		name = "Gentle 2 (Long)"
+		icon_state = "hair_gentle2long"
+
+	donutbun
+		name = "Donut Bun"
+		icon_state = "hair_donutbun"
+
 	// TG-format hair - uses ICON_MULTIPLY instead of ICON_ADD
 	uniter
 		icon = 'icons/mob/human_face/hair_multiply.dmi'
