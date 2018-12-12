@@ -516,6 +516,43 @@ datum/unit_test/mob_damage/vaurca/halloss
 	name = "MOB: Vaurca Halloss Damage Check"
 	damagetype = HALLOSS
 
+// =================================================================
+// Getmorean
+// =================================================================
+
+datum/unit_test/mob_damage/getmorean
+	name = "MOB: Getmorean damage check template"
+	mob_type = /mob/living/carbon/human/getmorean
+
+datum/unit_test/mob_damage/getmorean/brute
+	name = "MOB: Getmorean Brute Damage Check"
+	damagetype = BRUTE
+	expected_vulnerability = EXTRA_VULNERABLE
+
+datum/unit_test/mob_damage/getmorean/fire
+	name = "MOB: Getmorean Fire Damage Check"
+	damagetype = BURN
+	expected_vulnerability = ARMORED
+
+datum/unit_test/mob_damage/getmorean/tox
+	name = "MOB: Getmorean Toxins Damage Check"
+	damagetype = TOX
+	expected_vulnerability = IMMUNE
+
+datum/unit_test/mob_damage/getmorean/oxy
+	name = "MOB: Getmorean Oxygen Damage Check"
+	damagetype = OXY
+	expected_vulnerability = IMMUNE
+
+datum/unit_test/mob_damage/getmorean/clone
+	name = "MOB: Getmorean Clone Damage Check"
+	damagetype = CLONE
+	expected_vulnerability = IMMUNE
+
+datum/unit_test/mob_damage/getmorean/halloss
+	name = "MOB: Getmorean Halloss Damage Check"
+	damagetype = HALLOSS
+
 // ==============================================================================
 
 

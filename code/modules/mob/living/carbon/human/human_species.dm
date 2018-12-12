@@ -198,3 +198,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
 /mob/living/carbon/human/adamantine_golem/Initialize(mapload)
 	. = ..(mapload, "Adamantine Golem")
+
+/mob/living/carbon/human/getmorean/Initialize(mapload)
+	. = ..(mapload, "Getmorean")
