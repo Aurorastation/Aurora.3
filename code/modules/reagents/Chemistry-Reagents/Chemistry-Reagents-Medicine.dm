@@ -27,42 +27,66 @@
 /datum/reagent/epinephrine
 	name = "Epinephrine"
 	id = "epinephrine"
-	description = "Epinephrine, also known as adrenaline, is a super strength stimulant and painkiller intended to keep a patient alive while in critical condition."
+	description = "Epinephrine, also known as adrenaline, is a super strength stimulant and painkiller intended to keep a patient alive while in critical condition. Overdose causes heart damage and an energy boost equivelent to hyperzine."
 	reagent_state = LIQUID
 	color = "#FFFFFF"
-	overdose = REAGENTS_OVERDOSE
-	metabolism = REM * 2
-	metabolism_min = REM * 0.25
+	overdose = 20
+	metabolism = 2
+	metabolism_min = 0.25
 	breathe_mul = 0.25
 	ingest_mul = 0.25
 	scannable = 1
 	taste_description = "salty sugar"
-	var/datum/modifier/modifier
+	var/datum/modifier/modifier1
+	var/datum/modifier/modifier2
 
 /datum/reagent/epinephrine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 
-	if(M.health <= config.health_threshold_crit)
-		var/damage_stats = list(BRUTE = M.getBruteLoss(), BURN = M.getFireLoss(), TOX = M.getToxLoss(), OXY = M.getOxyLoss())
-		damage_stats = sortByKey(damage_stats)
-		var/best_stat = get_key_by_index(damage_stats,1)
-		switch(best_stat)
-			if(BRUTE)
-				M.adjustBruteLoss(-removed*5)
-			if(BURN)
-				M.adjustFireLoss(-removed*5)
-			if(TOX)
-				M.adjustToxLoss(-removed*5)
-			if(OXY)
-				M.adjustOxyLoss(-removed*5)
+	var/reagent_strength = round(max(0,1 - (M.health/100)),0.1)
 
-	M.make_jittery(removed)
+	if(reagent_strength == 0)
+		return
+
+	var/list/damage_stats = list(BRUTE = M.getBruteLoss(), BURN = M.getFireLoss(), TOX = M.getToxLoss(), OXY = M.getOxyLoss())
+
+	var/best_stat = "None"
+	var/best_value = 0
+
+	for(var/key in damage_stats)
+		var/value = damage_stats[key]
+		if(value > best_value)
+			best_stat = key
+			best_value = value
+
+	switch(best_stat)
+		if(BRUTE)
+			M.adjustBruteLoss(-removed*5*reagent_strength)
+		if(BURN)
+			M.adjustFireLoss(-removed*5*reagent_strength)
+		if(TOX)
+			M.adjustToxLoss(-removed*5*reagent_strength)
+		if(OXY)
+			M.adjustOxyLoss(-removed*5*reagent_strength)
+
+	M.make_jittery(removed*10)
 	M.add_chemical_effect(CE_STABLE)
 	M.add_chemical_effect(CE_PAINKILLER, 25)
-	if (!modifier)
-		modifier = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+	if (!modifier1)
+		modifier1 = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+
+/datum/reagent/epinephrine/overdose(var/mob/living/carbon/human/H, var/alien, removed )
+	if(istype(H))
+		var/obj/item/organ/F = H.internal_organs_by_name["heart"]
+		if(istype(F))
+			F.take_damage(-removed*0.1)
+			H.make_jittery(removed*10)
+			H.add_chemical_effect(CE_SPEEDBOOST, 1)
+			if (!modifier2)
+				modifier2 = H.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
 /datum/reagent/epinephrine/Destroy()
-	QDEL_NULL(modifier)
+	QDEL_NULL(modifier1)
+	QDEL_NULL(modifier2)
 	return ..()
 
 /datum/reagent/bicaridine
@@ -203,7 +227,7 @@
 	id = "omnizine"
 	description = "Omnizine is a low strength over-the-counter stimulant designed and marketed as a 'treat all' pill. Ingesting or inhaling the substance has the same strength as directly injecting it."
 	reagent_state = SOLID
-	color = "#8080AA"
+	color = "#BBBBBB"
 	metabolism = REM
 	ingest_mul = 1
 	breathe_mul = 1
@@ -219,22 +243,19 @@
 /datum/reagent/atropine
 	name = "Atropine"
 	id = "atropine"
-	description = "Atropine is an emergency stabilizing reagent designed to heal suffocation, blunt trauma, and burns in critical condition. Side effects include toxin increase."
+	description = "Atropine is an emergency stabilizing reagent designed to heal suffocation, blunt trauma, and burns in critical condition. Side effects include toxins increase."
 	reagent_state = LIQUID
-	metabolism = REM * 4
-	color = "#8040FF"
+	metabolism = 1
+	color = "#FF40FF"
 	scannable = 1
 	taste_description = "bitterness"
 	breathe_mul = 0
 
 /datum/reagent/atropine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	var/reagent_strength = 0.25
-	if(M.health <= config.health_threshold_crit)
-		reagent_strength = 1
-
-	M.adjustOxyLoss(-10 * removed * reagent_strength)
-	M.adjustBruteLoss(-4 * removed * reagent_strength)
-	M.adjustFireLoss(-4 * removed * reagent_strength)
+	var/reagent_strength = max(0.25,1 - (M.health/100))
+	M.adjustOxyLoss(-5 * removed * reagent_strength)
+	M.adjustBruteLoss(-5 * removed * reagent_strength)
+	M.adjustFireLoss(-5 * removed * reagent_strength)
 
 	M.adjustToxLoss(1 * removed)
 

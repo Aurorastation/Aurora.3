@@ -2,7 +2,7 @@
 	name = "Brain Ghost"
 	desc = "A Telepathic connection."
 
-	alpha = 127
+	alpha = 200
 
 	var/image/ghostimage = null
 	var/mob/living/carbon/human/body = null
@@ -13,7 +13,7 @@
 	var/mob/living/carbon/human/form = loc
 	if(!istype(form))
 		qdel(src)
-		return .
+		return
 	overlays += image(form.icon,form,form.icon_state)
 	overlays += form.overlays
 	name = form.real_name

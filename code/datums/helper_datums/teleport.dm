@@ -118,6 +118,7 @@
 		teleatom.forceMove(destturf)
 		playSpecials(destturf,effectout,soundout)
 		var/atom/impediment
+		var/valid = 0
 
 		if(destturf.density)
 			impediment = destturf
@@ -125,8 +126,13 @@
 		else
 			for(var/atom/movable/A in destturf)
 				if(A.density && A.anchored)
-					impediment = A
-					break
+					if(A.flags & ON_BORDER)
+						if(prob(10))
+							impediment = A
+							break
+					else
+						impediment = A
+						break
 
 		if(impediment)
 			var/turf/newdest
@@ -143,12 +149,11 @@
 							break
 
 			if(istype(teleatom, /obj))
+				valid = 1
 				var/obj/O = teleatom
 				if(newdest)
-					O.forceMove(newdest)
 					O.ex_act(3)
-				else
-					O.crush_act()
+
 				boominess += max(0, O.w_class - 1)
 				if(O.density)
 					boominess += 5
@@ -156,6 +161,7 @@
 					boominess += 10
 
 			if(istype(teleatom, /mob/living))
+				valid = 1
 				var/mob/living/L = teleatom
 				boominess += L.mob_size/4
 				if(istype(L, /mob/living/carbon/human))
@@ -170,25 +176,41 @@
 							var/obj/item/organ/external/E = pick(organs_to_gib)
 							to_chat(H, "<span class='danger'>You partially phase into \the [impediment], causing your [E.name] to violently dematerialize!</span>")
 							E.droplimb(0,DROPLIMB_BLUNT)
+					else if(H.mind)
+						var/mob/living/simple_animal/shade/bluespace/BS = new /mob/living/simple_animal/shade/bluespace(destturf)
+						to_chat(H, "<span class='danger'>You feel your spirit violently rip from your body in a flurry of violent extradimensional disarray!</span>")
+						H.mind.transfer_to(BS)
 
-						H.forceMove(newdest)
-					else
-						to_chat(H, "<span class='danger'>Your life flashes before your eyes as you phase into \the [impediment] before the universe suddenly and violently corrects itself!</span>")
-						H.gib()
 				else
 					if(newdest)
 						to_chat(L, "<span class='danger'>You partially phase into \the [impediment], causing a chunk of you to violently dematerialize!</span>")
 						L.adjustBruteLoss(40)
-						L.forceMove(newdest)
-					else
-						to_chat(L, "<span class='danger'>Your life flashes before your eyes as you phase into \the [impediment] before the universe suddenly and violently corrects itself!</span>")
-						L.gib()
 
-			if(!newdest)
-				boominess += 5
+			if(valid && newdest)
+				destturf.visible_message("<span class ='danger'>There is a sizable emission of energy as \the [teleatom] phases into \the [impediment]!</span>")
+				explosion(destturf, ((boominess > 10) ? 1 : 0), ((boominess > 5) ? (boominess/10) : 0), boominess/5, boominess/2)
+				teleatom.forceMove(newdest)
 
-			destturf.visible_message("<span class ='danger'>There is a sizable emission of energy as \the [teleatom] phases into \the [impediment]!</span>")
-			explosion(destturf, ((boominess > 10) ? 1 : 0), ((boominess > 5) ? (boominess/10) : 0), boominess/5, boominess/2)
+			else if(!newdest)
+				var/list/turfs_to_teleport = list()
+				var/turf/target_turf
+
+				for(var/turf/T in orange(10, get_turf(teleatom)))
+					turfs_to_teleport += T
+				target_turf = pick(turfs_to_teleport)
+
+				if(target_turf)
+					do_teleport(teleatom, target_turf)
+				else
+					do_teleport(teleatom, get_turf(teleatom))
+
+		else if(istype(teleatom, /mob/living/simple_animal/shade/bluespace))
+			var/mob/living/simple_animal/shade/bluespace/BS = teleatom
+			for(var/mob/living/L in destturf)
+				if(!L.mind)
+					to_chat(BS, "<span class='notice'><b>You feel relief wash over you as your harried spirit fills into \the [L] like water into a vase.</b></span>")
+					BS.mind.transfer_to(L)
+					qdel(BS)
 
 	else
 		if(teleatom.Move(destturf))

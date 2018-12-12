@@ -28,6 +28,5 @@ var/list/dream_entries = list()
 			ckey = old_bg.ckey
 			old_bg.show_message("<span class='notice'>[bg] fades as their connection is severed.</span>")
 			animate(old_bg, alpha=0, time = 200)
-			spawn(20)
-				qdel(old_bg)
+			QDEL_IN(old_bg, 20)
 			src << "<span class='warning'>You are ripped from the Srom as your body awakens.</span>"
