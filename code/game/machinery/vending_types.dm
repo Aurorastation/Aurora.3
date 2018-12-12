@@ -159,6 +159,7 @@
 	product_slogans = "Try our new nougat bar!;Twice the calories for half the price!"
 	product_ads = "The healthiest!;Award-winning chocolate bars!;Mmm! So good!;Oh my god it's so juicy!;Have a snack.;Snacks are good for you!;Have some more Getmore!;Best quality snacks straight from mars.;We love chocolate!;Try our new jerky!"
 	icon_state = "snack"
+	icon_vend = "snack-vend"
 	vend_id = "snacks"
 	products = list(
 		/obj/item/weapon/reagent_containers/food/snacks/candy = 6,
@@ -199,6 +200,7 @@
 	name = "Robust Softdrinks"
 	desc = "A softdrink vendor provided by Robust Industries, LLC."
 	icon_state = "Cola_Machine"
+	icon_vend = "Cola_Machine-vend"
 	product_slogans = "Robust Softdrinks: More robust than a toolbox to the head!"
 	product_ads = "Refreshing!;Hope you're thirsty!;Over 1 million drinks sold!;Thirsty? Why not cola?;Please, have a drink!;Drink up!;The best drinks in space."
 	vend_id = "cola"
@@ -239,6 +241,7 @@
 	desc = "Cartridges for PDAs."
 	product_slogans = "Carts to go!"
 	icon_state = "cart"
+	icon_vend = "cart-vend"
 	icon_deny = "cart-deny"
 	req_access = list(access_hop)
 	vend_id = "pdas"
@@ -262,6 +265,7 @@
 	product_ads = "Probably not bad for you!;Don't believe the scientists!;It's good for you!;Don't quit, buy more!;Smoke!;Nicotine heaven.;Best cigarettes since 2150.;Award-winning cigs."
 	vend_delay = 34
 	icon_state = "cigs"
+	icon_vend = "cigs-vend"
 	vend_id = "smokes"
 	products = list(
 		/obj/item/weapon/storage/fancy/cigarettes = 10,
@@ -287,6 +291,7 @@
 	name = "NanoMed Plus"
 	desc = "Medical drug dispenser."
 	icon_state = "med"
+	icon_vend = "med-vend"
 	icon_deny = "med-deny"
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?;Ping!"
 	req_access = list(access_medical_equip)
@@ -383,6 +388,7 @@
 	desc = "A security equipment vendor."
 	product_ads = "Crack capitalist skulls!;Beat some heads in!;Don't forget - harm is good!;Your weapons are right here.;Handcuffs!;Freeze, scumbag!;Don't tase me bro!;Tase them, bro.;Why not have a donut?"
 	icon_state = "sec"
+	icon_vend = "sec-vend"
 	icon_deny = "sec-deny"
 	req_access = list(access_security)
 	vend_id = "security"
@@ -416,6 +422,7 @@
 	product_slogans = "Aren't you glad you don't have to fertilize the natural way?;Now with 50% less stink!;Plants are people too!"
 	product_ads = "We like plants!;Don't you want some?;The greenest thumbs ever.;We like big plants.;Soft soil..."
 	icon_state = "nutri"
+	icon_vend = "nutri-vend"
 	icon_deny = "nutri-deny"
 	vend_id = "hydro"
 	products = list(
@@ -443,6 +450,7 @@
 	product_slogans = "THIS'S WHERE TH' SEEDS LIVE! GIT YOU SOME!;Hands down the best seed selection on the station!;Also certain mushroom varieties available, more for experts! Get certified today!"
 	product_ads = "We like plants!;Grow some crops!;Grow, baby, growww!;Aw h'yeah son!"
 	icon_state = "seeds"
+	icon_vend = "seeds-vend"
 	vend_id = "seeds"
 	products = list(
 		/obj/item/seeds/appleseed = 3,
@@ -596,6 +604,7 @@
 	desc = "A kitchen and restaurant equipment vendor."
 	product_ads = "Mm, food stuffs!;Food and food accessories.;Get your plates!;You like forks?;I like forks.;Woo, utensils.;You don't really need these..."
 	icon_state = "dinnerware"
+	icon_vend = "dinnerware-vend"
 	vend_id = "cutlery"
 	products = list(
 		/obj/item/weapon/tray = 8,
@@ -623,6 +632,7 @@
 	name = "BODA"
 	desc = "An old sweet water vending machine,how did this end up here?"
 	icon_state = "sovietsoda"
+	icon_vend = "sovietsoda-vend"
 	vend_id = "cola"
 	product_ads = "For Tsar and Country.;Have you fulfilled your nutrition quota today?;Very nice!;We are simple people, for this is all we eat.;If there is a person, there is a problem. If there is no person, then there is no problem."
 	products = list(
@@ -643,6 +653,7 @@
 	name = "YouTool"
 	desc = "Tools for tools."
 	icon_state = "tool"
+	icon_vend = "tool-vend"
 	icon_deny = "tool-deny"
 	vend_id = "tools"
 	//req_access = list(access_maint_tunnels) //Maintenance access
@@ -674,6 +685,7 @@
 	name = "Engi-Vend"
 	desc = "Spare tool vending. What? Did you expect some witty description?"
 	icon_state = "engivend"
+	icon_vend = "engivend-vend"
 	icon_deny = "engivend-deny"
 	req_access = list(access_engine_equip)
 	vend_id = "tools"
