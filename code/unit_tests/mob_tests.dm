@@ -552,6 +552,7 @@ datum/unit_test/mob_damage/getmorean/clone
 datum/unit_test/mob_damage/getmorean/halloss
 	name = "MOB: Getmorean Halloss Damage Check"
 	damagetype = HALLOSS
+	expected_vulnerability = IMMUNE
 
 // ==============================================================================
 
