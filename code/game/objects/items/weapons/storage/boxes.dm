@@ -389,7 +389,7 @@
 	name = "box of assorted firing pins"
 	desc = "A box of varied assortment of firing pins. Appears to have R&D stickers on all sides of the box. Also seems to have a smiley face sticker on the top of it."
 
-/obj/item/weapon/storage/box/firingpins/fill()
+/obj/item/weapon/storage/box/firingpinsRD/fill()
 	..()
 	new /obj/item/device/firing_pin(src)
 	new /obj/item/device/firing_pin(src)
