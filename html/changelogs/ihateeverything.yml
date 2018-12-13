@@ -39,4 +39,4 @@ changes:
   - tweak: "Changes initial spawn of all planting beds, not trays. They all spawn with no water or nutrient."
   - tweak: "Removes weed growing from hydroponics trays. Hydroponic trays do not grow weeds. Dumb meme."
   - tweak: "Adds dummy light. Closing the lids on hydroponics trays has a base light of 5 lumens. Your plants won't die from ignorance."
-  - rsadd: "Adds new function to farmbots - pest elimination. Produces a very small amount of nutriment from the killing of pests in the trays. Find it in the UI."
+  - rscadd: "Adds new function to farmbots - pest elimination. Produces a very small amount of nutriment from the killing of pests in the trays. Find it in the UI."
