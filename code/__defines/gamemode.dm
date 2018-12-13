@@ -7,6 +7,7 @@
 #define GAME_FAILURE_NO_ANTAGS             0x1
 #define GAME_FAILURE_NO_PLAYERS            0x2
 #define GAME_FAILURE_TOO_MANY_PLAYERS      0x4
+#define GAME_FAILURE_NO_ANTAGS_SCALED      0x8
 
 // Security levels.
 #define SEC_LEVEL_GREEN 0

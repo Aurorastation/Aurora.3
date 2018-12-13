@@ -13,6 +13,7 @@
 	config_tag = "changeling"
 	required_players = 10
 	required_enemies = 3
+	required_enemies_scale = 15 //There needs to be at least 1 antag every 15 players.
 	end_on_antag_death = 1
 	antag_scaling_coeff = 8
 	antag_tags = list(MODE_CHANGELING)

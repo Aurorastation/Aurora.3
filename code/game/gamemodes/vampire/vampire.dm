@@ -7,6 +7,7 @@
 	config_tag = "vampire"
 	required_players = 2
 	required_enemies = 1
+	required_enemies_scale = 15 //There needs to be at least 1 antag every 15 players.
 	end_on_antag_death = 0
 	antag_scaling_coeff = 8
 	antag_tags = list(MODE_VAMPIRE)

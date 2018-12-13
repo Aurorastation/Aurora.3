@@ -16,9 +16,11 @@
 	end_on_antag_death = 1
 	antag_tags = list(MODE_TRAITOR)
 	antag_scaling_coeff = 8
+	required_enemies_scale = 15 //There needs to be at least 1 antag every 15 players.
 
 /datum/game_mode/traitor/auto
 	name = "autotraitor"
 	config_tag = "autotraitor"
 	round_autoantag = 1
 	antag_scaling_coeff = 5
+	required_enemies_scale = 15 //There needs to be at least 1 starting antag every 15 players.

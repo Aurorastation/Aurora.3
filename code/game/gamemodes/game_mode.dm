@@ -9,15 +9,17 @@ var/global/list/additional_antag_types = list()
 	var/votable = 1
 	var/probability = 0
 
-	var/required_players = 0                 // Minimum players for round to start if voted in.
+	var/required_players = 0                // Minimum players for round to start if voted in.
 	var/max_players = 0			 			// Maximum players for round to start for secret voting. 0 means "doesn't matter"
-	var/required_enemies = 0                 // Minimum antagonists for round to start.
+	var/required_enemies = 0                // Minimum antagonists for round to start.
+	var/required_enemies_scale = 0          // Minimum antagonists for round to start relative to crew. Example: If this value is 3, then there must be at least 1 antag for every 3 players for the round to start for secret voting. 0 means "doesn't matter".
+
 	var/newscaster_announcements = null
 	var/end_on_antag_death = 0               // Round will end when all antagonists are dead.
 	var/ert_disabled = 0                     // ERT cannot be called.
 	var/deny_respawn = 0	                 // Disable respawn during this round.
 
-	var/list/disabled_jobs = list()           // Mostly used for Malf.  This check is performed in job_controller so it doesn't spawn a regular AI.
+	var/list/disabled_jobs = list()          // Mostly used for Malf.  This check is performed in job_controller so it doesn't spawn a regular AI.
 
 	var/shuttle_delay = 1                    // Shuttle transit time is multiplied by this.
 	var/auto_recall_shuttle = 0              // Will the shuttle automatically be recalled?
@@ -155,10 +157,10 @@ var/global/list/additional_antag_types = list()
 		if((player.client)&&(player.ready))
 			playerC++
 
-	if(playerC < required_players && required_players != 0)
+	if(required_players && playerC < required_players)
 		returning |= GAME_FAILURE_NO_PLAYERS
 
-	if(playerC > max_players && max_players != 0)
+	if(max_players && playerC > max_players)
 		returning |= GAME_FAILURE_TOO_MANY_PLAYERS
 
 	if(antag_templates && antag_templates.len)
@@ -173,15 +175,18 @@ var/global/list/additional_antag_types = list()
 					potential = antag.pending_antagonists
 				else
 					potential = antag.candidates
+
 				if(islist(potential))
-				
 					if(potential.len)
 						enemy_count += potential.len
 						if(require_all_templates && potential.len < antag.initial_spawn_req)
 							returning |= GAME_FAILURE_NO_ANTAGS
 
-					if(enemy_count < required_enemies)
-						returning |= GAME_FAILURE_NO_ANTAGS
+		if(required_enemies && enemy_count < required_enemies)
+			returning |= GAME_FAILURE_NO_ANTAGS
+
+		if(required_enemies_scale && enemy_count < playerC/required_enemies_scale)
+			returning |= GAME_FAILURE_NO_ANTAGS_SCALED
 
 	return returning
 

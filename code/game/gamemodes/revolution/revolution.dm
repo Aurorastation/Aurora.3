@@ -7,6 +7,6 @@
 	required_enemies = 4
 	auto_recall_shuttle = 0
 	end_on_antag_death = 0
-//	shuttle_delay = 3
+	required_enemies_scale = 10 //There needs to be at least 1 antag every 10 players.
 	antag_tags = list(MODE_REVOLUTIONARY, MODE_LOYALIST)
 	require_all_templates = 1

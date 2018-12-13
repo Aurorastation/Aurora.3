@@ -355,9 +355,11 @@ var/datum/controller/subsystem/ticker/SSticker
 		src.hide_mode = ROUNDTYPE_SECRET
 	else if (master_mode == ROUNDTYPE_STR_MIXED_SECRET)
 		src.hide_mode = ROUNDTYPE_MIXED_SECRET
+		
+	var/is_secret = master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET)
 
 	var/list/runnable_modes = config.get_runnable_modes(master_mode)
-	if(master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
+	if(is_secret)
 		if(!runnable_modes.len)
 			current_state = GAME_STATE_PREGAME
 			world << "<B>Unable to choose playable game mode.</B> Reverting to pre-game lobby."
@@ -409,8 +411,11 @@ var/datum/controller/subsystem/ticker/SSticker
 	if(can_start & GAME_FAILURE_NO_ANTAGS)
 		fail_reasons += "Not enough antagonists, [mode.required_enemies] antagonist(s) needed"
 
-	if(can_start & GAME_FAILURE_TOO_MANY_PLAYERS)
-		fail_reasons +=  "Too many players, less than [mode.max_players] antagonist(s) needed"
+	if(is_secret && can_start & GAME_FAILURE_TOO_MANY_PLAYERS)
+		fail_reasons +=  "Too many players, less than [mode.max_players] players(s) needed"
+		
+	if(is_secret && can_start & GAME_FAILURE_NO_ANTAGS_SCALED)
+		fail_reasons +=  "Not enough antagonists, at least 1 antagonist is needed for every [mode.required_enemies_scale] player(s)"
 
 	if(can_start != GAME_FAILURE_NONE)
 		world << "<B>Unable to start [mode.name].</B> [english_list(fail_reasons,"No reason specified",". ",". ")]"
@@ -418,7 +423,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		mode.fail_setup()
 		mode = null
 		SSjobs.ResetOccupations()
-		if(master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
+		if(is_secret)
 			world << "<B>Reselecting gamemode...</B>"
 			return SETUP_REATTEMPT
 		else
