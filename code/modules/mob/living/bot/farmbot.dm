@@ -318,7 +318,9 @@
 // Assembly
 
 /mob/living/bot/farmbot/proc/check_tank()
-	return ((!target && refills_water && tank && tank.reagents.total_volume < tank.reagents.maximum_volume) || ((tank.reagents.total_volume ) / reagents.maximum_volume) <= 0.3)
+    if(!tank)
+        return FALSE
+    return ((!target && refills_water && tank.reagents.total_volume < tank.reagents.maximum_volume) || ((tank.reagents.total_volume ) / reagents.maximum_volume) <= 0.3)
 
 /obj/item/weapon/farmbot_arm_assembly
 	name = "water tank/robot arm assembly"
