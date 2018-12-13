@@ -1,5 +1,5 @@
 --
--- Adds alt_title logging to the ss13_characters_log
+-- Renaming colomn because we are fixing spelling
 --
 
 ALTER TABLE `ss13_characters_flavour`
