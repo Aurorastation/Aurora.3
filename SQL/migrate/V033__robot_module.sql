@@ -3,4 +3,4 @@
 --
 
 ALTER TABLE `ss13_characters_flavour`
-	RENAME COLUMN `robot_miner` TO `robot_mining`;
+    CHANGE COLUMN `robot_miner` `robot_mining` TEXT NULL DEFAULT NULL AFTER `robot_rescue`;
