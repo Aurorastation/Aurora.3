@@ -34,4 +34,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "The food tagging mechanic from the game has been removed, and precedurally generated and renamed food items will no longer have a tag on them explaining what you supposedly know it's normally called."
+  - tweak: "Renaming a food item will now only add a tag that indicates it is a custom recipe, instead of propping a piece of paper on it and magically conveying knowledge of the original food item to the player." 
+  - bugfix: "The bug that caused produce and other things to be tagged as renamed has also been fixed."

@@ -153,9 +153,20 @@
 
 	return 1
 
+/obj/item/weapon/reagent_containers/food/snacks
+	var/hide_rename_msg = FALSE
+
+/obj/item/weapon/reagent_containers/food/snacks/grown
+	hide_rename_msg = TRUE
+
+/obj/item/weapon/reagent_containers/food/snacks/icecream
+	hide_rename_msg = TRUE
+
 /obj/item/weapon/reagent_containers/food/snacks/examine(mob/user)
 	if(!..(user, 1))
 		return
+	if(!hide_rename_msg && name != initial(name))
+		user << "<span class='notice'>This looks like someone's personal recipe for \a [name].</span>"
 	if (coating)
 		user << "<span class='notice'>It's coated in [coating.name]!</span>"
 	if (bitecount==0)
