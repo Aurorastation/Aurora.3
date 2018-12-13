@@ -400,21 +400,23 @@
 			mob.dir = direct
 
 		if(3)
+			if(!mob.canmove || mob.anchored)
+				return
+			move_delay = 1 + world.time
 			var/turf/T = get_step(mob, direct)
 			for(var/obj/structure/window/W in T)
-				if(istype(T, /obj/structure/window/phoronbasic) || istype(T, /obj/structure/window/phoronreinforced))
+				if(istype(W, /obj/structure/window/phoronbasic) || istype(W, /obj/structure/window/phoronreinforced))
 					if(W.is_full_window())
 						mob << "<span class='warning'>\The [W] obstructs your movement!</span>"
 						return
 
-					if((get_dir(T, mob) & W.dir) && W.density)
+					if((direct & W.dir) && W.density)
 						mob << "<span class='warning'>\The [W] obstructs your movement!</span>"
 						return
 			if(istype(T, /turf/simulated/wall/phoron) || istype(T, /turf/simulated/wall/ironphoron))
 				mob << "<span class='warning'>\The [T] obstructs your movement!</span>"
 				return
 
-			move_delay = 1 + world.time
 			mob.forceMove(get_step(mob, direct))
 			mob.dir = direct
 
