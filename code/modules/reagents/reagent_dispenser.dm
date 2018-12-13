@@ -49,7 +49,7 @@
 			atype = alert(user, "Do you want to fill \the [RG] at \the [src]?", "Fill", "Fill", "Cancel")
 
 		if(!user.Adjacent(src)) return
-		if(RG.loc != user) return
+		if(RG.loc != user && !istype(user,/mob/living/silicon/robot)) return
 
 		switch(atype)
 			if ("Fill")
