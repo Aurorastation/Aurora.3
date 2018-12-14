@@ -89,7 +89,7 @@ var/datum/controller/subsystem/docs/SSdocs
 		tag_sublist &= docs_by_tags[t]
 	var/subtotal = 0
 	var/datum/docs_document/dd
-	for(var/dd in tag_sublist)
+	for(dd in tag_sublist)
 		if(!istype(dd))
 			return 0
 		subtotal += dd.chance
@@ -167,6 +167,8 @@ var/datum/controller/subsystem/docs/SSdocs
 	dd.title = title
 	dd.chance = chance
 	dd.content = content
+	if(istext(tags))
+		tags = splittext(tags, ";")
 	dd.tags = tags
 	
 	//Adds the document to the docs, sorted by tags
