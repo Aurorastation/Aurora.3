@@ -213,7 +213,7 @@
 					break
 			if(!valid)
 				message = replacetext(message, word1, pick(words_in_memory))
-		message = slur(message,rand(10, 20))
+		message = slur(message,15)
 		..()
 	else
 		to_chat(src, "<span class='warning'>You cannot muster a voice when possessing another!</span>")
