@@ -421,12 +421,18 @@
 				if(L.is_diona() == DIONA_WORKER)
 					mob << "<span class='danger'>You struggle briefly as you are photovored into \the [L], trapped within a nymphomatic husk!</span>"
 					var/mob/living/carbon/alien/diona/D = new /mob/living/carbon/alien/diona(L)
+					var/mob/living/simple_animal/shade/bluespace/BS = mob
 					if (!(/mob/living/carbon/proc/echo_eject in L.verbs))
 						L.verbs.Add(/mob/living/carbon/proc/echo_eject)
-					mob.mind.transfer_to(D)
+					BS.mind.transfer_to(D)
 					D.echo = 1
 					D.stat = CONSCIOUS
-					qdel(mob)
+					D.gestalt = L
+					D.sync_languages(D.gestalt)
+					D.update_verbs()
+					D.forceMove(L)
+					qdel(BS)
+					return
 
 			mob.forceMove(get_step(mob, direct))
 			mob.dir = direct

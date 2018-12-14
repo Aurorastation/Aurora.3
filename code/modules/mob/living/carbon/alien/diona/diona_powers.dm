@@ -159,12 +159,12 @@
 	if(stat == DEAD || paralysis || weakened || stunned || restrained())
 		return
 
-	if(!(istype(src.loc,/mob/living/carbon)))
-		src.verbs -= /mob/living/carbon/alien/diona/proc/split
-		return
-
 	if(echo)
 		src << "<span class='notice'>Your host is still storing you as a nymphatic husk and preventing your departure.</span>"
+		return
+
+	if(!(istype(src.loc,/mob/living/carbon)))
+		src.verbs -= /mob/living/carbon/alien/diona/proc/split
 		return
 
 	var/r = alert(src,"Splitting will remove you from your gestalt and deposit you on the ground, allowing you to go it alone. If you had any stored biomass before you joined the gestalt, you will not get it back. Are you sure you wish to split?", "Confirm Split", "Time to leaf", "I'll stick around")
@@ -341,6 +341,7 @@
 				D.mind.transfer_to(BS)
 				to_chat(BS, "<b>You are now a bluespace echo - consciousness imprinted upon wavelengths of bluespace energy. You currently retain no memories of your previous life, but do express a strong desire to return to corporeality. You will die soon, fading away forever. Good luck!</b>")
 				qdel(D)
+
 			else
 				src << span("warning", "You feel a pang of loss as [src] splits away from your biomass.")
 				D << "<span class='notice'>You wiggle out of the depths of [src.loc]'s biomass and plop to the ground.</span>"
@@ -350,7 +351,6 @@
 
 				D.split_languages(D.gestalt)
 				D.forceMove(get_turf(src))
-				D.stat = CONSCIOUS
 				D.gestalt = null
 				D.update_verbs()
 
