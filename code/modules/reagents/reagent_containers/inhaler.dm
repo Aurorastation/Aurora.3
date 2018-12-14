@@ -44,6 +44,8 @@
 			playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
 			user.visible_message("<span class='notice'>[user] accidentally sticks the [src] in [H]'s eyes!</span>","<span class='notice'>You accidentally stick the [src] in [H]'s eyes!</span>")
 			to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
+			used = TRUE
+			update_icon()
 		return
 
 	if (!user.IsAdvancedToolUser())
@@ -77,23 +79,19 @@
 		admin_inject_log(user, H, src, contained, temp, trans)
 		playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
 		to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
+		used = TRUE
 
 	update_icon()
 
 	return TRUE
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/afterattack(var/mob/M, var/mob/user, proximity)
-	if(..())
-		used = TRUE
-
 /obj/item/weapon/reagent_containers/inhaler/attack(mob/M as mob, mob/user as mob)
 	if(is_open_container())
 		to_chat(user,"<span class='notice'>You must secure the reagents inside \the [src] before using it!</span>")
 		return FALSE
-
 	. = ..()
 
-/obj/item/weapon/reagent_containers/inhaler/autoinjector/attack_self(mob/user as mob)
+/obj/item/weapon/reagent_containers/inhaler/attack_self(mob/user as mob)
 	if(is_open_container())
 		if(reagents && reagents.reagent_list.len)
 			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
@@ -104,7 +102,6 @@
 	else
 		to_chat(user,"<span class='notice'>The reagents inside \the [src] are already secured.</span>")
 	return
-
 
 /obj/item/weapon/reagent_containers/inhaler/update_icon()
 	if(reagents.total_volume > 0 && !is_open_container())
