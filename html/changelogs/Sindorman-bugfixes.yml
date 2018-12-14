@@ -38,3 +38,4 @@ changes:
   - spellcheck: "Renamed cyborg Miner module into Mining."
   - rscadd: "Hostile mobs now check if they can see their target before moving towards or engaging."
   - bugfix: "Ranged hostile mobs no longer get in point blank range to shoot their target."
+  - bugfix: "Security/Medical records sections max character limit was increases from 1024 to 3072, to keep it consistent with records in character setup."
