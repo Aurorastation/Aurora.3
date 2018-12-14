@@ -135,7 +135,7 @@
 	icon = 'icons/obj/items.dmi'
 	icon_base = "small"
 	icon_state = "small0"
-	desc = "A small mechanical trap thas is used to catch small animals like mice and spiderlings."
+	desc = "A small mechanical trap thas is used to catch small animals like mice, lizard, chick and spiderlings."
 	throwforce = 2
 	force = 1
 	w_class = 2
@@ -145,7 +145,7 @@
 	time_to_escape = 0.5 // Minutes
 	var/breakout = FALSE
 	var/last_shake = 0
-	var/list/allowed_mobs = list(/mob/living/simple_animal/mouse)
+	var/list/allowed_mobs = list(/mob/living/simple_animal/mouse, /mob/living/simple_animal/chick, /mob/living/simple_animal/lizard)
 
 /obj/item/weapon/trap/animal/examine(mob/user)
 	..()
@@ -172,7 +172,7 @@
 
 	if(isliving(AM))
 		var/mob/living/L = AM
-		if(L.isMonkey()) // Because monkeys can be of type of just human.
+		if(L.isMonkey() && (/mob/living/carbon/human/monkey in allowed_mobs)) // Because monkeys can be of type of just human.
 			L.visible_message(
 				"<span class='danger'>[L] enters \the [src], and it snaps shut with a clatter!</span>",
 				"<span class='danger'>You enters \the [src], and it snaps shut with a clatter!</span>",
@@ -185,7 +185,6 @@
 			update_icon()
 			src.animate_shake()
 			return
-
 		for(var/f in allowed_mobs)
 			if(istype(AM, f))
 				L.visible_message(
@@ -199,7 +198,6 @@
 				deployed = 1
 				update_icon()
 				src.animate_shake()
-
 
 	else if(istype(AM, /obj/effect/spider/spiderling)) // for spiderlings
 		var/obj/effect/spider/spiderling/S = AM
@@ -271,6 +269,17 @@
 		src.animate_shake()
 	animate_shake()
 
+/obj/item/weapon/trap/animal/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/weapon/reagent_containers) && contents.len)
+		var/mob/living/L = pick(contents)
+		W.attack(L, user)
+
+	else if(istype(W, /obj/item/weapon) && contents.len)
+		var/mob/living/L = pick(contents)
+		L.attackby(W, user)
+	else
+		..()
+
 /obj/item/weapon/trap/animal/attack_hand(mob/user as mob)
 	if (!user) return
 	if(user.loc == src) // not to pick ourselves
@@ -318,6 +327,7 @@
 		deployed = 0
 		update_icon()
 		src.animate_shake()
+		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
 
 	for(var/obj/effect/spider/spiderling/S in contents) // for spiderlings
 		S.forceMove(user.loc)
@@ -327,6 +337,7 @@
 		deployed = 0
 		update_icon()
 		src.animate_shake()
+		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
 
 /obj/item/weapon/trap/animal/attack(mob/living/M, mob/living/user)
 	if(contents.len) // It is full
@@ -345,19 +356,107 @@
 
 /obj/item/weapon/trap/animal/medium
 	name = "medium trap"
-	icon_base = "small"
-	desc = "A medium mechanical trap thas is used to catch medium size animals like cat, diyaab, monkey, yithian, nymph. Sometimes even maintainence drones and PAi."
+	desc = "A medium mechanical trap thas is used to catch medium size animals like cat, diyaab, monkey, yithian, pengiuns, chicken, nymph. Sometimes even maintainence drones, spiderbots and PAi."
 	icon_base = "medium"
 	icon_state = "medium0"
-	throwforce = 3
-	force = 2
+	throwforce = 4
+	force = 5
 	w_class = 4
-	origin_tech = list(TECH_MATERIAL = 2)
+	origin_tech = list(TECH_MATERIAL = 3)
 	matter = list(DEFAULT_WALL_MATERIAL = 5750)
 	deployed = 0
 	time_to_escape = 1 // Minute
 
 /obj/item/weapon/trap/animal/medium/Initialize()
 	allowed_mobs = list(
-						/mob/living/simple_animal/cat, /mob/living/simple_animal/hostile/diyaab, /mob/living/carbon/human/monkey, /mob/living/simple_animal/yithian,
-						/mob/living/carbon/alien/diona, /mob/living/silicon/robot/drone, /mob/living/silicon/pai)
+						/mob/living/simple_animal/cat, /mob/living/simple_animal/hostile/diyaab, /mob/living/carbon/human/monkey, /mob/living/simple_animal/penguin, /mob/living/simple_animal/crab,
+						/mob/living/simple_animal/chicken, /mob/living/simple_animal/yithian, /mob/living/carbon/alien/diona, /mob/living/silicon/robot/drone, /mob/living/silicon/pai,
+						/mob/living/simple_animal/spiderbot, /mob/living/simple_animal/hostile/tree)
+
+/obj/item/weapon/trap/animal/large
+	name = "large trap"
+	desc = "A large mechanical trap thas is used to catch medium size animals like dog, spider, carp, goat, cow, shark, fox, bear, cavern dwellers, and other kinds of Xenomorphs. Sometimes even maintainence drones and PAi."
+	icon_base = "large"
+	icon_state = "large0"
+	throwforce = 6
+	force = 10
+	w_class = 6
+	density = 1
+	origin_tech = list(TECH_MATERIAL = 4)
+	matter = list(DEFAULT_WALL_MATERIAL = 15750)
+	deployed = 0
+	time_to_escape = 2 // Minute
+
+/obj/item/weapon/trap/animal/large/Initialize()
+	allowed_mobs = list(
+						/mob/living/simple_animal/cat, /mob/living/simple_animal/corgi, /mob/living/simple_animal/hostile/retaliate/goat, /mob/living/simple_animal/cow, /mob/living/simple_animal/corgi/fox,
+						/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/hostile/bear, /mob/living/simple_animal/hostile/alien, /mob/living/simple_animal/hostile/giant_spider,
+						/mob/living/simple_animal/hostile/commanded/dog, /mob/living/simple_animal/hostile/retaliate/cavern_dweller)
+
+/obj/item/weapon/trap/animal/large/attack_hand(mob/user as mob)
+	if(deployed)
+		var/open = alert("Do you want to open the cage and free what is inside?",,"No","Yes")
+		if(open == "Yes")
+
+			if(!can_use(user))
+				to_chat(user, "<span class='warning'>You cannot use \the [src].</span>")
+				return
+			if(!contents.len)
+				return
+
+			var/turf/T_cage = get_turf(src)
+			var/turf/T_user= get_turf(user)
+
+			if(!T_cage)
+				attack_self(src)
+				return
+
+			var/turf/target = get_turf(locate(T_cage.x + (T_cage.x - T_user.x), T_cage.y + (T_cage.y - T_user.y), T_cage.z))
+			if(!target)
+				attack_self(src)
+				return
+
+			visible_message("<span class='notice'>[user] opens \the [src].</span>")
+			for(var/mob/living/L in contents)
+				L.forceMove(target)
+				visible_message("<span class='warning'>[L] runs out of \the [src].</span>")
+				animate_shake()
+				deployed = 0
+				update_icon()
+				src.animate_shake()
+
+			for(var/obj/effect/spider/spiderling/S in contents) // for spiderlings
+				S.forceMove(target)
+				START_PROCESSING(SSprocessing, S)
+				visible_message("<span class='warning'>[S] jumps out of \the [src].</span>")
+				animate_shake()
+				deployed = 0
+				update_icon()
+				src.animate_shake()
+	return
+
+/obj/item/weapon/trap/animal/large/Collide(AM as mob|obj)
+	if(isliving(AM))
+		Crossed(AM)
+	else
+		..()
+
+/obj/item/weapon/trap/animal/large/attackby(obj/item/W as obj, mob/user as mob)
+	if(iswrench(W))
+		var/turf/T = get_turf(src)
+		if(!T)
+			to_chat(user, "<span class='warning'>There is nothing to secure [src] to!</span>")
+			return
+
+		user.visible_message("<span class='notice'>[user] is trying to [anchored ? "un" : "" ]secure \the [src]!</span>",
+							  "You are trying to [anchored ? "" : "un" ]secure \the [src]!")
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+
+		if (!do_after(user, 3 SECONDS, act_target = src))
+			return
+
+		anchored = !anchored
+		user.visible_message("<span class='notice'>[user] has [anchored ? "" : "un" ]secured \the [src]!</span>",
+							  "You have [anchored ? "" : "un" ]secured \the [src]!")
+	else
+		..()
