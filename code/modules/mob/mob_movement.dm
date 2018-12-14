@@ -417,6 +417,17 @@
 				mob << "<span class='warning'>\The [T] obstructs your movement!</span>"
 				return
 
+			for(var/mob/living/L in T)
+				if(L.is_diona() == DIONA_WORKER)
+					mob << "<span class='danger'>You struggle briefly as you are photovored into \the [L], trapped within a nymphomatic husk!</span>"
+					var/mob/living/carbon/alien/diona/D = new /mob/living/carbon/alien/diona(L)
+					if (!(/mob/living/carbon/proc/echo_eject in L.verbs))
+						L.verbs.Add(/mob/living/carbon/proc/echo_eject)
+					mob.mind.transfer_to(D)
+					D.echo = 1
+					D.stat = CONSCIOUS
+					qdel(mob)
+
 			mob.forceMove(get_step(mob, direct))
 			mob.dir = direct
 
