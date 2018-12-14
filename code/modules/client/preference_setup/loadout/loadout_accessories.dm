@@ -6,7 +6,12 @@
 
 /datum/gear/accessory/waistcoat
 	display_name = "waistcoat"
-	path = /obj/item/clothing/accessory/wcoat
+	path = /obj/item/clothing/accessory/wcoat_rec
+
+/datum/gear/accessory/waistcoat/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
 
 /datum/gear/accessory/armband
 	display_name = "armband selection"
@@ -61,6 +66,14 @@
 	ties["navy tie"] = /obj/item/clothing/accessory/tie/navy
 	ties["white tie"] = /obj/item/clothing/accessory/tie/white
 	gear_tweaks += new/datum/gear_tweak/path(ties)
+
+/datum/gear/accessory/bowtie
+	display_name = "bowtie"
+	path = /obj/item/clothing/accessory/tie/bowtie
+
+/datum/gear/accessory/bowtie/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
 
 /datum/gear/accessory/brown_vest
 	display_name = "webbing, engineering"
@@ -131,6 +144,33 @@
 	path = /obj/item/clothing/accessory/dressshirt_r
 
 /datum/gear/accessory/dressshirt_r/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/accessory/longsleeve
+	display_name = "long-sleeved shirt"
+	path = /obj/item/clothing/accessory/longsleeve
+
+/datum/gear/accessory/longsleeve/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/accessory/longsleeve_s
+	display_name = "long-sleeved shirt, striped"
+	path = /obj/item/clothing/accessory/longsleeve_s
+
+/datum/gear/accessory/longsleeve_s/New()
+	..()
+	var/lshirt = list()
+	lshirt["black-striped"] = /obj/item/clothing/accessory/longsleeve_s
+	lshirt["blue-striped"] = /obj/item/clothing/accessory/longsleeve_sb
+	gear_tweaks += new/datum/gear_tweak/path(lshirt)
+
+/datum/gear/accessory/tshirt
+	display_name = "t-shirt"
+	path = /obj/item/clothing/accessory/tshirt
+
+/datum/gear/accessory/tshirt/New()
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
