@@ -103,7 +103,7 @@
 
 	var/datum/effect/effect/system/smoke_spread/bad/smoke = new /datum/effect/effect/system/smoke_spread/bad
 	smoke.attach(src)
-	smoke.set_up(10, 0, get_turf(src), 50)
+	smoke.set_up(10, 0, get_turf(src), 10)
 	smoke.start()
 
 	for(var/i in 1 to 5)
