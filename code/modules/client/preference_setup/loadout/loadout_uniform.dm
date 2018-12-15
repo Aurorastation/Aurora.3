@@ -50,34 +50,12 @@
 /datum/gear/uniform/skirt/New()
 	..()
 	var/skirts = list()
-	skirts["plaid skirt, blue"] = /obj/item/clothing/under/skirt/plaid_blue
-	skirts["plaid skirt, purple"] = /obj/item/clothing/under/skirt/plaid_purple
-	skirts["plaid skirt, red"] = /obj/item/clothing/under/skirt/plaid_red
-	skirts["jumpskirt, black"] = /obj/item/clothing/under/skirt/blackjumpskirt
-	skirts["skirt, black"] = /obj/item/clothing/under/skirt/
-	skirts["short skirt, black"] = /obj/item/clothing/under/skirt/short_black
-	skirts["short skirt, blue"] = /obj/item/clothing/under/skirt/blue
-	skirts["short skirt, red"] = /obj/item/clothing/under/skirt/red
-	skirts["skirt, swept"] = /obj/item/clothing/under/skirt/swept
-
-
+	skirts["casual skirt"] = /obj/item/clothing/under/skirt/casual
+	skirts["long skirt"] = /obj/item/clothing/under/skirt/long
+	skirts["pencil skirt"] = /obj/item/clothing/under/skirt/pencil
+	skirts["swept skirt"] = /obj/item/clothing/under/skirt/swept
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
-
-/datum/gear/uniform/skirt/casual
-	display_name = "casual skirt"
-	path = /obj/item/clothing/under/skirt/casual
-
-/datum/gear/uniform/skirt/casual/New()
-	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
-
-/datum/gear/uniform/skirt/long
-	display_name = "long skirt"
-	path = /obj/item/clothing/under/skirt/long
-
-/datum/gear/uniform/skirt/long/New()
-	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += list(gear_tweak_free_color_choice)
 
 /datum/gear/uniform/suit
 	display_name = "suit selection"
