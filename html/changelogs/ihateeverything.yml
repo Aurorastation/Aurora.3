@@ -34,9 +34,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Adds building planting beds with sandstone. Requires Three."
-  - rscadd: "Adds deconstructing the built planting beds. Uses a spade or shovel."
-  - tweak: "Changes initial spawn of all planting beds, not trays. They all spawn with no water or nutrient."
-  - tweak: "Removes weed growing from hydroponics trays. Hydroponic trays do not grow weeds. Dumb meme."
-  - tweak: "Adds dummy light. Closing the lids on hydroponics trays has a base light of 5 lumens. Your plants won't die from ignorance."
-  - rscadd: "Adds new function to farmbots - pest elimination. Produces a very small amount of nutriment from the killing of pests in the trays. Find it in the UI."
+  - rscadd: "Adds building planting beds with sandstone. Requires Three. Can be decontructed with a shovel or spade."
+  - tweak: "Altered spawn of soil plots, no longer spawns with water or nutrient. Hydroponics trays no longer require weeding. Lid-light for hydroponics trays set to a base of five, no more killing plants due to ignorance. Farmbots given new function to allow pest removal. Generates small amount of nutrient upon elimination."
