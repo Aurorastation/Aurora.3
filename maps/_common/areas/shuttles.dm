@@ -76,7 +76,7 @@
 
 /area/shuttle/escape_pod1/centcom
 	icon_state = "shuttle"
-	base_turf = /turf/space
+	base_turf = /turf/unsimulated/floor
 	centcomm_area = 1
 
 /area/shuttle/escape_pod1/transit
@@ -94,7 +94,7 @@
 
 /area/shuttle/escape_pod2/centcom
 	icon_state = "shuttle"
-	base_turf = /turf/space
+	base_turf = /turf/unsimulated/floor
 	centcomm_area = 1
 
 /area/shuttle/escape_pod2/transit
@@ -112,7 +112,7 @@
 
 /area/shuttle/escape_pod3/centcom
 	icon_state = "shuttle"
-	base_turf = /turf/space
+	base_turf = /turf/unsimulated/floor
 	centcomm_area = 1
 
 /area/shuttle/escape_pod3/transit

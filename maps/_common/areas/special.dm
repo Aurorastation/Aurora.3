@@ -47,6 +47,14 @@
 /area/centcom/holding
 	name = "\improper Holding Facility"
 
+/area/centcom/extraction_shuttle
+	name = "\improper Escape Pods Retrival Shuttle"
+	icon_state = "centcom"
+	requires_power = 0
+	no_light_control = 1
+	base_turf = /turf/simulated/shuttle/floor
+	centcomm_area = 1
+
 //SYNDICATES
 
 /area/syndicate_mothership
