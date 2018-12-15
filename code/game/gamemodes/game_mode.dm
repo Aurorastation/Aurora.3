@@ -162,26 +162,25 @@ var/global/list/additional_antag_types = list()
 		returning |= GAME_FAILURE_TOO_MANY_PLAYERS
 
 	if(antag_templates && antag_templates.len)
-		var/enemy_count = 0
+		var/total_enemy_count = 0
 		if(antag_tags && antag_tags.len)
 			for(var/antag_tag in antag_tags)
 				var/datum/antagonist/antag = all_antag_types[antag_tag]
 				if(!antag)
 					continue
-				var/list/potential = list()
+				var/list/potential = list() //List of potential players to spawn as antagonists
 				if(antag.flags & ANTAG_OVERRIDE_JOB)
 					potential = antag.pending_antagonists
 				else
 					potential = antag.candidates
 				if(islist(potential))
-				
 					if(potential.len)
-						enemy_count += potential.len
+						total_enemy_count += potential.len
 						if(require_all_templates && potential.len < antag.initial_spawn_req)
 							returning |= GAME_FAILURE_NO_ANTAGS
 
-					if(enemy_count < required_enemies)
-						returning |= GAME_FAILURE_NO_ANTAGS
+		if(total_enemy_count < required_enemies)
+			returning |= GAME_FAILURE_NO_ANTAGS
 
 	return returning
 
