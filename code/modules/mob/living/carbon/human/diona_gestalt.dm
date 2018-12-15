@@ -241,7 +241,7 @@
 			nymphs_to_kill_off -= 1
 			qdel(D)
 			continue
-		if ((!D.key) && bestNymph == null)
+		if ((!D.mind) && bestNymph == null)
 			//As a safety, we choose the first unkeyed one to begin with, even if its dead.
 			//We'll replace this choice when/if we find a better one
 			bestNymph = D
@@ -270,10 +270,11 @@
 		var/split_reag_volume = src.reagents.total_volume /  total_nymph // All nymps needs to get reagents of Gestal split between.
 		for(var/mob/living/carbon/alien/diona/D in nymphos)
 			src.reagents.trans_to_mob(D, split_reag_volume, CHEM_BLOOD)
-			D.master_nymph = bestNymph
-			D.birds_of_feather += nymphos
-			D.pixel_y += rand(-10,10)
-			D.pixel_x += rand(-10,10)
+			if(!D.mind)
+				D.master_nymph = bestNymph
+				D.birds_of_feather += nymphos
+				D.pixel_y += rand(-10,10)
+				D.pixel_x += rand(-10,10)
 		bestNymph.set_dir(dir)
 		transfer_languages(src, bestNymph)
 		if(mind)
