@@ -6249,7 +6249,8 @@
 /area/merchant_station)
 "apw" = (
 /obj/machinery/vending/wallmed1{
-	pixel_y = 32
+	pixel_y = 32;
+	req_access = list(110)
 	},
 /turf/simulated/floor/wood,
 /area/merchant_station)
@@ -7064,19 +7065,6 @@
 /obj/structure/closet/secure_closet/merchant,
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
-"arD" = (
-/obj/machinery/vending/wallmed1{
-	pixel_y = 32
-	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
-	id_tag = "merchant_shuttle";
-	pixel_x = -32;
-	pixel_y = 0;
-	tag_door = "merchant_shuttle_hatch"
-	},
-/turf/simulated/floor/wood,
-/area/merchant_ship/start)
 "arF" = (
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
@@ -7194,7 +7182,10 @@
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
 "arQ" = (
-/obj/structure/table/rack,
+/obj/machinery/porta_turret/net{
+	lethal = 1;
+	lethal_icon = 0
+	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
@@ -7311,18 +7302,6 @@
 	},
 /turf/template_noop,
 /area/template_noop)
-"asg" = (
-/obj/machinery/light/small,
-/turf/simulated/floor/plating,
-/area/merchant_ship/start)
-"ash" = (
-/obj/structure/table/reinforced,
-/obj/machinery/door/window/westleft{
-	req_access = list(110)
-	},
-/obj/machinery/light,
-/turf/simulated/floor/tiled,
-/area/merchant_ship/start)
 "asi" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 8
@@ -23139,10 +23118,6 @@
 	icon_state = "floor3"
 	},
 /area/template_noop)
-"aZY" = (
-/obj/machinery/porta_turret,
-/turf/simulated/shuttle/wall,
-/area/merchant_ship/start)
 "aZZ" = (
 /obj/machinery/door/window/westleft{
 	req_access = list(110)
@@ -23172,8 +23147,41 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
-"cDP" = (
-/obj/machinery/porta_turret,
+"dAV" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/table/standard,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/window{
+	dir = 1;
+	name = "display case";
+	req_access = list(110)
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"eUD" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/table/standard,
+/obj/machinery/door/window/southleft{
+	name = "display case";
+	req_access = list(110)
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
 "hfP" = (
@@ -23199,25 +23207,34 @@
 /obj/structure/closet/walllocker/emerglocker/north{
 	pixel_y = -32
 	},
+/obj/machinery/light/small,
 /turf/simulated/floor/plating,
 /area/merchant_ship/start)
-"oIy" = (
-/obj/effect/floor_decal/carpet,
-/obj/structure/table/reinforced,
-/obj/random/coin,
-/obj/machinery/button/remote/blast_door{
-	id = "MERCHANT FULL";
-	name = "Merchant Shuttle Lockdown";
-	pixel_x = -5;
-	pixel_y = 4
+"kUo" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 8
 	},
-/obj/machinery/button/remote/blast_door{
-	id = "MERCHANT";
-	name = "Merchant Airlock Lockdown";
-	pixel_x = 5;
-	pixel_y = 4
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/window/southleft{
+	name = "display case";
+	req_access = list(110)
 	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"mMy" = (
+/obj/machinery/vending/wallmed1{
+	pixel_y = 32;
+	req_access = list(110)
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "merchant_shuttle";
+	pixel_x = -32;
+	pixel_y = 0;
+	tag_door = "merchant_shuttle_hatch"
+	},
+/turf/simulated/floor/wood,
 /area/merchant_ship/start)
 "ryc" = (
 /obj/structure/shuttle/engine/heater{
@@ -23233,6 +23250,52 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
+/area/merchant_ship/start)
+"sSd" = (
+/obj/effect/floor_decal/carpet,
+/obj/structure/table/reinforced,
+/obj/machinery/button/remote/blast_door{
+	id = "MERCHANT FULL";
+	name = "Merchant Shuttle Lockdown";
+	pixel_x = -5;
+	pixel_y = 4;
+	req_access = list(110)
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "MERCHANT";
+	name = "Merchant Airlock Lockdown";
+	pixel_x = 5;
+	pixel_y = 4;
+	req_access = list(110)
+	},
+/turf/simulated/floor/carpet,
+/area/merchant_ship/start)
+"uNZ" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/westleft{
+	req_access = list(110)
+	},
+/obj/machinery/light,
+/obj/random/coin,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"vIK" = (
+/obj/structure/table/standard,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/window{
+	dir = 1;
+	name = "display case";
+	req_access = list(110)
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
 /area/merchant_ship/start)
 
 (1,1,1) = {"
@@ -27478,10 +27541,10 @@ aqm
 aoY
 aaM
 aqR
-asG
+aqQ
 aqR
 aqR
-asg
+arO
 aqR
 aqR
 asG
@@ -28766,7 +28829,7 @@ aaM
 aZM
 arh
 arz
-arQ
+arz
 arz
 asv
 aZM
@@ -29023,7 +29086,7 @@ aqQ
 aqR
 ari
 arz
-arQ
+arz
 arz
 asw
 aqR
@@ -29276,15 +29339,15 @@ aqc
 aqs
 aqA
 aaM
-aZY
+aqR
 aqR
 arj
 arz
-arQ
+arz
 arz
 asx
 aqR
-aZY
+aqR
 aaM
 aaM
 aaM
@@ -29537,7 +29600,7 @@ aqR
 aqR
 ark
 arz
-cDP
+arz
 arz
 asy
 aqR
@@ -29792,7 +29855,7 @@ aaM
 aaM
 aaM
 aZM
-arg
+kUo
 arz
 arQ
 arz
@@ -30051,7 +30114,7 @@ aaM
 aZM
 arh
 arz
-arQ
+arz
 arz
 asz
 aZM
@@ -30304,15 +30367,15 @@ aaM
 aaM
 aaM
 aaM
-aqQ
-aqR
-ark
+aaM
+aZM
+ari
 arz
 arz
 arz
-bAs
-aqR
-asG
+vIK
+aZM
+aaM
 aaM
 aaM
 aaM
@@ -30561,15 +30624,15 @@ aaM
 aaM
 aaM
 aaM
+aqQ
 aqR
-aqR
-aqR
+eUD
 arz
 arz
 arz
+dAV
 aqR
-aqR
-aqR
+asG
 aaM
 aaM
 aaM
@@ -30818,15 +30881,15 @@ aaM
 aaM
 aaM
 aaM
-aaM
 aqR
 aqR
-aZZ
-arR
-ash
+ark
+arz
+arz
+arz
+bAs
 aqR
 aqR
-aaM
 aaM
 aaM
 aaM
@@ -31075,15 +31138,15 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
 aqR
-arB
-arS
-asi
 aqR
-aaM
-aaM
+aqR
+arz
+arz
+arz
+aqR
+aqR
+aqR
 aaM
 aaM
 aaM
@@ -31333,13 +31396,13 @@ aaM
 aaM
 aaM
 aaM
-aaM
 aqR
-arC
-arz
-arC
 aqR
-aaM
+aZZ
+arR
+uNZ
+aqR
+aqR
 aaM
 aaM
 aaM
@@ -31592,9 +31655,9 @@ aaM
 aaM
 aqR
 aqR
-aqR
-arT
-aqR
+arB
+arS
+asi
 aqR
 aqR
 aaM
@@ -31847,13 +31910,13 @@ aaM
 aaM
 aaM
 aaM
-aZY
+aaM
 aqR
-arD
-arU
-asj
+arC
+arz
+arC
 aqR
-aZY
+aaM
 aaM
 aaM
 aaM
@@ -32106,9 +32169,9 @@ aaM
 aaM
 aqR
 aqR
-aZD
-hSJ
-oIy
+aqR
+arT
+aqR
 aqR
 aqR
 aaM
@@ -32361,13 +32424,13 @@ aaM
 aaM
 aaM
 aaM
-aaM
 aqR
-arF
-arW
-aVz
 aqR
-aaM
+mMy
+arU
+asj
+aqR
+aqR
 aaM
 aaM
 aaM
@@ -32618,13 +32681,13 @@ aaM
 aaM
 aaM
 aaM
-aaM
 aqR
-hfP
-hfP
-hfP
 aqR
-aaM
+aZD
+hSJ
+sSd
+aqR
+aqR
 aaM
 aaM
 aaM
@@ -32876,11 +32939,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aqR
+arF
+arW
+aVz
+aqR
 aaM
 aaM
 aaM
@@ -33133,11 +33196,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aqR
+hfP
+hfP
+hfP
+aqR
 aaM
 aaM
 aaM
