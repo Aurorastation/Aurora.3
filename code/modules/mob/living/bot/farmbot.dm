@@ -2,6 +2,7 @@
 #define FARMBOT_WATER 2
 #define FARMBOT_UPROOT 3
 #define FARMBOT_NUTRIMENT 4
+#define FARMBOT_PESTKILL 5
 
 /mob/living/bot/farmbot
 	name = "Farmbot"
@@ -19,6 +20,7 @@
 	var/replaces_nutriment = 0
 	var/collects_produce = 0
 	var/removes_dead = 0
+	var/eliminates_pests = 0
 
 	var/obj/structure/reagent_dispensers/watertank/tank
 
@@ -59,8 +61,9 @@
 		dat += "<TT>Watering controls:<br>"
 		dat += "Water plants : <A href='?src=\ref[src];water=1'>[waters_trays ? "Yes" : "No"]</A><BR>"
 		dat += "Refill watertank : <A href='?src=\ref[src];refill=1'>[refills_water ? "Yes" : "No"]</A><BR>"
-		dat += "<br>Weeding controls:<br>"
+		dat += "<br>Preventive measures:<br>"
 		dat += "Weed plants: <A href='?src=\ref[src];weed=1'>[uproots_weeds ? "Yes" : "No"]</A><BR>"
+		dat += "Eradicate pests: <A href='?src=\ref[src];eradicatespests=1'>[removes_dead ? "Yes" : "No"]</A><BR>"
 		dat += "<br>Nutriment controls:<br>"
 		dat += "Replace fertilizer: <A href='?src=\ref[src];replacenutri=1'>[replaces_nutriment ? "Yes" : "No"]</A><BR>"
 		dat += "<br>Plant controls:<br>"
@@ -113,6 +116,8 @@
 		collects_produce = !collects_produce
 	else if(href_list["removedead"])
 		removes_dead = !removes_dead
+	else if(href_list["eradicatespests"])
+		eliminates_pests = !eliminates_pests
 
 	attack_hand(usr)
 	return
@@ -212,6 +217,16 @@
 					visible_message("<span class='notice'>[src] uproots the weeds in \the [A].</span>")
 					T.weedlevel = 0
 					T.update_icon()
+			if(FARMBOT_PESTKILL)
+				action = "hoe"
+				update_icons()
+				visible_message("<span class='notice'>[src] starts eliminating the pests in \the [A].</span>")
+				attacking = 1
+				if(do_after(src, 30))
+					visible_message("<span class='notice'>[src] decimates the pests in \the [A].</span>")
+					T.pestlevel = 0
+					T.reagents.add_reagent("nutriment", 0.5)
+					T.update_icon()
 			if(FARMBOT_NUTRIMENT)
 				action = "fertile"
 				update_icons()
@@ -286,13 +301,16 @@
 	if(tray.dead && removes_dead || tray.harvest && collects_produce)
 		return FARMBOT_COLLECT
 
-	else if(waters_trays && tray.waterlevel < 40 && !tray.reagents.has_reagent("water"))
+	else if(waters_trays && tray.waterlevel < 10 && !tray.reagents.has_reagent("water"))
 		return FARMBOT_WATER
 
 	else if(uproots_weeds && tray.weedlevel >= 5)
 		return FARMBOT_UPROOT
 
-	else if(replaces_nutriment && tray.nutrilevel < 1 && tray.reagents.total_volume < 1)
+	else if(eliminates_pests && tray.pestlevel >= 3)
+		return FARMBOT_PESTKILL
+
+	else if(replaces_nutriment && tray.nutrilevel < 2 && tray.reagents.total_volume < 1)
 		return FARMBOT_NUTRIMENT
 
 	return 0
@@ -300,7 +318,9 @@
 // Assembly
 
 /mob/living/bot/farmbot/proc/check_tank()
-	return ((!target && refills_water && tank && tank.reagents.total_volume < tank.reagents.maximum_volume) || ((tank.reagents.total_volume ) / reagents.maximum_volume) <= 0.3)
+    if(!tank)
+        return FALSE
+    return ((!target && refills_water && tank.reagents.total_volume < tank.reagents.maximum_volume) || ((tank.reagents.total_volume ) / reagents.maximum_volume) <= 0.3)
 
 /obj/item/weapon/farmbot_arm_assembly
 	name = "water tank/robot arm assembly"
