@@ -42,6 +42,7 @@
 
 	var/mob/living/carbon/alien/diona/master_nymph //nymph who owns this nymph if split. AI diona nymphs will follow this nymph, and these nymphs can be controlled by the master.
 	var/list/mob/living/carbon/alien/diona/birds_of_feather = list() //list of all related nymphs
+	var/echo = 0 //if it's an echo nymph, which has unique properties
 
 /mob/living/carbon/alien/diona/proc/cleanupTransfer()
 	if(!kept_clean)

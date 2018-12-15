@@ -164,27 +164,52 @@
 				valid = 1
 				var/mob/living/L = teleatom
 				boominess += L.mob_size/4
-				if(istype(L, /mob/living/carbon/human))
-					var/mob/living/carbon/human/H = L
-					if(newdest)
-						var/list/organs_to_gib = list()
-						for(var/obj/item/organ/external/ext in H.organs)
-							if(!ext.vital) //ensures someone doesn't instantly die, allowing them to slowly die instead
-								organs_to_gib.Add(ext)
+				if(!L.incorporeal_move)
+					if(istype(L, /mob/living/carbon/human))
+						var/mob/living/carbon/human/H = L
+						if(newdest)
+							var/list/organs_to_gib = list()
+							for(var/obj/item/organ/external/ext in H.organs)
+								if(!ext.vital) //ensures someone doesn't instantly die, allowing them to slowly die instead
+									organs_to_gib.Add(ext)
 
-						if(organs_to_gib.len)
-							var/obj/item/organ/external/E = pick(organs_to_gib)
-							to_chat(H, "<span class='danger'>You partially phase into \the [impediment], causing your [E.name] to violently dematerialize!</span>")
-							E.droplimb(0,DROPLIMB_BLUNT)
-					else if(H.mind)
+							if(organs_to_gib.len)
+								var/obj/item/organ/external/E = pick(organs_to_gib)
+								to_chat(H, "<span class='danger'>You partially phase into \the [impediment], causing your [E.name] to violently dematerialize!</span>")
+								E.droplimb(0,DROPLIMB_BLUNT)
+
+					else
+						if(newdest)
+							to_chat(L, "<span class='danger'>You partially phase into \the [impediment], causing a chunk of you to violently dematerialize!</span>")
+							L.adjustBruteLoss(40)
+
+					if(!newdest && L.mind)
 						var/mob/living/simple_animal/shade/bluespace/BS = new /mob/living/simple_animal/shade/bluespace(destturf)
-						to_chat(H, "<span class='danger'>You feel your spirit violently rip from your body in a flurry of violent extradimensional disarray!</span>")
-						H.mind.transfer_to(BS)
+						to_chat(L, "<span class='danger'>You feel your spirit violently rip from your body in a flurry of violent extradimensional disarray!</span>")
+						L.mind.transfer_to(BS)
+						to_chat(BS, "<b>You are now a bluespace echo - consciousness imprinted upon wavelengths of bluespace energy. You currently retain no memories of your previous life, but do express a strong desire to return to corporeality. You will die soon, fading away forever. Good luck!</b>")
+						BS.original_body = L
+
+						var/list/turfs_to_teleport = list()
+						for(var/turf/T in orange(20, get_turf(BS)))
+							turfs_to_teleport += T
+						do_teleport(BS, pick(turfs_to_teleport))
+
+						for(var/mob/living/M in L)
+							if(M.mind)
+								var/mob/living/simple_animal/shade/bluespace/more_BS = new /mob/living/simple_animal/shade/bluespace(get_turf(M))
+								to_chat(M, "<span class='danger'>You feel your spirit violently rip from your body in a flurry of violent extradimensional disarray!</span>")
+								M.mind.transfer_to(more_BS)
+								to_chat(more_BS, "<b>You are now a bluespace echo - consciousness imprinted upon wavelengths of bluespace energy. You currently retain no memories of your previous life, but do express a strong desire to return to corporeality. You will die soon, fading away forever. Good luck!</b>")
+								more_BS.original_body = M
+
+								for(var/turf/T in orange(20, get_turf(BS)))
+									turfs_to_teleport += T
+								do_teleport(more_BS, pick(turfs_to_teleport))
 
 				else
-					if(newdest)
-						to_chat(L, "<span class='danger'>You partially phase into \the [impediment], causing a chunk of you to violently dematerialize!</span>")
-						L.adjustBruteLoss(40)
+					newdest = destturf
+					valid = 0
 
 			if(valid && newdest)
 				destturf.visible_message("<span class ='danger'>There is a sizable emission of energy as \the [teleatom] phases into \the [impediment]!</span>")
@@ -207,10 +232,18 @@
 		else if(istype(teleatom, /mob/living/simple_animal/shade/bluespace))
 			var/mob/living/simple_animal/shade/bluespace/BS = teleatom
 			for(var/mob/living/L in destturf)
-				if(!L.mind)
-					to_chat(BS, "<span class='notice'><b>You feel relief wash over you as your harried spirit fills into \the [L] like water into a vase.</b></span>")
-					BS.mind.transfer_to(L)
-					qdel(BS)
+				if(!L.mind && !isvaurca(L))
+
+					if(BS.message_countdown >= 200)
+						to_chat(BS, "<span class='notice'><b>You feel relief wash over you as your harried spirit fills into \the [L] like water into a vase.</b></span>")
+						BS.mind.transfer_to(L)
+						to_chat(L, "<b>You have been restored to a corporeal form. You retain no memories of your time as a bluespace echo, but regardless of your current form the memories of your time before being a bluespace echo are returned.</b>")
+						qdel(BS)
+
+					else
+						to_chat(BS, "<span class='warning'>You lack the strength of echoes necessary to reattain corporeality in \the [L]!</span>")
+
+					break
 
 	else
 		if(teleatom.Move(destturf))
