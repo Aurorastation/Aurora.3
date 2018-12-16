@@ -111,9 +111,19 @@
 		if ("clap")
 			if (!src.restrained())
 				message = "claps."
+				playsound(loc, 'sound/effects/clap.ogg', 50, 1)
 				m_type = 2
 				if(miming)
 					m_type = 1
+
+		if ("golfclap")
+			if (!src.restrained())
+				message = "claps, clearly unimpressed."
+				playsound(loc, 'sound/effects/golfclap.ogg', 50, 1)
+				m_type = 2
+				if(miming)
+					m_type = 1
+
 		if ("flap")
 			if (!src.restrained())
 				message = "flaps [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] wings."
@@ -329,7 +339,6 @@
 
 			message = "snaps [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] fingers."
 			playsound(loc, 'sound/effects/fingersnap.ogg', 50, 1, -3)
-
 
 		if ("laugh")
 			if(miming)
@@ -659,7 +668,7 @@
 
 
 		if ("help")
-			src << {"blink, blink_r, blush, bow-(none)/mob, burp, choke, chuckle, clap, collapse, cough,
+			src << {"blink, blink_r, blush, bow-(none)/mob, burp, choke, chuckle, clap, golfclap, collapse, cough,
 cry, custom, deathgasp, drool, eyebrow, frown, gasp, giggle, groan, grumble, handshake, hug-(none)/mob, glare-(none)/mob,
 grin, laugh, look-(none)/mob, moan, mumble, nod, pale, point-atom, raise, salute, shake, shiver, shrug,
 sigh, signal-#1-10, smile, sneeze, sniff, snore, stare-(none)/mob, tremble, twitch, twitch_s, whimper,

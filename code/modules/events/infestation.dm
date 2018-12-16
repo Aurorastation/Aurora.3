@@ -9,6 +9,7 @@
 	startWhen = 1
 	announceWhen = 10
 	endWhen = 11
+	no_fake = 1
 	var/area/chosen_area
 	var/event_name = "Slime Leak"
 	var/chosen_mob = INFESTATION_SLIMES
@@ -18,6 +19,7 @@
 		INFESTATION_MICE = 1,
 		INFESTATION_LIZARDS = 1
 	)
+	no_fake = 1
 
 /datum/event/infestation/moderate
 	possible_mobs = list(

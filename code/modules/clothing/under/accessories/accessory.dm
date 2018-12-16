@@ -131,6 +131,11 @@
 	name = "white tie"
 	icon_state = "whitetie"
 
+/obj/item/clothing/accessory/tie/bowtie
+	name = "bowtie"
+	desc = "Snazzy!"
+	icon_state = "bowtie"
+
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
 	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."
@@ -251,25 +256,11 @@
 	desc = "An extremely rare golden medal awarded only by company officials. To receive such a medal is the highest honor and as such, very few exist. This medal is almost never awarded to anybody but commanders."
 	icon_state = "gold_crest"
 
-//clothing-like acessories
-
-/obj/item/clothing/accessory/wcoat
-	name = "waistcoat"
-	desc = "For some classy, murderous fun."
-	icon_state = "wcoat"
-	item_state = "wcoat"
-
 /obj/item/clothing/accessory/suspenders
 	name = "suspenders"
 	desc = "They suspend the illusion of the mime's play."
 	icon_state = "suspenders"
 	item_state = "suspenders"
-
-/obj/item/clothing/accessory/sweater
-	name = "sweater"
-	desc = "A warm knit sweater."
-	icon_state = "sweater"
-	item_state = "sweater"
 
 /obj/item/clothing/accessory/scarf
 	name = "white scarf"
@@ -453,9 +444,15 @@
 
 /obj/item/clothing/accessory/poncho/roles/cloak/captain
 	name = "captain's cloak"
-	desc = "An elaborate cloak meant to be worn by the colony director."
+	desc = "An elaborate cloak meant to be worn by the Captain."
 	icon_state = "capcloak"
 	item_state = "capcloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/hos
+	name = "head of security's cloak"
+	desc = "An elaborate cloak meant to be worn by the Head of Security."
+	icon_state = "hoscloak"
+	item_state = "hoscloak"
 
 /obj/item/clothing/accessory/poncho/roles/cloak/cargo
 	name = "brown cloak"
@@ -498,3 +495,9 @@
 	desc = "A simple blue and white cloak worn by suit sensor activists."
 	icon_state = "medcloak"
 	item_state = "medcloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/security
+	name = "dark blue cloak"
+	desc = "A simple dark blue cloak awarded by NanoTrasen for failing the introductory literacy test."
+	icon_state = "seccloak"
+	item_state = "seccloak"

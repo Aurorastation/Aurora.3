@@ -1,6 +1,6 @@
 /spell/targeted/mindcontrol
 	name = "Mind Bend"
-	desc = "Bend the mind and soul of a mortal to serve your purposes."
+	desc = "Bend the mind and soul of a mortal to serve your purposes, making them your slave. You will need some way to hold them still during the process, however."
 	feedback = "MB"
 	school = "cleric"
 	charge_max = 10000

@@ -84,6 +84,7 @@
 #define APPEARANCE_EYE_COLOR 0x100
 #define APPEARANCE_ALL_HAIR (APPEARANCE_HAIR|APPEARANCE_HAIR_COLOR|APPEARANCE_FACIAL_HAIR|APPEARANCE_FACIAL_HAIR_COLOR)
 #define APPEARANCE_ALL       0xFFFF
+#define APPEARANCE_PLASTICSURGERY (APPEARANCE_HAIR|APPEARANCE_HAIR_COLOR|APPEARANCE_FACIAL_HAIR|APPEARANCE_FACIAL_HAIR_COLOR|APPEARANCE_GENDER) & ~APPEARANCE_RACE
 
 // Click cooldown
 #define DEFAULT_ATTACK_COOLDOWN 8 //Default timeout for aggressive actions
@@ -122,30 +123,30 @@
 #define MOB_TINY 		4
 #define MOB_MINISCULE	1
 
-#define BASE_MAX_NUTRITION	400
+#define BASE_MAX_NUTRITION	600
 #define HUNGER_FACTOR		0.04 // Factor of how fast mob nutrition decreases over time.
 
-#define BASE_MAX_HYDRATION  600
+#define BASE_MAX_HYDRATION  800
 #define THIRST_FACTOR       0.02 // Factor of how fast mob hydration decreases over time.
 
-#define CREW_MINIMUM_HYDRATION BASE_MAX_HYDRATION * CREW_HYDRATION_SLIGHTLYTHIRSTY	// The minimum amount of nutrition a crewmember will spawn with.
-#define CREW_MAXIMUM_HYDRATION BASE_MAX_HYDRATION * CREW_HYDRATION_HYDRATED	// Same as above, but maximum.
+#define CREW_MINIMUM_HYDRATION CREW_HYDRATION_SLIGHTLYTHIRSTY	// The minimum amount of nutrition a crewmember will spawn with, represented as a percentage
+#define CREW_MAXIMUM_HYDRATION CREW_HYDRATION_HYDRATED	// Same as above, but maximum.
 
-#define CREW_MINIMUM_NUTRITION BASE_MAX_NUTRITION * CREW_NUTRITION_SLIGHTLYHUNGRY	// The minimum amount of nutrition a crewmember will spawn with.
-#define CREW_MAXIMUM_NUTRITION BASE_MAX_NUTRITION * CREW_NUTRITION_FULL	// Same as above, but maximum.
+#define CREW_MINIMUM_NUTRITION CREW_NUTRITION_FULL	// The minimum amount of nutrition a crewmember will spawn with, represented as a percentage.
+#define CREW_MAXIMUM_NUTRITION CREW_NUTRITION_OVEREATEN	// Same as above, but maximum.
 
 //Note that all of this is relative to nutrition/max nutrition
-#define CREW_NUTRITION_OVEREATEN 0.95
-#define CREW_NUTRITION_FULL 0.75
-#define CREW_NUTRITION_SLIGHTLYHUNGRY 0.5
-#define CREW_NUTRITION_HUNGRY 0.25
+#define CREW_NUTRITION_OVEREATEN 0.8
+#define CREW_NUTRITION_FULL 0.4
+#define CREW_NUTRITION_SLIGHTLYHUNGRY 0.3
+#define CREW_NUTRITION_HUNGRY 0.2
 #define CREW_NUTRITION_VERYHUNGRY 0.1
 #define CREW_NUTRITION_STARVING 0
 
 //Note that all of this is relative to hydration/max hydration
-#define CREW_HYDRATION_OVERHYDRATED 0.95
-#define CREW_HYDRATION_HYDRATED 0.6
-#define CREW_HYDRATION_SLIGHTLYTHIRSTY 0.4
+#define CREW_HYDRATION_OVERHYDRATED 1.01 //Overhydration can't occur.
+#define CREW_HYDRATION_HYDRATED 0.4
+#define CREW_HYDRATION_SLIGHTLYTHIRSTY 0.3
 #define CREW_HYDRATION_THIRSTY 0.2
 #define CREW_HYDRATION_VERYTHIRSTY 0.1
 #define CREW_HYDRATION_DEHYDRATED 0
@@ -222,6 +223,7 @@
 #define PROSTHETIC_ZH "Zeng-Hu Pharmaceuticals"
 #define PROSTHETIC_HI "Hephaestus Industries"
 #define PROSTHETIC_XMG "Xion Manufacturing Group"
+#define PROSTHETIC_DIONA "Unknown Model"
 
 //Brain Damage defines
 #define BRAIN_DAMAGE_MILD 10

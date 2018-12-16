@@ -718,7 +718,7 @@
 
 /datum/seed/grapes/green/setup_traits()
 	..()
-	set_trait(TRAIT_PRODUCT_COLOUR,"42ed2f")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#42ED2F")
 
 //Everything else
 /datum/seed/peanuts
@@ -983,7 +983,7 @@
 	name = "pumpkin"
 	seed_name = "pumpkin"
 	display_name = "pumpkin vine"
-	chems = list("nutriment" = list(1,6))
+	chems = list("pumpkinpulp" = list(5,6))
 	kitchen_tag = "pumpkin"
 
 /datum/seed/pumpkin/setup_traits()
@@ -1127,8 +1127,8 @@
 /datum/seed/diona
 	name = "diona"
 	seed_name = "diona"
-	seed_noun = "nodes"
-	display_name = "replicant pods"
+	seed_noun = "node"
+	display_name = "diona pod"
 	can_self_harvest = 1
 	has_mob_product = /mob/living/carbon/alien/diona
 

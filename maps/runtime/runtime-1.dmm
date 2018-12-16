@@ -113,7 +113,11 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/machinery/power/smes/buildable,
+/obj/machinery/power/smes/buildable{
+	charge = 1000000;
+	input_attempt = 1;
+	output_attempt = 1
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "ar" = (
@@ -228,13 +232,10 @@
 	icon_state = "1-2"
 	},
 /obj/structure/cable{
-	d1 = 2;
+	d1 = 4;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
-/area/engineering)
-"aE" = (
 /turf/simulated/floor/plating,
 /area/engineering)
 "aF" = (
@@ -246,6 +247,10 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "0-8";
+	d2 = 8
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
@@ -1356,6 +1361,14 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"jf" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/wall/r_wall,
+/area/engineering/gravity_gen)
 
 (1,1,1) = {"
 aa
@@ -2938,7 +2951,7 @@ ac
 ae
 ah
 ap
-aE
+aC
 aC
 bc
 bm
@@ -2992,7 +3005,7 @@ ac
 ae
 ai
 ai
-ai
+jf
 aQ
 ai
 ai

@@ -34,6 +34,8 @@
 	throwforce = 0
 	throw_speed = 4
 	throw_range = 20
+	flags = OPENCONTAINER
+	var/key_data
 
 /obj/item/weapon/soap/nanotrasen
 	desc = "A NanoTrasen-brand bar of soap. Smells of phoron."

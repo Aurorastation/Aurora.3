@@ -43,7 +43,7 @@
 	var/image/hatch_image
 
 	//Multi-tile doors
-	dir = EAST
+	dir = SOUTH
 	var/width = 1
 
 	// turf animation

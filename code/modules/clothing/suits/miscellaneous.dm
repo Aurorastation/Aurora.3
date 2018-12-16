@@ -526,24 +526,44 @@
 	desc = "A cozy jacket in engineering's colors. Show your department pride!"
 	icon_state = "engi_dep_jacket"
 	item_state = "engi_dep_jacket"
+	icon_open = "engi_dep_jacket_open"
+	icon_closed = "engi_dep_jacket"
 
 /obj/item/clothing/suit/storage/toggle/supply_dep_jacket
 	name = "supply department jacket"
 	desc = "A cozy jacket in supply's colors. Show your department pride!"
 	icon_state = "supply_dep_jacket"
 	item_state = "supply_dep_jacket"
+	icon_open = "supply_dep_jacket_open"
+	icon_closed = "supply_dep_jacket"
 
 /obj/item/clothing/suit/storage/toggle/sci_dep_jacket
 	name = "science department jacket"
 	desc = "A cozy jacket in science's colors. Show your department pride!"
 	icon_state = "sci_dep_jacket"
 	item_state = "sci_dep_jacket"
+	icon_open = "sci_dep_jacket_open"
+	icon_closed = "sci_dep_jacket"
 
 /obj/item/clothing/suit/storage/toggle/med_dep_jacket
 	name = "medical department jacket"
 	desc = "A cozy jacket in medical's colors. Show your department pride!"
 	icon_state = "med_dep_jacket"
 	item_state = "med_dep_jacket"
+	icon_open = "med_dep_jacket_open"
+	icon_closed = "med_dep_jacket"
 
+/obj/item/clothing/suit/storage/toggle/sec_dep_jacket
+	name = "security department jacket"
+	desc = "A cozy jacket in security's colors. Show your department pride!"
+	icon_state = "sec_dep_jacket"
+	item_state = "sec_dep_jacket"
+	icon_open = "sec_dep_jacket_open"
+	icon_closed = "sec_dep_jacket"
 
+/obj/item/clothing/suit/cardigan
+	name = "cardigan"
+	desc = "A cozy, warm knit cardigan. Only slightly worse than a blanket."
+	icon_state = "cardigan"
+	item_state = "cardigan"
 

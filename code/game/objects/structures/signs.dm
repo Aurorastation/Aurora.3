@@ -553,3 +553,35 @@
 	P.desc = desc
 	qdel(src)
 
+
+/obj/structure/sign/flag/attack_hand(mob/user as mob)
+
+
+	if(alert("Do you want to rip \the [src] from the wall?","You think...","Yes","No") == "Yes")
+
+		if(!do_after(user, 2 SECONDS, act_target = src))
+			return 0
+
+
+		visible_message("<span class='warning'>\The [user] rips \the [src] in a single, decisive motion!</span>" )
+		playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, 1)
+		icon_state = "poster_ripped"
+		name = "ripped poster"
+		desc = "You can't make out anything from the flag's original print. It's ruined."
+		add_fingerprint(user)
+
+/obj/structure/sign/flag/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	..()
+
+	if(istype(W, /obj/item/weapon/flame/lighter))
+
+		visible_message("<span class='warning'>\The [user] starts to burn \the [src] down!</span>")
+
+		if(!do_after(user, 2 SECONDS, act_target = src))
+			return 0
+		visible_message("<span class='warning'>\The [user] burns \the [src] down!</span>")
+		playsound(src.loc, 'sound/items/zippo_on.ogg', 100, 1)
+		new /obj/effect/decal/cleanable/ash(src.loc)
+
+		qdel(src)
+

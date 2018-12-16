@@ -39,13 +39,15 @@ proc/admin_attacker_log_many_victims(var/mob/attacker, var/list/mob/victims, var
 	for(var/mob/victim in victims)
 		admin_attack_log(attacker, victim, attacker_message, victim_message, admin_message)
 
-proc/admin_inject_log(mob/attacker, mob/victim, obj/item/weapon, reagents, amount_transferred, violent=0)
+proc/admin_inject_log(mob/attacker, mob/victim, obj/item/weapon, reagents, temperature, amount_transferred, violent=0)
 	if(violent)
 		violent = "violently "
 	else
 		violent = ""
+
+	var/temperature_text = "([temperature - (T0C + 20)]C)"
 	admin_attack_log(attacker,
 	                 victim,
-	                 "used \the [weapon] to [violent]inject - [reagents] - [amount_transferred]u transferred",
-	                 "was [violent]injected with \the [weapon] - [reagents] - [amount_transferred]u transferred",
-	                 "used \the [weapon] to [violent]inject [reagents] ([amount_transferred]u transferred) into")
+	                 "used \the [weapon] to [violent]inject - [reagents] [temperature_text] - [amount_transferred]u transferred",
+	                 "was [violent]injected with \the [weapon] - [reagents] [temperature_text] - [amount_transferred]u transferred",
+	                 "used \the [weapon] to [violent]inject [reagents] [temperature_text] ([amount_transferred]u transferred) into")

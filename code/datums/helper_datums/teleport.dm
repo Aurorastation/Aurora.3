@@ -113,9 +113,138 @@
 		var/mob/living/L = teleatom
 		if(L.buckled)
 			C = L.buckled
+
 	if(force_teleport)
 		teleatom.forceMove(destturf)
 		playSpecials(destturf,effectout,soundout)
+		var/atom/impediment
+		var/valid = 0
+
+		if(destturf.density)
+			impediment = destturf
+
+		else
+			for(var/atom/movable/A in destturf)
+				if(A.density && A.anchored)
+					if(A.flags & ON_BORDER)
+						if(prob(10))
+							impediment = A
+							break
+					else
+						impediment = A
+						break
+
+		if(impediment)
+			var/turf/newdest
+			var/boominess = 0
+			for(var/turf/T in range(1, destturf))
+				if(!T.density)
+					for(var/atom/movable/A in T)
+						var/blocked = 0
+						if(A.density && A.opacity && A.anchored)
+							blocked = 1
+							break
+						if(!blocked)
+							newdest = T
+							break
+
+			if(istype(teleatom, /obj))
+				valid = 1
+				var/obj/O = teleatom
+				if(newdest)
+					O.ex_act(3)
+
+				boominess += max(0, O.w_class - 1)
+				if(O.density)
+					boominess += 5
+				if(O.opacity)
+					boominess += 10
+
+			if(istype(teleatom, /mob/living))
+				valid = 1
+				var/mob/living/L = teleatom
+				boominess += L.mob_size/4
+				if(!L.incorporeal_move)
+					if(istype(L, /mob/living/carbon/human))
+						var/mob/living/carbon/human/H = L
+						if(newdest)
+							var/list/organs_to_gib = list()
+							for(var/obj/item/organ/external/ext in H.organs)
+								if(!ext.vital) //ensures someone doesn't instantly die, allowing them to slowly die instead
+									organs_to_gib.Add(ext)
+
+							if(organs_to_gib.len)
+								var/obj/item/organ/external/E = pick(organs_to_gib)
+								to_chat(H, "<span class='danger'>You partially phase into \the [impediment], causing your [E.name] to violently dematerialize!</span>")
+								E.droplimb(0,DROPLIMB_BLUNT)
+
+					else
+						if(newdest)
+							to_chat(L, "<span class='danger'>You partially phase into \the [impediment], causing a chunk of you to violently dematerialize!</span>")
+							L.adjustBruteLoss(40)
+
+					if(!newdest && L.mind)
+						var/mob/living/simple_animal/shade/bluespace/BS = new /mob/living/simple_animal/shade/bluespace(destturf)
+						to_chat(L, "<span class='danger'>You feel your spirit violently rip from your body in a flurry of violent extradimensional disarray!</span>")
+						L.mind.transfer_to(BS)
+						to_chat(BS, "<b>You are now a bluespace echo - consciousness imprinted upon wavelengths of bluespace energy. You currently retain no memories of your previous life, but do express a strong desire to return to corporeality. You will die soon, fading away forever. Good luck!</b>")
+						BS.original_body = L
+
+						var/list/turfs_to_teleport = list()
+						for(var/turf/T in orange(20, get_turf(BS)))
+							turfs_to_teleport += T
+						do_teleport(BS, pick(turfs_to_teleport))
+
+						for(var/mob/living/M in L)
+							if(M.mind)
+								var/mob/living/simple_animal/shade/bluespace/more_BS = new /mob/living/simple_animal/shade/bluespace(get_turf(M))
+								to_chat(M, "<span class='danger'>You feel your spirit violently rip from your body in a flurry of violent extradimensional disarray!</span>")
+								M.mind.transfer_to(more_BS)
+								to_chat(more_BS, "<b>You are now a bluespace echo - consciousness imprinted upon wavelengths of bluespace energy. You currently retain no memories of your previous life, but do express a strong desire to return to corporeality. You will die soon, fading away forever. Good luck!</b>")
+								more_BS.original_body = M
+
+								for(var/turf/T in orange(20, get_turf(BS)))
+									turfs_to_teleport += T
+								do_teleport(more_BS, pick(turfs_to_teleport))
+
+				else
+					newdest = destturf
+					valid = 0
+
+			if(valid && newdest)
+				destturf.visible_message("<span class ='danger'>There is a sizable emission of energy as \the [teleatom] phases into \the [impediment]!</span>")
+				explosion(destturf, ((boominess > 10) ? 1 : 0), ((boominess > 5) ? (boominess/10) : 0), boominess/5, boominess/2)
+				teleatom.forceMove(newdest)
+
+			else if(!newdest)
+				var/list/turfs_to_teleport = list()
+				var/turf/target_turf
+
+				for(var/turf/T in orange(10, get_turf(teleatom)))
+					turfs_to_teleport += T
+				target_turf = pick(turfs_to_teleport)
+
+				if(target_turf)
+					do_teleport(teleatom, target_turf)
+				else
+					do_teleport(teleatom, get_turf(teleatom))
+
+		else if(istype(teleatom, /mob/living/simple_animal/shade/bluespace))
+			var/mob/living/simple_animal/shade/bluespace/BS = teleatom
+			for(var/mob/living/L in destturf)
+				if(!L.mind && !isvaurca(L))
+
+					if(BS.message_countdown >= 200)
+						to_chat(BS, "<span class='notice'><b>You feel relief wash over you as your harried spirit fills into \the [L] like water into a vase.</b></span>")
+						BS.mind.transfer_to(L)
+						to_chat(L, "<b>You have been restored to a corporeal form. You retain no memories of your time as a bluespace echo, but regardless of your current form the memories of your time before being a bluespace echo are returned.</b>")
+						qdel(BS)
+
+					else
+						to_chat(BS, "<span class='warning'>You lack the strength of echoes necessary to reattain corporeality in \the [L]!</span>")
+
+					break
+
 	else
 		if(teleatom.Move(destturf))
 			playSpecials(destturf,effectout,soundout)
@@ -164,6 +293,9 @@
 /datum/teleport/instant/science/teleportChecks()
 	if(istype(teleatom, /obj/item/weapon/disk/nuclear)) // Don't let nuke disks get teleported --NeoFite
 		teleatom.visible_message("<span class='danger'>\The [teleatom] bounces off of the portal!</span>")
+		return 0
+
+	if(isobserver(teleatom)) // do not teleport ghosts
 		return 0
 
 	if(!isemptylist(teleatom.search_contents_for(/obj/item/weapon/disk/nuclear)))
