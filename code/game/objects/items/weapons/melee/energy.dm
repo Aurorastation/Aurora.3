@@ -259,8 +259,6 @@
 	desc = "Arrrr matey."
 	icon_state = "cutlass0"
 
-	active_force = 20
-	force = 10
 	base_reflectchance = 60
 	base_block_chance = 60
 
@@ -274,6 +272,8 @@
 	icon_state = "edagger0"
 	base_reflectchance = 10
 	base_block_chance = 10
+	active_force = 20
+	force = 10
 	origin_tech = list(TECH_MAGNET = 3)
 
 /obj/item/weapon/melee/energy/sword/knife/activate(mob/living/user)
