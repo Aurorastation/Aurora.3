@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/energy/blaster
 	name = "blaster pistol"
-	desc = "A tiny energy pistol converted to fire off energy bolts rather than the low-powered lasers it probably would produce. Probably meant for self-defense. It’s covered in the colors of the Tau Ceti Foreign Legion."
+	desc = "A tiny energy pistol converted to fire off energy bolts rather than the low-powered lasers it probably would produce. It’s covered in the colors of the Tau Ceti Foreign Legion."
 	icon_state = "blaster_pistol"
 	item_state = "blaster_pistol"
 	fire_sound = 'sound/weapons/Laser.ogg'
