@@ -29,8 +29,8 @@
 	wreckage = /obj/effect/decal/mecha_wreckage/gygax/dark
 	step_energy_drain = 5
 
-/obj/mecha/combat/gygax/dark/New()
-	..()
+/obj/mecha/combat/gygax/dark/Initialize()
+	.= ..()
 	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/scattershot
 	ME.attach(src)
 	ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang/clusterbang

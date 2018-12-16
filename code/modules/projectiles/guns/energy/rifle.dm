@@ -9,7 +9,7 @@
 	force = 10
 	max_shots = 20
 	fire_delay = 6
-	accuracy = -2
+	accuracy = -1
 	can_turret = 1
 	secondary_projectile_type = /obj/item/projectile/beam
 	secondary_fire_sound = 'sound/weapons/Laser.ogg'
@@ -18,7 +18,7 @@
 	turret_is_lethal = 0
 
 	fire_delay_wielded = 1
-	accuracy_wielded = 0
+	accuracy_wielded = 2
 	sel_mode = 1
 
 	projectile_type = /obj/item/projectile/beam/stun
@@ -85,6 +85,7 @@
 	turret_sprite_set = "cannon"
 	turret_is_lethal = 1
 
+	accuracy_wielded = 2
 	fire_delay_wielded = 20
 
 /obj/item/weapon/gun/energy/rifle/laser/xray

@@ -64,10 +64,12 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	src.gender = FEMALE
 
 /mob/living/carbon/human/type_a/Initialize(mapload)
+	h_style = "Classic Antennae"
 	. = ..(mapload, "Vaurca Worker")
 	src.gender = NEUTER
 
 /mob/living/carbon/human/type_b/Initialize(mapload)
+	h_style = "Classic Antennae"
 	. = ..(mapload, "Vaurca Warrior")
 	src.gender = NEUTER
 

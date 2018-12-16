@@ -189,15 +189,38 @@ var/list/world_api_rate_limit = list()
 
 
 /world/Reboot(var/reason)
-	world.TgsReboot()
+	var/hard_reset = FALSE
 
+	if (world.TgsAvailable())
+		switch (config.rounds_until_hard_restart)
+			if (-1)
+				hard_reset = FALSE
+			if (0)
+				hard_reset = TRUE
+			else
+				if (SSpersist_config.rounds_since_hard_restart >= config.rounds_until_hard_restart)
+					hard_reset = TRUE
+					SSpersist_config.rounds_since_hard_restart = 0
+				else
+					hard_reset = FALSE
+					SSpersist_config.rounds_since_hard_restart++
+
+	SSpersist_config.save_to_file("data/persistent_config.json")
 	Master.Shutdown()
-	shutdown_logging()
 
 	if(config.server)	//if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
 		for(var/client/C in clients)
 			C << link("byond://[config.server]")
 
+	world.TgsReboot()
+
+	if (hard_reset)
+		log_misc("World hard rebooted at [time_stamp()].")
+		shutdown_logging()
+		world.TgsEndProcess()
+
+	log_misc("World soft rebooted at [time_stamp()].")
+	shutdown_logging()
 	..(reason)
 
 /world/Error(var/exception/e)
@@ -245,23 +268,6 @@ var/list/world_api_rate_limit = list()
 	desc = jointext(split, "\n")
 
 	time_stamped = 1
-
-/hook/startup/proc/loadMode()
-	world.load_mode()
-	return 1
-
-/world/proc/load_mode()
-	var/list/Lines = file2list("data/mode.txt")
-	if(Lines.len)
-		if(Lines[1])
-			master_mode = Lines[1]
-			log_misc("Saved mode is '[master_mode]'")
-
-/world/proc/save_mode(var/the_mode)
-	var/F = file("data/mode.txt")
-	fdel(F)
-	F << the_mode
-
 
 /hook/startup/proc/initialize_greeting()
 	world.initialize_greeting()

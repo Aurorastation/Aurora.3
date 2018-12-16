@@ -22,6 +22,8 @@
 	glass_name = "glass of tomato juice"
 	glass_desc = "Are you sure this is tomato juice?"
 
+	specific_heat = 3.617
+
 /datum/reagent/blood/initialize_data(var/newdata)
 	..()
 	if(data && data["blood_colour"])
@@ -128,6 +130,7 @@
 	reagent_state = LIQUID
 	color = "#C81040"
 	taste_description = "slime"
+	fallback_specific_heat = 1.2
 
 /datum/reagent/vaccine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(data)
@@ -151,6 +154,7 @@
 	reagent_state = LIQUID
 	color = "#0050F0"
 	taste_description = "slime"
+	fallback_specific_heat = 1.5
 
 /datum/reagent/antibodies/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(src.data)
@@ -174,6 +178,8 @@
 	glass_desc = "The father of all refreshments."
 
 	unaffected_species = IS_MACHINE
+
+	specific_heat = 1.541
 
 /datum/reagent/water/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(!istype(M))
@@ -222,6 +228,7 @@
 				cube.Expand()
 
 /datum/reagent/water/touch_mob(var/mob/M, var/amount)
+	. = ..()
 	if(istype(M) && isliving(M))
 		var/mob/living/L = M
 		var/needed = L.fire_stacks * 10
@@ -246,6 +253,17 @@
 		if(dose == removed)
 			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the water touches it!</span>", "<span class='danger'>Your flesh burns in the water!</span>")
 
+
+/datum/reagent/water/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(istype(M, /mob/living/carbon/slime))
+		var/mob/living/carbon/slime/S = M
+		S.adjustToxLoss(12 * removed) // A slime having water forced down its throat would cause much more damage then being splashed on it
+		if (!S.client && S.Target)
+		
+			S.Target = null
+			++S.Discipline
+
+
 /datum/reagent/fuel
 	name = "Welding fuel"
 	id = "fuel"
@@ -259,6 +277,8 @@
 	glass_name = "glass of welder fuel"
 	glass_desc = "Unless you are an industrial tool, this is probably not safe for consumption."
 
+	specific_heat = 0.605
+
 /datum/reagent/fuel/touch_turf(var/turf/T)
 	new /obj/effect/decal/cleanable/liquid_fuel(T, volume)
 	remove_self(volume)
@@ -268,6 +288,7 @@
 	M.adjustToxLoss(2 * removed)
 
 /datum/reagent/fuel/touch_mob(var/mob/living/L, var/amount)
+	. = ..()
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!
 
@@ -289,6 +310,7 @@
 	return
 
 /datum/reagent/fuel/touch_mob(var/mob/living/L, var/amount)
+	. = ..()
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!
 		new /obj/effect/decal/cleanable/liquid_fuel/napalm(get_turf(L), amount/3)
