@@ -421,3 +421,17 @@
 	caliber = "a762"
 	ammo_type = /obj/item/ammo_casing/a762
 	max_ammo = 1000
+
+/obj/item/ammo_magazine/gauss
+	name = "tungsten slug box"
+	icon_state = "slugbox"
+	mag_type = MAGAZINE
+	caliber = "gauss"
+	ammo_type = /obj/item/ammo_casing/gauss
+	max_ammo = 7
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/gauss/emp
+	name = "ion slug box"
+	icon_state = "empslugbox"
+	ammo_type = /obj/item/ammo_casing/gauss/emp

@@ -502,6 +502,16 @@
 	species_restricted = list("Unathi")
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 
+//tau ceti foreign legion armor
+
+/obj/item/clothing/suit/storage/vest/legion
+	name = "foreign legion armored suit"
+	desc = "A set of cheap composite armor with elbow guards, shoulder and knee pads.."
+	icon_state = "legion_armor"
+	item_state = "legion_armor"
+	body_parts_covered = UPPER_TORSO | LOWER_TORSO | LEGS | ARMS
+	armor = list(melee = 50, bullet = 30, laser = 30, energy = 15, bomb = 40, bio = 0, rad = 0)
+
 //All of the armor below is mostly unused
 
 /obj/item/clothing/suit/armor/centcomm

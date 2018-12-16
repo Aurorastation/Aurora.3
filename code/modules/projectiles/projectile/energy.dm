@@ -210,23 +210,17 @@
 
 /obj/item/projectile/energy/blaster
 	name = "blaster bolt"
-	icon_state = "laser"
+	icon_state = "bolt"
+	damage = 30
 	check_armour = "laser"
-	damage = 15
 	damage_type = BURN
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
-	embed = 0
-	incinerate = 2
 
-/*/obj/item/projectile/energy/flamer
-	name = "promethium"
-	icon_state = "fire"
-	check_armour = "energy"
-	kill_count = 25
-	damage = 10
-	damage_type = BURN
-	pass_flags = PASSTABLE
-	step_delay = 2
-	kill_count = 75
-	embed = 0
-	incinerate = 10*/
+/obj/item/projectile/energy/blaster/heavy
+	icon_state = "heavybolt"
+	damage = 35
+
+/obj/item/projectile/energy/blaster/incediary
+	icon_state = "laser"
+	damage = 15
+	incinerate = 2

@@ -71,3 +71,22 @@
 		/obj/item/rig_module/device/drill,
 		/obj/item/rig_module/actuators/combat
 		)
+
+/obj/item/weapon/rig/retro
+	name = "retrofited military hardsuit control module"
+	desc = "An incredibly heavy hardsuit with a striking blue color scheme. Seems to be an old repurposed construction exoskeleton redesigned for combat. Its colors and insignias match those of the Tau Ceti Foreign Legion."
+	icon_state = "legion_rig"
+	suit_type = "retrofited military hardsuit"
+	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 40, bio = 100, rad = 30)
+	slowdown = 2
+	offline_slowdown = 4
+	offline_vision_restriction = TINT_HEAVY
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs)
+
+/obj/item/weapon/rig/retro/equipped
+	initial_modules = list(
+		/obj/item/rig_module/actuators,
+		/obj/item/rig_module/device/drill,
+		/obj/item/rig_module/cooling_unit,
+		/obj/item/rig_module/fabricator/energy_net
+		)

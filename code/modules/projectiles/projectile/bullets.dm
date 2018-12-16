@@ -316,4 +316,7 @@
 	penetrating = 0
 	damage = 10
 
-
+/obj/item/projectile/bullet/gauss
+	name = "slug"
+	icon_state = "gaussslug"
+	damage = 30

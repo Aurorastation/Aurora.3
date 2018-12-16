@@ -261,3 +261,16 @@
 	caliber = "vintage"
 	icon_state = "lcasing"
 	spent_icon = "lcasing-spent"
+
+/obj/item/ammo_casing/gauss
+	name = "tungsten slug"
+	desc = "A heavy tungsten gauss slug. Doesn’t match any modern gauge."
+	caliber = "gaus"
+	icon_state = "tungstenslug"
+	projectile_type = /obj/item/projectile/bullet/gauss
+
+/obj/item/ammo_casing/gauss/emp
+	name = "ion slug"
+	desc = "A heavy ion gauss slug. Doesn’t match any modern gauge."
+	icon_state = "empslug"
+	projectile_type = /obj/item/projectile/ion/gauss
