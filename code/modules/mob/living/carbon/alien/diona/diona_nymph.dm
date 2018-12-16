@@ -234,7 +234,8 @@
 /mob/living/carbon/alien/diona/proc/check_status_as_organ()
 	if (istype(gestalt, /mob/living/carbon/human) && !QDELETED(gestalt))
 		var/mob/living/carbon/human/H = gestalt
-
+		if(!H.bad_internal_organs)
+			return
 		if (health < maxHealth)
 			if (!(src in H.bad_internal_organs))
 				H.bad_internal_organs.Add(src)
