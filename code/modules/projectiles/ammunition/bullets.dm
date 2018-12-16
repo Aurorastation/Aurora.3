@@ -264,13 +264,13 @@
 
 /obj/item/ammo_casing/gauss
 	name = "tungsten slug"
-	desc = "A heavy tungsten gauss slug. Doesn’t match any modern gauge."
+	desc = "A heavy tungsten gauss slug."
 	caliber = "gaus"
 	icon_state = "tungstenslug"
 	projectile_type = /obj/item/projectile/bullet/gauss
 
 /obj/item/ammo_casing/gauss/emp
 	name = "ion slug"
-	desc = "A heavy ion gauss slug. Doesn’t match any modern gauge."
+	desc = "A heavy ion gauss slug."
 	icon_state = "empslug"
 	projectile_type = /obj/item/projectile/ion/gauss
