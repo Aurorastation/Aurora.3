@@ -45,7 +45,8 @@
 		while(news_query.NextRow())
 			CHECK_TICK
 			try
-				SubmitArticle(news_query.item[1], news_query.item[2], channel, null, text2num(news_query.item[3]), news_query.item[4], news_query.item[5])
+				var/body = pencode2html(sanitize(news_query.item[1], max_length = MAX_BOOK_MESSAGE_LEN, encode = 0, trim = 0, extra = 0))
+				SubmitArticle(body, news_query.item[2], channel, null, text2num(news_query.item[3]), news_query.item[4], news_query.item[5])
 			catch(var/exception/en)
 				log_debug("SSnews: Error when loading news: [en]")
 
