@@ -3,20 +3,19 @@
 
 	//drop && roll
 	if(on_fire && !buckled)
-		fire_stacks -= 1.2
+		ExtinguishMob(1.2)
 		Weaken(3)
 		spin(32,2)
 		visible_message(
 			"<span class='danger'>[src] rolls on the floor, trying to put themselves out!</span>",
 			"<span class='notice'>You stop, drop, and roll!</span>"
 			)
-		sleep(30)
+		sleep(3 SECONDS)
 		if(fire_stacks <= 0)
 			visible_message(
 				"<span class='danger'>[src] has successfully extinguished themselves!</span>",
 				"<span class='notice'>You extinguish yourself.</span>"
 				)
-			ExtinguishMob()
 		return
 
 	..()
@@ -199,7 +198,7 @@
 	return ..()
 
 /mob/living/carbon/escape_buckle()
-	
+
 	if(!buckled) return
 
 	if(!restrained())
@@ -217,4 +216,3 @@
 			visible_message("<span class='danger'>[usr] manages to unbuckle themself!</span>",
 							"<span class='notice'>You successfully unbuckle yourself.</span>")
 			buckled.user_unbuckle_mob(src)
-

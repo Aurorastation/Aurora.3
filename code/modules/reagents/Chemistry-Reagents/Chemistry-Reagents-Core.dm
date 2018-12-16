@@ -231,14 +231,10 @@
 	. = ..()
 	if(istype(M) && isliving(M))
 		var/mob/living/L = M
-		var/needed = L.fire_stacks * 10
-		if(amount > needed)
-			L.fire_stacks = 0
-			L.ExtinguishMob()
-			remove_self(needed)
+		if(M.on_fire)
+			M.ExtinguishMob(amount)
 		else
-			L.adjust_fire_stacks(-(amount / 10))
-			remove_self(amount)
+			M.adjust_fire_stacks(-amount*0.5)
 
 	if(istype(M) && !istype(M, /mob/abstract))
 		M.color = initial(M.color)

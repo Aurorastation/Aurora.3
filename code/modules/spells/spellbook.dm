@@ -52,10 +52,10 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 			var/active_hand = H.hand
 			user <<"<span class='warning'>You feel unimaginable agony as your eyes pour over millenia of forbidden knowledge!</span>"
 			user.show_message("<b>[user]</b> screams in horror!",2)
-			H.adjust_fire_stacks(2)
-			H.IgniteMob()
-			H.updatehealth()
 			H.ChangeToHusk()
+			H.fire_stacks = max(0,H.fire_stacks)
+			H.IgniteMob(2)
+			H.updatehealth()
 			user.drop_item()
 			playsound(user, 'sound/hallucinations/i_see_you2.ogg', 100, 1)
 			if(active_hand)
@@ -112,7 +112,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 		dat += "<center><A href='byond://?src=\ref[src];reset=1'>Re-memorize your spellbook.</a></center>"
 		dat += "<center><A href='byond://?src=\ref[src];lock=1'>[spellbook.book_flags & LOCKED ? "Unlock" : "Lock"] the spellbook.</a></center>"
 	user << browse(dat,"window=spellbook")
-	
+
 /obj/item/weapon/spellbook/Topic(href,href_list)
 	..()
 
