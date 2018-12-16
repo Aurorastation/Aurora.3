@@ -165,3 +165,16 @@
 	fall_mod = 0
 	slowdown = -1
 
+
+/datum/species/monkey/babyproy
+	name = "Praydau"
+	short_name = "pray"
+	name_plural = "Praydaui"
+	fall_mod = 0.25
+
+	icobase = 'icons/mob/human_races/monkeys/r_babyproy.dmi'
+	deform = 'icons/mob/human_races/monkeys/r_babyproy.dmi'
+
+	greater_form = "Procyn"
+	default_language = "Procyianoi"
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw

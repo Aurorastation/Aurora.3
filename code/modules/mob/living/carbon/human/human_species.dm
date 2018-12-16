@@ -50,6 +50,10 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/monkey/Initialize(mapload)
 	. = ..(mapload, "Monkey")
 
+
+/mob/living/carbon/human/babyproy/Initialize(mapload)
+	. = ..(mapload, "Praydau")
+
 /mob/living/carbon/human/farwa/Initialize(mapload)
 	. = ..(mapload, "Farwa")
 
