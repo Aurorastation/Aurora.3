@@ -210,7 +210,7 @@
 
 /obj/item/weapon/gun/projectile/gauss
 	name = "gauss thumper"
-	desc = "An indescribably old gauss weapon which sees sparing use in modern times, usually found in the hands of undersea mercenaries or raiders. It's covered in the colors of the Tau Ceti Foreign Legion."
+	desc = "An outdated gauss weapon which sees sparing use in modern times. It's covered in the colors of the Tau Ceti Foreign Legion."
 	magazine_type = /obj/item/ammo_magazine/gauss
 	allowed_magazines = list(/obj/item/ammo_magazine/gauss)
 	icon_state = "gauss_thumper"

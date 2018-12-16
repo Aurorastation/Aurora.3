@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/energy/blaster
 	name = "blaster pistol"
-	desc = "A tiny energy pistol converted to fire off energy bolts rather than the low-powered lasers it probably would produce. It's covered in the colors of the Tau Ceti Foreign Legion."
+	desc = "A tiny energy pistol converted to fire off energy bolts rather than lasers beams. It's covered in the colors of the Tau Ceti Foreign Legion."
 	icon_state = "blaster_pistol"
 	item_state = "blaster_pistol"
 	fire_sound = 'sound/weapons/Laser.ogg'
@@ -22,7 +22,7 @@
 
 /obj/item/weapon/gun/energy/blaster/carbine
 	name = "blaster carbine"
-	desc = "A short-barreled blaster carbine meant for easy handling and comfort when dispatching of problematic smugglers. It's covered in the colors of the Tau Ceti Foreign Legion."
+	desc = "A short-barreled blaster carbine meant for easy handling and comfort when in combat. It's covered in the colors of the Tau Ceti Foreign Legion."
 	icon_state = "blaster_carbine"
 	item_state = "blaster_carbine"
 	max_shots = 12
@@ -31,7 +31,7 @@
 
 /obj/item/weapon/gun/energy/blaster/rifle
 	name = "bolt slinger"
-	desc = "A long blaster rifle which seems to work by accelerating particles to an absurd speed and flinging them out in destructive bolts. It's covered in the colors of the Tau Ceti Foreign Legion."
+	desc = "A blaster rifle which seems to work by accelerating particles and flinging them out in destructive bolts. It's covered in the colors of the Tau Ceti Foreign Legion."
 	icon_state = "blaster_rifle"
 	item_state = "blaster_rifle"
 	max_shots = 20
