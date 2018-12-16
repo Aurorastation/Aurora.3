@@ -210,14 +210,14 @@
 
 /obj/item/projectile/energy/blaster
 	name = "blaster bolt"
-	icon_state = "bolt"
+	icon_state = "heavybolt"
 	damage = 30
 	check_armour = "laser"
 	damage_type = BURN
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+	muzzle_type = /obj/effect/projectile/muzzle/bolt
 
 /obj/item/projectile/energy/blaster/heavy
-	icon_state = "heavybolt"
 	damage = 35
 
 /obj/item/projectile/energy/blaster/incediary

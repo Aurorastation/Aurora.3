@@ -64,3 +64,10 @@
 /obj/effect/projectile/muzzle/tachyon
 	icon_state = "muzzle_pulse"
 	light_color = LIGHT_COLOR_CYAN
+
+/obj/effect/projectile/muzzle/bolt
+	icon_state = "muzzle_bolt"
+	light_color = LIGHT_COLOR_FIRE
+
+/obj/effect/projectile/muzzle/gauss
+	icon_state = "gaus_bolt"

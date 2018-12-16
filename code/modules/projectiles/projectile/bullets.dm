@@ -318,5 +318,6 @@
 
 /obj/item/projectile/bullet/gauss
 	name = "slug"
-	icon_state = "gaussslug"
+	icon_state = "heavygauss"
 	damage = 30
+	muzzle_type = /obj/effect/projectile/muzzle/gauss
