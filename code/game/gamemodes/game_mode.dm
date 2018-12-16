@@ -10,6 +10,7 @@ var/global/list/additional_antag_types = list()
 	var/probability = 0
 
 	var/required_players = 0                 // Minimum players for round to start if voted in.
+	var/max_players = 0			 			// Maximum players for round to start for secret voting. 0 means "doesn't matter"
 	var/required_enemies = 0                 // Minimum antagonists for round to start.
 	var/newscaster_announcements = null
 	var/end_on_antag_death = 0               // Round will end when all antagonists are dead.
@@ -146,35 +147,42 @@ var/global/list/additional_antag_types = list()
 ///can_start()
 ///Checks to see if the game can be setup and ran with the current number of players or whatnot.
 /datum/game_mode/proc/can_start(var/do_not_spawn)
+
+	var/returning = GAME_FAILURE_NONE
+
 	var/playerC = 0
 	for(var/mob/abstract/new_player/player in player_list)
-		if((player.client)&&(player.ready))
+		if(player.client && player.ready)
 			playerC++
 
-	if(playerC < required_players)
-		return 0
+	if(required_players && playerC < required_players)
+		returning |= GAME_FAILURE_NO_PLAYERS
 
-	if(!(antag_templates && antag_templates.len))
-		return 1
+	if(max_players && playerC > max_players)
+		returning |= GAME_FAILURE_TOO_MANY_PLAYERS
 
-	var/enemy_count = 0
-	if(antag_tags && antag_tags.len)
-		for(var/antag_tag in antag_tags)
-			var/datum/antagonist/antag = all_antag_types[antag_tag]
-			if(!antag)
-				continue
-			var/list/potential = list()
-			if(antag.flags & ANTAG_OVERRIDE_JOB)
-				potential = antag.pending_antagonists
-			else
-				potential = antag.candidates
-			if(islist(potential))
-				if(require_all_templates && potential.len < antag.initial_spawn_req)
-					return 0
-				enemy_count += potential.len
-				if(enemy_count >= required_enemies)
-					return 1
-	return 0
+	var/total_enemy_count = 0
+	if(antag_templates && antag_templates.len)
+		if(antag_tags && antag_tags.len)
+			for(var/antag_tag in antag_tags)
+				var/datum/antagonist/antag = all_antag_types[antag_tag]
+				if(!antag)
+					continue
+				var/list/potential = list() //List of potential players to spawn as antagonists
+				if(antag.flags & ANTAG_OVERRIDE_JOB)
+					potential = antag.pending_antagonists
+				else
+					potential = antag.candidates
+				if(islist(potential))
+					if(potential.len)
+						total_enemy_count += potential.len
+						if(antag.initial_spawn_req && require_all_templates && potential.len < antag.initial_spawn_req)
+							returning |= GAME_FAILURE_NO_ANTAGS
+
+	if(required_enemies && total_enemy_count < required_enemies)
+		returning |= GAME_FAILURE_NO_ANTAGS
+
+	return returning
 
 /datum/game_mode/proc/refresh_event_modifiers()
 	if(event_delay_mod_moderate || event_delay_mod_major)

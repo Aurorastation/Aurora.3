@@ -175,6 +175,7 @@ BLIND     // can't see anything
 	desc = "A simple pair of plain goggles."
 	icon_state = "plaingoggles"
 	item_flags = AIRTIGHT
+	unacidable = 1
 
 
 /obj/item/clothing/glasses/eyepatch

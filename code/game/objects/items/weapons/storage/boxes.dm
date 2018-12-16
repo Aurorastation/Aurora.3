@@ -389,7 +389,7 @@
 	name = "box of assorted firing pins"
 	desc = "A box of varied assortment of firing pins. Appears to have R&D stickers on all sides of the box. Also seems to have a smiley face sticker on the top of it."
 
-/obj/item/weapon/storage/box/firingpins/fill()
+/obj/item/weapon/storage/box/firingpinsRD/fill()
 	..()
 	new /obj/item/device/firing_pin(src)
 	new /obj/item/device/firing_pin(src)
@@ -736,6 +736,7 @@
 /obj/item/weapon/storage/box/pillbottles
 	name = "box of pill bottles"
 	desc = "It has pictures of pill bottles on its front."
+	icon_state = "pillbox"
 
 /obj/item/weapon/storage/box/pillbottles/fill()
 	..()
@@ -800,8 +801,8 @@
 	return
 
 /obj/item/weapon/storage/box/autoinjectors
-	name = "box of injectors"
-	desc = "Contains autoinjectors."
+	name = "box of empty injectors"
+	desc = "Contains empty autoinjectors."
 	icon_state = "syringe"
 
 /obj/item/weapon/storage/box/autoinjectors/fill()
@@ -1037,6 +1038,15 @@
 
 	for(var/i in 1 to 6)
 		new /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large(src)
+
+/obj/item/weapon/storage/box/inhalers_auto
+	name = "autoinhaler kit"
+	desc = "A box filled with a combat inhaler and several large empty inhaler cartridges."
+	icon_state = "box_inhalers"
+
+/obj/item/weapon/storage/box/inhalers_auto/fill()
+	for(var/i in 1 to 8)
+		new /obj/item/weapon/reagent_containers/inhaler(src)
 
 /obj/item/weapon/storage/box/clams
 	name = "box of Ras'val clam"
