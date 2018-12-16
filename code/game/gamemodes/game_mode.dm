@@ -146,7 +146,7 @@ var/global/list/additional_antag_types = list()
 
 ///can_start()
 ///Checks to see if the game can be setup and ran with the current number of players or whatnot.
-/datum/game_mode/proc/can_start(var/debug)
+/datum/game_mode/proc/can_start()
 
 	log_debug("GAMEMODE: Checking gamemode possibility selection for: [name]...")
 
