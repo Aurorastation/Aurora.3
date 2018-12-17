@@ -7,6 +7,9 @@ var/datum/antagonist/traitor/traitors
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 
+	initial_spawn_req = 1
+	initial_spawn_target = 3
+
 	faction = "syndicate"
 
 /datum/antagonist/traitor/New()
