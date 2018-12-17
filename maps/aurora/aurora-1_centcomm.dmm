@@ -22773,16 +22773,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
-"bmj" = (
-/obj/machinery/door/window/northright{
-	dir = 2;
-	name = "Changing Room"
-	},
-/turf/unsimulated/floor{
-	icon_state = "whiteblue_ex";
-	dir = 10
-	},
-/area/centcom/extraction_shuttle)
 "bqW" = (
 /obj/structure/shuttle/engine/propulsion{
 	dir = 4;
@@ -22803,7 +22793,7 @@
 /area/centcom/extraction_shuttle)
 "bwc" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Arrivals Processing";
+	name = "Processing";
 	opacity = 1;
 	req_access = list(101)
 	},
@@ -22850,9 +22840,7 @@
 	icon_state = "0-4";
 	d2 = 4
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/floor,
 /area/centcom/extraction_shuttle)
 "cfX" = (
 /obj/machinery/computer/operating,
@@ -22918,7 +22906,7 @@
 /area/centcom/extraction_shuttle)
 "doV" = (
 /obj/machinery/door/airlock/glass{
-	name = "Arrivals Bar"
+	name = "Ship's Bar"
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -22958,9 +22946,6 @@
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
-/area/centcom/extraction_shuttle)
-"dAc" = (
-/turf/unsimulated/floor,
 /area/centcom/extraction_shuttle)
 "dAV" = (
 /obj/structure/window/reinforced{
@@ -23112,13 +23097,19 @@
 	name = "plating"
 	},
 /area/centcom/extraction_shuttle)
-"fft" = (
-/obj/machinery/light/small{
-	dir = 1
+"eZC" = (
+/obj/machinery/light,
+/obj/structure/closet/secure_closet/hos,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
 	},
+/area/centcom/extraction_shuttle)
+"fft" = (
+/obj/structure/bed,
+/obj/item/weapon/bedsheet/red,
 /turf/unsimulated/floor{
-	icon_state = "whiteblue";
-	dir = 9
+	name = "plating";
+	icon_state = "cult"
 	},
 /area/centcom/extraction_shuttle)
 "fhb" = (
@@ -23141,16 +23132,11 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
-	},
+/turf/simulated/floor,
 /area/centcom/extraction_shuttle)
 "fyW" = (
 /obj/machinery/power/smes/buildable,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/floor,
 /area/centcom/extraction_shuttle)
 "fGT" = (
 /obj/structure/table/wood{
@@ -23317,7 +23303,7 @@
 	opacity = 0
 	},
 /obj/machinery/door/airlock/centcom{
-	name = "NMSS Odin Sub-Deck";
+	name = "Hanger";
 	opacity = 1
 	},
 /turf/unsimulated/floor{
@@ -23388,13 +23374,6 @@
 	dir = 8
 	},
 /area/centcom/extraction_shuttle)
-"hZW" = (
-/obj/structure/closet/secure_closet/personal,
-/turf/unsimulated/floor{
-	icon_state = "whiteblue";
-	dir = 4
-	},
-/area/centcom/extraction_shuttle)
 "ibq" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/simulated/shuttle/floor{
@@ -23409,10 +23388,7 @@
 "itK" = (
 /obj/machinery/shield_gen,
 /obj/machinery/light,
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
-	},
+/turf/simulated/floor,
 /area/centcom/extraction_shuttle)
 "iua" = (
 /obj/machinery/light{
@@ -23470,9 +23446,7 @@
 	icon_state = "0-2";
 	pixel_y = 0
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/floor,
 /area/centcom/extraction_shuttle)
 "jtO" = (
 /obj/structure/sign/double/barsign,
@@ -23581,7 +23555,7 @@
 /area/centcom/extraction_shuttle)
 "kFP" = (
 /obj/machinery/door/airlock/glass{
-	name = "Arrivals Bar"
+	name = "Ship's Intermediate"
 	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
@@ -23591,7 +23565,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/unsimulated/floor,
+/turf/simulated/floor,
 /area/centcom/extraction_shuttle)
 "kOg" = (
 /obj/structure/bed/chair/comfy/brown,
@@ -23707,8 +23681,16 @@
 	name = "plating"
 	},
 /area/shuttle/escape_pod1/centcom)
+"lYU" = (
+/obj/machinery/door/airlock/glass_security{
+	id_tag = "EPRS_CELL";
+	name = "Holding Cell";
+	req_access = list(2)
+	},
+/turf/simulated/shuttle/floor,
+/area/centcom/extraction_shuttle)
 "mtB" = (
-/obj/machinery/light{
+/obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/shuttle/floor,
@@ -23727,10 +23709,7 @@
 /area/centcom/extraction_shuttle)
 "mIn" = (
 /obj/machinery/vending/tool,
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
-	},
+/turf/simulated/floor,
 /area/centcom/extraction_shuttle)
 "mMy" = (
 /obj/machinery/vending/wallmed1{
@@ -23769,7 +23748,7 @@
 /area/centcom/extraction_shuttle)
 "nab" = (
 /obj/machinery/door/airlock/glass_medical{
-	name = "Arrivals Medbay"
+	name = "Ship's Medbay"
 	},
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -23836,9 +23815,7 @@
 "oJy" = (
 /obj/machinery/power/rtg/advanced,
 /obj/structure/cable,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/floor,
 /area/centcom/extraction_shuttle)
 "oNB" = (
 /obj/machinery/door/airlock/centcom{
@@ -23865,14 +23842,15 @@
 /area/centcom/extraction_shuttle)
 "oXP" = (
 /obj/machinery/power/port_gen/pacman/super,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/floor,
 /area/centcom/extraction_shuttle)
 "pnz" = (
-/turf/unsimulated/floor{
-	icon_state = "whiteblue";
+/obj/machinery/light/small{
 	dir = 8
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
 	},
 /area/centcom/extraction_shuttle)
 "ppV" = (
@@ -23883,7 +23861,9 @@
 	},
 /area/centcom/extraction_shuttle)
 "pFi" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	name = "Power Room"
+	},
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -23942,9 +23922,7 @@
 	icon_state = "0-4";
 	d2 = 4
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/floor,
 /area/centcom/extraction_shuttle)
 "qeL" = (
 /turf/unsimulated/floor{
@@ -23983,7 +23961,7 @@
 /area/centcom/extraction_shuttle)
 "qIe" = (
 /obj/machinery/door/airlock/command{
-	name = "Cockpit";
+	name = "Captain's Quarters";
 	req_access = list(19)
 	},
 /turf/simulated/shuttle/floor{
@@ -24025,10 +24003,7 @@
 /area/centcom/extraction_shuttle)
 "qST" = (
 /obj/machinery/vending/assist,
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
-	},
+/turf/simulated/floor,
 /area/centcom/extraction_shuttle)
 "rdc" = (
 /turf/unsimulated/floor{
@@ -24057,7 +24032,9 @@
 	},
 /area/centcom/extraction_shuttle)
 "roY" = (
-/obj/machinery/door/airlock/engineering,
+/obj/machinery/door/airlock/engineering{
+	name = "Auxillary Storage"
+	},
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -24131,14 +24108,6 @@
 	},
 /turf/unsimulated/floor{
 	icon_state = "white"
-	},
-/area/centcom/extraction_shuttle)
-"shR" = (
-/obj/structure/closet/secure_closet/personal,
-/obj/structure/window/reinforced/tinted,
-/turf/unsimulated/floor{
-	icon_state = "whiteblue";
-	dir = 6
 	},
 /area/centcom/extraction_shuttle)
 "siz" = (
@@ -24236,9 +24205,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/floor,
 /area/centcom/extraction_shuttle)
 "tzi" = (
 /mob/living/simple_animal/corgi/fox/Chauncey,
@@ -24308,6 +24275,16 @@
 	},
 /turf/simulated/shuttle/plating,
 /area/centcom/extraction_shuttle)
+"uMy" = (
+/obj/machinery/button/remote/airlock{
+	id = "EPRS_CELL";
+	name = "Cell Bolt Control";
+	pixel_x = 0;
+	pixel_y = 28;
+	specialfunctions = 4
+	},
+/turf/simulated/shuttle/floor,
+/area/centcom/extraction_shuttle)
 "uNZ" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/westleft{
@@ -24325,10 +24302,7 @@
 /area/centcom/extraction_shuttle)
 "uTE" = (
 /obj/machinery/vending/engineering,
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
-	},
+/turf/simulated/floor,
 /area/centcom/extraction_shuttle)
 "uTF" = (
 /turf/unsimulated/floor{
@@ -24435,17 +24409,11 @@
 	pixel_y = 3
 	},
 /obj/structure/table/reinforced/steel,
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
-	},
+/turf/simulated/floor,
 /area/centcom/extraction_shuttle)
 "vww" = (
 /obj/machinery/portable_atmospherics/canister/air,
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
-	},
+/turf/simulated/floor,
 /area/centcom/extraction_shuttle)
 "vzu" = (
 /obj/structure/closet/secure_closet/bar{
@@ -24509,11 +24477,10 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	status = 2
+	icon_state = "tube1";
+	pixel_x = 0
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/floor,
 /area/centcom/extraction_shuttle)
 "wjI" = (
 /turf/unsimulated/floor{
@@ -24531,7 +24498,9 @@
 /turf/unsimulated/floor,
 /area/centcom/extraction_shuttle)
 "wqU" = (
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Engine Maintenance"
+	},
 /turf/unsimulated/floor,
 /area/centcom/extraction_shuttle)
 "wwn" = (
@@ -24542,10 +24511,7 @@
 /area/centcom/extraction_shuttle)
 "wwA" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
-	},
+/turf/simulated/floor,
 /area/centcom/extraction_shuttle)
 "wJl" = (
 /obj/machinery/sleeper{
@@ -24588,6 +24554,9 @@
 	icon_state = "floor4"
 	},
 /area/centcom/extraction_shuttle)
+"xhM" = (
+/turf/simulated/floor,
+/area/centcom/extraction_shuttle)
 "xjR" = (
 /obj/structure/closet/emcloset,
 /turf/simulated/shuttle/floor{
@@ -24627,16 +24596,12 @@
 /area/centcom/extraction_shuttle)
 "xBf" = (
 /obj/machinery/vending/engivend,
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
-	},
+/turf/simulated/floor,
 /area/centcom/extraction_shuttle)
 "xEa" = (
-/obj/structure/closet/secure_closet/personal,
 /turf/unsimulated/floor{
-	icon_state = "whiteblue";
-	dir = 5
+	name = "plating";
+	icon_state = "cult"
 	},
 /area/centcom/extraction_shuttle)
 "xIG" = (
@@ -77949,9 +77914,9 @@ tdC
 tzr
 fft
 pnz
-pnz
-bmj
-wYH
+fft
+xEa
+lYU
 mtB
 wYH
 siz
@@ -78205,16 +78170,16 @@ tdC
 tdC
 tzr
 xEa
-hZW
-hZW
-shR
-wYH
-wYH
+fft
+xEa
+fft
+tzr
+uMy
 wYH
 wYH
 mSk
 tdC
-tdC
+aZv
 aZv
 aZv
 aZv
@@ -82577,7 +82542,7 @@ tzr
 nlu
 tzr
 lOs
-gif
+eZC
 tzr
 nlu
 tzr
@@ -84366,8 +84331,8 @@ ahM
 aZv
 tzr
 vmt
-syd
-syd
+xhM
+xhM
 roY
 syd
 syd
@@ -84384,8 +84349,8 @@ lYb
 rlR
 syd
 roY
-syd
-syd
+xhM
+xhM
 vmt
 tzr
 aZv
@@ -84623,8 +84588,8 @@ ahM
 aZv
 tzr
 fxM
-syd
-syd
+xhM
+xhM
 qiB
 syd
 syd
@@ -84641,8 +84606,8 @@ lYb
 rlR
 syd
 qiB
-syd
-syd
+xhM
+xhM
 itK
 tzr
 aZv
@@ -85137,7 +85102,7 @@ ahM
 lfY
 tzr
 wwA
-syd
+xhM
 vww
 tzr
 usr
@@ -85156,7 +85121,7 @@ syd
 wXU
 tzr
 vww
-syd
+xhM
 wwA
 tzr
 lth
@@ -87194,24 +87159,24 @@ aZv
 rTV
 tzr
 tzr
-dAc
+xhM
 kHq
-dAc
-dAc
-dAc
+xhM
+xhM
+xhM
 kHq
-dAc
+xhM
 tzr
 aZv
 aZv
 tzr
-dAc
+xhM
 kHq
-dAc
-dAc
-dAc
+xhM
+xhM
+xhM
 kHq
-dAc
+xhM
 tzr
 tzr
 tzr
