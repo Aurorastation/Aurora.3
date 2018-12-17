@@ -219,7 +219,7 @@
 
 	num_alternate_languages = 3
 	language = LANGUAGE_SKRELLIAN
-	secondary_langs = list(LANGUAGE_SIIK_TAU)
+	secondary_langs = list(LANGUAGE_SIIK_TAU, LANGUAGE_SOL_COMMON)
 	name_language = LANGUAGE_SKRELLIAN
 	rarity_value = 3
 
