@@ -208,7 +208,7 @@
 	deform = 'icons/mob/human_races/r_def_skrell.dmi'
 	eyes = "skrell_eyes_s"
 	primitive_form = "Neaera"
-	unarmed_types = list(/datum/unarmed_attack/punch)
+	unarmed_types = list(/datum/unarmed_attack/punch, /datum/unarmed_attack/stomp, /datum/unarmed_attack/kick)
 
 	blurb = "An amphibious species, Skrell come from the star system known as Nralakk, coined 'Jargon' by \
 	humanity.<br><br>Skrell are a highly advanced, ancient race who place knowledge as the highest ideal. \
