@@ -75,6 +75,14 @@
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
+/datum/gear/accessory/ribbon
+	display_name = "ribbon"
+	path = /obj/item/clothing/accessory/tie/ribbon
+
+/datum/gear/accessory/ribbon/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
 /datum/gear/accessory/brown_vest
 	display_name = "webbing, engineering"
 	path = /obj/item/clothing/accessory/storage/brown_vest
@@ -144,6 +152,14 @@
 	path = /obj/item/clothing/accessory/dressshirt_r
 
 /datum/gear/accessory/dressshirt_r/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/accessory/blouse
+	display_name = "blouse"
+	path = /obj/item/clothing/accessory/blouse
+
+/datum/gear/accessory/blouse/New()
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 

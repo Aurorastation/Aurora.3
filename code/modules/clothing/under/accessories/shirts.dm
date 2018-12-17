@@ -53,3 +53,9 @@
 	desc = "A simple, cheap t-shirt."
 	icon_state = "tshirt"
 	item_state = "tshirt"
+
+/obj/item/clothing/accessory/blouse
+	name = "blouse"
+	desc = "A loose, short-sleeved dress shirt. Considered by most to be feminine."
+	icon_state = "blouse"
+	item_state = "blouse"

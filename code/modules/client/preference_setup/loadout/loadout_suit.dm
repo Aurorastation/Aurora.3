@@ -319,6 +319,23 @@
 	display_name = "department jacket, security"
 	path = /obj/item/clothing/suit/storage/toggle/sec_dep_jacket
 
+/datum/gear/suit/greatcoat
+	display_name = "greatcoat selection"
+	description = "A selection of formal outer garments for Heads of Staff."
+	path = /obj/item/clothing/suit/storage/toggle/greatcoat
+	allowed_roles = list("Head of Security", "Captain", "Research Director", "Chief Engineer", "Chief Medical Officer", "Head of Personnel") //I trust head whitelistees
+
+/datum/gear/suit/greatcoat/New()
+	..()
+	var/coat = list()
+	coat["greatcoat, captain"] = /obj/item/clothing/suit/storage/toggle/greatcoat
+	coat["greatcoat, chief engineer"] = /obj/item/clothing/suit/storage/toggle/greatcoat/ce
+	coat["greatcoat, head of personnel"] = /obj/item/clothing/suit/storage/toggle/greatcoat/hop
+	coat["greatcoat, research director"] = /obj/item/clothing/suit/storage/toggle/greatcoat/rd
+	coat["greatcoat, chief medical officer"] = /obj/item/clothing/suit/storage/toggle/greatcoat/cmo
+	coat["greatcoat, head of security"] = /obj/item/clothing/suit/storage/toggle/greatcoat/hos
+	gear_tweaks += new/datum/gear_tweak/path(coat)
+
 /datum/gear/suit/miscellaneous/peacoat
 	display_name = "peacoat"
 	path = /obj/item/clothing/suit/storage/toggle/peacoat

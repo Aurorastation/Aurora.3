@@ -295,3 +295,52 @@
 	icon_state = "suspenders"
 	blood_overlay_type = "armor" //it's the less thing that I can put here
 	body_parts_covered = 0
+
+//Heads of Staff
+/obj/item/clothing/suit/storage/toggle/greatcoat
+	name = "captain's greatcoat"
+	desc = "A posh, formal alternative to the captain's traditional parade uniform."
+	icon_state = "milcoat"
+	item_state = "milcoat"
+	icon_open = "milcoat_open"
+	icon_closed = "milcoat"
+
+/obj/item/clothing/suit/storage/toggle/greatcoat/ce
+	name = "chief engineer's greatcoat"
+	desc = "A very formal outer garment for the chief engineer. The accents are actually mildly reflective."
+	icon_state = "milcoat_ce"
+	item_state = "milcoat_ce"
+	icon_open = "milcoat_ce_open"
+	icon_closed = "milcoat_ce"
+
+/obj/item/clothing/suit/storage/toggle/greatcoat/hop
+	name = "head of personnel's greatcoat"
+	desc = "A very formal outer garment for the head of personnel. Compared to other greatcoats, this one is pretty nondescript."
+	icon_state = "milcoat_hop"
+	item_state = "milcoat_hop"
+	icon_open = "milcoat_hop_open"
+	icon_closed = "milcoat_hop"
+
+/obj/item/clothing/suit/storage/toggle/greatcoat/rd
+	name = "research director's greatcoat"
+	desc = "A very formal outer garment for the research director. The front pocket has a protector."
+	icon_state = "milcoat_rd"
+	item_state = "milcoat_rd"
+	icon_open = "milcoat_rd_open"
+	icon_closed = "milcoat_rd"
+
+/obj/item/clothing/suit/storage/toggle/greatcoat/cmo
+	name = "chief medical officer's greatcoat"
+	desc = "A very formal outer garment for the chief medical officer. Designed to be easily washable from chemical spills and byproducts of botched surgeries."
+	icon_state = "milcoat_cmo"
+	item_state = "milcoat_cmo"
+	icon_open = "milcoat_cmo_open"
+	icon_closed = "milcoat_cmo"
+
+/obj/item/clothing/suit/storage/toggle/greatcoat/hos
+	name = "head of security's greatcoat"
+	desc = "A posh, formal alternative to the head of security's traditional parade uniform. Rumor has it that very similar coats are worn by security personnel on NMV Icarus."
+	icon_state = "milcoat_hos"
+	item_state = "milcoat_hos"
+	icon_open = "milcoat_hos_open"
+	icon_closed = "milcoat_hos"

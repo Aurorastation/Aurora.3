@@ -108,6 +108,16 @@
 		averagetypes[initial(average.name)] = average
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(averagetypes))
 
+/datum/gear/accessory/skrell/mantle
+	display_name = "shoulder mantle"
+	path = /obj/item/clothing/accessory/poncho/skrell
+	sort_category = "Xenowear"
+	whitelisted = list("Skrell")
+
+/datum/gear/accessory/skrell/mantle/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
 //vaurca items
 
 /datum/gear/eyes/blindfold
