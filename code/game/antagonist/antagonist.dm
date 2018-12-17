@@ -149,6 +149,8 @@
 	if(!add_antagonist(player,0,0,0,1,1))
 		log_debug("Could not auto-spawn a [role_text], failed to add antagonist.")
 		return 0
+	else
+		to_chat(player.current,"<font color='purple'><b>Tip: Don't want to be a mid round antagonist in the future? Toggle 'allow mid-round antagonist' under preferences.</b></font>")
 
 	pending_antagonists -= player
 
