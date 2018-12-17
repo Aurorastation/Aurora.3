@@ -103,6 +103,17 @@
 		return 1
 	if(istype(O,/obj/item/weapon/reagent_containers/pill/))
 		return 1
+	if(istype(O,/obj/item/weapon/reagent_containers/inhaler))
+		return 1
+	if(istype(O,/obj/item/weapon/reagent_containers/personal_inhaler_cartridge	))
+		return 1
+	if(istype(O,/obj/item/weapon/reagent_containers/inhaler))
+		return 1
+	if(istype(O,/obj/item/weapon/reagent_containers/hypospray/autoinjector))
+		return 1
+	if(istype(O,/obj/item/weapon/personal_inhaler))
+		return 1
+
 	return 0
 
 /obj/machinery/smartfridge/secure/virology

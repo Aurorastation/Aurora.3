@@ -92,6 +92,9 @@
 		/obj/item/weapon/reagent_containers/glass/bottle,
 		/obj/item/weapon/reagent_containers/pill,
 		/obj/item/weapon/reagent_containers/syringe,
+		/obj/item/weapon/reagent_containers/inhaler,
+		/obj/item/weapon/reagent_containers/personal_inhaler_cartridge,
+		/obj/item/weapon/personal_inhaler,
 		/obj/item/weapon/flame/lighter/zippo,
 		/obj/item/weapon/storage/fancy/cigarettes,
 		/obj/item/weapon/storage/pill_bottle,
@@ -105,7 +108,6 @@
 		/obj/item/weapon/crowbar,
 		/obj/item/device/flashlight,
 		/obj/item/weapon/extinguisher/mini,
-		/obj/item/weapon/reagent_containers/inhaler,
 		/obj/item/device/antibody_scanner
 		)
 

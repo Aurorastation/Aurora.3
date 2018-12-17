@@ -36,7 +36,7 @@
 	var/turf/T = get_turf(target)
 	if(!T)
 		return 0
-	user.forceMove(T)
+	do_teleport(user,T)
 	..()
 
 /spell/mark_recall/empower_spell()

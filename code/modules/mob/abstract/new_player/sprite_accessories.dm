@@ -698,6 +698,18 @@
 		name = "Right Sidecut"
 		icon_state = "hair_rightside"
 
+	gentle2
+		name = "Gentle 2"
+		icon_state = "hair_gentle2"
+
+	gentle2long
+		name = "Gentle 2 (Long)"
+		icon_state = "hair_gentle2long"
+
+	donutbun
+		name = "Donut Bun"
+		icon_state = "hair_donutbun"
+
 	// TG-format hair - uses ICON_MULTIPLY instead of ICON_ADD
 	uniter
 		icon = 'icons/mob/human_face/hair_multiply.dmi'
@@ -977,15 +989,22 @@
 
 	skr_tentacle_m
 		icon = 'icons/mob/human_face/skrell_hair.dmi'
-		name = "Skrell Male Tentacles"
+		name = "Skrell Short Tentacles"
 		icon_state = "skrell_hair_m"
 		species_allowed = list("Skrell")
-		gender = MALE
 
 		skr_tentacle_f
-			name = "Skrell Female Tentacles"
+			name = "Skrell Average Tentacles"
 			icon_state = "skrell_hair_f"
-			gender = FEMALE
+
+		skr_tentacle_short
+			name = "Skrell Very Short Tentacles"
+			icon_state = "veryshort_s"
+
+		skr_tentacle_long
+			name = "Skrell Very Long Tentacles"
+			icon_state = "verylong_s"
+
 
 //tajaran hair
 
