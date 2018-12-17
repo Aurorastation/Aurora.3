@@ -801,11 +801,15 @@
 	},
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
-	dir = 9
+	dir = 5
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 8;
+	icon_state = "carpet_edges"
 	},
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
-	dir = 5
+	dir = 9
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
@@ -953,13 +957,17 @@
 	icon_state = "carpet_edges";
 	dir = 1
 	},
-/obj/effect/floor_decal/carpet{
-	icon_state = "carpet_edges";
-	dir = 9
-	},
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 8;
+	icon_state = "carpet_edges"
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 9
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
@@ -1123,6 +1131,10 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/carpet{
+	dir = 8;
+	icon_state = "carpet_edges"
+	},
+/obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
 	dir = 9
 	},
@@ -1177,6 +1189,10 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/carpet{
+	dir = 8;
+	icon_state = "carpet_edges"
+	},
+/obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
 	dir = 9
 	},
@@ -1208,6 +1224,10 @@
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
 	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 8;
+	icon_state = "carpet_edges"
 	},
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
@@ -1244,6 +1264,10 @@
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 8;
+	icon_state = "carpet_edges"
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
@@ -1319,6 +1343,10 @@
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
 	dir = 4
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 8;
+	icon_state = "carpet_edges"
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_chapel)
@@ -1693,6 +1721,14 @@
 	icon_state = "rwindow";
 	dir = 8
 	},
+/obj/effect/floor_decal/carpet{
+	dir = 8;
+	icon_state = "carpet_edges"
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 10;
+	icon_state = "carpet_edges"
+	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
 "aek" = (
@@ -1781,6 +1817,14 @@
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
 	dir = 6
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 8;
+	icon_state = "carpet_edges"
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 10;
+	icon_state = "carpet_edges"
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_chapel)
@@ -2088,6 +2132,10 @@
 	icon_state = "carpet_edges";
 	dir = 9
 	},
+/obj/effect/floor_decal/carpet{
+	dir = 10;
+	icon_state = "carpet_edges"
+	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_meetinghall)
 "afu" = (
@@ -2261,6 +2309,10 @@
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
 	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 8;
+	icon_state = "carpet_edges"
 	},
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
@@ -6346,6 +6398,10 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/carpet{
+	dir = 8;
+	icon_state = "carpet_edges"
+	},
+/obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
 	dir = 9
 	},
@@ -6459,6 +6515,14 @@
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen/multi,
 /obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 8;
+	icon_state = "carpet_edges"
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 10;
+	icon_state = "carpet_edges"
+	},
 /turf/simulated/floor/carpet,
 /area/merchant_station)
 "aqq" = (
@@ -22660,16 +22724,20 @@
 	icon_state = "carpet_edges";
 	dir = 1
 	},
-/obj/effect/floor_decal/carpet{
-	icon_state = "carpet_edges";
-	dir = 9
-	},
 /obj/item/weapon/storage/secure/safe{
 	pixel_x = 5;
 	pixel_y = 32
 	},
 /obj/structure/table/reinforced,
 /obj/item/weapon/hand_labeler,
+/obj/effect/floor_decal/carpet{
+	dir = 8;
+	icon_state = "carpet_edges"
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 9
+	},
 /turf/simulated/floor/carpet,
 /area/merchant_ship/start)
 "aZM" = (
@@ -22760,6 +22828,19 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
+"bVB" = (
+/obj/structure/holostool,
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 8;
+	icon_state = "carpet_edges"
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 10;
+	icon_state = "carpet_edges"
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_meetinghall)
 "cag" = (
 /obj/machinery/power/terminal{
 	icon_state = "term";
@@ -22843,6 +22924,14 @@
 	icon_state = "floor"
 	},
 /area/centcom/extraction_shuttle)
+"drU" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/carpet{
+	dir = 8;
+	icon_state = "carpet_edges"
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_courtroom)
 "dvC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5;
@@ -22891,6 +22980,16 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
+"dUv" = (
+/obj/structure/bed/chair/holochair{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 8;
+	icon_state = "carpet_edges"
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_courtroom)
 "dWe" = (
 /obj/structure/banner,
 /turf/simulated/shuttle/floor,
@@ -23099,6 +23198,21 @@
 	icon_state = "floor4"
 	},
 /area/centcom/extraction_shuttle)
+"glb" = (
+/obj/structure/bed/chair/holochair{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 8;
+	icon_state = "carpet_edges"
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 10;
+	icon_state = "carpet_edges"
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_courtroom)
 "gle" = (
 /obj/structure/table/wood{
 	dir = 5
@@ -23259,6 +23373,10 @@
 /obj/structure/bed/chair/office/bridge{
 	dir = 4
 	},
+/obj/effect/floor_decal/carpet{
+	dir = 8;
+	icon_state = "carpet_edges"
+	},
 /turf/simulated/floor/carpet,
 /area/merchant_ship/start)
 "hYO" = (
@@ -23378,6 +23496,19 @@
 	icon_state = "wood"
 	},
 /area/centcom/extraction_shuttle)
+"jIu" = (
+/obj/structure/holostool,
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 8;
+	icon_state = "carpet_edges"
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 10;
+	icon_state = "carpet_edges"
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_theatre)
 "jKR" = (
 /obj/machinery/vending/cigarette{
 	name = "Free Cigarette Machine";
@@ -23432,6 +23563,13 @@
 	icon_state = "whitegreen"
 	},
 /area/centcom/extraction_shuttle)
+"keA" = (
+/obj/effect/floor_decal/carpet{
+	dir = 8;
+	icon_state = "carpet_edges"
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_courtroom)
 "kpy" = (
 /obj/structure/table/wood{
 	dir = 5
@@ -23898,6 +24036,14 @@
 	dir = 4
 	},
 /area/centcom/extraction_shuttle)
+"rfE" = (
+/obj/structure/holostool,
+/obj/effect/floor_decal/carpet{
+	dir = 8;
+	icon_state = "carpet_edges"
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_theatre)
 "rhc" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/shuttle/floor{
@@ -24060,6 +24206,14 @@
 	pixel_x = 5;
 	pixel_y = 4;
 	req_access = list(110)
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 8;
+	icon_state = "carpet_edges"
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 10;
+	icon_state = "carpet_edges"
 	},
 /turf/simulated/floor/carpet,
 /area/merchant_ship/start)
@@ -24402,6 +24556,14 @@
 	icon_state = "floor"
 	},
 /area/centcom/extraction_shuttle)
+"wOA" = (
+/obj/structure/holostool,
+/obj/effect/floor_decal/carpet{
+	dir = 8;
+	icon_state = "carpet_edges"
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_meetinghall)
 "wXU" = (
 /obj/machinery/light,
 /turf/unsimulated/floor{
@@ -79802,10 +79964,10 @@ abD
 abD
 acw
 acZ
-adr
-adr
-adr
-aeh
+rfE
+rfE
+rfE
+jIu
 acY
 aeP
 aeW
@@ -79813,10 +79975,10 @@ aft
 afG
 afN
 afU
-agk
-agk
-agk
-agL
+wOA
+wOA
+wOA
+bVB
 afM
 agW
 aaM
@@ -81601,11 +81763,11 @@ abF
 abF
 acx
 adc
-adu
-adF
-adv
-adF
-aeE
+drU
+dUv
+keA
+dUv
+glb
 aeO
 aeX
 afw
