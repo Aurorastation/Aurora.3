@@ -10,7 +10,7 @@
 	if(world.time >= next_spawn && !emergency_shuttle.departed)
 		if(round_autoantag)
 			process_autoantag()
-		if(process_count == 0)
+		if(allow_emergency_spawns && process_count == 0)
 			process_emergency_spawn()
 
 	// Process loop for objectives like the brig one.
@@ -64,7 +64,7 @@
 		return
 
 	for(var/datum/antagonist/spawn_antag in usable_templates)
-		var/desired_spawns = spawn_antag.initial_spawn_target - spawn_antag.current_antagonists
+		var/desired_spawns = spawn_antag.initial_spawn_req - spawn_antag.current_antagonists
 		if(desired_spawns <= 0)
 			message_admins("[uppertext(name)]: No additional [spawn_antag.role_text_plural] are needed.")
 			continue

@@ -10,3 +10,5 @@
 	votable = 1
 	antag_tags = list(MODE_MALFUNCTION, MODE_TRAITOR, MODE_CHANGELING)
 	disabled_jobs = list("AI")
+
+	allow_emergency_spawns = TRUE

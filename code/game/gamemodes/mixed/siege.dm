@@ -8,3 +8,5 @@
 	end_on_antag_death = 0
 	antag_tags = list(MODE_REVOLUTIONARY, MODE_LOYALIST, MODE_MERCENARY)
 	require_all_templates = 1
+
+	allow_emergency_spawns = TRUE

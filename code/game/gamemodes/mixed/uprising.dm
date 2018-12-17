@@ -9,3 +9,5 @@
 	antag_tags = list(MODE_REVOLUTIONARY, MODE_LOYALIST, MODE_TRAITOR)
 	require_all_templates = 1
 	votable = 1
+
+	allow_emergency_spawns = TRUE

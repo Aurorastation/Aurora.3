@@ -9,3 +9,5 @@
 	require_all_templates = 1
 	votable = 1
 	antag_tags = list(MODE_VAMPIRE, MODE_CHANGELING)
+
+	allow_emergency_spawns = TRUE

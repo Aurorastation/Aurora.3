@@ -7,3 +7,5 @@
 	required_enemies = 4
 	end_on_antag_death = 1
 	antag_tags = list(MODE_CULTIST)
+
+	allow_emergency_spawns = TRUE

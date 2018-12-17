@@ -8,3 +8,5 @@
 	end_on_antag_death = 0
 	antag_tags = list(MODE_NINJA, MODE_TRAITOR)
 	require_all_templates = 1
+
+	allow_emergency_spawns = TRUE

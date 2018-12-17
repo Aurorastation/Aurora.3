@@ -36,6 +36,8 @@ var/global/list/additional_antag_types = list()
 	var/event_delay_mod_moderate             // Modifies the timing of random events.
 	var/event_delay_mod_major                // As above.
 
+	var/allow_emergency_spawns = 0			 //Whether or not to enable the emergency spawn system, which attempts to spawn additonal antags if there are not enough (less than initial_spawn_req) at the 7-20 minute mark.
+
 /datum/game_mode/New()
 	..()
 	// Enforce some formatting.
