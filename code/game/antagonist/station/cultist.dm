@@ -41,8 +41,6 @@ var/datum/antagonist/cultist/cult
 	var/list/sacrificed = list()
 	var/list/harvested = list()
 
-	allow_emergency_spawns = TRUE
-
 /datum/antagonist/cultist/New()
 	..()
 	cult = src
