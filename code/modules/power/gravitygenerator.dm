@@ -416,7 +416,7 @@
 	var/turf/our_turf = get_turf(src)
 	for(var/mob/M in mob_list)
 		var/turf/their_turf = get_turf(M)
-		if(their_turf.z == our_turf.z)
+		if(their_turf && (their_turf.z == our_turf.z))
 			M.update_gravity(M.mob_has_gravity())
 			if(M.client)
 				if(!M)	return

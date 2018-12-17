@@ -44,6 +44,7 @@
 	var/name_changed = 0
 
 	destroy_surroundings = FALSE
+	attack_emote = "growls at"
 
 /mob/living/simple_animal/hostile/commanded/dog/verb/befriend()
 	set name = "Befriend Dog"
