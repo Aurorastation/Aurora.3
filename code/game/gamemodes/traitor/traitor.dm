@@ -16,9 +16,14 @@
 	end_on_antag_death = 1
 	antag_tags = list(MODE_TRAITOR)
 	antag_scaling_coeff = 8
+	initial_spawn_req = 1
+	initial_spawn_target = 4
 
 /datum/game_mode/traitor/auto
 	name = "autotraitor"
 	config_tag = "autotraitor"
 	round_autoantag = 1
 	antag_scaling_coeff = 5
+	initial_spawn_req = 1
+	initial_spawn_target = 4
+	allow_emergency_spawns = FALSE

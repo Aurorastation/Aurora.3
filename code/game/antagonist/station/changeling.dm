@@ -22,7 +22,8 @@
 	antaghud_indicator = "hudchangeling"
 	faction = "Changeling"
 
-	initial_spawn_req = 2
+	initial_spawn_req = 3
+	initial_spawn_target = 4
 
 /datum/antagonist/changeling/get_special_objective_text(var/datum/mind/player)
 	return "<br><b>Changeling ID:</b> [player.changeling.changelingID].<br><b>Genomes Absorbed:</b> [player.changeling.absorbedcount]"

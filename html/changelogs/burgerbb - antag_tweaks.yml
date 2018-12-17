@@ -36,3 +36,4 @@ delete-after: True
 changes: 
   - rscadd: "Adds a new 'allow mid-round antagonist' preference under the preferences tab. When enabled, you are eligible to be drafted into mid-round antagonism. This setting is enabled by default."
   - rscadd: "If there is a lack of antags at the 7 to 15 minute mark, those who can normally become antag will be drafted. This is affected by 'allow mid-round antagonist'."
+  - rscadd: "Adjusted the requirements of specific antags for mixed gamemodes to better reflected the requirements of the gamemode they're based on."

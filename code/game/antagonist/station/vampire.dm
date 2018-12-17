@@ -24,6 +24,9 @@ var/datum/antagonist/vampire/vamp = null
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 	antaghud_indicator = "hudvampire"
 
+	initial_spawn_req = 1
+	initial_spawn_target = 4
+
 /datum/antagonist/vampire/New()
 	..()
 
