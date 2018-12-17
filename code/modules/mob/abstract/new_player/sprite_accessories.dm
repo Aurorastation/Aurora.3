@@ -710,6 +710,14 @@
 		name = "Donut Bun"
 		icon_state = "hair_donutbun"
 
+	gentle2alt
+		name = "Gentle 2, Alternative"
+		icon_state = "hair_gentle2alt"
+
+	gentle2long
+		name = "Gentle 2, Alternative (Long)"
+		icon_state = "hair_gentle2longalt"
+
 	// TG-format hair - uses ICON_MULTIPLY instead of ICON_ADD
 	uniter
 		icon = 'icons/mob/human_face/hair_multiply.dmi'
