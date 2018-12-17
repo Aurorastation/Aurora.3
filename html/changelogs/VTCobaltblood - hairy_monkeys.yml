@@ -23,7 +23,7 @@
 #################################
 
 # Your name.  
-author: VTCobaltblood
+author: N3X15
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -34,5 +34,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweaks: "Reworks/resprites A LOT of hairstyles, mostly increasing (Volaju)/decreasing (One Shoulder, Tress Shoulder, Unkept) volume or toning down shading (Very Long). Not limited to just the ones listed."
-  - rscadd: "Adds two new hairstyles, Gentle 2 (Alternative) and Gentle 2, Long (Alternative) which are basically the same, except they don't have the ears visible."
+  - tweak: "Tweaks a lot of hairstyles: Bobcut, One Shoulder, Short Hair 3, Tress Shoulder, Very Short Overeye, Very Long, Volaju."
+  - rscadd: "Adds alternative versions of Gentle 2 and two new hairstyles: Neat and Neat (Long)." 
