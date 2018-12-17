@@ -172,6 +172,7 @@
 		new /obj/item/weapon/storage/box/spraybottles(src)
 		new /obj/item/weapon/storage/box/inhalers(src)
 		new /obj/item/weapon/storage/box/inhalers_auto(src)
+		new /obj/item/weapon/storage/box/autoinjectors(src)
 		new /obj/item/weapon/storage/box/syringes(src)
 		new /obj/item/weapon/storage/box/beakers(src)
 		new /obj/item/weapon/storage/box/beakers(src)
