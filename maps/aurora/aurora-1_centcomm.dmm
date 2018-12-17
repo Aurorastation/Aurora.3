@@ -22765,6 +22765,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
+"bpQ" = (
+/obj/structure/closet/crate/freezer/rations,
+/turf/unsimulated/floor{
+	icon_state = "floor3"
+	},
+/area/centcom/extraction_shuttle)
 "bsA" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor{
@@ -22907,6 +22913,12 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/extraction_shuttle)
+"cRG" = (
+/obj/structure/closet/crate/medical,
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -23260,6 +23272,12 @@
 	icon_state = "whitehall"
 	},
 /area/centcom/extraction_shuttle)
+"fMI" = (
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "whitehall"
+	},
+/area/centcom/extraction_shuttle)
 "gdy" = (
 /obj/structure/urinal{
 	pixel_y = 32
@@ -23367,7 +23385,8 @@
 /obj/item/weapon/storage/box/masks,
 /obj/item/weapon/reagent_containers/spray/cleaner,
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "escapecorner";
+	dir = 4
 	},
 /area/centcom/extraction_shuttle)
 "hkh" = (
@@ -23406,8 +23425,8 @@
 	pixel_x = 28
 	},
 /turf/unsimulated/floor{
-	icon_state = "whitecorner";
-	dir = 1
+	dir = 8;
+	icon_state = "whitehall"
 	},
 /area/centcom/extraction_shuttle)
 "hSJ" = (
@@ -23485,6 +23504,14 @@
 /turf/unsimulated/floor{
 	name = "plating";
 	icon_state = "siding2"
+	},
+/area/centcom/extraction_shuttle)
+"jsx" = (
+/obj/machinery/door/airlock/glass{
+	name = "Storage 1"
+	},
+/turf/unsimulated/floor{
+	name = "plating"
 	},
 /area/centcom/extraction_shuttle)
 "jtO" = (
@@ -23684,8 +23711,8 @@
 "kXW" = (
 /obj/machinery/iv_drip,
 /turf/unsimulated/floor{
-	icon_state = "whitecorner";
-	dir = 1
+	dir = 1;
+	icon_state = "whitehall"
 	},
 /area/centcom/extraction_shuttle)
 "leN" = (
@@ -23753,6 +23780,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/closet/crate/trashcart,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -23869,6 +23897,16 @@
 	icon_state = "diagonalWall3"
 	},
 /area/centcom/extraction_shuttle)
+"mYs" = (
+/obj/structure/closet/crate/freezer/rations,
+/obj/structure/closet/crate/internals,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/extraction_shuttle)
 "nab" = (
 /obj/machinery/door/airlock/glass_medical{
 	name = "Ship's Medbay"
@@ -23977,7 +24015,7 @@
 "ppV" = (
 /obj/structure/closet/secure_closet/medical2,
 /turf/unsimulated/floor{
-	icon_state = "escapecorner";
+	icon_state = "whitehall";
 	dir = 4
 	},
 /area/centcom/extraction_shuttle)
@@ -24011,6 +24049,14 @@
 "pIv" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Engine Maintenance"
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/extraction_shuttle)
+"pOq" = (
+/obj/machinery/door/airlock/glass{
+	name = "Storage 2"
 	},
 /turf/unsimulated/floor{
 	name = "plating"
@@ -24487,6 +24533,12 @@
 	icon_state = "whiteblue"
 	},
 /area/centcom/extraction_shuttle)
+"upH" = (
+/obj/structure/closet/crate/freezer/rations,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/extraction_shuttle)
 "urM" = (
 /obj/structure/table/wood{
 	dir = 5
@@ -24516,7 +24568,8 @@
 	pixel_y = -1
 	},
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "whitecorner";
+	dir = 1
 	},
 /area/centcom/extraction_shuttle)
 "uBG" = (
@@ -24542,12 +24595,6 @@
 /obj/random/coin,
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
-"uTF" = (
-/turf/unsimulated/floor{
-	icon_state = "whitehall";
-	dir = 9
-	},
-/area/centcom/extraction_shuttle)
 "uXb" = (
 /obj/machinery/light,
 /turf/unsimulated/floor{
@@ -24587,6 +24634,18 @@
 "vsC" = (
 /obj/machinery/power/rtg/advanced,
 /obj/structure/cable,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/extraction_shuttle)
+"vvN" = (
+/obj/structure/closet/crate/freezer/rations,
+/obj/structure/closet/crate/internals,
+/obj/machinery/light/small{
+	brightness_color = "#DA0205";
+	brightness_power = 1;
+	brightness_range = 5
+	},
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -24705,12 +24764,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/extraction_shuttle)
-"wwn" = (
-/turf/unsimulated/floor{
-	icon_state = "escapecorner";
-	dir = 4
-	},
-/area/centcom/extraction_shuttle)
 "wBe" = (
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/captain,
@@ -24807,12 +24860,6 @@
 /obj/structure/bed/roller,
 /turf/unsimulated/floor{
 	icon_state = "white"
-	},
-/area/centcom/extraction_shuttle)
-"xwh" = (
-/turf/unsimulated/floor{
-	icon_state = "whitehall";
-	dir = 5
 	},
 /area/centcom/extraction_shuttle)
 "xEa" = (
@@ -80957,8 +81004,8 @@ aZv
 tzr
 cLe
 nNh
-xwh
-wwn
+nNh
+nNh
 jvS
 aiv
 aiv
@@ -81471,7 +81518,7 @@ aZv
 tzr
 fJC
 nNh
-uTF
+nNh
 kXW
 tzr
 cof
@@ -81727,7 +81774,7 @@ ahM
 aZv
 tzr
 hYO
-nNh
+fMI
 hFf
 usl
 tzr
@@ -82244,8 +82291,8 @@ aZv
 aZv
 aZv
 tzr
-tzr
-tzr
+upH
+upH
 tzr
 wnH
 gsb
@@ -82258,8 +82305,8 @@ gsb
 gsb
 wnH
 tzr
-tzr
-tzr
+upH
+upH
 tzr
 aZv
 aZv
@@ -82501,9 +82548,9 @@ aZv
 aZv
 aZv
 tzr
-tzr
-tzr
-tzr
+mYs
+syd
+jsx
 gsb
 gsb
 gsb
@@ -82514,9 +82561,9 @@ xeT
 gsb
 gsb
 gsb
-tzr
-tzr
-tzr
+pOq
+syd
+vvN
 tzr
 aZv
 aZv
@@ -82758,10 +82805,10 @@ aZv
 aZv
 aZv
 tzr
+cRG
+cRG
 tzr
-tzr
-tzr
-gsb
+bpQ
 gsb
 gsb
 bsA
@@ -82770,10 +82817,10 @@ eZC
 bsA
 gsb
 gsb
-gsb
+bpQ
 tzr
-tzr
-tzr
+cRG
+cRG
 tzr
 aZv
 aZv
