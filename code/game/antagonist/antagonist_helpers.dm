@@ -49,9 +49,9 @@
 
 /datum/antagonist/proc/can_late_spawn()
 	return 1
-	
+
 /datum/antagonist/proc/can_emergency_spawn()
-	return !(flags & ANTAG_OVERRIDE_JOB)
+	return !(flags & (ANTAG_OVERRIDE_MOB|ANTAG_OVERRIDE_JOB))
 
 /datum/antagonist/proc/is_latejoin_template()
 	return (flags & (ANTAG_OVERRIDE_MOB|ANTAG_OVERRIDE_JOB))
