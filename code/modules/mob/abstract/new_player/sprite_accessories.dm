@@ -710,7 +710,7 @@
 		name = "Gentle 2, Alternative"
 		icon_state = "hair_gentle2alt"
 
-	gentle2long
+	gentle2longalt
 		name = "Gentle 2, Alternative (Long)"
 		icon_state = "hair_gentle2longalt"
 
