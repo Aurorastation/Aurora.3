@@ -178,3 +178,5 @@
 	greater_form = "Procyn"
 	default_language = "Procyianoi"
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
+	holder_type = /obj/item/weapon/holder/monkey/praydau
+	tail = "null"

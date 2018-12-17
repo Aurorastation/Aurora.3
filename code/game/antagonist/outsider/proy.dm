@@ -27,4 +27,4 @@ var/datum/antagonist/proy/proy
 
 
 /datum/antagonist/proy/equip(var/mob/living/carbon/human/player)
-	player.set_species("Procyn")
+	player.set_species("Praydau")

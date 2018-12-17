@@ -603,3 +603,14 @@
 	New()
 		block = MONKEYBLOCK
 		..()
+
+/obj/item/weapon/dnainjector/proynanomachines
+	name = "Nanomachines"
+	desc = "A set of body altering nanomachines."
+	icon_state = "nanomachines"
+	datatype = DNA2_BUF_SE
+	value = 0xFFF
+	//block = 14
+	New()
+		block = MONKEYBLOCK
+		..()

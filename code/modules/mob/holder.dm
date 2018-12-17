@@ -468,6 +468,15 @@ var/list/holder_mob_icon_cache = list()
 	slot_flags = SLOT_HEAD
 	w_class = 3
 
+
+/obj/item/weapon/holder/monkey/praydau
+	name = "praydau"
+	desc = "It's a praydau."
+	icon_state = "proy"
+	item_state = "proy"
+	slot_flags = SLOT_HEAD
+	w_class = 3
+
 //Holders for mice
 /obj/item/weapon/holder/mouse
 	name = "mouse"
