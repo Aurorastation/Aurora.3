@@ -35,4 +35,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - tweak: "Tweaks a lot of hairstyles: Bobcut, One Shoulder, Short Hair 3, Tress Shoulder, Very Short Overeye, Very Long, Volaju."
-  - rscadd: "Adds alternative versions of Gentle 2 and two new hairstyles: Neat and Neat (Long)." 
+  - rscadd: "Adds alternative versions of Gentle 2 and two new hairstyles: Neat and Neat (Long). Bedhead 3 was removed because Neat is basically the same thing but slightly resprited." 

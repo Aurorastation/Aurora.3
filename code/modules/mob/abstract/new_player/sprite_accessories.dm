@@ -196,10 +196,6 @@
 		name = "Bedhead 2"
 		icon_state = "hair_bedheadv2"
 
-	bedhead3
-		name = "Bedhead 3"
-		icon_state = "hair_bedheadv3"
-
 	beehive
 		name = "Beehive"
 		icon_state = "hair_beehive"
@@ -714,9 +710,19 @@
 		name = "Gentle 2, Alternative"
 		icon_state = "hair_gentle2alt"
 
-	gentle2longalt
+	gentle2long
 		name = "Gentle 2, Alternative (Long)"
 		icon_state = "hair_gentle2longalt"
+
+	neat
+		name = "Neat"
+		icon_state = "hair_neat"
+		gender = FEMALE
+
+	neatlong
+		name = "Neat (Long)"
+		icon_state = "hair_neatlong"
+		gender = FEMALE
 
 	// TG-format hair - uses ICON_MULTIPLY instead of ICON_ADD
 	uniter
