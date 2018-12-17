@@ -106,16 +106,22 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 /mob/living/simple_animal/hostile/proc/Found(var/atom/A)
 	return
 
+/mob/living/simple_animal/hostile/proc/see_target()
+	return (target_mob in view(7, src)) ? (TRUE) : (FALSE)
+
 /mob/living/simple_animal/hostile/proc/MoveToTarget()
 	stop_automated_movement = 1
 	if(QDELETED(target_mob) || SA_attackable(target_mob))
 		LoseTarget()
+	if(!see_target())
+		LoseTarget()
 	if(target_mob in targets)
 		if(ranged)
 			if(get_dist(src, target_mob) <= 6)
+				walk(src, 0) // We gotta stop moving if we are in range
 				OpenFire(target_mob)
 			else
-				walk_to(src, target_mob, 1, move_to_delay)
+				walk_to(src, target_mob, 6, move_to_delay)
 		else
 			stance = HOSTILE_STANCE_ATTACKING
 			walk_to(src, target_mob, 1, move_to_delay)
@@ -129,6 +135,8 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	if(!(target_mob in targets))
 		LoseTarget()
 		return 0
+	if(!see_target())
+		LoseTarget()
 	if(get_dist(src, target_mob) <= 1)	//Attacking
 		AttackingTarget()
 		attacked_times += 1
@@ -140,6 +148,8 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	setClickCooldown(attack_delay)
 	if(!Adjacent(target_mob))
 		return
+	if(!see_target())
+		LoseTarget()
 	if(isliving(target_mob))
 		var/mob/living/L = target_mob
 		L.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
@@ -161,7 +171,6 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 
 /mob/living/simple_animal/hostile/proc/LostTarget()
 	return
-
 
 /mob/living/simple_animal/hostile/proc/ListTargets(var/dist = 7)
 	var/list/L = view(src, dist)
@@ -200,6 +209,8 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 
 
 /mob/living/simple_animal/hostile/proc/OpenFire(target_mob)
+	if(!see_target())
+		LoseTarget()
 	var/target = target_mob
 	visible_message("<span class='warning'> <b>[src]</b> fires at [target]!</span>")
 
