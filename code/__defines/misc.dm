@@ -73,8 +73,8 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define PARALLAX_DUST  0x2
 #define PROGRESS_BARS  0x4
 #define PARALLAX_IS_STATIC 0x8
-//Gun safety check.
-#define SAFETY_CHECK 0x10
+#define SAFETY_CHECK 0x10 //Gun safety check.
+#define DISABLE_MID_ROUND_ANTAGONIST 0x20
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_LOOC)
 

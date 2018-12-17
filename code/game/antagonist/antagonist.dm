@@ -92,7 +92,7 @@
 	return 1
 
 // Get the raw list of potential players.
-/datum/antagonist/proc/build_candidate_list(var/ghosts_only, var/allow_animals = 0)
+/datum/antagonist/proc/build_candidate_list(var/ghosts_only, var/allow_animals = 0, var/mid_round = 0)
 	candidates = list() // Clear.
 
 	// Prune restricted status. Broke it up for readability.
@@ -110,6 +110,8 @@
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: They are blacklisted for this role!")
 		else if(player_is_antag(player))
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: They are already an antagonist!")
+		else if(mid_round && player.current && player.current.client && player.current.client.prefs.toggles_secondary & DISABLE_MID_ROUND_ANTAGONIST)
+			log_debug("[key_name(player)] is not eligible to become a [role_text]: They have mid round antagonist disabled!")
 		else
 			candidates += player
 
@@ -117,7 +119,7 @@
 
 /datum/antagonist/proc/attempt_random_spawn()
 	update_current_antag_max()
-	build_candidate_list(flags & (ANTAG_OVERRIDE_MOB|ANTAG_OVERRIDE_JOB))
+	build_candidate_list(flags & (ANTAG_OVERRIDE_MOB|ANTAG_OVERRIDE_JOB), mid_round = TRUE)
 	attempt_spawn()
 	finalize_spawn()
 
@@ -133,7 +135,7 @@
 		log_debug("Could not auto-spawn a [role_text], active antag limit reached.")
 		return 0
 
-	build_candidate_list(flags & (ANTAG_OVERRIDE_MOB|ANTAG_OVERRIDE_JOB))
+	build_candidate_list(flags & (ANTAG_OVERRIDE_MOB|ANTAG_OVERRIDE_JOB), mid_round = TRUE)
 	if(!candidates.len)
 		log_debug("Could not auto-spawn a [role_text], no candidates found.")
 		return 0
@@ -205,7 +207,7 @@
 		return
 
 	for(var/datum/mind/player in pending_antagonists)
-		if (add_antagonist(player,0,0,1))
+		if(add_antagonist(player,0,0,1))
 			pending_antagonists -= player
 
 	reset_antag_selection()

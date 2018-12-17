@@ -225,3 +225,13 @@
 	prefs.toggles_secondary ^= SAFETY_CHECK //Held in Parallax because we don't want to deal with an SQL migration right now.
 	prefs.save_preferences()
 	src << "You will [(prefs.toggles_secondary & SAFETY_CHECK) ? "no longer" : "now"] fire your weapon on intents other than harm."
+
+/client/verb/toggle_mid_round_antagonist()
+
+	set name = "Toggle Mid Round Antagonist"
+	set category = "Preferences"
+	set desc = "Enables or disables mid round antagonist spawning"
+
+	prefs.toggles_secondary ^= DISABLE_MID_ROUND_ANTAGONIST //Held in Parallax because we don't want to deal with an SQL migration right now.
+	prefs.save_preferences()
+	src << "You will [(prefs.toggles_secondary & DISABLE_MID_ROUND_ANTAGONIST) ? "no longer" : "now"] be considered a candidate for mid-round antagonist spawning."
