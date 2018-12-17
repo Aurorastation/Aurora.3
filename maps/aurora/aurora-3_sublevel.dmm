@@ -17158,9 +17158,6 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_c)
-"aGy" = (
-/turf/simulated/wall/r_wall,
-/area/rnd/test_range)
 "aGz" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -48974,8 +48971,8 @@ bnf
 bnf
 bnf
 bnf
-aGy
-aGy
+azm
+azm
 aQr
 bdj
 bdJ
