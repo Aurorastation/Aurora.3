@@ -1,4 +1,4 @@
-//Catagories; Sinta wear / Tajara wear / Skrell wear / Vaurca wear / IPC wear / Xeno wear
+//Catagories; Xenowear - Sinta / Xenowear - Tajara  / Xenowear - Skrell / Xenowear - Vaurca / Xenowear - IPC / Xeno wear
 
 //unathi items
 
@@ -7,27 +7,27 @@
 	path = /obj/item/clothing/suit/unathi/mantle
 	cost = 1
 	whitelisted = list("Unathi")
-	sort_category = "Sinta wear"
+	sort_category = "Xenowear - Sinta"
 
 /datum/gear/suit/unathi_robe
 	display_name = "roughspun robe (Unathi)"
 	path = /obj/item/clothing/suit/unathi/robe
 	cost = 1
 	whitelisted = list("Unathi")
-	sort_category = "Sinta wear"
+	sort_category = "Xenowear - Sinta"
 
 /datum/gear/suit/robe_coat
 	display_name = "tzirzi robe (Unathi)"
 	path = /obj/item/clothing/suit/unathi/robe/robe_coat
 	cost = 1
 	whitelisted = list("Unathi")
-	sort_category = "Sinta wear"
+	sort_category = "Xenowear - Sinta"
 
 /datum/gear/gloves/unathi
 	display_name = "gloves selection (Unathi)"
 	path = /obj/item/clothing/gloves/black/unathi
 	whitelisted = list("Unathi")
-	sort_category = "Sinta wear"
+	sort_category = "Xenowear - Sinta"
 
 /datum/gear/gloves/unathi/New()
 	..()
@@ -46,7 +46,7 @@
 	display_name = "sinta tunic (Unathi)"
 	path = /obj/item/clothing/under/unathi
 	whitelisted = list("Unathi")
-	sort_category = "Sinta wear"
+	sort_category = "Xenowear - Sinta"
 
 /datum/gear/uniform/unathi/New()
 	..()
@@ -57,8 +57,8 @@
 /datum/gear/ears/skrell/chains	//Chains
 	display_name = "headtail chain selection (Skrell)"
 	path = /obj/item/clothing/ears/skrell/chain
-	sort_category = "Skrell wear"
-	whitelisted = list("Skrell wear")
+	sort_category = "Xenowear - Skrell"
+	whitelisted = list("Skrell")
 
 /datum/gear/ears/skrell/chains/New()
 	..()
@@ -71,7 +71,7 @@
 /datum/gear/ears/skrell/bands
 	display_name = "headtail band selection (Skrell)"
 	path = /obj/item/clothing/ears/skrell/band
-	sort_category = "Skrell wear"
+	sort_category = "Xenowear - Skrell"
 	whitelisted = list("Skrell")
 
 /datum/gear/ears/skrell/bands/New()
@@ -85,7 +85,7 @@
 /datum/gear/ears/skrell/cloth/short
 	display_name = "short headtail cloth (Skrell)"
 	path = /obj/item/clothing/ears/skrell/cloth_short/black
-	sort_category = "Skrell wear"
+	sort_category = "Xenowear - Skrell"
 	whitelisted = list("Skrell")
 
 /datum/gear/ears/skrell/cloth/short/New()
@@ -99,7 +99,7 @@
 /datum/gear/ears/skrell/cloth/average
 	display_name = "average headtail cloth (Skrell)"
 	path = /obj/item/clothing/ears/skrell/cloth_average/black
-	sort_category = "Skrell wear"
+	sort_category = "Xenowear - Skrell"
 	whitelisted = list("Skrell")
 
 /datum/gear/ears/skrell/cloth/average/New()
@@ -117,21 +117,21 @@
 	path = /obj/item/clothing/glasses/sunglasses/blinders
 	cost = 2
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
-	sort_category = "Vaurca wear"
+	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/mask/vaurca
 	display_name = "mandible garment (Vaurca)"
 	path = /obj/item/clothing/mask/breath/vaurca
 	cost = 1
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior",)
-	sort_category = "Vaurca wear"
+	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/mask/vaurca_expression
 	display_name = "human expression mask (Vaurca)"
 	path = /obj/item/clothing/mask/breath/vaurca/expression
 	cost = 1
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior",)
-	sort_category = "Vaurca wear"
+	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/mask/vaurca_expression/New()
 	..()
@@ -146,14 +146,14 @@
 	path = /obj/item/weapon/storage/backpack/cloak
 	cost = 1
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior",)
-	sort_category = "Vaurca wear"
+	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/vaurca_robe
 	display_name = "hive cloak (Vaurca)"
 	path = /obj/item/clothing/suit/vaurca
 	cost = 1
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior",)
-	sort_category = "Vaurca wear"
+	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/vaurca_robe/New()
 	..()
@@ -170,7 +170,7 @@
 	display_name = "gloves selection (Tajara)"
 	path = /obj/item/clothing/gloves/black/tajara
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	sort_category = "Tajara wear"
+	sort_category = "Xenowear - Tajara"
 
 /datum/gear/gloves/tajara/New()
 	..()
@@ -189,7 +189,7 @@
 	display_name = "tajara coat selection (Tajara)"
 	path = /obj/item/clothing/suit/storage/tajaran
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	sort_category = "Tajara wear"
+	sort_category = "Xenowear - Tajara"
 
 /datum/gear/suit/tajara_coat/New()
 	..()
@@ -205,7 +205,7 @@
 	display_name = "tajara priest robe selection (Tajara)"
 	path = /obj/item/clothing/suit/storage/hooded/tajaran/priest
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	sort_category = "Tajara wear"
+	sort_category = "Xenowear - Tajara"
 
 /datum/gear/suit/tajara_priest/New()
 	..()
@@ -219,13 +219,13 @@
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/tajaran
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Chemist", "Geneticist", "Paramedic", "Medical Resident")
-	sort_category = "Tajara wear"
+	sort_category = "Xenowear - Tajara"
 
 /datum/gear/uniform/tajara
 	display_name = "tajaran uniform selection (Tajara)"
 	path = /obj/item/clothing/under/tajaran
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	sort_category = "Tajara wear"
+	sort_category = "Xenowear - Tajara"
 
 /datum/gear/uniform/tajara/New()
 	..()
@@ -239,7 +239,7 @@
 	display_name = "tajaran dress selection (Tajara)"
 	path = /obj/item/clothing/under/dress/tajaran
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	sort_category = "Tajara wear"
+	sort_category = "Xenowear - Tajara"
 
 /datum/gear/uniform/tajara_dress/New()
 	..()
@@ -256,7 +256,7 @@
 	display_name = "fur scarf (Tajara)"
 	path = /obj/item/clothing/accessory/tajaran
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	sort_category = "Tajara wear"
+	sort_category = "Xenowear - Tajara"
 
 /datum/gear/accessory/tajara/New()
 	..()
@@ -276,7 +276,7 @@
 	display_name = "adhomian headgear selection (Tajara)"
 	path = /obj/item/clothing/head/tajaran/circlet
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	sort_category = "Tajara wear"
+	sort_category = "Xenowear - Tajara"
 
 /datum/gear/head/tajara/New()
 	..()
@@ -290,7 +290,7 @@
 	display_name = "marriage wrap (Tajara)"
 	path = /obj/item/clothing/accessory/tajaran_wrap
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	sort_category = "Tajara wear"
+	sort_category = "Xenowear - Tajara"
 
 /datum/gear/accessory/tajara_wrap/New()
 	..()
@@ -303,19 +303,19 @@
 	display_name = "ceremonial pelt (Tajara)"
 	path = /obj/item/clothing/accessory/tajaran_pelt
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	sort_category = "Tajara wear"
+	sort_category = "Xenowear - Tajara"
 
 /datum/gear/mask/tajara
 	display_name = "sun sister veil (Tajara)"
 	path = /obj/item/clothing/mask/tajara
 	cost = 1
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	sort_category = "Tajara wear"
+	sort_category = "Xenowear - Tajara"
 
 /datum/gear/shoes/tajara
 	display_name = "native tajaran foot-wear"
 	path = /obj/item/clothing/shoes/tajara
-	sort_category = "Tajara wear"
+	sort_category = "Xenowear - Tajara"
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 //other things
@@ -349,7 +349,7 @@
 	path = /obj/item/clothing/head/headchain
 	cost = 1
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
-	sort_category = "IPC wear"
+	sort_category = "Xenowear - IPC"
 
 /datum/gear/head/goldenchains/New()
 	..()
@@ -364,7 +364,7 @@
 	path = /obj/item/clothing/head/crest
 	cost = 1
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
-	sort_category = "IPC wear"
+	sort_category = "Xenowear - IPC"
 
 /datum/gear/head/goldencrests/New()
 	..()
@@ -379,7 +379,7 @@
 	path = /obj/item/clothing/gloves/armchain
 	cost = 1
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
-	sort_category = "IPC wear"
+	sort_category = "Xenowear - IPC"
 
 /datum/gear/gloves/armchains/New()
 	..()
@@ -394,7 +394,7 @@
 	path = /obj/item/clothing/gloves/goldbracer
 	cost = 1
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
-	sort_category = "IPC wear"
+	sort_category = "Xenowear - IPC"
 
 /datum/gear/gloves/bracers/New()
 	..()
@@ -409,7 +409,7 @@
 	path = /obj/item/clothing/head/antenna
 	cost = 1
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
-	sort_category = "IPC wear"
+	sort_category = "Xenowear - IPC"
 
 /datum/gear/ears/antennae/New()
 	..()
@@ -426,4 +426,4 @@
 	path = /obj/item/device/flashlight/headlights
 	cost = 2
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
-	sort_category = "IPC wear"
+	sort_category = "Xenowear - IPC"
