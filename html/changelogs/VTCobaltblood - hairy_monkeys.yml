@@ -34,5 +34,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Tweaks a lot of hairstyles: Bobcut, One Shoulder, Short Hair 3, Tress Shoulder, Very Short Overeye, Very Long, Volaju, Beehive 2."
+  - tweak: "Tweaks a lot of hairstyles: Bobcut, One Shoulder, Short Hair 3, Tress Shoulder, Very Short Overeye, Very Long, Volaju, Beehive 2, Ombre."
   - rscadd: "Adds alternative versions of Gentle 2 and two new hairstyles: Neat and Neat (Long). Neat replaced Bedhead 3." 
