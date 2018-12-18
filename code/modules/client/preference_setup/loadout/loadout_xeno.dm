@@ -1,4 +1,4 @@
-//Catagories; Xenowear - Sinta / Xenowear - Tajara  / Xenowear - Skrell / Xenowear - Vaurca / Xenowear - IPC / Xeno wear
+//Catagories; Xenowear - Unathi / Xenowear - Tajara  / Xenowear - Skrell / Xenowear - Vaurca / Xenowear - IPC / Xeno wear
 
 //unathi items
 
@@ -7,27 +7,27 @@
 	path = /obj/item/clothing/suit/unathi/mantle
 	cost = 1
 	whitelisted = list("Unathi")
-	sort_category = "Xenowear - Sinta"
+	sort_category = "Xenowear - Unathi"
 
 /datum/gear/suit/unathi_robe
 	display_name = "roughspun robe (Unathi)"
 	path = /obj/item/clothing/suit/unathi/robe
 	cost = 1
 	whitelisted = list("Unathi")
-	sort_category = "Xenowear - Sinta"
+	sort_category = "Xenowear - Unathi"
 
 /datum/gear/suit/robe_coat
 	display_name = "tzirzi robe (Unathi)"
 	path = /obj/item/clothing/suit/unathi/robe/robe_coat
 	cost = 1
 	whitelisted = list("Unathi")
-	sort_category = "Xenowear - Sinta"
+	sort_category = "Xenowear - Unathi"
 
 /datum/gear/gloves/unathi
 	display_name = "gloves selection (Unathi)"
 	path = /obj/item/clothing/gloves/black/unathi
 	whitelisted = list("Unathi")
-	sort_category = "Xenowear - Sinta"
+	sort_category = "Xenowear - Unathi"
 
 /datum/gear/gloves/unathi/New()
 	..()
@@ -46,7 +46,7 @@
 	display_name = "sinta tunic (Unathi)"
 	path = /obj/item/clothing/under/unathi
 	whitelisted = list("Unathi")
-	sort_category = "Xenowear - Sinta"
+	sort_category = "Xenowear - Unathi"
 
 /datum/gear/uniform/unathi/New()
 	..()
