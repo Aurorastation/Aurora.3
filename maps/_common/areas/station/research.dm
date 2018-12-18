@@ -1,5 +1,6 @@
 /area/assembly
 	station_area = 1
+	turf_initializer = new /datum/turf_initializer/maintenance()
 
 /area/assembly/chargebay
 	name = "\improper Mech Bay"
@@ -21,6 +22,7 @@
 /area/rnd
 	station_area = 1
 	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
+	turf_initializer = new /datum/turf_initializer/maintenance()
 
 /area/rnd/research
 	name = "\improper Research and Development"

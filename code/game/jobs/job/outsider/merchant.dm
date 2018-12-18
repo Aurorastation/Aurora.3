@@ -1,4 +1,4 @@
-/datum/job/merchant
+	/datum/job/merchant
 	title = "Merchant"
 	faction = "Station"
 	department = "Civilian"

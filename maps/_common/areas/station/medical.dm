@@ -9,6 +9,7 @@
 	name = "\improper Medbay Hallway - Port"
 	icon_state = "medbay"
 	ambience = list('sound/ambience/signal.ogg')
+	turf_initializer = new /datum/turf_initializer/maintenance()
 
 //Medbay is a large area, these additional areas help level out APC load.
 

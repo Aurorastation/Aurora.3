@@ -736,7 +736,6 @@
 		/obj/item/clothing/suit/storage/vest = 0.2,
 		/obj/item/clothing/gloves/black = 1,
 		/obj/item/clothing/gloves/fyellow = 1.2,
-		/obj/item/clothing/gloves/yellow = 0.9,
 		/obj/item/clothing/gloves/watch = 0.3,
 		/obj/item/clothing/gloves/boxing = 0.3,
 		/obj/item/clothing/gloves/boxing/green = 0.3,

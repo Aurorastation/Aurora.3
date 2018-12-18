@@ -1202,7 +1202,6 @@
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/gloves/yellow,
 /obj/effect/floor_decal/corner/yellow/full{
 	icon_state = "corner_white_full";
 	dir = 8
@@ -2450,7 +2449,6 @@
 	icon_state = "2-8"
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/donkpockets,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet,
@@ -18472,8 +18470,6 @@
 	dir = 1
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/donkpockets,
-/obj/item/weapon/storage/box/donkpockets,
 /obj/effect/floor_decal/corner/lime/full{
 	icon_state = "corner_white_full";
 	dir = 8

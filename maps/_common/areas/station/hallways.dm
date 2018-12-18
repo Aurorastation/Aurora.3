@@ -6,6 +6,7 @@
 	allow_nightmode = 1
 	station_area = 1
 	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
+	turf_initializer = new /datum/turf_initializer/maintenance()
 
 /area/hallway/primary/fore
 	name = "\improper Fore Primary Hallway"

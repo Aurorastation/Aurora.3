@@ -4,6 +4,7 @@
 /area/engineering
 	name = "\improper Engineering"
 	icon_state = "engineering"
+	turf_initializer = new /datum/turf_initializer/maintenance()
 	ambience = list(
 		'sound/ambience/ambisin1.ogg',
 		'sound/ambience/ambisin2.ogg',

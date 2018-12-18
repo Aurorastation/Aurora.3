@@ -85,7 +85,7 @@
 		species_modifier = human_species.economic_modifier
 		PROCLOG_WEIRD("species [H.species || "NULL"] did not have a set economic_modifier!")
 
-	var/money_amount = (rand(5,50) + rand(5, 50)) * loyalty * economic_modifier * species_modifier
+	var/money_amount = max(25,(rand(1, 10) * loyalty * economic_modifier * species_modifier))
 	var/datum/money_account/M = SSeconomy.create_account(H.real_name, money_amount, null)
 	if(H.mind)
 		var/remembered_info = ""

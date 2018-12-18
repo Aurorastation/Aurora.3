@@ -1544,6 +1544,27 @@
 	reagents.add_reagent("protein", 4)
 	reagents.add_reagent("sodiumchloride",3)
 
+/obj/item/weapon/reagent_containers/food/snacks/voucher
+	name = "Food Voucher - Protein"
+	desc = "In co-operation with Getmore food co., one food voucher, redeemable at the nearest eatery to you. In addition, the paper is edible, nutritious, and non-toxic! Mostly."
+	icon_state = "proteinbar"
+	bitesize = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/voucher/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 2)
+
+/obj/item/weapon/reagent_containers/food/snacks/kois_voucher
+	name = "Food Voucher - K'ois"
+	desc = "In co-operation with Getmore food co., one food voucher, redeemable at the nearest eatery to you. In addition, the paper is edible, nutritious, and phoron-scented! Mostly."
+	icon_state = "koisbar"
+	bitesize = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/kois_voucher/Initialize()
+	. = ..()
+	reagents.add_reagent("koispasteclean", 2)
+	reagents.add_reagent("phoron", 3)
+
 /obj/item/weapon/reagent_containers/food/snacks/no_raisin
 	name = "4no Raisins"
 	icon_state = "4no_raisins"

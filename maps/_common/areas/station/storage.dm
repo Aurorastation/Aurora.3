@@ -2,6 +2,7 @@
 //Storage
 /area/storage
 	station_area = 1
+	turf_initializer = new /datum/turf_initializer/maintenance()
 
 /area/storage/tools
 	name = "Auxiliary Tool Storage"
@@ -56,5 +57,4 @@
 
 /area/storage/shields
 	name = "\improper Station Shield Control"
-	icon_state = "eva" 
-	
+	icon_state = "eva"

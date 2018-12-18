@@ -111,10 +111,10 @@
 	if (mapload && loc && !(z in current_map.admin_levels))
 		switch(fitting)
 			if("tube")
-				if(prob(2))
+				if(prob(20))
 					broken(1)
 			if("bulb")
-				if(prob(5))
+				if(prob(50))
 					broken(1)
 
 	update(0)

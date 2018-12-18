@@ -5,6 +5,7 @@
 	no_light_control = 1
 	station_area = 1
 	holomap_color = HOLOMAP_AREACOLOR_SECURITY
+	turf_initializer = new /datum/turf_initializer/maintenance()
 
 /area/security/main
 	name = "\improper Security - Equipment Room"

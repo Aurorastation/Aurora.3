@@ -10,19 +10,19 @@
 
 	var/cardinal_turfs = T.CardinalTurfs()
 
-	T.dirt = rand(10, 50) + rand(0, 50)
+	T.dirt = rand(20, 60) + rand(5, 55)
 	// If a neighbor is dirty, then we get dirtier.
 	var/how_dirty = dirty_neighbors(cardinal_turfs)
 	for(var/i = 0; i < how_dirty; i++)
 		T.dirt += rand(0,10)
 	T.update_dirt()
 
-	if(prob(2))
+	if(prob(5))
 		var/type = junk()
 		new type(T)
-	if(prob(2))
+	if(prob(5))
 		new /obj/effect/decal/cleanable/blood/oil(T)
-	if(prob(25))	// Keep in mind that only "corners" get any sort of web
+	if(prob(75))	// Keep in mind that only "corners" get any sort of web
 		attempt_web(T, cardinal_turfs)
 
 var/global/list/random_junk

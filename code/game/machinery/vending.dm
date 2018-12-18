@@ -123,6 +123,10 @@
 		src.ads_list += text2list(src.product_ads, ";")
 
 	src.build_inventory()
+
+	if(prob(20)) //woopsies!
+		stat |= BROKEN
+		src.icon_state = "[initial(icon_state)]-broken"
 	power_change()
 
 

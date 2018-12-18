@@ -5073,7 +5073,6 @@
 /area/maintenance/maintcentral)
 "iZ" = (
 /obj/structure/table/rack,
-/obj/item/clothing/gloves/yellow,
 /obj/item/weapon/wirecutters,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)

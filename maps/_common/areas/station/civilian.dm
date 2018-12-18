@@ -5,11 +5,13 @@
 	icon_state = "Sleep"
 	flags = RAD_SHIELDED
 	station_area = 1
+	turf_initializer = new /datum/turf_initializer/maintenance()
 
 /area/sconference_room
 	name = "\improper Surface - Conference Room"
 	icon_state = "Sleep"
 	station_area = 1
+	turf_initializer = new /datum/turf_initializer/maintenance()
 
 /area/crew_quarters/toilet
 	name = "\improper Dormitory Toilets"
@@ -124,9 +126,11 @@
  	icon_state = "library"
  	sound_env = LARGE_SOFTFLOOR
  	station_area = 1
+ 	turf_initializer = new /datum/turf_initializer/maintenance()
 
 /area/chapel
  	station_area = 1
+ 	turf_initializer = new /datum/turf_initializer/maintenance()
 
 /area/chapel/main
 	name = "\improper Chapel"
@@ -142,67 +146,82 @@
 	name = "\improper Internal Affairs"
 	icon_state = "law"
 	station_area = 1
+	turf_initializer = new /datum/turf_initializer/maintenance()
 
 /area/quartermaster
 	name = "\improper Quartermasters"
 	icon_state = "quart"
 	station_area = 1
 	holomap_color = HOLOMAP_AREACOLOR_CARGO
+	turf_initializer = new /datum/turf_initializer/maintenance()
 
 /area/quartermaster/office
 	name = "\improper Cargo Office"
 	icon_state = "quartoffice"
+	turf_initializer = new /datum/turf_initializer/maintenance()
 
 /area/quartermaster/lobby
 	name = "\improper Cargo Lobby"
 	icon_state = "green"
+	turf_initializer = new /datum/turf_initializer/maintenance()
 
 /area/quartermaster/break_room
 	name = "\improper Cargo Break Room"
 	icon_state = "blue"
+	turf_initializer = new /datum/turf_initializer/maintenance()
 
 /area/quartermaster/mail_room
 	name = "\improper Cargo Mail Room"
 	icon_state = "red"
+	turf_initializer = new /datum/turf_initializer/maintenance()
 
 /area/quartermaster/storage
 	name = "\improper Cargo Warehouse"
 	icon_state = "quartstorage"
 	sound_env = LARGE_ENCLOSED
+	turf_initializer = new /datum/turf_initializer/maintenance()
 
 /area/quartermaster/loading
 	name = "\improper Cargo Bay"
 	icon_state = "quartloading"
+	turf_initializer = new /datum/turf_initializer/maintenance()
 
 /area/quartermaster/qm
 	name = "\improper Cargo - Quartermaster's Office"
 	icon_state = "quart"
+	turf_initializer = new /datum/turf_initializer/maintenance()
 
 /area/quartermaster/miningdock
 	name = "\improper Cargo Mining Dock"
 	icon_state = "mining"
+	turf_initializer = new /datum/turf_initializer/maintenance()
 
 /area/janitor/
 	name = "\improper Custodial Closet"
 	icon_state = "janitor"
 	station_area = 1
+	turf_initializer = new /datum/turf_initializer/maintenance()
 
 /area/hydroponics
 	name = "\improper Hydroponics"
 	icon_state = "hydro"
 	no_light_control = TRUE
 	station_area = 1
+	turf_initializer = new /datum/turf_initializer/maintenance()
 
 /area/hydroponics/garden
 	name = "\improper Garden"
 	icon_state = "garden"
+	turf_initializer = new /datum/turf_initializer/maintenance()
 
 /area/store
 	name = "\improper Station Store"
 	icon_state = "quartstorage"
 	station_area = 1
+	turf_initializer = new /datum/turf_initializer/maintenance()
 
 /area/journalistoffice
 	name = "\improper Journalist's Office"
 	station_area = 1
 	sound_env = SMALL_SOFTFLOOR
+	turf_initializer = new /datum/turf_initializer/maintenance()
