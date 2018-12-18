@@ -720,6 +720,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
+"bs" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/camera/motion{
+	c_tag = "SAT Chamber - Motion";
+	dir = 1;
+	icon_state = "camera";
+	network = list("Secure");
+	tag = "icon-camera (NORTH)"
+	},
+/obj/machinery/anti_bluespace,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/selfdestruct)
 "bt" = (
 /turf/simulated/wall/r_wall,
 /area/crew_quarters/locker/locker_toilet)
@@ -5019,17 +5031,6 @@
 "iT" = (
 /obj/structure/banner,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/bridge/selfdestruct)
-"iU" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/camera/motion{
-	c_tag = "SAT Chamber - Motion";
-	dir = 1;
-	icon_state = "camera";
-	network = list("Secure");
-	tag = "icon-camera (NORTH)"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/selfdestruct)
 "iV" = (
@@ -55590,7 +55591,7 @@ iL
 iO
 io
 io
-mo
+io
 mo
 mo
 mo
@@ -55848,7 +55849,7 @@ iP
 io
 io
 io
-aa
+io
 aa
 aa
 aa
@@ -56102,10 +56103,10 @@ iE
 ir
 ir
 ir
+ir
 iT
 io
 io
-aa
 aa
 aa
 aa
@@ -56359,10 +56360,10 @@ ir
 iI
 ir
 iQ
-iU
+ir
+bs
 io
 io
-aa
 aa
 aa
 aa
@@ -56616,10 +56617,10 @@ iF
 ir
 ir
 ir
+ir
 iT
 io
 io
-aa
 aa
 aa
 ab
@@ -56876,7 +56877,7 @@ iR
 io
 io
 io
-aa
+io
 aa
 aa
 ab
@@ -57132,7 +57133,7 @@ iM
 iK
 io
 io
-aa
+io
 aa
 aa
 ab
