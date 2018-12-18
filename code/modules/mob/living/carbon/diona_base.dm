@@ -92,7 +92,7 @@ var/list/diona_banned_languages = list(
 		if(DS.nutrient_organ.is_bruised())
 			plus *= 0.5
 	plus = min(plus, max_nutrition - nutrition)
-	
+
 	adjustNutritionLoss(-plus)
 
 	return plus*7 //The return value is the number of moles to remove from the local environment
@@ -272,6 +272,8 @@ var/list/diona_banned_languages = list(
 		//We will only replace ONE organ or limb each time this procs
 		var/path
 		for (var/i in species.has_limbs)
+			if(organs_by_name[i]) //Allow arm transplants + cyborg limbs
+				continue
 			path = species.has_limbs[i]["path"]
 			var/limb_exists = 0
 			for (var/obj/item/organ/external/B in organs)
@@ -299,7 +301,8 @@ var/list/diona_banned_languages = list(
 				"<span class='warning'>You begin to shift and quiver, feeling a stirring within your trunk</span>")
 
 			DS.regening_organ = TRUE
-			addtimer(CALLBACK(src, .proc/diona_regen_callback, path), 52)
+			to_chat(src, "<span class='notice'>You are trying to regrow a lost limb, this is a long and complicated process that will take 10 minutes!</span>")
+			addtimer(CALLBACK(src, .proc/diona_regen_callback, path), 10 MINUTES)
 			return
 
 

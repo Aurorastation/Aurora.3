@@ -503,3 +503,10 @@
 	req_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_POWER = 3, TECH_MATERIAL = 4, TECH_PHORON = 2)
 	build_path = /obj/item/weapon/circuitboard/rtg/advanced
 	sort_string = "WAAAD"
+
+/datum/design/circuit/slot_machine
+	name = "slot machine"
+	id = "slot_machine"
+	req_tech = list(TECH_DATA = 2)
+	build_path = /obj/item/weapon/circuitboard/slot_machine
+	sort_string = "WAAAE"

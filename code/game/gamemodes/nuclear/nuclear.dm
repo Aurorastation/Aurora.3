@@ -12,7 +12,7 @@ var/list/nuke_disks = list()
 		malicious activities."
 	config_tag = "mercenary"
 	required_players = 15
-	required_enemies = 1
+	required_enemies = 4
 	end_on_antag_death = 1
 	var/nuke_off_station = 0 //Used for tracking if the syndies actually haul the nuke to the station
 	var/syndies_didnt_escape = 0 //Used for tracking if the syndies got the shuttle off of the z-level

@@ -63,8 +63,8 @@
 	//mobs in range check
 	var/users_in_range = 0
 	for(var/mob/living/L in orange(1,src))
-		if(L.ckey && L.client)
-			if((world.time - L.client.inactivity) < (world.time - 300) || L.stat != CONSCIOUS || L.restrained())
+		if(L.ckey)
+			if(L.stat != CONSCIOUS || L.restrained())
 				to_chat(M, "<span class='warning'>\The [L] does not seem to be paying attention to the [src].</span>")
 			else
 				users_in_range++

@@ -248,15 +248,12 @@
 	stamina = 90
 	sprint_speed_factor = 1.25 //Evolved for rapid escapes from predators
 
+	inherent_verbs = list(/mob/living/carbon/human/proc/commune)
+
+	default_h_style = "Skrell Short Tentacles"
+
 /datum/species/skrell/can_breathe_water()
 	return TRUE
-
-/datum/species/skrell/set_default_hair(var/mob/living/carbon/human/H)
-	if(H.gender == MALE)
-		H.h_style = "Skrell Male Tentacles"
-	else
-		H.h_style = "Skrell Female Tentacles"
-	H.update_hair()
 
 /datum/species/diona
 	name = "Diona"
@@ -343,6 +340,7 @@
 	sprint_speed_factor = 0.5	//Speed gained is minor
 	sprint_cost_factor = 0.8
 	climb_coeff = 1.3
+	vision_organ = "head"
 
 	max_hydration_factor = -1
 
@@ -403,6 +401,17 @@
 		// This proc sleeps. Async it.
 		INVOKE_ASYNC(H, /mob/living/carbon/human/proc/diona_split_into_nymphs)
 
+/datum/species/diona/handle_speech_problems(mob/living/carbon/human/H, list/current_flags, message, message_verb, message_mode)
+// Diona without head can live, but they cannot talk as loud anymore.
+	var/obj/item/organ/external/O = H.organs_by_name["head"]
+	current_flags[4] = O.is_stump() ? 3 : world.view
+	return current_flags
+
+/datum/species/diona/handle_speech_sound(mob/living/carbon/human/H, list/current_flags)
+	current_flags = ..()
+	var/obj/item/organ/external/O = H.organs_by_name["head"]
+	current_flags[3] = O.is_stump()
+	return current_flags
 
 /datum/species/machine
 	name = "Baseline Frame"
@@ -684,7 +693,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	and otherwise, and acts as a pressure-suit to seal their soft inner core from the outside world. This allows most Type A Vaurca to have extended EVA \
 	expeditions, assuming they have internals. They are bipedal, and compared to warriors they are better suited for EVA and environments, and more resistant to brute force thanks to their \
 	thicker carapace, but also a fair bit slower and less agile. \
-	<b>Type A comfortable in any department except security. There will almost never be a Worker in a security position, as they are as a type disposed against combat.</b>"
+	<b>Type A are comfortable in any department except security. There will almost never be a Worker in a security position, as they are as a type disposed against combat.</b>"
 
 	cold_level_1 = 50
 	cold_level_2 = -1
@@ -695,7 +704,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	heat_level_3 = 600 //Default 1000
 	flags = NO_SLIP | NO_CHUBBY
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
-	appearance_flags = HAS_SKIN_COLOR
+	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
 	blood_color = "#E6E600" // dark yellow
 	flesh_color = "#E6E600"
 	base_color = "#575757"
@@ -733,9 +742,12 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		"eyes"                = /obj/item/organ/eyes/vaurca
 	)
 
+	default_h_style = "Classic Antennae"
+
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
 /datum/species/bug/equip_survival_gear(var/mob/living/carbon/human/H)
+	H.gender = NEUTER
 	if(H.backbag == 1)
 		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vaurca(H), slot_r_hand)
 	else

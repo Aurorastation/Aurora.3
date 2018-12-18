@@ -87,6 +87,8 @@
 		if (is_diona())
 			diona_handle_light(DS)
 
+		handle_shared_dreaming()
+
 	handle_stasis_bag()
 
 	if(!handle_some_updates())
@@ -164,7 +166,7 @@
 	//Vision
 	var/obj/item/organ/vision
 	if(species.vision_organ)
-		vision = internal_organs_by_name[species.vision_organ]
+		vision =  internal_organs_by_name[species.vision_organ] || organs_by_name[species.vision_organ]
 
 	if (!vision)
 		if (species.vision_organ) // if they should have eyes but don't, they can't see
@@ -1044,7 +1046,7 @@
 			handle_dreams()
 			if (mind)
 				//Are they SSD? If so we'll keep them asleep but work off some of that sleep var in case of stoxin or similar.
-				if(client || sleeping > 3)
+				if(client || sleeping > 3 || istype(bg))
 					AdjustSleeping(-1)
 			if( prob(2) && health && !hal_crit )
 				spawn(0)
@@ -1052,6 +1054,7 @@
 		//CONSCIOUS
 		else
 			stat = CONSCIOUS
+			willfully_sleeping = 0
 
 		// Check everything else.
 

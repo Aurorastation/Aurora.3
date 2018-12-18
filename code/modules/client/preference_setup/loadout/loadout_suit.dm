@@ -52,19 +52,12 @@
 	path = /obj/item/clothing/suit/storage/toggle/hoodie/black
 
 /datum/gear/suit/labcoat
-	display_name = "labcoat selection"
+	display_name = "labcoat"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat
 
 /datum/gear/suit/labcoat/New()
 	..()
-	var/labcoat = list()
-	labcoat["labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat
-	labcoat["labcoat, blue"] = /obj/item/clothing/suit/storage/toggle/labcoat/blue
-	labcoat["labcoat, green"] = /obj/item/clothing/suit/storage/toggle/labcoat/green
-	labcoat["labcoat, orange"] = /obj/item/clothing/suit/storage/toggle/labcoat/orange
-	labcoat["labcoat, purple"] = /obj/item/clothing/suit/storage/toggle/labcoat/purple
-	labcoat["labcoat, red"] = /obj/item/clothing/suit/storage/toggle/labcoat/red
-	gear_tweaks += new/datum/gear_tweak/path(labcoat)
+	gear_tweaks = list(gear_tweak_free_color_choice)
 
 /datum/gear/suit/overalls
 	display_name = "overalls"
@@ -131,6 +124,11 @@
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/hop
 	allowed_roles = list("Head of Personnel")
 
+/datum/gear/suit/roles/poncho/cloak/hos
+	display_name = "cloak, head of security"
+	path = /obj/item/clothing/accessory/poncho/roles/cloak/hos
+	allowed_roles = list("Head of Security")
+
 /datum/gear/suit/roles/poncho/cloak/cargo
 	display_name = "cloak, cargo"
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/cargo
@@ -166,13 +164,18 @@
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/medical
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Paramedic", "Medical Resident", "Psychiatrist", "Chemist")
 
-/datum/gear/suit/blue_lawyer_jacket
-	display_name = "suit jacket, blue"
-	path = /obj/item/clothing/suit/storage/toggle/lawyer/bluejacket
+/datum/gear/suit/roles/poncho/cloak/security
+	display_name = "cloak, security"
+	path = /obj/item/clothing/accessory/poncho/roles/cloak/security
+	allowed_roles = list("Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet")
 
-/datum/gear/suit/purple_lawyer_jacket
-	display_name = "suit jacket, purple"
-	path = /obj/item/clothing/suit/storage/lawyer/purpjacket
+/datum/gear/suit/suitjacket
+	display_name = "suit jacket"
+	path = /obj/item/clothing/suit/storage/toggle/suitjacket
+
+/datum/gear/suit/suitjacket/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
 
 /datum/gear/suit/trenchcoat
 	display_name = "trenchcoat, brown"
@@ -312,6 +315,10 @@
 	display_name = "department jacket, medical"
 	path = /obj/item/clothing/suit/storage/toggle/med_dep_jacket
 
+/datum/gear/suit/miscellaneous/sec_dep_jacket
+	display_name = "department jacket, security"
+	path = /obj/item/clothing/suit/storage/toggle/sec_dep_jacket
+
 /datum/gear/suit/miscellaneous/peacoat
 	display_name = "peacoat"
 	path = /obj/item/clothing/suit/storage/toggle/peacoat
@@ -355,3 +362,12 @@
 /datum/gear/suit/greenjacket
 	display_name = "green suit jacket"
 	path = /obj/item/clothing/suit/storage/toggle/greengov
+
+/datum/gear/suit/cardigan
+	display_name = "cardigan"
+	path = /obj/item/clothing/suit/cardigan
+	cost = 1 // has no pockets or any use whatsoever anyway
+
+/datum/gear/suit/cardigan/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)

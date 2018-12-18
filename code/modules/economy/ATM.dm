@@ -35,7 +35,7 @@ log transactions
 
 /obj/machinery/atm/Initialize()
 	. = ..()
-	machine_id = "[station_name()] RT #[num_financial_terminals++]"
+	machine_id = "[station_name()] RT #[SSeconomy.num_financial_terminals++]"
 
 /obj/machinery/atm/Destroy()
 	authenticated_account = null
@@ -114,9 +114,10 @@ log transactions
 			T.purpose = "Credit deposit"
 			T.amount = I:worth
 			T.source_terminal = machine_id
-			T.date = current_date_string
+			T.date = worlddate2text()
 			T.time = worldtime2text()
-			authenticated_account.transaction_log.Add(T)
+			SSeconomy.add_transaction_log(authenticated_account,T)
+
 
 			user << "<span class='info'>You insert [I] into [src].</span>"
 			src.attack_hand(user)
@@ -174,7 +175,7 @@ log transactions
 							dat += "<td><b>Value</b></td>"
 							dat += "<td><b>Source terminal ID</b></td>"
 							dat += "</tr>"
-							for(var/datum/transaction/T in authenticated_account.transaction_log)
+							for(var/datum/transaction/T in authenticated_account.transactions)
 								dat += "<tr>"
 								dat += "<td>[T.date]</td>"
 								dat += "<td>[T.time]</td>"
@@ -235,7 +236,7 @@ log transactions
 					else if(transfer_amount <= authenticated_account.money)
 						var/target_account_number = text2num(href_list["target_acc_number"])
 						var/transfer_purpose = href_list["purpose"]
-						if(charge_to_account(target_account_number, authenticated_account.owner_name, transfer_purpose, machine_id, transfer_amount))
+						if(SSeconomy.charge_to_account(target_account_number, authenticated_account.owner_name, transfer_purpose, machine_id, transfer_amount))
 							usr << "\icon[src]<span class='info'>Funds transfer successful.</span>"
 							authenticated_account.money -= transfer_amount
 
@@ -244,10 +245,10 @@ log transactions
 							T.target_name = "Account #[target_account_number]"
 							T.purpose = transfer_purpose
 							T.source_terminal = machine_id
-							T.date = current_date_string
+							T.date = worlddate2text()
 							T.time = worldtime2text()
 							T.amount = "([transfer_amount])"
-							authenticated_account.transaction_log.Add(T)
+							SSeconomy.add_transaction_log(authenticated_account,T)
 						else
 							usr << "\icon[src]<span class='warning'>Funds transfer failed.</span>"
 
@@ -269,7 +270,7 @@ log transactions
 				if (!tried_account_num && held_card)
 					tried_account_num = held_card.associated_account_number
 				var/tried_pin = text2num(href_list["account_pin"])
-				var/datum/money_account/potential_account = get_account(tried_account_num)
+				var/datum/money_account/potential_account = SSeconomy.get_account(tried_account_num)
 				if (!potential_account)
 					usr << "<span class='warning'>\icon[src] Account number not found.</span>"
 					number_incorrect_tries++
@@ -277,21 +278,21 @@ log transactions
 					return
 				switch (potential_account.security_level+1) //checks the security level of an account number to see what checks to do
 					if (1) // Security level zero
-						authenticated_account = attempt_account_access(tried_account_num, tried_pin, potential_account.security_level)
+						authenticated_account = SSeconomy.attempt_account_access(tried_account_num, tried_pin, potential_account.security_level)
 						// It should be impossible to fail at this point
 					if (2) // Security level one
-						authenticated_account = attempt_account_access(text2num(href_list["account_num"]), tried_pin, potential_account.security_level)
+						authenticated_account = SSeconomy.attempt_account_access(text2num(href_list["account_num"]), tried_pin, potential_account.security_level)
 					if (3) // Security level two
 						if (held_card)
 							if (text2num(href_list["account_num"]) != held_card.associated_account_number)
-							else authenticated_account = attempt_account_access(tried_account_num, tried_pin, potential_account.security_level)
+							else authenticated_account = SSeconomy.attempt_account_access(tried_account_num, tried_pin, potential_account.security_level)
 						else usr << "<span class='warning'>Account card not found.</span>"
 				if (!authenticated_account)
 					number_incorrect_tries++
 					usr << "<span class='warning'>\icon[src] Incorrect pin/account combination entered, [(max_pin_attempts+1) - number_incorrect_tries] attempts remaining.</span>"
 					handle_lockdown(tried_account_num)
 				else
-					bank_log_access(authenticated_account, machine_id)
+					SSeconomy.bank_log_access(authenticated_account, machine_id)
 					number_incorrect_tries = 0
 					playsound(src, 'sound/machines/twobeep.ogg', 50, 1)
 					ticks_left_timeout = 120
@@ -320,9 +321,9 @@ log transactions
 						T.purpose = "Credit withdrawal"
 						T.amount = "([amount])"
 						T.source_terminal = machine_id
-						T.date = current_date_string
+						T.date = worlddate2text()
 						T.time = worldtime2text()
-						authenticated_account.transaction_log.Add(T)
+						SSeconomy.add_transaction_log(authenticated_account,T)
 					else
 						usr << "\icon[src]<span class='warning'>You don't have enough funds to do that!</span>"
 			if("withdrawal")
@@ -345,9 +346,9 @@ log transactions
 						T.purpose = "Credit withdrawal"
 						T.amount = "([amount])"
 						T.source_terminal = machine_id
-						T.date = current_date_string
+						T.date = worlddate2text()
 						T.time = worldtime2text()
-						authenticated_account.transaction_log.Add(T)
+						SSeconomy.add_transaction_log(authenticated_account,T)
 					else
 						usr << "\icon[src]<span class='warning'>You don't have enough funds to do that!</span>"
 			if("balance_statement")
@@ -358,7 +359,7 @@ log transactions
 					info += "<i>Account holder:</i> [authenticated_account.owner_name]<br>"
 					info += "<i>Account number:</i> [authenticated_account.account_number]<br>"
 					info += "<i>Balance:</i> $[authenticated_account.money]<br>"
-					info += "<i>Date and time:</i> [worldtime2text()], [current_date_string]<br><br>"
+					info += "<i>Date and time:</i> [worldtime2text()], [worlddate2text()]<br><br>"
 					info += "<i>Service terminal ID:</i> [machine_id]<br>"
 					R.set_content_unsafe(pname, info)
 
@@ -385,7 +386,7 @@ log transactions
 					var/info = "<b>Transaction logs</b><br>"
 					info += "<i>Account holder:</i> [authenticated_account.owner_name]<br>"
 					info += "<i>Account number:</i> [authenticated_account.account_number]<br>"
-					info += "<i>Date and time:</i> [worldtime2text()], [current_date_string]<br><br>"
+					info += "<i>Date and time:</i> [worldtime2text()], [worlddate2text()]<br><br>"
 					info += "<i>Service terminal ID:</i> [machine_id]<br>"
 					info += "<table border=1 style='width:100%'>"
 					info += "<tr>"
@@ -396,7 +397,7 @@ log transactions
 					info += "<td><b>Value</b></td>"
 					info += "<td><b>Source terminal ID</b></td>"
 					info += "</tr>"
-					for(var/datum/transaction/T in authenticated_account.transaction_log)
+					for(var/datum/transaction/T in authenticated_account.transactions)
 						info += "<tr>"
 						info += "<td>[T.date]</td>"
 						info += "<td>[T.time]</td>"
@@ -454,7 +455,7 @@ log transactions
 				var/obj/item/device/pda/P = human_user.wear_id
 				I = P.id
 			if(I)
-				authenticated_account = attempt_account_access(I.associated_account_number)
+				authenticated_account = SSeconomy.attempt_account_access(I.associated_account_number)
 				if(authenticated_account)
 					human_user << "<span class='notice'>\icon[src] Access granted. Welcome user '[authenticated_account.owner_name].'</span>"
 
@@ -463,9 +464,9 @@ log transactions
 					T.target_name = authenticated_account.owner_name
 					T.purpose = "Remote terminal access"
 					T.source_terminal = machine_id
-					T.date = current_date_string
+					T.date = worlddate2text()
 					T.time = worldtime2text()
-					authenticated_account.transaction_log.Add(T)
+					SSeconomy.add_transaction_log(authenticated_account,T)
 
 					view_screen = NO_SCREEN
 
@@ -478,7 +479,7 @@ log transactions
 		playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
 		global_announcer.autosay("An ATM has gone into lockdown in [t.name].", machine_id)
 		if (tried_account_num)
-			bank_log_unauthorized(get_account(tried_account_num), machine_id)
+			SSeconomy.bank_log_unauthorized(SSeconomy.get_account(tried_account_num), machine_id)
 		view_screen = NO_SCREEN
 	else playsound(src, 'sound/machines/buzz-sigh.ogg', 50, 1)
 

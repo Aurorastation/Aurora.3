@@ -23,7 +23,7 @@
 			recoil = 1,
 			burst = null,
 			move_delay = null,
-			accuracy = null,
+			accuracy = 1,
 			dispersion = null,
 			projectile_type = /obj/item/projectile/bullet/pistol,
 			fire_sound = 'sound/weapons/Gunshot_smg.ogg'
@@ -35,7 +35,7 @@
 			recoil = 1,
 			burst = 3,
 			move_delay = 4,
-			accuracy = list(0,-1,-1,-2,-2),
+			accuracy = list(1, 0, 0,-1,-1),
 			dispersion = list(0, 10, 10),
 			projectile_type = /obj/item/projectile/bullet/pistol,
 			fire_sound = 'sound/weapons/Gunshot_smg.ogg'
@@ -47,7 +47,7 @@
 			recoil = 3,
 			burst = null,
 			move_delay = null,
-			accuracy = null,
+			accuracy = 0,
 			dispersion = null,
 			projectile_type = /obj/item/projectile/bullet/gyro/law,
 			fire_sound = 'sound/effects/Explosion1.ogg'
@@ -59,7 +59,7 @@
 			recoil = 0,
 			burst = null,
 			move_delay = null,
-			accuracy = null,
+			accuracy = 1,
 			dispersion = null,
 			projectile_type = /obj/item/projectile/beam/stun,
 			fire_sound = 'sound/weapons/Taser.ogg'
@@ -71,7 +71,7 @@
 			recoil = 3,
 			burst = null,
 			move_delay = null,
-			accuracy = null,
+			accuracy = 1,
 			dispersion = null,
 			projectile_type = /obj/item/projectile/bullet/shotgun/incendiary,
 			fire_sound = 'sound/weapons/Gunshot.ogg'
@@ -83,7 +83,7 @@
 			recoil = 3,
 			burst = null,
 			move_delay = null,
-			accuracy = null,
+			accuracy = 1,
 			dispersion = null,
 			projectile_type = /obj/item/projectile/bullet/rifle/a556,
 			fire_sound = 'sound/weapons/Gunshot.ogg'
@@ -95,7 +95,7 @@
 			recoil = 3,
 			burst = null,
 			move_delay = null,
-			accuracy = null,
+			accuracy = 0,
 			dispersion = null,
 			projectile_type = /obj/item/projectile/bullet/pellet/shotgun,
 			fire_sound = 'sound/weapons/Gunshot.ogg'

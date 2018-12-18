@@ -69,6 +69,7 @@
 	var/is_emped = 0
 
 	var/can_disassemble_cell = TRUE
+	var/can_disassemble_barrel = TRUE
 
 /obj/item/weapon/gun/custom_ka/verb/wield_accelerator()
 	set name = "Wield"
@@ -397,7 +398,7 @@
 			installed_upgrade_chip = null
 			update_stats()
 			update_icon()
-		else if(installed_barrel)
+		else if(installed_barrel && can_disassemble_barrel)
 			playsound(src,'sound/items/Ratchet.ogg', 50, 0)
 			to_chat(user,"You remove \the [installed_barrel].")
 			installed_barrel.forceMove(user.loc)
