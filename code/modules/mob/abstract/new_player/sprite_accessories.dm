@@ -724,6 +724,12 @@
 		icon_state = "hair_neatlong"
 		gender = FEMALE
 
+	bobcuteven
+	name = "Shoulder Bob"
+	icon_state = "hair_bobcuteven"
+	gender = FEMALE
+
+
 	// TG-format hair - uses ICON_MULTIPLY instead of ICON_ADD
 	uniter
 		icon = 'icons/mob/human_face/hair_multiply.dmi'
