@@ -211,6 +211,8 @@
 /obj/item/weapon/gun/projectile/gauss
 	name = "gauss thumper"
 	desc = "An outdated gauss weapon which sees sparing use in modern times. It's covered in the colors of the Tau Ceti Foreign Legion."
+	w_class = 3
+	slot_flags = 0
 	magazine_type = /obj/item/ammo_magazine/gauss
 	allowed_magazines = list(/obj/item/ammo_magazine/gauss)
 	icon_state = "gauss_thumper"
