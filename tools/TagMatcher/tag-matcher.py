@@ -75,8 +75,13 @@ for root, subdirs, files in walk(args.dir):
                 # For each file, generate the match dictionary.
                 matches[file_path] = populate_match_list()
                 for x in f:
-                    # Then for each line in the file, conduct the tuple open/close matching.
-                    get_tag_matches(matches[file_path], x)
+                    try:
+                        # Then for each line in the file, conduct the tuple open/close matching.
+                        get_tag_matches(matches[file_path], x)
+                    except UnicodeDecodeError:
+                        print("There is a non UTF-8 format character in file {}. Line:\n\r{}".format(f, x))
+                        exit(0)
+
 
 # Pretty printing section.
 # Loops over all matches and checks if there is a mismatch of tags.
