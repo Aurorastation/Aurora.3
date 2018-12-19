@@ -34,4 +34,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "ERT SWAT boots now ignore species restrictions, so xeno ERT can spawn with them properly."
+  - tweak: "ERT SWAT shoes now ignore species restrictions, so xeno ERT can spawn with them properly."
