@@ -23,6 +23,8 @@
 	item_flags = NOSLIP
 	siemens_coefficient = 0.5
 	can_hold_knife = 1
+
+/obj/item/clothing/shoes/swat/ert
 	species_restricted = null
 
 /obj/item/clothing/shoes/combat //Basically SWAT shoes combined with galoshes.
