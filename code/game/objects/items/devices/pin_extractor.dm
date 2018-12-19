@@ -9,6 +9,7 @@
 	action_button_name = "Toggle extractor"
 	var/on = 0
 	var/activation_sound = 'sound/effects/lighton.ogg'
+	origin_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 3, TECH_MAGNET = 4)
 
 
 /obj/item/device/pin_extractor/update_icon()
