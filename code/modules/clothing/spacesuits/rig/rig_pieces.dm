@@ -15,8 +15,9 @@
 		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
 		"Skrell" = 'icons/mob/species/skrell/helmet.dmi',
 		"Unathi" = 'icons/mob/species/unathi/helmet.dmi',
+		"Vaurca" = 'icons/mob/species/vaurca/helmet.dmi',
 		"Machine" = 'icons/mob/species/machine/helmet.dmi'
-		)
+	)
 	species_restricted = list("exclude","Diona","Xenomorph","Vaurca","Golem", "Vox")
 
 /obj/item/clothing/gloves/rig
@@ -54,6 +55,7 @@
 	sprite_sheets = list(
 		"Tajara" = 'icons/mob/species/tajaran/suit.dmi',
 		"Unathi" = 'icons/mob/species/unathi/suit.dmi',
+		"Vaurca" = 'icons/mob/species/vaurca/suit.dmi',
 		"Machine" = 'icons/mob/species/machine/suit.dmi'
 		)
 	species_restricted = list("exclude","Diona","Xenomorph","Golem","Vaurca","Vox")

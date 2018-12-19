@@ -81,12 +81,33 @@
 	slowdown = 2
 	offline_slowdown = 4
 	offline_vision_restriction = TINT_HEAVY
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs)
+
+	allowed = list(
+		/obj/item/device/flashlight,
+		/obj/item/weapon/tank,
+		/obj/item/device/suit_cooling_unit,
+		/obj/item/weapon/gun,
+		/obj/item/ammo_magazine,
+		/obj/item/ammo_casing,
+		/obj/item/weapon/melee/baton,
+		/obj/item/weapon/melee/energy/sword,
+		/obj/item/weapon/handcuffs
+	)
+
+	chest_type = /obj/item/clothing/suit/space/rig/retro
+	helm_type = /obj/item/clothing/head/helmet/space/rig/retro
 
 /obj/item/weapon/rig/retro/equipped
+	req_access = list(access_legion)
 	initial_modules = list(
 		/obj/item/rig_module/actuators,
 		/obj/item/rig_module/device/drill,
 		/obj/item/rig_module/cooling_unit,
 		/obj/item/rig_module/fabricator/energy_net
 		)
+
+/obj/item/clothing/head/helmet/space/rig/retro
+	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
+
+/obj/item/clothing/suit/space/rig/retro
+	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
