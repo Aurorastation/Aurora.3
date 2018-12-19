@@ -5228,7 +5228,7 @@
 /obj/machinery/alarm{
 	pixel_y = 23
 	},
-/obj/structure/closet/secure_closet/freezer/money,
+/obj/machinery/anti_bluespace,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "akk" = (
@@ -6625,6 +6625,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"amL" = (
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/structure/closet/secure_closet/freezer/money,
+/turf/simulated/floor/tiled/dark,
+/area/security/nuke_storage)
 "amM" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -6651,6 +6658,18 @@
 "amO" = (
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
+"amP" = (
+/obj/structure/cable/green,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/nuke_storage)
 "amQ" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (Ion Rifle)";
@@ -9593,18 +9612,18 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "asd" = (
-/obj/structure/cable/green,
-/obj/machinery/power/apc/vault{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 28;
-	pixel_y = 0
+/obj/structure/table/rack,
+/obj/item/weapon/storage/box/flashbangs{
+	pixel_x = 2;
+	pixel_y = -2
 	},
-/obj/machinery/light/small/emergency{
-	dir = 1
+/obj/item/weapon/storage/box/teargas,
+/obj/item/weapon/storage/box/firingpins,
+/obj/structure/reagent_dispensers/peppertank{
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/security/armoury)
 "ase" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -11194,9 +11213,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "aux" = (
-/obj/structure/reagent_dispensers/peppertank{
-	pixel_x = -32
-	},
+/obj/machinery/anti_bluespace,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "auy" = (
@@ -15091,16 +15108,6 @@
 	dir = 4
 	},
 /obj/machinery/firealarm/east,
-/turf/simulated/floor/tiled/dark,
-/area/security/armoury)
-"aAV" = (
-/obj/structure/table/rack,
-/obj/item/weapon/storage/box/flashbangs{
-	pixel_x = 2;
-	pixel_y = -2
-	},
-/obj/item/weapon/storage/box/teargas,
-/obj/item/weapon/storage/box/firingpins,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "aAW" = (
@@ -91981,7 +91988,7 @@ aux
 awd
 axR
 azv
-aAV
+asd
 ajR
 auC
 aGe
@@ -106617,14 +106624,14 @@ acV
 ahT
 aiO
 aiO
-aki
+amL
 aoo
 alh
 amf
 apB
 aDb
 aqN
-asd
+amP
 aoo
 aoo
 aoo
