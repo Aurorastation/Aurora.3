@@ -23791,7 +23791,9 @@
 	name = "Holding Cell";
 	req_access = list(2)
 	},
-/turf/space,
+/turf/unsimulated/floor{
+	icon_state = "floor1"
+	},
 /area/centcom/extraction_shuttle)
 "lOs" = (
 /obj/structure/closet/secure_closet/personal,
@@ -24124,7 +24126,9 @@
 	name = "Holding Cell 1";
 	req_access = list(2)
 	},
-/turf/space,
+/turf/unsimulated/floor{
+	icon_state = "floor1"
+	},
 /area/centcom/extraction_shuttle)
 "qeL" = (
 /turf/unsimulated/floor{
@@ -24375,7 +24379,9 @@
 	name = "Holding Cell";
 	req_access = list(2)
 	},
-/turf/space,
+/turf/unsimulated/floor{
+	icon_state = "floor1"
+	},
 /area/centcom/extraction_shuttle)
 "slb" = (
 /obj/machinery/light,
