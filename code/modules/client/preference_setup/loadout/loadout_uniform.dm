@@ -50,7 +50,8 @@
 /datum/gear/uniform/skirt/New()
 	..()
 	var/skirts = list()
-	skirts["casual skirt"] = /obj/item/clothing/under/skirt/casual
+	skirts["pleated skirt"] = /obj/item/clothing/under/skirt/casual
+	skirts["short skirt"] = /obj/item/clothing/under/skirt/casualalt
 	skirts["long skirt"] = /obj/item/clothing/under/skirt/long
 	skirts["pencil skirt"] = /obj/item/clothing/under/skirt/pencil
 	skirts["swept skirt"] = /obj/item/clothing/under/skirt/swept

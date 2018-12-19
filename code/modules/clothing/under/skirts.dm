@@ -16,10 +16,16 @@
 	worn_state = "skirt_khaki"
 
 /obj/item/clothing/under/skirt/casual
-	name = "casual skirt"
-	desc = "A short, colorful skirt."
+	name = "pleated skirt"
+	desc = "A short, colorful pleated skirt."
 	icon_state = "skirt_casual"
 	worn_state = "skirt_casual"
+
+/obj/item/clothing/under/skirt/casualalt
+	name = "short skirt"
+	desc = "A short, colorful skirt."
+	icon_state = "skirt_casualalt"
+	worn_state = "skirt_casualalt"
 
 /obj/item/clothing/under/skirt/long
 	name = "long skirt"
