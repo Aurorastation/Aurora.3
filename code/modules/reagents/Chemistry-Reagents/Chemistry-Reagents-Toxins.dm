@@ -316,10 +316,10 @@
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_mob(var/mob/living/L, var/amount)
 	. = ..()
 	if(istype(L))
-		if(M.on_fire)
-			M.ExtinguishMob(amount*2)
+		if(L.on_fire)
+			L.ExtinguishMob(amount*2)
 		else
-			M.adjust_fire_stacks(-amount*0.5)
+			L.adjust_fire_stacks(-amount*0.5)
 
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed)
 	if(istype(S))
@@ -505,7 +505,7 @@
 	glass_name = "glass of beer"
 	glass_desc = "A freezing pint of beer"
 	glass_center_of_mass = list("x"=16, "y"=8)
-	
+
 	fallback_specific_heat = 1.2
 
 /* Drugs */

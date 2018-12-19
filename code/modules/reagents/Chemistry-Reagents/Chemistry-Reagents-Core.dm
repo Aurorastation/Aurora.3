@@ -231,10 +231,10 @@
 	. = ..()
 	if(istype(M) && isliving(M))
 		var/mob/living/L = M
-		if(M.on_fire)
-			M.ExtinguishMob(amount)
+		if(L.on_fire)
+			L.ExtinguishMob(amount)
 		else
-			M.adjust_fire_stacks(-amount*0.5)
+			L.adjust_fire_stacks(-amount*0.5)
 
 	if(istype(M) && !istype(M, /mob/abstract))
 		M.color = initial(M.color)
@@ -255,7 +255,7 @@
 		var/mob/living/carbon/slime/S = M
 		S.adjustToxLoss(12 * removed) // A slime having water forced down its throat would cause much more damage then being splashed on it
 		if (!S.client && S.Target)
-		
+
 			S.Target = null
 			++S.Discipline
 
