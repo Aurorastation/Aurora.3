@@ -729,6 +729,10 @@
 	icon_state = "hair_bobcuteven"
 	gender = FEMALE
 
+	shortmess
+	name = "Messy"
+	icon_state = "hair_shortmess"
+
 
 	// TG-format hair - uses ICON_MULTIPLY instead of ICON_ADD
 	uniter
