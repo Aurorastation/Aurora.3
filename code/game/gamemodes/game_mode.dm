@@ -10,6 +10,7 @@ var/global/list/additional_antag_types = list()
 	var/probability = 0
 
 	var/required_players = 0                 // Minimum players for round to start if voted in.
+	var/max_players = 0			 			// Maximum players for round to start for secret voting. 0 means "doesn't matter"
 	var/required_enemies = 0                 // Minimum antagonists for round to start.
 	var/newscaster_announcements = null
 	var/end_on_antag_death = 0               // Round will end when all antagonists are dead.
@@ -145,36 +146,59 @@ var/global/list/additional_antag_types = list()
 
 ///can_start()
 ///Checks to see if the game can be setup and ran with the current number of players or whatnot.
-/datum/game_mode/proc/can_start(var/do_not_spawn)
+/datum/game_mode/proc/can_start()
+
+	log_debug("GAMEMODE: Checking gamemode possibility selection for: [name]...")
+
+	var/returning = GAME_FAILURE_NONE
+
 	var/playerC = 0
 	for(var/mob/abstract/new_player/player in player_list)
-		if((player.client)&&(player.ready))
+		if(player.client && player.ready)
 			playerC++
 
-	if(playerC < required_players)
-		return 0
+	log_debug("GAMEMODE: [playerC] players checked and readied.")
 
-	if(!(antag_templates && antag_templates.len))
-		return 1
+	if(required_players && playerC < required_players)
+		log_debug("GAMEMODE: There aren't enough players ([playerC]/[required_players]) to start [name]!")
+		returning |= GAME_FAILURE_NO_PLAYERS
 
-	var/enemy_count = 0
-	if(antag_tags && antag_tags.len)
-		for(var/antag_tag in antag_tags)
-			var/datum/antagonist/antag = all_antag_types[antag_tag]
-			if(!antag)
-				continue
-			var/list/potential = list()
-			if(antag.flags & ANTAG_OVERRIDE_JOB)
-				potential = antag.pending_antagonists
-			else
-				potential = antag.candidates
-			if(islist(potential))
-				if(require_all_templates && potential.len < antag.initial_spawn_req)
-					return 0
-				enemy_count += potential.len
-				if(enemy_count >= required_enemies)
-					return 1
-	return 0
+	if(max_players && playerC > max_players)
+		log_debug("GAMEMODE: There are too many players ([playerC]/[max_players]) to start [name]!")
+		returning |= GAME_FAILURE_TOO_MANY_PLAYERS
+
+	if(antag_templates && antag_templates.len)
+		log_debug("GAMEMODE: Checking antag templates...")
+		if(antag_tags && antag_tags.len)
+			log_debug("GAMEMODE: Checking antag tags...")
+			var/total_enemy_count = 0
+			for(var/antag_tag in antag_tags)
+				var/datum/antagonist/antag = all_antag_types[antag_tag]
+				if(!antag)
+					continue
+				log_debug("GAMEMODE: Checking antag tag: [antag.role_text]...")
+				var/list/potential = list() //List of potential players to spawn as antagonists
+				if(antag.flags & ANTAG_OVERRIDE_JOB)
+					potential = antag.pending_antagonists
+				else
+					potential = antag.candidates
+				if(islist(potential))
+					if(potential.len)
+						log_debug("GAMEMODE: Found [potential.len] potential antagonists for [antag.role_text].")
+						total_enemy_count += potential.len
+						if(antag.initial_spawn_req && require_all_templates && potential.len < antag.initial_spawn_req)
+							log_debug("GAMEMODE: There are not enough antagonists ([potential.len]/[antag.initial_spawn_req]) for the role [antag.role_text]!")
+							returning |= GAME_FAILURE_NO_ANTAGS
+
+			log_debug("GAMEMODE: Found [total_enemy_count] total enemies for [name].")
+
+			if(required_enemies && total_enemy_count < required_enemies)
+				log_debug("GAMEMODE: There are not enough total antagonists ([total_enemy_count]/[required_enemies]) to start [name]!")
+				returning |= GAME_FAILURE_NO_ANTAGS
+
+	log_debug("GAMEMODE: Finished gamemode checking. [name] returned [returning].")
+
+	return returning
 
 /datum/game_mode/proc/refresh_event_modifiers()
 	if(event_delay_mod_moderate || event_delay_mod_major)

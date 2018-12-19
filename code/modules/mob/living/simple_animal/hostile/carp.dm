@@ -38,6 +38,7 @@
 	break_stuff_probability = 15
 
 	faction = "carp"
+	attack_emote = "nashes at"
 
 	flying = TRUE
 
@@ -89,8 +90,8 @@
 		visible_message("<span class='danger'>\the [src] has attacked [e]!</span>")
 		src.do_attack_animation(e)
 
-/mob/living/simple_animal/hostile/carp/DestroySurroundings()
-	if(prob(break_stuff_probability))
+/mob/living/simple_animal/hostile/carp/DestroySurroundings(var/bypass_prob = FALSE)
+	if(prob(break_stuff_probability) || bypass_prob)
 		for(var/dir in cardinal) // North, South, East, West
 			var/obj/effect/energy_field/e = locate(/obj/effect/energy_field, get_step(src, dir))
 			if(e)
