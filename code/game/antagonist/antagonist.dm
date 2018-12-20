@@ -1,9 +1,10 @@
 /datum/antagonist
 
 	// Text shown when becoming this antagonist.
-	var/list/restricted_jobs =     list()   // Jobs that cannot be this antagonist (depending on config)
-	var/list/protected_jobs =      list()   // As above.
-	var/list/restricted_species =   list()   // species that cannot be this antag - Ryan784
+	var/list/restricted_jobs = list()        // Jobs that cannot be this antagonist (depending on config)
+	var/list/protected_jobs = list()         // As above.
+	var/list/restricted_species = list()     // species that cannot be this antag - Ryan784
+	var/list/chance_restricted_jobs = list() // chance based restrictions. see the autotratitor gamemode for an example
 
 	// Strings.
 	var/welcome_text = "Cry havoc and let slip the dogs of war!"
@@ -110,6 +111,8 @@
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: They are blacklisted for this role!")
 		else if(player_is_antag(player))
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: They are already an antagonist!")
+		if(!can_become_antag_chance(player))
+			log_debug("[key_name(player)] is not eligible to become a [role_text]: They are unlucky (based on job)!")
 		else
 			candidates += player
 

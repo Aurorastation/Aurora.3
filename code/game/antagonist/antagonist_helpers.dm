@@ -11,7 +11,12 @@
 		if(player.current.client.prefs && player.current.client.prefs.species in restricted_species)
 			return 0
 	return 1
-
+	
+/datum/antagonist/proc/can_become_antag_chance(var/datum/mind/player)
+	if(player.assigned_role in chance_restricted_jobs)
+		return prob(chance_restricted_jobs[player.assigned_role])
+	else
+		return 1
 /datum/antagonist/proc/antags_are_dead()
 	for(var/datum/mind/antag in current_antagonists)
 		if(mob_path && !istype(antag.current,mob_path))

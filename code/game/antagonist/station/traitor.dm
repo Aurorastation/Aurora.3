@@ -5,6 +5,7 @@ var/datum/antagonist/traitor/traitors
 	id = MODE_TRAITOR
 	restricted_jobs = list("Internal Affairs Agent", "Head of Security", "Captain", "AI")
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
+	chance_restricted_jobs = list("Security Officer" = 50, "Security Cadet" = 75, "Warden" = 25, "Detective" = 25, "Forensic Technician" = 50) //Second value is chance to be considered for antag. Unlisted roles here are 100 by default.
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 
 	faction = "syndicate"
