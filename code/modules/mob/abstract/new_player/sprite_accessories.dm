@@ -244,10 +244,10 @@
 		icon_state = "hair_combover"
 		gender = MALE
 
-	father
-		name = "Father"
-		icon_state = "hair_father"
-		gender = MALE
+//	father				// NO. Just NO. Why did we ever have it.
+//		name = "Father"
+//		icon_state = "hair_father"
+//		gender = MALE
 
 	reversemohawk
 		name = "Reverse Mohawk"
@@ -329,11 +329,6 @@
 		name = "Hitop"
 		icon_state = "hair_hitop"
 		gender = MALE
-
-	mohawk
-		name = "Mohawk"
-		icon_state = "hair_d"
-		species_allowed = list("Human","Unathi")
 
 	jensen
 		name = "Adam Jensen Hair"
@@ -733,6 +728,10 @@
 		name = "Messy"
 		icon_state = "hair_shortmess"
 
+	remohawk
+		name = "Mohawk"
+		icon_state = "hair_mohawk"
+
 
 	// TG-format hair - uses ICON_MULTIPLY instead of ICON_ADD
 	uniter
@@ -1008,6 +1007,10 @@
 		una_sidefrills
 			name = "Unathi Side Frills"
 			icon_state = "unathi_sidefrills"
+
+		una_mohawk
+			name = "Unathi Mohawk"
+			icon_state = "hair_d"
 
 //skrell tentacles
 
