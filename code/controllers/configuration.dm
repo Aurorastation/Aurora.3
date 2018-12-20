@@ -993,7 +993,7 @@ var/list/gamemode_cache = list()
 			log_debug("GAMEMODE: ERROR: [M] does not exist!")
 			continue
 			
-		var/can_start = M.can_start()
+		var/can_start = M.can_start(secret_type == ROUNDTYPE_STR_SECRET)
 		if(can_start != GAME_FAILURE_NONE)
 			log_debug("GAMEMODE: [M.name] cannot start! Reason: [can_start]")
 			continue

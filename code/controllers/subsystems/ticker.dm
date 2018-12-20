@@ -412,6 +412,9 @@ var/datum/controller/subsystem/ticker/SSticker
 	if(can_start & GAME_FAILURE_TOO_MANY_PLAYERS)
 		fail_reasons +=  "Too many players, less than [mode.max_players] antagonist(s) needed"
 
+	if(can_start & GAME_FAILURE_LAST_ROUND)
+		fail_reasons +=  "This secret selection was picked last round"		
+		
 	if(can_start != GAME_FAILURE_NONE)
 		world << "<B>Unable to start [mode.name].</B> [english_list(fail_reasons,"No reason specified",". ",". ")]"
 		current_state = GAME_STATE_PREGAME
@@ -429,6 +432,8 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	if(hide_mode)
 		world << "<B>The current game mode is - [hide_mode == ROUNDTYPE_SECRET ? "Secret" : "Mixed Secret"]!</B>"
+		if(hide_mode == ROUNDTYPE_SECRET)
+			SSpersist_config.last_secret_gamemode = mode.config_tag
 		if(runnable_modes.len)
 			var/list/tmpmodes = new
 			for (var/datum/game_mode/M in runnable_modes)

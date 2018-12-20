@@ -146,7 +146,7 @@ var/global/list/additional_antag_types = list()
 
 ///can_start()
 ///Checks to see if the game can be setup and ran with the current number of players or whatnot.
-/datum/game_mode/proc/can_start()
+/datum/game_mode/proc/can_start(var/secret_check = 0)
 
 	log_debug("GAMEMODE: Checking gamemode possibility selection for: [name]...")
 
@@ -166,6 +166,10 @@ var/global/list/additional_antag_types = list()
 	if(max_players && playerC > max_players)
 		log_debug("GAMEMODE: There are too many players ([playerC]/[max_players]) to start [name]!")
 		returning |= GAME_FAILURE_TOO_MANY_PLAYERS
+
+	if(secret_check && config_tag && SSpersist_config.last_secret_gamemode == config_tag)
+		log_debug("GAMEMODE: We already played [name] last round!")
+		returning |= GAME_FAILURE_LAST_ROUND
 
 	if(antag_templates && antag_templates.len)
 		log_debug("GAMEMODE: Checking antag templates...")
