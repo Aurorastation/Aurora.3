@@ -11,7 +11,7 @@
 
 /obj/structure/mopbucket/New()
 	..()
-	create_reagents(100)
+	create_reagents(360)
 	janitorial_supplies |= src
 
 /obj/structure/mobbucket/Destroy()

@@ -240,7 +240,8 @@
 		/obj/item/weapon/storage/bag/trash,
 		/obj/item/weapon/screwdriver,
 		/obj/item/weapon/wrench,
-		/obj/item/weapon/crowbar
+		/obj/item/weapon/crowbar,
+		/obj/item/weapon/reagent_containers/glass/rag
 		)
 
 /obj/item/weapon/storage/belt/wands

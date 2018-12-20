@@ -36,8 +36,8 @@
 	item_state = "trashbag"
 
 	w_class = 4
-	max_w_class = 2
-	max_storage_space = 56
+	max_w_class = 3
+	max_storage_space = 64
 	can_hold = null // any
 	cant_hold = list(/obj/item/weapon/disk/nuclear)
 
