@@ -13,9 +13,12 @@
 /obj/random/Initialize()
 	. = ..()
 	if (!prob(spawn_nothing_percentage))
-		var/item = spawn_item()
-		if (has_postspawn && item)
-			post_spawn(item)
+		var/obj/spawned_item = spawn_item()
+		if(spawned_item)
+			spawned_item.pixel_x = pixel_x
+			spawned_item.pixel_y = pixel_y
+			if(has_postspawn)
+				post_spawn(spawned_item)
 
 	return INITIALIZE_HINT_QDEL
 
@@ -703,6 +706,7 @@
 		/obj/item/clothing/head/helmet/augment = 0.1,
 		/obj/item/clothing/mask/balaclava = 1,
 		/obj/item/clothing/mask/gas = 1.5,
+		/obj/item/clothing/mask/gas/old = 1.0,
 		/obj/item/clothing/mask/gas/cyborg = 0.7,
 		/obj/item/clothing/mask/gas/owl_mask = 0.5,
 		/obj/item/clothing/mask/gas/syndicate = 0.4,
@@ -862,6 +866,7 @@
 		/obj/item/weapon/gun/projectile/automatic/terminator = 0.5,
 		/obj/item/weapon/rig/military = 0.5,
 		/obj/item/weapon/rig/unathi/fancy = 0.5,
+		/obj/item/weapon/rig/vaurca/minimal = 0.5,
 		/obj/item/weapon/anomaly_core = 0.5
 	)
 
@@ -1091,3 +1096,114 @@
 		/obj/item/weapon/gun/custom_ka/frameF/prebuilt01 = 1,
 		/obj/item/weapon/gun/custom_ka/frameF/prebuilt02 = 1
 	)
+
+/obj/random/vault_rig
+	name = "random rigsuit"
+	desc = "Contains a random rigsuit found in the vault."
+	icon = 'icons/obj/rig_modules.dmi'
+	icon_state = "breacher_rig"
+	spawnlist = list(
+		/obj/item/weapon/rig/ce = 1,
+		/obj/item/weapon/rig/eva= 1,
+		/obj/item/weapon/rig/hazard = 1,
+		/obj/item/weapon/rig/hazmat = 1,
+		/obj/item/weapon/rig/medical = 1,
+		/obj/item/weapon/rig/industrial = 1
+	)
+
+/obj/random/telecrystals
+	name = "random telecrystals"
+	desc = "Contains a random amount of telecrystals."
+	icon = 'icons/obj/telescience.dmi'
+	icon_state = "telecrystal"
+	spawnlist = list(
+		/obj/item/stack/telecrystal{amount = 5} = 0.7,
+		/obj/item/stack/telecrystal{amount = 10} = 0.1,
+		/obj/item/stack/telecrystal{amount = 15} = 0.2,
+	)
+
+/obj/random/bad_ai
+	name = "random evil AI module"
+	desc = "Contains a random evil AI module."
+	icon = 'icons/obj/module.dmi'
+	icon_state = "std_mod"
+	spawnlist = list(
+		/obj/item/weapon/aiModule/antimov = 1,
+		/obj/item/weapon/aiModule/asimov = 1,
+		/obj/item/weapon/aiModule/purge = 1,
+		/obj/item/weapon/aiModule/quarantine = 1,
+		/obj/item/weapon/aiModule/freeform = 1,
+		/obj/item/weapon/aiModule/oneHuman = 0.5,
+		/obj/item/weapon/aiModule/oxygen = 1
+	)
+
+/obj/random/rig_module
+	name = "random rig module"
+	desc = "Contains a random rig module worthy of vault protection."
+	icon = 'icons/obj/rig_modules.dmi'
+	icon_state = "actuators"
+	spawnlist = list(
+		/obj/item/rig_module/actuators/combat = 1,
+		/obj/item/rig_module/chem_dispenser/combat = 1,
+		/obj/item/rig_module/chem_dispenser/injector = 1,
+		/obj/item/rig_module/device/emag_hand = 1,
+		/obj/item/rig_module/device/rcd = 1,
+		/obj/item/rig_module/electrowarfare_suite = 0.5,
+		/obj/item/rig_module/emp_shielding = 0.5,
+		/obj/item/rig_module/fabricator/energy_net = 1,
+		/obj/item/rig_module/fabricator = 0.5,
+		/obj/item/rig_module/grenade_launcher = 0.5,
+		/obj/item/rig_module/maneuvering_jets = 0.5,
+		/obj/item/rig_module/mounted/egun = 1,
+		/obj/item/rig_module/mounted/smg = 0.5,
+		/obj/item/rig_module/vision/multi = 0.5
+	)
+
+/obj/random/finances
+	name = "random valued item"
+	desc = "Contains raw valued items like phoron, gold, and money."
+	spawnlist = list(
+		/obj/item/weapon/spacecash/bundle{worth = 5000} = 0.25,
+		/obj/item/weapon/spacecash/bundle{worth = 10000} = 0.5,
+		/obj/item/weapon/spacecash/bundle{worth = 25000} = 0.25,
+		/obj/item/stack/material/phoron{amount = 50} = 1,
+		/obj/item/stack/material/gold{amount = 50} = 1
+	)
+
+	has_postspawn = TRUE
+
+/obj/random/finances/post_spawn(var/obj/item/spawned)
+	spawned.update_icon()
+
+/obj/random/vault_weapon
+	name = "random vault weapon"
+	desc = "This is a random vault weapon."
+	icon = 'icons/obj/gun.dmi'
+	icon_state = "retro100"
+	spawnlist = list(
+		/obj/item/weapon/gun/custom_ka/frameA/prebuilt = 1,
+		/obj/item/weapon/gun/custom_ka/frameB/prebuilt = 0.5,
+		/obj/item/weapon/gun/custom_ka/frameC/prebuilt = 0.25,
+		/obj/item/weapon/gun/custom_ka/frameD/prebuilt = 0.125,
+		/obj/item/weapon/gun/custom_ka/frameF/prebuilt01 = 0.03125,
+		/obj/item/weapon/gun/custom_ka/frameF/prebuilt02 = 0.03125,
+		/obj/item/weapon/gun/custom_ka/frameE/prebuilt = 0.03125,
+		/obj/item/weapon/gun/energy/captain/xenoarch = 0.5,
+		/obj/item/weapon/gun/energy/laser/xenoarch = 0.5,
+		/obj/item/weapon/gun/energy/laser/practice/xenoarch = 0.25,
+		/obj/item/weapon/gun/energy/xray/xenoarch = 0.25,
+		/obj/item/weapon/gun/energy/net = 1
+	)
+
+/obj/random/vault_weapon/post_spawn(var/obj/item/weapon/gun/spawned)
+	spawned.name = "prototype [spawned.name]"
+	if(istype(spawned,/obj/item/weapon/gun/custom_ka/))
+		var/obj/item/weapon/gun/custom_ka/KA = spawned
+		KA.can_disassemble_barrel = FALSE
+		KA.can_disassemble_cell = FALSE
+
+	if(istype(spawned,/obj/item/weapon/gun/energy/))
+		var/obj/item/weapon/gun/energy/E = spawned
+		E.charge_cost *= 2
+		E.self_recharge = 0
+		E.reliability = 90

@@ -39,6 +39,7 @@
 /datum/reagent/proc/initialize_data(var/newdata) // Called when the reagent is created.
 	if(!isnull(newdata))
 		data = newdata
+	metabolism = round(metabolism,0.001)
 
 /datum/reagent/proc/remove_self(var/amount) // Shortcut
 	if (!holder)
@@ -79,10 +80,14 @@
 	if(overdose && (dose > overdose) && (location != CHEM_TOUCH))
 		overdose(M, alien, removed, dose/overdose)
 
+	if(dose == 0)
+		initial_effect(M,alien)
+
 	dose = min(dose + removed, max_dose)
 
-	//Not based on science, based on balance.
-	M.bodytemperature += Clamp( ((get_temperature() - (T0C + 20)) * removed * 0.002),-5*removed,5*removed)
+	var/bodytempchange = Clamp((get_temperature() - M.bodytemperature) * removed * REAGENTS_BODYTEMP,-REAGENTS_BODYTEMP_MAX * removed, REAGENTS_BODYTEMP_MAX * removed)
+	if(abs(bodytempchange) >= REAGENTS_BODYTEMP_MIN)
+		M.bodytemperature += round(bodytempchange,REAGENTS_BODYTEMP_MIN)
 
 	for(var/datum/reagent/R in M.bloodstr.reagent_list)
 		if(istype(R, conflicting_reagent))
@@ -102,6 +107,10 @@
 
 //Initial effect is called once when the reagent first starts affecting a mob.
 /datum/reagent/proc/initial_effect(var/mob/living/carbon/M, var/alien)
+	return
+
+//Final effect is called once when the reagent finishes affecting a mob.
+/datum/reagent/proc/final_effect(var/mob/living/carbon/M)
 	return
 
 /datum/reagent/proc/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)

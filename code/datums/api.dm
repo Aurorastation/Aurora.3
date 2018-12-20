@@ -147,7 +147,7 @@ proc/api_update_command_database()
 	var/versionstring = null
 	//The Version Number follows SemVer http://semver.org/
 	version["major"] = 2 //Major Version Number --> Increment when implementing breaking changes
-	version["minor"] = 3 //Minor Version Number --> Increment when adding features
+	version["minor"] = 4 //Minor Version Number --> Increment when adding features
 	version["patch"] = 0 //Patchlevel --> Increment when fixing bugs
 
 	versionstring = "[version["major"]].[version["minor"]].[version["patch"]]"
@@ -648,7 +648,7 @@ proc/api_update_command_database()
 	s["host"] = host ? host : null
 	s["players"] = 0
 	s["stationtime"] = worldtime2text()
-	s["roundduration"] = round_duration()
+	s["roundduration"] = get_round_duration_formatted()
 	s["gameid"] = game_id
 
 	if(queryparams["status"] == "2")
@@ -1064,7 +1064,7 @@ proc/api_update_command_database()
 /datum/topic_command/get_polls/run_command(queryparams)
 	var/current_only = text2num(queryparams["current_only"])
 	var/admin_only = text2num(queryparams["admin_only"])
-	
+
 	if(!establish_db_connection(dbcon))
 		statuscode = 500
 		response = "DB-Connection unavailable"
@@ -1201,11 +1201,26 @@ proc/api_update_command_database()
 		response = "Unknown Poll Type"
 		data = poll_data
 		return 1
-	
+
 
 	poll_data["results"] = result_data
 
 	statuscode = 200
 	response = "Poll data fetched"
 	data = poll_data
+	return 1
+
+//Sends a text to everyone on the server
+/datum/topic_command/broadcast_text
+	name = "broadcast_text"
+	description = "Sends a text to everyone on the server."
+	params = list(
+		"text" = list("name"="text","desc"="The text that should be sent","req"=1,"type"="str")
+	)
+
+/datum/topic_command/broadcast_text/run_command(queryparams)
+	to_world(queryparams["text"])
+
+	statuscode = 200
+	response = "Text sent"
 	return 1
