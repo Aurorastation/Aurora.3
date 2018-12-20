@@ -7,11 +7,11 @@
 	w_class = 3
 	flags = OPENCONTAINER
 	var/amount_per_transfer_from_this = 5	//shit I dunno, adding this so syringes stop runtime erroring. --NeoFite
+	var/bucketsize = 200
 
-
-/obj/structure/mopbucket/New()
-	..()
-	create_reagents(100)
+/obj/structure/mopbucket/Initialize()
+	. = ..()
+	create_reagents(bucketsize)
 	janitorial_supplies |= src
 
 /obj/structure/mobbucket/Destroy()
@@ -30,3 +30,9 @@
 			reagents.trans_to_obj(I, 5)
 			user << "<span class='notice'>You wet \the [I] in \the [src].</span>"
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
+
+
+/obj/structure/mopbucket/large
+	name = "large mop bucket"
+	icon_state = "mopbucketl"
+	bucketsize = 400

@@ -76,6 +76,22 @@
 			return 1
 	..()
 
+/obj/item/weapon/storage/bag/trash/bluespace
+	name = "bluespace trash bag"
+	desc = "A highly advanced trashbag with a huge storage capacity!"
+	icon_state = "trashbagb0"
+	item_state = "trashbagb"
+
+	max_storage_space = 128
+
+/obj/item/weapon/storage/bag/trash/bluespace/update_icon()
+	if(contents.len == 0)
+		icon_state = "trashbagb0"
+	else if(contents.len < 42)
+		icon_state = "trashbagb1"
+	else if(contents.len < 84)
+		icon_state = "trashbagb2"
+	else icon_state = "trashbagb3"
 
 // -----------------------------
 //        Plastic Bag

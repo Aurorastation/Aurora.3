@@ -11,9 +11,10 @@
 	attack_verb = list("mopped", "bashed", "bludgeoned", "whacked")
 	var/mopping = 0
 	var/mopcount = 0
+	var/cleantime = 25
 
-/obj/item/weapon/mop/New()
-	..()
+/obj/item/weapon/mop/Initialize()
+	. = ..()
 	create_reagents(30)
 	janitorial_supplies |= src
 
@@ -30,7 +31,7 @@
 
 		user.visible_message("<span class='warning'>[user] begins to clean \the [get_turf(A)].</span>")
 
-		if(do_after(user, 40))
+		if(do_after(user, cleantime))
 			var/turf/T = get_turf(A)
 			if(T)
 				T.clean(src, user)
@@ -41,3 +42,10 @@
 	if(istype(I, /obj/item/weapon/mop) || istype(I, /obj/item/weapon/soap))
 		return
 	..()
+
+/obj/item/weapon/mop/electric
+	name = "mop"
+	desc = "The upgraded version of the standard mob."
+	icon = 'icons/obj/janitor.dmi'
+	icon_state = "emop"
+	cleantime = 10
