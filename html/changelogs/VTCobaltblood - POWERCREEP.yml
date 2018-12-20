@@ -34,4 +34,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Janitors have received significant QoL improvements. The mop bucket accepts more liquid, trash bags are larger and rags can fit into janibelts. The mop now cleans much faster."
+  - tweak: "Janitors have received significant QoL improvements. The mop bucket accepts more liquid (360u), trash bags are larger, and rags can fit into janibelts. The mop now cleans much faster."
