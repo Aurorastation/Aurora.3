@@ -272,6 +272,8 @@ var/list/diona_banned_languages = list(
 		//We will only replace ONE organ or limb each time this procs
 		var/path
 		for (var/i in species.has_limbs)
+			if(organs_by_name[i]) //Allow arm transplants + cyborg limbs
+				continue
 			path = species.has_limbs[i]["path"]
 			var/limb_exists = 0
 			for (var/obj/item/organ/external/B in organs)
