@@ -172,8 +172,15 @@
 		var/datum/mind/player = pick(candidates)
 		candidates -= player
 		draft_antagonist(player)
+		log_assignment(player)
 
 	return 1
+
+/datum/antagonist/proc/log_assignment(var/datum/mind/player)
+	//Update the database with the antag selection
+	if (mind.current && mind.current.character_id)
+		var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_characters_log SET special_role_time = :special_role_time:, special_role = :special_role: WHERE game_id = :game_id: AND char_id = :char_id:")
+		update_query.Execute(list("special_role_time"="[round_duration()]:00","special_role"=role_text,"game_id"=game_id,"char_id"=mind.current.character_id))
 
 /datum/antagonist/proc/draft_antagonist(var/datum/mind/player)
 	//Check if the player can join in this antag role, or if the player has already been given an antag role.
@@ -196,11 +203,6 @@
 
 	//Ensure that a player cannot be drafted for multiple antag roles, taking up slots for antag roles that they will not fill.
 	player.special_role = role_text
-
-	//Update the database with the antag selection
-	if (mind.current.character_id)
-		var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_characters_log SET special_role_time = :special_role_time:, special_role = :special_role: WHERE game_id = :game_id: AND char_id = :char_id:")
-		update_query.Execute(list("special_role_time"="[round_duration()]:00","special_role"=role_text,"game_id"=game_id,"char_id"=mind.current.character_id))
 
 	return 1
 
