@@ -39,22 +39,51 @@
 		return 1
 	return 0
 
+/datum/teleport/proc/checkInhibitors(atom/adestination)
+	if(istype(adestination))
+		var/list/turf/good_turfs = list()
+		var/list/turf/bad_turfs = list()
+		for(var/found_inhibitor in circlerange(adestination,8))
+			if(!istype(found_inhibitor,/obj/machinery/anti_bluespace))
+				continue
+			var/obj/machinery/anti_bluespace/AB = found_inhibitor
+			if(AB.stat & (NOPOWER | BROKEN) )
+				continue
+			AB.use_power(AB.active_power_usage)
+			bad_turfs += circlerangeturfs(get_turf(AB),8)
+			good_turfs += circlerangeturfs(get_turf(AB),9)
+		if(good_turfs.len && bad_turfs.len)
+			good_turfs -= bad_turfs
+			return pick(good_turfs)
+
+	return adestination
+
 //must succeed
 /datum/teleport/proc/setDestination(atom/adestination)
 	if(istype(adestination))
-		destination = adestination
+		destination = checkInhibitors(adestination)
 		return 1
 	return 0
 
 //must succeed in most cases
 /datum/teleport/proc/setTeleatom(atom/movable/ateleatom)
+	if(!istype(ateleatom))
+		return 0
+
+	teleatom = checkInhibitors(ateleatom)
+	if(isturf(teleatom))
+		var/turf/T = teleatom
+		var/atom/valid_atoms = list()
+		for(var/atom/movable in T)
+			valid_atoms += T
+		ateleatom = pick(valid_atoms)
+
 	if(istype(ateleatom, /obj/effect) && !istype(ateleatom, /obj/effect/dummy/chameleon))
 		qdel(ateleatom)
 		return 0
-	if(istype(ateleatom))
-		teleatom = ateleatom
-		return 1
-	return 0
+
+	return 1
+
 
 //custom effects must be properly set up first for instant-type teleports
 //optional

@@ -109,7 +109,7 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 	var/obj/effect/decal/cleanable/liquid_fuel/fuel = locate() in src
 	LAZYINITLIST(zone.fire_tiles)
 	zone.fire_tiles |= src
-	if(fuel) 
+	if(fuel)
 		LAZYADD(zone.fuel_objs, fuel)
 
 	var/obj/effect/decal/cleanable/foam/extinguisher_foam = locate() in src
@@ -388,7 +388,15 @@ datum/gas_mixture/proc/check_recombustability(list/fuel_objs)
 
 	if(total_combustables > 0)
 		//slows down the burning when the concentration of the reactants is low
-		var/damping_multiplier = min(1, active_combustables / (total_moles/group_multiplier))
+		var/damping_multiplier
+		if(!total_moles || !group_multiplier)
+			damping_multiplier = min(1, active_combustables)
+		else if(!total_moles)
+			damping_multiplier = min(1, active_combustables / group_multiplier)
+		else if(!group_multiplier)
+			damping_multiplier = min(1, active_combustables / total_moles)
+		else
+			damping_multiplier = min(1, active_combustables / (total_moles/group_multiplier))
 
 		//weight the damping mult so that it only really brings down the firelevel when the ratio is closer to 0
 		damping_multiplier = 2*damping_multiplier - (damping_multiplier*damping_multiplier)

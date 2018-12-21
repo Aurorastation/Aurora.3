@@ -68,8 +68,8 @@
 
 /obj/item/rig_module/teleporter
 
-	name = "teleportation module"
-	desc = "A complex, sleek-looking, hardsuit-integrated teleportation module."
+	name = "bluespace teleportation module"
+	desc = "A complex, sleek-looking, hardsuit-integrated teleportation module that exploits bluespace energy to phase from one location to another instantaneously."
 	icon_state = "teleporter"
 	use_power_cost = 40
 	redundant = 1
@@ -78,7 +78,7 @@
 
 	engage_string = "Emergency Leap"
 
-	interface_name = "VOID-shift phase projector"
+	interface_name = "VOID-shift bluespace phase projector"
 	interface_desc = "An advanced teleportation system. It is capable of pinpoint precision or random leaps forward."
 
 /obj/item/rig_module/teleporter/proc/phase_in(var/mob/M,var/turf/T)
@@ -132,13 +132,16 @@
 		return 0
 
 	phase_out(H,get_turf(H))
-	H.forceMove(T)
+	do_teleport(H,T)
 	phase_in(H,get_turf(H))
+
+	if(T != get_turf(H))
+		to_chat(H,span("warning","Something interferes with your [src]!"))
 
 	for(var/obj/item/weapon/grab/G in H.contents)
 		if(G.affecting)
 			phase_out(G.affecting,get_turf(G.affecting))
-			G.affecting.forceMove(locate(T.x+rand(-1,1),T.y+rand(-1,1),T.z))
+			do_teleport(G.affecting,locate(T.x+rand(-1,1),T.y+rand(-1,1),T.z))
 			phase_in(G.affecting,get_turf(G.affecting))
 
 	return 1
