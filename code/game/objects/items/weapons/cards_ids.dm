@@ -363,6 +363,12 @@ obj/item/weapon/card/id/ert/New()
 	access = get_all_station_access() + get_centcom_access("Emergency Response Team")
 	..()
 
+/obj/item/weapon/card/id/tcfl
+	name = "\improper Tau Ceti Foreign Legion ID"
+	icon_state = "centcom"
+	assignment = "Tau Ceti Foreign Legion Volunteer"
+	access = list(access_maint_tunnels, access_external_airlocks, access_legion)
+
 /obj/item/weapon/card/id/all_access
 	name = "\improper Administrator's spare ID"
 	desc = "The spare ID of the Lord of Lords himself."

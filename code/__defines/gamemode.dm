@@ -55,6 +55,7 @@
 #define MODE_TRAITOR "traitor"
 #define MODE_VAMPIRE "vampire"
 #define MODE_THRALL "thrall"
+#define MODE_TCFL "tau ceti foreign legion"
 
 #define DEFAULT_TELECRYSTAL_AMOUNT 25
 
