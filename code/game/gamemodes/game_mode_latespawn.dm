@@ -57,7 +57,7 @@
 	for(var/datum/antagonist/A in antag_templates)
 		if(A.can_late_spawn() && A.can_emergency_spawn())
 			message_admins("[uppertext(name)]: [A.id] selected for spawn attempt.")
-			usable_templates |= A
+			usable_templates += A
 
 	if(!usable_templates.len)
 		message_admins("[uppertext(name)]: Could not find any antagonist types that can be processed for emergency spawning.")
