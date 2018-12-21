@@ -40,6 +40,7 @@
 	name = "Garden seed storage"
 	scanner = list("stats")
 	starting_seeds = list(
+		/obj/item/seeds/ambrosiavulgarisseed = 3,
 		/obj/item/seeds/appleseed = 3,
 		/obj/item/seeds/bananaseed = 3,
 		/obj/item/seeds/berryseed = 3,
@@ -65,6 +66,7 @@
 		/obj/item/seeds/potatoseed = 3,
 		/obj/item/seeds/pumpkinseed = 3,
 		/obj/item/seeds/riceseed = 3,
+		/obj/item/seeds/reishimycelium = 2,
 		/obj/item/seeds/soyaseed = 3,
 		/obj/item/seeds/sugarcaneseed = 3,
 		/obj/item/seeds/sunflowerseed = 3,
