@@ -48,6 +48,9 @@
 		if(nonstandard_role_msg)
 			player.current << "<span class='notice'>[nonstandard_role_msg]</span>"
 		update_icons_added(player)
+	
+	log_assignment(player)
+
 	return 1
 
 /datum/antagonist/proc/remove_antagonist(var/datum/mind/player, var/show_message = TRUE, var/implanted)
