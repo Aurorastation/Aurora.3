@@ -30,6 +30,8 @@ var/datum/antagonist/revolutionary/revs
 
 	restricted_jobs = list("AI", "Cyborg")
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician", "Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Captain", "Head of Security", "Internal Affairs Agent")
+	chance_restricted_jobs = list("Security Officer" = 50, "Security Cadet" = 75, "Warden" = 25, "Detective" = 25, "Forensic Technician" = 50, "Head of Personnel" = 25, "Chief Engineer" = 25, "Research Director" = 25, "Chief Medical Officer" = 25) //Second value is chance to be considered for antag. Unlisted roles here are 100 by default.
+
 
 /datum/antagonist/revolutionary/New()
 	..()
