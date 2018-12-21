@@ -499,7 +499,7 @@
 		/obj/item/seeds/plastiseed = 3
 	)
 	prices = list(
-		/obj/item/seeds/ambrosiavulgarisseed = 50,
+		/obj/item/seeds/ambrosiavulgarisseed = 50, 
 		/obj/item/seeds/appleseed = 50,
 		/obj/item/seeds/bananaseed = 60,
 		/obj/item/seeds/berryseed = 40,
