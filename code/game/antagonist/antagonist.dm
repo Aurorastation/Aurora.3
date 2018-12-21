@@ -197,6 +197,11 @@
 	//Ensure that a player cannot be drafted for multiple antag roles, taking up slots for antag roles that they will not fill.
 	player.special_role = role_text
 
+	//Update the database with the antag selection
+	if (mind.current.character_id)
+		var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_characters_log SET special_role_time = :special_role_time:, special_role = :special_role: WHERE game_id = :game_id: AND char_id = :char_id:")
+		update_query.Execute(list("special_role_time"="[round_duration()]:00","special_role"=role_text,"game_id"=game_id,"char_id"=mind.current.character_id))
+
 	return 1
 
 //Spawns all pending_antagonists. This is done separately from attempt_spawn in case the game mode setup fails.
