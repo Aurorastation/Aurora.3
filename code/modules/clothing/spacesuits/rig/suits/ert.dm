@@ -115,3 +115,6 @@
 		/obj/item/rig_module/datajack,
 		/obj/item/rig_module/actuators/combat
 		)
+
+/obj/item/weapon/rig/ert/assetprotection/empty
+	initial_modules = list()

@@ -70,12 +70,10 @@
 	icon_off = "fridge1"
 	req_access = list(access_heads_vault)
 
-
 	fill()
 		..()
-		for(var/i = 0, i < 3, i++)
-			new /obj/item/weapon/spacecash/c1000(src)
-		for(var/i = 0, i < 5, i++)
-			new /obj/item/weapon/spacecash/c500(src)
-		for(var/i = 0, i < 6, i++)
-			new /obj/item/weapon/spacecash/c200(src)
+		for(var/i = 0, i < rand(15,25), i++)
+			new /obj/random/spacecash(src)
+
+		for(var/i = 0, i < rand(6,9), i++)
+			new /obj/random/coin(src)
