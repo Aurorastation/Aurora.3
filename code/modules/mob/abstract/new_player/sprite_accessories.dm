@@ -732,6 +732,10 @@
 		name = "Mohawk"
 		icon_state = "hair_mohawk"
 
+	celes
+		name = "Drills, Side"
+		icon_state = "hair_celes"
+
 
 	// TG-format hair - uses ICON_MULTIPLY instead of ICON_ADD
 	uniter
