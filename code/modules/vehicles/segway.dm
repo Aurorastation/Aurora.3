@@ -1,6 +1,6 @@
 /obj/vehicle/segway
 	name = "security segway"
-	desc = "For the slow security or mall cops"
+	desc = "Nanotrasen's soultion to the security weight crisis!"
 	icon = 'icons/obj/segway.dmi'
 	icon_state = "segway"
 	dir = SOUTH
@@ -24,7 +24,7 @@
 
 /obj/item/weapon/key/segwaykey
 	name = "key"
-	desc = "A small key fob, a ISD symbol is engraved into it."
+	desc = "A small key. It has the symbol of Nanotrasen's Internal Security Department on it."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "segwaykeys"
 	w_class = 1
@@ -44,83 +44,35 @@
 		return
 	..()
 
-/obj/vehicle/segway/turn_on()
+/obj/vehicle/segway/verb/toggle()
+	set name = "Toggle Engine"
+	set category = "Vehicle"
+	set src in view(0)
+
+	if(use_check(usr))
+		return
+
 	if(!key)
 		return
-	else
-		..()
-		update_stats()
-
-		verbs -= /obj/vehicle/segway/verb/stop_engine
-		verbs += /obj/vehicle/segway/verb/start_engine
-
-		if(on)
-			verbs += /obj/vehicle/segway/verb/stop_engine
-		else
-			verbs += /obj/vehicle/segway/verb/start_engine
-
-/obj/vehicle/train/cargo/engine/turn_off()
-	..()
-
-	verbs += /obj/vehicle/segway/verb/stop_engine
-	verbs += /obj/vehicle/segway/verb/start_engine
 
 	if(!on)
-		verbs += /obj/vehicle/segway/verb/start_engine
-	else
-		verbs += /obj/vehicle/segway/verb/stop_engine
-		verbs += /obj/vehicle/segway/verb/start_engine
-
-
-
-/obj/vehicle/segway/verb/start_engine()
-	set name = "Start engine"
-	set category = "Vehicle"
-	set src in view(0)
-
-	if(!istype(usr, /mob/living/carbon/human))
-		return
-
-	if(on)
-		usr << "The engine is already running."
-		return
-
-	turn_on()
-	if (on)
-		usr << "You start [src]'s engine."
+		turn_on()
+		src.visible_message("\The [src] starts up with a rumble", "You hear something rumble deeply.")
 		playsound(src, 'sound/misc/bike_start.ogg', 100, 1)
 	else
-		if(cell.charge < charge_use)
-			usr << "[src] is out of power."
-		else
-			usr << "[src]'s engine won't start."
-
-/obj/vehicle/segway/verb/stop_engine()
-	set name = "Stop engine"
-	set category = "Vehicle"
-	set src in view(0)
-
-	if(!istype(usr, /mob/living/carbon/human))
-		return
-
-	if(!on)
-		usr << "The engine is already stopped."
-		return
-
-	turn_off()
-	if (!on)
-		usr << "You stop [src]'s engine."
-
+		turn_off()
+		src.visible_message("\The [src] putters before turning off.", "You hear something putter slowly.")
 
 /obj/vehicle/segway/verb/siren()
 	set name = "Hail Suspect"
 	set category = "Vehicle"
 	set src in view(0)
 
-	if(usr.incapacitated()) return
+	if(use_check(usr))
+		return
 
 	if(!on)
-		usr.visible_message("\The [usr] attempts to use [src]'s siren but it won't work with the engine off.", "You attempt to use \the [src]'s siren with the engine off, it won't work however.", "You hear a thunk.")
+		src.visible_message("You attempt to use \the [src]'s siren with the engine off, it won't work however.", "You hear a thunk.")
 		return
 	else
 		playsound(get_turf(src), 'sound/voice/halt.ogg', 100, 1, vary = 0)
@@ -131,7 +83,8 @@
 	set category = "Vehicle"
 	set src in view(0)
 
-	if(usr.incapacitated()) return
+	if(use_check(usr))
+		return
 
 	if(kickstand)
 		usr.visible_message("\The [usr] puts up \the [src]'s kickstand.", "You put up \the [src]'s kickstand.", "You hear a thunk.")
@@ -152,7 +105,8 @@
 
 /obj/vehicle/segway/load(var/atom/movable/C)
 	var/mob/living/M = C
-	if(!istype(C)) return 0
+	if(!istype(M)) 
+		return 0
 	if(M.buckled || M.restrained() || !Adjacent(M) || !M.Adjacent(src))
 		return 0
 	return ..(M)
@@ -165,13 +119,13 @@
 /obj/vehicle/segway/attack_hand(var/mob/user as mob)
 	if(user == load)
 		unload(load)
-		user << "You unbuckle yourself from \the [src]"
+		user << "You unbuckle yourself from \the [src]."
 	else if(user != load && load)
 		user.visible_message ("[user] starts to unbuckle [load] from \the [src]!")
 		if(do_after(user, 8 SECONDS, act_target = src))
 			unload(load)
-			user <<"You unbuckle [load] from \the [src]"
-			load <<"You were unbuckled from \the [src] by [user]"
+			user <<"You unbuckle [load] from \the [src]."
+			load <<"You were unbuckled from \the [src] by [user]."
 
 /obj/vehicle/segway/relaymove(mob/user, direction)
 	if(user != load || !on || user.incapacitated())
@@ -179,7 +133,8 @@
 	return Move(get_step(src, direction))
 
 /obj/vehicle/segway/Move(var/turf/destination)
-	if(kickstand) return
+	if(kickstand)
+		return
 
 	//these things like space, not turf. Dragging shouldn't weigh you down.
 	var/static/list/types = typecacheof(list(/turf/space, /turf/simulated/open, /turf/simulated/floor/asteroid))
@@ -219,3 +174,26 @@
 	QDEL_NULL(ion)
 
 	return ..()
+
+
+
+/obj/vehicle/segway/verb/remove_key()
+	set name = "Remove key"
+	set category = "Vehicle"
+	set src in view(0)
+
+	if (use_check(usr, show_messages = FALSE))
+		return
+
+	if(!key || (load && load != usr))
+		return
+
+	if(on)
+		turn_off()
+
+	key.loc = usr.loc
+	if(!usr.get_active_hand())
+		usr.put_in_hands(key)
+	key = null
+
+	verbs -= /obj/vehicle/segway/verb/remove_key
