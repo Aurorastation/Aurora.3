@@ -29,12 +29,12 @@
 	see_in_dark = 6
 	maxHealth = 5
 	health = 5
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/mice
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "stomps on"
 	density = 0
-	meat_amount = 1
+	meat_amount = 2
 	var/body_color //brown, gray and white, leave blank for random
 	layer = MOB_LAYER
 	mob_size = MOB_MINISCULE
