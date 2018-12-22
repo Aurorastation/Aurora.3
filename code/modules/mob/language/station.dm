@@ -313,6 +313,39 @@
 		"nanotrasen", "getmore", "contract", "progress", "robust", "chocolate", "synergy", "promotion", "effective", "quadrant", "finance", "profit", "margin", "product", "finance"
 	)
 	partial_understanding = list(LANGUAGE_TCB = 60)
+	flags = WHITELISTED
+
+	var/flavours = list(	\
+		"Cola",				\
+		"Raspberry",		\
+		"Lemon",			\
+		"Strawberry",		\
+		"Wildberry",		\
+		"Pomegranate",		\
+		"Pineapple",		\
+		"Tropical",			\
+		"Grape",			\
+		"Orange",			\
+		"Juicey",			\
+		"Apple",			\
+		"Pear",				\
+	)
+
+	var/name_verbs = list(	\
+		"Crunch",			\
+		"Crush",			\
+		"Crash",			\
+		"Smash",			\
+		"Splat",			\
+		"Swish",			\
+		"Twist",			\
+		"Turn",				\
+		"Taste",			\
+		"Trap",				\
+		"Flip",				\
+		"Rush",				\
+		"Rise",				\
+	)
 
 /datum/language/getmore/get_random_name(var/gender)
-	return capitalize(pick(first_names_flavour)) + " " + capitalize(pick(last_names_verb))
+	return capitalize(pick(flavours)) + " " + capitalize(pick(name_verbs))

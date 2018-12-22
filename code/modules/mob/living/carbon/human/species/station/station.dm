@@ -808,7 +808,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	// Always looks like pepsi, regardless of the flavour.
 	blood_color = "#654321"
 
-	flags = NO_CHUBBY | NO_BLOOD | NO_BREATHE | NO_SCAN | NO_PAIN | NO_POISON | NO_HEAD
+	flags = NO_CHUBBY | NO_BLOOD | NO_BREATHE | NO_SCAN | NO_PAIN | NO_POISON
 
 
 	primitive_form = null
