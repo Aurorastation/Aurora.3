@@ -698,6 +698,18 @@
 		name = "Right Sidecut"
 		icon_state = "hair_rightside"
 
+	gentle2
+		name = "Gentle 2"
+		icon_state = "hair_gentle2"
+
+	gentle2long
+		name = "Gentle 2 (Long)"
+		icon_state = "hair_gentle2long"
+
+	donutbun
+		name = "Donut Bun"
+		icon_state = "hair_donutbun"
+
 	// TG-format hair - uses ICON_MULTIPLY instead of ICON_ADD
 	uniter
 		icon = 'icons/mob/human_face/hair_multiply.dmi'
@@ -977,15 +989,22 @@
 
 	skr_tentacle_m
 		icon = 'icons/mob/human_face/skrell_hair.dmi'
-		name = "Skrell Male Tentacles"
+		name = "Skrell Short Tentacles"
 		icon_state = "skrell_hair_m"
 		species_allowed = list("Skrell")
-		gender = MALE
 
 		skr_tentacle_f
-			name = "Skrell Female Tentacles"
+			name = "Skrell Average Tentacles"
 			icon_state = "skrell_hair_f"
-			gender = FEMALE
+
+		skr_tentacle_short
+			name = "Skrell Very Short Tentacles"
+			icon_state = "veryshort_s"
+
+		skr_tentacle_long
+			name = "Skrell Very Long Tentacles"
+			icon_state = "verylong_s"
+
 
 //tajaran hair
 
@@ -1078,6 +1097,35 @@
 		vox_quills_mohawk
 			name = "Quill Mohawk"
 			icon_state = "vox_mohawk"
+
+//vaurca antennae
+
+	vaurca_classic
+		icon = 'icons/mob/human_face/vaurca_hair.dmi'
+		name = "Classic Antennae"
+		icon_state = "vaurca_classic"
+		species_allowed = list("Vaurca")
+		gender = NEUTER
+
+		vaurca_mid
+			name = "Mid Length Antennae"
+			icon_state = "vaurca_mid"
+
+		vaurca_fla
+			name = "Floor Length Antennae"
+			icon_state = "vaurca_fla"
+
+		vaurca_droop
+			name = "Droopy Antennae"
+			icon_state = "vaurca_droop"
+
+		vaurca_zappy
+			name = "Zappy Antennae"
+			icon_state = "vaurca_zappy"
+
+		vaurca_braided
+			name = "Braided Antennae"
+			icon_state = "vaurca_braided"
 
 /datum/sprite_accessory/facial_hair
 	taj_sideburns
@@ -1315,7 +1363,6 @@
 		icon_state = "una_scutes"
 		body_parts = list("chest")
 		species_allowed = list("Unathi")
-
 
 // Branded IPC markings - disabled for now, some layering issues.
 /*

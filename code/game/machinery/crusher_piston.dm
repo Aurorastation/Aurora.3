@@ -188,7 +188,7 @@
 		//If we are idle, flash the warning lights and then put us into pre_start once we are done
 		if(status == "idle")
 			if(initial)
-				playsound(loc, 'sound/machines/airalarm.ogg', 50, 1)	//Plays a beep
+				playsound(src.loc, 'sound/effects/crusher_alarm.ogg', 50, 1)	//Plays a sound
 				initial = 0
 			//TODO: Flash the lights
 			if(timediff > time_stage_pre)

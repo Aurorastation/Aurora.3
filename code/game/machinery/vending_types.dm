@@ -136,16 +136,18 @@
 		/obj/item/weapon/reagent_containers/food/drinks/tea = 25,
 		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 25,
 		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 20,
-		/obj/item/weapon/reagent_containers/food/snacks/donut/psdonut = 10
+		/obj/item/weapon/reagent_containers/food/snacks/donut/normal/psdonut = 10
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/drinks/ice = 10
 	)
 	prices = list(
 		/obj/item/weapon/reagent_containers/food/drinks/coffee = 20,
+		/obj/item/weapon/reagent_containers/food/drinks/coffee/pslatte = 25,
 		/obj/item/weapon/reagent_containers/food/drinks/tea = 20,
 		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 22,
-		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 6
+		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 6,
+		/obj/item/weapon/reagent_containers/food/snacks/donut/normal/psdonut = 10
 	)
 	cooling_temperature = T0C + 57 //Optimal coffee temperature
 	heating_temperature = T0C + 100 //ULTRA HOT COFFEE
@@ -171,17 +173,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 2,
-		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb01 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb02 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb03 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb04 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb05 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb06 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb07 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb08 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb09 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb10 = 4
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 4
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/snacks/syndicake = 6,
@@ -200,17 +192,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 22,
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 23,
 		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 24,
-		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 60,
-		/obj/item/weapon/reagent_containers/food/snacks/cb01 = 10,
-		/obj/item/weapon/reagent_containers/food/snacks/cb02 = 12,
-		/obj/item/weapon/reagent_containers/food/snacks/cb03 = 14,
-		/obj/item/weapon/reagent_containers/food/snacks/cb04 = 12,
-		/obj/item/weapon/reagent_containers/food/snacks/cb05 = 13,
-		/obj/item/weapon/reagent_containers/food/snacks/cb06 = 14,
-		/obj/item/weapon/reagent_containers/food/snacks/cb07 = 12,
-		/obj/item/weapon/reagent_containers/food/snacks/cb08 = 14,
-		/obj/item/weapon/reagent_containers/food/snacks/cb09 = 12,
-		/obj/item/weapon/reagent_containers/food/snacks/cb10 = 11
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 60
 	)
 
 /obj/machinery/vending/cola
@@ -363,7 +345,7 @@
 	products = list(
 		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/ointment = 2,
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector = 4,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline = 4,
 		/obj/item/device/healthanalyzer = 1,
 		/obj/item/device/breath_analyzer  = 1
 	)
@@ -384,7 +366,7 @@
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector = 5,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline = 5,
 		/obj/item/weapon/reagent_containers/syringe/antitoxin = 3,
 		/obj/item/stack/medical/bruise_pack = 3,
 		/obj/item/stack/medical/ointment = 3,

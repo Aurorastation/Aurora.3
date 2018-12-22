@@ -1009,6 +1009,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "flaming_poncho"
 	item_state = "flaming_poncho"
 	contained_sprite = TRUE
+	icon_override = FALSE
 
 
 /obj/item/clothing/accessory/badge/fluff/jane_badge //Tarnished Badge - Jane Pyre - somethingvile
@@ -1071,14 +1072,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/make_items.dmi'
 	icon_state = "make_beret"
 	item_state = "make_beret"
-	contained_sprite = TRUE
-
-/obj/item/device/radio/headset/fluff/make_antenna //Antenna - M.A.K.E - toasterstrudes
-	name = "antenna"
-	desc = "An antenna attachment that can be screwed into the side of an IPC's head. It looks to have radio functions."
-	icon = 'icons/obj/custom_items/make_items.dmi'
-	icon_state = "make_antenna"
-	item_state = "make_antenna"
 	contained_sprite = TRUE
 
 
@@ -1852,18 +1845,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	light_color = LIGHT_COLOR_BLUE
 
 
-obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.K.E - toasterstrudes
+/obj/item/clothing/accessory/poncho/fluff/make_poncho //Raincoat Poncho - M.A.K.E - toasterstrudes
 	name = "raincoat poncho"
 	desc = "A tough brown hooded poncho that looks to be good at protecting someone from the rain."
 	icon = 'icons/obj/custom_items/make_items.dmi'
 	icon_state = "make_poncho"
 	item_state = "make_poncho"
 	contained_sprite = TRUE
-	hoodtype = /obj/item/clothing/head/winterhood/fluff/make_hood
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-
-/obj/item/clothing/head/winterhood/fluff/make_hood
-	flags_inv = HIDEEARS
+	icon_override = FALSE
 
 
 /obj/item/clothing/under/fluff/aegis_uniform //Hephaestus Experimental Projector - Sovereign Aegis - itanimulli
@@ -2400,3 +2389,86 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 	icon_state = "ryn_hood"
 	item_state = "ryn_hood"
 	contained_sprite = TRUE
+
+
+/obj/item/weapon/material/kitchen/utensil/fork/fluff/vedai_fork //Stainless Steel Fork - Vedai'Kwia Xizal - conspiir
+	desc = "A stainless steel fork. The word \"Kwia\" is engraved on the back of the handle."
+	icon = 'icons/obj/custom_items/vedai_fork.dmi'
+	icon_state = "vedai_fork"
+	applies_material_colour = FALSE
+
+/obj/item/weapon/material/kitchen/utensil/fork/fluff/vedai_fork/set_material(var/new_material)
+	..()
+	name = "stainless [material.display_name] [initial(name)]"
+
+
+/obj/item/sign/fluff/tokash_sign //Tokash Ancestral Spear - Suvek Tokash - evandorf
+	name = "ancestral spear"
+	desc = "This spear is clearly very old but well cared for."
+	icon_state = "tokash_sign"
+	sign_state = "tokash_sign"
+	w_class = 2
+
+
+/obj/item/weapon/spirit_board/fluff/klavdiya_board //Ghostly Board - Klavdiya Tikhomirov - alberyk
+	name = "ghostly board"
+	desc = "An adhomian ghostly board, used in divination rituals. This one is blue and has the symbol of a moon on it."
+	icon = 'icons/obj/custom_items/klavdiya_amulet.dmi'
+	icon_state = "klavdiya_board" //thanks to kyres1 for the sprites
+
+
+/obj/item/clothing/suit/storage/fluff/diamond_jacket //Clawed Arm & Jacket - Diamond with Flaw - burgerbb
+	name = "torn chemistry jacket"
+	desc = "The entire left side of this perfectly good jacket was torn to shreds."
+	icon = 'icons/obj/custom_items/diamond_cloak.dmi'
+	icon_state = "diamond_chemjacket"
+	item_state = "diamond_chemjacket"
+	contained_sprite = TRUE
+
+/obj/item/organ/external/arm/industrial/fluff/dionaea_l_arm
+	robotize_type = PROSTHETIC_DIONA
+
+/obj/item/organ/external/hand/industrial/fluff/dionaea_l_hand
+	robotize_type = PROSTHETIC_DIONA
+
+/datum/robolimb/fluff/dionaea
+	company = PROSTHETIC_DIONA
+	desc = "This limb is covered in a strange formation of metal and organic matter."
+	icon = 'icons/mob/human_races/r_ind_diona.dmi'
+	linked_frame = "Unknown Entity"
+	species_can_use = list("Diona")
+	unavailable_at_chargen = TRUE
+
+/obj/item/fluff/dionaea_arm
+	name = "strange arm"
+	desc = "Is that mold?"
+	icon = 'icons/mob/human_races/r_ind_diona.dmi'
+	icon_state = "preview"
+
+/obj/item/fluff/dionaea_arm/attack_self(mob/user)
+	if(user.ckey != "burgerbb" || !ishuman(user))
+		to_chat(user,span("notice","You can't seem to figure out what to do with this."))
+		return
+
+	var/mob/living/carbon/human/H = user
+	if(!H.is_diona())
+		to_chat(user,span("notice","It looks strangely familiar..."))
+		return
+
+	var/obj/item/organ/external/OL = H.get_organ("l_arm")
+	var/obj/item/organ/external/arm/industrial/fluff/dionaea_l_arm/NA = new(get_turf(src))
+	var/obj/item/organ/external/hand/industrial/fluff/dionaea_l_hand/NH = new(get_turf(src))
+
+	if(OL)
+		qdel(OL)
+
+	if(NA)
+		NA.replaced(H)
+		if(NH)
+			NH.replaced(H)
+		H.update_body()
+		H.updatehealth()
+		H.UpdateDamageIcon()
+
+	H.drop_from_inventory(src)
+	qdel(src)

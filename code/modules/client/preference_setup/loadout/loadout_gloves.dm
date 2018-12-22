@@ -29,6 +29,10 @@
 	display_name = "evening gloves"
 	path = /obj/item/clothing/gloves/evening
 
+/datum/gear/gloves/evening/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
 /datum/gear/gloves/ring
 	display_name = "ring"
 	path = /obj/item/clothing/ring/engagement
