@@ -509,7 +509,7 @@
 	glass_name = "glass of beer"
 	glass_desc = "A freezing pint of beer"
 	glass_center_of_mass = list("x"=16, "y"=8)
-	
+
 	fallback_specific_heat = 1.2
 
 /* Drugs */
@@ -654,7 +654,7 @@
 	taste_description = "sludge"
 
 /datum/reagent/slimetoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(ishuman(M))
+	if(prob(10) && ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(H.species.name != "Slime")
 			M << "<span class='danger'>Your flesh rapidly mutates!</span>"
@@ -668,30 +668,13 @@
 	color = "#13BC5E"
 	taste_description = "sludge"
 
-/datum/reagent/aslimetoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed) // TODO: check if there's similar code anywhere else
-	if(M.transforming)
-		return
-	M << "<span class='danger'>Your flesh rapidly mutates!</span>"
-	M.transforming = 1
-	M.canmove = 0
-	M.icon = null
-	M.cut_overlays()
-	M.invisibility = 101
-	for(var/obj/item/W in M)
-		if(istype(W, /obj/item/weapon/implant)) //TODO: Carn. give implants a dropped() or something
-			qdel(W)
-			continue
-		W.layer = initial(W.layer)
-		W.forceMove(M.loc)
-		W.dropped(M)
-	var/mob/living/carbon/slime/new_mob = new /mob/living/carbon/slime(M.loc)
-	new_mob.a_intent = "hurt"
-	new_mob.universal_speak = 1
-	if(M.mind)
-		M.mind.transfer_to(new_mob)
-	else
-		new_mob.key = M.key
-	qdel(M)
+/datum/reagent/aslimetoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(prob(10) && ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(!H.dna.GetSEState(MONKEYBLOCK))
+			H.dna.check_integrity()
+			H.dna.SetSEState(MONKEYBLOCK,1)
+			domutcheck(H, null)
 
 /datum/reagent/nanites
 	name = "Nanomachines"
