@@ -272,7 +272,7 @@
 /obj/item/weapon/trap/animal/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/reagent_containers) && contents.len)
 		var/mob/living/L = pick(contents)
-		W.attack(L, user)
+		W.afterattack(L, user, TRUE)
 
 	else if(istype(W, /obj/item/weapon) && contents.len)
 		var/mob/living/L = pick(contents)
