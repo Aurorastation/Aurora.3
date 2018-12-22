@@ -135,14 +135,14 @@
 	icon = 'icons/obj/items.dmi'
 	icon_base = "small"
 	icon_state = "small0"
-	desc = "A small mechanical trap thas is used to catch small animals like mice, lizard, chick and spiderlings."
+	desc = "A small mechanical trap thas is used to catch small animals like mice, lizards, chick and spiderlings."
 	throwforce = 2
 	force = 1
 	w_class = 2
 	origin_tech = list(TECH_MATERIAL = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 1750)
 	deployed = 0
-	time_to_escape = 0.5 // Minutes
+	time_to_escape = 3 // Minutes
 	var/breakout = FALSE
 	var/last_shake = 0
 	var/list/allowed_mobs = list(/mob/living/simple_animal/mouse, /mob/living/simple_animal/chick, /mob/living/simple_animal/lizard)
@@ -234,7 +234,7 @@
 
 	escapee.next_move = world.time + 100
 	escapee.last_special = world.time + 100
-	to_chat(escapee, "<span class='warning'>You to shake and bump the lock of \the [src]. (this will take about [(time_to_escape == 0.5) ? ("[time_to_escape * 60] seconds") : ("[time_to_escape] minute")])</span>")
+	to_chat(escapee, "<span class='warning'>You to shake and bump the lock of \the [src]. (this will take about [time_to_escape] minutes).</span>")
 	visible_message("<span class='danger'>\The [src] begins to shake violently! Something is attempting to escape it!</span>")
 
 	var/time = 360 * time_to_escape * 2
@@ -273,6 +273,23 @@
 	if(istype(W, /obj/item/weapon/reagent_containers) && contents.len)
 		var/mob/living/L = pick(contents)
 		W.afterattack(L, user, TRUE)
+
+	else if(istype(W, /obj/item/weapon/screwdriver))
+		var/turf/T = get_turf(src)
+		if(!T)
+			to_chat(user, "<span class='warning'>There is nothing to secure [src] to!</span>")
+			return
+
+		user.visible_message("<span class='notice'>[user] is trying to [anchored ? "un" : "" ]secure \the [src]!</span>",
+							  "You are trying to [anchored ? "" : "un" ]secure \the [src]!")
+		playsound(src.loc, "sound/items/[pick("Screwdriver", "Screwdriver2")].ogg", 50, 1)
+
+		if (!do_after(user, 3 SECONDS, act_target = src))
+			return
+
+		anchored = !anchored
+		user.visible_message("<span class='notice'>[user] has [anchored ? "" : "un" ]secured \the [src]!</span>",
+							  "You have [anchored ? "" : "un" ]secured \the [src]!")
 
 	else if(istype(W, /obj/item/weapon) && contents.len)
 		var/mob/living/L = pick(contents)
@@ -356,7 +373,7 @@
 
 /obj/item/weapon/trap/animal/medium
 	name = "medium trap"
-	desc = "A medium mechanical trap thas is used to catch medium size animals like cat, diyaab, monkey, yithian, pengiuns, chicken, nymph. Sometimes even maintainence drones, spiderbots and PAi."
+	desc = "A medium mechanical trap thas is used to catch medium size animals like cat, corgi, diyaab, monkey, yithian, pengiuns, chicken, nymph. Sometimes even maintainence drones, spiderbots and PAi."
 	icon_base = "medium"
 	icon_state = "medium0"
 	throwforce = 4
@@ -365,17 +382,16 @@
 	origin_tech = list(TECH_MATERIAL = 3)
 	matter = list(DEFAULT_WALL_MATERIAL = 5750)
 	deployed = 0
-	time_to_escape = 1 // Minute
 
 /obj/item/weapon/trap/animal/medium/Initialize()
 	allowed_mobs = list(
-						/mob/living/simple_animal/cat, /mob/living/simple_animal/hostile/diyaab, /mob/living/carbon/human/monkey, /mob/living/simple_animal/penguin, /mob/living/simple_animal/crab,
+						/mob/living/simple_animal/cat, /mob/living/simple_animal/corgi, /mob/living/simple_animal/hostile/diyaab, /mob/living/carbon/human/monkey, /mob/living/simple_animal/penguin, /mob/living/simple_animal/crab,
 						/mob/living/simple_animal/chicken, /mob/living/simple_animal/yithian, /mob/living/carbon/alien/diona, /mob/living/silicon/robot/drone, /mob/living/silicon/pai,
 						/mob/living/simple_animal/spiderbot, /mob/living/simple_animal/hostile/tree)
 
 /obj/item/weapon/trap/animal/large
 	name = "large trap"
-	desc = "A large mechanical trap thas is used to catch medium size animals like dog, spider, carp, goat, cow, shark, fox, bear, cavern dwellers, and other kinds of Xenomorphs. Sometimes even maintainence drones and PAi."
+	desc = "A large mechanical trap thas is used to catch medium size animals like dog, spider, carp, goat, cow, shark, fox, bear, cavern dwellers, and other kinds of Xenomorphs."
 	icon_base = "large"
 	icon_state = "large0"
 	throwforce = 6
@@ -385,13 +401,12 @@
 	origin_tech = list(TECH_MATERIAL = 4)
 	matter = list(DEFAULT_WALL_MATERIAL = 15750)
 	deployed = 0
-	time_to_escape = 2 // Minute
 
 /obj/item/weapon/trap/animal/large/Initialize()
 	allowed_mobs = list(
-						/mob/living/simple_animal/cat, /mob/living/simple_animal/corgi, /mob/living/simple_animal/hostile/retaliate/goat, /mob/living/simple_animal/cow, /mob/living/simple_animal/corgi/fox,
+						/mob/living/simple_animal/hostile/retaliate/goat, /mob/living/simple_animal/cow, /mob/living/simple_animal/corgi/fox,
 						/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/hostile/bear, /mob/living/simple_animal/hostile/alien, /mob/living/simple_animal/hostile/giant_spider,
-						/mob/living/simple_animal/hostile/commanded/dog, /mob/living/simple_animal/hostile/retaliate/cavern_dweller)
+						/mob/living/simple_animal/hostile/commanded/dog, /mob/living/simple_animal/hostile/retaliate/cavern_dweller, /mob/living/carbon/human/)
 
 /obj/item/weapon/trap/animal/large/attack_hand(mob/user as mob)
 	if(deployed)
@@ -458,5 +473,36 @@
 		anchored = !anchored
 		user.visible_message("<span class='notice'>[user] has [anchored ? "" : "un" ]secured \the [src]!</span>",
 							  "You have [anchored ? "" : "un" ]secured \the [src]!")
+	else if(istype(W, /obj/item/weapon/screwdriver))
+		return
+	else
+		..()
+
+/obj/item/weapon/large_trap_foundation
+	name = "large trap foundation"
+	desc = "A metal foundation for large trap, it is missing metals rods to hold the prey."
+	icon_state = "large_foundation"
+	icon = 'icons/obj/items.dmi'
+	throwforce = 4
+	force = 5
+	w_class = 5
+
+/obj/item/weapon/large_trap_foundation/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/stack/rods))
+		var/obj/item/stack/rods/O = W
+		if(O.get_amount() >= 12)
+
+			to_chat(user, "<span class='notice'>You are trying to add metal bars to \the [src].</span>")
+
+			if (!do_after(user, 2 SECONDS, act_target = src))
+				return
+
+			to_chat(user, "<span class='notice'>You add metal bars to \the [src].</span>")
+			O.use(12)
+			new /obj/item/weapon/trap/animal/large(src)
+			qdel(src)
+			return
+		else
+			to_chat(user, "<span class='warning'>You need at least 12 rods to complete \the [src].</span>")
 	else
 		..()

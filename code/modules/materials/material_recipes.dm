@@ -93,6 +93,7 @@
 	recipes += new/datum/stack_recipe("modular laptop frame", /obj/item/modular_computer/laptop, 10, time = 25)
 	recipes += new/datum/stack_recipe("modular tablet frame", /obj/item/modular_computer/tablet, 5, time = 25)
 	recipes += new/datum/stack_recipe("shield fittings", /obj/item/weapon/material/shieldbits, 10, time = 25)
+	recipes += new/datum/stack_recipe("large trap foundation", /obj/item/weapon/large_trap_foundation, 4, time = 40)
 
 /material/plasteel/generate_recipes()
 	..()
