@@ -13,7 +13,6 @@
 	var/current_positions = 0             // How many players have this job
 	var/supervisors = null                // Supervisors, who this person answers to directly
 	var/selection_color = "#ffffff"       // Selection screen color
-	var/idtype = /obj/item/weapon/card/id // The type of the ID the player will have
 	var/list/alt_titles                   // List of alternate titles, if any
 	var/list/title_accesses               // A map of title -> list of accesses to add if the person has this title.
 	var/req_admin_notify                  // If this is set to 1, a text is printed to the player when jobs are assigned, telling him that he should let admins know that he has to disconnect.
@@ -29,41 +28,34 @@
 	var/economic_modifier = 2			  // With how much does this job modify the initial account amount?
 	var/create_record = 1                 // Do we announce/make records for people who spawn on this job?
 
-	var/bag_type = /obj/item/weapon/storage/backpack
-	var/satchel_type = /obj/item/weapon/storage/backpack/satchel_norm
-	var/alt_satchel_type = /obj/item/weapon/storage/backpack/satchel
-	var/duffel_type = /obj/item/weapon/storage/backpack/duffel
-	var/messenger_bag_type = /obj/item/weapon/storage/backpack/messenger
+	var/datum/outfit/outfit = null
+	var/list/alt_outfits = null           // A list of special outfits for the alt titles list("alttitle" = /datum/outfit)
 
-/datum/job/proc/equip(var/mob/living/carbon/human/H)
-	return 1
+//Only override this proc
+/datum/job/proc/after_spawn(mob/living/carbon/human/H)
 
-/datum/job/proc/equip_backpack(var/mob/living/carbon/human/H)
-	var/type_to_spawn
-	var/use_job_specific = H.backbag_style == 1
-	switch (H.backbag)
-		//if (1)	// No bag selected.
-		// Hard-coding bagtype for now since there's only two options.
-		if (2)
-			type_to_spawn = use_job_specific ? bag_type : /obj/item/weapon/storage/backpack
-		if (3)
-			type_to_spawn = use_job_specific ? satchel_type : /obj/item/weapon/storage/backpack/satchel_norm
-		if (4)
-			type_to_spawn = use_job_specific ? alt_satchel_type : /obj/item/weapon/storage/backpack/satchel
-		if (5)
-			type_to_spawn = use_job_specific ? duffel_type : /obj/item/weapon/storage/backpack/duffel
-		if (6)
-			type_to_spawn = use_job_specific ? messenger_bag_type : /obj/item/weapon/storage/backpack/messenger
+/datum/job/proc/announce(mob/living/carbon/human/H)
+ 
+/datum/job/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE, announce = TRUE, alt_title = null)
+	if(!H)
+		return 0
 
-	if (type_to_spawn)
-		var/obj/item/bag = new type_to_spawn
-		if (H.equip_to_slot_or_del(bag, slot_back))
-			bag.autodrobe_no_remove = TRUE
+	log_debug("Called equip on [H]")
 
-/datum/job/proc/equip_survival(var/mob/living/carbon/human/H)
-	if(!H)	return 0
-	H.species.equip_survival_gear(H,0)
-	return 1
+	H.species.before_equip(H, visualsOnly, src)
+
+	//Check if we have a speical outfit for that alt title
+	if (alt_outfits && alt_title)
+		H.equipOutfit(alt_outfits[alt_title], visualsOnly)
+	else if(alt_outfits && H.mind.role_alt_title in alt_outfits)
+		H.equipOutfit(alt_outfits[H.mind.role_alt_title], visualsOnly)
+	else if(outfit)
+		H.equipOutfit(outfit, visualsOnly)
+
+	H.species.after_equip(H, visualsOnly, src)
+
+	if(!visualsOnly && announce)
+		announce(H)
 
 /datum/job/proc/setup_account(var/mob/living/carbon/human/H)
 	if(!account_allowed || (H.mind && H.mind.initial_account))
@@ -104,7 +96,7 @@
 
 // overrideable separately so AIs/borgs can have cardborg hats without unneccessary new()/del()
 /datum/job/proc/equip_preview(mob/living/carbon/human/H, var/alt_title)
-	. = equip(H, alt_title)
+	. = equip(H, TRUE, alt_title=alt_title)
 
 /datum/job/proc/get_access(selected_title)
 	if(!config || config.jobs_have_minimal_access)
@@ -114,19 +106,6 @@
 
 	if (LAZYLEN(title_accesses) && title_accesses[selected_title])
 		. += title_accesses[selected_title]
-
-/datum/job/proc/apply_fingerprints(var/mob/living/carbon/human/target)
-	if(!istype(target))
-		return 0
-	for(var/obj/item/item in target.contents)
-		apply_fingerprints_to_item(target, item)
-	return 1
-
-/datum/job/proc/apply_fingerprints_to_item(var/mob/living/carbon/human/holder, var/obj/item/item)
-	item.add_fingerprint(holder,1)
-	if(item.contents.len)
-		for(var/obj/item/sub_item in item.contents)
-			apply_fingerprints_to_item(holder, sub_item)
 
 /datum/job/proc/is_position_available()
 	return (current_positions < total_positions) || (total_positions == -1)
@@ -183,3 +162,122 @@
 
 /datum/job/proc/has_alt_title(var/mob/H, var/supplied_title, var/desired_title)
 	return (supplied_title == desired_title) || (H.mind && H.mind.role_alt_title == desired_title)
+
+/datum/outfit/job
+	name = "Standard Gear"
+	collect_not_del = TRUE // we don't want anyone to lose their job shit
+
+	var/allow_loadout = TRUE
+	var/allow_backbag_choice = TRUE
+	var/jobtype = null
+
+	uniform = /obj/item/clothing/under/color/grey
+	id = /obj/item/weapon/card/id
+	l_ear = /obj/item/device/radio/headset
+	back = /obj/item/weapon/storage/backpack
+	shoes = /obj/item/clothing/shoes/black
+	pda = /obj/item/device/pda
+
+	var/backpack = /obj/item/weapon/storage/backpack
+	var/satchel = /obj/item/weapon/storage/backpack/satchel_norm
+	var/satchel_alt = /obj/item/weapon/storage/backpack/satchel
+	var/dufflebag = /obj/item/weapon/storage/backpack/duffel
+	var/messengerbag = /obj/item/weapon/storage/backpack/duffel
+	var/box = /obj/item/weapon/storage/box/survival
+
+	var/tmp/list/gear_leftovers = list()
+
+/datum/outfit/job/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(allow_backbag_choice)
+		var/use_job_specific = H.backbag_style == 1
+		switch(H.backbag)
+			if (2)
+				back = use_job_specific ? backpack : /obj/item/weapon/storage/backpack
+			if (3)
+				back = use_job_specific ? satchel : /obj/item/weapon/storage/backpack/satchel_norm
+			if (4)
+				back = use_job_specific ? satchel_alt : /obj/item/weapon/storage/backpack/satchel
+			if (5)
+				back = use_job_specific ? dufflebag : /obj/item/weapon/storage/backpack/duffel
+			if (6)
+				back = use_job_specific ? messengerbag : /obj/item/weapon/storage/backpack/messenger
+			else
+				back = backpack //Department backpack
+
+	if(box)
+		var/spawnbox = box
+//		if(H.dna.species.speciesbox)
+//			spawnbox = H.dna.species.speciesbox
+		backpack_contents.Insert(1, spawnbox) // Box always takes a first slot in backpack
+		backpack_contents[spawnbox] = 1
+
+	if(allow_loadout && H.client && (H.client.prefs.gear && H.client.prefs.gear.len))
+		for(var/gear in H.client.prefs.gear)
+			var/datum/gear/G = gear_datums[gear]
+			if(G)
+				var/permitted = FALSE
+
+				if(G.allowed_roles)
+					if(name in G.allowed_roles)
+						permitted = TRUE
+				else
+					permitted = TRUE
+
+				if(G.whitelisted && (!(H.species.name in G.whitelisted)))
+					permitted = FALSE
+
+				if(!permitted)
+					to_chat(H, "<span class='warning'>Your current job or whitelist status does not permit you to spawn with [gear]!</span>")
+					continue
+
+				if(G.slot)
+					if(H.equip_to_slot_or_del(G.spawn_item(H, H.client.prefs.gear[G.display_name]), G.slot))
+						to_chat(H, "<span class='notice'>Equipping you with [gear]!</span>")
+					else
+						gear_leftovers += G
+				else
+					gear_leftovers += G
+
+/datum/outfit/job/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(visualsOnly)
+		return
+
+	. = ..()
+
+	if(istype(H.back,/obj/item/weapon/storage/backpack))
+		var/obj/item/weapon/storage/backpack/B = H.back
+		B.autodrobe_no_remove = TRUE
+
+	if(gear_leftovers.len)
+		for(var/datum/gear/G in gear_leftovers)
+			var/atom/placed_in = H.equip_or_collect(G.spawn_item(null, H.client.prefs.gear[G.display_name]))
+			if(istype(placed_in))
+				if(isturf(placed_in))
+					to_chat(H, "<span class='notice'>Placing [G.display_name] on [placed_in]!</span>")
+				else
+					to_chat(H, "<span class='notice'>Placing [G.display_name] in [placed_in.name].</span>")
+				continue
+			if(H.equip_to_appropriate_slot(G))
+				to_chat(H, "<span class='notice'>Placing [G.display_name] in your inventory!</span>")
+				continue
+			if(H.put_in_hands(G))
+				to_chat(H, "<span class='notice'>Placing [G.display_name] in your hands!</span>")
+				continue
+			to_chat(H, "<span class='danger'>Failed to locate a storage object on your mob, either you spawned with no hands free and no backpack or this is a bug.</span>")
+			qdel(G)
+
+		qdel(gear_leftovers)
+
+	return
+
+/datum/outfit/job/get_id_access(mob/living/carbon/human/H, var/alttitle)
+	var/datum/job/J = SSjobs.GetJobType(jobtype)
+	if(!J)
+		J = SSjobs.GetJob(H.job)
+	return J.get_access(alttitle)
+
+/datum/outfit/job/get_id_rank(mob/living/carbon/human/H)
+	var/datum/job/J = SSjobs.GetJobType(jobtype)
+	if(!J)
+		J = SSjobs.GetJob(H.job)
+	return J.title

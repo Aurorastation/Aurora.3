@@ -484,6 +484,11 @@ var/const/access_journalist = 70//journalist's office access
 	id = access_syndicate
 	access_type = ACCESS_TYPE_SYNDICATE
 
+/var/const/access_syndicate_leader = 151 //Syndie Commander Access
+/datum/access/syndicate_leader
+	id = access_syndicate_leader
+	access_type = ACCESS_TYPE_SYNDICATE
+
 /*******
 * Misc *
 *******/

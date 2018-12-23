@@ -1227,12 +1227,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			user << "<span class='notice'>\The [src] rejects the ID.</span>"
 			return
 		if(!owner)
-			owner = idcard.registered_name
-			ownjob = idcard.assignment
-			ownrank = idcard.rank
-			name = "PDA-[owner] ([ownjob])"
-			user << "<span class='notice'>Card scanned.</span>"
-			try_sort_pda_list()
+			update_userinfo(idcard,user)
 		else
 			//Basic safety check. If either both objects are held by user or PDA is on ground and card is in hand.
 			if(((src in user.contents) && (C in user.contents)) || (istype(loc, /turf) && in_range(src, user) && (C in user.contents)) )
@@ -1255,6 +1250,15 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			pen = C
 			user << "<span class='notice'>You slide \the [C] into \the [src].</span>"
 	return
+
+/obj/item/device/pda/proc/update_userinfo(var/obj/item/weapon/card/id/idcard, var/mob/living/user)
+	owner = idcard.registered_name
+	ownjob = idcard.assignment
+	ownrank = idcard.rank
+	name = "PDA-[owner] ([ownjob])"
+	if(user)
+		user << "<span class='notice'>Card scanned.</span>"
+	try_sort_pda_list()
 
 /obj/item/device/pda/attack(mob/living/C as mob, mob/living/user as mob)
 	if (istype(C, /mob/living/carbon))

@@ -45,6 +45,28 @@
 /mob/proc/equip_to_slot_or_del(obj/item/W as obj, slot)
 	. = equip_to_slot_if_possible(W, slot, TRUE, TRUE, FALSE, ignore_blocked = TRUE)
 
+// Convinience proc.  Collects crap that fails to equip either onto the mob's back, or drops it.
+// Used in job equipping so shit doesn't pile up at the start loc.
+/mob/living/carbon/human/proc/equip_or_collect(var/obj/item/W, var/slot)
+	if(!W || !istype(W, /obj/item))
+		log_debug("MobEquip: Error when equipping [W] for [src] in [slot]")
+		return
+	if(W.mob_can_equip(src, slot, 1))
+		//Mob can equip.  Equip it.
+		equip_to_slot_or_del(W, slot)
+	else
+		//Mob can't equip it.  Put it their backpack or toss it on the floor
+		if(istype(back, /obj/item/weapon/storage))
+			var/obj/item/weapon/storage/S = back
+			//Now, B represents a container we can insert W into.
+			S.handle_item_insertion(W,1)
+			return S
+
+		var/turf/T = get_turf(src)
+		if(istype(T))
+			W.forceMove(T)
+			return T
+
 //The list of slots by priority. equip_to_appropriate_slot() uses this list. Doesn't matter if a mob type doesn't have a slot.
 var/list/slot_equipment_priority = list( \
 		slot_back,\
@@ -345,3 +367,16 @@ var/list/slot_equipment_priority = list( \
 		qdel(entry)
 
 
+/mob/living/carbon/human/proc/equipOutfit(outfit, visualsOnly = FALSE)
+	var/datum/outfit/O = null
+
+	if(ispath(outfit))
+		O = new outfit
+	else
+		O = outfit
+		if(!istype(O))
+			return FALSE
+	if(!O)
+		return FALSE
+
+	return O.equip(src, visualsOnly)

@@ -217,14 +217,7 @@ datum/preferences
 	if(previewJob)
 		mannequin.job = previewJob.title
 
-		var/list/leftovers = list()
-		var/list/used_slots = list()
-
-		SSjobs.EquipCustom(mannequin, previewJob, src, leftovers, null, used_slots)
-
 		previewJob.equip_preview(mannequin, player_alt_titles[previewJob.title])
-
-		SSjobs.EquipCustomDeferred(mannequin, src, leftovers, used_slots)
 
 		if (!SSATOMS_IS_PROBABLY_DONE)
 			SSatoms.ForceInitializeContents(mannequin)
