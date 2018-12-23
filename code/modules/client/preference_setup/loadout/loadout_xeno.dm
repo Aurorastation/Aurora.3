@@ -113,7 +113,7 @@
 /datum/gear/accessory/skrell/mantle
 	display_name = "shoulder mantle"
 	path = /obj/item/clothing/accessory/poncho/skrell
-	sort_category = "Xenowear"
+	sort_category = "Xenowear - Skrell"
 	whitelisted = list("Skrell")
 
 /datum/gear/accessory/skrell/mantle/New()

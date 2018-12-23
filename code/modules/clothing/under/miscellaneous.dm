@@ -362,6 +362,20 @@
 	worn_state = "huresource"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
+/obj/item/clothing/under/dress/simplest
+	name = "simple dress"
+	desc = "A simple, yet colorful dress."
+	icon_state = "dress_simplest"
+	item_state = "dress_simplest"
+	worn_state = "dress_simplest"
+
+/obj/item/clothing/under/dress/pleated
+	name = "pleated dress"
+	desc = "A simple, yet colorful pleated dress."
+	icon_state = "dress_pleated"
+	item_state = "dress_pleated"
+	worn_state = "dress_pleated"
+
 //wedding stuff
 /obj/item/clothing/under/wedding/
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS

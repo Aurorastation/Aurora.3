@@ -127,6 +127,22 @@
 	dress["cheongsam, purple"] = /obj/item/clothing/under/cheongsam/purple
 	gear_tweaks += new/datum/gear_tweak/path(dress)
 
+/datum/gear/uniform/dress/pleated
+	display_name = "dress, pleated"
+	path = /obj/item/clothing/under/dress/pleated
+
+/datum/gear/uniform/dress/pleated/New()
+	..
+	gear_tweaks += list(gear_tweak_free_color_choice)
+
+/datum/gear/uniform/dress/simplest
+	display_name = "dress, simple"
+	path = /obj/item/clothing/under/dress/simplest
+
+/datum/gear/uniform/dress/simplest/New()
+	..
+	gear_tweaks += list(gear_tweak_free_color_choice)
+
 /datum/gear/uniform/uniform_captain
 	display_name = "uniform, captain dress"
 	path = /obj/item/clothing/under/dress/dress_cap
