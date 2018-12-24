@@ -37,10 +37,13 @@
 /datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot)
 	var/obj/item/I
 
+	if(isnum(path))	//Check if parameter is not numeric. Must be a path, list of paths or name of a gear datum
+		CRASH("Outfit [name] - Parameter path: [path] is numeric.")
+
 	if(islist(path))	//If its a list, select a random item
 		var/itempath = pick(path)
 		I = new itempath(H)
-	else if(!isnum(path) && gear_datums[path]) //If its something else, we´ll check if its a gearpath and try to spawn it
+	else if(gear_datums[path]) //If its something else, we´ll check if its a gearpath and try to spawn it
 		var/datum/gear/G = gear_datums[path]
 		I = G.spawn_random()
 	else
@@ -52,9 +55,8 @@
 		H.equip_to_slot_or_del(I, slot)
 
 /datum/outfit/proc/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	//to be overriden for toggling internals
+	//to be overriden for changing items post equip (such as toggeling internals, ...)
 	imprint_idcard_pda(H)
-	return
 
 /datum/outfit/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	pre_equip(H, visualsOnly)
@@ -121,16 +123,16 @@
 	if(!visualsOnly)
 		apply_fingerprints(H)
 
-	if(implants)
-		for(var/implant_type in implants)
-			var/obj/item/weapon/implant/I = new implant_type(H)
-			if(I.implanted(H))
-				I.forceMove(H)
-				I.imp_in = H
-				I.implanted = 1
-				var/obj/item/organ/external/affected = H.get_organ("head")
-				affected.implants += I
-				I.part = affected
+		if(implants)
+			for(var/implant_type in implants)
+				var/obj/item/weapon/implant/I = new implant_type(H)
+				if(I.implanted(H))
+					I.forceMove(H)
+					I.imp_in = H
+					I.implanted = 1
+					var/obj/item/organ/external/affected = H.get_organ("head")
+					affected.implants += I
+					I.part = affected
 
 	H.update_body()
 	return 1
