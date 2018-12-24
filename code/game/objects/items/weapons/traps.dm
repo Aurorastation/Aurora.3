@@ -146,6 +146,8 @@
 	var/breakout = FALSE
 	var/last_shake = 0
 	var/list/allowed_mobs = list(/mob/living/simple_animal/mouse, /mob/living/simple_animal/chick, /mob/living/simple_animal/lizard)
+	var/release_time = 0
+	var/list/resources = list(6)
 
 /obj/item/weapon/trap/animal/examine(mob/user)
 	..()
@@ -167,6 +169,9 @@
 		to_chat(user, "<span class='notice'>\The [src] is empty.</span>")
 
 /obj/item/weapon/trap/animal/Crossed(AM as mob|obj)
+	if(world.time - release_time > 50) // If we just released the animal, not to let it get caught again right away
+		return
+
 	if(contents.len) // It is full
 		return
 
@@ -180,7 +185,6 @@
 				)
 			L.forceMove(src)
 			playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
-			animate_shake()
 			deployed = 1
 			update_icon()
 			src.animate_shake()
@@ -194,7 +198,6 @@
 					)
 				L.forceMove(src)
 				playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
-				animate_shake()
 				deployed = 1
 				update_icon()
 				src.animate_shake()
@@ -204,7 +207,6 @@
 		S.forceMove(src)
 		STOP_PROCESSING(SSprocessing, S)
 		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
-		animate_shake()
 		deployed = 1
 		update_icon()
 		src.animate_shake()
@@ -254,25 +256,100 @@
 	for(var/mob/living/L in contents)
 		L.forceMove(src.loc)
 		visible_message("<span class='warning'>[L] runs out of \the [src].</span>")
-		animate_shake()
 		deployed = 0
 		update_icon()
 		src.animate_shake()
+		release_time = world.time
 
 	for(var/obj/effect/spider/spiderling/S in contents) // for spiderlings
 		S.forceMove(src.loc)
 		START_PROCESSING(SSprocessing, S)
 		visible_message("<span class='warning'>[S] jumps out of \the [src].</span>")
-		animate_shake()
 		deployed = 0
 		update_icon()
 		src.animate_shake()
-	animate_shake()
+		release_time = world.time
+
+/obj/item/weapon/trap/animal/Collide(AM as mob|obj)
+	if(isliving(AM))
+		Crossed(AM)
+	else
+		..()
+
+/obj/item/weapon/trap/animal/verb/release_animal()
+	set src in oview(1)
+	set category = "Object"
+	set name = "Release animal"
+
+	if(!usr.canmove || usr.stat || usr.restrained())
+		return
+
+	if(!ishuman(usr))
+		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
+		return
+
+	if(deployed)
+		var/open = alert("Do you want to open the cage and free what is inside?",,"No","Yes")
+
+		if(open == "No")
+			return
+
+		if(!can_use(usr))
+			to_chat(usr, "<span class='warning'>You cannot use \the [src].</span>")
+			return
+		if(!contents.len)
+			return
+
+		var/turf/T_cage = get_turf(src)
+		var/turf/T_user= get_turf(usr)
+
+		if(!T_cage)
+			attack_self(src)
+			return
+
+		var/turf/target = get_turf(locate(T_cage.x + (T_cage.x - T_user.x), T_cage.y + (T_cage.y - T_user.y), T_cage.z))
+		if(!target)
+			attack_self(src)
+			return
+
+		visible_message("<span class='notice'>[usr] opens \the [src].</span>")
+		for(var/mob/living/L in contents)
+			L.forceMove(target)
+			visible_message("<span class='warning'>[L] runs out of \the [src].</span>")
+			animate_shake()
+			deployed = 0
+			update_icon()
+			src.animate_shake()
+			release_time = world.time
+
+		for(var/obj/effect/spider/spiderling/S in contents) // for spiderlings
+			S.forceMove(target)
+			START_PROCESSING(SSprocessing, S)
+			visible_message("<span class='warning'>[S] jumps out of \the [src].</span>")
+			animate_shake()
+			deployed = 0
+			update_icon()
+			src.animate_shake()
+			release_time = world.time
 
 /obj/item/weapon/trap/animal/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/reagent_containers) && contents.len)
 		var/mob/living/L = pick(contents)
 		W.afterattack(L, user, TRUE)
+	else if(iswelder(W))
+		var/obj/item/weapon/weldingtool/WT = W
+		user.visible_message("<span class='notice'>[user] is trying to slice \the [src]!</span>",
+							 "You are trying to slice \the [src]!")
+
+		if (!do_after(user, 3 SECONDS, act_target = src))
+			return
+		if(WT.remove_fuel(0, user))
+			user.visible_message("<span class='notice'>[user] is sliced \the [src]!</span>",
+								 "You sliced \the [src]!")
+			new /obj/item/stack/rods{amount = resources[1]}(src.loc)
+			if(resources.len == 2)
+				new /obj/item/stack/material/steel{amount = resources[2]}(src.loc)
+			qdel(src)
 
 	else if(istype(W, /obj/item/weapon/screwdriver))
 		var/turf/T = get_turf(src)
@@ -281,7 +358,7 @@
 			return
 
 		user.visible_message("<span class='notice'>[user] is trying to [anchored ? "un" : "" ]secure \the [src]!</span>",
-							  "You are trying to [anchored ? "" : "un" ]secure \the [src]!")
+							 "You are trying to [anchored ? "" : "un" ]secure \the [src]!")
 		playsound(src.loc, "sound/items/[pick("Screwdriver", "Screwdriver2")].ogg", 50, 1)
 
 		if (!do_after(user, 3 SECONDS, act_target = src))
@@ -289,7 +366,7 @@
 
 		anchored = !anchored
 		user.visible_message("<span class='notice'>[user] has [anchored ? "" : "un" ]secured \the [src]!</span>",
-							  "You have [anchored ? "" : "un" ]secured \the [src]!")
+							 "You have [anchored ? "" : "un" ]secured \the [src]!")
 
 	else if(istype(W, /obj/item/weapon) && contents.len)
 		var/mob/living/L = pick(contents)
@@ -333,6 +410,7 @@
 	if(!can_use(user))
 		to_chat(user, "<span class='warning'>You cannot use \the [src].</span>")
 		return
+
 	if(!contents.len)
 		return
 
@@ -340,7 +418,6 @@
 	for(var/mob/living/L in contents)
 		L.forceMove(user.loc)
 		visible_message("<span class='warning'>[L] runs out of \the [src].</span>")
-		animate_shake()
 		deployed = 0
 		update_icon()
 		src.animate_shake()
@@ -350,13 +427,15 @@
 		S.forceMove(user.loc)
 		START_PROCESSING(SSprocessing, S)
 		visible_message("<span class='warning'>[S] jumps out of \the [src].</span>")
-		animate_shake()
 		deployed = 0
 		update_icon()
 		src.animate_shake()
 		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
 
 /obj/item/weapon/trap/animal/attack(mob/living/M, mob/living/user)
+	if(world.time - release_time > 50) // If we just released the animal, not to let it get caught again right away
+		return
+
 	if(contents.len) // It is full
 		return
 	user.visible_message(
@@ -366,7 +445,6 @@
 					)
 	M.forceMove(src)
 	playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
-	animate_shake()
 	deployed = 1
 	update_icon()
 	src.animate_shake()
@@ -382,6 +460,7 @@
 	origin_tech = list(TECH_MATERIAL = 3)
 	matter = list(DEFAULT_WALL_MATERIAL = 5750)
 	deployed = 0
+	resources = list(12)
 
 /obj/item/weapon/trap/animal/medium/Initialize()
 	allowed_mobs = list(
@@ -401,6 +480,7 @@
 	origin_tech = list(TECH_MATERIAL = 4)
 	matter = list(DEFAULT_WALL_MATERIAL = 15750)
 	deployed = 0
+	resources = list(12, 4)
 
 /obj/item/weapon/trap/animal/large/Initialize()
 	allowed_mobs = list(
@@ -409,52 +489,7 @@
 						/mob/living/simple_animal/hostile/commanded/dog, /mob/living/simple_animal/hostile/retaliate/cavern_dweller, /mob/living/carbon/human/)
 
 /obj/item/weapon/trap/animal/large/attack_hand(mob/user as mob)
-	if(deployed)
-		var/open = alert("Do you want to open the cage and free what is inside?",,"No","Yes")
-		if(open == "Yes")
-
-			if(!can_use(user))
-				to_chat(user, "<span class='warning'>You cannot use \the [src].</span>")
-				return
-			if(!contents.len)
-				return
-
-			var/turf/T_cage = get_turf(src)
-			var/turf/T_user= get_turf(user)
-
-			if(!T_cage)
-				attack_self(src)
-				return
-
-			var/turf/target = get_turf(locate(T_cage.x + (T_cage.x - T_user.x), T_cage.y + (T_cage.y - T_user.y), T_cage.z))
-			if(!target)
-				attack_self(src)
-				return
-
-			visible_message("<span class='notice'>[user] opens \the [src].</span>")
-			for(var/mob/living/L in contents)
-				L.forceMove(target)
-				visible_message("<span class='warning'>[L] runs out of \the [src].</span>")
-				animate_shake()
-				deployed = 0
-				update_icon()
-				src.animate_shake()
-
-			for(var/obj/effect/spider/spiderling/S in contents) // for spiderlings
-				S.forceMove(target)
-				START_PROCESSING(SSprocessing, S)
-				visible_message("<span class='warning'>[S] jumps out of \the [src].</span>")
-				animate_shake()
-				deployed = 0
-				update_icon()
-				src.animate_shake()
 	return
-
-/obj/item/weapon/trap/animal/large/Collide(AM as mob|obj)
-	if(isliving(AM))
-		Crossed(AM)
-	else
-		..()
 
 /obj/item/weapon/trap/animal/large/attackby(obj/item/W as obj, mob/user as mob)
 	if(iswrench(W))
