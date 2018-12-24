@@ -69,6 +69,7 @@
 #include "code\_helpers\maths.dm"
 #include "code\_helpers\matrices.dm"
 #include "code\_helpers\mobs.dm"
+#include "code\_helpers\mouse.dm"
 #include "code\_helpers\names.dm"
 #include "code\_helpers\overlay.dm"
 #include "code\_helpers\sanitize_values.dm"
