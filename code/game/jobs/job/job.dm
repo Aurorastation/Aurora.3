@@ -47,8 +47,10 @@
 	//Check if we have a speical outfit for that alt title
 	if (alt_outfits && alt_title)
 		H.equipOutfit(alt_outfits[alt_title], visualsOnly)
-	else if(alt_outfits && H.mind.role_alt_title in alt_outfits)
+	else if(alt_outfits && H.mind && H.mind.role_alt_title in alt_outfits)
 		H.equipOutfit(alt_outfits[H.mind.role_alt_title], visualsOnly)
+	else if (!H.mind && H.job in alt_outfits)
+		H.equipOutfit(alt_outfits[H.job], visualsOnly)
 	else if(outfit)
 		H.equipOutfit(outfit, visualsOnly)
 
@@ -122,6 +124,8 @@
 /datum/job/proc/late_equip(var/mob/living/carbon/human/H)
 	if(!H)
 		return 0
+
+	H.species.before_equip(H, FALSE, src)
 
 	var/loyalty = 1
 	if(H.client)
@@ -206,8 +210,6 @@
 
 	if(box)
 		var/spawnbox = box
-//		if(H.dna.species.speciesbox)
-//			spawnbox = H.dna.species.speciesbox
 		backpack_contents.Insert(1, spawnbox) // Box always takes a first slot in backpack
 		backpack_contents[spawnbox] = 1
 

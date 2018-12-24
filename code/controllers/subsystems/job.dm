@@ -67,6 +67,9 @@
 
 	return type_occupations[jobtype]
 
+/datum/controller/subsystem/jobs/proc/GetRandomJob()
+	return pick(occupations)
+
 /datum/controller/subsystem/jobs/proc/ShouldCreateRecords(var/rank)
 	if(!rank) return 0
 	var/datum/job/job = GetJob(rank)

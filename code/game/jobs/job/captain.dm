@@ -40,7 +40,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 		/obj/item/weapon/implant/loyalty
 	)
 
-	backpack =/obj/item/weapon/storage/backpack/captain
+	backpack = /obj/item/weapon/storage/backpack/captain
 	satchel = /obj/item/weapon/storage/backpack/satchel_cap
 	dufflebag = /obj/item/weapon/storage/backpack/duffel/cap
 	messengerbag = /obj/item/weapon/storage/backpack/messenger/com
@@ -57,10 +57,10 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 /datum/job/captain/get_access()
 		return get_all_station_access()
 
-///datum/job/captain/announce(mob/living/carbon/human/H)
-//	. = ..()
-//	captain_announcement.Announce("All hands, Captain [H.real_name] on deck!")
-//	callHook("captain_spawned", list("captain" = H))
+/datum/job/captain/announce(mob/living/carbon/human/H)
+	. = ..()
+	captain_announcement.Announce("All hands, Captain [H.real_name] on deck!")
+	callHook("captain_spawned", list(H))
 
 /datum/job/hop
 	title = "Head of Personnel"

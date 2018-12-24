@@ -2,6 +2,8 @@
 	var/name = "Naked"
 	var/collect_not_del = FALSE
 
+	//The following vars can either be a path or a list of paths
+	//If a list of paths is supplied a random item from that list is selected
 	var/uniform = null
 	var/suit = null
 	var/back = null
@@ -12,19 +14,20 @@
 	var/mask = null
 	var/l_ear = null
 	var/r_ear = null
-	var/glasses = null
-	var/id = null
+	var/glasses = null	
 	var/l_pocket = null
 	var/r_pocket = null
 	var/suit_store = null
+
+	//The following vars must be paths
 	var/l_hand = null
 	var/r_hand = null
+	var/id = null
 	var/pda = null
-	var/internals_slot = null //ID of slot containing a gas tank
-	var/list/backpack_contents = list() // In the list(path=count,otherpath=count) format
-	var/list/implants = null
-	var/list/cybernetic_implants = null
 
+	var/internals_slot = null //ID of slot containing a gas tank
+	var/list/backpack_contents = list() //In the list(path=count,otherpath=count) format
+	var/list/implants = null //A list of implants that should be implanted
 
 /datum/outfit/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	//to be overriden for customization depending on client prefs,species etc
@@ -32,7 +35,17 @@
 
 // Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del.
 /datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot)
-	var/obj/item/I = new path(H)
+	var/obj/item/I
+
+	if(islist(path))	//If its a list, select a random item
+		var/itempath = pick(path)
+		I = new itempath(H)
+	else if(!isnum(path) && gear_datums[path]) //If its something else, we´ll check if its a gearpath and try to spawn it
+		var/datum/gear/G = gear_datums[path]
+		I = G.spawn_random()
+	else
+		I = new path(H) //As fallback treat it as a path
+
 	if(collect_not_del)
 		H.equip_or_collect(I, slot)
 	else
@@ -47,12 +60,12 @@
 	pre_equip(H, visualsOnly)
 
 	//Start with uniform,suit,backpack for additional slots
+	if(back)
+		equip_item(H, back, slot_back)
 	if(uniform)
 		equip_item(H, uniform, slot_w_uniform)
 	if(suit)
 		equip_item(H, suit, slot_wear_suit)
-	if(back)
-		equip_item(H, back, slot_back)
 	if(belt)
 		equip_item(H, belt, slot_belt)
 	if(gloves)

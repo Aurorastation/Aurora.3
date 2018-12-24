@@ -1,8 +1,10 @@
 /datum/outfit/admin/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(!visualsOnly)
-		H.mind.assigned_role = name
+		if(H.mind)
+			H.mind.assigned_role = name
 		H.job = name
+
 
 /datum/outfit/admin/syndicate
 	name = "Syndicate Agent"
@@ -66,6 +68,7 @@
 		/obj/item/clothing/shoes/combat = 1
 )
 
+
 /datum/outfit/admin/syndicate/officer
 	name = "Syndicate Officer"
 
@@ -91,6 +94,7 @@
 	id_icon = "commander"
 	id_access = "Syndicate Operative Leader"
 
+
 /datum/outfit/admin/syndicate/spy
 	name = "Syndicate Spy"
 	uniform = /obj/item/clothing/under/suit_jacket/really_black
@@ -101,6 +105,7 @@
 	implants = list(
 		/obj/item/weapon/implant/explosive
 	)
+
 
 /datum/outfit/admin/nt
 	name = "NanoTrasen Representative"
@@ -123,6 +128,7 @@
 /datum/outfit/admin/nt/get_id_access()
 	return get_all_accesses() | get_centcom_access(id_access)
 
+
 /datum/outfit/admin/nt/officer
 	name = "NanoTrasen Navy Officer"
 
@@ -130,12 +136,14 @@
 	l_ear = /obj/item/device/radio/headset/heads/captain
 	head = /obj/item/clothing/head/beret/centcom/officer
 
+
 /datum/outfit/admin/nt/captain
 	name = "NanoTrasen Navy Captain"
 
 	uniform = /obj/item/clothing/under/rank/centcom_captain
 	l_ear = /obj/item/device/radio/headset/heads/captain
 	head = /obj/item/clothing/head/beret/centcom/captain
+
 
 /datum/outfit/admin/nt/protection_detail
 	name = "ERT Protection Detail"
@@ -159,6 +167,7 @@
 		/obj/item/weapon/implant/loyalty
 	)
 
+
 /datum/outfit/admin/nt/ert_commander
 	name = "ERT Commander"
 
@@ -179,6 +188,7 @@
 	implants = list(
 		/obj/item/weapon/implant/loyalty
 	)
+
 
 /datum/outfit/admin/nt/odinsec
 	name = "NTCC Odin Security Specialist"
@@ -205,6 +215,7 @@
 	implants = list(
 		/obj/item/weapon/implant/loyalty
 	)
+
 
 /datum/outfit/admin/nt/specops
 	name = "Special Operations Officer"
@@ -236,6 +247,7 @@
 	glasses = /obj/item/clothing/glasses/eyepatch
 	r_hand = /obj/item/weapon/melee/energy/sword/pirate
 
+
 /datum/outfit/admin/spacepirate
 	name = "Space Pirate"
 	
@@ -246,12 +258,14 @@
 	glasses = /obj/item/clothing/glasses/eyepatch
 	r_hand = /obj/item/weapon/melee/energy/sword/pirate
 
+
 /datum/outfit/admin/sovietsoldier
 	name = "Soviet Soldier"
 
 	uniform = /obj/item/clothing/under/soviet
 	shoes = /obj/item/clothing/shoes/black
 	head = /obj/item/clothing/head/ushanka
+
 
 /datum/outfit/admin/sovietsoldier
 	name = "Soviet Admiral"
@@ -264,12 +278,14 @@
 	belt = /obj/item/weapon/gun/projectile/revolver/mateba
 	l_ear = /obj/item/device/radio/headset/heads/captain
 	glasses = /obj/item/clothing/glasses/eyepatch/hud/thermal
+	id = /obj/item/weapon/card/id
 
 /datum/outfit/admin/sovietsoldier/get_id_assignment()
 	return "Admiral"
 
 /datum/outfit/admin/sovietsoldier/get_id_rank()
 	return "Admiral"
+
 
 /datum/outfit/admin/maskedkiller
 	name = "Masked Killer"
@@ -291,6 +307,7 @@
 	for(var/obj/item/carried_item in H.contents)
 		if(!istype(carried_item, /obj/item/weapon/implant))//If it's not an implant.
 			carried_item.add_blood(H)//Oh yes, there will be blood...
+
 
 /datum/outfit/admin/assassin
 	name = "Assassin"
@@ -320,3 +337,80 @@
 
 /datum/outfit/admin/assassin/get_id_access()
 	return get_all_station_access()
+
+
+/datum/outfit/admin/random_employee
+	name = "Random Employee"
+	
+/datum/outfit/admin/random_employee/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(!visualsOnly)
+		//Select a random job, set the assigned_role / job var and equip it
+		var/datum/job/job = SSjobs.GetRandomJob()
+		var/alt_title = null
+		if(job.alt_titles && prob(50))
+			alt_title = pick(job.alt_titles)
+
+		if(H.mind)
+			H.mind.assigned_role = alt_title ? alt_title : job.title
+		H.job = alt_title ? alt_title : job.title
+
+		job.equip(H, FALSE, FALSE, alt_title)
+
+
+/datum/outfit/admin/random
+	name = "Random Civilian"
+
+	uniform = "suit selection"
+	shoes = "shoe selection"
+	l_ear = /obj/item/device/radio/headset
+	back = list(
+		/obj/item/weapon/storage/backpack,
+		/obj/item/weapon/storage/backpack/satchel_norm,
+		/obj/item/weapon/storage/backpack/satchel,
+		/obj/item/weapon/storage/backpack/duffel,
+		/obj/item/weapon/storage/backpack/duffel
+	)
+
+/datum/outfit/admin/random/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(!visualsOnly)
+		if(prob(10)) //Equip something smokable
+			var/path = pick(list(
+				/obj/item/clothing/mask/smokable/pipe,
+				/obj/item/clothing/mask/smokable/pipe/cobpipe,
+				/obj/item/weapon/storage/fancy/cigar,
+				/obj/item/weapon/storage/fancy/cigarettes
+			))
+			H.equip_or_collect(new path(), slot_wear_mask)
+
+		if(prob(20)) //Equip some headgear
+			var/datum/gear/G = gear_datums[pick(list("cap selection","beret, red","hat selection","hijab selection","turban selection"))]
+			H.equip_or_collect(G.spawn_random(), slot_head)
+
+		if(prob(20)) //Equip some sunglasses
+			var/path = pick(list(
+				/obj/item/clothing/glasses/eyepatch,
+				/obj/item/clothing/glasses/regular,
+				/obj/item/clothing/glasses/gglasses,
+				/obj/item/clothing/glasses/regular/hipster,
+				/datum/gear/eyes/glasses/monocle,
+				/datum/gear/eyes/shades/aviator,
+				/datum/gear/eyes/glasses/fakesun
+			))
+			H.equip_or_collect(new path(), slot_glasses)
+		
+		if(prob(20)) //Equip some gloves
+			var/datum/gear/G = gear_datums["gloves selection"]
+			H.equip_or_collect(G.spawn_random(), slot_gloves)
+
+
+/datum/outfit/admin/random/visitor
+	name = "Random Visitor"
+
+	id = /obj/item/weapon/card/id
+	pda = /obj/item/device/pda
+/datum/outfit/admin/random/visitor/get_id_assignment()
+	return "Visitor"
+/datum/outfit/admin/random/visitor/get_id_rank()
+	return "Visitor"
