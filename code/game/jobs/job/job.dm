@@ -40,8 +40,6 @@
 	if(!H)
 		return 0
 
-	log_debug("Called equip on [H]")
-
 	H.species.before_equip(H, visualsOnly, src)
 
 	//Check if we have a speical outfit for that alt title
