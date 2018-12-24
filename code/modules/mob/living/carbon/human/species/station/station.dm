@@ -208,7 +208,7 @@
 	deform = 'icons/mob/human_races/r_def_skrell.dmi'
 	eyes = "skrell_eyes_s"
 	primitive_form = "Neaera"
-	unarmed_types = list(/datum/unarmed_attack/punch)
+	unarmed_types = list(/datum/unarmed_attack/punch, /datum/unarmed_attack/stomp, /datum/unarmed_attack/kick)
 
 	blurb = "An amphibious species, Skrell come from the star system known as Nralakk, coined 'Jargon' by \
 	humanity.<br><br>Skrell are a highly advanced, ancient race who place knowledge as the highest ideal. \
@@ -250,15 +250,10 @@
 
 	inherent_verbs = list(/mob/living/carbon/human/proc/commune)
 
+	default_h_style = "Skrell Short Tentacles"
+
 /datum/species/skrell/can_breathe_water()
 	return TRUE
-
-/datum/species/skrell/set_default_hair(var/mob/living/carbon/human/H)
-	if(H.gender == MALE)
-		H.h_style = "Skrell Male Tentacles"
-	else
-		H.h_style = "Skrell Female Tentacles"
-	H.update_hair()
 
 /datum/species/diona
 	name = "Diona"
@@ -752,6 +747,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
 /datum/species/bug/equip_survival_gear(var/mob/living/carbon/human/H)
+	H.gender = NEUTER
 	if(H.backbag == 1)
 		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vaurca(H), slot_r_hand)
 	else

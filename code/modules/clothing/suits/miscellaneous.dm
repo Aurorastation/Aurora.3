@@ -561,3 +561,9 @@
 	icon_open = "sec_dep_jacket_open"
 	icon_closed = "sec_dep_jacket"
 
+/obj/item/clothing/suit/cardigan
+	name = "cardigan"
+	desc = "A cozy, warm knit cardigan. Only slightly worse than a blanket."
+	icon_state = "cardigan"
+	item_state = "cardigan"
+

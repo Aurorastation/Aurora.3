@@ -7850,6 +7850,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/cells/charlie)
+"aoE" = (
+/obj/machinery/anti_bluespace,
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
 "aoF" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -81968,7 +81975,7 @@ ale
 ale
 alY
 alY
-alY
+aoE
 amU
 anu
 anR
@@ -81976,7 +81983,7 @@ aos
 aoS
 app
 apP
-alY
+aoE
 alY
 alY
 alY

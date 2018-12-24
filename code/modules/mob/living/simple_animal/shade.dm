@@ -29,6 +29,7 @@
 	status_flags = CANPUSH
 	hunger_enabled = 0
 	appearance_flags = NO_CLIENT_COLOR
+	var/obj/item/residue = /obj/item/weapon/ectoplasm
 
 /mob/living/simple_animal/shade/cultify()
 	return
@@ -36,7 +37,7 @@
 /mob/living/simple_animal/shade/death()
 	. = ..()
 	visible_message("<span class='warning'>[src] lets out a contented sigh as their form unwinds.</span>")
-	new /obj/item/weapon/ectoplasm(loc)
+	new residue(loc)
 	qdel(src)
 
 /mob/living/simple_animal/shade/attackby(var/obj/item/O as obj, var/mob/user as mob)  //Marker -Agouri
@@ -58,10 +59,10 @@
 	name = "space echo"
 	real_name = "space echo"
 	desc = "A figment of the imagination, a bluespace anomaly, or proof of God? You decide."
-	icon = 'icons/obj/projectiles.dmi'
-	icon_state = "bluespace"
-	icon_living = "bluespace"
-	icon_dead = "bluespace"
+	icon = 'icons/mob/mob.dmi'
+	icon_state = "blank"
+	icon_living = "blank"
+	icon_dead = "blank"
 	maxHealth = 100
 	health = 100
 	universal_speak = 1
@@ -82,9 +83,14 @@
 	mob_size = 0
 	density = 0
 	speed = 1
+	residue = /obj/item/weapon/ectoplasm/bs
 	var/last_message_heard
 	var/message_countdown = 300
 	var/heard_dying_message = 0
+	var/possession_heard_message = 0
+	var/possessive = 0
+	var/datum/weakref/original_body
+	var/datum/weakref/possessed_body
 
 /mob/living/simple_animal/shade/bluespace/apply_damage()
 	return 0
@@ -115,7 +121,7 @@
 
 /mob/living/simple_animal/shade/bluespace/Initialize()
 	. = ..()
-	set_light(2, 1, l_color = LIGHT_COLOR_CYAN)
+	set_light(3, 1, l_color = LIGHT_COLOR_CYAN)
 
 /mob/living/simple_animal/shade/bluespace/Stat()
 	..()
@@ -124,39 +130,92 @@
 		stat(null, "Strength of Echoes: [message_countdown]")
 
 /mob/living/simple_animal/shade/bluespace/updatehealth()
-	message_countdown = max(0, message_countdown - 1)
-	if(message_countdown <= 0)
-		adjustCloneLoss(1)
-		if(!heard_dying_message)
-			heard_dying_message = 1
-			to_chat(src, "<span class='danger'>You feel yourself begin to fade away!</span>")
+	if(!possessive)
+		message_countdown = max(0, message_countdown - 2)
+		if(message_countdown <= 0)
+			adjustCloneLoss(2)
+			if(!heard_dying_message)
+				heard_dying_message = 1
+				to_chat(src, "<span class='danger'>You feel yourself begin to fade away!</span>")
 	..()
+
+/mob/living/simple_animal/shade/bluespace/Life()
+	if(possessive && possessed_body)
+		update_possession()
+	..()
+
+/mob/living/simple_animal/shade/bluespace/proc/update_possession()
+	var/mob/living/L = possessed_body
+	if(L.stat == DEAD)
+		adjustCloneLoss(2)
+		if(!heard_dying_message)
+			to_chat(src, "<span class='danger'>You feel yourself unable to sustain yourself on your host, and begin to fade away!</span>")
+			heard_dying_message = 1
+
+	else if(L.sleeping)
+		adjustCloneLoss(2)
+		possession_heard_message = 0
+		if(!heard_dying_message)
+			to_chat(src, "<span class='danger'>Your host's lifestream is obfuscated in their dreams as they sleep, and you begin to fade away!</span>")
+			heard_dying_message = 1
+
+	else
+		heard_dying_message = 0
+		if(isunathi(L))
+			var/mob/living/carbon/human/H = L
+			H.stamina = min(H.max_stamina, H.stamina+(6 * H.stamina_recovery))
+			H.adjustBruteLoss(-1)
+			H.adjustFireLoss(-1)
+			H.adjustToxLoss(-1)
+			H.adjustOxyLoss(-1)
+			adjustCloneLoss(-2)
+			var/list/nagging_doubts = list("You feel empowered by the ancestors!","You feel ancestral might flowing through your veins!","You feel the power of your forebears!", \
+											"You feel the blood of the warrior!", "You feel the glory of a warrior's death!", "You feel mighty!","You feel the strength of the spirits!")
+			if(prob(5) || !possession_heard_message)
+				to_chat(H, "<span class='danger'>[pick(nagging_doubts)]</span>")
+				possession_heard_message = 1
+
+		else
+			if(prob(20) || !possession_heard_message)
+				L.adjustCloneLoss(2)
+				adjustCloneLoss(-2)
+				var/list/nagging_doubts = list("You feel a nagging doubt in the back of your head.","You feel a vacancy in your thoughts.","You feel momentarily forgetful.", \
+												"You feel temporarily occupied.", "You feel a little worried.", "You feel a hostile presence.","You feel watched.")
+				if(prob(5) || !possession_heard_message)
+					to_chat(L, "<span class='notice'>[pick(nagging_doubts)]</span>")
+					possession_heard_message = 1
 
 /mob/living/simple_animal/shade/bluespace/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
 	..()
-	if(speaker && speaker != src)
+	if(speaker && speaker != src && !possessive)
 		last_message_heard = message
-		message_countdown = min(300, message_countdown + 50)
-		health = min(maxHealth, health + 5)
+		message_countdown = min(300, message_countdown + 35)
+		adjustCloneLoss(-2)
 		if(heard_dying_message)
 			heard_dying_message = 0
 			to_chat(src, "<span class='notice'>The soothing echoes of life reinvigorate you.</span>")
 
 /mob/living/simple_animal/shade/bluespace/say(var/message)
-	var/list/words_in_memory = dd_text2List(last_message_heard, " ")
-	var/list/words_in_message = dd_text2List(message, " ")
-	for(var/word1 in words_in_message)
-		var/valid = 0
-		for(var/word2 in words_in_memory)
-			if(lowertext(word1) != lowertext(word2))
-				continue
-			else
-				valid = 1
-				break
-		if(!valid)
-			message = replacetext(message, word1, pick(words_in_memory))
-	message = slur(message,rand(10, 20))
-	..()
+	if(!possessive)
+		var/new_last_message_heard = sanitizeName(last_message_heard)
+		var/new_message = sanitizeName(message)
+
+		var/list/words_in_memory = dd_text2List(new_last_message_heard, " ")
+		var/list/words_in_message = dd_text2List(new_message, " ")
+		for(var/word1 in words_in_message)
+			var/valid = 0
+			for(var/word2 in words_in_memory)
+				if(lowertext(word1) != lowertext(word2))
+					continue
+				else
+					valid = 1
+					break
+			if(!valid)
+				message = replacetext(message, word1, pick(words_in_memory))
+		message = slur(message,15)
+		..()
+	else
+		to_chat(src, "<span class='warning'>You cannot muster a voice when possessing another!</span>")
 
 /mob/living/simple_animal/shade/bluespace/verb/show_last_message()
 	set name = "Current Echo"
@@ -170,6 +229,10 @@
 	set category = "Bluespace Echo"
 	set desc = "Oh, Nosferatu!"
 
+	if(possessive)
+		to_chat(src, "<span class='warning'>You cannot affect the world outside your host!</span>")
+		return
+
 	visible_message("<span class ='notice'>\The [src] pulses.</span>")
 	for(var/obj/machinery/light/L in view(5, src))
 		L.flicker()
@@ -178,6 +241,10 @@
 	set category = "Bluespace Echo"
 	set name = "Warp Item"
 	set desc = "Teleport a small item to where you are."
+
+	if(possessive)
+		to_chat(src, "<span class='warning'>You cannot affect the world outside your host!</span>")
+		return
 
 	if(message_countdown < 20)
 		to_chat(src, "<span class='warning'>You are too faded to warp an item through bluespace.</span>")
@@ -206,6 +273,10 @@
 	set name = "Warp Vortex"
 	set desc = "Teleport items wildly."
 
+	if(possessive)
+		to_chat(src, "<span class='warning'>You cannot affect the world outside your host!</span>")
+		return
+
 	if(message_countdown < 200)
 		to_chat(src, "<span class='warning'>You are too faded to warp an item through bluespace.</span>")
 		return
@@ -222,17 +293,92 @@
 				do_teleport(M, pick(liable_turfs))
 				message_countdown = max(0, message_countdown - 20)
 
-/mob/living/simple_animal/shade/bluespace/verb/force_message()
+/mob/living/simple_animal/shade/bluespace/verb/lifeline()
 	set category = "Bluespace Echo"
-	set name = "Force Message"
-	set desc = "Force a coherent message of your own choosing."
+	set name = "Lifeline"
+	set desc = "Draw yourself towards the original cradle of your soul."
 
-	if(message_countdown < 300)
-		to_chat(src, "<span class='warning'>You are too faded to force a message out.</span>")
+	if(possessive)
+		to_chat(src, "<span class='warning'>You cannot affect the world outside your host!</span>")
 		return
 
-	var/message = input("Write out a message", "Forceful Message")
+	if(!original_body)
+		to_chat(src, "<span class='danger'>You feel an immeasurable hollowness as you realize that the original cradle of your soul is no more.</span>")
+		return
 
-	if(message)
-		visible_message("<span class ='danger'>\The [src] screeches, [message]!</span>")
-		message_countdown = max(0, message_countdown - 300)
+
+	var/turf/T1 = get_turf(original_body)
+	var/turf/T2 = get_turf(src)
+
+	if(T1.z != T2.z)
+		to_chat(src, "<span class='warning'>The original cradle of your soul is too distant from you, perhaps somewhere above or below?</span>")
+		return
+
+	forceMove(get_step(src, get_dir(T2, T1)))
+
+/mob/living/simple_animal/shade/bluespace/verb/possession()
+	set category = "Bluespace Echo"
+	set name = "Mind Meld"
+	set desc = "Meld into the mind of another, sustaining yourself off of their lifeforce."
+
+	if(possessive)
+		to_chat(src, "<span class='warning'>You are already possessing a host!</span>")
+		return
+
+	if(message_countdown < 50)
+		to_chat(src, "<span class='warning'>You are too faded to squeeze into another's lifestream.</span>")
+		return
+
+	var/list/mob/living/carbon/human/choices = list()
+	for(var/mob/living/carbon/human/H in view(1, src))
+		if(!isSynthetic(H) && !isvaurca(H) && !H.is_diona())
+			choices += H
+
+	if(!choices.len)
+		to_chat(src, "<span class='warning'>There are no suitable lifestreams nearby.</span>")
+		return
+
+	var/mob/living/carbon/human/H = input(src, "What lifestream would you like to meld with?") as null|anything in choices
+	if(!H || !(H in view(7, src)))
+		return
+
+	possessed_body = H
+	possessive = 1
+	anchored = 1
+	canmove = 0
+	forceMove(possessed_body)
+	heard_dying_message = 0
+	possession_heard_message = 0
+	last_message_heard = null
+	message_countdown = max(0, message_countdown - 50)
+
+/mob/living/simple_animal/shade/bluespace/verb/divorce()
+	set category = "Bluespace Echo"
+	set name = "Divorce of Echoes"
+	set desc = "Seperate yourself from the lifestream of another."
+
+	if(!possessive)
+		to_chat(src, "<span class='warning'>You are not currently possessing a host!</span>")
+		return
+
+	forceMove(get_turf(possessed_body))
+	possessed_body = null
+	possessive = 0
+	anchored = 0
+	canmove = 1
+	heard_dying_message = 0
+	possession_heard_message = 0
+
+	message_countdown = min(message_countdown, 100)
+
+/obj/item/weapon/ectoplasm/bs
+	name = "bluespace residue"
+	desc = "spoopy"
+	gender = PLURAL
+	icon = 'icons/obj/wizard.dmi'
+	icon_state = "blectoplasm"
+
+/obj/item/weapon/ectoplasm/bs/Initialize()
+	. = ..()
+	create_reagents(8)
+	reagents.add_reagent("bluespace_dust", 8)
