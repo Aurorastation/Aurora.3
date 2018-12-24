@@ -428,6 +428,7 @@
 			jobdatum = SSjobs.GetJob(jobname)
 			if(jobdatum)
 				dresscode = "[jobdatum.title]"
+				M.job = jobdatum.title
 				jobdatum.equip(M)
 		
 		if("emergency response team")
