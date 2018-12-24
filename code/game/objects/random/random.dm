@@ -820,7 +820,7 @@
 		/obj/item/weapon/inflatable_duck = 0.2,
 		/obj/random/hoodie = 0.5,
 		/obj/random/junk = 0.9,
-		/obj/random/document = 0.1,
+		/obj/random/document = 0.5,
 		/obj/item/weapon/spacecash/ewallet/lotto = 0.3,
 		/obj/random/spacecash = 0.3,
 		/obj/item/device/firing_pin = 0.3,
@@ -917,7 +917,8 @@
 		/obj/item/ammo_casing/c45/rubber = 0.5,
 		/obj/item/ammo_casing/c9mm/rubber = 0.5,
 		/obj/item/ammo_casing/c45/flash = 0.5,
-		/obj/item/ammo_casing/shotgun/beanbag = 0.5
+		/obj/item/ammo_casing/shotgun/beanbag = 0.5,
+		/obj/random/document/junk = 0.5,
 	)
 
 //Sometimes the chef will have spare oil in storage.

@@ -82,11 +82,12 @@ var/datum/controller/subsystem/docs/SSdocs
 /datum/controller/subsystem/docs/proc/pick_document_by_tags(var/list/tags)
 	if(!istype(tags) || !tags.len)
 		return 0
-	var/tag_sublist = docs_by_tags[pick(tags)] // the list cannot start off as empty
+	var/list/tag_sublist = docs_by_tags[pick(tags)] // the list cannot start off as empty
 	for(var/t in tags)
 		if(!docs_by_tags[t])
 			return 0
 		tag_sublist &= docs_by_tags[t]
+	log_ss("docs", "Tag sublist has length [tag_sublist.len].")
 	var/subtotal = 0
 	var/datum/docs_document/dd
 	for(dd in tag_sublist)
@@ -125,16 +126,17 @@ var/datum/controller/subsystem/docs/SSdocs
 		while(document_query.NextRow())
 			CHECK_TICK
 			try
+				log_ss("docs", "Tags (SQL): [json_decode(document_query.item[5])]")
 				add_document(
 					document_query.item[1],
 					document_query.item[2],
 					document_query.item[3],
 					document_query.item[4],
-					document_query.item[5])
+					json_decode(document_query.item[5]))
 			catch(var/exception/ec)
 				log_debug("SSdocs: Error when loading document: [ec]")
 
-//Loads the cargo data from JSON
+//Loads the document data from JSON
 /datum/controller/subsystem/docs/proc/load_from_json()
 	var/list/docsconfig = list()
 	try
@@ -150,6 +152,7 @@ var/datum/controller/subsystem/docs/SSdocs
 	for (var/document in docsconfig)
 		CHECK_TICK
 		try
+			log_ss("docs", "Tags (JSON): [list2params(docsconfig[document]["tags"])]")
 			add_document(
 				docsconfig[document]["name"],
 				docsconfig[document]["title"],
@@ -204,18 +207,35 @@ var/datum/controller/subsystem/docs/SSdocs
 
 /obj/random/document/post_spawn(var/obj/item/spawned)
 	var/list/total_tags = src.tags | list(SSDOCS_MEDIUM_PAPER)
-	var/datum/docs_document/doc = SSdocs.pick_document_by_tags(total_tags)
-	if(!istype(doc))
-		return
+	log_ss("docs","Tags selected: [list2params(total_tags)]")
+	var/datum/docs_document/doc
+	if(total_tags.len == 1)
+		doc = SSdocs.pick_document_by_tag(total_tags[1])
+		if(!istype(doc))
+			log_ss("docs","pick_document_by_tag returned null paper!")
+	else
+		doc = SSdocs.pick_document_by_tags(total_tags)
+		if(!istype(doc))
+			log_ss("docs","pick_document_by_tags returned null paper!")
+			return
 	if(!istype(spawned, /obj/item/weapon/paper))
 		return
+	log_ss("docs","Document [doc.name] successfully spawned!")
 	var/obj/item/weapon/paper/P = spawned
 	P.set_content_unsafe(doc.title, doc.content)
+
+/obj/random/document/junk/post_spawn(var/obj/item/spawned)
+	..()
+	if(istype(spawned, /obj/item/weapon/paper) && prob(80)) // 1 in 5 junk-spawned documents will be perfectly readable
+		var/obj/item/weapon/paper/P = spawned
+		P.info = stars(P.info, 85) // 85% readable, preserves tags
+		P.icon_state = "scrap"
 
 /datum/controller/subsystem/docs/proc/create_file(var/datum/docs_document/file)
 		var/datum/computer_file/data/F = new/datum/computer_file/data()
 		F.filename = file.title
 		F.filetype = "TXT"
+		log_ss("docs","Digital file created: [file.title].TXT")
 		F.stored_data = file.content
 		F.calculate_size()
 		return F

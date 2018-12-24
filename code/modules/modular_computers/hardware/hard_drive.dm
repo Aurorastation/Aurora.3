@@ -166,9 +166,10 @@
 
 /obj/item/weapon/computer_hardware/hard_drive/Initialize(mapload)
 	install_default_programs()
-	if(mapload)
-		var/datum/docs_document/file = SSdocs.pick_document(SSDOCS_MEDIUM_FILE)
+	if(mapload && prob(5))
+		var/datum/docs_document/file = SSdocs.pick_document_by_tag(SSDOCS_MEDIUM_FILE)
 		if(!istype(file))
+			log_ss("docs","pick_document_by_tag returned null file!")
 			..()
 			return
 		var/datum/computer_file/data/F = SSdocs.create_file(file)
