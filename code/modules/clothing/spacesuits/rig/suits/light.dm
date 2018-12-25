@@ -182,5 +182,6 @@
 		/obj/item/rig_module/power_sink,
 		/obj/item/rig_module/datajack,
 		/obj/item/rig_module/actuators/combat,
-		/obj/item/rig_module/device/emag_hand/advanced
+		/obj/item/rig_module/device/emag_hand/advanced,
+		/obj/item/rig_module/self_destruct/small
 	)
