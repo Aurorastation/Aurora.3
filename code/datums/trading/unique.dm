@@ -74,7 +74,6 @@
 		/obj/machinery/power/supermatter = TRADER_ALL,
 		/obj/item/weapon/aiModule        = TRADER_SUBTYPES_ONLY
 	)
-	want_multiplier = 5000
 
 	speech = list(
 		"hail_generic"         = "Blub am MERCHANT. Blub hunger for things. Boo bring them to blub, yes?",
@@ -154,7 +153,6 @@
 /datum/trader/ship/unique/vaurca
 	origin = "The Hive Shop"
 	name_language = LANGUAGE_VAURCA
-	want_multiplier = 1
 
 	possible_wanted_items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/koisbar          = TRADER_THIS_TYPE,

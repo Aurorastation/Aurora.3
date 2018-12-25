@@ -73,6 +73,7 @@
 /datum/category_item/player_setup_item/player_global/settings/sanitize_preferences(var/sql_load = 0)
 	if (sql_load)
 		pref.current_character = text2num(pref.current_character)
+		pref.current_character = validate_current_character()
 
 	pref.lastchangelog  = sanitize_text(pref.lastchangelog, initial(pref.lastchangelog))
 	pref.default_slot   = sanitize_integer(text2num(pref.default_slot), 1, config.character_slots, initial(pref.default_slot))
@@ -115,3 +116,32 @@
 		return TOPIC_REFRESH
 
 	return ..()
+
+/datum/category_item/player_setup_item/player_global/settings/proc/validate_current_character()
+	if (!establish_db_connection(dbcon))
+		return pref.current_character
+
+	var/DBQuery/is_ours = dbcon.NewQuery("SELECT COUNT(*) as valid_id FROM ss13_characters WHERE ckey = :ckey: AND id = :curr_char: AND deleted_at IS NULL")
+	is_ours.Execute(list("ckey" = pref.client.ckey, "curr_char" = pref.current_character))
+
+	if (!is_ours.NextRow())
+		return pref.current_character
+
+	var/found = text2num(is_ours.item[1])
+
+	if (!found)
+		return select_default_character()
+	else
+		return pref.current_character
+
+/datum/category_item/player_setup_item/player_global/settings/proc/select_default_character()
+	if (!establish_db_connection(dbcon))
+		return 0
+
+	var/DBQuery/first_char = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey: AND deleted_at IS NULL LIMIT 1")
+	first_char.Execute(list("ckey" = pref.client.ckey))
+
+	if (!first_char.NextRow())
+		return 0
+
+	return text2num(first_char.item[1])

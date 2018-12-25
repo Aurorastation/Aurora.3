@@ -34,6 +34,8 @@
 	throwforce = 0
 	throw_speed = 4
 	throw_range = 20
+	flags = OPENCONTAINER
+	var/key_data
 
 /obj/item/weapon/soap/nanotrasen
 	desc = "A NanoTrasen-brand bar of soap. Smells of phoron."
@@ -326,6 +328,10 @@
 	var/obj/item/gift = null
 	item_state = "gift"
 	w_class = 4.0
+
+/obj/item/weapon/gift/random_pixel/Initialize()
+	pixel_x = rand(-16,16)
+	pixel_y = rand(-16,16)
 
 /obj/item/weapon/legcuffs
 	name = "legcuffs"
