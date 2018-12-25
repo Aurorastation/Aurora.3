@@ -147,7 +147,7 @@
 	var/last_shake = 0
 	var/list/allowed_mobs = list(/mob/living/simple_animal/mouse, /mob/living/simple_animal/chick, /mob/living/simple_animal/lizard)
 	var/release_time = 0
-	var/list/resources = list(6)
+	var/list/resources = list(rods = 6)
 
 /obj/item/weapon/trap/animal/examine(mob/user)
 	..()
@@ -169,7 +169,7 @@
 		to_chat(user, "<span class='notice'>\The [src] is empty.</span>")
 
 /obj/item/weapon/trap/animal/Crossed(AM as mob|obj)
-	if(world.time - release_time > 50) // If we just released the animal, not to let it get caught again right away
+	if(world.time - release_time < 50) // If we just released the animal, not to let it get caught again right away
 		return
 
 	if(contents.len) // It is full
@@ -276,6 +276,12 @@
 	else
 		..()
 
+/obj/item/weapon/trap/animal/CollidedWith(atom/AM)
+	if(isliving(AM))
+		Crossed(AM)
+	else
+		..()
+
 /obj/item/weapon/trap/animal/verb/release_animal()
 	set src in oview(1)
 	set category = "Object"
@@ -346,9 +352,9 @@
 		if(WT.remove_fuel(0, user))
 			user.visible_message("<span class='notice'>[user] is sliced \the [src]!</span>",
 								 "You sliced \the [src]!")
-			new /obj/item/stack/rods{amount = resources[1]}(src.loc)
+			new /obj/item/stack/rods(src.loc, resources["rods"])
 			if(resources.len == 2)
-				new /obj/item/stack/material/steel{amount = resources[2]}(src.loc)
+				new /obj/item/stack/material/steel(src.loc, resources["metal"])
 			qdel(src)
 
 	else if(istype(W, /obj/item/weapon/screwdriver))
@@ -358,12 +364,12 @@
 			return
 
 		user.visible_message("<span class='notice'>[user] is trying to [anchored ? "un" : "" ]secure \the [src]!</span>",
-							 "You are trying to [anchored ? "" : "un" ]secure \the [src]!")
+							 "You are trying to [anchored ? "un" : "" ]secure \the [src]!")
 		playsound(src.loc, "sound/items/[pick("Screwdriver", "Screwdriver2")].ogg", 50, 1)
 
 		if (!do_after(user, 3 SECONDS, act_target = src))
 			return
-
+		density = !density
 		anchored = !anchored
 		user.visible_message("<span class='notice'>[user] has [anchored ? "" : "un" ]secured \the [src]!</span>",
 							 "You have [anchored ? "" : "un" ]secured \the [src]!")
@@ -375,9 +381,15 @@
 		..()
 
 /obj/item/weapon/trap/animal/attack_hand(mob/user as mob)
+
 	if (!user) return
 	if(user.loc == src) // not to pick ourselves
 		return
+
+	if(anchored)
+		to_chat(user, "<span class='warning'>\The [src] is achorned to the floor!</span>")
+		return
+
 	if (hasorgans(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]
@@ -433,7 +445,7 @@
 		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
 
 /obj/item/weapon/trap/animal/attack(mob/living/M, mob/living/user)
-	if(world.time - release_time > 50) // If we just released the animal, not to let it get caught again right away
+	if(world.time - release_time < 50) // If we just released the animal, not to let it get caught again right away
 		return
 
 	if(contents.len) // It is full
@@ -460,7 +472,7 @@
 	origin_tech = list(TECH_MATERIAL = 3)
 	matter = list(DEFAULT_WALL_MATERIAL = 5750)
 	deployed = 0
-	resources = list(12)
+	resources = list(rods = 12)
 
 /obj/item/weapon/trap/animal/medium/Initialize()
 	allowed_mobs = list(
@@ -480,7 +492,7 @@
 	origin_tech = list(TECH_MATERIAL = 4)
 	matter = list(DEFAULT_WALL_MATERIAL = 15750)
 	deployed = 0
-	resources = list(12, 4)
+	resources = list(rods = 12, metal = 4)
 
 /obj/item/weapon/trap/animal/large/Initialize()
 	allowed_mobs = list(
@@ -499,7 +511,7 @@
 			return
 
 		user.visible_message("<span class='notice'>[user] is trying to [anchored ? "un" : "" ]secure \the [src]!</span>",
-							  "You are trying to [anchored ? "" : "un" ]secure \the [src]!")
+							  "You are trying to [anchored ? "un" : "" ]secure \the [src]!")
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 
 		if (!do_after(user, 3 SECONDS, act_target = src))
@@ -539,5 +551,7 @@
 			return
 		else
 			to_chat(user, "<span class='warning'>You need at least 12 rods to complete \the [src].</span>")
+	else if(istype(W, /obj/item/weapon/screwdriver))
+		return
 	else
 		..()
