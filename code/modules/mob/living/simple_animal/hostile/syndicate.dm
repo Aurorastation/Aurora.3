@@ -165,7 +165,6 @@
 
 	flying = TRUE
 	attack_emote = "buzzes at"
-	var/stance_step = 0
 
 /mob/living/simple_animal/hostile/viscerator/death()
 	..(null,"is smashed into pieces!")
@@ -174,20 +173,11 @@
 	spark(T, 3, alldirs)
 	qdel(src)
 
-/mob/living/simple_animal/hostile/viscerator/think()
-	if(stance == HOSTILE_STANCE_TIRED)
-		stop_automated_movement = 1
-		stance_step++
-		if(stance_step >= 15) //rests for a while
-			if(target_mob && target_mob in ListTargets(10))
-				stance = HOSTILE_STANCE_ATTACK
-			else
-				stance = HOSTILE_STANCE_IDLE
-	else
-		..()
+/mob/living/simple_animal/hostile/viscerator/proc/wakeup()
+	stance = HOSTILE_STANCE_IDLE
 
 /mob/living/simple_animal/hostile/viscerator/emp_act(severity)
-	stance_step = 0
 	stance = HOSTILE_STANCE_TIRED
+	addtimer(CALLBACK(src, .proc/wakeup), 15)
 	if(severity == 1.0)
 		apply_damage(5)
