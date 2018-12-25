@@ -153,3 +153,34 @@
 		/obj/item/rig_module/stealth_field,
 		/obj/item/rig_module/vision
 		)
+
+/obj/item/weapon/rig/light/stealth/ninja //For minor ninjas
+	name = "advanced stealth suit control module"
+	suit_type = "stealth"
+	desc = "A highly advanced and expensive suit designed for covert operations."
+	icon_state = "stealth_rig"
+
+	req_access = list(access_syndicate)
+
+	initial_modules = list(
+		/obj/item/rig_module/stealth_field,
+		/obj/item/rig_module/vision
+		)
+
+	armor = list(melee = 40, bullet = 30, laser = 30, energy = 25, bomb = 15, bio = 100, rad = 30)
+	emp_protection = 25
+	slowdown = -1 //Actually makes you go faster. Going to need that speed if you don't have a teleporter.
+
+	initial_modules = list(
+		/obj/item/rig_module/stealth_field/advanced,
+		/obj/item/rig_module/vision,
+		/obj/item/rig_module/voice,
+		/obj/item/rig_module/fabricator/energy_net,
+		/obj/item/rig_module/chem_dispenser,
+		/obj/item/rig_module/grenade_launcher,
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/power_sink,
+		/obj/item/rig_module/datajack,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/device/emag_hand/advanced
+	)

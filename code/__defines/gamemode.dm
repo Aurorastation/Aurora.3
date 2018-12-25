@@ -43,6 +43,7 @@
 #define MODE_ERT "ert"
 #define MODE_MERCENARY "mercenary"
 #define MODE_NINJA "ninja"
+#define MODE_NINJA_MINOR "ninja_minor"
 #define MODE_RAIDER "raider"
 #define MODE_WIZARD "wizard"
 #define MODE_CHANGELING "changeling"

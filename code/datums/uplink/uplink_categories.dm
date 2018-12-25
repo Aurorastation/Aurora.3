@@ -61,5 +61,5 @@
 
 /datum/uplink_category/ninja_modules
 	name = "Infiltration Items"
-	antag_roles = list(MODE_NINJA)
+	antag_roles = list(MODE_NINJA, MODE_NINJA_MINOR)
 

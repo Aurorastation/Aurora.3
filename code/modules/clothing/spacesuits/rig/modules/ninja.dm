@@ -10,7 +10,6 @@
  */
 
 /obj/item/rig_module/stealth_field
-
 	name = "active camouflage module"
 	desc = "A robust hardsuit-integrated stealth module."
 	icon_state = "cloak"
@@ -65,6 +64,13 @@
 		O.show_message("[H.name] appears from thin air!",1)
 	playsound(get_turf(H), 'sound/effects/stealthoff.ogg', 75, 1)
 
+/obj/item/rig_module/stealth_field/advanced
+	name = "advanced active camouflage module"
+	desc = "A robust hardsuit-integrated stealth module. This model sports a significantly lower cooldown betweeen uses as well as a reduced charge cost."
+	use_power_cost = 25
+	active_power_cost = 5
+	passive_power_cost = 0
+	module_cooldown = 10
 
 /obj/item/rig_module/teleporter
 
@@ -282,3 +288,12 @@
 	interface_desc = "A complex uprade that allows the user to apply an EMAG effect to certain objects. High power cost."
 
 	device_type = /obj/item/weapon/robot_emag
+
+/obj/item/rig_module/device/emag_hand/advanced
+	name = "advanced integrated cryptographic sequencer"
+	desc = "A complex uprade that allows the user to apply an EMAG effect to certain objects. Moderate power cost, with an exceptionally low cooldown."
+	module_cooldown = 50
+	use_power_cost = 30
+
+	interface_name = "advanced integrated cryptographic sequencer"
+	interface_desc = "A complex uprade that allows the user to apply an EMAG effect to certain objects. Moderate power cost, with an exceptionally low cooldown."
