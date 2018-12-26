@@ -36,4 +36,5 @@ delete-after: True
 changes: 
   - imageadd: "Completely overhauled the money sprites."
   - tweak: "Slot machines now take credits in the form of coins instead of novelty coins."
+  - rscadd: "Added a new coin machine which converts credit coins into paper currency and vice versa."
   - bugfix: "Fixed an emag bug with the slot machine."
