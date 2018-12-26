@@ -5,6 +5,7 @@ var/global/datum/getrev/revdata = new()
 	var/revision
 	var/date
 	var/showinfo
+	var/list/datum/tgs_revision_information/test_merge/test_merges
 
 /datum/getrev/New()
 	var/list/head_branch = file2list(".git/HEAD", "\n")
@@ -23,6 +24,11 @@ var/global/datum/getrev/revdata = new()
 				if(unix_time)
 					date = unix2date(unix_time)
 			break
+
+	var/datum/tgs_api/api = TGS_READ_GLOBAL(tgs)
+
+	if (api)
+		test_merges = api.TestMerges()
 
 	world.log << "Running revision:"
 	world.log << branch
@@ -44,3 +50,27 @@ client/verb/showrevinfo()
 		src << "Revision unknown"
 
 	src << "<b>Current Map:</b> [current_map.full_name]"
+
+/datum/getrev/proc/testmerge_overview()
+	if (!test_merges.len)
+		return
+
+	var/list/out = list("<br><center><font color='purple'><b>PRs test-merged for this round:</b><br>")
+
+	for (var/TM in test_merges)
+		out += testmerge_short_overview(TM)
+
+	out += "</font></center><br>"
+
+	return out.Join()
+
+/datum/getrev/proc/testmerge_short_overview(datum/tgs_revision_information/test_merge/tm)
+	. = list()
+
+	. += "<hr><p>PR #[tm.number]: \"[html_encode(tm.title)]\""
+	. += "<br>\tAuthor: [html_encode(tm.author)]"
+
+	if (config.githuburl)
+		. += "<br>\t<a href='[config.githuburl]pull/[tm.number]'>\[Details...\]</a>"
+
+	. += "</p>"

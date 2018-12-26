@@ -40,8 +40,9 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/delay_end = 0	//if set to nonzero, the round will not restart on it's own
 
 	var/triai = 0	//Global holder for Triumvirate
-	var/tipped = 0							//Did we broadcast the tip of the day yet?
+	var/tipped = FALSE						//Did we broadcast the tip of the day yet?
 	var/selected_tip						// What will be the tip of the day?
+	var/testmerges_printed = FALSE
 
 	var/round_end_announced = 0 // Spam Prevention. Announce round end only once.
 
@@ -133,6 +134,10 @@ var/datum/controller/subsystem/ticker/SSticker
 			SSvote.autogamemode()
 			pregame_timeleft--
 			return
+
+	if (pregame_timeleft <= 20 && !testmerges_printed)
+		print_testmerges()
+		testmerges_printed = TRUE
 
 	if (pregame_timeleft <= 10 && !tipped)
 		send_tip_of_the_round()
@@ -325,6 +330,12 @@ var/datum/controller/subsystem/ticker/SSticker
 	if(m)
 		world << "<font color='purple'><b>Tip of the round: \
 			</b>[html_encode(m)]</font>"
+
+/datum/controller/subsystem/ticker/proc/print_testmerges()
+	var/data = revdata.testmerge_overview()
+
+	if (data)
+		world << data
 
 /datum/controller/subsystem/ticker/proc/pregame()
 	set waitfor = FALSE
