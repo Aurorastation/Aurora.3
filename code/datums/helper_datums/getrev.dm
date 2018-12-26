@@ -30,6 +30,14 @@ var/global/datum/getrev/revdata = new()
 	if (api)
 		test_merges = api.TestMerges()
 
+	var/datum/tgs_revision_information/test_merge/tm = new()
+	tm.number = 5330
+	tm.author = "BurgerBBB"
+	tm.title = "free MEMES"
+
+	test_merges = list()
+	test_merges += tm
+
 	world.log << "Running revision:"
 	world.log << branch
 	world.log << date
