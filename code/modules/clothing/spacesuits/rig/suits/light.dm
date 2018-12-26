@@ -110,7 +110,8 @@
 		/obj/item/rig_module/power_sink,
 		/obj/item/rig_module/datajack,
 		/obj/item/rig_module/self_destruct,
-		/obj/item/rig_module/actuators/combat
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/device/door_hack
 		)
 
 /obj/item/clothing/gloves/rig/light/ninja
@@ -162,11 +163,6 @@
 
 	req_access = list(access_syndicate)
 
-	initial_modules = list(
-		/obj/item/rig_module/stealth_field,
-		/obj/item/rig_module/vision
-		)
-
 	armor = list(melee = 40, bullet = 30, laser = 30, energy = 25, bomb = 15, bio = 100, rad = 30)
 	emp_protection = 25
 	slowdown = -1 //Actually makes you go faster. Going to need that speed if you don't have a teleporter.
@@ -182,6 +178,6 @@
 		/obj/item/rig_module/power_sink,
 		/obj/item/rig_module/datajack,
 		/obj/item/rig_module/actuators/combat,
-		/obj/item/rig_module/device/emag_hand/advanced,
+		/obj/item/rig_module/device/door_hack,
 		/obj/item/rig_module/self_destruct/small
 	)

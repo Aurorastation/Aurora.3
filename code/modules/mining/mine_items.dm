@@ -745,6 +745,8 @@
 	var/list/destinations = list()
 
 	for(var/obj/item/device/radio/beacon/B in teleportbeacons)
+		if(!B.enabled)
+			continue
 		var/turf/T = get_turf(B)
 		if(T.z in current_map.station_levels)
 			destinations += B

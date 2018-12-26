@@ -34,6 +34,9 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Added a new gamemode: Triple Threat. The ninjas spawned in the gamemode do not have teleportation modules, but instead an advanced cloaking field and an unlimited use emag."
+  - rscadd: "Added a new gamemode: Triple Threat. The ninjas spawned in the gamemode do not have teleportation modules, but instead an advanced cloaking field that costs less to use than the regular one."
   - rscadd: "Added a new gamemode: Quadruple Threat. Three lesser ninjas, one normal ninja. Final destination."
-  - maptweak: "Added additional tracking beacons across the station."
+  - rscadd: "Added new rig module: Advanced Door Hacking Tool; ninja exclusive rig module that can hack multiple doors in seconds, remotely."
+  - balance: "Removed some of the RNG in the existing door hacking tool."
+  - rscadd: "All types of ninjas now spawn with updated uniforms, advanced combat belts, black webbing vests, a pAI, and a very robust door hacking tool rig module."
+  - maptweak: "Added additional tracking beacons across the station. Tracking beacons can now be enabled or disabled by activating them in hand."

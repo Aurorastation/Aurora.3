@@ -66,9 +66,9 @@
 
 /obj/item/rig_module/stealth_field/advanced
 	name = "advanced active camouflage module"
-	desc = "A robust hardsuit-integrated stealth module. This model sports a significantly lower cooldown betweeen uses as well as a reduced charge cost."
-	use_power_cost = 25
-	active_power_cost = 5
+	desc = "A robust hardsuit-integrated stealth module. This model sports a significantly lower cooldown between uses as well as a reduced charge cost."
+	use_power_cost = 10
+	active_power_cost = 2
 	passive_power_cost = 0
 	module_cooldown = 10
 
@@ -289,11 +289,13 @@
 
 	device_type = /obj/item/weapon/robot_emag
 
-/obj/item/rig_module/device/emag_hand/advanced
-	name = "advanced integrated cryptographic sequencer"
-	desc = "A complex uprade that allows the user to apply an EMAG effect to certain objects. Moderate power cost, with an exceptionally low cooldown."
-	module_cooldown = 50
-	use_power_cost = 30
+/obj/item/rig_module/device/door_hack
+	name = "advanced door hacking tool"
+	desc = "An advanced door hacking tool that sports a low power cost and incredibly quick door hacking time. The device also supports hacking several signals at once remotely, and the last 10 doors hacked can be instantly accessed."
+	use_power_cost = 10
+	module_cooldown = 5
 
-	interface_name = "advanced integrated cryptographic sequencer"
-	interface_desc = "A complex uprade that allows the user to apply an EMAG effect to certain objects. Moderate power cost, with an exceptionally low cooldown."
+	interface_name = "advanced door hacking tool"
+	interface_desc = "An advanced door hacking tool that sports a low power cost and incredibly quick door hacking time. The device also supports hacking several signals at once remotely, and the last 10 doors hacked can be instantly accessed."
+
+	device_type = /obj/item/device/multitool/hacktool/rig

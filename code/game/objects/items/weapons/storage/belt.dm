@@ -189,6 +189,45 @@
 	max_w_class = 3
 	max_storage_space = 28
 
+/obj/item/weapon/storage/belt/ninja
+	name = "advanced combat belt"
+	desc = "A very robust belt that can hold various specialized gear such as swords, grenades, shurikens, and food rations."
+	icon_state = "securitybelt"
+	item_state = "security"
+	storage_slots = 9
+	max_w_class = 4
+	max_storage_space = 28
+
+	can_hold = list(
+		/obj/item/weapon/grenade,
+		/obj/item/weapon/handcuffs,
+		/obj/item/device/flash,
+		/obj/item/device/paicard,
+		/obj/item/clothing/glasses,
+		/obj/item/ammo_casing/shotgun,
+		/obj/item/ammo_magazine,
+		/obj/item/weapon/melee/baton,
+		/obj/item/device/flashlight,
+		/obj/item/device/pda,
+		/obj/item/device/radio/headset,
+		/obj/item/weapon/melee,
+		/obj/item/weapon/crowbar,
+		/obj/item/weapon/screwdriver,
+		/obj/item/weapon/shield/energy,
+		/obj/item/weapon/pinpointer,
+		/obj/item/weapon/plastique,
+		/obj/item/weapon/gun/projectile/pistol,
+		/obj/item/weapon/gun/energy/crossbow,
+		/obj/item/ammo_casing/a145,
+		/obj/item/device/radio/uplink,
+		/obj/item/weapon/card/emag,
+		/obj/item/device/multitool/hacktool,
+		/obj/item/weapon/reagent_containers,
+		/obj/item/stack/telecrystal,
+		/obj/item/weapon/material/sword,
+		/obj/item/weapon/material/star
+	)
+
 /obj/item/weapon/storage/belt/military
 	name = "military belt"
 	desc = "A syndicate belt designed to be used by boarding parties. Its style is modeled after the hardsuits they wear."

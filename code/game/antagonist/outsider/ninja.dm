@@ -103,10 +103,26 @@ var/datum/antagonist/ninja/ninjas
 	if(!..())
 		return 0
 
-	var/obj/item/device/radio/R = new /obj/item/device/radio/headset(player)
-	player.equip_to_slot_or_del(R, slot_l_ear)
-	player.equip_to_slot_or_del(new /obj/item/clothing/under/color/black(player), slot_w_uniform)
-	player.equip_to_slot_or_del(new /obj/item/device/flashlight(player), slot_belt)
+	var/obj/item/device/radio/ninjaradio = new /obj/item/device/radio/headset(player)
+	if(ninjaradio)
+		player.equip_to_slot_or_del(ninjaradio, slot_l_ear)
+
+	var/obj/item/clothing/under/syndicate/combat/ninjauniform = new(player)
+	if(ninjauniform)
+		player.equip_to_slot_or_del(ninjauniform, slot_w_uniform)
+		var/obj/item/clothing/accessory/storage/black_vest/ninjavest = new(get_turf(player))
+		if(ninjavest)
+			ninjauniform.attach_accessory(player,ninjavest)
+
+	var/obj/item/weapon/storage/belt/ninja/ninjabelt = new(player)
+	if(ninjabelt)
+		new /obj/item/device/flashlight/maglight(ninjabelt)
+		new /obj/item/weapon/crowbar(ninjabelt)
+		new /obj/item/weapon/screwdriver(ninjabelt)
+		player.equip_to_slot_or_del(ninjabelt, slot_belt)
+
+	player.equip_to_slot_or_del(new /obj/item/clothing/mask/balaclava(player),	slot_wear_mask)
+
 	player.equip_to_slot_or_del(new /obj/item/device/ninja_uplink(player, player.mind), slot_l_store)
 	create_id("Infiltrator", player)
 

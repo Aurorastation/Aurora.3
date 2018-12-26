@@ -2802,12 +2802,13 @@
 /turf/space/transit/north/shuttlespace_ns8,
 /area/template_noop)
 "gZ" = (
-/obj/structure/mainframe{
-	dir = 2;
-	icon_state = "left";
-	pixel_y = -4
+/obj/structure/table/rack,
+/obj/item/weapon/material/star,
+/obj/item/weapon/material/star,
+/obj/item/weapon/material/star,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
 	},
-/turf/simulated/floor/plating,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
@@ -2833,12 +2834,11 @@
 /turf/space/transit/north/shuttlespace_ns6,
 /area/template_noop)
 "hc" = (
-/obj/structure/mainframe{
-	dir = 1;
-	icon_state = "left";
-	pixel_y = -4
+/obj/structure/table/rack,
+/obj/item/weapon/material/sword/katana,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
 	},
-/turf/simulated/floor/plating,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
@@ -2965,28 +2965,31 @@
 	name = "\improper Ninja Base"
 	})
 "hq" = (
-/turf/template_noop,
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/wall/dark{
-	icon_state = "swall_c"
+	dir = 8;
+	icon_state = "diagonalWall3"
 	},
-/area/template_noop)
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
 "hr" = (
-/turf/template_noop,
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/wall/dark{
-	icon_state = "swall_c";
-	dir = 8
+	dir = 6;
+	icon_state = "diagonalWall3"
 	},
-/area/template_noop)
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
 "hs" = (
-/turf/template_noop,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/wall/dark{
-	icon_state = "swall_c";
-	dir = 4
+/obj/structure/mainframe{
+	dir = 2;
+	icon_state = "left";
+	pixel_y = -3
 	},
-/area/template_noop)
+/turf/simulated/floor/plating,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
 "ht" = (
 /obj/effect/step_trigger/thrower{
 	affect_ghosts = 1;
@@ -3710,37 +3713,22 @@
 /turf/template_noop,
 /area/shuttle/syndicate_elite/mothership)
 "jT" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
+/obj/structure/mainframe{
+	dir = 1;
+	icon_state = "left";
+	pixel_y = -3
 	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "27"
-	},
-/obj/structure/table/reinforced/steel,
-/obj/machinery/button/remote/blast_door{
-	id = "battery3";
-	name = "Battery 3 Firing Control"
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_siding10"
-	},
-/area/centcom/control)
+/turf/simulated/floor/plating,
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
 "jU" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
+/turf/simulated/shuttle/wall/dark{
+	icon_state = "diagonalWall3"
 	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "28"
-	},
-/obj/machinery/artillerycontrol{
-	desc = "Bluespace Artillery; the thinking man's solution."
-	},
-/obj/effect/decal/warning_stripes,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding2";
-	dir = 6
-	},
-/area/centcom/control)
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
 "jV" = (
 /obj/structure/shuttle/engine/propulsion/burst{
 	dir = 4
@@ -3822,17 +3810,13 @@
 /turf/simulated/shuttle/plating,
 /area/shuttle/syndicate_elite/mothership)
 "kg" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
 	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "29"
-	},
-/obj/machinery/porta_turret/crescent,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding6"
-	},
-/area/centcom/control)
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
 "kh" = (
 /turf/space,
 /turf/simulated/shuttle/wall/dark{
@@ -21379,38 +21363,20 @@
 	},
 /area/shuttle/syndicate_elite/mothership)
 "Vl" = (
-/turf/unsimulated/floor{
-	icon_state = "engine"
+/turf/template_noop,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/shuttle/wall/dark{
+	icon_state = "swall_c"
 	},
-/obj/structure/window/phoronreinforced,
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 1
-	},
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 8
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_siding9"
-	},
-/area/centcom/control)
+/area/template_noop)
 "Vm" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
+/obj/structure/bed/chair/office/dark,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
 	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "27"
-	},
-/obj/structure/table/reinforced/steel,
-/obj/machinery/button/remote/blast_door{
-	id = "battery2";
-	name = "Battery 2 Firing Control"
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_siding10"
-	},
-/area/centcom/control)
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
 "Vn" = (
 /turf/space,
 /turf/simulated/shuttle/wall/dark{
@@ -21426,23 +21392,13 @@
 	},
 /area/centcom/shared_dream)
 "Vp" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
+/turf/template_noop,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/shuttle/wall/dark{
+	icon_state = "swall_c";
+	dir = 8
 	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "27"
-	},
-/obj/structure/table/reinforced/steel,
-/obj/machinery/button/remote/blast_door{
-	id = "battery1";
-	name = "Battery 1 Firing Control"
-	},
-/obj/effect/decal/cleanable/cobweb,
-/obj/item/weapon/reagent_containers/glass/rag,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding10"
-	},
-/area/centcom/control)
+/area/template_noop)
 "Vq" = (
 /turf/unsimulated/wall/riveted,
 /area/prison/solitary)
@@ -23171,15 +23127,13 @@
 	},
 /area/prison/solitary)
 "Zm" = (
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
+/turf/template_noop,
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding1";
-	dir = 6
+/turf/simulated/shuttle/wall/dark{
+	icon_state = "swall_c";
+	dir = 4
 	},
-/area/centcom/control)
+/area/template_noop)
 "Zn" = (
 /turf/unsimulated/floor{
 	icon_state = "panelscorched"
@@ -23219,6 +23173,111 @@
 /area/prison/solitary)
 "Zu" = (
 /turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "27"
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	id = "battery3";
+	name = "Battery 3 Firing Control"
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_siding10"
+	},
+/area/centcom/control)
+"Zv" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "28"
+	},
+/obj/machinery/artillerycontrol{
+	desc = "Bluespace Artillery; the thinking man's solution."
+	},
+/obj/effect/decal/warning_stripes,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding2";
+	dir = 6
+	},
+/area/centcom/control)
+"Zw" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "29"
+	},
+/obj/machinery/porta_turret/crescent,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding6"
+	},
+/area/centcom/control)
+"Zx" = (
+/turf/unsimulated/floor{
+	icon_state = "engine"
+	},
+/obj/structure/window/phoronreinforced,
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_siding9"
+	},
+/area/centcom/control)
+"Zy" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "27"
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	id = "battery2";
+	name = "Battery 2 Firing Control"
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_siding10"
+	},
+/area/centcom/control)
+"Zz" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "27"
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	id = "battery1";
+	name = "Battery 1 Firing Control"
+	},
+/obj/effect/decal/cleanable/cobweb,
+/obj/item/weapon/reagent_containers/glass/rag,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding10"
+	},
+/area/centcom/control)
+"ZA" = (
+/turf/unsimulated/floor{
+	icon_state = "engine"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding1";
+	dir = 6
+	},
+/area/centcom/control)
+"ZB" = (
+/turf/unsimulated/floor{
 	icon_state = "engine"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -23228,7 +23287,7 @@
 	dir = 6
 	},
 /area/centcom/control)
-"Zv" = (
+"ZC" = (
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
@@ -23239,7 +23298,7 @@
 	dir = 6
 	},
 /area/centcom/control)
-"Zw" = (
+"ZD" = (
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
@@ -23257,7 +23316,7 @@
 	icon_state = "wood_siding9"
 	},
 /area/centcom/control)
-"Zx" = (
+"ZE" = (
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -23267,7 +23326,7 @@
 	icon_state = "siding2"
 	},
 /area/centcom/holding)
-"Zy" = (
+"ZF" = (
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -23278,7 +23337,7 @@
 	icon_state = "wood_siding2"
 	},
 /area/centcom/spawning)
-"Zz" = (
+"ZG" = (
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -51831,13 +51890,13 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+hn
+hn
+hn
+hn
+hn
+hn
+hn
 aM
 aM
 aM
@@ -52089,11 +52148,11 @@ aM
 hn
 hn
 hn
-hn
-hn
-hn
-hn
-hn
+hq
+kN
+kS
+kW
+jU
 hn
 hn
 aM
@@ -52344,12 +52403,12 @@ aM
 aM
 hn
 hn
+hq
 ki
 ki
-ki
-kN
-kS
-kW
+kI
+kM
+kF
 ki
 ki
 hn
@@ -52600,12 +52659,12 @@ aM
 aM
 aM
 hn
-ki
+hq
 ki
 hg
-kI
-kM
-kF
+kO
+kO
+kO
 kO
 hp
 mY
@@ -52858,9 +52917,9 @@ aM
 aM
 hn
 ki
-gZ
+hs
 hi
-kO
+Vm
 kO
 kO
 kO
@@ -53115,7 +53174,7 @@ aM
 aM
 hn
 ki
-hc
+jT
 hi
 hk
 kO
@@ -53371,7 +53430,7 @@ aM
 aM
 aM
 hn
-ki
+hr
 ki
 hj
 ho
@@ -53629,12 +53688,12 @@ aM
 aM
 hn
 hn
+hr
 ki
 ki
-ki
-kN
-kS
-kW
+hc
+gZ
+kO
 ki
 ki
 hn
@@ -53888,11 +53947,11 @@ aM
 hn
 hn
 hn
-hn
-hn
-hn
-hn
-hn
+hr
+kN
+kS
+kW
+kg
 hn
 hn
 aM
@@ -54144,13 +54203,13 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+hn
+hn
+hn
+hn
+hn
+hn
+hn
 aM
 aM
 aM
@@ -56714,13 +56773,13 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+hn
+hn
+hn
+hn
+hn
+hn
+hn
 aM
 aM
 WP
@@ -56972,11 +57031,11 @@ aM
 hn
 hn
 hn
-hn
-hn
-hn
-hn
-hn
+hq
+kN
+kS
+kW
+jU
 hn
 hn
 aM
@@ -57227,12 +57286,12 @@ aM
 aM
 hn
 hn
+hq
 ki
 ki
-ki
-kN
-kS
-kW
+kI
+kM
+kF
 ki
 ki
 hn
@@ -57483,12 +57542,12 @@ aM
 aM
 aM
 hn
-ki
+hq
 ki
 hg
-kI
-kM
-kF
+kO
+kO
+kO
 kO
 hp
 mY
@@ -57741,9 +57800,9 @@ aM
 aM
 hn
 ki
-gZ
+hs
 hi
-kO
+Vm
 kO
 kO
 kO
@@ -57916,7 +57975,7 @@ DM
 DM
 EP
 EP
-Zx
+ZE
 Gq
 GE
 GF
@@ -57998,7 +58057,7 @@ aM
 aM
 hn
 ki
-hc
+jT
 hi
 hk
 kO
@@ -58173,7 +58232,7 @@ Fi
 Fo
 EP
 EP
-Zx
+ZE
 Gq
 GF
 GF
@@ -58254,7 +58313,7 @@ aM
 aM
 aM
 hn
-ki
+hr
 ki
 hj
 ho
@@ -58430,7 +58489,7 @@ Fj
 Fp
 EP
 EP
-Zx
+ZE
 Gq
 GF
 GF
@@ -58512,12 +58571,12 @@ aM
 aM
 hn
 hn
+hr
 ki
 ki
-ki
-kN
-kS
-kW
+hc
+gZ
+kO
 ki
 ki
 hn
@@ -58687,7 +58746,7 @@ Fk
 Fp
 EP
 EP
-Zx
+ZE
 Gq
 GF
 GF
@@ -58771,11 +58830,11 @@ aM
 hn
 hn
 hn
-hn
-hn
-hn
-hn
-hn
+hr
+kN
+kS
+kW
+kg
 hn
 hn
 aM
@@ -58944,7 +59003,7 @@ EP
 EP
 Fy
 EP
-Zx
+ZE
 Gq
 GF
 GF
@@ -59027,13 +59086,13 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+hn
+hn
+hn
+hn
+hn
+hn
+hn
 aM
 aM
 WP
@@ -59201,7 +59260,7 @@ EP
 EP
 EP
 EP
-Zx
+ZE
 Gq
 GF
 GF
@@ -61597,13 +61656,13 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+hn
+hn
+hn
+hn
+hn
+hn
+hn
 aM
 aM
 aM
@@ -61855,11 +61914,11 @@ aM
 hn
 hn
 hn
-hn
-hn
-hn
-hn
-hn
+hq
+kN
+kS
+kW
+jU
 hn
 hn
 aM
@@ -62110,12 +62169,12 @@ aM
 aM
 hn
 hn
+hq
 ki
 ki
-ki
-kN
-kS
-kW
+kI
+kM
+kF
 ki
 ki
 hn
@@ -62366,12 +62425,12 @@ aM
 aM
 aM
 hn
-ki
+hq
 ki
 hg
-kI
-kM
-kF
+kO
+kO
+kO
 kO
 hp
 mY
@@ -62624,9 +62683,9 @@ aM
 aM
 hn
 ki
-gZ
+hs
 hi
-kO
+Vm
 kO
 kO
 kO
@@ -62881,7 +62940,7 @@ aM
 aM
 hn
 ki
-hc
+jT
 hi
 hk
 kO
@@ -63137,7 +63196,7 @@ aM
 aM
 aM
 hn
-ki
+hr
 ki
 hj
 ho
@@ -63395,12 +63454,12 @@ aM
 aM
 hn
 hn
+hr
 ki
 ki
-ki
-kN
-kS
-kW
+hc
+gZ
+kO
 ki
 ki
 hn
@@ -63654,11 +63713,11 @@ aM
 hn
 hn
 hn
-hn
-hn
-hn
-hn
-hn
+hr
+kN
+kS
+kW
+kg
 hn
 hn
 aM
@@ -63910,13 +63969,13 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+hn
+hn
+hn
+hn
+hn
+hn
+hn
 aM
 aM
 aM
@@ -65596,17 +65655,17 @@ wl
 xe
 xA
 yk
-Vl
+Zx
 wl
 xe
 xA
 yk
-Vl
+Zx
 wl
 xe
 xA
 Bp
-Zw
+ZD
 uT
 Cq
 CG
@@ -65649,9 +65708,9 @@ KZ
 Ms
 Id
 Id
-Zy
+ZF
 OY
-Zz
+ZG
 Id
 Id
 OA
@@ -65906,9 +65965,9 @@ MN
 Ms
 Id
 Id
-Zy
+ZF
 OZ
-Zz
+ZG
 Id
 Id
 Qn
@@ -66365,18 +66424,18 @@ it
 uT
 wo
 xh
-jT
+Zu
 yl
 yE
 wo
 xh
-Vm
+Zy
 yl
 yE
 wo
 xh
-Vp
-Zm
+Zz
+ZA
 BT
 uT
 Cq
@@ -66420,9 +66479,9 @@ KZ
 Ms
 Id
 Id
-Zy
+ZF
 Pa
-Zz
+ZG
 Id
 Id
 OA
@@ -66622,18 +66681,18 @@ aM
 uT
 wp
 xi
-jU
+Zv
 yl
 yE
 wp
 xi
-jU
+Zv
 yl
 yE
 wp
 xi
-jU
-Zu
+Zv
+ZB
 BT
 uT
 Cq
@@ -66677,9 +66736,9 @@ Nw
 Ms
 Id
 Id
-Zy
+ZF
 Pb
-Zz
+ZG
 Id
 Id
 OA
@@ -66879,18 +66938,18 @@ it
 uT
 wq
 xj
-kg
+Zw
 yl
 yE
 wq
 xj
-kg
+Zw
 yl
 yE
 wq
 xj
-kg
-Zv
+Zw
+ZC
 BT
 uT
 Cq
@@ -66934,9 +66993,9 @@ KZ
 Ms
 Id
 Id
-Zy
+ZF
 Pc
-Zz
+ZG
 Id
 Id
 OA
@@ -67448,9 +67507,9 @@ MN
 Ms
 Id
 Id
-Zy
+ZF
 Pb
-Zz
+ZG
 Id
 Id
 OA
@@ -67705,9 +67764,9 @@ KZ
 Ms
 Id
 Id
-Zy
+ZF
 Pd
-Zz
+ZG
 Id
 Id
 OA
@@ -75761,7 +75820,7 @@ aM
 aM
 aM
 hV
-hs
+Zm
 iw
 jb
 jh
@@ -76803,7 +76862,7 @@ aM
 aM
 aM
 aM
-hs
+Zm
 it
 aM
 aM
@@ -80641,9 +80700,9 @@ aM
 aM
 aM
 aM
-hq
+Vl
 iH
-hr
+Vp
 aM
 aM
 aM

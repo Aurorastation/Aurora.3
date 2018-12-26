@@ -114,20 +114,20 @@
 		device.attack_self(holder.wearer)
 		return 1
 
+	/*
 	var/turf/T = get_turf(target)
 	if(istype(T) && !T.Adjacent(get_turf(src)))
 		return 0
+	*/
 
 	// Stop generating infinite devices please, and thank you.
 	if(istype(target, /obj/machinery/disposal))
 		return 0
 
-	var/resolved = target.attackby(device,holder.wearer)
+	var/resolved = device.resolve_attackby(target,holder.wearer)
 	if(!resolved && device && target)
 		device.afterattack(target,holder.wearer,1)
 	return 1
-
-
 
 /obj/item/rig_module/chem_dispenser
 	name = "mounted chemical dispenser"

@@ -4,9 +4,11 @@ var/global/list/teleportbeacons = list()
 	name = "tracking beacon"
 	desc = "A beacon used by a teleporter."
 	icon_state = "beacon"
+	var/icon_state_off = "beacon_off"
 	item_state = "signaler"
 	var/code = "electronic"
 	origin_tech = list(TECH_BLUESPACE = 1)
+	var/enabled = TRUE
 
 /obj/item/device/radio/beacon/New()
 	..()
@@ -36,6 +38,16 @@ var/global/list/teleportbeacons = list()
 	src.add_fingerprint(usr)
 	return
 
+/obj/item/device/radio/beacon/attack_self(mob/user as mob)
+	enabled = !enabled
+	to_chat(user,span("notice","You toggle \the [src] [enabled ? "on" : "off"]."))
+	update_icon()
+
+/obj/item/device/radio/beacon/update_icon()
+	if(!enabled && icon_state_off)
+		icon_state = icon_state_off
+	else
+		icon_state = initial(icon_state)
 
 /obj/item/device/radio/beacon/bacon //Probably a better way of doing this, I'm lazy.
 	proc/digest_delay()
