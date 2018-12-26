@@ -1,5 +1,5 @@
 /datum/game_mode/four_ninjas
-	name = "Quadruple Threat (3 Lesser Ninjas + Ninja)"
+	name = "Quadruple Threat (Neophyte Ninjas + Ninja)"
 	round_description = "Several agents of the Spider Clan is onboard the station!"
 	extended_round_description = "What was that?! Was that a person or did your eyes just play tricks on you? \
 		You have no idea. That slim-suited, cryptic individual is an enigma to you and all of your knowledge. \

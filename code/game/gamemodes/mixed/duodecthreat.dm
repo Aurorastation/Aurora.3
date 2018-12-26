@@ -1,5 +1,5 @@
 /datum/game_mode/four_ninjas_four_mercs_four_raiders_and_a_goat
-	name = "Duodecuple Threat (3 Lesser Ninjas + Ninja + Raiders + Merc)"
+	name = "Duodecuple Threat (Neophyte Ninjas + Ninja + Raiders + Merc)"
 	round_description = "What have you done?"
 	extended_round_description = "Only god can save you now."
 	config_tag = "fuck_you"

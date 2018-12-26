@@ -2,11 +2,11 @@ var/datum/antagonist/ninja_minor/ninja_minors
 
 /datum/antagonist/ninja_minor
 	id = MODE_NINJA_MINOR
-	role_text = "Minor Ninja"
-	role_text_plural = "Minor Ninjas"
+	role_text = "Neophyte Ninja"
+	role_text_plural = "Neophytes"
 	bantype = "ninja"
 	landmark_id = "ninjastart_minor"
-	welcome_text = "<span class='info'>You are an elite stealth agent. You can equip your suit with the latest technology using your uplink.</span>"
+	welcome_text = "<span class='info'>You are an elite stealth agent. You can equip your suit with the latest technology using your uplink. There may be other members on your clan on the station, and whether or not you choose to work with them, or destroy them, is up to you.</span>"
 	restricted_species = list("Diona")
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE
 	antaghud_indicator = "hudninja"

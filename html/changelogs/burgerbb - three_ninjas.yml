@@ -40,3 +40,4 @@ changes:
   - balance: "Removed some of the RNG in the existing door hacking tool."
   - rscadd: "All types of ninjas now spawn with updated uniforms, advanced combat belts, black webbing vests, a pAI, and a very robust door hacking tool rig module."
   - maptweak: "Added additional tracking beacons across the station. Tracking beacons can now be enabled or disabled by activating them in hand."
+  - tweak: "Removed redundant ninja modules from the uplink."
