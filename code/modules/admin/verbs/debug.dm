@@ -586,7 +586,9 @@
 			for(var/obj/item/briefcase_item in sec_briefcase)
 				qdel(briefcase_item)
 			for(var/i=3, i>0, i--)
-				sec_briefcase.contents += new /obj/item/weapon/spacecash/c1000
+				var/obj/item/weapon/spacecash/bundle/spawned_cash = new(sec_briefcase)
+				spawned_cash.worth = 1000
+				spawned_cash.update_icon()
 			sec_briefcase.contents += new /obj/item/weapon/gun/energy/crossbow
 			sec_briefcase.contents += new /obj/item/weapon/gun/projectile/revolver/mateba
 			sec_briefcase.contents += new /obj/item/ammo_magazine/a357

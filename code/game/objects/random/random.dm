@@ -595,21 +595,6 @@
 		/obj/item/weapon/coin/diamond = 0.1
 	)
 
-/obj/random/spacecash
-	name = "random credit chips"
-	desc = "This is a random credit ships."
-	icon = 'icons/obj/items.dmi'
-	icon_state = "spacecash1"
-	problist = list(
-		/obj/item/weapon/spacecash/c1 = 6,
-		/obj/item/weapon/spacecash/c10 = 3,
-		/obj/item/weapon/spacecash/c20 = 2,
-		/obj/item/weapon/spacecash/c50 = 1,
-		/obj/item/weapon/spacecash/c100 = 0.3,
-		/obj/item/weapon/spacecash/c200 = 0.2,
-		/obj/item/weapon/spacecash/c1000 = 0.1
-	)
-
 /obj/random/energy_antag
 	name = "random energy weapon"
 	desc = "This is a random energy weapon."
@@ -822,7 +807,7 @@
 		/obj/random/hoodie = 0.5,
 		/obj/random/junk = 0.9,
 		/obj/item/weapon/spacecash/ewallet/lotto = 0.3,
-		/obj/random/spacecash = 0.3,
+		/obj/random/finances/low = 0.3,
 		/obj/item/device/firing_pin = 0.3,
 		/obj/item/weapon/reagent_containers/inhaler/hyperzine = 0.1,
 		/obj/item/weapon/storage/box/pineapple = 0.1,
@@ -1174,6 +1159,22 @@
 
 /obj/random/finances/post_spawn(var/obj/item/spawned)
 	spawned.update_icon()
+
+/obj/random/finances/low
+	name = "random low-valued item"
+	desc = "Contains low valued currency items that a person may carry."
+	spawnlist = list(
+		/obj/item/weapon/spacecash/bundle = 3,
+		/obj/random/coin = 2,
+		/obj/item/weapon/spacecash/ewallet/lotto = 1
+	)
+
+/obj/random/finances/low/post_spawn(var/obj/item/spawned)
+	if(istype(spawned,/obj/item/weapon/spacecash/bundle))
+		var/obj/item/weapon/spacecash/bundle/bundle_spawn = spawned
+		bundle_spawn.worth = rand(1,500)
+
+	. = ..()
 
 /obj/random/vault_weapon
 	name = "random vault weapon"

@@ -223,7 +223,7 @@
 	var/gift_type = pick(
 		/obj/random/action_figure,
 		/obj/random/coin,
-		/obj/random/spacecash,
+		/obj/random/finances/low,
 		/obj/random/glowstick,
 		/obj/item/weapon/storage/wallet,
 		/obj/item/weapon/storage/photo_album,

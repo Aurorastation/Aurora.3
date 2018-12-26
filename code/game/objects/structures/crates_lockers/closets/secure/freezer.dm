@@ -73,7 +73,4 @@
 	fill()
 		..()
 		for(var/i = 0, i < rand(15,25), i++)
-			new /obj/random/spacecash(src)
-
-		for(var/i = 0, i < rand(6,9), i++)
-			new /obj/random/coin(src)
+			new /obj/random/finances/low(src)

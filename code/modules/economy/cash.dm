@@ -2,8 +2,8 @@
 	name = "0 credit chip"
 	desc = "It's worth 0 credits."
 	gender = PLURAL
-	icon = 'icons/obj/items.dmi'
-	icon_state = "spacecash1"
+	icon = 'icons/obj/cash.dmi'
+	icon_state = "1"
 	opacity = 0
 	density = 0
 	anchored = 0.0
@@ -15,6 +15,8 @@
 	var/access = list()
 	access = access_crate_cash
 	var/worth = 0
+
+	var/list/possible_values = list(100,50,20,10,5,2,1)
 
 /obj/item/weapon/spacecash/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/spacecash))
@@ -51,18 +53,18 @@
 	var/list/ovr = list()
 	var/sum = src.worth
 	var/num = 0
-	for(var/i in list(1000,500,200,100,50,20,10,1))
+	for(var/i in possible_values)
 		while(sum >= i && num < 50)
 			sum -= i
 			num++
-			var/image/banknote = image('icons/obj/items.dmi', "spacecash[i]")
+			var/image/banknote = image(icon, "[i]")
 			var/matrix/M = matrix()
 			M.Translate(rand(-6, 6), rand(-4, 8))
 			M.Turn(pick(-45, -27.5, 0, 0, 0, 0, 0, 0, 0, 27.5, 45))
 			banknote.transform = M
 			ovr += banknote
 	if(num == 0) // Less than one credit, let's just make it look like 1 for ease
-		var/image/banknote = image('icons/obj/items.dmi', "spacecash1")
+		var/image/banknote = image(icon, "[possible_values[possible_values.len]]")
 		var/matrix/M = matrix()
 		M.Translate(rand(-6, 6), rand(-4, 8))
 		M.Turn(pick(-45, -27.5, 0, 0, 0, 0, 0, 0, 0, 27.5, 45))
@@ -82,8 +84,8 @@
 	src.update_icon()
 	if(!worth)
 		usr.drop_from_inventory(src)
-		
-	if(amount in list(1000,500,200,100,50,20,1))
+
+	if(amount in possible_values)
 		var/cashtype = text2path("/obj/item/weapon/spacecash/c[amount]")
 		var/obj/cash = new cashtype (usr.loc)
 		usr.put_in_hands(cash)
@@ -92,60 +94,67 @@
 		bundle.worth = amount
 		bundle.update_icon()
 		usr.put_in_hands(bundle)
-		
+
 	if(!worth)
 		qdel(src)
 
 /obj/item/weapon/spacecash/c1
 	name = "1 credit chip"
-	icon_state = "spacecash1"
+	icon_state = "1"
 	desc = "It's worth 1 credit."
 	worth = 1
 
+/obj/item/weapon/spacecash/c2
+	name = "2 credit chip"
+	icon_state = "2"
+	desc = "It's worth 2 credits."
+	worth = 2
+
+/obj/item/weapon/spacecash/c5
+	name = "5 credit chip"
+	icon_state = "5"
+	desc = "It's worth 5 credits."
+	worth = 5
+
 /obj/item/weapon/spacecash/c10
 	name = "10 credit chip"
-	icon_state = "spacecash10"
+	icon_state = "10"
 	desc = "It's worth 10 credits."
 	worth = 10
 
 /obj/item/weapon/spacecash/c20
 	name = "20 credit chip"
-	icon_state = "spacecash20"
+	icon_state = "20"
 	desc = "It's worth 20 credits."
 	worth = 20
 
 /obj/item/weapon/spacecash/c50
 	name = "50 credit chip"
-	icon_state = "spacecash50"
+	icon_state = "50"
 	desc = "It's worth 50 credits."
 	worth = 50
 
 /obj/item/weapon/spacecash/c100
 	name = "100 credit chip"
-	icon_state = "spacecash100"
+	icon_state = "100"
 	desc = "It's worth 100 credits."
 	worth = 100
 
-/obj/item/weapon/spacecash/c200
-	name = "200 credit chip"
-	icon_state = "spacecash200"
-	desc = "It's worth 200 credits."
-	worth = 200
+/obj/item/weapon/spacecash/bundle/coins_only
+	name = "coins"
+	icon_state = "2"
+	desc = "A bundle of coins."
+	worth = 3
+	possible_values = list(2,1)
 
-/obj/item/weapon/spacecash/c500
-	name = "500 credit chip"
-	icon_state = "spacecash500"
-	desc = "It's worth 500 credits."
-	worth = 500
-
-/obj/item/weapon/spacecash/c1000
-	name = "1000 credit chip"
-	icon_state = "spacecash1000"
-	desc = "It's worth 1000 credits."
-	worth = 1000
+/obj/item/weapon/spacecash/bundle/coins_only/update_icon()
+	. = ..()
+	var/coint_coint = worth/2
+	throwforce = min(10,coint_coint/5) //A stack of 50+ coins will do 10 brute damage. For referece, a toolbox does 10 when thrown and a simple punch does 5.
+	force = throwforce / 2
 
 proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
-	if(sum in list(1000,500,200,100,50,20,10,1))
+	if(sum in list(100,50,20,10,5,2,1))
 		var/cash_type = text2path("/obj/item/weapon/spacecash/c[sum]")
 		var/obj/cash = new cash_type (usr.loc)
 		if(ishuman(human_user) && !human_user.get_active_hand())
@@ -185,7 +194,7 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 	if(next_scratch > world.time)
 		user << "<span class='warning'>The card flashes: \"Please wait!\"</span>"
 		return
-		
+
 	next_scratch = world.time + 6 SECONDS
 
 	user << "<span class='notice'>You initiate the simulated scratch action process on the [src]...</span>"

@@ -176,3 +176,8 @@
 	name = T_BOARD("Slot Machine")
 	build_path = /obj/machinery/computer/slot_machine
 	origin_tech = list(TECH_DATA = 2)
+
+/obj/item/weapon/circuitboard/coin_machine
+	name = T_BOARD("Coin Machine")
+	build_path = /obj/machinery/computer/coin_machine
+	origin_tech = list(TECH_DATA = 2)

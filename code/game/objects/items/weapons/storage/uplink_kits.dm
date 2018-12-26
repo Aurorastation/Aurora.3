@@ -248,16 +248,10 @@
 
 /obj/item/weapon/storage/secure/briefcase/money/fill()
 	..()
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
+	for(var/i=1,i<=10,i++)
+		var/obj/item/weapon/spacecash/bundle/spawned_cash = new(src)
+		spawned_cash.worth = 1000
+		spawned_cash.update_icon()
 
 /obj/item/weapon/storage/box/syndie_kit/stimulants
 	name = "box of stimulants"
