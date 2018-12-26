@@ -235,7 +235,7 @@
 *   Microwave Menu Handling/Cooking
 ************************************/
 
-/obj/machinery/microwave/proc/cook(var/mob/living/user)
+/obj/machinery/microwave/proc/cook()
 	if(stat & (NOPOWER|BROKEN))
 		return
 	start()
@@ -286,12 +286,6 @@
 			cooked = fail()
 			cooked.forceMove(src.loc)
 			return
-
-		if (istype(user, /obj/item/weapon/holder))
-			var/obj/item/weapon/holder/H = user
-			qdel(H)
-			return
-		qdel(user)
 
 
 		//Making multiple copies of a recipe
