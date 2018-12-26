@@ -2901,6 +2901,15 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
+"za" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
 
 (1,1,1) = {"
 aa
@@ -45451,10 +45460,10 @@ aa
 aa
 dp
 aa
-aa
-aa
-aa
-aa
+za
+ag
+ag
+aw
 aa
 aa
 aa
@@ -45708,10 +45717,10 @@ aa
 aa
 dp
 aa
-aa
-aa
-aa
-aa
+ae
+ah
+ah
+al
 aa
 aa
 aa
@@ -45965,10 +45974,10 @@ aa
 dp
 dp
 dp
-aa
-aa
-aa
-aa
+ae
+ah
+ah
+al
 aa
 aa
 aa
@@ -46222,10 +46231,10 @@ ag
 ag
 ag
 ag
-ag
-ag
-aw
-aa
+fe
+ah
+fg
+am
 aa
 aa
 aa
