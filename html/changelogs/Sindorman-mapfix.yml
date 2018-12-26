@@ -23,7 +23,7 @@
 #################################
 
 # Your name.
-author: N3X15
+author: PoZe
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -34,4 +34,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - maptweak: "Added lockdown blastdoors to all doors that make security exposed, to make it have wholesome lockdown. Made all security blast doors behind airlock."
+  - maptweak: "Added lockdown blastdoors to most doors that make security exposed, only one maintenance door does not have it. Made all security blast doors behind airlock."
+  - maptweak: "Medical lockdown is not a whole now, SMES maintenance door now doesn't have shutters."
