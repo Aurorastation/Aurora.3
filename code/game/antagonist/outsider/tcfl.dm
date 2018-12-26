@@ -7,7 +7,7 @@ var/datum/antagonist/tcfl/tcfl
 	role_text_plural = "Emergency Responders"
 	welcome_text = "As member of the au Ceti Foreign Legion, you answer only to your leader and goverment officials."
 	leader_welcome_text = "As leader of the au Ceti Foreign Legion Team, you answer only to goverment officials, and have authority to override the Captain where it is necessary to achieve your mission goals. It is recommended that you attempt to cooperate with the captain where possible, however."
-	landmark_id = "Response Team"
+	landmark_id = "Tau Ceti Legion"
 
 	id_type = /obj/item/weapon/card/id/tcfl
 
