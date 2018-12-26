@@ -418,6 +418,65 @@
 		forceMove(user.loc)
 	return
 
+/obj/item/weapon/trap/animal/MouseDrop(over_object, src_location, over_location)
+	if(isliving(usr))
+		if(usr.isMonkey() && (/mob/living/carbon/human/monkey in allowed_mobs)) // Because monkeys can be of type of just human.
+			usr.visible_message("<span class='notice'>[usr] is attempting to enter \the [src] without triggering it to pass through.</span>",
+							"<span class='notice'>You are attempting to enter \the [src] without triggering it to pass through. </span>"
+			)
+			if (!do_after(usr, 2 SECONDS, act_target = src))
+				return
+			if(prob(50)) // 50% chance to pass by without getting caught.
+				usr.forceMove(src.loc)
+				usr.visible_message("<span class='notice'>[usr] pass through \the [src] without triggering it.</span>",
+								"<span class='notice'>You pass through \the [src] without triggering it.</span>"
+				)
+				return
+			usr.forceMove(src)
+
+			usr.visible_message("<span class='notice'>[usr] accidentally triggered \the [src]</span>",
+							"<span class='notice'>You accidentally triggered \the [src]</span>"
+			)
+			playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
+			deployed = 1
+			update_icon()
+			src.animate_shake()
+			return
+		for(var/f in allowed_mobs)
+			if(istype(usr, f))
+				usr.visible_message("<span class='notice'>[usr] is attempting to enter \the [src] without triggering it to pass through.</span>",
+							"<span class='notice'>You are attempting to enter \the [src] without triggering it to pass through. </span>"
+				)
+				if (!do_after(usr, 2 SECONDS, act_target = src))
+					return
+				if(prob(50)) // 50% chance to pass by without getting caught.
+					usr.forceMove(src.loc)
+					usr.visible_message("<span class='notice'>[usr] pass through \the [src] without triggering it.</span>",
+								"<span class='notice'>You pass through \the [src] without triggering it.</span>"
+					)
+					return
+				usr.forceMove(src)
+
+				usr.visible_message("<span class='notice'>[usr] accidentally triggered \the [src]</span>",
+							"<span class='notice'>You accidentally triggered \the [src]</span>"
+				)
+				playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
+				deployed = 1
+				update_icon()
+				src.animate_shake()
+		if(iscarbon(usr))
+			usr.visible_message("<span class='notice'>[usr] is attempting to enter \the [src] without triggering it to pass through.</span>",
+							"<span class='notice'>You are attempting to enter \the [src] without triggering it to pass through. </span>"
+			)
+			if (!do_after(usr, 2 SECONDS, act_target = src))
+				return
+			usr.forceMove(src.loc)
+			usr.visible_message("<span class='notice'>[usr] pass through \the [src] without triggering it.</span>",
+								"<span class='notice'>You pass through \the [src] without triggering it.</span>"
+			)
+	else
+		..()
+
 /obj/item/weapon/trap/animal/attack_self(mob/user as mob)
 	if(!can_use(user))
 		to_chat(user, "<span class='warning'>You cannot use \the [src].</span>")
@@ -525,6 +584,31 @@
 	else
 		..()
 
+/obj/item/weapon/trap/animal/large/MouseDrop(over_object, src_location, over_location)
+	if(isliving(usr) && ishuman(usr))
+		usr.visible_message("<span class='notice'>[usr] is attempting to enter \the [src] without triggering it to pass through.</span>",
+							"<span class='notice'>You are attempting to enter \the [src] without triggering it to pass through. </span>"
+		)
+		if (!do_after(usr, 2 SECONDS, act_target = src))
+			return
+		if(usr.a_intent == I_HELP || (usr.a_intent != I_HURT && prob(50))) // 50% chance to pass by without getting caught on disarm, drag, 100% on help. Harm will get you caught.
+			usr.forceMove(src.loc)
+			usr.visible_message("<span class='notice'>[usr] pass through \the [src] without triggering it.</span>",
+								"<span class='notice'>You pass through \the [src] without triggering it.</span>"
+			)
+			return
+		usr.forceMove(src)
+
+		usr.visible_message("<span class='notice'>[usr] accidentally triggered \the [src]</span>",
+							"<span class='notice'>You accidentally triggered \the [src]</span>"
+		)
+		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
+		deployed = 1
+		update_icon()
+		src.animate_shake()
+	else
+		..()
+
 /obj/item/weapon/large_trap_foundation
 	name = "large trap foundation"
 	desc = "A metal foundation for large trap, it is missing metals rods to hold the prey."
@@ -546,7 +630,7 @@
 
 			to_chat(user, "<span class='notice'>You add metal bars to \the [src].</span>")
 			O.use(12)
-			new /obj/item/weapon/trap/animal/large(src)
+			new /obj/item/weapon/trap/animal/large(src.loc)
 			qdel(src)
 			return
 		else
@@ -555,3 +639,4 @@
 		return
 	else
 		..()
+
