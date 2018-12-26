@@ -1240,8 +1240,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/burger/mouse/Initialize()
 	. = ..()
-	reagents.add_reagent("protein", 5)
-	reagents.add_reagent("toxin", 2)
+	reagents.add_reagent("protein", 4)
 
 /obj/item/weapon/reagent_containers/food/snacks/omelette
 	name = "omelette du fromage"

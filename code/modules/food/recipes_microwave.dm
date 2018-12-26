@@ -114,7 +114,7 @@ I said no!
 /datum/recipe/mouseburger
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/bun,
-		/obj/item/weapon/reagent_containers/food/snacks/meat/mice
+		/obj/item/weapon/holder/mouse
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/burger/mouse
 
@@ -128,7 +128,7 @@ I said no!
 /datum/recipe/classichotdog
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/bun,
-		/obj/item/weapon/reagent_containers/food/snacks/meat/corgi
+		/obj/item/weapon/holder/corgi
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/classichotdog
 
