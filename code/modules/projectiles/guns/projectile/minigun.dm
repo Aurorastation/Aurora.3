@@ -134,11 +134,6 @@
 
 	var/obj/item/minigunpack/source
 
-/obj/item/weapon/gun/projectile/automatic/rifle/minigun/Initialize()
-	. = ..()
-	if(!source)
-		QDEL_IN(src, 1)
-
 /obj/item/weapon/gun/projectile/automatic/rifle/minigun/special_check(var/mob/user)
 	if(!wielded)
 		user << "<span class='danger'>You cannot fire this weapon with just one hand!</span>"
