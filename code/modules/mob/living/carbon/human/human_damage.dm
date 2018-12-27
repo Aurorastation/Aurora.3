@@ -247,9 +247,11 @@
 
 /mob/living/carbon/human/adjustHalLoss(var/amount, var/ignoreImmunity = 0)//An inherited version so this doesnt affect cyborgs
 	if(status_flags & GODMODE)	return 0	//godmode
-	if(!ignoreImmunity)//Adjusting how hallloss works. Species with the NO_PAIN flag will suffer most of the effects of halloss, but will be immune to most conventional sources of accumulating it
-		if (species && species.flags & NO_PAIN)//Species with this flag will only gather halloss through species-specific mechanics, which apply it with the ignoreImmunity flag
+	if(species)
+		if(!ignoreImmunity && species.flags & NO_PAIN) //Species with this flag will only gather halloss through species-specific mechanics, which apply it with the ignoreImmunity flag
 			return 0
+		if(species.pain_mod)
+			amount *= species.pain_mod
 
 	if(wearing_rig) //I don't know if this is the best way, but I'm hard-pressed to think of a different way. Thanks Vaurca.
 		for(var/obj/item/rig_module/lattice/L in wearing_rig.installed_modules)
