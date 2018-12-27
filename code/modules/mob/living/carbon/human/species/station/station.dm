@@ -252,10 +252,6 @@
 
 	default_h_style = "Skrell Short Tentacles"
 
-	cold_level_1 = 280 //Default 260
-	cold_level_2 = 220 //Default 200
-	cold_level_3 = 130 //Default 120
-
 /datum/species/skrell/can_breathe_water()
 	return TRUE
 
