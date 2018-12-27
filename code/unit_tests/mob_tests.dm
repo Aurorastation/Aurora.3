@@ -352,6 +352,7 @@ datum/unit_test/mob_damage/skrell
 datum/unit_test/mob_damage/skrell/brute
 	name = "MOB: Skrell Brute Damage Check"
 	damagetype = BRUTE
+	expected_vulnerability = EXTRA_VULNERABLE
 
 datum/unit_test/mob_damage/skrell/fire
 	name = "MOB: Skrell Fire Damage Check"
@@ -372,6 +373,7 @@ datum/unit_test/mob_damage/skrell/clone
 datum/unit_test/mob_damage/skrell/halloss
 	name = "MOB: Skrell Halloss Damage Check"
 	damagetype = HALLOSS
+	expected_vulnerability = EXTRA_VULNERABLE
 
 // =================================================================
 // Vox
