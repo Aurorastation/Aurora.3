@@ -73,26 +73,33 @@
 	compile_overlays()	// The delay looks weird, so we force an update immediately.
 	src.desc = "They are worth [worth] credits."
 
-/obj/item/weapon/spacecash/bundle/attack_self()
-	var/amount = input(usr, "How many credits do you want to take? (0 to [src.worth])", "Take Money", 20) as num
+/obj/item/weapon/spacecash/bundle/attack_self(mob/user as mob)
+	var/amount = input(user, "How many credits do you want to take? (0 to [src.worth])", "Take Money", 20) as num
+
+	if(QDELETED(src))
+		return 0
+
+	if(use_check(user,USE_FORCE_SRC_IN_USER))
+		return 0
+
 	amount = round(Clamp(amount, 0, src.worth))
 	if(amount==0) return 0
 
 	src.worth -= amount
 	src.update_icon()
 	if(!worth)
-		usr.drop_from_inventory(src)
-		
+		user.drop_from_inventory(src)
+
 	if(amount in list(1000,500,200,100,50,20,1))
 		var/cashtype = text2path("/obj/item/weapon/spacecash/c[amount]")
-		var/obj/cash = new cashtype (usr.loc)
-		usr.put_in_hands(cash)
+		var/obj/cash = new cashtype (user.loc)
+		user.put_in_hands(cash)
 	else
-		var/obj/item/weapon/spacecash/bundle/bundle = new (usr.loc)
+		var/obj/item/weapon/spacecash/bundle/bundle = new (user.loc)
 		bundle.worth = amount
 		bundle.update_icon()
-		usr.put_in_hands(bundle)
-		
+		user.put_in_hands(bundle)
+
 	if(!worth)
 		qdel(src)
 
@@ -185,7 +192,7 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 	if(next_scratch > world.time)
 		user << "<span class='warning'>The card flashes: \"Please wait!\"</span>"
 		return
-		
+
 	next_scratch = world.time + 6 SECONDS
 
 	user << "<span class='notice'>You initiate the simulated scratch action process on the [src]...</span>"
