@@ -110,6 +110,21 @@
 		averagetypes[initial(average.name)] = average
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(averagetypes))
 
+/datum/gear/accessory/capes
+	display_name = "shoulder capes (Skrell)"
+	path = /obj/item/clothing/accessory/poncho/shouldercape
+	whitelisted = list("Skrell")
+	sort_category = "Xenowear - Skrell"
+
+/datum/gear/accessory/capes/New()
+	..()
+	var/capes = list()
+	capes["star cape"] = /obj/item/clothing/accessory/poncho/shouldercape/star
+	capes["nebula cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nebula
+	capes["nova cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nova
+	capes["galaxy cape"] = /obj/item/clothing/accessory/poncho/shouldercape/galaxy
+	gear_tweaks += new/datum/gear_tweak/path(capes)
+
 //vaurca items
 
 /datum/gear/eyes/blindfold
@@ -344,6 +359,23 @@
 	sort_category = "Xenowear"
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
+/datum/gear/shoes/caligae
+	display_name = "caligae"
+	path = /obj/item/clothing/shoes/caligae
+	whitelisted = list("Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	sort_category = "Xenowear"
+
+/datum/gear/shoes/caligae/New()
+	..()
+	var/caligae = list()
+	caligae["no sock"] = /obj/item/clothing/shoes/caligae
+	caligae["black sock"] = /obj/item/clothing/shoes/caligae/black
+	caligae["grey sock"] = /obj/item/clothing/shoes/caligae/grey
+	caligae["white sock"] = /obj/item/clothing/shoes/caligae/white
+	gear_tweaks += new/datum/gear_tweak/path(caligae)
+
+//ipc stuff
+
 /datum/gear/head/goldenchains
 	display_name = "golden deep headchains (Machine)"
 	path = /obj/item/clothing/head/headchain
@@ -427,33 +459,3 @@
 	cost = 2
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
 	sort_category = "Xenowear - IPC"
-
-/datum/gear/shoes/caligae
-	display_name = "caligae"
-	path = /obj/item/clothing/shoes/caligae
-	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	sort_category = "Xenowear"
-
-/datum/gear/shoes/caligae/New()
-	..()
-	var/caligae = list()
-	caligae["no sock"] = /obj/item/clothing/shoes/caligae
-	caligae["black sock"] = /obj/item/clothing/shoes/caligae/black
-	caligae["grey sock"] = /obj/item/clothing/shoes/caligae/grey
-	caligae["white sock"] = /obj/item/clothing/shoes/caligae/white
-	gear_tweaks += new/datum/gear_tweak/path(caligae)
-
-/datum/gear/accessory/capes
-	display_name = "shoulder capes (Skrell)"
-	path = /obj/item/clothing/accessory/poncho/shouldercape
-	whitelisted = list("Skrell")
-	sort_category = "Xenowear - Skrell"
-
-/datum/gear/accessory/capes/New()
-	..()
-	var/capes = list()
-	capes["star cape"] = /obj/item/clothing/accessory/poncho/shouldercape/star
-	capes["nebula cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nebula
-	capes["nova cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nova
-	capes["galaxy cape"] = /obj/item/clothing/accessory/poncho/shouldercape/galaxy
-	gear_tweaks += new/datum/gear_tweak/path(capes)
