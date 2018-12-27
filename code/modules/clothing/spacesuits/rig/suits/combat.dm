@@ -73,10 +73,10 @@
 		)
 
 /obj/item/weapon/rig/retro
-	name = "retrofited military hardsuit control module"
+	name = "retrofitted military hardsuit control module"
 	desc = "An old repurposed construction exoskeleton redesigned for combat. Its colors and insignias match those of the Tau Ceti Foreign Legion."
 	icon_state = "legion_rig"
-	suit_type = "retrofited military hardsuit"
+	suit_type = "retrofitted military hardsuit"
 	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 40, bio = 100, rad = 30)
 	slowdown = 2
 	offline_slowdown = 4
