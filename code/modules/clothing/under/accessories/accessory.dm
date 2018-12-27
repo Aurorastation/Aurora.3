@@ -273,6 +273,7 @@
 	slot_flags = SLOT_OCLOTHING | SLOT_TIE
 	icon_state = "recscarf"
 	item_state = "recscarf"
+	slot = "over"
 
 /obj/item/clothing/accessory/scarf/white
 	name = "white scarf"
