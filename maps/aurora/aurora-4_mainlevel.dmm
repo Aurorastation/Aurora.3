@@ -47894,7 +47894,7 @@
 /area/maintenance/medbay)
 "bCk" = (
 /obj/structure/window/reinforced,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/open,
 /area/medical/medbay2)
 "bCl" = (
 /obj/structure/disposalpipe/down{
@@ -48467,9 +48467,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/medical)
 "bDf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -48479,6 +48476,10 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bDg" = (
@@ -65780,6 +65781,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/medbay2)
+"lWn" = (
+/obj/structure/closet,
+/turf/simulated/floor/tiled,
+/area/maintenance/medbay)
 "meT" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -65797,10 +65802,6 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"mqH" = (
-/obj/machinery/light,
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay2)
 "mEf" = (
 /obj/structure/table/rack,
 /obj/random/loot,
@@ -65852,6 +65853,26 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering)
+"nKE" = (
+/obj/structure/disposalpipe/sortjunction{
+	dir = 1;
+	name = "Psychiatry";
+	sortType = "Psychiatry"
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
 "nQp" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -65903,37 +65924,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering)
-"pDr" = (
-/obj/structure/disposalpipe/sortjunction{
-	dir = 1;
-	name = "Psychiatry";
-	sortType = "Psychiatry"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/medbay)
 "pZo" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -65983,6 +65973,16 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering)
+"rdt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
 "rhw" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
@@ -66054,20 +66054,20 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "uVs" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/structure/cable/green{
-	d1 = 4;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "4-8"
+	icon_state = "2-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
@@ -66096,11 +66096,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"wDU" = (
-/obj/structure/stairs/east,
-/obj/structure/window/reinforced,
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay2)
 "wNi" = (
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/lime{
@@ -66132,6 +66127,30 @@
 	icon_state = "corner_white";
 	dir = 1
 	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay2)
+"xPe" = (
+/obj/structure/table/rack,
+/obj/random/loot,
+/turf/simulated/floor/tiled,
+/area/maintenance/medbay)
+"xTk" = (
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 
@@ -105092,7 +105111,7 @@ brW
 uNZ
 bDV
 bkr
-blN
+bDZ
 blN
 vKP
 bIG
@@ -105350,7 +105369,7 @@ uNZ
 nIv
 bkr
 bDZ
-blN
+cGg
 bHE
 blN
 blN
@@ -105606,8 +105625,8 @@ brW
 uNZ
 nIv
 bkr
-bDZ
-cGg
+bFP
+bBo
 bHF
 blN
 bJq
@@ -105863,7 +105882,7 @@ bCh
 uNZ
 wNi
 bkr
-bFP
+bBo
 bBo
 bHG
 blN
@@ -106377,8 +106396,8 @@ bCi
 uNZ
 bCi
 bkr
-bBo
-bBo
+blN
+blN
 bHF
 blN
 bBo
@@ -106632,10 +106651,10 @@ bAr
 bzs
 hiC
 bDf
-bCi
+bDX
 bkr
-blN
-blN
+xPe
+lWn
 bHF
 blN
 bJq
@@ -106889,7 +106908,7 @@ bAs
 bzs
 bCi
 uVs
-bDX
+xTk
 bkr
 bFR
 bBr
@@ -107145,8 +107164,8 @@ bxZ
 bAt
 bzs
 bCk
+bCi
 ljR
-mqH
 bkr
 bFS
 bGK
@@ -107401,12 +107420,12 @@ bya
 bzr
 bAu
 bzs
-wDU
-ljR
+bCk
 bCi
+ljR
 bkr
-blN
-blN
+bFR
+bBo
 bHF
 blN
 bJs
@@ -107659,11 +107678,11 @@ bzs
 bzs
 bzs
 bkr
+bkr
 kVV
 bkr
-bkr
-bBo
-bBo
+blN
+blN
 bHF
 blN
 bBo
@@ -107916,10 +107935,10 @@ buC
 bAv
 bBo
 nQp
+rdt
 bAw
-pDr
+nKE
 bEO
-bFQ
 bFQ
 bHH
 blN
@@ -108174,11 +108193,11 @@ bBo
 bBo
 bCj
 bDg
+bDg
 gsM
-blN
-blN
-blN
 bEP
+bBo
+bBo
 blN
 bJr
 bKr
@@ -108430,11 +108449,11 @@ buC
 kYi
 nIc
 kOu
-bFQ
+bjt
+bjt
 bDY
 blN
-aab
-blN
+bBo
 bBo
 blN
 bBo
@@ -108690,7 +108709,7 @@ bCl
 bBo
 bBo
 blN
-aab
+blN
 blN
 bBo
 blN
