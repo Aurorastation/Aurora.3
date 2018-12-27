@@ -47862,31 +47862,15 @@
 /obj/structure/cable/green,
 /turf/simulated/floor/plating,
 /area/maintenance/substation/medical)
-"bCg" = (
-/obj/effect/floor_decal/corner/lime{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/effect/floor_decal/corner/lime{
-	icon_state = "corner_white";
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay2)
 "bCh" = (
 /obj/structure/flora/pottedplant/random,
-/obj/effect/floor_decal/corner/lime{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled,
 /area/medical/medbay2)
 "bCi" = (
-/obj/structure/closet,
-/obj/item/weapon/bikehorn,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/structure/barricade,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "bCj" = (
@@ -48896,11 +48880,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/medical)
 "bDV" = (
-/obj/machinery/light,
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -28
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled,
 /area/medical/medbay2)
 "bDY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -65841,10 +65824,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "nIv" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/white,
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
 /area/medical/medbay2)
 "nKv" = (
 /obj/effect/decal/cleanable/dirt,
@@ -65960,11 +65941,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/corner/lime{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled,
 /area/medical/medbay2)
 "qZS" = (
 /obj/effect/decal/cleanable/dirt,
@@ -66017,6 +65994,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/structure/barricade,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "rDW" = (
@@ -66057,23 +66035,6 @@
 /obj/item/weapon/storage/toolbox/electrical,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"uNZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay2)
 "uVs" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -66120,13 +66081,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"wNi" = (
-/obj/structure/flora/pottedplant/random,
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay2)
+"vPv" = (
+/obj/structure/closet,
+/obj/item/weapon/bikehorn,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
 "xdT" = (
 /obj/structure/cable/green{
 	d2 = 8;
@@ -66143,16 +66102,6 @@
 	temperature = 278
 	},
 /area/medical/temp_morgue)
-"xjT" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
-	},
-/obj/effect/floor_decal/corner/lime{
-	icon_state = "corner_white";
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay2)
 "xPe" = (
 /obj/structure/table/rack,
 /obj/random/loot,
@@ -104874,9 +104823,9 @@ buw
 buw
 buw
 buw
-bCg
+bAp
 quy
-xjT
+bAp
 buw
 bBl
 bBl
@@ -105131,8 +105080,8 @@ bvC
 bvC
 bvC
 buw
-brW
-uNZ
+bAp
+quy
 bDV
 bkr
 bDZ
@@ -105388,8 +105337,8 @@ bvC
 bvC
 bvC
 buw
-brW
-uNZ
+bAp
+quy
 nIv
 bkr
 bDZ
@@ -105645,9 +105594,9 @@ bvC
 bvC
 bvC
 buw
-brW
-uNZ
-nIv
+bAp
+quy
+bAp
 bkr
 bFP
 bBo
@@ -105903,8 +105852,8 @@ bvC
 bvC
 buw
 bCh
-uNZ
-wNi
+quy
+bCh
 bkr
 bBo
 bBo
@@ -106673,7 +106622,7 @@ bxY
 bzp
 bAr
 bzs
-bBo
+vPv
 tuN
 bBo
 blN
