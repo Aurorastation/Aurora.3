@@ -53471,10 +53471,7 @@
 /area/library)
 "bMg" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/vending/hydroseeds{
-	prices = list();
-	restock_items = 1
-	},
+/obj/machinery/seed_storage/garden,
 /turf/simulated/floor/tiled/dark,
 /area/hydroponics)
 "bMh" = (
