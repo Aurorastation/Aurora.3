@@ -268,6 +268,13 @@
 	item_state = "suspenders"
 
 /obj/item/clothing/accessory/scarf
+	name = "scarf"
+	desc = "A simple scarf, to protect your neck from the cold of space."
+	slot_flags = SLOT_OCLOTHING | SLOT_TIE
+	icon_state = "recscarf"
+	item_state = "recscarf"
+
+/obj/item/clothing/accessory/scarf/white
 	name = "white scarf"
 	desc = "A simple scarf, to protect your neck from the cold of space."
 	icon_state = "whitescarf"
@@ -314,9 +321,9 @@
 	item_state = "darkbluescarf"
 
 /obj/item/clothing/accessory/scarf/zebra
-	name = "zebra scarf"
-	icon_state = "zebrascarf"
-	item_state = "zebrascarf"
+	name = "striped scarf"
+	icon_state = "recscarf_zebra"
+	item_state = "recscarf_zebra"
 
 /obj/item/clothing/accessory/chaps
 	name = "brown chaps"
