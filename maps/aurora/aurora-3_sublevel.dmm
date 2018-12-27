@@ -16416,9 +16416,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/door/airlock/medical{
-	name = "Stairs";
-	req_access = list(66)
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(5)
 	},
 /turf/simulated/floor/plating,
 /area/medical/patient_wing)
@@ -16437,8 +16436,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/white,
-/area/medical/patient_wing)
+/turf/simulated/floor/plating,
+/area/maintenance/sublevel)
 "aDt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
@@ -16455,8 +16454,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/white,
-/area/medical/patient_wing)
+/turf/simulated/floor/plating,
+/area/maintenance/sublevel)
 "aDu" = (
 /obj/structure/closet/excavation,
 /obj/machinery/light{
@@ -26534,15 +26533,12 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing)
 "bbn" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/tiled/white,
-/area/medical/patient_wing)
+/turf/simulated/floor/plating,
+/area/maintenance/sublevel)
 "bbp" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -29226,18 +29222,6 @@
 /obj/structure/bookcase/libraryspawn/religion,
 /turf/simulated/floor/carpet,
 /area/medical/patient_wing_library)
-"bDl" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/medical/patient_wing_library)
 "bFN" = (
 /turf/simulated/wall/r_wall,
 /area/medical/patient_wing_picnic)
@@ -29293,16 +29277,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/patient_wing_post1)
-"cUO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/patient_wing)
 "cWk" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized{
@@ -29339,15 +29313,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
-"dac" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/door/airlock/maintenance{
-	req_access = list(5)
-	},
-/turf/simulated/floor/plating,
-/area/medical/patient_wing)
 "daO" = (
 /turf/simulated/wall/r_wall,
 /area/medical/patient_d)
@@ -29383,13 +29348,6 @@
 	},
 /turf/simulated/floor/grass,
 /area/medical/patient_wing_picnic)
-"dKX" = (
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/patient_wing)
 "dPZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -29409,20 +29367,16 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_gym)
 "eqh" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
@@ -29483,12 +29437,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/window/reinforced,
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/patient_wing)
+/turf/simulated/wall,
+/area/maintenance/sublevel)
 "fdl" = (
 /obj/structure/bed/chair/comfy/teal{
 	dir = 8;
@@ -29617,8 +29567,9 @@
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(5)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/medical/patient_wing)
+/area/maintenance/sublevel)
 "hWq" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized{
@@ -29763,11 +29714,11 @@
 /area/medical/patient_wing_gym)
 "kLG" = (
 /obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
+	dir = 4
 	},
-/turf/simulated/floor/tiled/white,
-/area/medical/patient_wing)
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/sublevel)
 "kVF" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/closet/secure_closet/medical3,
@@ -29782,11 +29733,11 @@
 /area/medical/patient_wing_library)
 "lvu" = (
 /obj/structure/disposalpipe/segment{
-	dir = 4
+	dir = 2;
+	icon_state = "pipe-c"
 	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/tiled/white,
-/area/medical/patient_wing)
+/turf/simulated/floor/plating,
+/area/maintenance/sublevel)
 "lvZ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -29868,6 +29819,11 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
@@ -29973,9 +29929,12 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
 "nXh" = (
-/obj/structure/stairs/west,
-/turf/simulated/floor/tiled/white,
-/area/medical/patient_wing)
+/obj/effect/decal/warning_stripes,
+/obj/structure/ladder/up{
+	pixel_y = 16
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/sublevel)
 "opa" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -30057,12 +30016,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
-"qDt" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/patient_wing)
 "qLE" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -30169,6 +30122,13 @@
 /obj/machinery/light/small/emergency{
 	icon_state = "bulb1";
 	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/sublevel)
+"sFn" = (
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
@@ -30312,6 +30272,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/power/apc{
+	dir = 2;
+	name = "south bump";
+	pixel_y = -24
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
 "uHv" = (
@@ -30393,12 +30362,15 @@
 /turf/simulated/floor/plating,
 /area/medical/patient_wing_library)
 "vPb" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/tiled/white,
-/area/medical/patient_wing)
+/turf/simulated/floor/plating,
+/area/maintenance/sublevel)
 "vQH" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -70567,7 +70539,7 @@ azF
 azF
 azF
 azF
-aCG
+akx
 aDr
 unQ
 aFp
@@ -70824,7 +70796,7 @@ akx
 akx
 akx
 akx
-aCG
+akx
 aDs
 aEm
 ceW
@@ -71081,7 +71053,7 @@ azg
 aAY
 azg
 hwN
-cUO
+azg
 aDt
 aEn
 tnK
@@ -71337,7 +71309,7 @@ akx
 azh
 akx
 azh
-aCG
+akx
 vPb
 bbn
 unQ
@@ -71594,7 +71566,7 @@ aba
 aba
 aba
 aba
-aCG
+akx
 fbJ
 nXh
 uHv
@@ -71851,9 +71823,9 @@ aaa
 aba
 aba
 aba
-aCG
+akx
 lvu
-aJn
+sFn
 aFt
 aFt
 aFt
@@ -72108,8 +72080,8 @@ aaa
 aaa
 aaa
 aba
-aCG
-dKX
+akx
+akx
 kLG
 aFt
 aFq
@@ -72365,9 +72337,9 @@ aaa
 aaa
 aaa
 aaa
-aCG
-aJn
-qDt
+aaa
+akx
+gsG
 aFt
 vlf
 aGo
@@ -72622,9 +72594,9 @@ akx
 akx
 akx
 aaa
-aCG
-aCG
-dac
+aaa
+akx
+gsG
 aFt
 aFr
 aGp
@@ -76741,7 +76713,7 @@ brs
 dqM
 mnD
 uAS
-bDl
+gll
 jjF
 lLx
 bXx

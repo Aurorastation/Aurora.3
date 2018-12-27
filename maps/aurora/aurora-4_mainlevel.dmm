@@ -47361,14 +47361,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 2;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance Access";
@@ -47858,8 +47850,13 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bCi" = (
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay2)
+/obj/structure/closet,
+/obj/item/weapon/bikehorn,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
 "bCj" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
 	icon_state = "up-scrubbers";
@@ -47880,9 +47877,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "bCk" = (
-/obj/structure/window/reinforced,
+/obj/structure/ladder{
+	icon_state = "ladder01";
+	pixel_y = 16
+	},
 /turf/simulated/open,
-/area/medical/medbay2)
+/area/maintenance/medbay)
 "bCl" = (
 /obj/structure/disposalpipe/down{
 	icon_state = "pipe-d";
@@ -48453,22 +48453,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/medical)
-"bDf" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay2)
 "bDg" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
@@ -48883,12 +48867,6 @@
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay2)
-"bDX" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
@@ -65471,9 +65449,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/medical{
-	name = "Stairs";
-	req_one_access = list(5)
+/obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
+	req_access = list(12);
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
@@ -65538,10 +65517,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"hiC" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay2)
 "hsb" = (
 /obj/structure/table/standard,
 /obj/random/loot,
@@ -65648,23 +65623,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"kKf" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/medical/medbay2)
 "kOu" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -65681,37 +65639,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"kVV" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 2;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/maintenance{
-	name = "Maintenance Access";
-	req_access = list(12);
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
-/area/medical/medbay2)
 "kYi" = (
 /obj/machinery/alarm{
 	pixel_y = 23
@@ -65753,8 +65680,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay2)
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
 "lAi" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
@@ -65807,6 +65734,37 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"mrL" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 2;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
+	req_access = list(12);
+	req_one_access = null
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
 "mEf" = (
 /obj/structure/table/rack,
 /obj/random/loot,
@@ -65834,6 +65792,9 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering)
+"nvn" = (
+/turf/space,
+/area/space)
 "nIc" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -66020,6 +65981,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering)
+"rzp" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
 "rDW" = (
 /obj/machinery/atmospherics/omni/filter{
 	tag_east = 1;
@@ -66036,6 +66003,23 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering)
+"tuN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
 "ucD" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/toolbox/electrical,
@@ -66074,8 +66058,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay2)
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
 "vKP" = (
 /obj/structure/cable{
 	d1 = 2;
@@ -66155,9 +66142,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/light,
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay2)
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
 
 (1,1,1) = {"
 aaa
@@ -106140,9 +106127,9 @@ bvC
 bvC
 bvC
 buw
-kKf
+bkr
 fJU
-kKf
+bkr
 bkr
 bBo
 bBo
@@ -106397,10 +106384,10 @@ buw
 buw
 buw
 buw
-bCi
-uNZ
-bCi
-bkr
+bBo
+tuN
+bBo
+blN
 blN
 blN
 bHF
@@ -106654,10 +106641,10 @@ bxY
 bzp
 bAr
 bzs
-hiC
-bDf
-bDX
-bkr
+bBo
+tuN
+bBo
+blN
 xPe
 lWn
 bHF
@@ -106914,7 +106901,7 @@ bzs
 bCi
 uVs
 xTk
-bkr
+blN
 bFR
 bBr
 bHF
@@ -107169,9 +107156,9 @@ bxZ
 bAt
 bzs
 bCk
-bCi
+rzp
 ljR
-bkr
+blN
 bFS
 bGK
 bHF
@@ -107425,10 +107412,10 @@ bya
 bzr
 bAu
 bzs
-bCk
-bCi
-ljR
-bkr
+blN
+blN
+mrL
+blN
 bFR
 bBo
 bHF
@@ -107682,10 +107669,10 @@ buC
 bzs
 bzs
 bzs
-bkr
-bkr
-kVV
-bkr
+bBo
+bBo
+ljR
+blN
 blN
 blN
 bHF
@@ -109997,7 +109984,7 @@ aaa
 aab
 aaa
 aaa
-aab
+nvn
 aab
 aab
 blN
