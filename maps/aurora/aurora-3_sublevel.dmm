@@ -17007,7 +17007,7 @@
 /area/medical/patient_wing_post1)
 "aEp" = (
 /turf/simulated/wall/r_wall,
-/area/medical/patient_b)
+/area/medical/patient_a)
 "aEq" = (
 /turf/simulated/wall/r_wall,
 /area/medical/patient_c)
@@ -17632,34 +17632,6 @@
 "aFt" = (
 /turf/simulated/wall,
 /area/medical/patient_a)
-"aFu" = (
-/obj/machinery/newscaster{
-	pixel_y = 32
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/machinery/iv_drip,
-/obj/effect/floor_decal/industrial/outline/red,
-/turf/simulated/floor/wood,
-/area/medical/patient_b)
-"aFv" = (
-/obj/machinery/alarm{
-	dir = 8;
-	icon_state = "alarm0";
-	pixel_x = 24
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/medical,
-/obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/wood,
-/area/medical/patient_b)
 "aFx" = (
 /obj/machinery/newscaster{
 	pixel_y = 32
@@ -18042,18 +18014,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_a)
-"aGr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/wood,
-/area/medical/patient_b)
 "aGs" = (
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Perma, Patient Two Dorm";
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/medical/patient_b)
+/area/medical/patient_a)
 "aGu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/hologram/holopad,
@@ -18489,18 +18456,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_a)
-"aHp" = (
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/turf/simulated/floor/wood,
-/area/medical/patient_b)
 "aHr" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -19069,26 +19024,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/patient_a)
-"aIs" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	id = "isoB_window_tint"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "isoB_window_tint"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "medlounge"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "isoB_window_tint"
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/medical/patient_b)
 "aIt" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical{
@@ -19104,7 +19039,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
-/area/medical/patient_b)
+/area/medical/patient_a)
 "aIu" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical{
@@ -30086,9 +30021,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
-"pDx" = (
-/turf/simulated/wall,
-/area/medical/patient_b)
 "pDN" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -30113,18 +30045,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
-"qfV" = (
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/wood,
-/area/medical/patient_b)
 "qgg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -73477,9 +73397,9 @@ aaa
 akx
 akx
 aEp
-aFu
-aGr
-aHp
+vlf
+aGo
+aHm
 aIt
 idF
 aKv
@@ -73734,10 +73654,10 @@ aaa
 aaa
 aba
 aEp
-aFv
+aFr
 aGs
-qfV
-aIs
+qRa
+hWq
 aJs
 aKw
 aLt
@@ -73991,10 +73911,10 @@ aaa
 aaa
 aaa
 aEp
-pDx
-pDx
-pDx
-pDx
+aFt
+aFt
+aFt
+aFt
 aJw
 aKx
 aLu
