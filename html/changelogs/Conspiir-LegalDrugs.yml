@@ -34,4 +34,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Ambrosia vulgaris and Reishi are now available in common seed vendors (hydroponics, and the garden for a price!). It's legal; go grow you some!"
+  - tweak: "Ambrosia vulgaris and Reishi are now available in the hydroponics seed vendor. It's legal; go grow you some!"
+  - maptweak: "Replaced one of the hydroponics seed vendors with a garden seed machine."
