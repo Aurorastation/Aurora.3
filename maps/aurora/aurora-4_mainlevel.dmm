@@ -65469,7 +65469,7 @@
 	req_access = list(12);
 	req_one_access = null
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/plating,
 /area/medical/medbay2)
 "fSn" = (
 /obj/machinery/atmospherics/portables_connector{
