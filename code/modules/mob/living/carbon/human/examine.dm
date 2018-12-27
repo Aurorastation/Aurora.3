@@ -247,6 +247,12 @@
 		if(hydration / max_hydration <= CREW_HYDRATION_VERYTHIRSTY)
 			msg += "[T.He] [T.is] severely dehydrated.\n"
 
+	if(moisture < 900)
+		msg += "<span class = 'warning'>[T.His] skin is flaking.</span>\n"
+	else if(moisture < 1800)
+		msg += "[T.He] [T.is] rather dry.\n"
+
+
 	msg += "</span>"
 
 	if(getBrainLoss() >= 60)

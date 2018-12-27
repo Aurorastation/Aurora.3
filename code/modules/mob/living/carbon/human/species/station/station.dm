@@ -256,11 +256,21 @@
 	cold_level_2 = 220 //Default 200
 	cold_level_3 = 130 //Default 120
 
-	brute_mod = 1.2
-	pain_mod = 1.5
-
 /datum/species/skrell/can_breathe_water()
 	return TRUE
+
+/datum/species/skrell/handle_environment_special(var/mob/living/carbon/human/H)
+	var/old_moisture = H.moisture
+	H.moisture = max(0, H.moisture - rand(-0.8, 1.3))			// Reduce moisture a little.
+	var/pain_limit = (1800-H.moisture) * (30 / 1800)			// The max halloss damage to do based on current moisture. At 0, this is 30. At 1800 or higher, this is 0.
+	H.halloss = max(H.halloss, pain_limit)						// Add more pain damage if they need it.
+	H.adjustHydrationLoss((1800 - H.moisture) / 1800)			// Doesn't need to drink if moist, needs to drink faster if dry.
+	if(H.moisture <= 1800 && old_moisture > 1800)
+		H << "<span class='warning'>You are drying out. You should consider moisturizing.</span>"
+	else if(H.moisture <= 900 && old_moisture > 900)
+		H << "<span class='warning'>You are really dry! Your skin feels uncomfortable and flakey!</span>"
+	else if(H.moisture == 0 && old_moisture > 0)
+		H << "<span class='danger'>You are completely dry, this is really painful!</span>"
 
 /datum/species/diona
 	name = "Diona"

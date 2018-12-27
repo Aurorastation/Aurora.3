@@ -243,6 +243,10 @@
 	if(istype(M) && !istype(M, /mob/abstract))
 		M.color = initial(M.color)
 
+	if(istype(M) && istype(M, /mob/living/carbon))
+		var/mob/living/carbon/C = M
+		C.moisture = min(3600, C.moisture + amount * 10)
+
 /datum/reagent/water/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed)
 	if(istype(S))
 		S.adjustToxLoss( volume * (removed/REM) * 0.23 )
@@ -259,7 +263,7 @@
 		var/mob/living/carbon/slime/S = M
 		S.adjustToxLoss(12 * removed) // A slime having water forced down its throat would cause much more damage then being splashed on it
 		if (!S.client && S.Target)
-		
+
 			S.Target = null
 			++S.Discipline
 

@@ -34,6 +34,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - balance: "Skrell now take more brute damage"
-  - balance: "Skrell now are less resistant to the cold."
-  - balance: "Pain effects skrell more strongly now, requiring less hits with a stunbatton to down them."
+  - tweak: "Skrell now must stay wet."
