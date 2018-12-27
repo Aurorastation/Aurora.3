@@ -59,8 +59,8 @@
 	name = "\improper Medical - Patient's Rooms"
 	icon_state = "patients"
 
-/area/medical/ward
-	name = "\improper Medical - Recovery Ward"
+/area/medical/picnic
+	name = "\improper Medical - Picnic Area"
 	icon_state = "patients"
 
 /area/medical/patient_a
@@ -73,6 +73,10 @@
 
 /area/medical/patient_c
 	name = "\improper Medical - Isolation C"
+	icon_state = "patients"
+
+/area/medical/patient_d
+	name = "\improper Medical - Isolation D"
 	icon_state = "patients"
 
 /area/medical/patient_wing
