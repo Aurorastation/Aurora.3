@@ -1090,7 +1090,7 @@
 
 	//Fix husks
 	mutations.Remove(HUSK)
-	status_flags |= DISFIGURED	//makes them unknown without fucking up other stuff like admintools
+	status_flags &= ~DISFIGURED	//Fixes the unknown status
 	update_body(1)
 
 	..()
