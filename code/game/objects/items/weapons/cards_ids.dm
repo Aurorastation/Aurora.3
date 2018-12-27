@@ -367,7 +367,10 @@ obj/item/weapon/card/id/ert/New()
 	name = "\improper Tau Ceti Foreign Legion ID"
 	icon_state = "centcom"
 	assignment = "Tau Ceti Foreign Legion Volunteer"
-	access = list(access_maint_tunnels, access_external_airlocks, access_legion)
+
+/obj/item/weapon/card/id/tcfl/New()
+	access = get_all_station_access() + access_legion
+	..()
 
 /obj/item/weapon/card/id/all_access
 	name = "\improper Administrator's spare ID"
@@ -376,6 +379,7 @@ obj/item/weapon/card/id/ert/New()
 	item_state = "tdgreen"
 	registered_name = "Administrator"
 	assignment = "Administrator"
+
 /obj/item/weapon/card/id/all_access/New()
 	access = get_access_ids()
 	..()
