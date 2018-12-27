@@ -244,11 +244,6 @@
 		icon_state = "hair_combover"
 		gender = MALE
 
-//	father				// NO. Just NO. Why did we ever have it.
-//		name = "Father"
-//		icon_state = "hair_father"
-//		gender = MALE
-
 	reversemohawk
 		name = "Reverse Mohawk"
 		icon_state = "hair_reversemohawk"
