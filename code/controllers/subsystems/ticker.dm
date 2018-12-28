@@ -335,7 +335,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/data = revdata.testmerge_overview()
 
 	if (data)
-		world << data
+		to_world(data)
 
 /datum/controller/subsystem/ticker/proc/pregame()
 	set waitfor = FALSE
