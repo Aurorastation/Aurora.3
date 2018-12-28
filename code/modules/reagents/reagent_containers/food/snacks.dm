@@ -2346,7 +2346,7 @@
 	reagents.add_reagent("tomatojuice", 10)
 
 /obj/item/weapon/reagent_containers/food/snacks/meatballspagetti
-	name = "spaghetti & meatballs"
+	name = "spaghetti and meatballs"
 	desc = "Now thats a nic'e meatball!"
 	icon_state = "meatballspagetti"
 	trash = /obj/item/trash/plate
