@@ -247,6 +247,16 @@
 	data["content"] = motd
 	user << output(JS_SANITIZE(data), "greeting.browser:AddContent")
 
+	data["div"] = "#testmerges"
+	data["content"] = revdata.greeting_info
+
+	if (revdata.test_merges.len)
+		data["update"] = 1
+	else
+		data["update"] = 0
+	data["changeHash"] = null
+	user << output(JS_SANITIZE(data), "greeting.browser:AddContent")
+
 /*
  * Basically the Topic proc for the greeting datum.
  */
@@ -338,3 +348,5 @@
 #undef OUTDATED_MOTD
 
 #undef MEMOFILE
+
+#undef JS_SANITIZE

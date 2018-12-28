@@ -6,6 +6,7 @@ var/global/datum/getrev/revdata = new()
 	var/date
 	var/showinfo
 	var/list/datum/tgs_revision_information/test_merge/test_merges
+	var/greeting_info
 
 /datum/getrev/New()
 	var/list/head_branch = file2list(".git/HEAD", "\n")
@@ -29,14 +30,6 @@ var/global/datum/getrev/revdata = new()
 
 	if (api)
 		test_merges = api.TestMerges()
-
-	var/datum/tgs_revision_information/test_merge/tm = new()
-	tm.number = 5330
-	tm.author = "BurgerBBB"
-	tm.title = "free MEMES"
-
-	test_merges = list()
-	test_merges += tm
 
 	world.log << "Running revision:"
 	world.log << branch
@@ -72,6 +65,23 @@ client/verb/showrevinfo()
 
 	return out.Join()
 
+/datum/getrev/proc/generate_greeting_info()
+	if (!test_merges.len)
+		return {"<div class="alert alert-info">
+		         There are currently no test merges loaded onto the server.
+		         </div>"}
+
+	var/list/out = list("<p>There are currently [test_merges.len] PRs being tested live.</p>",
+		{"<table class="table table-hover">"}
+	)
+
+	for (var/TM in test_merges)
+		out += testmerge_long_oveview(TM)
+
+	out += "</table>"
+
+	greeting_info = out.Join()
+
 /datum/getrev/proc/testmerge_short_overview(datum/tgs_revision_information/test_merge/tm)
 	. = list()
 
@@ -82,3 +92,20 @@ client/verb/showrevinfo()
 		. += "<br>\t<a href='[config.githuburl]pull/[tm.number]'>\[Details...\]</a>"
 
 	. += "</p>"
+
+/datum/getrev/proc/testmerge_long_oveview(datum/tgs_revision_information/test_merge/tm)
+	var/divid = "pr[tm.number]"
+
+	. = list()
+	. += {"<tr data-toggle="collapse" data-target="#[divid]" class="clickable">"}
+	. += {"<th>PR #[tm.number] - [html_encode(tm.title)]</th>"}
+	. += {"</tr><tr><td class="hiddenRow"><div id="[divid]" class="collapse">"}
+	. += {"<table class="table">"}
+	. += {"<tr><th>Author:</th><td>[html_encode(tm.author)]</td></tr>"}
+	. += {"<tr><th>Merged:</th><td>[tm.time_merged]</td></tr>"}
+
+	if (config.githuburl)
+		. += {"<tr><td colspan="2"><a href="?JSlink=github;pr=[tm.number]">Link to Github</a></td></tr>"}
+
+	. += {"<tr><th>Description:</th><td>[html_encode(tm.body)]</td></tr>"}
+	. += {"</table></div></td></tr>"}
