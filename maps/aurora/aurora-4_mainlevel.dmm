@@ -46937,10 +46937,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "bAw" = (
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
@@ -46952,6 +46948,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	icon_state = "map-scrubbers";
 	dir = 4
+	},
+/obj/structure/disposalpipe/junction/yjunction{
+	icon_state = "pipe-y";
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
@@ -47896,17 +47896,6 @@
 /obj/structure/ladder{
 	icon_state = "ladder01";
 	pixel_y = 16
-	},
-/turf/simulated/open,
-/area/maintenance/medbay)
-"bCl" = (
-/obj/structure/disposalpipe/down{
-	icon_state = "pipe-d";
-	dir = 8
-	},
-/obj/structure/lattice/catwalk,
-/obj/structure/sign/drop{
-	pixel_y = 32
 	},
 /turf/simulated/open,
 /area/maintenance/medbay)
@@ -65427,6 +65416,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"esz" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
 "ffY" = (
 /obj/machinery/power/port_gen/pacman,
 /turf/simulated/floor/plating,
@@ -65582,6 +65578,9 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/structure/sign/drop{
+	pixel_y = 32
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
@@ -65807,9 +65806,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering)
-"nvn" = (
-/turf/space,
-/area/space)
 "nIc" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -65820,7 +65816,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "nIv" = (
@@ -65864,6 +65862,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "opv" = (
@@ -65956,6 +65955,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "rhw" = (
@@ -66013,6 +66013,20 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering)
+"sby" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
+"sTA" = (
+/obj/structure/disposalpipe/down{
+	icon_state = "pipe-d";
+	dir = 8
+	},
+/obj/structure/lattice/catwalk,
+/turf/simulated/open,
+/area/maintenance/medbay)
 "tuN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -100983,7 +100997,7 @@ bLL
 blN
 bMW
 bNQ
-aaR
+blN
 aaa
 aaa
 aaa
@@ -101240,7 +101254,7 @@ bKZ
 bMr
 bBo
 bNR
-aaR
+blN
 aaa
 aaa
 aaa
@@ -101497,7 +101511,7 @@ bKZ
 blN
 bMX
 bNS
-aaR
+blN
 aaa
 aaa
 aaa
@@ -101756,7 +101770,7 @@ blN
 blN
 blN
 blN
-aaR
+blN
 aaa
 bEK
 bRi
@@ -102013,7 +102027,7 @@ bMY
 bNT
 bOw
 bPg
-aaR
+blN
 aaa
 bEK
 bRi
@@ -102270,7 +102284,7 @@ bJq
 bNU
 bOx
 bOx
-aaR
+blN
 aaa
 bEK
 bRj
@@ -102527,7 +102541,7 @@ bMZ
 bNV
 bOy
 bPh
-aaR
+blN
 aab
 bEK
 bRi
@@ -102784,7 +102798,7 @@ bJq
 bNW
 bOz
 bOz
-aaR
+blN
 aab
 bEK
 bRk
@@ -103041,7 +103055,7 @@ bNa
 bNT
 bOA
 bPi
-aaR
+blN
 aab
 bEK
 bRi
@@ -103298,7 +103312,7 @@ bMs
 blN
 blN
 blN
-aaR
+blN
 aab
 bEK
 bRi
@@ -104330,11 +104344,11 @@ aab
 aab
 bEK
 bRl
-bRC
-bRC
-bRC
-bRC
-bRC
+bOu
+bOu
+bOu
+bOu
+bOu
 bUn
 bEK
 bEK
@@ -107906,7 +107920,7 @@ buE
 byb
 buC
 bAv
-bBo
+esz
 nQp
 rdt
 bAw
@@ -108163,7 +108177,7 @@ buE
 byc
 buC
 bBo
-bBo
+sby
 bCj
 bDg
 bDg
@@ -108677,8 +108691,8 @@ xhC
 byb
 buC
 hPn
-bAv
-bCl
+sTA
+sTA
 bBo
 bBo
 blN
@@ -109965,7 +109979,7 @@ aaa
 aab
 aaa
 aaa
-nvn
+aaa
 aab
 aab
 blN

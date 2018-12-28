@@ -9466,7 +9466,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
 "aqE" = (
-/obj/structure/disposalpipe/junction,
 /obj/machinery/light,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = -32
@@ -9474,6 +9473,10 @@
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Patient Wing Recreation Area";
 	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled{
 	icon_state = "vault";
@@ -16499,6 +16502,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
 "aDs" = (
@@ -20243,7 +20247,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/disposalpipe/junction/yjunction,
+/obj/structure/disposalpipe/junction{
+	dir = 8;
+	icon_state = "pipe-j2"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
 "aKv" = (
@@ -23074,10 +23081,6 @@
 	},
 /turf/simulated/floor/grass,
 /area/medical/patient_wing_picnic)
-"aPK" = (
-/obj/structure/disposalpipe/segment,
-/turf/simulated/wall/r_wall,
-/area/medical/patient_wing_hallway)
 "aPL" = (
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled/dark,
@@ -23353,10 +23356,6 @@
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
-"aQp" = (
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
 "aQq" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/mixing)
@@ -23692,13 +23691,6 @@
 	},
 /turf/simulated/floor/grass,
 /area/medical/patient_wing_picnic)
-"aQY" = (
-/obj/structure/disposaloutlet,
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
-/turf/simulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
 "aQZ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced/airless,
@@ -25256,9 +25248,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
-"aVH" = (
-/turf/simulated/floor/tiled/freezer,
-/area/mine/unexplored)
 "aVJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -26486,9 +26475,9 @@
 /area/medical/patient_wing)
 "bbn" = (
 /obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
+	dir = 4
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
 "bbp" = (
@@ -26746,18 +26735,18 @@
 	pixel_y = -8
 	},
 /turf/simulated/floor/tiled/freezer,
-/area/mine/unexplored)
+/area/crew_quarters/sleep/medical)
 "bbU" = (
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/freezer,
-/area/mine/unexplored)
+/area/crew_quarters/sleep/medical)
 "bbX" = (
 /obj/structure/closet/secure_closet/personal,
 /turf/simulated/floor/tiled/freezer,
-/area/mine/unexplored)
+/area/crew_quarters/sleep/medical)
 "bbY" = (
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Briefing Room";
@@ -29206,13 +29195,13 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
 /obj/item/device/radio/intercom{
 	name = "Station Intercom (General)";
 	pixel_y = 22
+	},
+/obj/structure/disposalpipe/junction{
+	icon_state = "pipe-j1";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
@@ -29235,6 +29224,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_c)
+"cHi" = (
+/obj/structure/disposalpipe/up{
+	icon_state = "pipe-u";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/sublevel)
 "cIR" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/door/window/westleft{
@@ -29676,6 +29672,10 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled,
 /area/medical/patient_wing_post1)
 "jjF" = (
@@ -29733,6 +29733,15 @@
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
 /area/medical/patient_wing_post1)
+"lbE" = (
+/obj/machinery/door/airlock/medical{
+	name = "Processing";
+	req_access = list(66)
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/white,
+/area/medical/patient_wing_post1)
 "ltb" = (
 /obj/structure/table/wood,
 /obj/item/weapon/deck/cards,
@@ -29740,13 +29749,6 @@
 /obj/item/weapon/deck/tarot,
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
-"lvu" = (
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/sublevel)
 "lvZ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -29970,6 +29972,9 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
 "opa" = (
@@ -30182,13 +30187,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
-"sFn" = (
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/sublevel)
 "sFw" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -30246,6 +30244,9 @@
 	},
 /obj/structure/table/standard,
 /obj/machinery/computer/med_data/laptop,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/medical/patient_wing_post1)
 "toQ" = (
@@ -67214,10 +67215,10 @@ aUZ
 aUZ
 aUZ
 aUZ
-ate
-ate
-ate
-ate
+aUZ
+aUZ
+aUZ
+aUZ
 aaa
 aaa
 aaa
@@ -67474,8 +67475,8 @@ aUZ
 bbT
 bbT
 bbT
-ate
-ate
+aUZ
+aUZ
 aaa
 aaa
 aaa
@@ -67729,10 +67730,10 @@ bbQ
 aUb
 aUZ
 bbU
-aVH
-aVH
+aXh
+aXh
 bbX
-ate
+aUZ
 aaa
 aaa
 aaa
@@ -67985,11 +67986,11 @@ aSx
 aTo
 bbM
 aVa
-aVH
-aVH
-aVH
+aXh
+aXh
+aXh
 bbX
-ate
+aUZ
 aaa
 aaa
 aaa
@@ -68243,10 +68244,10 @@ aSy
 bbM
 aUZ
 bbU
-aVH
-aVH
+aXh
+aXh
 bbX
-ate
+aUZ
 aaa
 aaa
 aaa
@@ -71306,7 +71307,7 @@ azh
 lSi
 vPb
 bbn
-tNU
+lbE
 jjp
 ark
 fTY
@@ -71818,8 +71819,8 @@ aba
 aba
 aba
 akx
-lvu
-sFn
+gsG
+gsG
 aFt
 aFt
 aFt
@@ -72075,7 +72076,7 @@ aaa
 aaa
 aba
 akx
-akx
+kLG
 kLG
 aFt
 aFq
@@ -72331,8 +72332,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 akx
+gsG
 gsG
 aFt
 vlf
@@ -72347,8 +72348,8 @@ rWc
 rWc
 baw
 nzR
-bFN
-bFN
+vYg
+baw
 bFN
 aaa
 aaa
@@ -72588,8 +72589,8 @@ akx
 akx
 akx
 aaa
-aaa
 akx
+gsG
 gsG
 aFt
 aFr
@@ -72604,9 +72605,9 @@ aNt
 aOi
 aOU
 nzR
-aaa
-aaa
-aaa
+aba
+aba
+aba
 aaa
 aaa
 aaa
@@ -72845,8 +72846,8 @@ awC
 aAl
 akx
 aaa
-aaa
 akx
+gsG
 gsG
 aFt
 aFt
@@ -72861,11 +72862,11 @@ aNu
 aOj
 aOV
 nzR
-aaa
-akG
 aba
-abx
-akG
+aba
+aba
+aba
+aaa
 aaa
 aaa
 aaa
@@ -73102,8 +73103,8 @@ akx
 aAm
 akx
 aaa
-aaa
 akx
+cHi
 srW
 aFt
 aFq
@@ -73118,12 +73119,12 @@ aNv
 aOk
 aOW
 nzR
+aba
+aba
+aba
 aaa
-abx
-aba
-aba
-aba
-aba
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -73359,7 +73360,7 @@ akx
 akV
 akx
 aaa
-aaa
+akx
 akx
 akx
 aEp
@@ -73374,14 +73375,14 @@ aMw
 aNw
 aOl
 aqE
-aPK
-aQp
-aQY
+nzR
+aaa
 aba
-aba
-abx
-abx
-akG
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -73633,11 +73634,11 @@ aOm
 aOY
 nzR
 aaa
-abx
-aba
-abx
-aba
-aba
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -73890,10 +73891,10 @@ oZx
 aOZ
 nzR
 aaa
-akG
-aba
-aba
-akG
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
