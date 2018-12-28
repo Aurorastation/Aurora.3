@@ -70,4 +70,4 @@
 	light_color = LIGHT_COLOR_FIRE
 
 /obj/effect/projectile/muzzle/gauss
-	icon_state = "gaus_bolt"
+	icon_state = "muzzle_gauss"

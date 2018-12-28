@@ -395,7 +395,7 @@
 /obj/item/laser_components/modulator/blaster
 	name = "blaster-bolt modulator"
 	desc = "Modulates the beam into firing disparate energy bolts."
-	projectile = /obj/item/projectile/energy/blaster/incediary
+	projectile = /obj/item/projectile/energy/blaster/incendiary
 	icon_state = "lensatic"
 
 /obj/item/laser_components/modulator/bfg

@@ -220,7 +220,7 @@
 /obj/item/projectile/energy/blaster/heavy
 	damage = 35
 
-/obj/item/projectile/energy/blaster/incediary
+/obj/item/projectile/energy/blaster/incendiary
 	icon_state = "laser"
 	damage = 15
 	incinerate = 2

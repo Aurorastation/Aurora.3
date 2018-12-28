@@ -153,7 +153,7 @@
 
 /obj/vehicle/bike/speeder
 	name = "retrofitted speeder"
-	desc = "A short bike that seems to consist mostly of an engine, a hover repulser, vents and a steering shaft."
+	desc = "A short bike that seems to consist mostly of an engine, a hover repulsor, vents and a steering shaft."
 	icon_state = "speeder_on"
 
 	health = 150
