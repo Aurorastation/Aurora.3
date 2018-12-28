@@ -301,6 +301,8 @@ var/list/admin_departments
 	else
 		discord_msg += ".)"
 
+	discord_msg += " Gamemode: [SSticker.mode]"
+
 	discord_bot.send_to_cciaa(discord_msg)
 
 /obj/machinery/photocopier/faxmachine/proc/do_pda_alerts()
