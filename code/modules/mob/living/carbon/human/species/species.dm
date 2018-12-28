@@ -526,3 +526,9 @@
 	H.h_style = H.species.default_h_style
 	H.f_style = H.species.default_f_style
 	H.update_hair()
+
+/datum/species/proc/adjustBruteLoss(var/mob/living/carbon/C, var/amount)
+	return 1
+
+/datum/species/proc/adjustFireLoss(var/mob/living/carbon/C, var/amount)
+	return 1

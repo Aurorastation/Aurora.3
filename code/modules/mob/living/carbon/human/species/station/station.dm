@@ -258,6 +258,9 @@
 /datum/species/skrell/handle_environment_special(var/mob/living/carbon/human/H)
 	var/old_moisture = H.moisture
 	H.moisture = max(0, H.moisture - rand(-0.8, 1.3))			// Reduce moisture a little.
+	if(H.fire_stacks && H.moisture > 1800)						// Flaming moist skrell can reduce their flame
+		H.fire_stacks--
+		H.moisture -= rand(150, 350)							// Lost a lot of moisture
 	var/pain_limit = (1800-H.moisture) * (40 / 1800)			// The max halloss damage to do based on current moisture. At 0, this is 30. At 1800 or higher, this is 0.
 	H.halloss = max(H.halloss, pain_limit)						// Add more pain damage if they need it.
 	H.adjustHydrationLoss((1800 - H.moisture) / 1800)			// Doesn't need to drink if moist, needs to drink faster if dry.
@@ -267,6 +270,11 @@
 		H << "<span class='warning'>You are really dry! Your skin feels uncomfortable and flakey!</span>"
 	else if(H.moisture == 0 && old_moisture > 0)
 		H << "<span class='danger'>You are completely dry, this is really painful!</span>"
+
+/datum/species/skrell/adjustFireLoss(var/mob/living/carbon/C, var/amount)
+	. = (1 - (C.moisture / 3600))*0.6 + 0.7 // At 0 moisture, this is 1.3 At 3600 moisture, this is 0.7. Average of 1.0
+	C.moisture = max(0, C.moisture - amount * 30) // Lose 30 * damage in moisture. 100 damage will almost instantly 0 the wettest of skrell
+
 
 /datum/species/diona
 	name = "Diona"

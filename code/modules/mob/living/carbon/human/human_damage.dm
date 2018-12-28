@@ -102,7 +102,7 @@
 
 
 /mob/living/carbon/human/adjustBruteLoss(var/amount)
-	amount *= brute_mod
+	amount *= brute_mod * (species ? species.adjustBruteLoss(src, amount) : 1)
 	if(amount > 0)
 		take_overall_damage(amount, 0)
 	else
@@ -110,7 +110,7 @@
 	BITSET(hud_updateflag, HEALTH_HUD)
 
 /mob/living/carbon/human/adjustFireLoss(var/amount)
-	amount *= burn_mod
+	amount *= burn_mod * (species ? species.adjustFireLoss(src, amount) : 1)
 	if(amount > 0)
 		take_overall_damage(0, amount)
 	else
