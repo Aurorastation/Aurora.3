@@ -179,7 +179,7 @@
 	var/datum/asset/welcome = get_asset_datum(/datum/asset/simple/misc)
 	welcome.send(user)
 
-	user << browse('html/templates/welcome_screen.html', "window=greeting;size=640x500")
+	user << browse('html/templates/welcome_screen.html', "window=greeting;size=740x500")
 
 /*
  * A proc used to close the server greeting window for a user.

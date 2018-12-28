@@ -30,6 +30,8 @@ var/global/datum/getrev/revdata = new()
 
 	if (api)
 		test_merges = api.TestMerges()
+	else
+		test_merges = list()
 
 	world.log << "Running revision:"
 	world.log << branch
@@ -67,9 +69,10 @@ client/verb/showrevinfo()
 
 /datum/getrev/proc/generate_greeting_info()
 	if (!test_merges.len)
-		return {"<div class="alert alert-info">
-		         There are currently no test merges loaded onto the server.
-		         </div>"}
+		greeting_info = {"<div class="alert alert-info">
+		                  There are currently no test merges loaded onto the server.
+		                  </div>"}
+		return
 
 	var/list/out = list("<p>There are currently [test_merges.len] PRs being tested live.</p>",
 		{"<table class="table table-hover">"}
