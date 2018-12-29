@@ -241,7 +241,7 @@
 		brightness_color = initial(brightness_color)
 	update()
 
-/obj/machinery/computer/shuttle_control/tcfl
+/obj/machinery/computer/shuttle_control/legion
 	name = "deployment shuttle control console"
 	req_access = list(access_legion)
 	shuttle_tag = "Tau Ceti Foreign Legion"

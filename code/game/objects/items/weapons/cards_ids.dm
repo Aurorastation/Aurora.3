@@ -363,12 +363,12 @@ obj/item/weapon/card/id/ert/New()
 	access = get_all_station_access() + get_centcom_access("Emergency Response Team")
 	..()
 
-/obj/item/weapon/card/id/tcfl
+/obj/item/weapon/card/id/legion
 	name = "\improper Tau Ceti Foreign Legion ID"
 	icon_state = "centcom"
 	assignment = "Tau Ceti Foreign Legion Volunteer"
 
-/obj/item/weapon/card/id/tcfl/New()
+/obj/item/weapon/card/id/legion/New()
 	access = get_all_station_access() + access_legion
 	..()
 

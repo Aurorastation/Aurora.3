@@ -152,7 +152,7 @@
 	shuttle = new()
 	shuttle.location = 1
 	shuttle.warmup_time = 10
-	shuttle.area_offsite = locate(/area/shuttle/tcfl/centcom)
-	shuttle.area_station = locate(/area/shuttle/tcfl/station)
+	shuttle.area_offsite = locate(/area/shuttle/legion/centcom)
+	shuttle.area_station = locate(/area/shuttle/legion/station)
 	shuttles["Tau Ceti Foreign Legion"] = shuttle
 	START_PROCESSING(shuttle_controller, shuttle)

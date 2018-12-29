@@ -211,14 +211,14 @@
 	icon_state = "shuttle"
 	station_area = 1
 
-/area/shuttle/tcfl/centcom
+/area/shuttle/legion/centcom
 	name = "\improper Foreign Legion Shuttle"
 	flags = RAD_SHIELDED | SPAWN_ROOF
 	base_turf = /turf/simulated/floor/tiled/dark
 	icon_state = "shuttlegrn"
 	centcomm_area = 1
 
-/area/shuttle/tcfl/station
+/area/shuttle/legion/station
 	name = "\improper Foreign Legion Landing"
 	icon_state = "shuttlegrn2"
 	base_turf = /turf/simulated/floor/asteroid/ash

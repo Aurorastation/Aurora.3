@@ -67,7 +67,7 @@ client/verb/JoinResponseTeam()
 					usr << "The emergency response team is already full!"
 					return
 
-				tcfl.create_default(usr)
+				legion.create_default(usr)
 
 			else
 				if(ert.current_antagonists.len >= ert.hard_cap)

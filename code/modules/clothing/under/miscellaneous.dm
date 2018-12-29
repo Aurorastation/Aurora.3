@@ -698,7 +698,7 @@
 	icon_state = "whitemedicalgown"
 	worn_state = "whitemedicalgown"
 
-/obj/item/clothing/under/tcfl
+/obj/item/clothing/under/legion
 	name = "Tau Ceti Foreign Legion uniform"
 	desc = "A blue field uniform used by the force of the Tau Ceti Foreign Legion forces."
 	icon_state = "taucetilegion"

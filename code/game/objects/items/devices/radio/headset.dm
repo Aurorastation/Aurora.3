@@ -219,7 +219,7 @@
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/ert
 
-/obj/item/device/radio/headset/tcfl
+/obj/item/device/radio/headset/legion
 	name = "Tau Ceti Foreign Legion radio headset"
 	desc = "The headset used by NanoTrasen sanctioned response forces."
 	icon_state = "com_headset"

@@ -402,16 +402,16 @@ datum/ghosttrap/pai/transfer_personality(var/mob/candidate, var/mob/living/silic
 /datum/ghosttrap/vampire/welcome_candidate(var/mob/target)
 	return 0
 
-/datum/ghosttrap/tcfly
+/datum/ghosttrap/legion
 	object = "Tau Ceti Foreign Legion"
-	pref_check = MODE_TCFL
+	pref_check = MODE_LEGION
 	ghost_trap_message = "They are occupying a Tau Ceti Foreign Legion volunteer."
 	ghost_trap_role = "Tau Ceti Foreign Legion"
-	ban_checks = list(MODE_TCFL)
+	ban_checks = list(MODE_LEGION)
 	can_set_own_name = FALSE
 	list_as_special_role = FALSE
 
-/datum/ghosttrap/tcfly/welcome_candidate(var/mob/target)
+/datum/ghosttrap/legion/welcome_candidate(var/mob/target)
 	return 0
 
 /datum/ghosttrap/special
