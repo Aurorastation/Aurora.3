@@ -23128,7 +23128,8 @@
 "aZt" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1331;
-	master_tag = "legion_shuttle_sensor";
+	id_tag = "legion_shuttle_sensor";
+	master_tag = null;
 	pixel_y = 32
 	},
 /turf/simulated/shuttle/plating,
@@ -28135,7 +28136,7 @@ asU
 aZD
 asU
 asU
-bab
+bac
 asU
 asU
 asU
@@ -28386,7 +28387,7 @@ asK
 aZH
 aZK
 asU
-bbM
+asU
 asU
 asU
 aZD
@@ -29934,7 +29935,7 @@ asU
 aZZ
 asU
 asU
-bac
+bab
 asU
 asU
 asU
@@ -31460,7 +31461,7 @@ aaM
 aaM
 ahM
 asK
-asU
+bbM
 aZY
 asU
 aZY
