@@ -5825,7 +5825,8 @@
 /obj/machinery/button/crematorium{
 	_wifi_id = "xenobio_crema";
 	pixel_x = -32;
-	pixel_y = 25
+	pixel_y = 25;
+	req_access = null
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -15186,7 +15187,7 @@
 	name = "Virology Emergency Lockdown Control";
 	pixel_x = -25;
 	pixel_y = -5;
-	req_access = list(40)
+	req_access = list(39)
 	},
 /obj/effect/floor_decal/corner/lime/full,
 /obj/machinery/alarm{
