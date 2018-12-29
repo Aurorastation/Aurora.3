@@ -242,6 +242,6 @@
 	update()
 
 /obj/machinery/computer/shuttle_control/tcfl
-	name = "drop pod control console"
+	name = "deployment shuttle control console"
 	req_access = list(access_legion)
 	shuttle_tag = "Tau Ceti Foreign Legion"
