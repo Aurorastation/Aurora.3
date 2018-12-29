@@ -317,7 +317,7 @@
 			if(!istype(O,/obj/item/weapon/implant) && !istype(O,/obj/item/weapon/material/shard/shrapnel))
 				msg += "<span class='danger'>[src] [T.has] \a [O] sticking out of [T.his] [organ.name]!</span>\n"
 	if(digitalcamo)
-		msg += "[T.He] [T.is] respulsively uncanny!\n"
+		msg += "[T.He] [T.is] repulsively uncanny!\n"
 
 	if(hasHUD(user,"security"))
 		var/perpname = "wot"
