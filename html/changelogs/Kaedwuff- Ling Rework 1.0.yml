@@ -36,4 +36,3 @@ delete-after: True
 changes: 
   - balance: "Changelings no longer have to murder for precious DNA, but can instead extract from someone adjacent to them. This is the first phase of a ling rework."
   - tweak: "People who have been succed by a ling now show up as dying to something less overtly metagameable."
-  - tweak: "Digital Camo's examine text has been changed to something less awkward and weird."
