@@ -97,3 +97,29 @@
 
 	eyeobj.acceleration = !eyeobj.acceleration
 	to_chat(usr, "Camera acceleration has been toggled [eyeobj.acceleration ? "on" : "off"].")
+
+/mob/living/silicon/ai/proc/play_sound()
+	set category = "AI Commands"
+	set name = "Play Music In The Area"
+
+	var/delay = world.time - time_music
+	if(delay < 3000)
+		delay \= 10
+		to_chat(src, "<span class='warning'>You have played music recently, you have to wait [(round(delay/60) > 0) ? ("[round(delay/60)] minutes") : ("[delay] seconds") ]</span>")
+		return
+	var/list/sounds = file2list("sound/serversound_list.txt");
+	sounds += "--CANCEL--"
+	sounds += sounds_cache
+
+	var/melody = input("Select a sound from the server to play", "Server sound list", "--CANCEL--") in sounds
+
+	if(melody == "--CANCEL--")	return
+
+	log_admin("[key_name(src)] played sound [melody]",admin_key=key_name(src))
+	message_admins("[key_name_admin(src)] played sound [melody]", 1)
+	var/area/A = get_area(eyeobj.loc)
+	for(var/obj/item/device/radio/intercom/i in A)
+		playsound(i.loc, melody, 40, 0)
+	time_music = world.time
+
+	feedback_add_details("admin_verb","PGS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
