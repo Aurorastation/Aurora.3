@@ -196,10 +196,6 @@
 		name = "Bedhead 2"
 		icon_state = "hair_bedheadv2"
 
-	bedhead3
-		name = "Bedhead 3"
-		icon_state = "hair_bedheadv3"
-
 	beehive
 		name = "Beehive"
 		icon_state = "hair_beehive"
@@ -246,11 +242,6 @@
 	combover
 		name = "Combover"
 		icon_state = "hair_combover"
-		gender = MALE
-
-	father
-		name = "Father"
-		icon_state = "hair_father"
 		gender = MALE
 
 	reversemohawk
@@ -333,11 +324,6 @@
 		name = "Hitop"
 		icon_state = "hair_hitop"
 		gender = MALE
-
-	mohawk
-		name = "Mohawk"
-		icon_state = "hair_d"
-		species_allowed = list("Human","Unathi")
 
 	jensen
 		name = "Adam Jensen Hair"
@@ -710,6 +696,42 @@
 		name = "Donut Bun"
 		icon_state = "hair_donutbun"
 
+	gentle2alt
+		name = "Gentle 2, Alternative"
+		icon_state = "hair_gentle2alt"
+
+	gentle2longalt
+		name = "Gentle 2, Alternative (Long)"
+		icon_state = "hair_gentle2longalt"
+
+	neat
+		name = "Neat"
+		icon_state = "hair_neat"
+		gender = FEMALE
+
+	neatlong
+		name = "Neat (Long)"
+		icon_state = "hair_neatlong"
+		gender = FEMALE
+
+	bobcuteven
+		name = "Shoulder Bob"
+		icon_state = "hair_bobcuteven"
+		gender = FEMALE
+
+	shortmess
+		name = "Messy"
+		icon_state = "hair_shortmess"
+
+	remohawk
+		name = "Mohawk"
+		icon_state = "hair_mohawk"
+
+	celes
+		name = "Drills, Side"
+		icon_state = "hair_celes"
+
+
 	// TG-format hair - uses ICON_MULTIPLY instead of ICON_ADD
 	uniter
 		icon = 'icons/mob/human_face/hair_multiply.dmi'
@@ -984,6 +1006,10 @@
 		una_sidefrills
 			name = "Unathi Side Frills"
 			icon_state = "unathi_sidefrills"
+
+		una_mohawk
+			name = "Unathi Mohawk"
+			icon_state = "hair_d"
 
 //skrell tentacles
 
