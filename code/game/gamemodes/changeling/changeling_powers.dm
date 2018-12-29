@@ -136,7 +136,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	return
 
-/mob/proc/changeling_extract_dna()
+/mob/proc/changeling_absorb_dna()
 	set category = "Changeling"
 	set name = "Absorb DNA"
 
@@ -205,7 +205,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	return 1
 
-/mob/proc/changeling_absorb_dna()
+/mob/proc/changeling_extract_dna()
 	set category = "Changeling"
 	set name = "Full DNA Extraction"
 
