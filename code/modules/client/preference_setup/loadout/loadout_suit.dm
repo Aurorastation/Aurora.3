@@ -16,8 +16,6 @@
 	jackets["bomber jacket"] = /obj/item/clothing/suit/storage/toggle/bomber
 	jackets["corporate black jacket"] = /obj/item/clothing/suit/storage/leather_jacket/nanotrasen
 	jackets["corporate brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen
-	jackets["black jacket"] = /obj/item/clothing/suit/storage/leather_jacket
-	jackets["brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket
 	jackets["flannel jacket, green"] = /obj/item/clothing/suit/storage/toggle/flannel
 	jackets["flannel jacket, red"] = /obj/item/clothing/suit/storage/toggle/flannel/red
 	jackets["flannel jacket, blue"] = /obj/item/clothing/suit/storage/toggle/flannel/blue
@@ -27,8 +25,19 @@
 	jackets["black vest"] = /obj/item/clothing/suit/storage/toggle/leather_vest
 	jackets["brown vest"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/sleeveless
 	jackets["leather coat"] = /obj/item/clothing/suit/leathercoat
-
 	gear_tweaks += new/datum/gear_tweak/path(jackets)
+
+/datum/gear/suit/recjacket
+	display_name = "colorful jacket selection"
+	path = /obj/item/clothing/suit/storage/toggle/rec
+
+/datum/gear/suit/recjacket/New()
+	..()
+	var/jacket = list()
+	jacket["leather jacket"] = /obj/item/clothing/suit/storage/toggle/rec
+	jacket["leather jacket, alternative"] = /obj/item/clothing/suit/storage/toggle/rec/alt
+	gear_tweaks += new/datum/gear_tweak/path(jacket)
+	gear_tweaks += list(gear_tweak_free_color_choice)
 
 /datum/gear/suit/hazard_vest
 	display_name = "hazard vest selection"

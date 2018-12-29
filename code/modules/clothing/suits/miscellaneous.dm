@@ -254,7 +254,6 @@
 	icon_closed = "leather_jacket_sleeveless"
 	body_parts_covered = UPPER_TORSO
 
-//This one has buttons for some reason
 /obj/item/clothing/suit/storage/toggle/brown_jacket
 	name = "leather jacket"
 	desc = "A brown leather coat."
@@ -446,6 +445,22 @@
 	icon_open = "trackjacketwhite_open"
 	icon_closed = "trackjacketwhite"
 	contained_sprite = 1
+
+/obj/item/clothing/suit/storage/toggle/rec
+	name = "leather jacket"
+	desc = "A leather jacket. Artificially dyed."
+	icon_state = "recjacket"
+	item_state = "recjacket"
+	icon_open = "recjacket_open"
+	icon_closed = "recjacket"
+	body_parts_covered = UPPER_TORSO|ARMS
+
+/obj/item/clothing/suit/storage/toggle/rec/alt
+	icon_state = "recjacket2"
+	item_state = "recjacket2"
+	icon_open = "recjacket2_open"
+	icon_closed = "recjacket2"
+
 
 /obj/item/clothing/suit/varsity
 	name = "black varsity jacket"
