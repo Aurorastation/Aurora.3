@@ -45906,8 +45906,10 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/structure/sign/nosmoking_1{
-	pixel_x = -32
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -23;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
@@ -60474,7 +60476,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	name = "Cargo Bay";
 	req_access = null;
-	req_one_access = list(31,48)
+	req_one_access = list(31,48,26)
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -60974,7 +60976,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	name = "Break Room";
 	req_access = null;
-	req_one_access = list(31,48)
+	req_one_access = list(31,48,26)
 	},
 /obj/structure/cable/green{
 	d1 = 1;

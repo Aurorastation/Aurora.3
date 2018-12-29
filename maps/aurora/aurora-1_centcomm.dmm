@@ -6596,7 +6596,8 @@
 /area/merchant_station)
 "pw" = (
 /obj/machinery/vending/wallmed1{
-	pixel_y = 32
+	pixel_y = 32;
+	req_access = list(110)
 	},
 /turf/simulated/floor/wood,
 /area/merchant_station)
@@ -7428,7 +7429,8 @@
 /area/merchant_ship/start)
 "rD" = (
 /obj/machinery/vending/wallmed1{
-	pixel_y = 32
+	pixel_y = 32;
+	req_access = list(110)
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
