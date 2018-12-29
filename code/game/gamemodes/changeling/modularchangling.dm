@@ -14,6 +14,12 @@ var/list/datum/power/changeling/powerinstances = list()
 	var/allowduringlesserform = 0
 	var/genomecost = 500000 // Cost for the changling to evolve this power.
 
+/datum/power/changeling/extract_dna
+	name = "Extract DNA"
+	desc = "Permits us to syphon the DNA from a human. They become one with us, and we become stronger."
+	genomecost = 0
+	verbpath = /mob/proc/changeling_extract_dna
+
 /datum/power/changeling/absorb_dna
 	name = "Absorb DNA"
 	desc = "Permits us to syphon the DNA from a human. They become one with us, and we become stronger."
@@ -85,13 +91,15 @@ var/list/datum/power/changeling/powerinstances = list()
 	genomecost = 1
 	verbpath = /mob/proc/changeling_mimicvoice
 
-/datum/power/changeling/extractdna
-	name = "Extract DNA"
-	desc = "We stealthily sting a target and extract the DNA from them."
-	helptext = "Will give you the DNA of your target, allowing you to transform into them. Does not count towards absorb objectives."
-	genomecost = 2
-	allowduringlesserform = 1
-	verbpath = /mob/proc/changeling_extract_dna_sting
+//   Commenting this out for now because it is redundant, but may be used later//
+
+// /datum/power/changeling/extractdna
+// 	name = "Extract DNA"
+// 	desc = "We stealthily sting a target and extract the DNA from them."
+// 	helptext = "Will give you the DNA of your target, allowing you to transform into them. Does not count towards absorb objectives."
+// 	genomecost = 2
+// 	allowduringlesserform = 1
+// 	verbpath = /mob/proc/changeling_extract_dna_sting
 
 /datum/power/changeling/transformation_sting
 	name = "Transformation Sting"

@@ -136,11 +136,78 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	return
 
-//Absorbs the victim's DNA making them uncloneable. Requires a strong grip on the victim.
-//Doesn't cost anything as it's the most basic ability.
-/mob/proc/changeling_absorb_dna()
+/mob/proc/changeling_extract_dna()
 	set category = "Changeling"
 	set name = "Absorb DNA"
+
+	var/datum/changeling/changeling = changeling_power(0,0,100)
+	if(!changeling)	return
+
+	var/mob/living/carbon/human/T = input(usr, "Who are we extracting from?", "Target selection") in typecache_filter_list(oview(1), typecacheof(/mob/living/carbon/human))|null
+	if (!T)
+		return
+	if(!istype(T))
+		src << "<span class='warning'>[T] is not compatible with our biology.</span>"
+		return
+
+	if(T.species.flags & NO_SCAN)
+		src << "<span class='warning'>We do not know how to parse this creature's DNA!</span>"
+		return
+
+	if (T.mind?.changeling)
+		src << "<span class='warning'>This creature's DNA is already as complex as yours!</span>"
+		return
+
+	if(islesserform(T))
+		src << "<span class='warning'>This creature DNA is not compatible with our form!</span>"
+		return
+
+	if(HUSK in T.mutations)
+		src << "<span class='warning'>This creature's DNA is ruined beyond useability!</span>"
+		return
+
+	if(changeling.isabsorbing)
+		src << "<span class='warning'>We are already absorbing!</span>"
+		return
+
+	changeling.isabsorbing = 1
+	for(var/stage = 1, stage<=3, stage++)
+		switch(stage)
+			if(1)
+				src << "<span class='notice'>This creature is compatible. We must remain next to them.</span>"
+			if(2)
+				src << "<span class='notice'>We subtly find a place to touch their flesh.</span>"
+			if(3)
+				src << "<span class='notice'>We begin to infest their genetic structure.</span>"
+
+		feedback_add_details("changeling_powers","A[stage]")
+		if(!do_mob(src, T, 150))
+			src << "<span class='warning'>Our extraction of [T] has been interrupted!</span>"
+			changeling.isabsorbing = 0
+			return
+
+	src << "<span class='notice'>We have finished infesting [T], and withdraw from their flesh, taking some of their genetic data.</span>"
+	addtimer(CALLBACK(T, /mob/living/.proc/adjustCloneLoss, rand(10, 15)), rand(10, 15) SECONDS)
+
+	changeling.chem_charges += 5
+	changeling.geneticpoints += 1
+	for(var/language in T.languages)
+		if(!(language in changeling.absorbed_languages))
+			changeling.absorbed_languages += language
+
+	changeling_update_languages(changeling.absorbed_languages)
+
+	var/datum/absorbed_dna/newDNA = new(T.real_name, T.dna, T.species.name, T.languages)
+	absorbDNA(newDNA)
+
+	changeling.absorbedcount++
+	changeling.isabsorbing = 0
+
+	return 1
+
+/mob/proc/changeling_absorb_dna()
+	set category = "Changeling"
+	set name = "Full DNA Extraction"
 
 	var/datum/changeling/changeling = changeling_power(0,0,100)
 	if(!changeling)	return
@@ -191,7 +258,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 				T << "<span class='danger'>You feel a sharp stabbing pain!</span>"
 				playsound(get_turf(src), 'sound/effects/lingstabs.ogg', 50, 1)
 				var/obj/item/organ/external/affecting = T.get_organ(src.zone_sel.selecting)
-				if(affecting.take_damage(39,0,1,0,"large organic needle"))
+				if(affecting.take_damage(39,0,1,0,"massive puncture wound"))
 					T:UpdateDamageIcon()
 
 		feedback_add_details("changeling_powers","A[stage]")
@@ -205,8 +272,8 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	T << "<span class='danger'>You have been absorbed by the changeling!</span>"
 	playsound(get_turf(src), 'sound/effects/lingabsorbs.ogg', 50, 1)
 
-	changeling.chem_charges += 10
-	changeling.geneticpoints += 2
+	changeling.chem_charges += 50
+	changeling.geneticpoints += 10
 
 	//Steal all of their languages!
 	for(var/language in T.languages)
