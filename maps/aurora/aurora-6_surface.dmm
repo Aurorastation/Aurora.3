@@ -18277,7 +18277,7 @@
 /area/quartermaster/loading)
 "IJ" = (
 /turf/simulated/floor/asteroid/ash,
-/area/shuttle/tcfl/station)
+/area/shuttle/legion/station)
 "IU" = (
 /obj/effect/decal/warning_stripes,
 /obj/structure/ladder{
