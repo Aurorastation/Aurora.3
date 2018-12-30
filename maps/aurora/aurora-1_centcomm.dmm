@@ -24294,7 +24294,7 @@
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "28"
 	},
-/obj/machinery/artillerycontrol{
+/obj/machinery/computer/artillerycontrol{
 	desc = "Bluespace Artillery; the thinking man's solution."
 	},
 /obj/effect/decal/warning_stripes,
