@@ -205,7 +205,7 @@
 /obj/effect/decal/mecha_wreckage/tank
 	name = "adhomian light tank wreckage"
 	desc = "Remains of some unfortunate armored vehicle. Completely unrepairable."
-	icon = 'icons/mecha/mecha_large.dmi'
+	icon = 'icons/mecha/mecha_64x64.dmi'
 	icon_state = "tank-broken"
 	anchored = TRUE
 	pixel_x = -16
