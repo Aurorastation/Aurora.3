@@ -1130,17 +1130,22 @@ var/list/total_extraction_beacons = list()
 	force = 15
 	throwforce = 5
 	origin_tech = list(TECH_BLUESPACE = 4, TECH_ENGINEERING = 3)
+	var/limit = 50
+	var/last_oresummon_time = 0
+	var/oresummon_delay = 25
 
 /obj/item/weapon/oreportal/attack_self(mob/user)
-	user << "<span class='info'>You pulse the ore summoner.</span>"
-	var/limit = 50
-	for(var/obj/item/weapon/ore/O in orange(7,user))
-		if(limit <= 0)
-			break
-		single_spark(O.loc)
-		do_teleport(O, user, 0)
-		limit -= 1
+	if(world.time - last_oresummon_time >= oresummon_delay)
+		user << "<span class='info'>You pulse the ore summoner.</span>"
+		for(var/obj/item/weapon/ore/O in orange(7,user))
+			if(limit <= 0)
+				break
+			single_spark(O.loc)
+			do_teleport(O, user, 0)
+			limit -= 1
 		CHECK_TICK
+	else
+		user << "The ore summoner is in the middle of some calibrations."
 
 /******************************Sculpting*******************************/
 /obj/item/weapon/autochisel
