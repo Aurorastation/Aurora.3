@@ -1143,7 +1143,7 @@ var/list/total_extraction_beacons = list()
 			single_spark(O.loc)
 			do_teleport(O, user, 0)
 			limit -= 1
-		CHECK_TICK
+			CHECK_TICK
 	else
 		user << "The ore summoner is in the middle of some calibrations."
 
