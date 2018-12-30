@@ -56,7 +56,7 @@
 	for(var/obj/item/weapon/paper_bundle/Pb in src)
 		dat += "<A href='?src=\ref[src];remove=\ref[Pb]'>Remove</A> <A href='?src=\ref[src];rename=\ref[Pb]'>Rename</A> - <A href='?src=\ref[src];browse=\ref[Pb]'>[Pb.name]</A><BR>"
 	for(var/obj/item/weapon/sample/print/Pf in src)
-		dat += "<A href='?src=\ref[src];remove=\ref[Pf]'>Remove</A> <A href='?src=\ref[src];rename=\ref[Pf]'>Rename</A> - <A>[Pf.name]</A><BR>"
+		dat += "<A href='?src=\ref[src];remove=\ref[Pf]'>Remove</A> - <A>[Pf.name]</A><BR>"
 	user << browse(dat, "window=folder")
 	onclose(user, "folder")
 	add_fingerprint(usr)
@@ -108,11 +108,6 @@
 				else if(istype(O, /obj/item/weapon/paper_bundle))
 					var/obj/item/weapon/paper_bundle/to_rename = O
 					to_rename.rename()
-
-				else if (istype(O, /obj/item/weapon/sample/print))
-					var/obj/item/weapon/sample/print/F = O
-					usr << "<span class='notice'>You can't rename the [F.name].</span>"
-					return
 
 		//Update everything
 		attack_self(usr)
