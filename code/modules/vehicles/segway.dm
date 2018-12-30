@@ -173,6 +173,9 @@
 /obj/vehicle/segway/Destroy()
 	QDEL_NULL(ion)
 
+	if (key)
+		QDEL_NULL(key)
+
 	return ..()
 
 
