@@ -56,7 +56,7 @@
 	for(var/obj/item/weapon/paper_bundle/Pb in src)
 		dat += "<A href='?src=\ref[src];remove=\ref[Pb]'>Remove</A> <A href='?src=\ref[src];rename=\ref[Pb]'>Rename</A> - <A href='?src=\ref[src];browse=\ref[Pb]'>[Pb.name]</A><BR>"
 	for(var/obj/item/weapon/sample/print/Pf in src)
-		dat += "<A href='?src=\ref[src];remove=\ref[Pf]'>Remove</A> - <A>[Pf.name]</A><BR>"
+		dat += "<A href='?src=\ref[src];remove=\ref[Pf]'>Remove</A> - [Pf.name]<BR>"
 	user << browse(dat, "window=folder")
 	onclose(user, "folder")
 	add_fingerprint(usr)
