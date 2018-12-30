@@ -999,10 +999,7 @@
 		/obj/item/eightball/haunted						= 1,
 		/obj/item/eightball/broken						= 1,
 		/obj/item/weapon/spirit_board					= 5,
-		/obj/item/device/laser_pointer/red						= 11,
-		/obj/item/device/laser_pointer/green						= 11,
-		/obj/item/device/laser_pointer/blue						= 11,
-		/obj/item/device/laser_pointer/purple						= 11
+		/obj/item/device/laser_pointer						= 1
 
 
 	)
