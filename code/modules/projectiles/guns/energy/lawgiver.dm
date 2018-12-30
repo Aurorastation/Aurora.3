@@ -30,7 +30,7 @@
 		),
 		list(
 			mode_name = "rapidfire",
-			charge_cost = 150,
+			charge_cost = 50, // Because it shoots 150 worth of charge anyway.
 			fire_delay = 3,
 			recoil = 1,
 			burst = 3,
@@ -61,7 +61,7 @@
 			move_delay = null,
 			accuracy = 1,
 			dispersion = null,
-			projectile_type = /obj/item/projectile/beam/stun,
+			projectile_type = /obj/item/projectile/energy/electrode,
 			fire_sound = 'sound/weapons/Taser.ogg'
 		),
 		list(
