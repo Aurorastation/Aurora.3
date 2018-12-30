@@ -42,7 +42,8 @@ var/datum/antagonist/raider/raiders
 	var/list/raider_glasses = list(
 		/obj/item/clothing/glasses/thermal,
 		/obj/item/clothing/glasses/eyepatch/hud/thermal,
-		/obj/item/clothing/glasses/thermal/plain/monocle
+		/obj/item/clothing/glasses/thermal/plain/monocle,
+		/obj/item/clothing/glasses/thermal/aviator
 		)
 
 	var/list/raider_helmets = list(
@@ -62,7 +63,7 @@ var/datum/antagonist/raider/raiders
 		/obj/item/clothing/suit/storage/toggle/hoodie,
 		/obj/item/clothing/suit/storage/toggle/hoodie/black,
 		/obj/item/clothing/suit/unathi/mantle,
-		/obj/item/clothing/suit/poncho
+		/obj/item/clothing/accessory/poncho
 		)
 
 	var/list/raider_guns = list(

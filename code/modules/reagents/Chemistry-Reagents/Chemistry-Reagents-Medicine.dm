@@ -27,7 +27,7 @@
 /datum/reagent/bicaridine
 	name = "Bicaridine"
 	id = "bicaridine"
-	description = "Bicaridine is an analgesic medication and can be used to treat blunt trauma."
+	description = "Bicaridine is an analgesic medication and can be used to treat blunt trauma. Lasts twice as long when inhaled, however it is generally twice as weak."
 	reagent_state = LIQUID
 	color = "#BF0000"
 	overdose = REAGENTS_OVERDOSE
@@ -35,9 +35,8 @@
 	metabolism = REM * 1.5//Get to overdose state a bit faster
 	taste_description = "bitterness"
 	taste_mult = 3
-
-	breathe_met = 0.5
-	breathe_mul = 0.1
+	breathe_met = REM * 1.5 * 0.5
+	breathe_mul = 0.5
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(5 * removed, 0)
@@ -107,7 +106,8 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
-	breathe_met = 0.5
+	metabolism = REM
+	breathe_met = REM * 0.5
 	breathe_mul = 2
 
 /datum/reagent/dexalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -127,7 +127,8 @@
 	overdose = REAGENTS_OVERDOSE * 0.5
 	scannable = 1
 	taste_description = "bitterness"
-	breathe_met = 0.5
+	metabolism = REM
+	breathe_met = REM * 0.5
 	breathe_mul = 2
 
 /datum/reagent/dexalinp/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -376,7 +377,7 @@
 	var/datum/modifier = null
 	taste_description = "acid"
 	metabolism_min = REM * 0.025
-	breathe_met = 0.5
+	breathe_met = REM * 0.15 * 0.5
 
 /datum/reagent/hyperzine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(5))
@@ -450,9 +451,18 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
+	unaffected_species = IS_MACHINE
+	var/last_taste_time = -10000
 
 /datum/reagent/hyronalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.apply_radiation(-30 * removed)
+	if(alien == IS_DIONA)
+		if(last_taste_time + 950 < world.time) // Not to spam message
+			to_chat(M, "<span class='danger'>Your body withers as you feel a searing pain throughout.</span>")
+			last_taste_time = world.time
+		metabolism = REM * 0.22
+		M.adjustToxLoss(45 * removed) // Tested numbers myself
+	else
+		M.apply_radiation(-30 * removed)
 
 /datum/reagent/arithrazine
 	name = "Arithrazine"
@@ -464,12 +474,21 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
+	unaffected_species = IS_MACHINE
+	var/last_taste_time = -10000
 
 /datum/reagent/arithrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.apply_radiation(-70 * removed)
-	M.adjustToxLoss(-10 * removed)
-	if(prob(60))
-		M.take_organ_damage(4 * removed, 0)
+	if(alien == IS_DIONA)
+		if(last_taste_time + 450 < world.time) // Not to spam message
+			to_chat(M, "<span class='danger'>Your body withers as you feel a searing pain throughout.</span>")
+			last_taste_time = world.time
+		metabolism = REM * 0.195
+		M.adjustToxLoss(115 * removed) // Tested numbers myself
+	else
+		M.apply_radiation(-70 * removed)
+		M.adjustToxLoss(-10 * removed)
+		if(prob(60))
+			M.take_organ_damage(4 * removed, 0)
 
 /datum/reagent/spaceacillin
 	name = "Spaceacillin"
@@ -948,6 +967,45 @@
 	messagedelay = 30
 	ingest_mul = 0 //Stomach acid will melt the nanobots
 
+/datum/reagent/mental/bugjuice
+	name = "V'krexi Amino Acid Mixture"
+	id = "vaam"
+	description = "A mixture of several high-energy amino acids, based on the secretions and saliva of V'krexi larvae."
+	reagent_state = LIQUID
+	color = "#bcd827"
+	metabolism = 0.6
+	overdose = 5
+	data = 0
+	taste_description = "bitterness"
+	metabolism_min = 0.5
+	breathe_mul = 0
+	goodmessage = list("You feel great.","You feel full of energy.","You feel alert and focused.")
+	badmessage = list("You can't think straight...","You're sweating heavily...","Your heart is racing...")
+	worstmessage = list("You feel incredibly lightheaded!","You feel incredibly dizzy!")
+	suppress_traumas  = list(
+		/datum/brain_trauma/mild/muscle_weakness/ = 0.01
+	)
+	var/datum/modifier/modifier
+
+/datum/reagent/mental/bugjuice/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
+	M.add_chemical_effect(CE_PAINKILLER, 5)
+	M.drowsyness = 0
+
+/datum/reagent/mental/bugjuice/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
+	. = ..()
+	M.adjustOxyLoss(1 * removed * scale)
+	M.Weaken(10 * removed * scale)
+	M.make_jittery(20)
+	M.make_dizzy(10)
+
+	if (prob(10))
+		M << pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen")
+
+	if (prob(dose))
+		M.vomit()
+
+
 //Things that are not cured by medication:
 //Dumbness
 //Gerstmann Syndrome
@@ -1111,16 +1169,49 @@
 	if(istype(M))
 		var/obj/item/organ/F = M.internal_organs_by_name["heart"]
 		if(istype(F))
-			var/nutritionmod = max(0.25, (1 - M.nutrition) / M.max_nutrition * 0.5) //Less effective when your stomach is "full".
-			F.take_damage(-removed*nutritionmod)
+			if(M.max_nutrition > 0)
+				var/nutritionmod = max(0.25, (1 - M.nutrition) / M.max_nutrition * 0.5) //Less effective when your stomach is "full".
+				F.take_damage(-removed*nutritionmod)
 	..()
 
-/datum/reagent/adipemcina/overdose(var/mob/living/carbon/human/M, var/alien)
+/datum/reagent/adipemcina/overdose(var/mob/living/carbon/M, var/alien)
 	if(istype(M))
 		if(prob(25))
 			M.add_chemical_effect(CE_ALCOHOL_TOXIC, 1)
 			M.vomit()
 
+/datum/reagent/potassium_hydrophoro
+	name = "Potassium Hydrophoride"
+	id = "potassium_hydrophoro"
+	description = "A liquid compound that can miraculously restores hydration when injected directly into the bloodstream. Excellent at solving severe hydration problems, however the effects of an overdose are to be noted."
+	reagent_state = LIQUID
+	color = "#1ca9c9"
+	taste_description = "numbness"
+	unaffected_species = IS_MACHINE
+
+/datum/reagent/potassium_hydrophoro/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_VAURCA)
+		if( (M.hydration / M.max_hydration) > CREW_HYDRATION_OVERHYDRATED)
+			M.adjustHydrationLoss(removed*2)
+		else
+			M.adjustHydrationLoss(-removed*5)
+	else
+		if( (M.hydration > M.max_hydration) > CREW_HYDRATION_OVERHYDRATED)
+			overdose(M,alien,removed,0)
+			M.adjustHydrationLoss(-removed*2)
+		else
+			M.adjustHydrationLoss(-removed*5)
+
+/datum/reagent/potassium_hydrophoro/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
+	if(alien != IS_VAURCA) //Vaurca can't overdose on this
+		if(scale >= 1) //Overdose by too much of the chemical
+			M.adjustToxLoss(1*removed*scale)
+
+		if (ishuman(M) && prob(10))
+			var/mob/living/carbon/human/H = M
+			H.delayed_vomit()
+
+//Secret Chems
 /datum/reagent/elixir
 	name = "Elixir of Life"
 	id = "elixir_life"
@@ -1135,3 +1226,15 @@
 			M.adjustOxyLoss(-rand(15,20))
 			M.visible_message("<span class='danger'>\The [M] shudders violently!</span>")
 			M.stat = 0
+
+/datum/reagent/pacifier
+	name = "Paxazide"
+	id = "paxazide"
+	description = "A mind altering chemical compound capable of suppressing violent tendencies."
+	reagent_state = LIQUID
+	color = "#1ca9c9"
+	taste_description = "numbness"
+
+/datum/reagent/pacifier/affect_blood(var/mob/living/carbon/H, var/alien, var/removed)
+	H.add_chemical_effect(CE_PACIFIED, 1)
+

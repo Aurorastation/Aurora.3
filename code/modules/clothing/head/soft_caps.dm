@@ -8,7 +8,6 @@
 		)
 	var/flipped = 0
 	siemens_coefficient = 0.9
-	body_parts_covered = 0
 
 /obj/item/clothing/head/soft/dropped()
 	src.icon_state = initial(icon_state)

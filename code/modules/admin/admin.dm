@@ -1,7 +1,7 @@
 
 var/global/BSACooldown = 0
 var/global/floorIsLava = 0
-
+var/global/enabled_spooking = 0
 
 ////////////////////////////////
 /proc/message_admins(var/msg)
@@ -1346,3 +1346,13 @@ proc/admin_notice(var/message, var/rights)
 			H.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='green'>[H] has been unwinded by a member of staff!</font>", "<font color='red'><b>You have been unwinded by a member of staff!</b></font>")
 		log_and_message_admins(msg)
 		feedback_add_details("admin_verb", "WIND")
+
+/datum/admins/proc/toggle_round_spookyness()
+	set category = "Server"
+	set desc="Toggle the round spooky value."
+	set name="Toggle Round Spookyness"
+
+	enabled_spooking = !enabled_spooking
+	log_admin("[key_name(usr)] toggled the round spookyness to [enabled_spooking].")
+	message_admins("[key_name_admin(usr)] toggled the round spookyness [enabled_spooking ? "on" : "off"].", 1)
+	feedback_add_details("admin_verb","SPOOKY") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

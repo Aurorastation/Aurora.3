@@ -110,3 +110,15 @@
 /datum/gear/towel/New()
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/checkers
+	display_name = "checkers game kit"
+	path = /obj/item/weapon/storage/box/checkers_kit
+
+/datum/gear/chess
+	display_name = "chess game kit"
+	path = /obj/item/weapon/storage/box/chess_kit
+
+/datum/gear/battlemonsters
+	display_name = "battlemonsters starter deck"
+	path = /obj/item/battle_monsters/wrapped

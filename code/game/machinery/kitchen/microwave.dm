@@ -425,6 +425,23 @@
 			dispose()
 	return
 
+/obj/machinery/microwave/verb/Eject()
+	set src in oview(1)
+	set category = "Object"
+	set name = "Eject content"
+	usr.visible_message(
+	"<span class='notice'>[usr] is trying to open [src] to take out its content.</span>" ,
+	"<span class='notice'>You are trying to open [src] to take out its content</span>"
+	)
+
+	if (!do_after(usr, 1 SECONDS, act_target = src))
+		return
+
+	usr.visible_message(
+	"<span class='notice'>[usr] opened [src] and has taken out [english_list(contents)].</span>" ,
+	"<span class='notice'>You have opened [src] and taken out [english_list(contents)].</span>"
+	)
+	dispose()
 
 /obj/machinery/microwave/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if (!mover)

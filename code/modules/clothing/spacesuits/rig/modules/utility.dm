@@ -147,14 +147,15 @@
 	interface_desc = "Dispenses loaded chemicals directly into the wearer's bloodstream."
 
 	charges = list(
-		list("tricordrazine", "tricordrazine", 0, 80),
-		list("tramadol",      "tramadol",      0, 80),
-		list("dexalin plus",  "dexalinp",      0, 80),
-		list("antibiotics",   "spaceacillin",  0, 80),
-		list("antitoxins",    "anti_toxin",    0, 80),
-		list("nutrients",     "glucose",     0, 80),
-		list("hyronalin",     "hyronalin",     0, 80),
-		list("radium",        "radium",        0, 80)
+		list("tricordrazine", "tricordrazine",        0, 80),
+		list("tramadol",      "tramadol",             0, 80),
+		list("dexalin plus",  "dexalinp",             0, 80),
+		list("antibiotics",   "spaceacillin",         0, 80),
+		list("antitoxins",    "anti_toxin",           0, 80),
+		list("nutrients",     "glucose",              0, 80),
+		list("hydration",     "potassium_hydrophoro", 0, 80),
+		list("hyronalin",     "hyronalin",            0, 80),
+		list("radium",        "radium",               0, 80)
 		)
 
 	var/max_reagent_volume = 80 //Used when refilling.
@@ -170,6 +171,7 @@
 		list("antibiotics",   "spaceacillin",  0, 20),
 		list("antitoxins",    "anti_toxin",    0, 20),
 		list("nutrients",     "glucose",     0, 80),
+		list("hydration",     "potassium_hydrophoro", 0, 80),
 		list("hyronalin",     "hyronalin",     0, 20),
 		list("radium",        "radium",        0, 20)
 		)
@@ -266,7 +268,8 @@
 		list("synaptizine",   "synaptizine",   0, 30),
 		list("hyperzine",     "hyperzine",     0, 30),
 		list("oxycodone",     "oxycodone",     0, 30),
-		list("nutrients",     "glucose",     0, 80)
+		list("nutrients",     "glucose",     0, 80),
+		list("hydration",     "potassium_hydrophoro", 0, 80)
 		)
 
 	interface_name = "combat chem dispenser"
@@ -282,7 +285,8 @@
 		list("hyperzine",     "hyperzine",     0, 30),
 		list("oxycodone",     "oxycodone",     0, 30),
 		list("phoron",     "phoron",     0, 60),
-		list("kois",     "k'ois paste",     0, 80)
+		list("kois",     "k'ois paste",     0, 80),
+		list("hydration",     "potassium_hydrophoro", 0, 80)
 		)
 
 	interface_name = "vaurca combat chem dispenser"

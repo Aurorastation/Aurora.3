@@ -412,6 +412,7 @@
 			var/datum/reagents/R = new /datum/reagents(amount)
 			. = trans_to_holder(R, amount, multiplier, copy)
 			R.touch_mob(target)
+			return
 
 /datum/reagents/proc/trans_to_turf(var/turf/target, var/amount = 1, var/multiplier = 1, var/copy = 0) // Turfs don't have any reagents (at least, for now). Just touch it.
 	if(!target || !target.simulated)
@@ -420,7 +421,7 @@
 	var/datum/reagents/R = new /datum/reagents(amount * multiplier)
 	. = trans_to_holder(R, amount, multiplier, copy)
 	R.touch_turf(target)
-	return 0
+	
 
 /datum/reagents/proc/trans_to_obj(var/turf/target, var/amount = 1, var/multiplier = 1, var/copy = 0) // Objects may or may not; if they do, it's probably a beaker or something and we need to transfer properly; otherwise, just touch.
 	if(!target || !target.simulated)
@@ -430,7 +431,7 @@
 		var/datum/reagents/R = new /datum/reagents(amount * multiplier)
 		. = trans_to_holder(R, amount, multiplier, copy)
 		R.touch_obj(target)
-		return 0
+		return
 
 	return trans_to_holder(target.reagents, amount, multiplier, copy)
 

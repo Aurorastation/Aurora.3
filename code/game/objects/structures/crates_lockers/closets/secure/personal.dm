@@ -15,7 +15,10 @@
 	name = "patient's closet"
 
 /obj/structure/closet/secure_closet/personal/patient/fill()
-	new /obj/item/clothing/under/color/white( src )
+	if(prob(50))
+		new /obj/item/clothing/under/medical_gown(src)
+	else
+		new /obj/item/clothing/under/medical_gown/white(src)
 	new /obj/item/clothing/shoes/white( src )
 
 
@@ -53,10 +56,13 @@
 		else
 			user.drop_item()
 	else if(W.GetID())
+		if(user.loc == src)
+			to_chat(user, "<span class='notice'>You can't reach the lock from inside.</span>")
+			return
 		var/obj/item/weapon/card/id/I = W.GetID()
 
 		if(broken)
-			user << "<span class='warning'>It appears to be broken.</span>"
+			to_chat(user, "<span class='warning'>It appears to be broken.</span>")
 			return
 		if(!I || !I.registered_name)	return
 		if(allowed(user) || !registered_name || (istype(I) && (registered_name == I.registered_name)))
@@ -69,14 +75,14 @@
 				registered_name = I.registered_name
 				desc = "Owned by [I.registered_name]."
 		else
-			user << "<span class='warning'>Access Denied</span>"
+			to_chat(user, "<span class='warning'>Access Denied</span>")
 	else if(istype(W, /obj/item/weapon/melee/energy/blade))
 		if(emag_act(INFINITY, user, "The locker has been sliced open by [user] with \an [W]!", "You hear metal being sliced and sparks flying."))
 			W:spark_system.queue()
 			playsound(loc, 'sound/weapons/blade1.ogg', 50, 1)
 			playsound(loc, "sparks", 50, 1)
 	else
-		user << "<span class='warning'>Access Denied</span>"
+		to_chat(user, "<span class='warning'>Access Denied</span>")
 	return
 
 /obj/structure/closet/secure_closet/personal/emag_act(var/remaining_charges, var/mob/user, var/visual_feedback, var/audible_feedback)

@@ -1,3 +1,11 @@
+#define SECBOT_IDLE 		0		// idle
+#define SECBOT_HUNT 		1		// found target, hunting
+#define SECBOT_ARREST		2		// arresting target
+#define SECBOT_START_PATROL	3		// start patrol
+#define SECBOT_WAIT_PATROL	4		// waiting for signals
+#define SECBOT_PATROL		5		// patrolling
+#define SECBOT_SUMMON		6		// summoned by PDA
+
 /mob/living/bot/secbot
 	name = "Securitron"
 	desc = "A little security robot.  He looks less than thrilled."
@@ -17,13 +25,7 @@
 	var/auto_patrol = 0 // If true, patrols on its own
 
 	var/mode = 0
-#define SECBOT_IDLE 		0		// idle
-#define SECBOT_HUNT 		1		// found target, hunting
-#define SECBOT_ARREST		2		// arresting target
-#define SECBOT_START_PATROL	3		// start patrol
-#define SECBOT_WAIT_PATROL	4		// waiting for signals
-#define SECBOT_PATROL		5		// patrolling
-#define SECBOT_SUMMON		6		// summoned by PDA
+
 	var/is_attacking = 0
 	var/is_ranged = 0
 	var/awaiting_surrender = 0
@@ -55,6 +57,7 @@
 	)
 
 	var/datum/callback/patrol_callback	// this is here so we don't constantly recreate this datum, it being identical each time.
+	var/move_to_delay = 4 //delay for the automated movement.
 
 /mob/living/bot/secbot/beepsky
 	name = "Officer Beepsky"
@@ -70,9 +73,6 @@
 		SSradio.add_object(listener, control_freq, filter = RADIO_SECBOT)
 		SSradio.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
 
-	if (!patrol_callback)
-		patrol_callback = CALLBACK(src, .proc/patrol_step)
-
 /mob/living/bot/secbot/Destroy()
 	QDEL_NULL(listener)
 	target = null
@@ -80,6 +80,7 @@
 
 /mob/living/bot/secbot/turn_off()
 	..()
+	walk_to(src, src, 0, move_to_delay)
 	target = null
 	frustration = 0
 	mode = SECBOT_IDLE
@@ -202,11 +203,7 @@
 					if(is_ranged)
 						RangedAttack(target)
 					else
-						step_towards(src, target) // Melee bots chase a bit faster
-
-					var/cb = CALLBACK(src, .proc/step_nonadjacent, target)
-					addtimer(cb, 8)
-					addtimer(cb, 16)
+						walk_to(src, target, 1, move_to_delay) // Melee bots chase a bit faster
 
 		if(SECBOT_ARREST) // Target is next to us - attack it
 			if(!target)
@@ -216,6 +213,7 @@
 				mode = SECBOT_HUNT
 				return
 			var/threat = check_threat(target)
+			walk_to(src, src, 0, move_to_delay)
 			if(threat < 4)
 				target = null
 				awaiting_surrender = 0
@@ -265,18 +263,11 @@
 
 		if(SECBOT_PATROL)
 			patrol_step()
-			addtimer(patrol_callback, 10)
 			return
 
 		if(SECBOT_SUMMON)
 			patrol_step()
-			addtimer(patrol_callback, 8)
-			addtimer(patrol_callback, 16)
 			return
-
-/mob/living/bot/secbot/proc/step_nonadjacent(target)
-	if (!Adjacent(target))
-		step_towards(src, target)
 
 /mob/living/bot/secbot/UnarmedAttack(var/mob/M, var/proximity)
 	if(!..())
@@ -311,7 +302,7 @@
 					C.update_inv_handcuffed()
 				if(preparing_arrest_sounds.len)
 					playsound(loc, pick(preparing_arrest_sounds), 50, 0)
-	else if(istype(M, /mob/living/simple_animal) && !istype(M, /mob/living/simple_animal/hostile/commanded))
+	else if(istype(M, /mob/living/simple_animal) && !istype(M, /mob/living/bot/secbot))
 		var/mob/living/simple_animal/S = M
 		S.adjustBruteLoss(15)
 		do_attack_animation(M)
@@ -369,8 +360,29 @@
 
 /mob/living/bot/secbot/proc/calc_path(var/turf/avoid = null)
 	path = AStar(loc, patrol_target, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 120, id=botcard, exclude=avoid)
-	if(!path)
-		path = list()
+	if(!path.len)
+		return
+	var/list/path_new = list()
+	var/turf/last = path[path.len]
+	path_new.Add(path[1])
+	for(var/i = 2, i < path.len, i++)
+		if((path[i + 1].x == path[i].x) || (path[i + 1].y == path[i].y)) // we have a straight line, scan for more to cut down
+			path_new.Add(path[i])
+			for(var/j = i + 1, j < path.len, j++)
+				if((path[j + 1].x != path[j - 1].x) && (path[j + 1].y != path[j - 1].y)) // This is a corner and end point of our line
+					path_new.Add(path[j])
+					i = j + 1
+					break
+				else if(j == path.len - 1)
+					path = list()
+					path = path_new.Copy()
+					path.Add(last)
+					return
+		else
+			path_new.Add(path[i])
+	path = list()
+	path = path_new.Copy()
+	path.Add(last)
 
 /mob/living/bot/secbot/proc/check_threat(var/mob/living/M)
 	if(!M || !istype(M) || M.stat || src == M)
@@ -386,24 +398,20 @@
 		patrol_target = null
 		path = list()
 		mode = SECBOT_IDLE
+		walk_to(src, src, 0, move_to_delay + 2)
 		return
 
 	if(path.len && patrol_target)
 		var/turf/next = path[1]
 		if(loc == next)
 			path -= next
+			walk_to(src, src, 0, move_to_delay + 2)
 			return
-		var/moved = step_towards(src, next)
-		if(moved)
-			path -= next
-			frustration = 0
-		else
-			++frustration
-			if(frustration > 5) // Make a new path
-				mode = SECBOT_START_PATROL
+		walk_to(src, next, 0, move_to_delay + 2)
 		return
 	else
 		mode = SECBOT_START_PATROL
+
 
 /mob/living/bot/secbot/proc/find_patrol_target()
 	send_status()
@@ -510,6 +518,127 @@
 			secbot.next_destination = signal.data["next_patrol"]
 			secbot.closest_dist = dist
 
+/mob/living/bot/secbot/attack_hand(mob/living/carbon/human/M as mob)
+	..()
+
+	if(M.a_intent == I_HURT ) //assume he wants to hurt us.
+		idcheck = TRUE
+		target = M
+		mode = SECBOT_HUNT
+		var/mob/living/carbon/human/H = M
+		var/perpname = H.name
+		var/obj/item/weapon/card/id/id = H.GetIdCard()
+		if(id)
+			perpname = id.registered_name
+
+		var/datum/record/general/R = SSrecords.find_record("name", perpname)
+		if(R && R.security)
+			R.security.criminal = "*Arrest*"
+		else
+			check_records = TRUE
+		broadcast_security_hud_message("[src] is under attack by <b>[target]</b>, [arrest_type ? "detaining" : "arresting"] a level [check_threat(target)] suspect in <b>[get_area(src)]</b>. Requesting backup", src)
+
+/mob/living/bot/secbot/attack_generic(var/mob/user, var/damage, var/attack_message)
+	..()
+
+	target = user
+	mode = SECBOT_HUNT
+	if(ishuman(user))
+		idcheck = TRUE
+		var/mob/living/carbon/human/H = user
+		var/perpname = H.name
+		var/obj/item/weapon/card/id/id = H.GetIdCard()
+		if(id)
+			perpname = id.registered_name
+
+		var/datum/record/general/R = SSrecords.find_record("name", perpname)
+		if(R && R.security)
+			R.security.criminal = "*Arrest*"
+		else
+			check_records = TRUE
+		broadcast_security_hud_message("[src] is under attack by <b>[target]</b>, [arrest_type ? "detaining" : "arresting"] a level [check_threat(target)] suspect in <b>[get_area(src)]</b>. Requesting backup", src)
+
+/mob/living/bot/secbot/bullet_act(var/obj/item/projectile/P, var/def_zone)
+	..()
+
+	if (ismob(P.firer))
+		var/found = 0
+		// Check if we can see them.
+		for(var/mob/living/M in view(7, src))
+			if(M.invisibility >= INVISIBILITY_LEVEL_ONE)
+				continue
+			if(M.stat)
+				continue
+			if(M == P.firer)
+				found = 1
+				break
+
+		if(!found)
+			broadcast_security_hud_message("[src] was shot with <b>[P]</b>, Unable to locate source! Requesting backup", src)
+			return
+
+		target = P.firer
+		mode = SECBOT_HUNT
+		if(ishuman(P.firer))
+			idcheck = TRUE
+			var/mob/living/carbon/human/H = P.firer
+			var/perpname = H.name
+			var/obj/item/weapon/card/id/id = H.GetIdCard()
+			if(id)
+				perpname = id.registered_name
+
+			var/datum/record/general/R = SSrecords.find_record("name", perpname)
+			if(R && R.security)
+				R.security.criminal = "*Arrest*"
+			else
+				check_records = TRUE
+			broadcast_security_hud_message("[src] was shot with <b>[P]</b>, projectile came from <b>[target]</b>, [arrest_type ? "detaining" : "arresting"] a level [check_threat(target)] suspect in <b>[get_area(src)]</b>. Requesting backup", src)
+
+/mob/living/bot/secbot/attackby(var/obj/item/O, var/mob/user)
+	..()
+	if(istype(O, /obj/item/weapon/card/id) || istype(O, /obj/item/weapon/pen) || istype(O, /obj/item/device/pda))
+		return
+
+	target = user
+	mode = SECBOT_HUNT
+	if(ishuman(user))
+		idcheck = TRUE
+		var/mob/living/carbon/human/H = user
+		var/perpname = H.name
+		var/obj/item/weapon/card/id/id = H.GetIdCard()
+		if(id)
+			perpname = id.registered_name
+
+		var/datum/record/general/R = SSrecords.find_record("name", perpname)
+		if(R && R.security)
+			R.security.criminal = "*Arrest*"
+		else
+			check_records = TRUE
+		broadcast_security_hud_message("[src] is under attack by <b>[target]</b> with <b>[O]</b>, [arrest_type ? "detaining" : "arresting"] a level [check_threat(target)] suspect in <b>[get_area(src)]</b>. Requesting backup", src)
+
+/mob/living/bot/secbot/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)
+	..()
+
+	if(istype(AM,/obj/))
+		var/obj/O = AM
+		if(ismob(O.thrower))
+			target = O.thrower
+			mode = SECBOT_HUNT
+			if(ishuman(O.thrower))
+				idcheck = TRUE
+				var/mob/living/carbon/human/H = O.thrower
+				var/perpname = H.name
+				var/obj/item/weapon/card/id/id = H.GetIdCard()
+				if(id)
+					perpname = id.registered_name
+
+				var/datum/record/general/R = SSrecords.find_record("name", perpname)
+				if(R && R.security)
+					R.security.criminal = "*Arrest*"
+				else
+					check_records = TRUE
+				broadcast_security_hud_message("[src] is under attack by <b>[target]</b> with <b>[O]</b>, [arrest_type ? "detaining" : "arresting"] a level [check_threat(target)] suspect in <b>[get_area(src)]</b>. Requesting backup", src)
+
 //Secbot Construction
 
 /obj/item/clothing/head/helmet/attackby(var/obj/item/device/assembly/signaler/S, mob/user as mob)
@@ -585,3 +714,11 @@
 		if(!in_range(src, usr) && loc != usr)
 			return
 		created_name = t
+
+#undef SECBOT_IDLE
+#undef SECBOT_HUNT
+#undef SECBOT_ARREST
+#undef SECBOT_START_PATROL
+#undef SECBOT_WAIT_PATROL
+#undef SECBOT_PATROL
+#undef SECBOT_SUMMON

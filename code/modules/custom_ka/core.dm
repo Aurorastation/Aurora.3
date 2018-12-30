@@ -245,6 +245,8 @@
 /obj/item/weapon/gun/custom_ka/Initialize()
 	. = ..()
 
+	START_PROCESSING(SSprocessing, src)
+
 	if(installed_cell)
 		installed_cell = new installed_cell(src)
 	if(installed_barrel)
@@ -254,8 +256,6 @@
 
 	update_stats()
 	queue_icon_update()
-
-	START_PROCESSING(SSprocessing, src)
 
 /obj/item/weapon/gun/custom_ka/Destroy()
 	. = ..()
@@ -268,8 +268,6 @@
 		installed_barrel.on_update(src)
 	if(installed_upgrade_chip)
 		installed_upgrade_chip.on_update(src)
-
-	..()
 
 /obj/item/weapon/gun/custom_ka/update_icon()
 	. = ..()
@@ -488,11 +486,9 @@
 
 /obj/item/custom_ka_upgrade/proc/on_update(var/obj/item/weapon/gun/custom_ka)
 	//Do update related things here
-	return
 
 /obj/item/custom_ka_upgrade/proc/on_fire(var/obj/item/weapon/gun/custom_ka)
 	//Do fire related things here
-	return
 
 /obj/item/custom_ka_upgrade/cells
 	name = null //Abstract
@@ -555,8 +551,6 @@
 	user.visible_message(
 		"<span class='warning'>\The [user] scans \the [target] with \the [src].</span>",
 		"<span class='alert'>You scan \the [target] with \the [src].</span>")
-
-
 
 	if(istype(target,/obj/item/weapon/gun/custom_ka))
 		playsound(src, 'sound/machines/ping.ogg', 10, 1)

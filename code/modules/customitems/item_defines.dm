@@ -421,7 +421,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/accessory/badge/fluff/dylan_tags //Dog Tags - Dylan Sutton - sircatnip
+/obj/item/clothing/accessory/badge/fluff/dylan_tags //Dog Tags - Dylan Wright - sircatnip
 	name = "dog tags"
 	desc = "Some black dog tags, engraved on them is the following: \"Wright, Dylan L, O POS, Pacific Union Special Forces\"."
 	icon = 'icons/obj/custom_items/dylan_tags.dmi'
@@ -1002,7 +1002,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/suit/poncho/fluff/flaming_poncho //Stitched Heart White Poncho - Flaming Hearts Love Stars - sleepywolf
+/obj/item/clothing/accessory/poncho/fluff/flaming_poncho //Stitched Heart White Poncho - Flaming Hearts Love Stars - sleepywolf
 	name = "stitched heart white poncho"
 	desc = "A white poncho stitched together shoddily, with a pink heart made of flame patterned on the front. The fabric is rough, like chainmail."
 	icon = 'icons/obj/custom_items/flaming_poncho.dmi'
@@ -1529,14 +1529,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/suit/storage/toggle/det_trench/fluff/blessing_jacket //Armored Detective Jacket - Nelson Blessing - seniorscore
+/obj/item/clothing/suit/storage/toggle/det_trench/fluff/nelson_jacket //Armored Detective Jacket - Nelson Okafor - seniorscore
 	name = "armored detective jacket"
 	desc = "A white suit jacket, has a badge hanging out of a breast pocket. Touching it gives a feeling of working on a case for months."
-	icon = 'icons/obj/custom_items/blessing_jacket.dmi'
-	icon_state = "blessing_jacket"
-	item_state = "blessing_jacket"
-	icon_open = "blessing_jacket_open"
-	icon_closed = "blessing_jacket"
+	icon = 'icons/obj/custom_items/nelson_jacket.dmi'
+	icon_state = "nelson_jacket"
+	item_state = "nelson_jacket"
+	icon_open = "nelson_jacket_open"
+	icon_closed = "nelson_jacket"
 	contained_sprite = TRUE
 
 
@@ -2372,3 +2372,31 @@ obj/item/clothing/suit/storage/hooded/fluff/make_poncho //Raincoat Poncho - M.A.
 	icon_living = "faysaljr"
 	icon_dead = "faysaljr_dead"
 	can_nap = 0
+
+
+/obj/item/clothing/suit/storage/toggle/fluff/talon_coat //Embroidered Coat - Talon Hatfield - dronzthewolf
+	name = "embroidered coat"
+	desc = " Martian long coat, made to fend off dust storms and other unpleasantries. This one has a few patches sewn into it depicting: A Solarian flag, a Batallion number, and a large sun."
+	icon = 'icons/obj/custom_items/talon_coat.dmi'
+	icon_state = "talon_coat"
+	item_state = "talon_coat"
+	icon_open = "talon_coat_open"
+	icon_closed = "talon_coat"
+	contained_sprite = TRUE
+
+
+/obj/item/weapon/storage/backpack/cloak/fluff/ryn_cloak //Security Tunnel Cloak - Za'Akaix'Ryn Zo'ra - jamchop23334
+	name = "security tunnel cloak"
+	desc = "A blue, tailor-made tunnel cloak with paltry storage options. The fabric is smoother and less abrasive than regular tunnel cloaks, though it looks difficult to wear."
+	icon = 'icons/obj/custom_items/ryn_clothing.dmi'
+	icon_state = "ryn_cloak"
+	item_state = "ryn_cloak"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/fluff/ryn_hood //Security Tunnel Hood - Za'Akaix'Ryn Zo'ra - jamchop23334
+	name = "security tunnel hood"
+	desc = "A silky smooth blue hood, though its more of a headwrap. You're having a hard time wrapping your head around how to wear this."
+	icon = 'icons/obj/custom_items/ryn_clothing.dmi'
+	icon_state = "ryn_hood"
+	item_state = "ryn_hood"
+	contained_sprite = TRUE

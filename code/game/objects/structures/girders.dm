@@ -2,7 +2,7 @@
 	icon_state = "girder"
 	anchored = 1
 	density = 1
-	layer = 2
+	layer = ABOVE_CABLE_LAYER
 	w_class = 5
 	var/state = 0
 	var/health = 200

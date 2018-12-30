@@ -403,6 +403,11 @@
 		icon_state = "hair_hbraid"
 		gender = FEMALE
 
+	braidalt
+		name = "Long Braid 2"
+		icon_state = "hair_hbraidalt"
+		gender = FEMALE
+
 	odango
 		name = "Odango"
 		icon_state = "hair_odango"
@@ -1053,6 +1058,10 @@
 		taj_ears_fingercurl
 			name = "Tajara Finger Curls"
 			icon_state = "hair_fingerwave"
+
+		taj_ears_pompadour
+			name = "Tajara Greaser"
+			icon_state = "hair_greaser"
 
 //vox hair
 

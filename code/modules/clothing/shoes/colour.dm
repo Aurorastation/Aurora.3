@@ -57,7 +57,7 @@
 	name = "orange shoes"
 	icon_state = "orange"
 	var/obj/item/weapon/handcuffs/chained = null
-	
+
 /obj/item/clothing/shoes/flats
 	desc = "A pair of black, low-heeled women's flats."
 	name = "black dress flats"
@@ -125,4 +125,48 @@
 	if (istype(H, /obj/item/weapon/handcuffs))
 		attach_cuffs(H, user)
 
+/obj/item/clothing/shoes/hitops
+	name = "white high-tops"
+	desc = "A pair of shoes that extends past the ankle. Based on a centuries-old, timeless design."
+	icon_state = "whitehi"
+	item_state = "whitehi"
 
+/obj/item/clothing/shoes/hitops/red
+	name = "red high-tops"
+	icon_state = "redhi"
+	item_state = "redhi"
+
+/obj/item/clothing/shoes/hitops/brown
+	name = "brown high-tops"
+	icon_state = "brownhi"
+	item_state = "brownhi"
+
+/obj/item/clothing/shoes/hitops/black
+	name = "black high-tops"
+	icon_state = "blackhi"
+	item_state = "blackhi"
+
+/obj/item/clothing/shoes/hitops/orange
+	name = "orange high-tops"
+	icon_state = "orangehi"
+	item_state = "orangehi"
+
+/obj/item/clothing/shoes/hitops/blue
+	name = "blue high-tops"
+	icon_state = "bluehi"
+	item_state = "bluehi"
+
+/obj/item/clothing/shoes/hitops/green
+	name = "green high-tops"
+	icon_state = "greenhi"
+	item_state = "greenhi"
+
+/obj/item/clothing/shoes/hitops/purple
+	name = "purple high-tops"
+	icon_state = "purplehi"
+	item_state = "purplehi"
+
+/obj/item/clothing/shoes/hitops/yellow
+	name = "yellow high-tops"
+	icon_state = "yellowhi"
+	item_state = "yellowhi"

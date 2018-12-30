@@ -45,7 +45,7 @@ window.__wtimetimer = window.setInterval(() => {
 
 new Vue({
   data: Store.state,
-  template: "<div><component v-if='componentName' :is='componentName'/><component v-if='templateString' :is='{template:templateString}'/></div>",
+  template: "<div><p class='csserror'>Javascript loaded, stylesheets has failed to load. <a href='javascript:void(0)'><vui-button :params='{ vueuiforceresource: 1}'>Click here to load.</vui-button></a></p><component v-if='componentName' :is='componentName'/><component v-if='templateString' :is='{template:templateString}'/></div>",
   computed: {
     componentName() {
       if(this.$root.$data.active.charAt(0) != "?") {

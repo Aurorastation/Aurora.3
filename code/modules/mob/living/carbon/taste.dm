@@ -27,7 +27,7 @@ calculate text size per text.
 		for(var/datum/reagent/R in reagent_list)
 			if(!R.taste_mult)
 				continue
-			if(R.id == "nutriment") //this is ugly but apparently only nutriment (not subtypes) has taste data TODO figure out why
+			if(R.id == "nutriment" || R.id == "synnutriment") //this is ugly but apparently only nutriment (not subtypes) has taste data TODO figure out why
 				var/list/taste_data = R.get_data()
 				for(var/taste in taste_data)
 					if(taste in tastes)

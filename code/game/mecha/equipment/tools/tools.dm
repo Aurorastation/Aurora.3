@@ -190,7 +190,7 @@
 /obj/item/mecha_parts/mecha_equipment/tool/extinguisher/New()
 	reagents = new/datum/reagents(max_water)
 	reagents.my_atom = src
-	reagents.add_reagent("water", max_water)
+	reagents.add_reagent("monoammoniumphosphate", max_water)
 	..()
 	return
 
@@ -199,7 +199,7 @@
 	if(get_dist(chassis, target)>2) return
 	set_ready_state(0)
 	if(do_after_cooldown(target))
-		if( istype(target, /obj/structure/reagent_dispensers/watertank) && get_dist(chassis,target) <= 1)
+		if( istype(target, /obj/structure/reagent_dispensers) && get_dist(chassis,target) <= 1)
 			var/obj/o = target
 			var/amount = o.reagents.trans_to_obj(src, 200)
 			occupant_message("<span class='notice'>[amount] units transferred into internal tank.</span>")

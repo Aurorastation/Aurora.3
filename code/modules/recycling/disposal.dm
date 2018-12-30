@@ -1158,6 +1158,7 @@
 
 /obj/structure/disposalpipe/tagger/partial //needs two passes to tag
 	name = "partial package tagger"
+	desc = "A unique desitnation tagger that requires an object to pass 2 times to tag."
 	icon_state = "pipe-tagger-partial"
 	partial = 1
 
@@ -1256,7 +1257,7 @@
 
 //a three-way junction that filters all wrapped and tagged items
 /obj/structure/disposalpipe/sortjunction/wildcard
-	name = "wildcard sorting junction"
+	name = "tagged sorting junction"
 	desc = "An underfloor disposal pipe which filters all wrapped and tagged items."
 	subtype = 1
 	divert_check(var/checkTag)

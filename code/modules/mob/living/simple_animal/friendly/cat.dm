@@ -141,7 +141,7 @@
 	if(M.a_intent == I_HURT)
 		set_flee_target(M)
 
-/mob/living/simple_animal/cat/ex_act()
+/mob/living/simple_animal/cat/ex_act(var/severity = 2.0)
 	. = ..()
 	set_flee_target(src.loc)
 

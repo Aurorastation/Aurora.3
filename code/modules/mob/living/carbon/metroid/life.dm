@@ -159,7 +159,7 @@
 /mob/living/carbon/slime/proc/handle_nutrition()
 
 	if (prob(15))
-		nutrition -= 1 + is_adult
+		adjustNutritionLoss(1 + is_adult)
 
 	if(nutrition <= 0)
 		nutrition = 0
@@ -168,7 +168,7 @@
 			src << "<span class='danger'>You are starving!</span>"
 
 	else if (nutrition >= get_grow_nutrition() && amount_grown < 10)
-		nutrition -= 20
+		adjustNutritionLoss(20)
 		amount_grown++
 
 /mob/living/carbon/slime/proc/handle_targets()
@@ -280,6 +280,9 @@
 				step(src, pick(cardinal))
 
 /mob/living/carbon/slime/proc/handle_AI()  // the master AI process
+
+	if(Victim && Victim.stat & DEAD)
+		Victim = null
 
 	if(stat == DEAD || client || Victim) return // If we're dead or have a client, we don't need AI, if we're feeding, we continue feeding
 	AIproc = 1

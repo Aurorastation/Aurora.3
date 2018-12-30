@@ -71,7 +71,7 @@
 	var/obj/item/device/mmi/mmi = null
 
 	var/obj/item/device/pda/ai/rbPDA = null
-
+	var/no_pda = FALSE
 	var/obj/item/weapon/stock_parts/matter_bin/storage = null
 
 	var/opened = 0
@@ -150,7 +150,7 @@
 	initialize_components()
 	//if(!unfinished)
 	// Create all the robot parts.
-	for(var/V in components) if(V != "power cell" && V != "jetpack")//We don't install the jetpack onstart
+	for(var/V in components) if(V != "power cell" && V != "jetpack" && V != "surge")//We don't install the jetpack onstart
 		var/datum/robot_component/C = components[V]
 		C.installed = 1
 		C.wrapped = new C.external_type
@@ -234,6 +234,8 @@
 
 // setup the PDA and its name
 /mob/living/silicon/robot/proc/setup_PDA()
+	if (no_pda)
+		return
 	if (!rbPDA)
 		rbPDA = new/obj/item/device/pda/ai(src)
 	rbPDA.set_name_and_job(custom_name,"[modtype] [braintype]")

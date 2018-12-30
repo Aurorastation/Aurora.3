@@ -94,8 +94,10 @@
 	description = "An abstract type you shouldn't be able to see."
 	reagent_state = LIQUID
 	color = "#404030"
+	ingest_met = REM * 5
 
-	var/nutriment_factor = 0.5
+	var/hydration_factor = 1 //How much hydration to add per unit.
+	var/nutriment_factor = 0.5 //How much nutrition to add per unit.
 	var/strength = 100 // This is the Alcohol By Volume of the drink, value is in the range 0-100 unless you wanted to create some bizarre bluespace alcohol with <100
 
 	var/druggy = 0
@@ -115,6 +117,8 @@
 	glass_name = "glass of coder fuckups"
 	glass_desc = "A glass of distilled maintainer tears."
 
+	var/blood_to_ingest_scale = 2
+
 /datum/reagent/alcohol/Destroy()
 	if (caffeine_mod)
 		QDEL_NULL(caffeine_mod)
@@ -126,31 +130,33 @@
 		L.adjust_fire_stacks((amount / (flammability_divisor || 1)) * (strength / 100))
 
 /datum/reagent/alcohol/affect_blood(mob/living/carbon/M, alien, removed)
-	M.adjustToxLoss(removed * 2)
+	M.adjustToxLoss(removed * blood_to_ingest_scale * (strength/100) )
+	affect_ingest(M,alien,removed * blood_to_ingest_scale)
+	return
 
 /datum/reagent/alcohol/affect_ingest(mob/living/carbon/M, alien, removed)
 
-	M.intoxication += (strength / 100) * removed
+	if(alien != IS_DIONA)
+		M.intoxication += (strength / 100) * removed * 3.5
 
-	if (druggy != 0)
-		M.druggy = max(M.druggy, druggy)
+		if (druggy != 0)
+			M.druggy = max(M.druggy, druggy)
+
+		if (halluci)
+			M.hallucination = max(M.hallucination, halluci)
+
+		if (caffeine && !caffeine_mod)
+			caffeine_mod = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = caffeine, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
 	if (adj_temp > 0 && M.bodytemperature < targ_temp) // 310 is the normal bodytemp. 310.055
 		M.bodytemperature = min(targ_temp, M.bodytemperature + (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
 	if (adj_temp < 0 && M.bodytemperature > targ_temp)
 		M.bodytemperature = min(targ_temp, M.bodytemperature - (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
 
-	if (halluci)
-		M.hallucination = max(M.hallucination, halluci)
-
-	if (caffeine && !caffeine_mod)
-		caffeine_mod = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = caffeine, override = MODIFIER_OVERRIDE_STRENGTHEN)
-
 /datum/reagent/alcohol/ethanol
 	name = "Ethanol"
 	id = "ethanol"
 	description = "A well-known alcohol with a variety of applications."
-	ingest_met = 0.5
 	flammability_divisor = 10
 
 	taste_description = "pure alcohol"
@@ -159,14 +165,15 @@
 	glass_name = "glass of ethanol"
 	glass_desc = "A well-known alcohol with a variety of applications."
 
-/datum/reagent/alcohol/ethanol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VAURCA)//Vaurca are damaged instead of getting nutrients, but they can still get drunk
+/datum/reagent/alcohol/ethanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
+	if(!istype(M))
+		return
+	var/obj/item/organ/parasite/P = M.internal_organs_by_name["blackkois"]
+	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))//Vaurca are damaged instead of getting nutrients, but they can still get drunk
 		M.adjustToxLoss(1.5 * removed * (strength / 100))
 	else
-		M.nutrition += nutriment_factor * removed
-
-	if(alien == IS_DIONA)
-		return //Diona can gain nutrients, but don't get drunk or suffer other effects
+		M.adjustNutritionLoss(-nutriment_factor * removed)
+		M.adjustHydrationLoss(-hydration_factor * removed)
 
 	if (alien == IS_UNATHI)//unathi are poisoned by alcohol as well
 		M.adjustToxLoss(1.5 * removed * (strength / 100))
@@ -199,7 +206,7 @@
 	description = "A fairly harmless alcohol that has intoxicating effects on certain species."
 	reagent_state = LIQUID
 	color = "#404030"
-	ingest_met = 0.17 //Extremely slow metabolic rate means the liver will generally purge it faster than it can intoxicate you
+	ingest_met = REM * 0.5 //Extremely slow metabolic rate means the liver will generally purge it faster than it can intoxicate you
 	flammability_divisor = 7	//Butanol is a bit less flammable than ethanol
 
 	taste_description = "alcohol"
@@ -208,11 +215,15 @@
 	glass_name = "glass of butanol"
 	glass_desc = "A fairly harmless alcohol that has intoxicating effects on certain species."
 
-/datum/reagent/alcohol/butanol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if (alien == IS_VAURCA)
+/datum/reagent/alcohol/butanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
+	if(!istype(M))
+		return
+	var/obj/item/organ/parasite/P = M.internal_organs_by_name["blackkois"]
+	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 		M.adjustToxLoss(removed * (strength / 100))
 	else
-		M.nutrition += nutriment_factor * removed
+		M.adjustNutritionLoss(-nutriment_factor * removed)
+		M.adjustHydrationLoss(-hydration_factor * removed)
 
 	if (alien == IS_UNATHI)
 		ingest_met = initial(ingest_met)*3
@@ -306,9 +317,13 @@
 	reagent_state = SOLID
 	color = "#C7C7C7"
 	taste_description = "the color blue, and regret"
+	unaffected_species = IS_MACHINE
 
 /datum/reagent/radium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.apply_effect(10 * removed, IRRADIATE, blocked = 0) // Radium may increase your chances to cure a disease
+	if(alien == IS_DIONA)
+		M.adjustToxLoss(-20 * removed)
+		return
 	if(M.virus2.len)
 		for(var/ID in M.virus2)
 			var/datum/disease2/disease/V = M.virus2[ID]
@@ -474,7 +489,7 @@
 	glass_desc = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
 
 /datum/reagent/sugar/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.nutrition += removed * 3
+	M.adjustNutritionLoss(-removed*3)
 
 /datum/reagent/sulfur
 	name = "Sulfur"

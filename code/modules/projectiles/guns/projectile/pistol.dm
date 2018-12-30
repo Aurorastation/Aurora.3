@@ -93,10 +93,10 @@
 
 /obj/item/weapon/gun/projectile/tanto
 	desc = "A Necropolis Industries Tanto .40, designed to compete with the NT Mk58. Uses 10mm rounds."
-	name = "10mm pistol"
+	name = "10mm auto-pistol"
 	icon_state = "c05r"
-	magazine_type = /obj/item/ammo_magazine/t40
-	allowed_magazines = list(/obj/item/ammo_magazine/t40)
+	magazine_type = /obj/item/ammo_magazine/mc10mm
+	allowed_magazines = list(/obj/item/ammo_magazine/mc10mm)
 	caliber = "10mm"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
@@ -262,7 +262,7 @@
 		/obj/item/ammo_casing/shotgun/pellet    = "12 gauge",
 		/obj/item/ammo_casing/shotgun/pellet    = "12 gauge",
 		/obj/item/ammo_casing/shotgun/beanbag   = "12 gauge",
-		/obj/item/ammo_casing/shotgun/emp	= "12 gauge",
+		/obj/item/ammo_casing/shotgun/emp	    = "12 gauge",
 		/obj/item/ammo_casing/a762              = "7.62mm",
 		/obj/item/ammo_casing/a556              = "5.56mm"
 		)
@@ -281,11 +281,17 @@
 	icon_state = "leyon"
 	caliber = "10mm"
 	w_class = 2
-	ammo_type = /obj/item/ammo_casing/t40
+	ammo_type = /obj/item/ammo_casing/c10mm
 	max_shells = 5
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = SINGLE_CASING|SPEEDLOADER
+
+/obj/item/weapon/gun/projectile/leyon/load_ammo(var/obj/item/A, mob/user)
+	user.visible_message("[user] begins reloading \the [src].", "You begin reloading \the [src].")
+	if(!do_after(user, 20, act_target = src))
+		return
+	return ..()
 
 /obj/item/weapon/gun/projectile/leyon/update_icon()
 	..()

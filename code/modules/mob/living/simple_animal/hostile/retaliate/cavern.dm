@@ -105,6 +105,7 @@
 	var/list/loot = list()
 	var/ore_message = 0
 	var/target_ore
+	var/ore_count = 0
 
 /mob/living/simple_animal/hostile/retaliate/minedrone/Initialize()
 	. = ..()
@@ -113,9 +114,19 @@
 		loot += pick(/obj/item/weapon/ore/silver, /obj/item/weapon/ore/gold, /obj/item/weapon/ore/uranium, /obj/item/weapon/ore/diamond)
 		i--
 
+/mob/living/simple_animal/hostile/retaliate/minedrone/death()
+	..(null,"is smashed into pieces!")
+	var/T = get_turf(src)
+	new /obj/effect/gibspawner/robot(T)
+	spark(T, 3, alldirs)
+	for(var/obj/item/weapon/ore/O in loot)
+		O.forceMove(src.loc)
+	qdel(src)
+
 /mob/living/simple_animal/hostile/retaliate/minedrone/Life()
 	..()
-	FindOre()
+	if(ore_count<20)
+		FindOre()
 
 /mob/living/simple_animal/hostile/retaliate/minedrone/proc/FindOre()
 	if(!enemies.len)
@@ -125,6 +136,7 @@
 		for(var/obj/item/weapon/ore/O in oview(1,src))
 			O.forceMove(src)
 			loot += O
+			ore_count ++
 			if(target_ore == O)
 				target_ore = null
 			if(!ore_message)
@@ -144,15 +156,6 @@
 					OpenFire(M)
 					rapid = 0
 					break
-
-/mob/living/simple_animal/hostile/retaliate/minedrone/death()
-	..(null,"is smashed into pieces!")
-	var/T = get_turf(src)
-	new /obj/effect/gibspawner/robot(T)
-	spark(T, 3, alldirs)
-	for(var/obj/item/weapon/ore/O in loot)
-		O.forceMove(src.loc)
-	qdel(src)
 
 /mob/living/simple_animal/hostile/retaliate/minedrone/adjustToxLoss(var/damage)
 	return

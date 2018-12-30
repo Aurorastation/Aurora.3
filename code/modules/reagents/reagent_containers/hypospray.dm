@@ -14,44 +14,45 @@
 	possible_transfer_amounts = null
 	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
+	center_of_mass = null
+	var/armorcheck = 1
 
-///obj/item/weapon/reagent_containers/hypospray/Initialize() //comment this to make hypos start off empty
-//	. = ..()
-//	reagents.add_reagent("tricordrazine", 30)
-//	return
+/obj/item/weapon/reagent_containers/hypospray/attack(var/mob/M, var/mob/user, target_zone)
 
-/obj/item/weapon/reagent_containers/hypospray/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
-	if(!reagents.total_volume)
-		user << "<span class='warning'>[src] is empty.</span>"
-		return
-	if (!istype(M))
-		return
+	. = ..()
 
 	var/mob/living/carbon/human/H = M
 	if(istype(H))
-		var/obj/item/organ/external/affected = H.get_organ(target_zone)
-		if(!affected)
-			user << "<span class='danger'>\The [H] is missing that limb!</span>"
-			return
-		else if(affected.status & ORGAN_ROBOT)
-			user << "<span class='danger'>You cannot inject a robotic limb.</span>"
-			return
-
-		user.visible_message("<span class='warning'>[user] is trying to inject [M] with [src]!</span>","<span class='notice'>You are trying to inject [M] with [src].</span>")
-		if(H.run_armor_check(target_zone,"melee",0,"Your armor slows down the injection!","Your armor slows down the injection!"))
+		user.visible_message("<span class='warning'>[user] is trying to inject \the [M] with \the [src]!</span>","<span class='notice'>You are trying to inject \the [M] with \the [src].</span>")
+		if(armorcheck && H.run_armor_check(target_zone,"melee",0,"Your armor slows down the injection!","Your armor slows down the injection!"))
 			if(!do_mob(user, M, 60))
-				return
+				return 1
+
+/obj/item/weapon/reagent_containers/hypospray/afterattack(var/mob/M, var/mob/user, proximity)
+
+	if (!istype(M))
+		return ..()
+
+	if(!proximity)
+		return
+
+	if(!reagents.total_volume)
+		to_chat(user,"<span class='warning'>\The [src] is empty.</span>")
+		return
 
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(M)
-	M << "<span class='notice'>You feel a tiny prick!</span>"
+	to_chat(user,"<span class='notice'>You inject [M] with [src].</span>")
+	to_chat(M,"<span class='notice'>You feel a tiny prick!</span>")
 	playsound(src, 'sound/items/hypospray.ogg',25)
 
 	if(M.reagents)
 		var/contained = reagentlist()
 		var/trans = reagents.trans_to_mob(M, amount_per_transfer_from_this, CHEM_BLOOD)
 		admin_inject_log(user, M, src, contained, trans)
-		user << "<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>"
+		to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
+
+	update_icon()
 
 	return
 
@@ -70,15 +71,13 @@
 	return
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/attack(mob/M as mob, mob/user as mob)
-	..()
-	if(reagents.total_volume <= 0) //Prevents autoinjectors to be refilled.
-		flags &= ~OPENCONTAINER
+	. = ..()
 	update_icon()
-	return
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/update_icon()
 	if(reagents.total_volume > 0)
 		icon_state = "[initial(icon_state)]1"
+		flags &= ~OPENCONTAINER
 	else
 		icon_state = "[initial(icon_state)]0"
 
@@ -96,10 +95,10 @@
 	amount_per_transfer_from_this = 20
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/stimpack/Initialize()
-		. = ..()
-		reagents.add_reagent("hyperzine", 12)
-		reagents.add_reagent("tramadol", 8)
-		update_icon()
+	. = ..()
+	reagents.add_reagent("hyperzine", 12)
+	reagents.add_reagent("tramadol", 8)
+	update_icon()
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/survival
 	name = "survival autoinjector"
@@ -108,20 +107,21 @@
 	amount_per_transfer_from_this = 35
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/survival/Initialize()
-		. = ..()
-		reagents.add_reagent("tricordrazine", 15)
-		reagents.add_reagent("inaprovaline", 5)
-		reagents.add_reagent("dexalinp", 5)
-		reagents.add_reagent("oxycodone", 5)
-		reagents.add_reagent("methylphenidate", 5)
-		update_icon()
+	. = ..()
+	reagents.add_reagent("tricordrazine", 15)
+	reagents.add_reagent("inaprovaline", 5)
+	reagents.add_reagent("dexalinp", 5)
+	reagents.add_reagent("oxycodone", 5)
+	reagents.add_reagent("methylphenidate", 5)
+	update_icon()
 
 /obj/item/weapon/reagent_containers/hypospray/combat
 	name = "combat hypospray"
-	desc = "A hypospray loaded with combat stimulants."
+	desc = "A hypospray loaded with combat stimulants. Its needle has the ability to bypass armor."
 	item_state = "combat_hypo"
 	icon_state = "combat_hypo"
 	volume = 20
+	armorcheck = 0
 
 /obj/item/weapon/reagent_containers/hypospray/combat/Initialize()
 	. = ..()
@@ -129,5 +129,4 @@
 	reagents.add_reagent("synaptizine", 5)
 	reagents.add_reagent("hyperzine", 5)
 	reagents.add_reagent("arithrazine", 5)
-
-	return
+	update_icon()

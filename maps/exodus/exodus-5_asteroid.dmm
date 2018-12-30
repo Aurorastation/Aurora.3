@@ -11965,7 +11965,7 @@
 	name = "Mining Bridge";
 	req_access = list(54)
 	},
-/turf/simulated/floor/asteroid/ash,
+/turf/simulated/floor/airless,
 /area/mine/explored)
 "wi" = (
 /obj/structure/lattice,
@@ -12388,16 +12388,6 @@
 	icon_state = "asteroidfloor"
 	},
 /area/mine/explored)
-"wZ" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/machinery/mining/drill,
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
-	},
-/area/mine/explored)
 "xa" = (
 /obj/machinery/light{
 	dir = 1
@@ -12552,22 +12542,6 @@
 	icon_state = "warning_dust";
 	dir = 8
 	},
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
-	},
-/area/mine/explored)
-"xo" = (
-/obj/machinery/mining/brace,
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
-	},
-/area/mine/explored)
-"xp" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 4
-	},
-/obj/machinery/mining/brace,
 /turf/simulated/floor/tiled/airless{
 	icon_state = "asteroidfloor"
 	},
@@ -12865,23 +12839,6 @@
 	icon_state = "warning_dust";
 	dir = 10
 	},
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
-	},
-/area/mine/explored)
-"xU" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/machinery/mining/brace,
-/turf/simulated/floor/tiled/airless{
-	icon_state = "asteroidfloor"
-	},
-/area/mine/explored)
-"xV" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 6
-	},
-/obj/machinery/mining/brace,
 /turf/simulated/floor/tiled/airless{
 	icon_state = "asteroidfloor"
 	},

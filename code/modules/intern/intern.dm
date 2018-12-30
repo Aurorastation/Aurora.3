@@ -34,6 +34,7 @@
 	selection_color = "#ffeef0"
 	access = list(access_medical, access_surgery, access_medical_equip)
 	minimal_access = list(access_medical, access_surgery, access_medical_equip)
+	alt_titles = list("Medical Intern")
 
 	bag_type = /obj/item/weapon/storage/backpack/medic
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_med

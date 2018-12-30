@@ -1353,49 +1353,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
-"acA" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/machinery/door/window/brigdoor{
-	dir = 2;
-	name = "Weapons locker";
-	req_access = list(3)
-	},
-/obj/item/ammo_magazine/c45m/flash,
-/obj/item/ammo_magazine/c45m/flash,
-/obj/item/ammo_magazine/c45m/flash,
-/obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/mc9mmt/rubber,
-/obj/item/ammo_magazine/mc9mmt/rubber,
-/obj/item/ammo_magazine/mc9mmt/rubber,
-/obj/item/weapon/storage/box/beanbags,
-/obj/item/weapon/storage/box/beanbags,
-/obj/item/weapon/storage/box/flashshells,
-/obj/item/weapon/storage/box/stunshells,
-/obj/item/ammo_magazine/c45m/practice,
-/obj/item/ammo_magazine/c45m/practice,
-/obj/item/ammo_magazine/c45m/practice,
-/obj/item/ammo_magazine/c45m/practice,
-/obj/item/ammo_magazine/mc9mmt/practice,
-/obj/item/ammo_magazine/mc9mmt/practice,
-/obj/item/weapon/storage/box/practiceshells,
-/obj/item/weapon/storage/box/practiceshells,
-/obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/tiled/dark,
-/area/security/armoury)
 "acB" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1508,7 +1465,7 @@
 /turf/simulated/floor/plating,
 /area/security/main)
 "acK" = (
-/obj/machinery/computer/secure_data,
+/obj/item/weapon/circuitboard/secure_data,
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 8
@@ -2929,12 +2886,6 @@
 "afs" = (
 /turf/simulated/shuttle/wall,
 /area/shuttle/escape_pod3/station)
-"aft" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c"
-	},
-/area/shuttle/escape_pod3/station)
 "afu" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/remains/robot,
@@ -3597,23 +3548,6 @@
 /obj/item/trash/tastybread,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
-"agB" = (
-/turf/simulated/floor/plating,
-/obj/structure/shuttle/engine/propulsion/burst{
-	dir = 4
-	},
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_f5";
-	dir = 2
-	},
-/area/shuttle/escape_pod3/station)
-"agC" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 8
-	},
-/area/shuttle/escape_pod3/station)
 "agD" = (
 /obj/structure/table/rack,
 /obj/effect/decal/cleanable/cobweb,
@@ -4397,7 +4331,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/computer/skills{
+/obj/machinery/computer/records/employment{
 	pixel_y = 4
 	},
 /turf/simulated/floor/carpet,
@@ -4591,7 +4525,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "aiC" = (
-/obj/machinery/computer/secure_data,
+/obj/item/weapon/circuitboard/secure_data,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -4908,7 +4842,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "ajf" = (
-/obj/machinery/computer/secure_data,
+/obj/item/weapon/circuitboard/secure_data,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
@@ -5087,7 +5021,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "ajv" = (
-/obj/machinery/computer/secure_data,
+/obj/item/weapon/circuitboard/secure_data,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "ajw" = (
@@ -6593,7 +6527,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/computer/secure_data,
+/obj/item/weapon/circuitboard/secure_data,
 /obj/effect/floor_decal/corner/blue/full{
 	icon_state = "corner_white_full";
 	dir = 8
@@ -7946,7 +7880,7 @@
 	pixel_x = 4;
 	pixel_y = 6
 	},
-/obj/machinery/computer/secure_data,
+/obj/item/weapon/circuitboard/secure_data,
 /turf/simulated/floor/tiled/dark,
 /area/lawoffice)
 "anX" = (
@@ -9384,13 +9318,13 @@
 	pixel_x = 4;
 	pixel_y = 6
 	},
-/obj/machinery/computer/skills{
+/obj/machinery/computer/records/employment{
 	icon_state = "medlaptop"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/lawoffice)
 "aqu" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /turf/simulated/floor/tiled/white,
 /area/security/detectives_office)
 "aqv" = (
@@ -9792,7 +9726,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/lawoffice)
 "are" = (
-/obj/machinery/computer/secure_data,
+/obj/item/weapon/circuitboard/secure_data,
 /turf/simulated/floor/tiled/white,
 /area/security/detectives_office)
 "arf" = (
@@ -11156,12 +11090,6 @@
 /obj/structure/grille,
 /turf/simulated/shuttle/plating,
 /area/shuttle/escape_pod1/station)
-"atw" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c"
-	},
-/area/shuttle/escape_pod1/station)
 "atx" = (
 /turf/simulated/shuttle/wall,
 /area/shuttle/escape_pod2/station)
@@ -11169,12 +11097,6 @@
 /obj/structure/window/shuttle,
 /obj/structure/grille,
 /turf/simulated/shuttle/plating,
-/area/shuttle/escape_pod2/station)
-"atz" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c"
-	},
 /area/shuttle/escape_pod2/station)
 "atA" = (
 /obj/structure/grille,
@@ -11387,11 +11309,6 @@
 "aua" = (
 /turf/simulated/wall/r_wall,
 /area/hallway/secondary/entry/fore)
-"aub" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_straight"
-	},
-/area/shuttle/escape_pod1/station)
 "auc" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -11411,11 +11328,6 @@
 	},
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape_pod1/station)
-"aud" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_straight"
-	},
-/area/shuttle/escape_pod2/station)
 "aue" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -12138,14 +12050,6 @@
 	},
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape_pod1/station)
-"avK" = (
-/turf/simulated/floor/plating,
-/obj/structure/shuttle/engine/propulsion/burst,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_f9";
-	dir = 2
-	},
-/area/shuttle/escape_pod1/station)
 "avL" = (
 /obj/structure/shuttle/engine/propulsion/burst,
 /turf/simulated/shuttle/wall,
@@ -12160,14 +12064,6 @@
 	req_access = list(13)
 	},
 /turf/simulated/shuttle/floor,
-/area/shuttle/escape_pod2/station)
-"avN" = (
-/turf/simulated/floor/plating,
-/obj/structure/shuttle/engine/propulsion/burst,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_f9";
-	dir = 2
-	},
 /area/shuttle/escape_pod2/station)
 "avO" = (
 /turf/simulated/floor/plating,
@@ -15883,7 +15779,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "aCA" = (
-/obj/machinery/computer/secure_data/detective_computer,
+/obj/item/weapon/cartridge/detective,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "aCB" = (
@@ -16301,12 +16197,6 @@
 "aDq" = (
 /turf/simulated/shuttle/wall,
 /area/shuttle/arrival/station)
-"aDr" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_straight";
-	dir = 8
-	},
-/area/shuttle/arrival/station)
 "aDs" = (
 /obj/machinery/door/unpowered/shuttle,
 /turf/simulated/shuttle/floor,
@@ -16314,25 +16204,6 @@
 "aDt" = (
 /obj/structure/window/shuttle,
 /turf/simulated/shuttle/plating,
-/area/shuttle/arrival/station)
-"aDu" = (
-/obj/structure/window/shuttle{
-	icon_state = "window8"
-	},
-/obj/structure/grille,
-/turf/simulated/shuttle/plating,
-/area/shuttle/arrival/station)
-"aDv" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_t";
-	dir = 1
-	},
-/area/shuttle/arrival/station)
-"aDw" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c"
-	},
 /area/shuttle/arrival/station)
 "aDx" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -16413,7 +16284,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "aDD" = (
-/obj/machinery/computer/secure_data,
+/obj/item/weapon/circuitboard/secure_data,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
@@ -17137,12 +17008,6 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/library)
-"aEN" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_t";
-	dir = 4
-	},
-/area/shuttle/arrival/station)
 "aEO" = (
 /obj/machinery/light{
 	dir = 8;
@@ -17185,12 +17050,6 @@
 	dir = 4
 	},
 /turf/simulated/shuttle/floor,
-/area/shuttle/arrival/station)
-"aEW" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_t";
-	dir = 8
-	},
 /area/shuttle/arrival/station)
 "aEX" = (
 /obj/structure/shuttle/engine/propulsion{
@@ -17896,13 +17755,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/chapel/main)
-"aGj" = (
-/turf/simulated/shuttle/floor,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 8
-	},
-/area/shuttle/arrival/station)
 "aGk" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -17912,11 +17764,6 @@
 	dir = 4
 	},
 /turf/simulated/shuttle/floor,
-/area/shuttle/arrival/station)
-"aGl" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_straight"
-	},
 /area/shuttle/arrival/station)
 "aGm" = (
 /obj/structure/bed/chair{
@@ -17987,7 +17834,7 @@
 /area/security/checkpoint2)
 "aGs" = (
 /obj/structure/table/reinforced,
-/obj/machinery/computer/skills{
+/obj/machinery/computer/records/employment{
 	icon_state = "medlaptop"
 	},
 /obj/effect/floor_decal/corner/blue{
@@ -19674,12 +19521,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/chapel/main)
-"aJx" = (
-/turf/simulated/shuttle/floor,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c"
-	},
-/area/shuttle/arrival/station)
 "aJy" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -20501,18 +20342,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/chapel/main)
-"aLa" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 1
-	},
-/area/shuttle/arrival/station)
-"aLb" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_t"
-	},
-/area/shuttle/arrival/station)
 "aLc" = (
 /obj/item/device/radio/intercom{
 	name = "Station Intercom (General)";
@@ -21362,13 +21191,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/chapel/main)
-"aMG" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 8
-	},
-/area/shuttle/arrival/station)
 "aMH" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -21766,14 +21588,6 @@
 	listening = 1;
 	name = "Station Intercom (General)";
 	pixel_y = 20
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
-"aNw" = (
-/obj/machinery/firealarm{
-	dir = 2;
-	pixel_x = -8;
-	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
@@ -23900,7 +23714,7 @@
 	pixel_x = 0
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/wall,
+/turf/simulated/floor/plating,
 /area/hallway/secondary/entry/port)
 "aRr" = (
 /obj/structure/grille,
@@ -25241,7 +25055,7 @@
 /turf/simulated/wall/r_wall,
 /area/bridge)
 "aTP" = (
-/obj/machinery/computer/secure_data,
+/obj/item/weapon/circuitboard/secure_data,
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -27019,7 +26833,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aXl" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /obj/effect/floor_decal/corner/white{
 	icon_state = "corner_white";
 	dir = 5
@@ -35149,7 +34963,7 @@
 /area/crew_quarters/captain)
 "blF" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/skills{
+/obj/machinery/computer/records/employment{
 	icon_state = "medlaptop"
 	},
 /obj/item/weapon/hand_tele,
@@ -39009,7 +38823,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
@@ -40086,7 +39900,7 @@
 /turf/simulated/floor/tiled,
 /area/medical/exam_room)
 "buu" = (
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/item/device/radio/intercom{
 	dir = 1;
 	name = "Station Intercom (General)";
@@ -40806,7 +40620,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_three)
 "bvB" = (
-/obj/machinery/computer/skills{
+/obj/machinery/computer/records/employment{
 	icon_state = "medlaptop"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -41496,22 +41310,10 @@
 "bwJ" = (
 /turf/simulated/shuttle/wall,
 /area/shuttle/research/station)
-"bwK" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_straight";
-	dir = 4
-	},
-/area/shuttle/research/station)
 "bwL" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
 /turf/simulated/shuttle/plating,
-/area/shuttle/research/station)
-"bwM" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c"
-	},
 /area/shuttle/research/station)
 "bwN" = (
 /turf/template_noop,
@@ -42378,12 +42180,6 @@
 /obj/random/coin,
 /turf/simulated/floor/plating,
 /area/storage/emergency)
-"byo" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_straight";
-	dir = 1
-	},
-/area/shuttle/research/station)
 "byp" = (
 /obj/structure/closet/crate,
 /turf/simulated/shuttle/floor,
@@ -45159,13 +44955,6 @@
 	},
 /turf/simulated/shuttle/plating,
 /area/rnd/docking)
-"bCW" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 1
-	},
-/area/shuttle/research/station)
 "bCX" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -45176,13 +44965,6 @@
 	req_access = list(13)
 	},
 /turf/simulated/shuttle/floor,
-/area/shuttle/research/station)
-"bCY" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 8
-	},
 /area/shuttle/research/station)
 "bCZ" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -47715,7 +47497,7 @@
 /area/rnd/research)
 "bHt" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/skills{
+/obj/machinery/computer/records/employment{
 	icon_state = "medlaptop"
 	},
 /obj/effect/floor_decal/corner/white/diagonal{
@@ -49845,22 +49627,10 @@
 "bKQ" = (
 /turf/simulated/shuttle/wall,
 /area/shuttle/mining/station)
-"bKR" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_straight";
-	dir = 4
-	},
-/area/shuttle/mining/station)
 "bKS" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
 /turf/simulated/shuttle/plating,
-/area/shuttle/mining/station)
-"bKT" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c"
-	},
 /area/shuttle/mining/station)
 "bKU" = (
 /obj/machinery/computer/security/mining,
@@ -50627,12 +50397,6 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/rnd/test_area)
-"bMq" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_straight";
-	dir = 1
-	},
-/area/shuttle/mining/station)
 "bMr" = (
 /obj/machinery/light{
 	dir = 8;
@@ -52546,7 +52310,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "bPT" = (
-/obj/machinery/computer/skills{
+/obj/machinery/computer/records/employment{
 	pixel_y = 4
 	},
 /obj/item/device/megaphone,
@@ -52573,7 +52337,7 @@
 	icon_state = "alarm0";
 	pixel_x = 24
 	},
-/obj/machinery/computer/med_data/laptop{
+/obj/machinery/computer/records/medical/laptop{
 	pixel_x = 3;
 	pixel_y = 4
 	},
@@ -52642,7 +52406,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "bQc" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
@@ -54567,23 +54331,9 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/rnd/test_area)
-"bTv" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 1
-	},
-/area/shuttle/mining/station)
 "bTw" = (
 /obj/structure/shuttle/engine/propulsion/burst,
 /turf/template_noop,
-/area/shuttle/mining/station)
-"bTx" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 8
-	},
 /area/shuttle/mining/station)
 "bTy" = (
 /obj/machinery/access_button{
@@ -55084,7 +54834,7 @@
 /area/medical/medbay4)
 "bUl" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
@@ -55126,7 +54876,7 @@
 /area/medical/patient_a)
 "bUo" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
@@ -56276,12 +56026,6 @@
 /area/rnd/test_area)
 "bWm" = (
 /turf/simulated/shuttle/wall,
-/area/shuttle/escape_pod5/station)
-"bWn" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_straight";
-	dir = 4
-	},
 /area/shuttle/escape_pod5/station)
 "bWo" = (
 /obj/structure/shuttle/engine/propulsion/burst{
@@ -57960,13 +57704,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_starboard)
-"bZg" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 1
-	},
-/area/shuttle/escape_pod5/station)
 "bZh" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
@@ -58057,7 +57794,7 @@
 	pixel_x = 0;
 	pixel_y = 27
 	},
-/obj/machinery/computer/skills{
+/obj/machinery/computer/records/employment{
 	icon_state = "medlaptop"
 	},
 /turf/simulated/floor/tiled,
@@ -59100,7 +58837,7 @@
 /area/medical/psych)
 "cbi" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -59148,7 +58885,7 @@
 /area/medical/biostorage)
 "cbm" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
@@ -60860,7 +60597,7 @@
 	pixel_x = 30
 	},
 /obj/structure/table/standard,
-/obj/machinery/computer/med_data/laptop{
+/obj/machinery/computer/records/medical/laptop{
 	pixel_x = 3;
 	pixel_y = 4
 	},
@@ -66717,7 +66454,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "cou" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
@@ -66738,7 +66475,7 @@
 /turf/simulated/floor/tiled,
 /area/medical/surgeryprep)
 "cow" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery2)
@@ -71940,7 +71677,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
 "cyk" = (
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/structure/disposalpipe/segment,
 /obj/structure/table/glass,
 /turf/simulated/floor/tiled/white,
@@ -76665,19 +76402,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_airlock)
-"cGJ" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 4
-	},
-/area/shuttle/constructionsite/station)
-"cGK" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_straight";
-	dir = 4
-	},
-/area/shuttle/constructionsite/station)
 "cGL" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -76704,12 +76428,6 @@
 	req_access = list(13)
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/constructionsite/station)
-"cGN" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c"
-	},
 /area/shuttle/constructionsite/station)
 "cGO" = (
 /obj/structure/table/rack{
@@ -77045,12 +76763,6 @@
 /obj/machinery/computer/station_alert,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor2"
-	},
-/area/shuttle/constructionsite/station)
-"cHu" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_straight";
-	dir = 1
 	},
 /area/shuttle/constructionsite/station)
 "cHv" = (
@@ -77746,20 +77458,6 @@
 /obj/machinery/atmospherics/binary/pump,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
-"cIJ" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 1
-	},
-/area/shuttle/constructionsite/station)
-"cIK" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 8
-	},
-/area/shuttle/constructionsite/station)
 "cIL" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,

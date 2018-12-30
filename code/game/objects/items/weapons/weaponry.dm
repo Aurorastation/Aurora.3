@@ -244,7 +244,7 @@
 	healthcheck()
 	return 0
 
-/obj/effect/energy_net/ex_act()
+/obj/effect/energy_net/ex_act(var/severity = 2.0)
 	health = 0
 	healthcheck()
 

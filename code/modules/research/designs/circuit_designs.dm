@@ -43,11 +43,23 @@
 	build_path = /obj/item/weapon/circuitboard/security
 	sort_string = "DAAAA"
 
+/datum/design/circuit/secdata
+	name = "security records console"
+	id = "sec_data"
+	build_path = /obj/item/weapon/circuitboard/secure_data
+	sort_string = "DABAA"
+
 /datum/design/circuit/prisonmanage
 	name = "prisoner management console"
 	id = "prisonmanage"
 	build_path = /obj/item/weapon/circuitboard/prisoner
 	sort_string = "DACAA"
+
+/datum/design/circuit/med_data
+	name = "medical records console"
+	id = "med_data"
+	build_path = /obj/item/weapon/circuitboard/med_data
+	sort_string = "FAAAA"
 
 /datum/design/circuit/sentencing
 	name = "criminal sentencing console"
@@ -323,6 +335,12 @@
 	req_tech = list(TECH_DATA = 2)
 	build_path = /obj/item/weapon/circuitboard/biogenerator
 	sort_string = "KBAAA"
+
+/datum/design/circuit/emp_data
+	name = "employment records console"
+	id = "emp_data"
+	build_path = /obj/item/weapon/circuitboard/skills
+	sort_string = "LAAAC"
 
 /datum/design/circuit/mecha
 	req_tech = list(TECH_DATA = 3)

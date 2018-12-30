@@ -315,6 +315,33 @@
 	item_state = "earmuffs"
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
 
+/obj/item/clothing/ears/earmuffs/headphones
+	name = "headphones"
+	desc = "Unce unce unce unce."
+	var/headphones_on = 0
+	icon_state = "headphones_off"
+	item_state = "headphones"
+	slot_flags = SLOT_EARS | SLOT_TWOEARS
+
+/obj/item/clothing/ears/earmuffs/headphones/verb/togglemusic()
+	set name = "Toggle Headphone Music"
+	set category = "Object"
+	set src in usr
+	if(!istype(usr, /mob/living)) return
+	if(usr.stat) return
+
+	if(headphones_on)
+		icon_state = "headphones_off"
+		headphones_on = 0
+		usr << "<span class='notice'>You turn the music off.</span>"
+	else
+		icon_state = "headphones_on"
+		headphones_on = 1
+		usr << "<span class='notice'>You turn the music on.</span>"
+
+	update_clothing_icon()
+
+
 ///////////////////////////////////////////////////////////////////////
 //Gloves
 /obj/item/clothing/gloves
@@ -701,6 +728,8 @@
 		"Resomi" = 'icons/mob/species/resomi/suit.dmi'
 		)
 
+	valid_accessory_slots = list("over")
+
 /obj/item/clothing/suit/update_clothing_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
@@ -739,7 +768,7 @@
 	//convenience var for defining the icon state for the overlay used when the clothing is worn.
 	//Also used by rolling/unrolling.
 	var/worn_state = null
-	valid_accessory_slots = list("utility","armband","decor")
+	valid_accessory_slots = list("utility","armband","decor", "over")
 	restricted_accessory_slots = list("utility", "armband")
 
 

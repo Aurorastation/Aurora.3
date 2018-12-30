@@ -34,11 +34,14 @@
 
 /mob/living/carbon/Move(NewLoc, direct)
 	. = ..()
+
 	if(.)
-		if(src.nutrition && src.stat != 2)
-			src.nutrition -= nutrition_loss*0.1//Multiplication is faster than division
-			if(src.m_intent == "run")
-				src.nutrition -= nutrition_loss*0.1
+		if(src.stat != 2)
+			if(src.nutrition)
+				adjustNutritionLoss(nutrition_loss*0.1)
+			if(src.hydration)
+				adjustHydrationLoss(hydration_loss*0.1)
+
 		if((FAT in src.mutations) && src.m_intent == "run" && src.bodytemperature <= 360)
 			src.bodytemperature += 2
 
@@ -412,3 +415,12 @@
 	if(!species)
 		return null
 	return species.default_language ? all_languages[species.default_language] : null
+
+/mob/living/carbon/is_berserk()
+	return (CE_BERSERK in chem_effects)
+
+/mob/living/carbon/is_pacified()
+	if(disabilities & PACIFIST)
+		return TRUE
+	if(CE_PACIFIED in chem_effects)
+		return TRUE

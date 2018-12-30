@@ -9,7 +9,6 @@
 		)
 	desc = "It's good to be emperor."
 	siemens_coefficient = 0.9
-	body_parts_covered = 0
 
 /obj/item/clothing/head/hairflower
 	name = "hair flower pin"
@@ -39,19 +38,16 @@
 	icon_state = "tophat"
 	item_state = "tophat"
 	siemens_coefficient = 0.9
-	body_parts_covered = 0
 
 /obj/item/clothing/head/redcoat
 	name = "redcoat's hat"
 	icon_state = "redcoat"
 	desc = "<i>'I guess it's a redhead.'</i>"
-	body_parts_covered = 0
 
 /obj/item/clothing/head/mailman
 	name = "station cap"
 	icon_state = "mailman"
 	desc = "<i>Choo-choo</i>!"
-	body_parts_covered = 0
 
 /obj/item/clothing/head/plaguedoctorhat
 	name = "plague doctor's hat"
@@ -59,7 +55,6 @@
 	icon_state = "plaguedoctor"
 	permeability_coefficient = 0.01
 	siemens_coefficient = 0.9
-	body_parts_covered = 0
 
 /obj/item/clothing/head/hasturhood
 	name = "hastur's hood"
@@ -73,7 +68,6 @@
 	desc = "It allows quick identification of trained medical personnel."
 	icon_state = "nursehat"
 	siemens_coefficient = 0.9
-	body_parts_covered = 0
 
 /obj/item/clothing/head/syndicatefake
 	name = "red space-helmet replica"
@@ -150,13 +144,11 @@
 	name = "pirate hat"
 	desc = "Yarr."
 	icon_state = "pirate"
-	body_parts_covered = 0
 
 /obj/item/clothing/head/hgpiratecap
 	name = "pirate hat"
 	desc = "Yarr."
 	icon_state = "hgpiratecap"
-	body_parts_covered = 0
 
 /obj/item/clothing/head/bandana
 	name = "pirate bandana"
@@ -167,7 +159,6 @@
 	name = "bowler-hat"
 	desc = "Gentleman, elite aboard!"
 	icon_state = "bowler"
-	body_parts_covered = 0
 
 //stylish bs12 hats
 
@@ -175,7 +166,6 @@
 	name = "bowler hat"
 	icon_state = "bowler_hat"
 	desc = "For the gentleman of distinction."
-	body_parts_covered = 0
 
 /obj/item/clothing/head/beaverhat
 	name = "beaver hat"
@@ -252,7 +242,6 @@
 		)
 	flags_inv = BLOCKHAIR
 	siemens_coefficient = 2.0 //why is it so conductive?!
-	body_parts_covered = 0
 
 /obj/item/clothing/head/orangebandana //themij: Taryn Kifer
 	name = "orange bandana"
@@ -304,7 +293,6 @@
 	name = "cowboy hat"
 	desc = "A wide-brimmed hat, in the prevalent style of the frontier."
 	icon_state = "cowboyhat"
-	body_parts_covered = 0
 
 /obj/item/clothing/head/cowboy/wide
 	name = "wide-brimmed cowboy hat"
@@ -314,7 +302,6 @@
 	name = "sombrero"
 	desc = "You can practically taste the fiesta."
 	icon_state = "sombrero"
-	body_parts_covered = 0
 
 /obj/item/clothing/head/turban
 	name = "turban"
@@ -323,7 +310,6 @@
 	icon_state = "turban_black"
 	item_state = "turban_black"
 	flags_inv = BLOCKHEADHAIR
-	body_parts_covered = 0
 	contained_sprite = 1
 
 /obj/item/clothing/head/turban/blue
@@ -382,3 +368,15 @@
 /obj/item/clothing/head/fedora/grey
 	icon_state = "detective2"
 	desc = "A grey fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
+
+/obj/item/clothing/head/beanie
+	name = "beanie"
+	desc = "A head-hugging brimless winter cap. This one is tight."
+	icon_state = "beanie"
+	item_state = "beanie"
+
+/obj/item/clothing/head/beanie_loose
+	name = "loose beanie"
+	desc = "A head-hugging brimless winter cap. This one is loose."
+	icon_state = "beanie_hang"
+	item_state = "beanie"

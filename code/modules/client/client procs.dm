@@ -95,7 +95,7 @@
 	if(href_list["warnacknowledge"])
 		var/queryid = text2num(href_list["warnacknowledge"])
 		warnings_acknowledge(queryid)
-	
+
 	if(href_list["notifacknowledge"])
 		var/queryid = text2num(href_list["notifacknowledge"])
 		notifications_acknowledge(queryid)
@@ -660,10 +660,13 @@
 	if (config.ipintel_email)
 		var/datum/ipintel/res = get_ip_intel(address)
 		if (config.ipintel_rating_kick && res.intel >= config.ipintel_rating_kick)
-			message_admins("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a proxy/VPN. They are being kicked because of this.")
-			log_admin("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a proxy/VPN. They are being kicked because of this.")
-			to_chat(src, "<span class='danger'>Usage of proxies is not permitted by the rules. You are being kicked because of this.</span>")
-			del(src)
+			if (!holder)
+				message_admins("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a proxy/VPN. They are being kicked because of this.")
+				log_admin("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a proxy/VPN. They are being kicked because of this.")
+				to_chat(src, "<span class='danger'>Usage of proxies is not permitted by the rules. You are being kicked because of this.</span>")
+				del(src)
+			else
+				message_admins("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a Proxy/VPN.")
 		else if (res.intel >= config.ipintel_rating_bad)
 			message_admins("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a Proxy/VPN.")
 		ip_intel = res.intel

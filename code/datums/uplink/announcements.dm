@@ -60,9 +60,9 @@
 		var/mob/living/carbon/human/H
 		if(istype(user,/mob/living/carbon/human))
 			H = user
-			record.age. = H.age
+			record.age = H.age
 		else
-			record.age. = initial(H.age)
+			record.age = initial(H.age)
 		var/assignment = GetAssignment(user)
 		record.rank = assignment
 		record.real_rank = assignment

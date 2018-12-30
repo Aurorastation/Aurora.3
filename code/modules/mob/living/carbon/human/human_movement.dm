@@ -19,13 +19,6 @@
 	if (!(species && (species.flags & NO_PAIN)))
 		if(halloss >= 10) tally += (halloss / 10) //halloss shouldn't slow you down if you can't even feel it
 
-
-//Simpler hunger slowdown calculations, this should be a little faster due to no division, and more scaleable
-	if (nutrition < (max_nutrition * 0.4))
-		tally++
-		if (nutrition < (max_nutrition * 0.1))
-			tally++
-
 	if(wear_suit)
 		tally += wear_suit.slowdown
 
@@ -51,8 +44,8 @@
 			else if(E.status & ORGAN_BROKEN)
 				tally += 1.5
 
-	if(shock_stage >= 10) tally += 3
-
+	if (!(species && (species.flags & NO_PAIN)))
+		if(shock_stage >= 10) tally += 3
 
 	if(aiming && aiming.aiming_at) tally += 5 // Iron sights make you slower, it's a well-known fact.
 
@@ -77,7 +70,13 @@
 	if(T)
 		tally += T.movement_cost
 
-	return (tally+config.human_delay)
+	tally += config.human_delay
+
+	tally *= 2/(get_hydration_mul(0.75,1) + get_nutrition_mul(0.75,1))
+
+	tally = round(tally,1)
+
+	return tally
 
 
 /mob/living/carbon/human/Allow_Spacemove(var/check_drift = 0)

@@ -115,7 +115,6 @@
 #define GHOSTS_ALL_HEAR 1
 #define ONLY_GHOSTS_IN_VIEW 0
 
-
 // Defines mob sizes, used by lockers and to determine what is considered a small sized mob, etc.
 #define MOB_LARGE  		16
 #define MOB_MEDIUM 		9
@@ -124,7 +123,32 @@
 #define MOB_MINISCULE	1
 
 #define BASE_MAX_NUTRITION	400
-#define HUNGER_FACTOR		0.05 // Factor of how fast mob nutrition decreases. Moved here from chemistry define
+#define HUNGER_FACTOR		0.04 // Factor of how fast mob nutrition decreases over time.
+
+#define BASE_MAX_HYDRATION  600
+#define THIRST_FACTOR       0.02 // Factor of how fast mob hydration decreases over time.
+
+#define CREW_MINIMUM_HYDRATION BASE_MAX_HYDRATION * CREW_HYDRATION_SLIGHTLYTHIRSTY	// The minimum amount of nutrition a crewmember will spawn with.
+#define CREW_MAXIMUM_HYDRATION BASE_MAX_HYDRATION * CREW_HYDRATION_HYDRATED	// Same as above, but maximum.
+
+#define CREW_MINIMUM_NUTRITION BASE_MAX_NUTRITION * CREW_NUTRITION_SLIGHTLYHUNGRY	// The minimum amount of nutrition a crewmember will spawn with.
+#define CREW_MAXIMUM_NUTRITION BASE_MAX_NUTRITION * CREW_NUTRITION_FULL	// Same as above, but maximum.
+
+//Note that all of this is relative to nutrition/max nutrition
+#define CREW_NUTRITION_OVEREATEN 0.95
+#define CREW_NUTRITION_FULL 0.75
+#define CREW_NUTRITION_SLIGHTLYHUNGRY 0.5
+#define CREW_NUTRITION_HUNGRY 0.25
+#define CREW_NUTRITION_VERYHUNGRY 0.1
+#define CREW_NUTRITION_STARVING 0
+
+//Note that all of this is relative to hydration/max hydration
+#define CREW_HYDRATION_OVERHYDRATED 0.95
+#define CREW_HYDRATION_HYDRATED 0.6
+#define CREW_HYDRATION_SLIGHTLYTHIRSTY 0.4
+#define CREW_HYDRATION_THIRSTY 0.2
+#define CREW_HYDRATION_VERYTHIRSTY 0.1
+#define CREW_HYDRATION_DEHYDRATED 0
 
 #define TINT_NONE 0
 #define TINT_MODERATE 1
@@ -178,9 +202,6 @@
 // Maximum number of chickens allowed at once.
 // If the number of chickens on the map exceeds this, laid eggs will not hatch.
 #define MAX_CHICKENS 50
-
-#define CREW_MINIMUM_NUTRITION 50	// The minimum amount of nutrition a crewmember will spawn with.
-#define CREW_MAXIMUM_NUTRITION 100	// Same as above, but maximum.
 
 //carbon taste sensitivity defines, used in mob/living/carbon/proc/ingest
 #define TASTE_HYPERSENSITIVE 3 //anything below 5%

@@ -307,7 +307,12 @@ default behaviour is:
 	return halloss
 
 /mob/living/proc/adjustHalLoss(var/amount)
-	if(status_flags & GODMODE)	return 0	//godmode
+	if(status_flags & GODMODE)	
+		return 0
+
+	if(amount > 0)
+		amount *= 2/(get_nutrition_mul(0.5,1) + get_hydration_mul(0.5,1))
+
 	halloss = min(max(halloss + amount, 0),(maxHealth*2))
 
 /mob/living/carbon/adjustHalLoss(var/amount, var/ignoreImmunity = 0)//An inherited version so this doesnt affect cyborgs
@@ -315,6 +320,10 @@ default behaviour is:
 	if(!ignoreImmunity)//Adjusting how hallloss works. Species with the NO_PAIN flag will suffer most of the effects of halloss, but will be immune to most conventional sources of accumulating it
 		if (species && species.flags & NO_PAIN)//Species with this flag will only gather halloss through species-specific mechanics, which apply it with the ignoreImmunity flag
 			return 0
+
+	if(amount > 0)
+		amount *= 1/get_hydration_mul()
+		amount *= 1/get_nutrition_mul()
 
 	halloss = min(max(halloss + amount, 0),(maxHealth*2))
 
@@ -455,7 +464,8 @@ default behaviour is:
 	fire_stacks = 0
 
 /mob/living/proc/rejuvenate()
-	reagents.clear_reagents()
+	if(!isnull(reagents))
+		reagents.clear_reagents()
 
 	// shut down various types of badness
 	setToxLoss(0)
@@ -469,6 +479,7 @@ default behaviour is:
 	// shut down ongoing problems
 	total_radiation = 0
 	nutrition = 400
+	hydration = 400
 	bodytemperature = T20C
 	sdisabilities = 0
 	disabilities = 0

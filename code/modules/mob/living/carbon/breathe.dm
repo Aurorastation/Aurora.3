@@ -5,14 +5,16 @@
 	if(SSair.times_fired%4==2 || failed_last_breath || (health < config.health_threshold_crit)) 	//First, resolve location and get a breath
 		breathe()
 
-/mob/living/carbon/proc/inhale(var/datum/reagents/from, var/datum/reagents/target, var/amount = 1, var/multiplier = 1, var/copy = 0, var/bypass_mask = FALSE)
+/mob/living/carbon/proc/inhale(var/datum/reagents/from, var/datum/reagents/target, var/amount = 1, var/multiplier = 1, var/copy = 0, var/bypass_checks = FALSE)
 
 	if(species && (species.flags & NO_BREATHE)) //Check for species
 		return 0
 
-	if(!bypass_mask)
+	if(!bypass_checks)
+
 		if(wear_mask && wear_mask.item_flags & BLOCK_GAS_SMOKE_EFFECT) //Check if the gasmask blocks an effect
 			return 0
+
 		if (internals && internals.icon_state == "internal1") //Check for internals
 			return 0
 

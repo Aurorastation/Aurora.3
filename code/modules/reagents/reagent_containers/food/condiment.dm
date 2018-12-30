@@ -15,37 +15,6 @@
 	center_of_mass = list("x"=16, "y"=6)
 	volume = 50
 
-/obj/item/weapon/reagent_containers/food/condiment/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	return
-
-/obj/item/weapon/reagent_containers/food/condiment/attack_self(var/mob/user as mob)
-	return
-
-/obj/item/weapon/reagent_containers/food/condiment/attack(var/mob/M as mob, var/mob/user as mob, var/def_zone)
-	if(standard_feed_mob(user, M))
-		return
-
-/obj/item/weapon/reagent_containers/food/condiment/afterattack(var/obj/target, var/mob/user, var/proximity)
-	if(!proximity)
-		return
-
-	if(standard_dispenser_refill(user, target))
-		return
-	if(standard_pour_into(user, target))
-		return
-
-	if(istype(target, /obj/item/weapon/reagent_containers/food/snacks)) // These are not opencontainers but we can transfer to them
-		if(!reagents || !reagents.total_volume)
-			user << "<span class='notice'>There is no condiment left in \the [src].</span>"
-			return
-
-		if(!target.reagents.get_free_space())
-			user << "<span class='notice'>You can't add more condiment to \the [target].</span>"
-			return
-
-		var/trans = reagents.trans_to_obj(target, amount_per_transfer_from_this)
-		user << "<span class='notice'>You add [trans] units of the condiment to \the [target].</span>"
-
 /obj/item/weapon/reagent_containers/food/condiment/feed_sound(var/mob/user)
 	playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
 
@@ -116,11 +85,7 @@
 				desc = "Garlic sauce, perfect for spicing up a plate of garlic."
 				center_of_mass = list("x"=16, "y"=6)
 			else
-				name = "misc condiment bottle"
-				if (reagents.reagent_list.len==1)
-					desc = "Looks like it is [reagents.get_master_reagent_name()], but you are not sure."
-				else
-					desc = "A mixture of various condiments. [reagents.get_master_reagent_name()] is one of them."
+				desc = "A mixture of various condiments. [reagents.get_master_reagent_name()] is one of them."
 				icon_state = "mixedcondiments"
 				center_of_mass = list("x"=16, "y"=6)
 	else

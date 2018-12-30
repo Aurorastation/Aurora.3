@@ -95,6 +95,7 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 	return 0
 
 /turf/simulated/create_fire(fl)
+
 	if(fire)
 		fire.firelevel = max(fl, fire.firelevel)
 		return 1
@@ -110,6 +111,11 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 	zone.fire_tiles |= src
 	if(fuel) 
 		LAZYADD(zone.fuel_objs, fuel)
+
+	var/obj/effect/decal/cleanable/foam/extinguisher_foam = locate() in src
+	if(extinguisher_foam && extinguisher_foam.reagents)
+		fire.firelevel *= max(0,1 - (extinguisher_foam.reagents.total_volume*0.04))
+		//25 units will eliminate the fire completely
 
 	return 0
 

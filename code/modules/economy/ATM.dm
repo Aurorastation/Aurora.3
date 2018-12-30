@@ -68,13 +68,13 @@ log transactions
 		break
 
 /obj/machinery/atm/emag_act(var/remaining_charges, var/mob/user)
-	if(!emagged)
+	if(emagged)
 		return
 
 	//short out the machine, shoot sparks, spew money!
 	emagged = 1
 	spark(src, 5, alldirs)
-	spawn_money(rand(100,500),src.loc)
+	spawn_money(rand(2000,5000),src.loc)
 	//we don't want to grief people by locking their id in an emagged ATM
 	release_held_id(user)
 
@@ -85,7 +85,7 @@ log transactions
 
 /obj/machinery/atm/attackby(obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/weapon/card))
-		if(emagged > 0)
+		if(emagged)
 			//prevent inserting id into an emagged ATM
 			user << "<span class='warning'>\icon[src] CARD READER ERROR. This system has been compromised!</span>"
 			return
@@ -135,7 +135,7 @@ log transactions
 		dat += "For all your monetary needs!<br>"
 		dat += "<i>This terminal is</i> [machine_id]. <i>Report this code when contacting IT Support</i><br/>"
 
-		if(emagged > 0)
+		if(emagged)
 			dat += "Card: <span style='color: red;'>LOCKED</span><br><br><span style='color: red;'>Unauthorized terminal access detected! This ATM has been locked. Please contact IT Support.</span>"
 		else
 			dat += "Card: <a href='?src=\ref[src];choice=insert_card'>[held_card ? held_card.name : "------"]</a><br><br>"
@@ -428,7 +428,7 @@ log transactions
 			if("insert_card")
 				if(!held_card)
 					//this might happen if the user had the browser window open when somebody emagged it
-					if(emagged > 0)
+					if(emagged)
 						usr << "<span class='warning'>\icon[src] The ATM card reader rejected your ID because this machine has been sabotaged!</span>"
 					else
 						var/obj/item/I = usr.get_active_hand()

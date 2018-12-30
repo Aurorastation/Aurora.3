@@ -115,8 +115,10 @@ var/list/worths = list(
 					/obj/item/weapon/gun/projectile/silenced = 1700,
 					/obj/item/weapon/gun/projectile/dragunov = 4500,
 					/obj/item/weapon/gun/projectile/contender = 1300,
+					/obj/item/weapon/gun/projectile/leyon = 500,
 					/obj/item/weapon/gun/projectile = 1500,
 //GUN,
+					/obj/item/weapon/gun/bang = 200,
 					/obj/item/weapon/gun = 500,
 //MATERIAL STACKS,
 					/obj/item/stack/material/marble = -20,
@@ -922,6 +924,8 @@ var/list/worths = list(
 					/obj/machinery/libraryscanner = -1000,
 					/obj/machinery/bookbinder = -1200,
 					/obj/machinery/wish_granter = - 1000000,
-					/obj/machinery = -1000
+					/obj/machinery = -1000,
+					/obj/vehicle/bike = 1500,
+					/obj/vehicle = 1000
 					) //Must be in descending order. Child before parents, otherwise it doesn't work.,
 

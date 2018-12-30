@@ -109,7 +109,7 @@
 	rapid = 1
 	icon_state = "syndicateranged"
 	icon_living = "syndicateranged"
-	casingtype = /obj/item/ammo_casing/t40
+	casingtype = /obj/item/ammo_casing/c10mm
 	projectilesound = 'sound/weapons/Gunshot_light.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol/medium
 

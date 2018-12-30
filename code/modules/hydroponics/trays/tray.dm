@@ -137,7 +137,7 @@
 			return
 		var/mob/living/carbon/alien/diona/nymph = usr
 		if(nymph.nutrition > 100 && nutrilevel < 10)
-			nymph.nutrition -= ((10-nutrilevel)*5)
+			nymph.adjustNutritionLoss((10-nutrilevel)*5)
 			nutrilevel = 10
 			nymph.visible_message("<font color='blue'><b>[nymph]</b> secretes a trickle of green liquid, refilling [src].</font>","<font color='blue'>You secrete a trickle of green liquid, refilling [src].</font>")
 		return//Nymphs cant open and close lids

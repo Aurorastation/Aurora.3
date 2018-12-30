@@ -114,6 +114,13 @@
 	dress["dress, orange"] = /obj/item/clothing/under/dress/dress_orange
 	dress["dress, pink"] = /obj/item/clothing/under/dress/dress_pink
 	dress["dress, yellow"] = /obj/item/clothing/under/dress/dress_yellow
+	dress["dress, white"] = /obj/item/clothing/under/dress/white
+	dress["dress, stripped"] = /obj/item/clothing/under/dress/stripeddress
+	dress["dress, sailor"] = /obj/item/clothing/under/dress/sailordress
+	dress["dress, red swept"] = /obj/item/clothing/under/dress/red_swept_dress
+	dress["dress, western bustle"] = /obj/item/clothing/under/dress/westernbustle
+	dress["dress, black tango"] = /obj/item/clothing/under/dress/blacktango
+	dress["dress, black tango alternative"] = /obj/item/clothing/under/dress/blacktango/alt
 	dress["cheongsam, white"] = /obj/item/clothing/under/cheongsam
 	dress["cheongsam, red"] = /obj/item/clothing/under/cheongsam/red
 	dress["cheongsam, blue"] = /obj/item/clothing/under/cheongsam/blue
@@ -125,6 +132,14 @@
 	display_name = "uniform, captain dress"
 	path = /obj/item/clothing/under/dress/dress_cap
 	allowed_roles = list("Captain")
+
+/datum/gear/uniform/customdress
+	display_name = "Evening gown"
+	path = /obj/item/clothing/under/dress/dress_evening
+
+/datum/gear/uniform/customdress/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
 
 /datum/gear/uniform/corpsecsuit
 	display_name = "uniform, corporate (Security)"
@@ -174,6 +189,10 @@
 	pants["tan pants"] = /obj/item/clothing/under/pants/tan
 	pants["khaki pants"] = /obj/item/clothing/under/pants/khaki
 	pants["track pants"] = /obj/item/clothing/under/pants/track
+	pants["blue track pants"] = /obj/item/clothing/under/pants/track/blue
+	pants["green track pants"] = /obj/item/clothing/under/pants/track/green
+	pants["white track pants"] = /obj/item/clothing/under/pants/track/white
+	pants["red track pants"] = /obj/item/clothing/under/pants/track/red
 	pants["camo pants"] = /obj/item/clothing/under/pants/camo
 	pants["athletic shorts, black"] = /obj/item/clothing/under/shorts
 	pants["athletic shorts, red"] = /obj/item/clothing/under/shorts/red
@@ -211,3 +230,15 @@
 	suit["dominia suit, black"] = /obj/item/clothing/under/dominia/black
 	suit["lyodsuit"] = /obj/item/clothing/under/dom_thermal
 	gear_tweaks += new/datum/gear_tweak/path(suit)
+
+/datum/gear/uniform/miscellaneous/kimono
+	display_name = "kimono"
+	path = /obj/item/clothing/under/kimono
+
+/datum/gear/uniform/miscellaneous/kimono/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/uniform/miscellaneous/greensuit
+	display_name = "green formal uniform"
+	path = /obj/item/clothing/under/gov

@@ -217,7 +217,7 @@
 		var/choice = input("Select a destination.") as null|anything in MS.destinations
 		if(!choice) return
 
-		usr << "<span class='notice'>[shuttle_tag] main computer recieved message.</span>"
+		usr << "<span class='notice'>[shuttle_tag] main computer received message.</span>"
 
 		if(MS.at_origin)
 			MS.announce_arrival()

@@ -81,7 +81,7 @@
 	},
 /area/derelict/ship)
 "an" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},

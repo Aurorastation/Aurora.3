@@ -14,10 +14,11 @@
 /obj/machinery/mineral/stacking_unit_console/proc/setup_machine(mob/user)
 	if(!machine)
 		var/area/A = get_area(src)
+		var/best_distance = INFINITY
 		for(var/obj/machinery/mineral/stacking_machine/checked_machine in SSmachinery.all_machines)
-			if(A == get_area(checked_machine))
+			if(A == get_area(checked_machine) && get_dist_euclidian(checked_machine,src) < best_distance)
 				machine = checked_machine
-				break
+				best_distance = get_dist_euclidian(checked_machine,src)
 		if (machine)
 			machine.console = src
 		else

@@ -17,6 +17,7 @@
       "data"
     ],
     "dlls": [
-      "libmysql.dll"
+      "libmysql.dll",
+      "rust_g.dll"
     ]
   }

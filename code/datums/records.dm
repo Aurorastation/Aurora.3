@@ -9,8 +9,9 @@
 /datum/record/proc/Copy(var/datum/copied)
 	if(!copied)
 		copied = new src.type()
+	var/exclusions = (SSrecords.excluded_fields | src.excluded_fields)
 	for(var/variable in src.vars)
-		if(variable in (SSrecords.excluded_fields || src.excluded_fields)) continue
+		if(variable in exclusions) continue
 		if(istype(src.vars[variable], /datum/record) || istype(src.vars[variable], /list))
 			copied.vars[variable] = src.vars[variable].Copy()
 		else
@@ -23,8 +24,9 @@
 		. = record = list()
 	else
 		record = to_update || list()
+	var/exclusions = (SSrecords.excluded_fields | src.excluded_fields | excluded)
 	for(var/variable in src.vars)
-		if(!(variable in (SSrecords.excluded_fields || src.excluded_fields || excluded)))
+		if(!(variable in exclusions))
 			if(deep && (istype(src.vars[variable], /datum/record)))
 				if(to_update)
 					var/listified = src.vars[variable].Listify(to_update = to_update[variable])
@@ -66,6 +68,7 @@
 	excluded_fields = list("photo_front", "photo_side", "advanced_fields")
 
 /datum/record/general/New(var/mob/living/carbon/human/H, var/nid)
+	..()
 	if (!H)
 		var/mob/living/carbon/human/dummy = SSmob.get_mannequin("New record")
 		photo_front = getFlatIcon(dummy, SOUTH, always_use_defdir = TRUE)
@@ -103,6 +106,7 @@
 	var/exploit_record = "No additional information acquired."
 
 /datum/record/general/locked/New(var/mob/living/carbon/human/H)
+	..()
 	// Only init things that aqre needed
 	if(H)
 		nid = md5("[H.real_name][H.mind.assigned_role]")
@@ -121,6 +125,7 @@
 	var/list/comments = list()
 
 /datum/record/medical/New(var/mob/living/carbon/human/H, var/nid)
+	..()
 	if(!nid) nid = generate_record_id()
 	id = nid
 	if(H)
@@ -129,7 +134,7 @@
 		if(H.med_record && !jobban_isbanned(H, "Records"))
 			notes = H.med_record
 
-// Record for storing medical data
+// Record for storing security data
 /datum/record/security
 	var/criminal = "None"
 	var/crimes = "There is no crime convictions."
@@ -155,9 +160,10 @@
 
 var/warrant_uid = 0
 /datum/record/warrant/New()
+	..()
 	id = warrant_uid++
 
-// Digital warrant
+// Virus record
 /datum/record/virus
 	var/name = "Unknown"
 	var/description = ""

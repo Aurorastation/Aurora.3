@@ -38,6 +38,7 @@ var/list/advance_cures = 	list(
 	// NEW VARS
 
 	var/list/symptoms = list() // The symptoms of the disease.
+	var/list/properties = list() // List of properties
 	var/id = ""
 	var/processing = 0
 
@@ -168,7 +169,7 @@ var/list/advance_cures = 	list(
 
 /datum/disease/advance/proc/Refresh(var/new_name = 0)
 	//world << "[src.name] \ref[src] - REFRESH!"
-	var/list/properties = GenerateProperties()
+	GenerateProperties()
 	AssignProperties(properties)
 
 	if(!archive_diseases[GetDiseaseID()])
@@ -187,8 +188,6 @@ var/list/advance_cures = 	list(
 		CRASH("We did not have any symptoms before generating properties.")
 		return
 
-	var/list/properties = list("resistance" = 1, "stealth" = 1, "stage_rate" = 1, "transmittable" = 1, "severity" = 1)
-
 	for(var/datum/symptom/S in symptoms)
 
 		properties["resistance"] += S.resistance
@@ -196,8 +195,6 @@ var/list/advance_cures = 	list(
 		properties["stage_rate"] += S.stage_speed
 		properties["transmittable"] += S.transmittable
 		properties["severity"] = max(properties["severity"], S.level) // severity is based on the highest level symptom
-
-	return properties
 
 // Assign the properties that are in the list.
 /datum/disease/advance/proc/AssignProperties(var/list/properties = list())
@@ -412,6 +409,18 @@ var/list/advance_cures = 	list(
 		for(var/datum/symptom/S in D.symptoms)
 			name_symptoms += S.name
 		message_admins("[key_name_admin(user)] has triggered a custom virus outbreak of [D.name]! It has these symptoms: [english_list(name_symptoms)]")
+
+/datum/disease/advance/proc/totalStageSpeed()
+	return properties["stage_rate"]
+
+/datum/disease/advance/proc/totalStealth()
+	return properties["stealth"]
+
+/datum/disease/advance/proc/totalResistance()
+	return properties["resistance"]
+
+/datum/disease/advance/proc/totalTransmittable()
+	return properties["transmittable"]
 
 /*
 /mob/verb/test()

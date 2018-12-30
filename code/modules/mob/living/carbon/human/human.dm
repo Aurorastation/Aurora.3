@@ -787,14 +787,22 @@
 	return 1
 
 /mob/living/carbon/human/IsAdvancedToolUser(var/silent)
+
+	if(is_berserk())
+		if(!silent)
+			src << "<span class='warning'>You are in no state to use that!</span>"
+		return 0
+
 	if(!species.has_fine_manipulation)
 		if(!silent)
 			src << "<span class='warning'>You don't have the dexterity to use that!</span>"
 		return 0
+
 	if(disabilities & MONKEYLIKE)
 		if(!silent)
 			src << "<span class='warning'>You don't have the dexterity to use that!</span>"
 		return 0
+
 	return 1
 
 /mob/living/carbon/human/abiotic(var/full_body = 0)
@@ -1267,8 +1275,11 @@
 
 	exhaust_threshold = species.exhaust_threshold
 	max_nutrition = BASE_MAX_NUTRITION * species.max_nutrition_factor
+	max_hydration = BASE_MAX_HYDRATION * species.max_hydration_factor
 
 	nutrition_loss = HUNGER_FACTOR * species.nutrition_loss_factor
+	hydration_loss = THIRST_FACTOR * species.hydration_loss_factor
+	
 	if(species)
 		return 1
 	else

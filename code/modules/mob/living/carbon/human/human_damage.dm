@@ -258,7 +258,6 @@
 				for(var/mob/living/carbon/human/H in lattice_users)
 					if(H != src)
 						H.setHalLoss(min(max(H.getHalLoss() + amount, 0),(H.maxHealth*2)))
-						H << "<span class='danger'>Your neural lattice buzzes, filling your mind with pain!</span>"
 
 	halloss = min(max(halloss + amount, 0),(maxHealth*2))
 

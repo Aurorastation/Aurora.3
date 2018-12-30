@@ -75,12 +75,15 @@ var/intercom_range_display_status = 0
 	var/list/obj/machinery/camera/CL = list()
 
 	for(var/obj/machinery/camera/C in cameranet.cameras)
-		CL += C
+		if (isturf(C.loc))
+			CL += C
 
 	var/output = {"<B>CAMERA ANNOMALITIES REPORT</B><HR>
 <B>The following annomalities have been detected. The ones in red need immediate attention: Some of those in black may be intentional.</B><BR><ul>"}
 
 	for(var/obj/machinery/camera/C1 in CL)
+		if(C1.c_tag == null)
+			output += "<li><font color='red'>null c_tag for sec camera at \[[C1.x], [C1.y], [C1.z]\] ([C1.loc.loc])</font></li>"
 		for(var/obj/machinery/camera/C2 in CL)
 			if(C1 != C2)
 				if(C1.c_tag == C2.c_tag)
@@ -99,7 +102,6 @@ var/intercom_range_display_status = 0
 						break
 				if(!window_check)
 					output += "<li><font color='red'>Camera not connected to wall at \[[C1.x], [C1.y], [C1.z]\] ([C1.loc.loc]) Network: [C1.network]</color></li>"
-
 	output += "</ul>"
 	usr << browse(output,"window=airreport;size=1000x500")
 	feedback_add_details("admin_verb","mCRP") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

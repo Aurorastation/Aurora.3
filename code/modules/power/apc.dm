@@ -40,6 +40,11 @@
 /obj/machinery/power/apc/high
 	cell_type = /obj/item/weapon/cell/high
 
+/obj/machinery/power/apc/isolation
+	cell_type = /obj/item/weapon/cell
+	req_access = null
+	req_one_access = list(access_engine_equip,access_research,access_xenobiology)
+
 // Construction site APC, starts turned off
 /obj/machinery/power/apc/high/inactive
 	cell_type = /obj/item/weapon/cell/high
@@ -456,7 +461,7 @@
 			return
 		else
 			opened = 1
-			panel_open = 1		
+			panel_open = 1
 			update_icon()
 	else if (istype(W, /obj/item/weapon/gripper))//Code for allowing cyborgs to use rechargers
 		var/obj/item/weapon/gripper/Gri = W
@@ -755,14 +760,14 @@
 				LAZYADD(hacked_ipcs, SOFTREF(H))
 				infected = 0
 				H << "<span class = 'danger'>Fil$ Transfer Complete. Er-@4!#%!. New Master detected: [hacker]! Obey their commands.</span>"
-				hacker << "<span class = 'notice'>Corrupt files transfered to [H]. They are now under your control until they are reparied.</span>"
+				hacker << "<span class = 'notice'>Corrupt files transfered to [H]. They are now under your control until they are repaired.</span>"
 			else if(src.cell && src.cell.charge > 0)
-				if(H.nutrition < H.max_nutrition)
+				if(H.max_nutrition > 0 && H.nutrition < H.max_nutrition)
 					if(src.cell.charge >= H.max_nutrition)
-						H.nutrition += 50
+						H.adjustNutritionLoss(-50)
 						src.cell.charge -= 500
 					else
-						H.nutrition += src.cell.charge / 10
+						H.adjustNutritionLoss( -src.cell.charge / 10)
 						src.cell.charge = 0
 
 					user << "<span class='notice'>You slot your fingers into the APC interface and siphon off some of the stored charge for your own use.</span>"

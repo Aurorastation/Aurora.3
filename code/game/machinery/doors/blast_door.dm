@@ -21,7 +21,6 @@
 	var/icon_state_closed = null
 	var/icon_state_closing = null
 	var/damage = BLAST_DOOR_CRUSH_DAMAGE
-
 	closed_layer = 3.4 // Above airlocks when closed
 	var/id = 1.0
 	dir = 1
@@ -40,6 +39,10 @@
 	. = ..()
 	if(_wifi_id)
 		wifi_receiver = new(_wifi_id, src)
+	if(density)
+		layer = closed_layer
+	else
+		layer = open_layer
 
 /obj/machinery/door/airlock/Destroy()
 	qdel(wifi_receiver)
@@ -82,6 +85,8 @@
 // Parameters: None
 // Description: Closes the door. No checks are done inside this proc.
 /obj/machinery/door/blast/proc/force_close()
+	if(density)
+		return 0
 	src.operating = 1
 	src.layer = closed_layer
 	flick(icon_state_closing, src)
@@ -176,10 +181,10 @@
 	if(src.operating || (stat & BROKEN))
 		return
 	if(stat & NOPOWER)
-		force_close()
+		INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_close)
 		securitylock = 1
 	else if(securitylock)
-		force_open()
+		INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_open)
 		securitylock = 0
 
 

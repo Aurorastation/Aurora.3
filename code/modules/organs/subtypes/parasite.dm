@@ -37,6 +37,7 @@
 
 /obj/item/organ/parasite/kois
 	name = "k'ois mycosis"
+	icon = 'icons/obj/surgery.dmi'
 	icon_state = "kois-on"
 	dead_icon = "kois-off"
 
@@ -103,6 +104,7 @@
 
 /obj/item/organ/parasite/blackkois
 	name = "k'ois mycosis"
+	icon = 'icons/obj/surgery.dmi'
 	icon_state = "black-on"
 	dead_icon = "black-off"
 	subtle = 1
@@ -137,7 +139,8 @@
 
 		if(prob(5))
 			owner << "<span class='warning'>You feel something squirming inside of you!</span>"
-			owner.reagents.add_reagent("phoron", 4)
+			owner.reagents.add_reagent("phoron", 6)
+			owner.reagents.add_reagent("blackkois", 4)
 
 		else if(prob(10))
 			owner << "<span class='warning'>You feel disorientated!</span>"
@@ -199,3 +202,61 @@
 		target << "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>"
 	removed_langs = 0
 	..()
+
+/obj/item/organ/parasite/zombie
+	name = "black tumor"
+	icon = 'icons/obj/surgery.dmi'
+	icon_state = "blacktumor"
+	dead_icon = "blacktumor"
+
+	organ_tag = "zombie"
+
+	parent_organ = "chest"
+	stage_interval = 150
+
+/obj/item/organ/parasite/zombie/process()
+	..()
+
+	if (!owner)
+		return
+
+	if(prob(10) && !(owner.species.flags & NO_PAIN))
+		owner << "<span class='warning'>You feel a burning sensation on your skin!</span>"
+		owner.make_jittery(10)
+
+	else if(prob(10))
+		owner.emote("moan")
+
+	if(stage >= 2)
+		if(prob(15))
+			owner.emote("scream")
+			if(!isundead(owner))
+				owner.adjustBrainLoss(2, 55)
+
+		else if(prob(10))
+			if(!isundead(owner))
+				owner << "<span class='warning'>You feel sick.</span>"
+				owner.adjustToxLoss(5)
+				owner.delayed_vomit()
+
+	if(stage >= 3)
+		if(prob(10))
+			if(isundead(owner))
+				owner.adjustBruteLoss(-30)
+				owner.adjustFireLoss(-30)
+			else
+				owner << "<span class='cult'>You feel an insatiable hunger.</span>"
+				owner.nutrition = -1
+
+	if(stage >= 4)
+		if(prob(10))
+			if(!isundead(owner))
+				if(ishuman_species(owner))
+					for(var/datum/language/L in owner.languages)
+						owner.remove_language(L.name)
+					owner << "<span class='warning'>You feel life leaving your husk, but death rejects you...</span>"
+					playsound(src.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
+					owner << "<font size='3'><span class='cult'>All that is left is a cruel hunger for the flesh of the living, and the desire to spread this infection. You must consume all the living!</font></span>"
+					owner.set_species("Zombie")
+				else
+					owner.adjustToxLoss(50)

@@ -105,6 +105,21 @@
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior",)
 	sort_category = "Xenowear"
 
+/datum/gear/mask/vaurca_expression
+	display_name = "human expression mask (Vaurca)"
+	path = /obj/item/clothing/mask/breath/vaurca/expression
+	cost = 1
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior",)
+	sort_category = "Xenowear"
+
+/datum/gear/mask/vaurca_expression/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/mask/vaurca_expression/skrell
+	display_name = "skrell expression mask (Vaurca)"
+	path = /obj/item/clothing/mask/breath/vaurca/expression/skrell
+
 /datum/gear/cape
 	display_name = "tunnel cloak (Vaurca)"
 	path = /obj/item/weapon/storage/backpack/cloak
@@ -162,7 +177,21 @@
 	coat["commoner cloak"] = /obj/item/clothing/suit/storage/tajaran/cloak
 	coat["royal cloak"] = /obj/item/clothing/suit/storage/tajaran/cloak/fancy
 	coat["gruff cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran
+	coat["adhomian wool coat"] = /obj/item/clothing/suit/storage/tajaran/nomad
 	gear_tweaks += new/datum/gear_tweak/path(coat)
+
+/datum/gear/suit/tajara_priest
+	display_name = "tajara priest robe selection (Tajara)"
+	path = /obj/item/clothing/suit/storage/tajaran
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	sort_category = "Xenowear"
+
+/datum/gear/suit/tajara_priest/New()
+	..()
+	var/robes = list()
+	robes["sun priest robe"] = /obj/item/clothing/suit/storage/hooded/tajaran/priest
+	robes["sun sister robe"] = /obj/item/clothing/suit/storage/tajaran/messa
+	gear_tweaks += new/datum/gear_tweak/path(robes)
 
 /datum/gear/suit/tajaran_labcoat
 	display_name = "PRA medical coat (Tajara)"
@@ -223,7 +252,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(scarf)
 
 /datum/gear/head/tajara
-	display_name = "dress circlet selection (Tajara)"
+	display_name = "adhomian headgear selection (Tajara)"
 	path = /obj/item/clothing/head/tajaran/circlet
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear"
@@ -233,6 +262,7 @@
 	var/circlet = list()
 	circlet["golden dress circlet"] = /obj/item/clothing/head/tajaran/circlet
 	circlet["silver dress circlet"] = /obj/item/clothing/head/tajaran/circlet/silver
+	circlet["fur hat"] = /obj/item/clothing/head/tajaran/fur
 	gear_tweaks += new/datum/gear_tweak/path(circlet)
 
 /datum/gear/accessory/tajara_wrap
@@ -253,6 +283,19 @@
 	path = /obj/item/clothing/accessory/tajaran_pelt
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear"
+
+/datum/gear/mask/tajara
+	display_name = "sun sister veil (Tajara)"
+	path = /obj/item/clothing/mask/tajara
+	cost = 1
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	sort_category = "Xenowear"
+
+/datum/gear/shoes/tajara
+	display_name = "native tajaran foot-wear"
+	path = /obj/item/clothing/shoes/tajara
+	sort_category = "Xenowear"
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 //other things
 

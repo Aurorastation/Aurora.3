@@ -12,7 +12,7 @@
 
 /obj/item/borg/upgrade/proc/action(var/mob/living/silicon/robot/R)
 	if(R.stat == DEAD)
-		usr << "<span class='warning'>The [src] will not function on a deceased robot.</span>"
+		to_chat(usr, "<span class='warning'>The [src] will not function on a deceased robot.</span>")
 		return 1
 	return 0
 
@@ -65,7 +65,7 @@
 	if(..()) return 0
 
 	if(R.intenselight)
-		usr << "This cyborg's light was already upgraded"
+		to_chat(usr, "<span class='notice'>This cyborg's light was already upgraded </span>")
 		return 0
 	else
 		R.intenselight = 1
@@ -81,7 +81,7 @@
 
 /obj/item/borg/upgrade/restart/action(var/mob/living/silicon/robot/R)
 	if(R.health < 0)
-		usr << "You have to repair the robot before using this module!"
+		to_chat(usr, "<span class='warning'>You have to repair the robot before using this module!</span>")
 		return 0
 
 	if(!R.key)
@@ -123,8 +123,8 @@
 	if(..()) return 0
 
 	if(!R.module || !(src.type in R.module.supported_upgrades))
-		R << "Upgrade mounting error!  No suitable hardpoint detected!"
-		usr << "There's no mounting point for the module!"
+		to_chat(R, "<span class='notice'>Upgrade mounting error!  No suitable hardpoint detected!</span>")
+		to_chat(usr, "<span class='warning'> There's no mounting point for the module!</span>")
 		return 0
 
 	var/obj/item/weapon/gun/energy/taser/mounted/cyborg/T = locate() in R.module
@@ -133,12 +133,12 @@
 	if(!T)
 		T = locate() in R.module.modules
 	if(!T)
-		usr << "This robot has had its taser removed!"
+		to_chat(usr, "This robot has had its taser removed!")
 		return 0
 
 	if(T.recharge_time <= 2)
-		R << "Maximum cooling achieved for this hardpoint!"
-		usr << "There's no room for another cooling unit!"
+		to_chat(R, "<span class='notice'>Maximum cooling achieved for this hardpoint!</span>")
+		to_chat(usr, "<span class='warning'>There's no room for another cooling unit!</span>")
 		return 0
 
 	else

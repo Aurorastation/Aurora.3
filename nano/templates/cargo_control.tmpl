@@ -5,6 +5,7 @@
 {{:helper.link('Shipped', 'cart', {'page' : 'overview_shipped'}, null)}}
 {{:helper.link('Delivered', 'cart', {'page' : 'overview_delivered'}, null)}}
 {{:helper.link('Shipments', 'cart', {'page' : 'overview_shipments'}, null)}}
+{{:helper.link('Bounties', 'cart', {'page' : 'bounties'}, null)}}
 {{:helper.link('Settings', 'cart', {'page' : 'settings'}, null)}}
 </div>
 <br>
@@ -95,9 +96,10 @@
                 <td>{{:value.ordered_by}}</td>
                 <td>{{:value.price_cargo}}</td>
                 <td>
-                    {{:helper.link('Approve', 'close', {'order_approve' : value.order_id}, null)}}
+                    {{:helper.link('Approve', 'check', {'order_approve' : value.order_id}, null)}}
                     {{:helper.link('Reject', 'close', {'order_reject' : value.order_id}, null)}}
-                    {{:helper.link('Details', 'close', {'order_details' : value.order_id, 'page': 'order_details'}, null)}}
+                    {{:helper.link('Details', 'zoomin', {'order_details' : value.order_id, 'page': 'order_details'}, null)}}
+                    {{:helper.link('Print', 'print', {'order_print' : value.order_id}, null)}}
                 </td>
             </tr>
         {{/props}}
@@ -143,7 +145,8 @@
             <td>{{:value.ordered_by}}</td>
             <td>{{:value.price_cargo}}</td>
             <td>
-                {{:helper.link('Details', 'close', {'order_details' : value.order_id, 'page': 'order_details'}, null)}}
+                {{:helper.link('Details', 'zoomin', {'order_details' : value.order_id, 'page': 'order_details'}, null)}}
+                {{:helper.link('Print', 'print', {'order_print' : value.order_id}, null)}}
             </td>
 		</tr>
     {{/props}}
@@ -182,7 +185,8 @@
             <td>{{:value.ordered_by}}</td>
             <td>{{:value.price_cargo}}</td>
             <td>
-                {{:helper.link('Details', 'close', {'order_details' : value.order_id, 'page': 'order_details'}, null)}}
+                {{:helper.link('Details', 'zoomin', {'order_details' : value.order_id, 'page': 'order_details'}, null)}}
+                {{:helper.link('Print', 'print', {'order_print' : value.order_id}, null)}}
             </td>
 		</tr>
     {{/props}}
@@ -221,7 +225,8 @@
             <td>{{:value.ordered_by}}</td>
             <td>{{:value.price_cargo}}</td>
             <td>
-                {{:helper.link('Details', 'close', {'order_details' : value.order_id, 'page': 'order_details'}, null)}}
+                {{:helper.link('Details', 'zoomin', {'order_details' : value.order_id, 'page': 'order_details'}, null)}}
+                {{:helper.link('Print', 'print', {'order_print' : value.order_id}, null)}}
             </td>
 		</tr>
     {{/props}}
@@ -234,12 +239,14 @@
         <th>Shipment #</th>
         <th>Expense</th>
         <th>Income</th>
+        <th>Action</th>
     </tr>
     {{props data.shipment_list}}
 		<tr>
 			<td>{{:value.shipment_num}}</td>
             <td>{{:value.shipment_cost_purchase}}</td>
             <td>{{:value.shipment_cost_sell}}</td>
+            <td>{{:helper.link('Print', 'print', {'shipment_print' : value.shipment_num}, null)}}</td>
 		</tr>
     {{/props}}
 	</table>
@@ -260,6 +267,49 @@
             </div>
         </div>
     </div>
+{{else data.page == "bounties"}}
+    <h3>Nanotrasen Cargo Bounties</h3>
+    <table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Reward</th>
+        <th>Completion</th>
+        <th>Status</th>
+    </tr>
+    {{props data.bounties}}
+        {{if value.high_priority}}
+            <tr style={{:value.background}}>
+                <td><b>{{:value.name}}</b></td>
+                <td><b>High Priority: {{:value.description}}</b></td>
+                <td><b>{{:value.reward_string}}</b></td>
+                <td>{{:value.completion_string}}</td>
+                {{if value.can_claim}}
+                <td>{{:helper.link('Claim Bounty', 'check', {'claim_bounty' : value.name}, null)}}</td>
+                {{else value.claimed}}
+                <td>Claimed</td>
+                {{else}}
+                <td>Unclaimed</td>
+                {{/if}}
+            </tr>
+        {{else}}
+            <tr style={{:value.background}}>
+                <td>{{:value.name}}</td>
+                <td>{{:value.description}}</td>
+                <td>{{:value.reward_string}}</td>
+                <td>{{:value.completion_string}}</td>
+                {{if value.can_claim}}
+                <td>{{:helper.link('Claim Bounty', 'check', {'claim_bounty' : value.name}, null)}}</td>
+                {{else value.claimed}}
+                <td>Claimed</td>
+                {{else}}
+                <td>Unclaimed</td>
+                {{/if}}
+            </tr>
+        {{/if}}
+    {{/props}}
+	</table>
+    {{:helper.link('Print', 'print', {'bounty_print' : '1'}, null)}}
 {{else data.page == "order_details"}}
     <div class="statusDisplay" style="min-height: 100px;">
         <div class="item">

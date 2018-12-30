@@ -100,7 +100,7 @@
 		src.set_dir(angle2dir(adir))
 	return
 
-//calculates the fraction of the sunlight that the panel recieves
+//calculates the fraction of the sunlight that the panel receives
 /obj/machinery/power/solar/proc/update_solar_exposure()
 	if(!sun)
 		return
@@ -116,7 +116,7 @@
 		return
 
 	sunfrac = cos(p_angle) ** 2
-	//isn't the power recieved from the incoming light proportionnal to cos(p_angle) (Lambert's cosine law) rather than cos(p_angle)^2 ?
+	//isn't the power received from the incoming light proportionnal to cos(p_angle) (Lambert's cosine law) rather than cos(p_angle)^2 ?
 
 /obj/machinery/power/solar/machinery_process()//TODO: remove/add this from machines to save on processing as needed ~Carn PRIORITY
 	if(stat & BROKEN)

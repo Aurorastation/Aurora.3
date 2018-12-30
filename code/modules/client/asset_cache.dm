@@ -168,7 +168,8 @@ var/list/asset_datums = list()
 		"bootstrap.min.js" = 'html/bootstrap/js/bootstrap.min.js',
 		"jquery-2.0.0.min.js" = 'html/jquery/jquery-2.0.0.min.js',
 		"ie-truth.min.js" = 'html/iestats/ie-truth.min.js',
-		"conninfo.min.js" = 'html/iestats/conninfo.min.js'
+		"conninfo.min.js" = 'html/iestats/conninfo.min.js',
+		"copyright_infrigement.png" = 'html/copyright_infrigement.png'
 	)
 
 /datum/asset/simple/paper

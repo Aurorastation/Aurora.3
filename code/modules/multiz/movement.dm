@@ -145,7 +145,13 @@
 		return
 
 	if(destination.density)
+		to_chat(src, "<span class='notice'>There is something obstructing your destination!</span>")
 		return
+
+	for(var/obj/O in destination)
+		if(O.density)
+			to_chat(src, "<span class='notice'>There is something obstructing your destination!</span>")
+			return
 
 	visible_message("<span class='notice'>The [src] begins to climb [(direction == UP) ? "upwards" : "downwards"].</span>",
 		"<span class='notice'>You begin to climb [(direction == UP) ? "upwards" : "downwards"].</span>")

@@ -101,6 +101,7 @@
 	var/vend_id = "generic"	//Id of the refill cartridge that has to be used
 	var/restock_items = 0	//If items can be restocked into the vending machine
 	var/list/restock_blocked_items = list() //Items that can not be restocked if restock_items is enabled
+	var/random_itemcount = 1 //If the number of items should be randomized
 
 /obj/machinery/vending/Initialize()
 	. = ..()
@@ -140,8 +141,11 @@
 			var/datum/data/vending_product/product = new/datum/data/vending_product(entry)
 
 			product.price = (entry in src.prices) ? src.prices[entry] : 0
-			product.amount = (current_list[1][entry]) ? current_list[1][entry] : 1
-			product.max_amount = product.amount
+			product.max_amount = product.amount = product.amount = (current_list[1][entry]) ? current_list[1][entry] : 1
+			if (random_itemcount == 1 && category == CAT_NORMAL) //Only the normal category is randomized.
+				product.amount = rand(1,product.max_amount)
+			else
+				product.amount = product.max_amount
 			product.category = category
 
 			src.product_records.Add(product)
@@ -512,13 +516,13 @@
 		categories &= ~CAT_COIN
 
 	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))))
-		if ((href_list["vend"]) && (src.vend_ready) && (!currently_vending))
+		if (href_list["vendItem"] && vend_ready && !currently_vending)
 			if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
 				usr << "<span class='warning'>Access denied.</span>"	//Unless emagged of course
 				flick(icon_deny,src)
 				return
 
-			var/key = text2num(href_list["vend"])
+			var/key = text2num(href_list["vendItem"])
 			var/datum/data/vending_product/R = product_records[key]
 
 			// This should not happen unless the request from NanoUI was bad

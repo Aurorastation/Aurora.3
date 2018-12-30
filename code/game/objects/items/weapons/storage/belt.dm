@@ -4,6 +4,7 @@
 	icon = 'icons/obj/clothing/belts.dmi'
 	icon_state = "utilitybelt"
 	item_state = "utility"
+	force = 2
 	storage_slots = 7
 	max_w_class = 3
 	max_storage_space = 28
@@ -315,3 +316,57 @@
 	item_state = "bandolier"
 	can_hold = list(/obj/item/ammo_casing/shotgun)
 	storage_slots = 16
+
+/obj/item/weapon/storage/belt/fannypack
+	name = "leather fannypack"
+	desc = "A dorky fannypack for keeping small items in."
+	icon_state = "fannypack_leather"
+	item_state = "fannypack_leather"
+	max_w_class = 2
+	storage_slots = null
+	max_storage_space = 8
+
+/obj/item/weapon/storage/belt/fannypack/black
+ 	name = "black fannypack"
+ 	icon_state = "fannypack_black"
+ 	item_state = "fannypack_black"
+
+/obj/item/weapon/storage/belt/fannypack/blue
+ 	name = "blue fannypack"
+ 	icon_state = "fannypack_blue"
+ 	item_state = "fannypack_blue"
+
+/obj/item/weapon/storage/belt/fannypack/cyan
+ 	name = "cyan fannypack"
+ 	icon_state = "fannypack_cyan"
+ 	item_state = "fannypack_cyan"
+
+/obj/item/weapon/storage/belt/fannypack/green
+ 	name = "green fannypack"
+ 	icon_state = "fannypack_green"
+ 	item_state = "fannypack_green"
+
+/obj/item/weapon/storage/belt/fannypack/orange
+ 	name = "orange fannypack"
+ 	icon_state = "fannypack_orange"
+ 	item_state = "fannypack_orange"
+
+/obj/item/weapon/storage/belt/fannypack/purple
+ 	name = "purple fannypack"
+ 	icon_state = "fannypack_purple"
+ 	item_state = "fannypack_purple"
+
+/obj/item/weapon/storage/belt/fannypack/red
+ 	name = "red fannypack"
+ 	icon_state = "fannypack_red"
+ 	item_state = "fannypack_red"
+
+/obj/item/weapon/storage/belt/fannypack/white
+ 	name = "white fannypack"
+ 	icon_state = "fannypack_white"
+ 	item_state = "fannypack_white"
+
+/obj/item/weapon/storage/belt/fannypack/yellow
+ 	name = "yellow fannypack"
+ 	icon_state = "fannypack_yellow"
+ 	item_state = "fannypack_yellow"

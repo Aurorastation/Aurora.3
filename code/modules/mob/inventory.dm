@@ -294,7 +294,7 @@ var/list/slot_equipment_priority = list( \
 			var/turf/end_T = get_turf(target)
 			if(start_T && end_T)
 				var/mob/M = item
-				if(disabilities & PACIFIST)
+				if(is_pacified())
 					to_chat(src, "<span class='notice'>You gently let go of [M].</span>")
 					src.remove_from_mob(item)
 					item.loc = src.loc
@@ -314,7 +314,7 @@ var/list/slot_equipment_priority = list( \
 	src.remove_from_mob(item)
 	item.loc = src.loc
 
-	if(disabilities & PACIFIST)
+	if(is_pacified())
 		to_chat(src, "<span class='notice'>You set [item] down gently on the ground.</span>")
 		return
 

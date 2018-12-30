@@ -119,7 +119,7 @@
 			return
 
 		if (D.stat == DEAD)
-			src.nutrition += NYMPH_ABSORB_NUTRITION * NYMPH_ABSORB_DEAD_FACTOR //Consuming dead nymphs gives far less nutrition
+			src.adjustNutritionLoss(-NYMPH_ABSORB_NUTRITION * NYMPH_ABSORB_DEAD_FACTOR)
 			qdel(D)
 			return 1
 		else
@@ -129,8 +129,8 @@
 			D.update_verbs()
 			sleep(2)
 			if (is_diona() == DIONA_NYMPH)//We only care about biomass if we're a nymph
-				src.nutrition += NYMPH_ABSORB_NUTRITION
-				src.nutrition += D.nutrition //Any biomass in the absorbed nymph is transferred to the host
+				src.adjustNutritionLoss(-NYMPH_ABSORB_NUTRITION)
+				src.adjustNutritionLoss(-D.nutrition)
 				D.nutrition = 0
 
 			D << "<span class='notice'>You feel your being twine with that of \the [src] as you merge with its biomass.</span>"
@@ -167,20 +167,17 @@
 	if (r != "Time to leaf")
 		return
 
-
 	src.loc << span("warning", "You feel a pang of loss as [src] splits away from your biomass.")
 	src << "<span class='notice'>You wiggle out of the depths of [src.loc]'s biomass and plop to the ground.</span>"
 
 	if (gestalt.is_diona() == DIONA_NYMPH)
-		gestalt.nutrition -= NYMPH_ABSORB_NUTRITION//Preventing an exploit with repeatedly absorbing and splitting
+		gestalt.adjustNutritionLoss(NYMPH_ABSORB_NUTRITION)
 
 	split_languages(gestalt)
 	src.forceMove(get_turf(src))
 	stat = CONSCIOUS
 	gestalt = null
 	update_verbs()
-
-
 
 //Draws a sizeable blood sample from a victim to read their DNA and learn languages
 /mob/living/carbon/alien/diona/proc/sample()
@@ -220,7 +217,7 @@
 		src.visible_message("<span class='danger'>[src] bites into [donor.name] and drains some of their blood</span>", "<span class='danger'>You bite into [donor.name] and drain some blood.</span>")
 		src << "<span class='danger'>This simple creature has insufficient intelligence for you to learn anything!</span>"
 		donor.adjustBruteLoss(4)
-		nutrition += 20
+		adjustNutritionLoss(-20)
 		return
 	else if (types & TYPE_WEIRD)
 		src.visible_message("<span class='danger'>[src] attempts to bite into [donor.name] but passes right through it!.</span>", "<span class='danger'>You attempt to sink your fangs into [donor.name] but pass right through it!</span>")
@@ -245,7 +242,7 @@
 			var/remove_amount = (total_blood - 280) * 0.3
 			if (remove_amount > 0)
 				vessel.remove_reagent("blood", remove_amount, 1)//85 units of blood is enough to affect a human and make them woozy
-				nutrition += remove_amount*0.5
+				adjustNutritionLoss(-remove_amount*0.5)
 			var/list/data = vessel.get_data("blood")
 			newDNA = data["blood_DNA"]
 

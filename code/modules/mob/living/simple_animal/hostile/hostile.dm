@@ -18,8 +18,17 @@
 	hunger_enabled = 0//Until automated eating mechanics are enabled, disable hunger for hostile mobs
 	var/shuttletarget = null
 	var/enroute = 0
+
+	// Vars to help find targets
 	var/list/targets = list()
 	var/attacked_times = 0
+	var/list/target_type_validator_map = list()
+
+/mob/living/simple_animal/hostile/Initialize()
+	. = ..()
+	target_type_validator_map[/mob/living] = CALLBACK(src, .proc/validator_living)
+	target_type_validator_map[/obj/mecha] = CALLBACK(src, .proc/validator_mecha)
+	target_type_validator_map[/obj/machinery/bot] = CALLBACK(src, .proc/validator_bot)
 
 /mob/living/simple_animal/hostile/Destroy()
 	friends = null
@@ -28,47 +37,25 @@
 	return ..()
 
 /mob/living/simple_animal/hostile/proc/FindTarget()
-
 	if(!faction) //No faction, no reason to attack anybody.
 		return null
 
 	var/atom/T = null
-	var/lowest_health = INFINITY // Max you can get
-	stop_automated_movement = 0
-
-	for(var/atom/A in targets)
-
+	for (var/atom/A in targets)
 		if(A == src)
 			continue
-
-		var/atom/F = Found(A)
-		if(F)
-			T = F
-			break
-
-		if(isliving(A))
-			var/mob/living/L = A
-			if((L.faction == src.faction) && !attack_same)
-				continue
-			if(L in friends)
-				continue
-
-			if(!L.stat && (L.health < lowest_health))
-				lowest_health = L.health
-				T = L
+		var/datum/callback/cb = null
+		for (var/type in target_type_validator_map)
+			if (istype(A, type))
+				cb = target_type_validator_map[type]
 				break
 
-		else if(istype(A, /obj/mecha)) // Our line of sight stuff was already done in ListTargets().
-			var/obj/mecha/M = A
-			if (M.occupant)
-				T = M
-				break
+		if (!cb)
+			continue
+		else if (!istype(cb) || cb.Invoke(A, T))
+			T = A
 
-		if(istype(A, /obj/machinery/bot))
-			var/obj/machinery/bot/B = A
-			if (B.health > 0)
-				T = B
-				break
+	stop_automated_movement = 0
 
 	if (T != target_mob)
 		target_mob = T
@@ -300,3 +287,36 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		spawn(10)
 			if(!src.stat)
 				horde()
+
+//////////////////////////////
+///////VALIDATOR PROCS////////
+//////////////////////////////
+
+/mob/living/simple_animal/hostile/proc/validator_living(var/mob/living/L, var/atom/current)
+	if((L.faction == src.faction) && !attack_same)
+		return FALSE
+	if(L in friends)
+		return FALSE
+	if(!L.stat)
+		var/current_health = INFINITY
+		if (isliving(current))
+			var/mob/living/M = current
+			current_health = M.health
+			if(L.health < current_health)
+				return TRUE
+
+/mob/living/simple_animal/hostile/proc/validator_mecha(var/obj/mecha/M, var/atom/current)
+	if(isliving(current)) // We prefer mobs over anything else
+		return FALSE
+	if (M.occupant)
+		return TRUE
+	else
+		return FALSE
+
+/mob/living/simple_animal/hostile/proc/validator_bot(var/obj/machinery/bot/B, var/atom/current)
+	if(isliving(current)) // We prefer mobs over anything else
+		return FALSE
+	if (B.health > 0)
+		return TRUE
+	else
+		return FALSE

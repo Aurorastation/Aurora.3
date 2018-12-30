@@ -96,7 +96,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 												/obj/structure/cult, /obj/structure/girder/cult, /obj/structure/grille/cult, /obj/effect/forcefield/cult,
 												/obj/effect/gateway, /obj/item/clothing/head/culthood, /obj/item/clothing/head/helmet/space/cult, /obj/item/clothing/shoes/cult,
 												/obj/item/clothing/suit/cultrobes, /obj/item/clothing/suit/space/cult, /obj/item/toy/cultsword, /obj/item/weapon/melee/cultblade,
-												/obj/item/weapon/storage/backpack/cultpack, /obj/item/weapon/storage/bible, /obj/effect/rune)),
+												/obj/item/weapon/storage/backpack/cultpack, /obj/item/weapon/storage/bible, /obj/effect/rune, /obj/item/weapon/spirit_board)),
 
 					   "doctors" = typecacheof(list(/obj/item/weapon/gun/launcher/syringe, /obj/item/weapon/reagent_containers/syringe, /obj/item/clothing/suit/storage/toggle/labcoat,
 												 /obj/item/toy/figure/md, /obj/item/weapon/bedsheet/medical, /obj/item/weapon/rig/medical, /obj/item/weapon/storage/backpack/duffel/med,

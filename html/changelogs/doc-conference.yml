@@ -1,7 +1,0 @@
-author: TheDocOct
-delete-after: True
-
-changes: 
-  - rscadd: "Added a conference room to the public surface level, with a bridge-access bolt button."
-  - maptweak: "Moved the surface level atmospherics equipment into the surface engineering storage room, and adjusted it accordingly."
-  - maptweak: "Renovated the surface command 'Head of Staff Preparation' room into 'Command Dock Monitoring'."

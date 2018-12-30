@@ -64,7 +64,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	output += "</div>"
 
-	src << browse(output,"window=playersetup;size=210x310;can_close=0")
+	src << browse(output,"window=playersetup;size=310x350;can_close=0")
 
 /mob/abstract/new_player/Stat()
 	..()
@@ -305,8 +305,6 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	UpdateFactionList(character)
 
-	equip_custom_items(character)
-
 	// AIs don't need a spawnpoint, they must spawn at an empty core
 	if(character.mind.assigned_role == "AI")
 
@@ -328,6 +326,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	//Find our spawning point.
 	var/join_message = SSjobs.LateSpawn(character, rank)
 
+	equip_custom_items(character)
+
 	character.lastarea = get_area(loc)
 	// Moving wheelchair if they have one
 	if(character.buckled && istype(character.buckled, /obj/structure/bed/chair/wheelchair))
@@ -335,7 +335,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		character.buckled.set_dir(character.dir)
 
 	SSticker.mode.handle_latejoin(character)
-	if(SSjobs.ShouldCreateRecords(rank))
+	if(SSjobs.ShouldCreateRecords(character.mind))
 		if(character.mind.assigned_role != "Cyborg")
 			SSrecords.generate_record(character)
 			SSticker.minds += character.mind//Cyborgs and AIs handle this in the transform proc.	//TODO!!!!! ~Carn

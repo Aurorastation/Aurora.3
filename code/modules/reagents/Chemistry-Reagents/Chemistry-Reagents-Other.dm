@@ -311,7 +311,7 @@
 	description = "A compound used to clean things. Now with 50% more sodium hypochlorite!"
 	reagent_state = LIQUID
 	color = "#A5F0EE"
-	touch_met = 50
+	touch_met = REM * 10
 	taste_description = "sourness"
 
 /datum/reagent/space_cleaner/touch_obj(var/obj/O)
@@ -323,9 +323,6 @@
 			var/turf/simulated/S = T
 			S.dirt = 0
 		T.clean_blood()
-
-		for(var/mob/living/carbon/slime/M in T)
-			M.adjustToxLoss(rand(5, 10))
 
 /datum/reagent/space_cleaner/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.r_hand)
@@ -354,10 +351,21 @@
 			return
 	M.clean_blood()
 
-/datum/reagent/lube // TODO: spraying on borgs speeds them up
+
+	if(istype(M,/mob/living/carbon/slime))
+		var/mob/living/carbon/slime/S = M
+		S.adjustToxLoss( volume * (removed/REM) * 0.5 )
+		if(!S.client)
+			if(S.Target) // Like cats
+				S.Target = null
+				++S.Discipline
+		if(dose == removed)
+			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the water touches it!</span>", "<span class='danger'>Your flesh burns in the water!</span>")
+
+/datum/reagent/lube
 	name = "Space Lube"
 	id = "lube"
-	description = "Lubricant is a substance introduced between two moving surfaces to reduce the friction and wear between them. giggity."
+	description = "Lubricant is a substance introduced between two moving surfaces to reduce the friction and wear between them."
 	reagent_state = LIQUID
 	color = "#009CA8"
 	taste_description = "cherry"
@@ -366,7 +374,7 @@
 	if(!istype(T))
 		return
 	if(volume >= 1)
-		T.wet_floor(2)
+		T.wet_floor(WET_TYPE_LUBE,volume)
 
 /datum/reagent/silicate
 	name = "Silicate"
@@ -451,19 +459,19 @@
 /datum/reagent/estus/affect_blood(var/mob/living/carbon/M, var/removed)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
-	if(isskeleton(M))
+	if(isundead(M))
 		M.heal_organ_damage(10 * removed, 15 * removed)
 
 /datum/reagent/estus/affect_ingest(var/mob/living/carbon/M, var/removed)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
-	if(isskeleton(M))
+	if(isundead(M))
 		M.heal_organ_damage(10 * removed, 15 * removed)
 
 /datum/reagent/estus/affect_touch(var/mob/living/carbon/M, var/removed)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
-	if(isskeleton(M))
+	if(isundead(M))
 		M.heal_organ_damage(10 * removed, 15 * removed)
 
 /datum/reagent/liquid_fire
@@ -617,3 +625,19 @@
 	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
 	if(!H.has_trauma_type(/datum/brain_trauma/special/love))
 		B.gain_trauma(/datum/brain_trauma/special/love,FALSE)
+
+/datum/reagent/bottle_lightning
+	name = "Bottled Lightning"
+	id = "lightning"
+	description = "A mysterious compound capable of producing electrical discharges."
+	reagent_state = LIQUID
+	color = "#70838A"
+	taste_description = "metal"
+
+/datum/reagent/bottle_lightning/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(prob(25))
+		tesla_zap(M, 6, 1500)
+
+/datum/reagent/bottle_lightning/touch_turf(var/turf/T)
+	if(volume >= 5)
+		tesla_zap(T, 6, 1500)

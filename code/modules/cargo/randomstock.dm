@@ -899,11 +899,14 @@ var/list/global/random_stock_large = list(
 	//This ensures the cargo bay will have a supply of food in an obtainable place for animals
 	//allows nymphs and mice to raid it for nutrients, and thus gives playermice more
 	//reason to infest the warehouse
+	//^fucking mouse main
 			if (CS && prob(65))
 				if (!istype(L, /turf))
 					L = get_turf(pick(CS.tables))
-
-			new /obj/item/weapon/storage/box/snack(L)
+			if(prob(50))
+				new /obj/item/weapon/storage/box/snack(L)
+			else
+				new /obj/item/weapon/storage/box/produce(L)
 
 		if ("oxytank")
 			new /obj/item/weapon/tank/oxygen(L)
@@ -1096,7 +1099,7 @@ var/list/global/random_stock_large = list(
 		if("chempack")
 			var/total = rand(2,6)
 			var/list/chems = SSchemistry.chemical_reagents.Copy()
-			var/list/exclusion = list("drink", "reagent", "adminordrazine", "beer2", "azoth", "elixir_life", "liquid_fire", "philosopher_stone", "undead_ichor")
+			var/list/exclusion = list("drink", "reagent", "adminordrazine", "beer2", "azoth", "elixir_life", "liquid_fire", "philosopher_stone", "undead_ichor", "love", "shapesand", "usolve", "sglue", "black_matter", "lightning", "trioxin")
 			chems -= exclusion
 			for (var/i=0,i<total,i++)
 				var/obj/item/weapon/reagent_containers/chem_disp_cartridge/C = new /obj/item/weapon/reagent_containers/chem_disp_cartridge(L)

@@ -1656,7 +1656,7 @@
 		return
 	if(href_list["toggle_maint_access"])
 		if(usr != src.occupant)	return
-		if(state)
+		if(state && src.dna != src.occupant.dna.unique_enzymes)
 			occupant_message("<font color='red'>Maintenance protocols in effect</font>")
 			return
 		maint_access = !maint_access
@@ -1851,8 +1851,6 @@
 		internal_tank_valve = rand(0,10000) // Screw up the cabin air pressure.
 		//This will probably kill the pilot if they dont check it before climbing in
 	if (prob(probability))
-		state = 1 // Enable maintenance mode. It won't move.
-	if (prob(probability))
 		use_internal_tank = !use_internal_tank // Flip internal tank mode on or off
 	if (prob(probability))
 		toggle_lights() // toggle the lights
@@ -1864,6 +1862,9 @@
 		radio.set_frequency(rand(1200,1600))
 	if (prob(probability))
 		maint_access = 0 // Disallow maintenance mode
+	else
+		maint_access = 1 // Explicitly allow maint_access -> Othwerwise we have a stuck mech, as you cant change the state back, if maint_access is 0
+		state = 1 // Enable maintenance mode. It won't move.
 
 /////////////////////////////////////////
 //////// Mecha process() helpers ////////

@@ -33,7 +33,7 @@ Bonus
 				M << "<span class='notice'>[pick("You feel blubbery.", "You feel full.")]</span>"
 			else
 				M.overeatduration = min(M.overeatduration + 100, 600)
-				M.nutrition = min(M.nutrition + 100, M.max_nutrition * 1.25)
+				M.adjustNutritionLoss(-100)
 
 	return
 
@@ -75,7 +75,7 @@ Bonus
 			else
 				M << "<span class='notice'>Your stomach rumbles.</span>"
 				M.overeatduration = max(M.overeatduration - 100, 0)
-				M.nutrition = max(M.nutrition - 100, 0)
+				M.adjustNutritionLoss(100)
 
 	return
 
@@ -114,6 +114,6 @@ Bonus
 		switch(A.stage)
 			if(4, 5)
 				M.overeatduration = 0
-				M.nutrition = M.max_nutrition
+				M.adjustNutritionLoss(-M.max_nutrition)
 
 	return

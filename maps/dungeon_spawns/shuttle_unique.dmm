@@ -318,8 +318,13 @@
 	lighting = 0;
 	locked = 0;
 	name = "north bump";
+	operating = 0;
 	pixel_x = 0;
 	pixel_y = 24
+	},
+/obj/structure/cable/yellow{
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crashed_ship)
@@ -338,7 +343,11 @@
 /turf/simulated/floor/tiled/white,
 /area/crashed_ship)
 "aW" = (
-/obj/machinery/power/smes/buildable,
+/obj/machinery/power/rtg/advanced,
+/obj/structure/cable/yellow{
+	d2 = 8;
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crashed_ship)
 "aX" = (
@@ -412,10 +421,6 @@
 /obj/item/weapon/reagent_containers/blood/ripped,
 /turf/simulated/floor/tiled/white,
 /area/crashed_ship)
-"bh" = (
-/obj/machinery/power/rtg/advanced,
-/turf/simulated/floor/tiled/dark,
-/area/crashed_ship)
 "bi" = (
 /obj/structure/table/rack,
 /obj/item/clothing/head/helmet,
@@ -476,6 +481,7 @@
 "bs" = (
 /obj/machinery/power/rtg/advanced,
 /obj/machinery/light/small,
+/obj/structure/cable/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/crashed_ship)
 "bt" = (
@@ -542,6 +548,19 @@
 	icon_state = "propulsion_r"
 	},
 /turf/unsimulated/chasm_mask,
+/area/crashed_ship)
+"DG" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/crashed_ship)
 
 (1,1,1) = {"
@@ -1382,10 +1401,10 @@ aa
 aa
 ae
 aT
-ai
-ai
-ai
-ai
+DG
+DG
+DG
+DG
 bs
 ae
 aa
@@ -1417,9 +1436,9 @@ aa
 ae
 ae
 aW
-bh
-bh
-bh
+aW
+aW
+aW
 ae
 ae
 aa

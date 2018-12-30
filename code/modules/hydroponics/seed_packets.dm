@@ -261,27 +261,6 @@ var/global/list/plant_seed_sprites = list()
 /obj/item/seeds/kudzuseed
 	seed_type = "kudzu"
 
-/obj/item/seeds/jurlmah
-	seed_type = "jurlmah"
-
-/obj/item/seeds/amauri
-	seed_type = "amauri"
-
-/obj/item/seeds/gelthi
-	seed_type = "gelthi"
-
-/obj/item/seeds/vale
-	seed_type = "vale"
-
-/obj/item/seeds/surik
-	seed_type = "surik"
-
-/obj/item/seeds/telriis
-	seed_type = "telriis"
-
-/obj/item/seeds/thaadra
-	seed_type = "thaadra"
-
 /obj/item/seeds/koisspore
 	seed_type = "koisspore"
 
@@ -308,3 +287,6 @@ var/global/list/plant_seed_sprites = list()
 
 /obj/item/seeds/onionseed
 	seed_type = "onion"
+
+/obj/item/seeds/ghostmushroomseed
+	seed_type = "ghostmushroom"

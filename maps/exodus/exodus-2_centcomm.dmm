@@ -3807,7 +3807,7 @@
 	},
 /area/centcom/evac)
 "akM" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/shuttle.dmi';
 	icon_state = "floor4"
@@ -8021,7 +8021,9 @@
 	locked = 1;
 	name = "To: Administration Level"
 	},
-/turf/unsimulated/wall/riveted,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
 /area/centcom/suppy)
 "axw" = (
 /obj/machinery/light/spot{
@@ -8630,7 +8632,7 @@
 	},
 /area/centcom/living)
 "azf" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
@@ -8654,7 +8656,7 @@
 	},
 /area/shuttle/escape/centcom)
 "azj" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
@@ -10082,7 +10084,7 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/weapon/reagent_containers/food/snacks/bigbiteburger,
+/obj/item/weapon/reagent_containers/food/snacks/burger/bigbite,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -10150,7 +10152,7 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/weapon/reagent_containers/food/snacks/beetsoup,
+/obj/item/weapon/reagent_containers/food/snacks/soup/beet,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -10281,7 +10283,7 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/weapon/reagent_containers/food/snacks/bloodsoup,
+/obj/item/weapon/reagent_containers/food/snacks/soup/blood,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -10453,7 +10455,7 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/weapon/reagent_containers/food/snacks/mushroomsoup,
+/obj/item/weapon/reagent_containers/food/snacks/soup/mushroom,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -12495,7 +12497,7 @@
 "aKz" = (
 /obj/structure/table/wood,
 /obj/structure/table/wood,
-/obj/item/weapon/reagent_containers/food/snacks/milosoup,
+/obj/item/weapon/reagent_containers/food/snacks/soup/milo,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -12713,7 +12715,7 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/weapon/reagent_containers/food/snacks/orangecakeslice/filled,
+/obj/item/weapon/reagent_containers/food/snacks/cakeslice/orange/filled,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -14245,7 +14247,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/computer/skills{
+/obj/machinery/computer/records/employment{
 	icon_state = "medlaptop";
 	pixel_x = 3;
 	pixel_y = 4
@@ -14552,7 +14554,7 @@
 	},
 /area/centcom/holding)
 "aPi" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "red"
@@ -15240,7 +15242,7 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/weapon/reagent_containers/food/snacks/carrotcakeslice/filled,
+/obj/item/weapon/reagent_containers/food/snacks/cakeslice/carrot/filled,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -16246,7 +16248,7 @@
 	},
 /area/centcom/holding)
 "aSU" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/machinery/camera/network/crescent{
 	c_tag = "Crescent Arrivals North";
 	dir = 8
@@ -16718,7 +16720,7 @@
 	},
 /area/centcom/control)
 "aTT" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -18345,7 +18347,7 @@
 	},
 /area/centcom/control)
 "aXp" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -19846,7 +19848,9 @@
 	name = "Traditional Vaurcesian Cuisine";
 	opacity = 1
 	},
-/turf/unsimulated/wall/riveted,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
 /area/centcom/spawning)
 "eYC" = (
 /obj/machinery/light,
@@ -21102,7 +21106,7 @@
 	},
 /area/centcom/spawning)
 "tcD" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -56724,7 +56728,7 @@ aXm
 pCY
 aXm
 eWW
-aaM
+aVL
 aaM
 aaM
 aaM
@@ -60489,7 +60493,7 @@ aaM
 avQ
 aLQ
 aLQ
-aLQ
+avQ
 axw
 aSs
 aSs

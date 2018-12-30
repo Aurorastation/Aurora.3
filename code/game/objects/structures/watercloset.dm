@@ -369,6 +369,16 @@
 	desc = "A sink used for washing one's hands and face."
 	anchored = 1
 	var/busy = 0 	//Something's being washed at the moment
+	var/amount_per_transfer_from_this = 10
+	var/possible_transfer_amounts = list(5,10,15,25,30,50,60,100,120,250,300)
+
+/obj/structure/sink/verb/set_APTFT() //set amount_per_transfer_from_this
+	set name = "Set transfer amount"
+	set category = "Object"
+	set src in view(1)
+	var/N = input("Amount per transfer from this:","[src]") as null|anything in possible_transfer_amounts
+	if (N)
+		amount_per_transfer_from_this = N
 
 /obj/structure/sink/attack_hand(mob/user as mob)
 	if (ishuman(user))
@@ -427,7 +437,7 @@
 					usr << "<span class='warning'>\The [RG] is already full.</span>"
 					return
 
-				RG.reagents.add_reagent("water", min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
+				RG.reagents.add_reagent("water", min(RG.volume - RG.reagents.total_volume, amount_per_transfer_from_this))
 				oviewers(3, usr) << "<span class='notice'>[usr] fills \the [RG] using \the [src].</span>"
 				usr << "<span class='notice'>You fill \the [RG] using \the [src].</span>"
 			if ("Empty")
@@ -435,9 +445,9 @@
 					usr << "<span class='warning'>\The [RG] is already empty.</span>"
 					return
 
-				RG.reagents.clear_reagents()
-				oviewers(3, usr) << "<span class='notice'>[usr] empties \the [RG] into \the [src].</span>"
-				usr << "<span class='notice'>You empty \the [RG] into \the [src].</span>"
+				var/empty_amount = RG.reagents.trans_to(src, RG.amount_per_transfer_from_this)
+				oviewers(3, usr) << "<span class='notice'>[usr] empties [empty_amount]u of \the [RG] into \the [src].</span>"
+				usr << "<span class='notice'>You empty [empty_amount]u of \the [RG] into \the [src].</span>"
 		return
 
 	// Filling/empying Syringes

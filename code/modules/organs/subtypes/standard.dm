@@ -96,7 +96,7 @@
 	maim_bonus = 1
 
 /obj/item/organ/external/foot/removed()
-	if(owner) 
+	if(owner)
 		owner.drop_from_inventory(owner.shoes)
 	..()
 
@@ -148,7 +148,7 @@
 	max_damage = 75
 	min_broken_damage = 35
 	w_class = 3
-	body_part = HEAD
+	body_part = HEAD | FACE
 	vital = 1
 	parent_organ = "chest"
 	joint = "jaw"

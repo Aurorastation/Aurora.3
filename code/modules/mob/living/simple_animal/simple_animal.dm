@@ -130,7 +130,7 @@
 	. = ..()
 	if(.)
 		if(src.nutrition && src.stat != DEAD && hunger_enabled)
-			src.nutrition -= nutrition_step
+			src.adjustNutritionLoss(nutrition_step)
 
 /mob/living/simple_animal/Released()
 	//These will cause mobs to immediately do things when released.
@@ -289,8 +289,7 @@
 /mob/living/simple_animal/proc/process_food()
 	if (hunger_enabled)
 		if (nutrition)
-			nutrition -= nutrition_step//Bigger animals get hungry faster
-			nutrition = max(0,min(nutrition, max_nutrition))//clamp the value
+			adjustNutritionLoss(nutrition_step)//Bigger animals get hungry faster
 		else
 			if (prob(3))
 				src << "You feel hungry..."
@@ -303,7 +302,7 @@
 			var/removed = min(current.metabolism*digest_factor, current.volume)
 			if (istype(current, /datum/reagent/nutriment))//If its food, it feeds us
 				var/datum/reagent/nutriment/N = current
-				nutrition += removed*N.nutriment_factor
+				adjustNutritionLoss(-removed*N.nutriment_factor)
 				var/heal_amount = removed*N.regen_factor
 				if (bruteloss > 0)
 					var/n = min(heal_amount, bruteloss)
@@ -669,8 +668,8 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 /mob/living/simple_animal/can_fall()
 	if (stat != DEAD && flying)
 		return FALSE
-	else
-		return TRUE
+
+	return ..()
 
 /mob/living/simple_animal/can_ztravel()
 	if (stat != DEAD && flying)

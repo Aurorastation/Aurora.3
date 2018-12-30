@@ -56,9 +56,8 @@
 		return 0
 
 	afterattack(obj/target, mob/user, proximity)
-		if(!proximity) return
 
-		if(target.is_open_container() && target.reagents)
+		if(proximity && target.is_open_container() && target.reagents)
 			if(!target.reagents.total_volume)
 				user << "<span class='notice'>[target] is empty. Can't dissolve \the [src].</span>"
 				return
@@ -72,8 +71,9 @@
 				O.show_message("<span class='warning'>[user] puts something in \the [target].</span>", 1)
 
 			qdel(src)
+			return
 
-		return
+		. = ..()
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Pills. END
@@ -160,7 +160,7 @@
 	Initialize()
 		. = ..()
 		reagents.add_reagent("escitalopram", 15)
-	
+
 /obj/item/weapon/reagent_containers/pill/escitalopram
 	name = "Escitalopram pill"
 	desc = "Mild anti-depressant."

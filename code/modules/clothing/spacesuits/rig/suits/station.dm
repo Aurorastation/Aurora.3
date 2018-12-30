@@ -68,7 +68,7 @@
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/industrial
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/weapon/pickaxe, /obj/item/weapon/rcd)
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/bag/ore,/obj/item/weapon/pickaxe, /obj/item/weapon/gun/custom_ka, /obj/item/weapon/gun/energy/vaurca/thermaldrill)
 
 	req_access = list()
 	req_one_access = list()
