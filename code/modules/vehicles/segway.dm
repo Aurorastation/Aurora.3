@@ -113,7 +113,7 @@
 
 /obj/vehicle/segway/MouseDrop_T(var/atom/movable/C, mob/user as mob)
 	if(!load(C))
-		user << "<span class='warning'>You were unable to load \the [C] onto \the [src].</span>"
+		to_chat(user, "<span class='warning'>You were unable to load \the [C] onto \the [src].</span>")
 		return
 
 /obj/vehicle/segway/attack_hand(var/mob/user as mob)
