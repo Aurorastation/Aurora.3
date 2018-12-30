@@ -16,6 +16,7 @@ var/list/dream_entries = list()
 			bg << "<span class='warning'>Whilst in shared dreaming, you find it difficult to hide your secrets.</span>"
 			if(willfully_sleeping)
 				bg << "To wake up, use the \"Awaken\" verb in the IC tab."
+			log_and_message_admins("has entered the shared dream", bg)
 	// Does NOT
 	else
 		if(istype(bg))
@@ -23,6 +24,7 @@ var/list/dream_entries = list()
 			if(willfully_sleeping && sleeping && stat == UNCONSCIOUS)
 				sleeping = 5
 				return
+			log_and_message_admins("has left the shared dream",bg)
 			var/mob/living/brain_ghost/old_bg = bg
 			bg = null
 			ckey = old_bg.ckey
