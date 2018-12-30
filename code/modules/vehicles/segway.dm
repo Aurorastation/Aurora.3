@@ -191,7 +191,7 @@
 	if(on)
 		turn_off()
 
-	key.loc = usr.loc
+	key.forceMove(usr.loc)
 	if(!usr.get_active_hand())
 		usr.put_in_hands(key)
 	key = null
