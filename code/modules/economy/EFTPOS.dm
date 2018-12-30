@@ -240,48 +240,18 @@
 				if(!linked_account.suspended)
 					var/attempt_pin = ""
 					var/datum/money_account/D = SSeconomy.get_account(C.associated_account_number)
-					if(D.security_level)
+					if(D.security_level >= 2)
 						attempt_pin = input("Enter pin code", "EFTPOS transaction") as num
-						D = null
-					D = SSeconomy.attempt_account_access(C.associated_account_number, attempt_pin, 2)
-					if(D)
-						if(!D.suspended)
-							if(transaction_amount <= D.money)
-								playsound(src, 'sound/machines/chime.ogg', 50, 1)
-								src.visible_message("\icon[src] \The [src] chimes.")
-								transaction_paid = 1
 
-								//transfer the money
-								D.money -= transaction_amount
-								linked_account.money += transaction_amount
+					var/message = SSeconomy.transfer_money(C.associated_account_number, linked_account.account_number, transaction_purpose, machine_id, transaction_amount, attempt_pin)
 
-								//create entries in the two account transaction logs
-								var/datum/transaction/T = new()
-								T.target_name = "[linked_account.owner_name] (via [eftpos_name])"
-								T.purpose = transaction_purpose
-								if(transaction_amount > 0)
-									T.amount = "([transaction_amount])"
-								else
-									T.amount = "[transaction_amount]"
-								T.source_terminal = machine_id
-								T.date = worlddate2text()
-								T.time = worldtime2text()
-								SSeconomy.add_transaction_log(D,T)
-								//
-								T = new()
-								T.target_name = D.owner_name
-								T.purpose = transaction_purpose
-								T.amount = "[transaction_amount]"
-								T.source_terminal = machine_id
-								T.date = worlddate2text()
-								T.time = worldtime2text()
-								SSeconomy.add_transaction_log(linked_account,T)
-							else
-								usr << "\icon[src]<span class='warning'>You don't have that much money!</span>"
-						else
-							usr << "\icon[src]<span class='warning'>Your account has been suspended.</span>"
+					if(message)
+						to_chat(usr,"\icon[src]<span class='warning'>[message].</span>")
 					else
-						usr << "\icon[src]<span class='warning'>Unable to access account. Check security settings and try again.</span>"
+						playsound(src, 'sound/machines/chime.ogg', 50, 1)
+						src.visible_message("\icon[src] \The [src] chimes.")
+						transaction_paid = 1
+
 				else
 					usr << "\icon[src]<span class='warning'>Connected account has been suspended.</span>"
 			else
