@@ -47,6 +47,9 @@
 /area/centcom/holding
 	name = "\improper Holding Facility"
 
+/area/centcom/legion
+	name = "\improper Tau Ceti Foreign Legion Base"
+
 //SYNDICATES
 
 /area/syndicate_mothership
