@@ -1088,6 +1088,11 @@
 	losebreath = 0
 	shock_stage = 0
 
+	//Fix husks
+	mutations.Remove(HUSK)
+	status_flags &= ~DISFIGURED	//Fixes the unknown status
+	update_body(1)
+
 	..()
 
 /mob/living/carbon/human/proc/is_lung_ruptured()
