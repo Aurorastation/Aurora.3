@@ -5,8 +5,8 @@ var/datum/antagonist/legion/legion
 	bantype = "Tau Ceti Foreign Legion"
 	role_text = "Tau Ceti Foreign Legion Volunteer"
 	role_text_plural = "Tau Ceti Foreign Legion Volunteers"
-	welcome_text = "As member of the Tau Ceti Foreign Legion, you answer only to your leader and government officials."
-	leader_welcome_text = "As leader of the Tau Ceti Foreign Legion Team, you answer only to government officials, and have authority to override the Captain where it is necessary to achieve your mission goals. It is recommended that you attempt to cooperate with the captain where possible, however."
+	welcome_text = "As member of the Tau Ceti Foreign Legion, you answer to your leader and NanoTrasen officials."
+	leader_welcome_text = "As leader of the Tau Ceti Foreign Legion Team, you answer only to the Tau Ceti goverment and NanoTrasen officials. It is recommended that you attempt to cooperate with the captain and the crew when possible."
 	landmark_id = "Tau Ceti Legion"
 
 	id_type = /obj/item/weapon/card/id/legion
