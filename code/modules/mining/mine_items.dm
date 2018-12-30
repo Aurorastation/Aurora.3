@@ -1136,7 +1136,7 @@ var/list/total_extraction_beacons = list()
 
 /obj/item/weapon/oreportal/attack_self(mob/user)
 	if(world.time - last_oresummon_time >= oresummon_delay)
-		user << "<span class='info'>You pulse the ore summoner.</span>"
+		to_chat(user, "<span class='info'>You pulse the ore summoner.</span>")
 		for(var/obj/item/weapon/ore/O in orange(7,user))
 			if(limit <= 0)
 				break
