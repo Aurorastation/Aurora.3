@@ -34,7 +34,7 @@
 	response_disarm = "gently pushes aside"
 	response_harm   = "stomps on"
 	density = 0
-	meat_amount = 2
+	meat_amount = 1
 	var/body_color //brown, gray and white, leave blank for random
 	layer = MOB_LAYER
 	mob_size = MOB_MINISCULE
