@@ -1465,7 +1465,7 @@
 /turf/simulated/floor/plating,
 /area/security/main)
 "acK" = (
-/obj/item/weapon/circuitboard/secure_data,
+/obj/machinery/computer/records/security,
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 8
@@ -4525,7 +4525,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "aiC" = (
-/obj/item/weapon/circuitboard/secure_data,
+/obj/machinery/computer/records/security,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -4842,7 +4842,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "ajf" = (
-/obj/item/weapon/circuitboard/secure_data,
+/obj/machinery/computer/records/security,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
@@ -5021,7 +5021,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "ajv" = (
-/obj/item/weapon/circuitboard/secure_data,
+/obj/machinery/computer/records/security,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "ajw" = (
@@ -6527,7 +6527,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/weapon/circuitboard/secure_data,
+/obj/machinery/computer/records/security,
 /obj/effect/floor_decal/corner/blue/full{
 	icon_state = "corner_white_full";
 	dir = 8
@@ -7880,7 +7880,7 @@
 	pixel_x = 4;
 	pixel_y = 6
 	},
-/obj/item/weapon/circuitboard/secure_data,
+/obj/machinery/computer/records/security,
 /turf/simulated/floor/tiled/dark,
 /area/lawoffice)
 "anX" = (
@@ -9726,7 +9726,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/lawoffice)
 "are" = (
-/obj/item/weapon/circuitboard/secure_data,
+/obj/machinery/computer/records/security,
 /turf/simulated/floor/tiled/white,
 /area/security/detectives_office)
 "arf" = (
@@ -15779,7 +15779,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "aCA" = (
-/obj/item/weapon/cartridge/detective,
+/obj/machinery/computer/records/security/detective,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "aCB" = (
@@ -16284,7 +16284,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "aDD" = (
-/obj/item/weapon/circuitboard/secure_data,
+/obj/machinery/computer/records/security,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
@@ -25055,7 +25055,7 @@
 /turf/simulated/wall/r_wall,
 /area/bridge)
 "aTP" = (
-/obj/item/weapon/circuitboard/secure_data,
+/obj/machinery/computer/records/security,
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled,
 /area/bridge)

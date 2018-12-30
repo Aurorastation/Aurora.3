@@ -9757,7 +9757,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aso" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
@@ -13752,7 +13752,7 @@
 /turf/simulated/floor/plating,
 /area/bridge)
 "ayD" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
@@ -17307,7 +17307,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/warden)
 "aEx" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/simulated/floor/tiled/dark,
 /area/security/warden)
 "aEy" = (
@@ -20692,7 +20692,7 @@
 /turf/simulated/floor/plating,
 /area/security/brig)
 "aJF" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -22801,7 +22801,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
 "aNe" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/structure/sign/goldenplaque{
 	pixel_x = -32
 	},
@@ -27275,7 +27275,7 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/hop)
 "aUy" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aUz" = (
@@ -33441,7 +33441,7 @@
 /area/medical/icu)
 "bff" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /turf/simulated/floor/carpet/blue,
 /area/medical/biostorage{
 	name = "\improper Medical - Exam Room 2"
@@ -34948,7 +34948,7 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
 	},
@@ -34994,7 +34994,7 @@
 	pixel_y = -30
 	},
 /obj/structure/table/standard,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 10
@@ -35991,7 +35991,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "bjr" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 5
@@ -40059,7 +40059,7 @@
 	name = "\improper Medical - Exam Room 1"
 	})
 "bpH" = (
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/structure/table/standard,
 /turf/simulated/floor/carpet/blue,
 /area/medical/exam_room{
@@ -40613,7 +40613,7 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /turf/simulated/floor/tiled,
 /area/medical/reception)
 "bqC" = (
@@ -40638,7 +40638,7 @@
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/structure/sign/nosmoking_1{
 	pixel_x = 32
 	},
@@ -45500,7 +45500,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/machinery/computer/records/medical/laptop,
+/obj/machinery/computer/records/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
 "byb" = (
