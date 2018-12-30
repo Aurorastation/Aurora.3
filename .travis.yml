@@ -4,7 +4,7 @@ sudo: false
 env:
   global:
     BYOND_MAJOR="512"
-    BYOND_MINOR="1453"
+    BYOND_MINOR="1454"
     MACRO_COUNT=77
     FLYWAY_BUILD="5.1.4"
     NODE_VERSION=10
@@ -22,7 +22,7 @@ cache:
     - $HOME/rust_g-${RUST_G_VERSION}
 
 addons:
-  mariadb: '10.1'
+  mariadb: '10.3'
   apt:
     packages:
       - libc6-i386
@@ -31,18 +31,18 @@ addons:
       - libssl-dev:i386
       - pkg-config:i386
       - gcc-multilib
+      - "python3"
+      - "python3-pip"
 
 node_js:
   - "10"
 
 install:
-  - pip install --user PyYaml -q
-  - pip install --user beautifulsoup4 -q
   - mysql -e 'CREATE DATABASE ss13_test;'
-  - chmod +x ./install-byond.sh
-  - ./install-byond.sh
-  - chmod +x ./install-flyway.sh
-  - ./install-flyway.sh
+  - chmod +x ./scripts/install-byond.sh
+  - ./scripts/install-byond.sh
+  - chmod +x ./scripts/install-flyway.sh
+  - ./scripts/install-flyway.sh
   - export LD_LIBRARY_PATH=./:$HOME/rust_g-$RUST_G_VERSION:$LD_LIBRARY_PATH
   - shopt -s globstar
   - chmod +x ./scripts/rust_g.sh
@@ -54,8 +54,7 @@ stages:
 
 
 script:
-  - $HOME/flyway-${FLYWAY_BUILD}/flyway migrate -user=root -password= -url=jdbc:mysql://localhost:3306/ss13_test
-  - python tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
+  - $HOME/flyway-${FLYWAY_BUILD}/flyway migrate -user=root -password= -url=jdbc:mariadb://localhost:3306/ss13_test
   - source $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}/byond/bin/byondsetup
   - cp config/example/* config/
   - scripts/dm.sh -DUNIT_TEST -M$USE_MAP aurorastation.dme
@@ -68,6 +67,9 @@ jobs:
   include:
     - stage: code check
       install:
+        - pip install --user PyYaml -q
+        - pip install --user beautifulsoup4 -q
+        - pip3 install --user bidict -q
         - chmod +x ./vueui/install
         - ./vueui/install
         - chmod +x ./scripts/rust_g.sh
@@ -84,3 +86,5 @@ jobs:
         - md5sum -c - <<< "94c0d540b3b0f008fbc4353e667de690 *html/changelogs/example.yml"
         - md5sum -c - <<< "51704c822012212faa577079db2e11fd *vueui/template.html"
         - python tools/TagMatcher/tag-matcher.py ../..
+        - python tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
+        - python3 tools/mapmerge2/travis_mapcheck.py

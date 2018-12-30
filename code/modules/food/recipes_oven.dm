@@ -205,8 +205,7 @@
 
 /datum/recipe/pumpkinpie
 	appliance = OVEN
-	fruit = list("pumpkin" = 1)
-	reagents = list("milk" = 5, "sugar" = 5, "egg" = 3, "flour" = 10)
+	reagents = list("milk" = 5, "sugar" = 5, "egg" = 3, "flour" = 10, "pumpkinpulp"= 5, "pumpkinspice"= 2)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/pumpkinpie
 	reagent_mix = RECIPE_REAGENT_REPLACE //We dont want raw egg in the result
 
@@ -474,7 +473,7 @@
 
 /datum/recipe/cake/birthday
 	appliance = OVEN
-	items = list(/obj/item/clothing/head/cakehat)
+	items = list(/obj/item/weapon/flame/candle)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/birthday
 
 /datum/recipe/cake/apple
@@ -489,13 +488,13 @@
 
 /datum/recipe/pancakes
 	appliance = OVEN
-	fruit = list("blueberries" = 2)
+	fruit = list("berries" = 2)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough,
 		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough
-	)
+		)
 	result = /obj/item/weapon/reagent_containers/food/snacks/pancakes
-	result = /obj/item/weapon/reagent_containers/food/snacks/pancakes
+	result_quantity = 2
 
 /datum/recipe/lasagna
 	appliance = OVEN
@@ -566,7 +565,7 @@
 
 /datum/recipe/truffle
 	appliance = OVEN
-	reagents = list("sugar" = 5, "cream" = 5)
+	reagents = list("coco" = 2, "cream" = 5)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/chocolatebar
 	)

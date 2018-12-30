@@ -1099,7 +1099,7 @@ I said no!
 
 /datum/recipe/cheese_cracker
 	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/spreads/butter,
+		/obj/item/weapon/reagent_containers/food/snacks/spreads,
 		/obj/item/weapon/reagent_containers/food/snacks/breadslice,
 		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
 	)
@@ -1208,6 +1208,7 @@ I said no!
 
 /datum/recipe/icecreamsandwich
 	reagents = list("milk" = 5, "ice" = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/icecream
 	)

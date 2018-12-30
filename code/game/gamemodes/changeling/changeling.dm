@@ -11,8 +11,8 @@
 		No one knows where it came from. No one knows who it is or what it wants. One thing is for \
 		certain though... there is never just one of them. Good luck."
 	config_tag = "changeling"
-	required_players = 2
-	required_enemies = 1
+	required_players = 10
+	required_enemies = 3
 	end_on_antag_death = 1
 	antag_scaling_coeff = 8
 	antag_tags = list(MODE_CHANGELING)

@@ -23,7 +23,6 @@
 				/spell/aoe_turf/conjure/mirage = 		    			1,
 				/spell/targeted/shapeshift/corrupt_form = 				1,
 				/spell/targeted/flesh_to_stone =                        1,
-				/spell/aoe_turf/conjure/golem =							1,
 				/spell/aoe_turf/blink = 								1,
 				/spell/noclothes = 					            		1,
 				/obj/structure/closet/wizard/armor = 					1,

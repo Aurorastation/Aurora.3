@@ -21,6 +21,12 @@
 	var/locked = 0
 	var/scan_id = 1
 	var/is_secure = 0
+
+	var/cooling = 0 //Whether or not to vend products at the cooling temperature
+	var/heating = 0 //Whether or not to vend products at the heating temperature
+	var/cooling_temperature = T0C + 5 //Best temp for soda.
+	var/heating_temperature = T0C + 57 //Best temp for coffee.
+
 	var/datum/wires/smartfridge/wires = null
 	atmos_canpass = CANPASS_NEVER
 
@@ -41,6 +47,18 @@
 
 /obj/machinery/smartfridge/proc/accept_check(var/obj/item/O as obj)
 	if(istype(O,/obj/item/weapon/reagent_containers/food/snacks/grown/) || istype(O,/obj/item/seeds/))
+		return 1
+	return 0
+
+/obj/machinery/smartfridge/foodheater
+	name = "\improper SmartHeater"
+	desc = "To keep the food warm!"
+	icon_state = "smartfridge_food"
+	icon_on = "smartfridge_food"
+	icon_off = "smartfridge_food-off"
+
+/obj/machinery/smartfridge/foodheater/accept_check(var/obj/item/O as obj)
+	if(istype(O,/obj/item/weapon/reagent_containers/food/snacks))
 		return 1
 	return 0
 
@@ -85,6 +103,17 @@
 		return 1
 	if(istype(O,/obj/item/weapon/reagent_containers/pill/))
 		return 1
+	if(istype(O,/obj/item/weapon/reagent_containers/inhaler))
+		return 1
+	if(istype(O,/obj/item/weapon/reagent_containers/personal_inhaler_cartridge	))
+		return 1
+	if(istype(O,/obj/item/weapon/reagent_containers/inhaler))
+		return 1
+	if(istype(O,/obj/item/weapon/reagent_containers/hypospray/autoinjector))
+		return 1
+	if(istype(O,/obj/item/weapon/personal_inhaler))
+		return 1
+
 	return 0
 
 /obj/machinery/smartfridge/secure/virology
@@ -119,6 +148,7 @@
 /obj/machinery/smartfridge/drinks
 	name = "\improper Drink Showcase"
 	desc = "A refrigerated storage unit for tasty tasty alcohol."
+	cooling = TRUE
 
 /obj/machinery/smartfridge/drinks/accept_check(var/obj/item/O as obj)
 	if(istype(O,/obj/item/weapon/reagent_containers/glass) || istype(O,/obj/item/weapon/reagent_containers/food/drinks) || istype(O,/obj/item/weapon/reagent_containers/food/condiment))
@@ -164,6 +194,33 @@
 		src.seconds_electrified--
 	if(src.shoot_inventory && prob(2))
 		src.throw_item()
+	if(cooling || heating)
+
+		var/mod = cooling ? -1 : 1
+
+		for(var/obj/item/I in contents)
+
+			if(!I.reagents)
+				continue
+
+			var/r_temperature = I.reagents.get_temperature()
+
+			if(mod == 1 && r_temperature <= heating_temperature)
+				continue
+			else if(mod == -1 && r_temperature <= cooling_temperature)
+				continue
+
+			var/thermal_energy_change = 0
+
+			if(mod == 1) //GOING UP
+				thermal_energy_change = min(active_power_usage,I.reagents.get_thermal_energy_change(r_temperature,heating_temperature))
+			else if (mod == -1) //GOING DOWN
+				thermal_energy_change = max(-active_power_usage,I.reagents.get_thermal_energy_change(r_temperature,cooling_temperature))
+
+			I.reagents.add_thermal_energy(thermal_energy_change)
+			use_power(active_power_usage)
+
+
 
 /obj/machinery/smartfridge/power_change()
 	var/old_stat = stat

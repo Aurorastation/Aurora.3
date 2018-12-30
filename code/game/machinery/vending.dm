@@ -103,6 +103,11 @@
 	var/list/restock_blocked_items = list() //Items that can not be restocked if restock_items is enabled
 	var/random_itemcount = 1 //If the number of items should be randomized
 
+	var/temperature_setting = 0 //-1 means cooling, 1 means heating, 0 means doing nothing.
+
+	var/cooling_temperature = T0C + 5 //Best temp for soda.
+	var/heating_temperature = T0C + 57 //Best temp for coffee.
+
 /obj/machinery/vending/Initialize()
 	. = ..()
 	wires = new(src)
@@ -184,6 +189,7 @@
 /obj/machinery/vending/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
 	var/obj/item/weapon/card/id/I = W.GetID()
+	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
 
 	if (currently_vending && vendor_account && !vendor_account.suspended)
 		var/paid = 0
@@ -282,7 +288,7 @@
 				return
 
 		for(var/datum/data/vending_product/R in product_records)
-			if(istype(W, R.product_path))
+			if(W.type == R.product_path)
 				stock(R, user)
 				qdel(W)
 				return
@@ -361,7 +367,8 @@
 		visible_message("<span class='info'>\The [usr] swipes \the [I] through \the [src].</span>")
 	else
 		visible_message("<span class='info'>\The [usr] swipes \the [ID_container] through \the [src].</span>")
-	var/datum/money_account/customer_account = get_account(I.associated_account_number)
+	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
+	var/datum/money_account/customer_account = SSeconomy.get_account(I.associated_account_number)
 	if (!customer_account)
 		//Allow BSTs to take stuff from vendors, for debugging and adminbus purposes
 		if (istype(I, /obj/item/weapon/card/id/bst))
@@ -380,7 +387,7 @@
 	// empty at high security levels
 	if(customer_account.security_level != 0) //If card requires pin authentication (ie seclevel 1 or 2)
 		var/attempt_pin = input("Enter pin code", "Vendor transaction") as num
-		customer_account = attempt_account_access(I.associated_account_number, attempt_pin, 2)
+		customer_account = SSeconomy.attempt_account_access(I.associated_account_number, attempt_pin, 2)
 
 		if(!customer_account)
 			src.status_message = "Unable to access account: incorrect credentials."
@@ -406,9 +413,9 @@
 		else
 			T.amount = "[currently_vending.price]"
 		T.source_terminal = src.name
-		T.date = current_date_string
+		T.date = worlddate2text()
 		T.time = worldtime2text()
-		customer_account.transaction_log.Add(T)
+		SSeconomy.add_transaction_log(customer_account,T)
 
 		// Give the vendor the money. We use the account owner name, which means
 		// that purchases made with stolen/borrowed card will look like the card
@@ -422,6 +429,7 @@
  *  Called after the money has already been taken from the customer.
  */
 /obj/machinery/vending/proc/credit_purchase(var/target as text)
+	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
 	vendor_account.money += currently_vending.price
 
 	var/datum/transaction/T = new()
@@ -429,9 +437,9 @@
 	T.purpose = "Purchase of [currently_vending.product_name]"
 	T.amount = "[currently_vending.price]"
 	T.source_terminal = src.name
-	T.date = current_date_string
+	T.date = worlddate2text()
 	T.time = worldtime2text()
-	vendor_account.transaction_log.Add(T)
+	SSeconomy.add_transaction_log(vendor_account,T)
 
 /obj/machinery/vending/attack_ai(mob/user as mob)
 	return attack_hand(user)
@@ -498,6 +506,7 @@
 		ui.open()
 
 /obj/machinery/vending/Topic(href, href_list)
+	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
 	if(stat & (BROKEN|NOPOWER))
 		return
 	if(usr.stat || usr.restrained())
@@ -565,8 +574,6 @@
 	src.status_error = 0
 	SSnanoui.update_uis(src)
 
-
-
 	if (R.category & CAT_COIN)
 		if(!coin)
 			user << "<span class='notice'>You need to insert a coin to get this item.</span>"
@@ -602,12 +609,20 @@
 		flick(src.icon_vend,src)
 	spawn(src.vend_delay)
 		playsound(src.loc, 'sound/machines/vending.ogg', 35, 1)
-		new R.product_path(get_turf(src))
+		var/obj/vended = new R.product_path(get_turf(src))
 		src.status_message = ""
 		src.status_error = 0
 		src.vend_ready = 1
 		currently_vending = null
 		SSnanoui.update_uis(src)
+		if(istype(vended,/obj/item/weapon/reagent_containers/))
+			var/obj/item/weapon/reagent_containers/RC = vended
+			if(RC.reagents)
+				switch(temperature_setting)
+					if(-1)
+						use_power(RC.reagents.set_temperature(cooling_temperature))
+					if(1)
+						use_power(RC.reagents.set_temperature(heating_temperature))
 
 /obj/machinery/vending/proc/stock(var/datum/data/vending_product/R, var/mob/user)
 	user << "<span class='notice'>You insert \the [R.product_name] in the product receptor.</span>"

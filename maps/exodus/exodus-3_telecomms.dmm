@@ -5,33 +5,6 @@
 "ab" = (
 /turf/simulated/shuttle/wall,
 /area/derelict/ship)
-"ac" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_straight";
-	dir = 4
-	},
-/area/derelict/ship)
-"ad" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_t";
-	dir = 1
-	},
-/area/derelict/ship)
-"ae" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c"
-	},
-/area/derelict/ship)
-"af" = (
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 8
-	},
-/area/derelict/ship)
 "ag" = (
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
@@ -47,38 +20,12 @@
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
-"ai" = (
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 1
-	},
-/area/derelict/ship)
-"aj" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_t"
-	},
-/area/derelict/ship)
-"ak" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall15";
-	dir = 2
-	},
-/area/derelict/ship)
 "al" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_r";
 	dir = 4
 	},
 /turf/template_noop,
-/area/derelict/ship)
-"am" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_t";
-	dir = 4
-	},
 /area/derelict/ship)
 "an" = (
 /obj/machinery/computer/records/medical,
@@ -94,13 +41,6 @@
 	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
-	},
-/area/derelict/ship)
-"ap" = (
-/turf/simulated/shuttle/plating,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 8
 	},
 /area/derelict/ship)
 "aq" = (
@@ -120,24 +60,10 @@
 	},
 /turf/template_noop,
 /area/derelict/ship)
-"as" = (
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c"
-	},
-/area/derelict/ship)
 "at" = (
 /obj/item/weapon/scalpel,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
-	},
-/area/derelict/ship)
-"au" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_t";
-	dir = 8
 	},
 /area/derelict/ship)
 "av" = (
@@ -203,11 +129,6 @@
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
-"aD" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_straight"
-	},
-/area/derelict/ship)
 "aE" = (
 /obj/item/device/multitool,
 /turf/simulated/shuttle/floor{
@@ -227,24 +148,12 @@
 /obj/machinery/door/unpowered/shuttle,
 /turf/simulated/floor/plating,
 /area/derelict/ship)
-"aH" = (
-/turf/simulated/shuttle/plating,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 4
-	},
-/area/derelict/ship)
 "aI" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_l";
 	dir = 4
 	},
 /turf/template_noop,
-/area/derelict/ship)
-"aJ" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_s"
-	},
 /area/derelict/ship)
 "aK" = (
 /obj/structure/grille,
@@ -266,15 +175,6 @@
 	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
-	},
-/area/derelict/ship)
-"aM" = (
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 4
 	},
 /area/derelict/ship)
 "aN" = (
@@ -398,24 +298,6 @@
 "bb" = (
 /turf/simulated/shuttle/wall,
 /area/template_noop)
-"bc" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_t";
-	dir = 1
-	},
-/area/template_noop)
-"bd" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_straight";
-	dir = 4
-	},
-/area/template_noop)
-"be" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c"
-	},
-/area/template_noop)
 "bf" = (
 /obj/structure/table/standard,
 /obj/item/device/analyzer,
@@ -446,39 +328,9 @@
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
-"bj" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_t";
-	dir = 8
-	},
-/area/template_noop)
-"bk" = (
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 8
-	},
-/area/template_noop)
 "bl" = (
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
-	},
-/area/template_noop)
-"bm" = (
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 1
-	},
-/area/template_noop)
-"bn" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_t";
-	dir = 4
 	},
 /area/template_noop)
 "bo" = (
@@ -513,33 +365,10 @@
 	icon_state = "floor3"
 	},
 /area/template_noop)
-"bs" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 8
-	},
-/area/derelict/ship)
-"bt" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 1
-	},
-/area/derelict/ship)
 "bu" = (
 /obj/structure/table,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
-	},
-/area/template_noop)
-"bv" = (
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 4
 	},
 /area/template_noop)
 "bw" = (
@@ -564,25 +393,6 @@
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
-"by" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 1
-	},
-/area/template_noop)
-"bz" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_t"
-	},
-/area/template_noop)
-"bA" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 8
-	},
-/area/template_noop)
 "bB" = (
 /obj/item/weapon/material/shard{
 	icon_state = "medium"
@@ -679,13 +489,6 @@
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
-"bM" = (
-/turf/simulated/shuttle/plating,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c";
-	dir = 1
-	},
-/area/derelict/ship)
 "bN" = (
 /obj/item/trash/cheesie,
 /turf/template_noop,
@@ -723,24 +526,12 @@
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
-"bT" = (
-/turf/simulated/shuttle/plating,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c"
-	},
-/area/derelict/ship)
 "bU" = (
 /obj/machinery/computer/pod{
 	id = "oldship_gun"
 	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
-	},
-/area/derelict/ship)
-"bV" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_s";
-	dir = 1
 	},
 /area/derelict/ship)
 "bW" = (

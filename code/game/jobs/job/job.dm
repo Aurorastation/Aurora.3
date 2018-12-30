@@ -86,15 +86,15 @@
 		PROCLOG_WEIRD("species [H.species || "NULL"] did not have a set economic_modifier!")
 
 	var/money_amount = (rand(5,50) + rand(5, 50)) * loyalty * economic_modifier * species_modifier
-	var/datum/money_account/M = create_account(H.real_name, money_amount, null)
+	var/datum/money_account/M = SSeconomy.create_account(H.real_name, money_amount, null)
 	if(H.mind)
 		var/remembered_info = ""
 		remembered_info += "<b>Your account number is:</b> #[M.account_number]<br>"
 		remembered_info += "<b>Your account pin is:</b> [M.remote_access_pin]<br>"
 		remembered_info += "<b>Your account funds are:</b> $[M.money]<br>"
 
-		if(M.transaction_log.len)
-			var/datum/transaction/T = M.transaction_log[1]
+		if(M.transactions.len)
+			var/datum/transaction/T = M.transactions[1]
 			remembered_info += "<b>Your account was created:</b> [T.time], [T.date] at [T.source_terminal]<br>"
 		H.mind.store_memory(remembered_info)
 

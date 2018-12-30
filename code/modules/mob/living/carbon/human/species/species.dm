@@ -196,6 +196,9 @@
 
 	var/obj/effect/decal/cleanable/blood/tracks/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints // What marks are left when walking
 
+	var/default_h_style = "Bald"
+	var/default_f_style = "Shaved"
+
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
 
@@ -508,3 +511,17 @@
 
 /datum/species/proc/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
 	return 0
+
+/datum/species/proc/handle_speech_problems(mob/living/carbon/human/H, list/current_flags, message, message_verb, message_mode)
+	return current_flags
+
+/datum/species/proc/handle_speech_sound(mob/living/carbon/human/H, list/current_flags)
+	if(speech_sounds && prob(speech_chance))
+		current_flags[1] = sound(pick(speech_sounds))
+		current_flags[2] = 50
+	return current_flags
+
+/datum/species/proc/set_default_hair(var/mob/living/carbon/human/H)
+	H.h_style = H.species.default_h_style
+	H.f_style = H.species.default_f_style
+	H.update_hair()

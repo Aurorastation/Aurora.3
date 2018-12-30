@@ -16,6 +16,15 @@
 	// queue work
 	SSexplosives.queue(data)
 
+	//Machines which report explosions.
+	for(var/i,i<=doppler_arrays.len,i++)
+		var/obj/machinery/doppler_array/Array = doppler_arrays[i]
+		if(Array)
+			var/x0 = epicenter.x
+			var/y0 = epicenter.y
+			var/z0 = epicenter.z
+			Array.sense_explosion(x0,y0,z0,devastation_range,heavy_impact_range,light_impact_range)
+
 // == Recursive Explosions stuff ==
 
 /client/proc/kaboom()
@@ -28,7 +37,7 @@
 	SSexplosives.queue(d)
 
 /atom
-	var/explosion_resistance 
+	var/explosion_resistance
 
 /turf/space
 	explosion_resistance = 3

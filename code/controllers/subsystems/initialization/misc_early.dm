@@ -46,4 +46,7 @@
 		var/ore/OD = new oretype()
 		ore_data[OD.name] = OD
 
+	// Setup cargo spawn lists.
+	global.cargo_master.setup_cargo_stock()
+
 	..()

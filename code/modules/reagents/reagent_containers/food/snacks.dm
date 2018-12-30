@@ -103,14 +103,17 @@
 
 		var/expected_fullness = user.max_nutrition > 0 ? (user.nutrition + (user.reagents.get_reagent_amount("nutriment") * 25)) / user.max_nutrition : CREW_NUTRITION_OVEREATEN + 0.01
 		expected_fullness += (user.overeatduration/600)*0.5
-		var/is_full = (expected_fullness > CREW_NUTRITION_OVEREATEN)
+		var/is_full = (expected_fullness >= 1)
 
 		if(user == target)
 			if(!user.can_eat(src))
 				return
-				
+
 			var/feedback_message
-			if(expected_fullness <= CREW_NUTRITION_VERYHUNGRY)
+
+			if(is_full)
+				feedback_message = "You cannot force any more of \the [src] to go down your throat!"
+			else if(expected_fullness <= CREW_NUTRITION_VERYHUNGRY)
 				feedback_message = "You hungrily chew out a piece of \the [src] and gobble it!"
 			else if(expected_fullness <= CREW_NUTRITION_HUNGRY)
 				feedback_message = "You hungrily begin to eat \the [src]."
@@ -120,8 +123,7 @@
 				feedback_message = "You take a bite of \the [src]."
 			else if(expected_fullness <= CREW_NUTRITION_OVEREATEN)
 				feedback_message = "You unwillingly chew a bit of \the [src]."
-			else
-				feedback_message = "You cannot force any more of \the [src] to go down your throat!"
+
 
 			if(is_full)
 				to_chat(user,span("danger",feedback_message))
@@ -599,6 +601,13 @@
 	nutriment_desc = list("sweetness" = 1, "donut" = 2)
 	nutriment_amt = 3
 	bitesize = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/donut/normal/psdonut
+	name = "pumpkin spice donut"
+	desc = "A limited edition seasonal pastry."
+	icon_state = "donut_ps"
+	center_of_mass = list("x"=13, "y"=16)
+	nutriment_desc = list("pumpkin spice" = 1, "donut" = 2)
 
 /obj/item/weapon/reagent_containers/food/snacks/donut/normal/Initialize()
 	. = ..()
@@ -1817,7 +1826,7 @@
 	reagents.add_reagent("banana", 5)
 	reagents.add_reagent("water", 10)
 
-/obj/item/weapon/reagent_containers/food/snacks/soup/vegetables
+/obj/item/weapon/reagent_containers/food/snacks/soup/vegetable
 	name = "vegetable soup"
 	desc = "A true vegan meal" //TODO
 	icon_state = "vegetablesoup"
@@ -2337,7 +2346,7 @@
 	reagents.add_reagent("tomatojuice", 10)
 
 /obj/item/weapon/reagent_containers/food/snacks/meatballspagetti
-	name = "spaghetti & meatballs"
+	name = "spaghetti and meatballs"
 	desc = "Now thats a nic'e meatball!"
 	icon_state = "meatballspagetti"
 	trash = /obj/item/trash/plate
@@ -3072,7 +3081,7 @@
 	nutriment_amt = 6
 	bitesize = 2
 
-/obj/item/weapon/reagent_containers/food/snacks/sliceable/cakecarrot
+/obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/carrot
 	name = "carrot cake"
 	desc = "A favorite desert of a certain wascally wabbit. Not a lie."
 	icon_state = "carrotcake"
@@ -4411,7 +4420,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/pancakes
 	name = "pancakes"
-	desc = "Pancakes with blueberries, delicious."
+	desc = "Pancakes with berries, delicious."
 	icon_state = "pancakes"
 	trash = /obj/item/trash/plate
 	center_of_mass = "x=15;y=11"
@@ -5384,7 +5393,7 @@
 	reagents.add_reagent("sugar", 2)
 
 /obj/item/weapon/reagent_containers/food/snacks/cb09
-	name = "owo daddy bar"
+	name = "oh daddy bar"
 	desc = "A massive cluster of peanuts covered in caramel and chocolate."
 	filling_color = "#552200"
 	icon_state = "cb09"

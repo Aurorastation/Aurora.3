@@ -1,6 +1,6 @@
 /spell/targeted/mindcontrol
 	name = "Mind Bend"
-	desc = "Bend the mind and soul of a mortal to serve your purposes."
+	desc = "Bend the mind and soul of a mortal to serve your purposes, making them your slave. You will need some way to hold them still during the process, however."
 	feedback = "MB"
 	school = "cleric"
 	charge_max = 10000
@@ -51,7 +51,7 @@
 		user << "<span class='warning'>You invade the mind of \the [H]!</span>"
 		H << "<span class='danger'>Your mind is invaded by the presence of \the [user]! They are trying to make you a slave!</span>"
 
-		if(!do_after(user, H.stat == CONSCIOUS ? 80 : 40, target, 0, 1))
+		if (!do_mob(user, H, 80))
 			user << "<span class='warning'>Your concentration is broken!</span>"
 			return FALSE
 

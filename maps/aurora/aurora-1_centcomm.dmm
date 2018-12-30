@@ -5147,7 +5147,7 @@
 /area/template_noop)
 "mU" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/energy/ionrifle,
+/obj/item/weapon/gun/energy/rifle/ionrifle,
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 5;
 	pixel_y = 32
@@ -6596,7 +6596,8 @@
 /area/merchant_station)
 "pw" = (
 /obj/machinery/vending/wallmed1{
-	pixel_y = 32
+	pixel_y = 32;
+	req_access = list(110)
 	},
 /turf/simulated/floor/wood,
 /area/merchant_station)
@@ -7428,7 +7429,8 @@
 /area/merchant_ship/start)
 "rD" = (
 /obj/machinery/vending/wallmed1{
-	pixel_y = 32
+	pixel_y = 32;
+	req_access = list(110)
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
@@ -7889,7 +7891,7 @@
 /area/merchant_ship/start)
 "sA" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/energy/ionrifle,
+/obj/item/weapon/gun/energy/rifle/ionrifle,
 /obj/item/weapon/gun/energy/rifle/pulse,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor7"
@@ -7985,6 +7987,14 @@
 	},
 /area/centcom/control)
 "sL" = (
+/turf/simulated/floor/beach/water/ocean,
+/area/centcom/shared_dream)
+"sM" = (
+/turf/simulated/floor/holofloor/space{
+	density = 1
+	},
+/area/centcom/shared_dream)
+"sN" = (
 /turf/unsimulated/floor{
 	icon_state = "gcircuit"
 	},
@@ -7998,35 +8008,6 @@
 /turf/unsimulated/floor{
 	icon_state = "wood_siding2";
 	dir = 6
-	},
-/area/centcom/control)
-"sM" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "29"
-	},
-/obj/machinery/porta_turret/crescent,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding6"
-	},
-/area/centcom/control)
-"sN" = (
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/obj/structure/window/phoronreinforced,
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 1
-	},
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 8
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_siding9"
 	},
 /area/centcom/control)
 "sO" = (
@@ -8070,21 +8051,9 @@
 	},
 /area/centcom/living)
 "sS" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "27"
-	},
-/obj/structure/table/reinforced/steel,
-/obj/machinery/button/remote/blast_door{
-	id = "battery2";
-	name = "Battery 2 Firing Control"
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_siding10"
-	},
-/area/centcom/control)
+/obj/effect/floor_decal/spline/plain,
+/turf/simulated/floor/beach/water/ocean,
+/area/centcom/shared_dream)
 "sT" = (
 /obj/structure/table/wood,
 /turf/unsimulated/floor{
@@ -8097,17 +8066,11 @@
 	icon_state = "gcircuit"
 	},
 /obj/structure/artilleryplaceholder/decorative{
-	icon_state = "27"
+	icon_state = "29"
 	},
-/obj/structure/table/reinforced/steel,
-/obj/machinery/button/remote/blast_door{
-	id = "battery1";
-	name = "Battery 1 Firing Control"
-	},
-/obj/effect/decal/cleanable/cobweb,
-/obj/item/weapon/reagent_containers/glass/rag,
+/obj/machinery/porta_turret/crescent,
 /turf/unsimulated/floor{
-	icon_state = "wood_siding10"
+	icon_state = "wood_siding6"
 	},
 /area/centcom/control)
 "sV" = (
@@ -8185,10 +8148,17 @@
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/structure/window/phoronreinforced,
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 8
+	},
 /turf/unsimulated/floor{
-	icon_state = "wood_siding1";
-	dir = 6
+	icon_state = "wood_siding9"
 	},
 /area/centcom/control)
 "te" = (
@@ -8349,13 +8319,18 @@
 /area/centcom/living)
 "tB" = (
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "gcircuit"
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/stool,
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "27"
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	id = "battery2";
+	name = "Battery 2 Firing Control"
+	},
 /turf/unsimulated/floor{
-	icon_state = "wood_siding1";
-	dir = 6
+	icon_state = "wood_siding10"
 	},
 /area/centcom/control)
 "tC" = (
@@ -8649,34 +8624,14 @@
 	},
 /area/shuttle/administration/centcom)
 "uk" = (
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/storage/toolbox/electrical,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding1";
-	dir = 6
-	},
-/area/centcom/control)
+/turf/simulated/wall/wood,
+/area/centcom/shared_dream)
 "ul" = (
-/turf/unsimulated/floor{
-	icon_state = "engine"
+/turf/unsimulated/wall/fakeglass{
+	dir = 8;
+	icon_state = "fakewindows"
 	},
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 8
-	},
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding9"
-	},
-/area/centcom/control)
+/area/centcom/shared_dream)
 "um" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	icon_state = "intact";
@@ -9182,7 +9137,7 @@
 /area/centcom/specops)
 "vm" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/energy/ionrifle,
+/obj/item/weapon/gun/energy/rifle/ionrifle,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -9568,15 +9523,11 @@
 	},
 /area/centcom/creed)
 "wb" = (
-/turf/unsimulated/floor{
-	icon_state = "wood"
+/turf/unsimulated/wall/fakeglass{
+	icon_state = "fakewindows2";
+	dir = 8
 	},
-/obj/item/weapon/stool/padded,
-/turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "siding2"
-	},
-/area/centcom/holding)
+/area/centcom/shared_dream)
 "wc" = (
 /obj/structure/table/wood{
 	dir = 5
@@ -9586,16 +9537,11 @@
 	},
 /area/centcom/creed)
 "wd" = (
-/turf/unsimulated/floor{
-	icon_state = "floor"
+/turf/unsimulated/wall/fakeglass{
+	dir = 4;
+	icon_state = "fakewindows"
 	},
-/obj/structure/bed/chair/unmovable{
-	dir = 1
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_siding2"
-	},
-/area/centcom/spawning)
+/area/centcom/shared_dream)
 "we" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Communications Control";
@@ -11399,14 +11345,9 @@
 	},
 /area/centcom/control)
 "zJ" = (
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/obj/structure/bed/chair/unmovable,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding1"
-	},
-/area/centcom/spawning)
+/obj/structure/sign/flag/jargon/left,
+/turf/simulated/wall/wood,
+/area/centcom/shared_dream)
 "zK" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Bluespace Artillery Deck";
@@ -11669,6 +11610,10 @@
 	icon_state = "floor"
 	},
 /area/centcom/control)
+"Ao" = (
+/obj/structure/sign/flag/jargon/right,
+/turf/simulated/wall/wood,
+/area/centcom/shared_dream)
 "Ap" = (
 /obj/machinery/button/remote/blast_door{
 	id = "crescent_checkpoint_access";
@@ -13535,6 +13480,13 @@
 	dir = 5
 	},
 /area/centcom/ferry)
+"Eh" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/centcom/shared_dream)
 "Ei" = (
 /obj/item/clothing/head/collectable/paper,
 /turf/unsimulated/beach/sand,
@@ -17441,6 +17393,7 @@
 /area/centcom/holding)
 "MF" = (
 /obj/machinery/door/window/holowindoor{
+	dir = 4;
 	name = "Red Team"
 	},
 /turf/unsimulated/floor{
@@ -18124,6 +18077,7 @@
 "Oj" = (
 /obj/machinery/door/window/holowindoor{
 	base_state = "right";
+	dir = 4;
 	icon_state = "right";
 	name = "Green Team"
 	},
@@ -18173,7 +18127,7 @@
 /area/skipjack_station/start)
 "Op" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/energy/ionrifle,
+/obj/item/weapon/gun/energy/rifle/ionrifle,
 /obj/item/weapon/material/harpoon,
 /obj/item/clothing/suit/space/void/merc,
 /obj/item/clothing/head/helmet/space/void/merc,
@@ -20280,6 +20234,14 @@
 	icon_state = "floor"
 	},
 /area/tdome)
+"SG" = (
+/obj/structure/table/steel,
+/obj/machinery/chemical_dispenser/coffee/full,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/centcom/shared_dream)
 "SH" = (
 /obj/structure/cult/tome,
 /obj/effect/decal/cleanable/cobweb,
@@ -20296,6 +20258,14 @@
 	icon_state = "cult"
 	},
 /area/wizard_station)
+"SJ" = (
+/obj/structure/table/steel,
+/obj/machinery/microwave,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/centcom/shared_dream)
 "SK" = (
 /obj/machinery/vending/magivend,
 /turf/unsimulated/floor{
@@ -21401,6 +21371,13 @@
 	icon_state = "diagonalWall3"
 	},
 /area/space)
+"Vo" = (
+/obj/structure/reagent_dispensers/water_cooler,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/centcom/shared_dream)
 "Vp" = (
 /turf/space,
 /turf/simulated/shuttle/wall/dark{
@@ -22381,6 +22358,121 @@
 	},
 /turf/simulated/floor/holofloor/reinforced,
 /area/holodeck/source_battlemonsters)
+"Xx" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/centcom/shared_dream)
+"Xy" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "grimy"
+	},
+/area/centcom/shared_dream)
+"Xz" = (
+/turf/unsimulated/floor{
+	icon_state = "grimy"
+	},
+/area/centcom/shared_dream)
+"XA" = (
+/obj/effect/landmark{
+	name = "skrell_entry"
+	},
+/obj/structure/bed/chair/comfy/black,
+/turf/unsimulated/floor{
+	icon_state = "grimy"
+	},
+/area/centcom/shared_dream)
+"XB" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/centcom/shared_dream)
+"XC" = (
+/obj/effect/landmark{
+	name = "skrell_entry"
+	},
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/centcom/shared_dream)
+"XD" = (
+/obj/effect/landmark{
+	name = "skrell_entry"
+	},
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/centcom/shared_dream)
+"XE" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp/green,
+/turf/unsimulated/floor{
+	icon_state = "grimy"
+	},
+/area/centcom/shared_dream)
+"XF" = (
+/obj/effect/landmark{
+	name = "skrell_entry"
+	},
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "grimy"
+	},
+/area/centcom/shared_dream)
+"XG" = (
+/turf/unsimulated/wall/fakeglass{
+	dir = 1;
+	icon_state = "fakewindows"
+	},
+/area/centcom/shared_dream)
+"XH" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/centcom/shared_dream)
+"XI" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain{
+	dir = 6;
+	icon_state = "spline_plain"
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/centcom/shared_dream)
+"XJ" = (
+/turf/unsimulated/floor{
+	icon_state = "ramptop";
+	dir = 2
+	},
+/area/centcom/shared_dream)
+"XK" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 10;
+	icon_state = "spline_plain"
+	},
+/turf/unsimulated/floor{
+	icon_state = "grimy"
+	},
+/area/centcom/shared_dream)
 "XL" = (
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -22397,6 +22489,12 @@
 	icon_state = "wood_siding8"
 	},
 /area/centcom/spawning)
+"XN" = (
+/obj/effect/floor_decal/spline/plain,
+/turf/unsimulated/floor{
+	icon_state = "grimy"
+	},
+/area/centcom/shared_dream)
 "XO" = (
 /obj/structure/table/rack,
 /obj/item/weapon/storage/toolbox/syndicate,
@@ -22452,6 +22550,9 @@
 	icon_state = "floor6"
 	},
 /area/syndicate_station/start)
+"XT" = (
+/turf/unsimulated/wall/fakeglass,
+/area/centcom/shared_dream)
 "XU" = (
 /obj/structure/reagent_dispensers/lube,
 /turf/simulated/floor/tiled,
@@ -22471,6 +22572,19 @@
 /obj/item/weapon/storage/box/cups,
 /turf/simulated/floor/carpet,
 /area/merchant_station)
+"XY" = (
+/obj/effect/decal{
+	desc = "A standard newsfeed handler for use on commercial space stations. All the news you absolutely have no use for, in one place!";
+	icon = 'icons/obj/terminals.dmi';
+	icon_state = "newscaster_normal";
+	name = "newscaster";
+	pixel_x = -28;
+	pixel_y = 0
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/shared_dream)
 "XZ" = (
 /obj/structure/flora/pottedplant/random,
 /turf/unsimulated/floor{
@@ -22478,6 +22592,11 @@
 	icon_state = "wood"
 	},
 /area/centcom/living)
+"Ya" = (
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/shared_dream)
 "Yb" = (
 /obj/structure/filingcabinet,
 /turf/unsimulated/floor{
@@ -22551,6 +22670,15 @@
 	icon_state = "wood"
 	},
 /area/centcom/living)
+"Yj" = (
+/obj/structure/bed/chair/comfy/brown,
+/obj/effect/landmark{
+	name = "skrell_entry"
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/shared_dream)
 "Yk" = (
 /obj/structure/banner,
 /turf/unsimulated/floor{
@@ -22565,6 +22693,20 @@
 	icon_state = "wood"
 	},
 /area/centcom/living)
+"Ym" = (
+/obj/effect/landmark{
+	name = "skrell_entry"
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/shared_dream)
+"Yn" = (
+/obj/structure/simple_door/wood,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/shared_dream)
 "Yo" = (
 /obj/structure/banner,
 /turf/unsimulated/floor{
@@ -22589,6 +22731,10 @@
 	icon_state = "floor"
 	},
 /area/centcom/living)
+"Yr" = (
+/obj/structure/sign/poster,
+/turf/simulated/wall/wood,
+/area/centcom/shared_dream)
 "Ys" = (
 /obj/structure/bed/chair/comfy/red{
 	dir = 4
@@ -22665,6 +22811,40 @@
 	icon_state = "dark"
 	},
 /area/centcom/specops)
+"YA" = (
+/obj/structure/cult/tome,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/shared_dream)
+"YB" = (
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 9
+	},
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	dir = 2
+	},
+/area/centcom/shared_dream)
+"YC" = (
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	dir = 2
+	},
+/area/centcom/shared_dream)
 "YD" = (
 /obj/structure/bed/chair/office/bridge,
 /obj/effect/landmark{
@@ -22691,12 +22871,39 @@
 	icon_state = "floor"
 	},
 /area/centcom/control)
+"YG" = (
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 5
+	},
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	dir = 2
+	},
+/area/centcom/shared_dream)
 "YH" = (
 /obj/structure/bed/chair/office/bridge,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
 /area/centcom/control)
+"YI" = (
+/obj/structure/bed/chair/wood,
+/obj/effect/landmark{
+	name = "skrell_entry"
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/shared_dream)
 "YJ" = (
 /turf/simulated/mineral,
 /area/space)
@@ -22727,6 +22934,12 @@
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
+"YO" = (
+/obj/structure/coatrack,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/shared_dream)
 "YP" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/shuttle/floor{
@@ -22745,6 +22958,14 @@
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
+"YS" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/shared_dream)
 "YT" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Traditional Vaurcesian Cuisine";
@@ -22763,6 +22984,214 @@
 	icon_state = "cult"
 	},
 /area/wizard_station)
+"YV" = (
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 10
+	},
+/obj/effect/landmark{
+	name = "skrell_entry"
+	},
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	dir = 2
+	},
+/area/centcom/shared_dream)
+"YW" = (
+/obj/effect/floor_decal/carpet,
+/obj/effect/landmark{
+	name = "skrell_entry"
+	},
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	dir = 2
+	},
+/area/centcom/shared_dream)
+"YX" = (
+/obj/effect/floor_decal/carpet,
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	dir = 2
+	},
+/area/centcom/shared_dream)
+"YY" = (
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 6
+	},
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	dir = 2
+	},
+/area/centcom/shared_dream)
+"YZ" = (
+/obj/structure/table/wood,
+/obj/item/weapon/newspaper,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/shared_dream)
+"Za" = (
+/obj/structure/table/wood,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/shared_dream)
+"Zb" = (
+/obj/structure/bookcase/libraryspawn/reference{
+	opacity = 0
+	},
+/obj/effect/decal/cleanable/cobweb,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/shared_dream)
+"Zc" = (
+/obj/structure/bookcase/libraryspawn/reference{
+	opacity = 0
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/shared_dream)
+"Zd" = (
+/obj/structure/closet{
+	icon_closed = "cabinet_closed";
+	icon_opened = "cabinet_open";
+	icon_state = "cabinet_closed"
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/shared_dream)
+"Ze" = (
+/obj/machinery/light/small,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/shared_dream)
+"Zf" = (
+/obj/structure/bed/chair/wood{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/shared_dream)
+"Zg" = (
+/obj/structure/flora/pottedplant/random,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/shared_dream)
+"Zh" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "27"
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	id = "battery1";
+	name = "Battery 1 Firing Control"
+	},
+/obj/effect/decal/cleanable/cobweb,
+/obj/item/weapon/reagent_containers/glass/rag,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding10"
+	},
+/area/centcom/control)
+"Zi" = (
+/turf/unsimulated/floor{
+	icon_state = "engine"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding1";
+	dir = 6
+	},
+/area/centcom/control)
+"Zj" = (
+/turf/unsimulated/floor{
+	icon_state = "engine"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/stool,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding1";
+	dir = 6
+	},
+/area/centcom/control)
+"Zk" = (
+/turf/unsimulated/floor{
+	icon_state = "engine"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/storage/toolbox/electrical,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding1";
+	dir = 6
+	},
+/area/centcom/control)
+"Zl" = (
+/turf/unsimulated/floor{
+	icon_state = "engine"
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 8
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding9"
+	},
+/area/centcom/control)
+"Zm" = (
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/obj/item/weapon/stool/padded,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "siding2"
+	},
+/area/centcom/holding)
+"Zn" = (
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/obj/structure/bed/chair/unmovable{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_siding2"
+	},
+/area/centcom/spawning)
+"Zo" = (
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/obj/structure/bed/chair/unmovable,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding1"
+	},
+/area/centcom/spawning)
 
 (1,1,1) = {"
 aa
@@ -44704,21 +45133,21 @@ WP
 WP
 WP
 WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
 aM
 aM
 aM
@@ -44961,21 +45390,21 @@ WP
 WP
 WP
 WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
 aM
 aM
 aM
@@ -45218,21 +45647,21 @@ WP
 WP
 WP
 WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
 aM
 aM
 aM
@@ -45475,21 +45904,21 @@ WP
 WP
 WP
 WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
 aM
 aM
 aM
@@ -45732,21 +46161,21 @@ WP
 WP
 WP
 WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
 aM
 aM
 aM
@@ -45989,21 +46418,21 @@ WP
 WP
 WP
 WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
 aM
 aM
 aM
@@ -46246,21 +46675,21 @@ WP
 WP
 WP
 WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
 aM
 aM
 aM
@@ -46503,21 +46932,21 @@ WP
 WP
 WP
 WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
 aM
 aM
 aM
@@ -46760,21 +47189,21 @@ WP
 WP
 WP
 WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
 aM
 aM
 aM
@@ -47017,21 +47446,21 @@ WP
 WP
 WP
 WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
 aM
 aM
 aM
@@ -47274,21 +47703,21 @@ WP
 WP
 WP
 WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
 aM
 aM
 aM
@@ -50088,38 +50517,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -50345,38 +50774,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -50602,38 +51031,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -50859,38 +51288,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-WP
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -51116,38 +51545,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-WP
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -51373,38 +51802,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -51630,38 +52059,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -51887,38 +52316,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sS
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -52144,38 +52573,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sS
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -52401,38 +52830,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sS
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -52658,38 +53087,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sS
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -52915,38 +53344,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sS
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -53172,38 +53601,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sL
+sL
+sL
+sL
+uk
+uk
+uk
+uk
+uk
+Yr
+uk
+uk
+uk
+sL
+sL
+sS
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -53429,38 +53858,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sL
+sL
+sL
+sL
+ul
+Eh
+XB
+XH
+XY
+YA
+YS
+Zb
+uk
+sL
+sL
+sL
+sS
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -53686,38 +54115,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sL
+sL
+sL
+sL
+wb
+Eh
+XC
+XH
+Ya
+YB
+YV
+Zc
+uk
+sL
+sL
+sL
+sS
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -53943,38 +54372,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sL
+sL
+sL
+sL
+wb
+SG
+XD
+XH
+Yj
+YC
+YW
+Zc
+uk
+sL
+sL
+sL
+sL
+sS
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -54200,38 +54629,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sL
+sL
+sL
+sL
+wb
+SJ
+Xx
+XH
+Yj
+YC
+YX
+Zc
+uk
+sL
+sL
+sL
+sL
+sS
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -54457,38 +54886,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sL
+sL
+sL
+sL
+wd
+Vo
+Xx
+XI
+Ya
+YG
+YY
+Zd
+Yr
+sL
+sL
+sL
+sL
+sS
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -54714,38 +55143,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sL
+sL
+sL
+sL
+uk
+Xx
+Xx
+XJ
+Ya
+Ya
+Ya
+Ze
+uk
+sL
+sL
+sL
+sL
+sS
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -54971,38 +55400,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sL
+sL
+sL
+sL
+uk
+Xy
+Xz
+XJ
+Ya
+YI
+YZ
+Zf
+ul
+sL
+sL
+sL
+sL
+sS
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -55228,38 +55657,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sL
+sL
+sL
+sL
+zJ
+Xz
+Xz
+XK
+Ya
+YI
+Za
+Zf
+wb
+sL
+sL
+sL
+sL
+sS
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -55485,38 +55914,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sL
+sL
+sL
+sL
+Ao
+XA
+XE
+XN
+Ya
+YI
+Za
+Zf
+wd
+sL
+sL
+sL
+sL
+sS
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -55742,38 +56171,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sL
+sL
+sL
+sL
+uk
+Xz
+XF
+XN
+Ym
+YO
+Ya
+Zg
+Yr
+sL
+sL
+sL
+sL
+sS
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -55999,38 +56428,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sL
+sL
+sL
+sL
+uk
+uk
+XG
+XT
+Yn
+XG
+XT
+uk
+uk
+sL
+sL
+sL
+sL
+sS
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -56256,38 +56685,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sS
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -56513,38 +56942,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sS
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -56770,38 +57199,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sS
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -57027,38 +57456,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sS
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -57284,38 +57713,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sL
+sS
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -57392,7 +57821,7 @@ DM
 DM
 EP
 EP
-wb
+Zm
 Gq
 GE
 GF
@@ -57541,38 +57970,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -57649,7 +58078,7 @@ Fi
 Fo
 EP
 EP
-wb
+Zm
 Gq
 GF
 GF
@@ -57798,38 +58227,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -57906,7 +58335,7 @@ Fj
 Fp
 EP
 EP
-wb
+Zm
 Gq
 GF
 GF
@@ -58055,38 +58484,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -58163,7 +58592,7 @@ Fk
 Fp
 EP
 EP
-wb
+Zm
 Gq
 GF
 GF
@@ -58312,38 +58741,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -58420,7 +58849,7 @@ EP
 EP
 Fy
 EP
-wb
+Zm
 Gq
 GF
 GF
@@ -58569,38 +58998,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -58677,7 +59106,7 @@ EP
 EP
 EP
 EP
-wb
+Zm
 Gq
 GF
 GF
@@ -58826,38 +59255,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -59083,38 +59512,38 @@ aM
 aM
 aM
 aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
+sM
 aM
 aM
 aM
@@ -65072,17 +65501,17 @@ wl
 xe
 xA
 yk
-sN
+td
 wl
 xe
 xA
 yk
-sN
+td
 wl
 xe
 xA
 Bp
-ul
+Zl
 uT
 Cq
 CG
@@ -65125,9 +65554,9 @@ KZ
 Ms
 Id
 Id
-wd
+Zn
 OY
-zJ
+Zo
 Id
 Id
 OA
@@ -65382,9 +65811,9 @@ MN
 Ms
 Id
 Id
-wd
+Zn
 OZ
-zJ
+Zo
 Id
 Id
 Qn
@@ -65846,13 +66275,13 @@ yl
 yE
 wo
 xh
-sS
+tB
 yl
 yE
 wo
 xh
-sU
-td
+Zh
+Zi
 BT
 uT
 Cq
@@ -65896,9 +66325,9 @@ KZ
 Ms
 Id
 Id
-wd
+Zn
 Pa
-zJ
+Zo
 Id
 Id
 OA
@@ -66098,18 +66527,18 @@ aM
 uT
 wp
 xi
-sL
+sN
 yl
 yE
 wp
 xi
-sL
+sN
 yl
 yE
 wp
 xi
-sL
-tB
+sN
+Zj
 BT
 uT
 Cq
@@ -66153,9 +66582,9 @@ Nw
 Ms
 Id
 Id
-wd
+Zn
 Pb
-zJ
+Zo
 Id
 Id
 OA
@@ -66355,18 +66784,18 @@ it
 uT
 wq
 xj
-sM
+sU
 yl
 yE
 wq
 xj
-sM
+sU
 yl
 yE
 wq
 xj
-sM
-uk
+sU
+Zk
 BT
 uT
 Cq
@@ -66410,9 +66839,9 @@ KZ
 Ms
 Id
 Id
-wd
+Zn
 Pc
-zJ
+Zo
 Id
 Id
 OA
@@ -66924,9 +67353,9 @@ MN
 Ms
 Id
 Id
-wd
+Zn
 Pb
-zJ
+Zo
 Id
 Id
 OA
@@ -67181,9 +67610,9 @@ KZ
 Ms
 Id
 Id
-wd
+Zn
 Pd
-zJ
+Zo
 Id
 Id
 OA

@@ -282,9 +282,9 @@
 			if("observer")			M.change_mob_type( /mob/abstract/observer , null, null, delmob )
 			if("larva")				M.change_mob_type( /mob/living/carbon/alien/larva , null, null, delmob )
 			if("nymph")				M.change_mob_type( /mob/living/carbon/alien/diona , null, null, delmob )
-			if("human")				M.change_mob_type( /mob/living/carbon/human , null, null, delmob, href_list["species"])
+			if("human")				spawn_humanoid_species_admin(usr, M, delmob)
 			if("slime")				M.change_mob_type( /mob/living/carbon/slime , null, null, delmob )
-			if("monkey")			M.change_mob_type( /mob/living/carbon/human/monkey , null, null, delmob )
+			if("ai")				M.change_mob_type( /mob/living/silicon/ai , null, null, delmob )
 			if("robot")				M.change_mob_type( /mob/living/silicon/robot , null, null, delmob )
 			if("cat")				M.change_mob_type( /mob/living/simple_animal/cat , null, null, delmob )
 			if("runtime")			M.change_mob_type( /mob/living/simple_animal/cat/fluff/Runtime , null, null, delmob )
@@ -554,7 +554,7 @@
 		message_admins("<span class='notice'>[key_name_admin(usr)] set the mode as [master_mode].</span>", 1)
 		world << "<span class='notice'><b>The mode is now: [master_mode]</b></span>"
 		Game() // updates the main game menu
-		world.save_mode(master_mode)
+		SSpersist_config.last_gamemode = master_mode
 		.(href, list("c_mode"=1))
 
 	else if(href_list["f_secret2"])
@@ -1165,10 +1165,6 @@
 		if(!check_rights(R_SPAWN))	return
 		return create_object(usr)
 
-	else if(href_list["quick_create_object"])
-		if(!check_rights(R_SPAWN))	return
-		return quick_create_object(usr)
-
 	else if(href_list["create_turf"])
 		if(!check_rights(R_SPAWN))	return
 		return create_turf(usr)
@@ -1491,7 +1487,7 @@
 	else if(href_list["ac_set_signature"])
 		src.admincaster_signature = sanitize(input(usr, "Provide your desired signature", "Network Identity Handler", ""))
 		src.access_news_network()
-	
+
 	else if(href_list["ac_add_comment"])
 		var/com_msg = sanitize(input(usr, "Write your Comment", "Network Comment Handler", "") as message, encode = 0, trim = 0, extra = 0)
 		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
@@ -1505,7 +1501,7 @@
 		to_chat(usr, "Comment successfully added!")
 		src.admincaster_screen = 20
 		src.access_news_network()
-		
+
 	else if(href_list["ac_view_comments"])
 		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
 		if(!istype(viewing_story))
@@ -1513,7 +1509,7 @@
 		src.admincaster_screen = 20
 		src.admincaster_viewing_message = viewing_story
 		src.access_news_network()
-		
+
 	else if(href_list["ac_like"])
 		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
 		if((src.admincaster_signature in viewing_story.interacted) || !istype(viewing_story))
@@ -1521,7 +1517,7 @@
 		viewing_story.interacted += src.admincaster_signature
 		viewing_story.likes += 1
 		src.access_news_network()
-		
+
 	else if(href_list["ac_dislike"])
 		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
 		if((src.admincaster_signature in viewing_story.interacted) || !istype(viewing_story))
@@ -1529,7 +1525,7 @@
 		viewing_story.interacted += src.admincaster_signature
 		viewing_story.dislikes += 1
 		src.access_news_network()
-	
+
 	else if(href_list["ac_setlikes"])
 		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
 		if(!istype(viewing_story))
@@ -1695,3 +1691,9 @@ mob/living/silicon/ai/can_centcom_reply()
 
 	. = "<A HREF='?[source];adminplayerobservejump=\ref[target]'>JMP</A>"
 	. += target.extra_admin_link(source)
+
+/proc/spawn_humanoid_species_admin(var/mob/user, var/mob/M, var/delmob)
+	var/input = input(user, "Select a species:") as null|anything in all_species
+	if(!input)
+		return
+	M.change_mob_type( /mob/living/carbon/human , null, null, delmob, input)

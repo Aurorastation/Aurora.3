@@ -1,6 +1,6 @@
 //#define TESTING
-#if DM_VERSION < 511
-#error Your version of BYOND is too old to compile the code. At least BYOND 511 is required.
+#if DM_VERSION < 512
+#error Your version of BYOND is too old to compile the code. At least BYOND 512 is required.
 #endif
 
 
@@ -114,7 +114,7 @@ var/list/robot_module_types = list(
 	"Construction",
 	"Medical",
 	"Rescue",
-	"Miner",
+	"Mining",
 	"Custodial",
 	"Service",
 	"Clerical",

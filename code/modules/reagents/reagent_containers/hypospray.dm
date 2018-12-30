@@ -23,7 +23,7 @@
 
 	var/mob/living/carbon/human/H = M
 	if(istype(H))
-		user.visible_message("<span class='warning'>[user] is trying to inject \the [M] with \the [src]!</span>","<span class='notice'>You are trying to inject \the [M] with \the [src].</span>")
+		user.visible_message("<span class='warning'>\The [user] is trying to inject \the [M] with \the [src]!</span>","<span class='notice'>You are trying to inject \the [M] with \the [src].</span>")
 		if(armorcheck && H.run_armor_check(target_zone,"melee",0,"Your armor slows down the injection!","Your armor slows down the injection!"))
 			if(!do_mob(user, M, 60))
 				return 1
@@ -42,51 +42,86 @@
 
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(M)
-	to_chat(user,"<span class='notice'>You inject [M] with [src].</span>")
+	to_chat(user,"<span class='notice'>You inject \the [M] with \the [src].</span>")
 	to_chat(M,"<span class='notice'>You feel a tiny prick!</span>")
 	playsound(src, 'sound/items/hypospray.ogg',25)
 
 	if(M.reagents)
 		var/contained = reagentlist()
+		var/temp = reagents.get_temperature()
 		var/trans = reagents.trans_to_mob(M, amount_per_transfer_from_this, CHEM_BLOOD)
-		admin_inject_log(user, M, src, contained, trans)
+		admin_inject_log(user, M, src, contained, temp, trans)
 		to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
 
 	update_icon()
-
-	return
+	return TRUE
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector
 	name = "autoinjector"
 	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel."
-	icon_state = "autoinjector"
+	icon_state = "autoinjector1"
+	var/empty_state = "autoinjector0"
 	item_state = "autoinjector"
+	flags = OPENCONTAINER
 	amount_per_transfer_from_this = 5
 	volume = 5
+	var/used = FALSE
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/Initialize()
+	. =..()
+	icon_state = empty_state
+	update_icon()
+
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/afterattack(var/mob/M, var/mob/user, proximity)
+	if(..())
+		used = TRUE
+
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/attack(var/mob/M, var/mob/user, target_zone)
+	if(is_open_container())
+		to_chat(user,"<span class='notice'>You must secure the reagents inside \the [src] before using it!</span>")
+		return FALSE
+	. = ..()
+
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/attack_self(mob/user as mob)
+	if(is_open_container())
+		if(reagents && reagents.reagent_list.len)
+			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
+			flags &= ~OPENCONTAINER
+			update_icon()
+		else
+			to_chat(user,"<span class='notice'>You can't secure \the [src] without putting reagents in!</span>")
+	else
+		to_chat(user,"<span class='notice'>The reagents inside \the [src] are already secured.</span>")
+	return
+
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/update_icon()
+	if(reagents.total_volume > 0 && !is_open_container())
+		icon_state = initial(icon_state)
+	else
+		icon_state = empty_state
+
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/examine(mob/user)
+	..(user)
+	if(reagents && reagents.reagent_list.len && !used)
+		user << "<span class='notice'>It is currently loaded.</span>"
+	else if(used)
+		user << "<span class='notice'>It is spent.</span>"
+	else
+		user << "<span class='notice'>It is empty.</span>"
+
+
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline
+	name = "autoinjector (inaprovaline)"
+	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel."
+	volume = 5
+	amount_per_transfer_from_this = 20
+	flags = 0
+
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline/Initialize()
 	. =..()
 	reagents.add_reagent("inaprovaline", 5)
 	update_icon()
 	return
-
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/attack(mob/M as mob, mob/user as mob)
-	. = ..()
-	update_icon()
-
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/update_icon()
-	if(reagents.total_volume > 0)
-		icon_state = "[initial(icon_state)]1"
-		flags &= ~OPENCONTAINER
-	else
-		icon_state = "[initial(icon_state)]0"
-
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/examine(mob/user)
-	..(user)
-	if(reagents && reagents.reagent_list.len)
-		user << "<span class='notice'>It is currently loaded.</span>"
-	else
-		user << "<span class='notice'>It is spent.</span>"
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/stimpack
 	name = "stimpack"

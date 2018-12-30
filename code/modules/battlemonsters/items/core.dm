@@ -83,10 +83,10 @@
 		)
 
 		//Places the item on a grid
-		var/list/mouse_control = params2list(params)
+		var/list/mouse_control = mouse_safe_xy(params)
 
-		var/mouse_x = text2num(mouse_control["icon-x"])
-		var/mouse_y = text2num(mouse_control["icon-y"])
+		var/mouse_x = mouse_control["icon-x"]
+		var/mouse_y = mouse_control["icon-y"]
 
 		if(!isnum(mouse_x) || !isnum(mouse_y))
 			return

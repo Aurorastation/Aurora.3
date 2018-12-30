@@ -87,6 +87,8 @@
 		if (is_diona())
 			diona_handle_light(DS)
 
+		handle_shared_dreaming()
+
 	handle_stasis_bag()
 
 	if(!handle_some_updates())
@@ -164,7 +166,7 @@
 	//Vision
 	var/obj/item/organ/vision
 	if(species.vision_organ)
-		vision = internal_organs_by_name[species.vision_organ]
+		vision =  internal_organs_by_name[species.vision_organ] || organs_by_name[species.vision_organ]
 
 	if (!vision)
 		if (species.vision_organ) // if they should have eyes but don't, they can't see
@@ -939,7 +941,7 @@
 		else //heal in the dark
 			heal_overall_damage(5,5)
 
-	// nutrition decrease
+	// nutrition decrease over time
 	if(max_nutrition > 0)
 		if (nutrition > 0 && stat != 2)
 			adjustNutritionLoss(nutrition_loss * nutrition_attrition_rate)
@@ -952,13 +954,13 @@
 			if(overeatduration > 1)
 				overeatduration -= 2 //doubled the unfat rate
 
-	// hydration decrease
+	// hydration decrease over time
 	if(max_hydration > 0)
 		if (hydration > 0 && stat != 2)
 			adjustHydrationLoss(hydration_loss * hydration_attrition_rate)
 
 		if (hydration / max_hydration > CREW_HYDRATION_OVERHYDRATED)
-			adjustHydrationLoss(1)
+			adjustHydrationLoss(2)
 			if(overdrinkduration < 600) //capped so people don't take forever to undrink
 				overdrinkduration++
 		else
@@ -1044,7 +1046,7 @@
 			handle_dreams()
 			if (mind)
 				//Are they SSD? If so we'll keep them asleep but work off some of that sleep var in case of stoxin or similar.
-				if(client || sleeping > 3)
+				if(client || sleeping > 3 || istype(bg))
 					AdjustSleeping(-1)
 			if( prob(2) && health && !hal_crit )
 				spawn(0)
@@ -1052,6 +1054,7 @@
 		//CONSCIOUS
 		else
 			stat = CONSCIOUS
+			willfully_sleeping = 0
 
 		// Check everything else.
 
@@ -1681,7 +1684,7 @@
 		if (regen > 0)
 			stamina = min(max_stamina, stamina+regen)
 			adjustNutritionLoss(stamina_recovery*0.09)
-			adjustHydrationLoss(stamina_recovery*0.18)
+			adjustHydrationLoss(stamina_recovery*0.32)
 			if (client)
 				hud_used.move_intent.update_move_icon(src)
 
