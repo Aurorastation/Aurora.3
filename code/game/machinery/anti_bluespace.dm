@@ -24,6 +24,12 @@
 		desc = initial(desc)
 		icon_state = "[initial(icon_state)]-on"
 
+/obj/machinery/anti_bluespace/emag_act()
+	spark(src, 3)
+	playsound(src, "sparks", 50, 1)
+	emp_act(1)
+	return TRUE
+
 /obj/machinery/anti_bluespace/machinery_process()
 	. = ..()
 	update_icon()
@@ -50,14 +56,8 @@
 	update_icon()
 
 /obj/machinery/anti_bluespace/attack_hand(mob/user as mob)
-	if(iscarbon(user)) //Carbons are big enough to damage this.
-		if(user.a_intent == I_HURT)
-			visible_message(span("warning","\The [user] hits \the [src]!"))
-		else
-			visible_message(span("notice","\The [user] [pick("touches","pokes","prods")] \the [src]."))
-			if(prob(66))
-				return
-
+	if(ishuman(user) && user.a_intent == I_HURT)
+		visible_message(span("warning","\The [user] hits \the [src]!"))
 		do_break()
 	else
 		. = ..()
