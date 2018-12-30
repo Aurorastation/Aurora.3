@@ -672,7 +672,7 @@
 	desc = "Spare tool vending. What? Did you expect some witty description?"
 	icon_state = "engivend"
 	icon_deny = "engivend-deny"
-	req_access = list(access_engine_equip)
+	req_access = list(access_engine)
 	vend_id = "tools"
 	products = list(
 		/obj/item/clothing/glasses/meson = 2,
