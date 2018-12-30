@@ -141,7 +141,9 @@
 	if(href_list["setactive_virus"] && (records_type & RECORD_VIRUS))
 		active_virus = SSrecords.find_record("id", text2num(href_list["setactive_virus"]), RECORD_VIRUS)
 		SSvueui.check_uis_for_change(src)
+	if(href_list["editrecord"])
+		ApplyRecordEdit(href_list["editrecord"]["key"], href_list["editrecord"]["value"])
 	
 /obj/machinery/computer/records/proc/ApplyRecordEdit(var/key, var/value)
-	
+	world << "[src] tried to edit [src.active] key: [json_encode(key)], value: [value]"
 
