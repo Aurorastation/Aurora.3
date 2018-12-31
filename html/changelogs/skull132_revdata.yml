@@ -1,5 +1,0 @@
-author: Skull132
-delete-after: true
-
-changes:
-  - rscadd: "The active test merges are now displayed at the start of each round. They can also be inspected from the greetings window."
