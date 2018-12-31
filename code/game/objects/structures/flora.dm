@@ -79,6 +79,7 @@
 	icon_state = "plant-26"
 	var/dead = 0
 	var/obj/item/stored_item
+	layer = ABOVE_MOB_LAYER
 
 /obj/structure/flora/pottedplant/Destroy()
 	QDEL_NULL(stored_item)
@@ -138,8 +139,16 @@
 
 //Added random icon selection for potted plants.
 //It was silly they always used the same sprite when we have 26 sprites of them in the icon file
-/obj/structure/flora/pottedplant/random/New()
+/obj/structure/flora/pottedplant/random
+//Since we now have cyberplants, we will have these random plants have a chance to become a cyberplant instead.
+	var/cyber_chance = 20
+
+/obj/structure/flora/pottedplant/random/Initialize()
 	..()
+	if (prob(cyber_chance))
+		new /obj/structure/cyberplant(loc)
+		return INITIALIZE_HINT_QDEL
+
 	var/number = rand(1,36)
 	if (number == 36)
 		if (prob(90))//Make the wierd one rarer
@@ -150,6 +159,11 @@
 	if (number < 10)
 		number = "0[number]"
 	icon_state = "plant-[number]"
+
+
+
+
+
 
 //newbushes
 

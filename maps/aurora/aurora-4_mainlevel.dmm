@@ -57843,11 +57843,11 @@
 	dir = 8
 	},
 /obj/structure/sign/double/barsign{
-	pixel_y = 32
+	pixel_y = 28
 	},
 /obj/structure/cyberplant,
 /turf/simulated/floor/wood,
-/area)
+/area/crew_quarters/bar)
 "bVc" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
