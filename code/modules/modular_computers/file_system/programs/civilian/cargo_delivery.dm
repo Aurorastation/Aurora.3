@@ -100,6 +100,16 @@
 				if(status)
 					status_message = status
 					return 1
+
+				playsound(program.computer, 'sound/machines/chime.ogg', 50, 1)
+
+				//Check if we have delivered it aswell or only paid
+				if(order_details["status"] == "shipped")
+					status_message = co.set_delivered(id_card.registered_name,1)
+				else
+					status_message = co.set_paid(id_card.registered_name)
+				order_details = co.get_list()
+				
 			else
 				//TODO: Add a sound effect here
 				//If a payment is not needed and we are at the status shipped, then confirm the delivery
