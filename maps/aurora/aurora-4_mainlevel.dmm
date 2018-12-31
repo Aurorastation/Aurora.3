@@ -44369,10 +44369,6 @@
 	icon_state = "alarm0";
 	pixel_x = -22
 	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Starboard 2";
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/medical/medbay2)
 "bwz" = (
@@ -65715,10 +65711,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "lIG" = (
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Stairs acces";
-	dir = 4
-	},
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
@@ -65901,6 +65893,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering)
+"pyd" = (
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Starboard 2";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/medical/medbay2)
 "pZo" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -104321,7 +104320,7 @@ bwy
 bxW
 bzn
 bAp
-bAp
+pyd
 bAp
 lIG
 jFC

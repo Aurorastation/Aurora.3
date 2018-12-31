@@ -335,7 +335,6 @@
 	icon_state = "classicponcho"
 	item_state = "classicponcho"
 	icon_override = 'icons/mob/ties.dmi'
-	var/fire_resist = T0C+100
 	allowed = list(/obj/item/weapon/tank/emergency_oxygen)
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	slot_flags = SLOT_OCLOTHING | SLOT_TIE
@@ -532,3 +531,17 @@
 	desc = "An extremely decorated cape with an intricately made design has been woven into the fabric of this cape with great care."
 	icon_state = "galaxycape"
 	item_state = "galaxycape"
+
+//tau ceti legion ribbons
+/obj/item/clothing/accessory/legion
+	name = "seniority ribbons"
+	desc = "A ribbon meant to attach to the chest and sling around the shoulder accompanied by two medallions, marking seniority in a Tau Ceti Foreign Legion."
+	icon_state = "senior_ribbon"
+	item_state = "senior_ribbon"
+	slot = "over"
+
+/obj/item/clothing/accessory/legion/specialist
+	name = "specialist medallion"
+	desc = "Two small medallions, one worn on the shoulder and the other worn on the chest. Meant to display the rank of specialist troops in a Tau Ceti Foreign Legion."
+	icon_state = "specialist_medallion"
+	item_state = "specialist_medallion"
