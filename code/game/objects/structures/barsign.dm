@@ -3,6 +3,7 @@
 	icon_state = "empty"
 	anchored = 1
 	var/cult = 0
+	appearance_flags = TILE_BOUND
 
 /obj/structure/sign/double/barsign/proc/get_valid_states(initial=1)
 	. = icon_states(icon)
