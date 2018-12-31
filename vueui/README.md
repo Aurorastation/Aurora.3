@@ -4,7 +4,7 @@ This UI framework is mostly composed of four main parts:
  - UI DM datum, responsible for linking opened ui window with code
  - Object specific code, that generates data for uis, and handles actions.
  - SubSystem responsible for keeping track of all uis and making sure they tick.
- 
+
 ## How to use it?
 ### Step 1: Open ui
 First we have to create a way to open ui, for example, a proc that's called when we want to open ui:
@@ -25,7 +25,7 @@ But how we pass data to it? There are two ways to do it, first one is to pass in
         return list("counter" = 0)
     // Here we can add checks for difference of state and alter it
     // or do actions depending on its change
-    if(newdata["counter"] >= 10) 
+    if(newdata["counter"] >= 10)
         return list("counter" = 0)
 ```
 Every time server receives of front end state change it calls this proc to make sure that front end state didn't go too far from data it should represent. If everything is alright with `newstate` and no push to front end of data is needed then it should return `0` or `null`, else return data that should be pushed.
@@ -34,11 +34,11 @@ Simply use `Topic` proc to get ui action calls from ui.
 ```DM
 /datum/mydatum/Topic(href, href_list)
     if(href_list["action"] == "test")
-        world << "Got Test Action! [href_list["data"]]"
+        to_world("Got Test Action! [href_list["data"]]")
     return
 ```
 ### Step 4: Make ui itself.
-It is recommended to [enable debugging](.#debug-ui) for this step to make things easier. 
+It is recommended to [enable debugging](.#debug-ui) for this step to make things easier.
 
 To create ui itself, you need to create `.vue` file somewhere in `\vueui\src\components\view`. Depending on location of .vue file depends on its component name. Example `\vueui\src\components\view\uiname.vue` file:
 ```vue
@@ -107,9 +107,9 @@ VUEUI_MONITOR_VARS(/datum/mydatum, mydatummonitor)
 ### `SSvueui.check_uis_for_change(object)`
 Asks all uis to call `object`'s `vueui_data_change` proc to make all uis up tp date. Should be used when bigger change was done or action done change that would affect global data.
 ### `SSvueui.get_open_uis(object)`
-Gets a list of all open uis for specified object. This allows to interact with individual uis. 
+Gets a list of all open uis for specified object. This allows to interact with individual uis.
 ### `ui.activeui`
-Determines currently active view component for this ui datum. Should be combines with `check_for_change()` or `push_change()`. 
+Determines currently active view component for this ui datum. Should be combines with `check_for_change()` or `push_change()`.
 
 It is also plausible for server to send templates dynamically. First character of template should be `?` to specify to vueui that its going to be not recompiled `view` component, but a template. Also template should have single root element. Example for such component would be `?<span>Time since server boot: {{ $root.$data.wtime / 2 }} seconds.</span>`
 ### `ui.header`
@@ -144,7 +144,7 @@ To enable debug mode and make figuring out things easier do following steps:
 ```DM
 #define UIDEBUG
 ```
- - Use `\vueui\template.html` in Internet explorer / Microsoft Edge to use inspector to analyze ui behaviour. Also don't forget to copy paste data from actual ui to this debug ui inside template's code. 
+ - Use `\vueui\template.html` in Internet explorer / Microsoft Edge to use inspector to analyze ui behaviour. Also don't forget to copy paste data from actual ui to this debug ui inside template's code.
 
 ## Vue syntax
 You should look at [official Vue.js guide](https://vuejs.org/v2/guide/syntax.html). As it's more detailed and more accurate than any explanation that could have been written here.
@@ -210,7 +210,7 @@ Example:
 <vui-img name="my-image-name"></vui-img>
 ```
 Parameters:
- - `name` - name of asset to show that was sent to client. 
+ - `name` - name of asset to show that was sent to client.
 Please note that regular `<img>` parameters apply here.
 ### VuiImg `<vui-item>`
 Helper for making item lists using legacy nano styles.
