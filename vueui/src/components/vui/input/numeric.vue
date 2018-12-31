@@ -1,7 +1,7 @@
 <template>
   <div>
     <vui-button v-for="bv in subButtons" :key="'-' + bv" :push-state="pushState" :disabled="val - bv < min" @click="onUpdatedValue(-bv)">-</vui-button>
-    <input :style="{width: width}" ref="input" :value="val" @input="onFieldUpdate($event.target)"/>
+    <input :style="{width: width}" ref="input" :value="val" @input="onFieldUpdate($event.target)">
     <vui-button v-for="bv in addButtons" :key="'+' + bv" :push-state="pushState" :disabled="val + bv > max" @click="onUpdatedValue(bv)">+</vui-button>
   </div>
 </template>
