@@ -465,5 +465,10 @@
 
 /obj/item/weapon/storage/backpack/messenger/wizard
 	name = "wizardly messenger bag"
-	desc = "A wizardly backpack worn over one shoulder. This one is in blue and purple colors. "
+	desc = "A wizardly backpack worn over one shoulder. This one is in blue and purple colors."
 	icon_state = "courierbagwizard"
+
+/obj/item/weapon/storage/backpack/legion
+	name = "military rucksack"
+	desc = "A sturdy backpack with the emblems and markings of the Tau Ceti Foreign Legion."
+	icon_state = "legion_bag"
