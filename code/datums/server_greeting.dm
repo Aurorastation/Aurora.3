@@ -179,7 +179,7 @@
 	var/datum/asset/welcome = get_asset_datum(/datum/asset/simple/misc)
 	welcome.send(user)
 
-	user << browse('html/templates/welcome_screen.html', "window=greeting;size=640x500")
+	user << browse('html/templates/welcome_screen.html', "window=greeting;size=740x500")
 
 /*
  * A proc used to close the server greeting window for a user.
@@ -245,6 +245,16 @@
 
 	data["div"] = "#motd"
 	data["content"] = motd
+	user << output(JS_SANITIZE(data), "greeting.browser:AddContent")
+
+	data["div"] = "#testmerges"
+	data["content"] = revdata.greeting_info
+
+	if (revdata.test_merges.len)
+		data["update"] = 1
+	else
+		data["update"] = 0
+	data["changeHash"] = null
 	user << output(JS_SANITIZE(data), "greeting.browser:AddContent")
 
 /*
@@ -338,3 +348,5 @@
 #undef OUTDATED_MOTD
 
 #undef MEMOFILE
+
+#undef JS_SANITIZE
