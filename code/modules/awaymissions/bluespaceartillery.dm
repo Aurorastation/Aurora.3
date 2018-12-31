@@ -30,7 +30,7 @@
 	if(href_list["fireArea"])
 		var/area/A = input("Area to jump bombard", "Open Fire") in all_areas
 		var/turf/loc = pick(get_area_turfs(A))
-		announce_and_fire(loc)
+		announce_and_fire(loc, usr)
 	else if(href_list["fireCords"])
 		var/ix = text2num(input("X"))
 		var/iy = text2num(input("Y"))
@@ -38,14 +38,14 @@
 		if(!ix || !iy || !iz)
 			return
 		var/turf/T = get_turf(locate(ix, iy, iz))
-		announce_and_fire(T)
+		announce_and_fire(T, usr)
 
-/obj/machinery/computer/artillerycontrol/proc/announce_and_fire(var/turf/t)
+/obj/machinery/computer/artillerycontrol/proc/announce_and_fire(var/turf/t, var/mob/user)
 	if(!istype(t))
 		return
 	command_announcement.Announce("Bluespace artillery fire detected. Brace for impact.")
-	world << sound('sound/effects/yamato_fire.ogg')
-	message_admins("[key_name_admin(usr)] has launched an artillery strike.", 1)
+	to_world(sound('sound/effects/yamato_fire.ogg'))
+	message_admins("[key_name_admin(user)] has launched an artillery strike.", 1)
 	explosion(t,2,5,11)
 	reload = 0
 
