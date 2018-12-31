@@ -153,7 +153,6 @@ To access global metadata for this ui, use `this.$root.$data` or `$root.$data`, 
 ```vue
 <script>
 export default {
-    name: 'view-name',
     data() {
         return this.$root.$data;
     }
