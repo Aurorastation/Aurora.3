@@ -193,6 +193,20 @@
 	species_restricted = list("Unathi")
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 
+/obj/item/clothing/head/helmet/tank
+	name = "padded cap"
+	desc = "A padded skullcup for those prone to bumping their heads against hard surfaces."
+	icon_state = "tank"
+	flags_inv = BLOCKHEADHAIR
+	color = "#5f5f5f"
+	armor = list(melee = 25, bullet = 5, laser = 5, energy = 10, bomb = 5, bio = 0, rad = 0)
+
+/obj/item/clothing/head/helmet/tank/olive
+	color = "#727c58"
+
+/obj/item/clothing/head/helmet/tank/tan
+	color = "#ae9f79"
+
 //Non-hardsuit ERT helmets.
 /obj/item/clothing/head/helmet/ert
 	name = "emergency response team helmet"
@@ -226,3 +240,11 @@
 	name = "emergency response team medical helmet"
 	desc = "A set of armor worn by medical members of the NanoTrasen Emergency Response Team. Has red and white highlights."
 	icon_state = "erthelmet_med"
+
+/obj/item/clothing/head/helmet/legion
+	name = "foreign legion helmet"
+	desc = "A large helmet meant to fit some pretty big heads. It has a ballistic faceplate on the front of it."
+	icon_state = "legion_helmet"
+	body_parts_covered = HEAD|FACE|EYES
+	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
+	armor = list(melee = 50, bullet = 30, laser = 30, energy = 15, bomb = 40, bio = 0, rad = 0)

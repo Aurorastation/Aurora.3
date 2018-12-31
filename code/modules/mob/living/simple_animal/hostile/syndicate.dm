@@ -164,6 +164,7 @@
 	tameable = FALSE
 
 	flying = TRUE
+	attack_emote = "buzzes at"
 
 /mob/living/simple_animal/hostile/viscerator/death()
 	..(null,"is smashed into pieces!")
@@ -171,3 +172,13 @@
 	new /obj/effect/gibspawner/robot(T)
 	spark(T, 3, alldirs)
 	qdel(src)
+
+/mob/living/simple_animal/hostile/viscerator/proc/wakeup()
+	stance = HOSTILE_STANCE_IDLE
+
+/mob/living/simple_animal/hostile/viscerator/emp_act(severity)
+	LoseTarget()
+	stance = HOSTILE_STANCE_TIRED
+	addtimer(CALLBACK(src, .proc/wakeup), 150)
+	if(severity == 1.0)
+		apply_damage(5)

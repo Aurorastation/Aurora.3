@@ -44,6 +44,8 @@
 		new /obj/item/weapon/tank/air(src)
 		new /obj/item/clothing/mask/gas(src)
 		new /obj/item/device/flash(src)
+		new /obj/item/weapon/storage/box/firingpinsRD(src)
+		new /obj/item/device/pin_extractor(src)
 
 /obj/structure/closet/secure_closet/RD2
 	name = "research director's attire"

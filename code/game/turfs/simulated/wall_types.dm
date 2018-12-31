@@ -34,6 +34,9 @@
 	. = ..(mapload,"rust")
 	desc = "Rust stains this ancient wall."
 
+/turf/simulated/wall/vaurca/Initialize(mapload)
+	. = ..(mapload,"alien biomass")
+
 /turf/simulated/wall/iron/Initialize(mapload)
 	. = ..(mapload,"iron")
 

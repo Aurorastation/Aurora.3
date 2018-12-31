@@ -24,6 +24,9 @@
 	siemens_coefficient = 0.5
 	can_hold_knife = 1
 
+/obj/item/clothing/shoes/swat/ert
+	species_restricted = null
+
 /obj/item/clothing/shoes/combat //Basically SWAT shoes combined with galoshes.
 	name = "combat boots"
 	desc = "When you REALLY want to turn up the heat."
@@ -136,10 +139,10 @@
 	w_class = 2
 	species_restricted = null
 
-/obj/item/clothing/shoes/winter
+/obj/item/clothing/shoes/winter_old
 	name = "winter boots"
 	desc = "Boots lined with 'synthetic' animal fur."
-	icon_state = "winterboots"
+	icon_state = "winterboots_old"
 	cold_protection = FEET|LEGS
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = FEET|LEGS
@@ -164,3 +167,16 @@
 	name = "high heels"
 	desc = "A pair of high-heeled shoes. Fancy!"
 	icon_state = "heels"
+
+/obj/item/clothing/shoes/winter
+	name = "winter boots"
+	desc = "A pair of heavy winter boots made out of animal furs, reaching up to the knee."
+	icon_state = "winterboots"
+	item_state = "winterboots"
+	cold_protection = FEET|LEGS
+	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection = FEET|LEGS
+	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
+	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 10, rad = 0)
+	siemens_coefficient = 0.9
+	can_hold_knife = 1

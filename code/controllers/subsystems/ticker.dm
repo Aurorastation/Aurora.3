@@ -40,8 +40,9 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/delay_end = 0	//if set to nonzero, the round will not restart on it's own
 
 	var/triai = 0	//Global holder for Triumvirate
-	var/tipped = 0							//Did we broadcast the tip of the day yet?
+	var/tipped = FALSE						//Did we broadcast the tip of the day yet?
 	var/selected_tip						// What will be the tip of the day?
+	var/testmerges_printed = FALSE
 
 	var/round_end_announced = 0 // Spam Prevention. Announce round end only once.
 
@@ -133,6 +134,10 @@ var/datum/controller/subsystem/ticker/SSticker
 			SSvote.autogamemode()
 			pregame_timeleft--
 			return
+
+	if (pregame_timeleft <= 20 && !testmerges_printed)
+		print_testmerges()
+		testmerges_printed = TRUE
 
 	if (pregame_timeleft <= 10 && !tipped)
 		send_tip_of_the_round()
@@ -326,6 +331,12 @@ var/datum/controller/subsystem/ticker/SSticker
 		world << "<font color='purple'><b>Tip of the round: \
 			</b>[html_encode(m)]</font>"
 
+/datum/controller/subsystem/ticker/proc/print_testmerges()
+	var/data = revdata.testmerge_overview()
+
+	if (data)
+		to_world(data)
+
 /datum/controller/subsystem/ticker/proc/pregame()
 	set waitfor = FALSE
 	sleep(1)	// Sleep so the MC has a chance to update its init time.
@@ -393,21 +404,36 @@ var/datum/controller/subsystem/ticker/SSticker
 	src.mode.pre_setup()
 	SSjobs.DivideOccupations() // Apparently important for new antagonist system to register specific job antags properly.
 
-	if(!src.mode.can_start())
+	var/fail_reasons = list()
+
+	var/can_start = src.mode.can_start()
+
+	if(can_start & GAME_FAILURE_NO_PLAYERS)
 		var/list/voted_not_ready = list()
 		for(var/mob/abstract/new_player/player in player_list)
 			if((player.client)&&(!player.ready))
 				voted_not_ready += player.ckey
 		message_admins("The following players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")
 		log_game("Ticker: Players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")
-		world << "<B>Unable to start [mode.name].</B> Not enough players, [mode.required_players] players needed. Reverting to pre-game lobby."
+		fail_reasons += "Not enough players, [mode.required_players] player(s) needed"
+
+	if(can_start & GAME_FAILURE_NO_ANTAGS)
+		fail_reasons += "Not enough antagonists, [mode.required_enemies] antagonist(s) needed"
+
+	if(can_start & GAME_FAILURE_TOO_MANY_PLAYERS)
+		fail_reasons +=  "Too many players, less than [mode.max_players] antagonist(s) needed"
+
+	if(can_start != GAME_FAILURE_NONE)
+		world << "<B>Unable to start [mode.name].</B> [english_list(fail_reasons,"No reason specified",". ",". ")]"
 		current_state = GAME_STATE_PREGAME
 		mode.fail_setup()
 		mode = null
 		SSjobs.ResetOccupations()
 		if(master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
+			world << "<B>Reselecting gamemode...</B>"
 			return SETUP_REATTEMPT
 		else
+			world << "<B>Reverting to pre-game lobby.</B>"
 			return SETUP_REVOTE
 
 	var/starttime = REALTIMEOFDAY
@@ -431,6 +457,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	data_core.manifest()
 
 	Master.RoundStart()
+	real_round_start_time = REALTIMEOFDAY
 	round_start_time = world.time
 
 	callHook("roundstart")

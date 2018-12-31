@@ -84,6 +84,7 @@
 		return
 	if(M.cell)
 		M.occupant_message("<span class='notice'>Now charging...</span>")
+		playsound(M, 'sound/mecha/powerup.ogg', 50, 1)
 		charging = M
 	return
 

@@ -66,6 +66,9 @@
 
 		)
 
+/obj/item/weapon/rig/vaurca/minimal
+	initial_modules = list(/obj/item/rig_module/chem_dispenser/vaurca)
+
 /obj/item/clothing/head/helmet/space/rig/vaurca
 	species_restricted = list("Vaurca")
 	light_overlay = "helmet_light_dual_green"
