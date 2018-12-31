@@ -36,3 +36,4 @@ delete-after: True
 changes: 
   - bugfix: "The bartender no longer has the ability to see through solid walls and view the barsign."
   - rscadd: "Adds holoplants across the station. These can be changed by clicking on them, and color by walking on them."
+  - rscadd: "Adds more water coolers across the map, and a secret beer keg in Engineering."
