@@ -29,8 +29,11 @@ var/global/datum/getrev/revdata = new()
 	var/datum/tgs_api/api = TGS_READ_GLOBAL(tgs)
 
 	if (api)
+		log_debug("GETREV: TGS API found.")
 		test_merges = api.TestMerges()
+		log_debug("GETREV: [test_merges.len] test merges found.")
 	else
+		log_debug("GETREV: No TGS API found.")
 		test_merges = list()
 
 	world.log << "Running revision:"
