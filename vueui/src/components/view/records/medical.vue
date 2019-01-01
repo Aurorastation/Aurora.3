@@ -1,7 +1,13 @@
 <template>
   <div v-if="active">
     <view-records-general hideAdvanced/>
-    <vui-item label="Blood type:"><view-records-field :editable="(editable & 2) > 0" path="active.medical.blood_type"/></vui-item>
+    <vui-item label="Blood type:">
+      <view-records-field :editable="(editable & 2) > 0" path="active.medical.blood_type">
+        <select v-model="$root.$data.state.editingvalue">
+            <option v-for="i in choices.medical.blood_type" :key="i" :value="i">{{ i }}</option>
+        </select>
+      </view-records-field>
+    </vui-item>
     <vui-item label="DNA:"><view-records-field :editable="(editable & 2) > 0" path="active.medical.blood_dna"/></vui-item>
     <vui-item label="Disabilities:"><view-records-field :editable="(editable & 2) > 0" path="active.medical.disabilities"><textarea v-model="$root.$data.state.editingvalue"></textarea></view-records-field></vui-item>
     <vui-item label="Allergies:"><view-records-field :editable="(editable & 2) > 0" path="active.medical.allergies"><textarea v-model="$root.$data.state.editingvalue"></textarea></view-records-field></vui-item>

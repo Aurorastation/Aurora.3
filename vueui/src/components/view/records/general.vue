@@ -9,8 +9,20 @@
     <vui-item label="Age:"><view-records-field :editable="(editable & 1) > 0" path="active.age"/></vui-item>
     <vui-item label="Sex:"><view-records-field :editable="(editable & 1) > 0" path="active.sex"/></vui-item>
     <vui-item label="Rank:"><view-records-field :editable="(editable & 1) > 0" path="active.rank"/></vui-item>
-    <vui-item label="Phisical Status:"><view-records-field :editable="(editable & 1) > 0" path="active.phisical_status"/></vui-item>
-    <vui-item label="Mental Status:"><view-records-field :editable="(editable & 1) > 0" path="active.mental_status"/></vui-item>
+    <vui-item label="Phisical Status:">
+      <view-records-field :editable="(editable & 1) > 0" path="active.phisical_status">
+        <select v-model="$root.$data.state.editingvalue">
+            <option v-for="i in choices.phisical_status" :key="i" :value="i">{{ i }}</option>
+        </select>
+      </view-records-field>
+    </vui-item>
+    <vui-item label="Mental Status:">
+      <view-records-field :editable="(editable & 1) > 0" path="active.mental_status">
+        <select v-model="$root.$data.state.editingvalue">
+            <option v-for="i in choices.mental_status" :key="i" :value="i">{{ i }}</option>
+        </select>
+      </view-records-field>
+    </vui-item>
     <vui-item label="Fingerprint:"><view-records-field :editable="(editable & 1) > 0" path="active.fingerprint"/></vui-item>
     <template v-if="!hideAdvanced && (avaivabletypes & 1)">
       <vui-item label="Species:"><view-records-field :editable="(editable & 1) > 0" path="active.species"/></vui-item>
@@ -20,7 +32,7 @@
       <vui-item label="Employment/skills summary:"><view-records-field :editable="(editable & 1) > 0" path="active.notes"><textarea v-model="$root.$data.state.editingvalue"></textarea></view-records-field></vui-item>
       <vui-item label="CCIA Notes:">{{ active.ccia_record }}</vui-item>
       <vui-item label="CCIA Actions:">
-        <div v-for="item in active.ccia_record" :key="item[0]">
+        <div v-for="item in active.ccia_actions" :key="item[0]">
           <h5>{{ item[0] }} <i>({{ item[1] }})</i></h5>
           <div v-html="item[3].replace('\r\n', '<br/>')">
           </div>

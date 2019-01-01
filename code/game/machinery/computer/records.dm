@@ -7,10 +7,8 @@
 	var/datum/record/virus/active_virus
 	var/default_screen = "general"
 	var/typechoices = list(
-		"general" = list(
-			"phisical_status" = list("Active", "*Deceased*", "*SSD*", "Physically Unfit", "Disabled"),
-			"mental_status" = list("Stable", "*Insane*", "*Unstable*", "*Watch*")
-		),
+		"phisical_status" = list("Active", "*Deceased*", "*SSD*", "Physically Unfit", "Disabled"),
+		"mental_status" = list("Stable", "*Insane*", "*Unstable*", "*Watch*"),
 		"medical" = list(
 			"blood_type" = list("A-", "B-", "AB-", "O-", "A+", "B+", "AB+", "O+")
 		)
@@ -84,7 +82,8 @@
 		. = data = list(
 			"activeview" = "list",
 			"defaultview" = default_screen,
-			"editingvalue" = ""
+			"editingvalue" = "",
+			"choices" = typechoices
 			)
 	
 	VUEUI_SET_CHECK(data["avaivabletypes"], records_type, ., data)
