@@ -29,6 +29,12 @@
 	species_restricted = null
 	gender = PLURAL
 	punch_force = 5
+	sprite_sheets = list(
+		"Tajara" = 'icons/mob/species/tajaran/gloves.dmi',
+		"Unathi" = 'icons/mob/species/unathi/gloves.dmi',
+		"Vaurca" = 'icons/mob/species/vaurca/gloves.dmi',
+		"Machine" = 'icons/mob/species/machine/gloves.dmi'
+	)
 
 /obj/item/clothing/shoes/magboots/rig
 	name = "boots"
@@ -38,6 +44,12 @@
 	species_restricted = null
 	gender = PLURAL
 	icon_base = null
+	sprite_sheets = list(
+		"Tajara" = 'icons/mob/species/tajaran/shoes.dmi',
+		"Unathi" = 'icons/mob/species/unathi/shoes.dmi',
+		"Vaurca" = 'icons/mob/species/vaurca/shoes.dmi',
+		"Machine" = 'icons/mob/species/machine/shoes.dmi'
+	)
 
 /obj/item/clothing/suit/space/rig
 	name = "chestpiece"
