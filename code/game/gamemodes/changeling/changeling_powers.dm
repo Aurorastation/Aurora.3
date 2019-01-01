@@ -171,17 +171,15 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		return
 
 	changeling.isabsorbing = 1
-	for(var/stage = 1, stage<=3, stage++)
+	for(var/stage = 1, stage<=2, stage++)
 		switch(stage)
 			if(1)
-				src << "<span class='notice'>This creature is compatible. We must remain next to them.</span>"
+				src << "<span class='notice'>We will attempt to infest and steal [T]'s DNA. We must remain next to them.</span>"
 			if(2)
-				src << "<span class='notice'>We subtly find a place to touch their flesh.</span>"
-			if(3)
-				src << "<span class='notice'>We begin to infest their genetic structure.</span>"
+				src << "<span class='notice'>We subtly touch [T], and begin to infest their genetic structure.</span>"
 
 		feedback_add_details("changeling_powers","A[stage]")
-		if(!do_mob(src, T, 150))
+		if(!do_mob(src, T, 75))
 			src << "<span class='warning'>Our extraction of [T] has been interrupted!</span>"
 			changeling.isabsorbing = 0
 			return
