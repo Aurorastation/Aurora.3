@@ -1135,6 +1135,7 @@ var/list/total_extraction_beacons = list()
 	var/oresummon_delay = 25
 
 /obj/item/weapon/oreportal/attack_self(mob/user)
+	last_scan_time = world.time
 	if(world.time - last_oresummon_time >= oresummon_delay)
 		to_chat(user, "<span class='info'>You pulse the ore summoner.</span>")
 		for(var/obj/item/weapon/ore/O in orange(7,user))
@@ -1146,6 +1147,7 @@ var/list/total_extraction_beacons = list()
 			CHECK_TICK
 	else
 		user << "The ore summoner is in the middle of some calibrations."
+		return 0
 
 /******************************Sculpting*******************************/
 /obj/item/weapon/autochisel
