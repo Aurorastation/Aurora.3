@@ -194,6 +194,5 @@
 	key.loc = usr.loc
 	if(!usr.get_active_hand())
 		usr.put_in_hands(key)
-	key = null
 
 	verbs -= /obj/vehicle/segway/verb/remove_key
