@@ -1135,9 +1135,9 @@ var/list/total_extraction_beacons = list()
 	var/oresummon_delay = 25
 
 /obj/item/weapon/oreportal/attack_self(mob/user)
-	last_oresummon_time = world.time
 	if(world.time - last_oresummon_time >= oresummon_delay)
 		to_chat(user, "<span class='info'>You pulse the ore summoner.</span>")
+		last_oresummon_time = world.time
 		for(var/obj/item/weapon/ore/O in orange(7,user))
 			if(limit <= 0)
 				break
