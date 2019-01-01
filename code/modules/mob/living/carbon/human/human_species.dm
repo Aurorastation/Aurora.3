@@ -20,7 +20,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	. = ..(mapload, "Resomi")
 
 /mob/living/carbon/human/skrell/Initialize(mapload)
-	h_style = "Skrell Male Tentacles"
+	h_style = "Skrell Average Tentacles"
 	. = ..(mapload, "Skrell")
 
 /mob/living/carbon/human/tajaran/Initialize(mapload)

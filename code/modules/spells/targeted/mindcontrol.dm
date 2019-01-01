@@ -51,7 +51,7 @@
 		user << "<span class='warning'>You invade the mind of \the [H]!</span>"
 		H << "<span class='danger'>Your mind is invaded by the presence of \the [user]! They are trying to make you a slave!</span>"
 
-		if(!do_after(user, H.stat == CONSCIOUS ? 80 : 40, target, 0, 1))
+		if (!do_mob(user, H, 80))
 			user << "<span class='warning'>Your concentration is broken!</span>"
 			return FALSE
 

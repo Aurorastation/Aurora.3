@@ -129,10 +129,6 @@
 	hats["hat, sombrero"] = /obj/item/clothing/head/sombrero
 	gear_tweaks += new/datum/gear_tweak/path(hats)
 
-/datum/gear/head/philosopher_wig
-	display_name = "natural philosopher wig"
-	path = /obj/item/clothing/head/philosopher_wig
-
 /datum/gear/head/hijab
 	display_name = "hijab selection"
 	path = /obj/item/clothing/head/hijab
