@@ -1,5 +1,14 @@
 var/global/datum/getrev/revdata = new()
 
+/hook/startup/proc/initialize_test_merges()
+	if (!revdata)
+		log_debug("GETREV: No rev found.")
+		return TRUE
+
+	revdata.testmerge_initialize()
+
+	return TRUE
+
 /datum/getrev
 	var/branch
 	var/revision
@@ -25,16 +34,6 @@ var/global/datum/getrev/revdata = new()
 				if(unix_time)
 					date = unix2date(unix_time)
 			break
-
-	var/datum/tgs_api/api = TGS_READ_GLOBAL(tgs)
-
-	if (api)
-		log_debug("GETREV: TGS API found.")
-		test_merges = api.TestMerges()
-		log_debug("GETREV: [test_merges.len] test merges found.")
-	else
-		log_debug("GETREV: No TGS API found.")
-		test_merges = list()
 
 	world.log << "Running revision:"
 	world.log << branch
@@ -87,6 +86,19 @@ client/verb/showrevinfo()
 	out += "</table>"
 
 	greeting_info = out.Join()
+
+/datum/getrev/proc/testmerge_initialize()
+	var/datum/tgs_api/api = TGS_READ_GLOBAL(tgs)
+
+	if (api)
+		log_debug("GETREV: TGS API found.")
+		test_merges = api.TestMerges()
+		log_debug("GETREV: [test_merges.len] test merges found.")
+	else
+		log_debug("GETREV: No TGS API found.")
+		test_merges = list()
+
+	generate_greeting_info()
 
 /datum/getrev/proc/testmerge_short_overview(datum/tgs_revision_information/test_merge/tm)
 	. = list()
