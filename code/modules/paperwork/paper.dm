@@ -130,6 +130,7 @@
 		info = stars(info,85)
 		user.visible_message("\The [user] crumples \the [src] into a ball!", "You crumple \the [src] into a ball.", "You hear crinkling.")
 		icon_state = "scrap"
+		throw_range = 8
 		return
 
 	if (user.a_intent == I_GRAB && icon_state != "scrap" && !istype(src, /obj/item/weapon/paper/carbon))
