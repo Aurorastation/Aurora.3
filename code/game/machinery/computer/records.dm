@@ -69,7 +69,7 @@
 /obj/machinery/computer/records/ui_interact(mob/user as mob)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, "records-main", 450, 350, capitalize(src.name))
+		ui = new(user, src, "records-main", 450, 520, capitalize(src.name))
 	ui.open()
 
 /obj/machinery/computer/records/attack_ai(mob/user as mob)
@@ -163,6 +163,17 @@
 			obj_query_set(null, src, value, null, key)
 			obj_query_set(null, ui.data, value, null, key)
 			. = TRUE
+	if(href_list["deleterecord"])
+		var/confirm = alert("Are you sure you want to delete this record?", "Confirm Deletion", "No", "Yes")
+		if(confirm == "Yes")
+			SSrecords.remove_record(active)
+			ui.data["allrecords"][active.id] = null
+			active = null
+		SSvueui.check_uis_for_change(src)
+	if(href_list["newrecord"])
+		active = new()
+		SSrecords.add_record(active)
+		SSvueui.check_uis_for_change(src)
 	if(href_list["addtorecord"])
 		var/list/key = href_list["addtorecord"]["key"]
 		var/value = sanitize(href_list["addtorecord"]["value"])
@@ -183,7 +194,7 @@
 		return FALSE
 	if(key[1] == "active_virus" && !(edit_type & RECORD_VIRUS))
 		return FALSE
-	if(key[2] == "active")
+	if(key[1] == "active")
 		switch(key[2])
 			if("security")
 				if(!(edit_type & RECORD_SECURITY))

@@ -60,7 +60,7 @@
 	var/faction = "Unknown"
 	var/religion = "Unknown"
 	var/ccia_record = "No CCIA records found"
-	var/ccia_actions = "No CCIA actions found"
+	var/list/ccia_actions = list()
 	var/icon/photo_front
 	var/icon/photo_side
 	var/list/advanced_fields = list("species", "home_system", "citizenship", "faction", "religion", "ccia_record", "ccia_actions")

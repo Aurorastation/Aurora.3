@@ -1,6 +1,6 @@
 <template>
   <div v-if="active">
-    <div class="photos">
+    <div v-if="$root.$data.assets['front']" class="photos">
       <vui-img name="front"/><br>
       <vui-img name="side"/>
     </div>
@@ -27,6 +27,7 @@
           <a :href="item[4]">Open</a>
         </div>
       </vui-item>
+      <vui-button :params="{ deleterecord: 1 }" icon="trash-alt" class="danger">Delete record</vui-button>
     </template>
   </div>
 </template>

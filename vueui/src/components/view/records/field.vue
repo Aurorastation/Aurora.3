@@ -1,7 +1,7 @@
 <template>
   <div>
-    <template v-if="!reditable">{{ rvalue }}</template>
-    <vui-button v-else-if="!editing && reditable" @click="beginEditing">{{ rvalue }}</vui-button>
+    <template v-if="!reditable && !editButton">{{ rvalue }}</template>
+    <vui-button v-else-if="!editing && (reditable || editButton)" @click="beginEditing">{{ editbtnname }}</vui-button>
     <template v-else>
       <slot><input v-model="gdata.state.editingvalue"></slot><vui-button @click="save" icon="check"/>
     </template>
@@ -30,6 +30,10 @@ export default {
     editable: {
       type: Boolean,
       default: false
+    },
+    editButton: {
+      type: String,
+      default: null
     }
   },
   computed: {
@@ -43,12 +47,18 @@ export default {
       if(this.path) {
         return Utils.dotNotationRead(this.gdata.state, this.path)
       }
-      return value
+      return this.value
+    },
+    editbtnname() {
+      if(this.editButton) {
+        return this.editButton
+      }
+      return this.rvalue
     }
   },
   methods: {
     beginEditing() {
-      if(!this.reditable) return
+      if(!this.reditable && !this.editButton) return
       this.$root.$emit("record-field-start-editing")
       this.gdata.state.editingvalue = this.rvalue
       this.startEditHandler = () => {
@@ -58,13 +68,17 @@ export default {
       this.editing = true
     },
     endEditing() {
-      if(!this.reditable) return
+      if(!this.reditable && !this.editButton) return
       this.editing = false
       this.$root.$off("record-field-start-editing", this.startEditHandler)
     },
     save() {
-      if(!this.reditable) return
+      if(!this.reditable && !this.editButton) return
       this.endEditing()
+      if(this.editButton) {
+        this.$emit("save", this.gdata.state.editingvalue)
+        return
+      }
       Utils.sendToTopic({
         editrecord: {
           value: this.gdata.state.editingvalue,

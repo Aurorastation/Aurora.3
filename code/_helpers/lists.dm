@@ -490,7 +490,7 @@
 		keys = splittext(query, delimiter)
 	var/datum/subject_d
 	var/list/subject_l
-	for (var/i = 1; i < (keys.len - 1); i++)
+	for (var/i = 1; i < keys.len; i++)
 		var/key = keys[i]
 		if (isdatum(subject))
 			subject_d = subject
