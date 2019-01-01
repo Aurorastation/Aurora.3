@@ -138,7 +138,7 @@
 /datum/record/security
 	var/criminal = "None"
 	var/crimes = "There is no crime convictions."
-	var/incidents = ""
+	var/list/incidents = list()
 	var/list/comments = list()
 
 /datum/record/security/New(var/mob/living/carbon/human/H, var/nid)

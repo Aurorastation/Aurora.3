@@ -1,9 +1,9 @@
 <template>
   <div>
     <div>
-      <vui-button :class="{ selected: activeview == 'list'}" @click="activeview = 'list'">List</vui-button>
-      <vui-button v-if="allrecords_locked" :class="{ selected: activeview == 'list-locked'}" @click="activeview = 'list-locked'">List (Locked)</vui-button>
-      <vui-button v-if="record_viruses" :class="{ selected: activeview == 'list-virus'}" @click="activeview = 'list-virus'">List (Virus)</vui-button>
+      <vui-button v-if="avaivabletypes & 7" :class="{ selected: activeview == 'list'}" @click="activeview = 'list'">List</vui-button>
+      <vui-button v-if="avaivabletypes & 8" :class="{ selected: activeview == 'list-locked'}" @click="activeview = 'list-locked'">List (Locked)</vui-button>
+      <vui-button v-if="avaivabletypes & 32" :class="{ selected: activeview == 'list-virus'}" @click="activeview = 'list-virus'">List (Virus)</vui-button>
       <template v-if="active">
         <vui-button :class="{ selected: activeview == 'general'}" v-if="avaivabletypes & 1" @click="activeview = 'general'">General</vui-button>
         <vui-button :class="{ selected: activeview == 'security'}" :disabled="!active.security" v-if="avaivabletypes & 4" @click="activeview = 'security'">Security</vui-button>
@@ -27,10 +27,3 @@ export default {
   }
 }
 </script>
-
-
-<style lang="scss" scoped>
-
-</style>
- 
-

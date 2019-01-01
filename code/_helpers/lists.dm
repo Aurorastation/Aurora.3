@@ -437,3 +437,85 @@
 	for(var/i = 1 to l.len)
 		if(islist(.[i]))
 			.[i] = .(.[i])
+
+//Sets object value at specified path
+/proc/obj_query_set(query, subject, value, delimiter = "/", list/keys)
+	. = FALSE
+	if(!keys)
+		keys = splittext(query, delimiter)
+	var/datum/subject_d
+	var/list/subject_l
+	for (var/i = 1; i < keys.len; i++)
+		var/key = keys[i]
+		if (isdatum(subject))
+			subject_d = subject
+			if (!subject_d.vars[key])
+				return
+
+			subject = subject_d.vars[key]
+		else if (islist(subject))
+			subject_l = subject
+			if (!subject_l[key])
+				return
+
+			subject = subject_l[key]
+		else
+			return
+
+	if (!subject)
+		return
+		
+	var/final = keys[keys.len]
+	if (isdatum(subject))
+		subject_d = subject
+		if (!subject_d.vars[final])
+			return
+
+		subject_d.vars[final] = value
+	else if (islist(subject))
+		subject_l = subject
+		if (!subject_l[final])
+			return
+
+		subject_l[final] = value
+	else
+		return
+
+	return TRUE
+
+//Gets object value at specified path
+/proc/obj_query_get(query, subject, delimiter = "/", list/keys)
+	. = null
+	if(!keys)
+		keys = splittext(query, delimiter)
+	var/datum/subject_d
+	var/list/subject_l
+	for (var/i = 1; i < (keys.len - 1); i++)
+		var/key = keys[i]
+		if (isdatum(subject))
+			subject_d = subject
+			if (!subject_d.vars[key])
+				return
+
+			subject = subject_d.vars[key]
+		else if (islist(subject))
+			subject_l = subject
+			if (!subject_l[key])
+				return
+
+			subject = subject_l[key]
+		else
+			return
+
+	if (!subject)
+		return
+		
+	var/final = keys[keys.len]
+	if (isdatum(subject))
+		subject_d = subject
+		if (subject_d.vars[final])
+			return subject_d.vars[final]
+	else if (islist(subject))
+		subject_l = subject
+		if (subject_l[final])
+			return subject_l[final]

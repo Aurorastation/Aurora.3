@@ -79,15 +79,16 @@
 	user.set_machine(src)
 	ui_interact(user)
 
-/obj/machinery/computer/records/vueui_data_change(var/list/data, var/mob/user, var/vueui/ui)
+/obj/machinery/computer/records/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	if(!data)
 		. = data = list(
 			"activeview" = "list",
 			"defaultview" = default_screen,
-			"editable" = edit_type
+			"editingvalue" = ""
 			)
 	
 	VUEUI_SET_CHECK(data["avaivabletypes"], records_type, ., data)
+	VUEUI_SET_CHECK(data["editable"], edit_type, ., data)
 	LAZYINITLIST(data["allrecords"])
 	for(var/tR in sortRecord(SSrecords.records))
 		var/datum/record/general/R = tR
@@ -96,8 +97,8 @@
 		VUEUI_SET_CHECK(data["allrecords"][R.id]["name"], R.name, ., data)
 		VUEUI_SET_CHECK(data["allrecords"][R.id]["rank"], R.rank, ., data)
 
+	LAZYINITLIST(data["allrecords_locked"])
 	if(records_type & RECORD_LOCKED)
-		LAZYINITLIST(data["allrecords_locked"])
 		for(var/tR in sortRecord(SSrecords.records_locked))
 			var/datum/record/general/R = tR
 			LAZYINITLIST(data["allrecords_locked"][R.id])
@@ -105,8 +106,8 @@
 			VUEUI_SET_CHECK(data["allrecords_locked"][R.id]["name"], R.name, ., data)
 			VUEUI_SET_CHECK(data["allrecords_locked"][R.id]["rank"], R.rank, ., data)
 
+	LAZYINITLIST(data["record_viruses"])
 	if(records_type & RECORD_VIRUS)
-		LAZYINITLIST(data["record_viruses"])
 		for(var/tR in sortRecord(SSrecords.viruses))
 			var/datum/record/virus/R = tR
 			LAZYINITLIST(data["record_viruses"]["[R.id]"])
@@ -120,6 +121,9 @@
 	else
 		VUEUI_SET_CHECK(data["active_virus"], 0, ., data)
 	if(active)
+		if(!ui.assets["front"] || !ui.assets["side"])
+			ui.add_asset("front", active.photo_front)
+			ui.add_asset("side", active.photo_side)
 		var/excluded = list()
 		if(!(records_type & RECORD_GENERAL)) excluded += active.advanced_fields
 		if(!(records_type & RECORD_SECURITY)) excluded += "security"
@@ -132,8 +136,19 @@
 		VUEUI_SET_CHECK(data["active"], 0, ., data)
 
 /obj/machinery/computer/records/Topic(href, href_list)
+	var/datum/vueui/ui = href_list["vueui"]
+	if(!istype(ui))
+		return
 	if(href_list["setactive"])
 		active = SSrecords.find_record("id", href_list["setactive"])
+		if(active)
+			ui.add_asset("front", active.photo_front)
+			ui.add_asset("side", active.photo_side)
+			ui.send_asset("front")
+			ui.send_asset("side")
+		else
+			ui.remove_asset("font")
+			ui.remove_asset("side")
 		SSvueui.check_uis_for_change(src)
 	if(href_list["setactive_locked"] && (records_type & RECORD_LOCKED))
 		active = SSrecords.find_record("id", href_list["setactive_locked"], RECORD_GENERAL | RECORD_LOCKED)
@@ -142,8 +157,41 @@
 		active_virus = SSrecords.find_record("id", text2num(href_list["setactive_virus"]), RECORD_VIRUS)
 		SSvueui.check_uis_for_change(src)
 	if(href_list["editrecord"])
-		ApplyRecordEdit(href_list["editrecord"]["key"], href_list["editrecord"]["value"])
-	
-/obj/machinery/computer/records/proc/ApplyRecordEdit(var/key, var/value)
-	world << "[src] tried to edit [src.active] key: [json_encode(key)], value: [value]"
+		var/list/key = href_list["editrecord"]["key"]
+		var/value = sanitize(href_list["editrecord"]["value"])
+		if(key.len >= 2 && canEdit(key))
+			obj_query_set(null, src, value, null, key)
+			obj_query_set(null, ui.data, value, null, key)
+			. = TRUE
+	if(href_list["addtorecord"])
+		var/list/key = href_list["addtorecord"]["key"]
+		var/value = sanitize(href_list["addtorecord"]["value"])
+		if(key.len >= 2 && canEdit(key))
+			obj_query_set(null, src, obj_query_get(null, src, null, key) + value, null, key)
+			obj_query_set(null, ui.data, obj_query_get(null, ui.data, null, key) + value, null, key)
+			. = TRUE
+	if(href_list["removefromrecord"])
+		var/list/key = href_list["removefromrecord"]["key"]
+		var/value = sanitize(href_list["removefromrecord"]["value"])
+		if(key.len >= 2 && canEdit(key))
+			obj_query_set(null, src, obj_query_get(null, src, null, key) - value, null, key)
+			obj_query_set(null, ui.data, obj_query_get(null, ui.data, null, key) - value, null, key)
+			. = TRUE
 
+/obj/machinery/computer/records/proc/canEdit(list/key)
+	if(!(key[1] in list("active", "active_virus")))
+		return FALSE
+	if(key[1] == "active_virus" && !(edit_type & RECORD_VIRUS))
+		return FALSE
+	if(key[2] == "active")
+		switch(key[2])
+			if("security")
+				if(!(edit_type & RECORD_SECURITY))
+					return FALSE
+			if("medical")
+				if(!(edit_type & RECORD_MEDICAL))
+					return FALSE
+			else
+				if(key.len == 2 && !(edit_type & RECORD_GENERAL))
+					return FALSE
+	return TRUE

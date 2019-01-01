@@ -1,7 +1,7 @@
 <template>
   <div>
-    <template v-if="!editable">{{ rvalue }}</template>
-    <vui-button v-else-if="!editing && editable" @click="beginEditing">{{ rvalue }}</vui-button>
+    <template v-if="!reditable">{{ rvalue }}</template>
+    <vui-button v-else-if="!editing && reditable" @click="beginEditing">{{ rvalue }}</vui-button>
     <template v-else>
       <slot><input v-model="gdata.state.editingvalue"></slot><vui-button @click="save" icon="check"/>
     </template>
@@ -23,28 +23,32 @@ export default {
       type: String,
       default: ""
     },
-    key: {
+    path: {
       type: String,
       default: null
+    },
+    editable: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
-    editable() {
-      if(key) {
-        return true
+    reditable() {
+      if(this.path) {
+        return true && this.editable
       }
       return false
     },
     rvalue() {
-      if(key) {
-        return Utils.dotNotationRead(this.gdata.state, this.key)
+      if(this.path) {
+        return Utils.dotNotationRead(this.gdata.state, this.path)
       }
       return value
     }
   },
   methods: {
     beginEditing() {
-      if(!this.editable) return
+      if(!this.reditable) return
       this.$root.$emit("record-field-start-editing")
       this.gdata.state.editingvalue = this.rvalue
       this.startEditHandler = () => {
@@ -54,17 +58,17 @@ export default {
       this.editing = true
     },
     endEditing() {
-      if(!this.editable) return
+      if(!this.reditable) return
       this.editing = false
       this.$root.$off("record-field-start-editing", this.startEditHandler)
     },
     save() {
-      if(!this.editable) return
+      if(!this.reditable) return
       this.endEditing()
       Utils.sendToTopic({
         editrecord: {
           value: this.gdata.state.editingvalue,
-          key: this.editKey.split(".")
+          key: this.path.split(".")
         }
       })
     }
@@ -72,6 +76,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+textarea {
+  height: 6em;
+}
 </style>
+

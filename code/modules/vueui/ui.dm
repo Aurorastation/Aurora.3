@@ -50,6 +50,7 @@ main ui datum.
 	object = nobject
 	data = ndata
 	state = nstate
+	LAZYINITLIST(assets)
 
 	if (nactiveui)
 		activeui = nactiveui
