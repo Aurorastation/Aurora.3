@@ -112,6 +112,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		var/mob/living/carbon/human/C = loc
 		if(istype(C) && src == C.wear_mask)
 			reagents.trans_to_mob(C, burn_rate*initial_volume, CHEM_BREATHE, 0.75)
+			if(C.check_has_mouth() && prob(5))
+				reagents.trans_to_mob(C, burn_rate*initial_volume, CHEM_INGEST, 0.75)
 		else
 			reagents.remove_any(burn_rate*initial_volume)
 	else
