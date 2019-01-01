@@ -583,7 +583,6 @@
 				else
 					message = "makes a very loud noise."
 					m_type = 2
-
 		if("swish")
 			src.animate_tail_once()
 
@@ -658,6 +657,24 @@
 					message = "buzzes."
 				playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
 				m_type = 1
+
+		if("chirp")
+			if(!is_diona(src))
+				to_chat(src, "<span class='warning'>You are not a Diona!</span>")
+				return
+			message = "<B>The [src.name]</B> chirps!"
+			playsound(src.loc, 'sound/misc/nymphchirp.ogg', 50, 0)
+			m_type = 2
+
+		if("chirp_song")
+			if(!is_diona(src))
+				to_chat(src, "<span class='warning'>You are not a Diona!</span>")
+				return
+			message = "<B>The [src.name]</B> chirps a song!"
+			for(var/mob/living/carbon/alien/diona/D in src)
+				playsound(src.loc, 'sound/misc/nymphchirp.ogg', pick(list(5, 10, 20, 40)), 0)
+				sleep(pick(list(5, 10, 15, 20)))
+			m_type = 2
 
 		if("vomit")
 			if (!check_has_mouth(src))

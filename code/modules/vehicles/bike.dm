@@ -150,3 +150,16 @@
 	QDEL_NULL(ion)
 
 	return ..()
+
+/obj/vehicle/bike/speeder
+	name = "retrofitted speeder"
+	desc = "A short bike that seems to consist mostly of an engine, a hover repulsor, vents and a steering shaft."
+	icon_state = "speeder_on"
+
+	health = 150
+	maxhealth = 150
+
+	fire_dam_coeff = 0.5
+	brute_dam_coeff = 0.4
+
+	bike_icon = "speeder"
