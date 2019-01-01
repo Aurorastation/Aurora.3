@@ -238,10 +238,16 @@ var/list/gear_datums = list()
 /datum/gear/proc/spawn_item(var/location, var/metadata)
 	var/datum/gear_data/gd = new(path, location)
 	for(var/datum/gear_tweak/gt in gear_tweaks)
-		gt.tweak_gear_data(metadata["[gt]"], gd)
+		if(metadata["[gt]"])
+			gt.tweak_gear_data(metadata["[gt]"], gd)
+		else
+			gt.tweak_gear_data(gt.get_default(), gd)
 	var/item = new gd.path(gd.location)
 	for(var/datum/gear_tweak/gt in gear_tweaks)
-		gt.tweak_item(item, metadata["[gt]"])
+		if(metadata["[gt]"])
+			gt.tweak_item(item, metadata["[gt]"])
+		else
+			gt.tweak_item(item, gt.get_default())
 	return item
 
 /datum/gear/proc/spawn_random(var/location)
