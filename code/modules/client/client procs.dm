@@ -186,8 +186,12 @@
 			if ("github")
 				if (!config.githuburl)
 					src << "<span class='danger'>Github URL not set in the config. Unable to open the site.</span>"
-				else if (alert("This will open the issue tracker in your browser. Are you sure?",, "Yes", "No") == "Yes")
-					src << link(config.githuburl)
+				else if (alert("This will open the Github page in your browser. Are you sure?",, "Yes", "No") == "Yes")
+					if (href_list["pr"])
+						var/pr_link = "[config.githuburl]pull/[href_list["pr"]]"
+						src << link(pr_link)
+					else
+						src << link(config.githuburl)
 
 			// Forum link from various panels.
 			if ("forums")
