@@ -93,7 +93,7 @@
 		if(isturf(loc))
 			var/turf/T = loc
 			if (T.is_hole)
-				usr << "<span class='warning'>You don't think kickstands work here.</span>"
+				to_chat(usr, "<span class='warning'>You don't think kickstands work here.</span>")
 				return
 		usr.visible_message("\The [usr] puts down \the [src]'s kickstand.", "You put down \the [src]'s kickstand.", "You hear a thunk.")
 		playsound(src, 'sound/misc/bike_stand_down.ogg', 50, 1)
@@ -113,13 +113,13 @@
 
 /obj/vehicle/segway/MouseDrop_T(var/atom/movable/C, mob/user as mob)
 	if(!load(C))
-		user << "<span class='warning'>You were unable to load \the [C] onto \the [src].</span>"
+		to_chat(user, "<span class='warning'>You were unable to load \the [C] onto \the [src].</span>")
 		return
 
 /obj/vehicle/segway/attack_hand(var/mob/user as mob)
 	if(user == load)
 		unload(load)
-		user << "You unbuckle yourself from \the [src]."
+		to_chat(user, "You unbuckle yourself from \the [src].")
 	else if(user != load && load)
 		user.visible_message ("[user] starts to unbuckle [load] from \the [src]!")
 		if(do_after(user, 8 SECONDS, act_target = src))
@@ -173,6 +173,9 @@
 /obj/vehicle/segway/Destroy()
 	QDEL_NULL(ion)
 
+	if (key)
+		QDEL_NULL(key)
+
 	return ..()
 
 
@@ -191,7 +194,7 @@
 	if(on)
 		turn_off()
 
-	key.loc = usr.loc
+	key.forceMove(usr.loc)
 	if(!usr.get_active_hand())
 		usr.put_in_hands(key)
 
