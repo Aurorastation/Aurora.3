@@ -12,14 +12,14 @@
     <vui-item label="Phisical Status:">
       <view-records-field :editable="(editable & 1) > 0" path="active.phisical_status">
         <select v-model="$root.$data.state.editingvalue">
-            <option v-for="i in choices.phisical_status" :key="i" :value="i">{{ i }}</option>
+          <option v-for="i in choices.phisical_status" :key="i" :value="i">{{ i }}</option>
         </select>
       </view-records-field>
     </vui-item>
     <vui-item label="Mental Status:">
       <view-records-field :editable="(editable & 1) > 0" path="active.mental_status">
         <select v-model="$root.$data.state.editingvalue">
-            <option v-for="i in choices.mental_status" :key="i" :value="i">{{ i }}</option>
+          <option v-for="i in choices.mental_status" :key="i" :value="i">{{ i }}</option>
         </select>
       </view-records-field>
     </vui-item>
@@ -29,13 +29,12 @@
       <vui-item label="Citizenship:"><view-records-field :editable="(editable & 1) > 0" path="active.citizenship"/></vui-item>
       <vui-item label="Home System:"><view-records-field :editable="(editable & 1) > 0" path="active.home_system"/></vui-item>
       <vui-item label="Religion:"><view-records-field :editable="(editable & 1) > 0" path="active.religion"/></vui-item>
-      <vui-item label="Employment/skills summary:"><view-records-field :editable="(editable & 1) > 0" path="active.notes"><textarea v-model="$root.$data.state.editingvalue"></textarea></view-records-field></vui-item>
+      <vui-item label="Employment/skills summary:"><view-records-field :editable="(editable & 1) > 0" path="active.notes"><textarea v-model="$root.$data.state.editingvalue"/></view-records-field></vui-item>
       <vui-item label="CCIA Notes:">{{ active.ccia_record }}</vui-item>
       <vui-item label="CCIA Actions:">
         <div v-for="item in active.ccia_actions" :key="item[0]">
           <h5>{{ item[0] }} <i>({{ item[1] }})</i></h5>
-          <div v-html="item[3].replace('\r\n', '<br/>')">
-          </div>
+          <div v-html="item[3].replace('\r\n', '<br/>')"/>
           <a :href="item[4]">Open</a>
         </div>
       </vui-item>
