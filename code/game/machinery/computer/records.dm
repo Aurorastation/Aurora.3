@@ -238,5 +238,3 @@
 				if(key.len == 2 && !(edit_type & RECORD_GENERAL))
 					return FALSE
 	return TRUE
-
-#define UIDEBUG
