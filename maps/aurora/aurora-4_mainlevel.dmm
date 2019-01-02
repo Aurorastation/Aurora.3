@@ -33771,6 +33771,8 @@
 	pixel_x = -2;
 	pixel_y = 2
 	},
+/obj/item/weapon/trap/animal,
+/obj/item/weapon/trap/animal,
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "bfK" = (

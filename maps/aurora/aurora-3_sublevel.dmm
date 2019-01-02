@@ -22931,6 +22931,7 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/item/weapon/trap/animal/medium,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
 "aPk" = (
@@ -22939,6 +22940,7 @@
 	},
 /obj/machinery/meter,
 /obj/effect/floor_decal/industrial/warning,
+/obj/item/weapon/trap/animal/medium,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
 "aPl" = (
@@ -22948,6 +22950,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
+/obj/item/weapon/trap/animal/large,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
 "aPm" = (
