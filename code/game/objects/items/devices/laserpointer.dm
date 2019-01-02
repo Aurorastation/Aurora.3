@@ -26,9 +26,6 @@
 
 
 /obj/item/device/laser_pointer/Initialize()
-	icon_state = "pointer"
-
-/obj/item/device/laser_pointer/Initialize()
 	. = ..()
 	diode = new(src)
 	icon_state = "pointer"
