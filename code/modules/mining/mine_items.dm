@@ -1146,7 +1146,7 @@ var/list/total_extraction_beacons = list()
 			limit -= 1
 			CHECK_TICK
 	else
-		user << "The ore summoner is in the middle of some calibrations."
+		to_chat(user, "The ore summoner is in the middle of some calibrations.")
 		return 0
 
 /******************************Sculpting*******************************/
