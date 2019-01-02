@@ -227,6 +227,18 @@
 	else
 		set_light(0)
 
+/obj/item/weapon/shield/energy/legion
+	name = "energy barrier"
+	desc = "A large deployable energy shield meant to provide excellent protection against ranged attacks."
+	icon_state = "ebarrier0"
+
+/obj/item/weapon/shield/energy/legion/update_icon()
+	icon_state = "ebarrier[active]"
+	if(active)
+		set_light(1.5, 1.5, "#33FFFF")
+	else
+		set_light(0)
+
 // tact
 /obj/item/weapon/shield/riot/tact
 	name = "tactical shield"
