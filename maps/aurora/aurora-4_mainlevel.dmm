@@ -37016,10 +37016,10 @@
 /area/crew_quarters/bar)
 "bkZ" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/structure/table/standard,
 /obj/item/device/radio/intercom{
 	pixel_y = 27
 	},
+/obj/machinery/papershredder,
 /turf/simulated/floor/tiled,
 /area/medical/reception)
 "bla" = (
@@ -37939,7 +37939,7 @@
 "bmC" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/bed/chair/office/light{
-	dir = 1
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/medical/reception)
@@ -40626,6 +40626,10 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
+/obj/item/weapon/paper_bin{
+	pixel_x = -1;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled,
 /area/medical/reception)
 "bqD" = (

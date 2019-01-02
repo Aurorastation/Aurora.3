@@ -4330,6 +4330,7 @@
 /obj/machinery/status_display{
 	pixel_x = -32
 	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/security/investigations)
 "hA" = (
@@ -4460,6 +4461,7 @@
 	pixel_x = 0;
 	pixel_y = -32
 	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/security/training)
 "hN" = (
@@ -6228,6 +6230,7 @@
 	pixel_y = 30;
 	req_access = list(5)
 	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "la" = (
@@ -6652,6 +6655,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 30
 	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lO" = (
@@ -8297,6 +8301,21 @@
 /obj/structure/lattice,
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/maintenance/interstitial_construction_site)
+"PC" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled,
+/area/security/training)
 "Qu" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -42716,7 +42735,7 @@ es
 dA
 eN
 dA
-dA
+PC
 fq
 dA
 dA
