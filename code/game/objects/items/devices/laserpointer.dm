@@ -36,7 +36,7 @@
 		pointer_icon_state = pick("red_laser","green_laser","blue_laser","purple_laser")
 
 /obj/item/device/laser_pointer/upgraded/Initialize()
-	..()
+	. = ..()
 	diode = new /obj/item/weapon/stock_parts/micro_laser/ultra
 
 
