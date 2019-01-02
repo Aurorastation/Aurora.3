@@ -1213,3 +1213,12 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/icecream
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/icecreamsandwich
+
+/datum/recipe/crab_legs
+	reagents = list("water" = 10, "sodiumchloride" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/crabmeat,
+		/obj/item/weapon/reagent_containers/food/snacks/spreads
+		)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/weapon/reagent_containers/food/snacks/crab_legs
