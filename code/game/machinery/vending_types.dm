@@ -132,22 +132,18 @@
 	vend_id = "coffee"
 	products = list(
 		/obj/item/weapon/reagent_containers/food/drinks/coffee = 25,
-		/obj/item/weapon/reagent_containers/food/drinks/coffee/pslatte = 15,
 		/obj/item/weapon/reagent_containers/food/drinks/tea = 25,
 		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 25,
-		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 20,
-		/obj/item/weapon/reagent_containers/food/snacks/donut/normal/psdonut = 10
+		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 20
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/drinks/ice = 10
 	)
 	prices = list(
 		/obj/item/weapon/reagent_containers/food/drinks/coffee = 20,
-		/obj/item/weapon/reagent_containers/food/drinks/coffee/pslatte = 25,
 		/obj/item/weapon/reagent_containers/food/drinks/tea = 20,
 		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 22,
-		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 6,
-		/obj/item/weapon/reagent_containers/food/snacks/donut/normal/psdonut = 10
+		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 6
 	)
 	cooling_temperature = T0C + 57 //Optimal coffee temperature
 	heating_temperature = T0C + 100 //ULTRA HOT COFFEE
@@ -676,7 +672,7 @@
 	desc = "Spare tool vending. What? Did you expect some witty description?"
 	icon_state = "engivend"
 	icon_deny = "engivend-deny"
-	req_access = list(access_engine_equip)
+	req_access = list(access_engine)
 	vend_id = "tools"
 	products = list(
 		/obj/item/clothing/glasses/meson = 2,

@@ -71,3 +71,43 @@
 		/obj/item/rig_module/device/drill,
 		/obj/item/rig_module/actuators/combat
 		)
+
+/obj/item/weapon/rig/retro
+	name = "retrofitted military hardsuit control module"
+	desc = "An old repurposed construction exoskeleton redesigned for combat. Its colors and insignias match those of the Tau Ceti Foreign Legion."
+	icon_state = "legion_rig"
+	suit_type = "retrofitted military hardsuit"
+	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 40, bio = 100, rad = 30)
+	slowdown = 2
+	offline_slowdown = 4
+	offline_vision_restriction = TINT_HEAVY
+
+	allowed = list(
+		/obj/item/device/flashlight,
+		/obj/item/weapon/tank,
+		/obj/item/device/suit_cooling_unit,
+		/obj/item/weapon/gun,
+		/obj/item/ammo_magazine,
+		/obj/item/ammo_casing,
+		/obj/item/weapon/melee/baton,
+		/obj/item/weapon/melee/energy/sword,
+		/obj/item/weapon/handcuffs
+	)
+
+	chest_type = /obj/item/clothing/suit/space/rig/retro
+	helm_type = /obj/item/clothing/head/helmet/space/rig/retro
+
+/obj/item/weapon/rig/retro/equipped
+	req_access = list(access_legion)
+	initial_modules = list(
+		/obj/item/rig_module/actuators,
+		/obj/item/rig_module/device/drill,
+		/obj/item/rig_module/cooling_unit,
+		/obj/item/rig_module/fabricator/energy_net
+		)
+
+/obj/item/clothing/head/helmet/space/rig/retro
+	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
+
+/obj/item/clothing/suit/space/rig/retro
+	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
