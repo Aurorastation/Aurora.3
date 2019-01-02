@@ -52,7 +52,7 @@
 			diode = W
 			user << "<span class='notice'>You install a [diode.name] in [src].</span>"
 		else
-			user << "<span class='notice'>[src] already has a laser diode.</span>"
+			to_chat(user, "<span class='notice'>[src] already has a laser diode.</span>")
 
 	else if(istype(W, /obj/item/weapon/screwdriver))
 		if(diode)
