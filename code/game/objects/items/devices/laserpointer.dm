@@ -118,7 +118,7 @@
 	if(outmsg)
 		user << outmsg
 	else
-		user << "<span class='info'>You point [src] at [target].</span>"
+		to_chat(user, "<span class='info'>You point [src] at [target].</span>")
 
 
 	flick_overlay(I, showto, 10)
