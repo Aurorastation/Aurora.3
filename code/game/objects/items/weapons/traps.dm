@@ -148,6 +148,7 @@
 	var/list/allowed_mobs = list(/mob/living/simple_animal/mouse, /mob/living/simple_animal/chick, /mob/living/simple_animal/lizard)
 	var/release_time = 0
 	var/list/resources = list(rods = 6)
+	var/spider = TRUE
 
 /obj/item/weapon/trap/animal/examine(mob/user)
 	..()
@@ -174,21 +175,11 @@
 
 	if(contents.len) // It is full
 		return
+	capture(AM)
 
+/obj/item/weapon/trap/animal/proc/capture(var/mob/AM)
 	if(isliving(AM))
 		var/mob/living/L = AM
-		if(L.isMonkey() && (/mob/living/carbon/human/monkey in allowed_mobs)) // Because monkeys can be of type of just human.
-			L.visible_message(
-				"<span class='danger'>[L] enters \the [src], and it snaps shut with a clatter!</span>",
-				"<span class='danger'>You enters \the [src], and it snaps shut with a clatter!</span>",
-				"<b>You hear a loud metallic snap!</b>"
-				)
-			L.forceMove(src)
-			playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
-			deployed = 1
-			update_icon()
-			src.animate_shake()
-			return
 		for(var/f in allowed_mobs)
 			if(istype(AM, f))
 				L.visible_message(
@@ -202,7 +193,7 @@
 				update_icon()
 				src.animate_shake()
 
-	else if(istype(AM, /obj/effect/spider/spiderling)) // for spiderlings
+	else if(istype(AM, /obj/effect/spider/spiderling) && spider) // for spiderlings
 		var/obj/effect/spider/spiderling/S = AM
 		S.forceMove(src)
 		STOP_PROCESSING(SSprocessing, S)
@@ -253,22 +244,7 @@
 	if(!contents.len)
 		return
 
-	for(var/mob/living/L in contents)
-		L.forceMove(src.loc)
-		visible_message("<span class='warning'>[L] runs out of \the [src].</span>")
-		deployed = 0
-		update_icon()
-		src.animate_shake()
-		release_time = world.time
-
-	for(var/obj/effect/spider/spiderling/S in contents) // for spiderlings
-		S.forceMove(src.loc)
-		START_PROCESSING(SSprocessing, S)
-		visible_message("<span class='warning'>[S] jumps out of \the [src].</span>")
-		deployed = 0
-		update_icon()
-		src.animate_shake()
-		release_time = world.time
+	release()
 
 /obj/item/weapon/trap/animal/Collide(AM as mob|obj)
 	if(isliving(AM))
@@ -318,25 +294,31 @@
 			attack_self(src)
 			return
 
-		visible_message("<span class='notice'>[usr] opens \the [src].</span>")
-		for(var/mob/living/L in contents)
-			L.forceMove(target)
-			visible_message("<span class='warning'>[L] runs out of \the [src].</span>")
-			animate_shake()
-			deployed = 0
-			update_icon()
-			src.animate_shake()
-			release_time = world.time
+		release(usr, target)
 
-		for(var/obj/effect/spider/spiderling/S in contents) // for spiderlings
-			S.forceMove(target)
-			START_PROCESSING(SSprocessing, S)
-			visible_message("<span class='warning'>[S] jumps out of \the [src].</span>")
-			animate_shake()
-			deployed = 0
-			update_icon()
-			src.animate_shake()
-			release_time = world.time
+/obj/item/weapon/trap/animal/proc/release(var/mob/user, var/turf/target)
+	if(!target)
+		target = src.loc
+	if(user)
+		visible_message("<span class='notice'>[user] opens \the [src].</span>")
+	for(var/mob/living/L in contents)
+		L.forceMove(target)
+		visible_message("<span class='warning'>[L] runs out of \the [src].</span>")
+		animate_shake()
+		deployed = 0
+		update_icon()
+		src.animate_shake()
+		release_time = world.time
+
+	for(var/obj/effect/spider/spiderling/S in contents) // for spiderlings
+		S.forceMove(target)
+		START_PROCESSING(SSprocessing, S)
+		visible_message("<span class='warning'>[S] jumps out of \the [src].</span>")
+		animate_shake()
+		deployed = 0
+		update_icon()
+		src.animate_shake()
+		release_time = world.time
 
 /obj/item/weapon/trap/animal/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/reagent_containers) && contents.len)
@@ -485,40 +467,40 @@
 	if(!contents.len)
 		return
 
-	visible_message("<span class='notice'>[user] opens \the [src].</span>")
-	for(var/mob/living/L in contents)
-		L.forceMove(user.loc)
-		visible_message("<span class='warning'>[L] runs out of \the [src].</span>")
-		deployed = 0
-		update_icon()
-		src.animate_shake()
-		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
+	release(user, user.loc)
 
-	for(var/obj/effect/spider/spiderling/S in contents) // for spiderlings
-		S.forceMove(user.loc)
-		START_PROCESSING(SSprocessing, S)
-		visible_message("<span class='warning'>[S] jumps out of \the [src].</span>")
-		deployed = 0
-		update_icon()
-		src.animate_shake()
-		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
-
-/obj/item/weapon/trap/animal/attack(mob/living/M, mob/living/user)
+/obj/item/weapon/trap/animal/attack(var/target, mob/living/user)
 	if(world.time - release_time < 50) // If we just released the animal, not to let it get caught again right away
 		return
 
 	if(contents.len) // It is full
 		return
-	user.visible_message(
-					"<span class='warning'>[user] traps [M] inside of \the [src].</span>",
-					"<span class='warning'>You trap [M] inside of the \the [src]!</span>",
-					"<b>You hear a loud metallic snap!</b>"
-					)
-	M.forceMove(src)
-	playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
-	deployed = 1
-	update_icon()
-	src.animate_shake()
+
+	if(isliving(target))
+		var/mob/living/M = target
+		for(var/f in allowed_mobs)
+			if(istype(M, f))
+				user.visible_message(
+								"<span class='warning'>[user] traps [M] inside of \the [src].</span>",
+								"<span class='warning'>You trap [M] inside of the \the [src]!</span>",
+								"<b>You hear a loud metallic snap!</b>"
+								)
+				M.forceMove(src)
+				playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
+				deployed = 1
+				update_icon()
+				src.animate_shake()
+
+	else if(istype(target, /obj/effect/spider/spiderling) && spider) // for spiderlings
+		var/obj/effect/spider/spiderling/S = target
+		S.forceMove(src)
+		STOP_PROCESSING(SSprocessing, S)
+		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
+		deployed = 1
+		update_icon()
+		src.animate_shake()
+	else
+		..()
 
 /obj/item/weapon/trap/animal/medium
 	name = "medium trap"
@@ -532,6 +514,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 5750)
 	deployed = 0
 	resources = list(rods = 12)
+	spider = FALSE
 
 /obj/item/weapon/trap/animal/medium/Initialize()
 	allowed_mobs = list(
@@ -552,6 +535,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 15750)
 	deployed = 0
 	resources = list(rods = 12, metal = 4)
+	spider = FALSE
 
 /obj/item/weapon/trap/animal/large/Initialize()
 	allowed_mobs = list(
