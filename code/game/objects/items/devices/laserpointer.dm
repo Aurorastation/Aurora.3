@@ -110,7 +110,7 @@
 	var/list/showto = list()
 	for(var/mob/M in range(7,targloc))
 		if(M.client)
-			showto.Add(M.client)
+			showto += M.client
 	var/image/I = image('icons/obj/projectiles.dmi',targloc,pointer_icon_state,10)
 	I.pixel_x = target.pixel_x + rand(-5,5)
 	I.pixel_y = target.pixel_y + rand(-5,5)
