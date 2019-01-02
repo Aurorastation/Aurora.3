@@ -198,4 +198,4 @@
 	if(!usr.get_active_hand())
 		usr.put_in_hands(key)
 
-	verbs -= /obj/vehicle/segway/verb/remove_key
+		verbs -= /obj/vehicle/segway/verb/remove_key
