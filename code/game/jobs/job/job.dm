@@ -167,7 +167,8 @@
 
 /datum/outfit/job
 	name = "Standard Gear"
-	collect_not_del = TRUE // we don't want anyone to lose their job shit
+	var/base_name = null
+	collect_not_del = FALSE // we don't want anyone to lose their job shit
 
 	var/allow_loadout = TRUE
 	var/allow_backbag_choice = TRUE
@@ -218,7 +219,9 @@
 				var/permitted = FALSE
 
 				if(G.allowed_roles)
-					if(name in G.allowed_roles)
+					if(base_name && base_name in G.allowed_roles)
+						permitted = TRUE
+					else if(name in G.allowed_roles)
 						permitted = TRUE
 				else
 					permitted = TRUE
@@ -239,9 +242,6 @@
 					gear_leftovers += G
 
 /datum/outfit/job/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(visualsOnly)
-		return
-
 	. = ..()
 
 	if(istype(H.back,/obj/item/weapon/storage/backpack))

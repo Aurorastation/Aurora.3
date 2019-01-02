@@ -66,6 +66,7 @@
 
 /datum/outfit/job/doctor
 	name = "Medical Doctor"
+	base_name = "Medical Doctor"
 	jobtype = /datum/job/doctor
 
 	uniform = /obj/item/clothing/under/rank/medical
@@ -73,7 +74,7 @@
 	shoes = /obj/item/clothing/shoes/white
 	l_ear = /obj/item/device/radio/headset/headset_med
 	pda = /obj/item/device/pda/medical
-	suit_store = /obj/item/device/flashlight
+	suit_store = /obj/item/device/flashlight/pen
 
 	backpack = /obj/item/weapon/storage/backpack/medic
 	satchel = /obj/item/weapon/storage/backpack/satchel_med
@@ -168,6 +169,7 @@
 
 /datum/outfit/job/psychiatrist
 	name = "Psychiatrist"
+	base_name = "Psychiatrist"
 	jobtype = /datum/job/psychiatrist
 
 	uniform = /obj/item/clothing/under/rank/psych
@@ -202,6 +204,7 @@
 
 /datum/outfit/job/paramedic
 	name = "Paramedic"
+	base_name = "Paramedic"
 	jobtype = /datum/job/paramedic
 
 	uniform = /obj/item/clothing/under/rank/medical/black

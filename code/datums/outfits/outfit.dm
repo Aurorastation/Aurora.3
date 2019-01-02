@@ -56,7 +56,6 @@
 
 /datum/outfit/proc/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	//to be overriden for changing items post equip (such as toggeling internals, ...)
-	imprint_idcard_pda(H)
 
 /datum/outfit/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	pre_equip(H, visualsOnly)
@@ -95,11 +94,13 @@
 
 	if(pda)
 		var/obj/item/I = new pda(H)
+		imprint_pda(H,I)
 		H.equip_or_collect(I, slot_wear_id)
 
 	if(id)
 		var/obj/item/device/pda/P = H.wear_id
 		var/obj/item/I = new id(H)
+		imprint_idcard(H,I)
 		if(istype(P))
 			I.forceMove(P)
 			P.id = I
@@ -174,21 +175,7 @@
 		H.l_store.add_fingerprint(H, 1)
 	if(H.r_store)
 		H.r_store.add_fingerprint(H, 1)
-	return 1
-
-
-/datum/outfit/proc/imprint_idcard_pda(mob/living/carbon/human/H)
-	//Check if there is a PDA or a ID in the id slot
-	if(istype(H.wear_id,/obj/item/device/pda))
-		var/obj/item/device/pda/PDA = H.wear_id
-		//Imprint the ID in the PDA
-		imprint_idcard(H,PDA.id)
-
-		//Update the PDA with the data from the ID
-		imprint_pda(H,PDA)
-	else if (istype(H.wear_id,/obj/item/weapon/card/id))
-		imprint_idcard(H,H.wear_id)
-		
+	return 1		
 
 /datum/outfit/proc/imprint_idcard(mob/living/carbon/human/H, obj/item/weapon/card/id/C)
 	if(istype(C))
@@ -202,11 +189,14 @@
 
 /datum/outfit/proc/imprint_pda(mob/living/carbon/human/H, obj/item/device/pda/PDA)
 	var/obj/item/weapon/card/id/C = PDA.id
+	PDA.owner = H.real_name
 	if(istype(PDA) && istype(C))
-		PDA.owner = H.real_name
 		PDA.ownjob = C.assignment
 		PDA.ownrank = C.rank
-		PDA.name = "PDA-[H.real_name] ([PDA.ownjob])"
+	else //As a fallback if the id isnt inside of the PDA
+		PDA.ownjob = get_id_assignment(H)
+		PDA.ownrank = get_id_rank(H)
+	PDA.name = "PDA-[H.real_name] ([PDA.ownjob])"
 
 /datum/outfit/proc/get_id_access(mob/living/carbon/human/H)
 	return list()

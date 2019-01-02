@@ -51,7 +51,7 @@
 	if(!W || !istype(W, /obj/item))
 		log_debug("MobEquip: Error when equipping [W] for [src] in [slot]")
 		return
-	if(W.mob_can_equip(src, slot, 1))
+	if(W.mob_can_equip(src, slot, TRUE, TRUE))
 		//Mob can equip.  Equip it.
 		equip_to_slot_or_del(W, slot)
 	else
