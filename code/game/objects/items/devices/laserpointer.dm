@@ -88,8 +88,8 @@
 			C.emp_act(28)
 			outmsg = "<span class='notice'>You hit the lens of [C] with [src], temporarily disabling the camera!</span>"
 
-			msg_admin_attack("\[[time_stamp()]\] [user.name] ([user.ckey]) EMPd a camera with a laser pointer")
-			user.attack_log += text("\[[time_stamp()]\] [user.name] ([user.ckey]) EMPd a camera with a laser pointer")
+			admin_attack_log(user, src,"hits the  camera with a laser pointer",  "EMPd a camera with a laser pointer")
+
 		else
 			outmsg = "<span class='notice'>You fail to hit the lens of [C] with [src].</span>"
 
