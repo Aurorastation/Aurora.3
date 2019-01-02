@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - bugfix: "Whispering should now display the proper verbs now."
