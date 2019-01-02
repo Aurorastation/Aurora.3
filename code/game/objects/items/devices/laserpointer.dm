@@ -50,7 +50,7 @@
 			user.drop_item()
 			W.forceMove(src)
 			diode = W
-			user << "<span class='notice'>You install a [diode.name] in [src].</span>"
+			to_chat(user, "<span class='notice'>You install a [diode.name] in [src].</span>")
 		else
 			to_chat(user, "<span class='notice'>[src] already has a laser diode.</span>")
 
