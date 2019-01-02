@@ -5271,6 +5271,30 @@
 	nutriment_desc = list("french bread" = 4)
 	bitesize = 2
 
+/obj/item/weapon/reagent_containers/food/snacks/crabmeat
+	name = "crab legs"
+	desc = "... Coffee? Is that you?"
+	icon_state = "crabmeat"
+	bitesize = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/crabmeat/Initialize()
+	. = ..()
+	reagents.add_reagent("seafood", 2)
+
+/obj/item/weapon/reagent_containers/food/snacks/crab_legs
+	name = "steamed crab legs"
+	desc = "Crab legs steamed and buttered to perfection. One day when the boss gets hungry..."
+	icon_state = "crablegs"
+	nutriment_amt = 2
+	nutriment_desc = list("savory butter" = 2)
+	bitesize = 2
+	trash = /obj/item/trash/plate
+
+/obj/item/weapon/reagent_containers/food/snacks/crab_legs/Initialize()
+	. = ..()
+	reagents.add_reagent("seafood", 6)
+	reagents.add_reagent("sodiumchloride", 1)
+
 //Snacks
 /obj/item/weapon/reagent_containers/food/snacks/cb01
 	name = "tau ceti bar"
