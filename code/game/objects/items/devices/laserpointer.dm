@@ -53,7 +53,7 @@
 
 	else if(istype(W, /obj/item/weapon/screwdriver))
 		if(diode)
-			user << "<span class='notice'>You remove the [diode.name] from the [src].</span>"
+			to_chat(user, "<span class='notice'>You remove the [diode.name] from the [src].</span>"
 			diode.forceMove(get_turf(user))
 			diode = null
 			return
@@ -69,10 +69,10 @@
 	if( !(user in (viewers(7,target))) )
 		return
 	if (!diode)
-		user << "<span class='notice'>You point [src] at [target], but nothing happens!</span>"
+		to_chat(user, "<span class='notice'>You point [src] at [target], but nothing happens!</span>"
 		return
 	if (!user.IsAdvancedToolUser())
-		user << "<span class='warning'>You don't have the dexterity to do this!</span>"
+		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>"
 		return
 
 	add_fingerprint(user)
