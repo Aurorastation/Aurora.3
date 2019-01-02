@@ -116,7 +116,7 @@
 	I.pixel_y = target.pixel_y + rand(-5,5)
 
 	if(outmsg)
-		user << outmsg
+		to_chat(user, outmsg)
 	else
 		to_chat(user, "<span class='info'>You point [src] at [target].</span>")
 
