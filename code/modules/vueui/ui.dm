@@ -192,11 +192,11 @@ main ui datum.
   * @return nothing
   */
 /datum/vueui/proc/send_asset(var/name)
-	if (!QDELETED(user) || !user.client)
+	if (QDELETED(user) || !user.client)
 		return
-	name = ckey(name)
-	if (name in assets)
-		user.client << browse_rsc(assets[name]["img"], "vueuiimg_" + ckey("\ref[assets[name]["img"]]") + ".png")
+	var/asset = assets[ckey(name)]
+	if (asset && !QDELETED(asset["img"]))
+		user.client << browse_rsc(asset["img"], "vueuiimg_" + ckey("\ref[asset["img"]]") + ".png")
 
 /**
   * Adds / sets dynamic asset for this ui's use

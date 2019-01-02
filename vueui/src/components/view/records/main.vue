@@ -14,6 +14,7 @@
         <vui-button :class="{ selected: activeview == 'virus'}" @click="activeview = 'virus'">Virus</vui-button>
         <vui-button :params="{ setactive_virus: 'null'}" @click="activeview = 'list-virus'" push-state>Unload record</vui-button>
       </template>
+      <vui-button :params="{ logout: 1 }">Logout</vui-button>
     </div>
     <hr>
     <component v-if="activeview" :is="&quot;view-records-&quot; + activeview"/>

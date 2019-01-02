@@ -5,6 +5,7 @@
 	var/edit_type = RECORD_GENERAL | RECORD_MEDICAL | RECORD_SECURITY | RECORD_VIRUS | RECORD_WARRANT | RECORD_LOCKED
 	var/datum/record/general/active
 	var/datum/record/virus/active_virus
+	var/authenticated = 0
 	var/default_screen = "general"
 	var/typechoices = list(
 		"phisical_status" = list("Active", "*Deceased*", "*SSD*", "Physically Unfit", "Disabled"),
@@ -68,6 +69,8 @@
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		ui = new(user, src, "records-main", 450, 520, capitalize(src.name))
+		if(!authenticated)
+			ui.activeui = "records-login"
 	ui.open()
 
 /obj/machinery/computer/records/attack_ai(mob/user as mob)
@@ -86,40 +89,46 @@
 			"choices" = typechoices
 			)
 	
+	if(!authenticated)
+		VUEUI_SET_CHECK(ui.activeui, "records-login", ., data)
+	else
+		VUEUI_SET_CHECK(ui.activeui, "records-main", ., data)
+	
 	VUEUI_SET_CHECK(data["avaivabletypes"], records_type, ., data)
 	VUEUI_SET_CHECK(data["editable"], edit_type, ., data)
 	LAZYINITLIST(data["allrecords"])
-	for(var/tR in sortRecord(SSrecords.records))
-		var/datum/record/general/R = tR
-		LAZYINITLIST(data["allrecords"][R.id])
-		VUEUI_SET_CHECK(data["allrecords"][R.id]["id"], R.id, ., data)
-		VUEUI_SET_CHECK(data["allrecords"][R.id]["name"], R.name, ., data)
-		VUEUI_SET_CHECK(data["allrecords"][R.id]["rank"], R.rank, ., data)
-
 	LAZYINITLIST(data["allrecords_locked"])
-	if(records_type & RECORD_LOCKED)
-		for(var/tR in sortRecord(SSrecords.records_locked))
-			var/datum/record/general/R = tR
-			LAZYINITLIST(data["allrecords_locked"][R.id])
-			VUEUI_SET_CHECK(data["allrecords_locked"][R.id]["id"], R.id, ., data)
-			VUEUI_SET_CHECK(data["allrecords_locked"][R.id]["name"], R.name, ., data)
-			VUEUI_SET_CHECK(data["allrecords_locked"][R.id]["rank"], R.rank, ., data)
-
 	LAZYINITLIST(data["record_viruses"])
-	if(records_type & RECORD_VIRUS)
-		for(var/tR in sortRecord(SSrecords.viruses))
-			var/datum/record/virus/R = tR
-			LAZYINITLIST(data["record_viruses"]["[R.id]"])
-			VUEUI_SET_CHECK(data["record_viruses"]["[R.id]"]["id"], R.id, ., data)
-			VUEUI_SET_CHECK(data["record_viruses"]["[R.id]"]["name"], R.name, ., data)
-	if(active_virus)
+	if(authenticated)
+		for(var/tR in sortRecord(SSrecords.records))
+			var/datum/record/general/R = tR
+			LAZYINITLIST(data["allrecords"][R.id])
+			VUEUI_SET_CHECK(data["allrecords"][R.id]["id"], R.id, ., data)
+			VUEUI_SET_CHECK(data["allrecords"][R.id]["name"], R.name, ., data)
+			VUEUI_SET_CHECK(data["allrecords"][R.id]["rank"], R.rank, ., data)
+
+		if(records_type & RECORD_LOCKED)
+			for(var/tR in sortRecord(SSrecords.records_locked))
+				var/datum/record/general/R = tR
+				LAZYINITLIST(data["allrecords_locked"][R.id])
+				VUEUI_SET_CHECK(data["allrecords_locked"][R.id]["id"], R.id, ., data)
+				VUEUI_SET_CHECK(data["allrecords_locked"][R.id]["name"], R.name, ., data)
+				VUEUI_SET_CHECK(data["allrecords_locked"][R.id]["rank"], R.rank, ., data)
+
+		if(records_type & RECORD_VIRUS)
+			for(var/tR in sortRecord(SSrecords.viruses))
+				var/datum/record/virus/R = tR
+				LAZYINITLIST(data["record_viruses"]["[R.id]"])
+				VUEUI_SET_CHECK(data["record_viruses"]["[R.id]"]["id"], R.id, ., data)
+				VUEUI_SET_CHECK(data["record_viruses"]["[R.id]"]["name"], R.name, ., data)
+	if(active_virus & authenticated)
 		var/returned = active_virus.Listify(1, list(), data["active_virus"])
 		if(returned)
 			data["active_virus"] = returned
 			. = data
 	else
 		VUEUI_SET_CHECK(data["active_virus"], 0, ., data)
-	if(active)
+	if(active && authenticated)
 		if(!ui.assets["front"] || !ui.assets["side"])
 			ui.add_asset("front", active.photo_front)
 			ui.add_asset("side", active.photo_side)
@@ -138,6 +147,23 @@
 	var/datum/vueui/ui = href_list["vueui"]
 	if(!istype(ui))
 		return
+	if(href_list["login"])
+		var/obj/item/weapon/card/id/id = usr.GetIdCard()
+		if(id && check_access(id))
+			authenticated = id.registered_name
+		else
+			to_chat(usr, "[src] beeps: Access Denied")
+		SSvueui.check_uis_for_change(src)
+	if(href_list["logout"])
+		authenticated = 0
+		active = null
+		active_virus = null
+		ui.remove_asset("front")
+		ui.remove_asset("side")
+		ui.data = null
+		SSvueui.check_uis_for_change(src)
+	if(!authenticated)
+		return
 	if(href_list["setactive"])
 		active = SSrecords.find_record("id", href_list["setactive"])
 		if(active)
@@ -146,7 +172,7 @@
 			ui.send_asset("front")
 			ui.send_asset("side")
 		else
-			ui.remove_asset("font")
+			ui.remove_asset("front")
 			ui.remove_asset("side")
 		SSvueui.check_uis_for_change(src)
 	if(href_list["setactive_locked"] && (records_type & RECORD_LOCKED))
@@ -163,16 +189,23 @@
 			obj_query_set(null, ui.data, value, null, key)
 			. = TRUE
 	if(href_list["deleterecord"])
-		var/confirm = alert("Are you sure you want to delete this record?", "Confirm Deletion", "No", "Yes")
-		if(confirm == "Yes")
-			SSrecords.remove_record(active)
-			ui.data["allrecords"][active.id] = null
-			active = null
-		SSvueui.check_uis_for_change(src)
+		if(canEdit(list("active", "name")))
+			var/confirm = alert("Are you sure you want to delete this record?", "Confirm Deletion", "No", "Yes")
+			if(confirm == "Yes")
+				SSrecords.remove_record(active)
+				ui.data["allrecords"][active.id] = null
+				active = null
+				ui.data["activeview"] = "list"
+			SSvueui.check_uis_for_change(src)
 	if(href_list["newrecord"])
-		active = new()
-		SSrecords.add_record(active)
-		SSvueui.check_uis_for_change(src)
+		if(canEdit(list("active", "name")))
+			active = new()
+			SSrecords.add_record(active)
+			ui.add_asset("front", active.photo_front)
+			ui.add_asset("side", active.photo_side)
+			ui.send_asset("front")
+			ui.send_asset("side")
+			SSvueui.check_uis_for_change(src)
 	if(href_list["addtorecord"])
 		var/list/key = href_list["addtorecord"]["key"]
 		var/value = sanitize(href_list["addtorecord"]["value"])
@@ -205,3 +238,5 @@
 				if(key.len == 2 && !(edit_type & RECORD_GENERAL))
 					return FALSE
 	return TRUE
+
+#define UIDEBUG
