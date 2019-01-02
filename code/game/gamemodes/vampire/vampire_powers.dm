@@ -50,7 +50,7 @@
 
 	to_chat(T, "<span class='warning'>You are unable to resist or even move. Your mind blanks as you're being fed upon.</span>")
 
-	playsound(src.loc, 'sound/effects/drain_blood.ogg', 50, 1)
+	playsound(src.loc, 'sound/effects/drain_blood_new.ogg', 50, 1)
 
 	T.paralysis = 3400
 
