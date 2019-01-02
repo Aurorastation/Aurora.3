@@ -7196,6 +7196,23 @@
 /obj/effect/decal/remains,
 /turf/simulated/floor/plating,
 /area/security/training)
+"vD" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
 "vZ" = (
 /obj/structure/table/rack,
 /obj/item/weapon/ladder_mobile,
@@ -48925,7 +48942,7 @@ aa
 aa
 aa
 jK
-ma
+vD
 jK
 aa
 aa
@@ -49182,7 +49199,7 @@ aa
 aa
 aa
 jK
-jK
+vD
 jK
 aa
 aa
@@ -49438,9 +49455,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+jK
+vD
+jK
 aa
 aa
 aa
@@ -49695,9 +49712,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+jK
+vD
+jK
 aa
 aa
 aa
@@ -49952,9 +49969,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+jK
+vD
+jK
 aa
 aa
 aa
@@ -50209,9 +50226,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+jK
+vD
+jK
 aa
 aa
 aa
@@ -50466,9 +50483,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+jK
+ma
+jK
 aa
 aa
 aa
@@ -50723,9 +50740,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+jK
+jK
+jK
 aa
 aa
 aa

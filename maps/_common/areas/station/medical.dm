@@ -59,10 +59,6 @@
 	name = "\improper Medical - Patient's Rooms"
 	icon_state = "patients"
 
-/area/medical/ward
-	name = "\improper Medical - Recovery Ward"
-	icon_state = "patients"
-
 /area/medical/patient_a
 	name = "\improper Medical - Isolation A"
 	icon_state = "patients"
@@ -75,8 +71,36 @@
 	name = "\improper Medical - Isolation C"
 	icon_state = "patients"
 
+/area/medical/patient_d
+	name = "\improper Medical - Isolation D"
+	icon_state = "patients"
+
 /area/medical/patient_wing
 	name = "\improper Medical - Patient Wing"
+	icon_state = "patients"
+
+/area/medical/patient_wing_hallway
+	name = "\improper Medical - Patient Wing Hallway"
+	icon_state = "patients"
+
+/area/medical/patient_wing_gym
+	name = "\improper Medical - Patient Wing Gym"
+	icon_state = "patients"
+
+/area/medical/patient_wing_post1
+	name = "\improper Medical - Patient Wing Observation Post One"
+	icon_state = "patients"
+
+/area/medical/patient_wing_post2
+	name = "\improper Medical - Patient Wing Observation Post Two"
+	icon_state = "patients"
+
+/area/medical/patient_wing_library
+	name = "\improper Medical - Patient Wing Library"
+	icon_state = "patients"
+
+/area/medical/patient_wing_picnic
+	name = "\improper Medical - Patient Wing Picnic Area"
 	icon_state = "patients"
 
 /area/medical/cmostore
