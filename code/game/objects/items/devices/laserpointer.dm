@@ -29,7 +29,7 @@
 	icon_state = "pointer"
 
 /obj/item/device/laser_pointer/Initialize()
-	..()
+	. = ..()
 	diode = new(src)
 	icon_state = "pointer"
 	if(!pointer_icon_state)
