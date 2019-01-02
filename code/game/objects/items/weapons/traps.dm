@@ -149,6 +149,7 @@
 	var/release_time = 0
 	var/list/resources = list(rods = 6)
 	var/spider = TRUE
+	health = 100
 
 /obj/item/weapon/trap/animal/examine(mob/user)
 	..()
@@ -295,6 +296,37 @@
 			return
 
 		release(usr, target)
+
+/obj/item/weapon/trap/animal/crush_act()
+	for (var/atom/movable/A in src)
+		if(istype(A, /mob/living))
+			var/mob/living/M = A
+			M.gib()
+		else if(A.simulated)
+			A.ex_act(1)
+	new /obj/item/stack/material/steel(get_turf(src))
+	qdel(src)
+
+/obj/item/weapon/trap/animal/ex_act(severity)
+	switch(severity)
+		if(1)
+			health -= rand(120, 240)
+		if(2)
+			health -= rand(60, 120)
+		if(3)
+			health -= rand(30, 60)
+
+	if (health <= 0)
+		for (var/atom/movable/A as mob|obj in src)
+			A.ex_act(severity + 1)
+		new /obj/item/stack/material/steel(get_turf(src))
+		qdel(src)
+
+/obj/item/weapon/trap/animal/bullet_act(var/obj/item/projectile/Proj)
+	for (var/atom/movable/A in src)
+		if(istype(A, /mob/living))
+			var/mob/living/M = A
+			M.bullet_act(Proj)
 
 /obj/item/weapon/trap/animal/proc/release(var/mob/user, var/turf/target)
 	if(!target)
