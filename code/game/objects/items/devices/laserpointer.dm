@@ -120,3 +120,9 @@
 
 	flick_overlay(I, showto, 10)
 	icon_state = "pointer"
+
+/obj/item/device/laser_pointer/Destroy()
+	if (diode)
+		QDEL_NULL(diode)
+
+	. = ..()
