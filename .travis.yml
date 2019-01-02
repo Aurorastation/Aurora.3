@@ -22,7 +22,7 @@ cache:
     - $HOME/rust_g-${RUST_G_VERSION}
 
 addons:
-  mariadb: '10.1'
+  mariadb: '10.3'
   apt:
     packages:
       - libc6-i386
