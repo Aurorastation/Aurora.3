@@ -18,7 +18,7 @@
 	if(docking_controller_tag)
 		docking_controller = locate(docking_controller_tag)
 		if(!istype(docking_controller))
-			world << "<span class='danger'>warning: shuttle with docking tag [docking_controller_tag] could not find it's controller!</span>"
+			to_world("<span class='danger'>warning: shuttle with docking tag [docking_controller_tag] could not find it's controller!</span>")
 
 /datum/shuttle/proc/short_jump(var/area/origin,var/area/destination)
 	if(moving_status != SHUTTLE_IDLE) return
@@ -34,7 +34,6 @@
 		moving_status = SHUTTLE_IDLE
 
 /datum/shuttle/proc/long_jump(var/area/departing, var/area/destination, var/area/interim, var/travel_time, var/direction)
-	//world << "shuttle/long_jump: departing=[departing], destination=[destination], interim=[interim], travel_time=[travel_time]"
 	if(moving_status != SHUTTLE_IDLE) return
 
 	//it would be cool to play a sound here
@@ -81,14 +80,7 @@
 //A note to anyone overriding move in a subtype. move() must absolutely not, under any circumstances, fail to move the shuttle.
 //If you want to conditionally cancel shuttle launches, that logic must go in short_jump() or long_jump()
 /datum/shuttle/proc/move(var/area/origin, var/area/destination)
-
-	//world << "move_shuttle() called for [shuttle_tag] leaving [origin] en route to [destination]."
-
-	//world << "area_coming_from: [origin]"
-	//world << "destination: [destination]"
-
 	if(origin == destination)
-		//world << "cancelling move, shuttle will overlap."
 		return
 
 	if (docking_controller && !docking_controller.undocked())
