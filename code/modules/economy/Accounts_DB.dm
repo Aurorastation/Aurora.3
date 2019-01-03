@@ -251,7 +251,8 @@
 							<tbody>
 					"}
 
-					for(var/datum/money_account/D in SSeconomy.all_money_accounts)
+					for(var/M in SSeconomy.all_money_accounts)
+						var/datum/money_account/D = SSeconomy.get_account(M)
 						text += {"
 								<tr>
 									<td>#[D.account_number]</td>
