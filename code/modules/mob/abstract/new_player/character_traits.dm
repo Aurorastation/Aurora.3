@@ -14,12 +14,12 @@
 /datum/character_disabilities/nearsighted/apply_self(var/mob/living/carbon/human/H)
 	H.disabilities |= NEARSIGHTED
 
-/datum/character_disabilities/nervous
+/datum/character_disabilities/stutter
 	name = "Stuttering"
 	desc = "You have a chronic case of stuttering, repeating sounds involuntarily."
 
-/datum/character_disabilities/nervous/apply_self(var/mob/living/carbon/human/H)
-	H.disabilities |= NERVOUS
+/datum/character_disabilities/stutter/apply_self(var/mob/living/carbon/human/H)
+	H.disabilities |= STUTTER
 
 /datum/character_disabilities/deuteranomaly
 	name = "Deuteranopia"

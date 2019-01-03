@@ -92,13 +92,13 @@
 	New()
 		block=TWITCHBLOCK
 
-/datum/dna/gene/disability/nervousness
+/datum/dna/gene/disability/stutter
 	name="Stuttering"
-	activation_message="You feel difficulty in expressing your words."
-	disability=NERVOUS
+	activation_message="You feel like forming words becomes increasingly difficult."
+	disability=STUTTER
 
 	New()
-		block=NERVOUSBLOCK
+		block=STUTTERBLOCK
 
 /datum/dna/gene/disability/blindness
 	name="Blindness"
