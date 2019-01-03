@@ -41,6 +41,9 @@
 	no_light_control = 1
 	holomap_color = HOLOMAP_AREACOLOR_ESCAPE
 
+/area/hallway/secondary/exit/pods
+	name = "\improper Surface Lvl. Escape Pods"
+
 /area/hallway/secondary/construction
 	name = "\improper Construction Area"
 	icon_state = "construction"

@@ -7553,7 +7553,7 @@
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "28"
 	},
-/obj/machinery/artillerycontrol{
+/obj/machinery/computer/artillerycontrol{
 	desc = "Bluespace Artillery; the thinking man's solution."
 	},
 /obj/effect/decal/warning_stripes,
@@ -22841,6 +22841,9 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
+"bIl" = (
+/turf/space/transit/north/shuttlespace_ns9,
+/area/shuttle/escape_pod5/transit)
 "bJE" = (
 /obj/structure/shuttle/engine/propulsion,
 /turf/simulated/floor/tiled/dark,
@@ -23183,6 +23186,9 @@
 	dir = 4
 	},
 /area/centcom/extraction_shuttle)
+"dhj" = (
+/turf/space/transit/north/shuttlespace_ns13,
+/area/shuttle/escape_pod4/transit)
 "dmi" = (
 /obj/structure/bed/chair/wood/wings,
 /turf/unsimulated/floor{
@@ -23385,6 +23391,9 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
+"eHo" = (
+/turf/space/transit/north/shuttlespace_ns8,
+/area/shuttle/escape_pod6/transit)
 "eSj" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/firstaid/o2{
@@ -23513,6 +23522,9 @@
 	name = "plating"
 	},
 /area/centcom/extraction_shuttle)
+"fBs" = (
+/turf/space/transit/north/shuttlespace_ns1,
+/area/space)
 "fGT" = (
 /obj/structure/table/wood{
 	dir = 5
@@ -23555,6 +23567,9 @@
 	icon_state = "whitehall"
 	},
 /area/centcom/extraction_shuttle)
+"fNJ" = (
+/turf/space/transit/north/shuttlespace_ns1,
+/area/shuttle/escape_pod4/transit)
 "fQT" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1331;
@@ -23658,6 +23673,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
+"gAE" = (
+/turf/space/transit/north/shuttlespace_ns11,
+/area/shuttle/escape_pod5/transit)
+"gDG" = (
+/turf/space/transit/north/shuttlespace_ns2,
+/area/shuttle/escape_pod5/transit)
 "gFv" = (
 /obj/structure/table/wood{
 	dir = 5
@@ -23667,6 +23688,9 @@
 	icon_state = "wood"
 	},
 /area/centcom/extraction_shuttle)
+"gGk" = (
+/turf/space/transit/north/shuttlespace_ns12,
+/area/shuttle/escape_pod6/transit)
 "gJo" = (
 /obj/structure/table/standard,
 /obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{
@@ -23769,6 +23793,9 @@
 	name = "plating"
 	},
 /area/centcom/extraction_shuttle)
+"hxU" = (
+/turf/space/transit/north/shuttlespace_ns11,
+/area/shuttle/escape_pod6/transit)
 "hzs" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -23815,6 +23842,9 @@
 "hNE" = (
 /turf/simulated/shuttle/wall/dark,
 /area/shuttle/legion/centcom)
+"hQy" = (
+/turf/space/transit/north/shuttlespace_ns5,
+/area/shuttle/escape_pod4/transit)
 "hSJ" = (
 /obj/structure/bed/chair/office/bridge{
 	dir = 4
@@ -23931,6 +23961,9 @@
 	icon_state = "floor4"
 	},
 /area/centcom/extraction_shuttle)
+"iDj" = (
+/turf/space/transit/north/shuttlespace_ns4,
+/area/shuttle/escape_pod4/transit)
 "iDU" = (
 /obj/machinery/vending/cola{
 	name = "Free Robust Softdrinks";
@@ -23952,6 +23985,15 @@
 	dir = 8
 	},
 /area/centcom/extraction_shuttle)
+"iPi" = (
+/turf/space/transit/north/shuttlespace_ns5,
+/area/shuttle/escape_pod6/transit)
+"iPt" = (
+/turf/space/transit/north/shuttlespace_ns12,
+/area/shuttle/escape_pod5/transit)
+"jcu" = (
+/turf/space/transit/north/shuttlespace_ns6,
+/area/shuttle/escape_pod4/transit)
 "jhe" = (
 /obj/structure/table/rack,
 /obj/item/weapon/rig/retro/equipped,
@@ -23996,6 +24038,9 @@
 	name = "plating"
 	},
 /area/centcom/extraction_shuttle)
+"jsX" = (
+/turf/space/transit/north/shuttlespace_ns1,
+/area/shuttle/escape_pod5/transit)
 "jtO" = (
 /obj/structure/sign/double/barsign,
 /turf/simulated/shuttle/wall/dark,
@@ -24354,6 +24399,9 @@
 	icon_state = "diagonalWall3"
 	},
 /area/centcom/extraction_shuttle)
+"lti" = (
+/turf/space/transit/north/shuttlespace_ns6,
+/area/shuttle/escape_pod6/transit)
 "lvS" = (
 /obj/structure/table/rack,
 /obj/item/weapon/rig/retro/equipped,
@@ -24379,6 +24427,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
+"lCg" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/shuttle/escape_pod4/centcom)
 "lDY" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled,
@@ -24539,6 +24592,9 @@
 	},
 /turf/simulated/floor/wood,
 /area/merchant_ship/start)
+"mML" = (
+/turf/space/transit/north/shuttlespace_ns7,
+/area/shuttle/escape_pod6/transit)
 "mNE" = (
 /obj/structure/bed/chair/comfy/brown{
 	dir = 1
@@ -24642,6 +24698,9 @@
 	icon_state = "floor3"
 	},
 /area/centcom/extraction_shuttle)
+"nBG" = (
+/turf/space/transit/north/shuttlespace_ns7,
+/area/shuttle/escape_pod4/transit)
 "nBO" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
@@ -24724,10 +24783,21 @@
 	icon_state = "floor1"
 	},
 /area/centcom/extraction_shuttle)
+"oyk" = (
+/turf/space/transit/north/shuttlespace_ns14,
+/area/shuttle/escape_pod5/transit)
 "oDV" = (
 /obj/structure/sign/greencross,
 /turf/simulated/shuttle/wall,
 /area/centcom/extraction_shuttle)
+"oGo" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/shuttle/escape_pod6/centcom)
+"oHP" = (
+/turf/space/transit/north/shuttlespace_ns12,
+/area/shuttle/escape_pod4/transit)
 "oIf" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
@@ -24740,6 +24810,9 @@
 	icon_state = "floor3"
 	},
 /area/centcom/extraction_shuttle)
+"oOr" = (
+/turf/space/transit/north/shuttlespace_ns5,
+/area/shuttle/escape_pod5/transit)
 "oPK" = (
 /turf/unsimulated/floor{
 	dir = 4;
@@ -25109,6 +25182,9 @@
 	icon_state = "floor4"
 	},
 /area/centcom/extraction_shuttle)
+"qJd" = (
+/turf/space/transit/north/shuttlespace_ns2,
+/area/shuttle/escape_pod4/transit)
 "qLD" = (
 /obj/structure/shuttle/engine/propulsion{
 	dir = 4;
@@ -25144,6 +25220,9 @@
 	icon_state = "whitehall"
 	},
 /area/centcom/extraction_shuttle)
+"qQV" = (
+/turf/space/transit/north/shuttlespace_ns15,
+/area/shuttle/escape_pod4/transit)
 "qRG" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -25158,6 +25237,9 @@
 	dir = 4
 	},
 /area/centcom/extraction_shuttle)
+"res" = (
+/turf/space/transit/north/shuttlespace_ns10,
+/area/shuttle/escape_pod5/transit)
 "reS" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -25329,6 +25411,9 @@
 	icon_state = "diagonalWall3"
 	},
 /area/centcom/extraction_shuttle)
+"rVF" = (
+/turf/space/transit/north/shuttlespace_ns3,
+/area/shuttle/escape_pod5/transit)
 "rXm" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/gloves{
@@ -25699,6 +25784,9 @@
 	name = "plating"
 	},
 /area/centcom/extraction_shuttle)
+"upT" = (
+/turf/space/transit/north/shuttlespace_ns4,
+/area/shuttle/escape_pod6/transit)
 "urM" = (
 /obj/structure/table/wood{
 	dir = 5
@@ -25732,6 +25820,9 @@
 	dir = 1
 	},
 /area/centcom/extraction_shuttle)
+"uuK" = (
+/turf/space/transit/north/shuttlespace_ns3,
+/area/shuttle/escape_pod4/transit)
 "uBG" = (
 /obj/machinery/optable,
 /turf/unsimulated/floor{
@@ -25971,6 +26062,9 @@
 	name = "plating"
 	},
 /area/shuttle/escape_pod3/centcom)
+"wmR" = (
+/turf/space/transit/north/shuttlespace_ns10,
+/area/shuttle/escape_pod6/transit)
 "wnH" = (
 /obj/machinery/light{
 	dir = 8
@@ -25984,13 +26078,9 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-
 /obj/structure/shuttle/engine/heater{
 	icon_state = "heater";
 	dir = 4
-
-/obj/machinery/computer/artillerycontrol{
-	desc = "Bluespace Artillery; the thinking man's solution."
 	},
 /turf/unsimulated/floor,
 /area/centcom/extraction_shuttle)
@@ -26000,6 +26090,9 @@
 	icon_state = "floor7"
 	},
 /area/shuttle/legion/centcom)
+"wxX" = (
+/turf/space/transit/north/shuttlespace_ns4,
+/area/shuttle/escape_pod5/transit)
 "wBe" = (
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/captain,
@@ -26007,6 +26100,9 @@
 	icon_state = "floor4"
 	},
 /area/centcom/extraction_shuttle)
+"wHZ" = (
+/turf/space/transit/north/shuttlespace_ns3,
+/area/shuttle/escape_pod6/transit)
 "wJl" = (
 /obj/machinery/sleeper{
 	icon_state = "sleeper_0";
@@ -26071,6 +26167,9 @@
 	icon_state = "floor1"
 	},
 /area/centcom/extraction_shuttle)
+"wYO" = (
+/turf/space/transit/north/shuttlespace_ns13,
+/area/shuttle/escape_pod6/transit)
 "xac" = (
 /obj/structure/table/rack,
 /obj/item/weapon/gun/energy/stunrevolver,
@@ -26118,6 +26217,11 @@
 	name = "plating"
 	},
 /area/centcom/extraction_shuttle)
+"xkr" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/shuttle/escape_pod5/centcom)
 "xnj" = (
 /obj/machinery/light{
 	dir = 4;
@@ -26126,6 +26230,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
+"xnl" = (
+/turf/space/transit/north/shuttlespace_ns15,
+/area/shuttle/escape_pod5/transit)
 "xnr" = (
 /mob/living/simple_animal/corgi/fox/Chauncey,
 /turf/unsimulated/floor{
@@ -27081,21 +27188,21 @@ aac
 aaX
 aaZ
 abc
+agN
+acL
+agY
+afE
+acJ
+acM
 aaS
 abb
 abe
-aaQ
-aaT
-aaW
-aaV
-aaR
-aaY
-aaU
-abd
-aba
-aaX
-aaZ
-abc
+agN
+acL
+agY
+afE
+acJ
+acM
 aaS
 abb
 aaj
@@ -27338,21 +27445,21 @@ aak
 aaQ
 aaT
 aaW
+aji
+ajo
+ajv
+ajC
+ajp
+acI
 aaV
 aaR
 aaY
-aaU
-aba
-aaQ
-aaT
-aaW
-aaV
-aaR
-abb
-abe
-aaQ
-aaT
-aaW
+aji
+iDj
+uuK
+nBG
+jcu
+acI
 aaV
 aaR
 aao
@@ -27595,21 +27702,21 @@ aal
 aba
 aaX
 aaZ
+ajj
+ajp
+ajw
+ajD
+ajM
+afo
 abc
 aaS
 abb
-abe
-aaR
-abc
-aaS
-agN
-acL
-agY
-afE
-acJ
-acM
-aaX
-aaZ
+ajj
+jcu
+hQy
+dhj
+oHP
+afo
 abc
 aaS
 aac
@@ -27852,21 +27959,21 @@ aaj
 aaV
 aaR
 aaY
+aja
+ajq
+ajx
+ajE
+ajq
+acM
 aaU
 abd
 aba
-aaX
-aaX
-aaT
-aaW
-aji
-ajo
-ajv
-ajC
-ajp
-acI
-aaR
-aaY
+aja
+fNJ
+qQV
+qJd
+fNJ
+acM
 aaU
 abd
 aae
@@ -28109,21 +28216,21 @@ aaa
 aaS
 abb
 abe
+ahm
+afp
+afE
+agY
+acK
+ahm
 aaQ
 aaT
 aaW
-aaV
-abd
-abe
-aaQ
-ajj
-ajp
-ajw
-ajD
-ajM
-afo
-abb
-abe
+ahm
+afp
+afE
+agY
+acK
+ahm
 aaQ
 aaT
 aab
@@ -28370,15 +28477,15 @@ abc
 aaS
 abb
 abe
-aaS
+aaQ
+aaT
+aaY
+aaW
+aaV
 aaR
 aaY
-aja
-ajq
-ajx
-ajE
-ajq
-acM
+aaU
+abd
 aaX
 aaZ
 abc
@@ -28627,19 +28734,19 @@ abe
 aaQ
 aaT
 aaW
-aaT
-aaW
 aaV
-ahm
-afp
-afE
-agY
-acK
-ahm
+aaR
 aaY
 aaU
 abd
 aba
+aaX
+aaZ
+abc
+aaS
+abb
+abe
+aaQ
 aag
 aaV
 aaV
@@ -29135,21 +29242,21 @@ aaQ
 aaQ
 aab
 aaX
-aaZ
 aeR
 afo
 agN
 acL
 agY
 ahm
+abd
 abc
 aaS
-abb
-abe
-aaQ
-abd
-aba
-aaX
+aeR
+afo
+agN
+acL
+agY
+ahm
 aaZ
 abc
 aaS
@@ -29392,21 +29499,21 @@ aaQ
 aaQ
 aai
 aaQ
-aaT
 aii
 aio
 aiz
 aiI
 aiq
 ael
+abd
 aaT
 aaW
-aaV
-aaR
-aaY
-abb
-abe
-aaQ
+aii
+oOr
+wxX
+rVF
+gDG
+ael
 aaT
 aaW
 aaV
@@ -29649,21 +29756,21 @@ aaQ
 aaQ
 aag
 aba
-aaX
 aij
 aip
 aiA
 aiJ
 aiT
 acJ
+abd
 abe
 aaQ
-aaT
-aaW
-aaV
-aaU
-abd
-aba
+aij
+iPt
+gAE
+res
+bIl
+acJ
 aaX
 aaZ
 abc
@@ -29906,21 +30013,21 @@ aaQ
 aaQ
 aao
 aaV
-aaR
 ahz
 aiq
 aiB
 aiK
 aiU
 afo
+abd
 aaR
 aaY
-aaU
-abd
-aba
-aaT
-aaW
-aaV
+ahz
+gDG
+jsX
+xnl
+oyk
+afo
 aaR
 aaY
 aaU
@@ -30163,21 +30270,21 @@ aaQ
 aaQ
 aaf
 aaS
-abb
 acL
 agY
 adH
 ahb
 acI
 acK
+abd
 aaW
 aaV
-aaR
-aaY
-aaU
-aaZ
-abc
-aaS
+acL
+agY
+adH
+ahb
+acI
+acK
 abb
 abe
 aaQ
@@ -30686,12 +30793,12 @@ aaX
 abb
 aaY
 aaU
-acJ
-acM
-ael
-adH
-ahb
-acI
+abd
+abd
+abd
+abd
+abd
+abd
 aaR
 aaY
 aaU
@@ -30943,12 +31050,12 @@ aaV
 aaW
 aaX
 aaZ
-ajf
-ajr
-ajy
-ajF
-ajN
-afo
+abd
+abd
+abd
+abd
+abd
+abd
 abb
 abe
 aaQ
@@ -31192,22 +31299,22 @@ aaQ
 aam
 abc
 aaS
+fBs
+acJ
+acM
+ael
+adH
+ahb
+acI
 abb
-abe
-aaQ
-aaT
-aaW
-aaY
-aaS
-abb
-ajk
-ajs
-ajz
-ajs
-ajF
-ahm
-aaY
-aaU
+abd
+abd
+acJ
+acM
+ael
+adH
+ahb
+acI
 abd
 aba
 aah
@@ -31449,22 +31556,22 @@ aaQ
 aac
 aaR
 aaY
-aaU
-abd
-aba
-aaX
-aaZ
-aaX
-aaT
+fBs
+ajf
+ajr
+ajy
+ajF
+ajN
+afo
 aaW
-aiM
-ajt
-ajA
-ajG
-ajO
-ahm
-aaY
-aaU
+abd
+abd
+ajf
+hxU
+wmR
+wYO
+gGk
+afo
 abd
 aba
 aaj
@@ -31706,22 +31813,22 @@ aaQ
 aaa
 aaX
 aaZ
-abc
-aaS
-abb
-abe
-aaQ
-aaT
-aaW
-aaV
+fBs
+ajk
+ajs
+ajz
+ajs
+ajF
 ahm
-afp
-afE
-acJ
-acM
-ael
-aaZ
-abc
+aaV
+abd
+abd
+ajk
+eHo
+mML
+eHo
+wYO
+ahm
 aaS
 abb
 aab
@@ -31963,22 +32070,22 @@ aaQ
 aab
 aaQ
 aaT
-aaW
-aaV
-aaR
-aaY
-aaU
-abd
-aba
+fBs
+aiM
+ajt
+ajA
+ajG
+ajO
+ahm
 aaX
 aaZ
 abc
-aaS
-abb
-abe
-aaQ
-aaT
-aaW
+aiM
+upT
+wHZ
+lti
+iPi
+ahm
 aaV
 aaR
 aaf
@@ -32220,22 +32327,22 @@ aaQ
 aak
 aba
 aaX
-aaZ
-abc
-aaS
-abb
-abe
-aaQ
-aaT
+fBs
+ahm
+afp
+afE
+acJ
+acM
+ael
 aaW
 aaV
 aaR
-aaY
-aaU
-abd
-aba
-aaX
-aaZ
+ahm
+afp
+afE
+acJ
+acM
+ael
 abc
 aaS
 aao
@@ -85166,16 +85273,16 @@ syd
 qiB
 syd
 btX
-syd
-syd
-syd
 xIG
 xIG
 xIG
 xIG
 syd
 syd
-syd
+lCg
+lCg
+lCg
+lCg
 rlR
 syd
 qiB
@@ -85423,16 +85530,16 @@ qFO
 tzr
 syd
 btX
-syd
-syd
-syd
 xIG
 xIG
 xIG
 xIG
 syd
 syd
-syd
+lCg
+lCg
+lCg
+lCg
 rlR
 syd
 tzr
@@ -85680,16 +85787,16 @@ mIn
 tzr
 syd
 btX
-syd
-syd
-syd
 xIG
 xIG
 xIG
 xIG
 syd
 syd
-syd
+lCg
+lCg
+lCg
+lCg
 rlR
 syd
 tzr
@@ -86451,16 +86558,16 @@ vsC
 tzr
 syd
 btX
-syd
-syd
-syd
 lYb
 lYb
 lYb
 lYb
 syd
 syd
-syd
+xkr
+xkr
+xkr
+xkr
 rlR
 syd
 tzr
@@ -86708,16 +86815,16 @@ vww
 tzr
 syd
 btX
-syd
-syd
-syd
 lYb
 lYb
 lYb
 lYb
 syd
 syd
-syd
+xkr
+xkr
+xkr
+xkr
 rlR
 syd
 tzr
@@ -86965,16 +87072,16 @@ vsC
 tzr
 syd
 btX
-syd
-syd
-syd
 lYb
 lYb
 lYb
 lYb
 syd
 syd
-syd
+xkr
+xkr
+xkr
+xkr
 rlR
 syd
 tzr
@@ -87736,16 +87843,16 @@ syd
 tzr
 syd
 btX
-syd
-syd
-syd
 wjI
 wjI
 wjI
 wjI
 syd
 syd
-syd
+oGo
+oGo
+oGo
+oGo
 rlR
 syd
 tzr
@@ -87993,16 +88100,16 @@ wow
 tzr
 qon
 btX
-syd
-syd
-syd
 wjI
 wjI
 wjI
 wjI
 syd
 syd
-syd
+oGo
+oGo
+oGo
+oGo
 rlR
 qon
 tzr
@@ -88250,16 +88357,16 @@ tjv
 tzr
 tzr
 rvi
-syd
-syd
-syd
 wjI
 wjI
 wjI
 wjI
 syd
 syd
-syd
+oGo
+oGo
+oGo
+oGo
 fHM
 tzr
 tzr
