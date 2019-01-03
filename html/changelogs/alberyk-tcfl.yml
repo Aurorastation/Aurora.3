@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "The Tau Ceti Foreign Legion has now a higher chance to be selected when an emergency team is called."
