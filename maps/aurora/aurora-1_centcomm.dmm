@@ -801,15 +801,15 @@
 	},
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
-	dir = 5
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 8;
-	icon_state = "carpet_edges"
+	dir = 8
 	},
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
 	dir = 9
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 5
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
@@ -955,19 +955,19 @@
 	},
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
 /obj/effect/floor_decal/carpet{
-	dir = 8;
-	icon_state = "carpet_edges"
+	icon_state = "carpet_edges";
+	dir = 1
 	},
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
 	dir = 9
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
@@ -1128,11 +1128,11 @@
 	},
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
-	dir = 5
+	dir = 8
 	},
 /obj/effect/floor_decal/carpet{
-	dir = 8;
-	icon_state = "carpet_edges"
+	icon_state = "carpet_edges";
+	dir = 5
 	},
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
@@ -1189,8 +1189,8 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/carpet{
-	dir = 8;
-	icon_state = "carpet_edges"
+	icon_state = "carpet_edges";
+	dir = 8
 	},
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
@@ -1226,8 +1226,8 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/carpet{
-	dir = 8;
-	icon_state = "carpet_edges"
+	icon_state = "carpet_edges";
+	dir = 8
 	},
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
@@ -1261,13 +1261,13 @@
 /obj/structure/bed/chair/holochair{
 	dir = 8
 	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 8
+	},
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 8
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 8;
-	icon_state = "carpet_edges"
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
@@ -1342,11 +1342,11 @@
 "adn" = (
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
-	dir = 4
+	dir = 8
 	},
 /obj/effect/floor_decal/carpet{
-	dir = 8;
-	icon_state = "carpet_edges"
+	icon_state = "carpet_edges";
+	dir = 4
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_chapel)
@@ -1717,17 +1717,17 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/carpet,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
 	dir = 8
 	},
 /obj/effect/floor_decal/carpet{
-	dir = 8;
-	icon_state = "carpet_edges"
+	icon_state = "carpet_edges";
+	dir = 10
 	},
-/obj/effect/floor_decal/carpet{
-	dir = 10;
-	icon_state = "carpet_edges"
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
@@ -1812,19 +1812,19 @@
 "aeA" = (
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
 	dir = 4
 	},
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
+	dir = 10
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
 	dir = 6
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 8;
-	icon_state = "carpet_edges"
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 10;
-	icon_state = "carpet_edges"
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_chapel)
@@ -2130,11 +2130,11 @@
 /obj/effect/floor_decal/carpet,
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
-	dir = 9
+	dir = 10
 	},
 /obj/effect/floor_decal/carpet{
-	dir = 10;
-	icon_state = "carpet_edges"
+	icon_state = "carpet_edges";
+	dir = 9
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_meetinghall)
@@ -2311,8 +2311,8 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/carpet{
-	dir = 8;
-	icon_state = "carpet_edges"
+	icon_state = "carpet_edges";
+	dir = 8
 	},
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
@@ -12157,7 +12157,7 @@
 "aCg" = (
 /obj/structure/shuttle/engine/propulsion{
 	dir = 4;
-	icon_state = "burst_r"
+	icon_state = "propulsion_r"
 	},
 /turf/simulated/shuttle/plating,
 /area/shuttle/specops/centcom)
@@ -13071,7 +13071,7 @@
 "aEn" = (
 /obj/structure/shuttle/engine/propulsion{
 	dir = 4;
-	icon_state = "burst_r"
+	icon_state = "propulsion_r"
 	},
 /turf/simulated/shuttle/plating,
 /area/shuttle/transport1/centcom)
@@ -22355,6 +22355,10 @@
 	},
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
 	dir = 9
 	},
 /turf/unsimulated/floor{
@@ -22765,12 +22769,32 @@
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
+"bdl" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Leader Preparation";
+	req_access = list(111)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"bjp" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Hangar";
+	req_access = list(111)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "bpQ" = (
 /obj/structure/closet/crate/freezer/rations,
 /turf/unsimulated/floor{
 	icon_state = "floor3"
 	},
 /area/centcom/extraction_shuttle)
+"bqB" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
+	},
+/turf/simulated/shuttle/wall/dark,
+/area/skipjack_station/start)
 "bsA" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor{
@@ -22792,6 +22816,14 @@
 	icon_state = "floor3"
 	},
 /area/centcom/extraction_shuttle)
+"bxT" = (
+/obj/structure/table/rack,
+/obj/item/weapon/shield/riot/tact,
+/obj/item/weapon/shield/riot/tact,
+/obj/item/weapon/shield/riot/tact,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "bAs" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced{
@@ -22809,6 +22841,41 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
+"bJE" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/legion/centcom)
+"bKV" = (
+/obj/vehicle/droppod,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"bLe" = (
+/obj/machinery/chemical_dispenser/ert,
+/obj/item/weapon/reagent_containers/glass/beaker/large,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"bNp" = (
+/obj/structure/table/reinforced,
+/obj/item/device/flash,
+/obj/item/device/flash,
+/obj/item/device/flash,
+/obj/item/weapon/melee/baton/loaded,
+/obj/item/weapon/melee/baton/loaded,
+/obj/item/weapon/melee/baton/loaded,
+/obj/item/weapon/storage/belt/security/tactical,
+/obj/item/weapon/storage/belt/security/tactical,
+/obj/item/weapon/storage/belt/security/tactical,
+/obj/item/taperoll/police,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"bNV" = (
+/obj/effect/landmark{
+	name = "Tau Ceti Legion"
+	},
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "bPj" = (
 /obj/structure/flora/pottedplant/random,
 /turf/unsimulated/floor{
@@ -22836,15 +22903,23 @@
 /obj/structure/holostool,
 /obj/effect/floor_decal/carpet,
 /obj/effect/floor_decal/carpet{
-	dir = 8;
-	icon_state = "carpet_edges"
+	icon_state = "carpet_edges";
+	dir = 8
 	},
 /obj/effect/floor_decal/carpet{
-	dir = 10;
-	icon_state = "carpet_edges"
+	icon_state = "carpet_edges";
+	dir = 10
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_meetinghall)
+"bYz" = (
+/obj/structure/table/rack,
+/obj/item/weapon/gun/energy/blaster/carbine,
+/obj/item/weapon/gun/energy/blaster/carbine,
+/obj/item/weapon/gun/energy/blaster/carbine,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "cfX" = (
 /obj/machinery/computer/operating,
 /obj/machinery/light,
@@ -22853,6 +22928,28 @@
 	icon_state = "whitehall"
 	},
 /area/centcom/extraction_shuttle)
+"cgc" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"ciN" = (
+/obj/machinery/airlock_sensor{
+	frequency = 1331;
+	id_tag = "legion_shuttle_sensor";
+	master_tag = null;
+	pixel_y = 32
+	},
+/turf/simulated/shuttle/plating,
+/area/shuttle/legion/centcom)
+"clf" = (
+/obj/machinery/pipedispenser/orderable,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "cof" = (
 /obj/structure/bed/roller,
 /obj/structure/sign/nosmoking_2{
@@ -22873,6 +22970,21 @@
 	dir = 2
 	},
 /area/centcom/extraction_shuttle)
+"csh" = (
+/obj/structure/table/reinforced,
+/obj/item/device/megaphone,
+/obj/item/weapon/storage/box/trackimp,
+/obj/item/weapon/storage/box/cdeathalarm_kit,
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 4;
+	pixel_y = 32
+	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "cDZ" = (
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
@@ -22889,6 +23001,16 @@
 	icon_state = "gcircuit"
 	},
 /area/centcom/extraction_shuttle)
+"cGa" = (
+/obj/item/mecha_parts/mecha_equipment/tool/drill/diamonddrill,
+/obj/item/mecha_parts/mecha_equipment/tool/cable_layer,
+/obj/structure/table/reinforced/steel,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "cIP" = (
 /turf/unsimulated/floor{
 	icon_state = "floor4"
@@ -22917,6 +23039,10 @@
 	name = "plating"
 	},
 /area/centcom/extraction_shuttle)
+"cPq" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "cRG" = (
 /obj/structure/closet/crate/medical,
 /turf/unsimulated/floor{
@@ -23013,6 +23139,35 @@
 	name = "plating"
 	},
 /area/centcom/extraction_shuttle)
+"dbe" = (
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/gauss/emp,
+/obj/item/ammo_magazine/gauss/emp,
+/obj/item/ammo_magazine/gauss,
+/obj/item/ammo_magazine/gauss,
+/obj/item/ammo_magazine/gauss,
+/obj/item/ammo_magazine/gauss,
+/obj/item/ammo_magazine/gauss,
+/obj/item/weapon/gun/projectile/gauss,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/light{
+	dir = 2;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"dbQ" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/shuttle/administration/centcom)
+"dcn" = (
+/turf/simulated/floor/wood,
+/area/centcom/legion)
 "deH" = (
 /obj/structure/bed/chair/comfy/brown{
 	dir = 1
@@ -23034,6 +23189,25 @@
 	icon_state = "wood"
 	},
 /area/centcom/extraction_shuttle)
+"dpT" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/belt/medical,
+/obj/item/weapon/storage/belt/medical,
+/obj/item/weapon/storage/belt/medical,
+/obj/item/weapon/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/weapon/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/weapon/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/weapon/reagent_containers/hypospray,
+/obj/item/weapon/reagent_containers/hypospray,
+/obj/item/weapon/reagent_containers/hypospray,
+/obj/item/weapon/storage/box/syringes,
+/obj/machinery/light{
+	dir = 2;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "dre" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -23045,8 +23219,8 @@
 "drU" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/carpet{
-	dir = 8;
-	icon_state = "carpet_edges"
+	icon_state = "carpet_edges";
+	dir = 8
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
@@ -23110,8 +23284,8 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/carpet{
-	dir = 8;
-	icon_state = "carpet_edges"
+	icon_state = "carpet_edges";
+	dir = 8
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
@@ -23119,6 +23293,28 @@
 /obj/structure/banner,
 /turf/simulated/shuttle/floor,
 /area/centcom/extraction_shuttle)
+"dYe" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/legion/centcom)
+"efX" = (
+/obj/structure/table/rack,
+/obj/item/device/flash,
+/obj/item/device/flash,
+/obj/item/clothing/accessory/storage/white_vest,
+/obj/item/clothing/accessory/storage/white_vest,
+/obj/item/weapon/gun/energy/stunrevolver,
+/obj/item/weapon/gun/energy/stunrevolver,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "eho" = (
 /obj/structure/bed/chair/wood/wings{
 	dir = 1
@@ -23127,6 +23323,23 @@
 	icon_state = "wood"
 	},
 /area/centcom/extraction_shuttle)
+"ehW" = (
+/obj/structure/table/rack,
+/obj/item/weapon/tank/emergency_oxygen/double,
+/obj/item/weapon/tank/emergency_oxygen/double,
+/obj/item/weapon/tank/emergency_oxygen/double,
+/obj/item/weapon/tank/emergency_oxygen/double,
+/obj/item/weapon/tank/emergency_oxygen/double,
+/obj/item/weapon/tank/emergency_oxygen/double,
+/obj/item/weapon/tank/emergency_oxygen/double,
+/obj/item/weapon/tank/emergency_oxygen/double,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "ejJ" = (
 /obj/machinery/vending/wallmed1{
 	name = "Emergency NanoMed";
@@ -23137,6 +23350,15 @@
 	icon_state = "white"
 	},
 /area/centcom/extraction_shuttle)
+"esf" = (
+/obj/item/clothing/accessory/storage/black_vest,
+/obj/item/clothing/glasses/night{
+	pixel_x = -1;
+	pixel_y = -3
+	},
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "euQ" = (
 /obj/structure/window/basic{
 	dir = 4
@@ -23154,6 +23376,15 @@
 	dir = 2
 	},
 /area/centcom/extraction_shuttle)
+"exe" = (
+/obj/item/weapon/stool/padded,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"eFM" = (
+/obj/mecha/medical/odysseus/loaded,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "eSj" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/firstaid/o2{
@@ -23200,6 +23431,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
+"eYf" = (
+/obj/machinery/door/airlock/centcom{
+	name = "General Supplies";
+	req_access = list(111)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "eZC" = (
 /obj/machinery/computer/secure_data,
 /turf/unsimulated/floor{
@@ -23214,11 +23452,46 @@
 	icon_state = "cult"
 	},
 /area/centcom/extraction_shuttle)
+"ffM" = (
+/obj/machinery/atmospherics/pipe/manifold/visible,
+/turf/simulated/shuttle/plating,
+/area/shuttle/legion/centcom)
+"ffS" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"fgV" = (
+/obj/item/weapon/storage/fancy/cigarettes,
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "fhb" = (
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
 /area/centcom/extraction_shuttle)
+"fhl" = (
+/obj/structure/table/reinforced,
+/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp,
+/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp,
+/obj/item/mecha_parts/mecha_equipment/tool/passenger,
+/obj/item/mecha_parts/mecha_equipment/tool/passenger,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"fjf" = (
+/obj/structure/table/rack,
+/obj/item/weapon/melee/energy/sword/knife,
+/obj/item/weapon/shield/energy/legion,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "flR" = (
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -23260,6 +23533,10 @@
 	dir = 1
 	},
 /area/centcom/extraction_shuttle)
+"fHP" = (
+/obj/machinery/vending/tool,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "fJC" = (
 /obj/structure/table/standard,
 /obj/item/weapon/bonesetter,
@@ -23278,6 +23555,25 @@
 	icon_state = "whitehall"
 	},
 /area/centcom/extraction_shuttle)
+"fQT" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1331;
+	id_tag = "legion_shuttle_lock"
+	},
+/turf/simulated/shuttle/plating,
+/area/shuttle/legion/centcom)
+"fRF" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/machinery/light/small/emergency{
+	icon_state = "bulb1";
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/legion/centcom)
 "gdy" = (
 /obj/structure/urinal{
 	pixel_y = 32
@@ -23291,14 +23587,14 @@
 /obj/structure/bed/chair/holochair{
 	dir = 1
 	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 8
+	},
 /obj/effect/floor_decal/carpet,
 /obj/effect/floor_decal/carpet{
-	dir = 8;
-	icon_state = "carpet_edges"
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 10;
-	icon_state = "carpet_edges"
+	icon_state = "carpet_edges";
+	dir = 10
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
@@ -23317,11 +23613,51 @@
 	icon_state = "grimy"
 	},
 /area/centcom/extraction_shuttle)
+"glh" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/turf/simulated/shuttle/plating,
+/area/shuttle/legion/centcom)
+"gmj" = (
+/obj/structure/table/rack,
+/obj/item/weapon/gun/energy/blaster/rifle,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"gpB" = (
+/obj/structure/mirror{
+	dir = 4;
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "gsb" = (
 /turf/unsimulated/floor{
 	icon_state = "floor3"
 	},
 /area/centcom/extraction_shuttle)
+"gwc" = (
+/obj/machinery/vending/assist,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"gxN" = (
+/obj/structure/table/rack,
+/obj/item/clothing/accessory/holster/armpit,
+/obj/item/clothing/accessory/holster/armpit,
+/obj/item/clothing/accessory/holster/armpit,
+/obj/item/weapon/gun/energy/blaster,
+/obj/item/weapon/gun/energy/blaster,
+/obj/item/weapon/gun/energy/blaster,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/light{
+	dir = 2;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "gFv" = (
 /obj/structure/table/wood{
 	dir = 5
@@ -23351,6 +23687,26 @@
 	icon_state = "whitegreen"
 	},
 /area/centcom/extraction_shuttle)
+"gJP" = (
+/obj/item/mecha_parts/mecha_equipment/tool/extinguisher,
+/obj/item/mecha_parts/mecha_equipment/tool/rcd,
+/obj/item/weapon/pickaxe/diamonddrill,
+/obj/structure/table/reinforced/steel,
+/obj/item/weapon/pickaxe/diamonddrill,
+/obj/item/weapon/pickaxe/diamonddrill,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"gLC" = (
+/turf/unsimulated/wall/fakepdoor{
+	dir = 4;
+	name = "shuttle bay blast door"
+	},
+/area/centcom/legion)
 "gXV" = (
 /obj/structure/closet/secure_closet/personal,
 /turf/unsimulated/floor{
@@ -23376,6 +23732,13 @@
 	},
 /turf/simulated/shuttle/plating,
 /area/merchant_ship/start)
+"hfW" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Preparation Zone";
+	req_access = list(111)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "hju" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/gloves{
@@ -23406,6 +23769,26 @@
 	name = "plating"
 	},
 /area/centcom/extraction_shuttle)
+"hzs" = (
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"hDv" = (
+/obj/machinery/door/airlock/centcom{
+	name = "High Command";
+	req_access = list(108,109)
+	},
+/obj/machinery/door/blast/regular{
+	id = "tcfl"
+	},
+/turf/simulated/floor/wood,
+/area/centcom/legion)
 "hEl" = (
 /obj/machinery/light,
 /obj/structure/closet/secure_closet/hos,
@@ -23429,6 +23812,9 @@
 	icon_state = "whitehall"
 	},
 /area/centcom/extraction_shuttle)
+"hNE" = (
+/turf/simulated/shuttle/wall/dark,
+/area/shuttle/legion/centcom)
 "hSJ" = (
 /obj/structure/bed/chair/office/bridge{
 	dir = 4
@@ -23439,6 +23825,21 @@
 	},
 /turf/simulated/floor/carpet,
 /area/merchant_ship/start)
+"hTn" = (
+/obj/effect/floor_decal/industrial/loading,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"hUk" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/item/clothing/head/helmet/legion,
+/obj/item/clothing/head/helmet/legion,
+/obj/item/clothing/head/helmet/legion,
+/obj/item/clothing/head/helmet/legion,
+/obj/item/clothing/head/helmet/legion,
+/obj/item/clothing/head/helmet/legion,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "hYO" = (
 /obj/structure/table/standard,
 /obj/item/weapon/surgicaldrill,
@@ -23448,11 +23849,63 @@
 	dir = 8
 	},
 /area/centcom/extraction_shuttle)
+"hZH" = (
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"ifE" = (
+/obj/machinery/vending/snack{
+	name = "Free Chocolate Corp";
+	prices = list()
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "iir" = (
 /turf/unsimulated/floor{
 	icon_state = "grimy"
 	},
 /area/centcom/extraction_shuttle)
+"imT" = (
+/obj/machinery/light{
+	dir = 2;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"ink" = (
+/obj/item/device/multitool,
+/obj/item/device/multitool,
+/obj/item/device/flash,
+/obj/item/device/flash,
+/obj/item/weapon/rcd,
+/obj/item/weapon/rcd,
+/obj/item/weapon/rcd_ammo,
+/obj/item/weapon/rcd_ammo,
+/obj/item/weapon/rcd_ammo,
+/obj/item/weapon/rcd_ammo,
+/obj/item/weapon/rcd,
+/obj/item/weapon/rcd,
+/obj/item/weapon/rcd_ammo,
+/obj/item/weapon/rcd_ammo,
+/obj/item/weapon/rcd_ammo,
+/obj/item/weapon/rcd_ammo,
+/obj/item/weapon/rcd_ammo,
+/obj/item/weapon/rcd_ammo,
+/obj/item/weapon/rcd_ammo,
+/obj/structure/table/reinforced/steel,
+/obj/machinery/light{
+	dir = 4;
+	status = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"isT" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "iua" = (
 /obj/machinery/light/spot{
 	icon_state = "tube1";
@@ -23463,6 +23916,12 @@
 	dir = 1
 	},
 /area/centcom/extraction_shuttle)
+"iuX" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "iBg" = (
 /obj/structure/bed/chair/office/bridge{
 	icon_state = "bridge";
@@ -23493,6 +23952,24 @@
 	dir = 8
 	},
 /area/centcom/extraction_shuttle)
+"jhe" = (
+/obj/structure/table/rack,
+/obj/item/weapon/rig/retro/equipped,
+/obj/item/weapon/rig/retro/equipped,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/item/clothing/accessory/legion/specialist,
+/obj/item/clothing/accessory/legion/specialist,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"jhX" = (
+/obj/effect/wingrille_spawn/reinforced/crescent,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "jig" = (
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -23506,6 +23983,11 @@
 	icon_state = "siding2"
 	},
 /area/centcom/extraction_shuttle)
+"jiA" = (
+/obj/mecha/working/ripley/combat,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "jsx" = (
 /obj/machinery/door/airlock/glass{
 	name = "Storage 1"
@@ -23518,6 +24000,26 @@
 /obj/structure/sign/double/barsign,
 /turf/simulated/shuttle/wall/dark,
 /area/centcom/extraction_shuttle)
+"jvc" = (
+/obj/machinery/shieldwallgen,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"jvi" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/shuttle/administration/centcom)
+"jvo" = (
+/obj/machinery/vending/cola{
+	name = "Free Robust Softdrinks";
+	prices = list()
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "jvS" = (
 /obj/machinery/door/airlock/medical{
 	name = "Operating Theatre";
@@ -23527,6 +24029,14 @@
 	icon_state = "floor3"
 	},
 /area/centcom/extraction_shuttle)
+"jyE" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/legion/centcom)
 "jza" = (
 /obj/machinery/light/small{
 	brightness_color = "#DA0205";
@@ -23546,16 +24056,44 @@
 	icon_state = "wood"
 	},
 /area/centcom/extraction_shuttle)
+"jCV" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/centcom/legion)
+"jEg" = (
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"jFu" = (
+/obj/machinery/computer/shuttle_control/legion,
+/turf/simulated/floor/wood,
+/area/centcom/legion)
+"jFW" = (
+/obj/structure/table/reinforced,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "jIu" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/carpet,
 /obj/effect/floor_decal/carpet{
-	dir = 8;
-	icon_state = "carpet_edges"
+	icon_state = "carpet_edges";
+	dir = 8
 	},
 /obj/effect/floor_decal/carpet{
-	dir = 10;
-	icon_state = "carpet_edges"
+	icon_state = "carpet_edges";
+	dir = 10
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_theatre)
@@ -23643,8 +24181,8 @@
 /area/centcom/extraction_shuttle)
 "keA" = (
 /obj/effect/floor_decal/carpet{
-	dir = 8;
-	icon_state = "carpet_edges"
+	icon_state = "carpet_edges";
+	dir = 8
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
@@ -23657,6 +24195,13 @@
 	icon_state = "wood"
 	},
 /area/centcom/extraction_shuttle)
+"kte" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1331;
+	id_tag = "legion_shuttle_interior"
+	},
+/turf/simulated/shuttle/plating,
+/area/shuttle/legion/centcom)
 "kFv" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -23666,6 +24211,18 @@
 	icon_state = "gcircuit"
 	},
 /area/centcom/extraction_shuttle)
+"kFC" = (
+/turf/simulated/floor/tiled/dark,
+/turf/simulated/shuttle/wall/dark{
+	icon_state = "diagonalWall3"
+	},
+/area/shuttle/legion/centcom)
+"kGr" = (
+/obj/structure/table/rack,
+/obj/item/weapon/rig/retro/equipped,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "kOg" = (
 /obj/structure/bed/chair/comfy/brown,
 /turf/unsimulated/floor{
@@ -23746,18 +24303,82 @@
 	icon_state = "white"
 	},
 /area/centcom/extraction_shuttle)
+"lmU" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 32;
+	pixel_y = 4
+	},
+/obj/machinery/suit_storage_unit/standard_unit,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"lpp" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/box/handcuffs,
+/obj/item/clothing/glasses/night{
+	pixel_x = -1;
+	pixel_y = -3
+	},
+/obj/item/clothing/glasses/night{
+	pixel_x = -1;
+	pixel_y = -3
+	},
+/obj/item/clothing/glasses/night{
+	pixel_x = -1;
+	pixel_y = -3
+	},
+/obj/item/weapon/storage/box/handcuffs,
+/obj/item/clothing/glasses/sunglasses/sechud/tactical,
+/obj/item/clothing/glasses/sunglasses/sechud/tactical,
+/obj/item/clothing/glasses/sunglasses/sechud/tactical,
+/obj/item/clothing/glasses/sunglasses/sechud/tactical,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"lpI" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/belt/medical,
+/obj/item/weapon/storage/belt/medical,
+/obj/item/weapon/storage/belt/medical,
+/obj/item/weapon/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/weapon/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/weapon/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/weapon/reagent_containers/hypospray,
+/obj/item/weapon/reagent_containers/hypospray,
+/obj/item/weapon/reagent_containers/hypospray,
+/obj/item/weapon/storage/box/syringes,
+/obj/item/weapon/reagent_containers/glass/beaker/large,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "lth" = (
 /turf/simulated/shuttle/wall/dark{
 	dir = 5;
 	icon_state = "diagonalWall3"
 	},
 /area/centcom/extraction_shuttle)
+"lvS" = (
+/obj/structure/table/rack,
+/obj/item/weapon/rig/retro/equipped,
+/obj/item/weapon/rig/retro/equipped,
+/obj/item/weapon/rig/retro/equipped,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "lvZ" = (
 /turf/unsimulated/floor{
 	dir = 2;
 	icon_state = "carpetsymbol"
 	},
 /area/centcom/extraction_shuttle)
+"lBw" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "lDY" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled,
@@ -23765,6 +24386,15 @@
 	icon_state = "floor"
 	},
 /area/centcom/extraction_shuttle)
+"lFt" = (
+/obj/machinery/light{
+	dir = 2;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/obj/vehicle/bike/speeder,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "lJw" = (
 /obj/structure/table/standard,
 /obj/item/weapon/FixOVein{
@@ -23802,6 +24432,15 @@
 	dir = 8
 	},
 /area/centcom/extraction_shuttle)
+"lRp" = (
+/obj/item/mecha_parts/mecha_equipment/teleporter,
+/obj/item/mecha_parts/mecha_tracking,
+/obj/item/mecha_parts/mecha_tracking,
+/obj/item/mecha_parts/mecha_tracking,
+/obj/item/mecha_parts/mecha_tracking,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "lYb" = (
 /turf/unsimulated/floor{
 	name = "plating"
@@ -23828,6 +24467,10 @@
 	icon_state = "floor4"
 	},
 /area/centcom/extraction_shuttle)
+"mog" = (
+/obj/structure/closet/crate/freezer,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "mpM" = (
 /obj/structure/window/reinforced,
 /turf/unsimulated/floor{
@@ -23840,6 +24483,10 @@
 	icon_state = "floor3"
 	},
 /area/centcom/extraction_shuttle)
+"mua" = (
+/obj/mecha/combat/tank/jotun,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "mzv" = (
 /obj/structure/mirror{
 	pixel_y = 32
@@ -23858,6 +24505,26 @@
 	name = "plating"
 	},
 /area/centcom/extraction_shuttle)
+"mLq" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 10;
+	icon_state = "intact"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1331;
+	id_tag = "legion_shuttle";
+	pixel_y = 32;
+	tag_airpump = "legion_shuttle_vent";
+	tag_chamber_sensor = "legion_shuttle_sensor";
+	tag_exterior_door = "legion_shuttle_lock";
+	tag_interior_door = "legion_shuttle_interior"
+	},
+/turf/simulated/shuttle/plating,
+/area/shuttle/legion/centcom)
+"mLQ" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "mMy" = (
 /obj/machinery/vending/wallmed1{
 	pixel_y = 32;
@@ -23881,6 +24548,12 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/extraction_shuttle)
+"mOv" = (
+/obj/structure/table/wood,
+/obj/item/weapon/storage/fancy/cigar,
+/obj/item/weapon/flame/lighter/zippo,
+/turf/simulated/floor/wood,
+/area/centcom/legion)
 "mPa" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/unsimulated/floor{
@@ -23893,6 +24566,10 @@
 	name = "plating"
 	},
 /area/centcom/extraction_shuttle)
+"mTE" = (
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "mWf" = (
 /turf/simulated/shuttle/wall/dark{
 	dir = 4;
@@ -23917,6 +24594,10 @@
 	icon_state = "white"
 	},
 /area/centcom/extraction_shuttle)
+"ngh" = (
+/obj/machinery/mech_recharger,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "njJ" = (
 /obj/structure/table/rack,
 /obj/item/weapon/tank/jetpack/oxygen,
@@ -23927,6 +24608,21 @@
 	icon_state = "floor4"
 	},
 /area/centcom/extraction_shuttle)
+"nla" = (
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"noE" = (
+/obj/item/mecha_parts/mecha_equipment/tool/sleeper,
+/obj/item/mecha_parts/mecha_equipment/tool/sleeper,
+/obj/item/mecha_parts/mecha_equipment/tool/syringe_gun,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"nqN" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/legion/centcom)
 "nro" = (
 /obj/structure/table/standard,
 /obj/item/clothing/glasses/hud/health,
@@ -23946,6 +24642,38 @@
 	icon_state = "floor3"
 	},
 /area/centcom/extraction_shuttle)
+"nBO" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	frequency = 1331;
+	id_tag = "legion_shuttle_vent"
+	},
+/turf/simulated/shuttle/plating,
+/area/shuttle/legion/centcom)
+"nBQ" = (
+/obj/item/clothing/glasses/meson,
+/obj/item/clothing/glasses/meson,
+/obj/item/clothing/glasses/meson,
+/obj/item/clothing/glasses/meson,
+/obj/item/weapon/storage/belt/utility/full,
+/obj/item/weapon/storage/belt/utility/full,
+/obj/item/weapon/storage/belt/utility/full,
+/obj/item/weapon/storage/belt/utility/full,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/weapon/grenade/chem_grenade/metalfoam,
+/obj/item/weapon/grenade/chem_grenade/metalfoam,
+/obj/item/taperoll/engineering,
+/obj/item/clothing/glasses/welding/superior,
+/obj/item/clothing/glasses/welding/superior,
+/obj/item/clothing/glasses/welding/superior,
+/obj/item/clothing/glasses/welding/superior,
+/obj/item/clothing/glasses/welding/superior,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "nDB" = (
 /turf/unsimulated/floor{
 	icon_state = "whitehall";
@@ -23964,6 +24692,32 @@
 	icon_state = "white"
 	},
 /area/centcom/extraction_shuttle)
+"nSS" = (
+/obj/structure/table/wood,
+/obj/machinery/button/remote/blast_door{
+	id = "tcfl";
+	name = "Heavy Supportl"
+	},
+/turf/simulated/floor/wood,
+/area/centcom/legion)
+"nVi" = (
+/obj/machinery/autolathe{
+	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
+	hacked = 1;
+	name = "Unlocked Autolathe"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"nZW" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/centcom/legion)
+"olL" = (
+/obj/machinery/vending/engivend,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "owr" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor{
@@ -23974,6 +24728,10 @@
 /obj/structure/sign/greencross,
 /turf/simulated/shuttle/wall,
 /area/centcom/extraction_shuttle)
+"oIf" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "oNB" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Unisex Restroom"
@@ -23988,6 +24746,30 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/extraction_shuttle)
+"oRp" = (
+/obj/vehicle/bike/speeder,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"oSx" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"oVd" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "oWs" = (
 /obj/machinery/vending/snack{
 	name = "Free Chocolate Corp";
@@ -23997,6 +24779,18 @@
 	icon_state = "wood"
 	},
 /area/centcom/extraction_shuttle)
+"oXS" = (
+/obj/machinery/door/blast/regular{
+	id = "tcfl"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"pfM" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/aicard,
+/obj/item/weapon/pinpointer/advpinpointer,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "pgM" = (
 /obj/machinery/door/airlock/glass{
 	name = "Ship's Bar"
@@ -24014,6 +24808,14 @@
 	icon_state = "cult"
 	},
 /area/centcom/extraction_shuttle)
+"pnU" = (
+/obj/item/weapon/mop,
+/obj/structure/mopbucket,
+/turf/unsimulated/floor{
+	icon_state = "vault";
+	dir = 1
+	},
+/area/centcom/legion)
 "ppV" = (
 /obj/structure/closet/secure_closet/medical2,
 /turf/unsimulated/floor{
@@ -24021,6 +24823,23 @@
 	dir = 4
 	},
 /area/centcom/extraction_shuttle)
+"pqd" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/reagent_containers/blood/OMinus,
+/obj/item/weapon/reagent_containers/blood/OMinus,
+/obj/item/weapon/reagent_containers/blood/OMinus,
+/obj/item/weapon/reagent_containers/blood/OMinus,
+/obj/item/weapon/reagent_containers/blood/OMinus,
+/obj/item/weapon/reagent_containers/blood/OMinus,
+/obj/item/roller,
+/obj/item/roller,
+/obj/item/roller,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "pyP" = (
 /obj/structure/sign/directions/medical{
 	dir = 8;
@@ -24048,6 +24867,12 @@
 	icon_state = "wood"
 	},
 /area/centcom/extraction_shuttle)
+"pHg" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "pIv" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Engine Maintenance"
@@ -24095,6 +24920,13 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/extraction_shuttle)
+"pWA" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Garage";
+	req_access = list(111)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "pYv" = (
 /obj/structure/bed/chair/comfy/brown,
 /turf/unsimulated/floor{
@@ -24159,6 +24991,10 @@
 	name = "plating"
 	},
 /area/centcom/extraction_shuttle)
+"qmz" = (
+/obj/machinery/computer/shuttle_control/legion,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "qon" = (
 /obj/machinery/porta_turret/crescent,
 /obj/effect/decal/warning_stripes,
@@ -24178,12 +25014,92 @@
 	dir = 2
 	},
 /area/centcom/extraction_shuttle)
+"qCn" = (
+/obj/item/stack/material/glass{
+	amount = 50
+	},
+/obj/item/stack/material/glass{
+	amount = 50
+	},
+/obj/item/stack/material/glass{
+	amount = 50
+	},
+/obj/item/stack/material/glass{
+	amount = 50
+	},
+/obj/item/stack/material/steel{
+	amount = 50;
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/stack/material/steel{
+	amount = 50;
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/stack/material/steel{
+	amount = 50;
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/stack/material/steel{
+	amount = 50;
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/stack/material/plasteel{
+	amount = 50
+	},
+/obj/item/stack/material/plasteel{
+	amount = 50
+	},
+/obj/item/stack/material/plasteel{
+	amount = 50
+	},
+/obj/item/stack/material/plasteel{
+	amount = 50
+	},
+/obj/item/stack/material/glass/reinforced{
+	amount = 50
+	},
+/obj/item/stack/material/glass/reinforced{
+	amount = 50
+	},
+/obj/item/stack/material/glass/reinforced{
+	amount = 50
+	},
+/obj/item/weapon/storage/briefcase/inflatable{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/weapon/storage/briefcase/inflatable{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/weapon/storage/briefcase/inflatable{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/weapon/storage/briefcase/inflatable{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "qFO" = (
 /obj/effect/wingrille_spawn/reinforced,
 /turf/unsimulated/floor{
 	name = "plating"
 	},
 /area/centcom/extraction_shuttle)
+"qHq" = (
+/obj/structure/table/rack,
+/obj/item/clothing/accessory/holster/armpit,
+/obj/item/weapon/gun/energy/blaster,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "qIe" = (
 /obj/machinery/door/airlock/command{
 	name = "Captain's Quarters";
@@ -24228,17 +25144,33 @@
 	icon_state = "whitehall"
 	},
 /area/centcom/extraction_shuttle)
+"qRG" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/legion/centcom)
 "rdc" = (
 /turf/unsimulated/floor{
 	icon_state = "warnplate";
 	dir = 4
 	},
 /area/centcom/extraction_shuttle)
+"reS" = (
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1331;
+	master_tag = "legion_shuttle"
+	},
+/turf/simulated/shuttle/wall/dark,
+/area/shuttle/legion/centcom)
 "rfE" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/carpet{
-	dir = 8;
-	icon_state = "carpet_edges"
+	icon_state = "carpet_edges";
+	dir = 8
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_theatre)
@@ -24248,12 +25180,26 @@
 	name = "plating"
 	},
 /area/centcom/extraction_shuttle)
+"rjs" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/box/flashbangs,
+/obj/item/weapon/handcuffs,
+/obj/item/device/flash,
+/obj/item/weapon/melee/baton/loaded,
+/obj/item/weapon/storage/belt/security/tactical,
+/obj/item/weapon/gun/energy/stunrevolver,
+/obj/item/clothing/glasses/sunglasses/sechud/tactical,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "rlR" = (
 /turf/unsimulated/floor{
 	icon_state = "warnplate";
 	dir = 1
 	},
 /area/centcom/extraction_shuttle)
+"rmI" = (
+/turf/unsimulated/wall/riveted,
+/area/centcom/legion)
 "roY" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Auxillary Storage"
@@ -24306,6 +25252,35 @@
 	},
 /turf/simulated/floor/plating,
 /area/merchant_ship/start)
+"rCV" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/box/bodybags,
+/obj/item/weapon/storage/firstaid/o2,
+/obj/item/weapon/storage/firstaid/regular,
+/obj/item/device/flash,
+/obj/item/clothing/glasses/hud/health,
+/obj/item/clothing/glasses/hud/health,
+/obj/item/clothing/glasses/hud/health,
+/obj/item/device/flash,
+/obj/item/weapon/storage/firstaid/regular,
+/obj/item/weapon/storage/firstaid/regular,
+/obj/item/weapon/storage/pill_bottle/antitox,
+/obj/item/weapon/storage/pill_bottle/kelotane,
+/obj/item/weapon/storage/pill_bottle/kelotane,
+/obj/item/weapon/storage/pill_bottle/antitox,
+/obj/item/weapon/storage/pill_bottle/kelotane,
+/obj/item/weapon/storage/firstaid/adv,
+/obj/item/weapon/storage/firstaid/adv,
+/obj/item/weapon/storage/firstaid/toxin,
+/obj/item/weapon/storage/firstaid/fire,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"rDx" = (
+/obj/machinery/pipedispenser/disposal/orderable,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "rEq" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -24314,6 +25289,12 @@
 	icon_state = "gcircuit"
 	},
 /area/centcom/extraction_shuttle)
+"rGL" = (
+/turf/unsimulated/wall/fakepdoor{
+	dir = 1;
+	name = "shuttle bay blast door"
+	},
+/area/centcom/legion)
 "rLM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9;
@@ -24365,6 +25346,24 @@
 	icon_state = "white"
 	},
 /area/centcom/extraction_shuttle)
+"sbU" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/item/clothing/suit/storage/vest/legion,
+/obj/item/clothing/suit/storage/vest/legion,
+/obj/item/clothing/suit/storage/vest/legion,
+/obj/item/clothing/suit/storage/vest/legion,
+/obj/item/clothing/suit/storage/vest/legion,
+/obj/item/clothing/suit/storage/vest/legion,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"sda" = (
+/obj/effect/floor_decal/industrial/loading{
+	dir = 8;
+	icon_state = "loadingarea"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "sgg" = (
 /obj/machinery/light{
 	dir = 1
@@ -24389,6 +25388,19 @@
 	icon_state = "floor3"
 	},
 /area/centcom/extraction_shuttle)
+"spE" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "burst_r"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/legion/centcom)
+"sqm" = (
+/turf/simulated/floor/tiled/dark,
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/shuttle/legion/centcom)
 "stD" = (
 /obj/structure/table/reinforced,
 /obj/item/weapon/paper_bin{
@@ -24405,6 +25417,12 @@
 	icon_state = "floor4"
 	},
 /area/centcom/extraction_shuttle)
+"sup" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "suQ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/unsimulated/floor{
@@ -24424,6 +25442,20 @@
 	name = "plating"
 	},
 /area/centcom/extraction_shuttle)
+"syC" = (
+/turf/simulated/floor/tiled/dark,
+/turf/simulated/shuttle/wall/dark{
+	dir = 8;
+	icon_state = "diagonalWall3"
+	},
+/area/shuttle/legion/centcom)
+"szk" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Security Preparation";
+	req_access = list(111)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "sHd" = (
 /obj/structure/table/wood{
 	dir = 5
@@ -24433,6 +25465,17 @@
 	icon_state = "grimy"
 	},
 /area/centcom/extraction_shuttle)
+"sIe" = (
+/obj/structure/table/rack,
+/obj/item/weapon/plastique,
+/obj/item/weapon/plastique,
+/obj/item/weapon/plastique,
+/obj/item/weapon/plastique,
+/obj/item/weapon/plastique,
+/obj/item/weapon/plastique,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "sIJ" = (
 /obj/structure/cryofeed{
 	dir = 1;
@@ -24442,6 +25485,20 @@
 	icon_state = "floor3"
 	},
 /area/centcom/extraction_shuttle)
+"sJe" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"sJz" = (
+/obj/structure/table/reinforced,
+/obj/item/clothing/accessory/storage/black_vest,
+/obj/item/clothing/accessory/storage/black_vest,
+/obj/item/clothing/accessory/storage/black_vest,
+/obj/item/clothing/mask/gas/tactical,
+/obj/item/clothing/mask/gas/tactical,
+/obj/item/clothing/mask/gas/tactical,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "sSd" = (
 /obj/effect/floor_decal/carpet,
 /obj/structure/table/reinforced,
@@ -24469,9 +25526,28 @@
 	},
 /turf/simulated/floor/carpet,
 /area/merchant_ship/start)
+"sXA" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/turf/simulated/shuttle/wall/dark,
+/area/skipjack_station/start)
+"tbC" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/legion/centcom)
 "tdC" = (
 /turf/space,
 /area/template_noop)
+"tjv" = (
+/obj/structure/shuttle/engine/propulsion{
+	dir = 4;
+	icon_state = "propulsion_l"
+	},
+/turf/simulated/shuttle/plating,
+/area/centcom/extraction_shuttle)
 "twb" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -24487,6 +25563,14 @@
 	name = "plating"
 	},
 /area/centcom/extraction_shuttle)
+"tzg" = (
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/legion/centcom)
 "tzi" = (
 /turf/unsimulated/floor{
 	icon_state = "whiteblue";
@@ -24496,6 +25580,14 @@
 "tzr" = (
 /turf/simulated/shuttle/wall/dark,
 /area/centcom/extraction_shuttle)
+"tJW" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/obj/machinery/meter,
+/obj/machinery/light/small/emergency,
+/turf/simulated/shuttle/plating,
+/area/shuttle/legion/centcom)
 "tLv" = (
 /obj/structure/table/wood,
 /obj/item/weapon/storage/fancy/cigar,
@@ -24518,6 +25610,22 @@
 	icon_state = "floor3"
 	},
 /area/centcom/extraction_shuttle)
+"tNp" = (
+/turf/simulated/floor/tiled/dark,
+/turf/simulated/shuttle/wall/dark{
+	dir = 6;
+	icon_state = "diagonalWall3"
+	},
+/area/shuttle/legion/centcom)
+"tPd" = (
+/obj/item/weapon/storage/toolbox/mechanical,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "tQG" = (
 /obj/item/device/radio/intercom{
 	broadcasting = 1;
@@ -24534,6 +25642,52 @@
 	icon_state = "gcircuit"
 	},
 /area/centcom/extraction_shuttle)
+"tZi" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"uas" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/item/weapon/reagent_containers/glass/bucket{
+	amount_per_transfer_from_this = 50
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/turf/unsimulated/floor{
+	icon_state = "vault";
+	dir = 1
+	},
+/area/centcom/legion)
+"ueS" = (
+/obj/machinery/power/emitter,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"ugK" = (
+/obj/structure/table/rack,
+/obj/item/weapon/rig/retro/equipped,
+/obj/item/weapon/rig/retro/equipped,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/item/clothing/accessory/legion/specialist,
+/obj/item/clothing/accessory/legion/specialist,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"ugL" = (
+/obj/item/clothing/accessory/legion,
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "ukJ" = (
 /turf/unsimulated/floor{
 	icon_state = "whiteblue"
@@ -24592,6 +25746,19 @@
 	name = "plating"
 	},
 /area/centcom/extraction_shuttle)
+"uKp" = (
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/gauss/emp,
+/obj/item/ammo_magazine/gauss/emp,
+/obj/item/ammo_magazine/gauss,
+/obj/item/ammo_magazine/gauss,
+/obj/item/ammo_magazine/gauss,
+/obj/item/ammo_magazine/gauss,
+/obj/item/ammo_magazine/gauss,
+/obj/item/weapon/gun/projectile/gauss,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "uNZ" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/westleft{
@@ -24601,18 +25768,51 @@
 /obj/random/coin,
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
+"uPl" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Medical Preparation";
+	req_access = list(111)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"uTS" = (
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 8
+	},
+/turf/simulated/shuttle/plating,
+/area/shuttle/legion/centcom)
 "uXb" = (
 /obj/machinery/light,
 /turf/unsimulated/floor{
 	icon_state = "floor4"
 	},
 /area/centcom/extraction_shuttle)
+"vfj" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/weapon/circuitboard/smes,
+/obj/item/weapon/circuitboard/smes,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "vfs" = (
 /obj/item/modular_computer/console/preset/command,
 /turf/unsimulated/floor{
 	icon_state = "floor4"
 	},
 /area/centcom/extraction_shuttle)
+"vgs" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/box/autoinjectors,
+/obj/item/weapon/storage/box/beakers,
+/obj/item/weapon/storage/box/gloves,
+/obj/item/weapon/storage/box/pillbottles,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "viT" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -24637,6 +25837,18 @@
 	name = "plating"
 	},
 /area/centcom/extraction_shuttle)
+"vpG" = (
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1331;
+	master_tag = "legion_shuttle";
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/legion/centcom)
 "vsC" = (
 /obj/machinery/power/rtg/advanced,
 /obj/structure/cable,
@@ -24713,6 +25925,10 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
+"vKa" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/turf/simulated/shuttle/plating,
+/area/shuttle/legion/centcom)
 "vML" = (
 /obj/machinery/vending/tool,
 /turf/unsimulated/floor{
@@ -24726,6 +25942,10 @@
 	},
 /turf/simulated/shuttle/floor,
 /area/centcom/extraction_shuttle)
+"vWh" = (
+/obj/structure/undies_wardrobe,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "wcZ" = (
 /obj/machinery/button/remote/airlock{
 	id = "EPRS_CELL2";
@@ -24770,6 +25990,12 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/extraction_shuttle)
+"wvx" = (
+/obj/machinery/computer/shuttle_control/legion,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/legion/centcom)
 "wBe" = (
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/captain,
@@ -24786,14 +26012,49 @@
 	icon_state = "floor"
 	},
 /area/centcom/extraction_shuttle)
+"wKo" = (
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 10
+	},
+/obj/effect/landmark{
+	name = "skrell_entry"
+	},
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	dir = 2
+	},
+/area/centcom/shared_dream)
+"wKz" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/obj/machinery/light/small/emergency,
+/turf/simulated/shuttle/plating,
+/area/shuttle/legion/centcom)
+"wMc" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/legion/centcom)
 "wOA" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/carpet{
-	dir = 8;
-	icon_state = "carpet_edges"
+	icon_state = "carpet_edges";
+	dir = 8
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_meetinghall)
+"wTz" = (
+/obj/machinery/vending/security,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "wYH" = (
 /obj/machinery/button/remote/airlock{
 	id = "EPRS_CELL3";
@@ -24806,6 +26067,22 @@
 	icon_state = "floor1"
 	},
 /area/centcom/extraction_shuttle)
+"xac" = (
+/obj/structure/table/rack,
+/obj/item/weapon/gun/energy/stunrevolver,
+/obj/item/weapon/gun/energy/stunrevolver,
+/obj/item/device/flash,
+/obj/item/device/flash,
+/obj/item/clothing/accessory/storage/brown_vest,
+/obj/item/clothing/accessory/storage/brown_vest,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "xbn" = (
 /obj/machinery/door/blast/regular,
 /turf/unsimulated/floor{
@@ -24837,6 +26114,14 @@
 	name = "plating"
 	},
 /area/centcom/extraction_shuttle)
+"xnj" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "xnr" = (
 /mob/living/simple_animal/corgi/fox/Chauncey,
 /turf/unsimulated/floor{
@@ -24868,6 +26153,25 @@
 	icon_state = "white"
 	},
 /area/centcom/extraction_shuttle)
+"xzO" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Engineering Preparation";
+	req_access = list(111)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"xAH" = (
+/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay,
+/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay,
+/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay,
+/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay,
+/obj/item/mecha_parts/mecha_equipment/repair_droid,
+/obj/item/mecha_parts/mecha_equipment/repair_droid,
+/obj/item/mecha_parts/mecha_equipment/repair_droid,
+/obj/item/mecha_parts/mecha_equipment/repair_droid,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "xEa" = (
 /turf/unsimulated/floor{
 	name = "plating";
@@ -24888,6 +26192,10 @@
 	icon_state = "floor3"
 	},
 /area/centcom/extraction_shuttle)
+"xKH" = (
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "xKQ" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -24917,6 +26225,13 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/extraction_shuttle)
+"xWo" = (
+/obj/structure/shuttle/engine/propulsion{
+	dir = 4;
+	icon_state = "propulsion_r"
+	},
+/turf/simulated/shuttle/plating,
+/area/centcom/extraction_shuttle)
 "yfk" = (
 /obj/structure/bed/chair/office/bridge,
 /turf/unsimulated/floor{
@@ -24943,6 +26258,11 @@
 	name = "plating"
 	},
 /area/centcom/extraction_shuttle)
+"yiF" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/wood,
+/area/centcom/legion)
 
 (1,1,1) = {"
 aaa
@@ -26052,23 +27372,23 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
 aaM
 aaM
 aaM
@@ -26309,23 +27629,23 @@ aaM
 aaM
 aaM
 aaM
+ahM
+rmI
+rmI
+rmI
+rmI
+rmI
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+rmI
+jhX
+jhX
+rmI
+jhX
+jhX
+jhX
+rmI
+ahM
 aaM
 aaM
 aaM
@@ -26566,23 +27886,23 @@ aaM
 aaM
 aaM
 aaM
+ahM
+rmI
+fgV
+gpB
+exe
+rmI
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+rmI
+nla
+nla
+rmI
+tPd
+esf
+rjs
+rmI
+ahM
 aaM
 aaM
 aaM
@@ -26823,23 +28143,23 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+jhX
+bNV
+nla
+imT
+rmI
+jhX
+jhX
+rmI
+tZi
+nla
+jhX
+nla
+nla
+qHq
+rmI
+ahM
 aaM
 aaM
 aaM
@@ -27080,23 +28400,23 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+jhX
+bNV
+nla
+nla
+jhX
+nla
+nla
+nla
+nla
+nla
+bdl
+nla
+nla
+kGr
+rmI
+ahM
 aaM
 aaM
 aaM
@@ -27337,23 +28657,23 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+jhX
+bNV
+nla
+nla
+hfW
+nla
+nla
+nla
+nla
+nla
+jhX
+nla
+nla
+fjf
+rmI
+ahM
 aaM
 aaM
 aaM
@@ -27594,25 +28914,25 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+jhX
+bNV
+nla
+nla
+hfW
+nla
+nla
+nla
+nla
+nla
+rmI
+csh
+pfM
+ugL
+rmI
+ahM
+ahM
+ahM
 aaM
 aaM
 aaM
@@ -27851,31 +29171,31 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+jhX
+bNV
+nla
+nla
+jhX
+nla
+nla
+nla
+nla
+imT
+rmI
+jhX
+jhX
+jhX
+rmI
+rmI
+rmI
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
 aaM
 aaM
 aaM
@@ -28108,31 +29428,31 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+jhX
+bNV
+nla
+imT
+rmI
+jhX
+jhX
+rmI
+tZi
+nla
+rmI
+rCV
+nla
+nla
+nla
+hZH
+rmI
+rmI
+jhX
+jhX
+jhX
+rmI
+rmI
+ahM
 aaM
 aaM
 aaM
@@ -28365,31 +29685,31 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+rmI
+vWh
+ifE
+jvo
+rmI
+nla
+nla
+rmI
+nla
+nla
+jhX
+pqd
+nla
+nla
+nla
+bLe
+rmI
+dcn
+dcn
+jCV
+dcn
+dcn
+rmI
+ahM
 aaM
 aaM
 aaM
@@ -28622,31 +29942,31 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+rmI
+rmI
+rmI
+rmI
+rmI
+nla
+nla
+jhX
+nla
+nla
+uPl
+nla
+nla
+nla
+nla
+dpT
+rmI
+nZW
+mOv
+nSS
+yiF
+jFu
+jhX
+ahM
 aaM
 aaM
 aaM
@@ -28879,31 +30199,31 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+rmI
+bKV
+hTn
+nla
+nla
+nla
+nla
+jhX
+nla
+nla
+jhX
+tZi
+nla
+nla
+nla
+lpI
+rmI
+dcn
+dcn
+dcn
+dcn
+dcn
+jhX
+ahM
 aaM
 aaM
 aaM
@@ -29136,31 +30456,31 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+rmI
+rmI
+rmI
+tZi
+nla
+nla
+ngh
+jhX
+nla
+nla
+rmI
+mog
+ugK
+efX
+nla
+vgs
+rmI
+dcn
+dcn
+dcn
+dcn
+dcn
+rmI
+ahM
 aaM
 aaM
 aaM
@@ -29393,31 +30713,31 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+rmI
+bKV
+hTn
+nla
+nla
+nla
+ngh
+jhX
+nla
+imT
+rmI
+rmI
+jhX
+jhX
+jhX
+rmI
+rmI
+rmI
+rmI
+rmI
+rmI
+hDv
+rmI
+ahM
 aaM
 aaM
 aaM
@@ -29533,7 +30853,7 @@ aPl
 aPl
 aPS
 aQr
-aQG
+sXA
 aaM
 aaM
 aaM
@@ -29650,31 +30970,31 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+rmI
+rmI
+rmI
+tZi
+nla
+nla
+nla
+jhX
+nla
+nla
+rmI
+sJz
+bNp
+lpp
+nla
+bxT
+rmI
+nla
+nla
+nla
+nla
+nla
+rmI
+ahM
 aaM
 aaM
 aaM
@@ -29790,7 +31110,7 @@ aOF
 aOF
 aPT
 aQr
-aQG
+bqB
 aaM
 aaM
 aaM
@@ -29907,31 +31227,31 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+rmI
+bKV
+hTn
+nla
+nla
+nla
+nla
+jhX
+nla
+nla
+jhX
+nla
+nla
+nla
+nla
+gxN
+rmI
+nla
+nla
+nla
+nla
+nla
+rmI
+ahM
 aaM
 aaM
 aaM
@@ -30164,31 +31484,31 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+rmI
+rmI
+rmI
+tZi
+nla
+nla
+imT
+rmI
+tZi
+nla
+jhX
+tZi
+nla
+nla
+nla
+bYz
+rmI
+tZi
+nla
+nla
+nla
+imT
+rmI
+ahM
 aaM
 aaM
 aaM
@@ -30421,31 +31741,31 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+rmI
+bKV
+hTn
+nla
+nla
+nla
+nla
+bjp
+nla
+nla
+szk
+nla
+nla
+nla
+nla
+gmj
+rmI
+oIf
+pHg
+pHg
+isT
+nla
+rmI
+ahM
 aaM
 aaM
 aaM
@@ -30678,31 +31998,31 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+rmI
+rmI
+rmI
+tZi
+nla
+nla
+imT
+rmI
+tZi
+nla
+jhX
+tZi
+nla
+nla
+nla
+dbe
+rmI
+oIf
+nla
+mua
+isT
+nla
+rmI
+ahM
 aaM
 aaM
 aaM
@@ -30935,31 +32255,31 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+rmI
+bKV
+hTn
+nla
+nla
+nla
+nla
+jhX
+nla
+nla
+jhX
+nla
+nla
+nla
+nla
+uKp
+rmI
+oSx
+iuX
+iuX
+isT
+imT
+rmI
+ahM
 aaM
 aaM
 aaM
@@ -31192,31 +32512,31 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+rmI
+rmI
+rmI
+tZi
+nla
+nla
+ngh
+jhX
+nla
+nla
+rmI
+lvS
+sbU
+hUk
+nla
+wTz
+rmI
+nla
+nla
+nla
+nla
+nla
+rmI
+ahM
 aaM
 aaM
 aaM
@@ -31338,7 +32658,7 @@ aNd
 aNd
 aNd
 aRW
-aQG
+sXA
 aaM
 aaM
 aaM
@@ -31442,38 +32762,38 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+rmI
+bKV
+hTn
+nla
+nla
+nla
+ngh
+jhX
+nla
+imT
+rmI
+rmI
+jhX
+jhX
+jhX
+rmI
+rmI
+nla
+nla
+nla
+xnj
+nla
+rmI
+ahM
 aaM
 aaM
 aaM
@@ -31699,38 +33019,38 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+rmI
+rmI
+rmI
+rmI
+rmI
+rmI
+rmI
+rmI
+rmI
+rmI
+tZi
+nla
+nla
+nla
+jhX
+nla
+nla
+rmI
+vfj
+qCn
+ink
+nBQ
+jhe
+rmI
+rmI
+rmI
+rmI
+rmI
+oXS
+rmI
+ahM
 aaM
 aaM
 aaM
@@ -31956,38 +33276,38 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+rmI
+qmz
+cgc
+nla
+cgc
+nla
+nla
+cgc
+nla
+nla
+nla
+nla
+nla
+nla
+rmI
+tZi
+nla
+jhX
+tZi
+nla
+nla
+nla
+nla
+jEg
+hzs
+jEg
+rDx
+jhX
+nla
+jhX
+ahM
 aaM
 aaM
 aaM
@@ -32213,38 +33533,38 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+gLC
+mLQ
+iuX
+sda
+sda
+iuX
+iuX
+iuX
+iuX
+iuX
+iuX
+iuX
+iuX
+sup
+bjp
+nla
+nla
+xzO
+nla
+nla
+nla
+nla
+nla
+nla
+nla
+nla
+nla
+jhX
+nla
+jhX
+ahM
 aaM
 aaM
 aaM
@@ -32366,7 +33686,7 @@ aNd
 aNd
 aNd
 aRW
-aQG
+bqB
 aaM
 aaM
 aaM
@@ -32470,38 +33790,38 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+gLC
+oIf
+syC
+fQT
+fQT
+reS
+hNE
+hNE
+hNE
+hNE
+hNE
+hNE
+kFC
+isT
+rmI
+tZi
+nla
+jhX
+tZi
+nla
+nla
+nla
+nla
+clf
+ueS
+jvc
+jvc
+jhX
+nla
+jhX
+ahM
 aaM
 aaM
 aaM
@@ -32727,38 +34047,38 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+gLC
+oIf
+hNE
+nBO
+nBO
+hNE
+jyE
+dYe
+jyE
+wMc
+wMc
+tzg
+tbC
+isT
+jhX
+nla
+nla
+rmI
+gwc
+fHP
+olL
+sIe
+xac
+rmI
+rmI
+rmI
+rmI
+rmI
+oXS
+rmI
+ahM
 aaM
 aaM
 aaM
@@ -32984,38 +34304,38 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+gLC
+oIf
+hNE
+glh
+wKz
+hNE
+nqN
+nqN
+nqN
+nqN
+nqN
+tzg
+bJE
+isT
+jhX
+nla
+imT
+rmI
+rmI
+jhX
+jhX
+jhX
+rmI
+rmI
+noE
+lRp
+gJP
+fhl
+nla
+rmI
+ahM
 aaM
 aaM
 aaM
@@ -33241,38 +34561,38 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+gLC
+oIf
+hNE
+mLq
+ffM
+kte
+nqN
+nqN
+wvx
+nqN
+nqN
+tzg
+bJE
+isT
+jhX
+nla
+nla
+jhX
+nVi
+jFW
+xKH
+cPq
+ehW
+rmI
+nla
+nla
+nla
+nla
+imT
+rmI
+ahM
 aaM
 aaM
 aaM
@@ -33498,38 +34818,38 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+gLC
+oIf
+hNE
+ciN
+tJW
+hNE
+vpG
+nqN
+nqN
+nqN
+nqN
+tzg
+bJE
+isT
+jhX
+nla
+nla
+jhX
+tZi
+nla
+nla
+nla
+nla
+rmI
+tZi
+nla
+nla
+nla
+nla
+jhX
+ahM
 aaM
 aaM
 aaM
@@ -33755,38 +35075,38 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+gLC
+oIf
+hNE
+vKa
+uTS
+hNE
+qRG
+fRF
+qRG
+wMc
+wMc
+tzg
+spE
+isT
+jhX
+nla
+nla
+eYf
+nla
+nla
+nla
+nla
+nla
+pWA
+nla
+nla
+nla
+nla
+nla
+jhX
+ahM
 aaM
 aaM
 aaM
@@ -33902,7 +35222,7 @@ aPs
 aPI
 aQe
 aQr
-aQG
+sXA
 aaM
 aaM
 aaM
@@ -34012,38 +35332,38 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+gLC
+oIf
+tNp
+hNE
+hNE
+hNE
+hNE
+hNE
+hNE
+hNE
+hNE
+hNE
+sqm
+isT
+jhX
+nla
+nla
+jhX
+tZi
+nla
+nla
+nla
+nla
+rmI
+cGa
+nla
+nla
+nla
+lFt
+rmI
+ahM
 aaM
 aaM
 aaM
@@ -34159,7 +35479,7 @@ aOE
 aPJ
 aQf
 aQr
-aQG
+bqB
 aaM
 aaM
 aaM
@@ -34269,38 +35589,38 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+gLC
+lBw
+pHg
+pHg
+pHg
+pHg
+pHg
+ffS
+pHg
+pHg
+pHg
+pHg
+pHg
+oVd
+rmI
+tZi
+nla
+jhX
+lmU
+sJe
+mTE
+pnU
+uas
+rmI
+xAH
+nla
+xnj
+nla
+oRp
+rmI
+ahM
 aaM
 aaM
 aaM
@@ -34526,38 +35846,38 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+rmI
+rmI
+rGL
+rGL
+rGL
+rGL
+rGL
+rGL
+rGL
+rGL
+rGL
+rGL
+rGL
+rmI
+rmI
+jhX
+jhX
+rmI
+rmI
+jhX
+jhX
+rmI
+rmI
+rmI
+rmI
+jiA
+rmI
+eFM
+rmI
+rmI
+ahM
 aaM
 aaM
 aaM
@@ -34783,38 +36103,38 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+rmI
+jhX
+rmI
+jhX
+rmI
+ahM
+ahM
 aaM
 aaM
 aaM
@@ -35064,13 +36384,13 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
+ahM
 aaM
 aaM
 aaM
@@ -55162,7 +56482,7 @@ aqC
 aub
 aqq
 auw
-auA
+jvi
 aqt
 aqt
 aqt
@@ -55419,7 +56739,7 @@ atX
 auc
 asE
 auw
-auA
+dbQ
 aqt
 aqt
 aqt
@@ -55883,7 +57203,7 @@ aXC
 aXH
 aYa
 aYB
-aYW
+wKo
 aZc
 auk
 asL
@@ -56192,7 +57512,7 @@ aun
 auf
 auf
 auH
-auA
+jvi
 aqt
 ave
 avv
@@ -56706,7 +58026,7 @@ auf
 auf
 auC
 auH
-auA
+dbQ
 aqt
 ave
 avw
@@ -57475,7 +58795,7 @@ atZ
 aui
 aup
 auw
-auA
+jvi
 aqt
 aqt
 aqt
@@ -57732,7 +59052,7 @@ aqC
 auj
 auq
 auw
-auA
+dbQ
 aqt
 aqt
 aqt
@@ -86919,10 +88239,10 @@ aaM
 ahM
 aZv
 rTV
+xWo
 qLD
 qLD
-qLD
-qLD
+tjv
 tzr
 tzr
 rvi
@@ -86939,10 +88259,10 @@ syd
 fHM
 tzr
 tzr
+xWo
 qLD
 qLD
-qLD
-qLD
+tjv
 mWf
 aZv
 ahM
