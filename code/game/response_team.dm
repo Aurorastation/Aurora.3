@@ -139,8 +139,10 @@ proc/trigger_armed_response_team(var/force = 0, forced_choice = FALSE)
 	command_announcement.Announce("It would appear that an emergency response team was requested for [station_name()]. We will prepare and send one as soon as possible.", "[current_map.boss_name]")
 
 	if(!forced_choice)
-		var/random_team = pick("NanoTrasen Response Team", "Tau Ceti Foreign Legion")
-		ert_type = random_team
+		if(prob(75))
+			ert_type = "Tau Ceti Foreign Legion"
+		else
+			ert_type = "NanoTrasen Response Team"
 
 	can_call_ert = 0 // Only one call per round, gentleman.
 	send_emergency_team = 1
