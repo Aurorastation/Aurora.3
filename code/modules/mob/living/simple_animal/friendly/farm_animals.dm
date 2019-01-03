@@ -341,7 +341,7 @@
 
 /mob/living/simple_animal/pig
 	name = "pig"
-	desc = "Known for being the main ingrediant in bacon."
+	desc = "Known for being the main ingredient in bacon."
 	icon_state = "pig"
 	icon_living = "pig"
 	icon_dead = "pig_dead"
@@ -359,25 +359,23 @@
 	response_harm   = "kicks"
 	attacktext = "kicked"
 	health = 280
-	autoseek_food = 0
+	autoseek_food = 1
 	beg_for_food = 0
 	var/datum/reagents/udder = null
 	var/amount_grown = 0
-	mob_size = 20//based on mass of holstein fresian dairy cattle, what the sprite is based on
+	mob_size = 17
 
 /mob/living/simple_animal/pig/Initialize()
 	. = ..()
-	var/gender = pick(MALE, FEMALE)
 
-	if(gender == FEMALE) // You cant milk boy pigs you pervs
-		udder = new(50)
-		udder.my_atom = src
+	udder = new(30)
+	udder.my_atom = src
 
 /mob/living/simple_animal/pig/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	var/obj/item/weapon/reagent_containers/glass/G = O
 	if(stat == CONSCIOUS && istype(G) && G.is_open_container())
 		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
-		var/transfered = udder.trans_id_to(G, "pigmilk", rand(5,10))
+		var/transfered = udder.trans_id_to(G, "pigmilk", rand(2,8))
 		if(G.reagents.total_volume >= G.volume)
 			user << "<span class='warning'>The [O] is full.</span>"
 		if(!transfered)
@@ -390,7 +388,7 @@
 	. = ..()
 	if(stat == CONSCIOUS)
 		if(udder && prob(5))
-			udder.add_reagent("pigmilk", rand(5, 10))
+			udder.add_reagent("pigmilk", rand(2, 10))
 	if(!stat)
 		amount_grown += rand(1,2)
 		if(amount_grown >= 150)
