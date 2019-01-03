@@ -830,6 +830,7 @@
 	name = "diona nymph plush"
 	desc = "A plushie of an adorable diona nymph! While its level of self-awareness is still being debated, its level of cuteness is not."
 	icon_state = "nymphplushie"
+	slot_flags = SLOT_HEAD
 
 /obj/item/toy/plushie/mouse
 	name = "mouse plush"
@@ -840,6 +841,7 @@
 	name = "kitten plush"
 	desc = "A plushie of a cute kitten! Watch as it purrs it's way right into your heart."
 	icon_state = "kittenplushie"
+	slot_flags = SLOT_HEAD
 
 /obj/item/toy/plushie/lizard
 	name = "lizard plush"
@@ -853,8 +855,54 @@
 
 /obj/item/toy/plushie/farwa
 	name = "farwa plush"
-	desc = "A farwa plush doll. It's soft and comforting!"
+	desc = "A farwa plush doll. It's soft and comforting, with extra grip!"
 	icon_state = "farwaplushie"
+	slot_flags = SLOT_HEAD
+
+//Squid Plushies
+
+/obj/item/toy/plushie/squid/green
+	name = "green squid plushie"
+	desc = "A small, cute and loveable squid friend. This one is green."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "greensquid"
+	slot_flags = SLOT_HEAD
+
+/obj/item/toy/plushie/squid/mint
+	name = "mint squid plushie"
+	desc = "A small, cute and loveable squid friend. This one is mint coloured."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "mintsquid"
+	slot_flags = SLOT_HEAD
+
+/obj/item/toy/plushie/squid/blue
+	name = "blue squid plushie"
+	desc = "A small, cute and loveable squid friend. This one is blue."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "bluesquid"
+	slot_flags = SLOT_HEAD
+
+/obj/item/toy/plushie/squid/orange
+	name = "orange squid plushie"
+	desc = "A small, cute and loveable squid friend. This one is orange."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "orangesquid"
+	slot_flags = SLOT_HEAD
+
+/obj/item/toy/plushie/squid/yellow
+	name = "yellow squid plushie"
+	desc = "A small, cute and loveable squid friend. This one is yellow."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "yellowsquid"
+	slot_flags = SLOT_HEAD
+
+/obj/item/toy/plushie/squid/pink
+	name = "pink squid plushie"
+	desc = "A small, cute and loveable squid friend. This one is pink."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "pinksquid"
+	slot_flags = SLOT_HEAD
+
 
 //Toy cult sword
 /obj/item/toy/cultsword

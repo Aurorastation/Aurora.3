@@ -144,7 +144,7 @@ To enable debug mode and make figuring out things easier do following steps:
 ```DM
 #define UIDEBUG
 ```
- - Use `\vueui\template.html` in Internet explorer / Microsoft Edge to use inspector to analyze ui behaviour. Also don't forget to copy paste data from actual ui to this debug ui inside template's code.
+ - Use URL provided by debug info in Internet explorer / Microsoft Edge to use inspector to analyze ui behaviour. 
 
 ## Vue syntax
 You should look at [official Vue.js guide](https://vuejs.org/v2/guide/syntax.html). As it's more detailed and more accurate than any explanation that could have been written here.
@@ -153,7 +153,6 @@ To access global metadata for this ui, use `this.$root.$data` or `$root.$data`, 
 ```vue
 <script>
 export default {
-    name: 'view-name',
     data() {
         return this.$root.$data;
     }
