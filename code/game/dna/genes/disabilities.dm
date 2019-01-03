@@ -93,8 +93,8 @@
 		block=TWITCHBLOCK
 
 /datum/dna/gene/disability/nervousness
-	name="Nervousness"
-	activation_message="You feel nervous."
+	name="Stuttering"
+	activation_message="You feel difficulty in expressing your words."
 	disability=NERVOUS
 
 	New()
