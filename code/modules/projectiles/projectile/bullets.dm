@@ -316,4 +316,9 @@
 	penetrating = 0
 	damage = 10
 
-
+/obj/item/projectile/bullet/gauss
+	name = "slug"
+	icon_state = "heavygauss"
+	damage = 30
+	muzzle_type = /obj/effect/projectile/muzzle/gauss
+	embed = 0

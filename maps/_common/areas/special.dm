@@ -47,6 +47,7 @@
 /area/centcom/holding
 	name = "\improper Holding Facility"
 
+
 /area/centcom/extraction_shuttle
 	name = "\improper Escape Pods Retrival Shuttle"
 	icon_state = "centcom"
@@ -54,6 +55,10 @@
 	no_light_control = 1
 	base_turf = /turf/simulated/shuttle/floor
 	centcomm_area = 1
+
+/area/centcom/legion
+	name = "\improper Tau Ceti Foreign Legion Base"
+
 
 //SYNDICATES
 

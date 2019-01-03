@@ -11,8 +11,9 @@
 	var/list/insertable = list(
 		/obj/item/weapon/reagent_containers/food/snacks,
 		/obj/item/weapon/holder,
-		/obj/item/weapon/paper
-	)
+		/obj/item/weapon/paper,
+		/obj/item/weapon/flame/candle
+		)
 
 /obj/item/weapon/reagent_containers/cooking_container/Initialize()
 	. = ..()

@@ -107,7 +107,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	return
 
 /mob/living/simple_animal/hostile/proc/see_target()
-	return (target_mob in view(7)) ? (TRUE) : (FALSE)
+	return (target_mob in view(7, src)) ? (TRUE) : (FALSE)
 
 /mob/living/simple_animal/hostile/proc/MoveToTarget()
 	stop_automated_movement = 1
