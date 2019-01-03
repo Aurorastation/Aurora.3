@@ -964,6 +964,19 @@
 	glass_name = "glass of cream"
 	glass_desc = "Ewwww..."
 
+/datum/reagent/drink/milk/pigmilk
+	name = "Strange Milk"
+	id = "pigmilk"
+	description = "An opaque white liquid produced by the mammary glands of mammals...the scent is slightly different however"
+	color = "#DFDFDF"
+	taste_description = "milk"
+
+	glass_icon_state = "glass_white"
+	glass_name = "glass of strange milk"
+	glass_desc = "White and nutritious goodness!"
+
+	default_temperature = T0C + 5
+
 /datum/reagent/drink/milk/soymilk
 	name = "Soy Milk"
 	id = "soymilk"

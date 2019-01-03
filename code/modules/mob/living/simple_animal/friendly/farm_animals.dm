@@ -339,3 +339,59 @@
 	name = "emperor penguin"
 	desc = "Emperor of all he surveys."
 
+/mob/living/simple_animal/pig
+	name = "pig"
+	desc = "Known for being the main ingrediant in bacon."
+	icon_state = "pig"
+	icon_living = "pig"
+	icon_dead = "pig_dead"
+	speak = list("OINKKK?","Oink!","RRRRRREEEEEEEEEE!")
+	speak_emote = list("Oinks","Oinks hauntingly")
+	emote_hear = list("squeels")
+	emote_see = list("shakes its head")
+	speak_chance = 1
+	turns_per_move = 5
+	see_in_dark = 6
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/pig
+	meat_amount = 15 //Pigs are fat as fuck, as they grow this will increase
+	response_help  = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm   = "kicks"
+	attacktext = "kicked"
+	health = 280
+	autoseek_food = 0
+	beg_for_food = 0
+	var/datum/reagents/udder = null
+	var/amount_grown = 0
+	mob_size = 20//based on mass of holstein fresian dairy cattle, what the sprite is based on
+
+/mob/living/simple_animal/pig/Initialize()
+	. = ..()
+	var/gender = pick(MALE, FEMALE)
+
+	if(gender == FEMALE) // You cant milk boy pigs you pervs
+		udder = new(50)
+		udder.my_atom = src
+
+/mob/living/simple_animal/pig/attackby(var/obj/item/O as obj, var/mob/user as mob)
+	var/obj/item/weapon/reagent_containers/glass/G = O
+	if(stat == CONSCIOUS && istype(G) && G.is_open_container())
+		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
+		var/transfered = udder.trans_id_to(G, "pigmilk", rand(5,10))
+		if(G.reagents.total_volume >= G.volume)
+			user << "<span class='warning'>The [O] is full.</span>"
+		if(!transfered)
+			user << "<span class='warning'>The udder is dry. Wait a bit longer...</span>"
+	else
+		..()
+
+
+/mob/living/simple_animal/pig/Life()
+	. = ..()
+	if(stat == CONSCIOUS)
+		if(udder && prob(5))
+			udder.add_reagent("pigmilk", rand(5, 10))
+	if(!stat)
+		amount_grown += rand(1,2)
+		if(amount_grown >= 150)
+			meat_amount = 40

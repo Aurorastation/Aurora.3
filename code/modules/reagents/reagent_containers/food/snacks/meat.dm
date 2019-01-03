@@ -55,6 +55,21 @@
 	name = "corgi meat"
 	desc = "Tastes like... well, you know."
 
+/obj/item/weapon/reagent_containers/food/snacks/meat/pig
+	name = "meat"
+	desc = "A slab of meat."
+	icon_state = "meat"
+	health = 180
+	filling_color = "#FF1C1C"
+	center_of_mass = list("x"=16, "y"=14)
+	cooked_icon = "meatstake"
+
+/obj/item/weapon/reagent_containers/food/snacks/meat/pig/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 8)
+	reagents.add_reagent("triglyceride", 10) // Pork tends to have alot more fat on it
+	src.bitesize = 1.5
+
 /obj/item/weapon/reagent_containers/food/snacks/meat/chicken
 	name = "chicken meat"
 	icon_state = "chickenbreast"
