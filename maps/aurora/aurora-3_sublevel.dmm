@@ -17766,6 +17766,9 @@
 	opacity = 0
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/sign/nosmoking_2{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
 "aFq" = (
@@ -17785,6 +17788,9 @@
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/medical,
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 32
+	},
 /turf/simulated/floor/wood,
 /area/medical/patient_a)
 "aFt" = (
@@ -17816,6 +17822,9 @@
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/medical,
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 32
+	},
 /turf/simulated/floor/wood,
 /area/medical/patient_c)
 "aFA" = (
@@ -19658,6 +19667,9 @@
 /area/medical/patient_wing)
 "aJk" = (
 /obj/machinery/door/firedoor,
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
 "aJl" = (
@@ -19740,9 +19752,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
 "aJC" = (
-/obj/structure/sign/nosmoking_1{
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/corner/pink{
 	icon_state = "corner_white";
 	dir = 5
@@ -30419,6 +30428,9 @@
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/medical,
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 32
+	},
 /turf/simulated/floor/wood,
 /area/medical/patient_d)
 "rMt" = (
