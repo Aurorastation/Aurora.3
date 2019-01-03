@@ -31514,6 +31514,12 @@
 /obj/machinery/alarm{
 	pixel_y = 23
 	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Chemistry Lab Bravo";
+	dir = 4;
+	icon_state = "camera";
+	network = list("Medical")
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
 "bbO" = (
@@ -31578,6 +31584,11 @@
 	},
 /obj/machinery/alarm{
 	pixel_y = 23
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Chemistry Lab Alpha";
+	dir = 8;
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
@@ -44368,10 +44379,6 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -22
-	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Starboard 2";
-	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/medical/medbay2)
@@ -65404,6 +65411,10 @@
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"dGq" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/white,
+/area/medical/chemistry)
 "eco" = (
 /obj/machinery/power/terminal{
 	dir = 8
@@ -65645,7 +65656,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/disposalpipe/segment,
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
@@ -65715,10 +65725,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "lIG" = (
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Stairs acces";
-	dir = 4
-	},
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
@@ -65901,6 +65907,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering)
+"pyd" = (
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Starboard 2";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/medical/medbay2)
 "pZo" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -97365,7 +97378,7 @@ baL
 bbQ
 bdr
 bdv
-beS
+dGq
 bjR
 biO
 bkb
@@ -104321,7 +104334,7 @@ bwy
 bxW
 bzn
 bAp
-bAp
+pyd
 bAp
 lIG
 jFC

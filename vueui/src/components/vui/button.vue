@@ -16,9 +16,7 @@ export default {
     },
     params: {
       type: Object,
-      default() {
-        return {}
-      }
+      default: null
     },
     pushState: {
       type: Boolean,

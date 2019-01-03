@@ -755,6 +755,7 @@
 #include "code\game\objects\items\devices\floor_painter.dm"
 #include "code\game\objects\items\devices\hacktool.dm"
 #include "code\game\objects\items\devices\holowarrant.dm"
+#include "code\game\objects\items\devices\laserpointer.dm"
 #include "code\game\objects\items\devices\lightmeter.dm"
 #include "code\game\objects\items\devices\lightreplacer.dm"
 #include "code\game\objects\items\devices\magnetic_lock.dm"
