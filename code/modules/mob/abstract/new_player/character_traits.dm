@@ -15,8 +15,8 @@
 	H.disabilities |= NEARSIGHTED
 
 /datum/character_disabilities/nervous
-	name = "Nervousness"
-	desc = "You are prone to stuttering and bouts of anxiety."
+	name = "Stuttering"
+	desc = "You have a chronic case of stuttering, repeating sounds involuntarily."
 
 /datum/character_disabilities/nervous/apply_self(var/mob/living/carbon/human/H)
 	H.disabilities |= NERVOUS
