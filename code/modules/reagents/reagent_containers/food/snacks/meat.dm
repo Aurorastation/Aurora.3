@@ -68,6 +68,7 @@
 	. = ..()
 	reagents.add_reagent("protein", 8)
 	reagents.add_reagent("triglyceride", 10) // Pork tends to have alot more fat on it
+	bitesize = 1.5
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/chicken
 	name = "chicken meat"
