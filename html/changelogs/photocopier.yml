@@ -1,0 +1,4 @@
+author: Conspiir
+delete-after: True
+changes: 
+  - bugfix: "Cargo lobby now has a photocopier instead of a library book scanner."

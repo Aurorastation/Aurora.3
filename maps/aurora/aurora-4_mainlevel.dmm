@@ -59714,7 +59714,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/machinery/libraryscanner,
+/obj/machinery/photocopier,
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bYI" = (
