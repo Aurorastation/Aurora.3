@@ -397,7 +397,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	changeling.chem_charges--
 	H.visible_message("<span class='warning'>[H] transforms!</span>")
 	changeling.geneticdamage = 30
-	to_chat(src, "<span class='warning'>Our genes cry out!</span>")
+	to_chat(H, "<span class='warning'>Our genes cry out!</span>")
 	H = H.monkeyize()
 	feedback_add_details("changeling_powers","LF")
 	return 1
