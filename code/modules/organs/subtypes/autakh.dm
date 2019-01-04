@@ -204,17 +204,17 @@
 
 //limb implants
 
-/obj/item/organ/external/arm/right/autakh/tool
+/obj/item/organ/external/hand/right/autakh/tool
 	name = "engineering arm"
 	action_button_name = "Deployed Mechanical Combitool"
 
-/obj/item/organ/external/arm/right/autakh/tool/refresh_action_button()
+/obj/item/organ/external/hand/right/autakh/tool/refresh_action_button()
 	. = ..()
 	if(.)
 		action.button_icon_state = "digitool"
 		if(action.button) action.button.UpdateIcon()
 
-/obj/item/organ/external/arm/right/autakh/tool/attack_self(var/mob/user)
+/obj/item/organ/external/hand/right/autakh/tool/attack_self(var/mob/user)
 	. = ..()
 
 	if(.)
@@ -232,9 +232,9 @@
 			return
 
 		owner.last_special = world.time + 500
-		var/obj/item/combitool/robotic/M = new /obj/item/combitool/robotic(user)
-		M.creator = src
-		user.put_in_active_hand(M)
+		var/obj/item/combitool/robotic/M = new /obj/item/combitool/robotic(owner)
+		M.creator = owner
+		owner.put_in_active_hand(M)
 		owner.visible_message("<span class='notice'>\The [M] slides out of \the [owner]'s [src].</span>","<span class='notice'>You deploy \the [M]!</span>")
 
 /obj/item/combitool/robotic

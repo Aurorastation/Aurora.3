@@ -1962,7 +1962,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	if(broken)
-		if(isscrewdriver(I))
+		if(I.isscrewdriver())
 			if(!open)
 				open = TRUE
 				to_chat(user, "<span class='notice'>You unfasten the back panel.</span>")
@@ -1972,7 +1972,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 				to_chat(user, "<span class='notice'>You secure the back panel.</span>")
 			playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 
-		if(ismultitool(I) && open)
+		if(I.ismultitool() && open)
 			to_chat(user, "<span class='notice'>You quickly pulse a few fires, and reset the screen and device.</span>")
 			broken = FALSE
 			update_icon()

@@ -236,7 +236,7 @@
 		user << text("\icon[] [] contains []/[] units of fuel!", src, src.name, get_fuel(),src.max_fuel )
 
 /obj/item/weapon/weldingtool/attackby(obj/item/W as obj, mob/user as mob)
-	if(isscrewdriver(W))
+	if(W.isscrewdriver())
 		if (isrobot(loc))
 			user << span("alert", "You cannot modify your own welder!")
 			return
