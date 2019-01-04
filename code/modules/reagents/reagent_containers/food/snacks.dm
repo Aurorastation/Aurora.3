@@ -5324,7 +5324,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/tuna
 	name = "\improper Tuna Snax"
-	desc = "An industrialized fish snack, guaranteed to do not be space carp instead."
+	desc = "A packaged fish snack, guaranteed to do not contain space carp."
 	icon_state = "tuna"
 	filling_color = "#FFDEFE"
 	center_of_mass = list("x"=17, "y"=13)
