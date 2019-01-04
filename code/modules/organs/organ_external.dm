@@ -360,11 +360,6 @@
 		status &= ~ORGAN_BROKEN
 		perma_injury = 0
 
-	/*if((brute || burn) && children && children.len && (owner.species.flags & REGENERATES_LIMBS))
-		var/obj/item/organ/external/stump/S = locate() in children
-		if(S)
-			world << "Extra healing to go around ([brute+burn]) and [owner] needs a replacement limb."*/
-
 	//Sync the organ's damage with its wounds
 	src.update_damages()
 	owner.updatehealth()
