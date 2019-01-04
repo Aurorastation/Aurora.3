@@ -21,6 +21,22 @@
 /obj/item/organ/eyes/vaurca
 	icon_state = "eyes_vaurca"
 
+/obj/item/organ/eyes/vaurca/flash_act()
+	owner.Weaken(10)
+	take_damage(rand(10, 11))
+
+	if(damage > 12)
+		owner.eye_blurry += rand(3,6)
+
+	if(damage >= min_broken_damage)
+		owner.sdisabilities |= BLIND
+
+	else if(damage >= min_bruised_damage)
+		owner.eye_blind = 5
+		owner.eye_blurry = 5
+		owner.disabilities |= NEARSIGHTED
+		addtimer(CALLBACK(owner, /mob/.proc/reset_nearsighted), 100)
+
 /obj/item/organ/kidneys/vaurca/robo
 	icon_state = "kidney_vaurca"
 	organ_tag = "mechanical kidneys"

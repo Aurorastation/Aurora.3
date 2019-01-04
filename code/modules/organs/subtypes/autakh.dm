@@ -72,6 +72,9 @@
 	icon_state = "eyes"
 	singular_name = "bionic eye"
 
+/obj/item/organ/eyes/autakh/flash_act()
+	return
+
 /obj/item/organ/adrenal
 	name = "adrenal management system"
 	icon_state = "brain-prosthetic"

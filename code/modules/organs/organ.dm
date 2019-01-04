@@ -1,6 +1,7 @@
 /obj/item/organ
 	name = "organ"
 	icon = 'icons/obj/surgery.dmi'
+	default_action_type = /datum/action/item_action/organ
 	var/dead_icon
 	var/mob/living/carbon/human/owner = null
 	var/status = 0
@@ -26,6 +27,8 @@
 	var/emp_coeff = 1 //coefficient for damages taken by EMP, if the organ is robotic.
 
 	var/force_skintone = FALSE		// If true, icon generation will skip is-robotic checks. Used for synthskin limbs.
+
+	var/list/organ_verbs	//verb that are added when you gain the organ
 
 /obj/item/organ/New(loc, ...)
 	..()
@@ -53,6 +56,12 @@
 	QDEL_NULL(dna)
 
 	return ..()
+
+/obj/item/organ/proc/refresh_action_button()
+	return action
+
+/obj/item/organ/attack_self(var/mob/user)
+	return (owner && loc == owner && owner == user)
 
 /obj/item/organ/proc/update_health()
 	return
@@ -297,6 +306,8 @@
 	if(!istype(owner))
 		return
 
+	action_button_name = null
+
 	owner.internal_organs_by_name[organ_tag] = null
 	owner.internal_organs_by_name -= organ_tag
 	owner.internal_organs_by_name -= null
@@ -340,6 +351,7 @@
 		transplant_data["blood_DNA"] =  transplant_blood.data["blood_DNA"]
 
 	owner = target
+	action_button_name = initial(action_button_name)
 	src.forceMove(owner)
 	STOP_PROCESSING(SSprocessing, src)
 	target.internal_organs |= src
