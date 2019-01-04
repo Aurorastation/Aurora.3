@@ -111,7 +111,7 @@ obj/machinery/computer/general_air_control/Destroy()
 /obj/machinery/computer/general_air_control/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, "console-atmocontrol-main", 450, 470, capitalize(src.name))
+		ui = new(user, src, "console-atmocontrol-main", 460, 470, capitalize(src.name))
 		ui.auto_update_content = TRUE
 	ui.open()
 
