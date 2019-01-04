@@ -52,3 +52,37 @@
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_AUTAKH
+
+//internal organs
+
+/obj/item/organ/kidneys/autakh
+	name = "toxin screen"
+	robotic = 1
+	metabolism_mod = 2
+
+/obj/item/organ/anchor
+	name = "soul anchor"
+	icon_state = "brain-prosthetic"
+	organ_tag = "anchor"
+	parent_organ = "head"
+	robotic = 2
+
+/obj/item/organ/eyes/autakh
+	name = "bionic eyeballs"
+	icon_state = "eyes"
+	singular_name = "bionic eye"
+
+/obj/item/organ/adrenal
+	name = "adrenal management system"
+	icon_state = "brain-prosthetic"
+	organ_tag = "adrenal"
+	parent_organ = "chest"
+	robotic = 2
+
+/obj/item/organ/haemodynamic
+	name = "haemodynamic control system"
+	icon_state = "brain-prosthetic"
+	organ_tag = "haemodynamic"
+	parent_organ = "chest"
+	robotic = 1
+

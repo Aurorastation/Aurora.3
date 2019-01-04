@@ -59,6 +59,31 @@
 		/mob/living/proc/devour,
 		/mob/living/carbon/human/proc/regurgitate
 	)
+	list/has_organ = list(    // which required-organ checks are conducted.
+		"heart" =    /obj/item/organ/heart,
+		"lungs" =    /obj/item/organ/lungs,
+		"liver" =    /obj/item/organ/liver,
+		"kidneys" =  /obj/item/organ/kidneys/autakh,
+		"brain" =    /obj/item/organ/brain,
+		"eyes" =     /obj/item/organ/eyes/autakh,
+		"anchor" =   /obj/item/organ/anchor,
+		"haemodynamic" =   /obj/item/organ/haemodynamic,
+		"adrenal" =   /obj/item/organ/adrenal
+		)
+
+	list/has_limbs = list(
+		"chest" =  list("path" = /obj/item/organ/external/chest/autakh),
+		"groin" =  list("path" = /obj/item/organ/external/groin/autakh),
+		"head" =   list("path" = /obj/item/organ/external/head/autakh),
+		"l_arm" =  list("path" = /obj/item/organ/external/arm/autakh),
+		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/autakh),
+		"l_leg" =  list("path" = /obj/item/organ/external/leg/autakh),
+		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/autakh),
+		"l_hand" = list("path" = /obj/item/organ/external/hand/autakh),
+		"r_hand" = list("path" = /obj/item/organ/external/hand/right/autakh),
+		"l_foot" = list("path" = /obj/item/organ/external/foot/autakh),
+		"r_foot" = list("path" = /obj/item/organ/external/foot/right/autakh)
+		)
 
 
 	spawn_flags = IS_RESTRICTED | IS_WHITELISTED
