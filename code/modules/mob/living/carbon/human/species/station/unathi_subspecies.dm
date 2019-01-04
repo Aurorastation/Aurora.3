@@ -61,7 +61,8 @@
 		/mob/living/proc/devour,
 		/mob/living/carbon/human/proc/regurgitate
 	)
-	list/has_organ = list(    // which required-organ checks are conducted.
+
+	has_organ = list(
 		"heart" =    /obj/item/organ/heart,
 		"lungs" =    /obj/item/organ/lungs,
 		"liver" =    /obj/item/organ/liver,
@@ -73,7 +74,7 @@
 		"adrenal" =   /obj/item/organ/adrenal
 		)
 
-	list/has_limbs = list(
+	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/autakh),
 		"groin" =  list("path" = /obj/item/organ/external/groin/autakh),
 		"head" =   list("path" = /obj/item/organ/external/head/autakh),

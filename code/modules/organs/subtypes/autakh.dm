@@ -105,11 +105,11 @@
 			return
 
 		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
-			to_chat(src, "<span class='danger'>You can not use your \the [src] in your current state!</span>")
+			to_chat(owner, "<span class='danger'>You can not use your \the [src] in your current state!</span>")
 			return
 
 		owner.last_special = world.time + 250
-		to_chat(src, "<span class='notice'>Insert message here!</span>")
+		to_chat(owner, "<span class='notice'>Insert message here!</span>")
 
 		owner.adjustBruteLoss(rand(5,10))
 		owner.adjustToxLoss(rand(10,20))

@@ -370,34 +370,26 @@
 		target.update_eyes()
 	..()
 
-/obj/item/organ/proc/bitten(mob/user)
+/obj/item/organ/attack(var/mob/target, var/mob/user)
 
-	if(robotic)
+	if(robotic >= ORGAN_ROBOT || !istype(target) || !istype(user) || (user != target && user.a_intent == I_HELP))
+		return ..()
+
+	if(alert("Do you really want to use this organ as food? It will be useless for anything else afterwards.",,"Ew, no.","Bon appetit!") == "Ew, no.")
+		to_chat(user, "<span class='notice'>You successfully repress your cannibalistic tendencies.</span>")
 		return
-
-	user << "<span class='notice'>You take an experimental bite out of \the [src].</span>"
-	var/datum/reagent/blood/B = locate(/datum/reagent/blood) in reagents.reagent_list
-	blood_splatter(src,B,1)
 
 	user.drop_from_inventory(src)
 	var/obj/item/weapon/reagent_containers/food/snacks/organ/O = new(get_turf(src))
 	O.name = name
-	O.icon = icon
-	O.icon_state = icon_state
-
-	// Pass over the blood.
+	O.appearance = src
 	reagents.trans_to(O, reagents.total_volume)
-
-	if(fingerprints) O.fingerprints = fingerprints.Copy()
-	if(fingerprintshidden) O.fingerprintshidden = fingerprintshidden.Copy()
-	if(fingerprintslast) O.fingerprintslast = fingerprintslast
-
+	if(fingerprints)
+		O.fingerprints = fingerprints.Copy()
+	if(fingerprintshidden)
+		O.fingerprintshidden = fingerprintshidden.Copy()
+	if(fingerprintslast)
+		O.fingerprintslast = fingerprintslast
 	user.put_in_active_hand(O)
 	qdel(src)
-
-/obj/item/organ/attack_self(mob/user as mob)
-
-	// Convert it to an edible form, yum yum.
-	if(!robotic && user.a_intent == "help" && user.zone_sel.selecting == "mouth")
-		bitten(user)
-		return
+	target.attackby(O, user)
