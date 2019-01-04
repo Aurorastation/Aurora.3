@@ -903,6 +903,7 @@
 		/obj/item/trash/tastybread= 0.75,
 		/obj/item/trash/meatsnack = 0.5,
 		/obj/item/trash/maps = 0.5,
+		/obj/item/trash/tuna = 0.5,
 		/obj/effect/decal/cleanable/ash = 1.5,
 		/obj/effect/decal/cleanable/dirt = 2,
 		/obj/effect/decal/cleanable/flour = 1,
