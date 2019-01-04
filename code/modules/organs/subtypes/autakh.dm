@@ -70,9 +70,83 @@
 	name = "bionic eyeballs"
 	icon_state = "eyes"
 	singular_name = "bionic eye"
+	action_button_name = "Toggle Bionic Eyes Sensors"
+
+	var/static/list/hud_types = list(
+		"Disabled",
+		"Security",
+		"Medical")
+
+	var/selected_hud = "Disabled"
+	var/disabled = FALSE
+
+
+/obj/item/organ/eyes/autakh/attack_self(var/mob/user)
+	. = ..()
+
+	if(.)
+
+		if(owner.last_special > world.time)
+			to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
+			return
+
+		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
+			to_chat(owner, "<span class='danger'>You can not use your \the [src] in your current state!</span>")
+			return
+
+		if(disabled || is_broken())
+			to_chat(owner, "<span class='danger'>\The [src] shudders and sparks, unable to change their sensors!</span>")
+			return
+
+		owner.last_special = world.time + 100
+		to_chat(owner, "<span class='notice'>Insert message here!</span>")
+
+		var/choice = input("Select the Sensor Type.", "Bionic Eyes Sensors") as null|anything in hud_types
+
+		selected_hud = choice
+
+/obj/item/organ/eyes/autakh/process()
+	..()
+
+	if(!owner)
+		return
+	if(disabled)
+		return
+
+	switch(selected_hud)
+
+		if("Security")
+			req_access = list(access_security)
+			if(allowed(owner))
+				process_sec_hud(owner, 1)
+
+		if("Medical")
+			req_access = list(access_medical)
+			if(allowed(owner))
+				process_med_hud(owner, 1)
 
 /obj/item/organ/eyes/autakh/flash_act()
+	if(owner)
+		to_chat(owner, "<span class='notice'>\The [src]'s retinal overlays are overloaded by the strong light!</span>")
+		owner.eye_blind = 5
+		owner.eye_blurry = 5
+	disabled = TRUE
+	selected_hud = "Disabled"
+	addtimer(CALLBACK(src, .proc/rearm), 40 SECONDS)
 	return
+
+/obj/item/organ/eyes/autakh/emp_act(severity)
+	..()
+	disabled = TRUE
+	selected_hud = "Disabled"
+	addtimer(CALLBACK(src, .proc/rearm), 40 SECONDS)
+
+/obj/item/organ/eyes/autakh/proc/rearm()
+
+	disabled = FALSE
+
+	if(owner)
+		to_chat(owner, "<span class='notice'>\The [src]'s retinal overlays clicks and shifts!</span>")
 
 /obj/item/organ/adrenal
 	name = "adrenal management system"
@@ -101,19 +175,29 @@
 	if(.)
 
 		if(owner.last_special > world.time)
-			to_chat(owner, "<span class='danger'>Your \the [src] is still recharging!</span>")
+			to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
 			return
 
 		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
-			to_chat(owner, "<span class='danger'>You can not use your \the [src] in your current state!</span>")
+			to_chat(owner, "<span class='danger'>You can not use \the [src] in your current state!</span>")
 			return
 
-		owner.last_special = world.time + 250
-		to_chat(owner, "<span class='notice'>Insert message here!</span>")
+		if (owner.nutrition <= 300 || owner.hydration <= 300)
+			to_chat(owner, "<span class='danger'>\The [src] can not be activated due to low energy reserves!</span>")
+			return
 
-		owner.adjustBruteLoss(rand(5,10))
-		owner.adjustToxLoss(rand(10,20))
+		owner.last_special = world.time + 500
+		to_chat(owner, "<span class='notice'>\The [src] activates, releasing a stream of chemicals into your veins!</span>")
 
-		if(owner.reagents)
+		owner.adjustNutritionLoss(300)
+		owner.adjustHydrationLoss(300)
+
+		if(is_bruised())
+			owner.reagents.add_reagent("toxin", 10)
+
+		if(is_broken())
+			owner.reagents.add_reagent("toxin", 25)
+
+		else if(owner.reagents)
 			owner.reagents.add_reagent("tramadol", 5)
 			owner.reagents.add_reagent("inaprovaline", 5)
