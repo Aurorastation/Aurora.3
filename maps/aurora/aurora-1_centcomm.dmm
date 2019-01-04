@@ -23450,9 +23450,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "bam" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/weapon/circuitboard/smes,
-/obj/item/weapon/circuitboard/smes,
+/obj/structure/closet/secure_closet/engineering_electrical,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "ban" = (
@@ -23948,7 +23946,7 @@
 /obj/structure/table/wood,
 /obj/machinery/button/remote/blast_door{
 	id = "tcfl";
-	name = "Heavy Supportl"
+	name = "Heavy Support"
 	},
 /turf/simulated/floor/wood,
 /area/centcom/legion)
