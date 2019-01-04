@@ -22,6 +22,10 @@
 	icon_state = "eyes_vaurca"
 
 /obj/item/organ/eyes/vaurca/flash_act()
+	if(!owner)
+		return
+
+	to_chat(owner, "<span class='warning'>Your eyes burn with the intense light of the flash!</span>")
 	owner.Weaken(10)
 	take_damage(rand(10, 11))
 

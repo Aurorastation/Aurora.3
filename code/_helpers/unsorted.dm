@@ -1159,6 +1159,27 @@ var/list/wall_items = typecacheof(list(
 			user << "<span class='notice'>You need to be holding [src] to do that.</span>"
 		return USE_FAIL_NOT_IN_USER
 
+/obj/proc/iswrench()
+	return FALSE
+
+/obj/proc/isscrewdriver()
+	return FALSE
+
+/obj/proc/iswirecutter()
+	return FALSE
+
+/obj/proc/ismultitool()
+	return FALSE
+
+/obj/proc/iscrowbar()
+	return FALSE
+
+/obj/proc/iswelder()
+	return FALSE
+
+/obj/proc/iscoil()
+	return FALSE
+
 #undef NOT_FLAG
 #undef HAS_FLAG
 
@@ -1170,3 +1191,4 @@ var/list/wall_items = typecacheof(list(
 	else if (istype(A.loc, /obj/item/rig_module))
 		return 0
 	return 1
+
