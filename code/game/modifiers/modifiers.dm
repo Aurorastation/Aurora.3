@@ -340,7 +340,7 @@ it should be avoided in favour of manual removal where possible
 					for (var/datum/reagent/R in C.touching.reagent_list)
 						if (istype(R, ourtype))
 							totaldose += R.dose
-							
+
 					for (var/datum/reagent/R in C.breathing.reagent_list)
 						if (istype(R, ourtype))
 							totaldose += R.dose
@@ -360,7 +360,6 @@ it should be avoided in favour of manual removal where possible
 	return 1
 
 /datum/modifier/proc/validity_fail(var/reason)
-	//world << "MODIFIER VALIDITY FAIL: [reason]"
 	qdel(src)
 	return 0
 

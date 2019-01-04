@@ -258,12 +258,28 @@
 	name = "energy cutlass"
 	desc = "Arrrr matey."
 	icon_state = "cutlass0"
+
 	base_reflectchance = 60
 	base_block_chance = 60
 
 /obj/item/weapon/melee/energy/sword/pirate/activate(mob/living/user)
 	..()
 	icon_state = "cutlass1"
+
+/obj/item/weapon/melee/energy/sword/knife
+	name = "energy utility knife"
+	desc = "Some cheap energy blade, branded at the hilt with the logo of the Tau Ceti Foreign Legion."
+	icon_state = "edagger0"
+	base_reflectchance = 10
+	base_block_chance = 10
+	active_force = 20
+	force = 10
+	origin_tech = list(TECH_MAGNET = 3)
+
+/obj/item/weapon/melee/energy/sword/knife/activate(mob/living/user)
+	..()
+	icon_state = "edagger1"
+
 /*
 *Power Sword
 */

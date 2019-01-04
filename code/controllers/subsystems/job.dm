@@ -36,7 +36,7 @@
 	occupations = list()
 	var/list/all_jobs = current_map.allowed_jobs
 	if(!all_jobs.len)
-		world << "<span class='warning'>Error setting up jobs, no job datums found!</span>"
+		to_world("<span class='warning'>Error setting up jobs, no job datums found!</span>")
 		return FALSE
 
 	for(var/J in all_jobs)
@@ -333,7 +333,7 @@
 		job.apply_fingerprints(H)
 
 		// Randomize nutrition and hydration. Defines are in __defines/mobs.dm
-		
+
 		if(H.max_nutrition > 0)
 			H.nutrition = rand(CREW_MINIMUM_NUTRITION*100, CREW_MAXIMUM_NUTRITION*100) * H.max_nutrition * 0.01
 
