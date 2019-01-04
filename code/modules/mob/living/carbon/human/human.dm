@@ -1593,8 +1593,4 @@
 		. = B.cure_all_traumas(cure_permanent, cure_type)
 
 /mob/living/carbon/human/get_metabolism(metabolism)
-	var/obj/item/organ/kidneys/O = src.internal_organs_by_name["kidneys"]
-	if(O)
-		return ..() * (O.metabolism_mod)
-	else
-		return ..() * (species ? species.metabolism_mod : 1)
+	return ..() * (species ? species.metabolism_mod : 1)

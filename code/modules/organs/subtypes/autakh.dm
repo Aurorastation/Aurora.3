@@ -58,7 +58,6 @@
 /obj/item/organ/kidneys/autakh
 	name = "toxin screen"
 	robotic = 1
-	metabolism_mod = 2
 
 /obj/item/organ/anchor
 	name = "soul anchor"
@@ -88,4 +87,33 @@
 	organ_tag = "haemodynamic"
 	parent_organ = "chest"
 	robotic = 1
+	action_button_name = "Activate Haemodynamic Control System"
 
+/obj/item/organ/haemodynamic/refresh_action_button()
+	. = ..()
+	if(.)
+		action.button_icon_state = "AAAAAAAAAAAUGH"
+		if(action.button) action.button.UpdateIcon()
+
+/obj/item/organ/haemodynamic/attack_self(var/mob/user)
+	. = ..()
+
+	if(.)
+
+		if(owner.last_special > world.time)
+			to_chat(owner, "<span class='danger'>Your \the [src] is still recharging!</span>")
+			return
+
+		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
+			to_chat(src, "<span class='danger'>You can not use your \the [src] in your current state!</span>")
+			return
+
+		owner.last_special = world.time + 250
+		to_chat(src, "<span class='notice'>Insert message here!</span>")
+
+		owner.adjustBruteLoss(rand(5,10))
+		owner.adjustToxLoss(rand(10,20))
+
+		if(owner.reagents)
+			owner.reagents.add_reagent("tramadol", 5)
+			owner.reagents.add_reagent("inaprovaline", 5)

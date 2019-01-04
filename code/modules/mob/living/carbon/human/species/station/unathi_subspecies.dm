@@ -23,6 +23,8 @@
 
 	rarity_value = 4
 
+	metabolism_mod = 1
+
 	eyes_are_impermeable = TRUE
 	breakcuffs = list(MALE, FEMALE)
 

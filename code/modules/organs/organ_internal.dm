@@ -44,7 +44,6 @@
 	gender = PLURAL
 	organ_tag = "kidneys"
 	parent_organ = "groin"
-	var/metabolism_mod = 1	//how fast is chemical metabolism
 
 /obj/item/organ/kidneys/process()
 
