@@ -80,3 +80,11 @@ var/global/datum/robolimb/basic_robolimb
 	icon = 'icons/mob/human_races/r_human.dmi'
 	species_can_use = list("Human")
 	linked_frame = "Shell Frame"
+
+/datum/robolimb/autakh
+	company = PROSTHETIC_AUTAKH
+	desc = "This limb has been designed by the Autakh sect, it was created to interact exclusively with their bodies and implants."
+	icon = 'icons/mob/human_races/r_human.dmi'
+	species_can_use = list("Autakh Unathi")
+	linked_frame = "Autakh Unathi"
+	unavailable_at_chargen = 1

@@ -224,6 +224,7 @@
 #define PROSTHETIC_HI "Hephaestus Industries"
 #define PROSTHETIC_XMG "Xion Manufacturing Group"
 #define PROSTHETIC_DIONA "Unknown Model"
+#define PROSTHETIC_AUTAKH "Autakh Manufactured"
 
 //Brain Damage defines
 #define BRAIN_DAMAGE_MILD 10
