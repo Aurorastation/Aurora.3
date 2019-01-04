@@ -876,9 +876,9 @@ proc/is_hot(obj/item/W as obj)
 	if(W.sharp) return 1
 	return ( \
 		W.sharp													  || \
-		isscrewdriver(W)                   || \
+		W.isscrewdriver()                   || \
 		istype(W, /obj/item/weapon/pen)                           || \
-		iswelder(W)					  || \
+		W.iswelder()					  || \
 		istype(W, /obj/item/weapon/flame/lighter/zippo)			  || \
 		istype(W, /obj/item/weapon/flame/match)            		  || \
 		istype(W, /obj/item/clothing/mask/smokable/cigarette) 		      || \

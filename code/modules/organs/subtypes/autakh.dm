@@ -204,3 +204,67 @@
 
 //limb implants
 
+/obj/item/organ/external/arm/right/autakh/tool
+	name = "engineering arm"
+	action_button_name = "Deployed Mechanical Combitool"
+
+/obj/item/organ/external/arm/right/autakh/tool/refresh_action_button()
+	. = ..()
+	if(.)
+		action.button_icon_state = "digitool"
+		if(action.button) action.button.UpdateIcon()
+
+/obj/item/organ/external/arm/right/autakh/tool/attack_self(var/mob/user)
+	. = ..()
+
+	if(.)
+
+		if(owner.last_special > world.time)
+			to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
+			return
+
+		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
+			to_chat(owner, "<span class='danger'>You can not use \the [src] in your current state!</span>")
+			return
+
+		if(owner.get_active_hand())
+			to_chat(owner, "<span class='danger'>You must empty your active hand before enabling your [src]!</span>")
+			return
+
+		owner.last_special = world.time + 500
+		var/obj/item/combitool/robotic/M = new /obj/item/combitool/robotic(user)
+		M.creator = src
+		user.put_in_active_hand(M)
+		owner.visible_message("<span class='notice'>\The [M] slides out of \the [owner]'s [src].</span>","<span class='notice'>You deploy \the [M]!</span>")
+
+/obj/item/combitool/robotic
+	name = "robotic combitool"
+	desc = "An integrated combitool module."
+	icon_state = "digitool"
+	var/mob/living/creator
+
+/obj/item/combitool/robotic/Initialize()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
+
+/obj/item/combitool/robotic/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
+/obj/item/combitool/robotic/dropped(mob/user as mob)
+	QDEL_IN(src, 1)
+
+/obj/item/combitool/robotic/process()
+	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
+		// Tidy up a bit.
+		if(istype(loc,/mob/living))
+			var/mob/living/carbon/human/host = loc
+			if(istype(host))
+				for(var/obj/item/organ/external/organ in host.organs)
+					for(var/obj/item/O in organ.implants)
+						if(O == src)
+							organ.implants -= src
+			host.pinned -= src
+			host.embedded -= src
+			host.drop_from_inventory(src)
+		QDEL_IN(src, 1)
