@@ -22,6 +22,10 @@ a img {border:none;}
 .experiment {background-image:url(burn-exclamation.png)}
 .maptweak {background-image:url(map-pencil.png)}
 .balance {background-image:url(scales.png)}
+.admin {background-image:url(toolbox.png)}
+.backend {background-image:url(disk.png)}
+.security {background-image:url(shield.png)}
+.refactor {background-image:url(retort.png)}
 .sansserif {font-size:12px;}
 .commit {
 	margin-bottom:20px;

@@ -31514,6 +31514,12 @@
 /obj/machinery/alarm{
 	pixel_y = 23
 	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Chemistry Lab Bravo";
+	dir = 4;
+	icon_state = "camera";
+	network = list("Medical")
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
 "bbO" = (
@@ -31575,6 +31581,11 @@
 	},
 /obj/machinery/alarm{
 	pixel_y = 23
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Chemistry Lab Alpha";
+	dir = 8;
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
@@ -59710,7 +59721,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/machinery/libraryscanner,
+/obj/machinery/photocopier,
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bYI" = (
@@ -65407,6 +65418,10 @@
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"dGq" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/white,
+/area/medical/chemistry)
 "eco" = (
 /obj/machinery/power/terminal{
 	dir = 8
@@ -65658,7 +65673,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/disposalpipe/segment,
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
@@ -97393,7 +97407,7 @@ baL
 bbQ
 bdr
 bdv
-beS
+dGq
 bjR
 biO
 bkb
