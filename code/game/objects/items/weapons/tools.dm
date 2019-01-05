@@ -568,6 +568,7 @@
 	desc = "It even has one of those nubbins for doing the thingy."
 	icon = 'icons/obj/combitool.dmi'
 	icon_state = "combitool"
+	force = 3
 	w_class = 2
 
 	var/list/tools = list(
@@ -613,3 +614,4 @@
 		to_chat(user, "You switch \the [src] to the [tool] fitting.")
 	update_tool()
 	return 1
+

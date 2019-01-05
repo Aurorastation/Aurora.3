@@ -59,7 +59,8 @@
 
 	inherent_verbs = list(
 		/mob/living/proc/devour,
-		/mob/living/carbon/human/proc/regurgitate
+		/mob/living/carbon/human/proc/regurgitate,
+		/mob/living/carbon/human/proc/disattach_limb
 	)
 
 	has_organ = list(
@@ -89,7 +90,7 @@
 		)
 
 
-	spawn_flags = IS_RESTRICTED | IS_WHITELISTED
+	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 	flags = NO_CHUBBY
 

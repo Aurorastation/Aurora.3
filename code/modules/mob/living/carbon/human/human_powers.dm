@@ -890,3 +890,39 @@
 		to_chat(src,"<span class='notice'>You blow life back in \the [O], returning its past owner to life!</span>")
 		qdel(O)
 		last_special = world.time + 200
+
+/mob/living/carbon/human/proc/disattach_limb()
+	set category = "Abilities"
+	set name = "Disattach Limb"
+	set desc = "Disattach one of your robotic appendages."
+
+	if(last_special > world.time)
+		return
+
+	if(stat || paralysis || stunned || weakened || lying || restrained())
+		to_chat(src,"<span class='warning'>You cann ot do that in your current state!</span>")
+		return
+
+	var/obj/item/organ/external/E = get_organ(zone_sel.selecting)
+
+	if(!E || E.is_stump())
+		to_chat(src,"<span class='warning'>You are missing that limb.</span>")
+		return
+
+	if(E.vital && !E.sabotaged)
+		to_chat(src,"<span class='warning'>Your safety systems stops you from removing \the [E].</span>")
+		return
+
+	last_special = world.time + 200
+
+	E.removed(src)
+	E.forceMove(get_turf(src))
+	put_in_active_hand(E)
+
+	update_body()
+	updatehealth()
+	UpdateDamageIcon()
+
+	visible_message("<span class='notice'>\The [src] disattach \his [E]!</span>",
+			"<span class='notice'>You disattach your \the [E]!</span>")
+

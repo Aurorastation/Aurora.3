@@ -6,27 +6,27 @@
 	display_name = "hide mantle (Unathi)"
 	path = /obj/item/clothing/suit/unathi/mantle
 	cost = 1
-	whitelisted = list("Unathi")
+	whitelisted = list("Unathi", "Autakh Unathi")
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/suit/unathi_robe
 	display_name = "roughspun robe (Unathi)"
 	path = /obj/item/clothing/suit/unathi/robe
 	cost = 1
-	whitelisted = list("Unathi")
+	whitelisted = list("Unathi", "Autakh Unathi")
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/suit/robe_coat
 	display_name = "tzirzi robe (Unathi)"
 	path = /obj/item/clothing/suit/unathi/robe/robe_coat
 	cost = 1
-	whitelisted = list("Unathi")
+	whitelisted = list("Unathi", "Autakh Unathi")
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/gloves/unathi
 	display_name = "gloves selection (Unathi)"
 	path = /obj/item/clothing/gloves/black/unathi
-	whitelisted = list("Unathi")
+	whitelisted = list("Unathi", "Autakh Unathi")
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/gloves/unathi/New()
@@ -45,12 +45,39 @@
 /datum/gear/uniform/unathi
 	display_name = "sinta tunic (Unathi)"
 	path = /obj/item/clothing/under/unathi
-	whitelisted = list("Unathi")
+	whitelisted = list("Unathi", "Autakh Unathi")
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/uniform/unathi/New()
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/autakh_engineering
+	display_name = "engineering grasper (Autakh Unathi)"
+	description = "An Autakha augment limb, this one is outfited with a limited toolkit."
+	path = /obj/item/organ/external/hand/right/autakh/engineering
+	whitelisted = list("Autakh Unathi")
+	sort_category = "Xenowear - Unathi"
+	cost = 3
+	allowed_roles = list("Station Engineer", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Roboticist")
+
+/datum/gear/autakh_engineering
+	display_name = "mining grasper (Autakh Unathi)"
+	description = "An Autakha augment limb, this one is outfited with a mining drill."
+	path = /obj/item/organ/external/hand/right/autakh/mining
+	whitelisted = list("Autakh Unathi")
+	sort_category = "Xenowear - Unathi"
+	cost = 3
+	allowed_roles = list("Shaft Miner")
+
+/datum/gear/autakh_medical
+	display_name = "medical grasper (Autakh Unathi)"
+	description = "An Autakha augment limb, this one is outfited with a health scanner."
+	path = /obj/item/organ/external/hand/right/autakh/medical
+	whitelisted = list("Autakh Unathi")
+	sort_category = "Xenowear - Unathi"
+	cost = 3
+	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Paramedic", "Medical Resident", "Psychiatrist", "Chemist")
 
 //skrell
 

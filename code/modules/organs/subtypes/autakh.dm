@@ -130,6 +130,7 @@
 		to_chat(owner, "<span class='notice'>\The [src]'s retinal overlays are overloaded by the strong light!</span>")
 		owner.eye_blind = 5
 		owner.eye_blurry = 5
+		spark(get_turf(owner), 3)
 	disabled = TRUE
 	selected_hud = "Disabled"
 	addtimer(CALLBACK(src, .proc/rearm), 40 SECONDS)
@@ -204,17 +205,18 @@
 
 //limb implants
 
-/obj/item/organ/external/hand/right/autakh/tool
-	name = "engineering arm"
-	action_button_name = "Deployed Mechanical Combitool"
+/obj/item/organ/external/hand/right/autakh/engineering
+	name = "engineering grasper"
+	action_button_name = "Deploy Mechanical Combitool"
+	force = 5
 
-/obj/item/organ/external/hand/right/autakh/tool/refresh_action_button()
+/obj/item/organ/external/hand/right/autakh/engineering/refresh_action_button()
 	. = ..()
 	if(.)
 		action.button_icon_state = "digitool"
 		if(action.button) action.button.UpdateIcon()
 
-/obj/item/organ/external/hand/right/autakh/tool/attack_self(var/mob/user)
+/obj/item/organ/external/hand/right/autakh/engineering/attack_self(var/mob/user)
 	. = ..()
 
 	if(.)
@@ -256,7 +258,6 @@
 
 /obj/item/combitool/robotic/process()
 	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
-		// Tidy up a bit.
 		if(istype(loc,/mob/living))
 			var/mob/living/carbon/human/host = loc
 			if(istype(host))
@@ -268,3 +269,103 @@
 			host.embedded -= src
 			host.drop_from_inventory(src)
 		QDEL_IN(src, 1)
+
+
+/obj/item/organ/external/hand/right/autakh/mining
+	name = "engineering grasper"
+	action_button_name = "Deploy Mounted Drill"
+
+/obj/item/organ/external/hand/right/autakh/mining/refresh_action_button()
+	. = ..()
+	if(.)
+		action.button_icon_state = "drill"
+		if(action.button) action.button.UpdateIcon()
+
+/obj/item/organ/external/hand/right/autakh/mining/attack_self(var/mob/user)
+	. = ..()
+
+	if(.)
+
+		if(owner.last_special > world.time)
+			to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
+			return
+
+		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
+			to_chat(owner, "<span class='danger'>You can not use \the [src] in your current state!</span>")
+			return
+
+		if(owner.get_active_hand())
+			to_chat(owner, "<span class='danger'>You must empty your active hand before enabling your [src]!</span>")
+			return
+
+		owner.last_special = world.time + 500
+		var/obj/item/weapon/pickaxe/drill/integrated/M = new /obj/item/weapon/pickaxe/drill/integrated(owner)
+		M.creator = owner
+		owner.put_in_active_hand(M)
+		owner.visible_message("<span class='notice'>\The [M] slides out of \the [owner]'s [src].</span>","<span class='notice'>You deploy \the [M]!</span>")
+
+/obj/item/weapon/pickaxe/drill/integrated
+	name = "integrated mining drill"
+	var/mob/living/creator
+
+/obj/item/weapon/pickaxe/drill/integrated/Initialize()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
+
+/obj/item/weapon/pickaxe/drill/integrated/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
+/obj/item/weapon/pickaxe/drill/integrated/dropped(mob/user as mob)
+	QDEL_IN(src, 1)
+
+/obj/item/weapon/pickaxe/drill/integrated/process()
+	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
+		if(istype(loc,/mob/living))
+			var/mob/living/carbon/human/host = loc
+			if(istype(host))
+				for(var/obj/item/organ/external/organ in host.organs)
+					for(var/obj/item/O in organ.implants)
+						if(O == src)
+							organ.implants -= src
+			host.pinned -= src
+			host.embedded -= src
+			host.drop_from_inventory(src)
+		QDEL_IN(src, 1)
+
+/obj/item/organ/external/hand/right/autakh/medical
+	name = "medical grasper"
+	action_button_name = "Deploy Mounted Health Scanner"
+
+/obj/item/organ/external/hand/right/autakh/medical/refresh_action_button()
+	. = ..()
+	if(.)
+		action.button_icon_state = "health"
+		if(action.button) action.button.UpdateIcon()
+
+/obj/item/organ/external/hand/right/autakh/medical/attack_self(var/mob/user)
+	. = ..()
+
+	if(.)
+
+		if(owner.last_special > world.time)
+			to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
+			return
+
+		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
+			to_chat(owner, "<span class='danger'>You can not use \the [src] in your current state!</span>")
+			return
+
+		if(owner.get_active_hand())
+			to_chat(owner, "<span class='danger'>You must empty your active hand before enabling your [src]!</span>")
+			return
+
+		var/obj/item/weapon/grab/G = owner.get_active_hand()
+		if(!istype(G))
+			to_chat(owner, "<span class='danger'>You must grab someone before trying to analyze their health!</span>")
+			return
+
+		owner.last_special = world.time + 250
+		if(istype(G.affecting,/mob/living/carbon/human))
+			var/mob/living/carbon/human/H = G.affecting
+			health_scan_mob(H, owner)
