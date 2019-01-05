@@ -31563,9 +31563,6 @@
 /obj/structure/table/standard,
 /obj/item/weapon/storage/fancy/vials,
 /obj/item/weapon/reagent_containers/dropper,
-/obj/structure/sign/nosmoking_1{
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/corner/mauve/full{
 	icon_state = "corner_white_full";
 	dir = 8
@@ -31699,6 +31696,10 @@
 /obj/machinery/body_scanconsole{
 	dir = 4;
 	icon_state = "body_scannerconsole"
+	},
+/obj/structure/sign/nosmoking_1{
+	pixel_x = 0;
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/medical/icu)
@@ -37027,10 +37028,10 @@
 /area/crew_quarters/bar)
 "bkZ" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/structure/table/standard,
 /obj/item/device/radio/intercom{
 	pixel_y = 27
 	},
+/obj/machinery/papershredder,
 /turf/simulated/floor/tiled,
 /area/medical/reception)
 "bla" = (
@@ -37950,7 +37951,7 @@
 "bmC" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/bed/chair/office/light{
-	dir = 1
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/medical/reception)
@@ -39459,6 +39460,10 @@
 	icon_state = "tube1";
 	dir = 1
 	},
+/obj/structure/sign/nosmoking_1{
+	pixel_x = 0;
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "boK" = (
@@ -40637,6 +40642,10 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
+/obj/item/weapon/paper_bin{
+	pixel_x = -1;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled,
 /area/medical/reception)
 "bqD" = (
@@ -40650,9 +40659,6 @@
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
 /obj/machinery/computer/med_data/laptop,
-/obj/structure/sign/nosmoking_1{
-	pixel_x = 32
-	},
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1";
@@ -55282,6 +55288,7 @@
 "bQe" = (
 /obj/structure/kitchenspike,
 /obj/machinery/alarm/cold{
+	alarm_id = "kitchen_freezer";
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 25;
@@ -65602,6 +65609,16 @@
 /obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"iBt" = (
+/obj/structure/table/standard,
+/obj/machinery/computer/atmoscontrol/laptop{
+	monitored_alarm_ids = list("kitchen_freezer");
+	req_access = list(56);
+	req_one_access = list(47,24,11)
+	},
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "jFC" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -65730,6 +65747,18 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/turf/simulated/floor/tiled,
+/area/medical/medbay2)
+"lKe" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/sign/nosmoking_1{
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/surgeryobs)
+"lSK" = (
+/obj/structure/bed/chair/wheelchair,
 /turf/simulated/floor/tiled,
 /area/medical/medbay2)
 "lWn" = (
@@ -97160,7 +97189,7 @@ bOR
 bPY
 bQw
 bQZ
-bRx
+iBt
 bOR
 bSq
 aNK
@@ -102026,7 +102055,7 @@ bBX
 bvz
 bDO
 bvz
-bxP
+lKe
 bxP
 bxP
 bIy
@@ -104849,7 +104878,7 @@ buw
 buw
 buw
 buw
-bAp
+lSK
 quy
 bAp
 buw
@@ -105106,7 +105135,7 @@ bvC
 bvC
 bvC
 buw
-bAp
+lSK
 quy
 bDV
 bkr
@@ -105363,7 +105392,7 @@ bvC
 bvC
 bvC
 buw
-bAp
+lSK
 quy
 nIv
 bkr
