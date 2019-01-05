@@ -1,7 +1,7 @@
 <template>
   <div>
-    <template v-if="!reditable && !editButton">{{ rvalue }}</template>
-    <vui-button v-else-if="!editing && (reditable || editButton)" @click="beginEditing">{{ editbtnname }}</vui-button>
+    <template v-if="!reditable && !editButton">{{ rvalue.replace('\r\n', '<br/>') }}</template>
+    <vui-button v-else-if="!editing && (reditable || editButton)" @click="beginEditing">{{ editbtnname.replace('\r\n', '<br/>') }}</vui-button>
     <template v-else>
       <slot><input v-model="gdata.state.editingvalue"></slot><vui-button @click="save" icon="check"/>
     </template>
@@ -85,6 +85,11 @@ export default {
           key: this.path.split(".")
         }
       })
+    }
+  },
+  filters: {
+    replace(value, needle, substitute) {
+      return value.replace(needle, substitute)
     }
   }
 }
