@@ -362,6 +362,7 @@
 		status &= ~ORGAN_BROKEN
 		perma_injury = 0
 
+	//Sync the organ's damage with its wounds
 	update_damages()
 	owner.updatehealth()
 

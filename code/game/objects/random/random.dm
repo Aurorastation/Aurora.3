@@ -315,7 +315,14 @@
 		/obj/item/toy/plushie/nymph,
 		/obj/item/toy/plushie/mouse,
 		/obj/item/toy/plushie/kitten,
-		/obj/item/toy/plushie/lizard
+		/obj/item/toy/plushie/lizard,
+		/obj/item/toy/plushie/farwa,
+		/obj/item/toy/plushie/squid/green,
+		/obj/item/toy/plushie/squid/mint,
+		/obj/item/toy/plushie/squid/blue,
+		/obj/item/toy/plushie/squid/orange,
+		/obj/item/toy/plushie/squid/yellow,
+		/obj/item/toy/plushie/squid/pink
 	)
 
 /obj/random/smalltank
@@ -998,7 +1005,10 @@
 		/obj/item/eightball								= 11,
 		/obj/item/eightball/haunted						= 1,
 		/obj/item/eightball/broken						= 1,
-		/obj/item/weapon/spirit_board					= 5
+		/obj/item/weapon/spirit_board					= 5,
+		/obj/item/device/laser_pointer						= 1
+
+
 	)
 
 /obj/random/arcade/orion
@@ -1017,6 +1027,7 @@
 		/obj/item/toy/syndicateballoon					= 10,
 		/obj/item/toy/nanotrasenballoon					= 5,
 		/obj/item/toy/katana							= 11,
+		/obj/random/plushie								= 55,
 		/obj/item/weapon/storage/belt/champion			= 11,
 		/obj/item/weapon/pen/invisible					= 10,
 		/obj/item/weapon/grenade/fake					= 7,

@@ -9,13 +9,7 @@
       </vui-item>
       <vui-item label="Flow Rate Limit:">{{ state['input'].rate }} L/s</vui-item>
       <vui-item label="Command:">
-        <vui-button push-state :disabled="state['input'].setrate - 100 < 0" @click="state['input'].setrate -= 100">-</vui-button>
-        <vui-button push-state :disabled="state['input'].setrate - 10 < 0" @click="state['input'].setrate -= 10">-</vui-button>
-        <vui-button push-state :disabled="state['input'].setrate - 1 < 0" @click="state['input'].setrate -= 1">-</vui-button>
-        {{ state['input'].setrate }}
-        <vui-button push-state :disabled="state['input'].setrate + 1 > state.maxrate" @click="state['input'].setrate += 1">+</vui-button>
-        <vui-button push-state :disabled="state['input'].setrate + 10 > state.maxrate" @click="state['input'].setrate += 10">+</vui-button>
-        <vui-button push-state :disabled="state['input'].setrate + 100 > state.maxrate" @click="state['input'].setrate += 100">+</vui-button><br>
+        <vui-input-numeric width="3em" :button-count="3" v-model="state['input'].setrate" :max="state.maxrate"/><br>
         <vui-button push-state :params="{ in_set_flowrate: state['input'].setrate }">Set Flow Rate</vui-button>
       </vui-item>
     </div>
@@ -28,14 +22,7 @@
       </vui-item>
       <vui-item label="Min Core Pressure:">{{ state['output'].pressure }} kPa</vui-item>
       <vui-item label="Command:">
-        <vui-button push-state :disabled="state['output'].setpressure - 100 < 0" @click="state['output'].setpressure -= 100">-</vui-button>
-        <vui-button push-state :disabled="state['output'].setpressure - 10 < 0" @click="state['output'].setpressure -= 10">-</vui-button>
-        <vui-button push-state :disabled="state['output'].setpressure - 1 < 0" @click="state['output'].setpressure -= 1">-</vui-button>
-        {{ state['output'].setpressure }}
-        <vui-button push-state :disabled="state['output'].setpressure + 1 > state.maxpressure" @click="state['output'].setpressure += 1">+</vui-button>
-        <vui-button push-state :disabled="state['output'].setpressure + 10 > state.maxpressure" @click="state['output'].setpressure += 10">+</vui-button>
-        <vui-button push-state :disabled="state['output'].setpressure + 100 > state.maxpressure" @click="state['output'].setpressure += 100">+</vui-button>
-        <br>
+        <vui-input-numeric width="5em" :button-count="3" :decimal-places="2" v-model="state['output'].setpressure" :max="state.maxpressure"/><br>
         <vui-button push-state :params="{ out_set_pressure: state['output'].setpressure }">Set Pressure</vui-button>
       </vui-item>
     </div>

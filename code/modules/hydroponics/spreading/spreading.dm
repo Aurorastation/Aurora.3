@@ -19,7 +19,7 @@
 
 		log_and_message_admins("Spacevines spawned at \the [get_area(T)]", location = T)
 		return
-		
+
 	log_and_message_admins("<span class='notice'>Event: Spacevines failed to find a viable turf.</span>")
 
 /obj/effect/dead_plant
@@ -72,7 +72,7 @@
 		if (!QDELETED(neighbor))
 			SSplants.add_plant(neighbor)
 	return ..()
-	
+
 /obj/effect/plant/single
 	spread_chance = 0
 
@@ -86,7 +86,7 @@
 		parent = newparent
 
 	if(!SSplants)
-		world << "<span class='danger'>Plant controller does not exist and [src] requires it. Aborting.</span>"
+		to_world("<span class='danger'>Plant controller does not exist and [src] requires it. Aborting.</span>")
 		qdel(src)
 		return
 
