@@ -50,7 +50,9 @@
 		usr.drop_from_inventory(O,src)
 		scan = O
 		user << "You insert [O]."
-	..()
+	else
+		..()
+		return
 
 /obj/machinery/computer/secure_data/attack_ai(mob/user as mob)
 	return attack_hand(user)

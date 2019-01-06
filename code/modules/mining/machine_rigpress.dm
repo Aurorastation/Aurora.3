@@ -42,6 +42,7 @@
 			outcome_path = /obj/item/rig_module/mounted/thermalldrill
 
 		if(!outcome_path)
+			..()
 			return
 
 		user << "<span class='notice'>You start feeding [W] into \the [src]</span>"
@@ -59,4 +60,6 @@
 				use_power(500)
 				pressing = 0
 				update_icon()
-	..()
+
+	else
+		..()
