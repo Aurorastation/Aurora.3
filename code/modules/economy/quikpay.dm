@@ -122,8 +122,8 @@
 	VUEUI_SET_CHECK_IFNOTSET(data["tmp_price"], 0, ., data)
 	VUEUI_SET_CHECK(data["tmp_price"], max(0, data["tmp_price"]), ., data)
 	if(data["tmp_price"] < 0)
-    	data["tmp_price"] = 0
-    	. = data
+		data["tmp_price"] = 0
+		. = data
 
 /obj/item/device/nanoquikpay/Topic(href, href_list)
 	var/datum/vueui/ui = href_list["vueui"]

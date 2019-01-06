@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-for="(price, name) in items" :key="name">
-            {{ name }}: {{ price }} <vui-button :params="{ remove: name }">Delete</vui-button>
+            {{ name }}: {{ price }} <vui-button :params="{ remove: name }">Delete</vui-button> <vui-input-numeric v-model="selection [name]" width="3em"/>
         </div>
         <div>
             <input v-model="tmp_name">
