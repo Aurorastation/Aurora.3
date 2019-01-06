@@ -65610,13 +65610,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "iBt" = (
-/obj/structure/table/standard,
 /obj/machinery/computer/atmoscontrol/laptop{
 	monitored_alarm_ids = list("kitchen_freezer");
-	req_access = list(56);
-	req_one_access = list(47,24,11)
+	req_access = null;
+	req_one_access = null
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "jFC" = (
