@@ -22,6 +22,14 @@
 	attack_verb = list("chopped", "torn", "cut")
 	applies_material_colour = 0
 
+/obj/item/weapon/material/hatchet/butch
+	name = "butcher's cleaver"
+	icon = 'icons/obj/kitchen.dmi'
+	icon_state = "butch"
+	desc = "A huge thing used for chopping and chopping up meat."
+	force_divisor = 0.25 // 15 when wielded with hardness 60 (steel)
+	attack_verb = list("cleaved", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+
 /obj/item/weapon/material/hatchet/unathiknife
 	name = "duelling knife"
 	desc = "A length of leather-bound wood studded with razor-sharp teeth. How crude."
@@ -29,14 +37,13 @@
 	icon_state = "unathiknife"
 	attack_verb = list("ripped", "torn", "cut")
 
-/obj/item/weapon/material/hatchet/tacknife
-	name = "tactical knife"
-	desc = "You'd be killing loads of people if this was Medal of Valor: Heroes of Tau Ceti."
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "tacknife"
-	item_state = "knife"
-	attack_verb = list("stabbed", "chopped", "cut")
-	applies_material_colour = 1
+/obj/item/weapon/material/hook
+	name = "meat hook"
+	sharp = 1
+	edge = 1
+	desc = "A sharp, metal hook that sticks into things."
+	icon_state = "hook_knife"
+	item_state = "hook_knife"
 
 /obj/item/weapon/material/minihoe // -- Numbers
 	name = "mini hoe"
