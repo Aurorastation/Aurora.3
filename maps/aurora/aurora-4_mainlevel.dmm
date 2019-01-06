@@ -23910,8 +23910,8 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "aPc" = (
-/obj/machinery/computer/station_alert,
 /obj/machinery/firealarm/south,
+/obj/machinery/computer/station_alert/security,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "aPd" = (
