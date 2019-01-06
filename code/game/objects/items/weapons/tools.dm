@@ -300,7 +300,7 @@
 		var/obj/item/organ/external/S = M:organs_by_name[target_zone]
 
 		if (!S) return
-		if(!(S.status & ORGAN_ROBOT) || user.a_intent != I_HELP)
+		if(!(S.status & ORGAN_ASSISTED) || user.a_intent != I_HELP)
 			return ..()
 
 		if(M.isSynthetic() && M == user && !(M.get_species() == "Hunter-Killer"))

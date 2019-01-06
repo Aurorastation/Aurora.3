@@ -8,6 +8,11 @@
 	encased = "support frame"
 	robotize_type = PROSTHETIC_AUTAKH
 
+/obj/item/organ/external/chest/autakh/Initialize()
+	. = ..()
+
+	mechassist()
+
 /obj/item/organ/external/groin/autakh
 	dislocated = -1
 	encased = "support frame"
@@ -155,6 +160,43 @@
 	organ_tag = "adrenal"
 	parent_organ = "chest"
 	robotic = 2
+	action_button_name = "Activate Adrenal Management System"
+
+/obj/item/organ/adrenal/refresh_action_button()
+	. = ..()
+	if(.)
+		action.button_icon_state = "placeholder"
+		if(action.button) action.button.UpdateIcon()
+
+/obj/item/organ/adrenal/attack_self(var/mob/user)
+	. = ..()
+
+	if(.)
+
+		if(owner.last_special > world.time)
+			to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
+			return
+
+		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
+			to_chat(owner, "<span class='danger'>You can not use \the [src] in your current state!</span>")
+			return
+
+		owner.last_special = world.time + 500
+		to_chat(owner, "<span class='notice'>\The [src] activates, releasing a stream of chemicals into your veins!</span>")
+
+		if(owner.reagents)
+
+			if(is_bruised())
+				owner.reagents.add_reagent("toxin", 10)
+
+			if(is_broken())
+				owner.reagents.add_reagent("toxin", 25)
+				return
+
+			owner.adjustBruteLoss(rand(5,25))
+			owner.adjustToxLoss(rand(5,25))
+			owner.reagents.add_reagent("tramadol", 5)
+			owner.reagents.add_reagent("inaprovaline", 5)
 
 /obj/item/organ/haemodynamic
 	name = "haemodynamic control system"
@@ -167,7 +209,7 @@
 /obj/item/organ/haemodynamic/refresh_action_button()
 	. = ..()
 	if(.)
-		action.button_icon_state = "AAAAAAAAAAAUGH"
+		action.button_icon_state = "placeholder"
 		if(action.button) action.button.UpdateIcon()
 
 /obj/item/organ/haemodynamic/attack_self(var/mob/user)
@@ -183,25 +225,22 @@
 			to_chat(owner, "<span class='danger'>You can not use \the [src] in your current state!</span>")
 			return
 
-		if (owner.nutrition <= 300 || owner.hydration <= 300)
-			to_chat(owner, "<span class='danger'>\The [src] can not be activated due to low energy reserves!</span>")
-			return
-
 		owner.last_special = world.time + 500
-		to_chat(owner, "<span class='notice'>\The [src] activates, releasing a stream of chemicals into your veins!</span>")
 
 		owner.adjustNutritionLoss(300)
 		owner.adjustHydrationLoss(300)
 
-		if(is_bruised())
-			owner.reagents.add_reagent("toxin", 10)
-
 		if(is_broken())
-			owner.reagents.add_reagent("toxin", 25)
+			owner.vessel.remove_reagent("blood",rand(50,75))
+			return
 
-		else if(owner.reagents)
-			owner.reagents.add_reagent("tramadol", 5)
-			owner.reagents.add_reagent("inaprovaline", 5)
+		to_chat(owner, "<span class='notice'>\The [src] activates, releasing a stream of chemicals into your veins!</span>")
+
+		if(is_bruised())
+			owner.vessel.remove_reagent("blood",rand(25,50))
+
+		if(owner.reagents)
+			owner.reagents.add_reagent("coagulant", 15)
 
 //limb implants
 
@@ -232,6 +271,13 @@
 		if(owner.get_active_hand())
 			to_chat(owner, "<span class='danger'>You must empty your active hand before enabling your [src]!</span>")
 			return
+
+		if(is_broken())
+			to_chat(owner, "<span class='danger'>\The [src] is too damaged to be used!</span>")
+			return
+
+		if(is_bruised())
+			spark(get_turf(owner), 3)
 
 		owner.last_special = world.time + 500
 		var/obj/item/combitool/robotic/M = new /obj/item/combitool/robotic(owner)
@@ -298,6 +344,13 @@
 			to_chat(owner, "<span class='danger'>You must empty your active hand before enabling your [src]!</span>")
 			return
 
+		if(is_broken())
+			to_chat(owner, "<span class='danger'>\The [src] is too damaged to be used!</span>")
+			return
+
+		if(is_bruised())
+			spark(get_turf(owner), 3)
+
 		owner.last_special = world.time + 500
 		var/obj/item/weapon/pickaxe/drill/integrated/M = new /obj/item/weapon/pickaxe/drill/integrated(owner)
 		M.creator = owner
@@ -359,6 +412,13 @@
 		if(owner.get_active_hand())
 			to_chat(owner, "<span class='danger'>You must empty your active hand before enabling your [src]!</span>")
 			return
+
+		if(is_broken())
+			to_chat(owner, "<span class='danger'>\The [src] is too damaged to be used!</span>")
+			return
+
+		if(is_bruised())
+			spark(get_turf(owner), 3)
 
 		var/obj/item/weapon/grab/G = owner.get_active_hand()
 		if(!istype(G))

@@ -624,10 +624,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 			if(!(W.can_autoheal() || (bicardose && inaprovaline)))	//bicaridine and inaprovaline stop internal wounds from growing bigger with time, unless it is so small that it is already healing
 				W.open_wound(0.09 * wound_update_accuracy)
 
-
-			owner.vessel.remove_reagent("blood", wound_update_accuracy * W.damage/40) //line should possibly be moved to handle_blood, so all the bleeding stuff is in one place.
-			if(prob(1 * wound_update_accuracy))
-				owner.custom_pain("You feel a stabbing pain in your [name]!",1)
+			if(!owner.reagents.has_reagent("coagulant", 2))
+				owner.vessel.remove_reagent("blood", wound_update_accuracy * W.damage/40) //line should possibly be moved to handle_blood, so all the bleeding stuff is in one place.
+				if(prob(1 * wound_update_accuracy))
+					owner.custom_pain("You feel a stabbing pain in your [name]!",1)
 
 		// slow healing
 		var/heal_amt = 0
@@ -986,6 +986,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 		if(T)
 			T.robotize()
 
+/obj/item/organ/external/mechassist()
+	..()
+	cannot_break = 0
+
 /obj/item/organ/external/proc/robotize_advanced()
 	status |= ORGAN_ADV_ROBOT
 	for (var/obj/item/organ/external/T in children)
@@ -1108,7 +1112,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(status & ORGAN_DESTROYED && !is_stump())
 		. += "tear at [amputation_point] so severe that it hangs by a scrap of flesh"
 
-	if(status & ORGAN_ROBOT)
+	if(status & ORGAN_ASSISTED)
 		if(brute_dam)
 			switch(brute_dam)
 				if(0 to 20)
