@@ -402,10 +402,13 @@
 			var/mob/living/carbon/human/H = G.affecting
 			var/target_zone = check_zone(owner.zone_sel.selecting)
 
-			owner.last_special = world.time + 150
+			owner.last_special = world.time + 100
 			owner.adjustNutritionLoss(50)
 
 			if(owner.a_intent == I_HURT)
 				H.electrocute_act(10, owner, def_zone = target_zone)
 			else
 				H.stun_effect_act(0, 50, target_zone, owner)
+
+			owner.visible_message("<span class='danger'>[H] has been prodded with [src] by [owner]!</span>")
+			playsound(get_turf(owner), 'sound/weapons/Egloves.ogg', 50, 1, -1)
