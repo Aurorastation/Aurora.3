@@ -51,7 +51,7 @@
 					affected_mob.adjustHalLoss(20)
 			if(prob(5))
 				affected_mob << "<span class='warning'>You slowly fall asleep sleep.</span>"
-				affected_mob.paralysis = 3
+				affected_mob.Weaken(15)
 				affected_mob.adjustOxyLoss(5)
 				affected_mob.vomit()
 
