@@ -5,6 +5,8 @@ var/global/datum/getrev/revdata = new()
 	var/revision
 	var/date
 	var/showinfo
+	var/list/datum/tgs_revision_information/test_merge/test_merges
+	var/greeting_info
 
 /datum/getrev/New()
 	var/list/head_branch = file2list(".git/HEAD", "\n")
@@ -23,6 +25,13 @@ var/global/datum/getrev/revdata = new()
 				if(unix_time)
 					date = unix2date(unix_time)
 			break
+
+	var/datum/tgs_api/api = TGS_READ_GLOBAL(tgs)
+
+	if (api)
+		test_merges = api.TestMerges()
+	else
+		test_merges = list()
 
 	world.log << "Running revision:"
 	world.log << branch
@@ -44,3 +53,62 @@ client/verb/showrevinfo()
 		src << "Revision unknown"
 
 	src << "<b>Current Map:</b> [current_map.full_name]"
+
+/datum/getrev/proc/testmerge_overview()
+	if (!test_merges.len)
+		return
+
+	var/list/out = list("<br><center><font color='purple'><b>PRs test-merged for this round:</b><br>")
+
+	for (var/TM in test_merges)
+		out += testmerge_short_overview(TM)
+
+	out += "</font></center><br>"
+
+	return out.Join()
+
+/datum/getrev/proc/generate_greeting_info()
+	if (!test_merges.len)
+		greeting_info = {"<div class="alert alert-info">
+		                  There are currently no test merges loaded onto the server.
+		                  </div>"}
+		return
+
+	var/list/out = list("<p>There are currently [test_merges.len] PRs being tested live.</p>",
+		{"<table class="table table-hover">"}
+	)
+
+	for (var/TM in test_merges)
+		out += testmerge_long_oveview(TM)
+
+	out += "</table>"
+
+	greeting_info = out.Join()
+
+/datum/getrev/proc/testmerge_short_overview(datum/tgs_revision_information/test_merge/tm)
+	. = list()
+
+	. += "<hr><p>PR #[tm.number]: \"[html_encode(tm.title)]\""
+	. += "<br>\tAuthor: [html_encode(tm.author)]"
+
+	if (config.githuburl)
+		. += "<br>\t<a href='[config.githuburl]pull/[tm.number]'>\[Details...\]</a>"
+
+	. += "</p>"
+
+/datum/getrev/proc/testmerge_long_oveview(datum/tgs_revision_information/test_merge/tm)
+	var/divid = "pr[tm.number]"
+
+	. = list()
+	. += {"<tr data-toggle="collapse" data-target="#[divid]" class="clickable">"}
+	. += {"<th>PR #[tm.number] - [html_encode(tm.title)]</th>"}
+	. += {"</tr><tr><td class="hiddenRow"><div id="[divid]" class="collapse">"}
+	. += {"<table class="table">"}
+	. += {"<tr><th>Author:</th><td>[html_encode(tm.author)]</td></tr>"}
+	. += {"<tr><th>Merged:</th><td>[tm.time_merged]</td></tr>"}
+
+	if (config.githuburl)
+		. += {"<tr><td colspan="2"><a href="?JSlink=github;pr=[tm.number]">Link to Github</a></td></tr>"}
+
+	. += {"<tr><th>Description:</th><td>[html_encode(tm.body)]</td></tr>"}
+	. += {"</table></div></td></tr>"}

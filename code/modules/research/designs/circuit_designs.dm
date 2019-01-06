@@ -198,6 +198,13 @@
 	build_path = /obj/item/weapon/circuitboard/autolathe
 	sort_string = "HABAD"
 
+/datum/design/circuit/chem_heater
+	name = "chemistry heater"
+	id = "chem_heater"
+	req_tech = list(TECH_BIO = 2)
+	build_path = /obj/item/weapon/circuitboard/chem_heater
+	sort_string = "HABAF"
+
 /datum/design/circuit/rdservercontrol
 	name = "R&D server control console"
 	id = "rdservercontrol"

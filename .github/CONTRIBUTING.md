@@ -9,6 +9,16 @@ All assets including icons and sound are under a [Creative Commons 3.0 BY-SA](ht
 
 # Github Standards
 
+### Peer Review
+All pull requests are subject to peer review prior to being merged. After said reviews, they are given a final once-over by a maintainer and
+then merged if good.
+
+A **feature** pull request will require *two* reviews, with one of them being a community developer's. There is also a minimum time out of
+*three days* before a feature pull request can be merged. This is to ensure that there is enough time to review and discuss new additions
+from the game.
+
+A **bug fix** pull request will require *two* reviews, if it is to be merged in the first 24 hours, or *one* following the first 24 hours.
+
 ### Prefer Atomic Pull-Requests
 Pull requests should do **one** thing.
 
@@ -19,23 +29,21 @@ to enforce this standard at their discretion.
 Small pull requests allow for easier reverting, easier (and faster!) reviewing and deliberation, and enable
 developers in the future to more easily locate all changes relevant to a potential issue.
 
-### Master & Development Branch Model
-This community operates with two active branches: **master** and **development**.
-The former represents what is being currently hosted on the main server, and the
-latter is used as a staging area for new features and updates. Whenever the master
-branch is updated directly, the changes in question will be pulled to the development
-branch as soon as possible. So it can be expected that the development branch contains
-every commit that's in the master branch, but not vice-versa.
+### Changelogs
+Changelogs are automatically parsed from within the `html/changelogs` folder. A readme file exists there with specific information on how to
+create and manage changelogs. All pull requests which contain player-visible changes are required to have a changelog. Any others, like pull
+requests containing background system tweaks, minor optimizations, admin systems, etcetera, do not necessarily require a changelog.
 
-All branches containing features, refactors, minor adjustments, etcetera, should be
-based off of the **development** branch. Consequently, all such PRs should be targetted
-and merged into the development branch. Where they will then be pulled into master
-with the next feature update.
+Changelogs should be written in a concise and clear manner. There is no need for long winded explanations or too much detail (such as
+specific numbers, values, etcetera) in a changelog. If necessary, the PR can be tagged as **wiki update** for a wiki article to be written
+about it.
 
-PRs targeting **master** should only contain bugfixes, security vulnerability patches,
-and important adjustments to recently implemented features. Due to the fact that the
-development branch can contain commits which are not in the master branch yet, it is
-important that all branches targeting master be based off of the master branch.
+There also exist **IC changelogs**. These are presented in-game as a news article by NanoTrasen, and can be used to provide temporary fluff
+for in-game changes. To make use of these, simply put a IC changelog header into the description of the PR and write up the contents below
+it. An example:
+
+> # IC Changelog
+> A new weapon was commissioned by NanoTrasen. It is currently being tested aboard the NSS Aurora
 
 # Coding Standards
 

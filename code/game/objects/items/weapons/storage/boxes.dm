@@ -104,7 +104,7 @@
 
 /obj/item/weapon/storage/box/survival/fill()
 	..()
-	new /obj/item/clothing/mask/gas/alt( src )
+	new /obj/item/clothing/mask/breath( src )
 	new /obj/item/weapon/tank/emergency_oxygen(src)
 	for(var/obj/item/thing in contents)
 		thing.autodrobe_no_remove = 1
@@ -119,7 +119,7 @@
 
 /obj/item/weapon/storage/box/engineer/fill()
 	..()
-	new /obj/item/clothing/mask/gas/alt( src )
+	new /obj/item/clothing/mask/breath( src )
 	new /obj/item/weapon/tank/emergency_oxygen/engi( src )
 	for(var/obj/item/thing in contents)
 		thing.autodrobe_no_remove = 1
@@ -1095,3 +1095,16 @@
 		new chosen_candy(src)
 
 	make_exact_fit()
+
+
+/obj/item/weapon/storage/box/crabmeat
+	name = "box of crab legs"
+	desc = "A box filled with high-quality crab legs. Shipped to Aurora by popular demand!"
+
+/obj/item/weapon/storage/box/crabmeat/fill()
+	..()
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)

@@ -2346,7 +2346,7 @@
 	reagents.add_reagent("tomatojuice", 10)
 
 /obj/item/weapon/reagent_containers/food/snacks/meatballspagetti
-	name = "spaghetti & meatballs"
+	name = "spaghetti and meatballs"
 	desc = "Now thats a nic'e meatball!"
 	icon_state = "meatballspagetti"
 	trash = /obj/item/trash/plate
@@ -4420,7 +4420,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/pancakes
 	name = "pancakes"
-	desc = "Pancakes with blueberries, delicious."
+	desc = "Pancakes with berries, delicious."
 	icon_state = "pancakes"
 	trash = /obj/item/trash/plate
 	center_of_mass = "x=15;y=11"
@@ -5270,6 +5270,30 @@
 	nutriment_amt = 4
 	nutriment_desc = list("french bread" = 4)
 	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/crabmeat
+	name = "crab legs"
+	desc = "... Coffee? Is that you?"
+	icon_state = "crabmeat"
+	bitesize = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/crabmeat/Initialize()
+	. = ..()
+	reagents.add_reagent("seafood", 2)
+
+/obj/item/weapon/reagent_containers/food/snacks/crab_legs
+	name = "steamed crab legs"
+	desc = "Crab legs steamed and buttered to perfection. One day when the boss gets hungry..."
+	icon_state = "crablegs"
+	nutriment_amt = 2
+	nutriment_desc = list("savory butter" = 2)
+	bitesize = 2
+	trash = /obj/item/trash/plate
+
+/obj/item/weapon/reagent_containers/food/snacks/crab_legs/Initialize()
+	. = ..()
+	reagents.add_reagent("seafood", 6)
+	reagents.add_reagent("sodiumchloride", 1)
 
 //Snacks
 /obj/item/weapon/reagent_containers/food/snacks/cb01
