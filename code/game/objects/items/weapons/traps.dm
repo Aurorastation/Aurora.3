@@ -155,9 +155,8 @@
 /obj/item/weapon/trap/animal/examine(mob/user)
 	..()
 	if(captured)
-		var/datum/L = captured ? captured.resolve() : null
+		var/datum/L = captured.resolve()
 		if (!L)
-			deployed = FALSE
 			return
 		if (isliving(L))
 			var/mob/living/ll = L
@@ -347,6 +346,9 @@
 	var/datum/L = captured ? captured.resolve() : null
 	if (!L)
 		deployed = FALSE
+		captured = null
+		release_time = world.time
+		update_icon()
 		return
 
 	var/msg
