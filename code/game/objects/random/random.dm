@@ -677,6 +677,7 @@
 	icon_state = "gift3"
 	problist = list(
 		/obj/item/clothing/glasses/meson = 1,
+		/obj/item/weapon/trap/animal = 0.8,
 		/obj/item/clothing/glasses/meson/prescription = 0.7,
 		/obj/item/clothing/glasses/material = 0.8,
 		/obj/item/clothing/glasses/sunglasses = 1.5,
@@ -1005,7 +1006,10 @@
 		/obj/item/eightball								= 11,
 		/obj/item/eightball/haunted						= 1,
 		/obj/item/eightball/broken						= 1,
-		/obj/item/weapon/spirit_board					= 5
+		/obj/item/weapon/spirit_board					= 5,
+		/obj/item/device/laser_pointer						= 1
+
+
 	)
 
 /obj/random/arcade/orion

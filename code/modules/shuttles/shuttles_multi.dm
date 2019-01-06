@@ -36,7 +36,7 @@
 			var/datum/computer/file/embedded_program/docking/C = locate(controller_tag)
 
 			if(!istype(C))
-				world << "<span class='danger'>warning: shuttle with docking tag [controller_tag] could not find it's controller!</span>"
+				to_world("<span class='danger'>warning: shuttle with docking tag [controller_tag] could not find it's controller!</span>")
 			else
 				destination_dock_controllers[destination] = C
 
@@ -156,9 +156,8 @@
 	src.add_fingerprint(usr)
 
 	var/datum/shuttle/multi_shuttle/MS = shuttle_controller.shuttles[shuttle_tag]
-	if(!istype(MS)) return
-
-	//world << "multi_shuttle: last_departed=[MS.last_departed], origin=[MS.origin], interim=[MS.interim], travel_time=[MS.move_time]"
+	if(!istype(MS))
+		return
 
 	if(href_list["refresh"])
 		updateUsrDialog()

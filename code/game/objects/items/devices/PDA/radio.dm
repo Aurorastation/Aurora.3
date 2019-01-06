@@ -18,8 +18,6 @@
 	return ..()
 
 /obj/item/radio/integrated/proc/post_signal(var/freq, var/key, var/value, var/key2, var/value2, var/key3, var/value3, s_filter)
-
-	//world << "Post: [freq]: [key]=[value], [key2]=[value2]"
 	var/datum/radio_frequency/frequency = SSradio.return_frequency(freq)
 
 	if(!frequency) return
@@ -56,13 +54,6 @@
 	// create/populate list as they are recvd
 
 /obj/item/radio/integrated/beepsky/receive_signal(datum/signal/signal)
-//		var/obj/item/device/pda/P = src.loc
-
-	/*
-	world << "recvd:[P] : [signal.source]"
-	for(var/d in signal.data)
-		world << "- [d] = [signal.data[d]]"
-	*/
 	if (signal.data["type"] == "secbot")
 		if(!botlist)
 			botlist = new()
@@ -73,8 +64,6 @@
 		if(active == signal.source)
 			var/list/b = signal.data
 			botstatus = b.Copy()
-
-//		if (istype(P)) P.updateSelfDialog()
 
 /obj/item/radio/integrated/beepsky/Topic(href, href_list)
 	..()
@@ -136,13 +125,6 @@
 	// create/populate lists as they are recvd
 
 /obj/item/radio/integrated/mule/receive_signal(datum/signal/signal)
-//		var/obj/item/device/pda/P = src.loc
-
-	/*
-	world << "recvd:[P] : [signal.source]"
-	for(var/d in signal.data)
-		world << "- [d] = [signal.data[d]]"
-	*/
 	if(signal.data["type"] == "mulebot")
 		if(!botlist)
 			botlist = new()

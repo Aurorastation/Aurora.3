@@ -1095,3 +1095,16 @@
 		new chosen_candy(src)
 
 	make_exact_fit()
+
+
+/obj/item/weapon/storage/box/crabmeat
+	name = "box of crab legs"
+	desc = "A box filled with high-quality crab legs. Shipped to Aurora by popular demand!"
+
+/obj/item/weapon/storage/box/crabmeat/fill()
+	..()
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)

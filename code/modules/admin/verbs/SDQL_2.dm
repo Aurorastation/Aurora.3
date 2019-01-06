@@ -9,8 +9,6 @@
 	if(!query_text || length(query_text) < 1)
 		return
 
-	//world << query_text
-
 	var/list/query_list = SDQL2_tokenize(query_text)
 
 	if(!query_list || query_list.len < 1)
@@ -129,22 +127,22 @@
 
 	for(var/item in query_tree)
 		if(istype(item, /list))
-			world << "[spaces]("
+			to_world("[spaces](")
 			SDQL_testout(item, indent + 1)
-			world << "[spaces])"
+			to_world("[spaces])")
 
 		else
-			world << "[spaces][item]"
+			to_world("[spaces][item]")
 
 		if(!isnum(item) && query_tree[item])
 
 			if(istype(query_tree[item], /list))
-				world << "[spaces]    ("
+				to_world("[spaces]    (")
 				SDQL_testout(query_tree[item], indent + 2)
-				world << "[spaces]    )"
+				to_world("[spaces]    )")
 
 			else
-				world << "[spaces]    [query_tree[item]]"
+				to_world("[spaces]    [query_tree[item]]")
 
 
 

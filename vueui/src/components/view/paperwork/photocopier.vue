@@ -6,7 +6,7 @@
       <template v-if="state.gotitem">
         <div class="itemLabel copylabel">Copies to print:</div>
         <div class="copyBlock">
-          {{ state.copies }} <vui-button :disabled="state.copies <= 1" @click="state.copies--">-</vui-button><vui-button :disabled="state.copies >= state.maxcopies" @click="state.copies++">+</vui-button><br>
+          <vui-input-numeric width="2.5em" v-model="state.copies" :min="1" :max="state.maxcopies"/><br>
           <vui-button push-state :params="{copy: 1}">Copy</vui-button>
         </div>
       </template>

@@ -18,11 +18,11 @@
 	if(docking_controller_tag_station)
 		docking_controller_station = locate(docking_controller_tag_station)
 		if(!istype(docking_controller_station))
-			world << "<span class='danger'>warning: shuttle with docking tag [docking_controller_station] could not find it's controller!</span>"
+			to_world("<span class='danger'>warning: shuttle with docking tag [docking_controller_station] could not find it's controller!</span>")
 	if(docking_controller_tag_offsite)
 		docking_controller_offsite = locate(docking_controller_tag_offsite)
 		if(!istype(docking_controller_offsite))
-			world << "<span class='danger'>warning: shuttle with docking tag [docking_controller_offsite] could not find it's controller!</span>"
+			to_world("<span class='danger'>warning: shuttle with docking tag [docking_controller_offsite] could not find it's controller!</span>")
 	if (!location)
 		docking_controller = docking_controller_station
 	else
