@@ -60,7 +60,8 @@
 	inherent_verbs = list(
 		/mob/living/proc/devour,
 		/mob/living/carbon/human/proc/regurgitate,
-		/mob/living/carbon/human/proc/disattach_limb
+		/mob/living/carbon/human/proc/disattach_limb,
+		/mob/living/carbon/human/proc/attach_limb
 	)
 
 	has_organ = list(
