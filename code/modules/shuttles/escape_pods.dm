@@ -1,4 +1,5 @@
 /datum/shuttle/ferry/escape_pod
+	var/capacity = 2
 	var/datum/computer/file/embedded_program/docking/simple/escape_pod/arming_controller
 
 /datum/shuttle/ferry/escape_pod/init_docking_controllers()
@@ -29,6 +30,22 @@
 /datum/shuttle/ferry/escape_pod/can_cancel()
 	return 0
 
+
+/datum/shuttle/ferry/escape_pod/launch(var/user)
+	if (!can_launch()) return
+	var/area/A = get_area(docking_controller.master)
+	var/num_mobs = 0
+	if(A)
+		for(var/mob/living/carbon in A.contents)
+			num_mobs++
+		if((num_mobs > capacity) && prob(50))
+			docking_controller.master.visible_message("[docking_controller.master] states \"<span class='warning'>Warning, escape pod is over capacity! The designated capacity is [capacity]. Forcing to launch may result into crashing of the pod!\"</span>")
+			return
+
+	in_use = user	//obtain an exclusive lock on the shuttle
+
+	process_state = WAIT_LAUNCH
+	undock()
 
 //This controller goes on the escape pod itself
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod

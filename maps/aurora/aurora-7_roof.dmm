@@ -2901,9 +2901,55 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
+"rO" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
 "za" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"Jr" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"Yt" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"YX" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -22074,10 +22120,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ad
+ag
+ag
+aw
 aa
 aa
 aa
@@ -22327,14 +22373,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Jr
+YX
+YX
+eh
+fe
+ah
+ah
+al
 aa
 aa
 aa
@@ -22587,11 +22633,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ae
+ah
+ah
+ah
+al
 aa
 aa
 aa
@@ -22844,11 +22890,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ae
+ah
+ah
+ah
+al
 aa
 aa
 aa
@@ -23101,11 +23147,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ae
+ah
+ah
+ah
+al
 aa
 aa
 aa
@@ -23355,14 +23401,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+rO
+YX
+YX
+Yt
+ah
+ah
+ah
+al
 aa
 aa
 aa
@@ -23609,17 +23655,17 @@ aa
 aa
 dp
 dE
-ab
-ab
-ac
-ac
-ac
-ac
 aa
 aa
 aa
 aa
 aa
+aa
+ae
+ah
+ah
+ah
+al
 aa
 aa
 aa
@@ -23866,17 +23912,17 @@ dp
 dp
 dp
 dI
-ab
-ab
-ac
-ac
-ab
-ac
-ac
-ac
-ac
 aa
 aa
+aa
+aa
+aa
+aa
+ae
+ah
+ah
+ah
+al
 aa
 aa
 aa
@@ -24123,17 +24169,17 @@ aa
 aa
 dE
 dJ
-ab
-ac
-ac
-ab
-ab
-ac
-ac
-ac
-ac
-ac
 aa
+aa
+aa
+aa
+aa
+aa
+ae
+ah
+ah
+ah
+al
 aa
 aa
 aa
@@ -24380,17 +24426,17 @@ aa
 ab
 ab
 ab
-ac
-ac
-ac
-ab
-ab
-ac
-ac
-ac
-ac
-ac
 aa
+aa
+aa
+rO
+YX
+YX
+Yt
+ah
+ah
+ah
+al
 aa
 aa
 aa
@@ -24637,17 +24683,17 @@ aa
 ab
 ab
 ab
-ab
-ac
-ac
-ac
-ab
-ac
-ac
-ac
-ac
 aa
 aa
+aa
+aa
+aa
+aa
+ae
+ah
+ah
+ah
+al
 aa
 aa
 aa
@@ -24890,21 +24936,21 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
-ab
 ac
 ac
 ab
 ab
-ab
-ac
 aa
 aa
 aa
+aa
+aa
+aa
+ae
+ah
+ah
+ah
+al
 aa
 aa
 aa
@@ -25148,20 +25194,20 @@ aa
 aa
 aa
 ab
-ab
-ab
-ab
-ab
-ab
 ac
-ac
-ac
-ac
+ab
+ab
 ab
 aa
 aa
 aa
 aa
+aa
+ae
+ah
+ah
+ah
+al
 aa
 aa
 aa
@@ -25411,14 +25457,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ac
-ab
-ab
-aa
-aa
-aa
+rO
+YX
+YX
+Yt
+ah
+ah
+ah
+al
 aa
 aa
 aa
@@ -25671,11 +25717,11 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
+ae
+ah
+ah
+ah
+al
 aa
 aa
 aa
@@ -25928,11 +25974,11 @@ ab
 ab
 ad
 ag
-ag
-ag
-ag
-ag
-ag
+fe
+ah
+ah
+ah
+fh
 ag
 aw
 aa
