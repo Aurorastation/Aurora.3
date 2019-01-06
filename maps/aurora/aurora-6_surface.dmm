@@ -15620,11 +15620,15 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "CR" = (
-/obj/structure/curtain/open/shower,
-/obj/machinery/shower{
-	icon_state = "shower";
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 4
 	},
+/obj/item/weapon/towel,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "CS" = (
@@ -15785,6 +15789,7 @@
 /area/bridge/levela)
 "Dl" = (
 /obj/machinery/door/airlock{
+	id_tag = "surf_unit_1";
 	name = "Unit 2"
 	},
 /obj/machinery/door/firedoor{
@@ -19837,6 +19842,7 @@
 /obj/machinery/atmospherics/pipe/manifold/visible,
 /turf/simulated/floor/plating,
 /area/bridge/levela)
+<<<<<<< HEAD
 "PY" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -19921,6 +19927,40 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
+=======
+"PU" = (
+/obj/structure/toilet{
+	icon_state = "toilet00";
+	dir = 1
+	},
+/obj/machinery/light/small,
+/obj/machinery/button/remote/airlock{
+	id = "surf_unit_2";
+	name = "Door Bolt Control";
+	pixel_x = 25;
+	pixel_y = 0;
+	req_access = null;
+	specialfunctions = 4
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/crew_quarters/toilet)
+"QL" = (
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/item/weapon/towel,
+/turf/simulated/floor/tiled/freezer,
+/area/crew_quarters/toilet)
+>>>>>>> master
 "Rn" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
@@ -20082,6 +20122,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating,
 /area/bridge/levela)
+<<<<<<< HEAD
 "Ue" = (
 /obj/structure/shuttle/engine/propulsion/burst,
 /turf/simulated/shuttle/wall{
@@ -20126,6 +20167,20 @@
 "UW" = (
 /turf/simulated/wall,
 /area/hallway/secondary/exit/pods)
+=======
+"Us" = (
+/obj/structure/curtain/open/shower,
+/obj/machinery/shower{
+	icon_state = "shower";
+	dir = 4
+	},
+/obj/item/weapon/soap,
+/obj/machinery/door/window/westleft{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/crew_quarters/toilet)
+>>>>>>> master
 "Vk" = (
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
@@ -20899,6 +20954,7 @@
 /area/crew_quarters/toilet)
 "WY" = (
 /obj/machinery/door/airlock{
+	id_tag = "surf_unit_2";
 	name = "Unit 1"
 	},
 /obj/machinery/door/firedoor{
@@ -20929,6 +20985,14 @@
 	dir = 1
 	},
 /obj/machinery/light/small,
+/obj/machinery/button/remote/airlock{
+	id = "surf_unit_1";
+	name = "Door Bolt Control";
+	pixel_x = 25;
+	pixel_y = 0;
+	req_access = null;
+	specialfunctions = 4
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "Xd" = (
@@ -47264,9 +47328,9 @@ Ci
 Cw
 AS
 CR
-CR
-CR
-CR
+Us
+QL
+Us
 AU
 NQ
 sU
@@ -49323,7 +49387,7 @@ WK
 WN
 Cz
 WY
-Xc
+PU
 AU
 tu
 sU

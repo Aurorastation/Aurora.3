@@ -172,8 +172,8 @@
 			//	log_ability_use(user, "advanced encryption hack (FAIL - title: [reporttitle])")
 			//	return
 			log_ability_use(user, "advanced encryption hack (SUCCESS - title: [reporttitle])")
-			world << "<span class='alert'>New [current_map.company_name] Update available at all communication consoles.</span>"
-			world << sound('sound/AI/commandreport.ogg')
+			to_world("<span class='alert'>New [current_map.company_name] Update available at all communication consoles.</span>")
+			to_world(sound('sound/AI/commandreport.ogg'))
 			post_comm_message(reporttitle, reportbody)
 
 /datum/game_mode/malfunction/verb/elite_encryption_hack()

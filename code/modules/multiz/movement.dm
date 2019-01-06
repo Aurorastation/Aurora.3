@@ -35,7 +35,7 @@
 	if (eyeobj)
 		return eyeobj.zMove(direction)
 
-	if (istype(src.loc,/obj/mecha))
+	if(istype(src.loc,/obj/mecha)||istype(src.loc,/obj/machinery/cryopod)||istype(src.loc,/obj/machinery/recharge_station))
 		return FALSE
 
 	// Check if we can actually travel a Z-level.

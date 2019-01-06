@@ -40,7 +40,7 @@ var/global/Holiday = null
 				if(14)							Holiday = "Valentine's Day"
 				if(17)							Holiday = "Random Acts of Kindness Day"
 				if(29)							Holiday = "Leap Day"
-						
+
 
 		if(3)	//Mar
 			switch(DD)
@@ -50,13 +50,13 @@ var/global/Holiday = null
 
 		if(4)	//Apr
 			switch(DD)
-				if(1)							
+				if(1)
 					Holiday = "April Fool's Day"
 					if(YY == 18 && prob(50)) 	Holiday = "Easter"
 				if(12)
 					if(YY == 20) 				Holiday = "Easter"
 				if(20)							Holiday = "Four-Twenty"
-				if(21)			
+				if(21)
 					if(YY == 19)				Holiday = "Easter"
 				if(22)							Holiday = "Earth Day"
 
@@ -74,7 +74,7 @@ var/global/Holiday = null
 					if(YY == 20)						Holiday = "Summer Solstice"
 				if(21)
 					if(YY == (18 || 19)) 				Holiday = "Summer Solstice"
-						
+
 		if(7)	//Jul
 			switch(DD)
 				if(1)							Holiday = "Doctor's Day"
@@ -144,8 +144,8 @@ var/global/Holiday = null
 //Run at the  start of a round
 /proc/Holiday_Game_Start()
 	if(Holiday)
-		world << "<font color='blue'>and...</font>"
-		world << "<h4>Happy [Holiday] Everybody!</h4>"
+		to_world("<font color='blue'>and...</font>")
+		to_world("<h4>Happy [Holiday] Everybody!</h4>")
 		switch(Holiday)			//special holidays
 			if("Easter")
 				Easter_Game_Start()

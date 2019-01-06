@@ -24755,7 +24755,7 @@
 /obj/structure/table/wood,
 /obj/machinery/button/remote/blast_door{
 	id = "tcfl";
-	name = "Heavy Supportl"
+	name = "Heavy Support"
 	},
 /turf/simulated/floor/wood,
 /area/centcom/legion)
@@ -25879,9 +25879,7 @@
 	},
 /area/centcom/extraction_shuttle)
 "vfj" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/weapon/circuitboard/smes,
-/obj/item/weapon/circuitboard/smes,
+/obj/structure/closet/secure_closet/engineering_electrical,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "vfs" = (
