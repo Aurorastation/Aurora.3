@@ -1,4 +1,4 @@
-
+#define UIDEBUG
 /obj/item/device/nanoquikpay
 	name = "\improper NT Quik-Pay"
 	desc = "Swipe you're ID to make direct company purcheses"
@@ -7,6 +7,7 @@
 	var/machine_id = ""
 	var/current_quickpayamount = 0
 	var/current_quickpayitem = ""
+	var/list/items = list()
 
 
 
@@ -109,13 +110,30 @@
 	set category = "Quik-Pay"
 	var/datum/vueui/ui = SSvueui.get_open_ui(usr, src)
 	if (!ui)
-		ui = new(usr, src, "quikpayui", 500, 500, "NT Quik-Pay")
+		ui = new(usr, src, "quikpay-main", 500, 500, "NT Quik-Pay")
 	ui.open()
 
 /obj/item/device/nanoquikpay/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	if(!data)
-		. = data = list("price" = current_quickpayamount, "description" = current_quickpayitem)
+		. = data = list()
 
-	if(data["price"] < 0) 
-		data["price"] = 0
-		. = data
+	VUEUI_SET_CHECK_IFNOTSET(data["items"], items, ., data)
+	VUEUI_SET_CHECK_IFNOTSET(data["tmp_name"], "", ., data)
+	VUEUI_SET_CHECK_IFNOTSET(data["tmp_price"], 0, ., data)
+	VUEUI_SET_CHECK(data["tmp_price"], max(0, data["tmp_price"]), ., data)
+	if(data["tmp_price"] < 0)
+    	data["tmp_price"] = 0
+    	. = data
+
+/obj/item/device/nanoquikpay/Topic(href, href_list)
+	var/datum/vueui/ui = href_list["vueui"]
+	if(!istype(ui))
+		return
+	if(href_list["add"])
+		items[href_list["add"]["name"]] = href_list["add"]["price"]
+		ui.data["items"][href_list["add"]["name"]] = href_list["add"]["price"]
+		. = TRUE
+	if(href_list["remove"])
+		items[href_list["remove"]] = null
+		ui.data["items"][href_list["add"]["name"]] = null
+		. = TRUE
