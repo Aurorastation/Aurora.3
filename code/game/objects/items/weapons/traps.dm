@@ -150,6 +150,7 @@
 	var/list/resources = list(rods = 6)
 	var/spider = TRUE
 	health = 100
+	var/datum/weakref/captured = null
 
 /obj/item/weapon/trap/animal/examine(mob/user)
 	..()
@@ -189,6 +190,7 @@
 					"<b>You hear a loud metallic snap!</b>"
 					)
 				L.forceMove(src)
+				captured = WEAKREF(L)
 				playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
 				deployed = 1
 				update_icon()
@@ -197,6 +199,7 @@
 	else if(istype(AM, /obj/effect/spider/spiderling) && spider) // for spiderlings
 		var/obj/effect/spider/spiderling/S = AM
 		S.forceMove(src)
+		captured = WEAKREF(S)
 		STOP_PROCESSING(SSprocessing, S)
 		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
 		deployed = 1
@@ -333,24 +336,29 @@
 		target = src.loc
 	if(user)
 		visible_message("<span class='notice'>[user] opens \the [src].</span>")
-	for(var/mob/living/L in contents)
-		L.forceMove(target)
-		visible_message("<span class='warning'>[L] runs out of \the [src].</span>")
-		animate_shake()
-		deployed = 0
-		update_icon()
-		src.animate_shake()
-		release_time = world.time
 
-	for(var/obj/effect/spider/spiderling/S in contents) // for spiderlings
+	var/datum/L = captured ? captured.resolve() : null
+	if (!L)
+		deployed = FALSE
+		return
+
+	var/msg
+	if (isliving(L))
+		var/mob/living/ll = L
+		ll.forceMove(target)
+		msg = "<span class='warning'>[ll] runs out of \the [src].</span>"
+	else if (istype(L, /obj/effect/spider/spiderling))
+		var/obj/effect/spider/spiderling/S = L
 		S.forceMove(target)
-		START_PROCESSING(SSprocessing, S)
-		visible_message("<span class='warning'>[S] jumps out of \the [src].</span>")
-		animate_shake()
-		deployed = 0
-		update_icon()
-		src.animate_shake()
-		release_time = world.time
+		msg = "<span class='warning'>[S] jumps out of \the [src].</span>"
+		START_PROCESSING(SSprocessing, L)
+
+	captured = null
+	visible_message(msg)
+	animate_shake()
+	deployed = FALSE
+	update_icon()
+	release_time = world.time
 
 /obj/item/weapon/trap/animal/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/reagent_containers) && contents.len)
@@ -517,18 +525,20 @@
 								"<span class='warning'>You trap [M] inside of the \the [src]!</span>",
 								"<b>You hear a loud metallic snap!</b>"
 								)
+				captured = WEAKREF(M)
 				M.forceMove(src)
 				playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
-				deployed = 1
+				deployed = TRUE
 				update_icon()
 				src.animate_shake()
 
 	else if(istype(target, /obj/effect/spider/spiderling) && spider) // for spiderlings
 		var/obj/effect/spider/spiderling/S = target
+		captured = WEAKREF(S)
 		S.forceMove(src)
 		STOP_PROCESSING(SSprocessing, S)
 		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
-		deployed = 1
+		deployed = TRUE
 		update_icon()
 		src.animate_shake()
 	else
