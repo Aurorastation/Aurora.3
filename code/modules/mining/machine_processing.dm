@@ -43,7 +43,6 @@
 			interact(user)
 	else
 		..()
-		return
 
 /obj/machinery/mineral/processing_unit_console/interact(mob/user)
 
