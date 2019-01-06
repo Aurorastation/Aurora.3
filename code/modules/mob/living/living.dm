@@ -1,4 +1,4 @@
-k//mob verbs are faster than object verbs. See mob/verb/examine.
+//mob verbs are faster than object verbs. See mob/verb/examine.
 /mob/living/verb/pulled(atom/movable/AM as mob|obj in oview(1))
 	set name = "Pull"
 	set category = "Object"
