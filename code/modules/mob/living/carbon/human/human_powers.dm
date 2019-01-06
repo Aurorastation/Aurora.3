@@ -920,7 +920,6 @@
 
 	E.removed(src)
 	E.forceMove(get_turf(src))
-	put_in_active_hand(E)
 
 	update_body()
 	updatehealth()

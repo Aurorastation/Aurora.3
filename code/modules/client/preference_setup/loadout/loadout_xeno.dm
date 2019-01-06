@@ -54,8 +54,8 @@
 
 /datum/gear/autakh_engineering
 	display_name = "engineering grasper (Autakh Unathi)"
-	description = "An Autakha augment limb, this one is outfited with a limited toolkit."
-	path = /obj/item/organ/external/hand/right/autakh/engineering
+	description = "An Autakh augment limb, this one is outfited with a limited toolkit."
+	path = /obj/item/organ/external/hand/right/autakh/tool
 	whitelisted = list("Autakh Unathi")
 	sort_category = "Xenowear - Unathi"
 	cost = 3
@@ -63,8 +63,8 @@
 
 /datum/gear/autakh_engineering
 	display_name = "mining grasper (Autakh Unathi)"
-	description = "An Autakha augment limb, this one is outfited with a mining drill."
-	path = /obj/item/organ/external/hand/right/autakh/mining
+	description = "An Autakh augment limb, this one is outfited with a mining drill."
+	path = /obj/item/organ/external/hand/right/autakh/tool/mining
 	whitelisted = list("Autakh Unathi")
 	sort_category = "Xenowear - Unathi"
 	cost = 3
@@ -72,12 +72,21 @@
 
 /datum/gear/autakh_medical
 	display_name = "medical grasper (Autakh Unathi)"
-	description = "An Autakha augment limb, this one is outfited with a health scanner."
+	description = "An Autakh augment limb, this one is outfited with a health scanner."
 	path = /obj/item/organ/external/hand/right/autakh/medical
 	whitelisted = list("Autakh Unathi")
 	sort_category = "Xenowear - Unathi"
 	cost = 3
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Paramedic", "Medical Resident", "Psychiatrist", "Chemist")
+
+/datum/gear/autakh_security
+	display_name = "security grasper (Autakh Unathi)"
+	description = "An Autakh augment limb, this one is outfited with a eletrocshock weapon."
+	path = /obj/item/organ/external/hand/right/autakh/security
+	whitelisted = list("Autakh Unathi")
+	sort_category = "Xenowear - Unathi"
+	cost = 3
+	allowed_roles = list("Security Officer", "Head of Security", "Warden")
 
 //skrell
 

@@ -244,18 +244,19 @@
 
 //limb implants
 
-/obj/item/organ/external/hand/right/autakh/engineering
+/obj/item/organ/external/hand/right/autakh/tool
 	name = "engineering grasper"
 	action_button_name = "Deploy Mechanical Combitool"
 	force = 5
+	var/augment_type = /obj/item/combitool/robotic
 
-/obj/item/organ/external/hand/right/autakh/engineering/refresh_action_button()
+/obj/item/organ/external/hand/right/autakh/tool/refresh_action_button()
 	. = ..()
 	if(.)
 		action.button_icon_state = "digitool"
 		if(action.button) action.button.UpdateIcon()
 
-/obj/item/organ/external/hand/right/autakh/engineering/attack_self(var/mob/user)
+/obj/item/organ/external/hand/right/autakh/tool/attack_self(var/mob/user)
 	. = ..()
 
 	if(.)
@@ -279,9 +280,8 @@
 		if(is_bruised())
 			spark(get_turf(owner), 3)
 
-		owner.last_special = world.time + 500
-		var/obj/item/combitool/robotic/M = new /obj/item/combitool/robotic(owner)
-		M.creator = owner
+		owner.last_special = world.time + 100
+		var/obj/item/M = new augment_type(owner)
 		owner.put_in_active_hand(M)
 		owner.visible_message("<span class='notice'>\The [M] slides out of \the [owner]'s [src].</span>","<span class='notice'>You deploy \the [M]!</span>")
 
@@ -289,37 +289,18 @@
 	name = "robotic combitool"
 	desc = "An integrated combitool module."
 	icon_state = "digitool"
-	var/mob/living/creator
 
-/obj/item/combitool/robotic/Initialize()
-	. = ..()
-	START_PROCESSING(SSprocessing, src)
+/obj/item/combitool/robotic/throw_at()
+	usr.drop_from_inventory(src)
 
-/obj/item/combitool/robotic/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
-	return ..()
+/obj/item/combitool/robotic/dropped()
+	loc = null
+	qdel(src)
 
-/obj/item/combitool/robotic/dropped(mob/user as mob)
-	QDEL_IN(src, 1)
-
-/obj/item/combitool/robotic/process()
-	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
-		if(istype(loc,/mob/living))
-			var/mob/living/carbon/human/host = loc
-			if(istype(host))
-				for(var/obj/item/organ/external/organ in host.organs)
-					for(var/obj/item/O in organ.implants)
-						if(O == src)
-							organ.implants -= src
-			host.pinned -= src
-			host.embedded -= src
-			host.drop_from_inventory(src)
-		QDEL_IN(src, 1)
-
-
-/obj/item/organ/external/hand/right/autakh/mining
+/obj/item/organ/external/hand/right/autakh/tool/mining
 	name = "engineering grasper"
 	action_button_name = "Deploy Mounted Drill"
+	augment_type = /obj/item/weapon/pickaxe/drill/integrated
 
 /obj/item/organ/external/hand/right/autakh/mining/refresh_action_button()
 	. = ..()
@@ -327,64 +308,15 @@
 		action.button_icon_state = "drill"
 		if(action.button) action.button.UpdateIcon()
 
-/obj/item/organ/external/hand/right/autakh/mining/attack_self(var/mob/user)
-	. = ..()
-
-	if(.)
-
-		if(owner.last_special > world.time)
-			to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
-			return
-
-		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
-			to_chat(owner, "<span class='danger'>You can not use \the [src] in your current state!</span>")
-			return
-
-		if(owner.get_active_hand())
-			to_chat(owner, "<span class='danger'>You must empty your active hand before enabling your [src]!</span>")
-			return
-
-		if(is_broken())
-			to_chat(owner, "<span class='danger'>\The [src] is too damaged to be used!</span>")
-			return
-
-		if(is_bruised())
-			spark(get_turf(owner), 3)
-
-		owner.last_special = world.time + 500
-		var/obj/item/weapon/pickaxe/drill/integrated/M = new /obj/item/weapon/pickaxe/drill/integrated(owner)
-		M.creator = owner
-		owner.put_in_active_hand(M)
-		owner.visible_message("<span class='notice'>\The [M] slides out of \the [owner]'s [src].</span>","<span class='notice'>You deploy \the [M]!</span>")
-
 /obj/item/weapon/pickaxe/drill/integrated
 	name = "integrated mining drill"
-	var/mob/living/creator
 
-/obj/item/weapon/pickaxe/drill/integrated/Initialize()
-	. = ..()
-	START_PROCESSING(SSprocessing, src)
+/obj/item/weapon/pickaxe/drill/integrated/throw_at()
+	usr.drop_from_inventory(src)
 
-/obj/item/weapon/pickaxe/drill/integrated/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
-	return ..()
-
-/obj/item/weapon/pickaxe/drill/integrated/dropped(mob/user as mob)
-	QDEL_IN(src, 1)
-
-/obj/item/weapon/pickaxe/drill/integrated/process()
-	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
-		if(istype(loc,/mob/living))
-			var/mob/living/carbon/human/host = loc
-			if(istype(host))
-				for(var/obj/item/organ/external/organ in host.organs)
-					for(var/obj/item/O in organ.implants)
-						if(O == src)
-							organ.implants -= src
-			host.pinned -= src
-			host.embedded -= src
-			host.drop_from_inventory(src)
-		QDEL_IN(src, 1)
+/obj/item/weapon/pickaxe/drill/integrated/dropped()
+	loc = null
+	qdel(src)
 
 /obj/item/organ/external/hand/right/autakh/medical
 	name = "medical grasper"
@@ -409,10 +341,6 @@
 			to_chat(owner, "<span class='danger'>You can not use \the [src] in your current state!</span>")
 			return
 
-		if(owner.get_active_hand())
-			to_chat(owner, "<span class='danger'>You must empty your active hand before enabling your [src]!</span>")
-			return
-
 		if(is_broken())
 			to_chat(owner, "<span class='danger'>\The [src] is too damaged to be used!</span>")
 			return
@@ -425,7 +353,59 @@
 			to_chat(owner, "<span class='danger'>You must grab someone before trying to analyze their health!</span>")
 			return
 
-		owner.last_special = world.time + 250
+		owner.last_special = world.time + 50
 		if(istype(G.affecting,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = G.affecting
 			health_scan_mob(H, owner)
+
+/obj/item/organ/external/hand/right/autakh/security
+	name = "security grasper"
+	action_button_name = "Activated Integrated Electroshock Weapon"
+
+/obj/item/organ/external/hand/right/autakh/security/refresh_action_button()
+	. = ..()
+	if(.)
+		action.button_icon_state = "placeholder"
+		if(action.button) action.button.UpdateIcon()
+
+/obj/item/organ/external/hand/right/autakh/security/attack_self(var/mob/user)
+	. = ..()
+
+	if(.)
+
+		if(owner.last_special > world.time)
+			to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
+			return
+
+		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
+			to_chat(owner, "<span class='danger'>You can not use \the [src] in your current state!</span>")
+			return
+
+		if(is_broken())
+			to_chat(owner, "<span class='danger'>\The [src] is too damaged to be used!</span>")
+			return
+
+		if(is_bruised())
+			spark(get_turf(owner), 3)
+
+		var/obj/item/weapon/grab/G = owner.get_active_hand()
+		if(!istype(G))
+			to_chat(owner, "<span class='danger'>You must grab someone before trying to use your [src]!</span>")
+			return
+
+		if(owner.nutrition <= 200)
+			to_chat(owner, "<span class='danger'>Your energy reserves are too low to use your [src]!</span>")
+			return
+
+		if(istype(G.affecting,/mob/living/carbon/human))
+
+			var/mob/living/carbon/human/H = G.affecting
+			var/target_zone = check_zone(owner.zone_sel.selecting)
+
+			owner.last_special = world.time + 150
+			owner.adjustNutritionLoss(50)
+
+			if(owner.a_intent == I_HURT)
+				H.electrocute_act(10, owner, def_zone = target_zone)
+			else
+				H.stun_effect_act(0, 50, target_zone, owner)
