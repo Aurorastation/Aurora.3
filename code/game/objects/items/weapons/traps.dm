@@ -154,20 +154,27 @@
 
 /obj/item/weapon/trap/animal/examine(mob/user)
 	..()
-	if(contents.len && isliving(contents[1]))
-		var/message = "<span class='notice'>\The [src] has [contents[1].name] and it is "
-		if(contents[1].stat == DEAD)
-			message += "<span class='danger'>dead</span>"
-		else if(contents[1].stat == UNCONSCIOUS)
-			message += "<span class='warning'>unconscious</span>"
-		else if((contents[1].maxHealth / contents[1].health) == 1)
-			message += "<span class='good'>healthy</span>"
-		else
-			message += "<span class='warning'>wounded</span>"
-		message += ".</span>"
-		to_chat(user, message)
-	else if(contents.len) // spiderling
-		to_chat(user, "<span class='notice'>\The [src] has [contents[1].name] and it is alive.</span>")
+	if(captured)
+		var/datum/L = captured ? captured.resolve() : null
+		if (!L)
+			deployed = FALSE
+			return
+		if (isliving(L))
+			var/mob/living/ll = L
+			var/message = "<span class='notice'>\The [src] has [ll] and it is "
+			if(ll.stat == DEAD)
+				message += "<span class='danger'>dead</span>"
+			else if(ll == UNCONSCIOUS)
+				message += "<span class='warning'>unconscious</span>"
+			else if((ll.maxHealth / ll.health) == 1)
+				message += "<span class='good'>healthy</span>"
+			else
+				message += "<span class='warning'>wounded</span>"
+			message += ".</span>"
+			to_chat(user, message)
+		else if (istype(L, /obj/effect/spider/spiderling))
+			var/obj/effect/spider/spiderling/S = L
+			to_chat(user, "<span class='notice'>\The [src] has [S] and it is alive.</span>")
 	else
 		to_chat(user, "<span class='notice'>\The [src] is empty.</span>")
 
