@@ -1,7 +1,7 @@
 /datum/species/unathi/autakh
-	name = "Autakh Unathi"
+	name = "Aut'akh Unathi"
 	short_name = "aut"
-	name_plural = "Autakh Unathi"
+	name_plural = "Aut'akh Unathi"
 
 	icobase = 'icons/mob/human_races/r_autakh.dmi'
 	deform = 'icons/mob/human_races/r_def_lizard.dmi'

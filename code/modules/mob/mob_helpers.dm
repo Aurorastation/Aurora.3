@@ -41,12 +41,12 @@
 		switch(A:get_species())
 			if ("Unathi")
 				return 1
-			if("Autakh Unathi")
+			if("Aut'akh Unathi")
 				return 1
 	return 0
 
-/proc/isutakh(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Autakh Unathi"))
+/proc/isautakh(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Aut'akh Unathi"))
 		return 1
 	return 0
 
