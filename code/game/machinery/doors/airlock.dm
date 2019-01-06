@@ -917,7 +917,7 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/proc/CanChainsaw(var/obj/item/weapon/material/twohanded/chainsaw/ChainSawVar)
 	return (ChainSawVar.powered && density && hashatch)
 
-/obj/machinery/door/airlock/attackby(var/obj/C, mob/user as mob)
+/obj/machinery/door/airlock/attackby(var/obj/item/C, mob/user as mob)
 	if(!istype(usr, /mob/living/silicon))
 		if(src.isElectrified())
 			if(src.shock(user, 75))

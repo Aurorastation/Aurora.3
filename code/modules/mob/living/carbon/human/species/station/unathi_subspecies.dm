@@ -3,10 +3,10 @@
 	short_name = "aut"
 	name_plural = "Autakh Unathi"
 
-	icobase = 'icons/mob/human_races/r_lizard.dmi'
+	icobase = 'icons/mob/human_races/r_autakh.dmi'
 	deform = 'icons/mob/human_races/r_def_lizard.dmi'
-	tail = "sogtail"
-	tail_animation = 'icons/mob/species/unathi/tail.dmi'
+	tail = "autakh"
+	tail_animation = null
 
 	slowdown = 0.5
 	brute_mod = 0.7

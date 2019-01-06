@@ -37,7 +37,16 @@
 	return 0
 
 /proc/isunathi(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Unathi"))
+	if(istype(A, /mob/living/carbon/human))
+		switch(A:get_species())
+			if ("Unathi")
+				return 1
+			if("Autakh Unathi")
+				return 1
+	return 0
+
+/proc/isutakh(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Autakh Unathi"))
 		return 1
 	return 0
 

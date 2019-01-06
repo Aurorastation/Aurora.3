@@ -15,7 +15,7 @@
 	s_tone = null
 	skin_color = null
 	hair_color = null
-	if(status & ORGAN_ROBOT && !(isipc(human)))
+	if(status & ORGAN_ROBOT && !(isipc(human)) && !(isutakh(human)))
 		return
 	if(species && human.species && species.name != human.species.name)
 		return
