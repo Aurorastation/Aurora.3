@@ -14,7 +14,7 @@
 	toxins_mod = 0.8
 	fall_mod = 1.1
 
-	economic_modifier = 5
+	economic_modifier = 4
 
 	secondary_langs = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA, LANGUAGE_EAL)
 
@@ -23,7 +23,7 @@
 
 	rarity_value = 4
 
-	metabolism_mod = 1
+	metabolism_mod = 2
 
 	eyes_are_impermeable = TRUE
 	breakcuffs = list(MALE, FEMALE)
@@ -36,13 +36,7 @@
 	halloss_message = "encounters a hardware fault and suddenly reboots."
 	halloss_message_self = "ERROR: Unrecoverable machine check exception.<BR>System halted, rebooting..."
 
-	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the Uuosa-Eso \
-	system, which roughly translates to 'burning mother'. A relatively recent addition to the galactic stage, they \
-	suffered immense turmoil after the cultural and economic disruption following first contact with humanity.<br><br>\
-	With their homeworld of Moghes suffering catastrophic climate change from a nuclear war in the recent past, the \
-	Hegemony that rules the majority of the species struggles to find itself in a galaxy filled with dangers far \
-	greater than themselves. They mostly hold ideals of honesty, virtue, martial combat and spirituality above all \
-	else.They prefer warmer temperatures than most species."
+	blurb = "INSERT LORE HERE."
 
 	cold_level_1 = 250 //Default 260 - Lower is better
 	cold_level_2 = 210 //Default 200
@@ -51,11 +45,6 @@
 	heat_level_1 = 380 //Default 360 - Higher is better
 	heat_level_2 = 420 //Default 400
 	heat_level_3 = 1000 //Default 1000
-
-	hazard_high_pressure = HAZARD_HIGH_PRESSURE   // Dangerously high pressure.
-	warning_high_pressure = WARNING_HIGH_PRESSURE // High pressure warning.
-	warning_low_pressure = WARNING_LOW_PRESSURE   // Low pressure warning.
-	hazard_low_pressure = HAZARD_LOW_PRESSURE     // Dangerously low pressure.
 
 	inherent_verbs = list(
 		/mob/living/proc/devour,
@@ -96,8 +85,6 @@
 	flags = NO_CHUBBY
 
 	flesh_color = "#575757"
-
-	reagent_tag = IS_UNATHI
 
 	heat_discomfort_level = 290
 	heat_discomfort_strings = list(
