@@ -4330,6 +4330,7 @@
 /obj/machinery/status_display{
 	pixel_x = -32
 	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/security/investigations)
 "hA" = (
@@ -4460,6 +4461,7 @@
 	pixel_x = 0;
 	pixel_y = -32
 	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/security/training)
 "hN" = (
@@ -5585,6 +5587,10 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
+/obj/structure/sign/nosmoking_2{
+	pixel_x = 0;
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "jW" = (
@@ -5848,6 +5854,10 @@
 	icon_state = "alarm0";
 	pixel_x = -22;
 	pixel_y = 0
+	},
+/obj/structure/sign/nosmoking_2{
+	pixel_x = 0;
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
@@ -6228,6 +6238,7 @@
 	pixel_y = 30;
 	req_access = list(5)
 	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "la" = (
@@ -6420,6 +6431,10 @@
 "lt" = (
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/disposal,
+/obj/structure/sign/nosmoking_2{
+	pixel_x = 0;
+	pixel_y = 32
+	},
 /turf/simulated/floor/wood,
 /area/medical/psych)
 "lu" = (
@@ -6652,6 +6667,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 30
 	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lO" = (
@@ -6728,6 +6744,10 @@
 	dir = 1
 	},
 /obj/structure/flora/pottedplant,
+/obj/structure/sign/nosmoking_2{
+	pixel_x = 0;
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lY" = (
@@ -7196,6 +7216,23 @@
 /obj/effect/decal/remains,
 /turf/simulated/floor/plating,
 /area/security/training)
+"vD" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
 "vZ" = (
 /obj/structure/table/rack,
 /obj/item/weapon/ladder_mobile,
@@ -8280,6 +8317,21 @@
 /obj/structure/lattice,
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/maintenance/interstitial_construction_site)
+"PC" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled,
+/area/security/training)
 "Qu" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -8351,6 +8403,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/interstitial)
+"UR" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white_full";
+	dir = 8
+	},
+/obj/structure/sign/nosmoking_2{
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
 "Vb" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -42699,7 +42762,7 @@ es
 dA
 eN
 dA
-dA
+PC
 fq
 dA
 dA
@@ -48384,7 +48447,7 @@ ih
 jJ
 jP
 hZ
-kh
+UR
 ks
 kG
 kR
@@ -48925,7 +48988,7 @@ aa
 aa
 aa
 jK
-ma
+vD
 jK
 aa
 aa
@@ -49182,7 +49245,7 @@ aa
 aa
 aa
 jK
-jK
+vD
 jK
 aa
 aa
@@ -49438,9 +49501,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+jK
+vD
+jK
 aa
 aa
 aa
@@ -49695,9 +49758,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+jK
+vD
+jK
 aa
 aa
 aa
@@ -49952,9 +50015,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+jK
+vD
+jK
 aa
 aa
 aa
@@ -50209,9 +50272,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+jK
+vD
+jK
 aa
 aa
 aa
@@ -50466,9 +50529,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+jK
+ma
+jK
 aa
 aa
 aa
@@ -50723,9 +50786,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+jK
+jK
+jK
 aa
 aa
 aa

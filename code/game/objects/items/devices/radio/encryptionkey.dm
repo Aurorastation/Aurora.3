@@ -136,6 +136,10 @@
 	name = "\improper ERT radio encryption key"
 	channels = list("Response Team" = 1, "Science" = 1, "Command" = 1, "Medical" = 1, "Engineering" = 1, "Security" = 1, "Supply" = 1, "Service" = 1)
 
+/obj/item/device/encryptionkey/onlyert
+	name = "\improper ERT radio encryption key"
+	channels = list("Response Team" = 1)
+
 /obj/item/device/encryptionkey/entertainment
 	name = "entertainment radio key"
 	channels = list("Entertainment" = 1)

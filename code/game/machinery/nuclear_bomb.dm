@@ -365,11 +365,11 @@ var/bomb_set
 	if(SSticker.mode)
 		SSticker.mode.explosion_in_progress = 0
 		if(off_station == 1)
-			world << "<b>A nuclear device was set off, but the explosion was out of reach of the station!</b>"
+			to_world("<b>A nuclear device was set off, but the explosion was out of reach of the station!</b>")
 		else if(off_station == 2)
-			world << "<b>A nuclear device was set off, but the device was not on the station!</b>"
+			to_world("<b>A nuclear device was set off, but the device was not on the station!</b>")
 		else
-			world << "<b>The station was destoyed by the nuclear blast!</b>"
+			to_world("<b>The station was destoyed by the nuclear blast!</b>")
 
 		SSticker.mode.station_was_nuked = (off_station<2)	//offstation==1 is a draw. the station becomes irradiated and needs to be evacuated.
 														//kinda shit but I couldn't  get permission to do what I wanted to do.

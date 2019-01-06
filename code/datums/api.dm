@@ -782,7 +782,7 @@ proc/api_update_command_database()
 /datum/topic_command/restart_round/run_command(queryparams)
 	var/senderkey = sanitize(queryparams["senderkey"]) //Identifier of the sender (Ckey / Userid / ...)
 
-	world << "<font size=4 color='#ff2222'>Server restarting by remote command.</font>"
+	to_world("<font size=4 color='#ff2222'>Server restarting by remote command.</font>")
 	log_and_message_admins("World restart initiated remotely by [senderkey].")
 	feedback_set_details("end_error","remote restart")
 
@@ -892,8 +892,8 @@ proc/api_update_command_database()
 	if(reportannounce == 1)
 		command_announcement.Announce(reportbody, reporttitle, new_sound = 'sound/AI/commandreport.ogg', do_newscast = 1, msg_sanitized = 1);
 	if(reportannounce == 0)
-		world << "<span class='alert'>New NanoTrasen Update available at all communication consoles.</span>"
-		world << sound('sound/AI/commandreport.ogg')
+		to_world("<span class='alert'>New NanoTrasen Update available at all communication consoles.</span>")
+		to_world(sound('sound/AI/commandreport.ogg'))
 
 
 	log_admin("[senderkey] has created a command report via the api: [reportbody]",admin_key=senderkey)

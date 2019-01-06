@@ -1,6 +1,7 @@
 #define HOLD_CASINGS	0 //do not do anything after firing. Manual action, like pump shotguns, or guns that want to define custom behaviour
 #define EJECT_CASINGS	1 //drop spent casings on the ground after firing
 #define CYCLE_CASINGS 	2 //experimental: cycle casings, like a revolver. Also works for multibarrelled guns
+#define DELETE_CASINGS	3 //deletes the casing, used in caseless ammunition guns or something
 
 /obj/item/weapon/gun/projectile
 	name = "gun"
@@ -95,6 +96,8 @@
 				G.gunshot_residue = chambered.caliber
 
 	switch(handle_casings)
+		if(DELETE_CASINGS)
+			qdel(chambered)
 		if(EJECT_CASINGS) //eject casing onto ground.
 			chambered.forceMove(get_turf(src))
 		if(CYCLE_CASINGS) //cycle the casing back to the end.
