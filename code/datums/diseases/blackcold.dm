@@ -16,10 +16,6 @@
 	switch(stage)
 		if(2)
 
-			if(affected_mob.lying && prob(20))  //added until sleeping is fixed --Blaank
-				affected_mob << "<span class='notice'>You feel better.</span>"
-				stage--
-				return
 			if(prob(1))
 				affected_mob.emote("sneeze")
 			if(prob(1))
@@ -33,13 +29,10 @@
 				if(prob(20))
 					affected_mob.adjustToxLoss(1)
 					affected_mob.updatehealth()
+					affected_mob.adjustHalLoss(20)
 
 		if(3)
 
-			if(affected_mob.lying && prob(5))  //added until sleeping is fixed
-				affected_mob << "<span class='notice'>You feel slightly better.</span>"
-				stage--
-				return
 			if(prob(1))
 				affected_mob.emote("sneeze")
 			if(prob(1))
@@ -48,26 +41,27 @@
 				affected_mob << "<span class='warning'>Your muscles ache.</span>"
 				if(prob(20))
 					affected_mob.take_organ_damage(1)
-                    affected_mob.adjustHalLoss(20)
-                    affected_mob.say( pick( list("AAAARRRGGHGHHHH", "...ffff.a.aahhh", "*groans*", "euaaycch!") ) )
+					affected_mob.adjustHalLoss(20)
+					affected_mob.say( pick( list("AAAARRRGGHGHHHH", "...ffff.a.aahhh", "*groans*", "euaaycch!") ) )
 			if(prob(1))
 				affected_mob << "<span class='warning'>Your stomach hurts.</span>"
 				if(prob(20))
 					affected_mob.adjustToxLoss(1)
 					affected_mob.updatehealth()
-                    affected_mob.adjustHalLoss(20)
-			if(prob(1))
-				affected_mob << "<span class='warning'>You slowly slip into a deep sleep.</span>"
-                affected_mob.paralysis = 300
-                affected_mob.vomit()
+					affected_mob.adjustHalLoss(20)
+			if(prob(5))
+				affected_mob << "<span class='warning'>You slowly fall asleep sleep.</span>"
+				affected_mob.paralysis = 3
+				affected_mob.adjustOxyLoss(5)
+				affected_mob.vomit()
 
-			    if(prob(1))
-				    affected_mob << "<span class='warning'>You wake up in a deep sweat, screaming in agony.</span>"
-                    affected_mob.paralysis = 0
-                    affected_mob.vomit()
-				    affected_mob.dizziness += 20
-				    affected_mob.confused += 20
-				    affected_mob.Jitter(20)
-				    affected_mob.adjustHalLoss(20)
+			if(prob(10))
+				affected_mob << "<span class='warning'>You break into a deep sweat, screaming in agony.</span>"
+				affected_mob.vomit()
+				affected_mob.dizziness += 20
+				affected_mob.confused += 20
+				affected_mob.Jitter(20)
+				affected_mob.adjustHalLoss(20)
+				affected_mob.say( pick( list("AAAARRRGGHGHHHH", "...ffff.a.aahhh", "*groans*", "euaaycch!") ) )
 
 	return
