@@ -21,6 +21,8 @@
 	universal_understand = 0
 	universal_speak = 0
 	holder_type = /obj/item/weapon/holder/diona
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/dionanymph
+	meat_amount = 2
 	maxHealth = 85
 	pass_flags = PASSTABLE
 

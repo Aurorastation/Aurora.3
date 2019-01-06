@@ -34,5 +34,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Add mice to the butcher list"
-  - bugfix: "Fixed the infinite corgi glitch by modifying the recipie."
+  - rscadd: "Add mice to the butcher list."
+  - rscadd: "Eating mice now has side effects."
+  - bugfix: "Fixed the infinite corgi dog/mice burger/diona roast glitch by modifying the recipies."

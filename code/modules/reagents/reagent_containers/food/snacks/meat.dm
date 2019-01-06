@@ -95,11 +95,20 @@
 /obj/item/weapon/reagent_containers/food/snacks/meat/mice
 	name = "mice meat"
 	icon_state = "chickenbreast"
-	desc = "You have reached the epitome of poor, eating the poor mice of the station."
+	desc = "You have reached the epitome of poorness: eating the station's vermin."
 
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/mice/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 5)
-	reagents.add_reagent("toxin", 2)
+	reagents.add_reagent("rattoxin", 1)
 	src.bitesize = 1.5
+
+/obj/item/weapon/reagent_containers/food/snacks/meat/dionanymph
+	name = "diona nymph meat"
+	desc = "A slab of weird green meat."
+	icon_state = "plantmeat"
+
+/obj/item/weapon/reagent_containers/food/snacks/meat/dionanymph/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 6)
