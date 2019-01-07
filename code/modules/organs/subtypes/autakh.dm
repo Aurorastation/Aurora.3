@@ -195,7 +195,7 @@
 
 			owner.adjustBruteLoss(rand(5,25))
 			owner.adjustToxLoss(rand(5,25))
-			owner.reagents.add_reagent("tramadol", 5)
+			owner.reagents.add_reagent("paracetamol", 5)
 			owner.reagents.add_reagent("inaprovaline", 5)
 
 /obj/item/organ/haemodynamic
