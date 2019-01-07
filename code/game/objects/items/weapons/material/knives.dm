@@ -1,5 +1,5 @@
 /*
- * Knives. They stab your eyes out. Copypasted the screwdriver code
+ * Knives. They stab your eyes out, and fit into boots. Copypasted the screwdriver code
  */
 /obj/item/weapon/material/knife
 	name = "kitchen knife"
@@ -9,19 +9,20 @@
 	flags = CONDUCT
 	sharp = 1
 	edge = 1
+	var/active = 1 // For butterfly knives
 	force_divisor = 0.15 // 9 when wielded with hardness 60 (steel)
 	matter = list(DEFAULT_WALL_MATERIAL = 12000)
 	origin_tech = list(TECH_MATERIAL = 1)
 	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	unbreakable = 1
-	var/grip = 0 // You don't stab yourself when you're clumsy if you have a secure grip.
 
-/obj/item/weapon/material/knife/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone, var/grip)
-	if(target_zone != "eyes" && target_zone != "head")
-		return ..()
-	if((CLUMSY in user.mutations) && prob(50) && !grip)
-		M = user
-	return eyestab(M,user)
+/obj/item/weapon/material/knife/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
+	if(active == 1)
+		if(target_zone != "eyes" && target_zone != "head")
+			return ..()
+		if((CLUMSY in user.mutations) && prob(50))
+			M = user
+		return eyestab(M,user)
 
 /obj/item/weapon/material/knife/ritual
 	name = "ritual knife"
@@ -53,26 +54,27 @@
 
 /obj/item/weapon/material/knife/trench
 	name = "trench knife"
-	desc = "A military knife used to slash and stab enemies in close quarters. Has a secure, knuckles-like grip."
+	desc = "A military knife used to slash and stab enemies in close quarters."
 	force_divisor = 0.4
+	icon = 'icons/obj/weapons.dmi'
 	icon_state = "trench"
 	item_state = "knife"
 	w_class = 3
 	applies_material_colour = 0
 	slot_flags = SLOT_BELT
-	grip = 1
 
 //Butterfly knives stab your eyes out too!
 
 /obj/item/weapon/material/knife/butterfly
 	name = "butterfly knife"
 	desc = "A basic metal blade concealed in a lightweight plasteel grip. Small enough when folded to fit in a pocket."
-	icon_state = "butterflyknife"
-	item_state = null
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "butterfly"
 	hitsound = null
-	var/active = 0
+	active = 0
 	w_class = 2
 	attack_verb = list("patted", "tapped")
+	applies_material_colour = 0
 	force_divisor = 0.25 // 15 when wielded with hardness 60 (steel)
 	thrown_force_divisor = 0.25 // 5 when thrown with weight 20 (steel)
 
@@ -82,8 +84,8 @@
 		sharp = 1
 		..() //Updates force.
 		throwforce = max(3,force-3)
-		hitsound = 'sound/weapons/bladeslice.ogg'
 		icon_state += "_open"
+		hitsound = 'sound/weapons/bladeslice.ogg'
 		w_class = 3
 		attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	else
@@ -98,6 +100,7 @@
 /obj/item/weapon/material/knife/butterfly/switchblade
 	name = "switchblade"
 	desc = "A classic switchblade with gold engraving. Just holding it makes you feel like a gangster."
+	icon = 'icons/obj/weapons.dmi'
 	icon_state = "switchblade"
 	unbreakable = 1
 
