@@ -166,7 +166,7 @@
 					mover.Bump(thing)
 					continue
 				else
-					if(!firstbump || ((thing.layer > firstbump.layer || thing.flags_1 & ON_BORDER_1) && !(firstbump.flags_1 & ON_BORDER_1)))
+					if(!firstbump || ((thing.layer > firstbump.layer || thing.flags & ON_BORDER) && !(firstbump.flags & ON_BORDER)))
 						firstbump = thing
 	if(QDELETED(mover))					//Mover deleted from Cross/CanPass/Bump, do not proceed.
 		return FALSE
@@ -186,7 +186,7 @@
 			continue
 		var/atom/movable/thing = i
 		if(!thing.Uncross(mover, newloc))
-			if(thing.flags_1 & ON_BORDER_1)
+			if(thing.flags & ON_BORDER)
 				mover.Bump(thing)
 			if(!CHECK_BITFIELD(mover.movement_type, UNSTOPPABLE))
 				return FALSE

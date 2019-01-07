@@ -448,3 +448,6 @@
 
 /atom/movable/onDropInto(var/atom/movable/AM)
 	return loc // If onDropInto returns something, then dropInto will attempt to drop AM there.
+
+/atom/proc/Bumped(atom/movable/AM)
+	set waitfor = FALSE

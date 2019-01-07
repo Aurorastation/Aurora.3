@@ -264,7 +264,7 @@
 
 	if(!direct)
 		direct = get_dir(src, newloc)
-	setDir(direct)
+	set_dir(direct)
 
 	if(!loc.Exit(src, newloc))
 		return
@@ -359,7 +359,7 @@
 						. = step(src, SOUTH)
 			if(moving_diagonally == SECOND_DIAG_STEP)
 				if(!.)
-					setDir(first_step_dir)
+					set_dir(first_step_dir)
 				else if (!inertia_moving)
 					inertia_next_move = world.time + inertia_move_delay
 					newtonian_move(direct)
