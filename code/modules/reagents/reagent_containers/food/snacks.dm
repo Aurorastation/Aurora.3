@@ -2186,6 +2186,20 @@
 	. = ..()
 	reagents.add_reagent("tomatojuice", 10)
 
+/obj/item/weapon/reagent_containers/food/snacks/soup/bluespace
+	name = "bluespace tomato soup"
+	desc = "A scientific experiment turned into a possibly unsafe meal."
+	icon_state = "spiral_soup"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#0066FF"
+	nutriment_desc = list("soup" = 5)
+	nutriment_amt = 5
+	bitesize = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/soup/bluespace/Initialize()
+	. = ..()
+	reagents.add_reagent("bluespace_dust", 5)
+
 /obj/item/weapon/reagent_containers/food/snacks/rofflewaffles
 	name = "roffle waffles"
 	desc = "Waffles from Roffle. Co."
@@ -5196,7 +5210,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/adhomian_can
 	name = "canned fastshouters meat"
-	desc = "A piece of salted N�hanzafu's meat stored inside a metal can."
+	desc = "A piece of salted fastshouter's meat stored inside a metal can."
 	icon_state = "canned"
 	bitesize = 2
 	trash = /obj/item/trash/can
@@ -5295,10 +5309,36 @@
 	reagents.add_reagent("seafood", 6)
 	reagents.add_reagent("sodiumchloride", 1)
 
+/obj/item/weapon/reagent_containers/food/snacks/banana_split
+	name = "banana split"
+	desc = "A dessert made with icecream and a banana."
+	icon_state = "banana_split"
+	nutriment_amt = 5
+	nutriment_desc = list("icecream" = 2)
+	bitesize = 2
+	trash = /obj/item/trash/snack_bowl
+
+/obj/item/weapon/reagent_containers/food/snacks/banana_split/Initialize()
+	. = ..()
+	reagents.add_reagent("banana", 3)
+
+/obj/item/weapon/reagent_containers/food/snacks/tuna
+	name = "\improper Tuna Snax"
+	desc = "A packaged fish snack, guaranteed to do not contain space carp."
+	icon_state = "tuna"
+	filling_color = "#FFDEFE"
+	center_of_mass = list("x"=17, "y"=13)
+	bitesize = 2
+	trash = /obj/item/trash/tuna
+
+/obj/item/weapon/reagent_containers/food/snacks/tuna/Initialize()
+	. = ..()
+	reagents.add_reagent("seafood", 4)
+
 //Snacks
 /obj/item/weapon/reagent_containers/food/snacks/cb01
 	name = "tau ceti bar"
-	desc = "A dark chocolate caramel and nougat bar made famous in biesel."
+	desc = "A dark chocolate caramel and nougat bar made famous in Biesel."
 	filling_color = "#552200"
 	icon_state = "cb01"
 	nutriment_amt = 4
@@ -5387,7 +5427,7 @@
 	reagents.add_reagent("sugar", 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/cb07
-	name = "martain bar"
+	name = "martian bar"
 	desc = "Dark chocolate with a nougat and caramel center. Known as the first chocolate bar grown and produced on Mars."
 	filling_color = "#552200"
 	icon_state = "cb07"
