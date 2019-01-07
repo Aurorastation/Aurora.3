@@ -20,7 +20,7 @@
 	if(!pressing)
 		var/outcome_path
 
-		if(istype(W, /obj/item/clothing/glasses/material))
+		if(istype(W, /obj/item/clothing/glasses/material) || istype (W,/obj/item/clothing/glasses/meson))
 			outcome_path = /obj/item/rig_module/vision/meson
 
 		if(istype(W, /obj/item/weapon/tank/jetpack))
@@ -42,6 +42,7 @@
 			outcome_path = /obj/item/rig_module/mounted/thermalldrill
 
 		if(!outcome_path)
+			..()
 			return
 
 		user << "<span class='notice'>You start feeding [W] into \the [src]</span>"
@@ -59,4 +60,6 @@
 				use_power(500)
 				pressing = 0
 				update_icon()
-	..()
+
+	else
+		..()
