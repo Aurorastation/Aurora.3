@@ -20,7 +20,7 @@
 	if(!pressing)
 		var/outcome_path
 
-		if(istype(W, /obj/item/clothing/glasses/material))
+		if(istype(W, /obj/item/clothing/glasses/material) || istype (W,/obj/item/clothing/glasses/meson))
 			outcome_path = /obj/item/rig_module/vision/meson
 
 		if(istype(W, /obj/item/weapon/tank/jetpack))

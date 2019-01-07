@@ -40,4 +40,5 @@ delete-after: True
 changes: 
   - bugfix: "The ore redemption console now accepts IDs straight from your hand instead of crying out for mercy."
   - bugfix: "The RIG module press was oiled! Now you don't have to shove your jetpacks in violently to make a module."
+  - tweak: "Speaking of the RIG module press, now you can also use optical meson scanners to acquire the hardsuit meson/material scanners."
   - bugfix: "Security personnel have become 0.1% less violent and now do not shove their IDs into the security records console with as much force."
