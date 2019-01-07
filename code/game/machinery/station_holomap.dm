@@ -69,11 +69,11 @@
 	startWatching(user)
 
 // Let people bump up against it to watch
-/obj/machinery/station_map/CollidedWith(var/atom/movable/AM)
+/obj/machinery/station_map/Bumped(var/atom/movable/AM)
 	if(!watching_mob && isliving(AM) && AM.loc == loc)
 		startWatching(AM)
 
-// In order to actually get CollidedWith() we need to block movement.  We're (visually) on a wall, so people
+// In order to actually get Bumped() we need to block movement.  We're (visually) on a wall, so people
 // couldn't really walk into us anyway.  But in reality we are on the turf in front of the wall, so bumping
 // against where we seem is actually trying to *exit* our real loc
 /obj/machinery/station_map/CheckExit(atom/movable/mover as mob|obj, turf/target as turf)

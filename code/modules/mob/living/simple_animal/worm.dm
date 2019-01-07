@@ -110,7 +110,7 @@
 				previous.Move(attachementNextPosition)
 			update_icon()
 
-	Collide(atom/obstacle)
+	Bump(atom/obstacle)
 		. = ..()
 		if(currentlyEating != obstacle)
 			currentlyEating = obstacle

@@ -223,11 +223,11 @@
 		return
 	return
 
-/obj/effect/beam/i_beam/Collide()
+/obj/effect/beam/i_beam/Bump()
 	. = ..()
 	qdel(src)
 
-/obj/effect/beam/i_beam/CollidedWith()
+/obj/effect/beam/i_beam/Bumped()
 	..()
 	hit()
 

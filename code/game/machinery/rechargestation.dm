@@ -200,7 +200,7 @@
 	if(icon_update_tick == 0)
 		build_overlays()
 
-/obj/machinery/recharge_station/CollidedWith(var/mob/living/silicon/robot/R)
+/obj/machinery/recharge_station/Bumped(var/mob/living/silicon/robot/R)
 	go_in(R)
 
 /obj/machinery/recharge_station/proc/go_in(var/mob/M)

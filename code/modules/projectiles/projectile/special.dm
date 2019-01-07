@@ -115,7 +115,7 @@
 	nodamage = 1
 	check_armour = "bullet"
 
-/obj/item/projectile/meteor/Collide(atom/A)
+/obj/item/projectile/meteor/Bump(atom/A)
 	if(A == firer)
 		loc = A.loc
 		return

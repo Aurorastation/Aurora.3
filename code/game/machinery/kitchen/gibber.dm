@@ -37,7 +37,7 @@
 		log_misc("a [src] didn't find an input plate.")
 		return
 
-/obj/machinery/gibber/autogibber/CollidedWith(var/atom/A)
+/obj/machinery/gibber/autogibber/Bumped(var/atom/A)
 	if(!input_plate) return
 
 	if(ismob(A))

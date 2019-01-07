@@ -39,7 +39,7 @@
 			unattach()
 		return 0
 
-/obj/vehicle/train/Collide(atom/Obstacle)
+/obj/vehicle/train/Bump(atom/Obstacle)
 	. = ..()
 	if(!istype(Obstacle, /atom/movable))
 		return

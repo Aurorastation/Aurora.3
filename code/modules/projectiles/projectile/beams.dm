@@ -71,7 +71,7 @@
 	icon_state = "pulse1_bl"
 	var/life = 20
 
-/obj/item/projectile/beam/pulse/heavy/Collide(atom/A)
+/obj/item/projectile/beam/pulse/heavy/Bump(atom/A)
 	A.bullet_act(src, def_zone)
 	src.life -= 10
 	if(life <= 0)

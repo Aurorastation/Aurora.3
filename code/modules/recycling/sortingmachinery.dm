@@ -386,7 +386,7 @@
 /obj/machinery/disposal/deliveryChute/update()
 	return
 
-/obj/machinery/disposal/deliveryChute/CollidedWith(var/atom/movable/AM) //Go straight into the chute
+/obj/machinery/disposal/deliveryChute/Bumped(var/atom/movable/AM) //Go straight into the chute
 	if(istype(AM, /obj/item/projectile) || istype(AM, /obj/effect))	return
 	switch(dir)
 		if(NORTH)

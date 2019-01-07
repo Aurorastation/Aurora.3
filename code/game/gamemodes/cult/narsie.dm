@@ -84,7 +84,7 @@ var/global/list/narsie_list = list()
 				M.apply_effect(3, STUN)
 
 
-/obj/singularity/narsie/large/Collide(atom/A)
+/obj/singularity/narsie/large/Bump(atom/A)
 	. = ..()
 	if(!cause_hell) return
 	if(isturf(A))
@@ -92,7 +92,7 @@ var/global/list/narsie_list = list()
 	else if(istype(A, /obj/structure/cult))
 		qdel(A)
 
-/obj/singularity/narsie/large/CollidedWith(atom/A)
+/obj/singularity/narsie/large/Bumped(atom/A)
 	if(!cause_hell) return
 	if(isturf(A))
 		narsiewall(A)

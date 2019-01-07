@@ -103,15 +103,15 @@
 	..()
 	update_stats()
 
-/obj/vehicle/train/cargo/engine/Collide(atom/Obstacle)
+/obj/vehicle/train/cargo/engine/Bump(atom/Obstacle)
 	var/obj/machinery/door/D = Obstacle
 	var/mob/living/carbon/human/H = load
 	if(istype(D) && istype(H))
-		H.Collide(D)		//a little hacky, but hey, it works, and respects access rights
+		H.Bump(D)		//a little hacky, but hey, it works, and respects access rights
 
 	. = ..()
 
-/obj/vehicle/train/cargo/trolley/Collide(atom/Obstacle)
+/obj/vehicle/train/cargo/trolley/Bump(atom/Obstacle)
 	if(!lead)
 		return //so people can't knock others over by pushing a trolley around
 	. = ..()

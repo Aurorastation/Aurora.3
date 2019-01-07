@@ -143,11 +143,11 @@
 			if (propelled)
 				for (var/mob/O in src.loc)
 					if (O != occupant)
-						Collide(O)
+						Bump(O)
 			else
 				unbuckle_mob()
 
-/obj/structure/bed/chair/office/Collide(atom/A)
+/obj/structure/bed/chair/office/Bump(atom/A)
 	. = ..()
 	if(!buckled_mob)
 		return

@@ -116,7 +116,7 @@ obj/machinery/gateway/centerstation/process()
 
 
 //okay, here's the good teleporting stuff
-/obj/machinery/gateway/centerstation/CollidedWith(atom/movable/M as mob|obj)
+/obj/machinery/gateway/centerstation/Bumped(atom/movable/M as mob|obj)
 	if(!ready || !active || !awaygate)
 		return
 
@@ -216,7 +216,7 @@ obj/machinery/gateway/centerstation/process()
 	toggleoff()
 
 
-/obj/machinery/gateway/centeraway/CollidedWith(atom/movable/M as mob|obj)
+/obj/machinery/gateway/centeraway/Bumped(atom/movable/M as mob|obj)
 	if(!ready || !active)
 		return
 

@@ -223,6 +223,6 @@
 	else
 		STOP_PROCESSING(SSprocessing, src)
 
-/obj/effect/shadow_wight/Collide(var/atom/obstacle)
+/obj/effect/shadow_wight/Bump(var/atom/obstacle)
 	. = ..()
 	obstacle << "<span class='warning'>You feel a chill run down your spine!</span>"

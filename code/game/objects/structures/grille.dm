@@ -20,7 +20,7 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/structure/grille/CollidedWith(atom/user)
+/obj/structure/grille/Bumped(atom/user)
 	if(ismob(user))
 		shock(user, 70)
 

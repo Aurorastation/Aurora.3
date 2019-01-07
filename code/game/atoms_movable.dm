@@ -372,20 +372,16 @@
 
 	if(.)
 		Moved(oldloc, direct)
-	if(. && pulling && pulling == pullee && pulling != moving_from_pull) //we were pulling a thing and didn't lose it during our move.
-		if(pulling.anchored)
-			stop_pulling()
-		else
-			var/pull_dir = get_dir(src, pulling)
-			//puller and pullee more than one tile away or in diagonal position
-			if(get_dist(src, pulling) > 1 || (moving_diagonally != SECOND_DIAG_STEP && ((pull_dir - 1) & pull_dir)))
-				pulling.moving_from_pull = src
-				pulling.Move(T, get_dir(pulling, T)) //the pullee tries to reach our previous position
-				pulling.moving_from_pull = null
-			check_pulling()
+
+	if ((oldloc != loc && oldloc && oldloc.z == z))
+		last_move = get_dir(oldloc, loc)
+
+	move_speed = world.time - src.l_move_time
+	l_move_time = world.time
+	m_flag = 1
 
 	last_move = direct
-	setDir(direct)
+	set_dir(direct)
 	if(. && has_buckled_mobs() && !handle_buckled_mob_movement(loc,direct)) //movement failed due to buckled mob(s)
 		return FALSE
 
@@ -420,22 +416,15 @@
 // You probably want CanPass()
 /atom/movable/Cross(atom/movable/AM)
 	. = TRUE
-	SEND_SIGNAL(src, COMSIG_MOVABLE_CROSS, AM)
 	return CanPass(AM, AM.loc, TRUE)
 
 //oldloc = old location on atom, inserted when forceMove is called and ONLY when forceMove is called!
 /atom/movable/Crossed(atom/movable/AM, oldloc)
-	SEND_SIGNAL(src, COMSIG_MOVABLE_CROSSED, AM)
 
 /atom/movable/Uncross(atom/movable/AM, atom/newloc)
 	. = ..()
-	if(SEND_SIGNAL(src, COMSIG_MOVABLE_UNCROSS, AM) & COMPONENT_MOVABLE_BLOCK_UNCROSS)
-		return FALSE
 	if(isturf(newloc) && !CheckExit(AM, newloc))
 		return FALSE
-
-/atom/movable/Uncrossed(atom/movable/AM)
-	SEND_SIGNAL(src, COMSIG_MOVABLE_UNCROSSED, AM)
 
 /atom/movable/Bump(atom/A)
 	if(!A)

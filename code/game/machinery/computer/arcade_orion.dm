@@ -328,7 +328,7 @@
 				event_info = "You don't find anything onboard..."
 		if(ORION_TRAIL_COLLISION)
 			event_info = ""
-			event_desc = "You've collided with a passing meteor, breaching your hull!"
+			event_desc = "You've Bumpd with a passing meteor, breaching your hull!"
 			if(prob(10))
 				event_info = "Your cargo hold was breached!<BR>"
 				change_resource(rand(4,5),-1)

@@ -118,7 +118,7 @@
 	if(. && !base_spread && isturf(loc))
 		for(var/mob/living/M in loc)
 			if(M.lying || !M.CanPass(src, loc)) //Bump if lying or if we would normally Bump.
-				if(Collide(M)) //Bump will make sure we don't hit a mob multiple times
+				if(Bump(M)) //Bump will make sure we don't hit a mob multiple times
 					return
 
 /* short-casing projectiles, like the kind used in pistols or SMGs */

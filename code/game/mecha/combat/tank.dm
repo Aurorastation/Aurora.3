@@ -41,7 +41,7 @@
 	internal_tank = new /obj/machinery/portable_atmospherics/canister/air/cold(src)
 	return internal_tank
 
-/obj/mecha/combat/tank/Collide(var/atom/movable/AM)
+/obj/mecha/combat/tank/Bump(var/atom/movable/AM)
 	. = ..()
 	if(!occupant)
 		return

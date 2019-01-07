@@ -117,7 +117,7 @@
 
 	..(message, null, verb)
 
-/mob/living/bot/Collide(atom/A)
+/mob/living/bot/Bump(atom/A)
 	if(on && botcard && istype(A, /obj/machinery/door))
 		var/obj/machinery/door/D = A
 		if(!istype(D, /obj/machinery/door/firedoor) && !istype(D, /obj/machinery/door/blast) && D.check_access(botcard))

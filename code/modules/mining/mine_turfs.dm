@@ -143,7 +143,7 @@ var/list/mineral_can_smooth_with = list(
 	if(emitter_blasts_taken > 2) // 3 blasts per tile
 		GetDrilled()
 
-/turf/simulated/mineral/CollidedWith(AM)
+/turf/simulated/mineral/Bumped(AM)
 	. = ..()
 	if(istype(AM,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = AM
@@ -246,7 +246,7 @@ var/list/mineral_can_smooth_with = list(
 			var/datum/find/F = finds[1]
 			if(excavation_level + P.excavation_amount > F.excavation_required)
 				//Chance to destroy / extract any finds here
-				fail_message = ". <b>[pick("There is a crunching noise","[W] collides with some different rock","Part of the rock face crumbles away","Something breaks under [W]")]</b>"
+				fail_message = ". <b>[pick("There is a crunching noise","[W] Bumps with some different rock","Part of the rock face crumbles away","Something breaks under [W]")]</b>"
 
 		if(fail_message)
 			user << "<span class='warning'>You start [P.drill_verb][fail_message ? fail_message : ""].</span>"

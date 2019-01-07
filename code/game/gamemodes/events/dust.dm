@@ -93,7 +93,7 @@ The "dust" will damage the hull of the station causin minor hull breaches.
 	touch_map_edge()
 		qdel(src)
 
-	Collide(atom/A)
+	Bump(atom/A)
 		. = ..()
 		spawn(0)
 			if(prob(50))

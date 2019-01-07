@@ -65,7 +65,7 @@
 		return 0
 	. = ..()
 
-/obj/effect/effect/water/Collide(atom/A)
+/obj/effect/effect/water/Bump(atom/A)
 	var/turf/T = get_turf(A)
 	wet_things(T)
 	return ..()

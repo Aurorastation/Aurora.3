@@ -104,7 +104,7 @@
 /mob/living/carbon/slime/proc/reset_atkcooldown()
 	Atkcool = FALSE
 
-/mob/living/carbon/slime/Collide(atom/movable/AM as mob|obj, yes)
+/mob/living/carbon/slime/Bump(atom/movable/AM as mob|obj, yes)
 	if (now_pushing)
 		return
 

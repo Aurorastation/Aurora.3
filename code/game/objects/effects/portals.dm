@@ -10,7 +10,7 @@
 	var/creator = null
 	anchored = 1.0
 
-/obj/effect/portal/CollidedWith(mob/M as mob|obj)
+/obj/effect/portal/Bumped(mob/M as mob|obj)
 	set waitfor = FALSE
 	src.teleport(M)
 

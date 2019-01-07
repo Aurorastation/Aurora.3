@@ -371,7 +371,7 @@
 	user.apply_effect(150, IRRADIATE, blocked = user.getarmor(null, "rad"))
 
 
-/obj/machinery/power/supermatter/CollidedWith(atom/AM as mob|obj)
+/obj/machinery/power/supermatter/Bumped(atom/AM as mob|obj)
 	if(!AM.simulated)
 		return
 	if(istype(AM, /obj/effect))

@@ -6,10 +6,10 @@
 	climbable = 1
 	throwpass = 1
 
-/obj/structure/dueling_table/no_collide
+/obj/structure/dueling_table/no_Bump
 	density = 0
 
-/obj/structure/dueling_table/no_collide/above_layer
+/obj/structure/dueling_table/no_Bump/above_layer
 	layer = ABOVE_MOB_LAYER
 
 /obj/effect/decal/battlemonsters_logo

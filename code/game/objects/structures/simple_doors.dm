@@ -66,7 +66,7 @@
 /obj/structure/simple_door/get_material()
 	return material
 
-/obj/structure/simple_door/CollidedWith(atom/user)
+/obj/structure/simple_door/Bumped(atom/user)
 	..()
 	if(!state)
 		return TryToSwitchState(user)

@@ -35,7 +35,7 @@
 		if(istype(west, /turf/simulated/floor))
 			new /obj/machinery/conveyor(west, WEST, 1)
 
-/obj/machinery/transformer/CollidedWith(var/atom/movable/AM)
+/obj/machinery/transformer/Bumped(var/atom/movable/AM)
 	// HasEntered didn't like people lying down.
 	if(ishuman(AM))
 		// Only humans can enter from the west side, while lying down.

@@ -84,7 +84,7 @@
 		secondary_effect.process()
 
 	if(pulledby)
-		CollidedWith(pulledby)
+		Bumped(pulledby)
 
 	//if either of our effects rely on environmental factors, work that out
 	var/trigger_cold = 0
@@ -254,7 +254,7 @@
 		if(secondary_effect && secondary_effect.trigger == TRIGGER_FORCE && prob(25))
 			secondary_effect.ToggleActivate(0)
 
-/obj/machinery/artifact/CollidedWith(M as mob|obj)
+/obj/machinery/artifact/Bumped(M as mob|obj)
 	..()
 	if(istype(M,/obj))
 		if(M:throwforce >= 10)

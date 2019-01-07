@@ -20,7 +20,7 @@
 		icon_state = "gigadrill_mov"
 		user << "<span class='notice'>You press a button and [src] shudders to life.</span>"
 
-/obj/machinery/giga_drill/Collide(atom/A)
+/obj/machinery/giga_drill/Bump(atom/A)
 	. = ..()
 	if(active && !drilling_turf)
 		if(istype(A,/turf/simulated/mineral))

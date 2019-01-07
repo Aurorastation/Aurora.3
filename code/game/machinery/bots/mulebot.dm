@@ -674,7 +674,7 @@
 	return
 
 // called when bot bumps into anything
-/obj/machinery/bot/mulebot/Collide(var/atom/obs)
+/obj/machinery/bot/mulebot/Bump(var/atom/obs)
 	if(!wires.MobAvoid())		//usually just bumps, but if avoidance disabled knock over mobs
 		var/mob/M = obs
 		if(ismob(M))

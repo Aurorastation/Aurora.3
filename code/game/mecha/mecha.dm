@@ -465,7 +465,7 @@
 		playsound(src,stepsound,40,1)
 	return result
 
-/obj/mecha/Collide(var/atom/obstacle)
+/obj/mecha/Bump(var/atom/obstacle)
 	. = ..()
 //	src.inertia_dir = null
 	if(istype(obstacle, /obj))
@@ -478,11 +478,11 @@
 		else if(!O.anchored)
 			step(obstacle,src.dir)
 		else //I have no idea why I disabled this
-			obstacle.CollidedWith(src)
+			obstacle.Bumped(src)
 	else if(istype(obstacle, /mob))
 		step(obstacle,src.dir)
 	else
-		obstacle.CollidedWith(src)
+		obstacle.Bumped(src)
 	return
 
 ///////////////////////////////////

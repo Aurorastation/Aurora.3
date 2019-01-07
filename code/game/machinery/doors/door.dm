@@ -136,7 +136,7 @@
 		return 0
 	return 1
 
-/obj/machinery/door/CollidedWith(atom/AM)
+/obj/machinery/door/Bumped(atom/AM)
 	. = ..()
 	if(p_open || operating) return
 	if (!AM.simulated) return

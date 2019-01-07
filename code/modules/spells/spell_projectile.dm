@@ -43,7 +43,7 @@
 		qdel(src)
 	return
 
-/obj/item/projectile/spell_projectile/Collide(atom/A)
+/obj/item/projectile/spell_projectile/Bump(atom/A)
 	if(loc && carried)
 		prox_cast(carried.choose_prox_targets(user = carried.holder, spell_holder = src))
 	return 1

@@ -184,7 +184,7 @@
 	com = null
 	return ..()
 
-/obj/machinery/teleport/hub/CollidedWith(M as mob|obj)
+/obj/machinery/teleport/hub/Bumped(M as mob|obj)
 	if (src.icon_state == "tele1")
 		teleport(M)
 		use_power(5000)
@@ -392,7 +392,7 @@
 		icon_state = "controller"
 
 
-/obj/effect/laser/Collide()
+/obj/effect/laser/Bump()
 	. = ..()
 	src.range--
 

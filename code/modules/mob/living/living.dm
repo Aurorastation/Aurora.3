@@ -52,7 +52,7 @@ default behaviour is:
 /mob/living
 	var/tmp/last_push_notif
 
-/mob/living/Collide(atom/movable/AM)
+/mob/living/Bump(atom/movable/AM)
 	spawn
 		if (now_pushing || !loc)
 			return

@@ -193,7 +193,7 @@
 
 	return ..()
 
-/obj/structure/stairs/CollidedWith(atom/movable/A)
+/obj/structure/stairs/Bumped(atom/movable/A)
 	// This is hackish but whatever.
 	var/turf/target = get_step(GetAbove(A), dir)
 	if(target.Enter(A, src))

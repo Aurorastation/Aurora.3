@@ -383,7 +383,7 @@
 		willfully_sleeping = 1
 		usr.sleeping = 20 //Short nap
 
-/mob/living/carbon/Collide(atom/A)
+/mob/living/carbon/Bump(atom/A)
 	if(now_pushing)
 		return
 	. = ..()

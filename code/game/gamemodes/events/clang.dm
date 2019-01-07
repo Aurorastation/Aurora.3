@@ -16,7 +16,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 	density = 1
 	anchored = 1
 
-	Collide(atom/clong)
+	Bump(atom/clong)
 		. = ..()
 		if(istype(clong, /turf/simulated/shuttle)) //Skip shuttles without actually deleting the rod
 			return

@@ -54,7 +54,7 @@
 // Proc: Bumped()
 // Parameters: 1 (AM - Atom that tried to walk through this object)
 // Description: If we are open returns zero, otherwise returns result of parent function.
-/obj/machinery/door/blast/CollidedWith(atom/AM)
+/obj/machinery/door/blast/Bumped(atom/AM)
 	if(!density)
 		return ..()
 	else

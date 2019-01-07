@@ -57,7 +57,7 @@
 	update_nearby_tiles()
 	return ..()
 
-/obj/machinery/door/window/CollidedWith(atom/movable/AM as mob|obj)
+/obj/machinery/door/window/Bumped(atom/movable/AM as mob|obj)
 	if (istype(AM, /obj))
 		var/mob/living/bot/bot = AM
 		if(istype(bot))

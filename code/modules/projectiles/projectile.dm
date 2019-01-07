@@ -118,7 +118,7 @@
 	L.apply_effect(irradiate, IRRADIATE, L.getarmor(null, "rad")) //radiation protection is handled separately from other armour types.
 	return 1
 
-//called when the projectile stops flying because it collided with something
+//called when the projectile stops flying because it Bumpd with something
 /obj/item/projectile/proc/on_impact(var/atom/A)
 	return
 
@@ -201,7 +201,7 @@
 
 	return TRUE
 
-/obj/item/projectile/Collide(atom/A)
+/obj/item/projectile/Bump(atom/A)
 	. = ..()
 	if(A == src)
 		return FALSE	//no.
@@ -225,8 +225,8 @@
 			var/obj/item/weapon/grab/G = locate() in M
 			if(G && G.state >= GRAB_NECK)
 				visible_message("<span class='danger'>\The [M] uses [G.affecting] as a shield!</span>")
-				if(Collide(G.affecting))
-					return //If Collide() returns 0 (keep going) then we continue on to attack M.
+				if(Bump(G.affecting))
+					return //If Bump() returns 0 (keep going) then we continue on to attack M.
 
 			passthrough = !attack_mob(M, distance)
 		else
@@ -346,7 +346,7 @@
 /obj/item/projectile/Crossed(atom/movable/AM) //A mob moving on a tile with a projectile is hit by it.
 	..()
 	if(isliving(AM) && (AM.density || AM == original) && !(pass_flags & PASSMOB))
-		Collide(AM)
+		Bump(AM)
 
 /obj/item/projectile/Initialize()
 	. = ..()
@@ -388,7 +388,7 @@
 	if(isturf(loc))
 		hitscan_last = loc
 	if(can_hit_target(original, permutated))
-		Collide(original, TRUE)
+		Bump(original, TRUE)
 	Range()
 
 //Returns true if the target atom is on our current turf and above the right layer
