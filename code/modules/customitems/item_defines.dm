@@ -2621,7 +2621,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "mira_skirt"
 	contained_sprite = TRUE
 
-/obj/item/weapon/reagent_containers/food/drinks/flask/fluff/mira_beaker //Alchemist Flask - Mira Akhandi - queenofyugoslavia
+/obj/item/weapon/reagent_containers/glass/beaker/fluff/mira_beaker //Alchemist Flask - Mira Akhandi - queenofyugoslavia
 	name = "alchemist flask"
 	desc = "A large bottle used to mix chemicals inside."
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
