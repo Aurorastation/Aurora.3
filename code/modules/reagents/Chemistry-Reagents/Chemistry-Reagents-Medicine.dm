@@ -1357,6 +1357,7 @@
 	color = "#8b0000"
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "bitterness"
+	fallback_specific_heat = 1
 
 //Secret Chems
 /datum/reagent/elixir
