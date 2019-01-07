@@ -253,6 +253,11 @@
 	if (. && hud_used && client && get_turf(client.eye) == destination)
 		hud_used.update_parallax_values()
 
+/atom/movable/proc/onTransitZ(old_z,new_z)
+	for (var/item in src) // Notify contents of Z-transition. This can be overridden IF we know the items contents do not care.
+		var/atom/movable/AM = item
+		AM.onTransitZ(old_z,new_z)
+
 ////////////////////////////////////////
 // Here's where we rewrite how byond handles movement except slightly different
 // To be removed on step_ conversion
@@ -301,10 +306,6 @@
 ////////////////////////////////////////
 
 /atom/movable/Move(atom/newloc, direct)
-	var/atom/movable/pullee = pulling
-	var/turf/T = loc
-	if(!moving_from_pull)
-		check_pulling()
 	if(!loc || !newloc)
 		return FALSE
 	var/atom/oldloc = loc
@@ -360,9 +361,6 @@
 			if(moving_diagonally == SECOND_DIAG_STEP)
 				if(!.)
 					set_dir(first_step_dir)
-				else if (!inertia_moving)
-					inertia_next_move = world.time + inertia_move_delay
-					newtonian_move(direct)
 			moving_diagonally = 0
 			return
 
@@ -382,14 +380,12 @@
 
 	last_move = direct
 	set_dir(direct)
-	if(. && has_buckled_mobs() && !handle_buckled_mob_movement(loc,direct)) //movement failed due to buckled mob(s)
-		return FALSE
 
 //Called after a successful Move(). By this point, we've already moved
 /atom/movable/proc/Moved(atom/OldLoc, Dir, Forced = FALSE)
 	// Events.
 	if (moved_event.listeners_assoc[src])
-		moved_event.raise_event(src, old_loc, loc)
+		moved_event.raise_event(src, OldLoc, loc)
 
 	// Parallax.
 	if (contained_mobs)
