@@ -2472,3 +2472,65 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	H.drop_from_inventory(src)
 	qdel(src)
+
+
+/obj/item/clothing/glasses/threedglasses/fluff/grunnus_glasses //3D glasses - Paul Grunnus - moom241
+	desc = "A pair of old, beat up looking glasses, with red and blue lenses. Pretty archaic, but some might call it fashionable."
+	icon = 'icons/obj/custom_items/grunnus_glasses.dmi'
+	icon_state = "grunnus_glasses"
+	item_state = "grunnus_glasses"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/under/dress/fluff/ameline_dress //Dominian Culinary Dress - Ameline Hemory - dasfox
+	name = "traditional jumper dress"
+	desc = " The latest in Dominian dresses, this piece of clothing is similar to those worn by chefs on the planet of Moroz. With a pleated skirt and detachable sleeves, \
+	it is on the less modest end of Morozi fashion."
+	icon = 'icons/obj/custom_items/ameline_dress.dmi'
+	icon_state = "ameline_dress"
+	item_state = "ameline_dress"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/head/fluff/aavs_mask //Reflective Mask - Aavs Guwan - dronzthewolf
+	name = "reflective mask"
+	desc = "This odd mask and hood combination covers the wearer, and seems to be made of a one-way dome mirror and some old cloth or rope."
+	icon = 'icons/obj/custom_items/aavs_mask.dmi'
+	icon_state = "aavs_mask"
+	item_state = "aavs_mask"
+	contained_sprite = TRUE
+	flags_inv = HIDEEARS|HIDEFACE
+	body_parts_covered = HEAD|FACE|EYES
+
+
+/obj/item/clothing/accessory/fluff/krin_shirt //Skull Shirt - Krin Volqux - paradoxspace
+	name = "skull shirt"
+	desc = "A shirt carrying the familiar skeletal logo of the Skrellian punk band \"GLORSH YOU ASSHOLE\" This appears to be for their 2461 \"Tri-Qyu Express\" tour."
+	icon = 'icons/obj/custom_items/krin_clothing.dmi'
+	icon_state = "krin_shirt"
+	item_state = "krin_shirt"
+
+/obj/item/clothing/suit/storage/fluff/krin_jacket //Polychromatic Jacket - Krin Volqux - paradoxspace
+	name = "polychromatic jacket"
+	desc = "What appears to be a modified canvas jacket, covered in small polychromatic patches and aftermarket spikes in holo colors, changing often. The keen eye can spot a \"Fourth Incident\" patch on the chest."
+	icon = 'icons/obj/custom_items/krin_clothing.dmi'
+	icon_state = "krin_jacket"
+	item_state = "krin_jacket"
+	contained_sprite = TRUE
+
+/obj/item/clothing/shoes/fluff/krin_shoes //Knee-high High-tops - Krin Volqux - paradoxspace
+	name = "knee-high high-tops"
+	desc = "These highest-tops stretch all the way up to the knees and then some. Drawn on the side in small Skrellian print is \"High tech, low life.\""
+	icon = 'icons/obj/custom_items/krin_clothing.dmi'
+	item_state = "krin_shoes"
+	icon_state = "krin_shoes"
+	contained_sprite = TRUE
+
+/obj/item/weapon/storage/backpack/fluff/krin_bag //Broken Pack - Krin Volqux - paradoxspace
+	name = "broken pack"
+	desc = "What appears to be a technologically-advanced backpack, the electronics are fried from a distant malfunction. It smells like a disposals track. \
+	A small \"Original Conglomerate\" patch has been applied to the strap, a popular moisturewave Idol group. It reads \"Not Dead Yet.\" next to a Neaera in a spacesuit."
+	icon = 'icons/obj/custom_items/krin_clothing.dmi'
+	item_state = "krin_bag"
+	icon_state = "krin_bag"
+	contained_sprite = TRUE
