@@ -26,6 +26,7 @@
 #include "code\__defines\damage_organs.dm"
 #include "code\__defines\dna.dm"
 #include "code\__defines\dview.dm"
+#include "code\__defines\flags.dm"
 #include "code\__defines\gamemode.dm"
 #include "code\__defines\hydroponics.dm"
 #include "code\__defines\items_clothing.dm"

@@ -54,11 +54,6 @@
 /atom/proc/on_reagent_change()
 	return
 
-// This is called when AM collides with us.
-/atom/proc/CollidedWith(atom/movable/AM)
-	set waitfor = FALSE
-	return
-
 // Convenience proc to see if a container is open for chemistry handling
 // returns true if open
 // false if closed

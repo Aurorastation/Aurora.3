@@ -459,3 +459,7 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define GET_BELOW(A) (HAS_BELOW(A:z) ? get_step(A, DOWN) : null)
 
 #define NULL_OR_EQUAL(self,other) (!(self) || (self) == (other))
+
+// Diagonal movement
+#define FIRST_DIAG_STEP 1
+#define SECOND_DIAG_STEP 2

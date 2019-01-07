@@ -131,49 +131,67 @@
 		step(user.pulling, get_dir(user.pulling.loc, src))
 	return 1
 
-/turf/Enter(atom/movable/mover as mob|obj, atom/forget as mob|obj|turf|area)
+/turf/CanPass(atom/movable/mover, turf/target)
+	if(!target)
+		return FALSE
+
+	if(istype(mover)) // turf/Enter(...) will perform more advanced checks
+		return !density
+
+	crash_with("Non movable passed to turf CanPass : [mover]")
+	return FALSE
+
+//There's a lot of QDELETED() calls here if someone can figure out how to optimize this but not runtime when something gets deleted by a Bump/CanPass/Cross call, lemme know or go ahead and fix this mess - kevinz000
+/turf/Enter(atom/movable/mover, atom/oldloc)
 	if(movement_disabled && usr.ckey != movement_disabled_exception)
 		usr << "<span class='warning'>Movement is admin-disabled.</span>" //This is to identify lag problems
 		return
+	// Do not call ..()
+	// Byond's default turf/Enter() doesn't have the behaviour we want with Bump()
+	// By default byond will call Bump() on the first dense object in contents
+	// Here's hoping it doesn't stay like this for years before we finish conversion to step_
+	var/atom/firstbump
+	var/CanPassSelf = CanPass(mover, src)
+	if(CanPassSelf || CHECK_BITFIELD(mover.movement_type, UNSTOPPABLE))
+		for(var/i in contents)
+			if(QDELETED(mover))
+				return FALSE		//We were deleted, do not attempt to proceed with movement.
+			if(i == mover || i == mover.loc) // Multi tile objects and moving out of other objects
+				continue
+			var/atom/movable/thing = i
+			if(!thing.Cross(mover))
+				if(QDELETED(mover))		//Mover deleted from Cross/CanPass, do not proceed.
+					return FALSE
+				if(CHECK_BITFIELD(mover.movement_type, UNSTOPPABLE))
+					mover.Bump(thing)
+					continue
+				else
+					if(!firstbump || ((thing.layer > firstbump.layer || thing.flags_1 & ON_BORDER_1) && !(firstbump.flags_1 & ON_BORDER_1)))
+						firstbump = thing
+	if(QDELETED(mover))					//Mover deleted from Cross/CanPass/Bump, do not proceed.
+		return FALSE
+	if(!CanPassSelf)	//Even if mover is unstoppable they need to bump us.
+		firstbump = src
+	if(firstbump)
+		mover.Bump(firstbump)
+		return CHECK_BITFIELD(mover.movement_type, UNSTOPPABLE)
+	return TRUE
 
-	..()
-
-	if (!mover || !isturf(mover.loc))
-		return 1
-
-	//First, check objects to block exit that are not on the border
-	for(var/obj/obstacle in mover.loc)
-		if(!(obstacle.flags & ON_BORDER) && (mover != obstacle) && (forget != obstacle))
-			if(!obstacle.CheckExit(mover, src))
-				mover.Collide(obstacle)
-				return 0
-
-	//Now, check objects to block exit that are on the border
-	for(var/obj/border_obstacle in mover.loc)
-		if((border_obstacle.flags & ON_BORDER) && (mover != border_obstacle) && (forget != border_obstacle))
-			if(!border_obstacle.CheckExit(mover, src))
-				mover.Collide(border_obstacle)
-				return 0
-
-	//Next, check objects to block entry that are on the border
-	for(var/obj/border_obstacle in src)
-		if(border_obstacle.flags & ON_BORDER)
-			if(!border_obstacle.CanPass(mover, mover.loc, 1, 0) && (forget != border_obstacle))
-				mover.Collide(border_obstacle)
-				return 0
-
-	//Then, check the turf itself
-	if (!src.CanPass(mover, src))
-		mover.Collide(src)
-		return 0
-
-	//Finally, check objects/mobs to block entry that are not on the border
-	for(var/atom/movable/obstacle in src)
-		if(!(obstacle.flags & ON_BORDER))
-			if(!obstacle.CanPass(mover, mover.loc, 1, 0) && (forget != obstacle))
-				mover.Collide(obstacle)
-				return 0
-	return 1 //Nothing found to block so return success!
+/turf/Exit(atom/movable/mover, atom/newloc)
+	. = ..()
+	if(!. || QDELETED(mover))
+		return FALSE
+	for(var/i in contents)
+		if(i == mover)
+			continue
+		var/atom/movable/thing = i
+		if(!thing.Uncross(mover, newloc))
+			if(thing.flags_1 & ON_BORDER_1)
+				mover.Bump(thing)
+			if(!CHECK_BITFIELD(mover.movement_type, UNSTOPPABLE))
+				return FALSE
+		if(QDELETED(mover))
+			return FALSE		//We were deleted.
 
 var/const/enterloopsanity = 100
 
