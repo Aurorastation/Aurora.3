@@ -17,11 +17,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	switch(icon_state)
 		if("pocket_watch_open")
 			icon_state = "pocket_watch_close"
-			usr << "You close \the [src]."
+			to_chat(user, "<span class='notice'>You close \the [src].</span>")
 			desc = "The design of this pocket watch signals its age, however it seems to retain its pristine quality. The cover is gold, and there appears to be an elegant crest on the outside of the lid."
 		if("pocket_watch_close")
 			icon_state = "pocket_watch_open"
-			usr << "You open \the [src]."
+			to_chat(user, "<span class='notice'>You open \the [src].</span>")
 			desc = "Inside the pocket watch, there is a collection of numbers, displaying '[worldtime2text()]'. On the inside of the lid, there is another sequence of numbers etched into the lid itself."
 
 
@@ -73,7 +73,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/glasses/fluff/nebula_glasses/attack_self(mob/user as mob)
 	if(chip)
 		user.put_in_hands(chip)
-		user << "<span class='notice'>You eject a small, concealed data chip from a small slot in the frames of \the [src].</span>"
+		to_chat(user, "<span class='notice'>You eject a small, concealed data chip from a small slot in the frames of \the [src].</span>")
 		chip = null
 
 /obj/item/clothing/glasses/fluff/nebula_glasses/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -83,7 +83,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		chip = W
 		W.add_fingerprint(user)
 		add_fingerprint(user)
-		user << "You slot the [W] back into its place in the frames of \the [src]."
+		to_chat(user, "<span class='notice'>You slot \the [W] back into its place in the frames of \the [src].</span>")
 
 /obj/item/weapon/disk/fluff/nebula_chip //data chip - Roxy Wallace - nebulaflare
 	name = "data chip"
@@ -120,11 +120,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/weapon/fluff/kiara_altar/attack_self(mob/user as mob)
 	if(src.icon_state == "kiara_altar1")
 		src.icon_state = "kiara_altar2"
-		user << "You open the pocket altar, revealing its contents."
+		to_chat(user, "<span class='notice'>You open \the [src], revealing its contents.</span>")
 		desc = "A black tin box, you can see inside; a vial of herbs, a little bag of salt, some epoxy clay runes, a candle with match, a permanent marker and a tiny besom."
 	else
 		src.icon_state = "kiara_altar1"
-		user << "You close the pocket altar."
+		to_chat(user, "<span class='notice'>You close \the [src].</span>")
 		desc = "A black tin box with a symbol painted over it. It shimmers in the light."
 
 
@@ -176,9 +176,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/weapon/cane/fluff/usiki_cane/attack_self(mob/user as mob)
 	if(all_languages[LANGUAGE_UNATHI] in user.languages)
-		user << "This cane has the words \"A new and better life\" carved into one side in basic, and on the other side in Sinta'Unathi."
+		to_chat(user, "<span class='notice'>This cane has the words \"A new and better life\" carved into one side in basic, and on the other side in Sinta'Unathi.</span>")
 	else
-		user << "This cane has the words \"A new and better life\" carved into the side, the other side has some unreadable carvings."
+		to_chat(user, "<span class='notice'>This cane has the words \"A new and better life\" carved into the side, the other side has some unreadable carvings.</span>")
 
 
 /obj/item/clothing/gloves/black/fluff/kathleen_glove //Black Left Glove - Kathleen Mistral - valkywalky2
@@ -332,14 +332,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	active= !active
 	if(active)
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
-		user << "<span class='notice'>\The [src] is now energised.</span>"
+		to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
 		icon_state = "tigerclaw_active"
 		item_state = icon_state
 		slot_flags = null
 		attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	else
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
-		user << "<span class='notice'>\The [src] is now de-energised.</span>"
+		to_chat(user, "<span class='notice'>\The [src] is now de-energised.</span>")
 		icon_state = initial(icon_state)
 		item_state = icon_state
 		slot_flags = initial(slot_flags)
@@ -369,13 +369,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 		if("fabian_coat_open")
 			icon_state = "fabian_coat_closed"
 			item_state = icon_state
-			usr << "You zip up \the [src]."
+			to_chat(usr, "<span class='notice'>You zip up \the [src].</span>")
 		if("fabian_coat_closed")
 			icon_state = "fabian_coat_open"
 			item_state = icon_state
-			usr << "You unzip \the [src]."
+			to_chat(usr, "<span class='notice'>You unzip \the [src].</span>")
 		else
-			usr << "You attempt to button-up the velcro on \the [src], before promptly realising how silly you are."
+			to_chat(usr, "<span class='notice'>You attempt to button-up the velcro on \the [src], before promptly realising how silly you are.</span>")
 			return
 
 	usr.update_inv_wear_suit()
@@ -541,7 +541,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	set desc = "HNNNNG."
 
 	if(last_special > world.time)
-		src << "<span class='warning'>Your chest still hurts badly!</span>"
+		to_chat(src, "<span class='warning'>Your chest still hurts badly!</span>")
 		return
 
 	last_special = world.time + 500
@@ -552,8 +552,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	F.take_damage(5)
-	src << "<span class='warning'>You feel a stabbing pain in your chest!</span>"
-	playsound(src, 'sound/effects/Heart Beat.ogg', 20, 1)	// shouldn't this be only to src?
+	to_chat(src, "<span class='warning'>You feel a stabbing pain in your chest!</span>")
+	sound_to(src, 'sound/effects/Heart Beat.ogg')
 
 
 /obj/item/clothing/accessory/badge/fluff/caleb_badge //Worn Badge - Caleb Greene - notmegatron
@@ -613,7 +613,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/mask/fluff/rur_collar/emag_act(var/remaining_charges, var/mob/user)
 	if (!emagged)
-		user << "<span class='danger'>You short out \the [src]'s locking mechanism.</span>"
+		to_chat(user, "<span class='danger'>You short out \the [src]'s locking mechanism.</span>")
 		src.icon_state = "rur_collar_broken"
 		src.canremove = TRUE
 		src.emagged = TRUE
@@ -814,7 +814,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/head/beret/engineering/fluff/ikrad_beret/attack_self(var/mob/user)
 	if(letter)
-		user << "<span class='notice'>You remove \the [letter] from inside the [src]'s flap.</span>"
+		to_chat(user, "<span class='notice'>You remove \the [letter] from inside the [src]'s flap.</span>")
 		user.put_in_hands(letter)
 		letter = null
 	else
@@ -822,7 +822,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/head/beret/engineering/fluff/ikrad_beret/attackby(var/obj/item/fluff/ikrad_letter/W, var/mob/user)
 	if(!src.letter && istype(W))
-		user << "<span class='notice'>You place \the [W] back inside the [src]'s flap.</span>"
+		to_chat(user, "<span class='notice'>You place \the [W] back inside the [src]'s flap.</span>")
 		user.drop_from_inventory(W,src)
 		src.letter = W
 	else
@@ -882,13 +882,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 	set category = "Object"
 	set src in usr
 
-	usr << "\icon[] []: The detective's credentials show:"
-	usr << "The investigator registered to the credentials is [investigator]."
-	usr << "The assignment registered on the card is [occupation]."
-	usr << "The birth date on the card displays [birth_year]."
-	usr << "The citizenship registered on the card is [citizenship]."
-	usr << "The systems that the credentials show the user is licensed to investigate in are [licensed_systems]."
-	usr << "Additional endorsements registered on the card show: [supplementary_endorsements]."
+	to_chat(usr, "\icon[] []: The detective's credentials show:")
+	to_chat(usr, "The investigator registered to the credentials is [investigator].")
+	to_chat(usr, "The assignment registered on the card is [occupation].")
+	to_chat(usr, "The birth date on the card displays [birth_year].")
+	to_chat(usr, "The citizenship registered on the card is [citizenship].")
+	to_chat(usr, "The systems that the credentials show the user is licensed to investigate in are [licensed_systems].")
+	to_chat(usr, "Additional endorsements registered on the card show: [supplementary_endorsements].")
 	return
 
 
@@ -1090,9 +1090,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/mask/fluff/corvo_cigarette/attack_self(mob/user)
 	active= !active
 	if(active)
-		user << "<span class='notice'>You turn \the [src] on.</span>"
+		to_chat(user, "<span class='notice'>You turn \the [src] on.</span>")
 	else
-		user << "<span class='notice'>You turn \the [src] off.</span>"
+		to_chat(user, "<span class='notice'>You turn \the [src] off.</span>")
 
 	update_icon()
 	user.update_inv_l_hand(FALSE)
@@ -1108,7 +1108,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/mask/fluff/corvo_cigarette/examine(mob/user)
 	if(..(user, 1))
-		user << "It is [active ? "on" : "off"]."
+		to_chat(user, "It is [active ? "on" : "off"].")
 
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/cognac/fluff/leonce_cognac //Old Earth Luxury Cognac - Francois Leonce - driecg36
@@ -1230,10 +1230,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	if(src.icon_state == "leland_badge")
 		src.icon_state = "leland_badge-info"
-		usr << "You open \the [src]."
+		to_chat(usr, "You open \the [src].")
 	else
 		src.icon_state = "leland_badge"
-		usr << "You close \the [src]."
+		to_chat(usr, "You close \the [src].")
 
 
 /obj/item/clothing/suit/storage/fluff/azala_coat //Azala's Gentleman's Coat - Azala Huz'kai - tomiixstarslasher
@@ -2547,9 +2547,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/under/fluff/mira_uniform/rollsuit()
 	set name = "Roll Down Jumpsuit"
 	set category = "Object"
+
 	set src in usr
-	if(!istype(usr, /mob/living)) return
-	if(usr.stat) return
+	if (use_check(usr, USE_DISALLOW_SILICONS))
+		return
 
 	if(rolled_sleeves)
 		to_chat(usr, "<span class='warning'>You must roll up your [src]'s sleeves first!</span>")
@@ -2568,8 +2569,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	set name = "Roll Up Sleeves"
 	set category = "Object"
 	set src in usr
-	if(!istype(usr, /mob/living)) return
-	if(usr.stat) return
+
+	if (use_check(usr, USE_DISALLOW_SILICONS))
+		return
 
 	if(rolled_down)
 		to_chat(usr, "<span class='warning'>You must roll up your [src] first!</span>")
@@ -2604,20 +2606,52 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/under/fluff/mira_skirt //Mira's Skirt - Mira Akhandi - queenofyugoslavia
 	name = "suspended skirt"
-	desc = "A plaid skirt with suspender's, sewed into the side is the intianl \"M.A.\""
+	desc = "A plaid skirt with suspender's, sewed into the side is the intianl \"M.A.\"."
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
 	icon_state = "mira_skirt"
 	item_state = "mira_skirt"
 	contained_sprite = TRUE
 
-/obj/item/weapon/reagent_containers/food/drinks/flask/fluff/mira_beaker
+/obj/item/weapon/reagent_containers/food/drinks/flask/fluff/mira_beaker //Alchemist Flask - Mira Akhandi - queenofyugoslavia
 	name = "alchemist flask"
 	desc = "A large bottle used to mix chemicals inside."
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
 	icon_state = "mira_beaker"
 
-/obj/item/weapon/storage/backpack/fluff/mira_bag
-	name = " burlap bag"
-	desc = "A smallish burlup sack, modified to lug around belongings. Stiched into it is the letters 'M.A' "
+/obj/item/weapon/storage/backpack/fluff/mira_bag// Burlap Alchemist Bag - Mira Akhandi - queenofyugoslavia
+	name = "burlap bag"
+	desc = "A smallish burlup sack, modified to lug around belongings. Stiched into it is the letters '\"M.A.\"." //Alchemist Flask - Mira Akhandi - queenofyugoslavia
 	icon_state = "giftbag0"
 	item_state = "giftbag0"
+
+
+/obj/item/weapon/cane/fluff/qrqil_cane //Energy Cane - Qrqil Qrrzix - yonnimer
+	name = "energy cane"
+	desc = "This silver-handled cane has letters carved into the sides."
+	icon = 'icons/obj/custom_items/qrqil_cane.dmi'
+	icon_state = "qrqil_cane"
+	item_state = "qrqil_cane"
+	contained_sprite = TRUE
+	var/active = FALSE
+
+/obj/item/weapon/cane/fluff/qrqil_cane/attack_self(mob/user)
+	active= !active
+	if(active)
+		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
+		to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
+		item_state = icon_state
+	else
+		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
+		to_chat(user, "<span class='notice'>\The [src] is now de-energised..</span>")
+
+	update_icon()
+	user.update_inv_l_hand(FALSE)
+	user.update_inv_r_hand()
+
+/obj/item/weapon/cane/fluff/qrqil_cane/update_icon()
+	if(active)
+		icon_state = "[icon_state]_active"
+		item_state = icon_state
+	else
+		icon_state = initial(icon_state)
+		item_state = icon_state
