@@ -118,13 +118,13 @@
 								if(circuit.contain_parts) // things like disposal don't want their parts in them
 									O.forceMove(new_machine)
 								else
-									O.forceMove(null)
+									O.moveToNullspace()
 								new_machine.component_parts += O
 
 							if(circuit.contain_parts)
 								circuit.forceMove(new_machine)
 							else
-								circuit.forceMove(null)
+								circuit.moveToNullspace()
 
 							new_machine.RefreshParts()
 							qdel(src)

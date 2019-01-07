@@ -264,7 +264,7 @@ var/list/admin_departments
 		visible_message("[src] beeps, \"Error transmitting message.\"")
 		return
 
-	rcvdcopy.forceMove(null)  //hopefully this shouldn't cause trouble
+	rcvdcopy.moveToNullspace()  //hopefully this shouldn't cause trouble
 	arrived_faxes += rcvdcopy
 
 	//message badmins that a fax has arrived

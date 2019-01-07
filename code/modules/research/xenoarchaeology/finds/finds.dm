@@ -392,14 +392,14 @@
 						if(new_gun.loaded.len > num_bullets)
 							if(I in new_gun.loaded)
 								new_gun.loaded.Remove(I)
-								I.forceMove(null)
+								qdel(I)
 						else
 							break
 			else
 				for(var/obj/item/I in new_gun)
 					if(I in new_gun.loaded)
 						new_gun.loaded.Remove(I)
-						I.forceMove(null)
+						qdel(I)
 
 			item_type = "gun"
 		if(28)

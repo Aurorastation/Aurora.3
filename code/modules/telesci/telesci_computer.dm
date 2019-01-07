@@ -55,7 +55,7 @@
 			return
 		user.drop_item(src)
 		crystals += W
-		W.forceMove(null)
+		W.moveToNullspace()
 		user.visible_message("[user] inserts [W] into \the [src]'s crystal slot.", "<span class='notice'>You insert [W] into \the [src]'s crystal slot.</span>")
 		updateDialog()
 	else if(istype(W, /obj/item/device/gps))

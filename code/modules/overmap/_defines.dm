@@ -97,5 +97,5 @@ proc/overmap_spacetravel(var/turf/space/T, var/atom/movable/A)
 		var/obj/effect/map/sector/temporary/source = M
 		if (source.can_die())
 			testing("Catching [M] for future use")
-			source.forceMove(null)
+			source.moveToNullspace()
 			cached_space += source
