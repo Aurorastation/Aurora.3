@@ -223,10 +223,10 @@ STOCK_ITEM_COMMON(meson, 1.5)
 	if (prob(50))
 		new /obj/item/clothing/glasses/meson(L)
 
-STOCK_ITEM_COMMON(beartrap, 2)
-	new /obj/item/weapon/beartrap(L)
+STOCK_ITEM_COMMON(trap, 2)
+	new /obj/item/weapon/trap(L)
 	if (prob(50))
-		new /obj/item/weapon/beartrap(L)
+		new /obj/item/weapon/trap(L)
 
 STOCK_ITEM_COMMON(trays, 1.8)
 	for (var/i in 1 to rand(1, 7))

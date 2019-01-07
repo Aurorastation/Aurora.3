@@ -59,14 +59,14 @@ datum/announcement/proc/Message(message as text, message_title as text)
 				M << "<span class='alert'> -[html_encode(announcer)]</span>"
 
 datum/announcement/minor/Message(message as text, message_title as text)
-	world << "<b>[message]</b>"
+	to_world("<b>[message]</b>")
 
 datum/announcement/priority/Message(message as text, message_title as text)
-	world << "<h1 class='alert'>[message_title]</h1>"
-	world << "<span class='alert'>[message]</span>"
+	to_world("<h1 class='alert'>[message_title]</h1>")
+	to_world("<span class='alert'>[message]</span>")
 	if(announcer)
-		world << "<span class='alert'> -[html_encode(announcer)]</span>"
-	world << "<br>"
+		to_world("<span class='alert'> -[html_encode(announcer)]</span>")
+	to_world("<br>")
 
 datum/announcement/priority/command/Message(message as text, message_title as text)
 	var/command
@@ -81,8 +81,8 @@ datum/announcement/priority/command/Message(message as text, message_title as te
 			M << command
 
 datum/announcement/priority/security/Message(message as text, message_title as text)
-	world << "<font size=4 color='red'>[message_title]</font>"
-	world << "<font color='red'>[message]</font>"
+	to_world("<font size=4 color='red'>[message_title]</font>")
+	to_world("<font color='red'>[message]</font>")
 
 datum/announcement/proc/NewsCast(message as text, message_title as text)
 	if(!newscast)
@@ -108,7 +108,7 @@ datum/announcement/proc/Sound(var/message_sound)
 
 datum/announcement/priority/Sound(var/message_sound)
 	if(message_sound)
-		world << message_sound
+		to_world(message_sound)
 
 datum/announcement/priority/command/Sound(var/message_sound)
 	PlaySound(message_sound)

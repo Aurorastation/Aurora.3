@@ -109,8 +109,6 @@ var/list/diseases = typesof(/datum/disease) - /datum/disease
 	return 0
 
 /datum/disease/proc/spread(var/atom/source=null, var/airborne_range = 2,  var/force_spread)
-	//world << "Disease [src] proc spread was called from holder [source]"
-
 	// If we're overriding how we spread, say so here
 	var/how_spread = spread_type
 	if(force_spread)
@@ -169,8 +167,6 @@ var/list/diseases = typesof(/datum/disease) - /datum/disease
 				spread_type = CONTACT_GENERAL
 			affected_mob = null
 	if(!affected_mob) //the virus is in inanimate obj
-//		world << "[src] longevity = [longevity]"
-
 		if(prob(70))
 			if(--longevity<=0)
 				cure(0)

@@ -23910,8 +23910,8 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "aPc" = (
-/obj/machinery/computer/station_alert,
 /obj/machinery/firealarm/south,
+/obj/machinery/computer/station_alert/security,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "aPd" = (
@@ -31514,6 +31514,12 @@
 /obj/machinery/alarm{
 	pixel_y = 23
 	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Chemistry Lab Bravo";
+	dir = 4;
+	icon_state = "camera";
+	network = list("Medical")
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
 "bbO" = (
@@ -31557,9 +31563,6 @@
 /obj/structure/table/standard,
 /obj/item/weapon/storage/fancy/vials,
 /obj/item/weapon/reagent_containers/dropper,
-/obj/structure/sign/nosmoking_1{
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/corner/mauve/full{
 	icon_state = "corner_white_full";
 	dir = 8
@@ -31578,6 +31581,11 @@
 	},
 /obj/machinery/alarm{
 	pixel_y = 23
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Chemistry Lab Alpha";
+	dir = 8;
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
@@ -31688,6 +31696,10 @@
 /obj/machinery/body_scanconsole{
 	dir = 4;
 	icon_state = "body_scannerconsole"
+	},
+/obj/structure/sign/nosmoking_1{
+	pixel_x = 0;
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/medical/icu)
@@ -33771,6 +33783,8 @@
 	pixel_x = -2;
 	pixel_y = 2
 	},
+/obj/item/weapon/trap/animal,
+/obj/item/weapon/trap/animal,
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "bfK" = (
@@ -37016,10 +37030,10 @@
 /area/crew_quarters/bar)
 "bkZ" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/structure/table/standard,
 /obj/item/device/radio/intercom{
 	pixel_y = 27
 	},
+/obj/machinery/papershredder,
 /turf/simulated/floor/tiled,
 /area/medical/reception)
 "bla" = (
@@ -37939,7 +37953,7 @@
 "bmC" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/bed/chair/office/light{
-	dir = 1
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/medical/reception)
@@ -39448,6 +39462,10 @@
 	icon_state = "tube1";
 	dir = 1
 	},
+/obj/structure/sign/nosmoking_1{
+	pixel_x = 0;
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "boK" = (
@@ -40626,6 +40644,10 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
+/obj/item/weapon/paper_bin{
+	pixel_x = -1;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled,
 /area/medical/reception)
 "bqD" = (
@@ -40639,9 +40661,6 @@
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
 /obj/machinery/computer/med_data/laptop,
-/obj/structure/sign/nosmoking_1{
-	pixel_x = 32
-	},
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1";
@@ -55271,6 +55290,7 @@
 "bQe" = (
 /obj/structure/kitchenspike,
 /obj/machinery/alarm/cold{
+	alarm_id = "kitchen_freezer";
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 25;
@@ -59703,7 +59723,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/machinery/libraryscanner,
+/obj/machinery/photocopier,
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bYI" = (
@@ -65400,6 +65420,10 @@
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"dGq" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/white,
+/area/medical/chemistry)
 "eco" = (
 /obj/machinery/power/terminal{
 	dir = 8
@@ -65587,6 +65611,16 @@
 /obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"iBt" = (
+/obj/machinery/computer/atmoscontrol/laptop{
+	monitored_alarm_ids = list("kitchen_freezer");
+	req_access = null;
+	req_one_access = null
+	},
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "jFC" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -65641,7 +65675,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/disposalpipe/segment,
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
@@ -65716,6 +65749,18 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/turf/simulated/floor/tiled,
+/area/medical/medbay2)
+"lKe" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/sign/nosmoking_1{
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/surgeryobs)
+"lSK" = (
+/obj/structure/bed/chair/wheelchair,
 /turf/simulated/floor/tiled,
 /area/medical/medbay2)
 "lWn" = (
@@ -97146,7 +97191,7 @@ bOR
 bPY
 bQw
 bQZ
-bRx
+iBt
 bOR
 bSq
 aNK
@@ -97364,7 +97409,7 @@ baL
 bbQ
 bdr
 bdv
-beS
+dGq
 bjR
 biO
 bkb
@@ -102012,7 +102057,7 @@ bBX
 bvz
 bDO
 bvz
-bxP
+lKe
 bxP
 bxP
 bIy
@@ -104835,7 +104880,7 @@ buw
 buw
 buw
 buw
-bAp
+lSK
 quy
 bAp
 buw
@@ -105092,7 +105137,7 @@ bvC
 bvC
 bvC
 buw
-bAp
+lSK
 quy
 bDV
 bkr
@@ -105349,7 +105394,7 @@ bvC
 bvC
 bvC
 buw
-bAp
+lSK
 quy
 nIv
 bkr

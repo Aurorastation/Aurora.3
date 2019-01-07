@@ -156,7 +156,6 @@
 			while (touched_mobs[i])
 			mobnames += "."
 		else mobnames += "Affected player: [touched_mobs[1]]."
-		//world << "DEBUG: [mobnames]"
 		var/containing = ""
 		if (contained)
 			containing += ", containing [contained]"
