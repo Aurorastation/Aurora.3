@@ -74,7 +74,6 @@
 	active = 0
 	w_class = 2
 	attack_verb = list("patted", "tapped")
-	applies_material_colour = 0
 	force_divisor = 0.25 // 15 when wielded with hardness 60 (steel)
 	thrown_force_divisor = 0.25 // 5 when thrown with weight 20 (steel)
 
