@@ -1009,7 +1009,7 @@
 
 		una_mohawk
 			name = "Unathi Mohawk"
-			icon_state = "hair_d"
+			icon_state = "unathi_mohawk"
 
 //skrell tentacles
 
