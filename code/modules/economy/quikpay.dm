@@ -134,6 +134,6 @@
 		ui.data["items"][href_list["add"]["name"]] = href_list["add"]["price"]
 		. = TRUE
 	if(href_list["remove"])
-		items[href_list["remove"]] = null
-		ui.data["items"][href_list["add"]["name"]] = null
+		items -= href_list["remove"]
+		ui.data["items"] -= href_list["remove"]
 		. = TRUE
