@@ -905,11 +905,15 @@
 
 	var/obj/item/organ/external/E = get_organ(zone_sel.selecting)
 
-	if(!E || E.is_stump())
+	if(!E)
 		to_chat(src,"<span class='warning'>You are missing that limb.</span>")
 		return
 
 	if(!E.robotic)
+		return
+
+	if(E.is_stump() || (E.status & ORGAN_DESTROYED) || E.is_broken())
+		to_chat(src,"<span class='warning'>The limb is too damaged to be removed manually!</span>")
 		return
 
 	if(E.vital && !E.sabotaged)
