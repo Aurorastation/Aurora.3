@@ -89,7 +89,7 @@
 		)
 
 
-	spawn_flags = IS_WHITELISTED
+	spawn_flags = IS_RESTRICTED | IS_WHITELISTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 	flags = NO_CHUBBY
 
