@@ -25,6 +25,8 @@
 
 	metabolism_mod = 2
 
+	flags = NO_SCAN
+
 	eyes_are_impermeable = TRUE
 	breakcuffs = list(MALE, FEMALE)
 
