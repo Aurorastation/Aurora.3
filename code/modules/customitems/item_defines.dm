@@ -2589,7 +2589,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/under/fluff/mira_uniform //Mira's Cloth Undersuit - Mira Akhandi - queenofyugoslavia
 	name = "dark clothes"
-	desc = "A set of dark under clothing, loosely fitting. Meant to be worn under a set of robes."
+	desc = "A set of dark under clothing, loosely fitting. The initials /M.A./ are stitched into the collar."
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
 	icon_state = "mira_uniform"
 	item_state = "mira_uniform"
@@ -2615,7 +2615,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/under/fluff/mira_skirt //Mira's Skirt - Mira Akhandi - queenofyugoslavia
 	name = "suspended skirt"
-	desc = "A plaid skirt with suspender's, sewed into the side is the intianl \"M.A.\"."
+	desc = "A plaid skirt with suspenders, sewed into the side is the initials \"M.A.\"."
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
 	icon_state = "mira_skirt"
 	item_state = "mira_skirt"
@@ -2627,12 +2627,19 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
 	icon_state = "mira_beaker"
 
-/obj/item/weapon/storage/backpack/fluff/mira_bag// Burlap Alchemist Bag - Mira Akhandi - queenofyugoslavia
+/obj/item/weapon/storage/backpack/fluff/mira_bag //Burlap Alchemist Bag - Mira Akhandi - queenofyugoslavia
 	name = "burlap bag"
 	desc = "A smallish burlup sack, modified to lug around belongings. Stiched into it is the letters '\"M.A.\"." //Alchemist Flask - Mira Akhandi - queenofyugoslavia
 	icon_state = "giftbag0"
 	item_state = "giftbag0"
 
+/obj/item/clothing/suit/fluff/mira_vest //Cut-off Vest - Mira Akhandi - queenofyugoslavia
+	name = "cut-off vest"
+	desc = "A short grey puffer vest."
+	icon = 'icons/obj/custom_items/mira_clothing.dmi'
+	icon_state = "mira_vest"
+	item_state = "mira_vest"
+	contained_sprite = TRUE
 
 /obj/item/weapon/cane/fluff/qrqil_cane //Energy Cane - Qrqil Qrrzix - yonnimer
 	name = "energy cane"
