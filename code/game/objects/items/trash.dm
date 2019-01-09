@@ -114,3 +114,7 @@
 /obj/item/trash/can
 	name = "used can"
 	icon_state = "can-used"
+
+/obj/item/trash/tuna
+	name = "\improper Tuna Snax"
+	icon_state = "tuna"
