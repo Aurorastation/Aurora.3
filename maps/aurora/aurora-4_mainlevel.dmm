@@ -59836,9 +59836,9 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bZr" = (
-/obj/structure/table/standard,
+/obj/machinery/vending/cola,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/bar)
+/area/hallway/primary/aft)
 "bZs" = (
 /obj/structure/bed/chair/wood{
 	icon_state = "wooden_chair";
@@ -65957,6 +65957,10 @@
 /obj/item/weapon/bikehorn,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"wkb" = (
+/obj/machinery/vending/snack,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "xdT" = (
 /obj/structure/cable/green{
 	d2 = 8;
@@ -94712,7 +94716,7 @@ blc
 blc
 blc
 bZr
-bZr
+wkb
 bSM
 caK
 caG
