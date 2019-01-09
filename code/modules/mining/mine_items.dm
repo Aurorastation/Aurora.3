@@ -1138,12 +1138,12 @@ var/list/total_extraction_beacons = list()
 		last_oresummon_time = world.time
 		var/limit = 50
 		for(var/obj/item/weapon/ore/O in orange(7,user))
-		if(limit <= 0)
-			break
-		single_spark(O.loc)
-		do_teleport(O, user, 0)
-		limit -= 1
-		CHECK_TICK
+			if(limit <= 0)
+				break
+			single_spark(O.loc)
+			do_teleport(O, user, 0)
+			limit -= 1
+			CHECK_TICK
 	else
 		to_chat(user, "The ore summoner is in the middle of some calibrations.")
 		return 0
