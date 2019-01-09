@@ -16,7 +16,7 @@
 	//TODO: change location to a string and use a mapping for area and dock targets.
 	var/dock_target_station
 	var/dock_target_offsite
-	
+
 	var/last_dock_attempt_time = 0
 
 /datum/shuttle/ferry/short_jump(var/area/origin,var/area/destination)
@@ -32,7 +32,6 @@
 	..(origin, destination)
 
 /datum/shuttle/ferry/long_jump(var/area/departing, var/area/destination, var/area/interim, var/travel_time, var/direction)
-	//world << "shuttle/ferry/long_jump: departing=[departing], destination=[destination], interim=[interim], travel_time=[travel_time]"
 	if(isnull(location))
 		return
 
@@ -72,7 +71,6 @@
 		if (WAIT_LAUNCH)
 			if (skip_docking_checks() || docking_controller.can_launch())
 
-				//world << "shuttle/ferry/process: area_transition=[area_transition], travel_time=[travel_time]"
 				if (move_time && area_transition)
 					long_jump(interim=area_transition, travel_time=move_time, direction=transit_direction)
 				else
@@ -85,15 +83,15 @@
 				long_jump(interim=area_transition, travel_time=move_time, direction=transit_direction)
 			else
 				short_jump()
-			
+
 			process_state = WAIT_ARRIVE
-		
+
 		if (WAIT_ARRIVE)
 			if (moving_status == SHUTTLE_IDLE)
 				dock()
 				in_use = null	//release lock
 				process_state = WAIT_FINISH
-		
+
 		if (WAIT_FINISH)
 			if (skip_docking_checks() || docking_controller.docked() || world.time > last_dock_attempt_time + DOCK_ATTEMPT_TIMEOUT)
 				process_state = IDLE_STATE
