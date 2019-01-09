@@ -13425,7 +13425,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
+/area/medical/virology)
 "aye" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -29817,7 +29817,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/medical/patient_wing_post1)
+/area/maintenance/sublevel)
 "hSZ" = (
 /obj/random/junk,
 /obj/machinery/light/small/emergency{
@@ -29825,7 +29825,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
+/area/outpost/research/analysis)
 "hWq" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized{
@@ -30012,9 +30012,6 @@
 /obj/structure/bed/chair/comfy/brown,
 /turf/simulated/floor/wood,
 /area/medical/patient_a)
-"lSi" = (
-/turf/simulated/wall/r_wall,
-/area/medical/patient_wing_post1)
 "lZJ" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -71598,7 +71595,7 @@ akx
 azh
 akx
 azh
-lSi
+akx
 vPb
 bbn
 lbE
