@@ -1139,7 +1139,7 @@ var/list/total_extraction_beacons = list()
 		var/limit = 50
 		for(var/obj/item/weapon/ore/O in orange(7,user))
 		if(limit <= 0)
-                	break
+			break
 		single_spark(O.loc)
 		do_teleport(O, user, 0)
 		limit -= 1
