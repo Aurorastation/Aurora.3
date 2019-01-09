@@ -12,6 +12,8 @@
 	organ_tag = "heart"
 	parent_organ = "chest"
 	dead_icon = "heart-off"
+	robotic_name = "circulatory pump"
+	robotic_sprite = "heart-prosthetic"
 
 /obj/item/organ/lungs
 	name = "lungs"
@@ -19,6 +21,8 @@
 	gender = PLURAL
 	organ_tag = "lungs"
 	parent_organ = "chest"
+	robotic_name = "gas exchange system"
+	robotic_sprite = "heart-prosthetic"
 
 /obj/item/organ/lungs/process()
 	..()
@@ -44,6 +48,8 @@
 	gender = PLURAL
 	organ_tag = "kidneys"
 	parent_organ = "groin"
+	robotic_name = "prosthetic kidneys"
+	robotic_sprite = "kidneys-prosthetic"
 
 /obj/item/organ/kidneys/process()
 
@@ -68,6 +74,8 @@
 	gender = PLURAL
 	organ_tag = "eyes"
 	parent_organ = "head"
+	robotic_name = "visual prosthesis"
+	robotic_sprite = "eyes-prosthetic"
 	var/list/eye_colour = list(0,0,0)
 	var/singular_name = "eye"
 
@@ -103,6 +111,8 @@
 	icon_state = "liver"
 	organ_tag = "liver"
 	parent_organ = "groin"
+	robotic_name = "toxin filter"
+	robotic_sprite = "liver-prosthetic"
 
 /obj/item/organ/liver/process()
 

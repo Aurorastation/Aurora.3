@@ -30,6 +30,9 @@
 
 	var/list/organ_verbs	//verb that are added when you gain the organ
 
+	var/robotic_name
+	var/robotic_sprite
+
 /obj/item/organ/New(loc, ...)
 	..()
 	if (!initialized && istype(loc, /mob/living/carbon/human/dummy/mannequin))
@@ -107,7 +110,7 @@
 	damage = max_damage
 	status |= ORGAN_DEAD
 	STOP_PROCESSING(SSprocessing, src)
-	if(dead_icon)
+	if(dead_icon && !robotic)
 		icon_state = dead_icon
 	if(owner && vital)
 		owner.death()
@@ -281,6 +284,10 @@
 	src.status &= ~ORGAN_CUT_AWAY
 	src.status |= ORGAN_ROBOT
 	src.status |= ORGAN_ASSISTED
+	if(robotic_name)
+		name = robotic_name
+	if(robotic_sprite)
+		icon_state = robotic_sprite
 
 /obj/item/organ/proc/mechassist() //Used to add things like pacemakers, etc
 	robotize()
@@ -288,6 +295,8 @@
 	robotic = 1
 	min_bruised_damage = 15
 	min_broken_damage = 35
+	name = initial(name)
+	icon_state = initial(icon_state)
 
 /obj/item/organ/emp_act(severity)
 	if(!(status & ORGAN_ROBOT))

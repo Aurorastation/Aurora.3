@@ -63,6 +63,8 @@
 /obj/item/organ/kidneys/autakh
 	name = "toxin screen"
 	robotic = 1
+	robotic_name = null
+	robotic_sprite = null
 
 /obj/item/organ/anchor
 	name = "soul anchor"
@@ -76,6 +78,9 @@
 	icon_state = "eyes"
 	singular_name = "bionic eye"
 	action_button_name = "Toggle Bionic Eyes Sensors"
+	robotic_name = null
+	robotic_sprite = null
+	robotic = 2
 
 	var/static/list/hud_types = list(
 		"Disabled",

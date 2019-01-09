@@ -45,11 +45,15 @@
 	icon_state = "kidney_vaurca"
 	organ_tag = "mechanical kidneys"
 	robotic = 2
+	robotic_name = null
+	robotic_sprite = null
 
 /obj/item/organ/liver/vaurca/robo
 	icon_state = "liver_vaurca"
 	organ_tag = "mechanical liver"
 	robotic = 2
+	robotic_name = null
+	robotic_sprite = null
 
 /obj/item/organ/liver/vaurca
 	icon_state = "liver_vaurca"
