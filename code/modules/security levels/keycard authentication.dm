@@ -173,13 +173,13 @@ var/global/maint_all_access = 0
 
 /proc/make_maint_all_access()
 	maint_all_access = 1
-	world << "<font size=4 color='red'>Attention!</font>"
-	world << "<font color='red'>The maintenance access requirement has been revoked on all airlocks.</font>"
+	to_world("<font size=4 color='red'>Attention!</font>")
+	to_world("<font color='red'>The maintenance access requirement has been revoked on all airlocks.</font>")
 
 /proc/revoke_maint_all_access()
 	maint_all_access = 0
-	world << "<font size=4 color='red'>Attention!</font>"
-	world << "<font color='red'>The maintenance access requirement has been readded on all maintenance airlocks.</font>"
+	to_world("<font size=4 color='red'>Attention!</font>")
+	to_world("<font color='red'>The maintenance access requirement has been readded on all maintenance airlocks.</font>")
 
 /obj/machinery/door/airlock/allowed(mob/M)
 	if(maint_all_access && src.check_access_list(list(access_maint_tunnels)))
@@ -189,11 +189,11 @@ var/global/maint_all_access = 0
 /proc/cyborg_crisis_override()
 	for(var/mob/living/silicon/robot/M in silicon_mob_list)
 		M.crisis_override = 1
-	world << "<font size=4 color='red'>Attention!</font>"
-	world << "<font color='red'>Cyborg crisis override has been activated, station bound cyborgs are allowed to select the combat module during code red.</font>"
+	to_world("<font size=4 color='red'>Attention!</font>")
+	to_world("<font color='red'>Cyborg crisis override has been activated, station bound cyborgs are allowed to select the combat module during code red.</font>")
 
 /proc/disable_cyborg_crisis_override()
 	for(var/mob/living/silicon/robot/M in silicon_mob_list)
 		M.crisis_override = 0
-	world << "<font size=4 color='red'>Attention!</font>"
-	world << "<font color='red'>Cyborg crisis override has been deactivated, station bound cyborgs are no longer allowed to select the combat module.</font>"
+	to_world("<font size=4 color='red'>Attention!</font>")
+	to_world("<font color='red'>Cyborg crisis override has been deactivated, station bound cyborgs are no longer allowed to select the combat module.</font>")

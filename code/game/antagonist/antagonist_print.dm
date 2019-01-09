@@ -13,7 +13,7 @@
 			if(P.ambitions)
 				text += "<br>Their goals for today were..."
 				text += "<br><b>[P.ambitions]</b>"
-	
+
 			for(var/datum/objective/O in P.objectives)
 				text += print_objective(O, num)
 				if(O.check_completion())
@@ -37,7 +37,7 @@
 			num++
 
 	// Display the results.
-	world << text
+	to_world(text)
 
 /datum/antagonist/proc/print_objective(var/datum/objective/O, var/num, var/append_success)
 	var/text = "<br><b>Objective [num]:</b> [O.explanation_text] "
@@ -90,9 +90,9 @@
 		if(isnull(H.uplink_owner) && H.used_TC)
 			if(!has_printed)
 				has_printed = 1
-				world << "<b>Ownerless Uplinks</b>"
-			world << "[H.loc] (used [H.used_TC] TC)"
-			world << get_uplink_purchases(H)
+				to_world("<b>Ownerless Uplinks</b>")
+			to_world("[H.loc] (used [H.used_TC] TC)")
+			to_world(get_uplink_purchases(H))
 
 /proc/get_uplink_purchases(var/obj/item/device/uplink/H)
 	var/list/refined_log = new()

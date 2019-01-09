@@ -18,11 +18,11 @@
 	if(docking_controller_tag_station)
 		docking_controller_station = locate(docking_controller_tag_station)
 		if(!istype(docking_controller_station))
-			world << "<span class='danger'>warning: shuttle with docking tag [docking_controller_station] could not find it's controller!</span>"
+			to_world("<span class='danger'>warning: shuttle with docking tag [docking_controller_station] could not find it's controller!</span>")
 	if(docking_controller_tag_offsite)
 		docking_controller_offsite = locate(docking_controller_tag_offsite)
 		if(!istype(docking_controller_offsite))
-			world << "<span class='danger'>warning: shuttle with docking tag [docking_controller_offsite] could not find it's controller!</span>"
+			to_world("<span class='danger'>warning: shuttle with docking tag [docking_controller_offsite] could not find it's controller!</span>")
 	if (!location)
 		docking_controller = docking_controller_station
 	else
@@ -88,7 +88,7 @@
 
 /datum/shuttle/ferry/multidock/specops/move(var/area/origin,var/area/destination)
 	..(origin, destination)
-	
+
 	spawn(20)
 		if (!location)	//just arrived home
 			for(var/turf/T in get_area_turfs(destination))
@@ -99,7 +99,7 @@
 			for(var/turf/T in get_area_turfs(destination))
 				var/mob/M = locate(/mob) in T
 				M << "<span class='danger'>You have arrived at [current_map.station_name]. Commence operation!</span>"
-				
+
 				var/obj/machinery/light/small/readylight/light = locate() in T
 				if(light) light.set_state(1)
 
@@ -240,3 +240,8 @@
 	else
 		brightness_color = initial(brightness_color)
 	update()
+
+/obj/machinery/computer/shuttle_control/legion
+	name = "deployment shuttle control console"
+	req_access = list(access_legion)
+	shuttle_tag = "Tau Ceti Foreign Legion"

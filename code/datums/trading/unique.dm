@@ -38,6 +38,7 @@
 	possible_trading_items = list(
 		/obj/mecha/combat                               = TRADER_SUBTYPES_ONLY,
 		/obj/mecha/combat/phazon                        = TRADER_BLACKLIST_ALL,
+		/obj/mecha/combat/tank                          = TRADER_BLACKLIST_ALL,
 		/obj/item/weapon/gun/projectile/automatic/rifle = TRADER_SUBTYPES_ONLY,
 		/obj/item/weapon/gun/energy/pulse               = TRADER_ALL,
 		/obj/item/weapon/gun/energy/rifle/pulse         = TRADER_THIS_TYPE

@@ -992,22 +992,22 @@ var/list/gamemode_cache = list()
 		if(!M)
 			log_debug("GAMEMODE: ERROR: [M] does not exist!")
 			continue
-			
+
 		var/can_start = M.can_start()
 		if(can_start != GAME_FAILURE_NONE)
 			log_debug("GAMEMODE: [M.name] cannot start! Reason: [can_start]")
 			continue
-			
+
 		if(!probabilities[M.config_tag])
 			log_debug("GAMEMODE: ERROR: [M.name] does not have a config associated with it!")
 			continue
-		
+
 		if(probabilities[M.config_tag] <= 0)
 			log_debug("GAMEMODE: ERROR: [M.name] has a probability equal or less than 0!")
-			continue		
+			continue
 
 		runnable_modes |= M
-	
+
 	return runnable_modes
 
 /datum/configuration/proc/post_load()
@@ -1017,3 +1017,5 @@ var/list/gamemode_cache = list()
 			config.python_path = "/usr/bin/env python2"
 		else //probably windows, if not this should work anyway
 			config.python_path = "python"
+
+	revdata.generate_greeting_info()
