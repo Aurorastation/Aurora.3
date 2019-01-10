@@ -13425,7 +13425,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/asteroid/ash/rocky,
-/area/medical/virology)
+/area/mine/unexplored)
 "aye" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -29825,7 +29825,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/asteroid/ash/rocky,
-/area/outpost/research/analysis)
+/area/mine/unexplored)
 "hWq" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized{
