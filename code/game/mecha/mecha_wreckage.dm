@@ -210,3 +210,10 @@
 	anchored = TRUE
 	pixel_x = -16
 	layer = ABOVE_MOB_LAYER
+
+/obj/effect/decal/mecha_wreckage/tank/jotun
+	name = "adhomian light tank wreckage"
+	desc = "Remains of some unfortunate armored vehicle. Completely unrepairable."
+	icon = 'icons/mecha/mecha_114x59.dmi'
+	icon_state = "jotun-broken"
+	pixel_x = -41
