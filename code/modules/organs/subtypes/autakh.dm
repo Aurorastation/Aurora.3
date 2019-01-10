@@ -3,6 +3,11 @@
 	encased = "support frame"
 	robotize_type = PROSTHETIC_AUTAKH
 
+/obj/item/organ/external/head/autakh/Initialize()
+	. = ..()
+
+	mechassist()
+
 /obj/item/organ/external/chest/autakh
 	dislocated = -1
 	encased = "support frame"
@@ -17,6 +22,11 @@
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_AUTAKH
+
+/obj/item/organ/external/groin/autakh/Initialize()
+	. = ..()
+
+	mechassist()
 
 /obj/item/organ/external/arm/autakh
 	dislocated = -1
@@ -62,20 +72,21 @@
 
 /obj/item/organ/kidneys/autakh
 	name = "toxin screen"
+	icon_state = "screen"
 	robotic = 1
 	robotic_name = null
 	robotic_sprite = null
 
 /obj/item/organ/anchor
 	name = "soul anchor"
-	icon_state = "brain-prosthetic"
+	icon_state = "anchor"
 	organ_tag = "anchor"
 	parent_organ = "head"
 	robotic = 2
 
 /obj/item/organ/eyes/autakh
 	name = "bionic eyeballs"
-	icon_state = "eyes"
+	icon_state = "mk1eyes"
 	singular_name = "bionic eye"
 	action_button_name = "Toggle Bionic Eyes Sensors"
 	robotic_name = null
@@ -90,6 +101,11 @@
 	var/selected_hud = "Disabled"
 	var/disabled = FALSE
 
+/obj/item/organ/eyes/autakh/refresh_action_button()
+	. = ..()
+	if(.)
+		action.button_icon_state = "mk1eyes"
+		if(action.button) action.button.UpdateIcon()
 
 /obj/item/organ/eyes/autakh/attack_self(var/mob/user)
 	. = ..()
@@ -161,7 +177,7 @@
 
 /obj/item/organ/adrenal
 	name = "adrenal management system"
-	icon_state = "brain-prosthetic"
+	icon_state = "ams"
 	organ_tag = "adrenal"
 	parent_organ = "chest"
 	robotic = 2
@@ -170,7 +186,7 @@
 /obj/item/organ/adrenal/refresh_action_button()
 	. = ..()
 	if(.)
-		action.button_icon_state = "placeholder"
+		action.button_icon_state = "adrenal"
 		if(action.button) action.button.UpdateIcon()
 
 /obj/item/organ/adrenal/attack_self(var/mob/user)
@@ -205,7 +221,7 @@
 
 /obj/item/organ/haemodynamic
 	name = "haemodynamic control system"
-	icon_state = "brain-prosthetic"
+	icon_state = "stabilizer"
 	organ_tag = "haemodynamic"
 	parent_organ = "chest"
 	robotic = 1
@@ -214,7 +230,7 @@
 /obj/item/organ/haemodynamic/refresh_action_button()
 	. = ..()
 	if(.)
-		action.button_icon_state = "placeholder"
+		action.button_icon_state = "stabilizer"
 		if(action.button) action.button.UpdateIcon()
 
 /obj/item/organ/haemodynamic/attack_self(var/mob/user)
@@ -252,7 +268,6 @@
 /obj/item/organ/external/hand/right/autakh/tool
 	name = "engineering grasper"
 	action_button_name = "Deploy Mechanical Combitool"
-	force = 5
 	var/augment_type = /obj/item/combitool/robotic
 
 /obj/item/organ/external/hand/right/autakh/tool/refresh_action_button()
@@ -370,7 +385,7 @@
 /obj/item/organ/external/hand/right/autakh/security/refresh_action_button()
 	. = ..()
 	if(.)
-		action.button_icon_state = "placeholder"
+		action.button_icon_state = "baton"
 		if(action.button) action.button.UpdateIcon()
 
 /obj/item/organ/external/hand/right/autakh/security/attack_self(var/mob/user)

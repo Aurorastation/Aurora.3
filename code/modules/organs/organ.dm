@@ -144,7 +144,7 @@
 			create_reagents(5)
 
 		var/datum/reagent/blood/B = locate(/datum/reagent/blood) in reagents.reagent_list
-		if(B && prob(40))
+		if(B && !(status & ORGAN_ROBOT) && prob(40))
 			reagents.remove_reagent("blood",0.1)
 			if (isturf(loc))
 				blood_splatter(src,B,1)
@@ -367,7 +367,7 @@
 	affected.internal_organs |= src
 	target.internal_organs_by_name[organ_tag] = src
 	if(robotic)
-		status |= ORGAN_ROBOT
+		robotize()
 
 /obj/item/organ/eyes/replaced(var/mob/living/carbon/human/target)
 
