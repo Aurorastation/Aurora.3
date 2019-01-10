@@ -302,13 +302,18 @@
 	if(!(status & ORGAN_ASSISTED))
 		return
 
+	var/organ_fragility = 0.5
+
+	if((status & ORGAN_ROBOT))	//fully robotic organs take the normal emp damage, assited ones only suffer half of it
+		organ_fragility = 1
+
 	switch (severity)
 		if (1.0)
-			take_damage(rand(7,20) * emp_coeff)
+			take_damage(rand(7,20) * emp_coeff * organ_fragility)
 		if (2.0)
-			take_damage(rand(3,7) * emp_coeff)
+			take_damage(rand(3,7) * emp_coeff * organ_fragility)
 		if(3.0)
-			take_damage(rand(3) * emp_coeff)
+			take_damage(rand(3) * emp_coeff * organ_fragility)
 
 /obj/item/organ/proc/removed(var/mob/living/user)
 

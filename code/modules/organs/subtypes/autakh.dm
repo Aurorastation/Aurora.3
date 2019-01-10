@@ -14,9 +14,8 @@
 	robotize_type = PROSTHETIC_AUTAKH
 
 /obj/item/organ/external/chest/autakh/Initialize()
-	. = ..()
-
 	mechassist()
+	. = ..()
 
 /obj/item/organ/external/groin/autakh
 	dislocated = -1
@@ -24,9 +23,8 @@
 	robotize_type = PROSTHETIC_AUTAKH
 
 /obj/item/organ/external/groin/autakh/Initialize()
-	. = ..()
-
 	mechassist()
+	. = ..()
 
 /obj/item/organ/external/arm/autakh
 	dislocated = -1
@@ -77,12 +75,20 @@
 	robotic_name = null
 	robotic_sprite = null
 
+/obj/item/organ/kidneys/autakh/Initialize()
+	mechassist()
+	. = ..()
+
 /obj/item/organ/anchor
 	name = "soul anchor"
 	icon_state = "anchor"
 	organ_tag = "anchor"
 	parent_organ = "head"
 	robotic = 2
+
+/obj/item/organ/anchor/Initialize()
+	robotize()
+	. = ..()
 
 /obj/item/organ/eyes/autakh
 	name = "bionic eyeballs"
@@ -100,6 +106,10 @@
 
 	var/selected_hud = "Disabled"
 	var/disabled = FALSE
+
+/obj/item/organ/eyes/autakh/Initialize()
+	robotize()
+	. = ..()
 
 /obj/item/organ/eyes/autakh/refresh_action_button()
 	. = ..()
@@ -183,6 +193,10 @@
 	robotic = 2
 	action_button_name = "Activate Adrenal Management System"
 
+/obj/item/organ/adrenal/Initialize()
+	robotize()
+	. = ..()
+
 /obj/item/organ/adrenal/refresh_action_button()
 	. = ..()
 	if(.)
@@ -226,6 +240,14 @@
 	parent_organ = "chest"
 	robotic = 1
 	action_button_name = "Activate Haemodynamic Control System"
+
+/obj/item/organ/haemodynamic/Initialize()
+	mechassist()
+	. = ..()
+
+/obj/item/organ/haemodynamic/Initialize()
+	robotize()
+	. = ..()
 
 /obj/item/organ/haemodynamic/refresh_action_button()
 	. = ..()
