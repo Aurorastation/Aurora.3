@@ -299,7 +299,7 @@
 	icon_state = initial(icon_state)
 
 /obj/item/organ/emp_act(severity)
-	if(!(status & ORGAN_ROBOT))
+	if(!(status & ORGAN_ASSISTED))
 		return
 
 	switch (severity)
