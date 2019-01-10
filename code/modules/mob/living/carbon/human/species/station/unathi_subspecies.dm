@@ -25,8 +25,6 @@
 
 	metabolism_mod = 2
 
-	flags = NO_SCAN
-
 	eyes_are_impermeable = TRUE
 	breakcuffs = list(MALE, FEMALE)
 
@@ -91,7 +89,7 @@
 
 	spawn_flags = IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
-	flags = NO_CHUBBY
+	flags = NO_CHUBBY | NO_SCAN
 
 	flesh_color = "#575757"
 
