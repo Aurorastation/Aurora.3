@@ -41,3 +41,4 @@ changes:
   - maptweak: "Added two blood O- packs and freezer crate to the medical storage."
   - maptweak: "Medical sublevel maint door now is being accounted during radiation event."
   - maptweak: "Added snack and soda vending machine at the end of the hallway next to the bar."
+  - maptweak: "Bar and kitchen now have tip jars."
