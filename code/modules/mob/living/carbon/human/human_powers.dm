@@ -891,10 +891,10 @@
 		qdel(O)
 		last_special = world.time + 200
 
-/mob/living/carbon/human/proc/disattach_limb()
+/mob/living/carbon/human/proc/detach_limb()
 	set category = "Abilities"
-	set name = "Disattach Limb"
-	set desc = "Disattach one of your robotic appendages."
+	set name = "Detach Limb"
+	set desc = "Dietach one of your robotic appendages."
 
 	if(last_special > world.time)
 		return
@@ -929,8 +929,8 @@
 	updatehealth()
 	UpdateDamageIcon()
 
-	visible_message("<span class='notice'>\The [src] disattach \his [E]!</span>",
-			"<span class='notice'>You disattach your \the [E]!</span>")
+	visible_message("<span class='notice'>\The [src] detach \his [E]!</span>",
+			"<span class='notice'>You detach your \the [E]!</span>")
 
 /mob/living/carbon/human/proc/attach_limb()
 	set category = "Abilities"

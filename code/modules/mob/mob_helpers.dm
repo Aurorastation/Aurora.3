@@ -37,8 +37,9 @@
 	return 0
 
 /proc/isunathi(A)
-	if(istype(A, /mob/living/carbon/human))
-		switch(A:get_species())
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		switch(H.get_species())
 			if ("Unathi")
 				return 1
 			if("Aut'akh Unathi")
@@ -46,8 +47,10 @@
 	return 0
 
 /proc/isautakh(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Aut'akh Unathi"))
-		return 1
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		if(H.get_species() == "Aut'akh Unathi")
+			return 1
 	return 0
 
 /proc/istajara(A)
