@@ -55903,6 +55903,10 @@
 	name = "Kitchen Shutters"
 	},
 /obj/machinery/door/firedoor,
+/obj/item/glass_jar{
+	desc = "A small empty jar that is mostly used for giving a tip.";
+	name = "tip jar"
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bRw" = (
@@ -65906,6 +65910,20 @@
 /obj/item/weapon/storage/toolbox/electrical,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"uRY" = (
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "barshutters01";
+	name = "Bar Shutters"
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/table/reinforced,
+/obj/item/glass_jar{
+	desc = "A small empty jar that is mostly used for giving a tip.";
+	name = "tip jar"
+	},
+/turf/simulated/floor/lino,
+/area/crew_quarters/bar)
 "uVs" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -95988,7 +96006,7 @@ bSN
 bTq
 bTZ
 bUF
-bIt
+uRY
 bVz
 bWa
 bWo
