@@ -186,7 +186,7 @@
 /obj/item/organ/adrenal/refresh_action_button()
 	. = ..()
 	if(.)
-		action.button_icon_state = "adrenal"
+		action.button_icon_state = "ams"
 		if(action.button) action.button.UpdateIcon()
 
 /obj/item/organ/adrenal/attack_self(var/mob/user)
