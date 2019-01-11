@@ -91,16 +91,6 @@ var/list/datum/power/changeling/powerinstances = list()
 	genomecost = 1
 	verbpath = /mob/proc/changeling_mimicvoice
 
-//   Commenting this out for now because it is redundant, but may be used later//
-
-// /datum/power/changeling/extractdna
-// 	name = "Extract DNA"
-// 	desc = "We stealthily sting a target and extract the DNA from them."
-// 	helptext = "Will give you the DNA of your target, allowing you to transform into them. Does not count towards absorb objectives."
-// 	genomecost = 2
-// 	allowduringlesserform = 1
-// 	verbpath = /mob/proc/changeling_extract_dna_sting
-
 /datum/power/changeling/transformation_sting
 	name = "Transformation Sting"
 	desc = "We silently sting a dead human, injecting a retrovirus that forces them to transform into another."
