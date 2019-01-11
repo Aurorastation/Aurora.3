@@ -42,3 +42,4 @@ changes:
   - maptweak: "Medical sublevel maint door now is being accounted during radiation event."
   - maptweak: "Added snack and soda vending machine at the end of the hallway next to the bar."
   - maptweak: "Bar and kitchen now have tip jars."
+  - maptweak: "Fixes area in Medical reception, so now air alarm is properly mapped to it."
