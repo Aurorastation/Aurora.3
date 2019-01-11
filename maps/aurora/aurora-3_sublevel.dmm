@@ -24505,10 +24505,6 @@
 	pixel_x = 0;
 	pixel_y = -30
 	},
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
-/obj/machinery/disposal,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "aTb" = (
@@ -30650,10 +30646,10 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
 "vkY" = (
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
+/obj/structure/disposalpipe/trunk{
+	dir = 8
 	},
+/obj/machinery/disposal,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "vlf" = (

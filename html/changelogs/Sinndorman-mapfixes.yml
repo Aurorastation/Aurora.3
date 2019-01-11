@@ -43,3 +43,4 @@ changes:
   - maptweak: "Added snack and soda vending machine at the end of the hallway next to the bar."
   - maptweak: "Bar and kitchen now have tip jars."
   - maptweak: "Fixes area in Medical reception, so now air alarm is properly mapped to it."
+  - maptweak: "Moved disposals unit in Data processing room in RND sublevel one tile up to not block anything."
