@@ -2545,6 +2545,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "mira_uniform"
 	contained_sprite = TRUE
 
+/obj/item/clothing/under/fluff/mira_uniform/Initialize()
+	. = ..()
+	rolled_sleeves = 0
+	rolled_down = 0
+
 /obj/item/clothing/under/fluff/mira_uniform/rollsuit()
 	set name = "Roll Down Jumpsuit"
 	set category = "Object"
