@@ -43547,7 +43547,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/sign/greencross,
 /turf/simulated/floor/plating,
-/area/medical/emt)
+/area/medical/reception)
 "bvh" = (
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
@@ -43555,7 +43555,7 @@
 	},
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled/white,
-/area/medical/emt)
+/area/medical/reception)
 "bvi" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -43566,7 +43566,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/emt)
+/area/medical/reception)
 "bvj" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -43578,11 +43578,11 @@
 	pixel_y = -24
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/emt)
+/area/medical/reception)
 "bvk" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled/white,
-/area/medical/emt)
+/area/medical/reception)
 "bvl" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -43593,13 +43593,13 @@
 	pixel_y = -22
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/emt)
+/area/medical/reception)
 "bvm" = (
 /obj/structure/bed/chair{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/emt)
+/area/medical/reception)
 "bvn" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -43617,7 +43617,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/emt)
+/area/medical/reception)
 "bvo" = (
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/pink{
@@ -43625,33 +43625,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/emt)
-"bvp" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 8;
-	icon_state = "shutter0";
-	id = "entrance_shutters";
-	name = "Entrance Lockdown Shutters";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/medical/emt)
+/area/medical/reception)
 "bvq" = (
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
@@ -98542,7 +98516,7 @@ bkU
 bkU
 bsY
 buc
-bvp
+bld
 bwd
 bxC
 bwd
