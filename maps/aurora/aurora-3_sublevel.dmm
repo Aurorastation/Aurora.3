@@ -24505,10 +24505,6 @@
 	pixel_x = 0;
 	pixel_y = -30
 	},
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
-/obj/machinery/disposal,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "aTb" = (
@@ -29817,7 +29813,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/medical/patient_wing_post1)
+/area/maintenance/sublevel)
 "hSZ" = (
 /obj/random/junk,
 /obj/machinery/light/small/emergency{
@@ -30012,9 +30008,6 @@
 /obj/structure/bed/chair/comfy/brown,
 /turf/simulated/floor/wood,
 /area/medical/patient_a)
-"lSi" = (
-/turf/simulated/wall/r_wall,
-/area/medical/patient_wing_post1)
 "lZJ" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -30653,10 +30646,10 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
 "vkY" = (
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
+/obj/structure/disposalpipe/trunk{
+	dir = 8
 	},
+/obj/machinery/disposal,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "vlf" = (
@@ -71598,7 +71591,7 @@ akx
 azh
 akx
 azh
-lSi
+akx
 vPb
 bbn
 lbE
