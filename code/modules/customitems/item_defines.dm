@@ -2509,6 +2509,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/krin_clothing.dmi'
 	icon_state = "krin_shirt"
 	item_state = "krin_shirt"
+	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/fluff/krin_jacket //Polychromatic Jacket - Krin Volqux - paradoxspace
 	name = "polychromatic jacket"
@@ -2536,16 +2537,20 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/under/fluff/rollsuit()
+/obj/item/clothing/under/fluff/mira_uniform //Mira's Cloth Undersuit - Mira Akhandi - queenofyugoslavia
+	name = "dark clothes"
+	desc = "A set of dark under clothing, loosely fitting. The initials /M.A./ are stitched into the collar."
+	icon = 'icons/obj/custom_items/mira_clothing.dmi'
+	icon_state = "mira_uniform"
+	item_state = "mira_uniform"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/fluff/mira_uniform/rollsuit()
 	set name = "Roll Down Jumpsuit"
 	set category = "Object"
 
 	set src in usr
 	if (use_check(usr, USE_DISALLOW_SILICONS))
-		return
-
-	if(("[item_state]_d") in icon_states(src))
-		to_chat(usr, "<span class='notice'>You cannot roll down \the [src]!</span>")
 		return
 
 	if(rolled_sleeves)
@@ -2561,16 +2566,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 		item_state = initial(item_state)
 	update_clothing_icon()
 
-/obj/item/clothing/under/fluff/rollsleeves()
+/obj/item/clothing/under/fluff/mira_uniform/rollsleeves()
 	set name = "Roll Up Sleeves"
 	set category = "Object"
 	set src in usr
 
 	if (use_check(usr, USE_DISALLOW_SILICONS))
-		return
-
-	if(("[item_state]_r") in icon_states(src))
-		to_chat(usr, "<span class='notice'>You cannot roll up your [src]'s sleeves!</span>")
 		return
 
 	if(rolled_down)
@@ -2585,15 +2586,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 		body_parts_covered = initial(body_parts_covered)
 		item_state = initial(item_state)
 	update_clothing_icon()
-
-
-/obj/item/clothing/under/fluff/mira_uniform //Mira's Cloth Undersuit - Mira Akhandi - queenofyugoslavia
-	name = "dark clothes"
-	desc = "A set of dark under clothing, loosely fitting. The initials /M.A./ are stitched into the collar."
-	icon = 'icons/obj/custom_items/mira_clothing.dmi'
-	icon_state = "mira_uniform"
-	item_state = "mira_uniform"
-	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/labcoat/fluff/mira_robes //Junior Alchemist Robes - Mira Akhandi - queenofyugoslavia
 	name = "junior alchemist robes"
