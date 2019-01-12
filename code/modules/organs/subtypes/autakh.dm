@@ -177,7 +177,8 @@
 	addtimer(CALLBACK(src, .proc/rearm), 40 SECONDS)
 
 /obj/item/organ/eyes/autakh/proc/rearm()
-
+	if(!disabled)
+		return
 	disabled = FALSE
 
 	if(owner)
