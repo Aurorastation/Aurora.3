@@ -894,7 +894,7 @@
 /mob/living/carbon/human/proc/detach_limb()
 	set category = "Abilities"
 	set name = "Detach Limb"
-	set desc = "Dietach one of your robotic appendages."
+	set desc = "Detach one of your robotic appendages."
 
 	if(last_special > world.time)
 		return
