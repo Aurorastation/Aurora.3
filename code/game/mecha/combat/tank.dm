@@ -136,6 +136,7 @@
 	pixel_x = -41
 	health = 950
 	w_class = 45
+	wreckage = /obj/effect/decal/mecha_wreckage/tank/jotun
 
 /obj/mecha/combat/tank/jotun/Initialize()
 	.= ..()
