@@ -2499,7 +2499,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "aavs_mask"
 	item_state = "aavs_mask"
 	contained_sprite = TRUE
-	flags_inv = HIDEEARS|HIDEFACE
+	flags_inv = HIDEEARS|HIDEFACE|BLOCKHEADHAIR
 	body_parts_covered = HEAD|FACE|EYES
 
 
