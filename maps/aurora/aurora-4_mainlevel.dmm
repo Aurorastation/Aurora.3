@@ -40954,9 +40954,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
-"brg" = (
-/turf/simulated/floor/tiled/white,
-/area/medical/main_storage)
 "brh" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/bodybags,
@@ -41534,9 +41531,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -41544,6 +41538,9 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
@@ -41563,6 +41560,9 @@
 	icon_state = "tube1";
 	dir = 2
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "bsl" = (
@@ -41580,6 +41580,9 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
@@ -43544,7 +43547,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/sign/greencross,
 /turf/simulated/floor/plating,
-/area/medical/emt)
+/area/medical/reception)
 "bvh" = (
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
@@ -43552,7 +43555,7 @@
 	},
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled/white,
-/area/medical/emt)
+/area/medical/reception)
 "bvi" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -43563,7 +43566,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/emt)
+/area/medical/reception)
 "bvj" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -43575,11 +43578,11 @@
 	pixel_y = -24
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/emt)
+/area/medical/reception)
 "bvk" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled/white,
-/area/medical/emt)
+/area/medical/reception)
 "bvl" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -43590,13 +43593,13 @@
 	pixel_y = -22
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/emt)
+/area/medical/reception)
 "bvm" = (
 /obj/structure/bed/chair{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/emt)
+/area/medical/reception)
 "bvn" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -43614,7 +43617,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/emt)
+/area/medical/reception)
 "bvo" = (
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/pink{
@@ -43622,33 +43625,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/emt)
-"bvp" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 8;
-	icon_state = "shutter0";
-	id = "entrance_shutters";
-	name = "Entrance Lockdown Shutters";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/medical/emt)
+/area/medical/reception)
 "bvq" = (
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
@@ -43742,13 +43719,13 @@
 /turf/simulated/wall,
 /area/medical/surgerywing)
 "bvA" = (
-/obj/effect/floor_decal/corner/lime/full,
+/obj/effect/floor_decal/corner/lime{
+	icon_state = "corner_white";
+	dir = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bvB" = (
-/obj/effect/floor_decal/corner/lime/full{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -44366,7 +44343,11 @@
 	icon_state = "alarm0";
 	pixel_x = -22
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/lime{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bwz" = (
 /obj/structure/disposalpipe/segment,
@@ -44379,7 +44360,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bwA" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -45477,7 +45458,11 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/lime{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bxX" = (
 /obj/structure/disposalpipe/segment,
@@ -45493,7 +45478,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bxY" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -46244,7 +46229,11 @@
 	icon_state = "tube1";
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/lime{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bzo" = (
 /obj/structure/disposalpipe/segment,
@@ -46257,7 +46246,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bzp" = (
 /obj/machinery/computer/cloning,
@@ -46870,18 +46859,10 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
 "bAp" = (
-/turf/simulated/floor/tiled,
-/area/medical/medbay2)
-"bAq" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bAr" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -47859,7 +47840,7 @@
 /area/maintenance/substation/medical)
 "bCh" = (
 /obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bCi" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -48867,7 +48848,10 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = -28
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bDY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -55893,6 +55877,10 @@
 	name = "Kitchen Shutters"
 	},
 /obj/machinery/door/firedoor,
+/obj/item/glass_jar{
+	desc = "A small empty jar that is mostly used for giving a tip.";
+	name = "tip jar"
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bRw" = (
@@ -59826,9 +59814,9 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bZr" = (
-/obj/structure/table/standard,
+/obj/machinery/vending/cola,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/bar)
+/area/hallway/primary/aft)
 "bZs" = (
 /obj/structure/bed/chair/wood{
 	icon_state = "wooden_chair";
@@ -65385,6 +65373,15 @@
 /obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"ifx" = (
+/obj/structure/closet/crate/freezer{
+	name = "O- Blood Packs"
+	},
+/obj/item/weapon/reagent_containers/blood/OMinus,
+/obj/item/weapon/reagent_containers/blood/OMinus,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/white,
+/area/medical/main_storage)
 "iBt" = (
 /obj/machinery/computer/atmoscontrol/laptop{
 	monitored_alarm_ids = list("kitchen_freezer");
@@ -65401,7 +65398,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/lime/full,
+/turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "jPV" = (
 /obj/structure/disposalpipe/segment{
@@ -65424,7 +65422,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "jSO" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -65523,7 +65521,11 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/lime{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "lKe" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -65535,7 +65537,12 @@
 /area/medical/surgeryobs)
 "lSK" = (
 /obj/structure/bed/chair/wheelchair,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/lime{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "lWn" = (
 /obj/structure/closet,
@@ -65633,7 +65640,10 @@
 /area/maintenance/medbay)
 "nIv" = (
 /obj/machinery/light,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "nKv" = (
 /obj/effect/decal/cleanable/dirt,
@@ -65717,7 +65727,11 @@
 	c_tag = "Medical - Starboard 2";
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/lime{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "pZo" = (
 /obj/structure/cable{
@@ -65757,7 +65771,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "qZS" = (
 /obj/effect/decal/cleanable/dirt,
@@ -65870,6 +65884,20 @@
 /obj/item/weapon/storage/toolbox/electrical,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"uRY" = (
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "barshutters01";
+	name = "Bar Shutters"
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/table/reinforced,
+/obj/item/glass_jar{
+	desc = "A small empty jar that is mostly used for giving a tip.";
+	name = "tip jar"
+	},
+/turf/simulated/floor/lino,
+/area/crew_quarters/bar)
 "uVs" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -65921,6 +65949,10 @@
 /obj/item/weapon/bikehorn,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"wkb" = (
+/obj/machinery/vending/snack,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "xdT" = (
 /obj/structure/cable/green{
 	d2 = 8;
@@ -94676,7 +94708,7 @@ blc
 blc
 blc
 bZr
-bZr
+wkb
 bSM
 caK
 caG
@@ -95948,7 +95980,7 @@ bSN
 bTq
 bTZ
 bUF
-bIt
+uRY
 bVz
 bWa
 bWo
@@ -98484,7 +98516,7 @@ bkU
 bkU
 bsY
 buc
-bvp
+bld
 bwd
 bxC
 bwd
@@ -104142,9 +104174,9 @@ bvA
 bwy
 bxW
 bzn
-bAp
+bvA
 pyd
-bAp
+bvA
 lIG
 jFC
 bBk
@@ -104399,9 +104431,9 @@ bvB
 bwz
 bxX
 bzo
-bAq
-bAq
-bAq
+bvB
+bvB
+bvB
 jPV
 bAp
 bBl
@@ -105429,7 +105461,7 @@ bvC
 bvC
 bvC
 buw
-bAp
+brW
 quy
 bAp
 bkr
@@ -107732,7 +107764,7 @@ blI
 bng
 boH
 bpX
-bre
+ifx
 bsj
 bng
 buD
@@ -108246,7 +108278,7 @@ blK
 bng
 boJ
 bpZ
-brg
+bre
 bsl
 bng
 buF

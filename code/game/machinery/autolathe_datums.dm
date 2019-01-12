@@ -388,7 +388,7 @@
 
 /datum/autolathe/recipe/tacknife
 	name = "tactical knife"
-	path = /obj/item/weapon/material/hatchet/tacknife
+	path = /obj/item/weapon/material/knife/tacknife
 	hidden = 1
 	category = "Arms and Ammunition"
 
