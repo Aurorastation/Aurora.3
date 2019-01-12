@@ -54,7 +54,7 @@
 
 /datum/gear/autakh_engineering
 	display_name = "engineering grasper (Aut'akh Unathi)"
-	description = "An Aut'akh augment limb, this one is outfited with a limited toolkit."
+	description = "An Aut'akh augment limb, this one is outfitted with a limited toolkit."
 	path = /obj/item/organ/external/hand/right/autakh/tool
 	whitelisted = list("Aut'akh Unathi")
 	sort_category = "Xenowear - Unathi"
@@ -63,7 +63,7 @@
 
 /datum/gear/autakh_engineering
 	display_name = "mining grasper (Aut'akh Unathi)"
-	description = "An Aut'akh augment limb, this one is outfited with a mining drill."
+	description = "An Aut'akh augment limb, this one is outfitted with a mining drill."
 	path = /obj/item/organ/external/hand/right/autakh/tool/mining
 	whitelisted = list("Aut'akh Unathi")
 	sort_category = "Xenowear - Unathi"
@@ -72,7 +72,7 @@
 
 /datum/gear/autakh_medical
 	display_name = "medical grasper (Aut'akh Unathi)"
-	description = "An Aut'akh augment limb, this one is outfited with a health scanner."
+	description = "An Aut'akh augment limb, this one is outfitted with a health scanner."
 	path = /obj/item/organ/external/hand/right/autakh/medical
 	whitelisted = list("Aut'akh Unathi")
 	sort_category = "Xenowear - Unathi"
@@ -81,7 +81,7 @@
 
 /datum/gear/autakh_security
 	display_name = "security grasper (Aut'akh Unathi)"
-	description = "An Aut'akh augment limb, this one is outfited with a eletrocshock weapon."
+	description = "An Aut'akh augment limb, this one is outfitted with an eletrocshock weapon."
 	path = /obj/item/organ/external/hand/right/autakh/security
 	whitelisted = list("Aut'akh Unathi")
 	sort_category = "Xenowear - Unathi"

@@ -922,7 +922,7 @@
 		return
 
 	if(E.vital && !E.sabotaged)
-		to_chat(src,"<span class='warning'>Your safety systems stops you from removing \the [E].</span>")
+		to_chat(src,"<span class='warning'>Your safety system stops you from removing \the [E].</span>")
 		return
 
 	last_special = world.time + 20
@@ -934,13 +934,13 @@
 	updatehealth()
 	UpdateDamageIcon()
 
-	visible_message("<span class='notice'>\The [src] detach \his [E]!</span>",
+	visible_message("<span class='notice'>\The [src] detaches \his [E]!</span>",
 			"<span class='notice'>You detach your \the [E]!</span>")
 
 /mob/living/carbon/human/proc/attach_limb()
 	set category = "Abilities"
 	set name = "Attach Limb"
-	set desc = "Attach an robotic limb to your body."
+	set desc = "Attach a robotic limb to your body."
 
 	if(last_special > world.time)
 		return
@@ -980,5 +980,5 @@
 	updatehealth()
 	UpdateDamageIcon()
 
-	visible_message("<span class='notice'>\The [src] attach \his [O] to \his body!</span>",
+	visible_message("<span class='notice'>\The [src] attaches \his [O] to \his body!</span>",
 			"<span class='notice'>You attach \the [O] to your body!</span>")

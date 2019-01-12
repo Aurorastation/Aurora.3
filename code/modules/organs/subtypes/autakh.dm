@@ -130,11 +130,10 @@
 			return
 
 		if(disabled || is_broken())
-			to_chat(owner, "<span class='danger'>\The [src] shudders and sparks, unable to change their sensors!</span>")
+			to_chat(owner, "<span class='danger'>\The [src] shudders and sparks, unable to change its sensors!</span>")
 			return
 
 		owner.last_special = world.time + 100
-		to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
 
 		var/choice = input("Select the Sensor Type.", "Bionic Eyes Sensors") as null|anything in hud_types
 
@@ -227,7 +226,8 @@
 				owner.reagents.add_reagent("toxin", 25)
 				return
 
-			owner.adjustBruteLoss(rand(5,25))
+
+			owner.vessel.remove_reagent("blood",rand(15,30))
 			owner.adjustToxLoss(rand(5,25))
 			owner.reagents.add_reagent("paracetamol", 5)
 			owner.reagents.add_reagent("inaprovaline", 5)
@@ -401,7 +401,7 @@
 
 /obj/item/organ/external/hand/right/autakh/security
 	name = "security grasper"
-	action_button_name = "Activated Integrated Electroshock Weapon"
+	action_button_name = "Activate Integrated Electroshock Weapon"
 
 /obj/item/organ/external/hand/right/autakh/security/refresh_action_button()
 	. = ..()

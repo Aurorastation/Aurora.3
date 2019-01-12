@@ -40,7 +40,7 @@
 	from other clans who have settled in the icy north pole. Formed from survivors of the contact war, the Aut'akh take a radical view of the standard Unathi position that \
 	the body is just a shell; they believe that meat is animated by soul, while metal is powered by electricity, and thus replacing one's body with metal empowers the soul.<br><br> \
 	They are managed, but not ruled, by their god Oss, a silent deity who quietly facilitates the Aut'akh's prosperity behind the scenes. They are almost excessively friendly, \
-	seeing all the beings of the galaxy as potential Aut'akh or allies for the Aut'akh. They also holda strong spiritual tradition, believing that highly charismatic or intelligent \
+	seeing all the beings of the galaxy as potential Aut'akh or allies for the Aut'akh. They also hold a strong spiritual tradition, believing that highly charismatic or intelligent \
 	people or strong fighters are blessed with magic"
 
 	cold_level_1 = 250 //Default 260 - Lower is better
