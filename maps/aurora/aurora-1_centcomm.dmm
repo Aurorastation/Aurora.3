@@ -17705,7 +17705,7 @@
 /obj/item/seeds/potatoseed,
 /obj/item/seeds/ambrosiavulgarisseed,
 /obj/item/weapon/material/minihoe,
-/obj/item/weapon/beartrap,
+/obj/item/weapon/trap,
 /obj/structure/table/steel,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
@@ -18161,12 +18161,12 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/item/weapon/beartrap,
-/obj/item/weapon/beartrap,
-/obj/item/weapon/beartrap,
-/obj/item/weapon/beartrap,
-/obj/item/weapon/beartrap,
-/obj/item/weapon/beartrap,
+/obj/item/weapon/trap,
+/obj/item/weapon/trap,
+/obj/item/weapon/trap,
+/obj/item/weapon/trap,
+/obj/item/weapon/trap,
+/obj/item/weapon/trap,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
