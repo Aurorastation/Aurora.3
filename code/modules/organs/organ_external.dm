@@ -972,6 +972,9 @@ Note that amputating the affected organ does in fact remove the infection from t
 			if(R.paintable)
 				painted = 1
 
+			brute_mod = R.brute_mod
+			burn_mod = R.burn_mod
+
 	dislocated = -1 //TODO, make robotic limbs a separate type, remove snowflake
 	cannot_break = 1
 	get_icon()
