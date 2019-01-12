@@ -183,15 +183,15 @@
 		/obj/item/weapon/storage/pill_bottle/zoom = 2,
 		/obj/item/weapon/reagent_containers/glass/beaker/vial/random/toxin = 1,
 		/obj/item/weapon/contraband/poster = 5,
-		/obj/item/weapon/material/butterfly = 2,
+		/obj/item/weapon/material/knife/butterfly = 2,
 		/obj/item/weapon/material/butterflyblade = 3,
 		/obj/item/weapon/material/butterflyhandle = 3,
 		/obj/item/weapon/material/wirerod = 3,
 		/obj/item/weapon/melee/baton/cattleprod = 1,
-		/obj/item/weapon/material/hatchet/tacknife = 1,
+		/obj/item/weapon/material/knife/tacknife = 1,
 		/obj/item/weapon/material/kitchen/utensil/knife/boot = 2,
 		/obj/item/weapon/storage/secure/briefcase/money = 1,
-		/obj/item/weapon/material/butterfly/switchblade = 1,
+		/obj/item/weapon/material/knife/butterfly/switchblade = 1,
 		/obj/item/weapon/reagent_containers/syringe/drugs = 1,
 		/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/libertycap = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris = 2,
@@ -677,6 +677,7 @@
 	icon_state = "gift3"
 	problist = list(
 		/obj/item/clothing/glasses/meson = 1,
+		/obj/item/weapon/trap/animal = 0.8,
 		/obj/item/clothing/glasses/meson/prescription = 0.7,
 		/obj/item/clothing/glasses/material = 0.8,
 		/obj/item/clothing/glasses/sunglasses = 1.5,
@@ -755,8 +756,8 @@
 		/obj/item/toy/balloon = 0.4,
 		/obj/item/weapon/haircomb = 0.5,
 		/obj/item/weapon/lipstick = 0.6,
-		/obj/item/weapon/material/knife/hook = 0.3,
-		/obj/item/weapon/material/hatchet/tacknife = 0.4,
+		/obj/item/weapon/material/hook = 0.3,
+		/obj/item/weapon/material/knife/tacknife = 0.4,
 		/obj/item/weapon/storage/fancy/cigarettes = 1.2,
 		/obj/item/weapon/storage/fancy/cigarettes/dromedaryco = 0.8,
 		/obj/item/weapon/storage/fancy/cigarettes/killthroat = 0.3,
@@ -903,6 +904,7 @@
 		/obj/item/trash/tastybread= 0.75,
 		/obj/item/trash/meatsnack = 0.5,
 		/obj/item/trash/maps = 0.5,
+		/obj/item/trash/tuna = 0.5,
 		/obj/effect/decal/cleanable/ash = 1.5,
 		/obj/effect/decal/cleanable/dirt = 2,
 		/obj/effect/decal/cleanable/flour = 1,
@@ -952,7 +954,6 @@
 		/obj/item/weapon/material/sword/katana,
 		/obj/item/weapon/material/sword/rapier,
 		/obj/item/weapon/material/sword/longsword,
-		/obj/item/weapon/material/sword/trench,
 		/obj/item/weapon/material/sword/sabre,
 		/obj/item/weapon/material/sword/axe,
 		/obj/item/weapon/material/sword/khopesh,
@@ -1005,7 +1006,10 @@
 		/obj/item/eightball								= 11,
 		/obj/item/eightball/haunted						= 1,
 		/obj/item/eightball/broken						= 1,
-		/obj/item/weapon/spirit_board					= 5
+		/obj/item/weapon/spirit_board					= 5,
+		/obj/item/device/laser_pointer						= 1
+
+
 	)
 
 /obj/random/arcade/orion

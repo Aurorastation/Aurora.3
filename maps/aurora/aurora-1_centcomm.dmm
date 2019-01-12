@@ -18094,7 +18094,7 @@
 /obj/item/seeds/potatoseed,
 /obj/item/seeds/ambrosiavulgarisseed,
 /obj/item/weapon/material/minihoe,
-/obj/item/weapon/beartrap,
+/obj/item/weapon/trap,
 /obj/structure/table/steel,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
@@ -18550,12 +18550,12 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/item/weapon/beartrap,
-/obj/item/weapon/beartrap,
-/obj/item/weapon/beartrap,
-/obj/item/weapon/beartrap,
-/obj/item/weapon/beartrap,
-/obj/item/weapon/beartrap,
+/obj/item/weapon/trap,
+/obj/item/weapon/trap,
+/obj/item/weapon/trap,
+/obj/item/weapon/trap,
+/obj/item/weapon/trap,
+/obj/item/weapon/trap,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
@@ -23450,9 +23450,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "bam" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/weapon/circuitboard/smes,
-/obj/item/weapon/circuitboard/smes,
+/obj/structure/closet/secure_closet/engineering_electrical,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "ban" = (
@@ -23948,7 +23946,7 @@
 /obj/structure/table/wood,
 /obj/machinery/button/remote/blast_door{
 	id = "tcfl";
-	name = "Heavy Supportl"
+	name = "Heavy Support"
 	},
 /turf/simulated/floor/wood,
 /area/centcom/legion)
@@ -24294,7 +24292,7 @@
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "28"
 	},
-/obj/machinery/artillerycontrol{
+/obj/machinery/computer/artillerycontrol{
 	desc = "Bluespace Artillery; the thinking man's solution."
 	},
 /obj/effect/decal/warning_stripes,
