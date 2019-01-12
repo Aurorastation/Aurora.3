@@ -43,7 +43,7 @@
 
 /turf/unsimulated/marker
 	name = "marker"
-	icon = 'icons/turf/walls.dmi'
+	icon = 'maps/colony_general/code/codersprites.dmi'
 	icon_state = "blank"
 
 	var/value
