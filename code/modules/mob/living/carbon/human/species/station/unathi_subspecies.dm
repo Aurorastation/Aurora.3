@@ -16,8 +16,6 @@
 
 	economic_modifier = 4
 
-	secondary_langs = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA, LANGUAGE_EAL)
-
 	sprint_speed_factor = 2.6
 	sprint_cost_factor = 1.10
 
