@@ -18,7 +18,6 @@
 	if(charging && !(stat & (BROKEN|NOPOWER)) )
 
 		var/newlevel = 	round(charging.percent() * 4.0 / 99)
-		//world << "nl: [newlevel]"
 
 		if(chargelevel != newlevel)
 
@@ -98,7 +97,6 @@
 
 
 /obj/machinery/cell_charger/machinery_process()
-	//world << "ccpt [charging] [stat]"
 	if((stat & (BROKEN|NOPOWER)) || !anchored)
 		update_use_power(0)
 		return
