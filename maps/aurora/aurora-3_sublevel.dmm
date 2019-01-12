@@ -9007,6 +9007,8 @@
 /area/turret_protected/ai)
 "apY" = (
 /obj/structure/cable{
+	d1 = 16;
+	d2 = 0;
 	icon_state = "12-0"
 	},
 /obj/structure/cable{
@@ -10291,6 +10293,7 @@
 "asn" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
+	d1 = 32;
 	icon_state = "11-1"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/green{

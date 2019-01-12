@@ -17,26 +17,34 @@
 /area/template_noop)
 "e" = (
 /turf/simulated/wall/r_wall,
-/area/construction)
+/area/construction/qmaint)
 "f" = (
 /obj/machinery/alarm{
 	frequency = 1439;
 	locked = 0;
 	pixel_y = 23
 	},
+/obj/machinery/power/apc{
+	dir = 8;
+	pixel_x = -24
+	},
 /obj/effect/floor_decal/industrial/warning/corner,
+/obj/structure/cable{
+	icon_state = "0-2";
+	d2 = 2
+	},
 /turf/simulated/floor/tiled,
 /area/construction)
 "g" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
-/area/construction)
+/area/construction/qmaint)
 "h" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/construction)
+/area/construction/qmaint)
 "i" = (
 /obj/machinery/light{
 	dir = 8
@@ -44,15 +52,20 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
-/area/construction)
+/area/construction/qmaint)
 "j" = (
 /turf/simulated/open,
-/area/construction)
+/area/construction/qmaint)
 "k" = (
 /obj/structure/lattice/catwalk,
 /turf/simulated/open,
-/area/construction)
+/area/construction/qmaint)
 "l" = (
 /obj/machinery/light{
 	dir = 4
@@ -61,44 +74,49 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/construction)
+/area/construction/qmaint)
 "m" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
-/area/construction)
+/area/construction/qmaint)
 "n" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/construction)
+/area/construction/qmaint)
 "o" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/lattice/catwalk,
 /turf/simulated/open,
-/area/construction)
+/area/construction/qmaint)
 "p" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/lattice/catwalk,
 /obj/structure/lattice/catwalk,
 /turf/simulated/open,
-/area/construction)
+/area/construction/qmaint)
 "q" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled,
-/area/construction)
+/area/construction/qmaint)
 "r" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/construction)
+/area/construction/qmaint)
 "s" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -107,7 +125,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/construction)
+/area/construction/qmaint)
 "t" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -116,19 +134,19 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/construction)
+/area/construction/qmaint)
 "u" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/construction)
+/area/construction/qmaint)
 "v" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/construction)
+/area/construction/qmaint)
 "w" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -137,13 +155,63 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/construction)
+/area/construction/qmaint)
 "x" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/construction)
+/area/construction/qmaint)
+"B" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/airless,
+/area/construction/qmaint)
+"H" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/wall/r_wall,
+/area/construction/qmaint)
+"J" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/construction/qmaint)
+"N" = (
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "11-2"
+	},
+/obj/structure/lattice/catwalk,
+/turf/simulated/open,
+/area/construction/qmaint)
+"T" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled,
+/area/construction/qmaint)
+"X" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/construction/qmaint)
 
 (1,1,1) = {"
 a
@@ -714,10 +782,10 @@ d
 d
 d
 d
-d
-d
-d
-d
+e
+e
+e
+e
 d
 d
 d
@@ -768,10 +836,10 @@ d
 d
 d
 d
-d
-d
-d
-d
+e
+N
+B
+e
 d
 d
 d
@@ -824,7 +892,7 @@ e
 e
 e
 e
-e
+H
 e
 e
 e
@@ -878,14 +946,14 @@ e
 f
 i
 m
-m
-m
-m
-m
-m
-m
-m
-i
+T
+X
+X
+X
+X
+X
+X
+J
 u
 e
 d
