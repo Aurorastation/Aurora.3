@@ -4473,13 +4473,6 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership)
-"ams" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall/dark{
-	dir = 5;
-	icon_state = "diagonalWall3"
-	},
-/area/syndicate_station/start)
 "amt" = (
 /obj/machinery/door/window/northright{
 	name = "Flight Deck";
@@ -81987,7 +81980,7 @@ aVt
 alH
 alH
 alH
-ams
+aVw
 aaM
 aaM
 aVt
