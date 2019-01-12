@@ -134,7 +134,7 @@
 			return
 
 		owner.last_special = world.time + 100
-		to_chat(owner, "<span class='notice'>Insert message here!</span>")
+		to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
 
 		var/choice = input("Select the Sensor Type.", "Bionic Eyes Sensors") as null|anything in hud_types
 

@@ -37,13 +37,11 @@
 	halloss_message_self = "ERROR: Unrecoverable machine check exception.<BR>System halted, rebooting..."
 
 	blurb = "The Aut'akh are a religious commune of cybernetically-augmented Unathi. They mostly hail from Moghes, and are made up of castoffs, refugees and exiles \
-	from other clans who have settled in the icy north pole.Formed out of the survivors of the contact war, the Aut'akh took a radical view of the standard Unathi view that \
-	the body is just a shell; they believe that meat is animated by soul, while metal is powered by electricity, and thus replacing one's body with metal empowers the soul. \
-	To this end, they created a cybernetic society made up of average Unathi who fully embrace technology as a supplement to biology.<br><br>They are managed, but not ruled, by their god Oss, \
-	a silent deity who quietly facilitates the Aut'akhs' prosperity behind the scenes. They are almost excessively friendly, seeing all the beings of the galaxy as \
-	potential Aut'akh or allies for the Aut'akh. IPCs especially are a point of obsession, being seen as closer to Oss than any biological being could ever be. They also hold \
-	a strong spiritual tradition, believing that highly charismatic or intelligent people or strong fighters are blessed with magic, which is a sort of weaponized force of will \
-	that can change reality."
+	from other clans who have settled in the icy north pole. Formed from survivors of the contact war, the Aut'akh take a radical view of the standard Unathi position that \
+	the body is just a shell; they believe that meat is animated by soul, while metal is powered by electricity, and thus replacing one's body with metal empowers the soul.<br><br> \
+	They are managed, but not ruled, by their god Oss, a silent deity who quietly facilitates the Aut'akh's prosperity behind the scenes. They are almost excessively friendly, \
+	seeing all the beings of the galaxy as potential Aut'akh or allies for the Aut'akh. They also holda strong spiritual tradition, believing that highly charismatic or intelligent \
+	people or strong fighters are blessed with magic"
 
 	cold_level_1 = 250 //Default 260 - Lower is better
 	cold_level_2 = 210 //Default 200

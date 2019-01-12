@@ -910,6 +910,11 @@
 		return
 
 	if(!E.robotic)
+		to_chat(src,"<span class='warning'>You can only detach robotic limbs.</span>")
+		return
+
+	if(E.robotize_type != PROSTHETIC_AUTAKH)
+		to_chat(src,"<span class='warning'>Your body fails to interface with this alien technology.</span>")
 		return
 
 	if(E.is_stump() || (E.status & ORGAN_DESTROYED) || E.is_broken())
