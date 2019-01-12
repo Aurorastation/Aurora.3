@@ -55031,7 +55031,7 @@
 /obj/structure/table/stone/marble,
 /obj/item/weapon/reagent_containers/glass/beaker,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/item/weapon/material/knife/butch,
+/obj/item/weapon/material/hatchet/butch,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bPF" = (
