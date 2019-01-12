@@ -81,7 +81,7 @@
 
 /datum/gear/autakh_security
 	display_name = "security grasper (Aut'akh Unathi)"
-	description = "An Aut'akh augment limb, this one is outfitted with an eletrocshock weapon."
+	description = "An Aut'akh augment limb, this one is outfitted with an electroshock weapon."
 	path = /obj/item/organ/external/hand/right/autakh/security
 	whitelisted = list("Aut'akh Unathi")
 	sort_category = "Xenowear - Unathi"
