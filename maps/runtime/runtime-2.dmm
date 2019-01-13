@@ -15,6 +15,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/wall/r_wall,
 /area/construction/Storage)
 "f" = (
@@ -53,6 +56,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
@@ -186,12 +192,28 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
+"E" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/turf/simulated/wall/r_wall,
+/area/construction/Storage)
 "F" = (
 /obj/structure/cable{
+	d1 = 16;
+	d2 = 0;
 	icon_state = "12-0"
 	},
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/zpipe/up/supply,
 /turf/simulated/floor/airless,
+/area/construction/Storage)
+"J" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/wall/r_wall,
 /area/construction/Storage)
 "K" = (
 /obj/machinery/light{
@@ -205,13 +227,31 @@
 "L" = (
 /turf/simulated/wall/r_wall,
 /area/construction/Storage)
+"N" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/turf/simulated/wall/r_wall,
+/area/construction/Storage)
 "O" = (
 /obj/structure/cable{
+	d1 = 32;
 	d2 = 2;
 	icon_state = "11-2"
 	},
 /obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/pipe/zpipe/down/supply,
 /turf/simulated/open,
+/area/construction/Storage)
+"T" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/construction/Storage)
 "U" = (
 /obj/structure/cable{
@@ -224,7 +264,12 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/airless,
+/area/construction/Storage)
+"Y" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/wall/r_wall,
 /area/construction/Storage)
 
 (1,1,1) = {"
@@ -796,9 +841,9 @@ d
 d
 L
 L
-L
-L
-L
+N
+Y
+J
 d
 d
 d
@@ -852,7 +897,7 @@ L
 O
 U
 F
-L
+E
 d
 d
 d
@@ -959,7 +1004,7 @@ d
 L
 f
 i
-m
+T
 m
 m
 m
