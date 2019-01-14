@@ -90,6 +90,12 @@
 	attacker.visible_message("<span class='danger'>[attacker] thrusts \his head into [target]'s skull!</span>")
 
 	var/damage = 20
+	if(attacker.mob_size >= 10)
+		damage += max(attacker.mob_size, 20)
+
+	if(isunathi(attacker))
+		damage += 5
+
 	var/obj/item/clothing/hat = attacker.head
 	if(istype(hat))
 		damage += hat.force * 3
