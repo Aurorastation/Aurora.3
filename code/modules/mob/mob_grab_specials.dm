@@ -91,7 +91,7 @@
 
 	var/damage = 20
 	if(attacker.mob_size >= 10)
-		damage += max(attacker.mob_size, 20)
+		damage += min(attacker.mob_size, 20)
 
 	if(isunathi(attacker))
 		damage += 5
