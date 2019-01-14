@@ -5,7 +5,81 @@
 		return null
 	return ..()
 
+/mob/living/carbon/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)
+	..(AM, speed)
+	var/t_him = "it"
+	if (src.gender == MALE)
+		t_him = "him"
+	else if (src.gender == FEMALE)
+		t_him = "her"
+	var/show_ssd
+	var/mob/living/carbon/human/H = src
+	if(istype(H)) show_ssd = H.species.show_ssd
+	if(show_ssd && !client && !teleop)
+		if(isskrell(src) && H.shared_dream)
+			visible_message("<span class='notice'>[src] was hit by [AM] waking [t_him] up!</span>")
+			if(H.bg)
+				H.bg.awaken_impl(TRUE)
+				sleeping = 0
+				willfully_sleeping = 0
+		else
+			visible_message("<span class='notice'>[src] was hit by [AM], but they do not respond... Maybe they have S.S.D?</span>")
+	else if(client && willfully_sleeping)
+		visible_message("<span class='notice'>[src] was hit by [AM] waking [t_him] up!</span>")
+		sleeping = 0
+		willfully_sleeping = 0
+
+/mob/living/carbon/bullet_act(var/obj/item/projectile/P, var/def_zone)
+	..(P, def_zone)
+	var/t_him = "it"
+	if (src.gender == MALE)
+		t_him = "him"
+	else if (src.gender == FEMALE)
+		t_him = "her"
+	var/show_ssd
+	var/mob/living/carbon/human/H = src
+	if(istype(H)) show_ssd = H.species.show_ssd
+	if(show_ssd && !client && !teleop)
+		if(isskrell(src) && H.shared_dream)
+			visible_message("<span class='notice'>[P] hit [src] waking [t_him] up!</span>")
+			if(H.bg)
+				H.bg.awaken_impl(TRUE)
+				sleeping = 0
+				willfully_sleeping = 0
+		else
+			visible_message("<span class='notice'>[P] hit [src], but they do not respond... Maybe they have S.S.D?</span>")
+	else if(client && willfully_sleeping)
+		visible_message("<span class='notice'>[P] hit [src] waking [t_him] up!</span>")
+		sleeping = 0
+		willfully_sleeping = 0
+
 /mob/living/carbon/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/blocked, var/hit_zone)
+	var/t_him = "it"
+	if (src.gender == MALE)
+		t_him = "him"
+	else if (src.gender == FEMALE)
+		t_him = "her"
+	var/show_ssd
+	var/mob/living/carbon/human/H = src
+	if(istype(H)) show_ssd = H.species.show_ssd
+	if(show_ssd && !client && !teleop)
+		if(isskrell(src) && H.shared_dream)
+			user.visible_message("<span class='notice'>[user] attacked [src] with [I] waking [t_him] up!</span>", \
+								"<span class='notice'>You attacked [src] with [I] waking [t_him] up!</span>")
+			if(H.bg)
+				H.bg.awaken_impl(TRUE)
+				sleeping = 0
+				willfully_sleeping = 0
+		else
+			user.visible_message("<span class='notice'>[user] attacked [src] with [I] waking [t_him] up!</span>", \
+								"<span class='notice'>You attacked [src] with [I], but they do not respond... Maybe they have S.S.D?</span>")
+	else if(client && willfully_sleeping)
+		user.visible_message("<span class='notice'>[user] attacked [src] with [I] waking [t_him] up!</span>", \
+							"<span class='notice'>You attacked [src] with [I] waking [t_him] up!</span>")
+		sleeping = 0
+		willfully_sleeping = 0
+
+
 	if(!effective_force || blocked >= 100)
 		return 0
 

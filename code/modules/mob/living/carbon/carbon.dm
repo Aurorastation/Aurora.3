@@ -90,6 +90,37 @@
 	if (!M.can_use_hand())
 		return
 
+	if(M.a_intent != I_HELP)
+		var/action
+		switch(a_intent)
+			if(I_GRAB)
+				action = "grabbed"
+			if(I_DISARM)
+				action = "pushed"
+			if(I_HURT)
+				action = "punched"
+		var/t_him = "it"
+		if (src.gender == MALE)
+			t_him = "him"
+		else if (src.gender == FEMALE)
+			t_him = "her"
+		var/show_ssd
+		var/mob/living/carbon/human/H = src
+		if(istype(H)) show_ssd = H.species.show_ssd
+		if(show_ssd && !client && !teleop)
+			if(isskrell(src) && H.shared_dream)
+				visible_message("<span class='notice'>[M] [action] [src] waking [t_him] up!</span>")
+				if(H.bg)
+					H.bg.awaken_impl(TRUE)
+					sleeping = 0
+					willfully_sleeping = 0
+			else
+				visible_message("<span class='notice'>[M] [action] [src], but they do not respond... Maybe they have S.S.D?</span>")
+		else if(client && willfully_sleeping)
+			visible_message("<span class='notice'>[M] [action] [src] waking [t_him] up!</span>")
+			sleeping = 0
+			willfully_sleeping = 0
+
 	for(var/datum/disease/D in viruses)
 
 		if(D.spread_by_touch())
@@ -263,7 +294,7 @@
 					M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [t_him] up!</span>", \
 										"<span class='notice'>You shake [src] trying to wake [t_him] up!</span>")
 					if(H.bg)
-						H.bg.awaken(TRUE)
+						H.bg.awaken_impl(TRUE)
 				else
 					M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [t_him] up!</span>", \
 										"<span class='notice'>You shake [src], but they do not respond... Maybe they have S.S.D?</span>")

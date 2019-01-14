@@ -21,9 +21,13 @@
 	body = form
 
 
-/mob/living/brain_ghost/verb/awaken(force_awaken = FALSE)
+/mob/living/brain_ghost/verb/awaken()
 	set name = "Awaken"
 	set category = "IC"
+
+	awaken_impl()
+
+/mob/living/brain_ghost/proc/awaken_impl(var/force_awaken = FALSE)
 
 	if(body.willfully_sleeping)
 		body.sleeping = max(body.sleeping - 5, 0)
