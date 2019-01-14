@@ -5,8 +5,6 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "eftpos"
 	var/machine_id = ""
-	var/current_quickpayamount = 0
-	var/current_quickpayitem = ""
 	var/list/items = list()
 
 
@@ -14,6 +12,8 @@
 /obj/item/device/nanoquikpay/New()
 	..()
 	machine_id = "[station_name()] Quik-Pay #[SSeconomy.num_financial_terminals++]"
+
+/*
 
 /obj/item/device/nanoquikpay/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	var/obj/item/weapon/card/id/I = W.GetID()
@@ -63,7 +63,7 @@
 		src << "<span class='warning'>\icon[src] The [src] beeps: Error: Missing funds for transaction</span>"
 		return 0
 	else
-	
+
 
 		// debit money from the purchaser's account
 		customer_account.money -= current_quickpayamount
@@ -101,7 +101,7 @@
 	return
 
 
-//*
+*//
 // UI Shit Below
 
 
@@ -124,6 +124,7 @@
 	if(data["tmp_price"] < 0)
 		data["tmp_price"] = 0
 		. = data
+	VUEUI_SET_CHECK_IFNOTSET(data["selection"], list("_" = 0), ., data)
 
 /obj/item/device/nanoquikpay/Topic(href, href_list)
 	var/datum/vueui/ui = href_list["vueui"]
@@ -136,4 +137,8 @@
 	if(href_list["remove"])
 		items -= href_list["remove"]
 		ui.data["items"] -= href_list["remove"]
+		. = TRUE
+	if(href_list["confirm"])
+		to_world("Payment selection: [json_encode(href_list["confirm"])]")
+		ui.activeui = "quikpay-confirmation"
 		. = TRUE
