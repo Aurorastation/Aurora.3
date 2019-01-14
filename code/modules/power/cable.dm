@@ -356,12 +356,12 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	if(d1 == 11 || d2 == 11)
 		T = GetBelow(src)
 		if(T)
-			. += power_list(T, src, 12, 0)
+			. += power_list(T, src, 12, powernetless_only)
 
 	if(d1 == 12 || d2 == 12)
 		T = GetAbove(src)
 		if(T)
-			. += power_list(T, src, 11, 0)
+			. += power_list(T, src, 11, powernetless_only)
 
 	// Handle standard cables in adjacent turfs
 	for(var/cable_dir in list(d1, d2))
