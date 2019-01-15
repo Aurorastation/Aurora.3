@@ -29,10 +29,16 @@
 	return ..()
 
 /obj/item/device/taperecorder/hear_talk(mob/living/M as mob, msg, var/verb="says", datum/language/speaking=null)
+	if(isanimal(M))
+		if(!M.universal_speak)
+			return
+
 	if(recording)
 		timestamp += timerecorded
 
 		if(speaking)
+			if(!speaking.machine_understands)
+				msg = speaking.scramble(msg)
 			storedinfo += "\[[time2text(timerecorded*10,"mm:ss")]\] [M.name] [speaking.format_message_plain(msg, verb)]"
 		else
 			storedinfo += "\[[time2text(timerecorded*10,"mm:ss")]\] [M.name] [verb], \"[msg]\""
