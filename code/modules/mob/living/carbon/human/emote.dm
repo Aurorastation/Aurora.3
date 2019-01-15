@@ -314,8 +314,26 @@
 							M = A
 							break
 				if(M)
-					message = "<span class='danger'>slaps [M] across the face. Ouch!</span>"
+
 					playsound(loc, 'sound/effects/snap.ogg', 50, 1)
+					var/show_ssd
+					var/mob/living/carbon/human/H = M
+					if(istype(H)) show_ssd = H.species.show_ssd
+					if(show_ssd && !H.client && !H.teleop)
+						if(isskrell(H) && H.shared_dream)
+							message = "<span class='danger'>slaps [M] across the face, waking them up. Ouch!</span>"
+							if(H.bg)
+								H.bg.awaken_impl(TRUE)
+								H.sleeping = 0
+								H.willfully_sleeping = 0
+						else
+							message = "<span class='danger'>slaps [M] across the face, but they do not respond... Maybe they have S.S.D?</span>"
+					else if(H.client && H.willfully_sleeping)
+						message = "<span class='danger'>slaps [M] across the face, waking them up. Ouch!</span>"
+						H.sleeping = 0
+						H.willfully_sleeping = 0
+					else
+						message = "<span class='danger'>slaps [M] across the face. Ouch!</span>"
 				else
 					message = "<span class='danger'>slaps [get_visible_gender() == MALE ? "himself" : get_visible_gender() == FEMALE ? "herself" : "themselves"]!</span>"
 					playsound(loc, 'sound/effects/snap.ogg', 50, 1)

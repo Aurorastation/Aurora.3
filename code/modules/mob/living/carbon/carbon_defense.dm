@@ -17,15 +17,15 @@
 	if(istype(H)) show_ssd = H.species.show_ssd
 	if(show_ssd && !client && !teleop)
 		if(isskrell(src) && H.shared_dream)
-			visible_message("<span class='notice'>[src] was hit by [AM] waking [t_him] up!</span>")
+			visible_message("<span class='danger'>[src] was hit by [AM] waking [t_him] up!</span>")
 			if(H.bg)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
 				willfully_sleeping = 0
 		else
-			visible_message("<span class='notice'>[src] was hit by [AM], but they do not respond... Maybe they have S.S.D?</span>")
+			visible_message("<span class='danger'>[src] was hit by [AM], but they do not respond... Maybe they have S.S.D?</span>")
 	else if(client && willfully_sleeping)
-		visible_message("<span class='notice'>[src] was hit by [AM] waking [t_him] up!</span>")
+		visible_message("<span class='danger'>[src] was hit by [AM] waking [t_him] up!</span>")
 		sleeping = 0
 		willfully_sleeping = 0
 
@@ -41,15 +41,15 @@
 	if(istype(H)) show_ssd = H.species.show_ssd
 	if(show_ssd && !client && !teleop)
 		if(isskrell(src) && H.shared_dream)
-			visible_message("<span class='notice'>[P] hit [src] waking [t_him] up!</span>")
+			visible_message("<span class='danger'>[P] hit [src] waking [t_him] up!</span>")
 			if(H.bg)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
 				willfully_sleeping = 0
 		else
-			visible_message("<span class='notice'>[P] hit [src], but they do not respond... Maybe they have S.S.D?</span>")
+			visible_message("<span class='danger'>[P] hit [src], but they do not respond... Maybe they have S.S.D?</span>")
 	else if(client && willfully_sleeping)
-		visible_message("<span class='notice'>[P] hit [src] waking [t_him] up!</span>")
+		visible_message("<span class='danger'>[P] hit [src] waking [t_him] up!</span>")
 		sleeping = 0
 		willfully_sleeping = 0
 
@@ -64,18 +64,18 @@
 	if(istype(H)) show_ssd = H.species.show_ssd
 	if(show_ssd && !client && !teleop)
 		if(isskrell(src) && H.shared_dream)
-			user.visible_message("<span class='notice'>[user] attacked [src] with [I] waking [t_him] up!</span>", \
-								"<span class='notice'>You attacked [src] with [I] waking [t_him] up!</span>")
+			user.visible_message("<span class='danger'>[user] attacked [src] with [I] waking [t_him] up!</span>", \
+								"<span class='danger'>You attacked [src] with [I] waking [t_him] up!</span>")
 			if(H.bg)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
 				willfully_sleeping = 0
 		else
-			user.visible_message("<span class='notice'>[user] attacked [src] with [I] waking [t_him] up!</span>", \
-								"<span class='notice'>You attacked [src] with [I], but they do not respond... Maybe they have S.S.D?</span>")
+			user.visible_message("<span class='danger'>[user] attacked [src] with [I] waking [t_him] up!</span>", \
+								"<span class='danger'>You attacked [src] with [I], but they do not respond... Maybe they have S.S.D?</span>")
 	else if(client && willfully_sleeping)
-		user.visible_message("<span class='notice'>[user] attacked [src] with [I] waking [t_him] up!</span>", \
-							"<span class='notice'>You attacked [src] with [I] waking [t_him] up!</span>")
+		user.visible_message("<span class='danger'>[user] attacked [src] with [I] waking [t_him] up!</span>", \
+							"<span class='danger'>You attacked [src] with [I] waking [t_him] up!</span>")
 		sleeping = 0
 		willfully_sleeping = 0
 
