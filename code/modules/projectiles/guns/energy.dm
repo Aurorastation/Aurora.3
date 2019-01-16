@@ -94,6 +94,7 @@
 	return
 
 /obj/item/weapon/gun/energy/update_icon()
+	..()
 	if(charge_meter && power_supply && power_supply.maxcharge)
 		var/ratio = power_supply.charge / power_supply.maxcharge
 

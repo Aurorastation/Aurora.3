@@ -309,6 +309,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /obj/structure/cable/blue{
+	d1 = 32;
 	dir = 2;
 	icon_state = "11-1"
 	},
@@ -2100,6 +2101,7 @@
 /area/maintenance/solarmaint)
 "eo" = (
 /obj/structure/cable{
+	d1 = 32;
 	d2 = 2;
 	icon_state = "11-2"
 	},
@@ -2898,6 +2900,15 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
 	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"za" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
@@ -45451,10 +45462,10 @@ aa
 aa
 dp
 aa
-aa
-aa
-aa
-aa
+za
+ag
+ag
+aw
 aa
 aa
 aa
@@ -45708,10 +45719,10 @@ aa
 aa
 dp
 aa
-aa
-aa
-aa
-aa
+ae
+ah
+ah
+al
 aa
 aa
 aa
@@ -45965,10 +45976,10 @@ aa
 dp
 dp
 dp
-aa
-aa
-aa
-aa
+ae
+ah
+ah
+al
 aa
 aa
 aa
@@ -46222,10 +46233,10 @@ ag
 ag
 ag
 ag
-ag
-ag
-aw
-aa
+fe
+ah
+fg
+am
 aa
 aa
 aa

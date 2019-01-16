@@ -172,6 +172,16 @@
 		if(M.stat == 2)
 			M.gib()
 
+
+// Simple mobs cannot use Skrellepathy
+/mob/proc/can_commune()
+	return 0
+
+/mob/living/carbon/human/can_commune()
+	if(/mob/living/carbon/human/proc/commune in verbs)
+		return 1
+	return ..()
+
 /mob/living/carbon/human/proc/commune()
 	set category = "Abilities"
 	set name = "Commune with creature"
@@ -243,19 +253,19 @@
 			to_chat(M,"<span class='notice'>[src] telepathically says to [target]:</span> [text]")
 
 	var/mob/living/carbon/human/H = target
-	if (/mob/living/carbon/human/proc/commune in target.verbs)
+	if (target.can_commune())
 		to_chat(H,"<span class='psychic'>You instinctively sense [src] sending their thoughts into your mind, hearing:</span> [text]")
 	else if(prob(25) && (target.mind && target.mind.assigned_role=="Chaplain"))
 		to_chat(H,"<span class='changeling'>You sense [src]'s thoughts enter your mind, whispering quietly:</span> [text]")
 	else
 		to_chat(H,"<span class='alium'>You feel pressure behind your eyes as alien thoughts enter your mind:</span> [text]")
 		if(istype(H))
-			if (/mob/living/carbon/human/proc/commune in target.verbs)
+			if (target.can_commune())
 				return
-			if(prob(10) && (H.species.flags & NO_BLOOD))
+			if(prob(10) && !(H.species.flags & NO_BLOOD))
 				to_chat(H,"<span class='warning'>Your nose begins to bleed...</span>")
 				H.drip(3)
-			else if(prob(25) && (H.species.flags & NO_PAIN))
+			else if(prob(25) && !(H.species.flags & NO_PAIN))
 				to_chat(H,"<span class='warning'>Your head hurts...</span>")
 			else if(prob(50))
 				to_chat(H,"<span class='warning'>Your mind buzzes...</span>")

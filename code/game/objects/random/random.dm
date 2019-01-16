@@ -183,15 +183,15 @@
 		/obj/item/weapon/storage/pill_bottle/zoom = 2,
 		/obj/item/weapon/reagent_containers/glass/beaker/vial/random/toxin = 1,
 		/obj/item/weapon/contraband/poster = 5,
-		/obj/item/weapon/material/butterfly = 2,
+		/obj/item/weapon/material/knife/butterfly = 2,
 		/obj/item/weapon/material/butterflyblade = 3,
 		/obj/item/weapon/material/butterflyhandle = 3,
 		/obj/item/weapon/material/wirerod = 3,
 		/obj/item/weapon/melee/baton/cattleprod = 1,
-		/obj/item/weapon/material/hatchet/tacknife = 1,
+		/obj/item/weapon/material/knife/tacknife = 1,
 		/obj/item/weapon/material/kitchen/utensil/knife/boot = 2,
 		/obj/item/weapon/storage/secure/briefcase/money = 1,
-		/obj/item/weapon/material/butterfly/switchblade = 1,
+		/obj/item/weapon/material/knife/butterfly/switchblade = 1,
 		/obj/item/weapon/reagent_containers/syringe/drugs = 1,
 		/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/libertycap = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris = 2,
@@ -315,7 +315,14 @@
 		/obj/item/toy/plushie/nymph,
 		/obj/item/toy/plushie/mouse,
 		/obj/item/toy/plushie/kitten,
-		/obj/item/toy/plushie/lizard
+		/obj/item/toy/plushie/lizard,
+		/obj/item/toy/plushie/farwa,
+		/obj/item/toy/plushie/squid/green,
+		/obj/item/toy/plushie/squid/mint,
+		/obj/item/toy/plushie/squid/blue,
+		/obj/item/toy/plushie/squid/orange,
+		/obj/item/toy/plushie/squid/yellow,
+		/obj/item/toy/plushie/squid/pink
 	)
 
 /obj/random/smalltank
@@ -670,6 +677,7 @@
 	icon_state = "gift3"
 	problist = list(
 		/obj/item/clothing/glasses/meson = 1,
+		/obj/item/weapon/trap/animal = 0.8,
 		/obj/item/clothing/glasses/meson/prescription = 0.7,
 		/obj/item/clothing/glasses/material = 0.8,
 		/obj/item/clothing/glasses/sunglasses = 1.5,
@@ -706,6 +714,7 @@
 		/obj/item/clothing/head/helmet/augment = 0.1,
 		/obj/item/clothing/mask/balaclava = 1,
 		/obj/item/clothing/mask/gas = 1.5,
+		/obj/item/clothing/mask/gas/old = 1.0,
 		/obj/item/clothing/mask/gas/cyborg = 0.7,
 		/obj/item/clothing/mask/gas/owl_mask = 0.5,
 		/obj/item/clothing/mask/gas/syndicate = 0.4,
@@ -747,8 +756,8 @@
 		/obj/item/toy/balloon = 0.4,
 		/obj/item/weapon/haircomb = 0.5,
 		/obj/item/weapon/lipstick = 0.6,
-		/obj/item/weapon/material/knife/hook = 0.3,
-		/obj/item/weapon/material/hatchet/tacknife = 0.4,
+		/obj/item/weapon/material/hook = 0.3,
+		/obj/item/weapon/material/knife/tacknife = 0.4,
 		/obj/item/weapon/storage/fancy/cigarettes = 1.2,
 		/obj/item/weapon/storage/fancy/cigarettes/dromedaryco = 0.8,
 		/obj/item/weapon/storage/fancy/cigarettes/killthroat = 0.3,
@@ -865,6 +874,7 @@
 		/obj/item/weapon/gun/projectile/automatic/terminator = 0.5,
 		/obj/item/weapon/rig/military = 0.5,
 		/obj/item/weapon/rig/unathi/fancy = 0.5,
+		/obj/item/weapon/rig/vaurca/minimal = 0.5,
 		/obj/item/weapon/anomaly_core = 0.5
 	)
 
@@ -894,6 +904,7 @@
 		/obj/item/trash/tastybread= 0.75,
 		/obj/item/trash/meatsnack = 0.5,
 		/obj/item/trash/maps = 0.5,
+		/obj/item/trash/tuna = 0.5,
 		/obj/effect/decal/cleanable/ash = 1.5,
 		/obj/effect/decal/cleanable/dirt = 2,
 		/obj/effect/decal/cleanable/flour = 1,
@@ -943,7 +954,6 @@
 		/obj/item/weapon/material/sword/katana,
 		/obj/item/weapon/material/sword/rapier,
 		/obj/item/weapon/material/sword/longsword,
-		/obj/item/weapon/material/sword/trench,
 		/obj/item/weapon/material/sword/sabre,
 		/obj/item/weapon/material/sword/axe,
 		/obj/item/weapon/material/sword/khopesh,
@@ -996,7 +1006,10 @@
 		/obj/item/eightball								= 11,
 		/obj/item/eightball/haunted						= 1,
 		/obj/item/eightball/broken						= 1,
-		/obj/item/weapon/spirit_board					= 5
+		/obj/item/weapon/spirit_board					= 5,
+		/obj/item/device/laser_pointer						= 1
+
+
 	)
 
 /obj/random/arcade/orion
@@ -1015,6 +1028,7 @@
 		/obj/item/toy/syndicateballoon					= 10,
 		/obj/item/toy/nanotrasenballoon					= 5,
 		/obj/item/toy/katana							= 11,
+		/obj/random/plushie								= 55,
 		/obj/item/weapon/storage/belt/champion			= 11,
 		/obj/item/weapon/pen/invisible					= 10,
 		/obj/item/weapon/grenade/fake					= 7,
@@ -1101,13 +1115,12 @@
 	icon = 'icons/obj/rig_modules.dmi'
 	icon_state = "breacher_rig"
 	spawnlist = list(
-		/obj/item/weapon/rig/ce/equipped = 1,
-		/obj/item/weapon/rig/ert/janitor = 0.1,
-		/obj/item/weapon/rig/eva/equipped = 0.5,
+		/obj/item/weapon/rig/ce = 1,
+		/obj/item/weapon/rig/eva= 1,
 		/obj/item/weapon/rig/hazard = 1,
 		/obj/item/weapon/rig/hazmat = 1,
-		/obj/item/weapon/rig/unathi = 1,
-		/obj/item/weapon/rig/vaurca/minimal = 0.1
+		/obj/item/weapon/rig/medical = 1,
+		/obj/item/weapon/rig/industrial = 1
 	)
 
 /obj/random/telecrystals

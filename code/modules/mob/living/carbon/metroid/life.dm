@@ -221,13 +221,16 @@
 				if(isslime(L) || L.stat == DEAD) // Ignore other slimes and dead mobs
 					continue
 
+				if(isskrell(L)) // we do not attack skrell - lore reason.
+					continue
+
 				if(L in Friends) // No eating friends!
 					continue
 
 				if(issilicon(L) && (rabid || attacked)) // They can't eat silicons, but they can glomp them in defence
 					targets += L // Possible target found!
 
-				if(istype(L, /mob/living/carbon/human)) //Ignore slime(wo)men
+				if(ishuman(L)) //Ignore slime(wo)men
 					var/mob/living/carbon/human/H = L
 					if(H.species.name == "Slime")
 						continue

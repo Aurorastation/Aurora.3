@@ -18,6 +18,24 @@
 	</div>
 </div>
 
+<div class="item">
+	<div class="itemLabel">
+		Charge status:
+	</div>
+	<div class="itemContent">
+		<div class="statusValue">
+		{{if data.charge_mode == 1}}
+			SMES will be fully charged in {{:data.time}}
+		{{else data.charge_mode == 2}}
+			SMES input and output are equal
+		{{else}}
+			SMES will run out of charge in {{:data.time}}
+		{{/if}}
+			
+		</div>
+	</div>
+</div>
+
 <h3>Input Management</h3>
 <div class="item">
 	<div class="itemLabel">
@@ -47,6 +65,17 @@
 			{{:helper.link('SET', null, {'input' : 'set'}, null)}}			
 			{{:helper.link('MAX', null, {'input' : 'max'}, (data.chargeLevel < data.chargeMax) ? null : 'disabled')}}
 			<div style="float: left; width: 100px; text-align: center;">&nbsp;{{:data.chargeLevel}} W&nbsp;</div>
+		</div>
+</div>
+
+<div class="item">
+	<div class="itemLabel">
+		Input Load:
+	</div>
+	<div class="itemContent">
+		{{:helper.displayBar(data.charge_taken, 0, data.chargeMax, (data.charge_taken < data.chargeLevel) ? 'average' : 'good')}}
+		<div class="statusValue">
+			{{:data.charge_taken}} W
 		</div>
 	</div>
 </div>
@@ -95,4 +124,5 @@
 		</div>
 	</div>
 </div>
+
 {{/if}}
