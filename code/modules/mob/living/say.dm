@@ -271,7 +271,7 @@ proc/get_radio_key_from_channel(var/channel)
 	var/list/hear_clients = list()
 	for(var/mob/M in listening)
 		M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
-		if (M.client)
+		if (M.client || istype(M, /mob/living/test))
 			hear_clients += M.client
 
 	var/speech_bubble_test = say_test(message)

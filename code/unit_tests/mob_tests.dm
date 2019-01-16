@@ -19,9 +19,9 @@
 	var/heard = FALSE
 
 /mob/living/test/on_hear_say(var/message)
-	..()
-	heard = (!isnull(message)) ? (TRUE) : (FALSE)
-	return
+	. = ..(message)
+	heard = isnull(message)
+	return .
 
 datum/unit_test/mob_hear
 	name = "MOB: Living mobs test for mob's speech"
@@ -29,8 +29,13 @@ datum/unit_test/mob_hear
 
 
 datum/unit_test/mob_hear/start_test()
-	var/list/test_speaker = create_test_mob_with_mind(null, mob_type)
-	var/list/test_listener = create_test_mob_with_mind(null, mob_type)
+	var/mobloc = pick(tdome1)
+	if(!mobloc)
+		fail("Unable to find a location to create test mob")
+		return 0
+
+	var/list/test_speaker = create_test_mob_with_mind(mobloc, mob_type)
+	var/list/test_listener = create_test_mob_with_mind(mobloc, mob_type)
 
 	if(isnull(test_speaker) || isnull(test_listener))
 		fail("Check Runtimed in Mob creation")
@@ -66,10 +71,13 @@ datum/unit_test/mob_hear/start_test()
 
 	if(said && test_listener_mob.heard)
 		pass("speech test complete, speaker said \"[message]\" and listener received it.")
+		return 1
 	else if(said)
-		fail("speaker said the words, but listener did not hear it. The message was \"[message]\"")
+		fail("speaker said the words, but listener did not hear it. The message was \"[message]\", the difference were X: [test_listener_mob.loc.x - test_speaker_mob.loc.x], Y: [test_listener_mob.loc.y - test_speaker_mob.loc.y]")
+		return 0
 	else
 		fail("speaker did not say the words \"[message]\"")
+		return 0
 
 datum/unit_test/human_breath
 	name = "MOB: Human Suffocates in Space"
