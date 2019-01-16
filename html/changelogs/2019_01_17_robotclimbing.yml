@@ -1,0 +1,7 @@
+author: Atlantiscze
+
+delete-after: True
+
+changes: 
+  - rscadd: "Cyborgs can now climb ladders."
+  - rscadd: "AI can click ladders to quickly move its view up/down."

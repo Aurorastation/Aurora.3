@@ -79,6 +79,14 @@
 		climbLadder(M, target_ladder)
 
 /obj/structure/ladder/attack_ghost(var/mob/M)
+	instant_climb(M)
+
+/obj/structure/ladder/attack_ai(var/mob/M)
+	var/mob/living/silicon/ai/ai = M
+	if(istype(ai) && istype(ai.eyeobj))
+		instant_climb(ai.eyeobj)
+
+/obj/structure/ladder/proc/instant_climb(var/mob/M)
 	var/target_ladder = getTargetLadder(M)
 	if(target_ladder)
 		M.forceMove(get_turf(target_ladder))
@@ -117,7 +125,7 @@
 	to_chat(src, "<span class='warning'>You're too heavy to climb [ladder]!</span>")
 	return FALSE
 
-/mob/living/silicon/robot/drone/may_climb_ladders(ladder)
+/mob/living/silicon/robot/may_climb_ladders(ladder)
 	if(!Adjacent(ladder))
 		to_chat(src, "<span class='warning'>You need to be next to \the [ladder] to start climbing.</span>")
 		return FALSE
