@@ -46,6 +46,15 @@
 			if (prob(5))
 				qdel(src)
 
+
+/obj/structure/plasticflaps/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(iswrench(W))
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+		anchored = !anchored
+		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
+					"You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \
+					"You hear a ratchet")
+
 /obj/structure/plasticflaps/mining //A specific type for mining that doesn't allow airflow because of them damn crates
 	name = "airtight plastic flaps"
 	desc = "Heavy duty, airtight, plastic flaps."

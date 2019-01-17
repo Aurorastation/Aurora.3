@@ -114,6 +114,7 @@
 	recipes += new/datum/stack_recipe("reagent dispenser cartridge (small)", /obj/item/weapon/reagent_containers/chem_disp_cartridge/small,  1, on_floor=0) // 100u
 	recipes += new/datum/stack_recipe("white floor tile", /obj/item/stack/tile/floor_white, 1, 4, 20)
 	recipes += new/datum/stack_recipe("freezer floor tile", /obj/item/stack/tile/floor_freezer, 1, 4, 20)
+	recipes += new/datum/stack_recipe("plastic flaps", /obj/structure/plasticflaps, 5, 1, 20)
 
 /material/wood/generate_recipes()
 	..()

@@ -240,6 +240,13 @@
 	build_path = /obj/item/weapon/circuitboard/recharge_station
 	sort_string = "HACAC"
 
+/datum/design/circuit/holopadboard
+	name = "holopad board"
+	id = "holo_board"
+	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/holopad
+	sort_string = "HACAD"
+
 /datum/design/circuit/atmosalerts
 	name = "atmosphere alert console"
 	id = "atmosalerts"

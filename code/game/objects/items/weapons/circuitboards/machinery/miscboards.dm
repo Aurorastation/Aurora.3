@@ -40,3 +40,13 @@
 							/obj/item/weapon/stock_parts/capacitor = 3,
 							/obj/item/weapon/stock_parts/scanning_module = 1,
 							/obj/item/weapon/stock_parts/matter_bin = 2)
+
+/obj/item/weapon/circuitboard/holopad
+	name = T_BOARD("holopad")
+	desc = "The circuitboard for a holopad."
+	build_path = "/obj/machinery/hologram/holopad"
+	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 2)
+	board_type = "machine" 
+	req_components = list(
+							"/obj/item/weapon/stock_parts/capacitor" = 2,
+							"/obj/item/weapon/stock_parts/scanning_module" = 1)

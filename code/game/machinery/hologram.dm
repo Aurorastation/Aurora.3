@@ -41,6 +41,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 	var/power_per_hologram = 500 //per usage per hologram
 	idle_power_usage = 5
 	use_power = 1
+	anchored = 1
 
 	var/list/mob/living/silicon/ai/masters = new() //List of AIs that use the holopad
 	var/last_request = 0 //to prevent request spam. ~Carn
@@ -52,6 +53,12 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 	var/obj/machinery/hologram/holopad/sourcepad
 	var/obj/machinery/hologram/holopad/targetpad
 	var/last_message
+	component_types = list(
+		/obj/item/weapon/circuitboard/holopad,
+		/obj/item/weapon/stock_parts/capacitor = 2,
+		/obj/item/weapon/stock_parts/scanning_module
+	)
+
 
 /obj/machinery/hologram/holopad/check_eye(mob/user)
 	if (user && user == caller_id)
@@ -61,6 +68,10 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 
 /obj/machinery/hologram/holopad/attack_hand(var/mob/living/carbon/human/user) //Carn: Hologram requests.
 	if(!istype(user))
+		return
+
+	if(!anchored)
+		usr << "<span class='warning'>You must secure \the [src] first.</span>"
 		return
 	if(incoming_connection && caller_id)
 		visible_message("The pad hums quietly as it establishes a connection.")
@@ -276,6 +287,15 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			sourcepad = null
 			caller_id = null
 	return 1
+
+/obj/machinery/hologram/holopad/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(iswrench(W))
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+		anchored = !anchored
+		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
+					"You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \
+					"You hear a ratchet")
+		use_power = anchored
 
 /obj/machinery/hologram/holopad/machinery_process()
 	for (var/mob/living/silicon/ai/master in masters)
