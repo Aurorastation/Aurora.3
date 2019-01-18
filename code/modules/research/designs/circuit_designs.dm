@@ -241,11 +241,39 @@
 	sort_string = "HACAC"
 
 /datum/design/circuit/holopadboard
-	name = "holopad board"
+	name = "Holopad board"
 	id = "holo_board"
 	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 2)
 	build_path = /obj/item/weapon/circuitboard/holopad
 	sort_string = "HACAD"
+
+/datum/design/circuit/sleeper
+	name = "Sleeper board"
+	id = "sleeper_board"
+	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/sleeper
+	sort_string = "HACAE"
+
+/datum/design/circuit/bodyscannerm
+	name = "Body Scanner board"
+	id = "bodyscanm_board"
+	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/bodyscanner
+	sort_string = "HACAF"
+
+/datum/design/circuit/bodyscannerc
+	name = "Body Scanner console board"
+	id = "bodyscanc_board"
+	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/bodyscannerconsole
+	sort_string = "HACAG"
+
+/datum/design/circuit/optable
+	name = "Operation table scanning board"
+	id = "optable_board"
+	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/optable
+	sort_string = "HACAH"
 
 /datum/design/circuit/atmosalerts
 	name = "atmosphere alert console"

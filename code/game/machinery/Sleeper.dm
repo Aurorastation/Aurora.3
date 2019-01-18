@@ -60,7 +60,21 @@
 
 	active_power_usage = 200 - (cap_rating + scan_rating)*2
 
+/obj/machinery/sleeper/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(iswrench(W))
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+		anchored = !anchored
+		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
+					"You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \
+					"You hear a ratchet")
+		use_power = anchored
+
 /obj/machinery/sleeper/attack_hand(var/mob/user)
+
+	if(!anchored)
+		usr << "<span class='warning'>You must secure \the [src] first.</span>"
+		return
+
 	if(..())
 		return 1
 

@@ -12,13 +12,47 @@
 /obj/item/weapon/circuitboard/sleeper
 	name = T_BOARD("sleeper")
 	desc = "The circuitboard for a sleeper."
+	build_path = "/obj/machinery/sleeper"
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
-	board_type = "other" // change this to machine if you want it to be buildable
+	board_type = "machine"
 	req_components = list(
-							/obj/item/weapon/stock_parts/capacitor = 2,
-							/obj/item/weapon/stock_parts/scanning_module = 2,
-							/obj/item/weapon/stock_parts/console_screen = 1,
-							/obj/item/weapon/reagent_containers/glass/beaker/large = 1)
+							"/obj/item/weapon/stock_parts/capacitor" = 2,
+							"/obj/item/weapon/stock_parts/scanning_module" = 2,
+							"/obj/item/weapon/stock_parts/console_screen" = 1,
+							"/obj/item/weapon/reagent_containers/glass/beaker/large" = 1)
+
+
+/obj/item/weapon/circuitboard/bodyscanner
+	name = T_BOARD("bscannerm")
+	desc = "The circuitboard for a body scanner machine."
+	build_path = "/obj/machinery/bodyscanner"
+	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	board_type = "machine"
+	req_components = list(
+							"/obj/item/weapon/stock_parts/capacitor" = 1,
+							"/obj/item/weapon/stock_parts/scanning_module" = 1,
+							"/obj/item/weapon/stock_parts/console_screen" = 1,
+							"/obj/item/device/healthanalyzer" = 1)
+
+/obj/item/weapon/circuitboard/bodyscannerconsole
+	name = T_BOARD("bscannerc")
+	desc = "The circuitboard for a body scanner console."
+	build_path = "/obj/machinery/body_scanconsole"
+	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	board_type = "machine"
+	req_components = list(
+							"/obj/item/weapon/stock_parts/scanning_module" = 2,
+							"/obj/item/weapon/stock_parts/console_screen" = 1)
+
+/obj/item/weapon/circuitboard/optable
+	name = T_BOARD("optablec")
+	desc = "The circuitboard for a operation table."
+	build_path = "/obj/machinery/optable"
+	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 2)
+	board_type = "machine"
+	req_components = list(
+							"/obj/item/weapon/stock_parts/scanning_module" = 1)
+
 
 /obj/item/weapon/circuitboard/refiner
 	name = T_BOARD("ore processor")

@@ -23,6 +23,13 @@
 	icon_state = "body_scanner_0"
 	density = 1
 	anchored = 1
+	component_types = list(
+			/obj/item/weapon/circuitboard/bodyscanner,
+			/obj/item/weapon/stock_parts/capacitor = 2,
+			/obj/item/weapon/stock_parts/scanning_module = 2,
+			/obj/item/weapon/stock_parts/console_screen,
+			/obj/item/device/healthanalyzer
+		)
 
 	use_power = 1
 	idle_power_usage = 60
@@ -33,6 +40,15 @@
 	if (connected)
 		connected.connected = null
 	return ..()
+
+/obj/machinery/bodyscanner/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(iswrench(W))
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+		anchored = !anchored
+		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
+					"You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \
+					"You hear a ratchet")
+		use_power = anchored
 
 /obj/machinery/bodyscanner/relaymove(mob/user as mob)
 	if (user.stat)
@@ -238,11 +254,26 @@
 	icon_state = "body_scannerconsole"
 	density = 0
 	anchored = 1
+	component_types = list(
+			/obj/item/weapon/circuitboard/bodyscannerconsole,
+			/obj/item/weapon/stock_parts/scanning_module = 2,
+			/obj/item/weapon/stock_parts/console_screen
+		)
+
 
 /obj/machinery/body_scanconsole/Destroy()
 	if (connected)
 		connected.connected = null
 	return ..()
+
+/obj/machinery/body_scanconsole/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(iswrench(W))
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+		anchored = !anchored
+		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
+					"You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \
+					"You hear a ratchet")
+		use_power = anchored
 
 /obj/machinery/body_scanconsole/power_change()
 	..()
@@ -277,6 +308,11 @@
 	return src.attack_hand(user)
 
 /obj/machinery/body_scanconsole/attack_hand(user as mob)
+
+	if(!anchored)
+		usr << "<span class='warning'>You must secure \the [src] first.</span>"
+		return
+
 	if(..())
 		return
 
