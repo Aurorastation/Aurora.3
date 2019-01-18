@@ -16,8 +16,8 @@ export default {
   },
   computed: {
     priceSum() {
-      return Object.keys(selection).reduce((sum, name) => {
-        return sum + (items[name] * selection[name])
+      return Object.keys(this.selection).reduce((sum, name) => {
+        return sum + (items[name] * this.selection[name])
       })
     }
   }
