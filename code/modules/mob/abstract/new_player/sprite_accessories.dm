@@ -731,6 +731,11 @@
 		name = "Drills, Side"
 		icon_state = "hair_celes"
 
+	lowbun
+		name = "Low Bun"
+		icon_state = "hair_bun3"
+
+
 
 	// TG-format hair - uses ICON_MULTIPLY instead of ICON_ADD
 	uniter
@@ -1009,7 +1014,7 @@
 
 		una_mohawk
 			name = "Unathi Mohawk"
-			icon_state = "hair_d"
+			icon_state = "unathi_mohawk"
 
 		una_drachorn
 			name = "Unathi Draconic Horns"
