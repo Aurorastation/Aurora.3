@@ -263,10 +263,11 @@
 	item_state = "suspenders"
 
 /obj/item/clothing/accessory/scarf
-	name = "white scarf"
+	name = "scarf"
 	desc = "A simple scarf, to protect your neck from the cold of space."
 	icon_state = "whitescarf"
 	item_state = "whitescarf"
+	slot = "over"
 
 /obj/item/clothing/accessory/scarf/yellow
 	name = "yellow scarf"
