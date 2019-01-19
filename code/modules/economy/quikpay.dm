@@ -142,3 +142,10 @@
 		to_world("Payment selection: [json_encode(href_list["confirm"])]")
 		ui.activeui = "quikpay-confirmation"
 		. = TRUE
+	if(href_list["test"])
+		var/selection = ui.data["selection"]
+		var/sum = 0
+		for(var/name in selection)
+			if(items[name])
+				sum += items[name] * selection[name]
+	// DM code to go over selection list and sum it up

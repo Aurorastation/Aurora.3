@@ -5,6 +5,7 @@
         {{ name }} ({{price}}x{{selection[name] }}): {{ price * selection[name] }}
       </span>
     </div>
+    <vui-button :params="{ test: 1 }">testing</vui-button>
     <h2> Total: {{ priceSum }}</h2>
 
     <h3>Please swipe your ID to pay.</h3>
@@ -19,7 +20,10 @@ export default {
   computed: {
     priceSum() {
       return Object.keys(this.selection).reduce((sum, name) => {
-        return sum + (this.items[name] * this.selection[name])
+  if(isNaN(sum)){
+    return (this.items[name] * this.selection[name])
+}
+return sum + (this.items[name] * this.selection[name])
       })
     }
   }
