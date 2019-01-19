@@ -5,6 +5,8 @@
         {{ name }} ({{price}}x{{selection[name] }}): {{ price * selection[name] }}
       </span>
     </div>
+    <h2> Total: {{ priceSum }}</h2>
+
     <h3>Please swipe your ID to pay.</h3>
   </div>
 </template>
@@ -17,7 +19,7 @@ export default {
   computed: {
     priceSum() {
       return Object.keys(this.selection).reduce((sum, name) => {
-        return sum + (items[name] * this.selection[name])
+        return sum + (this.items[name] * this.selection[name])
       })
     }
   }
