@@ -606,7 +606,8 @@
 	icon_state = "[initial(icon_state)]-[tools[current_tool]]"
 
 /obj/item/combitool/attack_self(var/mob/user)
-	if(++current_tool > tools.len) current_tool = 1
+	if(++current_tool > tools.len)
+		current_tool = 1
 	var/tool = tools[current_tool]
 	if(!tool)
 		to_chat(user, "You can't seem to find any fittings in \the [src].")

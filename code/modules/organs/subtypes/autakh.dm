@@ -114,7 +114,8 @@
 	. = ..()
 	if(.)
 		action.button_icon_state = "mk1eyes"
-		if(action.button) action.button.UpdateIcon()
+		if(action.button)
+			action.button.UpdateIcon()
 
 /obj/item/organ/eyes/autakh/attack_self(var/mob/user)
 	. = ..()
@@ -200,7 +201,8 @@
 	. = ..()
 	if(.)
 		action.button_icon_state = "ams"
-		if(action.button) action.button.UpdateIcon()
+		if(action.button)
+			action.button.UpdateIcon()
 
 /obj/item/organ/adrenal/attack_self(var/mob/user)
 	. = ..()
@@ -253,7 +255,8 @@
 	. = ..()
 	if(.)
 		action.button_icon_state = "stabilizer"
-		if(action.button) action.button.UpdateIcon()
+		if(action.button)
+			action.button.UpdateIcon()
 
 /obj/item/organ/haemodynamic/attack_self(var/mob/user)
 	. = ..()
@@ -296,7 +299,8 @@
 	. = ..()
 	if(.)
 		action.button_icon_state = "digitool"
-		if(action.button) action.button.UpdateIcon()
+		if(action.button)
+			action.button.UpdateIcon()
 
 /obj/item/organ/external/hand/right/autakh/tool/attack_self(var/mob/user)
 	. = ..()
@@ -348,7 +352,8 @@
 	. = ..()
 	if(.)
 		action.button_icon_state = "drill"
-		if(action.button) action.button.UpdateIcon()
+		if(action.button)
+			action.button.UpdateIcon()
 
 /obj/item/weapon/pickaxe/drill/integrated
 	name = "integrated mining drill"
@@ -368,7 +373,8 @@
 	. = ..()
 	if(.)
 		action.button_icon_state = "health"
-		if(action.button) action.button.UpdateIcon()
+		if(action.button)
+			action.button.UpdateIcon()
 
 /obj/item/organ/external/hand/right/autakh/medical/attack_self(var/mob/user)
 	. = ..()
@@ -396,7 +402,7 @@
 			return
 
 		owner.last_special = world.time + 50
-		if(istype(G.affecting,/mob/living/carbon/human))
+		if(ishuman(G.affecting))
 			var/mob/living/carbon/human/H = G.affecting
 			health_scan_mob(H, owner)
 
@@ -408,7 +414,8 @@
 	. = ..()
 	if(.)
 		action.button_icon_state = "baton"
-		if(action.button) action.button.UpdateIcon()
+		if(action.button)
+			action.button.UpdateIcon()
 
 /obj/item/organ/external/hand/right/autakh/security/attack_self(var/mob/user)
 	. = ..()
@@ -439,7 +446,7 @@
 			to_chat(owner, "<span class='danger'>Your energy reserves are too low to use your [src]!</span>")
 			return
 
-		if(istype(G.affecting,/mob/living/carbon/human))
+		if(ishuman(G.affecting))
 
 			var/mob/living/carbon/human/H = G.affecting
 			var/target_zone = check_zone(owner.zone_sel.selecting)

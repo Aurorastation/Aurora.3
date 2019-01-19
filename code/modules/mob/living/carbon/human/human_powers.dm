@@ -935,7 +935,7 @@
 	UpdateDamageIcon()
 
 	visible_message("<span class='notice'>\The [src] detaches \his [E]!</span>",
-			"<span class='notice'>You detach your \the [E]!</span>")
+			"<span class='notice'>You detach your [E]!</span>")
 
 /mob/living/carbon/human/proc/attach_limb()
 	set category = "Abilities"
@@ -980,5 +980,5 @@
 	updatehealth()
 	UpdateDamageIcon()
 
-	visible_message("<span class='notice'>\The [src] attaches \his [O] to \his body!</span>",
+	visible_message("<span class='notice'>\The [src] attaches \the [O] to \his body!</span>",
 			"<span class='notice'>You attach \the [O] to your body!</span>")
