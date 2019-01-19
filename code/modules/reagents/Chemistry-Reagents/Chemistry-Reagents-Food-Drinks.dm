@@ -3467,6 +3467,72 @@
 	glass_name = "glass of Winter Offensive"
 	glass_desc = "Proven to be more successful than the campaign."
 
+// Skrellian drinks
+//====================
+// Some are alocholic, some are not
+
+/datum/reagent/alcohol/ethanol/thirdincident
+	name = "The Third Incident"
+	id = "thirdincident"
+	color = "#1936a0"
+	strength = 10
+	description = "A controversial drink popular with the punk youth of the Jargon Federation. Represents blood, eggs, and tears."
+	taste_description = "genophage sadness"
+
+	glass_icon_state = "thirdincident"
+	glass_name = "glass of the Third Incident"
+	glass_desc = "A controversial drink popular with the punk youth of the Jargon Federation. Represents blood, eggs, and tears."
+
+/datum/reagent/drink/upsidedowncup
+	name = "Upside-Down Cup"
+	id = "upsidedowncup"
+	color = "#B2110A"
+	description = "The classic Skrell meme."
+	taste_description = "esoteric humor"
+
+	glass_icon_state = "upsidedowncup"
+	glass_name = "glass of Upside-Down Cup"
+	glass_desc = "The classic Skrell meme. It's not actually upside down."
+
+/datum/reagent/drink/smokinglizard
+	name = "Cigarette Lizard"
+	id = "cigarettelizard"
+	color = "#80C274"
+	description = "The amusement of Cigarette Lizard, now in a cup!"
+	taste_description = "minty sass"
+
+	glass_icon_state = "cigarettelizard"
+	glass_name = "glass of Cigarette Lizard"
+	glass_desc = "The amusement of Cigarette Lizard, now in a cup!"
+
+/datum/reagent/drink/coffee/sromshine
+	name = "Sromshine"
+	id = "sromshine"
+	color = "#A14702"
+	description = "The best part of waking up."
+	taste_description = "bitter citrus"
+
+	glass_icon_state = "sromshine"
+	glass_name = "cup of Sromshine"
+	glass_desc = "The best part of waking up."
+
+/datum/reagent/alcohol/ethanol/cbsc
+	name = "Complex Bluespace Calculation"
+	id = "cbsc"
+	color = "#000000"
+	strength = 25
+	description = "A loud bang. No, really, that's the joke. Skrell get a kick out of it."
+	taste_description = "fizzling spatiotemporal instability"
+
+	glass_icon_state = "cbsc"
+	glass_name = "glass of Complex Bluespace Calculation"
+	glass_desc = "A loud bang. No, really, that's the joke. Skrell get a kick out of it."
+
+/datum/reagent/alcohol/ethanol/cbsc/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	if(alien != IS_DIONA)
+		M.make_jittery(10)
+
 // Butanol-based alcoholic drinks
 //=====================================
 //These are mainly for unathi, and have very little (but still some) effect on other species
