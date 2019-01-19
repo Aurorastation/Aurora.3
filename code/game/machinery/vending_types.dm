@@ -69,6 +69,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/tomatojuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/limejuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/lemonjuice = 4,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 6,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cream = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/tonic = 8,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cola = 5,
