@@ -166,8 +166,7 @@
 		owner.drop_from_inventory(owner.l_ear)
 		owner.drop_from_inventory(owner.r_ear)
 		owner.drop_from_inventory(owner.wear_mask)
-		spawn(1)
-			owner.update_hair()
+		addtimer(CALLBACK(owner, /mob/living/carbon/human/.proc/update_hair), 1)
 	..()
 
 /obj/item/organ/external/head/take_damage(brute, burn, sharp, edge, used_weapon = null, list/forbidden_limbs = list())

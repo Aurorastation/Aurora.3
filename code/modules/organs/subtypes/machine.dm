@@ -367,48 +367,56 @@
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
+	gendered_icon = TRUE
 
 /obj/item/organ/external/arm/right/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
+	gendered_icon = TRUE
 
 /obj/item/organ/external/leg/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
+	gendered_icon = TRUE
 
 /obj/item/organ/external/leg/right/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
+	gendered_icon = TRUE
 
 /obj/item/organ/external/foot/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
+	gendered_icon = TRUE
 
 /obj/item/organ/external/foot/right/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
+	gendered_icon = TRUE
 
 /obj/item/organ/external/hand/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
+	gendered_icon = TRUE
 
 /obj/item/organ/external/hand/right/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
+	gendered_icon = TRUE
 
 //unbranded
 

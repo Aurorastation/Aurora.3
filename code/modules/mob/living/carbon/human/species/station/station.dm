@@ -7,6 +7,20 @@
 	age_max = 125
 	economic_modifier = 12
 
+	has_limbs = list(
+		"chest" =  list("path" = /obj/item/organ/external/chest),
+		"groin" =  list("path" = /obj/item/organ/external/groin),
+		"head" =   list("path" = /obj/item/organ/external/head),
+		"l_arm" =  list("path" = /obj/item/organ/external/arm/gendered),
+		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/gendered),
+		"l_leg" =  list("path" = /obj/item/organ/external/leg/gendered),
+		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/gendered),
+		"l_hand" = list("path" = /obj/item/organ/external/hand/gendered),
+		"r_hand" = list("path" = /obj/item/organ/external/hand/right/gendered),
+		"l_foot" = list("path" = /obj/item/organ/external/foot/gendered),
+		"r_foot" = list("path" = /obj/item/organ/external/foot/right/gendered)
+	)
+
 	primitive_form = "Monkey"
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
