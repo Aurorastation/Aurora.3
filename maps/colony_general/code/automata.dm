@@ -31,55 +31,96 @@
 	generate()
 
 /datum/terrain_map/proc/generate()
-	//rand_seed(seed)
-	PerlinPermutate()
 	for(var/x = origin_x, x <= limit_x, x++)
 		for(var/y = origin_y, y <= limit_y, y++)
 			var/turf/T = locate(x, y, origin_z)
 			if(istype(T, target_turf))
-				T.ChangeTurf(/turf/unsimulated/marker)
-				markTurf(locate(x, y, origin_z))
+				markTurf(T)
 	finish()
 
-/datum/terrain_map/proc/markTurf(var/turf/unsimulated/marker/M)
-	if(!M || !istype(M))
-		return
-
-	M.value = perlin(M.x, M.y, seed, scale, octaves, persistence)
+/datum/terrain_map/proc/markTurf(var/turf/T)
+	return
 
 /datum/terrain_map/proc/finish()
 	return
 
-/datum/terrain_map/proc/river_dance()
-	return
-
-/datum/terrain_map/mountains
-	descriptor = "mountains"   // Display name.
+/datum/terrain_map/surface
+	descriptor = "surface"   // Display name.
+	error = /turf/simulated/lava
 
 	target_turf = /turf/unsimulated/mask
 
-/datum/terrain_map/mountains/finish()
+/datum/terrain_map/surface/markTurf(var/turf/T)
+	switch(round(perlin(T.x, T.y, T.z + seed, scale, octaves, persistence), 0.01))
+		if(0 to 0.45)
+			T.ChangeTurf(/turf/simulated/lava)
+			error = /turf/simulated/lava
+		if(0.46 to 0.58)
+			T.ChangeTurf(/turf/simulated/floor/asteroid/basalt)
+			error = /turf/simulated/floor/asteroid/basalt
+		if(0.59 to 1)
+			T.ChangeTurf(/turf/simulated/mineral/surface)
+			error = /turf/simulated/mineral/surface
+		else
+			T.ChangeTurf(error)
 
-	error = "rock"
-	for(var/x = origin_x, x <= limit_x, x++)
-		for(var/y = origin_y, y <= limit_y, y++)
-			var/turf/T = locate(x, y, origin_z)
-			if(istype(T, /turf/unsimulated/marker))
-				var/turf/unsimulated/marker/M = T
-				switch(round(M.value, 0.01))
-					if(0 to 0.4)
-						M.icon_state = "lava"
-					if(0.41 to 0.42)
-						M.icon_state = "dirt"
-					if(0.43 to 0.6)
-						if(prob(5))
-							M.icon_state = "basalt[rand(1,13)]"
-						else
-							M.icon_state = "basalt"
-					if(0.61 to 1)
-						M.icon_state = "rock"
+/datum/terrain_map/sky
+	descriptor = "sky"   // Display name.
+
+	target_turf = /turf/unsimulated/mask
+
+/datum/terrain_map/sky/markTurf(var/turf/T)
+	switch(round(perlin(T.x, T.y, T.z + seed, scale, octaves, persistence), 0.01))
+		if(0.65 to 1)
+			T.ChangeTurf(/turf/simulated/mineral/surface)
+		else
+			var/turf/below = GET_BELOW(T)
+			if(below)
+				if(below.density)
+					T.ChangeTurf(/turf/simulated/floor/asteroid/basalt)
+				else
+					T.ChangeTurf(/turf/simulated/open)
+
+/datum/terrain_map/shallow
+	descriptor = "shallow"   // Display name.
+
+	target_turf = /turf/unsimulated/mask
+	error = /turf/simulated/floor/asteroid/basalt
+	var/chasmseed
+
+/datum/terrain_map/shallow/markTurf(var/turf/T)
+	if(!chasmseed)
+		chasmseed = text2num("[rand(0,9)][rand(0,9)][rand(0,9)]")
+
+	switch(round(perlin(T.x, T.y, T.z + seed, scale, octaves, persistence), 0.01))
+		if(0.41 to 0.5)
+			if(round(perlin(T.x, T.y, chasmseed, 20, 6, 0.5), 0.01) >= 0.65)
+				var/turf/below = GET_BELOW(T)
+				if(below)
+					if(below.density)
+						T.ChangeTurf(/turf/simulated/floor/asteroid/basalt)
 					else
-						M.icon_state = error
-				error = M.icon_state
+						T.ChangeTurf(/turf/simulated/open/chasm)
+			else
+				T.ChangeTurf(/turf/simulated/floor/asteroid/basalt)
+			error = /turf/simulated/floor/asteroid/basalt
+		if(0 to 0.4)
+			T.ChangeTurf(/turf/simulated/mineral/surface)
+			error = /turf/simulated/mineral/surface
+		if(0.5 to 1)
+			T.ChangeTurf(/turf/simulated/mineral/surface)
+			error = /turf/simulated/mineral/surface
+		else
+			T.ChangeTurf(error)
 
-	river_dance()
+/datum/terrain_map/deep
+	descriptor = "deep"   // Display name.
+
+	target_turf = /turf/unsimulated/mask
+
+/datum/terrain_map/deep/markTurf(var/turf/T)
+	switch(round(perlin(T.x, T.y, T.z + seed, scale, octaves, persistence), 0.01))
+		if(0 to 0.5)
+			T.ChangeTurf(/turf/simulated/floor/asteroid/basalt)
+		else
+			T.ChangeTurf(/turf/simulated/mineral/surface)

@@ -5,16 +5,15 @@
 
 	lobby_screens = list("aurora_asteroid", "aurora_postcard")
 
-	station_levels = list(2, 3, 4, 5)
-	admin_levels = list(1)
-	contact_levels = list(2, 3, 4, 5)
-	player_levels = list(2, 3, 4, 5)
+	station_levels = list(1, 2, 3, 4)
+	admin_levels = list()
+	contact_levels = list(1, 2, 3, 4)
+	player_levels = list(1, 2, 3, 4)
 	base_turf_by_z = list(
-		"1" = /turf/space,
-		"2" = /turf/space,
-		"3" = /turf/space,
+		"1" = /turf/simulated/floor/asteroid/ash/rocky,
+		"2" = /turf/simulated/floor/asteroid/ash/rocky,
+		"3" = /turf/simulated/floor/asteroid/ash/rocky,
 		"4" = /turf/simulated/floor/asteroid/ash/rocky,
-		"5" = /turf/simulated/floor/asteroid/ash/rocky,
 	)
 
 	station_name = "NSS Aurora"
@@ -59,10 +58,12 @@
 	emergency_shuttle_called_message = "An emergency evacuation shuttle has been called. It will arrive in approximately %ETA% minutes."
 
 /datum/map/colony_general/generate_asteroid()
-	///new /datum/terrain_map/mountains(//z, //xmin, xmax, ymin, ymax, seed, scale, octaves, persistence)
-	new /datum/terrain_map/mountains(4, 1, 255, 1, 255, world.timeofday, 60, 10, 0.5)
-	/*new /datum/terrain_map/mountains(4, 1, 5, 1, 5, world.timeofday, 15)
-	new /datum/terrain_map/mountains(4, 50, 55, 25, 30, world.timeofday, 15)
-	new /datum/terrain_map/mountains(4, 175, 180, 175, 180, world.timeofday, 15)
-	new /datum/terrain_map/mountains(4, 250, 255, 5, 10, world.timeofday, 15)*/
+	var/seed = text2num("[rand(0,9)][rand(0,9)][rand(0,9)]")//world.timeofday
+	PerlinPermutate()
+	//zpos, xpos1, xpos2, ypos1, ypos2, seed, scale, octaves, persistence)
+	new /datum/terrain_map/surface(3, 1, 255, 1, 255, seed, 60, 10, 0.5)
+	new /datum/terrain_map/sky(4, 1, 255, 1, 255, seed, 60, 10, 0.5)
+
+	new /datum/terrain_map/deep(1, 1, 255, 1, 255, seed, 30, 10, 0.5)
+	new /datum/terrain_map/shallow(2, 1, 255, 1, 255, seed, 30, 10, 0.5)
 	return
