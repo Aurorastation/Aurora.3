@@ -653,6 +653,7 @@ proc/api_update_command_database()
 	s["stationtime"] = worldtime2text()
 	s["roundduration"] = round_duration()
 	s["gameid"] = ""
+	s["map"] = current_map.full_name
 
 	var/n = 0
 
@@ -688,6 +689,7 @@ proc/api_update_command_database()
 	s["stationtime"] = worldtime2text()
 	s["roundduration"] = get_round_duration_formatted()
 	s["gameid"] = game_id
+	s["map"] = current_map.full_name
 
 	if(queryparams["status"] == "2")
 		var/list/players = list()
